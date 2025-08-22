@@ -1,0 +1,19 @@
+\subsection{Number field invariants}
+\begin{definition}\label{nf.invariants}
+\uses{nf,nf.abelian,nf.conductor,nf.degree,nf.dirichlet_group,nf.discriminant,nf.ramified_primes,nf.signature}
+The basic invariants of a {{ KNOWL('nf',  'number field') }} $K$ are:
+
+-  the {{ KNOWL('nf.degree', "degree") }} $d$
+- the {{ KNOWL('nf.signature', "signature") }} $[r_1, r_2]$
+- the {{ KNOWL('nf.discriminant', "discriminant") }} $D$
+- the {{ KNOWL('nf.ramified_primes', "ramified primes") }}
+
+If $K$ happens to be an {{ KNOWL('nf.abelian',  'abelian number field') }}, then it has two additional invariants:
+
+- the {{ KNOWL('nf.conductor', "conductor") }}
+- the {{ KNOWL('nf.dirichlet_group', "group of Dirichlet characters") }}
+
+{# original author: Cremona #}
+\end{definition}
+
+

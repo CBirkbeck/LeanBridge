@@ -1,0 +1,15 @@
+\subsection{Reliability of Curve L-function Data}
+\begin{definition}\label{rcs.rigor.lfunction.curve}
+\uses{g2c.g2curve,g2c.good_reduction,lfunction.analytic_rank,lfunction.conductor,lfunction.euler_product,lfunction.functional_equation,lfunction.normalization,lfunction.primitive,lfunction.selberg_class,lfunction.sign,lfunction.zeros}
+L-functions of {{KNOWL('g2c.g2curve', 'genus 2 curves')}} over $\Q$ in the database have been precomputed using heuristic precision bounds that should (but are not guaranteed to) ensure that all {{KNOWL('lfunction.zeros','zeros')}} and special values are accurate to the displayed precision (up to an error in the last digit), and that the list of zeros is complete (within the region covered by the list, which includes the {{KNOWL('lfunction.zeros','lowest zero')}}).
+
+All L-function computations for genus 2 curves are conditional on the assumption that the L-function lies in the {{KNOWL('lfunction.selberg_class','Selberg class')}}, and in particular, has an analytic continuation that satisfies the {{KNOWL('lfunction.functional_equation', 'functional equation')}}.  For genus 2 curves with {{KNOWL('g2c.good_reduction', 'bad reduction')}} at 2, this includes the 2-part of the {{KNOWL('lfunction.conductor', 'conductor')}} and the {{KNOWL('lfunction.euler_product','Euler factor')}} at 2, which was computed using the functional equation as described in Section 5 of \cite{MR:3540958,,arXiv:1602.03715}.
+
+In cases where a genus 2 L-function is {{KNOWL('lfunction.primitive','imprimitive')}}, the computation is also conditional on knowing its factorization into primitive L-functions.
+
+The displayed analytic rank $r$ is an upper bound on the true {{KNOWL('lfunction.analytic_rank', 'analytic rank')}} that is believed to be tight; it is known that there are $r$ (but not $r+1$) zeros within a region of $s=1/2$ (in the {{KNOWL('lfunction.normalization', 'analytic normalization')}}) of radius equal to the error implied by the displayed precision of the zeros (assuming the heuristic precision bounds are sufficient to achieve this error bound).
+
+For L-functions of genus 2 curves over $\Q$ the parity of the analytic rank is determined by the {{KNOWL('lfunction.sign', 'sign')}} $\varepsilon=\pm 1$ of the functional equation.  The parity of the displayed analytic rank is always consistent with the sign, thus any displayed analytic rank $r\le 1$ is correct provided that the heuristic precision bounds are sufficient to identify all zeros near $s=1/2$. 
+\end{definition}
+
+

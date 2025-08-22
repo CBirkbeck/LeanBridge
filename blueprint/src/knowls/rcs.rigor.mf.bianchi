@@ -1,0 +1,8 @@
+\subsection{Reliability of Bianchi modular form data}
+\begin{definition}\label{rcs.rigor.mf.bianchi}
+\uses{}
+All Bianchi modular form data has been computed using rigorous algorithms that do not depend on any unproved assumptions or conjectures.
+
+\end{definition}
+
+

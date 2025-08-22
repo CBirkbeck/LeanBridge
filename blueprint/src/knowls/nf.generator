@@ -1,0 +1,8 @@
+\subsection{Generator of a number field}
+\begin{definition}\label{nf.generator}
+\uses{nf,nf.defining_polynomial,nf.minimal_polynomial}
+A **generator** of a {{ KNOWL('nf', 'number field') }} \(K\) is an element \(a\in K\) such that \(K=\Q(a)\).
+The {{ KNOWL('nf.minimal_polynomial',  'minimal polynomial') }} of a generator is a {{ KNOWL('nf.defining_polynomial', 'defining polynomial') }} for \(K\).
+\end{definition}
+
+

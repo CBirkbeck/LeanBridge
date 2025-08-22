@@ -1,0 +1,7 @@
+\subsection{Determinant index}
+\begin{definition}\label{modlgal.determinant_index}
+\uses{modlgal}
+Given a {{KNOWL('modlgal', 'mod-$\ell$ Galois representation')}} $\rho:\Gal_K\to G(\F_\ell)$, the **determinant index** is the index of $\det(\rho(\Gal_K))$ in $\F_\ell^\times$.
+\end{definition}
+
+

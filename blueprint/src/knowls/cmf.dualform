@@ -1,0 +1,9 @@
+\subsection{Dual cuspform}
+\begin{definition}\label{cmf.dualform}
+\uses{cmf.coefficient_field,cmf.cusp_form,cmf.lfunction,cmf.newform,cmf.q-expansion,cmf.selfdual,lfunction.dual,nf.cm_field}
+The **dual** of a {{KNOWL('cmf.cusp_form', 'cuspidal modular form')}} $f$ is the form whose coefficients $a_n$ in its {{KNOWL('cmf.q-expansion', '$q$-expansion')}} are the complex conjugates of those of $f$.  The {{KNOWL('cmf.lfunction', 'L-function')}} of the dual form is the {{KNOWL('lfunction.dual', 'dual')}} of the L-function of $f$.
+
+The {{KNOWL('cmf.coefficient_field', 'coefficient field')}} of a {{KNOWL('cmf.selfdual', 'non-self-dual')}} {{KNOWL('cmf.newform', 'newform')}} is a {{KNOWL('nf.cm_field', 'CM field')}}.
+\end{definition}
+
+

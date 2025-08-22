@@ -1,0 +1,9 @@
+\subsection{Modular curve $X_{\text{ns}}^{+}(N)$}
+\begin{definition}\label{ag.modcurve.xnsp}
+\uses{gl2.nonsplit_cartan,modcurve}
+Let $N \ge 1$. The curve $X_{\text{ns}}^{+}(N)$ is the {{KNOWL("modcurve", "modular curve")}} $X(\Gamma_{\text{ns}}^{+}(N))$ where $\Gamma_{\text{ns}}^{+}(N)$ is the normalizer of the {{KNOWL("gl2.nonsplit_cartan", "non-split Cartan subgroup")}} $\Gamma_{\text{ns}}(N)$.
+
+
+\end{definition}
+
+

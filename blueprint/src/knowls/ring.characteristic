@@ -1,0 +1,13 @@
+\subsection{Characteristic of a ring}
+\begin{definition}\label{ring.characteristic}
+\uses{group,ring,ring.field}
+The **characteristic** of a {{KNOWL('ring', 'ring')}} is the least positive integer $n$ for which
+\[
+\underbrace{1+\cdots + 1}_n = 0,
+\]
+if such an $n$ exists, and $0$ otherwise. Equivalently, it is the exponent of the additive {{KNOWL('group', 'group')}} of the ring.
+
+The characteristic of a {{KNOWL('ring.field', 'field')}} $k$ is either $0$ or a prime number $p$, depending on whether the prime field of $k$ is isomorphic to $\Q$ or $\F_p$.
+\end{definition}
+
+

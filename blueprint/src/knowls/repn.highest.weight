@@ -1,0 +1,13 @@
+\subsection{Highest weight of an irreducible representation of $\GL(g,\C)$.}
+\begin{definition}\label{repn.highest.weight}
+\uses{}
+Let $\rho\colon \GL(g,\C)\to \GL(V)$ be a finite-dimensional irreducible representation  Then there exists a unique $1$-dimensional subspace $\langle v_0 \rangle$ of $V$ 
+and a unique $g$-tuple of integers $(\lambda_1 \geqslant\lambda_2 \geqslant \ldots \geqslant \lambda_g)$ such that 
+$\rho(\mathrm{diag}(a_1,\ldots,a_g))\,v_0=\prod_{i=1}^{g}a_i^{\lambda_i}\, v_0$.
+The $g$-tuple of integers $(\lambda_1,\lambda_2, \ldots, \lambda_g)$ is called ** the highest weight** of $\rho$. 
+
+For example the $1$-dimensional representation of $\GL(g,\C)$ given by the determinant has highest weight $(1,\ldots,1)$ while the standard $g$-dimensional representation 
+has highest weight $(1,0,\ldots,0)$.
+\end{definition}
+
+

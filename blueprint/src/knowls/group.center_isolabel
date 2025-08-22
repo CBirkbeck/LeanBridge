@@ -1,0 +1,7 @@
+\subsection{Center label}
+\begin{definition}\label{group.center_isolabel}
+\uses{group.center,group.label}
+You can specify the {{KNOWL('group.center', 'center')}} of a group by providing its {{KNOWL('group.label', 'label')}} as an abstract group.
+\end{definition}
+
+

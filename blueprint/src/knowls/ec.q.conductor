@@ -1,0 +1,29 @@
+\subsection{Conductor of an elliptic curve over $\Q$}
+\begin{definition}\label{ec.q.conductor}
+\uses{ec,ec.additive_reduction,ec.multiplicative_reduction}
+The **conductor** $N$ of an {{KNOWL("ec", "elliptic curve")}} $E$ defined over $\Q$ is a positive integer divisible by the primes of bad reduction and no others.  It has the form $N=\prod p^{e_p}$, where the exponent $e_p$ is
+
+- $e_p=1$ if $E$ has {{ KNOWL('ec.multiplicative_reduction', "multiplicative reduction") }} at $p$,
+
+- $e_p=2$ if $E$ has {{ KNOWL('ec.additive_reduction', "additive reduction") }} at $p$ and $p\ge5$,
+
+- $2\leq e_p\leq 5$ if $E$ has additive reduction and $p=3$, and
+
+- $2\leq e_p\leq 8$ if $E$ has additive reduction and $p=2$.
+
+For all primes $p$, there is an algorithm of Tate that simultaneously creates a local minimal Weierstrass equation and computes the exponent of the conductor. See:
+
+<UL>
+<LI> J. Tate, Algorithm for determining the type of a singular fiber
+in an elliptic pencil, Modular functions of one variable, IV
+(Proc. Internat. Summer School, Univ. Antwerp, Antwerp, 1972),
+33-52. <EM>Lecture Notes in Math.</EM>, Vol. <B>476</B>,
+Springer, Berlin, 1975. \cite{MR0393039}
+
+<LI> J.H. Silverman, <EM>Advanced topics in the arithmetic of elliptic
+curves</EM>, GTM <B>151</B>, Springer-Verlag, New York, 1994.\cite{MR1312368}
+
+</UL>
+\end{definition}
+
+

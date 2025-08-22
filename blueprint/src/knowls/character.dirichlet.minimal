@@ -1,0 +1,16 @@
+\subsection{Minimal Dirichlet character}
+\begin{definition}\label{character.dirichlet.minimal}
+\uses{character.dirichlet,character.dirichlet.conductor,character.dirichlet.modulus,character.dirichlet.order,character.dirichlet.primitive,character.dirichlet.principal}
+A {{KNOWL('character.dirichlet', 'Dirichlet character')}} $\chi$ of prime power {{KNOWL('character.dirichlet.modulus', 'modulus')}} $N$ is **minimal** if the following conditions both hold:
+
+1. The {{KNOWL('character.dirichlet.conductor', 'conductor')}} of $\chi$ does not lie in the open interval $(\sqrt{N},N)$, and if $N$ is a square divisible by 16 then ${\rm cond}(\chi)\in \{\sqrt{N},N\}$.
+
+2. Both the {{KNOWL('character.dirichlet.order', 'order')}} and conductor of $\chi$ are minimal among the set of all Dirichlet character $\chi\psi^2$ for which ${\rm cond}(\psi){\rm cond}(\chi\psi) | N$.
+
+This includes all {{KNOWL('character.dirichlet.primitive', 'primitive')}} Dirichlet characters of prime power modulus, but not every minimal Dirichlet character of prime power modulus is primitive.
+
+For a composite modulus $N$ with prime power factorization $N=p_1^{e_1}\cdots p_n^{e_n}$, a Dirichlet character $\chi$ of modulus $N$ is **minimal** if and only if every character in its unique factorization into Dirichlet characters of modulus $p_1^{e_1},\cdots,p_n^{e_n}$ is minimal.  The {{KNOWL('character.dirichlet.principal', 'trivial')}} Dirichlet character is minimal.
+
+\end{definition}
+
+

@@ -1,0 +1,11 @@
+\subsection{Conductor of an order}
+\begin{definition}\label{av.fq.conductor}
+\uses{av.fq.order}
+The **conductor** $\mathfrak{f}_R$ of an {{KNOWL('av.fq.order', 'order')}} $R$ in an étale algebra $K$ over $\Q$ with maximal order $\mathcal{O}_K$ is the biggest $\mathcal{O}_K$-ideal contained in $R$, that is,
+\[ \mathfrak{f}_R = (R:\mathcal{O}_K) = \{ x \in K :\ x\mathcal{O}_K \subseteq R \}. \]
+
+If $R\subseteq S$ the **(relative) conductor** of $R$ in $S$ is the biggest $S$-ideal contained in $R$, that is,
+\[ (R:S) = \{ x \in K :\ xS \subseteq R \}. \]
+\end{definition}
+
+

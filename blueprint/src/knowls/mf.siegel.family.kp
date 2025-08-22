@@ -1,0 +1,14 @@
+\subsection{The ring of paramodular cusp forms $S_k(K(p))$}
+\begin{definition}\label{mf.siegel.family.kp}
+\uses{mf.siegel.cusp_form,mf.siegel.newform.paramodular,mf.siegel.nonlift,mf.siegel.weight}
+The ring of {{KNOWL('mf.siegel.newform.paramodular', 'paramodular')}} {{KNOWL('mf.siegel.cusp_form', 'cusp forms')}} $S_*(K(p))$ for $p$ prime.
+
+The dimensions of {{KNOWL('mf.siegel.weight', 'weight')}} 2 paramodular cusp forms $S_2(K(p)$ for  primes $p<600$ (with the exceptions of  349, 353, 389, 461, 523, 587) have been computed by C. Poor and D. S. Yuen \cite{arXiv:1004.4699}.  Poor and Yuen also prove that any weight 2 {{KNOWL('mf.siegel.nonlift', 'nonlifts')}} in this range of primes ($ p < 600 $) can occur only at primes 277, 349, 353, 389, 461, 523, 587.  The nonlift weight 2 eigenform at $p=277$ is known and proved; the others are conjectured.
+
+Dimension formulas for paramodular cusp forms $S_k(K(p))$ for $p$ prime for weights 3 and higher were proven by Tomoyoshi Ibukiyama in _Dimension formulas of Siegel modular forms of weight 3 and supersingular abelian surfaces_, Siegel Modular Forms and Abelian Varieties, Proceedings of the 4th Spring Conference on Modular Forms and Related Topics, Ryushido, Kobe, 2007.
+
+
+
+\end{definition}
+
+

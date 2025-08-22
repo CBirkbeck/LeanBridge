@@ -1,0 +1,8 @@
+\subsection{Solvable}
+\begin{definition}\label{modlgal.solvable}
+\uses{group.solvable,modlgal,modlgal.codomain,modlgal.image}
+A {{ KNOWL('modlgal', 'mod-$\ell$ Galois representation') }} with {{KNOWL('modlgal.codomain', 'codomain')}} $G(\F_{\ell})$ is **solvable** 
+ if its {{KNOWL('modlgal.image', 'image')}} is a {{ KNOWL('group.solvable', 'solvable') }} subgroup of the {{ KNOWL('modlgal.codomain', 'codomain') }} $G(\F_{\ell})$.  Otherwise the representation is **nonsolvable**.
+\end{definition}
+
+

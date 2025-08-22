@@ -1,0 +1,7 @@
+\subsection{Presentation of the data in the LMFDB}
+\begin{definition}\label{doc.lmfdb.contextualize}
+\uses{doc.LMFDB.database,doc.knowl,doc.knowl.context_free}
+To present the data available in the LMFDB {{KNOWL("doc.LMFDB.database",  "database")}}, we have decided to experiment using the concept of {{KNOWL("doc.knowl.context_free", "transclusion")}} through the use of {{KNOWL("doc.knowl", "Knowls")}}.
+\end{definition}
+
+

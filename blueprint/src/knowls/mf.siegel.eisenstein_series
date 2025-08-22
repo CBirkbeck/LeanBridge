@@ -1,0 +1,17 @@
+\subsection{Siegel Eisenstein series}
+\begin{definition}\label{mf.siegel.eisenstein_series}
+\uses{}
+The (Siegel) Eisenstein series in degree $n$
+ of even weight \(k>n+1\) is defined by the formula
+\[
+ \psi_k(Z)=\sum_{(C,D)}\det(CZ+D)^{-k},
+\]
+where the summation extends over all inequivalent bottom rows \((C,D)\)
+of elements of the <a class="knowl-title" knowl="group.sp2gr">integral
+symplectic group</a> \({\rm Sp}(2n,\mathbb{Z})\)
+ with respect to left multiplication by elements of \({\rm GL}(n,\mathbb{Z})\).
+
+Siegel Eisenstein series are also defined for some subgroups of the full integral symplectic group as well.
+\end{definition}
+
+

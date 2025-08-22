@@ -1,0 +1,17 @@
+\subsection{Inner twist proved}
+\begin{definition}\label{cmf.inner_twist_proved}
+\uses{character.dirichlet,character.dirichlet.primitive,cmf.inner_twist,cmf.newform,cmf.sturm_bound}
+In order to prove that a {{KNOWL('cmf.newform', 'newform')}} $f\in S_k(N,\chi)$ admits an {{KNOWL('cmf.inner_twist')}} by a {{KNOWL('character.dirichlet.primitive', 'primitive')}} {{KNOWL('character.dirichlet', 'Dirichlet character')}} $\phi$ it is sufficient to verify that for some Galois conjugate newform $g\ne f$ the equality
+\[
+a_p(g)=\varphi(p)a_p(f)
+\]
+holds for all primes $p\le B$ not dividing the level of $f$ or the conductor of $\varphi$, where $B$ is the {{KNOWL('cmf.sturm_bound', 'Sturm bound')}} for the level
+\[
+\mathrm{lcm}(N,\mathrm{cond}(\varphi)^2,\mathrm{cond}(\varphi)\mathrm{cond}(\chi)).
+\]
+In cases where it is not feasible to test this equality, it is still checked at least up to the Sturm bound for level $N$, and for all primes $p\le 1000$.
+
+The set of inner twists listed for a newform in the LMFDB is always guaranteed to contain all possible inner twists, regardless of whether or not all the listed inner twists have been proved (false positives are, in principle, possible, but not false negatives).  In particular, if no inner twists are listed then the newform provably does not admit any inner twists.
+\end{definition}
+
+

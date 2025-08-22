@@ -1,0 +1,11 @@
+\subsection{Local field}
+\begin{definition}\label{lf.local_field}
+\uses{lf.padic_field,lf.residue_field,nf.absolute_value,ring.characteristic,ring.field}
+A **local field** is a {{KNOWL('ring.field', 'field')}} $K$ with a non-trivial {{KNOWL('nf.absolute_value', 'absolute value')}} $|\ |$ that is locally compact in the topology induced by the distance metric $d(x,y):=|x-y|$.
+
+An **archimedean local field** is a local field whose absolute value is {{KNOWL('nf.absolute_value', 'archimedean')}}; such a field is isomorphic to $\R$ or $\C$.
+
+A **nonarchimedean local field** is a local field whose absolute value is {{KNOWL('nf.absolute_value', 'nonarchimedean')}}. Such a field is either isomorphic to a finite extension of $\Q_p$ when $K$ has {{KNOWL('ring.characteristic', 'characteristic')}} zero (in which case it is a {{KNOWL('lf.padic_field','$p$-adic field')}}), or to a finite extension of $\F_p((t))$ when $K$ has characteristic $p$.  In both cases $p$ is the characteristic of the {{KNOWL('lf.residue_field', 'residue field')}} of $K$..
+\end{definition}
+
+

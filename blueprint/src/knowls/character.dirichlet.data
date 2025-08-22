@@ -1,0 +1,13 @@
+\subsection{Data for a dirichlet character}
+\begin{definition}\label{character.dirichlet.data}
+\uses{}
+{% if label is defined %}
+<p>
+  {{ dirichlet_character_data(label) | safe }}
+</p>
+{% else %}
+This knowl can display data for a Dirichlet character specified by its label as a parameter.
+{% endif %}
+\end{definition}
+
+

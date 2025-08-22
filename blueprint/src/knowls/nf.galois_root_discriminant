@@ -1,0 +1,7 @@
+\subsection{Galois root discriminant}
+\begin{definition}\label{nf.galois_root_discriminant}
+\uses{nf,nf.galois_closure,nf.root_discriminant}
+The **Galois root discriminant** of a {{KNOWL('nf', 'number field')}} is the {{KNOWL('nf.root_discriminant', 'root discriminant')}} of its {{KNOWL('nf.galois_closure', 'Galois closure')}}.
+\end{definition}
+
+

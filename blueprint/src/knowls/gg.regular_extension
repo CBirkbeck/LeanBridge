@@ -1,0 +1,7 @@
+\subsection{Regular extension}
+\begin{definition}\label{gg.regular_extension}
+\uses{}
+Let $t_1, \ldots, t_n$ be indeterminants over a field $K$.  A Galois extension $L/K(t_1, \ldots t_n)$ is **regular** if every element of $L-K$ is transcendental over $K$.
+\end{definition}
+
+

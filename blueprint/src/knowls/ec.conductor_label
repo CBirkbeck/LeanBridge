@@ -1,0 +1,13 @@
+\subsection{Conductor labels for elliptic curves}
+\begin{definition}\label{ec.conductor_label}
+\uses{ec.conductor,nf,nf.ideal_labels}
+The LMFDB uses a systematic labelling of {{ KNOWL('ec.conductor', 'conductors') }} of elliptic curves defined over each {{ KNOWL('nf', 'number field') }} $K$.  The conductors are integral ideals of $K$.  For an ideal of norm $N$ the label has the form $N.i$ where $i$ is the index (starting from $1$) of the ideal in an ordered list of all integral ideals of norm $N$.
+
+- over imaginary quadratic fields, we use the {{ KNOWL('nf.ideal_labels', 'standard labelling scheme') }} for ideals;
+- over totally real fields, we use the same labels for ideals as are used for levels of Hilbert modular forms; the order of these is recorded in the database;
+- over other fields, the ordering of the ideals of fixed norm is recorded in the database.
+
+In future it is planned to move to using the {{ KNOWL('nf.ideal_labels', 'standard labelling scheme') }} for ideals over all fields.
+\end{definition}
+
+

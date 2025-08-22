@@ -1,0 +1,13 @@
+\subsection{Belyi map label}
+\begin{definition}\label{belyi.label}
+\uses{belyi.degree,belyi.galmap,belyi.group,belyi.ramification_type,gg.conway_name}
+The **label** of a {{KNOWL('belyi.galmap', 'Belyi map')}} $\phi$ has the form $d$T$G$-$\lambda_0\_\lambda_1\_\lambda_\infty$-m encoding the following data.
+
+- $d$T$G$ is the {{KNOWL('gg.conway_name', 'transitive group label')}} of the {{KNOWL('belyi.group', 'monodromy group')}} of $\phi$. Here $d$ is the {{KNOWL('belyi.degree', 'degree')}} of $\phi$.
+
+- $\lambda_i$ are partitions of $d$ specifying the {{KNOWL('belyi.ramification_type', 'ramification type')}} of $\phi$, each written using `.` as a separator between the parts of the partition.
+
+- m is the Galois orbit label, a non-negative integer written in base 26 using the 26 symbols a, b, ..., z.
+\end{definition}
+
+

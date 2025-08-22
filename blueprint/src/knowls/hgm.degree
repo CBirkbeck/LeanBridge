@@ -1,0 +1,11 @@
+\subsection{Degree of a hypergeometric motive}
+\begin{definition}\label{hgm.degree}
+\uses{hgm.defining_parameters}
+Associated to a motive are vector spaces coming from cohomology of an algebraic variety.  The dimension of these vector spaces is the **degree** of the motive.
+
+For a hypergeometric motive with {{ KNOWL('hgm.defining_parameters', 'defining parameters')}} $A=[a_1,\ldots,a_m]$, $B=[b_1,\ldots,b_n]$, the degree is the common value
+\[ \sum_{j=1}^m \phi(a_j) = \sum_{j=1}^n \phi(b_j)\]
+where $\phi$ is the Euler totient function.
+\end{definition}
+
+

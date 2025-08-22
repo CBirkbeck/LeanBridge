@@ -1,0 +1,13 @@
+\subsection{Number field nicknames}
+\begin{definition}\label{nf.nickname}
+\uses{}
+The LMFDB supports **nicknames**, short human-readable names for
+various fields.  Examples include:
+
+- Q, for the rationals $\mathbb Q$
+- Qi, for $\mathbb Q(i)$
+- QsqrtN, for $\mathbb Q(\sqrt{N})$, as in Qsqrt-5 for $\mathbb Q(\sqrt{-5})$
+- QzetaN, for $\mathbb Q(\zeta_N)$, where $\zeta_N$ is a primitive $N$th root of unity.
+\end{definition}
+
+

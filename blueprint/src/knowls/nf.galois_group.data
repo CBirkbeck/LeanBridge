@@ -1,0 +1,14 @@
+\subsection{Galois group information}
+\begin{definition}\label{nf.galois_group.data}
+\uses{}
+{% if n is defined and t is defined %}
+  {{ galois_group_data(n,t)| safe }}
+</p>
+{% else %}
+This knowl can display information about a particular Galois group specified by parameters.
+{% endif %}
+
+
+\end{definition}
+
+

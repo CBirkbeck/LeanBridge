@@ -1,0 +1,13 @@
+\subsection{Isogeny class data}
+\begin{definition}\label{av.fq.abvar.data}
+\uses{}
+{% if label is defined %}
+<p>
+  {{ av_data(label) | safe }}
+</p>
+{% else %}
+This knowl can display information about a particular isogeny class of abelian varieties over $\F_q$ specified by parameters.
+{% endif %}
+\end{definition}
+
+

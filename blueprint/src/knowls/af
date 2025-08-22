@@ -1,0 +1,7 @@
+\subsection{Arithmetic function}
+\begin{definition}\label{af}
+\uses{}
+An **arithmetic function** is a complex-valued function whose domain is the positive integers.
+\end{definition}
+
+

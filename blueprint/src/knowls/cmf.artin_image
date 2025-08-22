@@ -1,0 +1,9 @@
+\subsection{Artin image}
+\begin{definition}\label{cmf.artin_image}
+\uses{cmf.artin_field,cmf.galois_representation,cmf.newform,cmf.weight}
+The **Artin image** of a {{KNOWL('cmf.weight', 'weight')}} one {{KNOWL('cmf.newform', 'newform')}} is the image of its associated {{KNOWL('cmf.galois_representation', 'Galois representation')}} $\rho\colon \Gal(\overline\Q/\Q)\to \GL_2(\C)$.
+
+The Artin image is a finite subgroup of $\GL_2(\C)$ whose cardinality is equal to the degree of the {{KNOWL('cmf.artin_field','Artin field')}}.
+\end{definition}
+
+

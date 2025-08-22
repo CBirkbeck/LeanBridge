@@ -1,0 +1,11 @@
+\subsection{Endomorphism ring of an elliptic curve}
+\begin{definition}\label{ec.q.endomorphism_ring}
+\uses{ag.abelian_variety,ag.endomorphism_ring,ec,ec.endomorphism,ec.geom_endomorphism_ring}
+The **endomorphism ring** $\End(E)$ of an {{ KNOWL('ec', 'elliptic curve') }} \(E\) is the ring of all {{ KNOWL('ec.endomorphism', 'endomorphisms') }} of \(E\) defined over $K$.  For endomorphisms defined over extensions, we speak of the {{ KNOWL('ec.geom_endomorphism_ring', 'geometric endomorphism ring') }} of $E$.
+
+For elliptic curves defined over $\Q$, this ring is always isomorphic to \(\Z\) consisting of the multiplication-by-$m$ maps $[m] \colon E\to E$ for $m \in \Z$.
+
+This is a special case of the {{KNOWL("ag.endomorphism_ring", "endomorphism ring")}} of an {{KNOWL('ag.abelian_variety', 'abelian variety')}}.
+\end{definition}
+
+

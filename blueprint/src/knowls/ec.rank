@@ -1,0 +1,14 @@
+\subsection{Rank of an elliptic curve over a number field}
+\begin{definition}\label{ec.rank}
+\uses{ec,ec.isogeny,ec.isogeny_class,ec.mordell_weil_group,ec.mordell_weil_theorem,ec.torsion_subgroup,nf}
+The **rank** of an {{ KNOWL('ec', 'elliptic curve') }} $E$ defined over a {{ KNOWL('nf','number field') }} $K$ is the rank of its {{ KNOWL('ec.mordell_weil_group', 'Mordell-Weil group') }} $E(K)$.
+
+The {{ KNOWL('ec.mordell_weil_theorem', 'Mordell-Weil Theorem') }} says that $E(K)$ is a finitely-generated abelian group, hence
+\[ E(K) \cong E(K)_{\rm tor} \times \Z^r\]
+where $E(K)_{\rm tor}$ is the finite {{KNOWL("ec.torsion_subgroup", "torsion subgroup")}} of $E(K)$, and $r\geq 0$ is the **rank**.
+
+Rank is an {{ KNOWL('ec.isogeny', 'isogeny') }} invariant: all curves in an {{ KNOWL('ec.isogeny_class', 'isogeny class') }} have the same rank.
+
+\end{definition}
+
+

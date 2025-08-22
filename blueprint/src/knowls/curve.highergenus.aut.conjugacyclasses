@@ -1,0 +1,16 @@
+\subsection{Conjugacy classes}
+\begin{definition}\label{curve.highergenus.aut.conjugacyclasses}
+\uses{group.small_group_label}
+Conjugacy classes in a group of automorphisms are identified by their index in the list of conjugacy clases returned by Magma.
+
+For example, the unique conjugacy class in the group $SL(2,3)$ that contains elements of order 4 appears as the 5th conjugacy class in the list of conjugacy classes for this group and is identified by the ordinal $5$. Information about this conjugacy class, including an explicit representative can be obtained in Magma using either of the commands below:
+
+- "ConjugacyClasses(SL(2,3))[5];"
+- "ConjugacyClasses(SmallGroup(24,3))[5];"
+
+Here $[24,3]$ is the {{KNOWL('group.small_group_label', "group identifier")}} for the group $SL(2,3)$.
+
+
+\end{definition}
+
+

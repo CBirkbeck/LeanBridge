@@ -1,0 +1,18 @@
+\subsection{Interdependencies of subgroup properties}
+\begin{definition}\label{group.subgroup_properties_interdependencies}
+\uses{group.abelian,group.automorphism,group.central,group.characteristic_subgroup,group.cyclic,group.inner_automorphism,group.nilpotent,group.solvable,group.stem_extension,group.subgroup.normal,group.sylow_subgroup,group.upper_central_series}
+Certain properties of subgroups automatically imply other properties. We briefly explain the connections here.
+
+A {{ KNOWL('group.characteristic_subgroup', 'characteristic subgroup')}} is automatically {{KNOWL('group.subgroup.normal', 'normal')}}, since it is stabilized by all {{KNOWL('group.automorphism', 'automorphisms')}} including the {{KNOWL('group.inner_automorphism', 'inner automorphisms')}}.
+
+A {{ KNOWL("group.cyclic", "cyclic group")}} is always {{ KNOWL("group.abelian", "abelian")}} by the way the group operation for cyclic groups is defined.
+An abelian group is always {{ KNOWL("group.nilpotent", "nilpotent")}} since the group is its own center and thus an {{KNOWL('group.upper_central_series', 'upper central series')}} for the group exists.
+Nilpotent groups are are {{ KNOWL("group.solvable", "solvable")}} because the upper central series defining a nilpotent group has abelian subquotients.
+
+A {{KNOWL('group.stem_extension', 'stem subgroup')}} is {{KNOWL('group.central', 'central')}} by definition, and any central subgroup is abelian since its elements commute with the whole group.
+
+A {{KNOWL('group.sylow_subgroup', 'Sylow subgroup')}} is a $p$-group and thus {{KNOWL('group.nilpotent', 'nilpotent')}}.
+
+\end{definition}
+
+

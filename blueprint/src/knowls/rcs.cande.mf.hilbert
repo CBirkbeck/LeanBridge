@@ -1,0 +1,22 @@
+\subsection{Completeness of Hilbert modular form data}
+\begin{definition}\label{rcs.cande.mf.hilbert}
+\uses{}
+The database contains 368,356 Hilbert newforms over 400 totally real number fields of degree up to 6. 
+
+For each field for which forms are presented, the data is complete up to a given level norm. These upper bounds are given on the browse pages; see the browse pages for degree [2](https://www.lmfdb.org/ModularForm/GL2/TotallyReal/browse/2/), [3](https://www.lmfdb.org/ModularForm/GL2/TotallyReal/browse/3/), [4](https://www.lmfdb.org/ModularForm/GL2/TotallyReal/browse/4/), [5](https://www.lmfdb.org/ModularForm/GL2/TotallyReal/browse/5/), and [6](https://www.lmfdb.org/ModularForm/GL2/TotallyReal/browse/6/) for more details.
+
+For each form, the Hecke eigenvalue data is complete up to a bound, but this bound depends on the form (so e.g. for forms of large dimension, there may be fewer Hecke eigenvalues than for others of the same level).  However, we do ensure that if there is a Hecke eigenvalue with prime of given norm, then *all* Hecke eigenvalues of that norm (or smaller) are in the database. 
+
+When the base field does not have narrow class number 1, the forms over that field listed in the LMFDB may have nontrivial central character (coming from the narrow class group).
+
+There are:
+
+- 188459 forms with levels of norm up to 5000, [over 148 fields of degree 2](https://www.lmfdb.org/ModularForm/GL2/TotallyReal/browse/2/), of discriminants up to 497;
+- 45880 forms with levels of norm up to 2059, [over 61 fields of degree 3](https://www.lmfdb.org/ModularForm/GL2/TotallyReal/browse/3/), of discriminants up to 1957;
+- 102780 forms with levels of norm up to 4091, [over 123 fields of degree 4](https://www.lmfdb.org/ModularForm/GL2/TotallyReal/browse/4/), of discriminants up to 19821;
+- 16226 forms with levels of norm up to 1013, [over 34 fields of degree 5](https://www.lmfdb.org/ModularForm/GL2/TotallyReal/browse/5/), of discriminants up to 195829;
+- 15011 forms with levels of norm up to 961, [over 34 fields of degree 6](https://www.lmfdb.org/ModularForm/GL2/TotallyReal/browse/6/), of discriminants up to 1997632.
+
+\end{definition}
+
+

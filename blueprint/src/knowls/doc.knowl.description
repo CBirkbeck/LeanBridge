@@ -1,0 +1,7 @@
+\subsection{Description field in knowls}
+\begin{definition}\label{doc.knowl.description}
+\uses{doc.knowl.context_free,doc.knowl.naming_conventions,doc.knowl.naming_suggestions}
+The description field in a Knowl serves as the most accurate description of the Knowl {{ KNOWL('doc.knowl.context_free', "outside of any context")}}. It is a human-readable version of the Knowl, compliant with the naming {{ KNOWL('doc.knowl.naming_conventions', "conventions") }} and {{ KNOWL('doc.knowl.naming_suggestions', "suggestions") }}.
+\end{definition}
+
+

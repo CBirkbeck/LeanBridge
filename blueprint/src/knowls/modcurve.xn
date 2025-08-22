@@ -1,0 +1,21 @@
+\subsection{Modular curve $X(N)$}
+\begin{definition}\label{modcurve.xn}
+\uses{alg.symplectic_isomorphism,cmf.congruence_subgroup,ec.ring,gl2.open,mf.upper_half_plane,modcurve,modcurve.components,ring.a-field}
+There are three variants of the modular curve $Y(N)$:
+
+1. There is a functor sending each $\Z[1/N]$-algebra $R$ to the set of (isomorphism classes of) pairs $(E,\alpha)$ such that $E$ is an {{KNOWL('ec.ring', 'elliptic curve over $R$')}} and $\alpha \colon E[N] \to (\Z/N\Z)^2$ is an isomorphism of group schemes.  Suppose that $N \ge 3$; then this functor is represented by a smooth affine $\mathbb{Z}[1/N]$-scheme $Y_{\mathrm{full}}(N)$, called the **full modular curve of level $N$**.  (If $N<3$, it is representable only by an algebraic stack, and one must take the coarse moduli space to get a scheme.)  For any field $k$ with $\operatorname{char} k \nmid N$, the set $Y_{\mathrm{full}}(N)(k)$ is the set of isomorphism classes of triples $(E,P,Q)$ , where $E$ is an elliptic curve over $k$ and $P,Q \in E(k)$ form a $(\Z/N\Z)$-basis of $E[N]$.  The curve $Y_{\mathrm{full}}(N)_{\Q}$ is integral but typically has several {{KNOWL('modcurve.components', 'geometric components')}}.
+
+2. Let $\zeta_N \in \overline{\Q}$ be a primitive $N$th root of unity.  There is a functor sending each $\Z[1/N,\zeta_N]$-algebra $R$ to the set of pairs $(E,\alpha)$ such that $E$ is an elliptic curve over $R$ and $\alpha \colon E[N] \to (\Z/N\Z)^2$ is an isomorphism of group schemes such that the resulting elements $P,Q \in E[N](R)$ satisfy $e_N(P,Q)=\zeta_N$.  For $N \ge 3$, this functor is represented by a smooth affine $\Z[1/N,\zeta_N]$-scheme $Y(N)$, called the **classical modular curve of level $N$**.  Over any {{KNOWL('ring.a-field','$\Z[1/N,\zeta_N]$-field')}} $k$, the curve $Y(N)_k$ is geometrically integral.
+
+3. There is a functor sending each $\Z[1/N]$-algebra $R$ to the set of pairs $(E,\alpha)$ consisting of an elliptic curve $E$ over $R$ and a {{KNOWL('alg.symplectic_isomorphism','symplectic isomorphism')}} $\alpha \colon E[N] \to \Z/N\Z \times \mu_N$.  For $N \ge 3$, this functor is represented by a smooth affine $\mathbb{Z}[1/N]$-scheme $Y_{\mathrm{arith}}(N)$.  Over any field $k$ with $\operatorname{char} k \nmid N$, the curve $Y_{\mathrm{arith}}(N)_k$ is geometrically integral.  
+
+*Relationships*: Over any {{KNOWL('ring.a-field','$\Z[1/N,\zeta]$-field')}} $k$, the curve $Y_{\mathrm{arith}}(N)_k$ is isomorphic to $Y(N)_k$ and to a {{KNOWL('modcurve.components', 'connected component')}} of $Y_{\mathrm{full}}(N)_k$.
+
+*Complex points*: The group {{KNOWL('cmf.congruence_subgroup', '$\Gamma(N)$')}} acts on the {{KNOWL('mf.upper_half_plane', 'upper half-plane')}} $\mathfrak{h}$, and the quotient $\Gamma(N) \backslash \mathfrak{h}$ is biholomorphic to $Y(N)(\mathbb{C}) \simeq Y_{\textup{arith}}(\C)$ (choosing $\zeta_N \in \C$). 
+
+*Compactifications*: For each variant, there is a corresponding smooth projective model, denoted $X_{\mathrm{full}}(N)$, $X(N)$, or $X_{\mathrm{arith}}(N)$.
+
+*Quotients*: For each {{KNOWL('gl2.open', 'open subgroup')}} $H \le \GL_2(\widehat\Z)$, there is a quotient {{KNOWL('modcurve','$X_H$')}} of $X_{\mathrm{full}}(N)$.
+\end{definition}
+
+

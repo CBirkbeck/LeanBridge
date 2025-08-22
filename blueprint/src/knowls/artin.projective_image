@@ -1,0 +1,9 @@
+\subsection{Projective image of an Artin representation}
+\begin{definition}\label{artin.projective_image}
+\uses{artin}
+Composing an {{KNOWL('artin', 'Artin representation')}} $\Gal(\overline{\Q}/\Q)\to\GL_n(\C)$ with the natural projection $\GL_n(\C)\to\PGL_n(\C)$ gives a continuous homomorphism $\rho:\Gal(\overline{\Q}/\Q)\to\PGL_n(\C)$ with finite image.
+
+The image of $\rho$ is the **projective image** of the Artin representation.
+\end{definition}
+
+

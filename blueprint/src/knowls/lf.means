@@ -1,0 +1,27 @@
+\subsection{Means of an extension}
+\begin{definition}\label{lf.means}
+\uses{lf.discriminant_exponent,lf.heights,lf.padic_field,lf.ramification_index,lf.residue_field_degree,lf.slopes}
+Let $L/K$ be an extension of {{KNOWL('lf.padic_field', '$p$-adic fields')}}.
+The **mean** $m$ of $L/K$ is determined by the formula $c=f(e−1+em)$, where
+$c$ is the {{KNOWL('lf.discriminant_exponent', 'discriminant exponent')}},
+$f$ is the {{KNOWL('lf.residue_field_degree', 'residue field degree')}}, and
+$e$ is the {{KNOWL('lf.ramification_index', 'ramification index')}} of $L/K$.
+The mean of $L/K$ is related to the {{KNOWL('lf.heights', 'height')}}
+$H(L/K)$ by the formula $H(L/K)=em$.
+
+Let $K_f/K$ be the maximal unramified subextension of $L/K$.  For each
+subextension $L'/K_f$ of $L/K_f$ set $e'=[L':K_f]$ and
+let $m'$ be the mean of $L'/K_f$.  We associate to $L'$ the point
+$(e',e'm')$ in the Cartesian plane.  The **slope polygon** $S$ of $L/K$ is the
+lower boundary of the convex hull of these points.  Write
+$e=\epsilon p^w=[L:K_f]$ and let $h$ be the function on the interval
+$[1,e]$ whose graph is $S$.  For $1\le k\le w$ set
+$m_k=h(\epsilon p^k)/(\epsilon p^k)$.  Then the **means** of $L/K$ are defined
+to be $\langle m_1,\dots,m_w\rangle$.
+
+If we adopt the convention $m_0=0$ then the means are related to the
+{{KNOWL('lf.slopes', 'Swan slopes')}} $[s_1,\dots,s_w]$ by the formulas
+$(p-1)s_k=pm_k-m_{k-1}$ for $1\le k\le w$.
+\end{definition}
+
+

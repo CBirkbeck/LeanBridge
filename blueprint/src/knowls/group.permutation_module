@@ -1,0 +1,9 @@
+\subsection{permutation module}
+\begin{definition}\label{group.permutation_module}
+\uses{group.group_ring}
+If $H$ is a finite index subgroup of $G$, then $G$ acts on the right cosets of $H$ via $Hg\overset{g'}{\mapsto}Hgg'$, yielding a **permutation representation** that sends each $g\in G$ to the permutation of $H\backslash G$ given by its action.  This defines a homomorphism from $G$ to the symmetric group on $n=[G:H]$ letters.
+
+For a commutative ring $R$, the action of $G$ of $H\backslash G$ can be extended $R$-linearly to an action of $G$ on  $R[H\backslash G]$, the free $R$-module with basis $G\backslash H$, which is then a module over the {{KNOWL('group.group_ring', 'group ring')}} $R[G$].  The $R[G]$-module $R[H\backslash G]$ is a **permutation module** over $R$.
+\end{definition}
+
+

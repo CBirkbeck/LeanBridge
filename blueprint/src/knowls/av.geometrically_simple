@@ -1,0 +1,7 @@
+\subsection{Geometrically simple}
+\begin{definition}\label{av.geometrically_simple}
+\uses{ag.abelian_variety,ag.base_change,av.simple}
+An {{KNOWL('ag.abelian_variety', 'abelian variety')}} is **geometrically simple** if its {{KNOWL('ag.base_change', 'base change')}} to an algebraic closure of the ground field is {{KNOWL('av.simple', 'simple')}}.
+\end{definition}
+
+

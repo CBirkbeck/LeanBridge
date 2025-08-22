@@ -1,0 +1,9 @@
+\subsection{Paramodular conjecture}
+\begin{definition}\label{g2c.paramodular_conjecture}
+\uses{ag.abelian_surface,ag.conductor,av.isogeny_class,mf.siegel.newform.paramodular}
+The **paramodular conjecture** of Brumer and Kramer \cite{arXiv:1004.4699} makes precise an earlier conjecture of Yoshida \cite{href{https://eudml.org/doc/142747}{eudml.org/doc/142747}}.  The conjecture states that for every {{ KNOWL('ag.abelian_surface', 'abelian surface') }} $A/\Q$ of paramodular type (meaning $\End(A)=\Z$) there exists a corresponding {{KNOWL('mf.siegel.newform.paramodular','paramodular newform')}} of level $N$ equal to the {{KNOWL('ag.conductor','conductor')}} of $A$.
+
+For squarefree integers $N$ it is further conjectured that this correspondence gives a bijection between {{KNOWL('av.isogeny_class', 'isogeny classes')}} of paramodular type abelian surfaces of conductor $N$ and paramodular newforms of level $N$.
+\end{definition}
+
+

@@ -1,0 +1,16 @@
+\subsection{Invariants of an L-function}
+\begin{definition}\label{lfunction.invariants}
+\uses{lfunction.analytic_rank,lfunction.conductor,lfunction,lfunction.degree,lfunction.motivic_weight,lfunction.primitive,lfunction.root_number,lfunction.selbergdata,lfunction.self-dual}
+The invariants of an {{KNOWL('lfunction', 'L-function')}} may include:
+
+- its {{KNOWL('lfunction.degree', 'degree')}} $d$;
+- its {{KNOWL('lfunction.conductor', 'conductor')}} $N$;
+- its {{KNOWL('lfunction.root_number', 'sign')}} (or {{KNOWL('lfunction.root_number', 'root number')}}) $\varepsilon$;
+- its {{KNOWL('lfunction.motivic_weight', 'weight')}};
+- whether it is {{KNOWL('lfunction.primitive', 'primitive')}} or not;
+- whether it is {{KNOWL('lfunction.self-dual', 'self dual')}} or not;
+- its {{KNOWL('lfunction.analytic_rank', 'analytic rank')}};
+- its {{KNOWL('lfunction.selbergdata', 'Selberg data')}}.
+\end{definition}
+
+

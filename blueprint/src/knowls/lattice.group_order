@@ -1,0 +1,7 @@
+\subsection{Group order of an integral lattice}
+\begin{definition}\label{lattice.group_order}
+\uses{lattice.automorphism_group,lattice.definition}
+The **group order** of an {{ KNOWL("lattice.definition", "integral lattice")}} is the size of its {{ KNOWL("lattice.automorphism_group", "automorphism group")}}.  
+\end{definition}
+
+

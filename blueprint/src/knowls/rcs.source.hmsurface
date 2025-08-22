@@ -1,0 +1,11 @@
+\subsection{Hilbert modular surfaces source}
+\begin{definition}\label{rcs.source.hmsurface}
+\uses{}
+The database of Hilbert modular surfaces was computed by Eran Assaf, Angelica Babei, Ben Breen, Edgar Costa, Juanita Duque-Rosero, Aleksander Horawa, Jean Kieffer, Avinash Kulkarni, Grant Molnar, Sam Schiavone, and John Voight using algorithms implemented in \cite{href{http://magma.maths.usyd.edu.au/magma/}{Magma}}. The computational effort is described in \cite{arxiv:2301.10302}. 
+ 
+
+
+
+\end{definition}
+
+

@@ -1,0 +1,13 @@
+\subsection{Galois module information}
+\begin{definition}\label{nf.galois_group.gmodule}
+\uses{}
+{% if n is defined and t is defined and ind is defined %}
+  {{ galois_module_data(n,t,ind) | safe }}
+</p>
+{% else %}
+This knowl can display information about a particular Galois module specified by parameters.
+{% endif %}
+
+\end{definition}
+
+

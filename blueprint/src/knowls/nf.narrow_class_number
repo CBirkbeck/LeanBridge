@@ -1,0 +1,8 @@
+\subsection{Narrow class number}
+\begin{definition}\label{nf.narrow_class_number}
+\uses{nf,nf.class_number,nf.ideal_class_group,nf.narrow_class_group,nf.totally_imaginary}
+The **narrow class number** (also called the **strict class number**) of an {{ KNOWL('nf', 'algebraic number field') }} is the order of its {{ KNOWL('nf.narrow_class_group', 'narrow class group') }}.
+Since the ordinary {{ KNOWL('nf.ideal_class_group', "ideal class group") }} is a quotient of the {{ KNOWL('nf.narrow_class_group', 'narrow class group') }}, the narrow class number is a multiple of the {{ KNOWL('nf.class_number', "class number")}}.  Moreover, the ratio is a power of $2$. The two class numbers are the same in many cases, for example when the number field is {{ KNOWL('nf.totally_imaginary', "totally complex")}}.
+\end{definition}
+
+

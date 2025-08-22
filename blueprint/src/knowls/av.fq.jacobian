@@ -1,0 +1,8 @@
+\subsection{Jacobian of a curve}
+\begin{definition}\label{av.fq.jacobian}
+\uses{ag.jacobian}
+{{KNOWL_INC('ag.jacobian')}}
+
+\end{definition}
+
+

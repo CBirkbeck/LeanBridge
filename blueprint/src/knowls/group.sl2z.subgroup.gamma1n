@@ -1,0 +1,9 @@
+\subsection{Subgroup $\Gamma_1(N)$ of $\textrm{SL}(2,\mathbb{Z})$}
+\begin{definition}\label{group.sl2z.subgroup.gamma1n}
+\uses{}
+The group $\Gamma_1(N)$ is the subgroup of $\textrm{SL}(2,\mathbb{Z})$ defined
+by the congruences:
+\[ \Gamma_1(N) = \left\lbrace \left .\begin{pmatrix} a & b \\ c & d \end{pmatrix}\in \textrm{SL}(2,\mathbb{Z})\ \right| \ c\equiv 0,\ a \equiv d\equiv 1 \bmod N \right\rbrace. \]
+\end{definition}
+
+

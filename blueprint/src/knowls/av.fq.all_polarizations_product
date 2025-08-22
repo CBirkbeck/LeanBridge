@@ -1,0 +1,10 @@
+\subsection{(In)decomposable polarized abelian variety}
+\begin{definition}\label{av.fq.all_polarizations_product}
+\uses{ag.abelian_variety}
+
+A polarized {{KNOWL('ag.abelian_variety', 'abelian variety')}} $(A,\lambda)$ is **decomposable** if there are polarized abelian varieties $(A_1,\lambda_1)$ and $(A_2,\lambda_2)$ and an isomorphism
+\[ (A,\lambda) \simeq (A_1,\lambda_1) \times (A_2,\lambda_2). \]
+If this is not the case, we say that $(A,\lambda)$ is **indecomposable**.
+\end{definition}
+
+

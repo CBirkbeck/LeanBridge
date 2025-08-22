@@ -1,0 +1,7 @@
+\subsection{Conductor valuation}
+\begin{definition}\label{ec.conductor_valuation}
+\uses{ec.conductor}
+The valuation of the {{ KNOWL('ec.conductor', 'conductor') }} at a prime.
+\end{definition}
+
+

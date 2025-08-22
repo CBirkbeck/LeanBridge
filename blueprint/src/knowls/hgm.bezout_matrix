@@ -1,0 +1,11 @@
+\subsection{Bézout matrix of a hypergeometric motive}
+\begin{definition}\label{hgm.bezout_matrix}
+\uses{alg.bezout_matrix,hgm.defining_parameters}
+For a list of integers $C=[c_1,\ldots, c_n]$ we associate the polynomial
+\[ \Phi_C(x) = \prod_{j=1}^n \Phi_{c_j}(x) \]
+where $\Phi_n(x)$ is the $n$th cyclotomic polynomial.
+
+Given a hypergeometric motive with {{ KNOWL('hgm.defining_parameters', 'defining parameters') }} $A$ and $B$, its **Bézout matrix** is the {{ KNOWL('alg.bezout_matrix', 'Bézout matrix') }} of $\Phi_A(x)$ and $\Phi_B(x)$ of degree $\max(\deg \Phi_A(x), \deg \Phi_B(x))$.
+\end{definition}
+
+

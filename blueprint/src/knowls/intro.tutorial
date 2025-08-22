@@ -1,0 +1,106 @@
+\subsection{A tour of the Riemann zeta function}
+\begin{definition}\label{intro.tutorial}
+\uses{ec.q,ec.q.bsdconjecture,lfunction,lfunction.conductor,lfunction.critical_line,lfunction.degree,lfunction.dirichlet_series,lfunction.euler_product,lfunction.functional_equation,lfunction.gamma_factor,lfunction.normalization,lfunction.riemann,lfunction.root_number,lfunction.selbergdata,lfunction.sign,lfunction.spectral_parameters,lfunction.trivial_zero,lfunction.zeros,lfunction.zfunction,specialfunction.gamma}
+The simplest of all {{ KNOWL('lfunction', "L-functions")}} is the {{ KNOWL("lfunction.riemann", "Riemann zeta function")}}, a
+function whose analytic properties were first discovered by <a href="https://en.wikipedia.org/wiki/Bernhard_Riemann">Bernhard Riemann</a> in
+1859 in his attempts to find a formula for the number of primes
+smaller than a given number $x$. It gives us a model for how to think
+about other L-functions.
+
+Let's begin by  taking a look at this prototype:
+<a href="/L/Riemann/" target="_blank">the Riemann zeta function homepage</a>.
+
+The first thing we see is that the Riemann zeta function can be
+defined as a special type of infinite series, called a {{ KNOWL("lfunction.dirichlet_series", "Dirichlet
+series")}}:
+
+$\zeta(s):=1+\frac1{2^s}+\frac1{3^s}+\frac1{4^s}+\cdots.$
+
+This is the classical definition of $\zeta(s)$ and holds in the half
+plane $Re(s)>1$.
+
+All L-functions can be expressed as Dirichlet series. On this website
+we {{KNOWL("lfunction.normalization","normalize")}} each Dirichlet series so
+that it converges absolutely for  $ Re (s)>1$.
+
+The page then exhibits the {{ KNOWL("lfunction.functional_equation", "functional equation")}}, an equation that
+relates the values of this L-function on the left and on the right of
+the line $ Re (s)= 1/2$. A key component of the functional equation is that it
+involves {{ KNOWL("specialfunction.gamma", "Euler's Gamma function")}}, which is well known as a function
+that interpolates factorials.
+Again, this is typical of all L-functions: there is a functional
+equation involving the product of the L-function and some
+Gamma functions and relates the values at $s$ and $1-s$.  The {{KNOWL("lfunction.selbergdata","Selberg data")}} is a way of encoding the functional equation; details at the bottom of this page.
+
+The page then goes on by showing the {{ KNOWL("lfunction.euler_product", "Euler product")}} formula of the
+L-function. In the case of $\zeta(s)$, this was discovered by <a href="https://en.wikipedia.org/wiki/Leonhard_Euler">Leonhard Euler</a>
+and later used by Riemann as a starting point for investigating
+prime numbers. In particular, Riemann showed that the distribution of
+prime numbers is determined by the location of the {{KNOWL("lfunction.zeros","zeros")}} of
+$\zeta(s)$.  All L-functions have an Euler product, i.e. they have an
+expression as an infinite product over primes where the factor for
+each prime is the inverse of a polynomial in $ p^{-s} $.
+
+Next we find the imaginary parts of the first few zeros of the Riemann
+zeta function.
+Riemann's Hypothesis is that any {{KNOWL("lfunction.trivial_zero","non-trivial zero")}} of the zeta function
+has real part 1/2.  Moreover, it's hypothesized that any non-trivial zero of any L-function has real part 1/2.  This is true, so far, for
+every zero ever found. Consequently on these pages we only display the
+imaginary parts of the zeros. The first non-trivial zero of the
+Riemann zeta function
+is at $ 1/2+ i 14.1347... $ and was actually computed by Riemann himself.
+It has been checked that the first 10 trillion zeros of the Riemann zeta
+function all have real part 1/2, where the zeros are written in increasing
+order of their imaginary part.
+On these pages we have high precision rendering of the first 36
+billion zeros; see [http://www.lmfdb.org/zeros/zeta/](http://www.lmfdb.org/zeros/zeta/).
+
+Further information found on the Riemann zeta function page is the
+list of values the function takes at some special points.  Again, this
+is typical of L-functions. The special values of L-functions form a
+remarkable area of modern research. The {{ KNOWL("ec.q.bsdconjecture", "Birch and Swinnerton-Dyer
+Conjecture")}}, mentioned
+above as one of the Clay Millennium problems, has to do with the
+special values of L-functions
+associated with {{ KNOWL("ec.q", "elliptic curves")}}.
+
+Finally the page concludes by displaying the graph of the {{ KNOWL("lfunction.zfunction", "Hardy
+Z-function")}}. This function has the same modulus as $\zeta(s)$ on the {{KNOWL('lfunction.critical_line', 'critical line')}}, so its graph helps to provide a visual picture of the Riemann
+zeta function. In particular, the Z-function has the same zeros as the
+L-function and so for this one we can see the first zero at 14.1347...
+
+In order to successfully navigate the L-functions pages you need to
+know a little bit about how we classify L-functions. As we mentioned,
+each L-function has a Dirichlet series, a functional equation, and an
+Euler product.
+We sort our L-functions first by {{ KNOWL("lfunction.degree", "degree")}}, then by {{ KNOWL("lfunction.conductor", "conductor")}}.
+
+There is a certain amount of compatibility between these expressions.
+For example, it is believed that the Euler product can always be
+written as a product over  primes
+of the inverse of a  polynomial in $p^{-s}$. In all known cases, at almost all
+primes the
+degree of this polynomial is the same as the number of
+{{KNOWL('lfunction.gamma_factor', 'Gamma factors')}} in the functional equation!
+
+We specify a functional equation  by providing its {{ KNOWL("lfunction.selbergdata", "Selberg data")}};
+this is a 4-tuple which has the shape 
+({{ KNOWL("lfunction.degree", "degree")}}, 
+{{ KNOWL("lfunction.conductor", "conductor")}}, {{ KNOWL("lfunction.spectral_parameters", "Gamma-shifts")}}, 
+{{ KNOWL("lfunction.root_number", "sign")}}),
+or:
+
+$ (d,N,(\mu_1,\dots , \mu_{J}:\nu_{1},\dots ,\nu_{K}),\varepsilon). $
+
+Here the degree $d=J+2K$ is a positive integer, the {{ KNOWL("lfunction.conductor", "conductor")}} $N$ is a
+positive integer, the $ \mu $ are complex numbers with non-negative real parts and
+imaginary parts which sum to 0, and the sign $ \epsilon $ is a
+complex number with absolute value $1$.  
+
+For example, the LMFDB page for the Riemann zeta function identifies
+its Selberg data using the notation $(1,1,(0:),1)$, where the first value $1$ is the
+{{ KNOWL("lfunction.degree", "degree")}}, the second is the {{ KNOWL("lfunction.conductor", "conductor")}}, $(0:)$ indicates the {{ KNOWL("lfunction.spectral_parameters", "spectral
+parameters")}} and the last $1$ is the {{ KNOWL("lfunction.sign", "sign")}} of the functional equation.
+\end{definition}
+
+

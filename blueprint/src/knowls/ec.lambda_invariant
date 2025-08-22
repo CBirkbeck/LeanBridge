@@ -1,0 +1,13 @@
+\subsection{lambda-invariant of an elliptic curve}
+\begin{definition}\label{ec.lambda_invariant}
+\uses{ec.good_ordinary_reduction,ec.good_supersingular_reduction,ec.mu_invariant,ec.multiplicative_reduction}
+The analytic $\lambda$-invariant of an elliptic curve $E$ at a prime $p$ of {{ KNOWL('ec.good_ordinary_reduction', 'ordinary') }} or {{ KNOWL('ec.multiplicative_reduction', 'multiplicative reduction') }} is the number of zeroes of the $p$-adic L-function of $E$.  Explicitly, if we write the $p$-adic L-function of $E$ as a power series in a variable $T$:
+$$
+L_p(E,T) = p^{\mu_p(E)} (a_0 + a_1 T + a_2 T^2 + ...)
+$$
+where $\mu_p(E)$ is the {{KNOWL("ec.mu_invariant", "$\mu$-invariant")}} of $E$, then the $\lambda$-invariant is the first index $i$ such that $a_i$ is a $p$-adic unit.  By the main conjecture for elliptic curves, this invariant should match the algebraic $\lambda$-invariant which is defined analogously in terms of the Selmer group of $E$.
+
+When $E$ has {{ KNOWL('ec.good_supersingular_reduction', 'supersingular reduction') }} at $p$, there is a pair of $p$-adic $L$-functions: $L_p^+(E,T)$ and $L_p^-(E,T)$ and one defines analogously a pair of $\lambda$-invariants: $\lambda^+_p(E)$ and $\lambda^-_p(E)$.
+\end{definition}
+
+

@@ -1,0 +1,104 @@
+\subsection{Source, reliability, and completeness}
+\begin{definition}\label{rcs}
+\uses{ag.abelian_variety,ag.curve,artin,belyi.galmap,character.dirichlet,cmf,ec,ec.q,g2c.g2curve,gg.galois_group,lf,mf.maass.mwf,nf,rcs.cande.artin,rcs.cande.av.fq,rcs.cande.belyi,rcs.cande.character.dirichlet,rcs.cande.cmf,rcs.cande.curve.highergenus.aut,rcs.cande.ec,rcs.cande.ec.q,rcs.cande.g2c,rcs.cande.gg,rcs.cande.lf,rcs.cande.lfunction,rcs.cande.maass,rcs.cande.mf.bianchi,rcs.cande.mf.hilbert,rcs.cande.nf,rcs.cande.st_group,rcs.rigor.artin,rcs.rigor.av.fq,rcs.rigor.belyi,rcs.rigor.character.dirichlet,rcs.rigor.cmf,rcs.rigor.curve.highergenus.aut,rcs.rigor.ec,rcs.rigor.ec.q,rcs.rigor.g2c,rcs.rigor.gg,rcs.rigor.lf,rcs.rigor.lfunction,rcs.rigor.maass,rcs.rigor.mf.bianchi,rcs.rigor.mf.hilbert,rcs.rigor.nf,rcs.rigor.st_group,rcs.source.artin,rcs.source.av.fq,rcs.source.belyi,rcs.source.character.dirichlet,rcs.source.cmf,rcs.source.curve.highergenus.aut,rcs.source.ec,rcs.source.ec.q,rcs.source.g2c,rcs.source.gg,rcs.source.lf,rcs.source.lfunction,rcs.source.maass,rcs.source.mf.bianchi,rcs.source.mf.hilbert,rcs.source.nf,rcs.source.st_group,st_group.definition}
+The LMFDB is divided into sections that are listed on the left side of your screen, including L-functions, modular forms, varieties, fields, representations, and groups.  Each section is further divided into subsections that contain information related to a specific type of mathematical object, such as {{KNOWL('ec.q', 'elliptic curves over $\Q$')}} or {{KNOWL('nf','number fields')}}.
+
+Within each subsection you will find a "Learn more" panel that appears on the right of your screen.  This panel includes links that provide information about the data that is available in the subsection, including:
+
+- the **source** of the data: who computed it and the methods they used;
+- the **reliability** of the data: any heuristics or unproved conjectures that were used in its computation are listed here, as well as any consistency checks that have been done;
+- the **completeness** of the data: which finite subset of this (typically infinite) set of mathematical objects is included in the database, and what information is available for each object.
+
+The table below provides links to the source, reliability, and completeness pages for each of the main subsections of the LMFDB.
+
+<table>
+<tr>
+<td><b>{{KNOWL('cmf', 'L-functions')}}</b>:</td>
+<td>{{KNOWL('rcs.source.lfunction','source')}}</td>
+<td>{{KNOWL('rcs.rigor.lfunction','reliability')}}</td>
+<td>{{KNOWL('rcs.cande.lfunction','completeness')}}</td>
+</tr><tr>
+<td><b>{{KNOWL('cmf', 'Classical modular forms')}}</b>:</td>
+<td>{{KNOWL('rcs.source.cmf','source')}}</td>
+<td>{{KNOWL('rcs.rigor.cmf','reliability')}}</td>
+<td>{{KNOWL('rcs.cande.cmf','completeness')}}</td>
+</tr><tr>
+<td><b>{{KNOWL('mf.maass.mwf', 'Maass forms')}}</b>:</td>
+<td>{{KNOWL('rcs.source.maass','source')}}</td>
+<td>{{KNOWL('rcs.rigor.maass','reliability')}}</td>
+<td>{{KNOWL('rcs.cande.maass','completeness')}}</td>
+</tr><tr>
+<td><b>{{KNOWL('cmf', 'Hilbert modular forms')}}</b>:</td>
+<td>{{KNOWL('rcs.source.mf.hilbert','source')}}</td>
+<td>{{KNOWL('rcs.rigor.mf.hilbert','reliability')}}</td>
+<td>{{KNOWL('rcs.cande.mf.hilbert','completeness')}}</td>
+</tr><tr>
+<td><b>{{KNOWL('cmf', 'Bianchi modular forms')}}</b>:</td>
+<td>{{KNOWL('rcs.source.mf.bianchi','source')}}</td>
+<td>{{KNOWL('rcs.rigor.mf.bianchi','reliability')}}</td>
+<td>{{KNOWL('rcs.cande.mf.bianchi','completeness')}}</td>
+</tr><tr>
+<td><b>{{KNOWL('ec.q', 'Elliptic curves over $\Q$')}}</b>:</td>
+<td>{{KNOWL('rcs.source.ec.q','source')}}</td>
+<td>{{KNOWL('rcs.rigor.ec.q','reliability')}}</td>
+<td>{{KNOWL('rcs.cande.ec.q','completeness')}}</td>
+</tr><tr>
+<td><b>{{KNOWL('ec', 'Elliptic curves over number fields')}}</b>:</td>
+<td>{{KNOWL('rcs.source.ec','source')}}</td>
+<td>{{KNOWL('rcs.rigor.ec','reliability')}}</td>
+<td>{{KNOWL('rcs.cande.ec','completeness')}}</td>
+</tr><tr>
+<td><b>{{KNOWL('g2c.g2curve', 'Genus 2 curves over $\Q$')}}</b>:</td>
+<td>{{KNOWL('rcs.source.g2c','source')}}</td>
+<td>{{KNOWL('rcs.rigor.g2c','reliability')}}</td>
+<td>{{KNOWL('rcs.cande.g2c','completeness')}}</td>
+</tr><tr>
+<td><b>{{KNOWL('ag.curve','Higher genus families of curves')}}</b>:</td>
+<td>{{KNOWL('rcs.source.curve.highergenus.aut','source')}}</td>
+<td>{{KNOWL('rcs.rigor.curve.highergenus.aut','reliability')}}</td>
+<td>{{KNOWL('rcs.cande.curve.highergenus.aut','completeness')}}</td>
+</tr><tr>
+<td><b>{{KNOWL('ag.abelian_variety','Abelian varieties over finite fields')}}</b>:</td>
+<td>{{KNOWL('rcs.source.av.fq','source')}}</td>
+<td>{{KNOWL('rcs.rigor.av.fq','reliability')}}</td>
+<td>{{KNOWL('rcs.cande.av.fq','completeness')}}</td>
+</tr><tr>
+<td><b>{{KNOWL('belyi.galmap','Belyi maps')}}</b>:</td>
+<td>{{KNOWL('rcs.source.belyi','source')}}</td>
+<td>{{KNOWL('rcs.rigor.belyi','reliability')}}</td>
+<td>{{KNOWL('rcs.cande.belyi','completeness')}}</td>
+</tr><tr>
+<td><b>{{KNOWL('nf', 'Number fields')}}</b>:</td>
+<td>{{KNOWL('rcs.source.nf','source')}}</td>
+<td>{{KNOWL('rcs.rigor.nf','reliability')}}</td>
+<td>{{KNOWL('rcs.cande.nf','completeness')}}</td>
+</tr><tr>
+<td><b>{{KNOWL('lf', '$p$-adic fields')}}</b>:</td>
+<td>{{KNOWL('rcs.source.lf','source')}}</td>
+<td>{{KNOWL('rcs.rigor.lf','reliability')}}</td>
+<td>{{KNOWL('rcs.cande.lf','completeness')}}</td>
+</tr><tr>
+<td><b>{{KNOWL('character.dirichlet', 'Dirichlet characters')}}</b>:</td>
+<td>{{KNOWL('rcs.source.character.dirichlet','source')}}</td>
+<td>{{KNOWL('rcs.rigor.character.dirichlet','reliability')}}</td>
+<td>{{KNOWL('rcs.cande.character.dirichlet','completeness')}}</td>
+</tr><tr>
+<td><b>{{KNOWL('artin', 'Artin representations')}}</b>:</td>
+<td>{{KNOWL('rcs.source.artin','source')}}</td>
+<td>{{KNOWL('rcs.rigor.artin','reliability')}}</td>
+<td>{{KNOWL('rcs.cande.artin','completeness')}}</td>
+</tr><tr>
+<td><b>{{KNOWL('gg.galois_group', 'Galois groups')}}</b>:</td>
+<td>{{KNOWL('rcs.source.gg','source')}}</td>
+<td>{{KNOWL('rcs.rigor.gg','reliability')}}</td>
+<td>{{KNOWL('rcs.cande.gg','completeness')}}</td>
+</tr><tr>
+<td><b>{{KNOWL('st_group.definition', 'Sato-Tate groups')}}</b>:</td>
+<td>{{KNOWL('rcs.source.st_group','source')}}</td>
+<td>{{KNOWL('rcs.rigor.st_group','reliability')}}</td>
+<td>{{KNOWL('rcs.cande.st_group','completeness')}}</td>
+</tr><tr>
+</table>
+\end{definition}
+
+

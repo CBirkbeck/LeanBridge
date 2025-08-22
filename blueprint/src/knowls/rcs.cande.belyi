@@ -1,0 +1,7 @@
+\subsection{Completeness of data for Belyi maps}
+\begin{definition}\label{rcs.cande.belyi}
+\uses{}
+As described in \cite{arXiv:1805.07751}, the Belyi database contains maps up to degree $9$ and it is complete up to (and including) degree $6$.
+\end{definition}
+
+

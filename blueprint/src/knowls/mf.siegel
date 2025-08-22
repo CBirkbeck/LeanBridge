@@ -1,0 +1,46 @@
+\subsection{Siegel modular form}
+\begin{definition}\label{mf.siegel}
+\uses{cmf,group.sp2gr,group.sp2gr.subgroup.congn,mf.siegel.halfspace,mf.siegel.koecher.principle,paramodulargroup.sp2gr,repn.highest.weight,repn.irrep.gl}
+Let $g\ge 2$ be an integer, let
+$\rho\colon \GL(g,\mathbb{C})\to \GL(V)$ be a finite-dimensional complex representation, and let 
+$\Gamma \leq \GSp(2g,\Q)$ be an arithmetic subgroup.  
+
+A holomorphic map $f$ on the 
+{{KNOWL("mf.siegel.halfspace", "Siegel upper half space $\mathcal{H}_g$")}} 
+taking values in $V$ is called a **Siegel modular form** of weight $\rho$ on $\Gamma$ if 
+\[
+f((a\tau+b)(c\tau+d)^{-1})=\rho(c\tau+d)f(\tau)
+\]  
+for all $\begin{pmatrix} a&b\\c&d\end{pmatrix}\in \Gamma$ (with $a,b,c,d \in \mathrm{M}(g,\mathbb{Q})$) and all $\tau\in\mathcal{H}_g$.
+
+The arithmetic subgroups of $\GSp(2g,\Q)$ that we focus on are the following ones:
+<ul><li>
+{{KNOWL("group.sp2gr", "integral symplectic group:  $\Sp(2g,\Z)$")}}
+ </li><li>
+{{KNOWL("group.sp2gr.subgroup.congn", "Congruence subgroups of $\Sp(2g,\Z)$")}}
+ </li><li>
+{{KNOWL("paramodulargroup.sp2gr", "paramodular group:  $\Gamma^{\mathrm{para}}(d)\subset \Sp(2g,\Q)$")}}
+ </li>
+</ul>
+Note in the case of {{KNOWL("cmf", "(classical) modular forms")}}, a 
+holomorphicity condition at all the cusps of $\Gamma$ is required in the definition.
+Due to the so-called {{KNOWL("mf.siegel.koecher.principle", "Koecher principle")}} such a condition is superfluous for Siegel modular form of degree $g>1$.
+
+For each fixed choice of $\rho$ and $\Gamma$, the set of modular forms of weight $\rho$ on $\Gamma$ is a finite-dimensional complex-vector space denoted by $M_{\rho}(\Gamma)$.
+Moreover if the representation $\rho$ is the direct sum of two representations 
+$\rho=\rho_1\oplus \rho_2$ then the space $M_{\rho}(\Gamma)$ is isomorphic to
+$M_{\rho_1}(\Gamma)\oplus M_{\rho_2}(\Gamma)$ and we can restrict ourselves to 
+{{KNOWL("repn.irrep.gl", "irreducible representations")}} of $\GL(g,\C)$.
+
+If the {{KNOWL("repn.highest.weight", "highest weight")}} of the representation $\rho$ 
+is $(k,\ldots,k)$ i.e. $\rho=\det^{\otimes k}$ (note that $V$ is one-dimensional in this case) then the previous functional equation takes the form 
+\[
+f((a\tau+b)(c\tau+d)^{-1})=\det(c\tau+d)^kf(\tau)
+\]
+and $f$ is called a **scalar-valued Siegel modular form**. The space of such forms is simply denoted by $M_k(\Gamma)$. When $\dim(V)>1$, we usually talk about 
+**vector-valued Siegel modular forms**.
+ 
+
+\end{definition}
+
+

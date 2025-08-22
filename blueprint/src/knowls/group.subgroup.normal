@@ -1,0 +1,14 @@
+\subsection{Normal subgroup of a group}
+\begin{definition}\label{group.subgroup.normal}
+\uses{alg.binary_operation,group,group.coset,group.subgroup}
+If $H$ is a {{KNOWL('group.subgroup', 'subgroup')}} of a {{KNOWL('group', 'group')}} $G$, then $H$ is **normal** if any of the following equivalent conditions hold:
+
+1. $gHg^{-1}=H$ for all $g\in G$
+2. $gHg^{-1}\subseteq H$ for all $g\in G$
+3. $gH=Hg$ for all $g\in G$
+4. $(aH)*(bH)=(ab)H$ is a well-defined {{KNOWL('alg.binary_operation', 'binary operation')}} on the set of {{KNOWL('group.coset', 'left cosets')}} of $H$
+
+If $H$ is a normal subgroup, we write $H \lhd G$, and the set of left cosets $G/H$ form a group under the operation given in (4) above.
+\end{definition}
+
+

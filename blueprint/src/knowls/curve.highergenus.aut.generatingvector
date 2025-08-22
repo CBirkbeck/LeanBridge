@@ -1,0 +1,8 @@
+\subsection{Generating Vector}
+\begin{definition}\label{curve.highergenus.aut.generatingvector}
+\uses{ag.riemann_surface,curve.highergenus.aut.branchpoints,curve.highergenus.aut.generators,curve.highergenus.aut.monodromy}
+The **generating vector** of a group of automorphisms $G$ acting on a compact {{KNOWL('ag.riemann_surface', "Riemann surface")}} $X$ is a list of generators for the {{KNOWL('curve.highergenus.aut.monodromy', "monodromy group")}} of $G$ obtained by taking the image of the {{KNOWL('curve.highergenus.aut.generators', "standard generators")}} for $\pi_1(Y-B,y_0)$ under the image of the map $\rho\colon \pi_1(Y-B,y_0)\to S_d$ used to define the monodromy group, where $B$ is the set of {{KNOWL('curve.highergenus.aut.branchpoints', "branch points")}} of the projection $\phi\colon X\to Y=X/G$, and $y_0$ is any point on $Y$ that is not in $B$.
+
+\end{definition}
+
+

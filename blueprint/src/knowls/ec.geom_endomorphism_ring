@@ -1,0 +1,9 @@
+\subsection{Geometric endomorphism ring}
+\begin{definition}\label{ec.geom_endomorphism_ring}
+\uses{ag.abelian_variety,ag.geom_endomorphism_ring,ec.endomorphism_ring}
+The **geometric endomorphism ring** of an elliptic curve $E$ over a field $K$ is $\End(E_{\overline{K}})$, the {{KNOWL('ec.endomorphism_ring', 'endomorphism ring')}} of the base change of $E$ to an algebraic closure $\overline{K}$ of $K$.  
+
+This is a special case of the {{KNOWL('ag.geom_endomorphism_ring', 'geometric endomorphism ring')}} of an {{KNOWL('ag.abelian_variety', 'abelian variety')}}.
+\end{definition}
+
+

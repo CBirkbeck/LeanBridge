@@ -1,0 +1,7 @@
+\subsection{Hall subgroup}
+\begin{definition}\label{group.subgroup.hall}
+\uses{group,group.order,group.subgroup,group.subgroup.index}
+If $H$ is a {{KNOWL('group.subgroup', 'subgroup')}} of a finite {{KNOWL('group','group')}} $G$, then $H$ is a **Hall subgroup** if the {{KNOWL('group.order', 'order')}} of $H$ is relatively prime to its {{KNOWL('group.subgroup.index', 'index')}}.
+\end{definition}
+
+

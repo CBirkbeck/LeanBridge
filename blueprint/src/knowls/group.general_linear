@@ -1,0 +1,10 @@
+\subsection{General linear group}
+\begin{definition}\label{group.general_linear}
+\uses{group.automorphism,group.quotient,ring.field}
+The **general linear group** $\GL(n,q)$ is the group of $n \times n$ invertible matrices with entries in the {{KNOWL('ring.field', 'field')}} $\F_q$ (the finite field with $q$ elements). It has order $\prod_{k=0}^{n-1} (q^n - q^k)$.
+If $p$ is prime, then $\GL(n,p)$ is the {{KNOWL('group.automorphism', 'automorphism group')}} of the abelian group $C_p^n$.
+
+The **projective general linear group** $\PGL(n, q)$ is the {{KNOWL('group.quotient', 'quotient')}} of $\GL(n, q)$ by its subgroup of scalar matrices. 
+\end{definition}
+
+

@@ -1,0 +1,11 @@
+\subsection{Trace bound}
+\begin{definition}\label{cmf.trace_bound}
+\uses{cmf.coefficient_field,cmf.dimension,cmf.galois_orbit,cmf.newform,cmf.newspace,cmf.q-expansion}
+The **trace bound** for a {{KNOWL('cmf.newspace', 'space of newforms')}} \(S_k^{new}(N, \chi)\) is the least positive integer \(m\) such that taking traces down to \(\Q\) of the coefficients \(a_n\) for \(n \le m\) suffices to distinguish all the 
+{{KNOWL('cmf.galois_orbit', 'Galois orbits')}} of 
+{{KNOWL('cmf.newform', 'newforms')}} in the space; here $a_n$ denotes the $n$th coefficient of the {{KNOWL('cmf.q-expansion', '$q$-expansion')}} $\sum a_n q^n$ of a newform.
+
+If the newforms in the space all have distinct {{KNOWL('cmf.dimension', 'dimensions')}} then the trace bound is 1, because the trace of $a_1=1$ from the {{KNOWL('cmf.coefficient_field', 'coefficient field')}} of the newform down to $\Q$ is equal to the dimension of its {{KNOWL('cmf.galois_orbit', 'Galois orbit')}}.
+\end{definition}
+
+

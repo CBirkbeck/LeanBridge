@@ -1,0 +1,8 @@
+\subsection{Quotient genus}
+\begin{definition}\label{curve.highergenus.aut.quotientgenus}
+\uses{ag.curve.genus}
+For a group of automorphisms $G$ acting on a curve $X$, the {{KNOWL('ag.curve.genus',title='genus')}} of the quotient curve $X/G$ is the **quotient genus** of $G$. 
+
+\end{definition}
+
+

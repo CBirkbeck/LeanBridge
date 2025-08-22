@@ -1,0 +1,10 @@
+\subsection{Torsion group}
+\begin{definition}\label{group.torsion}
+\uses{group,group.abelian}
+A **torsion {{KNOWL('group', 'group')}}** is a group in which every element has finite order.
+
+The elements of finite order in an {{KNOWL('group.abelian', 'abelian')}} group $A$ form a torsion group called the **torsion subgroup** of $A$.
+
+\end{definition}
+
+

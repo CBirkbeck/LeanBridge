@@ -1,0 +1,14 @@
+\subsection{Precision of classical modular form eigenvalues}
+\begin{definition}\label{dq.cmf.cc_prec}
+\uses{}
+The Hecke eigenvalue field for classical newforms can often be embedded into $\C$ in multiple ways. The Hecke eigenvalues are computed numerically to high precision for each of these embeddings.
+
+In the LMFDB, embeddings of $a_p$ for small $p$ are stored as floating point complex numbers to 53-bit precision.
+This data is made available on the website, to the precision the user requests up to a bound of several decimal places.
+
+Users requiring more data can use the download links to get all the digits that are available.
+
+When displaying floating point values, the round-to-nearest method is used, with half rounded to even as a tie breaker.
+\end{definition}
+
+

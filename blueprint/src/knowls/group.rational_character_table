@@ -1,0 +1,9 @@
+\subsection{Rational character table of a group}
+\begin{definition}\label{group.rational_character_table}
+\uses{group,group.division,group.label_conjugacy_class,group.label_rational_group_char,group.representation.rational_character}
+The **rational character table** of a finite {{KNOWL('group', 'group')}} $G$ is a square tabulation of the values of {{KNOWL('group.representation.rational_character', 'irreducible rational characters')}} on the {{KNOWL('group.division', 'rational conjugacy classes')}} of $G$.
+
+The row corresponding to each rational character is marked by its {{KNOWL('group.label_rational_group_char','label')}} and the columns by the {{KNOWL('group.label_conjugacy_class','labels')}} of the corresponding rational conjugacy class.
+\end{definition}
+
+

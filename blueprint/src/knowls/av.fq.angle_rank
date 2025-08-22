@@ -1,0 +1,9 @@
+\subsection{Angle rank of a set}
+\begin{definition}\label{av.fq.angle_rank}
+\uses{ag.abelian_variety,ag.dimension,av.fq.supersingular,av.fq.weil_polynomial}
+For any set $\{\alpha_1, \alpha_2, \ldots, \alpha_s\}$ of non-zero complex numbers, the **angle rank** of the set is the quantity
+$$\delta = \dim_{\Q}\left({\rm Span}_{\Q}\left\{ \frac{ {\rm Arg}( \alpha_i)}{2\pi}\right\} \cup \{1\} \right)-1.$$
+The angle rank of a polynomial is the angle rank of the set of its non-zero roots, and the angle rank of an {{KNOWL('ag.abelian_variety', 'abelian variety')}} $A$ over a finite field is the angle rank of its {{KNOWL('av.fq.weil_polynomial', 'Weil polynomial')}}.  If $A$ has {{KNOWL('ag.dimension', 'dimension')}} $g$ then $0 \le \delta \le g$, and $\delta = 0$ if and only if $A$ is {{KNOWL('av.fq.supersingular', 'supersingular')}}.  We define the **angle corank** of $A$ to be $g - \delta$.
+\end{definition}
+
+

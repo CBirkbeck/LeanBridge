@@ -1,0 +1,7 @@
+\subsection{L-function spectral parameters }
+\begin{definition}\label{lfunction.spectral_parameters}
+\uses{lfunction,lfunction.functional_equation,lfunction.gamma_factor}
+The **spectral parameters** are the numbers $\mu_j$ and $\nu_k$ that appear as shifts in the {{KNOWL('lfunction.gamma_factor','gamma factors')}} ($\Gamma_{\mathbb R}$ and $\Gamma_{\mathbb C}$, respectively) in the {{KNOWL('lfunction.functional_equation', "functional equation")}} of an {{KNOWL('lfunction','L-function')}}.
+\end{definition}
+
+

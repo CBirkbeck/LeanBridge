@@ -1,0 +1,20 @@
+\subsection{Analytic order of Sha}
+\begin{definition}\label{g2c.analytic_sha}
+\uses{ag.abelian_variety,ag.mordell_weil,ag.regulator,g2c.analytic_rank,g2c.mordell_weil_rank,g2c.real_period,g2c.tamagawa,ag.tate_shafarevich,g2c.torsion,lfunction,lfunction.leading_coeff}
+For an {{KNOWL('ag.abelian_variety', 'abelian variety')}} $A/\Q$ the **analytic order of Sha** is the real number
+\[
+&#1064;_{an}(A) := \frac{L^{(r)}(A,1)}{r!}\frac{(\#A(\Q)_{\rm tor})^2}{\Omega_AR_AT_A}
+\]
+where
+
+- $r$ is the {{KNOWL('g2c.analytic_rank', 'analytic rank')}} of $A$;
+- $L(A,s)$ is the {{KNOWL('lfunction', 'L-function')}} of $A$, with {{KNOWL('lfunction.leading_coeff', 'leading coefficient')}} $L^{(r)}(A,1)/r!$;
+- $A(\Q)_{\rm tor}$ is the {{KNOWL('g2c.torsion', 'torsion subgroup')}} of the {{KNOWL('ag.mordell_weil', 'Mordell-Weil group')}} $A(\Q)$;
+- $\Omega$ is the {{KNOWL('g2c.real_period', 'real period')}} of $A$;
+- $R$ is the {{KNOWL('ag.regulator', 'regulator')}} of $A$;
+- $T = \prod_p c_p$ is the {{KNOWL('g2c.tamagawa', 'Tamagawa product')}} of $A$.
+
+The Birch and Swinnerton-Dyer for abelian varieties implies that the analytic rank of $A$ is equal to its {{KNOWL('g2c.mordell_weil_rank', 'Mordell-Weil rank')}}, and that its analytic order of Sha is equal to the order of its {{KNOWL('ag.tate_shafarevich', 'Tate-Shafarevich group')}}.
+\end{definition}
+
+

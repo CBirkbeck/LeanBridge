@@ -1,0 +1,7 @@
+\subsection{Absolute discriminant}
+\begin{definition}\label{g2c.abs_discriminant}
+\uses{g2c.discriminant,g2c.g2curve}
+The **absolute discriminant** of a {{ KNOWL('g2c.g2curve', 'genus 2 curve') }} over $\Q$ is the absolute value of its {{KNOWL('g2c.discriminant', 'discriminant')}}.
+\end{definition}
+
+

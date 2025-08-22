@@ -1,0 +1,7 @@
+\subsection{Normalized minimal vector of a lattice}
+\begin{definition}\label{lattice.normalized_minimal_vector}
+\uses{lattice.definition,lattice.minimal_vector}
+For an {{ KNOWL("lattice.definition", "integral lattice")}} $L$, the {{ KNOWL("lattice.minimal_vector", "minimal vectors")}} of $L$ come in pairs: if $\vec{v}$ is a minimal vector, then so is $-\vec{v}$. A minimal vector is **normalized** if its first nonzero component is positive.
+\end{definition}
+
+

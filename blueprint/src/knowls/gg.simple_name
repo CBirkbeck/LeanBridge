@@ -1,0 +1,21 @@
+\subsection{Simple group name}
+\begin{definition}\label{gg.simple_name}
+\uses{}
+We describe abstract groups using standard building blocks:
+<ul>
+ <li> $C_n$ denotes the cyclic group of order $n$
+ <li> $D_n$ denotes the dihedral group of order $2n$
+ <li> $A_n$ denotes the alternating group on $n$ letters
+ <li> $S_n$ denotes the symmetric group on $n$ letters
+</ul>
+
+Groups $A$ and $B$ may be used to construct a larger group:
+
+- $A\times B$ for the direct product of $A$ and $B$
+- $A:B$ for the semidirect product of $A$ and $B$ (with normal subgroup $A$)
+- $A.B$ an extension with normal subgroup $A$ and quotient isomorphic to $B$
+- $A\wr B$ for the wreath product of A and B
+
+\end{definition}
+
+

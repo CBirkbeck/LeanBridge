@@ -1,0 +1,7 @@
+\subsection{Genus of an integral lattice}
+\begin{definition}\label{lattice.genus}
+\uses{lattice.definition}
+For an {{ KNOWL("lattice.definition", "integral lattice")}}, $L$ with underlying quadratic space $V$, the **genus** of $L$ is the set of all lattices $M$ on $V$, such that $M_p\cong L_p$ for all primes $p$. 
+\end{definition}
+
+

@@ -1,0 +1,26 @@
+\subsection{Slope content of an extension of $p$-adic fields}
+\begin{definition}\label{lf.slope_content}
+\uses{lf.galois_invariants,lf.inertia_group,lf.padic_field,lf.residue_field,lf.tame_degree,lf.unramified_degree,lf.unramified_subfield,nf.galois_closure,nf.galois_group}
+Let $L/K$ be an extension of {{ KNOWL('lf.padic_field', '$p$-adic fields') }}.
+Let $G$ be the {{ KNOWL('nf.galois_group', "Galois group") }} of the 
+{{ KNOWL('nf.galois_closure', "Galois closure") }}
+$L^{gal}/K$ of $L/K$.  Then $G$ has a filtration by {{ KNOWL('lf.galois_invariants', 'higher ramification groups') }}, which in turn are connected to the discriminants of subfields of $L^{gal}$.  The *slope content* encodes information about this filtration giving the location and sizes of the jumps.
+
+Let $G^i$ be the $i$th higher ramification group in upper numbering from Serre's <i>Local Fields</i> \cite{doi:10.1007/978-1-4757-5673-9}, Chapter IV.  They form a descending filtration of normal subgroups where $i$ is a continuous parameter, $i\geq -1$.  Let $G^{(j)} = G^{j-1}$, and $G^{(j+)} = \cup_{\epsilon>0} G^{(j+\epsilon)}$.  Then
+
+- $G^{(0)}=G$.
+
+- $G^{(1)}$ is the {{KNOWL('lf.inertia_group','inertia subgroup')}} of $G$, i.e., the kernel of the natural map from $G$ to the Galois group of the {{KNOWL('lf.residue_field', 'residue field')}}.
+
+- the fixed field of $G^{(1)}$ is the maximum {{KNOWL('lf.unramified_subfield', 'unramified subfield')}} of $L^{gal}/K$, which we denote by $L^{un}$.  The degree $[L^{un}:K]$ is the {{KNOWL('lf.unramified_degree', 'unramified degree')}} for $L^{gal}/K$.  The extension $L^{gal}/L^{un}$ is totally ramified.
+
+- the group $G^{(1)}/G^{(1+)}$ is cyclic of order prime to $p$.  Its order is the {{KNOWL('lf.tame_degree', 'tame degree')}} for $L^{gal}/K$ as it is the degree of the largest tamely totally ramified subextension.  
+
+- The group $G^{(1+)}$ is a $p$-group.  Values of $s>1$ giving jumps in the filtration $G^{(s)}\neq G^{(s+)}$ are **wild Artin slopes**.  We repeat a slope $m$ times if $p^m =[G^{(s)} : G^{(s+)}]$, and then list the wild slopes in non-decreasing order.
+
+The **Artin slope content** then takes the form $[s_1,\ldots, s_k]_t^u$ where $t$ is the tame degree, $u$ is the degree of the maximum unramified subfield, and the $s_i$ give the list of the wild slopes.  In particular, $[L^{gal}:K]=tup^k$.  If $t$ or $u$ is equal to $1$, it is not printed.
+
+The **Swan slopes** are obtained from the Artin slopes by subtracting 1.
+\end{definition}
+
+

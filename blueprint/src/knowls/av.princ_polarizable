@@ -1,0 +1,9 @@
+\subsection{Principally polarizable}
+\begin{definition}\label{av.princ_polarizable}
+\uses{ag.abelian_variety,ag.jacobian,av.polarization}
+An {{KNOWL('ag.abelian_variety', 'abelian variety')}} is **principally polarizable** if it admits a {{KNOWL('av.polarization', 'polarization')}} that is an isomorphism. For example, the {{ KNOWL('ag.jacobian','Jacobian') }} of a curve admits a canonical principal polarization; by the Torelli theorem, the curve is uniquely determined by its Jacobian together with this polarization.
+
+An isogeny class of abelian varieties is principally polarizable if one of its members admits a principal polarization.
+\end{definition}
+
+

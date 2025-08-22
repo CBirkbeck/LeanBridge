@@ -1,0 +1,21 @@
+\subsection{Base-change Bianchi modular forms}
+\begin{definition}\label{mf.bianchi.base_change}
+\uses{cmf.cm_form,cmf.newform,mf.base_change,mf.bianchi.hecke_algebra}
+For every {{ KNOWL('cmf.newform', 'classical elliptic newform') }} $f$ and every imaginary quadratic field $K$ one can define the **base-change** $F$ of $f$ to $K$.
+
+Usually the base-change of an elliptic newform $f$ is a cuspidal Bianchi newform, but there is one exceptional situation, when $f$ is a {{ KNOWL('cmf.cm_form', 'CM form') }} whose character is that of the extension $K/\Q$.  In this case the base-change still exists but is not cuspidal.   One explanation for this is that the automorphic representation attached to $f$ is always irreducible, but after base-change to $K$ the representation splits as a sum of two Hecke characters over $K$, whereas the representations attached to Bianchi (cuspidal) newforms are irreducible.
+
+The {{ KNOWL('mf.bianchi.hecke_algebra', 'Hecke eigenvalues') }} of the base-change $F$ of $f$ to $K$ may be determined easily from those of the original elliptic newform $f$.  For every prime $p$ not dividing the level of $f$, if the eigenvalue of $T_p$ on $f$ is $a_p$ then the eigenvalue(s) $a_{\frak{p}}$ for ${\frak{p}}\mid p$ of its base-change are given by the following (where $k$ is the weight of $f$):
+
+ - if $p$ splits in $K$ as $p\mathcal{O}_K=\frak{p}\overline{\frak{p}}$ then $a_{\frak{p}}=a_{\overline{\frak{p}}}=a_p$;
+ - if $p$ ramifies in $K$ as $p\mathcal{O}_K=\frak{p}^2$ then $a_{\frak{p}}=a_p$;
+ - if $p$ is inert in $K$ with $p\mathcal{O}_K=\frak{p}$ then $a_{\frak{p}}=a_p^2-2p^{k-1}$.
+
+For an explanation of the last formula, note that $a_p=\alpha+\beta$ where $\alpha,\beta$ are the associated eigenvalues of Frobenius, so that $\alpha\beta=p^{k-1}$, while $a_{\frak{p}}=\alpha^2+\beta^2$.
+
+One consequence of this formula is the following fact: it is possible for the Hecke field of the base-change of $f$ to be of smaller degree than that of $f$ itself.  For example, it is possible to have a classical newform with quadratic Hecke field whose base-change has $\Q$ as its Hecke field.
+
+Base-change as defined here is a special case of a more general definition of {{KNOWL('mf.base_change', 'base change')}} for GL(2) modular forms.
+\end{definition}
+
+

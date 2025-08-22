@@ -1,0 +1,9 @@
+\subsection{Automorphisms of a group}
+\begin{definition}\label{group.automorphism}
+\uses{group,group.isomorphism}
+If $G$ is a {{KNOWL('group', 'group')}}, an **automorphism** of $G$ is a {{KNOWL('group.isomorphism', 'group isomorphism')}} $f:G\to G$.
+
+The set of automorphisms of $G$, $\Aut(G)$, is a group under composition.
+\end{definition}
+
+

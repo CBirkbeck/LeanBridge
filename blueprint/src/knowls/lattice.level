@@ -1,0 +1,7 @@
+\subsection{Level of an integral lattice}
+\begin{definition}\label{lattice.level}
+\uses{lattice.definition,lattice.dual}
+For an {{ KNOWL("lattice.definition", "integral lattice")}}, $L$, the **level** is the smallest integer, $k$, such that $k\cdot B(\vec{v},\vec{v})\in 2\mathbb Z$ for all $\vec{v}$ in the {{ KNOWL("lattice.dual", "dual")}} of $L$. 
+\end{definition}
+
+

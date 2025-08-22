@@ -1,0 +1,19 @@
+\subsection{Conductor of an L-function}
+\begin{definition}\label{lfunction.conductor}
+\uses{character.dirichlet,character.dirichlet.conductor,cmf.cusp_form,lfunction,lfunction.dirichlet,lfunction.functional_equation,lfunction.selbergdata}
+The **conductor** of an {{KNOWL('lfunction', "L-function")}} is the integer $N$  occurring in its {{KNOWL("lfunction.functional_equation", "functional equation")}}
+
+\[
+\Lambda(s) := N^{s/2}
+\prod_{j=1}^J \Gamma_{\mathbb R}(s+\mu_j) \prod_{k=1}^K \Gamma_{\mathbb C}(s+\nu_k)
+\cdot L(s) = \varepsilon \overline{\Lambda}(1-s).
+\]
+
+
+The conductor of an analytic {{KNOWL("lfunction", "L-function")}} is the second component in the {{KNOWL('lfunction.selbergdata', "Selberg data")}}. For a {{KNOWL("lfunction.dirichlet", "Dirichlet L-function")}}
+ associated with a primitive {{KNOWL("character.dirichlet", "Dirichlet character")}}, the conductor of the L-function is the same as the {{KNOWL("character.dirichlet.conductor", "conductor")}} of the character. For a primitive L-function associated with a {{KNOWL("cmf.cusp_form", "cusp form")}} $\phi$ on $GL(2)/\mathbb Q$, the conductor of the L-function is the same as the level of $\phi$.
+
+In the literature, the word _level_ is sometimes used instead of _conductor_.
+\end{definition}
+
+

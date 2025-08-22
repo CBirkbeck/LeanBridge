@@ -1,0 +1,23 @@
+\subsection{Label of a modular curve}
+\begin{definition}\label{modcurve.label}
+\uses{gl2.genus,gl2.index,gl2.label,gl2.level,gl2.open,modcurve,modcurve.gassmann_class}
+The **label** of a {{KNOWL('modcurve', 'modular curve')}} $X_H$ is the same as the {{KNOWL('gl2.label','label')}} of the {{KNOWL('gl2.open', 'open subgroup')}} $H\le \GL_2(\widehat\Z)$. When $\det(H)=\widehat\Z^\times$ and $-I\in H$ this label has the form $\texttt{N.i.g.c.n}$, where
+
+- $N$ is the {{KNOWL('gl2.level', 'level')}} of $H$
+- $i$ is the {{KNOWL('gl2.index', 'index')}} of $H$
+- $g$ is the {{KNOWL('gl2.genus', 'genus')}} of $H$
+- $c$ is a base-26 ordinal that uniquely identifies the {{KNOWL('modcurve.gassmann_class','Gassmann class')}} of $H$ among groups of the same level, index, and genus.
+- $n$ is a positive integer that distinguishes nonconjugate subgroups of the same level, index, genus, and Gassmann class.
+
+When $\det(H)=\widehat\Z^\times$ and $-I\not \in H$ this label has the form $\texttt{N.i.g-M.c.m.n}$, where $N$, $i$, and $g$ are as above, and
+
+- $N$ is the level of $H$
+- $i$ is the index of $H$
+- $g$ is the genus of $H$
+- $M$ is the level of $H':=\langle H, -I\rangle$
+- $c$ is the base-26 ordinal that identifies the Gassmann class of $H'$
+- $m$ is the positive integer in the label $\texttt{M.j.g.c.m}$ of $H'$, where $i=2j$.
+- $n$ is a positive integer that distinguishes $H$ from nonconjugate refinements of $H'$ of the same level.
+\end{definition}
+
+

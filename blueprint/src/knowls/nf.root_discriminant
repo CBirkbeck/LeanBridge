@@ -1,0 +1,9 @@
+\subsection{Root discriminant of a number field}
+\begin{definition}\label{nf.root_discriminant}
+\uses{nf,nf.degree,nf.discriminant}
+If $K$ is a {{ KNOWL('nf', 'number field') }} of {{ KNOWL('nf.degree', 'degree') }} $n$ and {{ KNOWL('nf.discriminant', 'discriminant') }} $D$, then the **root discriminant** of $K$ is
+\[ \textrm{rd}(K) = |D|^{1/n}.\]
+It gives a measure of the discriminant of a number field which is normalized for the degree.  For example, if $K\subseteq L$ are number fields and $L/K$ is unramified, then $\textrm{rd}(K)=\textrm{rd}(L)$.
+\end{definition}
+
+

@@ -1,0 +1,7 @@
+\subsection{Artin stem field}
+\begin{definition}\label{artin.stem_field}
+\uses{artin,artin.number_field,nf.stem_field}
+An **Artin stem field** is a {{KNOWL('nf.stem_field', 'stem field')}} for the {{KNOWL('artin.number_field', 'Artin field')}} of an {{KNOWL('artin', 'Artin representation')}}.
+\end{definition}
+
+

@@ -1,0 +1,10 @@
+\subsection{Self twist field}
+\begin{definition}\label{cmf.self_twist_field}
+\uses{character.dirichlet.kronecker_symbol,character.dirichlet.principal,cmf.cm_form,cmf.inner_twist,cmf.newform,cmf.rm_form,cmf.self_twist}
+{{KNOWL('cmf.inner_twist', 'Inner twists')}} that are {{KNOWL('cmf.self_twist', 'self-twists')}} arise either from the {{KNOWL('character.dirichlet.principal', 'trivial character')}}, or from the {{KNOWL('character.dirichlet.kronecker_symbol','Kronecker character')}} of a quadratic field $K$.
+
+When $K$ is an imaginary quadratic field the {{KNOWL('cmf.newform', 'newform')}} is said to have {{KNOWL('cmf.cm_form', 'complex multiplication')}} (CM) by $K$, and when $K$ is a real quadratic field the newform is said to have {{KNOWL('cmf.rm_form', 'real multiplication')}} (RM) by $K$.
+
+\end{definition}
+
+

@@ -1,0 +1,9 @@
+\subsection{Almost simple group}
+\begin{definition}\label{group.almost_simple}
+\uses{group.automorphism,group.quasisimple,group.simple}
+An **almost simple group** is a group $G$ that lies between a non-abelian {{ KNOWL("group.simple", "simple")}} group $S$ and its {{ KNOWL("group.automorphism", "automorphism")}} group Aut$(S)$, i.e. $S \subseteq G \subseteq $Aut$(S).$
+
+Every non-abelian simple group is almost simple, but it is not implied by $G$ being {{KNOWL("group.quasisimple", "quasisimple")}}, as shown by <a href="{{url_for('abstract.index')}}?almost_simple=yes&quasisimple=no">these examples</a>.
+\end{definition}
+
+

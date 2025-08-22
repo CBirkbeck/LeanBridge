@@ -1,0 +1,17 @@
+\subsection{Completeness of genus 2 curve data}
+\begin{definition}\label{rcs.cande.g2c}
+\uses{g2c.discriminant}
+The database contains all genus 2 curves over $\Q$ that can defined by an integral equation of the form
+\[
+y^2+(h_3x^3+h_2x^2+h_1x+h_0)y=f_6x^6+f_5x^5+f_4x^4+f_3x^3+f_2x^2+f_1x+f_0,
+\]
+with $h_i\in\{0,1\}$ and $|f_i|\le 90$ and {{KNOWL('g2c.discriminant', "absolute discriminant")}} $|\Delta|\le 10^6$.  As explained in \cite{MR:3540958,arXiv:1602.03715}, it also includes all genus 2 curves of absolute discriminant $|\Delta|\le 10^6$ defined by an integral equation as above such that at least one of the following holds:
+
+- $h_i\in \{0,1\}$ and $|f_i|\le 2 (3.51)^{6-i}$ for $0\le i\le 6$;
+- $h_i\in\{0,1\}$ and $|f_i|\le (7.13)^{4-|i-3|}$ for $0\le i\le 6$;
+- $h_i\in\{0,1\}$ and $\sum_{i=0}^6 \lceil \log_{10}(|f_i|+1)\rceil\le 10$.
+
+To date all known genus 2 curves of absolute discriminant $|\Delta|\le 10^6$ have an integral model that satisfies these constraints, but it is heuristically likely that there exist curves that do not.
+\end{definition}
+
+

@@ -1,0 +1,7 @@
+\subsection{Parity of a representation}
+\begin{definition}\label{artin.parity}
+\uses{artin}
+An {{ KNOWL('artin', 'Artin representation') }} $\rho:\Gal(\overline\Q/\Q)\to \GL(V)$ is **even** or **odd** if $\det(\rho(c))$ equals $1$ or $-1$, respectively, where $c$ is a complex conjugation.
+\end{definition}
+
+

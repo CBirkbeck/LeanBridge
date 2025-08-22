@@ -1,0 +1,8 @@
+\subsection{Order of the image of a mod-$\ell$ Galois representation}
+\begin{definition}\label{modlgal.image_order}
+\uses{modlgal,modlgal.image}
+The **image order** of a {{ KNOWL('modlgal', 'mod-$\ell$ Galois representation') }} $\rho:\Gal_K\to G(\F_{\ell})$ is the  order (or cardinality) of the {{ KNOWL('modlgal.image', 'image') }}  $\rho(\Gal_K)$.
+
+\end{definition}
+
+

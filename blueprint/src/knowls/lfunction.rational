@@ -1,0 +1,11 @@
+\subsection{Rational L-function}
+\begin{definition}\label{lfunction.rational}
+\uses{lfunction.arithmetic,lfunction.coefficient_field,lfunction.euler_product,lfunction.normalization}
+A **rational** L-function $L(s)$ is an {{KNOWL('lfunction.arithmetic','arithmetic')}} L-function with {{KNOWL('lfunction.coefficient_field','coefficient field')}} $\Q$; equivalently, its {{KNOWL('lfunction.euler_product','Euler product')}} in the {{KNOWL('lfunction.normalization', 'arithmetic normalization')}} can be written as a product over rational primes
+\[
+L(s)=\prod_pL_p(p^{-s})^{-1}
+\]
+with $L_p\in \Z[T]$.
+\end{definition}
+
+

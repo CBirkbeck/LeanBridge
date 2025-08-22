@@ -1,0 +1,17 @@
+\subsection{Oldspace decomposition for newform space}
+\begin{definition}\label{cmf.decomposition.old.gamma0chi}
+\uses{}
+There are natural inclusion maps from lower level; the old subspace is the span of their images.  For \(M\) dividing the level \(N\) and divisible by \(\operatorname{cond}(\chi)\), for $\chi_M$ of modulus $M$ inducing $\chi$, and for \(d \mid (N/M)\), the maps
+$$
+  \begin{aligned}
+  \alpha_{M, d} : S_k(\Gamma_0(M), \chi_M) & \to S_k(\Gamma_0(N), \chi) \\\\
+  f(q) & \mapsto f(q^d)
+  \end{aligned}
+$$
+  induce an isomorphism
+  \[
+  S_k(\Gamma_0(N), \chi) \cong \bigoplus_{M,d} \alpha_{M,d}\left(S_k^{\mathrm{new}}(\Gamma_0(M), \chi_M)\right).
+  \]
+\end{definition}
+
+

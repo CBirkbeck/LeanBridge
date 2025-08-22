@@ -1,0 +1,10 @@
+\subsection{Trace zero density of a Sato-Tate group}
+\begin{definition}\label{st_group.trace_zero_density}
+\uses{group.haar_measure,st_group.definition}
+The **trace zero density** of a {{KNOWL('st_group.definition', 'Sato-Tate group')}} is the probability that a randomly sampled element (chosen according to the {{ KNOWL('group.haar_measure','Haar measure') }}) has trace zero.
+
+On each component of a Sato-Tate group, the trace is either constant and equal to zero, or varies continuously taking each particular value with probability zero; so this probability is simply the ratio of the number of components on which the trace is identically zero to the total number of components.
+
+\end{definition}
+
+

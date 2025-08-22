@@ -1,0 +1,16 @@
+\subsection{Guidelines for writing annotations}
+\begin{definition}\label{doc.knowl.annotation_guidelines}
+\uses{doc.knowl,doc.knowl.description,doc.knowl.guidelines}
+Annotations are text that is included at the top or bottom of an object's homepage. They are functionally similar to {{KNOWL("doc.knowl", "knowls")}}, but are not required to be context-free; aside from that, the {{ KNOWL('doc.knowl.guidelines', 'editing guidelines for knowls') }} apply also to annotations.
+
+In addition, please observe the following conventions.
+
+* Top annotations should be one sentence, with no headings, preferably short enough to fit on one line. A typical top annotation will identify common nomenclature for an object ("This integral lattice is the Leech lattice.") or a distinguishing characteristic ("This is the elliptic curve of smallest conductor of rank 3."). When available, include an external reference (e.g., a Wikipedia page).
+* Bottom annotations can be of arbitrary length, and may include subheadings. A typical bottom annotation will provide freeform discussion of important mathematical properties of a given object (e.g. "This is an example of an object with property XYZ.").
+* Do not include anything in an annotation that could be put in a knowl instead (e.g., definitions of terms). Instead, create a separate knowl and link to it. If the definition falls outside the scope of LMFDB (e.g., bitcoin), use an external link to Wikipedia or some other source.
+* Use the {{ KNOWL('doc.knowl.guidelines', '\cite command') }} to cite relevant literature.
+* It is not necessary to fill in the {{KNOWL("doc.knowl.description", "description")}} field for an annotation. When in doubt, leave it blank.
+* Do not link directly to annotations, but instead to the underlying LMFDB objects.
+\end{definition}
+
+

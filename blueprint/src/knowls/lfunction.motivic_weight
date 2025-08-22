@@ -1,0 +1,13 @@
+\subsection{Motivic weight}
+\begin{definition}\label{lfunction.motivic_weight}
+\uses{lfunction,lfunction.arithmetic,lfunction.normalization}
+The **motivic weight** (or **arithmetic weight**) of an {{KNOWL('lfunction.arithmetic', 'arithmetic')}} {{KNOWL('lfunction', 'L-function')}} with {{KNOWL('lfunction.normalization', 'analytic normalization')}} $L_{an}(s)=\sum_{n=1}^\infty a_nn^{-s}$ is the least nonnegative integer $w$ for which $a_nn^{w/2}$ is an algebraic integer for all $n\ge 1$.
+
+If the L-function arises from a motive, then the weight of the motive has the
+same parity as the motivic weight of the L-function, but the weight of the motive
+could be larger.  This apparent discrepancy comes from the fact that a Tate twist
+increases the weight of the motive.  This corresponds to the change of variables
+$s \mapsto s + j$ in the L-function of the motive.
+\end{definition}
+
+

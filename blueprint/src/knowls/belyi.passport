@@ -1,0 +1,7 @@
+\subsection{Passport}
+\begin{definition}\label{belyi.passport}
+\uses{}
+A **passport** is the data of a transitive subgroup of the symmetric group $S_d$ along with a triple of conjugacy classes $(C_0, C_1, C_\infty)$ of $S_d$, (equivalently, a triple of partitions $(\lambda_0, \lambda_1, \lambda_\infty)$ of $d$).
+\end{definition}
+
+

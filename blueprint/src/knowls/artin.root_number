@@ -1,0 +1,10 @@
+\subsection{Root number of an Artin representation}
+\begin{definition}\label{artin.root_number}
+\uses{artin,artin.lfunction,lfunction.functional_equation}
+The **root number** of an {{KNOWL("artin", "Artin representation")}} $\rho$,
+also called the **sign**, is the constant $W(\rho)$ appearing in the
+{{KNOWL("lfunction.functional_equation", "functional equation")}}
+of the associated {{KNOWL("artin.lfunction", "L-function")}}, i.e. the complex number $W(\rho)$ of absolute value $1$ such that $\Lambda(s,\rho)=W(\rho)\Lambda(1-s,\overline{\rho})$.  It can be expressed as a product of local root numbers.
+\end{definition}
+
+

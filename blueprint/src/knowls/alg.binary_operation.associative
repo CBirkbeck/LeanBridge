@@ -1,0 +1,8 @@
+\subsection{Associative binary operation}
+\begin{definition}\label{alg.binary_operation.associative}
+\uses{alg.binary_operation}
+If $*$ is a {{KNOWL('alg.binary_operation', 'binary operation')}} on a set $A$, then $*$ is **associative** on $A$ if for all $a,b,c\in A$,
+$$ a*(b*c)=(a*b)*c.$$/div>
+\end{definition}
+
+

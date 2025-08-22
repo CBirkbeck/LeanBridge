@@ -1,0 +1,22 @@
+\subsection{G2-invariants of a genus 2 curve}
+\begin{definition}\label{g2c.g2_invariants}
+\uses{g2c.g2curve,g2c.geom_iso_class,g2c.igusa_invariants}
+The **G2-invariants** of a {{ KNOWL('g2c.g2curve', 'genus 2 curve') }} are absolute invariants associated to the {{KNOWL("g2c.geom_iso_class", "geometric isomorphism class")}} of the curve.  They are denoted $g_1,g_2,g_3$. 
+
+These invariants were defined by Cardona, Quer, Nart and Pujolàs. Like the {{KNOWL("g2c.igusa_invariants", "Igusa invariants")}}, they reflect the behavior of the curve in question at a prime; for example, if one of the invariants contains a prime in its denominator, then the curve will have bad reduction at that prime over any extension of the base field. However, the G2-invariants give less information than the {{KNOWL("g2c.igusa_invariants", "Igusa invariants")}} do about the particular type of reduction at a given prime.
+
+The exact definition of the G2-invariants is as follows. Let $X$ be a curve of genus $2$ with Igusa invariants $J_2, J_4, J_6, J_8, J_{10}$. Then
+\[
+(g_1,g_2,g_3) = (J_2^5 / J_{10},\, J_2^3 J_4 / J_{10},\, J_2^2 J_6 / J_{10}),
+\]
+so long as $J_2$ is nonzero ($J_{10}$ is always nonzero because it is a multiple of the discriminant of $f$). When $J_2$ is zero we instead have
+\[
+(g_1,g_2,g_3) = (0,\, J_4^5 / J_{10}^2,\, J_4 J_6 / J_{10}),\qquad\ \ 
+\]
+except when $J_4$ is also zero, in which case
+\[
+(g_1,g_2,g_3) = (0,\,0,\,J_6^5 / J_{10}^3).\qquad\qquad\quad
+\]
+\end{definition}
+
+

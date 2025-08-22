@@ -1,0 +1,12 @@
+\subsection{CM points}
+\begin{definition}\label{modcurve.cm_discriminants}
+\uses{ec.complex_multiplication,modcurve,nf.class_number,nf.order}
+Rational points on a {{KNOWL('modcurve', 'modular curve')}} $X_H$ that correspond to elliptic curves with {{KNOWL('ec.complex_multiplication', 'complex multiplication')}} are called **CM points**.
+
+Over $\Q$ these correspond to rational points in the fiber of the map $j\colon X_H\to X(1)$ above one of the $13$ $j$-invariants of CM elliptic curves over $\Q$ corresponding to one of the **CM discriminants**
+\[
+-3,-4,-7,-8,-11,-12,-16,-19,-27, -27, -43,-67,-163,
+\] of {{KNOWL('nf.order', 'imaginary quadratic orders')}} of {{KNOWL('nf.class_number', 'class number')}} one.  These $13$ orders lie in $9$ distinct imaginary quadratic fields.
+\end{definition}
+
+

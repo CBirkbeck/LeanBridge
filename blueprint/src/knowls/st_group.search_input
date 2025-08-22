@@ -1,0 +1,7 @@
+\subsection{Find a Sato-Tate group}
+\begin{definition}\label{st_group.search_input}
+\uses{st_group.definition,st_group.label,st_group.name}
+To find a specific {{KNOWL('st_group.definition', 'Sato-Tate group')}}, enter its {{KNOWL('st_group.label', 'label')}} or {{KNOWL('st_group.name', 'name')}}
+\end{definition}
+
+

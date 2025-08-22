@@ -1,0 +1,13 @@
+\subsection{Sato-Tate group data}
+\begin{definition}\label{st_group.data}
+\uses{st_group.definition}
+{% if label is defined %}
+<p>
+  {{ sato_tate_group_data(label) | safe }}
+</p>
+{% else %}
+This knowl can display data for a {{KNOWL('st_group.definition','Sato-Tate group')}} specified by its label.
+{% endif %}
+\end{definition}
+
+

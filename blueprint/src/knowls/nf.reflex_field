@@ -1,0 +1,28 @@
+\subsection{Reflex field}
+\begin{definition}\label{nf.reflex_field}
+\uses{group.subgroup,nf.cm_field,nf.complex_embedding,nf.degree,nf.embedding}
+Let $K$ be a {{ KNOWL('nf.cm_field') }} and let $\overline{\mathbb{Q}}$ be the algebraic closure of $\Q$ in $\C$. A subset $\Phi \subset \mathrm{Hom}(K, \overline{\mathbb{Q}})$ is called a **CM type** if for every {{KNOWL('nf.embedding', 'embedding')}} $\iota \in \mathrm{Hom}(K, \overline{\mathbb{Q}})$ either $\iota \in \Phi$ or $\overline{\iota} \in \Phi$, but not both, where $\overline{\iota}$ is the complex conjugate of $\iota$. 
+
+Given a {{KNOWL('nf.cm_field', 'CM field')}} $K$ and a CM type $\Phi$, the **reflex field** is the fixed field inside $\overline{\Q}$ corresponding to the {{KNOWL('group.subgroup', 'subgroup')}} $\{ \rho \in \Gal(\overline{\Q}/\Q) : \rho \Phi = \Phi \}$ of $\Gal(\overline{\Q}/\Q)$. A CM type $\Phi$ and its complement $\overline{\Phi}$, which is the same as the set of complex conjugate embeddings, have the same reflex field. The number of complex conjugate pairs of CM types is $2^{g-1}$, where $2g=[K:\Q]$, the {{KNOWL('nf.degree', 'degree')}} of $K$ over $\Q$.
+
+To specify a CM type $\Phi$ for the CM field $K=\Q(a)$:
+<ol>
+<li>fix an order 
+$
+(\iota_1,\overline{\iota_1}), \dots,  (\iota_g,\overline{\iota_g})
+$
+of the pairs of {{KNOWL('nf.complex_embedding', 'complex embeddings')}} of $K$;
+<li> then $\Phi=(\varphi_1,\dots,\varphi_g)$ where $\varphi_j\in\{\iota_j,\overline{\iota_j}\}$ for $1\le j\le g$;
+<li> now $\Phi$ can be encoded by the list $(\text{sign}(\text{im}(\varphi_1(a))),\dots,\text{sign}(\text{im}(\varphi_g(a))))$.
+</ol>
+
+The CM types in the LMFDB are grouped in Galois orbits under the action of $\mathrm{Gal}(\overline{\mathbb{Q}}/\mathbb{Q})$ described above.
+
+<!--- (commented out by John Cremona: this information should be in the completeness knowl for number fields)
+In the LMFDB, there is a potentially incomplete list of reflex fields for each CM field $K$ of {{KNOWL('nf.degree', 'degree')}} at most 12.  For each reflex field, it is indicated for how many of the $2^{[K:\mathbb{Q}]/2 - 1}$ pairs of complementary CM types this particular field is the reflex field. The only reflex fields listed are those of degree at most 36.
+
+
+--->
+\end{definition}
+
+

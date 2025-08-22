@@ -1,0 +1,8 @@
+\subsection{Prime spectrum of ring of integers in a number field}
+\begin{definition}\label{nf.spectrum_ring_of_integers}
+\uses{}
+The *(prime) spectrum* of a ring $R$, $\operatorname{Spec} R$, is the set of prime ideals in $R$. In particular, if $F$ is a number field with ring of integers $\mathcal{O}_F$, the spectrum $\operatorname{Spec} \mathcal{O}_F$ can be thought of as a curve over 
+$\operatorname{Spec} \mathbb{Z}$. 
+\end{definition}
+
+

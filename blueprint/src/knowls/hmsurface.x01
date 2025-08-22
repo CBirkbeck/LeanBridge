@@ -1,0 +1,7 @@
+\subsection{$X_0^1(\mathfrak{N})_{\mathfrak{b}}$}
+\begin{definition}\label{hmsurface.x01}
+\uses{av.polarization,hmsurface.hmsurface,hmsurface.polarization_module}
+$X_0^1(\mathfrak{N})_{\mathfrak{b}}$ is the {{ KNOWL('hmsurface.hmsurface','Hilbert modular surface') }} $X(\Gamma)$ for $\Gamma = \Gamma_0^1(\mathfrak{N})_{\mathfrak{b}} \le \SL(\Z_F \oplus \frak{b})$ the inverse image of $\begin{pmatrix} \ast & \ast \\ 0 & \ast \end{pmatrix} \subset \SL((\Z_F/\frak{N}) \oplus (\frak{b} / \frak{N} \frak{b}))$. As a moduli space it parameterizes quadruples $(A, \iota, , \lambda, \phi)$, where $A$ is an abelian surface over $\Q$, $\lambda$ is a {{ KNOWL('av.polarization', 'polarization') }} whose {{ KNOWL('hmsurface.polarization_module', 'polarization module') }} is isomorphic to $(\frak{d}_F \frak{b})^{-1}$ where $\frak{d}_F$ is the different of $F$, $\iota : \Z_F \to \End(A_{\overline{\Q}})$ is an embedding and $\phi : A \to A'$ is a rational isogeny with kernel isomorphic to $\Z_F / \frak{N}$, compatible with $\iota$ and $\lambda$.
+\end{definition}
+
+

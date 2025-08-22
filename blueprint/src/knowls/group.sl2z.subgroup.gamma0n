@@ -1,0 +1,8 @@
+\subsection{Subgroup $\Gamma_0(N)$ of $\textrm{SL}(2,\mathbb{Z})$}
+\begin{definition}\label{group.sl2z.subgroup.gamma0n}
+\uses{}
+The group $\Gamma_0(N)$ is the subgroup of $\textrm{SL}(2,\mathbb{Z})$ that consists of matrices whose lower-left entry is 0 modulo $N$.  That is,
+\[ \Gamma_0(N) = \left\lbrace \left .\begin{pmatrix} a & b \\ c & d \end{pmatrix}\in \textrm{SL}(2,\mathbb{Z})\ \right|\  c\equiv 0 \bmod N \right\rbrace. \]
+\end{definition}
+
+

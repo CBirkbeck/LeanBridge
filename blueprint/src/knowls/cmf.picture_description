@@ -1,0 +1,16 @@
+\subsection{Pictures for classical modular forms}
+\begin{definition}\label{cmf.picture_description}
+\uses{cmf.newform,cmf.trace_form}
+For each {{ KNOWL("cmf.newform", "newform") }} or {{ KNOWL("cmf.trace_form", "trace form") }}, we use domain coloring to plot the associated trace form $\mathrm{Tr}(f)$.
+
+At each point $z$ in the unit disk $\mathcal{D}$, we assign a color based on the value of $\mathrm{Tr}(f)(\mu(z))$, where $\mu$ is the Möbius transform $\mu: \mathcal{D} \longrightarrow \mathcal{H}$ given by $\mu(z) = \frac{1 - iz}{z - i}$. Writing $\mathrm{Tr}(f)(\mu(z)) = r e^{i \theta}$, the color is determined entirely by the argument $\theta$.
+
+The color starts as a dull mustard yellow at $\theta = 0$ and becomes brighter and more yellow as $\theta$ increases towards $\pi$. There is a sharp change at $\theta = \pi$ from bright yellow to slate blue. As $\theta$ increases from $\pi$ to $2 \pi$, the slate blue dulls back towards mustard yellow. This coloration has the effect of sharply changing when the trace form takes on negative real values. These strong patterns highlight the matrix periodicity of the form.
+
+
+## Implementation ##
+
+The pictures of modular forms were implemented by David Lowry-Duda following the "pure phase plots" described in *Visualizing Modular Forms* by Lowry-Duda \cite{MR:4427977,arXiv:2002.05234}.
+\end{definition}
+
+

@@ -1,0 +1,7 @@
+\subsection{Find an integral lattice}
+\begin{definition}\label{lattice.search_input}
+\uses{lattice.definition,lattice.label}
+To find a specific {{KNOWL('lattice.definition', 'integral lattice')}}, enter its {{KNOWL('lattice.label','label')}} or name.
+\end{definition}
+
+

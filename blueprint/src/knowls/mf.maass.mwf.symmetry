@@ -1,0 +1,11 @@
+\subsection{The symmetry of a Maass form}
+\begin{definition}\label{mf.maass.mwf.symmetry}
+\uses{group.sl2z,mf.maass.mwf}
+The {{KNOWL('group.sl2z', 'modular group')}} and its congruence subgroups has an outer automorphism of order two, which is given by the reflection in the imaginary axis: \( z=x+iy \mapsto -\bar{z}=-x+iy \).
+This map belongs to $\mathrm{PGL}(2,\mathbb{Z})$ and can be represented by the matrix 
+$\begin{pmatrix} -1 & 0 \\ 0 & 1 \end{pmatrix}$.  
+
+A {{KNOWL('mf.maass.mwf', 'Maass form')}} $f$ is said to be **even** if $f(-\bar{z})=f(z)$ and **odd** if $f(-\bar{z})=-f(z)$.
+\end{definition}
+
+

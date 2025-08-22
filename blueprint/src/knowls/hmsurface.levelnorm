@@ -1,0 +1,7 @@
+\subsection{Level norm}
+\begin{definition}\label{hmsurface.levelnorm}
+\uses{hmsurface.level}
+The level norm is the absolute norm of the {{ KNOWL("hmsurface.level", "level")}} of the Hilbert modular surface.
+\end{definition}
+
+

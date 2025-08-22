@@ -1,0 +1,18 @@
+\subsection{Gamma factors}
+\begin{definition}\label{lfunction.gamma_factor}
+\uses{lfunction.euler_product,lfunction.functional_equation}
+The complex functions
+\[
+\Gamma_\R(s) := \pi^{-s/2}\Gamma(s/2)\qquad\text{and}\qquad \Gamma_\C(s):= 2(2\pi)^{-s}\Gamma(s)
+\]
+that appear in the {{KNOWL('lfunction.functional_equation', 'functional equation')}} of an L-function are known as **gamma factors**.  Here $\Gamma(s):=\int_0^\infty e^{-t}t^{s-1}dt$ is Euler's gamma function.
+
+The gamma factors satisfy 
+$
+\Gamma_\C(s) = \Gamma_\R(s) \Gamma_\R(s + 1)
+$
+and can also be viewed as ``missing'' factors of the {{KNOWL('lfunction.euler_product', 'Euler product')}} of an L-function corresponding to (real or complex) archimedean places.
+
+\end{definition}
+
+

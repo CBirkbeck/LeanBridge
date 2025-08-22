@@ -1,0 +1,10 @@
+\subsection{Decomposition into isogeny factors}
+\begin{definition}\label{av.decomposition}
+\uses{av.simple}
+Any abelian variety $A$ is isogenous to a product of {{KNOWL("av.simple", "simple")}} abelian varieties $B_i$, called the **isogeny factors** of $A$:
+$$A \sim B_1 \times \cdots \times B_n.$$
+We say that $A$ decomposes up to isogeny into the product of the $B_i$.
+Note that two elements of this product might be isogenous; in other words, elements of the decomposition may appear with multiplicity.
+\end{definition}
+
+

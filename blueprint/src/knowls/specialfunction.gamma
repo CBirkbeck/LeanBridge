@@ -1,0 +1,13 @@
+\subsection{Euler gamma function}
+\begin{definition}\label{specialfunction.gamma}
+\uses{}
+The **(Euler) gamma function $\Gamma(z)$** is defined by the integral 
+$$
+\Gamma(z) = \int_0^{ \infty } e^{-t} t^{z} \frac{dt}{t}
+$$
+for Re$(z) > 0$. It satisfies the functional equation
+$$ \Gamma(z+1) = z \Gamma(z), $$
+and can thus be continued into a meromorphic function on the complex plane, whose poles are at the non-positive integers $\{0,-1,-2,\ldots\}$.
+\end{definition}
+
+

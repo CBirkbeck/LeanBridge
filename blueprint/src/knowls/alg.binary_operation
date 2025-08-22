@@ -1,0 +1,9 @@
+\subsection{Binary operation}
+\begin{definition}\label{alg.binary_operation}
+\uses{}
+A **binary operation** on a set $S$ is a function $S\times S\to S$.  
+
+If the operation is denoted by $*$, then the output of this function applied to $(s_1,s_2)$ is typically denoted $s_1*s_2$.
+\end{definition}
+
+

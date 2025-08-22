@@ -1,0 +1,12 @@
+\subsection{Generic polynomial}
+\begin{definition}\label{gg.generic_polynomial}
+\uses{gg.regular_extension,group,nf.is_galois,ring.field}
+Let $K$ be a {{KNOWL('ring.field', 'field')}} and $G$ a finite {{KNOWL('group', 'group')}}, $t_1, \ldots, t_n$ and $x$ indeterminants.  A polynomial $f(t_1,\ldots,t_n,x)\in K(t_1,\ldots,t_n)[x]$ is **generic** for G if 
+
+ 1. the splitting field $L$ of $f$ is {{KNOWL('nf.is_galois', 'Galois')}} and {{KNOWL('gg.regular_extension', 'regular')}} over $K(t_1,\ldots,t_n)$
+ 2. $\Gal(L/K(t_1,\ldots,t_n))\cong G$
+ 3. every Galois extension $E/K$ with $\Gal(E/K)\cong G$ is the splitting field of $f(a_1,\ldots,a_n,x)$ for some $(a_1,\ldots,a_n)\in K^n$
+ 4. condition 3 holds for every extension field of $K$.
+\end{definition}
+
+

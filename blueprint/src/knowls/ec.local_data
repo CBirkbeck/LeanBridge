@@ -1,0 +1,15 @@
+\subsection{Local data of an elliptic curve}
+\begin{definition}\label{ec.local_data}
+\uses{ec,ec.conductor_valuation,ec.discriminant_valuation,ec.j_invariant_denominator_valuation,ec.kodaira_symbol,ec.local_root_number,ec.reduction_type,ec.tamagawa_number,nf}
+The **local data** of an  {{ KNOWL('ec', 'elliptic curve') }} \(E\) defined over a {{ KNOWL('nf', 'number field') }} \(K\)  at a prime \(\mathfrak{p}\) of \(K\) consists of
+
+ - the {{ KNOWL('ec.tamagawa_number', 'Tamagawa number') }} \(c_{\mathfrak{p}}\)
+ - the {{ KNOWL('ec.kodaira_symbol', 'Kodaira symbol') }}
+ - the {{ KNOWL('ec.reduction_type', 'reduction type') }}
+ - the {{ KNOWL('ec.local_root_number', 'local root number') }}
+ - the {{ KNOWL('ec.conductor_valuation', 'conductor valuation') }} \(\text{ord}_{\mathfrak{p}}(\mathfrak{N})\)
+ - the {{ KNOWL('ec.discriminant_valuation', 'discriminant_valuation') }} \(\text{ord}_{\mathfrak{p}}(\mathfrak{D})\)
+ - the {{ KNOWL('ec.j_invariant_denominator_valuation', 'j-invariant denominator valuation') }} \(\text{ord}_{\mathfrak{p}}(j)_{-}\)
+\end{definition}
+
+

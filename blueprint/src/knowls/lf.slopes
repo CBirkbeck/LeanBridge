@@ -1,0 +1,30 @@
+\subsection{Slopes}
+\begin{definition}\label{lf.slopes}
+\uses{lf.discriminant_exponent,lf.hidden_slopes,lf.padic_field,lf.residue_field_degree,lf.tame_degree}
+Let $L/K$ be an extension of {{KNOWL('lf.padic_field', '$p$-adic fields')}}.
+For each subextension $E/K$ of $L/K$ we plot the point \((n_E,c_E)\),
+where $n_E=[E:K]$ and $c_E$ is the
+{{KNOWL('lf.discriminant_exponent', 'discriminant exponent')}} of $E/K$.
+Let $B$ be the boundary of the lower convex hull of these points.  The slopes
+of the segments of $B$ are called the **Artin slopes** of
+$L/K$, and those which are greater than 1 are the **wild Artin slopes**.  If a segment corresponding to a wild slope runs from \((n_1, c_1)\) to \((n_2, c_2)\) then $n_2/n_1=p^m$
+for some $m\in\N$, and the corresponding Artin slope is repeated $m$
+times.  The **Swan slopes** of $L/K$ are obtained by subtracting $1$ from each Artin slope, and the **wild Swan slopes** are precisely the positive ones.  The Artin slopes and Swan
+slopes of $L/K$ are also referred to as the **visible Artin slopes** and the
+**visible Swan slopes**.  This is to distinguish them from the
+{{KNOWL('lf.hidden_slopes', 'hidden slopes')}} of $L/K$.
+
+Let $f$ be the {{KNOWL('lf.residue_field_degree', 'residue field degree')}}, let $\epsilon$ be the {{KNOWL('lf.tame_degree', 'tame degree')}} of $L/K$, and let $a_1\le a_2\le\dots\le a_w$ be the wild Artin slopes of $L/K$.
+The **Artin slope content** of $L/K$ is the collection of data
+$[a_1,\dots,a_w]_{\epsilon}^f$.  The **Swan slope content** of $L/K$ is $[s_1,\dots,s_w]_{\epsilon}^f$, where $s_1,\dots,s_w$ are the wild Swan slopes of
+$L/K$.
+
+The Swan slopes are the same as the positive upper ramification jumps of
+$L/K$.  In the case where $L/K$ is a Galois extension these are defined for
+instance in Chapter IV of Serre's <i>Local Fields</i>
+\cite{doi:10.1007/978-1-4757-5673-9,MR:0554237}.  For the general case where
+$L/K$ is separable but not necessarily Galois see the appendix to Deligne
+\cite{MR:0771673}.
+\end{definition}
+
+

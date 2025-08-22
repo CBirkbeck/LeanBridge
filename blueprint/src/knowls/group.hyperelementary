@@ -1,0 +1,7 @@
+\subsection{Hyperelementary group}
+\begin{definition}\label{group.hyperelementary}
+\uses{group,group.cyclic,group.nonsplit_product,group.order,group.pgroup,group.representation.character}
+A finite {{KNOWL('group', 'group')}} $G$ is **hyperelementary** if it is an {{KNOWL('group.nonsplit_product', 'extension')}} $G \simeq C \rtimes P$ of a {{KNOWL('group.pgroup', '$p$-group')}} $P$ by a {{KNOWL('group.cyclic', 'cyclic')}} group $C$ of order prime to $p$.  Solomon's induction theorem states that the trivial {{KNOWL('group.representation.character', 'character')}} is an integer linear combination of inductions of trivial characters from hyperelementary subgroups of $G$ (for various primes dividing the {{KNOWL('group.order', 'order')}} of $G$).
+\end{definition}
+
+

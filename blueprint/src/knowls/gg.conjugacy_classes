@@ -1,0 +1,7 @@
+\subsection{Conjugacy class}
+\begin{definition}\label{gg.conjugacy_classes}
+\uses{group.conjugacy_class}
+{{KNOWL_INC('group.conjugacy_class')}}  If $G\leq S_n$, then all elements in the conjugacy class of an element have the same cycle type.
+\end{definition}
+
+

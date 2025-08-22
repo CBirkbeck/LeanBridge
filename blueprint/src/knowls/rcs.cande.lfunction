@@ -1,0 +1,43 @@
+\subsection{Completeness of L-function Data}
+\begin{definition}\label{rcs.cande.lfunction}
+\uses{artin,artin.lfunction,character.dirichlet,character.dirichlet.primitive,cmf,cmf.character,cmf.dimension,cmf.embedding,cmf.newform,cmf.weight,ec,ec.isogeny_class,ec.q.conductor,g2c.isogeny_class,lfunction,lfunction.analytic_rank,lfunction.conductor,lfunction.degree,lfunction.history.dedekind,lfunction.known_degree1,lfunction.known_degree2,lfunction.known_degree3,lfunction.known_degree4,lfunction.motivic_weight,lfunction.primitive,lfunction.rational,lfunction.riemann,lfunction.zeros,mf.bianchi.newform,mf.hilbert,mf.hilbert.dimension,mf.maass.mwf,nf.abs_discriminant,rcs.cande.cmf,rcs.rigor.lfunction.lcalc}
+The database currently contains more than $20$ million {{KNOWL('lfunction','L-functions')}}.  Most of these are stored in the database along with related information such as {{KNOWL('lfunction.zeros', 'zeros')}} and {{KNOWL('lfunction.analytic_rank', 'analytic rank')}} that have been precomputed using explicit precision bounds (see the ``reliability'' link on each L-function's home page for further details).  A small number of {{KNOWL('rcs.rigor.lfunction.lcalc','dynamically computed')}} L-functions are also available, as noted in the summary below.  The pages for dynamically computed L-functions may be missing information that cannot be computed quickly, and the data displayed on them may be less accurate than the displayed precision suggests.
+
+Below is a summary of available L-functions by {{KNOWL('lfunction.degree','degree')}}.  Note that the counts are not mutually exclusive, as different types of mathematical objects may have the same L-function.  For precomputed L-functions, objects in the database that are believed to give rise to this L-function are listed in the ``origins'' box on the L-functions home page.
+
+**{{KNOWL('lfunction.known_degree1','Degree 1')}}**
+
+* The {{KNOWL('lfunction.riemann','Riemann zeta-function')}} $\zeta(s)$.
+* $7\,655\,469$ Dirichlet L-functions associated to {{KNOWL('character.dirichlet.primitive', 'primitive')}} {{KNOWL('character.dirichlet','Dirichlet characters')}}, including all $1\,448\,484$ of {{KNOWL('lfunction.conductor', 'conductor')}} $N\le 2800$ (this includes the Riemann zeta-function).
+
+**{{KNOWL('lfunction.known_degree2','Degree 2')}}**
+
+* $14\,398\,359$ L-functions of {{KNOWL('cmf','classical modular forms')}} (more precisely, {{KNOWL('cmf.embedding','embedded')}} {{KNOWL('cmf.newform','newforms')}}); this includes the L-functions of all {{KNOWL('rcs.cande.cmf','newforms in the database')}}  that have {{KNOWL('cmf.weight', 'weight')}} $k\le 200$  ({{KNOWL('lfunction.motivic_weight','motivic weight')}} $w=k-1\le 199$), including $152\,268$ {{KNOWL('artin.lfunction','Artin L-functions')}} corresponding to weight $1$ newforms ($6470$ of the corresponding {{KNOWL('artin','Artin representations')}} are in the database).
+* $1\,741\,002$ L-functions of {{KNOWL('ec','elliptic curves')}} over $\Q$ corresponding to the $1\,741\,002$ {{KNOWL('ec.isogeny_class','isogeny classes')}} of {{KNOWL('ec.q.conductor','conductor')}} $N\le 400\,000$; of these, $38\,042$ have conductor $N\le 10\,000$ and correspond to L-functions of newforms in the database (those of {{KNOWL('cmf.weight','weight')}} $2$, trivial {{KNOWL('cmf.character','character')}}, and {{KNOWL('cmf.dimension','dimension')}} $1$).
+* $15\,659$ dynamically computed L-functions of $\GL(2)$ {{KNOWL('mf.maass.mwf','Maass forms')}}.
+* $4296$ dynamically computed {{KNOWL('lfunction.history.dedekind','Dedekind zeta-functions')}} of the quadratic fields with {{KNOWL('nf.abs_discriminant', 'absolute discriminant')}} $|D|\le 7071$ are available.
+* $55\,810$ Artin L-functions arising from $2$-dimensional Artin representations of conductor $N\le 27\,000\,000$, of which all but $6470$ are dynamically computed.
+
+**{{KNOWL('lfunction.known_degree3','Degree 3')}}**
+
+* $1552$ L-functions of $\GL(3)$ Maass forms.
+* $51$ dynamically computed Dedekind zeta functions of the cubic fields with absolute discriminant $|D|\le 368$.
+* $7925$ dynamically computed Artin L-functions arising from $3$-dimensional Artin representations of conductor $N\le 90\,000$ are available.
+
+**{{KNOWL('lfunction.known_degree4','Degree 4')}}**
+
+* $41\,653$ {{KNOWL('lfunction.primitive','imprimitive')}} {{KNOWL('lfunction.rational','rational')}} L-functions corresponding to (Galois orbits of) newforms of dimension $2$.
+* $253\,190$ L-functions of elliptic curve isogeny classes over quadratic fields (all but $9$ isogeny classes of elliptic curves over quadratic fields in the database).
+* $66\,684$ L-functions of {{KNOWL('mf.hilbert','Hilbert modular forms')}} of {{KNOWL('mf.hilbert.dimension','dimension')}} $1$ over real quadratic fields (each is also the L-function of an isogeny class of elliptic curves over a quadratic field).
+* $2913$ dynamically computed L-functions of Hilbert modular forms of dimension $d>1$ over real quadratic fields.
+* $185\,541$ L-functions of {{KNOWL('mf.bianchi.newform','Bianchi newforms')}} of dimension $1$ over imaginary quadratic fields (all but the $40$ that do not correspond to elliptic curves).
+* $65\,534$ L-functions of {{KNOWL('g2c.isogeny_class','isogeny classes')}} of genus $2$ curves over $\Q$ (some of which also arise as L-functions of classical/Hilbert/Bianchi newforms, elliptic curves over quadratic fields, or products of L-functions of elliptic curves over $\Q$).
+* $35$ dynamically computed Artin L-functions arising from $4$-dimensional Artin representations of conductor $N\le 5196$ are available.
+
+**{{KNOWL('','Degrees 5 to 40')}}**
+
+* $115\,645$ imprimitive rational L-functions corresponding to newforms of dimensions $3$ to $20$ and weight $k\le 200$ (there are at least $2000$ in each even degree from $6$ to $40$).
+
+\end{definition}
+
+

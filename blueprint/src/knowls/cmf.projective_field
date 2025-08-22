@@ -1,0 +1,9 @@
+\subsection{Projective field}
+\begin{definition}\label{cmf.projective_field}
+\uses{cmf.galois_representation,cmf.newform,cmf.weight,nf,nf.sibling}
+The **projective field** of a {{KNOWL('cmf.weight', 'weight')}} one {{KNOWL('cmf.newform', 'newform')}} is the {{KNOWL('nf', 'number field')}} fixed by the kernel of its associated {{KNOWL('cmf.galois_representation', 'projective Galois representation')}} $\bar\rho\colon \Gal(\overline\Q/\Q)\to \PGL_2(\C)$.
+
+This number field is typically identified as the Galois closure of a {{KNOWL('nf.sibling', 'sibling subfield')}} with minimal degree and absolute discriminant.
+\end{definition}
+
+

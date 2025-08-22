@@ -1,0 +1,7 @@
+\subsection{Number of Galois orbits}
+\begin{definition}\label{belyi.num_orbits}
+\uses{belyi.passport}
+A {{KNOWL("belyi.passport", "passport")}} decomposes as a disjoint union of $k$ Galois orbits. We denote the number $k$ by **number of Galois orbits**.
+\end{definition}
+
+

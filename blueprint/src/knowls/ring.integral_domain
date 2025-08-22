@@ -1,0 +1,7 @@
+\subsection{Integral domain}
+\begin{definition}\label{ring.integral_domain}
+\uses{ring,ring.zero_divisor}
+An **integral domain** is a {{KNOWL('ring', 'commutative ring')}} $R$ such that $1_R\neq 0_R$ and $R$ contains no {{KNOWL('ring.zero_divisor', 'zero divisors')}}.
+\end{definition}
+
+

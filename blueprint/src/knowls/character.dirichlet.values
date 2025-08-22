@@ -1,0 +1,7 @@
+\subsection{Values of a Dirichlet character}
+\begin{definition}\label{character.dirichlet.values}
+\uses{character.dirichlet,character.dirichlet.modulus}
+Complete information about a {{KNOWL('character.dirichlet', 'Dirichlet character')}} $\chi\colon \Z\to\C$ of {{KNOWL('character.dirichlet.modulus', 'modulus')}} $q > 1 $ is contained in the list of values $(\chi(1)=1,\ \chi(2),\ \chi(3),\ \dots,\ \chi(q-1),\  \chi(q)=0)$, each of which is a root of unity $e(r) := \exp({2 \pi i r}$), for some rational number $r$. 
+\end{definition}
+
+

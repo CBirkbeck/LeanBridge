@@ -1,0 +1,29 @@
+\subsection{Reliability of rigorous Maass forms data}
+\begin{definition}\label{rcs.rigor.maass_rigor}
+\uses{mf.maass.mwf.fourierexpansion,mf.maass.mwf.spectralparameter}
+Maass form data, in the LMFDB and elsewhere, is inherently approximate.  The data
+are decimal approximations to numbers which (in general) are conjectured to be
+transcendental and not expressible in terms of well-known constants.
+
+In the LMFDB, each rigorous Maass form is *proven* to be an accurate approximation to a true Maass form. Further, rigorous Maass forms are *proven* to be consecutive, i.e. there are no "missing" Maass forms with eigenvalues between known rigorous Maass forms.
+
+Ranges of Maass forms
+---------------------
+
+The database contains data for the Maass forms on a group with a range of eigenvalues.  For example, the Maass forms on $\Gamma_0(5)$ and trivial character, for $0<R<10$.
+
+There are two implicit claims in the above sentence:  that each entry in the database corresponds to an actual Maass form, and that no eigenvalues are missing. Each eigenvalue of a rigorous Maass forms in the LMFDB is first approximated using an explicit form of Selberg's trace formula, and later improved using a refined form of Hejhal's algorithm. Numerical difficulties with the trace formula forms one major obstruction to extending ranges of consecutive eigenvalues rigorously.
+
+An individual Maass form
+------------------------
+
+A Maass form $f(z)$ on a group $G$ is specified by a {{KNOWL('mf.maass.mwf.spectralparameter','spectral parameter')}} $R$ and coefficients (Hecke eigenvalues) $a_1=1$, $a_2$, $a_3$, ..., appearing in its
+{{ KNOWL("mf.maass.mwf.fourierexpansion", "Fourier expansion")}}.  The parameter $R$ and the coefficients $a_n$ are found by using the transformation properties of $f(z)$ under the group $G$ to form a system of equations.
+
+The decimal numbers listed for the spectral parameter $R$ and the coefficients $a_n$ are 
+*proven* to be close to spectral parameter and coefficients of an *actual* Maass form. (Note that error intervals may be displayed on the website after truncation; be careful when considering less significant digits).
+
+In practice, it is much easier to *heuristically* refine a given Maass form using a *heuristic* form of Hejhal's algorithm.
+\end{definition}
+
+

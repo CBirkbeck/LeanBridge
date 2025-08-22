@@ -1,0 +1,7 @@
+\subsection{Base ring characteristic}
+\begin{definition}\label{modlgal.base_ring_characteristic}
+\uses{modlgal,modlgal.codomain,ring.characteristic}
+The **base ring characteristic** of a {{ KNOWL('modlgal', 'mod-$\ell$ Galois representation') }} is the {{KNOWL('ring.characteristic', 'characteristic')}} of the base ring of its {{KNOWL('modlgal.codomain', 'codomain')}}.
+\end{definition}
+
+

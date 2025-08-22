@@ -1,0 +1,8 @@
+\subsection{Totally imaginary}
+\begin{definition}\label{nf.totally_imaginary}
+\uses{nf}
+A {{KNOWL('nf', "number field")}} $K$ is **totally imaginary** (or **totally complex**) if it cannot be embedded in the real numbers $\R$; equivalently, $\R$ does not contain the image of any of the homomorphisms from $K$ to $\C$.
+
+\end{definition}
+
+

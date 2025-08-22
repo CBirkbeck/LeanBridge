@@ -1,0 +1,7 @@
+\subsection{Modular degree of an elliptic curve over $\mathbb Q$}
+\begin{definition}\label{ec.q.modular_degree}
+\uses{ec,ec.q.modular_parametrization}
+The **modular degree** of an {{KNOWL("ec", "elliptic curve")}} over $\Q$ is the minimum degree of a {{ KNOWL('ec.q.modular_parametrization', "modular parametrization") }} of the curve. 
+\end{definition}
+
+

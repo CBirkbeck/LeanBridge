@@ -1,0 +1,7 @@
+\subsection{Dimension of a Hecke orbit}
+\begin{definition}\label{cmf.dimension_galois_orbit}
+\uses{cmf.hecke_orbit}
+The dimension of an (irreducible) {{KNOWL('cmf.hecke_orbit')}} of a newform $f$.
+\end{definition}
+
+

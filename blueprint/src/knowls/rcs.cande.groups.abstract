@@ -1,0 +1,29 @@
+\subsection{Completeness and extent of abstract group data}
+\begin{definition}\label{rcs.cande.groups.abstract}
+\uses{}
+The database of finite groups consists of groups, subgroups, characters and conjugacy classes.  The set of groups included contains:
+
+* All groups of order up to 2000, except those whose order is larger than 500 and divisible by 128,
+
+* All groups with a faithful transitive permutation representation of degree up to 47, except those of degree 32 and order between 512 and $4 \times 10^{10}$,
+
+* All groups with a faithful permutation representation of degree up to 15,
+
+* All groups with a rational matrix representation of dimension up to 6,
+
+* Finite groups of Lie type up to certain bounds,
+
+* Chevalley groups $E(6,2)$, $E(7,2)$, $F(4,2)$, $G(2,2)$, $G(2,3)$, $G(2,5)$, ${}^2B(2,2)$, ${}^2B(2,8)$, ${}^2B(2,32)$, ${}^3D(4,2)$, ${}^2E(6,2)$, ${}^2F(4,2)$, ${}^2F(4,2)'$, ${}^2G(2,3)$, ${}^2G(2,27)$,
+
+* Subgroups of $\GL(2,\Z/N)$ for $N$ up to 124, except for $N=80,96,104,112, 120$
+
+* Subgroups of $\GL(2,\mathbb{F}_q)$ for $q$ up to 1000 (except $\mathbb{F}_{512}$), subgroups of $\GL(3, \mathbb{F}_q)$ for $q$ up to 13, subgroups of $\GL(4, \mathbb{F}_q)$ for $q$ up to 5, subgroups of $\GL(5,2)$,
+
+* Perfect groups of order up to 50,000,
+
+* Sporadic simple groups of order up to $10^{15}$, except $ON$ and $Suz$.
+
+For each group, the lattice of subgroups, complex and rational character tables, representatives for the conjugacy classes, automorphism and outer automorphism group, rank, Schur multiplier and various other quantities were computed, subject to limits on time, memory and errors arising in Magma.  For space reasons, complex and rational character tables are never stored if larger than $511 \times 511$, and subgroups are only computed up to automorphism if there are more than 128 conjugacy classes of subgroups.  For time reasons, there are some large groups where subgroups are only computed up to conjugacy and not up to automorphism.  All normal subgroups are computed when possible, except that normal subgroups of size roughly the square root of the group order are omitted when there are more than 4096 normal subgroups.
+\end{definition}
+
+

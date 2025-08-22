@@ -1,0 +1,9 @@
+\subsection{Gassmann class}
+\begin{definition}\label{modcurve.gassmann_class}
+\uses{ag.jacobian,av.isogeny,gl2.open,group.gassmann_equivalence,modcurve.genus,modcurve.index,modcurve.level}
+For an {{KNOWL('gl2.open', 'open subgroup')}} $H \leq \GL_2(\widehat \Z)$, the **Gassmann class** of $H$ is the set of open subgroups of $\GL_2(\widehat \Z)$ that are {{KNOWL('group.gassmann_equivalence','Gassmann equivalent')}} to $H$.
+
+Let $H,H' \leq \GL_2(\widehat \Z)$ be in the same Gassmann class.  Then $H,H'$ have the same {{KNOWL('modcurve.level','level')}}, {{KNOWL('modcurve.index', 'index')}} and {{KNOWL('modcurve.genus', 'genus')}}.  Moreover, the {{KNOWL('ag.jacobian', 'Jacobians')}} of $X_H$ and $X_{H'}$ are {{KNOWL('av.isogeny', 'isogenous')}} (see Corollary 4 of Prasad-Rajan \cite{doi:10.1016/S0022-314X(02)00053-7}, applied to the covering curve $X_{\mathrm{full}}(N)$), hence $L(X_H,s)=L(X_{H'},s)$.
+\end{definition}
+
+

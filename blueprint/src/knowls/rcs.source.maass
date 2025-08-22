@@ -1,0 +1,10 @@
+\subsection{Source of Maass forms data}
+\begin{definition}\label{rcs.source.maass}
+\uses{}
+The database of Maass forms was computed by Fredrik Stroemberg,
+Stefan Lemurell, Holger Then, and David Farmer.  The algorithms are based on ideas of Stark \cite{MR0803370}
+and Hejhal \cite{MR1106989}.  Details can be found in \cite{MR2429890}, \cite{MR2895234},
+\cite{MR2164106}, and \cite{arXiv:math/0506102}.
+\end{definition}
+
+

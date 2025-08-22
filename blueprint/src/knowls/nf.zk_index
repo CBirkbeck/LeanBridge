@@ -1,0 +1,9 @@
+\subsection{Index of a number field}
+\begin{definition}\label{nf.zk_index}
+\uses{nf,nf.index,nf.order,nf.ring_of_integers}
+If $K$ is a {{KNOWL('nf', 'number field')}} with {{KNOWL('nf.ring_of_integers', 'ring of integers')}} $\mathcal{O}_K$, then for all $\alpha\in\mathcal{O}_K$ such that $K=\Q(\alpha)$, the index of $\alpha$, $i(\alpha)$ is the {{KNOWL('nf.index', 'index')}} of the {{KNOWL('nf.order', 'order')}} $\Z[\alpha]$.
+
+The **index of the number field** is the greatest common divisor of all $i(\alpha)$ with $\alpha$ as above.
+\end{definition}
+
+

@@ -1,0 +1,15 @@
+\subsection{Tate module of an elliptic curve}
+\begin{definition}\label{ec.padic_tate_module}
+\uses{av.tate_module,ec.endomorphism,ec.galois_rep,group.galois.absolute}
+Let $p \in \mathbb{Z}_{\geq 0}$ be a prime and $E$ an elliptic curve defined over a field $K$. The **$p$-adic Tate module** of $E$ is the inverse limit
+\[
+T_p(E) = \lim_{\xleftarrow[n \in \mathbb{N}]{}} E[p^n].
+\]
+Here for $m\in\mathbb{Z}_{\geq 0}$, $E[m]$ denotes the $m$-torsion subgroup of $E$, which is the kernel of the multiplication-by-$m$ {{ KNOWL('ec.endomorphism', 'endomorphism') }} of $E$.
+
+If $K$ has characteristic not equal to $p$, then $T_p(E)$ is a free $\Z_p$-module of rank $2$. It carries an action of the {{ KNOWL('group.galois.absolute', 'absolute Galois group')}} of $K$, and thus has an associated {{ KNOWL('ec.galois_rep', 'Galois representation') }}.
+
+This is a special case of the {{ KNOWL('av.tate_module') }}.
+\end{definition}
+
+

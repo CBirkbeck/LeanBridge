@@ -1,0 +1,13 @@
+\subsection{Unitary symplectic group}
+\begin{definition}\label{st_group.usp}
+\uses{st_group.symplectic_form}
+For a positive even integer $d$ the **unitary symplectic group** $\mathrm{USp}(d)$ is 
+the group of unitary transformations of a $d$-dimensional $\C$-vector space equipped with a {{KNOWL('st_group.symplectic_form', 'symplectic form')}} $\Omega$.  In other words, the subgroup of $\GL_d(\mathbb C)$ whose elements $A$ satisfy:
+
+- $A^{-1} = \bar A^{\intercal}$ (unitary);
+- $A^\intercal \Omega A=\Omega$ (symplectic).
+
+It is a compact real Lie group that can also be viewed as the intersection of $\mathrm{U}(d)$ and $\mathrm{Sp}(d,\C)$ in $\GL_d(\C)$.
+\end{definition}
+
+

@@ -1,0 +1,7 @@
+\subsection{$X_0(\mathfrak{N})_{\mathfrak{b}}$}
+\begin{definition}\label{hmsurface.x0}
+\uses{hmsurface.hmsurface,hmsurface.polarization_module}
+$X_0(\mathfrak{N})_{\mathfrak{b}}$ is the {{ KNOWL('hmsurface.hmsurface','Hilbert modular surface') }} $X(\Gamma)$ for $\Gamma = \Gamma_0(\mathfrak{N})_{\mathfrak{b}} \le \GL^+(\Z_F \oplus \frak{b})$ the inverse image of $\begin{pmatrix} \ast & \ast \\ 0 & \ast \end{pmatrix} \subset \GL((\Z_F/\frak{N}) \oplus (\frak{b} / \frak{N} \frak{b}))$. As a moduli space it parameterizes triples $(A, \iota, \phi)$, where $A$ is an abelian surface over $\Q$ whose {{ KNOWL('hmsurface.polarization_module', 'polarization module') }} is isomorphic to $(\frak{d}_F \frak{b})^{-1}$ where $\frak{d}_F$ is the different of $F$, $\iota : \Z_F \to \End(A_{\overline{\Q}})$ is an embedding and $\phi : A \to A'$ is a rational isogeny with kernel isomorphic to $\Z_F / \frak{N}$, compatible with $\iota$.
+\end{definition}
+
+

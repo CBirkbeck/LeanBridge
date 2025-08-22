@@ -1,0 +1,16 @@
+\subsection{Sato-Tate group labels}
+\begin{definition}\label{st_group.label}
+\uses{st_group.component_group,st_group.components,st_group.definition,st_group.degree,st_group.identity_component,st_group.moment_simplex,st_group.weight}
+In general {{KNOWL('st_group.definition', 'Sato-Tate group')}} labels have the form $w.d.A.c.ns$, where
+
+* $w$ is the {{KNOWL('st_group.weight', "weight")}} (nonnegative integer);
+* $d$ is the {{KNOWL('st_group.degree', "degree")}} (positive integer, even if $w$ is odd);
+* $A$ is an uppercase letter that identifies the {{KNOWL('st_group.identity_component', "identity component")}} among those of weight $w$ and degree $d$ (ordered by {{KNOWL('st_group.moment_simplex', 'moment simplex')}});
+* $c$ is the number of {{KNOWL('st_group.components', "components")}} (positive integer);
+* $n$ is the second digit of the GAP id $[c,n]$ of the {{KNOWL('st_group.component_group', "component group")}} (positive integer);
+* $s$ is a lowercase letter used to distinguish groups for which all the preceding invariants coincide (ordered by moment simplex).
+
+When $w=0$ we the identity component is necessarily trivial and the $A$ is omitted.  When $w=0$ and $d=1$ there is exactly one Sato-Tate group for each value of $c$ and we may omit $n$ and $s$.
+\end{definition}
+
+

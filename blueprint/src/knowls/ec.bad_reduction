@@ -1,0 +1,14 @@
+\subsection{Bad reduction of an elliptic curve at a prime}
+\begin{definition}\label{ec.bad_reduction}
+\uses{ec,ec.additive_reduction,ec.discriminant,ec.nonsplit_multiplicative_reduction,ec.split_multiplicative_reduction,nf,nf.prime}
+An {{ KNOWL('ec', 'elliptic curve') }} \(E\) defined over a {{ KNOWL('nf', 'number field') }} \(K\) is said to have **bad reduction** at a {{KNOWL('nf.prime', 'prime')}} \(\mathfrak{p}\) of \(K\) if the reduction of \(E\) modulo \(\mathfrak{p}\) is singular.
+There are three types of bad reduction:
+
+ - {{ KNOWL('ec.split_multiplicative_reduction', 'split multiplicative') }},
+ - {{ KNOWL('ec.nonsplit_multiplicative_reduction', 'non-split multiplicative') }},
+ - {{ KNOWL('ec.additive_reduction', 'additive') }}.
+
+A curve has bad reduction at \(\mathfrak{p}\) if and only if \(\mathfrak{p}\) divides its {{KNOWL('ec.discriminant', 'discriminant')}}.
+\end{definition}
+
+

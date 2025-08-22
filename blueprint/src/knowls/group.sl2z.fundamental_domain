@@ -1,0 +1,12 @@
+\subsection{Fundamental domain of $\SL(2,\Z)$}
+\begin{definition}\label{group.sl2z.fundamental_domain}
+\uses{group.fuchsian.fundamental_domain}
+Let $\mathfrak{F}$ be the following set:
+\[
+\mathfrak{F}=\{z\in\mathcal{H} : |z|\geq1 \text{ and 
+} |\Re(z)|\leq1/2\}\cup\{\infty\}.
+\]
+Then $\mathfrak{F}$ is a {{KNOWL('group.fuchsian.fundamental_domain', "fundamental domain")}} for the action of $\Gamma$ on $\mathcal{H}$.
+\end{definition}
+
+

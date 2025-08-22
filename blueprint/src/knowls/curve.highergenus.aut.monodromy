@@ -1,0 +1,16 @@
+\subsection{Monodromy Group}
+\begin{definition}\label{curve.highergenus.aut.monodromy}
+\uses{ag.riemann_surface,curve.highergenus.aut.branchpoints}
+Let $G$ be a group of automorphisms acting on a compact {{KNOWL('ag.riemann_surface', "Riemann surface")}} $X$ of genus $g\ge 2$, let $\phi$ be the natural projection from $X$ to the quotient $Y:=X/G$, let $\mathcal B=\{y_1,\ldots,y_r\}$ be the {{KNOWL('curve.highergenus.aut.branchpoints', "branch points")}} of $\phi$, and let us fix a base point $y_0 \in Y-\mathcal{B}$. The fiber $\phi^{-1}(y_0)$ consists of $d:=|G|$ points, say
+$\phi^{-1}(y_0)=:\{x_1, \ldots, x_d\} \subset X$.
+
+Consider an element $\gamma$ of the fundamental group $\pi_1(Y-\mathcal{B},y_0)$ (homotopy classes of loops in $Y-\mathcal{B}$ with base point $y_0$).
+For each $x_i\in \phi^{-1}(y_0),$ the loop $\gamma$ lifts to a path in $X$  which starts at $x_i$ and ends at some $x_j \in \phi^{-1}(y_0)$ uniquely determined by $\gamma$.
+This defines a permutation $\sigma_\gamma$ of the set $\{x_1,\ldots,x_d\}$ corresponding to a transitive right action of $\pi_1(Y-\mathcal{B},y_0)$, and the map $\gamma\mapsto \sigma_\gamma$ defines a group homomorphism $\rho\colon\pi_1(Y-\mathcal{B},y_0) \to S_d$.
+
+The image of $\rho$ is the **(geometric) monodromy group** of $G$; it is a transitive permutation group of degree $d$ and does not depend on the choice of the base point $y_0$.
+
+
+\end{definition}
+
+

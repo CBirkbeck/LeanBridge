@@ -1,0 +1,11 @@
+\subsection{Labels of Bianchi modular forms}
+\begin{definition}\label{mf.bianchi.labels}
+\uses{nf.ideal_labels,nf.label}
+The label of a Bianchi newform has the form _field_-_level_-_suffix_.  
+Here _field_ is the base number field $K$, and is denoted by its {{ KNOWL('nf.label', 'standard label')}}; _level_ is an integral ideal of $K$, denoted by its {{ KNOWL('nf.ideal_labels', 'standard label')}}; and  _suffix_ is a sequence of one or more letters representing the index of the form in a sorted list of newforms of the same level.  Forms at the same level are sorted first by dimension, then by lexicographical order of the Fourier coefficients, which are themselves sorted according to the standard ordering of integral ideals.
+
+For example, the Bianchi newform with label _2.0.4.1-61650.6-a_ has base field $\mathbb{Q}(\sqrt{-1})$ (with label 2.0.4.1), level $(219-117i)$ (with norm 61650 and label 61650.6) and suffix $a$ (being the first of three newforms of dimension $1$ at that level).
+
+\end{definition}
+
+

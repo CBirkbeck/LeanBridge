@@ -1,0 +1,9 @@
+\subsection{Geometric automorphism group}
+\begin{definition}\label{g2c.geom_aut_grp}
+\uses{ag.base_change,g2c.aut_grp,nf.algebraic_closure}
+The **geometric automorphism group** of a curve is the {{KNOWL("g2c.aut_grp", "automorphism group")}} of its {{ KNOWL('ag.base_change', 'base change') }} to the {{ KNOWL('nf.algebraic_closure', 'algebraic closure') }} of its base field.
+
+If $X$ is a curve over a field $k$, its geometric automorphism group is denoted $\mathrm{Aut}(X_{\bar{k}})$.
+\end{definition}
+
+

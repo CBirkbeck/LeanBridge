@@ -1,0 +1,7 @@
+\subsection{Elliptic scheme}
+\begin{definition}\label{ec.scheme}
+\uses{}
+An **elliptic scheme** over a scheme $S$ is a smooth proper morphism $E \to S$ whose fibers are elliptic curves.
+\end{definition}
+
+

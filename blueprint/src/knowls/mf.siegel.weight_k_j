@@ -1,0 +1,12 @@
+\subsection{Weight}
+\begin{definition}\label{mf.siegel.weight_k_j}
+\uses{mf.siegel,mf.siegel.degree,mf.siegel.halfspace}
+The **weight** of a {{KNOWL('mf.siegel', 'Siegel modular form')}} $f$ of {{KNOWL('mf.siegel.degree', 'degree')}} 2 is the pair of non-negative integers
+that occurs in the modular transformation property of $f$ under the action of $\gamma = \left( \begin{array}{ll}  a & b \\ c & d \end{array}\right)$ on the {{KNOWL("mf.siegel.halfspace", "Siegel upper half space $\mathcal{H}_2$")}}.  That is, the weight is the numbers $(k,j)$ in the transformation law
+$$
+f\left( (a \tau + b)(c \tau + d)^{-1} \right) = \det(c \tau + d)^k {\rm Sym}^j(c \tau + d) f(\tau) .
+$$
+
+\end{definition}
+
+

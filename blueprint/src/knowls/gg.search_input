@@ -1,0 +1,9 @@
+\subsection{Find a Galois group}
+\begin{definition}\label{gg.search_input}
+\uses{gg.galois_group,gg.label,nf.galois_group.name}
+To find a specific {{KNOWL('gg.galois_group', 'Galois group')}}, enter its {{KNOWL('gg.label','label')}}.
+
+You can also enter a {{KNOWL('nf.galois_group.name', 'group name')}} like S4 or D6, or a GAP identifier like [24,12] or [12,4].
+\end{definition}
+
+

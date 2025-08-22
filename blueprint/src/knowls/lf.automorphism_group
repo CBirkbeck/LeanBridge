@@ -1,0 +1,10 @@
+\subsection{Automorphism group of a field extension}
+\begin{definition}\label{lf.automorphism_group}
+\uses{nf.is_galois,ring.field}
+If $K/F$ is an extension of {{KNOWL('ring.field', 'fields')}}, its **automorphism group** is
+$$ \textrm{Aut}(K/F) = \{\sigma:K\to K\mid  \forall a\in F, \sigma(a)=a, \text{ and } \sigma \text{ is an isomorphism}\}.$$
+Note, a finite extension is {{KNOWL('nf.is_galois', 'Galois')}} if and only if $|\textrm{Aut}(K/F)| = [K:F]$.
+
+\end{definition}
+
+

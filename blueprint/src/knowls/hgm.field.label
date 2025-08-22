@@ -1,0 +1,7 @@
+\subsection{Label of a hypergeometric motive}
+\begin{definition}\label{hgm.field.label}
+\uses{hgm.familes,hgm.motive}
+{{ KNOWL('hgm.motive', 'Hypergeometric motives') }} $H(A,B,t) \in M(\Q,\Q)$ are labeled following the pattern of $H([3,3],[2,2,4],-1/3)$ having label A3.3_B2.2.4_t-1.3  and the corresponding {{ KNOWL('hgm.familes', 'family') }} having label A3.3_B2.2.4 .
+\end{definition}
+
+

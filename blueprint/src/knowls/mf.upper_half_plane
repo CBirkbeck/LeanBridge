@@ -1,0 +1,15 @@
+\subsection{Upper half-plane}
+\begin{definition}\label{mf.upper_half_plane}
+\uses{group.sl2z}
+The **upper half-plane** $\mathcal{H}$ is the set of complex numbers whose imaginary part is positive, endowed with the topology induced from $\C$.
+
+The **completed upper** half-plane $\mathcal{H}^*$ is
+\[ \mathcal{H} \cup \Q \cup \{ \infty\},\]
+endowed with the topology such that the disks tangent to the real line at $r \in \Q$ form a fundamental system of neighbourhoods of $r$, and strips $\{ z \in \mathcal{H} \mid \operatorname{Im} z > y \} \cup \{ \infty\}$, $y>0$, form a fundamental system of neighbourhoods of $\infty$, which should therefore be thought of as $i \infty$.
+
+The {{KNOWL("group.sl2z", "modular group")}} $\SL_2(\Z)$ acts properly discontinuously on $\mathcal{H}$ and $\mathcal{H}^*$ by the formula
+\[ \left( \begin{matrix} a & b \\ c& d \end{matrix} \right) \cdot z = \frac{az+b}{cz+d}, \]
+with the obvious conventions regarding $\infty$.
+\end{definition}
+
+

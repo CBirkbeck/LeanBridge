@@ -1,0 +1,13 @@
+\subsection{Degree 2 L-functions, examples}
+\begin{definition}\label{lfunction.known_degree2}
+\uses{cmf.newform,ec.q,lfunction,lfunction.degree,mf.sl2.subgroup.gamma0n}
+Examples of primitive {{ KNOWL("lfunction.degree", "degree")}} 2 {{ KNOWL("lfunction", "L-functions")}} are:
+
+- $L(s, f)$: the L-function of a holomorphic {{ KNOWL("cmf.newform", "newform")}} in $S_k(\Gamma_0(N))$
+
+- $L(s, f)$: the L-function of a Maass cusp form on  {{ KNOWL("mf.sl2.subgroup.gamma0n", "$\Gamma_0(N)$")}} 
+
+- $L(s, E)$: the L-function of an {{ KNOWL("ec.q", "elliptic curve $E$ over $\mathbb{Q}$")}}
+\end{definition}
+
+

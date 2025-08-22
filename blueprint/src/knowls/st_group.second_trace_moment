@@ -1,0 +1,9 @@
+\subsection{Second trace moment}
+\begin{definition}\label{st_group.second_trace_moment}
+\uses{ag.endomorphism_algebra,group.haar_measure,st_group.definition}
+The **second trace moment** of a {{KNOWL('st_group.definition', 'Sato-Tate group')}} $G$ is the expected value of the square of the trace of a random element of $G$ (under its {{KNOWL('group.haar_measure', 'Haar measure')}}).
+
+When $G$ is the Sato-Tate group of an abelian variety, this is equal to the dimension of its {{KNOWL('ag.endomorphism_algebra', 'endomorphism algebra')}} \cite{arxiv:1910.00518,mr:4038255}.
+\end{definition}
+
+

@@ -1,0 +1,7 @@
+\subsection{Non-split multiplicative reduction}
+\begin{definition}\label{ec.nonsplit_multiplicative_reduction}
+\uses{ec,nf}
+An {{ KNOWL('ec', 'elliptic curve') }} \(E\) defined over a {{ KNOWL('nf', 'number field') }} \(K\) is said to have **non-split multiplicative reduction** at a prime \(\mathfrak{p}\) of \(K\) if the reduction of \(E\) modulo \(\mathfrak{p}\) has a nodal singularity with tangent slopes _not_ defined over the residue field at \(\mathfrak{p}\).
+\end{definition}
+
+

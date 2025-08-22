@@ -1,0 +1,15 @@
+\subsection{Atkin-Lehner involution $w_Q$}
+\begin{definition}\label{cmf.atkin-lehner}
+\uses{ag.modcurve.x0,cmf.cusp_form,cmf.fricke,cmf.hecke_operator,cmf.weight,group.sl2z.subgroup.gamma0n}
+Let $N$ be a positive integer, and let $Q$ be a positive divisor of $N$ satisfying $\gcd(Q,N/Q)=1$.  Then there exist $x,y,z,t \in \Z$ for which the matrix
+\[ W_Q=\left( \begin{matrix} Qx & y \\ Nz & Qt\end{matrix} \right) \]
+has determinant $Q$. The matrix $W_Q$ normalizes the group {{KNOWL('group.sl2z.subgroup.gamma0n','$\Gamma_0(N)$')}}, and for any {{KNOWL('cmf.weight', 'weight')}} $k$ it induces a linear operator $w_Q$ on the space of {{KNOWL('cmf.cusp_form', 'cusp forms')}}  $S_k(\Gamma_0(N))$ that commutes with the {{KNOWL('cmf.hecke_operator', "Hecke operators")}} $T_p$ for all $p \nmid Q$ and acts as its own inverse.
+
+The linear operator $w_Q$ does not depend on the choice of $x,y,z,t$ and is called the **Atkin-Lehner involution** of $S_k(\Gamma_0(N))$.  Any cusp form $f$ in $S_k(\Gamma_0(N))$ which is an eigenform for all $T_p$ with $p \nmid N$ is also an eigenform for $w_Q$, with eigenvalue $\pm 1$.
+
+The matrix $W_Q$ induces an automorphism of the {{KNOWL("ag.modcurve.x0", "modular curve $X_0(N)$")}} that is also denoted $w_Q$.
+
+In the case $Q=N$, the Atkin-Lehner involution $w_N$ is also called the {{KNOWL("cmf.fricke", "Fricke involution")}}.
+\end{definition}
+
+

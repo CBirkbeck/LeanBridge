@@ -1,0 +1,7 @@
+\subsection{Degree of a point on a modular curve}
+\begin{definition}\label{modcurve.point_degree}
+\uses{}
+The degree of a point $x$ on a modular curve $X$ is the degree $[\mathbb Q(x): \mathbb Q]$.
+\end{definition}
+
+

@@ -1,0 +1,15 @@
+\subsection{Defining polynomial of a local field}
+\begin{definition}\label{lf.defining_polynomial}
+\uses{field.finite.conway_polynomial,lf.eisenstein_form,lf.eisenstein_polynomial,lf.padic_field,lf.ramification_index,lf.unramified_degree}
+The **defining polynomial** of a {{ KNOWL('lf.padic_field', "$p$-adic field") }} $K$ is an irreducible polynomial $f(x)\in\mathbb{Q}_p[x]$ such that $K\cong \mathbb{Q}_p(a)$, where $a$ is a root of $f(x)$.
+
+The defining polynomial can be chosen to be monic with coefficients in $\mathbb{Z}_p$; by Krasner's lemma, we can further take $f(x)\in \mathbb{Z}[x]$.
+
+The LMFDB uses the following conventions for choosing defining polynomials:
+
+ 1. For {{KNOWL('lf.unramified_degree', 'unramified')}} extensions, the polynomial needs to be irreducible modulo $p$.  When it is feasible to compute, we use the {{KNOWL('field.finite.conway_polynomial', 'Conway polynomial')}} for the residue prime $p$ and the given degree.
+ 2. For {{KNOWL('lf.ramification_index','totally ramified')}} extensions, we pick an {{KNOWL('lf.eisenstein_polynomial', 'Eisenstein')}} polynomial which is reduced in the sense of Monge.
+ 3. In the remaining cases, we pick a polynomial which is in {{KNOWL('lf.eisenstein_form', 'Eisenstein form')}}. 
+\end{definition}
+
+

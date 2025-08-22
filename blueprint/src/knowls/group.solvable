@@ -1,0 +1,9 @@
+\subsection{Solvable group}
+\begin{definition}\label{group.solvable}
+\uses{group,group.abelian,group.normal_series}
+A {{KNOWL('group', 'group')}} $G$ is **solvable** if there exists a chain of subgroups
+\[ \langle e\rangle =H_0\leq H_1 \leq H_2 \leq \cdots \leq H_n=G\]
+such that for all $i<n$, $H_i$ is a normal subgroup of $H_{i+1}$ (i.e., it is a {{KNOWL('group.normal_series','subnormal series')}}) and each quotient $H_{i+1}/H_i$ is {{KNOWL('group.abelian', 'abelian')}}.
+\end{definition}
+
+

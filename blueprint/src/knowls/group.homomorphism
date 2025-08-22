@@ -1,0 +1,9 @@
+\subsection{Group homomorphism}
+\begin{definition}\label{group.homomorphism}
+\uses{group}
+If $G$ and $H$ are {{KNOWL('group', 'groups')}}, then a **group homomorphism** from $G$ to $H$ is a function
+\[ f:G\to H\]
+such that for all $a,b\in G$, $f(a*b)=f(a)*f(b)$.
+\end{definition}
+
+

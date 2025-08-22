@@ -1,0 +1,8 @@
+\subsection{Source of Modular L-function Data}
+\begin{definition}\label{rcs.source.lfunction.modular}
+\uses{cmf.newform,mf.bianchi.newform,mf.hilbert}
+All L-functions of {{KNOWL('cmf.newform','classical')}}, {{KNOWL('mf.hilbert','Hilbert')}}, and {{KNOWL('mf.bianchi.newform','Bianchi')}} modular forms in the database were computed by Edgar Costa using source code provided by David Platt.
+
+\end{definition}
+
+

@@ -1,0 +1,12 @@
+\subsection{Divisor function}
+\begin{definition}\label{af.divisor_function}
+\uses{af,af.multiplicative}
+A **divisor function** is a {{KNOWL('af.multiplicative','multiplicative')}} {{KNOWL('af','arithmetic function')}} of the form
+\[
+\sigma_\tau(n)=\sum_{d\mid n}d^\tau,
+\]
+for some fixed $\tau\in\mathbb{C}$.
+
+\end{definition}
+
+

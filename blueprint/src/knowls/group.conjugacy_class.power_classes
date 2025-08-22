@@ -1,0 +1,7 @@
+\subsection{Power classes}
+\begin{definition}\label{group.conjugacy_class.power_classes}
+\uses{group,group.conjugacy_class}
+If $G$ is a {{KNOWL('group', 'group')}}, $g\in G$ is an element of a {{KNOWL('group.conjugacy_class', 'conjugacy class')}} $P$, and $n$ is a positive integer, then $nP$ denotes the conjugacy class of the element $g^n$.
+\end{definition}
+
+

@@ -1,0 +1,10 @@
+\subsection{Wild inertia group search}
+\begin{definition}\label{lf.wild_inertia_group_search}
+\uses{gg.label,group.small_group_label,lf.wild_inertia_group,nf.galois_group.name}
+{{KNOWL_INC('lf.wild_inertia_group')}}
+
+When searching by wild inertia groups, it can be specified as an abstract group by a {{KNOWL('group.small_group_label', 'GAP id')}}, a group name from {{KNOWL('gg.label', 'transitive group label')}}, or a {{KNOWL('nf.galois_group.name', 'list of group labels')}}.
+
+\end{definition}
+
+

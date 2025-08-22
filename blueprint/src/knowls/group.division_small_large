@@ -1,0 +1,9 @@
+\subsection{Small and large divisions of a group}
+\begin{definition}\label{group.division_small_large}
+\uses{group.division_maximal}
+A {{ KNOWL('group.division_maximal', 'maximal division') }} of a group is either **small** or **large** (and not both), according to the following process.
+
+Consider a division consisting of $n$ conjugacy classes, each of size $m$ with elements of order $r$.  If $n  \ge |G| / 2000$ and either $n \ge 20000$ or $n^2 \ge |G|$, then the division is considered large.  Otherwise, for divisions that don't meet these criteria, we compute the intersections down chains of maximal subgroups (i.e., with maximal subgroups, their maximal subgroups, etc.), greedily minimizing the intersection.  If we are able to decrease the size of the intersection below a threshold then we consider the division small; if the process terminates in a step where the remaining elements do not intersect nontrivially with any of the next steps in the subgroup tree, and we're still above the threshold, then we also consider the original division large.
+\end{definition}
+
+

@@ -1,0 +1,11 @@
+\subsection{Isomorphism of elliptic curves}
+\begin{definition}\label{ec.isomorphism}
+\uses{ec,ec.isogeny,ec.weierstrass_coeffs,ec.weierstrass_isomorphism}
+An **isomorphism** between two {{KNOWL("ec","elliptic curves")}} $E$, $E'$ defined over a field $K$ is an {{KNOWL("ec.isogeny", "isogeny")}} $f:E\to E'$ such that there exist an {{KNOWL("ec.isogeny", "isogeny")}} $g:E'\to E$ with the compositions $g\circ f$ and $f\circ g$ being the identity maps.  Equivalently, an isomorphism $E\to E'$ is an isogeny of degree $1$.
+
+Isomorphism is an equivalence relation, the equivalnce classes being called **isomorphism classes**.
+
+When $E$ and $E'$ are defined by {{ KNOWL('ec.weierstrass_coeffs', 'Weierstrass models') }}, such an isomorphism is uniquely represented as a {{ KNOWL('ec.weierstrass_isomorphism', 'Weierstrass isomorphism') }} between these models.
+\end{definition}
+
+

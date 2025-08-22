@@ -1,0 +1,7 @@
+\subsection{Minimal sibling of splitting field}
+\begin{definition}\label{modlgal.min_sib_splitting_field}
+\uses{modlgal,modlgal.splitting_field,nf.minimal_sibling}
+The **minimal sibling of the splitting field** of a {{ KNOWL('modlgal', 'mod-$\ell$ Galois representation') }} is the {{ KNOWL('nf.minimal_sibling', 'minimal sibling') }} of its {{ KNOWL('modlgal.splitting_field', 'splitting field') }}.
+\end{definition}
+
+

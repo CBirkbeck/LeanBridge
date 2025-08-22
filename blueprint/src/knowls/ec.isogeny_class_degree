@@ -1,0 +1,7 @@
+\subsection{Isogeny class degree}
+\begin{definition}\label{ec.isogeny_class_degree}
+\uses{ec,ec.isogeny,ec.isogeny_class}
+The **isogeny class degree** of an {{KNOWL('ec.isogeny_class','isogeny class')}} of {{KNOWL('ec','elliptic curves')}} is the least common multiple of the degrees of all rational cyclic {{KNOWL('ec.isogeny','isogenies')}} between elliptic curves in the isogeny class.
+\end{definition}
+
+

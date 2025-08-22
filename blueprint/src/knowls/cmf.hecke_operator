@@ -1,0 +1,18 @@
+\subsection{Hecke operator}
+\begin{definition}\label{cmf.hecke_operator}
+\uses{character.dirichlet,cmf,cmf.cusp_form,cmf.level,cmf.newform,cmf.newspace,cmf.petersson_scalar_product,cmf.q-expansion,cmf.weight}
+Let $f$ be a {{KNOWL('cmf', "modular form")}} of {{ KNOWL('cmf.weight', "weight") }} $k$, {{ KNOWL('cmf.level', "level") }} $N$, and {{ KNOWL('character.dirichlet', "character") }} $\chi$.
+
+For each positive integer $n$ the **Hecke operator** $T_n$ is a linear operator on the vector space $M_k(N,\chi)$ whose action on $f\in M_k(N,\chi)$ can be defined as follows. If  $f(z)=\sum a_n (f)q^n$ is the {{KNOWL('cmf.q-expansion', '$q$-expansion')}} of $f\in M_k(N,\chi)$, where $q=e^{2\pi i z}$, then the $q$-expansion of $T_nf\in M_k(N,\chi)$ has coefficients
+\[
+a_m(T_nf) := \sum_{d|\gcd(m,n)}\chi(d)d^{k-1}a_{mn/d^2}(f).
+\]
+The Hecke operators pairwise commute, and when restricted to the subspace $S_k(N,\chi)$ of {{KNOWL('cmf.cusp_form', 'cusp forms')}}, they commute with their adjoints with respect to the {{KNOWL('cmf.petersson_scalar_product', 'Petersson scalar product')}}.  This implies that $S_k(N,\chi)$ has a canonical basis whose elements are eigenforms for all the Hecke operators.  If we normalize such an eigenform $f(z)=\sum a_n q^n$ so that $a_1=1$, then for all $n\ge 1$ we have
+\[
+T_n f = a_nf.
+\]
+The {{KNOWL('cmf.newspace', 'newspace')}} $S_k^{\rm new}(N,\chi)\subseteq S_k(N,\chi)$ is invariant under the action of the Hecke operators, so the canonical basis of normalized eigenforms for $S_k(N,\chi)$ includes a basis of {{KNOWL('cmf.newform', 'newforms')}} for $S_k^{\rm new}(N,\chi)$.
+
+\end{definition}
+
+

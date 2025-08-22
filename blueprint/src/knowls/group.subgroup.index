@@ -1,0 +1,7 @@
+\subsection{Index of a subgroup}
+\begin{definition}\label{group.subgroup.index}
+\uses{group.coset}
+The **index** of a subgroup $G'$ of a group $G$, denoted $[G:G']$, is the order of the set of {{KNOWL('group.coset', 'left cosets')}} of $G'$ in $G$.
+\end{definition}
+
+

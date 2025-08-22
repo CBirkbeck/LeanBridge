@@ -1,0 +1,7 @@
+\subsection{Central quotient label}
+\begin{definition}\label{group.central_quotient_isolabel}
+\uses{group.central_quotient,group.label}
+You can specify the {{KNOWL('group.central_quotient', 'central quotient')}} of a group by providing its {{KNOWL('group.label', 'label')}} as an abstract group.
+\end{definition}
+
+

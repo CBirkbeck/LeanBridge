@@ -1,0 +1,36 @@
+\subsection{Abstract group name}
+\begin{definition}\label{group.name}
+\uses{group.alternating,group.cyclic,group.dihedral,group.direct_product,group.frobenius,group.generalized_quaternion,group.heisenberg,group.lie_type,group.nonsplit_product,group.order,group.other_dihedral,group.semi_dihedral,group.semidirect_product,group.sporadic,group.subgroup.normal,group.symmetric,group.wreath_product}
+We describe abstract groups using standard building blocks:
+<ul>
+ <li> $C_n$ denotes the {{KNOWL('group.cyclic', 'cyclic')}} group of {{KNOWL('group.order', 'order')}} $n$.
+ <li> $S_n$ denotes the {{KNOWL('group.symmetric', 'symmetric group')}} on $n$ letters.
+ <li> $A_n$ denotes the {{KNOWL('group.alternating', 'alternating group')}} on $n$ letters.
+ <li> $D_n$ denotes the {{KNOWL('group.dihedral', 'dihedral group')}} of order $2n$.
+ <li> $Q_n$ denotes the (generalized) {{KNOWL('group.generalized_quaternion', 'quaternion group')}} of order $n$.
+ <li> $F_q$ denotes the {{KNOWL('group.frobenius', 'Frobenius group')}} for a prime power $q$. It is the group of affine linear transformations of the finite field $\mathbb{F}_q$. In other words, $F_q$ is a semidirect product  $\mathbb{F}_q : \mathbb{F}_q^{\times}$.
+ <li> {{KNOWL('group.sporadic', 'Sporadic Groups')}} (refer to this <a href="https://en.wikipedia.org/wiki/Sporadic_group">wikipage</a>):
+<ul>
+ <li> $M_n$ for $n=11,12, 22,23, 24$ denotes the Mathieu groups
+ <li> $\Ru$ denotes the Rudvalis group
+ <li> $\McL$ denotes the McLaughlin group 
+ <li> $\He$ denotes the Held group 
+ <li> $\HS$ denotes the Higman–Sims group 
+ <li> $J_1$, $J_2$, $J_3$ denote the Janko groups 
+ <li> $\Co_2$ and $\Co_3$ denote the Conway groups
+</ul>
+ <li> Here is a list of {{KNOWL('group.lie_type', 'finite groups of Lie type')}}.
+ <li> $\SD_n$ denotes the {{KNOWL('group.semi_dihedral', 'semidihedral group')}} or quasidihedral group of order $n=2^k$.
+ <li> $\OD_n$ denotes the {{KNOWL('group.other_dihedral', 'other-dihedral group')}} (or modular maximal-cyclic group) of order $n=2^k$. It is the non-trivial {{KNOWL('group.semidirect_product', 'semidirect product')}} $C_{2^{k-1}} : C_2$ which is not isomorphic to either $\SD_n$ or $D_{2^{k-1}}$.
+ <li> $\He_p$ denotes the {{KNOWL('group.heisenberg', 'Heisenberg group')}}, the unique non-abelian group of order $p^3$ and exponent $p$ for an odd prime $p$.
+</ul>
+
+Groups $A$ and $B$ may be used to construct a larger group:
+
+- $A\times B$ for the {{KNOWL('group.direct_product', 'direct product')}} of $A$ and $B$.
+- $A:B$ for the semidirect product of $A$ and $B$ (with {{KNOWL('group.subgroup.normal', 'normal')}} subgroup $A$).
+- $A.B$ an {{KNOWL('group.nonsplit_product', 'extension')}} with normal subgroup $A$ and quotient isomorphic to $B$.
+- $A\wr B$ for the {{KNOWL('group.wreath_product', 'wreath product')}} of $A$ and $B$.
+\end{definition}
+
+

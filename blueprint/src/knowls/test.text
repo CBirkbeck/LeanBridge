@@ -1,0 +1,88 @@
+\subsection{test}
+\begin{definition}\label{test.text}
+\uses{artin.root_number,test.nonexisting}
+$\Aut G$, $\operatorname{Aut} G$.
+
+Math &sum; {{KNOWL('artin.root_number', 'sign')}}
+--------------
+
+A citation \cite{mr:12345,arxiv:1234.5678,doi:1234345678}.
+
+This is [<a href="https://math.mit.edu" target="_blank">link</a>]
+
+This is a #test!
+$$
+  1+ \frac{2}{4 5} + \frac{1}{x^2} + \dots
+ \tag{SEQ}
+$$
+
+Modstar: $\modstar{\Z}{q \Z}$
+
+The {{ KNOWL('test.nonexisting') }} **Zeta function** has [abc]
+$\leftrightarrow$
+$$\leftrightarrow$$
+$$\Leftrightarrow$$
+
+- functional equation
+ - implies analytic continuation
+ - euler product
+
+The [analytic continuation](http://en.wikipedia.org/wiki/Analytic_continuation) for the $\zeta(s)$ function comes from
+
+$$\Gamma(s)\zeta(s) = \int_0^{\infty}x^{s-1}e^{-x}dx$$
+
+See also [[L-function]]
+
+
+More markdown examples
+-----------------------------------
+![Logo](/static/images/lmfdb-logo.png)
+
+Something something [Google][1] than
+[Yahoo][2] or [MSN][3].
+
+[1]: http://google.com/        "Google"
+[2]: http://search.yahoo.com/  "Yahoo Search"
+[3]: http://search.msn.com/    "MSN Search"
+
+- *emphasis* or _emphasis_
+- **strong emphasis** or __strong emphasis__
+Some text with `some code` inside
+
+* An item in a bulleted (unordered) list
+    * A subitem, indented with 4 spaces
+* Another item in a bulleted list
+
+# First-level heading
+
+## Second-level heading
+
+### Third-level heading
+
+#### Four-level heading
+
+First-level heading
+===================
+
+Second-level heading
+--------------------
+
+horizontal line
+* * *
+horizontal line
+***
+horizontal line
+*****
+horizontal line
+- - -
+horizontal line
+
+---------------------------------------
+
+
+Test
+
+test on time
+\end{definition}
+
+

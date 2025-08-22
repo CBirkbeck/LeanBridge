@@ -1,0 +1,7 @@
+\subsection{Trivial subgroup}
+\begin{definition}\label{group.trivial_subgroup}
+\uses{alg.binary_operation.identity,group,group.subgroup}
+If $G$ is a {{KNOWL('group', 'group')}} with {{KNOWL('alg.binary_operation.identity', 'identity')}} element $e$, then $\{e\}$ is a {{KNOWL('group.subgroup', 'subgroup')}} isomorphic to the trivial group.  It is the **trivial subgroup** of $G$, and all other subgroups are **non-trivial**.
+\end{definition}
+
+

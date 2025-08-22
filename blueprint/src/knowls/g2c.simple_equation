@@ -1,0 +1,17 @@
+\subsection{Simplified equation}
+\begin{definition}\label{g2c.simple_equation}
+\uses{ag.hyperelliptic_curve,ag.jacobian,ag.mordell_weil,g2c.minimal_equation}
+A {{KNOWL('ag.hyperelliptic_curve', 'hyperelliptic curve')}} over $\Q$ with a {{KNOWL('g2c.minimal_equation', 'minimal equation')}} of the form
+\[
+y^2 + h(x)y = f(x),
+\]
+with $h,f\in \Z[x]$ can always be defined by a **simplified equation** of the form
+\[
+y^2 = g(x),
+\]
+with $g\in \Z[x]$ defined by $g:=4f+h^2$.
+
+In the LMFDB, invariants of hyperelliptic curves such as rational points and generators of the {{KNOWL('ag.mordell_weil', 'Mordell-Weil group')}} of its {{KNOWL('ag.jacobian', 'Jacobian')}} are always expressed in terms of the minimal equation, not the corresponding simplified equation (except in cases where the minimal equation has $h=0$ and the two coincide).
+\end{definition}
+
+

@@ -1,0 +1,10 @@
+\subsection{Source of p-adic field data}
+\begin{definition}\label{rcs.source.lf}
+\uses{lf.degree,lf.residue_field_characteristic}
+Except as noted below, all data on p-adic fields come from the computations of Jones and Roberts as described in \cite{MR:2194887}.
+
+* Galois groups in degree 12 were computed by C. Awtrey, and many of the Galois groups were confirmed using Magma packages written by C. Doris.  Global splitting models were computed by Jones and Carrillo.
+* All families, as well as fields with ({{KNOWL('lf.residue_field_characteristic', '$p$')}}, {{KNOWL('lf.degree', '$n$')}}) in $\{(2,16), (3,18), (2,20), (5,20), (3,21),(7,21), (2,22), (11,22)\}$ were computed by Guardia, Jones, Keating, Pauli, Roberts and Roe as described in [this paper](https://math.mit.edu/~roed/writings/research/padic_families.pdf).  Galois groups in these cases were computed using the Magma package by C. Doris.
+\end{definition}
+
+

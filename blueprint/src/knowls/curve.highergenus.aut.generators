@@ -1,0 +1,11 @@
+\subsection{Standard generators}
+\begin{definition}\label{curve.highergenus.aut.generators}
+\uses{ag.riemann_surface}
+Let $Y$ be a compact {{KNOWL('ag.riemann_surface', 'Riemann surface')}} of genus $0$, let $B$ be a finite set of points in $Y$, and let $y_0$ be a point in $Y$ that is not in $B$.
+
+**Standard generators** for the fundamental group $\pi_1(Y - B, y_0)$ are obtained by taking the homotopy classes of loops indexed by $b\in B$ that  start at $y_0$ and
+make a counterclockwise loop about $b$ containing no other elements of
+$B$.  This construction associates a generator to each element of $B$ (there will typically be relations among these generators).
+\end{definition}
+
+

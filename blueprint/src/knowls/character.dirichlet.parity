@@ -1,0 +1,7 @@
+\subsection{Parity of a Dirichlet character}
+\begin{definition}\label{character.dirichlet.parity}
+\uses{character.dirichlet}
+A character has odd/even **parity** if it is odd/even as a function. A {{KNOWL('character.dirichlet', 'Dirichlet character')}} $\chi\colon\Z\to\C$ is odd if $\chi(-1) = -1$ and even if $\chi(-1)=1.$
+\end{definition}
+
+

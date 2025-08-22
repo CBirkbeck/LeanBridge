@@ -1,0 +1,7 @@
+\subsection{Ambient group label}
+\begin{definition}\label{group.ambient_isolabel}
+\uses{group.ambient,group.label,group.subgroup}
+You can specify the {{KNOWL('group.ambient', 'ambient group')}} of a {{KNOWL('group.subgroup', 'subgroup')}} by providing its {{KNOWL('group.label', 'label')}} as an abstract group.
+\end{definition}
+
+

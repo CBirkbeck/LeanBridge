@@ -1,0 +1,10 @@
+\subsection{Sylow subgroup}
+\begin{definition}\label{group.sylow_subgroup}
+\uses{group,group.order,group.subgroup}
+If $p$ is a prime and $G$ is a finite {{KNOWL('group', 'group')}} of {{KNOWL('group.order', 'order')}} $p^nm$ where $p\nmid m$, then a **$p$-Sylow 
+subgroup**  of $G$ is any {{KNOWL('group.subgroup', 'subgroup')}} of order $p^n$.
+
+Sylow subgroups exist for every finite group and prime $p$.
+\end{definition}
+
+

@@ -1,0 +1,7 @@
+\subsection{$X_{\text{ns}}^+(N)$}
+\begin{definition}\label{modcurve.xns_plus}
+\uses{gl2.cartan,modcurve}
+$X_{\text{ns}}^+(N)$ is the {{ KNOWL('modcurve','modular curve') }} $X_H$ for $H\le \GL_2(\widehat\Z)$ the inverse image of an {{KNOWL('gl2.cartan', 'extended Cartan subgroup')}} of $\GL_2(\Z/N\Z)$ that is nonsplit at every prime dividing $N$.
+\end{definition}
+
+

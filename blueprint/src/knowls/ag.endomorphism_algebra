@@ -1,0 +1,7 @@
+\subsection{Endomorphism algebra}
+\begin{definition}\label{ag.endomorphism_algebra}
+\uses{ag.abelian_variety,ag.endomorphism_ring}
+The **endomorphism algebra** of an {{KNOWL('ag.abelian_variety', 'abelian variety')}} $A$ is the $\Q$-algebra $\textrm{End}(A)\otimes\Q$, where $\textrm{End}(A)$ is the {{KNOWL('ag.endomorphism_ring', 'endomorphism ring')}} of $A$.
+\end{definition}
+
+

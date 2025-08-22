@@ -1,0 +1,7 @@
+\subsection{Name of a Sato-Tate group}
+\begin{definition}\label{st_group.name}
+\uses{st_group.definition,st_group.degree,st_group.weight}
+The names of the {{KNOWL('st_group.definition', 'Sato-Tate groups')}} of {{KNOWL('st_group.weight','weight')}} 1 and {{KNOWL('st_group.degree', 'degree')}} 4 are taken from \cite{arXiv:1110.6638,doi:10.1112/S0010437X12000279}.
+\end{definition}
+
+

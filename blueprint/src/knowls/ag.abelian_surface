@@ -1,0 +1,9 @@
+\subsection{Abelian surface}
+\begin{definition}\label{ag.abelian_surface}
+\uses{ag.abelian_variety,ag.curve.genus,ag.dimension,ag.jacobian,ec}
+An **abelian surface** is an {{KNOWL("ag.abelian_variety", "abelian variety")}} of {{KNOWL('ag.dimension', 'dimension')}} 2.
+
+Examples are given by the product of two {{KNOWL("ec", "elliptic curves")}}, or the {{KNOWL('ag.jacobian', 'Jacobian')}} of a curve of {{KNOWL('ag.curve.genus', 'genus')}} 2.
+\end{definition}
+
+

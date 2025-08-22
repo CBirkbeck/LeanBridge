@@ -1,0 +1,7 @@
+\subsection{Sort order for groups}
+\begin{definition}\label{group.sort_order}
+\uses{group,group.label,group.order}
+By default, {{KNOWL('group', 'group')}} search results are sorted by {{KNOWL('group.label', 'label')}}, but you can choose to have {{KNOWL('group.order', 'larger')}} groups show up first.
+\end{definition}
+
+

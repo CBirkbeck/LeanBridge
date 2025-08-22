@@ -1,0 +1,7 @@
+\subsection{Additive reduction}
+\begin{definition}\label{ec.additive_reduction}
+\uses{ec,nf}
+An {{ KNOWL('ec', 'elliptic curve') }} \(E\) defined over a {{ KNOWL('nf', 'number field') }} \(K\) is said to have **additive reduction** at a prime \(\mathfrak{p}\) of \(K\) if the reduction of \(E\) modulo \(\mathfrak{p}\) has a cuspidal singularity.
+\end{definition}
+
+

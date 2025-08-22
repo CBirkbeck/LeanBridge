@@ -1,0 +1,2304 @@
+af:
+    * arithmetic function
+af.bernoulli_numbers:
+    * Bernoulli numbers
+af.divisor_function:
+    * divisor function
+af.multiplicative:
+    * multiplicative
+ag.abelian_variety:
+    * abelian variety
+ag.affine_space:
+    * Affine space
+ag.base_change:
+    * base change
+ag.base_field:
+    * base field
+ag.complex_multiplication:
+    * complex multiplication
+ag.curve:
+    * algebraic curve
+ag.curve.genus:
+    * algebraic genus
+    * arithmetic genus
+    * genus
+    * geometric genus
+ag.curve.smooth:
+    * smooth
+ag.dimension:
+    * dimension
+ag.endomorphism_algebra:
+    * endomorphism algebra
+ag.endomorphism_ring:
+    * endomorphism
+    * endomorphism ring
+ag.geom_component:
+    * geometric component
+ag.geom_endomorphism_ring:
+    * geometric endomorphism ring
+ag.geom_simple:
+    * geometrically (or absolutely) simple
+ag.hyperelliptic_curve:
+    * Weierstrass model
+    * conic
+    * hyperelliptic curve
+ag.irreducible:
+    * geometrically irreducible
+    * irreducible
+ag.jacobian:
+    * Jacobian
+ag.minimal_field:
+    * minimal field of definition
+ag.mordell_weil:
+    * Mordell-Weil group
+    * Mordell-Weil rank
+    * torsion subgroup
+ag.projective_space:
+    * Projective space
+    * homogeneous coordinates
+ag.quotient_curve:
+    * quotient curve
+ag.riemann_surface:
+    * Riemann surface
+ag.simple:
+    * simple
+ag.singular_point:
+    * non-singular
+ag.variety:
+    * affine algebraic set
+    * affine variety
+    * algebraic varieties
+    * defining ideal
+    * projective algebraic set
+    * projective variety
+alg.binary_operation:
+    * binary operation
+alg.binary_operation.associative:
+    * associative
+alg.binary_operation.commutative:
+    * commutative
+alg.binary_operation.identity:
+    * identity
+    * the identity element
+alg.binary_operation.inverse:
+    * inverse
+alg.symplectic_isomorphism:
+    * symplectic isomorphism
+artin:
+    * Artin representation
+artin.conductor:
+    * conductor
+artin.number_field:
+    * artin field
+artin.parity:
+    * even
+    * odd
+artin.ramified_primes:
+    * ramified
+artin.unramified_primes:
+    * unramified
+av.decomposition:
+    * isogeny factors
+av.fq.l-polynomial:
+    * L-polynomial
+av.fq.weil_polynomial:
+    * Weil polynomial
+    * characteristic polynomial
+av.galois_rep:
+    * $\ell$-adic Galois representation
+    * adelic Galois representation
+    * mod-$\ell$ Galois representation
+    * mod-$m$ Galois representation
+av.isogeny:
+    * isogenous
+    * isogeny
+av.isogeny_class:
+    * isogeny class
+av.simple:
+    * simple
+av.tate_module:
+    * $p$-adic Tate module
+av.twist:
+    * twist
+character.dirichlet:
+    * dirichlet character
+    * modulus
+character.dirichlet.conductor:
+    * conductor
+character.dirichlet.conrey.index:
+    * conrey index
+    * index
+character.dirichlet.conrey.primitive_generator:
+    * conrey (primitive) generator
+character.dirichlet.galois_orbit:
+    * galois orbit
+character.dirichlet.galois_orbit_index:
+    * orbit index
+character.dirichlet.galois_orbit_label:
+    * label
+character.dirichlet.induce:
+    * induced
+character.dirichlet.jacobi_symbol:
+    * jacobi symbol
+    * law of quadratic reciprocity states
+character.dirichlet.kronecker_symbol:
+    * Kronecker symbol
+character.dirichlet.legendre_symbol:
+    * legendre symbol
+character.dirichlet.minimal:
+    * minimal
+character.dirichlet.modulus:
+    * dirichlet character
+    * modulus
+character.dirichlet.order:
+    * order
+character.dirichlet.parity:
+    * parity
+character.dirichlet.primitive:
+    * primitive
+character.dirichlet.principal:
+    * principal
+    * trivial
+character.dirichlet.real:
+    * real
+character.dirichlet.value_field:
+    * field of values
+cmf:
+    * modular form
+cmf.analytic_conductor:
+    * analytic conductor
+cmf.analytic_rank:
+    * analytic rank
+cmf.artin_field:
+    * artin field
+cmf.artin_image:
+    * Artin image
+cmf.atkin-lehner:
+    * Atkin-Lehner involution
+cmf.bad_prime:
+    * bad prime
+    * good prime
+cmf.character:
+    * character
+cmf.cm_form:
+    * complex multiplication
+cmf.coefficient_field:
+    * coefficient field
+    * hecke field
+cmf.coefficient_ring:
+    * Hecke ring
+    * coefficient ring
+cmf.congruence_subgroup:
+    * congruence subgroup
+    * level
+    * principal congruence subgroup
+cmf.cusp_form:
+    * cusp form
+cmf.decomposition.new.gamma0chi:
+    * {{ knowl(mf.elliptic.newform, title=newform) }}
+cmf.defining_polynomial:
+    * defining polynomial
+cmf.dimension:
+    * dimension
+    * relative dimension
+cmf.distinguishing_primes:
+    * distinguishes
+cmf.dualform:
+    * dual
+cmf.eisenstein:
+    * Eisenstein series
+    * isotropy group
+cmf.embedding:
+    * embedding
+cmf.embedding_label:
+    * label
+cmf.eta_quotient:
+    * eta product
+    * eta quotient
+cmf.fouriercoefficients:
+    * Fourier coefficients
+    * Fourier expansion
+cmf.fricke:
+    * Fricke involution
+cmf.galois_conjugate:
+    * galois conjugate
+cmf.galois_orbit:
+    * Galois orbit
+    * newform orbits
+cmf.galois_representation:
+    * galois representation
+    * projective galois representation
+cmf.hecke_operator:
+    * Hecke operator
+cmf.hecke_orbit:
+    * Hecke orbit
+cmf.hecke_ring_generators:
+    * coefficient ring generator bound
+cmf.heckecharpolys:
+    * Hecke characteristic polynomial
+cmf.inner_twist:
+    * inner twists
+cmf.inner_twist_count:
+    * inner twist count
+cmf.inner_twist_multiplicity:
+    * multiplicity
+cmf.label:
+    * label
+cmf.level:
+    * level
+cmf.maximal:
+    * largest
+    * maximal
+cmf.minimal:
+    * minimal
+cmf.minimal_twist:
+    * minimal twist
+cmf.minus_space:
+    * minus subspace
+cmf.newform:
+    * newform
+cmf.newform_subspace:
+    * newform subspace
+cmf.newspace:
+    * new subspace
+    * old subspace
+cmf.nontrivial_twist:
+    * nontrivial
+cmf.oldspace:
+    * old
+cmf.petersson_scalar_product:
+    * Petersson scalar product
+cmf.plus_space:
+    * plus subspace
+cmf.projective_field:
+    * projective field
+cmf.projective_image:
+    * projective image
+    * types
+cmf.q-expansion:
+    * $q$-expansion
+cmf.relative_dimension:
+    * relative dimension
+cmf.rm_form:
+    * real multiplication
+cmf.satake_angles:
+    * Satake angles
+cmf.satake_parameters:
+    * Satake parameters
+cmf.sato_tate:
+    * sato-tate group
+cmf.self_twist:
+    * self-twist
+cmf.selfdual:
+    * self dual
+cmf.shimura_correspondence:
+    * shimura correspondence
+cmf.space:
+    * space
+cmf.space_trace_form:
+    * trace form
+cmf.stark_unit:
+    * Stark unit
+cmf.sturm_bound:
+    * Sturm bound
+cmf.sturm_bound_gamma1:
+    * S
+cmf.subspaces:
+    * new subspace
+    * old subspace
+cmf.trace_bound:
+    * trace bound
+cmf.trace_form:
+    * trace form
+cmf.twist:
+    * twist
+    * twist class
+    * twist equivalent
+cmf.twist_minimal:
+    * minimal twist
+    * twist minimal
+cmf.twist_multiplicity:
+    * multiplicity
+cmf.weight:
+    * weight
+ec:
+    * elliptic curve
+ec.additive_reduction:
+    * additive reduction
+ec.analytic_sha_order:
+    * Tate-Shafarevich group
+    * analytic order of Sha
+ec.bad_reduction:
+    * bad reduction
+ec.base_change:
+    * base change
+ec.bsdconjecture:
+    * BSD
+    * BSD invariants
+    * Birch and Swinnerton-Dyer
+ec.canonical_height:
+    * canonical height
+    * height pairing
+ec.complex_multiplication:
+    * CM discriminant
+    * complex multiplication
+    * potential complex multiplication
+ec.conductor:
+    * conductor
+    * conductor norm
+ec.discriminant:
+    * discriminant
+ec.endomorphism:
+    * endomorphism
+ec.endomorphism_ring:
+    * endomorphism ring
+ec.galois_rep:
+    * $\ell$-adic Galois representation
+    * adelic Galois representation
+    * mod-$\ell$ Galois representation
+    * mod-$m$ Galois representation
+ec.galois_rep_adelic_image:
+    * genus
+    * index
+    * level
+ec.galois_rep_modell_image:
+    * A4
+    * A5
+    * B
+    * Cn
+    * Cs
+    * G
+    * Nn
+    * Ns
+    * S4
+ec.geom_endomorphism_ring:
+    * geometric endomorphism ring
+ec.global_minimal_model:
+    * global minimal model
+ec.good_ordinary_reduction:
+    * ordinary
+    * ordinary reduction
+ec.good_reduction:
+    * everywhere good reduction
+    * good reduction
+ec.good_supersingular_reduction:
+    * supersingular
+    * supersingular reduction
+ec.integral_model:
+    * integral model
+ec.invariants:
+    * conductor norm
+    * minimal discriminant norm
+ec.isogeny:
+    * cyclic
+    * degree
+    * endomorphisms
+    * isogenous
+    * isogeny
+    * isogeny classes
+ec.isogeny_class:
+    * isogeny class (over a field $K$)
+ec.isogeny_class_degree:
+    * isogeny class degree
+ec.isogeny_graph:
+    * isogeny graph
+ec.isogeny_matrix:
+    * isogeny matrix
+ec.isomorphism:
+    * isomorphism
+    * isomorphism classes
+ec.j_invariant:
+    * $j$-invariant
+ec.kodaira_symbol:
+    * kodaira symbol
+ec.local_data:
+    * local data
+ec.local_minimal_discriminant:
+    * local minimal discriminant
+ec.local_minimal_model:
+    * local minimal model
+ec.maximal_elladic_galois_rep:
+    * maximal
+    * maximal prime
+ec.maximal_galois_rep:
+    * maximal
+ec.minimal_discriminant:
+    * minimal discriminant
+ec.mordell_weil_group:
+    * Mordell-Weil group
+    * Mordell-Weil rank
+ec.mordell_weil_theorem:
+    * mordell-weil theorem
+ec.multiplicative_reduction:
+    * multiplicative reduction
+ec.mw_generators:
+    * Mordell-Weil generators
+    * non-torsion generators
+    * torsion generators
+    * {{KNOWL('ec.mordell_weil_group', 'Mordell-Weil group')}}
+ec.nonsplit_multiplicative_reduction:
+    * non-split multiplicative reduction
+ec.obstruction_class:
+    * obstruction class
+ec.padic_tate_module:
+    * $p$-adic Tate module
+ec.period:
+    * global period
+ec.potential_good_reduction:
+    * potential good reduction
+ec.q:
+    * elliptic curve $E$ over $\mathbb{Q}$
+ec.q.abc_quality:
+    * $abc$ quality
+    * quality
+ec.q.analytic_rank:
+    * analytic rank
+ec.q.analytic_sha_order:
+    * Analytic Order of Sha
+    * Tate-Shafarevic group
+ec.q.bsdconjecture:
+    * Birch and Swinnerton-Dyer
+ec.q.canonical_height:
+    * canonical height
+    * height pairing
+ec.q.conductor:
+    * conductor
+ec.q.cremona_label:
+    * Cremona label
+ec.q.discriminant:
+    * discriminant
+ec.q.endomorphism_ring:
+    * endomorphism ring
+ec.q.faltings_height:
+    * Faltings height
+    * stable Faltings height
+ec.q.faltings_ratio:
+    * Faltings ratio
+ec.q.frey:
+    * Frey curve
+    * Frey-Hellegouarch curve
+ec.q.integral_points:
+    * integral points
+ec.q.j_invariant:
+    * $j$-invariant
+ec.q.kodaira_symbol:
+    * kodaira symbol
+ec.q.lmfdb_label:
+    * LMFDB label
+    * conductor
+    * isogeny class index
+    * isogeny class label
+    * isomorphism class index
+ec.q.manin_constant:
+    * 154
+    * Manin constant
+ec.q.minimal_twist:
+    * minimal quadratic twist
+    * minimal quartic twist
+    * minimal sextic twist
+    * minimal twist
+ec.q.minimal_weierstrass_equation:
+    * minimal weierstrass equation
+    * reduced minimal model
+ec.q.modular_degree:
+    * modular degree
+ec.q.modular_parametrization:
+    * modular parametrization
+ec.q.naive_height:
+    * naive height
+ec.q.optimal:
+    * optimal
+ec.q.period_lattice:
+    * N&eacute;ron lattice
+    * period lattice
+    * real period
+ec.q.real_period:
+    * homothetic
+    * real period
+    * the
+ec.q.reduction_type:
+    * additive reduction
+    * bad reduction
+    * cuspidal
+    * good reduction
+    * multiplicative reduction
+    * nodal
+    * non-split
+    * ordinary
+    * reduction type
+    * split
+    * supersingular
+ec.q.regulator:
+    * height pairing
+    * regulator
+ec.q.semistable:
+    * semistable
+ec.q.serre_invariants:
+    * Serre conductor
+    * Serre invariants
+    * Serre weight
+    * exceptional
+ec.q.special_value:
+    * special value
+ec.q.szpiro_ratio:
+    * Szpiro ratio
+ec.q.torsion_growth:
+    * primitive
+    * torsion growth
+ec.q.torsion_subgroup:
+    * torsion subgroup
+ec.q_curve:
+    * -curve
+ec.rank:
+    * rank
+ec.reduction:
+    * {{KNOWL('ec.potential_good_reduction','potential good reduction')}}
+    * {{KNOWL('ec.semistable','semistable')}}
+ec.reduction_type:
+    * additive reduction
+    * multiplicative reduction
+    * non-split multiplicative reduction
+    * ordinary
+    * reduction type
+    * split multiplicative reduction
+    * supersingular
+ec.regulator:
+    * height pairing
+    * regulator
+ec.ring:
+    * elliptic curve
+ec.scheme:
+    * elliptic scheme
+ec.semi_global_minimal_model:
+    * semi-global minimal models
+ec.semistable:
+    * semistable
+ec.simple_equation:
+    * short Weierstrass model
+    * simplified equation
+ec.special_value:
+    * leading coefficient
+    * special value
+ec.split_multiplicative_reduction:
+    * split multiplicative reduction
+ec.tamagawa_number:
+    * tamagawa number
+    * tamagawa product
+ec.torsion_order:
+    * torsion order
+ec.torsion_subgroup:
+    * torsion structure
+    * torsion subgroup
+ec.twists:
+    * quadratic twists
+    * quartic twists
+    * sextic twists
+    * twist
+ec.weierstrass_coeffs:
+    * Weierstrass coefficients
+    * Weierstrass equation
+    * Weierstrass model
+ec.weierstrass_isomorphism:
+    * isomorphic over $k$
+    * weierstrass isomorphisms
+g2c.aut_grp:
+    * automorphism
+    * automorphism group
+    * hyperelliptic involution
+g2c.discriminant:
+    * discriminant
+g2c.g2curve:
+    * Weierstrass equation
+g2c.geom_aut_grp:
+    * geometric automorphism group
+g2c.good_reduction:
+    * bad reduction
+    * good reduction
+g2c.minimal_equation:
+    * minimal equation
+g2c.simple_equation:
+    * simplified equation
+gg.degree:
+    * degree
+gg.galois_group:
+    * Galois group
+gl2.borel:
+    * B
+    * B.a.b
+    * Borel subgroup
+gl2.cartan:
+    * Cartan subgroup
+    * extended Cartan subgroup
+gl2.exceptional:
+    * A4
+    * A5
+    * S4
+    * exceptional subgroup
+gl2.genus:
+    * genus
+gl2.index:
+    * index
+gl2.label:
+    * RSZB label
+gl2.level:
+    * level
+gl2.nonsplit_cartan:
+    * Cn
+    * Cn.a.b
+    * non-split Cartan subgroup
+gl2.normalizer_cartan:
+    * normalizer of a cartan subgroup
+gl2.normalizer_nonsplit_cartan:
+    * Cn
+    * Nn
+    * Nn.a.b
+    * normalizer of a non-split Cartan subgroup
+gl2.normalizer_split_cartan:
+    * Cs
+    * Ns
+    * Ns.a.b
+    * Ns.a.b.c
+    * normalizer of a split Cartan subgroup
+gl2.open:
+    * open subgroup
+gl2.profinite:
+    * profinite group
+gl2.split_cartan:
+    * Cs
+    * Cs.a.b
+    * split Cartan subgroup
+group:
+    * group
+group.abelian:
+    * abelian
+group.automorphism:
+    * automorphism
+group.characteristic_subgroup:
+    * characteristic subgroup
+group.coset:
+    * coset
+group.cyclic:
+    * cyclic
+group.dicyclic:
+    * dicyclic group
+group.dihedral:
+    * dihedral group
+group.direct_product:
+    * direct factors
+    * direct product
+group.frattini_subgroup:
+    * Frattini subgroup
+group.fuchsian.cusps:
+    * cusps
+group.fuchsian.cusps.width:
+    * generators
+    * width
+group.fuchsian.fundamental_domain:
+    * fundamental domain
+group.galois.absolute:
+    * absolute Galois group
+group.generators:
+    * generators
+group.haar_measure:
+    * Haar measure
+    * normalized Haar measure
+group.homomorphism:
+    * group homomorphism
+group.isomorphism:
+    * group isomorphism
+group.maximal_subgroup:
+    * maximal subgroup
+group.nonsplit_product:
+    * extension
+    * non-split extension
+    * split extension
+group.normal_series:
+    * normal series
+    * subnormal series
+group.order:
+    * order
+group.presentation:
+    * polycyclic presentation
+    * polycyclic sequence
+    * polycyclic series
+    * presentation
+    * relative orders
+group.quotient:
+    * quotient group
+group.rank:
+    * rank
+group.semidirect_product:
+    * non-split
+    * semidirect factor
+    * semidirect product
+    * split
+    * trivial semidirect product
+group.sl2z:
+    * modular group
+group.solvable:
+    * solvable
+group.subgroup:
+    * subgroup
+group.subgroup.index:
+    * index
+group.subgroup.normal:
+    * normal
+group.sylow_subgroup:
+    * $p$-Sylow 
+subgroup
+group.torsion:
+    * torsion subgroup
+    * torsion {{KNOWL('group', 'group')}}
+lf.automorphism_group:
+    * automorphism group
+lf.inertia_group:
+    * inertia group
+lf.local_field:
+    * archimedean local field
+    * local field
+    * nonarchimedean local field
+lf.maximal_ideal:
+    * maximal ideal
+lf.padic_field:
+    * $p$-adic field
+    * local number field
+lf.residue_field:
+    * residue field
+    * residue field characteristic
+lf.ring_of_integers:
+    * ring of integers
+lf.wild_inertia_group:
+    * wild inertia group
+lfunction:
+    * L-function
+lfunction.analytic_rank:
+    * analytic rank
+lfunction.arithmetic:
+    * arithmetic
+lfunction.central_point:
+    * central point
+lfunction.central_value:
+    * central value
+lfunction.completed:
+    * completed L-function
+lfunction.conductor:
+    * conductor
+lfunction.critical_line:
+    * critical line
+lfunction.critical_strip:
+    * critical strip
+lfunction.degree:
+    * degree
+lfunction.dirichlet:
+    * Dirichlet L-function
+lfunction.dirichlet_series:
+    * dirichlet series
+lfunction.dual:
+    * dual
+lfunction.euler_product:
+    * Euler factors
+    * Euler product
+    * local factors
+lfunction.functional_equation:
+    * functional equation
+lfunction.gamma_factor:
+    * gamma factors
+lfunction.leading_coeff:
+    * leading coefficient
+lfunction.motivic_weight:
+    * arithmetic weight
+    * motivic weight
+lfunction.normalization:
+    * analytic normalization
+    * arithmetic normalization
+lfunction.rh:
+    * riemann hypothesis
+lfunction.root_number:
+    * sign
+lfunction.selberg_class:
+    * Selberg class
+lfunction.selberg_class.axioms:
+    * selberg axioms
+lfunction.selbergdata:
+    * Selberg data
+lfunction.self-dual:
+    * self-dual
+lfunction.sign:
+    * root number
+    * sign
+lfunction.signature:
+    * signature
+lfunction.spectral_parameters:
+    * spectral parameters
+lfunction.trivial_zero:
+    * trivial zeros
+lfunction.zeros:
+    * lowest zero
+    * zeros
+mf.bianchi:
+    * Bianchi modular form
+mf.bianchi.bianchigroup:
+    * Bianchi group associated to
+mf.bianchi.fourierbessell:
+    * Fourier-Bessel expansion
+    * K-Bessel functions
+mf.bianchi.hecke_algebra:
+    * Hecke algebra
+    * Hecke operators
+mf.bianchi.hyperbolic3space:
+    * Hyperbolic 3-space
+mf.bianchi.level:
+    * $\mathbf{GL}_2$-levels
+    * $\mathbf{SL}_2$-levels
+    * level label
+    * level norm
+mf.bianchi.newform:
+    * Bianchi newform
+    * Hecke field
+    * dimension
+mf.bianchi.spaces:
+    * Hecke field
+    * cuspidal subspace
+    * dimension
+    * newform
+    * newspace
+    * oldforms
+mf.bianchi.weight:
+    * weight
+mf.ellitpic.self_twist:
+    * self twist
+mf.half_integral_weight.dedekind_eta:
+    * Dedekind eta function
+mf.hilbert:
+    * Hilbert cusp form
+    * Hilbert modular form
+mf.upper_half_plane:
+    * completed upper
+    * upper half-plane
+modcurve:
+    * Complex points
+    * Rational points
+    * modular curve
+modcurve.cusps:
+    * $\Q$-cusps
+    * cusps
+    * rational cusps
+modcurve.level_structure:
+    * $H$-level structure
+    * Cyclic $\boldsymbol{N}$-isogeny field degree
+    * Cyclic $\boldsymbol{N}$-torsion field degree
+    * N-torsion field degree
+    * rational
+modcurve.xn:
+    * classical modular curve of level $N$
+    * full modular curve of level $N$
+nf:
+    * number field
+nf.abelian:
+    * abelian
+nf.abs_discriminant:
+    * absolute discriminant
+nf.absolute_value:
+    * absolute value
+    * archimedean
+    * equivalent
+    * nonarchimedean
+    * trivial absolute value
+nf.arithmetically_equivalent:
+    * arithmetically equivalent
+nf.class_number:
+    * class number
+nf.class_number_formula:
+    * analytic class number formula
+nf.cm_field:
+    * CM field
+nf.complex_embedding:
+    * complex embedding
+nf.conductor:
+    * conductor
+nf.defining_polynomial:
+    * defining polynomial
+nf.degree:
+    * degree
+nf.dirichlet_group:
+    * dirichlet character group
+nf.discriminant:
+    * discriminant
+nf.discriminant_root_field:
+    * discriminant root field
+nf.embedding:
+    * embedding
+nf.frobenius_cycle_types:
+    * frobenius cycle type
+    * frobenius element
+    * residue degree
+    * unramified
+nf.fundamental_units:
+    * fundamental units
+nf.galois_closure:
+    * galois closure
+nf.galois_group:
+    * Galois group
+nf.galois_root_discriminant:
+    * Galois root discriminant
+nf.generator:
+    * generator
+nf.ideal_class_group:
+    * ideal class group
+nf.ideal_labels:
+    * ideal label
+nf.inessential_prime:
+    * inessential prime
+nf.integral:
+    * integral
+nf.integral_basis:
+    * integral basis
+nf.intermediate_fields:
+    * intermediate fields
+nf.is_galois:
+    * galois
+nf.local_algebra:
+    * local algebra
+nf.maximal_cm_subfield:
+    * maximal CM subfield
+nf.minimal_polynomial:
+    * minimal polynomial
+nf.minimal_sibling:
+    * minimal sibling
+nf.monogenic:
+    * monogenic
+nf.monomial_order:
+    * monomial order
+nf.narrow_class_group:
+    * narrow class group
+    * strict class group
+nf.narrow_class_number:
+    * narrow class number
+    * strict class number
+nf.nickname:
+    * nicknames
+nf.order:
+    * order
+nf.padic_completion:
+    * $p$-adic completion of $K$ at $\mathfrak{P}$
+nf.place:
+    * completion
+    * complex place
+    * infinite places
+    * place
+    * real place
+nf.polredabs:
+    * defining polynomial
+    * reduced defining polynomial
+nf.poly_discriminant:
+    * discriminant
+nf.prime:
+    * prime
+    * prime above
+nf.ramified_primes:
+    * ramified prime
+nf.rank:
+    * rank
+nf.real_embedding:
+    * real embedding
+nf.reflex_field:
+    * CM type
+    * reflex field
+nf.reflex_reflex_field:
+    * reflex field of the reflex field
+nf.regulator:
+    * regulator
+nf.relative_class_number:
+    * relative class number
+nf.ring_of_integers:
+    * ring of integers
+nf.root_discriminant:
+    * root discriminant
+nf.separable:
+    * separable
+nf.separable_algebra:
+    * \'etale $F$-algebra
+    * separable algebra
+nf.serre_odlyzko_bound:
+    * Serre Odlyzko bound
+nf.sibling:
+    * siblings
+nf.signature:
+    * signature
+nf.stem_field:
+    * stem field
+    * stem fields of the polynomial
+nf.torsion:
+    * torsion generator
+nf.totally_imaginary:
+    * totally complex
+    * totally imaginary
+nf.totally_positive:
+    * totally positive
+nf.totally_real:
+    * totally real
+nf.unit_group:
+    * unit group
+nf.unramified_prime:
+    * unramified (rational) prime
+nf.weil_height:
+    * Weil height
+    * absolute logarithmic
+    * logarithmic
+nf.weil_polynomial:
+    * Weil $q$-polynomial
+nf.zk_index:
+    * index of the number field
+ring:
+    * commutative ring
+    * ring
+    * ring without identity
+    * rng
+ring.a-field:
+    * $A$-field
+ring.characteristic:
+    * characteristic
+ring.dedekind_domain:
+    * Dedekind domain
+ring.field:
+    * field
+ring.field_of_fractions:
+    * field of fractions
+ring.fractional_ideal:
+    * fractional ideal
+ring.ideal:
+    * homogeneous
+    * ideal
+ring.integral:
+    * integral
+    * integral closure
+ring.integral_domain:
+    * integral domain
+ring.integrally_closed:
+    * integrally closed
+ring.irreducible:
+    * irreducible
+ring.maximal_ideal:
+    * maximal
+ring.noetherian:
+    * noetherian
+ring.prime_ideal:
+    * prime
+ring.principal_fractional_ideal:
+    * principal fractional ideal
+ring.unit:
+    * unit
+ring.zero_divisor:
+    * zero divisor
+specialfunction.gamma:
+    * (euler) gamma function $\gamma(z)$
+st_group.definition:
+    * Sato-Tate group
+st_group.degree:
+    * degree
+st_group.symplectic_form:
+    * symplectic form
+st_group.usp:
+    * unitary symplectic group
+st_group.weight:
+    * weight
+
+
+
+
+
+
+
+
+$\ell$-adic Galois representation:
+    * av.galois_rep
+    * ec.galois_rep
+$\mathbf{GL}_2$-levels:
+    * mf.bianchi.level
+$\mathbf{SL}_2$-levels:
+    * mf.bianchi.level
+$\Q$-cusps:
+    * modcurve.cusps
+$A$-field:
+    * ring.a-field
+$abc$ quality:
+    * ec.q.abc_quality
+$H$-level structure:
+    * modcurve.level_structure
+$j$-invariant:
+    * ec.j_invariant
+    * ec.q.j_invariant
+$p$-adic completion of $K$ at $\mathfrak{P}$:
+    * nf.padic_completion
+$p$-adic field:
+    * lf.padic_field
+$p$-adic Tate module:
+    * av.tate_module
+    * ec.padic_tate_module
+$p$-Sylow 
+subgroup:
+    * group.sylow_subgroup
+$q$-expansion:
+    * cmf.q-expansion
+(euler) gamma function $\gamma(z)$:
+    * specialfunction.gamma
+-curve:
+    * ec.q_curve
+154:
+    * ec.q.manin_constant
+\'etale $F$-algebra:
+    * nf.separable_algebra
+A4:
+    * ec.galois_rep_modell_image
+    * gl2.exceptional
+A5:
+    * ec.galois_rep_modell_image
+    * gl2.exceptional
+abelian:
+    * group.abelian
+    * nf.abelian
+abelian variety:
+    * ag.abelian_variety
+absolute discriminant:
+    * nf.abs_discriminant
+absolute Galois group:
+    * group.galois.absolute
+absolute logarithmic:
+    * nf.weil_height
+absolute value:
+    * nf.absolute_value
+additive reduction:
+    * ec.additive_reduction
+    * ec.q.reduction_type
+    * ec.reduction_type
+adelic Galois representation:
+    * av.galois_rep
+    * ec.galois_rep
+affine algebraic set:
+    * ag.variety
+Affine space:
+    * ag.affine_space
+affine variety:
+    * ag.variety
+algebraic curve:
+    * ag.curve
+algebraic genus:
+    * ag.curve.genus
+algebraic varieties:
+    * ag.variety
+analytic class number formula:
+    * nf.class_number_formula
+analytic conductor:
+    * cmf.analytic_conductor
+analytic normalization:
+    * lfunction.normalization
+analytic order of Sha:
+    * ec.analytic_sha_order
+Analytic Order of Sha:
+    * ec.q.analytic_sha_order
+analytic rank:
+    * cmf.analytic_rank
+    * ec.q.analytic_rank
+    * lfunction.analytic_rank
+archimedean:
+    * nf.absolute_value
+archimedean local field:
+    * lf.local_field
+arithmetic:
+    * lfunction.arithmetic
+arithmetic function:
+    * af
+arithmetic genus:
+    * ag.curve.genus
+arithmetic normalization:
+    * lfunction.normalization
+arithmetic weight:
+    * lfunction.motivic_weight
+arithmetically equivalent:
+    * nf.arithmetically_equivalent
+artin field:
+    * artin.number_field
+    * cmf.artin_field
+Artin image:
+    * cmf.artin_image
+Artin representation:
+    * artin
+associative:
+    * alg.binary_operation.associative
+Atkin-Lehner involution:
+    * cmf.atkin-lehner
+automorphism:
+    * g2c.aut_grp
+    * group.automorphism
+automorphism group:
+    * g2c.aut_grp
+    * lf.automorphism_group
+B:
+    * ec.galois_rep_modell_image
+    * gl2.borel
+B.a.b:
+    * gl2.borel
+bad prime:
+    * cmf.bad_prime
+bad reduction:
+    * ec.bad_reduction
+    * ec.q.reduction_type
+    * g2c.good_reduction
+base change:
+    * ag.base_change
+    * ec.base_change
+base field:
+    * ag.base_field
+Bernoulli numbers:
+    * af.bernoulli_numbers
+Bianchi group associated to:
+    * mf.bianchi.bianchigroup
+Bianchi modular form:
+    * mf.bianchi
+Bianchi newform:
+    * mf.bianchi.newform
+binary operation:
+    * alg.binary_operation
+Birch and Swinnerton-Dyer:
+    * ec.bsdconjecture
+    * ec.q.bsdconjecture
+Borel subgroup:
+    * gl2.borel
+BSD:
+    * ec.bsdconjecture
+BSD invariants:
+    * ec.bsdconjecture
+canonical height:
+    * ec.canonical_height
+    * ec.q.canonical_height
+Cartan subgroup:
+    * gl2.cartan
+central point:
+    * lfunction.central_point
+central value:
+    * lfunction.central_value
+character:
+    * cmf.character
+characteristic:
+    * ring.characteristic
+characteristic polynomial:
+    * av.fq.weil_polynomial
+characteristic subgroup:
+    * group.characteristic_subgroup
+class number:
+    * nf.class_number
+classical modular curve of level $N$:
+    * modcurve.xn
+CM discriminant:
+    * ec.complex_multiplication
+CM field:
+    * nf.cm_field
+CM type:
+    * nf.reflex_field
+Cn:
+    * ec.galois_rep_modell_image
+    * gl2.nonsplit_cartan
+    * gl2.normalizer_nonsplit_cartan
+Cn.a.b:
+    * gl2.nonsplit_cartan
+coefficient field:
+    * cmf.coefficient_field
+coefficient ring:
+    * cmf.coefficient_ring
+coefficient ring generator bound:
+    * cmf.hecke_ring_generators
+commutative:
+    * alg.binary_operation.commutative
+commutative ring:
+    * ring
+completed L-function:
+    * lfunction.completed
+completed upper:
+    * mf.upper_half_plane
+completion:
+    * nf.place
+complex embedding:
+    * nf.complex_embedding
+complex multiplication:
+    * ag.complex_multiplication
+    * cmf.cm_form
+    * ec.complex_multiplication
+complex place:
+    * nf.place
+Complex points:
+    * modcurve
+conductor:
+    * artin.conductor
+    * character.dirichlet.conductor
+    * ec.conductor
+    * ec.q.conductor
+    * ec.q.lmfdb_label
+    * lfunction.conductor
+    * nf.conductor
+conductor norm:
+    * ec.conductor
+    * ec.invariants
+congruence subgroup:
+    * cmf.congruence_subgroup
+conic:
+    * ag.hyperelliptic_curve
+conrey (primitive) generator:
+    * character.dirichlet.conrey.primitive_generator
+conrey index:
+    * character.dirichlet.conrey.index
+coset:
+    * group.coset
+Cremona label:
+    * ec.q.cremona_label
+critical line:
+    * lfunction.critical_line
+critical strip:
+    * lfunction.critical_strip
+Cs:
+    * ec.galois_rep_modell_image
+    * gl2.normalizer_split_cartan
+    * gl2.split_cartan
+Cs.a.b:
+    * gl2.split_cartan
+cusp form:
+    * cmf.cusp_form
+cuspidal:
+    * ec.q.reduction_type
+cuspidal subspace:
+    * mf.bianchi.spaces
+cusps:
+    * group.fuchsian.cusps
+    * modcurve.cusps
+cyclic:
+    * ec.isogeny
+    * group.cyclic
+Cyclic $\boldsymbol{N}$-isogeny field degree:
+    * modcurve.level_structure
+Cyclic $\boldsymbol{N}$-torsion field degree:
+    * modcurve.level_structure
+Dedekind domain:
+    * ring.dedekind_domain
+Dedekind eta function:
+    * mf.half_integral_weight.dedekind_eta
+defining ideal:
+    * ag.variety
+defining polynomial:
+    * cmf.defining_polynomial
+    * nf.defining_polynomial
+    * nf.polredabs
+degree:
+    * ec.isogeny
+    * gg.degree
+    * lfunction.degree
+    * nf.degree
+    * st_group.degree
+dicyclic group:
+    * group.dicyclic
+dihedral group:
+    * group.dihedral
+dimension:
+    * ag.dimension
+    * cmf.dimension
+    * mf.bianchi.newform
+    * mf.bianchi.spaces
+direct factors:
+    * group.direct_product
+direct product:
+    * group.direct_product
+dirichlet character:
+    * character.dirichlet
+    * character.dirichlet.modulus
+dirichlet character group:
+    * nf.dirichlet_group
+Dirichlet L-function:
+    * lfunction.dirichlet
+dirichlet series:
+    * lfunction.dirichlet_series
+discriminant:
+    * ec.discriminant
+    * ec.q.discriminant
+    * g2c.discriminant
+    * nf.discriminant
+    * nf.poly_discriminant
+discriminant root field:
+    * nf.discriminant_root_field
+distinguishes:
+    * cmf.distinguishing_primes
+divisor function:
+    * af.divisor_function
+dual:
+    * cmf.dualform
+    * lfunction.dual
+Eisenstein series:
+    * cmf.eisenstein
+elliptic curve:
+    * ec
+    * ec.ring
+elliptic curve $E$ over $\mathbb{Q}$:
+    * ec.q
+elliptic scheme:
+    * ec.scheme
+embedding:
+    * cmf.embedding
+    * nf.embedding
+endomorphism:
+    * ag.endomorphism_ring
+    * ec.endomorphism
+endomorphism algebra:
+    * ag.endomorphism_algebra
+endomorphism ring:
+    * ag.endomorphism_ring
+    * ec.endomorphism_ring
+    * ec.q.endomorphism_ring
+endomorphisms:
+    * ec.isogeny
+equivalent:
+    * nf.absolute_value
+eta product:
+    * cmf.eta_quotient
+eta quotient:
+    * cmf.eta_quotient
+Euler factors:
+    * lfunction.euler_product
+Euler product:
+    * lfunction.euler_product
+even:
+    * artin.parity
+everywhere good reduction:
+    * ec.good_reduction
+exceptional:
+    * ec.q.serre_invariants
+exceptional subgroup:
+    * gl2.exceptional
+extended Cartan subgroup:
+    * gl2.cartan
+extension:
+    * group.nonsplit_product
+Faltings height:
+    * ec.q.faltings_height
+Faltings ratio:
+    * ec.q.faltings_ratio
+field:
+    * ring.field
+field of fractions:
+    * ring.field_of_fractions
+field of values:
+    * character.dirichlet.value_field
+Fourier coefficients:
+    * cmf.fouriercoefficients
+Fourier expansion:
+    * cmf.fouriercoefficients
+Fourier-Bessel expansion:
+    * mf.bianchi.fourierbessell
+fractional ideal:
+    * ring.fractional_ideal
+Frattini subgroup:
+    * group.frattini_subgroup
+Frey curve:
+    * ec.q.frey
+Frey-Hellegouarch curve:
+    * ec.q.frey
+Fricke involution:
+    * cmf.fricke
+frobenius cycle type:
+    * nf.frobenius_cycle_types
+frobenius element:
+    * nf.frobenius_cycle_types
+full modular curve of level $N$:
+    * modcurve.xn
+functional equation:
+    * lfunction.functional_equation
+fundamental domain:
+    * group.fuchsian.fundamental_domain
+fundamental units:
+    * nf.fundamental_units
+G:
+    * ec.galois_rep_modell_image
+galois:
+    * nf.is_galois
+galois closure:
+    * nf.galois_closure
+galois conjugate:
+    * cmf.galois_conjugate
+Galois group:
+    * gg.galois_group
+    * nf.galois_group
+galois orbit:
+    * character.dirichlet.galois_orbit
+Galois orbit:
+    * cmf.galois_orbit
+galois representation:
+    * cmf.galois_representation
+Galois root discriminant:
+    * nf.galois_root_discriminant
+gamma factors:
+    * lfunction.gamma_factor
+generator:
+    * nf.generator
+generators:
+    * group.fuchsian.cusps.width
+    * group.generators
+genus:
+    * ag.curve.genus
+    * ec.galois_rep_adelic_image
+    * gl2.genus
+geometric automorphism group:
+    * g2c.geom_aut_grp
+geometric component:
+    * ag.geom_component
+geometric endomorphism ring:
+    * ag.geom_endomorphism_ring
+    * ec.geom_endomorphism_ring
+geometric genus:
+    * ag.curve.genus
+geometrically (or absolutely) simple:
+    * ag.geom_simple
+geometrically irreducible:
+    * ag.irreducible
+global minimal model:
+    * ec.global_minimal_model
+global period:
+    * ec.period
+good prime:
+    * cmf.bad_prime
+good reduction:
+    * ec.good_reduction
+    * ec.q.reduction_type
+    * g2c.good_reduction
+group:
+    * group
+group homomorphism:
+    * group.homomorphism
+group isomorphism:
+    * group.isomorphism
+Haar measure:
+    * group.haar_measure
+Hecke algebra:
+    * mf.bianchi.hecke_algebra
+Hecke characteristic polynomial:
+    * cmf.heckecharpolys
+hecke field:
+    * cmf.coefficient_field
+Hecke field:
+    * mf.bianchi.newform
+    * mf.bianchi.spaces
+Hecke operator:
+    * cmf.hecke_operator
+Hecke operators:
+    * mf.bianchi.hecke_algebra
+Hecke orbit:
+    * cmf.hecke_orbit
+Hecke ring:
+    * cmf.coefficient_ring
+height pairing:
+    * ec.canonical_height
+    * ec.q.canonical_height
+    * ec.q.regulator
+    * ec.regulator
+Hilbert cusp form:
+    * mf.hilbert
+Hilbert modular form:
+    * mf.hilbert
+homogeneous:
+    * ring.ideal
+homogeneous coordinates:
+    * ag.projective_space
+homothetic:
+    * ec.q.real_period
+Hyperbolic 3-space:
+    * mf.bianchi.hyperbolic3space
+hyperelliptic curve:
+    * ag.hyperelliptic_curve
+hyperelliptic involution:
+    * g2c.aut_grp
+ideal:
+    * ring.ideal
+ideal class group:
+    * nf.ideal_class_group
+ideal label:
+    * nf.ideal_labels
+identity:
+    * alg.binary_operation.identity
+index:
+    * character.dirichlet.conrey.index
+    * ec.galois_rep_adelic_image
+    * gl2.index
+    * group.subgroup.index
+index of the number field:
+    * nf.zk_index
+induced:
+    * character.dirichlet.induce
+inertia group:
+    * lf.inertia_group
+inessential prime:
+    * nf.inessential_prime
+infinite places:
+    * nf.place
+inner twist count:
+    * cmf.inner_twist_count
+inner twists:
+    * cmf.inner_twist
+integral:
+    * nf.integral
+    * ring.integral
+integral basis:
+    * nf.integral_basis
+integral closure:
+    * ring.integral
+integral domain:
+    * ring.integral_domain
+integral model:
+    * ec.integral_model
+integral points:
+    * ec.q.integral_points
+integrally closed:
+    * ring.integrally_closed
+intermediate fields:
+    * nf.intermediate_fields
+inverse:
+    * alg.binary_operation.inverse
+irreducible:
+    * ag.irreducible
+    * ring.irreducible
+isogenous:
+    * av.isogeny
+    * ec.isogeny
+isogeny:
+    * av.isogeny
+    * ec.isogeny
+isogeny class:
+    * av.isogeny_class
+isogeny class (over a field $K$):
+    * ec.isogeny_class
+isogeny class degree:
+    * ec.isogeny_class_degree
+isogeny class index:
+    * ec.q.lmfdb_label
+isogeny class label:
+    * ec.q.lmfdb_label
+isogeny classes:
+    * ec.isogeny
+isogeny factors:
+    * av.decomposition
+isogeny graph:
+    * ec.isogeny_graph
+isogeny matrix:
+    * ec.isogeny_matrix
+isomorphic over $k$:
+    * ec.weierstrass_isomorphism
+isomorphism:
+    * ec.isomorphism
+isomorphism class index:
+    * ec.q.lmfdb_label
+isomorphism classes:
+    * ec.isomorphism
+isotropy group:
+    * cmf.eisenstein
+jacobi symbol:
+    * character.dirichlet.jacobi_symbol
+Jacobian:
+    * ag.jacobian
+K-Bessel functions:
+    * mf.bianchi.fourierbessell
+kodaira symbol:
+    * ec.kodaira_symbol
+    * ec.q.kodaira_symbol
+Kronecker symbol:
+    * character.dirichlet.kronecker_symbol
+L-function:
+    * lfunction
+L-polynomial:
+    * av.fq.l-polynomial
+label:
+    * character.dirichlet.galois_orbit_label
+    * cmf.embedding_label
+    * cmf.label
+largest:
+    * cmf.maximal
+law of quadratic reciprocity states:
+    * character.dirichlet.jacobi_symbol
+leading coefficient:
+    * ec.special_value
+    * lfunction.leading_coeff
+legendre symbol:
+    * character.dirichlet.legendre_symbol
+level:
+    * cmf.congruence_subgroup
+    * cmf.level
+    * ec.galois_rep_adelic_image
+    * gl2.level
+level label:
+    * mf.bianchi.level
+level norm:
+    * mf.bianchi.level
+LMFDB label:
+    * ec.q.lmfdb_label
+local algebra:
+    * nf.local_algebra
+local data:
+    * ec.local_data
+local factors:
+    * lfunction.euler_product
+local field:
+    * lf.local_field
+local minimal discriminant:
+    * ec.local_minimal_discriminant
+local minimal model:
+    * ec.local_minimal_model
+local number field:
+    * lf.padic_field
+logarithmic:
+    * nf.weil_height
+lowest zero:
+    * lfunction.zeros
+Manin constant:
+    * ec.q.manin_constant
+maximal:
+    * cmf.maximal
+    * ec.maximal_elladic_galois_rep
+    * ec.maximal_galois_rep
+    * ring.maximal_ideal
+maximal CM subfield:
+    * nf.maximal_cm_subfield
+maximal ideal:
+    * lf.maximal_ideal
+maximal prime:
+    * ec.maximal_elladic_galois_rep
+maximal subgroup:
+    * group.maximal_subgroup
+minimal:
+    * character.dirichlet.minimal
+    * cmf.minimal
+minimal discriminant:
+    * ec.minimal_discriminant
+minimal discriminant norm:
+    * ec.invariants
+minimal equation:
+    * g2c.minimal_equation
+minimal field of definition:
+    * ag.minimal_field
+minimal polynomial:
+    * nf.minimal_polynomial
+minimal quadratic twist:
+    * ec.q.minimal_twist
+minimal quartic twist:
+    * ec.q.minimal_twist
+minimal sextic twist:
+    * ec.q.minimal_twist
+minimal sibling:
+    * nf.minimal_sibling
+minimal twist:
+    * cmf.minimal_twist
+    * cmf.twist_minimal
+    * ec.q.minimal_twist
+minimal weierstrass equation:
+    * ec.q.minimal_weierstrass_equation
+minus subspace:
+    * cmf.minus_space
+mod-$\ell$ Galois representation:
+    * av.galois_rep
+    * ec.galois_rep
+mod-$m$ Galois representation:
+    * av.galois_rep
+    * ec.galois_rep
+modular curve:
+    * modcurve
+modular degree:
+    * ec.q.modular_degree
+modular form:
+    * cmf
+modular group:
+    * group.sl2z
+modular parametrization:
+    * ec.q.modular_parametrization
+modulus:
+    * character.dirichlet
+    * character.dirichlet.modulus
+monogenic:
+    * nf.monogenic
+monomial order:
+    * nf.monomial_order
+Mordell-Weil generators:
+    * ec.mw_generators
+Mordell-Weil group:
+    * ag.mordell_weil
+    * ec.mordell_weil_group
+Mordell-Weil rank:
+    * ag.mordell_weil
+    * ec.mordell_weil_group
+mordell-weil theorem:
+    * ec.mordell_weil_theorem
+motivic weight:
+    * lfunction.motivic_weight
+multiplicative:
+    * af.multiplicative
+multiplicative reduction:
+    * ec.multiplicative_reduction
+    * ec.q.reduction_type
+    * ec.reduction_type
+multiplicity:
+    * cmf.inner_twist_multiplicity
+    * cmf.twist_multiplicity
+N&eacute;ron lattice:
+    * ec.q.period_lattice
+N-torsion field degree:
+    * modcurve.level_structure
+naive height:
+    * ec.q.naive_height
+narrow class group:
+    * nf.narrow_class_group
+narrow class number:
+    * nf.narrow_class_number
+new subspace:
+    * cmf.newspace
+    * cmf.subspaces
+newform:
+    * cmf.newform
+    * mf.bianchi.spaces
+newform orbits:
+    * cmf.galois_orbit
+newform subspace:
+    * cmf.newform_subspace
+newspace:
+    * mf.bianchi.spaces
+nicknames:
+    * nf.nickname
+Nn:
+    * ec.galois_rep_modell_image
+    * gl2.normalizer_nonsplit_cartan
+Nn.a.b:
+    * gl2.normalizer_nonsplit_cartan
+nodal:
+    * ec.q.reduction_type
+noetherian:
+    * ring.noetherian
+non-singular:
+    * ag.singular_point
+non-split:
+    * ec.q.reduction_type
+    * group.semidirect_product
+non-split Cartan subgroup:
+    * gl2.nonsplit_cartan
+non-split extension:
+    * group.nonsplit_product
+non-split multiplicative reduction:
+    * ec.nonsplit_multiplicative_reduction
+    * ec.reduction_type
+non-torsion generators:
+    * ec.mw_generators
+nonarchimedean:
+    * nf.absolute_value
+nonarchimedean local field:
+    * lf.local_field
+nontrivial:
+    * cmf.nontrivial_twist
+normal:
+    * group.subgroup.normal
+normal series:
+    * group.normal_series
+normalized Haar measure:
+    * group.haar_measure
+normalizer of a cartan subgroup:
+    * gl2.normalizer_cartan
+normalizer of a non-split Cartan subgroup:
+    * gl2.normalizer_nonsplit_cartan
+normalizer of a split Cartan subgroup:
+    * gl2.normalizer_split_cartan
+Ns:
+    * ec.galois_rep_modell_image
+    * gl2.normalizer_split_cartan
+Ns.a.b:
+    * gl2.normalizer_split_cartan
+Ns.a.b.c:
+    * gl2.normalizer_split_cartan
+number field:
+    * nf
+obstruction class:
+    * ec.obstruction_class
+odd:
+    * artin.parity
+old:
+    * cmf.oldspace
+old subspace:
+    * cmf.newspace
+    * cmf.subspaces
+oldforms:
+    * mf.bianchi.spaces
+open subgroup:
+    * gl2.open
+optimal:
+    * ec.q.optimal
+orbit index:
+    * character.dirichlet.galois_orbit_index
+order:
+    * character.dirichlet.order
+    * group.order
+    * nf.order
+ordinary:
+    * ec.good_ordinary_reduction
+    * ec.q.reduction_type
+    * ec.reduction_type
+ordinary reduction:
+    * ec.good_ordinary_reduction
+parity:
+    * character.dirichlet.parity
+period lattice:
+    * ec.q.period_lattice
+Petersson scalar product:
+    * cmf.petersson_scalar_product
+place:
+    * nf.place
+plus subspace:
+    * cmf.plus_space
+polycyclic presentation:
+    * group.presentation
+polycyclic sequence:
+    * group.presentation
+polycyclic series:
+    * group.presentation
+potential complex multiplication:
+    * ec.complex_multiplication
+potential good reduction:
+    * ec.potential_good_reduction
+presentation:
+    * group.presentation
+prime:
+    * nf.prime
+    * ring.prime_ideal
+prime above:
+    * nf.prime
+primitive:
+    * character.dirichlet.primitive
+    * ec.q.torsion_growth
+principal:
+    * character.dirichlet.principal
+principal congruence subgroup:
+    * cmf.congruence_subgroup
+principal fractional ideal:
+    * ring.principal_fractional_ideal
+profinite group:
+    * gl2.profinite
+projective algebraic set:
+    * ag.variety
+projective field:
+    * cmf.projective_field
+projective galois representation:
+    * cmf.galois_representation
+projective image:
+    * cmf.projective_image
+Projective space:
+    * ag.projective_space
+projective variety:
+    * ag.variety
+quadratic twists:
+    * ec.twists
+quality:
+    * ec.q.abc_quality
+quartic twists:
+    * ec.twists
+quotient curve:
+    * ag.quotient_curve
+quotient group:
+    * group.quotient
+ramified:
+    * artin.ramified_primes
+ramified prime:
+    * nf.ramified_primes
+rank:
+    * ec.rank
+    * group.rank
+    * nf.rank
+rational:
+    * modcurve.level_structure
+rational cusps:
+    * modcurve.cusps
+Rational points:
+    * modcurve
+real:
+    * character.dirichlet.real
+real embedding:
+    * nf.real_embedding
+real multiplication:
+    * cmf.rm_form
+real period:
+    * ec.q.period_lattice
+    * ec.q.real_period
+real place:
+    * nf.place
+reduced defining polynomial:
+    * nf.polredabs
+reduced minimal model:
+    * ec.q.minimal_weierstrass_equation
+reduction type:
+    * ec.q.reduction_type
+    * ec.reduction_type
+reflex field:
+    * nf.reflex_field
+reflex field of the reflex field:
+    * nf.reflex_reflex_field
+regulator:
+    * ec.q.regulator
+    * ec.regulator
+    * nf.regulator
+relative class number:
+    * nf.relative_class_number
+relative dimension:
+    * cmf.dimension
+    * cmf.relative_dimension
+relative orders:
+    * group.presentation
+residue degree:
+    * nf.frobenius_cycle_types
+residue field:
+    * lf.residue_field
+residue field characteristic:
+    * lf.residue_field
+riemann hypothesis:
+    * lfunction.rh
+Riemann surface:
+    * ag.riemann_surface
+ring:
+    * ring
+ring of integers:
+    * lf.ring_of_integers
+    * nf.ring_of_integers
+ring without identity:
+    * ring
+rng:
+    * ring
+root discriminant:
+    * nf.root_discriminant
+root number:
+    * lfunction.sign
+RSZB label:
+    * gl2.label
+S:
+    * cmf.sturm_bound_gamma1
+S4:
+    * ec.galois_rep_modell_image
+    * gl2.exceptional
+Satake angles:
+    * cmf.satake_angles
+Satake parameters:
+    * cmf.satake_parameters
+sato-tate group:
+    * cmf.sato_tate
+Sato-Tate group:
+    * st_group.definition
+selberg axioms:
+    * lfunction.selberg_class.axioms
+Selberg class:
+    * lfunction.selberg_class
+Selberg data:
+    * lfunction.selbergdata
+self dual:
+    * cmf.selfdual
+self twist:
+    * mf.ellitpic.self_twist
+self-dual:
+    * lfunction.self-dual
+self-twist:
+    * cmf.self_twist
+semi-global minimal models:
+    * ec.semi_global_minimal_model
+semidirect factor:
+    * group.semidirect_product
+semidirect product:
+    * group.semidirect_product
+semistable:
+    * ec.q.semistable
+    * ec.semistable
+separable:
+    * nf.separable
+separable algebra:
+    * nf.separable_algebra
+Serre conductor:
+    * ec.q.serre_invariants
+Serre invariants:
+    * ec.q.serre_invariants
+Serre Odlyzko bound:
+    * nf.serre_odlyzko_bound
+Serre weight:
+    * ec.q.serre_invariants
+sextic twists:
+    * ec.twists
+shimura correspondence:
+    * cmf.shimura_correspondence
+short Weierstrass model:
+    * ec.simple_equation
+siblings:
+    * nf.sibling
+sign:
+    * lfunction.root_number
+    * lfunction.sign
+signature:
+    * lfunction.signature
+    * nf.signature
+simple:
+    * ag.simple
+    * av.simple
+simplified equation:
+    * ec.simple_equation
+    * g2c.simple_equation
+smooth:
+    * ag.curve.smooth
+solvable:
+    * group.solvable
+space:
+    * cmf.space
+special value:
+    * ec.q.special_value
+    * ec.special_value
+spectral parameters:
+    * lfunction.spectral_parameters
+split:
+    * ec.q.reduction_type
+    * group.semidirect_product
+split Cartan subgroup:
+    * gl2.split_cartan
+split extension:
+    * group.nonsplit_product
+split multiplicative reduction:
+    * ec.reduction_type
+    * ec.split_multiplicative_reduction
+stable Faltings height:
+    * ec.q.faltings_height
+Stark unit:
+    * cmf.stark_unit
+stem field:
+    * nf.stem_field
+stem fields of the polynomial:
+    * nf.stem_field
+strict class group:
+    * nf.narrow_class_group
+strict class number:
+    * nf.narrow_class_number
+Sturm bound:
+    * cmf.sturm_bound
+subgroup:
+    * group.subgroup
+subnormal series:
+    * group.normal_series
+supersingular:
+    * ec.good_supersingular_reduction
+    * ec.q.reduction_type
+    * ec.reduction_type
+supersingular reduction:
+    * ec.good_supersingular_reduction
+symplectic form:
+    * st_group.symplectic_form
+symplectic isomorphism:
+    * alg.symplectic_isomorphism
+Szpiro ratio:
+    * ec.q.szpiro_ratio
+tamagawa number:
+    * ec.tamagawa_number
+tamagawa product:
+    * ec.tamagawa_number
+Tate-Shafarevic group:
+    * ec.q.analytic_sha_order
+Tate-Shafarevich group:
+    * ec.analytic_sha_order
+the:
+    * ec.q.real_period
+the identity element:
+    * alg.binary_operation.identity
+torsion generator:
+    * nf.torsion
+torsion generators:
+    * ec.mw_generators
+torsion growth:
+    * ec.q.torsion_growth
+torsion order:
+    * ec.torsion_order
+torsion structure:
+    * ec.torsion_subgroup
+torsion subgroup:
+    * ag.mordell_weil
+    * ec.q.torsion_subgroup
+    * ec.torsion_subgroup
+    * group.torsion
+torsion {{KNOWL('group', 'group')}}:
+    * group.torsion
+totally complex:
+    * nf.totally_imaginary
+totally imaginary:
+    * nf.totally_imaginary
+totally positive:
+    * nf.totally_positive
+totally real:
+    * nf.totally_real
+trace bound:
+    * cmf.trace_bound
+trace form:
+    * cmf.space_trace_form
+    * cmf.trace_form
+trivial:
+    * character.dirichlet.principal
+trivial absolute value:
+    * nf.absolute_value
+trivial semidirect product:
+    * group.semidirect_product
+trivial zeros:
+    * lfunction.trivial_zero
+twist:
+    * av.twist
+    * cmf.twist
+    * ec.twists
+twist class:
+    * cmf.twist
+twist equivalent:
+    * cmf.twist
+twist minimal:
+    * cmf.twist_minimal
+types:
+    * cmf.projective_image
+unit:
+    * ring.unit
+unit group:
+    * nf.unit_group
+unitary symplectic group:
+    * st_group.usp
+unramified:
+    * artin.unramified_primes
+    * nf.frobenius_cycle_types
+unramified (rational) prime:
+    * nf.unramified_prime
+upper half-plane:
+    * mf.upper_half_plane
+Weierstrass coefficients:
+    * ec.weierstrass_coeffs
+Weierstrass equation:
+    * ec.weierstrass_coeffs
+    * g2c.g2curve
+weierstrass isomorphisms:
+    * ec.weierstrass_isomorphism
+Weierstrass model:
+    * ag.hyperelliptic_curve
+    * ec.weierstrass_coeffs
+weight:
+    * cmf.weight
+    * mf.bianchi.weight
+    * st_group.weight
+Weil $q$-polynomial:
+    * nf.weil_polynomial
+Weil height:
+    * nf.weil_height
+Weil polynomial:
+    * av.fq.weil_polynomial
+width:
+    * group.fuchsian.cusps.width
+wild inertia group:
+    * lf.wild_inertia_group
+zero divisor:
+    * ring.zero_divisor
+zeros:
+    * lfunction.zeros
+{{ knowl(mf.elliptic.newform, title=newform) }}:
+    * cmf.decomposition.new.gamma0chi
+{{KNOWL('ec.mordell_weil_group', 'Mordell-Weil group')}}:
+    * ec.mw_generators
+{{KNOWL('ec.potential_good_reduction','potential good reduction')}}:
+    * ec.reduction
+{{KNOWL('ec.semistable','semistable')}}:
+    * ec.reduction

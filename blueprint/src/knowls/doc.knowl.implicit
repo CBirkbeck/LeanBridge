@@ -1,0 +1,7 @@
+\subsection{Implicit creation of knowls}
+\begin{definition}\label{doc.knowl.implicit}
+\uses{}
+Following a link to a non-existing Knowl offers the possibility to create, then edit and save a new Knowl.
+\end{definition}
+
+

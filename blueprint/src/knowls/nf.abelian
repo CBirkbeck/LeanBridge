@@ -1,0 +1,7 @@
+\subsection{Abelian number field}
+\begin{definition}\label{nf.abelian}
+\uses{nf,nf.galois_group}
+A {{ KNOWL('nf', 'number field') }} $K$ is **abelian** if it is Galois over $\Q$ and its {{ KNOWL('nf.galois_group',  'Galois group') }} $\Gal(K/\Q)$ is abelian. 
+\end{definition}
+
+

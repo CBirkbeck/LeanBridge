@@ -1,0 +1,14 @@
+\subsection{Conjugacy class representatives}
+\begin{definition}\label{gg.conjugacy_classes.data}
+\uses{}
+{% if n is defined and t is defined %}
+<p>
+  {{ group_cclasses_data(n,t) }}
+</p>
+{% else %}
+This knowl can display conjugacy class information about a particular Galois group specified by parameters.
+{% endif %}
+
+\end{definition}
+
+

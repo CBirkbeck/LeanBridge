@@ -1,0 +1,22 @@
+\subsection{Eisenstein form}
+\begin{definition}\label{lf.eisenstein_form}
+\uses{lf.eisenstein_polynomial,lf.padic_field,lf.ramification_index,lf.ring_of_integers}
+Let $K$ be a {{KNOWL('lf.padic_field', '$p$-adic field')}}, $\mathcal{O}_K$ its {{KNOWL('lf.ring_of_integers', 'ring of integers')}}, and $\pi$ a {{KNOWL('lf.ramification_index', 'uniformizer')}} for $\mathcal{O}_K$.
+
+A monic polynomial $f\in \mathcal{O}_K[x]$
+is of **Eisenstein form** if
+there exists a monic polynomial $\nu(x)\in\mathcal{O}_K[x]$, irreducible modulo $\pi$, and  \(e\in\Z^+\) such that
+$$ f(x)=\nu(x)^e+\sum_{i=1}^{e-1}g_i(x)\nu(x)^i+g_0(x)$$
+where for all \(0\le i\le e-1\), \(g_i\in\pi\mathcal{O}_K[x]\)  with 
+\(\deg g_i<\deg\nu\),
+and the minimum of the valuation of the coefficients of \(g_0\) is one.
+
+Note,
+
+ - a polynomial $f$ of Eisenstein form is irreducible in $K[x]$
+ - every ramified extension of $K$ can be obtained by adjoining a root of a polynomial in Eisenstein form
+ - every {{KNOWL('lf.eisenstein_polynomial','Eisenstein polynomial')}} is of Eisenstein form by taking $\nu(x)=x$
+
+\end{definition}
+
+

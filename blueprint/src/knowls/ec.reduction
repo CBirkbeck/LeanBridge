@@ -1,0 +1,9 @@
+\subsection{Reduction of an elliptic curve}
+\begin{definition}\label{ec.reduction}
+\uses{ec,ec.bad_reduction,ec.j_invariant,ec.potential_good_reduction,ec.reduction_type,ec.semistable,nf.integral}
+An {{KNOWL('ec', 'elliptic curve')}} $E$ over a number field $K$ is **{{KNOWL('ec.semistable','semistable')}}** if it has {{KNOWL('ec.reduction_type', 'multiplicative reduction')}} at every {{KNOWL('ec.bad_reduction', 'bad prime')}}, and has **{{KNOWL('ec.potential_good_reduction','potential good reduction')}}** if its {{ KNOWL('ec.j_invariant', '$j$-invariant') }} is {{KNOWL('nf.integral', 'integral')}}.
+
+If $E$ has potential good reduction then it cannot be semistable unless it has everywhere good reduction.
+\end{definition}
+
+

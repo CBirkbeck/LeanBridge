@@ -1,0 +1,7 @@
+\subsection{Abelian group}
+\begin{definition}\label{group.abelian}
+\uses{alg.binary_operation,alg.binary_operation.commutative,group}
+A {{KNOWL('group', 'group')}} is **abelian** if its {{KNOWL('alg.binary_operation', 'operation')}} is {{KNOWL('alg.binary_operation.commutative', 'commutative')}}.
+\end{definition}
+
+

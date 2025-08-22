@@ -1,0 +1,7 @@
+\subsection{Determinant is surjective}
+\begin{definition}\label{modlgal.det_surjective}
+\uses{modlgal,modlgal.surjective}
+For a {{KNOWL('modlgal', "mod-$\ell$ Galois representation")}}, its determinant is {{KNOWL('modlgal.surjective', 'surjective')}} is the image of its determinant map is $\GL_1(\F_\ell)$.
+\end{definition}
+
+

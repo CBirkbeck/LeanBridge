@@ -1,0 +1,7 @@
+\subsection{Geometrically squarefree abelian variety}
+\begin{definition}\label{av.geometrically_squarefree}
+\uses{ag.abelian_variety,ag.base_change,av.squarefree}
+An {{KNOWL('ag.abelian_variety', 'abelian variety')}} is **geometrically squarefree** if its {{KNOWL('ag.base_change', 'base change')}} to an algebraic closure of the ground field is {{KNOWL('av.squarefree', 'squarefree')}}.
+\end{definition}
+
+

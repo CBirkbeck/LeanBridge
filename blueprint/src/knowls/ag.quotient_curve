@@ -1,0 +1,11 @@
+\subsection{Quotient curve}
+\begin{definition}\label{ag.quotient_curve}
+\uses{ag.curve,ag.variety,g2c.aut_grp}
+Let $X$ be an {{KNOWL('ag.curve', "algebraic curve")}} and let $H$ be a finite subgroup of its {{KNOWL('g2c.aut_grp', "automorphism group")}}.
+
+The **quotient curve** $X/H$ is the algebraic curve obtained by identifying points of $X$ that lie in the same $H$-orbit (equations defining $X/H$ as an {{KNOWL('ag.variety', "algebraic variety")}} of dimension one can be constructed from the equations defining $X$ and the automorphisms in $H$).
+
+The natural projection $X\to X/H$ that sends each point on $X$ to its $H$-orbit is a surjective morphism
+\end{definition}
+
+

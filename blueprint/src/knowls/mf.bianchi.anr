@@ -1,0 +1,7 @@
+\subsection{Analytic rank of a Bianchi newform}
+\begin{definition}\label{mf.bianchi.anr}
+\uses{mf.bianchi.newform,mf.bianchi.sign}
+Let $F$ be a {{ KNOWL('mf.bianchi.newform', 'Bianchi newform') }} over the imaginary quadratic field $K$.   The **analytic rank** of $F$ is the order of vanishing of the L-function attached to $F$ at the centre of its critical strip.  The parity of the analytic rank is determined by the {{ KNOWL('mf.bianchi.sign', 'sign') }} of $F$.
+\end{definition}
+
+

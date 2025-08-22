@@ -1,0 +1,13 @@
+\subsection{Tamagawa numbers}
+\begin{definition}\label{g2c.tamagawa}
+\uses{ag.abelian_variety,ag.base_change,ag.jacobian,g2c.good_reduction,lf.padic_field}
+For an {{ KNOWL('ag.abelian_variety', 'abelian variety') }} $A$ over a {{KNOWL("lf.padic_field", "$p$-adic field")}}, the **Tamagawa number** of $A$ is the number of connected components of its N\'eron model.
+
+For a smooth projective curve $X/\Q$ the Tamagawa number of $X$ at at a prime $p$ is the Tamagawa number of the {{ KNOWL('ag.base_change', 'base change') }} of its {{ KNOWL('ag.jacobian', 'Jacobian') }} to the field $\Q_p$.
+
+It is a positive integer that is equal to 1 at all primes of {{KNOWL("g2c.good_reduction", "good reduction")}} for the Jacobian; it may also be 1 at primes of bad reduction.
+
+The product of the Tamagawa numbers over all primes is a positive integer known as the **Tamagawa product**.
+\end{definition}
+
+

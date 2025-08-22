@@ -1,0 +1,15 @@
+\subsection{Source of Bianchi modular form data}
+\begin{definition}\label{dq.mf.bianchi.source}
+\uses{mf.bianchi,mf.bianchi.newform,mf.bianchi.weight}
+The database of Bianchi modular forms was mostly computed by John Cremona using modular symbol algorithms developed in his [1981 DPhil thesis](http://http://www.warwick.ac.uk/staff/J.E.Cremona/theses/JCthesis-scan.pdf) (see also [J. E. Cremona,
+Hyperbolic tessellations, modular symbols, and
+elliptic curves over complex quadratic fields
+Compositio Mathematica, tome 51, no 3 (1984), p. 275-324](http://http://www.numdam.org/article/CM_1984__51_3_275_0.pdf)) for the five fields $\mathbb{Q}(\sqrt{-1})$,  $\mathbb{Q}(\sqrt{-2})$, $\mathbb{Q}(\sqrt{-3})$, $\mathbb{Q}(\sqrt{-7})$, and $\mathbb{Q}(\sqrt{-11})$.  The open source code implementing the algorithm is available on [GitHub](https://github.com/JohnCremona/bianchi-progs); it depends also on the C++ library [eclib](https://github.com/JohnCremona/eclib).  The code is currently limited to these five Euclidean imaginary quadratic fields, and only computes {{KNOWL('mf.bianchi', 'cuspidal')}} {{KNOWL('mf.bianchi.weight', 'weight')}} 2 newforms with trivial character and {{KNOWL('mf.bianchi.newform', 'dimension')}} \(1\) (that is, having rational coefficients).
+
+Forms of dimension 2 over $\mathbb{Q}(\sqrt{-1})$ were computed by Ciaran Schembri using the [Magma package](http://magma.maths.usyd.edu.au/magma/handbook/modular_forms_over_imaginary_quadratic_fields/) written by Dan Yasaki.
+
+Dimension data for full cuspidal and new spaces for a range of weights and $SL_2$ levels over $\mathbb{Q}(\sqrt{-d})$ for $d=2,11,19,43,67,163$ were computed by Alexander Rahm using [his own code](http://math.uni.lu/~rahm/) written in PARI/GP.
+
+\end{definition}
+
+

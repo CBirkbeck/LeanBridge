@@ -1,0 +1,7 @@
+\subsection{Real geometric endomorphism algebra}
+\begin{definition}\label{ag.real_geom_endomorphism_algebra}
+\uses{ag.geom_endomorphism_ring}
+The **real geometric endomorphism algebra** of an abelian variety $A$ over a field $F$ is the $\R$-algebra $\textrm{End}(A_{\overline{F}})\otimes\R$, where $\textrm{End}(A_{\overline{F}})$ is the {{KNOWL('ag.geom_endomorphism_ring', 'geometric endomorphism ring')}} of $A$.
+\end{definition}
+
+

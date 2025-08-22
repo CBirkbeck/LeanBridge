@@ -1,0 +1,7 @@
+\subsection{Commutator label}
+\begin{definition}\label{group.commutator_isolabel}
+\uses{group.commutator_subgroup,group.label}
+You can specify the {{KNOWL('group.commutator_subgroup', 'commutator subgroup')}} of a group by providing its {{KNOWL('group.label', 'label')}} as an abstract group.
+\end{definition}
+
+

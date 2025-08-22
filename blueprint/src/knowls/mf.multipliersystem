@@ -1,0 +1,7 @@
+\subsection{Multiplier system}
+\begin{definition}\label{mf.multipliersystem}
+\uses{}
+A **multiplier system** of weight $k\in\mathbb{Z}$ for a group $G$ is a group homomorphism from $G$ to the group $S^1$ of complex numbers of modulus $1$, with the added condition that, if $-I\in G$, then $v(-I)=(-1)^k$.
+\end{definition}
+
+

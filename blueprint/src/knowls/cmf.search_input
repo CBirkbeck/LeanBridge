@@ -1,0 +1,7 @@
+\subsection{Find a newform or newspace by label}
+\begin{definition}\label{cmf.search_input}
+\uses{cmf.label,cmf.newform,cmf.newspace}
+To find a specific {{KNOWL('cmf.newform', 'newform')}} or {{KNOWL('cmf.newspace','newspace')}}, enter its {{KNOWL('cmf.label', 'label')}}.
+\end{definition}
+
+

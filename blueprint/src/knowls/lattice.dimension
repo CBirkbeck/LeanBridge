@@ -1,0 +1,7 @@
+\subsection{Dimension of an integral lattice}
+\begin{definition}\label{lattice.dimension}
+\uses{lattice.definition}
+The **dimension** of an {{ KNOWL("lattice.definition", "integral lattice")}}, $L$, is the rank of its underlying free $\Z$-module. 
+\end{definition}
+
+

@@ -1,0 +1,9 @@
+\subsection{Good reduction}
+\begin{definition}\label{ec.good_reduction}
+\uses{ag.curve.smooth,ec,nf,nf.prime}
+An {{ KNOWL('ec', 'elliptic curve') }} \(E\) defined over a {{ KNOWL('nf', 'number field') }} \(K\) is said to have **good reduction** at a {{KNOWL('nf.prime', 'prime')}} \(\mathfrak{p}\) of \(K\) if the reduction of \(E\) modulo \(\mathfrak{p}\) is {{KNOWL('ag.curve.smooth', 'smooth')}}.
+
+If $E$ has good reduction at every prime of $K$ then $E$ is said to have **everywhere good reduction**.
+\end{definition}
+
+

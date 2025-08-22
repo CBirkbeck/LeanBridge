@@ -1,0 +1,12 @@
+\subsection{Representation}
+\begin{definition}\label{repn.about}
+\uses{}
+<h3>Browse</h3>
+<ul>
+<li><a href="{{ url_for('characters.render_characterNavigation') }}">Dirichlet characters</a>
+<li><a href="{{ url_for('artin_representations.index') }}">Artin representations</a>
+</ul>
+
+\end{definition}
+
+

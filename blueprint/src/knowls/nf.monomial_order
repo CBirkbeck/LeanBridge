@@ -1,0 +1,7 @@
+\subsection{Monomial order}
+\begin{definition}\label{nf.monomial_order}
+\uses{nf,nf.order,nf.primitive_element,nf.ring_of_integers}
+A **monomial order** in a {{KNOWL("nf", "number field")}} $K$ is an {{KNOWL("nf.order", "order")}} of the form $\Z[\alpha]$, where $\alpha$ is an element of $K$. The element $\alpha$ is necessarily both an {{ KNOWL('nf.ring_of_integers',  'algebraic integer') }} and a {{KNOWL("nf.primitive_element", "primitive element")}} for $K$.
+\end{definition}
+
+

@@ -1,0 +1,18 @@
+\subsection{Data that varies within families}
+\begin{definition}\label{lf.family_varying}
+\uses{lf.associated_inertia,lf.family_polynomial,lf.hidden_slopes,lf.indices_of_inseparability,lf.jump_set,nf.galois_group}
+The following invariants of field extensions may not be the same for all $L/K$
+in a {{KNOWL('lf.family_polynomial','$p$-adic family')}} $I/K$.  For each
+invariant we list the values that occur for extensions in the family.
+
+- the {{ KNOWL('nf.galois_group', "Galois group") }} $\operatorname{Gal}(L^{\rm gal}/K)$,
+- the {{ KNOWL('lf.hidden_slopes', "hidden Artin slopes") }}
+$[\tilde{s}_{w+1},\dots,\tilde{s}_{w+u}]$ of $L/K$,
+- the {{ KNOWL('lf.indices_of_inseparability', "indices of inseparability") }}
+$[i_0,i_1,\dots,i_w]$ of $L/K$,
+- the {{ KNOWL('lf.associated_inertia', "associated inertia") }}
+$[I_1,\dots,I_v]$ of $L/K$,
+- the {{ KNOWL('lf.jump_set', "jump set") }} $[j_0,j_1,\dots,j_w]$ of $L$.
+\end{definition}
+
+

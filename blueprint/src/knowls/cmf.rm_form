@@ -1,0 +1,9 @@
+\subsection{Real multiplication}
+\begin{definition}\label{cmf.rm_form}
+\uses{cmf,cmf.self_twist}
+A {{KNOWL('cmf', 'modular form')}} is said to have **real multiplication** if it admits a {{KNOWL('cmf.self_twist', 'self twist')}} by the Kronecker character of a real quadratic field.
+
+Only modular forms of weight one can have real multiplication.
+\end{definition}
+
+

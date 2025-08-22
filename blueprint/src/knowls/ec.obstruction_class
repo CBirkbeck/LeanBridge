@@ -1,0 +1,9 @@
+\subsection{Obstruction class of an elliptic curve}
+\begin{definition}\label{ec.obstruction_class}
+\uses{ec,ec.global_minimal_model,nf,nf.ideal_class_group}
+Let $E$ be an {{ KNOWL('ec', 'elliptic curve') }} defined over a {{ KNOWL('nf', 'number field') }} $K$.  The **obstruction class** of $E$ is an {{ KNOWL('nf.ideal_class_group', 'ideal class') }} of $K$ which is trivial if and only if $E$ has a {{ KNOWL('ec.global_minimal_model', 'global minimal model') }}.
+
+
+\end{definition}
+
+

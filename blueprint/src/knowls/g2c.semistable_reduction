@@ -1,0 +1,8 @@
+\subsection{Semistable reduction}
+\begin{definition}\label{g2c.semistable_reduction}
+\uses{ec.semistable}
+A curve $C$ over a local field $K$ is said to have _semistable reduction_ if there exists a model over $\mathcal{O}_K$, such that the special fibre is semistable, i.e., the special fibre is a geometrically reduced curve with at most nodal singularities, and each component of geometric genus 0 has at least 2 singular points, counted with multiplicity.
+This is the equivalent of {{ KNOWL('ec.semistable', 'semistable reduction for elliptic curves') }}.
+\end{definition}
+
+

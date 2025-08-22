@@ -1,0 +1,34 @@
+\subsection{Jump set}
+\begin{definition}\label{lf.jump_set}
+\uses{lf.padic_field}
+Let $K$ be a {{KNOWL('lf.padic_field', '$p$-adic field')}} which contains
+a primitive $p$th root of unity $\zeta_p$.  Set $e=v_K(p)$ and
+$r=v_p(e)$.  The **jump set** associated to $K$ is an
+increasing sequence of $r+1$ positive integers which
+determines the structure of the 1-units of $K$ as a
+filtered $\mathbb{Z}_p$-module.  If $K$ does not contain
+a primitive $p$th root of unity then the jump set of $K$
+is not defined.
+
+More precisely, if $\zeta_p \in K$ then Miki \cite{doi:10.1515/crll.1981.328.99} showed that we can write
+\[\zeta_p=\alpha_0^{p^r}\alpha_1^{p^{r-1}}\dots
+\alpha_{r-1}^p\alpha_r\]
+with each $\alpha_i$ satisfying one of the following
+conditions:
+
+* $v_K(\alpha_i)<pe/(p-1)$ and
+$p\nmid v_K(\alpha_i)$,
+* $v_K(\alpha_i)=pe/(p-1)$ and $\alpha_i$ is not a
+$p$th power,
+* $\alpha_i=1$.
+
+Pagano \cite{doi:10.1016/j.jalgebra.2021.10.038} defines the (extended) jump set associated to $K$
+by setting $u_i=v_K(\alpha_i-1)$ for all $0\le i\le r$
+such that $\alpha_i\ne1$; these values are independent
+of the choice of $\alpha_0,\dots,\alpha_r$.  Undefined
+values in the sequence $[u_0,u_2,\dots,u_r]$ are
+filled in using the recursion $u_{i+1}=\rho(u_i)$, where
+$\rho(x)=\min\{px,x+e\}$.
+\end{definition}
+
+

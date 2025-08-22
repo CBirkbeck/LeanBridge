@@ -1,0 +1,9 @@
+\subsection{Unramified prime of an Artin representation}
+\begin{definition}\label{artin.unramified_primes}
+\uses{artin,artin.number_field,artin.ramified_primes}
+If $\rho:\Gal(\overline\Q/\Q)\to\GL_n(\C)$ is an {{ KNOWL('artin', 'Artin representation') }}, a prime $p$ is **unramified** if it is not {{ KNOWL('artin.ramified_primes', 'ramified') }}.
+
+Equivalently, a prime is unramified if the inertia subgroup for a prime above $p$ in the {{ KNOWL('artin.number_field', 'Artin field')}} of $\rho$ is contained in the kernel of $\rho$.
+\end{definition}
+
+

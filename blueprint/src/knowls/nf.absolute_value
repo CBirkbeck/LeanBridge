@@ -1,0 +1,15 @@
+\subsection{Absolute value of a field}
+\begin{definition}\label{nf.absolute_value}
+\uses{}
+An **absolute value** of a field $k$ is a function $|\ |:k\to \R_{\ge 0}$ that satisfies:
+
+  - $|x|=0$ if and only if $x=0$;
+  - $|xy| = |x||y|$;
+  - $|x+y| \le |x|+|y|$.
+
+Absolute values that satisfy the stronger condition $|x+y|\le \max(|x|,|y|)$ are **nonarchimedean**, while those that do not are **archimedean**; the latter arise only in fields of characteristic zero.  The **trivial absolute value** assigns 1 to every nonzero element of $k$; it is a nonarchimedean absolute value.
+
+Absolute values $|\ |_1$ and $|\ |_2$ are **equivalent** if there exists a positive real number $c$ such that $|x|_1 = |x|_2^c$ for all $x\in k$; this defines an equivalence relation on the set of absolute values of $k$.
+\end{definition}
+
+

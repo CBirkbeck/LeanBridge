@@ -1,0 +1,11 @@
+\subsection{Tamagawa number}
+\begin{definition}\label{ec.tamagawa_number}
+\uses{ec,ec.good_reduction,nf}
+The **Tamagawa number** of an {{ KNOWL('ec', 'elliptic curve') }} \(E\) defined over a {{ KNOWL('nf', 'number field') }} at a prime \(\mathfrak{p}\) of \(K\) is the index \([E(K_{\mathfrak{p}}):E^0(K_{\mathfrak{p}})]\), where \(K_{\mathfrak{p}}\) is the completion of \(K\) at \(\mathfrak{p}\) and \(E^0(K_{\mathfrak{p}})\) is the subgroup of \(E(K_{\mathfrak{p}})\) consisting of all points whose reduction modulo \(\mathfrak{p}\) is smooth.
+
+The Tamagawa number of \(E\) at \(\mathfrak{p}\) is usually denoted \(c_{\mathfrak{p}}(E)\).  It is a positive integer, and equal to \(1\) if \(E\) has {{ KNOWL('ec.good_reduction', 'good reduction') }} at  \(\mathfrak{p}\) and may be computed in general using Tate's algorithm.
+
+The product of the Tamagawa numbers over all primes is a positive integer known as the **Tamagawa product**.
+\end{definition}
+
+

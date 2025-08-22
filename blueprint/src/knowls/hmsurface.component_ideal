@@ -1,0 +1,7 @@
+\subsection{Component ideal}
+\begin{definition}\label{hmsurface.component_ideal}
+\uses{av.polarization,av.princ_polarizable,nf.narrow_class_group}
+The adelic Hilbert modular surface may be geometrically reducible, and its components are in bijection with the {{ KNOWL("nf.narrow_class_group", "narrow class group")}} of the base field $F$. The component corresponding to a given narrow ideal class $[\mathfrak{b}]$ parametrizes abelian surfaces with endomorphism algebra isomorphic to $F$ whose {{ KNOWL("av.polarization", "polarization module")}} is isomorphic to $\mathbb{Z}_F \oplus \mathfrak{b}$. In particular, the surfaces parametrized are {{ KNOWL("av.princ_polarizable", "principally polarized")}} if and only if the component ideal is the inverse different of the base field $F$.
+\end{definition}
+
+

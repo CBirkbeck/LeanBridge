@@ -1,0 +1,20 @@
+\subsection{Sato-Tate group identity component}
+\begin{definition}\label{g2c.st_group_identity_component}
+\uses{ag.abelian_variety,ag.complex_multiplication,ag.jacobian,ag.real_geom_endomorphism_algebra,ag.real_multiplication,g2c.st_group}
+The {{KNOWL("g2c.st_group", "Sato-Tate group")}} of an {{KNOWL("ag.abelian_variety", "abelian variety")}} $A$ is a compact Lie group that is not necessarily connected; it may have a finite number of distinct components.  The component containing the identity element of the Sato-Tate group $\mathrm{ST}(A)$ is the **identity component**, denoted $\mathrm{ST}^0(A)$; it acts as the identity of the **component group** $\mathrm{ST}(A)/\mathrm{ST}^0(A)$.
+
+For an abelian variety $A$ of dimension 2, including the {{KNOWL("ag.jacobian", "Jacobian")}} of a genus 2 curve, there are six possibilities for the identity component $\mathrm{ST}^0(A)$ (up to conjugacy), corresponding to the six possibilities for its {{KNOWL('ag.real_geom_endomorphism_algebra', 'real geometric endomorphism algebra')}} $\mathrm{End}(A_{\overline{\Q}})\otimes\R$ (up to isomorphism).  These are listed below:
+
+- $\mathrm{U}(1)$, corresponding to $\mathrm{End}(A_{\overline{\Q}})\otimes\R\simeq \mathrm{M}_2(\C)$, with real dimension 1; this occurs when $A_{\overline{\Q}}$ is isogenous to the square of a CM elliptic curve.
+- $\mathrm{SU}(2)$, corresponding to $\mathrm{End}(A_{\overline{\Q}})\otimes\R\simeq \mathrm{M}_2(\R)$, with real dimension 3; this occurs when $A_{\overline{\Q}}$ is isogenous to the square of a non-CM elliptic curve.
+- $\mathrm{U}(1)\times\mathrm{U}(1)$, corresponding to $\mathrm{End}(A_{\overline{\Q}})\otimes\R\simeq \C\times \C$, with real dimension 2; this occurs both when $A_{\overline{\Q}}$ is isogenous to a product of non-isogenous CM elliptic curves and when $A_{\overline{\Q}}$ is a simple abelian surface with CM.
+- $\mathrm{U}(1)\times\mathrm{SU}(2)$, corresponding to $\mathrm{End}(A_{\overline{\Q}})\otimes\R\simeq \R\times\C$, with real dimension 4; this occurs when $A_{\overline{\Q}}$ is isogenous to the product of a CM elliptic curve with a non-CM ellliptic curve.
+- $\mathrm{SU}(2)\times\mathrm{SU}(2)$, corresponding to $\mathrm{End}(A_{\overline{\Q}})\otimes\R\simeq \R\times\R$, with real dimension 6; this occurs both when $A_{\overline{\Q}}$ is isogenous to a product of non-isogenous non-CM elliptic curves and when $A_{\overline{\Q}}$ is a simple abelian surface with RM.
+- $\mathrm{USp}(4)$, corresponding to $\mathrm{End}(A_{\overline{\Q}})\otimes\R\simeq \R$, with real dimension 10; this is the generic case.
+
+Here CM denotes {{KNOWL("ag.complex_multiplication", "complex multiplication")}}, and RM denotes {{KNOWL("ag.real_multiplication", "real multiplication")}}.
+
+For arbitrary $A$, there is a canonical surjective homomorphism from the component group $\mathrm{ST}(A)/\mathrm{ST}^0(A)$ to the group $\mathrm{Gal}(K/\Q)$, where $K$ is the minimal field over which all endomorphisms of $A_{\overline{\Q}}$ can be defined. For $A$ of dimension $\leq 3$, this homomorphism is an isomorphism.
+\end{definition}
+
+

@@ -1,0 +1,7 @@
+\subsection{Semiabelian variety}
+\begin{definition}\label{av.semiabelian_variety}
+\uses{ag.abelian_variety}
+A **semiabelian variety** is a commutative group variety which is an extension of an {{KNOWL("ag.abelian_variety", "abelian variety")}} by a torus.
+\end{definition}
+
+

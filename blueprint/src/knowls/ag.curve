@@ -1,0 +1,7 @@
+\subsection{Algebraic curve}
+\begin{definition}\label{ag.curve}
+\uses{ag.variety}
+An **algebraic curve** is an {{ KNOWL('ag.variety' , title='algebraic variety')}} of dimension $1.$
+\end{definition}
+
+

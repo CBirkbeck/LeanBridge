@@ -1,0 +1,7 @@
+\subsection{Elusive group}
+\begin{definition}\label{gg.elusive_group}
+\uses{}
+An **elusive group** is a transitive permutation group $H\leq S_n$ with no fixed-point-free elements of prime order.
+\end{definition}
+
+

@@ -1,0 +1,10 @@
+\subsection{Outer automorphism group}
+\begin{definition}\label{group.outer_aut}
+\uses{group,group.automorphism,group.inner_automorphism,group.subgroup.normal}
+If $G$ is a {{KNOWL('group', 'group')}}, its {{KNOWL('group.inner_automorphism', 'inner automorphism')}} group is a {{KNOWL('group.subgroup.normal', 'normal subgroup')}} of the full {{KNOWL('group.automorphism', 'automorphism group')}}.  Then, the **outer automorphism group** of $G$ is
+\[ \mathrm{Out}(G) = \Aut(G)/\mathrm{Inn}(G).\]
+
+Note that the term **outer automorphism** is often used to mean any automorphism of a group $G$ which is not an inner automorphism. In this case, the nontrivial elements of the outer automorphism group are cosets of outer automorphisms. 
+\end{definition}
+
+

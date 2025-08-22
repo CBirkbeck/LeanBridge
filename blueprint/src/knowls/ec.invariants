@@ -1,0 +1,15 @@
+\subsection{Elliptic curve invariants}
+\begin{definition}\label{ec.invariants}
+\uses{ec,ec.conductor,ec.discriminant,ec.discriminant_norm,ec.endomorphism_ring,ec.j_invariant,ec.minimal_discriminant,ec.weierstrass_coeffs,nf,ring.ideal,st_group.definition}
+The invariants of an {{ KNOWL('ec', 'elliptic curve') }} $E$ over a {{ KNOWL('nf', 'number field') }} $K$ are its 
+
+- {{ KNOWL('ec.conductor', "conductor") }}, $\mathfrak{N}$, which is an integral {{KNOWL('ring.ideal', 'ideal')}} of $K$ whose norm is the **conductor norm** $N(\mathfrak{N})$
+- {{ KNOWL('ec.minimal_discriminant', "minimal discriminant") }}, $\mathfrak{D}$, also an integral ideal of $K$, whose norm is the  **minimal discriminant norm** $N(\mathfrak{D})$
+- {{ KNOWL('ec.j_invariant', "j-invariant") }}, $j$
+- {{ KNOWL('ec.endomorphism_ring', "endomorphism ring") }}, $\text{End}(E)$
+- {{ KNOWL('st_group.definition', "Sato-Tate group") }}, $\text{ST}(E)$
+
+Each {{KNOWL('ec.weierstrass_coeffs', 'Weierstrass model')}} for \(E\) also has a {{ KNOWL('ec.discriminant', "discriminant") }}, $\Delta$, and {{ KNOWL('ec.discriminant_norm', "discriminant norm") }}, $N(\Delta)$, which are not strictly invariants of \(E\) since different models have, in general, different discriminants.
+\end{definition}
+
+

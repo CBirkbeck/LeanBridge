@@ -1,0 +1,15 @@
+\subsection{Local algebra}
+\begin{definition}\label{lf.algebra.data}
+\uses{}
+{% if labels is defined %}
+<p>
+  {{ local_algebra_data(labels) }}
+</p>
+{% else %}
+This knowl can display data for a local algebras specified by a list of labels (in the form of a string) as a parameter.
+{% endif %}
+
+
+\end{definition}
+
+

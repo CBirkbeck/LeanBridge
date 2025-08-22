@@ -1,0 +1,29 @@
+\subsection{Weight 2 Bianchi modular forms}
+\begin{definition}\label{mf.bianchi.weight2}
+\uses{}
+Weight 2 Bianchi modular forms are particularly important in regard to their conjectural connections with abelian varieties of $\textrm{GL}_2$-type. In the weight 2  case, we have $F: \mathcal{H}_3 \rightarrow \mathbb{C}^3$ and
+$$(F |_k\gamma)(z)=\dfrac{1}{|r|^2+|s|^2} 
+\begin{pmatrix}  \bar{r}^2 & 2\bar{r}s & s^2 \\ 
+                          -\bar{r}\bar{s} & |r|^2-|s|^2 & rs \\ 
+                          \bar{s}^2 & -2r\bar{s} & r^2 \end{pmatrix} F(\gamma z)$$
+where $\gamma=\begin{pmatrix} a &b \\ c&d \end{pmatrix}$ and $r=cx+d$ and $s=cy$.
+
+Let $\beta_1:=-\frac{dx}{y}, \beta_2:= \frac{dy}{y}, \beta_3:=\frac{d\bar{x}}{y} $ be a basis of differential 1-forms on $\mathcal{H}_3$. 
+A differential form $\omega$ is _harmonic_ if $\Delta \omega =0$ where $\Delta=d \circ \delta + \delta \circ d$ 
+is the usual Laplacian with $d$ being the exterior derivative and $\delta$ the codifferential operator. 
+Then $\textrm{PSL}_2(\mathbb{C})$ acts on the space of differential 1-forms as 
+$$\gamma \cdot {}^t(\beta_1,\beta_2,\beta_3)_{(z)} = Sym^2(J(\gamma,z)){}^t(\beta_1,\beta_2,\beta_3)_{(z)}.$$
+A weight $2$ Bianchi modular form for $\Gamma$ can be _alternatively_ described as 
+a real analytic function $F=(F_1,F_2,F_3) : \mathcal{H}_3 \rightarrow \mathbb{C}^3$ 
+such that
+$$F_1\beta_1 + F_2 \beta_2+F_3\beta_3$$ 
+is a harmonic differential 1-form on $\mathcal{H}_3$ that is $\Gamma$-invariant. 
+It is called **cuspidal** if it satisfies the extra property 
+$$\int_{\mathbb{C} / \mathcal{O}_K} (F| \gamma )(x,y) dx = 0$$ 
+for every $\gamma \in \textrm{PSL}_2(\mathcal{O}_K).$
+
+This condition is equivalent to saying that the constant coefficient in the Fourier-Bessel expansion of $F|\gamma$ is equal to zero for every $\gamma \in \textrm{PSL}_2(\mathcal{O}_K)$. 
+
+\end{definition}
+
+

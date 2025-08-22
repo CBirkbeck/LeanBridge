@@ -1,0 +1,7 @@
+\subsection{Primitivization of a Belyi map}
+\begin{definition}\label{belyi.primitivization}
+\uses{belyi.group}
+Given a Belyi map $\phi$ the primitivization of $\phi$ is the subcover of minimal degree with primitive {{KNOWL('belyi.group', 'monodromy group')}}, which is unique up to isomorphism. 
+\end{definition}
+
+

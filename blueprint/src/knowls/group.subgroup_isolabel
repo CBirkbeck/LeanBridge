@@ -1,0 +1,7 @@
+\subsection{Subgroup label}
+\begin{definition}\label{group.subgroup_isolabel}
+\uses{group,group.label,group.subgroup}
+The {{KNOWL('group.label', 'label')}} of the {{KNOWL('group.subgroup', 'subgroup')}} as an {{KNOWL('group', 'abstract group')}}.
+\end{definition}
+
+

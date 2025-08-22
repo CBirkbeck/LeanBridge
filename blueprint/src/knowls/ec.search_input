@@ -1,0 +1,7 @@
+\subsection{Find an elliptic curve}
+\begin{definition}\label{ec.search_input}
+\uses{ec,ec.curve_label,ec.isogeny_class}
+To find a specific {{KNOWL('ec', 'elliptic curve')}} or {{KNOWL('ec.isogeny_class','isogeny class')}} of elliptic curves, enter its {{KNOWL('ec.curve_label','label')}}.
+\end{definition}
+
+

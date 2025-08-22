@@ -1,0 +1,15 @@
+\subsection{Swan slopes}
+\begin{definition}\label{lf.swan_slopes}
+\uses{lf.galois_invariants,lf.padic_field}
+Let $L/K$ be an extension of {{ KNOWL('lf.padic_field', '$p$-adic fields') }}.
+The **Swan slopes** of $L/K$ are the same as the nonnegative upper ramification
+breaks of $L/K$.  In the case where $L/K$ is a Galois extension the upper breaks
+are defined in Chapter IV of Serre's <i>Local Fields</i>
+\cite{doi:10.1007/978-1-4757-5673-9,MR:0554237}.
+For the general case where $L/K$ is separable but not necessarily
+Galois see the appendix to Deligne \cite{MR:0771673}.  The Swan
+slopes can be obtained by subtracting 1 from each of the positive {{KNOWL('lf.galois_invariants', 'Artin
+slopes')}} of $L/K$.
+\end{definition}
+
+

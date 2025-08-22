@@ -1,0 +1,33 @@
+\subsection{Functional equation of an L-function}
+\begin{definition}\label{lfunction.functional_equation}
+\uses{lfunction,lfunction.central_point,lfunction.conductor,lfunction.degree,lfunction.gamma_factor,lfunction.motivic_weight,lfunction.selberg_class,lfunction.selberg_class.axioms,lfunction.selbergdata,lfunction.sign,lfunction.signature,lfunction.spectral_parameters,specialfunction.gamma}
+All known {{KNOWL("lfunction", "analytic L-functions")}} have a **functional equation** that can be written in the form
+\[
+\Lambda(s) := N^{s/2}
+\prod_{j=1}^J \Gamma_{\mathbb R}(s+\mu_j) \prod_{k=1}^K \Gamma_{\mathbb C}(s+\nu_k)
+\cdot L(s) = \varepsilon \overline{\Lambda}(1-s),
+\]
+where $N$ is an integer, {{KNOWL('lfunction.gamma_factor', "$\Gamma_{\mathbb R}$ and $\Gamma_{\mathbb C}$")}} are defined in terms of the {{KNOWL("specialfunction.gamma", "$\Gamma$-function,")}} $\mathrm{Re}(\mu_j) = 0 \ \mathrm{or} \ 1$ (assuming Selberg's eigenvalue conjecture), and $\mathrm{Re}(\nu_k)$ is a positive integer
+or half-integer,
+\[
+\sum \mu_j + 2 \sum \nu_k \ \ \ \ \text{is real},
+\]
+and $\varepsilon$ is the {{ KNOWL('lfunction.sign', 'sign') }} of the functional equation.
+With those restrictions on the {{KNOWL("lfunction.spectral_parameters", "spectral parameters")}}, the
+data in the functional equation is specified uniquely.  The integer $d = J + 2 K$
+is the {{KNOWL("lfunction.degree", "degree")}} of the L-function. The integer $N$ is  the {{KNOWL("lfunction.conductor", "conductor")}} (or level)
+of the L-function.  The pair $[J,K]$ is the {{KNOWL("lfunction.signature", "signature")}} of the L-function.  The parameters
+in the functional equation can be used to make up the 4-tuple called the {{KNOWL('lfunction.selbergdata', "Selberg data")}}.
+ 
+
+The {{KNOWL('lfunction.selberg_class.axioms', 'axioms')}} of the {{KNOWL('lfunction.selberg_class', 'Selberg class')}} are less restrictive than
+given above.
+
+Note that the functional equation above has the {{KNOWL('lfunction.central_point', 'central point')}} at $s=1/2$, and relates $s\leftrightarrow 1-s$.
+
+For many L-functions there is another normalization which is natural. The corresponding functional equation relates $s\leftrightarrow w+1-s$ for some positive integer $w$,
+called the {{KNOWL('lfunction.motivic_weight', 'motivic weight')}} of the L-function. The central point is at $s=(w+1)/2$, and the arithmetically normalized Dirichlet coefficients $a_n n^{w/2}$ are algebraic integers.
+
+\end{definition}
+
+

@@ -1,0 +1,11 @@
+\subsection{Projective kernel polynomial}
+\begin{definition}\label{modlgal.projective_kernel_polynomial}
+\uses{modlgal,modlgal.projective_representation,modlgal.splitting_field,nf.minimal_sibling}
+The **projective kernel polynomial** is the
+{{ KNOWL('nf.minimal_sibling','minimal sibling') }}  of the 
+  {{ KNOWL('modlgal.splitting_field', 'splitting field') }}
+  of the {{ KNOWL('modlgal.projective_representation','projective representation') }}
+of a {{ KNOWL('modlgal', 'mod-$\ell$ Galois representation') }}.
+\end{definition}
+
+

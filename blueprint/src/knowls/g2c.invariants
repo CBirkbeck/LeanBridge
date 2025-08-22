@@ -1,0 +1,11 @@
+\subsection{Invariants of a genus 2 curve}
+\begin{definition}\label{g2c.invariants}
+\uses{ag.conductor,ag.jacobian,g2c.discriminant,g2c.g2_invariants,g2c.g2curve,g2c.igusa_clebsch_invariants,g2c.igusa_invariants}
+Invariants of a {{ KNOWL('g2c.g2curve', 'genus 2 curve') }} include:
+
+- the {{KNOWL('g2c.discriminant', 'discriminant')}} $\Delta$,
+- the {{KNOWL('ag.conductor', 'conductor')}} $N$ of its {{KNOWL('ag.jacobian', 'Jacobian')}},
+- its geometric invariants, which may be expressed as {{KNOWL('g2c.igusa_clebsch_invariants', 'Igusa-Clebsch invariants')}} $I_2,I_4,I_6,I_{10}$, {{KNOWL('g2c.igusa_invariants', 'Igusa invariants')}} $J_2,J_4,J_6,J_8,J_{10}$, or {{KNOWL('g2c.g2_invariants', 'G2-invariants')}} $g_1,g_2,g_3$.
+\end{definition}
+
+

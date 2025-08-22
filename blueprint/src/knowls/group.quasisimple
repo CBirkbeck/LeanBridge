@@ -1,0 +1,10 @@
+\subsection{Quasisimple group}
+\begin{definition}\label{group.quasisimple}
+\uses{group.abelian,group.almost_simple,group.perfect,group.simple}
+A quasisimple group is a {{ KNOWL("group.perfect", "perfect")}} group that is a central extension of a {{ KNOWL("group.simple", "simple")}} group. 
+
+
+Every {{KNOWL('group.abelian', 'nonabelian')}} simple group is quasisimple, but it is not implied by $G$ being {{KNOWL("group.almost_simple", "almost simple")}}, as shown by <a href="{{url_for('abstract.index')}}?almost_simple=no&quasisimple=yes">these examples</a>.
+\end{definition}
+
+

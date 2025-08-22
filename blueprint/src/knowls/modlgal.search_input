@@ -1,0 +1,7 @@
+\subsection{Find a mod-$\ell$ Galois representation}
+\begin{definition}\label{modlgal.search_input}
+\uses{modlgal,modlgal.label}
+To find a specific {{KNOWL('modlgal', 'mod-$\ell$ Galois representation')}}, enter its {{KNOWL('modlgal.label','label')}}.
+\end{definition}
+
+

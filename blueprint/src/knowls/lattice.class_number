@@ -1,0 +1,9 @@
+\subsection{Class number of an integral lattice}
+\begin{definition}\label{lattice.class_number}
+\uses{lattice.definition,lattice.genus,lattice.isometry}
+For an {{ KNOWL("lattice.definition", "integral lattice")}}, $L$, the number of {{ KNOWL("lattice.isometry", "isometry")}} classes in the {{ KNOWL("lattice.genus", "genus")}} of $L$ is the **class number** of $L$. 
+
+
+\end{definition}
+
+

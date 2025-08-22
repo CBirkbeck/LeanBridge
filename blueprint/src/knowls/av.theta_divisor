@@ -1,0 +1,12 @@
+\subsection{Theta divisor on a principally polarized abelian variety}
+\begin{definition}\label{av.theta_divisor}
+\uses{ag.abelian_variety,ag.curve.genus,ag.dimension,ag.jacobian}
+Let $A$ be a principally polarized {{KNOWL('ag.abelian_variety', 'abelian variety')}} of {{KNOWL('ag.dimension', 'dimension')}} $g$ over a field $k$. A **theta divisor** is an effective divisor $\Theta$ on $A_{\overline{k}}$ whose associated homomorphism $A_{\overline{k}} \to A^\vee_{\overline{k}}$ is the principal polarization.  It is determined up to translation on $A_{\overline{k}}$.
+Any theta divisor is ample.  The divisor $[-1]^* \Theta$ is another theta divisor, hence a translate of $\Theta$.  If $\operatorname{char} k \ne 2$, then there are exactly $2^{2g}$ translates of $\Theta$ that are **symmetric**, meaning that $[-1]^* \Theta = \Theta$.
+
+If $A$ is the {{KNOWL('ag.jacobian', 'Jacobian')}} of a curve $C$ of {{KNOWL('ag.curve.genus', 'genus')}} $g$ over $k=\overline{k}$, then a theta divisor can be constructed as as the image of $C^{g-1} \to \mathrm{Pic}^{g-1}_C \stackrel{\sim}\to A$, where the last isomorphism is subtraction by the class of some fixed degree $g-1$ divisor.
+
+A symmetric theta divisor on $A$ descends to a divisor on the Kummer variety $A / \{\pm 1\}$.
+\end{definition}
+
+

@@ -1,0 +1,7 @@
+\subsection{Norm of discriminant}
+\begin{definition}\label{ec.discriminant_norm}
+\uses{ec.discriminant}
+The norm of the {{KNOWL("ec.discriminant", "discriminant")}}.
+\end{definition}
+
+

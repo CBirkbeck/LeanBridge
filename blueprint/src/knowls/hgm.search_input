@@ -1,0 +1,7 @@
+\subsection{Find a hypergeometric motive}
+\begin{definition}\label{hgm.search_input}
+\uses{hgm.familes,hgm.field.label}
+To find a specific hypergeometric motive or {{KNOWL('hgm.familes','family')}}, enter its {{KNOWL('hgm.field.label','label')}}.
+\end{definition}
+
+

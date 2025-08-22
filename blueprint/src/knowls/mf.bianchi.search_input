@@ -1,0 +1,7 @@
+\subsection{Find a Bianchi modular form}
+\begin{definition}\label{mf.bianchi.search_input}
+\uses{mf.bianchi,mf.bianchi.labels}
+To find a specific {{KNOWL('mf.bianchi', 'Bianchi modular form')}}, enter its {{KNOWL('mf.bianchi.labels','label')}}.
+\end{definition}
+
+

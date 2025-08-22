@@ -1,0 +1,7 @@
+\subsection{Index of Real Order}
+\begin{definition}\label{av.fq.zfv_real_index}
+\uses{}
+The **real index** is the index of $\mathbb{Z}[F+V]$ in the totally real ring $\mathcal{O}_{K^+}$, where $F$ is the Frobenius endomorphism, $V$ is the Verschiebung endomorphism, and $K^+=\mathbb{Q}[F+V]$ is the totally real subfield of $K=\mathbb{Q}[F,V]$.
+\end{definition}
+
+

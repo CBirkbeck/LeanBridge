@@ -1,0 +1,12 @@
+\subsection{Theta functions}
+\begin{definition}\label{mf.gl2.history.theta}
+\uses{lattice.definition,mf,mf.transformation_property}
+The preceding examples are in some sense "na&iuml;ve", since {{KNOWL('mf.transformation_property', "modularity")}} is essentially built into the definition. Less naive examples are <em>theta functions</em>. These can be given as averages over a {{KNOWL('lattice.definition', "lattice")}} $L$:
+\[
+\Theta_{L;Q;h}(z) = \sum_{x \in L} h(x)e^{2\pi izQ(x)}
+\]
+where $Q$ is a quadratic form and $h$ some function on $L$, whenever the sum converges.  Here, the basic reason for modularity comes from the <em>Poisson summation formula</em>, or
+equivalently from the theory of the Fourier transform and the Fourier invariance of the function $e^{-\pi x^2}$. Although this is very classical, it is a slightly deeper reason for modularity. In addition, since the Fourier transform exists in any dimension and it is easy to construct functions which are invariant under the Fourier transform, this gives a large collection of {{KNOWL('mf', "modular forms")}}. A slightly more subtle explanation of this comes from the theory of the <em>Weil representation</em>.
+\end{definition}
+
+

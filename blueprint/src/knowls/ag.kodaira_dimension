@@ -1,0 +1,15 @@
+\subsection{Kodaira dimension}
+\begin{definition}\label{ag.kodaira_dimension}
+\uses{}
+Let $X$ be a nonsingular complex algebraic variety with canonical divisor $K$. For each $d \in \mathbb{Z}_{\geq 0}$, the $d^\text{th}$ plurigenus of $X$ is $P_d \colonequals \dim H^0(X, K^{\otimes d})$. The global sections of $K^{\otimes d}$ define a rational map
+$$
+\varphi_d: X \to \mathbb{P}(H^0(X,K^{\otimes d})) \cong \mathbb{P}^{P_d-1} \, .
+$$
+The Kodaira dimension $\kappa(X)$ is defined to be $-1$ if $P_d = 0$ for all $d$, and
+$$
+\kappa(X) \colonequals \sup_d \, \dim(\varphi_d(X))
+$$
+otherwise.
+\end{definition}
+
+

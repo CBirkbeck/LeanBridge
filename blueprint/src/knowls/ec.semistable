@@ -1,0 +1,7 @@
+\subsection{Semistable elliptic curve}
+\begin{definition}\label{ec.semistable}
+\uses{ec,ec.bad_reduction,ec.reduction_type}
+An {{KNOWL('ec', 'elliptic curve')}} is **semistable** if it has {{KNOWL('ec.reduction_type', 'multiplicative reduction')}} at every {{KNOWL('ec.bad_reduction', 'bad prime')}}.
+\end{definition}
+
+

@@ -1,0 +1,16 @@
+\subsection{Discriminant of a genus 2 curve}
+\begin{definition}\label{g2c.discriminant}
+\uses{g2c.minimal_equation}
+The discriminant $\Delta$ of a Weierstrass equation $y^2+h(x)y=f(x)$ can be computed as
+$$
+\Delta := \begin{cases}
+2^8\text{lc}(f)^2\text{disc}(f+h^2/4)&\text{if }f+h^2/4\text{ has odd degree},\\
+2^8\text{disc}(f+h^2/4)&\text{if }f+h^2/4\text{ has even degree},
+\end{cases}
+$$
+where $\text{lc}(f)$ denotes the leading coefficient of $f$ and $\text{disc}(f)$ its discriminant.
+ 
+The **discriminant** of a genus 2 curve over $\Q$ is the discriminant of a {{KNOWL('g2c.minimal_equation', 'minimal equation')}} for the curve; it is an invariant of the curve that does not depend on the choice of minimal equation.
+\end{definition}
+
+

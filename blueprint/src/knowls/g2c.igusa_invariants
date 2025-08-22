@@ -1,0 +1,23 @@
+\subsection{Igusa invariants of a genus 2 curve}
+\begin{definition}\label{g2c.igusa_invariants}
+\uses{g2c.g2curve,g2c.geom_iso_class,g2c.igusa_clebsch_invariants}
+The **Igusa invariants** of a {{ KNOWL('g2c.g2curve', 'genus 2 curve') }} are weighted projective invariants associated to the {{KNOWL("g2c.geom_iso_class", "geometric isomorphism class")}} of the curve.  They are denoted $J_2, J_4, J_6, J_8, J_{10}$, where the subscript indicates the weight. 
+
+For genus 2 curves over $\Q$ we may assume that the Igusa invariants are integral. We can then normalize them by removing a factor of $d^k$ from $I_{2k}$, where $d$ is the largest positive integer for which the invariants remain integral after this normalization. We can also make the first nonzero $I_{2k}$ with $k$ odd nonnegative by multiplying each $I_{2k}$ by $(-i)^k$.
+
+In the LMFDB, Igusa invariants for genus 2 curves over $\Q$ are always normalized in this way, which means that their values may differ from those returned by the corresponding functions in Sage or Magma; however, they are equivalent as $\overline\mathbb{Q}$-points in weighted projective space and identify the same geometric isomorphism class.
+
+These invariants were first defined by Igusa to enable him to study the moduli space of genus 2 curves over $\Z$. In particular, they reflect the behavior of the corresponding curve when reducing modulo a prime. For instance, if in our normalized representation of the Igusa invariants a prime divides $I_{10}$, then the curve does not have good reduction at that prime, though it may still have potentially good reduction.
+
+The exact definition of the Igusa  invariants is as follows. Let $X$ be a curve of genus $2$, which we may assume to be defined by an equation $y^2 = f(x)$ with $f$ a sextic in $x$. Let $I_2, I_4, I_6, I_{10}$ be obtained from $f$ as in the definition of the {{KNOWL("g2c.igusa_clebsch_invariants", "Igusa-Clebsch invariants")}} of $f$. Then the Igusa invariants are given by
+\[
+J_2 = I_2 / 8,\qquad\qquad\qquad\quad\ \ \ \\
+J_4 = (4 J_2^2 - I_4) / 96,\qquad\qquad\ \\
+J_6 = (8 J_2^3 - 160 J_2 J_4 - I_6) / 576, \\
+J_8 = (J_2 J_6 - J_4^2) / 4,\qquad\qquad\ \\
+J_{10} = I_{10} / 4096.\qquad\qquad\qquad\ \,
+\]
+These invariants will be integral whenever $f$ is integral. The invariant $J_8$ may appear redundant, but is crucial when reducing to a field of even characteristic.
+\end{definition}
+
+

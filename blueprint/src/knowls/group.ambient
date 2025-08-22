@@ -1,0 +1,7 @@
+\subsection{Ambient group}
+\begin{definition}\label{group.ambient}
+\uses{group.subgroup}
+If $H \subseteq G$ is a {{KNOWL('group.subgroup', 'subgroup')}}, we refer to $G$ as the **ambient group** of $H$.
+\end{definition}
+
+

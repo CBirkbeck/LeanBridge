@@ -1,0 +1,12 @@
+\subsection{Group algebra decomposition of Jacobian varieties }
+\begin{definition}\label{curve.highergenus.aut.groupalgebradecomp}
+\uses{ag.endomorphism_ring,av.isogeny,ag.jacobian,g2c.aut_grp}
+Given a curve $X$, the group action of the {{ KNOWL('g2c.aut_grp', "automorphism group") }}  $G=$Aut$(X)$ on $X$ may allow one to decompose its {{KNOWL('ag.jacobian', "Jacobian")}} $J$ as a product of abelian varieties of lower dimension. Idempotent relations in the group ring $\mathbb{Q}[G]$ correspond, via  a  natural map of  $\mathbb{Q}$-algebras $\rho:  \mathbb{Q}[G] \to \text{End}(J) \otimes_{\mathbb{Z}} \mathbb{Q}$, to
+factorizations of the Jacobian variety into abelian varieties that are the images of the Jacobian under the {{ KNOWL('ag.endomorphism_ring', "endomorphisms") }} determined by those idempotents. The dimensions of the factors in this **group algebra decomposition** are computed as inner products of certain characters of $G$ (and are thus canonical).
+
+Note: factors in the group algebra decomposition need not be simple (it may be possible to decompose them further), and factors of the same dimension may be {{ KNOWL('av.isogeny', "isogenous") }}.
+
+For further details see [the source of the automorphisms of curves data](http://www.lmfdb.org//HigherGenus/C/Aut/Source).
+\end{definition}
+
+

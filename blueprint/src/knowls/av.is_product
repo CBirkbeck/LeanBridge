@@ -1,0 +1,7 @@
+\subsection{Product abelian variety}
+\begin{definition}\label{av.is_product}
+\uses{ag.abelian_variety}
+Given two {{KNOWL('ag.abelian_variety', 'abelian variety')}} $A_1$ and $A_2$ over the same field, one can construct the **product abelian variety** $A_1\times A_2$.
+\end{definition}
+
+

@@ -1,0 +1,15 @@
+\subsection{Topological Equivalence}
+\begin{definition}\label{curve.highergenus.aut.topological_equivalence}
+\uses{curve.highergenus.aut.group_action,group.fuchsian}
+Given a group $G$ {{ KNOWL("curve.highergenus.aut.group_action", "acting") }} on a compact Riemann surface $X$ by the maps $\phi_1: G \hookrightarrow \mathrm{Aut}(X)$ and $\phi_2: G \hookrightarrow \mathrm{Aut}(X)$, then $\phi_1$ and $\phi_2$ are **topologically equivalent** if there is an automorphism $\omega$ of $G$ and an orientation preserving homeomorphism $h: X \to X$ so that  
+
+$$\phi_2(g)=h \phi_1(\omega(g)) h^{-1} \text{ for all } g \in G.$$
+
+
+Equivalently, if the actions are described as surjective homomorphisms $\eta_1: \Gamma \to G$ and $\eta_2: \Gamma \to G$ from a  {{ KNOWL( "group.fuchsian" , "Fuchsian group")}} $\Gamma$ with kernel isomorphic to the fundamental group of $X$, these actions are **topologically equivalent** if there is an automorphism $\omega$ of $G$	and a homeomorphism $h$ of the upper half plane $\mathbb{H}$ normalizing $\Gamma$ such that the following diagram commutes.
+
+
+$$\begin{matrix}\Gamma & \xrightarrow{\mathit{\eta_1}}& G \\ \Big\downarrow h & & \Big\downarrow \omega  \\ \Gamma & \xrightarrow{\mathit{\eta_2}}& G  \end{matrix}$$
+\end{definition}
+
+

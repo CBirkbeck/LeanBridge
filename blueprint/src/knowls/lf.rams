@@ -1,0 +1,27 @@
+\subsection{Rams}
+\begin{definition}\label{lf.rams}
+\uses{lf.herbrand_invariant,lf.means,lf.padic_field,lf.ramification_index,lf.slopes,lf.wild_inertia_group}
+Let $L/K$ be an extension of {{ KNOWL('lf.padic_field', '$p$-adic fields') }}
+with {{KNOWL('lf.ramification_index', 'ramification index')}} $e = \epsilon p^w$.
+The **rams** $r_1 \le \dots \le r_w$ of $L/K$ are the same as the positive lower
+ramification jumps of $L/K$.  In the case where $L/K$ is a Galois extension the
+lower jumps are defined in Chapter IV of Serre's <i>Local Fields</i>
+\cite{doi:10.1007/978-1-4757-5673-9,MR:0554237}.
+For the general case where $L/K$ is separable but not necessarily
+Galois see the appendix to Deligne \cite{MR:0771673}.  When $L/K$ is Galois a
+ram is any number of the form $v_L(\sigma(\pi_L)-\pi_L)-1$ for some
+$\sigma\not=1_L$ in the {{ KNOWL('lf.wild_inertia_group', 'wild inertia group') }} of
+$\Gal(L/K)$.  Thus the rams of a Galois extension are positive integers, but in general a ram may have denominator dividing $p^k-1$ where $k$ is the multiplicity of the ram.
+
+Two rescalings of the rams can be helpful in various contexts. The **small rams** $r_k^*$ and **tiny rams** $r_k'$ are defined by
+$$r_k^* = \frac{(p-1)r_k}{\epsilon p^k} \qquad\qquad\qquad r_k' = \frac{r_k}{\epsilon p^k}.$$
+With the convention that $r_0=s_0=m_0=0$, the relationship with the {{KNOWL('lf.means', 'means')}} $\langle m_1, \dots, m_w\rangle$ and {{KNOWL('lf.slopes', 'Swan slopes')}} $[s_1, \dots, s_w]$ is then given by the equations
+$$r_k^* = m_k-m_{k-1} \qquad\qquad\qquad r'_k = s_k-m_k.$$
+
+Rams are helpful in enumerating the possible {{KNOWL('lf.herbrand_invariant', 'Herbrand invariants')}} over $K$.  Define first $\mathcal{R}_k^\infty$ to be the set of positive rational numbers with denominator dividing $p^k-1$ and numerator prime to $p$.  Then set
+$$\mathcal{R}_k^{z} = \left\{\alpha \in \mathcal{R}_k^\infty : \alpha < \frac{pz}{p-1}\right\} \ \ \text{if}\ k>1\qquad\qquad\qquad \mathcal{R}_1^{z} = \left\{\alpha \in \mathcal{R}_1^\infty : \alpha \le \frac{pz}{p-1}\right\}.$$
+
+The possible rams $r_1 = \dots = r_w$ for totally wildly ramified extensions of degree $p^w$ over $K$ are then just given by $\mathcal{R}_w^{e_K}$, where $e_K$ is the {{KNOWL('lf.ramification_index', 'absolute ramification index')}} of $K$.  In general, the possible rams $(r_1,\dots,r_w)$ over $K$ are chosen sequentially using the considerations above and the fact that if $r_i < r_{i+1}$ then $L/K$ has an intermediate field $L_i$ with $[L_i:K] = \epsilon p^i$.  For example, to get all strictly increasing sequences, each $r_k$ is chosen from $\mathcal{R}_1^{e_K \epsilon p^{k-1}}$.
+\end{definition}
+
+

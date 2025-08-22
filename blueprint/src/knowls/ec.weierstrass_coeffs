@@ -1,0 +1,18 @@
+\subsection{Weierstrass equation or model}
+\begin{definition}\label{ec.weierstrass_coeffs}
+\uses{ec,ec.discriminant,ec.weierstrass_isomorphism}
+A **Weierstrass equation** or **Weierstrass model** over a field $k$ is a plane curve $E$ of the form
+$$y^2 + a_1xy + a_3y = x^3 + a_2 x^2 + a_4 x + a_6,$$
+with $a_1, a_2, a_3, a_4, a_6 \in k$.
+
+The **Weierstrass coefficients** of this model $E$ are the five coefficients $a_i$.  These are often displayed as a list $[a_1, a_2, a_3, a_4, a_6]$.
+
+It is common not to distinguish between the _affine_ curve defined by a Weierstrass equation and its _projective closure_, which contains exactly one additional _point at infinity_, $[0:1:0]$.
+
+A Weierstrass model is smooth if and only if its {{ KNOWL('ec.discriminant', 'discriminant') }} $\Delta$ is nonzero.  In this case, the plane curve $E$ together with the point at infinity as base point, define an {{ KNOWL('ec', 'elliptic curve') }} defined over $k$.
+
+Two smooth Weierstrass models define isomorphic elliptic curves if and only if they are {{ KNOWL('ec.weierstrass_isomorphism', 'isomorphic') }} as Weierstrass models.
+
+\end{definition}
+
+

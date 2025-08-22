@@ -1,0 +1,12 @@
+\subsection{Sato-Tate group invariants}
+\begin{definition}\label{st_group.invariants}
+\uses{st_group.ambient,st_group.connected,st_group.degree,st_group.weight}
+The invariants of a Sato-Tate group $G$ include:
+
+- the {{ KNOWL('st_group.ambient', "ambient group") }} $\mathrm{USp}(d)$ or $\mathrm{O}(d)$ containing $G$;
+- the {{ KNOWL('st_group.weight', "weight") }} $w$ of $G$ (a nonnegative integer);
+- the {{ KNOWL('st_group.degree', "degree") }} $d$ of $G$ (a positive integer);
+- whether $G$ is {{ KNOWL('st_group.connected', "connected") }} or not.
+\end{definition}
+
+

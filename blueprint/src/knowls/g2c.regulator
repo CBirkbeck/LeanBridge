@@ -1,0 +1,7 @@
+\subsection{Regulator of a genus 2 curve}
+\begin{definition}\label{g2c.regulator}
+\uses{ag.regulator,g2c.g2curve,g2c.jacobian}
+The **regulator** of a {{ KNOWL('g2c.g2curve', 'genus 2 curve') }} is the {{ KNOWL('ag.regulator', 'regulator') }} of its  {{ KNOWL('g2c.jacobian', 'Jacobian') }}.
+\end{definition}
+
+

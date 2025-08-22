@@ -1,0 +1,9 @@
+\subsection{Local obstruction}
+\begin{definition}\label{modcurve.local_obstruction}
+\uses{modcurve,modcurve.genus}
+A {{KNOWL('modcurve', 'modular curve')}} $X/\Q$ has a **local obstruction** (to rational points) if it has no real points, or if it has no $\Q_p$-points for some prime $p$.
+
+When $X$ has {{KNOWL('modcurve.genus', 'genus')}} $0$ the absence of local obstructions guarantees the existence of rational points, but this is not true in general.
+\end{definition}
+
+

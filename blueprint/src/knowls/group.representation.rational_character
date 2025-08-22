@@ -1,0 +1,11 @@
+\subsection{Rational character}
+\begin{definition}\label{group.representation.rational_character}
+\uses{group,group.division,group.representation.character}
+A **rational character** of a finite {{KNOWL('group', 'group')}} $G$ is {{KNOWL('group.representation.character', 'complex character')}} taking values in $\Q$. Such a character can be obtained by taking the sum of Galois conjugates of an irreducible complex character, and we will refer to these as **irreducible rational characters** even though they are not irreducible as complex characters.  The irreducible rational characters form a $\Q$-basis for the $\Q$-vector space of rational characters.
+
+Note that the representation corresponding to a rational character may not take values in $\GL_n(\Q)$ even though the character takes values in $\Q$ (the difference between the field of character values and the field in which matrix entries lie is measured by the Schur index).
+
+The value taken by a rational character is constant on each {{KNOWL('group.division', 'rational conjugacy classes')}}.
+\end{definition}
+
+

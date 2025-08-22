@@ -1,0 +1,13 @@
+\subsection{GSp4 subgroup data}
+\begin{definition}\label{gsp4.subgroup_data}
+\uses{}
+{% if label is defined %}
+<p>
+  {{ gsp4_subgroup_data(label) | safe }}
+</p>
+{% else %}
+This knowl can display data for a subgroup of $\GSp(4,\widehat \Z)$ specified by its label.
+{% endif %}
+\end{definition}
+
+

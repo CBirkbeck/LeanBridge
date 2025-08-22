@@ -1,0 +1,7 @@
+\subsection{Isolated point}
+\begin{definition}\label{ag.isolated_point}
+\uses{}
+A closed point $x$ on a curve $C$ is isolated if it is not contained in a family of effective degree $d$ divisors parametrized by $\mathbb P^1$ or a positive rank abelian variety.
+\end{definition}
+
+

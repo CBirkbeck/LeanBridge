@@ -1,0 +1,9 @@
+\subsection{Degree of a Dirichlet character}
+\begin{definition}\label{character.dirichlet.degree}
+\uses{character.dirichlet.order,character.dirichlet.value_field,nf.degree}
+The **degree** of a Dirichlet character $\chi$ is the {{KNOWL('nf.degree', 'degree')}} of its {{KNOWL('character.dirichlet.value_field', 'field of values')}} $\Q(\chi(\Z))$.
+
+If $\chi$ has {{KNOWL('character.dirichlet.order', 'order')}} $n$ then its degree is $\phi(n):=\#(\Z/n\Z)^\times$.
+\end{definition}
+
+

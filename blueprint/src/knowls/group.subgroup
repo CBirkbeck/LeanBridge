@@ -1,0 +1,13 @@
+\subsection{Subgroup of a group}
+\begin{definition}\label{group.subgroup}
+\uses{alg.binary_operation,alg.binary_operation.identity,alg.binary_operation.inverse,group}
+If $G$ is a {{KNOWL('group','group')}}, a subset $H\subseteq G$ is a **subgroup** of $G$ if the {{KNOWL('alg.binary_operation', 'binary operation')}} of $G$ restricts to a {{KNOWL('alg.binary_operation', 'binary operation')}} on $H$, and $H$ is a group for this induced operation.
+
+Equivalently, the subset $H$ must satisfy the following conditions:
+
+1. for all $a,b\in H$, $a*b\in H$
+2. the {{KNOWL('alg.binary_operation.identity','identity')}} of $G$ is an element of $H$
+3. for every $a\in H$, the {{KNOWL('alg.binary_operation.inverse','inverse')}} of $a$ in $G$ is also in $H$.
+\end{definition}
+
+

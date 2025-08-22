@@ -1,0 +1,7 @@
+\subsection{Reliability of Dirichlet Character Data}
+\begin{definition}\label{rcs.rigor.character.dirichlet}
+\uses{}
+Dirichlet character data is rigorously computed without assumptions or heuristics.
+\end{definition}
+
+

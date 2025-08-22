@@ -1,0 +1,7 @@
+\subsection{Permutation representation}
+\begin{definition}\label{group.permutation_representation}
+\uses{}
+A **permutation representation** of a finite group $G$ is a homomorphism $\rho : G \to S_n$ for some $n$.  The integer $n$ is the **degree** of $\rho$, and a representation is **faithful** if $\rho$ is injective.  The representation is **transitive** if the set $\{1, \dots, n\}$ cannot be broken up into smaller orbits under the action of $G$, i.e. for all $1 \le i \le j \le n$ there is some $g \in G$ with $\rho(g)(i) = j$.
+\end{definition}
+
+

@@ -1,0 +1,9 @@
+\subsection{Minimal modular form}
+\begin{definition}\label{cmf.minimal}
+\uses{}
+A modular form is **minimal** if it is not a twist of a form of lower level.
+
+Keywords: #modularform
+\end{definition}
+
+

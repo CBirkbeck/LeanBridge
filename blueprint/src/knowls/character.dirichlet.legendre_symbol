@@ -1,0 +1,16 @@
+\subsection{Legendre symbol}
+\begin{definition}\label{character.dirichlet.legendre_symbol}
+\uses{character.dirichlet}
+Let $x$ be an integer and $p$ be an odd prime. The **Legendre symbol** \(\displaystyle\left(\frac{x}{p}\right)\) is defined to be
+\[ \left( \frac{x}{p} \right) = \left\{ \begin{array}{cl} 0 & \text{if } p \mid x, \\ 1 & \text{if } x \bmod p \text{ is a non-zero square in } \Z/p\Z, \\ -1 & \text{if } x \bmod p \text{ is not a square in } \Z/p\Z. \end{array} \right. \]
+It can be computed efficiently by using the following formulae inductively:
+
+- (Multiplicativity) $\left(\frac{ab}{p}\right) = \left(\frac{a}{p}\right) \left(\frac{b}{p}\right)$.
+- (Special cases) $\left(\frac{-1}{p}\right)= \left\{ \begin{array}{cl} 1 & \text{if } p \equiv 1 \bmod 4 \\ -1 & \text{if } p \equiv -1 \bmod 4 \end{array} \right.$  and $\left(\frac{2}{p}\right)=\left\{ \begin{array}{cl} 1 & \text{if } p \equiv \pm1 \bmod 8 \\ -1 & \text{if } p \equiv \pm3 \bmod 8 \end{array} \right.$.
+
+- (Quadratic reciprocity) If $p$ and $q$ are distinct odd primes, then $\left(\frac{q}{p}\right) = (-1)^{\frac{p-1}2 \frac{q-1}2} \left(\frac{p}{q}\right)$.
+
+In particular, for a fixed odd prime $p$, $x \mapsto \left(\frac{x}{p}\right)$ is a {{ KNOWL('character.dirichlet','Dirichlet character') }} modulo $p$.
+\end{definition}
+
+

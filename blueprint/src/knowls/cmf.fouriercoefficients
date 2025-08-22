@@ -1,0 +1,29 @@
+\subsection{Fourier coefficients of a modular form}
+\begin{definition}\label{cmf.fouriercoefficients}
+\uses{cmf,group.fuchsian.cusps,group.fuchsian.cusps.width}
+Let \(f\) be a {{KNOWL("cmf", "modular form")}} on a finite index subgroup \(\Gamma\) of $\SL_2(\Z)$,
+and suppose $\Gamma$ contains the matrix $T:=\left(\begin{matrix}1&1\\0&1\end{matrix}\right)$.
+Then $f$ is periodic with period 1, so it has a Fourier expansion of the form
+\[
+f(z)=\sum_{n\ge 0}a_n q^n ,
+\]
+where $q=e^{2 \pi i z}$.  That is the **Fourier expansion** of $f$ around the cusp $\infty$, with **Fourier coefficients** $a_n$.  If one says "the Fourier expansion of $f$", is it understood to refer to
+the expansion at $\infty$.
+
+For other cusps of $\Gamma$, suppose $w$ is the {{KNOWL("group.fuchsian.cusps.width", "width")}} of the cusp $\gamma\infty$, for some {{KNOWL("group.fuchsian.cusps", "cusp")}} representative $\gamma$.
+Then we can write $f$ as $f(z)=g_\gamma(e^{2\pi iz/w})$ for some holomorphic function $g_\gamma$ on the punctured unit disk. We can expand $g$ as a Laurent series:
+\[
+g_\gamma(q^{1/w})=\sum_{n\geq0}a_\gamma(n)q^{n/w}\quad\text{for}\quad0<|q|<1.
+\]
+
+We then define the **Fourier expansion** of $f$ around the cusp $\gamma\infty$ to be
+\[
+f(z)=\sum_{n \geq0}a_\gamma(n)q^{n/w},
+\]
+where $q=e^{2\pi iz}$.
+
+The $a_\gamma(n)$ are called the **Fourier coefficients** of $f$ with respect to the cusp $\gamma\infty$.
+
+\end{definition}
+
+

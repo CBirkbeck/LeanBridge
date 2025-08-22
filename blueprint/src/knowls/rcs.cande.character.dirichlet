@@ -1,0 +1,12 @@
+\subsection{Completeness of Dirichlet character data}
+\begin{definition}\label{rcs.cande.character.dirichlet}
+\uses{character.dirichlet,character.dirichlet.basic_properties,character.dirichlet.galois_orbit,character.dirichlet.minimal,character.dirichlet.modulus,character.dirichlet.value_field}
+The database contains information ({{ KNOWL('character.dirichlet.basic_properties', "basic properties") }}, {{ KNOWL('character.dirichlet.minimal',"minimality") }}, {{ KNOWL('character.dirichlet.galois_orbit', 'Galois orbit')}}, {{ KNOWL('character.dirichlet.value_field', 'field of values') }})  for all {{ KNOWL('character.dirichlet', "Dirichlet characters") }}
+ of {{ KNOWL('character.dirichlet.modulus', "modulus") }} up to $10^6$.
+
+Basic properties are available for all Dirichlet characters of modulus up to $10^{20}$, but this information is not stored in the database and is not searchable.
+
+L-functions are available for characters of modulus up to 2800 (and some of higher modulus).
+\end{definition}
+
+

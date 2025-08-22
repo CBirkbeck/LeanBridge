@@ -1,0 +1,19 @@
+\subsection{Defining parameters of a hypergeometric motive}
+\begin{definition}\label{hgm.defining_parameters}
+\uses{hgm.degree,hgm.familes}
+A hypergeometric motive $H(A,B,t)$ in $M(\Q,\Q)$ is described by a {{ KNOWL('hgm.familes','hypergeometric family') }} $H(A,B)$ in $M(\Q(t),t)$ along with a specialization point $t \in \Q^\times$. Here, $A$ and $B$ are disjoint multisets of positive integers and are the **defining parameters** of the hypergeometric family; they are subject to a constraint that
+$$
+\sum_{a \in A} \phi(a) = \sum_{b \in B} \phi(b);
+$$
+this common value is the {{KNOWL('hgm.degree', 'degree')}} of the family.  The value $t$ along with $A$ and $B$ are the **defining parameters** of the hypergeometric motive $H(A,B,t)$.
+
+The list $\alpha$ is obtained from $A$ by replacing each $a \in A$ with the list of all elements of $\Q \cap (0,1]$ with denominator $a$, then sorting into ascending order; the list $\beta$ is obtained from $B$ by the same procedure. Both $\alpha$ and $\beta$ have length equal to the degree.
+
+The list $\gamma$ of nonzero integers in ascending order is characterized by the property
+$$
+\frac{\prod_{g \in \gamma, g>0} (x^g-1)}{\prod_{g \in \gamma,g<0} (x^{-g}-1)} = \frac{\prod_{a \in \alpha} (x - e^{2 \pi i a})}{\prod_{b \in \beta} (x - e^{2\pi i b})} = \frac{\prod_{a \in A} \Phi_a(x)}{\prod_{b \in B} \Phi_b(x)} 
+$$
+where $\Phi_n(x)$ denotes the $n$-th cyclotomic polynomial.
+\end{definition}
+
+

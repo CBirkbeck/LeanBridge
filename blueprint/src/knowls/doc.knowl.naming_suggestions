@@ -1,0 +1,29 @@
+\subsection{Naming suggestions}
+\begin{definition}\label{doc.knowl.naming_suggestions}
+\uses{}
+Naming suggestions for Knowls we agreed on:
+
+Start of a knowl id:
+
+- af (aufomorphic form)
+- ag (algebraic geometry)
+- biblio
+- bio (biography)
+- character
+- crystals
+- data
+- doc (documentation)
+- ec (elliptic curve)
+- ec.q (elliptic curve/$\Q$)
+- lfunction
+- mf (modular form)
+- mf.siegel
+- cmf
+- nf (number field)
+- specialfunction
+- sage
+
+
+\end{definition}
+
+

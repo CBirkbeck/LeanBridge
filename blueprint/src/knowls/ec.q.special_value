@@ -1,0 +1,10 @@
+\subsection{Special value of an elliptic curve L-function}
+\begin{definition}\label{ec.q.special_value}
+\uses{ec,ec.q.bsdconjecture,lfunction.normalization}
+The **special value** of an {{KNOWL('ec', 'elliptic curve')}} $E/\Q$ is the first nonzero value of $L^{(r)}(E,1)/r!$ for $r\in \Z_{\ge 0}$, where $L(E,s)$ is the $L$-function of $E$ in its {{KNOWL('lfunction.normalization', 'arithmetic normalization')}}.
+
+The special value appears on the LHS of the formula in the {{KNOWL('ec.q.bsdconjecture','Birch and Swinnerton-Dyer conjecture')}}.
+
+\end{definition}
+
+

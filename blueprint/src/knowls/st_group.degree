@@ -1,0 +1,10 @@
+\subsection{Degree of a Sato-Tate group}
+\begin{definition}\label{st_group.degree}
+\uses{ag.abelian_variety,ag.dimension,ag.jacobian,nf,st_group.definition}
+The **degree** $d$ of a {{KNOWL('st_group.definition', 'Sato-Tate group')}} is the degree of the characteristic polynomials of its elements, equivalently, the {{KNOWL('ag.dimension', 'dimension')}} of the $d\times d$ matrices it contains.
+
+For an {{KNOWL('ag.abelian_variety', 'abelian variety')}} $A$ over a {{KNOWL('nf', 'number field')}}, the degree $d$ of its Sato-Tate group is twice its dimension $g$ as an abelian variety (if $A=\mathrm{Jac}(C)$ is the {{KNOWL('ag.jacobian', 'Jacobian')}} of a curve $C$, then $g$ is also the genus of $C$).  The degree $d=2g$ is then also the degree of the characteristic polynomials of the Frobenius endomorphism of the reductions of $A$ modulo good primes.
+
+\end{definition}
+
+

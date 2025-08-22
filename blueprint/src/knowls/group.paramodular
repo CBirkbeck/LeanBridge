@@ -1,0 +1,29 @@
+\subsection{Paramodular group}
+\begin{definition}\label{group.paramodular}
+\uses{group.sp2gr}
+The paramodular group $K(N)$ of level $N$ is defined as 
+$$K(N)=\left\{
+\left(\begin{matrix}
+ * & N* & * &*\\
+* & * & * & */N\\
+* & N* &*&*\\
+N*&N*&N*&*
+\end{matrix}\right)
+:
+*\in{\Bbb Z}\right\}\cap \mathrm{Sp}(4, {\Bbb Q})$$
+where  $\mathrm{Sp}(4, {\Bbb Q})$ 
+is the {{KNOWL("group.sp2gr", "symplectic group")}} 
+with rational entries.
+
+The paramodular group is defined more intrinsically as the stabilizer in $\Sp(4,\Q)$
+of $\Z\oplus\Z\oplus\Z\oplus N\Z$ (column vectors).
+Thus it comprises the $\Sp(4,\Q)$ matrices
+$$\left(\begin{matrix}
+ * & * & * &*/N\\
+* & * & * & */N\\
+* & * &*&*/N\\
+N*&N*&N*&*\end{matrix}\right)$$
+but the symplectic conditions imply that such matrices satisfy the stronger entrywise conditions shown above.
+\end{definition}
+
+

@@ -1,0 +1,10 @@
+\subsection{Picard Group}
+\begin{definition}\label{av.fq.picard_group}
+\uses{av.fq.number_field,av.fq.order,nf.class_number,nf.ideal_class_group,nf.ring_of_integers}
+Let $S$ be an {{KNOWL('av.fq.order', 'order')}} in an étale algebra $K$ over $\Q$.
+The **Picard group** $\Pic(S)$ of $S$ is the group of invertible fractional $S$-ideals modulo $S$-linear isomorphism. The group operation is ideal multiplication.
+
+The Picard group $\Pic(\mathcal{O}_K)$ of the {{KNOWL('nf.ring_of_integers', 'ring of integers')}} $\mathcal{O}_K$ of a {{KNOWL('av.fq.number_field', 'number field')}} $K$ is also referred to as the {{KNOWL('nf.ideal_class_group', 'ideal class group')}} of $K$. Its size is the {{KNOWL('nf.class_number', 'class number')}} of $K$.
+\end{definition}
+
+

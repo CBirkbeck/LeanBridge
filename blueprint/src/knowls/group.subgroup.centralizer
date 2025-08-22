@@ -1,0 +1,9 @@
+\subsection{Centralizer of a subgroup}
+\begin{definition}\label{group.subgroup.centralizer}
+\uses{group,group.subgroup}
+If $H$ is a {{KNOWL('group.subgroup', 'subgroup')}} of a {{KNOWL('group', 'group')}} $G$, then the **centralizer** of $H$ is the subgroup
+\[ C_G(H) = \{ g\in G\mid gh=hg \text{ for all } h\in H\}.\]
+
+\end{definition}
+
+

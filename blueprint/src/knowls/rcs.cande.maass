@@ -1,0 +1,19 @@
+\subsection{Completeness and extent of Maass form data}
+\begin{definition}\label{rcs.cande.maass}
+\uses{mf.maass.mwf,mf.maass.mwf.character,mf.maass.mwf.eigenvalue,mf.maass.mwf.weight,rcs.rigor.maass}
+The database currently contains data for {{KNOWL('mf.maass.mwf','Maass newforms')}} on $\Gamma_0(N)$ of {{KNOWL('mf.maass.mwf.weight','weight')}} 0 with trivial {{KNOWL('mf.maass.mwf.character','character')}} and {{KNOWL('mf.maass.mwf.eigenvalue','Laplace eigenvalue')}} $\lambda = \frac14 + R^2$ that lie primarily in the ranges:
+
+- $1\le N \le 10$ and $0<R\le 10$;
+- prime $100 < N < 250$ and $0<R\le 2$;
+- prime $250 < N < 1000$ and $0<R\le 1$.
+
+The database is not necessarily complete in these ranges, but it contains most of the Maass newforms with these parameters as well as examples with larger values of $R$ for small $N$.
+
+For $N=1$ the database is believed to be complete for $0<R<30$, but there are some missing values immediately beyond that range.
+
+It is believed that each database entry corresponds to an actual Maass form.  Using current methods it is not feasible to prove that the data for an individual Maass form is correct, nor that the list of Maass eigenvalues in a given range is compete. 
+You can read about {{ KNOWL("rcs.rigor.maass", "the reasons for this difficulty")}} and see the page on {{KNOWL('rcs.rigor.maass','reliability of Maass form data')}} for further discussion of this issue.
+
+\end{definition}
+
+

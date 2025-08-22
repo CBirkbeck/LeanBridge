@@ -1,0 +1,9 @@
+\subsection{Dimension}
+\begin{definition}\label{modlgal.dimension}
+\uses{modlgal}
+The **dimension** of a  {{ KNOWL('modlgal', 'mod-$\ell$ Galois representation') }} $\rho: \Gal_K\to G(\F_{\ell})$ is the dimension of the $\F_{\ell}$-vector space on which $G(\F_{\ell})$ acts.
+
+$1$-dimensional {{ KNOWL('modlgal', 'mod-$\ell$ Galois representations') }} are also called **Galois characters**.
+\end{definition}
+
+

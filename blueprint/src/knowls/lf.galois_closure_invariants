@@ -1,0 +1,21 @@
+\subsection{Invariants of the Galois closure}
+\begin{definition}\label{lf.galois_closure_invariants}
+\uses{lf.galois_mean_slope,lf.galois_splitting_model,lf.inertia_group,lf.padic_field,lf.slopes,lf.tame_degree,lf.unramified_degree,lf.wild_inertia_group,nf.galois_closure,nf.galois_group}
+Let $K$ be a {{ KNOWL('lf.padic_field', '$p$-adic field') }} and let
+$K^{gal}/\Q_p$ be the {{ KNOWL('nf.galois_closure', 'Galois closure') }}
+of $K/\Q_p$.  Some invariants associated to $K^{gal}/\Q_p$ are
+
+- The {{ KNOWL('nf.galois_group', "Galois group") }} $G=\Gal(K^{gal}/\Q_p)$
+of $K^{gal}/\Q_p$,
+- The {{ KNOWL('lf.inertia_group', "inertia subgroup") }} $I$ of $G$,
+- The {{ KNOWL('lf.wild_inertia_group', "wild inertia subgroup") }} of $I$,
+- The {{ KNOWL('lf.unramified_degree', "unramified degree") }} of $K^{gal}/\Q_p$,
+- The {{ KNOWL('lf.tame_degree', "tame degree") }} of $K^{gal}/\Q_p$,
+- The {{ KNOWL('lf.slopes', "Artin slopes") }} of $K^{gal}/\Q_p$,
+- The {{ KNOWL('lf.slopes', "Swan slopes") }} of $K^{gal}/\Q_p$,
+- The {{ KNOWL('lf.galois_mean_slope', "Galois mean slope") }} of $K^{gal}/\Q_p$,
+- A {{ KNOWL('lf.galois_splitting_model', "Galois splitting model") }} for
+$K/\Q_p$, if one is available.
+\end{definition}
+
+

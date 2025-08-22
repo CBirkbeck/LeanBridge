@@ -1,0 +1,9 @@
+\subsection{Isometries between integral lattices}
+\begin{definition}\label{lattice.isometry}
+\uses{lattice.definition,lattice.gram}
+Two {{ KNOWL("lattice.definition", "integral lattices")}}, $L$ and $L'$, are **isometric** if there exists a map $\sigma:L\rightarrow L'$ such that $Q(\vec{v})=Q(\sigma(\vec{v}))$ for all $\vec{v}\in L$. If this is the case, we say $L\cong L'$. The set of all lattices $M$ such that $M\cong L$ is called the **isometry class** (or simply the **class**) of $L$. 
+
+If $L$ and $L'$ have associated {{ KNOWL("lattice.gram", "Gram matrices")}} $G$ and $G'$, then $L\cong L'$ implies that $G=T\cdot G'\cdot T^t$ for some $T\in GL_n(\mathbb Z)$. 
+\end{definition}
+
+

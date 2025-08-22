@@ -1,0 +1,7 @@
+\subsection{Determinant of an Artin representation}
+\begin{definition}\label{artin.determinant}
+\uses{artin}
+Given an {{ KNOWL('artin', 'Artin representation') }} $\rho:\Gal(\overline{\Q}/\Q)\to\GL(V)$, where $V$ is a finite dimensional vector space over $\C$, we can compose with the $\det:\GL(V)\to \C^\times$ to get a one-dimensional Artin representation. This one-dimensional representation is called the **determinant** of $\rho$.
+\end{definition}
+
+

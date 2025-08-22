@@ -1,0 +1,7 @@
+\subsection{Order of a Dirichlet character}
+\begin{definition}\label{character.dirichlet.order}
+\uses{character.dirichlet,character.dirichlet.modulus,character.dirichlet.principal}
+The **order** of a {{KNOWL("character.dirichlet", "Dirichlet character")}} $\chi$ is the least positive integer $n$ such that $\chi^n$ is the {{KNOWL("character.dirichlet.principal", "trivial")}} character of the same {{KNOWL("character.dirichlet.modulus", "modulus")}} as $\chi$. Equivalently, it is the order $n$ of the image of $\chi$ in $\mathbb{C}^\times$, the group of $n$th roots of unity.
+\end{definition}
+
+

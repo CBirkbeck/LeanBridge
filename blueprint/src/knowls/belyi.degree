@@ -1,0 +1,7 @@
+\subsection{Degree of a Belyi map}
+\begin{definition}\label{belyi.degree}
+\uses{belyi.galmap}
+The **degree** of a {{KNOWL('belyi.galmap', 'Belyi map')}} $\phi:X\to\mathbb{P}^1$ is the degree of $\phi$ as a finite map of curves.
+\end{definition}
+
+

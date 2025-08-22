@@ -1,0 +1,9 @@
+\subsection{Bézout matrix}
+\begin{definition}\label{alg.bezout_matrix}
+\uses{}
+Given two polynomials $f$ and $g$ of degree at most $n$, their **degree $n$ Bézout matrix ** is the $n\times n$ matrix $(c_{ij})$ where
+\[ \frac{f(x)g(y)-f(y)g(x)}{x-y} = \sum_{i,j=1}^n c_{ij} x^i y^{j}.\]
+The determinant of this matrix is the resultant of the two polynomials.
+\end{definition}
+
+

@@ -1,0 +1,7 @@
+\subsection{Quotient label}
+\begin{definition}\label{group.quotient_isolabel}
+\uses{group.label,group.quotient,group.subgroup}
+You can specify the {{KNOWL('group.quotient', 'quotient')}} for a {{KNOWL('group.subgroup', 'subgroup')}} by providing its {{KNOWL('group.label', 'label')}} as an abstract group.
+\end{definition}
+
+

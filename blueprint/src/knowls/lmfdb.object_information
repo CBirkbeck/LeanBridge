@@ -1,0 +1,11 @@
+\subsection{Generic dynamic knowl}
+\begin{definition}\label{lmfdb.object_information}
+\uses{}
+{% if func is defined and args is defined %}
+  {{dyn_gen(func, args)}}
+{% else %}
+This is a dynamic knowl for displaying information about an object.  It needs proper arguments to display content.
+{% endif %}
+\end{definition}
+
+

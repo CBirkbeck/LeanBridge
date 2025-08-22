@@ -1,0 +1,23 @@
+\subsection{Coxeter group}
+\begin{definition}\label{group.coxeter}
+\uses{group.alternating,group.dihedral,group.direct_product,group.frobenius,group.order,group.symmetric,group.triangle_group,group.wreath_product}
+A finite **Coxeter group** is a finite group $G$ which has a group presentation of the form
+$$ G = \langle s_1, s_2, \dots, s_n \mid (s_i s_j)^{m_{ij}} = 1 \rangle, $$
+where $m_{ii} = 1$ for all $i = 1, \dots, n$, and where $m_{ij} = m_{ji} \geq 2$ for all $i \not = j$. Examples of Coxeter groups include all Euclidean reflection groups (e.g. the {{KNOWL('group.triangle_group', 'triangle group')}}).
+
+Given a Coxeter group $G$ with the above group presentation, one can define the **Coxeter graph** of $G$ to be a graph with $n$ vertices, labelled $1$ to $n$, with an edge between vertex $i$ and vertex $j$ if and only if $m_{ij} \geq 3$.  If $m_{ij} \geq 4$, then the edge between $i$ and $j$ is furthermore given a value of $m_{ij}$.
+
+A finite **irreducible Coxeter group** is a Coxeter group whose Coxeter graph is connected.
+
+All finite irreducible Coxeter groups have been classified - every such group lies in either one of the four families $W(A_n)$, $W(B_n)$, $W(D_n)$, $I_2(n)$, or is one of the six exceptional groups $W(E_6)$, $W(E_7)$, $W(E_8)$, $W(F_4)$, $H_3$, or $H_4$.  
+
+- $W(A_n)$ is isomorphic to the {{KNOWL('group.symmetric', 'symmetric group')}} $S_{n+1}$ of order $(n+1)!$.
+- $W(B_n)$ is a group of {{KNOWL('group.order', 'order')}} $2^n n!$, whose group structure can be written as a {{KNOWL('group.wreath_product', 'wreath product')}} $C_2 \wr S_n$.
+- $W(D_n)$ is a group of order $2^{n-1} n!$, whose group structure can be written as $C_2^{n-1} . S_n$.
+- $I_2(n)$ is isomorphic to the {{KNOWL('group.dihedral', 'dihedral group')}} $D_n$ of order $2n$.
+
+
+Every finite Coxeter group is a {{KNOWL('group.direct_product', 'direct product')}} of finite irreducible Coxeter groups.  In the LMFDB, we use the notation $W( \_ )$ to denote irreducible Coxeter groups which are also Weyl groups.  This avoids a clash of notation with the {{KNOWL('group.alternating', 'alternating group')}} $A_n$, the dihedral group $D_n$, and the {{KNOWL('group.frobenius', 'Frobenius group')}} $F_n$.
+\end{definition}
+
+

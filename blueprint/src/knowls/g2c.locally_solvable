@@ -1,0 +1,11 @@
+\subsection{Locally solvable}
+\begin{definition}\label{g2c.locally_solvable}
+\uses{ag.curve,ag.curve.genus,ag.irreducible,ag.singular_point,lf.qp,nf}
+A {{KNOWL("ag.curve", "curve")}} defined over the rational numbers is said to be **locally solvable** if the equation(s) defining the curve have a solution over $\R$ and over {{KNOWL("lf.qp", "$\Q_p$")}} for every prime $p$.  For curves over {{ KNOWL('nf', 'number fields') }} we require solutions over every completion of the number field.
+
+If the curve is {{KNOWL("ag.singular_point", "non-singular")}} (or even merely {{KNOWL("ag.irreducible", "geometrically irreducible")}}), then there are always at most finitely many primes $p$ such that the curve has no point over {{KNOWL("lf.qp", "$\Q_p$")}}.
+
+Curves with a rational point are obviously always locally solvable, but the converse need not hold (unless the curve has {{KNOWL("ag.curve.genus", "genus")}} zero).  For example, the genus 1 curve $3x^3+4y^3+5z^3=0$ over $\Q$ is locally solvable but has no rational points (this example is due to Selmer).
+\end{definition}
+
+

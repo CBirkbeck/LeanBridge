@@ -1,0 +1,7 @@
+\subsection{Bad prime}
+\begin{definition}\label{lfunction.bad_prime}
+\uses{lfunction,lfunction.conductor}
+The **bad primes** of an {{KNOWL('lfunction', 'L-function')}} are the primes that divided its {{KNOWL('lfunction.conductor', 'conductor')}}.
+\end{definition}
+
+

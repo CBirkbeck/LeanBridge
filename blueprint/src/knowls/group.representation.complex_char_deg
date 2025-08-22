@@ -1,0 +1,7 @@
+\subsection{Degree of a character}
+\begin{definition}\label{group.representation.complex_char_deg}
+\uses{group.representation.character}
+The **degree** of a {{KNOWL('group.representation.character', 'character')}} $\chi$ of a group $G$ is the value given by $\chi(1)$ where $1$ is the trivial element of $G$.
+\end{definition}
+
+

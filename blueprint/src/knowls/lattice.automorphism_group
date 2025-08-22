@@ -1,0 +1,7 @@
+\subsection{Automorphism group of an integral lattice}
+\begin{definition}\label{lattice.automorphism_group}
+\uses{lattice.definition,lattice.isometry,lattice.postive_definite}
+The **automorphism group** of an {{ KNOWL("lattice.definition", "integral lattice")}} $L$ is the group of {{ KNOWL('lattice.isometry','isometries') }} from $L$ to itself. For a {{ KNOWL('lattice.postive_definite','positive definite') }} lattice, this is a finite group.
+\end{definition}
+
+

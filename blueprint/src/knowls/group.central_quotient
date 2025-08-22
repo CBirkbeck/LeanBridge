@@ -1,0 +1,7 @@
+\subsection{Central quotient}
+\begin{definition}\label{group.central_quotient}
+\uses{group,group.center,group.inner_automorphism}
+The central quotient of a {{KNOWL('group', 'group')}} $G$ is $G/Z(G)$, where $Z(G)$ is the {{KNOWL('group.center', 'center')}} of $G$. The central quotient is isomorphic to the group of {{KNOWL('group.inner_automorphism', 'inner automorphisms')}} of $G$.
+\end{definition}
+
+

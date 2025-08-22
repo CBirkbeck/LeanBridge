@@ -1,0 +1,7 @@
+\subsection{Find an Artin representation}
+\begin{definition}\label{artin.search_input}
+\uses{artin,artin.label}
+To find a specific {{KNOWL('artin', 'Artin representation')}}, enter its {{KNOWL('artin.label','label')}}.
+\end{definition}
+
+

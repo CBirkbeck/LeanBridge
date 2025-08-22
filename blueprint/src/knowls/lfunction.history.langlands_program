@@ -1,0 +1,57 @@
+\subsection{Langlands program}
+\begin{definition}\label{lfunction.history.langlands_program}
+\uses{}
+Langlands theory of automorphic forms ushered in an age of a new understanding
+of the profundity of L-functions. His small book _Euler Products_ of 1967 contains
+the beginnings of a general theory.
+
+In 1969 Ogg \cite{MR0246819} proved the holomorphy and functional equation for the Rankin-Selberg convolution
+of two inequivalent cusp forms of the same level. This is a degree 4 L-function. 
+In 1972 Jacquet \cite{MR0562503} considered the Rankin-Selberg convolution 
+of two GL(2) 
+cusp forms and obtained the analytic continuation and functional equation of the associated L-function. 
+In 1979 Winnie Li \cite{MR0550843} completed the Rankin-Selberg story for two arbitrary GL(2)
+ cusp forms. Her techniques really require the use
+of Tate's thesis and the theory of automorphic forms as it is virtually impossible
+to figure out the Euler factors at bad primes without these. 
+
+In 1971 Andrianov \cite{MR0340178} explicitly constructed the L-function for a genus 2 Siegel modular form
+and gave its analytic continuation and functional equation.
+
+In 1972 Godement and Jacquet \cite{MR0342495} defined the L-function of a general automorphic form
+on a reductive group and obtained the analytic continuation and functional equation. 
+
+It wasn't until the mid 1970's  that Shimura \cite{MR0382176} and, shortly later
+but independently, Zagier \cite{MR0485703}
+proved that the L-function associated with the symmetric
+square of a cusp form is entire. See also the footnote in Selberg's paper
+\cite{MR1220477} that suggests that
+Selberg had discovered  this many years earlier.
+  
+In 1977 Asai \cite{MR0429751} obtained the holomorphy and functional equation of certain
+degree 4 L-functions associated with Hilbert modular forms over quadratic fields.
+These are known as Asai L-functions.
+
+Beginning in 1978 Shahidi \cite{MR0498494} and completed 
+in 1999 with Kim \cite{MR1726704} proved that the symmetric cube 
+of a GL(2) L-function is entire and has 
+functional equation.
+
+In 1980 Langlands proved Artin's conjecture for 2-dimensional representations of 
+tetrahedral type (and also for certain octahedral 
+representations) \cite{MR0574808}.
+In 1981 Tunnell proved Artin's conjecture for octahedral representations \cite{MR0621884}.
+
+In  work  beginning in 1981 with \cite{MR0610479},  Shahidi
+proved the holomorphy and functional equation for many automorphic L-functions.
+
+In 1983 Jacquet,  Piatetskii-Shapiro, and  Shalika \cite{MR0701565}obtained the meromorphicity and
+functional equation for the L-function that is a general Rankin-Selberg convolution
+of automorphic L-functions.
+
+In 1995 Andrew Wiles \cite{MR1333035} proved the holomorphy and functional equation of the Hasse-Weil zeta-function
+of most elliptic curves. In 2001 this work was extended by Breuil, Conrad, Diamond, and Taylor 
+to include all elliptic curves \cite{MR1839918}.
+\end{definition}
+
+

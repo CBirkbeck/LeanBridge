@@ -1,0 +1,7 @@
+\subsection{Available samples for $M_k(\mathrm{Sp}(8,\mathbb{Z}))$}
+\begin{definition}\label{mf.siegel.extent.sp8z}
+\uses{group.sp2gr,mf.siegel.galois_orbit}
+The following table shows some {{KNOWL('mf.siegel.galois_orbit', 'Galois orbits')}} of weights 8, 10, 12, 14 and 16 on the {{KNOWL('group.sp2gr', 'full modular group')}} $\mathrm{Sp}(8,\mathbb{Z})$.
+\end{definition}
+
+

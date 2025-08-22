@@ -1,0 +1,9 @@
+\subsection{Frattini subgroup of a group}
+\begin{definition}\label{group.frattini_subgroup}
+\uses{group.characteristic_subgroup,group.maximal_subgroup,group.subgroup.normal}
+If $G$ is a group, then the **Frattini subgroup** of $G$, denoted $\Phi(G)$, is the intersection of all {{KNOWL('group.maximal_subgroup', 'maximal subgroups')}} of $G$.  If there are no maximal subgroups of $G$, then $\Phi(G)=G$.
+
+The Frattini subgroup is always a {{KNOWL('group.characteristic_subgroup', 'characteristic subgroup')}}, hence a {{KNOWL('group.subgroup.normal', 'normal')}} subgroup, of $G$.
+\end{definition}
+
+

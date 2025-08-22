@@ -1,0 +1,32 @@
+\subsection{$p$-adic family invariants}
+\begin{definition}\label{lf.family_invariants}
+\uses{lf.degree,lf.discriminant_exponent,lf.family_ambiguity,lf.family_base,lf.family_field_count,lf.family_mass,lf.family_polynomial,lf.means,lf.ramification_index,lf.rams,lf.residue_field,lf.residue_field_degree,lf.slopes}
+The following extension invariants are the same for all $L/K$ in a
+{{KNOWL('lf.family_polynomial','$p$-adic family')}} $I/K$:
+
+- the {{ KNOWL('lf.residue_field', 'residue field characteristic') }} $p$,
+- the {{ KNOWL('lf.degree', "degree") }} $d$,
+- the {{ KNOWL('lf.family_base', "base field") }} $K$,
+- the {{ KNOWL('lf.ramification_index', "ramification index") }} $e$,
+- the {{ KNOWL('lf.residue_field_degree', "residue field degree") }} $f$.
+- the {{ KNOWL('lf.discriminant_exponent', "discriminant exponent") }} $c$,
+- the {{ KNOWL('lf.slopes', "Artin slopes") }} $[\tilde{s}_1,\dots,\tilde{s}_w]$,
+- the {{ KNOWL('lf.slopes', "Swan slopes") }} $[s_1,\dots,s_w]$,
+- the {{ KNOWL('lf.means', "means") }} $\langle m_1,\dots,m_w\rangle$,
+- the {{ KNOWL('lf.rams', "rams") }} $(r_1,\dots,r_w)$.
+
+The following data is associated to the family as a whole:
+
+- the {{ KNOWL('lf.family_field_count', "field count") }} $N$,
+- the {{ KNOWL('lf.family_ambiguity', "ambiguity") }} $C$,
+- the {{ KNOWL('lf.family_mass', "mass") }} $M$,
+- the {{ KNOWL('lf.family_mass', "absolute mass") }} $M_{\rm abs}$,
+
+
+
+
+
+
+\end{definition}
+
+

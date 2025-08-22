@@ -1,0 +1,13 @@
+\subsection{Standard Hilbert modular surfaces}
+\begin{definition}\label{hmsurface.standard_hmsurfaces}
+\uses{hmsurface.congruence_subgroup,hmsurface.hmsurface,hmsurface.x0,hmsurface.x01,modcurve.standard}
+Let $\Gamma$ be the {{ KNOWL("hmsurface.congruence_subgroup", "congruence subgroup") }} associated to a {{ KNOWL("hmsurface.hmsurface", "Hilbert modular surface")}}. Similar to {{ KNOWL("modcurve.standard", "families of modular curves") }}, each type of congruence subgroup parametrizes abelian varieties with certain level structure. 
+
+Presently, two special cases are prioritized in this database, namely, 
+{{ KNOWL('hmsurface.x0' , '$\Gamma_0(\mathfrak{N})_{\mathfrak{b}}$') }} and
+{{ KNOWL('hmsurface.x01', '$\Gamma_0^1(\mathfrak{N})_{\mathfrak{b}}$') }}.
+
+
+\end{definition}
+
+

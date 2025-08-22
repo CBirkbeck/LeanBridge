@@ -1,0 +1,12 @@
+\subsection{Coset of a subgroup}
+\begin{definition}\label{group.coset}
+\uses{group,group.subgroup}
+If $G$ is a {{KNOWL('group', 'group')}} and $H$ is a {{KNOWL('group.subgroup', 'subgroup')}} of $G$, then a left **coset** of $H$ is a set
+\[ gH = \{ gh \mid h \in H\} \]
+and similarly, a right coset of $H$ is a set
+\[ Hg = \{ hg \mid h \in H\}. \]
+
+The left cosets partition $G$, as do the right cosets.
+\end{definition}
+
+

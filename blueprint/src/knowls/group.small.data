@@ -1,0 +1,14 @@
+\subsection{Data on small group}
+\begin{definition}\label{group.small.data}
+\uses{}
+{% if gapid is defined %}
+<p>
+  {{ small_group_data(gapid)|safe }}
+</p>
+{% else %}
+This dynamic knowl can display the data about a small group.
+{% endif %}
+
+\end{definition}
+
+

@@ -1,0 +1,7 @@
+\subsection{Maximal division of a group}
+\begin{definition}\label{group.division_maximal}
+\uses{group,group.division}
+A {{ KNOWL('group.division', 'division') }} (or rational conjugacy classes) of a finite {{KNOWL('group', 'group')}} $G$ is **maximal** if if a representative generates a maximal cyclic subgroup of $G$.
+\end{definition}
+
+

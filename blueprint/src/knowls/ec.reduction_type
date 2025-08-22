@@ -1,0 +1,17 @@
+\subsection{Reduction type}
+\begin{definition}\label{ec.reduction_type}
+\uses{ec,ec.bad_reduction,ec.good_reduction,nf,nf.ring_of_integers}
+The **reduction type** of an {{ KNOWL('ec', 'elliptic curve') }} $E$ defined over a {{ KNOWL('nf', 'number field') }} \(K\) at a prime \(\mathfrak{p}\) of \(K\)
+depends on the reduction $\tilde E$ of $E$ modulo $\mathfrak{p}$. Let $\F_q$ be the {{KNOWL("nf.ring_of_integers", "ring of integers")}} of $K$ modulo $\mathfrak{p}$, a finite field of characteristic $p$.
+
+$E$ has {{ KNOWL('ec.good_reduction', 'good reduction') }} at $\mathfrak p$ if $\tilde E$ is non-singular over $\F_q$.   The reduction type is **ordinary** if $\tilde E$ is ordinary (equivalently, $\tilde E(\overline{\F_q})$ has $p$-torsion) and **supersingular** otherwise.
+
+On the other hand, if the reduction of \(E\) modulo \(\mathfrak{p}\) is singular, then
+$E$ has {{ KNOWL('ec.bad_reduction', 'bad reduction') }}.  There are two types of bad reduction are as follows.
+
+$E$ has **multiplicative reduction** at $\mathfrak p$ if $\tilde E$ has a nodal singularity. It is called **split multiplicative reduction** if the two tangents at the node are defined over $\F_q$ and **non-split multiplicative reduction** otherwise.  
+
+$E$ has **additive reduction** at $\mathfrak p$ if $\tilde E$ has a cuspidal singularity.
+\end{definition}
+
+

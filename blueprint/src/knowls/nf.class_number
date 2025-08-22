@@ -1,0 +1,9 @@
+\subsection{Class number of a number field}
+\begin{definition}\label{nf.class_number}
+\uses{nf,nf.ideal_class_group}
+The **class number** of a {{ KNOWL('nf', "number field") }} $K$ is the order of the {{ KNOWL('nf.ideal_class_group', "ideal class group") }} of $K$.
+
+{# original author: Cremona #}
+\end{definition}
+
+

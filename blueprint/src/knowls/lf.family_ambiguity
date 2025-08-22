@@ -1,0 +1,18 @@
+\subsection{Ambiguity of a family}
+\begin{definition}\label{lf.family_ambiguity}
+\uses{lf.family_polynomial,lf.herbrand_invariant,lf.padic_field,lf.rams,lf.residue_field_degree}
+Let $K$ be be a {{ KNOWL('lf.padic_field', '$p$-adic field') }}
+and let $I=(r_1,\dots,r_w)_{\epsilon}^f$ be a
+{{ KNOWL('lf.herbrand_invariant', 'Herbrand invariant') }} which
+is {{ KNOWL('lf.herbrand_invariant', 'compatible') }} with $K$.  Let $f_0$ be the {{ KNOWL('lf.residue_field_degree', 'residue field degree') }} of $K/\Q_p$,
+and set $q=p^{f_0f}$.  Let $r_{i_1},\dots,r_{i_k}$ be the
+distinct integral {{ KNOWL('lf.rams', 'rams') }} of $I$, and for
+$1\le j\le k$ let $\rho_j$ be the multiplicity of $r_{i_j}$ in $I$.
+The **ambiguity** of $I$ over $K$ is
+\[\text{Amb}(I/K)=f\cdot\gcd(\epsilon,q-1)\cdot\prod_{j=1}^k\gcd(p^{\rho_j},q).\]
+For each $L/K$ in the {{ KNOWL('lf.family_polynomial', 'family') }}
+$I/K$, the number of semicanonical polynomials representing $L/K$ is
+a divisor of $\frac{\operatorname{Amb}(I/K)}{\lvert\operatorname{Aut}(L/K)\rvert}$.
+\end{definition}
+
+

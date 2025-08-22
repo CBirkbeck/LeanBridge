@@ -1,0 +1,24 @@
+\subsection{Standard modular curves}
+\begin{definition}\label{modcurve.standard}
+\uses{gl2.level,modcurve,modcurve.level_structure,modcurve.x0,modcurve.x1,modcurve.x1mn,modcurve.xarith,modcurve.xfull,modcurve.xns,modcurve.xns_plus,modcurve.xpm1,modcurve.xpm1mn,modcurve.xs4,modcurve.xsp,modcurve.xsp_plus}
+Let $M$ and $N$ denote positive integers and $\ell$ a prime.  Each {{KNOWL('modcurve','modular curve')}} below "parametrizes" elliptic curves with a particular type of {{KNOWL('modcurve.level_structure','level structure')}}. Standard modular curves include:
+
+{{KNOWL('modcurve.x0','$X_0(N)$')}},
+{{KNOWL('modcurve.x1','$X_1(N)$')}},
+{{KNOWL('modcurve.xpm1','$X_{\pm 1}(N)$')}},
+{{KNOWL('modcurve.x1mn','$X_{\mathrm{arith},1}(M,MN)$')}},
+{{KNOWL('modcurve.xpm1mn','$X_{\mathrm{arith},\pm 1}(M,MN)$')}},
+{{KNOWL('modcurve.xfull','$X(N)$')}},
+{{KNOWL('modcurve.xsp','$X_{\mathrm{sp}}(N)$')}},
+{{KNOWL('modcurve.xsp_plus','$X_{\mathrm{sp}}^+(N)$')}},
+{{KNOWL('modcurve.xns','$X_{\mathrm{ns}}(N)$')}},
+{{KNOWL('modcurve.xns_plus','$X_{\mathrm{ns}}^+(N)$')}},
+{{KNOWL('modcurve.xs4','$X_{S_4}(\ell)$')}}, 
+{{KNOWL('modcurve.xarith','$X_{\mathrm{arith}}(N)$')}}
+
+The curves above are all {{KNOWL('modcurve','modular curves')}} specified by an open subgroup $H \le \GL_2(\widehat{\Z})$ of {{KNOWL('gl2.level','level')}} $N$, $MN$, or $\ell$.
+
+
+\end{definition}
+
+

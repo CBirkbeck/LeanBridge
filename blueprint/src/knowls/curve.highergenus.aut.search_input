@@ -1,0 +1,8 @@
+\subsection{Find a family of higher genus curves}
+\begin{definition}\label{curve.highergenus.aut.search_input}
+\uses{curve.highergenus.aut.refinedpassport,dq.curve.highergenus.aut.label}
+To find a specific {{KNOWL('curve.highergenus.aut.refinedpassport', 'refined passport')}}, enter its {{KNOWL('dq.curve.highergenus.aut.label',title="label")}}.
+
+\end{definition}
+
+

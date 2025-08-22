@@ -1,0 +1,13 @@
+\subsection{Event probabilities}
+\begin{definition}\label{st_group.probabilities}
+\uses{group.haar_measure,st_group.definition}
+If $a_i:=a_i(g)$ denotes the $i$th coefficient of the characteristic polynomial $\sum a_ix^i$ of a random matrix $g$ in a {{KNOWL('st_group.definition', 'Sato-Tate group')}} $G$ with {{ KNOWL('group.haar_measure','Haar measure') }} $\mu$, then
+\[
+\mathrm{Pr}[a_i=n] := \mu(\{g\in G|a_i(g)=n\})
+\]
+can be viewed as the **probability** that a random $g\in G$ satisfies $a_i(g)=n$. This is a rational number equal to the proportion of connected components of G on which $a_i$ is identically equal to $n$, by Proposition 8.4.3.3 of Serre's *Lecture's on $N_X(p)$* \cite{doi:10.1201/b11315}.  This probability is necessarily zero unless $n$ is one of a finite set of integers.
+
+Note that while $\mathrm{Pr}[a_i=n]=0$ implies that $\{g\in G:a_i(g) = n\}$ has measure zero, this set need not be empty (unless $G$ is finite).
+\end{definition}
+
+

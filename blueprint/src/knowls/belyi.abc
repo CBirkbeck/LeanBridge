@@ -1,0 +1,7 @@
+\subsection{abc triple for Belyi maps}
+\begin{definition}\label{belyi.abc}
+\uses{belyi.permutation_triple}
+The **$(a,b,c)$ triple** for a Belyi map is obtained by taking the orders of the elements in the corresponding {{KNOWL("belyi.permutation_triple", "transitive permutation triple")}}.
+\end{definition}
+
+

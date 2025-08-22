@@ -1,0 +1,17 @@
+\subsection{Oldspace decomposition for Gamma1(N)}
+\begin{definition}\label{cmf.decomposition.old.gamma1}
+\uses{}
+There are natural inclusion maps from lower level; the old subspace is the span of their images.  For \(M\) dividing the level \(N\), and for \(t\) dividing \(\frac{N}{M}\), the maps
+$$
+  \begin{aligned}
+  \alpha_{M, t} : S_k(\Gamma_1(M)) & \to S_k(\Gamma_1(N)) \\\\
+  f(q) & \mapsto f(q^t)
+  \end{aligned}
+$$
+  induce an isomorphism
+  \[
+  S_k(\Gamma_1(N)) \cong \bigoplus_{M,t} \alpha_{M,t}\left(S_k^{\mathrm{new}}(\Gamma_1(M))\right).
+  \]
+\end{definition}
+
+

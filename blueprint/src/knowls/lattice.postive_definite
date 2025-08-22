@@ -1,0 +1,7 @@
+\subsection{Positive definite lattice}
+\begin{definition}\label{lattice.postive_definite}
+\uses{lattice.definition,lattice.gram}
+An {{ KNOWL('lattice.definition', 'integral lattice')}} $L$ is **positive definite** if the {{ KNOWL('lattice.gram') }} of the bilinear form $B$ on $L$ is a positive definite matrix. This is equivalent to the condition that $B(u,u)>0$ for all $u \in L \setminus\{0\}$.
+\end{definition}
+
+

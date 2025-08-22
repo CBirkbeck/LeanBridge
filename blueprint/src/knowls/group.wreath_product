@@ -1,0 +1,10 @@
+\subsection{Wreath product}
+\begin{definition}\label{group.wreath_product}
+\uses{group,group.semidirect_product}
+If $S\leq S_n$ and $H$ are {{KNOWL('group', 'groups')}}, the **wreath product** of $H$ and $S$ is the {{KNOWL('group.semidirect_product', 'semidirect product')}} $$H \wr S = H^n \rtimes S$$
+where $S$ acts on $H^n$ via $S\subseteq S_n$, permuting the $n$ copies of $H$.
+
+If $S$ is a transitive subgroup of $S_n$, we say that the wreath product is **transitive**.
+\end{definition}
+
+

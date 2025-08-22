@@ -1,0 +1,7 @@
+\subsection{Search columns}
+\begin{definition}\label{doc.search_columns}
+\uses{doc.select_search_columns}
+The set of columns shown in search results is {{KNOWL('doc.select_search_columns', 'configurable')}} and also controls the set of columns included in data downloads.
+\end{definition}
+
+

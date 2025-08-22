@@ -1,0 +1,8 @@
+\subsection{Frobenius matrix}
+\begin{definition}\label{modlgal.frobenius_matrix}
+\uses{modlgal,modlgal.absolute_frobenius}
+A **Frobenius matrix** for a {{KNOWL('modlgal','mod-$\ell$ Galois representation')}}  is an element of the conjugacy class of the image of the {{KNOWL('modlgal.absolute_frobenius','absolute Frobenius')}} element associated to a particular prime.
+
+\end{definition}
+
+

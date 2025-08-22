@@ -1,0 +1,7 @@
+\subsection{Projective image of a subgroup}
+\begin{definition}\label{group.subgroup.projective_image}
+\uses{group.center,group.quotient}
+If $H \subset G$ is a subgroup, the **projective image** of $H$ is the image of $H$ in the {{KNOWL('group.center', 'central')}} {{KNOWL('group.quotient','quotient')}} $G / Z(G)$.
+\end{definition}
+
+

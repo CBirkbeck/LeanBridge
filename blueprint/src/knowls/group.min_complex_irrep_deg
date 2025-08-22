@@ -1,0 +1,7 @@
+\subsection{Minimal degree of a complex irrep}
+\begin{definition}\label{group.min_complex_irrep_deg}
+\uses{group.representation.faithful,group.representation.irrep}
+The smallest positive integer $d$ such that the group $G$ admits a {{KNOWL('group.representation.faithful', 'faithful')}} {{KNOWL('group.representation.irrep', 'irreducible')}} complex representation of degree $d$.
+\end{definition}
+
+

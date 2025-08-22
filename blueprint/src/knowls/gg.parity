@@ -1,0 +1,7 @@
+\subsection{Parity of a Galois group}
+\begin{definition}\label{gg.parity}
+\uses{gg.galois_group}
+A {{ KNOWL('gg.galois_group', 'Galois group') }} $G\leq S_n$ has **parity** $1$ if $G\leq A_n$, and $-1$ otherwise.
+\end{definition}
+
+

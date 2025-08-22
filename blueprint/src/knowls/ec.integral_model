@@ -1,0 +1,7 @@
+\subsection{Integral model}
+\begin{definition}\label{ec.integral_model}
+\uses{ec,ec.weierstrass_coeffs,nf.ring_of_integers}
+An **integral model** for an {{ KNOWL('ec', 'elliptic curve') }} \(E\) defined over a number field \(K\) is a {{ KNOWL('ec.weierstrass_coeffs', 'Weierstrass equation') }} for \(E\) all of whose coefficients are in the {{ KNOWL('nf.ring_of_integers', 'ring of integers') }} of \(K\).
+\end{definition}
+
+

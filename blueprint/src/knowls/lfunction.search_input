@@ -1,0 +1,7 @@
+\subsection{Find an L-function by label}
+\begin{definition}\label{lfunction.search_input}
+\uses{lfunction,lfunction.label}
+To find a specific {{KNOWL("lfunction", "L-function")}}, enter its {{KNOWL("lfunction.label", "label")}}.
+\end{definition}
+
+

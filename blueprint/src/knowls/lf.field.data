@@ -1,0 +1,15 @@
+\subsection{Data for a local field}
+\begin{definition}\label{lf.field.data}
+\uses{}
+{% if label is defined %}
+<p>
+  {{ local_field_data(label)| safe}}
+</p>
+{% else %}
+This knowl can display data for a local number field specified by its label as a parameter.
+{% endif %}
+
+
+\end{definition}
+
+

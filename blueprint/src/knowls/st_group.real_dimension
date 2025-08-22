@@ -1,0 +1,7 @@
+\subsection{Real dimension of a Sato-Tate group}
+\begin{definition}\label{st_group.real_dimension}
+\uses{st_group.definition}
+The **real dimension** of a {{KNOWL('st_group.definition', 'Sato-Tate group')}} is its dimension as a real Lie group.
+\end{definition}
+
+

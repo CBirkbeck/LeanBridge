@@ -1,0 +1,7 @@
+\subsection{Modular form associated to an elliptic curve/$\mathbb Q$}
+\begin{definition}\label{ec.q.modular_form}
+\uses{cmf.newform,cmf.weight,ec}
+For every {{KNOWL("ec", "elliptic curve")}} over $\Q$ of conductor $N$, there is a unique {{KNOWL("cmf.weight", "weight")}} $2$ {{KNOWL("cmf.newform", "newform")}} for $\Gamma_0(N)$ with the same L-function. This was proved by Breuil, Conrad, Diamond, and Taylor, building on the proof of Fermat's last theorem by Wiles and Taylor-Wiles.
+\end{definition}
+
+

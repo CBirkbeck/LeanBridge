@@ -1,0 +1,13 @@
+\subsection{Representative of a conjugacy class}
+\begin{definition}\label{group.repr_explain}
+\uses{group.conjugacy_class,group.permutation_representation,group.presentation,group.solvable}
+A representative of each {{KNOWL('group.conjugacy_class', 'conjugacy class')}} is given in different formats depending on how the abstract group is stored in the database.
+
+For *permutation groups* the representative is given as a permutation of {{KNOWL('group.permutation_representation', 'degree')}} given in the Construction section of this group's main page.
+
+For *matrix groups* the representatives are given by matrices in the group described in the Construction section of this group's main page. 
+
+For {{KNOWL('group.solvable', 'solvable')}} groups, the representatives are given as words in the generators from the {{KNOWL('group.presentation', 'presentation')}} given in the Construction section of this group's main page.
+\end{definition}
+
+

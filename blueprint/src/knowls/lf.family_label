@@ -1,0 +1,24 @@
+\subsection{Family labels}
+\begin{definition}\label{lf.family_label}
+\uses{lf.discriminant_exponent,lf.family_polynomial,lf.field_label,lf.ramification_index,lf.rams,lf.residue_field_degree,lf.wild_segments}
+Let $K$ be a finite extension of $\Q_p$, with $K\ne\Q_p$.
+The label associated to a relative
+{{KNOWL('lf.family_polynomial', 'family')}} $I/K$ has the form
+$s\text{-}f.e.c\ell$, where
+
+- $s$ is the {{KNOWL('lf.field_label', 'label')}} attached to the base
+field $K$,
+- $f$ is the {{KNOWL('lf.residue_field_degree', 'residue field degree')}}
+of every $L/K\in I/K$,
+- $e$ is the {{KNOWL('lf.ramification_index', 'ramification index')}} of
+every $L/K\in I/K$,
+- $c$ is the {{KNOWL('lf.discriminant_exponent', 'discriminant exponent')}}
+of every $L/K\in I/K$,
+- $\ell$ is a string of one or more letters used to distinguish families
+with the same basic data.  It is defined by sorting the families by their number of {{ KNOWL('lf.wild_segments', 'wild segments') }}, then the list of lengths of the wild segments, then the {{ KNOWL('lf.rams', 'rams') }}.
+
+The label associated to an absolute family $I/\Q_p$ has the form
+$p.f.e.c\ell$, where $f,e,c,\ell$ are defined as above, with $K=\Q_p$.
+\end{definition}
+
+

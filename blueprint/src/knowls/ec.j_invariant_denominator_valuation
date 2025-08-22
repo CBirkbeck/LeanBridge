@@ -1,0 +1,7 @@
+\subsection{j-invariant denominator valuation}
+\begin{definition}\label{ec.j_invariant_denominator_valuation}
+\uses{ec.j_invariant}
+The valuation of the denominator of the {{ KNOWL('ec.j_invariant', '\(j\)-invariant') }} at a prime.  This is \(0\) if the \(j\)-invariant has non-negative valuation, and is minus the valuation otherwise.
+\end{definition}
+
+

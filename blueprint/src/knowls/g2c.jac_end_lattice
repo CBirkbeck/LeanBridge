@@ -1,0 +1,9 @@
+\subsection{Endomorphism lattice}
+\begin{definition}\label{g2c.jac_end_lattice}
+\uses{ag.abelian_variety,ag.endomorphism_ring,av.endomorphism_field}
+Let $A$ be an {{KNOWL('ag.abelian_variety', 'abelian variety')}} over a field $F$.  Given a field extension $F' \supseteq F$, there is a natural inclusion of {{KNOWL('ag.endomorphism_ring', 'endomorphism rings')}} $\End(A)\subseteq\mathrm{End}(A_{F'})$, where $A_{F'}$ denotes the base change of $A$ to $F'$.
+
+Let $K$ be the {{KNOWL('av.endomorphism_field', 'endomorphism field')}} of $A$.  The set of endomorphism rings $\mathrm{End}(A_{F'})$ over subextensions $K \supseteq F' \supseteq F$ forms a lattice under inclusion, called the **endomorphism lattice** of $A$ over $F$.  
+\end{definition}
+
+

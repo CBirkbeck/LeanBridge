@@ -1,0 +1,10 @@
+\subsection{The spectral parameter of a Maass waveform}
+\begin{definition}\label{mf.maass.mwf.spectralparameter}
+\uses{mf.maass.mwf,mf.maass.mwf.laplacian}
+If \(f\) is a {{KNOWL('mf.maass.mwf', 'Maass form')}} with {{KNOWL('mf.maass.mwf.laplacian', 'Laplace')}} eigenvalue \(\lambda = \frac{1}{4}+R^{2}\), the number $R$ is said to be the **spectral parameter** of \(f\).
+
+
+
+\end{definition}
+
+

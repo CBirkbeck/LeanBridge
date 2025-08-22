@@ -1,0 +1,14 @@
+\subsection{Galois orbit of a newform}
+\begin{definition}\label{cmf.galois_orbit}
+\uses{cmf.galois_conjugate,cmf.newform,cmf.newform_subspace}
+The **Galois orbit** of a {{KNOWL('cmf.newform', 'newform')}} $f\in S_k^{\rm new}(N,\chi)$ is the finite set
+\[
+[f]:=\{\sigma(f):\sigma\in \mathrm{Gal}(\overline{\Q}/\Q)\}
+\]
+of its {{KNOWL('cmf.galois_conjugate', 'Galois conjugates')}}, which forms a canonical $\Q$-basis for the corresponding {{KNOWL('cmf.newform_subspace','newform subspace')}}.
+
+Galois orbits of newforms are also called **newform orbits**.
+
+\end{definition}
+
+

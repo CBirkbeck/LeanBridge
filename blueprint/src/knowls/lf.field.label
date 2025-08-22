@@ -1,0 +1,22 @@
+\subsection{Label for a $p$-adic field}
+\begin{definition}\label{lf.field.label}
+\uses{lf.defining_polynomial,lf.degree,lf.discriminant_exponent,lf.family_polynomial,lf.padic_field,lf.ramification_index,lf.rams,lf.residual_polynomials,lf.residue_field,lf.residue_field_degree,lf.wild_segments}
+Each {{ KNOWL('lf.family_polynomial', '$p$-adic family') }} has a label of the form "p.f.e.cA", where
+
+- p is the {{KNOWL('lf.residue_field', 'residue field characteristic')}},
+- f is the {{ KNOWL('lf.residue_field_degree', 'residue field degree') }} of $K$ over $\mathbb{Q}_p$,
+- e is the {{ KNOWL('lf.ramification_index', 'ramification index') }} of $K$ over $\mathbb{Q}_p$,
+- c is the {{ KNOWL('lf.discriminant_exponent', 'discriminant exponent') }} of $K$ over $\mathbb{Q}_p$,
+- A is a lower case letter code, with families sorted by their number of {{ KNOWL('lf.wild_segments', 'wild segments') }}, then the list of lengths of the wild segments, then the {{ KNOWL('lf.rams', 'rams') }}.
+
+Each {{ KNOWL('lf.padic_field', '$p$-adic field') }} $K$ has a label of the form "p.f.e.cAi.j", where
+
+- p.f.e.cA is the label of the family containing the field
+- i is a positive integer code, shared among fields in the same family with equivalent {{ KNOWL('lf.residual_polynomials', 'residual polynomials') }}, sorted lexicographically by coefficients of the residual polynomial.
+- j is a positive integer code, ordering fields in a given family with the same residual polynomials by their {{ KNOWL('lf.defining_polynomial', 'defining polynomial') }}, sorted lexicographically. 
+
+Prior to 2025, local fields in the LMFDB had a different label convention, of the form p.n.c.num, where n was the {{ KNOWL('lf.degree', 'degree') }} and num was an integer code from an unspecified ordering.  If you have a field label in the old form, the website will translate it to the new label if you enter it in the "Find" box at the bottom of the browse page.
+
+\end{definition}
+
+

@@ -1,0 +1,17 @@
+\subsection{Mordell-Weil generator}
+\begin{definition}\label{g2c.mw_generator}
+\uses{ag.abelian_variety,ag.jacobian,ag.mordell_weil,g2c.g2curve,g2c.minimal_equation,nf}
+The {{KNOWL('ag.mordell_weil', 'Mordell-Weil group')}} of an {{KNOWL('ag.abelian_variety', 'abelian variety')}} $A$ over a {{KNOWL('nf', 'number field')}} $K$ is a finitely generated group, explicitly described by giving a $\Z$-basis for the group, or equivalently a (minimal) set of **Mordell-Weil generators**.
+
+When $A$ is the {{KNOWL('ag.jacobian', 'Jacobian')}} of a {{KNOWL('g2c.g2curve','genus 2 curve')}} $X$ over $\Q$, elements of $A(\Q)$ can be specified as the linear equivalence class of a rational divisor $D$ on $X$ of degree zero.  If $X$ is defined by the (homogeneous) {{KNOWL('g2c.minimal_equation', 'minimal equation')}}
+\[
+y^2 + h(x,z)y = f(x,z),
+\]
+we may express $D$ in the form $D_0-nD_\infty$, where $D_0$ is a rational effective divisor of degree at most $g=2$ and $D_\infty$ is the sum of the points in the intersection of the curve with the line $z=0$ at infinity, with $n=\deg(D_0)/\deg(D_\infty)\in \{0,1,2\}$.
+
+The divisor $D_0$ can be described by a pair of homogeneous polynomials $a,b\in \Q[x,z]$, with $a(x,z)$ of degree at most $2$ and $b(x,z)$ of degree $3$: the divisor $D_0$ is the intersection of $X$ with the locus of $a(x,z)=0$ and $y=b(x,z)$.  When $h=0$ and $\deg(f)=5$ this is equivalent to the **Mumford representation** of $D_0$ as $(u,v)$ with $u(x)=a(x,1)$ and $v(x)=b(x,1)$.
+
+For example, on the curve $X \colon y^2 - y = x^5$ with homogenization $y^2-yz^3=x^5z$, the Mordell-Weil generator $x=0,\ y=z^3$ specifies the class of the divisor $(0:1:1)-(0:1:0)$.
+\end{definition}
+
+

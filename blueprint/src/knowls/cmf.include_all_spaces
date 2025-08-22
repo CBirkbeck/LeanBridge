@@ -1,0 +1,8 @@
+\subsection{Include all spaces}
+\begin{definition}\label{cmf.include_all_spaces}
+\uses{cmf.newform,cmf.newspaces}
+By default (the "split" option), only {{ KNOWL('cmf.newspaces', 'newspaces') }} with known decomposition into {{ KNOWL('cmf.newform', 'newforms') }} are included in search results.  If you want to include spaces with large conductor where this decomposition has not been computed, choose the "all" option.
+
+\end{definition}
+
+

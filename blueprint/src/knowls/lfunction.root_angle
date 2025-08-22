@@ -1,0 +1,7 @@
+\subsection{Root angle of L-function}
+\begin{definition}\label{lfunction.root_angle}
+\uses{lfunction.sign}
+The **root angle** of an L-function is the argument of its {{KNOWL('lfunction.sign', 'root number')}}, as a real number $\alpha$ with $-0.5 < \alpha \le 0.5$.
+\end{definition}
+
+

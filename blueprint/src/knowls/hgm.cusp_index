@@ -1,0 +1,11 @@
+\subsection{Cusp index}
+\begin{definition}\label{hgm.cusp_index}
+\uses{}
+A **cusp-index** of degree $d$ is a weakly increasing
+list of positive integers $[u_1,\dots,u_k]$ with $\sum_{i=1}^k \phi(u_i) = d$.
+
+Hypergeometric families $H(A,B)$ are indexed by pairs
+$(A,B)$ of cusp-indices of a common degree having no common entries.
+\end{definition}
+
+

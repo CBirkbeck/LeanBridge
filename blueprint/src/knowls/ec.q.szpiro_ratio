@@ -1,0 +1,17 @@
+\subsection{Szpiro ratio}
+\begin{definition}\label{ec.q.szpiro_ratio}
+\uses{ec,ec.minimal_discriminant,ec.q.abc_quality,ec.q.conductor,ec.q.j_invariant}
+The (modified) **Szpiro ratio** of an {{KNOWL('ec', 'elliptic curve')}} $E$ is defined as
+\[
+\sigma_m(E) = \frac{\log \max(|c_4|^3, |c_6|^2)}{\log N},
+\]
+where $N$ is the {{KNOWL('ec.q.conductor', 'conductor')}} of $E$ and $c_4$ and $c_6$ are defined as for the {{KNOWL('ec.q.j_invariant', '$j$-invariant')}}.  The (modified) Szpiro conjecture is that, for any $\epsilon > 0$, there are only finitely many elliptic curves with Szpiro ratio larger than $6+\epsilon$.  In \cite{MR:992208}, Oesterlé proves that this conjecture is equivalent to the {{KNOWL('ec.q.abc_quality', '$abc$ conjecture')}}.
+
+In Oesterlé's paper cited above, there is another conjecture, that the ratio
+$$
+\frac{\log \Delta}{\log N},
+$$
+also has the property of only taking values larger than $6+\epsilon$ finitely many times (here $\Delta$ is the {{KNOWL('ec.minimal_discriminant', 'minimal discriminant')}} of $E$).  This conjecture is implied by the modified Szpiro conjecture (and thus the $abc$ conjecture), but it is not currently known to be equivalent.  All of the Szpiro ratios in the LMFDB are computed in terms of $c_4$ and $c_6$ rather than $\Delta$ for this reason.
+\end{definition}
+
+

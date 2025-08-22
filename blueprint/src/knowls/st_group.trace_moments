@@ -1,0 +1,12 @@
+\subsection{Trace moments of a Sato-Tate group}
+\begin{definition}\label{st_group.trace_moments}
+\uses{st_group.definition,st_group.weight}
+The trace $t$ of a random element of a {{KNOWL('st_group.definition', 'Sato-Tate group')}} $G$ can be viewed as a random variable whose distribution is given by the pushforward of the Haar measure on $G$ under the trace map.
+
+The $n$th **moment** $\mathrm{M}_n[t]:= \mathrm{E}[t^n]$ of $t$ is the expected value of the $n$th power of the trace, which is always an integer.
+
+For Sato-Tate groups of odd {{KNOWL('st_group.weight','weight')}} we have $t=-a_1$ and the moment sequences of $t$ and $a_1$ coincide because their distributions are symmetric about zero.
+
+\end{definition}
+
+

@@ -1,0 +1,7 @@
+\subsection{Unit group torsion}
+\begin{definition}\label{nf.torsion}
+\uses{nf,nf.unit_group}
+A **torsion generator** of a {{KNOWL('nf', 'number field')}} is a primitive root of unity that generates the torsion subgroup of the {{KNOWL('nf.unit_group', 'unit group')}} (which is necessarily cyclic).
+\end{definition}
+
+

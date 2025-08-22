@@ -1,0 +1,59 @@
+\subsection{A history of L-functions}
+\begin{definition}\label{lfunction.history}
+\uses{lfunction.history.artin,lfunction.history.dedekind,lfunction.history.dirichlet,lfunction.history.euler,lfunction.history.hasse_weil,lfunction.history.hecke_characters,lfunction.history.hecke_operators,lfunction.history.langlands_program,lfunction.history.maass,lfunction.history.ramanujan_tau,lfunction.history.rankin_selberg,lfunction.history.riemanns_memoir,lfunction.history.siegel,lfunction.history.tates_thesis}
+{{ KNOWL_INC('lfunction.history.euler') }}
+
+<h2>Riemann's memoir</h2>
+{{ KNOWL_INC('lfunction.history.riemanns_memoir') }}
+
+<h2>Dirichlet L-functions</h2>
+{{ KNOWL_INC('lfunction.history.dirichlet') }}
+
+<h2>Dedekind zeta functions</h2>
+{{ KNOWL_INC('lfunction.history.dedekind') }}
+
+
+The automorphy properties of 
+Hilbert modular forms  for real quadratic fields were considered in the 
+1901 G&ouml;ttingen 
+University Habilitationssschrift of Otto Blumenthal. Therein he refers to
+unpublished  work of 1893-1894 of his advisor David Hilbert. Hilbert modular forms 
+ were significantly
+developed by Hecke in his 1910 dissertation.  
+
+<h2>The L-function of $\Delta$</h2>
+{{ KNOWL_INC('lfunction.history.ramanujan_tau') }}
+ 
+<h2>Hecke L-functions</h2>
+{{ KNOWL_INC('lfunction.history.hecke_characters') }}
+
+{{ KNOWL_INC('lfunction.history.hecke_operators') }}
+
+<h2> Artin L-functions </h2>
+{{ KNOWL_INC('lfunction.history.artin') }}
+
+<h2> Siegel Modular forms </h2>
+{{ KNOWL_INC('lfunction.history.siegel') }}
+
+<h2> Rankin-Selberg convolution </h2>
+{{ KNOWL_INC('lfunction.history.rankin_selberg') }}
+
+<h2>L-functions of nonholomorphic modular forms</h2>
+{{ KNOWL_INC('lfunction.history.maass') }}
+
+<h2> Tate's thesis </h2>
+{{ KNOWL_INC('lfunction.history.tates_thesis') }}
+
+<h2> Hasse-Weil L-functions </h2>
+{{ KNOWL_INC('lfunction.history.hasse_weil') }}
+
+
+ 
+<h2> Langlands Program </h2>
+
+{{ KNOWL_INC('lfunction.history.langlands_program') }}
+
+
+\end{definition}
+
+

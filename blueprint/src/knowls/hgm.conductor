@@ -1,0 +1,9 @@
+\subsection{Conductor of a hypergeometric motive}
+\begin{definition}\label{hgm.conductor}
+\uses{hgm.motive,hgm.tame,hgm.wild}
+The exponents $c_p$ in the **conductor** $N = \prod_p p^{c_p}$ of a {{ KNOWL('hgm.motive', 'hypergeometric motive') }} $H(A,B,t)$ can be positive only if $p$ is {{KNOWL("hgm.tame", "tame")}} or {{KNOWL("hgm.wild", "wild")}} for $H(A,B,t)$. 
+
+
+\end{definition}
+
+

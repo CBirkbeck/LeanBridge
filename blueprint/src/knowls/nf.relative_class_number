@@ -1,0 +1,9 @@
+\subsection{Relative class number of a CM field}
+\begin{definition}\label{nf.relative_class_number}
+\uses{nf,nf.class_number,nf.cm_field,nf.totally_real}
+If $K$ is a {{KNOWL('nf', 'number field')}} with {{KNOWL('nf.cm_field', 'CM')}} with {{KNOWL('nf.class_number', 'class number')}} $h$, and $K^+$ is its maximal {{KNOWL('nf.totally_real', 'totally real')}} subfield with class number $h^+$, then $h^+$ divides $h$ and the **relative class number** is 
+$h/h^+$.
+
+\end{definition}
+
+

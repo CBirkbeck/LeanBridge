@@ -1,0 +1,81 @@
+\subsection{Source  of abstract group  data}
+\begin{definition}\label{rcs.source.groups.abstract}
+\uses{}
+All groups in the database, as well as their attributes, subgroups, character tables, etc. were computed using Magma from code and algorithms developed and written by  Michael Bush, Lewis Combes, John Jones, Jen Paulhus, David Roe, Manami Roy, and Sam Schiavone.  The code is available on <a href="https://github.com/roed314/FiniteGroups">GitHub</a>.
+
+Small groups were pulled from the small group database in Magma, and rely on the following work:
+
+* Besche, Eick, and O'Brien, "A millennium project: constructing small groups" \cite{MR:1935567, doi:10.1142/S0218196702001115}
+
+* Besche and Eick, "Construction of finite groups"
+\cite{MR:1681346, doi:10.1006/jsco.1998.0258}
+
+* Besche and Eick, "The groups of order at most 1000 except 512 and 768" \cite{MR:1681347, doi:10.1006/jsco.1998.0259}
+
+* Besche, Eick and O'Brien, "The groups of order at most 2000", 
+\cite{MR:1826989, doi:10.1090/S1079-6762-01-00087-7}
+
+* O'Brien, "The $p$-group generation algorithm", 
+\cite{MR:1075431, doi:10.1016/S0747-7171(08)80082-X}
+
+* Besche and Eick, "The groups of order $q^n\cdot p$"
+\cite{MR:1853124, doi:10.1081/AGB-100002131}
+
+* O'Brien, "The groups of order $256$" \cite{MR:1128656, doi:10.1016/0021-8693(91)90261-6}
+
+* Newman, O'Brien, Vaughan-Lee, "Groups and nilpotent Lie rings whose order is the sixth power of a prime"
+\cite{MR:2068084, doi:10.1016/j.jalgebra.2003.11.012}
+
+* O'Brien and Vaughan-Lee, "The groups with order $p^7$ for odd prime $p$",
+\cite{MR:2166803, doi:10.1016/j.jalgebra.2005.01.019}
+
+* Dietrich and Eick, "On the groups of cube-free order"
+\cite{MR:2166799, doi:10.1016/j.jalgebra.2004.12.001}
+
+* Dietrich and Eick, "Addendum to ``{O}n the groups of cube-free order'' [J.
+              Algebra 292 (1) (2005) 122--137] [MR2166799]}"
+\cite{MR:2948221, doi:10.1016/j.jalgebra.2012.06.014}
+
+* Dietrich, Eick and Pan, "Groups whose orders factorise into at most four primes"
+\cite{MR:4265711, doi:10.1016/j.jsc.2021.04.005}
+
+* Hulpke, "Constructing transitive permutation groups"
+\cite{MR:2168238, doi:10.1016/j.jsc.2004.08.002}
+
+ * Cannon and Holt, "The transitive permutation groups of degree 32"
+\cite{MR:2455702, doi:10.1080/10586458.2008.10129046}
+
+* Holt and Royle, "A census of small transitive groups and vertex-transitive
+              graphs"
+\cite{MR:4109707, doi:10.1016/j.jsc.2019.06.006}
+
+* Taylor, "Pairs of Generators for Matrix Groups I"
+\cite{doi:10.48550/arXiv.2201.09155}
+
+* Rylands and Taylor, "Matrix generators for the orthogonal groups"
+\cite{MR:1615330, doi:10.1006/jsco.1997.0180}
+
+* Howlett, Rylands and Taylor, "Matrix generators for exceptional groups of Lie type",
+\cite{MR:1823074, doi:10.1006/jsco.2000.0431}
+
+* Opgenorth, Plesken and Schulz, "Carat, Crystallographic AlgoRithms And Tables,
+                      Version 2.1b1"
+[<a href="https://github.com/lbfm-rwth/carat/">Carat</a>]
+
+* Wilson, Walsh, Tripp, Suleiman, Parker, Norton, Nickerson, Linton, Bray and Abbott,
+  "ATLAS of Finite Group Representations - Version 3"
+[<a href="http://brauer.maths.qmul.ac.uk/Atlas/v3/}">ATLAS</a>]
+
+* Breuer, "Characters and automorphism groups of compact Riemann
+              surfaces"
+\cite{MR:1796706}
+
+* Conder, "Group actions on surfaces"
+[<a href="https://www.math.auckland.ac.nz/~conder/BigSurfaceActions-Genus2to101-ByGenus.txt">BigSurfaceActions-Genus2to101-ByGenus.txt</a>]
+
+
+
+
+\end{definition}
+
+

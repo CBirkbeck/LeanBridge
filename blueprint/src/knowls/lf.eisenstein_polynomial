@@ -1,0 +1,15 @@
+\subsection{Eisenstein polynomial}
+\begin{definition}\label{lf.eisenstein_polynomial}
+\uses{lf.ramification_index,ring.field_of_fractions}
+Let $D$ be an integral domain and $P$ a prime ideal in $D$.  A polynomial $a_n x^n + \cdots + a_0\in D[x]$ is **Eisenstein** (with respect to $P$) if
+
+ - $a_n \not\in P$
+ - $a_i \in P$ for all $0\leq i < n$
+ - $a_0 \not\in P^2$
+
+An Eisenstein polynomial is irreducible in $F[x]$ where $F$ is the {{KNOWL('ring.field_of_fractions', 'field of fractions')}} of $D$.  
+
+If $K$ is a finite extension of $\Q_p$ with ring of integers $\mathcal{O}_K$, then a finite extension $L/K$ is {{ KNOWL('lf.ramification_index', 'totally ramified') }} if and only if $L=K(\alpha)$ where $\alpha$ is a root of an Eisenstein polynomial in $\mathcal{O}_K[x]$.
+\end{definition}
+
+

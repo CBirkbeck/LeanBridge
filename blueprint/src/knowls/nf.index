@@ -1,0 +1,7 @@
+\subsection{Index of an order}
+\begin{definition}\label{nf.index}
+\uses{nf,nf.order,nf.ring_of_integers}
+Let $\mathcal{O}$ be an {{KNOWL("nf.order", "order")}} in a {{KNOWL("nf", "number field")}} $K$. The index of $\mathcal{O}$ is its index as a sublattice of the {{KNOWL('nf.ring_of_integers', 'ring of integers')}} of $K$.
+\end{definition}
+
+

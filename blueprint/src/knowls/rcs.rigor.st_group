@@ -1,0 +1,9 @@
+\subsection{Reliability of Sato-Tate Group Data}
+\begin{definition}\label{rcs.rigor.st_group}
+\uses{st_group.degree,st_group.rational,st_group.weight}
+All data in the Sato-Tate group database was computed using rigorous algorithms that do not depend on any unproved hypotheses.
+
+The completeness of the list of 52 {{KNOWL('st_group.rational','rational')}} Sato-Tate groups of {{KNOWL('st_group.weight','weight')}} 1 and {{KNOWL('st_group.degree','degree')}} 4 in the database is the main theorem of \cite{arXiv:1110.6638,doi:10.1112/S0010437X12000279,MR:2982436}.  As noted in this paper, there are 3 additional subgroups of $\mathrm{USp}(4)$ that satisfy the Sato-Tate axioms in weight 1 but do not arise as Sato--Tate groups of abelian surfaces; these are not included in the database.
+\end{definition}
+
+

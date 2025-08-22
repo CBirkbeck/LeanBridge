@@ -1,0 +1,23 @@
+\subsection{Subgroup $\Gamma(N)$ of $\Sp(2g,\Z)$}
+\begin{definition}\label{group.sp2gr.ppal.congruence}
+\uses{group.sl2z.subgroup.gamman,group.sp2gr}
+The principal congruence subgroup of level $N$, $\Gamma(N)$, 
+of the integral {{KNOWL("group.sp2gr", "symplectic group")}} 
+$\Sp(2g,\Z)$
+is the subgroup of $\Sp(2g,\Z)$ that consists of matrices congruent to the identity matrix modulo $N$:
+\[
+\Gamma(N)=\left\{
+\begin{pmatrix}a&b\\c&d\end{pmatrix}\in \Sp(2g,{\Z})
+:
+\begin{pmatrix}a&b\\c&d\end{pmatrix} \equiv 
+\begin{pmatrix}1_g&0\\0&1_g\end{pmatrix}
+ \bmod N
+\right\}
+\]
+where $1_g$ stands for the identity matrix of size $g$.
+For $g=1$, it is the subgroup 
+{{KNOWL("group.sl2z.subgroup.gamman", "$\Gamma(N)$")}} of 
+$\SL(2,\Z)$.
+\end{definition}
+
+

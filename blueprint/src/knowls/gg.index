@@ -1,0 +1,9 @@
+\subsection{Index of a permuation}
+\begin{definition}\label{gg.index}
+\uses{}
+If $\sigma\in S_n$, its **index** is
+\[ \textrm{ind}(\sigma) = n - \text{number of cycles}\]
+for the full disjoint cycle decomposition of $\sigma$.
+\end{definition}
+
+

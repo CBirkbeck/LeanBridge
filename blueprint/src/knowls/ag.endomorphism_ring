@@ -1,0 +1,9 @@
+\subsection{Endomorphism ring}
+\begin{definition}\label{ag.endomorphism_ring}
+\uses{ag.abelian_variety,ag.geom_endomorphism_ring}
+An **endomorphism** of an {{KNOWL('ag.abelian_variety', 'abelian variety')}} $A$ over a field $k$ is a homomorphism $\varphi \colon A \to A$ defined over $k$.  The set of endomorphisms of an abelian variety $A$ can be given the structure of a ring in which addition is defined pointwise (using the group operation of $A$) and multiplication is composition; this ring is called the **endomorphism ring** of $A$, denoted $\textrm{End}(A)$.
+
+For endomorphisms defined over an extension of $k$, we instead speak about the {{KNOWL('ag.geom_endomorphism_ring', 'geometric endomorphism ring')}}.
+\end{definition}
+
+

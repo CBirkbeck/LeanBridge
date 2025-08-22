@@ -1,0 +1,7 @@
+\subsection{Nontrivial inner twist}
+\begin{definition}\label{cmf.nontrivial_twist}
+\uses{cmf.inner_twist,cmf.self_twist}
+An {{KNOWL('cmf.inner_twist', 'inner twist')}} is **nontrivial** if it is not the {{KNOWL('cmf.self_twist','self twist')}} by the trivial character.
+\end{definition}
+
+

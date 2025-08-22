@@ -1,0 +1,9 @@
+\subsection{Reliability of Dirichlet L-function Data}
+\begin{definition}\label{rcs.rigor.lfunction.dirichlet}
+\uses{character.dirichlet,lfunction.analytic_rank,lfunction.critical_line,lfunction.zeros}
+All {{KNOWL('character.dirichlet','Dirichlet')}} L-functions in the database have been precomputed using rigorous precision bounds and interval arithmetic ensure that {{KNOWL('lfunction.zeros','zeros')}} and special values are accurate to the displayed precision (up to an error in the last digit displayed), and that the list of zeros is complete (within the region covered by the list, including the {{KNOWL('lfunction.zeros','lowest zero')}}).
+
+For Dirichlet L-functions in the database, all listed zeros are known to lie on the {{KNOWL('lfunction.critical_line','critcial line')}}, and the {{KNOWL('lfunction.analytic_rank','analytic rank')}} is known to be zero.
+\end{definition}
+
+

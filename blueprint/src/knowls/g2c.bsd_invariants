@@ -1,0 +1,22 @@
+\subsection{BSD invariants}
+\begin{definition}\label{g2c.bsd_invariants}
+\uses{ag.abelian_variety,ag.mordell_weil,ag.regulator,g2c.analytic_rank,g2c.analytic_sha,g2c.has_square_sha,g2c.mordell_weil_rank,g2c.real_period,g2c.tamagawa,ag.tate_shafarevich,g2c.torsion,g2c.two_selmer_rank,lfunction,lfunction.leading_coeff}
+The **BSD invariants** of an {{KNOWL('ag.abelian_variety', 'abelian variety')}} $A/\Q$ include:
+
+- the {{KNOWL('g2c.analytic_rank', 'analytic rank')}} of $A$;
+- the {{KNOWL('g2c.mordell_weil_rank', 'Mordell-Weil rank')}} of $A$;
+- the {{KNOWL('lfunction.leading_coeff', 'leading coefficient')}} $L^{(r)}(A,1)/r!$ of the {{KNOWL('lfunction', 'L-function')}} of $A$;
+- the order of the {{KNOWL('g2c.torsion', 'torsion subgroup')}} $A(\Q)_{\rm tor}$ of the {{KNOWL('ag.mordell_weil', 'Mordell-Weil group')}} $A$;
+- the {{KNOWL('g2c.real_period', 'real period')}} $\Omega_A$ of $A$;
+- the {{KNOWL('ag.regulator', 'regulator')}} $R_A$ of $A$;
+- the {{KNOWL('g2c.tamagawa', 'Tamagawa product')}} $T_A:=\prod_p c_p$ of $A$;
+- the order of the {{KNOWL('ag.tate_shafarevich', 'Tate-Shafarevich')}} group $&#1064;(A)$ of $A$.
+
+The weak form of the Birch and Swinnerton-Dyer conjecture predicts that the first two invariants are equal, while the strong form of their conjecture relates the last six invariants via the **BSD formula**
+\[
+\frac{L^{(r)}(A,1)}{r!} = \frac{\#&#1064;(A)\Omega_AR_AT_A}{(\#A(\Q)_{\rm tor})^2}.
+\]
+No effective method to compute $&#1064;(A)$ is currently known (indeed, it is not even known that $&#1064;(A)$ is finitely generated, although the BSD conjecture requires this).  However, one can compute (approximations of) the the five remaining quantities and use this to compute the {{KNOWL('g2c.analytic_sha', 'analytic order of Sha')}}, and under the assumption that  $&#1064;(A)$ is finite, one can determine whether its {{KNOWL('g2c.has_square_sha','order is a square')}} or not.  One can also compute the {{KNOWL('g2c.two_selmer_rank','rank of the 2-Selmer group')}} of $A$, which constrains the 2-part of $&#1064;(A)$.
+\end{definition}
+
+

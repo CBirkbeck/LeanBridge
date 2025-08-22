@@ -1,0 +1,12 @@
+\subsection{Source of Siegel modular form data}
+\begin{definition}\label{rcs.source.mf.siegel}
+\uses{group.paramodular,mf.siegel.level,mf.siegel.newform,mf.siegel.weight_k_j}
+Details regarding the construction of the database of paramodular forms can be found in the paper _A database of paramodular forms from quinary orthogonal modular forms_ [[preprint](https://math.dartmouth.edu/~jvoight/articles/paramodular-lucant-012223.pdf)] by Eran Assaf, Watson Ladd, Gustavo Rama, Gonzalo Tornaría and John Voight.
+In particular, the Siegel paramodular forms data in the LMFDB come from two sources:
+
+* For  {{KNOWL("group.paramodular", "paramodular")}} {{KNOWL("mf.siegel.newform", "newforms")}} of {{KNOWL("mf.siegel.weight_k_j", "weight")}} $(k,j) = (3,0)$ and {{KNOWL("mf.siegel.level", "level")}} $N < 1000$ such that there exists a prime $p \parallel N$ data was computed by Eran Assaf using software available at [[https://github.com/assaferan/omf5](https://github.com/assaferan/omf5)].
+
+* For  {{KNOWL("group.paramodular", "paramodular")}} {{KNOWL("mf.siegel.newform", "newforms")}} of {{KNOWL("mf.siegel.weight_k_j", "weight")}} $(k,j) = (3,2), (4,0)$ and {{KNOWL("mf.siegel.level", "level")}} $N < 1000$ such that there exists a prime $p \parallel N$ data was computed by Gustavo Rama using software available at [[https://gitlab.fing.edu.uy/grama/quinary](https://gitlab.fing.edu.uy/grama/quinary)].
+\end{definition}
+
+

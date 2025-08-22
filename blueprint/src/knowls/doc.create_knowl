@@ -1,0 +1,7 @@
+\subsection{Create a knowl}
+\begin{definition}\label{doc.create_knowl}
+\uses{doc.view_knowl}
+To create a knowl, first {{ KNOWL('doc.view_knowl' , title = "expand it")}} then click on the edit link appearing below, in the darker blue line.
+\end{definition}
+
+

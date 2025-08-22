@@ -1,0 +1,12 @@
+\subsection{Chevalley group}
+\begin{definition}\label{group.chevalley}
+\uses{group.general_linear,group.lie_type,group.orthogonal,group.simple,group.special_linear,group.symplectic,group.unitary,ring.field}
+The **Chevalley groups** are examples of groups of {{KNOWL('group.lie_type', 'Lie type')}} over finite {{KNOWL('ring.field', 'fields')}}.  They generalise the classical {{KNOWL('group.general_linear', 'linear')}}, {{KNOWL('group.symplectic', 'symplectic')}}, {{KNOWL('group.orthogonal', 'orthogonal')}}, and {{KNOWL('group.unitary', 'unitary')}} matrix groups. In many cases, these are examples of finite {{KNOWL('group.simple', 'simple')}} groups.
+
+- $A(n, q)$ is the {{KNOWL('group.special_linear', 'special linear')}} group $\SL(n+1, q)$.
+- $B(n, q)$ is the {{KNOWL('group.orthogonal', 'orthogonal')}} group $\Omega(2n + 1, q)$.
+- $C(n,q)$ is the {{KNOWL('group.symplectic', 'symplectic')}} group  $\Sp(2n,q)$.
+- $D(n, q)$ is the {{KNOWL('group.orthogonal', 'orthogonal')}} group $\OmegaPlus(2n,q)$.
+\end{definition}
+
+

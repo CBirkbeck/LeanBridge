@@ -1,0 +1,13 @@
+\subsection{Place of a number field}
+\begin{definition}\label{nf.place}
+\uses{nf,nf.absolute_value,nf.complex_embedding,nf.padic_completion,nf.real_embedding,nf.ring_of_integers,ring.prime_ideal}
+A **place** $v$ of a field $K$ is an equivalence class of non-trivial {{KNOWL('nf.absolute_value','absolute values')}} on $K$.  As with absolute values, places may be classified as archimedean or nonarchimedean, since these properties are preserved under equivalence.
+
+Each place induces a distance metric that gives $K$ a metric topology.  The {{KNOWL('nf.padic_completion', '**completion**')}} $K_v$ of $K$ at $v$ is the completion of this metric space, which is also a topological field.
+
+When $K$ is a {{KNOWL('nf', 'number field')}} each nonarchimedean place arises from the valuation associated to each {{KNOWL('ring.prime_ideal', 'prime ideal')}} in the {{KNOWL('nf.ring_of_integers', 'ring of integers')}} of $K$, while archimedean places arise from embeddings of $K$ into the complex numbers: each {{KNOWL('nf.real_embedding', 'real embedding')}} determines a **real place**, and each conjugate pair of {{KNOWL('nf.complex_embedding','complex embeddings')}} determines a **complex place**. The archimedean places of a number field are also called **infinite places**.
+
+
+\end{definition}
+
+

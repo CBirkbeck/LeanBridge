@@ -1,0 +1,9 @@
+\subsection{Prime ideal}
+\begin{definition}\label{ring.prime_ideal}
+\uses{ring,ring.ideal}
+If $R$ is a {{KNOWL('ring', 'commutative ring')}} $R$, an {{KNOWL('ring.ideal', 'ideal')}} $I$ is **prime** if for all $a,b\in R$,
+$$ ab\in I \implies a\in I \quad \text{or}\quad b\in I.$$
+
+\end{definition}
+
+

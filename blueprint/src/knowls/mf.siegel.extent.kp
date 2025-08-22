@@ -1,0 +1,15 @@
+\subsection{Available samples for $M_2(K(p))$}
+\begin{definition}\label{mf.siegel.extent.kp}
+\uses{group.paramodular,mf.siegel.newform.paramodular}
+The following table shows certain Siegel modular cusp forms of weight 2 on   {{KNOWL('group.paramodular', 'paramodular groups')}} of prime level. More precisely, it shows
+
+  * in level 277, the {{KNOWL('mf.siegel.newform.paramodular', 'nonlift')}},
+  * in levels 349, 353, 389, 461, 523, 587, the <em>conjectured</em> nonlifts.
+
+The sample names have the form "2_PY2_p_...", where p is the level.
+
+
+
+\end{definition}
+
+

@@ -1,0 +1,11 @@
+\subsection{Direct SQL connection}
+\begin{definition}\label{intro.direct_sql}
+\uses{}
+You can open a direct connection to a read-only copy of the LMFDB's PostgreSQL database, using the SQL Mirror access information below.  There are three ways to do this:
+
+- You can exploit standard <a href="https://wiki.postgresql.org/wiki/PostgreSQL_Clients">third-party tools</a> or <a href="https://wiki.postgresql.org/wiki/List_of_drivers">programming language drivers</a> for working with <a href="https://www.postgresql.org/">PostgreSQL</a> databases; these require knowledge of SQL.
+- You can use the <a href="https://github.com/roed314/lmfdb-lite">lmfdb-lite</a> library, which provides a pure Python interface to the SQL mirror using dictionaries, equivalent to that used in the LMFDB source code.
+- You can <a href="https://github.com/LMFDB/lmfdb/blob/main/GettingStarted.md">install the LMFDB web front-end locally</a>.  This provides a <a href="https://www.sagemath.org/">SageMath</a> interface to the LMFDB via the mirror similar to lmfdb-lite and provides access to the entire LMFDB code base, which includes methods that can be used to create python objects corresponding to mathematical objects stored in the LMFDB.
+\end{definition}
+
+

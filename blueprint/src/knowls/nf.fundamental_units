@@ -1,0 +1,7 @@
+\subsection{Fundamental units of a number field}
+\begin{definition}\label{nf.fundamental_units}
+\uses{nf,nf.unit_group}
+A minimal set of generators of a maximal torsion-free subgroup of the {{ KNOWL('nf.unit_group', "unit group") }} of a {{ KNOWL('nf', "number field") }} $K$ is called a set of **fundamental units** for $K$.
+\end{definition}
+
+

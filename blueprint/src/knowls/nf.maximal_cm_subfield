@@ -1,0 +1,7 @@
+\subsection{Maximal CM subfield}
+\begin{definition}\label{nf.maximal_cm_subfield}
+\uses{nf,nf.cm_field,nf.degree}
+The **maximal CM subfield** of a {{KNOWL('nf', 'number field')}} is the largest subfield by {{KNOWL('nf.degree', 'degree')}} which is a {{KNOWL('nf.cm_field', 'CM field')}}.
+\end{definition}
+
+

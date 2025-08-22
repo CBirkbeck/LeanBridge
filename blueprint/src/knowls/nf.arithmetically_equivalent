@@ -1,0 +1,7 @@
+\subsection{Arithmetically equivalent fields}
+\begin{definition}\label{nf.arithmetically_equivalent}
+\uses{nf,nf.degree,nf.discriminant,nf.galois_group,nf.sibling,nf.signature}
+Two {{ KNOWL('nf', 'number fields') }} are **arithmetically equivalent** if they have the same Dedekind $\zeta$-functions. Arithmetically equivalent fields share many invariants, such as their {{ KNOWL('nf.degree', 'degrees') }}, {{ KNOWL('nf.signature','signatures') }}, {{ KNOWL('nf.discriminant','discriminants') }}, and {{ KNOWL('nf.galois_group','Galois groups') }}.  For a given field, the existence of an arithmetically equivalent {{ KNOWL('nf.sibling', 'sibling') }} depends only on the Galois group.
+\end{definition}
+
+

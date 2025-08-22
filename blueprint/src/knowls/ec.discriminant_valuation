@@ -1,0 +1,7 @@
+\subsection{Discriminant valuation}
+\begin{definition}\label{ec.discriminant_valuation}
+\uses{ec.minimal_discriminant}
+The valuation of the {{ KNOWL('ec.minimal_discriminant', 'minimal discriminant') }} at a prime.
+\end{definition}
+
+

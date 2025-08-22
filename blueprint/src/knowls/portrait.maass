@@ -1,0 +1,17 @@
+\subsection{Pictures for Maass forms}
+\begin{definition}\label{portrait.maass}
+\uses{cmf.picture_description,mf.maass.mwf,mf.maass.mwf.level}
+For each {{ KNOWL("mf.maass.mwf", "Maass newform") }} $f$, we use domain coloring to show the plot of $f$. The form $f$ is approximated using the first $50$ coefficients across a $200 \times 200$ mesh.
+
+At each point $z$ in the unit disk $\mathcal{D}$, we assign a color based on the value of $f(\mu(z))$, where $\mu$ is the Möbius transform $\mu: \mathcal{D} \longrightarrow \mathcal{H}$ given by $\mu(z) = \frac{1 - iz}{z - i}$. This transform preserves the apparent orientation of the imaginary axis in $\mathcal{H}$: the point $(0, -1)$ in $\mathcal{D}$ corresponds to $0$ in $\mathcal{H}$, the center of $\mathcal{D}$ corresponds to $i$ in $\mathcal{H}$, and the point $(0, 1)$ in $\mathcal{D}$ corresponds to $i\infty$ in $\mathcal{H}$.
+
+Writing $f(\mu(z)) = re^{i \theta}$, the hue is determined by the angle $\theta$. In addition, small changes in lightness/darkness represent logarithmically spaced contours: consecutive contours correspond to magnitudes $r$ that differ by a factor of $2$. The relationship is implicit, but these Maass forms all vanish near the top of the disk.
+
+If the Maass form $f$ has squarefree {{KNOWL('mf.maass.mwf.level', 'level')}}, then $f$ takes only real values. In this case, the portrait will have only two colors, corresponding to positive and negative values.
+
+Maass form portraits are made in essentially the same way as {{ KNOWL('cmf.picture_description', 'classical modular form portraits') }}, except they use a set of colors that looks better when the Maass form is real-valued. See \cite{MR4427977} for more on the methods of visualization.
+
+Code that makes this type of portrait is available at [github.com/davidlowryduda/maass_portraits](https://github.com/davidlowryduda/maass_portraits).
+\end{definition}
+
+

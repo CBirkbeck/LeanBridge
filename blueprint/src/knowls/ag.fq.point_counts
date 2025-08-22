@@ -1,0 +1,7 @@
+\subsection{Point counts of a variety}
+\begin{definition}\label{ag.fq.point_counts}
+\uses{ag.base_field,ag.variety}
+If $X$ is a {{KNOWL('ag.variety', 'variety')}} {{KNOWL('ag.base_field', 'defined')}} over a finite field $\mathbb{F}_q$, one can show that it will have finitely many points that are defined over that field. Upon extending the base field to $\mathbb{F}_{q^2}$, $\mathbb{F}_{q^3}$, $\mathbb{F}_{q^4}$, etc. the number of points of $X$ defined over those fields remains finite, as long as we consider only field extensions of finite degree over $\mathbb{F}_q$.
+\end{definition}
+
+

@@ -1,0 +1,11 @@
+\subsection{Hermite number}
+\begin{definition}\label{lattice.hermite_number}
+\uses{lattice.definition,lattice.dimension,lattice.gram,lattice.minimal_vector}
+The **Hermite number** of an {{ KNOWL("lattice.definition", "integral lattice")}}, $L$, with associated {{ KNOWL("lattice.gram", "Gram matrix")}}, $G$, is given by  
+\[
+\frac{m(L)}{dG^{\frac{1}{n}}},
+\]
+where $dG$ denotes the determinant of the {{ KNOWL("lattice.gram", "Gram matrix")}}, $n$ the {{ KNOWL("lattice.dimension", "dimension")}} of $L$, and $m(L)$ denotes the {{ KNOWL("lattice.minimal_vector", "minimal vector")}} length in $L$.  
+\end{definition}
+
+

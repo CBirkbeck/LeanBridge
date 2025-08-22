@@ -1,0 +1,57 @@
+\subsection{Herbrand invariant}
+\begin{definition}\label{lf.herbrand_invariant}
+\uses{lf.means,lf.padic_field,lf.ramification_index,lf.rams,lf.residue_field,lf.residue_field_degree,lf.slopes}
+A **Herbrand invariant** $I$ is the collection of ramification
+data associated to a finite separable extension of
+{{ KNOWL('lf.padic_field', '$p$-adic fields') }}.  Let $L/K$ be
+an extension of $p$-adic fields with
+{{ KNOWL('lf.residue_field', 'residue characteristic') }}
+$p$.  Let $f$ be the
+{{ KNOWL('lf.residue_field_degree', 'residue field degree') }}
+and $\epsilon p^w$ the
+{{ KNOWL('lf.ramification_index', 'ramification index') }}
+of $L/K$, with $p\nmid\epsilon$.
+The Herbrand invariant of $L/K$ can be expressed in terms of the
+{{ KNOWL('lf.slopes', 'Swan slopes') }}
+of $L/K$ as $I=[s_1,\dots,s_w]_{\epsilon}^f$; in terms of the
+{{ KNOWL('lf.rams', 'rams') }} of $L/K$
+as $I=(r_1,\dots,r_w)_{\epsilon}^f$; or in terms of the
+{{ KNOWL('lf.means', 'means') }} of $L/K$
+as $I=\langle m_1,\dots,m_w\rangle_{\epsilon}^f$.  
+
+As a convention, we put $s_0=r_0=m_0=0$.   The three representations
+of the Herbrand invariant of $L/K$ are related by
+
+- $\displaystyle s_k=\frac{p m_k-m_{k-1}}{p-1}$,
+- $\displaystyle m_k=\sum_{j=1}^k\frac{p-1}{p^{k+1-j}}s_j$,
+- $\displaystyle r_k= \epsilon p^k \frac{m_k- m_{k-1}}{p-1}$,
+- $\displaystyle m_k=\sum_{j=1}^k \frac{p-1}{\epsilon p^j}r_j$
+
+for $1\le k\le w$.
+
+Alternatively, one can start with a Herbrand invariant $I$ and then
+identify fields $K$ such that there exist extensions $L/K$ whose
+Herbrand invariant is $I$.  Let $I=(r_1,\dots,r_w)_{\epsilon}^f$, with
+$r_1,\dots,r_w$ a weakly increasing sequence of positive rationals and
+$\epsilon,f\in\N$.  Let $b_1<\dots<b_t$ be the distinct elements of
+$r_1,\dots,r_w$ and let $d_i$ be the multiplicity of $b_i$.  Let $K$
+be a $p$-adic field and let $e_K$ be the
+{{ KNOWL('lf.ramification_index', 'absolute ramification index') }}
+of $K$.  In order for $I$ to be the Herbrand invariant of some extension
+$L/K$, for each $1\le i\le t$ we must have $(p^{d_i}-1)b_i\in\N$, and one
+of the following must hold:
+
+- $p\nmid(p^{d_i}-1)b_i$ and
+  $b_i<\displaystyle\frac{p^{d_1+\dots+d_{i-1}+1}\epsilon e_K}{p-1}$,
+
+- $d_i=1$ and $b_i=\displaystyle\frac{p^{d_1+\dots+d_{i-1}+1}\epsilon e_K}{p-1}$.
+
+In the first case we say that $b_i$ is a **geometric ram**.  In the
+second case we say that $b_i$ is an **arithmetic ram**.
+
+If the conditions above are satisfied we say that $K$ is **compatible**
+with $I$.  The compatibility of $K$ with $I$ depends only on the absolute
+ramification index $e_K$ of $K$.
+\end{definition}
+
+

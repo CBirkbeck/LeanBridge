@@ -1,0 +1,7 @@
+\subsection{Defining polynomial}
+\begin{definition}\label{mf.siegel.defining_polynomial}
+\uses{mf.siegel.coefficient_field,nf}
+The {{ KNOWL('mf.siegel.coefficient_field', 'coefficient field of a Siegel modular form') }} is a {{ KNOWL('nf', 'number field') }}. A **defining polynomial** for this number field is explicitly recorded, because some of the data associated to the modular form will be expressed in terms of roots of this polynomial.
+\end{definition}
+
+

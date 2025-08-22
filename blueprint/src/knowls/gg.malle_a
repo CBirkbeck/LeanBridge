@@ -1,0 +1,11 @@
+\subsection{Malle's constant $a(G)$}
+\begin{definition}\label{gg.malle_a}
+\uses{gg.index,group.subgroup}
+If $G$ is a {{KNOWL('group.subgroup', 'subgroup')}} of $S_n$, **Malle's constant** is defined as
+\[ a(G)=\frac{1}{\min(\{\textrm{ind}(g) \mid e\neq g\in G\})}  \]
+where $\textrm{ind}(g)$ is the {{KNOWL('gg.index', 'index')}} of the element $g$.  Note, if $G$ is the trivial group, $a(G)$ is defined to be $0$.
+
+This constant appears in the conjectures of Malle on asymptotics for the number of number fields with a given Galois group $G\leq S_n$ \cite{MR1884706}, \cite{MR2068887}.
+\end{definition}
+
+

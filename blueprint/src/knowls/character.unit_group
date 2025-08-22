@@ -1,0 +1,7 @@
+\subsection{Underlying unit group for a Dirichlet character}
+\begin{definition}\label{character.unit_group}
+\uses{character.dirichlet,character.dirichlet.modulus}
+A {{ KNOWL('character.dirichlet', 'Dirichlet character') }} $\chi: \Z\to \C$ has a {{ KNOWL('character.dirichlet.modulus', 'modulus') }} $n$ such that $\chi$ is induced from a function $\chi:\Z/n\Z\to \C$.  It gives a homomorphism $(\Z/n\Z)^\times\to \C^\times$.  The **underlying unit group** is $(\Z/n\Z)^\times$, the group of units of the ring $\Z/n\Z$.
+\end{definition}
+
+

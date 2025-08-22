@@ -1,0 +1,7 @@
+\subsection{Complex irreducible representation}
+\begin{definition}\label{group.representation.irrep}
+\uses{group,group.complex_character_table,group.representation.character}
+A **representation** of a finite {{KNOWL('group', 'group')}} $G$ is a homomorphism $\rho : G \to \GL(V)$ for some vector space $V$.  A representation is **reducible** if there is some nontrivial subspace $W \subset V$ with $\rho(g)(W) = W$ for all $g \in G$; otherwise it is **irreducible**.  We say two representations $\rho : G \to \GL(V)$ and $\rho' : G \to \GL(V')$ are equivalent if there is an isomorphism $\sigma : V \to V'$ so that $\rho'(g) = \sigma^{-1} \rho(g) \sigma$ for all $g \in G$.  Up to equivalence, the complex irreducible representations of a finite group $G$ (also known as **irreps**) are determined by their {{KNOWL('group.representation.character', 'characters')}}, which are recorded in the {{KNOWL('group.complex_character_table', 'character table')}} of $G$.
+\end{definition}
+
+

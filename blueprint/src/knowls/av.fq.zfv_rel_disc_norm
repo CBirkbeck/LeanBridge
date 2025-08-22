@@ -1,0 +1,9 @@
+\subsection{Relative discriminant norm}
+\begin{definition}\label{av.fq.zfv_rel_disc_norm}
+\uses{}
+The **relative discriminant** norm is $N_{K/\mathbb{Q}}(F-V)$, where $F$ is the Frobenius endomorphism, $V$ is the Verschiebung endomorphism, and $K=\mathbb{Q}[F,V]$.  For this value, we have
+$$|N_{K/\mathbb{Q}}(F-V)|=|\Delta_R|/\Delta_{R^+}^2,$$
+where $R=\mathbb{Q}[F,V]$ is the Frobenius order and $R^+=\mathbb{Z}[F+V]$ is the real order.
+\end{definition}
+
+

@@ -1,0 +1,12 @@
+\subsection{Shimura variety}
+\begin{definition}\label{ag.shimura_variety}
+\uses{}
+There are a number of different ways to define a Shimura variety.
+
+One definition starts with connected complex manifolds such that for every point on the manifold there is an involution fixing only that point.  If this manifold is isomorphic to a bounded open subset of $\C^n$ for some $n$, it is called a Hermitian symmetric domain (or space). 
+
+Then, **(connected) Shimura varieties** are quotients of Hermitian symmetric domains by torsion-free subgroups of the group of automorphisms of the domain.
+
+\end{definition}
+
+

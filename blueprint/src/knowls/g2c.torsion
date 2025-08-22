@@ -1,0 +1,9 @@
+\subsection{Torsion subgroup}
+\begin{definition}\label{g2c.torsion}
+\uses{ag.abelian_variety,nf}
+The **torsion subgroup** of an {{KNOWL('ag.abelian_variety', 'abelian variety')}} over a {{ KNOWL('nf', 'number field') }}  is the subgroup of elements of finite order; it is a finite group that is isomorphic to the direct sum of at most $2g$ cyclic groups, where $g$ is the dimension of the abelian variety.
+
+The structure of the torsion subgroup can be compactly described by listing its sequence of elementary divisors $[d_1,\ldots,d_n]$, where each $d_i$ divides $d_{i+1}$, indicating a finite abelian group that is isomorphic to $\Z/d_1\Z\oplus \cdots \oplus\Z/d_n\Z$.
+\end{definition}
+
+

@@ -1,0 +1,9 @@
+\subsection{Commutative binary operation}
+\begin{definition}\label{alg.binary_operation.commutative}
+\uses{alg.binary_operation}
+If $*$ is a {{KNOWL('alg.binary_operation', 'binary operation')}} on a set $A$, then $*$ is **commutative** on $A$ if for all $a,b\in A$,
+$$ a*b=b*a.$$
+
+\end{definition}
+
+

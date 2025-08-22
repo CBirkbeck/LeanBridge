@@ -1,0 +1,9 @@
+\subsection{Z-group}
+\begin{definition}\label{group.z_group}
+\uses{group.cyclic,group.metacyclic,group.monomial,group.supersolvable}
+A **Z-group** is a (finite) group all of whose Sylow subgroups are {{ KNOWL("group.cyclic", "cyclic")}}. Such groups are {{ KNOWL("group.metacyclic", "metacyclic")}}, {{ KNOWL("group.supersolvable", "supersolvable")}} and {{ KNOWL("group.monomial", "monomial")}}. 
+
+Every cyclic group is a Z-group, but the converse does not hold, as shown by <a href="{{url_for('abstract.index')}}?Zgroup=yes&cyclic=no">these examples</a>.
+\end{definition}
+
+

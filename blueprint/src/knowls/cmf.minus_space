@@ -1,0 +1,7 @@
+\subsection{Minus space}
+\begin{definition}\label{cmf.minus_space}
+\uses{cmf.fricke}
+The **minus subspace** of \(S_k(\Gamma_0(N))\) is the eigenspace of the {{KNOWL('cmf.fricke', 'Fricke involution')}} \(w_N\) with eigenvalue \(-1\).
+\end{definition}
+
+

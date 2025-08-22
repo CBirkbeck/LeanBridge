@@ -1,0 +1,9 @@
+\subsection{Moment matrix}
+\begin{definition}\label{st_group.moment_matrix}
+\uses{st_group.ambient,st_group.definition,st_group.moment_simplex}
+The **moment matrix** of a {{KNOWL('st_group.definition', 'Sato-Tate group')}} $G$ is the matrix of moments $\mathrm{E}[\chi_i\chi_j]$ with $\chi_i$ and $\chi_j$ ranging over the irreducible characters of the {{KNOWL('st_group.ambient','ambient group')}} that contains $G$;  The irreducible characters are ordered according to their highest weight, which can be written as a monomial in the elementary symmetric functions; these are ordered by (unweighted) degree and then by reverse lexicographic order of exponent vectors.  The **diagonal** of the moment matrix is the vector $(\mathrm{E}[\chi_i^2])$.
+
+In the symplectic case the irreducible characters of $\mathrm{USp}(2g)$ can be explicitly computed via the Brauer-Klimyk formula using the algorithm of Shieh \cite{arxiv:1605.07743,doi:10.1112/S1461157016000279}.  Each character $\chi$ is then an integer polynomial in $a_1,\ldots a_g$ and the moments $\mathrm{E}[\chi_i\chi_j]$ can be computed as integer linear combinations of entries of the {{KNOWL('st_group.moment_simplex','moment simplex')}} corresponding to the terms of $\chi_i\chi_j$.
+\end{definition}
+
+

@@ -1,0 +1,9 @@
+\subsection{Find a number field}
+\begin{definition}\label{nf.search_input}
+\uses{nf,nf.defining_polynomial,nf.label,nf.nickname}
+You can search for a specific {{KNOWL('nf', 'number field')}} by entering its {{KNOWL('nf.label',title='label')}}, its
+  {{KNOWL('nf.nickname',title='name')}}, or its defining
+  {{KNOWL('nf.defining_polynomial',title='polynomial')}}.
+\end{definition}
+
+

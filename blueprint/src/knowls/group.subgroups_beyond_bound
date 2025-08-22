@@ -1,0 +1,13 @@
+\subsection{Subgroups beyond an index bound}
+\begin{definition}\label{group.subgroups_beyond_bound}
+\uses{group.core,group.maximal_subgroup,group.semidirect_product,group.subgroup,group.subgroup.complement,group.subgroup.index,group.subgroup.normal,group.sylow_subgroup}
+In cases where we do not compute the whole subgroup lattice of a group, we still attempt to compute all {{ KNOWL('group.subgroup', 'subgroups') }} up to a certain {{ KNOWL('group.subgroup.index', 'index') }} bound. However, we often still want to store the following subgroups, even if they happen to fall beyond the index bound.
+
+- Since {{ KNOWL('group.sylow_subgroup', 'Sylow subgroups') }} are the unique subgroup of their order up to conjugacy, we can compute their labels a priori.
+- We aim to compute the lattice of {{ KNOWL('group.subgroup.normal', 'normal subgroups') }} even when we cannot find all subgroups.  In this case, we can use the same scheme described above applied to the lattice or normal subgroups to obtain a label with the letter \texttt{.N} appended; such labels are used for non-Sylow normal subgroups beyond the index bound.
+- We store {{ KNOWL('group.subgroup.complement', 'complements of normal subgroups') }} even beyond the index bound so that we can describe groups as {{ KNOWL('group.semidirect_product', 'semidirect products') }}. Given a normal subgroup with label $\texttt{n.i.m.a.c.N}$, we label its complements $\texttt{n.i.m.a.c.N1}$, $\texttt{n.i.m.a.c.N2}$, $\dots$.  Unfortunately, these labels are not canonical since they depend on the order that complements are produced.  Also note that a subgroup can appear as a complement of multiple normal subgroups; in this case we just label it based on the first normal subgroup where it arises.
+- For non-Sylow, non-normal {{ KNOWL('group.maximal_subgroup', 'maximal subgroups') }} beyond the index bound, we apply the original labeling scheme restricted to maximal subgroups, and append the letter $\texttt{.M}$.
+- We also keep {{ KNOWL('group.core', 'core-free') }} subgroups beyond the index bound rather than discarding them, since these yield transitive permutation representations.  The labels here are just $\texttt{n.i.m.CFk}$, where $\texttt{k}$ is a counter arbitrarily running over the core-free subgroups of a given index.
+\end{definition}
+
+

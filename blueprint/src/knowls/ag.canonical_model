@@ -1,0 +1,7 @@
+\subsection{Canonical model}
+\begin{definition}\label{ag.canonical_model}
+\uses{ag.curve.genus,ag.hyperelliptic_curve}
+The **canonical map** of a curve $C$ of {{KNOWL('ag.curve.genus', 'genus')}} $g$ is the map to $\mathbb{P}^{g-1}$ defined by the canonical class.  For {{KNOWL('ag.hyperelliptic_curve', 'non-hyperelliptic')}} curves of genus larger than 1, this map is an embedding, and its image is a normal curve called the **canonical model** of $C$.
+\end{definition}
+
+

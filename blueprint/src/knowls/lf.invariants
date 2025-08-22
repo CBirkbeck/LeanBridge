@@ -1,0 +1,17 @@
+\subsection{Local field invariants}
+\begin{definition}\label{lf.invariants}
+\uses{lf.automorphism_group,lf.degree,lf.discriminant_exponent,lf.discriminant_root_field,lf.padic_field,lf.ramification_index,lf.residue_field,lf.residue_field_degree,lf.root_number}
+The basic invariants of a {{KNOWL('lf.padic_field','$p$-adic field')}} $K$ are:
+
+- the {{ KNOWL('lf.residue_field', 'residue field characteristic') }} $p$,
+- the {{ KNOWL('lf.degree', "degree") }} $d$,
+- the {{ KNOWL('lf.ramification_index', "ramification index") }} $e$,
+- the {{ KNOWL('lf.residue_field_degree', "residue field degree") }} $f$.
+- the {{ KNOWL('lf.discriminant_exponent', "discriminant exponent") }} $c$,
+- the {{ KNOWL('lf.discriminant_root_field', "discriminant root field") }} $\mathbb Q_p(\sqrt{\textrm{disc}(K)})$,
+- the {{ KNOWL('lf.root_number', "root number") }} $\varepsilon$,
+- the {{ KNOWL('lf.automorphism_group', "automorphism group") }} $\textrm{Aut}(K/\mathbb Q_p)$.
+
+\end{definition}
+
+

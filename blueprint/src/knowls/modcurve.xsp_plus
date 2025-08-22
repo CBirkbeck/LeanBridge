@@ -1,0 +1,10 @@
+\subsection{$X_{\text{sp}}^+(N)$}
+\begin{definition}\label{modcurve.xsp_plus}
+\uses{gl2.cartan,modcurve}
+$X_{\text{sp}}^+(N)$ is the {{ KNOWL('modcurve','modular curve') }} $X_H$ for $H\le \GL_2(\widehat\Z)$ the inverse image of an {{KNOWL('gl2.cartan', 'extended Cartan subgroup')}} $\begin{pmatrix} * & 0 \\ 0 & * \end{pmatrix} \cup \begin{pmatrix} 0 & * \\ * & 0 \end{pmatrix}\subseteq \GL_2(\Z/N\Z)$ that is split at every prime dividing $N$. As a moduli space it parameterizes pairs $(E,\{C,D\})$ where:
+
+* $E$ is an elliptic curve over $k$, and 
+* $\{C,D\}$ is a $\Gal_k$-stable pair of cyclic subgroups such that $E[N](\overline{k})\simeq C \oplus D$.  (Neither $C$ nor $D$ need be $\Gal_k$-stable.)
+\end{definition}
+
+

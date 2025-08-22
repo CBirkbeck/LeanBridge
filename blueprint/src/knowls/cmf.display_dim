@@ -1,0 +1,7 @@
+\subsection{Dimension}
+\begin{definition}\label{cmf.display_dim}
+\uses{cmf.character,cmf.dimension,cmf.minus_space,cmf.plus_space}
+If the {{KNOWL('cmf.character', 'character')}} of the space is trivial, the {{KNOWL('cmf.dimension', 'dimension')}} is the sum of the dimensions of the {{KNOWL('cmf.plus_space', 'plus subspace')}} and the {{KNOWL('cmf.minus_space', 'minus subspace')}}.
+\end{definition}
+
+

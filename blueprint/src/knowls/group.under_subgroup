@@ -1,0 +1,7 @@
+\subsection{Under-subgroup}
+\begin{definition}\label{group.under_subgroup}
+\uses{group.subgroup}
+If $H \subseteq G$ is a {{KNOWL('group.subgroup', 'subgroup')}}, an **under-subgroup** is a subgroup $K \subseteq G$ with $K \subseteq H$.  A **maximal under-subgroup** is an under-subgroup $K \ne H$ that is maximal with respect to inclusion.
+\end{definition}
+
+

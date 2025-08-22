@@ -1,0 +1,10 @@
+\subsection{Exceptional subgroup}
+\begin{definition}\label{gl2.exceptional}
+\uses{gl2.borel,gl2.normalizer_cartan}
+An **exceptional subgroup** of $\GL_2(\F_p)$ does not contain $\SL_2(\F_p)$ and is not contained in a {{KNOWL('gl2.borel', 'Borel subgroup')}} or in the {{KNOWL('gl2.normalizer_cartan', 'normalizer of a Cartan subgroup')}}.
+
+Exceptional subgroups are classified according to their image in $\PGL_2(\F_p)$, which must be isomorphic to one of the alternating groups $A_4$ or $A_5$, or to the symmetric group $S_4$.  These groups are labelled using identifiers containing one of the strings **A4**, **A5**, **S4**, as described in \cite{arxiv:1504.07618,MR3482279}.
+
+\end{definition}
+
+

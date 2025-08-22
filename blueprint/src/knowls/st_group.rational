@@ -1,0 +1,16 @@
+\subsection{Rational Sato-Tate group}
+\begin{definition}\label{st_group.rational}
+\uses{lfunction.arithmetic,lfunction.rational,st_group.definition,st_group.degree}
+A {{KNOWL('st_group.definition', 'Sato-Tate group')}} $G$ of {{KNOWL('st_group.degree', 'degree')}} $d$ is said to be **rational** if for every irreducible character $\chi$ of $\GL_d(\C)$ and every component $H$ of $G$ we have
+$$
+\int_H \chi(g)\mu_H \in \Z,
+$$
+where $\mu_H$ denotes the restriction to $H$ of the Haar measure $\mu$ on $G$, normalized so that $\mu_H(H)=1$.  If $G$ is the Sato-Tate group of an {{KNOWL('lfunction.arithmetic', 'arithmetic L-function')}}
+$$
+L(s)=\prod_{\mathfrak p}L_\mathfrak{p}(N(\mathfrak{p})^{-s})^{-1},
+$$
+this means that the polynomials $L_{\mathfrak p}(T)$ have integer coefficients, equivalently, the $L$-function $L(s)$ is {{KNOWL('lfunction.rational','rational')}}.
+
+\end{definition}
+
+

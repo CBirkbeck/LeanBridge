@@ -1,0 +1,7 @@
+\subsection{Integral basis of a number field}
+\begin{definition}\label{nf.integral_basis}
+\uses{nf,nf.ring_of_integers}
+An **integral basis** of a {{ KNOWL('nf', "number field") }} $K$ is a $\mathbb{Z}$-basis for the {{ KNOWL('nf.ring_of_integers',  "ring of integers") }} of $K$.  This is also a $\mathbb{Q}$-basis for $K$.
+\end{definition}
+
+

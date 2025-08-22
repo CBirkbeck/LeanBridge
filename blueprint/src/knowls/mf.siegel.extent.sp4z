@@ -1,0 +1,14 @@
+\subsection{Available samples for $M_k(\mathrm{Sp}(4,\mathbb{Z}))$}
+\begin{definition}\label{mf.siegel.extent.sp4z}
+\uses{group.sp2gr,mf.siegel.eisenstein_series,mf.siegel.galois_orbit,mf.siegel.klingen_eisenstein_series,mf.siegel.lift.maass}
+The following table shows, for each even weight $k$ between 4 and 58, the  {{KNOWL('mf.siegel.galois_orbit', 'Galois orbits')}} of Hecke eigenforms for the {{KNOWL('group.sp2gr', 'full modular group')}} $\mathrm{Sp}(4,\mathbb{Z})$.  In the table below:
+
+  * *E* denotes an orbit consisting of {{KNOWL('mf.siegel.eisenstein_series', 'Siegel Eisenstein series')}},
+  * *Klingen* denotes an orbit consisting of {{KNOWL('mf.siegel.klingen_eisenstein_series', 'Klingen Eisenstein series')}},
+  * *Maass* denotes an orbit consisting of {{KNOWL('mf.siegel.lift.maass', 'Maass liftings')}},
+  * *Ups* denotes an orbit consisting of cusp forms that are not Maass liftings.
+
+
+\end{definition}
+
+

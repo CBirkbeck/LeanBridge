@@ -1,0 +1,10 @@
+\subsection{Galois orbit}
+\begin{definition}\label{mf.siegel.galois_orbit}
+\uses{}
+<a class="knowl-title" knowl="mf.siegel.hecke_operator">Hecke operators</a>
+operate on Siegel modular forms.
+The Hecke eigenforms break into Galois orbits which are conjugate
+over $\Bbb Q$.
+\end{definition}
+
+

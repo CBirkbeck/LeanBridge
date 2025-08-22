@@ -1,0 +1,9 @@
+\subsection{Order statistics of a group}
+\begin{definition}\label{group.order_stats}
+\uses{group.element_order}
+The **order statistics** of a group $G$ is the multiset of {{KNOWL('group.element_order', 'orders of elements')}} of $G$, with multiplicities given by the number of elements in $G$ of that order.
+
+For example, the Quaternion group of order 8 has order statistics $\{1,2,4,4,4,4,4,4\}$ which we denote in searches as 1^1, 2^1, 4^6.
+\end{definition}
+
+

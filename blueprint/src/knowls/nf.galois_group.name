@@ -1,0 +1,17 @@
+\subsection{Galois group of a number field -- naming convention}
+\begin{definition}\label{nf.galois_group.name}
+\uses{gg.degree,gg.tnumber}
+Each Galois group is identified by its {{KNOWL('gg.degree', 'degree')}} and an index called its {{KNOWL('gg.tnumber', 'T-number')}}.  This specifies both the abstract group and a faithful transitive permutation of that group.  One may search for a group in the form $n$T$t$ where $n$ is the degree and $t$ is the T-number.  The search results will then only show fields where the Galois group matches the requested permutation representation.
+
+For familiar groups one can use short names of the form <code>Cj</code>
+ <code>Dj</code>, <code>Sj</code>, <code>Aj</code> ($1\leq j\leq 47$), for cyclic, dihedral, symmetric, and alternating groups, or from the table below.
+
+An abstract group may have more than one
+representation as a Galois group.  Correspondingly, the familiar
+symbol for a group may represent several
+Galois groups.  When searching for fields using the name of an abstract group, e.g., <code>S3</code>, the results may contain fields with different degrees and permutation representations.
+
+{{ group_alias_table() | safe }}
+\end{definition}
+
+

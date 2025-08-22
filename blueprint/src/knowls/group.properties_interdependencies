@@ -1,0 +1,31 @@
+\subsection{Interdependencies of group properties}
+\begin{definition}\label{group.properties_interdependencies}
+\uses{group.a_group,group.abelian,group.almost_simple,group.center,group.commutator_subgroup,group.cyclic,group.metabelian,group.metacyclic,group.monomial,group.nilpotent,group.perfect,group.quasisimple,group.simple,group.solvable,group.subgroup.normal,group.supersolvable,group.upper_central_series,group.z_group}
+Certain properties of groups automatically imply other properties. We briefly explain the connections here.
+
+
+A {{ KNOWL("group.cyclic", "cyclic group")}} is always {{ KNOWL("group.abelian", "abelian")}}  by the way the group operation for cyclic groups is defined. Cyclic groups are also automatically {{ KNOWL("group.z_group", "Z-groups")}} since all their subgroups (including their Sylow subgroups) are cyclic. 
+
+Since cyclic groups are always abelian, Z-groups are by definition {{ KNOWL("group.a_group", "A-groups")}}, and similarly {{ KNOWL("group.metacyclic", "metacyclic")}} groups are {{ KNOWL("group.metabelian", "metabelian")}} as well.
+
+
+An abelian group is always {{ KNOWL("group.nilpotent", "nilpotent")}} since the group is its own {{KNOWL('group.center', 'center')}} and thus an {{KNOWL('group.upper_central_series', 'upper central series')}} for the group exists.  In addition, abelian groups are {{ KNOWL("group.a_group", "A-groups")}}  since all their subgroups (including their Sylow subgroups) are abelian.
+
+
+Nilpotent groups that are also finite (as is the case for groups in this database) are {{ KNOWL("group.supersolvable", "supersolvable")}} because the upper central series defining a nilpotent group has abelian subquotients which, in the case of finite groups, may be expanded to a chain with cyclic factors.
+
+
+Supersolvable groups are {{ KNOWL("group.monomial", "monomial")}} (see Corollary 3.5 in Chapter 2 of \cite{MR:0655785}).
+
+Monomial groups are also {{ KNOWL("group.solvable", "solvable")}} by a result of Taketa \cite{MR:1568284}.
+
+
+Since the definition of a metabelian group ensures the existence of a {{KNOWL('group.subgroup.normal', 'normal')}} subgroup $N \lhd G$ so that $G/N$ is abelian, metabelian groups also satisfy the definition of solvable via the chain of subgroups $\langle e\rangle \leq N \leq G$.
+
+If all the Sylow subgroups are cyclic, then the group is  metacyclic. Hence Z-groups are metacyclic (see Theorem 9.4.3 in \cite{MR:0103215}).
+
+Nonabelian {{ KNOWL("group.simple", "simple groups")}} are always {{ KNOWL("group.perfect", "perfect groups")}} since the {{KNOWL('group.commutator_subgroup', 'commutator subgroup')}} of a group is a normal subgroup and hence must be the whole group in this case. In addition, nonabelian simple groups are also {{ KNOWL("group.almost_simple", "almost simple")}} and {{ KNOWL("group.quasisimple", "quasi-simple")}}.
+
+\end{definition}
+
+

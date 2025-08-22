@@ -1,0 +1,11 @@
+\subsection{Entanglement index}
+\begin{definition}\label{modcurve.entanglement_index}
+\uses{ec.galois_rep_adelic_image,gl2.open,group.direct_product,group.subgroup.normal}
+The **entanglement index** of an {{KNOWL('gl2.open', 'open subgroup')}} $H\le \GL_2(\widehat\Z)\simeq\prod_\ell\GL_2(\Z_\ell)$ is its index in the {{KNOWL('group.direct_product', 'direct product')}} of its projections to $\GL_2(\Z_\ell)$.
+
+When $H$ is a {{KNOWL('group.subgroup.normal', 'normal')}} subgoup of the direct product $G$ of its projections to $\GL_2(\Z_\ell)$, the **entanglement quotient** of $H$ is the quotient $G/H$ (as an abstract group).
+
+For an elliptic curve $E/\Q$ with {{KNOWL('ec.galois_rep_adelic_image', 'adelic Galois image')}} $H$, the entanglement index measures the extent to which its $\ell$-power torsion fields intersect.
+\end{definition}
+
+

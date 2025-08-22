@@ -1,0 +1,11 @@
+\subsection{Normal series of a group}
+\begin{definition}\label{group.normal_series}
+\uses{group,group.subgroup,group.subgroup.normal}
+If $G$ is a {{KNOWL('group', 'group')}}, a **subnormal series** for $G$ is a chain of subgroups
+\[ \langle e\rangle =H_0 \lhd H_1  \lhd \cdots \lhd H_k=G\]
+where each {{KNOWL('group.subgroup', 'subgroup')}} $H_i$ is {{KNOWL('group.subgroup.normal','normal')}} in $H_{i+1}$ for all $i$.
+
+A subnormal series where $H_i$ is normal in $G$ for all $i$ is a **normal series**.
+\end{definition}
+
+

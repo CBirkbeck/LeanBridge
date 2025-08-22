@@ -1,0 +1,9 @@
+\subsection{Affine linear group twisted by automorphisms}
+\begin{definition}\label{group.affine_linear_automorphism}
+\uses{group.affine_general_linear,group.affine_special_linear}
+The group $\AGammaL(n,q)$ is the semi-direct product of $\AGL(n,q)$, the {{KNOWL('group.affine_general_linear','affine general linear group')}}, with the group $A$ of field automorphisms of $\F_q/\F_p$. 
+
+Similarly, the group $\ASigmaL(n,q)$ is the semi-direct product of $\ASL(n,q)$, the {{KNOWL('group.affine_special_linear','affine special linear group')}}, with $A$. 
+\end{definition}
+
+

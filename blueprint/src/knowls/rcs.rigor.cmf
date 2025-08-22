@@ -1,0 +1,25 @@
+\subsection{Reliability of the Classical Modular Form Data}
+\begin{definition}\label{rcs.rigor.cmf}
+\uses{cmf,cmf.analytic_rank,cmf.coefficient_field,cmf.dimension,cmf.galois_orbit,cmf.inner_twist,cmf.level,cmf.newform,cmf.newspace,cmf.projective_field,cmf.projective_image,cmf.self_twist,cmf.selfdual,cmf.trace_form,cmf.weight,lfunction.sign}
+All {{KNOWL('cmf', 'modular form')}} data currently in the database has been computed using rigorous algorithms that do not depend on any unproved assumptions or conjectures.  In particular
+
+* All {{KNOWL('cmf.self_twist', 'self twists')}} and {{KNOWL('cmf.inner_twist','inner twists')}} have been rigorously verified either by checking exact algebraic coefficients or complex analytic coefficients computed to sufficient precision to uniquely identify every such twist (as of February 2020).
+
+* The {{KNOWL('cmf.analytic_rank', 'analytic ranks')}} have all been rigorously verified by computing winding elements on spaces of modular symbols (and using the {{KNOWL('lfunction.sign','sign')}} of the functional equation in the case of {{KNOWL('cmf.selfdual', 'self dual')}} {{KNOWL('cmf.newform', 'newforms')}}).
+
+* For {{KNOWL('cmf.weight', 'weight')}} 1 newforms, the  classification of the {{KNOWL('cmf.projective_image', 'projective image')}} as $D_n$, $A_4$, $S_4$, $A_5$ has been rigorously verified by explicitly computing the {{KNOWL('cmf.projective_field', 'projective field')}} (as of August 2019).
+
+In addition to using mathematically rigorous algorithms whenever possible, we have performed a variety of consistency checks intended to catch any errors in the software packages used to compute modular forms data, or any errors that might have been introduced during post-processing.  The following checks have been performed:
+
+* All newforms of weight $k > 1$ and {{KNOWL('cmf.level', 'level')}} $N$ satisfying $Nk^2 \le 2000$ have been independently computed using \cite{href{http://magma.maths.usyd.edu.au/magma/}{Magma}} and \cite{href{https//pari.math.u-bordeaux.fr/}{Pari/GP}}.  By comparing the results of these computations we have verified that the decompositions of each {{KNOWL('cmf.newspace', 'newspace')}} $S_k^{\rm new}(N,\chi)$ into  {{KNOWL('cmf.galois_orbit', 'Galois orbits')}} agree (with matching {{KNOWL('cmf.coefficient_field', 'coefficient fields')}}), that the first 1000 coefficients of the {{KNOWL('cmf.trace_form', 'trace forms')}} for each Galois orbit agree, and for newforms of {{KNOWL('cmf.dimension', 'dimension')}} $d\le 20$, that there is an automorphism of the coefficient field that relates the sequences of algebraic eigenvalues $(a_1,\ldots,a_{1000})$ computed by Pari and Magma.
+
+* For all newforms of weight $k>1$ and level $N$ satisfying $Nk^2 \le 4000$ we have verified that the trace forms computed by Magma (using modular symbols) agree with the trace forms obtained from complex analytic data computed using the explicit trace formula.  This also verifies the dimensions of the coefficient fields.
+
+* For newforms of weight $k=1$ and level $N\le 1000$ we have matched the data computed using Pari/GP with the tables computed by Buzzard and Lauder \cite{arxiv:1605.05346}.
+
+* For dihedral newforms of weight $k=1$ and level $N\le 4000$ we have matched trace forms with data computed using the explicit trace formula in Pari/GP with data computed independently in both Pari/GP and Magma using class field theoretic methods.
+
+See \cite{arXiv:2002.04717} for further details.
+\end{definition}
+
+

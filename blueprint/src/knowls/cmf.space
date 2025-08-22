@@ -1,0 +1,9 @@
+\subsection{Spaces of modular forms}
+\begin{definition}\label{cmf.space}
+\uses{cmf,cmf.character,cmf.cusp_form,cmf.level,cmf.subspaces,cmf.weight}
+The **space** of {{KNOWL('cmf', 'modular forms')}} of {{KNOWL('cmf.level', 'level')}} $N$, {{KNOWL('cmf.weight', 'weight')}} $k$, and {{KNOWL('cmf.character', 'character')}} $\chi$ is denoted $M_k(N,\chi)$.  
+
+The space $M_k(N,\chi)$ is a finite-dimensional complex vector space which further decmoposes into {{KNOWL('cmf.subspaces', 'subspaces')}}.  In particular, we have a subspace of {{KNOWL('cmf.cusp_form', 'cusp forms')}} $S_k(N,\chi) \subseteq M_k(N,\chi)$.
+\end{definition}
+
+

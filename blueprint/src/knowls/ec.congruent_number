@@ -1,0 +1,16 @@
+\subsection{Congruent numbers}
+\begin{definition}\label{ec.congruent_number}
+\uses{}
+A <b>congruent number</b>  $n$ is a positive rational number which is the area
+$\frac{1}{2}XY$ of a right triangle with rational legs $X$, $Y$ and
+rational hypotenuse $Z$, so  $X,Y,Z$ are positive rational numbers satisfying the equations \[ X^2 + Y^2 = Z^2 \tag{1} \] and \[
+\frac{1}{2} XY = n. \tag{2} \]
+
+For example, $6$ is a congruent number because it is the area of the
+$3,4,5$ right triangle.  So is $5$, with $(X,Y,Z)=(3/2,20/3,41/6)$, while none of the integers $1$, $2$, $3$ or $4$ is a congruent number.  The integers less than $100$ which are congruent are
+\[ 5,6,7,13,14,15,20,21,22,23,24,28,29,30,31,34,37,38,39,41,45,46,47,
+52,53,54,55,56,60,61,62,63,65,69,70,71,77,78,79,80,84,85,86,87,88,92,93,94,95,96\]
+
+\end{definition}
+
+

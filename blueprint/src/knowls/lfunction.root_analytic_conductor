@@ -1,0 +1,7 @@
+\subsection{Root analytic conductor}
+\begin{definition}\label{lfunction.root_analytic_conductor}
+\uses{lfunction,lfunction.analytic_conductor,lfunction.degree,nf,nf.root_discriminant}
+If $d$ is the {{KNOWL('lfunction.degree', 'degree')}} of the {{KNOWL('lfunction', 'L-function')}} $L(s)$, the **root analytic conductor** $\alpha$ of $L$ is the $d$th root of the {{KNOWL('lfunction.analytic_conductor', 'analytic conductor')}} of $L$.  It plays a role analogous to the {{KNOWL('nf.root_discriminant', 'root discriminant')}} for {{KNOWL('nf', 'number fields')}}.
+\end{definition}
+
+

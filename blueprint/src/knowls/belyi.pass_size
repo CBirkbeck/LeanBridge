@@ -1,0 +1,7 @@
+\subsection{Passport size of a Belyi map}
+\begin{definition}\label{belyi.pass_size}
+\uses{belyi.passport}
+The number of isomorphism classes of Belyi maps belonging to a given {{KNOWL("belyi.passport", "passport")}}.
+\end{definition}
+
+

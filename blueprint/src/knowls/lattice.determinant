@@ -1,0 +1,8 @@
+\subsection{Determinant of an integral lattice}
+\begin{definition}\label{lattice.determinant}
+\uses{lattice.definition,lattice.gram}
+For an {{ KNOWL("lattice.definition", "integral lattice")}}, $L$, with {{ KNOWL("lattice.gram", "Gram matrix")}} $G$, the **determinant** of the lattice with respect to $G$ is the determinant of the Gram matrix. 
+
+\end{definition}
+
+

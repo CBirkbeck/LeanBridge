@@ -1,0 +1,10 @@
+\subsection{Elliptic curve over a field}
+\begin{definition}\label{ec}
+\uses{ag.curve,ag.curve.genus,ag.curve.smooth,ec.weierstrass_coeffs}
+An **elliptic curve** $E$ over a field $k$ is a {{ KNOWL('ag.curve.smooth', 'smooth') }} {{KNOWL('ag.curve', 'projective curve')}} of {{ KNOWL('ag.curve.genus', 'genus') }} $1$ together with a distinguished $k$-rational point $O$.
+
+The most commonly used model for elliptic curves is a {{ KNOWL('ec.weierstrass_coeffs', 'Weierstrass model') }}: a smooth plane cubic with the point $O$ as the unique point at infinity.
+
+\end{definition}
+
+

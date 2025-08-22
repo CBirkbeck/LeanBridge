@@ -1,0 +1,26 @@
+\subsection{p-adic field label}
+\begin{definition}\label{lf.field_label}
+\uses{lf.discriminant_exponent,lf.family_polynomial,lf.padic_field,lf.ramification_index,lf.residue_field,lf.residue_field_degree,lf.subfamily}
+The label associated to a {{KNOWL('lf.padic_field', '$p$-adic field')}}
+$K$ has the form $p.f.e.c\ell m.n$, where
+
+- $p$ is the characteristic of the
+{{KNOWL('lf.residue_field', 'residue field')}} of $K$.
+- $f$ is the {{KNOWL('lf.residue_field_degree', 'residue field degree')}}
+of $K/\Q_p$.
+- $e$ is the {{KNOWL('lf.ramification_index', 'ramification index')}} of
+$K/\Q_p$,
+- $c$ is the {{KNOWL('lf.discriminant_exponent', 'discriminant exponent')}}
+of $K/\Q_p$,
+- $\ell$ is a string of one or more letters used to identify the
+{{KNOWL('lf.family_polynomial', 'absolute family')}} $I/\Q_p$ that contains
+$K/\Q_p$,
+- $m$ identifies the {{KNOWL('lf.subfamily', 'subfamily')}} of $I/\Q_p$ that
+contains $K/\Q_p$,
+- $n$ is a number used to distinguish fields in the same subfamily.
+
+Thus if $K$ has label $p.f.e.c\ell m.n$ then $K/\Q_p$ is in the absolute
+family with label $p.f.e.c\ell$.
+\end{definition}
+
+

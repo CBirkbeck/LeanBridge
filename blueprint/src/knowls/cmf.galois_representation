@@ -1,0 +1,14 @@
+\subsection{Galois representation}
+\begin{definition}\label{cmf.galois_representation}
+\uses{artin,artin.conductor,artin.parity,cmf.newform,cmf.weight}
+As shown by Deligne and Serre \cite{MR:0379379}, every  {{KNOWL('cmf.newform', 'newform')}} of {{KNOWL('cmf.weight', 'weight')}} one has an associated **Galois representation** $\rho\colon \Gal(\overline\Q/\Q)\to \GL_2(\C)$.
+
+This representation corresponds to an {{KNOWL('artin', 'Artin representation')}} of dimension two whose {{KNOWL('artin.conductor', 'conductor')}} is the level $N$ of the modular form.
+
+Conversely, every {{KNOWL('artin.parity', 'odd')}} irreducible two-dimensional Artin representation of conductor $N$ gives rise to a modular form of weight one and level $N$.
+
+Composing the representation $\rho$ with the natural map $\GL_2(\C)\to \PGL_2(\C)$ yields the **projective Galois representation** $\bar\rho\colon \Gal(\overline\Q/\Q)\to \PGL_2(\C)$.
+
+\end{definition}
+
+

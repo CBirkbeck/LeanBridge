@@ -1,0 +1,11 @@
+\subsection{Number field associated to an Artin representation}
+\begin{definition}\label{artin.number_field}
+\uses{artin,nf}
+The **Artin field** is a {{KNOWL("nf", "number field")}} associated to an {{KNOWL("artin", "Artin representation")}}
+$\rho:\mathrm{Gal}(\overline{\Q}/\Q)\to\GL(V)$
+by being the smallest Galois extension $K/\mathbb{Q}$ such that $\rho$ factors through
+$\mathrm{Gal}(K/\Q)$.
+
+\end{definition}
+
+

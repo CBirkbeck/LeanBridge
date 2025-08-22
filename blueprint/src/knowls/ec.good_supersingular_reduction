@@ -1,0 +1,9 @@
+\subsection{Good supersingular reduction}
+\begin{definition}\label{ec.good_supersingular_reduction}
+\uses{ec,nf}
+An {{ KNOWL('ec', 'elliptic curve') }} \(E\) defined over a {{ KNOWL('nf', 'number field') }} \(K\) is said to have **supersingular reduction** at a prime \(\mathfrak{p}\) of \(K\) if the reduction \(E_{\mathfrak{p}}\) of \(E\) modulo \(\mathfrak{p}\) is smooth, and \(E_{\mathfrak{p}}\) is supersingular.
+
+An elliptic curve \(E_{\mathfrak{p}}\) defined over a finite field of characteristic \(p\) is **supersingular** if \(E_{\mathfrak{p}}(\overline{\F_p})\) has no \(p\)-torsion.
+\end{definition}
+
+

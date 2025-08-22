@@ -1,0 +1,22 @@
+\subsection{Subgroup $\Gamma_0(N)$ of $\Sp(2g,\Z)$}
+\begin{definition}\label{group.sp2gr.gamma0}
+\uses{group.sl2z.subgroup.gamma0n,group.sp2gr}
+The group $\Gamma_0(N)$ in degree $g$ is the subgroup of the integral
+{{KNOWL("group.sp2gr", "symplectic group")}} 
+$\Sp(2g,\Z)$, defined by
+\[
+\Gamma_0(N)=\left\{
+\begin{pmatrix}a&b\\c&d\end{pmatrix}\in \Sp(2g,\Z)
+:
+c \equiv 0 \bmod N
+\right\}.
+\]
+The group $\Gamma_0(N)$ is sometimes called the Hecke 
+congruence subgroup of level $N$.
+
+For $g=1$, it is the subgroup 
+{{KNOWL("group.sl2z.subgroup.gamma0n", "$\Gamma_0(N)$")}} of 
+$\SL(2,\Z)$.
+\end{definition}
+
+

@@ -1,0 +1,7 @@
+\subsection{Inessential prime}
+\begin{definition}\label{nf.inessential_prime}
+\uses{nf,nf.zk_index}
+An **inessential prime** of a {{KNOWL('nf', 'number field')}} is a prime divisor of its {{KNOWL('nf.zk_index', 'index')}}.
+\end{definition}
+
+

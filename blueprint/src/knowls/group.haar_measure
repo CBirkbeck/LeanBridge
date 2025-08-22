@@ -1,0 +1,11 @@
+\subsection{Haar measure of a topological group}
+\begin{definition}\label{group.haar_measure}
+\uses{group,group.order}
+For $G$ a locally compact topological {{KNOWL('group', 'group')}}, a **Haar measure** on $G$ is a nonnegative, countably additive, real-valued measure on $G$ which is invariant under left translation on $G$. Any such measure is also invariant under right translation on $G$.
+
+A Haar measure always exists and is unique up to multiplication by a positive scalar. If $G$ is compact, then the **normalized Haar measure** on $G$ is the unique Haar measure on $G$ under which $G$ has total measure 1.
+
+As a special case, if $G$ is finite of {{KNOWL('group.order', 'order')}} $n$, then the normalized Haar measure is the uniform measure that assigns to each element the measure $1/n$.
+\end{definition}
+
+

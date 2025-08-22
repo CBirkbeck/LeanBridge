@@ -1,0 +1,25 @@
+\subsection{Kronecker symbol}
+\begin{definition}\label{character.dirichlet.kronecker_symbol}
+\uses{character.dirichlet.jacobi_symbol,character.dirichlet.legendre_symbol,character.dirichlet.real}
+The **Kronecker symbol** \(\displaystyle\left(\frac{a}{n}\right)\) is the multiplicative extension of the {{ KNOWL('character.dirichlet.jacobi_symbol') }} \(\displaystyle\left(\frac{a}{m}\right)\), which is defined on all positive odd integers \(m\), to all integers \(n\in\mathbb{Z}\) as follows.
+
+We set 
+$$\displaystyle\left(\frac{a}{-1}\right) = \left\{ \begin{array}{cl} 1 & \text{if }  a\geq 0\\
+-1 & \text{if } a < 0; \end{array} \right.$$
+
+$$\displaystyle\left(\frac{a}{2}\right) = \left\{ \begin{array}{cl} 0 & \text{if }  a\equiv 0 \bmod 2\\
+ 1 & \text{if }  a\equiv \pm 1 \bmod 8\\
+-1 & \text{if } a \equiv \pm 3 \bmod 8; \end{array} \right.$$
+and 
+$$\displaystyle\left(\frac{a}{0}\right) = \left\{ \begin{array}{cl} 1 & \text{if }  a= \pm 1\\
+0 & \text{otherwise }. \end{array} \right.$$
+
+Then for each nonzero integer $n = \sgn(n) p_1^{e_1} p_2^{e_2} \cdots p_r^{e_r}$ the Kronecker symbol is defined as the product of  symbols above and the {{ KNOWL('character.dirichlet.legendre_symbol',  'Legendre symbols') }} for odd primes
+
+ $$\displaystyle\left(\frac{a}{n}\right) = \displaystyle\left(\frac{a}{\sgn(n)}\right) \displaystyle\left(\frac{a}{p_1}\right)^{e_1} \displaystyle\left(\frac{a}{p_2}\right)^{e_2}\cdots \displaystyle\left(\frac{a}{p_r}\right)^{e_r}.$$
+
+A Dirichlet character can be written as a Kronecker symbol \(\displaystyle\left(\frac{a}{\cdot}\right)\) if and only if it is
+{{ KNOWL("character.dirichlet.real", "real") }}.
+\end{definition}
+
+

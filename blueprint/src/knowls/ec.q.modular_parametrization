@@ -1,0 +1,7 @@
+\subsection{Modular parametrization of an elliptic curve over $\mathbb Q$}
+\begin{definition}\label{ec.q.modular_parametrization}
+\uses{ec}
+A **modular parametrization** of an {{KNOWL("ec", "elliptic curve")}} $E$ over $\mathbb Q$ is a non-constant map $X_0(N) \to E,$ where $N$ is the conductor of $E.$ 
+\end{definition}
+
+

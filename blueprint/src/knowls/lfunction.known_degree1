@@ -1,0 +1,13 @@
+\subsection{Degree 1 L-functions, all}
+\begin{definition}\label{lfunction.known_degree1}
+\uses{artin.lfunction,lfunction,lfunction.degree}
+The {{ KNOWL("lfunction.degree", "degree")}} 1 {{ KNOWL("lfunction", "L-functions")}} are:
+
+- $\zeta(s)$: the Riemann zeta function 
+
+- $L(s, \chi)$: the Dirichlet L-function of a primitive Dirichlet character
+
+Note that these L-functions also arise as {{ KNOWL("artin.lfunction", "Artin L-functions")}}.
+\end{definition}
+
+

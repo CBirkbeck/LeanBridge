@@ -1,0 +1,9 @@
+\subsection{Maass forms of weight 0}
+\begin{definition}\label{mf.maass.mwf.weight0}
+\uses{mf.maass.mwf.laplacian,mf.maass.mwf.weight}
+A **Maass form** of {{KNOWL('mf.maass.mwf.weight', "weight") }} 0 on a subgroup \(\Gamma\) of \(\GL_{2}(\R)\)
+is a smooth, square-integrable, automorphic eigenfunction of the {{ KNOWL('mf.maass.mwf.laplacian', "Laplace-Beltrami operator") }} $\Delta$. In other words, 
+$$f\in C^\infty(\mathcal{H}),\quad f\in L^2(\Gamma\backslash{\mathcal H}),\quad f(\gamma z)=f(z)\ \forall\gamma\in\Gamma,\quad (\Delta+\lambda)f(z)=0 \textrm{ for some } \lambda \in \C.$$
+\end{definition}
+
+

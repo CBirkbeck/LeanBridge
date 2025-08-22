@@ -1,0 +1,7 @@
+\subsection{Ring of integers of a number field}
+\begin{definition}\label{nf.ring_of_integers}
+\uses{nf,ring.integral}
+The **ring of integers** of a {{ KNOWL('nf', 'number field') }} $K$ is the {{KNOWL('ring.integral', 'integral closure')}} of $\Z$ in $K$.
+\end{definition}
+
+

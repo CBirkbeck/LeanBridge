@@ -1,0 +1,9 @@
+\subsection{Cyclic trigonal curve}
+\begin{definition}\label{ag.cyclic_trigonal}
+\uses{ag.curve,ag.quotient_curve,g2c.aut_grp}
+An {{KNOWL('ag.curve', "algebraic curve")}} $X$ is a **cyclic trigonal curve** if there is an order $3$ subgroup $H$ of its {{KNOWL('g2c.aut_grp', "automorphism group")}} such that the {{KNOWL('ag.quotient_curve', "quotient curve")}} $X/H$ is isomorphic to $\mathbb{P}^1$.
+
+A generator of such a subgroup $H$ is called a **trigonal automorphism**.
+\end{definition}
+
+

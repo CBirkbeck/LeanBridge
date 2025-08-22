@@ -1,0 +1,33 @@
+\subsection{Global period of an elliptic curve}
+\begin{definition}\label{ec.period}
+\uses{ec,ec.base_change,ec.discriminant,ec.global_minimal_model,ec.minimal_discriminant,ec.q.period_lattice,ec.weierstrass_coeffs,nf,nf.embedding,nf.place}
+The **global period** $\Omega(E/K)$ of an {{KNOWL('ec', 'elliptic curve')}} defined over a {{KNOWL('nf', 'number field')}} $K$ is a product of local factors $\Omega_v(E_v/K_v)$, one for each infinite {{KNOWL('nf.place', 'place')}} $v$ of $K$.  Here, $K_v$ denotes the completion of $K$ at $v$ (so $K_v=\R$ for a real place and $K_v=\C$ for a complex place), and $E_v$ denotes the {{KNOWL('ec.base_change', 'base change')}} of $E$ to $K_v$.
+
+Fixing a {{KNOWL('ec.weierstrass_coeffs', 'Weierstrass model')}} for $E$ with coefficients $a_i\in K$,  a model for $E_v$ is given by the Weierstrass equation with coefficients $a_{i,v}$, the images of $a_i$ under $v$ in $K_v$.  Associated to this model we have a {{KNOWL('ec.discriminant', 'discriminant')}} $\Delta(E_v)$ and an invariant differential $\omega_v=dx/(2y+a_{1,v}x+a_{3,v})$.
+
+For a real place given by an {{KNOWL('nf.embedding', 'embedding')}} $v:K\to\R$, we define
+$$
+\Omega_v(E_v) = \left|\int_{E_v(\R)} \omega_E\right|.
+$$
+In terms of a basis of the {{KNOWL('ec.q.period_lattice', 'period lattice')}} of $E_v$ of the form $[x,yi]$ (when $\Delta(E_v)>0$) or $[2x,x+yi]$ (when $\Delta(E_v)<0$), where $x$ and $y$ are positive real numbers, we have $\Omega_v(E_v)=2x$.
+
+For a complex place given by an embedding $v:K\to\C$, we define
+$$
+\Omega_v(E_v) = \left|\int_{E_v(\C)} \omega_E\wedge\overline{\omega_E}\right|.
+$$
+In terms of a basis $[w_1,w_2]$ of the period lattice of $E_v$, where $\Im(w_2/w_1)>0$, we have $\Omega_v(E_v)=2\Im(\overline{w_1}w_2)$, which is double the covolume of the period lattice.
+
+When $E$ has a {{KNOWL('ec.global_minimal_model', 'global minimal model')}}, we have
+$$
+   \Omega(E/K) = \prod_{v}\Omega_v(E_v).
+$$
+In general, given an arbitrary model for $E$ with discriminant $\Delta(E)$, we have
+$$
+   \Omega(E/K) = \left|\frac{N(\Delta(E))}{N(\mathfrak{d}(E))}\right|^{1/12}\prod_{v}\Omega_v(E_v),
+$$
+where $\mathfrak{d}$ is the {{KNOWL('ec.minimal_discriminant', 'minimal discriminant ideal')}} of $E$ and $N(\mathfrak{d})$ denotes its norm.  This quantity is independent of the model of $E$.
+
+
+\end{definition}
+
+

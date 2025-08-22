@@ -1,0 +1,7 @@
+\subsection{Multiplicative arithmetic function}
+\begin{definition}\label{af.multiplicative}
+\uses{}
+An arithmetic function $f:\mathbb{Z}_{>0}\to \C$ is **multiplicative** if $f(mn)=f(m)f(n)$ for all coprime integers $m,n>0$, and is not the zero-function (in particular, $f(1)=1$).
+\end{definition}
+
+

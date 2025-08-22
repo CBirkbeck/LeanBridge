@@ -1,0 +1,11 @@
+\subsection{Weight of an elliptic modular form}
+\begin{definition}\label{cmf.weight}
+\uses{cmf}
+The **weight** of an elliptic {{KNOWL('cmf', 'modular form')}} $f$ is the integer or half-integer power of $(cz+d)$ that occurs in the modular transformation property of $f$ under the action of $\gamma = \left( \begin{array}{ll}  a & b \\ c & d \end{array}\right)$ on the upper half plane.  That is, the weight is the number $k$
+in the transformation law
+$$
+f\left( \frac{a z + b}{c z + d} \right) = \chi(d)(c z + d)^k f(z) .
+$$
+\end{definition}
+
+

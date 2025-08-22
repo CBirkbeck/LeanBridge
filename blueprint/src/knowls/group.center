@@ -1,0 +1,9 @@
+\subsection{Center of a group}
+\begin{definition}\label{group.center}
+\uses{group,group.subgroup.normal}
+If $G$ is a {{KNOWL('group', 'group')}}, the **center** of $G$ is the set
+\[ Z(G) = \{g\in G\mid gh=hg \text{ for all } h\in G\}.\]
+It is a {{KNOWL('group.subgroup.normal', 'normal subgroup')}} of $G$.
+\end{definition}
+
+

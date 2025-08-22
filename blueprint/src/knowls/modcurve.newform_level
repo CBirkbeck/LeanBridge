@@ -1,0 +1,7 @@
+\subsection{Newform level of a modular form}
+\begin{definition}\label{modcurve.newform_level}
+\uses{ag.jacobian,av.decomposition,cmf.level,cmf.newform,gl2.genus,modcurve}
+The **newform level** of a {{KNOWL('modcurve', 'modular curve')}} $X_H$ of positive {{KNOWL('gl2.genus', 'genus')}} is the least common multiple of the {{KNOWL('cmf.level','level')}} of the {{KNOWL('cmf.newform','newforms')}} corresponding to {{KNOWL('av.decomposition', 'isogeny factors')}} of the {{KNOWL('ag.jacobian', 'Jacobian')}} of $X_H$.
+\end{definition}
+
+

@@ -1,0 +1,7 @@
+\subsection{Proper subgroup}
+\begin{definition}\label{group.proper_subgroup}
+\uses{group,group.subgroup}
+A {{KNOWL('group.subgroup', 'subgroup')}} of a {{KNOWL('group', 'group')}} $G$ is **proper** if it is not equal to $G$.
+\end{definition}
+
+

@@ -1,0 +1,7 @@
+\subsection{Real Dirichlet character}
+\begin{definition}\label{character.dirichlet.real}
+\uses{}
+A character is **real** if its image is contained in $\mathbb R.$ 
+\end{definition}
+
+

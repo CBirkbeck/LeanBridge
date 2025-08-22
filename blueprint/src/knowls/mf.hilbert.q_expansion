@@ -1,0 +1,11 @@
+\subsection{q-expansion of a Hilbert modular form}
+\begin{definition}\label{mf.hilbert.q_expansion}
+\uses{}
+Let $f$ be a Hilbert modular form over a totally real field $F$. Then $f$ admits $q$-expansions at any cusp of the Hilbert modular group. These cusps are indexed by the strict class group of $F$.
+
+Given an ideal $\mathfrak{a}$ representing a cusp, the $q$-expansion of $f$ around this cusp can be described by an infinite series. Translating the cusp to infinity, the form $f$ transforms to a form $f_{\mathfrak{a}}$. The $q$-expansion of $f$ at the cusp corresponding to $\mathfrak{a}$ is that of $f_{\mathfrak{a}}$ at infinity. It is represented by an infinite series
+$$f_{\mathfrak{a}}(z) = \sum_{u \in (\mathfrak{ad})_+^{-1}} a_{u\mathfrak{ad}} q^{\mathrm{Tr}(uz)},$$
+where $\mathfrak{d}$ is the different of the ring of integers of $F$ and where $q=e^{2\pi i}$. Given an integral ideal $\frak{n}$, we define the $\frak{n}^{th}$-fourier coefficient as   $a_\frak{n} \colonequals a_u$ where $u$ is a totally positive element satisfying $(u) = \frak{n}(\frak{ad})^{-1}$. If $f$ is an eigenform, then $a_\frak{n}$ is the eigenvalue corresponding to the hecke operator $T_\frak{n}$.
+\end{definition}
+
+

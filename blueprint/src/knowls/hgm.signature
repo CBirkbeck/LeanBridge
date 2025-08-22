@@ -1,0 +1,11 @@
+\subsection{}
+\begin{definition}\label{hgm.signature}
+\uses{hgm.hodge_vector}
+Complex conjugation acts on the vector space corresponding to the middle entry in the {{KNOWL('hgm.hodge_vector', 'Hodge vector')}}.  The **signature** of a hypergeometric motive is the difference between the number of $+1$ eigenvalues and the number of $-1$ eigenvalues for this operator.
+
+When there is no middle entry (because the Hodge width is odd), the signature is $0$.
+
+The archimedean root number can be recovered from the signature $s$ and the Hodge vector $(h_n)$.
+\end{definition}
+
+

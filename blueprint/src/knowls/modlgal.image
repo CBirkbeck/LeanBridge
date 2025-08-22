@@ -1,0 +1,7 @@
+\subsection{Image}
+\begin{definition}\label{modlgal.image}
+\uses{group.subgroup,modlgal,modlgal.codomain}
+The **image** of a  {{ KNOWL('modlgal', 'mod-$\ell$ Galois representation') }} $\rho: \Gal_K\to G(\F_{\ell})$ is the {{KNOWL('group.subgroup', 'subgroup')}} $\rho(\Gal_K)$ of the {{KNOWL('modlgal.codomain', 'codomain')}} $G(\F_{\ell})$.
+\end{definition}
+
+

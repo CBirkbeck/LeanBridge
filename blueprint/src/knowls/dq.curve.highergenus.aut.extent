@@ -1,0 +1,7 @@
+\subsection{Extent of data for families of higher genus curves with automorphisms}
+\begin{definition}\label{dq.curve.highergenus.aut.extent}
+\uses{ag.quotient_curve}
+Currently the database contains all groups $G$ acting as automorphisms of curves $X$ from genus $2$ up to genus $15$ such that the {{KNOWL('ag.quotient_curve', "quotient")}} $X/G$ has genus $0$, as well as genus $2$ through $4$ with quotient genus greater than $0$.
+\end{definition}
+
+

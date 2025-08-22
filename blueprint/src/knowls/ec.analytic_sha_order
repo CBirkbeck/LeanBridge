@@ -1,0 +1,27 @@
+\subsection{Analytic order of &#1064;}
+\begin{definition}\label{ec.analytic_sha_order}
+\uses{ec,ec.base_change,ec.bsdconjecture,ec.mordell_weil_group,ec.period,ec.rank,ec.regulator,ec.tamagawa_number,ec.torsion_subgroup,group.abelian,group.galois.absolute,group.order,group.torsion,nf,nf.discriminant,nf.place,nf.prime}
+The **Tate-Shafarevich group** &#1064; of an {{KNOWL('ec', 'elliptic curve')}} $E$ defined over a {{KNOWL('nf', 'number field')}} $K$ is a {{KNOWL('group.torsion', 'torsion')}} {{KNOWL('group.abelian', 'abelian group')}}, which can be defined in terms of Galois cohomology as
+$$
+&#1064;(E) := \ker\left(H^1(G_K,E) \to \prod_v H^1(G_{K_v},E_{K_v}) \right),
+$$
+where $v$ runs over all {{KNOWL('nf.place','places')}} of $K$ (finite and infinite), $K_v$ is the completion of $K$ at $v$, $E_{K_v}$ is the {{KNOWL('ec.base_change', 'base change')}} of $E$ to $K_v$, and $G_K$ and $G_{K_v}$ denote {{KNOWL('group.galois.absolute', 'absolute Galois groups')}}.
+
+The group &#1064; is conjectured to be finite, and its {{KNOWL('group.order', 'order')}} appears in the strong form of the {{ KNOWL('ec.bsdconjecture', 'Birch-Swinnerton-Dyer Conjecture') }} for $E$.  The order implied by the conjecture is called the **analytic order of Sha** and can be   defined as the real number
+$$
+&#1064;_{\text{an}} := |D_K|^{1/2}\cdot \frac{L^{(r)}(E,1)} {r!} \cdot \frac{\#E(K)_{\rm tor}^2}{\mathrm{Reg}_{\rm NT}(E/K)}  \cdot \frac{1}{ \Omega(E/K)  \cdot \prod_{\mathfrak{p}} c_{\mathfrak{p}}}.
+$$
+Here 
+$D_K$ is the {{KNOWL('nf.discriminant', 'discriminant')}} of $K$, 
+$L(E,s)$ is the $L$-function of $E/K$, $r$ is the analytic {{KNOWL('ec.rank', 'rank')}} of $E/K$, 
+$\mathrm{Reg}_{\rm NT}(E/K)$ is the N\'eron-Tate (un-normalised) {{KNOWL('ec.regulator', 'regulator')}} of $E/K$,  $E(K)_{\rm tor}$ is the {{KNOWL('ec.torsion_subgroup', 'torsion subgroup')}} of the {{KNOWL('ec.mordell_weil_group', 'Mordell-Weil group')}} $E(K)$, 
+$\Omega(E/K)$ is the {{KNOWL('ec.period', 'global period')}} of $E/K$, 
+and $c_{\mathfrak{p}}$ is the {{KNOWL('ec.tamagawa_number', 'Tamagawa number')}} of $E$ at the {{KNOWL('nf.prime', 'prime')}} $\mathfrak{p}$ of $K$.
+
+It is known that if &#1064; is finite then its order is a square, so one expects the real number $&#1064;_{\text{an}}$ to always be a square integer.
+
+For elliptic curves defined over \(\Q\) of rank $0$ or $1$, it is a theorem that &#1064;<sub>an</sub> is a positive rational number, and this rational number can in principle be computed exactly. This exact  computation has only been carried out for the curves in the database with rank $0$.  For curves of rank $2$ and above, there is no such theorem, and the values computed are floating point approximate values which are very close to integers.  In the LMFDB we store and display the rounded values in this case.
+
+\end{definition}
+
+

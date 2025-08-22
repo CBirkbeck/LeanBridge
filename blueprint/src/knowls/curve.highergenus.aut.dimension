@@ -1,0 +1,8 @@
+\subsection{Dimension of a family of curves}
+\begin{definition}\label{curve.highergenus.aut.dimension}
+\uses{curve.highergenus.aut.branchpoints,curve.highergenus.aut.quotientgenus,curve.highergenus.aut.signature}
+Given a group of automorphisms $G$ acting on a curve $X/\C$ of genus $g$, with {{KNOWL('curve.highergenus.aut.signature', "signature")}} $[g_0;m_1, \ldots, m_r]$, the **dimension** of the family of curves with this signature is $3g_0+r-3$, where $r$ is the number of {{KNOWL('curve.highergenus.aut.branchpoints', "branch points")}} of the map $X \to X/G$ and $g_0$ is the {{KNOWL('curve.highergenus.aut.quotientgenus', "quotient genus")}}.
+
+\end{definition}
+
+

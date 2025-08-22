@@ -1,0 +1,9 @@
+\subsection{Inverse for a binary operation}
+\begin{definition}\label{alg.binary_operation.inverse}
+\uses{alg.binary_operation,alg.binary_operation.identity}
+If $*$ is a {{KNOWL('alg.binary_operation', 'binary operation')}} on a set $A$ having {{KNOWL('alg.binary_operation.identity', 'identity element')}} $e\in A$, then an element $a\in A$ has an **inverse** in $A$ with respect to $*$ if there exists $a'\in A$ such that
+$$ a*a' = a'*a = e.$$
+
+\end{definition}
+
+

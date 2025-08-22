@@ -1,0 +1,16 @@
+\subsection{Tate-Shafarevich group}
+\begin{definition}\label{ag.tate_shafarevich}
+\uses{ag.abelian_variety,ag.torsor,g2c.locally_solvable,group.galois.absolute,group.torsion,nf,nf.absolute_value,nf.place}
+The **Tate-Shafarevich group** of an {{KNOWL('ag.abelian_variety', 'abelian variety')}} $A$ over a {{KNOWL('nf', 'number field')}} $K$ is
+$$
+&#1064;(A) = \ker\Bigl(H^1(G_K,A) \to \prod_v H^1(G_{K_v},A_{K_v})\Bigr),
+$$
+where $G_K$ is the {{KNOWL('group.galois.absolute', 'absolute Galois group')}} of $K$,
+and $v$ ranges over all {{KNOWL('nf.place','places')}} of $K$, including the {{KNOWL('nf.absolute_value', 'archimedean')}} places.
+
+It classifies {{KNOWL('g2c.locally_solvable', 'locally solvable')}} {{KNOWL('ag.torsor', 'principal homogeneous spaces')}} of $A$.
+
+It is a {{KNOWL('group.torsion', 'torsion abelian group')}} that is conjectured to be finite.
+\end{definition}
+
+

@@ -1,0 +1,7 @@
+\subsection{Geometrically simple}
+\begin{definition}\label{ag.geom_simple}
+\uses{ag.abelian_variety,ag.simple}
+An {{KNOWL("ag.abelian_variety", "abelian variety")}} over a field $k$ is **geometrically (or absolutely) simple** if it is {{KNOWL("ag.simple", "simple")}} when viewed as a variety over $\bar k$.
+\end{definition}
+
+

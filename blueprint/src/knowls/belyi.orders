@@ -1,0 +1,7 @@
+\subsection{Belyi permutation triple orders}
+\begin{definition}\label{belyi.orders}
+\uses{belyi.abc}
+A less restrictive version of {{KNOWL('belyi.abc', 'abc_orders')}} where only some of the orders are specified.
+\end{definition}
+
+

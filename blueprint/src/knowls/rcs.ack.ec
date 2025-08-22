@@ -1,0 +1,11 @@
+\subsection{Acknowledgments for elliptic curves over number fields}
+\begin{definition}\label{rcs.ack.ec}
+\uses{}
+<h2>Additional acknowledgments</h2>
+
+Nicolas Mascot wrote the code for the display of the real embedded curves.
+
+Coding for the pages was done by John Cremona.
+\end{definition}
+
+

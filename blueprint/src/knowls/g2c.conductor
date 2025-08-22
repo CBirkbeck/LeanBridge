@@ -1,0 +1,14 @@
+\subsection{Conductor of a genus 2 curve}
+\begin{definition}\label{g2c.conductor}
+\uses{ag.bad_prime,ag.jacobian,g2c.discriminant,g2c.g2curve}
+The **conductor** $N$ of a {{KNOWL('g2c.g2curve','genus 2 curve')}} $X/\Q$ is the conductor of its {{KNOWL('ag.jacobian', 'Jacobian')}} $\mathrm{Jac}(X)$.  This is a positive integer that divides the {{KNOWL('g2c.discriminant', 'discriminant')}} of $X$ and is divisible by every {{KNOWL('ag.bad_prime', 'prime of bad reduction')}} for $\mathrm{Jac}(X)$ (but not necessarily by every prime of bad reduction for $X$).
+
+The valuation of $N$ at a prime $p$ satisfies the following bounds.
+<table>
+<tr><td>$p$:</td><td>$2$</td><td>$3$</td><td>$5$</td><td>$\ge 7$</td</tr>
+<tr><td>$v_p(N)$:</td><td>$20$</td><td>$10$</td><td>$9$</td><td>$4$</td</tr>
+</table>
+
+\end{definition}
+
+

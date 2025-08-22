@@ -1,0 +1,15 @@
+\subsection{Label for an Artin representation}
+\begin{definition}\label{artin.label}
+\uses{artin,artin.conductor,artin.dimension,artin.galois_orbit,artin.permutation_container,gg.tnumber}
+The label for an {{ KNOWL('artin', 'Artin representation') }} takes the form A.B.C.DcE where
+
+  * A is the {{ KNOWL('artin.dimension', 'dimension') }} of the representation;
+  * B is the {{ KNOWL('artin.conductor', 'conductor') }} of the representation, the format for which is explained below;
+  * C is the {{ KNOWL('artin.permutation_container', 'smallest permutation representation') }} for which this representation is a factor.  If the degree is small enough, we give the degree <i>d</i> and {{ KNOWL('gg.tnumber', 't-number') }} <i>j</i> in the form <code>dtj</code>; otherwise we use just the degree <code>d</code>;
+  * D is an index to distinguish cases where non-Galois conjugate representations have the same dimension, conductor, and smallest permutation representation;
+  * E is an index for the representation within its {{ KNOWL('artin.galois_orbit', 'Galois conjugates') }}.
+ 
+The conductor is given in factored form with the following encoding.  Underscores (_) are to be interpreted as multiplication signs and "e" indicates exponentiation.  So, 2e3_59 converts to $2^3\cdot 59$.
+\end{definition}
+
+

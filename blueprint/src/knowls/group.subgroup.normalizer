@@ -1,0 +1,9 @@
+\subsection{Normalizer of a subgroup}
+\begin{definition}\label{group.subgroup.normalizer}
+\uses{group,group.subgroup,group.subgroup.normal}
+If $H$ is a {{KNOWL('group.subgroup', 'subgroup')}} of a {{KNOWL('group','group')}} $G$, then the **normalizer** of $H$ is the subgroup
+\[ N_G(H) = \{ g\in G\mid gHg^{-1} = H\}.\]
+Equivalently, $N_G(H)$ is the largest subgroup of $G$ containing $H$ in which $H$ is {{KNOWL('group.subgroup.normal', 'normal')}}.
+\end{definition}
+
+

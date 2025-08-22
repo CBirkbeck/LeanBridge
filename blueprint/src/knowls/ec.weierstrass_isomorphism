@@ -1,0 +1,31 @@
+\subsection{Isomorphism between Weierstrass models}
+\begin{definition}\label{ec.weierstrass_isomorphism}
+\uses{ec.isomorphism,ec.weierstrass_coeffs}
+Two {{ KNOWL('ec.weierstrass_coeffs', 'Weierstrass models') }} $E$, $E'$ over a field $K$ with Weierstrass coefficients $[a_1,a_2,a_3,a_4,a_6]$ and $[a'_1,a'_2,a'_3,a'_4,a'_6]$ are **isomorphic over $K$** if there exist $u\in K^*$ and $r,s,t\in K$ such that
+$$
+\begin{aligned}       u  a_1' &= a_1+2s,                               \\
+        u^2a_2' &= a_2-sa_1+3r-s^2,                      \\
+        u^3a_3' &= a_3+ra_1+2t,                          \\
+        u^4a_4' &= a_4-sa_3+2ra_2-(t+rs)a_1+3r^2-2st,    \\
+        u^6a_6' &= a_6+ra_4+r^2a_2+r^3-ta_3-t^2-rta_1.   \\
+\end{aligned}
+$$
+The set of transformations with parameters $[u,r,s,t]\in K^*\times K^3$ form the group of **Weierstrass isomorphisms**, which acts on both the set of all Weierstrass models over $K$ and also on the subset of smooth models, preserving the point at infinity.  The discriminants $\Delta$, $\Delta'$ of the two models are related by
+$$
+   u^{12}\Delta' = \Delta.
+$$
+
+In the smooth case such a Weierstrass isomorphism $[u,r,s,t]$ induces an {{ KNOWL('ec.isomorphism', 'isomorphism') }} between the two elliptic curves $E$, $E'$ they define.  In terms of affine coordinates this is given by
+$$
+    (x,y) \mapsto (x',y')
+$$
+where
+$$
+\begin{aligned}
+                x &= u^2x' + r          \\
+                y &= u^3y' + su^2x' + t \\        
+    \end{aligned}                       
+$$
+\end{definition}
+
+

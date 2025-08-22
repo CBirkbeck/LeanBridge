@@ -1,0 +1,7 @@
+\subsection{Endomorphism field}
+\begin{definition}\label{av.endomorphism_field}
+\uses{ag.abelian_variety}
+The **endomorphism field** of an {{KNOWL('ag.abelian_variety', 'abelian variety')}} $A$ over a field $k$ is the minimal extension $L \supset k$ in $\overline{k}$ such that $\End A_L = \End A_{\overline{k}}$.  It is a finite Galois extension of $k$.
+\end{definition}
+
+

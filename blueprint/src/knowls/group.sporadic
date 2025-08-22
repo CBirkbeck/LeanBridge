@@ -1,0 +1,27 @@
+\subsection{Sporadic groups}
+\begin{definition}\label{group.sporadic}
+\uses{group.alternating,group.cyclic,group.lie_type,group.order,group.simple}
+By the classification of finite {{KNOWL('group.simple', 'simple')}} groups, we know that every finite simple group is either {{KNOWL('group.cyclic', 'cyclic')}} of prime {{KNOWL('group.order', 'order')}}, an {{KNOWL('group.alternating', 'alternating')}} group, a member of one of 16 infinite families of simple groups of {{KNOWL('group.lie_type', 'Lie type')}}, or one of 26 exceptions called **sporadic groups**.
+
+The 26 sporadic groups are:
+
+- The Mathieu groups $M_{11}$, $M_{12}$, $M_{22}$, $M_{23}$, and $M_{24}$.
+- The Janko groups $J_1$, $J_2$, $J_3$, and $J_4$.
+- The Conway groups $\Co_1$, $\Co_2$, and $\Co_3$.
+- The Fischer groups $\text{Fi}_{22}$, $\text{Fi}_{23}$, and $\text{Fi}_{24}'$.
+- The Higman-Sims groups $\HS$.
+- The McLaughlin group $\McL$.
+ - The Held group $\He$.
+- The Rudvalis group $\Ru$.
+- The Suzuki group $\text{Suz}$.
+- The O'Nan group $\text{O'N}$.
+- The Harada-Norton group $\text{HN}$.
+- The Lyons group $\text{Ly}$.
+- The Thompson group $\text{Th}$.
+- The Baby Monster group $\text{B}$.
+- The Fischer-Griess Monster group $\text{M}$.
+
+The smallest sporadic group is the Mathieu group $M_{11}$ of order $7920 = 2^4 \cdot 3^2 \cdot 5 \cdot 11$, and the largest sporadic group is the Fischer–Griess Monster group $M$ of order $ 808 017 424 794 512 875 886 459 904 961 710 757 005 754 368 000 000 000 = 2^{46} \cdot 3^{20} \cdot 5^9 \cdot 7^6 \cdot 11^2 \cdot 13^3 \cdot 17 \cdot 19 \cdot 23 \cdot 29 \cdot 31 \cdot 41 \cdot 47 \cdot 59 \cdot 71$.
+\end{definition}
+
+

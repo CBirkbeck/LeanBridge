@@ -1,0 +1,16 @@
+\subsection{Modular form (general)}
+\begin{definition}\label{mf}
+\uses{cmf,cmf.weight,mf.bianchi,mf.growth_condition,mf.hilbert,mf.maass,mf.multipliersystem,mf.siegel,mf.transformation_property}
+The term **modular form** is used to describe several types
+of complex functions which have a certain type of {{ KNOWL('mf.transformation_property', "functional equation") }} and {{ KNOWL('mf.growth_condition', "growth condition")}}.  Examples include:
+
+- {{ KNOWL('cmf', "classical modular forms") }}
+- {{ KNOWL('mf.maass', "Maass waveforms") }}
+- {{ KNOWL('mf.hilbert', "Hilbert modular forms") }}
+- {{ KNOWL('mf.bianchi', "Bianchi modular forms") }}
+- {{ KNOWL('mf.siegel', "Siegel modular forms") }}
+
+Modular forms of the same {{KNOWL('cmf.weight', "weight")}} and {{KNOWL('mf.multipliersystem', "multiplier system")}} that are defined over the same group form a $\mathbb{C}$-vector space.
+\end{definition}
+
+

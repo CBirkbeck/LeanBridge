@@ -1,0 +1,7 @@
+\subsection{Twist of an abelian variety}
+\begin{definition}\label{av.twist}
+\uses{ag.abelian_variety,ag.base_change}
+A **twist** of an {{KNOWL('ag.abelian_variety', 'abelian variety')}} $A$ is an abelian variety $A'$ over the same field that becomes isomorphic to $A$ upon {{KNOWL('ag.base_change', 'base change')}} to an algebraic closure.
+\end{definition}
+
+

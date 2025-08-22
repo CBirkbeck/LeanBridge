@@ -1,0 +1,29 @@
+\subsection{Herbrand function of a family}
+\begin{definition}\label{lf.herbrand_function}
+\uses{lf.family_polynomial,lf.indices_of_inseparability,lf.means,lf.padic_field,lf.rams,lf.slopes}
+Let $I/K$ be a {{KNOWL('lf.family_polynomial', 'family')}} of extensions of
+a {{KNOWL('lf.padic_field', '$p$-adic field')}} $K$.
+We can express $I$ in terms of {{KNOWL('lf.rams', 'rams')}}
+as $I=(r_1,\dots,r_w)_{\epsilon}^f$, in terms of
+{{KNOWL('lf.slopes', 'Swan slopes')}} as
+$I=[s_1,\dots,s_w]_{\epsilon}^f$ or in terms of the {{KNOWL('lf.means', 'means')}} $\langle m_1,\dots,m_w\rangle_\epsilon^f$.  The **Herbrand function** of $I/K$ is
+the piecewise linear function $\phi_{I/K}:\R_{\ge0}\rightarrow\R_{\ge0}$
+whose graph is obtained by joining the points
+$(0,0),(r_1,s_1),\dots,(r_w,s_w)$ with
+line segments; in addition, there is a ray with slope $1/(\epsilon p^w)$
+starting at $(r_w,s_w)$.  It follows that for $1\le i\le w$ the segment
+whose right endpoint is $(r_i,s_i)$ has slope $1/(\epsilon p^{i-1})$.
+
+The rams of $I/K$ are labeled in blue on the horizontal axis of the diagram.
+The wild Swan slopes of $I/K$ are labeled in black on the vertical axis of the
+diagram; to the left of each Swan slope is a rescaling by a factor
+$\epsilon p^w$.  The green numbers along the vertical axis are the means.
+The rescaled green numbers on the left which correspond to
+intersections of the vertical axis with extensions of segments of the graph
+of $\phi_{I/K}$ give some of the
+{{KNOWL('lf.indices_of_inseparability', 'indices of inseparability')}} of
+the extensions $L/K$ in $I/K$.
+
+\end{definition}
+
+

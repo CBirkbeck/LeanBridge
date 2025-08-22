@@ -1,0 +1,18 @@
+\subsection{Knowl}
+\begin{definition}\label{doc.knowl}
+\uses{}
+A knowl is context-free information.  Knowls can be embedded into a web page or
+assembled into a document which conveys information in a non-linear fashion.
+
+Knowls were created by Harald Schilly, with the first working version coming
+online on August 25, 2011. Schilly also coined the term "knowl".  This work was
+supported by two grants  to the American Institute of Mathematics
+from the
+{{ LINK_EXT('Division of Mathematical Sciences', 'http://www.nsf.gov/div/index.jsp?div=DMS') }}
+of the {{ LINK_EXT('National Science Foundation', 'http://www.nsf.gov/') }}.
+
+
+"Knowl" is pronounced _nohl_, as in "A knoll is a small hill."
+\end{definition}
+
+

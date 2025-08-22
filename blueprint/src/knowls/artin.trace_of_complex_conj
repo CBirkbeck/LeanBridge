@@ -1,0 +1,7 @@
+\subsection{Trace of complex conjugation}
+\begin{definition}\label{artin.trace_of_complex_conj}
+\uses{artin}
+For an {{KNOWL('artin', 'Artin Representation')}}, complex conjugation gives a well-defined conjugacy class $c$ in the Galois group, so it has a well-defined character value.
+\end{definition}
+
+

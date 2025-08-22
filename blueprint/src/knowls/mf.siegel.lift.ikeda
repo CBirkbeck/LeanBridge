@@ -1,0 +1,21 @@
+\subsection{Duke-Imamoglu-Ikeda lift}
+\begin{definition}\label{mf.siegel.lift.ikeda}
+\uses{cmf,group.sp2gr,lfunction.riemann,mf.siegel,mf.siegel.lift.saito_kurokawa}
+A Duke-Imamoglu-Ikeda lift is a lift from
+elliptic modular forms</a>
+ to 
+<a class="knowl-title" knowl="mf.siegel">Siegel modular forms</a>
+of even degree
+with respect to the 
+integral <a class="knowl-title" knowl="group.sp2gr">symplectic group</a>.
+An elliptic cusp eigenform of weight $k$ may be lifted to
+a cusp eigenform of even degree $n$ of even weight $(k+n)/2$.
+
+The Ikeda lifting, also known as Duke-Imamoglu-Ikeda lifting, is a generalization of the <a class="knowl-title" knowl="mf.siegel.lift.saito_kurokawa">Saito-Kurokawa lifting</a>. Given $n\geq1$, it associates to an <a class="knowl-title" knowl="cmf">elliptic modular eigenform</a> $f\in S_{2k}({\rm SL}(2,\mathbb{Z}))$, where $k\equiv n$ mod $2$, a <a class="knowl-title" knowl="mf.siegel">Siegel modular form</a> $F$ of degree $2n$ and weight $k+n$ with respect to the integral <a class="knowl-title" knowl="group.sp2gr">symplectic group</a>. The $L$-function of $f$ and the standard $L$-function of $F$ are related by
+$$
+ L(s,F)=\zeta(s)\prod_{i=1}^{2n}L(s+k+n-i,f),
+$$
+where $\zeta$ is the <a class="knowl-title" knowl="lfunction.riemann">Riemann zeta function</a>.
+\end{definition}
+
+

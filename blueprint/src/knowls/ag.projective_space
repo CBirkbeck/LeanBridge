@@ -1,0 +1,15 @@
+\subsection{Projective space}
+\begin{definition}\label{ag.projective_space}
+\uses{ag.dimension,ring.field}
+**Projective space** $\mathbb{P}^n(K)$ of {{KNOWL('ag.dimension', 'dimension')}} $n$ over a {{KNOWL('ring.field', 'field')}} $K$ is the set $(K^{n+1}\setminus\{0\})/{}\sim{}$, where 
+$$
+(x_0,x_1,\dots,x_n) \sim (y_0,y_1,\dots,y_n) \iff x_0=\lambda y_0, \dots, x_n=\lambda y_n\quad\text{for some}\ \lambda\in K^*.
+$$
+The equivalence class of $(x_0,x_1,\dots,x_n)$ in $\mathbb{P}^n(K)$ is denoted by $(x_0:x_1:\dots:x_n)$, and the $x_i$ are called **homogeneous coordinates**.  Thus
+$$
+\mathbb{P}^n(K) = \{(x_0:\dots:x_n)\mid x_0,\dots,x_n\in K,\ \text{not all zero}\}.
+$$
+
+\end{definition}
+
+

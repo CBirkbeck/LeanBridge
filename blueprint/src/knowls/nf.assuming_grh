@@ -1,0 +1,7 @@
+\subsection{Assuming GRH}
+\begin{definition}\label{nf.assuming_grh}
+\uses{lfunction.rh}
+This computation was completed under the assumption of the {{ KNOWL('lfunction.rh', 'Generalized Riemann Hypothesis') }}.
+\end{definition}
+
+

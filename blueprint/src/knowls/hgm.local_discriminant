@@ -1,0 +1,7 @@
+\subsection{The local discriminant of a hypergeometric motive}
+\begin{definition}\label{hgm.local_discriminant}
+\uses{hgm.motive,modlgal.frobenius_charpoly,nf.discriminant}
+Given a {{ KNOWL('hgm.motive', "hypergeometric motive") }} $M$ and a prime $p$, the **local discriminant** of $M$ at $p$ is the {{ KNOWL('nf.discriminant', "discriminant") }} of the number field defined by the {{ KNOWL('modlgal.frobenius_charpoly', "characteristic polynomial of Frobenius") }} of $M$ at $p$.
+\end{definition}
+
+

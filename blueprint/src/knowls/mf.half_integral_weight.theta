@@ -1,0 +1,22 @@
+\subsection{Theta function}
+\begin{definition}\label{mf.half_integral_weight.theta}
+\uses{cmf.level,mf.half_integral_weight,mf.half_integral_weight.dedekind_eta}
+The (classical) **theta function** $\theta(z)$ is a holomorphic modular form of {{KNOWL('mf.half_integral_weight', "half-integral weight")}} $1/2$ and {{KNOWL('cmf.level', "level")}} 4, defined by the formula
+\[
+\theta(z)=\sum_{n=-\infty}^\infty e^{\pi iz n^2}.
+\]
+
+It has the following <em>product expansion</em>:
+\[
+\theta(z)=\prod_{n\geq1}(1+q^{n-1/2})^2(1-q^n),
+\]
+where $q=e^{2\pi iz}$.
+
+The (classical) theta function is related to the {{KNOWL('mf.half_integral_weight.dedekind_eta', "Dedekind eta function")}} via the formula:
+\[
+\theta(z)=\frac{\eta^5(z)}{\eta^2(z/2)\eta^2(2z)}=\frac{\eta^2((z+1)/2)}{\eta(z+1)}.
+\]
+
+\end{definition}
+
+

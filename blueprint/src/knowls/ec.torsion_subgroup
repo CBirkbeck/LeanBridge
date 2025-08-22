@@ -1,0 +1,17 @@
+\subsection{Torsion subgroup of an elliptic curve}
+\begin{definition}\label{ec.torsion_subgroup}
+\uses{ec.mordell_weil_theorem,ec.mordell_weil_group}
+For an elliptic curve $E$ over a field $K,$ the **torsion subgroup** of $E$ over $K$ is the subgroup $E(K)_{\text{tor}}$ of the {{KNOWL('ec.mordell_weil_group',  "Mordell-Weil group")}} $E(K)$ consisting of points of finite order.  For a number field $K$ this is always a finite group, since by the {{ KNOWL('ec.mordell_weil_theorem', 'Mordell-Weil Theorem') }} $E(K)$ is finitely generated.
+
+The torsion subgroup is always either cyclic or a product of two cyclic groups.
+The **torsion structure** is the list of invariants of the group:
+
+- $[]$ for the trivial group;
+- $[n]$ for a cyclic group of order $n>1$;
+- $[n_1,n_2]$ with $n_1\mid n_2$ for a product of non-trivial cyclic groups of orders $n_1$ and $n_2$.
+
+For $K=\Q$ the possible torsion structures are $[n]$ for $n\le10$ and $n=12$, and $[2,2n]$ for $n=1,2,3,4$.
+ 
+\end{definition}
+
+

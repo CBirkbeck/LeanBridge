@@ -1,0 +1,8 @@
+\subsection{Primitive Dirichlet character}
+\begin{definition}\label{character.dirichlet.primitive}
+\uses{character.dirichlet,character.dirichlet.conductor,character.dirichlet.induce,character.dirichlet.modulus}
+A {{KNOWL('character.dirichlet', "Dirichlet character")}} $\chi$ is **primitive** if its 
+{{KNOWL('character.dirichlet.conductor', "conductor")}} is equal to its {{KNOWL('character.dirichlet.modulus', "modulus")}}; equivalently, $\chi$ is not {{KNOWL('character.dirichlet.induce', "induced")}} by a Dirichlet character of smaller modulus.
+\end{definition}
+
+

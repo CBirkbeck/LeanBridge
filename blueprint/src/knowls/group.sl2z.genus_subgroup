@@ -1,0 +1,10 @@
+\subsection{Genus of a subgroup of the modular group}
+\begin{definition}\label{group.sl2z.genus_subgroup}
+\uses{ag.riemann_surface,group.fuchsian.cusps,group.sl2z}
+The **genus** of a finite index subgroup $G$ of the {{KNOWL('group.sl2z', "modular group")}} is the genus of the corresponding compact {{KNOWL('ag.riemann_surface', "Riemann surface")}} arising from the compactification of $G\backslash\mathcal{H},$ which is obtained by adjoining the {{ KNOWL('group.fuchsian.cusps', "cusps") }} of $G$.  
+
+
+Here $\mathcal{H}$ denotes the complex upper halfplane  on which $G$ acts by linear fractional transformations, and $G\backslash \mathcal{H}$ denotes the quotient of $\mathcal{H}$ by this action (points of $G\backslash\mathcal{H}$ correspond to $G$-orbits in $\mathcal{H}$).
+\end{definition}
+
+

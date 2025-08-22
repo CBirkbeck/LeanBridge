@@ -1,0 +1,26 @@
+\subsection{Number field not in the database}
+\begin{definition}\label{nf.field.missing}
+\uses{}
+The number field
+{% if poly is defined %}
+defined by the polynomial
+
+{% set pol2 = '$'+poly.replace("%2B","+").replace("%7B","{").replace("%7D","}")+'$' %}
+
+{% if raw is defined %}
+{{raw_typeset(raw.replace("%2B","+").replace("%7B","{").replace("%7D","}"), pol2)|safe}}
+{% else %}
+{{ pol2 }}
+{% endif %}
+
+{% endif %}
+is not in the database.
+
+{% if divid is defined %}
+
+
+{% endif %}
+
+\end{definition}
+
+

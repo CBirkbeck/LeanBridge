@@ -1,0 +1,97 @@
+\subsection{Finite Lie Group Names }
+\begin{definition}\label{group.lie_type}
+\uses{group,group.center,group.general_linear,group.orthogonal,group.simple,group.special_linear,group.subgroup,group.symplectic,group.unitary}
+We describe Finite {{KNOWL('group', 'Groups')}} of Lie Type (look at the  <a href="https://magma.maths.usyd.edu.au/magma/handbook/text/770">Magma documentation</a>):
+
+<ul>
+<li> $\mathrm{GL}(n,q)$ denotes the {{KNOWL('group.general_linear', 'general linear group')}} of degree $n$ over the finite field of order $q$. 
+
+<li> $\mathrm{GO}(n,q)$ denotes the general {{KNOWL('group.orthogonal', 'orthogonal group')}} of degree $n$ over the finite field of order $q$.
+
+<li> $\mathrm{GU}(n,q)$ denotes the {{KNOWL('group.unitary', 'general unitary group')}} of degree $n$ over the finite field of order $q$.
+
+<li> $\mathrm{SL}(n,q)$ denotes the {{KNOWL('group.special_linear', 'special linear group')}} of degree $n$ over the finite field of order $q$. 
+
+<li> $\mathrm{Sp}(n,q)$ denotes the {{KNOWL('group.symplectic', 'symplectic group')}} of degree $n$ over the finite field of order $q$. 
+
+<li> $\mathrm{SO}(n,q)$ denotes the special orthogonal group of degree $n$ over the finite field of order $q$. 
+
+<li> $\mathrm{SU}(n,q)$ denotes the special unitary group of degree $n$ over the finite field of order $q$.
+
+<li> $\mathrm{Spin}(n,q)$ denotes the spin group of degree $n$ over the finite field of order $q$. It is a Lie group whose underlying manifold is the double cover of the special orthogonal group $\mathrm{SO}(n,q)$.
+</ul>
+
+<ul>
+<li> <b> Conformal groups: </b>
+<ul>
+<li>
+$\mathrm{CO}(n,q)$ denotes the conformal orthogonal group of degree $n$ over the finite field of order $q$ consists of the product of the orthogonal group $\mathrm{O}(n,q)$ with the group of dilations. $\mathrm{CSO}(n,q)$ is defined in similar manner. 
+
+
+<li> $\mathrm{CSp}(n,q)$ denotes the conformal symplectic group of degree $n$ over the finite field of order $q$. It preserves the standard alternating form up to a non-zero scalar multiple. 
+
+<li> $\mathrm{CU}(n,q)$ denotes the conformal symplectic group of degree $n$ over the finite field of order $q$. It preserves the standard hermitian form up to a non-zero scalar multiple. 
+
+</ul>
+</ul>
+
+<ul>
+<li> <b> Projective groups: </b> $\mathrm{PG}(n,q)$ denotes the projective version of the group $G(n,q)$, which is the quotient of $G(n,q)$ by its {{KNOWL('group.center', 'center')}}. 
+</ul>
+
+<ul>
+<li> <b> Automorphism Groups: </b> 
+<ul>
+<li> $\mathrm{P\Gamma L}(n,q)$ denotes the automorphism group of $\mathrm{PGL}(n,q)$.
+<li> $\mathrm{P\Sigma L}(n,q)$ denotes the automorphism group of $\mathrm{PSL}(n,q)$.
+<li> $\mathrm{P\Gamma U}(n,q)$ denotes the automorphism group of $\mathrm{PGU}(n,q)$.
+<li> $\mathrm{P\Sigma Sp}(n,q)$ denotes the automorphism group of $\mathrm{PSp}(n,q)$.
+</ul>
+</ul>
+ 
+
+<ul>
+<li>  When the degree $n$ is even, there are two inequivalent non-degenerate quadratic forms giving rise to two non-isomorphic orthogonal groups $\mathrm{GO}^{+}(n,q)$ and $\mathrm{GO}^{-}(n,q)$ (see this <a href="https://en.wikipedia.org/wiki/Orthogonal_group#Over_finite_fields">wiki page</a>). 
+
+<br><br>
+$G^{+}(n,q)$ and $G^{-}(n,q)$ are defined similarly for $G=\mathrm{CO}, \mathrm{CSO}, \mathrm{SO}, \mathrm{PSO}, \mathrm{PGO}, \mathrm{Spin}$.
+
+</ul>
+
+<ul>
+<li> For $n\ge 3$ odd, $\Omega(n,q)$ is the {{KNOWL('group.subgroup', 'subgroup')}} of $\mathrm{SO}(n,q)$ such that  $\mathrm{P}\Omega(n,q)$ is {{KNOWL('group.simple', 'simple')}}. If $q$ is odd, the group $\Omega(n,q)$ is the kernel of the spinor norm map on $\mathrm{SO}(n,q)$; if $q$ is even, it is the kernel of the Dickson invariant.
+
+<br><br>
+For $n\ge 2$ even and $q$ is odd, $\Omega^{+}(n,q)$ (resp. $\Omega^{-}(n,q)$) is the kernel of the spinor norm map on $\mathrm{SO}^{+}(n,q)$ (resp. $\mathrm{SO}^{-}(n,q)$); if q is even, it is the kernel of the Dickson invariant. 
+
+$\mathrm{P}\Omega^{+}(n,q)$ and $\mathrm{P}\Omega^{-}(n,q)$ are defined in a similar manner. 
+</ul>
+
+
+<ul>
+<li> <b> Affine Groups: </b> 
+<ul>
+<li> $\mathrm{AGL}(n,q)$ denotes the affine general linear group of degree $n$ over the finite field of order $q$. 
+<li> $\mathrm{ASL}(n,q)$ denotes the the affine special linear group of degree $n$ over the finite field of order $q$. 
+<li> $\mathrm{A\Sigma Sp}(n,q)$ denotes the affine special symplectic group of degree $n$ over the finite field of order $q$. 
+
+<li> $\mathrm{A\Gamma L}(n,q)$, $\mathrm{A\Sigma L}(n,q)$ and $\mathrm{ASp}(n,q)$ are defined in a similar manner.
+</ul>
+</ul>
+ 
+<ul>
+<li> <b> Chevalley groups: </b> 
+<ul>
+<li> $\mathrm{A_n}(q)$ is the special linear group $\mathrm{SL}(n+1,q)$.
+<li> $\mathrm{B_n}(q)$ is the orthogonal group $\Omega(2n+1,q)$.
+<li> $\mathrm{C_n}(q)$ is the symplectic group  $\mathrm{Sp}(2n,q)$.
+<li> $\mathrm{D_n}(q)$ is the orthogonal group $\Omega^{+}(2n,q)$.
+
+<li> $\mathrm{E}(7,q)$, $\mathrm{E}(8,q)$, $\mathrm{F}(4,q)$, $\mathrm{G}(2,q)$ are the exceptional groups. 
+</ul>
+</ul>
+
+
+\end{definition}
+
+

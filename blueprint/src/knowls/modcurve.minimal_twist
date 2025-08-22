@@ -1,0 +1,9 @@
+\subsection{Minimal Twists of modular curves}
+\begin{definition}\label{modcurve.minimal_twist}
+\uses{ag.base_change,gl2.open,modcurve,modcurve.label,modcurve.level}
+{{KNOWL('gl2.open', 'Open subgroups')}} $H_1,H_2\le \GL_2(\widehat \Z)$ for which $H_1\cap \SL_2(\widehat\Z) = H_2\cap SL_2(\widehat \Z)$ are said to be **twists**. The corresponding {{KNOWL('modcurve', 'modular curves')}} $X_{H_1}$ and $X_{H_2}$ become isomorphic after {{KNOWL('ag.base_change', 'base change')}} to any cyclotomic field $\Q(\zeta_n)$ where $n$ is divisible by the {{KNOWL('modcurve.level', 'level')}} of both $H_1$ and $H_1$.
+
+The **minimal twist** of a modular curve $X_H$ with $\det(H)=\widehat \Z^\times$ is the modular curve whose {{KNOWL('modcurve.label', 'label')}} is minimal among all twists with $\det(H)=\widehat\Z^\times$ (in particular, it has minimal level).
+\end{definition}
+
+

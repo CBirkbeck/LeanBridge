@@ -1,0 +1,9 @@
+\subsection{Divisions of a group}
+\begin{definition}\label{group.division}
+\uses{group,group.conjugacy_class,group.element_order,group.representation.character,group.representation.rational_character}
+A **division** (or **rational conjugacy classes**) of a finite {{KNOWL('group', 'group')}} $G$ is an equivalence class under the following relation: $x \sim y$ if there exist $g \in G$ and $n \in \Z$ relatively prime to the {{KNOWL('group.element_order', 'order')}} of $x$ with $y = g^{-1} x^n g$.  It is a coarsening of conjugacy: any division is a union of {{KNOWL('group.conjugacy_class', 'conjugacy classes')}}.
+
+Just as values of {{KNOWL('group.representation.character', 'characters')}} are constant on conjugacy classes, values of {{KNOWL('group.representation.rational_character', 'rational characters')}} are constant on rational conjugacy classes.
+\end{definition}
+
+

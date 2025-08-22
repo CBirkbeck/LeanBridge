@@ -1,0 +1,7 @@
+\subsection{Absolute discriminant of a number field}
+\begin{definition}\label{nf.abs_discriminant}
+\uses{nf,nf.discriminant}
+The **absolute discriminant** of a {{KNOWL('nf', 'number field')}} is the absolute value of its {{KNOWL('nf.discriminant', 'discriminant')}}.
+\end{definition}
+
+

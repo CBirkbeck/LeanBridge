@@ -1,0 +1,12 @@
+\subsection{Dicyclic group}
+\begin{definition}\label{group.dicyclic}
+\uses{group,group.cyclic,group.order,group.semidirect_product}
+A **dicyclic group** of {{KNOWL('group.order', 'order')}} $4n$, denoted $\mathrm{Dic}_n$ or $Q_{4n}$, is a non-split extension of a {{KNOWL('group.cyclic', 'cyclic')}} {{KNOWL('group','group')}} of order $2n$ by a cyclic group of order $2$.  That is, $\mathrm{Dic}_n$ has a subgroup of index $2$ which is cyclic, but it is not a {{KNOWL('group.semidirect_product', 'semidirect product')}} of that subgroup and a subgroup of order $2$.
+
+The dicyclic group of order $4n$ can be given by generators and relations:
+$ \langle a,b \mid a^{2n}, a^n b^{-2}, bab^{-1}a\rangle$.
+
+The group $\textrm{Dic}_2$ is isomorphic to the quaternion group of order $8$.
+\end{definition}
+
+

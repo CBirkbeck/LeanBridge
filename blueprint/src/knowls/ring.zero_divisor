@@ -1,0 +1,8 @@
+\subsection{Zero divisor}
+\begin{definition}\label{ring.zero_divisor}
+\uses{ring}
+An element $a$ in a {{KNOWL('ring', 'ring')}} $R$ is a **zero divisor** if $a\neq 0_R$ and there exists an element $b\in R-\{0_R\}$ such that
+$$ a\cdot b = 0_R \qquad \text{or}\qquad b\cdot a = 0_R.$$
+\end{definition}
+
+

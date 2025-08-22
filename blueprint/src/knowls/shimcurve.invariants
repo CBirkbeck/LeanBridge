@@ -1,0 +1,16 @@
+\subsection{Invariants of a Shimura curve}
+\begin{definition}\label{shimcurve.invariants}
+\uses{shimcurve,shimcurve.genus,shimcurve.gonality,shimcurve.index,shimcurve.level,shimcurve.order}
+Invariants of a {{KNOWL('shimcurve', 'Shimura curve')}} $X_H$ include its
+
+- underlying {{KNOWL('shimcurve.order','quaternion order')}}
+- {{KNOWL('shimcurve.level', 'level')}}
+- {{KNOWL('shimcurve.index', 'index')}}
+- {{KNOWL('shimcurve.genus', 'genus')}}
+
+all of which can be derived group-theoretically as properties of $H$.  Geometric invariants of the curve $X_H$ include
+
+- {{KNOWL('shimcurve.gonality','gonality')}}
+\end{definition}
+
+

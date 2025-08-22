@@ -1,0 +1,19 @@
+\subsection{Subspaces of modular forms}
+\begin{definition}\label{cmf.subspaces}
+\uses{character.dirichlet,character.dirichlet.conductor,character.dirichlet.induce,character.dirichlet.modulus,cmf,cmf.character,cmf.cusp_form,cmf.level,cmf.petersson_scalar_product,cmf.space,cmf.weight}
+The {{KNOWL('cmf.space', 'space')}} $M_k(N,\chi)$ of {{KNOWL('cmf', 'modular forms')}} of {{KNOWL('cmf.level', 'level')}} $N$, {{KNOWL('cmf.weight', 'weight')}} $k$, and {{KNOWL('cmf.character', 'character')}} $\chi$ can be decomposed as
+\[ M_k(N,\chi) = E_k(N,\chi) \oplus S_k(N,\chi) \]
+where $E_k(N,\chi)$ is the Eisenstein subspace (the span of Eisenstein series) and $S_k(N,\chi)$ the subspace of {{KNOWL('cmf.cusp_form', 'cusp forms')}}.  
+
+These spaces further decompose into old and new subspaces as follows.  If $M$ is a proper divisor of $N$ and $\chi_M$ is a {{KNOWL('character.dirichlet', 'Dirichlet character')}} of {{KNOWL('character.dirichlet.modulus', 'modulus')}} $M$ that {{KNOWL('character.dirichlet.induce', 'induces')}} $\chi$, then for every divisor $d \mid (N/M)$, there is a map from $M_k(M,\chi_M) \to M_k(N,\chi)$ via $f(z) \mapsto f(dz)$.  The span of the images of all of these maps is the **old subspace** $M_k^{\rm old}(N,\chi) \subseteq M_k(N,\chi)$.
+
+The cuspidal subspace decomposes as
+\[ S_k(N,\chi) = S_k^{\rm new}(N,\chi) \oplus S_k^{\rm old}(N,\chi) \]
+where the **new subspace** $S_k^{\rm new}(N,\chi)$ is the orthogonal complement of $S_k^{\rm old}(N,\chi)$ with respect to the {{KNOWL('cmf.petersson_scalar_product', 'Petersson inner product')}}.  
+
+The Eisenstein subspace similarly decomposes as
+\[ E_k(N,\chi) = E_k^{\rm new}(N,\chi) \oplus E_k^{\rm old}(N,\chi) \]
+where $E_k^{\rm new}(N,\chi)$ is the span of those Eisenstein series attached to a pair $(\chi_1,\chi_2)$ of (primitive) characters of {{KNOWL('character.dirichlet.conductor', 'conductor')}} $N$.
+\end{definition}
+
+

@@ -1,0 +1,7 @@
+\subsection{Description of completeness}
+\begin{definition}\label{cmf.statistics_extent}
+\uses{rcs.cande.cmf}
+See the {{ KNOWL('rcs.cande.cmf', 'completeness knowl') }} for a description of the set of newforms that are included in these statistics.
+\end{definition}
+
+

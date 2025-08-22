@@ -1,0 +1,29 @@
+\subsection{Birch Swinnerton-Dyer conjecture}
+\begin{definition}\label{ec.bsdconjecture}
+\uses{ag.abelian_variety,ec,ec.analytic_sha_order,ec.period,ec.rank,ec.regulator,ec.tamagawa_number,ec.torsion_subgroup,lfunction,lfunction.analytic_rank,lfunction.central_point,lfunction.leading_coeff,nf,nf.discriminant,nf.prime}
+The **Birch and Swinnerton-Dyer** conjecture (**BSD**) is one of the Millennium Prize Problems listed by the Clay Mathematics Institute. It relates the order of vanishing (or {{KNOWL('lfunction.analytic_rank', 'analytic rank')}}) and the {{KNOWL('lfunction.leading_coeff', 'leading coefficient')}} of  the {{KNOWL('lfunction', 'L-function')}} associated to an {{ KNOWL('ec','elliptic curve') }} $E$ defined over a {{KNOWL('nf', 'number field')}} $K$ at the {{KNOWL('lfunction.central_point', 'central point')}} $s=1$ to certain arithmetic data, the **BSD invariants** of $E$. 
+
+  - The _weak form_ of the BSD conjecture states just that the {{KNOWL('lfunction.analytic_rank', 'analytic rank')}} $r_{an}$ (that is, the order of vanishing of vanishing of $L(E,s)$ at $s=1$), is equal to the {{ KNOWL('ec.rank', 'rank') }} $r$ of  $E/K$.
+
+  - The _strong form_ of the conjecture states that $r=r_{an}$ and also that the {{KNOWL('lfunction.leading_coeff', 'leading coefficient')}} of the L-function is given by the formula
+$$
+\frac{1}{r!} L^{(r)}(E,1) = \frac{1}{|d_K|^{1/2}}\cdot \frac{\# &#1064;(E/K)\cdot \Omega(E/K) \cdot \mathrm{Reg}_{\rm NT}(E/K) \cdot \prod_{\mathfrak{p}} c_{\mathfrak{p}}}{\#E(K)_{\rm tor}^2}.
+$$
+
+The quantities appearing in this formula are as follows:
+
+ - $d_K$ is the {{KNOWL('nf.discriminant', 'discriminant')}} of $K$;
+- $r$ is the {{ KNOWL('ec.rank', 'rank') }} of $E(K)$;
+- $&#1064;(E/K)$ is the {{ KNOWL('ec.analytic_sha_order', 'Tate-Shafarevich') }} group
+ of $E/K$;
+- $\mathrm{Reg}(E/K)$ is the {{ KNOWL('ec.regulator', 'regulator') }} of $E/K$;
+- $\Omega(E/K)$ is the {{ KNOWL('ec.period', 'global period') }} of $E/K$;
+- $c_{\mathfrak{p}}$ is the {{ KNOWL('ec.tamagawa_number') }} of $E$ at each {{KNOWL('nf.prime', 'prime')}} $\mathfrak{p}$ of $K$;
+- $E(K)_{\rm tor}$ is the {{ KNOWL('ec.torsion_subgroup', 'torsion subgroup') }} of $E(K)$. 
+
+Implicit in the strong form of the conjecture is that the Tate-Sharafevich group $&#1064;(E/K)$ is finite.
+
+There is a similar conjecture for {{ KNOWL('ag.abelian_variety', 'abelian varieties') }} over number fields.
+\end{definition}
+
+

@@ -1,0 +1,7 @@
+\subsection{$p$-group}
+\begin{definition}\label{group.pgroup}
+\uses{group,group.order}
+A **$p$-group** is a {{KNOWL('group', 'group')}} whose {{KNOWL('group.order', 'order')}} is a power of a prime $p$.  A result of Higman and Sims shows that the number of groups of order $p^k$ is $p^{(2/27 + o(1))k^3}$, and this can be combined with a result of Pyber to show that, asymptotically, 100% of groups are $p$-groups.
+\end{definition}
+
+

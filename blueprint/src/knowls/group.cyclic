@@ -1,0 +1,7 @@
+\subsection{Cyclic group}
+\begin{definition}\label{group.cyclic}
+\uses{group,group.generators}
+A {{KNOWL('group','group')}} $G$ is **cyclic** if it can be {{KNOWL('group.generators', 'generated')}} by one element.
+\end{definition}
+
+

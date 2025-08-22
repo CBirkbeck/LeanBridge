@@ -1,0 +1,13 @@
+\subsection{Modular group $\mathrm {SL}(2,\mathbb Z)$}
+\begin{definition}\label{group.sl2z}
+\uses{}
+The **modular group** is the group of  $2\times2$ matrices with integer coefficients and determinant $1$; it is denoted by \( \mathrm{SL}(2,\mathbb{Z}) \) or \(\mathrm{SL}_2(\Z)\).
+
+A standard set of generators for the modular group are the matrices:
+\[
+S:=\begin{pmatrix}0&-1\\1&0\end{pmatrix}\quad\text{and}\quad T:=\begin{pmatrix}1&1\\0&1
+\end{pmatrix}.
+\]
+\end{definition}
+
+

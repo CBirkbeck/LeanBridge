@@ -1,0 +1,8 @@
+\subsection{Automorphism group}
+\begin{definition}\label{av.aut_group}
+\uses{ag.variety}
+An **automorphism** of an {{ KNOWL("ag.variety", "algebraic variety") }} is an isomorphism from the variety to itself. 
+The set of automorphisms of an {{ KNOWL("ag.variety", "algebraic variety") }} $X$ form a group $\mathrm{Aut}(X)$ under composition; this is the **automorphism group** of the {{ KNOWL("ag.variety", "algebraic variety") }}.
+\end{definition}
+
+

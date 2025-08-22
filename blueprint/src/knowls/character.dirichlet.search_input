@@ -1,0 +1,7 @@
+\subsection{Find a Dirichlet character}
+\begin{definition}\label{character.dirichlet.search_input}
+\uses{character.dirichlet,character.dirichlet.conrey,character.dirichlet.galois_orbit_label}
+To find a specific {{KNOWL('character.dirichlet', title="Dirichlet character") }}, enter its {{KNOWL('character.dirichlet.conrey', 'label') }}, or the label of its {{KNOWL('character.dirichlet.galois_orbit_label', 'Galois orbit') }}.
+\end{definition}
+
+

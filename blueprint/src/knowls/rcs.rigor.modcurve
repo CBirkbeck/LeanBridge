@@ -1,0 +1,11 @@
+\subsection{Reliability of modular curve data}
+\begin{definition}\label{rcs.rigor.modcurve}
+\uses{}
+None of the data in the modular curves database depends on any heuristics or unproven conjectures, but it is still in an early beta state and should be regarded as provisional, **use with caution**!
+
+In particular, there are some **known issues with the rational points data** (the modular curve labels $\texttt{N.i.g.c.n}$ associated to rational points may have an incorrect value of $\texttt{n}$. We are in the process of correcting this data and will update this knowl once that has been done.
+
+In addtion, there are many modular curves with known rational points (including some with infinitely many rational points) that have no rational points listed on their home page because they all correspond to elliptic curves that are not stored in the LMFDB; **the absence of rational points should not be taken as an indication that none are known**.
+\end{definition}
+
+

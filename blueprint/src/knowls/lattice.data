@@ -1,0 +1,20 @@
+\subsection{Data for an integral lattice}
+\begin{definition}\label{lattice.data}
+\uses{lattice.name}
+{% if name or report %}
+{% if name != " " %}
+<p>This integral lattice is known with {{KNOWL('lattice.name', 'name')}} {{ name }}.</p>
+{% endif %}
+{% if report %}
+<p>{{report |replace("-space-", " ")}}.</p>
+{% endif %}
+{% else %}
+<p>This knowl can display comments about an integral lattice, if comments are specified as a parameter. 
+
+Similarly, also any known name for an integral lattice is displayed, provided that it is specified as a parameter.
+</p>
+{% endif %}
+
+\end{definition}
+
+

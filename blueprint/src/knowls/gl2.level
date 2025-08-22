@@ -1,0 +1,9 @@
+\subsection{Level of an open subgroup}
+\begin{definition}\label{gl2.level}
+\uses{gl2.open}
+The **level** of an {{KNOWL('gl2.open','open subgroup')}} $H$ of a matrix group $G$ over $\widehat \Z$ is the least positive integer $N$ for which $H$ is equal to the inverse image of its projection to the reduction of $G$ modulo $N$.  
+
+This also applies to open subgroups of matrix groups over $\Z_\ell$, in which case the level is necessarily a power of $\ell$.
+\end{definition}
+
+

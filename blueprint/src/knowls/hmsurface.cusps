@@ -1,0 +1,7 @@
+\subsection{Cusps}
+\begin{definition}\label{hmsurface.cusps}
+\uses{}
+Given a Hilbert modular surface $X$ defined by a Hilbert modular group $\Gamma$ with base field $F$, the *cusps* of $X$ are the orbits of $\mathbb{P}^1(F)$ under $\Gamma$.
+\end{definition}
+
+

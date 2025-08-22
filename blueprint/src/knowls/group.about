@@ -1,0 +1,13 @@
+\subsection{Groups}
+\begin{definition}\label{group.about}
+\uses{}
+<h3>Browse</h3>
+<ul>
+<li> <a href="{{ url_for('galois_groups.index') }}">Galois groups</a>
+<li> <a href="{{ url_for('st.index') }}">Sato-Tate groups</a>
+<!-- <li> <a href="{{ url_for('lattice.lattice_render_webpage') }}">Lattices</a> -->
+</ul>
+
+\end{definition}
+
+

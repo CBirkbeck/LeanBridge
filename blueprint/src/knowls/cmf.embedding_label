@@ -1,0 +1,20 @@
+\subsection{Complex embedding label}
+\begin{definition}\label{cmf.embedding_label}
+\uses{character.dirichlet.conrey,character.dirichlet.galois_orbit_label,cmf.cusp_form,cmf.embedding,cmf.hecke_galois_orbit,cmf.level,cmf.weight}
+The **label** complex embedded holomorphic {{KNOWL('cmf.cusp_form', 'cusp form')}} \( f\) is \( N.k.a.x.c.j \) (sometimes shortened as \( a.j\) ), where
+
+-  \( N\) is the {{KNOWL('cmf.level', 'level')}},
+
+- \(k\) is the {{KNOWL('cmf.weight', 'weight')}},
+
+-  \(N.a\) is the {{KNOWL('character.dirichlet.galois_orbit_label', 'label')}} of the Galois orbit of the Dirichlet character,
+
+- \(x\) is the {{KNOWL('cmf.hecke_galois_orbit', 'Hecke Galois orbit label')}},
+
+- \(N.c\) is the {{KNOWL('character.dirichlet.conrey', 'Conrey label')}} for the character corresponding to the {{KNOWL('cmf.embedding', 'embedding')}}, and
+
+- \(j\) is the index for the embedding within those with the same Dirichlet character, these are ordered by the vector $\iota(a_n)$, where we order the complex numbers first by their real part and then by their imaginary part.
+
+\end{definition}
+
+

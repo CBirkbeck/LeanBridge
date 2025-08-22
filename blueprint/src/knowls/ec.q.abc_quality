@@ -1,0 +1,15 @@
+\subsection{$abc$ quality}
+\begin{definition}\label{ec.q.abc_quality}
+\uses{ec,ec.j_invariant,ec.q.conductor,ec.q.szpiro_ratio}
+Given a triple $a,b,c$ of nonzero coprime integers, the **quality** of the triple is defined as
+$$
+Q = \frac{\log \max(|a|, |b|, |c|)}{\log \operatorname{rad}(abc)},
+$$
+where $\operatorname{rad}(abc)$ is the product of the primes dividing $abc$.  The $abc$ conjecture stipulates that for any $\epsilon > 0$ there are only finitely many relatively prime triples $a,b,c$ with quality larger than $1+\epsilon$.
+
+The **$abc$ quality** of an {{KNOWL('ec', 'elliptic curve')}} $E$ is the quality of an $a,b,c$ triple determined by its {{KNOWL('ec.j_invariant', '$j$-invariant')}}, namely the one defined by writing $\frac{j}{1728} = \frac{a}{c}$ in lowest terms and setting $b = c - a$.  Note that the $abc$ quality is undefined for $j=0$ and $j=1728$.
+
+The reason for defining the quality of $E$ in this way comes from the equivalence of the $abc$ conjecture with the {{KNOWL('ec.q.szpiro_ratio', 'modified Szpiro conjecture')}}. For elliptic curves with small {{KNOWL('ec.q.conductor', 'conductor')}}, $j$-invariants often have unusually large quality.
+\end{definition}
+
+

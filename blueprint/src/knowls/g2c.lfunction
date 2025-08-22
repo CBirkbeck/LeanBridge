@@ -1,0 +1,12 @@
+\subsection{L-function of an abelian variety over $\mathbb{Q}$}
+\begin{definition}\label{g2c.lfunction}
+\uses{ag.abelian_variety,ag.jacobian,g2c.bad_lfactors,g2c.good_reduction,g2c.isogeny_class,lfunction.euler_product}
+The **L-function** of an {{KNOWL("ag.abelian_variety")}} $A$ over $\Q$ is defined as an {{KNOWL("lfunction.euler_product", "Euler product")}} $\prod_p L_p(p^{-s})$ over primes $p$, where the **L-polynomial** $L_p(T)$ is an integer polynomial of degree at most $2g$, where $g$ is the dimension of $A$; the L-function of a curve is then defined as the L-function of its {{KNOWL("ag.jacobian", "Jacobian")}}.  The $L$-function is an invariant of the {{KNOWL("g2c.isogeny_class", "isogeny class")}} of $A$.
+
+
+For primes $p$ where $A$ has {{KNOWL("g2c.good_reduction", "good reduction")}} (all but finitely many), the polynomial $L_p(T)=T^{2g}\chi(T^{-1})$ is determined by the characteristic polynomial $\chi(T)$ of the Frobenius endomomrphism of the reduction of $A$ modulo $p$.
+
+The {{KNOWL("g2c.bad_lfactors", "Euler factors at bad primes")}} $p$ depend on the type of bad reduction $A$ has at $p$.
+\end{definition}
+
+

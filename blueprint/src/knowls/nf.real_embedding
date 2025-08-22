@@ -1,0 +1,7 @@
+\subsection{Real embedding}
+\begin{definition}\label{nf.real_embedding}
+\uses{}
+A **real embedding** of a number field $K$ is a field homomorphism $K\to \R$.  A single number field may have several distinct real embeddings.
+\end{definition}
+
+

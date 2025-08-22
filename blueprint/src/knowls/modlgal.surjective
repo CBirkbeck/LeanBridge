@@ -1,0 +1,7 @@
+\subsection{Surjective}
+\begin{definition}\label{modlgal.surjective}
+\uses{modlgal,modlgal.codomain,modlgal.image}
+A {{ KNOWL('modlgal', 'mod-$\ell$ Galois representation') }} $\rho: \Gal_K\to G(\F_{\ell})$ is **surjective** if the {{ KNOWL('modlgal.image', 'image') }} is equal to all of the {{KNOWL('modlgal.codomain', 'codomain')}}; that is, if $\rho(\Gal_K)=G(\F_{\ell})$.
+\end{definition}
+
+

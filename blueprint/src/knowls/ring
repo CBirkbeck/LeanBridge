@@ -1,0 +1,19 @@
+\subsection{Definition of ring}
+\begin{definition}\label{ring}
+\uses{alg.binary_operation,alg.binary_operation.associative,alg.binary_operation.commutative,alg.binary_operation.identity,group.abelian}
+A **ring** is a set $R$ with two {{KNOWL('alg.binary_operation', 'binary operations')}} $+$ and $\cdot$ such that
+
+1. $R$ is an {{KNOWL('group.abelian', 'abelian group')}} with respect to $+$
+2. $\cdot$ is {{KNOWL('alg.binary_operation.associative', 'associative')}} on $R$
+3. the distributive laws hold, i.e., for all $a,b,c\in R$,
+$$ a\cdot(b+c) = a\cdot b+a\cdot c \qquad \text{and}\qquad (b+c)\cdot a = b\cdot a+c\cdot a$$
+4. there is an {{KNOWL('alg.binary_operation.identity', 'identity element')}} with respect to the operation $\cdot$, typically denoted by $1_R$ or, more simply, by $1$.
+
+The {{KNOWL('alg.binary_operation.identity', 'identity')}} element of $R$ as a group with respect to $+$ is typically denoted by $0_R$ or, more simply, by $0$.
+
+The ring $R$ is a **commutative ring** if $R$ is a ring such that the operation $\cdot$ is {{KNOWL('alg.binary_operation.commutative', 'commutative')}} on $R$.
+
+We say that $R$ is a **rng** (also called **ring without identity**) if conditions 1-3 (but not necessarily 4) are satisfied.  
+\end{definition}
+
+

@@ -1,0 +1,22 @@
+\subsection{Conductor of a Dirichlet character from its Conrey label}
+\begin{definition}\label{character.dirichlet.conrey.conductor}
+\uses{character.dirichlet,character.dirichlet.conductor,character.dirichlet.induce}
+Let $$\chi_q(n,\cdot)=\prod_{p|q}\chi_{p^e}(n,\cdot)$$ be the unique factorization of the {{KNOWL('character.dirichlet', "Dirichlet character")}} $\chi_q(n,\cdot)$ into characters of prime power modulus $p^e$ under the {{KNOWL ("character.dirichlet.conrey",title="Conrey labeling system")}}.  The {{KNOWL('character.dirichlet.conductor', 'conductor')}} of $\chi_q(n,\cdot)$ is the product of the conductors of the $\chi_{p^e}(n,\cdot)$.
+
+For odd prime $p$ and $f\leq e$, the isomorphism between $(\Z/p^f\Z)^\times$
+and the kernel of $x\mapsto x^{p^{e-f}}$ in $(\Z/p^e\Z)^\times$ is compatible with
+the Conrey labeling system.  This implies that $\chi_{p^e}(n,\cdot)$ is {{KNOWL('character.dirichlet.induce', 'induced')}} by a Dirichlet character of modulus $p^{f}$ whenever $p^{e-f}$ divides the order of $n$ modulo $p^e$.
+
+Thus for odd primes $p$, the conductor of $\chi_{p^e}(n,\cdot)$ is
+
+- $1$ if $n\equiv 1\bmod p^e$;
+- $p^f$ if $n^{p-1}$ has order $p^{f-1}$ modulo $p^e$.
+
+For $p=2$ the conductor of $\chi_{p^e}(n,\cdot)$ is
+
+- 1 if $n\equiv 1\bmod 2^e$;
+- $4$ if $e=2$ and $n\equiv 3\bmod 4$;
+- $2^{f+2}$ if $e\geq3$ and $\varepsilon n$ has order $2^f$ modulo $2^e$, where $\varepsilon\in\{-1,1\}$ satisfies $n\equiv \epsilon\bmod 4$.
+\end{definition}
+
+

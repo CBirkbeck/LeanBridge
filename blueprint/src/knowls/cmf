@@ -1,0 +1,29 @@
+\subsection{Classical modular form}
+\begin{definition}\label{cmf}
+\uses{character.dirichlet,cmf.level,cmf.weight,group.fuchsian.cusps,group.sl2z,group.sl2z.subgroup.gamma0n,group.sl2z.subgroup.gamma1n,group.sl2z.subgroup.gamman,mf.upper_half_plane}
+Let $k$ be a positive integer and let $\Gamma$ be a finite index subgroup of the {{KNOWL('group.sl2z', 'modular group')}} $\SL(2,\Z)$.
+
+A (classical) **modular form** $f$ of  {{ KNOWL('cmf.weight', "weight") }} $k$ on $\Gamma$,  is a holomorphic function defined on the {{KNOWL('mf.upper_half_plane', "upper half plane")}} $\mathcal{H}$, which satisfies the transformation property
+\[
+f(\gamma z) = (cz+d)^k f(z)
+\] 
+for all $z\in\mathcal{H}$ and $\gamma=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in \Gamma$ and is holomorphic  at all the {{KNOWL('group.fuchsian.cusps', "cusps")}} of $\Gamma$.
+
+If $\Gamma$ contains the principal congruence subgroup {{KNOWL('group.sl2z.subgroup.gamman', "$\Gamma(N)$")}} then $f$ is said to be a modular form of {{KNOWL('cmf.level', 'level')}} $N$.
+
+For each fixed choice of $k$ and $\Gamma$ the set of modular forms of weight $k$ on $G$ form a finite-dimensional $\mathbb{C}$-vector space denoted $M_k(\Gamma)$.
+
+For the congruence subgroup {{KNOWL('group.sl2z.subgroup.gamma1n', "$\Gamma_1(N)$")}} the space $M_k(\Gamma_1(N))$ decomposes as a direct sum of subspaces $M_k(N,\chi)$ over the group of {{ KNOWL('character.dirichlet', 'Dirichlet characters') }} $\chi$ of modulus $N$, where $M_k(N,\chi)$ is the subspace of forms $f\in M_k(N)$ that satisfy
+\[
+           f(\gamma z) = \chi(d)(cz+d)^k f(z)
+\]
+for all $\gamma=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ in {{ KNOWL('group.sl2z.subgroup.gamma0n', '$\Gamma_0(N)$') }}.
+
+Elements of $M_k(N,\chi)$ are said to be modular forms of weight $k$, level $N$, and character $\chi$.
+
+For trivial character $\chi$ of modulus $N$ we have $M_k(N,\chi)=M_k(\Gamma_0(N))$.
+
+
+\end{definition}
+
+

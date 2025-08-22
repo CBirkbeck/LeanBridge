@@ -1,0 +1,7 @@
+\subsection{Conductor of a Dirichlet character}
+\begin{definition}\label{character.dirichlet.conductor}
+\uses{character.dirichlet}
+The **conductor** of a {{KNOWL("character.dirichlet","Dirichlet character")}} $\chi$ modulo $q$ is the least positive integer $q_1$ dividing $q$ for which $\chi(n+kq_1)=\chi(n)$ for all $n$ and $n+kq_1$ coprime to $q$.
+\end{definition}
+
+

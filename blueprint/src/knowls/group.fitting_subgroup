@@ -1,0 +1,7 @@
+\subsection{Fitting subgroup of a group}
+\begin{definition}\label{group.fitting_subgroup}
+\uses{group,group.nilpotent,group.subgroup,group.subgroup.normal}
+The **Fitting subgroup** of a {{KNOWL('group', 'group')}} $G$, denoted $\mathrm{Fit}(G)$, is the largest {{KNOWL('group.subgroup.normal', 'normal')}} {{KNOWL('group.subgroup', 'subgroup')}} of $G$ which is {{KNOWL('group.nilpotent', 'nilpotent')}}.  Since the product of a collection of normal nilpotent subgroups of a group is nilpotent, the Fitting subgroup is unique.
+\end{definition}
+
+

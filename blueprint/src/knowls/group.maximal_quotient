@@ -1,0 +1,7 @@
+\subsection{Maximal quotient of a group}
+\begin{definition}\label{group.maximal_quotient}
+\uses{group,group.minimal_normal,group.quotient}
+A **maximal quotient** $M = G/K$ of a {{KNOWL('group', 'group')}} $G$ is a {{KNOWL('group.quotient', 'quotient')}} of $G$ with the property that if $H \le K$ is normal in $G$ then either $H=K$ or $H=1$.  Equivalently, $K$ is a {{KNOWL('group.minimal_normal', 'minimal normal subgroup')}} of $G$.
+\end{definition}
+
+

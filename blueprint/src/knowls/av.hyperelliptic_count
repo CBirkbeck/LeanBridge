@@ -1,0 +1,7 @@
+\subsection{Number of hyperelliptic Jacobians}
+\begin{definition}\label{av.hyperelliptic_count}
+\uses{ag.hyperelliptic_curve,ag.jacobian,av.isogeny_class,av.princ_polarizable}
+The number of {{KNOWL('ag.jacobian', 'Jacobians')}} of {{KNOWL('ag.hyperelliptic_curve', 'hyperelliptic curves')}} in each {{KNOWL('av.isogeny_class', 'isogeny class')}} (up to isomorphism of {{KNOWL('av.princ_polarizable', 'principally polarized abelian varieties')}}) has been computed for $g \le 2$ and $q \le 211$; and for $g = 3$ and $q \le 13$ that are either prime or odd.
+\end{definition}
+
+

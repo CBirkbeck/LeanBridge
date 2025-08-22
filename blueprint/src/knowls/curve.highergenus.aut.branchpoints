@@ -1,0 +1,10 @@
+\subsection{Branch Points}
+\begin{definition}\label{curve.highergenus.aut.branchpoints}
+\uses{ag.riemann_surface}
+If $G$ is a finite group of automorphisms acting on a {{KNOWL('ag.riemann_surface', "Riemann surface")}} $X$, and $\phi\colon X\to X/G$ is the natural projection to the quotient $X/G$ (the compact Riemann surface whose points are the $G$-orbits of $X$), then all but finitely many fibers of the map $\phi$ have cardinality $d:=|G|$.
+
+The points $P$ of $X/G$ whose fibers $\phi^{-1}(P)$ have cardinality strictly less than $d$ are called **branch points**.
+
+\end{definition}
+
+

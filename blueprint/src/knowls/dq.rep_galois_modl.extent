@@ -1,0 +1,11 @@
+\subsection{Extent of data for mod &#8467; Galois representations}
+\begin{definition}\label{dq.rep_galois_modl.extent}
+\uses{}
+{% if rep_galois_modl_summary is defined %}
+  {{ rep_galois_modl_summary()|safe}}
+{% else %}
+  This information can only be displayed with a more recent version of the LMFDB.
+{% endif %}
+\end{definition}
+
+

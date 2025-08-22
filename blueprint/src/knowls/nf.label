@@ -1,0 +1,17 @@
+\subsection{Number field label}
+\begin{definition}\label{nf.label}
+\uses{nf.degree,nf.discriminant,nf.signature}
+Each (global) number field has a unique label of the form d.r.D.i where
+<ul>
+<li>\(d\) is the {{ KNOWL("nf.degree", "degree")}};
+<li>\(r\) is the real signature;  the full {{ KNOWL("nf.signature", "signature")}} is therefore \([r,(d-r)/2]\);
+<li>\(D\) is the absolute value of the {{ KNOWL("nf.discriminant", "discriminant")}};
+<li>\(i\) is the index, counting from 1.  This is in case there is more than one
+  field with the same signature and absolute value of the
+  discriminant: for example <a href="/NumberField/4.0.1008.1">4.0.1008.1</a> and <a href="/NumberField/4.0.1008.2">4.0.1008.2</a>.
+</ul>
+The discriminant portion of the label can take the form \(a_1\) e \(\epsilon_1\) _ \(a_2\) e \(\epsilon_2\) _ \(\cdots\) _ \(a_k\) e \(\epsilon_k\) to mean the absolute value of the
+discriminant equals \(a_1^{\epsilon_1}a_2^{\epsilon_2}\cdots a_k^{\epsilon_k}\).  The separators are the letter e and the underscore symbol.
+\end{definition}
+
+

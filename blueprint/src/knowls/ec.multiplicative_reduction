@@ -1,0 +1,9 @@
+\subsection{Multiplicative reduction}
+\begin{definition}\label{ec.multiplicative_reduction}
+\uses{ec,ec.nonsplit_multiplicative_reduction,ec.split_multiplicative_reduction,nf}
+An {{ KNOWL('ec', "elliptic curve") }} $E$ defined over a {{ KNOWL('nf', "number field") }} $K$ is said to have **multiplicative reduction** at a prime $\mathfrak p$ of $K$ if the reduction of $E$ modulo $\mathfrak p$ has a nodal singularity.
+
+The case of multiplicative reduction is further subdivided into {{ KNOWL('ec.split_multiplicative_reduction', 'split multiplicative reduction') }} and {{ KNOWL('ec.nonsplit_multiplicative_reduction', 'nonsplit multiplicative reduction') }}.
+\end{definition}
+
+
