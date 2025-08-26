@@ -1,6 +1,6 @@
 \subsection{Galois group}
 \begin{definition}\label{nf.galois_group}
-\uses{lf.automorphism_group,nf.degree,nf.galois_closure,nf.galois_group.name,nf.separable,ring.field}
+\uses{lf.automorphism_group,nf.degree,nf.galois_closure,nf.separable,ring.field}
 Let $K$ be a finite {{KNOWL('nf.degree', 'degree')}} $n$ {{ KNOWL('nf.separable', 'separable extension') }} of a {{KNOWL('ring.field', 'field')}} $F$, and $K^{gal}$ be its
 {{ KNOWL('nf.galois_closure', 'Galois (or normal) closure')}}. 
 The **Galois group** for $K/F$ is the {{ KNOWL('lf.automorphism_group', 'automorphism group')}} $\Aut(K^{gal}/F)$.  

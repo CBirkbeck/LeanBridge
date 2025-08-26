@@ -1,6 +1,6 @@
 \subsection{Hecke operator}
 \begin{definition}\label{cmf.hecke_operator}
-\uses{character.dirichlet,cmf,cmf.cusp_form,cmf.level,cmf.newform,cmf.newspace,cmf.petersson_scalar_product,cmf.q-expansion,cmf.weight}
+\uses{character.dirichlet,cmf,cmf.cusp_form,cmf.level,cmf.petersson_scalar_product,cmf.weight}
 Let $f$ be a {{KNOWL('cmf', "modular form")}} of {{ KNOWL('cmf.weight', "weight") }} $k$, {{ KNOWL('cmf.level', "level") }} $N$, and {{ KNOWL('character.dirichlet', "character") }} $\chi$.
 
 For each positive integer $n$ the **Hecke operator** $T_n$ is a linear operator on the vector space $M_k(N,\chi)$ whose action on $f\in M_k(N,\chi)$ can be defined as follows. If  $f(z)=\sum a_n (f)q^n$ is the {{KNOWL('cmf.q-expansion', '$q$-expansion')}} of $f\in M_k(N,\chi)$, where $q=e^{2\pi i z}$, then the $q$-expansion of $T_nf\in M_k(N,\chi)$ has coefficients

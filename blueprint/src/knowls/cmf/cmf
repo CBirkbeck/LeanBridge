@@ -1,6 +1,6 @@
 \subsection{Classical modular form}
 \begin{definition}\label{cmf}
-\uses{character.dirichlet,cmf.level,cmf.weight,group.fuchsian.cusps,group.sl2z,group.sl2z.subgroup.gamma0n,group.sl2z.subgroup.gamma1n,group.sl2z.subgroup.gamman,mf.upper_half_plane}
+\uses{character.dirichlet,group.fuchsian.cusps,group.sl2z,mf.upper_half_plane}
 Let $k$ be a positive integer and let $\Gamma$ be a finite index subgroup of the {{KNOWL('group.sl2z', 'modular group')}} $\SL(2,\Z)$.
 
 A (classical) **modular form** $f$ of  {{ KNOWL('cmf.weight', "weight") }} $k$ on $\Gamma$,  is a holomorphic function defined on the {{KNOWL('mf.upper_half_plane', "upper half plane")}} $\mathcal{H}$, which satisfies the transformation property

@@ -1,6 +1,6 @@
 \subsection{Artin representation (definition)}
 \begin{definition}\label{artin}
-\uses{artin.number_field,group.galois.absolute,nf.galois_group}
+\uses{group.galois.absolute,nf.galois_group}
 An **Artin representation** is a continuous homomorphism
 $\rho:\mathrm{Gal}(\overline{\Q}/\Q)\to\GL(V)$ from the
 {{KNOWL("group.galois.absolute", "absolute Galois group")}} of $\Q$ to the automorphism group of a

@@ -1,6 +1,6 @@
 \subsection{Modular curve $X(N)$}
 \begin{definition}\label{modcurve.xn}
-\uses{alg.symplectic_isomorphism,cmf.congruence_subgroup,ec.ring,gl2.open,mf.upper_half_plane,modcurve,modcurve.components,ring.a-field}
+\uses{alg.symplectic_isomorphism,cmf.congruence_subgroup,ec.ring,gl2.open,mf.upper_half_plane,ring.a-field}
 There are three variants of the modular curve $Y(N)$:
 
 1. There is a functor sending each $\Z[1/N]$-algebra $R$ to the set of (isomorphism classes of) pairs $(E,\alpha)$ such that $E$ is an {{KNOWL('ec.ring', 'elliptic curve over $R$')}} and $\alpha \colon E[N] \to (\Z/N\Z)^2$ is an isomorphism of group schemes.  Suppose that $N \ge 3$; then this functor is represented by a smooth affine $\mathbb{Z}[1/N]$-scheme $Y_{\mathrm{full}}(N)$, called the **full modular curve of level $N$**.  (If $N<3$, it is representable only by an algebraic stack, and one must take the coarse moduli space to get a scheme.)  For any field $k$ with $\operatorname{char} k \nmid N$, the set $Y_{\mathrm{full}}(N)(k)$ is the set of isomorphism classes of triples $(E,P,Q)$ , where $E$ is an elliptic curve over $k$ and $P,Q \in E(k)$ form a $(\Z/N\Z)$-basis of $E[N]$.  The curve $Y_{\mathrm{full}}(N)_{\Q}$ is integral but typically has several {{KNOWL('modcurve.components', 'geometric components')}}.

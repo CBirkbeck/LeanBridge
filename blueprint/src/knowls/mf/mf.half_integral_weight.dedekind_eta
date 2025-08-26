@@ -1,6 +1,6 @@
 \subsection{Dedekind eta function}
 \begin{definition}\label{mf.half_integral_weight.dedekind_eta}
-\uses{cmf.1.12.a.a.top}
+\uses{}
 We define the **Dedekind eta function** $\eta(z)$ by the formula
 \[
 \eta(z)=q^{1/24}\prod_{n\geq1}(1-q^n),

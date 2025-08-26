@@ -1,6 +1,6 @@
 \subsection{Analytic order of &#1064;}
 \begin{definition}\label{ec.analytic_sha_order}
-\uses{ec,ec.base_change,ec.bsdconjecture,ec.mordell_weil_group,ec.period,ec.rank,ec.regulator,ec.tamagawa_number,ec.torsion_subgroup,group.abelian,group.galois.absolute,group.order,group.torsion,nf,nf.discriminant,nf.place,nf.prime}
+\uses{ec,ec.base_change,ec.mordell_weil_group,ec.period,ec.rank,ec.regulator,ec.tamagawa_number,ec.torsion_subgroup,group.abelian,group.galois.absolute,group.order,group.torsion,nf,nf.discriminant,nf.place,nf.prime}
 The **Tate-Shafarevich group** &#1064; of an {{KNOWL('ec', 'elliptic curve')}} $E$ defined over a {{KNOWL('nf', 'number field')}} $K$ is a {{KNOWL('group.torsion', 'torsion')}} {{KNOWL('group.abelian', 'abelian group')}}, which can be defined in terms of Galois cohomology as
 $$
 &#1064;(E) := \ker\left(H^1(G_K,E) \to \prod_v H^1(G_{K_v},E_{K_v}) \right),

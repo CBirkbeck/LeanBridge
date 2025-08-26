@@ -1,6 +1,6 @@
 \subsection{Modular curve}
 \begin{definition}\label{modcurve}
-\uses{ag.curve.smooth,ag.quotient_curve,cmf.congruence_subgroup,ec,ec.galois_rep,gl2.level,gl2.open,mf.upper_half_plane,modcurve.components,modcurve.cusps,modcurve.level_structure,modcurve.xn}
+\uses{ag.curve.smooth,ag.quotient_curve,cmf.congruence_subgroup,ec,ec.galois_rep,gl2.level,gl2.open,mf.upper_half_plane,modcurve.cusps,modcurve.level_structure,modcurve.xn}
 For each {{KNOWL('gl2.open', 'open subgroup')}} $H \le \GL_2(\widehat\Z)$, there is a **modular curve** $X_H$, defined as a quotient of the {{KNOWL('modcurve.xn', 'full modular curve')}} $X_{\text{full}}(N)$, where $N$ is the {{KNOWL('gl2.level','level')}} of $H$.  More precisely, $H$ is the inverse image of a subgroup $H_N \le \GL_2(\Z/N\Z)$, which acts on $X_{\text{full}}(N)$ over $\Q$, and $X_H$ is the {{KNOWL('ag.quotient_curve', 'quotient curve')}} $H_N \backslash X_{\text{full}}(N)$, also defined over $\Q$.
 
 Like $X_{\text{full}}(N)$, the curve $X_H$ is {{KNOWL('ag.curve.smooth', 'smooth')}}, projective, and integral, and when $\det(H)=\widehat{\Z}$ it is also geometrically integral, but in general it may have several {{KNOWL('modcurve.components', 'geometric components')}}, as is the case for $X_{\text{full}}(N)$ when $N>2$.

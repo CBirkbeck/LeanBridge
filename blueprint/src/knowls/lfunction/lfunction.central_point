@@ -1,6 +1,6 @@
 \subsection{Central point of an L-function}
 \begin{definition}\label{lfunction.central_point}
-\uses{lfunction,lfunction.critical_line,lfunction.functional_equation,lfunction.motivic_weight,lfunction.normalization}
+\uses{lfunction,lfunction.critical_line,lfunction.functional_equation}
 The **central point** of an {{KNOWL("lfunction", "L-function")}} is the
 point on the real axis of the {{KNOWL("lfunction.critical_line", "critical line")}}.  Equivalently,
 it is the fixed point of the {{KNOWL("lfunction.functional_equation", "functional equation")}}.

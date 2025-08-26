@@ -1,6 +1,6 @@
 \subsection{Minimal sibling}
 \begin{definition}\label{nf.minimal_sibling}
-\uses{gg.tnumber,nf,nf.defining_polynomial.normalization,nf.degree,nf.discriminant,nf.galois_group,nf.sibling}
+\uses{nf,nf.degree,nf.discriminant,nf.galois_group,nf.sibling}
 The **minimal sibling** of a {{KNOWL('nf', 'number field')}} is a {{KNOWL('nf.sibling','sibling')}} that is minimal with respect to the following quantities considered in order:
 
  - its {{KNOWL('nf.degree', 'degree')}}

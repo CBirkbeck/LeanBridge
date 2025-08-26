@@ -1,6 +1,6 @@
 \subsection{Stark unit of a newform of weight one}
 \begin{definition}\label{cmf.stark_unit}
-\uses{cmf.artin_field,cmf.galois_representation,cmf.lfunction,cmf.newform,cmf.weight}
+\uses{cmf.artin_field,cmf.galois_representation,cmf.newform,cmf.weight}
 Stark's conjecture applied to the associated {{KNOWL("cmf.galois_representation", "Galois representation")}} of a {{KNOWL("cmf.newform", "newform")}} $f(z)=\sum a_n q^n$ of {{KNOWL("cmf.weight", "weight")}} one \cite{MR:0782485} states the following. Let $E=\mathbb{Q}((a_n)_{n \in \mathbb{N}})$, $\Delta=\text{Gal}(E/\mathbb{Q})$ and $f^\alpha(z)=\sum \alpha(a_n) q^n$ for $\alpha \in \Delta$. Let $L(s, f)$ be the {{KNOWL("cmf.lfunction", "L-function")}} of $f$. Then, for all $b \in E^*$ there exists an integer $m \geq 1$ and a unit $\varepsilon$ in the {{ KNOWL("cmf.artin_field", "Artin field")}} of $f$, called the **Stark unit**, such that
 
 \[

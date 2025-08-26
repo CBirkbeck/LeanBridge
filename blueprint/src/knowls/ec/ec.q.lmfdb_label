@@ -1,6 +1,6 @@
 \subsection{Label for an elliptic curve over $\mathbb Q$}
 \begin{definition}\label{ec.q.lmfdb_label}
-\uses{ec,ec.conductor,ec.isogeny_class,ec.isomorphism,ec.q.conductor,ec.q.cremona_label,ec.q.minimal_weierstrass_equation}
+\uses{ec,ec.conductor,ec.isogeny_class,ec.isomorphism,ec.q.conductor,ec.q.minimal_weierstrass_equation}
 The **LMFDB label** of an elliptic curve $E$ over $\mathbb{Q}$ is  a way of indexing the elliptic curves over $\mathbb Q.$ It has the form "11.a1" or "10050.bf2". 
 
 The label has three components: the **conductor**, the **isogeny class label**, and the **isomorphism class index**.

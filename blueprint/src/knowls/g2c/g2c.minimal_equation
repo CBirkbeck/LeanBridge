@@ -1,6 +1,6 @@
 \subsection{Minimal equation of a hyperelliptic curve}
 \begin{definition}\label{g2c.minimal_equation}
-\uses{ag.curve.genus,ag.curve.smooth,ag.hyperelliptic_curve,g2c.discriminant,g2c.good_reduction,g2c.simple_equation}
+\uses{ag.curve.genus,ag.curve.smooth,ag.hyperelliptic_curve,g2c.discriminant,g2c.good_reduction}
 Every ({{KNOWL('ag.curve.smooth', 'smooth')}}, projective, geometrically integral) {{ KNOWL('ag.hyperelliptic_curve', 'hyperelliptic curve') }} $X$ over $\Q$ of {{KNOWL('ag.curve.genus', 'genus')}} $g$ can be defined by an integral Weierstrass equation
 $$y^2+h(x)y=f(x),$$
 where $h(x)$ and $f(x)$ are integral polynomials of degree at most $g+1$ and $2g+2$, respectively.    Each such equation has a {{KNOWL('g2c.discriminant', 'discriminant')}} $\Delta$.  A **minimal equation** is one for which $|\Delta|$ is minimal among all integral Weierstrass equations for the same curve.  Over $\Q$, every hyperelliptic curve has a minimal equation.  The prime divisors of $\Delta$ are the primes of {{KNOWL('g2c.good_reduction', 'bad reduction')}} for $X$.

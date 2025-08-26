@@ -1,6 +1,6 @@
 \subsection{Optimal  elliptic curve over $\mathbb Q$}
 \begin{definition}\label{ec.q.optimal}
-\uses{ec.isogeny_class,ec.q,ec.q.conductor,ec.q.cremona_label}
+\uses{ec.isogeny_class,ec.q,ec.q.conductor}
 An {{KNOWL("ec.q","elliptic curve")}} over $\Q$ is **optimal** if it is an optimal quotient of the corresponding modular curve. Every isogeny class contains a unique optimal curve. For more information, see [William Stein's page on optimal quotients.](http://wstein.org/papers/ars-manin/html/node2.html)
 
 Optimal curves have a {{KNOWL('ec.q.cremona_label', 'Cremona label')}} whose last component is the number 1, with the exception of class 990h where the optimal curve is 990h3 (number 3).  This is a historical accident and has no mathematical significance.  

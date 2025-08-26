@@ -1,6 +1,6 @@
 \subsection{Inner twist}
 \begin{definition}\label{cmf.inner_twist}
-\uses{character.dirichlet,character.dirichlet.galois_orbit,character.dirichlet.primitive,cmf.cm_form,cmf.coefficient_field,cmf.galois_conjugate,cmf.galois_orbit,cmf.inner_twist_count,cmf.inner_twist_group,cmf.newform,cmf.rm_form,cmf.self_twist}
+\uses{character.dirichlet,character.dirichlet.galois_orbit,character.dirichlet.primitive,cmf.cm_form,cmf.coefficient_field,cmf.galois_conjugate,cmf.galois_orbit,cmf.newform,cmf.rm_form,cmf.self_twist}
 {{KNOWL('cmf.galois_conjugate', 'Galois conjugate')}} {{KNOWL('cmf.newform', 'newforms')}} $f$ and $g$ are **inner twists** if there is a {{KNOWL('character.dirichlet', 'Dirichlet character')}} $\chi$ such that
 \[
 a_p(g) = \chi(p)a_p(f)

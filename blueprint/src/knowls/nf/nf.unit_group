@@ -1,6 +1,6 @@
 \subsection{Unit group of a number field}
 \begin{definition}\label{nf.unit_group}
-\uses{nf,nf.fundamental_units,nf.rank,nf.regulator,nf.ring_of_integers}
+\uses{nf,nf.ring_of_integers}
 The **unit group** of a {{ KNOWL('nf', "number field") }} $K$ is the group of units of the {{ KNOWL('nf.ring_of_integers',  "ring of integers") }} of $K$.  It is a finitely generated abelian group with cyclic torsion subgroup.  A set of generators of a maximal torsion-free subgroup is called a set of {{ KNOWL('nf.fundamental_units', "fundamental units") }} for $K$.    
 
 The unit group of $K$ has as invariants the {{ KNOWL('nf.rank', "rank") }}

@@ -1,6 +1,6 @@
 \subsection{Endomorphism of an elliptic curve}
 \begin{definition}\label{ec.endomorphism}
-\uses{ag.abelian_variety,ag.endomorphism_ring,ec,ec.endomorphism_ring}
+\uses{ag.abelian_variety,ag.endomorphism_ring,ec}
 An **endomorphism** of an {{ KNOWL('ec', 'elliptic curve') }} defined over a field $K$ is a homomorphism $\varphi\colon E\to E$ defined over $K$.  The set of all endomorphisms of $E$ forms a ring called the {{ KNOWL('ec.endomorphism_ring', 'endomorphism ring') }} of $E$, denoted $\End(E)$, a special case of the {{ KNOWL('ag.endomorphism_ring', 'endomorphism ring') }} of an {{ KNOWL('ag.abelian_variety', 'abelian variety') }}.
 \end{definition}
 

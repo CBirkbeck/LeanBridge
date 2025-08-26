@@ -1,6 +1,6 @@
 \subsection{Complex embedding label}
 \begin{definition}\label{cmf.embedding_label}
-\uses{character.dirichlet.conrey,character.dirichlet.galois_orbit_label,cmf.cusp_form,cmf.embedding,cmf.hecke_galois_orbit,cmf.level,cmf.weight}
+\uses{character.dirichlet.galois_orbit_label,cmf.cusp_form,cmf.embedding,cmf.level,cmf.weight}
 The **label** complex embedded holomorphic {{KNOWL('cmf.cusp_form', 'cusp form')}} \( f\) is \( N.k.a.x.c.j \) (sometimes shortened as \( a.j\) ), where
 
 -  \( N\) is the {{KNOWL('cmf.level', 'level')}},

@@ -1,6 +1,6 @@
 \subsection{L-function}
 \begin{definition}\label{lfunction}
-\uses{lfunction.conductor,lfunction.critical_line,lfunction.critical_strip,lfunction.degree,lfunction.dirichlet_series,lfunction.euler_product,lfunction.functional_equation,lfunction.rh,lfunction.root_number,lfunction.selberg_class.axioms,lfunction.selbergdata,lfunction.spectral_parameters,lfunction.zeros}
+\uses{lfunction.dirichlet_series,lfunction.euler_product,lfunction.functional_equation}
 An (analytic) **L-function** is a {{KNOWL("lfunction.dirichlet_series", "Dirichlet series")}} that has an {{KNOWL("lfunction.euler_product", "Euler product")}} and satisfies a certain type of {{KNOWL("lfunction.functional_equation", "functional equation")}}.
 
 It is expected that all L-functions satisfy the {{KNOWL("lfunction.rh", "Riemann Hypothesis,")}} that all of the {{KNOWL('lfunction.zeros', 'zeros')}} in the {{KNOWL("lfunction.critical_strip", "critical strip")}} are on the {{KNOWL("lfunction.critical_line", "critical line")}}. Selberg has defined a class $\mathcal S$ of Dirichlet series that satisfy the {{KNOWL("lfunction.selberg_class.axioms", "Selberg axioms.")}} It is conjectured (but far from proven) that $\mathcal S$ is precisely the set of all L-functions. Selberg's axioms have not been verified for all of the L-functions in this database but are known to hold for many of them.

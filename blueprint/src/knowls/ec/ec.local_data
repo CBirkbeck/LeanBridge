@@ -1,6 +1,6 @@
 \subsection{Local data of an elliptic curve}
 \begin{definition}\label{ec.local_data}
-\uses{ec,ec.conductor_valuation,ec.discriminant_valuation,ec.j_invariant_denominator_valuation,ec.kodaira_symbol,ec.local_root_number,ec.reduction_type,ec.tamagawa_number,nf}
+\uses{ec,ec.kodaira_symbol,ec.reduction_type,ec.tamagawa_number,nf}
 The **local data** of an  {{ KNOWL('ec', 'elliptic curve') }} \(E\) defined over a {{ KNOWL('nf', 'number field') }} \(K\)  at a prime \(\mathfrak{p}\) of \(K\) consists of
 
  - the {{ KNOWL('ec.tamagawa_number', 'Tamagawa number') }} \(c_{\mathfrak{p}}\)

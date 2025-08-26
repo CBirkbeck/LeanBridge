@@ -1,6 +1,6 @@
 \subsection{Normalization of an L-function}
 \begin{definition}\label{lfunction.normalization}
-\uses{lfunction.central_value,lfunction.functional_equation}
+\uses{lfunction.functional_equation}
 In its **arithmetic normalization**, an L-function $L(s)$ of weight $w$ has its {{KNOWL('lfunction.central_value', 'central value')}} at $s=\frac{w+1}{2}$
 and the {{KNOWL('lfunction.functional_equation', 'functional equation')}} relates
 $s$ to $1 + w - s$.

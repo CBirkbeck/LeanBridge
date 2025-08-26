@@ -1,6 +1,6 @@
 \subsection{Szpiro ratio}
 \begin{definition}\label{ec.q.szpiro_ratio}
-\uses{ec,ec.minimal_discriminant,ec.q.abc_quality,ec.q.conductor,ec.q.j_invariant}
+\uses{ec,ec.minimal_discriminant,ec.q.conductor,ec.q.j_invariant}
 The (modified) **Szpiro ratio** of an {{KNOWL('ec', 'elliptic curve')}} $E$ is defined as
 \[
 \sigma_m(E) = \frac{\log \max(|c_4|^3, |c_6|^2)}{\log N},

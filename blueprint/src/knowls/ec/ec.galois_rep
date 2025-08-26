@@ -1,6 +1,6 @@
 \subsection{Galois representations attached to an elliptic curve}
 \begin{definition}\label{ec.galois_rep}
-\uses{ec,ec.complex_multiplication,ec.padic_tate_module,gl2.genus,gl2.index,gl2.level,gl2.open,group.galois.absolute,nf}
+\uses{ec,ec.complex_multiplication,ec.padic_tate_module,gl2.index,gl2.level,gl2.open,group.galois.absolute,nf}
 If $E$ is an {{ KNOWL('ec', 'elliptic curve')}} defined over a field $K$ and $m$ is a positive integer, then the **mod-$m$ Galois representation** attached to $E$ is the continuous homomorphism
 \[
     \overline\rho_{E,m}: \Gal(\overline{K}/K) \to \Aut(E[m])

@@ -1,6 +1,6 @@
 \subsection{Functional equation of an L-function}
 \begin{definition}\label{lfunction.functional_equation}
-\uses{lfunction,lfunction.central_point,lfunction.conductor,lfunction.degree,lfunction.gamma_factor,lfunction.motivic_weight,lfunction.selberg_class,lfunction.selberg_class.axioms,lfunction.selbergdata,lfunction.sign,lfunction.signature,lfunction.spectral_parameters,specialfunction.gamma}
+\uses{lfunction.gamma_factor,specialfunction.gamma}
 All known {{KNOWL("lfunction", "analytic L-functions")}} have a **functional equation** that can be written in the form
 \[
 \Lambda(s) := N^{s/2}

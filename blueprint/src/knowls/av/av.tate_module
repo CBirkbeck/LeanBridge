@@ -1,6 +1,6 @@
 \subsection{Tate module of an abelian variety}
 \begin{definition}\label{av.tate_module}
-\uses{av.galois_rep,av.isogeny,group.galois.absolute}
+\uses{av.isogeny,group.galois.absolute}
 Let $p \in \mathbb{Z}_{\geq 0}$ be a prime and $A$ an abelian variety of dimension $g$ defined over a field $K$. The **$p$-adic Tate module** of $A$ is the inverse limit
 \[
 T_p(A) = \lim_{\xleftarrow[n \in \mathbb{N}]{}} A[p^n].

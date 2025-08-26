@@ -1,6 +1,6 @@
 \subsection{Atkin-Lehner involution $w_Q$}
 \begin{definition}\label{cmf.atkin-lehner}
-\uses{ag.modcurve.x0,cmf.cusp_form,cmf.fricke,cmf.hecke_operator,cmf.weight,group.sl2z.subgroup.gamma0n}
+\uses{cmf.cusp_form,cmf.hecke_operator,cmf.weight}
 Let $N$ be a positive integer, and let $Q$ be a positive divisor of $N$ satisfying $\gcd(Q,N/Q)=1$.  Then there exist $x,y,z,t \in \Z$ for which the matrix
 \[ W_Q=\left( \begin{matrix} Qx & y \\ Nz & Qt\end{matrix} \right) \]
 has determinant $Q$. The matrix $W_Q$ normalizes the group {{KNOWL('group.sl2z.subgroup.gamma0n','$\Gamma_0(N)$')}}, and for any {{KNOWL('cmf.weight', 'weight')}} $k$ it induces a linear operator $w_Q$ on the space of {{KNOWL('cmf.cusp_form', 'cusp forms')}}  $S_k(\Gamma_0(N))$ that commutes with the {{KNOWL('cmf.hecke_operator', "Hecke operators")}} $T_p$ for all $p \nmid Q$ and acts as its own inverse.

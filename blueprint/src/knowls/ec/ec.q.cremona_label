@@ -1,6 +1,6 @@
 \subsection{Cremona label}
 \begin{definition}\label{ec.q.cremona_label}
-\uses{ec,ec.isogeny,ec.isogeny_class,ec.isomorphism,ec.q.conductor,ec.q.lmfdb_label,ec.q.optimal}
+\uses{ec,ec.isogeny,ec.isogeny_class,ec.isomorphism,ec.q.conductor,ec.q.optimal}
 The **Cremona label** of an {{KNOWL('ec', 'elliptic curve')}} over $\mathbb{Q}$ is  a way of indexing the elliptic curves over $\mathbb Q.$ It has the form $11a1$ or $10050bf2.$  The first number represents the {{KNOWL('ec.q.conductor', "conductor")}}, the letter or letters represent the {{KNOWL('ec.isogeny_class', "isogeny class")}} and the last number represents the {{KNOWL('ec.isomorphism', 'isomorphism class')}}  within the {{KNOWL('ec.isogeny', 'isogeny class')}} as it appears in [Cremona's tables.](http://johncremona.github.io/ecdata/)  In each isogeny class the curve with number 1 is the {{KNOWL('ec.q.optimal', '$\Gamma_0(N)$-optimal')}} curve.<br> 
 For more details, see "The elliptic curve database for conductors to 130000" by John Cremona in ANTS-VII proceedings, Lecture Notes in Computer Science, vol. 4076, 2006, 11-29. 
 

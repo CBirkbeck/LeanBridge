@@ -1,6 +1,6 @@
 \subsection{New subspace}
 \begin{definition}\label{cmf.newspace}
-\uses{character.dirichlet,character.dirichlet.induce,character.dirichlet.modulus,cmf,cmf.character,cmf.cusp_form,cmf.level,cmf.newform,cmf.petersson_scalar_product,cmf.weight}
+\uses{character.dirichlet,character.dirichlet.induce,character.dirichlet.modulus,cmf,cmf.character,cmf.cusp_form,cmf.level,cmf.petersson_scalar_product,cmf.weight}
 The space $S_k(N,\chi)$ of {{KNOWL('cmf.cusp_form', 'cuspidal')}} {{KNOWL('cmf', 'modular forms')}} of {{KNOWL('cmf.level', 'level')}} $N$, {{KNOWL('cmf.weight', 'weight')}} $k$, and {{KNOWL('cmf.character', 'character')}} $\chi$ can be decomposed 
 \[
 S_k(N,\chi) = S_k^{\rm old}(N,\chi) \oplus S_k^{\rm new}(N,\chi)

@@ -1,6 +1,6 @@
 \subsection{Tate module of an elliptic curve}
 \begin{definition}\label{ec.padic_tate_module}
-\uses{av.tate_module,ec.endomorphism,ec.galois_rep,group.galois.absolute}
+\uses{av.tate_module,ec.endomorphism,group.galois.absolute}
 Let $p \in \mathbb{Z}_{\geq 0}$ be a prime and $E$ an elliptic curve defined over a field $K$. The **$p$-adic Tate module** of $E$ is the inverse limit
 \[
 T_p(E) = \lim_{\xleftarrow[n \in \mathbb{N}]{}} E[p^n].

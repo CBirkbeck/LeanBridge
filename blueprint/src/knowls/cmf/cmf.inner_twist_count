@@ -1,6 +1,6 @@
 \subsection{Inner twist count}
 \begin{definition}\label{cmf.inner_twist_count}
-\uses{character.dirichlet,cmf.coefficient_field,cmf.dimension,cmf.inner_twist,cmf.inner_twist_group,cmf.inner_twist_proved,cmf.newform,cmf.self_twist,cmf.weight}
+\uses{character.dirichlet,cmf.coefficient_field,cmf.dimension,cmf.inner_twist,cmf.newform,cmf.self_twist,cmf.weight}
 The **inner twist count** of a {{KNOWL('cmf.newform', 'newform')}} $f$ is the number of distinct {{KNOWL('cmf.inner_twist', 'inner twists')}} of $f$.
 
 Associated to each inner twist is a pair $(\chi,\sigma)$, where $\chi$ is a primitive {{KNOWL('character.dirichlet', 'Dirichlet character')}} and $\sigma$ is a $\Q$-automorphism of the {{KNOWL('cmf.coefficient_field', 'coefficient field')}} of $f$.

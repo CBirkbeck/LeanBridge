@@ -1,6 +1,6 @@
 \subsection{$abc$ quality}
 \begin{definition}\label{ec.q.abc_quality}
-\uses{ec,ec.j_invariant,ec.q.conductor,ec.q.szpiro_ratio}
+\uses{ec,ec.j_invariant,ec.q.conductor}
 Given a triple $a,b,c$ of nonzero coprime integers, the **quality** of the triple is defined as
 $$
 Q = \frac{\log \max(|a|, |b|, |c|)}{\log \operatorname{rad}(abc)},

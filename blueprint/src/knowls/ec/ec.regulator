@@ -1,6 +1,6 @@
 \subsection{Regulator of an elliptic curve}
 \begin{definition}\label{ec.regulator}
-\uses{ec,ec.base_change,ec.bsdconjecture,ec.canonical_height,ec.mordell_weil_group,ec.rank,nf,nf.degree}
+\uses{ec,ec.base_change,ec.canonical_height,ec.mordell_weil_group,ec.rank,nf,nf.degree}
 The **regulator** of an {{ KNOWL('ec', 'elliptic curve') }} $E$ defined over a {{ KNOWL('nf', 'number field') }} $K$, denoted $\operatorname{Reg}(E/K)$, is the volume of $E(K)/E(K)_{tor}$ with respect to the **height pairing** $\langle -,-\rangle$ associated to the {{ KNOWL('ec.canonical_height', "canonical height") }} $\hat{h}$, i.e. $\langle P,Q\rangle = \frac{1}{2}(\hat{h}(P+Q)-\hat{h}(P)-\hat{h}(Q))$.
 
 If the {{ KNOWL('ec.mordell_weil_group', 'Mordell-Weil group') }} $E(K)$ has {{KNOWL('ec.rank', 'rank')}} $r$ and $P_1, \ldots, P_r \in E(K)$ generate $E(K)/E(K)_{\mathrm{tor}}$, then

@@ -34,3 +34,7 @@
 *.synctex.gz
 *.synctex.gz(busy)
 *.pdfsync
+## Emacs
+*~
+## LMFDB
+blueprint/src/flasklog

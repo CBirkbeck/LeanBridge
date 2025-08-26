@@ -1,6 +1,6 @@
 \subsection{Simple abelian variety}
 \begin{definition}\label{av.simple}
-\uses{ag.abelian_variety,av.decomposition}
+\uses{ag.abelian_variety}
 An {{KNOWL("ag.abelian_variety", "abelian variety")}} is **simple** if it is nonzero and not {{ KNOWL('av.decomposition','isogenous') }} to a product of abelian varieties of lower dimension.
 \end{definition}
 

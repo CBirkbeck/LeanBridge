@@ -1,6 +1,6 @@
 \subsection{Narrow class group}
 \begin{definition}\label{nf.narrow_class_group}
-\uses{nf,nf.narrow_class_number,nf.totally_positive}
+\uses{nf,nf.totally_positive}
 The **narrow class group** (also called the **strict class group**) of a {{ KNOWL('nf', "number field") }} $K$ is the group of equivalence classes of ideals, given by the quotient of the multiplicative group of all fractional ideals of $K$ by the subgroup of principal fractional ideals which have a {{ KNOWL('nf.totally_positive', 'totally positive')}} generator.  It is a
 finite abelian group whose order is the {{ KNOWL('nf.narrow_class_number', "narrow class number") }}.
 

@@ -1,6 +1,6 @@
 \subsection{$p$-adic completion of a number field}
 \begin{definition}\label{nf.padic_completion}
-\uses{lf.ring_of_integers,nf,nf.local_algebra,nf.place,nf.prime,ring.dedekind_domain,ring.field_of_fractions,ring.fractional_ideal,ring.integral_domain,ring.irreducible}
+\uses{lf.ring_of_integers,nf,nf.local_algebra,nf.prime,ring.dedekind_domain,ring.field_of_fractions,ring.fractional_ideal,ring.integral_domain,ring.irreducible}
 Let $K$ be a {{KNOWL('nf', 'number field')}}, $\mathcal{O}_K$ its {{KNOWL('lf.ring_of_integers', 'ring of integers')}}, $\mathfrak{P}$ a non-zero {{KNOWL('nf.prime', 'prime ideal')}} of $\mathcal{O}_K$, and $p\in \Z\cap \mathfrak{P}$.
 There are a couple of ways to construct $K_\mathfrak{P}$, the **$p$-adic completion of $K$ at $\mathfrak{P}$**.
 

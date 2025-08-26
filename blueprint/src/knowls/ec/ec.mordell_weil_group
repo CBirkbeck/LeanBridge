@@ -1,6 +1,6 @@
 \subsection{Mordell-Weil group}
 \begin{definition}\label{ec.mordell_weil_group}
-\uses{ag.abelian_variety,ag.mordell_weil,ec,ec.bsdconjecture,ec.mordell_weil_theorem,ec.rank,ec.torsion_order,ec.torsion_subgroup,nf}
+\uses{ag.abelian_variety,ag.mordell_weil,ec,nf}
 For an {{KNOWL('ec', 'elliptic curve')}} $E$ defined over a field $K$, the **Mordell-Weil group** of $E/K$ is the group $E(K)$ of $K$-rational points of $E$. It is a finitely-generated Abelian group.
 
 This is a special case of the {{KNOWL("ag.mordell_weil", "Mordell-Weil group of an abelian variety")}}.

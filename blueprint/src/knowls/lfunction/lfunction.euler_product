@@ -1,6 +1,6 @@
 \subsection{Euler product of an L-function}
 \begin{definition}\label{lfunction.euler_product}
-\uses{lfunction,lfunction.conductor,lfunction.degree}
+\uses{}
 It is expected that the **Euler product** of an {{KNOWL("lfunction", "L-function")}} of {{KNOWL('lfunction.degree', "degree")}} $d$ and {{KNOWL('lfunction.conductor', "conductor")}} $N$ can be written as
 $$L(s)=\prod_p L_p(s)$$ 
 where for  $p\nmid N$

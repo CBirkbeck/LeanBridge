@@ -1,6 +1,6 @@
 \subsection{Discriminant of a Weierstrass equation}
 \begin{definition}\label{ec.discriminant}
-\uses{ag.curve.smooth,ec,ec.q.minimal_weierstrass_equation,ec.weierstrass_coeffs,ring.field}
+\uses{ag.curve.smooth,ec,ec.weierstrass_coeffs,ring.field}
 The **discriminant** $\Delta$ of a {{KNOWL("ec.weierstrass_coeffs", "Weierstrass equation")}} over a {{KNOWL('ring.field', 'field')}} $K$ is an element of $K$ defined in terms of the {{KNOWL("ec.q.minimal_weierstrass_equation", "Weierstrass coefficients")}}.
 If the {{KNOWL("ec.weierstrass_coeffs", "Weierstrass equation")}} is \[y^2+a_1xy+a_3y=x^3+a_2x^2+a_4x+a_6,\] then $\Delta$ is given by a polynomial expression in $a_1,\dots,a_6$, namely,
 \[\Delta=-b_2^2b_8 - 8 b_4^3 -27 b_6 ^2 + 9 b_2 b_4 b_6\] where 

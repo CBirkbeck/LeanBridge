@@ -1,6 +1,6 @@
 \subsection{Affine space}
 \begin{definition}\label{ag.affine_space}
-\uses{ag.dimension,ring.field}
+\uses{ring.field}
 **Affine space** $\mathbb{A}^n(K)$ of {{KNOWL('ag.dimension', 'dimension')}} $n$ over a {{KNOWL('ring.field', 'field')}} $K$ is the set $K^n$.
 
 If $P=(x_1,\dots,x_n)$ is a point in $\mathbb{A}^n(K)$, the $x_i$ are called the *affine coordinates* of $P$.  Thus

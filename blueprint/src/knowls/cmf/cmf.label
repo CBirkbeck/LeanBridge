@@ -1,6 +1,6 @@
 \subsection{Label of a classical modular form}
 \begin{definition}\label{cmf.label}
-\uses{character.dirichlet,character.dirichlet.conrey,character.dirichlet.galois_orbit,character.dirichlet.galois_orbit_label,cmf.coefficient_field,cmf.embedding,cmf.galois_orbit,cmf.hecke_galois_orbit,cmf.level,cmf.newform,cmf.relative_dimension,cmf.weight}
+\uses{character.dirichlet,character.dirichlet.galois_orbit,character.dirichlet.galois_orbit_label,cmf.coefficient_field,cmf.embedding,cmf.galois_orbit,cmf.level,cmf.newform,cmf.relative_dimension,cmf.weight}
 The **label** of a {{KNOWL('cmf.newform', 'newform')}} $f\in S_k^{\rm new}(N,\chi)$ has the format \( N.k.a.x \), where
 
 -  \( N\) is the {{KNOWL('cmf.level', 'level')}};

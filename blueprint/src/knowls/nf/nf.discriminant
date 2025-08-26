@@ -1,6 +1,6 @@
 \subsection{Discriminant of a number field}
 \begin{definition}\label{nf.discriminant}
-\uses{nf,nf.integral_basis,nf.ramified_primes}
+\uses{nf,nf.integral_basis}
 The **discriminant** of a {{ KNOWL('nf', "number field") }} $K$ is the square of the determinant of the matrix
 \[
 \left( \begin{array}{ccc}

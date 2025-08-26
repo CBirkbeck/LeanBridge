@@ -1,6 +1,6 @@
 \subsection{Manin constant for elliptic curves over $\Q$}
 \begin{definition}\label{ec.q.manin_constant}
-\uses{ec,ec.isogeny,ec.q.conductor,ec.q.modular_form,ec.q.modular_parametrization,ec.q.optimal,ec.semistable}
+\uses{ec,ec.isogeny,ec.q.conductor,ec.q.modular_parametrization,ec.q.optimal,ec.semistable}
 The **Manin constant** is defined for  {{ KNOWL('ec', 'elliptic curves') }} over $\Q$ which are {{ KNOWL('ec.q.optimal', 'optimal') }}.  Let $E$ be an optimal elliptic curve of {{KNOWL('ec.q.conductor', 'conductor')}} $N$, let $f$ be the {{ KNOWL('ec.q.modular_form', 'modular form') }} associated to $E$, and let $\varphi:X_0(N)\to E$ be the associated {{ KNOWL('ec.q.modular_parametrization', 'modular parametrization') }}. Let $\omega_E$ be the N&eacute;ron differential on $E$.  Then the pull-back $\varphi^*\omega_E$ of $\omega_E$ to $X_0(N)$ satisfies
 \[
    \varphi^*\omega_E = c \cdot 2\pi i f(z)dz

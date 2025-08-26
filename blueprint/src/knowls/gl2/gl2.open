@@ -1,6 +1,6 @@
 \subsection{Open subgroup}
 \begin{definition}\label{gl2.open}
-\uses{gl2.level,gl2.profinite}
+\uses{gl2.profinite}
 An **open subgroup** $H$ of a {{KNOWL('gl2.profinite','profinite group')}} $G$ is a subgroup that is open in the topology of $G$, which implies that it is equal to the inverse image of its projection to a a finite quotient of $G$.
 
 Open subgroups of $G$ necessarily have finite index (since $G$ is compact), but not every finite index subgroup of $G$ is necessarily open.

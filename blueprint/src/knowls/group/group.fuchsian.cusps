@@ -1,6 +1,6 @@
 \subsection{Cusps of a subgroup of the modular group}
 \begin{definition}\label{group.fuchsian.cusps}
-\uses{group.fuchsian.action,group.sl2z}
+\uses{group.sl2z}
 The **cusps** of a subgroup $\Gamma$ of the {{KNOWL('group.sl2z', 'modular group')}} are equivalence classes of points in $\mathbb{Q}\cup\infty$ under the action of $\Gamma$ by {{KNOWL('group.fuchsian.action', 'linear fractional transformation')}}, where for
 \[
 \gamma=\left(\begin{array}{ll}a&b\\c&d \end{array}\right)\in\Gamma,

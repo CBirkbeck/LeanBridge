@@ -1,6 +1,6 @@
 \subsection{Isogeny between elliptic curves }
 \begin{definition}\label{ec.isogeny}
-\uses{ag.base_field,av.isogeny,ec,ec.endomorphism,ec.endomorphism_ring,ec.isogeny_class,group.homomorphism,nf,nf.is_galois}
+\uses{ag.base_field,av.isogeny,ec,ec.endomorphism,ec.endomorphism_ring,group.homomorphism,nf,nf.is_galois}
 Let $E_1$ and $E_2$ be two {{KNOWL("ec", "elliptic curves")}} defined over a field $K$. An **isogeny** (over $K$) between $E_1$ and $E_2$ is a non-constant morphism $f\colon E_1 \to E_2$ defined over $K$, i.e., a morphism of curves given by rational functions with coefficients in $K$, such that $f(O_{E_1})= O_{E_2}$.  Elliptic curves $E_1$ and $E_2$ are called **isogenous** if there exists an isogeny $f\colon E_1 \to E_2$.
 
 An isogeny respects the group laws on $E_1$ and $E_2$, and hence determines a {{KNOWL('group.homomorphism', 'group homomorphism')}} $E_1(L)\to E_2(L)$ for any extension $L$ of $K$.  The kernel is a finite group, defined over $K$; in general the points in the kernel are not individually defined over $K$ but over a finite {{KNOWL('nf.is_galois', 'Galois')}} extension of $K$ and are permuted by the Galois action.

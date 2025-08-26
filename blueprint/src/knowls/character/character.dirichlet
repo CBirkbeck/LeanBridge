@@ -1,6 +1,6 @@
 \subsection{Dirichlet character}
 \begin{definition}\label{character.dirichlet}
-\uses{character.dirichlet.conductor,character.dirichlet.primitive}
+\uses{}
 A **Dirichlet character** is a function \(\chi: \Z\to \C\) together with a positive integer $q$ called the **modulus** such that $\chi$ is completely multiplicative, i.e. $\chi(mn)=\chi(m)\chi(n)$ for all integers $m$ and $n$, and $\chi$ is periodic modulo $q$, i.e. $\chi(n+q)=\chi(n)$ for all $n$. If $(n,q)>1$ then $\chi(n)=0$, whereas if $(n,q)=1$, then $\chi(n)$ is a root of unity. The character $\chi$ is {{KNOWL('character.dirichlet.primitive', 'primitive')}} if its 
 {{KNOWL('character.dirichlet.conductor', "conductor")}}
 is equal to its modulus.

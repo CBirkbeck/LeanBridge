@@ -1,6 +1,6 @@
 \subsection{Discriminant of a genus 2 curve}
 \begin{definition}\label{g2c.discriminant}
-\uses{g2c.minimal_equation}
+\uses{}
 The discriminant $\Delta$ of a Weierstrass equation $y^2+h(x)y=f(x)$ can be computed as
 $$
 \Delta := \begin{cases}

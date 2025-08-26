@@ -1,6 +1,6 @@
 \subsection{Maximal newform}
 \begin{definition}\label{cmf.maximal}
-\uses{cmf.atkin_lehner_dims,cmf.character,cmf.dimension,cmf.galois_orbit,cmf.newform}
+\uses{cmf.character,cmf.dimension,cmf.galois_orbit,cmf.newform}
 A {{KNOWL('cmf.newform', 'newform')}} is **maximal** if its {{KNOWL('cmf.galois_orbit', 'Galois orbit')}} spans the ambient subspace that contains it (its {{KNOWL('cmf.atkin_lehner_dims','Atkin-Lehner subspace')}} when the {{KNOWL('cmf.character', 'character')}} is trivial, the entire newspace otherwise).
 
 A newform is the **largest** newform in its ambient subspace if its {{KNOWL('cmf.dimension', 'dimension')}} is strictly larger than that of any other newform in the same subspace (this includes newforms that are maximal).

@@ -1,6 +1,6 @@
 \subsection{Weil polynomial}
 \begin{definition}\label{nf.weil_polynomial}
-\uses{ag.abelian_variety,av.fq.weil_polynomial,av.simple}
+\uses{ag.abelian_variety,av.simple}
 For a prime power $q$, a **Weil $q$-polynomial** is a monic polynomial with integer coefficients whose complex roots are of absolute value $\sqrt{q}$.
 
 Given $q$ and a nonnegative integer $d$, there are only finitely many Weil $q$-polynomials of degree $d$.

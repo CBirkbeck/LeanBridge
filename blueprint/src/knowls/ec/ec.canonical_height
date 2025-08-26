@@ -1,6 +1,6 @@
 \subsection{Canonical height on an elliptic curve}
 \begin{definition}\label{ec.canonical_height}
-\uses{ec,ec.mordell_weil_group,ec.regulator,nf,nf.weil_height}
+\uses{ec,ec.mordell_weil_group,nf,nf.weil_height}
 Let $E$ be an {{ KNOWL('ec', 'elliptic curve') }} defined over a {{ KNOWL('nf', 'number field') }} $K$.  The **canonical height** on $E$ is a function
 $$
    \hat{h}: E(K) \to \R_{ {}\ge0}

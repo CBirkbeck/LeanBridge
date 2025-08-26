@@ -1,6 +1,6 @@
 \subsection{Gamma factors}
 \begin{definition}\label{lfunction.gamma_factor}
-\uses{lfunction.euler_product,lfunction.functional_equation}
+\uses{lfunction.euler_product}
 The complex functions
 \[
 \Gamma_\R(s) := \pi^{-s/2}\Gamma(s/2)\qquad\text{and}\qquad \Gamma_\C(s):= 2(2\pi)^{-s}\Gamma(s)

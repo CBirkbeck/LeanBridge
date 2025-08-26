@@ -1,6 +1,6 @@
 \subsection{Self-twist}
 \begin{definition}\label{cmf.self_twist}
-\uses{character.dirichlet,character.dirichlet.order,character.dirichlet.primitive,cmf.cm_form,cmf.level,cmf.newform,cmf.projective_image,cmf.rm_form,cmf.weight,nf.discriminant}
+\uses{character.dirichlet,character.dirichlet.order,character.dirichlet.primitive,cmf.level,cmf.newform,cmf.projective_image,cmf.weight,nf.discriminant}
 A {{KNOWL('cmf.newform','newform')}} $f$ admits a **self-twist** by a {{KNOWL('character.dirichlet.primitive','primitive')}}
  {{KNOWL('character.dirichlet','Dirichlet character')}} $\chi$ if the equality
 \[

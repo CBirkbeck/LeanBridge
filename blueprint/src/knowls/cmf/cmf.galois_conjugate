@@ -1,6 +1,6 @@
 \subsection{Galois conjugate newforms}
 \begin{definition}\label{cmf.galois_conjugate}
-\uses{cmf.coefficient_field,cmf.dimension,cmf.galois_orbit,cmf.newform,nf.degree}
+\uses{cmf.newform,nf.degree}
 Two {{KNOWL('cmf.newform', 'newforms')}} $f=\sum a_nq^n$ and $g=\sum b_nq^n$  are **Galois conjugate** if there is an automorphism $\sigma\in \Gal(\overline{\Q}/\Q)$ such that $b_n=\sigma(a_n)$ for all $n\ge 1$, in which case we write $g=\sigma(f)$.
 
 The set $\{\sigma(f):\sigma\in\Gal(\overline{\Q}/\Q)\}$ of all Galois conjugates of $f$ is the {{KNOWL('cmf.galois_orbit', 'Galois orbit')}} of $f$; it has cardinality equal to the {{KNOWL('cmf.dimension', 'dimension')}} of $f$, equivalently, the {{KNOWL('nf.degree', 'degree')}} of its {{KNOWL('cmf.coefficient_field', 'coefficient field')}}

@@ -1,6 +1,6 @@
 \subsection{Elliptic curve invariants}
 \begin{definition}\label{ec.invariants}
-\uses{ec,ec.conductor,ec.discriminant,ec.discriminant_norm,ec.endomorphism_ring,ec.j_invariant,ec.minimal_discriminant,ec.weierstrass_coeffs,nf,ring.ideal,st_group.definition}
+\uses{ec,ec.conductor,ec.discriminant,ec.endomorphism_ring,ec.j_invariant,ec.minimal_discriminant,ec.weierstrass_coeffs,nf,ring.ideal,st_group.definition}
 The invariants of an {{ KNOWL('ec', 'elliptic curve') }} $E$ over a {{ KNOWL('nf', 'number field') }} $K$ are its 
 
 - {{ KNOWL('ec.conductor', "conductor") }}, $\mathfrak{N}$, which is an integral {{KNOWL('ring.ideal', 'ideal')}} of $K$ whose norm is the **conductor norm** $N(\mathfrak{N})$

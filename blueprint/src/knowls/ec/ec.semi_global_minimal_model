@@ -1,6 +1,6 @@
 \subsection{Semi-global minimal model}
 \begin{definition}\label{ec.semi_global_minimal_model}
-\uses{ec,ec.discriminant,ec.global_minimal_model,ec.local_minimal_model,ec.minimal_discriminant,nf,nf.class_number}
+\uses{ec,ec.discriminant,ec.local_minimal_model,ec.minimal_discriminant,nf,nf.class_number}
 An {{ KNOWL('ec', 'elliptic curve') }} $E$ defined over a {{ KNOWL('nf', 'number field') }} $K$ of {{ KNOWL('nf.class_number', 'class number') }} $h(K)$ greater than $1$ may not have a {{ KNOWL('ec.global_minimal_model', 'global minimal model') }}.  In this case there still exist **semi-global minimal models** for $E$ which are {{ KNOWL('ec.local_minimal_model', 'local minimal models') }} at all except one prime.  At this prime, the {{ KNOWL('ec.discriminant', 'discriminant') }} valuation exceeds that of the {{ KNOWL('ec.minimal_discriminant', 'minimal discriminant ideal') }} by $12$.
 \end{definition}
 

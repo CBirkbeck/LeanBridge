@@ -1,6 +1,6 @@
 \subsection{Sato-Tate group}
 \begin{definition}\label{st_group.definition}
-\uses{ag.abelian_variety,ag.dimension,artin,ec,group.haar_measure,nf.cm_field,nf.totally_real,st_group.degree,st_group.usp,st_group.weight}
+\uses{ag.abelian_variety,ag.dimension,artin,ec,group.haar_measure,nf.cm_field,nf.totally_real,st_group.usp}
 The **Sato-Tate group** of a motive $X$ is a compact Lie group $G$ containing (as a dense subset) the image of a representation that maps Frobenius elements to conjugacy classes.  When $X$ is an Artin motive, $G$ corresponds to the image of the {{ KNOWL('artin','Artin representation') }}; when $X$ is an {{KNOWL('ag.abelian_variety', 'abelian variety')}} over a number field, one can define $G$ in terms of an $\ell$-adic Galois representation attached to $X$.
 
 For motives of even {{KNOWL('st_group.weight', 'weight')}} $w$ and {{KNOWL('st_group.degree', 'degree')}} $d$, the Sato-Tate group is a compact subgroup of the orthogonal group $\mathrm{O}(d)$.  For motives of odd weight $w$ and even degree $d$, the Sato-Tate group is a compact subgroup of the {{KNOWL('st_group.usp','unitary symplectic group')}} $\mathrm{USp}(d)$.  For motives $X$ arising as {{KNOWL('ag.abelian_variety','abelian varieties')}}, the weight is always $w=1$ and the the degree is $d=2g$, where $g$ is the {{KNOWL('ag.dimension', 'dimension')}} of the variety.
