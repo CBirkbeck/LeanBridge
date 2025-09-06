@@ -1,5 +1,5 @@
-\subsection{Siegel upper half-space}
-\begin{definition}\label{mf.siegel.halfspace}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.halfspace}{Siegel upper half-space}}
+\begin{definition*}\label{mf.siegel.halfspace}
 \uses{group.sp2gr}
 The Siegel upper half-space of degree $g$ is denoted by $\mathcal{H}_g$ and defined as
 \[
@@ -23,6 +23,6 @@ It is the set of $g\times g$ complex symmetric matrices which have positive defi
 The action of any discrete subgroup of $\Sp(2g,\R)$ on $\mathcal{H}_g$
 is properly discontinuous. Note that the integral symplectic group $\Gamma_g$ 
 does not act freely on $\mathcal{H}_g$.
-\end{definition}
+\end{definition*}
 
 

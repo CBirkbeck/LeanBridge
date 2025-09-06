@@ -1,5 +1,5 @@
-\subsection{L-functions of Maass forms}
-\begin{definition}\label{lfunction.history.maass}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.history.maass}{L-functions of Maass forms}}
+\begin{definition*}\label{lfunction.history.maass}
 \uses{}
 In 1949 Hans Maass made his profound discovery that there are L-functions associated with
 non-holomorphic automorphic forms. In his Math Review of 
@@ -15,7 +15,7 @@ the author defines a class of functions
  ("automorphic wave functions") to take the place of the analytic 
 automorphic functions of Hecke's theory. </i>
 
-Maass' work prompted Andr&eacute; Weil to remark ``Il a fallu Maass pour nous sortir du ghetto des fonctions holomorphes.''
-\end{definition}
+Maass' work prompted Andr\'e; Weil to remark ``Il a fallu Maass pour nous sortir du ghetto des fonctions holomorphes.''
+\end{definition*}
 
 

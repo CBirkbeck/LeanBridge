@@ -1,7 +1,7 @@
-\subsection{Euler factors at bad primes}
-\begin{definition}\label{g2c.bad_lfactors}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.bad_lfactors}{Euler factors at bad primes}}
+\begin{definition*}\label{g2c.bad_lfactors}
 \uses{ag.abelian_variety,ag.good_reduction}
-For an {{KNOWL("ag.abelian_variety", "abelian variety")}} $A$ over $\Q$, the local factor that appears in the Euler product of its L-function at a {{KNOWL("ag.good_reduction", "bad prime")}} $p$ depends on the type of reduction $A$ has at $p$.  In general, the degree of the Euler factor at a bad prime will be less than the degree of the L-function (which is $2g$, where $g$ is the dimension of the abelian variety).
-\end{definition}
+For an \hyperref[ag.abelian_variety]{abelian variety} $A$ over $\Q$, the local factor that appears in the Euler product of its L-function at a \hyperref[ag.good_reduction]{bad prime} $p$ depends on the type of reduction $A$ has at $p$.  In general, the degree of the Euler factor at a bad prime will be less than the degree of the L-function (which is $2g$, where $g$ is the dimension of the abelian variety).
+\end{definition*}
 
 

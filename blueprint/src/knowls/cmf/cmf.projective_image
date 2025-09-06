@@ -1,7 +1,7 @@
-\subsection{Projective image}
-\begin{definition}\label{cmf.projective_image}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.projective_image}{Projective image}}
+\begin{definition*}\label{cmf.projective_image}
 \uses{cmf.galois_representation,cmf.newform,cmf.weight}
-The **projective image** of a {{KNOWL('cmf.weight', 'weight')}} one {{KNOWL('cmf.newform', 'newform')}} is the image of its associated {{KNOWL('cmf.galois_representation', 'projective Galois representation')}} $\rho\colon \Gal(\overline\Q/\Q)\to \PGL_2(\C)$.  It is a finite subgroup of $\PGL_2(\C)$ that can be classified as one of four **types**: It is either isomorphic to a dihedral group $D_n$ for some integer $n\ge 2$ (where $D_2:=C_2\times C_2$ is the Klein group), or to one of $A_4, S_4, A_5$, where $A_n$ and $S_n$ respectively denote the alternating and symmetric groups on $n$ letters.
-\end{definition}
+The \textbf{projective image} of a \hyperref[cmf.weight]{weight} one \hyperref[cmf.newform]{newform} is the image of its associated \hyperref[cmf.galois_representation]{projective Galois representation} $\rho\colon \Gal(\overline\Q/\Q)\to \PGL_2(\C)$.  It is a finite subgroup of $\PGL_2(\C)$ that can be classified as one of four \textbf{types}: It is either isomorphic to a dihedral group $D_n$ for some integer $n\ge 2$ (where $D_2:=C_2\times C_2$ is the Klein group), or to one of $A_4, S_4, A_5$, where $A_n$ and $S_n$ respectively denote the alternating and symmetric groups on $n$ letters.
+\end{definition*}
 
 

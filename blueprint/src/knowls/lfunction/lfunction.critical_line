@@ -1,14 +1,14 @@
-\subsection{Critical line of an L-function}
-\begin{definition}\label{lfunction.critical_line}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.critical_line}{Critical line of an L-function}}
+\begin{definition*}\label{lfunction.critical_line}
 \uses{lfunction,lfunction.functional_equation}
-The **critical line** of an {{ KNOWL('lfunction', "L-function") }}  is the line of symmetry of its {{ KNOWL('lfunction.functional_equation', "functional equation") }}.
+The \textbf{critical line} of an \hyperref[lfunction]{L-function}  is the line of symmetry of its \hyperref[lfunction.functional_equation]{functional equation}.
 
-In the {{KNOWL('lfunction.normalization', 'analytic normalization')}}, the functional equation relates $s$ to $1-s$ and the
+In the \hyperref[lfunction.normalization]{analytic normalization}, the functional equation relates $s$ to $1-s$ and the
 critical line is the line $\Re(s) = \frac12$.
 
 In the arithmetic normalization, the functional equation relates $s$ to $1 + w - s$,
 where $w$ is the motivic weight.  In that normalization the critical line is
 $\Re(s) = \frac{1+w}2$.
-\end{definition}
+\end{definition*}
 
 

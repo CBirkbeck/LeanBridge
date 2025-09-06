@@ -1,7 +1,7 @@
-\subsection{Wild inertia group}
-\begin{definition}\label{lf.wild_inertia_group}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.wild_inertia_group}{Wild inertia group}}
+\begin{definition*}\label{lf.wild_inertia_group}
 \uses{group.sylow_subgroup,lf.inertia_group,nf.is_galois}
-The **wild inertia group** of a {{KNOWL('nf.is_galois', 'Galois')}} extension $K/\Q_p$ is the unique {{ KNOWL('group.sylow_subgroup', '$p$-Sylow subgroup') }} of its {{KNOWL('lf.inertia_group','inertia group')}}.
-\end{definition}
+The \textbf{wild inertia group} of a \hyperref[nf.is_galois]{Galois} extension $K/\Q_p$ is the unique \hyperref[group.sylow_subgroup]{$p$-Sylow subgroup} of its \hyperref[lf.inertia_group]{inertia group}.
+\end{definition*}
 
 

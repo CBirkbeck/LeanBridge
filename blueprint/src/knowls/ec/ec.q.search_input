@@ -1,9 +1,9 @@
-\subsection{Find an elliptic curve}
-\begin{definition}\label{ec.q.search_input}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.q.search_input}{Find an elliptic curve}}
+\begin{definition*}\label{ec.q.search_input}
 \uses{ec.isogeny_class,ec.q,ec.q.cremona_label,ec.q.lmfdb_label,ec.weierstrass_coeffs}
-To find a specific {{KNOWL('ec.q', 'elliptic curve')}} over $\Q$ enter its {{KNOWL('ec.q.lmfdb_label', 'LMFDB label')}} or {{KNOWL('ec.q.cremona_label', 'Cremona label')}}, or enter its {{KNOWL('ec.weierstrass_coeffs', 'Weierstrass coefficients')}} as a bracketed list of integers $[a_1,a_2,a_3,a_4,a_6]$.
+To find a specific \hyperref[ec.q]{elliptic curve} over $\Q$ enter its \hyperref[ec.q.lmfdb_label]{LMFDB label} or \hyperref[ec.q.cremona_label]{Cremona label}, or enter its \hyperref[ec.weierstrass_coeffs]{Weierstrass coefficients} as a bracketed list of integers $[a_1,a_2,a_3,a_4,a_6]$.
 
-You can also enter the LMFDB label or Cremona label of an {{KNOWL('ec.isogeny_class', 'isogeny class')}} of elliptic curves over $\Q$. 
-\end{definition}
+You can also enter the LMFDB label or Cremona label of an \hyperref[ec.isogeny_class]{isogeny class} of elliptic curves over $\Q$. 
+\end{definition*}
 
 

@@ -1,9 +1,9 @@
-\subsection{Core of a subgroup}
-\begin{definition}\label{group.core}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.core}{Core of a subgroup}}
+\begin{definition*}\label{group.core}
 \uses{group,group.subgroup}
-If $H$ is a {{KNOWL('group.subgroup', 'subgroup')}} of a {{KNOWL('group', 'group')}} $G$, then the **core** of $H$ is
+If $H$ is a \hyperref[group.subgroup]{subgroup} of a \hyperref[group]{group} $G$, then the \textbf{core} of $H$ is
 \[ \bigcap_{g\in G} g^{-1} H g .\]
 It is the largest normal subgroup of $G$ contained in $H$.
-\end{definition}
+\end{definition*}
 
 

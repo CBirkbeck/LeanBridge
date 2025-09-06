@@ -1,9 +1,0 @@
-\subsection{Isogeny graph legend}
-\begin{definition}\label{ec.isogenygraph.legend}
-\uses{}
-<p>
-  {{ isogeny_graph_legend()| safe}}
-</p>
-\end{definition}
-
-

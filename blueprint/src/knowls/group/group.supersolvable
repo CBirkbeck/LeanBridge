@@ -1,13 +1,13 @@
-\subsection{Supersolvable group}
-\begin{definition}\label{group.supersolvable}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.supersolvable}{Supersolvable group}}
+\begin{definition*}\label{group.supersolvable}
 \uses{group.abelian,group.metacyclic,group.monomial,group.nilpotent,group.solvable,group.subgroup.normal}
-A group is **supersolvable** if there are nested {{ KNOWL("group.subgroup.normal", "normal")}} subgroups $N_i\lhd G$
+A group is \textbf{supersolvable} if there are nested \hyperref[group.subgroup.normal]{normal} subgroups $N_i\lhd G$
 
 $${1}=N_0 < N_1 < N_2 < \ldots < N_k = G$$
-with all successive quotients $N_{i+1}/N_i$ cyclic. It is stronger than requiring $N_{i+1}/N_i$ to be abelian (because $N_i \lhd G$), so not all {{ KNOWL("group.solvable", "solvable")}} groups are supersolvable. The smallest solvable groups that are not supersolvable are $A_4$, $S_4$, SL$_2(\mathbb{F}_3)$ and $C_2\times A_4$. All supersolvable groups are {{ KNOWL("group.monomial", "monomial")}}, and all {{ KNOWL("group.abelian", "abelian")}}, {{ KNOWL("group.nilpotent", "nilpotent")}}, {{ KNOWL("group.metacyclic", "metacyclic")}} groups, Z-groups and groups of square-free order are supersolvable. Supersolvable groups are closed under subgroups and quotients (but not extensions), and a group is supersolvable if and only if each of its maximal subgroups has prime index.
+with all successive quotients $N_{i+1}/N_i$ cyclic. It is stronger than requiring $N_{i+1}/N_i$ to be abelian (because $N_i \lhd G$), so not all \hyperref[group.solvable]{solvable} groups are supersolvable. The smallest solvable groups that are not supersolvable are $A_4$, $S_4$, SL$_2(\mathbb{F}_3)$ and $C_2\times A_4$. All supersolvable groups are \hyperref[group.monomial]{monomial}, and all \hyperref[group.abelian]{abelian}, \hyperref[group.nilpotent]{nilpotent}, \hyperref[group.metacyclic]{metacyclic} groups, Z-groups and groups of square-free order are supersolvable. Supersolvable groups are closed under subgroups and quotients (but not extensions), and a group is supersolvable if and only if each of its maximal subgroups has prime index.
 
 
-While every nilpotent group is supersolvable, the converse does not hold as shown by <a href="{{url_for('abstract.index')}}?nilpotent=no&supersolvable=yes">these examples</a>.  Similarly, <a href="{{url_for('abstract.index')}}?metacyclic=no&supersolvable=yes">these examples</a> show that not every supersolvable group is metacyclic.
-\end{definition}
+While every nilpotent group is supersolvable, the converse does not hold as shown by <a href="{{url\_for('abstract.index')}}?nilpotent=no&supersolvable=yes">these examples</a>.  Similarly, <a href="{{url\_for('abstract.index')}}?metacyclic=no&supersolvable=yes">these examples</a> show that not every supersolvable group is metacyclic.
+\end{definition*}
 
 

@@ -1,9 +1,9 @@
-\subsection{Fiber product}
-\begin{definition}\label{modcurve.fiber_product}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.fiber_product}{Fiber product}}
+\begin{definition*}\label{modcurve.fiber_product}
 \uses{gl2.level,modcurve}
-If $H$ and $H'$ are open subgroups of $\GL_2(\widehat \Z)$, the **fiber product** $X_H\times X_H'$ of the {{KNOWL('modcurve', 'modular curves')}} $X_H$ and $X_H'$ is their fiber product as [algebraic stacks](https://stacks.math.columbia.edu/tag/003O) over $X(1)$.
+If $H$ and $H'$ are open subgroups of $\GL_2(\widehat \Z)$, the \textbf{fiber product} $X_H\times X_H'$ of the \hyperref[modcurve]{modular curves} $X_H$ and $X_H'$ is their fiber product as [algebraic stacks](https://stacks.math.columbia.edu/tag/003O) over $X(1)$.
 
-Concretely, in the case that $H$ and $H'$ have coprime {{KNOWL('gl2.level', 'levels')}} $N$ and $N'$, this means that $X_H\times X_H' = X_{H\cap H'}$, a modular curve of level $NN'$.
-\end{definition}
+Concretely, in the case that $H$ and $H'$ have coprime \hyperref[gl2.level]{levels} $N$ and $N'$, this means that $X_H\times X_H' = X_{H\cap H'}$, a modular curve of level $NN'$.
+\end{definition*}
 
 

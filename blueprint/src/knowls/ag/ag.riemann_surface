@@ -1,7 +1,7 @@
-\subsection{Riemann surface}
-\begin{definition}\label{ag.riemann_surface}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.riemann_surface}{Riemann surface}}
+\begin{definition*}\label{ag.riemann_surface}
 \uses{}
-A **Riemann surface** is a connected complex manifold of dimension one.  Compact Riemann surfaces can be identified with smooth projective curves over $\C$.
-\end{definition}
+A \textbf{Riemann surface} is a connected complex manifold of dimension one.  Compact Riemann surfaces can be identified with smooth projective curves over $\C$.
+\end{definition*}
 
 

@@ -1,19 +1,19 @@
-\subsection{Type of groups }
-\begin{definition}\label{group.type}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.type}{Type of groups }}
+\begin{definition*}\label{group.type}
 \uses{group,group.abelian,group.cyclic,group.derived_series,group.nilpotent,group.solvable}
-For a finite {{KNOWL('group', 'group')}} $G$, we write **Type - length** as follows
+For a finite \hyperref[group]{group} $G$, we write \textbf{Type - length} as follows
 
 <ul>
-<li> If $G$ is {{KNOWL('group.cyclic', 'cyclic')}} we write "Cyclic".  For {{KNOWL('group.abelian', 'abelian')}} groups that are not cyclic we write "Abelian - $n$", where $n$ is the number of cyclic groups in the unique cyclic decomposition of $G$ as $C_{d_1} \times C_{d_2}\times \cdots \times C_{d_n}$ with $d_i\mid d_{i+1}$ and $d_i>0$.</li>
+<li> If $G$ is \hyperref[group.cyclic]{cyclic} we write "Cyclic".  For \hyperref[group.abelian]{abelian} groups that are not cyclic we write "Abelian - $n$", where $n$ is the number of cyclic groups in the unique cyclic decomposition of $G$ as $C_{d_1} \times C_{d_2}\times \cdots \times C_{d_n}$ with $d_i\mid d_{i+1}$ and $d_i>0$.</li>
 
-<li> If $G$ is {{KNOWL('group.nilpotent', 'nilpotent')}} but not abelian then we write  "Nilpotent - $n$", where $n$ is the nilpotency class of $G$.</li>
+<li> If $G$ is \hyperref[group.nilpotent]{nilpotent} but not abelian then we write  "Nilpotent - $n$", where $n$ is the nilpotency class of $G$.</li>
 
-<li> If $G$ is {{KNOWL('group.solvable', 'solvable')}} but not nilpotent then we write  "Solvable - $n$", where $n$ is the {{KNOWL('group.derived_series','derived length')}} of $G$.</li>
+<li> If $G$ is \hyperref[group.solvable]{solvable} but not nilpotent then we write  "Solvable - $n$", where $n$ is the \hyperref[group.derived_series]{derived length} of $G$.</li>
 
 <li> If $G$ is simple we write "Simple".  
 
  <li> For non-simple, non-solvable groups we write "Non-solvable - $n$", where $n$ is the number of Jordan factors of $G$.</li>
 </ul>
-\end{definition}
+\end{definition*}
 
 

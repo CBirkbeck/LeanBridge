@@ -1,13 +1,13 @@
-\subsection{Trivial zeros of an L-function}
-\begin{definition}\label{lfunction.trivial_zero}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.trivial_zero}{Trivial zeros of an L-function}}
+\begin{definition*}\label{lfunction.trivial_zero}
 \uses{lfunction.arithmetic,lfunction.completed,lfunction.functional_equation,lfunction.gamma_factor,lfunction.normalization,lfunction.zeros}
-The {{KNOWL('lfunction.zeros','zeros')}} of an L-function $L(s)$ that occur at
-poles of its  {{KNOWL('lfunction.gamma_factor','gamma factors')}} are **trivial zeros**.
+The \hyperref[lfunction.zeros]{zeros} of an L-function $L(s)$ that occur at
+poles of its  \hyperref[lfunction.gamma_factor]{gamma factors} are \textbf{trivial zeros}.
 
-The presence of trivial zeros is required by the {{KNOWL('lfunction.functional_equation','functional equation')}}.  In its {{KNOWL('lfunction.normalization','analytic normalization')}}, the L-function $L(s)$ has no zeros or poles in the right half-plane $\Re(s)>1$, but the {{KNOWL('lfunction.gamma_factor','gamma factors')}} that appear in the functional equation have poles.  Since the {{KNOWL('lfunction.completed', 'completed L-function')}} has no poles (except possibly from Riemann zeta-function factors),
+The presence of trivial zeros is required by the \hyperref[lfunction.functional_equation]{functional equation}.  In its \hyperref[lfunction.normalization]{analytic normalization}, the L-function $L(s)$ has no zeros or poles in the right half-plane $\Re(s)>1$, but the \hyperref[lfunction.gamma_factor]{gamma factors} that appear in the functional equation have poles.  Since the \hyperref[lfunction.completed]{completed L-function} has no poles (except possibly from Riemann zeta-function factors),
 the L-function must have zeros at poles of the gamma factors.
 
-For {{KNOWL('lfunction.arithmetic', 'arithmetic')}} L-functions, the poles are at certain negative integers.
-\end{definition}
+For \hyperref[lfunction.arithmetic]{arithmetic} L-functions, the poles are at certain negative integers.
+\end{definition*}
 
 

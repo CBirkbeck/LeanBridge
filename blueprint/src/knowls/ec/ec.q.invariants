@@ -1,13 +1,15 @@
-\subsection{Elliptic curve invariants}
-\begin{definition}\label{ec.q.invariants}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.q.invariants}{Elliptic curve invariants}}
+\begin{definition*}\label{ec.q.invariants}
 \uses{ec,ec.complex_multiplication,ec.endomorphism_ring,ec.q.conductor,ec.q.discriminant,ec.q.j_invariant,st_group.definition}
-Invariants of an {{ KNOWL('ec', 'elliptic curve') }} \(E\) over $\mathbb{Q}$ are its 
+Invariants of an \hyperref[ec]{elliptic curve} \(E\) over $\mathbb{Q}$ are its 
 
-- {{ KNOWL('ec.q.conductor', "conductor") }}, $N$
-- {{ KNOWL('ec.q.discriminant', "discriminant") }}, $\Delta$
-- {{ KNOWL('ec.q.j_invariant', "j-invariant") }}, $j$
-- {{ KNOWL('ec.endomorphism_ring', "endomorphism ring") }}, $\text{End}(E)$.  This is \(\mathbb{Z}\) unless \(E\) has {{ KNOWL('ec.complex_multiplication', 'CM') }}
-- {{ KNOWL('st_group.definition', "Sato-Tate group") }}, $\text{ST}(E)$. This is \(SU(2)\) unless \(E\) has {{ KNOWL('ec.complex_multiplication', 'CM') }}
-\end{definition}
+\begin{itemize}
+\item  \hyperref[ec.q.conductor]{conductor}, $N$
+\item  \hyperref[ec.q.discriminant]{discriminant}, $\Delta$
+\item  \hyperref[ec.q.j_invariant]{j-invariant}, $j$
+\item  \hyperref[ec.endomorphism_ring]{endomorphism ring}, $\text{End}(E)$.  This is \(\mathbb{Z}\) unless \(E\) has \hyperref[ec.complex_multiplication]{CM}
+\item  \hyperref[st_group.definition]{Sato-Tate group}, $\text{ST}(E)$. This is \(SU(2)\) unless \(E\) has \hyperref[ec.complex_multiplication]{CM}
+\end{itemize}
+\end{definition*}
 
 

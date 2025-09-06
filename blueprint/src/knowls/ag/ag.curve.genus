@@ -1,9 +1,9 @@
-\subsection{Genus of a smooth curve }
-\begin{definition}\label{ag.curve.genus}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.curve.genus}{Genus of a smooth curve }}
+\begin{definition*}\label{ag.curve.genus}
 \uses{ag.riemann_surface}
-The **genus** of a smooth projective geometrically integral curve $C$ defined over a field $k$ is the dimension of the $k$-vector space of regular differentials $H^0(C, \omega_C)$.  When $k=\C$ this coincides with the topological genus of the corresponding {{KNOWL('ag.riemann_surface', "Riemann surface")}}.
+The \textbf{genus} of a smooth projective geometrically integral curve $C$ defined over a field $k$ is the dimension of the $k$-vector space of regular differentials $H^0(C, \omega_C)$.  When $k=\C$ this coincides with the topological genus of the corresponding \hyperref[ag.riemann_surface]{Riemann surface}.
 
-The quantity defined above is sometimes also called the **algebraic genus** or the **geometric genus** of $C$. Because of our assumption on the smoothness of $C$, it coincides with the **arithmetic genus** $H^1(C,\mathcal{O}_C)$. 
-\end{definition}
+The quantity defined above is sometimes also called the \textbf{algebraic genus} or the \textbf{geometric genus} of $C$. Because of our assumption on the smoothness of $C$, it coincides with the \textbf{arithmetic genus} $H^1(C,\mathcal{O}_C)$. 
+\end{definition*}
 
 

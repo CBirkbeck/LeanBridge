@@ -1,9 +1,9 @@
-\subsection{Singular primes and singular support}
-\begin{definition}\label{av.fq.singular_primes}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/av.fq.singular_primes}{Singular primes and singular support}}
+\begin{definition*}\label{av.fq.singular_primes}
 \uses{av.fq.conductor,av.fq.order}
-A maximal ideal, or prime, $\mathfrak{P}$ of an {{KNOWL('av.fq.order', 'order')}} $R$ in an étale algebra over $\Q$ is a **singular primes** if it divides the {{KNOWL('av.fq.conductor', 'conductor')}} $\mathfrak{f}_R=(R:\mathcal{O}_K)$ of $R$.
+A maximal ideal, or prime, $\mathfrak{P}$ of an \hyperref[av.fq.order]{order} $R$ in an étale algebra over $\Q$ is a \textbf{singular primes} if it divides the \hyperref[av.fq.conductor]{conductor} $\mathfrak{f}_R=(R:\mathcal{O}_K)$ of $R$.
 
-The **singular support** of an {{KNOWL('av.fq.order', 'overorder')}} $S$ of the Frobenius order $\Z[F,V]$ is the set of singular primes of $\Z[F,V]$ that contain the {{KNOWL('av.fq.conductor', 'relative conductor')}} $(\Z[F,V]:S)$.
-\end{definition}
+The \textbf{singular support} of an \hyperref[av.fq.order]{overorder} $S$ of the Frobenius order $\Z[F,V]$ is the set of singular primes of $\Z[F,V]$ that contain the \hyperref[av.fq.conductor]{relative conductor} $(\Z[F,V]:S)$.
+\end{definition*}
 
 

@@ -1,10 +1,10 @@
-\subsection{Special value of an elliptic curve L-function}
-\begin{definition}\label{ec.special_value}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.special_value}{Special value of an elliptic curve L-function}}
+\begin{definition*}\label{ec.special_value}
 \uses{ec,ec.bsdconjecture,lfunction,lfunction.leading_coeff,lfunction.normalization,nf}
-The **special value** of an {{KNOWL('ec', 'elliptic curve')}} $E$ defined over a {{KNOWL('nf', 'number field')}} $K$ is the first nonzero value of $L^{(r)}(E,1)/r!$ for $r\in \Z_{\ge 0}$, where $L(E/K,s)$ is the {{KNOWL('lfunction', 'L-function')}} of $E$ in its {{KNOWL('lfunction.normalization', 'arithmetic normalization')}}.  It is also known as the {{KNOWL('lfunction.leading_coeff', '**leading coefficient**')}} of the L-function.
+The \textbf{special value} of an \hyperref[ec]{elliptic curve} $E$ defined over a \hyperref[nf]{number field} $K$ is the first nonzero value of $L^{(r)}(E,1)/r!$ for $r\in \Z_{\ge 0}$, where $L(E/K,s)$ is the \hyperref[lfunction]{L-function} of $E$ in its \hyperref[lfunction.normalization]{arithmetic normalization}.  It is also known as the \hyperref[lfunction.leading_coeff]{\textbf{leading coefficient}} of the L-function.
 
-The special value appears in the {{KNOWL('ec.bsdconjecture','Birch and Swinnerton-Dyer conjecture')}}.
+The special value appears in the \hyperref[ec.bsdconjecture]{Birch and Swinnerton-Dyer conjecture}.
 
-\end{definition}
+\end{definition*}
 
 

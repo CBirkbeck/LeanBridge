@@ -1,7 +1,7 @@
-\subsection{The level of a Maass form}
-\begin{definition}\label{mf.maass.mwf.level}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.maass.mwf.level}{The level of a Maass form}}
+\begin{definition*}\label{mf.maass.mwf.level}
 \uses{group.sl2z.subgroup.gamman,mf.maass.mwf}
-A {{KNOWL('mf.maass.mwf', 'Maass form')}} \( f \) is said to have **level** $N$ if \( f\) is invariant under the principal congruence subgroup {{KNOWL('group.sl2z.subgroup.gamman', "$\Gamma(N)$")}}.
-\end{definition}
+A \hyperref[mf.maass.mwf]{Maass form} \( f \) is said to have \textbf{level} $N$ if \( f\) is invariant under the principal congruence subgroup \hyperref[group.sl2z.subgroup.gamman]{$\Gamma(N)$}.
+\end{definition*}
 
 

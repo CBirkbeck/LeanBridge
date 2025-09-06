@@ -1,13 +1,13 @@
-\subsection{Embedding of a modular form}
-\begin{definition}\label{cmf.embedding}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.embedding}{Embedding of a modular form}}
+\begin{definition*}\label{cmf.embedding}
 \uses{character.dirichlet,character.dirichlet.value_field,cmf.character,cmf.coefficient_field,cmf.galois_orbit,cmf.q-expansion,lfunction,nf.embedding}
-The coefficients in the {{KNOWL('cmf.q-expansion', '$q$-expansion')}} $\sum a_nq^n$ of a {{KNOWL('cmf.q-expansion', 'newform')}} $f$ are algebraic integers that generate the {{KNOWL('cmf.coefficient_field', 'coefficient field')}} $\Q(f)$ of $f$.
+The coefficients in the \hyperref[cmf.q-expansion]{$q$-expansion} $\sum a_nq^n$ of a \hyperref[cmf.q-expansion]{newform} $f$ are algebraic integers that generate the \hyperref[cmf.coefficient_field]{coefficient field} $\Q(f)$ of $f$.
 
-Each {{KNOWL('nf.embedding', 'embedding')}} $\iota\colon \Q(f)\to \C$ gives rise to a modular form $\iota(f)$ with $q$-expansion $\sum \iota(a_n)q^n$; the modular form $\iota(f)$ is an **embedding** of the newform $f$.
+Each \hyperref[nf.embedding]{embedding} $\iota\colon \Q(f)\to \C$ gives rise to a modular form $\iota(f)$ with $q$-expansion $\sum \iota(a_n)q^n$; the modular form $\iota(f)$ is an \textbf{embedding} of the newform $f$.
 
-Distinct embeddings give rise to modular forms  that lie in the same {{KNOWL('cmf.galois_orbit', 'galois orbit')}} but have distinct {{KNOWL('lfunction', '$L$-functions')}} $L(s):=\sum \iota(a_n)n^{-s}$.
+Distinct embeddings give rise to modular forms  that lie in the same \hyperref[cmf.galois_orbit]{galois orbit} but have distinct \hyperref[lfunction]{$L$-functions} $L(s):=\sum \iota(a_n)n^{-s}$.
 
-If $f$ is a newform of {{KNOWL('cmf.character', 'character')}} $\chi$, each embedding $\Q(f)\to \C$ induces an embedding $\Q(\chi)\to \C$ of the {{KNOWL('character.dirichlet.value_field', 'value field')}} of $\chi$.  The embeddings of $f$ may be grouped into blocks with the same {{KNOWL('character.dirichlet', 'Dirichlet character')}}; distinct blocks correspond to modular forms with distinct (but Galois conjugate) Dirichlet characters.
-\end{definition}
+If $f$ is a newform of \hyperref[cmf.character]{character} $\chi$, each embedding $\Q(f)\to \C$ induces an embedding $\Q(\chi)\to \C$ of the \hyperref[character.dirichlet.value_field]{value field} of $\chi$.  The embeddings of $f$ may be grouped into blocks with the same \hyperref[character.dirichlet]{Dirichlet character}; distinct blocks correspond to modular forms with distinct (but Galois conjugate) Dirichlet characters.
+\end{definition*}
 
 

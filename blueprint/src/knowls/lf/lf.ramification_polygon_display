@@ -1,11 +1,13 @@
-\subsection{Ramification polygon diagram}
-\begin{definition}\label{lf.ramification_polygon_display}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.ramification_polygon_display}{Ramification polygon diagram}}
+\begin{definition*}\label{lf.ramification_polygon_display}
 \uses{lf.indices_of_inseparability,lf.ramification_polygon,lf.residual_polynomials}
-The blue graph shows the {{KNOWL('lf.ramification_polygon', 'ramification polygon')}}.
+The blue graph shows the \hyperref[lf.ramification_polygon]{ramification polygon}.
 
-* The blue number to the right of each segment is its slope.
-* Coordinates are given for the black points at $(-p^j, i_j)$ where $[i_0,...,i_\nu]$ are the {{KNOWL('lf.indices_of_inseparability', 'indices of inseparability')}}. These points include the vertices of the ramification polygon.  In some cases there are additional points on or above the polygon.
-* Each {{KNOWL('lf.residual_polynomials', 'residual polynomial')}} $A(z)$ of
+\begin{itemize}
+\item  The blue number to the right of each segment is its slope.
+\item  Coordinates are given for the black points at $(-p^j, i_j)$ where $[i_0,...,i_\nu]$ are the \hyperref[lf.indices_of_inseparability]{indices of inseparability}. These points include the vertices of the ramification polygon.  In some cases there are additional points on or above the polygon.
+\item  Each \hyperref[lf.residual_polynomials]{residual polynomial} $A(z)$ of
+\end{itemize}
 $L/K$ is associated to a segment $S$ of the ramification polygon;
 if $S$ has positive slope then the coefficients of the polynomial come from the
 black points which lie on the segment.  More precisely, assume that $S$ has right
@@ -14,9 +16,11 @@ $k\le j\le l$.  If there is a black point on $S$ with
 first coordinate $-p^j$ then the coefficient of $x^{p^j}$ in the additive
 polynomial $x^{p^k}A(x^m)$ is given by the label attached to this point.  Otherwise
 the coefficient of $x^{p^j}$ is 0.
-* Since successive segments of the ramification polygon share a vertex,
+\begin{itemize}
+\item  Since successive segments of the ramification polygon share a vertex,
+\end{itemize}
 the constant term of each residual polynomial is equal to the
 leading coefficient of the next.
-\end{definition}
+\end{definition*}
 
 

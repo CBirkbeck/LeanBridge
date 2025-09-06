@@ -1,9 +1,9 @@
-\subsection{Holomorphic Euler characteristic}
-\begin{definition}\label{ag.holomorphic_euler_char}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.holomorphic_euler_char}{Holomorphic Euler characteristic}}
+\begin{definition*}\label{ag.holomorphic_euler_char}
 \uses{ag.arithmetic_genus}
-The **holomorphic Euler characteristic** of a projective scheme $X$ is the alternating sum $\chi(X)=\chi(\mathcal{O}_X) = \sum_{i=0}^{\dim X} (-1)^i \dim H^i(X, \mathcal{O}_X)$.
+The \textbf{holomorphic Euler characteristic} of a projective scheme $X$ is the alternating sum $\chi(X)=\chi(\mathcal{O}_X) = \sum_{i=0}^{\dim X} (-1)^i \dim H^i(X, \mathcal{O}_X)$.
 
-See also the {{KNOWL('ag.arithmetic_genus', 'arithmetic genus')}}.
-\end{definition}
+See also the \hyperref[ag.arithmetic_genus]{arithmetic genus}.
+\end{definition*}
 
 

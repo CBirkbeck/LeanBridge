@@ -1,7 +1,7 @@
-\subsection{Galois group of an isogeny class of abelian varieties}
-\begin{definition}\label{av.fq.galois_group}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/av.fq.galois_group}{Galois group of an isogeny class of abelian varieties}}
+\begin{definition*}\label{av.fq.galois_group}
 \uses{av.isogeny_class}
-The Galois group attached to an {{KNOWL('av.isogeny_class', 'isogeny class of abelian varieties')}} over a finite field is the Galois group of the splitting field of its Weil polynomial over $\Q$.
-\end{definition}
+The Galois group attached to an \hyperref[av.isogeny_class]{isogeny class of abelian varieties} over a finite field is the Galois group of the splitting field of its Weil polynomial over $\Q$.
+\end{definition*}
 
 

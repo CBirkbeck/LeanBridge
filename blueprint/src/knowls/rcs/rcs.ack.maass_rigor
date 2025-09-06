@@ -1,5 +1,5 @@
-\subsection{Acknowledgements for rigorous Maass forms}
-\begin{definition}\label{rcs.ack.maass_rigor}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.ack.maass_rigor}{Acknowledgements for rigorous Maass forms}}
+\begin{definition*}\label{rcs.ack.maass_rigor}
 \uses{}
 <h2>Additional acknowledgments</h2>
 
@@ -7,6 +7,6 @@ Initial page design and coding by Stefan Lemurell and Fredrik Strömberg. Later 
 
 The code and ideas leading to rigorous Maass forms rely heavily on the work of Min Lee, Andrew Booker, and Andreas Strömbergsson.
 
-\end{definition}
+\end{definition*}
 
 

@@ -1,7 +1,7 @@
-\subsection{Find a newform or newspace by label}
-\begin{definition}\label{cmf.search_input}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.search_input}{Find a newform or newspace by label}}
+\begin{definition*}\label{cmf.search_input}
 \uses{cmf.label,cmf.newform,cmf.newspace}
-To find a specific {{KNOWL('cmf.newform', 'newform')}} or {{KNOWL('cmf.newspace','newspace')}}, enter its {{KNOWL('cmf.label', 'label')}}.
-\end{definition}
+To find a specific \hyperref[cmf.newform]{newform} or \hyperref[cmf.newspace]{newspace}, enter its \hyperref[cmf.label]{label}.
+\end{definition*}
 
 

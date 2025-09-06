@@ -1,11 +1,13 @@
-\subsection{Plane model}
-\begin{definition}\label{modcurve.plane_model}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.plane_model}{Plane model}}
+\begin{definition*}\label{modcurve.plane_model}
 \uses{ag.canonical_model,ag.gonality,ag.plane_model,modcurve.embedded_model}
-{{KNOWL('ag.plane_model', 'Plane models')}} for modular curves are computed in several ways:
+\hyperref[ag.plane_model]{Plane models} for modular curves are computed in several ways:
 
-* by searching for relations among monomials evaluated at triples of modular forms in the space $M_2(G)$,
-* by projecting away from points in the ambient space of the {{KNOWL('ag.canonical_model', 'canonical model')}} or {{KNOWL('modcurve.embedded_model', 'embedded model')}},
-* by using a gonal map to $\mathbb{P}^1$ to find a model exhibiting that {{KNOWL('ag.gonality', 'gonality')}}.
-\end{definition}
+\begin{itemize}
+\item  by searching for relations among monomials evaluated at triples of modular forms in the space $M_2(G)$,
+\item  by projecting away from points in the ambient space of the \hyperref[ag.canonical_model]{canonical model} or \hyperref[modcurve.embedded_model]{embedded model},
+\item  by using a gonal map to $\mathbb{P}^1$ to find a model exhibiting that \hyperref[ag.gonality]{gonality}.
+\end{itemize}
+\end{definition*}
 
 

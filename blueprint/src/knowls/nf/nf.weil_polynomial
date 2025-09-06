@@ -1,11 +1,11 @@
-\subsection{Weil polynomial}
-\begin{definition}\label{nf.weil_polynomial}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.weil_polynomial}{Weil polynomial}}
+\begin{definition*}\label{nf.weil_polynomial}
 \uses{ag.abelian_variety,av.simple}
-For a prime power $q$, a **Weil $q$-polynomial** is a monic polynomial with integer coefficients whose complex roots are of absolute value $\sqrt{q}$.
+For a prime power $q$, a \textbf{Weil $q$-polynomial} is a monic polynomial with integer coefficients whose complex roots are of absolute value $\sqrt{q}$.
 
 Given $q$ and a nonnegative integer $d$, there are only finitely many Weil $q$-polynomials of degree $d$.
 
-The {{KNOWL('av.fq.weil_polynomial','characteristic polynomial')}} of an {{KNOWL('ag.abelian_variety', 'abelian variety')}} over $\F_q$ is a Weil $q$-polynomial, but it is not quite true that every Weil $q$-polynomial arises in this way.  Every irreducible Weil $q$-polynomial has a unique power that is the characteristic polynomial of a {{KNOWL('av.simple', 'simple abelian variety')}} over $\F_q$; it is the products of these powers that arise from abelian varieties.
-\end{definition}
+The \hyperref[av.fq.weil_polynomial]{characteristic polynomial} of an \hyperref[ag.abelian_variety]{abelian variety} over $\F_q$ is a Weil $q$-polynomial, but it is not quite true that every Weil $q$-polynomial arises in this way.  Every irreducible Weil $q$-polynomial has a unique power that is the characteristic polynomial of a \hyperref[av.simple]{simple abelian variety} over $\F_q$; it is the products of these powers that arise from abelian varieties.
+\end{definition*}
 
 

@@ -1,5 +1,5 @@
-\subsection{Saito-Kurokawa lift}
-\begin{definition}\label{mf.siegel.lift.saito_kurokawa}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.lift.saito_kurokawa}{Saito-Kurokawa lift}}
+\begin{definition*}\label{mf.siegel.lift.saito_kurokawa}
 \uses{}
 The Saito-Kurokawa lifting associates to an <a class="knowl-title" knowl="cmf">elliptic modular eigenform</a> $f\in S_{2k}({\rm SL}(2,\mathbb{Z}))$, where $k$ is odd, a <a class="knowl-title" knowl="mf.siegel">Siegel modular form</a> $F$ of degree $2$ and weight $k+1$ with respect to the full 
 <a class="knowl-title" knowl="group.sp2gr">symplectic group</a>. The $L$-function of $f$ and the spin $L$-function of $F$ are related by
@@ -7,6 +7,6 @@ $$
  L(s,F)=L(s,f)\zeta(s+1/2)\zeta(s-1/2),
 $$
 where $\zeta$ is the <a class="knowl-title" knowl="lfunction.riemann">Riemann zeta function</a>. The space spanned by all Saito-Kurokawa lifts is the same as the space spanned by all Maass lifts.
-\end{definition}
+\end{definition*}
 
 

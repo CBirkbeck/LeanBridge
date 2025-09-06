@@ -1,11 +1,11 @@
-\subsection{Character of a modular form}
-\begin{definition}\label{cmf.character}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.character}{Character of a modular form}}
+\begin{definition*}\label{cmf.character}
 \uses{character.dirichlet,cmf}
-The **character** of an {{ KNOWL('cmf', "elliptic modular form" ) }} $f$
-of weight $k$ for the group $\Gamma$  is the {{KNOWL('character.dirichlet', "Dirichlet character") }} $\chi$ that appears in its transformation under the action of the defining group $\Gamma$.  Namely, 
+The \textbf{character} of an \hyperref[cmf]{elliptic modular form} $f$
+of weight $k$ for the group $\Gamma$  is the \hyperref[character.dirichlet]{Dirichlet character} $\chi$ that appears in its transformation under the action of the defining group $\Gamma$.  Namely, 
 \[f(\gamma z) = \chi(d)(cz+d)^k f(z)
 \] 
 for any $z\in\mathcal{H}$ and $\gamma = \begin{pmatrix} * & * \\ c & d  \end{pmatrix}\in\Gamma$.  Here $\Gamma$ is a subgroup of $\rm{SL}_2(\mathbb{Z})$ containing the principal congruence subgroup $\Gamma(N)$, and $\chi$ is a character mod $N$.
-\end{definition}
+\end{definition*}
 
 

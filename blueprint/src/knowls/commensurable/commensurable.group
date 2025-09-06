@@ -1,7 +1,7 @@
-\subsection{commensurable group}
-\begin{definition}\label{commensurable.group}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/commensurable.group}{commensurable group}}
+\begin{definition*}\label{commensurable.group}
 \uses{}
 Two groups $G$ and $H$ are commensurable if their intersection $G \cap H$ has finite index in $G$ and in $H$.
-\end{definition}
+\end{definition*}
 
 

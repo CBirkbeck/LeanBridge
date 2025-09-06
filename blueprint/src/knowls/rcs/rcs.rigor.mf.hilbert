@@ -1,12 +1,14 @@
-\subsection{Reliability of Hilbert modular form data}
-\begin{definition}\label{rcs.rigor.mf.hilbert}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.rigor.mf.hilbert}{Reliability of Hilbert modular form data}}
+\begin{definition*}\label{rcs.rigor.mf.hilbert}
 \uses{mf.base_change,mf.cm,ring.prime_ideal}
 All Hilbert modular form eigenform data has been computed using rigorous algorithms.  
 
-- When ``is {{KNOWL('mf.base_change', 'base change')}}'' says _no_, we have certified that the form is not a base change; when _yes_, there is strong evidence of a base change (Hecke eigenvalues seem to match their conjugates under a nontrivial subgroup of automorphisms) but this has not been rigorously established.
-- When ``is {{KNOWL('mf.cm', 'cm')}}'' says _no_, we have certified that the form is not a CM form; when _yes_, there is strong evidence that the form has complex multiplication (the form seems to match its twist by a CM character) but this has not been rigorously established.
+\begin{itemize}
+\item  When ``is \hyperref[mf.base_change]{base change}'' says \textit{no}, we have certified that the form is not a base change; when \textit{yes}, there is strong evidence of a base change (Hecke eigenvalues seem to match their conjugates under a nontrivial subgroup of automorphisms) but this has not been rigorously established.
+\item  When ``is \hyperref[mf.cm]{cm}'' says \textit{no}, we have certified that the form is not a CM form; when \textit{yes}, there is strong evidence that the form has complex multiplication (the form seems to match its twist by a CM character) but this has not been rigorously established.
+\end{itemize}
 
-Wherever possible (specifically, when there is a {{KNOWL('ring.prime_ideal', 'prime')}} $\mathfrak{p} \parallel \mathfrak{N}$ exactly dividing the level), we computed the forms using both definite and indefinite algorithms (see the description in Donnelly-Voight \cite{arxiv:1605.02637}) and got the same answer.  
-\end{definition}
+Wherever possible (specifically, when there is a \hyperref[ring.prime_ideal]{prime} $\mathfrak{p} \parallel \mathfrak{N}$ exactly dividing the level), we computed the forms using both definite and indefinite algorithms (see the description in Donnelly-Voight \cite{arxiv:1605.02637}) and got the same answer.  
+\end{definition*}
 
 

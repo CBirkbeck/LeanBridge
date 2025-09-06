@@ -1,11 +1,15 @@
-\subsection{Degree 3 L-functions, examples}
-\begin{definition}\label{lfunction.known_degree3}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.known_degree3}{Degree 3 L-functions, examples}}
+\begin{definition*}\label{lfunction.known_degree3}
 \uses{lfunction,lfunction.degree}
-Examples of primitive {{KNOWL('lfunction.degree', 'degree')}} 3 {{ KNOWL("lfunction", "L-functions")}} are:
+Examples of primitive \hyperref[lfunction.degree]{degree} 3 \hyperref[lfunction]{L-functions} are:
 
- - $L(s, f, \mathrm{sym}^2)$: the symmetric square of a degree 2 L-function
+\begin{itemize}
+\item  $L(s, f, \mathrm{sym}^2)$: the symmetric square of a degree 2 L-function
+\end{itemize}
 
- - $L(s,f)$: standard L-function of a cusp form on GL(3)
-\end{definition}
+\begin{itemize}
+\item  $L(s,f)$: standard L-function of a cusp form on GL(3)
+\end{itemize}
+\end{definition*}
 
 

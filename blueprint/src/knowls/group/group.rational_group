@@ -1,9 +1,9 @@
-\subsection{Rational group}
-\begin{definition}\label{group.rational_group}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.rational_group}{Rational group}}
+\begin{definition*}\label{group.rational_group}
 \uses{group.cyclic,group.representation.character}
-A group $G$ is **rational** if all of its {{ KNOWL("group.representation.character", "characters")}} are rational valued. (Equivalently every $g$ and $g^k$ are conjugate for $k$ coprime to $|G|$.) It is an unsolved problem to determine what {{KNOWL("group.cyclic", "cyclic")}} groups of order $p$ can be composition factors of rational groups.
+A group $G$ is \textbf{rational} if all of its \hyperref[group.representation.character]{characters} are rational valued. (Equivalently every $g$ and $g^k$ are conjugate for $k$ coprime to $|G|$.) It is an unsolved problem to determine what \hyperref[group.cyclic]{cyclic} groups of order $p$ can be composition factors of rational groups.
 
 Rational groups are sometimes also known as Q-groups, though some authors reserve that term for a stronger property that every representation of G can be realized over $\mathbb{Q}$. (According to this terminology, $Q_8$ is rational but not a Q-group.)
-\end{definition}
+\end{definition*}
 
 

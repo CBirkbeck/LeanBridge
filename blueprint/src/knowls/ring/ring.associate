@@ -1,7 +1,7 @@
-\subsection{Associate of an element}
-\begin{definition}\label{ring.associate}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ring.associate}{Associate of an element}}
+\begin{definition*}\label{ring.associate}
 \uses{ring,ring.unit}
-If $R$ is a {{KNOWL('ring', 'commutative ring')}}, two elements $x, y \in R$ are **associates** if there is a {{KNOWL('ring.unit', 'unit')}} $u \in R$ with $y = ux$.  This defines an equivalence relation on the elements of $R$.
-\end{definition}
+If $R$ is a \hyperref[ring]{commutative ring}, two elements $x, y \in R$ are \textbf{associates} if there is a \hyperref[ring.unit]{unit} $u \in R$ with $y = ux$.  This defines an equivalence relation on the elements of $R$.
+\end{definition*}
 
 

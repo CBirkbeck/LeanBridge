@@ -1,13 +1,13 @@
-\subsection{Endomorphism ring of an elliptic curve}
-\begin{definition}\label{ec.endomorphism_ring}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.endomorphism_ring}{Endomorphism ring of an elliptic curve}}
+\begin{definition*}\label{ec.endomorphism_ring}
 \uses{ag.abelian_variety,ag.endomorphism_ring,ec,ec.endomorphism}
-The **endomorphism ring** $\End(E)$ of an {{ KNOWL('ec', 'elliptic curve') }} \(E\) over a field $K$ is the ring of all {{ KNOWL('ec.endomorphism', 'endomorphisms') }} of \(E\) defined over $K$.  For endomorphisms defined over extensions, we speak of the {{ KNOWL('ec.geom_endomorphism_ring', 'geometric endomorphism ring') }} of $E$.
+The \textbf{endomorphism ring} $\End(E)$ of an \hyperref[ec]{elliptic curve} \(E\) over a field $K$ is the ring of all \hyperref[ec.endomorphism]{endomorphisms} of \(E\) defined over $K$.  For endomorphisms defined over extensions, we speak of the \hyperref[ec.geom_endomorphism_ring]{geometric endomorphism ring} of $E$.
 
-For elliptic curves defined over fields of characteristic zero, this ring is isomorphic to \(\Z\), unless the curve has {{ KNOWL('ec.complex_multiplication', 'complex multiplication') }} (CM) defined over the ground field, in which case the endomorphism ring is an order in an imaginary quadratic field; for curves defined over \(\Q\), this order is one of the 13 orders of class number one.
+For elliptic curves defined over fields of characteristic zero, this ring is isomorphic to \(\Z\), unless the curve has \hyperref[ec.complex_multiplication]{complex multiplication} (CM) defined over the ground field, in which case the endomorphism ring is an order in an imaginary quadratic field; for curves defined over \(\Q\), this order is one of the 13 orders of class number one.
 
 $\End(E)$ always contains a subring isomorphic to $\Z$, since for $m\in\Z$ there is the multiplication-by-$m$ map $[m] \colon E\to E$.
 
-This is a special case of the {{KNOWL("ag.endomorphism_ring", "endomorphism ring")}} of an {{KNOWL('ag.abelian_variety', 'abelian variety')}}.
-\end{definition}
+This is a special case of the \hyperref[ag.endomorphism_ring]{endomorphism ring} of an \hyperref[ag.abelian_variety]{abelian variety}.
+\end{definition*}
 
 

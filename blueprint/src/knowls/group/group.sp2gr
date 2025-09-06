@@ -1,5 +1,5 @@
-\subsection{Symplectic group}
-\begin{definition}\label{group.sp2gr}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.sp2gr}{Symplectic group}}
+\begin{definition*}\label{group.sp2gr}
 \uses{}
 The real symplectic group of degree $g$ denoted by $\Sp(2g,\R)$ is defined as
 \[
@@ -18,8 +18,8 @@ $\text{Pf}(\gamma^t J \gamma)=\det(\gamma)\text{Pf}(J)$, we see that
 $\Sp(2g,\R)$ is a subgroup of $\SL(2g,\R)$.
 
 
-The **integral symplectic group** $\Gamma_g=\Sp(2g,\Z)$, also called the Siegel modular group,
+The \textbf{integral symplectic group} $\Gamma_g=\Sp(2g,\Z)$, also called the Siegel modular group,
 is defined as  $\Gamma_g=\Sp(2g,\R)\cap{\rm M}(2g,\Z)$. Clearly $\Gamma_1=\SL(2,\Z)$.
-\end{definition}
+\end{definition*}
 
 

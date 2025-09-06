@@ -1,7 +1,7 @@
-\subsection{Cyclic group}
-\begin{definition}\label{group.cyclic}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.cyclic}{Cyclic group}}
+\begin{definition*}\label{group.cyclic}
 \uses{group,group.generators}
-A {{KNOWL('group','group')}} $G$ is **cyclic** if it can be {{KNOWL('group.generators', 'generated')}} by one element.
-\end{definition}
+A \hyperref[group]{group} $G$ is \textbf{cyclic} if it can be \hyperref[group.generators]{generated} by one element.
+\end{definition*}
 
 

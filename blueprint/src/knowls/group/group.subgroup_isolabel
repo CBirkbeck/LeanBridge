@@ -1,7 +1,7 @@
-\subsection{Subgroup label}
-\begin{definition}\label{group.subgroup_isolabel}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.subgroup_isolabel}{Subgroup label}}
+\begin{definition*}\label{group.subgroup_isolabel}
 \uses{group,group.label,group.subgroup}
-The {{KNOWL('group.label', 'label')}} of the {{KNOWL('group.subgroup', 'subgroup')}} as an {{KNOWL('group', 'abstract group')}}.
-\end{definition}
+The \hyperref[group.label]{label} of the \hyperref[group.subgroup]{subgroup} as an \hyperref[group]{abstract group}.
+\end{definition*}
 
 

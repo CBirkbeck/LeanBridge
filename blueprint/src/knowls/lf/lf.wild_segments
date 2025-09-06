@@ -1,13 +1,13 @@
-\subsection{Number of wild segments of a family}
-\begin{definition}\label{lf.wild_segments}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.wild_segments}{Number of wild segments of a family}}
+\begin{definition*}\label{lf.wild_segments}
 \uses{lf.family_polynomial,lf.ramification_polygon,lf.slopes}
-Let $I/K$ be a {{KNOWL('lf.family_polynomial', 'family')}}
+Let $I/K$ be a \hyperref[lf.family_polynomial]{family}
 of extensions and let $L/K\in I/K$.
-The **number of wild segments** of $I/K$ is the number of segments
-of the {{KNOWL('lf.ramification_polygon', 'ramification polygon')}} of $L/K$
+The \textbf{number of wild segments} of $I/K$ is the number of segments
+of the \hyperref[lf.ramification_polygon]{ramification polygon} of $L/K$
 with positive slope.  This is equal to the number of distinct positive
-{{KNOWL('lf.slopes', 'Swan slopes')}} of $L/K$, and does not
+\hyperref[lf.slopes]{Swan slopes} of $L/K$, and does not
 depend on the choice of $L/K\in I/K$.
-\end{definition}
+\end{definition*}
 
 

@@ -1,7 +1,7 @@
-\subsection{$A$-field}
-\begin{definition}\label{ring.a-field}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ring.a-field}{$A$-field}}
+\begin{definition*}\label{ring.a-field}
 \uses{ring.field}
-Let $A$ be a commutative ring.  An **$A$-field** is an $A$-algebra that is a {{KNOWL('ring.field', 'field')}}.
-\end{definition}
+Let $A$ be a commutative ring.  An \textbf{$A$-field} is an $A$-algebra that is a \hyperref[ring.field]{field}.
+\end{definition*}
 
 

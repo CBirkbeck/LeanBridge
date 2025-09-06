@@ -1,7 +1,7 @@
-\subsection{Local minimal model}
-\begin{definition}\label{ec.local_minimal_model}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.local_minimal_model}{Local minimal model}}
+\begin{definition*}\label{ec.local_minimal_model}
 \uses{ec,ec.discriminant,ec.weierstrass_coeffs,nf,nf.integral}
-A **local minimal model** for an {{ KNOWL('ec', 'elliptic curve') }} \(E\) defined over a {{ KNOWL('nf', 'number field') }} \(K\) at a prime \(\mathfrak{p}\) of \(K\) is a {{ KNOWL('ec.weierstrass_coeffs', 'Weierstrass equation') }} for \(E\) all of whose coefficients are {{ KNOWL('nf.integral', 'integral') }}  at \(\mathfrak{p}\), and whose {{ KNOWL('ec.discriminant', 'discriminant') }} has minimal valuation at \(\mathfrak{p}\) among all such equations.
-\end{definition}
+A \textbf{local minimal model} for an \hyperref[ec]{elliptic curve} \(E\) defined over a \hyperref[nf]{number field} \(K\) at a prime \(\mathfrak{p}\) of \(K\) is a \hyperref[ec.weierstrass_coeffs]{Weierstrass equation} for \(E\) all of whose coefficients are \hyperref[nf.integral]{integral}  at \(\mathfrak{p}\), and whose \hyperref[ec.discriminant]{discriminant} has minimal valuation at \(\mathfrak{p}\) among all such equations.
+\end{definition*}
 
 

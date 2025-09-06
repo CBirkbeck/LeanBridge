@@ -1,9 +1,9 @@
-\subsection{Isogeny graph of an isogeny class of elliptic curves}
-\begin{definition}\label{ec.isogeny_graph}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.isogeny_graph}{Isogeny graph of an isogeny class of elliptic curves}}
+\begin{definition*}\label{ec.isogeny_graph}
 \uses{ec,ec.isogeny_class}
-The **isogeny graph** of an {{KNOWL("ec.isogeny_class", "isogeny class")}} of {{KNOWL("ec", "elliptic curves")}} is the graph whose vertices are the isomorphism classes (over the base field) of elliptic curves in the isogeny class and whose edges are the isogenies of prime degree between the curves representing the vertices.
+The \textbf{isogeny graph} of an \hyperref[ec.isogeny_class]{isogeny class} of \hyperref[ec]{elliptic curves} is the graph whose vertices are the isomorphism classes (over the base field) of elliptic curves in the isogeny class and whose edges are the isogenies of prime degree between the curves representing the vertices.
 
 The vertices of the isogeny graphs in the LMFDB are labeled by the final entry of the LMFDB label of the corresponding (isomorphism classes of) elliptic curves. Their edges, of which there may be several between any two given vertices, are labeled by the prime that is the degree of the corresponding isogeny.
-\end{definition}
+\end{definition*}
 
 

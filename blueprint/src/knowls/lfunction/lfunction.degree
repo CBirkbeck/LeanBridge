@@ -1,7 +1,7 @@
-\subsection{Degree of an L-function}
-\begin{definition}\label{lfunction.degree}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.degree}{Degree of an L-function}}
+\begin{definition*}\label{lfunction.degree}
 \uses{lfunction,lfunction.conductor,lfunction.functional_equation,lfunction.selbergdata,lfunction.gamma_factor}
-The **degree** of an {{KNOWL('lfunction', "L-function")}} is the number $J + 2K$ of {{KNOWL('lfunction.gamma_factor', "Gamma factors")}} occurring in its {{KNOWL("lfunction.functional_equation", "functional equation")}}
+The \textbf{degree} of an \hyperref[lfunction]{L-function} is the number $J + 2K$ of \hyperref[lfunction.gamma_factor]{Gamma factors} occurring in its \hyperref[lfunction.functional_equation]{functional equation}
 
 \[
 \Lambda(s) := N^{s/2}
@@ -9,8 +9,8 @@ The **degree** of an {{KNOWL('lfunction', "L-function")}} is the number $J + 2K$
 \cdot L(s) = \varepsilon \overline{\Lambda}(1-s).
 \]
 
-The degree appears as the first component of the {{KNOWL('lfunction.selbergdata', "Selberg data")}} of $L(s).$ In all known cases it is the degree of the polynomial of the inverse of the Euler factor at any prime not dividing the {{KNOWL("lfunction.conductor", "conductor")}}. 
+The degree appears as the first component of the \hyperref[lfunction.selbergdata]{Selberg data} of $L(s).$ In all known cases it is the degree of the polynomial of the inverse of the Euler factor at any prime not dividing the \hyperref[lfunction.conductor]{conductor}. 
  
-\end{definition}
+\end{definition*}
 
 

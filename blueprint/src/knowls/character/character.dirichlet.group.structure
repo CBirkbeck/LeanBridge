@@ -1,7 +1,7 @@
-\subsection{Structure of a Dirichlet group}
-\begin{definition}\label{character.dirichlet.group.structure}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/character.dirichlet.group.structure}{Structure of a Dirichlet group}}
+\begin{definition*}\label{character.dirichlet.group.structure}
 \uses{character.dirichlet.group,character.dirichlet.modulus}
-The **structure** of a {{KNOWL('character.dirichlet.group', 'Dirichlet character group')}} of Dirichlet characters of {{KNOWL('character.dirichlet.modulus', 'modulus')}} $q$ refers to its isomorphism type as a finite abelian group, which can be uniquely expressed as a product of cyclic groups $C_{n_1}\times C_{n_2}\cdots\times C_{n_r}$ with $n_1|n_2|\cdots |n_r$.  This is the same as the structure of the group $(\Z/q\Z)^\times$.
-\end{definition}
+The \textbf{structure} of a \hyperref[character.dirichlet.group]{Dirichlet character group} of Dirichlet characters of \hyperref[character.dirichlet.modulus]{modulus} $q$ refers to its isomorphism type as a finite abelian group, which can be uniquely expressed as a product of cyclic groups $C_{n_1}\times C_{n_2}\cdots\times C_{n_r}$ with $n_1|n_2|\cdots |n_r$.  This is the same as the structure of the group $(\Z/q\Z)^\times$.
+\end{definition*}
 
 

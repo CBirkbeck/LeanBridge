@@ -1,13 +1,15 @@
-\subsection{Reliability of Siegel modular form data}
-\begin{definition}\label{rcs.rigor.mf.siegel}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.rigor.mf.siegel}{Reliability of Siegel modular form data}}
+\begin{definition*}\label{rcs.rigor.mf.siegel}
 \uses{mf.siegel,mf.siegel.newform,mf.siegel.weight_k_j}
-All Siegel {{KNOWL("mf.siegel", "modular form")}} data currently in the database has been computed using rigorous algorithms that do not depend on any unproved assumptions or conjectures.
+All Siegel \hyperref[mf.siegel]{modular form} data currently in the database has been computed using rigorous algorithms that do not depend on any unproved assumptions or conjectures.
 
 In addition to using mathematically rigorous algorithms whenever possible, we have performed a variety of consistency checks intended to catch any errors in the software packages used to compute modular forms data, or any errors that might have been introduced during post-processing.  The following checks have been performed:
 
-* All {{KNOWL("mf.siegel.newform", "newforms")}} of {{KNOWL("mf.siegel.weight_k_j", "weight")}} $(k,j) = (3,0)$ and level $N$ for which there exists a prime $p$ with $p \parallel N$ have been independently computed using two different code packages. One [package](https://gitlab.fing.edu.uy/grama/quinary) using [[Pari/GP](https://pari.math.u-bordeaux.fr)] and another independent [package](https://github.com/assaferan/omf5) written in C.  By comparing the results of these computations we have verified that the decompositions of each newspace $S_{3,0}^{\rm new}(K(N))$ into  Galois orbits agree (with matching coefficient fields), that the first 100 coefficients of the trace forms for each Galois orbit agree, and for newforms of dimension $d \le 13$, that there is an automorphism of the coefficient field that relates the sequences of algebraic eigenvalues $(a_1,\ldots,a_{100})$ computed by both packages.
+\begin{itemize}
+\item  All \hyperref[mf.siegel.newform]{newforms} of \hyperref[mf.siegel.weight_k_j]{weight} $(k,j) = (3,0)$ and level $N$ for which there exists a prime $p$ with $p \parallel N$ have been independently computed using two different code packages. One [package](https://gitlab.fing.edu.uy/grama/quinary) using [[Pari/GP](https://pari.math.u-bordeaux.fr)] and another independent [package](https://github.com/assaferan/omf5) written in C.  By comparing the results of these computations we have verified that the decompositions of each newspace $S_{3,0}^{\rm new}(K(N))$ into  Galois orbits agree (with matching coefficient fields), that the first 100 coefficients of the trace forms for each Galois orbit agree, and for newforms of dimension $d \le 13$, that there is an automorphism of the coefficient field that relates the sequences of algebraic eigenvalues $(a_1,\ldots,a_{100})$ computed by both packages.
+\end{itemize}
 
-For all {{KNOWL("mf.siegel.newform", "newforms")}} of {{KNOWL("mf.siegel.weight_k_j", "weight")}} $(k,j) = (3,0), (3,2), (4,0)$ and squarefree level $N$ we have verified that the dimensions agree with known dimension formulas \cite{MR3638279} \cite{arxiv:2208.13578}.
-\end{definition}
+For all \hyperref[mf.siegel.newform]{newforms} of \hyperref[mf.siegel.weight_k_j]{weight} $(k,j) = (3,0), (3,2), (4,0)$ and squarefree level $N$ we have verified that the dimensions agree with known dimension formulas \cite{MR3638279} \cite{arxiv:2208.13578}.
+\end{definition*}
 
 

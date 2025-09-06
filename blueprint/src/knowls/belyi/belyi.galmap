@@ -1,7 +1,7 @@
-\subsection{Belyi map}
-\begin{definition}\label{belyi.galmap}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/belyi.galmap}{Belyi map}}
+\begin{definition*}\label{belyi.galmap}
 \uses{}
-A **Belyi map** over a field $K$ of characteristic zero is a finite morphism $\phi\colon X\to\mathbb{P}^1$ of (smooth, projective, geometrically irreducible) curves over $K$ that is unramified outside $\{0,1,\infty\}$.
-\end{definition}
+A \textbf{Belyi map} over a field $K$ of characteristic zero is a finite morphism $\phi\colon X\to\mathbb{P}^1$ of (smooth, projective, geometrically irreducible) curves over $K$ that is unramified outside $\{0,1,\infty\}$.
+\end{definition*}
 
 

@@ -1,18 +1,20 @@
-\subsection{Completeness of the modular curve database}
-\begin{definition}\label{rcs.cande.modcurve}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.cande.modcurve}{Completeness of the modular curve database}}
+\begin{definition*}\label{rcs.cande.modcurve}
 \uses{ag.canonical_model,ag.hyperelliptic_curve,ag.plane_model,modcurve.cm_discriminants,modcurve.cusps,modcurve.decomposition,modcurve.embedded_model,modcurve.genus,modcurve.level,modcurve.rank}
 The database currently contains data on all modular curves $X_H$ with $\det(H)=\widehat\Z^\times$ such that at least one of the following hold:
 
-- $H$ has {{KNOWL('modcurve.level', 'level')}} at most $70$;
-- $H$ has prime-power level at most $335$;
-- $H$ contains $-I$ and has {{KNOWL('modcurve.genus', 'genus')}} at most $24$ and level at most $335$;
-- $H$ does not contain $-I$ and has genus at most $8$ and level at most $335$.
+\begin{itemize}
+\item  $H$ has \hyperref[modcurve.level]{level} at most $70$;
+\item  $H$ has prime-power level at most $335$;
+\item  $H$ contains $-I$ and has \hyperref[modcurve.genus]{genus} at most $24$ and level at most $335$;
+\item  $H$ does not contain $-I$ and has genus at most $8$ and level at most $335$.
+\end{itemize}
 
-Information on {{KNOWL('modcurve.cusps', 'rational cusps')}} and {{KNOWL('modcurve.cm_discriminants', 'rational CM points')}} is available for every $X_H$.
+Information on \hyperref[modcurve.cusps]{rational cusps} and \hyperref[modcurve.cm_discriminants]{rational CM points} is available for every $X_H$.
 
-Information on the {{KNOWL('modcurve.rank', 'analytic rank')}}, and the {{KNOWL('modcurve.decomposition', 'isogeny decomposition')}} of the Jacobian is available for every $X_H$ of level $N\le 70$.
+Information on the \hyperref[modcurve.rank]{analytic rank}, and the \hyperref[modcurve.decomposition]{isogeny decomposition} of the Jacobian is available for every $X_H$ of level $N\le 70$.
 
-Rational and low degree points data is available for points that correspond to elliptic curves in the LMFDB; **note that this excludes many known rational points**.
+Rational and low degree points data is available for points that correspond to elliptic curves in the LMFDB; \textbf{note that this excludes many known rational points}.
 
 Plane models are available for a subset of the curves of genus $g\le 24$, as summarized in the following table.  Note that the columns add to more than the total since some modular curves have models of multiple types.
 
@@ -38,7 +40,7 @@ Plane models are available for a subset of the curves of genus $g\le 24$, as sum
  <td align="right">0</td>
 </tr>
 <tr>
- <th align="left">{{ KNOWL('ag.canonical_model', 'Canonical model') }}</th>
+ <th align="left">\hyperref[ag.canonical_model]{Canonical model}</th>
  <td align="right">0</td>
  <td align="right">0</td>
  <td align="right">0</td>
@@ -48,7 +50,7 @@ Plane models are available for a subset of the curves of genus $g\le 24$, as sum
  <td align="right">36792</td>
 </tr>
 <tr>
- <th align="left">{{ KNOWL('ag.plane_model', 'plane model') }}</th>
+ <th align="left">\hyperref[ag.plane_model]{plane model}</th>
  <td align="right">889</td>
  <td align="right">3012</td>
  <td align="right">1460</td>
@@ -58,7 +60,7 @@ Plane models are available for a subset of the curves of genus $g\le 24$, as sum
  <td align="right">29577</td>
 </tr>
 <tr>
- <th align="left">{{ KNOWL('ag.hyperelliptic_curve', 'Weierstrass model') }}</th>
+ <th align="left">\hyperref[ag.hyperelliptic_curve]{Weierstrass model}</th>
  <td align="right">0</td>
  <td align="right">1174</td>
  <td align="right">1457</td>
@@ -68,7 +70,7 @@ Plane models are available for a subset of the curves of genus $g\le 24$, as sum
  <td align="right">152</td>
 </tr>
 <tr>
- <th align="left">{{ KNOWL('ag.hyperelliptic_curve', 'Double cover of conic') }}</th>
+ <th align="left">\hyperref[ag.hyperelliptic_curve]{Double cover of conic}</th>
  <td align="right">0</td>
  <td align="right">0</td>
  <td align="right">0</td>
@@ -78,7 +80,7 @@ Plane models are available for a subset of the curves of genus $g\le 24$, as sum
  <td align="right">0</td>
 </tr>
 <tr>
- <th align="left">{{ KNOWL('modcurve.embedded_model', 'Embedded model') }}</th>
+ <th align="left">\hyperref[modcurve.embedded_model]{Embedded model}</th>
  <td align="right">0</td>
  <td align="right">3317</td>
  <td align="right">1460</td>
@@ -107,6 +109,6 @@ Plane models are available for a subset of the curves of genus $g\le 24$, as sum
  <td align="right">7966</td>
  <td align="right">97177</td>
 </table>
-\end{definition}
+\end{definition*}
 
 

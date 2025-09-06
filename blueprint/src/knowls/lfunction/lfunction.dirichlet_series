@@ -1,7 +1,7 @@
-\subsection{Dirichlet series}
-\begin{definition}\label{lfunction.dirichlet_series}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.dirichlet_series}{Dirichlet series}}
+\begin{definition*}\label{lfunction.dirichlet_series}
 \uses{}
-A **Dirichlet series** is a formal series of the form $F(s) = {\displaystyle \sum_{n=1}^{\infty} \frac{a_n}{ n^{s}}}$, where $a_n \in {\mathbb C}$.
-\end{definition}
+A \textbf{Dirichlet series} is a formal series of the form $F(s) = {\displaystyle \sum_{n=1}^{\infty} \frac{a_n}{ n^{s}}}$, where $a_n \in {\mathbb C}$.
+\end{definition*}
 
 

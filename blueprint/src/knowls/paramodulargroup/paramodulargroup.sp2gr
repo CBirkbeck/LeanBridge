@@ -1,5 +1,5 @@
-\subsection{Paramodular group in degree g}
-\begin{definition}\label{paramodulargroup.sp2gr}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/paramodulargroup.sp2gr}{Paramodular group in degree g}}
+\begin{definition*}\label{paramodulargroup.sp2gr}
 \uses{group.paramodular}
 A paramodular group $\Gamma$ of degree $g$ preserves 
 an integral alternating $2g \times 2g$ matrix 
@@ -11,7 +11,7 @@ $
 For $\delta= \left( \begin{array}{ll}  1_g & 0 \\ 0 & d \end{array}\right)$, the conjugate $\Gamma^{\mathrm{para}}(d)=\delta\Gamma\delta^{-1}\subseteq \mathrm{Sp}(2g,\Q)$ is also referred to as a paramodular group. 
 
 In degree $2$,
-{{KNOWL("group.paramodular", "$K(N)$")}}$= \Gamma^{\mathrm{para}}(1,N)$.   
-\end{definition}
+\hyperref[group.paramodular]{$K(N)$}$= \Gamma^{\mathrm{para}}(1,N)$.   
+\end{definition*}
 
 

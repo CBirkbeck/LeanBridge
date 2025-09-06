@@ -1,7 +1,7 @@
-\subsection{Root}
-\begin{definition}\label{cmf.root}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.root}{Root}}
+\begin{definition*}\label{cmf.root}
 \uses{cmf.coefficient_field,cmf.defining_polynomial,cmf.embedding,nf.embedding}
-In order to represent an {{ KNOWL('cmf.embedding', 'embedding of a modular form') }}, we specify an {{ KNOWL('nf.embedding', 'embedding') }} of its {{ KNOWL('cmf.coefficient_field', 'coefficient field') }} into $\mathbb{C}$. This is specified by giving one of the complex roots of the {{ KNOWL('cmf.defining_polynomial', 'defining polynomial') }} of the coefficient field of the modular form.
-\end{definition}
+In order to represent an \hyperref[cmf.embedding]{embedding of a modular form}, we specify an \hyperref[nf.embedding]{embedding} of its \hyperref[cmf.coefficient_field]{coefficient field} into $\mathbb{C}$. This is specified by giving one of the complex roots of the \hyperref[cmf.defining_polynomial]{defining polynomial} of the coefficient field of the modular form.
+\end{definition*}
 
 

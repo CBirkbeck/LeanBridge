@@ -1,5 +1,5 @@
-\subsection{Taxonomy of L-functions}
-\begin{definition}\label{lfunction.taxonomy}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.taxonomy}{Taxonomy of L-functions}}
+\begin{definition*}\label{lfunction.taxonomy}
 \uses{}
 Taxonomy of L-functions
 =======================
@@ -167,6 +167,6 @@ is conjectural for $d>2$.
 Note: The Sato-Tate group determines which operations on the $L$-function
 ($sym^n$, for example) have poles.
 
-\end{definition}
+\end{definition*}
 
 

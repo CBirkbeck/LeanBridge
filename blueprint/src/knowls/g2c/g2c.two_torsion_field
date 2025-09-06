@@ -1,12 +1,12 @@
-\subsection{2-torsion field}
-\begin{definition}\label{g2c.two_torsion_field}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.two_torsion_field}{2-torsion field}}
+\begin{definition*}\label{g2c.two_torsion_field}
 \uses{ag.abelian_variety,ag.hyperelliptic_curve,ag.mordell_weil,g2c.jacobian}
-The **2-torsion field** of an {{KNOWL('ag.abelian_variety', 'abelian variety')}} is the minimal field extension over which the 2-torsion subgroup of its {{KNOWL("ag.mordell_weil", "Mordell-Weil group")}} is rational; it is a Galois extension of the field over which the abelian variety is defined.
+The \textbf{2-torsion field} of an \hyperref[ag.abelian_variety]{abelian variety} is the minimal field extension over which the 2-torsion subgroup of its \hyperref[ag.mordell_weil]{Mordell-Weil group} is rational; it is a Galois extension of the field over which the abelian variety is defined.
 
-The 2-torsion field of the {{KNOWL('g2c.jacobian', 'Jacobian')}} of a {{KNOWL('ag.hyperelliptic_curve', 'hyperelliptic curve')}} of the form $y^2=f(x)$ is the same as the splitting field of the polynomial $f(x)$.
+The 2-torsion field of the \hyperref[g2c.jacobian]{Jacobian} of a \hyperref[ag.hyperelliptic_curve]{hyperelliptic curve} of the form $y^2=f(x)$ is the same as the splitting field of the polynomial $f(x)$.
 
 For abelian varieties over number fields, the 2-torsion field is specified by giving a number field of minimal degree and absolute discriminant whose Galois closure is equal to the 2-torsion field.
 
-\end{definition}
+\end{definition*}
 
 

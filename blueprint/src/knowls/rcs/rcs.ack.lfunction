@@ -1,5 +1,5 @@
-\subsection{Acknowledgments for L-functions}
-\begin{definition}\label{rcs.ack.lfunction}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.ack.lfunction}{Acknowledgments for L-functions}}
+\begin{definition*}\label{rcs.ack.lfunction}
 \uses{}
 <h2>Additional acknowledgments</h2>
 
@@ -7,6 +7,6 @@ Data computed by Jonathan Bober, Andrew Booker, Edgar Costa, John Cremona, David
 
 Initial page design and coding was by David Farmer, Sally Koutsoliotas,
 Stefan Lemurell, and Ralf Schmidt.
-\end{definition}
+\end{definition*}
 
 

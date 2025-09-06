@@ -1,9 +1,9 @@
-\subsection{Top slope}
-\begin{definition}\label{modlgal.top_slope}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/modlgal.top_slope}{Top slope}}
+\begin{definition*}\label{modlgal.top_slope}
 \uses{lf,lf.slopes,lf.top_slope,modlgal,modlgal.splitting_field,nf.local_algebra}
-Given a {{KNOWL('modlgal', 'mod-$\ell$ Galois representation')}} $\rho$, let $K$ be its  {{KNOWL('modlgal.splitting_field', 'splitting field')}}.  Then the {{KNOWL('nf.local_algebra', 'local $\ell$-adic algebra')}} $K\otimes\mathbb{\Q}_{\ell}$ is isomorphic to a product of {{KNOWL('lf', '$\ell$-adic fields')}}.  The **top Artin slope** of the representation is the largest {{ KNOWL('lf.slopes', 'Artin slope') }} among these fields, which equals the {{ KNOWL('lf.top_slope', 'top Artin slope') }} for their compositum.
+Given a \hyperref[modlgal]{mod-$\ell$ Galois representation} $\rho$, let $K$ be its  \hyperref[modlgal.splitting_field]{splitting field}.  Then the \hyperref[nf.local_algebra]{local $\ell$-adic algebra} $K\otimes\mathbb{\Q}_{\ell}$ is isomorphic to a product of \hyperref[lf]{$\ell$-adic fields}.  The \textbf{top Artin slope} of the representation is the largest \hyperref[lf.slopes]{Artin slope} among these fields, which equals the \hyperref[lf.top_slope]{top Artin slope} for their compositum.
 
-Note that a top slope of $0$ signifies that the field is unramified at $\ell$, and a top slope of $1$ indicates that it is ramified, but only tamely.  Otherwise the top slope is the largest {{KNOWL('lf.slopes', 'wild slope')}}. 
-\end{definition}
+Note that a top slope of $0$ signifies that the field is unramified at $\ell$, and a top slope of $1$ indicates that it is ramified, but only tamely.  Otherwise the top slope is the largest \hyperref[lf.slopes]{wild slope}. 
+\end{definition*}
 
 

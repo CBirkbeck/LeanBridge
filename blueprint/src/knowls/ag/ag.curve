@@ -1,7 +1,7 @@
-\subsection{Algebraic curve}
-\begin{definition}\label{ag.curve}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.curve}{Algebraic curve}}
+\begin{definition*}\label{ag.curve}
 \uses{ag.variety}
-An **algebraic curve** is an {{ KNOWL('ag.variety' , title='algebraic variety')}} of dimension $1.$
-\end{definition}
+An \textbf{algebraic curve} is an \hyperref[ag.variety]{algebraic variety} of dimension $1.$
+\end{definition*}
 
 

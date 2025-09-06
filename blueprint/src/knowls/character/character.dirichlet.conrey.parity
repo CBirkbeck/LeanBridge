@@ -1,12 +1,14 @@
-\subsection{Parity of a Dirichlet character from its Conrey label}
-\begin{definition}\label{character.dirichlet.conrey.parity}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/character.dirichlet.conrey.parity}{Parity of a Dirichlet character from its Conrey label}}
+\begin{definition*}\label{character.dirichlet.conrey.parity}
 \uses{character.dirichlet,character.dirichlet.parity}
-Let $$\chi_q(n,\cdot)=\prod_{p|q}\chi_{p^e}(n,\cdot)$$ be the unique factorization of the {{KNOWL('character.dirichlet', "Dirichlet character")}} $\chi_q(n,\cdot)$ into characters of prime power modulus $p^e$ under the {{KNOWL ("character.dirichlet.conrey",title="Conrey labeling system")}}. The {{KNOWL('character.dirichlet.parity', 'parity')}} of $\chi_q(n,\cdot)$ is the sum of the parities of the Dirichlet characters $\chi_{p^e}(n,\cdot)$, which can be computed as follows:
+Let $$\chi_q(n,\cdot)=\prod_{p|q}\chi_{p^e}(n,\cdot)$$ be the unique factorization of the \hyperref[character.dirichlet]{Dirichlet character} $\chi_q(n,\cdot)$ into characters of prime power modulus $p^e$ under the \hyperref[character.dirichlet.conrey]{Conrey labeling system}. The \hyperref[character.dirichlet.parity]{parity} of $\chi_q(n,\cdot)$ is the sum of the parities of the Dirichlet characters $\chi_{p^e}(n,\cdot)$, which can be computed as follows:
 
-- for $p>2$, the character $\chi_{p^e}(n,\cdot)$ is even if and only if $n$ is a square modulo $p$;
-- for $p=2$ and $e>1$ the character $\chi_{p^e}(n,\cdot)$ is even if and only if $n$ is a square modulo $4$.
-- for $p=2$ and $e=1$ the character $\chi_{p^e}(n,\cdot)=\chi_2(1,\cdot)$ is even.
+\begin{itemize}
+\item  for $p>2$, the character $\chi_{p^e}(n,\cdot)$ is even if and only if $n$ is a square modulo $p$;
+\item  for $p=2$ and $e>1$ the character $\chi_{p^e}(n,\cdot)$ is even if and only if $n$ is a square modulo $4$.
+\item  for $p=2$ and $e=1$ the character $\chi_{p^e}(n,\cdot)=\chi_2(1,\cdot)$ is even.
+\end{itemize}
 
-\end{definition}
+\end{definition*}
 
 

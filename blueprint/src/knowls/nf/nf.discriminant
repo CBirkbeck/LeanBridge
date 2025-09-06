@@ -1,7 +1,7 @@
-\subsection{Discriminant of a number field}
-\begin{definition}\label{nf.discriminant}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.discriminant}{Discriminant of a number field}}
+\begin{definition*}\label{nf.discriminant}
 \uses{nf,nf.integral_basis}
-The **discriminant** of a {{ KNOWL('nf', "number field") }} $K$ is the square of the determinant of the matrix
+The \textbf{discriminant} of a \hyperref[nf]{number field} $K$ is the square of the determinant of the matrix
 \[
 \left( \begin{array}{ccc}
  \sigma_1(\beta_1) & \cdots & \sigma_1(\beta_n) \\
@@ -9,10 +9,10 @@ The **discriminant** of a {{ KNOWL('nf', "number field") }} $K$ is the square of
 \sigma_n(\beta_1) & \cdots & \sigma_n(\beta_n) \\
 \end{array} \right)
 \]
-where $\sigma_1,..., \sigma_n$ are the embeddings of $K$ into the complex numbers $\mathbb{C}$, and $\{\beta_1, \ldots, \beta_n\}$ is an {{ KNOWL('nf.integral_basis', "integral basis") }} for the ring of integers of $K$.  
+where $\sigma_1,..., \sigma_n$ are the embeddings of $K$ into the complex numbers $\mathbb{C}$, and $\{\beta_1, \ldots, \beta_n\}$ is an \hyperref[nf.integral_basis]{integral basis} for the ring of integers of $K$.  
 
-The discriminant of $K$ is a non-zero integer divisible exactly by the primes which {{ KNOWL('nf.ramified_primes', "ramify") }} in $K$.
+The discriminant of $K$ is a non-zero integer divisible exactly by the primes which \hyperref[nf.ramified_primes]{ramify} in $K$.
 
-\end{definition}
+\end{definition*}
 
 

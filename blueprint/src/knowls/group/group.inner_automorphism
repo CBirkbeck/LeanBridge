@@ -1,14 +1,14 @@
-\subsection{Inner automorphism of a group}
-\begin{definition}\label{group.inner_automorphism}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.inner_automorphism}{Inner automorphism of a group}}
+\begin{definition*}\label{group.inner_automorphism}
 \uses{group,group.automorphism,group.center,group.subgroup}
-If $G$ is a {{KNOWL('group', 'group')}} and $g\in G$, then the function $\phi_g:G\to G$ given by conjugation by $g$
+If $G$ is a \hyperref[group]{group} and $g\in G$, then the function $\phi_g:G\to G$ given by conjugation by $g$
 \[ \phi_g(x) = gxg^{-1} \]
-is an {{KNOWL('group.automorphism', 'automorphism')}} of $G$ called an **inner automorphism**.
+is an \hyperref[group.automorphism]{automorphism} of $G$ called an \textbf{inner automorphism}.
 
 The set of inner automorphisms $\mathrm{Inn}(G)$ is a 
-{{KNOWL('group.subgroup', 'subgroup')}} of $\Aut(G)$, and
+\hyperref[group.subgroup]{subgroup} of $\Aut(G)$, and
 \[ \mathrm{Inn}(G) \cong G/Z(G)\]
-where $Z(G)$ is the {{KNOWL('group.center', 'center')}} of $G$.
-\end{definition}
+where $Z(G)$ is the \hyperref[group.center]{center} of $G$.
+\end{definition*}
 
 

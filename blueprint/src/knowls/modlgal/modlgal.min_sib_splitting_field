@@ -1,7 +1,7 @@
-\subsection{Minimal sibling of splitting field}
-\begin{definition}\label{modlgal.min_sib_splitting_field}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/modlgal.min_sib_splitting_field}{Minimal sibling of splitting field}}
+\begin{definition*}\label{modlgal.min_sib_splitting_field}
 \uses{modlgal,modlgal.splitting_field,nf.minimal_sibling}
-The **minimal sibling of the splitting field** of a {{ KNOWL('modlgal', 'mod-$\ell$ Galois representation') }} is the {{ KNOWL('nf.minimal_sibling', 'minimal sibling') }} of its {{ KNOWL('modlgal.splitting_field', 'splitting field') }}.
-\end{definition}
+The \textbf{minimal sibling of the splitting field} of a \hyperref[modlgal]{mod-$\ell$ Galois representation} is the \hyperref[nf.minimal_sibling]{minimal sibling} of its \hyperref[modlgal.splitting_field]{splitting field}.
+\end{definition*}
 
 

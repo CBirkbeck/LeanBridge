@@ -1,13 +1,15 @@
-\subsection{Complete group}
-\begin{definition}\label{group.complete}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.complete}{Complete group}}
+\begin{definition*}\label{group.complete}
 \uses{}
-A group $G$ is **complete** if one of the following equivalent conditions holds:
+A group $G$ is \textbf{complete} if one of the following equivalent conditions holds:
 
-- it has trivial center and every automorphism is inner,
-- the natural map from $G$ to its inner automorphism group is an isomorphism,
-- whenever it is embedded as a normal subgroup of a larger group, it is a direct factor.
+\begin{itemize}
+\item  it has trivial center and every automorphism is inner,
+\item  the natural map from $G$ to its inner automorphism group is an isomorphism,
+\item  whenever it is embedded as a normal subgroup of a larger group, it is a direct factor.
+\end{itemize}
 
 For $n \ne 2, 6$, the symmetric group $S_n$ is complete.
-\end{definition}
+\end{definition*}
 
 

@@ -1,10 +1,10 @@
-\subsection{Central character of an L-function}
-\begin{definition}\label{lfunction.central_character}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.central_character}{Central character of an L-function}}
+\begin{definition*}\label{lfunction.central_character}
 \uses{character.dirichlet,lfunction.conductor,lfunction.euler_product}
-An L-function has an {{KNOWL('lfunction.euler_product', 'Euler product')}} of the form
+An L-function has an \hyperref[lfunction.euler_product]{Euler product} of the form
 $L(s) = \prod_p L_p(p^{-s})^{-1}$
-where $L_p(x) = 1 + a_p x + \ldots + (-1)^d \chi(p) x^d$. The character $\chi$ is a {{KNOWL('character.dirichlet', 'Dirichlet character')}} mod $N$ and is called **central character** of the L-function.
-Here, $N$ is the {{KNOWL('lfunction.conductor', 'conductor')}} of $L$.
-\end{definition}
+where $L_p(x) = 1 + a_p x + \ldots + (-1)^d \chi(p) x^d$. The character $\chi$ is a \hyperref[character.dirichlet]{Dirichlet character} mod $N$ and is called \textbf{central character} of the L-function.
+Here, $N$ is the \hyperref[lfunction.conductor]{conductor} of $L$.
+\end{definition*}
 
 

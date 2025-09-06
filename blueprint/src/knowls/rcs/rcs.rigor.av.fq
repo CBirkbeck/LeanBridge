@@ -1,13 +1,17 @@
-\subsection{Reliability of Weil polynomial data}
-\begin{definition}\label{rcs.rigor.av.fq}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.rigor.av.fq}{Reliability of Weil polynomial data}}
+\begin{definition*}\label{rcs.rigor.av.fq}
 \uses{ag.curve.genus,ag.jacobian,av.isogeny_class}
 Except where noted below, all Weil polynomial data has been computed using rigorous algorithms that do not depend on any unproven assumptions or conjectures:
 
- * Angle ranks have been computed numerically using 500 bits of precision and \cite{href{https//pari.math.u-bordeaux.fr/}{Pari/GP}}'s lindep function.
+\begin{itemize}
+\item  Angle ranks have been computed numerically using 500 bits of precision and \cite{href{https//pari.math.u-bordeaux.fr/}{Pari/GP}}'s lindep function.
+\end{itemize}
 
 We have also performed the following consistency check intended to catch any errors in the software used to compute the data, or any errors that might have been introduced during post-processing:
 
- * We have computed the {{KNOWL('ag.jacobian', 'Jacobians')}} of all {{KNOWL('ag.curve.genus', 'genus')}} 1 and 2 curves for $q$ in the range of our data and confirmed that they agree with the list of {{KNOWL('av.isogeny_class', 'isogeny classes')}} determined to contain Jacobians.
-\end{definition}
+\begin{itemize}
+\item  We have computed the \hyperref[ag.jacobian]{Jacobians} of all \hyperref[ag.curve.genus]{genus} 1 and 2 curves for $q$ in the range of our data and confirmed that they agree with the list of \hyperref[av.isogeny_class]{isogeny classes} determined to contain Jacobians.
+\end{itemize}
+\end{definition*}
 
 

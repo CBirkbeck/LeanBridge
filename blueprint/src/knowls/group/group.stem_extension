@@ -1,11 +1,11 @@
-\subsection{Stem extension}
-\begin{definition}\label{group.stem_extension}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.stem_extension}{Stem extension}}
+\begin{definition*}\label{group.stem_extension}
 \uses{group.center,group.commutator_subgroup,group.isoclinism,group.perfect,group.schur_multiplier}
 A short exact sequence of groups
 $$
 1 \to K \to C \to G \to 1
 $$
-is a **stem extension** if $K$ is contained in both the {{KNOWL('group.center', 'center')}} and the {{KNOWL('group.commutator_subgroup', 'commutator')}} of $G$ (we also refer to $K$ as a **stem subgroup** of $C$).  For fixed $G$, the size of $C$ is bounded.  For any extension with $C$ of maximal size, the kernel $K$ is isomorphic to the {{KNOWL('group.schur_multiplier', 'Schur multiplier')}} of $G$.  In general, $C$ is only determined up to {{KNOWL('group.isoclinism', 'isoclinism')}} in such an extension, but if $G$ is {{KNOWL('group.perfect', 'perfect')}} then $C$ is determined up to isomorphism.
-\end{definition}
+is a \textbf{stem extension} if $K$ is contained in both the \hyperref[group.center]{center} and the \hyperref[group.commutator_subgroup]{commutator} of $G$ (we also refer to $K$ as a \textbf{stem subgroup} of $C$).  For fixed $G$, the size of $C$ is bounded.  For any extension with $C$ of maximal size, the kernel $K$ is isomorphic to the \hyperref[group.schur_multiplier]{Schur multiplier} of $G$.  In general, $C$ is only determined up to \hyperref[group.isoclinism]{isoclinism} in such an extension, but if $G$ is \hyperref[group.perfect]{perfect} then $C$ is determined up to isomorphism.
+\end{definition*}
 
 

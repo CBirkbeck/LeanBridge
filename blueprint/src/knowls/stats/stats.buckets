@@ -1,7 +1,7 @@
-\subsection{Buckets for statistics}
-\begin{definition}\label{stats.buckets}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/stats.buckets}{Buckets for statistics}}
+\begin{definition*}\label{stats.buckets}
 \uses{}
 When creating a statistics display, you can specify buckets for each variable.  Rather than creating a separate entry for every possible value of the variable, distinct values will be grouped.  
-\end{definition}
+\end{definition*}
 
 

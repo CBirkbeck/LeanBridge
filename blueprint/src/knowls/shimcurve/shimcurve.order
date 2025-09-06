@@ -1,14 +1,14 @@
-\subsection{Quaternion order}
-\begin{definition}\label{shimcurve.order}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/shimcurve.order}{Quaternion order}}
+\begin{definition*}\label{shimcurve.order}
 \uses{nf.order,shimcurve.quaternion_algebra}
-Let $B$ be a {{KNOWL('shimcurve.quaternion_algebra','quaternion algebra')}} over $\Q$. An **order** $O\subset B$ is a
+Let $B$ be a \hyperref[shimcurve.quaternion_algebra]{quaternion algebra} over $\Q$. An \textbf{order} $O\subset B$ is a
 $\Z$-lattice in $B$ that is also a subring of $B$ (where we 
-require $1 \in O$). We say that $O$ is **maximal** if it is 
+require $1 \in O$). We say that $O$ is \textbf{maximal} if it is 
 not properly contained in another order of $B$.
 
-Unlike {{KNOWL('nf.order','orders in number fields')}}, there 
+Unlike \hyperref[nf.order]{orders in number fields}, there 
 is never a unique maximal order in a rational quaternion
 algebra; however, the number of $B^\times$-conjugacy classes is finite (and in many cases, there is exactly one $B^\times$-conjugacy class).
-\end{definition}
+\end{definition*}
 
 

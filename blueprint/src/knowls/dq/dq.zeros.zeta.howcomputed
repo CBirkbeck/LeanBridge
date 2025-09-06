@@ -1,7 +1,7 @@
-\subsection{How zeros of the Riemann zeta function were computed}
-\begin{definition}\label{dq.zeros.zeta.howcomputed}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/dq.zeros.zeta.howcomputed}{How zeros of the Riemann zeta function were computed}}
+\begin{definition*}\label{dq.zeros.zeta.howcomputed}
 \uses{}
 The zeros were isolated rigorously using the algorithm described in "Isolating some non-trivial zeros of Zeta" by Dave Platt \cite{MR:3315519,doi:10.1090/S0025-5718-2014-02884-6}.
-\end{definition}
+\end{definition*}
 
 

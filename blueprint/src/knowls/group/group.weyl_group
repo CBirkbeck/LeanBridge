@@ -1,9 +1,9 @@
-\subsection{Weyl group}
-\begin{definition}\label{group.weyl_group}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.weyl_group}{Weyl group}}
+\begin{definition*}\label{group.weyl_group}
 \uses{group.automorphism,group.centralizer,group.subgroup,group.subgroup.index,group.subgroup.normalizer}
-The **Weyl group** associated to a {{KNOWL('group.subgroup', 'subgroup')}} $H \subseteq G$ is the quotient $W = N_G(H) / Z_G(H)$ of the {{KNOWL('group.subgroup.normalizer', 'normalizer')}} of $H$ by the {{KNOWL('group.centralizer', 'centralizer')}} of $H$.  The terminology is taken from the theory of Lie groups, where there is a unique conjugacy class of maximal tori in a Lie group $G$ and if $T$ is any such maximal torus then $Z_G(T) = T$ has finite {{KNOWL('group.subgroup.index', 'index')}} in $N_G(T)$.  In that context we may thus speak of the Weyl group of $G$.
+The \textbf{Weyl group} associated to a \hyperref[group.subgroup]{subgroup} $H \subseteq G$ is the quotient $W = N_G(H) / Z_G(H)$ of the \hyperref[group.subgroup.normalizer]{normalizer} of $H$ by the \hyperref[group.centralizer]{centralizer} of $H$.  The terminology is taken from the theory of Lie groups, where there is a unique conjugacy class of maximal tori in a Lie group $G$ and if $T$ is any such maximal torus then $Z_G(T) = T$ has finite \hyperref[group.subgroup.index]{index} in $N_G(T)$.  In that context we may thus speak of the Weyl group of $G$.
 
-When $G$ is an abstract group, we must specify $H$ as well, and the Weyl group naturally embeds into the {{KNOWL('group.automorphism', 'automorphism')}} group $\Aut(H)$ and gives the subset of automorphisms of $H$ that are induced by conjugation within $G$.
-\end{definition}
+When $G$ is an abstract group, we must specify $H$ as well, and the Weyl group naturally embeds into the \hyperref[group.automorphism]{automorphism} group $\Aut(H)$ and gives the subset of automorphisms of $H$ that are induced by conjugation within $G$.
+\end{definition*}
 
 

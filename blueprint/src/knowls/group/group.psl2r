@@ -1,7 +1,7 @@
-\subsection{Projective special linear group $\text{PSL}_2(\mathbb{R})$}
-\begin{definition}\label{group.psl2r}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.psl2r}{Projective special linear group $\text{PSL}_2(\mathbb{R})$}}
+\begin{definition*}\label{group.psl2r}
 \uses{}
-The **projective special linear group** $\text{PSL}_2(\mathbb{R})$ is defined as the quotient $\text{PSL}_2(\mathbb{R})=\text{SL}_2(\mathbb{R})/\{\pm I\}$.
-\end{definition}
+The \textbf{projective special linear group} $\text{PSL}_2(\mathbb{R})$ is defined as the quotient $\text{PSL}_2(\mathbb{R})=\text{SL}_2(\mathbb{R})/\{\pm I\}$.
+\end{definition*}
 
 

@@ -1,17 +1,17 @@
-\subsection{Inner twist group}
-\begin{definition}\label{cmf.inner_twist_group}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.inner_twist_group}{Inner twist group}}
+\begin{definition*}\label{cmf.inner_twist_group}
 \uses{character.dirichlet,character.dirichlet.primitive,cmf.coefficient_field,cmf.inner_twist,cmf.newform,cmf.self_twist}
-For a given {{KNOWL('cmf.newform', 'newform')}} $f$, the set of pairs $(\chi,\sigma)$ giving rise to an {{KNOWL('cmf.inner_twist', 'inner twist')}} of $f$ form a group $G$; here $\chi$ is a {{KNOWL('character.dirichlet.primitive', 'primitive')}} {{KNOWL('character.dirichlet', 'Dirichlet character')}} and $\sigma$, is a $\Q$-automorphism of the {{KNOWL('cmf.coefficient_field', 'coefficient field')}} $K$ of $f$.
+For a given \hyperref[cmf.newform]{newform} $f$, the set of pairs $(\chi,\sigma)$ giving rise to an \hyperref[cmf.inner_twist]{inner twist} of $f$ form a group $G$; here $\chi$ is a \hyperref[character.dirichlet.primitive]{primitive} \hyperref[character.dirichlet]{Dirichlet character} and $\sigma$, is a $\Q$-automorphism of the \hyperref[cmf.coefficient_field]{coefficient field} $K$ of $f$.
 
 The group operation is given by
 \[
 (\chi,\sigma)\cdot (\chi',\sigma') = (\chi\sigma(\chi'),\sigma\sigma').
 \]
-The projection map $(\chi,\sigma)\mapsto \sigma$ is a group homomorphism $G\to \Aut_\Q(K)$ with kernel equal to the subgroup of {{KNOWL('cmf.self_twist', 'self_twists')}} and abelian image.
+The projection map $(\chi,\sigma)\mapsto \sigma$ is a group homomorphism $G\to \Aut_\Q(K)$ with kernel equal to the subgroup of \hyperref[cmf.self_twist]{self\_twists} and abelian image.
 
 The projection map $(\chi,\sigma)\mapsto \chi$ is injective, but it is not a group homomorphism, in general, although its restriction to the subgroup of self twists is.
 
 
-\end{definition}
+\end{definition*}
 
 

@@ -1,9 +1,9 @@
-\subsection{Potential toric rank}
-\begin{definition}\label{av.potential_toric_rank}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/av.potential_toric_rank}{Potential toric rank}}
+\begin{definition*}\label{av.potential_toric_rank}
 \uses{ag.abelian_variety,ag.potential_good_reduction,av.semiabelian_variety,nf,nf.prime}
-Let $A$ be an {{KNOWL("ag.abelian_variety", "abelian variety")}} over a {{KNOWL("nf", "number field")}} $K$, and let $\mathfrak{p}$ be a {{KNOWL("nf.prime", "prime")}} of $K$. Then after a finite extension $K \subset L$, there is an integral model of $A$ whose reduction is a {{KNOWL("av.semiabelian_variety", "semiabelian variety")}}, i.e. the extension of an abelian variety by a torus. The **potential toric rank** of $A$ at $\mathfrak{p}$ is the dimension of that torus.
+Let $A$ be an \hyperref[ag.abelian_variety]{abelian variety} over a \hyperref[nf]{number field} $K$, and let $\mathfrak{p}$ be a \hyperref[nf.prime]{prime} of $K$. Then after a finite extension $K \subset L$, there is an integral model of $A$ whose reduction is a \hyperref[av.semiabelian_variety]{semiabelian variety}, i.e. the extension of an abelian variety by a torus. The \textbf{potential toric rank} of $A$ at $\mathfrak{p}$ is the dimension of that torus.
 
-As a special case, $A$ has {{KNOWL("ag.potential_good_reduction", "potential good reduction")}} if and only if its potential toric rank is 0.
-\end{definition}
+As a special case, $A$ has \hyperref[ag.potential_good_reduction]{potential good reduction} if and only if its potential toric rank is 0.
+\end{definition*}
 
 

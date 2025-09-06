@@ -1,19 +1,19 @@
-\subsection{Z-function of an L-function}
-\begin{definition}\label{lfunction.zfunction}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.zfunction}{Z-function of an L-function}}
+\begin{definition*}\label{lfunction.zfunction}
 \uses{lfunction.critical_line,lfunction.functional_equation}
-The (Hardy or Riemann-Siegel) **Z-function** for the Riemann zeta-function is  a real-valued function defined in terms of the values of $\zeta(s)$ on the {{ KNOWL('lfunction.critical_line', " critical line") }} via the formula 
+The (Hardy or Riemann-Siegel) \textbf{Z-function} for the Riemann zeta-function is  a real-valued function defined in terms of the values of $\zeta(s)$ on the \hyperref[lfunction.critical_line]{ critical line} via the formula 
 \[
 Z(t) := e^{i \theta(t)} \zeta\left( \frac{1}{2} + it \right),
 \]
-where $\theta(t)$ is the **Riemann-Siegel theta function**
+where $\theta(t)$ is the \textbf{Riemann-Siegel theta function}
 \[
 \theta(t) := \arg \left(\Gamma\left(\frac{2it+1}{4}\right)\right) -\frac{\log\pi}{2}t.
 \]
 There is a bijection between zeros $t_0$ of $Z(t)$ and zeros $\frac{1}{2}+it_0$ of $\zeta(s)$.
 
-The  **Z-function** of a general L-function is a smooth real-valued function of a real variable $t$ such that
+The  \textbf{Z-function} of a general L-function is a smooth real-valued function of a real variable $t$ such that
 $$|Z(t)|=|L(1/2+it)|.$$
-Specifically, if we write the completed L-function as $\Lambda(s)=\gamma(s)L(s),$ where $\Lambda(s)$ satisfies the {{KNOWL('lfunction.functional_equation', 'functional equation')}} 
+Specifically, if we write the completed L-function as $\Lambda(s)=\gamma(s)L(s),$ where $\Lambda(s)$ satisfies the \hyperref[lfunction.functional_equation]{functional equation} 
 $$\Lambda(s)=\varepsilon \overline{\Lambda}(1-s),$$
 then $Z(t)$ is defined by
 $$ Z(t)=\overline{\varepsilon}^{1/2} \frac{\gamma(1/2+it)}{|\gamma(1/2+it)|} L(1/2+it).$$
@@ -21,6 +21,6 @@ The square root is chosen so that $Z(t)>0$ for sufficiently small $t>0$.
 
 The multiset of zeros of $Z(t)$ matches that of $L(1/2+it)$ and $Z(t)$ changes sign at the zeros of $L(1/2+it)$ of odd multiplicity.
 
-\end{definition}
+\end{definition*}
 
 

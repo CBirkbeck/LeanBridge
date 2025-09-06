@@ -1,11 +1,11 @@
-\subsection{Cusps of a subgroup of the modular group}
-\begin{definition}\label{group.fuchsian.cusps}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.fuchsian.cusps}{Cusps of a subgroup of the modular group}}
+\begin{definition*}\label{group.fuchsian.cusps}
 \uses{group.sl2z}
-The **cusps** of a subgroup $\Gamma$ of the {{KNOWL('group.sl2z', 'modular group')}} are equivalence classes of points in $\mathbb{Q}\cup\infty$ under the action of $\Gamma$ by {{KNOWL('group.fuchsian.action', 'linear fractional transformation')}}, where for
+The \textbf{cusps} of a subgroup $\Gamma$ of the \hyperref[group.sl2z]{modular group} are equivalence classes of points in $\mathbb{Q}\cup\infty$ under the action of $\Gamma$ by \hyperref[group.fuchsian.action]{linear fractional transformation}, where for
 \[
 \gamma=\left(\begin{array}{ll}a&b\\c&d \end{array}\right)\in\Gamma,
 \]
 we define $\gamma\infty = \frac{a}{c}$ when $c\neq 0$, and $\gamma\infty = \infty$ when $c=0$.
-\end{definition}
+\end{definition*}
 
 

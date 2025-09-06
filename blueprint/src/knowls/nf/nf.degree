@@ -1,9 +1,9 @@
-\subsection{Degree of a number field}
-\begin{definition}\label{nf.degree}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.degree}{Degree of a number field}}
+\begin{definition*}\label{nf.degree}
 \uses{}
-The **degree** of a {{ KNOWL('nf', "number field")}} $K$ is its degree as an extension of the rational field $\mathbb{Q}$, i.e., the dimension of $K$ as a $\mathbb{Q}$-vector space.  The degree of $K/\Q$ is written $[K:\mathbb{Q}]$.
+The \textbf{degree} of a \hyperref[nf]{number field} $K$ is its degree as an extension of the rational field $\mathbb{Q}$, i.e., the dimension of $K$ as a $\mathbb{Q}$-vector space.  The degree of $K/\Q$ is written $[K:\mathbb{Q}]$.
 
-{# Original authors:  cremona, Ralph Furmaniak #}
-\end{definition}
+
+\end{definition*}
 
 

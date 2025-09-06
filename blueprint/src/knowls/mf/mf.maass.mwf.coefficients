@@ -1,17 +1,17 @@
-\subsection{Maass form coefficients}
-\begin{definition}\label{mf.maass.mwf.coefficients}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.maass.mwf.coefficients}{Maass form coefficients}}
+\begin{definition*}\label{mf.maass.mwf.coefficients}
 \uses{lfunction,mf.maass.mwf,mf.maass.mwf.spectralparameter,mf.maass.mwf.symmetry,mf.maass.mwf.weight,specialfunction.k_bessel}
-Let $f$ be a {{KNOWL('mf.maass.mwf','Maass newform')}} of {{KNOWL('mf.maass.mwf.weight','weight')}} 0 on $\Gamma_0(N)$ with {{KNOWL('mf.maass.mwf.spectralparameter', 'spectral parameter')}} $R$.  If $f$ has even {{KNOWL('mf.maass.mwf.symmetry','symmetry')}} then as a function on the complex upper half plane it can be uniquely expressed in the form
+Let $f$ be a \hyperref[mf.maass.mwf]{Maass newform} of \hyperref[mf.maass.mwf.weight]{weight} 0 on $\Gamma_0(N)$ with \hyperref[mf.maass.mwf.spectralparameter]{spectral parameter} $R$.  If $f$ has even \hyperref[mf.maass.mwf.symmetry]{symmetry} then as a function on the complex upper half plane it can be uniquely expressed in the form
 \[
 f(x+iy) = \sum_{n=1}^\infty a_n\sqrt{y}K_{iR}(2\pi ny)\cos(2\pi nx),
 \]
-where $K_{iR}(\cdot)$ denotes the {{KNOWL('specialfunction.k_bessel','$K$-Bessel function')}} with parameter $\nu=iR$ and the $a_n$ are real numbers.
+where $K_{iR}(\cdot)$ denotes the \hyperref[specialfunction.k_bessel]{$K$-Bessel function} with parameter $\nu=iR$ and the $a_n$ are real numbers.
 
 If $f$ has odd symmetry it can instead be written as
 \[
 f(x+iy) = \sum_{n=1}^\infty a_n\sqrt{y}K_{iR}(2\pi ny)\sin(2\pi nx).
 \]
-In both cases the real numbers $a_n$ are the **coefficients** of $f$ and are used to define its {{KNOWL('lfunction','L-function')}} $L(f,s)=\sum_{n=1}^\infty a_nn^{-s}$.
-\end{definition}
+In both cases the real numbers $a_n$ are the \textbf{coefficients} of $f$ and are used to define its \hyperref[lfunction]{L-function} $L(f,s)=\sum_{n=1}^\infty a_nn^{-s}$.
+\end{definition*}
 
 

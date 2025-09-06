@@ -1,26 +1,40 @@
-\subsection{p-adic field label}
-\begin{definition}\label{lf.field_label}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.field_label}{p-adic field label}}
+\begin{definition*}\label{lf.field_label}
 \uses{lf.discriminant_exponent,lf.family_polynomial,lf.padic_field,lf.ramification_index,lf.residue_field,lf.residue_field_degree,lf.subfamily}
-The label associated to a {{KNOWL('lf.padic_field', '$p$-adic field')}}
+The label associated to a \hyperref[lf.padic_field]{$p$-adic field}
 $K$ has the form $p.f.e.c\ell m.n$, where
 
-- $p$ is the characteristic of the
-{{KNOWL('lf.residue_field', 'residue field')}} of $K$.
-- $f$ is the {{KNOWL('lf.residue_field_degree', 'residue field degree')}}
+\begin{itemize}
+\item  $p$ is the characteristic of the
+\end{itemize}
+\hyperref[lf.residue_field]{residue field} of $K$.
+\begin{itemize}
+\item  $f$ is the \hyperref[lf.residue_field_degree]{residue field degree}
+\end{itemize}
 of $K/\Q_p$.
-- $e$ is the {{KNOWL('lf.ramification_index', 'ramification index')}} of
+\begin{itemize}
+\item  $e$ is the \hyperref[lf.ramification_index]{ramification index} of
+\end{itemize}
 $K/\Q_p$,
-- $c$ is the {{KNOWL('lf.discriminant_exponent', 'discriminant exponent')}}
+\begin{itemize}
+\item  $c$ is the \hyperref[lf.discriminant_exponent]{discriminant exponent}
+\end{itemize}
 of $K/\Q_p$,
-- $\ell$ is a string of one or more letters used to identify the
-{{KNOWL('lf.family_polynomial', 'absolute family')}} $I/\Q_p$ that contains
+\begin{itemize}
+\item  $\ell$ is a string of one or more letters used to identify the
+\end{itemize}
+\hyperref[lf.family_polynomial]{absolute family} $I/\Q_p$ that contains
 $K/\Q_p$,
-- $m$ identifies the {{KNOWL('lf.subfamily', 'subfamily')}} of $I/\Q_p$ that
+\begin{itemize}
+\item  $m$ identifies the \hyperref[lf.subfamily]{subfamily} of $I/\Q_p$ that
+\end{itemize}
 contains $K/\Q_p$,
-- $n$ is a number used to distinguish fields in the same subfamily.
+\begin{itemize}
+\item  $n$ is a number used to distinguish fields in the same subfamily.
+\end{itemize}
 
 Thus if $K$ has label $p.f.e.c\ell m.n$ then $K/\Q_p$ is in the absolute
 family with label $p.f.e.c\ell$.
-\end{definition}
+\end{definition*}
 
 

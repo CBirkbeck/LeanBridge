@@ -1,12 +1,12 @@
-\subsection{Siegel modular form with character}
-\begin{definition}\label{mf.siegel.character}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.character}{Siegel modular form with character}}
+\begin{definition*}\label{mf.siegel.character}
 \uses{mf.siegel.cusp_form,mf.siegel.halfspace}
 Let $g\ge 2$ be an integer, let
 $\rho\colon \GL(g,\mathbb{C})\to \GL(V)$ be a finite-dimensional complex representation, $\Gamma \leq \GSp(2g,\Q)$ be an arithmetic subgroup and $\psi$ a character of $\Gamma$.  
 
 A holomorphic map $f$ on the 
-{{KNOWL("mf.siegel.halfspace", "Siegel upper half space $\mathcal{H}_g$")}} 
-taking values in $V$ is called a **Siegel modular form with character $\psi$** and 
+\hyperref[mf.siegel.halfspace]{Siegel upper half space $\mathcal{H}_g$} 
+taking values in $V$ is called a \textbf{Siegel modular form with character $\psi$} and 
 weight $\rho$ on $\Gamma$ if 
 \[
 f((a\tau+b)(c\tau+d)^{-1})=\psi(\gamma)\rho(c\tau+d)f(\tau)
@@ -15,7 +15,7 @@ for all $\gamma=\begin{pmatrix} a&b\\c&d\end{pmatrix}\in \Gamma$ (with $a,b,c,d 
 
 The space of Siegel modular forms with character $\psi$ and weight $\rho$ on $\Gamma$
 is denoted by $M_{\rho}(\Gamma,\psi)$ and its subspace of 
-{{KNOWL("mf.siegel.cusp_form", "cusp forms ")}} by $S_{\rho}(\Gamma,\psi)$.
-\end{definition}
+\hyperref[mf.siegel.cusp_form]{cusp forms } by $S_{\rho}(\Gamma,\psi)$.
+\end{definition*}
 
 

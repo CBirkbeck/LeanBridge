@@ -1,10 +1,10 @@
-\subsection{cmf.minimal_twist}
-\begin{definition}\label{cmf.minimal_twist}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.minimal_twist}{Minimal twist}}
+\begin{definition*}\label{cmf.minimal_twist}
 \uses{character.dirichlet.minimal,cmf.character,cmf.label,cmf.level,cmf.newform,cmf.twist,cmf.twist_minimal}
-The **minimal twist** of a {{KNOWL('cmf.newform', 'newform')}} $f$ is the {{KNOWL('cmf.twist','twist')}} $g$ of $f$ whose {{KNOWL('cmf.label', 'label')}} is lexicographically minimal among all twists of $f$ that are both {{KNOWL('cmf.twist_minimal','twist minimal')}} and have {{KNOWL('character.dirichlet.minimal','minimal')}} {{KNOWL('cmf.character','character')}} $\chi$.
+The \textbf{minimal twist} of a \hyperref[cmf.newform]{newform} $f$ is the \hyperref[cmf.twist]{twist} $g$ of $f$ whose \hyperref[cmf.label]{label} is lexicographically minimal among all twists of $f$ that are both \hyperref[cmf.twist_minimal]{twist minimal} and have \hyperref[character.dirichlet.minimal]{minimal} \hyperref[cmf.character]{character} $\chi$.
 
-A key feature of the minimal twist $g$ (and more generally, of any twist minimal $g$ of {{KNOWL('cmf.level', 'level')}} $N$ and minimal character $\chi$) is that for any character $\psi$, the level $M$ of the twist $g\otimes\psi$ can be computed as $M={\rm lcm}(N,{\rm cond}(\psi){\rm cond}(\chi\psi))$.
+A key feature of the minimal twist $g$ (and more generally, of any twist minimal $g$ of \hyperref[cmf.level]{level} $N$ and minimal character $\chi$) is that for any character $\psi$, the level $M$ of the twist $g\otimes\psi$ can be computed as $M={\rm lcm}(N,{\rm cond}(\psi){\rm cond}(\chi\psi))$.
 
-\end{definition}
+\end{definition*}
 
 

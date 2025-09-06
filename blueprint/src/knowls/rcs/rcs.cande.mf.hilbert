@@ -1,5 +1,5 @@
-\subsection{Completeness of Hilbert modular form data}
-\begin{definition}\label{rcs.cande.mf.hilbert}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.cande.mf.hilbert}{Completeness of Hilbert modular form data}}
+\begin{definition*}\label{rcs.cande.mf.hilbert}
 \uses{}
 The database contains 368,356 Hilbert newforms over 400 totally real number fields of degree up to 6. 
 
@@ -11,12 +11,14 @@ When the base field does not have narrow class number 1, the forms over that fie
 
 There are:
 
-- 188459 forms with levels of norm up to 5000, [over 148 fields of degree 2](https://www.lmfdb.org/ModularForm/GL2/TotallyReal/browse/2/), of discriminants up to 497;
-- 45880 forms with levels of norm up to 2059, [over 61 fields of degree 3](https://www.lmfdb.org/ModularForm/GL2/TotallyReal/browse/3/), of discriminants up to 1957;
-- 102780 forms with levels of norm up to 4091, [over 123 fields of degree 4](https://www.lmfdb.org/ModularForm/GL2/TotallyReal/browse/4/), of discriminants up to 19821;
-- 16226 forms with levels of norm up to 1013, [over 34 fields of degree 5](https://www.lmfdb.org/ModularForm/GL2/TotallyReal/browse/5/), of discriminants up to 195829;
-- 15011 forms with levels of norm up to 961, [over 34 fields of degree 6](https://www.lmfdb.org/ModularForm/GL2/TotallyReal/browse/6/), of discriminants up to 1997632.
+\begin{itemize}
+\item  188459 forms with levels of norm up to 5000, [over 148 fields of degree 2](https://www.lmfdb.org/ModularForm/GL2/TotallyReal/browse/2/), of discriminants up to 497;
+\item  45880 forms with levels of norm up to 2059, [over 61 fields of degree 3](https://www.lmfdb.org/ModularForm/GL2/TotallyReal/browse/3/), of discriminants up to 1957;
+\item  102780 forms with levels of norm up to 4091, [over 123 fields of degree 4](https://www.lmfdb.org/ModularForm/GL2/TotallyReal/browse/4/), of discriminants up to 19821;
+\item  16226 forms with levels of norm up to 1013, [over 34 fields of degree 5](https://www.lmfdb.org/ModularForm/GL2/TotallyReal/browse/5/), of discriminants up to 195829;
+\item  15011 forms with levels of norm up to 961, [over 34 fields of degree 6](https://www.lmfdb.org/ModularForm/GL2/TotallyReal/browse/6/), of discriminants up to 1997632.
+\end{itemize}
 
-\end{definition}
+\end{definition*}
 
 

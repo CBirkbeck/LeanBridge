@@ -1,17 +1,17 @@
-\subsection{Twist}
-\begin{definition}\label{cmf.twist}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.twist}{Twist}}
+\begin{definition*}\label{cmf.twist}
 \uses{character.dirichlet,character.dirichlet.conductor,character.dirichlet.galois_orbit,character.dirichlet.primitive,cmf.galois_conjugate,cmf.galois_orbit,cmf.inner_twist,cmf.newform}
-Associated to each {{KNOWL('cmf.newform', 'newform')}} $f$ and {{KNOWL('character.dirichlet.primitive', 'primitive')}} {{KNOWL('character.dirichlet', 'Dirichlet character')}} $\psi$, there is a unique newform $g:=f\otimes\psi$, the **twist** of $f$ by $\psi$, that satisfies
+Associated to each \hyperref[cmf.newform]{newform} $f$ and \hyperref[character.dirichlet.primitive]{primitive} \hyperref[character.dirichlet]{Dirichlet character} $\psi$, there is a unique newform $g:=f\otimes\psi$, the \textbf{twist} of $f$ by $\psi$, that satisfies
 \[
 a_n(g)=\psi(n)a_n(f)
 \]
-for all integers $n\ge 1$ coprime to $N$ and the {{KNOWL('character.dirichlet.conductor', 'conductor')}} of $\psi$.  The newforms $f$ and $g$ are then **twist equivalent**.  When $g$ is a {{KNOWL('cmf.galois_conjugate', 'Galois conjugate')}} of $f$, it is said to be an {{KNOWL('cmf.inner_twist','inner twist')}}.
+for all integers $n\ge 1$ coprime to $N$ and the \hyperref[character.dirichlet.conductor]{conductor} of $\psi$.  The newforms $f$ and $g$ are then \textbf{twist equivalent}.  When $g$ is a \hyperref[cmf.galois_conjugate]{Galois conjugate} of $f$, it is said to be an \hyperref[cmf.inner_twist]{inner twist}.
 
-The {{KNOWL('cmf.galois_orbit','newform orbit')}} $[g]$ is a **twist** of the newform orbit $[f]$ by the {{KNOWL('character.dirichlet.galois_orbit','character orbit')}} $[\psi]$ if some $g\in [g]$ is a twist of $f$ by some $\psi$ in $[\psi]$.  This may occur with {{KNOWL('cmf.twist_multiplicity','multiplicity')}}.
+The \hyperref[cmf.galois_orbit]{newform orbit} $[g]$ is a \textbf{twist} of the newform orbit $[f]$ by the \hyperref[character.dirichlet.galois_orbit]{character orbit} $[\psi]$ if some $g\in [g]$ is a twist of $f$ by some $\psi$ in $[\psi]$.  This may occur with \hyperref[cmf.twist_multiplicity]{multiplicity}.
 
-Twist equivalence is an equivalence relation.  The **twist class** of a newform or newform orbit is its equivalence class under this relation.
+Twist equivalence is an equivalence relation.  The \textbf{twist class} of a newform or newform orbit is its equivalence class under this relation.
 
-In the LMFDB each twist class is identified by the label of its {{KNOWL('cmf.minimal_twist','minimal twist')}}.
-\end{definition}
+In the LMFDB each twist class is identified by the label of its \hyperref[cmf.minimal_twist]{minimal twist}.
+\end{definition*}
 
 

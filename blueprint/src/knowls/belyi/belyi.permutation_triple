@@ -1,7 +1,7 @@
-\subsection{Transitive permutation triple}
-\begin{definition}\label{belyi.permutation_triple}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/belyi.permutation_triple}{Transitive permutation triple}}
+\begin{definition*}\label{belyi.permutation_triple}
 \uses{}
-A **permutation triple** is a triple of permutations $\sigma=(\sigma_0,\sigma_1,\sigma_\infty) \in S_d^3$ such that $\sigma_\infty\sigma_1\sigma_0=1$.  A permutation triple is **transitive** if the subgroup $\langle \sigma \rangle$ is a transitive subgroup of the symmetric group $S_d$.
-\end{definition}
+A \textbf{permutation triple} is a triple of permutations $\sigma=(\sigma_0,\sigma_1,\sigma_\infty) \in S_d^3$ such that $\sigma_\infty\sigma_1\sigma_0=1$.  A permutation triple is \textbf{transitive} if the subgroup $\langle \sigma \rangle$ is a transitive subgroup of the symmetric group $S_d$.
+\end{definition*}
 
 

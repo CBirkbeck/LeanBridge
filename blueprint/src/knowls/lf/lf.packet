@@ -1,23 +1,31 @@
-\subsection{Packets in a family}
-\begin{definition}\label{lf.packet}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.packet}{Packets in a family}}
+\begin{definition*}\label{lf.packet}
 \uses{group.permutation_representation,lf.family_polynomial,lf.hidden_slopes,lf.padic_field,lf.ramification_index,lf.residual_polynomials,lf.residue_field_degree,nf.galois_closure}
-Let $I/K$ be a {{KNOWL('lf.family_polynomial', 'family')}} of extensions
-of  {{KNOWL('lf.padic_field', '$p$-adic fields')}}.  Say the extensions
-$L_1/K,L_2/K\in I/K$ are in the same **packet** if their {{KNOWL('lf.residual_polynomials', 'residual polynomials')}} are equivalent and they have the same
+Let $I/K$ be a \hyperref[lf.family_polynomial]{family} of extensions
+of  \hyperref[lf.padic_field]{$p$-adic fields}.  Say the extensions
+$L_1/K,L_2/K\in I/K$ are in the same \textbf{packet} if their \hyperref[lf.residual_polynomials]{residual polynomials} are equivalent and they have the same
 hidden invariants.  Specifically, let $L_1^{Gal}/K$, $L_2^{Gal}/K$ be the 
-{{ KNOWL('nf.galois_closure', 'Galois closures') }} of $L_1/K$, $L_2/K$.
+\hyperref[nf.galois_closure]{Galois closures} of $L_1/K$, $L_2/K$.
 Then $L_1/K$, $L_2/K$ are in the same packet if
 
-- $\Gal(L_1^{Gal}/K)$ and $\Gal(L_2^{Gal}/K)$ are isomorphic as
-{{KNOWL('group.permutation_representation', 'permutation groups')}},
-- $L_1^{Gal}/K$ and $L_2^{Gal}/K$ have the same 
-{{KNOWL('lf.residue_field_degree', 'residue field degree')}},
-- $L_1^{Gal}/K$ and $L_2^{Gal}/K$ have the same 
-{{KNOWL('lf.ramification_index', 'ramification index')}}, and
-- $L_1/K$ and $L_2/K$ have the same 
-{{KNOWL('lf.hidden_slopes', 'hidden slopes')}}.
+\begin{itemize}
+\item  $\Gal(L_1^{Gal}/K)$ and $\Gal(L_2^{Gal}/K)$ are isomorphic as
+\end{itemize}
+\hyperref[group.permutation_representation]{permutation groups},
+\begin{itemize}
+\item  $L_1^{Gal}/K$ and $L_2^{Gal}/K$ have the same 
+\end{itemize}
+\hyperref[lf.residue_field_degree]{residue field degree},
+\begin{itemize}
+\item  $L_1^{Gal}/K$ and $L_2^{Gal}/K$ have the same 
+\end{itemize}
+\hyperref[lf.ramification_index]{ramification index}, and
+\begin{itemize}
+\item  $L_1/K$ and $L_2/K$ have the same 
+\end{itemize}
+\hyperref[lf.hidden_slopes]{hidden slopes}.
 
 Thus the family $I/K$ is partitioned into packets.
-\end{definition}
+\end{definition*}
 
 

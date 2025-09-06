@@ -1,15 +1,15 @@
-\subsection{Artin L-function}
-\begin{definition}\label{artin.lfunction}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/artin.lfunction}{Artin L-function}}
+\begin{definition*}\label{artin.lfunction}
 \uses{artin,artin.ramified_primes,gg.conjugacy_classes,lf.inertia_group,lfunction,lfunction.euler_product}
-The {{KNOWL("lfunction", "L-function")}} associated to an
-{{KNOWL("artin", "Artin representation")}}
+The \hyperref[lfunction]{L-function} associated to an
+\hyperref[artin]{Artin representation}
 $\rho:\mathrm{Gal}(\overline{\mathbb{Q}}/\mathbb{Q})\to\mathrm{GL}(V)$
 is given by an
-{{KNOWL("lfunction.euler_product", "Euler product")}} of the form
+\hyperref[lfunction.euler_product]{Euler product} of the form
 $\prod_p\det(I-\rho(\mathrm{Frob}(p))p^{-s})^{-1}$, where $\mathrm{Frob}(p)$
-denotes the {{KNOWL('gg.conjugacy_classes', 'conjugacy class')}} of Frobenius elements above $p$.  When $\rho$ is {{KNOWL('artin.ramified_primes', 'ramified')}}
+denotes the \hyperref[gg.conjugacy_classes]{conjugacy class} of Frobenius elements above $p$.  When $\rho$ is \hyperref[artin.ramified_primes]{ramified}
 at $p$, $\rho(\mathrm{Frob}(p))$ should be interpreted as acting on the
-invariant subspace $V^{I_p}$ of the {{KNOWL('lf.inertia_group', 'inertia group')}} at $p$.
-\end{definition}
+invariant subspace $V^{I_p}$ of the \hyperref[lf.inertia_group]{inertia group} at $p$.
+\end{definition*}
 
 

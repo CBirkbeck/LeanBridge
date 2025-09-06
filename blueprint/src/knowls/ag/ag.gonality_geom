@@ -1,10 +1,10 @@
-\subsection{Geometric gonality}
-\begin{definition}\label{ag.gonality_geom}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.gonality_geom}{Geometric gonality}}
+\begin{definition*}\label{ag.gonality_geom}
 \uses{ag.curve,ag.gonality,nf.algebraic_closure}
-Let $X$ be a geometrically integral {{KNOWL('ag.curve', 'algebraic curve')}} over a field $k$.
-Let $\overline{k}$ be an {{KNOWL('nf.algebraic_closure', 'algebraic closure')}} of $k$.
+Let $X$ be a geometrically integral \hyperref[ag.curve]{algebraic curve} over a field $k$.
+Let $\overline{k}$ be an \hyperref[nf.algebraic_closure]{algebraic closure} of $k$.
 Let $X_{\overline{k}}$ be the base extension.
-The **geometric gonality** (or **$\overline{k}$-gonality**) of $X$ is the {{KNOWL('ag.gonality', 'gonality')}} of $X_{\overline{k}}$, that is, the minimal degree of a dominant morphism $X_{\overline{k}} \to \mathbb P^1_{\overline{k}}$.
-\end{definition}
+The \textbf{geometric gonality} (or \textbf{$\overline{k}$-gonality}) of $X$ is the \hyperref[ag.gonality]{gonality} of $X_{\overline{k}}$, that is, the minimal degree of a dominant morphism $X_{\overline{k}} \to \mathbb P^1_{\overline{k}}$.
+\end{definition*}
 
 

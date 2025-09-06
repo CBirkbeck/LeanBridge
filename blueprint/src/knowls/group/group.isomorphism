@@ -1,7 +1,7 @@
-\subsection{Group isomorphism}
-\begin{definition}\label{group.isomorphism}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.isomorphism}{Group isomorphism}}
+\begin{definition*}\label{group.isomorphism}
 \uses{group.homomorphism}
-A **group isomorphism** is a {{KNOWL('group.homomorphism', 'group homomorphism')}} $f:G\to H$ which is bijective.
-\end{definition}
+A \textbf{group isomorphism} is a \hyperref[group.homomorphism]{group homomorphism} $f:G\to H$ which is bijective.
+\end{definition*}
 
 

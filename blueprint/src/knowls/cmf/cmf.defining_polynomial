@@ -1,7 +1,7 @@
-\subsection{Defining polynomial}
-\begin{definition}\label{cmf.defining_polynomial}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.defining_polynomial}{Defining polynomial}}
+\begin{definition*}\label{cmf.defining_polynomial}
 \uses{cmf.coefficient_field,nf}
-The {{ KNOWL('cmf.coefficient_field', 'coefficient field of a modular form') }} is a {{ KNOWL('nf', 'number field') }}. A **defining polynomial** for this number field is explicitly recorded, because some of the data associated to the modular form will be expressed in terms of roots of this polynomial.
-\end{definition}
+The \hyperref[cmf.coefficient_field]{coefficient field of a modular form} is a \hyperref[nf]{number field}. A \textbf{defining polynomial} for this number field is explicitly recorded, because some of the data associated to the modular form will be expressed in terms of roots of this polynomial.
+\end{definition*}
 
 

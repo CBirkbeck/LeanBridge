@@ -1,10 +1,10 @@
-\subsection{Kloosterman sum}
-\begin{definition}\label{character.dirichlet.kloosterman_sum}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/character.dirichlet.kloosterman_sum}{Kloosterman sum}}
+\begin{definition*}\label{character.dirichlet.kloosterman_sum}
 \uses{character.dirichlet,character.dirichlet.gauss_sum}
-Let $\chi$ be a {{ KNOWL("character.dirichlet", "Dirichlet character")}} with modulus $q$. The **Kloosterman sum** $K(a,b,\chi)$ is defined by
+Let $\chi$ be a \hyperref[character.dirichlet]{Dirichlet character} with modulus $q$. The \textbf{Kloosterman sum} $K(a,b,\chi)$ is defined by
 \[K(a,b,\chi) = \sum_{r \in (\mathbb{Z}/q\mathbb{Z})^\times} \chi(r)\zeta^{ar+br^{-1}},\]
 
-where $\zeta = e^{2\pi i/q}$. This reduces to the {{ KNOWL("character.dirichlet.gauss_sum", "Gauss sum")}} if $b=0$.  
-\end{definition}
+where $\zeta = e^{2\pi i/q}$. This reduces to the \hyperref[character.dirichlet.gauss_sum]{Gauss sum} if $b=0$.  
+\end{definition*}
 
 

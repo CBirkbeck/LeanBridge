@@ -1,7 +1,7 @@
-\subsection{Faithful representation}
-\begin{definition}\label{group.representation.faithful}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.representation.faithful}{Faithful representation}}
+\begin{definition*}\label{group.representation.faithful}
 \uses{group.representation.character,group.representation.irrep}
-A {{KNOWL('group.representation.irrep', 'representation')}} $\rho$ is **faithful** if it is injective as a homomorphism to $\GL(V)$.  In terms of the {{KNOWL('group.representation.character', 'character')}} $\chi$ of $\rho$, for representations of finite groups in characteristic $0$, this will hold precisely when $\chi(g) = \chi(1)$ implies $g = 1$.
-\end{definition}
+A \hyperref[group.representation.irrep]{representation} $\rho$ is \textbf{faithful} if it is injective as a homomorphism to $\GL(V)$.  In terms of the \hyperref[group.representation.character]{character} $\chi$ of $\rho$, for representations of finite groups in characteristic $0$, this will hold precisely when $\chi(g) = \chi(1)$ implies $g = 1$.
+\end{definition*}
 
 

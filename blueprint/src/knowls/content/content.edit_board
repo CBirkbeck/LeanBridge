@@ -1,5 +1,5 @@
-\subsection{Management board}
-\begin{definition}\label{content.edit_board}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/content.edit_board}{Management board}}
+\begin{definition*}\label{content.edit_board}
 \uses{}
 
 <ul>
@@ -20,12 +20,12 @@
 <li>Harald Schilly, University of Vienna, Austria</li>
 <li>Ralf Schmidt, University of Oklahoma, USA</li>
 <li>William Stein, University of Washington, USA</li>
-<li>Fredrik Str&ouml;mberg, Nottingham University, UK</li>
+<li>Fredrik Str\"omberg, Nottingham University, UK</li>
 <li>Andrew Sutherland, MIT, USA</li>
 <li>Holly Swisher, Oregon State University, USA</li>
 <li>John Voight, Dartmouth College, USA</li>
 </ul>
 
-\end{definition}
+\end{definition*}
 
 

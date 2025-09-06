@@ -1,5 +1,5 @@
-\subsection{Tate's thesis}
-\begin{definition}\label{lfunction.history.tates_thesis}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.history.tates_thesis}{Tate's thesis}}
+\begin{definition*}\label{lfunction.history.tates_thesis}
 \uses{}
 In 1950 Tate's PhD thesis 
 ``Fourier analysis in number fields and Hecke's zeta-functions''
@@ -11,6 +11,6 @@ to great simplifications in the calculations of Euler factors and functional equ
 L-functions over number fields, in particular,  and generally for 
 any L-function with conductor larger than 1. This work paved the way for subsequent work
 associating L-functions to automorphic forms.
-\end{definition}
+\end{definition*}
 
 

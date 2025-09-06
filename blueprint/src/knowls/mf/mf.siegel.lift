@@ -1,7 +1,7 @@
-\subsection{Lift Siegel modular form}
-\begin{definition}\label{mf.siegel.lift}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.lift}{Lift Siegel modular form}}
+\begin{definition*}\label{mf.siegel.lift}
 \uses{}
 A Siegel eigenform is a lift if its Euler factors are products of Euler factors that arise from Siegel modular forms of lower genus.
-\end{definition}
+\end{definition*}
 
 

@@ -1,7 +1,7 @@
-\subsection{Genus of a Shimura curve}
-\begin{definition}\label{shimcurve.genus}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/shimcurve.genus}{Genus of a Shimura curve}}
+\begin{definition*}\label{shimcurve.genus}
 \uses{ag.geom_component,shimcurve}
-By the **genus** of a {{KNOWL('shimcurve', 'Shimura curve')}} $X_H$, we mean the genus of any of its {{KNOWL('ag.geom_component', 'geometric components')}}.
-\end{definition}
+By the \textbf{genus} of a \hyperref[shimcurve]{Shimura curve} $X_H$, we mean the genus of any of its \hyperref[ag.geom_component]{geometric components}.
+\end{definition*}
 
 

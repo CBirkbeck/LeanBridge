@@ -1,7 +1,7 @@
-\subsection{Geometry type of a Belyi map}
-\begin{definition}\label{belyi.geometry_type}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/belyi.geometry_type}{Geometry type of a Belyi map}}
+\begin{definition*}\label{belyi.geometry_type}
 \uses{belyi.galmap,group.triangle_group}
-A {{KNOWL('belyi.galmap', 'Belyi map')}} corresponds to a finite index subgroup of a {{KNOWL('group.triangle_group', 'triangle group')}} $\Delta(a,b,c)$. The **geometry type** of a Belyi map is spherical, Euclidean, or hyperbolic according to $\frac{1}{a}+\frac{1}{b}+\frac{1}{c}$ being $>1$, $=1$, or $<1$, respectively.
-\end{definition}
+A \hyperref[belyi.galmap]{Belyi map} corresponds to a finite index subgroup of a \hyperref[group.triangle_group]{triangle group} $\Delta(a,b,c)$. The \textbf{geometry type} of a Belyi map is spherical, Euclidean, or hyperbolic according to $\frac{1}{a}+\frac{1}{b}+\frac{1}{c}$ being $>1$, $=1$, or $<1$, respectively.
+\end{definition*}
 
 

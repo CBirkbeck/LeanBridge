@@ -1,13 +1,13 @@
-\subsection{Source of Sato-Tate Group Data}
-\begin{definition}\label{rcs.source.st_group}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.st_group}{Source of Sato-Tate Group Data}}
+\begin{definition*}\label{rcs.source.st_group}
 \uses{ag.endomorphism_ring,st_group.definition,st_group.degree,st_group.rational,st_group.weight}
-{{KNOWL('st_group.definition','Sato-Tate groups')}} in {{KNOWL('st_group.weight', 'weight')}} 0 and {{KNOWL('st_group.degree', 'degree')}} 1 are computed on demand.
+\hyperref[st_group.definition]{Sato-Tate groups} in \hyperref[st_group.weight]{weight} 0 and \hyperref[st_group.degree]{degree} 1 are computed on demand.
 
-{{KNOWL('st_group.rational','Rational')}} Sato-Tate groups in weight 1 and degree 2 are taken from _Hyperelliptic curves, L-polynomials, and random matrices_, by K.S. Kedlaya and A.V. Sutherland \cite{arXiv:0803.4462,doi:10.1090/conm/487,MR:2555991}.
+\hyperref[st_group.rational]{Rational} Sato-Tate groups in weight 1 and degree 2 are taken from \textit{Hyperelliptic curves, L-polynomials, and random matrices}, by K.S. Kedlaya and A.V. Sutherland \cite{arXiv:0803.4462,doi:10.1090/conm/487,MR:2555991}.
 
-Rational Sato-Tate groups in weight 1 and degree 4 are taken from _Sato-Tate distributions and Galois {{KNOWL('ag.endomorphism_ring', 'endomorphism')}} modules in genus $2$_, by F. Fité, K.S. Kedlaya, V. Rotger, and A.V. Sutherland \cite{arXiv:1110.6638,doi:10.1112/S0010437X12000279,MR:2982436}.
+Rational Sato-Tate groups in weight 1 and degree 4 are taken from \textit{Sato-Tate distributions and Galois \hyperref[ag.endomorphism_ring]{endomorphism} modules in genus $2$}, by F. Fité, K.S. Kedlaya, V. Rotger, and A.V. Sutherland \cite{arXiv:1110.6638,doi:10.1112/S0010437X12000279,MR:2982436}.
 
-Rational Sato-Tate groups in weight 1 and degree 6 are taken from _Sato-Tate groups of abelian threefolds: a preview of the classification_, by F. Fité, K.S. Kedlaya, and A.V. Sutherland \cite{arXiv:1911.02071} and _Sato-Tate groups of abelian threefolds_, by F. Fité, K.S. Kedlaya, and A.V. Sutherland \cite{arXiv:2106.13759}.
-\end{definition}
+Rational Sato-Tate groups in weight 1 and degree 6 are taken from \textit{Sato-Tate groups of abelian threefolds: a preview of the classification}, by F. Fité, K.S. Kedlaya, and A.V. Sutherland \cite{arXiv:1911.02071} and \textit{Sato-Tate groups of abelian threefolds}, by F. Fité, K.S. Kedlaya, and A.V. Sutherland \cite{arXiv:2106.13759}.
+\end{definition*}
 
 

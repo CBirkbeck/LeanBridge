@@ -1,5 +1,5 @@
-\subsection{Theta constant}
-\begin{definition}\label{mf.siegel.theta_constant}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.theta_constant}{Theta constant}}
+\begin{definition*}\label{mf.siegel.theta_constant}
 \uses{}
 Given a degree $g$ and a vector
 $m = (\mu,\nu)\in {\Bbb Z}^{g}\times {\Bbb Z}^{g}$,
@@ -18,6 +18,6 @@ to some subgroup of the integral
 symplectic group</a>
 with some character.
 
-\end{definition}
+\end{definition*}
 
 

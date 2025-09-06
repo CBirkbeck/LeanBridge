@@ -1,7 +1,7 @@
-\subsection{Projective stem field of an Artin representation}
-\begin{definition}\label{artin.projective_stem_field}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/artin.projective_stem_field}{Projective stem field of an Artin representation}}
+\begin{definition*}\label{artin.projective_stem_field}
 \uses{artin,artin.projective_field,nf.stem_field}
-An **projective stem field** is a {{KNOWL('nf.stem_field', 'stem field')}} for the {{ KNOWL('artin.projective_field', 'projective field')}} of an {{KNOWL('artin', 'Artin representation')}}.
-\end{definition}
+An \textbf{projective stem field} is a \hyperref[nf.stem_field]{stem field} for the \hyperref[artin.projective_field]{projective field} of an \hyperref[artin]{Artin representation}.
+\end{definition*}
 
 

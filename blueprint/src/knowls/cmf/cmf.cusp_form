@@ -1,12 +1,12 @@
-\subsection{Cuspidal modular form}
-\begin{definition}\label{cmf.cusp_form}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.cusp_form}{Cuspidal modular form}}
+\begin{definition*}\label{cmf.cusp_form}
 \uses{character.dirichlet,cmf,cmf.fouriercoefficients,cmf.weight,group.fuchsian.cusps,group.sl2z}
-Let $k$ be a positive integer and let $\Gamma$ be a finite index subgroup of the {{KNOWL('group.sl2z', 'modular group')}} $\SL(2,\Z)$.
+Let $k$ be a positive integer and let $\Gamma$ be a finite index subgroup of the \hyperref[group.sl2z]{modular group} $\SL(2,\Z)$.
 
-A **cusp form** of {{KNOWL('cmf.weight', 'weight')}} $k$ on $\Gamma$ is a {{ KNOWL('cmf', "modular form") }} $f\in M_k(\Gamma)$ that vanishes at all {{KNOWL('group.fuchsian.cusps', "cusps")}} of $\Gamma$.  In particular, the constant term in the {{ KNOWL('cmf.fouriercoefficients', "Fourier expansion")}} of $f$ about any cusp is zero.
+A \textbf{cusp form} of \hyperref[cmf.weight]{weight} $k$ on $\Gamma$ is a \hyperref[cmf]{modular form} $f\in M_k(\Gamma)$ that vanishes at all \hyperref[group.fuchsian.cusps]{cusps} of $\Gamma$.  In particular, the constant term in the \hyperref[cmf.fouriercoefficients]{Fourier expansion} of $f$ about any cusp is zero.
 
-The cusp forms in $M_k(\Gamma)$ form a subspace $S_k(\Gamma)$.  For each {{KNOWL('character.dirichlet', 'Dirichlet character')}} $\chi$ of modulus $N$ the cusp forms in {{KNOWL('cmf', '$M_k(N,\chi)$')}} form a subspace $S_k(N,\chi)$; these are the cusp forms of weight $k$, level $N$, and character $\chi$.
+The cusp forms in $M_k(\Gamma)$ form a subspace $S_k(\Gamma)$.  For each \hyperref[character.dirichlet]{Dirichlet character} $\chi$ of modulus $N$ the cusp forms in \hyperref[cmf]{$M_k(N,\chi)$} form a subspace $S_k(N,\chi)$; these are the cusp forms of weight $k$, level $N$, and character $\chi$.
 
-\end{definition}
+\end{definition*}
 
 

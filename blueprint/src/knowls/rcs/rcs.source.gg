@@ -1,24 +1,28 @@
-\subsection{Source of transitive group data}
-\begin{definition}\label{rcs.source.gg}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.gg}{Source of transitive group data}}
+\begin{definition*}\label{rcs.source.gg}
 \uses{}
 Data here was computed using GAP and Magma, and relies on the following work:
 
-* Butler and McKay, "The transitive groups of degree up to eleven" \cite{MR:695893, doi:10.1080/00927878308822884}
-* Royle, "The transitive groups of degree twelve" \cite{MR:922391, doi:10.1016/S0747-7171(87)80068-8}
-* Butler, "The transitive groups of degree fourteen and fifteen" \cite{MR:1271082, doi:10.1006/jsco.1993.1056}
-* Hulpke, "Constructing transitive permutation groups" \cite{MR:2168238, doi:10.1016/j.jsc.2004.08.002}
-* Cannon and Holt, "The transitive permutation groups of degree 32" \cite{MR:2455702, doi:10.1080/10586458.2008.10129046}
-* Holt and Royle, "A census of small transitive groups and vertex-transitive graphs" \cite{MR:4109707, doi:10.1016/j.jsc.2019.06.006}
-* Holt, Royle and Tracey "The transitive groups of degree 48 and some applications" \cite{arxiv:2102.07183}
+\begin{itemize}
+\item  Butler and McKay, "The transitive groups of degree up to eleven" \cite{MR:695893, doi:10.1080/00927878308822884}
+\item  Royle, "The transitive groups of degree twelve" \cite{MR:922391, doi:10.1016/S0747-7171(87)80068-8}
+\item  Butler, "The transitive groups of degree fourteen and fifteen" \cite{MR:1271082, doi:10.1006/jsco.1993.1056}
+\item  Hulpke, "Constructing transitive permutation groups" \cite{MR:2168238, doi:10.1016/j.jsc.2004.08.002}
+\item  Cannon and Holt, "The transitive permutation groups of degree 32" \cite{MR:2455702, doi:10.1080/10586458.2008.10129046}
+\item  Holt and Royle, "A census of small transitive groups and vertex-transitive graphs" \cite{MR:4109707, doi:10.1016/j.jsc.2019.06.006}
+\item  Holt, Royle and Tracey "The transitive groups of degree 48 and some applications" \cite{arxiv:2102.07183}
+\end{itemize}
 
 Data for regular extensions of $\Q(\mathbf{t})$ come from
 
-* Tim Dokchitser's magma package <a href="https://people.maths.bris.ac.uk/~matyd/InvGal/">Qt.m</a>
-* Malle and Matzat "Inverse Galois theory" \cite{doi:10.1007/978-3-662-55420-3}
-* Jensen, Ledet, Yui "Generic polynomials" \cite{MR:1969648}
-* Jones and Roberts "Galois number fields with small root discriminant" \cite{MR:2292261}
-* Krumm "Galois groups in a family of dynatomic polynomials" \cite{doi:10.1016/j.jnt.2017.11.011}
+\begin{itemize}
+\item  Tim Dokchitser's magma package <a href="https://people.maths.bris.ac.uk/~matyd/InvGal/">Qt.m</a>
+\item  Malle and Matzat "Inverse Galois theory" \cite{doi:10.1007/978-3-662-55420-3}
+\item  Jensen, Ledet, Yui "Generic polynomials" \cite{MR:1969648}
+\item  Jones and Roberts "Galois number fields with small root discriminant" \cite{MR:2292261}
+\item  Krumm "Galois groups in a family of dynatomic polynomials" \cite{doi:10.1016/j.jnt.2017.11.011}
+\end{itemize}
 
-\end{definition}
+\end{definition*}
 
 

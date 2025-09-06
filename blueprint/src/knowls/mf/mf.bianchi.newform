@@ -1,10 +1,10 @@
-\subsection{Bianchi newform}
-\begin{definition}\label{mf.bianchi.newform}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.bianchi.newform}{Bianchi newform}}
+\begin{definition*}\label{mf.bianchi.newform}
 \uses{mf.bianchi,mf.bianchi.hecke_algebra,mf.bianchi.level,mf.bianchi.spaces,mf.bianchi.weight}
-A **Bianchi newform** $F$ is  a {{ KNOWL('mf.bianchi', 'Bianchi modular form') }} lying in the {{ KNOWL('mf.bianchi.spaces','new subspace') }} $\mathcal{S}_k(\Gamma_0(\mathcal{N}))^{\text{new}}$ of the space $\mathcal{S}_k(\Gamma_0(\mathcal{N}))$  of Bianchi cusp forms of {{ KNOWL('mf.bianchi.weight', 'weight') }} $k$ and {{ KNOWL('mf.bianchi.level', 'level') }} $\Gamma_0(\mathcal{N})$ which is an normalised eigenform for the {{ KNOWL('mf.bianchi.hecke_algebra') }} $\mathbb{T}$.
+A \textbf{Bianchi newform} $F$ is  a \hyperref[mf.bianchi]{Bianchi modular form} lying in the \hyperref[mf.bianchi.spaces]{new subspace} $\mathcal{S}_k(\Gamma_0(\mathcal{N}))^{\text{new}}$ of the space $\mathcal{S}_k(\Gamma_0(\mathcal{N}))$  of Bianchi cusp forms of \hyperref[mf.bianchi.weight]{weight} $k$ and \hyperref[mf.bianchi.level]{level} $\Gamma_0(\mathcal{N})$ which is an normalised eigenform for the \hyperref[mf.bianchi.hecke_algebra]{Hecke algebra} $\mathbb{T}$.
 
-For each prime $\frak{p}$ of $K$ not dividing the level $\mathcal{N}$, the eigenvalue $a_{\frak{p}}$ of $T_{\frak{p}}$ on $F$ is an algebraic integer lying in the **Hecke field** of $F$.  This is a totally real Galois extension of $\Q$ whose degree $d$ is the dimension of the irreducible component of the rational newspace $\mathcal{S}_k(\Gamma_0(\mathcal{N}))^{\text{new}}_{\Q}$ containing $F$.  The integer $d$ is the **dimension** of the newform $F$.  The Hecke eigenvalue $a_{\frak{p}}$ is also the coefficient of index $\frak{p}$ in the Fourier expansion of $F$.
+For each prime $\frak{p}$ of $K$ not dividing the level $\mathcal{N}$, the eigenvalue $a_{\frak{p}}$ of $T_{\frak{p}}$ on $F$ is an algebraic integer lying in the \textbf{Hecke field} of $F$.  This is a totally real Galois extension of $\Q$ whose degree $d$ is the dimension of the irreducible component of the rational newspace $\mathcal{S}_k(\Gamma_0(\mathcal{N}))^{\text{new}}_{\Q}$ containing $F$.  The integer $d$ is the \textbf{dimension} of the newform $F$.  The Hecke eigenvalue $a_{\frak{p}}$ is also the coefficient of index $\frak{p}$ in the Fourier expansion of $F$.
 
-\end{definition}
+\end{definition*}
 
 

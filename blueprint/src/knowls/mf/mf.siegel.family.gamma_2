@@ -1,5 +1,5 @@
-\subsection{The ring of Siegel modular forms of degree 2 for $\Gamma(2)$}
-\begin{definition}\label{mf.siegel.family.gamma_2}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.family.gamma_2}{The ring of Siegel modular forms of degree 2 for $\Gamma(2)$}}
+\begin{definition*}\label{mf.siegel.family.gamma_2}
 \uses{}
 We define the following subgroups of the symplectic group $\Sp(4,\Z)$:
   $$
@@ -40,9 +40,11 @@ $$
 M_{k,j}(\Gamma[2])=S_{k,j}(\Gamma[2])\oplus E_{k,j}(\Gamma[2]),
 $$
 where $E_{k,j}(\Gamma[2])$ denotes the space of Eisenstein series of weight $(k,j)$.    We give the isotypic decomposition of these spaces as follows.  For fixed $(k,j)$, the isotypic decompositions 
-- $ M_{k,j}(\Gamma[2])=m_{s[6]}s[6]+m_{s[5,1]}s[5,1]+\ldots +m_{s[1^6]}s[1^6]$,
-- $ E_{k,j}(\Gamma[2])=n_{s[6]}s[6]+n_{s[5,1]}s[5,1]+\ldots +n_{s[1^6]}s[1^6]$,
-- $ S_{k,j}(\Gamma[2])=l_{s[6]}s[6]+l_{s[5,1]}s[5,1]+\ldots +l_{s[1^6]}s[1^6]$,
+\begin{itemize}
+\item  $ M_{k,j}(\Gamma[2])=m_{s[6]}s[6]+m_{s[5,1]}s[5,1]+\ldots +m_{s[1^6]}s[1^6]$,
+\item  $ E_{k,j}(\Gamma[2])=n_{s[6]}s[6]+n_{s[5,1]}s[5,1]+\ldots +n_{s[1^6]}s[1^6]$,
+\item  $ S_{k,j}(\Gamma[2])=l_{s[6]}s[6]+l_{s[5,1]}s[5,1]+\ldots +l_{s[1^6]}s[1^6]$,
+\end{itemize}
 will be denoted by 
 $$
 \begin{matrix}
@@ -96,8 +98,8 @@ with $f$ a homogeneous polynomial of degree $4$ in the $x_i$, the so-called Igus
   \chi_5= \prod_{i=1}^{10} \vartheta_{i}\, .
   $$
 
-Also see F. Cl&eacute;ry, G. van der Geer, S. Grushevsky, \cite{arXiv:1306.6018} and J. Bergstr&ouml;m, C. Faber, G. van der Geer \cite{mr:2439544, doi:10.1093/imrn/rnn100}.
+Also see F. Cl\'e;ry, G. van der Geer, S. Grushevsky, \cite{arXiv:1306.6018} and J. Bergstr\"om, C. Faber, G. van der Geer \cite{mr:2439544, doi:10.1093/imrn/rnn100}.
 
-\end{definition}
+\end{definition*}
 
 

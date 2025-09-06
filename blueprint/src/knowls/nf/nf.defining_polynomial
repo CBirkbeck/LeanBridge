@@ -1,11 +1,11 @@
-\subsection{Defining Polynomial of a Number Field}
-\begin{definition}\label{nf.defining_polynomial}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.defining_polynomial}{Defining Polynomial of a Number Field}}
+\begin{definition*}\label{nf.defining_polynomial}
 \uses{nf}
-A **defining polynomial** of a {{ KNOWL('nf', "number field") }} $K$ is an irreducible polynomial $f\in\Q[x]$ such that $K\cong \mathbb{Q}(a)$, where $a$ is a root of $f(x)$. Equivalently, it is a polynomial $f\in \Q[x]$ such that $K \cong \Q[x]/(f)$.
+A \textbf{defining polynomial} of a \hyperref[nf]{number field} $K$ is an irreducible polynomial $f\in\Q[x]$ such that $K\cong \mathbb{Q}(a)$, where $a$ is a root of $f(x)$. Equivalently, it is a polynomial $f\in \Q[x]$ such that $K \cong \Q[x]/(f)$.
 
-A root \(a \in K\) of the defining polynomial is a {{ KNOWL('nf.generator', 'generator') }} of \(K\).
+A root \(a \in K\) of the defining polynomial is a \hyperref[nf.generator]{generator} of \(K\).
 
-{# original author: john.jones #}
-\end{definition}
+
+\end{definition*}
 
 

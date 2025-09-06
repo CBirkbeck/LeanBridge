@@ -1,9 +1,9 @@
-\subsection{Sturm bound}
-\begin{definition}\label{cmf.sturm_bound}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.sturm_bound}{Sturm bound}}
+\begin{definition*}\label{cmf.sturm_bound}
 \uses{cmf.character,cmf.fouriercoefficients,cmf.level,cmf.newform,cmf.weight}
-The **Sturm bound** is an upper bound on the least index where the coefficients of the {{KNOWL('cmf.fouriercoefficients', 'Fourier expansions')}} of distinct modular forms in the same space $M_k(N,\chi)$ must differ.
+The \textbf{Sturm bound} is an upper bound on the least index where the coefficients of the \hyperref[cmf.fouriercoefficients]{Fourier expansions} of distinct modular forms in the same space $M_k(N,\chi)$ must differ.
 
-More precisely, for any space $M_k(N,\chi)$ of modular forms of {{KNOWL('cmf.weight', 'weight')}} $k$, {{KNOWL('cmf.level', 'level')}} $N$, and {{KNOWL('cmf.character', 'character')}} $\chi$, the Sturm bound is the integer
+More precisely, for any space $M_k(N,\chi)$ of modular forms of \hyperref[cmf.weight]{weight} $k$, \hyperref[cmf.level]{level} $N$, and \hyperref[cmf.character]{character} $\chi$, the Sturm bound is the integer
 \[
 B(M_k(N,\chi)) := \left\lfloor \frac{km}{12}\right\rfloor,\]
 where
@@ -12,7 +12,7 @@ m:=[\SL_2(\Z):\Gamma_0(N)]=N\prod_{p|N}\left(1+\frac{1}{p}\right).
 \]
 If $f=\sum_{n\ge 0}a_n q^n$ and $g=\sum_{n\ge 0}b_n q^n$ are elements of $M_k(N,\chi)$  with $a_n=b_n$ for all $n\le B(M_k(N,\chi))$ then $f=g$; see Corollary 9.20 in \cite{mr:2289048,href{https://wstein.org/books/modform/stein-modform.pdf}{stein-modforms.pdf}} for $k>1$ and Lemma 5 in \cite{arxiv:1605.05346} for $k=1$.
 
-The Sturm bound applies, in particular, to {{KNOWL('cmf.newform', 'newforms')}} of the same level, weight, and character.  Better bounds for newforms are known in certain cases (see Corollary 9.19 and Theorem 9.21 in \cite{mr:2289048,href{https://wstein.org/books/modform/stein-modform.pdf}{stein-modforms.pdf}}, for example), but for consistency we always take the Sturm bound to be the integer $B(M_k(N,\chi))$ defined above.
+The Sturm bound applies, in particular, to \hyperref[cmf.newform]{newforms} of the same level, weight, and character.  Better bounds for newforms are known in certain cases (see Corollary 9.19 and Theorem 9.21 in \cite{mr:2289048,href{https://wstein.org/books/modform/stein-modform.pdf}{stein-modforms.pdf}}, for example), but for consistency we always take the Sturm bound to be the integer $B(M_k(N,\chi))$ defined above.
 
 Note that the Sturm bound for $S_k^{\mathrm{new}}(N,\chi)$ does not apply (in general) to the space
 \[
@@ -20,6 +20,6 @@ S_k^{\mathrm{new}}(N,[\chi]):= \bigoplus_{\chi'\in [\chi]}S_k^{\rm new}(N,\chi')
 \]
 associated to the Galois orbit $[\chi]$; rather, it applies to each direct summand $S_k^{\rm new}(N,\chi')$. 
 
-\end{definition}
+\end{definition*}
 
 

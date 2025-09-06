@@ -1,21 +1,21 @@
-\subsection{Ramification index of an extension of $p$-adic fields}
-\begin{definition}\label{lf.ramification_index}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.ramification_index}{Ramification index of an extension of $p$-adic fields}}
+\begin{definition*}\label{lf.ramification_index}
 \uses{lf.padic_field,lf.ring_of_integers}
-Let $L/K$ be a finite extension of {{ KNOWL('lf.padic_field', '$p$-adic fields') }}.
-Then $\mathcal{O}_L$ and $\mathcal{O}_K$, the {{ KNOWL('lf.ring_of_integers', 'rings of integers') }} of $L$ and $K$,
+Let $L/K$ be a finite extension of \hyperref[lf.padic_field]{$p$-adic fields}.
+Then $\mathcal{O}_L$ and $\mathcal{O}_K$, the \hyperref[lf.ring_of_integers]{rings of integers} of $L$ and $K$,
 are discrete valuation domains, so they have unique maximal ideals $P_L$ and
 $P_K$ which are principal.  If $P_K=(\pi_K)$, the element $\pi_K$ is a
-**uniformizer** for $K$.
+\textbf{uniformizer} for $K$.
 
 We have $\pi_K\mathcal{O}_L=P_L^e$ for some positive integer $e$, which factors as $e = p^w e_{\mathrm{tame}}$ with $e_{\mathrm{tame}}$ coprime to $p$.  The integer $e$
-is the **ramification index**, $w$ is the **wild ramification exponent** and $e_{\mathrm{tame}}$ is the **tame ramification index** of $L/K$.  If $e=1$ we say that the
-extension $L/K$ is **unramified**, and if $e=[L:K]$ we say that $L/K$
-is **totally ramified**.
+is the \textbf{ramification index}, $w$ is the \textbf{wild ramification exponent} and $e_{\mathrm{tame}}$ is the \textbf{tame ramification index} of $L/K$.  If $e=1$ we say that the
+extension $L/K$ is \textbf{unramified}, and if $e=[L:K]$ we say that $L/K$
+is \textbf{totally ramified}.
 
-The **base ramification index** $e_0$ of $L/K$ is the ramification index of $K/\Q_p$.
-The **absolute ramification index** $e_{\mathrm{abs}}$ of $L/K$ is the ramification index of
+The \textbf{base ramification index} $e_0$ of $L/K$ is the ramification index of $K/\Q_p$.
+The \textbf{absolute ramification index} $e_{\mathrm{abs}}$ of $L/K$ is the ramification index of
 $L$ over $\Q_p$.
 
-\end{definition}
+\end{definition*}
 
 

@@ -1,7 +1,7 @@
-\subsection{Inessential prime}
-\begin{definition}\label{nf.inessential_prime}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.inessential_prime}{Inessential prime}}
+\begin{definition*}\label{nf.inessential_prime}
 \uses{nf,nf.zk_index}
-An **inessential prime** of a {{KNOWL('nf', 'number field')}} is a prime divisor of its {{KNOWL('nf.zk_index', 'index')}}.
-\end{definition}
+An \textbf{inessential prime} of a \hyperref[nf]{number field} is a prime divisor of its \hyperref[nf.zk_index]{index}.
+\end{definition*}
 
 

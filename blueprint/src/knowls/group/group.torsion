@@ -1,10 +1,10 @@
-\subsection{Torsion group}
-\begin{definition}\label{group.torsion}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.torsion}{Torsion group}}
+\begin{definition*}\label{group.torsion}
 \uses{group,group.abelian}
-A **torsion {{KNOWL('group', 'group')}}** is a group in which every element has finite order.
+A \textbf{torsion \hyperref[group]{group}} is a group in which every element has finite order.
 
-The elements of finite order in an {{KNOWL('group.abelian', 'abelian')}} group $A$ form a torsion group called the **torsion subgroup** of $A$.
+The elements of finite order in an \hyperref[group.abelian]{abelian} group $A$ form a torsion group called the \textbf{torsion subgroup} of $A$.
 
-\end{definition}
+\end{definition*}
 
 

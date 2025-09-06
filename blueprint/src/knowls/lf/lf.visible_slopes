@@ -1,11 +1,11 @@
-\subsection{Visible slopes}
-\begin{definition}\label{lf.visible_slopes}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.visible_slopes}{Visible slopes}}
+\begin{definition*}\label{lf.visible_slopes}
 \uses{lf.discriminant_exponent,lf.hidden_slopes,lf.wild_slopes,nf.is_galois}
-Let $K$ be a finite extension of $\Q_p$.  If we plot points $(n_E,c_E)$ for each intermediate field $\Q_p\subseteq E \subseteq K$, including $K$ and $\Q_p$, where $n_E=[E:\Q_p]$ and $c_E$ its {{KNOWL('lf.discriminant_exponent', 'discriminant')}} exponent. Take the lower convex hull of these points.
+Let $K$ be a finite extension of $\Q_p$.  If we plot points $(n_E,c_E)$ for each intermediate field $\Q_p\subseteq E \subseteq K$, including $K$ and $\Q_p$, where $n_E=[E:\Q_p]$ and $c_E$ its \hyperref[lf.discriminant_exponent]{discriminant} exponent. Take the lower convex hull of these points.
 
-The **visible Artin slopes** of $K$ correspond to segments which have slopes greater than one.  For such a segment from $(n_1, c_1)$ to $(n_2, c_2)$, $n_2/n_1=p^k$ for some $k\in\Z^+$, and that slope is listed $k$ times.  If $[s_1,\ldots,s_k]$ are the visible Artin slopes, then the **visible Swan slopes** are $[s_1-1,\ldots,s_k-1]$.
+The \textbf{visible Artin slopes} of $K$ correspond to segments which have slopes greater than one.  For such a segment from $(n_1, c_1)$ to $(n_2, c_2)$, $n_2/n_1=p^k$ for some $k\in\Z^+$, and that slope is listed $k$ times.  If $[s_1,\ldots,s_k]$ are the visible Artin slopes, then the \textbf{visible Swan slopes} are $[s_1-1,\ldots,s_k-1]$.
 
-For a {{KNOWL('nf.is_galois', 'Galois')}} extension $K/\Q_p$, the visible Artin slopes are the same as the {{KNOWL('lf.wild_slopes', 'wild Artin slopes')}} of the extension.  For a general extension, the list of visible Artin slopes is a subset of the list of wild Artin slopes of its Galois closure.  The {{KNOWL('lf.hidden_slopes', 'hidden slopes')}} of $K$ are obtained by removing (as multisets) the visible slopes of $K$ from the set of all slopes of the Galois closure.
-\end{definition}
+For a \hyperref[nf.is_galois]{Galois} extension $K/\Q_p$, the visible Artin slopes are the same as the \hyperref[lf.wild_slopes]{wild Artin slopes} of the extension.  For a general extension, the list of visible Artin slopes is a subset of the list of wild Artin slopes of its Galois closure.  The \hyperref[lf.hidden_slopes]{hidden slopes} of $K$ are obtained by removing (as multisets) the visible slopes of $K$ from the set of all slopes of the Galois closure.
+\end{definition*}
 
 

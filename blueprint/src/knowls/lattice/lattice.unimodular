@@ -1,7 +1,7 @@
-\subsection{Unimodular lattice}
-\begin{definition}\label{lattice.unimodular}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.unimodular}{Unimodular lattice}}
+\begin{definition*}\label{lattice.unimodular}
 \uses{lattice.definition,lattice.determinant}
-An {{ KNOWL('lattice.definition','integral lattice') }} is **unimodular** if its {{ KNOWL('lattice.determinant','determinant') }} is equal to 1.
-\end{definition}
+An \hyperref[lattice.definition]{integral lattice} is \textbf{unimodular} if its \hyperref[lattice.determinant]{determinant} is equal to 1.
+\end{definition*}
 
 

@@ -1,13 +1,13 @@
-\subsection{Analytic rank of an elliptic curve over $\Q$}
-\begin{definition}\label{ec.q.analytic_rank}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.q.analytic_rank}{Analytic rank of an elliptic curve over $\Q$}}
+\begin{definition*}\label{ec.q.analytic_rank}
 \uses{ag.mordell_weil,ec,ec.mordell_weil_group,lfunction,lfunction.central_point,lfunction.functional_equation,lfunction.sign}
-The **analytic rank** of an {{KNOWL('ec', 'elliptic curve')}} $E$ is the analytic rank of its {{KNOWL('lfunction', 'L-function')}} $L(E,s)$.   The weak form of the BSD conjecture implies that the analytic rank is equal to the rank of the {{KNOWL('ec.mordell_weil_group', 'Mordell-Weil group')}} of $E$.
+The \textbf{analytic rank} of an \hyperref[ec]{elliptic curve} $E$ is the analytic rank of its \hyperref[lfunction]{L-function} $L(E,s)$.   The weak form of the BSD conjecture implies that the analytic rank is equal to the rank of the \hyperref[ec.mordell_weil_group]{Mordell-Weil group} of $E$.
 
-For elliptic curves $E$ over $\Q$, it is known that $L(E,s)$ satisfies the Hasse-Weil conjecture, and hence that the parity of the analytic rank is always compatible with the {{KNOWL('lfunction.sign', 'sign')}} of the {{KNOWL('lfunction.functional_equation', 'functional equation')}}.
+For elliptic curves $E$ over $\Q$, it is known that $L(E,s)$ satisfies the Hasse-Weil conjecture, and hence that the parity of the analytic rank is always compatible with the \hyperref[lfunction.sign]{sign} of the \hyperref[lfunction.functional_equation]{functional equation}.
 
-In general, analytic ranks stored in the LMFDB are only upper bounds on the true analytic rank (they could be incorrect if $L(E,s)$ had a zero very close to but not on the {{KNOWL('lfunction.central_point', 'central point')}}).  For elliptic curves over $\Q$ of analytic rank less than 2 this upper bound is necessarily tight, due to parity; for analytic ranks $2$ and $3$ is also tight due to results of Kolyvagin; Murty and Murty; Bump, Friedberg and    Hoffstein;  Coates and Wiles; Gross and Zagier which together say that when the analytic rank is $0$ or $1$ then it equals the {{KNOWL('ag.mordell_weil', 'Mordell-Weil rank')}}.
+In general, analytic ranks stored in the LMFDB are only upper bounds on the true analytic rank (they could be incorrect if $L(E,s)$ had a zero very close to but not on the \hyperref[lfunction.central_point]{central point}).  For elliptic curves over $\Q$ of analytic rank less than 2 this upper bound is necessarily tight, due to parity; for analytic ranks $2$ and $3$ is also tight due to results of Kolyvagin; Murty and Murty; Bump, Friedberg and    Hoffstein;  Coates and Wiles; Gross and Zagier which together say that when the analytic rank is $0$ or $1$ then it equals the \hyperref[ag.mordell_weil]{Mordell-Weil rank}.
 
 
-\end{definition}
+\end{definition*}
 
 

@@ -1,10 +1,10 @@
-\subsection{Discriminant root field}
-\begin{definition}\label{nf.discriminant_root_field}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.discriminant_root_field}{Discriminant root field}}
+\begin{definition*}\label{nf.discriminant_root_field}
 \uses{}
-If $K/F$ is a finite algebraic extension, it can be defined by a polynomial $f(x)\in F[x]$.  The polynomial discriminant, $\mathrm{disc}(f)$, is well-defined up a factor of a non-zero square.  The **discriminant root field** of the extension is $F(\sqrt{\mathrm{disc}(f)})$, which is well-defined.
+If $K/F$ is a finite algebraic extension, it can be defined by a polynomial $f(x)\in F[x]$.  The polynomial discriminant, $\mathrm{disc}(f)$, is well-defined up a factor of a non-zero square.  The \textbf{discriminant root field} of the extension is $F(\sqrt{\mathrm{disc}(f)})$, which is well-defined.
 
 If $n=[K:F]$, then the Galois group $G$ for $K/F$ is a subgroup of $S_n$, well-defined up to conjugation.  The discriminant root field can alternatively be described as the fixed field of $G\cap A_n$.
 
-\end{definition}
+\end{definition*}
 
 

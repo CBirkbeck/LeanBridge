@@ -1,16 +1,16 @@
-\subsection{Fourier-Bessel expansion}
-\begin{definition}\label{mf.bianchi.fourierbessell}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.bianchi.fourierbessell}{Fourier-Bessel expansion}}
+\begin{definition*}\label{mf.bianchi.fourierbessell}
 \uses{mf.bianchi,mf.bianchi.bianchicongruencesubgroup,mf.bianchi.bianchigroup,mf.bianchi.hyperbolic3space,mf.bianchi.weight}
-Let $F$ be a  {{KNOWL("mf.bianchi", "Bianchi modular form")}} of {{KNOWL('mf.bianchi.weight', 'weight')}} $2$ with respect to the {{ KNOWL('mf.bianchi.bianchicongruencesubgroup', 'congruence subgroup') }} $\Gamma$ of a {{ KNOWL('mf.bianchi.bianchigroup', 'Bianchi group') }}. As a function on {{ KNOWL('mf.bianchi.hyperbolic3space', 'hyperbolic 3-space') }} $\mathcal{H}_3 = \{ (x,y) \in \C \times \R \mid y>0 \}$,  $F$ is a periodic function in the variable $x\in\C$, and  has a **Fourier-Bessel expansion** of the form 
+Let $F$ be a  \hyperref[mf.bianchi]{Bianchi modular form} of \hyperref[mf.bianchi.weight]{weight} $2$ with respect to the \hyperref[mf.bianchi.bianchicongruencesubgroup]{congruence subgroup} $\Gamma$ of a \hyperref[mf.bianchi.bianchigroup]{Bianchi group}. As a function on \hyperref[mf.bianchi.hyperbolic3space]{hyperbolic 3-space} $\mathcal{H}_3 = \{ (x,y) \in \C \times \R \mid y>0 \}$,  $F$ is a periodic function in the variable $x\in\C$, and  has a \textbf{Fourier-Bessel expansion} of the form 
 $$F(x,y)=\sum_{0 \not =\alpha \in \mathcal{O}_K}c(\alpha) y^2 \mathbb{K}\left ( \dfrac{4\pi|\alpha|y}{\sqrt{|\triangle|}} \right )
                         \psi\left (\dfrac{\alpha x}{\sqrt{\triangle}} \right ),$$
 where
 $$\psi(x)=e^{2\pi(x+\bar{x})}$$
 and  
 $$\mathbb{K}(t)=\left ( -\dfrac{i}{2}K_1(y),K_0(y),\dfrac{i}{2}K_1(y) \right)$$
-with $K_0,K_1$ are the hyperbolic **K-Bessel functions** satisfying the differential equation 
+with $K_0,K_1$ are the hyperbolic \textbf{K-Bessel functions} satisfying the differential equation 
 $$\dfrac{dK_j}{dy^2}+\dfrac{1}{y}\dfrac{dK_j}{dy}-\left ( 1+\dfrac{1}{y^{2j}}\right )K_j = 0, \ \ \ \ j=0,1$$
 and decreasing rapidly at infinity. 
-\end{definition}
+\end{definition*}
 
 

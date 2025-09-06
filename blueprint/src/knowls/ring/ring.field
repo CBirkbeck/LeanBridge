@@ -1,7 +1,7 @@
-\subsection{Field}
-\begin{definition}\label{ring.field}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ring.field}{Field}}
+\begin{definition*}\label{ring.field}
 \uses{alg.binary_operation.inverse,ring}
-A **field** is a {{KNOWL('ring', 'commutative ring')}} $R$ such that $0_R\neq 1_R$ and every nonzero element of $R$ has an {{KNOWL('alg.binary_operation.inverse', 'inverse')}} in $R$ with respect to multiplication.
-\end{definition}
+A \textbf{field} is a \hyperref[ring]{commutative ring} $R$ such that $0_R\neq 1_R$ and every nonzero element of $R$ has an \hyperref[alg.binary_operation.inverse]{inverse} in $R$ with respect to multiplication.
+\end{definition*}
 
 

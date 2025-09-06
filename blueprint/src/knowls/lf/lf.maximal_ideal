@@ -1,9 +1,9 @@
-\subsection{Maximal ideal of a local field}
-\begin{definition}\label{lf.maximal_ideal}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.maximal_ideal}{Maximal ideal of a local field}}
+\begin{definition*}\label{lf.maximal_ideal}
 \uses{lf.local_field,lf.ring_of_integers,nf.absolute_value,ring.maximal_ideal,ring.unit}
-The **maximal ideal** of a {{KNOWL('lf.local_field', 'nonarchimedean local field')}} $K$ is the unique {{KNOWL('ring.maximal_ideal', 'maximal ideal')}} of its {{KNOWL('lf.ring_of_integers', 'ring of integers')}} $\mathcal O_K$.
+The \textbf{maximal ideal} of a \hyperref[lf.local_field]{nonarchimedean local field} $K$ is the unique \hyperref[ring.maximal_ideal]{maximal ideal} of its \hyperref[lf.ring_of_integers]{ring of integers} $\mathcal O_K$.
 
-It consists of all elements of $\mathcal O_K$ that are not {{KNOWL('ring.unit', 'units')}}, equivalently, all elements of $K$ whose {{KNOWL('nf.absolute_value', 'absolute value')}} is strictly less than 1.
-\end{definition}
+It consists of all elements of $\mathcal O_K$ that are not \hyperref[ring.unit]{units}, equivalently, all elements of $K$ whose \hyperref[nf.absolute_value]{absolute value} is strictly less than 1.
+\end{definition*}
 
 

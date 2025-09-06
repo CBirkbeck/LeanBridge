@@ -1,8 +1,8 @@
-\subsection{Congruence subgroup of a Bianchi group}
-\begin{definition}\label{mf.bianchi.bianchicongruencesubgroup}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.bianchi.bianchicongruencesubgroup}{Congruence subgroup of a Bianchi group}}
+\begin{definition*}\label{mf.bianchi.bianchicongruencesubgroup}
 \uses{nf.ring_of_integers}
-Let $K$ be an imaginary quadratic field with {{KNOWL("nf.ring_of_integers", "ring of integers")}} $\mathcal{O}_K$.  For a nonzero ideal $\mathfrak{N}$ of $\mathcal{O}_K$, the <b>principal congruence subgroup of level $\mathfrak{N}$</b> is 
+Let $K$ be an imaginary quadratic field with \hyperref[nf.ring_of_integers]{ring of integers} $\mathcal{O}_K$.  For a nonzero ideal $\mathfrak{N}$ of $\mathcal{O}_K$, the <b>principal congruence subgroup of level $\mathfrak{N}$</b> is 
 $$\Gamma(\mathfrak{N}) = \{\gamma \in \textrm{PSL}_2(\mathcal{O}_K) : \gamma\equiv \pm 1 \!\! \pmod{\mathfrak{N}} \}.$$  A subgroup of $\textrm{PSL}_2(\mathcal{O}_K)$ is called a <b>congruence subgroup</b> if it contains a principal congruence subgroup.
-\end{definition}
+\end{definition*}
 
 

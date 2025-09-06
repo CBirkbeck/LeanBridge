@@ -1,13 +1,13 @@
-\subsection{Affine space}
-\begin{definition}\label{ag.affine_space}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.affine_space}{Affine space}}
+\begin{definition*}\label{ag.affine_space}
 \uses{ring.field}
-**Affine space** $\mathbb{A}^n(K)$ of {{KNOWL('ag.dimension', 'dimension')}} $n$ over a {{KNOWL('ring.field', 'field')}} $K$ is the set $K^n$.
+\textbf{Affine space} $\mathbb{A}^n(K)$ of \hyperref[ag.dimension]{dimension} $n$ over a \hyperref[ring.field]{field} $K$ is the set $K^n$.
 
 If $P=(x_1,\dots,x_n)$ is a point in $\mathbb{A}^n(K)$, the $x_i$ are called the *affine coordinates* of $P$.  Thus
 $$
 \mathbb{A}^n(K) = \{(x_1,\dots,x_n)\mid x_1,\dots,x_n\in K\}.
 $$
 
-\end{definition}
+\end{definition*}
 
 

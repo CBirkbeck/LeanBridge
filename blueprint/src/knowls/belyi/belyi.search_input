@@ -1,7 +1,7 @@
-\subsection{Find a Belyi map}
-\begin{definition}\label{belyi.search_input}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/belyi.search_input}{Find a Belyi map}}
+\begin{definition*}\label{belyi.search_input}
 \uses{belyi.galmap,belyi.label,belyi.passport}
-Enter the {{KNOWL('belyi.label', 'label')}} of a {{KNOWL('belyi.galmap', 'Belyi map')}} or {{KNOWL('belyi.passport', 'passport')}}.
-\end{definition}
+Enter the \hyperref[belyi.label]{label} of a \hyperref[belyi.galmap]{Belyi map} or \hyperref[belyi.passport]{passport}.
+\end{definition*}
 
 

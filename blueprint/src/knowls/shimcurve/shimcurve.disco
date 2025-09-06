@@ -1,17 +1,17 @@
-\subsection{Discriminant of a quaternion order}
-\begin{definition}\label{shimcurve.disco}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/shimcurve.disco}{Discriminant of a quaternion order}}
+\begin{definition*}\label{shimcurve.disco}
 \uses{shimcurve.order,shimcurve.quaternion_algebra}
-Let $B$ be a {{KNOWL('shimcurve.quaternion_algebra','quaternion algebra')}} over $\Q$, and let $O\subset B$ be an 
-{{KNOWL('shimcurve.order','order')}}. Let $x_1,x_2,x_3,x_4 \in O$
-be a $\Z$-basis of $O$. The **discriminant** of $O$ is the 
+Let $B$ be a \hyperref[shimcurve.quaternion_algebra]{quaternion algebra} over $\Q$, and let $O\subset B$ be an 
+\hyperref[shimcurve.order]{order}. Let $x_1,x_2,x_3,x_4 \in O$
+be a $\Z$-basis of $O$. The \textbf{discriminant} of $O$ is the 
 integer
     \[ \operatorname{disc}(O) 
         \colonequals \left|\det(\operatorname{trd}(x_ix_j))_{i,j}\right|. \]
 where $\operatorname{trd} : B \to \Q$ is the reduced trace. 
 
-The **reduced discriminant** of $O$ is the positive integer
+The \textbf{reduced discriminant} of $O$ is the positive integer
 $\operatorname{discrd}(O)$ such that
     \[ \operatorname{discrd}(O)^2 = \operatorname{disc}(O). \]
-\end{definition}
+\end{definition*}
 
 

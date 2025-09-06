@@ -1,16 +1,18 @@
-\subsection{Local invariants}
-\begin{definition}\label{g2c.local_invariants}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.local_invariants}{Local invariants}}
+\begin{definition*}\label{g2c.local_invariants}
 \uses{ag.conductor,ag.jacobian,g2c.bad_lfactors,g2c.discriminant,g2c.g2curve,g2c.good_reduction,g2c.local_root_number,g2c.tamagawa}
-The **local invariants** of a {{ KNOWL('g2c.g2curve', 'genus 2 curve') }} over $\Q$ include, for each prime $p$:
+The \textbf{local invariants} of a \hyperref[g2c.g2curve]{genus 2 curve} over $\Q$ include, for each prime $p$:
 
-- The $p$-adic valuation $\mathrm{ord}_p(\Delta)$ of its {{KNOWL('g2c.discriminant', 'discriminant')}};
-- The $p$-adic valuation $\mathrm{ord}_p(N)$ of the {{KNOWL('ag.conductor', 'conductor')}} of its {{KNOWL('ag.jacobian', 'Jacobian')}};
-- The {{KNOWL('g2c.tamagawa', 'Tamagawa number')}} $c_p$ ;
-- The {{KNOWL('g2c.local_root_number', 'local root number')}};
-- The {{KNOWL('g2c.bad_lfactors','L-factor')}} at $p$.
+\begin{itemize}
+\item  The $p$-adic valuation $\mathrm{ord}_p(\Delta)$ of its \hyperref[g2c.discriminant]{discriminant};
+\item  The $p$-adic valuation $\mathrm{ord}_p(N)$ of the \hyperref[ag.conductor]{conductor} of its \hyperref[ag.jacobian]{Jacobian};
+\item  The \hyperref[g2c.tamagawa]{Tamagawa number} $c_p$ ;
+\item  The \hyperref[g2c.local_root_number]{local root number};
+\item  The \hyperref[g2c.bad_lfactors]{L-factor} at $p$.
+\end{itemize}
 
-For primes of {{KNOWL('g2c.good_reduction', 'good reduction')}} the valuations of both discriminant and conductor are $0$, and the Tamagawa number is $1$.
+For primes of \hyperref[g2c.good_reduction]{good reduction} the valuations of both discriminant and conductor are $0$, and the Tamagawa number is $1$.
 
-\end{definition}
+\end{definition*}
 
 

@@ -1,11 +1,11 @@
-\subsection{Rational points on a modular curve}
-\begin{definition}\label{modcurve.rational_points}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.rational_points}{Rational points on a modular curve}}
+\begin{definition*}\label{modcurve.rational_points}
 \uses{ag.jacobian,ec,modcurve,modcurve.cm_discriminants,modcurve.cusps,modcurve.genus}
-The rational points on a {{KNOWL('modcurve', 'modular curve')}} $X_H$ may be divided into three categories: {{KNOWL('modcurve.cusps','cuspidal points')}}, {{KNOWL('modcurve.cm_discriminants','CM points')}}, and non-cuspidal non-CM points.
+The rational points on a \hyperref[modcurve]{modular curve} $X_H$ may be divided into three categories: \hyperref[modcurve.cusps]{cuspidal points}, \hyperref[modcurve.cm_discriminants]{CM points}, and non-cuspidal non-CM points.
 
-{{KNOWL('modcurve.genus', 'Genus')}} zero curves with a rational point are isomorphic to $\mathbb P^1$ and therefore have infinitely many rational points.  Genus one curves with a rational point whose {{KNOWL('ag.jacobian', 'Jacobian')}} has positive Mordell-Weil rank are isomorphic to an {{KNOWL('ec', 'elliptic curve')}} with infinitely many rational points.  In all other cases, the set of rational points is finite.
+\hyperref[modcurve.genus]{Genus} zero curves with a rational point are isomorphic to $\mathbb P^1$ and therefore have infinitely many rational points.  Genus one curves with a rational point whose \hyperref[ag.jacobian]{Jacobian} has positive Mordell-Weil rank are isomorphic to an \hyperref[ec]{elliptic curve} with infinitely many rational points.  In all other cases, the set of rational points is finite.
 
 
-\end{definition}
+\end{definition*}
 
 

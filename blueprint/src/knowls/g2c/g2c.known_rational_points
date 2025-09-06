@@ -1,9 +1,9 @@
-\subsection{Known rational points}
-\begin{definition}\label{g2c.known_rational_points}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.known_rational_points}{Known rational points}}
+\begin{definition*}\label{g2c.known_rational_points}
 \uses{g2c.minimal_equation,nf}
-For a curve $X$ of genus $g\ge 2$ over $\Q$ (or any {{ KNOWL('nf', 'number field') }}) the set of rational points $X(\Q)$ is finite, by a theorem of Faltings. At present no algorithm is known that explicitly computes a provably complete list of the points in $X(\Q)$, but one can conduct a search among points of bounded height to obtain a list of **known rational points**.
+For a curve $X$ of genus $g\ge 2$ over $\Q$ (or any \hyperref[nf]{number field}) the set of rational points $X(\Q)$ is finite, by a theorem of Faltings. At present no algorithm is known that explicitly computes a provably complete list of the points in $X(\Q)$, but one can conduct a search among points of bounded height to obtain a list of \textbf{known rational points}.
 
-Rational points on hyperelliptic curves are written in projective coordinates with respect to the weighted homogeneous equation $y^2+h(x,z)y=f(x,z)$ of degree $2g+2$ that is a smooth projective model for the curve $X$, where $y$ has weight $g+1$, while $x$ and $z$ both have weight 1.  This homogeneous equation is uniquely determined by the affine equation $y^2+h(x)y=f(x)$ listed as the {{KNOWL('g2c.minimal_equation', 'minimal equation')}} for the curve.
-\end{definition}
+Rational points on hyperelliptic curves are written in projective coordinates with respect to the weighted homogeneous equation $y^2+h(x,z)y=f(x,z)$ of degree $2g+2$ that is a smooth projective model for the curve $X$, where $y$ has weight $g+1$, while $x$ and $z$ both have weight 1.  This homogeneous equation is uniquely determined by the affine equation $y^2+h(x)y=f(x)$ listed as the \hyperref[g2c.minimal_equation]{minimal equation} for the curve.
+\end{definition*}
 
 

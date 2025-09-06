@@ -1,7 +1,7 @@
-\subsection{Rank}
-\begin{definition}\label{group.rank}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.rank}{Rank}}
+\begin{definition*}\label{group.rank}
 \uses{group,group.frattini_subgroup,group.generators,group.presentation}
-The **rank** of a finite {{KNOWL('group', 'group')}} $G$ is the minimal number of elements required to {{KNOWL('group.generators', 'generate')}} it, which is often smaller than the number of generators in a {{KNOWL('group.presentation', 'polycyclic presentation')}}.  For $p$-groups, the rank can be computed by taking the $\mathbb{F}_p$-dimension of the quotient by the {{KNOWL('group.frattini_subgroup', 'Frattini subgroup')}}.
-\end{definition}
+The \textbf{rank} of a finite \hyperref[group]{group} $G$ is the minimal number of elements required to \hyperref[group.generators]{generate} it, which is often smaller than the number of generators in a \hyperref[group.presentation]{polycyclic presentation}.  For $p$-groups, the rank can be computed by taking the $\mathbb{F}_p$-dimension of the quotient by the \hyperref[group.frattini_subgroup]{Frattini subgroup}.
+\end{definition*}
 
 

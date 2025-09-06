@@ -1,9 +1,9 @@
-\subsection{Indecomposable integral representation}
-\begin{definition}\label{gg.int_modules}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/gg.int_modules}{Indecomposable integral representation}}
+\begin{definition*}\label{gg.int_modules}
 \uses{}
-If $G$ is a finite group, an **integral representation** of $G$ is a homomorphism $\rho\colon G\to\Aut(\Z^r)$ for some $r\in\Z$, $r> 0$.
+If $G$ is a finite group, an \textbf{integral representation} of $G$ is a homomorphism $\rho\colon G\to\Aut(\Z^r)$ for some $r\in\Z$, $r> 0$.
 
-The representation $\rho$ is **indecomposable** if it is not equivalent to the direct sum of integral representations.
-\end{definition}
+The representation $\rho$ is \textbf{indecomposable} if it is not equivalent to the direct sum of integral representations.
+\end{definition*}
 
 

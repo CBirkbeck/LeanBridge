@@ -1,14 +1,14 @@
-\subsection{Orbit index of a Dirichlet character}
-\begin{definition}\label{character.dirichlet.galois_orbit_index}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/character.dirichlet.galois_orbit_index}{Orbit index of a Dirichlet character}}
+\begin{definition*}\label{character.dirichlet.galois_orbit_index}
 \uses{character.dirichlet,character.dirichlet.galois_orbit,character.dirichlet.modulus,character.dirichlet.order,character.dirichlet.principal,character.dirichlet.value_field}
-The {{KNOWL('character.dirichlet.galois_orbit', 'Galois orbits')}} of {{KNOWL('character.dirichlet', 'Dirichlet characters')}} of {{KNOWL('character.dirichlet.modulus', 'modulus')}} $q$ are ordered as follows.
+The \hyperref[character.dirichlet.galois_orbit]{Galois orbits} of \hyperref[character.dirichlet]{Dirichlet characters} of \hyperref[character.dirichlet.modulus]{modulus} $q$ are ordered as follows.
 Let $\chi$ be any character in the Galois orbit $[\chi]$ and define the $N$-tuple of integers
 \[
     t([\chi]) := (n,t_1,t_2,\ldots,t_{q-1}) \in \Z^q,
 \]
-where $n$ is the {{KNOWL('character.dirichlet.order', 'order')}} of $\chi$ and $t_i:=\mathrm{tr}_{\Q(\chi)/\Q}(\chi(i))$ is the trace of $\chi(i)$ from the {{KNOWL('character.dirichlet.value_field', 'field of values')}} of $\chi$ to $\Q$.  The $q$-tuple $t([\chi])$ is independent of the choice of representative $\chi$ and uniquely identifies the Galois orbit $[\chi]$.
+where $n$ is the \hyperref[character.dirichlet.order]{order} of $\chi$ and $t_i:=\mathrm{tr}_{\Q(\chi)/\Q}(\chi(i))$ is the trace of $\chi(i)$ from the \hyperref[character.dirichlet.value_field]{field of values} of $\chi$ to $\Q$.  The $q$-tuple $t([\chi])$ is independent of the choice of representative $\chi$ and uniquely identifies the Galois orbit $[\chi]$.
 
-The **orbit index** of $\chi$ is the index of $t([\chi])$ in the lexicographic ordering of all such tuples arising for Dirichlet characters of modulus $q$; indexing begins at $1$, which is always the index of the Galois orbit of the {{KNOWL('character.dirichlet.principal', 'principal character')}} of modulus $1$.
-\end{definition}
+The \textbf{orbit index} of $\chi$ is the index of $t([\chi])$ in the lexicographic ordering of all such tuples arising for Dirichlet characters of modulus $q$; indexing begins at $1$, which is always the index of the Galois orbit of the \hyperref[character.dirichlet.principal]{principal character} of modulus $1$.
+\end{definition*}
 
 

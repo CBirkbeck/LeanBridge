@@ -1,7 +1,7 @@
-\subsection{Newform}
-\begin{definition}\label{cmf.newform}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.newform}{Newform}}
+\begin{definition*}\label{cmf.newform}
 \uses{cmf.fouriercoefficients,cmf.hecke_operator,cmf.newspace}
-A **newform** is a cusp form $f\in S_k^{\rm new}(N,\chi)$ in the {{KNOWL('cmf.newspace', 'new subspace')}} that is also an eigenform of all {{KNOWL('cmf.hecke_operator', 'Hecke operators')}}, normalized so that the {{KNOWL('cmf.fouriercoefficients', '$q$-expansion')}}  $f(z)=\sum a_n q^n$, where $q=e^{2\pi i z}$, begins with the coefficient $a_1=1$.  The newforms are a basis for the new subspace.
-\end{definition}
+A \textbf{newform} is a cusp form $f\in S_k^{\rm new}(N,\chi)$ in the \hyperref[cmf.newspace]{new subspace} that is also an eigenform of all \hyperref[cmf.hecke_operator]{Hecke operators}, normalized so that the \hyperref[cmf.fouriercoefficients]{$q$-expansion}  $f(z)=\sum a_n q^n$, where $q=e^{2\pi i z}$, begins with the coefficient $a_1=1$.  The newforms are a basis for the new subspace.
+\end{definition*}
 
 

@@ -1,9 +1,9 @@
-\subsection{Dimension of an Artin representation}
-\begin{definition}\label{artin.dimension}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/artin.dimension}{Dimension of an Artin representation}}
+\begin{definition*}\label{artin.dimension}
 \uses{artin}
-The **dimension** of an {{KNOWL("artin", "Artin representation")}}
+The \textbf{dimension} of an \hyperref[artin]{Artin representation}
 $\rho:\mathrm{Gal}(\overline{\mathbb{Q}}/\mathbb{Q})\to\mathrm{GL}(V)$ is the dimension
 of the associated vector space $V$.
-\end{definition}
+\end{definition*}
 
 

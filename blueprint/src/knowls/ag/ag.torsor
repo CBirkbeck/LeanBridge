@@ -1,10 +1,10 @@
-\subsection{Principal homogeneous space}
-\begin{definition}\label{ag.torsor}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.torsor}{Principal homogeneous space}}
+\begin{definition*}\label{ag.torsor}
 \uses{ag.abelian_variety,ag.variety,group.galois.absolute}
-A **principal homogeneous space** (or **torsor**) of an {{KNOWL("ag.abelian_variety", "abelian variety")}} $A$ over a field $k$ is a {{KNOWL("ag.variety", "variety")}} $X$ equipped with an $A$-action such that ($X_{\overline{k}}$ with the induced $A_{\overline{k}}$-action) is isomorphic to ($A_{\overline{k}}$ with  $A_{\overline{k}}$-action given by translation).
+A \textbf{principal homogeneous space} (or \textbf{torsor}) of an \hyperref[ag.abelian_variety]{abelian variety} $A$ over a field $k$ is a \hyperref[ag.variety]{variety} $X$ equipped with an $A$-action such that ($X_{\overline{k}}$ with the induced $A_{\overline{k}}$-action) is isomorphic to ($A_{\overline{k}}$ with  $A_{\overline{k}}$-action given by translation).
 
 
-The set of isomorphism classes of principal homogeneous spaces of $A$ is in bijection with the Galois cohomology group $H^1(k,A) = H^1(G_k,A(\overline{k}))$, where $\overline{k}$ is a separable closure of $k$, and $G_k$ is the {{KNOWL('group.galois.absolute', 'absolute Galois group')}} $\Gal(\overline{k}/k)$, so it has the structure of an abelian group.
+The set of isomorphism classes of principal homogeneous spaces of $A$ is in bijection with the Galois cohomology group $H^1(k,A) = H^1(G_k,A(\overline{k}))$, where $\overline{k}$ is a separable closure of $k$, and $G_k$ is the \hyperref[group.galois.absolute]{absolute Galois group} $\Gal(\overline{k}/k)$, so it has the structure of an abelian group.
 
 For a principal homogeneous space $X$, the following are equivalent:
 
@@ -12,6 +12,6 @@ For a principal homogeneous space $X$, the following are equivalent:
 2. there is an $A$-equivariant isomorphism $X \to A$;
 3. the class of $X$ in $H^1(k,A)$ is $0$.
 
-\end{definition}
+\end{definition*}
 
 

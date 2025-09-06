@@ -1,7 +1,7 @@
-\subsection{Identifier of a knowl}
-\begin{definition}\label{doc.knowl.identifier}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/doc.knowl.identifier}{Identifier of a knowl}}
+\begin{definition*}\label{doc.knowl.identifier}
 \uses{doc.knowl.naming_conventions,doc.knowl.naming_suggestions}
-The identifier of a Knowl is used to create links to it. It should follow some naming {{ KNOWL('doc.knowl.naming_conventions', "conventions") }} and {{ KNOWL('doc.knowl.naming_suggestions', "suggestions") }}.
-\end{definition}
+The identifier of a Knowl is used to create links to it. It should follow some naming \hyperref[doc.knowl.naming_conventions]{conventions} and \hyperref[doc.knowl.naming_suggestions]{suggestions}.
+\end{definition*}
 
 

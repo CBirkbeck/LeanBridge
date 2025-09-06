@@ -1,12 +1,14 @@
-\subsection{$X(N)$}
-\begin{definition}\label{modcurve.xfull}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.xfull}{$X(N)$}}
+\begin{definition*}\label{modcurve.xfull}
 \uses{modcurve,modcurve.cusps,modcurve.xn}
-$X(N)$ is the {{ KNOWL('modcurve','modular curve') }} $X_H$ for $H\le \GL_2(\widehat\Z)$ the inverse image of the trivial subgroup of $\GL_2(\Z/N\Z)$. Over a field $k$ of characteristic not dividing $N$, its {{ KNOWL('modcurve.cusps','non-cuspidal') }} $k$-rational points correspond to triples $(E,P,Q)$, where:
+$X(N)$ is the \hyperref[modcurve]{modular curve} $X_H$ for $H\le \GL_2(\widehat\Z)$ the inverse image of the trivial subgroup of $\GL_2(\Z/N\Z)$. Over a field $k$ of characteristic not dividing $N$, its \hyperref[modcurve.cusps]{non-cuspidal} $k$-rational points correspond to triples $(E,P,Q)$, where:
 
-* $E$ is an elliptic curve over $k$, and 
-* $P,Q \in E(k)$ form a basis for $E[N](\overline{k})$.  
+\begin{itemize}
+\item  $E$ is an elliptic curve over $k$, and 
+\item  $P,Q \in E(k)$ form a basis for $E[N](\overline{k})$.  
+\end{itemize}
 
-There are other {{KNOWL('modcurve.xn','variants')}}.
-\end{definition}
+There are other \hyperref[modcurve.xn]{variants}.
+\end{definition*}
 
 

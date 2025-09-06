@@ -1,7 +1,7 @@
-\subsection{Crystal}
-\begin{definition}\label{crystals.crystal}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/crystals.crystal}{Crystal}}
+\begin{definition*}\label{crystals.crystal}
 \uses{}
-A **($U_q(\mathfrak{g})$-)crystal** is a nonempty set $B$ together with maps
+A \textbf{($U_q(\mathfrak{g})$-)crystal} is a nonempty set $B$ together with maps
 \[
 \begin{aligned}
    &\mathrm{wt}: B \to P\\
@@ -11,6 +11,6 @@ A **($U_q(\mathfrak{g})$-)crystal** is a nonempty set $B$ together with maps
 Here $\mathfrak{g}$ is a Lie or Kac-Moody algebra of a particular type with index set $I$.
 
 The map $\mathrm{wt}$ is called the weight function which maps a crystal element to a weight in the weight lattice $P$. The maps $e_i$ and $f_i$ are called Kashiwara raising and lowering operators.
-\end{definition}
+\end{definition*}
 
 

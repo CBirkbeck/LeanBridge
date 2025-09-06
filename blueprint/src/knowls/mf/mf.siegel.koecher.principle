@@ -1,12 +1,12 @@
-\subsection{Koecher principle}
-\begin{definition}\label{mf.siegel.koecher.principle}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.koecher.principle}{Koecher principle}}
+\begin{definition*}\label{mf.siegel.koecher.principle}
 \uses{mf.siegel.degree,mf.siegel.q-expansion}
 Let $
-f(\tau)=\sum_{n\in L_{\Gamma}^{\vee}} a(n) e^{2 \pi i \text{tr}(n\tau)}$ be the {{KNOWL("mf.siegel.q-expansion", "q-expansion")}} of $f\in M_{\rho}(\Gamma)$.
-The **Koecher principle** says that, for {{KNOWL("mf.siegel.degree", "degree")}} $g\geqslant 2$, if $a(n)\neq 0$ then 
+f(\tau)=\sum_{n\in L_{\Gamma}^{\vee}} a(n) e^{2 \pi i \text{tr}(n\tau)}$ be the \hyperref[mf.siegel.q-expansion]{q-expansion} of $f\in M_{\rho}(\Gamma)$.
+The \textbf{Koecher principle} says that, for \hyperref[mf.siegel.degree]{degree} $g\geqslant 2$, if $a(n)\neq 0$ then 
 $n$ is positive semidefinite.  
 
 
-\end{definition}
+\end{definition*}
 
 

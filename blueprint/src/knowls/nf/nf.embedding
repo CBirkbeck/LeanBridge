@@ -1,12 +1,12 @@
-\subsection{Embedding of a number field}
-\begin{definition}\label{nf.embedding}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.embedding}{Embedding of a number field}}
+\begin{definition*}\label{nf.embedding}
 \uses{nf,nf.complex_embedding,nf.degree,nf.minimal_polynomial,nf.real_embedding,nf.signature}
-An **embedding** of a {{KNOWL('nf', 'number field')}} $K$ is a field homomorphism $K\to \C$.  A number field of {{KNOWL('nf.degree', 'degree')}} $n$ has $n$ distinct embeddings, which may be distinguished as {{KNOWL('nf.real_embedding', 'real')}} or {{KNOWL('nf.complex_embedding', 'complex')}} depending on whether the image of the embedding is contained in $\R$ or not.
+An \textbf{embedding} of a \hyperref[nf]{number field} $K$ is a field homomorphism $K\to \C$.  A number field of \hyperref[nf.degree]{degree} $n$ has $n$ distinct embeddings, which may be distinguished as \hyperref[nf.real_embedding]{real} or \hyperref[nf.complex_embedding]{complex} depending on whether the image of the embedding is contained in $\R$ or not.
 
-Complex embeddings necessarily come in conjugate pairs.  The {{KNOWL('nf.signature', 'signature')}} of a number field is determined by the number of real embeddings and the number of pairs of conjugate complex embeddings.
+Complex embeddings necessarily come in conjugate pairs.  The \hyperref[nf.signature]{signature} of a number field is determined by the number of real embeddings and the number of pairs of conjugate complex embeddings.
 
-For $K=\Q(a)$, where $a$ is an algebraic number with {{KNOWL('nf.minimal_polynomial', 'minimal polynomial')}} $f(X)$, each embedding $\iota$ is uniquely determined by the value $z=\iota(a)$, which is one of the complex roots of $f(X)$. The embedding is real if $z\in\R$ and complex if $z\notin\R$.
+For $K=\Q(a)$, where $a$ is an algebraic number with \hyperref[nf.minimal_polynomial]{minimal polynomial} $f(X)$, each embedding $\iota$ is uniquely determined by the value $z=\iota(a)$, which is one of the complex roots of $f(X)$. The embedding is real if $z\in\R$ and complex if $z\notin\R$.
 
-\end{definition}
+\end{definition*}
 
 

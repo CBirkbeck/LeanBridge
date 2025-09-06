@@ -1,14 +1,16 @@
-\subsection{Family of Siegel groups}
-\begin{definition}\label{mf.siegel.family}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.family}{Family of Siegel groups}}
+\begin{definition*}\label{mf.siegel.family}
 \uses{group.sp2gr.gamma0,group.sp2gr.ppal.congruence,paramodulargroup.sp2gr}
 Siegel modular forms of degree $g$ transform under the action of a discrete subgroup $\Gamma$ of $\Sp(2g,\Q)$.  We focus on certain discrete subgroups.
 
-* **Principal congruence subgroup**: {{KNOWL("group.sp2gr.ppal.congruence", "$\Gamma(N)$")}}.  
-* **Siegel parabolic subgroup**: {{KNOWL("group.sp2gr.gamma0", "$\Gamma_0(N)$")}}.
-* **Paramodular subgroup**: {{KNOWL("paramodulargroup.sp2gr", "$\Gamma^{\mathrm{para}}(d)$")}}.
+\begin{itemize}
+\item  \textbf{Principal congruence subgroup}: \hyperref[group.sp2gr.ppal.congruence]{$\Gamma(N)$}.  
+\item  \textbf{Siegel parabolic subgroup}: \hyperref[group.sp2gr.gamma0]{$\Gamma_0(N)$}.
+\item  \textbf{Paramodular subgroup}: \hyperref[paramodulargroup.sp2gr]{$\Gamma^{\mathrm{para}}(d)$}.
+\end{itemize}
 
 
 
-\end{definition}
+\end{definition*}
 
 

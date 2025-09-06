@@ -1,17 +1,19 @@
-\subsection{Canonical defining polynomial for number fields}
-\begin{definition}\label{nf.polredabs}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.polredabs}{Canonical defining polynomial for number fields}}
+\begin{definition*}\label{nf.polredabs}
 \uses{nf,nf.poly_discriminant}
-Every {{KNOWL('nf', 'number field')}} $K$ can be represented as $K = \Q[X]/P(x)$ for some monic $P\in\Z[X]$, called a **defining polynomial** for $K$.  Among all such defining polynomials, we define the **reduced defining polynomial** as follows.  
+Every \hyperref[nf]{number field} $K$ can be represented as $K = \Q[X]/P(x)$ for some monic $P\in\Z[X]$, called a \textbf{defining polynomial} for $K$.  Among all such defining polynomials, we define the \textbf{reduced defining polynomial} as follows.  
 
 Recall that for a monic polynomial $P(x) = \prod_i(x-\alpha_i)$, the $T_2$ norm of $P$ is $T_2(P) = \sum_i |\alpha_i|^2$.
 
-- Let $L_0$ be the list of (monic integral) defining polynomials for $K$ that are minimal with respect to the $T_2$ norm.
-- Let $L_1$ be the sublist of $L_0$ of polynomials whose {{KNOWL('nf.poly_discriminant', 'discriminant')}} has minimal absolute value.
-- For a polynomial $P = x^n + a_1x^{n-1} + \dots + a_n$, let $S(P) = (|a_1|,a_1,\dots,|a_n|,a_n)$, and order the polynomials in $L_1$ by the lexicographic order of the vectors $S(P)$.
+\begin{itemize}
+\item  Let $L_0$ be the list of (monic integral) defining polynomials for $K$ that are minimal with respect to the $T_2$ norm.
+\item  Let $L_1$ be the sublist of $L_0$ of polynomials whose \hyperref[nf.poly_discriminant]{discriminant} has minimal absolute value.
+\item  For a polynomial $P = x^n + a_1x^{n-1} + \dots + a_n$, let $S(P) = (|a_1|,a_1,\dots,|a_n|,a_n)$, and order the polynomials in $L_1$ by the lexicographic order of the vectors $S(P)$.
+\end{itemize}
 
 Then the reduced defining polynomial of $K$ is the first polynomial in $L_1$ with respect to this order.
 
 The pari/gp function <code>polredabs()</code> computes reduced defining polynomials, which are also commonly called <code>polredabs</code> polynomials.
-\end{definition}
+\end{definition*}
 
 

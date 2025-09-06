@@ -1,7 +1,7 @@
-\subsection{$K$-gonality of a Shimura curve}
-\begin{definition}\label{shimcurve.gonality}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/shimcurve.gonality}{$K$-gonality of a Shimura curve}}
+\begin{definition*}\label{shimcurve.gonality}
 \uses{ag.geom_component,ag.gonality,shimcurve}
-The **$K$-gonality** $\gamma$ of a {{KNOWL('shimcurve', 'Shimura curve')}} $X_H$ is the {{KNOWL('ag.gonality','gonality')}} of any of its {{KNOWL('ag.geom_component', 'geometric components')}} over $K$.  (The geometric gonality of that component might be smaller than the $K$-gonality.)
-\end{definition}
+The \textbf{$K$-gonality} $\gamma$ of a \hyperref[shimcurve]{Shimura curve} $X_H$ is the \hyperref[ag.gonality]{gonality} of any of its \hyperref[ag.geom_component]{geometric components} over $K$.  (The geometric gonality of that component might be smaller than the $K$-gonality.)
+\end{definition*}
 
 

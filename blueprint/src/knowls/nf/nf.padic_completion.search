@@ -1,9 +1,9 @@
-\subsection{Searching $p$-adic completions of a number field}
-\begin{definition}\label{nf.padic_completion.search}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.padic_completion.search}{Searching $p$-adic completions of a number field}}
+\begin{definition*}\label{nf.padic_completion.search}
 \uses{nf.place}
-{{KNOWL_INC('nf.place')}}
+{{KNOWL\_INC('nf.place')}}
 
 When searching for number fields with a list of $p$-adic completions, the results will contain fields which match all of the completions in the list.
-\end{definition}
+\end{definition*}
 
 

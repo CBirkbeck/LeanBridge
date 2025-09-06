@@ -1,8 +1,8 @@
-\subsection{Fourier expansion smf}
-\begin{definition}\label{mf.siegel.q-expansion}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.q-expansion}{Fourier expansion smf}}
+\begin{definition*}\label{mf.siegel.q-expansion}
 \uses{commensurable.group,mf.siegel,mf.siegel.weight}
-Let $f$ be a {{KNOWL('mf.siegel', 'Siegel modular form')}} of 
-{{KNOWL('mf.siegel.weight', 'weight')}} $\rho$ on a discrete subgroup $\Gamma$ of $\Sp(2g,\Q)$ that is {{KNOWL('commensurable.group', 'commensurable')}} with $\Sp(2g,\Z)$.
+Let $f$ be a \hyperref[mf.siegel]{Siegel modular form} of 
+\hyperref[mf.siegel.weight]{weight} $\rho$ on a discrete subgroup $\Gamma$ of $\Sp(2g,\Q)$ that is \hyperref[commensurable.group]{commensurable} with $\Sp(2g,\Z)$.
 Let $V_g(\Q)$ be the vector space of rational symmetric $g\times g$ matrices and 
 \[
 L_{\Gamma}=
@@ -21,6 +21,6 @@ For $\tau \in \mathcal{H}_g$, there is a Fourier expansion
 \[
 f(\tau)=\sum_{n\in L_{\Gamma}^{\vee}} a(n) e^{2 \pi i \text{tr}(n\tau)}. 
 \]
-\end{definition}
+\end{definition*}
 
 

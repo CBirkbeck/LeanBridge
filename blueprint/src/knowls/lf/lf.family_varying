@@ -1,18 +1,26 @@
-\subsection{Data that varies within families}
-\begin{definition}\label{lf.family_varying}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.family_varying}{Data that varies within families}}
+\begin{definition*}\label{lf.family_varying}
 \uses{lf.associated_inertia,lf.family_polynomial,lf.hidden_slopes,lf.indices_of_inseparability,lf.jump_set,nf.galois_group}
 The following invariants of field extensions may not be the same for all $L/K$
-in a {{KNOWL('lf.family_polynomial','$p$-adic family')}} $I/K$.  For each
+in a \hyperref[lf.family_polynomial]{$p$-adic family} $I/K$.  For each
 invariant we list the values that occur for extensions in the family.
 
-- the {{ KNOWL('nf.galois_group', "Galois group") }} $\operatorname{Gal}(L^{\rm gal}/K)$,
-- the {{ KNOWL('lf.hidden_slopes', "hidden Artin slopes") }}
+\begin{itemize}
+\item  the \hyperref[nf.galois_group]{Galois group} $\operatorname{Gal}(L^{\rm gal}/K)$,
+\item  the \hyperref[lf.hidden_slopes]{hidden Artin slopes}
+\end{itemize}
 $[\tilde{s}_{w+1},\dots,\tilde{s}_{w+u}]$ of $L/K$,
-- the {{ KNOWL('lf.indices_of_inseparability', "indices of inseparability") }}
+\begin{itemize}
+\item  the \hyperref[lf.indices_of_inseparability]{indices of inseparability}
+\end{itemize}
 $[i_0,i_1,\dots,i_w]$ of $L/K$,
-- the {{ KNOWL('lf.associated_inertia', "associated inertia") }}
+\begin{itemize}
+\item  the \hyperref[lf.associated_inertia]{associated inertia}
+\end{itemize}
 $[I_1,\dots,I_v]$ of $L/K$,
-- the {{ KNOWL('lf.jump_set', "jump set") }} $[j_0,j_1,\dots,j_w]$ of $L$.
-\end{definition}
+\begin{itemize}
+\item  the \hyperref[lf.jump_set]{jump set} $[j_0,j_1,\dots,j_w]$ of $L$.
+\end{itemize}
+\end{definition*}
 
 

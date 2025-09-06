@@ -1,7 +1,7 @@
-\subsection{Local L-factors at good primes}
-\begin{definition}\label{g2c.good_lfactors}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.good_lfactors}{Local L-factors at good primes}}
+\begin{definition*}\label{g2c.good_lfactors}
 \uses{ag.abelian_variety,ag.good_reduction,lfunction,lfunction.euler_product}
-For an {{KNOWL("ag.abelian_variety", "abelian variety")}} $A$ over $\Q$, the local factor that appears in the {{KNOWL("lfunction.euler_product", "Euler product")}} of its {{KNOWL("lfunction", "L-function")}} $L(A,s)$ at a {{KNOWL("ag.good_reduction", "good prime")}} $p$ is an integer polynomial $L_p(T)$ of degree $2p$ that is reciprocal to the characteristic polynomial $\chi(T)$ of the Frobenius endomorphism of the reduction of $A$ modulo $p$, meaning that $L_p(T)=T^{2g}\chi(T^{-1})$.
-\end{definition}
+For an \hyperref[ag.abelian_variety]{abelian variety} $A$ over $\Q$, the local factor that appears in the \hyperref[lfunction.euler_product]{Euler product} of its \hyperref[lfunction]{L-function} $L(A,s)$ at a \hyperref[ag.good_reduction]{good prime} $p$ is an integer polynomial $L_p(T)$ of degree $2p$ that is reciprocal to the characteristic polynomial $\chi(T)$ of the Frobenius endomorphism of the reduction of $A$ modulo $p$, meaning that $L_p(T)=T^{2g}\chi(T^{-1})$.
+\end{definition*}
 
 

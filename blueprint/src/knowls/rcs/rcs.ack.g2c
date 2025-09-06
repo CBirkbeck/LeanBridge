@@ -1,9 +1,9 @@
-\subsection{Acknowledgments for genus 2 curves}
-\begin{definition}\label{rcs.ack.g2c}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.ack.g2c}{Acknowledgments for genus 2 curves}}
+\begin{definition*}\label{rcs.ack.g2c}
 \uses{}
 <h2>Additional acknowledgments</h2>
 
 The genus 2 curves section of the LMFDB was initially conceived and created at a 2015 workshop at University College Dublin sponsored by the American Institute of Mathematics that was organized by Mehmet Haluk Şengün and hosted by Masha Vlasenko.  The attendees included Andrew Booker, Lassina Dembélé, Mehmet Haluk Şengün, Andrew Sutherland, John Voight, and Dan Yasaki, all of whom played a role in the design.
-\end{definition}
+\end{definition*}
 
 

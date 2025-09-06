@@ -1,18 +1,18 @@
-\subsection{Spaces of Bianchi modular forms}
-\begin{definition}\label{mf.bianchi.spaces}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.bianchi.spaces}{Spaces of Bianchi modular forms}}
+\begin{definition*}\label{mf.bianchi.spaces}
 \uses{cmf,cmf.petersson_scalar_product,mf.bianchi,mf.bianchi.hecke_algebra,mf.bianchi.level,mf.bianchi.weight}
-The {{ KNOWL('mf.bianchi', 'Bianchi modular forms') }} of fixed {{ KNOWL('mf.bianchi.weight', 'weight') }} $k$ and {{ KNOWL('mf.bianchi.level', 'level') }} $\Gamma$ form a finite-dimensional vector space $\mathcal{M}_k(\Gamma)$ over the complex numbers $\C$.
-The forms $F$ which are {{ KNOWL('mf.bianchi', 'cuspidal') }} comprise  the **cuspidal subspace** $\mathcal{S}_k(\Gamma)$ of $\mathcal{M}_k(\Gamma)$.
-The algebra $\mathbb{T}$ of {{ KNOWL('mf.bianchi.hecke_algebra', 'Hecke operators') }} acts on the space $\mathcal{M}_k(\Gamma)$, and preserves the cuspidal subspace $\mathcal{S}_k(\Gamma)$.
+The \hyperref[mf.bianchi]{Bianchi modular forms} of fixed \hyperref[mf.bianchi.weight]{weight} $k$ and \hyperref[mf.bianchi.level]{level} $\Gamma$ form a finite-dimensional vector space $\mathcal{M}_k(\Gamma)$ over the complex numbers $\C$.
+The forms $F$ which are \hyperref[mf.bianchi]{cuspidal} comprise  the \textbf{cuspidal subspace} $\mathcal{S}_k(\Gamma)$ of $\mathcal{M}_k(\Gamma)$.
+The algebra $\mathbb{T}$ of \hyperref[mf.bianchi.hecke_algebra]{Hecke operators} acts on the space $\mathcal{M}_k(\Gamma)$, and preserves the cuspidal subspace $\mathcal{S}_k(\Gamma)$.
 
-$\mathcal{S}_k(\Gamma)$ is an inner product spaces with respect to an inner product analogous to the classical {{ KNOWL('cmf.petersson_scalar_product', 'Peterssen inner product') }} on spaces of {{ KNOWL('cmf', 'elliptic modular forms') }} over $\Q$.   For level $\Gamma_0(\mathcal{N})$ the Hecke operators are all self-adjoint, so have totally real eigenvalues.
+$\mathcal{S}_k(\Gamma)$ is an inner product spaces with respect to an inner product analogous to the classical \hyperref[cmf.petersson_scalar_product]{Peterssen inner product} on spaces of \hyperref[cmf]{elliptic modular forms} over $\Q$.   For level $\Gamma_0(\mathcal{N})$ the Hecke operators are all self-adjoint, so have totally real eigenvalues.
 
-The **newspace**  $\mathcal{S}_k(\mathcal{N})^{\text{new}}$ at level $\mathcal{N}$ and weight $k$ is the orthogonal complement in $\mathcal{S}_k(\mathcal{N})$, with respect to this inner product, of all **oldforms**: these are forms coming from lower levels $\mathcal{M}\mid\mathcal{N}$ with $N(\mathcal{M})<N(\mathcal{N})$.  The Hecke algebra preserves the newspace and acts semisimply on it, so that the newspace has a basis of simultaneous eigenforms for the Hecke algebra.  A **newform** is an eigenform normalised so that the coefficient of $(1)$ in its Fourier expansion is $1$.
+The \textbf{newspace}  $\mathcal{S}_k(\mathcal{N})^{\text{new}}$ at level $\mathcal{N}$ and weight $k$ is the orthogonal complement in $\mathcal{S}_k(\mathcal{N})$, with respect to this inner product, of all \textbf{oldforms}: these are forms coming from lower levels $\mathcal{M}\mid\mathcal{N}$ with $N(\mathcal{M})<N(\mathcal{N})$.  The Hecke algebra preserves the newspace and acts semisimply on it, so that the newspace has a basis of simultaneous eigenforms for the Hecke algebra.  A \textbf{newform} is an eigenform normalised so that the coefficient of $(1)$ in its Fourier expansion is $1$.
 
 The complex vector space $\mathcal{S}_k(\mathcal{N})$ has a rational structure: the subset $\mathcal{S}_k(\mathcal{N})_{\Q}$ of forms with rational Fourier coefficients is a vector space over $\Q$ such that $\mathcal{S}_k(\mathcal{N}) = \mathcal{S}_k(\mathcal{N})_{\Q}\otimes\C$.  There is also an integral structure, and the Hecke algebra $\mathbb{T}$  preserves both, so that the Hecke eigenvalues are all algebraic integers.
 
-The irreducible components of $\mathcal{S}_k(\mathcal{N})_{\Q}$ under the action of $\mathbb{T}$ have **dimension** $d\ge1$, with a basis consisting of $d$ conjugate newforms whose Fourier coefficients are Galois conjugate elements of the associated **Hecke field**, a Galois extension of $\Q$ of degree $d$.  The **dimension** of a newform is therefore the dimension of the $\Q$-irreducible component it lies in, and also the degree of its Hecke field.
+The irreducible components of $\mathcal{S}_k(\mathcal{N})_{\Q}$ under the action of $\mathbb{T}$ have \textbf{dimension} $d\ge1$, with a basis consisting of $d$ conjugate newforms whose Fourier coefficients are Galois conjugate elements of the associated \textbf{Hecke field}, a Galois extension of $\Q$ of degree $d$.  The \textbf{dimension} of a newform is therefore the dimension of the $\Q$-irreducible component it lies in, and also the degree of its Hecke field.
 
-\end{definition}
+\end{definition*}
 
 

@@ -1,22 +1,22 @@
-\subsection{Regulator of an elliptic curve}
-\begin{definition}\label{ec.regulator}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.regulator}{Regulator of an elliptic curve}}
+\begin{definition*}\label{ec.regulator}
 \uses{ec,ec.base_change,ec.canonical_height,ec.mordell_weil_group,ec.rank,nf,nf.degree}
-The **regulator** of an {{ KNOWL('ec', 'elliptic curve') }} $E$ defined over a {{ KNOWL('nf', 'number field') }} $K$, denoted $\operatorname{Reg}(E/K)$, is the volume of $E(K)/E(K)_{tor}$ with respect to the **height pairing** $\langle -,-\rangle$ associated to the {{ KNOWL('ec.canonical_height', "canonical height") }} $\hat{h}$, i.e. $\langle P,Q\rangle = \frac{1}{2}(\hat{h}(P+Q)-\hat{h}(P)-\hat{h}(Q))$.
+The \textbf{regulator} of an \hyperref[ec]{elliptic curve} $E$ defined over a \hyperref[nf]{number field} $K$, denoted $\operatorname{Reg}(E/K)$, is the volume of $E(K)/E(K)_{tor}$ with respect to the \textbf{height pairing} $\langle -,-\rangle$ associated to the \hyperref[ec.canonical_height]{canonical height} $\hat{h}$, i.e. $\langle P,Q\rangle = \frac{1}{2}(\hat{h}(P+Q)-\hat{h}(P)-\hat{h}(Q))$.
 
-If the {{ KNOWL('ec.mordell_weil_group', 'Mordell-Weil group') }} $E(K)$ has {{KNOWL('ec.rank', 'rank')}} $r$ and $P_1, \ldots, P_r \in E(K)$ generate $E(K)/E(K)_{\mathrm{tor}}$, then
+If the \hyperref[ec.mordell_weil_group]{Mordell-Weil group} $E(K)$ has \hyperref[ec.rank]{rank} $r$ and $P_1, \ldots, P_r \in E(K)$ generate $E(K)/E(K)_{\mathrm{tor}}$, then
 \[
  \operatorname{Reg}(E/K) = \left|\det (\langle P_i, P_j \rangle )_{1\leq i,j \leq r}\right|,
 \]
 which is independent of the choice of generators.
 
-Special cases are when $E(K)$ has rank $0$, in which case $E(K)/E(K)_{\mathrm{tor}}=0$ and $\operatorname{Reg}(E/K)=1$, and when $E(K)$ has rank $1$, in which case $\operatorname{Reg}(E/K)$ is equal to the {{ KNOWL('ec.canonical_height', "canonical height") }} $\hat{h}(P)$ of a generator $P$.
+Special cases are when $E(K)$ has rank $0$, in which case $E(K)/E(K)_{\mathrm{tor}}=0$ and $\operatorname{Reg}(E/K)=1$, and when $E(K)$ has rank $1$, in which case $\operatorname{Reg}(E/K)$ is equal to the \hyperref[ec.canonical_height]{canonical height} $\hat{h}(P)$ of a generator $P$.
 
-The canonical height used to define the regulator is usually *normalised* so that it is invariant under {{KNOWL('ec.base_change', 'base change')}}.   Note that the regulator which appears in the {{ KNOWL('ec.bsdconjecture')}} is with respect to the non-normalised height; this is sometimes called the N\'eron-Tate regulator, and denoted $\operatorname{Reg}_{\rm NT}(E/K)$.  These are related by
+The canonical height used to define the regulator is usually *normalised* so that it is invariant under \hyperref[ec.base_change]{base change}.   Note that the regulator which appears in the \hyperref[ec.bsdconjecture]{Birch Swinnerton-Dyer conjecture} is with respect to the non-normalised height; this is sometimes called the N\'eron-Tate regulator, and denoted $\operatorname{Reg}_{\rm NT}(E/K)$.  These are related by
 \[
 \operatorname{Reg}_{\rm NT}(E/K) = d^r \operatorname{Reg}(E/K),
 \]
-where $d$ is the {{KNOWL('nf.degree', 'degree')}} $[K:\Q]$.
+where $d$ is the \hyperref[nf.degree]{degree} $[K:\Q]$.
 
-\end{definition}
+\end{definition*}
 
 

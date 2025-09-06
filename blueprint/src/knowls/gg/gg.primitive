@@ -1,11 +1,11 @@
-\subsection{Primitivity of a Galois group}
-\begin{definition}\label{gg.primitive}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/gg.primitive}{Primitivity of a Galois group}}
+\begin{definition*}\label{gg.primitive}
 \uses{}
-Let $G$ be a transitive subgroup of $S_n$.  Then $G$ is **primitive** if, under the Galois correspondence, it corresponds to a field with no non-trivial proper subfields.
+Let $G$ be a transitive subgroup of $S_n$.  Then $G$ is \textbf{primitive} if, under the Galois correspondence, it corresponds to a field with no non-trivial proper subfields.
 
 An equivalent group-theoretic condition is as follows.  Let
 \[ G_1 = \{\sigma\in G\mid \sigma(1)=1\}.\]
 Then $G$ is primitive if and only if $G_1$ is a maximal subgroup of $G$.
-\end{definition}
+\end{definition*}
 
 

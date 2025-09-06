@@ -1,7 +1,7 @@
-\subsection{Over-subgroup}
-\begin{definition}\label{group.over_subgroup}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.over_subgroup}{Over-subgroup}}
+\begin{definition*}\label{group.over_subgroup}
 \uses{group.subgroup}
-If $H \subseteq G$ is a {{KNOWL('group.subgroup', 'subgroup')}}, an **over-subgroup** is a subgroup $K \subseteq G$ with $H \subseteq K$.  A **minimal over-subgroup** is an over-subgroup $K \ne H$ that is minimal with respect to inclusion.
-\end{definition}
+If $H \subseteq G$ is a \hyperref[group.subgroup]{subgroup}, an \textbf{over-subgroup} is a subgroup $K \subseteq G$ with $H \subseteq K$.  A \textbf{minimal over-subgroup} is an over-subgroup $K \ne H$ that is minimal with respect to inclusion.
+\end{definition*}
 
 

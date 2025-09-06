@@ -1,10 +1,10 @@
-\subsection{Indices of inseparability}
-\begin{definition}\label{lf.indices_of_inseparability}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.indices_of_inseparability}{Indices of inseparability}}
+\begin{definition*}\label{lf.indices_of_inseparability}
 \uses{lf.padic_field,lf.ramification_index,lf.slopes,lf.unramified_subfield}
-Let $L/K$ be a finite extension of {{KNOWL('lf.padic_field', '$p$-adic fields')}} and let
-$K'/K$ be the {{KNOWL('lf.unramified_subfield', 'maximum unramified subextension')}} of $L/K$.
+Let $L/K$ be a finite extension of \hyperref[lf.padic_field]{$p$-adic fields} and let
+$K'/K$ be the \hyperref[lf.unramified_subfield]{maximum unramified subextension} of $L/K$.
 Set $n=[L:K']$ and write $n=up^{\nu}$ with $p\nmid u$.
-Let $\pi_L$ be a {{KNOWL('lf.ramification_index', 'uniformizer')}} for $L$ and let
+Let $\pi_L$ be a \hyperref[lf.ramification_index]{uniformizer} for $L$ and let
 $f(X)=X^n+c_{n-1}X^{n-1}\cdots+c_1X+c_0$ be the minimal
 polynomial of $\pi_L$ over $K'$.  For $k\in\Z$
 define $\overline{v}_p(k)=\min\{v_p(k),\nu\}$.  For
@@ -12,9 +12,9 @@ $0\le j\le\nu$ set
 \[i_j^{\pi_L}=\min\{nv_{K'}(c_h)+h-n:
 0\le h\le n-1,\;\overline{v}_p(h)\le j\},\]
 or let $i_j^{\pi_L}=\infty$ if the set above is empty.
-Heiermann \cite{doi:10.1006/JNTH.1996.0092} defines the $j$th **index of inseparability** of $L/K$ to be
+Heiermann \cite{doi:10.1006/JNTH.1996.0092} defines the $j$th \textbf{index of inseparability} of $L/K$ to be
 \[i_j=\min\{i_{j'}^{\pi_L}+(j'-j)e_L:j\le j'\le\nu\},\]
-where $e_L=v_L(p)$ is the absolute {{KNOWL('lf.ramification_index', 'ramification index')}} of
+where $e_L=v_L(p)$ is the absolute \hyperref[lf.ramification_index]{ramification index} of
 $L$.  
 
 It follows that
@@ -25,8 +25,8 @@ well-defined puts constraints on the possibilities for
 the valuations of the coefficients in the minimal
 polynomial over $K'$ of any uniformizer for $L$.  The
 indices of inseparability determine the usual
-ramification data of $L/K$ (e.g., the {{KNOWL('lf.slopes', 'slopes')}}), and in
+ramification data of $L/K$ (e.g., the \hyperref[lf.slopes]{slopes}), and in
 some cases give new information.
-\end{definition}
+\end{definition*}
 
 

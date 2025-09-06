@@ -1,9 +1,9 @@
-\subsection{Density of an integral lattice}
-\begin{definition}\label{lattice.density}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.density}{Density of an integral lattice}}
+\begin{definition*}\label{lattice.density}
 \uses{lattice.definition,lattice.dimension}
-The **density** of an $n\times n$ {{ KNOWL("lattice.definition", "integral lattice")}} is  the density of the lattice-centered sphere packing in $\mathbb R^n$. 
+The \textbf{density} of an $n\times n$ \hyperref[lattice.definition]{integral lattice} is  the density of the lattice-centered sphere packing in $\mathbb R^n$. 
 
-The **lattice packing problem** of {{ KNOWL('lattice.dimension','dimension') }} $n$ is to find the lattices which maximize the density. In general, these may not be solutions of the **sphere packing problem**, which asks for the maximum density of a sphere packing in which the centers of the spheres need not form an integral lattice.
-\end{definition}
+The \textbf{lattice packing problem} of \hyperref[lattice.dimension]{dimension} $n$ is to find the lattices which maximize the density. In general, these may not be solutions of the \textbf{sphere packing problem}, which asks for the maximum density of a sphere packing in which the centers of the spheres need not form an integral lattice.
+\end{definition*}
 
 

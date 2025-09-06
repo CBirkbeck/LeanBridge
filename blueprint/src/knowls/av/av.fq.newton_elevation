@@ -1,15 +1,17 @@
-\subsection{Newton polygon elevation}
-\begin{definition}\label{av.fq.newton_elevation}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/av.fq.newton_elevation}{Newton polygon elevation}}
+\begin{definition*}\label{av.fq.newton_elevation}
 \uses{ag.abelian_variety,ag.dimension,av.fq.ordinary,av.fq.supersingular,lf.newton_polygon}
-The {{KNOWL('lf.newton_polygon', 'Newton polygon')}} $P$ of an {{KNOWL('ag.abelian_variety', 'abelian variety')}} of {{KNOWL('ag.dimension', 'dimension')}} $g$ over a finite field is a piecewise linear function satisfying the following conditions:
+The \hyperref[lf.newton_polygon]{Newton polygon} $P$ of an \hyperref[ag.abelian_variety]{abelian variety} of \hyperref[ag.dimension]{dimension} $g$ over a finite field is a piecewise linear function satisfying the following conditions:
 
-* Its left endpoint is $(0,0)$ and its right endpoint is $(2g, g)$.
-* Its vertices are nonnegative integer lattice points.
-* Its vertices are symmetric: $(i,j)$ is a vertex if and only if $(2g-i, g-j)$ is.
+\begin{itemize}
+\item  Its left endpoint is $(0,0)$ and its right endpoint is $(2g, g)$.
+\item  Its vertices are nonnegative integer lattice points.
+\item  Its vertices are symmetric: $(i,j)$ is a vertex if and only if $(2g-i, g-j)$ is.
+\end{itemize}
 
-We call the set of polygons satisfying these conditions **eligible**.  The **elevation** of such a polygon is the number of nonnegative lattice points $(x,y)$ with $0 \le x \le g$ lying strictly below $P$.  The set of eligible polygons forms a partially ordered set: $P_1 \le P_2$ if every point of $P_1$ is below $P_2$.  This poset is catenary: any two maximal chains between two eligible polygons have the same length, the difference in their elevations.
+We call the set of polygons satisfying these conditions \textbf{eligible}.  The \textbf{elevation} of such a polygon is the number of nonnegative lattice points $(x,y)$ with $0 \le x \le g$ lying strictly below $P$.  The set of eligible polygons forms a partially ordered set: $P_1 \le P_2$ if every point of $P_1$ is below $P_2$.  This poset is catenary: any two maximal chains between two eligible polygons have the same length, the difference in their elevations.
 
-The Newton polygon of an {{KNOWL('av.fq.ordinary', 'ordinary')}} abelian variety has vertices $(0,0)$, $(g,0)$, and $(2g,g)$ and is the minimal element in this poset, with elevation $0$.  The Newton polygon of a {{KNOWL('av.fq.supersingular', 'supersingular')}} abelian variety has vertices $(0,0)$ and $(2g,g)$ and is the maximal element in this poset, with elevation $\frac{(g+1)^2}{4}$ ($g$ odd) or $\frac{g(g+2)}{4}$ ($g$ even).  There is a unique Newton polygon of elevation $1$, with vertices $(0,0)$, $(g-1,0)$, $(g+1,1)$, and $(2g, g)$; abelian varieties with this Newton polygon are called **almost ordinary**.
-\end{definition}
+The Newton polygon of an \hyperref[av.fq.ordinary]{ordinary} abelian variety has vertices $(0,0)$, $(g,0)$, and $(2g,g)$ and is the minimal element in this poset, with elevation $0$.  The Newton polygon of a \hyperref[av.fq.supersingular]{supersingular} abelian variety has vertices $(0,0)$ and $(2g,g)$ and is the maximal element in this poset, with elevation $\frac{(g+1)^2}{4}$ ($g$ odd) or $\frac{g(g+2)}{4}$ ($g$ even).  There is a unique Newton polygon of elevation $1$, with vertices $(0,0)$, $(g-1,0)$, $(g+1,1)$, and $(2g, g)$; abelian varieties with this Newton polygon are called \textbf{almost ordinary}.
+\end{definition*}
 
 

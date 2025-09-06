@@ -1,9 +1,9 @@
-\subsection{Nonmaximal primes associated to genus $2$ curve}
-\begin{definition}\label{g2c.galois_rep.non_maximal_primes}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.galois_rep.non_maximal_primes}{Nonmaximal primes associated to genus $2$ curve}}
+\begin{definition*}\label{g2c.galois_rep.non_maximal_primes}
 \uses{ag.geom_endomorphism_ring,ag.jacobian,g2c.g2curve,g2c.galois_rep,g2c.st_group}
-The **nonmaximal primes** associated to a {{KNOWL('g2c.g2curve','genus $2$ curve')}} are the finitely many primes $\ell$ for which the image of the mod-$\ell$ {{ KNOWL('g2c.galois_rep', 'Galois representation')}} is not as large as possible, subject to constraints imposed by the {{KNOWL('ag.geom_endomorphism_ring', 'geometric endomorphism ring')}} of the {{KNOWL('ag.jacobian', 'Jacobian')}} of $C$.
+The \textbf{nonmaximal primes} associated to a \hyperref[g2c.g2curve]{genus $2$ curve} are the finitely many primes $\ell$ for which the image of the mod-$\ell$ \hyperref[g2c.galois_rep]{Galois representation} is not as large as possible, subject to constraints imposed by the \hyperref[ag.geom_endomorphism_ring]{geometric endomorphism ring} of the \hyperref[ag.jacobian]{Jacobian} of $C$.
 
-This information is currently available only for genus 2 curves whose Jacobian has geometric endomorphism ring $\Z$, equivalently, curves with {{KNOWL('g2c.st_group', 'Sato-Tate group')}} $\mathrm{USp}(4)$.  In this case the nonmaximal primes are simply the primes $\ell$ for which the mod-$\ell$ {{ KNOWL('g2c.galois_rep', 'Galois representation')}} is not surjective.
-\end{definition}
+This information is currently available only for genus 2 curves whose Jacobian has geometric endomorphism ring $\Z$, equivalently, curves with \hyperref[g2c.st_group]{Sato-Tate group} $\mathrm{USp}(4)$.  In this case the nonmaximal primes are simply the primes $\ell$ for which the mod-$\ell$ \hyperref[g2c.galois_rep]{Galois representation} is not surjective.
+\end{definition*}
 
 

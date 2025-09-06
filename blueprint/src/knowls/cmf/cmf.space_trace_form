@@ -1,7 +1,7 @@
-\subsection{Trace form}
-\begin{definition}\label{cmf.space_trace_form}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.space_trace_form}{Trace form}}
+\begin{definition*}\label{cmf.space_trace_form}
 \uses{cmf.newform,cmf.newspace}
-The **trace form** of a {{KNOWL('cmf.newspace', 'newspace')}} $S_k(N,\chi)$ is the modular form obtained by summing its canonical basis of {{KNOWL('cmf.newform', 'newforms')}}.
-\end{definition}
+The \textbf{trace form} of a \hyperref[cmf.newspace]{newspace} $S_k(N,\chi)$ is the modular form obtained by summing its canonical basis of \hyperref[cmf.newform]{newforms}.
+\end{definition*}
 
 

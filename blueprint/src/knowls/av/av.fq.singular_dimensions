@@ -1,16 +1,16 @@
-\subsection{Dimension of a fractional ideal at residue fields}
-\begin{definition}\label{av.fq.singular_dimensions}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/av.fq.singular_dimensions}{Dimension of a fractional ideal at residue fields}}
+\begin{definition*}\label{av.fq.singular_dimensions}
 \uses{av.fq.order,av.fq.singular_primes}
-Let $R$ be an {{KNOWL('av.fq.order', 'order')}} in an étale algebra $K$ and $I$ a fractional $R$-ideal.
+Let $R$ be an \hyperref[av.fq.order]{order} in an étale algebra $K$ and $I$ a fractional $R$-ideal.
 For every prime $\mathfrak{P}$ of $R$, the quotient $I/\mathfrak{P} I$ is a finite dimensional vector space over the finite field $R/\mathfrak{P}$.
 This dimension is $1$ if and only if the localization $I_\mathfrak{P}$ of $I$ at $\mathfrak{P}$ is a principal $R_\mathfrak{P}$-ideal.
-The ideal $I$ is **invertible** if and only if it is **locally principal** at every prime of $R$.
+The ideal $I$ is \textbf{invertible} if and only if it is \textbf{locally principal} at every prime of $R$.
 
-If the ideal $I$ is not locally principal at $\mathfrak{P}$ then $\mathfrak{P}$ is a {{KNOWL('av.fq.singular_primes', 'singular prime')}} of $R$.
+If the ideal $I$ is not locally principal at $\mathfrak{P}$ then $\mathfrak{P}$ is a \hyperref[av.fq.singular_primes]{singular prime} of $R$.
 
 If $R$ is Gorenstein then every fractional $R$-ideal $I$ with multiplicator ring $(I:I)=R$ is invertible (as an $R$-ideal).
 
 For each fractional $R$-ideal $I$ with $(I:I)=R$, we record the dimensions of $I/\mathfrak{P}I$ over $R/\mathfrak{P}$ where $\mathfrak{P}$ runs over the singular primes of $R$.
-\end{definition}
+\end{definition*}
 
 

@@ -1,10 +1,10 @@
-\subsection{Projective representation}
-\begin{definition}\label{modlgal.projective_representation}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/modlgal.projective_representation}{Projective representation}}
+\begin{definition*}\label{modlgal.projective_representation}
 \uses{ag.algebraic_group,modlgal}
-To each {{ KNOWL('modlgal', 'mod-$\ell$ Galois representation') }} $\rho:\Gal_K \to G(\F_{\ell})$, with values in the $\F_{\ell}$-points of an {{ KNOWL('ag.algebraic_group', 'algebraic group') }} $G$, is associated a **projective representation** $\mathbb{P}\rho:\Gal_K \to G(\F_{\ell})/\F_{\ell}^*$, defined by composing $\rho$ with the projection $G(\F_{\ell}) \to G(\F_{\ell})/\F_{\ell}^*$.
+To each \hyperref[modlgal]{mod-$\ell$ Galois representation} $\rho:\Gal_K \to G(\F_{\ell})$, with values in the $\F_{\ell}$-points of an \hyperref[ag.algebraic_group]{algebraic group} $G$, is associated a \textbf{projective representation} $\mathbb{P}\rho:\Gal_K \to G(\F_{\ell})/\F_{\ell}^*$, defined by composing $\rho$ with the projection $G(\F_{\ell}) \to G(\F_{\ell})/\F_{\ell}^*$.
 
 In case $\ell=2$, the projective representation is the same as the original representation.
 
-\end{definition}
+\end{definition*}
 
 

@@ -1,13 +1,13 @@
-\subsection{Ramification polygon}
-\begin{definition}\label{lf.ramification_polygon}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.ramification_polygon}{Ramification polygon}}
+\begin{definition*}\label{lf.ramification_polygon}
 \uses{lf.eisenstein_polynomial,lf.family_polynomial,lf.newton_polygon,lf.padic_field,lf.ramification_index,lf.rams,lf.unramified_subfield}
-Let $L/K$ be a finite extension of {{KNOWL('lf.padic_field', '$p$-adic fields')}}
-and let $K'/K$ be the {{KNOWL('lf.unramified_subfield', 'maximal unramified subextension')}} of $L/K$.  Then $L/K'$ is totally ramified, and if
-$\alpha \in L$ is a {{KNOWL('lf.ramification_index', 'uniformizer')}} then
-the minimal polynomial $\varphi(x) \in K'[x]$ of $\alpha$ over $K'$ will be {{KNOWL('lf.eisenstein_polynomial', 'Eisenstein')}}.  The
-**ramification polygon** $P$ of $L$ is essentially the
-{{KNOWL('lf.newton_polygon', 'Newton polygon')}} of the
-**ramification polynomial**
+Let $L/K$ be a finite extension of \hyperref[lf.padic_field]{$p$-adic fields}
+and let $K'/K$ be the \hyperref[lf.unramified_subfield]{maximal unramified subextension} of $L/K$.  Then $L/K'$ is totally ramified, and if
+$\alpha \in L$ is a \hyperref[lf.ramification_index]{uniformizer} then
+the minimal polynomial $\varphi(x) \in K'[x]$ of $\alpha$ over $K'$ will be \hyperref[lf.eisenstein_polynomial]{Eisenstein}.  The
+\textbf{ramification polygon} $P$ of $L$ is essentially the
+\hyperref[lf.newton_polygon]{Newton polygon} of the
+\textbf{ramification polynomial}
 $$\rho(x)=\alpha^{-n}\varphi(\alpha x + \alpha)\in L[x]$$
 of $L/K$.  Write $\rho(x)=x^n+\sum_{i=0}^{n-1}\rho_ix^i$.  Then the
 ramification polygon of $L/K$ is the lower convex hull of the set of points
@@ -16,10 +16,10 @@ ramification polygon is the reflection of the Newton polygon of $\rho(x)$
 through the vertical axis.  This is independent of the choice of uniformizer
 $\alpha$ for $L$.
 
-If $I/K$ is a {{KNOWL('lf.family_polynomial', 'family')}} of extensions then
+If $I/K$ is a \hyperref[lf.family_polynomial]{family} of extensions then
 the ramification polygon of $I/K$ is defined to be the ramification polygon
 of any $L/K\in I/K$.  The slopes of the segments of $P$ are the
-{{KNOWL('lf.rams', 'rams')}} of $L/K$ and $I/K$.
-\end{definition}
+\hyperref[lf.rams]{rams} of $L/K$ and $I/K$.
+\end{definition*}
 
 

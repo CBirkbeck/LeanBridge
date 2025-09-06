@@ -1,7 +1,7 @@
-\subsection{Root angle of L-function}
-\begin{definition}\label{lfunction.root_angle_input}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.root_angle_input}{Root angle of L-function}}
+\begin{definition*}\label{lfunction.root_angle_input}
 \uses{lfunction.root_angle}
-To specify the {{KNOWL('lfunction.root_angle', 'root angle')}}, you can give a real number such as $0.25$ (which will be reduced into the range $-0.5 < \alpha \le 0.5$), a range of real numbers such as $0.1-0.6$, or a rational number such as $1/4$.
-\end{definition}
+To specify the \hyperref[lfunction.root_angle]{root angle}, you can give a real number such as $0.25$ (which will be reduced into the range $-0.5 < \alpha \le 0.5$), a range of real numbers such as $0.1-0.6$, or a rational number such as $1/4$.
+\end{definition*}
 
 

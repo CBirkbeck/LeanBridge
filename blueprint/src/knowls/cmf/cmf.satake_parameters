@@ -1,13 +1,13 @@
-\subsection{Satake parameters}
-\begin{definition}\label{cmf.satake_parameters}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.satake_parameters}{Satake parameters}}
+\begin{definition*}\label{cmf.satake_parameters}
 \uses{cmf.bad_prime,cmf.character,cmf.hecke_operator,cmf.level,cmf.newform,cmf.weight}
-Let $f$ be {{KNOWL('cmf.newform', 'newform')}} of {{KNOWL('cmf.level', 'level')}} $N$, {{KNOWL('cmf.weight', 'weight')}} $k$ and {{KNOWL('cmf.character', 'character')}} $\chi$.
-Let $p$ be a {{KNOWL('cmf.bad_prime', 'good prime')}}, i.e., $p \nmid N$.
+Let $f$ be \hyperref[cmf.newform]{newform} of \hyperref[cmf.level]{level} $N$, \hyperref[cmf.weight]{weight} $k$ and \hyperref[cmf.character]{character} $\chi$.
+Let $p$ be a \hyperref[cmf.bad_prime]{good prime}, i.e., $p \nmid N$.
  
-The **Satake parameters** $\alpha_p$ are the reciprocal roots of $L_p\left(p^{-(k-1)/2} t \right)$, where 
+The \textbf{Satake parameters} $\alpha_p$ are the reciprocal roots of $L_p\left(p^{-(k-1)/2} t \right)$, where 
 $$ L_p\left( t \right) =  1 -a_p t + \chi(p)  p^{k-1} t^2 = \det(1 - t \, T_p)
 = (1 - \alpha_p p^{\frac{k-1}{2}}t )(1 - \alpha_p^{-1} \chi(p) p^{\frac{k-1}{2}} t),$$ 
-$T_p$ is {{KNOWL('cmf.hecke_operator', 'Hecke operator')}}, and $a_p$ its trace.
-\end{definition}
+$T_p$ is \hyperref[cmf.hecke_operator]{Hecke operator}, and $a_p$ its trace.
+\end{definition*}
 
 

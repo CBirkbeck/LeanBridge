@@ -1,9 +1,9 @@
-\subsection{Analytic order of &#1064;}
-\begin{definition}\label{ec.q.analytic_sha_order}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.q.analytic_sha_order}{Analytic order of $\Sha$}}
+\begin{definition*}\label{ec.q.analytic_sha_order}
 \uses{ec,group.order}
-The **Tate-Shafarevic group** &#1064; of an {{KNOWL('ec', 'elliptic curve')}} $E$ defined over $\mathbb{Q}$ is a torsion group defined in terms of Galois cohomology, which is conjectured to be finite.  Its {{KNOWL('group.order', 'order')}} #&#1064; appears in the strong form of the Birch-Swinnerton-Dyer Conjecture for $E$.  The value of the order which is predicted by the conjecture is called the **Analytic Order of Sha**, &#1064;<sub>an</sub>. <!--Note that the value of &#1064;<sub>an</sub> predicted by the conjecture is always a square.-->
+The \textbf{Tate-Shafarevic group} $\Sha$ of an \hyperref[ec]{elliptic curve} $E$ defined over $\mathbb{Q}$ is a torsion group defined in terms of Galois cohomology, which is conjectured to be finite.  Its \hyperref[group.order]{order} $\#\Sha$ appears in the strong form of the Birch-Swinnerton-Dyer Conjecture for $E$.  The value of the order which is predicted by the conjecture is called the \textbf{Analytic Order of Sha}, $\Sha_{an}$. <!--Note that the value of $\Sha$<sub>an</sub> predicted by the conjecture is always a square.-->
 
-For elliptic curves of rank $0$ or $1$ it is a theorem that &#1064;<sub>an</sub> is a positive rational number, and this rational number can be computed exactly; this exact  computation has only been carried out for the curves in the database with rank $0$ and conductor \(N\le 500000\).  These values are always in fact integer squares in all cases computed to date.  For curves of rank $2$ and above, there is no such theorem, and the values computed are simply floating point approximate values which happen to be very close to integers.  In the LMFDB we store and display the rounded values in this case.
-\end{definition}
+For elliptic curves of rank $0$ or $1$ it is a theorem that $\Sha$<sub>an</sub> is a positive rational number, and this rational number can be computed exactly; this exact  computation has only been carried out for the curves in the database with rank $0$ and conductor \(N\le 500000\).  These values are always in fact integer squares in all cases computed to date.  For curves of rank $2$ and above, there is no such theorem, and the values computed are simply floating point approximate values which happen to be very close to integers.  In the LMFDB we store and display the rounded values in this case.
+\end{definition*}
 
 

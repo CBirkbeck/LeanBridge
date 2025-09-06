@@ -1,7 +1,7 @@
-\subsection{Minimal degree of a rational representation}
-\begin{definition}\label{group.min_rational_rep_deg}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.min_rational_rep_deg}{Minimal degree of a rational representation}}
+\begin{definition*}\label{group.min_rational_rep_deg}
 \uses{group.representation.faithful}
-The smallest positive integer $d$ such that the group $G$ admits a {{KNOWL('group.representation.faithful', 'faithful')}} rational representation of degree $d$.
-\end{definition}
+The smallest positive integer $d$ such that the group $G$ admits a \hyperref[group.representation.faithful]{faithful} rational representation of degree $d$.
+\end{definition*}
 
 

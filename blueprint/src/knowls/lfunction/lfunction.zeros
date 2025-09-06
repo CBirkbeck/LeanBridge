@@ -1,11 +1,11 @@
-\subsection{Zeros of an L-function}
-\begin{definition}\label{lfunction.zeros}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.zeros}{Zeros of an L-function}}
+\begin{definition*}\label{lfunction.zeros}
 \uses{lfunction,lfunction.critical_line,lfunction.normalization,lfunction.rh,lfunction.trivial_zero}
-The **zeros** of an {{KNOWL("lfunction", "L-function")}} $L(s)$ are the complex numbers $\rho$ for which $L(\rho)=0$.
+The \textbf{zeros} of an \hyperref[lfunction]{L-function} $L(s)$ are the complex numbers $\rho$ for which $L(\rho)=0$.
 
-Under the {{KNOWL('lfunction.rh', "Riemann Hypothesis")}}, every {{KNOWL('lfunction.trivial_zero','non-trivial zero')}} $\rho$ lies on the {{KNOWL('lfunction.critical_line','critical line')}} $\Re(s)=1/2$ (in the {{KNOWL('lfunction.normalization', 'analytic normalization')}}).  
+Under the \hyperref[lfunction.rh]{Riemann Hypothesis}, every \hyperref[lfunction.trivial_zero]{non-trivial zero} $\rho$ lies on the \hyperref[lfunction.critical_line]{critical line} $\Re(s)=1/2$ (in the \hyperref[lfunction.normalization]{analytic normalization}).  
 
-The **lowest zero** of an L-function $L(s)$ is the least $\gamma>0$ for which $L(1/2+i\gamma)=0$. Note that even when $L(1/2)=0$, the lowest zero is by definition a positive real number. 
-\end{definition}
+The \textbf{lowest zero} of an L-function $L(s)$ is the least $\gamma>0$ for which $L(1/2+i\gamma)=0$. Note that even when $L(1/2)=0$, the lowest zero is by definition a positive real number. 
+\end{definition*}
 
 

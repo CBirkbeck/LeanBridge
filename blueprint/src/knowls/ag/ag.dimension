@@ -1,11 +1,11 @@
-\subsection{Dimension of an algebraic variety}
-\begin{definition}\label{ag.dimension}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.dimension}{Dimension of an algebraic variety}}
+\begin{definition*}\label{ag.dimension}
 \uses{ag.irreducible,ag.variety}
-The **dimension** of an {{KNOWL('ag.variety', 'algebraic variety')}} $V$ is the maximal length $d$ of a chain
+The \textbf{dimension} of an \hyperref[ag.variety]{algebraic variety} $V$ is the maximal length $d$ of a chain
 $$
 V_0 \subset V_1 \subset \cdots \subset V_d
 $$ 
-of distinct {{KNOWL('ag.irreducible', 'irreducible')}} subvarieties of $V$.
-\end{definition}
+of distinct \hyperref[ag.irreducible]{irreducible} subvarieties of $V$.
+\end{definition*}
 
 

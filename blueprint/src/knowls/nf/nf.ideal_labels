@@ -1,12 +1,12 @@
-\subsection{Ideal labels}
-\begin{definition}\label{nf.ideal_labels}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.ideal_labels}{Ideal labels}}
+\begin{definition*}\label{nf.ideal_labels}
 \uses{nf.polredabs}
 In the LMFDB ideals in rings of integers of number fields are identified using the labeling system developed by John Cremona, Aurel Page and Andrew Sutherland \cite{arxiv:2005.09491}.
 
-In a number field $K$, each nonzero ideal $I$ of its ring of integers $\mathcal{O}_K$ is assigned an **ideal label** of the form $\texttt{N.i}$, where $N$ and $i$ are positive integers, in which $N:=[\mathcal{O}_K:I]$ is the norm of the ideal and $i$ is the index of the ideal in a sorted list of all ideals of norm $N$.  Once an integral primitive element $\alpha$ for the field $K$ is fixed, the ordering of ideals of the same norm is defined in a deterministic fashion (involving no arbitrary choices).
+In a number field $K$, each nonzero ideal $I$ of its ring of integers $\mathcal{O}_K$ is assigned an \textbf{ideal label} of the form $\texttt{N.i}$, where $N$ and $i$ are positive integers, in which $N:=[\mathcal{O}_K:I]$ is the norm of the ideal and $i$ is the index of the ideal in a sorted list of all ideals of norm $N$.  Once an integral primitive element $\alpha$ for the field $K$ is fixed, the ordering of ideals of the same norm is defined in a deterministic fashion (involving no arbitrary choices).
 
-In the LMFDB we always represent number fields as $K = \mathbb{Q}[X]/(g(X))$ where $g$ is the unique monic integral polynomial which satisfies the {{ KNOWL('nf.polredabs', 'polredabs') }} condition. In this representation the image of $X$ under the quotient map $\mathbb{Q}[X]\rightarrow\mathbb{Q}[X]/(g(X))$ is a canonical integral primitive element $\alpha$ for $K$.  Fixing this element determines a unique ordering of all $\mathcal{O}_K$-ideals of the same norm.
+In the LMFDB we always represent number fields as $K = \mathbb{Q}[X]/(g(X))$ where $g$ is the unique monic integral polynomial which satisfies the \hyperref[nf.polredabs]{polredabs} condition. In this representation the image of $X$ under the quotient map $\mathbb{Q}[X]\rightarrow\mathbb{Q}[X]/(g(X))$ is a canonical integral primitive element $\alpha$ for $K$.  Fixing this element determines a unique ordering of all $\mathcal{O}_K$-ideals of the same norm.
 
-\end{definition}
+\end{definition*}
 
 

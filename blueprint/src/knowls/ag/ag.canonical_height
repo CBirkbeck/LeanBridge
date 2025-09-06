@@ -1,24 +1,24 @@
-\subsection{Canonical height of an abelian variety}
-\begin{definition}\label{ag.canonical_height}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.canonical_height}{Canonical height of an abelian variety}}
+\begin{definition*}\label{ag.canonical_height}
 \uses{ag.abelian_variety,ag.mordell_weil,ag.regulator,av.princ_polarizable,av.theta_divisor,nf,nf.weil_height}
-Let $A$ be a {{ KNOWL('av.princ_polarizable', 'principally polarised') }} {{ KNOWL('ag.abelian_variety', 'abelian variety') }} defined over a {{ KNOWL('nf', 'number field') }} $L$.  The **canonical height** on $A$ is a function
+Let $A$ be a \hyperref[av.princ_polarizable]{principally polarised} \hyperref[ag.abelian_variety]{abelian variety} defined over a \hyperref[nf]{number field} $L$.  The \textbf{canonical height} on $A$ is a function
 $$
    \hat{h}: A(L) \to \R_{ {}\ge0}
 $$
-defined on the {{ KNOWL('ag.mordell_weil', 'Mordell-Weil group') }} $A(L)$
+defined on the \hyperref[ag.mordell_weil]{Mordell-Weil group} $A(L)$
 which induces a positive definite quadratic form on $A(L)\otimes\R$.
 
 One definition of $\hat{h}(P)$ is $\hat h(P)= h_{\mathrm{Kum}}(\sigma(P))$, where $\sigma \colon A \to K$ is the natural map from $A$ to its Kummer surface $K : = A/\{\pm 1\}$, and $h_\mathrm{kum} \colon K(L) \to \R$ the canonical height pairing associated to a theta divisor $\Theta$ on $K$, which can be defined by
 $$
   h_{\mathrm{Kum}}(Q)=\lim_{n\to\infty} n^{-2}h_{\Theta}\bigl(nQ\bigr),
 $$
-where $h_{\Theta}$ is the {{ KNOWL('nf.weil_height', 'Weil height') }} associated to a {{ KNOWL('av.theta_divisor', 'theta divisor') }} $\Theta$ on $K$.
+where $h_{\Theta}$ is the \hyperref[nf.weil_height]{Weil height} associated to a \hyperref[av.theta_divisor]{theta divisor} $\Theta$ on $K$.
 
-Related to the canonical height is the **height pairing** 
+Related to the canonical height is the \textbf{height pairing} 
 $$
   \langle-,-\rangle : A(L)\times A(L) \to \R
 $$
-defined by $\langle P,Q\rangle = \frac{1}{2}(\hat{h}(P+Q)-\hat{h}(P)-\hat{h}(Q))$, which is a positive definite quadratic form on $A(L)\otimes\R$, used in defining the {{ KNOWL('ag.regulator', 'regulator') }} of $A/L$.
-\end{definition}
+defined by $\langle P,Q\rangle = \frac{1}{2}(\hat{h}(P+Q)-\hat{h}(P)-\hat{h}(Q))$, which is a positive definite quadratic form on $A(L)\otimes\R$, used in defining the \hyperref[ag.regulator]{regulator} of $A/L$.
+\end{definition*}
 
 

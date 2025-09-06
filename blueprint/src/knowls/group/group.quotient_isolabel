@@ -1,7 +1,7 @@
-\subsection{Quotient label}
-\begin{definition}\label{group.quotient_isolabel}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.quotient_isolabel}{Quotient label}}
+\begin{definition*}\label{group.quotient_isolabel}
 \uses{group.label,group.quotient,group.subgroup}
-You can specify the {{KNOWL('group.quotient', 'quotient')}} for a {{KNOWL('group.subgroup', 'subgroup')}} by providing its {{KNOWL('group.label', 'label')}} as an abstract group.
-\end{definition}
+You can specify the \hyperref[group.quotient]{quotient} for a \hyperref[group.subgroup]{subgroup} by providing its \hyperref[group.label]{label} as an abstract group.
+\end{definition*}
 
 

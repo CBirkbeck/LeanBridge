@@ -1,7 +1,7 @@
-\subsection{Maximal Frobenius order}
-\begin{definition}\label{av.fq.maximal_zfv}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/av.fq.maximal_zfv}{Maximal Frobenius order}}
+\begin{definition*}\label{av.fq.maximal_zfv}
 \uses{}
-The Frobenius order of the abelian variety is **maximal** if it equals $\mathcal{O}_K$.
-\end{definition}
+The Frobenius order of the abelian variety is \textbf{maximal} if it equals $\mathcal{O}_K$.
+\end{definition*}
 
 

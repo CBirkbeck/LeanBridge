@@ -1,9 +1,9 @@
-\subsection{$\Z[F,V]$-conductor sum}
-\begin{definition}\label{av.fq.is_zfvconductor_sum}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/av.fq.is_zfvconductor_sum}{$\Z[F,V]$-conductor sum}}
+\begin{definition*}\label{av.fq.is_zfvconductor_sum}
 \uses{av.fq.conductor,av.fq.frobenius_order,av.fq.order}
-Whether an {{KNOWL('av.fq.order', 'overorder')}} $R$ of the {{KNOWL('av.fq.frobenius_order','Frobenius order')}} $\Z[F,V]$ can be written as
+Whether an \hyperref[av.fq.order]{overorder} $R$ of the \hyperref[av.fq.frobenius_order]{Frobenius order} $\Z[F,V]$ can be written as
 $ R = \Z[F,V] + \mathfrak{f}_R$, 
-where $\mathfrak{f}_R$ is the {{KNOWL('av.fq.conductor', 'conductor')}} of $R$ in the maximal order $\mathcal{O}_K$ of the étale algebra $K=\Q[F]$.
-\end{definition}
+where $\mathfrak{f}_R$ is the \hyperref[av.fq.conductor]{conductor} of $R$ in the maximal order $\mathcal{O}_K$ of the étale algebra $K=\Q[F]$.
+\end{definition*}
 
 

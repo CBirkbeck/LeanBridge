@@ -1,13 +1,13 @@
-\subsection{Type of a complex group representation}
-\begin{definition}\label{group.representation.type}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.representation.type}{Type of a complex group representation}}
+\begin{definition*}\label{group.representation.type}
 \uses{artin.frobenius_schur_indicator,group,group.representation.character}
-Let $\rho:G\to\GL_n(\C)$ be an irreducible complex {{KNOWL('group', 'group')}} representation.  Then $\rho$ is one of three **types**:
+Let $\rho:G\to\GL_n(\C)$ be an irreducible complex \hyperref[group]{group} representation.  Then $\rho$ is one of three \textbf{types}:
 
-1. **Real** if $\rho$ is conjugate to a representation $G\to \GL_n(\R)$
-1. **Complex** if some {{KNOWL('group.representation.character', 'character')}} value $\textrm{Tr}(\rho(g))$ is not contained in $\R$
-1. **Quaternionic (or Symplectic)** if the character values are all real but the representation is not conjugate to a real representation.
+1. \textbf{Real} if $\rho$ is conjugate to a representation $G\to \GL_n(\R)$
+1. \textbf{Complex} if some \hyperref[group.representation.character]{character} value $\textrm{Tr}(\rho(g))$ is not contained in $\R$
+1. \textbf{Quaternionic (or Symplectic)} if the character values are all real but the representation is not conjugate to a real representation.
 
-The type of the representation can be computed via its {{KNOWL('artin.frobenius_schur_indicator', 'Frobenius-Schur indicator')}}.
-\end{definition}
+The type of the representation can be computed via its \hyperref[artin.frobenius_schur_indicator]{Frobenius-Schur indicator}.
+\end{definition*}
 
 

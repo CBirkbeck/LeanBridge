@@ -1,7 +1,7 @@
-\subsection{Supersingular abelian variety}
-\begin{definition}\label{av.fq.supersingular}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/av.fq.supersingular}{Supersingular abelian variety}}
+\begin{definition*}\label{av.fq.supersingular}
 \uses{ag.abelian_variety,ag.base_field,av.fq.weil_polynomial,lf.newton_polygon,lf.newton_slopes}
-An {{KNOWL('ag.abelian_variety', 'abelian variety')}} {{KNOWL('ag.base_field', 'defined')}} over a finite field is **supersingular** if all of the {{KNOWL('lf.newton_slopes', 'slopes')}} of the {{KNOWL('lf.newton_polygon', 'Newton polygon')}} of its {{ KNOWL('av.fq.weil_polynomial','associated Weil polynomial') }} have value $1/2$.
-\end{definition}
+An \hyperref[ag.abelian_variety]{abelian variety} \hyperref[ag.base_field]{defined} over a finite field is \textbf{supersingular} if all of the \hyperref[lf.newton_slopes]{slopes} of the \hyperref[lf.newton_polygon]{Newton polygon} of its \hyperref[av.fq.weil_polynomial]{associated Weil polynomial} have value $1/2$.
+\end{definition*}
 
 

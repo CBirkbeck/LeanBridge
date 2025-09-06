@@ -1,11 +1,11 @@
-\subsection{Dirichlet character associated with a 1-dimensional Artin representation}
-\begin{definition}\label{artin.dimensionone}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/artin.dimensionone}{Dirichlet character associated with a 1-dimensional Artin representation}}
+\begin{definition*}\label{artin.dimensionone}
 \uses{artin,character.dirichlet,nf.abelian}
-A one-dimensional {{ KNOWL('artin', 'Artin representation') }} $\rho:\Gal(\overline{\Q}/\Q)\to \GL_1(\C)\cong \C^\times$.  Since the image is abelian and every Artin representation factors through the Galois group of a number field, we can view $\rho$ as a map $\Gal(K/\Q)\to \C^\times$ for an {{ KNOWL('nf.abelian','abelian') }} number field $K$.  
+A one-dimensional \hyperref[artin]{Artin representation} $\rho:\Gal(\overline{\Q}/\Q)\to \GL_1(\C)\cong \C^\times$.  Since the image is abelian and every Artin representation factors through the Galois group of a number field, we can view $\rho$ as a map $\Gal(K/\Q)\to \C^\times$ for an \hyperref[nf.abelian]{abelian} number field $K$.  
 
 By the Kronecker-Weber theorem, $K$ is contained in a cyclotomic extension $\Q(\zeta_n)$ for some positive integer $n$.  Using the canonical isomorphism $\Gal(\Q(\zeta_n)/\Q)\cong(\Z/n\Z)^\times$, the Artin representation corresponds to a homomorphism $(\Z/n\Z)^\times\to \C^\times$.  
 
-Extending it to $\Z/n\Z$ by defining it to be $0$ off of $(\Z/n\Z)^\times$, and then viewing it as a function on $\Z$ via the natural map $\Z\to\Z/n\Z$, we get the corresponding {{ KNOWL('character.dirichlet', 'Dirichlet character') }}, whose modulus is the same as that of the one-dimensional Artin representation.
-\end{definition}
+Extending it to $\Z/n\Z$ by defining it to be $0$ off of $(\Z/n\Z)^\times$, and then viewing it as a function on $\Z$ via the natural map $\Z\to\Z/n\Z$, we get the corresponding \hyperref[character.dirichlet]{Dirichlet character}, whose modulus is the same as that of the one-dimensional Artin representation.
+\end{definition*}
 
 

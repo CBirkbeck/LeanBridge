@@ -1,13 +1,13 @@
-\subsection{Symplectic group}
-\begin{definition}\label{group.symplectic}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.symplectic}{Symplectic group}}
+\begin{definition*}\label{group.symplectic}
 \uses{alg.matrix.skew_symmetric,group.center,group.quotient}
-The **symplectic group** $\Sp(2n, q)$ is the group of invertible $2n \times 2n$ matrices $M$ with entries in $\F_q$, which satisfy the condition that $M^T \Omega M = \Omega$, for $\Omega$ is any fixed invertible {{KNOWL('alg.matrix.skew_symmetric', 'skew-symmetric matrix')}} over $\F_q$.   For example, $\Omega$ can be taken to be the block matrix
+The \textbf{symplectic group} $\Sp(2n, q)$ is the group of invertible $2n \times 2n$ matrices $M$ with entries in $\F_q$, which satisfy the condition that $M^T \Omega M = \Omega$, for $\Omega$ is any fixed invertible \hyperref[alg.matrix.skew_symmetric]{skew-symmetric matrix} over $\F_q$.   For example, $\Omega$ can be taken to be the block matrix
 $$ \Omega = \begin{pmatrix} 0 & I_n \\ -I_n & 0 \end{pmatrix}, $$
 where $I_n$ is the $n \times n$ identity matrix.
 
-The **projective symplectic group** $\PSp(2n, q)$ is the {{KNOWL('group.quotient', 'quotient')}} of $\Sp(2n, q)$ by the scalar matrices in $\Sp(2n, q)$ (equivalently, $\PSp(2n, q)$ is the quotient of $\Sp(2n, q)$ by its {{KNOWL('group.center', 'center')}}).
+The \textbf{projective symplectic group} $\PSp(2n, q)$ is the \hyperref[group.quotient]{quotient} of $\Sp(2n, q)$ by the scalar matrices in $\Sp(2n, q)$ (equivalently, $\PSp(2n, q)$ is the quotient of $\Sp(2n, q)$ by its \hyperref[group.center]{center}).
 
 (see \cite{MR0827219}, pages x-xi)
-\end{definition}
+\end{definition*}
 
 

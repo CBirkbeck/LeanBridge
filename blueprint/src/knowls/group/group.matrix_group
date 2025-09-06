@@ -1,11 +1,11 @@
-\subsection{Matrix group}
-\begin{definition}\label{group.matrix_group}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.matrix_group}{Matrix group}}
+\begin{definition*}\label{group.matrix_group}
 \uses{}
 A matrix group is a subgroup of $\GL_n(R)$ for some commutative ring $R$.
 
 A given abstract group may have more than one presentation as a matrix group over different rings $R$.
 
 The value $z_k$ in a given matrix represents a primitive element of the finite field $\F_{p^k}$ for some prime $p$.
-\end{definition}
+\end{definition*}
 
 

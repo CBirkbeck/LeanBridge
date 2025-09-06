@@ -1,10 +1,10 @@
-\subsection{$K$-Bessel functions}
-\begin{definition}\label{specialfunction.k_bessel}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/specialfunction.k_bessel}{$K$-Bessel functions}}
+\begin{definition*}\label{specialfunction.k_bessel}
 \uses{}
- For $x\in\mathbb{R}_{>0}$ and $\nu\in\mathbb{C}$ we define the **$K$-Bessel functions**
+ For $x\in\mathbb{R}_{>0}$ and $\nu\in\mathbb{C}$ we define the \textbf{$K$-Bessel functions}
 \[
   K_\nu(x)=\frac{1}{2}\int_0^\infty t^{\nu-1}e^{-(x/2)(t+1/t)}dt.
 \]
-\end{definition}
+\end{definition*}
 
 

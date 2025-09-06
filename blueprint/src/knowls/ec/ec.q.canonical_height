@@ -1,8 +1,8 @@
-\subsection{Canonical height}
-\begin{definition}\label{ec.q.canonical_height}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.q.canonical_height}{Canonical height}}
+\begin{definition*}\label{ec.q.canonical_height}
 \uses{ec,ec.regulator,nf.weil_height}
-Let $E$ be an {{ KNOWL('ec' , title='elliptic curve')}} defined over $\mathbb{Q}$.
-The **canonical height** of a rational point $P\in E(\mathbb{Q})$ is computed by writing the $x$-coordinate $x(nP)=A_n(P)/D_n(P)$ as a fraction in lowest terms and setting 
+Let $E$ be an \hyperref[ec]{elliptic curve} defined over $\mathbb{Q}$.
+The \textbf{canonical height} of a rational point $P\in E(\mathbb{Q})$ is computed by writing the $x$-coordinate $x(nP)=A_n(P)/D_n(P)$ as a fraction in lowest terms and setting 
 $$ \hat h(P) = \lim_{n\to\infty} \frac{1}{n^2}\log \max\bigl\{|A_n(P)|,|D_n(P)|\bigr\}. $$
 (<EM>Note</EM>. Some sources define $\hat h$ to be $\frac12$ of this quantity.)
 
@@ -17,10 +17,10 @@ $\hat h(P)=0$ if and only if $P$ is a torsion point.
 <LI>
 $\hat h:E(\mathbb Q)\to\mathbb R$ extends to a positive definite quadratic form on $E(\mathbb{Q})\otimes\mathbb{R}$.
 </UL>
-The **height pairing** on $E$ is the associated bilinear form $\langle P,Q\rangle=\frac{1}{2}\bigl(\hat h(P+Q)-\hat h(P)-\hat h(Q)\bigr)$, which is used to compute the {{ KNOWL('ec.regulator', "elliptic regulator") }} of $E$.  It is a symmetric positive definite bilinear form on $E(\Q)\otimes\R$. 
+The \textbf{height pairing} on $E$ is the associated bilinear form $\langle P,Q\rangle=\frac{1}{2}\bigl(\hat h(P+Q)-\hat h(P)-\hat h(Q)\bigr)$, which is used to compute the \hyperref[ec.regulator]{elliptic regulator} of $E$.  It is a symmetric positive definite bilinear form on $E(\Q)\otimes\R$. 
 
-For a number field $K$, the **canonical height** of $P\in E(K)$ is given by $\hat h(P)=\lim_{n\to\infty} n^{-2}h\bigl(x(nP)\bigr)$, where $h$ is the {{ KNOWL('nf.weil_height', "Weil height") }}.
+For a number field $K$, the \textbf{canonical height} of $P\in E(K)$ is given by $\hat h(P)=\lim_{n\to\infty} n^{-2}h\bigl(x(nP)\bigr)$, where $h$ is the \hyperref[nf.weil_height]{Weil height}.
 
-\end{definition}
+\end{definition*}
 
 

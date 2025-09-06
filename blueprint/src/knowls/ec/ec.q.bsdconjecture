@@ -1,24 +1,28 @@
-\subsection{Birch and Swinnerton-Dyer conjecture}
-\begin{definition}\label{ec.q.bsdconjecture}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.q.bsdconjecture}{Birch and Swinnerton-Dyer conjecture}}
+\begin{definition*}\label{ec.q.bsdconjecture}
 \uses{ag.abelian_variety,ec,ec.analytic_sha_order,ec.mordell_weil_theorem,ec.q.real_period,ec.rank,ec.regulator,ec.tamagawa_number,ec.torsion_order,lfunction,lfunction.central_point}
-The **Birch and Swinnerton-Dyer** conjecture is one of the Millennium Prize Problems listed by the Clay Mathematics Institute. It relates the order of vanishing and the first non-zero Taylor series coefficient of  the {{KNOWL('lfunction', 'L-function')}} associated to an {{ KNOWL('ec','elliptic curve') }} $E$ defined over $\Q$ at the {{KNOWL('lfunction.central_point', 'central point')}} $s=1$ to certain arithmetic data, the {{ KNOWL('ec.q.bsd_invariants', 'BSD invariants') }} of $E$. 
+The \textbf{Birch and Swinnerton-Dyer} conjecture is one of the Millennium Prize Problems listed by the Clay Mathematics Institute. It relates the order of vanishing and the first non-zero Taylor series coefficient of  the \hyperref[lfunction]{L-function} associated to an \hyperref[ec]{elliptic curve} $E$ defined over $\Q$ at the \hyperref[lfunction.central_point]{central point} $s=1$ to certain arithmetic data, the \hyperref[ec.q.bsd_invariants]{BSD invariants} of $E$. 
 
-Specifically, the BSD conjecture states that the order $r$ of vanishing of $L(E,s)$ at $s=1$ is equal to the {{ KNOWL('ec.rank', 'rank') }} of the {{ KNOWL('ec.mordell_weil_theorem', 'Mordell-Weil group') }} $E(\Q)$,  and that
+Specifically, the BSD conjecture states that the order $r$ of vanishing of $L(E,s)$ at $s=1$ is equal to the \hyperref[ec.rank]{rank} of the \hyperref[ec.mordell_weil_theorem]{Mordell-Weil group} $E(\Q)$,  and that
 
 <!-- comment: if you make the following display into a normal one using $$..$$ or \[..\] then something about the html code for Sha stops it displaying properly-->
 
-<p align="center"> $\displaystyle \frac{1}{r!} L^{(r)}(E,1)=  \displaystyle \frac{\# &#1064;(E/\Q)\cdot \Omega_E \cdot \mathrm{Reg}(E/\Q) \cdot \prod_p c_p}{\#E(\Q)_{\rm tor}^2}. $ </p>
-The quantities appearing in this formula are the {{ KNOWL('ec.q.bsd_invariants', 'BSD invariants') }} of $E$:
+<p align="center"> $\displaystyle \frac{1}{r!} L^{(r)}(E,1)=  \displaystyle \frac{\# \Sha(E/\Q)\cdot \Omega_E \cdot \mathrm{Reg}(E/\Q) \cdot \prod_p c_p}{\#E(\Q)_{\rm tor}^2}. $ </p>
+The quantities appearing in this formula are the \hyperref[ec.q.bsd_invariants]{BSD invariants} of $E$:
 
-- $r$ is the {{ KNOWL('ec.rank', 'rank') }} of $E(\Q)$ (a non-negative integer);
-- $\#&#1064;(E/\Q)$ is the order of the {{ KNOWL('ec.analytic_sha_order', 'Tate-Shafarevich') }} group
+\begin{itemize}
+\item  $r$ is the \hyperref[ec.rank]{rank} of $E(\Q)$ (a non-negative integer);
+\item  $\#\Sha(E/\Q)$ is the order of the \hyperref[ec.analytic_sha_order]{Tate-Shafarevich} group
+\end{itemize}
  of $E$ (which is conjectured to always  be finite, a positive integer);
-- $\mathrm{Reg}(E/\Q)$ is the {{ KNOWL('ec.regulator', 'regulator') }} of $E/\Q$;
-- $\Omega_E$ is the {{ KNOWL('ec.q.real_period', 'real period') }} of $E/\Q$ (a positive real number);
-- $c_p$ is the {{ KNOWL('ec.tamagawa_number') }} of $E$ at each prime $p$ (a positive integer which is $1$ for all but at most finitely many primes);
-- $E(\Q)_{\rm tor}$ is the {{ KNOWL('ec.torsion_order', 'torsion order') }} of $E(\Q)$ (a positive integer).
+\begin{itemize}
+\item  $\mathrm{Reg}(E/\Q)$ is the \hyperref[ec.regulator]{regulator} of $E/\Q$;
+\item  $\Omega_E$ is the \hyperref[ec.q.real_period]{real period} of $E/\Q$ (a positive real number);
+\item  $c_p$ is the \hyperref[ec.tamagawa_number]{Tamagawa number} of $E$ at each prime $p$ (a positive integer which is $1$ for all but at most finitely many primes);
+\item  $E(\Q)_{\rm tor}$ is the \hyperref[ec.torsion_order]{torsion order} of $E(\Q)$ (a positive integer).
+\end{itemize}
 
-There is a similar conjecture for {{KNOWL('ag.abelian_variety', 'abelian varieties')}}, in which the real period is replaced by the covolume of the period lattice.
-\end{definition}
+There is a similar conjecture for \hyperref[ag.abelian_variety]{abelian varieties}, in which the real period is replaced by the covolume of the period lattice.
+\end{definition*}
 
 

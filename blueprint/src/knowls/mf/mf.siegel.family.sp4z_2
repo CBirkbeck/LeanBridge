@@ -1,7 +1,7 @@
-\subsection{Vector valued Siegel modular forms of degree 2 taking values in three-dimensional space}
-\begin{definition}\label{mf.siegel.family.sp4z_2}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.family.sp4z_2}{Vector valued Siegel modular forms of degree 2 taking values in three-dimensional space}}
+\begin{definition*}\label{mf.siegel.family.sp4z_2}
 \uses{group.sp2gr,mf.siegel.degree,mf.siegel.vector_valued}
-The module of {{KNOWL('mf.siegel.vector_valued', 'vector-valued Siegel modular forms')}} of {{KNOWL('mf.siegel.degree', 'degree')}} 2, taking values in a three-dimensional space, with respect to the {{KNOWL('group.sp2gr', 'full modular group')}}.
+The module of \hyperref[mf.siegel.vector_valued]{vector-valued Siegel modular forms} of \hyperref[mf.siegel.degree]{degree} 2, taking values in a three-dimensional space, with respect to the \hyperref[group.sp2gr]{full modular group}.
 
 Let $\psi_4$, $\psi_6$, $\chi_{10}$, $\chi_{12}$ be generators of $M(\Sp(4,\Z))$,
 the Siegel modular forms of degree 2 with respect to the full modular group. We will write $\Gamma_2=\Sp(4,\Z)$ for short.  For $f\in M_k(\Gamma_2)$ and $g\in M_j(\Gamma_2)$, define the Satoh bracket \cite{mr:0816719}
@@ -20,14 +20,16 @@ $$V_k(\Gamma_2)=M_k(\Gamma_2)\cap \C[\psi_6,\chi_{10},\chi_{12}],$$
 $$W_k(\Gamma_2)=M_k(\Gamma_2)\cap \C[\chi_{10},\chi_{12}].$$
 
 We write
-- $A=\psi_4$,
-- $B=\psi_6$,
-- $C=\chi_{10}$,
-- $D=\chi_{12}$,
+\begin{itemize}
+\item  $A=\psi_4$,
+\item  $B=\psi_6$,
+\item  $C=\chi_{10}$,
+\item  $D=\chi_{12}$,
+\end{itemize}
 for short in the modular form sample pages.
 
 Dimension tables are taken from Tsushima \cite{mr:0816719}.
 
-\end{definition}
+\end{definition*}
 
 

@@ -1,7 +1,7 @@
-\subsection{Abelianization label}
-\begin{definition}\label{group.abelianization_isolabel}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.abelianization_isolabel}{Abelianization label}}
+\begin{definition*}\label{group.abelianization_isolabel}
 \uses{group.abelianization,group.label}
-You can specify the {{KNOWL('group.abelianization', 'abelianization')}} of a group by providing its {{KNOWL('group.label', 'label')}} as an abstract group.
-\end{definition}
+You can specify the \hyperref[group.abelianization]{abelianization} of a group by providing its \hyperref[group.label]{label} as an abstract group.
+\end{definition*}
 
 

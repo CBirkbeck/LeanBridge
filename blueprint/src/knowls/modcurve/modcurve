@@ -1,16 +1,16 @@
-\subsection{Modular curve}
-\begin{definition}\label{modcurve}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve}{Modular curve}}
+\begin{definition*}\label{modcurve}
 \uses{ag.curve.smooth,ag.quotient_curve,cmf.congruence_subgroup,ec,ec.galois_rep,gl2.level,gl2.open,mf.upper_half_plane,modcurve.cusps,modcurve.level_structure,modcurve.xn}
-For each {{KNOWL('gl2.open', 'open subgroup')}} $H \le \GL_2(\widehat\Z)$, there is a **modular curve** $X_H$, defined as a quotient of the {{KNOWL('modcurve.xn', 'full modular curve')}} $X_{\text{full}}(N)$, where $N$ is the {{KNOWL('gl2.level','level')}} of $H$.  More precisely, $H$ is the inverse image of a subgroup $H_N \le \GL_2(\Z/N\Z)$, which acts on $X_{\text{full}}(N)$ over $\Q$, and $X_H$ is the {{KNOWL('ag.quotient_curve', 'quotient curve')}} $H_N \backslash X_{\text{full}}(N)$, also defined over $\Q$.
+For each \hyperref[gl2.open]{open subgroup} $H \le \GL_2(\widehat\Z)$, there is a \textbf{modular curve} $X_H$, defined as a quotient of the \hyperref[modcurve.xn]{full modular curve} $X_{\text{full}}(N)$, where $N$ is the \hyperref[gl2.level]{level} of $H$.  More precisely, $H$ is the inverse image of a subgroup $H_N \le \GL_2(\Z/N\Z)$, which acts on $X_{\text{full}}(N)$ over $\Q$, and $X_H$ is the \hyperref[ag.quotient_curve]{quotient curve} $H_N \backslash X_{\text{full}}(N)$, also defined over $\Q$.
 
-Like $X_{\text{full}}(N)$, the curve $X_H$ is {{KNOWL('ag.curve.smooth', 'smooth')}}, projective, and integral, and when $\det(H)=\widehat{\Z}$ it is also geometrically integral, but in general it may have several {{KNOWL('modcurve.components', 'geometric components')}}, as is the case for $X_{\text{full}}(N)$ when $N>2$.
+Like $X_{\text{full}}(N)$, the curve $X_H$ is \hyperref[ag.curve.smooth]{smooth}, projective, and integral, and when $\det(H)=\widehat{\Z}$ it is also geometrically integral, but in general it may have several \hyperref[modcurve.components]{geometric components}, as is the case for $X_{\text{full}}(N)$ when $N>2$.
 
-**Rational points**: When $-1\in H$ the rational points of $X_H$  consist of  {{KNOWL('modcurve.cusps', 'cusps')}} and $\Gal_\Q$-stable isomorphism classes of pairs $(E,[\iota]_H)$, where $E$ is an {{KNOWL('ec', 'elliptic curve')}} over $\Q$, and $[\iota]_H$ is an {{KNOWL('modcurve.level_structure','$H$-level structure')}} on $E$.  Such points exist precisely when the image of the {{KNOWL('ec.galois_rep','adelic Galois representation')}} $\rho_E\colon \Gal_\Q\to \GL_2(\widehat\Z)$ is conjugate to a subgroup of $H$.
+\textbf{Rational points}: When $-1\in H$ the rational points of $X_H$  consist of  \hyperref[modcurve.cusps]{cusps} and $\Gal_\Q$-stable isomorphism classes of pairs $(E,[\iota]_H)$, where $E$ is an \hyperref[ec]{elliptic curve} over $\Q$, and $[\iota]_H$ is an \hyperref[modcurve.level_structure]{$H$-level structure} on $E$.  Such points exist precisely when the image of the \hyperref[ec.galois_rep]{adelic Galois representation} $\rho_E\colon \Gal_\Q\to \GL_2(\widehat\Z)$ is conjugate to a subgroup of $H$.
 
-**Complex points**: The {{KNOWL('cmf.congruence_subgroup', 'congruence subgroup')}} $\Gamma_H:= H\cap \SL_2(\Z)$ acts on the {{KNOWL('mf.upper_half_plane', 'completed upper half-plane')}} $\overline{\mathfrak{h}}$; one connected component of $X_H(\C)$ is biholomorphic to the quotient $\Gamma_H \backslash \overline{\mathfrak{h}}$.
+\textbf{Complex points}: The \hyperref[cmf.congruence_subgroup]{congruence subgroup} $\Gamma_H:= H\cap \SL_2(\Z)$ acts on the \hyperref[mf.upper_half_plane]{completed upper half-plane} $\overline{\mathfrak{h}}$; one connected component of $X_H(\C)$ is biholomorphic to the quotient $\Gamma_H \backslash \overline{\mathfrak{h}}$.
 
 The curve $X_H$ can alternatively be constructed as the coarse moduli space of the stack $\mathcal X_H$ over $\Q$ defined in Deligne-Rapoport \cite{mr:0337993,doi:10.1007/978-3-540-37855-6_4}.  Both constructions of $X_H$ can be carried out over any field of characteristic not dividing $N$, or even over $\Z[1/N]$.
 
-\end{definition}
+\end{definition*}
 
 

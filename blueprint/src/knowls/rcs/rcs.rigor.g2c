@@ -1,28 +1,44 @@
-\subsection{Reliability of Genus 2 Curve Data}
-\begin{definition}\label{rcs.rigor.g2c}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.rigor.g2c}{Reliability of Genus 2 Curve Data}}
+\begin{definition*}\label{rcs.rigor.g2c}
 \uses{ag.conductor,ag.mordell_weil,g2c.abs_discriminant,g2c.all_rational_points,g2c.analytic_rank,g2c.analytic_sha,g2c.gl2type,g2c.good_reduction,g2c.hasse_weil_conjecture,g2c.isogeny_class,g2c.jac_endomorphisms,g2c.jacobian,g2c.known_rational_points,g2c.lfunction,g2c.mw_generator,g2c.regulator,g2c.st_group,lfunction.functional_equation,lfunction.selberg_class,lfunction.sign,rcs.cande.g2c}
-As described in Section 3.4 of \cite{MR:3540958,,arXiv:1602.03715}, the completeness of the genus 2 curve database for curves of {{KNOWL('g2c.abs_discriminant', 'absolute discriminant')}} $|\Delta|\le 10^6$ has been tested against other tables of genus 2 curves, including those of \cite{href{http://www.mathe2.uni-bayreuth.de/stoll/data/}{Stoll}}, and Merriman and Smart \cite{doi:10.1017/S030500410007153X}.  However, as explained on the {{KNOWL('rcs.cande.g2c','completeness page')}}, it is only complete within the boxes that were searched, and it is likely that there are genus 2 curves of minimal discriminant $|D|\le 10^6$ that are not included (even though no such curves are currently known).
+As described in Section 3.4 of \cite{MR:3540958,,arXiv:1602.03715}, the completeness of the genus 2 curve database for curves of \hyperref[g2c.abs_discriminant]{absolute discriminant} $|\Delta|\le 10^6$ has been tested against other tables of genus 2 curves, including those of \cite{href{http://www.mathe2.uni-bayreuth.de/stoll/data/}{Stoll}}, and Merriman and Smart \cite{doi:10.1017/S030500410007153X}.  However, as explained on the \hyperref[rcs.cande.g2c]{completeness page}, it is only complete within the boxes that were searched, and it is likely that there are genus 2 curves of minimal discriminant $|D|\le 10^6$ that are not included (even though no such curves are currently known).
 
 The reliability of specific data associated to genus 2 curves is discussed below.  
 
-- In cases where the set of rational points has not been provably determined, this is indicated by the label {{KNOWL('g2c.known_rational_points','known rational points')}}.  In cases where the set of rational points has been provably determined (via some variant of Chabauty's method implemented in Magma), this is indicated by the label {{KNOWL('g2c.all_rational_points','Rational points')}}; in all other cases lists of rational points are preceded by the caption {{KNOWL('g2c.known_rational_points','Known rational points')}}.
+\begin{itemize}
+\item  In cases where the set of rational points has not been provably determined, this is indicated by the label \hyperref[g2c.known_rational_points]{known rational points}.  In cases where the set of rational points has been provably determined (via some variant of Chabauty's method implemented in Magma), this is indicated by the label \hyperref[g2c.all_rational_points]{Rational points}; in all other cases lists of rational points are preceded by the caption \hyperref[g2c.known_rational_points]{Known rational points}.
+\end{itemize}
 
-- The power of 2 in the {{KNOWL('ag.conductor','conductor')}} of the {{KNOWL('g2c.jacobian','Jacobian')}} (originally bounded analytically) has been rigorously verified by Tim Dokchitser and Christopher Doris \cite{arXiv:1706.06162} using algebraic methods (the odd part of the conductor has also been rigorously computed).
+\begin{itemize}
+\item  The power of 2 in the \hyperref[ag.conductor]{conductor} of the \hyperref[g2c.jacobian]{Jacobian} (originally bounded analytically) has been rigorously verified by Tim Dokchitser and Christopher Doris \cite{arXiv:1706.06162} using algebraic methods (the odd part of the conductor has also been rigorously computed).
+\end{itemize}
 
-- All {{KNOWL('g2c.lfunction','L-function')}} computations are conditional on the assumption that the L-function satisfies the {{KNOWL('g2c.hasse_weil_conjecture','Hasse-Weil conjecture')}} (which implies that it lies in the {{KNOWL('lfunction.selberg_class', "Selberg class")}}), and in particular, that it has a meromorphic continuation to $\C$ with no poles in the critical strip and satisfies a {{KNOWL('lfunction.functional_equation', 'functional equation')}}).  This assumption is necessary in order for the {{KNOWL('g2c.analytic_rank','analytic rank')}} to be well-defined.  In some cases (curves whose Jacobians are of {{KNOWL('g2c.gl2type','$\GL_2$-type')}} for example) the Hasse-Weil conejecture is known to hold, and this is indicated on curve's home page.  The assumption of the Hasse-Weil conjecture is also used when computing bad Euler factors at 2.
+\begin{itemize}
+\item  All \hyperref[g2c.lfunction]{L-function} computations are conditional on the assumption that the L-function satisfies the \hyperref[g2c.hasse_weil_conjecture]{Hasse-Weil conjecture} (which implies that it lies in the \hyperref[lfunction.selberg_class]{Selberg class}), and in particular, that it has a meromorphic continuation to $\C$ with no poles in the critical strip and satisfies a \hyperref[lfunction.functional_equation]{functional equation}).  This assumption is necessary in order for the \hyperref[g2c.analytic_rank]{analytic rank} to be well-defined.  In some cases (curves whose Jacobians are of \hyperref[g2c.gl2type]{$\GL_2$-type} for example) the Hasse-Weil conejecture is known to hold, and this is indicated on curve's home page.  The assumption of the Hasse-Weil conjecture is also used when computing bad Euler factors at 2.
+\end{itemize}
 
-- In addition to the assumption that the Hasse-Weil conjecture holds, analytic ranks greater than 1 are generally only upper bounds that are believed to be equal to the true analytic rank (this can fail to be true only if there is a zero very close to but not at the critical point).  This is explicitly indicated on the home page of each curve by a parenthetical "(upper bound"), but these upper bounds are treated as exact for the purpose of searching.  In cases where the Hasse-Weil conjecture is known the analytic rank is provably correct if it is equal to 0 or 1 (our analytic rank bounds are all compatible with the {{KNOWL('lfunction.sign','sign in the functional equation')}}).  There are some cases where analytic ranks greater than 1 are provably correct because the Jacobian is isogenous to a product of elliptic curves whose analytic ranks are known (in such cases the "(upper bound)" notation is removed).
+\begin{itemize}
+\item  In addition to the assumption that the Hasse-Weil conjecture holds, analytic ranks greater than 1 are generally only upper bounds that are believed to be equal to the true analytic rank (this can fail to be true only if there is a zero very close to but not at the critical point).  This is explicitly indicated on the home page of each curve by a parenthetical "(upper bound"), but these upper bounds are treated as exact for the purpose of searching.  In cases where the Hasse-Weil conjecture is known the analytic rank is provably correct if it is equal to 0 or 1 (our analytic rank bounds are all compatible with the \hyperref[lfunction.sign]{sign in the functional equation}).  There are some cases where analytic ranks greater than 1 are provably correct because the Jacobian is isogenous to a product of elliptic curves whose analytic ranks are known (in such cases the "(upper bound)" notation is removed).
+\end{itemize}
 
-- The data on the {{KNOWL('g2c.jac_endomorphisms','geometric endomorphism ring')}} that was initially computed heuristically has now been rigorously certified by Davide Lombardo \cite{arXiv:1610.09674} and by Edgar Costa, Nicolas Mascot, Jeroen Sijsling, and John Voight \cite{arXiv:1705.09248}, independently, by different methods.  This rigorously confirms the {{KNOWL('g2c.st_group','Sato-Tate group')}} computations (the fact that these independent computation agree is a consistency check).
+\begin{itemize}
+\item  The data on the \hyperref[g2c.jac_endomorphisms]{geometric endomorphism ring} that was initially computed heuristically has now been rigorously certified by Davide Lombardo \cite{arXiv:1610.09674} and by Edgar Costa, Nicolas Mascot, Jeroen Sijsling, and John Voight \cite{arXiv:1705.09248}, independently, by different methods.  This rigorously confirms the \hyperref[g2c.st_group]{Sato-Tate group} computations (the fact that these independent computation agree is a consistency check).
+\end{itemize}
 
-- {{KNOWL('g2c.isogeny_class','Isogeny class')}} identifications are based on a comparison of Euler factors at {{KNOWL('g2c.good_reduction','good primes')}} up to $2^{20}$.  Jacobians that are not identified as members of the same isogeny class are provably non-isogenous, but the identification of membership within a particular isogeny class is heuristic (except for Richelot isogenies, no explicit isogenies have been computed).  In principle it could be made rigorous in any particular case via a Faltings-Serre argument, as described in \cite{arxiv:1805.10873}, but this has only been done for a handful of cases such as the isogeny class of conductor 277.
+\begin{itemize}
+\item  \hyperref[g2c.isogeny_class]{Isogeny class} identifications are based on a comparison of Euler factors at \hyperref[g2c.good_reduction]{good primes} up to $2^{20}$.  Jacobians that are not identified as members of the same isogeny class are provably non-isogenous, but the identification of membership within a particular isogeny class is heuristic (except for Richelot isogenies, no explicit isogenies have been computed).  In principle it could be made rigorous in any particular case via a Faltings-Serre argument, as described in \cite{arxiv:1805.10873}, but this has only been done for a handful of cases such as the isogeny class of conductor 277.
+\end{itemize}
 
-- {{KNOWL('g2c.mw_generator','Mordell-Weil generators')}} and {{KNOWL('g2c.regulator','regulators')}} are conditional on BSD in cases where the {{KNOWL('ag.mordell_weil','Mordell-Weil rank')}} is marked as a lower bound (in all such cases it is equal to our computed upper bound on the analytic rank).
+\begin{itemize}
+\item  \hyperref[g2c.mw_generator]{Mordell-Weil generators} and \hyperref[g2c.regulator]{regulators} are conditional on BSD in cases where the \hyperref[ag.mordell_weil]{Mordell-Weil rank} is marked as a lower bound (in all such cases it is equal to our computed upper bound on the analytic rank).
+\end{itemize}
 
-- All values of the {{KNOWL('g2c.analytic_sha','analytic order of sha')}} are accurate to at least six decimal places, and under BSD exactly equal to the rounded integer displayed.
+\begin{itemize}
+\item  All values of the \hyperref[g2c.analytic_sha]{analytic order of sha} are accurate to at least six decimal places, and under BSD exactly equal to the rounded integer displayed.
+\end{itemize}
 
 All invariants not specifically mentioned above were computed using rigorous algorithms that do not depend on any unproved hypotheses.
 
-\end{definition}
+\end{definition*}
 
 

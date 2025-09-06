@@ -1,19 +1,21 @@
-\subsection{Standard modular curves}
-\begin{definition}\label{modcurve.name}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.name}{Standard modular curves}}
+\begin{definition*}\label{modcurve.name}
 \uses{gl2.cartan,modcurve.xn}
 We use the following notation to denote some standard modular curves that appear in the literature:
 
-- $X(N)$ denotes the {{KNOWL('modcurve.xn', 'modular curve')}} that parametrizes elliptic curves with full rational $N$-torsion.
-- $X_0(N)$ denotes the modular curve that parametrizes elliptic curves with a rational cyclic isogeny of degree $N$.
-- $X_1(N)$ denotes the modular curves that parametrizes elliptic curves with a rational point of order $N$.
-- $X_{S_4}(\ell)$ parametrizes elliptic curves whose mod-$\ell$ Galois images is projectively isomorpic to $S_4$, respectively.
-- For primes $\ell\equiv 1\bmod 4$ the modular curve $X_{A_4}(\ell)$ parametrizes elliptic curves whose mod-$\ell$ Galois images is projectively isomorpic to $A_4$ and $S_4$, respectively.
-- For primes $\ell\equiv\pm 1\bmod 5$ the modular curve $X_{A_5}(\ell)$ parametrizes elliptic curves mod-$\ell$ Galois images is projectively isomorpic to $A_5$.
-- $X_{\mathrm{sp}}(N)$ denotes the **split Cartan** modular curve $X_H$ for which $H\leq \GL_2(\widehat \Z)$ is the inverse image of the reduction to $\GL_2(\Z/N\Z)$ of the {{KNOWL('gl2.cartan', 'Cartan subgroup')}} associated to an imaginary quadratic order $\mathcal O$ in which every prime divisor of $N$ splits (this definition does not depend on $\mathcal O$, up to conjugacy $H$ is the inverse image of the diagonal subgroup of $\GL_2(\Z/N\Z)$).
-- $X_{\mathrm{sp}}^+(N)$ denotes the modular curve $X_H$ for which $H\leq \GL_2(\widehat\Z)$ is the reduction to $\GL_2(\Z/N\Z)$ of the normalizer of the split Cartan subgroup of $\GL_2(\widehat\Z)$ (containing the split Cartan with index 2).
-- $X_{\mathrm{ns}}(N)$ denotes the **nonsplit Cartan** modular curve $X_H$ for which $H\leq \GL_2(\widehat \Z)$ is the inverse image of the reduction to $\GL_2(\Z/N\Z)$ of the Cartan subgroup associated to an imaginary quadratic order $\mathcal O$ in which every prime divisor of $N$ is inert (this definition does not depend on $\mathcal O$).
-- $X_{\mathrm{ns}}^+(N)$ denotes the modular curve $X_H$ for which $H\leq \GL_2(\widehat\Z)$ is the reduction to $\GL_2(\Z/N\Z)$ of the normalizer of the nonsplit Cartan subgroup of $\GL_2(\widehat\Z)$ (containing the nonsplit Cartan with index 2).
+\begin{itemize}
+\item  $X(N)$ denotes the \hyperref[modcurve.xn]{modular curve} that parametrizes elliptic curves with full rational $N$-torsion.
+\item  $X_0(N)$ denotes the modular curve that parametrizes elliptic curves with a rational cyclic isogeny of degree $N$.
+\item  $X_1(N)$ denotes the modular curves that parametrizes elliptic curves with a rational point of order $N$.
+\item  $X_{S_4}(\ell)$ parametrizes elliptic curves whose mod-$\ell$ Galois images is projectively isomorpic to $S_4$, respectively.
+\item  For primes $\ell\equiv 1\bmod 4$ the modular curve $X_{A_4}(\ell)$ parametrizes elliptic curves whose mod-$\ell$ Galois images is projectively isomorpic to $A_4$ and $S_4$, respectively.
+\item  For primes $\ell\equiv\pm 1\bmod 5$ the modular curve $X_{A_5}(\ell)$ parametrizes elliptic curves mod-$\ell$ Galois images is projectively isomorpic to $A_5$.
+\item  $X_{\mathrm{sp}}(N)$ denotes the \textbf{split Cartan} modular curve $X_H$ for which $H\leq \GL_2(\widehat \Z)$ is the inverse image of the reduction to $\GL_2(\Z/N\Z)$ of the \hyperref[gl2.cartan]{Cartan subgroup} associated to an imaginary quadratic order $\mathcal O$ in which every prime divisor of $N$ splits (this definition does not depend on $\mathcal O$, up to conjugacy $H$ is the inverse image of the diagonal subgroup of $\GL_2(\Z/N\Z)$).
+\item  $X_{\mathrm{sp}}^+(N)$ denotes the modular curve $X_H$ for which $H\leq \GL_2(\widehat\Z)$ is the reduction to $\GL_2(\Z/N\Z)$ of the normalizer of the split Cartan subgroup of $\GL_2(\widehat\Z)$ (containing the split Cartan with index 2).
+\item  $X_{\mathrm{ns}}(N)$ denotes the \textbf{nonsplit Cartan} modular curve $X_H$ for which $H\leq \GL_2(\widehat \Z)$ is the inverse image of the reduction to $\GL_2(\Z/N\Z)$ of the Cartan subgroup associated to an imaginary quadratic order $\mathcal O$ in which every prime divisor of $N$ is inert (this definition does not depend on $\mathcal O$).
+\item  $X_{\mathrm{ns}}^+(N)$ denotes the modular curve $X_H$ for which $H\leq \GL_2(\widehat\Z)$ is the reduction to $\GL_2(\Z/N\Z)$ of the normalizer of the nonsplit Cartan subgroup of $\GL_2(\widehat\Z)$ (containing the nonsplit Cartan with index 2).
+\end{itemize}
 
-\end{definition}
+\end{definition*}
 
 

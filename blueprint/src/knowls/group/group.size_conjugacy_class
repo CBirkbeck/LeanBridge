@@ -1,13 +1,13 @@
-\subsection{Size of a conjugacy class.}
-\begin{definition}\label{group.size_conjugacy_class}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.size_conjugacy_class}{Size of a conjugacy class.}}
+\begin{definition*}\label{group.size_conjugacy_class}
 \uses{group.center,group.conjugacy_class,group.order}
-The **size** of a {{KNOWL('group.conjugacy_class', 'conjugacy class')}} of a finite group is the cardinality of the set of elements conjugate to each other.  
+The \textbf{size} of a \hyperref[group.conjugacy_class]{conjugacy class} of a finite group is the cardinality of the set of elements conjugate to each other.  
 
-By the Orbit-Stabilizer Theorem, the size of a conjugacy class divides the {{KNOWL('group.order', 'order')}} of the group. Since conjugacy classes partition a group, the sum of the sizes of the conjugacy classes equals the size of the group.
+By the Orbit-Stabilizer Theorem, the size of a conjugacy class divides the \hyperref[group.order]{order} of the group. Since conjugacy classes partition a group, the sum of the sizes of the conjugacy classes equals the size of the group.
 
-A conjugacy class is of size $1$ if and only if the element is in the {{KNOWL('group.center', 'center')}} of the group.
+A conjugacy class is of size $1$ if and only if the element is in the \hyperref[group.center]{center} of the group.
 
 
-\end{definition}
+\end{definition*}
 
 

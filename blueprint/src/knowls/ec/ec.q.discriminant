@@ -1,9 +1,9 @@
-\subsection{Discriminant of an elliptic curve over $\Q$}
-\begin{definition}\label{ec.q.discriminant}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.q.discriminant}{Discriminant of an elliptic curve over $\Q$}}
+\begin{definition*}\label{ec.q.discriminant}
 \uses{ec,ec.discriminant,ec.q.minimal_weierstrass_equation}
-The **discriminant** $\Delta$ of an {{KNOWL("ec", "elliptic curve")}} $E$ defined over $\mathbb{Q}$ is a nonzero integer divisible exactly by the primes of bad reduction.
-It is the {{ KNOWL("ec.discriminant", "discriminant")}} of the {{KNOWL("ec.q.minimal_weierstrass_equation", "minimal Weierstrass equation")}} of the curve.
+The \textbf{discriminant} $\Delta$ of an \hyperref[ec]{elliptic curve} $E$ defined over $\mathbb{Q}$ is a nonzero integer divisible exactly by the primes of bad reduction.
+It is the \hyperref[ec.discriminant]{discriminant} of the \hyperref[ec.q.minimal_weierstrass_equation]{minimal Weierstrass equation} of the curve.
 
-\end{definition}
+\end{definition*}
 
 

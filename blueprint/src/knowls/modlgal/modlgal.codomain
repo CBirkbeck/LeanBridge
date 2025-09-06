@@ -1,7 +1,7 @@
-\subsection{Codomain}
-\begin{definition}\label{modlgal.codomain}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/modlgal.codomain}{Codomain}}
+\begin{definition*}\label{modlgal.codomain}
 \uses{ag.algebraic_group,modlgal}
-The **codomain** of a {{ KNOWL('modlgal', 'mod-$\ell$ Galois representation') }} $\rho:\Gal_K \to G(\F_{\ell})$, with values in the $\F_{\ell}$-points of an {{ KNOWL('ag.algebraic_group', 'algebraic group') }} $G$, is the finite group $G(\F_{\ell})$.
-\end{definition}
+The \textbf{codomain} of a \hyperref[modlgal]{mod-$\ell$ Galois representation} $\rho:\Gal_K \to G(\F_{\ell})$, with values in the $\F_{\ell}$-points of an \hyperref[ag.algebraic_group]{algebraic group} $G$, is the finite group $G(\F_{\ell})$.
+\end{definition*}
 
 

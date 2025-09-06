@@ -1,16 +1,16 @@
-\subsection{Regulator of elliptic curve}
-\begin{definition}\label{ec.q.regulator}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.q.regulator}{Regulator of elliptic curve}}
+\begin{definition*}\label{ec.q.regulator}
 \uses{ec,ec.canonical_height,ec.mordell_weil_group,nf}
-The **regulator** of an {{ KNOWL('ec', 'elliptic curve') }} $E$ defined over a {{ KNOWL('nf', 'number field') }} $K,$ denoted $\operatorname{Reg}(E/K)$, is the volume of $E(K)/E(K)_{tor}$ with respect to the **height pairing** $\langle -,-\rangle$ associated to the {{ KNOWL('ec.canonical_height', "canonical height") }} $\hat{h}$, i.e. $\langle P,Q\rangle = \frac{1}{2}(\hat{h}(P+Q)-\hat{h}(P)-\hat{h}(Q))$.
+The \textbf{regulator} of an \hyperref[ec]{elliptic curve} $E$ defined over a \hyperref[nf]{number field} $K,$ denoted $\operatorname{Reg}(E/K)$, is the volume of $E(K)/E(K)_{tor}$ with respect to the \textbf{height pairing} $\langle -,-\rangle$ associated to the \hyperref[ec.canonical_height]{canonical height} $\hat{h}$, i.e. $\langle P,Q\rangle = \frac{1}{2}(\hat{h}(P+Q)-\hat{h}(P)-\hat{h}(Q))$.
 
 
-If the {{ KNOWL('ec.mordell_weil_group', 'Mordell-Weil group') }} $E(K)$ has rank $r$ and $P_1, \ldots, P_r \in E(K)$ generate $E(K)/E(K)_{tor}$, then
+If the \hyperref[ec.mordell_weil_group]{Mordell-Weil group} $E(K)$ has rank $r$ and $P_1, \ldots, P_r \in E(K)$ generate $E(K)/E(K)_{tor}$, then
 \[
  \operatorname{Reg}(E/K) = \left|\det (\langle P_i, P_j \rangle )_{1\leq i,j \leq r}\right|,
 \]
 which is independent of the choice of generators.
 
-Special cases are when $E(K)$ has rank $0$, in which case $E(K)/E(K)_{tor}=0$ and $\operatorname{Reg}(E/K)=1$, and when $E(K)$ has rank $1$, in which case $\operatorname{Reg}(E/K)$ is equal to the {{ KNOWL('ec.canonical_height', "canonical height") }} $\hat{h}(P)$ of a generator $P$.
-\end{definition}
+Special cases are when $E(K)$ has rank $0$, in which case $E(K)/E(K)_{tor}=0$ and $\operatorname{Reg}(E/K)=1$, and when $E(K)$ has rank $1$, in which case $\operatorname{Reg}(E/K)$ is equal to the \hyperref[ec.canonical_height]{canonical height} $\hat{h}(P)$ of a generator $P$.
+\end{definition*}
 
 

@@ -1,7 +1,7 @@
-\subsection{Minimal polynomial}
-\begin{definition}\label{nf.minimal_polynomial}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.minimal_polynomial}{Minimal polynomial}}
+\begin{definition*}\label{nf.minimal_polynomial}
 \uses{nf}
-The **minimal polynomial** of an element \(a\) in a {{ KNOWL('nf', 'number field') }} \(K\) is the unique monic polynomial \(f(X)\in\Q[X]\) of minimal degree such that \(f(a)=0\). It is necessarily irreducible over $\Q.$
-\end{definition}
+The \textbf{minimal polynomial} of an element \(a\) in a \hyperref[nf]{number field} \(K\) is the unique monic polynomial \(f(X)\in\Q[X]\) of minimal degree such that \(f(a)=0\). It is necessarily irreducible over $\Q.$
+\end{definition*}
 
 

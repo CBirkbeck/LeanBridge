@@ -1,16 +1,18 @@
-\subsection{Period lattice of an elliptic curve}
-\begin{definition}\label{ec.q.period_lattice}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.q.period_lattice}{Period lattice of an elliptic curve}}
+\begin{definition*}\label{ec.q.period_lattice}
 \uses{ec,ec.global_minimal_model,ec.q.discriminant,ec.q.real_period,ec.weierstrass_coeffs,group.rank}
-For $E$ an {{KNOWL('ec', 'elliptic curve')}} defined over $\C$ by a {{KNOWL('ec.weierstrass_coeffs', 'Weierstrass equation')}} with coefficients $a_1,a_2,a_3,a_4,a_6$, the **period lattice** of $E$ is the set $\Lambda$ of periods of the invariant differential $dx/(2y+a_1x+a_3)$, which is a discrete lattice of {{KNOWL('group.rank', 'rank')}} $2$ in $\C$.   There is an isomorphism (of complex Lie groups) $\C/\Lambda \cong E(\C)$ defined in terms of the Weierstrass $\wp$-function.
+For $E$ an \hyperref[ec]{elliptic curve} defined over $\C$ by a \hyperref[ec.weierstrass_coeffs]{Weierstrass equation} with coefficients $a_1,a_2,a_3,a_4,a_6$, the \textbf{period lattice} of $E$ is the set $\Lambda$ of periods of the invariant differential $dx/(2y+a_1x+a_3)$, which is a discrete lattice of \hyperref[group.rank]{rank} $2$ in $\C$.   There is an isomorphism (of complex Lie groups) $\C/\Lambda \cong E(\C)$ defined in terms of the Weierstrass $\wp$-function.
 
-For elliptic curves defined over $\R$ (and in particular, for those defined over $\Q$), the period lattice has one of two possible types dependng on the sign of the {{KNOWL('ec.q.discriminant', 'discriminant')}} $\Delta$ of $E$:
+For elliptic curves defined over $\R$ (and in particular, for those defined over $\Q$), the period lattice has one of two possible types dependng on the sign of the \hyperref[ec.q.discriminant]{discriminant} $\Delta$ of $E$:
 
-  - If $\Delta>0$, then $\Lambda$ is *rectangular*, with a $\Z$-basis of the form $\left<x,yi\right>$, where $x$ and $y$ are positive real numbers; in this case, $E(\R)$ has two connected components.
-  - If $\Delta<0$, then $\Lambda$ has a $\Z$-basis of the form $\left<2x,x+yi\right>$, where $x$ and $y$ are positive real numbers; in this case, $E(\R)$ has one connected component.
+\begin{itemize}
+\item  If $\Delta>0$, then $\Lambda$ is *rectangular*, with a $\Z$-basis of the form $\left<x,yi\right>$, where $x$ and $y$ are positive real numbers; in this case, $E(\R)$ has two connected components.
+\item  If $\Delta<0$, then $\Lambda$ has a $\Z$-basis of the form $\left<2x,x+yi\right>$, where $x$ and $y$ are positive real numbers; in this case, $E(\R)$ has one connected component.
+\end{itemize}
 
-The **real period**  of $E$ is defined to be $2x$ in each case, so is equal to the smallest positive real period multiplied by the number of real components.
+The \textbf{real period}  of $E$ is defined to be $2x$ in each case, so is equal to the smallest positive real period multiplied by the number of real components.
 
-Note that the period lattice depends on the choice of Weierstrass model of $E$; different models have {{KNOWL('ec.q.real_period', 'homothetic')}} lattices.  For elliptic curves defined over $\Q$, the period lattice associated to a {{KNOWL('ec.global_minimal_model', 'global minimal model')}} of $E$ is called the **N&eacute;ron lattice** of $E$.  The real period of the N&eacute;ron lattice is denoted $\Omega_E$, and appears in the Birch Swinnerton-Dyer conjecture for $E$.
-\end{definition}
+Note that the period lattice depends on the choice of Weierstrass model of $E$; different models have \hyperref[ec.q.real_period]{homothetic} lattices.  For elliptic curves defined over $\Q$, the period lattice associated to a \hyperref[ec.global_minimal_model]{global minimal model} of $E$ is called the \textbf{N\'e;ron lattice} of $E$.  The real period of the N\'e;ron lattice is denoted $\Omega_E$, and appears in the Birch Swinnerton-Dyer conjecture for $E$.
+\end{definition*}
 
 

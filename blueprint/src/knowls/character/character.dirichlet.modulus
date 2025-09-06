@@ -1,7 +1,7 @@
-\subsection{Modulus of a Dirichlet character}
-\begin{definition}\label{character.dirichlet.modulus}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/character.dirichlet.modulus}{Modulus of a Dirichlet character}}
+\begin{definition*}\label{character.dirichlet.modulus}
 \uses{}
-A **Dirichlet character** is a function $\chi: \mathbb Z\to \mathbb C$ together with a positive integer $q$, called the **modulus** of the character, such that $\chi$ is completely multiplicative, i.e. $\chi(mn)=\chi(m)\chi(n)$ for all integers $m$ and $n$, and $\chi$ is periodic modulo $q$, i.e. $\chi(n+q)=\chi(n)$ for all $n$. If $(n,q)>1$ then $\chi(n)=0$, whereas if $(n,q)=1$, then $\chi(n)$ is a root of unity.
-\end{definition}
+A \textbf{Dirichlet character} is a function $\chi: \mathbb Z\to \mathbb C$ together with a positive integer $q$, called the \textbf{modulus} of the character, such that $\chi$ is completely multiplicative, i.e. $\chi(mn)=\chi(m)\chi(n)$ for all integers $m$ and $n$, and $\chi$ is periodic modulo $q$, i.e. $\chi(n+q)=\chi(n)$ for all $n$. If $(n,q)>1$ then $\chi(n)=0$, whereas if $(n,q)=1$, then $\chi(n)$ is a root of unity.
+\end{definition*}
 
 

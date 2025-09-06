@@ -1,16 +1,20 @@
-\subsection{Spectral index of a Maass form}
-\begin{definition}\label{mf.maass.spectral_index}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.maass.spectral_index}{Spectral index of a Maass form}}
+\begin{definition*}\label{mf.maass.spectral_index}
 \uses{mf.maass.mwf.eigenvalue,mf.maass.mwf.spectralparameter,mf.maass.exceptional_eigenvalue}
-The {{ KNOWL("mf.maass.mwf.eigenvalue", "eigenvalues") }} $\lambda = \frac{1}{4} + R^2$ (written in terms of the {{ KNOWL("mf.maass.mwf.spectralparameter", "spectral parameter") }} $R$) are discrete, real, and nonnegative. We order them, and the index of a particular eigenvalue $\lambda$ in this order is called the **spectral index**.
+The \hyperref[mf.maass.mwf.eigenvalue]{eigenvalues} $\lambda = \frac{1}{4} + R^2$ (written in terms of the \hyperref[mf.maass.mwf.spectralparameter]{spectral parameter} $R$) are discrete, real, and nonnegative. We order them, and the index of a particular eigenvalue $\lambda$ in this order is called the \textbf{spectral index}.
 
 The index $0$ is reserved for when the eigenvalue $\lambda = \frac{1}{4}$, or equivalently for when the spectral parameter $R = 0$.
-For other eigenvalues, we notate the index differently based on whether the eigenvalue is {{ KNOWL('mf.maass.exceptional_eigenvalue', "exceptional") }} or not.
+For other eigenvalues, we notate the index differently based on whether the eigenvalue is \hyperref[mf.maass.exceptional_eigenvalue]{exceptional} or not.
 
-- For standard eigenvalues, when $R$ is purely imaginary, we order the eigenvalues by the absolute value of the spectral parameter $R$. The first such eigenvalue with $R \neq 0$ is assigned **spectral index** $1$, and so on.
+\begin{itemize}
+\item  For standard eigenvalues, when $R$ is purely imaginary, we order the eigenvalues by the absolute value of the spectral parameter $R$. The first such eigenvalue with $R \neq 0$ is assigned \textbf{spectral index} $1$, and so on.
+\end{itemize}
 
-- For exceptional eigenvalues, when $R$ is purely real, we again order the eigenvalues by the absolute value of the spectral parameter $R$. But the index is encoded in base $26$ using the $26$ symbols $a, b, \ldots, z$. The first such eigenvalue with $R \neq 0$ is assigned the **spectral index** $b$.
+\begin{itemize}
+\item  For exceptional eigenvalues, when $R$ is purely real, we again order the eigenvalues by the absolute value of the spectral parameter $R$. But the index is encoded in base $26$ using the $26$ symbols $a, b, \ldots, z$. The first such eigenvalue with $R \neq 0$ is assigned the \textbf{spectral index} $b$.
+\end{itemize}
 
 Exceptional eigenvalues are conjectured to not exist. In practice, the latter indexing system is not necessary.
-\end{definition}
+\end{definition*}
 
 

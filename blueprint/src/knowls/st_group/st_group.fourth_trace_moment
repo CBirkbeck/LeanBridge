@@ -1,9 +1,9 @@
-\subsection{Fourth trace moment}
-\begin{definition}\label{st_group.fourth_trace_moment}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/st_group.fourth_trace_moment}{Fourth trace moment}}
+\begin{definition*}\label{st_group.fourth_trace_moment}
 \uses{group.haar_measure,st_group.definition,st_group.weight}
-The **fourth trace moment** of a {{KNOWL('st_group.definition', 'Sato-Tate group')}} $G$ is the expected value of the fourth power of the trace of a random element of $G$ (under the {{KNOWL('group.haar_measure', 'Haar measure')}}).
+The \textbf{fourth trace moment} of a \hyperref[st_group.definition]{Sato-Tate group} $G$ is the expected value of the fourth power of the trace of a random element of $G$ (under the \hyperref[group.haar_measure]{Haar measure}).
 
-By a result known as "Larsen's alternative" \cite{mr:2058618}, if the fourth trace moment is less than or equal to 5 then $G$ is irreducible, and for $G$ of odd {{KNOWL('st_group.weight', 'weight')}}, the fourth trace moment is 3 when $G=\mathrm{USp}(2g)$ and greater than 3 otherwise.
-\end{definition}
+By a result known as "Larsen's alternative" \cite{mr:2058618}, if the fourth trace moment is less than or equal to 5 then $G$ is irreducible, and for $G$ of odd \hyperref[st_group.weight]{weight}, the fourth trace moment is 3 when $G=\mathrm{USp}(2g)$ and greater than 3 otherwise.
+\end{definition*}
 
 

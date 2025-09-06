@@ -1,7 +1,7 @@
-\subsection{Kodaira symbol}
-\begin{definition}\label{ec.q.kodaira_symbol}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.q.kodaira_symbol}{Kodaira symbol}}
+\begin{definition*}\label{ec.q.kodaira_symbol}
 \uses{ec.q.minimal_weierstrass_equation,ec.q.reduction_type}
-The **Kodaira symbol** encodes the {{ KNOWL('ec.q.reduction_type', 'reduction type') }} of an elliptic curve at a prime $p.$ It describes the combinatorics of the special fiber of the N&eacute;ron model of the elliptic curve. The N&eacute;ron model is obtained from the {{KNOWL('ec.q.minimal_weierstrass_equation', 'minimal Weierstrass equation')}} using Tate's algorithm. For an exact definition and properties, consult a text on elliptic curves.
-\end{definition}
+The \textbf{Kodaira symbol} encodes the \hyperref[ec.q.reduction_type]{reduction type} of an elliptic curve at a prime $p.$ It describes the combinatorics of the special fiber of the N\'e;ron model of the elliptic curve. The N\'e;ron model is obtained from the \hyperref[ec.q.minimal_weierstrass_equation]{minimal Weierstrass equation} using Tate's algorithm. For an exact definition and properties, consult a text on elliptic curves.
+\end{definition*}
 
 

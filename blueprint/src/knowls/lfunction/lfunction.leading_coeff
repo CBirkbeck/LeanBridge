@@ -1,7 +1,7 @@
-\subsection{Leading coefficient}
-\begin{definition}\label{lfunction.leading_coeff}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.leading_coeff}{Leading coefficient}}
+\begin{definition*}\label{lfunction.leading_coeff}
 \uses{lfunction.arithmetic,lfunction.central_point}
-The **leading coefficient** of an {{KNOWL('lfunction.arithmetic','arithmetic L-function')}} is the first nonzero coefficient of its Laurent series expansion at the {{KNOWL('lfunction.central_point', 'central point')}}.
-\end{definition}
+The \textbf{leading coefficient} of an \hyperref[lfunction.arithmetic]{arithmetic L-function} is the first nonzero coefficient of its Laurent series expansion at the \hyperref[lfunction.central_point]{central point}.
+\end{definition*}
 
 

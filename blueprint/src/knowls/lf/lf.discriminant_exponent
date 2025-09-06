@@ -1,7 +1,7 @@
-\subsection{Discriminant exponent of a local field}
-\begin{definition}\label{lf.discriminant_exponent}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.discriminant_exponent}{Discriminant exponent of a local field}}
+\begin{definition*}\label{lf.discriminant_exponent}
 \uses{lf.discriminant_root_field,lf.padic_field,lf.ramification_index,lf.ring_of_integers}
-Let $L/K$ be a finite extension of {{ KNOWL('lf.padic_field', '$p$-adic fields') }}, with {{ KNOWL('lf.ring_of_integers', 'rings of integers') }} $\mathcal{O}_L$ and $\mathcal{O}_K$ and {{ KNOWL('lf.ramification_index', 'uniformizers') }} $\pi_L$ and $\pi_K$.  The **discriminant** of $L/K$ is the square of the determinant of the matrix
+Let $L/K$ be a finite extension of \hyperref[lf.padic_field]{$p$-adic fields}, with \hyperref[lf.ring_of_integers]{rings of integers} $\mathcal{O}_L$ and $\mathcal{O}_K$ and \hyperref[lf.ramification_index]{uniformizers} $\pi_L$ and $\pi_K$.  The \textbf{discriminant} of $L/K$ is the square of the determinant of the matrix
 \[
 \left( \begin{array}{ccc}
  \sigma_1(\beta_1) & \cdots & \sigma_1(\beta_n) \\
@@ -11,9 +11,9 @@ Let $L/K$ be a finite extension of {{ KNOWL('lf.padic_field', '$p$-adic fields')
 \]
 where $\sigma_1,..., \sigma_n$ are the embeddings of $L$ into an algebraic closure $\overline{K}$, and $\{\beta_1, \ldots, \beta_n\}$ is a basis for $\mathcal{O}_L$ as a free $\mathcal{O}_K$-module. 
 
-The discriminant of $L/K$ is an element of $K^\times$ which is well-defined up to the square of a unit.  Thus, it is of the form $\pi_K^c u$ where $u \in \mathcal{O}_K^\times$ is a unit.  The value $c$ is the **discriminant exponent** for $L/K$.  Together with the {{ KNOWL('lf.discriminant_root_field', "discriminant root field") }} of $L/K$, it determines the discriminant of $L/K$ (up to the square of a unit).
+The discriminant of $L/K$ is an element of $K^\times$ which is well-defined up to the square of a unit.  Thus, it is of the form $\pi_K^c u$ where $u \in \mathcal{O}_K^\times$ is a unit.  The value $c$ is the \textbf{discriminant exponent} for $L/K$.  Together with the \hyperref[lf.discriminant_root_field]{discriminant root field} of $L/K$, it determines the discriminant of $L/K$ (up to the square of a unit).
 
-The **base discriminant exponent** $c_0$ of $L/K$ is the discriminant exponent of $K/\Q_p$.  The **absolute discriminant exponent** $c_{\mathrm{abs}}$ of $L/K$ is the discriminant exponent of $L/\Q_p$.
-\end{definition}
+The \textbf{base discriminant exponent} $c_0$ of $L/K$ is the discriminant exponent of $K/\Q_p$.  The \textbf{absolute discriminant exponent} $c_{\mathrm{abs}}$ of $L/K$ is the discriminant exponent of $L/\Q_p$.
+\end{definition*}
 
 

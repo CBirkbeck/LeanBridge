@@ -1,10 +1,12 @@
-\subsection{Search}
-\begin{definition}\label{intro.search}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/intro.search}{Search}}
+\begin{definition*}\label{intro.search}
 \uses{}
- * The objects returned will satisfy all of the constraints that you enter.
- * Within a single text field, you can use commas to get a union of a set of desired inputs.
- * You can indicate a range by using either a hyphen or a .., such as "3-9" or "3..9".
- * You can negate a query by inserting a "~" at the beginning; for example "~3,5" excludes objects for which the relevant attribute has value 3 or 5.
-\end{definition}
+\begin{itemize}
+\item  The objects returned will satisfy all of the constraints that you enter.
+\item  Within a single text field, you can use commas to get a union of a set of desired inputs.
+\item  You can indicate a range by using either a hyphen or a .., such as "3-9" or "3..9".
+\item  You can negate a query by inserting a "~" at the beginning; for example "~3,5" excludes objects for which the relevant attribute has value 3 or 5.
+\end{itemize}
+\end{definition*}
 
 

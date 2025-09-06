@@ -1,9 +1,9 @@
-\subsection{Real period}
-\begin{definition}\label{ec.q.real_period}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.q.real_period}{Real period}}
+\begin{definition*}\label{ec.q.real_period}
 \uses{ec.q.minimal_weierstrass_equation,ec.weierstrass_coeffs,ec.weierstrass_isomorphism}
-For an elliptic curve $E$ defined over $\R$ with period lattice $\Lambda$, the **real period** $\Omega$ is the least positive element of $\Lambda\cap\R$ multiplied by the number of components of $E(\R)$. 
+For an elliptic curve $E$ defined over $\R$ with period lattice $\Lambda$, the \textbf{real period} $\Omega$ is the least positive element of $\Lambda\cap\R$ multiplied by the number of components of $E(\R)$. 
 
-When an elliptic curve is defined by means of a {{ KNOWL('ec.weierstrass_coeffs', 'Weierstrass equation') }}, the period lattice $\Lambda$ is the lattice of periods of the invariant differential $dx/(2y+a_1x+a_3)$.  Different Weierstrass models defining {{ KNOWL('ec.weierstrass_isomorphism', 'isomorphic') }}  curves have period lattices which are **homothetic**, meaning that they differ by a nonzero multiplicative constant.  When we speak of **the** period lattice or **the** real period for an elliptic curve defined over $\Q$, we always mean the lattice and period associated with a {{ KNOWL('ec.q.minimal_weierstrass_equation', 'minimal') }} equation.
-\end{definition}
+When an elliptic curve is defined by means of a \hyperref[ec.weierstrass_coeffs]{Weierstrass equation}, the period lattice $\Lambda$ is the lattice of periods of the invariant differential $dx/(2y+a_1x+a_3)$.  Different Weierstrass models defining \hyperref[ec.weierstrass_isomorphism]{isomorphic}  curves have period lattices which are \textbf{homothetic}, meaning that they differ by a nonzero multiplicative constant.  When we speak of \textbf{the} period lattice or \textbf{the} real period for an elliptic curve defined over $\Q$, we always mean the lattice and period associated with a \hyperref[ec.q.minimal_weierstrass_equation]{minimal} equation.
+\end{definition*}
 
 

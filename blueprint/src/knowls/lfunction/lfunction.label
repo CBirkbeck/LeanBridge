@@ -1,13 +1,15 @@
-\subsection{Label of L-function}
-\begin{definition}\label{lfunction.label}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.label}{Label of L-function}}
+\begin{definition*}\label{lfunction.label}
 \uses{character.dirichlet,character.dirichlet.conrey,character.dirichlet.induce,character.dirichlet.primitive,lfunction,lfunction.central_character,lfunction.conductor,lfunction.degree,lfunction.functional_equation,lfunction.normalization,lfunction.spectral_label}
-Each {{KNOWL('lfunction', 'L-function')}} $L$ has a label of the form d-N-q.k-x-y-i, where
+Each \hyperref[lfunction]{L-function} $L$ has a label of the form d-N-q.k-x-y-i, where
 
- * $d$ is the {{KNOWL('lfunction.degree', 'degree')}} of $L$.
- * $N$ is the {{KNOWL('lfunction.conductor', 'conductor')}} of $L$.  When $N$ is a perfect power $m^n$ we write $N$ as $m$e$n$, since $N$ can be very large for some imprimitive L-functions.
- * q.k is the {{ KNOWL('character.dirichlet.conrey', 'label') }} of the {{KNOWL('character.dirichlet.primitive', 'primitive')}} {{KNOWL('character.dirichlet', 'Dirichlet character')}} from which the {{KNOWL('lfunction.central_character', 'central character')}} is {{KNOWL('character.dirichlet.induce', 'induced')}}.
- * x-y is the {{KNOWL('lfunction.spectral_label', 'spectral label')}} encoding the $\mu_j$ and $\nu_j$ in the {{ KNOWL('lfunction.normalization', 'analytically normalized') }} {{KNOWL('lfunction.functional_equation', 'functional equation')}}.
- * i is a non-negative integer disambiguating between L-functions that would otherwise have the same label.
-\end{definition}
+\begin{itemize}
+\item  $d$ is the \hyperref[lfunction.degree]{degree} of $L$.
+\item  $N$ is the \hyperref[lfunction.conductor]{conductor} of $L$.  When $N$ is a perfect power $m^n$ we write $N$ as $m$e$n$, since $N$ can be very large for some imprimitive L-functions.
+\item  q.k is the \hyperref[character.dirichlet.conrey]{label} of the \hyperref[character.dirichlet.primitive]{primitive} \hyperref[character.dirichlet]{Dirichlet character} from which the \hyperref[lfunction.central_character]{central character} is \hyperref[character.dirichlet.induce]{induced}.
+\item  x-y is the \hyperref[lfunction.spectral_label]{spectral label} encoding the $\mu_j$ and $\nu_j$ in the \hyperref[lfunction.normalization]{analytically normalized} \hyperref[lfunction.functional_equation]{functional equation}.
+\item  i is a non-negative integer disambiguating between L-functions that would otherwise have the same label.
+\end{itemize}
+\end{definition*}
 
 

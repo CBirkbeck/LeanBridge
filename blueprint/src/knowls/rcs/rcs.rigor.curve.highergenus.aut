@@ -1,7 +1,7 @@
-\subsection{Reliability of the higher genus curves with automorphisms data}
-\begin{definition}\label{rcs.rigor.curve.highergenus.aut}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.rigor.curve.highergenus.aut}{Reliability of the higher genus curves with automorphisms data}}
+\begin{definition*}\label{rcs.rigor.curve.highergenus.aut}
 \uses{}
 All the data on higher genus curves with automorphisms was computed with rigorous algorithms and without heuristics or conjectures.
-\end{definition}
+\end{definition*}
 
 

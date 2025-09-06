@@ -1,7 +1,7 @@
-\subsection{Bézout module of a hypergeometric motive}
-\begin{definition}\label{hgm.bezout_module}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/hgm.bezout_module}{Bézout module of a hypergeometric motive}}
+\begin{definition*}\label{hgm.bezout_module}
 \uses{hgm.bezout_matrix,hgm.degree}
-The **Bezout module** of a hypergeometric motive $M$ is the finite $\mathbb{Z}$-module whose relations matrix is the {{ KNOWL('hgm.bezout_matrix', 'Bézout matrix') }} $B$ of $M$. In other words, it is the quotient $\mathbb{Z}^d/B \mathbb{Z}^d$, where $d$ is the {{ KNOWL('hgm.degree', 'degree') }} of $M$.
-\end{definition}
+The \textbf{Bezout module} of a hypergeometric motive $M$ is the finite $\mathbb{Z}$-module whose relations matrix is the \hyperref[hgm.bezout_matrix]{Bézout matrix} $B$ of $M$. In other words, it is the quotient $\mathbb{Z}^d/B \mathbb{Z}^d$, where $d$ is the \hyperref[hgm.degree]{degree} of $M$.
+\end{definition*}
 
 

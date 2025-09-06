@@ -1,39 +1,53 @@
-\subsection{Completeness of Classical Modular Form Data}
-\begin{definition}\label{rcs.cande.cmf}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.cande.cmf}{Completeness of Classical Modular Form Data}}
+\begin{definition*}\label{rcs.cande.cmf}
 \uses{artin,cmf.analytic_conductor,cmf.analytic_rank,cmf.artin_field,cmf.artin_image,cmf.character,cmf.coefficient_field,cmf.coefficient_ring,cmf.dimension,cmf.embedding,cmf.eta_quotient,cmf.heckecharpolys,cmf.inner_twist,cmf.level,cmf.minimal_twist,cmf.newform,cmf.newspace,cmf.projective_image,cmf.q-expansion,cmf.sato_tate,cmf.self_twist,cmf.stark_unit,cmf.sturm_bound,cmf.trace_form,cmf.twist,cmf.weight}
-The classical modular form database currently contains information for all {{KNOWL('cmf.newform', 'newforms')}} $f\in S_k^\mathrm{new}(N,\chi)$ of {{KNOWL('cmf.level', 'level')}} $N\ge 1$, {{KNOWL('cmf.weight', 'weight')}} $k\ge 1$, {{KNOWL('cmf.character', 'character')}} $\chi\colon (\Z/N\Z)^\times\to \C$,
+The classical modular form database currently contains information for all \hyperref[cmf.newform]{newforms} $f\in S_k^\mathrm{new}(N,\chi)$ of \hyperref[cmf.level]{level} $N\ge 1$, \hyperref[cmf.weight]{weight} $k\ge 1$, \hyperref[cmf.character]{character} $\chi\colon (\Z/N\Z)^\times\to \C$,
 for which any of the following hold:
 
-   * $Nk^2\le 4000$;
-   * $\chi$ trivial and $Nk^2\le 40\,000$;
-   * $N \le 24$ and $Nk^2 \le 40\,000$;
-   * $N \le 10$ and $Nk^2 \le 100\,000$;
-   * $N \le 100$ and $k \le 12$;
-   * $k > 1$ and $\dim S_k^{\rm new}(N,\chi) \le 100$ and $Nk^2 \le 40\,000$.
-   * $k = 2$, $\chi$ is trivial, and $N\le 50\,000$ or $N \le 10^6$ is prime.
+\begin{itemize}
+\item  $Nk^2\le 4000$;
+\item  $\chi$ trivial and $Nk^2\le 40\,000$;
+\item  $N \le 24$ and $Nk^2 \le 40\,000$;
+\item  $N \le 10$ and $Nk^2 \le 100\,000$;
+\item  $N \le 100$ and $k \le 12$;
+\item  $k > 1$ and $\dim S_k^{\rm new}(N,\chi) \le 100$ and $Nk^2 \le 40\,000$.
+\item  $k = 2$, $\chi$ is trivial, and $N\le 50\,000$ or $N \le 10^6$ is prime.
+\end{itemize}
 
-In addition to the {{KNOWL('cmf.newspace','newspaces')}} identified above, there are 131 newspaces that are present because they contain the {{KNOWL('cmf.minimal_twist','minimal twist')}} of a newform in one of the newspaces above.
+In addition to the \hyperref[cmf.newspace]{newspaces} identified above, there are 131 newspaces that are present because they contain the \hyperref[cmf.minimal_twist]{minimal twist} of a newform in one of the newspaces above.
 
-For each newform with {{KNOWL('cmf.q-expansion', 'q-expansion')}} $f=\sum a_nq^n$ the database contains the integers $\mathrm{tr}(a_n)$ for $1\le n \le 1000$, and when the level is at most $10\,000$ and the {{KNOWL('cmf.dimension', 'dimension')}} of $f$ is at most $20$, the algebraic integers $a_n$ for $1\le n \le 1000$ expressed in terms of an explicit basis for the {{KNOWL('cmf.coefficient_ring', 'coefficient ring')}} $\Q(f)$.  For $1000 < N \le 4000$ this data is available for all $n\le 2000$, and for $4000 < N\le 10\,000$, for all $n\le 3000$  (these values exceed both the {{KNOWL('cmf.sturm_bound', 'Sturm bound')}} and $30\sqrt{N}$ in every case). When the level is at most $10\,000$ and the dimension of $f$ is at most $20$ {{KNOWL('cmf.heckecharpolys', 'Hecke characteristic polynomials')}} for primes $p\le 100$ are also available.
+For each newform with \hyperref[cmf.q-expansion]{q-expansion} $f=\sum a_nq^n$ the database contains the integers $\mathrm{tr}(a_n)$ for $1\le n \le 1000$, and when the level is at most $10\,000$ and the \hyperref[cmf.dimension]{dimension} of $f$ is at most $20$, the algebraic integers $a_n$ for $1\le n \le 1000$ expressed in terms of an explicit basis for the \hyperref[cmf.coefficient_ring]{coefficient ring} $\Q(f)$.  For $1000 < N \le 4000$ this data is available for all $n\le 2000$, and for $4000 < N\le 10\,000$, for all $n\le 3000$  (these values exceed both the \hyperref[cmf.sturm_bound]{Sturm bound} and $30\sqrt{N}$ in every case). When the level is at most $10\,000$ and the dimension of $f$ is at most $20$ \hyperref[cmf.heckecharpolys]{Hecke characteristic polynomials} for primes $p\le 100$ are also available.
 
-For each newform $f$ of level $N\le 10\,000$ and each {{KNOWL('cmf.embedding', 'embedding')}} $\rho\colon \Q(f)\to \C$ the complex numbers $\rho(a_n)$ are available as floating point numbers with a precision of at least $52$ bits (separately, for both real and imaginary parts); this information is available for all newforms, regardless of their dimension, even when algebraic $a_n$ are not available (for the same ranges of $n$ as above).
+For each newform $f$ of level $N\le 10\,000$ and each \hyperref[cmf.embedding]{embedding} $\rho\colon \Q(f)\to \C$ the complex numbers $\rho(a_n)$ are available as floating point numbers with a precision of at least $52$ bits (separately, for both real and imaginary parts); this information is available for all newforms, regardless of their dimension, even when algebraic $a_n$ are not available (for the same ranges of $n$ as above).
 
-Dimension tables are available for all newspaces $S_k^\mathrm{new}(N,\chi)$ with $Nk^2 \le 4000$, and also for those with $k>1$ and $Nk^2\le 40\,000$, and those with $N\le 10$ and $Nk^2\le 100\,000$.  For newspaces in these ranges with $N\le 4000$ we have also computed the first $1000$ coefficients of the {{KNOWL('cmf.trace_form', 'trace form')}} of the newspace.
+Dimension tables are available for all newspaces $S_k^\mathrm{new}(N,\chi)$ with $Nk^2 \le 4000$, and also for those with $k>1$ and $Nk^2\le 40\,000$, and those with $N\le 10$ and $Nk^2\le 100\,000$.  For newspaces in these ranges with $N\le 4000$ we have also computed the first $1000$ coefficients of the \hyperref[cmf.trace_form]{trace form} of the newspace.
 
 Not every invariant of every newform has been computed (this is computationally infeasible).  Below is completeness information for some specific invariants:
 
-* The following information is available for every newform of level $N\le 10\,000$: {{KNOWL('cmf.level','level')}}, {{KNOWL('cmf.weight','weight')}}, {{KNOWL('cmf.character','character')}}, {{KNOWL('cmf.dimension', 'dimension')}}, {{KNOWL('cmf.analytic_conductor', 'analytic conductor')}}, {{KNOWL('cmf.sato_tate', 'Sato-Tate group')}}, {{KNOWL('cmf.trace_form', 'trace form')}}, {{KNOWL('cmf.embedding', 'complex embedding')}} data, all {{KNOWL('cmf.self_twist', 'self twists')}}, all {{KNOWL('cmf.inner_twist', 'inner twists')}}, all {{KNOWL('cmf.twist', 'twists')}} to other newforms in the database, the {{KNOWL('cmf.minimal_twist','minimal twist')}}, and an upper bound on the {{KNOWL('cmf.analytic_rank', 'analytic rank')}}.
+\begin{itemize}
+\item  The following information is available for every newform of level $N\le 10\,000$: \hyperref[cmf.level]{level}, \hyperref[cmf.weight]{weight}, \hyperref[cmf.character]{character}, \hyperref[cmf.dimension]{dimension}, \hyperref[cmf.analytic_conductor]{analytic conductor}, \hyperref[cmf.sato_tate]{Sato-Tate group}, \hyperref[cmf.trace_form]{trace form}, \hyperref[cmf.embedding]{complex embedding} data, all \hyperref[cmf.self_twist]{self twists}, all \hyperref[cmf.inner_twist]{inner twists}, all \hyperref[cmf.twist]{twists} to other newforms in the database, the \hyperref[cmf.minimal_twist]{minimal twist}, and an upper bound on the \hyperref[cmf.analytic_rank]{analytic rank}.
+\end{itemize}
 
-* The following information is available for every newform of dimension at most $20$ and level $N\le 10000$, and also for every weight one newform: {{KNOWL('cmf.coefficient_field', 'coefficient field')}}, exact algebraic coefficient data, generators for the {{KNOWL('cmf.coefficient_ring', 'coefficient ring')}}, and a lower bound on the index of the coefficient ring in the ring of integers of the coefficient field.
+\begin{itemize}
+\item  The following information is available for every newform of dimension at most $20$ and level $N\le 10000$, and also for every weight one newform: \hyperref[cmf.coefficient_field]{coefficient field}, exact algebraic coefficient data, generators for the \hyperref[cmf.coefficient_ring]{coefficient ring}, and a lower bound on the index of the coefficient ring in the ring of integers of the coefficient field.
+\end{itemize}
 
-* The following information is available for every weight one newform: {{KNOWL('cmf.projective_image', 'projective image')}} and {{KNOWL('cmf.projective_image', 'projective field')}}.
+\begin{itemize}
+\item  The following information is available for every weight one newform: \hyperref[cmf.projective_image]{projective image} and \hyperref[cmf.projective_image]{projective field}.
+\end{itemize}
 
-* In cases where the odd 2-dimensional {{KNOWL('artin', 'Artin representation')}} corresponding to a weight one newform is present in the LMFDB, it is listed as a related object and the {{KNOWL('cmf.artin_image', 'Artin image')}} and {{KNOWL('cmf.artin_field', 'Artin field')}} of the weight one newform are available, and this information is also available in some cases where a twist of a weight one newform has a corresponding Artin representation in the LMFDB, even though the twisted Artin representation is not in the LMFDB.  As of January 2020 this applies to about 30% of the weight one newforms in the database.
+\begin{itemize}
+\item  In cases where the odd 2-dimensional \hyperref[artin]{Artin representation} corresponding to a weight one newform is present in the LMFDB, it is listed as a related object and the \hyperref[cmf.artin_image]{Artin image} and \hyperref[cmf.artin_field]{Artin field} of the weight one newform are available, and this information is also available in some cases where a twist of a weight one newform has a corresponding Artin representation in the LMFDB, even though the twisted Artin representation is not in the LMFDB.  As of January 2020 this applies to about 30% of the weight one newforms in the database.
+\end{itemize}
 
-* The database includes all of the 43 newforms that can be expressed as {{KNOWL('cmf.eta_quotient', 'eta quotients')}} \cite{doi:10.1090/S0002-9947-96-01743-6,mr:1376550}.
+\begin{itemize}
+\item  The database includes all of the 43 newforms that can be expressed as \hyperref[cmf.eta_quotient]{eta quotients} \cite{doi:10.1090/S0002-9947-96-01743-6,mr:1376550}.
+\end{itemize}
 
-* {{KNOWL('cmf.stark_unit', 'Stark units')}} for $b=1$ are available for weight 1 newforms of dimension 1.
+\begin{itemize}
+\item  \hyperref[cmf.stark_unit]{Stark units} for $b=1$ are available for weight 1 newforms of dimension 1.
+\end{itemize}
 
-\end{definition}
+\end{definition*}
 
 

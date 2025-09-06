@@ -1,5 +1,5 @@
-\subsection{Source of global number field data}
-\begin{definition}\label{rcs.source.nf}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.nf}{Source of global number field data}}
+\begin{definition*}\label{rcs.source.nf}
 \uses{nf.elkies}
 Number fields were drawn from the following sources.
 <ul>
@@ -8,8 +8,8 @@ Number fields were drawn from the following sources.
  <li> M. Olivier for degree 3 fields;
  <li> J. Buchmann, D. Ford, and M. Pohst for degree 4 fields \cite{MR:1176706};
  <li> A. Schwarz, M. Pohst, and F. Diaz y Diaz for degree 5 fields \cite{MR:1219705};
- <li> M. Olivier for degree 6 fields \cite{MR:1106977}, \cite{MR:1149805}, \cite{MR:1116107}, \cite{MR:1096589}, \cite{MR:1061760}, \cite{MR:1050276}, and with A.-M. Berg&eacute; and J. Martinet \cite{MR:1011438};
- <li> P. L&eacute;tard for degree 7 fields.
+ <li> M. Olivier for degree 6 fields \cite{MR:1106977}, \cite{MR:1149805}, \cite{MR:1116107}, \cite{MR:1096589}, \cite{MR:1061760}, \cite{MR:1050276}, and with A.-M. Berg\'e; and J. Martinet \cite{MR:1011438};
+ <li> P. L\'e;tard for degree 7 fields.
 </ul>
 <li>Totally real fields of degrees from 6 to 10 computed by
   John Voight \cite{arXiv:0802.0194, href{https://math.dartmouth.edu/~jvoight/nf-tables/index.html}{math.dartmouth.edu/~jvoight/nf-tables/index.html}}.
@@ -19,7 +19,7 @@ Number fields were drawn from the following sources.
 <li>Fields from J&uuml;rgen Kl&uuml;ners-Gunter Malle database. \cite{arXiv:math/0102232,href{http://galoisdb.math.upb.de/}{galoisdb.math.upb.de/}}.
 <li>Fields of degrees 2 and 3 unramified outside {2,3,5,...,29} from Benjamin Matschke.
 <li> Octic fields with Galois group $Q_8$ from Fabian Gundlach.
-<li>{{KNOWL('nf.elkies', 'Some fields')}} from Noam Elkies.
+<li>\hyperref[nf.elkies]{Some fields} from Noam Elkies.
 <li>Fields from Johan Bosman \cite{arXiv:1109.6879}
 <li>Fields which have arisen because they are connected to other objects in the LMFDB.
 </ul>
@@ -30,6 +30,6 @@ Class groups of imaginary quadratic fields with $|D|<2^{40}$ were computed by A.
 
 Data on whether or not a field is monogenic, its index, and its inessential primes were computed using pair-gp and are based on Ga&aacute;l \cite{MR:1896601}, Gras \cite{MR:0846964}, &Sacute;liwa \cite{MR:0678997}, Nart \cite{MR:0779058}, Mushtaq et. al. \cite{MR:3844199}, and a classical theorem of Dedekind.
 
-\end{definition}
+\end{definition*}
 
 

@@ -1,8 +1,8 @@
-\subsection{Subgroup $\Gamma_1(N)$ of $\Sp(2g,\Z)$}
-\begin{definition}\label{group.sp2gr.gamma1}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.sp2gr.gamma1}{Subgroup $\Gamma_1(N)$ of $\Sp(2g,\Z)$}}
+\begin{definition*}\label{group.sp2gr.gamma1}
 \uses{group.sl2z.subgroup.gamma1n,group.sp2gr}
 The subgroup $\Gamma_1(N)$ of the integral
-{{KNOWL("group.sp2gr", "symplectic group")}} 
+\hyperref[group.sp2gr]{symplectic group} 
 $\Sp(2g,\Z)$
 is defined by:
 \[ 
@@ -15,8 +15,8 @@ is defined by:
 \right\}. 
 \]
 For $g=1$, it is the subgroup 
-{{KNOWL("group.sl2z.subgroup.gamma1n", "$\Gamma_1(N)$")}} of 
+\hyperref[group.sl2z.subgroup.gamma1n]{$\Gamma_1(N)$} of 
 $\SL(2,\Z)$.
-\end{definition}
+\end{definition*}
 
 

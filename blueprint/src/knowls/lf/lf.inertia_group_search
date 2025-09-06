@@ -1,11 +1,11 @@
-\subsection{Inertia group searching}
-\begin{definition}\label{lf.inertia_group_search}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.inertia_group_search}{Inertia group searching}}
+\begin{definition*}\label{lf.inertia_group_search}
 \uses{gg.galois_group,gg.label,group.small_group_label,lf.defining_polynomial,lf.inertia_group,lf.unramified_degree,nf.galois_group.name,ring.irreducible}
-{{KNOWL_INC('lf.inertia_group')}}
+{{KNOWL\_INC('lf.inertia\_group')}}
 
-When searching by inertia subgroups, it can be specified as an abstract group by either a {{KNOWL('group.small_group_label', 'GAP id')}} or a group name from {{KNOWL('gg.label', 'transitive group label')}}.
+When searching by inertia subgroups, it can be specified as an abstract group by either a \hyperref[group.small_group_label]{GAP id} or a group name from \hyperref[gg.label]{transitive group label}.
 
-It can also be specified by as a {{KNOWL('nf.galois_group.name', 'transitive group label')}}.  In this case, it will only match $p$-adic fields where the {{KNOWL('lf.defining_polynomial', 'defining polynomial')}} is {{KNOWL('ring.irreducible', 'irreducible')}} over the unramified extension of $\Q_p$ of degree {{KNOWL('lf.unramified_degree', 'unramified degree')}} and the {{KNOWL('gg.galois_group', 'Galois group')}} of the polynomial over that extension matches the specified transitive group.
-\end{definition}
+It can also be specified by as a \hyperref[nf.galois_group.name]{transitive group label}.  In this case, it will only match $p$-adic fields where the \hyperref[lf.defining_polynomial]{defining polynomial} is \hyperref[ring.irreducible]{irreducible} over the unramified extension of $\Q_p$ of degree \hyperref[lf.unramified_degree]{unramified degree} and the \hyperref[gg.galois_group]{Galois group} of the polynomial over that extension matches the specified transitive group.
+\end{definition*}
 
 

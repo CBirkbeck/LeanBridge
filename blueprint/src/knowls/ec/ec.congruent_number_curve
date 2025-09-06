@@ -1,28 +1,28 @@
-\subsection{Congruent number curves}
-\begin{definition}\label{ec.congruent_number_curve}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.congruent_number_curve}{Congruent number curves}}
+\begin{definition*}\label{ec.congruent_number_curve}
 \uses{ec,ec.congruent_number_problem,ec.isogeny,ec.isogeny_class,ec.mordell_weil_group,ec.q.conductor,ec.rank,ec.weierstrass_coeffs}
-For each positive integer $n$, the <b>congruent number curve</b> $E_n$ is the {{ KNOWL('ec', 'elliptic curve') }} defined over $\Q$ with {{ KNOWL('ec.weierstrass_coeffs', 'equation') }} $y^2 = x(x^2-n^2)$.
-Rational points $(x,y)\in E_n(\Q)$ with $y\not=0$ are associated  to solutions of the {{ KNOWL('ec.congruent_number_problem', 'congruent number problem') }} for $n$:
+For each positive integer $n$, the <b>congruent number curve</b> $E_n$ is the \hyperref[ec]{elliptic curve} defined over $\Q$ with \hyperref[ec.weierstrass_coeffs]{equation} $y^2 = x(x^2-n^2)$.
+Rational points $(x,y)\in E_n(\Q)$ with $y\not=0$ are associated  to solutions of the \hyperref[ec.congruent_number_problem]{congruent number problem} for $n$:
 given rational numbers $X,Y,Z$ satisfying $X^2+Y^2=Z^2$ and $XY=2n$, set $x=\frac{1}{4}Z^2$ and $y=\frac{1}{8}Z(X^2-Y^2)$; then $y^2=x(x^2-n^2)$.
 
 The only rational points of
 finite order on $E_n(\Q)$ are the point at infinity (the origin for
 the group law) and the three points of order $2$: $(0,0)$, $(\pm
 n,0)$; thus, $n$ is congruent if and only if $E_n(\Q)$ is infinite,
-that is, if and only if the {{ KNOWL('ec.rank', title='rank') }} of
+that is, if and only if the \hyperref[ec.rank]{rank} of
 $E_n(\Q)$ is positive.
 
 For example, the elliptic curve $E_6: y^2 = x^3 - 36x$ has rank $1$,
-with {{KNOWL('ec.mordell_weil_group', 'Mordell-Weil group')}} $E_6(\Q)$ generated (modulo torsion) by $P =
+with \hyperref[ec.mordell_weil_group]{Mordell-Weil group} $E_6(\Q)$ generated (modulo torsion) by $P =
 (-3,9)$, and $2P=(25/4,-35/8)$ is the rational point arising from the
 $(3,4,5)$-triangle.  In general, only points in $2E_n(\Q)$ come from
 solutions to the congruent number problem; these are the rational points $(x,y)$ for which $x$ and $x\pm n$ are all squares.
 
-The {{ KNOWL('ec.q.conductor', title='conductor') }} of $E_n$ is $32n_0^2$ when the square-free part $n_0$ of $n$ is odd, and  $16n_0^2$ when $n_0$ is even.
+The \hyperref[ec.q.conductor]{conductor} of $E_n$ is $32n_0^2$ when the square-free part $n_0$ of $n$ is odd, and  $16n_0^2$ when $n_0$ is even.
 
-Each congruent number elliptic curve $E_n$ belongs to an {{ KNOWL('ec.isogeny_class', title='isogeny class') }} of four  isogenous curves, connected by {{ KNOWL('ec.isogeny',  title='2-isogenies') }}.  The curves $2$-isogenous to
+Each congruent number elliptic curve $E_n$ belongs to an \hyperref[ec.isogeny_class]{isogeny class} of four  isogenous curves, connected by \hyperref[ec.isogeny]{2-isogenies}.  The curves $2$-isogenous to
 $E_n=[0,0,0,-n^2,0]$ are $[0,0,0,4n^2,0]$ and $[0,\pm 12n,0,n^2,0]$.
 
-\end{definition}
+\end{definition*}
 
 

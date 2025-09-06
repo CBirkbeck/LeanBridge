@@ -1,17 +1,17 @@
-\subsection{Half-integral weight modular forms}
-\begin{definition}\label{mf.half_integral_weight}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.half_integral_weight}{Half-integral weight modular forms}}
+\begin{definition*}\label{mf.half_integral_weight}
 \uses{character.dirichlet,cmf.cusp_form,cmf.level,cmf.shimura_correspondence,cmf.weight,group.fuchsian.cusps,mf.half_integral_weight.shimura_decomposition,mf.half_integral_weight.theta}
-Let $k$ be an odd integer, and let $N$ a positive integer divisible by $4$. Let $\chi$ be a {{KNOWL("character.dirichlet", "character")}} modulo $N$. A **modular form of half-integral {{ KNOWL("cmf.weight", "weight")}}** $k/2$ , {{ KNOWL("cmf.level", "level")}} $N$ and character $\chi$ is an holomorphic function defined on the upper half plane $\mathcal{H}$, satisfying the transformation formula
+Let $k$ be an odd integer, and let $N$ a positive integer divisible by $4$. Let $\chi$ be a \hyperref[character.dirichlet]{character} modulo $N$. A \textbf{modular form of half-integral \hyperref[cmf.weight]{weight}} $k/2$ , \hyperref[cmf.level]{level} $N$ and character $\chi$ is an holomorphic function defined on the upper half plane $\mathcal{H}$, satisfying the transformation formula
 \[
 f(\gamma z) = \chi(d) j(\gamma, z)^k f(z)
 \]
-for every $\gamma=\left(\begin{matrix} a & b \\ c & d \end{matrix}\right)\in\Gamma_0(N)$ and $z\in \mathcal{H}$, and being holomorphic at the {{ KNOWL("group.fuchsian.cusps", "cusps")}}. Here the automorphy factor $j(\gamma, z)$ is given by
+for every $\gamma=\left(\begin{matrix} a & b \\ c & d \end{matrix}\right)\in\Gamma_0(N)$ and $z\in \mathcal{H}$, and being holomorphic at the \hyperref[group.fuchsian.cusps]{cusps}. Here the automorphy factor $j(\gamma, z)$ is given by
 \[
 j(\gamma, z) = \theta(\gamma z)/\theta(z),
 \]
-where $\theta$ denotes the classical {{KNOWL('mf.half_integral_weight.theta', "theta function")}}. This space is denoted by $M_{k/2}(N)$, and the subspace of {{ KNOWL('cmf.cusp_form', 'cusp forms') }} is denoted by $S_{k/2}(N)$.
+where $\theta$ denotes the classical \hyperref[mf.half_integral_weight.theta]{theta function}. This space is denoted by $M_{k/2}(N)$, and the subspace of \hyperref[cmf.cusp_form]{cusp forms} is denoted by $S_{k/2}(N)$.
 
-These modular forms are related with integral weight modular forms through the {{ KNOWL("cmf.shimura_correspondence", "Shimura correspondence")}}. In terms of this correspondence, the space of cusp forms can be decomposed according to the {{ KNOWL('mf.half_integral_weight.shimura_decomposition') }}.
-\end{definition}
+These modular forms are related with integral weight modular forms through the \hyperref[cmf.shimura_correspondence]{Shimura correspondence}. In terms of this correspondence, the space of cusp forms can be decomposed according to the \hyperref[mf.half_integral_weight.shimura_decomposition]{Shimura decomposition}.
+\end{definition*}
 
 

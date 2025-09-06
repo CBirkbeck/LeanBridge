@@ -1,17 +1,17 @@
-\subsection{Hyperelliptic curve}
-\begin{definition}\label{ag.hyperelliptic_curve}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.hyperelliptic_curve}{Hyperelliptic curve}}
+\begin{definition*}\label{ag.hyperelliptic_curve}
 \uses{ag.curve,ag.curve.genus}
-A **hyperelliptic curve** $X$ over a field $k$ is a smooth projective  {{KNOWL('ag.curve' , title='algebraic curve')}} of {{KNOWL('ag.curve.genus', 'genus')}} $g\ge 2$ that admits a 2-to-1 map $X\to \mathbb{P}^1$ defined over the algebraic closure $\bar k$.
+A \textbf{hyperelliptic curve} $X$ over a field $k$ is a smooth projective  \hyperref[ag.curve]{algebraic curve} of \hyperref[ag.curve.genus]{genus} $g\ge 2$ that admits a 2-to-1 map $X\to \mathbb{P}^1$ defined over the algebraic closure $\bar k$.
 
 If $X$ is a hyperelliptic curve over $k$, then the canonical map $X \to \mathbb{P}^{g-1}$ is a 2-to-1 map onto a smooth genus 0 curve $Y$.  The curve $Y$ is isomorphic to $\mathbb{P}^1$ if and only if $Y$ has a $k$-rational point.
 
-If $X$ admits a 2-to-1 map to $\mathbb{P}^1$ that is defined over $k$, then $X$ has a **Weierstrass model** of the form $y^2+h(x)y=f(x)$; when the characteristic of $k$ is not $2$ one can complete the square to put this model in the form $y^2=f(x)$.
+If $X$ admits a 2-to-1 map to $\mathbb{P}^1$ that is defined over $k$, then $X$ has a \textbf{Weierstrass model} of the form $y^2+h(x)y=f(x)$; when the characteristic of $k$ is not $2$ one can complete the square to put this model in the form $y^2=f(x)$.
 
 In general, there is always a model for $X$ in $\mathbb{P}^3$ of the form
 \[
 h(x,y,z)=0\qquad w^2=f(x,y,z)
 \]
-where $h(x,y,z)$ is a homogeneous polynomial of degree $2$ (a **conic**) and $f(x,y,z)$ is a homogeneous polynomial of degree $g+1$.
-\end{definition}
+where $h(x,y,z)$ is a homogeneous polynomial of degree $2$ (a \textbf{conic}) and $f(x,y,z)$ is a homogeneous polynomial of degree $g+1$.
+\end{definition*}
 
 

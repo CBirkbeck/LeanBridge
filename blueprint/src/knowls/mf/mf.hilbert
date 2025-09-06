@@ -1,20 +1,20 @@
-\subsection{Hilbert modular form}
-\begin{definition}\label{mf.hilbert}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.hilbert}{Hilbert modular form}}
+\begin{definition*}\label{mf.hilbert}
 \uses{nf,nf.degree,nf.narrow_class_group,nf.ring_of_integers,nf.totally_positive,nf.totally_real}
-Let $F$ be a {{ KNOWL('nf.totally_real', "totally real") }} {{ KNOWL('nf', "number field") }} $F$ of {{ KNOWL('nf.degree', "degree") }} $n>1$.  Let $v_1,\ldots,v_n \colon F \hookrightarrow \R$ be the real embeddings of $F$, and for $a \in F$ abbreviate $a_i \colonequals v_i(a)$ and extend this elementwise to matrices.  Write $\alpha \in F_{>0}^\times$ if $\alpha$ is {{ KNOWL('nf.totally_positive', "totally positive") }} and $\Z_{F,>0}^\times \colonequals \Z_F^\times \cap F_{>0}^\times$.
+Let $F$ be a \hyperref[nf.totally_real]{totally real} \hyperref[nf]{number field} $F$ of \hyperref[nf.degree]{degree} $n>1$.  Let $v_1,\ldots,v_n \colon F \hookrightarrow \R$ be the real embeddings of $F$, and for $a \in F$ abbreviate $a_i \colonequals v_i(a)$ and extend this elementwise to matrices.  Write $\alpha \in F_{>0}^\times$ if $\alpha$ is \hyperref[nf.totally_positive]{totally positive} and $\Z_{F,>0}^\times \colonequals \Z_F^\times \cap F_{>0}^\times$.
 
-Let $k_1,\dots,k_n \geq 2$ be positive integers of the same parity, and let $\mathfrak{N}$ be a nonzero ideal of the {{ KNOWL('nf.ring_of_integers', "ring of integers") }} $\Z_F$ of $F$. 
+Let $k_1,\dots,k_n \geq 2$ be positive integers of the same parity, and let $\mathfrak{N}$ be a nonzero ideal of the \hyperref[nf.ring_of_integers]{ring of integers} $\Z_F$ of $F$. 
 
 For an ideal $\mathfrak{b} \subseteq \Z_F$, let
 \[ \gamma\in\Gamma_0(\mathfrak{N})_\mathfrak{b} \colonequals \left\{\gamma=\begin{pmatrix} a & b \\ c & d \end{pmatrix} \in \GL_2(F) : c \in \mathfrak{Nb}, \ b \in \mathfrak{b}^{-1},\ \text{ and } \det(\gamma) \in \Z_{F,>0}^\times \right\}. \] 
 
-A **Hilbert modular form** of weight $(k_1\ldots,k_n)$ and level $\mathfrak{N}$ is a tuple $(f_\mathfrak{b})_{\mathfrak{b}}$ of holomorphic functions $f \colon \mathcal{H}^n\rightarrow \C$, indexed by ideals $\mathfrak{b}$ representing the {{ KNOWL('nf.narrow_class_group', "narrow class group") }} of $\Z_F$, such that for all $z=(z_1\ldots,z_n)\in\mathcal{H}^n$ and all $\gamma=\begin{pmatrix} a & b \\ c & d \end{pmatrix} \in \Gamma_0(\mathfrak{N})_\mathfrak{b}$ we have
+A \textbf{Hilbert modular form} of weight $(k_1\ldots,k_n)$ and level $\mathfrak{N}$ is a tuple $(f_\mathfrak{b})_{\mathfrak{b}}$ of holomorphic functions $f \colon \mathcal{H}^n\rightarrow \C$, indexed by ideals $\mathfrak{b}$ representing the \hyperref[nf.narrow_class_group]{narrow class group} of $\Z_F$, such that for all $z=(z_1\ldots,z_n)\in\mathcal{H}^n$ and all $\gamma=\begin{pmatrix} a & b \\ c & d \end{pmatrix} \in \Gamma_0(\mathfrak{N})_\mathfrak{b}$ we have
 \[
 f_\mathfrak{b}(\gamma z)=f_\mathfrak{b}\left(\frac{a_1z_1+b_1}{c_1z_1+d_1}, \ldots, \frac{a_nz_n+b_n}{c_nz_n+d_n}\right)=\prod_{i=1}^n\left( \frac{(c_iz_i+d_i)^{k_i}}{(a_id_i-b_ic_i)^{k_i/2}}\right)f_\mathfrak{b}(z).
 \]
 
-A **Hilbert cusp form** is a Hilbert modular form that vanishes at the cusps. 
+A \textbf{Hilbert cusp form} is a Hilbert modular form that vanishes at the cusps. 
 
-\end{definition}
+\end{definition*}
 
 

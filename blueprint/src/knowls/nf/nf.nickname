@@ -1,13 +1,15 @@
-\subsection{Number field nicknames}
-\begin{definition}\label{nf.nickname}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.nickname}{Number field nicknames}}
+\begin{definition*}\label{nf.nickname}
 \uses{}
-The LMFDB supports **nicknames**, short human-readable names for
+The LMFDB supports \textbf{nicknames}, short human-readable names for
 various fields.  Examples include:
 
-- Q, for the rationals $\mathbb Q$
-- Qi, for $\mathbb Q(i)$
-- QsqrtN, for $\mathbb Q(\sqrt{N})$, as in Qsqrt-5 for $\mathbb Q(\sqrt{-5})$
-- QzetaN, for $\mathbb Q(\zeta_N)$, where $\zeta_N$ is a primitive $N$th root of unity.
-\end{definition}
+\begin{itemize}
+\item  Q, for the rationals $\mathbb Q$
+\item  Qi, for $\mathbb Q(i)$
+\item  QsqrtN, for $\mathbb Q(\sqrt{N})$, as in Qsqrt-5 for $\mathbb Q(\sqrt{-5})$
+\item  QzetaN, for $\mathbb Q(\zeta_N)$, where $\zeta_N$ is a primitive $N$th root of unity.
+\end{itemize}
+\end{definition*}
 
 

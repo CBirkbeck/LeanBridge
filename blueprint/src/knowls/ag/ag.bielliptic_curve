@@ -1,13 +1,15 @@
-\subsection{Bielliptic curve}
-\begin{definition}\label{ag.bielliptic_curve}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.bielliptic_curve}{Bielliptic curve}}
+\begin{definition*}\label{ag.bielliptic_curve}
 \uses{ag.curve,ag.curve.genus}
-A smooth projective {{KNOWL('ag.curve' , title='algebraic curve')}} $X$ defined over a field $k$ of {{KNOWL('ag.curve.genus', 'genus')}} $g\ge 2$ is a **bielliptic curve** if and only if it satisfies one of the following conditions:
+A smooth projective \hyperref[ag.curve]{algebraic curve} $X$ defined over a field $k$ of \hyperref[ag.curve.genus]{genus} $g\ge 2$ is a \textbf{bielliptic curve} if and only if it satisfies one of the following conditions:
 
-- $X$ admits a 2-to-1 map $X\to E$ defined over the algebraic closure $\bar k$ onto an elliptic curve $E$.
-- There exists an involution $w \in \Aut(X)$ defined over $k$ such that $X/\langle w \rangle$ has genus $1$ and $X/\langle w \rangle (k) \ne \empty$.
-- There exists an involution $w \in \Aut(X)$ defined over $k$ having exactly $2g -2$ fixed points.
+\begin{itemize}
+\item  $X$ admits a 2-to-1 map $X\to E$ defined over the algebraic closure $\bar k$ onto an elliptic curve $E$.
+\item  There exists an involution $w \in \Aut(X)$ defined over $k$ such that $X/\langle w \rangle$ has genus $1$ and $X/\langle w \rangle (k) \ne \empty$.
+\item  There exists an involution $w \in \Aut(X)$ defined over $k$ having exactly $2g -2$ fixed points.
+\end{itemize}
 
-The involution above is called the **bielliptic involution**.
-\end{definition}
+The involution above is called the \textbf{bielliptic involution}.
+\end{definition*}
 
 

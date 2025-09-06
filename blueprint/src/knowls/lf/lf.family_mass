@@ -1,20 +1,20 @@
-\subsection{Mass of a family}
-\begin{definition}\label{lf.family_mass}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.family_mass}{Mass of a family}}
+\begin{definition*}\label{lf.family_mass}
 \uses{lf.family_base,lf.family_polynomial,lf.residue_field_degree,lf.unramified_degree}
-Let $I/K$ be a {{KNOWL('lf.family_polynomial', 'family')}} of extensions of
-$p$-adic fields with {{KNOWL('lf.family_base', 'base field')}} $K$.  Let $f$ be
-the {{KNOWL('lf.residue_field_degree', 'residue field degree')}} of
-the family, and let $K_f$ be the {{KNOWL('lf.unramified_degree', 'unramified')}}
+Let $I/K$ be a \hyperref[lf.family_polynomial]{family} of extensions of
+$p$-adic fields with \hyperref[lf.family_base]{base field} $K$.  Let $f$ be
+the \hyperref[lf.residue_field_degree]{residue field degree} of
+the family, and let $K_f$ be the \hyperref[lf.unramified_degree]{unramified}
 extension of $K$ of degree $f$, which is contained in every $L/K \in I/K$.
-To each $L/K\in I/K$ we assign a **mass** $1/|\operatorname{Aut}(L/K_f)|$.
-The **mass of the family** $I/K$ is the sum of the
-masses of the elements of $I/K$.  We also assign an **absolute mass**
+To each $L/K\in I/K$ we assign a \textbf{mass} $1/|\operatorname{Aut}(L/K_f)|$.
+The \textbf{mass of the family} $I/K$ is the sum of the
+masses of the elements of $I/K$.  We also assign an \textbf{absolute mass}
 $1/|\operatorname{Aut}(L/\Q_p)|$ to each $L/K\in I/K$, and define the
-**absolute mass of the family** to be
+\textbf{absolute mass of the family} to be
 the sum of the absolute masses of the elements of $I/K$.  When
 $K = \Q_p$, the mass is the product of the absolute mass with $f$.
 
 For some families, not all of the fields within the family are contained within the LMFDB.  In these cases, we display the fraction of the absolute mass among those fields within the database as a percentage.
-\end{definition}
+\end{definition*}
 
 

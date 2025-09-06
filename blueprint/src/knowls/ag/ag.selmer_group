@@ -1,15 +1,15 @@
-\subsection{Selmer group of an abelian variety}
-\begin{definition}\label{ag.selmer_group}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.selmer_group}{Selmer group of an abelian variety}}
+\begin{definition*}\label{ag.selmer_group}
 \uses{ag.abelian_variety,ag.mordell_weil,av.isogeny,group.galois.absolute,nf,nf.absolute_value,nf.place}
-Let $A$ be an {{KNOWL('ag.abelian_variety', 'abelian variety')}} over a {{KNOWL('nf', 'number field')}} $K$.
+Let $A$ be an \hyperref[ag.abelian_variety]{abelian variety} over a \hyperref[nf]{number field} $K$.
 Let $n \ge 1$.
-Let $G_K$ be the {{KNOWL('group.galois.absolute', 'absolute Galois group')}} of $K$.
-There is a connecting homomorphism $A(K)/nA(K) \to H^1(G_K,A[n])$, and likewise a homomorphism $A(K_v)/nA(K_v) \to H^1(G_{K_v},A[n])$ for each {{KNOWL('nf.place', 'place')}} $v$ of $K$.
-The **$n$-Selmer group** $\operatorname{Sel}_n A$ is the set of classes in $H^1(G_K, A[n])$ whose image in $H^1(G_{K_v},A[n])$ lies in the image of $A(K_v)/nA(K_v) \to H^1(G_{K_v},A[n])$ for every place $v$, including the {{KNOWL('nf.absolute_value', 'archimedean')}} places.
+Let $G_K$ be the \hyperref[group.galois.absolute]{absolute Galois group} of $K$.
+There is a connecting homomorphism $A(K)/nA(K) \to H^1(G_K,A[n])$, and likewise a homomorphism $A(K_v)/nA(K_v) \to H^1(G_{K_v},A[n])$ for each \hyperref[nf.place]{place} $v$ of $K$.
+The \textbf{$n$-Selmer group} $\operatorname{Sel}_n A$ is the set of classes in $H^1(G_K, A[n])$ whose image in $H^1(G_{K_v},A[n])$ lies in the image of $A(K_v)/nA(K_v) \to H^1(G_{K_v},A[n])$ for every place $v$, including the \hyperref[nf.absolute_value]{archimedean} places.
 
-One may also define the Selmer group for any {{KNOWL('av.isogeny', "isogeny")}} from $A$ to another abelian variety over a global field.
+One may also define the Selmer group for any \hyperref[av.isogeny]{isogeny} from $A$ to another abelian variety over a global field.
 
-Any Selmer group is finite and effectively computable. In fact, all known techniques for computing the {{KNOWL("ag.mordell_weil", "Mordell-Weil group")}} of $A$ involve computing a Selmer group.
-\end{definition}
+Any Selmer group is finite and effectively computable. In fact, all known techniques for computing the \hyperref[ag.mordell_weil]{Mordell-Weil group} of $A$ involve computing a Selmer group.
+\end{definition*}
 
 

@@ -1,28 +1,34 @@
-\subsection{Reliability of Maass forms data}
-\begin{definition}\label{rcs.rigor.maass}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.rigor.maass}{Reliability of Maass forms data}}
+\begin{definition*}\label{rcs.rigor.maass}
 \uses{mf.maass.mwf.fourierexpansion,mf.maass.mwf.spectralparameter}
 Maass form data, in the LMFDB and elsewhere, is inherently heuristic.  The data
 are decimal approximations to numbers which (in general) are conjectured to be
 transcendental and not expressable in terms of well-known constants,
 and only in a few special \cite{MR2249995} cases have those approximations been
-*proven* to be accurate.  Nevertheless, there are reasons for believing that the
+\begin{itemize}
+\item proven* to be accurate.  Nevertheless, there are reasons for believing that the
+\end{itemize}
 available data is actually correct, which we now describe.
 
 An individual Maass form
-------------------------
+\begin{itemize}
+\item -----------------------
+\end{itemize}
 
-A Maass form $f(z)$ on a group $G$ is specified by a {{KNOWL('mf.maass.mwf.spectralparameter','spectral parameter')}} $R$ and coefficients (Hecke eigenvalues) $a_1=1$, $a_2$, $a_3$, ..., appearing in its
-{{ KNOWL("mf.maass.mwf.fourierexpansion", "Fourier expansion")}}.  The parameter $R$ and the coefficients $a_n$ are found by using the transformation properties of $f(z)$ under the group $G$ to form a system of equations.  In analogy to the secant method for finding a root of a polynomial, when the approximations are sufficiently close to the values for an actual Maass form, the successive approximations appear to converge rapidly.  One expects the difference in the successive approximations to give an indication of the number of correct digits in $R$ and in the coefficients, but this has not been proven.  In fact, only the data for the first few Maass forms on $\SL(2,\Z)$ have been proven to be correct.
+A Maass form $f(z)$ on a group $G$ is specified by a \hyperref[mf.maass.mwf.spectralparameter]{spectral parameter} $R$ and coefficients (Hecke eigenvalues) $a_1=1$, $a_2$, $a_3$, ..., appearing in its
+\hyperref[mf.maass.mwf.fourierexpansion]{Fourier expansion}.  The parameter $R$ and the coefficients $a_n$ are found by using the transformation properties of $f(z)$ under the group $G$ to form a system of equations.  In analogy to the secant method for finding a root of a polynomial, when the approximations are sufficiently close to the values for an actual Maass form, the successive approximations appear to converge rapidly.  One expects the difference in the successive approximations to give an indication of the number of correct digits in $R$ and in the coefficients, but this has not been proven.  In fact, only the data for the first few Maass forms on $\SL(2,\Z)$ have been proven to be correct.
 
 The decimal numbers listed for the spectral parameter $R$ and the coefficients $a_n$ are not necessarily correct to the precision shown; in general the spectral parameter and the first few coefficients $a_n$ are likely to be accurate up to an error in the last digit, but this is not guaranteed, and the accuracy of the $a_n$ decreases as $n$ increases even though the displayed precision does not.
 
 Ranges of Maass forms
----------------------
+\begin{itemize}
+\item --------------------
+\end{itemize}
 
 The database contains data for the Maass forms on a group with a range of eigenvalues.  For example, the Maass forms on $\Gamma_0(5)$ and trivial character, for $0<R<10$.
 
 There are two implicit claims in the above sentence:  that each entry in the database corresponds to an actual Maass form (as discussed in the previous section), and that no eigenvalues are missing.  It is not possible to know for sure if there are any missing values.  The situation is analogous to finding roots of a polynomial using the secant method:  One can try various starting points, such as every point on a finely spaced grid, and hope to find all roots.  But unlike the situation for polynomials, there is no known method for determining the exact number of Maass eigenvalues in a given range.
 
-\end{definition}
+\end{definition*}
 
 

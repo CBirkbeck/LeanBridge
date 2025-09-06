@@ -1,9 +1,9 @@
-\subsection{Mordell-Weil theorem}
-\begin{definition}\label{ec.mordell_weil_theorem}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.mordell_weil_theorem}{Mordell-Weil theorem}}
+\begin{definition*}\label{ec.mordell_weil_theorem}
 \uses{ec,ec.mordell_weil_group,nf}
-For an {{KNOWL("ec","elliptic curve")}} $E$ defined over a {{KNOWL("nf", "number field")}} $F$, the **Mordell-Weil theorem** states that the set $E(F)$ of $F$-rational points on $E$ is a finitely generated Abelian group.
+For an \hyperref[ec]{elliptic curve} $E$ defined over a \hyperref[nf]{number field} $F$, the \textbf{Mordell-Weil theorem} states that the set $E(F)$ of $F$-rational points on $E$ is a finitely generated Abelian group.
 
-This group is called the {{ KNOWL('ec.mordell_weil_group', 'Mordell-Weil') }} group of $E/K$.
-\end{definition}
+This group is called the \hyperref[ec.mordell_weil_group]{Mordell-Weil} group of $E/K$.
+\end{definition*}
 
 

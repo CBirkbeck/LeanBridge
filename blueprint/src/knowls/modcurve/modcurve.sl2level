@@ -1,7 +1,7 @@
-\subsection{$\SL_2$-level}
-\begin{definition}\label{modcurve.sl2level}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.sl2level}{$\SL_2$-level}}
+\begin{definition*}\label{modcurve.sl2level}
 \uses{cmf.congruence_subgroup,gl2.level,modcurve}
-The **$\SL_2$-level** of a {{KNOWL('modcurve', 'modular curve')}} $X_H$ is the {{KNOWL('cmf.congruence_subgroup', 'level of the congruence subgroup')}} $\Gamma_H:=H\cap\SL_2(\Z)$.  The $\SL_2$-level divides but need not equal the {{KNOWL('gl2.level','level')}} of $H$.
-\end{definition}
+The \textbf{$\SL_2$-level} of a \hyperref[modcurve]{modular curve} $X_H$ is the \hyperref[cmf.congruence_subgroup]{level of the congruence subgroup} $\Gamma_H:=H\cap\SL_2(\Z)$.  The $\SL_2$-level divides but need not equal the \hyperref[gl2.level]{level} of $H$.
+\end{definition*}
 
 

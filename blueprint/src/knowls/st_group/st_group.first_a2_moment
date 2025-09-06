@@ -1,9 +1,9 @@
-\subsection{First $a_2$ moment}
-\begin{definition}\label{st_group.first_a2_moment}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/st_group.first_a2_moment}{First $a_2$ moment}}
+\begin{definition*}\label{st_group.first_a2_moment}
 \uses{ag.abelian_variety,group.haar_measure,st_group.definition}
-The **first $a_2$ moment** of a {{KNOWL('st_group.definition', 'Sato-Tate group')}} $G$ is the expected value of the quadratic coefficient of the characteristic polynomial of a random element of $G$ (under its {{KNOWL('group.haar_measure', 'Haar measure')}}).
+The \textbf{first $a_2$ moment} of a \hyperref[st_group.definition]{Sato-Tate group} $G$ is the expected value of the quadratic coefficient of the characteristic polynomial of a random element of $G$ (under its \hyperref[group.haar_measure]{Haar measure}).
 
-When $G$ is the Sato-Tate group of an {{KNOWL('ag.abelian_variety', 'abelian variety')}}, the first $a_2$ moment is equal to the rank of its Néron–Severi group \cite{arxiv:1910.00518,mr:4038255}.
-\end{definition}
+When $G$ is the Sato-Tate group of an \hyperref[ag.abelian_variety]{abelian variety}, the first $a_2$ moment is equal to the rank of its Néron–Severi group \cite{arxiv:1910.00518,mr:4038255}.
+\end{definition*}
 
 

@@ -1,16 +1,18 @@
-\subsection{Hodge circle}
-\begin{definition}\label{st_group.hodge_circle}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/st_group.hodge_circle}{Hodge circle}}
+\begin{definition*}\label{st_group.hodge_circle}
 \uses{st_group.definition,st_group.degree,st_group.weight}
-For a {{KNOWL('st_group.definition', 'Sato-Tate group')}} $G$ of {{KNOWL('st_group.degree', 'degree')}} $d$ and {{KNOWL('st_group.weight', 'weight')}} $w$ a **Hodge circle** is a continuous homomorphism
+For a \hyperref[st_group.definition]{Sato-Tate group} $G$ of \hyperref[st_group.degree]{degree} $d$ and \hyperref[st_group.weight]{weight} $w$ a \textbf{Hodge circle} is a continuous homomorphism
 \[
 h\colon \mathrm{U}(1)\to G^0
 \]
 for which there exist nonnegative integers $h^{p,q}$ satisfying $\sum h^{p,q}=d$ with $p,q$ varying over integers in $[0,w]$ such that
 
-- $h(u)$ has eigenvalues $u^{p-q}$ with multiplicity $h^{p,q}$ for all $u\in \mathrm{U}(1)$;
-- the conjugates of the image of $h$ generate a dense subgroup of $G^0$.
+\begin{itemize}
+\item  $h(u)$ has eigenvalues $u^{p-q}$ with multiplicity $h^{p,q}$ for all $u\in \mathrm{U}(1)$;
+\item  the conjugates of the image of $h$ generate a dense subgroup of $G^0$.
+\end{itemize}
 
 When $G$ is the Sato-Tate group of a motive $X$ of weight $w$, the $h^{p,q}$ are the Hodge numbers of $X$.  For a $d$-dimensional abelian variety $X$ we necessarily have $h^{0,1}=h^{1,0}=d$.
-\end{definition}
+\end{definition*}
 
 

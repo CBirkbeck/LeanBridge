@@ -1,9 +1,9 @@
-\subsection{The eigenvalue of a Maass form}
-\begin{definition}\label{mf.maass.mwf.eigenvalue}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.maass.mwf.eigenvalue}{The eigenvalue of a Maass form}}
+\begin{definition*}\label{mf.maass.mwf.eigenvalue}
 \uses{mf.maass.mwf,mf.maass.mwf.laplacian,mf.maass.mwf.spectralparameter}
-The **eigenvalue** $\lambda$ of a {{KNOWL('mf.maass.mwf', 'Maass newform')}} on GL(2) refers to the eigenvalue of the eigenspace of the {{ KNOWL('mf.maass.mwf.laplacian', "Laplace-Baltrami operator") }} in which it lies.
+The \textbf{eigenvalue} $\lambda$ of a \hyperref[mf.maass.mwf]{Maass newform} on GL(2) refers to the eigenvalue of the eigenspace of the \hyperref[mf.maass.mwf.laplacian]{Laplace-Baltrami operator} in which it lies.
 
-This eigenvalue is a real number that is typically written in the form $\lambda=\frac{1}{4}+R^2$, where $R$ is the {{KNOWL('mf.maass.mwf.spectralparameter', 'spectral parameter')}}.
-\end{definition}
+This eigenvalue is a real number that is typically written in the form $\lambda=\frac{1}{4}+R^2$, where $R$ is the \hyperref[mf.maass.mwf.spectralparameter]{spectral parameter}.
+\end{definition*}
 
 

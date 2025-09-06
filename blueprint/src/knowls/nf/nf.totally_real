@@ -1,9 +1,9 @@
-\subsection{Totally real}
-\begin{definition}\label{nf.totally_real}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.totally_real}{Totally real}}
+\begin{definition*}\label{nf.totally_real}
 \uses{nf}
-A {{ KNOWL('nf', "global number field") }} $K$ is always of the form $K=\Q(\alpha)$ where $\alpha$ has monic irreducible polynomial $f(x)\in\Q[x]$.  The field is **totally real** if all of the roots of $f(x)$ in $\C$ lie in the real numbers $\R$.  
+A \hyperref[nf]{global number field} $K$ is always of the form $K=\Q(\alpha)$ where $\alpha$ has monic irreducible polynomial $f(x)\in\Q[x]$.  The field is \textbf{totally real} if all of the roots of $f(x)$ in $\C$ lie in the real numbers $\R$.  
 
 Equivalently, $K$ is totally real if all the embeddings of $K$ into $\C$ have image contained in $\R$.
-\end{definition}
+\end{definition*}
 
 

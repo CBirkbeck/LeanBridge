@@ -1,7 +1,7 @@
-\subsection{Plane model}
-\begin{definition}\label{ag.plane_model}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.plane_model}{Plane model}}
+\begin{definition*}\label{ag.plane_model}
 \uses{}
-A **plane model** of a smooth projective curve $X$ is a closed curve $f(x,y,z)=0$ in $\mathbb{P}^2$ that is birational to $X$.  Such a model is **singular** if the zero locus of $f$ and its partial derivatives is non-empty, otherwise it is **smooth**.
-\end{definition}
+A \textbf{plane model} of a smooth projective curve $X$ is a closed curve $f(x,y,z)=0$ in $\mathbb{P}^2$ that is birational to $X$.  Such a model is \textbf{singular} if the zero locus of $f$ and its partial derivatives is non-empty, otherwise it is \textbf{smooth}.
+\end{definition*}
 
 

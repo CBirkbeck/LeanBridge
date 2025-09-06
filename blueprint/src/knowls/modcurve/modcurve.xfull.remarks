@@ -1,7 +1,7 @@
-\subsection{Remarks on $X(N)$}
-\begin{definition}\label{modcurve.xfull.remarks}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.xfull.remarks}{Remarks on $X(N)$}}
+\begin{definition*}\label{modcurve.xfull.remarks}
 \uses{modcurve.canonical_field}
-The {{KNOWL('modcurve.canonical_field','canonical field of definition')}} of $X(N)$ is $\Q(\zeta_N)$, which means that the database of modular curves $X_H/\Q$ only includes $X(N)$ for $N\le 2$, in which case $X(N)=X_{\mathrm arith}(N)$.
-\end{definition}
+The \hyperref[modcurve.canonical_field]{canonical field of definition} of $X(N)$ is $\Q(\zeta_N)$, which means that the database of modular curves $X_H/\Q$ only includes $X(N)$ for $N\le 2$, in which case $X(N)=X_{\mathrm arith}(N)$.
+\end{definition*}
 
 

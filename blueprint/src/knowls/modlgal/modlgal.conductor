@@ -1,21 +1,21 @@
-\subsection{Conductor}
-\begin{definition}\label{modlgal.conductor}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/modlgal.conductor}{Conductor}}
+\begin{definition*}\label{modlgal.conductor}
 \uses{artin.unramified_primes,gg.galois_group,lf.inertia_group,lf.padic_field,lf.wild_inertia_group,modlgal,nf.is_galois,nf.prime}
-The **conductor** of an {{KNOWL("modlgal", "mod-$\ell$ Galois representation")}} is a positive integer coprime to $\ell$ that measures ramification.  It can be expressed as a product of local conductors.
+The \textbf{conductor} of an \hyperref[modlgal]{mod-$\ell$ Galois representation} is a positive integer coprime to $\ell$ that measures ramification.  It can be expressed as a product of local conductors.
 
-Let $K/\Q$ be a {{KNOWL('nf.is_galois', 'Galois')}} extension and $\rho:\Gal(K/\Q)\to\GL(V)$ a mod-$\ell$ Galois representation.  Then the conductor of $\rho$ is
+Let $K/\Q$ be a \hyperref[nf.is_galois]{Galois} extension and $\rho:\Gal(K/\Q)\to\GL(V)$ a mod-$\ell$ Galois representation.  Then the conductor of $\rho$ is
 $ \prod_{p\nmid \ell} p^{f(\rho,p)} $
 for non-negative integers $f(\rho,p)$, where the product is taken over prime numbers $p\neq \ell$.
 
-To define the exponents $f(\rho,p)$, fix a {{KNOWL('nf.prime', 'prime')}} $\mathfrak{p}$ of $K$ above $p$ and consider the corresponding extension of {{KNOWL('lf.padic_field','local fields')}} $K_{\mathfrak{p}}/\Q_p$ with {{KNOWL('gg.galois_group', 'Galois group')}} $G$.  Then $G$ has a filtration of higher ramification groups in lower numbering $G_i$, as defined in Chapter IV of Serre's _Local Fields_ \cite{mr:0554237,doi:10.1007/978-1-4757-5673-9}.  In particular, $G_{-1}=G$, $G_0$ is the {{KNOWL('lf.inertia_group', 'inertia group')}} of $K_\mathfrak{p}/\Q_p$, and $G_1$ is the {{KNOWL('lf.wild_inertia_group','wild inertia group')}}, which is a finite $p$-group.
+To define the exponents $f(\rho,p)$, fix a \hyperref[nf.prime]{prime} $\mathfrak{p}$ of $K$ above $p$ and consider the corresponding extension of \hyperref[lf.padic_field]{local fields} $K_{\mathfrak{p}}/\Q_p$ with \hyperref[gg.galois_group]{Galois group} $G$.  Then $G$ has a filtration of higher ramification groups in lower numbering $G_i$, as defined in Chapter IV of Serre's \textit{Local Fields} \cite{mr:0554237,doi:10.1007/978-1-4757-5673-9}.  In particular, $G_{-1}=G$, $G_0$ is the \hyperref[lf.inertia_group]{inertia group} of $K_\mathfrak{p}/\Q_p$, and $G_1$ is the \hyperref[lf.wild_inertia_group]{wild inertia group}, which is a finite $p$-group.
 
 Let $g_i = |G_i|$.  Then
 \[ f(\rho, p) = \sum_{i\geq 0} \frac{g_i}{g_0} (\dim(V) - \dim(V^{G_i}))\]
 where $V^{G_i}$ is the subspace of $V$ fixed by $G_i$.
 
 
-Note that if $p$ is {{KNOWL('artin.unramified_primes', 'unramified')}} in $K$, then $f(\rho,p)=0$ and conversely, if $\rho$ is faithful and $p$ is ramified in $K$, then $f(\rho,p)>0$.
+Note that if $p$ is \hyperref[artin.unramified_primes]{unramified} in $K$, then $f(\rho,p)=0$ and conversely, if $\rho$ is faithful and $p$ is ramified in $K$, then $f(\rho,p)>0$.
 
-\end{definition}
+\end{definition*}
 
 

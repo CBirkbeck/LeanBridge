@@ -1,9 +1,9 @@
-\subsection{Ring of integers of a local field}
-\begin{definition}\label{lf.ring_of_integers}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.ring_of_integers}{Ring of integers of a local field}}
+\begin{definition*}\label{lf.ring_of_integers}
 \uses{lf.local_field,nf.absolute_value}
-The **ring of integers** of a {{KNOWL('lf.local_field', 'local field')}} $K$ with {{KNOWL('nf.absolute_value', 'absolute value')}} $|\ |$ is the subring
+The \textbf{ring of integers} of a \hyperref[lf.local_field]{local field} $K$ with \hyperref[nf.absolute_value]{absolute value} $|\ |$ is the subring
 $\mathcal O_K := \{x\in K:|x|\le 1\}$; it is a discrete valuation ring.
 
-\end{definition}
+\end{definition*}
 
 

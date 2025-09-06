@@ -1,7 +1,7 @@
-\subsection{Hypergeometric motive}
-\begin{definition}\label{hgm.motive}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/hgm.motive}{Hypergeometric motive}}
+\begin{definition*}\label{hgm.motive}
 \uses{hgm.familes}
-**Hypergeometric motives** $H(A,B,t)$ in a {{ KNOWL('hgm.familes', 'family') }} $H(A,B)$ are
+\textbf{Hypergeometric motives} $H(A,B,t)$ in a \hyperref[hgm.familes]{family} $H(A,B)$ are
 indexed by rational numbers $t \not \in \{0,1\}$, with the case $t=1$ allowed if special attention is given.
 
 For example $H([3],[1,1],t)$ is the
@@ -10,6 +10,6 @@ $E_{j}$ is an elliptic curve with $j$-invariant $1728j$.
 Also special hypergeometric motives $H(A,B,1)$ are defined, having degree
 $1$ or $2$ less than the other $H(A,B,t)$.
 
-\end{definition}
+\end{definition*}
 
 

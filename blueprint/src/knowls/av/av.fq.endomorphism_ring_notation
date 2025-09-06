@@ -1,19 +1,27 @@
-\subsection{Endomorphism ring notation}
-\begin{definition}\label{av.fq.endomorphism_ring_notation}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/av.fq.endomorphism_ring_notation}{Endomorphism ring notation}}
+\begin{definition*}\label{av.fq.endomorphism_ring_notation}
 \uses{ag.endomorphism_ring,av.fq.frobenius_order,av.fq.lmfdb_label,av.isogeny_class,av.weak_equivalence_class}
-In the graph, each vertex correspond to an {{KNOWL('ag.endomorphism_ring', 'endomorphism')}} of abelian varieties in the {{KNOWL('av.isogeny_class', 'isogeny class')}} and each edge correspond to an inclusion.
+In the graph, each vertex correspond to an \hyperref[ag.endomorphism_ring]{endomorphism} of abelian varieties in the \hyperref[av.isogeny_class]{isogeny class} and each edge correspond to an inclusion.
 
-For each {{KNOWL('ag.endomorphism_ring', 'endomorphism ring')}} $S$, we use the following **notation** $[\mathrm{index}]^{\#\mathrm{weak}\cdot \#\mathrm{Pic}}_i$ : 
+For each \hyperref[ag.endomorphism_ring]{endomorphism ring} $S$, we use the following \textbf{notation} $[\mathrm{index}]^{\#\mathrm{weak}\cdot \#\mathrm{Pic}}_i$ : 
 
-- **$\mathrm{index}$** is the index of the inclusion (of additive groups) $S\subseteq \mathcal{O}$, where $\mathcal{O}$ is the maximal order of the étale $\mathbb{Q}$-algebra $\mathbb{Q}[F]$;
+\begin{itemize}
+\item  \textbf{$\mathrm{index}$} is the index of the inclusion (of additive groups) $S\subseteq \mathcal{O}$, where $\mathcal{O}$ is the maximal order of the étale $\mathbb{Q}$-algebra $\mathbb{Q}[F]$;
+\end{itemize}
 
-- **$i$** is a counter that uniquely identifies the order $S$ among all the overorders of {{KNOWL('av.fq.frobenius_order','$\mathbb{Z}[F,V]$')}} with index in $\mathcal{O}$ equal to $\mathrm{index}$. See also {{KNOWL('av.fq.lmfdb_label','isogeny label')}}.
+\begin{itemize}
+\item  \textbf{$i$} is a counter that uniquely identifies the order $S$ among all the overorders of \hyperref[av.fq.frobenius_order]{$\mathbb{Z}[F,V]$} with index in $\mathcal{O}$ equal to $\mathrm{index}$. See also \hyperref[av.fq.lmfdb_label]{isogeny label}.
+\end{itemize}
 
-- **$\#\mathrm{weak}$** is the number of 
-{{KNOWL('av.weak_equivalence_class','weak equivalence classes')}} represented 
-by fractional {{KNOWL('av.fq.frobenius_order','$\mathbb{Z}[F,V]$')}}-ideals $I$ with multiplicator ring equal to $S$, that is, satisfying $(I:I)=S$; if $S$ is Gorenstein, that is, **$\#\mathrm{weak} = 1 $** this number is omitted from the notation. 
+\begin{itemize}
+\item  \textbf{$\#\mathrm{weak}$} is the number of 
+\end{itemize}
+\hyperref[av.weak_equivalence_class]{weak equivalence classes} represented 
+by fractional \hyperref[av.fq.frobenius_order]{$\mathbb{Z}[F,V]$}-ideals $I$ with multiplicator ring equal to $S$, that is, satisfying $(I:I)=S$; if $S$ is Gorenstein, that is, \textbf{$\#\mathrm{weak} = 1 $} this number is omitted from the notation. 
 
-- **$\#\mathrm{Pic}$** is the size of the Picard groups of $S$, that is, the number of invertible fractional {{KNOWL('av.fq.frobenius_order','$S$')}}-ideals.
-\end{definition}
+\begin{itemize}
+\item  \textbf{$\#\mathrm{Pic}$} is the size of the Picard groups of $S$, that is, the number of invertible fractional \hyperref[av.fq.frobenius_order]{$S$}-ideals.
+\end{itemize}
+\end{definition*}
 
 

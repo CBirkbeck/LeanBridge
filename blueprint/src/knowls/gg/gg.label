@@ -1,7 +1,7 @@
-\subsection{Galois group label}
-\begin{definition}\label{gg.label}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/gg.label}{Galois group label}}
+\begin{definition*}\label{gg.label}
 \uses{gg.degree,gg.tnumber}
-Labels for Galois groups are of the form $\tt{nTt}$ where $n$ is the {{ KNOWL("gg.degree", "degree")}} and $t$ is the {{ KNOWL("gg.tnumber", "$T$-number" )}}.
-\end{definition}
+Labels for Galois groups are of the form $\tt{nTt}$ where $n$ is the \hyperref[gg.degree]{degree} and $t$ is the \hyperref[gg.tnumber]{$T$-number}.
+\end{definition*}
 
 

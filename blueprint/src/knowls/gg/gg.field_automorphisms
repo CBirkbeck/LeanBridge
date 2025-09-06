@@ -1,13 +1,13 @@
-\subsection{Field automorphisms associated with a Galois group}
-\begin{definition}\label{gg.field_automorphisms}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/gg.field_automorphisms}{Field automorphisms associated with a Galois group}}
+\begin{definition*}\label{gg.field_automorphisms}
 \uses{gg.galois_group,group.centralizer,lf.automorphism_group}
-Let $G$ be a transitive subgroup of $S_n$ and $G_1=\{\sigma\in G \subset S_n \mid \sigma(1)=1\}$. The group $G \subset S_n$ can be realized as the {{KNOWL('gg.galois_group', 'Galois group')}} of a field extension $L/K$. Let $F \subset L$ be the fixed field of $G_1$ defined by the Galois action of $G$, i.e., $F = \{ a \in L \mid \forall g \in G_1,\, g(a) = a \}$. Then, $F/K$ is a field extension of degree $n$ whose Galois closure is $L/K$.  
+Let $G$ be a transitive subgroup of $S_n$ and $G_1=\{\sigma\in G \subset S_n \mid \sigma(1)=1\}$. The group $G \subset S_n$ can be realized as the \hyperref[gg.galois_group]{Galois group} of a field extension $L/K$. Let $F \subset L$ be the fixed field of $G_1$ defined by the Galois action of $G$, i.e., $F = \{ a \in L \mid \forall g \in G_1,\, g(a) = a \}$. Then, $F/K$ is a field extension of degree $n$ whose Galois closure is $L/K$.  
 
-Although $F$ might not be Galois over $K$, one can consider the group {{KNOWL('lf.automorphism_group', '$\Aut(F/K)$')}}. 
+Although $F$ might not be Galois over $K$, one can consider the group \hyperref[lf.automorphism_group]{$\Aut(F/K)$}. 
 
-The group $\Aut(F/K)$ can be computed via the Galois correspondence. Group-theoretically, the order $\# \Aut(F/K)$ equals the order of the {{KNOWL('group.centralizer', 'centralizer')}} of $G$ in $S_n$.
+The group $\Aut(F/K)$ can be computed via the Galois correspondence. Group-theoretically, the order $\# \Aut(F/K)$ equals the order of the \hyperref[group.centralizer]{centralizer} of $G$ in $S_n$.
 
 If $F/K$ is realized as the extension $F = K[x]/(f(x))$ for some polynomial $f(x) \in K[x]$ then, the degree $\#\Aut(F/K)$ is the number of roots of $f(x)$ in $F$.
-\end{definition}
+\end{definition*}
 
 

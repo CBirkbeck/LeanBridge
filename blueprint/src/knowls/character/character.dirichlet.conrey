@@ -1,29 +1,33 @@
-\subsection{Conrey label of Dirichlet characters}
-\begin{definition}\label{character.dirichlet.conrey}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/character.dirichlet.conrey}{Conrey label of Dirichlet characters}}
+\begin{definition*}\label{character.dirichlet.conrey}
 \uses{character.dirichlet,character.dirichlet.conrey.conductor,character.dirichlet.conrey.index,character.dirichlet.conrey.order,character.dirichlet.conrey.parity,character.dirichlet.conrey.primitive_generator,character.dirichlet.group,character.dirichlet.induce}
-We use the notation $\chi_{q}(n,\cdot)$ to identify {{KNOWL('character.dirichlet', 'Dirichlet characters')}} $\Z\to \C$, where $q$ is the 
-{{KNOWL('character.dirichlet', 'modulus')}}, and $n$ is the {{KNOWL('character.dirichlet.conrey.index', 'index')}}, a positive integer coprime to $q$ that identifies a Dirichlet character of modulus $q$ as described below.  The LMFDB label $\texttt{q.n}$, with $1\le n < \max(q,2)$ uniquely identifies $\chi_{q}(n,\cdot)$.
+We use the notation $\chi_{q}(n,\cdot)$ to identify \hyperref[character.dirichlet]{Dirichlet characters} $\Z\to \C$, where $q$ is the 
+\hyperref[character.dirichlet]{modulus}, and $n$ is the \hyperref[character.dirichlet.conrey.index]{index}, a positive integer coprime to $q$ that identifies a Dirichlet character of modulus $q$ as described below.  The LMFDB label $\texttt{q.n}$, with $1\le n < \max(q,2)$ uniquely identifies $\chi_{q}(n,\cdot)$.
 
-Introduced by Brian Conrey, this labeling system is based on an explicit isomorphism between the multiplicative group $(\Z/q\Z)^\times$ and the {{KNOWL('character.dirichlet.group', 'group of Dirichlet characters')}} of modulus $q$ that makes it easy to recover the
-{{ KNOWL("character.dirichlet.conrey.order", "order") }}, the
-{{ KNOWL("character.dirichlet.conrey.conductor", "conductor" )}}, and the
-{{ KNOWL("character.dirichlet.conrey.parity", "parity" ) }}
-of a Dirichlet character from its label, or to {{KNOWL('character.dirichlet.induce', 'induce')}} characters.
+Introduced by Brian Conrey, this labeling system is based on an explicit isomorphism between the multiplicative group $(\Z/q\Z)^\times$ and the \hyperref[character.dirichlet.group]{group of Dirichlet characters} of modulus $q$ that makes it easy to recover the
+\hyperref[character.dirichlet.conrey.order]{order}, the
+\hyperref[character.dirichlet.conrey.conductor]{conductor}, and the
+\hyperref[character.dirichlet.conrey.parity]{parity}
+of a Dirichlet character from its label, or to \hyperref[character.dirichlet.induce]{induce} characters.
 
 As an example,
 $\chi_q(1, \cdot)$ is always trivial, $\chi_q(m,\cdot)$ is real if $m^2=1\bmod q$, and for all $m,n$ coprime to $q$ we have $\chi_q(m,n)=\chi_q(n,m)$.
 
 For prime powers $q=p^e$ we define $\chi_q(n,\cdot)$ as follows:
 
-- For each odd prime $p$ we choose the least positive integer $g_p$ which
- {{ KNOWL("character.dirichlet.conrey.primitive_generator", "is a
-  primitive root for all $p^e$")}}, and then for $n \equiv g_p^a $ mod $p^{e}$ and $m
+\begin{itemize}
+\item  For each odd prime $p$ we choose the least positive integer $g_p$ which
+\end{itemize}
+ \hyperref[character.dirichlet.conrey.primitive_generator]{is a
+  primitive root for all $p^e$}, and then for $n \equiv g_p^a $ mod $p^{e}$ and $m
   \equiv g_p^{b} $ mod $p^{e}$ coprime to $p$ we define
   $$
     \chi_{p^e}(n, m) = \exp\left(2\pi i \frac{a b}{\phi(p^{e})} \right).
   $$
 
-- $\chi_2(1, \cdot)$ is trivial, $\chi_4(3, \cdot)$ is the
+\begin{itemize}
+\item  $\chi_2(1, \cdot)$ is trivial, $\chi_4(3, \cdot)$ is the
+\end{itemize}
   unique nontrivial character of modulus $4$, and for larger powers of $2$ we choose
   $-1$ and $5$ as generators of the multiplicative group. For $e > 2$, if
   $$
@@ -42,6 +46,6 @@ For prime powers $q=p^e$ we define $\chi_q(n,\cdot)$ as follows:
 For general $q$, the function $\chi_q(n, m)$ is defined multiplicatively: $\chi_{q_1 q_2}(n, m) := \chi_{q_1}(n, m)\chi_{q_2}(n, m)$  for all coprime positive integers $q_1$ and $q_2$.  The Chinese remainder theorem implies that this definition is well founded and that every Dirichlet character can be defined in this way.  In particular, every Dirichlet character $\chi$ of modulus $q$ can be written uniquely as a product of Dirichlet characters of prime power modulus.
 
 
-\end{definition}
+\end{definition*}
 
 

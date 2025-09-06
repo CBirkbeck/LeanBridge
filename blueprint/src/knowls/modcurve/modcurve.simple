@@ -1,7 +1,7 @@
-\subsection{Simple modular curve}
-\begin{definition}\label{modcurve.simple}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.simple}{Simple modular curve}}
+\begin{definition*}\label{modcurve.simple}
 \uses{ag.abelian_variety,ag.jacobian,av.simple,modcurve}
-A {{KNOWL('modcurve', 'modular curve')}} $X_H$ is **simple** if its {{KNOWL('ag.jacobian', 'Jacobian')}} is a {{KNOWL('av.simple','simple')}} {{KNOWL('ag.abelian_variety', 'abelian variety')}}
-\end{definition}
+A \hyperref[modcurve]{modular curve} $X_H$ is \textbf{simple} if its \hyperref[ag.jacobian]{Jacobian} is a \hyperref[av.simple]{simple} \hyperref[ag.abelian_variety]{abelian variety}
+\end{definition*}
 
 

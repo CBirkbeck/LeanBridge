@@ -1,7 +1,7 @@
-\subsection{Exponent of a group}
-\begin{definition}\label{group.exponent}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.exponent}{Exponent of a group}}
+\begin{definition*}\label{group.exponent}
 \uses{group}
-The **exponent of a {{KNOWL('group', 'group')}}** $G$ is the smallest positive integer $n$ such that $g^n=e$ for all $g\in G$.  If no such positive integer exists, then the exponent of the group is infinite.
-\end{definition}
+The \textbf{exponent of a \hyperref[group]{group}} $G$ is the smallest positive integer $n$ such that $g^n=e$ for all $g\in G$.  If no such positive integer exists, then the exponent of the group is infinite.
+\end{definition*}
 
 

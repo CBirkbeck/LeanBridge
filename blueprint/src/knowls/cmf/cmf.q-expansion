@@ -1,15 +1,15 @@
-\subsection{q-expansion of a modular form}
-\begin{definition}\label{cmf.q-expansion}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.q-expansion}{q-expansion of a modular form}}
+\begin{definition*}\label{cmf.q-expansion}
 \uses{cmf.cusp_form,cmf.fouriercoefficients,cmf.galois_orbit,cmf.newform,group.fuchsian.cusps,nf,nf.embedding}
-The **$q$-expansion** of a modular form $f(z)$ is its {{KNOWL('cmf.fouriercoefficients', "Fourier expansion")}} at the {{KNOWL('group.fuchsian.cusps', 'cusp')}} $z=i\infty$, expressed as a power series $\sum_{n=0}^{\infty} a_n q^n$ in the variable $q=e^{2\pi iz}$.
+The \textbf{$q$-expansion} of a modular form $f(z)$ is its \hyperref[cmf.fouriercoefficients]{Fourier expansion} at the \hyperref[group.fuchsian.cusps]{cusp} $z=i\infty$, expressed as a power series $\sum_{n=0}^{\infty} a_n q^n$ in the variable $q=e^{2\pi iz}$.
 
-For {{KNOWL('cmf.cusp_form', 'cusp forms')}}, the constant coefficient $a_0$ of the $q$-expansion is zero.
+For \hyperref[cmf.cusp_form]{cusp forms}, the constant coefficient $a_0$ of the $q$-expansion is zero.
 
-For {{KNOWL('cmf.newform','newforms')}}, we have $a_1=1$ and the coefficients $a_n$ are algebraic integers in a {{KNOWL('nf','number field')}} $K \subseteq \C$.  
+For \hyperref[cmf.newform]{newforms}, we have $a_1=1$ and the coefficients $a_n$ are algebraic integers in a \hyperref[nf]{number field} $K \subseteq \C$.  
 
-Accordingly, we define the **$q$-expansion** of a {{KNOWL('cmf.galois_orbit', 'newform orbit')}} $[f]$ to be the $q$-expansion of any newform $f$ in the orbit, but with coefficients $a_n \in K$ (without an embedding into $\C$).  Each {{KNOWL('nf.embedding','embedding')}} $K \hookrightarrow \C$ then gives rise to an {{KNOWL('cmf.embedding','embedded newform')}} whose $q$-expansion has $a_n \in \C$, as above.
+Accordingly, we define the \textbf{$q$-expansion} of a \hyperref[cmf.galois_orbit]{newform orbit} $[f]$ to be the $q$-expansion of any newform $f$ in the orbit, but with coefficients $a_n \in K$ (without an embedding into $\C$).  Each \hyperref[nf.embedding]{embedding} $K \hookrightarrow \C$ then gives rise to an \hyperref[cmf.embedding]{embedded newform} whose $q$-expansion has $a_n \in \C$, as above.
 
 
-\end{definition}
+\end{definition*}
 
 

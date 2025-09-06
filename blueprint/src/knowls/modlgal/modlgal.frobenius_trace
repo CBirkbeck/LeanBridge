@@ -1,9 +1,9 @@
-\subsection{Frobenius trace}
-\begin{definition}\label{modlgal.frobenius_trace}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/modlgal.frobenius_trace}{Frobenius trace}}
+\begin{definition*}\label{modlgal.frobenius_trace}
 \uses{modlgal,modlgal.ramified,modlgal.splitting_field,nf.prime}
-Let $\rho:\Gal_K\to G(\F_{\ell})$ be a {{ KNOWL('modlgal', 'mod-$\ell$ Galois representation') }}.   The **Frobenius trace** of a {{KNOWL('nf.prime', 'prime')}} $\frak{p}$ of $K$ at which $\rho$ is {{KNOWL('modlgal.ramified', 'unramified')}} is the trace of $\rho(\text{Frob}_{\frak{p}})$.
+Let $\rho:\Gal_K\to G(\F_{\ell})$ be a \hyperref[modlgal]{mod-$\ell$ Galois representation}.   The \textbf{Frobenius trace} of a \hyperref[nf.prime]{prime} $\frak{p}$ of $K$ at which $\rho$ is \hyperref[modlgal.ramified]{unramified} is the trace of $\rho(\text{Frob}_{\frak{p}})$.
 
-Note that {{KNOWL('modlgal.ramified', 'unramified')}} primes $\frak{p}$ of $K$ are, by definition, unramified in the {{KNOWL('modlgal.splitting_field', 'splitting field')}} $L/K$ of $\rho$, so the Frobenius automorphism $\text{Frob}_{\frak{p}}$ is well-defined up to conjugacy in $\Gal(L/K)$, and hence the trace of  $\rho(\text{Frob}_{\frak{p}})$ is well-defined.
-\end{definition}
+Note that \hyperref[modlgal.ramified]{unramified} primes $\frak{p}$ of $K$ are, by definition, unramified in the \hyperref[modlgal.splitting_field]{splitting field} $L/K$ of $\rho$, so the Frobenius automorphism $\text{Frob}_{\frak{p}}$ is well-defined up to conjugacy in $\Gal(L/K)$, and hence the trace of  $\rho(\text{Frob}_{\frak{p}})$ is well-defined.
+\end{definition*}
 
 

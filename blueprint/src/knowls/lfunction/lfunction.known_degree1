@@ -1,13 +1,17 @@
-\subsection{Degree 1 L-functions, all}
-\begin{definition}\label{lfunction.known_degree1}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.known_degree1}{Degree 1 L-functions, all}}
+\begin{definition*}\label{lfunction.known_degree1}
 \uses{artin.lfunction,lfunction,lfunction.degree}
-The {{ KNOWL("lfunction.degree", "degree")}} 1 {{ KNOWL("lfunction", "L-functions")}} are:
+The \hyperref[lfunction.degree]{degree} 1 \hyperref[lfunction]{L-functions} are:
 
-- $\zeta(s)$: the Riemann zeta function 
+\begin{itemize}
+\item  $\zeta(s)$: the Riemann zeta function 
+\end{itemize}
 
-- $L(s, \chi)$: the Dirichlet L-function of a primitive Dirichlet character
+\begin{itemize}
+\item  $L(s, \chi)$: the Dirichlet L-function of a primitive Dirichlet character
+\end{itemize}
 
-Note that these L-functions also arise as {{ KNOWL("artin.lfunction", "Artin L-functions")}}.
-\end{definition}
+Note that these L-functions also arise as \hyperref[artin.lfunction]{Artin L-functions}.
+\end{definition*}
 
 

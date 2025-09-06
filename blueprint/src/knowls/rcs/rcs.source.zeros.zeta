@@ -1,11 +1,11 @@
-\subsection{Source of Riemann Zeta Zeros Data}
-\begin{definition}\label{rcs.source.zeros.zeta}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.zeros.zeta}{Source of Riemann Zeta Zeros Data}}
+\begin{definition*}\label{rcs.source.zeros.zeta}
 \uses{}
-The database of Riemann zeta zeros was computed by David Platt using the algorithm described in \cite{MR:3315519,doi:10.1090/S0025-5718-2014-02884-6}. The imaginary part of each zero is  stored with an absolute precision of $±2^{−102}$ and the completeness of the list was verified using a rigorous version of Turing's method.
+The database of Riemann zeta zeros was computed by David Platt using the algorithm described in \cite{MR:3315519,doi:10.1090/S0025-5718-2014-02884-6}. The imaginary part of each zero is  stored with an absolute precision of $±2^{-102}$ and the completeness of the list was verified using a rigorous version of Turing's method.
 
 The raw data can be downloaded directly from 
 <a href="https://beta.lmfdb.org/data/riemann-zeta-zeros/">https://beta.lmfdb.org/data/riemann-zeta-zeros/</a>.<br>
-The code for reading the raw data is available at <a href="https://github.com/LMFDB/lmfdb/blob/master/lmfdb/zeros/zeta/platt_zeros.py">https://github.com/LMFDB/lmfdb/blob/master/lmfdb/zeros/zeta/platt_zeros.py</a>.
-\end{definition}
+The code for reading the raw data is available at <a href="https://github.com/LMFDB/lmfdb/blob/master/lmfdb/zeros/zeta/platt\_zeros.py">https://github.com/LMFDB/lmfdb/blob/master/lmfdb/zeros/zeta/platt\_zeros.py</a>.
+\end{definition*}
 
 

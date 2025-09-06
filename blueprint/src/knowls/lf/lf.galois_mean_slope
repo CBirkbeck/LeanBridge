@@ -1,11 +1,11 @@
-\subsection{Galois mean slope}
-\begin{definition}\label{lf.galois_mean_slope}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.galois_mean_slope}{Galois mean slope}}
+\begin{definition*}\label{lf.galois_mean_slope}
 \uses{lf.discriminant_exponent,lf.slopes,lf.tame_degree,nf.is_galois}
-Let $K$ be a finite {{KNOWL('nf.is_galois', 'Galois')}} extension of $\Q_p$ for some prime $p$.  Its **Galois mean slope** is the nonnegative rational number
-$\alpha$ such that the {{KNOWL('lf.discriminant_exponent', 'discriminant')}}
+Let $K$ be a finite \hyperref[nf.is_galois]{Galois} extension of $\Q_p$ for some prime $p$.  Its \textbf{Galois mean slope} is the nonnegative rational number
+$\alpha$ such that the \hyperref[lf.discriminant_exponent]{discriminant}
 ideal for $K$ over $\Q_p$ is $(p^{[K:\Q_p]\cdot \alpha})$.
 
-The Galois mean slope can be computed as a weighted average of the {{KNOWL('lf.slopes', 'wild Artin slopes')}} and {{KNOWL('lf.tame_degree', 'tame degree')}} of $K$.
-\end{definition}
+The Galois mean slope can be computed as a weighted average of the \hyperref[lf.slopes]{wild Artin slopes} and \hyperref[lf.tame_degree]{tame degree} of $K$.
+\end{definition*}
 
 

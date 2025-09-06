@@ -1,72 +1,74 @@
-\subsection{Families of abstract groups}
-\begin{definition}\label{group.families}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.families}{Families of abstract groups}}
+\begin{definition*}\label{group.families}
 \uses{group.affine_general_linear,group.affine_linear_automorphism,group.affine_special_linear,group.affine_symplectic,group.affine_symplectic_automorphism,group.alternating,group.chevalley,group.conformal_orthogonal,group.conformal_orthogonal_sign,group.conformal_special_orthogonal,group.conformal_special_orthogonal_sign,group.conformal_special_unitary,group.conformal_symplectic,group.conformal_unitary,group.coxeter,group.cyclic,group.dicyclic,group.dihedral,group.frobenius,group.general_linear,group.generalized_quaternion,group.heisenberg,group.linear_automorphism,group.omega,group.orthogonal,group.other_dihedral,group.semi_dihedral,group.special_linear,group.spin,group.spin_sign,group.sporadic,group.symmetric,group.symplectic,group.unitary}
 The currently supported families of groups are:
 
-- $C_n$ : {{KNOWL('group.cyclic', 'Cyclic')}}
-- $S_n$ : {{KNOWL('group.symmetric', 'Symmetric')}}
-- $D_n$ : {{KNOWL('group.dihedral', 'Dihedral')}}
-- $A_n$ : {{KNOWL('group.alternating', 'Alternating')}}
-- $Q_n$ : {{KNOWL('group.generalized_quaternion', '(Generalized) Quaternion')}}
-- $F_n$ : {{KNOWL('group.frobenius', 'Frobenius')}}
-- $\SD_n$ : {{KNOWL('group.semi_dihedral', 'Semi-dihedral')}}
-- $\OD_n$ : {{KNOWL('group.other_dihedral', 'Other-dihedral')}}
-- $\He_n$ : {{KNOWL('group.heisenberg', 'Heisenberg')}}
-- $\Dic_n$ : {{KNOWL('group.dicyclic', 'Dicyclic')}}
-- $M_{11}, M_{12}, J_1, M_{22}, J_2, M_{23}, \HS, J_3, M_{24}, \McL, \He, \Ru, \Co_3, \Co_2$ : {{KNOWL('group.sporadic', 'Sporadic')}}
-- $\GL(n,q)$ : {{KNOWL('group.general_linear', 'General linear')}}
-- $\SL(n,q)$ : {{KNOWL('group.special_linear', 'Special linear')}}
-- $\PGL(n,q)$ : {{KNOWL('group.general_linear', 'Projective general linear')}}
-- $\PSL(n,q)$ : {{KNOWL('group.special_linear', 'Projective special linear')}}
-- $\Sp(n,q)$ : {{KNOWL('group.symplectic', 'Symplectic')}}
-- $\PSp(n,q)$ : {{KNOWL('group.symplectic', 'Projective symplectic')}}
-- $\GO(n,q)$ : {{KNOWL('group.orthogonal', 'General orthogonal')}}
-- $\GOPlus(n,q)$ : {{KNOWL('group.orthogonal', 'General orthogonal (plus)')}}
-- $\GOMinus(n,q)$ : {{KNOWL('group.orthogonal', 'General orthogonal (minus)')}}
-- $\SO(n,q)$ : {{KNOWL('group.orthogonal', 'Special orthogonal')}}
-- $\SOPlus(n,q)$ : {{KNOWL('group.orthogonal', 'Special orthogonal (plus)')}}
-- $\SOMinus(n,q)$ : {{KNOWL('group.orthogonal', 'Special orthogonal (minus)')}}
-- $\PGO(n,q)$ : {{KNOWL('group.orthogonal', 'Projective orthogonal')}}
-- $\PGOPlus(n,q)$ : {{KNOWL('group.orthogonal', 'Projective orthogonal (plus)')}}
-- $\PGOMinus(n,q)$ : {{KNOWL('group.orthogonal', 'Projective orthogonal (minus)')}}
-- $\PSO(n,q)$ : {{KNOWL('group.orthogonal', 'Projective special orthogonal')}}
-- $\PSOPlus(n,q)$ : {{KNOWL('group.orthogonal', 'Projective special orthogonal (plus)')}}
-- $\PSOMinus(n,q)$ : {{KNOWL('group.orthogonal', 'Projective special orthogonal (minus)')}}
-- $\GU(n,q)$ : {{KNOWL('group.unitary', 'General unitary')}}
-- $\SU(n,q)$ : {{KNOWL('group.unitary', 'Special unitary')}}
-- $\PGU(n,q)$ : {{KNOWL('group.unitary', 'Projective unitary')}}
-- $\PSU(n,q)$ : {{KNOWL('group.unitary', 'Projective special unitary')}}
-- $\Omega(n,q)$ : {{KNOWL('group.omega', 'Omega')}}
-- $\OmegaPlus(n,q)$ : {{KNOWL('group.omega', 'Omega (plus)')}}
-- $\OmegaMinus(n,q)$ : {{KNOWL('group.omega', 'Omega (minus)')}}
-- $\POmega(n,q)$ : {{KNOWL('group.omega', 'Projective omega')}}
-- $\POmegaPlus(n,q)$ : {{KNOWL('group.omega', 'Projective omega (plus)')}}
-- $\POmegaMinus(n,q)$ : {{KNOWL('group.omega', 'Projective omega (minus)')}}
-- $\Spin(n,q)$ : {{KNOWL('group.spin', 'Spin')}}
-- $\SpinPlus(n,q)$ : {{KNOWL('group.spin_sign', 'Spin (plus)')}}
-- $\SpinMinus(n,q)$ : {{KNOWL('group.spin_sign', 'Spin (minus)')}}
-- $\AGL(n,q)$ : {{KNOWL('group.affine_general_linear', 'Affine general linear')}}
-- $\ASL(n,q)$ : {{KNOWL('group.affine_special_linear', 'Affine special linear')}}
-- $\ASp(n,q)$ : {{KNOWL('group.affine_symplectic', 'Affine symplectic')}}
-- $\AGammaL(n,q)$ : {{KNOWL('group.affine_linear_automorphism', 'Affine general linear automorphism')}}
-- $\ASigmaL(n,q)$ : {{KNOWL('group.affine_linear_automorphism', 'Affine special linear automorphism')}}
-- $\PGammaL(n,q)$ : {{KNOWL('group.linear_automorphism', 'Projective general linear automorphism')}}
-- $\PSigmaL(n,q)$ : {{KNOWL('group.linear_automorphism', 'Projective special linear automorphism')}}
-- $\ASigmaSp(n,q)$ : {{KNOWL('group.affine_symplectic_automorphism', 'Affine symplectic automorphism')}}
-- $\PSigmaSp(n,q)$ : {{KNOWL('group.affine_symplectic', 'Projective symplectic automorphism')}}
-- $\PGammaU(n,q)$ : {{KNOWL('group.unitary', 'Projective unitary automorphism group')}}
-- $\CSp(n,q)$ : {{KNOWL('group.conformal_symplectic', 'Conformal symplectic')}}
-- $\CO(n,q)$ : {{KNOWL('group.conformal_orthogonal', 'Conformal orthogonal')}}
-- $\COPlus(n,q)$ : {{KNOWL('group.conformal_orthogonal_sign', 'Conformal orthogonal (plus)')}}
-- $\COMinus(n,q)$ : {{KNOWL('group.conformal_orthogonal_sign', 'Conformal orthogonal (minus)')}}
-- $\CSO(n,q)$ : {{KNOWL('group.conformal_special_orthogonal', 'Conformal special orthogonal')}}
-- $\CSOPlus(n,q)$ : {{KNOWL('group.conformal_special_orthogonal_sign', 'Conformal special orthogonal (plus)')}}
-- $\CSOMinus(n,q)$ : {{KNOWL('group.conformal_special_orthogonal_sign', 'Conformal special orthogonal (minus)')}}
-- $\CU(n,q)$ : {{KNOWL('group.conformal_unitary', 'Conformal unitary')}}
-- $\CSU(n,q)$ : {{KNOWL('group.conformal_special_unitary', 'Conformal special unitary')}}
-- $A(n,q), B(n,q), C(n,q), D(n,q), E(n,q), F(4,q), G(2,q)$ : {{KNOWL('group.chevalley', 'Chevalley')}}
-- ${}^2A(n,q), {}^2B(n,2^{2k+1}), {}^2D(n,q), {}^3D(4,q), {}^2E(6,q), {}^2F(4,2), {}^2G(2, 3)$: {{KNOWL('group.chevalley', 'Twisted Chevalley')}}
-- $W(A_n), W(B_n), W(D_n), W(E_n), W(F_4), H_n, I_2(n)$: {{KNOWL('group.coxeter', 'Coxeter')}}
-\end{definition}
+\begin{itemize}
+\item  $C_n$ : \hyperref[group.cyclic]{Cyclic}
+\item  $S_n$ : \hyperref[group.symmetric]{Symmetric}
+\item  $D_n$ : \hyperref[group.dihedral]{Dihedral}
+\item  $A_n$ : \hyperref[group.alternating]{Alternating}
+\item  $Q_n$ : \hyperref[group.generalized_quaternion]{(Generalized) Quaternion}
+\item  $F_n$ : \hyperref[group.frobenius]{Frobenius}
+\item  $\SD_n$ : \hyperref[group.semi_dihedral]{Semi-dihedral}
+\item  $\OD_n$ : \hyperref[group.other_dihedral]{Other-dihedral}
+\item  $\He_n$ : \hyperref[group.heisenberg]{Heisenberg}
+\item  $\Dic_n$ : \hyperref[group.dicyclic]{Dicyclic}
+\item  $M_{11}, M_{12}, J_1, M_{22}, J_2, M_{23}, \HS, J_3, M_{24}, \McL, \He, \Ru, \Co_3, \Co_2$ : \hyperref[group.sporadic]{Sporadic}
+\item  $\GL(n,q)$ : \hyperref[group.general_linear]{General linear}
+\item  $\SL(n,q)$ : \hyperref[group.special_linear]{Special linear}
+\item  $\PGL(n,q)$ : \hyperref[group.general_linear]{Projective general linear}
+\item  $\PSL(n,q)$ : \hyperref[group.special_linear]{Projective special linear}
+\item  $\Sp(n,q)$ : \hyperref[group.symplectic]{Symplectic}
+\item  $\PSp(n,q)$ : \hyperref[group.symplectic]{Projective symplectic}
+\item  $\GO(n,q)$ : \hyperref[group.orthogonal]{General orthogonal}
+\item  $\GOPlus(n,q)$ : \hyperref[group.orthogonal]{General orthogonal (plus)}
+\item  $\GOMinus(n,q)$ : \hyperref[group.orthogonal]{General orthogonal (minus)}
+\item  $\SO(n,q)$ : \hyperref[group.orthogonal]{Special orthogonal}
+\item  $\SOPlus(n,q)$ : \hyperref[group.orthogonal]{Special orthogonal (plus)}
+\item  $\SOMinus(n,q)$ : \hyperref[group.orthogonal]{Special orthogonal (minus)}
+\item  $\PGO(n,q)$ : \hyperref[group.orthogonal]{Projective orthogonal}
+\item  $\PGOPlus(n,q)$ : \hyperref[group.orthogonal]{Projective orthogonal (plus)}
+\item  $\PGOMinus(n,q)$ : \hyperref[group.orthogonal]{Projective orthogonal (minus)}
+\item  $\PSO(n,q)$ : \hyperref[group.orthogonal]{Projective special orthogonal}
+\item  $\PSOPlus(n,q)$ : \hyperref[group.orthogonal]{Projective special orthogonal (plus)}
+\item  $\PSOMinus(n,q)$ : \hyperref[group.orthogonal]{Projective special orthogonal (minus)}
+\item  $\GU(n,q)$ : \hyperref[group.unitary]{General unitary}
+\item  $\SU(n,q)$ : \hyperref[group.unitary]{Special unitary}
+\item  $\PGU(n,q)$ : \hyperref[group.unitary]{Projective unitary}
+\item  $\PSU(n,q)$ : \hyperref[group.unitary]{Projective special unitary}
+\item  $\Omega(n,q)$ : \hyperref[group.omega]{Omega}
+\item  $\OmegaPlus(n,q)$ : \hyperref[group.omega]{Omega (plus)}
+\item  $\OmegaMinus(n,q)$ : \hyperref[group.omega]{Omega (minus)}
+\item  $\POmega(n,q)$ : \hyperref[group.omega]{Projective omega}
+\item  $\POmegaPlus(n,q)$ : \hyperref[group.omega]{Projective omega (plus)}
+\item  $\POmegaMinus(n,q)$ : \hyperref[group.omega]{Projective omega (minus)}
+\item  $\Spin(n,q)$ : \hyperref[group.spin]{Spin}
+\item  $\SpinPlus(n,q)$ : \hyperref[group.spin_sign]{Spin (plus)}
+\item  $\SpinMinus(n,q)$ : \hyperref[group.spin_sign]{Spin (minus)}
+\item  $\AGL(n,q)$ : \hyperref[group.affine_general_linear]{Affine general linear}
+\item  $\ASL(n,q)$ : \hyperref[group.affine_special_linear]{Affine special linear}
+\item  $\ASp(n,q)$ : \hyperref[group.affine_symplectic]{Affine symplectic}
+\item  $\AGammaL(n,q)$ : \hyperref[group.affine_linear_automorphism]{Affine general linear automorphism}
+\item  $\ASigmaL(n,q)$ : \hyperref[group.affine_linear_automorphism]{Affine special linear automorphism}
+\item  $\PGammaL(n,q)$ : \hyperref[group.linear_automorphism]{Projective general linear automorphism}
+\item  $\PSigmaL(n,q)$ : \hyperref[group.linear_automorphism]{Projective special linear automorphism}
+\item  $\ASigmaSp(n,q)$ : \hyperref[group.affine_symplectic_automorphism]{Affine symplectic automorphism}
+\item  $\PSigmaSp(n,q)$ : \hyperref[group.affine_symplectic]{Projective symplectic automorphism}
+\item  $\PGammaU(n,q)$ : \hyperref[group.unitary]{Projective unitary automorphism group}
+\item  $\CSp(n,q)$ : \hyperref[group.conformal_symplectic]{Conformal symplectic}
+\item  $\CO(n,q)$ : \hyperref[group.conformal_orthogonal]{Conformal orthogonal}
+\item  $\COPlus(n,q)$ : \hyperref[group.conformal_orthogonal_sign]{Conformal orthogonal (plus)}
+\item  $\COMinus(n,q)$ : \hyperref[group.conformal_orthogonal_sign]{Conformal orthogonal (minus)}
+\item  $\CSO(n,q)$ : \hyperref[group.conformal_special_orthogonal]{Conformal special orthogonal}
+\item  $\CSOPlus(n,q)$ : \hyperref[group.conformal_special_orthogonal_sign]{Conformal special orthogonal (plus)}
+\item  $\CSOMinus(n,q)$ : \hyperref[group.conformal_special_orthogonal_sign]{Conformal special orthogonal (minus)}
+\item  $\CU(n,q)$ : \hyperref[group.conformal_unitary]{Conformal unitary}
+\item  $\CSU(n,q)$ : \hyperref[group.conformal_special_unitary]{Conformal special unitary}
+\item  $A(n,q), B(n,q), C(n,q), D(n,q), E(n,q), F(4,q), G(2,q)$ : \hyperref[group.chevalley]{Chevalley}
+\item  ${}^2A(n,q), {}^2B(n,2^{2k+1}), {}^2D(n,q), {}^3D(4,q), {}^2E(6,q), {}^2F(4,2), {}^2G(2, 3)$: \hyperref[group.chevalley]{Twisted Chevalley}
+\item  $W(A_n), W(B_n), W(D_n), W(E_n), W(F_4), H_n, I_2(n)$: \hyperref[group.coxeter]{Coxeter}
+\end{itemize}
+\end{definition*}
 
 

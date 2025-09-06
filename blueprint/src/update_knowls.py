@@ -8,11 +8,125 @@ from pathlib import Path
 from collections import defaultdict
 import networkx as nx
 
+KNOWL_RE = re.compile(r"""(\{\{\s*KNOWL(_INC)?\s*\(\s*['"]([a-z0-9._-]+)['"](?:\s*,\s*(?:title\s*=\s*)?("[^"]+"|'[^']+'))?\s*\)\s*\}\})""")
+CURLY_RE = re.compile(r"\{\{([^\}]+)\}\}")
+ITALIC_RE = re.compile(r" _([^_]+)_")
+EMPH_RE = re.compile(r"\*\*([^\*]+)\*\*")
+DELIM_RE = re.compile(r"(\\\[|\\\]|\\\(|\\\)|\$\$|\$)")
+COMMENT_RE = re.compile(r"\{#[^#]+#\}")
+CITE_UNDERSCORE_RE = re.compile(r"\\cite\{[^\}]+\}")
+ITEMIZE_RE = re.compile(r"^\s*[\-\*]")
+# url_for('abstract.index') -> https://www.lmfdb.org/Groups/Abstract
+# url_for('modcurve.index_Q',level='11',family='Xsp') -> https://beta.lmfdb.org/ModularCurves/Q?level=11&family=Xsp
+
+def strip_macros(knowls):
+    """
+    INPUT:
+    - knowls -- a dictionary with keys the knowl ids and values the knowl records.
+    """
+    doinc = set()
+    def subber(match):
+        if match.group(2): # KNOWL_INC; deal with this below
+            return match.group(1)
+        kid = match.group(3)
+        if match.group(4):
+            title = match.group(4)[1:-1]
+        elif kid in knowls and "title" in knowls[kid]:
+            title = knowls[kid]["title"]
+        else:
+            return ""
+        # Need to mask underscores for the replacement _ with \_ below
+        kid = kid.replace("_", "~U~")
+        return f"\\hyperref[{kid}]{{{title}}}"
+    def cite_subber(match):
+        return match.group(0).replace(r"\_", "_")
+    replacements = [
+        (r"\\times", r"\times"),
+        ("&check;", r"\checkmark"),
+        ("&#1064;", r"\Sha"),
+        ("&ouml;", r'\"o'),
+        ("&eacute", r"\'e"),
+        ("ę", r"\k{e}"),
+        ("Č", r"\v{C}"),
+        ("č", r"\v{c}"),
+        ("−", "-"), # Replace weird unicode minus with a normal minus
+    ]
+    for kid, rec in knowls.items():
+        content = rec["content"]
+        for old, new in replacements:
+            content = content.replace(old, new)
+        rec["title"] = rec["title"].replace("&#1064;", r"$\Sha$")
+        content = KNOWL_RE.sub(subber, content)
+
+        # Remove comments
+        content = COMMENT_RE.sub("", content)
+
+        # Change **defined** to \emph{defined}
+        content = EMPH_RE.sub(r"\\textbf{\1}", content)
+
+        # Underscores that are not in mathmode
+        content = ITALIC_RE.sub(r" \\textit{\1}", content)
+        # Other underscores that are not in mathmode
+        delim_split = DELIM_RE.split(content)
+        for i in range(0, len(delim_split), 4): # Every fourth entry is outside mathmode
+            delim_split[i] = delim_split[i].replace("_", r"\_").replace(r"\Sha", r"$\Sha$")
+        content = "".join(delim_split)
+        # Switch back from \_ to _ inside cite commands
+        content = CITE_UNDERSCORE_RE.sub(cite_subber, content)
+        # Put underscores in knowl ids back in
+        content = content.replace("~U~", "_")
+
+        # Turn markdown lists into itemize
+        lines = content.split("\n")
+        in_itemize = False
+        i = 0
+        while i < len(lines):
+            line = lines[i]
+            if ITEMIZE_RE.match(line):
+                if not in_itemize:
+                    lines[i:i] = [r"\begin{itemize}"]
+                    i += 1
+                    in_itemize = True
+                lines[i] = ITEMIZE_RE.sub(r"\\item ", line)
+            else:
+                if in_itemize:
+                    lines[i:i] = [r"\end{itemize}"]
+                    i += 1
+                    in_itemize = False
+            i += 1
+        if in_itemize:
+            lines.append(r"\end{itemize}")
+        content = "\n".join(lines)
+
+        # Prepare for knowl inclusions below
+        if "KNOWL_INC" in content:
+            doinc.add(kid)
+        rec["content"] = content
+
+    # Special cases
+    def special_sub(kid, old, new):
+        knowls[kid]["content"] = knowls[kid]["content"].replace(old, new)
+
+    # Now deal with KNOWL_INC
+    def subber_inc(match):
+        assert match.group(2)
+        kid = match.group(3)
+        return knowls[kid]["content"]
+    while doinc:
+        redo = set()
+        for kid in doinc:
+            rec = knowls[kid]
+            rec["content"] = KNOWL_RE.sub(subber_inc, rec["content"])
+            if "KNOWL_INC" in rec["content"]:
+                redo.add(kid)
+        doinc = redo
+
 def clean_content(kwl):
     # We should deal with things like markdown lists, jinja macros (especially KNOWL)
     content = kwl['content']
+    safe_id = kwl['id'].replace("_", r"\_")
     # For now, we just add label and dependencies
-    return f"\\subsection{{{kwl['title']}}}\n\\begin{{definition}}\\label{{{kwl['id']}}}\n\\uses{{{','.join(kwl['links'])}}}\n{kwl['content']}\n\\end{{definition}}\n\n\n"
+    return f"\\subsection{{\\href{{https://beta.lmfdb.org/knowledge/show/{kwl['id']}}}{{{kwl['title']}}}}}\n\\begin{{definition*}}\\label{{{kwl['id']}}}\n\\uses{{{','.join(kwl['links'])}}}\n{content}\n\\end{{definition*}}\n\n\n"
 
 def update_knowls(path_to_lmfdb=None, cats=["nf", "ec", "cmf"], delete_old=False):
     if path_to_lmfdb is None:
@@ -21,7 +135,57 @@ def update_knowls(path_to_lmfdb=None, cats=["nf", "ec", "cmf"], delete_old=False
     from lmfdb.knowledge.knowl import knowldb
     knowldir = Path("knowls")
 
-    all_knowls = knowldb.get_all_knowls(fields=['id', 'cat', 'content', 'title', 'links', 'defines'], types=[0])
+    omit_verts = set([
+        "field.about",
+        "group.about",
+        "mf.about",
+        "motives.about",
+        "repn.about",
+        "varieties.about",
+        "av.fq.abvar.data",
+        "character.dirichlet.data",
+        "character.dirichlet.orbit_data",
+        "clusterpicture.data",
+        "gg.conjugacy_classes.data",
+        "gg.character_table.data",
+        "gl2.subgroup_data",
+        "group.small.data",
+        "gsp4.subgroup_data",
+        "lattice.data",
+        "lf.algebra.data",
+        "lf.field.data",
+        "nf.field.data",
+        "nf.galois_group.data",
+        "nf.galois_group.gmodule",
+        "st_group.data",
+        "dq.charmodl.extent",
+        "dq.ecnf.extent",
+        "dq.hecke_algebras.extent",
+        "dq.modlmf.extent",
+        "dq.rep_galois_modl.extent",
+        "rcs.ack.meetings",
+        "rcs.cande.ec",
+        "rcs.cande.ec.q",
+        "rcs.cande.lattice",
+        "rcs.cande.nf",
+        "lmfdb.object_information",
+        "intro.api",
+        "test.knowlparam",
+        "nf.elkies",
+        "nf.field.missing",
+        "nf.field.link",
+        "nf.galois_group.name", # Maybe relevant but includes a Python function
+        "ec.isogenygraph.legend",
+        "doc.secret",
+        "doc.news.in_the_news",
+        "doc.knowl",
+        "doc.knowl.guidelines",
+        "doc.macros",
+        "sage.test", # Huh, I didn't know we had this
+        "test.text",
+    ])
+
+    all_knowls = [rec for rec in knowldb.get_all_knowls(fields=['id', 'cat', 'content', 'title', 'links', 'defines'], types=[0]) if rec["id"] not in omit_verts]
     old_knowls = set()
     for cat in knowldir.iterdir():
         for path in cat.iterdir():
@@ -57,8 +221,8 @@ def update_knowls(path_to_lmfdb=None, cats=["nf", "ec", "cmf"], delete_old=False
 
 
     # Now we trim to only things that are dependencies of knowls in the specified categories, and build a networkx DiGraph for the next step
-    # We've manually removed some edges to prevent cycles
     omit_edges = set([
+        # We've manually removed some edges to prevent cycles
         ("ec.q.lmfdb_label", "ec.q.cremona_label"),
         ("ec.q.cremona_label", "ec.q.lmfdb_label"),
         ("ec.q.optimal", "ec.q.cremona_label"),
@@ -179,6 +343,8 @@ def update_knowls(path_to_lmfdb=None, cats=["nf", "ec", "cmf"], delete_old=False
     edges = []
     kid_to_num = {}
     num_to_kid = {}
+    by_source = defaultdict(list)
+    by_target = defaultdict(list)
     next_num = 0
     keep = newkeep = set(rec["id"] for rec in by_id.values() if cats is None or rec["cat"] in cats)
     while newkeep:
@@ -198,8 +364,11 @@ def update_knowls(path_to_lmfdb=None, cats=["nf", "ec", "cmf"], delete_old=False
                 if link not in keep:
                     nextkeep.add(link)
                 edges.append((source, kid_to_num[link]))
+                by_source[kid].append(link)
+                by_target[link].append(kid)
         keep = keep.union(nextkeep)
         newkeep = copy(nextkeep)
+    all_by_id = {rec["id"]: rec for rec in all_knowls}
     by_id = {rec["id"]: rec for rec in all_knowls if rec["id"] in keep}
 
     # Detect cycles
@@ -212,15 +381,28 @@ def update_knowls(path_to_lmfdb=None, cats=["nf", "ec", "cmf"], delete_old=False
                 _ = F.write(" -> ".join(num_to_kid[vid] for vid in cyc + [cyc[0]]) + "\n")
     else:
         print("No cycles found")
+    with open("edges.txt", "w") as F:
+        _ = F.write("a:B where a is included because it is referenced by all b in B\n\n")
+        for target in sorted(by_target):
+            sources = sorted(by_target[target])
+            _ = F.write(f"{target}: {', '.join(sources)}\n")
 
-    for rec in all_knowls:
+        _ = F.write("\n\n\n\n\nb:A where b references all a in B\n\n")
+        for source in sorted(by_source):
+            targets = sorted(by_source[source])
+            _ = F.write(f"{source}: {', '.join(targets)}\n")
+
+    strip_macros(all_by_id)
+    for rec in all_by_id.values():
         kid = rec["id"]
         cat = kid.split(".")[0]
         assert cat == rec["cat"]
         with open(knowldir / cat / rec["id"], "w") as F:
             _ = F.write(clean_content(rec))
 
-
+    skip = set([ # Temporarily skip these...
+        #"character.dirichlet.jacobi_symbol",
+    ])
     # Write to a file that can be manually edited
     cat_names = {
         "nf": "Number fields",
@@ -229,13 +411,34 @@ def update_knowls(path_to_lmfdb=None, cats=["nf", "ec", "cmf"], delete_old=False
         # Add more categories here
     }
     with open("auto_content.tex", "w") as F:
+        _ = F.write(r"""\documentclass{article}
+\usepackage{expl3}
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage[unicode,colorlinks=true,linkcolor=blue,urlcolor=magenta, citecolor=blue]{hyperref}
+\usepackage[capitalize,noabbrev]{cleveref}
+\usepackage{autonum}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{environ}
+\usepackage{setspace}
+\renewcommand{\baselinestretch}{1.5}
+\usepackage[skip=12pt, indent=0pt]{parskip}
+\allowdisplaybreaks  % Allows align environments to continue for several pages
+% NOTE: PUT ALL MACROS IN macros/common.tex, macros/print.tex or macros/web.tex.
+\input{macros/common}
+\input{macros/print}
+\title{LMFDB Knowls}
+\author{Chris Birkbeck, David Roe, Andrew Sutherland}
+\begin{document}
+""")
         # We should impose some kind of reasonable order, but that's for later
-        _ = F.write("\n\\section{{Background}}\n")
-        for kwl in all_knowls:
-            if kwl["cat"] not in cats:
+        _ = F.write("\n\\section{Background}\n")
+        auto_knowls = sorted(by_id.values(), key=lambda rec: rec["id"])
+        for kwl in by_id.values():
+            if kwl["cat"] not in cats and kwl["id"] not in skip:
                 _ = F.write(f"\\input{{knowls/{kwl['cat']}/{kwl['id']}}}\n")
         for cat in cats:
             _ = F.write(f"\n\n\\section{{{cat_names[cat]}}}\n")
-            for kwl in all_knowls:
-                if kwl["cat"] == cat:
+            for kwl in by_id.values():
+                if kwl["cat"] == cat and kwl["id"] not in skip:
                     _ = F.write(f"\\input{{knowls/{kwl['cat']}/{kwl['id']}}}\n")
+        _ = F.write(r"\end{document}")

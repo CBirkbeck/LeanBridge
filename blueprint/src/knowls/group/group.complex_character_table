@@ -1,7 +1,7 @@
-\subsection{Complex character table of a finite group}
-\begin{definition}\label{group.complex_character_table}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.complex_character_table}{Complex character table of a finite group}}
+\begin{definition*}\label{group.complex_character_table}
 \uses{group,group.label_complex_group_char,group.label_conjugacy_class,group.representation.character}
-The **complex character table** of a finite {{KNOWL('group', 'group')}} $G$ is a square tabulation of the value of its irreducible {{KNOWL('group.representation.character', 'complex characters')}}, which encodes useful information about the group $G$ in a compact way. Each row of the table is labeled by an irreducible character (given by its  {{KNOWL('group.label_complex_group_char','label')}}) and the entries in the row are the values of that character on some representative of the corresponding conjugacy class of $G$ given by its {{KNOWL('group.label_conjugacy_class','label')}} on the columns.
-\end{definition}
+The \textbf{complex character table} of a finite \hyperref[group]{group} $G$ is a square tabulation of the value of its irreducible \hyperref[group.representation.character]{complex characters}, which encodes useful information about the group $G$ in a compact way. Each row of the table is labeled by an irreducible character (given by its  \hyperref[group.label_complex_group_char]{label}) and the entries in the row are the values of that character on some representative of the corresponding conjugacy class of $G$ given by its \hyperref[group.label_conjugacy_class]{label} on the columns.
+\end{definition*}
 
 

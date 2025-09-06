@@ -1,7 +1,7 @@
-\subsection{Find a mod-$\ell$ Galois representation}
-\begin{definition}\label{modlgal.search_input}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/modlgal.search_input}{Find a mod-$\ell$ Galois representation}}
+\begin{definition*}\label{modlgal.search_input}
 \uses{modlgal,modlgal.label}
-To find a specific {{KNOWL('modlgal', 'mod-$\ell$ Galois representation')}}, enter its {{KNOWL('modlgal.label','label')}}.
-\end{definition}
+To find a specific \hyperref[modlgal]{mod-$\ell$ Galois representation}, enter its \hyperref[modlgal.label]{label}.
+\end{definition*}
 
 

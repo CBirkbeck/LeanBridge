@@ -1,14 +1,14 @@
-\subsection{Selberg data for the functional equation of an L-function}
-\begin{definition}\label{lfunction.selbergdata}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.selbergdata}{Selberg data for the functional equation of an L-function}}
+\begin{definition*}\label{lfunction.selbergdata}
 \uses{lfunction,lfunction.conductor,lfunction.degree,lfunction.functional_equation,lfunction.gamma_factor,lfunction.normalization,lfunction.root_number,lfunction.spectral_parameters}
-The **Selberg data** for an {{KNOWL("lfunction", "L-function")}} is the quadruple 
-$(d, N,(\mu_1,\ldots,\mu_J:\nu_1,\ldots,\nu_K),\varepsilon)$ obtained from the parameters in the {{KNOWL("lfunction.normalization","analytically normalized")}} {{KNOWL("lfunction.functional_equation", "functional equation")}}.
+The \textbf{Selberg data} for an \hyperref[lfunction]{L-function} is the quadruple 
+$(d, N,(\mu_1,\ldots,\mu_J:\nu_1,\ldots,\nu_K),\varepsilon)$ obtained from the parameters in the \hyperref[lfunction.normalization]{analytically normalized} \hyperref[lfunction.functional_equation]{functional equation}.
   
-Here $d=J+2K$ is the {{KNOWL("lfunction.degree", "degree")}} of the 
-L-function, $N$ is the  {{KNOWL("lfunction.conductor", "conductor")}} of the 
+Here $d=J+2K$ is the \hyperref[lfunction.degree]{degree} of the 
+L-function, $N$ is the  \hyperref[lfunction.conductor]{conductor} of the 
 L-function, the set of $\mu_j$ and $\nu_k$ 
-arising from the {{ KNOWL('lfunction.gamma_factor', '$\Gamma_{\mathbb R}$ and $\Gamma_{\mathbb C}$') }} factors, respectively, 
-are the {{KNOWL("lfunction.spectral_parameters", "spectral parameters")}}, and $\varepsilon$ is the {{KNOWL("lfunction.root_number", "sign")}} of the L-function.
-\end{definition}
+arising from the \hyperref[lfunction.gamma_factor]{$\Gamma_{\mathbb R}$ and $\Gamma_{\mathbb C}$} factors, respectively, 
+are the \hyperref[lfunction.spectral_parameters]{spectral parameters}, and $\varepsilon$ is the \hyperref[lfunction.root_number]{sign} of the L-function.
+\end{definition*}
 
 

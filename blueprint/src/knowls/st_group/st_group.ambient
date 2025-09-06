@@ -1,14 +1,16 @@
-\subsection{Ambient group of a Sato-Tate group}
-\begin{definition}\label{st_group.ambient}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/st_group.ambient}{Ambient group of a Sato-Tate group}}
+\begin{definition*}\label{st_group.ambient}
 \uses{st_group.definition,st_group.degree,st_group.weight}
-A {{KNOWL('st_group.definition', 'Sato-Tate group')}} of {{KNOWL('st_group.weight','weight')}} $w$ and {{KNOWL('st_group.degree', 'degree')}} $d$ is a subgroup of either:
+A \hyperref[st_group.definition]{Sato-Tate group} of \hyperref[st_group.weight]{weight} $w$ and \hyperref[st_group.degree]{degree} $d$ is a subgroup of either:
 
-- $\mathrm{USp}(d)$, if $w$ is odd (in which case $d$ must be even);
-- $\mathrm{O}(d)$, if $w$ is even (in which case $d$ may be even or odd).
+\begin{itemize}
+\item  $\mathrm{USp}(d)$, if $w$ is odd (in which case $d$ must be even);
+\item  $\mathrm{O}(d)$, if $w$ is even (in which case $d$ may be even or odd).
+\end{itemize}
 
 Here $\mathrm{USp}(d)\subseteq \mathrm{GL}_d(\mathbb{C})$ denotes the group of $d\times d$ complex matrices that are both unitary ($\bar A A^{\rm t}=I$) and symplectic ($A^{\rm t}\Omega A = \Omega$ for some fixed symplectic form $\Omega$), while $\mathrm{O}(d)\subseteq\mathrm{GL}_d(\mathbb{C})$ is the group of $d\times d$ orthogonal matrices ($AA^{\rm t}=I$).  Both are classical real Lie groups.
 
-In either case, the group $\mathrm{USp}(d)$ or $\mathrm{O}(d)$ is called the **ambient group** of the Sato-Tate group.
-\end{definition}
+In either case, the group $\mathrm{USp}(d)$ or $\mathrm{O}(d)$ is called the \textbf{ambient group} of the Sato-Tate group.
+\end{definition*}
 
 

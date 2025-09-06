@@ -1,7 +1,7 @@
-\subsection{Gritsenko lift}
-\begin{definition}\label{mf.siegel.lift.gritsenko}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.lift.gritsenko}{Gritsenko lift}}
+\begin{definition*}\label{mf.siegel.lift.gritsenko}
 \uses{}
-Given a <a class="knowl-title" knowl="af.jacobi_form">Jacobi cusp form</a> 
+Given a <a class="knowl-title" knowl="af.jacobi\_form">Jacobi cusp form</a> 
 $\phi(\tau,z)\in J_{k,N}^{\text{cusp}}$,
 the Gritsenko lift of $\phi$,
 
@@ -18,6 +18,6 @@ then $Grit(\phi)$ is a paramodular cusp form.
 
 The L-function of the Gritsenko lift is related to the L-function
 of an elliptic modular form that is related to the Jacobi form.
-\end{definition}
+\end{definition*}
 
 

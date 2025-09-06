@@ -1,11 +1,13 @@
-\subsection{Source of abstract group data}
-\begin{definition}\label{rcs.groups.abstract.source}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.groups.abstract.source}{Source of abstract group data}}
+\begin{definition*}\label{rcs.groups.abstract.source}
 \uses{}
 Small groups were pulled from the small group database in Magma, and rely on the following work:
 
-* O'Brien, "The groups of order $256$" \cite{MR:1128656, doi:10.1016/0021-8693(91)90261-6}
-* Besche and Eick, "The groups of order at most 1000 except 512 and 768" \cite{MR:1681347, doi:10.1006/jsco.1998.0259}
-* Besche, Eick and O'Brien, "A millennium project: constructing small groups" \cite{MR:1935567, doi:10.1142/S0218196702001115}
-\end{definition}
+\begin{itemize}
+\item  O'Brien, "The groups of order $256$" \cite{MR:1128656, doi:10.1016/0021-8693(91)90261-6}
+\item  Besche and Eick, "The groups of order at most 1000 except 512 and 768" \cite{MR:1681347, doi:10.1006/jsco.1998.0259}
+\item  Besche, Eick and O'Brien, "A millennium project: constructing small groups" \cite{MR:1935567, doi:10.1142/S0218196702001115}
+\end{itemize}
+\end{definition*}
 
 

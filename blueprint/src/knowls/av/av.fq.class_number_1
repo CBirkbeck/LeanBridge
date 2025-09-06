@@ -1,8 +1,8 @@
-\subsection{Function fields of class number 1}
-\begin{definition}\label{av.fq.class_number_1}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/av.fq.class_number_1}{Function fields of class number 1}}
+\begin{definition*}\label{av.fq.class_number_1}
 \uses{}
 There are exactly 8 isomorphism classes of curves over finite fields with trivial class group. Of these, 7 were identified by Madan and Queen in 1972 \cite{doi:10.4064/aa-20-4-423-432, MR:0306160}; it was claimed by Leitzel, Madan, and Queen in 1975 \cite{doi:0.1016/0022-314X(75)90004-9,MR:0369326} that this list is complete. The 8th example was found by Stirpe in 2014 \cite{doi:10.1016/j.jnt.2014.02.016, MR:3227356}, and completeness of the resulting list was proved independently by Mercuri and Stirpe \cite{arxiv:1406.5365,doi:10.1016/j.jnt.2015.02.008,MR3339577} and Shen and Shi \cite{arxiv:1412.3505,doi:10.1016/j.jnt.2015.02.005,MR3339578}.
 
-\end{definition}
+\end{definition*}
 
 

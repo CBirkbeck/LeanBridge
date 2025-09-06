@@ -1,9 +1,9 @@
-\subsection{Source of Hilbert modular form data}
-\begin{definition}\label{dq.mf.hilbert.source}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/dq.mf.hilbert.source}{Source of Hilbert modular form data}}
+\begin{definition*}\label{dq.mf.hilbert.source}
 \uses{}
-The database of Hilbert modular forms was computed by Steve Donnelly and John Voight using algorithms implemented in \cite{href{http://magma.maths.usyd.edu.au/magma/}{**Magma**}} by Lassina Dembele, Steve Donnelly, Markus Kirschmer, and John Voight; the computational effort is described in Dembele-Voight \cite{arXiv:1605.02637}.  A detailed overview and mathematical description of these algorithms can be found in a survey by Demb\'el\'e-Voight \cite{arXiv:1010.5727}.
+The database of Hilbert modular forms was computed by Steve Donnelly and John Voight using algorithms implemented in \cite{href{http://magma.maths.usyd.edu.au/magma/}{\textbf{Magma}}} by Lassina Dembele, Steve Donnelly, Markus Kirschmer, and John Voight; the computational effort is described in Dembele-Voight \cite{arXiv:1605.02637}.  A detailed overview and mathematical description of these algorithms can be found in a survey by Demb\'el\'e-Voight \cite{arXiv:1010.5727}.
 
 Further extensions, including adding Galois conjugate levels, were provided by John Cremona and Aurel Page.
-\end{definition}
+\end{definition*}
 
 

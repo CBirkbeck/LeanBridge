@@ -1,7 +1,7 @@
-\subsection{Elliptic points}
-\begin{definition}\label{modcurve.elliptic_points}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.elliptic_points}{Elliptic points}}
+\begin{definition*}\label{modcurve.elliptic_points}
 \uses{cmf.congruence_subgroup,modcurve}
-An **elliptic point** on the {{ KNOWL('modcurve','modular curve') }} $X_H$ is a point whose stabilizer under the action of the {{ KNOWL('cmf.congruence_subgroup','congruence subgroup') }} $\Gamma_H$ is finite and nontrivial.
-\end{definition}
+An \textbf{elliptic point} on the \hyperref[modcurve]{modular curve} $X_H$ is a point whose stabilizer under the action of the \hyperref[cmf.congruence_subgroup]{congruence subgroup} $\Gamma_H$ is finite and nontrivial.
+\end{definition*}
 
 

@@ -1,9 +1,9 @@
-\subsection{Sign of a Bianchi newform}
-\begin{definition}\label{mf.bianchi.sign}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.bianchi.sign}{Sign of a Bianchi newform}}
+\begin{definition*}\label{mf.bianchi.sign}
 \uses{lfunction,lfunction.functional_equation,mf.bianchi.anr,mf.bianchi.level,mf.bianchi.newform}
-Let $F$ be a {{ KNOWL('mf.bianchi.newform', 'Bianchi newform') }} of {{ KNOWL('mf.bianchi.level', 'level') }} $\mathcal{N}$.  When $\mathcal{N}=(N)$ is principal, $F$ is an eigenform for the **Fricke involution** $W_N$ defined by the matrix $\left(\begin{matrix}0&-1\\N&0\end{matrix}\right)$.
+Let $F$ be a \hyperref[mf.bianchi.newform]{Bianchi newform} of \hyperref[mf.bianchi.level]{level} $\mathcal{N}$.  When $\mathcal{N}=(N)$ is principal, $F$ is an eigenform for the \textbf{Fricke involution} $W_N$ defined by the matrix $\left(\begin{matrix}0&-1\\N&0\end{matrix}\right)$.
 
-The **sign** of $F$ is *minus* the eigenvalue of $W_N$ on $F$.  This is equal to the sign of the {{KNOWL('lfunction.functional_equation', 'functional equation')}} satisfied by the {{KNOWL('lfunction', 'L-function')}} attached to $F$.  It follows that the {{ KNOWL('mf.bianchi.anr', 'analytic rank') }} of $F$ is even when $F$ has sign $+1$ and odd otherwise.
-\end{definition}
+The \textbf{sign} of $F$ is *minus* the eigenvalue of $W_N$ on $F$.  This is equal to the sign of the \hyperref[lfunction.functional_equation]{functional equation} satisfied by the \hyperref[lfunction]{L-function} attached to $F$.  It follows that the \hyperref[mf.bianchi.anr]{analytic rank} of $F$ is even when $F$ has sign $+1$ and odd otherwise.
+\end{definition*}
 
 

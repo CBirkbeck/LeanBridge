@@ -1,7 +1,7 @@
-\subsection{Order of a group}
-\begin{definition}\label{group.order}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.order}{Order of a group}}
+\begin{definition*}\label{group.order}
 \uses{group}
-The **order** of a {{KNOWL('group','group')}} is its cardinality as a set.
-\end{definition}
+The \textbf{order} of a \hyperref[group]{group} is its cardinality as a set.
+\end{definition*}
 
 

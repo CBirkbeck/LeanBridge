@@ -1,21 +1,21 @@
-\subsection{Semidirect product of groups}
-\begin{definition}\label{group.semidirect_product}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.semidirect_product}{Semidirect product of groups}}
+\begin{definition*}\label{group.semidirect_product}
 \uses{group,group.automorphism,group.direct_product,group.homomorphism,group.nonsplit_product,group.subgroup,group.subgroup.normal}
-Suppose $H$ and $N$ are {{KNOWL('group', 'groups')}} with operations $*_H$ and $*_N$ and $\phi:H\to \Aut(N)$ is a {{KNOWL('group.homomorphism', 'homomorphism')}} to the {{KNOWL('group.automorphism', 'automorphism')}} group of $N$. Then the set $N\times H$ with the operation
+Suppose $H$ and $N$ are \hyperref[group]{groups} with operations $*_H$ and $*_N$ and $\phi:H\to \Aut(N)$ is a \hyperref[group.homomorphism]{homomorphism} to the \hyperref[group.automorphism]{automorphism} group of $N$. Then the set $N\times H$ with the operation
 \[ (n_1, h_1)*(n_2, h_2) = (n_1*_N \phi(h_1)(n_2),  h_1 *_H h_2)\]
-is a group called a **semidirect product** of $H$ and $N$ denoted $N:H$ or $N\rtimes H$.  If $\phi$ is the trivial homomorphism, then the resulting group is the {{KNOWL('group.direct_product', 'direct product')}} $N\times H$, so it is a **trivial semidirect product**.
+is a group called a \textbf{semidirect product} of $H$ and $N$ denoted $N:H$ or $N\rtimes H$.  If $\phi$ is the trivial homomorphism, then the resulting group is the \hyperref[group.direct_product]{direct product} $N\times H$, so it is a \textbf{trivial semidirect product}.
 
 The group $N:H$ has subgroups
 \[ N' = \{(n,e)\mid n\in N\} \cong N\]
 and
 \[ H' = \{(e,h) \mid h\in H\} \cong H\]
-satisfying $N'\cap H'=\{(e,e)\}$, $N'H'=N:H$, and $N'$ is a {{KNOWL('group.subgroup.normal', 'normal')}} {{KNOWL('group.subgroup', 'subgroup')}} of $N:H$.
+satisfying $N'\cap H'=\{(e,e)\}$, $N'H'=N:H$, and $N'$ is a \hyperref[group.subgroup.normal]{normal} \hyperref[group.subgroup]{subgroup} of $N:H$.
 
-Conversely, if a group $G$ has a normal subgroup $N$ and a subgroup $H$ such that $N\cap H=\{e\}$ such that $N\cap H=\{e\}$ and $NH=G$, then $G\cong N:H$ for some function $\phi$.  We call $N$ a **semidirect factor** of $G$ in this case.
+Conversely, if a group $G$ has a normal subgroup $N$ and a subgroup $H$ such that $N\cap H=\{e\}$ such that $N\cap H=\{e\}$ and $NH=G$, then $G\cong N:H$ for some function $\phi$.  We call $N$ a \textbf{semidirect factor} of $G$ in this case.
 
 The semidirect product of $N$ and $H$ fits into a sequence
 \[ 1 \to N \to N \rtimes H \to H \to 1, \]
-and is distinguished by the existence of a homomorphism $H \to N \rtimes H$ with image $H'$ that splits the projection $N \rtimes H \to H$.  We refer to such an {{KNOWL('group.nonsplit_product', 'extension')}} as **split**, in contrast to other  **non-split** extensions.
-\end{definition}
+and is distinguished by the existence of a homomorphism $H \to N \rtimes H$ with image $H'$ that splits the projection $N \rtimes H \to H$.  We refer to such an \hyperref[group.nonsplit_product]{extension} as \textbf{split}, in contrast to other  \textbf{non-split} extensions.
+\end{definition*}
 
 

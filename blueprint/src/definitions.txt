@@ -608,8 +608,6 @@ curve.highergenus.aut.signature:
     * signature
 curve.highergenus.aut.topological_equivalence:
     * topologically equivalent
-doc.knowl.guidelines:
-    * boldface
 doc.related_to:
     * related objects
 dq.curve.highergenus.aut.source:
@@ -1453,6 +1451,8 @@ hgm.defining_parameters:
 hgm.degree:
     * degree
 hgm.familes:
+    * hypergeometric family
+hgm.families:
     * hypergeometric family
 hgm.good_prime:
     * bad prime
@@ -2337,7 +2337,7 @@ rcs:
     * reliability
     * source
 rcs.cande.lfunction:
-    * {{KNOWL('','Degrees 5 to 40')}}
+    * Degrees 5 to 40
     * {{KNOWL('lfunction.known_degree1','Degree 1')}}
     * {{KNOWL('lfunction.known_degree2','Degree 2')}}
     * {{KNOWL('lfunction.known_degree3','Degree 3')}}
@@ -2502,10 +2502,6 @@ stats.proportions:
     * by row
     * none
     * vs unconstrained
-test.text:
-    * Zeta function
-    * horizontal line
-    * strong emphasis
 
 
 
@@ -2883,8 +2879,6 @@ binary operation:
 Birch and Swinnerton-Dyer:
     * ec.bsdconjecture
     * ec.q.bsdconjecture
-boldface:
-    * doc.knowl.guidelines
 Borel subgroup:
     * gl2.borel
 braid equivalent:
@@ -3178,6 +3172,8 @@ degree:
     * st_group.degree
 degree $n$ Bézout matrix:
     * alg.bezout_matrix
+Degrees 5 to 40:
+    * rcs.cande.lfunction
 Deligne module:
     * av.deligne_module
 density:
@@ -3659,8 +3655,6 @@ homogeneous coordinates:
     * ag.projective_space
 homothetic:
     * ec.q.real_period
-horizontal line:
-    * test.text
 Hyperbolic 3-space:
     * mf.bianchi.hyperbolic3space
 hyperelementary:
@@ -3675,6 +3669,7 @@ Hyperelliptic or Cyclic Trigonal Curves:
     * rcs.source.curve.highergenus.aut
 hypergeometric family:
     * hgm.familes
+    * hgm.families
 Hypergeometric motives:
     * hgm.motive
 ideal:
@@ -4861,8 +4856,6 @@ strict class group:
     * nf.narrow_class_group
 strict class number:
     * nf.narrow_class_number
-strong emphasis:
-    * test.text
 structure:
     * character.dirichlet.group.structure
 Sturm bound:
@@ -5143,16 +5136,12 @@ zeros:
     * lfunction.zeros
 Zeros of L-functions Search::
     * intro.features
-Zeta function:
-    * test.text
 zigzag plot:
     * hgm.zigzagplot
 zigzag procedure:
     * hgm.zigzagplot
 {{ knowl(mf.elliptic.newform, title=newform) }}:
     * cmf.decomposition.new.gamma0chi
-{{KNOWL('','Degrees 5 to 40')}}:
-    * rcs.cande.lfunction
 {{KNOWL('ag.jacobian', "Jacobian variety")}} decomposition:
     * rcs.source.curve.highergenus.aut
 {{KNOWL('ec.mordell_weil_group', 'Mordell-Weil group')}}:

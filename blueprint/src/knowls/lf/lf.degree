@@ -1,11 +1,11 @@
-\subsection{Degree of a local field extension}
-\begin{definition}\label{lf.degree}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.degree}{Degree of a local field extension}}
+\begin{definition*}\label{lf.degree}
 \uses{lf.padic_field}
-Let $L/K$ be an extension of {{KNOWL('lf.padic_field', '$p$-adic fields')}}.
-The **degree** of $L/K$ is the dimension of $L$ as a vector space over $K$.
+Let $L/K$ be an extension of \hyperref[lf.padic_field]{$p$-adic fields}.
+The \textbf{degree} of $L/K$ is the dimension of $L$ as a vector space over $K$.
 
-The **base degree** $n_0$ of $L/K$ is the degree of $K/\Q_p$.  The **absolute degree** $n_{\mathrm{abs}}$
+The \textbf{base degree} $n_0$ of $L/K$ is the degree of $K/\Q_p$.  The \textbf{absolute degree} $n_{\mathrm{abs}}$
 of $L/K$ is the degree of $L/\Q_p$.
-\end{definition}
+\end{definition*}
 
 

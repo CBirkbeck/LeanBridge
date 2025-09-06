@@ -1,14 +1,14 @@
-\subsection{Isoclinism}
-\begin{definition}\label{group.isoclinism}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.isoclinism}{Isoclinism}}
+\begin{definition*}\label{group.isoclinism}
 \uses{group.commutator_subgroup,group.derived_series,group.inner_automorphism,group.nilpotent,group.stem_group}
-For a group $G$ and its {{KNOWL('group.commutator_subgroup', 'commutator')}} $G'$, write $\omega_G$ for the map $G \times G \to G'$ defined by $\omega_G(x, y) = x^{-1}y^{-1}xy$, and note that $\omega_G$ descends to a map on $G / Z(G) \times G / Z(G)$.
-An **isoclinism** between two groups $G_1$ and $G_2$ is a pair of isomorphisms between their {{KNOWL('group.inner_automorphism', 'inner automorphism groups')}} and their {{KNOWL('group.commutator_subgroup', 'commutator subgroups')}}
+For a group $G$ and its \hyperref[group.commutator_subgroup]{commutator} $G'$, write $\omega_G$ for the map $G \times G \to G'$ defined by $\omega_G(x, y) = x^{-1}y^{-1}xy$, and note that $\omega_G$ descends to a map on $G / Z(G) \times G / Z(G)$.
+An \textbf{isoclinism} between two groups $G_1$ and $G_2$ is a pair of isomorphisms between their \hyperref[group.inner_automorphism]{inner automorphism groups} and their \hyperref[group.commutator_subgroup]{commutator subgroups}
 $$\phi : G_1 / Z(G_1) \to G_2 / Z(G_2)$$
 $$\sigma : G_1' \to G_2'$$
  so that
 $$\sigma \circ \omega_{G_1} = \omega_{G_2} \circ (\phi \times \phi).$$
 
-This is an equivalence relation on groups, and each equivalence class contains at least one {{KNOWL('group.stem_group', 'stem group')}}.  Note that order is not an isoclinism invariant, but {{KNOWL('group.nilpotent', 'nilpotency class')}} and {{KNOWL('group.derived_series', 'solvable length')}} are (except for the trivial group).
-\end{definition}
+This is an equivalence relation on groups, and each equivalence class contains at least one \hyperref[group.stem_group]{stem group}.  Note that order is not an isoclinism invariant, but \hyperref[group.nilpotent]{nilpotency class} and \hyperref[group.derived_series]{solvable length} are (except for the trivial group).
+\end{definition*}
 
 

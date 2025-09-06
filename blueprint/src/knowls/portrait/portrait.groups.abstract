@@ -1,18 +1,20 @@
-\subsection{Explanation of pictures for abstract groups}
-\begin{definition}\label{portrait.groups.abstract}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/portrait.groups.abstract}{Explanation of pictures for abstract groups}}
+\begin{definition*}\label{portrait.groups.abstract}
 \uses{group.conjugacy_class,group.element_order}
 Pictures for abstract groups consist of several disks arranged in concentric circles. The size, position, and brightness each encode information about the group.
 
 ## Quick summary ##
 
-- Each disk corresponds to a conjugacy class.
-- Conjugacy classes with more elements are larger than those with fewer elements.
-- Disks are arranged according to the number of prime divisors of the order of elements in the conjugacy class. The identity is in the center.
-- Darker disks of the same hue typically have orders that are more divisible by $2$ than brighter disks with the same hue.
+\begin{itemize}
+\item  Each disk corresponds to a conjugacy class.
+\item  Conjugacy classes with more elements are larger than those with fewer elements.
+\item  Disks are arranged according to the number of prime divisors of the order of elements in the conjugacy class. The identity is in the center.
+\item  Darker disks of the same hue typically have orders that are more divisible by $2$ than brighter disks with the same hue.
+\end{itemize}
 
 ## In more detail ##
 
-Each disk corresponds to a {{ KNOWL("group.conjugacy_class", "conjugacy class") }} in the group. The area of the disk is directly proportional to the number of elements in the corresponding conjugacy class. All elements in the conjugacy class have the same {{ KNOWL("group.element_order", "order") }} $o$, which we use to determine both the color of the disk and the location of the disk.
+Each disk corresponds to a \hyperref[group.conjugacy_class]{conjugacy class} in the group. The area of the disk is directly proportional to the number of elements in the corresponding conjugacy class. All elements in the conjugacy class have the same \hyperref[group.element_order]{order} $o$, which we use to determine both the color of the disk and the location of the disk.
 
 For the color, write the common order of a given conjugacy class as $o = 2^A \times (\mathrm{odd})$, where $A = v_2(o)$. Typically, larger $A$ corresponds to darker colors in the hue-saturation-brightness color model. The odd part $\mathrm{odd}$ determines the hue, chosen in a way that is aesthetically pleasing.
 
@@ -21,6 +23,6 @@ The position of each disk is determined by the number of prime divisors (counted
 ## Implementation ##
 
 The algorithm to visualize abstract groups was designed and implemented by David Roe.
-\end{definition}
+\end{definition*}
 
 

@@ -1,11 +1,11 @@
-\subsection{Algebraic closure of a field}
-\begin{definition}\label{nf.algebraic_closure}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.algebraic_closure}{Algebraic closure of a field}}
+\begin{definition*}\label{nf.algebraic_closure}
 \uses{nf}
 An algebraic closure of a field $K$ is a minimal algebraically closed field extension of $K$.  It is unique up to (non-canonical) isomorphism. It is usually denoted $\overline{K}$.
 
-For any {{ KNOWL('nf', 'number field') }}, its algebraic closure is usually denoted by $\overline{\Q}$, and it is isomorphic to the field of all algebraic numbers in $\C$. 
+For any \hyperref[nf]{number field}, its algebraic closure is usually denoted by $\overline{\Q}$, and it is isomorphic to the field of all algebraic numbers in $\C$. 
 
 
-\end{definition}
+\end{definition*}
 
 

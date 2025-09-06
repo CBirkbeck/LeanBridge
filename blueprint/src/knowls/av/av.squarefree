@@ -1,7 +1,7 @@
-\subsection{Squarefree abelian variety}
-\begin{definition}\label{av.squarefree}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/av.squarefree}{Squarefree abelian variety}}
+\begin{definition*}\label{av.squarefree}
 \uses{ag.abelian_variety,av.decomposition}
-An {{KNOWL("ag.abelian_variety", "abelian variety")}} is **squarefree** if, in its {{ KNOWL('av.decomposition','isogeny decomposition') }}, no simple factor occurs up to isogeny with exponent larger than 1.
-\end{definition}
+An \hyperref[ag.abelian_variety]{abelian variety} is \textbf{squarefree} if, in its \hyperref[av.decomposition]{isogeny decomposition}, no simple factor occurs up to isogeny with exponent larger than 1.
+\end{definition*}
 
 

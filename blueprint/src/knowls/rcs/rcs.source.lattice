@@ -1,15 +1,15 @@
-\subsection{Source of lattice data}
-\begin{definition}\label{rcs.source.lattice}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.lattice}{Source of lattice data}}
+\begin{definition*}\label{rcs.source.lattice}
 \uses{lattice.catalogue_of_lattices,lattice.gram}
-The database contains lattice data ({{ KNOWL('lattice.gram','Gram matrices') }}) from the {{ KNOWL('lattice.catalogue_of_lattices') }}, maintained by Gabriele Nebe and Neil J.A. Sloane. The Catalogue contains some tables compiled by other authors, which are cited individually in the LMFDB. For lattices of class number one, completeness of the data is confirmed by a calculation of Kirschmer and Lorch (\cite{arxiv:1208.5638}, \cite{doi:10.1112/S1461157013000107}, \cite{MR3091733}).
+The database contains lattice data (\hyperref[lattice.gram]{Gram matrices}) from the \hyperref[lattice.catalogue_of_lattices]{Catalogue of Lattices}, maintained by Gabriele Nebe and Neil J.A. Sloane. The Catalogue contains some tables compiled by other authors, which are cited individually in the LMFDB. For lattices of class number one, completeness of the data is confirmed by a calculation of Kirschmer and Lorch (\cite{arxiv:1208.5638}, \cite{doi:10.1112/S1461157013000107}, \cite{MR3091733}).
 
-Additional data was computed in Magma and PARI using code written by Anna Haensch and Samuele Anni. This code is available from [Github](https://github.com/annahaensch/lattice_data). 
+Additional data was computed in Magma and PARI using code written by Anna Haensch and Samuele Anni. This code is available from [Github](https://github.com/annahaensch/lattice\_data). 
 
 For solutions of the lattice packing problem in dimensions up to 8, 
 the sphere packing problem in dimensions up to 2, the kissing number problem in dimensions up to 3, and the lattice kissing number problem in dimensions up to 9,
 see Conway-Sloane \cite{MR1662447}. 
 The other known solutions of the sphere packing problem are due to Ferguson and Hales in dimension 3 \cite{MR3075372}, Viazovska in dimension 8 (\cite{arXiv:1603.04246}, \cite{doi:10.4007/annals.2017.185.3.7}) and Cohn, Kumar, Miller, Radchenko, and Viazovska in dimension 24 (\cite{arXiv:1603.06518}, \cite{doi:10.4007/annals.2017.185.3.8}).
 The other known solutions of the kissing number problem are due to Musin in dimension 4 \cite{MR2415397}, Levenshtein in dimension 8 \cite{MR0529659}, and Odlyzko and Sloane in dimension 24 \cite{MR0530296}.
-\end{definition}
+\end{definition*}
 
 

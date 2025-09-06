@@ -1,7 +1,7 @@
-\subsection{Arithmetic L-function}
-\begin{definition}\label{lfunction.arithmetic}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.arithmetic}{Arithmetic L-function}}
+\begin{definition*}\label{lfunction.arithmetic}
 \uses{lfunction}
-An {{KNOWL('lfunction','L-function')}} $L(s) = \sum_{n=1}^{\infty} a_n n^{-s}$  is called **arithmetic** if its Dirichlet coefficients $a_n$ are algebraic numbers.
-\end{definition}
+An \hyperref[lfunction]{L-function} $L(s) = \sum_{n=1}^{\infty} a_n n^{-s}$  is called \textbf{arithmetic} if its Dirichlet coefficients $a_n$ are algebraic numbers.
+\end{definition*}
 
 

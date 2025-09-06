@@ -1,7 +1,7 @@
-\subsection{Size of a quotient}
-\begin{definition}\label{group.quotient_size}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.quotient_size}{Size of a quotient}}
+\begin{definition*}\label{group.quotient_size}
 \uses{group.coset,group.quotient}
-The size of the quotient of a finite group by a subgroup is the number of corresponding {{KNOWL('group.coset', 'cosets')}}.  When the subgroup is normal, this number is the order of the {{KNOWL('group.quotient', 'quotient group')}}.
-\end{definition}
+The size of the quotient of a finite group by a subgroup is the number of corresponding \hyperref[group.coset]{cosets}.  When the subgroup is normal, this number is the order of the \hyperref[group.quotient]{quotient group}.
+\end{definition*}
 
 

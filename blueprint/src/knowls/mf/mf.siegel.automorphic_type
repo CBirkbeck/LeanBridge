@@ -1,12 +1,12 @@
-\subsection{Automorphic type}
-\begin{definition}\label{mf.siegel.automorphic_type}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.automorphic_type}{Automorphic type}}
+\begin{definition*}\label{mf.siegel.automorphic_type}
 \uses{mf.siegel.degree,mf.siegel.lift.saito_kurokawa,mf.siegel.newform}
-The **automorphic type** of a {{ KNOWL('mf.siegel.newform', "Siegel newform")}} $f \in S_{k,j}(\Gamma)$ of {{ KNOWL('mf.siegel.degree', "degree")}} 2 is a letter indicating the type of the Arthur parameters of the automorphic representation $\pi$ associated to $f$.
+The \textbf{automorphic type} of a \hyperref[mf.siegel.newform]{Siegel newform} $f \in S_{k,j}(\Gamma)$ of \hyperref[mf.siegel.degree]{degree} 2 is a letter indicating the type of the Arthur parameters of the automorphic representation $\pi$ associated to $f$.
 These fall into six classes of (packets of ) representations:
 
 (F) - Finite type: (in fact, one-dimensional) representations.
 
-(P) - Saito-Kurokawa type: Their $L$-functions are of the form $L(s,\mu)L(s+1/2,\sigma)L(s-1/2,\sigma)$, where $\mu$ is a cusp form on $\GL(2)$ and $\sigma$ is a Hecke character. {{ KNOWL('mf.siegel.lift.saito_kurokawa', "Saito-Kurokawa lifts")}} are of type (P).
+(P) - Saito-Kurokawa type: Their $L$-functions are of the form $L(s,\mu)L(s+1/2,\sigma)L(s-1/2,\sigma)$, where $\mu$ is a cusp form on $\GL(2)$ and $\sigma$ is a Hecke character. \hyperref[mf.siegel.lift.saito_kurokawa]{Saito-Kurokawa lifts} are of type (P).
 
 (Q) - Soudry type (also known as Klingen packets): Their $L$-functions are of the form $L(s+1/2,\mu)L(s-1/2,\mu)$, where $\mu$ is a cusp form on $\GL(2)$.
 
@@ -16,6 +16,6 @@ These fall into six classes of (packets of ) representations:
 (Y) - Yoshida type: These are functorial (endoscopic) lifts of pairs of automorphic representations $\mu_1,\mu_2$ of $\GL(2)$. Their $L$-functions are of the form $L(s,\mu_1)L(s,\mu_2)$.
 
 (G) - General type: (which contains the remaining representations) These are characterized by admitting a functorial transfer to a cuspidal automorphic representation of $\GL_4$.Their $L$-functions are primitive. 
-\end{definition}
+\end{definition*}
 
 

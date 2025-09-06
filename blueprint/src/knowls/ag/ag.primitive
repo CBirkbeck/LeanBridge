@@ -1,7 +1,7 @@
-\subsection{Primitive algebraic variety}
-\begin{definition}\label{ag.primitive}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.primitive}{Primitive algebraic variety}}
+\begin{definition*}\label{ag.primitive}
 \uses{ag.base_change,ag.variety}
-An {{KNOWL('ag.variety', 'algebraic variety')}} is **primitive** if it is not a {{KNOWL('ag.base_change', 'base-change')}} of an algebraic variety defined over a subfield.
-\end{definition}
+An \hyperref[ag.variety]{algebraic variety} is \textbf{primitive} if it is not a \hyperref[ag.base_change]{base-change} of an algebraic variety defined over a subfield.
+\end{definition*}
 
 

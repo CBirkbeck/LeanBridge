@@ -1,12 +1,12 @@
-\subsection{$\mathbb{Q}$-curves}
-\begin{definition}\label{ec.q_curve}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.q_curve}{$\mathbb{Q}$-curves}}
+\begin{definition*}\label{ec.q_curve}
 \uses{ec,ec.base_change,ec.complex_multiplication,ec.isogeny,nf}
-An {{ KNOWL('ec', 'elliptic curve')}} $E$ defined over a {{ KNOWL('nf', 'number field')}} $K$ is a $\mathbb{Q}$**-curve** if it is {{ KNOWL('ec.isogeny', 'isogenous') }} over $\overline{K}$ to each of its Galois conjugates.  Note that the isogenies need not be defined over $K$ itself.
+An \hyperref[ec]{elliptic curve} $E$ defined over a \hyperref[nf]{number field} $K$ is a $\mathbb{Q}$\textbf{-curve} if it is \hyperref[ec.isogeny]{isogenous} over $\overline{K}$ to each of its Galois conjugates.  Note that the isogenies need not be defined over $K$ itself.
 
-An elliptic curve which is the {{ KNOWL('ec.base_change', 'base change') }} of a curve defined over $\mathbb{Q}$ is a $\mathbb{Q}$-curve, but not all $\mathbb{Q}$-curves are 
+An elliptic curve which is the \hyperref[ec.base_change]{base change} of a curve defined over $\mathbb{Q}$ is a $\mathbb{Q}$-curve, but not all $\mathbb{Q}$-curves are 
 base-change curves. 
 
-Elliptic curves with {{ KNOWL('ec.complex_multiplication', 'CM') }} are all $\mathbb{Q}$-curves, as are all those whose $j$-invariant is in $\mathbb{Q}$.
-\end{definition}
+Elliptic curves with \hyperref[ec.complex_multiplication]{CM} are all $\mathbb{Q}$-curves, as are all those whose $j$-invariant is in $\mathbb{Q}$.
+\end{definition*}
 
 

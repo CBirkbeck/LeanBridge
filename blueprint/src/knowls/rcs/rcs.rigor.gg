@@ -1,7 +1,7 @@
-\subsection{Reliability of transitive group data}
-\begin{definition}\label{rcs.rigor.gg}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.rigor.gg}{Reliability of transitive group data}}
+\begin{definition*}\label{rcs.rigor.gg}
 \uses{}
 All data for transitive groups was computed using GAP or Magma, and so the rigor of the computations depends on the internal algorithms of these programs, none of which relies on heuristics or conjectures.  Since the objects in question are finite groups, every calculation can be reproduced given sufficient computing resources.
-\end{definition}
+\end{definition*}
 
 

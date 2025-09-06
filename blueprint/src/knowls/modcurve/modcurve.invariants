@@ -1,18 +1,22 @@
-\subsection{Invariants of a modular curve}
-\begin{definition}\label{modcurve.invariants}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.invariants}{Invariants of a modular curve}}
+\begin{definition*}\label{modcurve.invariants}
 \uses{modcurve,modcurve.cm_discriminants,modcurve.cusps,modcurve.genus,modcurve.gonality,modcurve.index,modcurve.level}
-Invariants of a {{KNOWL('modcurve', 'modular curve')}} $X_H$ include its
+Invariants of a \hyperref[modcurve]{modular curve} $X_H$ include its
 
-- {{KNOWL('modcurve.level', 'level')}}
-- {{KNOWL('modcurve.index', 'index')}}
-- {{KNOWL('modcurve.genus', 'genus')}}
-- {{KNOWL('modcurve.cusps', 'cusps')}}
-- {{KNOWL('modcurve.cm_discriminants', 'CM points')}}
+\begin{itemize}
+\item  \hyperref[modcurve.level]{level}
+\item  \hyperref[modcurve.index]{index}
+\item  \hyperref[modcurve.genus]{genus}
+\item  \hyperref[modcurve.cusps]{cusps}
+\item  \hyperref[modcurve.cm_discriminants]{CM points}
+\end{itemize}
 
 all of which can be derived group-theoretically as properties of $H$.  Geometric invariants of the curve $X_H$ include
 
-- {{KNOWL('modcurve.gonality','gonality')}}
+\begin{itemize}
+\item  \hyperref[modcurve.gonality]{gonality}
+\end{itemize}
 
-\end{definition}
+\end{definition*}
 
 

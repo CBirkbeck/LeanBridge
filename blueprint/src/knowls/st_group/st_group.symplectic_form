@@ -1,17 +1,19 @@
-\subsection{Symplectic form}
-\begin{definition}\label{st_group.symplectic_form}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/st_group.symplectic_form}{Symplectic form}}
+\begin{definition*}\label{st_group.symplectic_form}
 \uses{}
-A **symplectic form** on a vector space $V$ over a field $k$ is a non-degenerate alternating bilinear form $\omega\colon V\times V\to k$.  This means that
+A \textbf{symplectic form} on a vector space $V$ over a field $k$ is a non-degenerate alternating bilinear form $\omega\colon V\times V\to k$.  This means that
 
-- if $\omega(u,v)=0$ for all $v\in V$ then $u=0$ (non-degenerate);
-- $\omega(v,v)=0$ for all $v\in V$ (alternating);
-- $\omega(\lambda u+v,w)=\lambda\omega(u,v)+\omega(v,w)$ and $\omega(u,\lambda v+w)=\omega(u)+\lambda\omega(v,w)$ for all $\lambda\in k$, $u,v,w\in V$ (bilinear).
+\begin{itemize}
+\item  if $\omega(u,v)=0$ for all $v\in V$ then $u=0$ (non-degenerate);
+\item  $\omega(v,v)=0$ for all $v\in V$ (alternating);
+\item  $\omega(\lambda u+v,w)=\lambda\omega(u,v)+\omega(v,w)$ and $\omega(u,\lambda v+w)=\omega(u)+\lambda\omega(v,w)$ for all $\lambda\in k$, $u,v,w\in V$ (bilinear).
+\end{itemize}
 
 A finite dimensional vector space admitting a symplectic form $\omega$ necessarily has even dimension $2n$, and in this case $\omega$ can be represented by a matrix $\Omega\in k^{2n\times 2n}$ that satisfies $u^\intercal\Omega v=\omega(u,w)$ for all $u,v\in V$.  One can always choose a basis for $V$ so that
 \[
 \Omega = \begin{bmatrix} 0 & I_n\\ -I_n & 0\end{bmatrix},
 \]
 where $I_n$ denotes the $n\times n$ identity matrix.
-\end{definition}
+\end{definition*}
 
 

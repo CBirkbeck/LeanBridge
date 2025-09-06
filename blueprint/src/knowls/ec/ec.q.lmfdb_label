@@ -1,21 +1,21 @@
-\subsection{Label for an elliptic curve over $\mathbb Q$}
-\begin{definition}\label{ec.q.lmfdb_label}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.q.lmfdb_label}{Label for an elliptic curve over $\mathbb Q$}}
+\begin{definition*}\label{ec.q.lmfdb_label}
 \uses{ec,ec.conductor,ec.isogeny_class,ec.isomorphism,ec.q.conductor,ec.q.minimal_weierstrass_equation}
-The **LMFDB label** of an elliptic curve $E$ over $\mathbb{Q}$ is  a way of indexing the elliptic curves over $\mathbb Q.$ It has the form "11.a1" or "10050.bf2". 
+The \textbf{LMFDB label} of an elliptic curve $E$ over $\mathbb{Q}$ is  a way of indexing the elliptic curves over $\mathbb Q.$ It has the form "11.a1" or "10050.bf2". 
 
-The label has three components: the **conductor**, the **isogeny class label**, and the **isomorphism class index**.
+The label has three components: the \textbf{conductor}, the \textbf{isogeny class label}, and the \textbf{isomorphism class index}.
 
-1.  The first component is the decimal representation of the {{KNOWL('ec.q.conductor', "conductor")}} (a positive integer). 
+1.  The first component is the decimal representation of the \hyperref[ec.q.conductor]{conductor} (a positive integer). 
 
-2. The second component is the {{ KNOWL('ec.isogeny_class', 'isogeny class') }} label, a string which represents the **isogeny class index**,  a non-negative integer encoded
+2. The second component is the \hyperref[ec.isogeny_class]{isogeny class} label, a string which represents the \textbf{isogeny class index},  a non-negative integer encoded
 as in base 26 using the 26 symbols a,b,.., z.  The isogeny
-classes of elliptic curves with the same conductor are sorted lexicographically by the $q$-expansions of the associated modular forms, and the isogeny class index of each {{ KNOWL('ec.isogeny_class', 'isogeny class') }} of fixed {{ KNOWL('ec.conductor', 'conductor') }} is the index (starting at 0) of the class in this ordering.
+classes of elliptic curves with the same conductor are sorted lexicographically by the $q$-expansions of the associated modular forms, and the isogeny class index of each \hyperref[ec.isogeny_class]{isogeny class} of fixed \hyperref[ec.conductor]{conductor} is the index (starting at 0) of the class in this ordering.
 
-3. The third component is the decimal representation of the {{ KNOWL('ec.isomorphism', 'isomorphism class') }} index, a positive integer giving the index of the coefficient vector $[a_1, a_2, a_3, a_4, a_6]$ of the {{ KNOWL('ec.q.minimal_weierstrass_equation', 'reduced minimal Weierstrass equation') }} of $E$ in a lexicographically sorted list of all the {{ KNOWL('ec', 'elliptic curves') }} in the {{ KNOWL('ec.isogeny_class', 'isogeny class') }}.
+3. The third component is the decimal representation of the \hyperref[ec.isomorphism]{isomorphism class} index, a positive integer giving the index of the coefficient vector $[a_1, a_2, a_3, a_4, a_6]$ of the \hyperref[ec.q.minimal_weierstrass_equation]{reduced minimal Weierstrass equation} of $E$ in a lexicographically sorted list of all the \hyperref[ec]{elliptic curves} in the \hyperref[ec.isogeny_class]{isogeny class}.
 
 The complete label is obtained by concatenating [conductor, ".", isogeny class label, isomorphism class index].
 
-Note that this is not the same as the {{ KNOWL('ec.q.cremona_label', 'Cremona label') }}, even though for certain curves they only differ in the insertion of the dot "." (for example, "37a1" and "37.a1" are the same curve). The presence of the punctuation "." distinguishes an LMFDB label from a Cremona label.  Cremona labels are only defined for curves of conductor up to 500000.
-\end{definition}
+Note that this is not the same as the \hyperref[ec.q.cremona_label]{Cremona label}, even though for certain curves they only differ in the insertion of the dot "." (for example, "37a1" and "37.a1" are the same curve). The presence of the punctuation "." distinguishes an LMFDB label from a Cremona label.  Cremona labels are only defined for curves of conductor up to 500000.
+\end{definition*}
 
 

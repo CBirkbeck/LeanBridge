@@ -1,16 +1,16 @@
-\subsection{Infinity factor of an L-function}
-\begin{definition}\label{lfunction.infinity_factor}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.infinity_factor}{Infinity factor of an L-function}}
+\begin{definition*}\label{lfunction.infinity_factor}
 \uses{lfunction,lfunction.functional_equation,lfunction.gamma_factor,lfunction.spectral_parameters}
-The **infinity factor** $L_{\infty}(s)$ of an {{KNOWL('lfunction', 'L-function')}} $L(s)$ is the product of its {{KNOWL('lfunction.gamma_factor', 'Gamma factors')}}:
+The \textbf{infinity factor} $L_{\infty}(s)$ of an \hyperref[lfunction]{L-function} $L(s)$ is the product of its \hyperref[lfunction.gamma_factor]{Gamma factors}:
 \[
 L_{\infty}(s) := \prod_{j=1}^J \Gamma_{\mathbb R}(s+\mu_j) \prod_{k=1}^K \Gamma_{\mathbb C}(s+\nu_k).
 \]
-Here the $\mu_j$ and $\nu_k$ are the {{KNOWL('lfunction.spectral_parameters', 'spectral parameters')}} of the L-function.
+Here the $\mu_j$ and $\nu_k$ are the \hyperref[lfunction.spectral_parameters]{spectral parameters} of the L-function.
 
-That is, the {{KNOWL('lfunction.functional_equation', 'functional equation')}} has the form
+That is, the \hyperref[lfunction.functional_equation]{functional equation} has the form
 \[
 \Lambda(s) := L_{\infty}(s) L(s) = \varepsilon \overline{\Lambda}(1-s).
 \]
-\end{definition}
+\end{definition*}
 
 

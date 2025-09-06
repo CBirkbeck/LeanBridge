@@ -1,13 +1,13 @@
-\subsection{Siegel $\Phi$ operator}
-\begin{definition}\label{mf.siegel.phi}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.phi}{Siegel $\Phi$ operator}}
+\begin{definition*}\label{mf.siegel.phi}
 \uses{mf.siegel.degree}
-The **Siegel $\Phi$ operator** is a linear map that sends {{KNOWL('mf.siegel.degree', 'degree')}} $g$ Siegel modular forms to degree $g-1$ ones; it is defined by
+The \textbf{Siegel $\Phi$ operator} is a linear map that sends \hyperref[mf.siegel.degree]{degree} $g$ Siegel modular forms to degree $g-1$ ones; it is defined by
 \[
 \Phi(f)(\tau) = \lim_{t\to +\infty}
 f\begin{pmatrix}\tau&0\\0&it\end{pmatrix} \quad \text{for any } \tau \in \mathfrak{H}_{g-1}.
 \]
 
 
-\end{definition}
+\end{definition*}
 
 

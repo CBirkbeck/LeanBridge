@@ -1,9 +1,9 @@
-\subsection{Good ordinary reduction}
-\begin{definition}\label{ec.good_ordinary_reduction}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.good_ordinary_reduction}{Good ordinary reduction}}
+\begin{definition*}\label{ec.good_ordinary_reduction}
 \uses{ec,nf}
-An {{ KNOWL('ec', 'elliptic curve') }} \(E\) defined over a {{ KNOWL('nf', 'number field') }} \(K\) is said to have **ordinary reduction** at a prime \(\mathfrak{p}\) of \(K\) if the reduction \(E_{\mathfrak{p}}\) of \(E\) modulo \(\mathfrak{p}\) is smooth, and \(E_{\mathfrak{p}}\) is ordinary.
+An \hyperref[ec]{elliptic curve} \(E\) defined over a \hyperref[nf]{number field} \(K\) is said to have \textbf{ordinary reduction} at a prime \(\mathfrak{p}\) of \(K\) if the reduction \(E_{\mathfrak{p}}\) of \(E\) modulo \(\mathfrak{p}\) is smooth, and \(E_{\mathfrak{p}}\) is ordinary.
 
-An elliptic curve \(E_{\mathfrak{p}}\) defined over a finite field of characteristic \(p\) is **ordinary** if \(E_{\mathfrak{p}}(\overline{\F_p})\) has nontrivial \(p\)-torsion.
-\end{definition}
+An elliptic curve \(E_{\mathfrak{p}}\) defined over a finite field of characteristic \(p\) is \textbf{ordinary} if \(E_{\mathfrak{p}}(\overline{\F_p})\) has nontrivial \(p\)-torsion.
+\end{definition*}
 
 

@@ -1,12 +1,12 @@
-\subsection{Spinor norm}
-\begin{definition}\label{group.spinor_norm}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.spinor_norm}{Spinor norm}}
+\begin{definition*}\label{group.spinor_norm}
 \uses{alg.symmetric_bilinear_form,group.orthogonal}
-The {{KNOWL('group.orthogonal','orthogonal group')}} $\GO(n,q)$ is the subgroup of $\GL(n,q)$ fixing a particular quadratic form $Q$, and has the subgroup $\SO(n,q)$ of all matrices with determinant $1$. One can associate to $Q$ a {{KNOWL('alg.symmetric_bilinear_form', 'symmetric bilinear form')}} $f \colon V^2 \to \F_q$ (for $V = \F_q^n$) by writing $f(x,y) = Q(x+y) -Q(x) - Q(y)$. Then the reflection in a vector $v \in V$ such that $Q(v) \neq 0$ is the element of $\SO(n,q)$ that acts on $V$ by 
+The \hyperref[group.orthogonal]{orthogonal group} $\GO(n,q)$ is the subgroup of $\GL(n,q)$ fixing a particular quadratic form $Q$, and has the subgroup $\SO(n,q)$ of all matrices with determinant $1$. One can associate to $Q$ a \hyperref[alg.symmetric_bilinear_form]{symmetric bilinear form} $f \colon V^2 \to \F_q$ (for $V = \F_q^n$) by writing $f(x,y) = Q(x+y) -Q(x) - Q(y)$. Then the reflection in a vector $v \in V$ such that $Q(v) \neq 0$ is the element of $\SO(n,q)$ that acts on $V$ by 
 $$ x \mapsto x - \frac{f(x,v)}{Q(v)} v. $$
 
 We can write any $g \in \SO(n,q)$ as a product of reflections: $g = r_1 \cdot \ldots \cdot r_n$. 
 
-The **spinor norm** is the map $\SO(n,q) \to (\F_q^\times) / (\F_q^\times)^2$ that sends $g$ to the image of $Q(r_1) \cdot \ldots \cdot Q(r_n)$ in the quotient. 
-\end{definition}
+The \textbf{spinor norm} is the map $\SO(n,q) \to (\F_q^\times) / (\F_q^\times)^2$ that sends $g$ to the image of $Q(r_1) \cdot \ldots \cdot Q(r_n)$ in the quotient. 
+\end{definition*}
 
 

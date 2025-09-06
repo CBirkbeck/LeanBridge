@@ -1,15 +1,23 @@
-\subsection{Conductor of an elliptic curve over $\Q$}
-\begin{definition}\label{ec.q.conductor}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.q.conductor}{Conductor of an elliptic curve over $\Q$}}
+\begin{definition*}\label{ec.q.conductor}
 \uses{ec,ec.additive_reduction,ec.multiplicative_reduction}
-The **conductor** $N$ of an {{KNOWL("ec", "elliptic curve")}} $E$ defined over $\Q$ is a positive integer divisible by the primes of bad reduction and no others.  It has the form $N=\prod p^{e_p}$, where the exponent $e_p$ is
+The \textbf{conductor} $N$ of an \hyperref[ec]{elliptic curve} $E$ defined over $\Q$ is a positive integer divisible by the primes of bad reduction and no others.  It has the form $N=\prod p^{e_p}$, where the exponent $e_p$ is
 
-- $e_p=1$ if $E$ has {{ KNOWL('ec.multiplicative_reduction', "multiplicative reduction") }} at $p$,
+\begin{itemize}
+\item  $e_p=1$ if $E$ has \hyperref[ec.multiplicative_reduction]{multiplicative reduction} at $p$,
+\end{itemize}
 
-- $e_p=2$ if $E$ has {{ KNOWL('ec.additive_reduction', "additive reduction") }} at $p$ and $p\ge5$,
+\begin{itemize}
+\item  $e_p=2$ if $E$ has \hyperref[ec.additive_reduction]{additive reduction} at $p$ and $p\ge5$,
+\end{itemize}
 
-- $2\leq e_p\leq 5$ if $E$ has additive reduction and $p=3$, and
+\begin{itemize}
+\item  $2\leq e_p\leq 5$ if $E$ has additive reduction and $p=3$, and
+\end{itemize}
 
-- $2\leq e_p\leq 8$ if $E$ has additive reduction and $p=2$.
+\begin{itemize}
+\item  $2\leq e_p\leq 8$ if $E$ has additive reduction and $p=2$.
+\end{itemize}
 
 For all primes $p$, there is an algorithm of Tate that simultaneously creates a local minimal Weierstrass equation and computes the exponent of the conductor. See:
 
@@ -24,6 +32,6 @@ Springer, Berlin, 1975. \cite{MR0393039}
 curves</EM>, GTM <B>151</B>, Springer-Verlag, New York, 1994.\cite{MR1312368}
 
 </UL>
-\end{definition}
+\end{definition*}
 
 

@@ -1,5 +1,5 @@
-\subsection{Acknowledgments for software}
-\begin{definition}\label{rcs.ack.software}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.ack.software}{Acknowledgments for software}}
+\begin{definition*}\label{rcs.ack.software}
 \uses{}
 Our website is run on free open source software. We use <a href="https://www.sagemath.org">SageMath</a> for computations on the fly. Some important components used are <a href="https://pari.math.u-bordeaux.fr/">PARI</a>,
 <a href="http://homepages.warwick.ac.uk/staff/J.E.Cremona/mwrank">eclib</a>, and
@@ -8,6 +8,6 @@ The non-mathematical software used includes <a href="http://www.python.org">Pyth
 <a href="http://flask.pocoo.org/">Flask</a>, <a href="http://jinja.pocoo.org/">Jinja</a>, <a href="https://www.postgresql.org/">PostgreSQL</a>, <a href="http://initd.org/psycopg/">Psycopg</a>, <a href="https://katex.org/">KaTeX</a>, and <a href="http://git-scm.com">Git</a>.
 Some of the data on this website was computed using other programs, including <a href="http://magma.maths.usyd.edu.au/magma/">Magma</a>, <a href="http://www.wolfram.com/mathematica/">Mathematica</a>, and <a href="https://www.gap-system.org/">GAP</a>.
 
-\end{definition}
+\end{definition*}
 
 

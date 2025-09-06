@@ -1,19 +1,19 @@
-\subsection{Analytic rank}
-\begin{definition}\label{cmf.analytic_rank}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.analytic_rank}{Analytic rank}}
+\begin{definition*}\label{cmf.analytic_rank}
 \uses{cmf.coefficient_field,cmf.cusp_form,cmf.q-expansion,cmf.selfdual,lfunction.analytic_rank}
-The **analytic rank** of a {{KNOWL('cmf.cusp_form', 'cuspidal modular form')}} $f$ is the {{KNOWL('lfunction.analytic_rank', 'analytic rank')}} of the L-function
+The \textbf{analytic rank} of a \hyperref[cmf.cusp_form]{cuspidal modular form} $f$ is the \hyperref[lfunction.analytic_rank]{analytic rank} of the L-function
 \[
 L(f,s) = \sum_{n\ge 1} a_nn^{-s}
 \]
-where the $a_n$ are the complex coefficients that appear in the {{KNOWL('cmf.q-expansion', '$q$-expansion')}} of the modular form: $f(z)=\sum_{n\ge 1}a_nq^n$, where $q=e^{2\pi i z}$.
+where the $a_n$ are the complex coefficients that appear in the \hyperref[cmf.q-expansion]{$q$-expansion} of the modular form: $f(z)=\sum_{n\ge 1}a_nq^n$, where $q=e^{2\pi i z}$.
 
-The complex coefficients $a_n$ depend on a choice of embedding of the {{KNOWL('cmf.coefficient_field', 'coefficient field')}} of $f$ into the complex numbers.  It is conjectured that the analytic rank does not depend on this choice, and this conjecture has been verified for all classical modular forms stored in the LMFDB.
+The complex coefficients $a_n$ depend on a choice of embedding of the \hyperref[cmf.coefficient_field]{coefficient field} of $f$ into the complex numbers.  It is conjectured that the analytic rank does not depend on this choice, and this conjecture has been verified for all classical modular forms stored in the LMFDB.
 
 In general, analytic ranks of L-functions listed in the LMFDB are upper bounds that are believed (but not proven) to be tight.
 
-For modular forms, the analytic ranks listed in the LMFDB are provably correct whenever the listed analytic rank is 0, or the listed analytic rank is 1 and the modular form is {{KNOWL('cmf.selfdual', 'self dual')}} (in the self dual case the sign of the functional equation determines the parity of the analytic rank).
+For modular forms, the analytic ranks listed in the LMFDB are provably correct whenever the listed analytic rank is 0, or the listed analytic rank is 1 and the modular form is \hyperref[cmf.selfdual]{self dual} (in the self dual case the sign of the functional equation determines the parity of the analytic rank).
 
 
-\end{definition}
+\end{definition*}
 
 

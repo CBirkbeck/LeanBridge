@@ -1,7 +1,7 @@
-\subsection{Totals for statistics}
-\begin{definition}\label{stats.totals}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/stats.totals}{Totals for statistics}}
+\begin{definition*}\label{stats.totals}
 \uses{}
 When creating a statistics display, you can specify whether totals are shown.  If two variables are selected, you can independently specify whether row and column totals are shown.
-\end{definition}
+\end{definition*}
 
 

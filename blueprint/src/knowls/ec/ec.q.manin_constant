@@ -1,19 +1,19 @@
-\subsection{Manin constant for elliptic curves over $\Q$}
-\begin{definition}\label{ec.q.manin_constant}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.q.manin_constant}{Manin constant for elliptic curves over $\Q$}}
+\begin{definition*}\label{ec.q.manin_constant}
 \uses{ec,ec.isogeny,ec.q.conductor,ec.q.modular_parametrization,ec.q.optimal,ec.semistable}
-The **Manin constant** is defined for  {{ KNOWL('ec', 'elliptic curves') }} over $\Q$ which are {{ KNOWL('ec.q.optimal', 'optimal') }}.  Let $E$ be an optimal elliptic curve of {{KNOWL('ec.q.conductor', 'conductor')}} $N$, let $f$ be the {{ KNOWL('ec.q.modular_form', 'modular form') }} associated to $E$, and let $\varphi:X_0(N)\to E$ be the associated {{ KNOWL('ec.q.modular_parametrization', 'modular parametrization') }}. Let $\omega_E$ be the N&eacute;ron differential on $E$.  Then the pull-back $\varphi^*\omega_E$ of $\omega_E$ to $X_0(N)$ satisfies
+Let $E$ be an \hyperref[ec.q.optimal]{optimal} \hyperref[ec]{elliptic curves} of \hyperref[ec.q.conductor]{conductor} $N$, let $f$ be the \hyperref[ec.q.modular_form]{modular form} associated to $E$, and let $\varphi:X_0(N)\to E$ be the associated \hyperref[ec.q.modular_parametrization]{modular parametrization}. Let $\omega_E$ be the N\'e;ron differential on $E$.  Then the pull-back $\varphi^*\omega_E$ of $\omega_E$ to $X_0(N)$ satisfies
 \[
    \varphi^*\omega_E = c \cdot 2\pi i f(z)dz
 \]
-for some non-zero rational number $c$, called the Manin constant of $E$.
+for some non-zero rational number $c$ called the \textbf{Manin constant} of $E$. In fact $c\in \Z$, by a theorem of Edixhoven.
 
-It is conjectured that $c=1$ always.  A theorem of Edixhoven states that $c\in\Z$, and there are several results stating that $c=1$ if certain conditions hold: see Amod Agashe, Ken Ribet and William Stein: The Manin Constant, Pure and Applied Mathematics Quarterly, Vol. 2 no.2 (2006), pp. 617–636.  In an appendix to that paper, John Cremona gives an algorithm for verifying that $c=1$ in individual cases, and proves that $c=1$ for all optimal elliptic curves over $\Q$ in the database. Kęstutis Česnavičius proves $c=1$ for {{ KNOWL('ec.semistable', 'semistable elliptic curves') }} over $\Q$, and more generally that $v_p(c) = 0$ if $p^2 \nmid N$ in *The Manin constant in the semistable case*, Compositio Math. **154** (2018), 1889–1920.
+It is conjectured that $c=1$ for all optimal curves, and there are several results stating that $c=1$ if certain conditions hold: see Amod Agashe, Ken Ribet and William Stein: The Manin Constant, Pure and Applied Mathematics Quarterly, Vol. 2 no.2 (2006), pp. 617–636.  In an appendix to that paper, John Cremona gives an algorithm for verifying that $c=1$ in individual cases, and proves that $c=1$ for all optimal elliptic curves over $\Q$ in the database. K\k{e}stutis \v{C}esnavi\v{c}ius proves $c=1$ for \hyperref[ec.semistable]{semistable elliptic curves} over $\Q$, and more generally that $v_p(c) = 0$ if $p^2 \nmid N$ in *The Manin constant in the semistable case*, Compositio Math. \textbf{154} (2018), 1889–1920.
 
-For non-optimal elliptic curves $E'$ over $\Q$, the Manin constant may also be defined, in terms of the Manin constant of the unique optimal curve {{KNOWL('ec.isogeny', 'isogenous')}} to $E'$.   Let $\varphi:X_0(N)\to E$ and $f$ be as above, and $\psi:E\to E'$ an isogeny of least degree from $E$ to $E'$.  Then we obtain a parametrization $\psi\circ\varphi:X_0(N)\to E'$ and define the Manin constant $c'$ of $E'$ to be the non-zero rational number such that 
+For non-optimal elliptic curves $E'$ over $\Q$, the \textbf{Manin constant} is defined, in terms of the Manin constant of the unique optimal curve \hyperref[ec.isogeny]{isogenous} to $E'$.   Let $\varphi:X_0(N)\to E$ and $f$ be as above, and $\psi:E\to E'$ an isogeny of least degree from $E$ to $E'$.  Then we obtain a parametrization $\psi\circ\varphi:X_0(N)\to E'$ and define the Manin constant $c'$ of $E'$ to be the non-zero rational number such that 
 \[
    (\psi\circ\varphi)^*\omega_{E'} = c' \cdot 2\pi i f(z)dz.
 \]
 This is an integer multiple of the Manin constant of $E$, since $\psi^*\omega_{E'}$ is an integer multiple of $\omega_E$; the multiplier divides the degree of $\psi$ but may be strictly less: it may equal $1$.
-\end{definition}
+\end{definition*}
 
 

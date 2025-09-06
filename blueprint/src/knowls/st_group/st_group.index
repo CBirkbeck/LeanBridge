@@ -1,7 +1,7 @@
-\subsection{Index of the identity component}
-\begin{definition}\label{st_group.index}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/st_group.index}{Index of the identity component}}
+\begin{definition*}\label{st_group.index}
 \uses{st_group.component_group}
-The identity component $G^0$ of a compact Lie group $G$ is a normal subgroup of finite index; this index is equal to the cardinality of the {{KNOWL('st_group.component_group','component group')}} $G/G^0$.
-\end{definition}
+The identity component $G^0$ of a compact Lie group $G$ is a normal subgroup of finite index; this index is equal to the cardinality of the \hyperref[st_group.component_group]{component group} $G/G^0$.
+\end{definition*}
 
 

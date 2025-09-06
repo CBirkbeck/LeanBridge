@@ -1,7 +1,7 @@
-\subsection{Source of hypergeometric data}
-\begin{definition}\label{rcs.source.hgm}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.hgm}{Source of hypergeometric data}}
+\begin{definition*}\label{rcs.source.hgm}
 \uses{}
 Data for families of hypergeometric motives were computed by David Roberts using magma.  Data for individual motives was computed by David Roberts and Mark Watkins.
-\end{definition}
+\end{definition*}
 
 

@@ -1,7 +1,7 @@
-\subsection{Generalized quaternion}
-\begin{definition}\label{group.generalized_quaternion}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.generalized_quaternion}{Generalized quaternion}}
+\begin{definition*}\label{group.generalized_quaternion}
 \uses{group.dicyclic}
-The **(generalized) quaternion group** $Q_n$ is a special case of a {{ KNOWL("group.dicyclic", "dicyclic")}} group $\text{Dic}_m$ when $n=4m\geq 8$ is a power of $2$. 
-\end{definition}
+The \textbf{(generalized) quaternion group} $Q_n$ is a special case of a \hyperref[group.dicyclic]{dicyclic} group $\text{Dic}_m$ when $n=4m\geq 8$ is a power of $2$. 
+\end{definition*}
 
 

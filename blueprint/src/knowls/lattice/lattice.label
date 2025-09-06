@@ -1,11 +1,11 @@
-\subsection{LMFDB label of an integral lattice}
-\begin{definition}\label{lattice.label}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.label}{LMFDB label of an integral lattice}}
+\begin{definition*}\label{lattice.label}
 \uses{lattice.class_number,lattice.determinant,lattice.dimension,lattice.level}
 The label of a lattice is given by
 
-{{ KNOWL("lattice.dimension", "dimension")}}.{{ KNOWL("lattice.determinant", "determinant")}}.{{ KNOWL("lattice.level", "level")}}.{{ KNOWL("lattice.class_number", "class_number")}}.N
+\hyperref[lattice.dimension]{dimension}.\hyperref[lattice.determinant]{determinant}.\hyperref[lattice.level]{level}.\hyperref[lattice.class_number]{class\_number}.N
 
-where N is a counter enumerating lattices for which the first four parameters are identical. If the {{ KNOWL("lattice.class_number", "class number")}} is not available, then the corresponding field is set to 0. 
-\end{definition}
+where N is a counter enumerating lattices for which the first four parameters are identical. If the \hyperref[lattice.class_number]{class number} is not available, then the corresponding field is set to 0. 
+\end{definition*}
 
 

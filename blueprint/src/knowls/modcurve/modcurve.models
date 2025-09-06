@@ -1,7 +1,7 @@
-\subsection{Number of models}
-\begin{definition}\label{modcurve.models}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.models}{Number of models}}
+\begin{definition*}\label{modcurve.models}
 \uses{modcurve,modcurve.model}
-The number of different {{KNOWL('modcurve.model','models')}} of the {{KNOWL('modcurve', 'modular curve')}} that are currently available.
-\end{definition}
+The number of different \hyperref[modcurve.model]{models} of the \hyperref[modcurve]{modular curve} that are currently available.
+\end{definition*}
 
 

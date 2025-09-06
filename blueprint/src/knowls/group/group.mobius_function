@@ -1,13 +1,13 @@
-\subsection{Möbius function of subgroup lattice}
-\begin{definition}\label{group.mobius_function}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.mobius_function}{Möbius function of subgroup lattice}}
+\begin{definition*}\label{group.mobius_function}
 \uses{group.rank}
-Given a finite group $G$, we define the **möbius subgroup function** $\mu_G(H)$ on the lattice of subgroups of $G$ by setting $\mu_G(G) = 1$ and then inductively using the relation
+Given a finite group $G$, we define the \textbf{möbius subgroup function} $\mu_G(H)$ on the lattice of subgroups of $G$ by setting $\mu_G(G) = 1$ and then inductively using the relation
 $$\mu_G(H) = -\sum_{H' > H} \mu_G(H').$$
 
-Similarly, we define the **möbius quotient function** $\nu_G(N)$ on the lattice of normal subgroups of $G$ by setting $\nu_G(1) = 1$ and inductively using the relation
+Similarly, we define the \textbf{möbius quotient function} $\nu_G(N)$ on the lattice of normal subgroups of $G$ by setting $\nu_G(1) = 1$ and inductively using the relation
 $$\nu_G(N) = -\sum_{N' < N} \nu_G(N').$$
 
-The möbius subgroup function is used in computing the {{KNOWL('group.rank', 'rank')}} of $G$, while the möbius quotient function is used in computing the number of faithful representations of $G$.
-\end{definition}
+The möbius subgroup function is used in computing the \hyperref[group.rank]{rank} of $G$, while the möbius quotient function is used in computing the number of faithful representations of $G$.
+\end{definition*}
 
 

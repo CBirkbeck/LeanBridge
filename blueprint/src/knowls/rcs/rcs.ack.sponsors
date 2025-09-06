@@ -1,5 +1,5 @@
-\subsection{Acknowledgments for sponsors}
-\begin{definition}\label{rcs.ack.sponsors}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.ack.sponsors}{Acknowledgments for sponsors}}
+\begin{definition*}\label{rcs.ack.sponsors}
 \uses{}
  The LMFDB has been supported by a number of grants.
     <ul>
@@ -10,7 +10,7 @@
     a <a href="http://neukom.dartmouth.edu/programs/2016compx.html">CompX Grant</a> by the <a href="http://neukom.dartmouth.edu">Neukom Institute</a> at Dartmouth College (2016-2017)</li><li>Awarded to
     <a href="http://opendreamkit.org/">OpenDreamKit</a>,
     an EU Horizon 2020 European Research Infrastructure project, grant ID
-    <a href="http://cordis.europa.eu/project/rcn/198334_en.html">#676541</a>(2015-2019)
+    <a href="http://cordis.europa.eu/project/rcn/198334\_en.html">#676541</a>(2015-2019)
 </li>
    <li>Awarded to the Universities of Warwick and
     Bristol,  a Programme Grant from the UK Engineering and Physical
@@ -23,10 +23,10 @@
  Science Foundation:
    <ul>
         <li>FRG: L-functions and modular forms, NSF
-        grant <a href="http://www.nsf.gov/awardsearch/showAward?AWD_ID=0757627">DMS:0757627</a> (2008-2012)</li>
+        grant <a href="http://www.nsf.gov/awardsearch/showAward?AWD\_ID=0757627">DMS:0757627</a> (2008-2012)</li>
         <li>CDI: Bibliographic Knowledge Network, NSF
-        grant <a href="http://www.nsf.gov/awardsearch/showAward?AWD_ID=0835851">DMS:0835851</a> (2008-2011)</li>
+        grant <a href="http://www.nsf.gov/awardsearch/showAward?AWD\_ID=0835851">DMS:0835851</a> (2008-2011)</li>
     </ul></li></ul>
-\end{definition}
+\end{definition*}
 
 

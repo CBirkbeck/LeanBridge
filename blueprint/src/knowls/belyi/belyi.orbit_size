@@ -1,7 +1,7 @@
-\subsection{Orbit size}
-\begin{definition}\label{belyi.orbit_size}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/belyi.orbit_size}{Orbit size}}
+\begin{definition*}\label{belyi.orbit_size}
 \uses{belyi.galmap}
-The **orbit size** is the number of isomorphism classes of {{KNOWL('belyi.galmap', 'Belyi maps')}} contained in a given Galois orbit.
-\end{definition}
+The \textbf{orbit size} is the number of isomorphism classes of \hyperref[belyi.galmap]{Belyi maps} contained in a given Galois orbit.
+\end{definition*}
 
 

@@ -1,11 +1,11 @@
-\subsection{Analytic conductor}
-\begin{definition}\label{lfunction.analytic_conductor}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.analytic_conductor}{Analytic conductor}}
+\begin{definition*}\label{lfunction.analytic_conductor}
 \uses{lfunction,lfunction.conductor,lfunction.infinity_factor}
-The **analytic conductor** of an {{KNOWL('lfunction', 'L-function')}} $L(s)$ with {{KNOWL('lfunction.infinity_factor','infinity factor')}} $L_{\infty}(s)$ and {{KNOWL('lfunction.conductor', 'conductor')}} $N$ is the real number
+The \textbf{analytic conductor} of an \hyperref[lfunction]{L-function} $L(s)$ with \hyperref[lfunction.infinity_factor]{infinity factor} $L_{\infty}(s)$ and \hyperref[lfunction.conductor]{conductor} $N$ is the real number
 \[
 A := \mathrm{exp}\left(2\mathrm{Re}\left(\frac{L_{\infty}'(1/2)}{L_{\infty}(1/2)}\right)\right)N.
 \]
 
-\end{definition}
+\end{definition*}
 
 

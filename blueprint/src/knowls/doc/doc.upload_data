@@ -1,7 +1,7 @@
-\subsection{Upload data}
-\begin{definition}\label{doc.upload_data}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/doc.upload_data}{Upload data}}
+\begin{definition*}\label{doc.upload_data}
 \uses{doc.create_knowl}
-In order to upload data, you need to {{ KNOWL('doc.create_knowl') }} an account and log in. The easiest way to add data to the website is then to browse to the most relevant HTML page on the website (or the homepage if you don't know), and click on the "Upload your data here" link appearing on the left hand side.
-\end{definition}
+In order to upload data, you need to \hyperref[doc.create_knowl]{Create a knowl} an account and log in. The easiest way to add data to the website is then to browse to the most relevant HTML page on the website (or the homepage if you don't know), and click on the "Upload your data here" link appearing on the left hand side.
+\end{definition*}
 
 

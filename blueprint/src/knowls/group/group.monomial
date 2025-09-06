@@ -1,9 +1,9 @@
-\subsection{Monomial group}
-\begin{definition}\label{group.monomial}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.monomial}{Monomial group}}
+\begin{definition*}\label{group.monomial}
 \uses{group.solvable,group.supersolvable}
-A group $G$ is **monomial** or an **M-group** if every complex irreducible representation of $G$ is induced from a $1$-dimensional representation of some subgroup. Such a group is always {{ KNOWL("group.solvable", "solvable")}}, and monomial groups include all {{ KNOWL("group.supersolvable", "supersolvable")}} groups and solvable A-groups. A purely group-theoretic description of monomial groups is not known.
+A group $G$ is \textbf{monomial} or an \textbf{M-group} if every complex irreducible representation of $G$ is induced from a $1$-dimensional representation of some subgroup. Such a group is always \hyperref[group.solvable]{solvable}, and monomial groups include all \hyperref[group.supersolvable]{supersolvable} groups and solvable A-groups. A purely group-theoretic description of monomial groups is not known.
 
-While every supersolvable group is monomial, the converse does not hold, as shown by <a href="{{url_for('abstract.index')}}?monomial=yes&supersolvable=no">these examples</a>.  Similarly, <a href="{{url_for('abstract.index')}}?solvable=yes&Agroup=yes&supersolvable=no">these examples</a> show that not every solvable A-group is supersolvable.  There are also <a href="{{url_for('abstract.index')}}?solvable=yes&monomial=no">examples</a> of solvable groups that are not monomial.
-\end{definition}
+While every supersolvable group is monomial, the converse does not hold, as shown by <a href="{{url\_for('abstract.index')}}?monomial=yes&supersolvable=no">these examples</a>.  Similarly, <a href="{{url\_for('abstract.index')}}?solvable=yes&Agroup=yes&supersolvable=no">these examples</a> show that not every solvable A-group is supersolvable.  There are also <a href="{{url\_for('abstract.index')}}?solvable=yes&monomial=no">examples</a> of solvable groups that are not monomial.
+\end{definition*}
 
 

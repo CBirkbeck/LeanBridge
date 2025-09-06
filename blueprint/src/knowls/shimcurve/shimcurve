@@ -1,10 +1,9 @@
-\subsection{Shimura curve}
-\begin{definition}\label{shimcurve}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/shimcurve}{Shimura curve}}
+\begin{definition*}\label{shimcurve}
 \uses{ag.curve,shimcurve.discb,shimcurve.enhanced_group,shimcurve.level,shimcurve.polarized_order,shimcurve.quaternion_algebra}
-Let $(O,\mu)$ be a {{KNOWL('shimcurve.polarized_order',
-'polarized quaternion order')}} in an indefinite division
-{{KNOWL('shimcurve.quaternion_algebra','quaternion algebra')}}
-over $\Q$ of {{KNOWL('shimcurve.discb','discriminant')}} $D$. 
+Let $(O,\mu)$ be a \hyperref[shimcurve.polarized_order]{polarized quaternion order} in an indefinite division
+\hyperref[shimcurve.quaternion_algebra]{quaternion algebra}
+over $\Q$ of \hyperref[shimcurve.discb]{discriminant} $D$. 
 Let $\mathcal{H}^\pm \colonequals \C \smallsetminus \R$ be the union of the complex
 upper and lower half planes. Since $B$ is indefinite, we may 
 fix an embedding $B^\times \hookrightarrow \GL_2(\R)$, and so $B^\times$
@@ -28,26 +27,24 @@ $\widehat{b} \in \widehat{B}^\times$, and $\widehat{\gamma}
 
 By work of Shimura and Deligne, $X(O;N)^{\text{big}}(\C)$ is canonically
 the complex points of a (possibly geometrically disconnected) 
-{{KNOWL('ag.curve', 'algebraic curve')}} 
+\hyperref[ag.curve]{algebraic curve} 
 $X(O;N)^{\text{big}}$ over $\Q$, which we call the
-**full level $N$ Shimura curve associated to $O$**. For example,
-when $N = 1$, the **level $1$ Shimura curve associated to $O$** can
+\textbf{full level $N$ Shimura curve associated to $O$}. For example,
+when $N = 1$, the \textbf{level $1$ Shimura curve associated to $O$} can
 be identified with the quotient
     \[ X(O;1)^{\text{big}}(\C) = O^\times\backslash \mathcal{H}^\pm. \]
 
 
 Let $H \le \Aut_{\pm\mu}(O)\ltimes \widehat{O}^\times$ be an open
-compact subgroup of the {{KNOWL('shimcurve.enhanced_group', 
-'enhanced semidirect product')}} of {{KNOWL('shimcurve.level',
-'level')}} $N$. Then $H$ acts on $X(O;N)^{\text{big}}$ by a finite group 
+compact subgroup of the \hyperref[shimcurve.enhanced_group]{enhanced semidirect product} of \hyperref[shimcurve.level]{level} $N$. Then $H$ acts on $X(O;N)^{\text{big}}$ by a finite group 
 of automorphisms over $\Q$. We let
     \[ \mathfrak{X}_H \colonequals [H\backslash X(O;N)^{\text{big}}] \]
 be the corresponding stack quotient. The
-**(quaternionic) Shimura curve of level $H$** is the
+\textbf{(quaternionic) Shimura curve of level $H$} is the
 associated coarse space $X_H$.  
 
 When $O$ is maximal, we write $X(D;1) \colonequals X(O;1)^{\text{big}}$. When $O$ is
 an Eichler order of level $N$, we write $X_0(D;N) \colonequals X(O;1)^{\text{big}}$.
-\end{definition}
+\end{definition*}
 
 

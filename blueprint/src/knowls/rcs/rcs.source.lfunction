@@ -1,7 +1,7 @@
-\subsection{Source of L-function data}
-\begin{definition}\label{rcs.source.lfunction}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.lfunction}{Source of L-function data}}
+\begin{definition*}\label{rcs.source.lfunction}
 \uses{}
 The source of the L-function data varies by origin.  Additional information can be found on individual L-function pages.
-\end{definition}
+\end{definition*}
 
 

@@ -1,21 +1,33 @@
-\subsection{Label of a classical modular form}
-\begin{definition}\label{cmf.label}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.label}{Label of a classical modular form}}
+\begin{definition*}\label{cmf.label}
 \uses{character.dirichlet,character.dirichlet.galois_orbit,character.dirichlet.galois_orbit_label,cmf.coefficient_field,cmf.embedding,cmf.galois_orbit,cmf.level,cmf.newform,cmf.relative_dimension,cmf.weight}
-The **label** of a {{KNOWL('cmf.newform', 'newform')}} $f\in S_k^{\rm new}(N,\chi)$ has the format \( N.k.a.x \), where
+The \textbf{label} of a \hyperref[cmf.newform]{newform} $f\in S_k^{\rm new}(N,\chi)$ has the format \( N.k.a.x \), where
 
--  \( N\) is the {{KNOWL('cmf.level', 'level')}};
+\begin{itemize}
+\item   \( N\) is the \hyperref[cmf.level]{level};
+\end{itemize}
 
-- \(k\) is the {{KNOWL('cmf.weight', 'weight')}};
+\begin{itemize}
+\item  \(k\) is the \hyperref[cmf.weight]{weight};
+\end{itemize}
 
-- \(N.a\) is the {{KNOWL('character.dirichlet.galois_orbit_label', 'label')}} of the {{KNOWL('character.dirichlet.galois_orbit', 'Galois orbit')}} of the {{KNOWL('character.dirichlet', 'Dirichlet character')}} $\chi$;
+\begin{itemize}
+\item  \(N.a\) is the \hyperref[character.dirichlet.galois_orbit_label]{label} of the \hyperref[character.dirichlet.galois_orbit]{Galois orbit} of the \hyperref[character.dirichlet]{Dirichlet character} $\chi$;
+\end{itemize}
 
-- \(x\) is the {{KNOWL('cmf.hecke_galois_orbit', 'label')}} of the {{KNOWL('cmf.galois_orbit', 'Galois orbit')}} of the newform $f$.
+\begin{itemize}
+\item  \(x\) is the \hyperref[cmf.hecke_galois_orbit]{label} of the \hyperref[cmf.galois_orbit]{Galois orbit} of the newform $f$.
+\end{itemize}
 
-For each {{KNOWL('cmf.embedding', 'embedding')}} of the {{KNOWL('cmf.coefficient_field', 'coefficient field')}} of $f$ into the complex numbers, the corresponding modular form over $\C$ has a label of the form \(N.k.a.x.n.i\), where
+For each \hyperref[cmf.embedding]{embedding} of the \hyperref[cmf.coefficient_field]{coefficient field} of $f$ into the complex numbers, the corresponding modular form over $\C$ has a label of the form \(N.k.a.x.n.i\), where
 
-- \(n\) determines the {{KNOWL('character.dirichlet.conrey','Conrey label')}} \(N.n\) of the Dirichlet character \(\chi\);
+\begin{itemize}
+\item  \(n\) determines the \hyperref[character.dirichlet.conrey]{Conrey label} \(N.n\) of the Dirichlet character \(\chi\);
+\end{itemize}
 
-- \(i\) is an integer ranging from 1 to the {{KNOWL('cmf.relative_dimension', 'relative dimension')}} of the newform that distinguishes embeddings with the same character $\chi$.
-\end{definition}
+\begin{itemize}
+\item  \(i\) is an integer ranging from 1 to the \hyperref[cmf.relative_dimension]{relative dimension} of the newform that distinguishes embeddings with the same character $\chi$.
+\end{itemize}
+\end{definition*}
 
 

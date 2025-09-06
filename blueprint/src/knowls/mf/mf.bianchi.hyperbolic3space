@@ -1,7 +1,7 @@
-\subsection{Hyperbolic 3-space}
-\begin{definition}\label{mf.bianchi.hyperbolic3space}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.bianchi.hyperbolic3space}{Hyperbolic 3-space}}
+\begin{definition*}\label{mf.bianchi.hyperbolic3space}
 \uses{}
-**Hyperbolic 3-space** $\mathcal{H}_3$ is the unique connected, simply connected Riemannian manifold of dimension 3 with constant sectional curvature $-1$.  A standard model for $\mathcal{H}_3$ is the upper half space model 
+\textbf{Hyperbolic 3-space} $\mathcal{H}_3$ is the unique connected, simply connected Riemannian manifold of dimension 3 with constant sectional curvature $-1$.  A standard model for $\mathcal{H}_3$ is the upper half space model 
 $$\{ (x,y) \in \C \times \R \mid y>0 \} = \{ (x_1,x_2,y) \in \R^3 \mid y>0 \}  $$
 with the metric coming from the line element
 $$ds^2 = \dfrac{dx_1^2+dx_2^2+dy^2}{y^2}$$
@@ -22,6 +22,6 @@ To see this transition, consider $\mathbb{H}$  as a subalgebra of $\mathbb{H} \o
 $$\mathbb{H} \hookrightarrow M_2(\mathbb{C}), \ \ \ x+yj \mapsto \begin{pmatrix} x & -y \\ \bar{y} & \bar{x}\end{pmatrix}.$$
 In particular,  if $x \in \C$, we have $x \mapsto \begin{pmatrix} x & 0 \\ 0 & \bar{x}\end{pmatrix}$. This embedding respects the ring operations of $\mathbb{H}$. It is now trivial to verify the equivalence between the two descriptions of the action of $\textrm{PSL}_2(\mathbb{C})$ on $\mathcal{H}_3$ that we gave above when we consider this matrix representation of 
 $\mathcal{H}_3 \subset \mathbb{H}$.
-\end{definition}
+\end{definition*}
 
 

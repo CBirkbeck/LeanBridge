@@ -1,10 +1,10 @@
-\subsection{CM Bianchi newforms}
-\begin{definition}\label{mf.bianchi.cm}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.bianchi.cm}{CM Bianchi newforms}}
+\begin{definition*}\label{mf.bianchi.cm}
 \uses{mf.bianchi.level,mf.bianchi.newform}
-A {{ KNOWL('mf.bianchi.newform', 'Bianchi newform') }} $F$ of {{ KNOWL('mf.bianchi.level', 'level') }} $\mathcal{N}$ over an imaginary quadratic field $K$ is said to have **Complex Multiplication** or **CM** if it is equal to its own twist by a non-trivial Hecke character $\chi$.  Such a character $\chi$ is necessarily quadratic.  The CM property is characterised in terms of the Hecke eigenvalues $a_{\frak{p}}$of $F$ by the property that \[
+A \hyperref[mf.bianchi.newform]{Bianchi newform} $F$ of \hyperref[mf.bianchi.level]{level} $\mathcal{N}$ over an imaginary quadratic field $K$ is said to have \textbf{Complex Multiplication} or \textbf{CM} if it is equal to its own twist by a non-trivial Hecke character $\chi$.  Such a character $\chi$ is necessarily quadratic.  The CM property is characterised in terms of the Hecke eigenvalues $a_{\frak{p}}$of $F$ by the property that \[
     a_{\frak{p}} = \chi(\frak{p}) a_{\frak{p}}
 \]
 for all primes $\frak{p}$ not dividing the level.  In particular, $a_{\frak{p}}=0$ for all primes $\frak{p}$ for which $\chi(\frak{p})=-1$.
-\end{definition}
+\end{definition*}
 
 

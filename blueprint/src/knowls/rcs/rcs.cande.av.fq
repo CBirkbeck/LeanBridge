@@ -1,21 +1,23 @@
-\subsection{Completeness of data on isogeny classes of abelian varieties over finite fields}
-\begin{definition}\label{rcs.cande.av.fq}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.cande.av.fq}{Completeness of data on isogeny classes of abelian varieties over finite fields}}
+\begin{definition*}\label{rcs.cande.av.fq}
 \uses{dq.av.fq.further_extent}
 For each dimension $g$ and field $\mathbb{F}_q$ with a nonempty collection of isogeny classes in the database, the collection of isogeny classes is complete. As of October 2020, the data was complete for the following pairs $(g, q)$, where $q$ ranges over all primes and powers of a prime in the interval:
 
-- for $g = 1$, data is available for all $2 \leq q \leq 499$ and $q \in \{512, 625, 729, 1024\}$,
-- for $g = 2$, data is available for all $2 \leq q \leq 211$ and $q \in \{243, 256, 343, 512, 625, 729, 1024\}$,
-- for $g = 3$, data is available for all $2 \leq q \leq 25$,
-- for $g = 4$, data is available for $q = 2, 3, 4$ and $5$,
-- for $g = 5$, data is available for $q = 2$ and $q=3$
-- and for $g = 6$, only $q=2$ is available.
+\begin{itemize}
+\item  for $g = 1$, data is available for all $2 \leq q \leq 499$ and $q \in \{512, 625, 729, 1024\}$,
+\item  for $g = 2$, data is available for all $2 \leq q \leq 211$ and $q \in \{243, 256, 343, 512, 625, 729, 1024\}$,
+\item  for $g = 3$, data is available for all $2 \leq q \leq 25$,
+\item  for $g = 4$, data is available for $q = 2, 3, 4$ and $5$,
+\item  for $g = 5$, data is available for $q = 2$ and $q=3$
+\item  and for $g = 6$, only $q=2$ is available.
+\end{itemize}
 
-Here are some {{KNOWL('dq.av.fq.further_extent','further comments on the extent of the data')}}</a>.
+Here are some \hyperref[dq.av.fq.further_extent]{further comments on the extent of the data}</a>.
 
 
 
 
 
-\end{definition}
+\end{definition*}
 
 

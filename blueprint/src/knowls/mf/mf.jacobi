@@ -1,5 +1,5 @@
-\subsection{Jacobi forms}
-\begin{definition}\label{mf.jacobi}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.jacobi}{Jacobi forms}}
+\begin{definition*}\label{mf.jacobi}
 \uses{}
 A Jacobi form (of full level) of weight $k$ and index $N$
 is a holomorphic function $f:\mathcal{H}\times\C\to \C$
@@ -20,6 +20,6 @@ If furthermore, the Fourier expansion is over only those $n,r$
 for which $4Nn-r^2>0$,
 we say it is a Jacobi cusp form, and denote the space of Jacobi cusp forms by
 $J_{k,N}^{\text{cusp}}$.
-\end{definition}
+\end{definition*}
 
 

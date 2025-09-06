@@ -1,7 +1,7 @@
-\subsection{Monogenic field}
-\begin{definition}\label{nf.monogenic}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.monogenic}{Monogenic field}}
+\begin{definition*}\label{nf.monogenic}
 \uses{nf,nf.ring_of_integers}
-A {{KNOWL('nf', 'number field')}} $K$ is **monogenic** if its {{KNOWL('nf.ring_of_integers', 'ring of integers')}} $\mathcal{O}_K$ equals $\Z[\alpha]$ for some $\alpha \in \mathcal{O}_K$.
-\end{definition}
+A \hyperref[nf]{number field} $K$ is \textbf{monogenic} if its \hyperref[nf.ring_of_integers]{ring of integers} $\mathcal{O}_K$ equals $\Z[\alpha]$ for some $\alpha \in \mathcal{O}_K$.
+\end{definition*}
 
 

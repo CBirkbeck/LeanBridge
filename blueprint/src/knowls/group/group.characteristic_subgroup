@@ -1,7 +1,7 @@
-\subsection{Characteristic subgroup}
-\begin{definition}\label{group.characteristic_subgroup}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.characteristic_subgroup}{Characteristic subgroup}}
+\begin{definition*}\label{group.characteristic_subgroup}
 \uses{group,group.automorphism,group.subgroup}
-A {{KNOWL('group.subgroup', 'subgroup')}} $H$ of a {{KNOWL('group','group')}} $G$  is a **characteristic subgroup** if $\phi(H)=H$ for all {{KNOWL('group.automorphism', 'automorphisms')}} $\phi\in \Aut(G)$.
-\end{definition}
+A \hyperref[group.subgroup]{subgroup} $H$ of a \hyperref[group]{group} $G$  is a \textbf{characteristic subgroup} if $\phi(H)=H$ for all \hyperref[group.automorphism]{automorphisms} $\phi\in \Aut(G)$.
+\end{definition*}
 
 

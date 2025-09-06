@@ -1,9 +1,9 @@
-\subsection{Principal ideal domain}
-\begin{definition}\label{ring.principal_ideal_domain}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ring.principal_ideal_domain}{Principal ideal domain}}
+\begin{definition*}\label{ring.principal_ideal_domain}
 \uses{ring.integral_domain,ring.unique_factorization_domain}
-A **principal ideal domain**, or PID, is an {{ KNOWL('ring.integral_domain', 'integral domain') }} $R$ such that every ideal of $R$ is of the form $\langle a\rangle$ for some $a\in R$.
+A \textbf{principal ideal domain}, or PID, is an \hyperref[ring.integral_domain]{integral domain} $R$ such that every ideal of $R$ is of the form $\langle a\rangle$ for some $a\in R$.
 
-Every such ring is a {{ KNOWL('ring.unique_factorization_domain', 'unique factorization domain') }}.
-\end{definition}
+Every such ring is a \hyperref[ring.unique_factorization_domain]{unique factorization domain}.
+\end{definition*}
 
 

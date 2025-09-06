@@ -1,17 +1,17 @@
-\subsection{Unitary group}
-\begin{definition}\label{group.unitary}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.unitary}{Unitary group}}
+\begin{definition*}\label{group.unitary}
 \uses{group.center,group.quotient,group.subgroup,ring.field}
-The **(general) unitary group** $\GU(n, q)$ is the group of $n \times n$ unitary matrices with entries in the {{KNOWL('ring.field', 'field')}} $\F_{q^2}$ (the finite field with $q^2$ elements).  Here, a matrix is *unitary* if the inverse of $M$ equals the conjugate transpose of $M$.
+The \textbf{(general) unitary group} $\GU(n, q)$ is the group of $n \times n$ unitary matrices with entries in the \hyperref[ring.field]{field} $\F_{q^2}$ (the finite field with $q^2$ elements).  Here, a matrix is *unitary* if the inverse of $M$ equals the conjugate transpose of $M$.
 
 For matrices $M$ over the finite field $\F_{q^2}$, the *conjugate* of $M$ is defined as the matrix obtained by applying the map $x \mapsto x^q$ (i.e. the $r$-th power of the Frobenius automorphism, where $q = p^r$) to each entry of $M$.
 
-The **projective (general) unitary group** $\PGU(n, q)$ is the {{KNOWL('group.quotient', 'quotient')}} of $\GU(n, q)$ by the scalar matrices in $\GU(n, q)$ (equivalently, $\PGU(n, q)$ is the quotient of $\GU(n, q)$ by its {{KNOWL('group.center', 'center')}}).
+The \textbf{projective (general) unitary group} $\PGU(n, q)$ is the \hyperref[group.quotient]{quotient} of $\GU(n, q)$ by the scalar matrices in $\GU(n, q)$ (equivalently, $\PGU(n, q)$ is the quotient of $\GU(n, q)$ by its \hyperref[group.center]{center}).
 
-The **special unitary group** $\SU(n, q)$ is the {{KNOWL('group.subgroup', 'subgroup')}} of $\GU(n, q)$ consisting of those matrices with determinant 1.
+The \textbf{special unitary group} $\SU(n, q)$ is the \hyperref[group.subgroup]{subgroup} of $\GU(n, q)$ consisting of those matrices with determinant 1.
 
-The **projective special unitary group** $\PSU(n, q)$ is the quotient of $\SU(n, q)$ by the scalar matrices in $\SU(n, q)$ (equivalently, $\PSU(n, q)$ is the quotient of $\SU(n, q)$ by its center).
+The \textbf{projective special unitary group} $\PSU(n, q)$ is the quotient of $\SU(n, q)$ by the scalar matrices in $\SU(n, q)$ (equivalently, $\PSU(n, q)$ is the quotient of $\SU(n, q)$ by its center).
 
 (see \cite{MR0827219}, page x)
-\end{definition}
+\end{definition*}
 
 

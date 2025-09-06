@@ -1,20 +1,22 @@
-\subsection{Genus of a subgroup of $\GL_2$}
-\begin{definition}\label{gl2.genus}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/gl2.genus}{Genus of a subgroup of $\GL_2$}}
+\begin{definition*}\label{gl2.genus}
 \uses{ag.geom_component,gl2.open,mf.upper_half_plane,modcurve}
-The **genus** of an {{KNOWL('gl2.open', 'open subgroup')}} $H$ of $\GL_2(\widehat\Z)$ or $\GL_2(\widehat\Z_\ell)$ of level $N$ is defined by the formula
+The \textbf{genus} of an \hyperref[gl2.open]{open subgroup} $H$ of $\GL_2(\widehat\Z)$ or $\GL_2(\widehat\Z_\ell)$ of level $N$ is defined by the formula
 \[
 g(H) := g(\Gamma_H) := 1+\frac{i(\Gamma_H)}{12} - \frac{\nu_2(\Gamma_H)}{4} - \frac{\nu_3(\Gamma_H)}{3} - \frac{\nu_\infty(\Gamma_H)}{2},
 \]
 where $\Gamma_H:=\pm H_N \cap \SL_2(\Z/N\Z)$, $H_N$ denotes the projection of $H$ onto $\GL_2(\Z/N\Z)$, and
 
-- $i(\Gamma_H)=[\SL_2(\Z/N\Z):\Gamma_H]$,
-- $\nu_2$ is the number of right cosets of $\Gamma_H$ in $\SL_2(\Z/N\Z)$ fixed by the right action of <small>$\begin{bmatrix}0&1\\-1&0\end{bmatrix}$</small>,
-- $\nu_3$ is the number of right cosets of $\Gamma_H$ in $\SL_2(\Z/N\Z)$ fixed by the right action of  matrix <small>$\begin{bmatrix}0&1\\-1&-1\end{bmatrix}$</small>,
-- $\nu_{\infty}(\Gamma_H)$ is the number of orbits of the right coset space $\Gamma_H\backslash \SL_2(\Z/N\Z)$ under the right action of <small>$\begin{bmatrix}1&1\\0&1\end{bmatrix}$</small>.
+\begin{itemize}
+\item  $i(\Gamma_H)=[\SL_2(\Z/N\Z):\Gamma_H]$,
+\item  $\nu_2$ is the number of right cosets of $\Gamma_H$ in $\SL_2(\Z/N\Z)$ fixed by the right action of <small>$\begin{bmatrix}0&1\\-1&0\end{bmatrix}$</small>,
+\item  $\nu_3$ is the number of right cosets of $\Gamma_H$ in $\SL_2(\Z/N\Z)$ fixed by the right action of  matrix <small>$\begin{bmatrix}0&1\\-1&-1\end{bmatrix}$</small>,
+\item  $\nu_{\infty}(\Gamma_H)$ is the number of orbits of the right coset space $\Gamma_H\backslash \SL_2(\Z/N\Z)$ under the right action of <small>$\begin{bmatrix}1&1\\0&1\end{bmatrix}$</small>.
+\end{itemize}
 
-The genus $g(H)$ is a nonnegative integer that equals the genus of each {{KNOWL('ag.geom_component', 'geometric component')}} of the {{KNOWL('modcurve', 'modular curve')}} $X_H$.
+The genus $g(H)$ is a nonnegative integer that equals the genus of each \hyperref[ag.geom_component]{geometric component} of the \hyperref[modcurve]{modular curve} $X_H$.
 
-This coincides with the genus of the Riemann surface $\mathcal H^*/\Gamma$, where   $\mathcal H^*$ is the {{KNOWL('mf.upper_half_plane', 'completed upper half-plane')}} and $\Gamma$ is the inverse image of $\Gamma_H$ in $\SL_2(\Z)$.
-\end{definition}
+This coincides with the genus of the Riemann surface $\mathcal H^*/\Gamma$, where   $\mathcal H^*$ is the \hyperref[mf.upper_half_plane]{completed upper half-plane} and $\Gamma$ is the inverse image of $\Gamma_H$ in $\SL_2(\Z)$.
+\end{definition*}
 
 

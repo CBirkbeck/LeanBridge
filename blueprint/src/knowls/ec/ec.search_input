@@ -1,7 +1,7 @@
-\subsection{Find an elliptic curve}
-\begin{definition}\label{ec.search_input}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.search_input}{Find an elliptic curve}}
+\begin{definition*}\label{ec.search_input}
 \uses{ec,ec.curve_label,ec.isogeny_class}
-To find a specific {{KNOWL('ec', 'elliptic curve')}} or {{KNOWL('ec.isogeny_class','isogeny class')}} of elliptic curves, enter its {{KNOWL('ec.curve_label','label')}}.
-\end{definition}
+To find a specific \hyperref[ec]{elliptic curve} or \hyperref[ec.isogeny_class]{isogeny class} of elliptic curves, enter its \hyperref[ec.curve_label]{label}.
+\end{definition*}
 
 

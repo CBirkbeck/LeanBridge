@@ -1,16 +1,16 @@
-\subsection{Fourier expansion of Maass form}
-\begin{definition}\label{mf.maass.mwf.fourierexpansion}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.maass.mwf.fourierexpansion}{Fourier expansion of Maass form}}
+\begin{definition*}\label{mf.maass.mwf.fourierexpansion}
 \uses{mf.maass.mwf,mf.maass.mwf.symmetry,specialfunction.k_bessel}
-The **Fourier expansion** (at infinity) of a {{KNOWL('mf.maass.mwf', 'Maass form')}} of a non-cocompact subgroup of PSL$(2,\R)$ reads
+The \textbf{Fourier expansion} (at infinity) of a \hyperref[mf.maass.mwf]{Maass form} of a non-cocompact subgroup of PSL$(2,\R)$ reads
 $$f(z)=\sum_{n\in\Z}a(n)\sqrt{y}K_{ir}(2\pi|n|y)e^{2\pi inx},$$
-where $K_{ir}(x)$ is a {{KNOWL('specialfunction.k_bessel', "$K$-Bessel function")}} and the expansion coefficients $a(n)$ are related to Hecke eigenvalues.
+where $K_{ir}(x)$ is a \hyperref[specialfunction.k_bessel]{$K$-Bessel function} and the expansion coefficients $a(n)$ are related to Hecke eigenvalues.
 
-If the Maass form is {{ KNOWL('mf.maass.mwf.symmetry', "even") }}, then the expansion simplifies to
+If the Maass form is \hyperref[mf.maass.mwf.symmetry]{even}, then the expansion simplifies to
 $$f(z)=\sum_{n=1}^{\infty}c(n)\sqrt{y}K_{ir}(2\pi ny)\cos(2\pi nx),$$
-and if the form is {{ KNOWL('mf.maass.mwf.symmetry', "odd") }}
+and if the form is \hyperref[mf.maass.mwf.symmetry]{odd}
 $$f(z)=\sum_{n=1}^{\infty}c(n)\sqrt{y}K_{ir}(2\pi ny)\sin(2\pi nx).$$
 For a prime $p$ the coefficient $c(p)$ equals the corresponding Hecke eigenvalue.
 
-\end{definition}
+\end{definition*}
 
 

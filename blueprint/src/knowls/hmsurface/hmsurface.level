@@ -1,8 +1,8 @@
-\subsection{Definition of the level}
-\begin{definition}\label{hmsurface.level}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/hmsurface.level}{Definition of the level}}
+\begin{definition*}\label{hmsurface.level}
 \uses{hmsurface.congruence_subgroup,nf.ideal.label.hmf}
-The **level** is a nonzero ideal $\mathfrak{N}$ which determines the {{ KNOWL('hmsurface.congruence_subgroup', "congruence subgroup") }} $\Gamma_0(\mathfrak{N})_\mathfrak{b}$. In the LMFDB, such an ideal $\mathfrak{N}$ is identified by a {{ KNOWL("nf.ideal.label.hmf", "label")}}.
+The \textbf{level} is a nonzero ideal $\mathfrak{N}$ which determines the \hyperref[hmsurface.congruence_subgroup]{congruence subgroup} $\Gamma_0(\mathfrak{N})_\mathfrak{b}$. In the LMFDB, such an ideal $\mathfrak{N}$ is identified by a \hyperref[nf.ideal.label.hmf]{label}.
 
-\end{definition}
+\end{definition*}
 
 

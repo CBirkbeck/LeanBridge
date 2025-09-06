@@ -1,7 +1,7 @@
-\subsection{Real endomorphism algebra}
-\begin{definition}\label{ag.real_endomorphism_algebra}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.real_endomorphism_algebra}{Real endomorphism algebra}}
+\begin{definition*}\label{ag.real_endomorphism_algebra}
 \uses{ag.endomorphism_ring}
-The **real endomorphism algebra** of an abelian variety $A$ is the $\R$-algebra $\textrm{End}(A)\otimes\R$, where $\textrm{End}(A)$ is the {{KNOWL('ag.endomorphism_ring', 'endomorphism ring')}} of $A$.
-\end{definition}
+The \textbf{real endomorphism algebra} of an abelian variety $A$ is the $\R$-algebra $\textrm{End}(A)\otimes\R$, where $\textrm{End}(A)$ is the \hyperref[ag.endomorphism_ring]{endomorphism ring} of $A$.
+\end{definition*}
 
 

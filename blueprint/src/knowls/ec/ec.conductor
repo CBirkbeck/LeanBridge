@@ -1,19 +1,27 @@
-\subsection{Conductor of an elliptic curve}
-\begin{definition}\label{ec.conductor}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.conductor}{Conductor of an elliptic curve}}
+\begin{definition*}\label{ec.conductor}
 \uses{ec,ec.additive_reduction,ec.bad_reduction,ec.good_reduction,ec.multiplicative_reduction,nf,nf.ring_of_integers}
-The **conductor** of an {{KNOWL('ec', 'elliptic curve')}} $E$ defined over a {{KNOWL('nf', 'number field')}} $K$ is an ideal of the {{KNOWL('nf.ring_of_integers', 'ring of integers')}} of $K$ that is divisible by the prime ideals of {{KNOWL('ec.bad_reduction', 'bad reduction')}} and no others.  It is defined as
+The \textbf{conductor} of an \hyperref[ec]{elliptic curve} $E$ defined over a \hyperref[nf]{number field} $K$ is an ideal of the \hyperref[nf.ring_of_integers]{ring of integers} of $K$ that is divisible by the prime ideals of \hyperref[ec.bad_reduction]{bad reduction} and no others.  It is defined as
 $$
     \mathfrak{n} = \prod_{\mathfrak{p}}\mathfrak{p}^{e_{\mathfrak{p}}}
 $$
 where the exponent $e_{\mathfrak{p}}$ is as follows:
 
-- $e_{\mathfrak{p}}=0$ if $E$ has {{KNOWL('ec.good_reduction', 'good reduction')}} at $\mathfrak{p}$;
+\begin{itemize}
+\item  $e_{\mathfrak{p}}=0$ if $E$ has \hyperref[ec.good_reduction]{good reduction} at $\mathfrak{p}$;
+\end{itemize}
 
-- $e_{\mathfrak{p}}=1$ if $E$ has {{KNOWL('ec.multiplicative_reduction', 'multiplicative reduction')}} at $\mathfrak{p}$;
+\begin{itemize}
+\item  $e_{\mathfrak{p}}=1$ if $E$ has \hyperref[ec.multiplicative_reduction]{multiplicative reduction} at $\mathfrak{p}$;
+\end{itemize}
 
-- $e_{\mathfrak{p}}=2$ if $E$ has {{KNOWL('ec.additive_reduction', 'additive reduction')}} at $\mathfrak{p}$ and $\mathfrak{p}$ does not lie above either $2$ or $3$; and
+\begin{itemize}
+\item  $e_{\mathfrak{p}}=2$ if $E$ has \hyperref[ec.additive_reduction]{additive reduction} at $\mathfrak{p}$ and $\mathfrak{p}$ does not lie above either $2$ or $3$; and
+\end{itemize}
 
-- $2\leq e_{\mathfrak{p}}\leq 2+6v_{\mathfrak{p}}(2)+3v_{\mathfrak{p}}(3)$, where $v_{\mathfrak{p}}$ is the valuation at $\mathfrak{p}$, if $E$ has additive reduction and $\mathfrak{p}$ lies above $2$ or $3$.
+\begin{itemize}
+\item  $2\leq e_{\mathfrak{p}}\leq 2+6v_{\mathfrak{p}}(2)+3v_{\mathfrak{p}}(3)$, where $v_{\mathfrak{p}}$ is the valuation at $\mathfrak{p}$, if $E$ has additive reduction and $\mathfrak{p}$ lies above $2$ or $3$.
+\end{itemize}
 
 For $\mathfrak{p}=2$ and $3$, there is an algorithm of Tate that simultaneously creates a minimal Weierstrass equation and computes the exponent of the conductor.  See:
 
@@ -29,7 +37,7 @@ curves</EM>, GTM <B>151</B>, Springer-Verlag, New York, 1994.
 
 </UL>
 
-The **conductor norm** is the norm $[\mathcal{O}_K:\mathfrak{n}]$ of the ideal $\mathfrak{n}$.
-\end{definition}
+The \textbf{conductor norm} is the norm $[\mathcal{O}_K:\mathfrak{n}]$ of the ideal $\mathfrak{n}$.
+\end{definition*}
 
 

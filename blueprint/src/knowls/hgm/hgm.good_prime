@@ -1,9 +1,9 @@
-\subsection{Primes of good and bad reduction of a hypergeometric motive}
-\begin{definition}\label{hgm.good_prime}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/hgm.good_prime}{Primes of good and bad reduction of a hypergeometric motive}}
+\begin{definition*}\label{hgm.good_prime}
 \uses{hgm.conductor,hgm.motive,hgm.tame,hgm.wild}
-A **prime of bad reduction** or **bad prime** of a {{ KNOWL('hgm.motive', 'hypergeometric motive') }} \(M\) is a prime dividing the {{ KNOWL('hgm.conductor', 'conductor') }} of \(M\). A bad prime is either {{ KNOWL('hgm.tame', 'tame') }} or {{ KNOWL('hgm.wild', 'wild') }}.
+A \textbf{prime of bad reduction} or \textbf{bad prime} of a \hyperref[hgm.motive]{hypergeometric motive} \(M\) is a prime dividing the \hyperref[hgm.conductor]{conductor} of \(M\). A bad prime is either \hyperref[hgm.tame]{tame} or \hyperref[hgm.wild]{wild}.
 
-A **prime of good reduction** or **good prime** is a prime that is not a bad prime, i.e., a prime that does not divide the conductor.
-\end{definition}
+A \textbf{prime of good reduction} or \textbf{good prime} is a prime that is not a bad prime, i.e., a prime that does not divide the conductor.
+\end{definition*}
 
 

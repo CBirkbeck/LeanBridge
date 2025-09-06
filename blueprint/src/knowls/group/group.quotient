@@ -1,9 +1,9 @@
-\subsection{Quotient group}
-\begin{definition}\label{group.quotient}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.quotient}{Quotient group}}
+\begin{definition*}\label{group.quotient}
 \uses{group,group.coset,group.subgroup.normal}
-If $G$ is a {{KNOWL('group', 'group')}} and $N$ is a {{KNOWL('group.subgroup.normal', 'normal subgroup')}} of $G$, then the operation on the set of left {{KNOWL('group.coset', 'cosets')}} of $N$
+If $G$ is a \hyperref[group]{group} and $N$ is a \hyperref[group.subgroup.normal]{normal subgroup} of $G$, then the operation on the set of left \hyperref[group.coset]{cosets} of $N$
 \[ (aN)*(bN) = (ab)N\]
-is well-defined.  The result is a group, called a **quotient group** of $G$ by $N$.
-\end{definition}
+is well-defined.  The result is a group, called a \textbf{quotient group} of $G$ by $N$.
+\end{definition*}
 
 

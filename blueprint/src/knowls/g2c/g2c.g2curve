@@ -1,11 +1,11 @@
-\subsection{Genus 2 curve}
-\begin{definition}\label{g2c.g2curve}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.g2curve}{Genus 2 curve}}
+\begin{definition*}\label{g2c.g2curve}
 \uses{ag.hyperelliptic_curve,g2c.discriminant,g2c.minimal_equation}
-Every (smooth, projective, geometrically integral) curve of genus 2 can be defined by a **Weierstrass equation** of the form $$y^2+h(x)y=f(x)$$
-with nonzero {{KNOWL('g2c.discriminant', 'discriminant')}} and $\deg h \le 3$ and $\deg f \le 6$; in order to have genus 2 we must have $\deg h = 3$ or $\deg f =5,6$.  Over a field whose characteristic is not 2 one can complete the square to make $h(x)$ zero, but this will yield a model with bad reduction at 2 that is typically not a {{KNOWL('g2c.minimal_equation', 'minimal equation')}} for the curve.
+Every (smooth, projective, geometrically integral) curve of genus 2 can be defined by a \textbf{Weierstrass equation} of the form $$y^2+h(x)y=f(x)$$
+with nonzero \hyperref[g2c.discriminant]{discriminant} and $\deg h \le 3$ and $\deg f \le 6$; in order to have genus 2 we must have $\deg h = 3$ or $\deg f =5,6$.  Over a field whose characteristic is not 2 one can complete the square to make $h(x)$ zero, but this will yield a model with bad reduction at 2 that is typically not a \hyperref[g2c.minimal_equation]{minimal equation} for the curve.
 
-This equation can be viewed as defining the function field of the curve, or as a smooth model of the curve in the weighted projective plane. Every curve of genus 2 admits a degree 2 cover of the projective line (consider the function $x$) and is therefore a {{KNOWL('ag.hyperelliptic_curve','hyperelliptic curve')}}.
+This equation can be viewed as defining the function field of the curve, or as a smooth model of the curve in the weighted projective plane. Every curve of genus 2 admits a degree 2 cover of the projective line (consider the function $x$) and is therefore a \hyperref[ag.hyperelliptic_curve]{hyperelliptic curve}.
 
-\end{definition}
+\end{definition*}
 
 

@@ -1,7 +1,7 @@
-\subsection{Wild Artin slopes of a local field}
-\begin{definition}\label{lf.wild_slopes}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.wild_slopes}{Wild Artin slopes of a local field}}
+\begin{definition*}\label{lf.wild_slopes}
 \uses{lf.galois_invariants,nf.galois_group,nf.is_galois}
-Let $K$ be a finite {{KNOWL('nf.is_galois', 'Galois')}} extension of $\Q_p$ for some prime $p$.  The **wild Artin slopes** indicate the locations and sizes of jumps in the filtration of the {{KNOWL('nf.galois_group', 'Galois group')}} by higher ramification groups.  See {{KNOWL('lf.galois_invariants', 'Galois invariants')}} of a local number field for more information.
-\end{definition}
+Let $K$ be a finite \hyperref[nf.is_galois]{Galois} extension of $\Q_p$ for some prime $p$.  The \textbf{wild Artin slopes} indicate the locations and sizes of jumps in the filtration of the \hyperref[nf.galois_group]{Galois group} by higher ramification groups.  See \hyperref[lf.galois_invariants]{Galois invariants} of a local number field for more information.
+\end{definition*}
 
 

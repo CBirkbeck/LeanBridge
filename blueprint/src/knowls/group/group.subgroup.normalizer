@@ -1,9 +1,9 @@
-\subsection{Normalizer of a subgroup}
-\begin{definition}\label{group.subgroup.normalizer}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.subgroup.normalizer}{Normalizer of a subgroup}}
+\begin{definition*}\label{group.subgroup.normalizer}
 \uses{group,group.subgroup,group.subgroup.normal}
-If $H$ is a {{KNOWL('group.subgroup', 'subgroup')}} of a {{KNOWL('group','group')}} $G$, then the **normalizer** of $H$ is the subgroup
+If $H$ is a \hyperref[group.subgroup]{subgroup} of a \hyperref[group]{group} $G$, then the \textbf{normalizer} of $H$ is the subgroup
 \[ N_G(H) = \{ g\in G\mid gHg^{-1} = H\}.\]
-Equivalently, $N_G(H)$ is the largest subgroup of $G$ containing $H$ in which $H$ is {{KNOWL('group.subgroup.normal', 'normal')}}.
-\end{definition}
+Equivalently, $N_G(H)$ is the largest subgroup of $G$ containing $H$ in which $H$ is \hyperref[group.subgroup.normal]{normal}.
+\end{definition*}
 
 

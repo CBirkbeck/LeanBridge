@@ -1,7 +1,7 @@
-\subsection{Order of a group element}
-\begin{definition}\label{group.element_order}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.element_order}{Order of a group element}}
+\begin{definition*}\label{group.element_order}
 \uses{alg.binary_operation.identity,group,group.cyclic,group.subgroup}
-The **order** of an element $g$ in a multiplicative {{KNOWL('group', 'group')}} $G$ is the least positive integer $n$ such that $g^n$ is the {{KNOWL('alg.binary_operation.identity', 'identity element')}} of $G$, if such an integer exist, and is $\infty$ otherwise.  In an additive group, the order of $g$ is the least positive integer $n$ such that $ng=0$.  In both cases, the order of $g$ is also equal to the cardinality of the {{KNOWL('group.cyclic', 'cyclic')}} {{KNOWL('group.subgroup', 'subgroup')}} it generates.
-\end{definition}
+The \textbf{order} of an element $g$ in a multiplicative \hyperref[group]{group} $G$ is the least positive integer $n$ such that $g^n$ is the \hyperref[alg.binary_operation.identity]{identity element} of $G$, if such an integer exist, and is $\infty$ otherwise.  In an additive group, the order of $g$ is the least positive integer $n$ such that $ng=0$.  In both cases, the order of $g$ is also equal to the cardinality of the \hyperref[group.cyclic]{cyclic} \hyperref[group.subgroup]{subgroup} it generates.
+\end{definition*}
 
 

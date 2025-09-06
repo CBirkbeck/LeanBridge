@@ -1,7 +1,7 @@
-\subsection{Available samples for $M_k(\mathrm{Sp}(6,\mathbb{Z}))$}
-\begin{definition}\label{mf.siegel.extent.sp6z}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.extent.sp6z}{Available samples for $M_k(\mathrm{Sp}(6,\mathbb{Z}))$}}
+\begin{definition*}\label{mf.siegel.extent.sp6z}
 \uses{group.sp2gr,mf.siegel.galois_orbit}
-The following table shows two {{KNOWL('mf.siegel.galois_orbit', 'Galois orbits')}} of weights 12 and 14 on the {{KNOWL('group.sp2gr', 'full modular group')}} $\mathrm{Sp}(6,\mathbb{Z}))$, respectively.
-\end{definition}
+The following table shows two \hyperref[mf.siegel.galois_orbit]{Galois orbits} of weights 12 and 14 on the \hyperref[group.sp2gr]{full modular group} $\mathrm{Sp}(6,\mathbb{Z}))$, respectively.
+\end{definition*}
 
 

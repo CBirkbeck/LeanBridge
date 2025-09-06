@@ -1,7 +1,7 @@
-\subsection{Maximum Cohen-Macaulay}
-\begin{definition}\label{av.fq.max_cohen_macaulay_type}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/av.fq.max_cohen_macaulay_type}{Maximum Cohen-Macaulay}}
+\begin{definition*}\label{av.fq.max_cohen_macaulay_type}
 \uses{ag.cohen_macaulay_type,av.fq.bass_zfv}
-The maximum {{ KNOWL('ag.cohen_macaulay_type', 'Cohen-Macaulay type') }} of the overorders of the {{ KNOWL('av.fq.bass_zfv', 'Frobenius order') }} of the isogeny class.
-\end{definition}
+The maximum \hyperref[ag.cohen_macaulay_type]{Cohen-Macaulay type} of the overorders of the \hyperref[av.fq.bass_zfv]{Frobenius order} of the isogeny class.
+\end{definition*}
 
 

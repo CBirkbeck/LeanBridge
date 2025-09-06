@@ -1,11 +1,11 @@
-\subsection{Complex multiplication}
-\begin{definition}\label{ec.complex_multiplication}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.complex_multiplication}{Complex multiplication}}
+\begin{definition*}\label{ec.complex_multiplication}
 \uses{ag.complex_multiplication,ec,ec.endomorphism_ring,ec.geom_endomorphism_ring,ec.j_invariant,nf.class_number,nf.order,ring.characteristic}
-An {{KNOWL('ec', 'elliptic curve')}} whose {{ KNOWL('ec.endomorphism_ring', "endomorphism ring") }} is larger than \(\Z\) is said to have **complex multiplication** (often abbreviated to CM).  In this case, for curves defined over fields of {{KNOWL('ring.characteristic', 'characteristic')}} zero, the endomorphism ring is isomorphic to an {{KNOWL('nf.order', 'order')}} in an imaginary quadratic field.  The discriminant of this order is the **CM discriminant**.
+An \hyperref[ec]{elliptic curve} whose \hyperref[ec.endomorphism_ring]{endomorphism ring} is larger than \(\Z\) is said to have \textbf{complex multiplication} (often abbreviated to CM).  In this case, for curves defined over fields of \hyperref[ring.characteristic]{characteristic} zero, the endomorphism ring is isomorphic to an \hyperref[nf.order]{order} in an imaginary quadratic field.  The discriminant of this order is the \textbf{CM discriminant}.
 
-An elliptic curve whose {{ KNOWL('ec.geom_endomorphism_ring', "geometric endomorphism ring") }} is larger than \(\Z\) is said to have **potential complex multiplication** (potential CM).  In the literature, these too are often called CM elliptic curves.
+An elliptic curve whose \hyperref[ec.geom_endomorphism_ring]{geometric endomorphism ring} is larger than \(\Z\) is said to have \textbf{potential complex multiplication} (potential CM).  In the literature, these too are often called CM elliptic curves.
 
-The property of having potential CM depends only on the {{ KNOWL('ec.j_invariant', '$j$-invariant') }} of the curve.  In characteristic $0$, CM $j$-invariants are algebraic integers, and there are only finitely many in any given number field.  There are precisely 13 CM $j$-invariants in $\Q$ (all integers), associated to the 13 imaginary quadratic orders of {{KNOWL('nf.class_number', 'class number')}} $1$:
+The property of having potential CM depends only on the \hyperref[ec.j_invariant]{$j$-invariant} of the curve.  In characteristic $0$, CM $j$-invariants are algebraic integers, and there are only finitely many in any given number field.  There are precisely 13 CM $j$-invariants in $\Q$ (all integers), associated to the 13 imaginary quadratic orders of \hyperref[nf.class_number]{class number} $1$:
 
 $$
 \begin{array}{c|ccccccccccccc}
@@ -14,7 +14,7 @@ j & -12288000 & 54000 & 0 & 287496 & 1728 & 16581375 & -3375 & 8000 & -32768 & -
 \end{array}
 $$
 
-CM elliptic curves are examples of {{KNOWL('ag.complex_multiplication', "CM abelian varieties")}}.
-\end{definition}
+CM elliptic curves are examples of \hyperref[ag.complex_multiplication]{CM abelian varieties}.
+\end{definition*}
 
 

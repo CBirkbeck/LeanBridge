@@ -1,9 +1,9 @@
-\subsection{Acknowledgments for curves of higher genus with automorphism group data}
-\begin{definition}\label{rcs.ack.curve.highergenus.aut}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.ack.curve.highergenus.aut}{Acknowledgments for curves of higher genus with automorphism group data}}
+\begin{definition*}\label{rcs.ack.curve.highergenus.aut}
 \uses{}
 <h2>Additional acknowledgments</h2>
 
 Jen Paulhus, using group and signature data originally computed by Thomas Breuer.
-\end{definition}
+\end{definition*}
 
 

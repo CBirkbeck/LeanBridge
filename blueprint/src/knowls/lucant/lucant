@@ -1,5 +1,5 @@
-\subsection{LuCaNT Conference}
-\begin{definition}\label{lucant}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lucant}{LuCaNT Conference}}
+\begin{definition*}\label{lucant}
 \uses{}
 The first conference on the LMFDB, Computation, and Number Theory (LuCaNT) took place July 10-14, 2023 at [ICERM](https://icerm.brown.edu/events/sc-23-lucant/) in Providence, Rhode Island, USA.
 
@@ -15,6 +15,6 @@ A  proceedings volume  including all of the accepted papers will be published in
 
 Organizers: John Cremona, John Jones, Jennifer Paulhus, Andrew Sutherland, and John Voight.
 
-\end{definition}
+\end{definition*}
 
 

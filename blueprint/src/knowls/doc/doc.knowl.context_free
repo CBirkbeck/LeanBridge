@@ -1,7 +1,7 @@
-\subsection{Transclusion (definition)}
-\begin{definition}\label{doc.knowl.context_free}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/doc.knowl.context_free}{Transclusion (definition)}}
+\begin{definition*}\label{doc.knowl.context_free}
 \uses{}
 Transclusion is the inclusion of a document or part of a document into another document by reference.
-\end{definition}
+\end{definition*}
 
 

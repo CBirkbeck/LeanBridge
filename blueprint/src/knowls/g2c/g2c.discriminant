@@ -1,5 +1,5 @@
-\subsection{Discriminant of a genus 2 curve}
-\begin{definition}\label{g2c.discriminant}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.discriminant}{Discriminant of a genus 2 curve}}
+\begin{definition*}\label{g2c.discriminant}
 \uses{}
 The discriminant $\Delta$ of a Weierstrass equation $y^2+h(x)y=f(x)$ can be computed as
 $$
@@ -10,7 +10,7 @@ $$
 $$
 where $\text{lc}(f)$ denotes the leading coefficient of $f$ and $\text{disc}(f)$ its discriminant.
  
-The **discriminant** of a genus 2 curve over $\Q$ is the discriminant of a {{KNOWL('g2c.minimal_equation', 'minimal equation')}} for the curve; it is an invariant of the curve that does not depend on the choice of minimal equation.
-\end{definition}
+The \textbf{discriminant} of a genus 2 curve over $\Q$ is the discriminant of a \hyperref[g2c.minimal_equation]{minimal equation} for the curve; it is an invariant of the curve that does not depend on the choice of minimal equation.
+\end{definition*}
 
 

@@ -1,9 +1,9 @@
-\subsection{Frobenius order}
-\begin{definition}\label{modlgal.frobenius_order}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/modlgal.frobenius_order}{Frobenius order}}
+\begin{definition*}\label{modlgal.frobenius_order}
 \uses{group.order,modlgal,modlgal.ramified,modlgal.splitting_field,nf.prime}
-Let $\rho:\Gal_K\to G(\F_{\ell})$ be a {{ KNOWL('modlgal', 'mod-$\ell$ Galois representation') }}.   The **Frobenius order** of a {{KNOWL('nf.prime', 'prime')}} $\frak{p}$ of $K$ at which $\rho$ is {{KNOWL('modlgal.ramified', 'unramified')}} is the {{KNOWL('group.order', 'order')}} of $\rho(\text{Frob}_{\frak{p}})$ as an element of the finite group $G(\F_{\ell})$.
+Let $\rho:\Gal_K\to G(\F_{\ell})$ be a \hyperref[modlgal]{mod-$\ell$ Galois representation}.   The \textbf{Frobenius order} of a \hyperref[nf.prime]{prime} $\frak{p}$ of $K$ at which $\rho$ is \hyperref[modlgal.ramified]{unramified} is the \hyperref[group.order]{order} of $\rho(\text{Frob}_{\frak{p}})$ as an element of the finite group $G(\F_{\ell})$.
 
-Note that {{KNOWL('modlgal.ramified', 'unramified')}} primes $\frak{p}$ of $K$ are, by definition, unramified in the {{KNOWL('modlgal.splitting_field', 'splitting field')}} $L/K$ of $\rho$, so the Frobenius automorphism $\text{Frob}_{\frak{p}}$ is well-defined up to conjugacy in $\Gal(L/K)$, and hence the order of  $\rho(\text{Frob}_{\frak{p}})$ is well-defined.
-\end{definition}
+Note that \hyperref[modlgal.ramified]{unramified} primes $\frak{p}$ of $K$ are, by definition, unramified in the \hyperref[modlgal.splitting_field]{splitting field} $L/K$ of $\rho$, so the Frobenius automorphism $\text{Frob}_{\frak{p}}$ is well-defined up to conjugacy in $\Gal(L/K)$, and hence the order of  $\rho(\text{Frob}_{\frak{p}})$ is well-defined.
+\end{definition*}
 
 

@@ -1,19 +1,19 @@
-\subsection{Isogeny between elliptic curves }
-\begin{definition}\label{ec.isogeny}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.isogeny}{Isogeny between elliptic curves }}
+\begin{definition*}\label{ec.isogeny}
 \uses{ag.base_field,av.isogeny,ec,ec.endomorphism,ec.endomorphism_ring,group.homomorphism,nf,nf.is_galois}
-Let $E_1$ and $E_2$ be two {{KNOWL("ec", "elliptic curves")}} defined over a field $K$. An **isogeny** (over $K$) between $E_1$ and $E_2$ is a non-constant morphism $f\colon E_1 \to E_2$ defined over $K$, i.e., a morphism of curves given by rational functions with coefficients in $K$, such that $f(O_{E_1})= O_{E_2}$.  Elliptic curves $E_1$ and $E_2$ are called **isogenous** if there exists an isogeny $f\colon E_1 \to E_2$.
+Let $E_1$ and $E_2$ be two \hyperref[ec]{elliptic curves} defined over a field $K$. An \textbf{isogeny} (over $K$) between $E_1$ and $E_2$ is a non-constant morphism $f\colon E_1 \to E_2$ defined over $K$, i.e., a morphism of curves given by rational functions with coefficients in $K$, such that $f(O_{E_1})= O_{E_2}$.  Elliptic curves $E_1$ and $E_2$ are called \textbf{isogenous} if there exists an isogeny $f\colon E_1 \to E_2$.
 
-An isogeny respects the group laws on $E_1$ and $E_2$, and hence determines a {{KNOWL('group.homomorphism', 'group homomorphism')}} $E_1(L)\to E_2(L)$ for any extension $L$ of $K$.  The kernel is a finite group, defined over $K$; in general the points in the kernel are not individually defined over $K$ but over a finite {{KNOWL('nf.is_galois', 'Galois')}} extension of $K$ and are permuted by the Galois action.
+An isogeny respects the group laws on $E_1$ and $E_2$, and hence determines a \hyperref[group.homomorphism]{group homomorphism} $E_1(L)\to E_2(L)$ for any extension $L$ of $K$.  The kernel is a finite group, defined over $K$; in general the points in the kernel are not individually defined over $K$ but over a finite \hyperref[nf.is_galois]{Galois} extension of $K$ and are permuted by the Galois action.
 
-The **degree** of an isogeny is its degree as a morphism of algebraic curves.  For a separable isogeny this is equal to the cardinality of the kernel.  Over a field of characteristic $0$ such as a number field, all isogenies are separable.  In finite characteristic $p$, isogenies of degree coprime to $p$ are all separable.
+The \textbf{degree} of an isogeny is its degree as a morphism of algebraic curves.  For a separable isogeny this is equal to the cardinality of the kernel.  Over a field of characteristic $0$ such as a number field, all isogenies are separable.  In finite characteristic $p$, isogenies of degree coprime to $p$ are all separable.
 
-An isogeny is **cyclic** if its kernel is a cyclic group.  Every isogeny is the composition of a cyclic isogeny with the multiplication-by-$m$ map for some $m\ge1$.
+An isogeny is \textbf{cyclic} if its kernel is a cyclic group.  Every isogeny is the composition of a cyclic isogeny with the multiplication-by-$m$ map for some $m\ge1$.
 
-Isogeny is an equivalence relation, and the equivalence classes are called {{ KNOWL('ec.isogeny_class', '**isogeny classes**')}}.  Over a {{ KNOWL('nf', 'number field') }}, it is a consequence of a theorem of Shafarevich that isogeny classes are finite.  Between any two curves in an isogeny class there is a unique degree of cyclic isogeny between them, except when the curves have  additional endomorphisms defined over the {{KNOWL('ag.base_field', 'base field')}} of the curves; in that case there are cyclic isogenies of infinitely many different degrees between any two isogenous curves.
+Isogeny is an equivalence relation, and the equivalence classes are called \hyperref[ec.isogeny_class]{\textbf{isogeny classes}}.  Over a \hyperref[nf]{number field}, it is a consequence of a theorem of Shafarevich that isogeny classes are finite.  Between any two curves in an isogeny class there is a unique degree of cyclic isogeny between them, except when the curves have  additional endomorphisms defined over the \hyperref[ag.base_field]{base field} of the curves; in that case there are cyclic isogenies of infinitely many different degrees between any two isogenous curves.
 
-Isogenies from an elliptic curve $E$ to itself are called {{ KNOWL('ec.endomorphism',  '**endomorphisms**') }}.  The set of all endomrpshisms of $E$ forms a ring under pointwise addition and composition, the {{KNOWL('ec.endomorphism_ring', 'endomorphism ring')}} of $E$.
+Isogenies from an elliptic curve $E$ to itself are called \hyperref[ec.endomorphism]{\textbf{endomorphisms}}.  The set of all endomrpshisms of $E$ forms a ring under pointwise addition and composition, the \hyperref[ec.endomorphism_ring]{endomorphism ring} of $E$.
 
-An isogeny of elliptic curves is a special case of an {{KNOWL('av.isogeny', "isogeny of abelian varieties")}}.
-\end{definition}
+An isogeny of elliptic curves is a special case of an \hyperref[av.isogeny]{isogeny of abelian varieties}.
+\end{definition*}
 
 

@@ -1,7 +1,7 @@
-\subsection{Order of a Mordell-Weil generator}
-\begin{definition}\label{g2c.mw_generator_order}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.mw_generator_order}{Order of a Mordell-Weil generator}}
+\begin{definition*}\label{g2c.mw_generator_order}
 \uses{ag.mordell_weil,g2c.mw_generator}
-The **order** of a {{KNOWL('g2c.mw_generator','generator')}} of the {{KNOWL('ag.mordell_weil', 'Mordell-Weil group')}} is the cardinality of the cyclic subgroup it generates.
-\end{definition}
+The \textbf{order} of a \hyperref[g2c.mw_generator]{generator} of the \hyperref[ag.mordell_weil]{Mordell-Weil group} is the cardinality of the cyclic subgroup it generates.
+\end{definition*}
 
 

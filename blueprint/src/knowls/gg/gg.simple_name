@@ -1,5 +1,5 @@
-\subsection{Simple group name}
-\begin{definition}\label{gg.simple_name}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/gg.simple_name}{Simple group name}}
+\begin{definition*}\label{gg.simple_name}
 \uses{}
 We describe abstract groups using standard building blocks:
 <ul>
@@ -11,11 +11,13 @@ We describe abstract groups using standard building blocks:
 
 Groups $A$ and $B$ may be used to construct a larger group:
 
-- $A\times B$ for the direct product of $A$ and $B$
-- $A:B$ for the semidirect product of $A$ and $B$ (with normal subgroup $A$)
-- $A.B$ an extension with normal subgroup $A$ and quotient isomorphic to $B$
-- $A\wr B$ for the wreath product of A and B
+\begin{itemize}
+\item  $A\times B$ for the direct product of $A$ and $B$
+\item  $A:B$ for the semidirect product of $A$ and $B$ (with normal subgroup $A$)
+\item  $A.B$ an extension with normal subgroup $A$ and quotient isomorphic to $B$
+\item  $A\wr B$ for the wreath product of A and B
+\end{itemize}
 
-\end{definition}
+\end{definition*}
 
 

@@ -1,9 +1,9 @@
-\subsection{2-Selmer rank}
-\begin{definition}\label{g2c.two_selmer_rank}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.two_selmer_rank}{2-Selmer rank}}
+\begin{definition*}\label{g2c.two_selmer_rank}
 \uses{ag.abelian_variety,ag.mordell_weil,ag.selmer_group,ag.tate_shafarevich,g2c.torsion}
-The **2-Selmer rank** of an {{KNOWL('ag.abelian_variety', 'abelian variety')}} is the rank of its {{KNOWL('ag.selmer_group', '2-Selmer group')}}.
+The \textbf{2-Selmer rank} of an \hyperref[ag.abelian_variety]{abelian variety} is the rank of its \hyperref[ag.selmer_group]{2-Selmer group}.
 
-The difference between the 2-Selmer rank and the 2-rank of the {{KNOWL('g2c.torsion', 'torsion subgroup')}} is an upper bound on the rank of the {{KNOWL("ag.mordell_weil", "Mordell-Weil group")}}.  This bound is tight if and only if the 2-part of the {{KNOWL('ag.tate_shafarevich','Tate-Shafarevich group')}} is trivial
-\end{definition}
+The difference between the 2-Selmer rank and the 2-rank of the \hyperref[g2c.torsion]{torsion subgroup} is an upper bound on the rank of the \hyperref[ag.mordell_weil]{Mordell-Weil group}.  This bound is tight if and only if the 2-part of the \hyperref[ag.tate_shafarevich]{Tate-Shafarevich group} is trivial
+\end{definition*}
 
 

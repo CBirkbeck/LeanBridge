@@ -1,9 +1,9 @@
-\subsection{Conditional Mordell-Weil group}
-\begin{definition}\label{g2c.conditional_mw_group}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.conditional_mw_group}{Conditional Mordell-Weil group}}
+\begin{definition*}\label{g2c.conditional_mw_group}
 \uses{ag.abelian_variety,ag.mordell_weil,g2c.analytic_rank,g2c.mordell_weil_rank,g2c.torsion}
-Under the (weak) BSD conjecture, the {{KNOWL('g2c.mordell_weil_rank', 'Mordell-Weil rank')}} of an {{KNOWL('ag.abelian_variety', 'abelian variety')}} $A$ over $\Q$ is equal to its {{KNOWL('g2c.analytic_rank', 'analytic rank')}}.  If the {{ KNOWL('g2c.torsion', 'torsion subgroup') }} of $A$ and its analytic rank are known (or if one simply assumes a known upper bound on the analytic rank is tight), then the {{KNOWL('ag.mordell_weil', 'Mordell-Weil group')}} of $A$ is conditionally determined up to isomorphism,
+Under the (weak) BSD conjecture, the \hyperref[g2c.mordell_weil_rank]{Mordell-Weil rank} of an \hyperref[ag.abelian_variety]{abelian variety} $A$ over $\Q$ is equal to its \hyperref[g2c.analytic_rank]{analytic rank}.  If the \hyperref[g2c.torsion]{torsion subgroup} of $A$ and its analytic rank are known (or if one simply assumes a known upper bound on the analytic rank is tight), then the \hyperref[ag.mordell_weil]{Mordell-Weil group} of $A$ is conditionally determined up to isomorphism,
 
 In cases were one knows a lower bound on the Mordell-Weil group that is one less than a known upper bound on its analytic rank, it is only necessary to assume the parity conjecture.
-\end{definition}
+\end{definition*}
 
 

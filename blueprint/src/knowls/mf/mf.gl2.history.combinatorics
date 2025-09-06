@@ -1,13 +1,13 @@
-\subsection{Combinatorics and $q$-series}
-\begin{definition}\label{mf.gl2.history.combinatorics}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.gl2.history.combinatorics}{Combinatorics and $q$-series}}
+\begin{definition*}\label{mf.gl2.history.combinatorics}
 \uses{group.sl2z,mf,mf.half_integral_weight.dedekind_eta,mf.transformation_property}
-Infinite products are intimately linked to <em>combinatorics</em>, in particular via the partition function $p(n)$, whose generating function is $1/\prod_{n\ge1}(1-q^n)=q^{1/24}/\eta(z)$. Thus, identities involving {{KNOWL('mf.half_integral_weight.dedekind_eta', "$\eta$")}} or more general products can usually be translated into combinatorial identities. An extremely simple example is the following: we have trivially 
+Infinite products are intimately linked to <em>combinatorics</em>, in particular via the partition function $p(n)$, whose generating function is $1/\prod_{n\ge1}(1-q^n)=q^{1/24}/\eta(z)$. Thus, identities involving \hyperref[mf.half_integral_weight.dedekind_eta]{$\eta$} or more general products can usually be translated into combinatorial identities. An extremely simple example is the following: we have trivially 
 $$\prod_{n\ge1}(1-q^n)=\prod_{n\ge1}(1-q^{2n})\prod_{n\ge1}(1-q^{2n-1})\;,$$
 hence $1/\prod_{n\ge1}(1-q^{2n-1})=\prod_{n\ge1}(1+q^n)\;.$ This can be restated in combinatorial terms as saying that the number of partitions of a positive integer into odd parts is equal to its number of partitions into unequal parts (i.e. without "repetitions"), which is not a totally trivial statement.
 
 Set $(q)_n=\prod_{1\le m\le n}(1-q^m)$, so that for instance $\eta(z)=q^{1/24}(q)_{\infty}$. Many combinatorial identities involve different series of the type $\sum_{n\ge0}f_n(q)/(q)_n$, and most of them have a modular interpretation. For instance, consider the following identity due to Euler:
 $$\prod_{n\ge1}(1-aq^n)=\sum_{n\ge0}(-1)^na^nq^{n(n+1)/2}/(q)_n\;.$$
-Setting $a=1$, $a=-1$, $a=-q^{-1}$, $a=q^{-1/2}$, and $a=-q^{-1/2}$ gives the following identities involving {{KNOWL('mf', "modular forms")}}:
+Setting $a=1$, $a=-1$, $a=-q^{-1}$, $a=q^{-1/2}$, and $a=-q^{-1/2}$ gives the following identities involving \hyperref[mf]{modular forms}:
 \[
 \eta(z)=q^{1/24}\sum_{n\ge0}(-1)^n\dfrac{q^{n(n+1)/2}}{(q)_n}, \quad\quad \dfrac{\eta(2z)}{\eta(z)}=q^{1/24}\sum_{n\ge0}\dfrac{q^{n(n+1)/2}}{(q)_n},
 \]
@@ -20,9 +20,9 @@ Setting $a=1$, $a=-1$, $a=-q^{-1}$, $a=q^{-1/2}$, and $a=-q^{-1/2}$ gives the fo
 \]
 The famous <em>Rogers&#8210;Ramanujan identities</em> are further identities of the same type.
 
-A general framework, also valid in several dimensions, has been given by W. Nahm in connection with rational conformal field theories (RCFT) in theoretical physics: Let $A$ be a $d\times d$ positive definite symmetric matrix, $B$ a row vector of dimension $d$, and $C$ a constant. Consider $$f(z)=\sum_{N\in\Z_{\ge0}^d}\dfrac{q^{(1/2)N^tAN+BN+C}}{\prod_{1\le i\le d}(q)_{n_i}}\;,$$ where $N=(n_1,\dots,n_d)^t$ is considered as a column vector and the $n_i$ range though all nonnegative integers. The question is to determine all triples $(A,B,C)$ such that $f$ is {{KNOWL('mf.transformation_property', "modular")}} on some subgroup of {{KNOWL('group.sl2z', "$\Gamma$")}}. For $d=1$, the above examples give $(A,B,C)=(1,1/2,1/24)$, $(1,-1/2,1/24)$, and $(1,0,-1/48)$, and the Rogers&#8210;Ramanujan identities give the additional examples $(A,B,C)=(2,1,11/60)$ and $(2,0,-1/60)$. It has been shown by Don Zagier that together with two other identities corresponding to $(A,B,C)=(1/2,1,1/40)$ and $(1/2,0,-1/40)$, these are the only examples in dimension $1$. On the other hand, for $d=2$ many examples are known, but the complete list has not been found.
+A general framework, also valid in several dimensions, has been given by W. Nahm in connection with rational conformal field theories (RCFT) in theoretical physics: Let $A$ be a $d\times d$ positive definite symmetric matrix, $B$ a row vector of dimension $d$, and $C$ a constant. Consider $$f(z)=\sum_{N\in\Z_{\ge0}^d}\dfrac{q^{(1/2)N^tAN+BN+C}}{\prod_{1\le i\le d}(q)_{n_i}}\;,$$ where $N=(n_1,\dots,n_d)^t$ is considered as a column vector and the $n_i$ range though all nonnegative integers. The question is to determine all triples $(A,B,C)$ such that $f$ is \hyperref[mf.transformation_property]{modular} on some subgroup of \hyperref[group.sl2z]{$\Gamma$}. For $d=1$, the above examples give $(A,B,C)=(1,1/2,1/24)$, $(1,-1/2,1/24)$, and $(1,0,-1/48)$, and the Rogers&#8210;Ramanujan identities give the additional examples $(A,B,C)=(2,1,11/60)$ and $(2,0,-1/60)$. It has been shown by Don Zagier that together with two other identities corresponding to $(A,B,C)=(1/2,1,1/40)$ and $(1/2,0,-1/40)$, these are the only examples in dimension $1$. On the other hand, for $d=2$ many examples are known, but the complete list has not been found.
 
 
-\end{definition}
+\end{definition*}
 
 

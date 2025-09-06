@@ -1,9 +1,9 @@
-\subsection{Special linear group}
-\begin{definition}\label{group.special_linear}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.special_linear}{Special linear group}}
+\begin{definition*}\label{group.special_linear}
 \uses{group.order,group.quotient,group.simple,ring.field}
-The **special linear group** $\SL(n,q)$ is the group of $n \times n$ matrices with determinant 1 with entries in the {{KNOWL('ring.field', 'field')}} $\F_q$ (the finite field with $q$ elements). It has {{KNOWL('group.order', 'order')}} $|\GL(n, q)|/(q-1) =  \frac{1}{q-1} \prod_{k=0}^{n-1} (q^n - q^k)$.
+The \textbf{special linear group} $\SL(n,q)$ is the group of $n \times n$ matrices with determinant 1 with entries in the \hyperref[ring.field]{field} $\F_q$ (the finite field with $q$ elements). It has \hyperref[group.order]{order} $|\GL(n, q)|/(q-1) =  \frac{1}{q-1} \prod_{k=0}^{n-1} (q^n - q^k)$.
 
-The **projective special linear group** $\PSL(n, q)$ is the {{KNOWL('group.quotient', 'quotient')}} of $\SL(n, q)$ with the group of $n \times n$ scalar matrices over $\F_q$ with determinant 1.  If either $n > 2$ or $q > 3$, then $\PSL(n, q)$ is a {{KNOWL('group.simple', 'simple')}} group.
-\end{definition}
+The \textbf{projective special linear group} $\PSL(n, q)$ is the \hyperref[group.quotient]{quotient} of $\SL(n, q)$ with the group of $n \times n$ scalar matrices over $\F_q$ with determinant 1.  If either $n > 2$ or $q > 3$, then $\PSL(n, q)$ is a \hyperref[group.simple]{simple} group.
+\end{definition*}
 
 

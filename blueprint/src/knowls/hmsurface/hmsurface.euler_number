@@ -1,11 +1,11 @@
-\subsection{Topological Euler number}
-\begin{definition}\label{hmsurface.euler_number}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/hmsurface.euler_number}{Topological Euler number}}
+\begin{definition*}\label{hmsurface.euler_number}
 \uses{}
-The **(topological) Euler number** of a smooth projective variety $X$ over a field of characteristic zero is the quantity
+The \textbf{(topological) Euler number} of a smooth projective variety $X$ over a field of characteristic zero is the quantity
 $$
 \chi = \sum_{i=0}^{2\dim X} (-1)^i \cdot H^i(X(\mathbb{C}), \mathbb{Z})
 $$
 where the cohomology is singular cohomology on the topological space $X(\mathbb{C})$.
-\end{definition}
+\end{definition*}
 
 

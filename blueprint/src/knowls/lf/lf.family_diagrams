@@ -1,14 +1,16 @@
-\subsection{$p$-adic field family diagrams}
-\begin{definition}\label{lf.family_diagrams}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.family_diagrams}{$p$-adic field family diagrams}}
+\begin{definition*}\label{lf.family_diagrams}
 \uses{lf.eisenstein_diagram,lf.family_polynomial,lf.herbrand_function,lf.means,lf.ramification_polygon,lf.rams,lf.slopes}
-There are three diagrams that are helpful for visualizing a {{KNOWL('lf.family_polynomial', '$p$-adic family')}} with wild ramification:
+There are three diagrams that are helpful for visualizing a \hyperref[lf.family_polynomial]{$p$-adic family} with wild ramification:
 
-* The {{ KNOWL('lf.eisenstein_diagram', 'Eisenstein diagram') }}, which explains the construction of the defining polynomial of the family.
-* The {{ KNOWL('lf.ramification_polygon', 'ramification polygon') }}, whose slopes are the {{ KNOWL('lf.rams', 'rams') }} of every extension in the family.
-* The graph of the {{ KNOWL('lf.herbrand_function', 'Herbrand function') }}
+\begin{itemize}
+\item  The \hyperref[lf.eisenstein_diagram]{Eisenstein diagram}, which explains the construction of the defining polynomial of the family.
+\item  The \hyperref[lf.ramification_polygon]{ramification polygon}, whose slopes are the \hyperref[lf.rams]{rams} of every extension in the family.
+\item  The graph of the \hyperref[lf.herbrand_function]{Herbrand function}
+\end{itemize}
 of the family, which helps clarify the relationship between
-{{KNOWL('lf.slopes', 'slopes')}}, {{KNOWL('lf.rams', 'rams')}} and
-{{KNOWL('lf.means', 'means')}}.
-\end{definition}
+\hyperref[lf.slopes]{slopes}, \hyperref[lf.rams]{rams} and
+\hyperref[lf.means]{means}.
+\end{definition*}
 
 

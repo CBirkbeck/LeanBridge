@@ -1,25 +1,41 @@
-\subsection{Label of a Siegel modular form}
-\begin{definition}\label{mf.siegel.label}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.label}{Label of a Siegel modular form}}
+\begin{definition*}\label{mf.siegel.label}
 \uses{character.dirichlet,character.dirichlet.conrey,character.dirichlet.galois_orbit,character.dirichlet.galois_orbit_label,mf.siegel.coefficient_field,mf.siegel.degree,mf.siegel.embedding,mf.siegel.family,mf.siegel.galois_orbit,mf.siegel.hecke_galois_orbit,mf.siegel.level,mf.siegel.newform,mf.siegel.relative_dimension,mf.siegel.weight}
-The **label** of a {{KNOWL('mf.siegel.newform', 'newform')}} $f\in S_{\underline{k}}^{\rm new}(\Gamma_F(N),\chi)$ has the format \( g.F.N.k1...kd.a.x \), where
+The \textbf{label} of a \hyperref[mf.siegel.newform]{newform} $f\in S_{\underline{k}}^{\rm new}(\Gamma_F(N),\chi)$ has the format \( g.F.N.k1...kd.a.x \), where
 
-- \( g \) is the {{KNOWL('mf.siegel.degree', 'degree')}};
+\begin{itemize}
+\item  \( g \) is the \hyperref[mf.siegel.degree]{degree};
+\end{itemize}
 
-- \( F \) is the {{KNOWL('mf.siegel.family', 'family')}};
+\begin{itemize}
+\item  \( F \) is the \hyperref[mf.siegel.family]{family};
+\end{itemize}
 
-- \( N \) is the {{KNOWL('mf.siegel.level', 'level')}};
+\begin{itemize}
+\item  \( N \) is the \hyperref[mf.siegel.level]{level};
+\end{itemize}
 
-- \( \underline{k}=(k_1,\dots,k_d) \) is the {{KNOWL('mf.siegel.weight', 'weight')}};
+\begin{itemize}
+\item  \( \underline{k}=(k_1,\dots,k_d) \) is the \hyperref[mf.siegel.weight]{weight};
+\end{itemize}
 
-- \(N.a\) is the {{KNOWL('character.dirichlet.galois_orbit_label', 'label')}} of the {{KNOWL('character.dirichlet.galois_orbit', 'Galois orbit')}} of the {{KNOWL('character.dirichlet', 'Dirichlet character')}} $\chi$;
+\begin{itemize}
+\item  \(N.a\) is the \hyperref[character.dirichlet.galois_orbit_label]{label} of the \hyperref[character.dirichlet.galois_orbit]{Galois orbit} of the \hyperref[character.dirichlet]{Dirichlet character} $\chi$;
+\end{itemize}
 
-- \(x\) is the {{KNOWL('mf.siegel.hecke_galois_orbit', 'label')}} of the {{KNOWL('mf.siegel.galois_orbit', 'Galois orbit')}} of the newform $f$.
+\begin{itemize}
+\item  \(x\) is the \hyperref[mf.siegel.hecke_galois_orbit]{label} of the \hyperref[mf.siegel.galois_orbit]{Galois orbit} of the newform $f$.
+\end{itemize}
 
-For each {{KNOWL('mf.siegel.embedding', 'embedding')}} of the {{KNOWL('mf.siegel.coefficient_field', 'coefficient field')}} of $f$ into the complex numbers, the corresponding modular form over $\C$ has a label of the form \(g.F.N.k1...kd.a.x.n.i\), where
+For each \hyperref[mf.siegel.embedding]{embedding} of the \hyperref[mf.siegel.coefficient_field]{coefficient field} of $f$ into the complex numbers, the corresponding modular form over $\C$ has a label of the form \(g.F.N.k1...kd.a.x.n.i\), where
 
-- \(n\) determines the {{KNOWL('character.dirichlet.conrey','Conrey label')}} \(N.n\) of the Dirichlet character \(\chi\);
+\begin{itemize}
+\item  \(n\) determines the \hyperref[character.dirichlet.conrey]{Conrey label} \(N.n\) of the Dirichlet character \(\chi\);
+\end{itemize}
 
-- \(i\) is an integer ranging from 1 to the {{KNOWL('mf.siegel.relative_dimension', 'relative dimension')}} of the newform that distinguishes embeddings with the same character $\chi$.
-\end{definition}
+\begin{itemize}
+\item  \(i\) is an integer ranging from 1 to the \hyperref[mf.siegel.relative_dimension]{relative dimension} of the newform that distinguishes embeddings with the same character $\chi$.
+\end{itemize}
+\end{definition*}
 
 

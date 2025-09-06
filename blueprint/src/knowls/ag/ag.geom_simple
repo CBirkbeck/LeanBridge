@@ -1,7 +1,7 @@
-\subsection{Geometrically simple}
-\begin{definition}\label{ag.geom_simple}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.geom_simple}{Geometrically simple}}
+\begin{definition*}\label{ag.geom_simple}
 \uses{ag.abelian_variety,ag.simple}
-An {{KNOWL("ag.abelian_variety", "abelian variety")}} over a field $k$ is **geometrically (or absolutely) simple** if it is {{KNOWL("ag.simple", "simple")}} when viewed as a variety over $\bar k$.
-\end{definition}
+An \hyperref[ag.abelian_variety]{abelian variety} over a field $k$ is \textbf{geometrically (or absolutely) simple} if it is \hyperref[ag.simple]{simple} when viewed as a variety over $\bar k$.
+\end{definition*}
 
 

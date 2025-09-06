@@ -1,5 +1,5 @@
-\subsection{Acknowledgements for abstract groups}
-\begin{definition}\label{rcs.ack.groups.abstract}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.ack.groups.abstract}{Acknowledgements for abstract groups}}
+\begin{definition*}\label{rcs.ack.groups.abstract}
 \uses{}
 <h2>Additional acknowledgments</h2>
 
@@ -8,6 +8,6 @@ This project was inspired by, and took much of its initial design ideas from Tim
 
 Kiran Kedlaya, David Roberts, and Andrew Sutherland each contributed to discussions about the theoretical underpinnings of the computations, and provided coding support.
 
-\end{definition}
+\end{definition*}
 
 

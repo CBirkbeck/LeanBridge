@@ -1,19 +1,19 @@
-\subsection{Regulator of an abelian variety}
-\begin{definition}\label{ag.regulator}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.regulator}{Regulator of an abelian variety}}
+\begin{definition*}\label{ag.regulator}
 \uses{ag.abelian_variety,ag.canonical_height,ag.mordell_weil,ec.regulator,nf}
-The **regulator** of an {{ KNOWL('ag.abelian_variety', 'abelian variety') }} $A$ defined over a {{ KNOWL('nf', 'number field') }} $K,$ denoted $\operatorname{Reg}(A/K)$, is the volume of $A(K)/A(K)_{tor}$ with respect to the **height pairing** $\langle -,-\rangle$ associated to the {{ KNOWL('ag.canonical_height', "canonical height") }} $\hat{h}$, i.e. $\langle P,Q\rangle = \frac{1}{2}(\hat{h}(P+Q)-\hat{h}(P)-\hat{h}(Q))$.
+The \textbf{regulator} of an \hyperref[ag.abelian_variety]{abelian variety} $A$ defined over a \hyperref[nf]{number field} $K,$ denoted $\operatorname{Reg}(A/K)$, is the volume of $A(K)/A(K)_{tor}$ with respect to the \textbf{height pairing} $\langle -,-\rangle$ associated to the \hyperref[ag.canonical_height]{canonical height} $\hat{h}$, i.e. $\langle P,Q\rangle = \frac{1}{2}(\hat{h}(P+Q)-\hat{h}(P)-\hat{h}(Q))$.
 
 
-If the {{ KNOWL('ag.mordell_weil', 'Mordell-Weil group') }} $A(K)$ has rank $r$ and $P_1, \ldots, P_r \in E(K)$ generate $A(K)/A(K)_{\text{tors}}$, then
+If the \hyperref[ag.mordell_weil]{Mordell-Weil group} $A(K)$ has rank $r$ and $P_1, \ldots, P_r \in E(K)$ generate $A(K)/A(K)_{\text{tors}}$, then
 \[
  \operatorname{Reg}(A/K) = \left|\det (\langle P_i, P_j \rangle )_{1\leq i,j \leq r}\right|,
 \]
 which is independent of the choice of generators.
 
 If $A(K)$ has rank $0$, then $\operatorname{Reg}(A/K)=1$.
-If $A(K)$ has rank $1$, then $\operatorname{Reg}(A/K)$ equals the {{ KNOWL('ag.canonical_height', "canonical height") }} $\hat{h}(P)$ of a point $P$ generating $A(K)/A(K)_{\text{tors}}$.
+If $A(K)$ has rank $1$, then $\operatorname{Reg}(A/K)$ equals the \hyperref[ag.canonical_height]{canonical height} $\hat{h}(P)$ of a point $P$ generating $A(K)/A(K)_{\text{tors}}$.
 
-This is a generalisation of the {{ KNOWL('ec.regulator', "regulator of an elliptic curve") }}.
-\end{definition}
+This is a generalisation of the \hyperref[ec.regulator]{regulator of an elliptic curve}.
+\end{definition*}
 
 

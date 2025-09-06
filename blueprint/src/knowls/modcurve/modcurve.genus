@@ -1,7 +1,7 @@
-\subsection{Genus of a modular curve}
-\begin{definition}\label{modcurve.genus}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.genus}{Genus of a modular curve}}
+\begin{definition*}\label{modcurve.genus}
 \uses{ag.geom_component,gl2.genus,gl2.open,modcurve}
-By the **genus** of a {{KNOWL('modcurve', 'modular curve')}} $X_H$, we mean the genus of any of its {{KNOWL('ag.geom_component', 'geometric components')}}.   This equals the {{KNOWL('gl2.genus','genus')}} of the {{KNOWL('gl2.open', 'open subgroup')}} $H\leq \GL_2(\widehat \Z)$.
-\end{definition}
+By the \textbf{genus} of a \hyperref[modcurve]{modular curve} $X_H$, we mean the genus of any of its \hyperref[ag.geom_component]{geometric components}.   This equals the \hyperref[gl2.genus]{genus} of the \hyperref[gl2.open]{open subgroup} $H\leq \GL_2(\widehat \Z)$.
+\end{definition*}
 
 

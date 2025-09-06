@@ -1,18 +1,18 @@
-\subsection{Fuchsian group}
-\begin{definition}\label{group.fuchsian}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.fuchsian}{Fuchsian group}}
+\begin{definition*}\label{group.fuchsian}
 \uses{group.fuchsian.fundamental_domain,mf.upper_half_plane}
-A **Fuchsian group** is a discrete subgroup of $\mathrm{PSL}(2,\mathbb{R})$  for the natural topology induced by the topology of $2\times 
+A \textbf{Fuchsian group} is a discrete subgroup of $\mathrm{PSL}(2,\mathbb{R})$  for the natural topology induced by the topology of $2\times 
 2$ real matrices.
 
 
 We say that a Fuchsian group is of 
-the **first kind** if it has finite covolume for the hyperbolic metric {{KNOWL('mf.upper_half_plane', "$d\mu=dxdy/y^2$")}}, i.e.
+the \textbf{first kind} if it has finite covolume for the hyperbolic metric \hyperref[mf.upper_half_plane]{$d\mu=dxdy/y^2$}, i.e.
 \[
 \text{covol}(G)=\int_{\mathfrak{F}(G)}d\mu<\infty,
 \]
-where $\mathfrak{F}(G)$ is the {{KNOWL('group.fuchsian.fundamental_domain', "fundamental domain")}} of $G$.
+where $\mathfrak{F}(G)$ is the \hyperref[group.fuchsian.fundamental_domain]{fundamental domain} of $G$.
 
 
-\end{definition}
+\end{definition*}
 
 

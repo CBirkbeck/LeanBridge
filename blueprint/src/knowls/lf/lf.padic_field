@@ -1,8 +1,8 @@
-\subsection{$p$-adic field}
-\begin{definition}\label{lf.padic_field}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.padic_field}{$p$-adic field}}
+\begin{definition*}\label{lf.padic_field}
 \uses{lf.local_field,ring.characteristic}
-A **$p$-adic field** (or **local number field**) is a finite extension of 
-{{KNOWL('lf.qp', "$\Q_p$")}}, equivalently, a {{KNOWL('lf.local_field', 'nonarchimedean local field')}} of {{KNOWL('ring.characteristic', 'characteristic')}} zero.
-\end{definition}
+A \textbf{$p$-adic field} (or \textbf{local number field}) is a finite extension of 
+\hyperref[lf.qp]{$\Q_p$}, equivalently, a \hyperref[lf.local_field]{nonarchimedean local field} of \hyperref[ring.characteristic]{characteristic} zero.
+\end{definition*}
 
 

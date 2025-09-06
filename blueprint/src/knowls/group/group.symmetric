@@ -1,8 +1,8 @@
-\subsection{Symmetric group}
-\begin{definition}\label{group.symmetric}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.symmetric}{Symmetric group}}
+\begin{definition*}\label{group.symmetric}
 \uses{group.almost_simple,group.solvable}
-The **symmetric group** is the group $S_n$ of bijections from $n$ element sets to themselves (called permutations), which is of order $n!$. This group is {{KNOWL("group.solvable", "solvable")}} for $n\leq 4$ and {{KNOWL("group.almost_simple", "almost simple")}} since $S_n=A_n\rtimes C_2$ for $n\geq 5$.
+The \textbf{symmetric group} is the group $S_n$ of bijections from $n$ element sets to themselves (called permutations), which is of order $n!$. This group is \hyperref[group.solvable]{solvable} for $n\leq 4$ and \hyperref[group.almost_simple]{almost simple} since $S_n=A_n\rtimes C_2$ for $n\geq 5$.
 
-\end{definition}
+\end{definition*}
 
 

@@ -1,13 +1,13 @@
-\subsection{Action of $\SL(2,\R)$ in the upper half-plane}
-\begin{definition}\label{group.fuchsian.action}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.fuchsian.action}{Action of $\SL(2,\R)$ in the upper half-plane}}
+\begin{definition*}\label{group.fuchsian.action}
 \uses{mf.upper_half_plane}
-The group $\SL(2,\R)$ acts on the {{KNOWL('mf.upper_half_plane', 'upper half-plane')}} via
+The group $\SL(2,\R)$ acts on the \hyperref[mf.upper_half_plane]{upper half-plane} via
 <b>linear fractional transformation</b>, given by
 $$
 \begin{pmatrix}a&b\\c&d \end{pmatrix}(z)
  =
 \frac{a z + b}{c z + d} .
 $$
-\end{definition}
+\end{definition*}
 
 

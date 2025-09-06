@@ -1,11 +1,11 @@
-\subsection{Automorphism group of an algebraic curve}
-\begin{definition}\label{g2c.aut_grp}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.aut_grp}{Automorphism group of an algebraic curve}}
+\begin{definition*}\label{g2c.aut_grp}
 \uses{ag.curve,g2c.g2curve}
-An **automorphism** of an {{ KNOWL('ag.curve', 'algebraic curve') }} is an isomorphism from the curve to itself.  The set of automorphisms of a curve $X$ form a group $\mathrm{Aut}(X)$ under composition; this is the **automorphism group** of the curve.
+An \textbf{automorphism} of an \hyperref[ag.curve]{algebraic curve} is an isomorphism from the curve to itself.  The set of automorphisms of a curve $X$ form a group $\mathrm{Aut}(X)$ under composition; this is the \textbf{automorphism group} of the curve.
 
-The automorphism group of a {{ KNOWL('g2c.g2curve', 'genus 2 curve') }} necessarily includes the **hyperelliptic involution** $(x,y)\mapsto(x,-y)$, which is an automorphism of order 2; this means that the automorphism group of a genus 2 curve is never trivial.
+The automorphism group of a \hyperref[g2c.g2curve]{genus 2 curve} necessarily includes the \textbf{hyperelliptic involution} $(x,y)\mapsto(x,-y)$, which is an automorphism of order 2; this means that the automorphism group of a genus 2 curve is never trivial.
 
-The {{KNOWL("g2c.geom_aut_grp", "geometric automorphism group")}} of a curve $X/k$ is the automorphism group of $X_{\bar k}$.
-\end{definition}
+The \hyperref[g2c.geom_aut_grp]{geometric automorphism group} of a curve $X/k$ is the automorphism group of $X_{\bar k}$.
+\end{definition*}
 
 

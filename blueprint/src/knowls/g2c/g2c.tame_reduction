@@ -1,9 +1,9 @@
-\subsection{Tame reduction}
-\begin{definition}\label{g2c.tame_reduction}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.tame_reduction}{Tame reduction}}
+\begin{definition*}\label{g2c.tame_reduction}
 \uses{g2c.semistable_reduction,lf.tame_degree}
-The semistable reduction theorem asserts that any curve $C$ attains {{ KNOWL('g2c.semistable_reduction' , 'semistable reduction') }} after a finite extension of the base field.
-If semistable reduction, can be attained after a {{ KNOWL('lf.tame_degree', 'tame extension') }} of the base field, then $C$ is said to have _tame reduction_, otherwise $C$ has _wild reduction_.
+The semistable reduction theorem asserts that any curve $C$ attains \hyperref[g2c.semistable_reduction]{semistable reduction} after a finite extension of the base field.
+If semistable reduction, can be attained after a \hyperref[lf.tame_degree]{tame extension} of the base field, then $C$ is said to have \textit{tame reduction}, otherwise $C$ has \textit{wild reduction}.
 For primes $p > 2g + 1$, any curve of genus $g$ has tame reduction at $p$.
-\end{definition}
+\end{definition*}
 
 

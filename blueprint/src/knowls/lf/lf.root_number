@@ -1,7 +1,7 @@
-\subsection{Root number of a local field}
-\begin{definition}\label{lf.root_number}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.root_number}{Root number of a local field}}
+\begin{definition*}\label{lf.root_number}
 \uses{}
-For a finite extension $K/\mathbb{Q}_p$, we give the **local root number**, or local sign, $\epsilon(K)  \in \{1,i,-1,-i\}$.
+For a finite extension $K/\mathbb{Q}_p$, we give the \textbf{local root number}, or local sign, $\epsilon(K)  \in \{1,i,-1,-i\}$.
 
 We start with a general description where we allow $p=\infty$, writing
 $\Q_\infty = \R$.
@@ -28,6 +28,6 @@ representation $\rho_K :   \mathrm{Gal}(\overline{\Q}_p/\Q_p) \rightarrow S_n \s
 root number   $\epsilon(K) := \epsilon(\rho_K)$.  These particular root numbers 
 play a central role in Galois embedding problems.
 Finally, we note that for a global number field $K$, the global root number $\epsilon(K) = \prod \epsilon(K_p)$ is always $1$.
-\end{definition}
+\end{definition*}
 
 

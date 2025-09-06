@@ -1,9 +1,9 @@
-\subsection{Nk^2}
-\begin{definition}\label{cmf.nk2}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.nk2}{Nk^2}}
+\begin{definition*}\label{cmf.nk2}
 \uses{cmf,cmf.analytic_conductor,cmf.level,cmf.weight}
-The integer $Nk^2$ is the product of the {{KNOWL('cmf.level', 'level')}} and the square of the {{KNOWL('cmf.weight', 'weight')}} of a {{KNOWL('cmf', 'modular form')}} or space of modular forms.
+The integer $Nk^2$ is the product of the \hyperref[cmf.level]{level} and the square of the \hyperref[cmf.weight]{weight} of a \hyperref[cmf]{modular form} or space of modular forms.
 
-Asymptotically (as $k\to\infty$) this quantity is proportional to the {{KNOWL('cmf.analytic_conductor', 'analytic conductor')}}.
-\end{definition}
+Asymptotically (as $k\to\infty$) this quantity is proportional to the \hyperref[cmf.analytic_conductor]{analytic conductor}.
+\end{definition*}
 
 

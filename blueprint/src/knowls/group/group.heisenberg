@@ -1,10 +1,10 @@
-\subsection{Heisenberg group}
-\begin{definition}\label{group.heisenberg}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.heisenberg}{Heisenberg group}}
+\begin{definition*}\label{group.heisenberg}
 \uses{}
-Given a prime $p$, the **Heisenberg group** $\He_p$ is the group of $3 \times 3$ unitriangular matrices over the finite field $\F_p$.  Explicitly, it is given by
+Given a prime $p$, the \textbf{Heisenberg group} $\He_p$ is the group of $3 \times 3$ unitriangular matrices over the finite field $\F_p$.  Explicitly, it is given by
 $$\He_p := \left\{ \begin{pmatrix} 1 & a & b \\ 0 & 1 & c \\ 0 & 0 & 1 \\ \end{pmatrix} \mid a, b, c \in \F_p \right\}$$
 with the usual matrix multiplication as the group operation. It has order $p^3$, and is one of only two non-abelian groups of order $p^3$.  In particular, for an odd prime $p$, it is the unique non-abelian group of order $p^3$ and exponent $p$.
 
-\end{definition}
+\end{definition*}
 
 

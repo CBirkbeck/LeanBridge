@@ -1,5 +1,5 @@
-\subsection{Source of elliptic curve data over number fields}
-\begin{definition}\label{dq.ecnf.source}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/dq.ecnf.source}{Source of elliptic curve data over number fields}}
+\begin{definition*}\label{dq.ecnf.source}
 \uses{ec.base_change,ec.complex_multiplication,ec.global_minimal_model,ec.isogeny,ec.local_data,group.generators,nf.class_number,nf.degree}
 ## Source of the curves
 
@@ -9,35 +9,37 @@ The elliptic curves over number fields other than $\Q$ come from several sources
 The curves defined over the five Euclidean Imaginary quadratic fields consist of the curves in John Cremona's 1981 thesis, extended by him with Warren Moore in 2014 to conductor norm $10000$.  Curves were found to match almost all the cuspidal Bianchi newforms (with trivial character, weight \(2\) and rational coefficients) in the database, using custom code by Cremona and Moore, supplemented by Magma's EllipticCurveSearch function written by Steve Donnelly; in the remaining cases it has been proved that there is no matching curve.  Additionally, curves with CM by the field in question, which are not associated to cuspidal Bianchi newforms, were found from their $j$-invariants by Cremona.
 
 ### Totally real fields
-Over $\Q(\sqrt{5})$ the curves of conductor norm up to about $5000$ were provided by Alyson Deines from joint work of Jonathan Bober, Alyson Deines, Ariah Klages-Mundt, Benjamin LeVeque, R. Andrew Ohana, Ashwath Rabindranath, Paul Sharaba and William Stein (see [http://arxiv.org/abs/1202.6612](http://arxiv.org/abs/1202.6612)).  All the other curves were found from their associated Hilbert newforms using Magma's EllipticCurveSearch function, using a script written by John Cremona.  This process is still ongoing: it is complete for fields of {{KNOWL('nf.degree', 'degree')}} \({}<6\), but a few curves are still missing over 13 of the 55 sextic fields represented in the database.  Otherwise the extent of the data matches that of the Hilbert Modular Form data for totally real fields of degrees 2, 3, 4, 5 and 6.
+Over $\Q(\sqrt{5})$ the curves of conductor norm up to about $5000$ were provided by Alyson Deines from joint work of Jonathan Bober, Alyson Deines, Ariah Klages-Mundt, Benjamin LeVeque, R. Andrew Ohana, Ashwath Rabindranath, Paul Sharaba and William Stein (see [http://arxiv.org/abs/1202.6612](http://arxiv.org/abs/1202.6612)).  All the other curves were found from their associated Hilbert newforms using Magma's EllipticCurveSearch function, using a script written by John Cremona.  This process is still ongoing: it is complete for fields of \hyperref[nf.degree]{degree} \({}<6\), but a few curves are still missing over 13 of the 55 sextic fields represented in the database.  Otherwise the extent of the data matches that of the Hilbert Modular Form data for totally real fields of degrees 2, 3, 4, 5 and 6.
 
 ### Other fields
-- Steve Donnelly, Paul E. Gunnells, Ariah Klages-Mundt, and Dan Yasaki provided the curves over the mixed cubic field 3.1.23.1.
-- Marc Masdeu provided $\Q$-curves over quadratic fields.
-- Haluk Sengun provided curves with everywhere good reduction over imaginary quadratic fields.
-- S. Yokoyama and Masdeu provided curves with everywhere good reduction over real quadratic fields (see  [here](http://www2.math.kyushu-u.ac.jp/~s-yokoyama/ECtable.html)).
+\begin{itemize}
+\item  Steve Donnelly, Paul E. Gunnells, Ariah Klages-Mundt, and Dan Yasaki provided the curves over the mixed cubic field 3.1.23.1.
+\item  Marc Masdeu provided $\Q$-curves over quadratic fields.
+\item  Haluk Sengun provided curves with everywhere good reduction over imaginary quadratic fields.
+\item  S. Yokoyama and Masdeu provided curves with everywhere good reduction over real quadratic fields (see  [here](http://www2.math.kyushu-u.ac.jp/~s-yokoyama/ECtable.html)).
+\end{itemize}
 
 In some cases the same curve occurs in more than one of the above sources, in which case efforts have been made not to include it more than once in the database.
 
 ## Source of the data for each curve
 
 ### Models
-For each curve, the model in the database is a {{KNOWL('ec.global_minimal_model', 'global minimal model')}} where one exists (for example when the base field has {{KNOWL('nf.class_number', 'class number')}} one), and otherwise a semi-minimal model which is nonminimal at precisely one prime.  These (semi-)minimal models we computed in SageMath using code written by John Cremona.  Among all (semi-)minimal models we scale by units in order to minimize the archimedean embeddings of \(c_4\) and \(c_4\) simultaneously using a lattice basis reduction method, also implemented in SageMath by John Cremona.
+For each curve, the model in the database is a \hyperref[ec.global_minimal_model]{global minimal model} where one exists (for example when the base field has \hyperref[nf.class_number]{class number} one), and otherwise a semi-minimal model which is nonminimal at precisely one prime.  These (semi-)minimal models we computed in SageMath using code written by John Cremona.  Among all (semi-)minimal models we scale by units in order to minimize the archimedean embeddings of \(c_4\) and \(c_4\) simultaneously using a lattice basis reduction method, also implemented in SageMath by John Cremona.
 
-### {{KNOWL('ec.local_data', 'Local data')}}
+### \hyperref[ec.local_data]{Local data}
 Conductors and local reduction data were computed using Tate's Algorithm, as implemented in SageMath by John Cremona, except for the local root numbers which were computed using Magma
 
 ### Isogenies
-Complete {{KNOWL('ec.isogeny', 'isogeny classes')}} were computed using implementations in SageMath by John Cremona and Ciaran Schembri of Billerey's algorithm (to determine the reducible primes) and Kohel-V&eacute;lu formulas.
+Complete \hyperref[ec.isogeny]{isogeny classes} were computed using implementations in SageMath by John Cremona and Ciaran Schembri of Billerey's algorithm (to determine the reducible primes) and Kohel-V\'e;lu formulas.
 
-### Mordell-Weil groups and {{KNOWL('group.generators', 'generators')}}
+### Mordell-Weil groups and \hyperref[group.generators]{generators}
 Where these exist in the database they were computed by John Cremona using Magma's MordellWeilShaInformation function, implemented by Steve Donnelly
 
 ### Galois representations
-The images of mod-\(\ell\) Galois representations were computed by Andrew Sutherland using the methods described in \cite{doi:10.1017/fms.2015.33,arxiv:1504.0761} (including a generalization to handle curves with {{KNOWL('ec.complex_multiplication','complex multiplication')}}).
+The images of mod-\(\ell\) Galois representations were computed by Andrew Sutherland using the methods described in \cite{doi:10.1017/fms.2015.33,arxiv:1504.0761} (including a generalization to handle curves with \hyperref[ec.complex_multiplication]{complex multiplication}).
 
-### {{KNOWL('ec.base_change', 'Base change')}} and \(\mathbb{Q}\)-curves
+### \hyperref[ec.base_change]{Base change} and \(\mathbb{Q}\)-curves
 The property of being the base change of an elliptic curve over \(\mathbb{Q}\) and of being a \(\mathbb{Q}\)-curve were computed by John Cremona using his implementation in SageMath.
-\end{definition}
+\end{definition*}
 
 

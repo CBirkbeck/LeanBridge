@@ -1,9 +1,9 @@
-\subsection{Index of the image of a mod-$\ell$ Galois representation}
-\begin{definition}\label{modlgal.image_index}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/modlgal.image_index}{Index of the image of a mod-$\ell$ Galois representation}}
+\begin{definition*}\label{modlgal.image_index}
 \uses{group.subgroup,modlgal,modlgal.surjective}
-The **index** of a {{ KNOWL('modlgal', 'mod-$\ell$ Galois representation') }} $\rho:\Gal_K\to G(\F_{\ell})$ is the {{KNOWL('group.subgroup', 'subgroup')}} index $[G(\F_{\ell}):\rho(\Gal_K)]$.
+The \textbf{index} of a \hyperref[modlgal]{mod-$\ell$ Galois representation} $\rho:\Gal_K\to G(\F_{\ell})$ is the \hyperref[group.subgroup]{subgroup} index $[G(\F_{\ell}):\rho(\Gal_K)]$.
 
-The index is $1$ if and only if the representation is {{ KNOWL('modlgal.surjective', 'surjective') }}.
-\end{definition}
+The index is $1$ if and only if the representation is \hyperref[modlgal.surjective]{surjective}.
+\end{definition*}
 
 

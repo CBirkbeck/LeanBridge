@@ -1,13 +1,13 @@
-\subsection{Minimal equation of a hyperelliptic curve}
-\begin{definition}\label{g2c.minimal_equation}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.minimal_equation}{Minimal equation of a hyperelliptic curve}}
+\begin{definition*}\label{g2c.minimal_equation}
 \uses{ag.curve.genus,ag.curve.smooth,ag.hyperelliptic_curve,g2c.discriminant,g2c.good_reduction}
-Every ({{KNOWL('ag.curve.smooth', 'smooth')}}, projective, geometrically integral) {{ KNOWL('ag.hyperelliptic_curve', 'hyperelliptic curve') }} $X$ over $\Q$ of {{KNOWL('ag.curve.genus', 'genus')}} $g$ can be defined by an integral Weierstrass equation
+Every (\hyperref[ag.curve.smooth]{smooth}, projective, geometrically integral) \hyperref[ag.hyperelliptic_curve]{hyperelliptic curve} $X$ over $\Q$ of \hyperref[ag.curve.genus]{genus} $g$ can be defined by an integral Weierstrass equation
 $$y^2+h(x)y=f(x),$$
-where $h(x)$ and $f(x)$ are integral polynomials of degree at most $g+1$ and $2g+2$, respectively.    Each such equation has a {{KNOWL('g2c.discriminant', 'discriminant')}} $\Delta$.  A **minimal equation** is one for which $|\Delta|$ is minimal among all integral Weierstrass equations for the same curve.  Over $\Q$, every hyperelliptic curve has a minimal equation.  The prime divisors of $\Delta$ are the primes of {{KNOWL('g2c.good_reduction', 'bad reduction')}} for $X$.
+where $h(x)$ and $f(x)$ are integral polynomials of degree at most $g+1$ and $2g+2$, respectively.    Each such equation has a \hyperref[g2c.discriminant]{discriminant} $\Delta$.  A \textbf{minimal equation} is one for which $|\Delta|$ is minimal among all integral Weierstrass equations for the same curve.  Over $\Q$, every hyperelliptic curve has a minimal equation.  The prime divisors of $\Delta$ are the primes of \hyperref[g2c.good_reduction]{bad reduction} for $X$.
 
 The equation $y^2+h(x)y=f(x)$ uniquely determines a homogeneous equation of weighted degree 6 in variables $x,y,z$, where $y$ has weight $g+1$, while $x$ and $z$ both have weight 1: one homogenizes $h(x)$ to obtain a homogeneous polynomial $h(x,z)$ of degree $g+1$ and homogenizes $f(x)$ to obtain a homogeneous polynomial $f(x,z)$ of degree $2g+2$.  This yields a smooth projective model $y^2+h(x,z)y=f(x,z)$ for the curve $X$.
 
-One can always transform the minimal equation into a {{KNOWL('g2c.simple_equation','simplified equation')}} $y^2 = g(x) = 4f(x)+h(x)^2$, but this equation need not have minimal discriminant and may have bad reduction at primes that do not divide the minimal discriminant (it will always have bad reduction at the prime $2$).
-\end{definition}
+One can always transform the minimal equation into a \hyperref[g2c.simple_equation]{simplified equation} $y^2 = g(x) = 4f(x)+h(x)^2$, but this equation need not have minimal discriminant and may have bad reduction at primes that do not divide the minimal discriminant (it will always have bad reduction at the prime $2$).
+\end{definition*}
 
 

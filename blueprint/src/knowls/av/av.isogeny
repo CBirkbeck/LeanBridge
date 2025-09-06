@@ -1,9 +1,9 @@
-\subsection{Isogeny of abelian varieties}
-\begin{definition}\label{av.isogeny}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/av.isogeny}{Isogeny of abelian varieties}}
+\begin{definition*}\label{av.isogeny}
 \uses{ag.abelian_variety}
-An **isogeny** of {{KNOWL("ag.abelian_variety", "abelian varieties")}} is a surjective algebraic group homomorphism with finite kernel.
+An \textbf{isogeny} of \hyperref[ag.abelian_variety]{abelian varieties} is a surjective algebraic group homomorphism with finite kernel.
 
-Two abelian varieties are **isogenous** if there is an isogeny between them. This defines an equivalence relation on the set of isomorphism classes.  Equivalence classes are called {{KNOWL("av.isogeny_class", "isogeny classes")}}.
-\end{definition}
+Two abelian varieties are \textbf{isogenous} if there is an isogeny between them. This defines an equivalence relation on the set of isomorphism classes.  Equivalence classes are called \hyperref[av.isogeny_class]{isogeny classes}.
+\end{definition*}
 
 

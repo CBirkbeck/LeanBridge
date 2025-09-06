@@ -1,12 +1,12 @@
-\subsection{Split and non-split extension of groups}
-\begin{definition}\label{group.nonsplit_product}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.nonsplit_product}{Split and non-split extension of groups}}
+\begin{definition*}\label{group.nonsplit_product}
 \uses{group,group.quotient,group.semidirect_product,group.subgroup.normal}
-If $G$ is a {{KNOWL('group', 'group')}} with {{KNOWL('group.subgroup.normal', 'normal subgroup')}} $N$ and {{KNOWL('group.quotient', 'quotient')}} $Q\cong G/N$, then $G$ is a **extension** of $Q$ by $N$, denoted $N.Q$. Equivalently there is a short exact sequence
+If $G$ is a \hyperref[group]{group} with \hyperref[group.subgroup.normal]{normal subgroup} $N$ and \hyperref[group.quotient]{quotient} $Q\cong G/N$, then $G$ is a \textbf{extension} of $Q$ by $N$, denoted $N.Q$. Equivalently there is a short exact sequence
 $$1 \to N \to G \to Q \to 1.$$
 
-If $G$ has a subgroup $\tilde Q\leq G$ such that $\tilde Q\cap N=\langle e\rangle$, and $\tilde QN=G$, then $\tilde Q\cong Q$ and $G$ is a {{KNOWL('group.semidirect_product', 'semidirect product')}} of $N$ and $\tilde Q$.  This is equivalent to the existence of a section of the quotient map $G \to Q$. In this case we say $G$ is a **split extension** of $Q$ by $N$.
+If $G$ has a subgroup $\tilde Q\leq G$ such that $\tilde Q\cap N=\langle e\rangle$, and $\tilde QN=G$, then $\tilde Q\cong Q$ and $G$ is a \hyperref[group.semidirect_product]{semidirect product} of $N$ and $\tilde Q$.  This is equivalent to the existence of a section of the quotient map $G \to Q$. In this case we say $G$ is a \textbf{split extension} of $Q$ by $N$.
 
-If no such subgroup $\tilde Q$ exists, then $G$ is a **non-split extension** of $Q$ by $N$.
-\end{definition}
+If no such subgroup $\tilde Q$ exists, then $G$ is a \textbf{non-split extension} of $Q$ by $N$.
+\end{definition*}
 
 

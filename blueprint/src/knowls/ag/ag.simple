@@ -1,7 +1,7 @@
-\subsection{Simple}
-\begin{definition}\label{ag.simple}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.simple}{Simple}}
+\begin{definition*}\label{ag.simple}
 \uses{ag.abelian_variety}
-An {{KNOWL("ag.abelian_variety", "abelian variety")}} is **simple** if it is nonzero and not isogenous to a product of abelian varieties of lower dimension.
-\end{definition}
+An \hyperref[ag.abelian_variety]{abelian variety} is \textbf{simple} if it is nonzero and not isogenous to a product of abelian varieties of lower dimension.
+\end{definition*}
 
 

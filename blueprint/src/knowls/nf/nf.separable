@@ -1,11 +1,11 @@
-\subsection{Separable extension}
-\begin{definition}\label{nf.separable}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.separable}{Separable extension}}
+\begin{definition*}\label{nf.separable}
 \uses{nf.degree}
-If $K/F$ is a finite {{KNOWL('nf.degree', 'degree')}} field extension, $\alpha\in K$ is **separable** over $F$ if its monic irreducible polynomial has distinct roots in the algebraic closure $\overline{F}$.
+If $K/F$ is a finite \hyperref[nf.degree]{degree} field extension, $\alpha\in K$ is \textbf{separable} over $F$ if its monic irreducible polynomial has distinct roots in the algebraic closure $\overline{F}$.
 
-The extension $K/F$ is **separable** if every $\alpha\in K$ is separable over $F$.
+The extension $K/F$ is \textbf{separable} if every $\alpha\in K$ is separable over $F$.
 
 All algebraic extensions of local and global number fields are separable.
-\end{definition}
+\end{definition*}
 
 

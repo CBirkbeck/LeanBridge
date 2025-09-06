@@ -1,7 +1,7 @@
-\subsection{Slopes of the Newton polygon of a polynomial}
-\begin{definition}\label{lf.newton_slopes}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.newton_slopes}{Slopes of the Newton polygon of a polynomial}}
+\begin{definition*}\label{lf.newton_slopes}
 \uses{lf.local_field,lf.newton_polygon}
-Given a polynomial $f$ defined over a {{ KNOWL('lf.local_field', 'nonarchimedean local field') }} $K$, the **slopes** of its {{KNOWL('lf.newton_polygon', 'Newton polygon')}} are a list of increasing numbers $[s_1,s_2,s_3, \ldots]$ such that the Newton polygon of $f$ is given by a line segment of width 1 with slope $s_1$, followed by a line segment of width 1 with slope $s_2$, etc. Note that it is possible for a slope to appear multiple times if the Newton polygon has the same slope for a width of more than 1.
-\end{definition}
+Given a polynomial $f$ defined over a \hyperref[lf.local_field]{nonarchimedean local field} $K$, the \textbf{slopes} of its \hyperref[lf.newton_polygon]{Newton polygon} are a list of increasing numbers $[s_1,s_2,s_3, \ldots]$ such that the Newton polygon of $f$ is given by a line segment of width 1 with slope $s_1$, followed by a line segment of width 1 with slope $s_2$, etc. Note that it is possible for a slope to appear multiple times if the Newton polygon has the same slope for a width of more than 1.
+\end{definition*}
 
 

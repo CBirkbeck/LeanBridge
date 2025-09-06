@@ -1,11 +1,11 @@
-\subsection{Twist multiplicity}
-\begin{definition}\label{cmf.twist_multiplicity}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.twist_multiplicity}{Twist multiplicity}}
+\begin{definition*}\label{cmf.twist_multiplicity}
 \uses{character.dirichlet.galois_orbit,character.dirichlet.primitive,cmf.galois_orbit,cmf.inner_twist,cmf.inner_twist_count,cmf.twist}
-The **multiplicity** of a {{KNOWL('cmf.galois_orbit','newform orbit')}} $[g]$ as a {{KNOWL('cmf.twist', 'twist')}} of a newform orbit $[f]$ by a {{KNOWL('character.dirichlet.primitive', 'primitive')}} {{KNOWL('character.dirichlet.galois_orbit','character orbit')}} $[\psi]$ is the number of distinct $\psi\in[\psi]$ for which $f\otimes\psi\in[g]$.  This number is the same for every $f\in [f]$ and depends only on the Galois orbits $[g]$, $[f]$, and $[\psi]$.
+The \textbf{multiplicity} of a \hyperref[cmf.galois_orbit]{newform orbit} $[g]$ as a \hyperref[cmf.twist]{twist} of a newform orbit $[f]$ by a \hyperref[character.dirichlet.primitive]{primitive} \hyperref[character.dirichlet.galois_orbit]{character orbit} $[\psi]$ is the number of distinct $\psi\in[\psi]$ for which $f\otimes\psi\in[g]$.  This number is the same for every $f\in [f]$ and depends only on the Galois orbits $[g]$, $[f]$, and $[\psi]$.
 
-When $g$ is an {{KNOWL('cmf.inner_twist','inner twist')}} of $f$, this multiplicity is equal to the {{KNOWL('cmf.inner_twist_count','inner twist count')}} of $f$.
+When $g$ is an \hyperref[cmf.inner_twist]{inner twist} of $f$, this multiplicity is equal to the \hyperref[cmf.inner_twist_count]{inner twist count} of $f$.
 
 
-\end{definition}
+\end{definition*}
 
 

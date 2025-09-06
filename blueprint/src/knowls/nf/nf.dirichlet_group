@@ -1,9 +1,9 @@
-\subsection{Dirichlet group of an Abelian number field}
-\begin{definition}\label{nf.dirichlet_group}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.dirichlet_group}{Dirichlet group of an Abelian number field}}
+\begin{definition*}\label{nf.dirichlet_group}
 \uses{character.dirichlet,nf.abelian,nf.conductor}
-If $K$ is an {{ KNOWL('nf.abelian', 'abelian number field') }}, then $K\subseteq \Q(\zeta_n)$ for some positive integer $n$.  Take the minimal such $n$, i.e., the {{ KNOWL('nf.conductor', 'conductor') }} of $K$.
+If $K$ is an \hyperref[nf.abelian]{abelian number field}, then $K\subseteq \Q(\zeta_n)$ for some positive integer $n$.  Take the minimal such $n$, i.e., the \hyperref[nf.conductor]{conductor} of $K$.
 
-The Galois group $\Gal(\Q(\zeta_n)/\Q)$ is canonically isomorphic to $\Z_n^\times$.  The {{ KNOWL('character.dirichlet', 'Dirichlet characters') }} modulo $n$ form the dual group of homomorphisms $\chi:\Z_n^\times\to\C^\times$.  Since $\Gal(K/\Q)$ is a quotient group of $\Gal(\Q(\zeta_n)/\Q)$, its dual group is a subgroup of the group of Dirichlet characters modulo $n$, called the **Dirichlet character group** of $K$.
-\end{definition}
+The Galois group $\Gal(\Q(\zeta_n)/\Q)$ is canonically isomorphic to $\Z_n^\times$.  The \hyperref[character.dirichlet]{Dirichlet characters} modulo $n$ form the dual group of homomorphisms $\chi:\Z_n^\times\to\C^\times$.  Since $\Gal(K/\Q)$ is a quotient group of $\Gal(\Q(\zeta_n)/\Q)$, its dual group is a subgroup of the group of Dirichlet characters modulo $n$, called the \textbf{Dirichlet character group} of $K$.
+\end{definition*}
 
 

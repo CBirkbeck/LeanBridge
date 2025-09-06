@@ -1,9 +1,9 @@
-\subsection{Metacyclic group}
-\begin{definition}\label{group.metacyclic}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.metacyclic}{Metacyclic group}}
+\begin{definition*}\label{group.metacyclic}
 \uses{group.monomial,group.nonsplit_product,group.supersolvable,group.z_group}
-A metacyclic group is an {{KNOWL("group.nonsplit_product", "extension")}} of a cyclic group by a cyclic group.  All metacyclic groups are {{ KNOWL("group.supersolvable", "supersolvable")}} and in particular {{ KNOWL("group.monomial", "monomial")}}. 
+A metacyclic group is an \hyperref[group.nonsplit_product]{extension} of a cyclic group by a cyclic group.  All metacyclic groups are \hyperref[group.supersolvable]{supersolvable} and in particular \hyperref[group.monomial]{monomial}. 
 
-Every {{KNOWL('group.z_group', 'Z-group')}} is metacyclic, but the converse does not hold, as shown by <a href="{{url_for('abstract.index')}}?metacyclic=yes&Zgroup=no">these examples</a>.
-\end{definition}
+Every \hyperref[group.z_group]{Z-group} is metacyclic, but the converse does not hold, as shown by <a href="{{url\_for('abstract.index')}}?metacyclic=yes&Zgroup=no">these examples</a>.
+\end{definition*}
 
 

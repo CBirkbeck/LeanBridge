@@ -1,13 +1,15 @@
-\subsection{Conrey primitive generator modulo $p$}
-\begin{definition}\label{character.dirichlet.conrey.primitive_generator}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/character.dirichlet.conrey.primitive_generator}{Conrey primitive generator modulo $p$}}
+\begin{definition*}\label{character.dirichlet.conrey.primitive_generator}
 \uses{}
-For an odd prime $p$ and an exponent $e\geq1$, the group $(\Z/p^e\Z)^\times$ is cyclic. It happens that any integer $a$ which generates $(\Z/p^2\Z)^\times$ will also be a generator of $(\Z/p^e\Z)^\times$ for all $e\geq 1$. We call the least such $a$ the **Conrey (primitive) generator** modulo p.
+For an odd prime $p$ and an exponent $e\geq1$, the group $(\Z/p^e\Z)^\times$ is cyclic. It happens that any integer $a$ which generates $(\Z/p^2\Z)^\times$ will also be a generator of $(\Z/p^e\Z)^\times$ for all $e\geq 1$. We call the least such $a$ the \textbf{Conrey (primitive) generator} modulo p.
 
 Interestingly, the Conrey generator is also the smallest generator of $(\Z/p\Z)^\times$
 for all primes $p<10^{12}$ except two cases:
 
-- for $p=40487$, the Conrey generator is $10$ instead of $5$.
-- for $p=6692367337$, the Conrey generator is $7$ instead of $5$.
-\end{definition}
+\begin{itemize}
+\item  for $p=40487$, the Conrey generator is $10$ instead of $5$.
+\item  for $p=6692367337$, the Conrey generator is $7$ instead of $5$.
+\end{itemize}
+\end{definition*}
 
 

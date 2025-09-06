@@ -1,11 +1,11 @@
-\subsection{Siblings for a Galois group}
-\begin{definition}\label{gg.other_representations}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/gg.other_representations}{Siblings for a Galois group}}
+\begin{definition*}\label{gg.other_representations}
 \uses{gg.degree,nf.sibling}
-An abstract group $G$ may be a transitive subgroup of $S_n$ for different $n$ and even in different (non-conjugate) ways for a given $n$.  Each action is identified by a label of the form ```nTt``` where $n$ is the {{KNOWL('gg.degree', 'degree')}} and ```t``` is the T-number classifying the action.
+An abstract group $G$ may be a transitive subgroup of $S_n$ for different $n$ and even in different (non-conjugate) ways for a given $n$.  Each action is identified by a label of the form ```nTt``` where $n$ is the \hyperref[gg.degree]{degree} and ```t``` is the T-number classifying the action.
 
-In terms of the Galois correspondence, the group $G$ corresponds to a degree $n$ extension $F/K$ where $F=K(\alpha)$, and $G$ is the Galois group of the splitting field of the monic irreducible polynomial for $\alpha$.  The **siblings** correspond to {{ KNOWL('nf.sibling', 'sibling fields') }}, which are not isomorphic to $F$, yet have the same normal closure.
+In terms of the Galois correspondence, the group $G$ corresponds to a degree $n$ extension $F/K$ where $F=K(\alpha)$, and $G$ is the Galois group of the splitting field of the monic irreducible polynomial for $\alpha$.  The \textbf{siblings} correspond to \hyperref[nf.sibling]{sibling fields}, which are not isomorphic to $F$, yet have the same normal closure.
 
 There can be more than one action with the same transitive classification.  This corresponds to non-isomorphic fields with the same degree, Galois group, and Galois closure.  We indicate multiplicity using the notation "````nTt x k````" where there are ```k``` non-conjugate subgroups such that the action is ```nTt```.
-\end{definition}
+\end{definition*}
 
 

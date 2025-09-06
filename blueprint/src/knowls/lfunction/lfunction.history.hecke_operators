@@ -1,5 +1,5 @@
-\subsection{Hecke operators, history}
-\begin{definition}\label{lfunction.history.hecke_operators}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.history.hecke_operators}{Hecke operators, history}}
+\begin{definition*}\label{lfunction.history.hecke_operators}
 \uses{}
 Hecke \cite{MR1513122}, building on Mordell, introduced operators acting on
 vector spaces of modular forms.  The forms which were simultaneous eigenvalues 
@@ -9,6 +9,6 @@ Hecke mainly worked with level 1 modular forms.
 The more subtle theory of Hecke operators for spaces of higher level and
 with character was developed by Atkin and Lehner, and Li \cite{MR268123}. 
 
-\end{definition}
+\end{definition*}
 
 

@@ -1,13 +1,13 @@
-\subsection{Nilpotent group}
-\begin{definition}\label{group.nilpotent}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.nilpotent}{Nilpotent group}}
+\begin{definition*}\label{group.nilpotent}
 \uses{group,group.abelian,group.monomial,group.solvable,group.supersolvable}
-A finite {{KNOWL('group', 'group')}} $G$ is **nilpotent** if it is a direct product of $p$-groups. Equivalently, all Sylow subgroups of $G$ are normal. Equivalently, $G$ has a central series
+A finite \hyperref[group]{group} $G$ is \textbf{nilpotent} if it is a direct product of $p$-groups. Equivalently, all Sylow subgroups of $G$ are normal. Equivalently, $G$ has a central series
 \[\{1\}=G_0 \lhd G_1 \lhd G_2 \lhd \ldots \lhd G_k = G,\]
 a nested sequence of normal subgroups with $[G,G_{i+1}] \leq G_i$. 
 
-The smallest such $k$ is the **nilpotency class** of $G$. It is $0$ for $C_1$, $1$ for non-trivial {{KNOWL('group.abelian', 'abelian')}} groups, and $\geq 2$ for all other nilpotent groups. By convention, one can define the nilpotency class of a non-nilpotent group to be $-1$.
+The smallest such $k$ is the \textbf{nilpotency class} of $G$. It is $0$ for $C_1$, $1$ for non-trivial \hyperref[group.abelian]{abelian} groups, and $\geq 2$ for all other nilpotent groups. By convention, one can define the nilpotency class of a non-nilpotent group to be $-1$.
 
-Nilpotent groups are closed under subgroups and quotients (but not extensions), and are {{ KNOWL("group.solvable", "solvable")}}, {{ KNOWL("group.supersolvable", "supersolvable")}} and {{ KNOWL("group.monomial", "monomial")}}.
-\end{definition}
+Nilpotent groups are closed under subgroups and quotients (but not extensions), and are \hyperref[group.solvable]{solvable}, \hyperref[group.supersolvable]{supersolvable} and \hyperref[group.monomial]{monomial}.
+\end{definition*}
 
 

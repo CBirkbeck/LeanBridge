@@ -1,7 +1,7 @@
-\subsection{Multiplicity of an eigenvalue}
-\begin{definition}\label{mf.maass.mwf.dimension}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.maass.mwf.dimension}{Multiplicity of an eigenvalue}}
+\begin{definition*}\label{mf.maass.mwf.dimension}
 \uses{cmf.character,mf.maass.mwf,mf.maass.mwf.eigenvalue,mf.maass.mwf.laplacian}
-The **multiplicity** of an {{KNOWL('mf.maass.mwf.eigenvalue', 'eigenvalue')}} $\lambda$ of the {{KNOWL('mf.maass.mwf.laplacian', 'Laplace-Beltrami operator')}} refers to the dimension of the eigenspace \( \mathcal{M}(\Gamma,\chi,\lambda) \) of {{KNOWL('mf.maass.mwf', 'Maass newforms')}} on the group \( \Gamma \) of {{KNOWL('cmf.character', 'character')}} \( \chi \) with the same Laplace eigenvalue \(\lambda\).
+The \textbf{multiplicity} of an \hyperref[mf.maass.mwf.eigenvalue]{eigenvalue} $\lambda$ of the \hyperref[mf.maass.mwf.laplacian]{Laplace-Beltrami operator} refers to the dimension of the eigenspace \( \mathcal{M}(\Gamma,\chi,\lambda) \) of \hyperref[mf.maass.mwf]{Maass newforms} on the group \( \Gamma \) of \hyperref[cmf.character]{character} \( \chi \) with the same Laplace eigenvalue \(\lambda\).
 
 It is generally believed that these eigenspaces are one-dimensional unless there is a symmetry present. There are essentially three known cases where the dimension is greater than 1: 
 
@@ -14,6 +14,6 @@ It is generally believed that these eigenspaces are one-dimensional unless there
 The above three cases are proven and the generalization of 3. to other square factors greater than 9 is conjectured. 
 
 
-\end{definition}
+\end{definition*}
 
 

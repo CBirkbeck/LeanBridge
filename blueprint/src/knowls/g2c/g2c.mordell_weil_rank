@@ -1,7 +1,7 @@
-\subsection{Mordell-Weil rank}
-\begin{definition}\label{g2c.mordell_weil_rank}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.mordell_weil_rank}{Mordell-Weil rank}}
+\begin{definition*}\label{g2c.mordell_weil_rank}
 \uses{ag.abelian_variety}
-The Mordell-Weil theorem states that the set of rational points on an {{KNOWL('ag.abelian_variety', 'abelian variety')}} over a number field forms a finitely generated abelian group, hence isomorphic to a group of the form $T \oplus \Z^r$, where $T$ is a finite torsion group.  The integer $r\ge 0$ is the **Mordell-Weil rank** of the abelian variety.
-\end{definition}
+The Mordell-Weil theorem states that the set of rational points on an \hyperref[ag.abelian_variety]{abelian variety} over a number field forms a finitely generated abelian group, hence isomorphic to a group of the form $T \oplus \Z^r$, where $T$ is a finite torsion group.  The integer $r\ge 0$ is the \textbf{Mordell-Weil rank} of the abelian variety.
+\end{definition*}
 
 

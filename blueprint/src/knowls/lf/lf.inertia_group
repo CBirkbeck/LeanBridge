@@ -1,18 +1,20 @@
-\subsection{Inertia group}
-\begin{definition}\label{lf.inertia_group}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.inertia_group}{Inertia group}}
+\begin{definition*}\label{lf.inertia_group}
 \uses{lf.maximal_ideal,lf.padic_field,lf.residue_field,nf.is_galois}
 Let
 
- - $K$ be a {{ KNOWL('lf.padic_field', '$p$-adic field') }}.
- - $L$ a finite {{KNOWL('nf.is_galois', 'Galois')}} extension of $K$.
- - $\mathcal{O}_K$, $\mathcal{O}_L$ the rings of integers for $K$, $L$,
- - $P_K$, $P_L$ the unique {{KNOWL('lf.maximal_ideal', 'maximal ideals')}} of $\mathcal{O}_K$, $\mathcal{O}_L$, and
- - $\kappa=\mathcal{O}_K/P_K$, $\lambda=\mathcal{O}_L/P_L$ the
-{{KNOWL('lf.residue_field', 'residue fields')}} of $K$, $L$.
+\begin{itemize}
+\item  $K$ be a \hyperref[lf.padic_field]{$p$-adic field}.
+\item  $L$ a finite \hyperref[nf.is_galois]{Galois} extension of $K$.
+\item  $\mathcal{O}_K$, $\mathcal{O}_L$ the rings of integers for $K$, $L$,
+\item  $P_K$, $P_L$ the unique \hyperref[lf.maximal_ideal]{maximal ideals} of $\mathcal{O}_K$, $\mathcal{O}_L$, and
+\item  $\kappa=\mathcal{O}_K/P_K$, $\lambda=\mathcal{O}_L/P_L$ the
+\end{itemize}
+\hyperref[lf.residue_field]{residue fields} of $K$, $L$.
 
 Then each $\sigma\in \Gal(L/K)$ induces a element of $\Gal(\lambda/\kappa)$.  The kernel of the resulting homomorphism 
 \[ \Gal(L/K) \to \Gal(\lambda/\kappa)\]
-is the **inertia group** of $L/K$.
-\end{definition}
+is the \textbf{inertia group} of $L/K$.
+\end{definition*}
 
 

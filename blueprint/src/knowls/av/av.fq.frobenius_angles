@@ -1,9 +1,9 @@
-\subsection{Frobenius angles}
-\begin{definition}\label{av.fq.frobenius_angles}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/av.fq.frobenius_angles}{Frobenius angles}}
+\begin{definition*}\label{av.fq.frobenius_angles}
 \uses{ag.base_field,av.fq.weil_polynomial,av.isogeny_class}
-Given an {{KNOWL('av.isogeny_class', 'isogeny class of abelian varieties')}} {{KNOWL('ag.base_field', 'defined')}} over a finite field $\F_q$, its {{KNOWL('av.fq.weil_polynomial', 'Weil polynomial')}} is such that all of its roots $\alpha_1,\alpha_2, \ldots, \alpha_{2g}$ have absolute value $\sqrt{q}$. Therefore all of the information on the roots is contained in the quantities
+Given an \hyperref[av.isogeny_class]{isogeny class of abelian varieties} \hyperref[ag.base_field]{defined} over a finite field $\F_q$, its \hyperref[av.fq.weil_polynomial]{Weil polynomial} is such that all of its roots $\alpha_1,\alpha_2, \ldots, \alpha_{2g}$ have absolute value $\sqrt{q}$. Therefore all of the information on the roots is contained in the quantities
 $${\rm Arg}(\alpha_i),$$
-which we call the **Frobenius angles** of the Weil polynomial.
-\end{definition}
+which we call the \textbf{Frobenius angles} of the Weil polynomial.
+\end{definition*}
 
 

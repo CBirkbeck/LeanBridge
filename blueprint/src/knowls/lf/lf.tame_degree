@@ -1,15 +1,15 @@
-\subsection{Tame degree of a local field extension}
-\begin{definition}\label{lf.tame_degree}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.tame_degree}{Tame degree of a local field extension}}
+\begin{definition*}\label{lf.tame_degree}
 \uses{lf.padic_field,lf.unramified_subfield,nf.galois_closure}
-Let $K$ be a {{KNOWL('lf.padic_field', '$p$-adic field')}} and let
+Let $K$ be a \hyperref[lf.padic_field]{$p$-adic field} and let
 $L/K$ be a finite extension.  Let $L^{un}/K$ be the
-{{KNOWL('lf.unramified_subfield', 'maximal unramified subextension')}}
-of $L/K$.  Then the **tame degree** of $L/K$ is the integer $t$ such
+\hyperref[lf.unramified_subfield]{maximal unramified subextension}
+of $L/K$.  Then the \textbf{tame degree} of $L/K$ is the integer $t$ such
 that $[L:L^{un}]=p^m t$ with $p\nmid t$.
 
-The **Galois tame degree** of $L/K$ is the tame degree of $L^{gal}/K$,
-where $L^{gal}/K$ is the {{KNOWL('nf.galois_closure', 'Galois closure')}}
+The \textbf{Galois tame degree} of $L/K$ is the tame degree of $L^{gal}/K$,
+where $L^{gal}/K$ is the \hyperref[nf.galois_closure]{Galois closure}
 of $L/K$.
-\end{definition}
+\end{definition*}
 
 

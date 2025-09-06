@@ -1,23 +1,31 @@
-\subsection{Label of a Hilbert modular surface}
-\begin{definition}\label{hmsurface.label}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/hmsurface.label}{Label of a Hilbert modular surface}}
+\begin{definition*}\label{hmsurface.label}
 \uses{hmsurface.component_ideal,hmsurface.congruence_subgroup,hmsurface.hmsurface,hmsurface.level,nf.ideal_labels,nf.label}
-The label of a {{KNOWL('hmsurface.hmsurface', 'Hilbert modular surface')}} is of the form `F-N-b-t` where
+The label of a \hyperref[hmsurface.hmsurface]{Hilbert modular surface} is of the form `F-N-b-t` where
 
-- `F` is a {{KNOWL('nf.label', 'number field label')}} for the base field;
+\begin{itemize}
+\item  `F` is a \hyperref[nf.label]{number field label} for the base field;
+\end{itemize}
 
-- `N` is an {{KNOWL('nf.ideal_labels', 'ideal label')}} for the 
-{{KNOWL('hmsurface.level', 'level')}}; 
+\begin{itemize}
+\item  `N` is an \hyperref[nf.ideal_labels]{ideal label} for the 
+\end{itemize}
+\hyperref[hmsurface.level]{level}; 
 
-- `b` is an {{KNOWL('nf.ideal_labels', 'ideal label')}} for the 
-   {{KNOWL('hmsurface.component_ideal', 'component ideal')}};
+\begin{itemize}
+\item  `b` is an \hyperref[nf.ideal_labels]{ideal label} for the 
+\end{itemize}
+   \hyperref[hmsurface.component_ideal]{component ideal};
 
-- `t` is the type of the {{KNOWL('hmsurface.congruence_subgroup', 'congruence subgroup')}}.
+\begin{itemize}
+\item  `t` is the type of the \hyperref[hmsurface.congruence_subgroup]{congruence subgroup}.
+\end{itemize}
 
-The value for `t` can be either `sl-0` or `gl-0` to indicate the {{KNOWL('hmsurface.congruence_subgroup', 'congruence subgroup')}}.
+The value for `t` can be either `sl-0` or `gl-0` to indicate the \hyperref[hmsurface.congruence_subgroup]{congruence subgroup}.
 
 
 
 
-\end{definition}
+\end{definition*}
 
 

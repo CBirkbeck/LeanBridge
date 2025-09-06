@@ -1,9 +1,9 @@
-\subsection{G2-invariants of a genus 2 curve}
-\begin{definition}\label{g2c.g2_invariants}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.g2_invariants}{G2-invariants of a genus 2 curve}}
+\begin{definition*}\label{g2c.g2_invariants}
 \uses{g2c.g2curve,g2c.geom_iso_class,g2c.igusa_invariants}
-The **G2-invariants** of a {{ KNOWL('g2c.g2curve', 'genus 2 curve') }} are absolute invariants associated to the {{KNOWL("g2c.geom_iso_class", "geometric isomorphism class")}} of the curve.  They are denoted $g_1,g_2,g_3$. 
+The \textbf{G2-invariants} of a \hyperref[g2c.g2curve]{genus 2 curve} are absolute invariants associated to the \hyperref[g2c.geom_iso_class]{geometric isomorphism class} of the curve.  They are denoted $g_1,g_2,g_3$. 
 
-These invariants were defined by Cardona, Quer, Nart and Pujolàs. Like the {{KNOWL("g2c.igusa_invariants", "Igusa invariants")}}, they reflect the behavior of the curve in question at a prime; for example, if one of the invariants contains a prime in its denominator, then the curve will have bad reduction at that prime over any extension of the base field. However, the G2-invariants give less information than the {{KNOWL("g2c.igusa_invariants", "Igusa invariants")}} do about the particular type of reduction at a given prime.
+These invariants were defined by Cardona, Quer, Nart and Pujolàs. Like the \hyperref[g2c.igusa_invariants]{Igusa invariants}, they reflect the behavior of the curve in question at a prime; for example, if one of the invariants contains a prime in its denominator, then the curve will have bad reduction at that prime over any extension of the base field. However, the G2-invariants give less information than the \hyperref[g2c.igusa_invariants]{Igusa invariants} do about the particular type of reduction at a given prime.
 
 The exact definition of the G2-invariants is as follows. Let $X$ be a curve of genus $2$ with Igusa invariants $J_2, J_4, J_6, J_8, J_{10}$. Then
 \[
@@ -17,6 +17,6 @@ except when $J_4$ is also zero, in which case
 \[
 (g_1,g_2,g_3) = (0,\,0,\,J_6^5 / J_{10}^3).\qquad\qquad\quad
 \]
-\end{definition}
+\end{definition*}
 
 

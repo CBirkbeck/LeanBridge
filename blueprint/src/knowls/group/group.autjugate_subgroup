@@ -1,7 +1,7 @@
-\subsection{Autjugate subgroups}
-\begin{definition}\label{group.autjugate_subgroup}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.autjugate_subgroup}{Autjugate subgroups}}
+\begin{definition*}\label{group.autjugate_subgroup}
 \uses{group,group.automorphism,group.subgroup}
-In analogy with conjugate subgroups, we say that two {{KNOWL('group.subgroup', 'subgroups')}} $H_1$ and $H_2$ of a {{KNOWL('group', 'group')}} $G$ are **autjugate** if there is an {{KNOWL('group.automorphism', 'automorphism')}} $\phi$ of $G$ so that $\phi(H_1) = \phi(H_2)$.
-\end{definition}
+In analogy with conjugate subgroups, we say that two \hyperref[group.subgroup]{subgroups} $H_1$ and $H_2$ of a \hyperref[group]{group} $G$ are \textbf{autjugate} if there is an \hyperref[group.automorphism]{automorphism} $\phi$ of $G$ so that $\phi(H_1) = \phi(H_2)$.
+\end{definition*}
 
 

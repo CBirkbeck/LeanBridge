@@ -1,7 +1,7 @@
-\subsection{Center of a character}
-\begin{definition}\label{group.representation.center}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.representation.center}{Center of a character}}
+\begin{definition*}\label{group.representation.center}
 \uses{group.representation.character}
-The **center** of the {{KNOWL('group.representation.character', 'character')}} $\chi$ of a group $G$ is the subgroup of $G$ given by the set: $$\{g \in G : |\chi(g)|=\chi(1)\}.$$
-\end{definition}
+The \textbf{center} of the \hyperref[group.representation.character]{character} $\chi$ of a group $G$ is the subgroup of $G$ given by the set: $$\{g \in G : |\chi(g)|=\chi(1)\}.$$
+\end{definition*}
 
 

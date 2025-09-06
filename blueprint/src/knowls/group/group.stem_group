@@ -1,7 +1,7 @@
-\subsection{Stem group}
-\begin{definition}\label{group.stem_group}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.stem_group}{Stem group}}
+\begin{definition*}\label{group.stem_group}
 \uses{group,group.center,group.commutator_subgroup,group.isoclinism}
-A **stem group** is a {{KNOWL('group', 'group')}} $G$ whose {{KNOWL('group.center', 'center')}} is contained in its {{KNOWL('group.commutator_subgroup', 'commutator subgroup')}}.  Any group is {{KNOWL('group.isoclinism', 'isoclinic')}} to a stem group (not necessarily unique), and the order of a stem group divides the order of every other group in its isoclinism class.
-\end{definition}
+A \textbf{stem group} is a \hyperref[group]{group} $G$ whose \hyperref[group.center]{center} is contained in its \hyperref[group.commutator_subgroup]{commutator subgroup}.  Any group is \hyperref[group.isoclinism]{isoclinic} to a stem group (not necessarily unique), and the order of a stem group divides the order of every other group in its isoclinism class.
+\end{definition*}
 
 

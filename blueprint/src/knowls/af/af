@@ -1,7 +1,7 @@
-\subsection{Arithmetic function}
-\begin{definition}\label{af}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/af}{Arithmetic function}}
+\begin{definition*}\label{af}
 \uses{}
-An **arithmetic function** is a complex-valued function whose domain is the positive integers.
-\end{definition}
+An \textbf{arithmetic function} is a complex-valued function whose domain is the positive integers.
+\end{definition*}
 
 

@@ -1,9 +1,9 @@
-\subsection{Level of a Hilbert modular form}
-\begin{definition}\label{mf.hilbert.level_norm}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.hilbert.level_norm}{Level of a Hilbert modular form}}
+\begin{definition*}\label{mf.hilbert.level_norm}
 \uses{nf,nf.ideal.label.hmf,nf.ring_of_integers,nf.totally_real}
-Given a Hilbert modular form $f$ that is defined in terms of the {{ KNOWL('nf.totally_real', "totally real") }} {{ KNOWL('nf', "number field") }} $F$, the **level** of $f$ is a nonzero ideal $\mathfrak{N}$ of the {{ KNOWL('nf.ring_of_integers', "ring of integers") }} $\Z_F$ of $F$ that determines the group $\Gamma_0(\mathfrak{N})$ under which $f$ transforms. In the LMFDB, such an ideal $\mathfrak{N}$ is identified by a {{ KNOWL("nf.ideal.label.hmf", "label")}}.
+Given a Hilbert modular form $f$ that is defined in terms of the \hyperref[nf.totally_real]{totally real} \hyperref[nf]{number field} $F$, the \textbf{level} of $f$ is a nonzero ideal $\mathfrak{N}$ of the \hyperref[nf.ring_of_integers]{ring of integers} $\Z_F$ of $F$ that determines the group $\Gamma_0(\mathfrak{N})$ under which $f$ transforms. In the LMFDB, such an ideal $\mathfrak{N}$ is identified by a \hyperref[nf.ideal.label.hmf]{label}.
 
-The **level norm** is the absolute norm of the level of the form.
-\end{definition}
+The \textbf{level norm} is the absolute norm of the level of the form.
+\end{definition*}
 
 

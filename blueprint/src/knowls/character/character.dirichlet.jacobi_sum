@@ -1,8 +1,8 @@
-\subsection{Jacobi sum}
-\begin{definition}\label{character.dirichlet.jacobi_sum}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/character.dirichlet.jacobi_sum}{Jacobi sum}}
+\begin{definition*}\label{character.dirichlet.jacobi_sum}
 \uses{character.dirichlet}
-Given two {{ KNOWL('character.dirichlet', "Dirichlet characters") }} $\chi$ and $\psi$ modulo $q$, the **Jacobi sum** associated to these characters is given by $$J(\chi,\psi) = \sum_{r \,\in\, \mathbb{Z}/q\mathbb{Z}} \chi(r)\, \psi(1-r).$$
+Given two \hyperref[character.dirichlet]{Dirichlet characters} $\chi$ and $\psi$ modulo $q$, the \textbf{Jacobi sum} associated to these characters is given by $$J(\chi,\psi) = \sum_{r \,\in\, \mathbb{Z}/q\mathbb{Z}} \chi(r)\, \psi(1-r).$$
 
-\end{definition}
+\end{definition*}
 
 

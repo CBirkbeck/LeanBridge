@@ -1,13 +1,13 @@
-\subsection{Eta quotient}
-\begin{definition}\label{cmf.eta_quotient}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.eta_quotient}{Eta quotient}}
+\begin{definition*}\label{cmf.eta_quotient}
 \uses{mf.half_integral_weight.dedekind_eta}
- An **eta quotient** is any function $f$ of the form
+ An \textbf{eta quotient} is any function $f$ of the form
 \[
   f(z)=\prod_{1\leq i\leq s}\eta^{r_i}(m_iz),
 \]
-where $m_i\in\mathbb{N}$ and $r_i\in\mathbb{Z}$ and $\eta(z)$ is the {{KNOWL('mf.half_integral_weight.dedekind_eta', "Dedekind eta function")}}.
+where $m_i\in\mathbb{N}$ and $r_i\in\mathbb{Z}$ and $\eta(z)$ is the \hyperref[mf.half_integral_weight.dedekind_eta]{Dedekind eta function}.
 
-An **eta product** is an eta quotient in which all the $r_i$ are non-negative.
-\end{definition}
+An \textbf{eta product} is an eta quotient in which all the $r_i$ are non-negative.
+\end{definition*}
 
 

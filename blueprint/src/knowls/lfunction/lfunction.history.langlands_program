@@ -1,8 +1,8 @@
-\subsection{Langlands program}
-\begin{definition}\label{lfunction.history.langlands_program}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.history.langlands_program}{Langlands program}}
+\begin{definition*}\label{lfunction.history.langlands_program}
 \uses{}
 Langlands theory of automorphic forms ushered in an age of a new understanding
-of the profundity of L-functions. His small book _Euler Products_ of 1967 contains
+of the profundity of L-functions. His small book \textit{Euler Products} of 1967 contains
 the beginnings of a general theory.
 
 In 1969 Ogg \cite{MR0246819} proved the holomorphy and functional equation for the Rankin-Selberg convolution
@@ -52,6 +52,6 @@ of automorphic L-functions.
 In 1995 Andrew Wiles \cite{MR1333035} proved the holomorphy and functional equation of the Hasse-Weil zeta-function
 of most elliptic curves. In 2001 this work was extended by Breuil, Conrad, Diamond, and Taylor 
 to include all elliptic curves \cite{MR1839918}.
-\end{definition}
+\end{definition*}
 
 

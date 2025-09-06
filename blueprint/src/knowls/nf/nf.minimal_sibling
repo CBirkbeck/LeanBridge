@@ -1,14 +1,16 @@
-\subsection{Minimal sibling}
-\begin{definition}\label{nf.minimal_sibling}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.minimal_sibling}{Minimal sibling}}
+\begin{definition*}\label{nf.minimal_sibling}
 \uses{nf,nf.degree,nf.discriminant,nf.galois_group,nf.sibling}
-The **minimal sibling** of a {{KNOWL('nf', 'number field')}} is a {{KNOWL('nf.sibling','sibling')}} that is minimal with respect to the following quantities considered in order:
+The \textbf{minimal sibling} of a \hyperref[nf]{number field} is a \hyperref[nf.sibling]{sibling} that is minimal with respect to the following quantities considered in order:
 
- - its {{KNOWL('nf.degree', 'degree')}}
- - the {{KNOWL('gg.tnumber','T-number')}} of its {{KNOWL('nf.galois_group', 'Galois group')}}
- - the absolute value of its {{KNOWL('nf.discriminant', 'discriminant')}}
- - the vector $(a_0, a_1, \ldots, a_{n-1})$ of coefficients of its {{KNOWL('nf.defining_polynomial.normalization','normalized defining polynomial')}}
+\begin{itemize}
+\item  its \hyperref[nf.degree]{degree}
+\item  the \hyperref[gg.tnumber]{T-number} of its \hyperref[nf.galois_group]{Galois group}
+\item  the absolute value of its \hyperref[nf.discriminant]{discriminant}
+\item  the vector $(a_0, a_1, \ldots, a_{n-1})$ of coefficients of its \hyperref[nf.defining_polynomial.normalization]{normalized defining polynomial}
+\end{itemize}
 $x^n+a_{n-1} x^{n-1}+\cdots +a_0$
 
-\end{definition}
+\end{definition*}
 
 

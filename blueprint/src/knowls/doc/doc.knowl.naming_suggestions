@@ -1,29 +1,31 @@
-\subsection{Naming suggestions}
-\begin{definition}\label{doc.knowl.naming_suggestions}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/doc.knowl.naming_suggestions}{Naming suggestions}}
+\begin{definition*}\label{doc.knowl.naming_suggestions}
 \uses{}
 Naming suggestions for Knowls we agreed on:
 
 Start of a knowl id:
 
-- af (aufomorphic form)
-- ag (algebraic geometry)
-- biblio
-- bio (biography)
-- character
-- crystals
-- data
-- doc (documentation)
-- ec (elliptic curve)
-- ec.q (elliptic curve/$\Q$)
-- lfunction
-- mf (modular form)
-- mf.siegel
-- cmf
-- nf (number field)
-- specialfunction
-- sage
+\begin{itemize}
+\item  af (aufomorphic form)
+\item  ag (algebraic geometry)
+\item  biblio
+\item  bio (biography)
+\item  character
+\item  crystals
+\item  data
+\item  doc (documentation)
+\item  ec (elliptic curve)
+\item  ec.q (elliptic curve/$\Q$)
+\item  lfunction
+\item  mf (modular form)
+\item  mf.siegel
+\item  cmf
+\item  nf (number field)
+\item  specialfunction
+\item  sage
+\end{itemize}
 
 
-\end{definition}
+\end{definition*}
 
 

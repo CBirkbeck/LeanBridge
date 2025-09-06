@@ -1,11 +1,11 @@
-\subsection{Discriminant of polynomial}
-\begin{definition}\label{nf.poly_discriminant}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.poly_discriminant}{Discriminant of polynomial}}
+\begin{definition*}\label{nf.poly_discriminant}
 \uses{nf,nf.discriminant,nf.ring_of_integers}
-The **discriminant** of a monic polynomial $f(x) = \prod_{i=1}^d (x - \alpha_i)$ is the quantity
+The \textbf{discriminant} of a monic polynomial $f(x) = \prod_{i=1}^d (x - \alpha_i)$ is the quantity
 \[
 \Delta = \prod_{i < j} (\alpha_i - \alpha_j)^2.
 \]
-If $f$ has integral coefficients, $K$ is the {{KNOWL('nf', 'number field')}} defined by $f$ and $\alpha$ is a root of $f$ in $K$, then the {{KNOWL('nf.discriminant', 'discriminant')}} $D$ of $K$ divides $\Delta$ and the ratio $\Delta/D$ is the square of the index of $\Z[\alpha]$ in the {{KNOWL('nf.ring_of_integers', 'ring of integers')}} of $K$.
-\end{definition}
+If $f$ has integral coefficients, $K$ is the \hyperref[nf]{number field} defined by $f$ and $\alpha$ is a root of $f$ in $K$, then the \hyperref[nf.discriminant]{discriminant} $D$ of $K$ divides $\Delta$ and the ratio $\Delta/D$ is the square of the index of $\Z[\alpha]$ in the \hyperref[nf.ring_of_integers]{ring of integers} of $K$.
+\end{definition*}
 
 

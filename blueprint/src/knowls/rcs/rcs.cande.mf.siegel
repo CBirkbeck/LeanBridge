@@ -1,10 +1,12 @@
-\subsection{Completeness of Siegel modular form data}
-\begin{definition}\label{rcs.cande.mf.siegel}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.cande.mf.siegel}{Completeness of Siegel modular form data}}
+\begin{definition*}\label{rcs.cande.mf.siegel}
 \uses{mf.siegel.character,mf.siegel.family,mf.siegel.level,mf.siegel.newform,mf.siegel.weight_k_j}
-The Siegel modular form database currently contains information for all {{KNOWL("mf.siegel.newform", "newforms")}} 
-$ f \in S_{k,j}^{\text{new}}(\Gamma_F(N)) $ of {{KNOWL("mf.siegel.level", "level")}} $ N \ge 1 $, {{KNOWL("mf.siegel.weight_k_j", "weight")}} $(k,j) \ge (3,0)$ and trivial {{KNOWL("mf.siegel.character", "character")}}, for which any of the following hold:
+The Siegel modular form database currently contains information for all \hyperref[mf.siegel.newform]{newforms} 
+$ f \in S_{k,j}^{\text{new}}(\Gamma_F(N)) $ of \hyperref[mf.siegel.level]{level} $ N \ge 1 $, \hyperref[mf.siegel.weight_k_j]{weight} $(k,j) \ge (3,0)$ and trivial \hyperref[mf.siegel.character]{character}, for which any of the following hold:
 
-* $\Gamma_F = K$ is the paramodular {{KNOWL("mf.siegel.family", "family")}}, $ (k,j) = (3,0) $, $N < 1000$ and $N$ admits a prime divisor $p \parallel N$.
-\end{definition}
+\begin{itemize}
+\item  $\Gamma_F = K$ is the paramodular \hyperref[mf.siegel.family]{family}, $ (k,j) = (3,0) $, $N < 1000$ and $N$ admits a prime divisor $p \parallel N$.
+\end{itemize}
+\end{definition*}
 
 

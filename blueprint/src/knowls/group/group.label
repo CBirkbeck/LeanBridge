@@ -1,10 +1,10 @@
-\subsection{Label of a group}
-\begin{definition}\label{group.label}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.label}{Label of a group}}
+\begin{definition*}\label{group.label}
 \uses{group,group.order,group.subgroup_label}
-The **label** for a {{KNOWL('group', 'group')}} $G$ has the form $\mathtt{N.i}$, where $\mathtt{N}$ is the {{KNOWL('group.order', 'order')}} of the group and $\mathtt{i}$ is the small group id that distinguishes groups of the same order (as determined in GAP). If a group is not in GAP Small Groups database, we replace $\mathtt{i}$ with an incrementing letter code, assigning labels to groups as they are added to our database.
+The \textbf{label} for a \hyperref[group]{group} $G$ has the form $\mathtt{N.i}$, where $\mathtt{N}$ is the \hyperref[group.order]{order} of the group and $\mathtt{i}$ is the small group id that distinguishes groups of the same order (as determined in GAP). If a group is not in GAP Small Groups database, we replace $\mathtt{i}$ with an incrementing letter code, assigning labels to groups as they are added to our database.
 
-Subgroups are {{KNOWL('group.subgroup_label', 'labeled')}} using the ambient group, index, and an ordering of subgroups up to automorphism and then up to conjugacy with the same  invariants.
+Subgroups are \hyperref[group.subgroup_label]{labeled} using the ambient group, index, and an ordering of subgroups up to automorphism and then up to conjugacy with the same  invariants.
 
-\end{definition}
+\end{definition*}
 
 

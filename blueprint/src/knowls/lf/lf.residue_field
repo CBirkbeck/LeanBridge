@@ -1,9 +1,9 @@
-\subsection{Residue field}
-\begin{definition}\label{lf.residue_field}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.residue_field}{Residue field}}
+\begin{definition*}\label{lf.residue_field}
 \uses{lf.maximal_ideal,lf.ring_of_integers}
-The **residue field** of a nonarchimedean local field is the quotient of its {{KNOWL('lf.ring_of_integers', 'ring of integers')}} by its unique {{KNOWL('lf.maximal_ideal', 'maximal ideal')}}.
+The \textbf{residue field} of a nonarchimedean local field is the quotient of its \hyperref[lf.ring_of_integers]{ring of integers} by its unique \hyperref[lf.maximal_ideal]{maximal ideal}.
 
-The residue field is finite and its characteristic $p$ is the **residue field characteristic**.  Finite extensions of $\Q_p$ have residue field characteristic $p$.
-\end{definition}
+The residue field is finite and its characteristic $p$ is the \textbf{residue field characteristic}.  Finite extensions of $\Q_p$ have residue field characteristic $p$.
+\end{definition*}
 
 

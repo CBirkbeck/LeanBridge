@@ -1,7 +1,7 @@
-\subsection{Totally positive}
-\begin{definition}\label{nf.totally_positive}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.totally_positive}{Totally positive}}
+\begin{definition*}\label{nf.totally_positive}
 \uses{nf}
-An element $\alpha$ in a {{ KNOWL('nf', "number field") }} $K$ is ** totally positive ** if $\sigma(\alpha)>0$ for all real embeddings $\sigma$ of $K$ into $\R$.
-\end{definition}
+An element $\alpha$ in a \hyperref[nf]{number field} $K$ is \textbf{ totally positive } if $\sigma(\alpha)>0$ for all real embeddings $\sigma$ of $K$ into $\R$.
+\end{definition*}
 
 

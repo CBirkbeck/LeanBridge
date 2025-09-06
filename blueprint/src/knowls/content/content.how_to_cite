@@ -1,9 +1,9 @@
-\subsection{How to cite the LMFDB}
-\begin{definition}\label{content.how_to_cite}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/content.how_to_cite}{How to cite the LMFDB}}
+\begin{definition*}\label{content.how_to_cite}
 \uses{}
-If you would like to acknowledge the LMFDB, please use a citation in the following form, alphabetized under _LMFDB_.
+If you would like to acknowledge the LMFDB, please use a citation in the following form, alphabetized under \textit{LMFDB}.
 
-[42] The LMFDB Collaboration, _The L-functions and modular forms database,_ 
+[42] The LMFDB Collaboration, \textit{The L-functions and modular forms database,} 
 [<code>https://www.lmfdb.org</code>](http://www.lmfdb.org), <span class="year-today">2023</span>, [Online; accessed <span class="date-today">31 January 2023</span>].
 
 Of course you should change the year and date accessed to match your usage (the same comment applies to all the examples below).
@@ -24,13 +24,15 @@ Then you can cite a certain object much like quoting a specific theorem from a p
 
 In order to make the <code>\url</code> and <code>\href</code> commands to work, one should use the [hyperref](http://ctan.org/pkg/hyperref) package.
 
-----------------
+\begin{itemize}
+\item ---------------
+\end{itemize}
 
 To cite a specific page in the LMFDB, such as the home page of the L-function of the first
 rank 4 elliptic curve/$\Q$ shown in the example below, you can cite it as
 
-[42] The LMFDB Collaboration, _The L-functions and modular forms database, 
-home page of the L-function $L(s,E)$ for elliptic curve isogeny class $\texttt{234446.a}$_,
+[42] The LMFDB Collaboration, \textit{The L-functions and modular forms database, 
+home page of the L-function $L(s,E)$ for elliptic curve isogeny class $\texttt{234446.a}$},
 [https://www.lmfdb.org/L/EllipticCurve/Q/234446.a/](https://www.lmfdb.org/L/EllipticCurve/Q/234446.a/), <span class="year-today">2020</span> , [Online; accessed <span class="date-today">31 July 2020</span>].
 
 The BibTeX entry is:
@@ -46,6 +48,6 @@ The BibTeX entry is:
 }</code></pre>
 
 
-\end{definition}
+\end{definition*}
 
 

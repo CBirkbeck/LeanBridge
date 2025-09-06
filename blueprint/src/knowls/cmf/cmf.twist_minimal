@@ -1,13 +1,13 @@
-\subsection{Twist minimal}
-\begin{definition}\label{cmf.twist_minimal}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.twist_minimal}{Twist minimal}}
+\begin{definition*}\label{cmf.twist_minimal}
 \uses{character.dirichlet.minimal,cmf.character,cmf.galois_orbit,cmf.label,cmf.level,cmf.newform,cmf.twist}
-A {{KNOWL('cmf.newform', 'newform')}} $f$ is **twist minimal** if its {{KNOWL('cmf.level', 'level')}} achieves the minimum within its {{KNOWL('cmf.twist','twist class')}}.
+A \hyperref[cmf.newform]{newform} $f$ is \textbf{twist minimal} if its \hyperref[cmf.level]{level} achieves the minimum within its \hyperref[cmf.twist]{twist class}.
 
-A twist minimal newform $f$ need not have {{KNOWL('character.dirichlet.minimal','minimal character')}}, but if this is not the case there will be a twist of $f$ that is both twist minimal and has minimal {{KNOWL('cmf.character','character')}}.
+A twist minimal newform $f$ need not have \hyperref[character.dirichlet.minimal]{minimal character}, but if this is not the case there will be a twist of $f$ that is both twist minimal and has minimal \hyperref[cmf.character]{character}.
 
-In the LMFDB, the designated representative of each twist class is the twist minimal newform $g$ of minimal character whose {{KNOWL('cmf.label', 'label')}} is lexicographically minimal among all such newforms.  This newform $g$ is called the **minimal twist** of the newforms in its twist equivalence class and is identified by a checkmark (&check;) in tables of twists.
+In the LMFDB, the designated representative of each twist class is the twist minimal newform $g$ of minimal character whose \hyperref[cmf.label]{label} is lexicographically minimal among all such newforms.  This newform $g$ is called the \textbf{minimal twist} of the newforms in its twist equivalence class and is identified by a checkmark (\checkmark) in tables of twists.
 
-These conventions also apply to {{KNOWL('cmf.galois_orbit', 'newform orbits')}}.
-\end{definition}
+These conventions also apply to \hyperref[cmf.galois_orbit]{newform orbits}.
+\end{definition*}
 
 

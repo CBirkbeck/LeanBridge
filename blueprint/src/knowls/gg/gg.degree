@@ -1,7 +1,7 @@
-\subsection{Degree}
-\begin{definition}\label{gg.degree}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/gg.degree}{Degree}}
+\begin{definition*}\label{gg.degree}
 \uses{gg.galois_group}
-A {{KNOWL('gg.galois_group', 'Galois group')}} of an irreducible polynomial $f(x)$ is a transitive subgroup of $S_n$, well-defined up to conjugation.  Its **degree** is $n=\deg(f)$.
-\end{definition}
+A \hyperref[gg.galois_group]{Galois group} of an irreducible polynomial $f(x)$ is a transitive subgroup of $S_n$, well-defined up to conjugation.  Its \textbf{degree} is $n=\deg(f)$.
+\end{definition*}
 
 

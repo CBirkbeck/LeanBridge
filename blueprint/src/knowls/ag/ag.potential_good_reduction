@@ -1,7 +1,7 @@
-\subsection{Potential good reduction}
-\begin{definition}\label{ag.potential_good_reduction}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.potential_good_reduction}{Potential good reduction}}
+\begin{definition*}\label{ag.potential_good_reduction}
 \uses{ag.base_change,ag.good_reduction,ag.variety,nf,nf.prime}
-A smooth proper {{KNOWL("ag.variety", "variety")}} $X$ over a {{KNOWL("nf", "number field")}} $K$ is said to have **potential good reduction** at a {{KNOWL("nf.prime", "prime")}} $\mathfrak{p}$ if there is a finite extension $L \supset K$ such that the {{KNOWL("ag.base_change", "base change")}} $X_L$ has {{KNOWL("ag.good_reduction", "good reduction")}} at all primes $\mathfrak{q}$ of $L$ above $\mathfrak{p}$.
-\end{definition}
+A smooth proper \hyperref[ag.variety]{variety} $X$ over a \hyperref[nf]{number field} $K$ is said to have \textbf{potential good reduction} at a \hyperref[nf.prime]{prime} $\mathfrak{p}$ if there is a finite extension $L \supset K$ such that the \hyperref[ag.base_change]{base change} $X_L$ has \hyperref[ag.good_reduction]{good reduction} at all primes $\mathfrak{q}$ of $L$ above $\mathfrak{p}$.
+\end{definition*}
 
 

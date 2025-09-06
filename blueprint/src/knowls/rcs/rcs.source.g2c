@@ -1,33 +1,59 @@
-\subsection{Source of Genus 2 Curve Data}
-\begin{definition}\label{rcs.source.g2c}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.g2c}{Source of Genus 2 Curve Data}}
+\begin{definition*}\label{rcs.source.g2c}
 \uses{ag.cluster_picture,ag.conductor,ag.endomorphism_ring,ag.geom_endomorphism_ring,ag.jacobian,ag.mordell_weil,g2c.all_rational_points,g2c.analytic_sha,g2c.aut_grp,g2c.bsd_invariants,g2c.discriminant,g2c.g2curve,g2c.galois_rep,g2c.galois_rep.non_maximal_primes,g2c.good_reduction,g2c.has_square_sha,g2c.invariants,g2c.known_rational_points,g2c.local_root_number,g2c.locally_solvable,g2c.mordell_weil_rank,g2c.mw_generator,g2c.num_rat_wpts,g2c.real_period,g2c.regulator,g2c.st_group,g2c.tamagawa,g2c.tame_reduction,g2c.torsion,g2c.two_selmer_rank,lfunction.leading_coeff}
-The database of {{KNOWL('g2c.g2curve','genus 2 curves')}} was constructed by Andrew Booker, Jeroen Sijsling, Andrew Sutherland, John Voight, and Dan Yasaki.  A detailed description of its construction can be found in \cite{doi:10.1112/S146115701600019X,,arXiv:1602.03715,MR:3540958}.
+The database of \hyperref[g2c.g2curve]{genus 2 curves} was constructed by Andrew Booker, Jeroen Sijsling, Andrew Sutherland, John Voight, and Dan Yasaki.  A detailed description of its construction can be found in \cite{doi:10.1112/S146115701600019X,,arXiv:1602.03715,MR:3540958}.
 
-- {{KNOWL('g2c.invariants','Geometric invariants')}}, {{KNOWL('g2c.discriminant','minimal discriminants')}}, {{KNOWL('g2c.aut_grp', 'automorphism')}} groups, {{KNOWL('g2c.locally_solvable','local solubility')}}, number of {{KNOWL('g2c.num_rat_wpts', 'rational Weierstrass points')}}, {{KNOWL('g2c.two_selmer_rank', '2-Selmer rank')}}, {{KNOWL('g2c.torsion', 'torsion subgroup')}} of the {{KNOWL('ag.jacobian', 'Jacobian')}}, and {{KNOWL('g2c.has_square_sha','squareness of Sha')}} were computed using built-in Magma functions; code to reproduce these computations can be obtained on each curve's home page.
+\begin{itemize}
+\item  \hyperref[g2c.invariants]{Geometric invariants}, \hyperref[g2c.discriminant]{minimal discriminants}, \hyperref[g2c.aut_grp]{automorphism} groups, \hyperref[g2c.locally_solvable]{local solubility}, number of \hyperref[g2c.num_rat_wpts]{rational Weierstrass points}, \hyperref[g2c.two_selmer_rank]{2-Selmer rank}, \hyperref[g2c.torsion]{torsion subgroup} of the \hyperref[ag.jacobian]{Jacobian}, and \hyperref[g2c.has_square_sha]{squareness of Sha} were computed using built-in Magma functions; code to reproduce these computations can be obtained on each curve's home page.
+\end{itemize}
 
-- The odd part of the {{KNOWL('ag.conductor','conductor')}} was computed using the Pari implementation of Qing Liu's algorithm \cite{MR:1302311}.  Euler factors at odd primes of {{KNOWL('g2c.good_reduction', 'bad reduction')}} were computed using Magma.
+\begin{itemize}
+\item  The odd part of the \hyperref[ag.conductor]{conductor} was computed using the Pari implementation of Qing Liu's algorithm \cite{MR:1302311}.  Euler factors at odd primes of \hyperref[g2c.good_reduction]{bad reduction} were computed using Magma.
+\end{itemize}
 
-- The 2-part of the conductor (originally computed analytically) has been rigorously verified by Tim Dokchitser and Christopher Doris \cite{arXiv:1706.06162} using algebraic methods.
+\begin{itemize}
+\item  The 2-part of the conductor (originally computed analytically) has been rigorously verified by Tim Dokchitser and Christopher Doris \cite{arXiv:1706.06162} using algebraic methods.
+\end{itemize}
 
-- The data on the {{KNOWL('ag.endomorphism_ring', 'endomorphism ring')}} and {{KNOWL('ag.geom_endomorphism_ring', 'geometric endomorphism ring')}} has been rigorously certified by Davide Lombardo \cite{arXiv:1610.09674} and by Edgar Costa, Nicolas Mascot, Jeroen Sijsling, and John Voight \cite{arXiv:1705.09248}, independently, by different methods.  This rigorously confirms the {{KNOWL('g2c.st_group', 'Sato-Tate group')}} computations.
+\begin{itemize}
+\item  The data on the \hyperref[ag.endomorphism_ring]{endomorphism ring} and \hyperref[ag.geom_endomorphism_ring]{geometric endomorphism ring} has been rigorously certified by Davide Lombardo \cite{arXiv:1610.09674} and by Edgar Costa, Nicolas Mascot, Jeroen Sijsling, and John Voight \cite{arXiv:1705.09248}, independently, by different methods.  This rigorously confirms the \hyperref[g2c.st_group]{Sato-Tate group} computations.
+\end{itemize}
 
-- {{KNOWL('g2c.tamagawa','Tamagawa numbers')}} were computed by Raymond van Bommel, as described in \cite{arXiv:1711.10409}, using the method of \cite{arXiv:math/9804069,MR:1717533}.  As of December, 2019, a complete set of Tamagawa numbers has been computed for all 66158 genus 2 curves in the database (prior to this data some Tamagawa numbers at 2 were missing).
+\begin{itemize}
+\item  \hyperref[g2c.tamagawa]{Tamagawa numbers} were computed by Raymond van Bommel, as described in \cite{arXiv:1711.10409}, using the method of \cite{arXiv:math/9804069,MR:1717533}.  As of December, 2019, a complete set of Tamagawa numbers has been computed for all 66158 genus 2 curves in the database (prior to this data some Tamagawa numbers at 2 were missing).
+\end{itemize}
 
-- Rational points were computed using Magma's RationalPoints function for hyperelliptic curves (which incorporates code developed by Michael Stoll).  In cases where the set of rational points has not been provably determined, this is indicated by the caption "{{KNOWL('g2c.known_rational_points', 'Known rational points')}}".  In cases where the set of rational points has been provably determined (via some variant of Chabauty's method for genus 2 curves as implemented in Magma, also due to Michael Stoll), this is indicated by the caption "{{KNOWL('g2c.all_rational_points','Rational points')}}", which applies to about half the curves in the database.
+\begin{itemize}
+\item  Rational points were computed using Magma's RationalPoints function for hyperelliptic curves (which incorporates code developed by Michael Stoll).  In cases where the set of rational points has not been provably determined, this is indicated by the caption "\hyperref[g2c.known_rational_points]{Known rational points}".  In cases where the set of rational points has been provably determined (via some variant of Chabauty's method for genus 2 curves as implemented in Magma, also due to Michael Stoll), this is indicated by the caption "\hyperref[g2c.all_rational_points]{Rational points}", which applies to about half the curves in the database.
+\end{itemize}
 
-- {{KNOWL('g2c.mw_generator', 'Mordell-Weil generators')}} were computed using Michael Stoll's new implementation of the MordellWeilGenus2 function in Magma, which applies a combination of several strategies to attempt to rigorously determine a basis for the {{KNOWL('ag.mordell_weil', 'Mordell-Weil group')}}.  In addition to the standard methods for computing the 2-Selmer rank of the Jacobian (and the 2-Selmer set of $\mathrm{Pic}1$), and brute force searching for points on the curve and its Jacobian, visualization methods are used to obtain better rank bounds (by determining rank bounds for quadratic twists), point searches are conducted on 2-covering spaces, and isogenies to other Jacobians, products of elliptic curves, and Weil restrictions of elliptic curves over quadratic fields are exploited.  See the Magma handbook for further details.  This functionality has made it possible to obtain a provably correct basis of the Mordell-Weil group in all but 89 cases, and in all but a handful of these cases (less than 10) the results are conditionally correct under the BSD conjecture (this is indicated whenever it applies).
+\begin{itemize}
+\item  \hyperref[g2c.mw_generator]{Mordell-Weil generators} were computed using Michael Stoll's new implementation of the MordellWeilGenus2 function in Magma, which applies a combination of several strategies to attempt to rigorously determine a basis for the \hyperref[ag.mordell_weil]{Mordell-Weil group}.  In addition to the standard methods for computing the 2-Selmer rank of the Jacobian (and the 2-Selmer set of $\mathrm{Pic}1$), and brute force searching for points on the curve and its Jacobian, visualization methods are used to obtain better rank bounds (by determining rank bounds for quadratic twists), point searches are conducted on 2-covering spaces, and isogenies to other Jacobians, products of elliptic curves, and Weil restrictions of elliptic curves over quadratic fields are exploited.  See the Magma handbook for further details.  This functionality has made it possible to obtain a provably correct basis of the Mordell-Weil group in all but 89 cases, and in all but a handful of these cases (less than 10) the results are conditionally correct under the BSD conjecture (this is indicated whenever it applies).
+\end{itemize}
 
-- {{KNOWL('g2c.regulator','Regulators')}} and {{KNOWL('g2c.real_period','real periods')}} were computed by Raymond van Bommel (details of these computations appear in \cite{arxiv:2002.04667}).  As of January, 2020 this data is available for all but two curves (but should be viewed as conditional on BSD in cases where the {{KNOWL('g2c.mordell_weil_rank', 'Mordell-Weil rank')}} is not known).
+\begin{itemize}
+\item  \hyperref[g2c.regulator]{Regulators} and \hyperref[g2c.real_period]{real periods} were computed by Raymond van Bommel (details of these computations appear in \cite{arxiv:2002.04667}).  As of January, 2020 this data is available for all but two curves (but should be viewed as conditional on BSD in cases where the \hyperref[g2c.mordell_weil_rank]{Mordell-Weil rank} is not known).
+\end{itemize}
 
-- Approximate values of the {{KNOWL('lfunction.leading_coeff', 'leading coefficient')}} of the L-functions of genus 2 curves were computed by Edgar Costa using software originally developed by David Platt and Andrew Booker.  This was used in combination with other {{KNOWL('g2c.bsd_invariants', 'BSD invariants')}} to compute an approximation to the {{KNOWL('g2c.analytic_sha', 'analytic order of Sha')}} in all but two cases where the {{KNOWL('g2c.regulator', 'regulator')}} is not known.
+\begin{itemize}
+\item  Approximate values of the \hyperref[lfunction.leading_coeff]{leading coefficient} of the L-functions of genus 2 curves were computed by Edgar Costa using software originally developed by David Platt and Andrew Booker.  This was used in combination with other \hyperref[g2c.bsd_invariants]{BSD invariants} to compute an approximation to the \hyperref[g2c.analytic_sha]{analytic order of Sha} in all but two cases where the \hyperref[g2c.regulator]{regulator} is not known.
+\end{itemize}
 
-- {{KNOWL('ag.cluster_picture', 'Cluster pictures')}} for genus 2 curves were computed by Alex Best and Raymond van Bommel using the algorithms described in \cite{arxiv:2007.01749}.
+\begin{itemize}
+\item  \hyperref[ag.cluster_picture]{Cluster pictures} for genus 2 curves were computed by Alex Best and Raymond van Bommel using the algorithms described in \cite{arxiv:2007.01749}.
+\end{itemize}
 
-- The images of the {{KNOWL('g2c.galois_rep', 'mod-$\ell$ Galois representations')}} for $\ell=2,3$ were computed by Shiva Chidambaram. For $\ell = 3$, a probablistic method based on sampling Frobenius matrices is employed. Groups having the same conjugacy class distribution are distinguished using certain global information including the three division polynomial; see the GitHub repo [threetorsimage](https://github.com/shiva-chid/threetorsimage) for details.
+\begin{itemize}
+\item  The images of the \hyperref[g2c.galois_rep]{mod-$\ell$ Galois representations} for $\ell=2,3$ were computed by Shiva Chidambaram. For $\ell = 3$, a probablistic method based on sampling Frobenius matrices is employed. Groups having the same conjugacy class distribution are distinguished using certain global information including the three division polynomial; see the GitHub repo [threetorsimage](https://github.com/shiva-chid/threetorsimage) for details.
+\end{itemize}
 
-- The lists of {{KNOWL('g2c.galois_rep.non_maximal_primes', 'nonmaximal primes')}} for genus 2 curves with geometric endomorphism ring $\Z$ were computed by Barinder S. Banwait, Armand Brumer, Hyun Jong Kim, Zev Klagsbrun, Jacob Mayle, Padmavathi Srinivasan, and Isabel Vogt using the algorithm described in \cite{arxiv:2301.02222}.
+\begin{itemize}
+\item  The lists of \hyperref[g2c.galois_rep.non_maximal_primes]{nonmaximal primes} for genus 2 curves with geometric endomorphism ring $\Z$ were computed by Barinder S. Banwait, Armand Brumer, Hyun Jong Kim, Zev Klagsbrun, Jacob Mayle, Padmavathi Srinivasan, and Isabel Vogt using the algorithm described in \cite{arxiv:2301.02222}.
+\end{itemize}
 
-- {{KNOWL('g2c.local_root_number', 'Local root numbers')}} have been provably computed for odd primes of {{KNOWL('g2c.tame_reduction', 'tame reduction')}} by Edwina Aylward, Raymond van Bommel, and Harry Spencer using methods described in \cite{ArXiv:1902.08981} and \cite{ArXiv:2007.01749}.
-\end{definition}
+\begin{itemize}
+\item  \hyperref[g2c.local_root_number]{Local root numbers} have been provably computed for odd primes of \hyperref[g2c.tame_reduction]{tame reduction} by Edwina Aylward, Raymond van Bommel, and Harry Spencer using methods described in \cite{ArXiv:1902.08981} and \cite{ArXiv:2007.01749}.
+\end{itemize}
+\end{definition*}
 
 

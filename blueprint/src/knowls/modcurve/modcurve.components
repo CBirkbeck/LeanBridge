@@ -1,16 +1,16 @@
-\subsection{Geometric components of a modular curve}
-\begin{definition}\label{modcurve.components}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.components}{Geometric components of a modular curve}}
+\begin{definition*}\label{modcurve.components}
 \uses{ag.geom_component,modcurve,modcurve.xn}
-For the {{KNOWL('modcurve.xn', 'full modular curve')}} $X_{\mathrm{full}}(N)_{\Q}$,
-the set $\pi_0(X_{\mathrm{full}}(N)_{\overline{\Q}})$ of {{KNOWL('ag.geom_component', 'geometric components')}} is in bijection with the set $\mu_n^{\text{prim}}$ of primitive $N$th roots of unity (map $(E,P,Q)$ to the Weil pairing $e_N(P,Q)$).  
+For the \hyperref[modcurve.xn]{full modular curve} $X_{\mathrm{full}}(N)_{\Q}$,
+the set $\pi_0(X_{\mathrm{full}}(N)_{\overline{\Q}})$ of \hyperref[ag.geom_component]{geometric components} is in bijection with the set $\mu_n^{\text{prim}}$ of primitive $N$th roots of unity (map $(E,P,Q)$ to the Weil pairing $e_N(P,Q)$).  
 
-For the {{KNOWL('modcurve','quotient curve')}} $(X_H)_\Q$, we have $\pi_0((X_H)_{\overline{\Q}}) \simeq \det(H_N) \backslash \pi_0(X_{\mathrm{full}}(N)_{\overline{\Q}})\simeq \det(H_N) \backslash \mu_N^{\text{prim}}$.  Thus the number of geometric components is the index $((\Z/N\Z)^\times : \det H_N)$. 
+For the \hyperref[modcurve]{quotient curve} $(X_H)_\Q$, we have $\pi_0((X_H)_{\overline{\Q}}) \simeq \det(H_N) \backslash \pi_0(X_{\mathrm{full}}(N)_{\overline{\Q}})\simeq \det(H_N) \backslash \mu_N^{\text{prim}}$.  Thus the number of geometric components is the index $((\Z/N\Z)^\times : \det H_N)$. 
 
 The statements above hold also if $\Q$ and $\overline{\Q}$ are replaced by $k$ and $\overline{k}$, for any field $k$ of characteristic not dividing $N$.
  
 
 The curve $(X_H)_{\Q}$ is integral.  It is geometrically integral if and only if $\det H_N = (\Z/N\Z)^\times$, or equivalently $\det H = \widehat\Z^\times$.
 
-\end{definition}
+\end{definition*}
 
 

@@ -1,7 +1,7 @@
-\subsection{Center label}
-\begin{definition}\label{group.center_isolabel}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.center_isolabel}{Center label}}
+\begin{definition*}\label{group.center_isolabel}
 \uses{group.center,group.label}
-You can specify the {{KNOWL('group.center', 'center')}} of a group by providing its {{KNOWL('group.label', 'label')}} as an abstract group.
-\end{definition}
+You can specify the \hyperref[group.center]{center} of a group by providing its \hyperref[group.label]{label} as an abstract group.
+\end{definition*}
 
 

@@ -1,16 +1,18 @@
-\subsection{Invariants of an L-function}
-\begin{definition}\label{lfunction.invariants}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.invariants}{Invariants of an L-function}}
+\begin{definition*}\label{lfunction.invariants}
 \uses{lfunction.analytic_rank,lfunction.conductor,lfunction,lfunction.degree,lfunction.motivic_weight,lfunction.primitive,lfunction.root_number,lfunction.selbergdata,lfunction.self-dual}
-The invariants of an {{KNOWL('lfunction', 'L-function')}} may include:
+The invariants of an \hyperref[lfunction]{L-function} may include:
 
-- its {{KNOWL('lfunction.degree', 'degree')}} $d$;
-- its {{KNOWL('lfunction.conductor', 'conductor')}} $N$;
-- its {{KNOWL('lfunction.root_number', 'sign')}} (or {{KNOWL('lfunction.root_number', 'root number')}}) $\varepsilon$;
-- its {{KNOWL('lfunction.motivic_weight', 'weight')}};
-- whether it is {{KNOWL('lfunction.primitive', 'primitive')}} or not;
-- whether it is {{KNOWL('lfunction.self-dual', 'self dual')}} or not;
-- its {{KNOWL('lfunction.analytic_rank', 'analytic rank')}};
-- its {{KNOWL('lfunction.selbergdata', 'Selberg data')}}.
-\end{definition}
+\begin{itemize}
+\item  its \hyperref[lfunction.degree]{degree} $d$;
+\item  its \hyperref[lfunction.conductor]{conductor} $N$;
+\item  its \hyperref[lfunction.root_number]{sign} (or \hyperref[lfunction.root_number]{root number}) $\varepsilon$;
+\item  its \hyperref[lfunction.motivic_weight]{weight};
+\item  whether it is \hyperref[lfunction.primitive]{primitive} or not;
+\item  whether it is \hyperref[lfunction.self-dual]{self dual} or not;
+\item  its \hyperref[lfunction.analytic_rank]{analytic rank};
+\item  its \hyperref[lfunction.selbergdata]{Selberg data}.
+\end{itemize}
+\end{definition*}
 
 

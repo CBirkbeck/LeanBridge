@@ -1,16 +1,18 @@
-\subsection{Hash for abstract groups}
-\begin{definition}\label{group.hash}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.hash}{Hash for abstract groups}}
+\begin{definition*}\label{group.hash}
 \uses{group.abelian,group.abelian_invariants}
 The data for abstract groups includes a hash (a 64-bit integer) which can be used to help identify groups up to isomorphism.  Isomorphic groups will have equal hash values; non-isomorphic groups will usually have different hashes but collisions are possible.
 
- - If the group is of an order which can be identified by both Magma and Gap, we store the id number for that order as its hash.
- - Otherwise, we define two subsidiary functions: $\texttt{CollapseIntList}$ and $\texttt{EasyHash}$.
-    - $\texttt{CollapseIntList}$ takes a list $\texttt{L}$ of integers as input and produces a 64-bit integer, starting with $\texttt{out} = 997\cdot\operatorname{len}(\texttt{L})$ and sequentially setting $\texttt{out} = \operatorname{xor}(\texttt{L}[\texttt{i}] \mod P, (1000003\cdot\texttt{out}) \mod P)$ for $i=1, \dots, \operatorname{len}(\texttt{L})$, where $P = 9223372036854775783$.  When applied to list of lists, it is called recursively on each entry in the list.
-    - $\texttt{EasyHash}$ takes a group as input and returns the id number if both Magma and Gap can identify the group; otherwise it constructs the sorted list of triples $[o,m,c]$ where $c$ is the number of conjugacy classes of order $o$ and size $m$, and returns the value of $\texttt{CollapseIntList}$ applied to that list.
-- If the group is {{KNOWL('group.abelian', 'abelian')}}, the hash value is just $\texttt{CollapseIntList}$ applied to the {{KNOWL('group.abelian_invariants', 'Smith abelian invariants')}}.
-- Otherwise, the hash value of $G$ is $\texttt{CollapseIntList}$ applied to the sorted list of pairs $[\# H, \texttt{EasyHash}(H)]$ as $H$ varies over $G$ and its maximal subgroups.
+\begin{itemize}
+\item  If the group is of an order which can be identified by both Magma and Gap, we store the id number for that order as its hash.
+\item  Otherwise, we define two subsidiary functions: $\texttt{CollapseIntList}$ and $\texttt{EasyHash}$.
+\item  $\texttt{CollapseIntList}$ takes a list $\texttt{L}$ of integers as input and produces a 64-bit integer, starting with $\texttt{out} = 997\cdot\operatorname{len}(\texttt{L})$ and sequentially setting $\texttt{out} = \operatorname{xor}(\texttt{L}[\texttt{i}] \mod P, (1000003\cdot\texttt{out}) \mod P)$ for $i=1, \dots, \operatorname{len}(\texttt{L})$, where $P = 9223372036854775783$.  When applied to list of lists, it is called recursively on each entry in the list.
+\item  $\texttt{EasyHash}$ takes a group as input and returns the id number if both Magma and Gap can identify the group; otherwise it constructs the sorted list of triples $[o,m,c]$ where $c$ is the number of conjugacy classes of order $o$ and size $m$, and returns the value of $\texttt{CollapseIntList}$ applied to that list.
+\item  If the group is \hyperref[group.abelian]{abelian}, the hash value is just $\texttt{CollapseIntList}$ applied to the \hyperref[group.abelian_invariants]{Smith abelian invariants}.
+\item  Otherwise, the hash value of $G$ is $\texttt{CollapseIntList}$ applied to the sorted list of pairs $[\# H, \texttt{EasyHash}(H)]$ as $H$ varies over $G$ and its maximal subgroups.
+\end{itemize}
 
 As an indication of the effectiveness of this hash function, there are 10,494,213 groups of order 512 and 10,487,714 distinct hash values among them.  Among the 544,831 groups currently in the LMFDB, there are 4,742 hash values that are duplicated; in 4,136 cases there are only two groups with that hash, and the largest number of groups with the same hash value is <a href="/Groups/Abstract/?hash=5120%234714647875464396655">22</a>.
-\end{definition}
+\end{definition*}
 
 

@@ -1,17 +1,17 @@
-\subsection{Siegel newform}
-\begin{definition}\label{mf.siegel.newform}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.newform}{Siegel newform}}
+\begin{definition*}\label{mf.siegel.newform}
 \uses{group.paramodular,mf.siegel,mf.siegel.fouriercoefficients,mf.siegel.hecke_operator,mf.siegel.petersson_scalar_product,mf.siegel.weight}
-Let \(M_{\rho}(K(N))\) be the space of {{ KNOWL('mf.siegel', "Siegel modular forms")}} of {{ KNOWL('mf.siegel.weight', 'weight')}} $\rho$ and {{KNOWL('group.paramodular', 'paramodular level')}} $N$.
+Let \(M_{\rho}(K(N))\) be the space of \hyperref[mf.siegel]{Siegel modular forms} of \hyperref[mf.siegel.weight]{weight} $\rho$ and \hyperref[group.paramodular]{paramodular level} $N$.
 
-If $M$ is a proper divisor of $N$, then for every divisor $D \mid (N/M)$, there are maps from $M_{\rho}(K(M))$ to $M_{\rho}(K(N))$.  Such modular forms are said to be **old**, and together they span a subspace $M_{\rho}^{\rm old}(K(N)) \subseteq M_{\rho}(K(N))$.
+If $M$ is a proper divisor of $N$, then for every divisor $D \mid (N/M)$, there are maps from $M_{\rho}(K(M))$ to $M_{\rho}(K(N))$.  Such modular forms are said to be \textbf{old}, and together they span a subspace $M_{\rho}^{\rm old}(K(N)) \subseteq M_{\rho}(K(N))$.
 
-The orthogonal complement of the $S_{\rho}^{\rm old}(K(N))$ in $S_{\rho}(K(N))$ with respect to the {{KNOWL('mf.siegel.petersson_scalar_product', "Petersson scalar product")}} is denoted $S_{\rho}^{\rm new}(K(N))$, and we have the decomposition 
+The orthogonal complement of the $S_{\rho}^{\rm old}(K(N))$ in $S_{\rho}(K(N))$ with respect to the \hyperref[mf.siegel.petersson_scalar_product]{Petersson scalar product} is denoted $S_{\rho}^{\rm new}(K(N))$, and we have the decomposition 
 \[
 S_{\rho}(K(N))=S_{\rho}^{\rm old}(K(N))\oplus S_{\rho}^{\rm new}(K(N)).
 \]
-into the **old subspace** and **new subspace**.
+into the \textbf{old subspace} and \textbf{new subspace}.
 
-A **newform** is a cusp form $f\in S_{\rho}^{\rm new}(K(N))$ that is also an eigenform of all {{KNOWL('mf.siegel.hecke_operator', 'Hecke operators')}}, normalized so that the {{KNOWL('mf.siegel.fouriercoefficients', '$q$-expansion')}}  $f(\tau)=\sum a_{T} q^T$, where $q=e^{2\pi i {\rm tr}(T \tau) }$, begins with the coefficient $a_1=1$.  The newforms are a basis for the vector space $S_{\rho}^{\rm new}(K(N))$.
-\end{definition}
+A \textbf{newform} is a cusp form $f\in S_{\rho}^{\rm new}(K(N))$ that is also an eigenform of all \hyperref[mf.siegel.hecke_operator]{Hecke operators}, normalized so that the \hyperref[mf.siegel.fouriercoefficients]{$q$-expansion}  $f(\tau)=\sum a_{T} q^T$, where $q=e^{2\pi i {\rm tr}(T \tau) }$, begins with the coefficient $a_1=1$.  The newforms are a basis for the vector space $S_{\rho}^{\rm new}(K(N))$.
+\end{definition*}
 
 

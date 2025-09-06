@@ -1,7 +1,7 @@
-\subsection{Find an L-function by label}
-\begin{definition}\label{lfunction.search_input}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.search_input}{Find an L-function by label}}
+\begin{definition*}\label{lfunction.search_input}
 \uses{lfunction,lfunction.label}
-To find a specific {{KNOWL("lfunction", "L-function")}}, enter its {{KNOWL("lfunction.label", "label")}}.
-\end{definition}
+To find a specific \hyperref[lfunction]{L-function}, enter its \hyperref[lfunction.label]{label}.
+\end{definition*}
 
 

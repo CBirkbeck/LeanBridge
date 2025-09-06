@@ -1,7 +1,7 @@
-\subsection{Primary decomposition of abelian group}
-\begin{definition}\label{group.primary_decomposition}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.primary_decomposition}{Primary decomposition of abelian group}}
+\begin{definition*}\label{group.primary_decomposition}
 \uses{}
-Every finite abelian group $G$ is isomorphic to a direct product of cyclic groups of prime power order, and this decomposition is unique up to reordering.  It is referred to as the **primary decomposition** of $G$.  
-\end{definition}
+Every finite abelian group $G$ is isomorphic to a direct product of cyclic groups of prime power order, and this decomposition is unique up to reordering.  It is referred to as the \textbf{primary decomposition} of $G$.  
+\end{definition*}
 
 

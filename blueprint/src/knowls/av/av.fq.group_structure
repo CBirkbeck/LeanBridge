@@ -1,7 +1,7 @@
-\subsection{Group of points}
-\begin{definition}\label{av.fq.group_structure}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/av.fq.group_structure}{Group of points}}
+\begin{definition*}\label{av.fq.group_structure}
 \uses{ag.abelian_variety}
-The set of **rational $k$-points** $A(k)$ of an {{KNOWL('ag.abelian_variety', 'abelian variety')}} $A$ defined over a field $k$ is an abelian group. If $k\subseteq K$ is a field extension, then we have an inlcusion of abelian groups $A(k)\subseteq A(K)$.
-\end{definition}
+The set of \textbf{rational $k$-points} $A(k)$ of an \hyperref[ag.abelian_variety]{abelian variety} $A$ defined over a field $k$ is an abelian group. If $k\subseteq K$ is a field extension, then we have an inlcusion of abelian groups $A(k)\subseteq A(K)$.
+\end{definition*}
 
 

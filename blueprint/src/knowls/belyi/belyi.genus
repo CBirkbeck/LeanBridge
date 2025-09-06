@@ -1,7 +1,7 @@
-\subsection{Genus of a Belyi map}
-\begin{definition}\label{belyi.genus}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/belyi.genus}{Genus of a Belyi map}}
+\begin{definition*}\label{belyi.genus}
 \uses{belyi.galmap}
-The **genus** of a {{KNOWL('belyi.galmap', 'Belyi map')}} $\phi:X\to\mathbb{P}^1$ is the genus of the source $X$.
-\end{definition}
+The \textbf{genus} of a \hyperref[belyi.galmap]{Belyi map} $\phi:X\to\mathbb{P}^1$ is the genus of the source $X$.
+\end{definition*}
 
 

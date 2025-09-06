@@ -1,9 +1,9 @@
-\subsection{Canonical field of definition of a modular curve}
-\begin{definition}\label{modcurve.canonical_field}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.canonical_field}{Canonical field of definition of a modular curve}}
+\begin{definition*}\label{modcurve.canonical_field}
 \uses{ag.geom_component,modcurve,modcurve.level,modcurve.xarith,modcurve.xn}
-Let $X_H$ be the {{KNOWL('modcurve', 'modular curve')}} over $\mathbb{Q}$ associated to an open subgroup $H \le \operatorname{GL}_2(\widehat{\mathbb{Z}})$.  Let $\pi_0((X_H)_{\overline{\Q}})$ be the set of {{KNOWL('ag.geom_component', 'geometric components')}}.  Since $X_H$ is integral, the action of $\Gal_{\Q}$ on $\pi_0((X_H)_{\overline{\Q}})$ is transitive.  Let $C$ be one of the geometric components.  The **canonical field of definition** of $C$ is the subfield $K$ of $\overline{\mathbb{Q}}$ fixed by the stabilizer $\operatorname{Stab}_{\Gal_{\Q}}(C)$.
+Let $X_H$ be the \hyperref[modcurve]{modular curve} over $\mathbb{Q}$ associated to an open subgroup $H \le \operatorname{GL}_2(\widehat{\mathbb{Z}})$.  Let $\pi_0((X_H)_{\overline{\Q}})$ be the set of \hyperref[ag.geom_component]{geometric components}.  Since $X_H$ is integral, the action of $\Gal_{\Q}$ on $\pi_0((X_H)_{\overline{\Q}})$ is transitive.  Let $C$ be one of the geometric components.  The \textbf{canonical field of definition} of $C$ is the subfield $K$ of $\overline{\mathbb{Q}}$ fixed by the stabilizer $\operatorname{Stab}_{\Gal_{\Q}}(C)$.
 
-Let $N$ be the {{KNOWL('modcurve.level', 'level')}} of $H$, which is the smallest $N \ge 1$ such that $H$ is the inverse image of a subgroup $H_N \le \operatorname{GL}_2(\mathbb{Z}/N\mathbb{Z})$.  Then $K$ is a number field contained in $\mathbb{Q}(\zeta_N)$.  
+Let $N$ be the \hyperref[modcurve.level]{level} of $H$, which is the smallest $N \ge 1$ such that $H$ is the inverse image of a subgroup $H_N \le \operatorname{GL}_2(\mathbb{Z}/N\mathbb{Z})$.  Then $K$ is a number field contained in $\mathbb{Q}(\zeta_N)$.  
 
 Since $K$ is abelian, it is independent of the choice of $C \in S$, and every geometric component of $X_H$ has a canonical model over $K$.
 
@@ -11,7 +11,7 @@ Equivalently, $K$ can be defined as the ring of global regular functions of the 
 
 Also, $K$ is the subfield of $\mathbb{Q}^{\textup{ab}}$ fixed by $\det(H) \le \widehat{\mathbb{Z}}^\times$, or equivalently the subfield of $\mathbb{Q}(\zeta_N)$ fixed by $\det(H_N) \subset (\mathbb{Z}/N\mathbb{Z})^\times$.
 
-It can happen that a geometric component of $X_H$ is definable over a field smaller than its canonical field of definition.  For example, the canonical field of definition of a geometric component of the {{KNOWL('modcurve.xn', 'full modular curve')}} $X_{\text{full}}(N)_{\mathbb{Q}}$ is $\mathbb{Q}(\zeta_N)$, but any such geometric component is the base extension of the curve {{KNOWL('modcurve.xarith', '$X_{\mathrm{arith}}(N)$')}} over $\mathbb{Q}$.
-\end{definition}
+It can happen that a geometric component of $X_H$ is definable over a field smaller than its canonical field of definition.  For example, the canonical field of definition of a geometric component of the \hyperref[modcurve.xn]{full modular curve} $X_{\text{full}}(N)_{\mathbb{Q}}$ is $\mathbb{Q}(\zeta_N)$, but any such geometric component is the base extension of the curve \hyperref[modcurve.xarith]{$X_{\mathrm{arith}}(N)$} over $\mathbb{Q}$.
+\end{definition*}
 
 

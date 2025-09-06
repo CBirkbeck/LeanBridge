@@ -1,9 +1,9 @@
-\subsection{$T$-number of a transitive group}
-\begin{definition}\label{gg.tnumber}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/gg.tnumber}{$T$-number of a transitive group}}
+\begin{definition*}\label{gg.tnumber}
 \uses{group,group.order}
-The transitive subgroups of $S_n$ have been classified, up to conjugation, for small values of $n$, including all $n\leq 47$.  The ordering is weakly increasing by the {{KNOWL('group.order', 'order')}} of the {{KNOWL('group', 'group')}}.  The $T$-number of a subgroup is its index in this classification.
+The transitive subgroups of $S_n$ have been classified, up to conjugation, for small values of $n$, including all $n\leq 47$.  The ordering is weakly increasing by the \hyperref[group.order]{order} of the \hyperref[group]{group}.  The $T$-number of a subgroup is its index in this classification.
 
 An algorithm for generating the classification is given in \cite{doi:10.1016/j.jsc.2004.08.002,MR:2168238}, and the results can be accessed from the computer algebra systems SageMath, GAP, and Magma.
-\end{definition}
+\end{definition*}
 
 

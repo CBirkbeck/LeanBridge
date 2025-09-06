@@ -1,11 +1,11 @@
-\subsection{Dirichlet character group}
-\begin{definition}\label{character.dirichlet.group}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/character.dirichlet.group}{Dirichlet character group}}
+\begin{definition*}\label{character.dirichlet.group}
 \uses{character.dirichlet,character.dirichlet.conrey,character.dirichlet.modulus}
-The {{KNOWL('character.dirichlet', 'Dirichlet characters')}} $\chi\colon\Z\to\C$ of {{KNOWL('character.dirichlet.modulus', 'modulus')}} $q$ form a group under pointwise multiplication. {# $(\chi_1\chi_2)(m):=\chi_1(m)\chi_2(m)$. #}
+The \hyperref[character.dirichlet]{Dirichlet characters} $\chi\colon\Z\to\C$ of \hyperref[character.dirichlet.modulus]{modulus} $q$ form a group under pointwise multiplication. 
 
-In the {{KNOWL('character.dirichlet.conrey', 'Conrey labeling system')}} we simply have $\chi_q(n_1,\cdot)\chi_q(n_2,\cdot) = \chi_q(n_1n_2,\cdot)$.
+In the \hyperref[character.dirichlet.conrey]{Conrey labeling system} we simply have $\chi_q(n_1,\cdot)\chi_q(n_2,\cdot) = \chi_q(n_1n_2,\cdot)$.
 
 This group is (non-canonically) isomorphic to the multiplicative group $(\Z/q\Z)^\times$.
-\end{definition}
+\end{definition*}
 
 

@@ -1,9 +1,9 @@
-\subsection{Global minimal model}
-\begin{definition}\label{ec.global_minimal_model}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.global_minimal_model}{Global minimal model}}
+\begin{definition*}\label{ec.global_minimal_model}
 \uses{ec,ec.integral_model,ec.local_minimal_model,ec.weierstrass_coeffs,nf,nf.class_number,nf.ideal_class_group}
-A **global minimal model** for an {{ KNOWL('ec', 'elliptic curve') }} \(E\) defined over a {{ KNOWL('nf', 'number field') }} \(K\) is a {{ KNOWL('ec.weierstrass_coeffs', 'Weierstrass equation') }} for \(E\) which is {{ KNOWL('ec.integral_model', 'integral') }} and is a {{ KNOWL('ec.local_minimal_model', 'local minimal model')}} at all primes of \(K\).
+A \textbf{global minimal model} for an \hyperref[ec]{elliptic curve} \(E\) defined over a \hyperref[nf]{number field} \(K\) is a \hyperref[ec.weierstrass_coeffs]{Weierstrass equation} for \(E\) which is \hyperref[ec.integral_model]{integral} and is a \hyperref[ec.local_minimal_model]{local minimal model} at all primes of \(K\).
 
-When $K$ has {{ KNOWL('nf.class_number', 'class number') }} $1$ all elliptic curves over $K$ have global minimal models.  In general, there is an {{ KNOWL('ec.obstruction_class', 'obstruction') }} to the existence of a global minimal model for each elliptic curve $E$ defined over $K$, which is an {{ KNOWL('nf.ideal_class_group', 'ideal class') }} of $K$.  In case this class is nontrivial for $E$, there is a {{ KNOWL('ec.semi_global_minimal_model', 'semi-global minimal model') }} for $E$, which is minimal at all primes except one, the ideal class of that one prime being the {{ KNOWL('ec.obstruction_class', 'obstruction class') }}.
-\end{definition}
+When $K$ has \hyperref[nf.class_number]{class number} $1$ all elliptic curves over $K$ have global minimal models.  In general, there is an \hyperref[ec.obstruction_class]{obstruction} to the existence of a global minimal model for each elliptic curve $E$ defined over $K$, which is an \hyperref[nf.ideal_class_group]{ideal class} of $K$.  In case this class is nontrivial for $E$, there is a \hyperref[ec.semi_global_minimal_model]{semi-global minimal model} for $E$, which is minimal at all primes except one, the ideal class of that one prime being the \hyperref[ec.obstruction_class]{obstruction class}.
+\end{definition*}
 
 

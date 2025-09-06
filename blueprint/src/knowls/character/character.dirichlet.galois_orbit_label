@@ -1,8 +1,8 @@
-\subsection{Label of a Galois orbit of a Dirichlet character}
-\begin{definition}\label{character.dirichlet.galois_orbit_label}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/character.dirichlet.galois_orbit_label}{Label of a Galois orbit of a Dirichlet character}}
+\begin{definition*}\label{character.dirichlet.galois_orbit_label}
 \uses{character.dirichlet,character.dirichlet.galois_orbit,character.dirichlet.galois_orbit_index}
-The **label** of a {{KNOWL('character.dirichlet.galois_orbit', 'Galois orbit')}} of a {{KNOWL('character.dirichlet', 'Dirichlet character')}} $\chi$ of modulus $N$ takes the form $N.a$, where $a$ is a letter or string of letters representing the {{KNOWL('character.dirichlet.galois_orbit_index', 'index')}} of the Galois orbit. 
+The \textbf{label} of a \hyperref[character.dirichlet.galois_orbit]{Galois orbit} of a \hyperref[character.dirichlet]{Dirichlet character} $\chi$ of modulus $N$ takes the form $N.a$, where $a$ is a letter or string of letters representing the \hyperref[character.dirichlet.galois_orbit_index]{index} of the Galois orbit. 
  The index $1$ is written as $a$, the index  $2$ is written as $b$, the index $27$ is written as $ba$, and so on.
-\end{definition}
+\end{definition*}
 
 

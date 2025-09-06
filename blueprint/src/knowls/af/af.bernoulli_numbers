@@ -1,12 +1,12 @@
-\subsection{Bernoulli numbers}
-\begin{definition}\label{af.bernoulli_numbers}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/af.bernoulli_numbers}{Bernoulli numbers}}
+\begin{definition*}\label{af.bernoulli_numbers}
 \uses{}
-The **Bernoulli numbers** are the rational numbers $B_n$ that appear as coefficients of the formal power series
+The \textbf{Bernoulli numbers} are the rational numbers $B_n$ that appear as coefficients of the formal power series
 \[
 \frac{T}{e^T-1}=\sum_{n\ge 0}B_n\frac{T^n}{n!},
 \]
 which has radius of convergence $2\pi$.
 
-\end{definition}
+\end{definition*}
 
 

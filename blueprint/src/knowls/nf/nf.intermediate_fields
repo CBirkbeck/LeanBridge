@@ -1,7 +1,7 @@
-\subsection{Intermediate fields}
-\begin{definition}\label{nf.intermediate_fields}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.intermediate_fields}{Intermediate fields}}
+\begin{definition*}\label{nf.intermediate_fields}
 \uses{}
-For a number field $K$, **intermediate fields** $F$ are fields with $\Q\subsetneqq F \subsetneqq K$.
-\end{definition}
+For a number field $K$, \textbf{intermediate fields} $F$ are fields with $\Q\subsetneqq F \subsetneqq K$.
+\end{definition*}
 
 

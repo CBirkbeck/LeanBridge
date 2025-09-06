@@ -1,13 +1,13 @@
-\subsection{Mordell-Weil group}
-\begin{definition}\label{ec.mordell_weil_group}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.mordell_weil_group}{Mordell-Weil group}}
+\begin{definition*}\label{ec.mordell_weil_group}
 \uses{ag.abelian_variety,ag.mordell_weil,ec,nf}
-For an {{KNOWL('ec', 'elliptic curve')}} $E$ defined over a field $K$, the **Mordell-Weil group** of $E/K$ is the group $E(K)$ of $K$-rational points of $E$. It is a finitely-generated Abelian group.
+For an \hyperref[ec]{elliptic curve} $E$ defined over a field $K$, the \textbf{Mordell-Weil group} of $E/K$ is the group $E(K)$ of $K$-rational points of $E$. It is a finitely-generated Abelian group.
 
-This is a special case of the {{KNOWL("ag.mordell_weil", "Mordell-Weil group of an abelian variety")}}.
+This is a special case of the \hyperref[ag.mordell_weil]{Mordell-Weil group of an abelian variety}.
 
-The {{ KNOWL('ec.mordell_weil_theorem', 'Mordell-Weil Theorem') }}, first proved by Mordell for elliptic curves defined over $\Q$ and  later generalized by Weil to {{ KNOWL('ag.abelian_variety', 'abelian varieties') }} $A$ over general {{ KNOWL('nf', 'number fields') }} $K$, states that, if $K$ is a number field, then $A(K)$ is a finitely generated abelian group. Its {{KNOWL('ec.rank', 'rank')}} is called the **Mordell-Weil rank** of $A$ over $K$.
+The \hyperref[ec.mordell_weil_theorem]{Mordell-Weil Theorem}, first proved by Mordell for elliptic curves defined over $\Q$ and  later generalized by Weil to \hyperref[ag.abelian_variety]{abelian varieties} $A$ over general \hyperref[nf]{number fields} $K$, states that, if $K$ is a number field, then $A(K)$ is a finitely generated abelian group. Its \hyperref[ec.rank]{rank} is called the \textbf{Mordell-Weil rank} of $A$ over $K$.
 
-The Mordell-Weil theorem implies in particular that the {{KNOWL('ec.torsion_subgroup', 'torsion subgroup')}} $E(K)_{\mathrm{tor}}$ of $E(K)$ is finite, and thus that the {{ KNOWL('ec.torsion_order', 'torsion order') }} of $E$, one of the {{ KNOWL('ec.bsdconjecture', 'BSD') }}  invariants, is finite.
-\end{definition}
+The Mordell-Weil theorem implies in particular that the \hyperref[ec.torsion_subgroup]{torsion subgroup} $E(K)_{\mathrm{tor}}$ of $E(K)$ is finite, and thus that the \hyperref[ec.torsion_order]{torsion order} of $E$, one of the \hyperref[ec.bsdconjecture]{BSD}  invariants, is finite.
+\end{definition*}
 
 

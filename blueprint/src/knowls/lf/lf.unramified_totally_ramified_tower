@@ -1,11 +1,11 @@
-\subsection{The canonical tower of a local field}
-\begin{definition}\label{lf.unramified_totally_ramified_tower}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.unramified_totally_ramified_tower}{The canonical tower of a local field}}
+\begin{definition*}\label{lf.unramified_totally_ramified_tower}
 \uses{lf.padic_field,lf.ramification_index}
-Let $L/K$ be an extension of {{ KNOWL('lf.padic_field','$p$-adic fields')}}.
+Let $L/K$ be an extension of \hyperref[lf.padic_field]{$p$-adic fields}.
 Then there is a unique intermediate field $L^{ur}$  such that $L^{ur}/K$ is
-{{ KNOWL('lf.ramification_index', 'unramified')}} and $L/L^{ur}$ is
-{{ KNOWL('lf.ramification_index','totally ramified')}}.  We say that
-$L\supset L^{ur}\supset K$ is the **canonical tower** associated to $L/K$.
-\end{definition}
+\hyperref[lf.ramification_index]{unramified} and $L/L^{ur}$ is
+\hyperref[lf.ramification_index]{totally ramified}.  We say that
+$L\supset L^{ur}\supset K$ is the \textbf{canonical tower} associated to $L/K$.
+\end{definition*}
 
 

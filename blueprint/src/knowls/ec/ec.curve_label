@@ -1,17 +1,19 @@
-\subsection{Labels of elliptic curves over number fields}
-\begin{definition}\label{ec.curve_label}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.curve_label}{Labels of elliptic curves over number fields}}
+\begin{definition*}\label{ec.curve_label}
 \uses{ec.complex_multiplication,ec.conductor_label,ec.isogeny_class,mf.bianchi.newform,mf.hilbert,nf.ideal_labels}
 The label of an elliptic curve over a number field $K$ has three components, denoting the conductor, the isogeny class and the isomorphism class:
 
-- The {{ KNOWL('ec.conductor_label', 'conductor label') }} is a label for the conductor, which is an integral ideal of the base field, whose format depends on the field but always includes the norm of the conductor.
-- The {{ KNOWL('ec.isogeny_class', 'isogeny class') }} label normally consists of one or more letters a-z or A-Z; the ordering of the isogeny classes is based on lexicographical ordering of the Dirichlet coefficients of the L-series.  For this to be well-defined, a {{ KNOWL('nf.ideal_labels', 'standard ordering') }} is used for the primes of the base field.   In the case of elliptic curves $E$ defined over an imaginary quadratic field $K$, the isogeny class label has a prefix "CM" for curves with {{ KNOWL('ec.complex_multiplication', 'complex multiplication') }} by an order in $K$ itself.
-- The isomorphism class is a positive integer giving the index (starting at 1) of the curve in its {{ KNOWL('ec.isogeny_class', 'isogeny class') }}.
+\begin{itemize}
+\item  The \hyperref[ec.conductor_label]{conductor label} is a label for the conductor, which is an integral ideal of the base field, whose format depends on the field but always includes the norm of the conductor.
+\item  The \hyperref[ec.isogeny_class]{isogeny class} label normally consists of one or more letters a-z or A-Z; the ordering of the isogeny classes is based on lexicographical ordering of the Dirichlet coefficients of the L-series.  For this to be well-defined, a \hyperref[nf.ideal_labels]{standard ordering} is used for the primes of the base field.   In the case of elliptic curves $E$ defined over an imaginary quadratic field $K$, the isogeny class label has a prefix "CM" for curves with \hyperref[ec.complex_multiplication]{complex multiplication} by an order in $K$ itself.
+\item  The isomorphism class is a positive integer giving the index (starting at 1) of the curve in its \hyperref[ec.isogeny_class]{isogeny class}.
+\end{itemize}
 
 Together these give a label of the form $N.a1$ where $N$ is the conductor label, $a$ the class and $1$ the curve number.  Omitting the third component gives an isogeny class label, of the form $N.a$.
 
 In addition, to specify the elliptic curve completely prepend the label of the base field to give a full label of the curve, for example 3.1.23.1-89.1-A1.
 
-Where possible the labelling of isogeny classes matches that of associated cusp forms ({{ KNOWL('mf.bianchi.newform', 'Bianchi newforms') }} over imaginary quadratic fields and {{ KNOWL('mf.hilbert', 'Hilbert newforms') }} over totally real fields).   The prefix "CM" on the isogeny class label for certain elliptic curves over imaginary quadratic fields is used, because the Bianchi modular forms conjecturally attached to such curves are not cuspidal.
-\end{definition}
+Where possible the labelling of isogeny classes matches that of associated cusp forms (\hyperref[mf.bianchi.newform]{Bianchi newforms} over imaginary quadratic fields and \hyperref[mf.hilbert]{Hilbert newforms} over totally real fields).   The prefix "CM" on the isogeny class label for certain elliptic curves over imaginary quadratic fields is used, because the Bianchi modular forms conjecturally attached to such curves are not cuspidal.
+\end{definition*}
 
 

@@ -1,15 +1,15 @@
-\subsection{Sato-Tate group of a modular form}
-\begin{definition}\label{cmf.sato_tate}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.sato_tate}{Sato-Tate group of a modular form}}
+\begin{definition*}\label{cmf.sato_tate}
 \uses{cmf.cm_form,cmf.newform,cmf.weight}
-The **Sato-Tate group** of a {{KNOWL('cmf.newform', 'newform')}} is a compact Lie group that one can attach to the Galois representation associated to the newform.
+The \textbf{Sato-Tate group} of a \hyperref[cmf.newform]{newform} is a compact Lie group that one can attach to the Galois representation associated to the newform.
 
-For newforms of {{KNOWL('cmf.weight', 'weight')}} $k=1$, the Sato-Tate group is simply the image of the corresponding 2-dimensional Artin representation, a finite subgroup of $\SL_2(\C)$.
+For newforms of \hyperref[cmf.weight]{weight} $k=1$, the Sato-Tate group is simply the image of the corresponding 2-dimensional Artin representation, a finite subgroup of $\SL_2(\C)$.
 
-For newforms of weight $k>1$ the Sato-Tate group is a subgroup of $\mathrm{U}(2)$ whose identity component is either $\mathrm{SU(2)}$ (for newforms without {{KNOWL('cmf.cm_form', 'CM')}}) or $\mathrm{U}(1)$ (for CM newforms) diagonally embedded in $\mathrm{U}(2)$.
+For newforms of weight $k>1$ the Sato-Tate group is a subgroup of $\mathrm{U}(2)$ whose identity component is either $\mathrm{SU(2)}$ (for newforms without \hyperref[cmf.cm_form]{CM}) or $\mathrm{U}(1)$ (for CM newforms) diagonally embedded in $\mathrm{U}(2)$.
 
 The Sato-Tate conjecture implies that as $p\to\infty$ the limiting distribution of normalized Hecke eigenvalues $a_p/p^{(k-1)/2}$ converges to the trace distribution induced by the Haar measure of the Sato-Tate group.
 
 The Sato-Tate conjecture for classical modular forms has been proved \cite{MR:2630056,doi:10.4007/annals.2010.171.779}.
-\end{definition}
+\end{definition*}
 
 

@@ -1,8 +1,8 @@
-\subsection{Weak equivalence class}
-\begin{definition}\label{av.fq.weak_equivalence_class}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/av.fq.weak_equivalence_class}{Weak equivalence class}}
+\begin{definition*}\label{av.fq.weak_equivalence_class}
 \uses{}
-Two fractional $S$-ideals $I$ and $J$ are in the same **weak equivalence class** if $I_\mathfrak{l}=I\otimes_S S_\mathfrak{l}$ and $J_\mathfrak{l}=J\otimes_S S_\mathfrak{l}$ are isomorphic as $S_\mathfrak{l}$-modules for every maximal ideal $\mathfrak{l}$ of $S$.
+Two fractional $S$-ideals $I$ and $J$ are in the same \textbf{weak equivalence class} if $I_\mathfrak{l}=I\otimes_S S_\mathfrak{l}$ and $J_\mathfrak{l}=J\otimes_S S_\mathfrak{l}$ are isomorphic as $S_\mathfrak{l}$-modules for every maximal ideal $\mathfrak{l}$ of $S$.
 In the literature, weak equivalence classes are also called local isomorphism classes of genera.
-\end{definition}
+\end{definition*}
 
 

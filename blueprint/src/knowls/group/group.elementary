@@ -1,7 +1,7 @@
-\subsection{Elementary group}
-\begin{definition}\label{group.elementary}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.elementary}{Elementary group}}
+\begin{definition*}\label{group.elementary}
 \uses{group,group.cyclic,group.direct_product,group.pgroup,group.representation.character}
-A finite {{KNOWL('group', 'group')}} is $p$-**elementary** if it is the {{KNOWL('group.direct_product', 'direct product')}} of a {{KNOWL('group.cyclic', 'cyclic')}} group of order relatively prime to $p$ and a {{KNOWL('group.pgroup', '$p$-group')}}.  Brauer's induction theorem states that any {{KNOWL('group.representation.character', 'character')}} of a finite group $G$ is an integer linear combination of inductions of linear characters from elementary subgroups of $G$ (for different primes $p$ dividing the order of $G$).
-\end{definition}
+A finite \hyperref[group]{group} is $p$-\textbf{elementary} if it is the \hyperref[group.direct_product]{direct product} of a \hyperref[group.cyclic]{cyclic} group of order relatively prime to $p$ and a \hyperref[group.pgroup]{$p$-group}.  Brauer's induction theorem states that any \hyperref[group.representation.character]{character} of a finite group $G$ is an integer linear combination of inductions of linear characters from elementary subgroups of $G$ (for different primes $p$ dividing the order of $G$).
+\end{definition*}
 
 

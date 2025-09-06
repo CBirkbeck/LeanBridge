@@ -1,11 +1,11 @@
-\subsection{Cohen-Macaulay type}
-\begin{definition}\label{ag.cohen_macaulay_type}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.cohen_macaulay_type}{Cohen-Macaulay type}}
+\begin{definition*}\label{ag.cohen_macaulay_type}
 \uses{}
-The **Cohen-Macaulay** type of an order $R$, is the minimal number of generators (as an $R$-module) of a canonical module of $R$.
+The \textbf{Cohen-Macaulay} type of an order $R$, is the minimal number of generators (as an $R$-module) of a canonical module of $R$.
 Note that the trace dual ideal $R^t =\{ a : \mathrm{Tr}(aR) \subseteq \mathbb{Z} \}$ is a canonical module for $R$. In particular, the Cohen-Macaulay type equals 
 $\max \{ \dim_{R/\mathfrak{l}} \frac{R^t}{\mathfrak{l}R^t} \}_\mathfrak{l}$, where $\mathfrak{l}$ runs over the maximal ideals of $R$. The order is called Gorenstein if the Cohen-Macaulay type equals $1$. This is the case precisely when every fractional $R$-ideal $I$ with $(I:I)$ is invertible.
 
 
-\end{definition}
+\end{definition*}
 
 

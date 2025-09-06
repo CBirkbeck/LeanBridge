@@ -1,20 +1,32 @@
-\subsection{Complex embedding label}
-\begin{definition}\label{cmf.embedding_label}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.embedding_label}{Complex embedding label}}
+\begin{definition*}\label{cmf.embedding_label}
 \uses{character.dirichlet.galois_orbit_label,cmf.cusp_form,cmf.embedding,cmf.level,cmf.weight}
-The **label** complex embedded holomorphic {{KNOWL('cmf.cusp_form', 'cusp form')}} \( f\) is \( N.k.a.x.c.j \) (sometimes shortened as \( a.j\) ), where
+The \textbf{label} complex embedded holomorphic \hyperref[cmf.cusp_form]{cusp form} \( f\) is \( N.k.a.x.c.j \) (sometimes shortened as \( a.j\) ), where
 
--  \( N\) is the {{KNOWL('cmf.level', 'level')}},
+\begin{itemize}
+\item   \( N\) is the \hyperref[cmf.level]{level},
+\end{itemize}
 
-- \(k\) is the {{KNOWL('cmf.weight', 'weight')}},
+\begin{itemize}
+\item  \(k\) is the \hyperref[cmf.weight]{weight},
+\end{itemize}
 
--  \(N.a\) is the {{KNOWL('character.dirichlet.galois_orbit_label', 'label')}} of the Galois orbit of the Dirichlet character,
+\begin{itemize}
+\item   \(N.a\) is the \hyperref[character.dirichlet.galois_orbit_label]{label} of the Galois orbit of the Dirichlet character,
+\end{itemize}
 
-- \(x\) is the {{KNOWL('cmf.hecke_galois_orbit', 'Hecke Galois orbit label')}},
+\begin{itemize}
+\item  \(x\) is the \hyperref[cmf.hecke_galois_orbit]{Hecke Galois orbit label},
+\end{itemize}
 
-- \(N.c\) is the {{KNOWL('character.dirichlet.conrey', 'Conrey label')}} for the character corresponding to the {{KNOWL('cmf.embedding', 'embedding')}}, and
+\begin{itemize}
+\item  \(N.c\) is the \hyperref[character.dirichlet.conrey]{Conrey label} for the character corresponding to the \hyperref[cmf.embedding]{embedding}, and
+\end{itemize}
 
-- \(j\) is the index for the embedding within those with the same Dirichlet character, these are ordered by the vector $\iota(a_n)$, where we order the complex numbers first by their real part and then by their imaginary part.
+\begin{itemize}
+\item  \(j\) is the index for the embedding within those with the same Dirichlet character, these are ordered by the vector $\iota(a_n)$, where we order the complex numbers first by their real part and then by their imaginary part.
+\end{itemize}
 
-\end{definition}
+\end{definition*}
 
 

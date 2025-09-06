@@ -1,12 +1,14 @@
-\subsection{Hasse diagram}
-\begin{definition}\label{combin.hasse_diagram}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/combin.hasse_diagram}{Hasse diagram}}
+\begin{definition*}\label{combin.hasse_diagram}
 \uses{}
-If $(S, \leq)$ is a finite partially ordered set, then a **Hasse diagram** for $S$ is a representation of $S$ in the plane where
+If $(S, \leq)$ is a finite partially ordered set, then a \textbf{Hasse diagram} for $S$ is a representation of $S$ in the plane where
 
-  * there is one node for each element of $S$
-  * there is an edge connecting $s_1$ and $s_2$ if $s_1$ is maximal in $\leq$ for $\{s\in S \mid s < s_2\}$, or vice versa
-  * if $s_1$ is connected to $s_2$ by an edge and $s_1 < s_2$, then $s_2$ is higher in the plane in the sense of having a larger "$y$-coordinate"
+\begin{itemize}
+\item  there is one node for each element of $S$
+\item  there is an edge connecting $s_1$ and $s_2$ if $s_1$ is maximal in $\leq$ for $\{s\in S \mid s < s_2\}$, or vice versa
+\item  if $s_1$ is connected to $s_2$ by an edge and $s_1 < s_2$, then $s_2$ is higher in the plane in the sense of having a larger "$y$-coordinate"
+\end{itemize}
 
-\end{definition}
+\end{definition*}
 
 

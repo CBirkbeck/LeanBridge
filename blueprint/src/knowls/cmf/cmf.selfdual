@@ -1,11 +1,11 @@
-\subsection{Self dual modular form}
-\begin{definition}\label{cmf.selfdual}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.selfdual}{Self dual modular form}}
+\begin{definition*}\label{cmf.selfdual}
 \uses{cmf.coefficient_field,cmf.cusp_form,cmf.newform,cmf.q-expansion,lfunction.self-dual,nf.cm_field,nf.totally_real}
-A {{KNOWL('cmf.cusp_form', 'cuspidal modular form')}} $f$ is said to be **self dual** if the coefficients $a_n$ that appear in its {{KNOWL('cmf.q-expansion', '$q$-expansion')}} are real numbers; equivalently, the {{KNOWL('cmf.lfunction', 'L-function')}} of the modular form is {{KNOWL('lfunction.self-dual', 'self dual')}}.
+A \hyperref[cmf.cusp_form]{cuspidal modular form} $f$ is said to be \textbf{self dual} if the coefficients $a_n$ that appear in its \hyperref[cmf.q-expansion]{$q$-expansion} are real numbers; equivalently, the \hyperref[cmf.lfunction]{L-function} of the modular form is \hyperref[lfunction.self-dual]{self dual}.
 
-The {{KNOWL('cmf.coefficient_field', 'coefficient field')}} of a {{KNOWL('cmf.newform', 'newform')}} is either a {{KNOWL('nf.totally_real', 'totally real')}} number field or a {{KNOWL('nf.cm_field', 'CM field')}}, depending on whether the newform is self dual or not.
+The \hyperref[cmf.coefficient_field]{coefficient field} of a \hyperref[cmf.newform]{newform} is either a \hyperref[nf.totally_real]{totally real} number field or a \hyperref[nf.cm_field]{CM field}, depending on whether the newform is self dual or not.
 
 
-\end{definition}
+\end{definition*}
 
 

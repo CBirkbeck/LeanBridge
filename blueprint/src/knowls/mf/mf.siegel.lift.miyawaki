@@ -1,18 +1,18 @@
-\subsection{Miyawaki lift }
-\begin{definition}\label{mf.siegel.lift.miyawaki}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.lift.miyawaki}{Miyawaki lift }}
+\begin{definition*}\label{mf.siegel.lift.miyawaki}
 \uses{cmf,group.sp2gr,mf.siegel,mf.siegel.lift,mf.siegel.lift.miyawaki1,mf.siegel.lift.miyawaki2}
-A <b>Miyawaki Lift</b> is a {{KNOWL("mf.siegel.lift", "lift")}}
-from {{KNOWL("cmf", "elliptic modular forms")}} 
-to {{KNOWL("mf.siegel", "Siegel modular forms")}} of degree 3
-over the full {{KNOWL("group.sp2gr", "symplectic group")}}.
+A <b>Miyawaki Lift</b> is a \hyperref[mf.siegel.lift]{lift}
+from \hyperref[cmf]{elliptic modular forms} 
+to \hyperref[mf.siegel]{Siegel modular forms} of degree 3
+over the full \hyperref[group.sp2gr]{symplectic group}.
 
 Miyawaki conjectured two types of lift.
-{{KNOWL("mf.siegel.lift.miyawaki1", "Type I")}},
+\hyperref[mf.siegel.lift.miyawaki1]{Type I},
 also called the Ikeda–Miyawaki lift,
 was established by Ikeda using a Duke-Imamoglu-Ikeda lift
 provided that the construction does not produce 0. 
 Ikeda's construction is valid for degrees other than 3.
-{{KNOWL("mf.siegel.lift.miyawaki2", "Type II")}} remains conjectural.
+\hyperref[mf.siegel.lift.miyawaki2]{Type II} remains conjectural.
 
 On the right sides of the Miyawaki lift Euler factor and $L$-function descriptions,
 the elliptic Euler factor is
@@ -24,9 +24,9 @@ $Q_p^{\rm st}(f,X)=(1-X)(1-(\gamma_+/\gamma_-)X)(1-(\gamma_-/\gamma_+)X)$,
 and this is 
 $$Q_p^{\rm st}(f,X)=(1-X)(1-(a_p(f)^2/p^{k-1}-2)X+X^2).$$
 Also, if $g$ has weight $\ell$ and $Q_p(g,X)=(1-\delta_+X)(1-\delta_-X)$ 
-then $Q_p(f\otimes g,X)=(1−\gamma_+\delta_+X)(1−\gamma_+\delta_−X)(1−\gamma_−\delta_+X)(1−\gamma_−\delta_−X)$, 
+then $Q_p(f\otimes g,X)=(1-\gamma_+\delta_+X)(1-\gamma_+\delta_-X)(1-\gamma_-\delta_+X)(1-\gamma_-\delta_-X)$, 
 and this is 
-$$Q_p(f\otimes g,X)=1−a_p(f)a_p(g)X+(a_p(f)^2p^{\ell−1}+a_p(g)^2p^{k−1}−2p^{k+\ell−2})X^2−a_p(f)a_p(g)p^{k+\ell−2}X^3+p^{2k+2\ell−4}X^4.$$
-\end{definition}
+$$Q_p(f\otimes g,X)=1-a_p(f)a_p(g)X+(a_p(f)^2p^{\ell-1}+a_p(g)^2p^{k-1}-2p^{k+\ell-2})X^2-a_p(f)a_p(g)p^{k+\ell-2}X^3+p^{2k+2\ell-4}X^4.$$
+\end{definition*}
 
 

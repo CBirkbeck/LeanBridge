@@ -1,7 +1,7 @@
-\subsection{Conrey index of a Dirichlet character}
-\begin{definition}\label{character.dirichlet.conrey.index}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/character.dirichlet.conrey.index}{Conrey index of a Dirichlet character}}
+\begin{definition*}\label{character.dirichlet.conrey.index}
 \uses{character.dirichlet,character.dirichlet.conrey,character.dirichlet.modulus}
-The **Conrey index** (or **index**) of a {{KNOWL('character.dirichlet', 'Dirichlet character')}} $\chi$ of {{KNOWL('character.dirichlet.modulus', 'modulus')}} $q$ is the unique positive integer $n < \max(q,2)$ for which $\chi = \chi_q(n,\cdot)$ in the {{KNOWL('character.dirichlet.conrey', 'Conrey labeling system')}}.
-\end{definition}
+The \textbf{Conrey index} (or \textbf{index}) of a \hyperref[character.dirichlet]{Dirichlet character} $\chi$ of \hyperref[character.dirichlet.modulus]{modulus} $q$ is the unique positive integer $n < \max(q,2)$ for which $\chi = \chi_q(n,\cdot)$ in the \hyperref[character.dirichlet.conrey]{Conrey labeling system}.
+\end{definition*}
 
 

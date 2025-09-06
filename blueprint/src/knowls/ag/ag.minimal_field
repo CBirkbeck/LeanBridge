@@ -1,11 +1,11 @@
-\subsection{Minimal field of definition}
-\begin{definition}\label{ag.minimal_field}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.minimal_field}{Minimal field of definition}}
+\begin{definition*}\label{ag.minimal_field}
 \uses{ag.base_change,ag.curve.genus,ag.variety,ring.field}
-Let $V/k$ be an {{KNOWL('ag.variety', 'algebraic variety')}} defined over a {{KNOWL('ring.field', 'field')}} $k$ and let $S$ be the set of subfields $k_0\subseteq k$  for which there exists an algebraic variety $V_0/k_0$ whose {{KNOWL('ag.base_change', 'base change')}} to $k$ is isomorphic to $V$.
+Let $V/k$ be an \hyperref[ag.variety]{algebraic variety} defined over a \hyperref[ring.field]{field} $k$ and let $S$ be the set of subfields $k_0\subseteq k$  for which there exists an algebraic variety $V_0/k_0$ whose \hyperref[ag.base_change]{base change} to $k$ is isomorphic to $V$.
 
-Any field $k_0\in S$ that contains no other elements of $S$ is a **minimal field of definition** for $V$.
+Any field $k_0\in S$ that contains no other elements of $S$ is a \textbf{minimal field of definition} for $V$.
 
-In general, an algebraic variety may have more than one minimal field of definition; this does not occur for elliptic curves but it does occur for curves  of {{KNOWL('ag.curve.genus', 'genus')}} 2.
-\end{definition}
+In general, an algebraic variety may have more than one minimal field of definition; this does not occur for elliptic curves but it does occur for curves  of \hyperref[ag.curve.genus]{genus} 2.
+\end{definition*}
 
 
