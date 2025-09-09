@@ -7,7 +7,7 @@ Let $K/\Q$ be a \hyperref[nf.is_galois]{Galois} extension and $\rho:\Gal(K/\Q)\t
 $ \prod_p p^{f(\rho,p)} $
 for non-negative integers $f(\rho,p)$, where the product is taken over prime numbers $p$.
 
-To define the exponents $f(\rho,p)$, fix a \hyperref[nf.prime]{prime} $\mathfrak{p}$ of $K$ above $p$ and consider the corresponding extension of \hyperref[lf.padic_field]{local fields} $K_{\mathfrak{p}}/\Q_p$ with \hyperref[gg.galois_group]{Galois group} $G$.  Then $G$ has a filtration of higher ramification groups in lower numbering $G_i$, as defined in Chapter IV of Serre's \textit{Local Fields} \cite{mr:0554237,doi:10.1007/978-1-4757-5673-9}.  In particular, $G_{-1}=G$, $G_0$ is the \hyperref[lf.inertia_group]{inertia group} of $K_\mathfrak{p}/\Q_p$, and $G_1$ is the \hyperref[lf.wild_inertia_group]{wild inertia group}, which is a finite $p$-group.
+To define the exponents $f(\rho,p)$, fix a \hyperref[nf.prime]{prime} $\mathfrak{p}$ of $K$ above $p$ and consider the corresponding extension of \hyperref[lf.padic_field]{local fields} $K_{\mathfrak{p}}/\Q_p$ with \hyperref[gg.galois_group]{Galois group} $G$.  Then $G$ has a filtration of higher ramification groups in lower numbering $G_i$, as defined in Chapter IV of Serre's \textit{Local Fields} \cite{mr:0554237,doi:10.1007/978-1-4757-5673-9}.  In particular, $G_{-1}=G$, $G_0$ is the \hyperref[lf.inertia_group]{inertia group} of $K_{\mathfrak{p}}/\Q_p$, and $G_1$ is the \hyperref[lf.wild_inertia_group]{wild inertia group}, which is a finite $p$-group.
 
 Let $g_i = |G_i|$.  Then
 \[ f(\rho, p) = \sum_{i\geq 0} \frac{g_i}{g_0} (\dim(V) - \dim(V^{G_i}))\]
@@ -16,5 +16,3 @@ where $V^{G_i}$ is the subspace of $V$ fixed by $G_i$.
 
 Note that if $p$ is \hyperref[artin.unramified_primes]{unramified} in $K$, then $f(\rho,p)=0$ and conversely, if $\rho$ is faithful and $p$ is ramified in $K$, then $f(\rho,p)>0$.
 \end{definition*}
-
-
