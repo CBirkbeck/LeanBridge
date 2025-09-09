@@ -1,4 +1,5 @@
-import Mathlib
+import Mathlib.Analysis.NormedSpace.FunctionSeries
+import Mathlib.Topology.Algebra.InfiniteSum.UniformOn
 
 
 --this is just a test file to check that the import works
