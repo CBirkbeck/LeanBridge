@@ -4,11 +4,29 @@
 % It is otherwise a very minimal preamble (you should probably at least
 % add cleveref and tikz-cd).
 
-\documentclass{report}
+\documentclass{article}
 
-\usepackage{amssymb, amsthm, amsmath}
+
 \usepackage{hyperref}
 \usepackage[showmore, dep_graph]{blueprint}
+
+
+
+\usepackage{expl3}
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage[unicode,colorlinks=true,linkcolor=blue,urlcolor=magenta, citecolor=blue]{hyperref}
+\usepackage[capitalize,noabbrev]{cleveref}
+\usepackage{autonum}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{environ}
+\usepackage{setspace}
+\renewcommand{\baselinestretch}{1.5}
+\usepackage[skip=12pt, indent=0pt]{parskip}
+\allowdisplaybreaks  % Allows align environments to continue for several pages
+% NOTE: PUT ALL MACROS IN macros/common.tex, macros/print.tex or macros/web.tex.
+\input{macros/common}
+\input{macros/print}
+
 
 
 \input{macros/common}
