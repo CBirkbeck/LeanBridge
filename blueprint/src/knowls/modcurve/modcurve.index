@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.index}{Index of a modular curve}}
 \begin{definition*}\label{modcurve.index}
 \uses{gl2.index,gl2.open,modcurve}
-The \textbf{index} of a \hyperref[modcurve]{modular curve} $X_H$ is the \hyperref[gl2.index]{index} of the \hyperref[gl2.open]{open subgroup} $H\leq \GL_2(\widehat\Z)$.  The degree of the canonical morphism $j \colon X_H\to X(1)\simeq \mathbb P^1$ equals the index when $-1 \in H$, and equals half the index if $-1 \notin H$.
+The \textbf{index} of a \hyperref[modcurve]{modular curve} $X_H$ is the \hyperref[gl2.index]{index} of the \hyperref[gl2.open]{open subgroup} $H\leq \GL_2(\widehat{\Z})$.  The degree of the canonical morphism $j \colon X_H\to X(1)\simeq \mathbb P^1$ equals the index when $-1 \in H$, and equals half the index if $-1 \notin H$.
 \end{definition*}
-
-

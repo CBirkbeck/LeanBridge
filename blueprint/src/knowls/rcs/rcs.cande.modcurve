@@ -1,7 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.cande.modcurve}{Completeness of the modular curve database}}
 \begin{definition*}\label{rcs.cande.modcurve}
 \uses{ag.canonical_model,ag.hyperelliptic_curve,ag.plane_model,modcurve.cm_discriminants,modcurve.cusps,modcurve.decomposition,modcurve.embedded_model,modcurve.genus,modcurve.level,modcurve.rank}
-The database currently contains data on all modular curves $X_H$ with $\det(H)=\widehat\Z^\times$ such that at least one of the following hold:
+The database currently contains data on all modular curves $X_H$ with $\det(H)=\widehat{\Z}^\times$ such that at least one of the following hold:
 
 \begin{itemize}
 \item  $H$ has \hyperref[modcurve.level]{level} at most $70$;
@@ -110,5 +110,3 @@ Plane models are available for a subset of the curves of genus $g\le 24$, as sum
  <td align="right">97177</td>
 </table>
 \end{definition*}
-
-

@@ -1,7 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.galois_rep_adelic_image}{Image of the adelic Galois representation}}
 \begin{definition*}\label{ec.galois_rep_adelic_image}
 \uses{ec.complex_multiplication,ec.galois_rep,gl2.open,modcurve}
-The image of the \hyperref[ec.galois_rep]{adelic Galois representation} associate to an elliptic curve $E$ over a number field $K$ that does not have \hyperref[ec.complex_multiplication]{potential complex multiplication} is an \hyperref[gl2.open]{open subgroup} $H$ of $\GL(2,\widehat\Z)$.  The subgroup $H$ has 
+The image of the \hyperref[ec.galois_rep]{adelic Galois representation} associate to an elliptic curve $E$ over a number field $K$ that does not have \hyperref[ec.complex_multiplication]{potential complex multiplication} is an \hyperref[gl2.open]{open subgroup} $H$ of $\GL(2,\widehat{\Z})$.  The subgroup $H$ has
 the following invariants:
 
 \begin{itemize}
@@ -10,5 +10,3 @@ the following invariants:
 \item  The \textbf{genus} of $H$ is the genus of the corresponding \hyperref[modcurve]{modular curve} $X_H$.
 \end{itemize}
 \end{definition*}
-
-

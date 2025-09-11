@@ -1,14 +1,14 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.level_structure}{Level structure of a modular curve}}
 \begin{definition*}\label{modcurve.level_structure}
 \uses{ec,ec.base_change,ec.galois_rep,gl2.level,gl2.open,nf}
-Let $H$ be an \hyperref[gl2.open]{open subgroup} of $\GL_2(\widehat\Z)$ of \hyperref[gl2.level]{level} $N$, let $\pi_N\colon \GL_2(\widehat\Z)\to \GL_2(\Z/N\Z)$ be the natural projection, and let $E$ be an \hyperref[ec]{elliptic curve} over a \hyperref[nf]{number field} $K$.
+Let $H$ be an \hyperref[gl2.open]{open subgroup} of $\GL_2(\widehat{\Z})$ of \hyperref[gl2.level]{level} $N$, let $\pi_N\colon \GL_2(\widehat{\Z})\to \GL_2(\Z/N\Z)$ be the natural projection, and let $E$ be an \hyperref[ec]{elliptic curve} over a \hyperref[nf]{number field} $K$.
 
 An \textbf{$H$-level structure} on $E$ is the $H$-orbit $[\iota]_H:=\{ h\circ \iota\colon h\in \pi_N(H)\}$ of an isomorphism $\iota\colon E[N]\overset{\sim}{\rightarrow}(\Z/N\Z)^2$.
 
 An $H$-level structure on $E$ is \textbf{rational} if it lies in a $\Gal_K$-stable isomorphism class of pairs $(E,[\iota]_H)$, where $\sigma\in \Gal_K$ acts via $(E,[\iota]_H)\mapsto (E^\sigma,[\iota\circ\sigma^{-1}]_H)$.
 Two pairs $(E,[\iota]_H)$ and $(E',[\iota']_H)$ are isomorphic if there is an isomorphism $\phi\colon E\to E'$ that induces an isomorphism $\phi_N\colon E[N]\to E'[N]$ for which $\phi_N^*([\iota']_H) = [\iota]_H$.
 
-If $E$ admits a rational $H$-level structure $[\iota]_H$ then image of its \hyperref[ec.galois_rep]{adelic Galois representation} $\rho_E\colon \Gal_K\to \GL_2(\widehat\Z)$ is conjugate to a subgroup of $H$ and the isomorphism class of $(E,[\iota]_H)$ is a non-cuspidal $K$-rational point on the modular curve $X_H$.
+If $E$ admits a rational $H$-level structure $[\iota]_H$ then image of its \hyperref[ec.galois_rep]{adelic Galois representation} $\rho_E\colon \Gal_K\to \GL_2(\widehat{\Z})$ is conjugate to a subgroup of $H$ and the isomorphism class of $(E,[\iota]_H)$ is a non-cuspidal $K$-rational point on the modular curve $X_H$.
 
 When $-1\in H$ every non-cuspidal $K$-rational point on $X_H$ arises in this way.  When $-1\not\in H$ this is almost true, but there may be exceptions at points with $j(E)=0,1728$.
 
@@ -20,5 +20,3 @@ Invariants of a rational $H$-level structure include:
 \item  \textbf{N-torsion field degree} the minimal degree of an extension $L/K$ for which $E[N]\subseteq E(L)$; this is simply the cardinality of the reduction of $H$ to $\GL_2(\Z/N\Z)$.
 \end{itemize}
 \end{definition*}
-
-
