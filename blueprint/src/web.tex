@@ -4,11 +4,11 @@
 % It is otherwise a very minimal preamble (you should probably at least
 % add cleveref and tikz-cd).
 
-\documentclass{article}
+\documentclass{report}
 
 
 \usepackage{hyperref}
-\usepackage[showmore, dep_graph]{blueprint}
+\usepackage[showmore, dep_graphm project=../, dep_by=section]{blueprint}
 
 
 
@@ -32,6 +32,8 @@
 
 \input{macros/common}
 \input{macros/web}
+
+\plastextrue
 
 \home{https://CBirkbeck.github.io/LeanBridge}
 \github{https://github.com/CBirkbeck/LeanBridge}
