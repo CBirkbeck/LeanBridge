@@ -20,7 +20,7 @@ canonical.
 0) Degree.
 
 The non-negative integer $d=J+2K$, where $J$ and $K$
-refer respectively to the number of $\Gamma_\R$ and
+refer respectively to the number of $\Gamma_{\R}$ and
 $\Gamma_\C$ factors in the functional equation.
 Recall that the $L$-function axioms determine $J$ and $K$
 uniquely.
@@ -168,5 +168,3 @@ Note: The Sato-Tate group determines which operations on the $L$-function
 ($sym^n$, for example) have poles.
 
 \end{definition*}
-
-
