@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.artin_field}{Artin field}}
 \begin{definition*}\label{cmf.artin_field}
 \uses{cmf.galois_representation,cmf.newform,cmf.weight,nf.sibling}
-The \textbf{Artin field} of a \hyperref[cmf.weight]{weight} one \hyperref[cmf.newform]{newform} is the number field fixed by the kernel of its associated \hyperref[cmf.galois_representation]{Galois representation} $\rho\colon \Gal(\overline\Q/\Q)\to \GL_2(\C)$.
+The \textbf{Artin field} of a \hyperref[cmf.weight]{weight} one \hyperref[cmf.newform]{newform} is the number field fixed by the kernel of its associated \hyperref[cmf.galois_representation]{Galois representation} $\rho\colon \Gal(\overline{\Q}/\Q)\to \GL_2(\C)$.
 
 This number field is typically identified as the Galois closure of a \hyperref[nf.sibling]{sibling subfield} with minimal degree and absolute discriminant.
 \end{definition*}
-
-
