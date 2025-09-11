@@ -14,8 +14,6 @@ and satisfies the \hyperref[lfunction.functional_equation]{functional equation}
 \overline{\Lambda}(1-s,f),
 \]
 where $\varepsilon$ is the \hyperref[lfunction.sign]{sign} of the
-functional equation and $\Gamma_\C(s+(k-1)/2)$ is its \hyperref[lfunction.gamma_factor]{gamma factor}.  When $\chi$ is the trivial character, $\varepsilon=\pm 1$, and in general it is a root of unity.
+functional equation and $\Gamma_{\C}(s+(k-1)/2)$ is its \hyperref[lfunction.gamma_factor]{gamma factor}.  When $\chi$ is the trivial character, $\varepsilon=\pm 1$, and in general it is a root of unity.
 
 \end{definition*}
-
-
