@@ -11,7 +11,7 @@ When the characteristic of $K$ does not divide $m > 1$, we may identify the fini
 \[
     \overline\rho_{E,m}: \Gal(\overline{K}/K) \to \GL(2,\Z/m\Z)
 \]
-defined up to conjugation. In particular, when $m=\ell$ is a prime different from the characteristic of $K$, we have the \textbf{mod-$\ell$ Galois representation}
+defined up to conjugation. In particular, when $m=\ell$ is a prime different from the characteristic of $K$, we have the mod-$\ell$ Galois representation
 \[
     \overline\rho_{E,\ell}: \Gal(\overline{K}/K) \to \GL(2,\Z/\ell\Z).
 \]

@@ -11,21 +11,19 @@ When the characteristic of $K$ does not divide $m > 1$, we may identify the fini
 \[
     \overline\rho_{A,m}: \Gal(\overline{K}/K) \to \GSp_{2g}(\Z/m\Z)
 \]
-defined up to conjugation. In particular, when $m=\ell$ is prime different from the characteristic of $K$, we have the \textbf{mod-$\ell$ Galois representation}
+defined up to conjugation. In particular, when $m=\ell$ is prime different from the characteristic of $K$, we have the mod-$\ell$ Galois representation
 \[
     \overline\rho_{A,\ell}: \Gal(\overline{K}/K) \to \GSp_{2g}(\Z/\ell\Z).
 \]
 Taking the inverse limit over prime powers $m=\ell^n$ yields the \textbf{$\ell$-adic Galois representation} attached to $A$,
-\[ 
+\[
 \rho_{A,\ell}: \Gal(\overline{K}/K) \to \Aut(T_\ell(E)) \cong \GSp_{2g}(\Z_\ell),
 \]
 which describes the action of the \hyperref[group.galois.absolute]{absolute Galois group} of $K$ on $T_\ell(A)$, the \hyperref[av.tate_module]{$\ell$-adic Tate module of $A$}.
 
 When $K$ has characteristic zero one can take the inverse limit over all positive integers $m$ (ordered by divisibility) to obtain the \textbf{adelic Galois representation}
-\[ 
+\[
 \rho_{A}: \Gal(\overline{K}/K) \to \GSp_{2g}(\hat \Z).
 \]
 
 \end{definition*}
-
-

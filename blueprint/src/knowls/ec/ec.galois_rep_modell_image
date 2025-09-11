@@ -1,4 +1,4 @@
-\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.galois_rep_modell_image}{Image of mod-$\ell$ Galois representation}}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.galois_rep_modell_image}{Image of mod-$l$ Galois representation}}
 \begin{definition*}\label{ec.galois_rep_modell_image}
 \uses{ec,ec.galois_rep,gl2.borel,gl2.exceptional,gl2.nonsplit_cartan,gl2.normalizer_nonsplit_cartan,gl2.normalizer_split_cartan,gl2.split_cartan,nf}
 Let $\ell$ be a prime and let $E$ be an \hyperref[ec]{elliptic curve} defined over a \hyperref[nf]{number field} $K$.
@@ -6,17 +6,15 @@ Let $\ell$ be a prime and let $E$ be an \hyperref[ec]{elliptic curve} defined ov
 Subgroups $G$ of $\GL(2,\F_\ell)$ that can arise as the image of the mod-$\ell$ \hyperref[ec.galois_rep]{Galois representation}
 \[
 \bar\rho_{E,\ell}\colon {\Gal}(\overline{K}/K)\to \GL(2,\F_\ell)
-\] 
-attached to $E$ that do not contain $\SL(2,\F_\ell)$ are identified using the labels introduced by Sutherland in \cite{arXiv:1504.07618,MR:3482279}.  For groups with surjective determinant map (necessarily the case when $K=\Q$), these labels have the form 
+\]
+attached to $E$ that do not contain $\SL(2,\F_\ell)$ are identified using the labels introduced by Sutherland in \cite{arXiv:1504.07618,MR:3482279}.  For groups with surjective determinant map (necessarily the case when $K=\Q$), these labels have the form
 \[
 \texttt{LS.a.b.c},
 \]
 where $\texttt{L}$ is the prime $\ell$, $\texttt{S}$ is one of \textbf{G}, \textbf{B}, \textbf{Cs}, \textbf{Cn}, \textbf{Ns}, \textbf{Nn}, \textbf{A4}, \textbf{S4}, \textbf{A5}, and $\texttt{a}$, $\texttt{b}$, $\texttt{c}$ are optional positive integers.  When the determinant map is not surjective the label has "$\texttt{[d]}$", where $d$ is the index of the determinant image in $\F_\ell^\times$.
 
-When $\bar\rho_{E,\ell}$ does not contain $\SL(2,\F_\ell)$  the possibilities for $\texttt{S}$ are: \hyperref[gl2.borel]{Borel} \textbf{B}, \hyperref[gl2.split_cartan]{split Cartan} \textbf{Cs}, \hyperref[gl2.normalizer_split_cartan]{normalizer of the split Cartan} \textbf{Ns}, 
+When $\bar\rho_{E,\ell}$ does not contain $\SL(2,\F_\ell)$  the possibilities for $\texttt{S}$ are: \hyperref[gl2.borel]{Borel} \textbf{B}, \hyperref[gl2.split_cartan]{split Cartan} \textbf{Cs}, \hyperref[gl2.normalizer_split_cartan]{normalizer of the split Cartan} \textbf{Ns},
 \hyperref[gl2.nonsplit_cartan]{nonsplit Cartan} \textbf{Cn}, \hyperref[gl2.normalizer_nonsplit_cartan]{normalizer of the nonsplit Cartan} \textbf{Nn},  \hyperref[gl2.exceptional]{exceptional} \textbf{A4}, \textbf{S4}, \textbf{A5}.  The cases \textbf{A4} and \textbf{A5} cannot occur when $K=\Q$.
 
 
 \end{definition*}
-
-
