@@ -7,10 +7,8 @@ $$
 $$
 where $\mu_H$ denotes the restriction to $H$ of the Haar measure $\mu$ on $G$, normalized so that $\mu_H(H)=1$.  If $G$ is the Sato-Tate group of an \hyperref[lfunction.arithmetic]{arithmetic L-function}
 $$
-L(s)=\prod_{\mathfrak p}L_\mathfrak{p}(N(\mathfrak{p})^{-s})^{-1},
+L(s)=\prod_{\mathfrak p}L_{\mathfrak{p}}(N(\mathfrak{p})^{-s})^{-1},
 $$
 this means that the polynomials $L_{\mathfrak p}(T)$ have integer coefficients, equivalently, the $L$-function $L(s)$ is \hyperref[lfunction.rational]{rational}.
 
 \end{definition*}
-
-

@@ -5,7 +5,7 @@ For each \hyperref[gl2.open]{open subgroup} $H \le \GL_2(\widehat{\Z})$, there i
 
 Like $X_{\text{full}}(N)$, the curve $X_H$ is \hyperref[ag.curve.smooth]{smooth}, projective, and integral, and when $\det(H)=\widehat{\Z}$ it is also geometrically integral, but in general it may have several \hyperref[modcurve.components]{geometric components}, as is the case for $X_{\text{full}}(N)$ when $N>2$.
 
-\textbf{Rational points}: When $-1\in H$ the rational points of $X_H$  consist of  \hyperref[modcurve.cusps]{cusps} and $\Gal_\Q$-stable isomorphism classes of pairs $(E,[\iota]_H)$, where $E$ is an \hyperref[ec]{elliptic curve} over $\Q$, and $[\iota]_H$ is an \hyperref[modcurve.level_structure]{$H$-level structure} on $E$.  Such points exist precisely when the image of the \hyperref[ec.galois_rep]{adelic Galois representation} $\rho_E\colon \Gal_\Q\to \GL_2(\widehat{\Z})$ is conjugate to a subgroup of $H$.
+\textbf{Rational points}: When $-1\in H$ the rational points of $X_H$  consist of  \hyperref[modcurve.cusps]{cusps} and $\Gal_{\Q}$-stable isomorphism classes of pairs $(E,[\iota]_H)$, where $E$ is an \hyperref[ec]{elliptic curve} over $\Q$, and $[\iota]_H$ is an \hyperref[modcurve.level_structure]{$H$-level structure} on $E$.  Such points exist precisely when the image of the \hyperref[ec.galois_rep]{adelic Galois representation} $\rho_E\colon \Gal_{\Q}\to \GL_2(\widehat{\Z})$ is conjugate to a subgroup of $H$.
 
 \textbf{Complex points}: The \hyperref[cmf.congruence_subgroup]{congruence subgroup} $\Gamma_H:= H\cap \SL_2(\Z)$ acts on the \hyperref[mf.upper_half_plane]{completed upper half-plane} $\overline{\mathfrak{h}}$; one connected component of $X_H(\C)$ is biholomorphic to the quotient $\Gamma_H \backslash \overline{\mathfrak{h}}$.
 

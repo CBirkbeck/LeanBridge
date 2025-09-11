@@ -1,20 +1,18 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.cande.hmsurface}{Completeness of Hilbert modular surface data}}
 \begin{definition*}\label{rcs.cande.hmsurface}
 \uses{ag.holomorphic_euler_char,hmsurface.cusps,hmsurface.elliptic_point,hmsurface.euler_number,hmsurface.hodge_numbers,hmsurface.k2,hmsurface.kodaira_dimension,hmsurface.x0,hmsurface.x01}
-The database contains the Hilbert modular surfaces \hyperref[hmsurface.x0]{$X_0(\mathfrak{N})_\mathfrak{b}$} and \hyperref[hmsurface.x01]{$X_0^1(\mathfrak{N})_\mathfrak{b}$} for the 
+The database contains the Hilbert modular surfaces \hyperref[hmsurface.x0]{$X_0(\mathfrak{N})_{\mathfrak{b}}$} and \hyperref[hmsurface.x01]{$X_0^1(\mathfrak{N})_{\mathfrak{b}}$} for the
 
 \begin{itemize}
-\item  real quadratic fields with discriminant $d \leq 3000$, 
-\item  levels $\mathfrak{N}$ bounded by $\text{Nm}(\mathfrak{N}) \leq 5000/d^{3/2}$, 
-\item  and all representatives $\mathfrak{b}$ for the narrow class group. 
+\item  real quadratic fields with discriminant $d \leq 3000$,
+\item  levels $\mathfrak{N}$ bounded by $\text{Nm}(\mathfrak{N}) \leq 5000/d^{3/2}$,
+\item  and all representatives $\mathfrak{b}$ for the narrow class group.
 \end{itemize}
 
-For each Hilbert modular surface, we compute the \hyperref[hmsurface.cusps]{cusps}, \hyperref[hmsurface.elliptic_point]{elliptic points}, \hyperref[hmsurface.euler_number]{topological Euler number}, \hyperref[ag.holomorphic_euler_char]{holomorphic Euler characteristic}, 
+For each Hilbert modular surface, we compute the \hyperref[hmsurface.cusps]{cusps}, \hyperref[hmsurface.elliptic_point]{elliptic points}, \hyperref[hmsurface.euler_number]{topological Euler number}, \hyperref[ag.holomorphic_euler_char]{holomorphic Euler characteristic},
 \hyperref[hmsurface.hodge_numbers]{Hodge diamond},
-\hyperref[hmsurface.k2]{self-intersection $K^2$}, 
+\hyperref[hmsurface.k2]{self-intersection $K^2$},
 and \hyperref[hmsurface.kodaira_dimension]{Kodaira dimension}.
 
-We have yet to compute the Kodaira dimension for 184 surfaces of type $X_0(\mathfrak{N})_\mathfrak{b}$ and 175 surfaces of type $X_0^1(\mathfrak{N})_\mathfrak{b}$. In these cases, we store a list of possibilities for the Kodaira dimension. Otherwise, the data is complete. 
+We have yet to compute the Kodaira dimension for 184 surfaces of type $X_0(\mathfrak{N})_{\mathfrak{b}}$ and 175 surfaces of type $X_0^1(\mathfrak{N})_{\mathfrak{b}}$. In these cases, we store a list of possibilities for the Kodaira dimension. Otherwise, the data is complete.
 \end{definition*}
-
-

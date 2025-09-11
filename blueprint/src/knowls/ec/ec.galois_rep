@@ -16,17 +16,15 @@ defined up to conjugation. In particular, when $m=\ell$ is a prime different fro
     \overline\rho_{E,\ell}: \Gal(\overline{K}/K) \to \GL(2,\Z/\ell\Z).
 \]
 Taking the inverse limit over prime powers $m=\ell^n$ yields the \textbf{$\ell$-adic Galois representation} attached to $E$,
-\[ 
+\[
 \rho_{E,\ell}: \Gal(\overline{K}/K) \to \Aut(T_\ell(E)) \cong \GL(2,\Z_\ell),
 \]
 which describes the action of the \hyperref[group.galois.absolute]{absolute Galois group} of $K$ on $T_\ell(E)$, the \hyperref[ec.padic_tate_module]{$\ell$-adic Tate module} of $E$.
 
 When $K$ has characteristic zero one can take the inverse limit over all positive integers $m$ (ordered by divisibility) to obtain the \textbf{adelic Galois representation}
-\[ 
-\rho_{E}: \Gal(\overline{K}/K) \to \GL(2,\hat \Z).
+\[
+\rho_{E}: \Gal(\overline{K}/K) \to \GL(2,\hat{\Z}).
 \]
-If $E$ is an elliptic curve without \hyperref[ec.complex_multiplication]{complex multiplication} that is defined over a \hyperref[nf]{number field}, then the image of $\rho_E$ is an \hyperref[gl2.open]{open subgroup} of $\GL(2,\hat\Z)$ that has an associated \hyperref[gl2.level]{level}, \hyperref[gl2.index]{index}, and \hyperref[gl2.genus]{genus}.
+If $E$ is an elliptic curve without \hyperref[ec.complex_multiplication]{complex multiplication} that is defined over a \hyperref[nf]{number field}, then the image of $\rho_E$ is an \hyperref[gl2.open]{open subgroup} of $\GL(2,\hat{\Z})$ that has an associated \hyperref[gl2.level]{level}, \hyperref[gl2.index]{index}, and \hyperref[gl2.genus]{genus}.
 
 \end{definition*}
-
-

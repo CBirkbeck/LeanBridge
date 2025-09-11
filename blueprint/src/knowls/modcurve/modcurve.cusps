@@ -5,7 +5,5 @@ The \textbf{cusps} on $X_H$ are the points whose image under the canonical morph
 
 The \textbf{cusps} of a modular curve $X_H$ correspond to the complement of $Y_H$ in $X_H$, where $Y_H$ is the coarse moduli stack $\mathcal M_H^0$ defined in \cite{mr:0337993,doi:10.1007/978-3-540-37855-6_4}.
 
-The \textbf{rational cusps} (also called \textbf{$\Q$-cusps}) are the cusps fixed by $\Gal_\Q$.
+The \textbf{rational cusps} (also called \textbf{$\Q$-cusps}) are the cusps fixed by $\Gal_{\Q}$.
 \end{definition*}
-
-
