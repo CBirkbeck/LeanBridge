@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.weierstrass_coeffs}{Weierstrass equation or model}}
-\begin{definition*}\label{ec.weierstrass_coeffs}
+\begin{definition}\label{ec.weierstrass_coeffs}
 \uses{ec}
 A \textbf{Weierstrass equation} or \textbf{Weierstrass model} over a field $k$ is a plane curve $E$ of the form
 $$y^2 + a_1xy + a_3y = x^3 + a_2 x^2 + a_4 x + a_6,$$
@@ -13,6 +13,4 @@ A Weierstrass model is smooth if and only if its \hyperref[ec.discriminant]{disc
 
 Two smooth Weierstrass models define isomorphic elliptic curves if and only if they are \hyperref[ec.weierstrass_isomorphism]{isomorphic} as Weierstrass models.
 
-\end{definition*}
-
-
+\end{definition}

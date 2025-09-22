@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.ambient}{Ambient group}}
-\begin{definition*}\label{group.ambient}
+\begin{definition}\label{group.ambient}
 \uses{group.subgroup}
 If $H \subseteq G$ is a \hyperref[group.subgroup]{subgroup}, we refer to $G$ as the \textbf{ambient group} of $H$.
-\end{definition*}
-
-
+\end{definition}

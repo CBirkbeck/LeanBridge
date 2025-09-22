@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.congruence_subgroup}{Congruence subgroup}}
-\begin{definition*}\label{cmf.congruence_subgroup}
+\begin{definition}\label{cmf.congruence_subgroup}
 \uses{}
 A \textbf{congruence subgroup} $\Gamma$ of $\SL_2(\Z)$ is a subgroup that contains a \textbf{principal congruence subgroup} $\Gamma(N) := \ker \left( \operatorname{SL}_2(\mathbb{Z}) \to \operatorname{SL}_2(\mathbb{Z}/N\mathbb{Z}) \right)$ for some $N\ge 1$.  The least such $N$ is the \textbf{level} of $\Gamma$.
-\end{definition*}
-
-
+\end{definition}

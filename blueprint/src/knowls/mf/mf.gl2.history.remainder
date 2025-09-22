@@ -1,10 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.gl2.history.remainder}{Remainder terms}}
-\begin{definition*}\label{mf.gl2.history.remainder}
+\begin{definition}\label{mf.gl2.history.remainder}
 \uses{af.divisor_function,cmf.cm_form,cmf.cusp_form,cmf.eisenstein,mf,mf.half_integral_weight.theta}
 Another occurrence of \hyperref[mf]{modular forms} is in <em>remainder terms</em> of many asymptotic formulas in number theory. \hyperref[cmf.eisenstein]{Eisenstein series} have "large" coefficients, which are <em>explicitly known</em>, while \hyperref[cmf.cusp_form]{cusp forms} have "small" coefficients, which are usually less explicit. By "explicit" in this context we mean that the coefficients are given by simple arithmetic functions, for example \hyperref[af.divisor_function]{divisor functions}. If the spaces of modular forms that we consider are <em>finite dimensional</em> and if by any chance they are spanned by Eisenstein series, we can obtain explicit formulas for the coefficients of modular forms, with <em>no</em> error term. On the other hand, if they are not spanned by Eisenstein series, we can still write explicit formulas, with a "small" error term corresponding to the contribution of cusp forms.
 
 A typical example of this is to find formulas for $r_k(n)$, the number of representations of a positive integer $n$ as a sum of $k$ squares. This is in fact the coefficient of $e^{\pi i z}$ in \hyperref[mf.half_integral_weight.theta]{<em>&theta;</em>}$^k$. The space of modular form to which $\theta^k$ belongs is known to be spanned by Eisenstein series for $k\le8$, so we have explicit formulas for $r_k(n)$ in these cases and otherwise we have approximate explicit
 formulas with a small error term. In fact, in the special case $k=10$, the cusp form which occurs is a \hyperref[cmf.cm_form]{<em>CM form</em>}, so it has the special property that its coefficients can also easily be computed, so there does also exist an explicit formula for $r_{10}(n)$.
-\end{definition*}
-
-
+\end{definition}

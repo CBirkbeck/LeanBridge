@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/gg.elusive_group}{Elusive group}}
-\begin{definition*}\label{gg.elusive_group}
+\begin{definition}\label{gg.elusive_group}
 \uses{}
 An \textbf{elusive group} is a transitive permutation group $H\leq S_n$ with no fixed-point-free elements of prime order.
-\end{definition*}
-
-
+\end{definition}

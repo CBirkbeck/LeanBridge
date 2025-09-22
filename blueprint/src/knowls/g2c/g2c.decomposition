@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.decomposition}{Decomposition of the Jacobian of a genus 2 curve}}
-\begin{definition*}\label{g2c.decomposition}
+\begin{definition}\label{g2c.decomposition}
 \uses{ag.abelian_variety,ag.geom_simple,av.isogeny,ag.simple,ec}
 An \hyperref[ag.abelian_variety]{abelian variety} $A$ defined over a field $K$ is said to \textbf{split} or \textbf{decompose} (over $K$) if it is \hyperref[av.isogeny]{isogenous} to a product of abelian varieties $B_1\times B_2$ of lower positive dimension; the abelian varieties $B_1$ and $B_2$ are also defined over $K$, as is the isogeny from $A$ to $B_1\times B_2$.  An abelian variety that does not decompose is said to be \hyperref[ag.simple]{simple}.  A simple abelian variety may decompose over a finite extension $L/K$ (meaning that its base change to $L$ decomposes), unless it is \hyperref[ag.geom_simple]{geometrically simple}.
 
 When $A$ is the Jacobian of a genus 2 curve, the abelian varieties $B_1$ and $B_2$ are necessarily \hyperref[ec]{elliptic curves}.  If $B_1$ and $B_2$ are isogenous elliptic curves, then $A$ is isogenous to the square of $B_1$ (the abelian variety $B_1\times B_1$).
-\end{definition*}
-
-
+\end{definition}

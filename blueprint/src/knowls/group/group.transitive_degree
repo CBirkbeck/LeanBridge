@@ -1,11 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.transitive_degree}{Transitive degree}}
-\begin{definition*}\label{group.transitive_degree}
+\begin{definition}\label{group.transitive_degree}
 \uses{group,group.core,group.permutation_representation,group.subgroup,group.subgroup.index}
 Given a finite \hyperref[group]{group} $G$, we call the minimal degree of a faithful transitive \hyperref[group.permutation_representation]{permutation representation} of $G$ the \textbf{minimal transitive degree} of $G$.
 
 Equivalently, it is the smallest positive integer $n$ such that $S_n$ has a transitive subgroup isomorphic to $G$.
 
 This can be computed as the minimal \hyperref[group.subgroup.index]{index} of a \hyperref[group.subgroup]{subgroup} with trivial \hyperref[group.core]{core}.
-\end{definition*}
-
-
+\end{definition}

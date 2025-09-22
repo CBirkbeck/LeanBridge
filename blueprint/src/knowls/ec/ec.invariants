@@ -1,7 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.invariants}{Elliptic curve invariants}}
-\begin{definition*}\label{ec.invariants}
+\begin{definition}\label{ec.invariants}
 \uses{ec,ec.conductor,ec.discriminant,ec.endomorphism_ring,ec.j_invariant,ec.minimal_discriminant,ec.weierstrass_coeffs,nf,ring.ideal,st_group.definition}
-The invariants of an \hyperref[ec]{elliptic curve} $E$ over a \hyperref[nf]{number field} $K$ are its 
+The invariants of an \hyperref[ec]{elliptic curve} $E$ over a \hyperref[nf]{number field} $K$ are its
 
 \begin{itemize}
 \item  \hyperref[ec.conductor]{conductor}, $\mathfrak{N}$, which is an integral \hyperref[ring.ideal]{ideal} of $K$ whose norm is the \textbf{conductor norm} $N(\mathfrak{N})$
@@ -12,6 +12,4 @@ The invariants of an \hyperref[ec]{elliptic curve} $E$ over a \hyperref[nf]{numb
 \end{itemize}
 
 Each \hyperref[ec.weierstrass_coeffs]{Weierstrass model} for \(E\) also has a \hyperref[ec.discriminant]{discriminant}, $\Delta$, and \hyperref[ec.discriminant_norm]{discriminant norm}, $N(\Delta)$, which are not strictly invariants of \(E\) since different models have, in general, different discriminants.
-\end{definition*}
-
-
+\end{definition}

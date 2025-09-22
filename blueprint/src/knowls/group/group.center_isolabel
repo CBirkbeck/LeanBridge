@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.center_isolabel}{Center label}}
-\begin{definition*}\label{group.center_isolabel}
+\begin{definition}\label{group.center_isolabel}
 \uses{group.center,group.label}
 You can specify the \hyperref[group.center]{center} of a group by providing its \hyperref[group.label]{label} as an abstract group.
-\end{definition*}
-
-
+\end{definition}

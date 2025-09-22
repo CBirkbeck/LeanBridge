@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.conjugacy_class}{Conjugacy class}}
-\begin{definition*}\label{group.conjugacy_class}
+\begin{definition}\label{group.conjugacy_class}
 \uses{group,group.automorphism,group.element_order}
 If $G$ is a \hyperref[group]{group} and $x\in G$, the \textbf{conjugacy class} of $x$ is the set $\{gxg^{-1}\mid g\in G\}$.  These sets partition $G$, and the set of conjugacy classes is denoted by $\mathrm{conj}(G)$.
 
 Since conjugation by fixed $g\in G$ is an \hyperref[group.automorphism]{automorphism} of $G$, all conjugate elements have the same \hyperref[group.element_order]{order} in the group.
-\end{definition*}
-
-
+\end{definition}

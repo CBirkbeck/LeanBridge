@@ -1,11 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/hmsurface.elliptic_point}{Elliptic point}}
-\begin{definition*}\label{hmsurface.elliptic_point}
+\begin{definition}\label{hmsurface.elliptic_point}
 \uses{}
 A transformation $(\alpha_1, \ldots, \alpha_n) \in \GL_2^+(\R)^n$ is called \textbf{elliptic} if each
 $$
 \operatorname{tr}(\alpha_i)^2 - 4\det(\alpha_i) < 0.
 $$
 If $F$ is a real quadratic field, an element $\alpha \in \GL_2^+(F)$ is called \textbf{elliptic} if the above condition holds for each real embedding of $F$. An \textbf{elliptic point} is the (necessarily unique) fixed point in $\frak{h}^2$ of an elliptic element.
-\end{definition*}
-
-
+\end{definition}

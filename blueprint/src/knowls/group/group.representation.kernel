@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.representation.kernel}{Kernel of a character}}
-\begin{definition*}\label{group.representation.kernel}
+\begin{definition}\label{group.representation.kernel}
 \uses{group.representation.character}
 The \textbf{kernel} of the \hyperref[group.representation.character]{character} $\chi$ of a group $G$ is the subgroup of $G$ given by the set: $$\ker(\phi)=\{g \in G : \chi(g)=\chi(1)\}.$$
-\end{definition*}
-
-
+\end{definition}

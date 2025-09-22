@@ -1,13 +1,11 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.repr_explain}{Representative of a conjugacy class}}
-\begin{definition*}\label{group.repr_explain}
+\begin{definition}\label{group.repr_explain}
 \uses{group.conjugacy_class,group.permutation_representation,group.presentation,group.solvable}
 A representative of each \hyperref[group.conjugacy_class]{conjugacy class} is given in different formats depending on how the abstract group is stored in the database.
 
 For *permutation groups* the representative is given as a permutation of \hyperref[group.permutation_representation]{degree} given in the Construction section of this group's main page.
 
-For *matrix groups* the representatives are given by matrices in the group described in the Construction section of this group's main page. 
+For *matrix groups* the representatives are given by matrices in the group described in the Construction section of this group's main page.
 
 For \hyperref[group.solvable]{solvable} groups, the representatives are given as words in the generators from the \hyperref[group.presentation]{presentation} given in the Construction section of this group's main page.
-\end{definition*}
-
-
+\end{definition}

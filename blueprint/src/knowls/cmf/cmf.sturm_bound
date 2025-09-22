@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.sturm_bound}{Sturm bound}}
-\begin{definition*}\label{cmf.sturm_bound}
+\begin{definition}\label{cmf.sturm_bound}
 \uses{cmf.character,cmf.fouriercoefficients,cmf.level,cmf.newform,cmf.weight}
 The \textbf{Sturm bound} is an upper bound on the least index where the coefficients of the \hyperref[cmf.fouriercoefficients]{Fourier expansions} of distinct modular forms in the same space $M_k(N,\chi)$ must differ.
 
@@ -18,8 +18,6 @@ Note that the Sturm bound for $S_k^{\mathrm{new}}(N,\chi)$ does not apply (in ge
 \[
 S_k^{\mathrm{new}}(N,[\chi]):= \bigoplus_{\chi'\in [\chi]}S_k^{\rm new}(N,\chi')
 \]
-associated to the Galois orbit $[\chi]$; rather, it applies to each direct summand $S_k^{\rm new}(N,\chi')$. 
+associated to the Galois orbit $[\chi]$; rather, it applies to each direct summand $S_k^{\rm new}(N,\chi')$.
 
-\end{definition*}
-
-
+\end{definition}

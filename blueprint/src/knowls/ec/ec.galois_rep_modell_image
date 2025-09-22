@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.galois_rep_modell_image}{Image of mod-$l$ Galois representation}}
-\begin{definition*}\label{ec.galois_rep_modell_image}
+\begin{definition}\label{ec.galois_rep_modell_image}
 \uses{ec,ec.galois_rep,gl2.borel,gl2.exceptional,gl2.nonsplit_cartan,gl2.normalizer_nonsplit_cartan,gl2.normalizer_split_cartan,gl2.split_cartan,nf}
 Let $\ell$ be a prime and let $E$ be an \hyperref[ec]{elliptic curve} defined over a \hyperref[nf]{number field} $K$.
 
@@ -17,4 +17,4 @@ When $\bar\rho_{E,\ell}$ does not contain $\SL(2,\F_\ell)$  the possibilities fo
 \hyperref[gl2.nonsplit_cartan]{nonsplit Cartan} \textbf{Cn}, \hyperref[gl2.normalizer_nonsplit_cartan]{normalizer of the nonsplit Cartan} \textbf{Nn},  \hyperref[gl2.exceptional]{exceptional} \textbf{A4}, \textbf{S4}, \textbf{A5}.  The cases \textbf{A4} and \textbf{A5} cannot occur when $K=\Q$.
 
 
-\end{definition*}
+\end{definition}

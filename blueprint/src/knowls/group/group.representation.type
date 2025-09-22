@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.representation.type}{Type of a complex group representation}}
-\begin{definition*}\label{group.representation.type}
+\begin{definition}\label{group.representation.type}
 \uses{artin.frobenius_schur_indicator,group,group.representation.character}
 Let $\rho:G\to\GL_n(\C)$ be an irreducible complex \hyperref[group]{group} representation.  Then $\rho$ is one of three \textbf{types}:
 
@@ -8,6 +8,4 @@ Let $\rho:G\to\GL_n(\C)$ be an irreducible complex \hyperref[group]{group} repre
 1. \textbf{Quaternionic (or Symplectic)} if the character values are all real but the representation is not conjugate to a real representation.
 
 The type of the representation can be computed via its \hyperref[artin.frobenius_schur_indicator]{Frobenius-Schur indicator}.
-\end{definition*}
-
-
+\end{definition}

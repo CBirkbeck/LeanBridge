@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.cande.gg}{Completeness and extent of Galois group data}}
-\begin{definition*}\label{rcs.cande.gg}
+\begin{definition}\label{rcs.cande.gg}
 \uses{gg.other_representations,gg.resolvents,group.subgroup,group.subgroup.index,nf.arithmetically_equivalent}
 There is data for every transitive \hyperref[group.subgroup]{subgroup} of $S_n$, up to conjugation, for $n\leq 47$ and $n\neq 32$.  For transitive subgroups of $S_{32}$, there is data for all groups $G$ where either $|G|<512$ or $|G|> 40{,}000{,}000{,}000$, plus some other groups of intermediate sizes when they appear elsewhere in the LMFDB.
 
 For most groups, \hyperref[gg.other_representations]{sibling} and \hyperref[gg.resolvents]{resolvent} information is given for subgroups of \hyperref[group.subgroup.index]{index} $\leq 47$.  In some cases, this information was only computed with smaller bounds, and the individual group pages so indicate.  If sibling information for a subgroup of $S_n$ was only computed to a bound less than $n$, then there is no information on \hyperref[nf.arithmetically_equivalent]{arithmetic equivalence}.
-\end{definition*}
-
-
+\end{definition}

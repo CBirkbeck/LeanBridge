@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.family_mass}{Mass of a family}}
-\begin{definition*}\label{lf.family_mass}
+\begin{definition}\label{lf.family_mass}
 \uses{lf.family_base,lf.family_polynomial,lf.residue_field_degree,lf.unramified_degree}
 Let $I/K$ be a \hyperref[lf.family_polynomial]{family} of extensions of
 $p$-adic fields with \hyperref[lf.family_base]{base field} $K$.  Let $f$ be
@@ -15,6 +15,4 @@ the sum of the absolute masses of the elements of $I/K$.  When
 $K = \Q_p$, the mass is the product of the absolute mass with $f$.
 
 For some families, not all of the fields within the family are contained within the LMFDB.  In these cases, we display the fraction of the absolute mass among those fields within the database as a percentage.
-\end{definition*}
-
-
+\end{definition}

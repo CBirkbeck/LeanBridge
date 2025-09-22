@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/gg.simple_name}{Simple group name}}
-\begin{definition*}\label{gg.simple_name}
+\begin{definition}\label{gg.simple_name}
 \uses{}
 We describe abstract groups using standard building blocks:
 <ul>
@@ -18,6 +18,4 @@ Groups $A$ and $B$ may be used to construct a larger group:
 \item  $A\wr B$ for the wreath product of A and B
 \end{itemize}
 
-\end{definition*}
-
-
+\end{definition}

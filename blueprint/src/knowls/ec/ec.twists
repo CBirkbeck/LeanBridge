@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.twists}{Twists of elliptic curves}}
-\begin{definition*}\label{ec.twists}
+\begin{definition}\label{ec.twists}
 \uses{av.twist,ec,ec.j_invariant,g2c.aut_grp,ring.characteristic,ring.field}
 A \textbf{twist} of an \hyperref[ec]{elliptic curve} $E$ defined over a \hyperref[ring.field]{field} $K$ is another elliptic curve $E'$, also defined over $K$, which is isomorphic to $E$ over the algebraic closure of $K$.
 
@@ -10,6 +10,4 @@ For elliptic curves $E$ with $j(E)\not=0, 1728$, the only twists of $E$ are its 
 Over fields of characteristic not $2$ or $3$, elliptic curves with $j$-invariant $1728$ also admit \textbf{quartic twists}, parametrised by $K^*/(K^*)^4$, and elliptic curves with $j$-invariant $0$ also admit \textbf{sextic twists}, parametrised by $K^*/(K^*)^6$.  Elliptic curves $E$ over fields $K$ of characteristic $2$ and $3$ with $j(E)=0=1728$ have nonabelian \hyperref[g2c.aut_grp]{automorphism} groups, and their twists are more complicated to describe, being in all cases parametrised by $H^1(\Gal(\overline{K}/K), \Aut(E))$.
 
 Elliptic curve twists are a special case of \hyperref[av.twist]{twists of abelian varieties}.
-\end{definition*}
-
-
+\end{definition}

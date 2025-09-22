@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.indices_of_inseparability}{Indices of inseparability}}
-\begin{definition*}\label{lf.indices_of_inseparability}
+\begin{definition}\label{lf.indices_of_inseparability}
 \uses{lf.padic_field,lf.ramification_index,lf.slopes,lf.unramified_subfield}
 Let $L/K$ be a finite extension of \hyperref[lf.padic_field]{$p$-adic fields} and let
 $K'/K$ be the \hyperref[lf.unramified_subfield]{maximum unramified subextension} of $L/K$.
@@ -15,7 +15,7 @@ or let $i_j^{\pi_L}=\infty$ if the set above is empty.
 Heiermann \cite{doi:10.1006/JNTH.1996.0092} defines the $j$th \textbf{index of inseparability} of $L/K$ to be
 \[i_j=\min\{i_{j'}^{\pi_L}+(j'-j)e_L:j\le j'\le\nu\},\]
 where $e_L=v_L(p)$ is the absolute \hyperref[lf.ramification_index]{ramification index} of
-$L$.  
+$L$.
 
 It follows that
 $0=i_{\nu}<i_{\nu-1}\le\dots\le i_1\le i_0$.  The value
@@ -27,6 +27,4 @@ polynomial over $K'$ of any uniformizer for $L$.  The
 indices of inseparability determine the usual
 ramification data of $L/K$ (e.g., the \hyperref[lf.slopes]{slopes}), and in
 some cases give new information.
-\end{definition*}
-
-
+\end{definition}

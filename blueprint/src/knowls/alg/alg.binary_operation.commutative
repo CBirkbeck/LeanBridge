@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/alg.binary_operation.commutative}{Commutative binary operation}}
-\begin{definition*}\label{alg.binary_operation.commutative}
+\begin{definition}\label{alg.binary_operation.commutative}
 \uses{alg.binary_operation}
 If $*$ is a \hyperref[alg.binary_operation]{binary operation} on a set $A$, then $*$ is \textbf{commutative} on $A$ if for all $a,b\in A$,
 $$ a*b=b*a.$$
 
-\end{definition*}
-
-
+\end{definition}

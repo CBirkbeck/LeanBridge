@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.ack.lfunction.modular}{Acknowledgments for modular form L-functions}}
-\begin{definition*}\label{rcs.ack.lfunction.modular}
+\begin{definition}\label{rcs.ack.lfunction.modular}
 \uses{}
 
-\end{definition*}
-
-
+\end{definition}

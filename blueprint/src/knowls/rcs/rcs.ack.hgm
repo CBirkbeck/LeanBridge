@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.ack.hgm}{Acknowledgments for hypergeometric motive data}}
-\begin{definition*}\label{rcs.ack.hgm}
+\begin{definition}\label{rcs.ack.hgm}
 \uses{}
 
-\end{definition*}
-
-
+\end{definition}

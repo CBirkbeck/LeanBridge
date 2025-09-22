@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.distinguishing_primes}{Distinguishing Hecke operators}}
-\begin{definition*}\label{cmf.distinguishing_primes}
+\begin{definition}\label{cmf.distinguishing_primes}
 \uses{cmf.galois_orbit,cmf.hecke_operator,cmf.newform,cmf.newspace}
 For a \hyperref[cmf.newspace]{newspace} $S^\mathrm{new}_k(N,\chi)$ we say that a set of \hyperref[cmf.hecke_operator]{Hecke operators} $\mathcal T:=\{T_{p_1},\ldots,T_{p_r}\}$ \textbf{distinguishes} the \hyperref[cmf.newform]{newforms} in the space if the sets $X_f(\mathcal T)$ of characteristic polynomials of the $T_p\in \mathcal T$ acting on the subspace $V_f$ spanned by the \hyperref[cmf.galois_orbit]{Galois orbit} of $f$ in $S_k^\mathrm{new}(N,\chi)$ are distinct as $f$ ranges over (non-conjugate) newforms in $S_k^\mathrm{new}(N,\chi)$.
 
@@ -8,6 +8,4 @@ The set $\mathcal T$ can be identified by a list of primes $p$.  For convenience
 c_m := \#\bigl\{X_f(\{T_{p_i}:i < m\}): \mathrm{newforms}\ f\in S_k^\mathrm{new}(N,\chi)\bigr\}
 \]
 is strictly increasing.  The length of the sequence $p_1,\ldots p_n$ is always less then the number of newforms in $S_k^\mathrm{new}(N,\chi)$ and we obtain the empty sequence when $S_k^\mathrm{new}(N,\chi)$ contains just one newform.
-\end{definition*}
-
-
+\end{definition}

@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction}{L-function}}
-\begin{definition*}\label{lfunction}
+\begin{definition}\label{lfunction}
 \uses{lfunction.dirichlet_series,lfunction.euler_product,lfunction.functional_equation}
 An (analytic) \textbf{L-function} is a \hyperref[lfunction.dirichlet_series]{Dirichlet series} that has an \hyperref[lfunction.euler_product]{Euler product} and satisfies a certain type of \hyperref[lfunction.functional_equation]{functional equation}.
 
@@ -7,6 +7,4 @@ It is expected that all L-functions satisfy the \hyperref[lfunction.rh]{Riemann 
 
 It is also conjectured that a precise form of the \hyperref[lfunction.functional_equation]{functional equation} holds for every element of $\mathcal S$. Under this assumption the functional equation is determined by a quadruple known as the \hyperref[lfunction.selbergdata]{Selberg data}, consisting of the \hyperref[lfunction.degree]{degree}, \hyperref[lfunction.conductor]{conductor}, \hyperref[lfunction.spectral_parameters]{spectral parameters}, and \hyperref[lfunction.root_number]{sign}.
 
-\end{definition*}
-
-
+\end{definition}

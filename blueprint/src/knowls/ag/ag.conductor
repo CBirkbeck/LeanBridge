@@ -1,11 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.conductor}{Conductor of an abelian variety}}
-\begin{definition*}\label{ag.conductor}
+\begin{definition}\label{ag.conductor}
 \uses{ag.abelian_variety,ag.jacobian}
 The \textbf{conductor} of an \hyperref[ag.abelian_variety]{abelian variety} $A$ over $\Q$ is a positive integer $N$ whose prime factors are the primes $p$ where $A$ has bad reduction. The power to which $p$ divides $N$ depends on the type of bad reduction; it can be expressed in terms of ramification in the $\ell$-adic representation associated to $A$ for any prime $\ell \ne p$.
 
 The conductor of an abelian variety over a number field is defined similarly; it is an ideal that is a product of positive powers of the prime ideals where $A$ has bad reduction.  The conductor of a curve $C$ over a number field is defined to be the conductor of the \hyperref[ag.jacobian]{Jacobian} of $C$.
 
 Isogenous abelian varieties have the same conductor.
-\end{definition*}
-
-
+\end{definition}

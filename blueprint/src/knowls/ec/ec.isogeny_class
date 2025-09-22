@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.isogeny_class}{Isogeny class of an elliptic curve}}
-\begin{definition*}\label{ec.isogeny_class}
+\begin{definition}\label{ec.isogeny_class}
 \uses{ec,ec.isogeny}
 The \textbf{isogeny class (over a field $K$)} of an \hyperref[ec]{elliptic curve} $E$ defined over $K$ is the set of all isomorphism classes of elliptic curves defined over $K$ that are \hyperref[ec.isogeny]{isogenous} to $E$ over $K$.  Over a number field $K$ this is always a finite set; over $\Q$, it has at most 8 elements by a theorem of Kenku \cite{MR0675184, doi:10.1016/0022-314X(82)90025-7}.
-\end{definition*}
-
-
+\end{definition}

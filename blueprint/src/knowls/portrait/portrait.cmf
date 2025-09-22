@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/portrait.cmf}{Pictures for classical modular forms}}
-\begin{definition*}\label{portrait.cmf}
+\begin{definition}\label{portrait.cmf}
 \uses{cmf.newform,cmf.trace_form}
 For each \hyperref[cmf.newform]{newform} or \hyperref[cmf.trace_form]{trace form}, we use domain coloring to plot the associated trace form $\mathrm{Tr}(f)$.
 
@@ -11,6 +11,4 @@ The color starts as a dull mustard yellow at $\theta = 0$ and becomes brighter a
 ## Implementation ##
 
 The pictures of modular forms were implemented by David Lowry-Duda following the "pure phase plots" described in *Visualizing Modular Forms* by Lowry-Duda \cite{MR:4427977,arXiv:2002.05234}.
-\end{definition*}
-
-
+\end{definition}

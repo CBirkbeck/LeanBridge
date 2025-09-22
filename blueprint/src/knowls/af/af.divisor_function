@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/af.divisor_function}{Divisor function}}
-\begin{definition*}\label{af.divisor_function}
+\begin{definition}\label{af.divisor_function}
 \uses{af,af.multiplicative}
 A \textbf{divisor function} is a \hyperref[af.multiplicative]{multiplicative} \hyperref[af]{arithmetic function} of the form
 \[
@@ -7,6 +7,4 @@ A \textbf{divisor function} is a \hyperref[af.multiplicative]{multiplicative} \h
 \]
 for some fixed $\tau\in\mathbb{C}$.
 
-\end{definition*}
-
-
+\end{definition}

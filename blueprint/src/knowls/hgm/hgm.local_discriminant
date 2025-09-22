@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/hgm.local_discriminant}{The local discriminant of a hypergeometric motive}}
-\begin{definition*}\label{hgm.local_discriminant}
+\begin{definition}\label{hgm.local_discriminant}
 \uses{hgm.motive,modlgal.frobenius_charpoly,nf.discriminant}
 Given a \hyperref[hgm.motive]{hypergeometric motive} $M$ and a prime $p$, the \textbf{local discriminant} of $M$ at $p$ is the \hyperref[nf.discriminant]{discriminant} of the number field defined by the \hyperref[modlgal.frobenius_charpoly]{characteristic polynomial of Frobenius} of $M$ at $p$.
-\end{definition*}
-
-
+\end{definition}

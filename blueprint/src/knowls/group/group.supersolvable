@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.supersolvable}{Supersolvable group}}
-\begin{definition*}\label{group.supersolvable}
+\begin{definition}\label{group.supersolvable}
 \uses{group.abelian,group.metacyclic,group.monomial,group.nilpotent,group.solvable,group.subgroup.normal}
 A group is \textbf{supersolvable} if there are nested \hyperref[group.subgroup.normal]{normal} subgroups $N_i\lhd G$
 
@@ -8,6 +8,4 @@ with all successive quotients $N_{i+1}/N_i$ cyclic. It is stronger than requirin
 
 
 While every nilpotent group is supersolvable, the converse does not hold as shown by <a href="{{url\_for('abstract.index')}}?nilpotent=no&supersolvable=yes">these examples</a>.  Similarly, <a href="{{url\_for('abstract.index')}}?metacyclic=no&supersolvable=yes">these examples</a> show that not every supersolvable group is metacyclic.
-\end{definition*}
-
-
+\end{definition}

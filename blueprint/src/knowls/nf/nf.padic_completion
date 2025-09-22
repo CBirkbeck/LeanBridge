@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.padic_completion}{$p$-adic completion of a number field}}
-\begin{definition*}\label{nf.padic_completion}
+\begin{definition}\label{nf.padic_completion}
 \uses{lf.ring_of_integers,nf,nf.local_algebra,nf.prime,ring.dedekind_domain,ring.field_of_fractions,ring.fractional_ideal,ring.integral_domain,ring.irreducible}
 Let $K$ be a \hyperref[nf]{number field}, $\mathcal{O}_K$ its \hyperref[lf.ring_of_integers]{ring of integers}, $\mathfrak{P}$ a non-zero \hyperref[nf.prime]{prime ideal} of $\mathcal{O}_K$, and $p\in \Z\cap \mathfrak{P}$.
 There are a couple of ways to construct $K_{\mathfrak{P}}$, the \textbf{$p$-adic completion of $K$ at $\mathfrak{P}$}.
@@ -17,4 +17,4 @@ $d(\alpha, \beta) = p^{-v_{\mathfrak{P}}(\alpha-\beta)}$ if $\alpha\neq \beta$ a
 If $K=\Q(a)$, and $f\in\Q[x]$ is the monic \hyperref[ring.irreducible]{irreducible} polynomial for $a$ over $\Q$, then adjoining the roots of $f$ to $\Q_p$ provide another means of constructing the completions.
 
 Finally, the \hyperref[nf.local_algebra]{local algebra} of $K$, $\prod_{j=1}^g K_j$ is a product of the $p$-adic completions of $K$.  The $p$-adic completions of $K$ correspond to the nonarchimedian \hyperref[nf.place]{places} of $K$.
-\end{definition*}
+\end{definition}

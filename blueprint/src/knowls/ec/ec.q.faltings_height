@@ -1,7 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.q.faltings_height}{Faltings height of an elliptic curve}}
-\begin{definition*}\label{ec.q.faltings_height}
+\begin{definition}\label{ec.q.faltings_height}
 \uses{ec,ec.discriminant,ec.j_invariant,ec.q.period_lattice,ec.semistable}
-The \textbf{Faltings height} of an \hyperref[ec]{elliptic curve} $E$ defined over $\Q$ is the quantity 
+The \textbf{Faltings height} of an \hyperref[ec]{elliptic curve} $E$ defined over $\Q$ is the quantity
 $$
    h_{\mathrm{Faltings}}(E) = -\frac{1}{2}\log(A),
 $$
@@ -11,8 +11,6 @@ The \textbf{stable Faltings height} of $E$ is
 $$
    h_{\mathrm{stable}}(E) = \frac{1}{12}(\log\mathrm{denom}(j)-\log(|\Delta|)) - \frac{1}{2}\log(A),
 $$
-where $j$ is the \hyperref[ec.j_invariant]{$j$-invariant} of $E$, $\Delta$ the \hyperref[ec.discriminant]{discriminant} of any model of $E$ and $A$ the covolume of the period lattice of that model. 
+where $j$ is the \hyperref[ec.j_invariant]{$j$-invariant} of $E$, $\Delta$ the \hyperref[ec.discriminant]{discriminant} of any model of $E$ and $A$ the covolume of the period lattice of that model.
 The stable height is independent of the model of $E$, and the unstable and stable heights are equal for \hyperref[ec.semistable]{semistable} curves, for which $\mathrm{denom}(j)=|\Delta|$.
-\end{definition*}
-
-
+\end{definition}

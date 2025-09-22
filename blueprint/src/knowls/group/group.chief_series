@@ -1,11 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.chief_series}{Chief series of a group}}
-\begin{definition*}\label{group.chief_series}
+\begin{definition}\label{group.chief_series}
 \uses{group,group.normal_series,group.simple,group.subgroup.normal}
 If $G$ is a \hyperref[group]{group}, the \textbf{chief series} of $G$ is a \hyperref[group.normal_series]{normal series}
 \[ \langle e\rangle=N_0 \lhd N_1 \lhd \cdots \lhd N_k=G\]
 where each $N_{i+1}/N_i$ is a minimal \hyperref[group.subgroup.normal]{normal subgroup} of $G/N_i$.
 
 The factor groups $N_{i+1}/N_i$ are each isomorphic to a product of some number of copies of a single \hyperref[group.simple]{simple group} (which depends on $i$).  These simple groups (together with their multiplicities) are the \textbf{composition factors} of $G$.  While there may be many chief series for $G$, the set of composition factors is a well defined invariant.
-\end{definition*}
-
-
+\end{definition}

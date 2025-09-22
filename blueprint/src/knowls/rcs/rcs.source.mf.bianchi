@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.mf.bianchi}{Source of Bianchi modular form data}}
-\begin{definition*}\label{rcs.source.mf.bianchi}
+\begin{definition}\label{rcs.source.mf.bianchi}
 \uses{mf.bianchi,mf.bianchi.newform,mf.bianchi.weight,nf.abs_discriminant,nf.class_number}
 The database of \hyperref[mf.bianchi]{Bianchi modular forms} was mostly computed by John Cremona using modular symbol algorithms developed in his [1981 DPhil thesis](http://http://www.warwick.ac.uk/staff/J.E.Cremona/theses/JCthesis-scan.pdf) (see also [J. E. Cremona,
 Hyperbolic tessellations, modular symbols, and
@@ -10,6 +10,4 @@ Compositio Mathematica, tome 51, no 3 (1984), p. 275-324](http://http://www.numd
 
 Dimension data for full cuspidal and new spaces for a range of weights and $\mathrm{SL}_2$ levels over $\mathbb{Q}(\sqrt{-d})$ for $d=2,11,19,43,67,163$ were computed by Alexander Rahm using [his own code](https://gaati.org/rahm/MathematicalSoftware.htm) written in PARI/GP.
 
-\end{definition*}
-
-
+\end{definition}

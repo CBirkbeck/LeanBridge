@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/av.princ_polarizable}{Principally polarizable}}
-\begin{definition*}\label{av.princ_polarizable}
+\begin{definition}\label{av.princ_polarizable}
 \uses{ag.abelian_variety,ag.jacobian,av.polarization}
 An \hyperref[ag.abelian_variety]{abelian variety} is \textbf{principally polarizable} if it admits a \hyperref[av.polarization]{polarization} that is an isomorphism. For example, the \hyperref[ag.jacobian]{Jacobian} of a curve admits a canonical principal polarization; by the Torelli theorem, the curve is uniquely determined by its Jacobian together with this polarization.
 
 An isogeny class of abelian varieties is principally polarizable if one of its members admits a principal polarization.
-\end{definition*}
-
-
+\end{definition}

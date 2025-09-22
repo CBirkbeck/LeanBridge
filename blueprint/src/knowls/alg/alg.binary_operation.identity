@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/alg.binary_operation.identity}{Identity for a binary operation}}
-\begin{definition*}\label{alg.binary_operation.identity}
+\begin{definition}\label{alg.binary_operation.identity}
 \uses{alg.binary_operation}
 If $*$ is a \hyperref[alg.binary_operation]{binary operation} on a set $A$, then $A$ has an \textbf{identity} element with respect to $*$ if there exists $e\in A$ such that for all $a\in A$,
 $$ a*e = e*a = a.$$
 Such an identity element $e$, if it exists, is unique and is thus called \textbf{the identity element} of $A$ with respect to $*$.
-\end{definition*}
-
-
+\end{definition}

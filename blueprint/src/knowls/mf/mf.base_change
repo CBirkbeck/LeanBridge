@@ -1,17 +1,15 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.base_change}{Base change of a GL(2) modular form}}
-\begin{definition*}\label{mf.base_change}
+\begin{definition}\label{mf.base_change}
 \uses{mf,nf}
-Let $K \supseteq F$ be a finite extension of \hyperref[nf]{number fields}, not necessarily Galois.  Let $f$ be a \hyperref[mf]{modular form} on $\GL(2)$ over $F$ of level $\mathfrak{N}$.  
+Let $K \supseteq F$ be a finite extension of \hyperref[nf]{number fields}, not necessarily Galois.  Let $f$ be a \hyperref[mf]{modular form} on $\GL(2)$ over $F$ of level $\mathfrak{N}$.
 
 For a (nonzero) prime $\mathfrak{p} \nmid \mathfrak{N}$ of $F$, let $L_{\mathfrak{p}}(f,T)$ be the (good, degree 2) Euler factor at $\mathfrak{p}$.  For $r \in \Z_{\geq 1}$ and a polynomial $h(T) \in \C[T]$, let $h^{(r)}(T)$ be the polynomial whose roots are the $r$-th powers of the roots of $h(T)$ (with $\deg h^{(r)}(T)=\deg h(T)$).
 
-We say that a modular form $g$ for $\GL(2)$ over $K$ is a \textbf{base change} of $f$ to $K$ if 
+We say that a modular form $g$ for $\GL(2)$ over $K$ is a \textbf{base change} of $f$ to $K$ if
 \[ L_{\mathfrak{q}}(g,T) = L_{\mathfrak{p}}^{(r)}(f,T) \]
-for all but finitely many primes $\mathfrak{q}$ of $K$, where $\mathfrak{q}$ lies over $\mathfrak{p} \nmid \mathfrak{N}$ and $r$ is the degree of $\mathfrak{q}$ over $\mathfrak{p}$.  
+for all but finitely many primes $\mathfrak{q}$ of $K$, where $\mathfrak{q}$ lies over $\mathfrak{p} \nmid \mathfrak{N}$ and $r$ is the degree of $\mathfrak{q}$ over $\mathfrak{p}$.
 
 In general, we say that a form $g$ for $\GL(2)$ over $K$ is a \textbf{base change} if there exists a proper subfield $K_0 \subsetneq K$ and a modular form $g_0$ on $\GL(2)$ over $K_0$ such that $g$ is the base change of $g_0$ to $K$.
 
 In particular, if $g$ is a base change from $\Q$ to $K$, then $a_{\mathfrak{q}}(g) = a_{\sigma(\mathfrak{q})}(g)$ for all $\sigma \in \mathrm{Aut}(K)$.
-\end{definition*}
-
-
+\end{definition}

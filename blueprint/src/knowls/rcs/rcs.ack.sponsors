@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.ack.sponsors}{Acknowledgments for sponsors}}
-\begin{definition*}\label{rcs.ack.sponsors}
+\begin{definition}\label{rcs.ack.sponsors}
 \uses{}
  The LMFDB has been supported by a number of grants.
     <ul>
@@ -27,6 +27,4 @@
         <li>CDI: Bibliographic Knowledge Network, NSF
         grant <a href="http://www.nsf.gov/awardsearch/showAward?AWD\_ID=0835851">DMS:0835851</a> (2008-2011)</li>
     </ul></li></ul>
-\end{definition*}
-
-
+\end{definition}

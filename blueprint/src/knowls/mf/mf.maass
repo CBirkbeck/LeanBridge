@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.maass}{Maass forms on GL(n)}}
-\begin{definition*}\label{mf.maass}
+\begin{definition}\label{mf.maass}
 \uses{}
-The term \textbf{Maass form} is used for automorphic forms on \( GL_{n} \) (for some positive integer n), which are not holomorphic. 
+The term \textbf{Maass form} is used for automorphic forms on \( GL_{n} \) (for some positive integer n), which are not holomorphic.
 Instead of satisfying the  Cauchy-Riemann equations (as holomorphic functions do), these functions are eigenfunctions of the Casimir element in the universal enveloping algebra of the Lie algebra of \( GL_{n} \).
 
-\end{definition*}
-
-
+\end{definition}

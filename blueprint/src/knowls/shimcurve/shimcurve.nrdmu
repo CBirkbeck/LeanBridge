@@ -1,11 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/shimcurve.nrdmu}{Polarization degree of a polarized order}}
-\begin{definition*}\label{shimcurve.nrdmu}
+\begin{definition}\label{shimcurve.nrdmu}
 \uses{shimcurve.disco,shimcurve.polarized_order}
-Let $(O,\mu)$ be a \hyperref[shimcurve.polarized_order]{polarized quaternion order}. The \textbf{polarization degree} 
-$\deg(\mu)$ is the square-free part of the integer 
+Let $(O,\mu)$ be a \hyperref[shimcurve.polarized_order]{polarized quaternion order}. The \textbf{polarization degree}
+$\deg(\mu)$ is the square-free part of the integer
 $\operatorname{nrd}(\mu)/\operatorname{discrd}(O)$.
 Here, $\operatorname{nrd} : B \to \Q$ is the reduced norm,
 and $\operatorname{discrd}(O)$ is the \hyperref[shimcurve.disco]{reduced discriminant} of $O$.
-\end{definition*}
-
-
+\end{definition}

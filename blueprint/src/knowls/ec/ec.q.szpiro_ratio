@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.q.szpiro_ratio}{Szpiro ratio}}
-\begin{definition*}\label{ec.q.szpiro_ratio}
+\begin{definition}\label{ec.q.szpiro_ratio}
 \uses{ec,ec.minimal_discriminant,ec.q.conductor,ec.q.j_invariant}
 The (modified) \textbf{Szpiro ratio} of an \hyperref[ec]{elliptic curve} $E$ is defined as
 \[
@@ -12,6 +12,4 @@ $$
 \frac{\log \Delta}{\log N},
 $$
 also has the property of only taking values larger than $6+\epsilon$ finitely many times (here $\Delta$ is the \hyperref[ec.minimal_discriminant]{minimal discriminant} of $E$).  This conjecture is implied by the modified Szpiro conjecture (and thus the $abc$ conjecture), but it is not currently known to be equivalent.  All of the Szpiro ratios in the LMFDB are computed in terms of $c_4$ and $c_6$ rather than $\Delta$ for this reason.
-\end{definition*}
-
-
+\end{definition}

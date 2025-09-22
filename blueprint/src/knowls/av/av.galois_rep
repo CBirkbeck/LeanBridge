@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/av.galois_rep}{Galois representations attached to an abelian variety}}
-\begin{definition*}\label{av.galois_rep}
+\begin{definition}\label{av.galois_rep}
 \uses{av.tate_module,group.galois.absolute}
 If $A$ is an abelian variety defined over a field $K$ and $m$ is a positive integer, then the \textbf{mod-$m$ Galois representation} attached to $A$ is the continuous homomorphism
 \[
@@ -26,4 +26,4 @@ When $K$ has characteristic zero one can take the inverse limit over all positiv
 \rho_{A}: \Gal(\overline{K}/K) \to \GSp_{2g}(\hat \Z).
 \]
 
-\end{definition*}
+\end{definition}

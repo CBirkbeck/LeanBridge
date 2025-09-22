@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.permutation_degree}{Permutation degree}}
-\begin{definition*}\label{group.permutation_degree}
+\begin{definition}\label{group.permutation_degree}
 \uses{group,group.permutation_representation}
 Given a finite \hyperref[group]{group} $G$, the \textbf{minimal permutation degree} of $G$ is the minimal degree of a faithful \hyperref[group.permutation_representation]{permutation representation} of $G$. Equivalently, it is the smallest positive integer $n$ such that $S_n$ has a subgroup isomorphic to $G$ which may or may not be transitive.
-\end{definition*}
-
-
+\end{definition}

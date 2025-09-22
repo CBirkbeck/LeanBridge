@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.conductor}{Conductor of an elliptic curve}}
-\begin{definition*}\label{ec.conductor}
+\begin{definition}\label{ec.conductor}
 \uses{ec,ec.additive_reduction,ec.bad_reduction,ec.good_reduction,ec.multiplicative_reduction,nf,nf.ring_of_integers}
 The \textbf{conductor} of an \hyperref[ec]{elliptic curve} $E$ defined over a \hyperref[nf]{number field} $K$ is an ideal of the \hyperref[nf.ring_of_integers]{ring of integers} of $K$ that is divisible by the prime ideals of \hyperref[ec.bad_reduction]{bad reduction} and no others.  It is defined as
 $$
@@ -38,6 +38,4 @@ curves</EM>, GTM <B>151</B>, Springer-Verlag, New York, 1994.
 </UL>
 
 The \textbf{conductor norm} is the norm $[\mathcal{O}_K:\mathfrak{n}]$ of the ideal $\mathfrak{n}$.
-\end{definition*}
-
-
+\end{definition}

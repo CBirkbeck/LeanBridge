@@ -1,10 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modlgal.determinant}{Determinant character}}
-\begin{definition*}\label{modlgal.determinant}
+\begin{definition}\label{modlgal.determinant}
 \uses{ag.algebraic_group,modlgal,modlgal.dimension}
 To each \hyperref[modlgal]{mod-$\ell$ Galois representation} $\rho:\Gal_K \to G(\F_{\ell})$, with values in the $\F_{\ell}$-points of an \hyperref[ag.algebraic_group]{algebraic group} $G$, is associated a \textbf{determinant character} $\det\rho:\Gal_K \to \F_{\ell}^*$, defined by composing $\rho$ with the determinant map $G(\F_{\ell}) \to \F_{\ell}^*$.
 
 The determinant character is a $1$-dimensional \hyperref[modlgal]{mod-$\ell$ Galois representation}.  If $\rho$ has \hyperref[modlgal.dimension]{dimension} $1$, the determinant character is the same as the original representation.
 
-\end{definition*}
-
-
+\end{definition}

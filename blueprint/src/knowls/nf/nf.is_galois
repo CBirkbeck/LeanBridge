@@ -1,11 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.is_galois}{Is a Galois extension}}
-\begin{definition*}\label{nf.is_galois}
+\begin{definition}\label{nf.is_galois}
 \uses{}
 Let $F$ be a subfield of $K$,
 $$ \Aut(K/F)=\{ \sigma:K\to K\mid \sigma(a)=a \text{ for all } a\in F \text{ and } \sigma \text{ is a ring homomorphism}\},$$
 and
 $$ K^{\Aut(K/F)} = \{ a\in K \mid \sigma(a)=a\}.$$
 Then $K$ is \textbf{Galois} over $F$ if $K^{\Aut(K/F)} = F$.
-\end{definition*}
-
-
+\end{definition}

@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.functional_equation}{Functional equation of an L-function}}
-\begin{definition*}\label{lfunction.functional_equation}
+\begin{definition}\label{lfunction.functional_equation}
 \uses{lfunction.gamma_factor,specialfunction.gamma}
 All known \hyperref[lfunction]{analytic L-functions} have a \textbf{functional equation} that can be written in the form
 \[
@@ -18,7 +18,7 @@ data in the functional equation is specified uniquely.  The integer $d = J + 2 K
 is the \hyperref[lfunction.degree]{degree} of the L-function. The integer $N$ is  the \hyperref[lfunction.conductor]{conductor} (or level)
 of the L-function.  The pair $[J,K]$ is the \hyperref[lfunction.signature]{signature} of the L-function.  The parameters
 in the functional equation can be used to make up the 4-tuple called the \hyperref[lfunction.selbergdata]{Selberg data}.
- 
+
 
 The \hyperref[lfunction.selberg_class.axioms]{axioms} of the \hyperref[lfunction.selberg_class]{Selberg class} are less restrictive than
 given above.
@@ -28,6 +28,4 @@ Note that the functional equation above has the \hyperref[lfunction.central_poin
 For many L-functions there is another normalization which is natural. The corresponding functional equation relates $s\leftrightarrow w+1-s$ for some positive integer $w$,
 called the \hyperref[lfunction.motivic_weight]{motivic weight} of the L-function. The central point is at $s=(w+1)/2$, and the arithmetically normalized Dirichlet coefficients $a_n n^{w/2}$ are algebraic integers.
 
-\end{definition*}
-
-
+\end{definition}

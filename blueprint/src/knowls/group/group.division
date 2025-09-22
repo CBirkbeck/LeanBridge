@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.division}{Divisions of a group}}
-\begin{definition*}\label{group.division}
+\begin{definition}\label{group.division}
 \uses{group,group.conjugacy_class,group.element_order,group.representation.character,group.representation.rational_character}
 A \textbf{division} (or \textbf{rational conjugacy classes}) of a finite \hyperref[group]{group} $G$ is an equivalence class under the following relation: $x \sim y$ if there exist $g \in G$ and $n \in \Z$ relatively prime to the \hyperref[group.element_order]{order} of $x$ with $y = g^{-1} x^n g$.  It is a coarsening of conjugacy: any division is a union of \hyperref[group.conjugacy_class]{conjugacy classes}.
 
 Just as values of \hyperref[group.representation.character]{characters} are constant on conjugacy classes, values of \hyperref[group.representation.rational_character]{rational characters} are constant on rational conjugacy classes.
-\end{definition*}
-
-
+\end{definition}

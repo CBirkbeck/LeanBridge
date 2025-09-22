@@ -1,8 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.maass.mwf.weight}{The weight of a Maass form}}
-\begin{definition*}\label{mf.maass.mwf.weight}
+\begin{definition}\label{mf.maass.mwf.weight}
 \uses{mf.maass.mwf,mf.maass.mwf.laplacian}
-A \hyperref[mf.maass.mwf]{Maass form} is of \textbf{weight} $k$ if it is an eigenfunction of the weight $k$ \hyperref[mf.maass.mwf.laplacian]{Laplacian} 
+A \hyperref[mf.maass.mwf]{Maass form} is of \textbf{weight} $k$ if it is an eigenfunction of the weight $k$ \hyperref[mf.maass.mwf.laplacian]{Laplacian}
 \( \Delta_k = y^2\left( \frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}\right) - iky\frac{\partial}{\partial x} \).
-\end{definition*}
-
-
+\end{definition}

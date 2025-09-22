@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.atkin-lehner}{Atkin-Lehner involution $w_Q$}}
-\begin{definition*}\label{cmf.atkin-lehner}
+\begin{definition}\label{cmf.atkin-lehner}
 \uses{cmf.cusp_form,cmf.hecke_operator,cmf.weight}
 Let $N$ be a positive integer, and let $Q$ be a positive divisor of $N$ satisfying $\gcd(Q,N/Q)=1$.  Then there exist $x,y,z,t \in \Z$ for which the matrix
 \[ W_Q=\left( \begin{matrix} Qx & y \\ Nz & Qt\end{matrix} \right) \]
@@ -10,6 +10,4 @@ The linear operator $w_Q$ does not depend on the choice of $x,y,z,t$ and is call
 The matrix $W_Q$ induces an automorphism of the \hyperref[ag.modcurve.x0]{modular curve $X_0(N)$} that is also denoted $w_Q$.
 
 In the case $Q=N$, the Atkin-Lehner involution $w_N$ is also called the \hyperref[cmf.fricke]{Fricke involution}.
-\end{definition*}
-
-
+\end{definition}

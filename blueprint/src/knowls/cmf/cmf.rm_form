@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.rm_form}{Real multiplication}}
-\begin{definition*}\label{cmf.rm_form}
+\begin{definition}\label{cmf.rm_form}
 \uses{cmf,cmf.self_twist}
 A \hyperref[cmf]{modular form} is said to have \textbf{real multiplication} if it admits a \hyperref[cmf.self_twist]{self twist} by the Kronecker character of a real quadratic field.
 
 Only modular forms of weight one can have real multiplication.
-\end{definition*}
-
-
+\end{definition}

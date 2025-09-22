@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.elliptic_curve_of_point}{Elliptic curve associated to a rational point}}
-\begin{definition*}\label{modcurve.elliptic_curve_of_point}
+\begin{definition}\label{modcurve.elliptic_curve_of_point}
 \uses{ec,ec.q.minimal_twist,modcurve,modcurve.level_structure}
 Let $X_H$ be a \hyperref[modcurve]{modular curve} with $-1\in H$.
 The non-cuspidal $K$-rational points on a modular curve $X_H$ are in one-to-one correspondence with isomorphism classes of pairs $(E,[\iota]_H)$.  where $E$ is an \hyperref[ec]{elliptic curve} over $K$ and $[\iota]_H$ is a $K$-rational \hyperref[modcurve.level_structure]{$H$-level structure} on $E$.
@@ -7,6 +7,4 @@ The non-cuspidal $K$-rational points on a modular curve $X_H$ are in one-to-one 
 The isomorphism class of $(E,[\iota]_H)$ includes pairs $(E',[\iota']_H)$ for each of the infinitely many quadratic twists $E'$ of $E$ (because $-1\in H$), but on modular curve pages and search results we list only the \hyperref[ec.q.minimal_twist]{minimal quadratic twist} of $E$.
 
 A quadratic twist-minimal elliptic curve $E$ may admit multiple non-isomorphic rational $H$-level structures corresponding to multiple $K$-rational points on $X_H$, but in search results for low degreee points we list $E$ only once.
-\end{definition*}
-
-
+\end{definition}

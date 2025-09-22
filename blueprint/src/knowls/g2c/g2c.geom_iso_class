@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.geom_iso_class}{Geometric isomorphism class of a curve}}
-\begin{definition*}\label{g2c.geom_iso_class}
+\begin{definition}\label{g2c.geom_iso_class}
 \uses{ag.base_change,ag.base_field,ag.curve,nf.algebraic_closure}
 The \textbf{geometric isomorphism class} of a \hyperref[ag.curve]{curve} $C$ \hyperref[ag.base_field]{over a field} $K$ is the isomorphism class of the \hyperref[ag.base_change]{base change} of $C$ to the \hyperref[nf.algebraic_closure]{algebraic closure} of $K$.
-\end{definition*}
-
-
+\end{definition}

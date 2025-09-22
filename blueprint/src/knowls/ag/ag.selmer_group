@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.selmer_group}{Selmer group of an abelian variety}}
-\begin{definition*}\label{ag.selmer_group}
+\begin{definition}\label{ag.selmer_group}
 \uses{ag.abelian_variety,ag.mordell_weil,av.isogeny,group.galois.absolute,nf,nf.absolute_value,nf.place}
 Let $A$ be an \hyperref[ag.abelian_variety]{abelian variety} over a \hyperref[nf]{number field} $K$.
 Let $n \ge 1$.
@@ -10,6 +10,4 @@ The \textbf{$n$-Selmer group} $\operatorname{Sel}_n A$ is the set of classes in 
 One may also define the Selmer group for any \hyperref[av.isogeny]{isogeny} from $A$ to another abelian variety over a global field.
 
 Any Selmer group is finite and effectively computable. In fact, all known techniques for computing the \hyperref[ag.mordell_weil]{Mordell-Weil group} of $A$ involve computing a Selmer group.
-\end{definition*}
-
-
+\end{definition}

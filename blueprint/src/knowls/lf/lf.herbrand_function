@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.herbrand_function}{Herbrand function of a family}}
-\begin{definition*}\label{lf.herbrand_function}
+\begin{definition}\label{lf.herbrand_function}
 \uses{lf.family_polynomial,lf.indices_of_inseparability,lf.means,lf.padic_field,lf.rams,lf.slopes}
 Let $I/K$ be a \hyperref[lf.family_polynomial]{family} of extensions of
 a \hyperref[lf.padic_field]{$p$-adic field} $K$.
@@ -24,6 +24,4 @@ of $\phi_{I/K}$ give some of the
 \hyperref[lf.indices_of_inseparability]{indices of inseparability} of
 the extensions $L/K$ in $I/K$.
 
-\end{definition*}
-
-
+\end{definition}

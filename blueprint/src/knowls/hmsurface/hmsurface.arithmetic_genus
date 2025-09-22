@@ -1,10 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/hmsurface.arithmetic_genus}{Arithmetic genus}}
-\begin{definition*}\label{hmsurface.arithmetic_genus}
+\begin{definition}\label{hmsurface.arithmetic_genus}
 \uses{}
 The \textbf{arithmetic genus} of a projective scheme $X$ is the alternating sum
 $\chi(\mathcal{O}_X) = \sum_{i=0}^{\dim X} (-1)^i \dim H^i(X, \mathcal{O}_X)$.
 Note that some authors call this quantity the holomorphic Euler characteristic.
 Additionally, some authors refer to the quantity $p_a(X) = (-1)^{\dim X} (\chi(\mathcal{O}_X) - 1)$ as the arithmetic genus.
-\end{definition*}
-
-
+\end{definition}

@@ -1,11 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.ack.mf.hilbert}{Acknowledgments for Hilbert modular forms}}
-\begin{definition*}\label{rcs.ack.mf.hilbert}
+\begin{definition}\label{rcs.ack.mf.hilbert}
 \uses{}
 <h2>Additional acknowledgments</h2>
 
-Thanks to Dan Yasaki for fixing an issue with Hecke eigenvalues that had inadvertently been cyclically permuted. 
+Thanks to Dan Yasaki for fixing an issue with Hecke eigenvalues that had inadvertently been cyclically permuted.
 
-Coding for pages was done by John Cremona and John Voight. 
-\end{definition*}
-
-
+Coding for pages was done by John Cremona and John Voight.
+\end{definition}

@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/character.dirichlet.parity}{Parity of a Dirichlet character}}
-\begin{definition*}\label{character.dirichlet.parity}
+\begin{definition}\label{character.dirichlet.parity}
 \uses{character.dirichlet}
 A character has odd/even \textbf{parity} if it is odd/even as a function. A \hyperref[character.dirichlet]{Dirichlet character} $\chi\colon\Z\to\C$ is odd if $\chi(-1) = -1$ and even if $\chi(-1)=1.$
-\end{definition*}
-
-
+\end{definition}

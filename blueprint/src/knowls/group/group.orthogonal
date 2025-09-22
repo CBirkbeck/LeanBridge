@@ -1,17 +1,15 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.orthogonal}{Orthogonal group}}
-\begin{definition*}\label{group.orthogonal}
+\begin{definition}\label{group.orthogonal}
 \uses{}
-An \textbf{orthogonal group} over a vector space $V$ of dimension $n$ over a field $F$ is a subgroup of $\GL_n(F)$ that fixes a quadratic form $Q$, i.e. all those $m$ such that $Q(mx) = Q(x)$ for all $x \in V$. 
+An \textbf{orthogonal group} over a vector space $V$ of dimension $n$ over a field $F$ is a subgroup of $\GL_n(F)$ that fixes a quadratic form $Q$, i.e. all those $m$ such that $Q(mx) = Q(x)$ for all $x \in V$.
 
-Over a finite field, the orthogonal groups behave differently depending on the dimension $n$ of $V$. When $n$ is odd, there is one equivalence class of quadratic forms, and so there is a unique orthogonal group (up to isomorphism), denoted $\GO(n,q)$. When $n$ is even there are two equivalence classes of quadratic forms, called the $+$ and $-$ forms. These give rise to the orthogonal groups $\GO^{+}(n,q)$ and $\GO^{-}(n,q)$. 
+Over a finite field, the orthogonal groups behave differently depending on the dimension $n$ of $V$. When $n$ is odd, there is one equivalence class of quadratic forms, and so there is a unique orthogonal group (up to isomorphism), denoted $\GO(n,q)$. When $n$ is even there are two equivalence classes of quadratic forms, called the $+$ and $-$ forms. These give rise to the orthogonal groups $\GO^{+}(n,q)$ and $\GO^{-}(n,q)$.
 
-The \textbf{special orthogonal groups} $\SO(n,q)$ and $\SO^{\pm}(n,q)$ are the subgroups of $\GO(n,q)$ and $\GO^{\pm}(n,q)$, respectively, consisting of all matrices of determinant $1$. 
+The \textbf{special orthogonal groups} $\SO(n,q)$ and $\SO^{\pm}(n,q)$ are the subgroups of $\GO(n,q)$ and $\GO^{\pm}(n,q)$, respectively, consisting of all matrices of determinant $1$.
 
 The \textbf{projective orthogonal groups} are given by the quotient of an orthogonal group by its subgroup of scalar matrices. In particular,  we have
 
 $$ \begin{matrix} \PGO(n,q) = \GO(n,q)/\{ \pm I_n \}, & \PGO^{\pm}(n,q) = \begin{cases}\GO^{\pm}(n,q) & q \text{ even}, \\ \GO^{\pm}(n,q)/\{ \pm I_n \} & q \text{ odd}.\end{cases} \\ \\ \PSO(n,q) = \SO(n,q), & \PSO^{\pm}(n,q) = \begin{cases}\SO^{\pm}(n,q) & q \text{ even}, \\ \SO^{\pm}(n,q)/\{ \pm I_n \} & q \text{ odd}.\end{cases} \end{matrix} $$
 
 (see \cite{MR0827219}, pages xi-xii)
-\end{definition*}
-
-
+\end{definition}

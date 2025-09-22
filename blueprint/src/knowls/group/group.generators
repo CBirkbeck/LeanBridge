@@ -1,12 +1,10 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.generators}{Generators of a group}}
-\begin{definition*}\label{group.generators}
+\begin{definition}\label{group.generators}
 \uses{group,group.automorphism}
-If $G$ is a \hyperref[group]{group} and $S$ is a subset of $G$, then $S$ is a set of \textbf{generators} if the smallest subgroup of $G$ containing $S$ equals $G$.  
+If $G$ is a \hyperref[group]{group} and $S$ is a subset of $G$, then $S$ is a set of \textbf{generators} if the smallest subgroup of $G$ containing $S$ equals $G$.
 
 Equivalently, $S$ generates $G$ if
 \[ G=\bigcap_{S\subseteq H\leq G} H \,.\]
 
 The \hyperref[group.automorphism]{automorphism group} of $G$ acts on such $S$, and we say $S$ and $S'$ are equivalent if they are related by this action.
-\end{definition*}
-
-
+\end{definition}

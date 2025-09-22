@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.heights}{Heights of an extension}}
-\begin{definition*}\label{lf.heights}
+\begin{definition}\label{lf.heights}
 \uses{lf.discriminant_exponent,lf.indices_of_inseparability,lf.means,lf.padic_field,lf.ramification_index,lf.ramification_polygon,lf.residue_field_degree}
 Let $L/K$ be an extension of \hyperref[lf.padic_field]{$p$-adic fields}.
 The \textbf{height} $H(L/K)$ of $L/K$ is defined by the formula $c=f(e-1+H(L/K))$,
@@ -17,6 +17,4 @@ Now let $K\subset L_1\subset\dots\subset L_r=L$ be the sequence of subextensions
 of $L/K$ which correspond to the segments of the
 \hyperref[lf.ramification_polygon]{ramification polygon} of $L/K$.  The
 \textbf{set of heights} for $L/K$ is $\{H(L_i/K):1\le i\le r\}$.
-\end{definition*}
-
-
+\end{definition}

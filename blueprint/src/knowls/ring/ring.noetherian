@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ring.noetherian}{Noetherian ring}}
-\begin{definition*}\label{ring.noetherian}
+\begin{definition}\label{ring.noetherian}
 \uses{ring,ring.ideal}
 A \hyperref[ring]{commutative ring} $R$ is \textbf{Noetherian} if for every ascending chain of \hyperref[ring.ideal]{ideals}
 $$ I_1\subseteq I_2\subseteq I_3\subseteq \cdots $$
 there exists $N$ such that for all $n\geq N$, $I_n=I_N$.
-\end{definition*}
-
-
+\end{definition}

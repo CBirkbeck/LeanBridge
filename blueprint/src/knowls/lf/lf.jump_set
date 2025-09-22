@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.jump_set}{Jump set}}
-\begin{definition*}\label{lf.jump_set}
+\begin{definition}\label{lf.jump_set}
 \uses{lf.padic_field}
 Let $K$ be a \hyperref[lf.padic_field]{$p$-adic field} which contains
 a primitive $p$th root of unity $\zeta_p$.  Set $e=v_K(p)$ and
@@ -35,6 +35,4 @@ of the choice of $\alpha_0,\dots,\alpha_r$.  Undefined
 values in the sequence $[u_0,u_2,\dots,u_r]$ are
 filled in using the recursion $u_{i+1}=\rho(u_i)$, where
 $\rho(x)=\min\{px,x+e\}$.
-\end{definition*}
-
-
+\end{definition}

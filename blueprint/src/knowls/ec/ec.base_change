@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.base_change}{Base change}}
-\begin{definition*}\label{ec.base_change}
+\begin{definition}\label{ec.base_change}
 \uses{ec.j_invariant}
 If $E$ is an elliptic curve defined over a field $K$, and $L$ is an extension field of $K$, then the same equation defining $E$ as an elliptic curve over $K$ also defines a curve over $L$ called the \textbf{base change} of $E$ from $K$ to $L$.   Any curve defined over $L$ which is isomorphic to $E$ over $L$ is called a base-change curve from $K$ to $L$.  A sufficient but not necessary condition for a curve to be a base change is that the coefficients of its Weierstrass equation lie in $K$.
 
 When $K=\Q$ and $L$ is a number field, elliptic curves over $L$ which are base-changes of curves over $\Q$ may simply be called base-change curves.  A necessary, but not sufficient, condition for this is that the \hyperref[ec.j_invariant]{$j$-invariant} of $E$ should be in $\Q$.
-\end{definition*}
-
-
+\end{definition}

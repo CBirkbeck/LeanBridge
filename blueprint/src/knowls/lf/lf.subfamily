@@ -1,12 +1,10 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.subfamily}{Subfamily of a family of $p$-adic fields}}
-\begin{definition*}\label{lf.subfamily}
+\begin{definition}\label{lf.subfamily}
 \uses{lf.family_polynomial,lf.padic_field,lf.residual_polynomials}
 Let $I/K$ be a \hyperref[lf.family_polynomial]{family} of
 extensions of \hyperref[lf.padic_field]{$p$-adic fields}
-and let $\mathcal{A}$ be an equivalence class of 
+and let $\mathcal{A}$ be an equivalence class of
 \hyperref[lf.residual_polynomials]{residual polynomials}.
 The \textbf{subfamily} of $I/K$ corresponding to $\mathcal{A}$ consists
 of all $L/K\in I/K$ whose list of residual polynomials is in $\mathcal{A}$.
-\end{definition*}
-
-
+\end{definition}

@@ -1,13 +1,11 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.history.rankin_selberg}{Ranking-Selberg convolution, history}}
-\begin{definition*}\label{lfunction.history.rankin_selberg}
+\begin{definition}\label{lfunction.history.rankin_selberg}
 \uses{}
-In 1939 R. A. Rankin \cite{MR0000411} studied Ramanujan's conjecture about the size of $\tau(n)$ 
+In 1939 R. A. Rankin \cite{MR0000411} studied Ramanujan's conjecture about the size of $\tau(n)$
 and was led to consider the analytic properties of $g(s)=\sum_{n=1}^\infty \tau(n)^2 n^{-s}$.
 He proved that $\zeta(2s-22) g(s)$ is analytic everywhere except for a simple
 pole at $s=12$  and satisfies a functional equation. This was the beginning
-of the Rankin - Selberg convolution which we now realize was a hugely important event in the theory of L-functions. Selberg \cite{MR0002626} did the same calculation 
-around the 
+of the Rankin - Selberg convolution which we now realize was a hugely important event in the theory of L-functions. Selberg \cite{MR0002626} did the same calculation
+around the
 same time.
-\end{definition*}
-
-
+\end{definition}

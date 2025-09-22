@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.affine_space}{Affine space}}
-\begin{definition*}\label{ag.affine_space}
+\begin{definition}\label{ag.affine_space}
 \uses{ring.field}
 \textbf{Affine space} $\mathbb{A}^n(K)$ of \hyperref[ag.dimension]{dimension} $n$ over a \hyperref[ring.field]{field} $K$ is the set $K^n$.
 
@@ -8,6 +8,4 @@ $$
 \mathbb{A}^n(K) = \{(x_1,\dots,x_n)\mid x_1,\dots,x_n\in K\}.
 $$
 
-\end{definition*}
-
-
+\end{definition}

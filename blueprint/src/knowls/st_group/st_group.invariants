@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/st_group.invariants}{Sato-Tate group invariants}}
-\begin{definition*}\label{st_group.invariants}
+\begin{definition}\label{st_group.invariants}
 \uses{st_group.ambient,st_group.connected,st_group.degree,st_group.weight}
 The invariants of a Sato-Tate group $G$ include:
 
@@ -9,6 +9,4 @@ The invariants of a Sato-Tate group $G$ include:
 \item  the \hyperref[st_group.degree]{degree} $d$ of $G$ (a positive integer);
 \item  whether $G$ is \hyperref[st_group.connected]{connected} or not.
 \end{itemize}
-\end{definition*}
-
-
+\end{definition}

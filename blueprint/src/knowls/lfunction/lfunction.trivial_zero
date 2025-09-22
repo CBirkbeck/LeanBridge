@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.trivial_zero}{Trivial zeros of an L-function}}
-\begin{definition*}\label{lfunction.trivial_zero}
+\begin{definition}\label{lfunction.trivial_zero}
 \uses{lfunction.arithmetic,lfunction.completed,lfunction.functional_equation,lfunction.gamma_factor,lfunction.normalization,lfunction.zeros}
 The \hyperref[lfunction.zeros]{zeros} of an L-function $L(s)$ that occur at
 poles of its  \hyperref[lfunction.gamma_factor]{gamma factors} are \textbf{trivial zeros}.
@@ -8,6 +8,4 @@ The presence of trivial zeros is required by the \hyperref[lfunction.functional_
 the L-function must have zeros at poles of the gamma factors.
 
 For \hyperref[lfunction.arithmetic]{arithmetic} L-functions, the poles are at certain negative integers.
-\end{definition*}
-
-
+\end{definition}

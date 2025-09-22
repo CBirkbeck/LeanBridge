@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.conductor_valuation}{Conductor valuation}}
-\begin{definition*}\label{ec.conductor_valuation}
+\begin{definition}\label{ec.conductor_valuation}
 \uses{ec.conductor}
 The valuation of the \hyperref[ec.conductor]{conductor} at a prime.
-\end{definition*}
-
-
+\end{definition}

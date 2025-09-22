@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.reduction_type}{Reduction type}}
-\begin{definition*}\label{ec.reduction_type}
+\begin{definition}\label{ec.reduction_type}
 \uses{ec,ec.bad_reduction,ec.good_reduction,nf,nf.ring_of_integers}
 The \textbf{reduction type} of an \hyperref[ec]{elliptic curve} $E$ defined over a \hyperref[nf]{number field} \(K\) at a prime \(\mathfrak{p}\) of \(K\)
 depends on the reduction $\tilde E$ of $E$ modulo $\mathfrak{p}$. Let $\F_q$ be the \hyperref[nf.ring_of_integers]{ring of integers} of $K$ modulo $\mathfrak{p}$, a finite field of characteristic $p$.
@@ -9,9 +9,7 @@ $E$ has \hyperref[ec.good_reduction]{good reduction} at $\mathfrak p$ if $\tilde
 On the other hand, if the reduction of \(E\) modulo \(\mathfrak{p}\) is singular, then
 $E$ has \hyperref[ec.bad_reduction]{bad reduction}.  There are two types of bad reduction are as follows.
 
-$E$ has \textbf{multiplicative reduction} at $\mathfrak p$ if $\tilde E$ has a nodal singularity. It is called \textbf{split multiplicative reduction} if the two tangents at the node are defined over $\F_q$ and \textbf{non-split multiplicative reduction} otherwise.  
+$E$ has \textbf{multiplicative reduction} at $\mathfrak p$ if $\tilde E$ has a nodal singularity. It is called \textbf{split multiplicative reduction} if the two tangents at the node are defined over $\F_q$ and \textbf{non-split multiplicative reduction} otherwise.
 
 $E$ has \textbf{additive reduction} at $\mathfrak p$ if $\tilde E$ has a cuspidal singularity.
-\end{definition*}
-
-
+\end{definition}

@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.isogeny}{Isogeny between elliptic curves }}
-\begin{definition*}\label{ec.isogeny}
+\begin{definition}\label{ec.isogeny}
 \uses{ag.base_field,av.isogeny,ec,ec.endomorphism,ec.endomorphism_ring,group.homomorphism,nf,nf.is_galois}
 Let $E_1$ and $E_2$ be two \hyperref[ec]{elliptic curves} defined over a field $K$. An \textbf{isogeny} (over $K$) between $E_1$ and $E_2$ is a non-constant morphism $f\colon E_1 \to E_2$ defined over $K$, i.e., a morphism of curves given by rational functions with coefficients in $K$, such that $f(O_{E_1})= O_{E_2}$.  Elliptic curves $E_1$ and $E_2$ are called \textbf{isogenous} if there exists an isogeny $f\colon E_1 \to E_2$.
 
@@ -14,6 +14,4 @@ Isogeny is an equivalence relation, and the equivalence classes are called \hype
 Isogenies from an elliptic curve $E$ to itself are called \hyperref[ec.endomorphism]{\textbf{endomorphisms}}.  The set of all endomrpshisms of $E$ forms a ring under pointwise addition and composition, the \hyperref[ec.endomorphism_ring]{endomorphism ring} of $E$.
 
 An isogeny of elliptic curves is a special case of an \hyperref[av.isogeny]{isogeny of abelian varieties}.
-\end{definition*}
-
-
+\end{definition}

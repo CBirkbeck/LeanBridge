@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.modcurve}{Source of modular curve data}}
-\begin{definition*}\label{rcs.source.modcurve}
+\begin{definition}\label{rcs.source.modcurve}
 \uses{}
 The modular curves database was constructed during two workshops run by the Simons Collaboration in Arithmetic Geometry, Number Theory, and Computation in 2022.  Participants included Nikola Adžaga, Eran Assaf, Jennifer Balakrishnan, Barinder Banwait, Shiva Chidambaram, Garen Chiloyan, Edgar Costa, Juanita Duque-Rosero, Noam Elkies, Asimina Hamakiotes, Sachi Hashimoto, Daniel Hast, Aashraya Jha, Timo Keller, Jean Kieffer, Jun Bo Lau, David Lowry-Duda, Alvaro Lozano-Robledo, Kimball Martin, Pietro Mercuri, Philippe Michaud-Jacobs, Grant Molnar, Steffen M\"uller, Filip Najman, Ekin Ozman, Oana Padurariu, Bjorn Poonen, David Roe, Rakvi, Jeremy Rouse, Ciaran Schembri, Sam Schiavone, Padmavathi Srinivasan, Bianca Viray, John Voight, Borna Vukorepa, and David Zywina.
 
@@ -13,4 +13,4 @@ Some of the key algorithms that were used include:
 \item  Rakvi's algorithm for genus 0 modular curves \cite{arxiv:2105.14623} was used to compute these curves and their maps to the $j$-line.
 \item  Zywina's explicit open images algorithm \cite{arxiv:2206.14959} was used to compute the adelic image of all non-CM $E$ over $\Q$ in the LMFDB, which was used to compute lists of rational points.
 \end{itemize}
-\end{definition*}
+\end{definition}

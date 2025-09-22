@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.automorphic_type}{Automorphic type}}
-\begin{definition*}\label{mf.siegel.automorphic_type}
+\begin{definition}\label{mf.siegel.automorphic_type}
 \uses{mf.siegel.degree,mf.siegel.lift.saito_kurokawa,mf.siegel.newform}
 The \textbf{automorphic type} of a \hyperref[mf.siegel.newform]{Siegel newform} $f \in S_{k,j}(\Gamma)$ of \hyperref[mf.siegel.degree]{degree} 2 is a letter indicating the type of the Arthur parameters of the automorphic representation $\pi$ associated to $f$.
 These fall into six classes of (packets of ) representations:
@@ -15,7 +15,5 @@ These fall into six classes of (packets of ) representations:
 
 (Y) - Yoshida type: These are functorial (endoscopic) lifts of pairs of automorphic representations $\mu_1,\mu_2$ of $\GL(2)$. Their $L$-functions are of the form $L(s,\mu_1)L(s,\mu_2)$.
 
-(G) - General type: (which contains the remaining representations) These are characterized by admitting a functorial transfer to a cuspidal automorphic representation of $\GL_4$.Their $L$-functions are primitive. 
-\end{definition*}
-
-
+(G) - General type: (which contains the remaining representations) These are characterized by admitting a functorial transfer to a cuspidal automorphic representation of $\GL_4$.Their $L$-functions are primitive.
+\end{definition}

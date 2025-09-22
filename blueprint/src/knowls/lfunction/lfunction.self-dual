@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.self-dual}{Self-dual L-function}}
-\begin{definition*}\label{lfunction.self-dual}
+\begin{definition}\label{lfunction.self-dual}
 \uses{}
 An L-function $L(s) = \sum_{n=1}^{\infty} \frac{a_n}{n^s}$ is called \textbf{self-dual} if its Dirichlet coefficients $a_n$ are real.
-\end{definition*}
-
-
+\end{definition}

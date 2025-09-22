@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.gamma_factor}{Gamma factors}}
-\begin{definition*}\label{lfunction.gamma_factor}
+\begin{definition}\label{lfunction.gamma_factor}
 \uses{lfunction.euler_product}
 The complex functions
 \[
@@ -13,4 +13,4 @@ $
 $
 and can also be viewed as ``missing'' factors of the \hyperref[lfunction.euler_product]{Euler product} of an L-function corresponding to (real or complex) archimedean places.
 
-\end{definition*}
+\end{definition}

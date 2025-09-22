@@ -1,8 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.lift.miyawaki}{Miyawaki lift }}
-\begin{definition*}\label{mf.siegel.lift.miyawaki}
+\begin{definition}\label{mf.siegel.lift.miyawaki}
 \uses{cmf,group.sp2gr,mf.siegel,mf.siegel.lift,mf.siegel.lift.miyawaki1,mf.siegel.lift.miyawaki2}
 A <b>Miyawaki Lift</b> is a \hyperref[mf.siegel.lift]{lift}
-from \hyperref[cmf]{elliptic modular forms} 
+from \hyperref[cmf]{elliptic modular forms}
 to \hyperref[mf.siegel]{Siegel modular forms} of degree 3
 over the full \hyperref[group.sp2gr]{symplectic group}.
 
@@ -10,7 +10,7 @@ Miyawaki conjectured two types of lift.
 \hyperref[mf.siegel.lift.miyawaki1]{Type I},
 also called the Ikeda–Miyawaki lift,
 was established by Ikeda using a Duke-Imamoglu-Ikeda lift
-provided that the construction does not produce 0. 
+provided that the construction does not produce 0.
 Ikeda's construction is valid for degrees other than 3.
 \hyperref[mf.siegel.lift.miyawaki2]{Type II} remains conjectural.
 
@@ -19,14 +19,12 @@ the elliptic Euler factor is
 $$Q_p(f,X)=1-a_p(f)X+p^{k-1}X^2$$
 with $a_p(f)$ the $p$-th Fourier coefficient of the normalized weight $k$ eigenform $f$.
 Let $Q_p(f,X)$ factor as $(1-\gamma_+X)(1-\gamma_-X)$;
-the standard elliptic Euler factor of $f$ is 
-$Q_p^{\rm st}(f,X)=(1-X)(1-(\gamma_+/\gamma_-)X)(1-(\gamma_-/\gamma_+)X)$, 
-and this is 
+the standard elliptic Euler factor of $f$ is
+$Q_p^{\rm st}(f,X)=(1-X)(1-(\gamma_+/\gamma_-)X)(1-(\gamma_-/\gamma_+)X)$,
+and this is
 $$Q_p^{\rm st}(f,X)=(1-X)(1-(a_p(f)^2/p^{k-1}-2)X+X^2).$$
-Also, if $g$ has weight $\ell$ and $Q_p(g,X)=(1-\delta_+X)(1-\delta_-X)$ 
-then $Q_p(f\otimes g,X)=(1-\gamma_+\delta_+X)(1-\gamma_+\delta_-X)(1-\gamma_-\delta_+X)(1-\gamma_-\delta_-X)$, 
-and this is 
+Also, if $g$ has weight $\ell$ and $Q_p(g,X)=(1-\delta_+X)(1-\delta_-X)$
+then $Q_p(f\otimes g,X)=(1-\gamma_+\delta_+X)(1-\gamma_+\delta_-X)(1-\gamma_-\delta_+X)(1-\gamma_-\delta_-X)$,
+and this is
 $$Q_p(f\otimes g,X)=1-a_p(f)a_p(g)X+(a_p(f)^2p^{\ell-1}+a_p(g)^2p^{k-1}-2p^{k+\ell-2})X^2-a_p(f)a_p(g)p^{k+\ell-2}X^3+p^{2k+2\ell-4}X^4.$$
-\end{definition*}
-
-
+\end{definition}

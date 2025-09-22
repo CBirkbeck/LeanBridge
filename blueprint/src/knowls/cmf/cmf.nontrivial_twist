@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.nontrivial_twist}{Nontrivial inner twist}}
-\begin{definition*}\label{cmf.nontrivial_twist}
+\begin{definition}\label{cmf.nontrivial_twist}
 \uses{cmf.inner_twist,cmf.self_twist}
 An \hyperref[cmf.inner_twist]{inner twist} is \textbf{nontrivial} if it is not the \hyperref[cmf.self_twist]{self twist} by the trivial character.
-\end{definition*}
-
-
+\end{definition}

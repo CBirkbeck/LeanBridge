@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/gl2.normalizer_cartan}{Normalizer of a Cartan subgroup}}
-\begin{definition*}\label{gl2.normalizer_cartan}
+\begin{definition}\label{gl2.normalizer_cartan}
 \uses{gl2.cartan}
 For $p>2$ the \textbf{normalizer of a Cartan subgroup} of $\GL_2(\F_p)$ is a maximal subgroup of $\GL_2(\F_p)$ that contains a \hyperref[gl2.cartan]{Cartan subgroup} with index 2.  It is the normalizer in $\GL_2(\F_p)$ of the Cartan subgroup it contains.
 
 For $p=2$ the Cartan subgroups of $\GL_2(\F_2)$ are already normal and we instead define the normalizer of a Cartan subgroup to be a group that contains a Cartan subgroup with index 2.  This means that the normalizer of a split Cartan subgroup of $\GL_2(\F_2)$ has order 2 (which makes it conjugate to the Borel subgroup), while the normalizer of a non-split Cartan subgroup of $\GL_2(\F_2)$ has order 6 (which makes it all of $\GL_2(\F_2)$).
-\end{definition*}
-
-
+\end{definition}

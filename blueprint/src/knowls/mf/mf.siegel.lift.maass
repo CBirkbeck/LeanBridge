@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.lift.maass}{Maass lift from Jacobi form to Siegel modular form}}
-\begin{definition*}\label{mf.siegel.lift.maass}
+\begin{definition}\label{mf.siegel.lift.maass}
 \uses{group.sp2gr,mf.jacobi,mf.siegel}
 A Maass lift is a lift from \hyperref[mf.jacobi]{Jacobi forms} to \hyperref[mf.siegel]{Siegel modular forms} of degree 2 with respect to the \hyperref[group.sp2gr]{Siegel modular group}.
-\end{definition*}
-
-
+\end{definition}

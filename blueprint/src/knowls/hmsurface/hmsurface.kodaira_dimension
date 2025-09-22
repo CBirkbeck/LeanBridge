@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/hmsurface.kodaira_dimension}{Kodaira dimension}}
-\begin{definition*}\label{hmsurface.kodaira_dimension}
+\begin{definition}\label{hmsurface.kodaira_dimension}
 \uses{}
 The \textbf{Kodaira dimension} of a projective variety $X$ with canonical bundle $K$
 is the smallest integer $d$ such that the limit
@@ -8,6 +8,4 @@ $$
 $$
 exists and is non-zero. In the case no such integer exists, our convention is
 to take $d=-1$.
-\end{definition*}
-
-
+\end{definition}

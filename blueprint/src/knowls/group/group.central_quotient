@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.central_quotient}{Central quotient}}
-\begin{definition*}\label{group.central_quotient}
+\begin{definition}\label{group.central_quotient}
 \uses{group,group.center,group.inner_automorphism}
 The central quotient of a \hyperref[group]{group} $G$ is $G/Z(G)$, where $Z(G)$ is the \hyperref[group.center]{center} of $G$. The central quotient is isomorphic to the group of \hyperref[group.inner_automorphism]{inner automorphisms} of $G$.
-\end{definition*}
-
-
+\end{definition}

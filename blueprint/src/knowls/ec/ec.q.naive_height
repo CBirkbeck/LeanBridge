@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.q.naive_height}{Naive height}}
-\begin{definition*}\label{ec.q.naive_height}
+\begin{definition}\label{ec.q.naive_height}
 \uses{ec,ec.weierstrass_coeffs}
 The \textbf{naive height} of an \hyperref[ec]{elliptic curve} in short \hyperref[ec.weierstrass_coeffs]{Weierstrass form}
 
@@ -7,6 +7,4 @@ $$
 y^2 = x^3 + a_4 x + a_6
 $$
 is the quantity $\max(4\lvert a_4 \rvert^3, 27\lvert a_6 \rvert^2)$.
-\end{definition*}
-
-
+\end{definition}

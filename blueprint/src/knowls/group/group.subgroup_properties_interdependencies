@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.subgroup_properties_interdependencies}{Interdependencies of subgroup properties}}
-\begin{definition*}\label{group.subgroup_properties_interdependencies}
+\begin{definition}\label{group.subgroup_properties_interdependencies}
 \uses{group.abelian,group.automorphism,group.central,group.characteristic_subgroup,group.cyclic,group.inner_automorphism,group.nilpotent,group.solvable,group.stem_extension,group.subgroup.normal,group.sylow_subgroup,group.upper_central_series}
 Certain properties of subgroups automatically imply other properties. We briefly explain the connections here.
 
@@ -13,6 +13,4 @@ A \hyperref[group.stem_extension]{stem subgroup} is \hyperref[group.central]{cen
 
 A \hyperref[group.sylow_subgroup]{Sylow subgroup} is a $p$-group and thus \hyperref[group.nilpotent]{nilpotent}.
 
-\end{definition*}
-
-
+\end{definition}

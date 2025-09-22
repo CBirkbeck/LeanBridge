@@ -1,10 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.family_base}{Base field of a family of $p$-adic field extensions}}
-\begin{definition*}\label{lf.family_base}
+\begin{definition}\label{lf.family_base}
 \uses{lf.family_polynomial,lf.padic_field}
 A \hyperref[lf.family_polynomial]{family} of extensions of
 \hyperref[lf.padic_field]{$p$-adic fields} is a collection of
 extensions $L/K$ with $K$ a fixed $p$-adic field.  The field $K$
 is called the \textbf{base field} of the family.
-\end{definition*}
-
-
+\end{definition}

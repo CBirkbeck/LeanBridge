@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/av.fq.ordinary}{Ordinary}}
-\begin{definition*}\label{av.fq.ordinary}
+\begin{definition}\label{av.fq.ordinary}
 \uses{ag.abelian_variety,ag.base_field,ag.dimension,av.fq.p_rank}
 An \hyperref[ag.abelian_variety]{abelian variety} of \hyperref[ag.dimension]{dimension} $g$ \hyperref[ag.base_field]{defined} over a finite field $\F_q$ with $q = p^r$ is \textbf{ordinary} if it has \hyperref[av.fq.p_rank]{$p$-rank} equal to $g$.
-\end{definition*}
-
-
+\end{definition}

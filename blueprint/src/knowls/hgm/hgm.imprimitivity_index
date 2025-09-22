@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/hgm.imprimitivity_index}{Imprimitivity index of a hypergeometric motive}}
-\begin{definition*}\label{hgm.imprimitivity_index}
+\begin{definition}\label{hgm.imprimitivity_index}
 \uses{hgm.defining_parameters}
 If a hypergeometric family has \hyperref[hgm.defining_parameters]{defining parameters} $A=(a_1,\ldots,a_n)$ and $B=(b_1,\ldots,b_m)$, then we can view the parameters as giving two multisets of roots of unity, namely for $A$, the primitive $a_i$-th roots of unity repeated according to their multiplicities in $A$, and similarly for $B$.  These sets has a rotational symmetry group $R$, which may be trivial.  The \textbf{rotation number} is the order of $R$.
-\end{definition*}
-
-
+\end{definition}

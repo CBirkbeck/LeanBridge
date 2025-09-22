@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.stem_group}{Stem group}}
-\begin{definition*}\label{group.stem_group}
+\begin{definition}\label{group.stem_group}
 \uses{group,group.center,group.commutator_subgroup,group.isoclinism}
 A \textbf{stem group} is a \hyperref[group]{group} $G$ whose \hyperref[group.center]{center} is contained in its \hyperref[group.commutator_subgroup]{commutator subgroup}.  Any group is \hyperref[group.isoclinism]{isoclinic} to a stem group (not necessarily unique), and the order of a stem group divides the order of every other group in its isoclinism class.
-\end{definition*}
-
-
+\end{definition}

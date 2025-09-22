@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/st_group.weight}{Weight of a Sato-Tate group}}
-\begin{definition*}\label{st_group.weight}
+\begin{definition}\label{st_group.weight}
 \uses{av.fq.weil_polynomial,nf.prime,st_group.definition}
 The \textbf{weight} $w$ of the \hyperref[st_group.definition]{Sato-Tate group} $G$ of a motive $X$ is determined by the cohomology group $H^w(X,\mathbb{Q}_\ell)$ used to define $G$. For a \hyperref[nf.prime]{prime} of norm $q$, the characteristic polynomial of Frobenius is a \hyperref[av.fq.weil_polynomial]{Weil $q^w$-polynomial}.
 
 
-\end{definition*}
-
-
+\end{definition}

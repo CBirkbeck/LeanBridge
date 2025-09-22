@@ -1,11 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/artin.number_field}{Number field associated to an Artin representation}}
-\begin{definition*}\label{artin.number_field}
+\begin{definition}\label{artin.number_field}
 \uses{artin,nf}
 The \textbf{Artin field} is a \hyperref[nf]{number field} associated to an \hyperref[artin]{Artin representation}
 $\rho:\mathrm{Gal}(\overline{\Q}/\Q)\to\GL(V)$
 by being the smallest Galois extension $K/\mathbb{Q}$ such that $\rho$ factors through
 $\mathrm{Gal}(K/\Q)$.
 
-\end{definition*}
-
-
+\end{definition}

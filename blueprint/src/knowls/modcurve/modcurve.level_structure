@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.level_structure}{Level structure of a modular curve}}
-\begin{definition*}\label{modcurve.level_structure}
+\begin{definition}\label{modcurve.level_structure}
 \uses{ec,ec.base_change,ec.galois_rep,gl2.level,gl2.open,nf}
 Let $H$ be an \hyperref[gl2.open]{open subgroup} of $\GL_2(\widehat{\Z})$ of \hyperref[gl2.level]{level} $N$, let $\pi_N\colon \GL_2(\widehat{\Z})\to \GL_2(\Z/N\Z)$ be the natural projection, and let $E$ be an \hyperref[ec]{elliptic curve} over a \hyperref[nf]{number field} $K$.
 
@@ -19,4 +19,4 @@ Invariants of a rational $H$-level structure include:
 \item  \textbf{Cyclic $\boldsymbol{N}$-torsion field degree}: the minimal degree of an extension $L/K$ for which $E_L$ has a rational point of order $N$; equivalently, the index of the largest subgroup of $H$ that fixes a point of order $N$ in $(\Z/N\Z)^2$.
 \item  \textbf{N-torsion field degree} the minimal degree of an extension $L/K$ for which $E[N]\subseteq E(L)$; this is simply the cardinality of the reduction of $H$ to $\GL_2(\Z/N\Z)$.
 \end{itemize}
-\end{definition*}
+\end{definition}

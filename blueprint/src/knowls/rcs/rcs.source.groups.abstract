@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.groups.abstract}{Source  of abstract group  data}}
-\begin{definition*}\label{rcs.source.groups.abstract}
+\begin{definition}\label{rcs.source.groups.abstract}
 \uses{}
 All groups in the database, as well as their attributes, subgroups, character tables, etc. were computed using Magma from code and algorithms developed and written by  Michael Bush, Lewis Combes, John Jones, Jen Paulhus, David Roe, Manami Roy, and Sam Schiavone.  The code is available on <a href="https://github.com/roed314/FiniteGroups">GitHub</a>.
 
@@ -19,12 +19,12 @@ Small groups were pulled from the small group database in Magma, and rely on the
 \end{itemize}
 
 \begin{itemize}
-\item  Besche, Eick and O'Brien, "The groups of order at most 2000", 
+\item  Besche, Eick and O'Brien, "The groups of order at most 2000",
 \end{itemize}
 \cite{MR:1826989, doi:10.1090/S1079-6762-01-00087-7}
 
 \begin{itemize}
-\item  O'Brien, "The $p$-group generation algorithm", 
+\item  O'Brien, "The $p$-group generation algorithm",
 \end{itemize}
 \cite{MR:1075431, doi:10.1016/S0747-7171(08)80082-X}
 
@@ -120,6 +120,4 @@ Small groups were pulled from the small group database in Magma, and rely on the
 
 
 
-\end{definition*}
-
-
+\end{definition}

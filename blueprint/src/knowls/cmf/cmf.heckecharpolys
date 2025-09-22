@@ -1,8 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.heckecharpolys}{Hecke characteristic polynomial}}
-\begin{definition*}\label{cmf.heckecharpolys}
+\begin{definition}\label{cmf.heckecharpolys}
 \uses{cmf.hecke_operator,cmf.newform,cmf.newform_subspace}
 The \textbf{Hecke characteristic polynomial} of a \hyperref[cmf.newform]{newform} $f$ at a prime $p$ is the characteristic polynomial of the \hyperref[cmf.hecke_operator]{Hecke operator} $T_p$ acting on the \hyperref[cmf.newform_subspace]{newform subspace} $V_f$.
 
-\end{definition*}
-
-
+\end{definition}

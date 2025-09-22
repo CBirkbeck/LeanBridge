@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.hyperelliptic_curve}{Hyperelliptic curve}}
-\begin{definition*}\label{ag.hyperelliptic_curve}
+\begin{definition}\label{ag.hyperelliptic_curve}
 \uses{ag.curve,ag.curve.genus}
 A \textbf{hyperelliptic curve} $X$ over a field $k$ is a smooth projective  \hyperref[ag.curve]{algebraic curve} of \hyperref[ag.curve.genus]{genus} $g\ge 2$ that admits a 2-to-1 map $X\to \mathbb{P}^1$ defined over the algebraic closure $\bar k$.
 
@@ -12,6 +12,4 @@ In general, there is always a model for $X$ in $\mathbb{P}^3$ of the form
 h(x,y,z)=0\qquad w^2=f(x,y,z)
 \]
 where $h(x,y,z)$ is a homogeneous polynomial of degree $2$ (a \textbf{conic}) and $f(x,y,z)$ is a homogeneous polynomial of degree $g+1$.
-\end{definition*}
-
-
+\end{definition}

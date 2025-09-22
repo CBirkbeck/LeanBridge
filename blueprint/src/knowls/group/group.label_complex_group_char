@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.label_complex_group_char}{Label of irreducible complex characters of groups}}
-\begin{definition*}\label{group.label_complex_group_char}
+\begin{definition}\label{group.label_complex_group_char}
 \uses{group}
 The \textbf{label} of an irreducible complex character of a \hyperref[group]{group} has the format $N.i.dcj$ where $N.i$ is the label for the group, $d$ is the dimension, $c$ is a lower-case letter code for the rational class of this character, and $j$ is an enumeration of characters within that rational class ($j$ is omitted if the rational class is a singleton).
-\end{definition*}
-
-
+\end{definition}

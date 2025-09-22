@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.two_torsion_field}{2-torsion field}}
-\begin{definition*}\label{g2c.two_torsion_field}
+\begin{definition}\label{g2c.two_torsion_field}
 \uses{ag.abelian_variety,ag.hyperelliptic_curve,ag.mordell_weil,g2c.jacobian}
 The \textbf{2-torsion field} of an \hyperref[ag.abelian_variety]{abelian variety} is the minimal field extension over which the 2-torsion subgroup of its \hyperref[ag.mordell_weil]{Mordell-Weil group} is rational; it is a Galois extension of the field over which the abelian variety is defined.
 
@@ -7,6 +7,4 @@ The 2-torsion field of the \hyperref[g2c.jacobian]{Jacobian} of a \hyperref[ag.h
 
 For abelian varieties over number fields, the 2-torsion field is specified by giving a number field of minimal degree and absolute discriminant whose Galois closure is equal to the 2-torsion field.
 
-\end{definition*}
-
-
+\end{definition}

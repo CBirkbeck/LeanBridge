@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modlgal.frobenius_prime}{Frobenius prime}}
-\begin{definition*}\label{modlgal.frobenius_prime}
+\begin{definition}\label{modlgal.frobenius_prime}
 \uses{modlgal,modlgal.ramified,modlgal.splitting_field,nf.prime}
 A \textbf{Frobenius prime} or \textbf{good prime} for a \hyperref[modlgal]{mod-$\ell$ Galois representation} $\rho: \text{Gal}_K \to G(\F_{\ell})$ with \hyperref[modlgal.splitting_field]{splitting field} $L/K$ is a \hyperref[nf.prime]{prime} $\frak{p}$ of $K$ which does not divide the characteristic $\ell$ and which is \hyperref[modlgal.ramified]{unramified} in $L/K$.
-\end{definition*}
-
-
+\end{definition}

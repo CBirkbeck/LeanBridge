@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/av.fq.bass_zfv}{Bass Frobenius order}}
-\begin{definition*}\label{av.fq.bass_zfv}
+\begin{definition}\label{av.fq.bass_zfv}
 \uses{av.fq.frobenius_order,av.isogeny_class}
 The \hyperref[av.fq.frobenius_order]{Frobenius order} of an \hyperref[av.isogeny_class]{isogeny class} of abelian varieties over a finite field is \textbf{Bass} if all over-orders for the order $\mathbb{Z}[F,V]$ are Gorenstein, where $F$ is the Frobenius endomorphism and $V$ is the Verschiebung endomorphism.
-\end{definition*}
-
-
+\end{definition}

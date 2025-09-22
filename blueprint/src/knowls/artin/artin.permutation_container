@@ -1,11 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/artin.permutation_container}{Containing permutation representation}}
-\begin{definition*}\label{artin.permutation_container}
+\begin{definition}\label{artin.permutation_container}
 \uses{gg.tnumber}
 If $\rho:G\to \GL_n(\C)$ is a representation of a finite group $G$, then $\rho$ is equivalent to a direct sum of irreducible representations.  We say that $\rho$ \textbf{contains} each of these representations.
 
 Given an irreducible representation, we can then ask which permutation representations contain it.  There is at least one because the regular representation of $G$ contains all irreducible representations of $G$.
 
 To determine the smallest permutation representation, we pick one of smallest degree.  If the degree is small enough (less than 48 and not equal to 32), we pick one with the smallest \hyperref[gg.tnumber]{T-number}.  Otherwise we give just the degree.
-\end{definition*}
-
-
+\end{definition}

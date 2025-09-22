@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.bianchi.search_input}{Find a Bianchi modular form}}
-\begin{definition*}\label{mf.bianchi.search_input}
+\begin{definition}\label{mf.bianchi.search_input}
 \uses{mf.bianchi,mf.bianchi.labels}
 To find a specific \hyperref[mf.bianchi]{Bianchi modular form}, enter its \hyperref[mf.bianchi.labels]{label}.
-\end{definition*}
-
-
+\end{definition}

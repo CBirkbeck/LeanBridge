@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.search_input}{Find an integral lattice}}
-\begin{definition*}\label{lattice.search_input}
+\begin{definition}\label{lattice.search_input}
 \uses{lattice.definition,lattice.label}
 To find a specific \hyperref[lattice.definition]{integral lattice}, enter its \hyperref[lattice.label]{label} or name.
-\end{definition*}
-
-
+\end{definition}

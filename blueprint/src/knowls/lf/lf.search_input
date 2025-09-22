@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.search_input}{Find a p-adic field}}
-\begin{definition*}\label{lf.search_input}
+\begin{definition}\label{lf.search_input}
 \uses{lf.field.label,lf.padic_field}
 Enter the \hyperref[lf.field.label]{label} of a \hyperref[lf.padic_field]{$p$-adic field}.
-\end{definition*}
-
-
+\end{definition}

@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.igusa_clebsch_invariants}{Igusa-Clebsch invariants of a genus 2 curve}}
-\begin{definition*}\label{g2c.igusa_clebsch_invariants}
+\begin{definition}\label{g2c.igusa_clebsch_invariants}
 \uses{g2c.g2curve,g2c.geom_iso_class}
 The \textbf{Igusa-Clebsch invariants} of a \hyperref[g2c.g2curve]{genus 2 curve} are weighted projective invariants associated to the \hyperref[g2c.geom_iso_class]{geometric isomorphism class} of the curve.  They are denoted $I_2, I_4, I_6, I_{10}$, where the subscript indicates the weight.
 
@@ -15,6 +15,4 @@ I_6 = c^6 \sum (1 2)^2 (2 3)^2 (3 1)^2 (4 5)^2 (5 6)^2 (6 4)^2 (1 4)^2 (2 5)^2 (
 I_{10} = c^{10} \prod (1 2)^2.\qquad\qquad\qquad\qquad\qquad\qquad\qquad\quad \\
 \]
 Here each sum and product runs over the distinct expressions obtained by applying a permutation to the index set $\{1, \ldots, 6\}$. More precisely, it is obtained by averaging over the $S_6$-Galois orbit of the given expression. Note that $I_{10}$ is simply the discriminant of the sextic polynomial $f$.
-\end{definition*}
-
-
+\end{definition}

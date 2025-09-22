@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/repn.irrep.gl}{Irreducible representations of $\GL(g,\C)$}}
-\begin{definition*}\label{repn.irrep.gl}
+\begin{definition}\label{repn.irrep.gl}
 \uses{repn.highest.weight}
 The irreducible finite-dimensional representations of $\GL(g,\C)$ correspond bijectively to the $g$-tuples of integers $(\lambda_1,\ldots,\lambda_g)$ with
 $\lambda_1\geqslant \lambda_2\geqslant\ldots\geqslant \lambda_g$ called
 \hyperref[repn.highest.weight]{highest weight of the representation}.
-\end{definition*}
-
-
+\end{definition}

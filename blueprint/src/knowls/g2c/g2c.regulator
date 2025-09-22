@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.regulator}{Regulator of a genus 2 curve}}
-\begin{definition*}\label{g2c.regulator}
+\begin{definition}\label{g2c.regulator}
 \uses{ag.regulator,g2c.g2curve,g2c.jacobian}
 The \textbf{regulator} of a \hyperref[g2c.g2curve]{genus 2 curve} is the \hyperref[ag.regulator]{regulator} of its  \hyperref[g2c.jacobian]{Jacobian}.
-\end{definition*}
-
-
+\end{definition}

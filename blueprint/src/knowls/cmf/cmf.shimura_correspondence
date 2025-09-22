@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.shimura_correspondence}{Shimura correspondence}}
-\begin{definition*}\label{cmf.shimura_correspondence}
+\begin{definition}\label{cmf.shimura_correspondence}
 \uses{character.dirichlet}
 Let $k$ be an odd integer, and let $N$ a positive integer divisible by $4$. Let $\chi$ be a \hyperref[character.dirichlet]{character} modulo $N$. Let $t$ be a square-free integer. The \textbf{Shimura correspondence} is the linear map $Sh_t:S_{k/2}(N, \chi)\to S_{k-1}(N/2, \chi^2)$ defined by the equation
 \[
@@ -15,6 +15,4 @@ where
 
 
 This map is Hecke linear. If $k\geq5$, it takes cusp forms to cusp forms.
-\end{definition*}
-
-
+\end{definition}

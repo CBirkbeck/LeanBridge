@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.monogenic}{Monogenic field}}
-\begin{definition*}\label{nf.monogenic}
+\begin{definition}\label{nf.monogenic}
 \uses{nf,nf.ring_of_integers}
 A \hyperref[nf]{number field} $K$ is \textbf{monogenic} if its \hyperref[nf.ring_of_integers]{ring of integers} $\mathcal{O}_K$ equals $\Z[\alpha]$ for some $\alpha \in \mathcal{O}_K$.
-\end{definition*}
-
-
+\end{definition}

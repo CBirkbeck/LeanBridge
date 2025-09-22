@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.gl2.history.hecke}{Hecke Characters}}
-\begin{definition*}\label{mf.gl2.history.hecke}
+\begin{definition}\label{mf.gl2.history.hecke}
 \uses{character.hecke,cmf.cm_form,cmf.cusp_form,cmf.fouriercoefficients,cmf.weight,mf,mf.1.12.1.a.top,nf}
 An important variant of theta functions are \hyperref[mf]{modular forms} coming from certain \hyperref[character.hecke]{Hecke characters} of a quadratic \hyperref[nf]{number field} $K$. In this case the definition is given in terms of a sum over integral ideals but this can be reformulated as a linear combination of theta functions of the form $\Theta_{L;Q;h}(z)$ defined above. In this case the lattice $L$ is an ideal in $K$, the quadratic form $Q$ is the norm form, that is,  $Q(x)=\mathcal{N}_{K/\Q}(x)$, and the function $h$ is given by the Hecke character. There are several reasons for the importance of these functions: one is that even though they are \hyperref[cmf.cusp_form]{cusp forms}, their \hyperref[cmf.fouriercoefficients]{Fourier coefficients} can be easily computed, contrary to functions like \hyperref[mf.1.12.1.a.top]{$\Delta$}. A second is that they are all \hyperref[cmf.cm_form]{CM forms}, and conversely all CM forms are obtained from Hecke characters. In addition, a CM form is easily seen to be <em>lacunary</em> (i.e., the proportion of nonzero Fourier coefficients tends to zero), and, conversely, Serre has shown that for integral \hyperref[cmf.weight]{weight} $k\ge1$, a nonzero form $f$ is lacunary if and only either $k=1$, or
 $k\ge2$ and $f$ is a linear combination of CM forms.
 
-\end{definition*}
-
-
+\end{definition}

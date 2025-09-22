@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.subgroup.projective_image}{Projective image of a subgroup}}
-\begin{definition*}\label{group.subgroup.projective_image}
+\begin{definition}\label{group.subgroup.projective_image}
 \uses{group.center,group.quotient}
 If $H \subset G$ is a subgroup, the \textbf{projective image} of $H$ is the image of $H$ in the \hyperref[group.center]{central} \hyperref[group.quotient]{quotient} $G / Z(G)$.
-\end{definition*}
-
-
+\end{definition}

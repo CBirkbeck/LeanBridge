@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/content.edit_board}{Management board}}
-\begin{definition*}\label{content.edit_board}
+\begin{definition}\label{content.edit_board}
 \uses{}
 
 <ul>
@@ -26,6 +26,4 @@
 <li>John Voight, Dartmouth College, USA</li>
 </ul>
 
-\end{definition*}
-
-
+\end{definition}

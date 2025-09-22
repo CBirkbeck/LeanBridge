@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/st_group.subgroups}{Maximal subgroups}}
-\begin{definition*}\label{st_group.subgroups}
+\begin{definition}\label{st_group.subgroups}
 \uses{st_group.definition,st_group.identity_component}
 For a \hyperref[st_group.definition]{Sato-Tate group} $G$, its \textbf{maximal subgroups} are the proper subgroups $H$ of $G$ of finite index that are not contained in any other proper subgroup of $G$; such groups necessarily have the same \hyperref[st_group.identity_component]{identity component} $H^0=G^0$ as $G$.
-\end{definition*}
-
-
+\end{definition}

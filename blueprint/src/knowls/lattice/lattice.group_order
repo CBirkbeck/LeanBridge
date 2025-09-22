@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.group_order}{Group order of an integral lattice}}
-\begin{definition*}\label{lattice.group_order}
+\begin{definition}\label{lattice.group_order}
 \uses{lattice.automorphism_group,lattice.definition}
-The \textbf{group order} of an \hyperref[lattice.definition]{integral lattice} is the size of its \hyperref[lattice.automorphism_group]{automorphism group}.  
-\end{definition*}
-
-
+The \textbf{group order} of an \hyperref[lattice.definition]{integral lattice} is the size of its \hyperref[lattice.automorphism_group]{automorphism group}.
+\end{definition}

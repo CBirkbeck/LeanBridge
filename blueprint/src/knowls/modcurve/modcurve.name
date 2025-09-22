@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.name}{Standard modular curves}}
-\begin{definition*}\label{modcurve.name}
+\begin{definition}\label{modcurve.name}
 \uses{gl2.cartan,modcurve.xn}
 We use the following notation to denote some standard modular curves that appear in the literature:
 
@@ -16,4 +16,4 @@ We use the following notation to denote some standard modular curves that appear
 \item  $X_{\mathrm{ns}}^+(N)$ denotes the modular curve $X_H$ for which $H\leq \GL_2(\widehat{\Z})$ is the reduction to $\GL_2(\Z/N\Z)$ of the normalizer of the nonsplit Cartan subgroup of $\GL_2(\widehat{\Z})$ (containing the nonsplit Cartan with index 2).
 \end{itemize}
 
-\end{definition*}
+\end{definition}

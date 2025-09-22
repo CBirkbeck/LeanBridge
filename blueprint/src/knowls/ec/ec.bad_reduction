@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.bad_reduction}{Bad reduction of an elliptic curve at a prime}}
-\begin{definition*}\label{ec.bad_reduction}
+\begin{definition}\label{ec.bad_reduction}
 \uses{ec,ec.additive_reduction,ec.discriminant,ec.nonsplit_multiplicative_reduction,ec.split_multiplicative_reduction,nf,nf.prime}
 An \hyperref[ec]{elliptic curve} \(E\) defined over a \hyperref[nf]{number field} \(K\) is said to have \textbf{bad reduction} at a \hyperref[nf.prime]{prime} \(\mathfrak{p}\) of \(K\) if the reduction of \(E\) modulo \(\mathfrak{p}\) is singular.
 There are three types of bad reduction:
@@ -11,6 +11,4 @@ There are three types of bad reduction:
 \end{itemize}
 
 A curve has bad reduction at \(\mathfrak{p}\) if and only if \(\mathfrak{p}\) divides its \hyperref[ec.discriminant]{discriminant}.
-\end{definition*}
-
-
+\end{definition}

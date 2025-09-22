@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.minimal}{Minimal modular form}}
-\begin{definition*}\label{cmf.minimal}
+\begin{definition}\label{cmf.minimal}
 \uses{}
 A modular form is \textbf{minimal} if it is not a twist of a form of lower level.
-\end{definition*}
-
-
+\end{definition}

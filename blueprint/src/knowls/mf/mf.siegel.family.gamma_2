@@ -1,12 +1,12 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.family.gamma_2}{The ring of Siegel modular forms of degree 2 for $\Gamma(2)$}}
-\begin{definition*}\label{mf.siegel.family.gamma_2}
+\begin{definition}\label{mf.siegel.family.gamma_2}
 \uses{}
 We define the following subgroups of the symplectic group $\Sp(4,\Z)$:
   $$
-  \Gamma[2]=\{ 
+  \Gamma[2]=\{
   M\in \Sp(4,\Z):  M\equiv 1_4   \bmod 2 \} \, ,
   \qquad
-  \Gamma_1[2]= \{ M\in \Sp(4,\Z): 
+  \Gamma_1[2]= \{ M\in \Sp(4,\Z):
   M\equiv \left(\begin{matrix} 1_2 & * \\ 0 & 1_2\end{matrix} \right) \bmod 2\} \, ,
   \qquad
   \Gamma_0[2]= \{
@@ -18,7 +18,7 @@ We define the following subgroups of the symplectic group $\Sp(4,\Z)$:
   $$\Gamma_1[2]/ \Gamma[2]  \simeq (\Z/2\Z)^3, \quad
   \Gamma_0[2]/ \Gamma[2]  \simeq \Z/2\Z \times S_4, \quad
   \Gamma_0[2]/ \Gamma_1[2]  \simeq S_3, \quad
-  \Gamma/ \Gamma[2]  \simeq S_6\, 
+  \Gamma/ \Gamma[2]  \simeq S_6\,
   $$
   where $S_n$ is the symmetric group on $n$ letters.
 
@@ -39,13 +39,13 @@ It turns out that the vector space of vector-valued modular forms (resp. cusp fo
 $$
 M_{k,j}(\Gamma[2])=S_{k,j}(\Gamma[2])\oplus E_{k,j}(\Gamma[2]),
 $$
-where $E_{k,j}(\Gamma[2])$ denotes the space of Eisenstein series of weight $(k,j)$.    We give the isotypic decomposition of these spaces as follows.  For fixed $(k,j)$, the isotypic decompositions 
+where $E_{k,j}(\Gamma[2])$ denotes the space of Eisenstein series of weight $(k,j)$.    We give the isotypic decomposition of these spaces as follows.  For fixed $(k,j)$, the isotypic decompositions
 \begin{itemize}
 \item  $ M_{k,j}(\Gamma[2])=m_{s[6]}s[6]+m_{s[5,1]}s[5,1]+\ldots +m_{s[1^6]}s[1^6]$,
 \item  $ E_{k,j}(\Gamma[2])=n_{s[6]}s[6]+n_{s[5,1]}s[5,1]+\ldots +n_{s[1^6]}s[1^6]$,
 \item  $ S_{k,j}(\Gamma[2])=l_{s[6]}s[6]+l_{s[5,1]}s[5,1]+\ldots +l_{s[1^6]}s[1^6]$,
 \end{itemize}
-will be denoted by 
+will be denoted by
 $$
 \begin{matrix}
 \lambda\colon & [6] & \ldots & [1^6]\\
@@ -54,14 +54,14 @@ $$
 $$
 Since $\Gamma_0[2]/ \Gamma_1[2]  \simeq S_3$, the space of vector-valued modular forms on $\Gamma_1[2]$ is a $S_3$-representation space.
 
-An $S_6$-representation $ m_{s[6]}s[6]+m_{s[5,1]}s[5,1]+\ldots +m_{s[1^6]}s[1^6]$ 
-contributes a $S_3$-representation 
+An $S_6$-representation $ m_{s[6]}s[6]+m_{s[5,1]}s[5,1]+\ldots +m_{s[1^6]}s[1^6]$
+contributes a $S_3$-representation
 $$
 (m_{s[6]}+m_{s[4,2]}+m_{s[2^3]}s[3]+(m_{s[5,1]}+m_{s[4,2]}+m_{s[3,2,1]})s[2,1]+(m_{s[4,1^2]}+m_{s[3^2]})s[1^3]
-$$ 
+$$
 to $M_{k,j}(\Gamma_1[2])$ and a contribution $m_{s[6]}+m_{s[4,2]}+m_{s[2^3]}$ to the dimension of $M_{k,j}(\Gamma_0[2])$. We use the same notations as for $\Gamma[2]$ for the isotypic decomposition (under $S_3$) of the spaces $M_{k,j}(\Gamma_1[2])$.
 
-The structures of the graded rings $R= \oplus_k M_{k,0}(\Gamma_[2])$ and  $R^{\rm ev}=\oplus_k M_{2k,0}(\Gamma[2])$   of scalar-valued modular forms on $\Gamma[2]$ has been determined by Jun-Ichi Igusa \cite{mr:0141613, doi:10.2307/2372812}.  In order to describe these structures, we need to introduce theta series with characteristics. 
+The structures of the graded rings $R= \oplus_k M_{k,0}(\Gamma_[2])$ and  $R^{\rm ev}=\oplus_k M_{2k,0}(\Gamma[2])$   of scalar-valued modular forms on $\Gamma[2]$ has been determined by Jun-Ichi Igusa \cite{mr:0141613, doi:10.2307/2372812}.  In order to describe these structures, we need to introduce theta series with characteristics.
 
 We use the following (lexicographic) notation for the ten even theta characteristics
 $$
@@ -100,6 +100,4 @@ with $f$ a homogeneous polynomial of degree $4$ in the $x_i$, the so-called Igus
 
 Also see F. Cl\'e;ry, G. van der Geer, S. Grushevsky, \cite{arXiv:1306.6018} and J. Bergstr\"om, C. Faber, G. van der Geer \cite{mr:2439544, doi:10.1093/imrn/rnn100}.
 
-\end{definition*}
-
-
+\end{definition}

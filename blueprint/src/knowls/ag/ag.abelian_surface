@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.abelian_surface}{Abelian surface}}
-\begin{definition*}\label{ag.abelian_surface}
+\begin{definition}\label{ag.abelian_surface}
 \uses{ag.abelian_variety,ag.curve.genus,ag.dimension,ag.jacobian,ec}
 An \textbf{abelian surface} is an \hyperref[ag.abelian_variety]{abelian variety} of \hyperref[ag.dimension]{dimension} 2.
 
 Examples are given by the product of two \hyperref[ec]{elliptic curves}, or the \hyperref[ag.jacobian]{Jacobian} of a curve of \hyperref[ag.curve.genus]{genus} 2.
-\end{definition*}
-
-
+\end{definition}

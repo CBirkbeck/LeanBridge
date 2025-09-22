@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/dq.curve.highergenus.aut.reliability}{Reliability of the higher genus curves with automorphisms data}}
-\begin{definition*}\label{dq.curve.highergenus.aut.reliability}
+\begin{definition}\label{dq.curve.highergenus.aut.reliability}
 \uses{}
 All the data on higher genus curves with automorphisms was computed with rigorous algorithms and without heuristics or conjectures.
-\end{definition*}
-
-
+\end{definition}

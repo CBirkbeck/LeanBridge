@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.quadratic_refinements}{Index 2 refinements}}
-\begin{definition*}\label{modcurve.quadratic_refinements}
+\begin{definition}\label{modcurve.quadratic_refinements}
 \uses{modcurve,modcurve.modular_cover}
-An \textbf{index 2 refinement} of a \hyperref[modcurve]{modular curve} $X_H$ is a \hyperref[modcurve.modular_cover]{modular cover} $X_{H'} \to X_H$ such that $H'<H$ and $H=\{\pm 1\}H'$, so $(H:H')=2$.  We also refer to $H'$ as an \textbf{index 2 refinement} of $H$.  In particular, if $-1 \not \in H$ then there are no index 2 refinements.  
+An \textbf{index 2 refinement} of a \hyperref[modcurve]{modular curve} $X_H$ is a \hyperref[modcurve.modular_cover]{modular cover} $X_{H'} \to X_H$ such that $H'<H$ and $H=\{\pm 1\}H'$, so $(H:H')=2$.  We also refer to $H'$ as an \textbf{index 2 refinement} of $H$.  In particular, if $-1 \not \in H$ then there are no index 2 refinements.
 
-An index 2 refinement $X_{H'} \to X_H$ is an isomorphism of the underlying modular curves, but refines the moduli problem from $H$ to $H'$.  
-\end{definition*}
-
-
+An index 2 refinement $X_{H'} \to X_H$ is an isomorphism of the underlying modular curves, but refines the moduli problem from $H$ to $H'$.
+\end{definition}

@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.embedding_label}{Complex embedding label}}
-\begin{definition*}\label{cmf.embedding_label}
+\begin{definition}\label{cmf.embedding_label}
 \uses{character.dirichlet.galois_orbit_label,cmf.cusp_form,cmf.embedding,cmf.level,cmf.weight}
 The \textbf{label} complex embedded holomorphic \hyperref[cmf.cusp_form]{cusp form} \( f\) is \( N.k.a.x.c.j \) (sometimes shortened as \( a.j\) ), where
 
@@ -27,6 +27,4 @@ The \textbf{label} complex embedded holomorphic \hyperref[cmf.cusp_form]{cusp fo
 \item  \(j\) is the index for the embedding within those with the same Dirichlet character, these are ordered by the vector $\iota(a_n)$, where we order the complex numbers first by their real part and then by their imaginary part.
 \end{itemize}
 
-\end{definition*}
-
-
+\end{definition}

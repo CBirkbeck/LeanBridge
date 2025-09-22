@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/character.dirichlet.real}{Real Dirichlet character}}
-\begin{definition*}\label{character.dirichlet.real}
+\begin{definition}\label{character.dirichlet.real}
 \uses{}
-A character is \textbf{real} if its image is contained in $\mathbb R.$ 
-\end{definition*}
-
-
+A character is \textbf{real} if its image is contained in $\mathbb R.$
+\end{definition}

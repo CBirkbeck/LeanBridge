@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.order}{Order}}
-\begin{definition*}\label{nf.order}
+\begin{definition}\label{nf.order}
 \uses{nf}
 An \textbf{order} in a \hyperref[nf]{number field} $K$ is a subring of $K$ which is also a lattice in $K$. Every order in $K$ is contained in the ring of integers of $K$, which is itself an order in $K$; for this reason, the ring of integers is sometimes called the \textit{maximal order}.
 
 Example: $\Z[\sqrt{5}]$ is an order in $K=\Q(\sqrt{5})$. However, it is not maximal, since the maximal order (i.e. ring of integers) of $K$ is $\Z\left[\frac{1+\sqrt{5}}2\right]$.
-\end{definition*}
-
-
+\end{definition}

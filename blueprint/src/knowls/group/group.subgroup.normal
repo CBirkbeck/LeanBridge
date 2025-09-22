@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.subgroup.normal}{Normal subgroup of a group}}
-\begin{definition*}\label{group.subgroup.normal}
+\begin{definition}\label{group.subgroup.normal}
 \uses{alg.binary_operation,group,group.coset,group.subgroup}
 If $H$ is a \hyperref[group.subgroup]{subgroup} of a \hyperref[group]{group} $G$, then $H$ is \textbf{normal} if any of the following equivalent conditions hold:
 
@@ -9,6 +9,4 @@ If $H$ is a \hyperref[group.subgroup]{subgroup} of a \hyperref[group]{group} $G$
 4. $(aH)*(bH)=(ab)H$ is a well-defined \hyperref[alg.binary_operation]{binary operation} on the set of \hyperref[group.coset]{left cosets} of $H$
 
 If $H$ is a normal subgroup, we write $H \lhd G$, and the set of left cosets $G/H$ form a group under the operation given in (4) above.
-\end{definition*}
-
-
+\end{definition}

@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.split_multiplicative_reduction}{Split multiplicative reduction}}
-\begin{definition*}\label{ec.split_multiplicative_reduction}
+\begin{definition}\label{ec.split_multiplicative_reduction}
 \uses{ec,nf}
 An \hyperref[ec]{elliptic curve} \(E\) defined over a \hyperref[nf]{number field} \(K\) is said to have \textbf{split multiplicative reduction} at a prime \(\mathfrak{p}\) of \(K\) if the reduction of \(E\) modulo \(\mathfrak{p}\) has a nodal singularity with both tangent slopes defined over the residue field at \(\mathfrak{p}\).
-\end{definition*}
-
-
+\end{definition}

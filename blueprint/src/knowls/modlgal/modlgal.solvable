@@ -1,8 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modlgal.solvable}{Solvable}}
-\begin{definition*}\label{modlgal.solvable}
+\begin{definition}\label{modlgal.solvable}
 \uses{group.solvable,modlgal,modlgal.codomain,modlgal.image}
-A \hyperref[modlgal]{mod-$\ell$ Galois representation} with \hyperref[modlgal.codomain]{codomain} $G(\F_{\ell})$ is \textbf{solvable} 
+A \hyperref[modlgal]{mod-$\ell$ Galois representation} with \hyperref[modlgal.codomain]{codomain} $G(\F_{\ell})$ is \textbf{solvable}
  if its \hyperref[modlgal.image]{image} is a \hyperref[group.solvable]{solvable} subgroup of the \hyperref[modlgal.codomain]{codomain} $G(\F_{\ell})$.  Otherwise the representation is \textbf{nonsolvable}.
-\end{definition*}
-
-
+\end{definition}

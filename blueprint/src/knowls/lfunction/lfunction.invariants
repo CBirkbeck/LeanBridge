@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.invariants}{Invariants of an L-function}}
-\begin{definition*}\label{lfunction.invariants}
+\begin{definition}\label{lfunction.invariants}
 \uses{lfunction.analytic_rank,lfunction.conductor,lfunction,lfunction.degree,lfunction.motivic_weight,lfunction.primitive,lfunction.root_number,lfunction.selbergdata,lfunction.self-dual}
 The invariants of an \hyperref[lfunction]{L-function} may include:
 
@@ -13,6 +13,4 @@ The invariants of an \hyperref[lfunction]{L-function} may include:
 \item  its \hyperref[lfunction.analytic_rank]{analytic rank};
 \item  its \hyperref[lfunction.selbergdata]{Selberg data}.
 \end{itemize}
-\end{definition*}
-
-
+\end{definition}

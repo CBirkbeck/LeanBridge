@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.decomposition.new.gamma0chi}{Decomposition into newforms}}
-\begin{definition*}\label{cmf.decomposition.new.gamma0chi}
+\begin{definition}\label{cmf.decomposition.new.gamma0chi}
 \uses{cmf.hecke_operator,cmf.newform}
 The \hyperref[cmf.hecke_operator]{Hecke algebra} acts on \(S_k^{\mathrm{new}}(N, \chi)\), breaking it up into irreducible pieces.  Each piece is spanned by a set of conjugate eigenforms with Fourier coefficients in a number field of degree equal to the dimension of the subspace.  We refer to an irreducible orbit as a \textbf{\hyperref[cmf.newform]{newform}}.
-\end{definition*}
-
-
+\end{definition}

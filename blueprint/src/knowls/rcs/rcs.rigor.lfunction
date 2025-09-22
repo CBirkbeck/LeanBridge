@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.rigor.lfunction}{Reliability of L-function data}}
-\begin{definition*}\label{rcs.rigor.lfunction}
+\begin{definition}\label{rcs.rigor.lfunction}
 \uses{}
 TBA
-\end{definition*}
-
-
+\end{definition}

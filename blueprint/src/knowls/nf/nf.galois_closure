@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.galois_closure}{Galois closure of an extension}}
-\begin{definition*}\label{nf.galois_closure}
+\begin{definition}\label{nf.galois_closure}
 \uses{nf.separable}
 If $K$ is a \hyperref[nf.separable]{separable} algebraic extension of a field $F$, then its \textbf{Galois closure} is the smallest extension field, in terms of inclusion, which contains $K$ and is Galois over $F$.  If $K=F(\alpha)$ where $\alpha$ has irreducible polynomial $f$ over $F$, then the Galois closure of $K$ is the splitting field of $f$ over $F$.
-\end{definition*}
-
-
+\end{definition}

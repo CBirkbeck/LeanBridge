@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.maximal_cm_subfield}{Maximal CM subfield}}
-\begin{definition*}\label{nf.maximal_cm_subfield}
+\begin{definition}\label{nf.maximal_cm_subfield}
 \uses{nf,nf.cm_field,nf.degree}
 The \textbf{maximal CM subfield} of a \hyperref[nf]{number field} is the largest subfield by \hyperref[nf.degree]{degree} which is a \hyperref[nf.cm_field]{CM field}.
-\end{definition*}
-
-
+\end{definition}

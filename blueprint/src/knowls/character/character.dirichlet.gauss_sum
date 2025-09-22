@@ -1,12 +1,10 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/character.dirichlet.gauss_sum}{Gauss sum}}
-\begin{definition*}\label{character.dirichlet.gauss_sum}
+\begin{definition}\label{character.dirichlet.gauss_sum}
 \uses{character.dirichlet}
-Let $\chi$ be a \hyperref[character.dirichlet]{Dirichlet character} with modulus $q$. For $a \in \mathbb{Z}$, the \textbf{Gauss sum} associated to $\chi$ and $a$ is given by 
+Let $\chi$ be a \hyperref[character.dirichlet]{Dirichlet character} with modulus $q$. For $a \in \mathbb{Z}$, the \textbf{Gauss sum} associated to $\chi$ and $a$ is given by
 $$
 \large \tau_{a}(\chi) = \sum_{r \,\in\, \mathbb{Z}/q\mathbb{Z}} \chi(r)\, e^{2\pi iar/q}.
 $$
 The Gauss sum $\tau_1(\chi)$ is often called "the Gauss sum" of $\chi$.
 
-\end{definition*}
-
-
+\end{definition}

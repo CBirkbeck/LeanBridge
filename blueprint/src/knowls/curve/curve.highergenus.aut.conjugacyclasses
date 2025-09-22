@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/curve.highergenus.aut.conjugacyclasses}{Conjugacy classes}}
-\begin{definition*}\label{curve.highergenus.aut.conjugacyclasses}
+\begin{definition}\label{curve.highergenus.aut.conjugacyclasses}
 \uses{group.small_group_label}
 Conjugacy classes in a group of automorphisms are identified by their index in the list of conjugacy clases returned by Magma.
 
@@ -13,6 +13,4 @@ For example, the unique conjugacy class in the group $SL(2,3)$ that contains ele
 Here $[24,3]$ is the \hyperref[group.small_group_label]{group identifier} for the group $SL(2,3)$.
 
 
-\end{definition*}
-
-
+\end{definition}

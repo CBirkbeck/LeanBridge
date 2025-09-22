@@ -1,8 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/av.aut_group}{Automorphism group}}
-\begin{definition*}\label{av.aut_group}
+\begin{definition}\label{av.aut_group}
 \uses{ag.variety}
-An \textbf{automorphism} of an \hyperref[ag.variety]{algebraic variety} is an isomorphism from the variety to itself. 
+An \textbf{automorphism} of an \hyperref[ag.variety]{algebraic variety} is an isomorphism from the variety to itself.
 The set of automorphisms of an \hyperref[ag.variety]{algebraic variety} $X$ form a group $\mathrm{Aut}(X)$ under composition; this is the \textbf{automorphism group} of the \hyperref[ag.variety]{algebraic variety}.
-\end{definition*}
-
-
+\end{definition}

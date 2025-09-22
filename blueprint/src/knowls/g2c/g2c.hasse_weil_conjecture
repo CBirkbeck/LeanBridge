@@ -1,10 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.hasse_weil_conjecture}{Hasse-Weil conjecture}}
-\begin{definition*}\label{g2c.hasse_weil_conjecture}
+\begin{definition}\label{g2c.hasse_weil_conjecture}
 \uses{ag.abelian_variety,ec,g2c.gl2type,lfunction,lfunction.critical_strip,lfunction.functional_equation,lfunction.selberg_class,nf}
 The \textbf{Hasse-Weil conjecture} predicts that the \hyperref[lfunction]{L-function} $L(A,s)$ of a (positive-dimensional) \hyperref[ag.abelian_variety]{abelian variety} $A$ over a \hyperref[nf]{number field} $K$ has an analytic continuation to $\C$ with no poles in the \hyperref[lfunction.critical_strip]{critical strip} and that it satisfies its \hyperref[lfunction.functional_equation]{functional equation}; equivalently, $L(A,s)$ lies in the \hyperref[lfunction.selberg_class]{Selberg class}.
 
 The Hasse-Weil conjecture is implied by modularity and is thus known to hold, for example, when $K=\Q$ and $A$ is an \hyperref[ec]{elliptic curve} or an abelian variety of \hyperref[g2c.gl2type]{$\GL_2$-type}.
 
-\end{definition*}
-
-
+\end{definition}

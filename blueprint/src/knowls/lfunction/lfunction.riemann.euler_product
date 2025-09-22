@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.riemann.euler_product}{Euler product for the Riemann zeta function}}
-\begin{definition*}\label{lfunction.riemann.euler_product}
+\begin{definition}\label{lfunction.riemann.euler_product}
 \uses{}
 The \textbf{Euler product} for the Riemann zeta function is its expansion as the infinite product
 $$\zeta(s) = \prod_{p \textrm{ prime}} \frac{1}{1-p^{-s}}.  $$
@@ -9,6 +9,4 @@ $$ \prod_{p } \frac{1}{1-p^{-s}} = \prod_p \left(\sum_{k=0}^\infty p^{-ks} \righ
 
 
 
-\end{definition*}
-
-
+\end{definition}

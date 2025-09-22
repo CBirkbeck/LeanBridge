@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.central_value}{Central value of an L-function}}
-\begin{definition*}\label{lfunction.central_value}
+\begin{definition}\label{lfunction.central_value}
 \uses{lfunction,lfunction.central_point,lfunction.critical_strip}
 The \textbf{central value} of an \hyperref[lfunction]{L-function} is its value at the \hyperref[lfunction.central_point]{central point} of the \hyperref[lfunction.critical_strip]{critical strip}.
 
 
-\end{definition*}
-
-
+\end{definition}

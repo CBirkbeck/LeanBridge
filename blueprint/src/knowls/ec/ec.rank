@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.rank}{Rank of an elliptic curve over a number field}}
-\begin{definition*}\label{ec.rank}
+\begin{definition}\label{ec.rank}
 \uses{ec,ec.isogeny,ec.isogeny_class,ec.mordell_weil_group,ec.mordell_weil_theorem,ec.torsion_subgroup,nf}
 The \textbf{rank} of an \hyperref[ec]{elliptic curve} $E$ defined over a \hyperref[nf]{number field} $K$ is the rank of its \hyperref[ec.mordell_weil_group]{Mordell-Weil group} $E(K)$.
 
@@ -9,6 +9,4 @@ where $E(K)_{\rm tor}$ is the finite \hyperref[ec.torsion_subgroup]{torsion subg
 
 Rank is an \hyperref[ec.isogeny]{isogeny} invariant: all curves in an \hyperref[ec.isogeny_class]{isogeny class} have the same rank.
 
-\end{definition*}
-
-
+\end{definition}

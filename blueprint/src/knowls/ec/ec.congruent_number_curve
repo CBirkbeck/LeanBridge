@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.congruent_number_curve}{Congruent number curves}}
-\begin{definition*}\label{ec.congruent_number_curve}
+\begin{definition}\label{ec.congruent_number_curve}
 \uses{ec,ec.congruent_number_problem,ec.isogeny,ec.isogeny_class,ec.mordell_weil_group,ec.q.conductor,ec.rank,ec.weierstrass_coeffs}
 For each positive integer $n$, the <b>congruent number curve</b> $E_n$ is the \hyperref[ec]{elliptic curve} defined over $\Q$ with \hyperref[ec.weierstrass_coeffs]{equation} $y^2 = x(x^2-n^2)$.
 Rational points $(x,y)\in E_n(\Q)$ with $y\not=0$ are associated  to solutions of the \hyperref[ec.congruent_number_problem]{congruent number problem} for $n$:
@@ -23,6 +23,4 @@ The \hyperref[ec.q.conductor]{conductor} of $E_n$ is $32n_0^2$ when the square-f
 Each congruent number elliptic curve $E_n$ belongs to an \hyperref[ec.isogeny_class]{isogeny class} of four  isogenous curves, connected by \hyperref[ec.isogeny]{2-isogenies}.  The curves $2$-isogenous to
 $E_n=[0,0,0,-n^2,0]$ are $[0,0,0,4n^2,0]$ and $[0,\pm 12n,0,n^2,0]$.
 
-\end{definition*}
-
-
+\end{definition}

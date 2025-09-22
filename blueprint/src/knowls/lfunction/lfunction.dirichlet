@@ -1,7 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.dirichlet}{Dirichlet L-function}}
-\begin{definition*}\label{lfunction.dirichlet}
+\begin{definition}\label{lfunction.dirichlet}
 \uses{character.dirichlet,character.dirichlet.conductor,lfunction,lfunction.dirichlet_series,lfunction.euler_product,lfunction.functional_equation}
-A \textbf{Dirichlet L-function} is an \hyperref[lfunction]{L-function} defined by a \hyperref[lfunction.dirichlet_series]{Dirichlet series} of the form ${\displaystyle L(s, \chi)=\sum_{n=1}^\infty \frac {\chi(n)}{n^s}}$, where $\chi$ is a \hyperref[character.dirichlet]{Dirichlet character}.  
+A \textbf{Dirichlet L-function} is an \hyperref[lfunction]{L-function} defined by a \hyperref[lfunction.dirichlet_series]{Dirichlet series} of the form ${\displaystyle L(s, \chi)=\sum_{n=1}^\infty \frac {\chi(n)}{n^s}}$, where $\chi$ is a \hyperref[character.dirichlet]{Dirichlet character}.
 
 Dirichlet L-functions can be meromorphically continued to the complex plane, have an \hyperref[lfunction.euler_product]{Euler product} ${\displaystyle L(s, \chi)= \prod_p (1 - \chi(p) p^{-s} )^{-1}}$, and satisfy a \hyperref[lfunction.functional_equation]{functional equation} of the form
 \[
@@ -9,7 +9,5 @@ Dirichlet L-functions can be meromorphically continued to the complex plane, hav
 \]
 where $q$ is the \hyperref[character.dirichlet.conductor]{conductor} of $\chi$.
 
-These L-functions were introduced by <a href="https://en.wikipedia.org/wiki/Peter\_Gustav\_Lejeune\_Dirichlet">Peter Gustav Lejeune Dirichlet</a> in the mid-1800s as a tool to study prime numbers in arithmetic progressions.  
-\end{definition*}
-
-
+These L-functions were introduced by <a href="https://en.wikipedia.org/wiki/Peter\_Gustav\_Lejeune\_Dirichlet">Peter Gustav Lejeune Dirichlet</a> in the mid-1800s as a tool to study prime numbers in arithmetic progressions.
+\end{definition}

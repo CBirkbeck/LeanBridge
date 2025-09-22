@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.sibling}{Sibling fields and algebras}}
-\begin{definition*}\label{nf.sibling}
+\begin{definition}\label{nf.sibling}
 \uses{nf.galois_closure,nf.separable}
 Two finite \hyperref[nf.separable]{separable extension fields} $K_1$ and $K_2$ of a ground field $F$ are called \textbf{siblings} if they are not isomorphic, but have isomorphic \hyperref[nf.galois_closure]{Galois closures}.
 
 A finite dimensional separable $\Q$-algebra is isomorphic to a product of number fields.  By its Galois closure, we mean the compositum of the Galois closures of the constituent fields.  Then two algebras are \textbf{siblings} if they have isomorphic Galois closures, but are not isomorphic as $\Q$-algebras.
-\end{definition*}
-
-
+\end{definition}

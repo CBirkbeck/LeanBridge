@@ -1,18 +1,16 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.q.j_invariant}{j-invariant of a rational elliptic curve}}
-\begin{definition*}\label{ec.q.j_invariant}
+\begin{definition}\label{ec.q.j_invariant}
 \uses{ec,ec.q.discriminant,ec.weierstrass_coeffs}
 The \textbf{$j$-invariant} of an \hyperref[ec]{elliptic curve} $E$ defined over $\mathbb{Q}$ is an invariant of the isomorphism class of $E$ over  $\overline{\mathbb{Q}}$ .
-If the \hyperref[ec.weierstrass_coeffs]{Weierstrass equation} of $E$ is \[y^2+a_1xy+a_3y=x^3+a_2x^2+a_4x+a_6,\] then its $j$-invariant is given by 
-\[j= \frac{c_4^3}{\Delta}\] where 
+If the \hyperref[ec.weierstrass_coeffs]{Weierstrass equation} of $E$ is \[y^2+a_1xy+a_3y=x^3+a_2x^2+a_4x+a_6,\] then its $j$-invariant is given by
+\[j= \frac{c_4^3}{\Delta}\] where
 \[\begin{aligned}
-b_2 &= a_1^2 + 4 a_2\\ 
-b_4 &= 2a_4 + a_1 a_3\\ 
+b_2 &= a_1^2 + 4 a_2\\
+b_4 &= 2a_4 + a_1 a_3\\
 b_6 &= a_3^2 + 4 a_6 \\
 b_8 &= a_1^2 a_6 + 4 a_2 a_6 - a_1 a_3 a_4 + a_2 a_3^2 - a_4^2\\
 c_4 &= b_2^2 - 24b_4 \\
 c_6 &= -b_2^3 + 36 b_2 b_4 - 216 b_6\end{aligned}\]
 and \[\Delta=-b_2^2b_8 - 8 b_4^3 -27 b_6 ^2 + 9 b_2 b_4 b_6\]
 is the \hyperref[ec.q.discriminant]{discriminant} of $E.$
-\end{definition*}
-
-
+\end{definition}

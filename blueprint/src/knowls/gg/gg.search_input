@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/gg.search_input}{Find a Galois group}}
-\begin{definition*}\label{gg.search_input}
+\begin{definition}\label{gg.search_input}
 \uses{gg.galois_group,gg.label,nf.galois_group.name}
 To find a specific \hyperref[gg.galois_group]{Galois group}, enter its \hyperref[gg.label]{label}.
 
 You can also enter a \hyperref[nf.galois_group.name]{group name} like S4 or D6, or a GAP identifier like [24,12] or [12,4].
-\end{definition*}
-
-
+\end{definition}

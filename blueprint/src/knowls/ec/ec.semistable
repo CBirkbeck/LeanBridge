@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.semistable}{Semistable elliptic curve}}
-\begin{definition*}\label{ec.semistable}
+\begin{definition}\label{ec.semistable}
 \uses{ec,ec.bad_reduction,ec.reduction_type}
 An \hyperref[ec]{elliptic curve} is \textbf{semistable} if it has \hyperref[ec.reduction_type]{multiplicative reduction} at every \hyperref[ec.bad_reduction]{bad prime}.
-\end{definition*}
-
-
+\end{definition}

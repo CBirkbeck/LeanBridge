@@ -1,11 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modlgal.ramified}{Ramified primes of a mod-$\ell$ Galois representation}}
-\begin{definition*}\label{modlgal.ramified}
+\begin{definition}\label{modlgal.ramified}
 \uses{modlgal,modlgal.splitting_field,nf.prime,nf.ramified_primes}
 If $\rho\colon\Gal_K\to G(\F_{\ell})$ is an \hyperref[modlgal]{mod-$\ell$ Galois representation} with \hyperref[modlgal.splitting_field]{splitting field} $L$,   then a \hyperref[nf.prime]{prime} $\frak{p}\nmid\ell$ of $K$ is \textbf{ramified} if it is \hyperref[nf.ramified_primes]{ramified} in $L/K$.
 
 Equivalently, a prime is ramified if the inertia subgroup of $\Gal_K$ for a prime above $\frak{p}$ is not contained in the kernel of $\rho$.
 
 A prime which is not ramified is \textbf{unramified}.
-\end{definition*}
-
-
+\end{definition}

@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/character.dirichlet.principal}{Principal Dirichlet character}}
-\begin{definition*}\label{character.dirichlet.principal}
+\begin{definition}\label{character.dirichlet.principal}
 \uses{character.dirichlet,character.dirichlet.induce,character.dirichlet.modulus}
 A \hyperref[character.dirichlet]{Dirichlet character} is \textbf{principal} (or \textbf{trivial}) if it has \hyperref[character.dirichlet.order]{order} $1$, equivalently, if it is \hyperref[character.dirichlet.induce]{induced} by the unique Dirichlet character of modulus 1.
 
 The value of the principal Dirichlet character of \hyperref[character.dirichlet.modulus]{modulus} $q$ at an integer $n$ is $1$ if $n$ is coprime to $q$ and $0$ otherwise.
-\end{definition*}
-
-
+\end{definition}

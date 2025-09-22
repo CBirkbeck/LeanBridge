@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.abelian}{Abelian group}}
-\begin{definition*}\label{group.abelian}
+\begin{definition}\label{group.abelian}
 \uses{alg.binary_operation,alg.binary_operation.commutative,group}
 A \hyperref[group]{group} is \textbf{abelian} if its \hyperref[alg.binary_operation]{operation} is \hyperref[alg.binary_operation.commutative]{commutative}.
-\end{definition*}
-
-
+\end{definition}

@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.theta_series}{Siegel theta series and theta series with pluriharmonics}}
-\begin{definition*}\label{mf.siegel.theta_series}
+\begin{definition}\label{mf.siegel.theta_series}
 \uses{}
 Given a positive definite quadratic $m\times m$
 positive definite even quadratic form $Q$,
@@ -31,10 +31,8 @@ P(N) \exp(\pi i N' Q N \Omega )
 $$
 
 If $m$ is a multiple of 4,
-this is a Siegel cusp form of weight $m/2+\nu$ in degree $g$ 
+this is a Siegel cusp form of weight $m/2+\nu$ in degree $g$
 with respect to the subgroup $\Gamma_0(\ell)$.
 
 When $m$ is not a multiple of $4$, one gets a Siegel modular form with a character.
-\end{definition*}
-
-
+\end{definition}

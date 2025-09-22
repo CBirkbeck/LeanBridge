@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/artin.projective_field}{Projective Artin field}}
-\begin{definition*}\label{artin.projective_field}
+\begin{definition}\label{artin.projective_field}
 \uses{artin.projective_image}
 Given a \hyperref[artin.projective_image]{projective Artin representation} $\rho:\Gal(\overline{\Q}/\Q)\to \PGL_n(\C)$, the fixed field of the kernel of $\rho$ is the \textbf{projective Artin field} of the representation.
-\end{definition*}
-
-
+\end{definition}

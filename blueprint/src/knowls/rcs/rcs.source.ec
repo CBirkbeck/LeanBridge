@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.ec}{Source of elliptic curve data}}
-\begin{definition*}\label{rcs.source.ec}
+\begin{definition}\label{rcs.source.ec}
 \uses{ag.base_field,ec,ec.base_change,ec.complex_multiplication,ec.global_minimal_model,ec.good_reduction,ec.invariants,ec.isogeny,ec.local_data,group.generators,mf.bianchi.weight,mf.bianchi.weight2,mf.hilbert,nf.abs_discriminant,nf.class_number,nf.discriminant,nf.prime,nf.totally_real}
 ## Source of the curves
 
@@ -10,7 +10,7 @@ The curves defined over the first five (Euclidean) imaginary quadratic fields of
 
 For the field of \hyperref[nf.discriminant]{discriminant} $-20$ (of class number $2$), some of the curves appeared first in Jeremy Bygott's [1999 PhD thesis](https://ore.exeter.ac.uk/repository/handle/10871/8322);  for the fields of \hyperref[nf.discriminant]{discriminant} $-23$ and $-31$ (of class number $3$), some of the curves appeared first in Mark Lingham's [2005 PhD thesis](http://eprints.nottingham.ac.uk/10138/).  In all cases, curves were found to match almost all the \hyperref[mf.bianchi.weight2]{cuspidal} Bianchi newforms (with trivial character, \hyperref[mf.bianchi.weight]{weight} \(2\) and rational coefficients) in the database, originally using custom code by Cremona and Moore, but with the vast majority found by Magma's <tt>EllipticCurveSearch</tt> function written by Steve Donnelly; in some of the remaining cases it has been proved that there is no matching curve.
 
-Additionally, for the fields with class number \(1\), curves with CM by the field in question, which are not associated to cuspidal Bianchi newforms, were found from their $j$-invariants by Cremona.  
+Additionally, for the fields with class number \(1\), curves with CM by the field in question, which are not associated to cuspidal Bianchi newforms, were found from their $j$-invariants by Cremona.
 
 ### \hyperref[nf.totally_real]{Totally real} fields
 Over $\Q(\sqrt{5})$ the curves of \hyperref[ec.invariants]{conductor norm} up to about $5000$ were provided by Alyson Deines from joint work of Jonathan Bober, Alyson Deines, Ariah Klages-Mundt, Benjamin LeVeque, R. Andrew Ohana, Ashwath Rabindranath, Paul Sharaba and William Stein (see [http://arxiv.org/abs/1202.6612](http://arxiv.org/abs/1202.6612)).  All the other curves were found from their associated Hilbert newforms using Magma's <tt>EllipticCurveSearch</tt> function, using a script written by John Cremona.  Hence the extent of the data matches that of the \hyperref[mf.hilbert]{Hilbert Modular Form} data for totally real fields of degrees 2, 3, 4, 5 and 6.
@@ -44,6 +44,4 @@ The images of mod-\(\ell\) Galois representations were computed using Andrew Sut
 
 ### \hyperref[ec.base_change]{Base change} and \(\mathbb{Q}\)-curves
 The property of being the base change of an \hyperref[ec]{elliptic curve} over \(\mathbb{Q}\) and of being a \(\mathbb{Q}\)-curve were computed by John Cremona using his implementation in SageMath of the algorithm described in \cite{doi:10.1007/s40993-021-00270-0,  arxiv:2004.10054}.
-\end{definition*}
-
-
+\end{definition}

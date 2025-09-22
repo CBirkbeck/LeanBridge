@@ -1,11 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.good_reduction}{Primes of good reduction}}
-\begin{definition*}\label{g2c.good_reduction}
+\begin{definition}\label{g2c.good_reduction}
 \uses{ag.jacobian,ag.variety}
 A \hyperref[ag.variety]{variety} $X$ over $\mathbb{Q}$ is said to have \textbf{good reduction} at a prime $p$ if it has an integral model whose reduction modulo $p$ defines a smooth variety of the same dimension; otherwise, $p$ is said to be a prime of \textbf{bad reduction}.
 
 When $X$ is a curve, any prime of good reduction for $X$ is also a prime of good reduction for its \hyperref[ag.jacobian]{Jacobian}, but the converse need not hold when $X$ has genus $g>1$.
 
 For all of the genus 2 curves currently in the LMFDB, every prime of good reduction for the curve is also a prime of good reduction for the Jacobian of the curve.
-\end{definition*}
-
-
+\end{definition}

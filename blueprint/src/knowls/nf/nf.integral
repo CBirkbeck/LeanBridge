@@ -1,8 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.integral}{Integral elements}}
-\begin{definition*}\label{nf.integral}
+\begin{definition}\label{nf.integral}
 \uses{nf,ring.integral}
 An element of a \hyperref[nf]{number field} \(K\) is \textbf{integral} if it is \hyperref[ring.integral]{integral} over $\Z$.
 
-\end{definition*}
-
-
+\end{definition}

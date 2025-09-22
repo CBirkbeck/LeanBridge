@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.cande.lfunction}{Completeness of L-function Data}}
-\begin{definition*}\label{rcs.cande.lfunction}
+\begin{definition}\label{rcs.cande.lfunction}
 \uses{artin,artin.lfunction,character.dirichlet,character.dirichlet.primitive,cmf,cmf.character,cmf.dimension,cmf.embedding,cmf.newform,cmf.weight,ec,ec.isogeny_class,ec.q.conductor,g2c.isogeny_class,lfunction,lfunction.analytic_rank,lfunction.conductor,lfunction.degree,lfunction.history.dedekind,lfunction.known_degree1,lfunction.known_degree2,lfunction.known_degree3,lfunction.known_degree4,lfunction.motivic_weight,lfunction.primitive,lfunction.rational,lfunction.riemann,lfunction.zeros,mf.bianchi.newform,mf.hilbert,mf.hilbert.dimension,mf.maass.mwf,nf.abs_discriminant,rcs.cande.cmf,rcs.rigor.lfunction.lcalc}
 The database currently contains more than $20$ million \hyperref[lfunction]{L-functions}.  Most of these are stored in the database along with related information such as \hyperref[lfunction.zeros]{zeros} and \hyperref[lfunction.analytic_rank]{analytic rank} that have been precomputed using explicit precision bounds (see the ``reliability'' link on each L-function's home page for further details).  A small number of \hyperref[rcs.rigor.lfunction.lcalc]{dynamically computed} L-functions are also available, as noted in the summary below.  The pages for dynamically computed L-functions may be missing information that cannot be computed quickly, and the data displayed on them may be less accurate than the displayed precision suggests.
 
@@ -48,6 +48,4 @@ Below is a summary of available L-functions by \hyperref[lfunction.degree]{degre
 \item  $115\,645$ imprimitive rational L-functions corresponding to newforms of dimensions $3$ to $20$ and weight $k\le 200$ (there are at least $2000$ in each even degree from $6$ to $40$).
 \end{itemize}
 
-\end{definition*}
-
-
+\end{definition}

@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/hgm.type}{The type of a hypergeometric motive}}
-\begin{definition*}\label{hgm.type}
+\begin{definition}\label{hgm.type}
 \uses{hgm.motive,hgm.motivic_galois_group,hgm.weight}
 A \hyperref[hgm.motive]{hypergeometric motive} $M$ of \hyperref[hgm.weight]{weight} $w$ is of \textbf{orthogonal} or \textbf{symplectic} \textbf{type} according as $w$ is even or odd. This corresponds to the fact that the \hyperref[hgm.motivic_galois_group]{motivic Galois group} of $M$ is either a subgroup of the conformal orthogonal group or conformal symplectic group depending on the parity of $w$.
-\end{definition*}
-
-
+\end{definition}

@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.level}{Level of a modular form}}
-\begin{definition*}\label{cmf.level}
+\begin{definition}\label{cmf.level}
 \uses{cmf,group.sl2z}
 A \textbf{level} of a \hyperref[cmf]{modular form} $f$ is a positive integer $N$ such that $f$ is a modular form on a subgroup $\Gamma$ of \hyperref[group.sl2z]{$\operatorname{SL}_2(\mathbb{Z})$} that contains the principal congruence subgroup \hyperref[group.sl2z.subgroup.gamman]{$\Gamma(N)$}.
 
 The \textbf{level} of a \hyperref[cmf]{newform} is the least such integer $N$.
-\end{definition*}
-
-
+\end{definition}

@@ -1,10 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/curve.highergenus.aut.refinedpassport}{Refined passport}}
-\begin{definition*}\label{curve.highergenus.aut.refinedpassport}
+\begin{definition}\label{curve.highergenus.aut.refinedpassport}
 \uses{ag.riemann_surface,curve.highergenus.aut.generatingvector}
 Let $G$ be a group of automorphisms acting on a compact \hyperref[ag.riemann_surface]{Riemann surface} $X$ of genus $g$,  let  $(s_1, \ldots, s_n)$ be a \hyperref[curve.highergenus.aut.generatingvector]{generating vector} for the action of $G$ on $X$, and let $\mathcal{C}=(C_1, \ldots, C_n)$ be the corresponding vector of conjugacy classes of $G$.
 
-The tuple $(g,G,\mathcal{C})$ is called a \textbf{refined passport} (some authors say that $X$ is of ramification type $(g,G,\mathcal{C})$). 
+The tuple $(g,G,\mathcal{C})$ is called a \textbf{refined passport} (some authors say that $X$ is of ramification type $(g,G,\mathcal{C})$).
 
-\end{definition*}
-
-
+\end{definition}

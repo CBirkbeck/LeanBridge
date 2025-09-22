@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/gg.invariants}{Group invariants}}
-\begin{definition*}\label{gg.invariants}
+\begin{definition}\label{gg.invariants}
 \uses{}
 The \textbf{order} of $G$ is its number of elements.
 
@@ -12,6 +12,4 @@ It is \textbf{solvable} if and only if there is a series of subgroups
 such that each $G_i$ is normal in $G_{i+1}$ and all quotients $G_{i+1}/G_i$ are abelian.
 
 The \textbf{character table} shows values of all characters of irreducible complex representations of $G$.  The rows are indexed by characters, and the columns by conjugacy classes of $G$.
-\end{definition*}
-
-
+\end{definition}

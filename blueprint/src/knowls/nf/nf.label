@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.label}{Number field label}}
-\begin{definition*}\label{nf.label}
+\begin{definition}\label{nf.label}
 \uses{nf.degree,nf.discriminant,nf.signature}
 Each (global) number field has a unique label of the form d.r.D.i where
 <ul>
@@ -12,6 +12,4 @@ Each (global) number field has a unique label of the form d.r.D.i where
 </ul>
 The discriminant portion of the label can take the form \(a_1\) e \(\epsilon_1\) \textit{ \(a}2\) e \(\epsilon_2\) \textit{ \(\cdots\) } \(a_k\) e \(\epsilon_k\) to mean the absolute value of the
 discriminant equals \(a_1^{\epsilon_1}a_2^{\epsilon_2}\cdots a_k^{\epsilon_k}\).  The separators are the letter e and the underscore symbol.
-\end{definition*}
-
-
+\end{definition}

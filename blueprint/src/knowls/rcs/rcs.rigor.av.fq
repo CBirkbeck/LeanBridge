@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.rigor.av.fq}{Reliability of Weil polynomial data}}
-\begin{definition*}\label{rcs.rigor.av.fq}
+\begin{definition}\label{rcs.rigor.av.fq}
 \uses{ag.curve.genus,ag.jacobian,av.isogeny_class}
 Except where noted below, all Weil polynomial data has been computed using rigorous algorithms that do not depend on any unproven assumptions or conjectures:
 
@@ -12,6 +12,4 @@ We have also performed the following consistency check intended to catch any err
 \begin{itemize}
 \item  We have computed the \hyperref[ag.jacobian]{Jacobians} of all \hyperref[ag.curve.genus]{genus} 1 and 2 curves for $q$ in the range of our data and confirmed that they agree with the list of \hyperref[av.isogeny_class]{isogeny classes} determined to contain Jacobians.
 \end{itemize}
-\end{definition*}
-
-
+\end{definition}

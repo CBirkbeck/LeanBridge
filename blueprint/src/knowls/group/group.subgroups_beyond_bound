@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.subgroups_beyond_bound}{Subgroups beyond an index bound}}
-\begin{definition*}\label{group.subgroups_beyond_bound}
+\begin{definition}\label{group.subgroups_beyond_bound}
 \uses{group.core,group.maximal_subgroup,group.semidirect_product,group.subgroup,group.subgroup.complement,group.subgroup.index,group.subgroup.normal,group.sylow_subgroup}
 In cases where we do not compute the whole subgroup lattice of a group, we still attempt to compute all \hyperref[group.subgroup]{subgroups} up to a certain \hyperref[group.subgroup.index]{index} bound. However, we often still want to store the following subgroups, even if they happen to fall beyond the index bound.
 
@@ -10,6 +10,4 @@ In cases where we do not compute the whole subgroup lattice of a group, we still
 \item  For non-Sylow, non-normal \hyperref[group.maximal_subgroup]{maximal subgroups} beyond the index bound, we apply the original labeling scheme restricted to maximal subgroups, and append the letter $\texttt{.M}$.
 \item  We also keep \hyperref[group.core]{core-free} subgroups beyond the index bound rather than discarding them, since these yield transitive permutation representations.  The labels here are just $\texttt{n.i.m.CFk}$, where $\texttt{k}$ is a counter arbitrarily running over the core-free subgroups of a given index.
 \end{itemize}
-\end{definition*}
-
-
+\end{definition}

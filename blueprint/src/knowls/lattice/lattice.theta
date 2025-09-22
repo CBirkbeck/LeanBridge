@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.theta}{Theta series for an integral lattice}}
-\begin{definition*}\label{lattice.theta}
+\begin{definition}\label{lattice.theta}
 \uses{lattice.definition,lattice.gram}
 The \textbf{theta series}, $\Theta_L$, of an \hyperref[lattice.definition]{integral lattice} $L$ is the generating function for the number of vectors $v\in L$ of norm $n$, where the norm is defined as $\langle v,v\rangle=v^tAv$ where $A$ is a \hyperref[lattice.gram]{Gram matrix} for $L$.
 
@@ -14,8 +14,6 @@ when the norm ideal of $L$ is even, and
 \Theta_L(z)=\sum_{v\in L}q^{\langle v,v\rangle}
 \]
 when the norm ideal of $L$ is odd, where $q=e^{2\pi iz}$ in either case. Then the coefficient of $q^n$ gives the number of vectors in the lattice of norm $n$.
-  
+
 {% endif %}
-\end{definition*}
-
-
+\end{definition}

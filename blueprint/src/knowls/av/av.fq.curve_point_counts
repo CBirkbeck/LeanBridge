@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/av.fq.curve_point_counts}{Point counts of the curve}}
-\begin{definition*}\label{av.fq.curve_point_counts}
+\begin{definition}\label{av.fq.curve_point_counts}
 \uses{ag.abelian_variety,ag.base_field,ag.jacobian,av.isogeny}
 If an \hyperref[ag.abelian_variety]{abelian variety} $A$ \hyperref[ag.base_field]{defined} over a finite field $\mathbb{F}_q$ is the \hyperref[ag.jacobian]{Jacobian} of a curve $X$, then from the data for $A$ we can produce a count of the (finite) number of points of $X$ defined over $\mathbb{F}_q$ and its extensions $\mathbb{F}_{q^2}$, $\mathbb{F}_{q^3}$, $\mathbb{F}_{q^4}$, etc.
 
 Even if $A$ is not known to be \hyperref[av.isogeny]{isogenous} to a Jacobian, we can still perform this computation. In that case, we refer to the virtual curve associated to $A$, since we do not know a priori if the curve whose points we are counting exists. In particular, if the point count returns a negative number, or if the point count returns a number for $\mathbb{F}_{q^n}$ smaller than for $\mathbb{F}_{q^d}$ for some factor $d \mid n$, then we know that $A$ is not isogenous to a Jacobian.
-\end{definition*}
-
-
+\end{definition}

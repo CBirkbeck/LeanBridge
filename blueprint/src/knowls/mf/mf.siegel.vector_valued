@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.vector_valued}{Vector-valued Siegel modular forms}}
-\begin{definition*}\label{mf.siegel.vector_valued}
+\begin{definition}\label{mf.siegel.vector_valued}
 \uses{}
 Let $\rho: \GL_g(\mathbb{C})\to \GL(V),$ where $V$ is a finite-dimensional complex vector space, be an irreducible representation.  A (vector valued) Siegel modular form of degree $g$, weight $\rho$, with respect to a subgroup
 $\Gamma\subset \GSp(2g,\Q)$ is a complex analytic function $F:\Bbb{H}_g\to V$
@@ -11,6 +11,4 @@ Consider the case $g=2$.  Let $std$ denote the standard representation of $\GL_2
 
 
 
-\end{definition*}
-
-
+\end{definition}

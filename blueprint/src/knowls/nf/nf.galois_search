@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.galois_search}{Galois group}}
-\begin{definition*}\label{nf.galois_search}
+\begin{definition}\label{nf.galois_search}
 \uses{gg.label,group.small_group_label,nf.galois_group,nf.galois_group.name}
 {{ KNOWL\_INC('nf.galois\_group') }}
 
 To specify a Galois group, you can give its \hyperref[group.small_group_label]{GAP id} (e.g. [8,3] or [16,7]), a \hyperref[nf.galois_group.name]{name} (e.g. C5 or S12) or a \hyperref[gg.label]{transitive group label} (e.g. 7T2 or 11T5).
-\end{definition*}
-
-
+\end{definition}

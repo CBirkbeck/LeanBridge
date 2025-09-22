@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/st_group.component_group}{Component group of a Sato-Tate group}}
-\begin{definition*}\label{st_group.component_group}
+\begin{definition}\label{st_group.component_group}
 \uses{ag.abelian_variety,ag.base_change,ag.dimension,group.alternating,group.cyclic,group.dihedral,group.symmetric,nf,nf.galois_group,st_group.definition,st_group.identity_component}
 The \textbf{component group} of a \hyperref[st_group.definition]{Sato-Tate group} $G$ is the quotient $G/G^0$ of $G$ by its \hyperref[st_group.identity_component]{identity component} $G^0$, which is a normal subgroup of finite index.
 
@@ -13,6 +13,4 @@ Component groups are named according to their isomorphism type.  This does not d
 \item  $A_n$, the \hyperref[group.alternating]{alternating group} on $n$ letters;
 \item  $S_n$, the \hyperref[group.symmetric]{symmetric group} on $n$ letters.
 \end{itemize}
-\end{definition*}
-
-
+\end{definition}

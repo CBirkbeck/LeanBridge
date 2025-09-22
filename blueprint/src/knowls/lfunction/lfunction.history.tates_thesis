@@ -1,16 +1,14 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.history.tates_thesis}{Tate's thesis}}
-\begin{definition*}\label{lfunction.history.tates_thesis}
+\begin{definition}\label{lfunction.history.tates_thesis}
 \uses{}
-In 1950 Tate's PhD thesis 
+In 1950 Tate's PhD thesis
 ``Fourier analysis in number fields and Hecke's zeta-functions''
- reprinted in 
-   Algebraic Number Theory (Proc. Instructional Conf., Brighton, 1965), 1967, 
+ reprinted in
+   Algebraic Number Theory (Proc. Instructional Conf., Brighton, 1965), 1967,
 pp. 305-347 Thompson, Washington, D.C.,
 introduced a way to do harmonic analysis on adelic spaces and led
-to great simplifications in the calculations of Euler factors and functional equations of 
-L-functions over number fields, in particular,  and generally for 
+to great simplifications in the calculations of Euler factors and functional equations of
+L-functions over number fields, in particular,  and generally for
 any L-function with conductor larger than 1. This work paved the way for subsequent work
 associating L-functions to automorphic forms.
-\end{definition*}
-
-
+\end{definition}

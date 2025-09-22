@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/shimcurve.invariants}{Invariants of a Shimura curve}}
-\begin{definition*}\label{shimcurve.invariants}
+\begin{definition}\label{shimcurve.invariants}
 \uses{shimcurve,shimcurve.genus,shimcurve.gonality,shimcurve.index,shimcurve.level,shimcurve.order}
 Invariants of a \hyperref[shimcurve]{Shimura curve} $X_H$ include its
 
@@ -15,6 +15,4 @@ all of which can be derived group-theoretically as properties of $H$.  Geometric
 \begin{itemize}
 \item  \hyperref[shimcurve.gonality]{gonality}
 \end{itemize}
-\end{definition*}
-
-
+\end{definition}

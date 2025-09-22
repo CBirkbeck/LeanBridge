@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.q.conductor}{Conductor of an elliptic curve over $\Q$}}
-\begin{definition*}\label{ec.q.conductor}
+\begin{definition}\label{ec.q.conductor}
 \uses{ec,ec.additive_reduction,ec.multiplicative_reduction}
 The \textbf{conductor} $N$ of an \hyperref[ec]{elliptic curve} $E$ defined over $\Q$ is a positive integer divisible by the primes of bad reduction and no others.  It has the form $N=\prod p^{e_p}$, where the exponent $e_p$ is
 
@@ -32,6 +32,4 @@ Springer, Berlin, 1975. \cite{MR0393039}
 curves</EM>, GTM <B>151</B>, Springer-Verlag, New York, 1994.\cite{MR1312368}
 
 </UL>
-\end{definition*}
-
-
+\end{definition}

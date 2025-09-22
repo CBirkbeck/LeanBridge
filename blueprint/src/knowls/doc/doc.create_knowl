@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/doc.create_knowl}{Create a knowl}}
-\begin{definition*}\label{doc.create_knowl}
+\begin{definition}\label{doc.create_knowl}
 \uses{doc.view_knowl}
 To create a knowl, first \hyperref[doc.view_knowl]{expand it} then click on the edit link appearing below, in the darker blue line.
-\end{definition*}
-
-
+\end{definition}

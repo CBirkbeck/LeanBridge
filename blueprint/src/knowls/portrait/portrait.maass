@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/portrait.maass}{Pictures for Maass forms}}
-\begin{definition*}\label{portrait.maass}
+\begin{definition}\label{portrait.maass}
 \uses{cmf.picture_description,mf.maass.mwf,mf.maass.mwf.level}
 For each \hyperref[mf.maass.mwf]{Maass newform} $f$, we use domain coloring to show the plot of $f$. The form $f$ is approximated using the first $50$ coefficients across a $200 \times 200$ mesh.
 
@@ -12,6 +12,4 @@ If the Maass form $f$ has squarefree \hyperref[mf.maass.mwf.level]{level}, then 
 Maass form portraits are made in essentially the same way as \hyperref[cmf.picture_description]{classical modular form portraits}, except they use a set of colors that looks better when the Maass form is real-valued. See \cite{MR4427977} for more on the methods of visualization.
 
 Code that makes this type of portrait is available at [github.com/davidlowryduda/maass\_portraits](https://github.com/davidlowryduda/maass\_portraits).
-\end{definition*}
-
-
+\end{definition}

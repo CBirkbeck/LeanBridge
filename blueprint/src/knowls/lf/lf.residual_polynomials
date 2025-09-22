@@ -1,9 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.residual_polynomials}{Residual polynomials}}
-\begin{definition*}\label{lf.residual_polynomials}
+\begin{definition}\label{lf.residual_polynomials}
 \uses{lf.padic_field,lf.ramification_index,lf.ramification_polygon,lf.residue_field}
-Let $L/K$ be a totally ramified extension of 
+Let $L/K$ be a totally ramified extension of
 \hyperref[lf.padic_field]{$p$-adic fields}, let $\alpha$ be a
-\hyperref[lf.ramification_index]{uniformizer} of $L$ with minimal 
+\hyperref[lf.ramification_index]{uniformizer} of $L$ with minimal
 polynomial $\varphi$ over $K$
 and denote by $v_\alpha$ the (exponential) valuation that is
 normalized such that $v_\alpha(\alpha)=1$. Let $\underline{L}$ be the
@@ -38,6 +38,4 @@ where $\gamma_{\delta,\ell}=\underline\delta^{-h_\ell\deg A_\ell},$ and $
 $1\le i\le \ell-1$.  Then $\mathcal{A}$ is an invariant of the extension
 $K[x]/(\varphi)$.  We say that $\mathcal{A}$ is the
 \textbf{equivalence class of residual polynomials} associated to $L/K$.
-\end{definition*}
-
-
+\end{definition}

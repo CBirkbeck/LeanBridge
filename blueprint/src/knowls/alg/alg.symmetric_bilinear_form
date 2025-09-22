@@ -1,13 +1,11 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/alg.symmetric_bilinear_form}{Symmetric bilinear form}}
-\begin{definition*}\label{alg.symmetric_bilinear_form}
+\begin{definition}\label{alg.symmetric_bilinear_form}
 \uses{}
-For a vector space $V$ over a field $F$, a \textbf{symmetric bilinear form} is a function $B \colon V^2 \to F$ satisfying 
+For a vector space $V$ over a field $F$, a \textbf{symmetric bilinear form} is a function $B \colon V^2 \to F$ satisfying
 
 1. $B(x+w,y) = B(x,y) + B(w,y)$ for all $x,y,w \in V$;
 2. $B(\alpha x, y) = \alpha B(x,y)$ for all $x \in V$, and all $\alpha \in F$;
 3. $B(x,y) = B(y,x)$ for all $x,y \in V$.
 
-Conditions (1) and (2) imply that $B(\cdot,y)$ is a linear map in the first variable when $y$ is fixed. Including condition (3) then implies that $B(x,\cdot)$ is also a linear map in the second variable when $x$ is fixed. 
-\end{definition*}
-
-
+Conditions (1) and (2) imply that $B(\cdot,y)$ is a linear map in the first variable when $y$ is fixed. Including condition (3) then implies that $B(x,\cdot)$ is also a linear map in the second variable when $x$ is fixed.
+\end{definition}

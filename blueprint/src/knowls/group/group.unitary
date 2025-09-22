@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.unitary}{Unitary group}}
-\begin{definition*}\label{group.unitary}
+\begin{definition}\label{group.unitary}
 \uses{group.center,group.quotient,group.subgroup,ring.field}
 The \textbf{(general) unitary group} $\GU(n, q)$ is the group of $n \times n$ unitary matrices with entries in the \hyperref[ring.field]{field} $\F_{q^2}$ (the finite field with $q^2$ elements).  Here, a matrix is *unitary* if the inverse of $M$ equals the conjugate transpose of $M$.
 
@@ -12,6 +12,4 @@ The \textbf{special unitary group} $\SU(n, q)$ is the \hyperref[group.subgroup]{
 The \textbf{projective special unitary group} $\PSU(n, q)$ is the quotient of $\SU(n, q)$ by the scalar matrices in $\SU(n, q)$ (equivalently, $\PSU(n, q)$ is the quotient of $\SU(n, q)$ by its center).
 
 (see \cite{MR0827219}, page x)
-\end{definition*}
-
-
+\end{definition}

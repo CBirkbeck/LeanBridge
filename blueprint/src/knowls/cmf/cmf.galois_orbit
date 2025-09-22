@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.galois_orbit}{Galois orbit of a newform}}
-\begin{definition*}\label{cmf.galois_orbit}
+\begin{definition}\label{cmf.galois_orbit}
 \uses{cmf.galois_conjugate,cmf.newform,cmf.newform_subspace}
 The \textbf{Galois orbit} of a \hyperref[cmf.newform]{newform} $f\in S_k^{\rm new}(N,\chi)$ is the finite set
 \[
@@ -9,6 +9,4 @@ of its \hyperref[cmf.galois_conjugate]{Galois conjugates}, which forms a canonic
 
 Galois orbits of newforms are also called \textbf{newform orbits}.
 
-\end{definition*}
-
-
+\end{definition}

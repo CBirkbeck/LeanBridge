@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ring.prime_ideal}{Prime ideal}}
-\begin{definition*}\label{ring.prime_ideal}
+\begin{definition}\label{ring.prime_ideal}
 \uses{ring,ring.ideal}
 If $R$ is a \hyperref[ring]{commutative ring} $R$, an \hyperref[ring.ideal]{ideal} $I$ is \textbf{prime} if for all $a,b\in R$,
 $$ ab\in I \implies a\in I \quad \text{or}\quad b\in I.$$
 
-\end{definition*}
-
-
+\end{definition}

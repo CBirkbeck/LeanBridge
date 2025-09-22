@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.min_complex_rep_deg}{Minimal degree of a complex representation}}
-\begin{definition*}\label{group.min_complex_rep_deg}
+\begin{definition}\label{group.min_complex_rep_deg}
 \uses{group.representation.faithful}
 The smallest positive integer $d$ such that the group $G$ admits a \hyperref[group.representation.faithful]{faithful} complex representation of degree $d$.
-\end{definition*}
-
-
+\end{definition}

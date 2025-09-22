@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.mw_generators}{Mordell-Weil generators}}
-\begin{definition*}\label{ec.mw_generators}
+\begin{definition}\label{ec.mw_generators}
 \uses{ec,ec.mordell_weil_group,ec.rank,ec.torsion_subgroup,group.abelian,nf}
 The \textbf{\hyperref[ec.mordell_weil_group]{Mordell-Weil group}} $E(K)$ of an \hyperref[ec]{elliptic curve} $E$ over a \hyperref[nf]{number field} $K$ is a finitely generated \hyperref[group.abelian]{abelian} group, explicitly described by giving a $\Z$-basis for the group, equivalently, a (minimal) set of \textbf{Mordell-Weil generators}, each of which is a rational point on the curve.
 
 The generators consist of $r$ \textbf{non-torsion generators}, where $r$ is the \hyperref[ec.rank]{rank} of $E(K)$, and up to two \textbf{torsion generators}, which generate the \hyperref[ec.torsion_subgroup]{torsion subgroup} $E(K)_{\textrm{tor}}$.
-\end{definition*}
-
-
+\end{definition}

@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.invariants}{Local field invariants}}
-\begin{definition*}\label{lf.invariants}
+\begin{definition}\label{lf.invariants}
 \uses{lf.automorphism_group,lf.degree,lf.discriminant_exponent,lf.discriminant_root_field,lf.padic_field,lf.ramification_index,lf.residue_field,lf.residue_field_degree,lf.root_number}
 The basic invariants of a \hyperref[lf.padic_field]{$p$-adic field} $K$ are:
 
@@ -14,6 +14,4 @@ The basic invariants of a \hyperref[lf.padic_field]{$p$-adic field} $K$ are:
 \item  the \hyperref[lf.automorphism_group]{automorphism group} $\textrm{Aut}(K/\mathbb Q_p)$.
 \end{itemize}
 
-\end{definition*}
-
-
+\end{definition}

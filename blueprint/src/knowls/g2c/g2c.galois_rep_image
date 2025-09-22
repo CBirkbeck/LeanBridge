@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.galois_rep_image}{Image of mod p Galois Representation of Jacobian of genus 2 curve}}
-\begin{definition*}\label{g2c.galois_rep_image}
+\begin{definition}\label{g2c.galois_rep_image}
 \uses{ec.galois_rep,g2c.g2curve}
 WARNING: The image types of nonmaximal primes is still in development, and subject to change.
 
@@ -8,14 +8,12 @@ Let $p$ be a prime and let $C$ be a \hyperref[g2c.g2curve]{genus 2 curve} define
 Subgroups $G$ of $\GSp(4,\F_\ell)$ that can arise as the image of the mod-$\ell$ \hyperref[ec.galois_rep]{Galois representation}
 \[
 \rho_{J,p}\colon {\Gal}(\overline{\mathbb{Q}}/\mathbb{Q})\to \GSp(4,\F_\ell)
-\] 
+\]
 attached to the jacobian $J$ of $C$ that do not contain $\Sp(4,\F_\ell)$ are identified via the types arising from Mitchell's 1914 classification.
 
-There are six types: Irreducible \textbf{irred}, Cuspidal \textbf{cusp}, One-plus-Three \textbf{1p3}, 
+There are six types: Irreducible \textbf{irred}, Cuspidal \textbf{cusp}, One-plus-Three \textbf{1p3},
 Two-plus-Two \textbf{2p2}, Non-Semistable \textbf{nss}, and last but very much not least, the super duper mysterious and esoteric unknown type \textbf{?}. Can you catch 'em all?
 
 
 
-\end{definition*}
-
-
+\end{definition}

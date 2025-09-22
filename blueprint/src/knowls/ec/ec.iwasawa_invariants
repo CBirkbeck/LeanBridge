@@ -1,10 +1,10 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.iwasawa_invariants}{Iwasawa invariants of elliptic curves}}
-\begin{definition*}\label{ec.iwasawa_invariants}
+\begin{definition}\label{ec.iwasawa_invariants}
 \uses{ec.good_ordinary_reduction,ec.good_supersingular_reduction,ec.lambda_invariant,ec.mu_invariant,ec.multiplicative_reduction}
 The Iwasawa invariants of elliptic curves are \hyperref[ec.lambda_invariant]{$\lambda$-invariants} and
 \hyperref[ec.mu_invariant]{$\mu$-invariants}.
 
-For an elliptic curve $E$ and a prime $p$ of \hyperref[ec.good_ordinary_reduction]{ordinary} or \hyperref[ec.multiplicative_reduction]{multiplicative reduction}, 
+For an elliptic curve $E$ and a prime $p$ of \hyperref[ec.good_ordinary_reduction]{ordinary} or \hyperref[ec.multiplicative_reduction]{multiplicative reduction},
 the $\lambda$- and $\mu$-invariants are non-negative integers $\lambda_p(E)$ and $\mu_p(E)$ which arise as the Iwasawa invariants of the $p$-adic L-function $L_p(E)$.
 
 If $E$ has \hyperref[ec.good_supersingular_reduction]{supersingular reduction} at $p$, then there are two associated $p$-adic L-functions: $L_{p,\alpha}(E)$ and $L_{p,\beta}(E)$ associated to the pair of roots $\alpha$ and $\beta$ of the Hecke polynomial $x^2-a_p(E)x+p$.  However, in this case, these functions are not Iwasawa functions.  Instead, we consider the pair of Iwasawa functions $L_p^+(E)$ and $L_p^-(E)$ as defined in Robert Pollack, \textit{On the p-adic L-function of a modular form at a supersingular prime}, Duke Mathematical Journal, 118 (2003) no. 3, 523-558 \cite{MR:1983040}(when $a_p(E)=0$) and Florian Sprung, \textit{Iwasawa theory for elliptic curves at supersingular primes: a pair of main conjectures}. J. Number Theory 132 (2012), no. 7, 1483–1506 \cite{MR:2903167}(when $a_p(E)$ is non-zero). We then get two $\lambda$-invariants: $\lambda^+_p(E)$ and $\lambda^-_p(E)$, and two $\mu$-invariants: $\mu^+_p(E)$ and $\mu^-_p(E)$.  These invariants are computed as in section 6 of Bernadette Perrin-Riou, \textit{Arithmétique des courbes elliptiques à réduction supersingulière en p}, Experimental Mathematics 12 (2003), no. 2, 155–186 \cite{MR:2016704}.
@@ -16,6 +16,4 @@ We note that if $E$ has rank 0, then its Iwasawa invariants at a prime $p>5$ are
 3. $a_p=1$.
 
 Conditions (1) and (2) hold for only finitely many $p$.  Condition (3) will hold for finitely many $p$ if $E$ possesses a non-trivial torsion point.  In this case, we compute  a prime $q$ so that for all good $p \geq q$ the Iwasawa invariants at $p$ vanish.
-\end{definition*}
-
-
+\end{definition}

@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.x1mn}{$X_1(M,MN)$}}
-\begin{definition*}\label{modcurve.x1mn}
+\begin{definition}\label{modcurve.x1mn}
 \uses{modcurve,modcurve.cusps}
 $X_{\mathrm{arith},1}(M,MN)$ is the \hyperref[modcurve]{modular curve} $X_H$ for $H\le \GL_2(\widehat{\Z})$ the inverse image of $\begin{pmatrix} 1 & M* \\ 0 & * \end{pmatrix} \subset \GL_2(\Z/MN\Z)$. Over a field $k$ of characteristic not dividing $MN$, its \hyperref[modcurve.cusps]{non-cuspidal} $k$-rational points correspond to $\bar k$-isomorphism classes of triples $(E,P,C)$, where:
 
@@ -9,4 +9,4 @@ $X_{\mathrm{arith},1}(M,MN)$ is the \hyperref[modcurve]{modular curve} $X_H$ for
 \item  $C \leq E[M](\overline{k})$ is a $\Gal_k$-stable cyclic subgroup of order $M$ such that $E[M]=\langle NP \rangle \oplus C$.
 \end{itemize}
 
-\end{definition*}
+\end{definition}

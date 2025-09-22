@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.maximal_galois_rep}{Maximal Galois representation}}
-\begin{definition*}\label{ec.maximal_galois_rep}
+\begin{definition}\label{ec.maximal_galois_rep}
 \uses{ec,ec.complex_multiplication,ec.galois_rep,ec.geom_endomorphism_ring,gl2.borel,gl2.normalizer_nonsplit_cartan,gl2.normalizer_split_cartan,nf}
 Let $E$ be an \hyperref[ec]{elliptic curve} over a \hyperref[nf]{number field} $K$, let $\ell$ be prime, and let
 \[
@@ -13,4 +13,4 @@ In general, let $\mathcal{O}$ be the \hyperref[ec.geom_endomorphism_ring]{geomet
 
 For $K=\Q$, the image of a maximal $\bar\rho_{E,\ell}$ is $\GL_2(\F_\ell)$, a \hyperref[gl2.borel]{Borel subgroup}, the \hyperref[gl2.normalizer_split_cartan]{normalizer of a split Cartan subgroup}, or the \hyperref[gl2.normalizer_nonsplit_cartan]{normalizer of a non-split Cartan subgroup}, depending on whether $\mathcal{O}=\Z$ or $\mathcal{O}\ne \Z$ and $\ell$ is ramified, split, or inert in $\mathcal{O}$, respectively.
 
-\end{definition*}
+\end{definition}

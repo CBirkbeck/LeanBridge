@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs}{Source, reliability, and completeness}}
-\begin{definition*}\label{rcs}
+\begin{definition}\label{rcs}
 \uses{ag.abelian_variety,ag.curve,artin,belyi.galmap,character.dirichlet,cmf,ec,ec.q,g2c.g2curve,gg.galois_group,lf,mf.maass.mwf,nf,rcs.cande.artin,rcs.cande.av.fq,rcs.cande.belyi,rcs.cande.character.dirichlet,rcs.cande.cmf,rcs.cande.curve.highergenus.aut,rcs.cande.ec,rcs.cande.ec.q,rcs.cande.g2c,rcs.cande.gg,rcs.cande.lf,rcs.cande.lfunction,rcs.cande.maass,rcs.cande.mf.bianchi,rcs.cande.mf.hilbert,rcs.cande.nf,rcs.cande.st_group,rcs.rigor.artin,rcs.rigor.av.fq,rcs.rigor.belyi,rcs.rigor.character.dirichlet,rcs.rigor.cmf,rcs.rigor.curve.highergenus.aut,rcs.rigor.ec,rcs.rigor.ec.q,rcs.rigor.g2c,rcs.rigor.gg,rcs.rigor.lf,rcs.rigor.lfunction,rcs.rigor.maass,rcs.rigor.mf.bianchi,rcs.rigor.mf.hilbert,rcs.rigor.nf,rcs.rigor.st_group,rcs.source.artin,rcs.source.av.fq,rcs.source.belyi,rcs.source.character.dirichlet,rcs.source.cmf,rcs.source.curve.highergenus.aut,rcs.source.ec,rcs.source.ec.q,rcs.source.g2c,rcs.source.gg,rcs.source.lf,rcs.source.lfunction,rcs.source.maass,rcs.source.mf.bianchi,rcs.source.mf.hilbert,rcs.source.nf,rcs.source.st_group,st_group.definition}
 The LMFDB is divided into sections that are listed on the left side of your screen, including L-functions, modular forms, varieties, fields, representations, and groups.  Each section is further divided into subsections that contain information related to a specific type of mathematical object, such as \hyperref[ec.q]{elliptic curves over $\Q$} or \hyperref[nf]{number fields}.
 
@@ -101,6 +101,4 @@ The table below provides links to the source, reliability, and completeness page
 <td>\hyperref[rcs.cande.st_group]{completeness}</td>
 </tr><tr>
 </table>
-\end{definition*}
-
-
+\end{definition}

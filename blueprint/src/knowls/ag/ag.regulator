@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.regulator}{Regulator of an abelian variety}}
-\begin{definition*}\label{ag.regulator}
+\begin{definition}\label{ag.regulator}
 \uses{ag.abelian_variety,ag.canonical_height,ag.mordell_weil,ec.regulator,nf}
 The \textbf{regulator} of an \hyperref[ag.abelian_variety]{abelian variety} $A$ defined over a \hyperref[nf]{number field} $K,$ denoted $\operatorname{Reg}(A/K)$, is the volume of $A(K)/A(K)_{tor}$ with respect to the \textbf{height pairing} $\langle -,-\rangle$ associated to the \hyperref[ag.canonical_height]{canonical height} $\hat{h}$, i.e. $\langle P,Q\rangle = \frac{1}{2}(\hat{h}(P+Q)-\hat{h}(P)-\hat{h}(Q))$.
 
@@ -14,6 +14,4 @@ If $A(K)$ has rank $0$, then $\operatorname{Reg}(A/K)=1$.
 If $A(K)$ has rank $1$, then $\operatorname{Reg}(A/K)$ equals the \hyperref[ag.canonical_height]{canonical height} $\hat{h}(P)$ of a point $P$ generating $A(K)/A(K)_{\text{tors}}$.
 
 This is a generalisation of the \hyperref[ec.regulator]{regulator of an elliptic curve}.
-\end{definition*}
-
-
+\end{definition}

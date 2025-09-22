@@ -1,11 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/character.dirichlet.field_cut_out}{Fixed field of a Dirichlet character}}
-\begin{definition*}\label{character.dirichlet.field_cut_out}
+\begin{definition}\label{character.dirichlet.field_cut_out}
 \uses{character.dirichlet,character.dirichlet.order}
 Let $\chi:\mathbb{Z}\to \mathbb{C}$ be a \hyperref[character.dirichlet]{Dirichlet character with modulus $q$}. The \textbf{fixed field} of $\chi$ is $\mathbb{Q}(\zeta_q)^{\ker(\chi)}$. By definition, this is the subfield of elements fixed
 under Galois morphisms $\zeta_q\mapsto \zeta_q^k$ for all $k$ such that $\chi(k)=1$.
 
 In fact $\chi$ determines a homomorphism $\chi:(\mathbb{Z}/q\mathbb{Z})^\times\to \mathbb{C}^\times$.  Identifying $(\mathbb{Z}/q\mathbb{Z})^\times$ with $\textrm{Gal}(\mathbb{Q}(\zeta_q)/\mathbb{Q})$ by $a\mapsto \sigma_a$ with $\sigma_a(\zeta_q)=\zeta_q^a$, we then identify $\ker(\chi)$ with a subgroup of $\textrm{Gal}(\mathbb{Q}(\zeta_q)/\mathbb{Q})$.
 By the Galois correspondence, the fixed field $\mathbb{Q}(\zeta_q)^{\ker(\chi)}$ of this subgroup is a subfield of $\mathbb{Q}(\zeta_q)$ whose Galois group is isomorphic to $\textrm{Im}(\chi)$, which is cyclic of order $n$ where $n$ is the \hyperref[character.dirichlet.order]{order} of $\chi$.
-\end{definition*}
-
-
+\end{definition}

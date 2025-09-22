@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.cluster_picture}{Cluster picture}}
-\begin{definition*}\label{ag.cluster_picture}
+\begin{definition}\label{ag.cluster_picture}
 \uses{ag.hyperelliptic_curve,ec}
 Let $H$ be an \hyperref[ec]{elliptic} or \hyperref[ag.hyperelliptic_curve]{hyperelliptic curve} over $\Q$ given by an equation $y^2 = f(x)$, and let $p$ be an odd prime number. Then the \textbf{cluster picture} of $H$ at $p$ associated to this particular equation for $H$, is a graphical representation of the $p$-adic distances between the roots of $f$.
 
@@ -8,6 +8,4 @@ The \textbf{size} of a cluster is the number of roots of $f(x)$ that it contains
 The \textbf{depth} of a cluster, is the valuation of the radius of a minimal $p$-adic disk containing all the roots in that particular cluster. The numbers that are depicted in a cluster picture represent the \textbf{relative depth}: the difference between the depth of a certain cluster and the smallest other cluster in which that certain cluster is contained. For the top cluster, which contains all the roots of $f(x)$, the depth is depicted instead of the relative depth (as there is no relative depth in this case).
 
 More information about cluster pictures can be found in \textit{A user's guide to the local arithmetic of hyperelliptic curves} \cite{arXiv:2007.01749}.
-\end{definition*}
-
-
+\end{definition}

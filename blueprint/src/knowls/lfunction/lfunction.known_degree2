@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.known_degree2}{Degree 2 L-functions, examples}}
-\begin{definition*}\label{lfunction.known_degree2}
+\begin{definition}\label{lfunction.known_degree2}
 \uses{cmf.newform,ec.q,lfunction,lfunction.degree,mf.sl2.subgroup.gamma0n}
 Examples of primitive \hyperref[lfunction.degree]{degree} 2 \hyperref[lfunction]{L-functions} are:
 
@@ -8,12 +8,10 @@ Examples of primitive \hyperref[lfunction.degree]{degree} 2 \hyperref[lfunction]
 \end{itemize}
 
 \begin{itemize}
-\item  $L(s, f)$: the L-function of a Maass cusp form on  \hyperref[mf.sl2.subgroup.gamma0n]{$\Gamma_0(N)$} 
+\item  $L(s, f)$: the L-function of a Maass cusp form on  \hyperref[mf.sl2.subgroup.gamma0n]{$\Gamma_0(N)$}
 \end{itemize}
 
 \begin{itemize}
 \item  $L(s, E)$: the L-function of an \hyperref[ec.q]{elliptic curve $E$ over $\mathbb{Q}$}
 \end{itemize}
-\end{definition*}
-
-
+\end{definition}

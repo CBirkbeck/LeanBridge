@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.st_group}{Sato-Tate group of a genus 2 curve over Q}}
-\begin{definition*}\label{g2c.st_group}
+\begin{definition}\label{g2c.st_group}
 \uses{ag.jacobian,g2c.g2curve,g2c.st_group_identity_component,st_group.definition}
 The \textbf{Sato-Tate group} of a curve refers to the Sato-Tate group of its \hyperref[ag.jacobian]{Jacobian}, which is a special case of the \hyperref[st_group.definition]{Sato-Tate group of a motive}.
 
 For \hyperref[g2c.g2curve]{genus 2 curves} over $\mathbb{Q}$ there are 6 possibilities for the \hyperref[g2c.st_group_identity_component]{identity component of the Sato-Tate group} and 34 possibilities for the full Sato-Tate group; these are labelled according to the classification in Fité-Kedlaya-Rotger-Sutherland, \textit{Sato-Tate distributions and Galois endomorphism modules in genus 2} \cite{arXiv1110.6638,MR2982436,doi:10.1112/S0010437X12000279}. The generic case is $\mathrm{USp}(4)$, which occurs if and only if the Jacobian of the curve has trivial endomorphism ring.
-\end{definition*}
-
-
+\end{definition}

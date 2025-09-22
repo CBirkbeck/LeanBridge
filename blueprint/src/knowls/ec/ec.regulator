@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.regulator}{Regulator of an elliptic curve}}
-\begin{definition*}\label{ec.regulator}
+\begin{definition}\label{ec.regulator}
 \uses{ec,ec.base_change,ec.canonical_height,ec.mordell_weil_group,ec.rank,nf,nf.degree}
 The \textbf{regulator} of an \hyperref[ec]{elliptic curve} $E$ defined over a \hyperref[nf]{number field} $K$, denoted $\operatorname{Reg}(E/K)$, is the volume of $E(K)/E(K)_{tor}$ with respect to the \textbf{height pairing} $\langle -,-\rangle$ associated to the \hyperref[ec.canonical_height]{canonical height} $\hat{h}$, i.e. $\langle P,Q\rangle = \frac{1}{2}(\hat{h}(P+Q)-\hat{h}(P)-\hat{h}(Q))$.
 
@@ -17,6 +17,4 @@ The canonical height used to define the regulator is usually *normalised* so tha
 \]
 where $d$ is the \hyperref[nf.degree]{degree} $[K:\Q]$.
 
-\end{definition*}
-
-
+\end{definition}

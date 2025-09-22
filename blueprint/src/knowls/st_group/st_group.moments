@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/st_group.moments}{Moment statistics}}
-\begin{definition*}\label{st_group.moments}
+\begin{definition}\label{st_group.moments}
 \uses{st_group.definition}
 \textbf{Moment statistics} refers to moments of random variables associated to a \hyperref[st_group.definition]{Sato-Tate group} $G$, where the distribution of the random variable is defined using the pushforward of the Haar measure of $G$.
 
@@ -7,6 +7,4 @@ Standard random variables one can associated to $G$ include the coefficients $a_
 
 The \textbf{moment sequence} of $a_i$ (or any random variable) is the integer sequence $(\mathrm{E}[a_i^0], \mathrm{E}[a_i^1],\mathrm{E}[a_i^2]\ldots)$; the convention of including the zeroth moment $\mathrm{E}[a_i^0]=1$ facilitates the computation of moment sequences of products of independent random variables by taking binomial convolutions.
 
-\end{definition*}
-
-
+\end{definition}

@@ -1,16 +1,14 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/shimcurve.polarized_order}{Polarized quaternion order}}
-\begin{definition*}\label{shimcurve.polarized_order}
+\begin{definition}\label{shimcurve.polarized_order}
 \uses{shimcurve.order,shimcurve.quaternion_algebra}
-Let $O$ be an \hyperref[shimcurve.order]{order} in an indefinite 
-division \hyperref[shimcurve.quaternion_algebra]{quaternion 
+Let $O$ be an \hyperref[shimcurve.order]{order} in an indefinite
+division \hyperref[shimcurve.quaternion_algebra]{quaternion
 algebra} $B$ over $\Q$. Let $\operatorname{trd} : B \to \Q$
-be the reduced trace. A \textbf{polarization} of $O$ is an element 
-$\mu \in B^\times$ such that $\mu^2 \in \Z_{<0}$ and for all 
+be the reduced trace. A \textbf{polarization} of $O$ is an element
+$\mu \in B^\times$ such that $\mu^2 \in \Z_{<0}$ and for all
 $x \in O$, we have $\operatorname{trd}(\mu x) \in \Z$.
 
-A \textbf{polarized order} is a pair $(O,\mu)$ where $O$ is an 
-order in an indefinite division quaternion algebra $B$ over 
+A \textbf{polarized order} is a pair $(O,\mu)$ where $O$ is an
+order in an indefinite division quaternion algebra $B$ over
 $\Q$ and $\mu \in B^\times$ is a polarization of $O$.
-\end{definition*}
-
-
+\end{definition}

@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.rigor.zeros.zeta}{Reliability of Riemann Zeta Zeros Data}}
-\begin{definition*}\label{rcs.rigor.zeros.zeta}
+\begin{definition}\label{rcs.rigor.zeros.zeta}
 \uses{}
 The imaginary part of each zero is recorded with an absolute precision of $\pm 2^{-102}$ and the completeness of the list was checked using a rigorous version of Turing's method; see \cite{MR:3315519,doi:10.1090/S0025-5718-2014-02884-6} for further details.
 
 The results have been checked to a separate list of zeros independently computed by Jan B\"uthe to an accuracy of $\pm 2^{-64}$ (this comparison found 108 minor discrepancies, each of which was resolved in favor of the data presented here).
-\end{definition*}
-
-
+\end{definition}

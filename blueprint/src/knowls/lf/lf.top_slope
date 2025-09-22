@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.top_slope}{Top Artin slope for an extension of local fields}}
-\begin{definition*}\label{lf.top_slope}
+\begin{definition}\label{lf.top_slope}
 \uses{lf.padic_field,lf.slopes}
 Let $L/K$ be an extension of \hyperref[lf.padic_field]{$p$-adic fields}
 with \hyperref[lf.slopes]{Artin slope content} $[s_1, \ldots, s_k]_t^u$.
@@ -14,6 +14,4 @@ group $G^{(s)}$ is nontrivial.  Hence
 
 This includes the convention that the top slope of the trivial extension $K/K$
 is $0$.
-\end{definition*}
-
-
+\end{definition}

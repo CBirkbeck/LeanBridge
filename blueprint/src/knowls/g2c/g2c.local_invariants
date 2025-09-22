@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.local_invariants}{Local invariants}}
-\begin{definition*}\label{g2c.local_invariants}
+\begin{definition}\label{g2c.local_invariants}
 \uses{ag.conductor,ag.jacobian,g2c.bad_lfactors,g2c.discriminant,g2c.g2curve,g2c.good_reduction,g2c.local_root_number,g2c.tamagawa}
 The \textbf{local invariants} of a \hyperref[g2c.g2curve]{genus 2 curve} over $\Q$ include, for each prime $p$:
 
@@ -13,6 +13,4 @@ The \textbf{local invariants} of a \hyperref[g2c.g2curve]{genus 2 curve} over $\
 
 For primes of \hyperref[g2c.good_reduction]{good reduction} the valuations of both discriminant and conductor are $0$, and the Tamagawa number is $1$.
 
-\end{definition*}
-
-
+\end{definition}

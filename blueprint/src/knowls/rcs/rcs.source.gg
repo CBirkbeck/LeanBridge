@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.gg}{Source of transitive group data}}
-\begin{definition*}\label{rcs.source.gg}
+\begin{definition}\label{rcs.source.gg}
 \uses{}
 Data here was computed using GAP and Magma, and relies on the following work:
 
@@ -23,6 +23,4 @@ Data for regular extensions of $\Q(\mathbf{t})$ come from
 \item  Krumm "Galois groups in a family of dynatomic polynomials" \cite{doi:10.1016/j.jnt.2017.11.011}
 \end{itemize}
 
-\end{definition*}
-
-
+\end{definition}

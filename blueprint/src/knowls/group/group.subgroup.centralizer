@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.subgroup.centralizer}{Centralizer of a subgroup}}
-\begin{definition*}\label{group.subgroup.centralizer}
+\begin{definition}\label{group.subgroup.centralizer}
 \uses{group,group.subgroup}
 If $H$ is a \hyperref[group.subgroup]{subgroup} of a \hyperref[group]{group} $G$, then the \textbf{centralizer} of $H$ is the subgroup
 \[ C_G(H) = \{ g\in G\mid gh=hg \text{ for all } h\in H\}.\]
 
-\end{definition*}
-
-
+\end{definition}

@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.invariants}{Number field invariants}}
-\begin{definition*}\label{nf.invariants}
+\begin{definition}\label{nf.invariants}
 \uses{nf,nf.abelian,nf.conductor,nf.degree,nf.dirichlet_group,nf.discriminant,nf.ramified_primes,nf.signature}
 The basic invariants of a \hyperref[nf]{number field} $K$ are:
 
@@ -18,6 +18,4 @@ If $K$ happens to be an \hyperref[nf.abelian]{abelian number field}, then it has
 \end{itemize}
 
 
-\end{definition*}
-
-
+\end{definition}

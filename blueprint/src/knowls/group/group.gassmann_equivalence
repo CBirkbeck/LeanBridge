@@ -1,11 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.gassmann_equivalence}{Gassmann equivalence}}
-\begin{definition*}\label{group.gassmann_equivalence}
+\begin{definition}\label{group.gassmann_equivalence}
 \uses{gg.galois_group,group,group.conjugacy_class,group.subgroup,nf.arithmetically_equivalent}
 Two \hyperref[group.subgroup]{subgroups} $H_1$ and $H_2$ of a finite \hyperref[group]{group} $G$ are \textbf{Gassmann equivalent} if, for every \hyperref[group.conjugacy_class]{conjugacy class} $C$ of $G$, the sets $C \cap H_1$ and $C \cap H_2$ have the same size.  An ordering of the conjugacy classes of $G$ then induces an ordering of the Gassmann equivalence classes of subgroups of $G$, just by lexicographically ordering the vectors of intersection counts.
 
 An equivalent condition is that the permutation modules $\Q[H_1\backslash G]$ and $\Q[H_2\backslash G]$ are isomorphic as $\Q[G]$-modules, which also applies to finite index subgroups $H_1,H_2$ of an infinite group $G$; see Proposition 2.6 of \cite{doi:10.19086/da.29452} for other equivalent definitions.
 
 Gassmann equivalent subgroups of \hyperref[gg.galois_group]{Galois groups} of number fields give rise to \hyperref[nf.arithmetically_equivalent]{arithmetically equivalent} number fields.
-\end{definition*}
-
-
+\end{definition}

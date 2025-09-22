@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.geom_endomorphism_ring}{Geometric endomorphism ring}}
-\begin{definition*}\label{ag.geom_endomorphism_ring}
+\begin{definition}\label{ag.geom_endomorphism_ring}
 \uses{ag.endomorphism_ring}
 For an abelian variety $A$ over a field $F$, the \textbf{geometric endomorphism ring} of $A$ is $\End(A_{\overline{F}})$, the \hyperref[ag.endomorphism_ring]{endomorphism ring} of the base change of $A$ to an algebraic closure $\overline{F}$ of $F$.
-\end{definition*}
-
-
+\end{definition}

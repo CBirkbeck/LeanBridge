@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.aut_phi_ratio}{$\phi$-ratio}}
-\begin{definition*}\label{group.aut_phi_ratio}
+\begin{definition}\label{group.aut_phi_ratio}
 \uses{group,group.automorphism,group.cyclic}
 Given a \hyperref[group]{group} $G$ and its \hyperref[group.automorphism]{automorphism} group $A$, the $\phi$-ratio is the size of the automorphism group divided by $\phi(G)$ where $\phi$ represents Euler's totient function, that is $$|A|/\phi(G).$$
 
 For \hyperref[group.cyclic]{cyclic} groups, the size of their automorphism group is always $\phi(G)$ and hence this ratio is $1$.
-\end{definition*}
-
-
+\end{definition}
