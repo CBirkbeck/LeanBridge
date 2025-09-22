@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.galois_invariants}{Galois invariants of a local field}}
-\begin{definition*}\label{lf.galois_invariants}
+\begin{definition}\label{lf.galois_invariants}
 \uses{lf.padic_field,nf.galois_group,nf.root_discriminant}
 Let $K^{gal}$ be the Galois closure of a \hyperref[lf.padic_field]{$p$-adic field} $K$. The first Galois invariant of $K$ is the \hyperref[nf.galois_group]{Galois group} $G=\Gal(K^{gal}/\mathbb{Q}_p)$.  Most of the remaining invariants relate to the filtration on $G$ by higher ramification groups.
 
@@ -18,11 +18,11 @@ Let $G^i$ be the $i$th higher ramification group in upper numbering from Serre's
 \end{itemize}
 
 \begin{itemize}
-\item  the group $G^{(1)}/G^{(1+)}$ is cyclic of order prime to $p$.  Its order is the \textbf{tame degree} for $K^{gal}/\Q_p$ as it is the degree of the largest tamely totally ramified subextension.  
+\item  the group $G^{(1)}/G^{(1+)}$ is cyclic of order prime to $p$.  Its order is the \textbf{tame degree} for $K^{gal}/\Q_p$ as it is the degree of the largest tamely totally ramified subextension.
 \end{itemize}
 
 \begin{itemize}
-\item  The group $G^{(1+)}$ is a $p$-group.  Values of $s>1$ giving jumps in the filtration $G^{(s)}\neq G^{(s+)}$ are \textbf{wild Artin slopes}.  We repeat a slope $m$ times if $p^m =[G^{(s)} : G^{(s+)}]$, and then list the wild slopes in non-decreasing order.  
+\item  The group $G^{(1+)}$ is a $p$-group.  Values of $s>1$ giving jumps in the filtration $G^{(s)}\neq G^{(s+)}$ are \textbf{wild Artin slopes}.  We repeat a slope $m$ times if $p^m =[G^{(s)} : G^{(s+)}]$, and then list the wild slopes in non-decreasing order.
 \end{itemize}
 
 \begin{itemize}
@@ -36,6 +36,4 @@ Let $G^i$ be the $i$th higher ramification group in upper numbering from Serre's
 \begin{itemize}
 \item  For each jump in the filtration $G^{i}\neq G^{i+}$ gives a \textbf{Swan slope} of $i$.  The Swan slopes are one less than the Artin slopes.
 \end{itemize}
-\end{definition*}
-
-
+\end{definition}

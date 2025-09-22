@@ -1,11 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/st_group.supgroups}{Minimal supergroups}}
-\begin{definition*}\label{st_group.supgroups}
+\begin{definition}\label{st_group.supgroups}
 \uses{st_group.definition,st_group.identity_component,st_group.rational}
 The \textbf{minimal supergroups} of a \hyperref[st_group.definition]{Sato-Tate group} $G$ are the groups $H$ that properly contain $G$ with finite index and do not properly contain any other proper supergroup of $G$; they necessarily have the same \hyperref[st_group.identity_component]{identity component} $H^0=G^0$ as $G$.
 
 For \hyperref[st_group.rational]{rational} Sato-Tate groups in the LMFDB we list only rational minimal supergroups.
 
 A rational Sato-Tate group is \textbf{maximal} if it has no supergroups.
-\end{definition*}
-
-
+\end{definition}

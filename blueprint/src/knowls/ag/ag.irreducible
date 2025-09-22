@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.irreducible}{Irreducible variety}}
-\begin{definition*}\label{ag.irreducible}
+\begin{definition}\label{ag.irreducible}
 \uses{ag.variety}
 A \hyperref[ag.variety]{variety} defined over a field $F$ is \textbf{irreducible} if it is nonempty and cannot be decomposed as the union of two strictly smaller varieties over $F$. It is \textbf{geometrically irreducible} if it remains irreducible when seen as a variety over the \hyperref[nf.algebraic_closure]{algebraic closure} of $F$.
-\end{definition*}
-
-
+\end{definition}

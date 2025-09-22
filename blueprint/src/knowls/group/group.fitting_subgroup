@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.fitting_subgroup}{Fitting subgroup of a group}}
-\begin{definition*}\label{group.fitting_subgroup}
+\begin{definition}\label{group.fitting_subgroup}
 \uses{group,group.nilpotent,group.subgroup,group.subgroup.normal}
 The \textbf{Fitting subgroup} of a \hyperref[group]{group} $G$, denoted $\mathrm{Fit}(G)$, is the largest \hyperref[group.subgroup.normal]{normal} \hyperref[group.subgroup]{subgroup} of $G$ which is \hyperref[group.nilpotent]{nilpotent}.  Since the product of a collection of normal nilpotent subgroups of a group is nilpotent, the Fitting subgroup is unique.
-\end{definition*}
-
-
+\end{definition}

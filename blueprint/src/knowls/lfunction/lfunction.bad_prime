@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.bad_prime}{Bad prime}}
-\begin{definition*}\label{lfunction.bad_prime}
+\begin{definition}\label{lfunction.bad_prime}
 \uses{lfunction,lfunction.conductor}
 The \textbf{bad primes} of an \hyperref[lfunction]{L-function} are the primes that divided its \hyperref[lfunction.conductor]{conductor}.
-\end{definition*}
-
-
+\end{definition}

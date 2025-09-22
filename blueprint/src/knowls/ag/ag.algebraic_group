@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.algebraic_group}{Algebraic group}}
-\begin{definition*}\label{ag.algebraic_group}
+\begin{definition}\label{ag.algebraic_group}
 \uses{}
 TBA
-\end{definition*}
-
-
+\end{definition}

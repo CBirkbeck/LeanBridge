@@ -1,10 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.quasisimple}{Quasisimple group}}
-\begin{definition*}\label{group.quasisimple}
+\begin{definition}\label{group.quasisimple}
 \uses{group.abelian,group.almost_simple,group.perfect,group.simple}
-A quasisimple group is a \hyperref[group.perfect]{perfect} group that is a central extension of a \hyperref[group.simple]{simple} group. 
+A quasisimple group is a \hyperref[group.perfect]{perfect} group that is a central extension of a \hyperref[group.simple]{simple} group.
 
 
 Every \hyperref[group.abelian]{nonabelian} simple group is quasisimple, but it is not implied by $G$ being \hyperref[group.almost_simple]{almost simple}, as shown by <a href="{{url\_for('abstract.index')}}?almost\_simple=no&quasisimple=yes">these examples</a>.
-\end{definition*}
-
-
+\end{definition}

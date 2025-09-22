@@ -1,11 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ring.euclidean_domain}{Euclidean domain}}
-\begin{definition*}\label{ring.euclidean_domain}
+\begin{definition}\label{ring.euclidean_domain}
 \uses{ring.integral_domain,ring.principal_ideal_domain,ring.unique_factorization_domain}
 An \textbf{Euclidean domain} is an \hyperref[ring.integral_domain]{integral domain} $R$ with a function
 \[ \nu: R-\{0\}\to \Z_{\geq 0} \]
 such that for all $a\in R$ and all $b\in R-\{0\}$, there exists $q,r\in R$ such that $a=bq+r$ and $r=0$ or $\nu(r)<\nu(b)$.
 
 Euclidean domains are \hyperref[ring.principal_ideal_domain]{principal ideal domains}, and hence, \hyperref[ring.unique_factorization_domain]{unique factorization domains}.
-\end{definition*}
-
-
+\end{definition}

@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.torsor}{Principal homogeneous space}}
-\begin{definition*}\label{ag.torsor}
+\begin{definition}\label{ag.torsor}
 \uses{ag.abelian_variety,ag.variety,group.galois.absolute}
 A \textbf{principal homogeneous space} (or \textbf{torsor}) of an \hyperref[ag.abelian_variety]{abelian variety} $A$ over a field $k$ is a \hyperref[ag.variety]{variety} $X$ equipped with an $A$-action such that ($X_{\overline{k}}$ with the induced $A_{\overline{k}}$-action) is isomorphic to ($A_{\overline{k}}$ with  $A_{\overline{k}}$-action given by translation).
 
@@ -12,6 +12,4 @@ For a principal homogeneous space $X$, the following are equivalent:
 2. there is an $A$-equivariant isomorphism $X \to A$;
 3. the class of $X$ in $H^1(k,A)$ is $0$.
 
-\end{definition*}
-
-
+\end{definition}

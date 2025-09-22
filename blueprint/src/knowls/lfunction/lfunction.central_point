@@ -1,11 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.central_point}{Central point of an L-function}}
-\begin{definition*}\label{lfunction.central_point}
+\begin{definition}\label{lfunction.central_point}
 \uses{lfunction,lfunction.critical_line,lfunction.functional_equation}
 The \textbf{central point} of an \hyperref[lfunction]{L-function} is the
 point on the real axis of the \hyperref[lfunction.critical_line]{critical line}.  Equivalently,
 it is the fixed point of the \hyperref[lfunction.functional_equation]{functional equation}.
 
 In the \hyperref[lfunction.normalization]{analytic normalization}, the central point is $s=1/2$, in the arithmetic normalization, it is $s=\frac{w+1}{2}$, where $w$ is the \hyperref[lfunction.motivic_weight]{weight} of the L-function.
-\end{definition*}
-
-
+\end{definition}

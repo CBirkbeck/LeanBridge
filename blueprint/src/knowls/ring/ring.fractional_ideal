@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ring.fractional_ideal}{Fractional ideal}}
-\begin{definition*}\label{ring.fractional_ideal}
+\begin{definition}\label{ring.fractional_ideal}
 \uses{ring.field_of_fractions,ring.integral_domain}
 If $R$ is an \hyperref[ring.integral_domain]{integral domain} with \hyperref[ring.field_of_fractions]{field of fractions} $K$, then a \textbf{fractional ideal} $I$ of $R$ is an $R$-submodule of $K$ such that there exists $d\in R-\{0\}$ with $$dI=\{da\mid a\in I\} \subseteq R\,.$$
-\end{definition*}
-
-
+\end{definition}

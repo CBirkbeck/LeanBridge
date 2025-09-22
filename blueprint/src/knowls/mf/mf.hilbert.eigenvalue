@@ -1,8 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.hilbert.eigenvalue}{Hecke eigenvalues }}
-\begin{definition*}\label{mf.hilbert.eigenvalue}
+\begin{definition}\label{mf.hilbert.eigenvalue}
 \uses{}
 Let $f$ be an eigenform normalized so that $a_{(1)} = 1$. The Hecke operator $T_\frak{n}$ acts by $T_\frak{n}f = a_\frak{n}f$ where $a_\frak{n}$ is the Hecke eigenvalue.
 
-\end{definition*}
-
-
+\end{definition}

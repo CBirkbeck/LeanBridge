@@ -1,12 +1,12 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.lift.ikeda}{Duke-Imamoglu-Ikeda lift}}
-\begin{definition*}\label{mf.siegel.lift.ikeda}
+\begin{definition}\label{mf.siegel.lift.ikeda}
 \uses{cmf,group.sp2gr,lfunction.riemann,mf.siegel,mf.siegel.lift.saito_kurokawa}
 A Duke-Imamoglu-Ikeda lift is a lift from
 elliptic modular forms</a>
- to 
+ to
 <a class="knowl-title" knowl="mf.siegel">Siegel modular forms</a>
 of even degree
-with respect to the 
+with respect to the
 integral <a class="knowl-title" knowl="group.sp2gr">symplectic group</a>.
 An elliptic cusp eigenform of weight $k$ may be lifted to
 a cusp eigenform of even degree $n$ of even weight $(k+n)/2$.
@@ -16,6 +16,4 @@ $$
  L(s,F)=\zeta(s)\prod_{i=1}^{2n}L(s+k+n-i,f),
 $$
 where $\zeta$ is the <a class="knowl-title" knowl="lfunction.riemann">Riemann zeta function</a>.
-\end{definition*}
-
-
+\end{definition}

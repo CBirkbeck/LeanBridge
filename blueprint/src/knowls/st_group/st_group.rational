@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/st_group.rational}{Rational Sato-Tate group}}
-\begin{definition*}\label{st_group.rational}
+\begin{definition}\label{st_group.rational}
 \uses{lfunction.arithmetic,lfunction.rational,st_group.definition,st_group.degree}
 A \hyperref[st_group.definition]{Sato-Tate group} $G$ of \hyperref[st_group.degree]{degree} $d$ is said to be \textbf{rational} if for every irreducible character $\chi$ of $\GL_d(\C)$ and every component $H$ of $G$ we have
 $$
@@ -11,4 +11,4 @@ L(s)=\prod_{\mathfrak p}L_{\mathfrak{p}}(N(\mathfrak{p})^{-s})^{-1},
 $$
 this means that the polynomials $L_{\mathfrak p}(T)$ have integer coefficients, equivalently, the $L$-function $L(s)$ is \hyperref[lfunction.rational]{rational}.
 
-\end{definition*}
+\end{definition}

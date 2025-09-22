@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/hgm.families}{Hypergeometric family over $\Q$}}
-\begin{definition*}\label{hgm.families}
+\begin{definition}\label{hgm.families}
 \uses{hgm.cusp_index,hgm.degree,motives.about}
 A \textbf{hypergeometric family} over $\Q$ is a \hyperref[motives.about]{motive} over the field $\Q(t)$ with coefficients in $\Q$.  The families are indexed by non-overlapping ordered pairs of multisets of positive integers $(A,B)$ (called \hyperref[hgm.cusp_index]{cusp-indices}) with $\sum_{a \in A} \phi(a) = \sum_{b \in B} \phi(b) = d \in \Z_{\geq 1}$, where $d$ is the \hyperref[hgm.degree]{degree} and $\phi$ is Euler's totient function.
 
@@ -12,6 +12,4 @@ $$
 z^{1-\beta_k} \sum_{n=0}^\infty \frac{\prod_{i=1}^d (\alpha_i - \beta_k + 1)_n}{\prod_{j=1}^d (\beta_j - \beta_k + 1)_n} z^n
 $$
 where $(x)_n = x(x+1)\cdots(x+n-1)$ is the Pochhammer symbol.
-\end{definition*}
-
-
+\end{definition}

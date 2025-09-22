@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.autjugacy_class}{Autjugacy class}}
-\begin{definition*}\label{group.autjugacy_class}
+\begin{definition}\label{group.autjugacy_class}
 \uses{group.automorphism,group.conjugacy_class,group.element_order}
 If $G$ is a group and $x \in G$, the \textbf{autjugacy class} of $x$ is the orbit of $x$ under the action of the \hyperref[group.automorphism]{automorphism group}, namely $\{\varphi(x) : \varphi \in \operatorname{Aut}(G)\}$.  Any autjugacy class is a disjoint union of \hyperref[group.conjugacy_class]{conjugacy classes}, each of the same size and \hyperref[group.element_order]{order}.
-\end{definition*}
-
-
+\end{definition}

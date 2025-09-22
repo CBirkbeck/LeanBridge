@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.alternating}{Alternating group}}
-\begin{definition*}\label{group.alternating}
+\begin{definition}\label{group.alternating}
 \uses{group.order,group.simple,group.solvable,group.subgroup,group.subgroup.index,group.symmetric}
 The \textbf{alternating group}, denoted $A_n$ is the \hyperref[group.subgroup]{subgroup} of the \hyperref[group.symmetric]{symmetric group}  consisting of the *even* permutations. For $n\ge2$ it is of \hyperref[group.order]{order} $\frac{n!}{2}$, and is \hyperref[group.subgroup.index]{index} $2$ in $S_n$. The group is \hyperref[group.solvable]{solvable} for $n\leq 4$ and \hyperref[group.simple]{simple} for $n\geq 5$.
-\end{definition*}
-
-
+\end{definition}

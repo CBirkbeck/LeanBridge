@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/gg.subnormal_series}{Subnormal series}}
-\begin{definition*}\label{gg.subnormal_series}
+\begin{definition}\label{gg.subnormal_series}
 \uses{}
 A \textbf{subnormal series} of a group $G$ is a chain of subgroups,
 \[ \langle e\rangle = H_0 \leq H_i \leq \cdots \leq H_{n} =G\]
 where each $H_i$ is a normal subgroup of $H_{i+1}$.
-\end{definition*}
-
-
+\end{definition}

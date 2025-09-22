@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/gg.arithmetically_equiv_input}{Input for arithmetically equivalent fields}}
-\begin{definition*}\label{gg.arithmetically_equiv_input}
+\begin{definition}\label{gg.arithmetically_equiv_input}
 \uses{nf,nf.arithmetically_equivalent,nf.galois_closure,nf.galois_group}
 Suppose a \hyperref[nf]{number field} $K$ has \hyperref[nf.galois_closure]{Galois closure} with \hyperref[nf.galois_group]{Galois group} $G$, has $k$ \hyperref[nf.arithmetically_equivalent]{arithmetically equivalent fields}, not including itself.  The number $k$ is an invariant of the Galois group $G$.
 
 The number $k$ has not been computed for all Galois groups.  To see groups for which it has not been computed, use the value $-1$.
-\end{definition*}
-
-
+\end{definition}

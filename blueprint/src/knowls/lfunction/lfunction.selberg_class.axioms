@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.selberg_class.axioms}{Selberg class axioms}}
-\begin{definition*}\label{lfunction.selberg_class.axioms}
+\begin{definition}\label{lfunction.selberg_class.axioms}
 \uses{lfunction.euler_product,lfunction.functional_equation,lfunction.selberg_class}
 The \textbf{ Selberg axioms} for $F(s)=\sum_{n=1}^\infty \frac{a_n}{n^s}$ in the \hyperref[lfunction.selberg_class]{Selberg class} are:
 <ol>
@@ -19,6 +19,4 @@ where $\overline{\Lambda}(s)=\overline{\Lambda(\overline{s})}$.</li>
 where $b_n=0$ unless $n$ is a positive power of a prime
 and $b_n\ll n^\theta$ for some $\theta<1/2$.</li>
 </ol>
-\end{definition*}
-
-
+\end{definition}

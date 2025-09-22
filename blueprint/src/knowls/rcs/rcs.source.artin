@@ -1,10 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.artin}{Source of Artin representation data}}
-\begin{definition*}\label{rcs.source.artin}
+\begin{definition}\label{rcs.source.artin}
 \uses{}
 There are two parts to computing Artin representations: computing number fields of interest, and then for each such field, computing the data for each irreducible complex representation of its Galois group.
 
 The number fields came from the LMFDB number field collection, or were computed by J. Jones and D. Roberts.  The computation of Artin representation data makes heavy use of Magma code written by Tim Dokchitser.
 
-\end{definition*}
-
-
+\end{definition}

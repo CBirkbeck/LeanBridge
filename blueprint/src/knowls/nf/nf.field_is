@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.field_is}{Field is}}
-\begin{definition*}\label{nf.field_is}
+\begin{definition}\label{nf.field_is}
 \uses{group.abelian,group.cyclic,group.dihedral,group.solvable,nf.galois_group,nf.is_galois}
 Using this input, you can filter for fields $K$ with \hyperref[nf.galois_group]{Galois group} $G = \Gal(K/\Q)$ with
 
@@ -12,6 +12,4 @@ Using this input, you can filter for fields $K$ with \hyperref[nf.galois_group]{
 \item  $G$ \hyperref[group.solvable]{solvable},
 \item  $G$ non-solvable.
 \end{itemize}
-\end{definition*}
-
-
+\end{definition}

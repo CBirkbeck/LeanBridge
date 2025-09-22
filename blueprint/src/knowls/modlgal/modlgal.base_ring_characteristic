@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modlgal.base_ring_characteristic}{Base ring characteristic}}
-\begin{definition*}\label{modlgal.base_ring_characteristic}
+\begin{definition}\label{modlgal.base_ring_characteristic}
 \uses{modlgal,modlgal.codomain,ring.characteristic}
 The \textbf{base ring characteristic} of a \hyperref[modlgal]{mod-$\ell$ Galois representation} is the \hyperref[ring.characteristic]{characteristic} of the base ring of its \hyperref[modlgal.codomain]{codomain}.
-\end{definition*}
-
-
+\end{definition}

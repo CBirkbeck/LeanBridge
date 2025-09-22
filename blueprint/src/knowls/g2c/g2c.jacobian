@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.jacobian}{Jacobian of a genus 2 curve}}
-\begin{definition*}\label{g2c.jacobian}
+\begin{definition}\label{g2c.jacobian}
 \uses{ag.abelian_surface,ag.abelian_variety,ag.endomorphism_ring,ag.jacobian,ag.mordell_weil,g2c.g2curve}
 The \hyperref[ag.jacobian]{Jacobian} of a \hyperref[g2c.g2curve]{genus 2 curve} is an \hyperref[ag.abelian_surface]{abelian surface} (an \hyperref[ag.abelian_variety]{abelian variety} of dimension 2).
 
 Properties of the Jacobian include its \hyperref[ag.mordell_weil]{Mordell-Weil group} and its \hyperref[ag.endomorphism_ring]{endomorphism ring}.
-\end{definition*}
-
-
+\end{definition}

@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.analytic_sha}{Analytic order of Sha}}
-\begin{definition*}\label{g2c.analytic_sha}
+\begin{definition}\label{g2c.analytic_sha}
 \uses{ag.abelian_variety,ag.mordell_weil,ag.regulator,g2c.analytic_rank,g2c.mordell_weil_rank,g2c.real_period,g2c.tamagawa,ag.tate_shafarevich,g2c.torsion,lfunction,lfunction.leading_coeff}
 For an \hyperref[ag.abelian_variety]{abelian variety} $A/\Q$ the \textbf{analytic order of Sha} is the real number
 \[
@@ -17,6 +17,4 @@ where
 \end{itemize}
 
 The Birch and Swinnerton-Dyer for abelian varieties implies that the analytic rank of $A$ is equal to its \hyperref[g2c.mordell_weil_rank]{Mordell-Weil rank}, and that its analytic order of Sha is equal to the order of its \hyperref[ag.tate_shafarevich]{Tate-Shafarevich group}.
-\end{definition*}
-
-
+\end{definition}

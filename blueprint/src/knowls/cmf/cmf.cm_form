@@ -1,8 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.cm_form}{CM form}}
-\begin{definition*}\label{cmf.cm_form}
+\begin{definition}\label{cmf.cm_form}
 \uses{cmf,cmf.self_twist}
 A \hyperref[cmf]{classical modular form} is said to have \textbf{complex multiplication} if it admits a \hyperref[cmf.self_twist]{self twist} by the Kronecker character of an imaginary quadratic field.
 
-\end{definition*}
-
-
+\end{definition}

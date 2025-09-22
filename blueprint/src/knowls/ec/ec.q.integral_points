@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.q.integral_points}{Integral points}}
-\begin{definition*}\label{ec.q.integral_points}
+\begin{definition}\label{ec.q.integral_points}
 \uses{}
-The \textbf{integral points} on a given model of an elliptic curve $E$ defined over $\Q$ are the points \(P=(x,y)\) on the model that have integral coordinates \(x\) and \(y\). 
+The \textbf{integral points} on a given model of an elliptic curve $E$ defined over $\Q$ are the points \(P=(x,y)\) on the model that have integral coordinates \(x\) and \(y\).
 
 The number of integral points is finite, by a theorem of Siegel.
-\end{definition*}
-
-
+\end{definition}

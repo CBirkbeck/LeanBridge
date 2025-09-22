@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.representation.image}{Image of a representation}}
-\begin{definition*}\label{group.representation.image}
+\begin{definition}\label{group.representation.image}
 \uses{group.representation.irrep}
 The \textbf{image} of a \hyperref[group.representation.irrep]{representation} of a finite group $G$ is the image of the defining homomorphism $\rho : G \to \GL(V)$ for some vector  space $V$.
-\end{definition*}
-
-
+\end{definition}

@@ -1,8 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.narrow_class_number}{Narrow class number}}
-\begin{definition*}\label{nf.narrow_class_number}
+\begin{definition}\label{nf.narrow_class_number}
 \uses{nf,nf.class_number,nf.ideal_class_group,nf.narrow_class_group,nf.totally_imaginary}
 The \textbf{narrow class number} (also called the \textbf{strict class number}) of an \hyperref[nf]{algebraic number field} is the order of its \hyperref[nf.narrow_class_group]{narrow class group}.
 Since the ordinary \hyperref[nf.ideal_class_group]{ideal class group} is a quotient of the \hyperref[nf.narrow_class_group]{narrow class group}, the narrow class number is a multiple of the \hyperref[nf.class_number]{class number}.  Moreover, the ratio is a power of $2$. The two class numbers are the same in many cases, for example when the number field is \hyperref[nf.totally_imaginary]{totally complex}.
-\end{definition*}
-
-
+\end{definition}

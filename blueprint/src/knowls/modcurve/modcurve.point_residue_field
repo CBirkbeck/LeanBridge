@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.point_residue_field}{Residue field of a point on a modular curve}}
-\begin{definition*}\label{modcurve.point_residue_field}
+\begin{definition}\label{modcurve.point_residue_field}
 \uses{}
-The \textbf{residue field} of a point $x$ on a modular curve $X$ defined over a field $K$ is the field $K(x)$. 
-\end{definition*}
-
-
+The \textbf{residue field} of a point $x$ on a modular curve $X$ defined over a field $K$ is the field $K(x)$.
+\end{definition}

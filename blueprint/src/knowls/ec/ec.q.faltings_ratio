@@ -1,10 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.q.faltings_ratio}{Faltings ratio}}
-\begin{definition*}\label{ec.q.faltings_ratio}
+\begin{definition}\label{ec.q.faltings_ratio}
 \uses{ec,ec.isogeny,ec.q.faltings_height,ec.q.period_lattice,group.subgroup.index}
 In each \hyperref[ec.isogeny]{isogeny class} of \hyperref[ec]{elliptic curves} defined over \(\Q\), there is a unique curve $E_{\text{min}}$ whose {{ KNOWL('ec.q.period\_lattice', 'N\'e;ron lattice') }} is  a sublattice of the N\'e;ron lattices of all the curves in the class (G. Stevens, \cite{MR:MR0962103});  it is the unique curve of minimal \hyperref[ec.q.faltings_height]{Faltings height} among the curves in the isogeny class.
 
 The \textbf{Faltings ratio} of each curve $E$ is the \hyperref[group.subgroup.index]{index} of the N\'e;ron lattice of $E_{\text{min}}$ in that of $E$.
 
-\end{definition*}
-
-
+\end{definition}

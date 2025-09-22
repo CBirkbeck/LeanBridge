@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/av.tate_module}{Tate module of an abelian variety}}
-\begin{definition*}\label{av.tate_module}
+\begin{definition}\label{av.tate_module}
 \uses{av.isogeny,group.galois.absolute}
 Let $p \in \mathbb{Z}_{\geq 0}$ be a prime and $A$ an abelian variety of dimension $g$ defined over a field $K$. The \textbf{$p$-adic Tate module} of $A$ is the inverse limit
 \[
@@ -9,6 +9,4 @@ Here for $m\in\mathbb{Z}_{> 0}$, $A[m]$ denotes the $m$-torsion subgroup of $A$,
 
 If $K$ has characteristic not equal to $p$, then $T_p(A)$ is a free $\Z_p$-module of rank $2g$. It carries an action of the \hyperref[group.galois.absolute]{absolute Galois group} of $K$, and thus has an associated \hyperref[av.galois_rep]{Galois representation}.
 
-\end{definition*}
-
-
+\end{definition}

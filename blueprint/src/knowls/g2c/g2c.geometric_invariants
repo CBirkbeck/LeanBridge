@@ -1,8 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.geometric_invariants}{Geometric invariants}}
-\begin{definition*}\label{g2c.geometric_invariants}
+\begin{definition}\label{g2c.geometric_invariants}
 \uses{ag.curve.genus,g2c.g2_invariants,g2c.igusa_clebsch_invariants,g2c.igusa_invariants}
 The geometric invariants of a \hyperref[ag.curve.genus]{genus} two curve include the \hyperref[g2c.igusa_invariants]{Igusa invariants}, the \hyperref[g2c.igusa_clebsch_invariants]{Igusa-Clebsch invariants}, and the \hyperref[g2c.g2_invariants]{G2-invariants}.
 
-\end{definition*}
-
-
+\end{definition}

@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.chevalley}{Chevalley group}}
-\begin{definition*}\label{group.chevalley}
+\begin{definition}\label{group.chevalley}
 \uses{group.general_linear,group.lie_type,group.orthogonal,group.simple,group.special_linear,group.symplectic,group.unitary,ring.field}
 The \textbf{Chevalley groups} are examples of groups of \hyperref[group.lie_type]{Lie type} over finite \hyperref[ring.field]{fields}.  They generalise the classical \hyperref[group.general_linear]{linear}, \hyperref[group.symplectic]{symplectic}, \hyperref[group.orthogonal]{orthogonal}, and \hyperref[group.unitary]{unitary} matrix groups. In many cases, these are examples of finite \hyperref[group.simple]{simple} groups.
 
@@ -9,6 +9,4 @@ The \textbf{Chevalley groups} are examples of groups of \hyperref[group.lie_type
 \item  $C(n,q)$ is the \hyperref[group.symplectic]{symplectic} group  $\Sp(2n,q)$.
 \item  $D(n, q)$ is the \hyperref[group.orthogonal]{orthogonal} group $\OmegaPlus(2n,q)$.
 \end{itemize}
-\end{definition*}
-
-
+\end{definition}

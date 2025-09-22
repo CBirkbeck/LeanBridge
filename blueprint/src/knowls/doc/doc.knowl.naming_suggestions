@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/doc.knowl.naming_suggestions}{Naming suggestions}}
-\begin{definition*}\label{doc.knowl.naming_suggestions}
+\begin{definition}\label{doc.knowl.naming_suggestions}
 \uses{}
 Naming suggestions for Knowls we agreed on:
 
@@ -26,6 +26,4 @@ Start of a knowl id:
 \end{itemize}
 
 
-\end{definition*}
-
-
+\end{definition}

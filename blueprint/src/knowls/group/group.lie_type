@@ -1,20 +1,20 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.lie_type}{Finite Lie Group Names }}
-\begin{definition*}\label{group.lie_type}
+\begin{definition}\label{group.lie_type}
 \uses{group,group.affine_general_linear,group.affine_special_linear,group.affine_symplectic,group.automorphism,group.center,group.chevalley,group.general_linear,group.orthogonal,group.simple,group.special_linear,group.subgroup,group.symplectic,group.unitary}
 We describe finite \hyperref[group]{groups} of Lie type as follows:
 
 <ul>
-<li> $\mathrm{GL}(n,q)$ denotes the \hyperref[group.general_linear]{general linear group} of degree $n$ over the finite field of order $q$. 
+<li> $\mathrm{GL}(n,q)$ denotes the \hyperref[group.general_linear]{general linear group} of degree $n$ over the finite field of order $q$.
 
 <li> $\mathrm{O}(n,q)$ denotes the general \hyperref[group.orthogonal]{orthogonal group} of degree $n$ over the finite field of order $q$.
 
 <li> $\mathrm{U}(n,q)$ denotes the \hyperref[group.unitary]{general unitary group} of degree $n$ over the finite field of order $q$.
 
-<li> $\mathrm{SL}(n,q)$ denotes the \hyperref[group.special_linear]{special linear group} of degree $n$ over the finite field of order $q$. 
+<li> $\mathrm{SL}(n,q)$ denotes the \hyperref[group.special_linear]{special linear group} of degree $n$ over the finite field of order $q$.
 
-<li> $\mathrm{Sp}(n,q)$ denotes the \hyperref[group.symplectic]{symplectic group} of degree $n$ over the finite field of order $q$. 
+<li> $\mathrm{Sp}(n,q)$ denotes the \hyperref[group.symplectic]{symplectic group} of degree $n$ over the finite field of order $q$.
 
-<li> $\mathrm{SO}(n,q)$ denotes the \hyperref[group.orthogonal]{special orthogonal group} of degree $n$ over the finite field of order $q$. 
+<li> $\mathrm{SO}(n,q)$ denotes the \hyperref[group.orthogonal]{special orthogonal group} of degree $n$ over the finite field of order $q$.
 
 <li> $\mathrm{SU}(n,q)$ denotes the \hyperref[group.unitary]{special unitary group} of degree $n$ over the finite field of order $q$.
 
@@ -25,22 +25,22 @@ We describe finite \hyperref[group]{groups} of Lie type as follows:
 <li> <b> Conformal groups: </b>
 <ul>
 <li>
-$\mathrm{GO}(n,q)$ denotes the conformal orthogonal group of degree $n$ over the finite field of order $q$ consists of the product of the orthogonal group $\mathrm{O}(n,q)$ with the group of dilations. $\mathrm{CSO}(n,q)$ is defined in similar manner. 
+$\mathrm{GO}(n,q)$ denotes the conformal orthogonal group of degree $n$ over the finite field of order $q$ consists of the product of the orthogonal group $\mathrm{O}(n,q)$ with the group of dilations. $\mathrm{CSO}(n,q)$ is defined in similar manner.
 
 
-<li> $\mathrm{GSp}(n,q)$ denotes the conformal symplectic group of degree $n$ over the finite field of order $q$. It preserves the standard alternating form up to a non-zero scalar multiple. 
+<li> $\mathrm{GSp}(n,q)$ denotes the conformal symplectic group of degree $n$ over the finite field of order $q$. It preserves the standard alternating form up to a non-zero scalar multiple.
 
-<li> $\mathrm{GU}(n,q)$ denotes the conformal symplectic group of degree $n$ over the finite field of order $q$. It preserves the standard hermitian form up to a non-zero scalar multiple. 
+<li> $\mathrm{GU}(n,q)$ denotes the conformal symplectic group of degree $n$ over the finite field of order $q$. It preserves the standard hermitian form up to a non-zero scalar multiple.
 
 </ul>
 </ul>
 
 <ul>
-<li> <b> Projective groups: </b> $\mathrm{PG}(n,q)$ denotes the projective version of the group $G(n,q)$, which is the quotient of $G(n,q)$ by its \hyperref[group.center]{center}. 
+<li> <b> Projective groups: </b> $\mathrm{PG}(n,q)$ denotes the projective version of the group $G(n,q)$, which is the quotient of $G(n,q)$ by its \hyperref[group.center]{center}.
 </ul>
 
 <ul>
-<li> <b> \hyperref[group.automorphism]{Automorphism Groups}: </b> 
+<li> <b> \hyperref[group.automorphism]{Automorphism Groups}: </b>
 <ul>
 <li> $\mathrm{P\Gamma L}(n,q)$ denotes the automorphism group of $\mathrm{PGL}(n,q)$.
 <li> $\mathrm{P\Sigma L}(n,q)$ denotes the automorphism group of $\mathrm{PSL}(n,q)$.
@@ -48,10 +48,10 @@ $\mathrm{GO}(n,q)$ denotes the conformal orthogonal group of degree $n$ over the
 <li> $\mathrm{P\Sigma Sp}(n,q)$ denotes the automorphism group of $\mathrm{PSp}(n,q)$.
 </ul>
 </ul>
- 
+
 
 <ul>
-<li>  When the degree $n$ is even, there are two inequivalent non-degenerate quadratic forms giving rise to two non-isomorphic orthogonal groups $\mathrm{O}^{+}(n,q)$ and $\mathrm{O}^{-}(n,q)$ (see this <a href="https://en.wikipedia.org/wiki/Orthogonal\_group#Over\_finite\_fields">wiki page</a>). 
+<li>  When the degree $n$ is even, there are two inequivalent non-degenerate quadratic forms giving rise to two non-isomorphic orthogonal groups $\mathrm{O}^{+}(n,q)$ and $\mathrm{O}^{-}(n,q)$ (see this <a href="https://en.wikipedia.org/wiki/Orthogonal\_group#Over\_finite\_fields">wiki page</a>).
 
 <br><br>
 $H^{+}(n,q)$ and $H^{-}(n,q)$ are defined similarly for $H=\mathrm{GO}, \mathrm{GSO}, \mathrm{SO}, \mathrm{PSO}, \mathrm{PGO}, \mathrm{Spin}$.
@@ -62,38 +62,36 @@ $H^{+}(n,q)$ and $H^{-}(n,q)$ are defined similarly for $H=\mathrm{GO}, \mathrm{
 <li> For $n\ge 3$ odd, $\Omega(n,q)$ is the \hyperref[group.subgroup]{subgroup} of $\mathrm{SO}(n,q)$ such that  $\mathrm{P}\Omega(n,q)$ is \hyperref[group.simple]{simple}. If $q$ is odd, the group $\Omega(n,q)$ is the kernel of the spinor norm map on $\mathrm{SO}(n,q)$; if $q$ is even, it is the kernel of the Dickson invariant.
 
 <br><br>
-For $n\ge 2$ even and $q$ is odd, $\Omega^{+}(n,q)$ (resp. $\Omega^{-}(n,q)$) is the kernel of the spinor norm map on $\mathrm{SO}^{+}(n,q)$ (resp. $\mathrm{SO}^{-}(n,q)$); if q is even, it is the kernel of the Dickson invariant. 
+For $n\ge 2$ even and $q$ is odd, $\Omega^{+}(n,q)$ (resp. $\Omega^{-}(n,q)$) is the kernel of the spinor norm map on $\mathrm{SO}^{+}(n,q)$ (resp. $\mathrm{SO}^{-}(n,q)$); if q is even, it is the kernel of the Dickson invariant.
 
-$\mathrm{P}\Omega^{+}(n,q)$ and $\mathrm{P}\Omega^{-}(n,q)$ are defined in a similar manner. 
+$\mathrm{P}\Omega^{+}(n,q)$ and $\mathrm{P}\Omega^{-}(n,q)$ are defined in a similar manner.
 </ul>
 
 
 <ul>
-<li> <b> Affine Groups: </b> 
+<li> <b> Affine Groups: </b>
 <ul>
-<li> $\mathrm{AGL}(n,q)$ denotes the \hyperref[group.affine_general_linear]{affine general linear group} of degree $n$ over the finite field of order $q$. 
-<li> $\mathrm{ASL}(n,q)$ denotes the \hyperref[group.affine_special_linear]{affine special linear group} of degree $n$ over the finite field of order $q$. 
-<li> $\mathrm{A\Sigma Sp}(n,q)$ denotes the \hyperref[group.affine_symplectic]{affine special symplectic group } of degree $n$ over the finite field of order $q$. 
+<li> $\mathrm{AGL}(n,q)$ denotes the \hyperref[group.affine_general_linear]{affine general linear group} of degree $n$ over the finite field of order $q$.
+<li> $\mathrm{ASL}(n,q)$ denotes the \hyperref[group.affine_special_linear]{affine special linear group} of degree $n$ over the finite field of order $q$.
+<li> $\mathrm{A\Sigma Sp}(n,q)$ denotes the \hyperref[group.affine_symplectic]{affine special symplectic group } of degree $n$ over the finite field of order $q$.
 
 <li> $\mathrm{A\Gamma L}(n,q)$, $\mathrm{A\Sigma L}(n,q)$ and $\mathrm{ASp}(n,q)$ are defined in a similar manner.
 </ul>
 </ul>
- 
+
 <ul>
-<li> <b> \hyperref[group.chevalley]{Chevalley groups}: </b> 
+<li> <b> \hyperref[group.chevalley]{Chevalley groups}: </b>
 <ul>
 <li> $\mathrm{A_n}(q)$ is the special linear group $\mathrm{SL}(n+1,q)$.
 <li> $\mathrm{B_n}(q)$ is the orthogonal group $\Omega(2n+1,q)$.
 <li> $\mathrm{C_n}(q)$ is the symplectic group  $\mathrm{Sp}(2n,q)$.
 <li> $\mathrm{D_n}(q)$ is the orthogonal group $\Omega^{+}(2n,q)$.
 
-<li> $\mathrm{E}(7,q)$, $\mathrm{E}(8,q)$, $\mathrm{F}(4,q)$, $\mathrm{G}(2,q)$ are the exceptional groups. 
+<li> $\mathrm{E}(7,q)$, $\mathrm{E}(8,q)$, $\mathrm{F}(4,q)$, $\mathrm{G}(2,q)$ are the exceptional groups.
 </ul>
 </ul>
 
-Note that Magma uses slightly different notation.  You can see the  <a href="https://magma.maths.usyd.edu.au/magma/handbook/text/770">Magma documentation</a> for more details. 
+Note that Magma uses slightly different notation.  You can see the  <a href="https://magma.maths.usyd.edu.au/magma/handbook/text/770">Magma documentation</a> for more details.
 
 
-\end{definition*}
-
-
+\end{definition}

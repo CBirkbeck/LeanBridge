@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.obstruction_class}{Obstruction class of an elliptic curve}}
-\begin{definition*}\label{ec.obstruction_class}
+\begin{definition}\label{ec.obstruction_class}
 \uses{ec,ec.global_minimal_model,nf,nf.ideal_class_group}
 Let $E$ be an \hyperref[ec]{elliptic curve} defined over a \hyperref[nf]{number field} $K$.  The \textbf{obstruction class} of $E$ is an \hyperref[nf.ideal_class_group]{ideal class} of $K$ which is trivial if and only if $E$ has a \hyperref[ec.global_minimal_model]{global minimal model}.
 
 
-\end{definition*}
-
-
+\end{definition}

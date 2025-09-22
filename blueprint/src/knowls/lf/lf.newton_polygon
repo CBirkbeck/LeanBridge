@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.newton_polygon}{Newton polygon of a polynomial}}
-\begin{definition*}\label{lf.newton_polygon}
+\begin{definition}\label{lf.newton_polygon}
 \uses{lf.local_field}
 Let $K$ be a \hyperref[lf.local_field]{nonarchimedean local field} with discrete valuation $v_K$, and $f \in K[x]$, given by
 $$ f(x) = a_0 + a_1 x + \cdots + a_nx^n,$$
@@ -16,6 +16,4 @@ In the context of isogeny classes of abelian varieties over finite fields, the c
 \begin{itemize}
 \item  The second is to give a list of points, called "breaks," $[(x_1,y_1),(x_2,y_2), (x_3,y_3), \ldots]$, for $0 < x_1 < x_2 < x_3 < \ldots$. This denotes the Newton polygon that, starting at $(0,0)$, has constant slope from $(0,0)$ to $(x_1,y_1)$, then has constant (but different) slope from $(x_1,y_1)$ to $(x_2,y_2)$, etc. Note that by the definition of the Newton polygon, each $x_i$ is a positive integer.
 \end{itemize}
-\end{definition*}
-
-
+\end{definition}

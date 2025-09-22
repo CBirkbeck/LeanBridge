@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.inertia_group}{Inertia group}}
-\begin{definition*}\label{lf.inertia_group}
+\begin{definition}\label{lf.inertia_group}
 \uses{lf.maximal_ideal,lf.padic_field,lf.residue_field,nf.is_galois}
 Let
 
@@ -12,9 +12,7 @@ Let
 \end{itemize}
 \hyperref[lf.residue_field]{residue fields} of $K$, $L$.
 
-Then each $\sigma\in \Gal(L/K)$ induces a element of $\Gal(\lambda/\kappa)$.  The kernel of the resulting homomorphism 
+Then each $\sigma\in \Gal(L/K)$ induces a element of $\Gal(\lambda/\kappa)$.  The kernel of the resulting homomorphism
 \[ \Gal(L/K) \to \Gal(\lambda/\kappa)\]
 is the \textbf{inertia group} of $L/K$.
-\end{definition*}
-
-
+\end{definition}

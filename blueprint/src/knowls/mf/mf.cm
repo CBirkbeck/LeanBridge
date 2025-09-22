@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.cm}{Complex multiplication}}
-\begin{definition*}\label{mf.cm}
+\begin{definition}\label{mf.cm}
 \uses{character.hecke,mf,nf}
 A \hyperref[mf]{modular form} $f$ for $\GL(2)$ over a \hyperref[nf]{number field} $F$ has \textbf{complex multiplication (CM)} if it is equal to its twist by a nontrivial \hyperref[character.hecke]{Hecke character} $\chi$ over $F$, or equivalently
 \[ a_{\frak{p}} = \chi(\frak{p}) a_{\frak{p}} \]
 for all good primes $\frak{p} \nmid \frak{N}$.  Such a character $\chi$ is necessarily quadratic, and \(a_{\frak{p}} = 0\) for all good primes  \(\frak{p}\) such that \(\chi(\frak{p}) = -1\).
-\end{definition*}
-
-
+\end{definition}

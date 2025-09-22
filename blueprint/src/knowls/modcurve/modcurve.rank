@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.rank}{Analytic rank}}
-\begin{definition*}\label{modcurve.rank}
+\begin{definition}\label{modcurve.rank}
 \uses{ag.abelian_variety,ag.jacobian,ag.mordell_weil,av.decomposition,av.simple,cmf.analytic_rank,cmf.galois_orbit,cmf.lfunction,cmf.newform,ec.bsdconjecture,lfunction,lfunction.central_point,modcurve}
 The \textbf{analytic rank} of a \hyperref[modcurve]{modular curve} is the order of vanishing of its \hyperref[lfunction]{L-function} at its \hyperref[lfunction.central_point]{central point}, which is equal to the sums of the \hyperref[cmf.analytic_rank]{analytic ranks} of the \hyperref[cmf.lfunction]{L-functions} of the \hyperref[av.simple]{simple} modular \hyperref[ag.abelian_variety]{abelian varieties} corresponding to \hyperref[cmf.galois_orbit]{Galois orbits} of \hyperref[cmf.newform]{modular forms} that are the \hyperref[av.decomposition]{isogeny factors} of its \hyperref[ag.jacobian]{Jacobian}.
 
 The \hyperref[ec.bsdconjecture]{Birch and Swinnerton-Dyer} conjecture for modular abelian varieties implies that the analytic rank is equal to the \hyperref[ag.mordell_weil]{Mordell-Weil rank} of the Jacobian.
-\end{definition*}
-
-
+\end{definition}

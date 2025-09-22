@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/av.fq.initial_coefficients}{Initial coefficients of the L-polynomial}}
-\begin{definition*}\label{av.fq.initial_coefficients}
+\begin{definition}\label{av.fq.initial_coefficients}
 \uses{av.fq.l-polynomial,av.isogeny_class}
 The LMFDB allows one to search for \hyperref[av.isogeny_class]{isogeny classes of abelian varieties} over finite fields by specifying the first few coefficients of the \hyperref[av.fq.l-polynomial]{L-polynomial} of the isogeny class. The coefficients are ordered in increasing order of the degree of the term, and the initial coefficients \textbf{do not include} the leading constant term 1.
-\end{definition*}
-
-
+\end{definition}

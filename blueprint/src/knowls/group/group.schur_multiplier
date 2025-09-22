@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.schur_multiplier}{Schur multiplier}}
-\begin{definition*}\label{group.schur_multiplier}
+\begin{definition}\label{group.schur_multiplier}
 \uses{group.stem_extension}
 If $G$ is a finite group then the \textbf{Schur multiplier} of $G$ is the homology group $H_2(G, \Z)$.  It is the maximal kernel of a \hyperref[group.stem_extension]{stem extension} of $G$. In the data, the Schur multiplier is represented as a list of invariant factors; e.g., `[2,4,12]` corresponds to the abelian group $C_2 \times C_4 \times C_{12}$.
-\end{definition*}
-
-
+\end{definition}

@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/curve.highergenus.aut.braid_equivalence}{Braid Equivalence}}
-\begin{definition*}\label{curve.highergenus.aut.braid_equivalence}
+\begin{definition}\label{curve.highergenus.aut.braid_equivalence}
 \uses{curve.highergenus.aut.generatingvector,curve.highergenus.aut.refinedpassport}
 Given a group $G$, the \textbf{braid operations} on an $n$-tuples of elements in $G$ are the maps
 
@@ -7,8 +7,6 @@ $$Q_i: (g_1, \ldots, g_{i-1}, g_i, g_{i+1}, \ldots, g_n) \to (g_1, \ldots g_{i-1
 
 and their inverses, for $1 \leq i \leq n-1$.  These operations generate an action on \hyperref[curve.highergenus.aut.generatingvector]{generating vectors} of one \hyperref[curve.highergenus.aut.refinedpassport]{refined passport}.
 
-Two generating vectors from the same refined passport are considered  \textbf{braid equivalent} if they are in the same orbit under this action. 
+Two generating vectors from the same refined passport are considered  \textbf{braid equivalent} if they are in the same orbit under this action.
 
-\end{definition*}
-
-
+\end{definition}

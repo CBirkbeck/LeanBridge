@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.herbrand_invariant}{Herbrand invariant}}
-\begin{definition*}\label{lf.herbrand_invariant}
+\begin{definition}\label{lf.herbrand_invariant}
 \uses{lf.means,lf.padic_field,lf.ramification_index,lf.rams,lf.residue_field,lf.residue_field_degree,lf.slopes}
 A \textbf{Herbrand invariant} $I$ is the collection of ramification
 data associated to a finite separable extension of
@@ -17,7 +17,7 @@ of $L/K$ as $I=[s_1,\dots,s_w]_{\epsilon}^f$; in terms of the
 \hyperref[lf.rams]{rams} of $L/K$
 as $I=(r_1,\dots,r_w)_{\epsilon}^f$; or in terms of the
 \hyperref[lf.means]{means} of $L/K$
-as $I=\langle m_1,\dots,m_w\rangle_{\epsilon}^f$.  
+as $I=\langle m_1,\dots,m_w\rangle_{\epsilon}^f$.
 
 As a convention, we put $s_0=r_0=m_0=0$.   The three representations
 of the Herbrand invariant of $L/K$ are related by
@@ -58,6 +58,4 @@ second case we say that $b_i$ is an \textbf{arithmetic ram}.
 If the conditions above are satisfied we say that $K$ is \textbf{compatible}
 with $I$.  The compatibility of $K$ with $I$ depends only on the absolute
 ramification index $e_K$ of $K$.
-\end{definition*}
-
-
+\end{definition}

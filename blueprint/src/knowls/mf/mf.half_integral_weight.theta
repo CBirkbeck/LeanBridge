@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.half_integral_weight.theta}{Theta function}}
-\begin{definition*}\label{mf.half_integral_weight.theta}
+\begin{definition}\label{mf.half_integral_weight.theta}
 \uses{cmf.level,mf.half_integral_weight,mf.half_integral_weight.dedekind_eta}
 The (classical) \textbf{theta function} $\theta(z)$ is a holomorphic modular form of \hyperref[mf.half_integral_weight]{half-integral weight} $1/2$ and \hyperref[cmf.level]{level} 4, defined by the formula
 \[
@@ -17,6 +17,4 @@ The (classical) theta function is related to the \hyperref[mf.half_integral_weig
 \theta(z)=\frac{\eta^5(z)}{\eta^2(z/2)\eta^2(2z)}=\frac{\eta^2((z+1)/2)}{\eta(z+1)}.
 \]
 
-\end{definition*}
-
-
+\end{definition}

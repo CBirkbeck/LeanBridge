@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.derived_series}{Derived series of a group}}
-\begin{definition*}\label{group.derived_series}
+\begin{definition}\label{group.derived_series}
 \uses{group,group.commutator_subgroup,group.proper_subgroup,group.solvable}
 The \textbf{derived series} of a finite \hyperref[group]{group} $G$ is the chain of subgroups
 \[ G =G^{(0)}\rhd G^{(1)} \rhd G^{(2)} \rhd \cdots \rhd G^{(k)} \]
@@ -7,6 +7,4 @@ where $G^{(i+1)}$ is the \hyperref[group.commutator_subgroup]{commutator subgrou
 
 A group is \hyperref[group.solvable]{solvable} if and only if $G^{(k)}=\langle e\rangle$.
 
-\end{definition*}
-
-
+\end{definition}

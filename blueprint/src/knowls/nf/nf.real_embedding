@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.real_embedding}{Real embedding}}
-\begin{definition*}\label{nf.real_embedding}
+\begin{definition}\label{nf.real_embedding}
 \uses{}
 A \textbf{real embedding} of a number field $K$ is a field homomorphism $K\to \R$.  A single number field may have several distinct real embeddings.
-\end{definition*}
-
-
+\end{definition}

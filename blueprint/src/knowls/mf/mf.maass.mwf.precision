@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.maass.mwf.precision}{The precision of an eigenvalue}}
-\begin{definition*}\label{mf.maass.mwf.precision}
+\begin{definition}\label{mf.maass.mwf.precision}
 \uses{mf.maass.mwf,mf.maass.mwf.spectralparameter}
 The precision of a \hyperref[mf.maass.mwf]{Maass form} $f$ is a heuristic estimate of the difference between the numerically computed \hyperref[mf.maass.mwf.spectralparameter]{spectral parameter} and the true spectral parameter of $f$.
 
 
-\end{definition*}
-
-
+\end{definition}

@@ -1,8 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modlgal.abelian}{Abelian}}
-\begin{definition*}\label{modlgal.abelian}
+\begin{definition}\label{modlgal.abelian}
 \uses{group.abelian,modlgal,modlgal.codomain,modlgal.image}
-A \hyperref[modlgal]{mod-$\ell$ Galois representation} with \hyperref[modlgal.codomain]{codomain} $G(\F_{\ell})$ is \textbf{abelian} 
+A \hyperref[modlgal]{mod-$\ell$ Galois representation} with \hyperref[modlgal.codomain]{codomain} $G(\F_{\ell})$ is \textbf{abelian}
  if its \hyperref[modlgal.image]{image} is an \hyperref[group.abelian]{abelian} subgroup of the \hyperref[modlgal.codomain]{codomain} $G(\F_{\ell})$.  Otherwise the representation is \textbf{nonabelian}.
-\end{definition*}
-
-
+\end{definition}

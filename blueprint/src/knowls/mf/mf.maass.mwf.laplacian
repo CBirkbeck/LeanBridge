@@ -1,10 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.maass.mwf.laplacian}{Laplace-Beltrami operator (hyperbolic)}}
-\begin{definition*}\label{mf.maass.mwf.laplacian}
+\begin{definition}\label{mf.maass.mwf.laplacian}
 \uses{mf.upper_half_plane}
 The \textbf{Laplace-Beltrami operator} on the \hyperref[mf.upper_half_plane]{hyperbolic upper half-plane} is given by
  $$\Delta = -y^{2} \left(\frac{\partial^{2}}{\partial x^{2}}+\frac{\partial^{2}}{\partial y^{2}}\right).$$
 Note that it is sometimes defined without the minus sign in front.
 
-\end{definition*}
-
-
+\end{definition}

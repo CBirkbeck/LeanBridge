@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.complex_multiplication}{Complex multiplication}}
-\begin{definition*}\label{ec.complex_multiplication}
+\begin{definition}\label{ec.complex_multiplication}
 \uses{ag.complex_multiplication,ec,ec.endomorphism_ring,ec.geom_endomorphism_ring,ec.j_invariant,nf.class_number,nf.order,ring.characteristic}
 An \hyperref[ec]{elliptic curve} whose \hyperref[ec.endomorphism_ring]{endomorphism ring} is larger than \(\Z\) is said to have \textbf{complex multiplication} (often abbreviated to CM).  In this case, for curves defined over fields of \hyperref[ring.characteristic]{characteristic} zero, the endomorphism ring is isomorphic to an \hyperref[nf.order]{order} in an imaginary quadratic field.  The discriminant of this order is the \textbf{CM discriminant}.
 
@@ -15,6 +15,4 @@ j & -12288000 & 54000 & 0 & 287496 & 1728 & 16581375 & -3375 & 8000 & -32768 & -
 $$
 
 CM elliptic curves are examples of \hyperref[ag.complex_multiplication]{CM abelian varieties}.
-\end{definition*}
-
-
+\end{definition}

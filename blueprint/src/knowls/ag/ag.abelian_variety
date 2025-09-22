@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.abelian_variety}{Abelian variety}}
-\begin{definition*}\label{ag.abelian_variety}
+\begin{definition}\label{ag.abelian_variety}
 \uses{ag.variety,ec}
 An \textbf{abelian variety} defined over the field $K$ is a smooth connected projective \hyperref[ag.variety]{variety} equipped with the structure of an algebraic group. The group law is automatically commutative.
 
 An abelian variety of dimension 1 is the same as an \hyperref[ec]{elliptic curve}.
-\end{definition*}
-
-
+\end{definition}

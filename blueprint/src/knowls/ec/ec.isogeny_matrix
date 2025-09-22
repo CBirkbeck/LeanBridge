@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.isogeny_matrix}{Isogeny matrix of an isogeny class of elliptic curves}}
-\begin{definition*}\label{ec.isogeny_matrix}
+\begin{definition}\label{ec.isogeny_matrix}
 \uses{ec,ec.isogeny_class}
 The \textbf{isogeny matrix} of an \hyperref[ec.isogeny_class]{isogeny class} of \hyperref[ec]{elliptic curves} is a symmetric matrix with integral entries that records the minimum among the degrees of the cyclic isogenies between the elliptic curves in the isogeny class.
 
 In the LMFDB, the rows and columns of the matrices are ordered by the final entry of the label of the elliptic curves in the isogeny class in question, so that the $(i,j)$-th entry is the smallest possible degree of a cyclic isogeny between the $i$-th and $j$-th curve in the isogeny class.
-\end{definition*}
-
-
+\end{definition}

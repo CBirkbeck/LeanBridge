@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.name}{Abstract group name}}
-\begin{definition*}\label{group.name}
+\begin{definition}\label{group.name}
 \uses{group.alternating,group.cyclic,group.dihedral,group.direct_product,group.frobenius,group.generalized_quaternion,group.heisenberg,group.lie_type,group.nonsplit_product,group.order,group.other_dihedral,group.semi_dihedral,group.semidirect_product,group.sporadic,group.subgroup.normal,group.symmetric,group.wreath_product}
 We describe abstract groups using standard building blocks:
 <ul>
@@ -13,10 +13,10 @@ We describe abstract groups using standard building blocks:
 <ul>
  <li> $M_n$ for $n=11,12, 22,23, 24$ denotes the Mathieu groups
  <li> $\Ru$ denotes the Rudvalis group
- <li> $\McL$ denotes the McLaughlin group 
- <li> $\He$ denotes the Held group 
- <li> $\HS$ denotes the Higman–Sims group 
- <li> $J_1$, $J_2$, $J_3$ denote the Janko groups 
+ <li> $\McL$ denotes the McLaughlin group
+ <li> $\He$ denotes the Held group
+ <li> $\HS$ denotes the Higman–Sims group
+ <li> $J_1$, $J_2$, $J_3$ denote the Janko groups
  <li> $\Co_2$ and $\Co_3$ denote the Conway groups
 </ul>
  <li> Here is a list of \hyperref[group.lie_type]{finite groups of Lie type}.
@@ -33,6 +33,4 @@ Groups $A$ and $B$ may be used to construct a larger group:
 \item  $A.B$ an \hyperref[group.nonsplit_product]{extension} with normal subgroup $A$ and quotient isomorphic to $B$.
 \item  $A\wr B$ for the \hyperref[group.wreath_product]{wreath product} of $A$ and $B$.
 \end{itemize}
-\end{definition*}
-
-
+\end{definition}

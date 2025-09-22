@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.base_change}{Base change}}
-\begin{definition*}\label{ag.base_change}
+\begin{definition}\label{ag.base_change}
 \uses{ag.variety,ring.field}
 Let $V$ be an \hyperref[ag.variety]{algebraic variety} defined over a \hyperref[ring.field]{field} $K$. If $L/K$ is a field extension, then any set of equations that define $V$ over $K$ can be used to define an algebraic variety over $L$, the \textbf{base change} of $V$ from $K$ to $L$ (typically denoted $V_L$).
 
 An algebraic variety over a field $L$ is said to be a \textbf{base change} if it is the base change of an algebraic variety defined over a proper subfield of $L$, equivalently, if its \hyperref[ag.base_field]{base field} is not a \hyperref[ag.minimal_field]{minimal field of definition}.
-\end{definition*}
-
-
+\end{definition}

@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/av.simple}{Simple abelian variety}}
-\begin{definition*}\label{av.simple}
+\begin{definition}\label{av.simple}
 \uses{ag.abelian_variety}
 An \hyperref[ag.abelian_variety]{abelian variety} is \textbf{simple} if it is nonzero and not \hyperref[av.decomposition]{isogenous} to a product of abelian varieties of lower dimension.
-\end{definition*}
-
-
+\end{definition}

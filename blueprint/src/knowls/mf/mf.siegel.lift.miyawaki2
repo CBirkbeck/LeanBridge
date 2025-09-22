@@ -1,7 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.lift.miyawaki2}{Miyawaki lift of type II}}
-\begin{definition*}\label{mf.siegel.lift.miyawaki2}
+\begin{definition}\label{mf.siegel.lift.miyawaki2}
 \uses{}
-<b>Miyawaki Lift, Type II (conjectural):</b>  Let $k$ be an even weight. 
+<b>Miyawaki Lift, Type II (conjectural):</b>  Let $k$ be an even weight.
 For each pair of elliptic Hecke cusp eigenforms
 $$f\in{\mathcal S}_{2k-2}(\SL(2,{\mathbb Z}))
 \quad\text{quad}\quad
@@ -14,6 +14,4 @@ and $$L^{\rm st}(F,s)=L(f,s+k-1)L(f,s+k-2)L^{\rm st}(g,s)$$
 and whose spinor Euler factors and spinor L-function factor as
 $$Q_p^{\rm spin}(F,X)=Q_p(g,p^{k-1}X)Q_p(g,p^{k-2}X)Q_p(f\otimes g,X)$$
 and $$L^{\rm spin}(F,s)=L(g,s-k+1)L(g,s-k+2)L(f\otimes g,s).$$
-\end{definition*}
-
-
+\end{definition}

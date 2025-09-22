@@ -1,10 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.character.dirichlet}{Source of Dirichlet character data}}
-\begin{definition*}\label{rcs.source.character.dirichlet}
+\begin{definition}\label{rcs.source.character.dirichlet}
 \uses{character.dirichlet.conrey}
 Labels and invariants for Dirichlet characters and their Galois orbits are computed using [Magma code](https://github.com/AndrewVSutherland/magma) that was developed in conjunction with the paper \textit{Computing Classical Modular Forms} \cite{arXiv:2002.04717} by Alex J. Best, Jonathan Bober, Andrew R. Booker, Edgar Costa, John Cremona, Maarten Derickx, David Lowry-Duda, Min Lee, David Roe, Andrew V. Sutherland, and John Voight.
 
 Computations for individual \hyperref[character.dirichlet.conrey]{Conrey characters} is performed using the efficient implementation available in Pari/GP.
 
-\end{definition*}
-
-
+\end{definition}

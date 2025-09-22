@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/artin.frobenius_schur_indicator}{Frobenius-Schur indicator of a representation}}
-\begin{definition*}\label{artin.frobenius_schur_indicator}
+\begin{definition}\label{artin.frobenius_schur_indicator}
 \uses{group,group.representation.character,group.representation.type}
 If $G$ is a finite \hyperref[group]{group} and $\chi$ is the \hyperref[group.representation.character]{character} of an irreducible complex representation of $G$, then its \textbf{Frobenius-Schur indicator} is given by
 \[ \frac{1}{|G|}\sum_{g\in G} \chi(g^2).\]
 It is $0$, $1$, or $-1$ depending on whether the \hyperref[group.representation.type]{type} of the representation is complex type, real, or quaternionic (symplectic) respectively.
-\end{definition*}
-
-
+\end{definition}

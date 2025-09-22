@@ -140,7 +140,7 @@ def clean_content(kwl):
     content = kwl['content']
     safe_id = kwl['id'].replace("_", r"\_")
     # For now, we just add label and dependencies
-    return f"\\subsection{{\\href{{https://beta.lmfdb.org/knowledge/show/{kwl['id']}}}{{{kwl['title']}}}}}\n\\begin{{definition*}}\\label{{{kwl['id']}}}\n\\uses{{{','.join(kwl['links'])}}}\n{content}\n\\end{{definition*}}\n\n\n"
+    return f"\\subsection{{\\href{{https://beta.lmfdb.org/knowledge/show/{kwl['id']}}}{{{kwl['title']}}}}}\n\\begin{{definition}}\\label{{{kwl['id']}}}\n\\uses{{{','.join(kwl['links'])}}}\n{content}\n\\end{{definition}}\n\n\n"
 
 def update_knowls(path_to_lmfdb=None, cats=["nf", "ec", "cmf"], delete_old=False):
     if path_to_lmfdb is None:

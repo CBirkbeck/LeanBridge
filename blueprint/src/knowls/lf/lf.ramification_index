@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.ramification_index}{Ramification index of an extension of $p$-adic fields}}
-\begin{definition*}\label{lf.ramification_index}
+\begin{definition}\label{lf.ramification_index}
 \uses{lf.padic_field,lf.ring_of_integers}
 Let $L/K$ be a finite extension of \hyperref[lf.padic_field]{$p$-adic fields}.
 Then $\mathcal{O}_L$ and $\mathcal{O}_K$, the \hyperref[lf.ring_of_integers]{rings of integers} of $L$ and $K$,
@@ -16,6 +16,4 @@ The \textbf{base ramification index} $e_0$ of $L/K$ is the ramification index of
 The \textbf{absolute ramification index} $e_{\mathrm{abs}}$ of $L/K$ is the ramification index of
 $L$ over $\Q_p$.
 
-\end{definition*}
-
-
+\end{definition}

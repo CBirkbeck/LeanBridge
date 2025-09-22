@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.label}{Label of a modular curve}}
-\begin{definition*}\label{modcurve.label}
+\begin{definition}\label{modcurve.label}
 \uses{gl2.genus,gl2.index,gl2.label,gl2.level,gl2.open,modcurve,modcurve.gassmann_class}
 The \textbf{label} of a \hyperref[modcurve]{modular curve} $X_H$ is the same as the \hyperref[gl2.label]{label} of the \hyperref[gl2.open]{open subgroup} $H\le \GL_2(\widehat{\Z})$. When $\det(H)=\widehat{\Z}^\times$ and $-I\in H$ this label has the form $\texttt{N.i.g.c.n}$, where
 
@@ -22,4 +22,4 @@ When $\det(H)=\widehat{\Z}^\times$ and $-I\not \in H$ this label has the form $\
 \item  $m$ is the positive integer in the label $\texttt{M.j.g.c.m}$ of $H'$, where $i=2j$.
 \item  $n$ is a positive integer that distinguishes $H$ from nonconjugate refinements of $H'$ of the same level.
 \end{itemize}
-\end{definition*}
+\end{definition}

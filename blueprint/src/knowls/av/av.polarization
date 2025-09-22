@@ -1,11 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/av.polarization}{Polarization}}
-\begin{definition*}\label{av.polarization}
+\begin{definition}\label{av.polarization}
 \uses{ag.abelian_variety,av.isogeny}
 A \textbf{polarization} of an \hyperref[ag.abelian_variety]{abelian variety} $A$ is an \hyperref[av.isogeny]{isogeny} from $A$ to its dual abelian variety that is symmetric with respect to double-duality for abelian varieties and for which the pullback of the Poincar\'{e} bundle along the associated graph morphism is ample.
 
 The \textbf{degree} (resp. \textbf{kernel}) of a polarization is the degree (resp. kernel) of this isogeny.
 
 Any abelian variety admits at least one polarization. In fact, over $\C$ the existence of a polarization distinguishes abelian varieties among complex tori.
-\end{definition*}
-
-
+\end{definition}

@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.q.abc_quality}{$abc$ quality}}
-\begin{definition*}\label{ec.q.abc_quality}
+\begin{definition}\label{ec.q.abc_quality}
 \uses{ec,ec.j_invariant,ec.q.conductor}
 Given a triple $a,b,c$ of nonzero coprime integers, the \textbf{quality} of the triple is defined as
 $$
@@ -10,6 +10,4 @@ where $\operatorname{rad}(abc)$ is the product of the primes dividing $abc$.  Th
 The \textbf{$abc$ quality} of an \hyperref[ec]{elliptic curve} $E$ is the quality of an $a,b,c$ triple determined by its \hyperref[ec.j_invariant]{$j$-invariant}, namely the one defined by writing $\frac{j}{1728} = \frac{a}{c}$ in lowest terms and setting $b = c - a$.  Note that the $abc$ quality is undefined for $j=0$ and $j=1728$.
 
 The reason for defining the quality of $E$ in this way comes from the equivalence of the $abc$ conjecture with the \hyperref[ec.q.szpiro_ratio]{modified Szpiro conjecture}. For elliptic curves with small \hyperref[ec.q.conductor]{conductor}, $j$-invariants often have unusually large quality.
-\end{definition*}
-
-
+\end{definition}

@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/artin.conductor}{Conductor of an Artin representation}}
-\begin{definition*}\label{artin.conductor}
+\begin{definition}\label{artin.conductor}
 \uses{artin,artin.unramified_primes,gg.galois_group,lf.inertia_group,lf.padic_field,lf.wild_inertia_group,nf.is_galois,nf.prime}
 The \textbf{conductor} of an \hyperref[artin]{Artin representation} is a positive integer that measures its ramification.  It can be expressed as a product of local conductors.
 
@@ -15,4 +15,4 @@ where $V^{G_i}$ is the subspace of $V$ fixed by $G_i$.
 
 
 Note that if $p$ is \hyperref[artin.unramified_primes]{unramified} in $K$, then $f(\rho,p)=0$ and conversely, if $\rho$ is faithful and $p$ is ramified in $K$, then $f(\rho,p)>0$.
-\end{definition*}
+\end{definition}

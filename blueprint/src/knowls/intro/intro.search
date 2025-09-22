@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/intro.search}{Search}}
-\begin{definition*}\label{intro.search}
+\begin{definition}\label{intro.search}
 \uses{}
 \begin{itemize}
 \item  The objects returned will satisfy all of the constraints that you enter.
@@ -7,6 +7,4 @@
 \item  You can indicate a range by using either a hyphen or a .., such as "3-9" or "3..9".
 \item  You can negate a query by inserting a "~" at the beginning; for example "~3,5" excludes objects for which the relevant attribute has value 3 or 5.
 \end{itemize}
-\end{definition*}
-
-
+\end{definition}

@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/combin.hasse_diagram}{Hasse diagram}}
-\begin{definition*}\label{combin.hasse_diagram}
+\begin{definition}\label{combin.hasse_diagram}
 \uses{}
 If $(S, \leq)$ is a finite partially ordered set, then a \textbf{Hasse diagram} for $S$ is a representation of $S$ in the plane where
 
@@ -9,6 +9,4 @@ If $(S, \leq)$ is a finite partially ordered set, then a \textbf{Hasse diagram} 
 \item  if $s_1$ is connected to $s_2$ by an edge and $s_1 < s_2$, then $s_2$ is higher in the plane in the sense of having a larger "$y$-coordinate"
 \end{itemize}
 
-\end{definition*}
-
-
+\end{definition}

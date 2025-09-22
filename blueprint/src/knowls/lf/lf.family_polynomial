@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.family_polynomial}{Families of extensions of local fields}}
-\begin{definition*}\label{lf.family_polynomial}
+\begin{definition}\label{lf.family_polynomial}
 \uses{lf.eisenstein_diagram,lf.family_ambiguity,lf.herbrand_invariant,lf.indices_of_inseparability,lf.padic_field,lf.ramification_index,lf.residue_field,lf.residue_field_degree,lf.slopes,lf.unramified_degree}
 Let $K$ be a \hyperref[lf.padic_field]{$p$-adic field} whose \hyperref[lf.residue_field]{residue field} has cardinality $q$ and
 let $I=[s_1,\dots,s_w]_{\epsilon}^f$ be a
@@ -46,6 +46,4 @@ of these semicanonical polynomials.  The
 is an upper bound on the number of semicanonical polynomials
 corresponding to each isomorphism class of extensions in
 $I/K$.
-\end{definition*}
-
-
+\end{definition}

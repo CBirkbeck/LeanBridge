@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/st_group.trace_moments}{Trace moments of a Sato-Tate group}}
-\begin{definition*}\label{st_group.trace_moments}
+\begin{definition}\label{st_group.trace_moments}
 \uses{st_group.definition,st_group.weight}
 The trace $t$ of a random element of a \hyperref[st_group.definition]{Sato-Tate group} $G$ can be viewed as a random variable whose distribution is given by the pushforward of the Haar measure on $G$ under the trace map.
 
@@ -7,6 +7,4 @@ The $n$th \textbf{moment} $\mathrm{M}_n[t]:= \mathrm{E}[t^n]$ of $t$ is the expe
 
 For Sato-Tate groups of odd \hyperref[st_group.weight]{weight} we have $t=-a_1$ and the moment sequences of $t$ and $a_1$ coincide because their distributions are symmetric about zero.
 
-\end{definition*}
-
-
+\end{definition}

@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.ring_of_integers}{Ring of integers of a number field}}
-\begin{definition*}\label{nf.ring_of_integers}
+\begin{definition}\label{nf.ring_of_integers}
 \uses{nf,ring.integral}
 The \textbf{ring of integers} of a \hyperref[nf]{number field} $K$ is the \hyperref[ring.integral]{integral closure} of $\Z$ in $K$.
-\end{definition*}
-
-
+\end{definition}

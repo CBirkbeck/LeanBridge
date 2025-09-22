@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.plane_model}{Plane model}}
-\begin{definition*}\label{modcurve.plane_model}
+\begin{definition}\label{modcurve.plane_model}
 \uses{ag.canonical_model,ag.gonality,ag.plane_model,modcurve.embedded_model}
 \hyperref[ag.plane_model]{Plane models} for modular curves are computed in several ways:
 
@@ -8,6 +8,4 @@
 \item  by projecting away from points in the ambient space of the \hyperref[ag.canonical_model]{canonical model} or \hyperref[modcurve.embedded_model]{embedded model},
 \item  by using a gonal map to $\mathbb{P}^1$ to find a model exhibiting that \hyperref[ag.gonality]{gonality}.
 \end{itemize}
-\end{definition*}
-
-
+\end{definition}

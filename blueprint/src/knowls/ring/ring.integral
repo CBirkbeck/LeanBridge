@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ring.integral}{Integral element of a ring}}
-\begin{definition*}\label{ring.integral}
+\begin{definition}\label{ring.integral}
 \uses{ring}
 If $R\subseteq S$ are \hyperref[ring]{commutative rings}, an element $s\in S$ is \textbf{integral} over $R$ if there exists $n\in\Z^+$ and $a_i\in R$ such that
 $$ s^n+a_{n-1} s^{n-1}+\cdots + a_0 =0\,.$$
@@ -7,6 +7,4 @@ $$ s^n+a_{n-1} s^{n-1}+\cdots + a_0 =0\,.$$
 The \textbf{integral closure} of $R$ in $S$ is $\{s\in S\mid s \text{ is integral over } R\}$.
 
 
-\end{definition*}
-
-
+\end{definition}

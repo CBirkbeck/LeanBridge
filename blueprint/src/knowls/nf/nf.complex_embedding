@@ -1,11 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.complex_embedding}{Complex embedding}}
-\begin{definition*}\label{nf.complex_embedding}
+\begin{definition}\label{nf.complex_embedding}
 \uses{nf,nf.minimal_polynomial}
-A \textbf{complex embedding} of a \hyperref[nf]{number field} $K$ is a nonzero field homomorphism $K\to \C$ whose image is not contained in $\R$.  
+A \textbf{complex embedding} of a \hyperref[nf]{number field} $K$ is a nonzero field homomorphism $K\to \C$ whose image is not contained in $\R$.
 
 A single number field may have several distinct complex embeddings.
 
 For $K=\Q(a)$ where $a$ is an algebraic number with \hyperref[nf.minimal_polynomial]{minimal polynomial} $f(X)$, the embeddings $\iota:K\to\C$ are determined by the value $z=\iota(a)$ which is one of the complex roots of $f(X)$, and the embedding is complex when $z\notin\R$.  The complex embeddings come in conjugate pairs.
-\end{definition*}
-
-
+\end{definition}

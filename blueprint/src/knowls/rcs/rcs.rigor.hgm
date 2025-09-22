@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.rigor.hgm}{Reliability of hypergeometric motive data}}
-\begin{definition*}\label{rcs.rigor.hgm}
+\begin{definition}\label{rcs.rigor.hgm}
 \uses{}
 
-\end{definition*}
-
-
+\end{definition}

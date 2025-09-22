@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.tate_shafarevich}{Tate-Shafarevich group}}
-\begin{definition*}\label{ag.tate_shafarevich}
+\begin{definition}\label{ag.tate_shafarevich}
 \uses{ag.abelian_variety,ag.torsor,g2c.locally_solvable,group.galois.absolute,group.torsion,nf,nf.absolute_value,nf.place}
 The \textbf{Tate-Shafarevich group} of an \hyperref[ag.abelian_variety]{abelian variety} $A$ over a \hyperref[nf]{number field} $K$ is
 $$
@@ -11,6 +11,4 @@ and $v$ ranges over all \hyperref[nf.place]{places} of $K$, including the \hyper
 It classifies \hyperref[g2c.locally_solvable]{locally solvable} \hyperref[ag.torsor]{principal homogeneous spaces} of $A$.
 
 It is a \hyperref[group.torsion]{torsion abelian group} that is conjectured to be finite.
-\end{definition*}
-
-
+\end{definition}

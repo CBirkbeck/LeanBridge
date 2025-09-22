@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.maximal_subgroup}{Maximal subgroup of a group}}
-\begin{definition*}\label{group.maximal_subgroup}
+\begin{definition}\label{group.maximal_subgroup}
 \uses{}
 If $G$ is a group, a subgroup $M$ is a \textbf{maximal subgroup} if for every subgroup $H$ such that $M\subseteq H \subseteq G$, either $H=M$ or $H=G$.
-\end{definition*}
-
-
+\end{definition}

@@ -1,11 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/alg.symplectic_isomorphism}{Symplectic isomorphism}}
-\begin{definition*}\label{alg.symplectic_isomorphism}
+\begin{definition}\label{alg.symplectic_isomorphism}
 \uses{}
 Let $N \ge 1$.  Let $\mu_N$ be the group of $N$th roots of unity in some algebraically closed field of characteristic not dividing $N$.  Let $M$ be a free rank $2$ $\Z/N\Z$-module together with an isomorphism $\alpha \colon \bigwedge^2 M \stackrel{\sim}\to \mu_N$, or equivalently with a nondegenerate alternating pairing $M \times M \to \mu_N$.  For example, $M$ could be $E[N]$ for an elliptic curve $E$, together with the Weil pairing.  Or $M$ could be $\Z/N\Z \times \mu_N$ with the "determinant" pairing $(a,\gamma),(b,\delta) \mapsto \delta^a/\gamma^b$.
 
 A \textbf{symplectic isomorphism} from $M$ to another such structure $M'$ is a $\Z/N\Z$-module isomorphism $M \to M'$ such that the induced isomorphism $\bigwedge^2 M \to \bigwedge^2 M'$ gets identified via $\alpha$ and $\alpha'$ with the \textit{identity} $\mu_N \to \mu_N$.
 
 The same definition makes sense in a context in which each free rank 2 $\Z/N\Z$-module is enriched with a Galois action to make a Galois module, or replaced by a finite \'etale group scheme that is $(\Z/N\Z)^2$ \'etale locally.
-\end{definition*}
-
-
+\end{definition}

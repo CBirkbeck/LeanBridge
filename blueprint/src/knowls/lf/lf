@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf}{$p$-adic field (local number field)}}
-\begin{definition*}\label{lf}
+\begin{definition}\label{lf}
 \uses{lf.local_field}
 {{KNOWL\_INC('lf.local\_field')}}
-\end{definition*}
-
-
+\end{definition}

@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.almost_simple}{Almost simple group}}
-\begin{definition*}\label{group.almost_simple}
+\begin{definition}\label{group.almost_simple}
 \uses{group.automorphism,group.quasisimple,group.simple}
 An \textbf{almost simple group} is a group $G$ that lies between a non-abelian \hyperref[group.simple]{simple} group $S$ and its \hyperref[group.automorphism]{automorphism} group Aut$(S)$, i.e. $S \subseteq G \subseteq $Aut$(S).$
 
 Every non-abelian simple group is almost simple, but it is not implied by $G$ being \hyperref[group.quasisimple]{quasisimple}, as shown by <a href="{{url\_for('abstract.index')}}?almost\_simple=yes&quasisimple=no">these examples</a>.
-\end{definition*}
-
-
+\end{definition}

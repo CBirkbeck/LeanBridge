@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/hgm.defining_parameter_ppart}{p-part of defining parameters of a hypergeometric motive}}
-\begin{definition*}\label{hgm.defining_parameter_ppart}
+\begin{definition}\label{hgm.defining_parameter_ppart}
 \uses{hgm.defining_parameters}
 For a hypergeometric motive with \hyperref[hgm.defining_parameters]{defining parameters} $[A, B]$ and a prime number $p$, we define the $p$-part $[A_p, B_p]$ as follows.
 
 For each $u=a_i$ or $b_j$ in $A=(a_1,\ldots, a_m)$ and $B=(b_1,\ldots, b_n)$ we write $u=p^s v$ where $p \nmid v$.  We replace $u$ with $\phi(v)$ copies of $p^s$, to get $[A', B']$, and then remove equal numbers of any overlapping elements between the multisets $A'$ and $B'$ to get $A_p$ and $B_p$. We denote the list of these removed overlapping elements by $C_p$.
-\end{definition*}
-
-
+\end{definition}

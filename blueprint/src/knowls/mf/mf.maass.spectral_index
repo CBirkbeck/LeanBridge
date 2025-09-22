@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.maass.spectral_index}{Spectral index of a Maass form}}
-\begin{definition*}\label{mf.maass.spectral_index}
+\begin{definition}\label{mf.maass.spectral_index}
 \uses{mf.maass.mwf.eigenvalue,mf.maass.mwf.spectralparameter,mf.maass.exceptional_eigenvalue}
 The \hyperref[mf.maass.mwf.eigenvalue]{eigenvalues} $\lambda = \frac{1}{4} + R^2$ (written in terms of the \hyperref[mf.maass.mwf.spectralparameter]{spectral parameter} $R$) are discrete, real, and nonnegative. We order them, and the index of a particular eigenvalue $\lambda$ in this order is called the \textbf{spectral index}.
 
@@ -15,6 +15,4 @@ For other eigenvalues, we notate the index differently based on whether the eige
 \end{itemize}
 
 Exceptional eigenvalues are conjectured to not exist. In practice, the latter indexing system is not necessary.
-\end{definition*}
-
-
+\end{definition}

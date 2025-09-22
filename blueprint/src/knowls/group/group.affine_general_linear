@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.affine_general_linear}{Affine general linear group}}
-\begin{definition*}\label{group.affine_general_linear}
+\begin{definition}\label{group.affine_general_linear}
 \uses{group.general_linear}
-The \hyperref[group.general_linear]{general linear group} $\GL(n,q)$ acts on the vector space $\F_q^n$ by matrix multiplication. The affine general linear group is the group $\AGL(n,q) = \F_q^n \rtimes \GL(n,q)$. It is the group of all invertible affine transformations of $\F_q^n$. 
-\end{definition*}
-
-
+The \hyperref[group.general_linear]{general linear group} $\GL(n,q)$ acts on the vector space $\F_q^n$ by matrix multiplication. The affine general linear group is the group $\AGL(n,q) = \F_q^n \rtimes \GL(n,q)$. It is the group of all invertible affine transformations of $\F_q^n$.
+\end{definition}

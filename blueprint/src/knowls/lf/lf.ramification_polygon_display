@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.ramification_polygon_display}{Ramification polygon diagram}}
-\begin{definition*}\label{lf.ramification_polygon_display}
+\begin{definition}\label{lf.ramification_polygon_display}
 \uses{lf.indices_of_inseparability,lf.ramification_polygon,lf.residual_polynomials}
 The blue graph shows the \hyperref[lf.ramification_polygon]{ramification polygon}.
 
@@ -21,6 +21,4 @@ the coefficient of $x^{p^j}$ is 0.
 \end{itemize}
 the constant term of each residual polynomial is equal to the
 leading coefficient of the next.
-\end{definition*}
-
-
+\end{definition}

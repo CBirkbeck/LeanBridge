@@ -1,10 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.mu_invariant}{mu-invariant of an elliptic curve}}
-\begin{definition*}\label{ec.mu_invariant}
+\begin{definition}\label{ec.mu_invariant}
 \uses{ec.good_ordinary_reduction,ec.good_supersingular_reduction,ec.multiplicative_reduction}
 The analytic $\mu$-invariant of an elliptic curve $E$ at a prime of \hyperref[ec.good_ordinary_reduction]{ordinary} or \hyperref[ec.multiplicative_reduction]{multiplicative reduction} is the largest integer $n$ such that $p^n$ divides the $p$-adic $L$-function of $E$.  By the main conjecture for elliptic curves, this invariant should match the algebraic $\mu$-invariant which is defined analogously in terms of the Selmer group of $E$.
 
 When $E$ has \hyperref[ec.good_supersingular_reduction]{supersingular reduction} at $p$, there is a pair of $p$-adic $L$-functions: $L_p^+(E,T)$ and $L_p^-(E,T)$ and one defines analogously a pair of $\mu$-invariants: $\mu^+_p(E)$ and $\mu^-_p(E)$.
 
-\end{definition*}
-
-
+\end{definition}

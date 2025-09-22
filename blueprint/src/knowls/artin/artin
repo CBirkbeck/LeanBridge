@@ -1,10 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/artin}{Artin representation (definition)}}
-\begin{definition*}\label{artin}
+\begin{definition}\label{artin}
 \uses{group.galois.absolute,nf.galois_group}
 An \textbf{Artin representation} is a continuous homomorphism
 $\rho:\mathrm{Gal}(\overline{\Q}/\Q)\to\GL(V)$ from the
 \hyperref[group.galois.absolute]{absolute Galois group} of $\Q$ to the automorphism group of a
 finite-dimensional $\C$-vector space $V$.  Here continuity means that $\rho$ factors through the \hyperref[nf.galois_group]{Galois group} of some finite extension $K/\Q$. The smallest such $K$ is called the \hyperref[artin.number_field]{Artin field} of $\rho$.
-\end{definition*}
-
-
+\end{definition}

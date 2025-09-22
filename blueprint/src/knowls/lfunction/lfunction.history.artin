@@ -1,8 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.history.artin}{Artin L-functions}}
-\begin{definition*}\label{lfunction.history.artin}
+\begin{definition}\label{lfunction.history.artin}
 \uses{}
 Artin L-functions were introduced in 1924 \cite{MR3069421}. Artin's conjecture that these L-functions are
 entire remains unsolved, though many instances are known.
-\end{definition*}
-
-
+\end{definition}

@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.dual}{Dual lattice}}
-\begin{definition*}\label{lattice.dual}
+\begin{definition}\label{lattice.dual}
 \uses{lattice.definition,lattice.primitive}
 For an \hyperref[lattice.definition]{integral lattice}, $L$, its \textbf{dual} is the set $L^\#=\{\vec{v}\in \Q L:B(\vec{v},L)\subseteq \mathbb Z\}$. There is a unique rescaling of the bilinear map $B$ for which $L^\#$ is a \hyperref[lattice.primitive]{primitive} integral lattice.
-\end{definition*}
-
-
+\end{definition}

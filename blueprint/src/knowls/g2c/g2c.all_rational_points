@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.all_rational_points}{Rational points}}
-\begin{definition*}\label{g2c.all_rational_points}
+\begin{definition}\label{g2c.all_rational_points}
 \uses{ag.curve.genus,ag.hyperelliptic_curve,ag.jacobian,g2c.minimal_equation}
 For a curve $X$ of \hyperref[ag.curve.genus]{genus} $g\ge 2$ over $\Q$ (or any number fields) the set of \textbf{rational points} $X(\Q)$ is finite, by a theorem of Faltings. At present no algorithm is known that explicitly computes a provably complete list of the points in $X(\Q)$, for any given curve $X$, but in specific cases, including when the rank of the \hyperref[ag.jacobian]{Jacobian} of $X$ is less than $g$, this can often be accomplished.
 
 Rational points on \hyperref[ag.hyperelliptic_curve]{hyperelliptic curves} are written in projective coordinates with respect to the weighted homogeneous equation $y^2+h(x,z)y=f(x,z)$ of degree $2g+2$ that is a smooth projective model for the curve $X$, where $y$ has weight $g+1$, while $x$ and $z$ both have weight 1.  This homogeneous equation is uniquely determined by the affine equation $y^2+h(x)y=f(x)$ that listed as the \hyperref[g2c.minimal_equation]{minimal equation} for the curve.
-\end{definition*}
-
-
+\end{definition}

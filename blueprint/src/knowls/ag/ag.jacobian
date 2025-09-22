@@ -1,11 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.jacobian}{Jacobian of a curve}}
-\begin{definition*}\label{ag.jacobian}
+\begin{definition}\label{ag.jacobian}
 \uses{ag.abelian_variety}
 The \textbf{Jacobian} of a (smooth, projective, geometrically integral) curve $X$ of genus $g$ over a field $k$ is a $g$-dimensional principally polarized \hyperref[ag.abelian_variety]{abelian variety} $J$ that is canonically associated to $X$.
 
 If $X$ has a $k$-rational point, then $J(k)$ is isomorphic to the group of degree zero divisors on $X$ modulo linear equivalence.  A choice of rational point on $X$ determines a morphism $X \to J$ called an Abel-Jacobi map; it is an embedding if and only if $g \ge 1$, and an isomorphism if and only if $g=1$.
 
 The Torelli theorem states that if $X$ and $Y$ are curves whose Jacobians are isomorphic as *principally polarized* abelian varieties, then $X$ and $Y$ are isomorphic.  It is possible, however, for non-isomorphic curves to have Jacobians that are isomorphic as unpolarized abelian varieties.
-\end{definition*}
-
-
+\end{definition}

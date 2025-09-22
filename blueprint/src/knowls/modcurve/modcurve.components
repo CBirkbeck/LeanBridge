@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.components}{Geometric components of a modular curve}}
-\begin{definition*}\label{modcurve.components}
+\begin{definition}\label{modcurve.components}
 \uses{ag.geom_component,modcurve,modcurve.xn}
 For the \hyperref[modcurve.xn]{full modular curve} $X_{\mathrm{full}}(N)_{\Q}$,
 the set $\pi_0(X_{\mathrm{full}}(N)_{\overline{\Q}})$ of \hyperref[ag.geom_component]{geometric components} is in bijection with the set $\mu_n^{\text{prim}}$ of primitive $N$th roots of unity (map $(E,P,Q)$ to the Weil pairing $e_N(P,Q)$).
@@ -11,4 +11,4 @@ The statements above hold also if $\Q$ and $\overline{\Q}$ are replaced by $k$ a
 
 The curve $(X_H)_{\Q}$ is integral.  It is geometrically integral if and only if $\det H_N = (\Z/N\Z)^\times$, or equivalently $\det H = \widehat{\Z}^\times$.
 
-\end{definition*}
+\end{definition}

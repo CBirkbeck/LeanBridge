@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.rams}{Rams}}
-\begin{definition*}\label{lf.rams}
+\begin{definition}\label{lf.rams}
 \uses{lf.herbrand_invariant,lf.means,lf.padic_field,lf.ramification_index,lf.slopes,lf.wild_inertia_group}
 Let $L/K$ be an extension of \hyperref[lf.padic_field]{$p$-adic fields}
 with \hyperref[lf.ramification_index]{ramification index} $e = \epsilon p^w$.
@@ -22,6 +22,4 @@ Rams are helpful in enumerating the possible \hyperref[lf.herbrand_invariant]{He
 $$\mathcal{R}_k^{z} = \left\{\alpha \in \mathcal{R}_k^\infty : \alpha < \frac{pz}{p-1}\right\} \ \ \text{if}\ k>1\qquad\qquad\qquad \mathcal{R}_1^{z} = \left\{\alpha \in \mathcal{R}_1^\infty : \alpha \le \frac{pz}{p-1}\right\}.$$
 
 The possible rams $r_1 = \dots = r_w$ for totally wildly ramified extensions of degree $p^w$ over $K$ are then just given by $\mathcal{R}_w^{e_K}$, where $e_K$ is the \hyperref[lf.ramification_index]{absolute ramification index} of $K$.  In general, the possible rams $(r_1,\dots,r_w)$ over $K$ are chosen sequentially using the considerations above and the fact that if $r_i < r_{i+1}$ then $L/K$ has an intermediate field $L_i$ with $[L_i:K] = \epsilon p^i$.  For example, to get all strictly increasing sequences, each $r_k$ is chosen from $\mathcal{R}_1^{e_K \epsilon p^{k-1}}$.
-\end{definition*}
-
-
+\end{definition}

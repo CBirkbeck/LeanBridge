@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.cite.belyi}{How to cite Belyi maps}}
-\begin{definition*}\label{rcs.cite.belyi}
+\begin{definition}\label{rcs.cite.belyi}
 \uses{}
 
-\end{definition*}
-
-
+\end{definition}

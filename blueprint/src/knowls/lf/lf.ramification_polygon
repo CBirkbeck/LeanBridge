@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.ramification_polygon}{Ramification polygon}}
-\begin{definition*}\label{lf.ramification_polygon}
+\begin{definition}\label{lf.ramification_polygon}
 \uses{lf.eisenstein_polynomial,lf.family_polynomial,lf.newton_polygon,lf.padic_field,lf.ramification_index,lf.rams,lf.unramified_subfield}
 Let $L/K$ be a finite extension of \hyperref[lf.padic_field]{$p$-adic fields}
 and let $K'/K$ be the \hyperref[lf.unramified_subfield]{maximal unramified subextension} of $L/K$.  Then $L/K'$ is totally ramified, and if
@@ -20,6 +20,4 @@ If $I/K$ is a \hyperref[lf.family_polynomial]{family} of extensions then
 the ramification polygon of $I/K$ is defined to be the ramification polygon
 of any $L/K\in I/K$.  The slopes of the segments of $P$ are the
 \hyperref[lf.rams]{rams} of $L/K$ and $I/K$.
-\end{definition*}
-
-
+\end{definition}

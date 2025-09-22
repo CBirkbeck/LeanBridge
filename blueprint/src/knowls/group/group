@@ -1,11 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group}{Definition of group}}
-\begin{definition*}\label{group}
+\begin{definition}\label{group}
 \uses{alg.binary_operation,alg.binary_operation.associative,alg.binary_operation.identity,alg.binary_operation.inverse}
 A \textbf{group} $\langle G, *\rangle$ is a set $G$ with a \hyperref[alg.binary_operation]{binary operation} $*$ such that
 
 1. $*$ is \hyperref[alg.binary_operation.associative]{associative}
 2. $*$ has an \hyperref[alg.binary_operation.identity]{identity element}
 3. every element $g\in G$ has an \hyperref[alg.binary_operation.inverse]{inverse}.
-\end{definition*}
-
-
+\end{definition}

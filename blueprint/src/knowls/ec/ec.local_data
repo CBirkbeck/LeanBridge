@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.local_data}{Local data of an elliptic curve}}
-\begin{definition*}\label{ec.local_data}
+\begin{definition}\label{ec.local_data}
 \uses{ec,ec.kodaira_symbol,ec.reduction_type,ec.tamagawa_number,nf}
 The \textbf{local data} of an  \hyperref[ec]{elliptic curve} \(E\) defined over a \hyperref[nf]{number field} \(K\)  at a prime \(\mathfrak{p}\) of \(K\) consists of
 
@@ -12,6 +12,4 @@ The \textbf{local data} of an  \hyperref[ec]{elliptic curve} \(E\) defined over 
 \item  the \hyperref[ec.discriminant_valuation]{discriminant\_valuation} \(\text{ord}_{\mathfrak{p}}(\mathfrak{D})\)
 \item  the \hyperref[ec.j_invariant_denominator_valuation]{j-invariant denominator valuation} \(\text{ord}_{\mathfrak{p}}(j)_{-}\)
 \end{itemize}
-\end{definition*}
-
-
+\end{definition}

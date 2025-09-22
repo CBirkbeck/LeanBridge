@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/intro.download_search}{Download from search result pages}}
-\begin{definition*}\label{intro.download_search}
+\begin{definition}\label{intro.download_search}
 \uses{}
 Every search results page in the LMFDB has "Download" buttons located immediately above and below the list of search results.  This is the simplest option, and it allows you to control the records to be downloaded (by specifying search options), the columns to be included (via the "columns to display" drop down menu), and the order of the results (via the "Sort order" drop down menu).  There are two main limitations:
 
@@ -9,6 +9,4 @@ Every search results page in the LMFDB has "Download" buttons located immediatel
 \end{itemize}
 
 This is the preferred option and should meet the needs of most users.
-\end{definition*}
-
-
+\end{definition}

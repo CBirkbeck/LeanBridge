@@ -1,8 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/av.fq.jacobian}{Jacobian of a curve}}
-\begin{definition*}\label{av.fq.jacobian}
+\begin{definition}\label{av.fq.jacobian}
 \uses{ag.jacobian}
 {{KNOWL\_INC('ag.jacobian')}}
 
-\end{definition*}
-
-
+\end{definition}

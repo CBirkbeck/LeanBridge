@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.discriminant_norm}{Norm of discriminant}}
-\begin{definition*}\label{ec.discriminant_norm}
+\begin{definition}\label{ec.discriminant_norm}
 \uses{ec.discriminant}
 The norm of the \hyperref[ec.discriminant]{discriminant}.
-\end{definition*}
-
-
+\end{definition}

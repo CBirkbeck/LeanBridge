@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.galois_rep}{Galois representations attached to an elliptic curve}}
-\begin{definition*}\label{ec.galois_rep}
+\begin{definition}\label{ec.galois_rep}
 \uses{ec,ec.complex_multiplication,ec.padic_tate_module,gl2.index,gl2.level,gl2.open,group.galois.absolute,nf}
 If $E$ is an \hyperref[ec]{elliptic curve} defined over a field $K$ and $m$ is a positive integer, then the \textbf{mod-$m$ Galois representation} attached to $E$ is the continuous homomorphism
 \[
@@ -27,4 +27,4 @@ When $K$ has characteristic zero one can take the inverse limit over all positiv
 \]
 If $E$ is an elliptic curve without \hyperref[ec.complex_multiplication]{complex multiplication} that is defined over a \hyperref[nf]{number field}, then the image of $\rho_E$ is an \hyperref[gl2.open]{open subgroup} of $\GL(2,\hat{\Z})$ that has an associated \hyperref[gl2.level]{level}, \hyperref[gl2.index]{index}, and \hyperref[gl2.genus]{genus}.
 
-\end{definition*}
+\end{definition}

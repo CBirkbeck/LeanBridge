@@ -1,7 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.bsdconjecture}{Birch Swinnerton-Dyer conjecture}}
-\begin{definition*}\label{ec.bsdconjecture}
+\begin{definition}\label{ec.bsdconjecture}
 \uses{ag.abelian_variety,ec,ec.analytic_sha_order,ec.period,ec.rank,ec.regulator,ec.tamagawa_number,ec.torsion_subgroup,lfunction,lfunction.analytic_rank,lfunction.central_point,lfunction.leading_coeff,nf,nf.discriminant,nf.prime}
-The \textbf{Birch and Swinnerton-Dyer} conjecture (\textbf{BSD}) is one of the Millennium Prize Problems listed by the Clay Mathematics Institute. It relates the order of vanishing (or \hyperref[lfunction.analytic_rank]{analytic rank}) and the \hyperref[lfunction.leading_coeff]{leading coefficient} of  the \hyperref[lfunction]{L-function} associated to an \hyperref[ec]{elliptic curve} $E$ defined over a \hyperref[nf]{number field} $K$ at the \hyperref[lfunction.central_point]{central point} $s=1$ to certain arithmetic data, the \textbf{BSD invariants} of $E$. 
+The \textbf{Birch and Swinnerton-Dyer} conjecture (\textbf{BSD}) is one of the Millennium Prize Problems listed by the Clay Mathematics Institute. It relates the order of vanishing (or \hyperref[lfunction.analytic_rank]{analytic rank}) and the \hyperref[lfunction.leading_coeff]{leading coefficient} of  the \hyperref[lfunction]{L-function} associated to an \hyperref[ec]{elliptic curve} $E$ defined over a \hyperref[nf]{number field} $K$ at the \hyperref[lfunction.central_point]{central point} $s=1$ to certain arithmetic data, the \textbf{BSD invariants} of $E$.
 
 \begin{itemize}
 \item  The \textit{weak form} of the BSD conjecture states just that the \hyperref[lfunction.analytic_rank]{analytic rank} $r_{an}$ (that is, the order of vanishing of vanishing of $L(E,s)$ at $s=1$), is equal to the \hyperref[ec.rank]{rank} $r$ of  $E/K$.
@@ -26,12 +26,10 @@ The quantities appearing in this formula are as follows:
 \item  $\mathrm{Reg}(E/K)$ is the \hyperref[ec.regulator]{regulator} of $E/K$;
 \item  $\Omega(E/K)$ is the \hyperref[ec.period]{global period} of $E/K$;
 \item  $c_{\mathfrak{p}}$ is the \hyperref[ec.tamagawa_number]{Tamagawa number} of $E$ at each \hyperref[nf.prime]{prime} $\mathfrak{p}$ of $K$;
-\item  $E(K)_{\rm tor}$ is the \hyperref[ec.torsion_subgroup]{torsion subgroup} of $E(K)$. 
+\item  $E(K)_{\rm tor}$ is the \hyperref[ec.torsion_subgroup]{torsion subgroup} of $E(K)$.
 \end{itemize}
 
 Implicit in the strong form of the conjecture is that the Tate-Sharafevich group $\Sha(E/K)$ is finite.
 
 There is a similar conjecture for \hyperref[ag.abelian_variety]{abelian varieties} over number fields.
-\end{definition*}
-
-
+\end{definition}

@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.arithmetically_equivalent}{Arithmetically equivalent fields}}
-\begin{definition*}\label{nf.arithmetically_equivalent}
+\begin{definition}\label{nf.arithmetically_equivalent}
 \uses{nf,nf.degree,nf.discriminant,nf.galois_group,nf.sibling,nf.signature}
 Two \hyperref[nf]{number fields} are \textbf{arithmetically equivalent} if they have the same Dedekind $\zeta$-functions. Arithmetically equivalent fields share many invariants, such as their \hyperref[nf.degree]{degrees}, \hyperref[nf.signature]{signatures}, \hyperref[nf.discriminant]{discriminants}, and \hyperref[nf.galois_group]{Galois groups}.  For a given field, the existence of an arithmetically equivalent \hyperref[nf.sibling]{sibling} depends only on the Galois group.
-\end{definition*}
-
-
+\end{definition}

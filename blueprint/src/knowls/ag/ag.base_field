@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.base_field}{Base field}}
-\begin{definition*}\label{ag.base_field}
+\begin{definition}\label{ag.base_field}
 \uses{ag.abelian_variety,ag.minimal_field}
 The \textbf{base field}, of an \hyperref[ag.abelian_variety]{algebraic variety} is the field over which it is defined; it necessarily contains the coefficients of a set of defining equations for the variety, but it is not necessarily a \hyperref[ag.minimal_field]{minimal field of definition}.
 
 
-\end{definition*}
-
-
+\end{definition}

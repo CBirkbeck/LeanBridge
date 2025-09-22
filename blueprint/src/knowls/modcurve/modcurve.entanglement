@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.entanglement}{Entanglements of modular curves}}
-\begin{definition*}\label{modcurve.entanglement}
+\begin{definition}\label{modcurve.entanglement}
 \uses{}
 This knowl should be deleted (as the knowl modcurve.entanglement\_index is being used instead.
-\end{definition*}
-
-
+\end{definition}

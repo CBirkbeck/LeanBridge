@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.inner_twist}{Inner twist}}
-\begin{definition*}\label{cmf.inner_twist}
+\begin{definition}\label{cmf.inner_twist}
 \uses{character.dirichlet,character.dirichlet.galois_orbit,character.dirichlet.primitive,cmf.cm_form,cmf.coefficient_field,cmf.galois_conjugate,cmf.galois_orbit,cmf.newform,cmf.rm_form,cmf.self_twist}
 \hyperref[cmf.galois_conjugate]{Galois conjugate} \hyperref[cmf.newform]{newforms} $f$ and $g$ are \textbf{inner twists} if there is a \hyperref[character.dirichlet]{Dirichlet character} $\chi$ such that
 \[
@@ -7,7 +7,7 @@ a_p(g) = \chi(p)a_p(f)
 \]
 for all but finitely many primes $p$.  Without loss of generality, we may assume that $\chi$ is a \hyperref[character.dirichlet.primitive]{primitive} Dirichlet character, and by a theorem of Ribet \cite{mr:0594532,doi:10.1007/BF01457819}, the newform $g$ is conjugate to $f$ via a $\Q$-automorphism $\sigma$ of the \hyperref[cmf.coefficient_field]{coefficient field} of $f$.  The set of pairs $(\chi,\sigma)$ form the \hyperref[cmf.inner_twist_group]{group of inner twists} of $f$.
 
-Each pair $(\chi,\sigma)$ corresponding to an inner twist of $f$ is uniquely determined by the the primitive character $\chi$, and we say that $f$ admits an inner twist by $\chi$.  When $\sigma=1$ is is the trivial automorphism, we have $g=f$ and say that $f$ admits a \hyperref[cmf.self_twist]{self twist} by $\chi$; in this case $\chi$ is either the trivial character or the Kronecker character of a quadratic field. 
+Each pair $(\chi,\sigma)$ corresponding to an inner twist of $f$ is uniquely determined by the the primitive character $\chi$, and we say that $f$ admits an inner twist by $\chi$.  When $\sigma=1$ is is the trivial automorphism, we have $g=f$ and say that $f$ admits a \hyperref[cmf.self_twist]{self twist} by $\chi$; in this case $\chi$ is either the trivial character or the Kronecker character of a quadratic field.
 
 The \hyperref[cmf.inner_twist_count]{number} of inner twists of $f$ is an invariant of its \hyperref[cmf.galois_orbit]{Galois orbit}, as is the number of inner twists by characters in any particular \hyperref[character.dirichlet.galois_orbit]{Galois orbit of Dirichlet characters}.
 
@@ -16,6 +16,4 @@ The home page of each newform in the LMFDB includes a list of inner twists, in w
 
 
 
-\end{definition*}
-
-
+\end{definition}

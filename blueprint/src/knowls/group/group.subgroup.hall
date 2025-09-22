@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.subgroup.hall}{Hall subgroup}}
-\begin{definition*}\label{group.subgroup.hall}
+\begin{definition}\label{group.subgroup.hall}
 \uses{group,group.order,group.subgroup,group.subgroup.index}
 If $H$ is a \hyperref[group.subgroup]{subgroup} of a finite \hyperref[group]{group} $G$, then $H$ is a \textbf{Hall subgroup} if the \hyperref[group.order]{order} of $H$ is relatively prime to its \hyperref[group.subgroup.index]{index}.
-\end{definition*}
-
-
+\end{definition}

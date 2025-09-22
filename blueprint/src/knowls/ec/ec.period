@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.period}{Global period of an elliptic curve}}
-\begin{definition*}\label{ec.period}
+\begin{definition}\label{ec.period}
 \uses{ec,ec.base_change,ec.discriminant,ec.global_minimal_model,ec.minimal_discriminant,ec.q.period_lattice,ec.weierstrass_coeffs,nf,nf.embedding,nf.place}
 The \textbf{global period} $\Omega(E/K)$ of an \hyperref[ec]{elliptic curve} defined over a \hyperref[nf]{number field} $K$ is a product of local factors $\Omega_v(E_v/K_v)$, one for each infinite \hyperref[nf.place]{place} $v$ of $K$.  Here, $K_v$ denotes the completion of $K$ at $v$ (so $K_v=\R$ for a real place and $K_v=\C$ for a complex place), and $E_v$ denotes the \hyperref[ec.base_change]{base change} of $E$ to $K_v$.
 
@@ -28,6 +28,4 @@ $$
 where $\mathfrak{d}$ is the \hyperref[ec.minimal_discriminant]{minimal discriminant ideal} of $E$ and $N(\mathfrak{d})$ denotes its norm.  This quantity is independent of the model of $E$.
 
 
-\end{definition*}
-
-
+\end{definition}

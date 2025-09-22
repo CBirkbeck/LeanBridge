@@ -1,11 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.torsion_order}{Torsion order of an elliptic curve}}
-\begin{definition*}\label{ec.torsion_order}
+\begin{definition}\label{ec.torsion_order}
 \uses{ec,ec.mordell_weil_group,ec.mordell_weil_theorem,ec.torsion_subgroup}
-The \textbf{torsion order} of an \hyperref[ec]{elliptic curve} $E$ over a field $K$ is the order of the \hyperref[ec.torsion_subgroup]{torsion subgroup} $E(K)_{\text{tor}}$ of its \hyperref[ec.mordell_weil_group]{Mordell-Weil group} E(K).  
+The \textbf{torsion order} of an \hyperref[ec]{elliptic curve} $E$ over a field $K$ is the order of the \hyperref[ec.torsion_subgroup]{torsion subgroup} $E(K)_{\text{tor}}$ of its \hyperref[ec.mordell_weil_group]{Mordell-Weil group} E(K).
 
 The torsion subgroup $E(K)_{\text{tor}}$ is the set of all points on $E$ with coordinates in $K$ having finite order in the group $E(K)$.  When $K$ is a number field (for example, when $K=\Q$) it is a finite set, since by the \hyperref[ec.mordell_weil_theorem]{Mordell-Weil Theorem}, $E(K)$ is finitely generated.
 
 When $K=\Q$ the torsion order $n$ satisfies $n\le16$, by a theorem of Mazur.
-\end{definition*}
-
-
+\end{definition}

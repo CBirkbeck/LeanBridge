@@ -1,10 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.stem_field}{Stem field for a Galois extension}}
-\begin{definition*}\label{nf.stem_field}
+\begin{definition}\label{nf.stem_field}
 \uses{nf.galois_closure,nf.is_galois}
 If $K/F$ is a \hyperref[nf.is_galois]{Galois} extension of fields, a \textbf{stem field} for $K/F$ is a field $E$ such that $F\subseteq E\subseteq K$ and $K$ is the \hyperref[nf.galois_closure]{Galois closure} of $E/F$.
 
 This is connected to the notion of the stem field of a polynomial.
 If $f\in F[x]$ is a separable irreducible polynomial of degree $n$ with roots $\alpha_1, \ldots, \alpha_n$ (in some extension field), then the fields $F(\alpha_i)$ are the \textbf{stem fields of the polynomial} $f$.  The splitting field of $f$ is $K=F(\alpha_1,\ldots,\alpha_n)$, which is a Galois extension of $F$, and the fields $F(\alpha_i)$ are stem fields for $K/F$ as defined above.
-\end{definition*}
-
-
+\end{definition}

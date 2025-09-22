@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.separable_algebra}{Separable algebra}}
-\begin{definition*}\label{nf.separable_algebra}
+\begin{definition}\label{nf.separable_algebra}
 \uses{nf.separable}
 A (finite) \textbf{separable algebra} $A$ over a field $F$, also called an \textbf{\'etale $F$-algebra}, is an  $F$-algebra of finite dimension that is isomorphic to a product of \hyperref[nf.separable]{separable} field extensions of $F$.
 
 If $L/K$ is a field extension and $A$ is a separable $K$-algebra then $A\otimes_K L$ is a separable $L$-algebra (which is typically not a field, even when $A$ is).
-\end{definition*}
-
-
+\end{definition}

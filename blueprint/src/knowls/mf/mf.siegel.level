@@ -1,20 +1,18 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.level}{Level of a Siegel modular form}}
-\begin{definition*}\label{mf.siegel.level}
+\begin{definition}\label{mf.siegel.level}
 \uses{group.paramodular,group.sp2gr.gamma0,group.sp2gr.ppal.congruence,group.sp2gr.subgroup.congn,mf.siegel,minimal.level.sp2gr.subgroup.congn}
-A \hyperref[mf.siegel]{Siegel modular form} on a discrete subgroup $\Gamma$ of $\Sp(2g,\Q)$  is said to be of \textbf{level} $N$ if $\Gamma$ is a 
+A \hyperref[mf.siegel]{Siegel modular form} on a discrete subgroup $\Gamma$ of $\Sp(2g,\Q)$  is said to be of \textbf{level} $N$ if $\Gamma$ is a
 \hyperref[group.sp2gr.subgroup.congn]{congruence subgroup of level} $N$.
 
 
-A Siegel modular form on a discrete subgroup $\Gamma$ of $\Sp(2g,\Q)$ is said to be of \textbf{level} $N$ if $\Gamma$ is a \hyperref[group.sp2gr.subgroup.congn]{congruence subgroup of level} $N$. 
+A Siegel modular form on a discrete subgroup $\Gamma$ of $\Sp(2g,\Q)$ is said to be of \textbf{level} $N$ if $\Gamma$ is a \hyperref[group.sp2gr.subgroup.congn]{congruence subgroup of level} $N$.
 
-Families of congruence subgroups are typically indexed by the 
-\hyperref[minimal.level.sp2gr.subgroup.congn]{minimal level} $N$ of the subgroup. For example, in degree $2$, we have the paramodular groups 
-\hyperref[group.paramodular]{$K(N)$}, 
-the congruence subgroups 
-\hyperref[group.sp2gr.gamma0]{$\Gamma_0(N)$}, 
-and the principal congruence subgroups 
+Families of congruence subgroups are typically indexed by the
+\hyperref[minimal.level.sp2gr.subgroup.congn]{minimal level} $N$ of the subgroup. For example, in degree $2$, we have the paramodular groups
+\hyperref[group.paramodular]{$K(N)$},
+the congruence subgroups
+\hyperref[group.sp2gr.gamma0]{$\Gamma_0(N)$},
+and the principal congruence subgroups
 \hyperref[group.sp2gr.ppal.congruence]{$\Gamma(N)$}.
 
-\end{definition*}
-
-
+\end{definition}

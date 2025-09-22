@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.other_labels}{Other labels for modular curves}}
-\begin{definition*}\label{modcurve.other_labels}
+\begin{definition}\label{modcurve.other_labels}
 \uses{ec.galois_rep_modell_image,modcurve.standard}
 Modular curves are identified in the literature using several different labeling conventions.  In addition to the \hyperref[modcurve.standard]{standard names} for the classical modular curves $X(N), X_0(N), X_1(N), X_{\mathrm ns}^+(N), X_{\mathrm sp}^+(N)$, etc., there are a number of labeling systems that are used in different contexts, including:
 
@@ -10,4 +10,4 @@ Modular curves are identified in the literature using several different labeling
 \item  \textbf{(S)} Sutherland labels $\texttt{NS.a.b.c}$ for groups of prime level $N$ were introduced in \cite{arXiv:1504.07618,MR:3482279} and are used to identify \hyperref[ec.galois_rep_modell_image]{mod-$\ell$ Galois images}.
 \item  \textbf{(SZ)} Sutherland and Zywina labels $\texttt{MA}^\texttt{g}\texttt{-Na}$ are used in \cite{arXiv:1605.03988,mr:3671434} to identify modular curves of prime power level with infinitely many rational points.
 \end{itemize}
-\end{definition*}
+\end{definition}

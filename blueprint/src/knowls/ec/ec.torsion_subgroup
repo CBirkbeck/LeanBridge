@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.torsion_subgroup}{Torsion subgroup of an elliptic curve}}
-\begin{definition*}\label{ec.torsion_subgroup}
+\begin{definition}\label{ec.torsion_subgroup}
 \uses{ec.mordell_weil_theorem,ec.mordell_weil_group}
 For an elliptic curve $E$ over a field $K,$ the \textbf{torsion subgroup} of $E$ over $K$ is the subgroup $E(K)_{\text{tor}}$ of the \hyperref[ec.mordell_weil_group]{Mordell-Weil group} $E(K)$ consisting of points of finite order.  For a number field $K$ this is always a finite group, since by the \hyperref[ec.mordell_weil_theorem]{Mordell-Weil Theorem} $E(K)$ is finitely generated.
 
@@ -13,7 +13,5 @@ The \textbf{torsion structure} is the list of invariants of the group:
 \end{itemize}
 
 For $K=\Q$ the possible torsion structures are $[n]$ for $n\le10$ and $n=12$, and $[2,2n]$ for $n=1,2,3,4$.
- 
-\end{definition*}
 
-
+\end{definition}

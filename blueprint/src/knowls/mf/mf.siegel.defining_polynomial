@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.defining_polynomial}{Defining polynomial}}
-\begin{definition*}\label{mf.siegel.defining_polynomial}
+\begin{definition}\label{mf.siegel.defining_polynomial}
 \uses{mf.siegel.coefficient_field,nf}
 The \hyperref[mf.siegel.coefficient_field]{coefficient field of a Siegel modular form} is a \hyperref[nf]{number field}. A \textbf{defining polynomial} for this number field is explicitly recorded, because some of the data associated to the modular form will be expressed in terms of roots of this polynomial.
-\end{definition*}
-
-
+\end{definition}

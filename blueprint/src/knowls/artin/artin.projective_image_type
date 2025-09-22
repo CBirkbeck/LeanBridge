@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/artin.projective_image_type}{Projective image type}}
-\begin{definition*}\label{artin.projective_image_type}
+\begin{definition}\label{artin.projective_image_type}
 \uses{artin,artin.projective_image,group.subgroup}
 The \hyperref[artin.projective_image]{projective image} of an \hyperref[artin]{Artin representation} is a finite \hyperref[group.subgroup]{subgroup} of $\PGL_n(\C)$.  Possible subgroups have been classified for small $n$.  The case which has garnered the most interest is when $n=2$, in which case the image is isomorphic to either $A_4$, $S_4$, $A_5$, or $D_n$ for some $n\geq 2$ (where $D_2$ is the Klein group).
-\end{definition*}
-
-
+\end{definition}

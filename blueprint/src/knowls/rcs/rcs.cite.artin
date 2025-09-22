@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.cite.artin}{How to cite Artin representations}}
-\begin{definition*}\label{rcs.cite.artin}
+\begin{definition}\label{rcs.cite.artin}
 \uses{}
 
-\end{definition*}
-
-
+\end{definition}

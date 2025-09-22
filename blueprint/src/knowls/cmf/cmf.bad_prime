@@ -1,10 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.bad_prime}{Bad prime}}
-\begin{definition*}\label{cmf.bad_prime}
+\begin{definition}\label{cmf.bad_prime}
 \uses{cmf,cmf.level}
 A \textbf{bad prime} for a \hyperref[cmf]{modular form} \( f\) is a prime dividing the \hyperref[cmf.level]{level} of \(f\).
 
 A \textbf{good prime} is a prime that is not a bad prime.  In other words, a prime that
 does not divide the level.
-\end{definition*}
-
-
+\end{definition}

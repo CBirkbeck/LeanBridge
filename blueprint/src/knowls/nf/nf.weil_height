@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.weil_height}{Weil height}}
-\begin{definition*}\label{nf.weil_height}
+\begin{definition}\label{nf.weil_height}
 \uses{ag.variety,nf}
 The (\textbf{logarithmic}) \textbf{Weil height} of a nonzero rational number $a/b\in\mathbb{Q}$ in lowest terms is the quantity
 $$ h(a/b) = \log\max\bigl\{|a|,|b|\bigr\}. $$ The height of $0$ is taken to be $0.$
@@ -12,7 +12,5 @@ $$ h(P) = \frac{1}{[K:\mathbb Q]} \sum_{v\in M_K} [K_v:\mathbb Q_v]\log\max_{0\l
 If $\mathcal{L}$ is a very amply line bundle on a \hyperref[ag.variety]{projective variety} $V$ inducing an embedding $\iota \colon V \hookrightarrow \mathbb P^n$, then the Weil height associated on $X$ associated to $\mathcal{L}$ is given by
 $$ h_{\mathcal{L}}(P) = h(\iota(P)).$$
 This definition can be extended to all line bundles by using the following linearity:
-$$ h_{\mathcal{L}_1 \otimes \mathcal{L}_2}(P) = h_{\mathcal{L}_1}(P) + h_{\mathcal{L}_2}(P).$$ 
-\end{definition*}
-
-
+$$ h_{\mathcal{L}_1 \otimes \mathcal{L}_2}(P) = h_{\mathcal{L}_1}(P) + h_{\mathcal{L}_2}(P).$$
+\end{definition}

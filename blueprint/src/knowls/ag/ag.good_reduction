@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.good_reduction}{Good and bad reduction}}
-\begin{definition*}\label{ag.good_reduction}
+\begin{definition}\label{ag.good_reduction}
 \uses{ag.abelian_variety,ag.conductor,ag.jacobian,ag.variety,nf,nf.prime}
 A smooth proper \hyperref[ag.variety]{variety} $X$ over a \hyperref[nf]{number field} $K$ is said to have \textbf{good reduction} at a \hyperref[nf.prime]{prime} $\mathfrak{p}$ if it has a model over $\mathcal{O}_{K, \mathfrak{p}}$ whose reduction modulo $\mathfrak{p}$ is a smooth variety over the residue field; more precisely, $X$ has good reduction if it is the generic fiber of a smooth proper scheme over $\mathcal{O}_{K, \mathfrak{p}}$.  Otherwise, $\mathfrak{p}$ is said to be a prime of \textbf{bad reduction}.
 
@@ -9,6 +9,4 @@ For an \hyperref[ag.abelian_variety]{abelian variety} $X$, the primes of bad red
 
 If a curve has good reduction at $\mathfrak{p}$, then its \hyperref[ag.jacobian]{Jacobian} does too.  The converse need not hold.
 
-\end{definition*}
-
-
+\end{definition}

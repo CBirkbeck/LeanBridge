@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/belyi.abc}{abc triple for Belyi maps}}
-\begin{definition*}\label{belyi.abc}
+\begin{definition}\label{belyi.abc}
 \uses{belyi.permutation_triple}
 The \textbf{$(a,b,c)$ triple} for a Belyi map is obtained by taking the orders of the elements in the corresponding \hyperref[belyi.permutation_triple]{transitive permutation triple}.
-\end{definition*}
-
-
+\end{definition}

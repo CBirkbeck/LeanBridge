@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.stark_unit}{Stark unit of a newform of weight one}}
-\begin{definition*}\label{cmf.stark_unit}
+\begin{definition}\label{cmf.stark_unit}
 \uses{cmf.artin_field,cmf.galois_representation,cmf.newform,cmf.weight}
 Stark's conjecture applied to the associated \hyperref[cmf.galois_representation]{Galois representation} of a \hyperref[cmf.newform]{newform} $f(z)=\sum a_n q^n$ of \hyperref[cmf.weight]{weight} one \cite{MR:0782485} states the following. Let $E=\mathbb{Q}((a_n)_{n \in \mathbb{N}})$, $\Delta=\text{Gal}(E/\mathbb{Q})$ and $f^\alpha(z)=\sum \alpha(a_n) q^n$ for $\alpha \in \Delta$. Let $L(s, f)$ be the \hyperref[cmf.lfunction]{L-function} of $f$. Then, for all $b \in E^*$ there exists an integer $m \geq 1$ and a unit $\varepsilon$ in the \hyperref[cmf.artin_field]{Artin field} of $f$, called the \textbf{Stark unit}, such that
 
@@ -7,7 +7,5 @@ Stark's conjecture applied to the associated \hyperref[cmf.galois_representation
 e^{m \sum_{\alpha \in \Delta} \alpha(b)L'(0, f^\alpha)} = \varepsilon
 \]
 
-In the case where the coefficients of $\text{Tr}(bf)$ are in $\mathbb{Z}$, Chinburg further conjectured that there exists a Stark unit for $m=1$ \cite{doi:10.1016/0001-8708(83)90006-3}. Notice that if we choose $b = 1$, the preceding condition always holds. Here, we compute the Stark unit of the newform for $b=1$ and $m=1$. 
-\end{definition*}
-
-
+In the case where the coefficients of $\text{Tr}(bf)$ are in $\mathbb{Z}$, Chinburg further conjectured that there exists a Stark unit for $m=1$ \cite{doi:10.1016/0001-8708(83)90006-3}. Notice that if we choose $b = 1$, the preceding condition always holds. Here, we compute the Stark unit of the newform for $b=1$ and $m=1$.
+\end{definition}

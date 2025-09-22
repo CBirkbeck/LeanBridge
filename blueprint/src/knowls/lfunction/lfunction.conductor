@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.conductor}{Conductor of an L-function}}
-\begin{definition*}\label{lfunction.conductor}
+\begin{definition}\label{lfunction.conductor}
 \uses{character.dirichlet,character.dirichlet.conductor,cmf.cusp_form,lfunction,lfunction.dirichlet,lfunction.functional_equation,lfunction.selbergdata}
 The \textbf{conductor} of an \hyperref[lfunction]{L-function} is the integer $N$  occurring in its \hyperref[lfunction.functional_equation]{functional equation}
 
@@ -14,6 +14,4 @@ The conductor of an analytic \hyperref[lfunction]{L-function} is the second comp
  associated with a primitive \hyperref[character.dirichlet]{Dirichlet character}, the conductor of the L-function is the same as the \hyperref[character.dirichlet.conductor]{conductor} of the character. For a primitive L-function associated with a \hyperref[cmf.cusp_form]{cusp form} $\phi$ on $GL(2)/\mathbb Q$, the conductor of the L-function is the same as the level of $\phi$.
 
 In the literature, the word \textit{level} is sometimes used instead of \textit{conductor}.
-\end{definition*}
-
-
+\end{definition}

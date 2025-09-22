@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.half_integral_weight}{Half-integral weight modular forms}}
-\begin{definition*}\label{mf.half_integral_weight}
+\begin{definition}\label{mf.half_integral_weight}
 \uses{character.dirichlet,cmf.cusp_form,cmf.level,cmf.shimura_correspondence,cmf.weight,group.fuchsian.cusps,mf.half_integral_weight.shimura_decomposition,mf.half_integral_weight.theta}
 Let $k$ be an odd integer, and let $N$ a positive integer divisible by $4$. Let $\chi$ be a \hyperref[character.dirichlet]{character} modulo $N$. A \textbf{modular form of half-integral \hyperref[cmf.weight]{weight}} $k/2$ , \hyperref[cmf.level]{level} $N$ and character $\chi$ is an holomorphic function defined on the upper half plane $\mathcal{H}$, satisfying the transformation formula
 \[
@@ -12,6 +12,4 @@ j(\gamma, z) = \theta(\gamma z)/\theta(z),
 where $\theta$ denotes the classical \hyperref[mf.half_integral_weight.theta]{theta function}. This space is denoted by $M_{k/2}(N)$, and the subspace of \hyperref[cmf.cusp_form]{cusp forms} is denoted by $S_{k/2}(N)$.
 
 These modular forms are related with integral weight modular forms through the \hyperref[cmf.shimura_correspondence]{Shimura correspondence}. In terms of this correspondence, the space of cusp forms can be decomposed according to the \hyperref[mf.half_integral_weight.shimura_decomposition]{Shimura decomposition}.
-\end{definition*}
-
-
+\end{definition}

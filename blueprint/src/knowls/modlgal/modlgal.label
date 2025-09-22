@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modlgal.label}{Labels of mod-$\ell$ Galois representations}}
-\begin{definition*}\label{modlgal.label}
+\begin{definition}\label{modlgal.label}
 \uses{modlgal,modlgal.characteristic,modlgal.conductor,modlgal.dimension}
 The label of a \hyperref[modlgal]{mod-$\ell$ Galois representation} has the form $\texttt{l.d.N.n}$ where
 
@@ -9,6 +9,4 @@ The label of a \hyperref[modlgal]{mod-$\ell$ Galois representation} has the form
 \item  $N$ is the \hyperref[modlgal.conductor]{conductor}
 \item  $n$ is an identifier that distinguishes representations of the same dimension, characteristic, and conductor.  When $d\geq 2$, $n$ is simply an integer.  When $d=1$, $n$ takes the form $a$-$b$ where the Dirichlet character a.b is a lift of the one-dimensional representation modulo $\ell$.
 \end{itemize}
-\end{definition*}
-
-
+\end{definition}

@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.unramified_subfield}{Unramified subfield}}
-\begin{definition*}\label{lf.unramified_subfield}
+\begin{definition}\label{lf.unramified_subfield}
 \uses{lf.padic_field,lf.ramification_index}
 Let $L/K$ be an extension of \hyperref[lf.padic_field]{$p$-adic fields}.
 Then there is a unique intermediate field $L^{ur}$  such that $L^{ur}/K$ is
@@ -9,6 +9,4 @@ $L^{ur}/K$ is the \textbf{maximal unramified subextension} of $L/K$.
 
 If $L$ is a finite extension of $\Q_p$ we say that $L^{ur}$ is the
 \textbf{unramified subfield} of $L$.
-\end{definition*}
-
-
+\end{definition}

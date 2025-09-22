@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.decomposition}{Isogeny decomposition of the Jacobian of a modular curve}}
-\begin{definition*}\label{modcurve.decomposition}
+\begin{definition}\label{modcurve.decomposition}
 \uses{ag.abelian_variety,ag.dimension,ag.jacobian,av.decomposition,av.isogeny,av.simple,cmf.galois_orbit,cmf.label,cmf.newform,cmf.weight,modcurve,modcurve.genus}
 As with any \hyperref[ag.abelian_variety]{abelian variety}, the \hyperref[ag.jacobian]{Jacobian} $J_H$ of a \hyperref[modcurve]{modular curve} $X_H$ can be \hyperref[av.decomposition]{decomposed} into \hyperref[av.simple]{simple} \hyperref[av.isogeny]{isogeny factors}.  For modular curves, these simple isogeny factors are modular abelian varieties corresponding to \hyperref[cmf.galois_orbit]{Galois orbits} of \hyperref[cmf.weight]{weight} 2 \hyperref[cmf.newform]{newforms}.
 
@@ -11,6 +11,4 @@ We list two types of information about the \textbf{isogeny decomposition} of $J_
 \end{itemize}
 
 When $X_H$ has \hyperref[modcurve.genus]{genus} zero, $J_H$ is the trivial abelian variety of dimension zero, and no isogeny decomposition information is listed.
-\end{definition*}
-
-
+\end{definition}

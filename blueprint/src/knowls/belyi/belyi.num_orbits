@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/belyi.num_orbits}{Number of Galois orbits}}
-\begin{definition*}\label{belyi.num_orbits}
+\begin{definition}\label{belyi.num_orbits}
 \uses{belyi.passport}
 A \hyperref[belyi.passport]{passport} decomposes as a disjoint union of $k$ Galois orbits. We denote the number $k$ by \textbf{number of Galois orbits}.
-\end{definition*}
-
-
+\end{definition}

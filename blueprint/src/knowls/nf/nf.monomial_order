@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.monomial_order}{Monomial order}}
-\begin{definition*}\label{nf.monomial_order}
+\begin{definition}\label{nf.monomial_order}
 \uses{nf,nf.order,nf.ring_of_integers}
 A \textbf{monomial order} in a \hyperref[nf]{number field} $K$ is an \hyperref[nf.order]{order} of the form $\Z[\alpha]$, where $\alpha$ is an element of $K$. The element $\alpha$ is necessarily both an \hyperref[nf.ring_of_integers]{algebraic integer} and a \hyperref[nf.primitive_element]{primitive element} for $K$.
-\end{definition*}
-
-
+\end{definition}

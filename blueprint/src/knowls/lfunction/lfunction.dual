@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.dual}{Dual of an L-function}}
-\begin{definition*}\label{lfunction.dual}
+\begin{definition}\label{lfunction.dual}
 \uses{lfunction}
 The \textbf{dual} of an \hyperref[lfunction]{L-function} $L(s) = \sum_{n=1}^{\infty} \frac{a_n}{n^s}$ is the complex conjugate $\bar{L}(s) = \sum_{n=1}^{\infty} \frac{\bar{a_n}}{n^s}$.
-\end{definition*}
-
-
+\end{definition}

@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.twist_minimal}{Twist minimal}}
-\begin{definition*}\label{cmf.twist_minimal}
+\begin{definition}\label{cmf.twist_minimal}
 \uses{character.dirichlet.minimal,cmf.character,cmf.galois_orbit,cmf.label,cmf.level,cmf.newform,cmf.twist}
 A \hyperref[cmf.newform]{newform} $f$ is \textbf{twist minimal} if its \hyperref[cmf.level]{level} achieves the minimum within its \hyperref[cmf.twist]{twist class}.
 
@@ -8,6 +8,4 @@ A twist minimal newform $f$ need not have \hyperref[character.dirichlet.minimal]
 In the LMFDB, the designated representative of each twist class is the twist minimal newform $g$ of minimal character whose \hyperref[cmf.label]{label} is lexicographically minimal among all such newforms.  This newform $g$ is called the \textbf{minimal twist} of the newforms in its twist equivalence class and is identified by a checkmark (\checkmark) in tables of twists.
 
 These conventions also apply to \hyperref[cmf.galois_orbit]{newform orbits}.
-\end{definition*}
-
-
+\end{definition}

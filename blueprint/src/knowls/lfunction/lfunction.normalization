@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.normalization}{Normalization of an L-function}}
-\begin{definition*}\label{lfunction.normalization}
+\begin{definition}\label{lfunction.normalization}
 \uses{lfunction.functional_equation}
 In its \textbf{arithmetic normalization}, an L-function $L(s)$ of weight $w$ has its \hyperref[lfunction.central_value]{central value} at $s=\frac{w+1}{2}$
 and the \hyperref[lfunction.functional_equation]{functional equation} relates
@@ -7,6 +7,4 @@ $s$ to $1 + w - s$.
 For L-functions defined by an Euler product $\prod_p L_p(s)^{-1}$ where the coefficients of $L_p$ are algebraic integers, this is the usual normalization implied by the definition.
 
 The \textbf{analytic normalization} of an L-function is defined by $L_{an}(s):=L(s+w/2)$, where $L(s)$ is the L-function in its arithmetic normalization.  This moves the central value to $s=1/2$, and the \hyperref[lfunction.functional_equation]{functional equation} of $L_{an}(s)$ relates $s$ to $1-s$.
-\end{definition*}
-
-
+\end{definition}

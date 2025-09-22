@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.cusp_form}{Cuspidal modular form}}
-\begin{definition*}\label{cmf.cusp_form}
+\begin{definition}\label{cmf.cusp_form}
 \uses{character.dirichlet,cmf,cmf.fouriercoefficients,cmf.weight,group.fuchsian.cusps,group.sl2z}
 Let $k$ be a positive integer and let $\Gamma$ be a finite index subgroup of the \hyperref[group.sl2z]{modular group} $\SL(2,\Z)$.
 
@@ -7,6 +7,4 @@ A \textbf{cusp form} of \hyperref[cmf.weight]{weight} $k$ on $\Gamma$ is a \hype
 
 The cusp forms in $M_k(\Gamma)$ form a subspace $S_k(\Gamma)$.  For each \hyperref[character.dirichlet]{Dirichlet character} $\chi$ of modulus $N$ the cusp forms in \hyperref[cmf]{$M_k(N,\chi)$} form a subspace $S_k(N,\chi)$; these are the cusp forms of weight $k$, level $N$, and character $\chi$.
 
-\end{definition*}
-
-
+\end{definition}

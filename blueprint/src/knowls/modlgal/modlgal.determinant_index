@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modlgal.determinant_index}{Determinant index}}
-\begin{definition*}\label{modlgal.determinant_index}
+\begin{definition}\label{modlgal.determinant_index}
 \uses{modlgal}
 Given a \hyperref[modlgal]{mod-$\ell$ Galois representation} $\rho:\Gal_K\to G(\F_\ell)$, the \textbf{determinant index} is the index of $\det(\rho(\Gal_K))$ in $\F_\ell^\times$.
-\end{definition*}
-
-
+\end{definition}

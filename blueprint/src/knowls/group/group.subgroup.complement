@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.subgroup.complement}{Complement}}
-\begin{definition*}\label{group.subgroup.complement}
+\begin{definition}\label{group.subgroup.complement}
 \uses{group.nonsplit_product,group.semidirect_product,group.subgroup,group.subgroup.normal}
 If $H \trianglelefteq G$ is a \hyperref[group.subgroup.normal]{normal} \hyperref[group.subgroup]{subgroup}, a \textbf{complement} of $H$ is a subgroup $K \subseteq G$ with $\lvert H \cap K \rvert = 1$ and $HK=G$ where
 $$HK = \{ hk \mid h\in H \text{ and } k\in K\}.$$
@@ -7,6 +7,4 @@ $$HK = \{ hk \mid h\in H \text{ and } k\in K\}.$$
 In order for a complement to exist, the sequence
 $$1 \to H \to G \to G/H \to 1$$
 must \hyperref[group.nonsplit_product]{split}, in which case the complements are precisely the images of the possible splittings $G/H \to G$.  All complements are isomorphic to $G/H$, and if $K$ is any complement then $G$ can be described as the internal \hyperref[group.semidirect_product]{semidirect product} $H \rtimes K$.
-\end{definition*}
-
-
+\end{definition}

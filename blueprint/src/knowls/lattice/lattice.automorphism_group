@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.automorphism_group}{Automorphism group of an integral lattice}}
-\begin{definition*}\label{lattice.automorphism_group}
+\begin{definition}\label{lattice.automorphism_group}
 \uses{lattice.definition,lattice.isometry,lattice.postive_definite}
 The \textbf{automorphism group} of an \hyperref[lattice.definition]{integral lattice} $L$ is the group of \hyperref[lattice.isometry]{isometries} from $L$ to itself. For a \hyperref[lattice.postive_definite]{positive definite} lattice, this is a finite group.
-\end{definition*}
-
-
+\end{definition}

@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.isogeny_primes}{Isogeny primes of elliptic curves}}
-\begin{definition*}\label{nf.isogeny_primes}
+\begin{definition}\label{nf.isogeny_primes}
 \uses{}
 Isogeny primes are AWESOME!
-\end{definition*}
-
-
+\end{definition}

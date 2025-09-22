@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.galois_root_discriminant}{Galois root discriminant}}
-\begin{definition*}\label{nf.galois_root_discriminant}
+\begin{definition}\label{nf.galois_root_discriminant}
 \uses{nf,nf.galois_closure,nf.root_discriminant}
 The \textbf{Galois root discriminant} of a \hyperref[nf]{number field} is the \hyperref[nf.root_discriminant]{root discriminant} of its \hyperref[nf.galois_closure]{Galois closure}.
-\end{definition*}
-
-
+\end{definition}

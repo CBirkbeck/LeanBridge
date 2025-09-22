@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/dq.ec.source}{Source of elliptic curve data over $\Q$}}
-\begin{definition*}\label{dq.ec.source}
+\begin{definition}\label{dq.ec.source}
 \uses{ec.complex_multiplication,ec.conductor,ec.isogeny,ec.q.integral_points,ec.q.torsion_growth,ec.rank,lfunction}
 The elliptic curves over $\Q$ in the LMFDB come from three sources:
 <ul>
@@ -50,6 +50,4 @@ Mardaus and Tobias Nagell, and also the Magma implementation of Steve Donnelly (
 
 
 
-\end{definition*}
-
-
+\end{definition}

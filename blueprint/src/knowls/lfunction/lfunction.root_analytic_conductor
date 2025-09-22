@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.root_analytic_conductor}{Root analytic conductor}}
-\begin{definition*}\label{lfunction.root_analytic_conductor}
+\begin{definition}\label{lfunction.root_analytic_conductor}
 \uses{lfunction,lfunction.analytic_conductor,lfunction.degree,nf,nf.root_discriminant}
 If $d$ is the \hyperref[lfunction.degree]{degree} of the \hyperref[lfunction]{L-function} $L(s)$, the \textbf{root analytic conductor} $\alpha$ of $L$ is the $d$th root of the \hyperref[lfunction.analytic_conductor]{analytic conductor} of $L$.  It plays a role analogous to the \hyperref[nf.root_discriminant]{root discriminant} for \hyperref[nf]{number fields}.
-\end{definition*}
-
-
+\end{definition}

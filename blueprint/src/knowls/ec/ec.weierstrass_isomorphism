@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.weierstrass_isomorphism}{Isomorphism between Weierstrass models}}
-\begin{definition*}\label{ec.weierstrass_isomorphism}
+\begin{definition}\label{ec.weierstrass_isomorphism}
 \uses{ec.isomorphism,ec.weierstrass_coeffs}
 Two \hyperref[ec.weierstrass_coeffs]{Weierstrass models} $E$, $E'$ over a field $K$ with Weierstrass coefficients $[a_1,a_2,a_3,a_4,a_6]$ and $[a'_1,a'_2,a'_3,a'_4,a'_6]$ are \textbf{isomorphic over $K$} if there exist $u\in K^*$ and $r,s,t\in K$ such that
 $$
@@ -23,9 +23,7 @@ where
 $$
 \begin{aligned}
                 x &= u^2x' + r          \\
-                y &= u^3y' + su^2x' + t \\        
-    \end{aligned}                       
+                y &= u^3y' + su^2x' + t \\
+    \end{aligned}
 $$
-\end{definition*}
-
-
+\end{definition}

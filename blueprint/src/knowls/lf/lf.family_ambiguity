@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.family_ambiguity}{Ambiguity of a family}}
-\begin{definition*}\label{lf.family_ambiguity}
+\begin{definition}\label{lf.family_ambiguity}
 \uses{lf.family_polynomial,lf.herbrand_invariant,lf.padic_field,lf.rams,lf.residue_field_degree}
 Let $K$ be be a \hyperref[lf.padic_field]{$p$-adic field}
 and let $I=(r_1,\dots,r_w)_{\epsilon}^f$ be a
@@ -13,6 +13,4 @@ The \textbf{ambiguity} of $I$ over $K$ is
 For each $L/K$ in the \hyperref[lf.family_polynomial]{family}
 $I/K$, the number of semicanonical polynomials representing $L/K$ is
 a divisor of $\frac{\operatorname{Amb}(I/K)}{\lvert\operatorname{Aut}(L/K)\rvert}$.
-\end{definition*}
-
-
+\end{definition}

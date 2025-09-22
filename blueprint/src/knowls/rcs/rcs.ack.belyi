@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.ack.belyi}{Acknowledgments for Belyi maps}}
-\begin{definition*}\label{rcs.ack.belyi}
+\begin{definition}\label{rcs.ack.belyi}
 \uses{}
 
-\end{definition*}
-
-
+\end{definition}

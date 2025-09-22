@@ -1,12 +1,12 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.eisenstein}{Holomorphic Eisenstein series of level 1}}
-\begin{definition*}\label{cmf.eisenstein}
+\begin{definition}\label{cmf.eisenstein}
 \uses{af.bernoulli_numbers,af.divisor_function,cmf,cmf.level,cmf.q-expansion,cmf.weight,group.sl2z}
  For an even integer $k\geq4$, we define the (normalized) holomorphic \textbf{Eisenstein series} of level 1
 \[
   E_k(z)=\frac{1}{2\zeta(k)}\sum_{(c,d)\ne(0,0)}(cz+d)^{-k}=\sum_{\left(\begin{matrix} a&b\\c&d \end{matrix}\right)\in\ \Gamma_\infty\setminus \SL(2,\Z)
 }(cz+d)^{-k},
 \]
- where $\Gamma_z=\{\gamma\in\Gamma: \gamma z=z\}$ is the 
+ where $\Gamma_z=\{\gamma\in\Gamma: \gamma z=z\}$ is the
 \textbf{isotropy group} of the cusp $z$.
 
 The Eisenstein series $E_k$ are \hyperref[cmf]{modular forms} of \hyperref[cmf.weight]{weight} $k$ and \hyperref[cmf.level]{level} $1$ on the \hyperref[group.sl2z]{modular group}.
@@ -17,6 +17,4 @@ E_k(z)=1-\frac{2k}{B_k}\sum_{n\geq1}\sigma_{k-1}(n)q^n,
 \]
 where the $B_k$ are the \hyperref[af.bernoulli_numbers]{Bernoulli numbers},  $\sigma_{k-1}(n)$ is a \hyperref[af.divisor_function]{divisor function},
 and $q=e^{2 \pi i z}$.
-\end{definition*}
-
-
+\end{definition}

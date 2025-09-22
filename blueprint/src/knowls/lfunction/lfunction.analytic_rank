@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.analytic_rank}{Analytic rank}}
-\begin{definition*}\label{lfunction.analytic_rank}
+\begin{definition}\label{lfunction.analytic_rank}
 \uses{lfunction.central_point,lfunction}
 The \textbf{analytic rank} of an \hyperref[lfunction]{L-function} $L(s)$ is its order of vanishing at its \hyperref[lfunction.central_point]{central point}.
 
 When the analytic rank $r$ is positive, the value listed in the LMFDB is typically an upper bound that is believed to be tight (in the sense that there are known to be $r$ zeroes located very near to the central point).
-\end{definition*}
-
-
+\end{definition}

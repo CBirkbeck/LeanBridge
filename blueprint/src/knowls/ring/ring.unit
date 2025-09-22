@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ring.unit}{Unit in a ring}}
-\begin{definition*}\label{ring.unit}
+\begin{definition}\label{ring.unit}
 \uses{group,ring}
 A \textbf{unit} in a \hyperref[ring]{commutative ring} $R$ is an element $x \in R$ so that there exists $y \in R$ with $xy = 1$.  The set of units in $R$ is denoted $R^*$ or $R^\times$ and forms a \hyperref[group]{group} under multiplication.
-\end{definition*}
-
-
+\end{definition}

@@ -1,11 +1,11 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.history.riemanns_memoir}{Riemann's memoir}}
-\begin{definition*}\label{lfunction.history.riemanns_memoir}
+\begin{definition}\label{lfunction.history.riemanns_memoir}
 \uses{}
 In 1859, in an 8 page paper ``\"Uber die Anzahl der Primzahlen unter einer
 gegebenen Gr\"{o}sse'' \cite{href{http://www.claymath.org/sites/default/files/zeta.pdf}{Transcript}} read to the Berlin Academy of Sciences by Gauss' former student Encke,
- Riemann first considered $\zeta(s)$ as a function of a complex variable $s$. 
+ Riemann first considered $\zeta(s)$ as a function of a complex variable $s$.
 He proved that $\zeta(s)$
-is a meromorphic function in the complex $s$-plane whose only singularity is a simple pole at $s=1$ with 
+is a meromorphic function in the complex $s$-plane whose only singularity is a simple pole at $s=1$ with
 residue 1. He went on to prove that
 $$\xi(s)=\frac{1}{2} s(s-1)\pi^{-s/2}\Gamma(s/2) \zeta(s)$$
 is entire of order 1 and satisfies the functional equation
@@ -13,8 +13,6 @@ $$\xi(s)=\xi(1-s).$$
 He proved that $\xi(s)$ has infinitely many zeros, all of which are in the critical strip $0\le \sigma\le 1$, where $\sigma$ denotes the real part of $s$.
 Riemann calculated the first few of these zeros (this was discovered later when Siegel studied Riemann's
 notes left to the G\"ottingen library) and found them to lie on the critical line
-$\sigma=1/2$. He conjectured that all of the zeros are on this line. 
+$\sigma=1/2$. He conjectured that all of the zeros are on this line.
 And the analytic theory of L-functions was born!
-\end{definition*}
-
-
+\end{definition}

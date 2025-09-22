@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.place}{Place of a number field}}
-\begin{definition*}\label{nf.place}
+\begin{definition}\label{nf.place}
 \uses{nf,nf.absolute_value,nf.complex_embedding,nf.real_embedding,nf.ring_of_integers,ring.prime_ideal}
 A \textbf{place} $v$ of a field $K$ is an equivalence class of non-trivial \hyperref[nf.absolute_value]{absolute values} on $K$.  As with absolute values, places may be classified as archimedean or nonarchimedean, since these properties are preserved under equivalence.
 
@@ -8,6 +8,4 @@ Each place induces a distance metric that gives $K$ a metric topology.  The \hyp
 When $K$ is a \hyperref[nf]{number field} each nonarchimedean place arises from the valuation associated to each \hyperref[ring.prime_ideal]{prime ideal} in the \hyperref[nf.ring_of_integers]{ring of integers} of $K$, while archimedean places arise from embeddings of $K$ into the complex numbers: each \hyperref[nf.real_embedding]{real embedding} determines a \textbf{real place}, and each conjugate pair of \hyperref[nf.complex_embedding]{complex embeddings} determines a \textbf{complex place}. The archimedean places of a number field are also called \textbf{infinite places}.
 
 
-\end{definition*}
-
-
+\end{definition}

@@ -1,12 +1,10 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.serre_odlyzko_bound}{Serre Odlyzko bound}}
-\begin{definition*}\label{nf.serre_odlyzko_bound}
+\begin{definition}\label{nf.serre_odlyzko_bound}
 \uses{lfunction.rh,nf,nf.degree,nf.root_discriminant}
 For each positive integer $n$, let $C_n$ for the minimum \hyperref[nf.root_discriminant]{root discriminant} for all \hyperref[nf]{number fields} of \hyperref[nf.degree]{degree} $n$.  Assuming the \hyperref[lfunction.rh]{Generalized Riemann Hypothesis}, $\limsup C_n \geq \Omega$ where
-$$ \Omega = 8\pi e^\gamma\approx 44.7632\ldots$$ 
+$$ \Omega = 8\pi e^\gamma\approx 44.7632\ldots$$
 and $\gamma$ is the Euler–Mascheroni constant.  Lower bounds for the $C_n$ were deduced by analytic methods through the work of Odlyzko and others.  In particular, Serre introduced the constant $\Omega$ which  we refer to as the \textbf{Serre Odlyzko bound},
 
 Consequently, any number field whose root discriminant lies below $\Omega$ can be considered to have small discriminant.
 
-\end{definition*}
-
-
+\end{definition}

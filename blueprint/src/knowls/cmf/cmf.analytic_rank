@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.analytic_rank}{Analytic rank}}
-\begin{definition*}\label{cmf.analytic_rank}
+\begin{definition}\label{cmf.analytic_rank}
 \uses{cmf.coefficient_field,cmf.cusp_form,cmf.q-expansion,cmf.selfdual,lfunction.analytic_rank}
 The \textbf{analytic rank} of a \hyperref[cmf.cusp_form]{cuspidal modular form} $f$ is the \hyperref[lfunction.analytic_rank]{analytic rank} of the L-function
 \[
@@ -14,6 +14,4 @@ In general, analytic ranks of L-functions listed in the LMFDB are upper bounds t
 For modular forms, the analytic ranks listed in the LMFDB are provably correct whenever the listed analytic rank is 0, or the listed analytic rank is 1 and the modular form is \hyperref[cmf.selfdual]{self dual} (in the self dual case the sign of the functional equation determines the parity of the analytic rank).
 
 
-\end{definition*}
-
-
+\end{definition}

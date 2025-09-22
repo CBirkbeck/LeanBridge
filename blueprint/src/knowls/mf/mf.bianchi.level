@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.bianchi.level}{Level of a Bianchi modular form}}
-\begin{definition*}\label{mf.bianchi.level}
+\begin{definition}\label{mf.bianchi.level}
 \uses{mf.bianchi,mf.bianchi.bianchicongruencesubgroup,mf.bianchi.bianchigroup,mf.bianchi.weight,nf.ideal_labels}
 The <b>level</b> of a \hyperref[mf.bianchi]{Bianchi modular form} $F$ is the discrete subgroup $\Gamma$ of $\PSL(2,\C)$ such that $F|_k\gamma = F$ for every $\gamma \in \Gamma$, where $k$ is the \hyperref[mf.bianchi.weight]{weight} of $F$.
 
@@ -7,9 +7,7 @@ More precisely, let $K$ be an imaginary quadratic field; we suppose that $K$ has
 \[
 \Gamma_0(\mathcal{N}) = \left\{\begin{pmatrix} a &b \\ c&d \end{pmatrix}\in\GL_2(\mathcal{O}_K)\mid c\in\mathcal{N}\right\}
 \]
-where $\mathcal{N}$ is an integral ideal of $\mathcal{O}_K$.  In this case one says that $F$ has "level $\mathcal{N}$" as an abbreviation for "level $\Gamma_0(\mathcal{N})$".  The \textbf{level label} is the \hyperref[nf.ideal_labels]{ideal label} of $\mathcal N$ and the \textbf{level norm} is its norm (a positive integer).  
+where $\mathcal{N}$ is an integral ideal of $\mathcal{O}_K$.  In this case one says that $F$ has "level $\mathcal{N}$" as an abbreviation for "level $\Gamma_0(\mathcal{N})$".  The \textbf{level label} is the \hyperref[nf.ideal_labels]{ideal label} of $\mathcal N$ and the \textbf{level norm} is its norm (a positive integer).
 
 Note these levels are \textbf{$\mathbf{GL}_2$-levels}.  It is also possible to consider \textbf{$\mathbf{SL}_2$-levels}, which are subgroups of $\SL_2(\mathcal{O}_K)$: for example, $\Gamma_0(\mathcal{N})\cap\SL_2(\mathcal{O}_K)$.  Since such groups are smaller, the corresponding spaces of Bianchi forms are larger, containing as a subspace the forms on $\Gamma_0(\mathcal{N})$.
-\end{definition*}
-
-
+\end{definition}

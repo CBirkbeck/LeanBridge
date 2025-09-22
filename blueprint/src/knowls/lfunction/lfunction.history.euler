@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.history.euler}{Euler's work on the zeta function}}
-\begin{definition*}\label{lfunction.history.euler}
+\begin{definition}\label{lfunction.history.euler}
 \uses{af.bernoulli_numbers}
 The prototype of L-functions is the Riemann zeta-function defined by
 \[
@@ -11,16 +11,14 @@ and he also found the fundamental identity
 \zeta(s)=\prod_p \left(1-\frac{1}{p^s}\right)^{-1},
 \]
 which he used to prove that the series $\sum_p \frac{1}{p}$ diverges. Euler considered other divergent series
-and noticed a connection between  values of $\zeta$ at $s$ and $1-s$, linked by powers of $\pi$ and \hyperref[af.bernoulli_numbers]{Bernoulli numbers}, 
-such as the interpretations 
+and noticed a connection between  values of $\zeta$ at $s$ and $1-s$, linked by powers of $\pi$ and \hyperref[af.bernoulli_numbers]{Bernoulli numbers},
+such as the interpretations
 $$1+2+3+\dots =-\frac{1}{12}$$
-and 
+and
 $$1+4+9+16+\dots =0.$$
 Euler found hints of many of the remarkable features of L-functions that
-make them such worthy objects of study: the Euler product, special values, and the functional equation. 
-It was left to Riemann to discover perhaps the most remarkable property of all, one that 
+make them such worthy objects of study: the Euler product, special values, and the functional equation.
+It was left to Riemann to discover perhaps the most remarkable property of all, one that
 hasn't been proven yet: the Riemann Hypothesis that each  non-real zero of $\zeta(s)$ has real part
-equal to $\frac 12 $. 
-\end{definition*}
-
-
+equal to $\frac 12 $.
+\end{definition}

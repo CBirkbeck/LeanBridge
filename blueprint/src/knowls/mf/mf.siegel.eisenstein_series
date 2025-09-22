@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.eisenstein_series}{Siegel Eisenstein series}}
-\begin{definition*}\label{mf.siegel.eisenstein_series}
+\begin{definition}\label{mf.siegel.eisenstein_series}
 \uses{}
 The (Siegel) Eisenstein series in degree $n$
  of even weight \(k>n+1\) is defined by the formula
@@ -12,6 +12,4 @@ symplectic group</a> \({\rm Sp}(2n,\mathbb{Z})\)
  with respect to left multiplication by elements of \({\rm GL}(n,\mathbb{Z})\).
 
 Siegel Eisenstein series are also defined for some subgroups of the full integral symplectic group as well.
-\end{definition*}
-
-
+\end{definition}

@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/intro.tutorial}{A tour of the Riemann zeta function}}
-\begin{definition*}\label{intro.tutorial}
+\begin{definition}\label{intro.tutorial}
 \uses{ec.q,ec.q.bsdconjecture,lfunction,lfunction.conductor,lfunction.critical_line,lfunction.degree,lfunction.dirichlet_series,lfunction.euler_product,lfunction.functional_equation,lfunction.gamma_factor,lfunction.normalization,lfunction.riemann,lfunction.root_number,lfunction.selbergdata,lfunction.sign,lfunction.spectral_parameters,lfunction.trivial_zero,lfunction.zeros,lfunction.zfunction,specialfunction.gamma}
 The simplest of all \hyperref[lfunction]{L-functions} is the \hyperref[lfunction.riemann]{Riemann zeta function}, a
 function whose analytic properties were first discovered by <a href="https://en.wikipedia.org/wiki/Bernhard\_Riemann">Bernhard Riemann</a> in
@@ -84,9 +84,9 @@ degree of this polynomial is the same as the number of
 \hyperref[lfunction.gamma_factor]{Gamma factors} in the functional equation!
 
 We specify a functional equation  by providing its \hyperref[lfunction.selbergdata]{Selberg data};
-this is a 4-tuple which has the shape 
-(\hyperref[lfunction.degree]{degree}, 
-\hyperref[lfunction.conductor]{conductor}, \hyperref[lfunction.spectral_parameters]{Gamma-shifts}, 
+this is a 4-tuple which has the shape
+(\hyperref[lfunction.degree]{degree},
+\hyperref[lfunction.conductor]{conductor}, \hyperref[lfunction.spectral_parameters]{Gamma-shifts},
 \hyperref[lfunction.root_number]{sign}),
 or:
 
@@ -95,12 +95,10 @@ $ (d,N,(\mu_1,\dots , \mu_{J}:\nu_{1},\dots ,\nu_{K}),\varepsilon). $
 Here the degree $d=J+2K$ is a positive integer, the \hyperref[lfunction.conductor]{conductor} $N$ is a
 positive integer, the $ \mu $ are complex numbers with non-negative real parts and
 imaginary parts which sum to 0, and the sign $ \epsilon $ is a
-complex number with absolute value $1$.  
+complex number with absolute value $1$.
 
 For example, the LMFDB page for the Riemann zeta function identifies
 its Selberg data using the notation $(1,1,(0:),1)$, where the first value $1$ is the
 \hyperref[lfunction.degree]{degree}, the second is the \hyperref[lfunction.conductor]{conductor}, $(0:)$ indicates the \hyperref[lfunction.spectral_parameters]{spectral
 parameters} and the last $1$ is the \hyperref[lfunction.sign]{sign} of the functional equation.
-\end{definition*}
-
-
+\end{definition}

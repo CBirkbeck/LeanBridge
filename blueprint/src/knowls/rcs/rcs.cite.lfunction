@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.cite.lfunction}{How to cite L-functions}}
-\begin{definition*}\label{rcs.cite.lfunction}
+\begin{definition}\label{rcs.cite.lfunction}
 \uses{}
 
-\end{definition*}
-
-
+\end{definition}

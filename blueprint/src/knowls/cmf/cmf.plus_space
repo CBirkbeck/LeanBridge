@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.plus_space}{Plus space}}
-\begin{definition*}\label{cmf.plus_space}
+\begin{definition}\label{cmf.plus_space}
 \uses{cmf.fricke}
 The \textbf{plus subspace} of \(S_k(\Gamma_0(N)\) is the eigenspace of the \hyperref[cmf.fricke]{Fricke involution} \(\omega_N\) with eigenvalue \(1\).
-\end{definition*}
-
-
+\end{definition}

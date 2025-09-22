@@ -1,11 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.gl2.history.infinite}{Infinite products}}
-\begin{definition*}\label{mf.gl2.history.infinite}
+\begin{definition}\label{mf.gl2.history.infinite}
 \uses{cmf.1.12.a.a.top,mf,mf.half_integral_weight.dedekind_eta,mf.transformation_property}
 Many theta functions have <em>infinite product</em> representations, and this is another important source of \hyperref[mf]{modular forms}: for instance, the \hyperref[mf.half_integral_weight.dedekind_eta]{Dedekind eta function} $\eta(z)=q^{1/24}\prod_{n\ge1}(1-q^n)$, and \hyperref[cmf.1.12.a.a.top]{$\Delta(z)$}$=\eta^{24}(z)=q\prod_{n\ge1}(1-q^n)^{24}$ are fundamental examples (where $q=e^{2\pi iz}$). The \hyperref[mf.transformation_property]{modularity} of $\eta$ (equivalently of $\Delta$) is not at all clear from the definition as an infinite product; it can be proved by showing that $\eta$ is in fact a theta series using the <em>Jacobi triple product</em> relation, for example.
 
 Since $\eta$ is the basic construction block of infinite products, this implies that many types of infinite products are modular (of course, not products of the type $\prod(1-q^{n^2})$ or $\prod(1-q^n)^n$).  As shown by Richard Borcherds, certain products of the type $\prod_{n\ge1}(1-q^n)^{c(n^2)}$ for suitable $c(n)$ (that can in fact be given as Fourier coefficients of other modular forms) are modular.
 
 However, the function $q^c\prod_{n\ge0}(1-q^{5n+1})$ for instance is not modular for any value of $c$, although it closely resembles $\eta$.
-\end{definition*}
-
-
+\end{definition}

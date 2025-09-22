@@ -1,15 +1,13 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.slash_action}{Weight $k$ slash-action}}
-\begin{definition*}\label{mf.slash_action}
+\begin{definition}\label{mf.slash_action}
 \uses{mf,mf.multipliersystem,mf.transformation_property,mf.upper_half_plane}
 Let $f$ be a function from \hyperref[mf.upper_half_plane]{$\mathcal{H}$} to $\mathbb{C}$. We define the \textbf{weight $k$ slash-action}  $f|_k\gamma$ to be the action of $\gamma=\left(\begin{matrix}a&b\\c&d\end{matrix}\right)\in\textrm{SL}_2(\mathbb{R})$ given by
 \[
 f|_k\gamma(z)=\det(\gamma)^{k/2}(cz+d)^{-k}f(\gamma z).
 \]
 
-Note that, if $f$ is a \hyperref[mf]{modular form} with \hyperref[mf.multipliersystem]{multiplier system} $v$, the \hyperref[mf.transformation_property]{modularity condition} is equivalent to 
+Note that, if $f$ is a \hyperref[mf]{modular form} with \hyperref[mf.multipliersystem]{multiplier system} $v$, the \hyperref[mf.transformation_property]{modularity condition} is equivalent to
 \[
 f|_k\gamma(z)=v(\gamma)f(z).
 \]
-\end{definition*}
-
-
+\end{definition}

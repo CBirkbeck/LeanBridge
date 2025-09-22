@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/belyi.pass_size}{Passport size of a Belyi map}}
-\begin{definition*}\label{belyi.pass_size}
+\begin{definition}\label{belyi.pass_size}
 \uses{belyi.passport}
 The number of isomorphism classes of Belyi maps belonging to a given \hyperref[belyi.passport]{passport}.
-\end{definition*}
-
-
+\end{definition}

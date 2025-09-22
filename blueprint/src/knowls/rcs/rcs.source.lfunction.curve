@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.lfunction.curve}{Source of L-function Data}}
-\begin{definition*}\label{rcs.source.lfunction.curve}
+\begin{definition}\label{rcs.source.lfunction.curve}
 \uses{}
 All L-functions of genus 2 curves over $\Q$ in the database were computed by Andy Booker using code created at the Dublin workshop on genus 2 curves.  Details of these computations can be found in  \cite{MR:3540958,,arXiv:1602.03715}
-\end{definition*}
-
-
+\end{definition}

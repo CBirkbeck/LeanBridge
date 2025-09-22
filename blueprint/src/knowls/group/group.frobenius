@@ -1,11 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.frobenius}{Frobenius group}}
-\begin{definition*}\label{group.frobenius}
+\begin{definition}\label{group.frobenius}
 \uses{group.metacyclic,group.order,group.solvable,group.z_group}
 Given a prime power $q$, the \textbf{Frobenius group} $F_q$ is the group of invertible affine transformations ($x \mapsto ax + b$) on $\F_q$.  Explicitly, it is the group
 $$ F_q := \{ \varphi : \F_q \to \F_q \mid \exists a, b \in \F_q \text{ such that } a \neq 0 \text{ and } \varphi(x) = ax + b \text{ for all } x \in \F_q \} $$
 where the usual composition of maps is the group operation. It has \hyperref[group.order]{order} $q(q-1)$ and is a \hyperref[group.z_group]{Z-group} (and hence is \hyperref[group.metacyclic]{metacyclic} and \hyperref[group.solvable]{solvable}).
 
 
-\end{definition*}
-
-
+\end{definition}

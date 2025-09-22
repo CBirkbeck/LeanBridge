@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.cite.st_group}{How to cite Sato-Tate groups}}
-\begin{definition*}\label{rcs.cite.st_group}
+\begin{definition}\label{rcs.cite.st_group}
 \uses{}
 
-\end{definition*}
-
-
+\end{definition}

@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/st_group.moment_simplex}{Moment simplex}}
-\begin{definition*}\label{st_group.moment_simplex}
+\begin{definition}\label{st_group.moment_simplex}
 \uses{st_group.definition,st_group.degree,st_group.weight}
 For a \hyperref[st_group.definition]{Sato-Tate group} $G$ of odd \hyperref[st_group.weight]{weight} and \hyperref[st_group.degree]{degree} $2g$ with $g>1$ it is natural to organize the mixed moments
 \[
@@ -8,6 +8,4 @@ For a \hyperref[st_group.definition]{Sato-Tate group} $G$ of odd \hyperref[st_gr
 by weighted degree $\sum ie_i$; here $a_i$ denotes the $i$th symmetric function of the eigenvalues of a random element of $G$ (equivalently, the $i$th coefficient of a random characteristic polynomial). We may restrict to cases where every term in the weighted degree sum is even, since symmetry constraints will force the expectation to be zero otherwise.  Moments of the same weighted degree are ordered by exponent vector $(e_1,\ldots,e_g)$ in reverse lexicographic order; for example, the weight-2 row is $(\mathrm{E}[a_2^1],\mathrm{E}[a_1^2])$, corresponding to the list of exponent vectors $(1,0)$, $(0,2)$.
 
 The \textbf{moment simplex} of a Sato-Tate group is the triangular table of nonzero mixed moments with rows indexed by even weighted degree and the entries in each row sorted lexicographically by exponent vector.
-\end{definition*}
-
-
+\end{definition}

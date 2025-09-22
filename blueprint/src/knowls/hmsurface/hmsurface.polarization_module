@@ -1,11 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/hmsurface.polarization_module}{polarization module}}
-\begin{definition*}\label{hmsurface.polarization_module}
+\begin{definition}\label{hmsurface.polarization_module}
 \uses{}
 Let $(A, \iota)$ be an abelian variety with RM by $\iota : \Z_F \to \End(A_{\overline{\Q}})$. The \textbf{polarization module} of $A$ is the $\Z_F$-module
 $$
 \mathcal{PM}(A) = \{ \lambda \in \Hom_{\Z_F}(A, A^{\vee}) : \lambda = \lambda^{\vee}   \} \subseteq NS(A).
 $$
 The \textbf{polarization cone} is the cone of polarizations $ \mathcal{PM}^+(A) \subseteq \mathcal{PM}(A)$, which equips the polarization module with a notion of positivity as a $\Z_F$-module. We say that a polarization module is *isomorphic* to a fractional ideal $J$ of $\Z_F$ if there is an orientation preserving $\Z_F$-module isomorphism $\phi : \mathcal{PM}(A) \to J$, i.e. such that $\phi(\mathcal{PM}^+(A)) = J^+$.
-\end{definition*}
-
-
+\end{definition}

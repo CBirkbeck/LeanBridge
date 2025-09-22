@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.division_maximal}{Maximal division of a group}}
-\begin{definition*}\label{group.division_maximal}
+\begin{definition}\label{group.division_maximal}
 \uses{group,group.division}
 A \hyperref[group.division]{division} (or rational conjugacy classes) of a finite \hyperref[group]{group} $G$ is \textbf{maximal} if if a representative generates a maximal cyclic subgroup of $G$.
-\end{definition*}
-
-
+\end{definition}

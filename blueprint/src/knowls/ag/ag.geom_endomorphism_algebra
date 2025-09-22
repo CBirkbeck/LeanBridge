@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.geom_endomorphism_algebra}{Geometric endomorphism algebra}}
-\begin{definition*}\label{ag.geom_endomorphism_algebra}
+\begin{definition}\label{ag.geom_endomorphism_algebra}
 \uses{ag.geom_endomorphism_ring}
 For an abelian variety $A$ over a field $F$, the \textbf{geometric endomorphism algebra} of $A$ is the $\Q$-algebra $\End(A_{\overline{F}}) \otimes \Q$, where $\End(A_{\overline{F}})$ is the \hyperref[ag.geom_endomorphism_ring]{geometric endomorphism ring} of $A$.
-\end{definition*}
-
-
+\end{definition}

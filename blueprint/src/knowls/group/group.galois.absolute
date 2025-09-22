@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.galois.absolute}{Absolute Galois group}}
-\begin{definition*}\label{group.galois.absolute}
+\begin{definition}\label{group.galois.absolute}
 \uses{ring.field}
 The \textbf{absolute Galois group} of a \hyperref[ring.field]{field} $K$ is the group of all automorphisms of the \hyperref[nf.algebraic_closure]{algebraic closure} of $K$ that fix the field $K$.
-\end{definition*}
-
-
+\end{definition}

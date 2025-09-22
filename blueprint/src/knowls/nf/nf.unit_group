@@ -1,14 +1,12 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.unit_group}{Unit group of a number field}}
-\begin{definition*}\label{nf.unit_group}
+\begin{definition}\label{nf.unit_group}
 \uses{nf,nf.ring_of_integers}
-The \textbf{unit group} of a \hyperref[nf]{number field} $K$ is the group of units of the \hyperref[nf.ring_of_integers]{ring of integers} of $K$.  It is a finitely generated abelian group with cyclic torsion subgroup.  A set of generators of a maximal torsion-free subgroup is called a set of \hyperref[nf.fundamental_units]{fundamental units} for $K$.    
+The \textbf{unit group} of a \hyperref[nf]{number field} $K$ is the group of units of the \hyperref[nf.ring_of_integers]{ring of integers} of $K$.  It is a finitely generated abelian group with cyclic torsion subgroup.  A set of generators of a maximal torsion-free subgroup is called a set of \hyperref[nf.fundamental_units]{fundamental units} for $K$.
 
 The unit group of $K$ has as invariants the \hyperref[nf.rank]{rank}
  and the \hyperref[nf.regulator]{regulator} of $K$.
 
 
 
- 
-\end{definition*}
 
-
+\end{definition}

@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/hgm.bezout_determinant}{Bézout determinant}}
-\begin{definition*}\label{hgm.bezout_determinant}
+\begin{definition}\label{hgm.bezout_determinant}
 \uses{hgm.bezout_matrix}
 The \textbf{Bézout determinant} of a hypergeometric motive $H$ is the determinant of its \hyperref[hgm.bezout_matrix]{Bézout matrix}.
-\end{definition*}
-
-
+\end{definition}

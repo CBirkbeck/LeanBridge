@@ -1,15 +1,15 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.rigor.ec.q}{Reliability of elliptic curve data over $\Q$}}
-\begin{definition*}\label{rcs.rigor.ec.q}
+\begin{definition}\label{rcs.rigor.ec.q}
 \uses{ag.mordell_weil,character.dirichlet.principal,cmf,cmf.character,cmf.fouriercoefficients,cmf.level,cmf.weight,ec,ec.analytic_sha_order,ec.complex_multiplication,ec.galois_rep,ec.isogeny,ec.iwasawa_invariants,ec.local_data,ec.mordell_weil_group,ec.q.bsdconjecture,ec.q.conductor,ec.q.cremona_label,ec.q.integral_points,ec.q.manin_constant,ec.q.optimal,ec.q.real_period,ec.q.regulator,ec.q.torsion_growth,ec.q.torsion_subgroup,ec.rank,group.element_order,group.generators}
 ### Completeness of the  collection
 
-All \hyperref[ec]{elliptic curves} defined over \(\mathbb{Q}\) are known to be modular, and hence arise (up to isogeny)  via the Eichler-Shimura construction from \hyperref[cmf]{classical modular forms} of \hyperref[cmf.weight]{weight} \(2\), \hyperref[character.dirichlet.principal]{trivial} \hyperref[cmf.character]{character}, \hyperref[cmf.level]{level} \(N\) equal to the \hyperref[ec.q.conductor]{conductor} of the curve, and having rational \hyperref[cmf.fouriercoefficients]{Fourier coefficients}.  
+All \hyperref[ec]{elliptic curves} defined over \(\mathbb{Q}\) are known to be modular, and hence arise (up to isogeny)  via the Eichler-Shimura construction from \hyperref[cmf]{classical modular forms} of \hyperref[cmf.weight]{weight} \(2\), \hyperref[character.dirichlet.principal]{trivial} \hyperref[cmf.character]{character}, \hyperref[cmf.level]{level} \(N\) equal to the \hyperref[ec.q.conductor]{conductor} of the curve, and having rational \hyperref[cmf.fouriercoefficients]{Fourier coefficients}.
 
 <ul>
 <li>
-For conductors less than 500000, where modular symbol methods were used to determine the curves (see \cite{href{https://johncremona.github.io/book/fulltext/index.html}{Cremona97}}), the reliability of the completeness of the data thus relies on the rigour and correct implementation of the modular symbol algorithms used to compute them, together with the correctness of the algorithms used to compute complete \hyperref[ec.isogeny]{isogeny classes} from any one elliptic curve.  
+For conductors less than 500000, where modular symbol methods were used to determine the curves (see \cite{href{https://johncremona.github.io/book/fulltext/index.html}{Cremona97}}), the reliability of the completeness of the data thus relies on the rigour and correct implementation of the modular symbol algorithms used to compute them, together with the correctness of the algorithms used to compute complete \hyperref[ec.isogeny]{isogeny classes} from any one elliptic curve.
 <li>
-For smooth conductors, completeness relies on the work of Matschke and Von Kahnel \cite{arxiv:1605.06079} and Matschke and Best \cite{arxiv:2007.10535}.  
+For smooth conductors, completeness relies on the work of Matschke and Von Kahnel \cite{arxiv:1605.06079} and Matschke and Best \cite{arxiv:2007.10535}.
 <li>
 For prime conductors, completeness relies on the work of Bennett, Gherga and Rechnitzer \cite{href{https://www.ams.org/journals/mcom/2019-88-317/S0025-5718-2018-03370-1/}{BGR2019}}.
 </ul>
@@ -39,6 +39,4 @@ These were computed rigorously.
 
 ####\hyperref[ec.q.torsion_growth]{Torsion growth}
 The torsion growth data was computed rigorously.
-\end{definition*}
-
-
+\end{definition}

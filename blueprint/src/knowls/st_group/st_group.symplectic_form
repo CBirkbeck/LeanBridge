@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/st_group.symplectic_form}{Symplectic form}}
-\begin{definition*}\label{st_group.symplectic_form}
+\begin{definition}\label{st_group.symplectic_form}
 \uses{}
 A \textbf{symplectic form} on a vector space $V$ over a field $k$ is a non-degenerate alternating bilinear form $\omega\colon V\times V\to k$.  This means that
 
@@ -14,6 +14,4 @@ A finite dimensional vector space admitting a symplectic form $\omega$ necessari
 \Omega = \begin{bmatrix} 0 & I_n\\ -I_n & 0\end{bmatrix},
 \]
 where $I_n$ denotes the $n\times n$ identity matrix.
-\end{definition*}
-
-
+\end{definition}

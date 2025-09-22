@@ -1,8 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.ack.st_group}{Acknowledgments for Sato-Tate groups}}
-\begin{definition*}\label{rcs.ack.st_group}
+\begin{definition}\label{rcs.ack.st_group}
 \uses{}
 <h2>Additional acknowledgments</h2>
 Data computed by Francesc Fité, Kiran Kedlaya, and Andrew Sutherland.
-\end{definition*}
-
-
+\end{definition}

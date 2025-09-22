@@ -1,8 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.cusp_widths}{Cusp widths}}
-\begin{definition*}\label{modcurve.cusp_widths}
+\begin{definition}\label{modcurve.cusp_widths}
 \uses{modcurve.cusps,modcurve.psl2index}
 For an open subgroup $H$ of $\GL_2(\widehat{\Z})$ with $\det(H) =\widehat{\Z}^\times$, the \textbf{cusps} of $H$ are the double cosets $\pm H  \backslash \GL_2(\widehat{\Z}) /\langle \delta\rangle$, where $
 \delta := \begin{bmatrix}1&1\\0&1\end{bmatrix}$.  These correspond to the \hyperref[modcurve.cusps]{cusps}  of the modular curve $X_H$.
 
 The \textbf{width} of a cusp $c \in \pm H  \backslash \GL_2(\widehat{\Z}) /\langle \delta\rangle$ is the number of right cosets it contains, or equivalently the smallest integer $h$ such that $c\delta^h = c$. The sum of the cusp widths is equal to the \hyperref[modcurve.psl2index]{$\PSL_2$-index} of $H$.
-\end{definition*}
+\end{definition}

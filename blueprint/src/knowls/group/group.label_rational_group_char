@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.label_rational_group_char}{Label of rational character of a group}}
-\begin{definition*}\label{group.label_rational_group_char}
+\begin{definition}\label{group.label_rational_group_char}
 \uses{group}
 The \textbf{label of a rational character} of a \hyperref[group]{group} has the form $N.i.oj$ where $N.i$ is the label for the group, $o$ is the order of elements in this class and $j$ is a lower-case letter code.
-\end{definition*}
-
-
+\end{definition}

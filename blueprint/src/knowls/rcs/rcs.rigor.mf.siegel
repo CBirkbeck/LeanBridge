@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.rigor.mf.siegel}{Reliability of Siegel modular form data}}
-\begin{definition*}\label{rcs.rigor.mf.siegel}
+\begin{definition}\label{rcs.rigor.mf.siegel}
 \uses{mf.siegel,mf.siegel.newform,mf.siegel.weight_k_j}
 All Siegel \hyperref[mf.siegel]{modular form} data currently in the database has been computed using rigorous algorithms that do not depend on any unproved assumptions or conjectures.
 
@@ -10,6 +10,4 @@ In addition to using mathematically rigorous algorithms whenever possible, we ha
 \end{itemize}
 
 For all \hyperref[mf.siegel.newform]{newforms} of \hyperref[mf.siegel.weight_k_j]{weight} $(k,j) = (3,0), (3,2), (4,0)$ and squarefree level $N$ we have verified that the dimensions agree with known dimension formulas \cite{MR3638279} \cite{arxiv:2208.13578}.
-\end{definition*}
-
-
+\end{definition}

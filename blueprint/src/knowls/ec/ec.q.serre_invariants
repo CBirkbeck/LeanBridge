@@ -1,12 +1,12 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.q.serre_invariants}{Serre invariants}}
-\begin{definition*}\label{ec.q.serre_invariants}
+\begin{definition}\label{ec.q.serre_invariants}
 \uses{cmf.level,cmf.weight,ec.galois_rep,nf.prime}
 Let $\bar \rho_{E,\ell}$ be the mod-$\ell$ \hyperref[ec.galois_rep]{Galois representation} of an elliptic curve $E/\Q$.
 
 The \textbf{Serre invariants} $(k,M)$ of $\bar \rho_{E,\ell}$ consist of the \textbf{Serre weight} $k$ and the \textbf{Serre conductor} $M$ giving the \hyperref[cmf.weight]{weight} and minimal \hyperref[cmf.level]{level} of a newform $f\in S_{k}^{\textrm new}(\Gamma_1(M))$ whose associated mod-$\ell$ Galois representation is isomorphic to $\bar \rho_{E,\ell}$.
 
 This means that $a_p(E)$ and $a_p(f)$ reduce to the same element of the residue field of a \hyperref[nf.prime]{prime} above $\ell$ in the coefficient field of $f$ (this residue field need not have degree one, but every $a_p(f)$ must reduce to an element of $\F_\ell$ in order for this condition to hold).
-  
+
 The modular form $f$ is not uniquely determined, but the minimal level $M$ arising among all such $f$ is uniquely determined, and among those with level $M$, the weight is uniquely determined.
 
 For all but finitely many primes $\ell$, including all $\ell>7$ of good reduction for $E$, the Serre invariants are $(2,N)$, where $N$ is the conductor of the elliptic curve. The primes $\ell$ for which this does not hold are \textbf{exceptional}.
@@ -14,6 +14,4 @@ For all but finitely many primes $\ell$, including all $\ell>7$ of good reductio
 In general, the Serre weight $k$ is divisible by $2$ and the Serre conductor $M$ divides $N$.
 
 
-\end{definition*}
-
-
+\end{definition}

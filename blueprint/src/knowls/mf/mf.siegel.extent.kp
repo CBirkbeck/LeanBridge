@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.extent.kp}{Available samples for $M_2(K(p))$}}
-\begin{definition*}\label{mf.siegel.extent.kp}
+\begin{definition}\label{mf.siegel.extent.kp}
 \uses{group.paramodular,mf.siegel.newform.paramodular}
 The following table shows certain Siegel modular cusp forms of weight 2 on   \hyperref[group.paramodular]{paramodular groups} of prime level. More precisely, it shows
 
@@ -12,6 +12,4 @@ The sample names have the form "2\_PY2\_p\_...", where p is the level.
 
 
 
-\end{definition*}
-
-
+\end{definition}

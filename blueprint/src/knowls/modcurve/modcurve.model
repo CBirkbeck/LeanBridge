@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.model}{Modular curve models}}
-\begin{definition*}\label{modcurve.model}
+\begin{definition}\label{modcurve.model}
 \uses{ag.canonical_model,ag.hyperelliptic_curve,modcurve.embedded_model,modcurve.plane_model}
 There are several types of models of modular curves, including
 
@@ -10,6 +10,4 @@ There are several types of models of modular curves, including
 \item  \hyperref[ag.hyperelliptic_curve]{Weierstrass models} (for hyperelliptic curves)
 \end{itemize}
 
-\end{definition*}
-
-
+\end{definition}

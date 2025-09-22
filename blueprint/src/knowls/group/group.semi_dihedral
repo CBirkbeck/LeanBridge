@@ -1,10 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.semi_dihedral}{Semi-dihedral group}}
-\begin{definition*}\label{group.semi_dihedral}
+\begin{definition}\label{group.semi_dihedral}
 \uses{group.dihedral,group.generalized_quaternion,group.order,group.other_dihedral,group.semidirect_product}
 The \textbf{semi-dihedral group} $\SD_{2^k}$ is one of the four non-abelian groups of \hyperref[group.order]{order} $2^k$ containing a cyclic subgroup of index 2 (the other three being the \hyperref[group.dihedral]{dihedral group}, the \hyperref[group.generalized_quaternion]{(generalized) quaternion group}, and the \hyperref[group.other_dihedral]{other-dihedral group}).  It has the group presentation:
 $$\SD_{2^k} = \langle r,s\mid r^{2^{k-1}}=s^{2}=1,\ srs=r^{2^{k-2}-1} \rangle.$$
 It can also be given as the \hyperref[group.semidirect_product]{semidirect product} $C_{2^{k-1}} \rtimes C_2$ where the action of $C_2$ on $C_{2^{k-1}}$ is given by $x \mapsto x^{2^{k-2}-1}$.
 
-\end{definition*}
-
-
+\end{definition}

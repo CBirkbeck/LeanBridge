@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.endomorphism_algebra}{Endomorphism algebra}}
-\begin{definition*}\label{ag.endomorphism_algebra}
+\begin{definition}\label{ag.endomorphism_algebra}
 \uses{ag.abelian_variety,ag.endomorphism_ring}
 The \textbf{endomorphism algebra} of an \hyperref[ag.abelian_variety]{abelian variety} $A$ is the $\Q$-algebra $\textrm{End}(A)\otimes\Q$, where $\textrm{End}(A)$ is the \hyperref[ag.endomorphism_ring]{endomorphism ring} of $A$.
-\end{definition*}
-
-
+\end{definition}

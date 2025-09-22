@@ -1,8 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/doc.related_to}{Related objects}}
-\begin{definition*}\label{doc.related_to}
+\begin{definition}\label{doc.related_to}
 \uses{}
 The \textbf{Related objects} section on an object's home page gives links to other related objects on the site.
- 
-\end{definition*}
 
-
+\end{definition}

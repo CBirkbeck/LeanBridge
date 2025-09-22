@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.eisenstein_form}{Eisenstein form}}
-\begin{definition*}\label{lf.eisenstein_form}
+\begin{definition}\label{lf.eisenstein_form}
 \uses{lf.eisenstein_polynomial,lf.padic_field,lf.ramification_index,lf.ring_of_integers}
 Let $K$ be a \hyperref[lf.padic_field]{$p$-adic field}, $\mathcal{O}_K$ its \hyperref[lf.ring_of_integers]{ring of integers}, and $\pi$ a \hyperref[lf.ramification_index]{uniformizer} for $\mathcal{O}_K$.
 
@@ -7,7 +7,7 @@ A monic polynomial $f\in \mathcal{O}_K[x]$
 is of \textbf{Eisenstein form} if
 there exists a monic polynomial $\nu(x)\in\mathcal{O}_K[x]$, irreducible modulo $\pi$, and  \(e\in\Z^+\) such that
 $$ f(x)=\nu(x)^e+\sum_{i=1}^{e-1}g_i(x)\nu(x)^i+g_0(x)$$
-where for all \(0\le i\le e-1\), \(g_i\in\pi\mathcal{O}_K[x]\)  with 
+where for all \(0\le i\le e-1\), \(g_i\in\pi\mathcal{O}_K[x]\)  with
 \(\deg g_i<\deg\nu\),
 and the minimum of the valuation of the coefficients of \(g_0\) is one.
 
@@ -19,6 +19,4 @@ Note,
 \item  every \hyperref[lf.eisenstein_polynomial]{Eisenstein polynomial} is of Eisenstein form by taking $\nu(x)=x$
 \end{itemize}
 
-\end{definition*}
-
-
+\end{definition}

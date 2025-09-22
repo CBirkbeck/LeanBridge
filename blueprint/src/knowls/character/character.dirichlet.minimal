@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/character.dirichlet.minimal}{Minimal Dirichlet character}}
-\begin{definition*}\label{character.dirichlet.minimal}
+\begin{definition}\label{character.dirichlet.minimal}
 \uses{character.dirichlet,character.dirichlet.conductor,character.dirichlet.modulus,character.dirichlet.order,character.dirichlet.primitive,character.dirichlet.principal}
 A \hyperref[character.dirichlet]{Dirichlet character} $\chi$ of prime power \hyperref[character.dirichlet.modulus]{modulus} $N$ is \textbf{minimal} if the following conditions both hold:
 
@@ -11,6 +11,4 @@ This includes all \hyperref[character.dirichlet.primitive]{primitive} Dirichlet 
 
 For a composite modulus $N$ with prime power factorization $N=p_1^{e_1}\cdots p_n^{e_n}$, a Dirichlet character $\chi$ of modulus $N$ is \textbf{minimal} if and only if every character in its unique factorization into Dirichlet characters of modulus $p_1^{e_1},\cdots,p_n^{e_n}$ is minimal.  The \hyperref[character.dirichlet.principal]{trivial} Dirichlet character is minimal.
 
-\end{definition*}
-
-
+\end{definition}

@@ -1,11 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.upper_central_series}{Upper central series of a group}}
-\begin{definition*}\label{group.upper_central_series}
+\begin{definition}\label{group.upper_central_series}
 \uses{group,group.center,group.nilpotent,group.normal_series}
 If $G$ is a \hyperref[group]{group}, then its \textbf{upper central series} is a \hyperref[group.normal_series]{normal series} of subgroups
 $$ \langle e\rangle = Z_0(G) \unlhd Z_1(G) \unlhd Z_2(G) \unlhd \cdots $$
 where $Z_0(G)=\langle e\rangle$ and $Z_i(G)/Z_{i-1}(G)$ is the \hyperref[group.center]{center} of $G/Z_{i-1}(G)$, i.e., $Z_i(G)$ is the inverse image of the center of $G/Z_{i-1}(G)$.
 
 Each of the subgroups $Z_i(G)$ is characteristic.  The group is \hyperref[group.nilpotent]{nilpotent} if and only if $Z_i(G)=G$ for some $i$.
-\end{definition*}
-
-
+\end{definition}

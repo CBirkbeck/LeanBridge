@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.group_ring}{group ring}}
-\begin{definition*}\label{group.group_ring}
+\begin{definition}\label{group.group_ring}
 \uses{group,ring}
 If $G$ is a \hyperref[group]{group} and $R$ is a \hyperref[ring]{ring}, the \textbf{group ring} is the free $R$-module with basis $G$ in which multiplication is defined via the distributive law.  It consists of all formal finite sums of the form $\sum r_g g$ with $g\in G$ and $r_g\in R$.
-\end{definition*}
-
-
+\end{definition}

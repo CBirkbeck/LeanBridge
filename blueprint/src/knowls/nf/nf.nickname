@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.nickname}{Number field nicknames}}
-\begin{definition*}\label{nf.nickname}
+\begin{definition}\label{nf.nickname}
 \uses{}
 The LMFDB supports \textbf{nicknames}, short human-readable names for
 various fields.  Examples include:
@@ -10,6 +10,4 @@ various fields.  Examples include:
 \item  QsqrtN, for $\mathbb Q(\sqrt{N})$, as in Qsqrt-5 for $\mathbb Q(\sqrt{-5})$
 \item  QzetaN, for $\mathbb Q(\zeta_N)$, where $\zeta_N$ is a primitive $N$th root of unity.
 \end{itemize}
-\end{definition*}
-
-
+\end{definition}

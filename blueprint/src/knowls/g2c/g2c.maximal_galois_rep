@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.maximal_galois_rep}{Maximal image}}
-\begin{definition*}\label{g2c.maximal_galois_rep}
+\begin{definition}\label{g2c.maximal_galois_rep}
 \uses{ag.geom_endomorphism_ring,ag.jacobian,g2c.galois_rep}
 The image of the \hyperref[g2c.galois_rep]{mod-$\ell$  Galois representation} associated to a genus 2 curve is \textbf{maximal} if it is as large as possible given constraints imposed by the Weil pairing and endomorphisms of the \hyperref[ag.jacobian]{Jacobian}.
 
 For \textbf{generic} curves the \hyperref[ag.geom_endomorphism_ring]{geometric endomorphism ring} of the Jacobian is $\Z$ and the maximal image is $\GSp(4,\Z/\ell\Z)$. In all other cases it is a proper subgroup of $\GSp(4,\Z/\ell\Z)$.
-\end{definition*}
-
-
+\end{definition}

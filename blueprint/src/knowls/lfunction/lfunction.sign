@@ -1,8 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.sign}{Sign of the functional equation}}
-\begin{definition*}\label{lfunction.sign}
+\begin{definition}\label{lfunction.sign}
 \uses{lfunction.functional_equation}
 The \textbf{sign} of the functional equation of an analytic L-function, also called the \textbf{root number}, is the complex number $\varepsilon$ that appears in the \hyperref[lfunction.functional_equation]{functional equation} of $\Lambda(s)=\varepsilon \overline{\Lambda}(1-s)$.  The sign appears as the 4th entry in the quadruple
-known as the \hyperref[lfunction.selbergdata]{Selberg data.} 
-\end{definition*}
-
-
+known as the \hyperref[lfunction.selbergdata]{Selberg data.}
+\end{definition}

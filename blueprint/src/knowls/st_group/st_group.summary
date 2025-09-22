@@ -1,8 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/st_group.summary}{Completeness of Sato-Tate group data}}
-\begin{definition*}\label{st_group.summary}
+\begin{definition}\label{st_group.summary}
 \uses{st_group.definition,st_group.degree,st_group.rational,st_group.weight}
 The database currently contains all \hyperref[st_group.rational]{rational} \hyperref[st_group.definition]{Sato-Tate groups} of \hyperref[st_group.weight]{weight} 1 and \hyperref[st_group.degree]{degree} up to 6, as well as all Sato-Tate groups of weight 0 and degree 1 with component group of order at most $10^{20}$.
 
-\end{definition*}
-
-
+\end{definition}

@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.hilbert.search_input}{Find Hilbert modular form by label}}
-\begin{definition*}\label{mf.hilbert.search_input}
+\begin{definition}\label{mf.hilbert.search_input}
 \uses{mf.hilbert,mf.hilbert.label}
 To find a specific \hyperref[mf.hilbert]{Hilbert modular form}, enter its \hyperref[mf.hilbert.label]{label}.
-\end{definition*}
-
-
+\end{definition}

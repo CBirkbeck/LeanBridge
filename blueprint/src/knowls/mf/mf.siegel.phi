@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.phi}{Siegel $\Phi$ operator}}
-\begin{definition*}\label{mf.siegel.phi}
+\begin{definition}\label{mf.siegel.phi}
 \uses{mf.siegel.degree}
 The \textbf{Siegel $\Phi$ operator} is a linear map that sends \hyperref[mf.siegel.degree]{degree} $g$ Siegel modular forms to degree $g-1$ ones; it is defined by
 \[
@@ -8,6 +8,4 @@ f\begin{pmatrix}\tau&0\\0&it\end{pmatrix} \quad \text{for any } \tau \in \mathfr
 \]
 
 
-\end{definition*}
-
-
+\end{definition}

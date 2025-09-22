@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.trace_form}{Trace form}}
-\begin{definition*}\label{cmf.trace_form}
+\begin{definition}\label{cmf.trace_form}
 \uses{cmf.coefficient_field,cmf.dimension,cmf.newform,cmf.newspace}
 For a \hyperref[cmf.newform]{newform} $f \in S_k^{\rm new}(\Gamma_1(N))$, its \textbf{trace form} $\mathrm{Tr}(f)$ is the sum of its distinct conjugates under $\mathrm{Aut}(\C)$ (equivalently, the sum under all embeddings of the \hyperref[cmf.coefficient_field]{coefficient field} into $\C$).  The trace form is a modular form $\mathrm{Tr}(f) \in S_k^{\rm new}(\Gamma_1(N))$ whose $q$-expansion has integral coefficients $a_n(\mathrm{Tr}(f)) \in \Z$.
 
@@ -10,6 +10,4 @@ For $p$ prime, the coefficient $a_p$ is the trace of Frobenius in the direct sum
 For a \hyperref[cmf.newspace]{newspace} $S_k^{\rm new}(N,\chi)$, its trace form is the sum of the trace forms $\mathrm{Tr}(f)$ over all newforms $f\in S_k^{\rm new}(N,k)$; it is also a modular form in $S_k^{\rm new}(\Gamma_1(N))$.
 
 The graphical plot displayed in the properties box on the home page of each newform or newspace is computed using the trace form.
-\end{definition*}
-
-
+\end{definition}

@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.qp}{Definition of $\Q_p$}}
-\begin{definition*}\label{lf.qp}
+\begin{definition}\label{lf.qp}
 \uses{}
 If $p$ is a prime number, then every rational number $r$ can be written in the form $r=p^j \frac{a}{b}$ where $\gcd(p, ab)=1$.  We define $|r|_p = p^{-j}$, and define a metric on $\Q$ by $d(u,v) = |u-v|_p$; in other words, $u$ and $v$ are close to each other if they are congruent modulo a larger power of $p$.
 
@@ -7,6 +7,4 @@ The completion of $\Q$ with respect to this metric is $\Q_p$, which is itself a 
 
 Example: the element $a = 3 + 7 + 2 \cdot 7^2 + 6 \cdot 7^3 + 7^4 + 2 \cdot 7^5 + \cdots$ satisfies $a^2=2$, since truncating the expansion after $n$ terms and squaring yields a number which is congruent to $2 \bmod 7^n$.
 
-\end{definition*}
-
-
+\end{definition}

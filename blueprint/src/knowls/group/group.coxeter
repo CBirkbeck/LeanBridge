@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.coxeter}{Coxeter group}}
-\begin{definition*}\label{group.coxeter}
+\begin{definition}\label{group.coxeter}
 \uses{group.alternating,group.dihedral,group.direct_product,group.frobenius,group.order,group.symmetric,group.triangle_group,group.wreath_product}
 A finite \textbf{Coxeter group} is a finite group $G$ which has a group presentation of the form
 $$ G = \langle s_1, s_2, \dots, s_n \mid (s_i s_j)^{m_{ij}} = 1 \rangle, $$
@@ -9,7 +9,7 @@ Given a Coxeter group $G$ with the above group presentation, one can define the 
 
 A finite \textbf{irreducible Coxeter group} is a Coxeter group whose Coxeter graph is connected.
 
-All finite irreducible Coxeter groups have been classified - every such group lies in either one of the four families $W(A_n)$, $W(B_n)$, $W(D_n)$, $I_2(n)$, or is one of the six exceptional groups $W(E_6)$, $W(E_7)$, $W(E_8)$, $W(F_4)$, $H_3$, or $H_4$.  
+All finite irreducible Coxeter groups have been classified - every such group lies in either one of the four families $W(A_n)$, $W(B_n)$, $W(D_n)$, $I_2(n)$, or is one of the six exceptional groups $W(E_6)$, $W(E_7)$, $W(E_8)$, $W(F_4)$, $H_3$, or $H_4$.
 
 \begin{itemize}
 \item  $W(A_n)$ is isomorphic to the \hyperref[group.symmetric]{symmetric group} $S_{n+1}$ of order $(n+1)!$.
@@ -20,6 +20,4 @@ All finite irreducible Coxeter groups have been classified - every such group li
 
 
 Every finite Coxeter group is a \hyperref[group.direct_product]{direct product} of finite irreducible Coxeter groups.  In the LMFDB, we use the notation $W( \_ )$ to denote irreducible Coxeter groups which are also Weyl groups.  This avoids a clash of notation with the \hyperref[group.alternating]{alternating group} $A_n$, the dihedral group $D_n$, and the \hyperref[group.frobenius]{Frobenius group} $F_n$.
-\end{definition*}
-
-
+\end{definition}

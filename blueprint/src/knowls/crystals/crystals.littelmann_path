@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/crystals.littelmann_path}{Littelmann path model for crystals}}
-\begin{definition*}\label{crystals.littelmann_path}
+\begin{definition}\label{crystals.littelmann_path}
 \uses{}
 The Littelmann path model provides a unified combinatorial model for highest weight crystals that applies to all symmetrizable Kac-Moody algebras.
 
@@ -9,6 +9,4 @@ A Littelmann path is a piecewise-linear mapping
     \pi:[0,1]\cap \mathbf{Q} \rightarrow P\otimes_{\mathbf{Z}}\mathbf{Q}
 \]
 such that $\pi(0) = 0$ and $\pi(1)$ are weights. Littelmann defined the Kashiwara raising and lowering operators $e_i$ and $f_i$ on these paths.
-\end{definition*}
-
-
+\end{definition}

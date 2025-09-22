@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.upper_half_plane}{Upper half-plane}}
-\begin{definition*}\label{mf.upper_half_plane}
+\begin{definition}\label{mf.upper_half_plane}
 \uses{group.sl2z}
 The \textbf{upper half-plane} $\mathcal{H}$ is the set of complex numbers whose imaginary part is positive, endowed with the topology induced from $\C$.
 
@@ -10,6 +10,4 @@ endowed with the topology such that the disks tangent to the real line at $r \in
 The \hyperref[group.sl2z]{modular group} $\SL_2(\Z)$ acts properly discontinuously on $\mathcal{H}$ and $\mathcal{H}^*$ by the formula
 \[ \left( \begin{matrix} a & b \\ c& d \end{matrix} \right) \cdot z = \frac{az+b}{cz+d}, \]
 with the obvious conventions regarding $\infty$.
-\end{definition*}
-
-
+\end{definition}

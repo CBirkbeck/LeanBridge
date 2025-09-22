@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/hmsurface.levelnorm}{Level norm}}
-\begin{definition*}\label{hmsurface.levelnorm}
+\begin{definition}\label{hmsurface.levelnorm}
 \uses{hmsurface.level}
 The level norm is the absolute norm of the \hyperref[hmsurface.level]{level} of the Hilbert modular surface.
-\end{definition*}
-
-
+\end{definition}

@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.family.kp}{The ring of paramodular cusp forms $S_k(K(p))$}}
-\begin{definition*}\label{mf.siegel.family.kp}
+\begin{definition}\label{mf.siegel.family.kp}
 \uses{mf.siegel.cusp_form,mf.siegel.newform.paramodular,mf.siegel.nonlift,mf.siegel.weight}
 The ring of \hyperref[mf.siegel.newform.paramodular]{paramodular} \hyperref[mf.siegel.cusp_form]{cusp forms} $S_*(K(p))$ for $p$ prime.
 
@@ -9,6 +9,4 @@ Dimension formulas for paramodular cusp forms $S_k(K(p))$ for $p$ prime for weig
 
 
 
-\end{definition*}
-
-
+\end{definition}

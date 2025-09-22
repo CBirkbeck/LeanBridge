@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.bielliptic_curve}{Bielliptic curve}}
-\begin{definition*}\label{ag.bielliptic_curve}
+\begin{definition}\label{ag.bielliptic_curve}
 \uses{ag.curve,ag.curve.genus}
 A smooth projective \hyperref[ag.curve]{algebraic curve} $X$ defined over a field $k$ of \hyperref[ag.curve.genus]{genus} $g\ge 2$ is a \textbf{bielliptic curve} if and only if it satisfies one of the following conditions:
 
@@ -10,6 +10,4 @@ A smooth projective \hyperref[ag.curve]{algebraic curve} $X$ defined over a fiel
 \end{itemize}
 
 The involution above is called the \textbf{bielliptic involution}.
-\end{definition*}
-
-
+\end{definition}

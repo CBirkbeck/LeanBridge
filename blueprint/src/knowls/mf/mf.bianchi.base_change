@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.bianchi.base_change}{Base-change Bianchi modular forms}}
-\begin{definition*}\label{mf.bianchi.base_change}
+\begin{definition}\label{mf.bianchi.base_change}
 \uses{cmf.cm_form,cmf.newform,mf.base_change,mf.bianchi.hecke_algebra}
 For every \hyperref[cmf.newform]{classical elliptic newform} $f$ and every imaginary quadratic field $K$ one can define the \textbf{base-change} $F$ of $f$ to $K$.
 
@@ -18,6 +18,4 @@ For an explanation of the last formula, note that $a_p=\alpha+\beta$ where $\alp
 One consequence of this formula is the following fact: it is possible for the Hecke field of the base-change of $f$ to be of smaller degree than that of $f$ itself.  For example, it is possible to have a classical newform with quadratic Hecke field whose base-change has $\Q$ as its Hecke field.
 
 Base-change as defined here is a special case of a more general definition of \hyperref[mf.base_change]{base change} for GL(2) modular forms.
-\end{definition*}
-
-
+\end{definition}

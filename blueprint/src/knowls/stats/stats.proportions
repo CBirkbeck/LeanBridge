@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/stats.proportions}{Proportions for statistics}}
-\begin{definition*}\label{stats.proportions}
+\begin{definition}\label{stats.proportions}
 \uses{}
 When creating a statistics display, you can choose how proportions are computed.  For each box in the resulting display (ie a set of values for the variables), let $N_B$ be the number of objects satisfying the given constraint and in that box.
 
@@ -9,6 +9,4 @@ When creating a statistics display, you can choose how proportions are computed.
 \item  \textbf{By column}: each entry will show the ratio of $N_B$ by the sum of all other $N_{B'}$ in the same column.
 \item  \textbf{None}: No proportions will be shown.
 \end{itemize}
-\end{definition*}
-
-
+\end{definition}

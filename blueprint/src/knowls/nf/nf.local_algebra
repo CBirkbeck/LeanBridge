@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.local_algebra}{Local algebra}}
-\begin{definition*}\label{nf.local_algebra}
+\begin{definition}\label{nf.local_algebra}
 \uses{nf,nf.separable_algebra}
 Given a global \hyperref[nf]{number field} $K$ and a prime $p$, the \textbf{local algebra} for $K$ is $K\otimes \Q_p$.  This is a finite \hyperref[nf.separable_algebra]{separable algebra} over $\Q_p$ which is isomorphic to a finite direct product of finite extension fields of $\Q_p$.
-\end{definition*}
-
-
+\end{definition}

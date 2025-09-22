@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/av.geometrically_simple}{Geometrically simple}}
-\begin{definition*}\label{av.geometrically_simple}
+\begin{definition}\label{av.geometrically_simple}
 \uses{ag.abelian_variety,ag.base_change,av.simple}
 An \hyperref[ag.abelian_variety]{abelian variety} is \textbf{geometrically simple} if its \hyperref[ag.base_change]{base change} to an algebraic closure of the ground field is \hyperref[av.simple]{simple}.
-\end{definition*}
-
-
+\end{definition}

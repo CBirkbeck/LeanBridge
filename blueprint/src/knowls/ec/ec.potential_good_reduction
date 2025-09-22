@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.potential_good_reduction}{Potential good reduction}}
-\begin{definition*}\label{ec.potential_good_reduction}
+\begin{definition}\label{ec.potential_good_reduction}
 \uses{ec,ec.good_reduction,ec.j_invariant,nf,nf.integral}
 An \hyperref[ec]{elliptic curve} $E$ defined over a \hyperref[nf]{number field} $K$ is said to have \textbf{potential good reduction} if $E$ has \hyperref[ec.good_reduction]{everywhere good reduction} over a finite extension of $K$.
 
 This is equivalent to the \hyperref[ec.j_invariant]{$j$-invariant} of $E$ being \hyperref[nf.integral]{integral}.
-\end{definition*}
-
-
+\end{definition}

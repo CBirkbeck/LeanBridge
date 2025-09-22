@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.family_field_count}{Field count}}
-\begin{definition*}\label{lf.family_field_count}
+\begin{definition}\label{lf.family_field_count}
 \uses{lf.family_polynomial,lf.padic_field}
 Let $I/K$ be a \hyperref[lf.family_polynomial]{family} of
 extensions of  \hyperref[lf.padic_field]{$p$-adic fields}.  The
 \textbf{field count} of $I/K$ is the number of extensions in $I/K$.
-\end{definition*}
-
-
+\end{definition}

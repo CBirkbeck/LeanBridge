@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.hilbert.weight_vector}{Weight of a Hilbert modular form}}
-\begin{definition*}\label{mf.hilbert.weight_vector}
+\begin{definition}\label{mf.hilbert.weight_vector}
 \uses{mf.hilbert}
 The \textbf{weight} of a \hyperref[mf.hilbert]{Hilbert modular form} $f$ is the vector of positive integers $(k_1\ldots,k_n)$ occurring in the transformation formula for $f$. When the $k_i$ are all equal to $k \in \Z_{>0}$, we say $f$ has \textbf{parallel weight} $k$.
-\end{definition*}
-
-
+\end{definition}

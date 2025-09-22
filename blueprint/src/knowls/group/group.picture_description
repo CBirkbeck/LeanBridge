@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.picture_description}{Explanation of pictures for abstract groups}}
-\begin{definition*}\label{group.picture_description}
+\begin{definition}\label{group.picture_description}
 \uses{group.conjugacy_class,group.element_order}
 Pictures for abstract groups consist of several disks arranged in concentric circles. The size, position, and brightness each encode information about the group.
 
@@ -23,6 +23,4 @@ The position of each disk is determined by the number of prime divisors (counted
 ## Implementation ##
 
 The algorithm to visualize abstract groups was designed and implemented by David Roe.
-\end{definition*}
-
-
+\end{definition}

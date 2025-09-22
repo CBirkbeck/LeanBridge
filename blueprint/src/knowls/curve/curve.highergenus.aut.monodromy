@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/curve.highergenus.aut.monodromy}{Monodromy Group}}
-\begin{definition*}\label{curve.highergenus.aut.monodromy}
+\begin{definition}\label{curve.highergenus.aut.monodromy}
 \uses{ag.riemann_surface,curve.highergenus.aut.branchpoints}
 Let $G$ be a group of automorphisms acting on a compact \hyperref[ag.riemann_surface]{Riemann surface} $X$ of genus $g\ge 2$, let $\phi$ be the natural projection from $X$ to the quotient $Y:=X/G$, let $\mathcal B=\{y_1,\ldots,y_r\}$ be the \hyperref[curve.highergenus.aut.branchpoints]{branch points} of $\phi$, and let us fix a base point $y_0 \in Y-\mathcal{B}$. The fiber $\phi^{-1}(y_0)$ consists of $d:=|G|$ points, say
 $\phi^{-1}(y_0)=:\{x_1, \ldots, x_d\} \subset X$.
@@ -11,6 +11,4 @@ This defines a permutation $\sigma_\gamma$ of the set $\{x_1,\ldots,x_d\}$ corre
 The image of $\rho$ is the \textbf{(geometric) monodromy group} of $G$; it is a transitive permutation group of degree $d$ and does not depend on the choice of the base point $y_0$.
 
 
-\end{definition*}
-
-
+\end{definition}

@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.complete}{Complete group}}
-\begin{definition*}\label{group.complete}
+\begin{definition}\label{group.complete}
 \uses{}
 A group $G$ is \textbf{complete} if one of the following equivalent conditions holds:
 
@@ -10,6 +10,4 @@ A group $G$ is \textbf{complete} if one of the following equivalent conditions h
 \end{itemize}
 
 For $n \ne 2, 6$, the symmetric group $S_n$ is complete.
-\end{definition*}
-
-
+\end{definition}

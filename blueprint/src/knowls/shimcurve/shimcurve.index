@@ -1,10 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/shimcurve.index}{Index of a Shimura curve}}
-\begin{definition*}\label{shimcurve.index}
+\begin{definition}\label{shimcurve.index}
 \uses{shimcurve,shimcurve.enhanced_group}
-The \textbf{index} of a \hyperref[shimcurve]{Shimura curve} 
+The \textbf{index} of a \hyperref[shimcurve]{Shimura curve}
 $X_H$ is the index of the corresponding open compact subgroup
 $H \le \Aut_{\pm\mu}(O)\ltimes \widehat{O}^\times$ in the
 \hyperref[shimcurve.enhanced_group]{enhanced semidirect product}.
-\end{definition*}
-
-
+\end{definition}

@@ -1,8 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ring.maximal_ideal}{Maximal ideal}}
-\begin{definition*}\label{ring.maximal_ideal}
+\begin{definition}\label{ring.maximal_ideal}
 \uses{ring,ring.ideal}
 In a \hyperref[ring]{ring} $R$, an \hyperref[ring.ideal]{ideal} $M$ is \textbf{maximal} if $M\neq R$ and for all ideals $I$ of $R$,
 $$ M\subseteq I \subseteq R\implies M=I\quad\text{or}\quad I=R.$$
-\end{definition*}
-
-
+\end{definition}

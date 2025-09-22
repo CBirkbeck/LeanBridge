@@ -1,10 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/upload.multi_knowl}{modcurve.ref.gonalities}}
-\begin{definition*}\label{upload.multi_knowl}
+\begin{definition}\label{upload.multi_knowl}
 \uses{}
 Gonalities of $X_0(n)$ for $n<145$ can be found at \cite{arXiv:2207.11650
 }.
 
 Gonalities of $X_1(n)$ for $n\leq 40$ can be found at \cite{arXiv:1307.5719}.
-\end{definition*}
-
-
+\end{definition}

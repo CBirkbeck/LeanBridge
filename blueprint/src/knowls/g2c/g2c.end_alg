@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.end_alg}{Endomorphism algebra}}
-\begin{definition*}\label{g2c.end_alg}
+\begin{definition}\label{g2c.end_alg}
 \uses{ag.abelian_surface,ag.abelian_variety,ag.endomorphism_algebra,ag.simple,av.isogeny,ec,ring.field}
 The \textbf{endomorphism algebra} of an \hyperref[ag.abelian_surface]{abelian surface} $A$ over a \hyperref[ring.field]{field} $K$ is the $\Q$-algebra $\End(A) \otimes \Q$.  This is a special case of the \hyperref[ag.endomorphism_algebra]{endomorphism algebra} of an \hyperref[ag.abelian_variety]{abelian variety}.
 
@@ -13,6 +13,4 @@ When $A$ is an abelian surface over $\Q$, there are five possibilities for $\End
 
 The first three cases occur when $A$ is \hyperref[ag.simple]{simple}, while the last two cases occur when $A$ is \hyperref[av.isogeny]{isogenous} to a product of \hyperref[ec]{elliptic curves} $E_1\times E_2$ over $\overline K$. Which of the last two cases occurs depends on whether $E_1$ and/or $E_2$ are isogenous or not.
 
-\end{definition*}
-
-
+\end{definition}

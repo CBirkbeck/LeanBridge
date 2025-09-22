@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.label}{Label of a Siegel modular form}}
-\begin{definition*}\label{mf.siegel.label}
+\begin{definition}\label{mf.siegel.label}
 \uses{character.dirichlet,character.dirichlet.conrey,character.dirichlet.galois_orbit,character.dirichlet.galois_orbit_label,mf.siegel.coefficient_field,mf.siegel.degree,mf.siegel.embedding,mf.siegel.family,mf.siegel.galois_orbit,mf.siegel.hecke_galois_orbit,mf.siegel.level,mf.siegel.newform,mf.siegel.relative_dimension,mf.siegel.weight}
 The \textbf{label} of a \hyperref[mf.siegel.newform]{newform} $f\in S_{\underline{k}}^{\rm new}(\Gamma_F(N),\chi)$ has the format \( g.F.N.k1...kd.a.x \), where
 
@@ -36,6 +36,4 @@ For each \hyperref[mf.siegel.embedding]{embedding} of the \hyperref[mf.siegel.co
 \begin{itemize}
 \item  \(i\) is an integer ranging from 1 to the \hyperref[mf.siegel.relative_dimension]{relative dimension} of the newform that distinguishes embeddings with the same character $\chi$.
 \end{itemize}
-\end{definition*}
-
-
+\end{definition}

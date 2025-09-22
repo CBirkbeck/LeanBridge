@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.under_subgroup}{Under-subgroup}}
-\begin{definition*}\label{group.under_subgroup}
+\begin{definition}\label{group.under_subgroup}
 \uses{group.subgroup}
 If $H \subseteq G$ is a \hyperref[group.subgroup]{subgroup}, an \textbf{under-subgroup} is a subgroup $K \subseteq G$ with $K \subseteq H$.  A \textbf{maximal under-subgroup} is an under-subgroup $K \ne H$ that is maximal with respect to inclusion.
-\end{definition*}
-
-
+\end{definition}

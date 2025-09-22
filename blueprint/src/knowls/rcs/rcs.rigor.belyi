@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.rigor.belyi}{Reliability of Belyi map data}}
-\begin{definition*}\label{rcs.rigor.belyi}
+\begin{definition}\label{rcs.rigor.belyi}
 \uses{}
 
-\end{definition*}
-
-
+\end{definition}

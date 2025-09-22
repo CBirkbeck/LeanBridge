@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/character.dirichlet.induce}{Induced Dirichlet character}}
-\begin{definition*}\label{character.dirichlet.induce}
+\begin{definition}\label{character.dirichlet.induce}
 \uses{character.dirichlet,character.dirichlet.modulus}
 A \hyperref[character.dirichlet]{Dirichlet character} $\chi_1$ of \hyperref[character.dirichlet.modulus]{modulus} $q_1$ is said to be \textbf{induced} by a Dirichlet character $\chi_2$ of modulus $q_2$ dividing $q_1$ if $\chi_1(m)=\chi_2(m)$ for all $m$ coprime to $q_1$.
 
 A Dirichlet character is \hyperref[character.dirichlet.primitive]{primitive} if it is not induced by any character other than itself; every Dirichlet character is induced by a uniquely determined primitive Dirichlet character.
-\end{definition*}
-
-
+\end{definition}

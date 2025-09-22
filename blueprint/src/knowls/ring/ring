@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ring}{Definition of ring}}
-\begin{definition*}\label{ring}
+\begin{definition}\label{ring}
 \uses{alg.binary_operation,alg.binary_operation.associative,alg.binary_operation.commutative,alg.binary_operation.identity,group.abelian}
 A \textbf{ring} is a set $R$ with two \hyperref[alg.binary_operation]{binary operations} $+$ and $\cdot$ such that
 
@@ -13,7 +13,5 @@ The \hyperref[alg.binary_operation.identity]{identity} element of $R$ as a group
 
 The ring $R$ is a \textbf{commutative ring} if $R$ is a ring such that the operation $\cdot$ is \hyperref[alg.binary_operation.commutative]{commutative} on $R$.
 
-We say that $R$ is a \textbf{rng} (also called \textbf{ring without identity}) if conditions 1-3 (but not necessarily 4) are satisfied.  
-\end{definition*}
-
-
+We say that $R$ is a \textbf{rng} (also called \textbf{ring without identity}) if conditions 1-3 (but not necessarily 4) are satisfied.
+\end{definition}

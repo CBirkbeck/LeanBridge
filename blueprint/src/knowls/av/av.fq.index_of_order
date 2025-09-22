@@ -1,8 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/av.fq.index_of_order}{Index of an order}}
-\begin{definition*}\label{av.fq.index_of_order}
+\begin{definition}\label{av.fq.index_of_order}
 \uses{av.fq.order}
 Let $R$ be an \hyperref[av.fq.order]{order} in an étale algebra $K$ with maximal order $\mathcal{O}_K$.
 Then the \textbf{index} $[\mathcal{O}_K:R]$ is a finite positive integer.
-\end{definition*}
-
-
+\end{definition}

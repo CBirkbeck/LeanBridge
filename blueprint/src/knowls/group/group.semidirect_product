@@ -1,5 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.semidirect_product}{Semidirect product of groups}}
-\begin{definition*}\label{group.semidirect_product}
+\begin{definition}\label{group.semidirect_product}
 \uses{group,group.automorphism,group.direct_product,group.homomorphism,group.nonsplit_product,group.subgroup,group.subgroup.normal}
 Suppose $H$ and $N$ are \hyperref[group]{groups} with operations $*_H$ and $*_N$ and $\phi:H\to \Aut(N)$ is a \hyperref[group.homomorphism]{homomorphism} to the \hyperref[group.automorphism]{automorphism} group of $N$. Then the set $N\times H$ with the operation
 \[ (n_1, h_1)*(n_2, h_2) = (n_1*_N \phi(h_1)(n_2),  h_1 *_H h_2)\]
@@ -16,6 +16,4 @@ Conversely, if a group $G$ has a normal subgroup $N$ and a subgroup $H$ such tha
 The semidirect product of $N$ and $H$ fits into a sequence
 \[ 1 \to N \to N \rtimes H \to H \to 1, \]
 and is distinguished by the existence of a homomorphism $H \to N \rtimes H$ with image $H'$ that splits the projection $N \rtimes H \to H$.  We refer to such an \hyperref[group.nonsplit_product]{extension} as \textbf{split}, in contrast to other  \textbf{non-split} extensions.
-\end{definition*}
-
-
+\end{definition}

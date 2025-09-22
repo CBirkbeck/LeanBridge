@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.nonrational_point}{Non rational low degree point}}
-\begin{definition*}\label{modcurve.nonrational_point}
+\begin{definition}\label{modcurve.nonrational_point}
 \uses{}
 TBA
-\end{definition*}
-
-
+\end{definition}
