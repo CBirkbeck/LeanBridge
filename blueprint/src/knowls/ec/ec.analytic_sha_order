@@ -1,4 +1,4 @@
-\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.analytic_sha_order}{Analytic order of $\Sha$}}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.analytic_sha_order}{Analytic order of Sha}}
 \begin{definition}\label{ec.analytic_sha_order}
 \uses{ec,ec.base_change,ec.mordell_weil_group,ec.period,ec.rank,ec.regulator,ec.tamagawa_number,ec.torsion_subgroup,group.abelian,group.galois.absolute,group.order,group.torsion,nf,nf.discriminant,nf.place,nf.prime}
 The \textbf{Tate-Shafarevich group} $\Sha$ of an \hyperref[ec]{elliptic curve} $E$ defined over a \hyperref[nf]{number field} $K$ is a \hyperref[group.torsion]{torsion} \hyperref[group.abelian]{abelian group}, which can be defined in terms of Galois cohomology as
