@@ -16,6 +16,9 @@ DELIM_RE = re.compile(r"(\\\[|\\\]|\\\(|\\\)|\$\$|\$)")
 COMMENT_RE = re.compile(r"\{#[^#]+#\}")
 CITE_UNDERSCORE_RE = re.compile(r"\\cite\{[^\}]+\}")
 ITEMIZE_RE = re.compile(r"^\s*[\-\*]")
+SUBACK_RE = re.compile(r"_(\\\w+(?:\{[^\}]+\})?)")
+NOBRACE_RE = re.compile(r"\\(overline|mathbb|widehat|hat)\s*(\w+)")
+LINK_RE = re.compile(r"""<a\s+href=['"]([^'"]+)['"]>([^<]+)</a>""")
 # url_for('abstract.index') -> https://www.lmfdb.org/Groups/Abstract
 # url_for('modcurve.index_Q',level='11',family='Xsp') -> https://beta.lmfdb.org/ModularCurves/Q?level=11&family=Xsp
 
@@ -40,6 +43,10 @@ def strip_macros(knowls):
         return f"\\hyperref[{kid}]{{{title}}}"
     def cite_subber(match):
         return match.group(0).replace(r"\_", "_")
+    def link_subber(match):
+        url = match.group(1).replace(r"\_", "_")
+        text = match.group(2)
+        return fr"\href{{{url}}}{{{text}}}"
     replacements = [
         (r"\\times", r"\times"),
         ("&check;", r"\checkmark"),
@@ -73,8 +80,15 @@ def strip_macros(knowls):
         content = "".join(delim_split)
         # Switch back from \_ to _ inside cite commands
         content = CITE_UNDERSCORE_RE.sub(cite_subber, content)
-        # Put underscores in knowl ids back in
+        # Put underscores in knowl ids and hyperrefs back in
         content = content.replace("~U~", "_")
+
+        # Wrap subscripts in curly braces
+        content = SUBACK_RE.sub(r"_{\1}", content)
+        # Wrap arguments in curly braces
+        content = NOBRACE_RE.sub(r"\\\1{\2}", content)
+        # Fix links
+        content = LINK_RE.sub(link_subber, content)
 
         # Turn markdown lists into itemize
         lines = content.split("\n")
