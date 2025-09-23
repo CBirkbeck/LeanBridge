@@ -3,7 +3,7 @@
 \uses{ec,ec.complex_multiplication,ec.galois_rep,ec.geom_endomorphism_ring,gl2.borel,gl2.normalizer_nonsplit_cartan,gl2.normalizer_split_cartan,nf}
 Let $E$ be an \hyperref[ec]{elliptic curve} over a \hyperref[nf]{number field} $K$, let $\ell$ be prime, and let
 \[
-\bar\rho_{E,\ell}\colon \Gal(\overline{K}/K)\to \Aut(E[\ell]) \simeq \GL_2(\F_\ell)
+\bar\rho_{E,\ell}\colon \Gal(\bar{K}/K)\to \Aut(E[\ell]) \simeq \GL_2(\F_\ell)
 \]
 be the \hyperref[ec.galois_rep]{mod-$\ell$ Galois representation} associated to $E$.
 

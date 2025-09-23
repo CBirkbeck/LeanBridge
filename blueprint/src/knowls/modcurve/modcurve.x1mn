@@ -6,7 +6,7 @@ $X_{\mathrm{arith},1}(M,MN)$ is the \hyperref[modcurve]{modular curve} $X_H$ for
 \begin{itemize}
 \item  $E$ is an elliptic curve over $k$,
 \item  $P \in E[MN](k)$ is a point of order $MN$, and
-\item  $C \leq E[M](\overline{k})$ is a $\Gal_k$-stable cyclic subgroup of order $M$ such that $E[M]=\langle NP \rangle \oplus C$.
+\item  $C \leq E[M](\bar{K})$ is a $\Gal_k$-stable cyclic subgroup of order $M$ such that $E[M]=\langle NP \rangle \oplus C$.
 \end{itemize}
 
 \end{definition}

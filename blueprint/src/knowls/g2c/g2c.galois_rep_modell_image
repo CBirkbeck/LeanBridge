@@ -5,7 +5,7 @@ Let $\ell$ be a prime and let $C$ be an \hyperref[g2c.g2curve]{genus 2 curve}  o
 
 Subgroups $G$ of $\GSp(4,\F_\ell)$ that can arise as the image of the mod-$\ell$ \hyperref[g2c.galois_rep]{Galois representation}
 \[
-\bar\rho_{A,\ell}\colon {\Gal}(\overline{K}/K)\to \GSp(4,\F_\ell)
+\bar\rho_{A,\ell}\colon {\Gal}(\bar{K}/K)\to \GSp(4,\F_\ell)
 \]
 attached to $A$ that do not contain $\Sp(4,\F_\ell)$ are identified up to conjugacy using labels of the form
 \[

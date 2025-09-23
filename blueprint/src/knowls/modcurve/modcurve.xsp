@@ -5,6 +5,6 @@ $X_{\text{sp}}(N)$ is the \hyperref[modcurve]{modular curve} $X_H$ for $H\le \GL
 
 \begin{itemize}
 \item  $E$ is an elliptic curve over $k$, and
-\item  $C$ and $D$ are $\Gal_k$-stable cyclic subgroups such that $E[N](\overline{k})\simeq C \oplus D$.
+\item  $C$ and $D$ are $\Gal_k$-stable cyclic subgroups such that $E[N](\bar{K})\simeq C \oplus D$.
 \end{itemize}
 \end{definition}

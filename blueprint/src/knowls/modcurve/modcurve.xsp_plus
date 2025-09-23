@@ -5,6 +5,6 @@ $X_{\text{sp}}^+(N)$ is the \hyperref[modcurve]{modular curve} $X_H$ for $H\le \
 
 \begin{itemize}
 \item  $E$ is an elliptic curve over $k$, and
-\item  $\{C,D\}$ is a $\Gal_k$-stable pair of cyclic subgroups such that $E[N](\overline{k})\simeq C \oplus D$.  (Neither $C$ nor $D$ need be $\Gal_k$-stable.)
+\item  $\{C,D\}$ is a $\Gal_k$-stable pair of cyclic subgroups such that $E[N](\bar{K})\simeq C \oplus D$.  (Neither $C$ nor $D$ need be $\Gal_k$-stable.)
 \end{itemize}
 \end{definition}
