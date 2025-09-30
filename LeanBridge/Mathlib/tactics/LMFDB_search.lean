@@ -11,8 +11,8 @@ elab "#LMFDB_search" degree:num r2:num D_abs:num : command => do
   let r2_val := r2.getNat
   let D_abs_val := D_abs.getNat
 
-  let python_cmd := "/home/chris/Github/LeanBridge/.venv/bin/python"
-  let python_script_path := "/home/chris/Github/LeanBridge/LeanBridge/Mathlib/tactics/lmfdb_query.py"
+  let python_cmd := "python3" -- You might need to install psycopg2 first. Look at lmfdb-lite for help
+  let python_script_path := "./LeanBridge/Mathlib/tactics/lmfdb_query.py"
 
   logInfo m!"Querying LMFDB with: degree={degree_val}, r2={r2_val}, disc_abs={D_abs_val}"
 
@@ -147,4 +147,30 @@ axiom LMFDB_NF_2_0_23_1_isCM : IsCMField K_2_0_23_1
 
 end
 
+noncomputable section
+
+open NumberField
+
+def min_poly_2_0_4_1 : Polynomial ℚ := (1) * Polynomial.X ^ 2 + (1)
+
+abbrev K_2_0_4_1 := AdjoinRoot min_poly_2_0_4_1
+
+instance : Fact (Irreducible min_poly_2_0_4_1) := by sorry
+
+axiom LMFDB_NF_2_0_4_1_discr : discr K_2_0_4_1 = - 4
+
+axiom LMFDB_NF_2_0_4_1_isGalois : IsGalois ℚ K_2_0_4_1
+
+axiom LMFDB_NF_2_0_4_1_classNumber : classNumber K_2_0_4_1 = 1
+
+axiom LMFDB_NF_2_0_4_1_totallyComplex : IsTotallyComplex K_2_0_4_1
+
+instance LMFDB_NF_2_0_4_1_totallyComplexInstance : IsTotallyComplex K_2_0_4_1 := LMFDB_NF_2_0_4_1_totallyComplex
+
+axiom LMFDB_NF_2_0_4_1_isCM : IsCMField K_2_0_4_1
+
+end
+
+
+#LMFDB_search 4 0 1008
 --let python_path := "/home/chris/Github/LeanBridge/.venv/bin/python"
