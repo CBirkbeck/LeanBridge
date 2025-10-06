@@ -132,7 +132,7 @@ elab "#LMFDB_search" degree:num r2:num D_abs:num : command => do
       let declarations :=
 s!"noncomputable section
 
-open NumberField
+
 
 {irreducibility_import}
 
