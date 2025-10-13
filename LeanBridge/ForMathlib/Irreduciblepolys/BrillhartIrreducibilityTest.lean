@@ -1,5 +1,5 @@
-import LeanBridge.Mathlib.Irreduciblepolys.IrreduciblePolynomialZModp
-import LeanBridge.Mathlib.Irreduciblepolys.PolynomialsAsLists
+import LeanBridge.ForMathlib.Irreduciblepolys.IrreduciblePolynomialZModp
+import LeanBridge.ForMathlib.Irreduciblepolys.PolynomialsAsLists
 import Mathlib.Analysis.Complex.Polynomial.Basic
 import Mathlib.Analysis.Complex.Cardinality
 import Mathlib.Data.List.Indexes

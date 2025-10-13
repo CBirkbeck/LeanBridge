@@ -1,5 +1,5 @@
 import Mathlib.FieldTheory.Finite.GaloisField
-import LeanBridge.Mathlib.Irreduciblepolys.PolynomialsAsLists
+import LeanBridge.ForMathlib.Irreduciblepolys.PolynomialsAsLists
 
 /-! # Irreducibility of polynomials
 

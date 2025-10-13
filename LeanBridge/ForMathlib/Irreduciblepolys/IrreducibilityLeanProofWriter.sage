@@ -701,9 +701,9 @@ lemma T_ofList' : T = ofList l := by norm_num ; ring
         print('theorem irreducible_T : Irreducible T := irreducible_of_CertificateIntPolynomial _ _ C ', file = doc)
         doc.close()
     else :
-        print(f'''import LeanBridge.Mathlib.Irreduciblepolys.IrreduciblePolynomialZModp
+        print(f'''import LeanBridge.ForMathlib.Irreduciblepolys.IrreduciblePolynomialZModp
 import Mathlib.Tactic.NormNum.Prime
-import LeanBridge.Mathlib.Irreduciblepolys.BrillhartIrreducibilityTest
+import LeanBridge.ForMathlib.Irreduciblepolys.BrillhartIrreducibilityTest
 
 open Polynomial
 
@@ -743,40 +743,39 @@ lemma T_ofList' : T = ofList l := by norm_num ; ring
 
 
 
-def main_sage():
-    if len(sys.argv) != 3:
-        # Note: sys.argv[0] is the script name, so we expect 3 args total
-        print("Usage: sage IrreducibilityLeanProofWriter.sage <coeffs_string> <label>", file=sys.stderr)
-        sys.exit(1)
-
-    coeffs_str = sys.argv[1]
-    label = sys.argv[2]
-
-    # 1. Reconstruct Polynomial from the comma-separated string
-    coeffs_list = [QQ(c.strip()) for c in coeffs_str.split(',')]
-
-    # NOTE: Your Lean definition uses Polynomial ℚ, but the proof generator
-    # seems to expect a polynomial over integers (ZZ). We will try Z[X].
-    R.<X> = PolynomialRing(ZZ)
-
-    # The coefficients from the LMFDB are ordered for ascending powers (constant term first)
-    T = R(coeffs_list)
-
-    # 2. Define the output file name
-    output_filename = f"LMFDB_Proof_{label}.lean"
+# ----------------- MODIFIED main_sage FUNCTION -----------------
+# This function is the primary entry point called by the Lean tactic.
+def main_sage(coeffs_str, label):
+    # This structure is now decoupled from file system writing.
 
     try:
-        with open(output_filename, "w") as doc:
-            # You need to ensure the T you pass here has integer coefficients
-            LeanProofIrreducible(T, doc)
-        # Output to stdout can confirm success, but the presence of the file is the main check.
+        coeffs_list = [QQ(c.strip()) for c in coeffs_str.split(',')]
     except Exception as e:
-        print(f"Error generating proof file in SageMath: {e}", file=sys.stderr)
+        print(f"Error parsing coefficients string: {e}", file=sys.stderr)
         sys.exit(1)
 
-if __name__ == "__main__":
-    main_sage()
+    R.<X> = PolynomialRing(ZZ)
 
+    try:
+        T = R(coeffs_list)
+    except Exception as e:
+        print(f"Error converting coefficients to Z[X] polynomial: {e}", file=sys.stderr)
+        sys.exit(1)
+
+    # Call the proof generation function, directing output to stdout (which Lean captures)
+    # The file creation happens entirely in the Lean tactic now.
+    LeanProofIrreducible(T, sys.stdout)
+
+
+# The execution block is simplified and safe for external calls
+if __name__ == "__main__":
+    # If run directly, it expects command line arguments.
+    if len(sys.argv) == 3:
+        # If run directly (not via load()), sys.argv[0] is the script name.
+        # We assume main_sage is called here if run interactively,
+        # but the Lean tactic explicitly calls main_sage(arg1, arg2).
+        main_sage(sys.argv[1], sys.argv[2])
+    # The Lean tactic execution (load() followed by function call) bypasses this.
 
 
 

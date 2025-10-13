@@ -4,6 +4,8 @@ import Lean.Data.Json
 import Lean.Data.Json.FromToJson
 import Mathlib
 
+import LeanBridge.ForMathlib.tactics.LMFDB_Proof_2_0_39_1
+
 open Lean Elab Command IO
 
 elab "#LMFDB_search" degree:num r2:num D_abs:num : command => do
@@ -11,10 +13,12 @@ elab "#LMFDB_search" degree:num r2:num D_abs:num : command => do
   let r2_val := r2.getNat
   let D_abs_val := D_abs.getNat
 
-  let python_cmd := "/home/chris/Github/LeanBridge/.venv/bin/python"
-  let python_query_path := "/home/chris/Github/LeanBridge/LeanBridge/Mathlib/tactics/lmfdb_query.py"
+  let python_cmd := "/home/chris/miniforge3/envs/sage/bin/python"
+  let python_query_path := "/home/chris/Github/LeanBridge/LeanBridge/ForMathlib/tactics/lmfdb_query.py"
   let sage_cmd := "/home/chris/miniforge3/envs/sage/bin/sage"
-  let sage_proof_path := "/home/chris/Github/LeanBridge/LeanBridge/Mathlib/tactics/IrreducibilityLeanProofWriter.sage"
+  let sage_proof_path := "/home/chris/Github/LeanBridge/LeanBridge/ForMathlib/Irreduciblepolys/IrreducibilityLeanProofWriter.sage"
+  let proof_output_dir := "/home/chris/Github/LeanBridge/LeanBridge/ForMathlib/tactics"
+  let module_prefix := "LeanBridge.Mathlib.Irreduciblepolys"
 
   logInfo m!"Querying LMFDB with: degree={degree_val}, r2={r2_val}, disc_abs={D_abs_val}"
 
@@ -93,21 +97,31 @@ elab "#LMFDB_search" degree:num r2:num D_abs:num : command => do
 
       let poly_str := " + ".intercalate poly_terms.toList
 
-      -- Attempt to run the Proof Generator Script (SageMath)
+         -- 2. Attempt to run the Proof Generator Script (SageMath)
+      let sage_command_str :=
+          s!"load('{sage_proof_path}'); main_sage('{coeffs_str}', '{valid_label}')"
+
       let output_proof ← IO.Process.output {
-        cmd := sage_cmd,
-        args := #[sage_proof_path, coeffs_str, valid_label],
+        cmd := "/bin/bash",
+        args := #["-c", s!"{sage_cmd} -c \"{sage_command_str}\""],
         stdin := .null,
         stdout := .piped,
         stderr := .piped
       }
 
-      if output_proof.exitCode != 0 then
+       if output_proof.exitCode != 0 then
         logWarning s!"Irreducibility proof generation failed for {valid_label} (Exit Code: {output_proof.exitCode}). Falling back to 'sorry'.\nSage Error: {output_proof.stderr}"
         irreducibility_block := s!"instance : Fact (Irreducible min_poly_{valid_label}) := by sorry"
       else
         let proof_module_name := s!"LMFDB_Proof_{valid_label}"
-        irreducibility_import := s!"import {proof_module_name}"
+
+        -- FINAL FIX: Use explicit string concatenation for the file path
+        let proof_file_path := proof_output_dir ++ "/" ++ s!"{proof_module_name}.lean"
+
+        -- Write the proof to the correct file path using Lean's IO
+        IO.FS.writeFile proof_file_path output_proof.stdout
+
+        irreducibility_import := s!"import {module_prefix}.{proof_module_name}"
         irreducibility_block := s!"theorem irreducible_poly : Irreducible min_poly_{valid_label} := irreducible_T"
 
       -- --- Axiom Construction ---
@@ -132,15 +146,26 @@ elab "#LMFDB_search" degree:num r2:num D_abs:num : command => do
       let declarations :=
 s!"noncomputable section
 
+open NumberField
 
-
-{irreducibility_import}
-
-def min_poly_{valid_label} : Polynomial ℚ := {poly_str}
+abbrev min_poly_{valid_label} : Polynomial ℚ := {poly_str}
 
 abbrev K_{valid_label} := AdjoinRoot min_poly_{valid_label}
 
-{irreducibility_block}
+lemma irreducible_poly :  Irreducible min_poly_{valid_label} := by
+  have := irreducible_T
+  rw [Polynomial.IsPrimitive.Int.irreducible_iff_irreducible_map_cast] at this
+  · convert this
+    simp
+    ring
+  · refine Polynomial.Monic.isPrimitive ?_
+    refine Polynomial.Monic.def.mpr ?_
+    rw [T_ofList', ofList_leadingCoeff]
+    · simp
+    · apply List.cons_ne_nil _ _
+    · rfl
+
+instance: Fact (Irreducible min_poly_{valid_label}) := ⟨irreducible_poly⟩
 
 axiom LMFDB_NF_{valid_label}_discr : NumberField.discr K_{valid_label} = {signed_discr}
 
@@ -159,30 +184,44 @@ end"
   logInfo m!"Found {suggestions_list.length} number fields. Adding suggestions to infoview."
   liftTermElabM <|
     Meta.Tactic.TryThis.addSuggestions (←getRef) suggestions_list.toArray
+
+
 noncomputable section
 
 open NumberField
 
-def min_poly_2_0_23_1 : Polynomial ℚ := (1) * Polynomial.X ^ 2 + (-1) * Polynomial.X + (6)
+abbrev min_poly_2_0_39_1 : Polynomial ℚ := (1) * Polynomial.X ^ 2 + (-1) * Polynomial.X + (10)
 
-abbrev K_2_0_23_1 := AdjoinRoot min_poly_2_0_23_1
+abbrev K_2_0_39_1 := AdjoinRoot min_poly_2_0_39_1
 
-instance : Fact (Irreducible min_poly_2_0_23_1) := by sorry
+lemma irreducible_poly :  Irreducible min_poly_2_0_39_1 := by
+  have := irreducible_T
+  rw [Polynomial.IsPrimitive.Int.irreducible_iff_irreducible_map_cast] at this
+  · convert this
+    simp
+    ring
+  · refine Polynomial.Monic.isPrimitive ?_
+    refine Polynomial.Monic.def.mpr ?_
+    rw [T_ofList', ofList_leadingCoeff]
+    · simp
+    · apply List.cons_ne_nil _ _
+    · rfl
 
-axiom LMFDB_NF_2_0_23_1_discr : discr K_2_0_23_1 = - 23
+instance: Fact (Irreducible min_poly_2_0_39_1) := ⟨irreducible_poly⟩
 
-axiom LMFDB_NF_2_0_23_1_isGalois : IsGalois ℚ K_2_0_23_1
+axiom LMFDB_NF_2_0_39_1_discr : NumberField.discr K_2_0_39_1 = - 39
 
-axiom LMFDB_NF_2_0_23_1_classNumber : classNumber K_2_0_23_1 = 3
+axiom LMFDB_NF_2_0_39_1_isGalois : IsGalois ℚ K_2_0_39_1
 
-axiom LMFDB_NF_2_0_23_1_totallyComplex : IsTotallyComplex K_2_0_23_1
+axiom LMFDB_NF_2_0_39_1_classNumber : NumberField.classNumber K_2_0_39_1 = 4
 
-instance LMFDB_NF_2_0_23_1_totallyComplexInstance : IsTotallyComplex K_2_0_23_1 := LMFDB_NF_2_0_23_1_totallyComplex
+axiom LMFDB_NF_2_0_39_1_totallyComplex : IsTotallyComplex K_2_0_39_1
 
-axiom LMFDB_NF_2_0_23_1_isCM : IsCMField K_2_0_23_1
+instance LMFDB_NF_2_0_39_1_totallyComplexInstance : IsTotallyComplex K_2_0_39_1 := LMFDB_NF_2_0_39_1_totallyComplex
+
+axiom LMFDB_NF_2_0_39_1_isCM : NumberField.IsCMField K_2_0_39_1
 
 end
 
-#LMFDB_search 2 1 31
-
+#LMFDB_search 4 2 1008
 --let python_path := "/home/chris/Github/LeanBridge/.venv/bin/python"
