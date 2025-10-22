@@ -10,8 +10,15 @@
 
 \chapter{Introduction}
 
-The plan is to formalise definitions from the LMFDB in mathlib as well as creating some tactics to import the
-relevant data from the LMFDB into mathlib.
+The plan is to formalize definitions from the L-functions and modular forms database (LMFDB) in mathlib, as well as creating some tactics to import relevant data from the LMFDB into mathlib.
+
+The LMFDB contains many objects of interest to mathematicians, many of which are still beyond what can currently be formalized in mathlib. For this reason, we will focus on three main areas: number fields, elliptic curves, and modular forms. In each of these areas, we will formalize relevant definitions and import data from the LMFDB.
+
+Our first main goal is to formalize relevant definitions used by the LMFDB to uniquely identify objects in the database, i.e. the LMFDB labels.
+
+This is still a rough blueprint, generated from the information contained in the LMFDB. For now, we have roughly organized the definitions by area, with a background chapter containing definitions that are needed but don't quite fit into the three main areas above.
+
+\textbf{Warning}: This blueprint is still a work in progress. In places, the LaTeX is not rendering correctly, but everything has a link back to the LMFDB, so if in doubt, it is worth checking the definitions there. Also, many of the definitions are already formalized, and they should soon have links to the relevant definitions in mathlib.
 
 \input{background}
 \input{NumberFields}

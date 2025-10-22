@@ -3,5 +3,5 @@
 \uses{ag.curve,ag.gonality_geom}
 The \textbf{gonality} (or \textbf{$k$-gonality}) of an integral \hyperref[ag.curve]{algebraic curve} $X$ over a field $k$ is the minimal degree of a dominant $k$-morphism $X \to \mathbb P^1_k$.  Equivalently, it is the minimum of $[k(X):k(t)]$ as $t$ ranges over (transcendental) elements of the function field $k(X)$ of $X$.
 
-The base extension of any dominant morphism $X \to \mathbb{P}^1_k$  is a dominant morphism $X_{\overline{k}} \to \mathbb{P}^1_{\overline{k}}$, so the \hyperref[ag.gonality_geom]{geometric gonality} of $X$ is less than or equal to the $k$-gonality of $X$.
+The base extension of any dominant morphism $X \to \mathbb{P}^1_k$  is a dominant morphism $X_{\bar{K}} \to \mathbb{P}^1_{\bar{K}}$, so the \hyperref[ag.gonality_geom]{geometric gonality} of $X$ is less than or equal to the $k$-gonality of $X$.
 \end{definition}

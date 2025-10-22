@@ -5,7 +5,7 @@ Let $\ell$ be a prime and let $E$ be an \hyperref[ec]{elliptic curve} defined ov
 
 Subgroups $G$ of $\GL(2,\F_\ell)$ that can arise as the image of the mod-$\ell$ \hyperref[ec.galois_rep]{Galois representation}
 \[
-\bar\rho_{E,\ell}\colon {\Gal}(\overline{K}/K)\to \GL(2,\F_\ell)
+\bar\rho_{E,\ell}\colon {\Gal}(\bar{K}/K)\to \GL(2,\F_\ell)
 \]
 attached to $E$ that do not contain $\SL(2,\F_\ell)$ are identified using the labels introduced by Sutherland in \cite{arXiv:1504.07618,MR:3482279}.  For groups with surjective determinant map (necessarily the case when $K=\Q$), these labels have the form
 \[

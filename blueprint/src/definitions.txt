@@ -74,7 +74,7 @@ ag.gonality:
     * $k$-gonality
     * gonality
 ag.gonality_geom:
-    * $\overline{k}$-gonality
+    * $\bar{K}$-gonality
     * geometric gonality
 ag.good_reduction:
     * bad reduction
@@ -1399,7 +1399,7 @@ group.subgroup.projective_image:
 group.supersolvable:
     * supersolvable
 group.sylow_subgroup:
-    * $p$-Sylow 
+    * $p$-Sylow
 subgroup
 group.symmetric:
     * symmetric group
@@ -2531,7 +2531,7 @@ $\mathbf{SL}_2$-levels:
     * mf.bianchi.level
 $\mathrm{index}$:
     * av.fq.endomorphism_ring_notation
-$\overline{k}$-gonality:
+$\bar{K}$-gonality:
     * ag.gonality_geom
 $\PSL_2$-index:
     * modcurve.psl2index
@@ -2597,7 +2597,7 @@ $p$-group:
     * group.pgroup
 $p$-rank:
     * av.fq.p_rank
-$p$-Sylow 
+$p$-Sylow
 subgroup:
     * group.sylow_subgroup
 $q$:

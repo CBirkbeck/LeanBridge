@@ -1,7 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.geom_end_alg}{Geometric endomorphism algebra}}
 \begin{definition}\label{g2c.geom_end_alg}
 \uses{ag.abelian_surface,ag.abelian_variety,ag.geom_endomorphism_algebra,ag.geom_simple,av.isogeny,ec,ec.complex_multiplication,nf.cm_field,ring.field}
-The \textbf{geometric endomorphism algebra} of an \hyperref[ag.abelian_surface]{abelian surface} $A$ over a \hyperref[ring.field]{field} $K$ is the $\Q$-algebra $\End(A_{\overline{K}}) \otimes \Q$, the endomorphism algebra of the base change $A_{\overline{K}}$ of $A$ to an algebraic closure $\overline{K}$ of $K$.  This is a special case of the \hyperref[ag.geom_endomorphism_algebra]{geometric endomorphism algebra} of an \hyperref[ag.abelian_variety]{abelian variety}.
+The \textbf{geometric endomorphism algebra} of an \hyperref[ag.abelian_surface]{abelian surface} $A$ over a \hyperref[ring.field]{field} $K$ is the $\Q$-algebra $\End(A_{\bar{K}}) \otimes \Q$, the endomorphism algebra of the base change $A_{\bar{K}}$ of $A$ to an algebraic closure $\bar{K}$ of $K$.  This is a special case of the \hyperref[ag.geom_endomorphism_algebra]{geometric endomorphism algebra} of an \hyperref[ag.abelian_variety]{abelian variety}.
 
 When $A$ is an abelian surface over a number field $K$, there are nine possibilities for $\End(A_{\overline K})\otimes\Q$:
 

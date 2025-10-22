@@ -5,7 +5,7 @@ $X(N)$ is the \hyperref[modcurve]{modular curve} $X_H$ for $H\le \GL_2(\widehat{
 
 \begin{itemize}
 \item  $E$ is an elliptic curve over $k$, and
-\item  $P,Q \in E(k)$ form a basis for $E[N](\overline{k})$.
+\item  $P,Q \in E(k)$ form a basis for $E[N](\bar{K})$.
 \end{itemize}
 
 There are other \hyperref[modcurve.xn]{variants}.

@@ -1,7 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.j_invariant}{j-invariant of an elliptic curve}}
 \begin{definition}\label{ec.j_invariant}
 \uses{ec,ec.discriminant,ec.isomorphism,ec.weierstrass_coeffs}
-The \textbf{$j$-invariant} of an \hyperref[ec]{elliptic curve} $E$ defined over a field $K$ is an invariant of the \hyperref[ec.isomorphism]{isomorphism class}  of $E$ over  $\overline{K}$.
+The \textbf{$j$-invariant} of an \hyperref[ec]{elliptic curve} $E$ defined over a field $K$ is an invariant of the \hyperref[ec.isomorphism]{isomorphism class}  of $E$ over  $\bar{K}$.
 If the \hyperref[ec.weierstrass_coeffs]{Weierstrass equation} of $E$ is
 \[ y^2+a_1xy+a_3y=x^3+a_2x^2+a_4x+a_6, \]
 then its $j$-invariant is given by

@@ -5,6 +5,6 @@ $X_0(N)$ is the \hyperref[modcurve]{modular curve} $X_H$ for $H\le \GL_2(\wideha
 
 \begin{itemize}
 \item  $E$ is an elliptic curve over $k$, and
-\item  $C$ is a $\Gal_k$-stable cyclic subgroup of $E[N](\overline{k})$ of order $N$ (equivalently, the kernel of a $k$-rational isogeny $E\to E'$ of degree $N$).
+\item  $C$ is a $\Gal_k$-stable cyclic subgroup of $E[N](\bar{K})$ of order $N$ (equivalently, the kernel of a $k$-rational isogeny $E\to E'$ of degree $N$).
 \end{itemize}
 \end{definition}

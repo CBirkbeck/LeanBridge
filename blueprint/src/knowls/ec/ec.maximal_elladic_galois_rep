@@ -3,7 +3,7 @@
 \uses{ec,ec.complex_multiplication,ec.galois_rep,ec.geom_endomorphism_ring,nf}
 Let $E$ be an \hyperref[ec]{elliptic curve} over a \hyperref[nf]{number field} $K$, let $\ell$ be prime, and let
 \[
-\rho_{E,\ell}\colon \Gal(\overline{K}/K)\to \Aut(E[\ell^\infty]) \simeq \GL_2(\Z_\ell)
+\rho_{E,\ell}\colon \Gal(\bar{K}/K)\to \Aut(E[\ell^\infty]) \simeq \GL_2(\Z_\ell)
 \]
 be the \hyperref[ec.galois_rep]{$\ell$-adic Galois representation} associated to $E$.
 
