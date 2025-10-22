@@ -8,3 +8,5 @@ If $G$ has a subgroup $\tilde Q\leq G$ such that $\tilde Q\cap N=\langle e\rangl
 
 If no such subgroup $\tilde Q$ exists, then $G$ is a \textbf{non-split extension} of $Q$ by $N$.
 \end{definition}
+
+

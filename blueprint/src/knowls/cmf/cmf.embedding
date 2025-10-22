@@ -9,3 +9,5 @@ Distinct embeddings give rise to modular forms  that lie in the same \hyperref[c
 
 If $f$ is a newform of \hyperref[cmf.character]{character} $\chi$, each embedding $\Q(f)\to \C$ induces an embedding $\Q(\chi)\to \C$ of the \hyperref[character.dirichlet.value_field]{value field} of $\chi$.  The embeddings of $f$ may be grouped into blocks with the same \hyperref[character.dirichlet]{Dirichlet character}; distinct blocks correspond to modular forms with distinct (but Galois conjugate) Dirichlet characters.
 \end{definition}
+
+

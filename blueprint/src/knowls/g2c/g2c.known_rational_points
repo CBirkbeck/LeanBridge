@@ -5,3 +5,5 @@ For a curve $X$ of genus $g\ge 2$ over $\Q$ (or any \hyperref[nf]{number field})
 
 Rational points on hyperelliptic curves are written in projective coordinates with respect to the weighted homogeneous equation $y^2+h(x,z)y=f(x,z)$ of degree $2g+2$ that is a smooth projective model for the curve $X$, where $y$ has weight $g+1$, while $x$ and $z$ both have weight 1.  This homogeneous equation is uniquely determined by the affine equation $y^2+h(x)y=f(x)$ listed as the \hyperref[g2c.minimal_equation]{minimal equation} for the curve.
 \end{definition}
+
+

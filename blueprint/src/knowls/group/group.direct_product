@@ -3,7 +3,7 @@
 \uses{group,group.subgroup.normal}
 Given two groups $G_1$ and $G_2$ with operations $*_1$ and $*_2$, the \textbf{direct product} of sets $G_1\times G_2$ is a \hyperref[group]{group} under the operation
 \[ (a_1, a_2)*(b_1, b_2) = (a_1*_1 b_1, a_2 *_2 b_2). \]
-This has \hyperref[group.subgroup.normal]{normal} subgroups
+This has \hyperref[group.subgroup.normal]{normal} subgroups 
 \[ H_1=\{(a,e_2) \mid a \in G_1\}\cong G_1\]
 and
 \[ H_2=\{(e_1,a) \mid a \in G_2\}\cong G_2\]
@@ -11,3 +11,5 @@ such that $H_1\cap H_2 = \{(e_1,e_2)\}$ and $H_1H_2=G_1\times G_2$.
 
 Conversely, if a group $G$ has normal subgroups $H$ and $K$ such that $H\cap K=\{e\}$ and $HK=G$, then $G\cong H\times K$.  We call $H$ and $K$ a \textbf{direct factors} of $G$ in this case.
 \end{definition}
+
+

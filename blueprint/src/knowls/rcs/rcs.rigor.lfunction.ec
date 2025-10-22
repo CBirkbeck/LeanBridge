@@ -6,3 +6,5 @@ L-functions of \hyperref[ec]{elliptic curves} over $\Q$ in the database have bee
 For L-functions of elliptic curves over $\Q$ the displayed \hyperref[lfunction.analytic_rank]{analytic rank} is known to be correct in all but one case, the L-function of the elliptic curve $\texttt{234446.a1}$, which is the unique curve of  \hyperref[ec.rank]{Mordell-Weil rank} 4 in the database.  For this L-function the analytic rank is known to be either 2 or 4.
 
 \end{definition}
+
+

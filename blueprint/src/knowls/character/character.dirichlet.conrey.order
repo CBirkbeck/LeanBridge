@@ -4,3 +4,5 @@
 Since $\chi_q(m^r,n)=\chi_q(m,n)^r,$ a \hyperref[character.dirichlet]{Dirichlet character} of \hyperref[character.dirichlet.conrey]{Conrey index} $m$
 has \hyperref[character.dirichlet.order]{order} $r$, where $r$ is the multiplicative order of $m$ in $(\Z/q\Z)^\times$.
 \end{definition}
+
+

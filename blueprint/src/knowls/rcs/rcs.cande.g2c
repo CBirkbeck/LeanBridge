@@ -15,3 +15,5 @@ with $h_i\in\{0,1\}$ and $|f_i|\le 90$ and \hyperref[g2c.discriminant]{absolute 
 
 To date all known genus 2 curves of absolute discriminant $|\Delta|\le 10^6$ have an integral model that satisfies these constraints, but it is heuristically likely that there exist curves that do not.
 \end{definition}
+
+

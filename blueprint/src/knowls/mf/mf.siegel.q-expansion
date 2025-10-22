@@ -1,9 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.q-expansion}{Fourier expansion smf}}
 \begin{definition}\label{mf.siegel.q-expansion}
 \uses{commensurable.group,mf.siegel,mf.siegel.weight}
-Let $f$ be a \hyperref[mf.siegel]{Siegel modular form} of
+Let $f$ be a \hyperref[mf.siegel]{Siegel modular form} of 
 \hyperref[mf.siegel.weight]{weight} $\rho$ on a discrete subgroup $\Gamma$ of $\Sp(2g,\Q)$ that is \hyperref[commensurable.group]{commensurable} with $\Sp(2g,\Z)$.
-Let $V_g(\Q)$ be the vector space of rational symmetric $g\times g$ matrices and
+Let $V_g(\Q)$ be the vector space of rational symmetric $g\times g$ matrices and 
 \[
 L_{\Gamma}=
 \left\{
@@ -14,11 +14,13 @@ be the translation lattice, which is commensurable with $V_g(\Z)$. Its dual latt
 \[
 L_{\Gamma}^{\vee}=
 \left\{
-n\in V_{g}(\Q)\, : \, \text{ for any } s \in L_{\Gamma}, \text{tr}(sn) \in \Z
+n\in V_{g}(\Q)\, : \, \text{ for any } s \in L_{\Gamma}, \text{tr}(sn) \in \Z 
 \right\}.
 \]
 For $\tau \in \mathcal{H}_g$, there is a Fourier expansion
 \[
-f(\tau)=\sum_{n\in L_{\Gamma}^{\vee}} a(n) e^{2 \pi i \text{tr}(n\tau)}.
+f(\tau)=\sum_{n\in L_{\Gamma}^{\vee}} a(n) e^{2 \pi i \text{tr}(n\tau)}. 
 \]
 \end{definition}
+
+

@@ -23,7 +23,9 @@ where
 $$
 \begin{aligned}
                 x &= u^2x' + r          \\
-                y &= u^3y' + su^2x' + t \\
-    \end{aligned}
+                y &= u^3y' + su^2x' + t \\        
+    \end{aligned}                       
 $$
 \end{definition}
+
+

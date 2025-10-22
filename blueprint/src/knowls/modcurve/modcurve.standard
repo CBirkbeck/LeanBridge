@@ -13,10 +13,12 @@ Let $M$ and $N$ denote positive integers and $\ell$ a prime.  Each \hyperref[mod
 \hyperref[modcurve.xsp_plus]{$X_{\mathrm{sp}}^+(N)$},
 \hyperref[modcurve.xns]{$X_{\mathrm{ns}}(N)$},
 \hyperref[modcurve.xns_plus]{$X_{\mathrm{ns}}^+(N)$},
-\hyperref[modcurve.xs4]{$X_{S_4}(\ell)$},
+\hyperref[modcurve.xs4]{$X_{S_4}(\ell)$}, 
 \hyperref[modcurve.xarith]{$X_{\mathrm{arith}}(N)$}
 
 The curves above are all \hyperref[modcurve]{modular curves} specified by an open subgroup $H \le \GL_2(\widehat{\Z})$ of \hyperref[gl2.level]{level} $N$, $MN$, or $\ell$.
 
 
 \end{definition}
+
+

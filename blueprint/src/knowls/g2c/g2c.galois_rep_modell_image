@@ -3,13 +3,15 @@
 \uses{g2c.g2curve,g2c.galois_rep}
 Let $\ell$ be a prime and let $C$ be an \hyperref[g2c.g2curve]{genus 2 curve}  over a number field $K$ with Jacobian $A$.
 
-Subgroups $G$ of $\GSp(4,\F_\ell)$ that can arise as the image of the mod-$\ell$ \hyperref[g2c.galois_rep]{Galois representation}
+Subgroups $G$ of $\GSp(4,\F_{\ell})$ that can arise as the image of the mod-$\ell$ \hyperref[g2c.galois_rep]{Galois representation}
 \[
-\bar\rho_{A,\ell}\colon {\Gal}(\bar{K}/K)\to \GSp(4,\F_\ell)
-\]
-attached to $A$ that do not contain $\Sp(4,\F_\ell)$ are identified up to conjugacy using labels of the form
+\bar\rho_{A,\ell}\colon {\Gal}(\overline{K}/K)\to \GSp(4,\F_{\ell})
+\] 
+attached to $A$ that do not contain $\Sp(4,\F_{\ell})$ are identified up to conjugacy using labels of the form 
 \[
 \texttt{L.i.n},
 \]
-where $\texttt{L}$ is the prime $\ell$, $\texttt{i}$ is the index of $G$ in $\GSp(4,\F_\ell)$, and $\texttt{n}$ is a positive integer that distinguishes subgroups of $\GSp(4,\F_\ell)$ of the same index.  Clicking on such a label will provide more details about $G$, including generators that can be used to construct it.
+where $\texttt{L}$ is the prime $\ell$, $\texttt{i}$ is the index of $G$ in $\GSp(4,\F_{\ell})$, and $\texttt{n}$ is a positive integer that distinguishes subgroups of $\GSp(4,\F_{\ell})$ of the same index.  Clicking on such a label will provide more details about $G$, including generators that can be used to construct it.
 \end{definition}
+
+

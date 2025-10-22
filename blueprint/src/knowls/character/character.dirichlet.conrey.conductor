@@ -22,3 +22,5 @@ For $p=2$ the conductor of $\chi_{p^e}(n,\cdot)$ is
 \item  $2^{f+2}$ if $e\geq3$ and $\varepsilon n$ has order $2^f$ modulo $2^e$, where $\varepsilon\in\{-1,1\}$ satisfies $n\equiv \epsilon\bmod 4$.
 \end{itemize}
 \end{definition}
+
+

@@ -8,3 +8,5 @@ for \hyperref[mf.siegel.weight]{weights} $k\le 16$ were proven by C. Poor and D.
 The cusp forms in weights up through 14 are either \hyperref[mf.siegel.ikeda]{Duke-Imamoglu-Ikeda lifts} or \hyperref[mf.siegel.miyawaki]{Miyawaki lifts}.    In weight 16, in addition to these two types of lifts, there are other   eigenforms that have been shown by Ibukiyama to instantiate a conjectural lift from \hyperref[mf.siegel.vector_valued]{vector-valued Siegel modular forms}.
 
 \end{definition}
+
+

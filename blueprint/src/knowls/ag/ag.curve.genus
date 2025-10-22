@@ -3,5 +3,7 @@
 \uses{ag.riemann_surface}
 The \textbf{genus} of a smooth projective geometrically integral curve $C$ defined over a field $k$ is the dimension of the $k$-vector space of regular differentials $H^0(C, \omega_C)$.  When $k=\C$ this coincides with the topological genus of the corresponding \hyperref[ag.riemann_surface]{Riemann surface}.
 
-The quantity defined above is sometimes also called the \textbf{algebraic genus} or the \textbf{geometric genus} of $C$. Because of our assumption on the smoothness of $C$, it coincides with the \textbf{arithmetic genus} $H^1(C,\mathcal{O}_C)$.
+The quantity defined above is sometimes also called the \textbf{algebraic genus} or the \textbf{geometric genus} of $C$. Because of our assumption on the smoothness of $C$, it coincides with the \textbf{arithmetic genus} $H^1(C,\mathcal{O}_C)$. 
 \end{definition}
+
+

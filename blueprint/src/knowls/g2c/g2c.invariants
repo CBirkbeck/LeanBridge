@@ -9,3 +9,5 @@ Invariants of a \hyperref[g2c.g2curve]{genus 2 curve} include:
 \item  its geometric invariants, which may be expressed as \hyperref[g2c.igusa_clebsch_invariants]{Igusa-Clebsch invariants} $I_2,I_4,I_6,I_{10}$, \hyperref[g2c.igusa_invariants]{Igusa invariants} $J_2,J_4,J_6,J_8,J_{10}$, or \hyperref[g2c.g2_invariants]{G2-invariants} $g_1,g_2,g_3$.
 \end{itemize}
 \end{definition}
+
+

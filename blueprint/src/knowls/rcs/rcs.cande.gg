@@ -5,3 +5,5 @@ There is data for every transitive \hyperref[group.subgroup]{subgroup} of $S_n$,
 
 For most groups, \hyperref[gg.other_representations]{sibling} and \hyperref[gg.resolvents]{resolvent} information is given for subgroups of \hyperref[group.subgroup.index]{index} $\leq 47$.  In some cases, this information was only computed with smaller bounds, and the individual group pages so indicate.  If sibling information for a subgroup of $S_n$ was only computed to a bound less than $n$, then there is no information on \hyperref[nf.arithmetically_equivalent]{arithmetic equivalence}.
 \end{definition}
+
+

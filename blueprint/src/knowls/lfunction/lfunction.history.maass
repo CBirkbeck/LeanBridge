@@ -2,18 +2,20 @@
 \begin{definition}\label{lfunction.history.maass}
 \uses{}
 In 1949 Hans Maass made his profound discovery that there are L-functions associated with
-non-holomorphic automorphic forms. In his Math Review of
+non-holomorphic automorphic forms. In his Math Review of 
 Maass' article \cite{MR0031519}
 J. Lehner writes
 
-<i>In Hecke's theory of Dirichlet series with Euler products we associate, roughly speaking,
-a Dirichlet series with an automorphic function; the invariance of the latter under linear
-substitutions is used, together with the Mellin transform, to derive a functional equation
-for the Dirichlet series. This suffices for the discussion of the $\zeta$-function of an imaginary
-quadratic field, for example, but not of a real quadratic field. In order to handle the latter case,
+<i>In Hecke's theory of Dirichlet series with Euler products we associate, roughly speaking, 
+a Dirichlet series with an automorphic function; the invariance of the latter under linear 
+substitutions is used, together with the Mellin transform, to derive a functional equation 
+for the Dirichlet series. This suffices for the discussion of the $\zeta$-function of an imaginary 
+quadratic field, for example, but not of a real quadratic field. In order to handle the latter case, 
 the author defines a class of functions
- ("automorphic wave functions") to take the place of the analytic
+ ("automorphic wave functions") to take the place of the analytic 
 automorphic functions of Hecke's theory. </i>
 
 Maass' work prompted Andr\'e; Weil to remark ``Il a fallu Maass pour nous sortir du ghetto des fonctions holomorphes.''
 \end{definition}
+
+

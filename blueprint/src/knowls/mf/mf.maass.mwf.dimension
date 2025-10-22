@@ -3,15 +3,17 @@
 \uses{cmf.character,mf.maass.mwf,mf.maass.mwf.eigenvalue,mf.maass.mwf.laplacian}
 The \textbf{multiplicity} of an \hyperref[mf.maass.mwf.eigenvalue]{eigenvalue} $\lambda$ of the \hyperref[mf.maass.mwf.laplacian]{Laplace-Beltrami operator} refers to the dimension of the eigenspace \( \mathcal{M}(\Gamma,\chi,\lambda) \) of \hyperref[mf.maass.mwf]{Maass newforms} on the group \( \Gamma \) of \hyperref[cmf.character]{character} \( \chi \) with the same Laplace eigenvalue \(\lambda\).
 
-It is generally believed that these eigenspaces are one-dimensional unless there is a symmetry present. There are essentially three known cases where the dimension is greater than 1:
+It is generally believed that these eigenspaces are one-dimensional unless there is a symmetry present. There are essentially three known cases where the dimension is greater than 1: 
 
 1. If the eigenvalue corresponds to an oldspace in the sense of Atkin and Lehner.
 
 2. If the character \(\chi \) has quadratic characters as factors.
 
-3. If \(\Gamma=\Gamma_{0}(N)\) with $9|N$
+3. If \(\Gamma=\Gamma_{0}(N)\) with $9|N$ 
 
-The above three cases are proven and the generalization of 3. to other square factors greater than 9 is conjectured.
+The above three cases are proven and the generalization of 3. to other square factors greater than 9 is conjectured. 
 
 
 \end{definition}
+
+

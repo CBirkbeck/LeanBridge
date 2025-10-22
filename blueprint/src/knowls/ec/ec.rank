@@ -10,3 +10,5 @@ where $E(K)_{\rm tor}$ is the finite \hyperref[ec.torsion_subgroup]{torsion subg
 Rank is an \hyperref[ec.isogeny]{isogeny} invariant: all curves in an \hyperref[ec.isogeny_class]{isogeny class} have the same rank.
 
 \end{definition}
+
+

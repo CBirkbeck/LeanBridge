@@ -3,3 +3,5 @@
 \uses{group.label,group.quotient,group.subgroup}
 You can specify the \hyperref[group.quotient]{quotient} for a \hyperref[group.subgroup]{subgroup} by providing its \hyperref[group.label]{label} as an abstract group.
 \end{definition}
+
+

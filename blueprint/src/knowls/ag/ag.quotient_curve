@@ -7,3 +7,5 @@ The \textbf{quotient curve} $X/H$ is the algebraic curve obtained by identifying
 
 The natural projection $X\to X/H$ that sends each point on $X$ to its $H$-orbit is a surjective morphism
 \end{definition}
+
+

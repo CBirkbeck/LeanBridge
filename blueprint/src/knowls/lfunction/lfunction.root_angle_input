@@ -3,3 +3,5 @@
 \uses{lfunction.root_angle}
 To specify the \hyperref[lfunction.root_angle]{root angle}, you can give a real number such as $0.25$ (which will be reduced into the range $-0.5 < \alpha \le 0.5$), a range of real numbers such as $0.1-0.6$, or a rational number such as $1/4$.
 \end{definition}
+
+

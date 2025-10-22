@@ -6,3 +6,5 @@ For a hypergeometric motive with \hyperref[hgm.defining_parameters]{defining par
 For each $u=a_i$ or $b_j$ in $A=(a_1,\ldots, a_m)$ and $B=(b_1,\ldots, b_n)$ we write $u=p^s v$ where $p \nmid v$.  We replace $u$ with $\phi(p^s)$ copies of $v$, to get $[A', B']$, and then remove equal numbers of any overlapping elements between the multisets $A'$ and $B'$ to get $A^p$ and $B^p$.
 
 \end{definition}
+
+

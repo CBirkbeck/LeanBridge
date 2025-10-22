@@ -11,3 +11,5 @@ For modular curves with large \hyperref[modcurve.index]{index}, we only show $38
 
 Pictures of modular curves were implemented by David Lowry-Duda. Details about the implementation and algorithms are contained in the technical note \cite{\href{https://davidlowryduda.com/wp-content/uploads/2022/12/VisualizingModularCurves.pdf}{Visualizing modular curves}}.
 \end{definition}
+
+

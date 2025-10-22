@@ -6,3 +6,5 @@ The normalized polynomial is the \hyperref[nf.polredabs]{output of gp/pari's <co
 
 Normalized polynomials are always monic with integer coefficients, such that the sum of the squares of the absolute values of all complex roots of $f(x)$ is minimized.  When there is more than one such polynomial, the tie is broken based on the size of the polynomial's coefficients and discriminant.
 \end{definition}
+
+

@@ -3,3 +3,5 @@
 \uses{group.sp2gr,mf.siegel.galois_orbit}
 The following table shows two \hyperref[mf.siegel.galois_orbit]{Galois orbits} of weights 12 and 14 on the \hyperref[group.sp2gr]{full modular group} $\mathrm{Sp}(6,\mathbb{Z}))$, respectively.
 \end{definition}
+
+

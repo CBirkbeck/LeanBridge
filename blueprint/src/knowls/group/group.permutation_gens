@@ -3,3 +3,5 @@
 \uses{group.permutation_representation,group.solvable}
 For non-\hyperref[group.solvable]{solvable} groups $G$ we give a set of permutations that generate a minimal degree  \hyperref[group.permutation_representation]{faithful transitive permutation representation} of $G$.
 \end{definition}
+
+

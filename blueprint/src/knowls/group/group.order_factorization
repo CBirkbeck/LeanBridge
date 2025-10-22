@@ -3,3 +3,5 @@
 \uses{group.order}
 You can provide the exponents for the factorization of the \hyperref[group.order]{order} of the group into primes.  Enter them in descending order, not the order matching the primes.  So, for example, $18$ would be entered as [2, 1].
 \end{definition}
+
+

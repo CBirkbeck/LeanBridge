@@ -3,3 +3,5 @@
 \uses{av.fq.l-polynomial,av.fq.lmfdb_label,av.fq.weil_polynomial,av.isogeny_class}
 To find a specific \hyperref[av.isogeny_class]{isogeny class} of abelian varieties over a finite field, enter its \hyperref[av.fq.lmfdb_label]{label}, \hyperref[av.fq.weil_polynomial]{Weil polynomial}, or \hyperref[av.fq.l-polynomial]{L-polynomial}.
 \end{definition}
+
+

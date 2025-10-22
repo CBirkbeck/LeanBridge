@@ -9,14 +9,14 @@ We describe abstract groups using standard building blocks:
  <li> $D_n$ denotes the \hyperref[group.dihedral]{dihedral group} of order $2n$.
  <li> $Q_n$ denotes the (generalized) \hyperref[group.generalized_quaternion]{quaternion group} of order $n$.
  <li> $F_q$ denotes the \hyperref[group.frobenius]{Frobenius group} for a prime power $q$. It is the group of affine linear transformations of the finite field $\mathbb{F}_q$. In other words, $F_q$ is a semidirect product  $\mathbb{F}_q : \mathbb{F}_q^{\times}$.
- <li> \hyperref[group.sporadic]{Sporadic Groups} (refer to this <a href="https://en.wikipedia.org/wiki/Sporadic\_group">wikipage</a>):
+ <li> \hyperref[group.sporadic]{Sporadic Groups} (refer to this \href{https://en.wikipedia.org/wiki/Sporadic_group}{wikipage}):
 <ul>
  <li> $M_n$ for $n=11,12, 22,23, 24$ denotes the Mathieu groups
  <li> $\Ru$ denotes the Rudvalis group
- <li> $\McL$ denotes the McLaughlin group
- <li> $\He$ denotes the Held group
- <li> $\HS$ denotes the Higman–Sims group
- <li> $J_1$, $J_2$, $J_3$ denote the Janko groups
+ <li> $\McL$ denotes the McLaughlin group 
+ <li> $\He$ denotes the Held group 
+ <li> $\HS$ denotes the Higman–Sims group 
+ <li> $J_1$, $J_2$, $J_3$ denote the Janko groups 
  <li> $\Co_2$ and $\Co_3$ denote the Conway groups
 </ul>
  <li> Here is a list of \hyperref[group.lie_type]{finite groups of Lie type}.
@@ -34,3 +34,5 @@ Groups $A$ and $B$ may be used to construct a larger group:
 \item  $A\wr B$ for the \hyperref[group.wreath_product]{wreath product} of $A$ and $B$.
 \end{itemize}
 \end{definition}
+
+

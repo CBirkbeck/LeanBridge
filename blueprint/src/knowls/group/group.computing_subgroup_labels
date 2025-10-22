@@ -7,3 +7,5 @@ If there are multiple subgroups up to automorphism (resp., conjugation) within a
 
 In these cases where two or more Gassmann equivalent subgroups have the same set of supergroups, we resort to computing \hyperref[group.permutation_representation]{permutation representation} signatures. We can, in fact, compute with any supergroup $K$ of $H$ instead of $G$.  This is much more efficient when the index $[K:H]$ is much smaller than $[G:H]$, but does require some care to account for the fact that there may be two or more $G$-conjugates of $H$ contained in $K$ that are not $K$-conjugate.
 \end{definition}
+
+

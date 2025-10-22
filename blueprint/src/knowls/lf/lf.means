@@ -23,3 +23,5 @@ If we adopt the convention $m_0=0$ then the means are related to the
 \hyperref[lf.slopes]{Swan slopes} $[s_1,\dots,s_w]$ by the formulas
 $(p-1)s_k=pm_k-m_{k-1}$ for $1\le k\le w$.
 \end{definition}
+
+

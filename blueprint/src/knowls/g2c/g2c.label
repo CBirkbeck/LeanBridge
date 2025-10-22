@@ -12,3 +12,5 @@ The label of a \hyperref[g2c.g2curve]{genus 2 curve} over $\Q$ has the form $N$.
 
 In particular, $N.s$ is the label of the isogeny class of the \hyperref[g2c.jacobian]{Jacobian} of the curve. The values $s$ and $n$ are assigned as curves are added to the database and carry no intrinsic meaning
 \end{definition}
+
+

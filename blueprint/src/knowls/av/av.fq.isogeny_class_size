@@ -3,3 +3,5 @@
 \uses{av.isogeny_class,av.princ_polarizable}
 Each \hyperref[av.isogeny_class]{isogeny class} of abelian varieties is divided into isomorphism classes.  Since some of these abelian varieties might not be \hyperref[av.princ_polarizable]{principally polarizable}, isomorphism means isomorphism of *unpolarized* abelian varieties.
 \end{definition}
+
+

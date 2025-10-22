@@ -3,3 +3,5 @@
 \uses{ec.minimal_discriminant}
 The valuation of the \hyperref[ec.minimal_discriminant]{minimal discriminant} at a prime.
 \end{definition}
+
+

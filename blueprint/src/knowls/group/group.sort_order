@@ -3,3 +3,5 @@
 \uses{group,group.label,group.order}
 By default, \hyperref[group]{group} search results are sorted by \hyperref[group.label]{label}, but you can choose to have \hyperref[group.order]{larger} groups show up first.
 \end{definition}
+
+

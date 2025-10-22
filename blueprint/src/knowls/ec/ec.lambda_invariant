@@ -9,3 +9,5 @@ where $\mu_p(E)$ is the \hyperref[ec.mu_invariant]{$\mu$-invariant} of $E$, then
 
 When $E$ has \hyperref[ec.good_supersingular_reduction]{supersingular reduction} at $p$, there is a pair of $p$-adic $L$-functions: $L_p^+(E,T)$ and $L_p^-(E,T)$ and one defines analogously a pair of $\lambda$-invariants: $\lambda^+_p(E)$ and $\lambda^-_p(E)$.
 \end{definition}
+
+

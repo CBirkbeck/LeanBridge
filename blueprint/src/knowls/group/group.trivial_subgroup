@@ -3,3 +3,5 @@
 \uses{alg.binary_operation.identity,group,group.subgroup}
 If $G$ is a \hyperref[group]{group} with \hyperref[alg.binary_operation.identity]{identity} element $e$, then $\{e\}$ is a \hyperref[group.subgroup]{subgroup} isomorphic to the trivial group.  It is the \textbf{trivial subgroup} of $G$, and all other subgroups are \textbf{non-trivial}.
 \end{definition}
+
+

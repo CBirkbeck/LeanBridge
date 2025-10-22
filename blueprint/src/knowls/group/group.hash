@@ -12,5 +12,7 @@ The data for abstract groups includes a hash (a 64-bit integer) which can be use
 \item  Otherwise, the hash value of $G$ is $\texttt{CollapseIntList}$ applied to the sorted list of pairs $[\# H, \texttt{EasyHash}(H)]$ as $H$ varies over $G$ and its maximal subgroups.
 \end{itemize}
 
-As an indication of the effectiveness of this hash function, there are 10,494,213 groups of order 512 and 10,487,714 distinct hash values among them.  Among the 544,831 groups currently in the LMFDB, there are 4,742 hash values that are duplicated; in 4,136 cases there are only two groups with that hash, and the largest number of groups with the same hash value is <a href="/Groups/Abstract/?hash=5120%234714647875464396655">22</a>.
+As an indication of the effectiveness of this hash function, there are 10,494,213 groups of order 512 and 10,487,714 distinct hash values among them.  Among the 544,831 groups currently in the LMFDB, there are 4,742 hash values that are duplicated; in 4,136 cases there are only two groups with that hash, and the largest number of groups with the same hash value is \href{/Groups/Abstract/?hash=5120%234714647875464396655}{22}.
 \end{definition}
+
+

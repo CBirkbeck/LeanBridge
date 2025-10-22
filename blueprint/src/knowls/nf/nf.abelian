@@ -1,5 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.abelian}{Abelian number field}}
 \begin{definition}\label{nf.abelian}
 \uses{nf,nf.galois_group}
-A \hyperref[nf]{number field} $K$ is \textbf{abelian} if it is Galois over $\Q$ and its \hyperref[nf.galois_group]{Galois group} $\Gal(K/\Q)$ is abelian.
+A \hyperref[nf]{number field} $K$ is \textbf{abelian} if it is Galois over $\Q$ and its \hyperref[nf.galois_group]{Galois group} $\Gal(K/\Q)$ is abelian. 
 \end{definition}
+
+

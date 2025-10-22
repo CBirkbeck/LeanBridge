@@ -1,7 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.relative_class_number}{Relative class number of a CM field}}
 \begin{definition}\label{nf.relative_class_number}
 \uses{nf,nf.class_number,nf.cm_field,nf.totally_real}
-If $K$ is a \hyperref[nf]{number field} with \hyperref[nf.cm_field]{CM} with \hyperref[nf.class_number]{class number} $h$, and $K^+$ is its maximal \hyperref[nf.totally_real]{totally real} subfield with class number $h^+$, then $h^+$ divides $h$ and the \textbf{relative class number} is
+If $K$ is a \hyperref[nf]{number field} with \hyperref[nf.cm_field]{CM} with \hyperref[nf.class_number]{class number} $h$, and $K^+$ is its maximal \hyperref[nf.totally_real]{totally real} subfield with class number $h^+$, then $h^+$ divides $h$ and the \textbf{relative class number} is 
 $h/h^+$.
 
 \end{definition}
+
+

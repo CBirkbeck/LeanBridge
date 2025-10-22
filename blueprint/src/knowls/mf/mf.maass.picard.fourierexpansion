@@ -4,6 +4,6 @@
 The \textbf{Fourier expansion} of a Maass forrm on PSL$(2,\Z[i])$ reads
 $$f(z)=\sum_{n\in\Z[i]}a(n)yK_{ir}(2\pi|n|y)e^{2\pi i\,\textrm{Re}(nx)},$$
 where $K_{ir}(x)$ is a \hyperref[specialfunction.k_bessel]{$K$-Bessel function} and the expansion coefficients $a(n)$ are related to Hecke eigenvalues.
-
-Keywords: #Maass #Picard
 \end{definition}
+
+

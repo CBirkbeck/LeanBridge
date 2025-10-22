@@ -1,0 +1,50 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.cmf_eisenstein}{Source of Classical Modular Forms Data}}
+\begin{definition}\label{rcs.source.cmf_eisenstein}
+\uses{artin,cmf.artin_field,cmf.dimension,cmf.eisenstein_newform,cmf.galois_representation,cmf.level,cmf.newform,cmf.projective_field,cmf.projective_image,cmf.stark_unit,cmf.trace_form,cmf.weight}
+Details regarding the construction of the database of classical modular forms can be found in the paper *Computing Classical Modular Forms* \cite{arXiv:2002.04717,doi:10.1007/978-3-030-80914-0_4} by Alex J. Best, Jonathan Bober, Andrew R. Booker, Edgar Costa, John Cremona, Maarten Derickx, David Lowry-Duda, Min Lee, David Roe, Andrew V. Sutherland, and John Voight. In particular, the classical modular forms data in the LMFDB comes from three sources:
+
+
+\begin{itemize}
+\item  For \hyperref[cmf.newform]{newforms} of \hyperref[cmf.weight]{weight} $k > 1$ and \hyperref[cmf.level]{level} $N\le 1000$ satisying $Nk^2\le 4000$ complex  embedding data was computed by Jonathan Bober using software available at \cite{href{https://github.com/jwbober/mflib}{github.com/jwbober/mflib}} based on the trace formula described in \cite{MR:1111555}. The software library  \cite{href{http://arblib.org/}{arb}} was used to rigorously control precision.  This data was also used to compute \hyperref[cmf.trace_form]{trace forms}.
+\end{itemize}
+
+\begin{itemize}
+\item  For newforms and \hyperref[cmf.eisenstein_newform]{Eisenstein newforms} of weight $k > 1$ and \hyperref[cmf.dimension]{dimension} $d\le 20$ exact algebraic eigenvalue data was computed using the modular symbols package implemented in  \cite{href{http://magma.maths.usyd.edu.au/magma/}{Magma}}.  For newforms of weight $k>1$ and dimension $d>20$ with $Nk^2>4000$ Magma was also used to compute complex embedding data.
+\end{itemize}
+
+\begin{itemize}
+\item  For newforms of weight $k=1$ the modular forms package \cite{doi:10.1007/s40687-018-0155-z} in  \cite{href{https://pari.math.u-bordeaux.fr/}{Pari/GP}} was used to compute exact algebraic eigenvalue data.
+\end{itemize}
+
+For newforms of weight $k=1$ the \hyperref[cmf.projective_field]{projective fields} cut out by the kernel of the \hyperref[cmf.galois_representation]{projective Galois representation} associated to the newform come from four sources:
+
+\begin{itemize}
+\item  In cases where the associated \hyperref[artin]{Artin representation} was already present in the LMFDB, the projective field was computed directly from the \hyperref[cmf.artin_field]{Artin field}.
+\end{itemize}
+
+\begin{itemize}
+\item  In cases where the \hyperref[cmf.projective_image]{projective image} is one of $D_2$, $D_3$, $D_4$, $A_4$, $S_4$, $D_5$, $A_5$ , the projective fields were obtained via an exhaustive enumeration of all number fields with compatible Galois group and ramification data by determining a unique candidate with compatible Frobenius elements.  The enumeration of these fields used the LMFDB database of number fields together with additional information provided by the Jones-Roberts database \cite{href{https://hobbes.la.asu.edu/NFDB/}{NFDB}}, along with a list of quartic fields enumerated using the algorithms in \cite{MR:1954977,DOI:10.1090/S0025-5718-02-01452-7}, and a list of A5 number fields enumerated by John Jones using a targeted Hunter search \cite{mr:1726089,doi:10.1007/BFb0054880}.
+\end{itemize}
+
+\begin{itemize}
+\item  In case where the projective image type is $D_n$ with $n>5$ and the distinguished quadratic subfield $K$ is real, the projective image was computed using class field theoretic techniques to enumerate all cyclic $n$-extensions of $K$ with compatible conductors and determining a unique candidate with compatible Frobenius elements.
+\end{itemize}
+
+\begin{itemize}
+\item  In all remaining cases the projective fields were computed as fixed fields of uniquely determined subgroups of class groups of imaginary quadratic orders using the CRT method to directly construct a defining polynomial for the quotient field via class invariants as described in \cite{MR:2970725,doi:10.1112/S1461157012001015}.
+\end{itemize}
+
+Additional newforms of weight $2$ and trivial character beyond the scope of \cite{doi:10.1007/978-3-030-80914-0_4} have been computed by Alex Cowan and Krit Boonsisreth:
+
+\begin{itemize}
+\item  Data for newforms of prime level $10,000\le N\le 1,000,000$ was computed by Alex Cowan as described in \cite{doi:10.1007/s40993-022-00392-z}.  Complex embeddings are not available for these newforms.
+\end{itemize}
+
+\begin{itemize}
+\item  Data for newforms of composite level $10,000\le N\le 50,000$ was computed by Krit Boonsiriseth as described in his thesis <a href="https://hdl.handle.net/1721.1/156828"><i>Performance Engineering of Modular Symbols</i></a>.  Exact Hecke eigenvalues and complex embeddings are not available for these newforms.
+\end{itemize}
+
+For weight 1 newforms, \hyperref[cmf.stark_unit]{Stark units} were computed by Arnau Padrés Masdemont using \href{https://github.com/arnaupadress/Finding-Stark-units-attached-to-modular-forms/}{this code}.
+\end{definition}
+
+

@@ -3,3 +3,5 @@
 \uses{}
 In the Hilbert modular form pages, an ideal $I$ of a number field is represented by the label $[N,m,\alpha]$, where $N$ is the absolute norm of the ideal, $m$ is the smallest rational integer in the ideal, and $\alpha$ is an element chosen so that $(m,\alpha)=I$.
 \end{definition}
+
+

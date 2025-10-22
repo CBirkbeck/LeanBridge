@@ -3,3 +3,5 @@
 \uses{}
 The Rouse label associated with an elliptic curve is the label given to the modular curve parametrizing all elliptic curves whose 2-adic image is contained in some specific subgroup of $\GL(2,\Z_2)$.
 \end{definition}
+
+

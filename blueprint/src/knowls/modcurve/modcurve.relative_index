@@ -3,3 +3,5 @@
 \uses{gl2.index,gl2.open,modcurve}
 Given a map $f : X_G \to X_H$ of \hyperref[modcurve]{modular curves} induced by an inclusion of \hyperref[gl2.open]{open subgroups} $H \le G \le \GL_2(\hat{\Z})$, the \textbf{relative index} of $f$ is the \hyperref[gl2.index]{index} $[G : H]$.  The degree of $f$ is half the index of $f$ if $-1 \in G$ and $-1 \not\in H$, and equal to the index otherwise.
 \end{definition}
+
+

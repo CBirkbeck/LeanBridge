@@ -1,15 +1,17 @@
-\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.maximal_elladic_galois_rep}{Maximal $l$-adic Galois representation}}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.maximal_elladic_galois_rep}{Maximal $\ell$-adic Galois representation}}
 \begin{definition}\label{ec.maximal_elladic_galois_rep}
 \uses{ec,ec.complex_multiplication,ec.galois_rep,ec.geom_endomorphism_ring,nf}
 Let $E$ be an \hyperref[ec]{elliptic curve} over a \hyperref[nf]{number field} $K$, let $\ell$ be prime, and let
 \[
-\rho_{E,\ell}\colon \Gal(\bar{K}/K)\to \Aut(E[\ell^\infty]) \simeq \GL_2(\Z_\ell)
-\]
-be the \hyperref[ec.galois_rep]{$\ell$-adic Galois representation} associated to $E$.
+\rho_{E,\ell}\colon \Gal(\overline{K}/K)\to \Aut(E[\ell^\infty]) \simeq \GL_2(\Z_{\ell}) 
+\] 
+be the \hyperref[ec.galois_rep]{$\ell$-adic Galois representation} associated to $E$. 
 
-If $E$ does not have \hyperref[ec.complex_multiplication]{potential complex multiplication}, then $\rho_{E,\ell}$ is \textbf{maximal} if its image contains $\SL_2(\Z_\ell)$.
+If $E$ does not have \hyperref[ec.complex_multiplication]{potential complex multiplication}, then $\rho_{E,\ell}$ is \textbf{maximal} if its image contains $\SL_2(\Z_{\ell})$.
 
-In general, let $\mathcal{O}$ be the \hyperref[ec.geom_endomorphism_ring]{geometric endomorphism ring} of $E$.  Then $E[\ell^\infty]$ is an $\mathcal{O}$-module, and we view $\Aut_{\mathcal{O}}(E[\ell^\infty])$ as a subgroup of $\Aut(E[\ell^\infty]) \simeq \GL_2(\Z_\ell)$ that contains the image of $\rho_{E,\ell}$ whenever $K$ contains $\mathcal O$.  We say that $\rho_{E,\ell}$ is \textbf{maximal} if its image contains $\SL_2(\Z_\ell) \cap \Aut_{\mathcal{O}}(E[\ell^\infty])$, in which case we call $\ell$ a \textbf{maximal prime} for $E$.
+In general, let $\mathcal{O}$ be the \hyperref[ec.geom_endomorphism_ring]{geometric endomorphism ring} of $E$.  Then $E[\ell^\infty]$ is an $\mathcal{O}$-module, and we view $\Aut_{\mathcal{O}}(E[\ell^\infty])$ as a subgroup of $\Aut(E[\ell^\infty]) \simeq \GL_2(\Z_{\ell})$ that contains the image of $\rho_{E,\ell}$ whenever $K$ contains $\mathcal O$.  We say that $\rho_{E,\ell}$ is \textbf{maximal} if its image contains $\SL_2(\Z_{\ell}) \cap \Aut_{\mathcal{O}}(E[\ell^\infty])$, in which case we call $\ell$ a \textbf{maximal prime} for $E$.
 
 
 \end{definition}
+
+

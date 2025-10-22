@@ -3,3 +3,5 @@
 \uses{artin,artin.projective_field,nf.stem_field}
 An \textbf{projective stem field} is a \hyperref[nf.stem_field]{stem field} for the \hyperref[artin.projective_field]{projective field} of an \hyperref[artin]{Artin representation}.
 \end{definition}
+
+

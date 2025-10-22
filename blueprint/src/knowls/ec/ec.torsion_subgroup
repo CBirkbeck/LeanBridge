@@ -13,5 +13,7 @@ The \textbf{torsion structure} is the list of invariants of the group:
 \end{itemize}
 
 For $K=\Q$ the possible torsion structures are $[n]$ for $n\le10$ and $n=12$, and $[2,2n]$ for $n=1,2,3,4$.
-
+ 
 \end{definition}
+
+

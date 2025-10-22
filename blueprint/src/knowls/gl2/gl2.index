@@ -3,6 +3,8 @@
 \uses{gl2.level,gl2.open,gl2.profinite}
 The \textbf{index} of an \hyperref[gl2.open]{open subgroup} $H$ of a \hyperref[gl2.profinite]{profinite group} $G$ is the positive integer $[G:H]$.
 
-When $G$ is a matrix group over $\widehat{\Z}$ or $\Z_\ell$ and $H$ is a subgroup of \hyperref[gl2.level]{level} $N$, this is the same as the index of $H$ in the reduction of $G$ modulo $N$.
+When $G$ is a matrix group over $\widehat \Z$ or $\Z_{\ell}$ and $H$ is a subgroup of \hyperref[gl2.level]{level} $N$, this is the same as the index of $H$ in the reduction of $G$ modulo $N$.
 
 \end{definition}
+
+

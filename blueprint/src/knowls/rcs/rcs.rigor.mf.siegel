@@ -11,3 +11,5 @@ In addition to using mathematically rigorous algorithms whenever possible, we ha
 
 For all \hyperref[mf.siegel.newform]{newforms} of \hyperref[mf.siegel.weight_k_j]{weight} $(k,j) = (3,0), (3,2), (4,0)$ and squarefree level $N$ we have verified that the dimensions agree with known dimension formulas \cite{MR3638279} \cite{arxiv:2208.13578}.
 \end{definition}
+
+

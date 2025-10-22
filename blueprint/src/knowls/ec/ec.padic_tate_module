@@ -11,3 +11,5 @@ If $K$ has characteristic not equal to $p$, then $T_p(E)$ is a free $\Z_p$-modul
 
 This is a special case of the \hyperref[av.tate_module]{Tate module of an abelian variety}.
 \end{definition}
+
+

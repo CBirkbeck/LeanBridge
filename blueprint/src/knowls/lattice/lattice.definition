@@ -1,13 +1,15 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.definition}{Integral Lattice}}
 \begin{definition}\label{lattice.definition}
 \uses{lattice.gram}
-Let $V$ be an $n$-dimensional vector space over a field $F$ equipped with a symmetric bilinear map $B:V\times V\rightarrow F$ and associated quadratic map $Q(v):=B(v,v).$  The pair $(V,Q)$ is a quadratic space.  Fixing a basis, $\{v_1,...,v_n\}$ for $V$, the space $(V,Q)$ has an associated quadratic form, that is, a homogeneous degree 2 polynomial, given by
+Let $V$ be an $n$-dimensional vector space over a field $F$ equipped with a symmetric bilinear map $B:V\times V\rightarrow F$ and associated quadratic map $Q(v):=B(v,v).$  The pair $(V,Q)$ is a quadratic space.  Fixing a basis, $\{v_1,...,v_n\}$ for $V$, the space $(V,Q)$ has an associated quadratic form, that is, a homogeneous degree 2 polynomial, given by 
 \[
 f(x_1,...,x_n)=\sum_{i,j}B(v_i,v_j)x_ix_j,
 \]
-where $B(v_i,v_j)=B(v_j,v_i)$ since $B$ is symmetric. It is often helpful to think of a quadratic space in terms of its \hyperref[lattice.gram]{Gram matrix} representation.
+where $B(v_i,v_j)=B(v_j,v_i)$ since $B$ is symmetric. It is often helpful to think of a quadratic space in terms of its \hyperref[lattice.gram]{Gram matrix} representation. 
 
-Let $R$ denote the ring of integers of $F$.  An $R$-lattice is a finitely generated $R$-module which is a discrete subset of $V$ endowed with the same bilinear map $B$. In the special case when $F=\mathbb{R}$, an \textbf{integral lattice} is simply a $\mathbb{Z}$-lattice, $L$, with the added restriction that $B(L,L)\subseteq \mathbb Z$.
+Let $R$ denote the ring of integers of $F$.  An $R$-lattice is a finitely generated $R$-module which is a discrete subset of $V$ endowed with the same bilinear map $B$. In the special case when $F=\mathbb{R}$, an \textbf{integral lattice} is simply a $\mathbb{Z}$-lattice, $L$, with the added restriction that $B(L,L)\subseteq \mathbb{Z}$.       
 
-For example, letting $B(v,w)=v\cdot w$, the standard inner product, Euclidean $n$-space can be thought of as the quadratic space $(\mathbb{R}^n, \cdot)$.  In this case, the space $(\mathbb{R}^n, \cdot)$ contains the integral lattice $\mathbb{Z}^n$ as a discrete subset endowed with the standard inner product.
+For example, letting $B(v,w)=v\cdot w$, the standard inner product, Euclidean $n$-space can be thought of as the quadratic space $(\mathbb{R}^n, \cdot)$.  In this case, the space $(\mathbb{R}^n, \cdot)$ contains the integral lattice $\mathbb{Z}^n$ as a discrete subset endowed with the standard inner product.   
 \end{definition}
+
+

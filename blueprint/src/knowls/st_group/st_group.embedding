@@ -4,3 +4,5 @@
 In order to explicitly compute moments and other invariants of a \hyperref[st_group.definition]{Sato-Tate group} it is necessary to specify (up to conjugacy) exactly how it is embedded in its \hyperref[st_group.ambient]{ambient group}; for example, subgroups that are isomorphic as real Lie groups may have different distributions of characteristic polynomials.
 
 \end{definition}
+
+

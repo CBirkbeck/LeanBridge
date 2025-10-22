@@ -16,3 +16,5 @@ I_{10} = c^{10} \prod (1 2)^2.\qquad\qquad\qquad\qquad\qquad\qquad\qquad\quad \\
 \]
 Here each sum and product runs over the distinct expressions obtained by applying a permutation to the index set $\{1, \ldots, 6\}$. More precisely, it is obtained by averaging over the $S_6$-Galois orbit of the given expression. Note that $I_{10}$ is simply the discriminant of the sextic polynomial $f$.
 \end{definition}
+
+

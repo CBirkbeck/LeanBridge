@@ -7,3 +7,5 @@ Any field $k_0\in S$ that contains no other elements of $S$ is a \textbf{minimal
 
 In general, an algebraic variety may have more than one minimal field of definition; this does not occur for elliptic curves but it does occur for curves  of \hyperref[ag.curve.genus]{genus} 2.
 \end{definition}
+
+

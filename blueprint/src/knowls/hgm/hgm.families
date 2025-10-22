@@ -13,3 +13,5 @@ z^{1-\beta_k} \sum_{n=0}^\infty \frac{\prod_{i=1}^d (\alpha_i - \beta_k + 1)_n}{
 $$
 where $(x)_n = x(x+1)\cdots(x+n-1)$ is the Pochhammer symbol.
 \end{definition}
+
+

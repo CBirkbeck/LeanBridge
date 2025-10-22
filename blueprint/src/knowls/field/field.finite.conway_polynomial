@@ -1,7 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/field.finite.conway_polynomial}{Conway polynomial}}
 \begin{definition}\label{field.finite.conway_polynomial}
 \uses{}
-\textbf{Conway polynomials} give a standardized defining polynomial for defining finite fields.
+\textbf{Conway polynomials} give a standardized defining polynomial for defining finite fields.  
 
 For the finite field of order $p^n$ where $p$ is prime, we first set an ordering for the elements of $\F_p=\Z/p\Z$, namely $0<1<\cdots< p-1$ where we represent classes modulo $p$ by an integer in $\{0,\ldots, p-1\}$.
 
@@ -10,9 +10,11 @@ For two degree $n$ polynomials over $\F_p$, $f=a_n x^n + \cdots a_0$ and $g=b_n 
 Then, the Conway polynomial is the first polynomial $f_{p,n}$ of degree $n$ under this ordering such that
 
   1. a root of $f_{p,n}$ is primitive, i.e., it has order $p^n-1$ in $\overline{\F}_p$
-  2. for every positive divisor $m$ of $n$,
+  2. for every positive divisor $m$ of $n$, 
   $$f_{p,m}(x^{(p^n-1)/(p^m-1)}) \equiv 0 \pmod{f_{p,n}},$$
 i.e., the $(p^n-1)/(p^m-1)$th power of a root of $f_{p,n}$ is a root of $f_{p,m}$.
 
 
 \end{definition}
+
+

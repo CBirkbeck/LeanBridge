@@ -3,3 +3,5 @@
 \uses{group.ambient,group.label,group.subgroup}
 You can specify the \hyperref[group.ambient]{ambient group} of a \hyperref[group.subgroup]{subgroup} by providing its \hyperref[group.label]{label} as an abstract group.
 \end{definition}
+
+

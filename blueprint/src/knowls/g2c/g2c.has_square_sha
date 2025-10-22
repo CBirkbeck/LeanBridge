@@ -5,3 +5,5 @@ The \hyperref[group.order]{order} of the \hyperref[ag.tate_shafarevich]{Tate-Sha
 
 For elliptic curves, only the square case can occur, but for Jacobians of \hyperref[ag.curve.genus]{genus} 2 curves, both cases are known to occur.
 \end{definition}
+
+

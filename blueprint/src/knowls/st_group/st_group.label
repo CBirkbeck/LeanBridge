@@ -14,3 +14,5 @@ In general \hyperref[st_group.definition]{Sato-Tate group} labels have the form 
 
 When $w=0$ we the identity component is necessarily trivial and the $A$ is omitted.  When $w=0$ and $d=1$ there is exactly one Sato-Tate group for each value of $c$ and we may omit $n$ and $s$.
 \end{definition}
+
+

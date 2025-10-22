@@ -9,3 +9,5 @@ c_m := \#\bigl\{X_f(\{T_{p_i}:i < m\}): \mathrm{newforms}\ f\in S_k^\mathrm{new}
 \]
 is strictly increasing.  The length of the sequence $p_1,\ldots p_n$ is always less then the number of newforms in $S_k^\mathrm{new}(N,\chi)$ and we obtain the empty sequence when $S_k^\mathrm{new}(N,\chi)$ contains just one newform.
 \end{definition}
+
+

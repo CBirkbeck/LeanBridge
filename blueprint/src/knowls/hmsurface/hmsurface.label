@@ -8,12 +8,12 @@ The label of a \hyperref[hmsurface.hmsurface]{Hilbert modular surface} is of the
 \end{itemize}
 
 \begin{itemize}
-\item  `N` is an \hyperref[nf.ideal_labels]{ideal label} for the
+\item  `N` is an \hyperref[nf.ideal_labels]{ideal label} for the 
 \end{itemize}
-\hyperref[hmsurface.level]{level};
+\hyperref[hmsurface.level]{level}; 
 
 \begin{itemize}
-\item  `b` is an \hyperref[nf.ideal_labels]{ideal label} for the
+\item  `b` is an \hyperref[nf.ideal_labels]{ideal label} for the 
 \end{itemize}
    \hyperref[hmsurface.component_ideal]{component ideal};
 
@@ -27,3 +27,5 @@ The value for `t` can be either `sl-0` or `gl-0` to indicate the \hyperref[hmsur
 
 
 \end{definition}
+
+

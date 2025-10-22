@@ -5,3 +5,5 @@ The \hyperref[lfunction.spectral_parameters]{spectral parameters} are encoded as
 
 Similarly, y is either 0 (indicating that all $\mu_j$ and $\nu_j$ are real), or the concatenation of expressions of the form p$t$, m$t$ or c$t$ indicating complex numbers with imaginary part either $t$ or $-t$ or both (respectively).  These imaginary parts are listed in the same order as the real parts and are sorted by increasing absolute value within parameters with the same real part.  We round imaginary parts to two digits after the decimal point.  We write p0 when the imaginary part is zero to the known precision, and p0.00 and m0.00 for imaginary parts with an absolute value smaller than $0.5 \cdot 10^{-2}$.
 \end{definition}
+
+

@@ -23,3 +23,5 @@ $$\mathcal{R}_k^{z} = \left\{\alpha \in \mathcal{R}_k^\infty : \alpha < \frac{pz
 
 The possible rams $r_1 = \dots = r_w$ for totally wildly ramified extensions of degree $p^w$ over $K$ are then just given by $\mathcal{R}_w^{e_K}$, where $e_K$ is the \hyperref[lf.ramification_index]{absolute ramification index} of $K$.  In general, the possible rams $(r_1,\dots,r_w)$ over $K$ are chosen sequentially using the considerations above and the fact that if $r_i < r_{i+1}$ then $L/K$ has an intermediate field $L_i$ with $[L_i:K] = \epsilon p^i$.  For example, to get all strictly increasing sequences, each $r_k$ is chosen from $\mathcal{R}_1^{e_K \epsilon p^{k-1}}$.
 \end{definition}
+
+

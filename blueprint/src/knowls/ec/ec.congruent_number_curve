@@ -24,3 +24,5 @@ Each congruent number elliptic curve $E_n$ belongs to an \hyperref[ec.isogeny_cl
 $E_n=[0,0,0,-n^2,0]$ are $[0,0,0,4n^2,0]$ and $[0,\pm 12n,0,n^2,0]$.
 
 \end{definition}
+
+

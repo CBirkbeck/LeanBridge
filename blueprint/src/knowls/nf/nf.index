@@ -3,3 +3,5 @@
 \uses{nf,nf.order,nf.ring_of_integers}
 Let $\mathcal{O}$ be an \hyperref[nf.order]{order} in a \hyperref[nf]{number field} $K$. The index of $\mathcal{O}$ is its index as a sublattice of the \hyperref[nf.ring_of_integers]{ring of integers} of $K$.
 \end{definition}
+
+

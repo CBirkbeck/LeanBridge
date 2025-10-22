@@ -14,3 +14,5 @@ where $S$ is a finite set of primes.  The  symmetric $n$-th power of $L(s)$ is a
     \]
 The Euler factors at the primes $p\in S$ (the  "bad" primes) are computed via a more complicated recipe which involves a non-trivial amount of information about the underlying object.   The degree of an Euler factor at one of the bad primes will be smaller than the degree of the Euler factors outside the set $S$.
 \end{definition}
+
+

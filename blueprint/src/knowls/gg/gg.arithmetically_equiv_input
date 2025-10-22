@@ -5,3 +5,5 @@ Suppose a \hyperref[nf]{number field} $K$ has \hyperref[nf.galois_closure]{Galoi
 
 The number $k$ has not been computed for all Galois groups.  To see groups for which it has not been computed, use the value $-1$.
 \end{definition}
+
+

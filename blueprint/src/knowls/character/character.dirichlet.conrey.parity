@@ -10,3 +10,5 @@ Let $$\chi_q(n,\cdot)=\prod_{p|q}\chi_{p^e}(n,\cdot)$$ be the unique factorizati
 \end{itemize}
 
 \end{definition}
+
+

@@ -1,9 +1,11 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.selberg_class}{Selberg class of L-functions}}
 \begin{definition}\label{lfunction.selberg_class}
 \uses{lfunction.dirichlet_series,lfunction.rh,lfunction.selberg_class.axioms}
-The \textbf{Selberg class} $\mathcal{S}$ is the set of
-all \hyperref[lfunction.dirichlet_series]{Dirichlet series}
+The \textbf{Selberg class} $\mathcal{S}$ is the set of 
+all \hyperref[lfunction.dirichlet_series]{Dirichlet series} 
 that satisfy the four \hyperref[lfunction.selberg_class.axioms]{Selberg class axioms}.  The set $\mathcal{S}$ was defined by <a href=https://en.wikipedia.org/wiki/Atle\_Selberg">Atle Selberg</a>, who conjectured that its elements all satisfy the \hyperref[lfunction.rh]{Riemann hypothesis.}
-
+ 
 
 \end{definition}
+
+

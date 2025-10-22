@@ -10,3 +10,5 @@ where $F$ runs over all newforms of weight $k-1$, level dividing $N/2$ and chara
 S_{k/2}(N, \chi, F) =\{ g \in S_0'(N, \chi): T_{p^2} g = \lambda_p(F) g \quad \forall\, p\nmid N\}.
 \]
 \end{definition}
+
+

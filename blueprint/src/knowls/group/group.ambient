@@ -3,3 +3,5 @@
 \uses{group.subgroup}
 If $H \subseteq G$ is a \hyperref[group.subgroup]{subgroup}, we refer to $G$ as the \textbf{ambient group} of $H$.
 \end{definition}
+
+

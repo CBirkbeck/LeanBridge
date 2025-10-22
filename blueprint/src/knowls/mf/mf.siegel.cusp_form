@@ -1,9 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.cusp_form}{Siegel cusp form}}
 \begin{definition}\label{mf.siegel.cusp_form}
 \uses{mf.siegel,mf.siegel.character,mf.siegel.slash.op}
-A \hyperref[mf.siegel]{Siegel modular form}
-Siegel modular form $f$
-\hyperref[mf.siegel.character]{with character}
+A \hyperref[mf.siegel]{Siegel modular form} 
+Siegel modular form $f$ 
+\hyperref[mf.siegel.character]{with character} 
 $\psi$ and weight $\rho$ on an arithmetic subgroup $\Gamma \leq \GSp(2g,\Q)$
 is called a cusp form if for any $\gamma\in \Sp(2g,\Q)$, we have
 \[
@@ -11,3 +11,5 @@ is called a cusp form if for any $\gamma\in \Sp(2g,\Q)$, we have
 \]
 where $|$ is the \hyperref[mf.siegel.slash.op]{slash operator}.
 \end{definition}
+
+

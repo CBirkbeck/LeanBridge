@@ -8,8 +8,10 @@ All the data for each individual elliptic curve has been computed rigorously wit
 
 \begin{itemize}
 \item  the \hyperref[lfunction.analytic_rank]{analytic rank} and \hyperref[lfunction.leading_coeff]{special L-value} were computed using either the Magma function <tt>AnalyticRank()</tt>, which assumes that the \hyperref[lfunction]{L-function} satisfies the \hyperref[g2c.hasse_weil_conjecture]{Hasse-Weil conjecture} and computes successive derivatives at the critial point to a fixed precision until it finds a non-zero value; or using the pari library's <tt>lfun</tt> function.  This assumption on the Hasse-Weil conjecture is satisfied by all the elliptic curves in the database which are known to be modular.
-\item  the \hyperref[ec.analytic_sha_order]{analytic order of $\Sha$} was in all cases computed approximately from its definition, given by the \hyperref[ec.bsdconjecture]{BSD formula}, and rounded to the nearest integer; in all cases this is a positive integer square.
+\item  the \hyperref[ec.analytic_sha_order]{analytic order of $\Sha$} was in all cases computed approximately from its definition, given by the \hyperref[ec.bsdconjecture]{BSD formula}, and rounded to the nearest integer; in all cases this is a positive integer square. 
 \item  the \hyperref[ec.canonical_height]{heights} of generators, \hyperref[ec.regulator]{regulators}, and \hyperref[ec.period]{periods} have been computed to 128-bit precision in all cases (with the \hyperref[ec.regulator]{regulator} being exactly 1 for curves of rank 0).
 \item   the \hyperref[lfunction.leading_coeff]{special L-value} and \hyperref[ec.analytic_sha_order]{analytic order of $\Sha$} have been computed to the same precision over fields of degree 2 and 3, and to lower precision over fields of higher degree.
 \end{itemize}
 \end{definition}
+
+

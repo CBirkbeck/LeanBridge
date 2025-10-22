@@ -4,3 +4,5 @@
 An element of a \hyperref[nf]{number field} \(K\) is \textbf{integral} if it is \hyperref[ring.integral]{integral} over $\Z$.
 
 \end{definition}
+
+

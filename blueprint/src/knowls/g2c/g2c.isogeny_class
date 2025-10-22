@@ -5,6 +5,8 @@ The \textbf{isogeny class} (over a field $K$) of an \hyperref[ag.abelian_variety
 
 LMFDB entries for isogeny classes typically list only those elements of the isogeny class that are present in the LMFDB; for abelian varieties of dimension greater than 1 this means that the list of elements of the isogeny class will often be incomplete.
 
-Isogeny class information listed on LMFDB pages for curves refer to the isogeny class of its \hyperref[ag.jacobian]{Jacobian}.
+Isogeny class information listed on LMFDB pages for curves refer to the isogeny class of its \hyperref[ag.jacobian]{Jacobian}. 
 
 \end{definition}
+
+

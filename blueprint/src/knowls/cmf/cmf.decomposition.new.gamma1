@@ -7,3 +7,5 @@ S_k^{\mathrm{new}}(\Gamma_1(N)) \cong \bigoplus_{\chi \bmod N} S_k^{\mathrm{new}
 \]
 where the direct sum is over all \hyperref[character.dirichlet]{Dirichlet characters} modulo \(N\). If \(\chi\) and \(\chi'\) are in the same \hyperref[character.dirichlet.galois_orbit]{Galois orbit}, then \(S_k^{\mathrm{new}}(N, \chi)\) and \(S_k^{\mathrm{new}}(N, \chi')\) are Galois conjugate and we identify them since we define \hyperref[cmf.newform]{newforms} as Galois orbits.
 \end{definition}
+
+

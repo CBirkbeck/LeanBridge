@@ -16,7 +16,7 @@ We may present $\iota(f)$ in four formats:
 \begin{itemize}
 \item  Complex embeddings: For each embedding $\iota$, we present the real and imaginary values $\iota(a_n)$ with the desired number of significant digits of the stored values.
 \end{itemize}
-The stored values are the approximations to 53 bits of $\iota(a_n)$ initially computed up to 200 bits of precision.
+The stored values are the approximations to 53 bits of $\iota(a_n)$ initially computed up to 200 bits of precision. 
 
 \begin{itemize}
 \item  Normalized embeddings: the same as above, but now we present $a_n$ analytically normalized, i.e., $\iota(a_n) / n^{(k-1)/2}$
@@ -31,3 +31,5 @@ The stored values are the approximations to 53 bits of $\iota(a_n)$ initially co
 \end{itemize}
 
 \end{definition}
+
+

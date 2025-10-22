@@ -7,3 +7,5 @@ Since $\eta$ is the basic construction block of infinite products, this implies 
 
 However, the function $q^c\prod_{n\ge0}(1-q^{5n+1})$ for instance is not modular for any value of $c$, although it closely resembles $\eta$.
 \end{definition}
+
+

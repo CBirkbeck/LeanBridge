@@ -5,3 +5,5 @@ These tables contain the first positive zero of each Dirichlet L-function with l
 
 This data was computed using lcalc 1.23, and no specific claim is made about accuracy. Most of the printed digits should be correct, but the last few might be wrong in some cases.
 \end{definition}
+
+

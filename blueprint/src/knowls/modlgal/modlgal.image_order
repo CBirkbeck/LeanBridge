@@ -4,3 +4,5 @@
 The \textbf{image order} of a \hyperref[modlgal]{mod-$\ell$ Galois representation} $\rho:\Gal_K\to G(\F_{\ell})$ is the  order (or cardinality) of the \hyperref[modlgal.image]{image}  $\rho(\Gal_K)$.
 
 \end{definition}
+
+

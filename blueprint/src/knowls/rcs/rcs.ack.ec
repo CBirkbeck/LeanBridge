@@ -7,3 +7,5 @@ Nicolas Mascot wrote the code for the display of the real embedded curves.
 
 Coding for the pages was done by John Cremona.
 \end{definition}
+
+

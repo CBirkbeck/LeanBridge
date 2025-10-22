@@ -3,11 +3,13 @@
 \uses{mf.hilbert,nf.ideal_labels,nf.label}
 The label of a Galois orbit of \hyperref[mf.hilbert]{Hilbert cuspforms } is given by
 
-\hyperref[nf.label]{(number field label)} - (level label) - (orbit label)
+\hyperref[nf.label]{(number field label)} - (level label) - (orbit label) 
 
-separated by dashes.
+separated by dashes. 
 
 The level ideal for Hilbert modular forms differs from the \hyperref[nf.ideal_labels]{ideal label} used in other parts of the LMFDB, since this data precedes the invention of these labels.  Right now, the ideal is just labelled N.i where $N$ is the norm and i is a positive integer distinguishing ideals of the same norm.  The ideal $\mathfrak{N}$ is described on the pages by $[N, n, \beta]$ where $N=\mathrm{Nm}(\mathfrak{N})$ is the absolute norm, $n$ generates the ideal $\mathfrak{N} \cap \Z$, and $\beta$ is some element such that $\mathfrak{N} = (N, n, \beta)$.
 
 The orbit label is a letter again used to distinguish forms with the same number field and level.
 \end{definition}
+
+

@@ -10,8 +10,10 @@ For a finite \hyperref[group]{group} $G$, we write \textbf{Type - length} as fol
 
 <li> If $G$ is \hyperref[group.solvable]{solvable} but not nilpotent then we write  "Solvable - $n$", where $n$ is the \hyperref[group.derived_series]{derived length} of $G$.</li>
 
-<li> If $G$ is simple we write "Simple".
+<li> If $G$ is simple we write "Simple".  
 
  <li> For non-simple, non-solvable groups we write "Non-solvable - $n$", where $n$ is the number of Jordan factors of $G$.</li>
 </ul>
 \end{definition}
+
+

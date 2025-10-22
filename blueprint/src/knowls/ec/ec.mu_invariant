@@ -6,3 +6,5 @@ The analytic $\mu$-invariant of an elliptic curve $E$ at a prime of \hyperref[ec
 When $E$ has \hyperref[ec.good_supersingular_reduction]{supersingular reduction} at $p$, there is a pair of $p$-adic $L$-functions: $L_p^+(E,T)$ and $L_p^-(E,T)$ and one defines analogously a pair of $\mu$-invariants: $\mu^+_p(E)$ and $\mu^-_p(E)$.
 
 \end{definition}
+
+

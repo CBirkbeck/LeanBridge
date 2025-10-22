@@ -7,3 +7,5 @@ For each of these levels, the database contains consecutive Maass forms and is c
 
 Each database entry corresponds to exactly one Maass form. As each piece of data associated to each of these Maass forms is conjecturally transcendental, it's not possible to give an *exact* Maass form. Each database entry indicates error intervals that contain the associated data for exactly one Maass form.
 \end{definition}
+
+

@@ -3,3 +3,5 @@
 \uses{}
 The database contains all families of hypergeometric motives over $\Q$ with degree $\leq 7$.  There is no claim made of completeness for individual motives.
 \end{definition}
+
+

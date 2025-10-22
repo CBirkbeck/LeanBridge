@@ -1,7 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.q.bsd_invariants}{Birch and Swinnerton-Dyer invariants of an elliptic curve/$\mathbb{Q}$}}
 \begin{definition}\label{ec.q.bsd_invariants}
 \uses{ec.analytic_sha_order,ec.q.bsdconjecture,ec.q.real_period,ec.q.tamagawa_numbers,ec.rank,ec.regulator,ec.torsion_order}
-For an elliptic $E$ curve over $\mathbb{Q}$ the Birch/Swinnerton-Dyer invariants are
+For an elliptic $E$ curve over $\mathbb{Q}$ the Birch/Swinnerton-Dyer invariants are 
 
 \begin{itemize}
 \item  \hyperref[ec.rank]{rank}, $r$
@@ -15,3 +15,5 @@ For an elliptic $E$ curve over $\mathbb{Q}$ the Birch/Swinnerton-Dyer invariants
 The \hyperref[ec.q.bsdconjecture]{Birch and Swinnerton-Dyer Conjecture} asserts
 that the above invariants combine to give the order of vanishing and the first non-zero Taylor series coefficient of $L(E,s)$ at the central point $s=1.$
 \end{definition}
+
+

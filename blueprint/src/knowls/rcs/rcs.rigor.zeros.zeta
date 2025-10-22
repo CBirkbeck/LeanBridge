@@ -5,3 +5,5 @@ The imaginary part of each zero is recorded with an absolute precision of $\pm 2
 
 The results have been checked to a separate list of zeros independently computed by Jan B\"uthe to an accuracy of $\pm 2^{-64}$ (this comparison found 108 minor discrepancies, each of which was resolved in favor of the data presented here).
 \end{definition}
+
+

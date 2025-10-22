@@ -1,5 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/belyi.ramification_type}{Ramification type}}
 \begin{definition}\label{belyi.ramification_type}
 \uses{}
-The \textbf{ramification type} of a Belyi map $\phi \colon X \to \mathbb{P}^1$ is the triple of partitions $\lambda_0,\lambda_1,\lambda_\infty$ giving the ramification orders of the preimages of $0,1,\infty$, respectively.
+The \textbf{ramification type} of a Belyi map $\phi \colon X \to \mathbb{P}^1$ is the triple of partitions $\lambda_0,\lambda_1,\lambda_{\infty}$ giving the ramification orders of the preimages of $0,1,\infty$, respectively.
 \end{definition}
+
+

@@ -13,7 +13,9 @@ The database is not necessarily complete in these ranges, but it contains most o
 
 For $N=1$ the database is believed to be complete for $0<R<30$, but there are some missing values immediately beyond that range.
 
-It is believed that each database entry corresponds to an actual Maass form.  Using current methods it is not feasible to prove that the data for an individual Maass form is correct, nor that the list of Maass eigenvalues in a given range is compete.
+It is believed that each database entry corresponds to an actual Maass form.  Using current methods it is not feasible to prove that the data for an individual Maass form is correct, nor that the list of Maass eigenvalues in a given range is compete. 
 You can read about \hyperref[rcs.rigor.maass]{the reasons for this difficulty} and see the page on \hyperref[rcs.rigor.maass]{reliability of Maass form data} for further discussion of this issue.
 
 \end{definition}
+
+

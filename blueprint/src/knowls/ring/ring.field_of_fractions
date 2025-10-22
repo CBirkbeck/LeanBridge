@@ -1,7 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ring.field_of_fractions}{Field of fractions of an integral domain}}
 \begin{definition}\label{ring.field_of_fractions}
 \uses{ring.field,ring.integral_domain}
-If $R$ is an \hyperref[ring.integral_domain]{integral domain}, then its \textbf{field of fractions} $F$ is the smallest \hyperref[ring.field]{field} containing $R$.
+If $R$ is an \hyperref[ring.integral_domain]{integral domain}, then its \textbf{field of fractions} $F$ is the smallest \hyperref[ring.field]{field} containing $R$.  
 
 It can be constructed by mimicking the set of fractions $a/b$ where $a,b\in R$ with $b\neq 0$ following the usual rules for fraction arithmetic.  It is unique, up to unique isomorphism.
 \end{definition}
+
+

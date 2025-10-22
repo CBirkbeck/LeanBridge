@@ -1,10 +1,12 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.galois_image_search}{Searching on Galois images}}
 \begin{definition}\label{ec.galois_image_search}
 \uses{ec.galois_rep_elladic_image,ec.galois_rep_modell_image,ec.maximal_elladic_galois_rep,gl2.label}
-To search for elliptic curves with a particular \hyperref[ec.galois_rep_elladic_image]{$\ell$-adic image of Galois} that is \hyperref[ec.maximal_elladic_galois_rep]{not maximal}, enter the \hyperref[gl2.label]{label} (or list of labels) of a proper subgroup of $\GL_2(\Z_\ell)$.  You can also enter the \hyperref[ec.galois_rep_modell_image]{label} of a subgroup of $\GL_2(\F_\ell)$, in which case only the \hyperref[ec.galois_rep_modell_image]{mod-$\ell$ image} will be constrained.
+To search for elliptic curves with a particular \hyperref[ec.galois_rep_elladic_image]{$\ell$-adic image of Galois} that is \hyperref[ec.maximal_elladic_galois_rep]{not maximal}, enter the \hyperref[gl2.label]{label} (or list of labels) of a proper subgroup of $\GL_2(\Z_{\ell})$.  You can also enter the \hyperref[ec.galois_rep_modell_image]{label} of a subgroup of $\GL_2(\F_{\ell})$, in which case only the \hyperref[ec.galois_rep_modell_image]{mod-$\ell$ image} will be constrained.
 
 To search for elliptic curves with maximal $\ell$-adic Galois image, enter the desired prime or primes $\ell$ in the list of non-maximal primes and choose the "exclude" quantifier.
 
 Unless you explicitly specify complex multiplication in your search criteria, the search will by limited to elliptic curves without complex multiplication.
 
 \end{definition}
+
+

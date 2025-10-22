@@ -3,3 +3,5 @@
 \uses{group.homomorphism}
 A \textbf{group isomorphism} is a \hyperref[group.homomorphism]{group homomorphism} $f:G\to H$ which is bijective.
 \end{definition}
+
+

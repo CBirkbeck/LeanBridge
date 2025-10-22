@@ -12,3 +12,5 @@ If $R$ is Gorenstein then every fractional $R$-ideal $I$ with multiplicator ring
 
 For each fractional $R$-ideal $I$ with $(I:I)=R$, we record the dimensions of $I/\mathfrak{P}I$ over $R/\mathfrak{P}$ where $\mathfrak{P}$ runs over the singular primes of $R$.
 \end{definition}
+
+

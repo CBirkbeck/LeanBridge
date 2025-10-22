@@ -4,3 +4,5 @@
 Let $R$ be an \hyperref[av.fq.order]{order} in an étale algebra $K$ with maximal order $\mathcal{O}_K$.
 Then the \textbf{index} $[\mathcal{O}_K:R]$ is a finite positive integer.
 \end{definition}
+
+

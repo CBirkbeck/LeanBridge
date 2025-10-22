@@ -1,6 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/av.fq.p_rank}{p-rank}}
 \begin{definition}\label{av.fq.p_rank}
 \uses{av.fq.ordinary}
-Let $A$ be a $g$-dimensional abelian variety over $\F_q$ where $q=p^r$.
+Let $A$ be a $g$-dimensional abelian variety over $\F_q$ where $q=p^r$. 
 The \textbf{$p$-rank} of $A$ is the dimension of the geometric $p$-torsion as an $\F_p$-vector space:  $$p\operatorname{-rank}(A) = \dim_{\F_p}( A(\overline{\F}_p)[p] ).$$ The $p$-rank is at most $g$, with equality if and only if $A$ is \hyperref[av.fq.ordinary]{ordinary}.  The difference between $g$ and the $p$-rank is the \textbf{$p$-corank} of $A$.
 \end{definition}
+
+

@@ -5,3 +5,5 @@ The \textbf{degree} of a Dirichlet character $\chi$ is the \hyperref[nf.degree]{
 
 If $\chi$ has \hyperref[character.dirichlet.order]{order} $n$ then its degree is $\phi(n):=\#(\Z/n\Z)^\times$.
 \end{definition}
+
+

@@ -3,3 +3,5 @@
 \uses{st_group.component_group,st_group.connected,st_group.definition,st_group.identity_component}
 As a compact Lie group, a \hyperref[st_group.definition]{Sato-Tate group} $G$ need not be \hyperref[st_group.connected]{connected}, but it necessarily consists of a finite set of components, each of which is a coset of the \hyperref[st_group.identity_component]{identity component} $G^0$, a normal subgroup.  The number of components is equal to the cardinality of the \hyperref[st_group.component_group]{component group} $G/G^0$.
 \end{definition}
+
+

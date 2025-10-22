@@ -3,9 +3,11 @@
 \uses{}
 <h2>Additional acknowledgments</h2>
 
-This project was inspired by, and took much of its initial design ideas from Tim Dokchitser's <a href="https://people.maths.bris.ac.uk/~matyd/GroupNames/">GroupNames pages</a>.  A special thanks to Tim Dokchitser for his advice, suggestions, and code, as well as giving us permission to use some of his language for knowls on these pages.
+This project was inspired by, and took much of its initial design ideas from Tim Dokchitser's \href{https://people.maths.bris.ac.uk/~matyd/GroupNames/}{GroupNames pages}.  A special thanks to Tim Dokchitser for his advice, suggestions, and code, as well as giving us permission to use some of his language for knowls on these pages.
 
 
 Kiran Kedlaya, David Roberts, and Andrew Sutherland each contributed to discussions about the theoretical underpinnings of the computations, and provided coding support.
 
 \end{definition}
+
+

@@ -8,3 +8,5 @@ The completion of $\Q$ with respect to this metric is $\Q_p$, which is itself a 
 Example: the element $a = 3 + 7 + 2 \cdot 7^2 + 6 \cdot 7^3 + 7^4 + 2 \cdot 7^5 + \cdots$ satisfies $a^2=2$, since truncating the expansion after $n$ terms and squaring yields a number which is congruent to $2 \bmod 7^n$.
 
 \end{definition}
+
+

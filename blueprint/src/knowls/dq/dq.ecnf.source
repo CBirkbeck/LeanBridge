@@ -41,3 +41,5 @@ The images of mod-\(\ell\) Galois representations were computed by Andrew Suther
 ### \hyperref[ec.base_change]{Base change} and \(\mathbb{Q}\)-curves
 The property of being the base change of an elliptic curve over \(\mathbb{Q}\) and of being a \(\mathbb{Q}\)-curve were computed by John Cremona using his implementation in SageMath.
 \end{definition}
+
+

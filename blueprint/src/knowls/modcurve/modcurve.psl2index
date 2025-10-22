@@ -4,3 +4,5 @@
 The \textbf{$\PSL_2$-index} of a \hyperref[modcurve]{modular curve} $X_H$ is the index of $\Gamma_H := \pm H\cap \SL_2(\Z)$ in $\PSL_2(\Z)$; this index is also the degree of the map $j : \Gamma_H \backslash \overline{\mathfrak{h}} \to X(1)$, where $\overline{\mathfrak{h}}$ is the completed \hyperref[mf.upper_half_plane]{upper half-plane}. This is equal to the \hyperref[modcurve.index]{index} of the modular curve when $-1 \in H$, and equals half the index if $-1 \notin H$.
 
 \end{definition}
+
+

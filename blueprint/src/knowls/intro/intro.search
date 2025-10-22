@@ -8,3 +8,5 @@
 \item  You can negate a query by inserting a "~" at the beginning; for example "~3,5" excludes objects for which the relevant attribute has value 3 or 5.
 \end{itemize}
 \end{definition}
+
+

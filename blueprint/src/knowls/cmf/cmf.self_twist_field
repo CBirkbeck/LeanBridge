@@ -6,3 +6,5 @@
 When $K$ is an imaginary quadratic field the \hyperref[cmf.newform]{newform} is said to have \hyperref[cmf.cm_form]{complex multiplication} (CM) by $K$, and when $K$ is a real quadratic field the newform is said to have \hyperref[cmf.rm_form]{real multiplication} (RM) by $K$.
 
 \end{definition}
+
+

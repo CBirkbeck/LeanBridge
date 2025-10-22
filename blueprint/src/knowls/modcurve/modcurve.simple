@@ -3,3 +3,5 @@
 \uses{ag.abelian_variety,ag.jacobian,av.simple,modcurve}
 A \hyperref[modcurve]{modular curve} $X_H$ is \textbf{simple} if its \hyperref[ag.jacobian]{Jacobian} is a \hyperref[av.simple]{simple} \hyperref[ag.abelian_variety]{abelian variety}
 \end{definition}
+
+

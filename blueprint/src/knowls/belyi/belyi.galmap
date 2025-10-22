@@ -3,3 +3,5 @@
 \uses{}
 A \textbf{Belyi map} over a field $K$ of characteristic zero is a finite morphism $\phi\colon X\to\mathbb{P}^1$ of (smooth, projective, geometrically irreducible) curves over $K$ that is unramified outside $\{0,1,\infty\}$.
 \end{definition}
+
+

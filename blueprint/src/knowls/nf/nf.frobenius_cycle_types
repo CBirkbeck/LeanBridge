@@ -1,7 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.frobenius_cycle_types}{Frobenius cycle types}}
 \begin{definition}\label{nf.frobenius_cycle_types}
 \uses{}
-If $K$ is a degree $n$ extension of $\mathbb{Q}$, $\hat K$ its normal closure and $G=\text{Gal}(\hat K/\mathbb{Q})$, then $G$ acts on the set of $n$ embeddings of $K\to \hat K$ giving an embedding $G\to S_n$.  Let $\mathcal{O}_K$ be the ring of integers of $K$ and $p$ a prime number.  Then
+If $K$ is a degree $n$ extension of $\mathbb{Q}$, $\hat{K}$ its normal closure and $G=\text{Gal}(\hat{K}/\mathbb{Q})$, then $G$ acts on the set of $n$ embeddings of $K\to \hat{K}$ giving an embedding $G\to S_n$.  Let $\mathcal{O}_K$ be the ring of integers of $K$ and $p$ a prime number.  Then
 \[ p\mathcal{O}_K = P_1^{e_1}\cdots P_g^{e_g}\]
 where the $P_i$ are distinct prime ideals of $\mathcal{O}_K$.  The prime $p$ is \textbf{unramified} if $e_i=1$ for all $i$.
 
@@ -10,3 +10,5 @@ of $G$ that fixes $P_i$ and acts on the quotient $\mathcal{O}_K/P_i$ via the Fro
 
 Alternatively, for each prime $P_i$, its \textbf{residue degree} $f_i$ is defined by $|\mathcal{O}_K/P_i| = p^{f_i}$.  The list of $f_i$ is the same partition of $n$ as the cycle decomposition described above.
 \end{definition}
+
+

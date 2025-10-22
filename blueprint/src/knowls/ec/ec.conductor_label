@@ -11,3 +11,5 @@ The LMFDB uses a systematic labelling of \hyperref[ec.conductor]{conductors} of 
 
 In future it is planned to move to using the \hyperref[nf.ideal_labels]{standard labelling scheme} for ideals over all fields.
 \end{definition}
+
+

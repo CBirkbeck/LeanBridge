@@ -3,3 +3,5 @@
 \uses{group.representation.faithful,group.representation.irrep}
 The smallest positive integer $d$ such that the group $G$ admits a \hyperref[group.representation.faithful]{faithful} \hyperref[group.representation.irrep]{irreducible} rational representation of degree $d$.
 \end{definition}
+
+

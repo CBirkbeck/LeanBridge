@@ -11,3 +11,5 @@ Each \hyperref[lfunction]{L-function} $L$ has a label of the form d-N-q.k-x-y-i,
 \item  i is a non-negative integer disambiguating between L-functions that would otherwise have the same label.
 \end{itemize}
 \end{definition}
+
+

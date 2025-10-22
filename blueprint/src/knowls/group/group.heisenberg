@@ -6,3 +6,5 @@ $$\He_p := \left\{ \begin{pmatrix} 1 & a & b \\ 0 & 1 & c \\ 0 & 0 & 1 \\ \end{p
 with the usual matrix multiplication as the group operation. It has order $p^3$, and is one of only two non-abelian groups of order $p^3$.  In particular, for an odd prime $p$, it is the unique non-abelian group of order $p^3$ and exponent $p$.
 
 \end{definition}
+
+

@@ -3,3 +3,5 @@
 \uses{gg.tnumber,group.representation.character}
 The smallest permutation representation containing the given \hyperref[group.representation.character]{character} $\chi$, as a \hyperref[gg.tnumber]{transitive group}.
 \end{definition}
+
+

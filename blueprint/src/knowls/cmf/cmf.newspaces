@@ -5,3 +5,5 @@ The \hyperref[cmf.newform]{new part} of the space $S_k(N,\chi)$ of \hyperref[cmf
 
 It can be decomposed into irreducible subspaces under the action of the \hyperref[cmf.hecke_operator]{Hecke operators}, each of which corresponds to a Galois orbit of newforms (the absolute Galois group of $\Q$ acts the set of newforms in $S_k^{\rm new}(N,\chi)$ via its action on the coefficients of \hyperref[cmf.fouriercoefficients]{$q$-expansions}).
 \end{definition}
+
+

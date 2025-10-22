@@ -5,3 +5,5 @@ This is the order of the group of roots of unity of $K$, written in
 the form $(p^f-1)\cdot p^r$, where $f$ is the
 \hyperref[lf.residue_field_degree]{residue field degree} of $K/\Q_p$.
 \end{definition}
+
+

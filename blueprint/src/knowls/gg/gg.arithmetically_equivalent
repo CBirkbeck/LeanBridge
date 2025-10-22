@@ -7,3 +7,5 @@ Inside $G$, we have $H_1$, the stabilizer \hyperref[group.subgroup]{subgroup} of
 $$ |H_1 \cap C| = |H_2\cap C|$$
 for every \hyperref[gg.conjugacy_classes]{conjugacy class} $C$ of $G$.
 \end{definition}
+
+

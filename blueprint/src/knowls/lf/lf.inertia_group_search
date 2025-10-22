@@ -7,3 +7,5 @@ When searching by inertia subgroups, it can be specified as an abstract group by
 
 It can also be specified by as a \hyperref[nf.galois_group.name]{transitive group label}.  In this case, it will only match $p$-adic fields where the \hyperref[lf.defining_polynomial]{defining polynomial} is \hyperref[ring.irreducible]{irreducible} over the unramified extension of $\Q_p$ of degree \hyperref[lf.unramified_degree]{unramified degree} and the \hyperref[gg.galois_group]{Galois group} of the polynomial over that extension matches the specified transitive group.
 \end{definition}
+
+

@@ -11,6 +11,8 @@ When $A$ is an abelian surface over $\Q$, there are five possibilities for $\End
 4. $\Q\times \Q$;
 5. $\mathrm{M}_2(\Q)$;
 
-The first three cases occur when $A$ is \hyperref[ag.simple]{simple}, while the last two cases occur when $A$ is \hyperref[av.isogeny]{isogenous} to a product of \hyperref[ec]{elliptic curves} $E_1\times E_2$ over $\overline K$. Which of the last two cases occurs depends on whether $E_1$ and/or $E_2$ are isogenous or not.
+The first three cases occur when $A$ is \hyperref[ag.simple]{simple}, while the last two cases occur when $A$ is \hyperref[av.isogeny]{isogenous} to a product of \hyperref[ec]{elliptic curves} $E_1\times E_2$ over $\overline{K}$. Which of the last two cases occurs depends on whether $E_1$ and/or $E_2$ are isogenous or not.
 
 \end{definition}
+
+

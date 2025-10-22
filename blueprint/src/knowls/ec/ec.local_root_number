@@ -1,7 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.local_root_number}{Local root number}}
 \begin{definition}\label{ec.local_root_number}
 \uses{cmf,cmf.atkin-lehner,ec,ec.additive_reduction,ec.good_reduction,ec.nonsplit_multiplicative_reduction,ec.split_multiplicative_reduction,nf,nf.prime}
-The local root number of an \hyperref[ec]{elliptic curve} $E$ over a \hyperref[nf]{number field} at a \hyperref[nf.prime]{prime} $\mathfrak p$ is the sign of the local functional equation of $E$.  This is equal to $+1$ at primes of \hyperref[ec.good_reduction]{good} or \hyperref[ec.nonsplit_multiplicative_reduction]{non-split multiplicative reduction}, $-1$ at primes of \hyperref[ec.split_multiplicative_reduction]{split multiplicative reduction}, and at primes of \hyperref[ec.additive_reduction]{additive reduction} is $\pm1$ with no simple characterization.
+The local root number of an \hyperref[ec]{elliptic curve} $E$ over a \hyperref[nf]{number field} at a \hyperref[nf.prime]{prime} $\mathfrak p$ is the sign of the local functional equation of $E$.  This is equal to $+1$ at primes of \hyperref[ec.good_reduction]{good} or \hyperref[ec.nonsplit_multiplicative_reduction]{non-split multiplicative reduction}, $-1$ at primes of \hyperref[ec.split_multiplicative_reduction]{split multiplicative reduction}, and at primes of \hyperref[ec.additive_reduction]{additive reduction} is $\pm1$ with no simple characterization. 
 
 For an elliptic curve defined over $\Q$, the root number at a prime $p$ is also equal to the eigenvalue of the associated \hyperref[cmf.atkin-lehner]{Atkin-Lehner involution} for the associated \hyperref[cmf]{modular form}.
 \end{definition}
+
+

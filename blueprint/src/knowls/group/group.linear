@@ -3,3 +3,5 @@
 \uses{}
 Over any field $K$, linear group usually refers to an algebraic group which is a (Zariski closed) subgroup of the general linear group GL$(n,K)$ of invertible $n\times n$ matrices with coefficients in $K$. Similarly, projective linear group refers to a closed subgroup of $\text{PGL}(n,K)=\text{GL}(n,K)/\{\text{scalar matrices}\}$, the group of linear automorphisms of the projective $n$-space. When $K=\mathbb{F}_q$ is a finite field, these groups are finite, and often simple or almost simple, and so they play an important role in the classification of finite simple groups.
 \end{definition}
+
+

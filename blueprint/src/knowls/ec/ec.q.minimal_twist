@@ -12,16 +12,18 @@ The \textbf{minimal quadratic twist} of an elliptic curve $E$ defined over $\mat
 \end{itemize}
 
 
-All \hyperref[ec]{elliptic curves} $E$ over $\mathbb{Q}$ with $j$-invariant $1728$ are \hyperref[ec.twists]{quartic twists} of each other.  The smallest
-\hyperref[ec.q.conductor]{conductor} of such a curve is $32$.   Both the curves
-[32.a3](https://www.lmfdb.org/EllipticCurve/Q/32/a/3) and [32.a4](https://www.lmfdb.org/EllipticCurve/Q/32/a/4) have $j$-invariant $1728$, and they have minimal discriminants $-2^{12}$ and $2^6$ respectively.
+All \hyperref[ec]{elliptic curves} $E$ over $\mathbb{Q}$ with $j$-invariant $1728$ are \hyperref[ec.twists]{quartic twists} of each other.  The smallest 
+\hyperref[ec.q.conductor]{conductor} of such a curve is $32$.   Both the curves 
+[32.a3](https://www.lmfdb.org/EllipticCurve/Q/32/a/3) and [32.a4](https://www.lmfdb.org/EllipticCurve/Q/32/a/4) have $j$-invariant $1728$, and they have minimal discriminants $-2^{12}$ and $2^6$ respectively.  
 We define the \textbf{minimal quartic twist} (or just \textbf{minimal twist}) of every elliptic curve with $j=1728$ to be the curve [32.a3](https://www.lmfdb.org/EllipticCurve/Q/32/a/3), which has smaller discriminant, and equation $Y^2=X^3-X$.
 
 
-All \hyperref[ec]{elliptic curves} $E$ over $\mathbb{Q}$ with $j$-invariant $0$ are \hyperref[ec.twists]{sextic twists} of each other.  The smallest \hyperref[ec.q.conductor]{conductor} of such a curve is $27$.   Both the curves [27.a3](https://www.lmfdb.org/EllipticCurve/Q/27/a/3) and [27.a4](https://www.lmfdb.org/EllipticCurve/Q/27/a/4) have $j$-invariant $0$, and they have minimal discriminants $-3^9$ and $-3^3$ respectively.
+All \hyperref[ec]{elliptic curves} $E$ over $\mathbb{Q}$ with $j$-invariant $0$ are \hyperref[ec.twists]{sextic twists} of each other.  The smallest \hyperref[ec.q.conductor]{conductor} of such a curve is $27$.   Both the curves [27.a3](https://www.lmfdb.org/EllipticCurve/Q/27/a/3) and [27.a4](https://www.lmfdb.org/EllipticCurve/Q/27/a/4) have $j$-invariant $0$, and they have minimal discriminants $-3^9$ and $-3^3$ respectively.  
 We define the \textbf{minimal sextic twist} (or just \textbf{minimal twist}) of every elliptic curve with $j=0$ to be the curve [27.a4](https://www.lmfdb.org/EllipticCurve/Q/27/a/4), which has smaller discriminant, and equation $Y^2+Y=X^3$.
 
 The \textbf{minimal twist} of an elliptic curve $E$ is its minimal quadratic twist, unless $j(E)=0$ or $1728$, in which cases the minimal twist is its minimal sextic or quartic twist respectively.
 The minimal quadratic twist depends only on the $j$-invariant unless $j=0$ or $1728$; in each of  these cases, there are infinitely many different minimal quadratic twists, though only one minimal twist.
 
 \end{definition}
+
+

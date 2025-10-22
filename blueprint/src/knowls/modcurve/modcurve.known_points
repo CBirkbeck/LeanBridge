@@ -5,3 +5,5 @@ Points on modular curves fall into three categories: \hyperref[modcurve.cusps]{c
 
 When searching, you can specify the number of points (of any type), the number of noncuspidal points, or the number of other points (non-cuspidal and non-CM).  In each case, the count is based on the number of points of that type stored in the database, which may be less than the actual number of points on the curve.  In particular, this count is always finite, even for genus 0 curves and positive rank elliptic cuves that have infinitely many rational points.
 \end{definition}
+
+

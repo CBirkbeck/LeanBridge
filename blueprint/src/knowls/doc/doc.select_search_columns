@@ -3,3 +3,5 @@
 \uses{doc.search_columns}
 After using this input to select the \hyperref[doc.search_columns]{search columns} shown, clicking "Search again" will reload the page and give a URL that makes the chosen columns persistent.
 \end{definition}
+
+

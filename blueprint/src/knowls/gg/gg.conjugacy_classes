@@ -3,3 +3,5 @@
 \uses{group.conjugacy_class}
 {{KNOWL\_INC('group.conjugacy\_class')}}  If $G\leq S_n$, then all elements in the conjugacy class of an element have the same cycle type.
 \end{definition}
+
+

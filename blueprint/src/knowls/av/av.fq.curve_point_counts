@@ -5,3 +5,5 @@ If an \hyperref[ag.abelian_variety]{abelian variety} $A$ \hyperref[ag.base_field
 
 Even if $A$ is not known to be \hyperref[av.isogeny]{isogenous} to a Jacobian, we can still perform this computation. In that case, we refer to the virtual curve associated to $A$, since we do not know a priori if the curve whose points we are counting exists. In particular, if the point count returns a negative number, or if the point count returns a number for $\mathbb{F}_{q^n}$ smaller than for $\mathbb{F}_{q^d}$ for some factor $d \mid n$, then we know that $A$ is not isogenous to a Jacobian.
 \end{definition}
+
+

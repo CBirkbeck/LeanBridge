@@ -15,3 +15,5 @@ Isogenies from an elliptic curve $E$ to itself are called \hyperref[ec.endomorph
 
 An isogeny of elliptic curves is a special case of an \hyperref[av.isogeny]{isogeny of abelian varieties}.
 \end{definition}
+
+

@@ -16,3 +16,5 @@ where $V^{G_i}$ is the subspace of $V$ fixed by $G_i$.
 
 Note that if $p$ is \hyperref[artin.unramified_primes]{unramified} in $K$, then $f(\rho,p)=0$ and conversely, if $\rho$ is faithful and $p$ is ramified in $K$, then $f(\rho,p)>0$.
 \end{definition}
+
+

@@ -15,5 +15,7 @@ These fall into six classes of (packets of ) representations:
 
 (Y) - Yoshida type: These are functorial (endoscopic) lifts of pairs of automorphic representations $\mu_1,\mu_2$ of $\GL(2)$. Their $L$-functions are of the form $L(s,\mu_1)L(s,\mu_2)$.
 
-(G) - General type: (which contains the remaining representations) These are characterized by admitting a functorial transfer to a cuspidal automorphic representation of $\GL_4$.Their $L$-functions are primitive.
+(G) - General type: (which contains the remaining representations) These are characterized by admitting a functorial transfer to a cuspidal automorphic representation of $\GL_4$.Their $L$-functions are primitive. 
 \end{definition}
+
+

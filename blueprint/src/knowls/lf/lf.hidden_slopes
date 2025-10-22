@@ -7,7 +7,9 @@ of $L/K$.  The \textbf{Galois Swan slopes} of $L/K$ is the multiset $S^{Gal}$ of
 \hyperref[lf.slopes]{Swan slopes} of $L^{Gal}/K$ and let $S$ be
 the multiset of Swan slopes of $L/K$.  The multiset $H$ of \textbf{hidden Swan slopes} of
 $L/K$ is obtained by subtracting $S$ from $S^{Gal}$.  Thus $S^{Gal}$ is the
-multiset sum of $S$ and $H$.
+multiset sum of $S$ and $H$.  
 
 The \textbf{Galois Artin slopes} and \textbf{hidden Artin slopes} are defined analogously.  In particular, they can be obtained from the corresponding Swan slopes by adding $1$ to each.
 \end{definition}
+
+

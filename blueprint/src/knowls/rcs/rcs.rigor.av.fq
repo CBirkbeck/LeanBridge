@@ -13,3 +13,5 @@ We have also performed the following consistency check intended to catch any err
 \item  We have computed the \hyperref[ag.jacobian]{Jacobians} of all \hyperref[ag.curve.genus]{genus} 1 and 2 curves for $q$ in the range of our data and confirmed that they agree with the list of \hyperref[av.isogeny_class]{isogeny classes} determined to contain Jacobians.
 \end{itemize}
 \end{definition}
+
+

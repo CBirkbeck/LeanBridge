@@ -9,6 +9,8 @@ $$
 \end{cases}
 $$
 where $\text{lc}(f)$ denotes the leading coefficient of $f$ and $\text{disc}(f)$ its discriminant.
-
+ 
 The \textbf{discriminant} of a genus 2 curve over $\Q$ is the discriminant of a \hyperref[g2c.minimal_equation]{minimal equation} for the curve; it is an invariant of the curve that does not depend on the choice of minimal equation.
 \end{definition}
+
+

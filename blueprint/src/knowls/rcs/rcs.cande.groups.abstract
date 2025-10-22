@@ -45,3 +45,5 @@ The database of finite groups consists of groups, subgroups, characters and conj
 
 For each group, the lattice of subgroups, complex and rational character tables, representatives for the conjugacy classes, automorphism and outer automorphism group, rank, Schur multiplier and various other quantities were computed, subject to limits on time, memory and errors arising in Magma.  For space reasons, complex and rational character tables are never stored if larger than $511 \times 511$, and subgroups are only computed up to automorphism if there are more than 128 conjugacy classes of subgroups.  For time reasons, there are some large groups where subgroups are only computed up to conjugacy and not up to automorphism.  All normal subgroups are computed when possible, except that normal subgroups of size roughly the square root of the group order are omitted when there are more than 4096 normal subgroups.
 \end{definition}
+
+

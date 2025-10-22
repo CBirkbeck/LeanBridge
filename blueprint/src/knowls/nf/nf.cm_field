@@ -1,5 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.cm_field}{CM number field}}
 \begin{definition}\label{nf.cm_field}
 \uses{nf,nf.totally_imaginary,nf.totally_real}
-A \textbf{CM field} is a \hyperref[nf.totally_imaginary]{totally complex} quadratic extension of a \hyperref[nf.totally_real]{totally real} \hyperref[nf]{number field}.
+A \textbf{CM field} is a \hyperref[nf.totally_imaginary]{totally complex} quadratic extension of a \hyperref[nf.totally_real]{totally real} \hyperref[nf]{number field}. 
 \end{definition}
+
+

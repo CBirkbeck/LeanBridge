@@ -3,3 +3,5 @@
 \uses{cmf.congruence_subgroup,modcurve}
 An \textbf{elliptic point} on the \hyperref[modcurve]{modular curve} $X_H$ is a point whose stabilizer under the action of the \hyperref[cmf.congruence_subgroup]{congruence subgroup} $\Gamma_H$ is finite and nontrivial.
 \end{definition}
+
+

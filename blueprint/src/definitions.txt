@@ -74,7 +74,7 @@ ag.gonality:
     * $k$-gonality
     * gonality
 ag.gonality_geom:
-    * $\bar{K}$-gonality
+    * $\overline{k}$-gonality
     * geometric gonality
 ag.good_reduction:
     * bad reduction
@@ -464,6 +464,18 @@ cmf.dualform:
 cmf.eisenstein:
     * Eisenstein series
     * isotropy group
+cmf.eisenstein_form:
+    * Eisenstein form
+    * Eisenstein subspace
+cmf.eisenstein_label:
+    * label
+cmf.eisenstein_newform:
+    * Eisenstein newform
+cmf.eisenstein_newspace:
+    * new subspace
+    * old subspace
+cmf.eisenstein_series:
+    * Eisenstein series
 cmf.embedding:
     * embedding
 cmf.embedding_label:
@@ -499,6 +511,8 @@ cmf.inner_twist_count:
 cmf.inner_twist_multiplicity:
     * multiplicity
 cmf.label:
+    * label
+cmf.labels:
     * label
 cmf.level:
     * level
@@ -1399,7 +1413,7 @@ group.subgroup.projective_image:
 group.supersolvable:
     * supersolvable
 group.sylow_subgroup:
-    * $p$-Sylow
+    * $p$-Sylow 
 subgroup
 group.symmetric:
     * symmetric group
@@ -1941,14 +1955,14 @@ mf.maass.mwf.weight:
 mf.maass.mwf.weight0:
     * maass form
 mf.maass.picard:
-    * maass form
-    * picard group
+    * Maass form
+    * Picard group
 mf.maass.picard.eigenvalue:
     * eigenvalue
     * spectral parameter
     * true eigenvalue
 mf.maass.picard.fourierexpansion:
-    * fourier expansion
+    * Fourier expansion
 mf.maass.spectral_index:
     * spectral index
 mf.multipliersystem:
@@ -2531,7 +2545,7 @@ $\mathbf{SL}_2$-levels:
     * mf.bianchi.level
 $\mathrm{index}$:
     * av.fq.endomorphism_ring_notation
-$\bar{K}$-gonality:
+$\overline{k}$-gonality:
     * ag.gonality_geom
 $\PSL_2$-index:
     * modcurve.psl2index
@@ -2597,7 +2611,7 @@ $p$-group:
     * group.pgroup
 $p$-rank:
     * av.fq.p_rank
-$p$-Sylow
+$p$-Sylow 
 subgroup:
     * group.sylow_subgroup
 $q$:
@@ -3265,9 +3279,15 @@ eisenstein:
 Eisenstein diagram of $I/K$:
     * lf.eisenstein_diagram
 Eisenstein form:
+    * cmf.eisenstein_form
     * lf.eisenstein_form
+Eisenstein newform:
+    * cmf.eisenstein_newform
 Eisenstein series:
     * cmf.eisenstein
+    * cmf.eisenstein_series
+Eisenstein subspace:
+    * cmf.eisenstein_form
 elementary:
     * group.elementary
 elevation:
@@ -3384,7 +3404,6 @@ Fourier coefficients:
 Fourier expansion:
     * cmf.fouriercoefficients
     * mf.maass.mwf.fourierexpansion
-fourier expansion:
     * mf.maass.picard.fourierexpansion
 Fourier-Bessel expansion:
     * mf.bianchi.fourierbessell
@@ -3869,8 +3888,10 @@ label:
     * av.fq.lmfdb_label
     * belyi.label
     * character.dirichlet.galois_orbit_label
+    * cmf.eisenstein_label
     * cmf.embedding_label
     * cmf.label
+    * cmf.labels
     * group.label
     * group.label_complex_group_char
     * group.label_conjugacy_class
@@ -3963,9 +3984,9 @@ M-group:
 maass form:
     * mf.maass
     * mf.maass.mwf.weight0
-    * mf.maass.picard
 Maass form:
     * mf.maass.mwf
+    * mf.maass.picard
 Malle's constant:
     * gg.malle_a
 Manin constant:
@@ -4153,6 +4174,7 @@ necklace:
 negligible:
     * lf.eisenstein_diagram
 new subspace:
+    * cmf.eisenstein_newspace
     * cmf.newspace
     * cmf.subspaces
     * mf.siegel.newform
@@ -4267,6 +4289,7 @@ old:
     * cmf.oldspace
     * mf.siegel.newform
 old subspace:
+    * cmf.eisenstein_newspace
     * cmf.newspace
     * cmf.subspaces
     * mf.siegel.newform
@@ -4345,7 +4368,6 @@ Petersson scalar product:
     * cmf.petersson_scalar_product
 Picard group:
     * av.fq.picard_group
-picard group:
     * mf.maass.picard
 place:
     * nf.place

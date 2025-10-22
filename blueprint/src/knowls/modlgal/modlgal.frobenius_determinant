@@ -5,3 +5,5 @@ Let $\rho:\Gal_K\to G(\F_{\ell})$ be a \hyperref[modlgal]{mod-$\ell$ Galois repr
 
 Note that \hyperref[modlgal.ramified]{unramified} primes $\frak{p}$ of $K$ are, by definition, unramified in the \hyperref[modlgal.splitting_field]{splitting field} $L/K$ of $\rho$, so the Frobenius automorphism $\text{Frob}_{\frak{p}}$ is well-defined up to conjugacy in $\Gal(L/K)$, and hence the determinant of  $\rho(\text{Frob}_{\frak{p}})$ is well-defined.
 \end{definition}
+
+

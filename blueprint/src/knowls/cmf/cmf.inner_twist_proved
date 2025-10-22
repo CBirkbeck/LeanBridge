@@ -13,3 +13,5 @@ In cases where it is not feasible to test this equality, it is still checked at 
 
 The set of inner twists listed for a newform in the LMFDB is always guaranteed to contain all possible inner twists, regardless of whether or not all the listed inner twists have been proved (false positives are, in principle, possible, but not false negatives).  In particular, if no inner twists are listed then the newform provably does not admit any inner twists.
 \end{definition}
+
+

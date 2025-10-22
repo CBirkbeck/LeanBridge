@@ -30,3 +30,5 @@ with the same basic data.  It is defined by sorting the families by their number
 The label associated to an absolute family $I/\Q_p$ has the form
 $p.f.e.c\ell$, where $f,e,c,\ell$ are defined as above, with $K=\Q_p$.
 \end{definition}
+
+

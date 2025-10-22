@@ -5,3 +5,5 @@ An \hyperref[ec]{elliptic curve} $E$ defined over a \hyperref[nf]{number field} 
 
 The case of multiplicative reduction is further subdivided into \hyperref[ec.split_multiplicative_reduction]{split multiplicative reduction} and \hyperref[ec.nonsplit_multiplicative_reduction]{nonsplit multiplicative reduction}.
 \end{definition}
+
+

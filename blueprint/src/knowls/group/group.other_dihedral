@@ -6,3 +6,5 @@ $$\OD_{2^k} = \langle r,s \mid r^{2^{k-1}} = s^2 = 1,\ srs=r^{2^{k-2}+1}\rangle.
 It can also be given as the \hyperref[group.semidirect_product]{semidirect product} $C_{2^{k-1}} \rtimes C_2$ where the action of $C_2$ on $C_{2^{k-1}}$ is given by $x \mapsto x^{2^{k-2}+1}$.
 
 \end{definition}
+
+

@@ -5,3 +5,5 @@ A group $G$ is \textbf{monomial} or an \textbf{M-group} if every complex irreduc
 
 While every supersolvable group is monomial, the converse does not hold, as shown by <a href="{{url\_for('abstract.index')}}?monomial=yes&supersolvable=no">these examples</a>.  Similarly, <a href="{{url\_for('abstract.index')}}?solvable=yes&Agroup=yes&supersolvable=no">these examples</a> show that not every solvable A-group is supersolvable.  There are also <a href="{{url\_for('abstract.index')}}?solvable=yes&monomial=no">examples</a> of solvable groups that are not monomial.
 \end{definition}
+
+

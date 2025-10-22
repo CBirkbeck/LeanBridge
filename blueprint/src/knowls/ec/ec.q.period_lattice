@@ -14,3 +14,5 @@ The \textbf{real period}  of $E$ is defined to be $2x$ in each case, so is equal
 
 Note that the period lattice depends on the choice of Weierstrass model of $E$; different models have \hyperref[ec.q.real_period]{homothetic} lattices.  For elliptic curves defined over $\Q$, the period lattice associated to a \hyperref[ec.global_minimal_model]{global minimal model} of $E$ is called the \textbf{N\'e;ron lattice} of $E$.  The real period of the N\'e;ron lattice is denoted $\Omega_E$, and appears in the Birch Swinnerton-Dyer conjecture for $E$.
 \end{definition}
+
+

@@ -7,9 +7,11 @@ The group operation is given by
 \[
 (\chi,\sigma)\cdot (\chi',\sigma') = (\chi\sigma(\chi'),\sigma\sigma').
 \]
-The projection map $(\chi,\sigma)\mapsto \sigma$ is a group homomorphism $G\to \Aut_\Q(K)$ with kernel equal to the subgroup of \hyperref[cmf.self_twist]{self\_twists} and abelian image.
+The projection map $(\chi,\sigma)\mapsto \sigma$ is a group homomorphism $G\to \Aut_{\Q}(K)$ with kernel equal to the subgroup of \hyperref[cmf.self_twist]{self\_twists} and abelian image.
 
 The projection map $(\chi,\sigma)\mapsto \chi$ is injective, but it is not a group homomorphism, in general, although its restriction to the subgroup of self twists is.
 
 
 \end{definition}
+
+

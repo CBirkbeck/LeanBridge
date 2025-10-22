@@ -15,3 +15,5 @@ In addition, to specify the elliptic curve completely prepend the label of the b
 
 Where possible the labelling of isogeny classes matches that of associated cusp forms (\hyperref[mf.bianchi.newform]{Bianchi newforms} over imaginary quadratic fields and \hyperref[mf.hilbert]{Hilbert newforms} over totally real fields).   The prefix "CM" on the isogeny class label for certain elliptic curves over imaginary quadratic fields is used, because the Bianchi modular forms conjecturally attached to such curves are not cuspidal.
 \end{definition}
+
+

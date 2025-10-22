@@ -5,3 +5,5 @@ The \textbf{order statistics} of a group $G$ is the multiset of \hyperref[group.
 
 For example, the Quaternion group of order 8 has order statistics $\{1,2,4,4,4,4,4,4\}$ which we denote in searches as 1^1, 2^1, 4^6.
 \end{definition}
+
+

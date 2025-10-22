@@ -1,7 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.j_invariant_map}{$j$-invariant map}}
 \begin{definition}\label{modcurve.j_invariant_map}
 \uses{ag.plane_model,modcurve}
-The \textbf{$\boldsymbol{j}$-invariant map} map or \textbf{$\boldsymbol{j}$-map} of a \hyperref[modcurve]{modular curve} $X_H$ is the morphism $X_H\to X(1)$ induced by the inclusion $H\le \GL_2(\widehat{\Z})$.
+The \textbf{$\boldsymbol{j}$-invariant map} map or \textbf{$\boldsymbol{j}$-map} of a \hyperref[modcurve]{modular curve} $X_H$ is the morphism $X_H\to X(1)$ induced by the inclusion $H\le \GL_2(\widehat\Z)$.
 
-When $X_H$ is isomorphic to $\mathbb P^1$ this map is specified as an element of $\mathbb \Q(t)$, and when $X_H$ is specified by a \hyperref[ag.plane_model]{plane model} $f(x,y,z)=0$, it is an element of $\mathbb \Q(x,z)$.
+When $X_H$ is isomorphic to $\mathbb{P}^1$ this map is specified as an element of $\mathbb \Q(t)$, and when $X_H$ is specified by a \hyperref[ag.plane_model]{plane model} $f(x,y,z)=0$, it is an element of $\mathbb \Q(x,z)$.
 \end{definition}
+
+

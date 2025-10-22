@@ -3,3 +3,5 @@
 \uses{group,group.label,group.subgroup}
 The \hyperref[group.label]{label} of the \hyperref[group.subgroup]{subgroup} as an \hyperref[group]{abstract group}.
 \end{definition}
+
+

@@ -3,3 +3,5 @@
 \uses{}
 If $G$ is a group, a subgroup $M$ is a \textbf{maximal subgroup} if for every subgroup $H$ such that $M\subseteq H \subseteq G$, either $H=M$ or $H=G$.
 \end{definition}
+
+

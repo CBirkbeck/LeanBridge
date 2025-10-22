@@ -8,8 +8,10 @@ Each (global) number field has a unique label of the form d.r.D.i where
 <li>\(D\) is the absolute value of the \hyperref[nf.discriminant]{discriminant};
 <li>\(i\) is the index, counting from 1.  This is in case there is more than one
   field with the same signature and absolute value of the
-  discriminant: for example <a href="/NumberField/4.0.1008.1">4.0.1008.1</a> and <a href="/NumberField/4.0.1008.2">4.0.1008.2</a>.
+  discriminant: for example \href{/NumberField/4.0.1008.1}{4.0.1008.1} and \href{/NumberField/4.0.1008.2}{4.0.1008.2}.
 </ul>
 The discriminant portion of the label can take the form \(a_1\) e \(\epsilon_1\) \textit{ \(a}2\) e \(\epsilon_2\) \textit{ \(\cdots\) } \(a_k\) e \(\epsilon_k\) to mean the absolute value of the
 discriminant equals \(a_1^{\epsilon_1}a_2^{\epsilon_2}\cdots a_k^{\epsilon_k}\).  The separators are the letter e and the underscore symbol.
 \end{definition}
+
+

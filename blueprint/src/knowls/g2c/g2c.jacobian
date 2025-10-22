@@ -5,3 +5,5 @@ The \hyperref[ag.jacobian]{Jacobian} of a \hyperref[g2c.g2curve]{genus 2 curve} 
 
 Properties of the Jacobian include its \hyperref[ag.mordell_weil]{Mordell-Weil group} and its \hyperref[ag.endomorphism_ring]{endomorphism ring}.
 \end{definition}
+
+

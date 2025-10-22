@@ -18,3 +18,5 @@ The canonical height used to define the regulator is usually *normalised* so tha
 where $d$ is the \hyperref[nf.degree]{degree} $[K:\Q]$.
 
 \end{definition}
+
+

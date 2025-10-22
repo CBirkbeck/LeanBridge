@@ -3,3 +3,5 @@
 \uses{ec,ec.curve_label,ec.isogeny_class}
 To find a specific \hyperref[ec]{elliptic curve} or \hyperref[ec.isogeny_class]{isogeny class} of elliptic curves, enter its \hyperref[ec.curve_label]{label}.
 \end{definition}
+
+

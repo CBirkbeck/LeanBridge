@@ -5,3 +5,5 @@ For each \hyperref[ec.q]{elliptic curve}  $E$ over $\mathbb{Q}$, the plot displa
 
 The plots are produced using \hyperref[sage]{SageMath}, which uses plotting logic designed by David Roe to determine which subset of $E(\mathbb{R})$ in the real affine plane to include in the plot.
 \end{definition}
+
+

@@ -5,3 +5,5 @@ A \textbf{principal ideal domain}, or PID, is an \hyperref[ring.integral_domain]
 
 Every such ring is a \hyperref[ring.unique_factorization_domain]{unique factorization domain}.
 \end{definition}
+
+

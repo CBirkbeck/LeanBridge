@@ -5,3 +5,5 @@ Let $F$ be a \hyperref[mf.bianchi.newform]{Bianchi newform} of \hyperref[mf.bian
 
 The \textbf{sign} of $F$ is *minus* the eigenvalue of $W_N$ on $F$.  This is equal to the sign of the \hyperref[lfunction.functional_equation]{functional equation} satisfied by the \hyperref[lfunction]{L-function} attached to $F$.  It follows that the \hyperref[mf.bianchi.anr]{analytic rank} of $F$ is even when $F$ has sign $+1$ and odd otherwise.
 \end{definition}
+
+

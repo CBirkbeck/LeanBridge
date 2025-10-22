@@ -6,3 +6,5 @@ There are two canonical forms for an abelian group $A$:
 1. The \textbf{Smith abelian invariants} of $A$ are the unique sequence of integers $[m_1, \dots, m_k]$, all larger than $1$, so that $A \cong C_{m_1} \times \dots \times C_{m_k}$, $m_i \mid m_{i+1}$ for all $i$.
 2. The \textbf{primary abelian invariants} of $A$ are the unique sequence of integers $[q_1, \dots, q_k]$, all larger than $1$, so that $A \cong C_{q_1} \times \dots \times C_{q_k}$, each $q_i = p_i^{e_i}$ for a prime $p_i$ and the $q_i$ are sorted first by $p_i$ and then in increasing order for fixed $p_i$.
 \end{definition}
+
+

@@ -5,3 +5,5 @@ All \hyperref[character.dirichlet]{Dirichlet} L-functions in the database have b
 
 For Dirichlet L-functions in the database, all listed zeros are known to lie on the \hyperref[lfunction.critical_line]{critcial line}, and the \hyperref[lfunction.analytic_rank]{analytic rank} is known to be zero.
 \end{definition}
+
+

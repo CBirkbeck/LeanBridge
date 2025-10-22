@@ -3,3 +3,5 @@
 \uses{lattice.definition,lattice.label}
 To find a specific \hyperref[lattice.definition]{integral lattice}, enter its \hyperref[lattice.label]{label} or name.
 \end{definition}
+
+

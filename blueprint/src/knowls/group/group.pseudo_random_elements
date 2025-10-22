@@ -17,3 +17,5 @@ $$
 
 To produce a pseudo-random sequence of group elements we follow a standard method.  Starting with $k$ generators, $g_1, \ldots, g_k$ we initialize the process by forming the $(k+5)$-tuple $v$ with $v_i=g_i$ (taking subscripts  modulo $k$).  We then have $20$ rounds of picking distinct indices $i$ and $j$ and replace $v_i$ with $v_i\cdot v_j$.  After this initialization step, we generate the sequence by again picking random subscripts $i$ and $j$ according to our pseudo-random sequence of integers, replacing $v_i$ with $v_i\cdot v_j$ and returning the new $v_i$.
 \end{definition}
+
+

@@ -3,3 +3,5 @@
 \uses{mf.maass.mwf}
 The precomputed \hyperref[mf.maass.mwf]{Maass form} L-functions stored in the database were computed using software developed by Fredrik Stromberg to generate Dirichlet coefficients and Michael Rubinstein's $\texttt{lcalc}$ library to compute L-function data for the resulting Dirichlet series.
 \end{definition}
+
+

@@ -3,3 +3,5 @@
 \uses{}
 When creating a statistics display, you can specify whether totals are shown.  If two variables are selected, you can independently specify whether row and column totals are shown.
 \end{definition}
+
+

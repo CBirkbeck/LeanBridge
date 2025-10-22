@@ -3,7 +3,7 @@
 \uses{ag.endomorphism_ring,av.fq.frobenius_order,av.fq.lmfdb_label,av.isogeny_class,av.weak_equivalence_class}
 In the graph, each vertex correspond to an \hyperref[ag.endomorphism_ring]{endomorphism} of abelian varieties in the \hyperref[av.isogeny_class]{isogeny class} and each edge correspond to an inclusion.
 
-For each \hyperref[ag.endomorphism_ring]{endomorphism ring} $S$, we use the following \textbf{notation} $[\mathrm{index}]^{\#\mathrm{weak}\cdot \#\mathrm{Pic}}_i$ :
+For each \hyperref[ag.endomorphism_ring]{endomorphism ring} $S$, we use the following \textbf{notation} $[\mathrm{index}]^{\#\mathrm{weak}\cdot \#\mathrm{Pic}}_i$ : 
 
 \begin{itemize}
 \item  \textbf{$\mathrm{index}$} is the index of the inclusion (of additive groups) $S\subseteq \mathcal{O}$, where $\mathcal{O}$ is the maximal order of the étale $\mathbb{Q}$-algebra $\mathbb{Q}[F]$;
@@ -14,12 +14,14 @@ For each \hyperref[ag.endomorphism_ring]{endomorphism ring} $S$, we use the foll
 \end{itemize}
 
 \begin{itemize}
-\item  \textbf{$\#\mathrm{weak}$} is the number of
+\item  \textbf{$\#\mathrm{weak}$} is the number of 
 \end{itemize}
-\hyperref[av.weak_equivalence_class]{weak equivalence classes} represented
-by fractional \hyperref[av.fq.frobenius_order]{$\mathbb{Z}[F,V]$}-ideals $I$ with multiplicator ring equal to $S$, that is, satisfying $(I:I)=S$; if $S$ is Gorenstein, that is, \textbf{$\#\mathrm{weak} = 1 $} this number is omitted from the notation.
+\hyperref[av.weak_equivalence_class]{weak equivalence classes} represented 
+by fractional \hyperref[av.fq.frobenius_order]{$\mathbb{Z}[F,V]$}-ideals $I$ with multiplicator ring equal to $S$, that is, satisfying $(I:I)=S$; if $S$ is Gorenstein, that is, \textbf{$\#\mathrm{weak} = 1 $} this number is omitted from the notation. 
 
 \begin{itemize}
 \item  \textbf{$\#\mathrm{Pic}$} is the size of the Picard groups of $S$, that is, the number of invertible fractional \hyperref[av.fq.frobenius_order]{$S$}-ideals.
 \end{itemize}
 \end{definition}
+
+

@@ -8,3 +8,5 @@ Standard random variables one can associated to $G$ include the coefficients $a_
 The \textbf{moment sequence} of $a_i$ (or any random variable) is the integer sequence $(\mathrm{E}[a_i^0], \mathrm{E}[a_i^1],\mathrm{E}[a_i^2]\ldots)$; the convention of including the zeroth moment $\mathrm{E}[a_i^0]=1$ facilitates the computation of moment sequences of products of independent random variables by taking binomial convolutions.
 
 \end{definition}
+
+

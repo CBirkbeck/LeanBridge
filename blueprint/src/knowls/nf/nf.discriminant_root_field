@@ -6,3 +6,5 @@ If $K/F$ is a finite algebraic extension, it can be defined by a polynomial $f(x
 If $n=[K:F]$, then the Galois group $G$ for $K/F$ is a subgroup of $S_n$, well-defined up to conjugation.  The discriminant root field can alternatively be described as the fixed field of $G\cap A_n$.
 
 \end{definition}
+
+

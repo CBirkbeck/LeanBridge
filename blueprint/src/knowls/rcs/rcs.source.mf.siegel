@@ -12,3 +12,5 @@ In particular, the Siegel paramodular forms data in the LMFDB come from two sour
 \item  For  \hyperref[group.paramodular]{paramodular} \hyperref[mf.siegel.newform]{newforms} of \hyperref[mf.siegel.weight_k_j]{weight} $(k,j) = (3,2), (4,0)$ and \hyperref[mf.siegel.level]{level} $N < 1000$ such that there exists a prime $p \parallel N$ data was computed by Gustavo Rama using software available at [[https://gitlab.fing.edu.uy/grama/quinary](https://gitlab.fing.edu.uy/grama/quinary)].
 \end{itemize}
 \end{definition}
+
+

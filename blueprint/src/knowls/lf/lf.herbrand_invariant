@@ -17,7 +17,7 @@ of $L/K$ as $I=[s_1,\dots,s_w]_{\epsilon}^f$; in terms of the
 \hyperref[lf.rams]{rams} of $L/K$
 as $I=(r_1,\dots,r_w)_{\epsilon}^f$; or in terms of the
 \hyperref[lf.means]{means} of $L/K$
-as $I=\langle m_1,\dots,m_w\rangle_{\epsilon}^f$.
+as $I=\langle m_1,\dots,m_w\rangle_{\epsilon}^f$.  
 
 As a convention, we put $s_0=r_0=m_0=0$.   The three representations
 of the Herbrand invariant of $L/K$ are related by
@@ -59,3 +59,5 @@ If the conditions above are satisfied we say that $K$ is \textbf{compatible}
 with $I$.  The compatibility of $K$ with $I$ depends only on the absolute
 ramification index $e_K$ of $K$.
 \end{definition}
+
+

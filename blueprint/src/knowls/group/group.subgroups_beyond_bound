@@ -11,3 +11,5 @@ In cases where we do not compute the whole subgroup lattice of a group, we still
 \item  We also keep \hyperref[group.core]{core-free} subgroups beyond the index bound rather than discarding them, since these yield transitive permutation representations.  The labels here are just $\texttt{n.i.m.CFk}$, where $\texttt{k}$ is a counter arbitrarily running over the core-free subgroups of a given index.
 \end{itemize}
 \end{definition}
+
+

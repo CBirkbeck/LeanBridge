@@ -3,3 +3,5 @@
 \uses{artin}
 For an \hyperref[artin]{Artin Representation}, complex conjugation gives a well-defined conjugacy class $c$ in the Galois group, so it has a well-defined character value.
 \end{definition}
+
+

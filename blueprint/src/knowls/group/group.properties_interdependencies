@@ -4,7 +4,7 @@
 Certain properties of groups automatically imply other properties. We briefly explain the connections here.
 
 
-A \hyperref[group.cyclic]{cyclic group} is always \hyperref[group.abelian]{abelian}  by the way the group operation for cyclic groups is defined. Cyclic groups are also automatically \hyperref[group.z_group]{Z-groups} since all their subgroups (including their Sylow subgroups) are cyclic.
+A \hyperref[group.cyclic]{cyclic group} is always \hyperref[group.abelian]{abelian}  by the way the group operation for cyclic groups is defined. Cyclic groups are also automatically \hyperref[group.z_group]{Z-groups} since all their subgroups (including their Sylow subgroups) are cyclic. 
 
 Since cyclic groups are always abelian, Z-groups are by definition \hyperref[group.a_group]{A-groups}, and similarly \hyperref[group.metacyclic]{metacyclic} groups are \hyperref[group.metabelian]{metabelian} as well.
 
@@ -27,3 +27,5 @@ If all the Sylow subgroups are cyclic, then the group is  metacyclic. Hence Z-gr
 Nonabelian \hyperref[group.simple]{simple groups} are always \hyperref[group.perfect]{perfect groups} since the \hyperref[group.commutator_subgroup]{commutator subgroup} of a group is a normal subgroup and hence must be the whole group in this case. In addition, nonabelian simple groups are also \hyperref[group.almost_simple]{almost simple} and \hyperref[group.quasisimple]{quasi-simple}.
 
 \end{definition}
+
+

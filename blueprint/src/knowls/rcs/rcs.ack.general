@@ -1,11 +1,13 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.ack.general}{Additional acknowledgments}}
 \begin{definition}\label{rcs.ack.general}
 \uses{}
-Jonathan Bober, Ralph Furmaniak, and Harald Schilly made essential early contributions to the LMFDB back-end.
+Jonathan Bober, Ralph Furmaniak, and Harald Schilly made essential early contributions to the LMFDB back-end.  
 
-The move from MongoDB to Postgres was achieved by Edgar Costa and David Roe.
+The move from MongoDB to Postgres was achieved by Edgar Costa and David Roe.  
 
 Alina Bucur coded the vector graphics version of the LMFDB universe.
 
 
 \end{definition}
+
+

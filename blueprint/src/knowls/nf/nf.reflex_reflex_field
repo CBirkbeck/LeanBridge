@@ -7,3 +7,5 @@ It can also be computed as follows. Consider the right action of $\mathrm{Gal}(N
 
 The reflex field of the reflex field is also the smallest field of definition of the CM type $\Phi$, i.e. it is the largest subfield $M$ of $K$ such that $\Phi$ is induced from a CM type on $M$.
 \end{definition}
+
+

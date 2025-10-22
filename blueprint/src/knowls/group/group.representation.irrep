@@ -3,3 +3,5 @@
 \uses{group,group.complex_character_table,group.representation.character}
 A \textbf{representation} of a finite \hyperref[group]{group} $G$ is a homomorphism $\rho : G \to \GL(V)$ for some vector space $V$.  A representation is \textbf{reducible} if there is some nontrivial subspace $W \subset V$ with $\rho(g)(W) = W$ for all $g \in G$; otherwise it is \textbf{irreducible}.  We say two representations $\rho : G \to \GL(V)$ and $\rho' : G \to \GL(V')$ are equivalent if there is an isomorphism $\sigma : V \to V'$ so that $\rho'(g) = \sigma^{-1} \rho(g) \sigma$ for all $g \in G$.  Up to equivalence, the complex irreducible representations of a finite group $G$ (also known as \textbf{irreps}) are determined by their \hyperref[group.representation.character]{characters}, which are recorded in the \hyperref[group.complex_character_table]{character table} of $G$.
 \end{definition}
+
+

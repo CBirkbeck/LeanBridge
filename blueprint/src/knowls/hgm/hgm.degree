@@ -7,3 +7,5 @@ For a hypergeometric motive with \hyperref[hgm.defining_parameters]{defining par
 \[ \sum_{j=1}^m \phi(a_j) = \sum_{j=1}^n \phi(b_j)\]
 where $\phi$ is the Euler totient function.
 \end{definition}
+
+

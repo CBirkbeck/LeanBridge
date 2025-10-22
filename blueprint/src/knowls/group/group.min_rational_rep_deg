@@ -3,3 +3,5 @@
 \uses{group.representation.faithful}
 The smallest positive integer $d$ such that the group $G$ admits a \hyperref[group.representation.faithful]{faithful} rational representation of degree $d$.
 \end{definition}
+
+

@@ -1,6 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.primitive}{Primitive integral lattice}}
 \begin{definition}\label{lattice.primitive}
 \uses{lattice.definition,lattice.gram}
-An \hyperref[lattice.definition]{integral lattice}, $L$, with an associated \hyperref[lattice.gram]{Gram matrix}, $G=[g_{ij}]$, is called \textbf{primitive} if
-$\gcd(\{g_{ij}:1\leq i\leq n,i\leq j\leq n\})=1$.
+An \hyperref[lattice.definition]{integral lattice}, $L$, with an associated \hyperref[lattice.gram]{Gram matrix}, $G=[g_{ij}]$, is called \textbf{primitive} if 
+$\gcd(\{g_{ij}:1\leq i\leq n,i\leq j\leq n\})=1$.  
 \end{definition}
+
+

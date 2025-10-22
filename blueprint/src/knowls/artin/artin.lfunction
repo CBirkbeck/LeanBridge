@@ -11,3 +11,5 @@ denotes the \hyperref[gg.conjugacy_classes]{conjugacy class} of Frobenius elemen
 at $p$, $\rho(\mathrm{Frob}(p))$ should be interpreted as acting on the
 invariant subspace $V^{I_p}$ of the \hyperref[lf.inertia_group]{inertia group} at $p$.
 \end{definition}
+
+

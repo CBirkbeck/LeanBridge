@@ -1,7 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.ideal_class_group}{Ideal class group of a number field}}
 \begin{definition}\label{nf.ideal_class_group}
 \uses{nf,nf.ring_of_integers,ring.fractional_ideal,ring.principal_fractional_ideal}
-The \textbf{ideal class group} of a \hyperref[nf]{number field} $K$ with \hyperref[nf.ring_of_integers]{ring of integers} $O_K$ is the group of equivalence classes of ideals, given by the quotient of the multiplicative group of all \hyperref[ring.fractional_ideal]{fractional ideals} of $O_K$ by the subgroup of \hyperref[ring.principal_fractional_ideal]{principal fractional ideals}.
+The \textbf{ideal class group} of a \hyperref[nf]{number field} $K$ with \hyperref[nf.ring_of_integers]{ring of integers} $O_K$ is the group of equivalence classes of ideals, given by the quotient of the multiplicative group of all \hyperref[ring.fractional_ideal]{fractional ideals} of $O_K$ by the subgroup of \hyperref[ring.principal_fractional_ideal]{principal fractional ideals}.  
 
-Since $K$ is a \hyperref[nf]{number field}, the ideal class group of $K$ is a finite abelian group, and so has the structure of a product of cyclic groups encoded by a finite list $[a_1,\dots,a_n]$, where the $a_i$ are positive integers with $a_i\mid a_{i+1}$ for $1\le i<n$.
+Since $K$ is a \hyperref[nf]{number field}, the ideal class group of $K$ is a finite abelian group, and so has the structure of a product of cyclic groups encoded by a finite list $[a_1,\dots,a_n]$, where the $a_i$ are positive integers with $a_i\mid a_{i+1}$ for $1\leq i < n$.
 \end{definition}
+
+

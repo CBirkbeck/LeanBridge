@@ -7,3 +7,5 @@ In both systems, the command "SmallGroup($n$,$d$)" will return an explicit repre
 
 Magma also associates a descriptive name to each small group.  For example, the command "GroupName(SmallGroup(24,3))" returns the string "SL(2,3)".
 \end{definition}
+
+

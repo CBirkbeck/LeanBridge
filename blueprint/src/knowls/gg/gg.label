@@ -3,3 +3,5 @@
 \uses{gg.degree,gg.tnumber}
 Labels for Galois groups are of the form $\tt{nTt}$ where $n$ is the \hyperref[gg.degree]{degree} and $t$ is the \hyperref[gg.tnumber]{$T$-number}.
 \end{definition}
+
+

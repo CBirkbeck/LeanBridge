@@ -5,3 +5,5 @@ A \hyperref[modcurve]{modular curve} $X/\Q$ has a \textbf{local obstruction} (to
 
 When $X$ has \hyperref[modcurve.genus]{genus} $0$ the absence of local obstructions guarantees the existence of rational points, but this is not true in general.
 \end{definition}
+
+

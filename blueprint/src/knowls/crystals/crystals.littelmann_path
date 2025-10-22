@@ -10,3 +10,5 @@ A Littelmann path is a piecewise-linear mapping
 \]
 such that $\pi(0) = 0$ and $\pi(1)$ are weights. Littelmann defined the Kashiwara raising and lowering operators $e_i$ and $f_i$ on these paths.
 \end{definition}
+
+

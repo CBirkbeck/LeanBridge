@@ -3,3 +3,5 @@
 \uses{cmf.newform,cmf.weight,ec}
 For every \hyperref[ec]{elliptic curve} over $\Q$ of conductor $N$, there is a unique \hyperref[cmf.weight]{weight} $2$ \hyperref[cmf.newform]{newform} for $\Gamma_0(N)$ with the same L-function. This was proved by Breuil, Conrad, Diamond, and Taylor, building on the proof of Fermat's last theorem by Wiles and Taylor-Wiles.
 \end{definition}
+
+

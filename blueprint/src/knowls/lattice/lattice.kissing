@@ -1,7 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.kissing}{Kissing number }}
 \begin{definition}\label{lattice.kissing}
 \uses{lattice.dimension,lattice.minimal_vector}
-The \textbf{kissing number} of a lattice, $L$, is the number of vectors of \hyperref[lattice.minimal_vector]{minimal length}.  The vectors in the list of \hyperref[lattice.minimal_vector]{minimal length} vectors are normalized, so the kissing number will always be twice as large as the number of vectors in this list.
+The \textbf{kissing number} of a lattice, $L$, is the number of vectors of \hyperref[lattice.minimal_vector]{minimal length}.  The vectors in the list of \hyperref[lattice.minimal_vector]{minimal length} vectors are normalized, so the kissing number will always be twice as large as the number of vectors in this list. 
 
 The \textbf{lattice kissing number problem} in \hyperref[lattice.dimension]{dimension} $n$ is to find the lattices of dimension $n$ which maximize the kissing number. In general, these may not be solutions of the \textbf{general kissing number problem}, which asks for the maximum number of spheres with non-overlapping interiors in dimension $n$ which are all tangent to a single sphere.
 \end{definition}
+
+

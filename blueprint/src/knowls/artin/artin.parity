@@ -1,5 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/artin.parity}{Parity of a representation}}
 \begin{definition}\label{artin.parity}
 \uses{artin}
-An \hyperref[artin]{Artin representation} $\rho:\Gal(\bar{\Q}/\Q)\to \GL(V)$ is \textbf{even} or \textbf{odd} if $\det(\rho(c))$ equals $1$ or $-1$, respectively, where $c$ is a complex conjugation.
+An \hyperref[artin]{Artin representation} $\rho:\Gal(\overline\Q/\Q)\to \GL(V)$ is \textbf{even} or \textbf{odd} if $\det(\rho(c))$ equals $1$ or $-1$, respectively, where $c$ is a complex conjugation.
 \end{definition}
+
+

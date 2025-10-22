@@ -7,3 +7,5 @@ and
 $$ K^{\Aut(K/F)} = \{ a\in K \mid \sigma(a)=a\}.$$
 Then $K$ is \textbf{Galois} over $F$ if $K^{\Aut(K/F)} = F$.
 \end{definition}
+
+

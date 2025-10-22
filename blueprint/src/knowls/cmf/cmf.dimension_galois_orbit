@@ -3,3 +3,5 @@
 \uses{cmf.hecke_orbit}
 The dimension of an (irreducible) \hyperref[cmf.hecke_orbit]{Hecke orbit} of a newform $f$.
 \end{definition}
+
+

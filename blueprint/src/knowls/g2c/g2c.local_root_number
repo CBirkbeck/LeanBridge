@@ -9,3 +9,5 @@ This conjecture is known to hold for curves satisfying modularity.
 For the genus 2 curves in the LMFDB, the root number has been provably computed for all odd primes with \hyperref[g2c.tame_reduction]{tame reduction}.
 For other primes, the correctness of the computed root numbers is contingent on modularity.
 \end{definition}
+
+

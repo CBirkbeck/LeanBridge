@@ -6,3 +6,5 @@ With the exception of the computation of class group data for quadratic imaginar
 
 Initial page design was by Henri Cohen and John Cremona, with subsequent changes by John Jones.
 \end{definition}
+
+

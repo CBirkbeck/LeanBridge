@@ -3,3 +3,5 @@
 \uses{av.isogeny_class}
 The Galois group attached to an \hyperref[av.isogeny_class]{isogeny class of abelian varieties} over a finite field is the Galois group of the splitting field of its Weil polynomial over $\Q$.
 \end{definition}
+
+

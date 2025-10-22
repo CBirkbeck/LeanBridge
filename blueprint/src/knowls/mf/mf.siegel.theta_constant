@@ -10,7 +10,7 @@ $$\theta_m(\Omega) = \sum_{n\in{\Bbb Z}^{g}}
 +(n+\frac\mu2)\frac\nu2\right).
 $$
 
-Then $\theta_m$ is a
+Then $\theta_m$ is a 
 <a class="knowl-title" knowl="mf.siegel">Siegel modular form</a>
 of weight $\frac12$ with respect
 to some subgroup of the integral
@@ -19,3 +19,5 @@ symplectic group</a>
 with some character.
 
 \end{definition}
+
+

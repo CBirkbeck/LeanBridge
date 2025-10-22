@@ -3,5 +3,7 @@
 \uses{ag.abelian_variety,ag.endomorphism_ring,av.endomorphism_field}
 Let $A$ be an \hyperref[ag.abelian_variety]{abelian variety} over a field $F$.  Given a field extension $F' \supseteq F$, there is a natural inclusion of \hyperref[ag.endomorphism_ring]{endomorphism rings} $\End(A)\subseteq\mathrm{End}(A_{F'})$, where $A_{F'}$ denotes the base change of $A$ to $F'$.
 
-Let $K$ be the \hyperref[av.endomorphism_field]{endomorphism field} of $A$.  The set of endomorphism rings $\mathrm{End}(A_{F'})$ over subextensions $K \supseteq F' \supseteq F$ forms a lattice under inclusion, called the \textbf{endomorphism lattice} of $A$ over $F$.
+Let $K$ be the \hyperref[av.endomorphism_field]{endomorphism field} of $A$.  The set of endomorphism rings $\mathrm{End}(A_{F'})$ over subextensions $K \supseteq F' \supseteq F$ forms a lattice under inclusion, called the \textbf{endomorphism lattice} of $A$ over $F$.  
 \end{definition}
+
+

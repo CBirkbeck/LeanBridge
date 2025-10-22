@@ -3,3 +3,5 @@
 \uses{mf.bianchi.newform,mf.bianchi.sign}
 Let $F$ be a \hyperref[mf.bianchi.newform]{Bianchi newform} over the imaginary quadratic field $K$.   The \textbf{analytic rank} of $F$ is the order of vanishing of the L-function attached to $F$ at the centre of its critical strip.  The parity of the analytic rank is determined by the \hyperref[mf.bianchi.sign]{sign} of $F$.
 \end{definition}
+
+

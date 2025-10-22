@@ -3,3 +3,5 @@
 \uses{group.representation.character}
 The \textbf{center} of the \hyperref[group.representation.character]{character} $\chi$ of a group $G$ is the subgroup of $G$ given by the set: $$\{g \in G : |\chi(g)|=\chi(1)\}.$$
 \end{definition}
+
+

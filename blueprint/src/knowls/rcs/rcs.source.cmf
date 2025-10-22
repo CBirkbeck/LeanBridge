@@ -44,5 +44,7 @@ Additional newforms of weight $2$ and trivial character beyond the scope of \cit
 \item  Data for newforms of composite level $10,000\le N\le 50,000$ was computed by Krit Boonsiriseth as described in his thesis <a href="https://hdl.handle.net/1721.1/156828"><i>Performance Engineering of Modular Symbols</i></a>.  Exact Hecke eigenvalues and complex embeddings are not available for these newforms.
 \end{itemize}
 
-For weight 1 newforms, \hyperref[cmf.stark_unit]{Stark units} were computed by Arnau Padrés Masdemont using <a href="https://github.com/arnaupadress/Finding-Stark-units-attached-to-modular-forms/">this code</a>.
+For weight 1 newforms, \hyperref[cmf.stark_unit]{Stark units} were computed by Arnau Padrés Masdemont using \href{https://github.com/arnaupadress/Finding-Stark-units-attached-to-modular-forms/}{this code}.
 \end{definition}
+
+

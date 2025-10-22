@@ -1,12 +1,14 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/av.fq.weil_polynomial}{Characteristic polynomial of an abelian variety over a finite field}}
 \begin{definition}\label{av.fq.weil_polynomial}
 \uses{ag.base_field,ag.dimension,av.fq.l-polynomial,nf.weil_polynomial}
-Let $A$ be an abelian variety of \hyperref[ag.dimension]{dimension} $g$ \hyperref[ag.base_field]{defined} over $\F_q$.  Fix a prime $\ell \nmid q$.  The $q$-power Frobenius endomorphism $F$ of $A$ induces an endomorphism of the Tate module $T_\ell A$.  The \textbf{characteristic polynomial} (or \textbf{Weil polynomial}) of $A$ is the characteristic polynomial of the latter endomorphism:
-    $$P_A(t) = \det(t-F|T_\ell A).$$
-It is a monic polynomial of degree $2g$ with integer coefficients that are independent of $\ell$.  It is the reverse of the \hyperref[av.fq.l-polynomial]{$L$-polynomial}.  By a theorem of Weil, $P_A(t)$ is a \hyperref[nf.weil_polynomial]{Weil $q$-polynomial}.
+Let $A$ be an abelian variety of \hyperref[ag.dimension]{dimension} $g$ \hyperref[ag.base_field]{defined} over $\F_q$.  Fix a prime $\ell \nmid q$.  The $q$-power Frobenius endomorphism $F$ of $A$ induces an endomorphism of the Tate module $T_{\ell} A$.  The \textbf{characteristic polynomial} (or \textbf{Weil polynomial}) of $A$ is the characteristic polynomial of the latter endomorphism:
+    $$P_A(t) = \det(t-F|T_{\ell} A).$$
+It is a monic polynomial of degree $2g$ with integer coefficients that are independent of $\ell$.  It is the reverse of the \hyperref[av.fq.l-polynomial]{$L$-polynomial}.  By a theorem of Weil, $P_A(t)$ is a \hyperref[nf.weil_polynomial]{Weil $q$-polynomial}.  
 
-Alternatively, $P_A(t)$ can be defined using $\ell$-adic \'etale cohomology:
-If $F_q$ is the *inverse* of the field automorphism $x \mapsto x^q$ in $\Gal(\overline{\F}_q/\F_q)$, then
-    $$P_A(t) = \det(t-F_q|H^1(A_{\overline{\F}_q}, \Q_\ell)).$$
+Alternatively, $P_A(t)$ can be defined using $\ell$-adic \'etale cohomology: 
+If $F_q$ is the *inverse* of the field automorphism $x \mapsto x^q$ in $\Gal(\overline{\F}_q/\F_q)$, then 
+    $$P_A(t) = \det(t-F_q|H^1(A_{\overline{\F}_q}, \Q_{\ell})).$$
 
 \end{definition}
+
+

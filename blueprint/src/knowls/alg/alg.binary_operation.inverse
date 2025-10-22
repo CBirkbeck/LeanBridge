@@ -5,3 +5,5 @@ If $*$ is a \hyperref[alg.binary_operation]{binary operation} on a set $A$ havin
 $$ a*a' = a'*a = e.$$
 
 \end{definition}
+
+

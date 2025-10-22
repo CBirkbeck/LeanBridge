@@ -13,17 +13,17 @@
 {{ KNOWL\_INC('lfunction.history.dedekind') }}
 
 
-The automorphy properties of
-Hilbert modular forms  for real quadratic fields were considered in the
-1901 G\"ottingen
+The automorphy properties of 
+Hilbert modular forms  for real quadratic fields were considered in the 
+1901 G\"ottingen 
 University Habilitationssschrift of Otto Blumenthal. Therein he refers to
-unpublished  work of 1893-1894 of his advisor David Hilbert. Hilbert modular forms
+unpublished  work of 1893-1894 of his advisor David Hilbert. Hilbert modular forms 
  were significantly
-developed by Hecke in his 1910 dissertation.
+developed by Hecke in his 1910 dissertation.  
 
 <h2>The L-function of $\Delta$</h2>
 {{ KNOWL\_INC('lfunction.history.ramanujan\_tau') }}
-
+ 
 <h2>Hecke L-functions</h2>
 {{ KNOWL\_INC('lfunction.history.hecke\_characters') }}
 
@@ -48,10 +48,12 @@ developed by Hecke in his 1910 dissertation.
 {{ KNOWL\_INC('lfunction.history.hasse\_weil') }}
 
 
-
+ 
 <h2> Langlands Program </h2>
 
 {{ KNOWL\_INC('lfunction.history.langlands\_program') }}
 
 
 \end{definition}
+
+

@@ -6,3 +6,5 @@ If $K/F$ is a \hyperref[nf.is_galois]{Galois} extension of fields, a \textbf{ste
 This is connected to the notion of the stem field of a polynomial.
 If $f\in F[x]$ is a separable irreducible polynomial of degree $n$ with roots $\alpha_1, \ldots, \alpha_n$ (in some extension field), then the fields $F(\alpha_i)$ are the \textbf{stem fields of the polynomial} $f$.  The splitting field of $f$ is $K=F(\alpha_1,\ldots,\alpha_n)$, which is a Galois extension of $F$, and the fields $F(\alpha_i)$ are stem fields for $K/F$ as defined above.
 \end{definition}
+
+

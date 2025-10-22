@@ -8,3 +8,5 @@ where $G^{(i+1)}$ is the \hyperref[group.commutator_subgroup]{commutator subgrou
 A group is \hyperref[group.solvable]{solvable} if and only if $G^{(k)}=\langle e\rangle$.
 
 \end{definition}
+
+

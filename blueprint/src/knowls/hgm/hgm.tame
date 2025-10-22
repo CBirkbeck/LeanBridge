@@ -3,3 +3,5 @@
 \uses{hgm.conductor,hgm.motive,hgm.wild}
 A prime $p$ is called \textbf{tame} for a \hyperref[hgm.motive]{hypergeometric motive} $H(A,B,t)$ if $p$ is not \hyperref[hgm.wild]{wild} and either $v_p(t) \ne 0$ or $v_p(t-1) \ne 0$.  The \hyperref[hgm.conductor]{conductor} of $H(A,B,t)$ is supported at a subset of the tame and wild primes.
 \end{definition}
+
+

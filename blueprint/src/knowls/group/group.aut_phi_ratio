@@ -5,3 +5,5 @@ Given a \hyperref[group]{group} $G$ and its \hyperref[group.automorphism]{automo
 
 For \hyperref[group.cyclic]{cyclic} groups, the size of their automorphism group is always $\phi(G)$ and hence this ratio is $1$.
 \end{definition}
+
+

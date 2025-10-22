@@ -8,3 +8,5 @@ The isomorphism class of $(E,[\iota]_H)$ includes pairs $(E',[\iota']_H)$ for ea
 
 A quadratic twist-minimal elliptic curve $E$ may admit multiple non-isomorphic rational $H$-level structures corresponding to multiple $K$-rational points on $X_H$, but in search results for low degreee points we list $E$ only once.
 \end{definition}
+
+

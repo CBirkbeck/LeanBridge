@@ -3,3 +3,5 @@
 \uses{nf,nf.ring_of_integers}
 An \textbf{integral basis} of a \hyperref[nf]{number field} $K$ is a $\mathbb{Z}$-basis for the \hyperref[nf.ring_of_integers]{ring of integers} of $K$.  This is also a $\mathbb{Q}$-basis for $K$.
 \end{definition}
+
+

@@ -6,7 +6,7 @@ Maass forms of weight $0$
 \item -----------------
 \end{itemize}
 
-The character column refers to the character under which the corresponding Maass form is invariant. The actual labels are explained in more details on the corresponding pages for Dirichlet characters.
+The character column refers to the character under which the corresponding Maass form is invariant. The actual labels are explained in more details on the corresponding pages for Dirichlet characters. 
 
 
 Maass forms of weight $k$
@@ -14,7 +14,7 @@ Maass forms of weight $k$
 \item -----------------
 \end{itemize}
 
-The column character denotes the multiplier. For example "eta" means that
+The column character denotes the multiplier. For example "eta" means that 
 the corresponding Maass form transform according to the canonical eta multiplier of weight $k$:
 
 
@@ -22,3 +22,5 @@ the corresponding Maass form transform according to the canonical eta multiplier
 
 
 \end{definition}
+
+

@@ -3,3 +3,5 @@
 \uses{lfunction.rh}
 This computation was completed under the assumption of the \hyperref[lfunction.rh]{Generalized Riemann Hypothesis}.
 \end{definition}
+
+

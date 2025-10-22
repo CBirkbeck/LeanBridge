@@ -5,3 +5,5 @@ The transitive subgroups of $S_n$ have been classified, up to conjugation, for s
 
 An algorithm for generating the classification is given in \cite{doi:10.1016/j.jsc.2004.08.002,MR:2168238}, and the results can be accessed from the computer algebra systems SageMath, GAP, and Magma.
 \end{definition}
+
+

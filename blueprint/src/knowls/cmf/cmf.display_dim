@@ -3,3 +3,5 @@
 \uses{cmf.character,cmf.dimension,cmf.minus_space,cmf.plus_space}
 If the \hyperref[cmf.character]{character} of the space is trivial, the \hyperref[cmf.dimension]{dimension} is the sum of the dimensions of the \hyperref[cmf.plus_space]{plus subspace} and the \hyperref[cmf.minus_space]{minus subspace}.
 \end{definition}
+
+

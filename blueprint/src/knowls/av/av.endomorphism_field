@@ -1,5 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/av.endomorphism_field}{Endomorphism field}}
 \begin{definition}\label{av.endomorphism_field}
 \uses{ag.abelian_variety}
-The \textbf{endomorphism field} of an \hyperref[ag.abelian_variety]{abelian variety} $A$ over a field $k$ is the minimal extension $L \supset k$ in $\bar{K}$ such that $\End A_L = \End A_{\bar{K}}$.  It is a finite Galois extension of $k$.
+The \textbf{endomorphism field} of an \hyperref[ag.abelian_variety]{abelian variety} $A$ over a field $k$ is the minimal extension $L \supset k$ in $\overline{k}$ such that $\End A_L = \End A_{\overline{k}}$.  It is a finite Galois extension of $k$.
 \end{definition}
+
+

@@ -8,3 +8,5 @@ There are two number fields naturally associated to a \hyperref[character.dirich
 \item  the \hyperref[character.dirichlet.field_cut_out]{fixed field}: $\mathbb{Q}(\zeta_q)^{\ker(\chi)}$.
 \end{itemize}
 \end{definition}
+
+

@@ -1,7 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf}{Number field}}
 \begin{definition}\label{nf}
 \uses{nf.degree}
-A \textbf{number field} is a finite degree field extension of the field $\Q$ of rational numbers. In LMFDB, number fields are identified by a \hyperref[nf.label]{label}.
+A {{DEFINES("number field", wikipedia="Algebraic\_number\_field", mathlib="NumberTheory/NumberField/Basic.html")}} is a finite degree field extension of the field $\Q$ of rational numbers. In LMFDB, number fields are identified by a \hyperref[nf.label]{label}.
 
 
 \end{definition}
+
+

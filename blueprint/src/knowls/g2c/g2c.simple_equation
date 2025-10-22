@@ -13,3 +13,5 @@ with $g\in \Z[x]$ defined by $g:=4f+h^2$.
 
 In the LMFDB, invariants of hyperelliptic curves such as rational points and generators of the \hyperref[ag.mordell_weil]{Mordell-Weil group} of its \hyperref[ag.jacobian]{Jacobian} are always expressed in terms of the minimal equation, not the corresponding simplified equation (except in cases where the minimal equation has $h=0$ and the two coincide).
 \end{definition}
+
+

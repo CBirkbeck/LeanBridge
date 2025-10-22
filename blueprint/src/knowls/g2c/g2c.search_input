@@ -3,3 +3,5 @@
 \uses{g2c.g2curve,g2c.isogeny_class,g2c.label}
 To find a specific \hyperref[g2c.g2curve]{genus 2 curve}, enter its \hyperref[g2c.label]{label}, or the label of its \hyperref[g2c.isogeny_class]{isogeny class}, or enter a squarefree integer polynomial $f(x)$ of degree 5 or 6 to search for the hyperelliptic curve $y^2=f(x)$.
 \end{definition}
+
+

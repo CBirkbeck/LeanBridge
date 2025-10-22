@@ -5,3 +5,5 @@ Dynamically computed L-functions are computed on-the-fly at low precision and ar
 
 The displayed data may be inaccurate, and in particular may not have the accuracy suggested by the displayed precision.
 \end{definition}
+
+

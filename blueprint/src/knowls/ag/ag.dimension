@@ -4,6 +4,8 @@
 The \textbf{dimension} of an \hyperref[ag.variety]{algebraic variety} $V$ is the maximal length $d$ of a chain
 $$
 V_0 \subset V_1 \subset \cdots \subset V_d
-$$
+$$ 
 of distinct \hyperref[ag.irreducible]{irreducible} subvarieties of $V$.
 \end{definition}
+
+

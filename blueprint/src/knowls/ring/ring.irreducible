@@ -3,3 +3,5 @@
 \uses{ring,ring.unit}
 An element $x \ne 0$ of a \hyperref[ring]{commutative ring} $R$ is \textbf{irreducible} if it is not a \hyperref[ring.unit]{unit} and has the property that  whenever $x=yz$ for some $y,z \in R$, either $y$ or $z$ is a unit.
 \end{definition}
+
+

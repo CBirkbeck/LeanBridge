@@ -3,7 +3,9 @@
 \uses{ag.abelian_variety,ag.endomorphism_algebra,ag.jacobian,ag.simple,av.galois_rep,av.tate_module}
 A \hyperref[ag.simple]{simple} \hyperref[ag.abelian_variety]{abelian variety} $A$ over a field $K$ is said to be of \textbf{$\textbf{GL}_2$-type} if its \hyperref[ag.endomorphism_algebra]{endomorphism algebra} $\mathrm{End}(A)\otimes\Q$ is commutative and has dimension (as a $\Q$-vector space) equal to the dimension of $A$ (as an abelian variety).  More generally, an abelian variety is said to be of \textbf{$\textbf{GL}_2$-type} if it is isogenous (over the ground field) to a product of pairwise non-isogenous simple abelian varieties of $\textrm{GL}_2$-type.
 
-Let $\ell \in \mathbb{Z}_{> 0}$ be a prime, and let $V_{\ell}(A) = T_{\ell}(A) \otimes_{\mathbb{Z}_{\ell}} \mathbb{Q}_{\ell}$, where $T_{\ell}(A)$ is the $\ell$-adic \hyperref[av.tate_module]{Tate module} of $A$. If $K$ has characteristic different from $\ell$, then $V_\ell(A)$ is free of rank $2$ as a $(E \otimes_{\mathbb{Q}} \mathbb{Q}_{\ell})$-module. Consequently, the image of the $\ell$-adic \hyperref[av.galois_rep]{Galois representation} of $A$ is a subgroup of $\operatorname{GL}_2(E \otimes_{\mathbb{Q}} \mathbb{Q}_{\ell})$.
+Let $\ell \in \mathbb{Z}_{> 0}$ be a prime, and let $V_{\ell}(A) = T_{\ell}(A) \otimes_{\mathbb{Z}_{\ell}} \mathbb{Q}_{\ell}$, where $T_{\ell}(A)$ is the $\ell$-adic \hyperref[av.tate_module]{Tate module} of $A$. If $K$ has characteristic different from $\ell$, then $V_{\ell}(A)$ is free of rank $2$ as a $(E \otimes_{\mathbb{Q}} \mathbb{Q}_{\ell})$-module. Consequently, the image of the $\ell$-adic \hyperref[av.galois_rep]{Galois representation} of $A$ is a subgroup of $\operatorname{GL}_2(E \otimes_{\mathbb{Q}} \mathbb{Q}_{\ell})$.
 
 A curve is said to be of $\text{GL}_2$-type if its \hyperref[ag.jacobian]{Jacobian} is of $\text{GL}_2$-type.
 \end{definition}
+
+

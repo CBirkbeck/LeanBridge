@@ -5,3 +5,5 @@ The \textbf{analytic rank} of a \hyperref[modcurve]{modular curve} is the order 
 
 The \hyperref[ec.bsdconjecture]{Birch and Swinnerton-Dyer} conjecture for modular abelian varieties implies that the analytic rank is equal to the \hyperref[ag.mordell_weil]{Mordell-Weil rank} of the Jacobian.
 \end{definition}
+
+

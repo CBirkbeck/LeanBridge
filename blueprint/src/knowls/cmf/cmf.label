@@ -29,3 +29,5 @@ For each \hyperref[cmf.embedding]{embedding} of the \hyperref[cmf.coefficient_fi
 \item  \(i\) is an integer ranging from 1 to the \hyperref[cmf.relative_dimension]{relative dimension} of the newform that distinguishes embeddings with the same character $\chi$.
 \end{itemize}
 \end{definition}
+
+

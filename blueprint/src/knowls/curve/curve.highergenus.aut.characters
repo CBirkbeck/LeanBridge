@@ -5,3 +5,5 @@ If $G$ is a \hyperref[curve.highergenus.aut.group_action]{group acting on a curv
 
 The character of each of these representations is identified by its index in the \hyperref[group.complex_character_table]{character table} for $G$ as listed by Magma (which may differ from GAP).
 \end{definition}
+
+

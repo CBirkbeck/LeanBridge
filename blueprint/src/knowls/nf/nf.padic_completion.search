@@ -5,3 +5,5 @@
 
 When searching for number fields with a list of $p$-adic completions, the results will contain fields which match all of the completions in the list.
 \end{definition}
+
+

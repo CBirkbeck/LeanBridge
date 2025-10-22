@@ -1,11 +1,13 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.modular_cover}{Modular cover}}
 \begin{definition}\label{modcurve.modular_cover}
 \uses{ag.abelian_variety,ag.dimension,ec,gl2.open,modcurve,modcurve.level_structure,modcurve.psl2index}
-Each inclusion of \hyperref[gl2.open]{open subgroups} $H\leq G$ of $\GL_2(\widehat{\Z})$ induces a morphism of \hyperref[modcurve]{modular curves} $X_H\to X_G$: every \hyperref[ec]{elliptic curve} with \hyperref[modcurve.level_structure]{level $H$ structure} gives rise to an elliptic curve with level $G$ structure.  We call such a morphism of modular curves a \textbf{modular cover}.
+Each inclusion of \hyperref[gl2.open]{open subgroups} $H\leq G$ of $\GL_2(\widehat\Z)$ induces a morphism of \hyperref[modcurve]{modular curves} $X_H\to X_G$: every \hyperref[ec]{elliptic curve} with \hyperref[modcurve.level_structure]{level $H$ structure} gives rise to an elliptic curve with level $G$ structure.  We call such a morphism of modular curves a \textbf{modular cover}.
 
-The \textbf{degree} of the morphism $X_H\to X_G$ is equal to the ratio of the \hyperref[modcurve.psl2index]{$\PSL_2$-index} of $H$ by that of $G$.  Note that when $-1$ is in $G$ but not $H$, we might have $H < G$ strictly contained but the map $X_H \to X_G$ may have degree $1$ (hence be an isomorphism).
+The \textbf{degree} of the morphism $X_H\to X_G$ is equal to the ratio of the \hyperref[modcurve.psl2index]{$\PSL_2$-index} of $H$ by that of $G$.  Note that when $-1$ is in $G$ but not $H$, we might have $H < G$ strictly contained but the map $X_H \to X_G$ may have degree $1$ (hence be an isomorphism).  
 
 A modular cover is \textbf{minimal} if $H < G$ is a maximal (proper) subgroup.
 
 The morphism $X_H\to X_G$ induces a surjective homomorphism $\phi \colon \operatorname{Jac}(X_H)\to\operatorname{Jac}(X_G)$.  The \textbf{kernel} of the modular cover is the connected component of $\ker \phi$.  This is an \hyperref[ag.abelian_variety]{abelian variety}, possibly of \hyperref[ag.dimension]{dimension} zero.
 \end{definition}
+
+

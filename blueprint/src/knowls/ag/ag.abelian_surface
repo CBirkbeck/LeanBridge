@@ -5,3 +5,5 @@ An \textbf{abelian surface} is an \hyperref[ag.abelian_variety]{abelian variety}
 
 Examples are given by the product of two \hyperref[ec]{elliptic curves}, or the \hyperref[ag.jacobian]{Jacobian} of a curve of \hyperref[ag.curve.genus]{genus} 2.
 \end{definition}
+
+

@@ -7,7 +7,9 @@ For motives of even \hyperref[st_group.weight]{weight} $w$ and \hyperref[st_grou
 
 The simplest case is when $X$ is an \hyperref[ec]{elliptic curve} $E/\Q$, in which case $G$ is either $\mathrm{SU}(2)=\mathrm{USp}(2)$ (the generic case), or $G$ is $N(\mathrm{U}(1))$, the normalizer of the subgroup $\mathrm{U}(1)$ of diagonal matrices in $\mathrm{SU}(2)$, which contains $\mathrm{U}(1)$ with index 2.
 
-The generalized Sato-Tate conjecture states that when ordered by norm, the sequence of images of Frobenius elements under this representation is equidistributed with respect to the pushforward of the \hyperref[group.haar_measure]{Haar measure} of $G$ onto its set of conjugacy classes.
+The generalized Sato-Tate conjecture states that when ordered by norm, the sequence of images of Frobenius elements under this representation is equidistributed with respect to the pushforward of the \hyperref[group.haar_measure]{Haar measure} of $G$ onto its set of conjugacy classes. 
 This is known for all elliptic curves over \hyperref[nf.totally_real]{totally real} number fields (including $\mathbb{Q}$) or \hyperref[nf.cm_field]{CM fields}.
 
 \end{definition}
+
+

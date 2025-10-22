@@ -1,7 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.q.invariants}{Elliptic curve invariants}}
 \begin{definition}\label{ec.q.invariants}
 \uses{ec,ec.complex_multiplication,ec.endomorphism_ring,ec.q.conductor,ec.q.discriminant,ec.q.j_invariant,st_group.definition}
-Invariants of an \hyperref[ec]{elliptic curve} \(E\) over $\mathbb{Q}$ are its
+Invariants of an \hyperref[ec]{elliptic curve} \(E\) over $\mathbb{Q}$ are its 
 
 \begin{itemize}
 \item  \hyperref[ec.q.conductor]{conductor}, $N$
@@ -11,3 +11,5 @@ Invariants of an \hyperref[ec]{elliptic curve} \(E\) over $\mathbb{Q}$ are its
 \item  \hyperref[st_group.definition]{Sato-Tate group}, $\text{ST}(E)$. This is \(SU(2)\) unless \(E\) has \hyperref[ec.complex_multiplication]{CM}
 \end{itemize}
 \end{definition}
+
+

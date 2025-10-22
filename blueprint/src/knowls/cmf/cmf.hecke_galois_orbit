@@ -7,3 +7,5 @@ The \hyperref[cmf.galois_orbit]{Galois orbits} within each \hyperref[cmf.newspac
 \]
 obtained by taking traces of Hecke eigenvalues $a_1,a_2,\ldots$ from the coefficient field $K$ down to $\Q$.
 \end{definition}
+
+

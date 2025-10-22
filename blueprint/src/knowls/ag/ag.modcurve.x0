@@ -5,3 +5,5 @@ Let $N \ge 1$. The *modular curve* $X_0(N)$ is an \hyperref[ag.curve]{algebraic 
 
 The complex manifold $X_0(N)(\C)$ is biholomorphic to the quotient $\Gamma_0(N) \backslash \mathcal{H}^*$ of the \hyperref[mf.upper_half_plane]{completed upper half plane}.
 \end{definition}
+
+

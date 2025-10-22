@@ -5,3 +5,5 @@ The semistable reduction theorem asserts that any curve $C$ attains \hyperref[g2
 If semistable reduction, can be attained after a \hyperref[lf.tame_degree]{tame extension} of the base field, then $C$ is said to have \textit{tame reduction}, otherwise $C$ has \textit{wild reduction}.
 For primes $p > 2g + 1$, any curve of genus $g$ has tame reduction at $p$.
 \end{definition}
+
+

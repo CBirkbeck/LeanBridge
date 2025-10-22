@@ -7,3 +7,5 @@ When there is no middle entry (because the Hodge width is odd), the signature is
 
 The archimedean root number can be recovered from the signature $s$ and the Hodge vector $(h_n)$.
 \end{definition}
+
+

@@ -1,7 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.metabelian}{Metabelian group}}
 \begin{definition}\label{group.metabelian}
 \uses{group.abelian,group.dihedral,group.generalized_quaternion,group.metacyclic,group.solvable}
-A finite group $G$ is \textbf{metabelian} if its commutator subgroup is abelian. Equivalently, $G$ is an extension of an abelian group by an abelian group. Metabelian groups are \hyperref[group.solvable]{solvable}, and they include all \hyperref[group.abelian]{abelian}, \hyperref[group.dihedral]{dihedral}, \hyperref[group.generalized_quaternion]{quaternion}, \hyperref[group.metacyclic]{metacyclic}, extra​special groups and groups of $p$-rank one.
+A finite group $G$ is \textbf{metabelian} if its commutator subgroup is abelian. Equivalently, $G$ is an extension of an abelian group by an abelian group. Metabelian groups are \hyperref[group.solvable]{solvable}, and they include all \hyperref[group.abelian]{abelian}, \hyperref[group.dihedral]{dihedral}, \hyperref[group.generalized_quaternion]{quaternion}, \hyperref[group.metacyclic]{metacyclic}, extra​special groups and groups of $p$-rank one. 
 
 Every \hyperref[group.metacyclic]{metacylic} group is metabelian, but the converse does not hold, as shown by <a href="{{url\_for('abstract.index')}}?metacyclic=no&metabelian=yes">these examples</a>.
 \end{definition}
+
+

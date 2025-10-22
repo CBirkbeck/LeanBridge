@@ -6,3 +6,5 @@
 When searching by wild inertia groups, it can be specified as an abstract group by a \hyperref[group.small_group_label]{GAP id}, a group name from \hyperref[gg.label]{transitive group label}, or a \hyperref[nf.galois_group.name]{list of group labels}.
 
 \end{definition}
+
+

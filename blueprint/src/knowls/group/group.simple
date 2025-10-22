@@ -1,7 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.simple}{Simple groups}}
 \begin{definition}\label{group.simple}
 \uses{group,group.abelian,group.cyclic,group.order,group.subgroup.normal}
-A non-trivial \hyperref[group]{group} $G$ is \textbf{simple} its only \hyperref[group.subgroup.normal]{normal} subgroups are the trivial group and $G$ itself.
+A non-trivial \hyperref[group]{group} $G$ is \textbf{simple} its only \hyperref[group.subgroup.normal]{normal} subgroups are the trivial group and $G$ itself. 
 
 Finite simple groups are building blocks for all finite groups, via extensions, and they are divided into \hyperref[group.cyclic]{cyclic} groups of prime \hyperref[group.order]{order} and the \hyperref[group.abelian]{nonabelian} simple groups. For small orders, nonabelian simple groups they are all alternating or linear.
 \end{definition}
+
+

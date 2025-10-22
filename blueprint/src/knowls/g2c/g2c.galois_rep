@@ -3,3 +3,5 @@
 \uses{av.galois_rep,g2c.jacobian}
 Let $A$ be the \hyperref[g2c.jacobian]{Jacobian of a genus 2 curve} $C$ defined over a field $K$. Then $A$ is an abelian variety and hence has associated \hyperref[av.galois_rep]{Galois representations}.
 \end{definition}
+
+

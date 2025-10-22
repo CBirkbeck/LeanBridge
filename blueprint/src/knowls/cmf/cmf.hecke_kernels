@@ -7,3 +7,5 @@ If $X$ is a set of \hyperref[cmf.distinguishing_primes]{distinguishing primes} f
 
 This characterization allows one to reconstruct the newform $f$ without computing a basis of newforms for $S_k^{\rm new}(N,\chi)$, which may be computationally useful when the \hyperref[cmf.dimension]{dimension} of $f$ is much smaller than that of $S_k^{\rm new}(N,\chi)$.
 \end{definition}
+
+

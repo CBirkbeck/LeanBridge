@@ -1,6 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.determinant}{Determinant of an integral lattice}}
 \begin{definition}\label{lattice.determinant}
 \uses{lattice.definition,lattice.gram}
-For an \hyperref[lattice.definition]{integral lattice}, $L$, with \hyperref[lattice.gram]{Gram matrix} $G$, the \textbf{determinant} of the lattice with respect to $G$ is the determinant of the Gram matrix.
+For an \hyperref[lattice.definition]{integral lattice}, $L$, with \hyperref[lattice.gram]{Gram matrix} $G$, the \textbf{determinant} of the lattice with respect to $G$ is the determinant of the Gram matrix. 
 
 \end{definition}
+
+

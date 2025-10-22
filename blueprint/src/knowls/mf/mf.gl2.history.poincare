@@ -5,3 +5,5 @@ We can define a function which has the \hyperref[mf.transformation_property]{mod
 $$f(z)=\sum_{\gamma\in\langle T\rangle\backslash\Gamma}h(\gamma z)(cz+d)^{-k},$$
 whenever this makes sense, where $T=\left(\begin{matrix}1&1\\0&1\end{matrix}\right)$ acts on \hyperref[group.sl2z]{$\Gamma$} by left-multiplication. If $h=1$ we recover the \hyperref[cmf.eisenstein]{Eisenstein series}. If $h(z)=\exp(2\pi i nz)$ with $n\in\Z$, which is indeed $1$-periodic, we produce what are called \hyperref[specialfunction.poincare]{Poincar\'e; series}.  A special case for which it is <em>not</em> necessary to divide by the left-action of $T$ is the function $f(z)=\sum_{\gamma\in\Gamma}(\gamma z)^{-n}(cz+d)^{-k}$, for suitable values of $n$.
 \end{definition}
+
+

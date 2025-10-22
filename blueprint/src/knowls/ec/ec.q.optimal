@@ -3,7 +3,9 @@
 \uses{ec.isogeny_class,ec.q,ec.q.conductor}
 An \hyperref[ec.q]{elliptic curve} over $\Q$ is \textbf{optimal} if it is an optimal quotient of the corresponding modular curve. Every isogeny class contains a unique optimal curve. For more information, see [William Stein's page on optimal quotients.](http://wstein.org/papers/ars-manin/html/node2.html)
 
-Optimal curves have a \hyperref[ec.q.cremona_label]{Cremona label} whose last component is the number 1, with the exception of class 990h where the optimal curve is 990h3 (number 3).  This is a historical accident and has no mathematical significance.
+Optimal curves have a \hyperref[ec.q.cremona_label]{Cremona label} whose last component is the number 1, with the exception of class 990h where the optimal curve is 990h3 (number 3).  This is a historical accident and has no mathematical significance.  
 
 NB It has not yet been proved in all cases that the first curve in each class is optimal; however this is true for all \hyperref[ec.isogeny_class]{isogeny classes} of \hyperref[ec.q.conductor]{conductor} ${}\le400000$, and for many others (for example whenever the isogeny class consists of only one curve).  The current optimality status of each curve is shown on its home page.
 \end{definition}
+
+

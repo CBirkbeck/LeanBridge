@@ -5,3 +5,5 @@ The \textbf{index} of a \hyperref[modlgal]{mod-$\ell$ Galois representation} $\r
 
 The index is $1$ if and only if the representation is \hyperref[modlgal.surjective]{surjective}.
 \end{definition}
+
+
