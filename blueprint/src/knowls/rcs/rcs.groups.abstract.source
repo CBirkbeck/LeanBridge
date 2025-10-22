@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.groups.abstract.source}{Source of abstract group data}}
 \begin{definition}\label{rcs.groups.abstract.source}
 \uses{}
+\leanok
 Small groups were pulled from the small group database in Magma, and rely on the following work:
 
 \begin{itemize}

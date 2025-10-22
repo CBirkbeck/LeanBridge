@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.history.hecke_operators}{Hecke operators, history}}
 \begin{definition}\label{lfunction.history.hecke_operators}
 \uses{}
+\leanok
 Hecke \cite{MR1513122}, building on Mordell, introduced operators acting on
 vector spaces of modular forms.  The forms which were simultaneous eigenvalues 
 of these operators have multiplicative Fourier coefficients so that their 

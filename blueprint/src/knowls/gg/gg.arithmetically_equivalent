@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/gg.arithmetically_equivalent}{Arithmetically equivalent siblings}}
 \begin{definition}\label{gg.arithmetically_equivalent}
 \uses{gg.conjugacy_classes,group.subgroup,nf,nf.arithmetically_equivalent,nf.degree,nf.galois_group}
+\leanok
 If $K$ is a \hyperref[nf.degree]{degree} $n$ \hyperref[nf]{number field} whose Galois closure has \hyperref[nf.galois_group]{Galois group} $G\leq S_n$, then $K$ may have \hyperref[nf.arithmetically_equivalent]{arithmetically equivalent} fields.  The number of these is a function of $G$.
 
 Inside $G$, we have $H_1$, the stabilizer \hyperref[group.subgroup]{subgroup} of $1$.  By the Galois correspondence, an arithmetically equivalent field corresponds to a conjugacy class of subgroups with representative $H_2$ such that

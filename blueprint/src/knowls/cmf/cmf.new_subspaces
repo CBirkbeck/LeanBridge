@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.new_subspaces}{New subspaces of modular forms}}
 \begin{definition}\label{cmf.new_subspaces}
 \uses{cmf,cmf.character,cmf.eisenstein_newspace,cmf.level,cmf.newspace,cmf.weight}
+\leanok
 The space $M_k(N,\chi)$ of \hyperref[cmf]{modular forms} of \hyperref[cmf.level]{level} $N$, \hyperref[cmf.weight]{weight} $k$, and \hyperref[cmf.character]{character} $\chi$ can be decomposed 
 \[
 M_k(N,\chi) = M_k^{\rm old}(N,\chi) \oplus M_k^{\rm new}(N,\chi)

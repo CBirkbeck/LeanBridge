@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/st_group.invariants}{Sato-Tate group invariants}}
 \begin{definition}\label{st_group.invariants}
 \uses{st_group.ambient,st_group.connected,st_group.degree,st_group.weight}
+\leanok
 The invariants of a Sato-Tate group $G$ include:
 
 \begin{itemize}

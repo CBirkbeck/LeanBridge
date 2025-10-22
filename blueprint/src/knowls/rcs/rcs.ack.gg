@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.ack.gg}{Acknowledgments for Galois groups}}
 \begin{definition}\label{rcs.ack.gg}
 \uses{}
+\leanok
 <h2>Additional acknowledgments</h2>
 
 Data on integral representations was provided by Alex Bartel.  Other data was computed by John Jones.

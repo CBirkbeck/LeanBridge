@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.lift.miyawaki}{Miyawaki lift }}
 \begin{definition}\label{mf.siegel.lift.miyawaki}
 \uses{cmf,group.sp2gr,mf.siegel,mf.siegel.lift,mf.siegel.lift.miyawaki1,mf.siegel.lift.miyawaki2}
+\leanok
 A <b>Miyawaki Lift</b> is a \hyperref[mf.siegel.lift]{lift}
 from \hyperref[cmf]{elliptic modular forms} 
 to \hyperref[mf.siegel]{Siegel modular forms} of degree 3

@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.cande.g2c}{Completeness of genus 2 curve data}}
 \begin{definition}\label{rcs.cande.g2c}
 \uses{g2c.discriminant}
+\leanok
 The database contains all genus 2 curves over $\Q$ that can defined by an integral equation of the form
 \[
 y^2+(h_3x^3+h_2x^2+h_1x+h_0)y=f_6x^6+f_5x^5+f_4x^4+f_3x^3+f_2x^2+f_1x+f_0,

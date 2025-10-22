@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.subgroup_isolabel}{Subgroup label}}
 \begin{definition}\label{group.subgroup_isolabel}
 \uses{group,group.label,group.subgroup}
+\leanok
 The \hyperref[group.label]{label} of the \hyperref[group.subgroup]{subgroup} as an \hyperref[group]{abstract group}.
 \end{definition}
 

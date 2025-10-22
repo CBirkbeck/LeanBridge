@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.bianchi.labels}{Labels of Bianchi modular forms}}
 \begin{definition}\label{mf.bianchi.labels}
 \uses{nf.ideal_labels,nf.label}
+\leanok
 The label of a Bianchi newform has the form \textit{field}-\_level\_-\_suffix\_.  
 Here \textit{field} is the base number field $K$, and is denoted by its \hyperref[nf.label]{standard label}; \textit{level} is an integral ideal of $K$, denoted by its \hyperref[nf.ideal_labels]{standard label}; and  \textit{suffix} is a sequence of one or more letters representing the index of the form in a sorted list of newforms of the same level.  Forms at the same level are sorted first by dimension, then by lexicographical order of the Fourier coefficients, which are themselves sorted according to the standard ordering of integral ideals.
 

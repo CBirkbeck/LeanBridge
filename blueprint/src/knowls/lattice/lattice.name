@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.name}{Name of a lattice}}
 \begin{definition}\label{lattice.name}
 \uses{lattice.24.1.1.24.1.top,lattice.definition,lattice.root_lattice}
+\leanok
 Certain \hyperref[lattice.definition]{integral lattices} have names in the LMFDB. These include \hyperref[lattice.root_lattice]{root lattices} (A2...A14, D3=A3, E8), duals of root lattices (A3\*=D3\*), square lattices (Z2, Z3), and the \hyperref[lattice.24.1.1.24.1.top]{Leech lattice} (Leech).
 \end{definition}
 

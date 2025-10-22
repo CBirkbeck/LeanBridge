@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.paramodular}{Paramodular group}}
 \begin{definition}\label{group.paramodular}
 \uses{group.sp2gr}
+\leanok
 The paramodular group $K(N)$ of level $N$ is defined as 
 $$K(N)=\left\{
 \left(\begin{matrix}

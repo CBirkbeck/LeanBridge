@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.known_degree4}{Degree 4 L-functions, examples}}
 \begin{definition}\label{lfunction.known_degree4}
 \uses{cmf.cusp_form,lfunction,lfunction.degree,lfunction.primitive}
+\leanok
 Examples of \hyperref[lfunction.primitive]{primitive} \hyperref[lfunction.degree]{degree} 4 \hyperref[lfunction]{L-functions} are:
 
 \begin{itemize}

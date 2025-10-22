@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.history}{History of Lattices }}
 \begin{definition}\label{lattice.history}
 \uses{lattice.definition,lattice.theta,mf.half_integral_weight.theta,mf.siegel}
+\leanok
 \hyperref[lattice.definition]{Integral lattices} have a deep connection to the objects in the LMFDB in that every lattice, $L$, has an associated \hyperref[lattice.theta]{theta series}, $\Theta_L$, which is a holomorphic modular form of \hyperref[mf.half_integral_weight.theta]{half-integral weight}.  Specifically, the theta series are a type of \hyperref[mf.siegel]{Siegel modular form}, first introduced by Siegel in the 1930's \cite{MR0332663}.  Later, in 1973, Shimura developed a partial correspondence lifting \hyperref[mf.half_integral_weight.theta]{half-integral weight} theta series to full integral weight series \cite{MR0332663}, allowing lattices to be studied using the full analytic machinery of modular forms. 
 
 The Representation Problem

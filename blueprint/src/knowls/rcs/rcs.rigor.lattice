@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.rigor.lattice}{Reliability of lattice data}}
 \begin{definition}\label{rcs.rigor.lattice}
 \uses{}
+\leanok
 
 \end{definition}
 

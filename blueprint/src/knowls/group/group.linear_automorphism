@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.linear_automorphism}{Linear group twisted by automorphisms}}
 \begin{definition}\label{group.linear_automorphism}
 \uses{}
+\leanok
 The group $\Gamma\mathrm{L} (n,q)$ is the semi-direct product of $\GL(n,q)$ with the group of field automorphisms $A = \Aut(\F_q / \F_p)$, acting $\GL(n,q)$ entry-wise. Similarly, $\Sigma \mathrm{L}(n,q)$ is the semi-direct product of $\SL(n,q)$ with $A$. 
 
 The projective linear groups twisted by automorphisms are $\PGammaL(n,q)$ and $\PSigmaL(n,q)$, the quotients of $\Gamma \mathrm{L}(n,q)$ and $\Sigma \mathrm{L}(n,q)$, respectively, by their subgroups of scalar matrices. 

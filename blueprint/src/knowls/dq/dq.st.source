@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/dq.st.source}{Source of Sato-Tate group data}}
 \begin{definition}\label{dq.st.source}
 \uses{st_group.rational}
+\leanok
 Sato-Tate groups in weight 0 and degree 1 are computed on demand.
 
 \hyperref[st_group.rational]{Rational} Sato-Tate groups in weight 1 and degree 2 are taken from \textit{Hyperelliptic curves, L-polynomials, and random matrices}, by K.S. Kedlaya and A.V. Sutherland \cite{arXiv:0803.4462,doi:10.1090/conm/487,MR:2555991}.

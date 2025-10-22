@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.galois_rep_elladic_image}{Image of $\ell$-adic Galois representation}}
 \begin{definition}\label{ec.galois_rep_elladic_image}
 \uses{ec,ec.complex_multiplication,ec.galois_rep,gl2.cartan,gl2.label,gl2.level,gl2.open,nf}
+\leanok
 Let $E/K$ be an \hyperref[ec]{elliptic curve} over a \hyperref[nf]{number field}, let $\ell$ be a prime, and let $H$ be the image of the \hyperref[ec.galois_rep]{$\ell$-adic Galois representation}
 \[
 \rho_{E,\ell}\colon G_{\Q}\to \Aut(E[\ell^{\infty}])\simeq \GL_2(\Z_{\ell}).

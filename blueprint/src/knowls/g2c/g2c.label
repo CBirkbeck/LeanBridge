@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.label}{Label of a genus 2 curve over $\Q$}}
 \begin{definition}\label{g2c.label}
 \uses{ag.conductor,g2c.abs_discriminant,g2c.g2curve,g2c.jacobian}
+\leanok
 The label of a \hyperref[g2c.g2curve]{genus 2 curve} over $\Q$ has the form $N$.$s$.$D$.$n$, where
 
 \begin{itemize}

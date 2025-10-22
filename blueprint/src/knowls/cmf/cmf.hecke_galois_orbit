@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.hecke_galois_orbit}{Galois orbit label}}
 \begin{definition}\label{cmf.hecke_galois_orbit}
 \uses{cmf.galois_orbit,cmf.newspace}
+\leanok
 The \hyperref[cmf.galois_orbit]{Galois orbits} within each \hyperref[cmf.newspace]{space of newforms} $S^{\rm new}_k(N,[\chi])$ are labeled using small roman letters: $a, b, c, \ldots, z, aa, ba, \ldots$, with orbits ordered according to the lexicographical ordering of their integer trace sequences
 \[
 ({\rm tr}_{K/\Q}(a_1),\ {\rm tr}_{K/\Q}(a_2), {\rm tr}_{K\Q}(a_3),\ \ldots)

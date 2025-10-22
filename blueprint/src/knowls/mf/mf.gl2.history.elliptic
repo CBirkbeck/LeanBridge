@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.gl2.history.elliptic}{Elliptic functions}}
 \begin{definition}\label{mf.gl2.history.elliptic}
 \uses{cmf,cmf.eisenstein,ec,mf.1.12.1.a.top,mf.quasi_modular}
+\leanok
 The first example is through the theory of \hyperref[cmf]{elliptic
 functions}, and the closely related elementary theory of \hyperref[ec]{elliptic curves} over $\C$: in this context, the functions that arise naturally are the \hyperref[cmf.eisenstein]{Eisenstein series} $E_k$ (or their alternately normalized counterparts $F_k$ and $G_k$), the
 \hyperref[mf.quasi_modular]{quasi-modular} Eisenstein series $E_2$, the \hyperref[mf.1.12.1.a.top]{discriminant function} $\Delta$ and the \hyperref[cmf]{elliptic modular invariant} $j$.

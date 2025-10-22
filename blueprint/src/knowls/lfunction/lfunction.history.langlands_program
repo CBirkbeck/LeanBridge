@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.history.langlands_program}{Langlands program}}
 \begin{definition}\label{lfunction.history.langlands_program}
 \uses{}
+\leanok
 Langlands theory of automorphic forms ushered in an age of a new understanding
 of the profundity of L-functions. His small book \textit{Euler Products} of 1967 contains
 the beginnings of a general theory.

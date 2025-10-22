@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.herbrand_input}{Specifying a Herbrand invariant}}
 \begin{definition}\label{lf.herbrand_input}
 \uses{lf.herbrand_invariant,lf.means,lf.ramification_index,lf.rams,lf.residue_field_degree,lf.slopes}
+\leanok
 To specify a \hyperref[lf.herbrand_invariant]{Herbrand invariant} you can enter rational numbers inside square brackets to give the \hyperref[lf.slopes]{Swan slopes}, enter rational numbers inside parentheses to give the \hyperref[lf.rams]{rams}, or enter rational numbers inside angle brackets to give the \hyperref[lf.means]{means}.  You should not include the \hyperref[lf.residue_field_degree]{residue field degree} or \hyperref[lf.ramification_index]{ramification index}, since those are specified in another search input.
 \end{definition}
 

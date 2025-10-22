@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/character.dirichlet.related_fields}{Number fields related to a Dirichlet character}}
 \begin{definition}\label{character.dirichlet.related_fields}
 \uses{character.dirichlet,character.dirichlet.field_cut_out,character.dirichlet.modulus,character.dirichlet.value_field}
+\leanok
 There are two number fields naturally associated to a \hyperref[character.dirichlet]{Dirichlet character} $\chi$ of \hyperref[character.dirichlet.modulus]{modulus} $q$:
 
 \begin{itemize}

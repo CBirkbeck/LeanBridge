@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/dq.mf.bianchi.source}{Source of Bianchi modular form data}}
 \begin{definition}\label{dq.mf.bianchi.source}
 \uses{mf.bianchi,mf.bianchi.newform,mf.bianchi.weight}
+\leanok
 The database of Bianchi modular forms was mostly computed by John Cremona using modular symbol algorithms developed in his [1981 DPhil thesis](http://http://www.warwick.ac.uk/staff/J.E.Cremona/theses/JCthesis-scan.pdf) (see also [J. E. Cremona,
 Hyperbolic tessellations, modular symbols, and
 elliptic curves over complex quadratic fields

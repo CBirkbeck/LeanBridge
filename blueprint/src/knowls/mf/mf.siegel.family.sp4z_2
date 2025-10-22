@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.family.sp4z_2}{Vector valued Siegel modular forms of degree 2 taking values in three-dimensional space}}
 \begin{definition}\label{mf.siegel.family.sp4z_2}
 \uses{group.sp2gr,mf.siegel.degree,mf.siegel.vector_valued}
+\leanok
 The module of \hyperref[mf.siegel.vector_valued]{vector-valued Siegel modular forms} of \hyperref[mf.siegel.degree]{degree} 2, taking values in a three-dimensional space, with respect to the \hyperref[group.sp2gr]{full modular group}.
 
 Let $\psi_4$, $\psi_6$, $\chi_{10}$, $\chi_{12}$ be generators of $M(\Sp(4,\Z))$,

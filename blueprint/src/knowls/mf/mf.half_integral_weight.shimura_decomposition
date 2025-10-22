@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.half_integral_weight.shimura_decomposition}{Shimura decomposition}}
 \begin{definition}\label{mf.half_integral_weight.shimura_decomposition}
 \uses{}
+\leanok
 Let $k$ be an odd integer. Let $S_0(N, \chi)$ denote the subspace of $S_{3/2}(N, \chi)$ spanned by theta series if $k=3$, and let $S_0(N, \chi)=0$ if $k>3$. Let $S_0'(N, \chi)$ denote the orthogonal complement of $S_0(N, \chi)$ in $S_{3/2}(N, \chi)$. Then
 \[
 S_0'(N, \chi) = \oplus_F S_{k/2}(N, \chi, F),

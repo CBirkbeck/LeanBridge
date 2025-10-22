@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.mf.siegel}{Source of Siegel modular form data}}
 \begin{definition}\label{rcs.source.mf.siegel}
 \uses{group.paramodular,mf.siegel.level,mf.siegel.newform,mf.siegel.weight_k_j}
+\leanok
 Details regarding the construction of the database of paramodular forms can be found in the paper \textit{A database of paramodular forms from quinary orthogonal modular forms} [[preprint](https://math.dartmouth.edu/~jvoight/articles/paramodular-lucant-012223.pdf)] by Eran Assaf, Watson Ladd, Gustavo Rama, Gonzalo Tornaría and John Voight.
 In particular, the Siegel paramodular forms data in the LMFDB come from two sources:
 

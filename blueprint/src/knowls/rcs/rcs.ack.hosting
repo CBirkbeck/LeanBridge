@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.ack.hosting}{Acknowledgments for hosting}}
 \begin{definition}\label{rcs.ack.hosting}
 \uses{}
+\leanok
 The database and web server were hosted until September 2013 on William
   Stein's \href{http://wstein.org/grants/screms/}{ NSF-funded} cluster at the University of Washington.
 From 2013 until 2016 they were hosted on the

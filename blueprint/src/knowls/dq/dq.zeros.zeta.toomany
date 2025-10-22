@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/dq.zeros.zeta.toomany}{Too many zeros}}
 \begin{definition}\label{dq.zeros.zeta.toomany}
 \uses{}
+\leanok
 It looks as if you want to have access to a lot of zeros of the Riemann zeta function.
 To avoid overloading the server, we ask you to download them in a raw format, from here: <br>
 \href{https://beta.lmfdb.org/riemann-zeta-zeros/}{https://beta.lmfdb.org/riemann-zeta-zeros/} <br><br>

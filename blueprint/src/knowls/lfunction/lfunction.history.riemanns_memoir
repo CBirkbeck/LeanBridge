@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.history.riemanns_memoir}{Riemann's memoir}}
 \begin{definition}\label{lfunction.history.riemanns_memoir}
 \uses{}
+\leanok
 In 1859, in an 8 page paper ``\"Uber die Anzahl der Primzahlen unter einer
 gegebenen Gr\"{o}sse'' \cite{href{http://www.claymath.org/sites/default/files/zeta.pdf}{Transcript}} read to the Berlin Academy of Sciences by Gauss' former student Encke,
  Riemann first considered $\zeta(s)$ as a function of a complex variable $s$. 

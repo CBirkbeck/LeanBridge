@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.sp2gr.gamma0}{Subgroup $\Gamma_0(N)$ of $\Sp(2g,\Z)$}}
 \begin{definition}\label{group.sp2gr.gamma0}
 \uses{group.sl2z.subgroup.gamma0n,group.sp2gr}
+\leanok
 The group $\Gamma_0(N)$ in degree $g$ is the subgroup of the integral
 \hyperref[group.sp2gr]{symplectic group} 
 $\Sp(2g,\Z)$, defined by

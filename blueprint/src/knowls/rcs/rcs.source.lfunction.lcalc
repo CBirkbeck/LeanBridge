@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.lfunction.lcalc}{Source of Dynamically Computed L-function Data}}
 \begin{definition}\label{rcs.source.lfunction.lcalc}
 \uses{}
+\leanok
 Dynamically computed L-function data is computed on-the-fly at low precision using the L-function calculator provided by Sage, which is based on the $\texttt{lcalc}$ software library developed by Michael Rubenstein.
 \end{definition}
 

@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.history.tates_thesis}{Tate's thesis}}
 \begin{definition}\label{lfunction.history.tates_thesis}
 \uses{}
+\leanok
 In 1950 Tate's PhD thesis 
 ``Fourier analysis in number fields and Hecke's zeta-functions''
  reprinted in 

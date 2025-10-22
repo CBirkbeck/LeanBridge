@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.family_label}{Family labels}}
 \begin{definition}\label{lf.family_label}
 \uses{lf.discriminant_exponent,lf.family_polynomial,lf.field_label,lf.ramification_index,lf.rams,lf.residue_field_degree,lf.wild_segments}
+\leanok
 Let $K$ be a finite extension of $\Q_p$, with $K\ne\Q_p$.
 The label associated to a relative
 \hyperref[lf.family_polynomial]{family} $I/K$ has the form

@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.rigor.lf}{Reliability of local field data}}
 \begin{definition}\label{rcs.rigor.lf}
 \uses{}
+\leanok
 All data on local field pages was computed rigorously, i.e., without heuristics or conjectures.
 \end{definition}
 

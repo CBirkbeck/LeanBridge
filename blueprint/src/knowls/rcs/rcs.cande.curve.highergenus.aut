@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.cande.curve.highergenus.aut}{Completeness of data for families of higher genus curves with automorphisms}}
 \begin{definition}\label{rcs.cande.curve.highergenus.aut}
 \uses{ag.quotient_curve}
+\leanok
 Currently the database contains all groups $G$ acting as automorphisms of curves $X$ from genus $2$ up to genus $15$ such that the \hyperref[ag.quotient_curve]{quotient} $X/G$ has genus $0$, as well as genus $2$ through $4$ with quotient genus greater than $0$.
 \end{definition}
 

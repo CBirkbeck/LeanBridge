@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.rigor.lfunction.modular}{Reliability of Modular L-function Data}}
 \begin{definition}\label{rcs.rigor.lfunction.modular}
 \uses{cmf.newform,lfunction.analytic_rank,lfunction.critical_line,lfunction.normalization,lfunction.self-dual,lfunction.sign,lfunction.zeros,mf.bianchi.newform,mf.hilbert}
+\leanok
 L-functions of \hyperref[cmf.newform]{classical}, \hyperref[mf.hilbert]{Hilbert}, and \hyperref[mf.bianchi.newform]{Bianchi} modular forms in the database have been precomputed using rigorous precision bounds and interval arithmetic ensure that \hyperref[lfunction.zeros]{zeros} and special values are accurate to the displayed precision (up to an error in the last digit displayed), and that the list of zeros is complete (within the region covered by the list, including the \hyperref[lfunction.zeros]{lowest zero}).  Each zero is known to lie within a disc whose radius is determined by the displayed precision, but note that this is not sufficient to prove that the lie on the \hyperref[lfunction.critical_line]{critical line}. 
 
 The displayed analytic rank $r$ is an upper bound on the true \hyperref[lfunction.analytic_rank]{analytic} rank that is believed to be tight; it is known that there are $r$ (but not $r+1$) zeros within a region of $s=1/2$ (in the \hyperref[lfunction.normalization]{analytic normalization}) of radius equal to the error implied by the displayed precision of the zeros).  In particular, any displayed analytic rank $r=0$ must be correct.

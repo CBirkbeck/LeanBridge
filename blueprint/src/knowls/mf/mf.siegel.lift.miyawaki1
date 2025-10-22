@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.lift.miyawaki1}{Miyawaki lift of type I, Ikeda-Miyawaki lift}}
 \begin{definition}\label{mf.siegel.lift.miyawaki1}
 \uses{}
+\leanok
 <b>Genus 3 Miyawaki Lift, Type I:</b>  Let $k$ be an even weight. Each pair of elliptic Hecke cusp eigenforms
 $$f\in{\mathcal S}_{2k-4}(\SL(2,{\mathbb{Z}}))
 \quad\text{and}\quad

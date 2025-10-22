@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.family.gamma_2}{The ring of Siegel modular forms of degree 2 for $\Gamma(2)$}}
 \begin{definition}\label{mf.siegel.family.gamma_2}
 \uses{}
+\leanok
 We define the following subgroups of the symplectic group $\Sp(4,\Z)$:
   $$
   \Gamma[2]=\{ 

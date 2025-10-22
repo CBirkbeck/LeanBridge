@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/dq.mf.hilbert.reliability}{Reliability of the Hilbert modular form data}}
 \begin{definition}\label{dq.mf.hilbert.reliability}
 \uses{mf.base_change,mf.cm,ring.prime_ideal}
+\leanok
 All Hilbert modular form eigenform data has been computed using rigorous algorithms.  
 
 \begin{itemize}

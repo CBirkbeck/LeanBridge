@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.rigor.g2c}{Reliability of Genus 2 Curve Data}}
 \begin{definition}\label{rcs.rigor.g2c}
 \uses{ag.conductor,ag.mordell_weil,g2c.abs_discriminant,g2c.all_rational_points,g2c.analytic_rank,g2c.analytic_sha,g2c.gl2type,g2c.good_reduction,g2c.hasse_weil_conjecture,g2c.isogeny_class,g2c.jac_endomorphisms,g2c.jacobian,g2c.known_rational_points,g2c.lfunction,g2c.mw_generator,g2c.regulator,g2c.st_group,lfunction.functional_equation,lfunction.selberg_class,lfunction.sign,rcs.cande.g2c}
+\leanok
 As described in Section 3.4 of \cite{MR:3540958,arXiv:1602.03715}, the completeness of the genus 2 curve database for curves of \hyperref[g2c.abs_discriminant]{absolute discriminant} $|\Delta|\le 10^6$ has been tested against other tables of genus 2 curves, including those of \cite{href{http://www.mathe2.uni-bayreuth.de/stoll/data/}{Stoll}}, and Merriman and Smart \cite{doi:10.1017/S030500410007153X}.  However, as explained on the \hyperref[rcs.cande.g2c]{completeness page}, it is only complete within the boxes that were searched, and it is likely that there are genus 2 curves of minimal discriminant $|D|\le 10^6$ that are not included (even though no such curves are currently known).
 
 The reliability of specific data associated to genus 2 curves is discussed below.  

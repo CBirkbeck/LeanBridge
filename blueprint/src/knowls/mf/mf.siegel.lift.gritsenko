@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.lift.gritsenko}{Gritsenko lift}}
 \begin{definition}\label{mf.siegel.lift.gritsenko}
 \uses{}
+\leanok
 Given a <a class="knowl-title" knowl="af.jacobi\_form">Jacobi cusp form</a> 
 $\phi(\tau,z)\in J_{k,N}^{\text{cusp}}$,
 the Gritsenko lift of $\phi$,

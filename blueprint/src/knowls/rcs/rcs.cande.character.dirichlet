@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.cande.character.dirichlet}{Completeness of Dirichlet character data}}
 \begin{definition}\label{rcs.cande.character.dirichlet}
 \uses{character.dirichlet,character.dirichlet.basic_properties,character.dirichlet.galois_orbit,character.dirichlet.minimal,character.dirichlet.modulus,character.dirichlet.value_field}
+\leanok
 The database contains information (\hyperref[character.dirichlet.basic_properties]{basic properties}, \hyperref[character.dirichlet.minimal]{minimality}, \hyperref[character.dirichlet.galois_orbit]{Galois orbit}, \hyperref[character.dirichlet.value_field]{field of values})  for all \hyperref[character.dirichlet]{Dirichlet characters}
  of \hyperref[character.dirichlet.modulus]{modulus} up to $10^6$.
 

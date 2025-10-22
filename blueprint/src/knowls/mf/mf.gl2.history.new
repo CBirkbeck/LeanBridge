@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.gl2.history.new}{New modular forms from given ones}}
 \begin{definition}\label{mf.gl2.history.new}
 \uses{cmf.hecke_operator,cmf.weight,group.sl2z,group.sl2z.subgroup.gamma0n,group.subgroup.index,mf,mf.multipliersystem,mf.quasi_modular,mf.slash_action,mf.transformation_property}
+\leanok
 In addition to the different situations we have seen above, which involve modular functions and forms, there are also many ways to create new \hyperref[mf]{modular forms} from given ones.
 <h4>Vector space or graded ring structure</h4>
 The most trivial way to construct a modular form from given ones is to use the vector space structure: if $f$ and $g$ have the same weight and \hyperref[mf.multipliersystem]{multiplier system} on some group $G$, then of course so does $\lambda f+\mu g$, for any constants $\lambda$ and $\mu$. Another way is to use the fact that the set of all modular forms with trivial multiplier for a given group has the structure of a graded ring. Even more is true: if $f$ and $g$ are modular for the same group $G$, then so is the product $fg$, whose \hyperref[cmf.weight]{weight} will be the sum of the weights and multiplier system, the product of the multiplier systems.

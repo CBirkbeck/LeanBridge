@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.order_factorization}{Factorization of the group order}}
 \begin{definition}\label{group.order_factorization}
 \uses{group.order}
+\leanok
 You can provide the exponents for the factorization of the \hyperref[group.order]{order} of the group into primes.  Enter them in descending order, not the order matching the primes.  So, for example, $18$ would be entered as [2, 1].
 \end{definition}
 

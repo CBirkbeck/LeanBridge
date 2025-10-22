@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.pseudo_random_elements}{Generating deterministic sequences of pseudo-random group elements}}
 \begin{definition}\label{group.pseudo_random_elements}
 \uses{group.conjugacy_class,group.division}
+\leanok
 In order to generate labels for \hyperref[group.division]{divisions} and \hyperref[group.conjugacy_class]{conjugacy classes}, we use a method for picking pseudo-random group elements.
 
 We use an exponential pseudo-random number generator given by

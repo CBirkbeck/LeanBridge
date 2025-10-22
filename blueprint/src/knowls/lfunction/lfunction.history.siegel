@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.history.siegel}{Siegel modular forms, history}}
 \begin{definition}\label{lfunction.history.siegel}
 \uses{}
+\leanok
 In 1939 Siegel \cite{MR0001251} introduced his theory of higher degree modular forms and their L-functions.
 \end{definition}
 

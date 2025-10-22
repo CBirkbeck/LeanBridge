@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.maass_rigor}{Source of rigorous Maass form data}}
 \begin{definition}\label{rcs.source.maass_rigor}
 \uses{}
+\leanok
 Rigorous Maass forms were computed by Kieran Child, Andrei Seymour-Howell, and David Lowry-Duda. The algorithms are based on ideas of Stark \cite{MR0803370} and Hejhal \cite{MR1106989} and described further in \cite{arXiv:2204.11761} and \cite{MR4493409}.
 
 Heuristic Maass forms were computed by Fredrik Strömberg,

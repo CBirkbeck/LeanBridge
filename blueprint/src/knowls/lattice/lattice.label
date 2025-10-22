@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.label}{LMFDB label of an integral lattice}}
 \begin{definition}\label{lattice.label}
 \uses{lattice.class_number,lattice.determinant,lattice.dimension,lattice.level}
+\leanok
 The label of a lattice is given by
 
 \hyperref[lattice.dimension]{dimension}.\hyperref[lattice.determinant]{determinant}.\hyperref[lattice.level]{level}.\hyperref[lattice.class_number]{class\_number}.N

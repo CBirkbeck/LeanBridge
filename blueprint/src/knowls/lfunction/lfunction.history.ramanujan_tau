@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.history.ramanujan_tau}{Ramanujan tau L-function}}
 \begin{definition}\label{lfunction.history.ramanujan_tau}
 \uses{mf.1.12.1.a.top}
+\leanok
 In 1916 Ramanujan \cite{MR2280861} made the startling observation that the coefficients of the \hyperref[mf.1.12.1.a.top]{$\Delta$ function} 
 are multiplicative! Ramanujan defined $\tau(n)$ by
 $$q\prod_{n=1}^\infty (1-q^n)^{24}=\sum_{n=1}^\infty \tau(n)q^n$$

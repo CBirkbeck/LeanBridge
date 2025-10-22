@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.decomposition.old.gamma0chi}{Oldspace decomposition for newform space}}
 \begin{definition}\label{cmf.decomposition.old.gamma0chi}
 \uses{}
+\leanok
 There are natural inclusion maps from lower level; the old subspace is the span of their images.  For \(M\) dividing the level \(N\) and divisible by \(\operatorname{cond}(\chi)\), for $\chi_M$ of modulus $M$ inducing $\chi$, and for \(d \mid (N/M)\), the maps
 $$
   \begin{aligned}

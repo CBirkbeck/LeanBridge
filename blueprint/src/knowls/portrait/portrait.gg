@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/portrait.gg}{Explaination of pictures of Galois groups}}
 \begin{definition}\label{portrait.gg}
 \uses{group,group.generators,group.permutation_representation}
+\leanok
 If $G$ is a \hyperref[group.permutation_representation]{transitive} subgroup of $S_n$, then we draw $n$ dots to represent the numbers from $1$ to $n$.  For each \hyperref[group.generators]{generator} of the \hyperref[group]{group}, we draw an arrow from the $i$th dot to the $j$th dot if the permutation sends $i$ to $j$.  There are no arrows drawn for fixed points, and a transposition is represented by a single double-headed arrow.  One color is assigned to each generator for its arrows.
 
 For groups where the diagram has not yet been created, we display a picture of Évariste Galois.

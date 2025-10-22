@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.commutator_isolabel}{Commutator label}}
 \begin{definition}\label{group.commutator_isolabel}
 \uses{group.commutator_subgroup,group.label}
+\leanok
 You can specify the \hyperref[group.commutator_subgroup]{commutator subgroup} of a group by providing its \hyperref[group.label]{label} as an abstract group.
 \end{definition}
 

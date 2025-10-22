@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/intro.direct_sql}{Direct SQL connection}}
 \begin{definition}\label{intro.direct_sql}
 \uses{}
+\leanok
 You can open a direct connection to a read-only copy of the LMFDB's PostgreSQL database, using the SQL Mirror access information below.  There are three ways to do this:
 
 \begin{itemize}

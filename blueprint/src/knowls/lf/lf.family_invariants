@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.family_invariants}{$p$-adic family invariants}}
 \begin{definition}\label{lf.family_invariants}
 \uses{lf.degree,lf.discriminant_exponent,lf.family_ambiguity,lf.family_base,lf.family_field_count,lf.family_mass,lf.family_polynomial,lf.means,lf.ramification_index,lf.rams,lf.residue_field,lf.residue_field_degree,lf.slopes}
+\leanok
 The following extension invariants are the same for all $L/K$ in a
 \hyperref[lf.family_polynomial]{$p$-adic family} $I/K$:
 

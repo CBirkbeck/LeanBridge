@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.theta_series}{Siegel theta series and theta series with pluriharmonics}}
 \begin{definition}\label{mf.siegel.theta_series}
 \uses{}
+\leanok
 Given a positive definite quadratic $m\times m$
 positive definite even quadratic form $Q$,
 and given a degree $g$,

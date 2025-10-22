@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.cande.hmsurface}{Completeness of Hilbert modular surface data}}
 \begin{definition}\label{rcs.cande.hmsurface}
 \uses{ag.holomorphic_euler_char,hmsurface.cusps,hmsurface.elliptic_point,hmsurface.euler_number,hmsurface.hodge_numbers,hmsurface.k2,hmsurface.kodaira_dimension,hmsurface.x0,hmsurface.x01}
+\leanok
 The database contains the Hilbert modular surfaces \hyperref[hmsurface.x0]{$X_0(\mathfrak{N})_{\mathfrak{b}}$} and \hyperref[hmsurface.x01]{$X_0^1(\mathfrak{N})_{\mathfrak{b}}$} for the 
 
 \begin{itemize}

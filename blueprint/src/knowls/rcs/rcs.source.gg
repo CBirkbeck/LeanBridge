@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.gg}{Source of transitive group data}}
 \begin{definition}\label{rcs.source.gg}
 \uses{}
+\leanok
 Data here was computed using GAP and Magma, and relies on the following work:
 
 \begin{itemize}

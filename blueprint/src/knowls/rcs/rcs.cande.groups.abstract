@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.cande.groups.abstract}{Completeness and extent of abstract group data}}
 \begin{definition}\label{rcs.cande.groups.abstract}
 \uses{}
+\leanok
 The database of finite groups consists of groups, subgroups, characters and conjugacy classes.  The set of groups included contains:
 
 \begin{itemize}

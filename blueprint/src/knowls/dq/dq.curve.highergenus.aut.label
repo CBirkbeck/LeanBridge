@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/dq.curve.highergenus.aut.label}{Labeling convention for families of higher genus curves}}
 \begin{definition}\label{dq.curve.highergenus.aut.label}
 \uses{ag.curve,ag.quotient_curve,ag.riemann_surface,curve.highergenus.aut.branchpoints,curve.highergenus.aut.conjugacyclasses,curve.highergenus.aut.generatingvector,curve.highergenus.aut.generators,group.small_group_label,curve.highergenus.aut.monodromy,curve.highergenus.aut.refinedpassport,curve.highergenus.aut.signature}
+\leanok
 Let $X$ be a compact \hyperref[ag.riemann_surface]{Riemann surface} (equivalently, a smooth projective \hyperref[ag.curve]{curve} over $\C$) of genus $g$, let $G$ be a group of automorphisms acting on $X$, and let $g_0$ be the genus of the \hyperref[ag.quotient_curve]{quotient} $Y:=X/G$.  The natural projection $X \to Y$ is \hyperref[curve.highergenus.aut.branchpoints]{branched}  at $r$ points in $Y$, and the corresponding \hyperref[curve.highergenus.aut.generators]{generators} of the \hyperref[curve.highergenus.aut.monodromy]{monodromy group} have orders $m_1$, $m_2$, $\ldots$, $m_r$; the sequence of integers $[g_0; m_1, \ldots, m_r]$ is called the \hyperref[curve.highergenus.aut.signature]{signature} of the  group action.
 
 The label for the family of higher genus curves with a group $G \simeq$ SmallGroup$(n,d)$ acting on it with signature $[g_0; m_1, \ldots, m_r]$ is given as

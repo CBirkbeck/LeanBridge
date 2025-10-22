@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/intro.search}{Search}}
 \begin{definition}\label{intro.search}
 \uses{}
+\leanok
 \begin{itemize}
 \item  The objects returned will satisfy all of the constraints that you enter.
 \item  Within a single text field, you can use commas to get a union of a set of desired inputs.

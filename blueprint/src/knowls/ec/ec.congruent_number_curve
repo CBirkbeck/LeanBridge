@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.congruent_number_curve}{Congruent number curves}}
 \begin{definition}\label{ec.congruent_number_curve}
 \uses{ec,ec.congruent_number_problem,ec.isogeny,ec.isogeny_class,ec.mordell_weil_group,ec.q.conductor,ec.rank,ec.weierstrass_coeffs}
+\leanok
 For each positive integer $n$, the <b>congruent number curve</b> $E_n$ is the \hyperref[ec]{elliptic curve} defined over $\Q$ with \hyperref[ec.weierstrass_coeffs]{equation} $y^2 = x(x^2-n^2)$.
 Rational points $(x,y)\in E_n(\Q)$ with $y\not=0$ are associated  to solutions of the \hyperref[ec.congruent_number_problem]{congruent number problem} for $n$:
 given rational numbers $X,Y,Z$ satisfying $X^2+Y^2=Z^2$ and $XY=2n$, set $x=\frac{1}{4}Z^2$ and $y=\frac{1}{8}Z(X^2-Y^2)$; then $y^2=x(x^2-n^2)$.

@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.history.dirichlet}{Dirichlet's work on L-functions}}
 \begin{definition}\label{lfunction.history.dirichlet}
 \uses{character.dirichlet}
+\leanok
 The first use of the letter L to denote  these functions was by Dirichlet in 1837 (see <i>Werke I</i> \cite{MR249268} pages 313-342) 
 who 
 used L-functions to prove that there are infinitely many primes in any (primitive) arithmetic progression.

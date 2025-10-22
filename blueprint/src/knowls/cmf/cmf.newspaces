@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.newspaces}{Space of newforms}}
 \begin{definition}\label{cmf.newspaces}
 \uses{character.dirichlet,cmf.cusp_form,cmf.fouriercoefficients,cmf.hecke_operator,cmf.level,cmf.newform,cmf.weight}
+\leanok
 The \hyperref[cmf.newform]{new part} of the space $S_k(N,\chi)$ of \hyperref[cmf.cusp_form]{cusp forms} of \hyperref[cmf.weight]{weight} $k$, \hyperref[cmf.level]{level} $N$, and \hyperref[character.dirichlet]{character} $\chi$ is the space of $S_k^{\rm new}(N,\chi)$ of \hyperref[cmf.newform]{newforms}.
 
 It can be decomposed into irreducible subspaces under the action of the \hyperref[cmf.hecke_operator]{Hecke operators}, each of which corresponds to a Galois orbit of newforms (the absolute Galois group of $\Q$ acts the set of newforms in $S_k^{\rm new}(N,\chi)$ via its action on the coefficients of \hyperref[cmf.fouriercoefficients]{$q$-expansions}).

@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.ack.maass_rigor}{Acknowledgements for rigorous Maass forms}}
 \begin{definition}\label{rcs.ack.maass_rigor}
 \uses{}
+\leanok
 <h2>Additional acknowledgments</h2>
 
 Initial page design and coding by Stefan Lemurell and Fredrik Strömberg. Later updates were made by David Lowry-Duda.

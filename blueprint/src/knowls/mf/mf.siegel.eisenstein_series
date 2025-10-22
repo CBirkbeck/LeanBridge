@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.eisenstein_series}{Siegel Eisenstein series}}
 \begin{definition}\label{mf.siegel.eisenstein_series}
 \uses{}
+\leanok
 The (Siegel) Eisenstein series in degree $n$
  of even weight \(k>n+1\) is defined by the formula
 \[

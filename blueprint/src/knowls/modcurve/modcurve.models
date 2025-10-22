@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.models}{Number of models}}
 \begin{definition}\label{modcurve.models}
 \uses{modcurve,modcurve.model}
+\leanok
 The number of different \hyperref[modcurve.model]{models} of the \hyperref[modcurve]{modular curve} that are currently available.
 \end{definition}
 

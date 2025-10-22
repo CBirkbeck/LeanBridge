@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.rigor.maass_rigor}{Reliability of rigorous Maass forms data}}
 \begin{definition}\label{rcs.rigor.maass_rigor}
 \uses{mf.maass.mwf.fourierexpansion,mf.maass.mwf.spectralparameter}
+\leanok
 Maass form data, in the LMFDB and elsewhere, is inherently approximate.  The data
 are decimal approximations to numbers which (in general) are conjectured to be
 transcendental and not expressible in terms of well-known constants.

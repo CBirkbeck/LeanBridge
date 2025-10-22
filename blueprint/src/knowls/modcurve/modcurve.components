@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.components}{Geometric components of a modular curve}}
 \begin{definition}\label{modcurve.components}
 \uses{ag.geom_component,modcurve,modcurve.xn}
+\leanok
 For the \hyperref[modcurve.xn]{full modular curve} $X_{\mathrm{full}}(N)_{\Q}$,
 the set $\pi_0(X_{\mathrm{full}}(N)_{\overline{\Q}})$ of \hyperref[ag.geom_component]{geometric components} is in bijection with the set $\mu_n^{\text{prim}}$ of primitive $N$th roots of unity (map $(E,P,Q)$ to the Weil pairing $e_N(P,Q)$).  
 

@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.statistics_extent}{Description of completeness}}
 \begin{definition}\label{cmf.statistics_extent}
 \uses{rcs.cande.cmf}
+\leanok
 See the \hyperref[rcs.cande.cmf]{completeness knowl} for a description of the set of newforms that are included in these statistics.
 \end{definition}
 

@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/sh.disc}{Discriminant of a Shimura curve}}
 \begin{definition}\label{sh.disc}
 \uses{}
+\leanok
 The discriminant of a Shimura curve is the discriminant of the associated quaternion algebra.
 \end{definition}
 

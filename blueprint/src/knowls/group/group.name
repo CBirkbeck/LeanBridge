@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.name}{Abstract group name}}
 \begin{definition}\label{group.name}
 \uses{group.alternating,group.cyclic,group.dihedral,group.direct_product,group.frobenius,group.generalized_quaternion,group.heisenberg,group.lie_type,group.nonsplit_product,group.order,group.other_dihedral,group.semi_dihedral,group.semidirect_product,group.sporadic,group.subgroup.normal,group.symmetric,group.wreath_product}
+\leanok
 We describe abstract groups using standard building blocks:
 <ul>
  <li> $C_n$ denotes the \hyperref[group.cyclic]{cyclic} group of \hyperref[group.order]{order} $n$.

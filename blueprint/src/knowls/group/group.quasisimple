@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.quasisimple}{Quasisimple group}}
 \begin{definition}\label{group.quasisimple}
 \uses{group.abelian,group.almost_simple,group.perfect,group.simple}
+\leanok
 A quasisimple group is a \hyperref[group.perfect]{perfect} group that is a central extension of a \hyperref[group.simple]{simple} group. 
 
 

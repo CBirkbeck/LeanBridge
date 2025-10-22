@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.ack.sponsors}{Acknowledgments for sponsors}}
 \begin{definition}\label{rcs.ack.sponsors}
 \uses{}
+\leanok
  The LMFDB has been supported by a number of grants.
     <ul>
     <li>Awarded to the \href{https://icerm.brown.edu/simonscollaboration/}{Simons Collaboration on Arithmetic Geometry, Number Theory, and Computation}:

@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.galois_rep}{Galois representations attached to the Jacobian of a genus 2 curve}}
 \begin{definition}\label{g2c.galois_rep}
 \uses{av.galois_rep,g2c.jacobian}
+\leanok
 Let $A$ be the \hyperref[g2c.jacobian]{Jacobian of a genus 2 curve} $C$ defined over a field $K$. Then $A$ is an abelian variety and hence has associated \hyperref[av.galois_rep]{Galois representations}.
 \end{definition}
 

@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.gl2.history.theta}{Theta functions}}
 \begin{definition}\label{mf.gl2.history.theta}
 \uses{lattice.definition,mf,mf.transformation_property}
+\leanok
 The preceding examples are in some sense "na&iuml;ve", since \hyperref[mf.transformation_property]{modularity} is essentially built into the definition. Less naive examples are <em>theta functions</em>. These can be given as averages over a \hyperref[lattice.definition]{lattice} $L$:
 \[
 \Theta_{L;Q;h}(z) = \sum_{x \in L} h(x)e^{2\pi izQ(x)}

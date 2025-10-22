@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.modlgal}{Source of mod-$\ell$ Galois representation data}}
 \begin{definition}\label{rcs.source.modlgal}
 \uses{}
+\leanok
 TBA
 \end{definition}
 

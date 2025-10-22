@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.ack.cmf}{Acknowledgments for classical modular forms}}
 \begin{definition}\label{rcs.ack.cmf}
 \uses{}
+\leanok
 <h2>Additional acknowledgments</h2>
 
 Initial page design and coding was done by Fredrik Strömberg and Stephan Ehlen.

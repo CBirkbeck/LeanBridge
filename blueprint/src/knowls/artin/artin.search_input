@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/artin.search_input}{Find an Artin representation}}
 \begin{definition}\label{artin.search_input}
 \uses{artin,artin.label}
+\leanok
 To find a specific \hyperref[artin]{Artin representation}, enter its \hyperref[artin.label]{label}.
 \end{definition}
 

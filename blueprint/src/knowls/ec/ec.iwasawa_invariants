@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.iwasawa_invariants}{Iwasawa invariants of elliptic curves}}
 \begin{definition}\label{ec.iwasawa_invariants}
 \uses{ec.good_ordinary_reduction,ec.good_supersingular_reduction,ec.lambda_invariant,ec.mu_invariant,ec.multiplicative_reduction}
+\leanok
 The Iwasawa invariants of elliptic curves are \hyperref[ec.lambda_invariant]{$\lambda$-invariants} and
 \hyperref[ec.mu_invariant]{$\mu$-invariants}.
 

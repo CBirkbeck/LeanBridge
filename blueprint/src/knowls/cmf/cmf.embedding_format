@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.embedding_format}{Embedding Format}}
 \begin{definition}\label{cmf.embedding_format}
 \uses{cmf.character,cmf.embedding_label,cmf.hecke_operator,cmf.level,cmf.newform,cmf.satake_angles,cmf.satake_parameters,cmf.weight,nf.embedding}
+\leanok
 Let $f$ be \hyperref[cmf.newform]{newform} of \hyperref[cmf.level]{level} $N$, \hyperref[cmf.weight]{weight} $k$ and \hyperref[cmf.character]{character} $\chi$.
 
 

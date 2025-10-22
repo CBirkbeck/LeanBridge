@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.decomposition.old.gamma1}{Oldspace decomposition for Gamma1(N)}}
 \begin{definition}\label{cmf.decomposition.old.gamma1}
 \uses{}
+\leanok
 There are natural inclusion maps from lower level; the old subspace is the span of their images.  For \(M\) dividing the level \(N\), and for \(t\) dividing \(\frac{N}{M}\), the maps
 $$
   \begin{aligned}

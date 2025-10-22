@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/av.jacobian_count}{Number of Jacobians}}
 \begin{definition}\label{av.jacobian_count}
 \uses{ag.jacobian,av.isogeny_class,av.princ_polarizable}
+\leanok
 The number of \hyperref[ag.jacobian]{Jacobians} in each \hyperref[av.isogeny_class]{isogeny class} (up to isomorphism of \hyperref[av.princ_polarizable]{principally polarized abelian varieties}) has been computed for $g \le 2$ and $q \le 211$; and for $g = 3$ and $q \le 5$.
 \end{definition}
 

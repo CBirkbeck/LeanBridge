@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.rigor.cmf_eisenstein}{Reliability of the Classical Modular Form Data}}
 \begin{definition}\label{rcs.rigor.cmf_eisenstein}
 \uses{cmf,cmf.analytic_rank,cmf.coefficient_field,cmf.dimension,cmf.galois_orbit,cmf.inner_twist,cmf.level,cmf.newform,cmf.newspace,cmf.projective_field,cmf.projective_image,cmf.self_twist,cmf.selfdual,cmf.trace_form,cmf.weight,lfunction.sign}
+\leanok
 All \hyperref[cmf]{modular form} data currently in the database has been computed using rigorous algorithms that do not depend on any unproved assumptions or conjectures.  In particular
 
 \begin{itemize}

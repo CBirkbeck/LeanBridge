@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.lift.miyawaki2}{Miyawaki lift of type II}}
 \begin{definition}\label{mf.siegel.lift.miyawaki2}
 \uses{}
+\leanok
 <b>Miyawaki Lift, Type II (conjectural):</b>  Let $k$ be an even weight. 
 For each pair of elliptic Hecke cusp eigenforms
 $$f\in{\mathcal S}_{2k-2}(\SL(2,{\mathbb{Z}}))

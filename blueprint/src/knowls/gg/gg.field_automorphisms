@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/gg.field_automorphisms}{Field automorphisms associated with a Galois group}}
 \begin{definition}\label{gg.field_automorphisms}
 \uses{gg.galois_group,group.centralizer,lf.automorphism_group}
+\leanok
 Let $G$ be a transitive subgroup of $S_n$ and $G_1=\{\sigma\in G \subset S_n \mid \sigma(1)=1\}$. The group $G \subset S_n$ can be realized as the \hyperref[gg.galois_group]{Galois group} of a field extension $L/K$. Let $F \subset L$ be the fixed field of $G_1$ defined by the Galois action of $G$, i.e., $F = \{ a \in L \mid \forall g \in G_1,\, g(a) = a \}$. Then, $F/K$ is a field extension of degree $n$ whose Galois closure is $L/K$.  
 
 Although $F$ might not be Galois over $K$, one can consider the group \hyperref[lf.automorphism_group]{$\Aut(F/K)$}. 

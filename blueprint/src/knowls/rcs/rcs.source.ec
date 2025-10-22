@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.ec}{Source of elliptic curve data}}
 \begin{definition}\label{rcs.source.ec}
 \uses{ag.base_field,ec,ec.base_change,ec.complex_multiplication,ec.global_minimal_model,ec.good_reduction,ec.invariants,ec.isogeny,ec.local_data,group.generators,mf.bianchi.weight,mf.bianchi.weight2,mf.hilbert,nf.abs_discriminant,nf.class_number,nf.discriminant,nf.prime,nf.totally_real}
+\leanok
 ## Source of the curves
 
 The elliptic curves over number fields other than $\Q$ come from several sources.

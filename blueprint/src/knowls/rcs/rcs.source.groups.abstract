@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.groups.abstract}{Source  of abstract group  data}}
 \begin{definition}\label{rcs.source.groups.abstract}
 \uses{}
+\leanok
 All groups in the database, as well as their attributes, subgroups, character tables, etc. were computed using Magma from code and algorithms developed and written by  Michael Bush, Lewis Combes, John Jones, Jen Paulhus, David Roe, Manami Roy, and Sam Schiavone.  The code is available on \href{https://github.com/roed314/FiniteGroups}{GitHub}.
 
 Small groups were pulled from the small group database in Magma, and rely on the following work:

@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.lattice}{Source of lattice data}}
 \begin{definition}\label{rcs.source.lattice}
 \uses{lattice.catalogue_of_lattices,lattice.gram}
+\leanok
 The database contains lattice data (\hyperref[lattice.gram]{Gram matrices}) from the \hyperref[lattice.catalogue_of_lattices]{Catalogue of Lattices}, maintained by Gabriele Nebe and Neil J.A. Sloane. The Catalogue contains some tables compiled by other authors, which are cited individually in the LMFDB. For lattices of class number one, completeness of the data is confirmed by a calculation of Kirschmer and Lorch (\cite{arxiv:1208.5638}, \cite{doi:10.1112/S1461157013000107}, \cite{MR3091733}).
 
 Additional data was computed in Magma and PARI using code written by Anna Haensch and Samuele Anni. This code is available from [Github](https://github.com/annahaensch/lattice\_data). 

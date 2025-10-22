@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/artin.lfunction}{Artin L-function}}
 \begin{definition}\label{artin.lfunction}
 \uses{artin,artin.ramified_primes,gg.conjugacy_classes,lf.inertia_group,lfunction,lfunction.euler_product}
+\leanok
 The \hyperref[lfunction]{L-function} associated to an
 \hyperref[artin]{Artin representation}
 $\rho:\mathrm{Gal}(\overline{\mathbb{Q}}/\mathbb{Q})\to\mathrm{GL}(V)$

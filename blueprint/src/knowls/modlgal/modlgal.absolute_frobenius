@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modlgal.absolute_frobenius}{Absolute Frobenius}}
 \begin{definition}\label{modlgal.absolute_frobenius}
 \uses{}
+\leanok
 TBA
 \end{definition}
 

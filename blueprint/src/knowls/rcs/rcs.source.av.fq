@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.av.fq}{Source of isogeny classes of abelian varieties over finite fields}}
 \begin{definition}\label{rcs.source.av.fq}
 \uses{av.fq.honda_tate,av.fq.weil_polynomial}
+\leanok
 The computation is based of the \hyperref[av.fq.honda_tate]{Honda-Tate theorem} which states that isogeny classes of abelian varieties over finite fields are completely determined by the characteristic polynomial of their Frobenius automorphism acting on the first $\ell$-adic cohomology group. For a given dimension $g$ and base field of size $q$, a complete list of all \hyperref[av.fq.weil_polynomial]{Weil polynomials} that do occur can be enumerated using a technique developed by Kedlaya \cite{mr:2459990,arxiv:math/0608104}. In 2016, Dupuy, Kedlaya, Roe, and Vincent improved upon Kedlaya's original code to generate these tables and the data they contain \cite{arXiv:2003.05380}.
 
 See also the article of Kedlaya and Sutherland \cite{mr:3540942,arxiv:1511.06945}, where these techniques are used to compute Weil polynomials for K3 surfaces. 

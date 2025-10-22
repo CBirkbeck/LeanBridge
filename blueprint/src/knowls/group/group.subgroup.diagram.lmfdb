@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.subgroup.diagram.lmfdb}{Subgroup diagrams in the LMFDB}}
 \begin{definition}\label{group.subgroup.diagram.lmfdb}
 \uses{combin.hasse_diagram,group.subgroup.diagram,group.subgroup.normal}
+\leanok
 {{KNOWL\_INC('group.subgroup.diagram')}}
 
 Subgroup diagrams in the LMFDB are different from typical subgroup diagrams in that it is the \hyperref[combin.hasse_diagram]{Hasse diagram} on the set of conjugacy classes of subgroups ordered by inclusion.  The number of subgroups in each conjugacy class is given as a left subscript if it is bigger then one.  Hence, \hyperref[group.subgroup.normal]{normal} subgroups are those which have no left subscripts.

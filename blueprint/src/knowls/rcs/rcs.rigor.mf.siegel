@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.rigor.mf.siegel}{Reliability of Siegel modular form data}}
 \begin{definition}\label{rcs.rigor.mf.siegel}
 \uses{mf.siegel,mf.siegel.newform,mf.siegel.weight_k_j}
+\leanok
 All Siegel \hyperref[mf.siegel]{modular form} data currently in the database has been computed using rigorous algorithms that do not depend on any unproved assumptions or conjectures.
 
 In addition to using mathematically rigorous algorithms whenever possible, we have performed a variety of consistency checks intended to catch any errors in the software packages used to compute modular forms data, or any errors that might have been introduced during post-processing.  The following checks have been performed:

@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.x1.remarks}{Remarks on $X_1(N)$}}
 \begin{definition}\label{modcurve.x1.remarks}
 \uses{ag.bielliptic_curve,ag.hyperelliptic_curve}
+\leanok
 \hyperref[ag.hyperelliptic_curve]{Hyperelliptic curves}: There are only 
 <a href = "{{url\_for('modcurve.index\_Q',level='13,16,18',family="X1")}}">3 hyperelliptic curves in this family</a> 
 \cite{doi:10.21099/tkbjm/1496161667,MR:1138196}.

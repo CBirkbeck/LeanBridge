@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.lift.ikeda}{Duke-Imamoglu-Ikeda lift}}
 \begin{definition}\label{mf.siegel.lift.ikeda}
 \uses{cmf,group.sp2gr,lfunction.riemann,mf.siegel,mf.siegel.lift.saito_kurokawa}
+\leanok
 A Duke-Imamoglu-Ikeda lift is a lift from
 elliptic modular forms</a>
  to 

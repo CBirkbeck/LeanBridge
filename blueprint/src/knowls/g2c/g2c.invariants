@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.invariants}{Invariants of a genus 2 curve}}
 \begin{definition}\label{g2c.invariants}
 \uses{ag.conductor,ag.jacobian,g2c.discriminant,g2c.g2_invariants,g2c.g2curve,g2c.igusa_clebsch_invariants,g2c.igusa_invariants}
+\leanok
 Invariants of a \hyperref[g2c.g2curve]{genus 2 curve} include:
 
 \begin{itemize}

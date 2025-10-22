@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.nf}{Source of global number field data}}
 \begin{definition}\label{rcs.source.nf}
 \uses{nf.elkies}
+\leanok
 Number fields were drawn from the following sources.
 <ul>
 <li>The PARI database from the Bordeaux PARI group \cite{href{https://pari.math.u-bordeaux.fr/pub/numberfields/}{pari.math.u-bordeaux.fr/pub/numberfields/}}, which in turn, was a combination of work by several authors:

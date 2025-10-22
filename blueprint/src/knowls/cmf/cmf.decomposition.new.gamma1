@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.decomposition.new.gamma1}{Decomposition into newforms for Gamma1(N)}}
 \begin{definition}\label{cmf.decomposition.new.gamma1}
 \uses{character.dirichlet,character.dirichlet.galois_orbit,cmf.newform}
+\leanok
 The space of newforms of weight \(k\) on \(\Gamma_1(N)\) decomposes as
 \[
 S_k^{\mathrm{new}}(\Gamma_1(N)) \cong \bigoplus_{\chi \bmod N} S_k^{\mathrm{new}}(N, \chi),

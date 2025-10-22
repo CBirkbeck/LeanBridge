@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/paramodulargroup.sp2gr}{Paramodular group in degree g}}
 \begin{definition}\label{paramodulargroup.sp2gr}
 \uses{group.paramodular}
+\leanok
 A paramodular group $\Gamma$ of degree $g$ preserves 
 an integral alternating $2g \times 2g$ matrix 
 $T=\left( \begin{array}{ll}  0 & d \\ -d & 0 \end{array}\right)$ 

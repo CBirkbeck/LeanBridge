@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.label}{Number field label}}
 \begin{definition}\label{nf.label}
 \uses{nf.degree,nf.discriminant,nf.signature}
+\leanok
 Each (global) number field has a unique label of the form d.r.D.i where
 <ul>
 <li>\(d\) is the \hyperref[nf.degree]{degree};

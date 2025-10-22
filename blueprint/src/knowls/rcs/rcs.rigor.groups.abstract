@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.rigor.groups.abstract}{Reliability of abstract groups data}}
 \begin{definition}\label{rcs.rigor.groups.abstract}
 \uses{}
+\leanok
 All groups data has been computed using rigorous algorithms that do not depend on unproven assumptions or conjectures.  
 
 The code to generate the data is primarily written in Magma and hence depends on the accuracy of Magma code. While rare, as we created this database we did find a few errors in Magma (and subsequently reported those errors to Magma, many of which have now been fixed).  

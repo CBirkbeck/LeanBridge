@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/curve.highergenus.aut.search_input}{Find a family of higher genus curves}}
 \begin{definition}\label{curve.highergenus.aut.search_input}
 \uses{curve.highergenus.aut.refinedpassport,dq.curve.highergenus.aut.label}
+\leanok
 To find a specific \hyperref[curve.highergenus.aut.refinedpassport]{refined passport}, enter its \hyperref[dq.curve.highergenus.aut.label]{label}.
 
 \end{definition}

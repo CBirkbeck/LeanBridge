@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.cmf}{Source of Classical Modular Forms Data}}
 \begin{definition}\label{rcs.source.cmf}
 \uses{artin,cmf.artin_field,cmf.dimension,cmf.galois_representation,cmf.level,cmf.newform,cmf.projective_field,cmf.projective_image,cmf.stark_unit,cmf.trace_form,cmf.weight}
+\leanok
 Details regarding the construction of the database of classical modular forms can be found in the paper *Computing Classical Modular Forms* \cite{arXiv:2002.04717,doi:10.1007/978-3-030-80914-0_4} by Alex J. Best, Jonathan Bober, Andrew R. Booker, Edgar Costa, John Cremona, Maarten Derickx, David Lowry-Duda, Min Lee, David Roe, Andrew V. Sutherland, and John Voight. In particular, the classical modular forms data in the LMFDB comes from three sources:
 
 

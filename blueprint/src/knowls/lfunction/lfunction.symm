@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.symm}{Symmetric power of an L-function}}
 \begin{definition}\label{lfunction.symm}
 \uses{}
+\leanok
 Let $L(s)$ be an L-function given by an Euler product
     \[
     L(s)= \prod_{p\not\in S} \prod_{j=1}^r \left (1-

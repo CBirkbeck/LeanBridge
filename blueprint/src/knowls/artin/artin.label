@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/artin.label}{Label for an Artin representation}}
 \begin{definition}\label{artin.label}
 \uses{artin,artin.conductor,artin.dimension,artin.galois_orbit,artin.permutation_container,gg.tnumber}
+\leanok
 The label for an \hyperref[artin]{Artin representation} takes the form A.B.C.DcE where
 
 \begin{itemize}

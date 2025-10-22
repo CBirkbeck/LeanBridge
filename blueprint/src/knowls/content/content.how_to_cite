@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/content.how_to_cite}{How to cite the LMFDB}}
 \begin{definition}\label{content.how_to_cite}
 \uses{}
+\leanok
 If you would like to acknowledge the LMFDB, please use a citation in the following form, alphabetized under \textit{LMFDB}.
 
 [42] The LMFDB Collaboration, \textit{The L-functions and modular forms database,} 

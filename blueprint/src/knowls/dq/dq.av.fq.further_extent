@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/dq.av.fq.further_extent}{Further extent of the data on isogeny classes of abelian varieties over finite fields}}
 \begin{definition}\label{dq.av.fq.further_extent}
 \uses{av.fq.honda_tate}
+\leanok
 For each dimension $g$ and field $\mathbb{F}_q$ with a nonempty collection of isogeny classes in the database the collection of Weil polynomials (and hence isogeny classes) is complete (see the \hyperref[av.fq.honda_tate]{Honda-Tate Theorem}). In particular 
 
 \begin{itemize}

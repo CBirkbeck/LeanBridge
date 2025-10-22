@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/portrait.cmf}{Pictures for classical modular forms}}
 \begin{definition}\label{portrait.cmf}
 \uses{cmf.newform,cmf.trace_form}
+\leanok
 For each \hyperref[cmf.newform]{newform} or \hyperref[cmf.trace_form]{trace form}, we use domain coloring to plot the associated trace form $\mathrm{Tr}(f)$.
 
 At each point $z$ in the unit disk $\mathcal{D}$, we assign a color based on the value of $\mathrm{Tr}(f)(\mu(z))$, where $\mu$ is the Möbius transform $\mu: \mathcal{D} \longrightarrow \mathcal{H}$ given by $\mu(z) = \frac{1 - iz}{z - i}$. Writing $\mathrm{Tr}(f)(\mu(z)) = r e^{i \theta}$, the color is determined entirely by the argument $\theta$.

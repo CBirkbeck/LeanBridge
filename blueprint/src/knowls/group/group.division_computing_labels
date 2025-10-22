@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.division_computing_labels}{Computing labels of divisions of a group}}
 \begin{definition}\label{group.division_computing_labels}
 \uses{group.conjugacy_class,group.division_maximal,group.division_small_large,group.label_conjugacy_class}
+\leanok
 Given a \hyperref[group.division_maximal]{maximal division} of a group, we compute its \hyperref[group.label_conjugacy_class]{label} as follows.
 
 If the division is \hyperref[group.division_small_large]{large}, we produce a pseudo-random sequence of group elements $g_j$ and order those divisions based on the smallest $j$ such that $g_j$ is an element of the division.  The \hyperref[group.conjugacy_class]{conjugacy class} of $g_j$ also gives a first conjugacy class within the division, which is used below.  A problem with using this method generally is that some groups contain maximal divisions which are still very small in comparison to the size of the group, so it may take a prohibitive amount of time to hit all of the divisions. 

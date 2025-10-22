@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.quotient_size}{Size of a quotient}}
 \begin{definition}\label{group.quotient_size}
 \uses{group.coset,group.quotient}
+\leanok
 The size of the quotient of a finite group by a subgroup is the number of corresponding \hyperref[group.coset]{cosets}.  When the subgroup is normal, this number is the order of the \hyperref[group.quotient]{quotient group}.
 \end{definition}
 

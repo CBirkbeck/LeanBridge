@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.history}{A history of L-functions}}
 \begin{definition}\label{lfunction.history}
 \uses{lfunction.history.artin,lfunction.history.dedekind,lfunction.history.dirichlet,lfunction.history.euler,lfunction.history.hasse_weil,lfunction.history.hecke_characters,lfunction.history.hecke_operators,lfunction.history.langlands_program,lfunction.history.maass,lfunction.history.ramanujan_tau,lfunction.history.rankin_selberg,lfunction.history.riemanns_memoir,lfunction.history.siegel,lfunction.history.tates_thesis}
+\leanok
 {{ KNOWL\_INC('lfunction.history.euler') }}
 
 <h2>Riemann's memoir</h2>

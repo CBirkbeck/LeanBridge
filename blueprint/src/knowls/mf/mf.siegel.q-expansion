@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.q-expansion}{Fourier expansion smf}}
 \begin{definition}\label{mf.siegel.q-expansion}
 \uses{commensurable.group,mf.siegel,mf.siegel.weight}
+\leanok
 Let $f$ be a \hyperref[mf.siegel]{Siegel modular form} of 
 \hyperref[mf.siegel.weight]{weight} $\rho$ on a discrete subgroup $\Gamma$ of $\Sp(2g,\Q)$ that is \hyperref[commensurable.group]{commensurable} with $\Sp(2g,\Z)$.
 Let $V_g(\Q)$ be the vector space of rational symmetric $g\times g$ matrices and 

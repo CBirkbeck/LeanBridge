@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.lfunction.dirichlet}{Source of Dirichlet L-function Data}}
 \begin{definition}\label{rcs.source.lfunction.dirichlet}
 \uses{}
+\leanok
 The Dirichlet L-functions in the database were computed by David Platt using algorithms described in his PhD thesis \cite{\href{https://people.maths.bris.ac.uk/~madjp/thesis5.pdf}{Computing Degree-1 L-functions Rigorously}}.
 \end{definition}
 

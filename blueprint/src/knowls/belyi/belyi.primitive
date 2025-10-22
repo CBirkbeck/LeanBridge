@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/belyi.primitive}{Primitive Belyi map}}
 \begin{definition}\label{belyi.primitive}
 \uses{belyi.group,gg.primitive}
+\leanok
 A Belyi map is primitive if its \hyperref[belyi.group]{monodromy group} is \hyperref[gg.primitive]{primitive} as a transitive subgroup of $S_d$.
 \end{definition}
 

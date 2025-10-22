@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.sp2gr.ppal.congruence}{Subgroup $\Gamma(N)$ of $\Sp(2g,\Z)$}}
 \begin{definition}\label{group.sp2gr.ppal.congruence}
 \uses{group.sl2z.subgroup.gamman,group.sp2gr}
+\leanok
 The principal congruence subgroup of level $N$, $\Gamma(N)$, 
 of the integral \hyperref[group.sp2gr]{symplectic group} 
 $\Sp(2g,\Z)$

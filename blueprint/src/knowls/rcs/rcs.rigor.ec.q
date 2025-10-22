@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.rigor.ec.q}{Reliability of elliptic curve data over $\Q$}}
 \begin{definition}\label{rcs.rigor.ec.q}
 \uses{ag.mordell_weil,character.dirichlet.principal,cmf,cmf.character,cmf.fouriercoefficients,cmf.level,cmf.weight,ec,ec.analytic_sha_order,ec.complex_multiplication,ec.galois_rep,ec.isogeny,ec.iwasawa_invariants,ec.local_data,ec.mordell_weil_group,ec.q.bsdconjecture,ec.q.conductor,ec.q.cremona_label,ec.q.integral_points,ec.q.manin_constant,ec.q.optimal,ec.q.real_period,ec.q.regulator,ec.q.torsion_growth,ec.q.torsion_subgroup,ec.rank,group.element_order,group.generators}
+\leanok
 ### Completeness of the  collection
 
 All \hyperref[ec]{elliptic curves} defined over \(\mathbb{Q}\) are known to be modular, and hence arise (up to isogeny)  via the Eichler-Shimura construction from \hyperref[cmf]{classical modular forms} of \hyperref[cmf.weight]{weight} \(2\), \hyperref[character.dirichlet.principal]{trivial} \hyperref[cmf.character]{character}, \hyperref[cmf.level]{level} \(N\) equal to the \hyperref[ec.q.conductor]{conductor} of the curve, and having rational \hyperref[cmf.fouriercoefficients]{Fourier coefficients}.  

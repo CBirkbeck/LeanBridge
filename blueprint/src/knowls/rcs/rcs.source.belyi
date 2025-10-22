@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.belyi}{Source of Belyi maps data}}
 \begin{definition}\label{rcs.source.belyi}
 \uses{}
+\leanok
 The database of Belyi maps was constructed by Michael Musty, Sam Schiavone, Jeroen Sijsling, and John Voight. A detailed description of its construction can be found in \cite{arXiv:1805.07751}.
 \end{definition}
 

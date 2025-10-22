@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.families}{Families of abstract groups}}
 \begin{definition}\label{group.families}
 \uses{group.affine_general_linear,group.affine_linear_automorphism,group.affine_special_linear,group.affine_symplectic,group.affine_symplectic_automorphism,group.alternating,group.chevalley,group.conformal_orthogonal,group.conformal_orthogonal_sign,group.conformal_special_orthogonal,group.conformal_special_orthogonal_sign,group.conformal_special_unitary,group.conformal_symplectic,group.conformal_unitary,group.coxeter,group.cyclic,group.dicyclic,group.dihedral,group.frobenius,group.general_linear,group.generalized_quaternion,group.heisenberg,group.linear_automorphism,group.omega,group.orthogonal,group.other_dihedral,group.semi_dihedral,group.special_linear,group.spin,group.spin_sign,group.sporadic,group.symmetric,group.symplectic,group.unitary}
+\leanok
 The currently supported families of groups are:
 
 \begin{itemize}

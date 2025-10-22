@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.xarith}{$X_{\mathrm{arith}}(N)$}}
 \begin{definition}\label{modcurve.xarith}
 \uses{modcurve}
+\leanok
 $X_{\mathrm{arith}}(N)$ is the \hyperref[modcurve]{modular curve} $X_H$ for $H\leq \GL_2(\widehat{\Z})$ the inverse image of $\begin{pmatrix}1&0\\0&*\end{pmatrix}\leq \GL_2(\Z/N\Z)$. 
 
 As a moduli space, $X_{\mathrm{arith}}$ parametrizes isomorphism classes of triples $(E,\phi,P)$, where:

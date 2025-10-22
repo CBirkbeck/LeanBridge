@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.maass.mwf.ncoefficients}{The number of coefficients}}
 \begin{definition}\label{mf.maass.mwf.ncoefficients}
 \uses{group.sl2z.fundamental_domain}
+\leanok
 This column gives the number of Fourier coefficients which is stored in the database for the given form.
 In the case of several cusps the stated number of coefficients is usually only stored for the cusp at infinity and in some cases also for the cusp at $0$ since these are the necessary coefficients for calculating values of the corresponding L-function.
 

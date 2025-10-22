@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.display_dim}{Dimension}}
 \begin{definition}\label{cmf.display_dim}
 \uses{cmf.character,cmf.dimension,cmf.minus_space,cmf.plus_space}
+\leanok
 If the \hyperref[cmf.character]{character} of the space is trivial, the \hyperref[cmf.dimension]{dimension} is the sum of the dimensions of the \hyperref[cmf.plus_space]{plus subspace} and the \hyperref[cmf.minus_space]{minus subspace}.
 \end{definition}
 

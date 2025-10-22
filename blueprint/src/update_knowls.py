@@ -12,6 +12,8 @@ KNOWL_RE = re.compile(r"""(\{\{\s*KNOWL(_INC)?\s*\(\s*['"]([a-z0-9._-]+)['"](?:\
 CURLY_RE = re.compile(r"\{\{([^\}]+)\}\}")
 ITALIC_RE = re.compile(r" _([^_]+)_")
 EMPH_RE = re.compile(r"\*\*([^\*]+)\*\*")
+xdef = r"(?:arxiv|doi|groupprops|href|mathworld|mr|nlab|stacks|wikidata|wikipedia|zbl)"
+DEFINES_RE = re.compile(r"""\{\{\s*DEFINES\s*\(\s*(?:'([^']+)'|"([^"]+)")\s*(?:,\s*(?:clarification_kid\s*=)?(?:'([^']+)'|"([^"]+)"\s*))?(?:,\s*%s+=(?:'[^']+'|"[^"]+"\s*))*(?:,\s*mathlib=(?:'([^']+)'|"([^"]+)"\s*))*(?:,\s*%s+=(?:'[^']+'|"[^"]+"\s*))*\)\s*\}\}""" % (xdef, xdef))
 DELIM_RE = re.compile(r"(\\\[|\\\]|\\\(|\\\)|\$\$|\$)")
 COMMENT_RE = re.compile(r"\{#[^#]+#\}")
 CITE_UNDERSCORE_RE = re.compile(r"\\cite\{[^\}]+\}")
@@ -68,8 +70,22 @@ def strip_macros(knowls):
         # Remove comments
         content = COMMENT_RE.sub("", content)
 
-        # Change **defined** to \emph{defined}
+        leanmissing = set() # Use a set so that we can easily update from inside the def_subber function
+        if EMPH_RE.search(content):
+            # **defined** does not include a mathlib link
+            leanmissing.add(True)
+        # Change **defined** to \textbf{defined}
         content = EMPH_RE.sub(r"\\textbf{\1}", content)
+        def def_subber(match):
+            defstr = match.group(1) or match.group(2)
+            kidstr = match.group(3) or match.group(4)
+            mathlib = match.group(5) or match.group(6)
+            if not kidstr and not mathlib:
+                leanmissing.add(True)
+            return r"\textbf{%s}" % defstr
+        content = DEFINES_RE.sub(def_subber, content)
+        if not leanmissing:
+            content = "\\leanok\n" + content
 
         # Underscores that are not in mathmode
         content = ITALIC_RE.sub(r" \\textit{\1}", content)

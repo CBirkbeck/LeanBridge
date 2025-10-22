@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.conjugacy_class.power_classes}{Power classes}}
 \begin{definition}\label{group.conjugacy_class.power_classes}
 \uses{group,group.conjugacy_class}
+\leanok
 If $G$ is a \hyperref[group]{group}, $g\in G$ is an element of a \hyperref[group.conjugacy_class]{conjugacy class} $P$, and $n$ is a positive integer, then $nP$ denotes the conjugacy class of the element $g^n$.
 \end{definition}
 

@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.known_degree3}{Degree 3 L-functions, examples}}
 \begin{definition}\label{lfunction.known_degree3}
 \uses{lfunction,lfunction.degree}
+\leanok
 Examples of primitive \hyperref[lfunction.degree]{degree} 3 \hyperref[lfunction]{L-functions} are:
 
 \begin{itemize}

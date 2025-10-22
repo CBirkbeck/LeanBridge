@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.affine_special_linear}{Affine special linear group}}
 \begin{definition}\label{group.affine_special_linear}
 \uses{group.affine_general_linear,group.special_linear}
+\leanok
 The affine special linear group $\ASL(n,q)$ is the subgroup of the \hyperref[group.affine_general_linear]{affine general linear group} $\AGL(n,q) = \F_q^n \rtimes \GL(n,q)$ of all affine transformations $x \mapsto Mx + v$ such that $\det(M)=1$. It is the affine analogue of the \hyperref[group.special_linear]{special linear group}. 
 \end{definition}
 

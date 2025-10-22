@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.maass.mwf.character}{Character of a Maass form}}
 \begin{definition}\label{mf.maass.mwf.character}
 \uses{}
+\leanok
 Maass forms of weight $0$
 \begin{itemize}
 \item -----------------

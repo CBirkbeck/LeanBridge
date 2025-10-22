@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.history.hecke_characters}{Hecke L-functions}}
 \begin{definition}\label{lfunction.history.hecke_characters}
 \uses{character.dirichlet,character.hecke}
+\leanok
 The  L-functions  associated with finite characters of number fields (often called \hyperref[character.dirichlet]{Dirichlet charaters}
 or finite \hyperref[character.hecke]{Hecke characters})
 were considered by Hecke in a series of papers beginning in 1917.

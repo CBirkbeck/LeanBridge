@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.hilbert.q_expansion}{q-expansion of a Hilbert modular form}}
 \begin{definition}\label{mf.hilbert.q_expansion}
 \uses{}
+\leanok
 Let $f$ be a Hilbert modular form over a totally real field $F$. Then $f$ admits $q$-expansions at any cusp of the Hilbert modular group. These cusps are indexed by the strict class group of $F$.
 
 Given an ideal $\mathfrak{a}$ representing a cusp, the $q$-expansion of $f$ around this cusp can be described by an infinite series. Translating the cusp to infinity, the form $f$ transforms to a form $f_{\mathfrak{a}}$. The $q$-expansion of $f$ at the cusp corresponding to $\mathfrak{a}$ is that of $f_{\mathfrak{a}}$ at infinity. It is represented by an infinite series

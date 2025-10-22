@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.rigor.av.fq}{Reliability of Weil polynomial data}}
 \begin{definition}\label{rcs.rigor.av.fq}
 \uses{ag.curve.genus,ag.jacobian,av.isogeny_class}
+\leanok
 Except where noted below, all Weil polynomial data has been computed using rigorous algorithms that do not depend on any unproven assumptions or conjectures:
 
 \begin{itemize}

@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.lie_type}{Finite Lie Group Names }}
 \begin{definition}\label{group.lie_type}
 \uses{group,group.affine_general_linear,group.affine_special_linear,group.affine_symplectic,group.automorphism,group.center,group.chevalley,group.general_linear,group.orthogonal,group.simple,group.special_linear,group.subgroup,group.symplectic,group.unitary}
+\leanok
 We describe finite \hyperref[group]{groups} of Lie type as follows:
 
 <ul>

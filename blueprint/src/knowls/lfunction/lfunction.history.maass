@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.history.maass}{L-functions of Maass forms}}
 \begin{definition}\label{lfunction.history.maass}
 \uses{}
+\leanok
 In 1949 Hans Maass made his profound discovery that there are L-functions associated with
 non-holomorphic automorphic forms. In his Math Review of 
 Maass' article \cite{MR0031519}

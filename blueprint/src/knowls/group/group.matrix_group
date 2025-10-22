@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.matrix_group}{Matrix group}}
 \begin{definition}\label{group.matrix_group}
 \uses{}
+\leanok
 A matrix group is a subgroup of $\GL_n(R)$ for some commutative ring $R$.
 
 A given abstract group may have more than one presentation as a matrix group over different rings $R$.

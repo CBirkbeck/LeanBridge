@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.cande.maass}{Completeness and extent of Maass form data}}
 \begin{definition}\label{rcs.cande.maass}
 \uses{mf.maass.mwf,mf.maass.mwf.character,mf.maass.mwf.eigenvalue,mf.maass.mwf.weight,rcs.rigor.maass}
+\leanok
 The database currently contains data for \hyperref[mf.maass.mwf]{Maass newforms} on $\Gamma_0(N)$ of \hyperref[mf.maass.mwf.weight]{weight} 0 with trivial \hyperref[mf.maass.mwf.character]{character} and \hyperref[mf.maass.mwf.eigenvalue]{Laplace eigenvalue} $\lambda = \frac14 + R^2$ that lie primarily in the ranges:
 
 \begin{itemize}

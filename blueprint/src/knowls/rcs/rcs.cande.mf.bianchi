@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.cande.mf.bianchi}{Completeness of Bianchi modular form data}}
 \begin{definition}\label{rcs.cande.mf.bianchi}
 \uses{mf.bianchi,mf.bianchi.level,mf.bianchi.newform,mf.bianchi.weight,mf.bianchi.weight2,nf,nf.abs_discriminant,nf.class_number}
+\leanok
 The database contains information about \hyperref[mf.bianchi]{Bianchi modular forms} over all imaginary quadratic \hyperref[nf]{number fields} of absolute discrimant up to \(700\),  for a range of levels which depends on the field.
 
 

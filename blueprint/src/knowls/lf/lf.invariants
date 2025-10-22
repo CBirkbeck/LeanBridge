@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.invariants}{Local field invariants}}
 \begin{definition}\label{lf.invariants}
 \uses{lf.automorphism_group,lf.degree,lf.discriminant_exponent,lf.discriminant_root_field,lf.padic_field,lf.ramification_index,lf.residue_field,lf.residue_field_degree,lf.root_number}
+\leanok
 The basic invariants of a \hyperref[lf.padic_field]{$p$-adic field} $K$ are:
 
 \begin{itemize}

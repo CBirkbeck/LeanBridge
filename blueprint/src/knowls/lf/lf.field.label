@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.field.label}{Label for a $p$-adic field}}
 \begin{definition}\label{lf.field.label}
 \uses{lf.defining_polynomial,lf.degree,lf.discriminant_exponent,lf.family_polynomial,lf.padic_field,lf.ramification_index,lf.rams,lf.residual_polynomials,lf.residue_field,lf.residue_field_degree,lf.wild_segments}
+\leanok
 Each \hyperref[lf.family_polynomial]{$p$-adic family} has a label of the form "p.f.e.cA", where
 
 \begin{itemize}

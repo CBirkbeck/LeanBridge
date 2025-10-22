@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modlgal.dual_pair_of_algebras}{Dual pair of algebras}}
 \begin{definition}\label{modlgal.dual_pair_of_algebras}
 \uses{}
+\leanok
 Let $R$ be a ring. A dual pair of algebras over $R$ is a triple $(A, B, \phi)$, where $A$ and $B$ are finite locally free $R$-algebras and where $\phi: A \times B \to R$ is a perfect $R$-bilinear map such that the following identities hold for all $a, a' \in A$ and $b, b' \in B$:
 
 1. $\phi(1_A,1_B)=1$;

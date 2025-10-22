@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modlgal.det_surjective}{Determinant is surjective}}
 \begin{definition}\label{modlgal.det_surjective}
 \uses{modlgal,modlgal.surjective}
+\leanok
 For a \hyperref[modlgal]{mod-$\ell$ Galois representation}, its determinant is \hyperref[modlgal.surjective]{surjective} is the image of its determinant map is $\GL_1(\F_{\ell})$.
 \end{definition}
 

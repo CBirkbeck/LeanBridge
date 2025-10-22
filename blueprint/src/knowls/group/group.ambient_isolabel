@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.ambient_isolabel}{Ambient group label}}
 \begin{definition}\label{group.ambient_isolabel}
 \uses{group.ambient,group.label,group.subgroup}
+\leanok
 You can specify the \hyperref[group.ambient]{ambient group} of a \hyperref[group.subgroup]{subgroup} by providing its \hyperref[group.label]{label} as an abstract group.
 \end{definition}
 

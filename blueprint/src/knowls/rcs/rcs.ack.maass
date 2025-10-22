@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.ack.maass}{Acknowledgments for Maass forms}}
 \begin{definition}\label{rcs.ack.maass}
 \uses{}
+\leanok
 <h2>Additional acknowledgments</h2>
 
 Initial page design and coding by Stefan Lemurell and Fredrik Strömberg .

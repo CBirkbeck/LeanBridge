@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/intro.tutorial}{A tour of the Riemann zeta function}}
 \begin{definition}\label{intro.tutorial}
 \uses{ec.q,ec.q.bsdconjecture,lfunction,lfunction.conductor,lfunction.critical_line,lfunction.degree,lfunction.dirichlet_series,lfunction.euler_product,lfunction.functional_equation,lfunction.gamma_factor,lfunction.normalization,lfunction.riemann,lfunction.root_number,lfunction.selbergdata,lfunction.sign,lfunction.spectral_parameters,lfunction.trivial_zero,lfunction.zeros,lfunction.zfunction,specialfunction.gamma}
+\leanok
 The simplest of all \hyperref[lfunction]{L-functions} is the \hyperref[lfunction.riemann]{Riemann zeta function}, a
 function whose analytic properties were first discovered by \href{https://en.wikipedia.org/wiki/Bernhard_Riemann}{Bernhard Riemann} in
 1859 in his attempts to find a formula for the number of primes

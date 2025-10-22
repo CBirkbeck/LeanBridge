@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.cande.zeros.zeta}{Completeness of Riemann Zeta Zeros Data}}
 \begin{definition}\label{rcs.cande.zeros.zeta}
 \uses{}
+\leanok
 This database contains the $103{,}800{,}788{,}359$ zeros of the Riemann zeta function $\zeta(s)$ with imaginary part in the interval $(0,30\,610\,046\,000]$, all of which have real part $\frac{1}{2}$.
 \end{definition}
 

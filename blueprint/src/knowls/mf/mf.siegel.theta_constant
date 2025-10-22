@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.theta_constant}{Theta constant}}
 \begin{definition}\label{mf.siegel.theta_constant}
 \uses{}
+\leanok
 Given a degree $g$ and a vector
 $m = (\mu,\nu)\in {\Bbb Z}^{g}\times {\Bbb Z}^{g}$,
 define the theta constant of characteristic $m$

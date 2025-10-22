@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.congruent_number_problem}{Congruent number problem}}
 \begin{definition}\label{ec.congruent_number_problem}
 \uses{ec,ec.congruent_number,ec.congruent_number_curve}
+\leanok
 The <b>congruent number problem</b> is the problem of determining whether a given
 rational number is or is not a \hyperref[ec.congruent_number]{congruent number}.  
 

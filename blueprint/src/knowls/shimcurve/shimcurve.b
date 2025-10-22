@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/shimcurve.b}{$B\langle i,j\rangle$}}
 \begin{definition}\label{shimcurve.b}
 \uses{ring.characteristic,ring.field,shimcurve.quaternion_algebra}
+\leanok
 A \hyperref[shimcurve.quaternion_algebra]{quaternion algebra}
 $B$ over a \hyperref[ring.field]{field} $F$ of 
 \hyperref[ring.characteristic]{characteristic} not equal 

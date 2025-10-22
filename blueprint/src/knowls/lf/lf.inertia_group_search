@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.inertia_group_search}{Inertia group searching}}
 \begin{definition}\label{lf.inertia_group_search}
 \uses{gg.galois_group,gg.label,group.small_group_label,lf.defining_polynomial,lf.inertia_group,lf.unramified_degree,nf.galois_group.name,ring.irreducible}
+\leanok
 {{KNOWL\_INC('lf.inertia\_group')}}
 
 When searching by inertia subgroups, it can be specified as an abstract group by either a \hyperref[group.small_group_label]{GAP id} or a group name from \hyperref[gg.label]{transitive group label}.

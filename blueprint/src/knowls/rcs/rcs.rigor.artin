@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.rigor.artin}{Reliability of Artin representation data}}
 \begin{definition}\label{rcs.rigor.artin}
 \uses{}
+\leanok
 The computation of Artin representations is rigorous; it does not rely on heuristics or conjectures.
 \end{definition}
 

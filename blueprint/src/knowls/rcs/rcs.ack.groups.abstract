@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.ack.groups.abstract}{Acknowledgements for abstract groups}}
 \begin{definition}\label{rcs.ack.groups.abstract}
 \uses{}
+\leanok
 <h2>Additional acknowledgments</h2>
 
 This project was inspired by, and took much of its initial design ideas from Tim Dokchitser's \href{https://people.maths.bris.ac.uk/~matyd/GroupNames/}{GroupNames pages}.  A special thanks to Tim Dokchitser for his advice, suggestions, and code, as well as giving us permission to use some of his language for knowls on these pages.

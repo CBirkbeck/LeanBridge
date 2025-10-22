@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.history.rankin_selberg}{Ranking-Selberg convolution, history}}
 \begin{definition}\label{lfunction.history.rankin_selberg}
 \uses{}
+\leanok
 In 1939 R. A. Rankin \cite{MR0000411} studied Ramanujan's conjecture about the size of $\tau(n)$ 
 and was led to consider the analytic properties of $g(s)=\sum_{n=1}^\infty \tau(n)^2 n^{-s}$.
 He proved that $\zeta(2s-22) g(s)$ is analytic everywhere except for a simple

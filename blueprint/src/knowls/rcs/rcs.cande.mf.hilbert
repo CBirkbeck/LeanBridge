@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.cande.mf.hilbert}{Completeness of Hilbert modular form data}}
 \begin{definition}\label{rcs.cande.mf.hilbert}
 \uses{}
+\leanok
 The database contains 368,356 Hilbert newforms over 400 totally real number fields of degree up to 6. 
 
 For each field for which forms are presented, the data is complete up to a given level norm. These upper bounds are given on the browse pages; see the browse pages for degree [2](https://www.lmfdb.org/ModularForm/GL2/TotallyReal/browse/2/), [3](https://www.lmfdb.org/ModularForm/GL2/TotallyReal/browse/3/), [4](https://www.lmfdb.org/ModularForm/GL2/TotallyReal/browse/4/), [5](https://www.lmfdb.org/ModularForm/GL2/TotallyReal/browse/5/), and [6](https://www.lmfdb.org/ModularForm/GL2/TotallyReal/browse/6/) for more details.

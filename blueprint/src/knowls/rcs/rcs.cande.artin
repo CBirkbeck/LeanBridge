@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.cande.artin}{Completeness and extent of Artin representation data}}
 \begin{definition}\label{rcs.cande.artin}
 \uses{artin,artin.conductor,artin.dimension,artin.permutation_container,group,group.small.data,nf.galois_group.data}
+\leanok
 Data for \hyperref[artin]{Artin representations} are complete in the following cases based on \cite{MR:3669395, doi:10.1007/s40993-017-0079-5, arXiv:1610.01228}.  In each case, the LMFDB contains all faithful representations for a given group and irreducible representation with \hyperref[artin.conductor]{conductor} less than or equal to the stated bound.  Representations are distinguished by their dimension, and the smallest \hyperref[artin.permutation_container]{containing permutation representation}.
 In addition, the LMFDB contains data on Artin representations for a variety of other number fields and Galois groups.
 <center>

@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.cande.cmf_eisenstein}{Completeness of classical modular form data}}
 \begin{definition}\label{rcs.cande.cmf_eisenstein}
 \uses{artin,cmf.analytic_conductor,cmf.analytic_rank,cmf.artin_field,cmf.artin_image,cmf.character,cmf.coefficient_field,cmf.coefficient_ring,cmf.dimension,cmf.eisenstein_newform,cmf.embedding,cmf.eta_quotient,cmf.heckecharpolys,cmf.inner_twist,cmf.level,cmf.minimal_twist,cmf.newform,cmf.newspace,cmf.projective_image,cmf.q-expansion,cmf.sato_tate,cmf.self_twist,cmf.stark_unit,cmf.sturm_bound,cmf.trace_form,cmf.twist,cmf.weight}
+\leanok
 The classical modular form database currently contains information for all \hyperref[cmf.newform]{newforms} $f\in S_k^\mathrm{new}(N,\chi)$ of \hyperref[cmf.level]{level} $N\ge 1$, \hyperref[cmf.weight]{weight} $k\ge 1$, \hyperref[cmf.character]{character} $\chi\colon (\Z/N\Z)^\times\to \C$,
 for which any of the following hold:
 

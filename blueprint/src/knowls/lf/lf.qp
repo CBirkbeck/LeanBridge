@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.qp}{Definition of $\Q_p$}}
 \begin{definition}\label{lf.qp}
 \uses{}
+\leanok
 If $p$ is a prime number, then every rational number $r$ can be written in the form $r=p^j \frac{a}{b}$ where $\gcd(p, ab)=1$.  We define $|r|_p = p^{-j}$, and define a metric on $\Q$ by $d(u,v) = |u-v|_p$; in other words, $u$ and $v$ are close to each other if they are congruent modulo a larger power of $p$.
 
 The completion of $\Q$ with respect to this metric is $\Q_p$, which is itself a field in the natural way. Any non-zero element $x \in \Q_p$ can be written uniquely as the sum of a convergent series $x = \sum_{n=n_0}^{+\infty} a_n p^n$, where $a_n \in \{ 0, \cdots, p-1 \}$, $n_0 \in \Z$ is such that $|x|_p=p^{-n_0}$, and $a_{n_0} \neq 0$.

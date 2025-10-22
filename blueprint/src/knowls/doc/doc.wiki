@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/doc.wiki}{Wiki (definition)}}
 \begin{definition}\label{doc.wiki}
 \uses{}
+\leanok
 According to Wikipedia, a wiki is a is a website that allows the creation and editing of any number of interlinked web pages via a web browser using a simplified markup language or a WYSIWYG text editor.
 \end{definition}
 

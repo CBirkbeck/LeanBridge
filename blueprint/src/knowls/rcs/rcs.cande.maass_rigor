@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.cande.maass_rigor}{Completeness and extent of rigorous Maass form data}}
 \begin{definition}\label{rcs.cande.maass_rigor}
 \uses{mf.maass.mwf,mf.maass.mwf.character,mf.maass.mwf.eigenvalue,mf.maass.mwf.level,mf.maass.mwf.weight}
+\leanok
 The database currently contains data for cuspidal \hyperref[mf.maass.mwf]{Maass newforms} on $\Gamma_0(N)$ of \hyperref[mf.maass.mwf.weight]{weight} 0 with trivial \hyperref[mf.maass.mwf.character]{character} and \hyperref[mf.maass.mwf.eigenvalue]{Laplace eigenvalue} $\lambda = \frac14 + R^2$ with \hyperref[mf.maass.mwf.level]{level} $N$ in the range $1 \leq N \leq 105$, and where $N$ is squarefree.
 
 For each of these levels, the database contains consecutive Maass forms and is complete in the given ranges.

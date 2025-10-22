@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.modcurve}{Source of modular curve data}}
 \begin{definition}\label{rcs.source.modcurve}
 \uses{}
+\leanok
 The modular curves database was constructed during two workshops run by the Simons Collaboration in Arithmetic Geometry, Number Theory, and Computation in 2022.  Participants included Nikola Adžaga, Eran Assaf, Jennifer Balakrishnan, Barinder Banwait, Shiva Chidambaram, Garen Chiloyan, Edgar Costa, Juanita Duque-Rosero, Noam Elkies, Asimina Hamakiotes, Sachi Hashimoto, Daniel Hast, Aashraya Jha, Timo Keller, Jean Kieffer, Jun Bo Lau, David Lowry-Duda, Alvaro Lozano-Robledo, Kimball Martin, Pietro Mercuri, Philippe Michaud-Jacobs, Grant Molnar, Steffen M\"uller, Filip Najman, Ekin Ozman, Oana Padurariu, Bjorn Poonen, David Roe, Rakvi, Jeremy Rouse, Ciaran Schembri, Sam Schiavone, Padmavathi Srinivasan, Bianca Viray, John Voight, Borna Vukorepa, and David Zywina. 
 
 Some of the key algorithms that were used include:

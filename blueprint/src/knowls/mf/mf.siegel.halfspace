@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.halfspace}{Siegel upper half-space}}
 \begin{definition}\label{mf.siegel.halfspace}
 \uses{group.sp2gr}
+\leanok
 The Siegel upper half-space of degree $g$ is denoted by $\mathcal{H}_g$ and defined as
 \[
 \mathcal{H}_g=

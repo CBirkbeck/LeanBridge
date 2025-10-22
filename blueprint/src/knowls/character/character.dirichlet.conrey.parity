@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/character.dirichlet.conrey.parity}{Parity of a Dirichlet character from its Conrey label}}
 \begin{definition}\label{character.dirichlet.conrey.parity}
 \uses{character.dirichlet,character.dirichlet.parity}
+\leanok
 Let $$\chi_q(n,\cdot)=\prod_{p|q}\chi_{p^e}(n,\cdot)$$ be the unique factorization of the \hyperref[character.dirichlet]{Dirichlet character} $\chi_q(n,\cdot)$ into characters of prime power modulus $p^e$ under the \hyperref[character.dirichlet.conrey]{Conrey labeling system}. The \hyperref[character.dirichlet.parity]{parity} of $\chi_q(n,\cdot)$ is the sum of the parities of the Dirichlet characters $\chi_{p^e}(n,\cdot)$, which can be computed as follows:
 
 \begin{itemize}

@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.cande.lf}{Completeness and extent of local field data}}
 \begin{definition}\label{rcs.cande.lf}
 \uses{lf.degree,lf.qp}
+\leanok
 The database contains all extension fields of 
 \hyperref[lf.qp]{$\Q_p$} of 
 \hyperref[lf.degree]{degree} $n$ for $n < 24$ and $p<200$.

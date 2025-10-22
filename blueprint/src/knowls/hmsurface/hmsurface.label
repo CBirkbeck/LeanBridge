@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/hmsurface.label}{Label of a Hilbert modular surface}}
 \begin{definition}\label{hmsurface.label}
 \uses{hmsurface.component_ideal,hmsurface.congruence_subgroup,hmsurface.hmsurface,hmsurface.level,nf.ideal_labels,nf.label}
+\leanok
 The label of a \hyperref[hmsurface.hmsurface]{Hilbert modular surface} is of the form `F-N-b-t` where
 
 \begin{itemize}

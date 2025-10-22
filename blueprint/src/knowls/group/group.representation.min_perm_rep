@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.representation.min_perm_rep}{Minimum permutation representation}}
 \begin{definition}\label{group.representation.min_perm_rep}
 \uses{gg.tnumber,group.representation.character}
+\leanok
 The smallest permutation representation containing the given \hyperref[group.representation.character]{character} $\chi$, as a \hyperref[gg.tnumber]{transitive group}.
 \end{definition}
 

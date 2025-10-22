@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.congruent_number}{Congruent numbers}}
 \begin{definition}\label{ec.congruent_number}
 \uses{}
+\leanok
 A <b>congruent number</b>  $n$ is a positive rational number which is the area
 $\frac{1}{2}XY$ of a right triangle with rational legs $X$, $Y$ and
 rational hypotenuse $Z$, so  $X,Y,Z$ are positive rational numbers satisfying the equations \[ X^2 + Y^2 = Z^2 \tag{1} \] and \[

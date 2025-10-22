@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.history.hasse_weil}{Hasse-Weil L-function}}
 \begin{definition}\label{lfunction.history.hasse_weil}
 \uses{}
+\leanok
 In 1955 Hasse \cite{MR76807} introduced the zeta-function associated with a curve, today called the 
 Hasse-Weil zeta function. For a Fermat curve $x^m+y^m=1$ he obtains an expression
 for his zeta-function in terms of L-functions with a Hecke character.

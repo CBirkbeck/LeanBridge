@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.q.tamagawa_numbers}{Tamagawa numbers for an elliptic curve }}
 \begin{definition}\label{ec.q.tamagawa_numbers}
 \uses{}
+\leanok
 If $E$ is an elliptic curve defined over the $p$-adic field $\mathbb{Q_p},$ its Tamagawa number is the finite index
 \[c_p=[E(\mathbb{Q_p}):E^0(\mathbb{Q_p})].\]
 Here $E^0(\mathbb{Q_p})$ is the subgroup of points which have good reduction. If $E$ has good reduction, then $E(\mathbb{Q_p})=E^0(\mathbb{Q_p})$ and $c_p=1$.

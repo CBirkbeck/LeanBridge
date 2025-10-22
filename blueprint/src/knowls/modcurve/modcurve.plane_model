@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.plane_model}{Plane model}}
 \begin{definition}\label{modcurve.plane_model}
 \uses{ag.canonical_model,ag.gonality,ag.plane_model,modcurve.embedded_model}
+\leanok
 \hyperref[ag.plane_model]{Plane models} for modular curves are computed in several ways:
 
 \begin{itemize}

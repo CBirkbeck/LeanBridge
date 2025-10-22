@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.sp2gr.subgroup.congn}{Congruence subgroup of level $N$ of $\Sp(2g,\Z)$}}
 \begin{definition}\label{group.sp2gr.subgroup.congn}
 \uses{group.sp2gr.gamma0,group.sp2gr.gamma1,group.sp2gr.ppal.congruence}
+\leanok
 A subgroup of $\Sp(2g,\Q)$ 
 is called a congruence subgroup of level $N$ 
 if it contains the \hyperref[group.sp2gr.ppal.congruence]{principal congruence subgroup} $\Gamma(N)$.
