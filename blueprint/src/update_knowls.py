@@ -18,7 +18,7 @@ COMMENT_RE = re.compile(r"\{#[^#]+#\}")
 CITE_UNDERSCORE_RE = re.compile(r"\\cite\{[^\}]+\}")
 ITEMIZE_RE = re.compile(r"^\s*[\-\*]")
 SUBACK_RE = re.compile(r"_(\\\w+(?:\{[^\}]+\})?)")
-NOBRACE_RE = re.compile(r"\\(overline|mathbb|widehat|hat)\s*(\\?\w+)")
+NOBRACE_RE = re.compile(r"\\(overline|mathbb|widehat|hat)\s*(\\?[a-zA-Z]+)")
 LINK_RE = re.compile(r"""<a\s+href=['"]([^'"]+)['"]>([^<]+)</a>""")
 # url_for('abstract.index') -> https://www.lmfdb.org/Groups/Abstract
 # url_for('modcurve.index_Q',level='11',family='Xsp') -> https://beta.lmfdb.org/ModularCurves/Q?level=11&family=Xsp

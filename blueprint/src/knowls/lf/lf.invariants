@@ -10,9 +10,9 @@ The basic invariants of a \hyperref[lf.padic_field]{$p$-adic field} $K$ are:
 \item  the \hyperref[lf.ramification_index]{ramification index} $e$,
 \item  the \hyperref[lf.residue_field_degree]{residue field degree} $f$.
 \item  the \hyperref[lf.discriminant_exponent]{discriminant exponent} $c$,
-\item  the \hyperref[lf.discriminant_root_field]{discriminant root field} $\mathbb{Q_p}(\sqrt{\textrm{disc}(K)})$,
+\item  the \hyperref[lf.discriminant_root_field]{discriminant root field} $\mathbb{Q}_p(\sqrt{\textrm{disc}(K)})$,
 \item  the \hyperref[lf.root_number]{root number} $\varepsilon$,
-\item  the \hyperref[lf.automorphism_group]{automorphism group} $\textrm{Aut}(K/\mathbb{Q_p})$.
+\item  the \hyperref[lf.automorphism_group]{automorphism group} $\textrm{Aut}(K/\mathbb{Q}_p)$.
 \end{itemize}
 
 \end{definition}

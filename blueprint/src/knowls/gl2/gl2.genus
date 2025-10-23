@@ -1,7 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/gl2.genus}{Genus of a subgroup of $\GL_2$}}
 \begin{definition}\label{gl2.genus}
 \uses{ag.geom_component,gl2.open,mf.upper_half_plane,modcurve}
-The \textbf{genus} of an \hyperref[gl2.open]{open subgroup} $H$ of $\GL_2(\widehat{\Z})$ or $\GL_2(\widehat{\Z_}{\ell})$ of level $N$ is defined by the formula
+The \textbf{genus} of an \hyperref[gl2.open]{open subgroup} $H$ of $\GL_2(\widehat{\Z})$ or $\GL_2(\widehat{\Z}_{\ell})$ of level $N$ is defined by the formula
 \[
 g(H) := g(\Gamma_H) := 1+\frac{i(\Gamma_H)}{12} - \frac{\nu_2(\Gamma_H)}{4} - \frac{\nu_3(\Gamma_H)}{3} - \frac{\nu_{\infty}(\Gamma_H)}{2},
 \]

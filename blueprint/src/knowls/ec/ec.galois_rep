@@ -3,17 +3,17 @@
 \uses{ec,ec.complex_multiplication,ec.padic_tate_module,gl2.index,gl2.level,gl2.open,group.galois.absolute,nf}
 If $E$ is an \hyperref[ec]{elliptic curve} defined over a field $K$ and $m$ is a positive integer, then the \textbf{mod-$m$ Galois representation} attached to $E$ is the continuous homomorphism
 \[
-    \overline{\rho_}{E,m}: \Gal(\overline{K}/K) \to \Aut(E[m])
+    \overline{\rho}_{E,m}: \Gal(\overline{K}/K) \to \Aut(E[m])
 \]
 describing the action of the \hyperref[group.galois.absolute]{absolute Galois group} of $K$ on the $m$-torsion subgroup $E[m]$.
 
 When the characteristic of $K$ does not divide $m > 1$, we may identify the finite abelian group $E[m]$ with $(\Z/m\Z)^2$ and hence view the representation as a map
 \[
-    \overline{\rho_}{E,m}: \Gal(\overline{K}/K) \to \GL(2,\Z/m\Z)
+    \overline{\rho}_{E,m}: \Gal(\overline{K}/K) \to \GL(2,\Z/m\Z)
 \]
 defined up to conjugation. In particular, when $m=\ell$ is a prime different from the characteristic of $K$, we have the \textbf{mod-$\ell$ Galois representation}
 \[
-    \overline{\rho_}{E,\ell}: \Gal(\overline{K}/K) \to \GL(2,\Z/\ell\Z).
+    \overline{\rho}_{E,\ell}: \Gal(\overline{K}/K) \to \GL(2,\Z/\ell\Z).
 \]
 Taking the inverse limit over prime powers $m=\ell^n$ yields the \textbf{$\ell$-adic Galois representation} attached to $E$,
 \[ 
