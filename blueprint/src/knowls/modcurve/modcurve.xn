@@ -22,7 +22,7 @@ There are three variants of the modular curve $Y(N)$:
 \end{itemize}
 
 \begin{itemize}
-\item Quotients*: For each \hyperref[gl2.open]{open subgroup} $H \le \GL_2(\widehat\Z)$, there is a quotient \hyperref[modcurve]{$X_H$} of $X_{\mathrm{full}}(N)$.
+\item Quotients*: For each \hyperref[gl2.open]{open subgroup} $H \le \GL_2(\widehat{\Z})$, there is a quotient \hyperref[modcurve]{$X_H$} of $X_{\mathrm{full}}(N)$.
 \end{itemize}
 \end{definition}
 

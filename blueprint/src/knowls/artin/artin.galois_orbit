@@ -1,7 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/artin.galois_orbit}{Galois orbit of an Artin representation}}
 \begin{definition}\label{artin.galois_orbit}
 \uses{artin,group.galois.absolute}
-The \hyperref[group.galois.absolute]{absolute Galois group} $\Gal(\overline\Q/\Q)$ acts on the set of \hyperref[artin]{Artin representations} for an extension by pre-composition, so we consider two representations to be Galois conjugate if they differ by such an automorphism.  The action, for a given representation, in fact factors through a finite degree abelian extension.
+The \hyperref[group.galois.absolute]{absolute Galois group} $\Gal(\overline{\Q}/\Q)$ acts on the set of \hyperref[artin]{Artin representations} for an extension by pre-composition, so we consider two representations to be Galois conjugate if they differ by such an automorphism.  The action, for a given representation, in fact factors through a finite degree abelian extension.
 
 The \textbf{Galois orbit} of a representation is its orbit under this action.
 \end{definition}

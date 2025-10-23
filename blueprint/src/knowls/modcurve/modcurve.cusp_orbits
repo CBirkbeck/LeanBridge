@@ -1,10 +1,10 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.cusp_orbits}{Cusp orbits}}
 \begin{definition}\label{modcurve.cusp_orbits}
 \uses{gl2.open,modcurve,modcurve.cusps}
-For an \hyperref[gl2.open]{open subgroup} $H$ of $\GL_2(\widehat \Z)$ with $\det(H) =\widehat \Z^\times$, the \textbf{cusps} of $H$ are the double cosets $ \pm H  \backslash \GL_2(\widehat \Z) /\langle\delta\rangle$, where $
+For an \hyperref[gl2.open]{open subgroup} $H$ of $\GL_2(\widehat{\Z})$ with $\det(H) =\widehat{\Z}^\times$, the \textbf{cusps} of $H$ are the double cosets $ \pm H  \backslash \GL_2(\widehat{\Z}) /\langle\delta\rangle$, where $
 \delta := \begin{bmatrix}1&1\\0&1\end{bmatrix}$.  These correspond to the \hyperref[modcurve.cusps]{cusps}  of the \hyperref[modcurve]{modular curve} $X_H$.
 
-Each $\sigma \in \Gal_{\Q}$ acts on the cusps of $H$ via $Hg\langle \pm \delta\rangle\mapsto Hg\chi(\sigma)\langle \pm \delta\rangle$, where $\chi(\sigma)=\begin{bmatrix}e&0\\0&1\end{bmatrix} \in \GL_2(\widehat \Z)$ is such that for all positive integers $N$ one has $\sigma(\zeta_N)=\zeta_N^e$.
+Each $\sigma \in \Gal_{\Q}$ acts on the cusps of $H$ via $Hg\langle \pm \delta\rangle\mapsto Hg\chi(\sigma)\langle \pm \delta\rangle$, where $\chi(\sigma)=\begin{bmatrix}e&0\\0&1\end{bmatrix} \in \GL_2(\widehat{\Z})$ is such that for all positive integers $N$ one has $\sigma(\zeta_N)=\zeta_N^e$.
 
 The \textbf{Galois orbit} of a cusp of $H$ is its orbit under the action of $\Gal_{\Q}$.
 \end{definition}

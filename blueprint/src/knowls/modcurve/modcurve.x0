@@ -2,7 +2,7 @@
 \begin{definition}\label{modcurve.x0}
 \uses{modcurve,modcurve.cusps}
 \leanok
-$X_0(N)$ is the \hyperref[modcurve]{modular curve} $X_H$ for $H\le \GL_2(\widehat\Z)$ the inverse image of $\begin{pmatrix} \ast & \ast \\ 0 & \ast \end{pmatrix} \subset \GL_2(\Z/N\Z)$. Over a field $k$ of characteristic not dividing $N$, its \hyperref[modcurve.cusps]{non-cuspidal} $k$-rational points correspond to $\bar k$-isomorphism classes of pairs $(E,C)$, where:
+$X_0(N)$ is the \hyperref[modcurve]{modular curve} $X_H$ for $H\le \GL_2(\widehat{\Z})$ the inverse image of $\begin{pmatrix} \ast & \ast \\ 0 & \ast \end{pmatrix} \subset \GL_2(\Z/N\Z)$. Over a field $k$ of characteristic not dividing $N$, its \hyperref[modcurve.cusps]{non-cuspidal} $k$-rational points correspond to $\bar k$-isomorphism classes of pairs $(E,C)$, where:
 
 \begin{itemize}
 \item  $E$ is an elliptic curve over $k$, and 

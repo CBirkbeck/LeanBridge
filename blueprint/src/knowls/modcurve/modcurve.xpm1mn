@@ -2,7 +2,7 @@
 \begin{definition}\label{modcurve.xpm1mn}
 \uses{modcurve,modcurve.quadratic_refinements,modcurve.x1mn}
 \leanok
-$X_{\mathrm{arith},\pm1}(M,MN)$ is the \hyperref[modcurve]{modular curve} $X_H$ for $H\le \GL_2(\widehat\Z)$ the inverse image of $\begin{pmatrix} \pm 1 & M* \\ 0 & * \end{pmatrix} \subset \GL_2(\Z/MN\Z)$. The modular curve \hyperref[modcurve.x1mn]{$X_{\mathrm{arith},1}(M,MN)$} is one of its \hyperref[modcurve.quadratic_refinements]{quadratic refinements}.
+$X_{\mathrm{arith},\pm1}(M,MN)$ is the \hyperref[modcurve]{modular curve} $X_H$ for $H\le \GL_2(\widehat{\Z})$ the inverse image of $\begin{pmatrix} \pm 1 & M* \\ 0 & * \end{pmatrix} \subset \GL_2(\Z/MN\Z)$. The modular curve \hyperref[modcurve.x1mn]{$X_{\mathrm{arith},1}(M,MN)$} is one of its \hyperref[modcurve.quadratic_refinements]{quadratic refinements}.
 \end{definition}
 
 

@@ -1,15 +1,15 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.agreeable}{Agreeable}}
 \begin{definition}\label{modcurve.agreeable}
 \uses{gl2.open,group.commutator_subgroup,group.subgroup.normal,modcurve,modcurve.level}
-An \hyperref[gl2.open]{open subgroup} $H\le \GL_2(\widehat\Z)$ (and the corresponding \hyperref[modcurve]{modular curve} $X_H$) is \textbf{agreeable} (as defined by Zywina in Section 1.4 of \cite{arxiv:2206.14959}) if the following hold:
+An \hyperref[gl2.open]{open subgroup} $H\le \GL_2(\widehat{\Z})$ (and the corresponding \hyperref[modcurve]{modular curve} $X_H$) is \textbf{agreeable} (as defined by Zywina in Section 1.4 of \cite{arxiv:2206.14959}) if the following hold:
 
 \begin{itemize}
-\item  $\det(H)=\widehat\Z^\times$;
-\item  $H$ contains the subgroup of $\GL_2(\widehat \Z)$ formed by scalar matrices;
-\item  the \hyperref[modcurve.level]{level} of $H\le \GL_2(\widehat\Z)$ and the level of $H\cap \SL_2(\widehat \Z)\le \SL_2(\widehat \Z)$ have the same odd prime divisors.
+\item  $\det(H)=\widehat{\Z}^\times$;
+\item  $H$ contains the subgroup of $\GL_2(\widehat{\Z})$ formed by scalar matrices;
+\item  the \hyperref[modcurve.level]{level} of $H\le \GL_2(\widehat{\Z})$ and the level of $H\cap \SL_2(\widehat{\Z})\le \SL_2(\widehat{\Z})$ have the same odd prime divisors.
 \end{itemize}
 
-The \textbf{agreeable closure} $\widetilde H$ of $H$ is the intersection of all the agreeable open subgroups of $\GL_2(\widehat \Z)$ that contain $H$.
+The \textbf{agreeable closure} $\widetilde H$ of $H$ is the intersection of all the agreeable open subgroups of $\GL_2(\widehat{\Z})$ that contain $H$.
 
 The agreeable closure $\widetilde H$ contains $H$ as a \hyperref[group.subgroup.normal]{normal subgroup} and has the same \hyperref[group.commutator_subgroup]{commutator subgroup} as $H$; see Proposition 8.1 of \cite{arxiv:2206.14959}.  It follows that the quotient $\widetilde{H}/H$ (called the \textbf{agreeable quotient}) is finite abelian.
 \end{definition}

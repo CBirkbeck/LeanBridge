@@ -8,7 +8,7 @@ Some of the key algorithms that were used include:
 
 \begin{itemize}
 \item  The formulas for the general genus formulas are worked out by Hamakiotes and Lau in \cite{arxiv:2501.10883}.
-\item  The algorithms of Rouse, Sutherland, and Zureick-Brown described in \cite{doi:10.1017/fms.2022.38} were used to enumerate subgroups of $\GL_2(\widehat \Z)$ and to compute most of the arithmetic invariants of $X_H$, including the decomposition of its Jacobian, and also for computing some of the models.
+\item  The algorithms of Rouse, Sutherland, and Zureick-Brown described in \cite{doi:10.1017/fms.2022.38} were used to enumerate subgroups of $\GL_2(\widehat{\Z})$ and to compute most of the arithmetic invariants of $X_H$, including the decomposition of its Jacobian, and also for computing some of the models.
 \item  Assaf's \href{https://github.com/assaferan/ModFrmGL2}{ModFrmGL2} Magma package was used to compute models, described in \cite{doi:10.1007/978-3-030-80914-0}.
 \item  Zywina's algorithm for computing actions on cusp forms \cite{arxiv:2001.07270} was used to compute models.
 \item  Rakvi's algorithm for genus 0 modular curves \cite{arxiv:2105.14623} was used to compute these curves and their maps to the $j$-line.

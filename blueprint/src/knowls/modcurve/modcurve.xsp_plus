@@ -2,7 +2,7 @@
 \begin{definition}\label{modcurve.xsp_plus}
 \uses{gl2.cartan,modcurve}
 \leanok
-$X_{\text{sp}}^+(N)$ is the \hyperref[modcurve]{modular curve} $X_H$ for $H\le \GL_2(\widehat\Z)$ the inverse image of an \hyperref[gl2.cartan]{extended Cartan subgroup} $\begin{pmatrix} * & 0 \\ 0 & * \end{pmatrix} \cup \begin{pmatrix} 0 & * \\ * & 0 \end{pmatrix}\subseteq \GL_2(\Z/N\Z)$ that is split at every prime dividing $N$. As a moduli space it parameterizes pairs $(E,\{C,D\})$ where:
+$X_{\text{sp}}^+(N)$ is the \hyperref[modcurve]{modular curve} $X_H$ for $H\le \GL_2(\widehat{\Z})$ the inverse image of an \hyperref[gl2.cartan]{extended Cartan subgroup} $\begin{pmatrix} * & 0 \\ 0 & * \end{pmatrix} \cup \begin{pmatrix} 0 & * \\ * & 0 \end{pmatrix}\subseteq \GL_2(\Z/N\Z)$ that is split at every prime dividing $N$. As a moduli space it parameterizes pairs $(E,\{C,D\})$ where:
 
 \begin{itemize}
 \item  $E$ is an elliptic curve over $k$, and 
