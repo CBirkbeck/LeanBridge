@@ -1,12 +1,11 @@
 #!/usr/bin/env python
 
-# For now, we just pull a dump of the LMFDB's database, write to the knowls/ folder, and record the update.
-# Eventually we may want something fancier.
-
 import os, sys, re
 from pathlib import Path
 from collections import defaultdict
 import networkx as nx
+from psycopg2 import connect
+from psycopg2.sql import SQL, Identifier
 
 KNOWL_RE = re.compile(r"""(\{\{\s*KNOWL(_INC)?\s*\(\s*['"]([a-z0-9._-]+)['"](?:\s*,\s*(?:title\s*=\s*)?("[^"]+"|'[^']+'))?\s*\)\s*\}\})""")
 CURLY_RE = re.compile(r"\{\{([^\}]+)\}\}")
@@ -158,11 +157,7 @@ def clean_content(kwl):
     # For now, we just add label and dependencies
     return f"\\subsection{{\\href{{https://beta.lmfdb.org/knowledge/show/{kwl['id']}}}{{{kwl['title']}}}}}\n\\begin{{definition}}\\label{{{kwl['id']}}}\n\\uses{{{','.join(kwl['links'])}}}\n{content}\n\\end{{definition}}\n\n\n"
 
-def update_knowls(path_to_lmfdb=None, cats=["nf", "ec", "cmf"], delete_old=False):
-    if path_to_lmfdb is None:
-        path_to_lmfdb = os.path.expanduser("~/lmfdb")
-    sys.path.append(path_to_lmfdb)
-    from lmfdb.knowledge.knowl import knowldb
+def update_knowls(cats=["nf", "ec", "cmf"], delete_old=False):
     knowldir = Path("knowls")
 
     omit_verts = set([
@@ -216,7 +211,12 @@ def update_knowls(path_to_lmfdb=None, cats=["nf", "ec", "cmf"], delete_old=False
         "test.text",
     ])
 
-    all_knowls = [rec for rec in knowldb.get_all_knowls(fields=['id', 'cat', 'content', 'title', 'links', 'defines'], types=[0]) if rec["id"] not in omit_verts]
+    conn = connect(dbname="lmfdb", port=5432, user="lmfdb", password="lmfdb", host="devmirror.lmfdb.xyz")
+    fields = ['id', 'cat', 'content', 'title', 'links', 'defines']
+    selecter = SQL("SELECT DISTINCT ON (id) {0} FROM kwl_knowls WHERE status >= 0 AND type = 0 ORDER BY id, timestamp DESC").format(SQL(", ").join(map(Identifier, fields)))
+    cur = conn.cursor()
+    cur.execute(selecter)
+    all_knowls = [dict(zip(fields, res)) for res in cur if res[0] not in omit_verts]
     old_knowls = set()
     for cat in knowldir.iterdir():
         for path in cat.iterdir():
