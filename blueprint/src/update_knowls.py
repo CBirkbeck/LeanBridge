@@ -154,8 +154,10 @@ def clean_content(kwl):
     # We should deal with things like markdown lists, jinja macros (especially KNOWL)
     content = kwl['content']
     safe_id = kwl['id'].replace("_", r"\_")
+    # section headers in latex don't support some math mode characters
+    clean_title = kwl['title'].replace(r"$\ell$", "$l$").replace(r"$\Gamma_1(N)$", "Gamma1(N)")
     # For now, we just add label and dependencies
-    return f"\\subsection{{\\href{{https://beta.lmfdb.org/knowledge/show/{kwl['id']}}}{{{kwl['title']}}}}}\n\\begin{{definition}}\\label{{{kwl['id']}}}\n\\uses{{{','.join(kwl['links'])}}}\n{content}\n\\end{{definition}}\n\n\n"
+    return f"\\subsection{{\\href{{https://beta.lmfdb.org/knowledge/show/{kwl['id']}}}{{{clean_title}}}}}\n\\begin{{definition}}\\label{{{kwl['id']}}}\n\\uses{{{','.join(kwl['links'])}}}\n{content}\n\\end{{definition}}\n\n\n"
 
 def update_knowls(cats=["nf", "ec", "cmf"], delete_old=False):
     knowldir = Path("knowls")

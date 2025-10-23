@@ -1,4 +1,4 @@
-\subsection{\href{https://beta.lmfdb.org/knowledge/show/modlgal.image_index}{Index of the image of a mod-$\ell$ Galois representation}}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/modlgal.image_index}{Index of the image of a mod-$l$ Galois representation}}
 \begin{definition}\label{modlgal.image_index}
 \uses{group.subgroup,modlgal,modlgal.surjective}
 The \textbf{index} of a \hyperref[modlgal]{mod-$\ell$ Galois representation} $\rho:\Gal_K\to G(\F_{\ell})$ is the \hyperref[group.subgroup]{subgroup} index $[G(\F_{\ell}):\rho(\Gal_K)]$.

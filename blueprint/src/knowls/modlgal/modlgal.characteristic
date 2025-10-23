@@ -1,4 +1,4 @@
-\subsection{\href{https://beta.lmfdb.org/knowledge/show/modlgal.characteristic}{Characteristic of a mod-$\ell$ Galois representation}}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/modlgal.characteristic}{Characteristic of a mod-$l$ Galois representation}}
 \begin{definition}\label{modlgal.characteristic}
 \uses{modlgal,modlgal.codomain,ring}
 The \textbf{characteristic} of a \hyperref[modlgal]{mod-$\ell$ Galois representation} is the characteristic of the base ring of its \hyperref[modlgal.codomain]{codomain}, which is a \hyperref[ring]{ring} of characteristic $\ell$.

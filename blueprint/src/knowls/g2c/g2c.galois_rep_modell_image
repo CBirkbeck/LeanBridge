@@ -1,4 +1,4 @@
-\subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.galois_rep_modell_image}{Mod-$\ell$ Galois image of a genus 2 curve}}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.galois_rep_modell_image}{Mod-$l$ Galois image of a genus 2 curve}}
 \begin{definition}\label{g2c.galois_rep_modell_image}
 \uses{g2c.g2curve,g2c.galois_rep}
 \leanok

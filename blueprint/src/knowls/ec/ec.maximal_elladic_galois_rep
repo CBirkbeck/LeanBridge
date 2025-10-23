@@ -1,4 +1,4 @@
-\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.maximal_elladic_galois_rep}{Maximal $\ell$-adic Galois representation}}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.maximal_elladic_galois_rep}{Maximal $l$-adic Galois representation}}
 \begin{definition}\label{ec.maximal_elladic_galois_rep}
 \uses{ec,ec.complex_multiplication,ec.galois_rep,ec.geom_endomorphism_ring,nf}
 Let $E$ be an \hyperref[ec]{elliptic curve} over a \hyperref[nf]{number field} $K$, let $\ell$ be prime, and let
