@@ -4,8 +4,6 @@ import Lean.Data.Json
 import Lean.Data.Json.FromToJson
 import Mathlib
 
-import LeanBridge.ForMathlib.tactics.LMFDB_Proof_4_0_1008_1
-
 open Lean Elab Command IO
 
 elab "#LMFDB_search" degree:num r2:num D_abs:num : command => do
@@ -188,35 +186,5 @@ end"
 
 
 
-noncomputable section
 
-open NumberField
-
-abbrev min_poly_4_0_1008_1 : Polynomial ℚ := (1) * Polynomial.X ^ 4 + (-5) * Polynomial.X ^ 2 + (7)
-
-abbrev K_4_0_1008_1 := AdjoinRoot min_poly_4_0_1008_1
-
-lemma irreducible_poly :  Irreducible min_poly_4_0_1008_1 := by
-  have := irreducible_T
-  rw [Polynomial.IsPrimitive.Int.irreducible_iff_irreducible_map_cast] at this
-  · convert this
-    simp
-    ring
-  · refine Polynomial.Monic.isPrimitive ?_
-    refine Polynomial.Monic.def.mpr ?_
-    rw [T_ofList', ofList_leadingCoeff]
-    · simp
-    · apply List.cons_ne_nil _ _
-    · rfl
-
-instance: Fact (Irreducible min_poly_4_0_1008_1) := ⟨irreducible_poly⟩
-
-axiom LMFDB_NF_4_0_1008_1_discr : NumberField.discr K_4_0_1008_1 = 1008
-
-axiom LMFDB_NF_4_0_1008_1_isGalois : ¬ IsGalois ℚ K_4_0_1008_1
-
-axiom LMFDB_NF_4_0_1008_1_classNumber : NumberField.classNumber K_4_0_1008_1 = 1
-
-
-end
 --let python_path := "/home/chris/Github/LeanBridge/.venv/bin/python"
