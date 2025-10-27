@@ -1,8 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.intermediate_fields}{Intermediate fields}}
 \begin{definition}\label{lf.intermediate_fields}
 \uses{}
-\leanok
 For a local field $K$ which is a finite extension of $\Q_p$ for some prime $p$, *intermediate fields* $F$ are fields with $\Q_p\subsetneqq F \subsetneqq K$.
 \end{definition}
-
-

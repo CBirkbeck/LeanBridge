@@ -1,8 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.x1mn.remarks}{Remarks on $X_{\mathrm{arith},1}(M,MN)$}}
 \begin{definition}\label{modcurve.x1mn.remarks}
 \uses{modcurve.canonical_field}
-\leanok
-The \hyperref[modcurve.canonical_field]{canonical field of definition} of $X_{\mathrm{arith},1}(M,MN)$ is $\Q$, but this is not true of $X_1(M,MN)$, the modular curve $X_H$ for $H\le \GL_2(\widehat{\Z})$ the inverse image of $\begin{pmatrix} 1 & M* \\ 0 & 1 \end{pmatrix} \subset \GL_2(\Z/MN\Z)$, except when $M\le 2$, in which case $X_1(M,MN)=X_{\mathrm{arith},1}(M,MN)$.
+The \hyperref[modcurve.canonical_field]{canonical field of definition} of $X_{\mathrm{arith},1}(M,MN)$ is $\Q$, but this is not true of $X_1(M,MN)$, the modular curve $X_H$ for $H\le \GL_2(\widehat\mathbb Z)$ the inverse image of $\begin{pmatrix} 1 & M* \\ 0 & 1 \end{pmatrix} \subset \GL_2(\Z/MN\Z)$, except when $M\le 2$, in which case $X_1(M,MN)=X_{\mathrm{arith},1}(M,MN)$.
 \end{definition}
-
-

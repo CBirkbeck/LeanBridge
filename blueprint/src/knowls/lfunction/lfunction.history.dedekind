@@ -1,11 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.history.dedekind}{Dedekind zeta-functions, history}}
 \begin{definition}\label{lfunction.history.dedekind}
 \uses{}
-\leanok
 In 1877 Dedekind began  generalizing some of Dirichlet's work to number fields.
 His first paper on the topic is <i>&Uuml;ber die Anzahl der Ideal-Klassen in den verschiedenen Ordnungen
 eines endlichen K\"orpers</i> \cite{MR237282}. It appears that Hecke named the Dedekind zeta-function after him.
 
 \end{definition}
-
-

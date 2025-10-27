@@ -5,5 +5,3 @@ The \textbf{moment matrix} of a \hyperref[st_group.definition]{Sato-Tate group} 
 
 In the symplectic case the irreducible characters of $\mathrm{USp}(2g)$ can be explicitly computed via the Brauer-Klimyk formula using the algorithm of Shieh \cite{arxiv:1605.07743,doi:10.1112/S1461157016000279}.  Each character $\chi$ is then an integer polynomial in $a_1,\ldots a_g$ and the moments $\mathrm{E}[\chi_i\chi_j]$ can be computed as integer linear combinations of entries of the \hyperref[st_group.moment_simplex]{moment simplex} corresponding to the terms of $\chi_i\chi_j$.
 \end{definition}
-
-

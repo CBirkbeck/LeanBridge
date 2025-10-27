@@ -3,5 +3,3 @@
 \uses{character.dirichlet,character.dirichlet.modulus,character.dirichlet.order,character.dirichlet.value_field,nf.galois_group}
 The \textbf{Galois orbit} of a \hyperref[character.dirichlet]{Dirichlet character} $\chi$ of \hyperref[character.dirichlet.modulus]{modulus} $q$ and \hyperref[character.dirichlet.order]{order} $n$ is the set $[\chi]:=\{\sigma(\chi): \sigma\in \Gal(\Q(\zeta_n)/\Q)\}$, where $\sigma(\chi)$ denotes the Dirichlet character of modulus $q$ defined by  $k \mapsto \sigma(\chi(k))$.  The map $\chi\to \sigma(\chi)$ defines a faithful action of the \hyperref[nf.galois_group]{Galois group} $\Gal(\Q(\zeta_n)/\Q)$ on the set of Dirichlet characters of modulus $q$ and order $n$, each of which has $\Q(\zeta_n)$ as its \hyperref[character.dirichlet.value_field]{field of values}.
 \end{definition}
-
-

@@ -1,8 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/sh.level}{Level of a Shimura curve}}
 \begin{definition}\label{sh.level}
 \uses{}
-\leanok
 The level of a Shimura curve is the level of the associated Eichler order.
 \end{definition}
-
-

@@ -3,5 +3,3 @@
 \uses{nf}
 The \textbf{minimal polynomial} of an element \(a\) in a \hyperref[nf]{number field} \(K\) is the unique monic polynomial \(f(X)\in\Q[X]\) of minimal degree such that \(f(a)=0\). It is necessarily irreducible over $\Q.$
 \end{definition}
-
-

@@ -12,5 +12,3 @@ There are three types of bad reduction:
 
 A curve has bad reduction at \(\mathfrak{p}\) if and only if \(\mathfrak{p}\) divides its \hyperref[ec.discriminant]{discriminant}.
 \end{definition}
-
-

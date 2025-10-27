@@ -1,16 +1,13 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.omega}{Omega (Lie group)}}
 \begin{definition}\label{group.omega}
 \uses{group.orthogonal,group.spinor_norm}
-\leanok
 The groups $\Omega(n,q)$ and $\Omega^{\pm}(n,q)$ are subgroups of the \hyperref[group.orthogonal]{special orthogonal groups} $\SO(n,q)$ and $\SO^{\pm}(n,q)$. Their specific definitions depend on the properties of $n$ and $q$.
 
-When $n$ is odd, $\Omega(n,q)$ is a subgroup of $\SO(n,q)$. If $q$ is odd, $\Omega(n,q)$ is the kernel of the \hyperref[group.spinor_norm]{spinor norm map} $\SO(n,q) \to (\F_q^\times)/(\F_q^\times)^2$, and is an index $2$ subgroup of $\SO(n,q)$. When $q$ is even, we define $\Omega(n,q) = \SO(n,q)$. 
+When $n$ is odd, $\Omega(n,q)$ is a subgroup of $\SO(n,q)$. If $q$ is odd, $\Omega(n,q)$ is the kernel of the \hyperref[group.spinor_norm]{spinor norm map} $\SO(n,q) \to (\F_q^\times)/(\F_q^\times)^2$, and is an index $2$ subgroup of $\SO(n,q)$. When $q$ is even, we define $\Omega(n,q) = \SO(n,q)$.
 
-When $n$ is even, $\Omega^{\pm}(n,q)$ is a subgroup of $\SO^{\pm}(n,q)$. To define it, we use the \textit{quasideterminant} map, sending $g \in \SO(n,q)$ to $(-1)^d$, where $d$ is the dimension of the subspace of $V = \F_q^n$ fixed by $g$. Then $\Omega^{\pm}(n,q)$ is the kernel of this map, i.e. all those $g$ fixing an even-dimensional subspace of $V$. 
+When $n$ is even, $\Omega^{\pm}(n,q)$ is a subgroup of $\SO^{\pm}(n,q)$. To define it, we use the \textit{quasideterminant} map, sending $g \in \SO(n,q)$ to $(-1)^d$, where $d$ is the dimension of the subspace of $V = \F_q^n$ fixed by $g$. Then $\Omega^{\pm}(n,q)$ is the kernel of this map, i.e. all those $g$ fixing an even-dimensional subspace of $V$.
 
-The groups $\POmega(n,q)$ are $\POmega^{\pm}(n,q)$ are the quotients of $\Omega(n,q)$ and $\Omega^{\pm}(n,q)$, respectively, by their subgroups of scalar matrices. 
+The groups $\POmega(n,q)$ are $\POmega^{\pm}(n,q)$ are the quotients of $\Omega(n,q)$ and $\Omega^{\pm}(n,q)$, respectively, by their subgroups of scalar matrices.
 
 (see \cite{MR0827219}, pages xi-xii)
 \end{definition}
-
-

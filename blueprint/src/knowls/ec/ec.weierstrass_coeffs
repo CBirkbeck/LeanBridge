@@ -14,5 +14,3 @@ A Weierstrass model is smooth if and only if its \hyperref[ec.discriminant]{disc
 Two smooth Weierstrass models define isomorphic elliptic curves if and only if they are \hyperref[ec.weierstrass_isomorphism]{isomorphic} as Weierstrass models.
 
 \end{definition}
-
-

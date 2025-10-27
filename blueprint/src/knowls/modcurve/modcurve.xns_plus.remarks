@@ -3,5 +3,3 @@
 \uses{}
 For $N=p$ prime the modular curve $X_{\mathrm{ns}}^+(p)$ has the following moduli interpretation.  Non-cuspidal points correspond to $\bar k$-isomorphism classes of pairs $(E,\mathfrak o)$ where $E$ is an elliptic curve over $k$ and $\mathfrak o$ is a $k$-rational (unoriented) \textbf{necklace}: a $\Gal_k$-stable pair of inverse cyclic permutations of the $p+1$ cyclic subgroups of $E[p](\bar k)$ of order $p$ \cite{arxiv:1402.3498,doi:10.1017/S0017089517000180}.
 \end{definition}
-
-

@@ -1,10 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.known_points}{Known points}}
 \begin{definition}\label{modcurve.known_points}
 \uses{ec,ec.complex_multiplication,modcurve.cusps}
-\leanok
 Points on modular curves fall into three categories: \hyperref[modcurve.cusps]{cusps}, \hyperref[ec.complex_multiplication]{CM points} and other points (corresponding to non-CM \hyperref[ec]{elliptic curves}).  Since we don't always have coordinates for points on a model, we group points by $j$-invariant and count the number of distinct $j$-invariants.  In particular, this means that the number of cusps will always be 1 or 0, depending on whether or not there are any rational cusps, since all cusps lie above $j=\infty$.
 
 When searching, you can specify the number of points (of any type), the number of noncuspidal points, or the number of other points (non-cuspidal and non-CM).  In each case, the count is based on the number of points of that type stored in the database, which may be less than the actual number of points on the curve.  In particular, this count is always finite, even for genus 0 curves and positive rank elliptic cuves that have infinitely many rational points.
 \end{definition}
-
-

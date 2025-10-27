@@ -1,7 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.discriminant_root_field}{Discriminant root field of a local field}}
 \begin{definition}\label{lf.discriminant_root_field}
 \uses{nf.discriminant_root_field}
-\leanok
 {{ KNOWL\_INC('nf.discriminant\_root\_field') }}
 
 Note if $F=\mathbb{Q}_p$, there are only a small number of possibilities for quadratic extensions of $\mathbb{Q}_p$.  If $p$ is odd, we let $u$ denote any unit in $\mathbb{Z}_p$ which is not a square modulo $p$.  Then, the quadratic extensions of $\mathbb{Q}_p$ are $\mathbb{Q}_p(\sqrt{u})$ (which is the unramified quadratic extension), $\mathbb{Q}_p(\sqrt{p})$, and $\mathbb{Q}_p(\sqrt{pu})$.
@@ -9,5 +8,3 @@ Note if $F=\mathbb{Q}_p$, there are only a small number of possibilities for qua
 For $p=2$, there are seven quadratic extensions of $\mathbb{Q}_2$.  Here we let $u$ denote any value in $\mathbb{Z}_2$ which is congruent to $5$ modulo $8$ (for example, $u=5$) so again $\mathbb{Q}_2(\sqrt{u})$ is the quadratic unramified extension; the other six quadratic extensions are $\mathbb{Q}_2(\sqrt{-1})$, $\mathbb{Q}_2(\sqrt{-u})$, $\mathbb{Q}_2(\sqrt{2})$, $\mathbb{Q}_2(\sqrt{2u})$, $\mathbb{Q}_2(\sqrt{-2})$, and $\mathbb{Q}_2(\sqrt{-2u})$.
 
 \end{definition}
-
-

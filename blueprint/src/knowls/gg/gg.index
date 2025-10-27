@@ -5,5 +5,3 @@ If $\sigma\in S_n$, its \textbf{index} is
 \[ \textrm{ind}(\sigma) = n - \text{number of cycles}\]
 for the full disjoint cycle decomposition of $\sigma$.
 \end{definition}
-
-

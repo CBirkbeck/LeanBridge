@@ -14,5 +14,3 @@ T_n f = a_nf.
 The \hyperref[cmf.newspace]{newspace} $S_k^{\rm new}(N,\chi)\subseteq S_k(N,\chi)$ is invariant under the action of the Hecke operators, so the canonical basis of normalized eigenforms for $S_k(N,\chi)$ includes a basis of \hyperref[cmf.newform]{newforms} for $S_k^{\rm new}(N,\chi)$.
 
 \end{definition}
-
-

@@ -7,5 +7,3 @@ The \textbf{visible Artin slopes} of $K$ correspond to segments which have slope
 
 For a \hyperref[nf.is_galois]{Galois} extension $K/\Q_p$, the visible Artin slopes are the same as the \hyperref[lf.wild_slopes]{wild Artin slopes} of the extension.  For a general extension, the list of visible Artin slopes is a subset of the list of wild Artin slopes of its Galois closure.  The \hyperref[lf.hidden_slopes]{hidden slopes} of $K$ are obtained by removing (as multisets) the visible slopes of $K$ from the set of all slopes of the Galois closure.
 \end{definition}
-
-

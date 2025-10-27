@@ -3,5 +3,3 @@
 \uses{ag.abelian_variety,ag.endomorphism_algebra}
 An \hyperref[ag.abelian_variety]{abelian variety} is said to have \textbf{real multiplication} (RM) if its \hyperref[ag.endomorphism_algebra]{endomorphism algebra} is a totally real (number) field.  (In most situations, we exclude the trivial case of RM by $\Q$.)
 \end{definition}
-
-

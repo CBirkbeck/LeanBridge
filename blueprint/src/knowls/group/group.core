@@ -5,5 +5,3 @@ If $H$ is a \hyperref[group.subgroup]{subgroup} of a \hyperref[group]{group} $G$
 \[ \bigcap_{g\in G} g^{-1} H g .\]
 It is the largest normal subgroup of $G$ contained in $H$.
 \end{definition}
-
-

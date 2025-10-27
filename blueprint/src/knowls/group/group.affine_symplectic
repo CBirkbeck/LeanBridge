@@ -1,8 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.affine_symplectic}{Affine symplectic group}}
 \begin{definition}\label{group.affine_symplectic}
 \uses{group.affine_general_linear,group.symplectic}
-\leanok
-The affine symplectic group $\ASp(n,q)$ is the subgroup of the \hyperref[group.affine_general_linear]{affine general linear group} $\AGL(n,q) = \F_q^n \rtimes \GL(n,q)$ of all affine transformations $x \mapsto Mx + v$ such that $M$ is an element of the \hyperref[group.symplectic]{symplectic group} $\Sp(n,q)$. 
+The affine symplectic group $\ASp(n,q)$ is the subgroup of the \hyperref[group.affine_general_linear]{affine general linear group} $\AGL(n,q) = \F_q^n \rtimes \GL(n,q)$ of all affine transformations $x \mapsto Mx + v$ such that $M$ is an element of the \hyperref[group.symplectic]{symplectic group} $\Sp(n,q)$.
 \end{definition}
-
-

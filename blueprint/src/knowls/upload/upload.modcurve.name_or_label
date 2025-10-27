@@ -1,10 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/upload.modcurve.name_or_label}{modcurve.ref.sporadic}}
 \begin{definition}\label{upload.modcurve.name_or_label}
 \uses{}
-\leanok
 A bunch of sporadic points on $X_1(n)$ can be found here: https://www.math.fsu.edu/~hoeij/files/X1N/LowDegreePlaces
 
 The arxiv document explaining them is \cite{arXiv:1202.4355}.
 \end{definition}
-
-

@@ -6,5 +6,3 @@ The \textbf{trace zero density} of a \hyperref[st_group.definition]{Sato-Tate gr
 On each component of a Sato-Tate group, the trace is either constant and equal to zero, or varies continuously taking each particular value with probability zero; so this probability is simply the ratio of the number of components on which the trace is identically zero to the total number of components.
 
 \end{definition}
-
-

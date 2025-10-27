@@ -5,5 +5,3 @@ Let $A$ be an \hyperref[ag.abelian_variety]{abelian variety} over a \hyperref[nf
 
 As a special case, $A$ has \hyperref[ag.potential_good_reduction]{potential good reduction} if and only if its potential toric rank is 0.
 \end{definition}
-
-

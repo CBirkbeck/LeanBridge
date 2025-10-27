@@ -5,5 +5,3 @@ If $G$ is a \hyperref[group]{group}, an \textbf{automorphism} of $G$ is a \hyper
 
 The set of automorphisms of $G$, $\Aut(G)$, is a group under composition.
 \end{definition}
-
-

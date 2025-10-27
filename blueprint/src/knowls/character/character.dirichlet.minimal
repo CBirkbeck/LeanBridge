@@ -12,5 +12,3 @@ This includes all \hyperref[character.dirichlet.primitive]{primitive} Dirichlet 
 For a composite modulus $N$ with prime power factorization $N=p_1^{e_1}\cdots p_n^{e_n}$, a Dirichlet character $\chi$ of modulus $N$ is \textbf{minimal} if and only if every character in its unique factorization into Dirichlet characters of modulus $p_1^{e_1},\cdots,p_n^{e_n}$ is minimal.  The \hyperref[character.dirichlet.principal]{trivial} Dirichlet character is minimal.
 
 \end{definition}
-
-

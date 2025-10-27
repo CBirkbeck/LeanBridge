@@ -7,5 +7,3 @@ where each $N_{i+1}/N_i$ is a minimal \hyperref[group.subgroup.normal]{normal su
 
 The factor groups $N_{i+1}/N_i$ are each isomorphic to a product of some number of copies of a single \hyperref[group.simple]{simple group} (which depends on $i$).  These simple groups (together with their multiplicities) are the \textbf{composition factors} of $G$.  While there may be many chief series for $G$, the set of composition factors is a well defined invariant.
 \end{definition}
-
-

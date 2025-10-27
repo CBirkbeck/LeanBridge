@@ -3,5 +3,3 @@
 \uses{combin.hasse_diagram,group,group.order}
 If $G$ is a \hyperref[group]{group}, its \textbf{subgroup diagram} is the \hyperref[combin.hasse_diagram]{Hasse diagram} for the set of subgroups of $G$ under inclusion.  Generally, subgroups of the same \hyperref[group.order]{order} are drawn at the same height in the diagram.
 \end{definition}
-
-

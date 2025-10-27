@@ -3,7 +3,7 @@
 \uses{ag.abelian_variety,ag.base_change,ag.dimension,group.alternating,group.cyclic,group.dihedral,group.symmetric,nf,nf.galois_group,st_group.definition,st_group.identity_component}
 The \textbf{component group} of a \hyperref[st_group.definition]{Sato-Tate group} $G$ is the quotient $G/G^0$ of $G$ by its \hyperref[st_group.identity_component]{identity component} $G^0$, which is a normal subgroup of finite index.
 
-If $G$ is the Sato-Tate group of a motive defined over a \hyperref[nf]{number field} $K$, then the component group $G/G^0$ is canonically isomorphic to the \hyperref[nf.galois_group]{Galois group} of a finite extension $L/K$. For the motive attached to an \hyperref[ag.abelian_variety]{abelian variety} $A$ of \hyperref[ag.dimension]{dimension} at most 3, $L$ is the smallest field over which all endomorphisms of $A_{\overline{K}}$ (the \hyperref[ag.base_change]{base change} of $A$ to an algebraic closure of $K$) are defined.
+If $G$ is the Sato-Tate group of a motive defined over a \hyperref[nf]{number field} $K$, then the component group $G/G^0$ is canonically isomorphic to the \hyperref[nf.galois_group]{Galois group} of a finite extension $L/K$. For the motive attached to an \hyperref[ag.abelian_variety]{abelian variety} $A$ of \hyperref[ag.dimension]{dimension} at most 3, $L$ is the smallest field over which all endomorphisms of $A_{\bar{K}}$ (the \hyperref[ag.base_change]{base change} of $A$ to an algebraic closure of $K$) are defined.
 
 Component groups are named according to their isomorphism type.  This does not determine them uniquely; one can obtain a more explicit description by examining the list of generators.  Common notations used in component group names include:
 
@@ -14,5 +14,3 @@ Component groups are named according to their isomorphism type.  This does not d
 \item  $S_n$, the \hyperref[group.symmetric]{symmetric group} on $n$ letters.
 \end{itemize}
 \end{definition}
-
-

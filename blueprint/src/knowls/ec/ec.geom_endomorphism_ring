@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.geom_endomorphism_ring}{Geometric endomorphism ring}}
 \begin{definition}\label{ec.geom_endomorphism_ring}
 \uses{ag.abelian_variety,ag.geom_endomorphism_ring,ec.endomorphism_ring}
-The \textbf{geometric endomorphism ring} of an elliptic curve $E$ over a field $K$ is $\End(E_{\overline{K}})$, the \hyperref[ec.endomorphism_ring]{endomorphism ring} of the base change of $E$ to an algebraic closure $\overline{K}$ of $K$.  
+The \textbf{geometric endomorphism ring} of an elliptic curve $E$ over a field $K$ is $\End(E_{\bar{K}})$, the \hyperref[ec.endomorphism_ring]{endomorphism ring} of the base change of $E$ to an algebraic closure $\bar{K}$ of $K$.
 
 This is a special case of the \hyperref[ag.geom_endomorphism_ring]{geometric endomorphism ring} of an \hyperref[ag.abelian_variety]{abelian variety}.
 \end{definition}
-
-

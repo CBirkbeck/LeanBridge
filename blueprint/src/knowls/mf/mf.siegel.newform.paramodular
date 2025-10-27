@@ -1,7 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.newform.paramodular}{Paramodular newform}}
 \begin{definition}\label{mf.siegel.newform.paramodular}
 \uses{mf.siegel.group.paramodular,mf.siegel.lift.gritsenko}
-\leanok
 A <a class="knowl-title" knowl="mf.siegel.group.paramodular">paramodular form</a> on $K(N)$
 that is a Hecke eigenform
 is a newform if it is not a
@@ -20,5 +19,3 @@ V_m^-:& S_k(K(N)) \to S_k(K(mN))\\
 U_m:& S_k(K(N)) \to S_k(K(m^2 N)).
 \end{aligned}$$
 \end{definition}
-
-

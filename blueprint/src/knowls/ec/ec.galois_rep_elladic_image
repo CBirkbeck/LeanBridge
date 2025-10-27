@@ -1,15 +1,14 @@
-\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.galois_rep_elladic_image}{Image of $l$-adic Galois representation}}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.galois_rep_elladic_image}{Image of $\ell$-adic Galois representation}}
 \begin{definition}\label{ec.galois_rep_elladic_image}
 \uses{ec,ec.complex_multiplication,ec.galois_rep,gl2.cartan,gl2.label,gl2.level,gl2.open,nf}
-\leanok
 Let $E/K$ be an \hyperref[ec]{elliptic curve} over a \hyperref[nf]{number field}, let $\ell$ be a prime, and let $H$ be the image of the \hyperref[ec.galois_rep]{$\ell$-adic Galois representation}
 \[
-\rho_{E,\ell}\colon G_{\Q}\to \Aut(E[\ell^{\infty}])\simeq \GL_2(\Z_{\ell}).
+\rho_{E,\ell}\colon G_\Q\to \Aut(E[\ell^{\infty}])\simeq \GL_2(\Z_\ell).
 \]
 
-If $E$ does not have \hyperref[ec.complex_multiplication]{potential complex multiplication}, then $H$ is an \hyperref[gl2.open]{open subgroup} of $\GL_2(\Z_{\ell})$ that is equal to the inverse image of its projection to $\GL_2(\Z/\ell^n\Z)$, where $\ell^n$ is the \hyperref[gl2.level]{level} of $H$.
+If $E$ does not have \hyperref[ec.complex_multiplication]{potential complex multiplication}, then $H$ is an \hyperref[gl2.open]{open subgroup} of $\GL_2(\Z_\ell)$ that is equal to the inverse image of its projection to $\GL_2(\Z/\ell^n\Z)$, where $\ell^n$ is the \hyperref[gl2.level]{level} of $H$.
 
-If $E$ has potential complex multiplication by an imaginary quadratic order $\mathcal O$, then $H$ is an open subgroup of a \hyperref[gl2.cartan]{Cartan subgroup} of $\GL_2(\Z_{\ell})$ or its normalizer, depending on whether $K$ contains $\mathcal O$ or not.  The particular Cartan subgroup depends on $\mathcal O$ and $\ell$, but in every case $H
+If $E$ has potential complex multiplication by an imaginary quadratic order $\mathcal O$, then $H$ is an open subgroup of a \hyperref[gl2.cartan]{Cartan subgroup} of $\GL_2(\Z_\ell)$ or its normalizer, depending on whether $K$ contains $\mathcal O$ or not.  The particular Cartan subgroup depends on $\mathcal O$ and $\ell$, but in every case $H
 $ is determined by its projection to $\GL_2(\Z/\ell^n\Z)$, where $n$ is $4,3,1,1,\ldots$ for $\ell=2,3,5,7,\ldots$.
 
 The subgroup $H$ can be identified (up to conjugacy) by giving the \hyperref[gl2.label]{label} of its projection to $\GL_2(\Z/\ell^n\Z)$ as defined by by Rouse, Sutherland, and Zureick-Brown in \cite{arxiv:2106.11141}.
@@ -17,5 +16,3 @@ The subgroup $H$ can be identified (up to conjugacy) by giving the \hyperref[gl2
 
 
 \end{definition}
-
-

@@ -1,8 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/av.fq.isogeny_class_size}{Isomorphism classes within an isogeny class}}
 \begin{definition}\label{av.fq.isogeny_class_size}
 \uses{av.isogeny_class,av.princ_polarizable}
-\leanok
 Each \hyperref[av.isogeny_class]{isogeny class} of abelian varieties is divided into isomorphism classes.  Since some of these abelian varieties might not be \hyperref[av.princ_polarizable]{principally polarizable}, isomorphism means isomorphism of *unpolarized* abelian varieties.
 \end{definition}
-
-

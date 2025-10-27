@@ -9,5 +9,3 @@ if such an $n$ exists, and $0$ otherwise. Equivalently, it is the exponent of th
 
 The characteristic of a \hyperref[ring.field]{field} $k$ is either $0$ or a prime number $p$, depending on whether the prime field of $k$ is isomorphic to $\Q$ or $\F_p$.
 \end{definition}
-
-

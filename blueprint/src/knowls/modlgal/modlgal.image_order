@@ -1,8 +1,6 @@
-\subsection{\href{https://beta.lmfdb.org/knowledge/show/modlgal.image_order}{Order of the image of a mod-$l$ Galois representation}}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/modlgal.image_order}{Order of the image of a mod-$\ell$ Galois representation}}
 \begin{definition}\label{modlgal.image_order}
 \uses{modlgal,modlgal.image}
 The \textbf{image order} of a \hyperref[modlgal]{mod-$\ell$ Galois representation} $\rho:\Gal_K\to G(\F_{\ell})$ is the  order (or cardinality) of the \hyperref[modlgal.image]{image}  $\rho(\Gal_K)$.
 
 \end{definition}
-
-

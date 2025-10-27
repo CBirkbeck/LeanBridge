@@ -1,7 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.cande.av.fq}{Completeness of data on isogeny classes of abelian varieties over finite fields}}
 \begin{definition}\label{rcs.cande.av.fq}
 \uses{dq.av.fq.further_extent}
-\leanok
 For each dimension $g$ and field $\mathbb{F}_q$ with a nonempty collection of isogeny classes in the database, the collection of isogeny classes is complete. As of October 2020, the data was complete for the following pairs $(g, q)$, where $q$ ranges over all primes and powers of a prime in the interval:
 
 \begin{itemize}
@@ -20,5 +19,3 @@ Here are some \hyperref[dq.av.fq.further_extent]{further comments on the extent 
 
 
 \end{definition}
-
-

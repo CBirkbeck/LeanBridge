@@ -5,5 +5,3 @@ A \hyperref[character.dirichlet]{Dirichlet character} $\chi_1$ of \hyperref[char
 
 A Dirichlet character is \hyperref[character.dirichlet.primitive]{primitive} if it is not induced by any character other than itself; every Dirichlet character is induced by a uniquely determined primitive Dirichlet character.
 \end{definition}
-
-

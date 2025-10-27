@@ -3,5 +3,3 @@
 \uses{modlgal,modlgal.codomain,ring.characteristic}
 The \textbf{base ring characteristic} of a \hyperref[modlgal]{mod-$\ell$ Galois representation} is the \hyperref[ring.characteristic]{characteristic} of the base ring of its \hyperref[modlgal.codomain]{codomain}.
 \end{definition}
-
-

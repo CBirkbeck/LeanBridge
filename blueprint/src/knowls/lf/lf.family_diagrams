@@ -1,7 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.family_diagrams}{$p$-adic field family diagrams}}
 \begin{definition}\label{lf.family_diagrams}
 \uses{lf.eisenstein_diagram,lf.family_polynomial,lf.herbrand_function,lf.means,lf.ramification_polygon,lf.rams,lf.slopes}
-\leanok
 There are three diagrams that are helpful for visualizing a \hyperref[lf.family_polynomial]{$p$-adic family} with wild ramification:
 
 \begin{itemize}
@@ -13,5 +12,3 @@ of the family, which helps clarify the relationship between
 \hyperref[lf.slopes]{slopes}, \hyperref[lf.rams]{rams} and
 \hyperref[lf.means]{means}.
 \end{definition}
-
-

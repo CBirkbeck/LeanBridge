@@ -10,5 +10,3 @@ Here for $m\in\mathbb{Z}_{> 0}$, $A[m]$ denotes the $m$-torsion subgroup of $A$,
 If $K$ has characteristic not equal to $p$, then $T_p(A)$ is a free $\Z_p$-module of rank $2g$. It carries an action of the \hyperref[group.galois.absolute]{absolute Galois group} of $K$, and thus has an associated \hyperref[av.galois_rep]{Galois representation}.
 
 \end{definition}
-
-

@@ -1,7 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.standard}{Standard modular curves}}
 \begin{definition}\label{modcurve.standard}
 \uses{gl2.level,modcurve,modcurve.level_structure,modcurve.x0,modcurve.x1,modcurve.x1mn,modcurve.xarith,modcurve.xfull,modcurve.xns,modcurve.xns_plus,modcurve.xpm1,modcurve.xpm1mn,modcurve.xs4,modcurve.xsp,modcurve.xsp_plus}
-\leanok
 Let $M$ and $N$ denote positive integers and $\ell$ a prime.  Each \hyperref[modcurve]{modular curve} below "parametrizes" elliptic curves with a particular type of \hyperref[modcurve.level_structure]{level structure}. Standard modular curves include:
 
 \hyperref[modcurve.x0]{$X_0(N)$},
@@ -14,12 +13,10 @@ Let $M$ and $N$ denote positive integers and $\ell$ a prime.  Each \hyperref[mod
 \hyperref[modcurve.xsp_plus]{$X_{\mathrm{sp}}^+(N)$},
 \hyperref[modcurve.xns]{$X_{\mathrm{ns}}(N)$},
 \hyperref[modcurve.xns_plus]{$X_{\mathrm{ns}}^+(N)$},
-\hyperref[modcurve.xs4]{$X_{S_4}(\ell)$}, 
+\hyperref[modcurve.xs4]{$X_{S_4}(\ell)$},
 \hyperref[modcurve.xarith]{$X_{\mathrm{arith}}(N)$}
 
 The curves above are all \hyperref[modcurve]{modular curves} specified by an open subgroup $H \le \GL_2(\widehat{\Z})$ of \hyperref[gl2.level]{level} $N$, $MN$, or $\ell$.
 
 
 \end{definition}
-
-

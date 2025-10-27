@@ -18,8 +18,6 @@ Note that the Sturm bound for $S_k^{\mathrm{new}}(N,\chi)$ does not apply (in ge
 \[
 S_k^{\mathrm{new}}(N,[\chi]):= \bigoplus_{\chi'\in [\chi]}S_k^{\rm new}(N,\chi')
 \]
-associated to the Galois orbit $[\chi]$; rather, it applies to each direct summand $S_k^{\rm new}(N,\chi')$. 
+associated to the Galois orbit $[\chi]$; rather, it applies to each direct summand $S_k^{\rm new}(N,\chi')$.
 
 \end{definition}
-
-

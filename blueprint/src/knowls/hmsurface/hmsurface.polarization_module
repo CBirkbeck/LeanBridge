@@ -7,5 +7,3 @@ $$
 $$
 The \textbf{polarization cone} is the cone of polarizations $ \mathcal{PM}^+(A) \subseteq \mathcal{PM}(A)$, which equips the polarization module with a notion of positivity as a $\Z_F$-module. We say that a polarization module is *isomorphic* to a fractional ideal $J$ of $\Z_F$ if there is an orientation preserving $\Z_F$-module isomorphism $\phi : \mathcal{PM}(A) \to J$, i.e. such that $\phi(\mathcal{PM}^+(A)) = J^+$.
 \end{definition}
-
-

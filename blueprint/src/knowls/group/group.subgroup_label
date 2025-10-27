@@ -1,10 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.subgroup_label}{Subgroup labels}}
 \begin{definition}\label{group.subgroup_label}
 \uses{group.ambient,group.automorphism,group.computing_subgroup_labels,group.gassmann_equivalence,group.label,group.subgroup,group.subgroup.index}
-\leanok
 The full label of a \hyperref[group.subgroup]{subgroup} is of the form $\mathtt{N.i.m.a}$ or $\mathtt{N.i.m.a.j}$.  In either case, $\mathtt{N.i}$ is the \hyperref[group.label]{label} of the \hyperref[group.ambient]{ambient group}, $\mathtt{m}$ is the \hyperref[group.subgroup.index]{index} of the subgroup in the ambient group, $\mathtt{a}$ distinguishes subgroups up to \hyperref[group.automorphism]{automorphism} and $\mathtt{j}$ distinguishes subgroups up to conjugacy.  Both $\mathtt{a}$ and $\mathtt{j}$ take the form of a sequence of letters followed by an ordinal. The letters are a base 26 (a=0, z=25) encoding of the ordering up to \hyperref[group.gassmann_equivalence]{Gassmann-equivalence}, and the integer following distinguishes groups in the same Gassmann class.  (For details on how we label Gassmann classes and order subgroups within a Gassmann class, see \hyperref[group.computing_subgroup_labels]{Computing labels of subgroups}.) For some ambient groups, we only compute subgroups up to automorphism (in which case the first form is used, omitting the $\mathtt{j}$.
 
 When the ambient group is clear from context, sometimes the short label $\mathtt{m.a}$ or $\mathtt{m.a.j}$ is used instead.
 \end{definition}
-
-

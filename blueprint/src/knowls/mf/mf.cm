@@ -5,5 +5,3 @@ A \hyperref[mf]{modular form} $f$ for $\GL(2)$ over a \hyperref[nf]{number field
 \[ a_{\frak{p}} = \chi(\frak{p}) a_{\frak{p}} \]
 for all good primes $\frak{p} \nmid \frak{N}$.  Such a character $\chi$ is necessarily quadratic, and \(a_{\frak{p}} = 0\) for all good primes  \(\frak{p}\) such that \(\chi(\frak{p}) = -1\).
 \end{definition}
-
-

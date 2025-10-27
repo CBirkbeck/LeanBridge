@@ -9,11 +9,9 @@ A \textbf{Dedekind domain} $D$ is a \hyperref[ring.integral_domain]{integral dom
 
 The \hyperref[nf.ring_of_integers]{ring of integers} of a \hyperref[nf]{number field} is always a Dedekind domain, as is every discrete valuation ring.
 
-In a Dedekind domain, every non-zero \hyperref[ring.ideal]{ideal} $I$ can be written as a product of non-zero \hyperref[ring.prime_ideal]{prime ideals}, 
+In a Dedekind domain, every non-zero \hyperref[ring.ideal]{ideal} $I$ can be written as a product of non-zero \hyperref[ring.prime_ideal]{prime ideals},
 $$I=P_1P_2\cdots P_k,$$
 and the product is unique up to the order of the factors.  Repeated factors are often grouped, so we write $I=Q_1^{e_1}\cdots Q_g^{e_g}$ where the $Q_i$ are non-zero prime ideals of $D$.
 
 In addition, every \hyperref[ring.fractional_ideal]{fractional ideal} $I$ is invertible in the sense that there exists a fractional ideal $J$ such that $IJ=D$.
 \end{definition}
-
-

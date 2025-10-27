@@ -2,13 +2,11 @@
 \begin{definition}\label{lfunction.euler_product}
 \uses{}
 It is expected that the \textbf{Euler product} of an \hyperref[lfunction]{L-function} of \hyperref[lfunction.degree]{degree} $d$ and \hyperref[lfunction.conductor]{conductor} $N$ can be written as
-$$L(s)=\prod_p L_p(s)$$ 
+$$L(s)=\prod_p L_p(s)$$
 where for  $p\nmid N$
 $$L_p(s)=\prod_{n=1}^d  \left( 1-\frac{\alpha_{n}(p)}{p^s}\right)^{-1} \text{ with } |\alpha_{n}(p)|=1$$
-and 
-for $p\mid N$, 
+and
+for $p\mid N$,
 $$L_p(s)=\prod_{n=1}^{d_p}\left( 1-\frac{\beta_{n}(p)}{p^s}\right)^{-1} \text{ where } d_p < d \text{ and  } |\beta_n(p)|\le 1.$$
 The functions $L_p(s)$ are called \textbf{Euler factors} (or \textbf{local factors}).
 \end{definition}
-
-

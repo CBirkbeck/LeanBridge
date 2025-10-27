@@ -1,12 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.hecke_kernels}{Hecke kernel}}
 \begin{definition}\label{cmf.hecke_kernels}
 \uses{cmf.dimension,cmf.distinguishing_primes,cmf.galois_orbit,cmf.hecke_operator,cmf.newform,cmf.newspace}
-\leanok
 Each \hyperref[cmf.newform]{newform} $f=\sum a_n^n$ necessarily lies in the kernel of the linear operator $g_n(T_n)$, where $g_n\in \Z[X]$ is the minimal polynomial of $a_n$ and $T_n$ is the $n$th \hyperref[cmf.hecke_operator]{Hecke operator} acting on the \hyperref[cmf.newspace]{newspace} $S_k^{\rm new}(N,\chi)$ in which $f$ lies.
 
 If $X$ is a set of \hyperref[cmf.distinguishing_primes]{distinguishing primes} for $S^{\rm new}_k(N,\chi)$, then the \hyperref[cmf.galois_orbit]{Galois orbit} of $f$ can be uniquely identified as the intersection of the kernels of the linear operators $\{g_p(T_p):p \in X\}$.
 
 This characterization allows one to reconstruct the newform $f$ without computing a basis of newforms for $S_k^{\rm new}(N,\chi)$, which may be computationally useful when the \hyperref[cmf.dimension]{dimension} of $f$ is much smaller than that of $S_k^{\rm new}(N,\chi)$.
 \end{definition}
-
-

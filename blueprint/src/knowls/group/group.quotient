@@ -5,5 +5,3 @@ If $G$ is a \hyperref[group]{group} and $N$ is a \hyperref[group.subgroup.normal
 \[ (aN)*(bN) = (ab)N\]
 is well-defined.  The result is a group, called a \textbf{quotient group} of $G$ by $N$.
 \end{definition}
-
-

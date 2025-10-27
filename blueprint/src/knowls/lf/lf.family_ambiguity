@@ -14,5 +14,3 @@ For each $L/K$ in the \hyperref[lf.family_polynomial]{family}
 $I/K$, the number of semicanonical polynomials representing $L/K$ is
 a divisor of $\frac{\operatorname{Amb}(I/K)}{\lvert\operatorname{Aut}(L/K)\rvert}$.
 \end{definition}
-
-

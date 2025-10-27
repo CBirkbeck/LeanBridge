@@ -1,8 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.order_conjugacy_class}{Order of elements in a conjugacy class}}
 \begin{definition}\label{group.order_conjugacy_class}
 \uses{group.conjugacy_class,group.element_order}
-\leanok
-All elements in a particular \hyperref[group.conjugacy_class]{conjugacy class} are of the same \hyperref[group.element_order]{order} in the group. 
+All elements in a particular \hyperref[group.conjugacy_class]{conjugacy class} are of the same \hyperref[group.element_order]{order} in the group.
 \end{definition}
-
-

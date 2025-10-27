@@ -6,5 +6,3 @@ also called the \textbf{sign}, is the constant $W(\rho)$ appearing in the
 \hyperref[lfunction.functional_equation]{functional equation}
 of the associated \hyperref[artin.lfunction]{L-function}, i.e. the complex number $W(\rho)$ of absolute value $1$ such that $\Lambda(s,\rho)=W(\rho)\Lambda(1-s,\overline{\rho})$.  It can be expressed as a product of local root numbers.
 \end{definition}
-
-

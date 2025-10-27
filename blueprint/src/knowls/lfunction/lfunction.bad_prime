@@ -3,5 +3,3 @@
 \uses{lfunction,lfunction.conductor}
 The \textbf{bad primes} of an \hyperref[lfunction]{L-function} are the primes that divided its \hyperref[lfunction.conductor]{conductor}.
 \end{definition}
-
-

@@ -6,5 +6,3 @@ $L(s) = \prod_p L_p(p^{-s})^{-1}$
 where $L_p(x) = 1 + a_p x + \ldots + (-1)^d \chi(p) x^d$. The character $\chi$ is a \hyperref[character.dirichlet]{Dirichlet character} mod $N$ and is called \textbf{central character} of the L-function.
 Here, $N$ is the \hyperref[lfunction.conductor]{conductor} of $L$.
 \end{definition}
-
-

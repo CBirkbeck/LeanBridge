@@ -1,13 +1,12 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.lift.miyawaki1}{Miyawaki lift of type I, Ikeda-Miyawaki lift}}
 \begin{definition}\label{mf.siegel.lift.miyawaki1}
 \uses{}
-\leanok
 <b>Genus 3 Miyawaki Lift, Type I:</b>  Let $k$ be an even weight. Each pair of elliptic Hecke cusp eigenforms
-$$f\in{\mathcal S}_{2k-4}(\SL(2,{\mathbb{Z}}))
+$$f\in{\mathcal S}_{2k-4}(\SL(2,{\mathbb Z}))
 \quad\text{and}\quad
-g\in{\mathcal S}_k(\SL(2,{\mathbb{Z}}))$$
+g\in{\mathcal S}_k(\SL(2,{\mathbb Z}))$$
 has an Ikeda-Miyawaki lift, or Miyawaki lift of type I, a Siegel Hecke cusp eigenform
-$$F\in{\mathcal S}_k(\Sp(6,{\mathbb{Z}}))$$
+$$F\in{\mathcal S}_k(\Sp(6,{\mathbb Z}))$$
 If $F$ is nonzero then its standard Euler factors and standard $L$-function factor as
 $$Q_p^{\rm st}(F,X)=Q_p(f,p^{2-k}X)Q_p(f,p^{3-k}X)Q_p^{\rm st}(g,X)$$
 and
@@ -20,12 +19,10 @@ More generally, Ikeda proved the following.
 
 <p><b>Theorem (Ikeda-Miyawaki Lift, Type I)</b>
 Let $k$, $n+r$, and $m=(n+r+k)/2$ be all even integers with $r\le n$.
-Given: an elliptic cusp eigenforms, $f$ of weight $k$ and 
+Given: an elliptic cusp eigenforms, $f$ of weight $k$ and
 a cusp eigenform $g$ in degree $r$ of weight $2m$,
 there exists an eigenform in degree $n$ of weight $m$
 such that if nonzero it has an
 $L$-function that is a product of $L$-functions related to those of $f$ and $g$.
 </p>
 \end{definition}
-
-

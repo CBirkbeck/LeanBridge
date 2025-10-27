@@ -1,8 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.q.weil_height}{Weil height of a point on an elliptic curve over $\Q$}}
 \begin{definition}\label{ec.q.weil_height}
 \uses{ec.q}
-\leanok
 The Weil height (also known as the naive height) $h(P)$ of a rational point $P$ with coordinates $(x,y)$ on an \hyperref[ec.q]{elliptic curve} defined over $\Q$ is defined to be $\log\max(|a|,|b|)$ where the rational number $x$ is expressed as $x=a/b$ with $a,b$ coprime integers.
 \end{definition}
-
-

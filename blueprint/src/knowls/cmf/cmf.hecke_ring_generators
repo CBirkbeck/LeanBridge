@@ -3,5 +3,3 @@
 \uses{cmf.coefficient_ring,cmf.newform,cmf.q-expansion}
 The \textbf{coefficient ring generator bound} of a \hyperref[cmf.newform]{newform} with \hyperref[cmf.q-expansion]{$q$-expansion} $\sum a_nq^n$ is the least positive integer $n$ such that $\Z[a_1,\ldots,a_n]$ is the entire \hyperref[cmf.coefficient_ring]{coefficient ring} $\Z[a_1,a_2,a_3,\ldots]$.
 \end{definition}
-
-

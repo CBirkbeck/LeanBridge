@@ -10,5 +10,3 @@ If $R=\Z/p^e\Z$, again there are two possibilities for $A$: the split algebra $R
 If $R=\Z/N\Z$ for some $N \ge 1$, then $A$ can be split or nonsplit independently at each prime dividing $N$.
 
 \end{definition}
-
-

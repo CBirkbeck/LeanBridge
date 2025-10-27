@@ -8,5 +8,3 @@ The $n$th \textbf{moment} $\mathrm{M}_n[t]:= \mathrm{E}[t^n]$ of $t$ is the expe
 For Sato-Tate groups of odd \hyperref[st_group.weight]{weight} we have $t=-a_1$ and the moment sequences of $t$ and $a_1$ coincide because their distributions are symmetric about zero.
 
 \end{definition}
-
-

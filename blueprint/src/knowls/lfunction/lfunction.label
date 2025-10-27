@@ -1,7 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.label}{Label of L-function}}
 \begin{definition}\label{lfunction.label}
 \uses{character.dirichlet,character.dirichlet.conrey,character.dirichlet.induce,character.dirichlet.primitive,lfunction,lfunction.central_character,lfunction.conductor,lfunction.degree,lfunction.functional_equation,lfunction.normalization,lfunction.spectral_label}
-\leanok
 Each \hyperref[lfunction]{L-function} $L$ has a label of the form d-N-q.k-x-y-i, where
 
 \begin{itemize}
@@ -12,5 +11,3 @@ Each \hyperref[lfunction]{L-function} $L$ has a label of the form d-N-q.k-x-y-i,
 \item  i is a non-negative integer disambiguating between L-functions that would otherwise have the same label.
 \end{itemize}
 \end{definition}
-
-

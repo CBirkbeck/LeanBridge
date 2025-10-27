@@ -3,5 +3,3 @@
 \uses{ag.curve,ag.singular_point}
 Let $C$ be an \hyperref[ag.curve]{algebraic curve} over a perfect field $k$. Then $C$ is called \textbf{smooth} if the extension of $C$ to the algebraic closure of $k$ is \hyperref[ag.singular_point]{non-singular} at all of its points.
 \end{definition}
-
-

@@ -10,5 +10,3 @@ $$ \prod_{p } \frac{1}{1-p^{-s}} = \prod_p \left(\sum_{k=0}^\infty p^{-ks} \righ
 
 
 \end{definition}
-
-

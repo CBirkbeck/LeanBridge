@@ -1,11 +1,10 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.known_degree1}{Degree 1 L-functions, all}}
 \begin{definition}\label{lfunction.known_degree1}
 \uses{artin.lfunction,lfunction,lfunction.degree}
-\leanok
 The \hyperref[lfunction.degree]{degree} 1 \hyperref[lfunction]{L-functions} are:
 
 \begin{itemize}
-\item  $\zeta(s)$: the Riemann zeta function 
+\item  $\zeta(s)$: the Riemann zeta function
 \end{itemize}
 
 \begin{itemize}
@@ -14,5 +13,3 @@ The \hyperref[lfunction.degree]{degree} 1 \hyperref[lfunction]{L-functions} are:
 
 Note that these L-functions also arise as \hyperref[artin.lfunction]{Artin L-functions}.
 \end{definition}
-
-

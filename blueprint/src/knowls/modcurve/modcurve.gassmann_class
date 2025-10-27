@@ -5,5 +5,3 @@ For an \hyperref[gl2.open]{open subgroup} $H \leq \GL_2(\widehat{\Z})$, the \tex
 
 Let $H,H' \leq \GL_2(\widehat{\Z})$ be in the same Gassmann class.  Then $H,H'$ have the same \hyperref[modcurve.level]{level}, \hyperref[modcurve.index]{index} and \hyperref[modcurve.genus]{genus}.  Moreover, the \hyperref[ag.jacobian]{Jacobians} of $X_H$ and $X_{H'}$ are \hyperref[av.isogeny]{isogenous} (see Corollary 4 of Prasad-Rajan \cite{doi:10.1016/S0022-314X(02)00053-7}, applied to the covering curve $X_{\mathrm{full}}(N)$), hence $L(X_H,s)=L(X_{H'},s)$.
 \end{definition}
-
-

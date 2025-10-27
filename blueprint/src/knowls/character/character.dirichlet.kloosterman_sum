@@ -4,7 +4,5 @@
 Let $\chi$ be a \hyperref[character.dirichlet]{Dirichlet character} with modulus $q$. The \textbf{Kloosterman sum} $K(a,b,\chi)$ is defined by
 \[K(a,b,\chi) = \sum_{r \in (\mathbb{Z}/q\mathbb{Z})^\times} \chi(r)\zeta^{ar+br^{-1}},\]
 
-where $\zeta = e^{2\pi i/q}$. This reduces to the \hyperref[character.dirichlet.gauss_sum]{Gauss sum} if $b=0$.  
+where $\zeta = e^{2\pi i/q}$. This reduces to the \hyperref[character.dirichlet.gauss_sum]{Gauss sum} if $b=0$.
 \end{definition}
-
-

@@ -1,8 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.groups.abstract}{Source  of abstract group  data}}
 \begin{definition}\label{rcs.source.groups.abstract}
 \uses{}
-\leanok
-All groups in the database, as well as their attributes, subgroups, character tables, etc. were computed using Magma from code and algorithms developed and written by  Michael Bush, Lewis Combes, John Jones, Jen Paulhus, David Roe, Manami Roy, and Sam Schiavone.  The code is available on \href{https://github.com/roed314/FiniteGroups}{GitHub}.
+All groups in the database, as well as their attributes, subgroups, character tables, etc. were computed using Magma from code and algorithms developed and written by  Michael Bush, Lewis Combes, John Jones, Jen Paulhus, David Roe, Manami Roy, and Sam Schiavone.  The code is available on <a href="https://github.com/roed314/FiniteGroups">GitHub</a>.
 
 Small groups were pulled from the small group database in Magma, and rely on the following work:
 
@@ -20,12 +19,12 @@ Small groups were pulled from the small group database in Magma, and rely on the
 \end{itemize}
 
 \begin{itemize}
-\item  Besche, Eick and O'Brien, "The groups of order at most 2000", 
+\item  Besche, Eick and O'Brien, "The groups of order at most 2000",
 \end{itemize}
 \cite{MR:1826989, doi:10.1090/S1079-6762-01-00087-7}
 
 \begin{itemize}
-\item  O'Brien, "The $p$-group generation algorithm", 
+\item  O'Brien, "The $p$-group generation algorithm",
 \end{itemize}
 \cite{MR:1075431, doi:10.1016/S0747-7171(08)80082-X}
 
@@ -99,13 +98,13 @@ Small groups were pulled from the small group database in Magma, and rely on the
 \item  Opgenorth, Plesken and Schulz, "Carat, Crystallographic AlgoRithms And Tables,
 \end{itemize}
                       Version 2.1b1"
-[\href{https://github.com/lbfm-rwth/carat/}{Carat}]
+[<a href="https://github.com/lbfm-rwth/carat/">Carat</a>]
 
 \begin{itemize}
 \item  Wilson, Walsh, Tripp, Suleiman, Parker, Norton, Nickerson, Linton, Bray and Abbott,
 \end{itemize}
   "ATLAS of Finite Group Representations - Version 3"
-[\href{http://brauer.maths.qmul.ac.uk/Atlas/v3/}}{ATLAS}]
+[<a href="http://brauer.maths.qmul.ac.uk/Atlas/v3/}">ATLAS</a>]
 
 \begin{itemize}
 \item  Breuer, "Characters and automorphism groups of compact Riemann
@@ -116,11 +115,9 @@ Small groups were pulled from the small group database in Magma, and rely on the
 \begin{itemize}
 \item  Conder, "Group actions on surfaces"
 \end{itemize}
-[\href{https://www.math.auckland.ac.nz/~conder/BigSurfaceActions-Genus2to101-ByGenus.txt}{BigSurfaceActions-Genus2to101-ByGenus.txt}]
+[<a href="https://www.math.auckland.ac.nz/~conder/BigSurfaceActions-Genus2to101-ByGenus.txt">BigSurfaceActions-Genus2to101-ByGenus.txt</a>]
 
 
 
 
 \end{definition}
-
-

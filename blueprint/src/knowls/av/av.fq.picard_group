@@ -6,5 +6,3 @@ The \textbf{Picard group} $\Pic(S)$ of $S$ is the group of invertible fractional
 
 The Picard group $\Pic(\mathcal{O}_K)$ of the \hyperref[nf.ring_of_integers]{ring of integers} $\mathcal{O}_K$ of a \hyperref[av.fq.number_field]{number field} $K$ is also referred to as the \hyperref[nf.ideal_class_group]{ideal class group} of $K$. Its size is the \hyperref[nf.class_number]{class number} of $K$.
 \end{definition}
-
-

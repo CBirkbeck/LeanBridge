@@ -5,5 +5,3 @@ The \textbf{torsion subgroup} of an \hyperref[ag.abelian_variety]{abelian variet
 
 The structure of the torsion subgroup can be compactly described by listing its sequence of elementary divisors $[d_1,\ldots,d_n]$, where each $d_i$ divides $d_{i+1}$, indicating a finite abelian group that is isomorphic to $\Z/d_1\Z\oplus \cdots \oplus\Z/d_n\Z$.
 \end{definition}
-
-

@@ -1,15 +1,12 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.vector_valued_degree_two}{Vector-valued Siegel modular forms of degree 2}}
 \begin{definition}\label{mf.siegel.vector_valued_degree_two}
 \uses{mf.siegel,repn.irrep.gl}
-\leanok
 The \hyperref[repn.irrep.gl]{irreducible representations} of $\GL(2,\C)$
 are given by $\rho_{k,j}:=\det(St)^{\otimes k}\otimes \text{Sym}^{j}(St)$
-where $St$ stands for the standard representation of $\GL(2,\C)$ and 
+where $St$ stands for the standard representation of $\GL(2,\C)$ and
 $(k,j)\in \Z\times\Z_{\geqslant 0}$. The space of
 \hyperref[mf.siegel]{Siegel modualr forms }
 of weight $\rho_{k,j}$ on any arithmetic subsgroup $\Gamma$ of $\GSp(4,\Q)$ will be denoted by $M_{k,j}(\Gamma)$.
 
 
 \end{definition}
-
-

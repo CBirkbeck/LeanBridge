@@ -1,11 +1,11 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.petersson_scalar_product}{Petersson scalar product}}
 \begin{definition}\label{cmf.petersson_scalar_product}
 \uses{cmf.cusp_form,group.fuchsian.fundamental_domain,group.subgroup.index}
-Let $f$ and $g$ be two modular forms with respect to a \hyperref[group.subgroup.index]{finite index} subgroup $G$ of $\Gamma$. When it exists, we define the 
-\textbf{Petersson scalar product} of $f$ and $g$ with respect to the group $G$ 
+Let $f$ and $g$ be two modular forms with respect to a \hyperref[group.subgroup.index]{finite index} subgroup $G$ of $\Gamma$. When it exists, we define the
+\textbf{Petersson scalar product} of $f$ and $g$ with respect to the group $G$
 by
 \[
-\langle 
+\langle
 f,g\rangle_G=\frac{1}{[\Gamma:G]}\int_{\mathfrak{F}}f(z)\overline{
 g(z)}y^kd\mu,
 \]
@@ -13,5 +13,3 @@ where $\mathfrak{F}$ is a \hyperref[group.fuchsian.fundamental_domain]{fundament
 
 Note that the Petersson scalar product exists if at least one of $f$, $g$ is a \hyperref[cmf.cusp_form]{cusp form}.
 \end{definition}
-
-

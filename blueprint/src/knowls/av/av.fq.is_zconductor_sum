@@ -1,10 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/av.fq.is_zconductor_sum}{$\Z$-conductor sum}}
 \begin{definition}\label{av.fq.is_zconductor_sum}
 \uses{av.fq.conductor,av.fq.order}
-\leanok
 Whether an \hyperref[av.fq.order]{order} $R$ in an étale algebra $K$ can be written as
-$ R = \Z + \mathfrak{f}_R$, 
+$ R = \Z + \mathfrak{f}_R$,
 where $\mathfrak{f}_R$ is the \hyperref[av.fq.conductor]{conductor} of $R$ in the maximal order $\mathcal{O}_K$ of $K$.
 \end{definition}
-
-

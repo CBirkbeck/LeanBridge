@@ -3,5 +3,3 @@
 \uses{artin.projective_image}
 Given a \hyperref[artin.projective_image]{projective Artin representation} $\rho:\Gal(\overline{\Q}/\Q)\to \PGL_n(\C)$, the fixed field of the kernel of $\rho$ is the \textbf{projective Artin field} of the representation.
 \end{definition}
-
-

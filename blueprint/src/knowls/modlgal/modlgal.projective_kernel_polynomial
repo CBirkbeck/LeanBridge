@@ -2,10 +2,8 @@
 \begin{definition}\label{modlgal.projective_kernel_polynomial}
 \uses{modlgal,modlgal.projective_representation,modlgal.splitting_field,nf.minimal_sibling}
 The \textbf{projective kernel polynomial} is the
-\hyperref[nf.minimal_sibling]{minimal sibling}  of the 
+\hyperref[nf.minimal_sibling]{minimal sibling}  of the
   \hyperref[modlgal.splitting_field]{splitting field}
   of the \hyperref[modlgal.projective_representation]{projective representation}
 of a \hyperref[modlgal]{mod-$\ell$ Galois representation}.
 \end{definition}
-
-

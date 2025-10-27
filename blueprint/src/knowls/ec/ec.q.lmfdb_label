@@ -1,11 +1,11 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.q.lmfdb_label}{Label for an elliptic curve over $\mathbb Q$}}
 \begin{definition}\label{ec.q.lmfdb_label}
 \uses{ec,ec.conductor,ec.isogeny_class,ec.isomorphism,ec.q.conductor,ec.q.minimal_weierstrass_equation}
-The \textbf{LMFDB label} of an elliptic curve $E$ over $\mathbb{Q}$ is  a way of indexing the elliptic curves over $\mathbb{Q}.$ It has the form "11.a1" or "10050.bf2". 
+The \textbf{LMFDB label} of an elliptic curve $E$ over $\mathbb{Q}$ is  a way of indexing the elliptic curves over $\mathbb Q.$ It has the form "11.a1" or "10050.bf2".
 
 The label has three components: the \textbf{conductor}, the \textbf{isogeny class label}, and the \textbf{isomorphism class index}.
 
-1.  The first component is the decimal representation of the \hyperref[ec.q.conductor]{conductor} (a positive integer). 
+1.  The first component is the decimal representation of the \hyperref[ec.q.conductor]{conductor} (a positive integer).
 
 2. The second component is the \hyperref[ec.isogeny_class]{isogeny class} label, a string which represents the \textbf{isogeny class index},  a non-negative integer encoded
 as in base 26 using the 26 symbols a,b,.., z.  The isogeny
@@ -17,5 +17,3 @@ The complete label is obtained by concatenating [conductor, ".", isogeny class l
 
 Note that this is not the same as the \hyperref[ec.q.cremona_label]{Cremona label}, even though for certain curves they only differ in the insertion of the dot "." (for example, "37a1" and "37.a1" are the same curve). The presence of the punctuation "." distinguishes an LMFDB label from a Cremona label.  Cremona labels are only defined for curves of conductor up to 500000.
 \end{definition}
-
-

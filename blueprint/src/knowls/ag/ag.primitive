@@ -3,5 +3,3 @@
 \uses{ag.base_change,ag.variety}
 An \hyperref[ag.variety]{algebraic variety} is \textbf{primitive} if it is not a \hyperref[ag.base_change]{base-change} of an algebraic variety defined over a subfield.
 \end{definition}
-
-

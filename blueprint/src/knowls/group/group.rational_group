@@ -5,5 +5,3 @@ A group $G$ is \textbf{rational} if all of its \hyperref[group.representation.ch
 
 Rational groups are sometimes also known as Q-groups, though some authors reserve that term for a stronger property that every representation of G can be realized over $\mathbb{Q}$. (According to this terminology, $Q_8$ is rational but not a Q-group.)
 \end{definition}
-
-

@@ -37,5 +37,3 @@ For each \hyperref[mf.siegel.embedding]{embedding} of the \hyperref[mf.siegel.co
 \item  \(i\) is an integer ranging from 1 to the \hyperref[mf.siegel.relative_dimension]{relative dimension} of the newform that distinguishes embeddings with the same character $\chi$.
 \end{itemize}
 \end{definition}
-
-

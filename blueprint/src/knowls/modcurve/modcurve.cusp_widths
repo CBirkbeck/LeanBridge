@@ -6,5 +6,3 @@ For an open subgroup $H$ of $\GL_2(\widehat{\Z})$ with $\det(H) =\widehat{\Z}^\t
 
 The \textbf{width} of a cusp $c \in \pm H  \backslash \GL_2(\widehat{\Z}) /\langle \delta\rangle$ is the number of right cosets it contains, or equivalently the smallest integer $h$ such that $c\delta^h = c$. The sum of the cusp widths is equal to the \hyperref[modcurve.psl2index]{$\PSL_2$-index} of $H$.
 \end{definition}
-
-

@@ -5,15 +5,13 @@ The \textbf{conductor} of an \hyperref[lfunction]{L-function} is the integer $N$
 
 \[
 \Lambda(s) := N^{s/2}
-\prod_{j=1}^J \Gamma_{\mathbb{R}}(s+\mu_j) \prod_{k=1}^K \Gamma_{\mathbb{C}}(s+\nu_k)
+\prod_{j=1}^J \Gamma_{\mathbb R}(s+\mu_j) \prod_{k=1}^K \Gamma_{\mathbb C}(s+\nu_k)
 \cdot L(s) = \varepsilon \overline{\Lambda}(1-s).
 \]
 
 
 The conductor of an analytic \hyperref[lfunction]{L-function} is the second component in the \hyperref[lfunction.selbergdata]{Selberg data}. For a \hyperref[lfunction.dirichlet]{Dirichlet L-function}
- associated with a primitive \hyperref[character.dirichlet]{Dirichlet character}, the conductor of the L-function is the same as the \hyperref[character.dirichlet.conductor]{conductor} of the character. For a primitive L-function associated with a \hyperref[cmf.cusp_form]{cusp form} $\phi$ on $GL(2)/\mathbb{Q}$, the conductor of the L-function is the same as the level of $\phi$.
+ associated with a primitive \hyperref[character.dirichlet]{Dirichlet character}, the conductor of the L-function is the same as the \hyperref[character.dirichlet.conductor]{conductor} of the character. For a primitive L-function associated with a \hyperref[cmf.cusp_form]{cusp form} $\phi$ on $GL(2)/\mathbb Q$, the conductor of the L-function is the same as the level of $\phi$.
 
 In the literature, the word \textit{level} is sometimes used instead of \textit{conductor}.
 \end{definition}
-
-

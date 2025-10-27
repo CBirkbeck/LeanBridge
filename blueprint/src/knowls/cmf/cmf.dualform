@@ -5,5 +5,3 @@ The \textbf{dual} of a \hyperref[cmf.cusp_form]{cuspidal modular form} $f$ is th
 
 The \hyperref[cmf.coefficient_field]{coefficient field} of a \hyperref[cmf.selfdual]{non-self-dual} \hyperref[cmf.newform]{newform} is a \hyperref[nf.cm_field]{CM field}.
 \end{definition}
-
-

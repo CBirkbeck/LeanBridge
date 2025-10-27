@@ -5,5 +5,3 @@ The \textbf{dihedral group} is the set of symmetries of a regular $n$-gon under 
 $$D_n = \langle g,h \mid g^n=h^2=1, hg=g^{-1}h \rangle = \{e,g,g_2,...,g_{n-1},h,gh,...,g_{n-1}h\}.$$
 It is the split extension $C_n\rtimes C_2$ with $C_2$ acting by $-1$. The non-split extension in this case is the \hyperref[group.dicyclic]{dicyclic}  group.
 \end{definition}
-
-

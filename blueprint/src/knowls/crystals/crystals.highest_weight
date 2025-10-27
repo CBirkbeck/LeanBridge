@@ -1,12 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/crystals.highest_weight}{Highest weight crystals}}
 \begin{definition}\label{crystals.highest_weight}
 \uses{crystals.crystal}
-\leanok
 Highest weight crystals are \hyperref[crystals.crystal]{Crystal} which have a highest weight element. A highest weight element $b$ is annihilated by all Kashiwara raising operators:
 \[
 e_i b = 0 \quad \text{for all } i\in I.
 \]
 The weight of the highest weight element is used to label the crystal.
 \end{definition}
-
-

@@ -7,5 +7,3 @@ A Haar measure always exists and is unique up to multiplication by a positive sc
 
 As a special case, if $G$ is finite of \hyperref[group.order]{order} $n$, then the normalized Haar measure is the uniform measure that assigns to each element the measure $1/n$.
 \end{definition}
-
-

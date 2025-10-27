@@ -3,5 +3,3 @@
 \uses{ag.jacobian,g2c.torsion,nf}
 The \textbf{torsion order} of a finitely-generated abelian group such as the Mordell-Weil group of the \hyperref[ag.jacobian]{Jacobian} of a curve over a \hyperref[nf]{number field} is the cardinality of its \hyperref[g2c.torsion]{torsion subgroup}. The \textbf{torsion primes} are the primes that divide the torsion order, equivalently, the primes $\ell$ for which the Jacobian has a rational point of order $\ell$.
 \end{definition}
-
-

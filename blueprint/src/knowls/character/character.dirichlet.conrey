@@ -1,8 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/character.dirichlet.conrey}{Conrey label of Dirichlet characters}}
 \begin{definition}\label{character.dirichlet.conrey}
 \uses{character.dirichlet,character.dirichlet.conrey.conductor,character.dirichlet.conrey.index,character.dirichlet.conrey.order,character.dirichlet.conrey.parity,character.dirichlet.conrey.primitive_generator,character.dirichlet.group,character.dirichlet.induce}
-\leanok
-We use the notation $\chi_{q}(n,\cdot)$ to identify \hyperref[character.dirichlet]{Dirichlet characters} $\Z\to \C$, where $q$ is the 
+We use the notation $\chi_{q}(n,\cdot)$ to identify \hyperref[character.dirichlet]{Dirichlet characters} $\Z\to \C$, where $q$ is the
 \hyperref[character.dirichlet]{modulus}, and $n$ is the \hyperref[character.dirichlet.conrey.index]{index}, a positive integer coprime to $q$ that identifies a Dirichlet character of modulus $q$ as described below.  The LMFDB label $\texttt{q.n}$, with $1\le n < \max(q,2)$ uniquely identifies $\chi_{q}(n,\cdot)$.
 
 Introduced by Brian Conrey, this labeling system is based on an explicit isomorphism between the multiplicative group $(\Z/q\Z)^\times$ and the \hyperref[character.dirichlet.group]{group of Dirichlet characters} of modulus $q$ that makes it easy to recover the
@@ -48,5 +47,3 @@ For general $q$, the function $\chi_q(n, m)$ is defined multiplicatively: $\chi_
 
 
 \end{definition}
-
-

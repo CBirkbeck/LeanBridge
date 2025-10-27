@@ -7,5 +7,3 @@ Given $q$ and a nonnegative integer $d$, there are only finitely many Weil $q$-p
 
 The \hyperref[av.fq.weil_polynomial]{characteristic polynomial} of an \hyperref[ag.abelian_variety]{abelian variety} over $\F_q$ is a Weil $q$-polynomial, but it is not quite true that every Weil $q$-polynomial arises in this way.  Every irreducible Weil $q$-polynomial has a unique power that is the characteristic polynomial of a \hyperref[av.simple]{simple abelian variety} over $\F_q$; it is the products of these powers that arise from abelian varieties.
 \end{definition}
-
-

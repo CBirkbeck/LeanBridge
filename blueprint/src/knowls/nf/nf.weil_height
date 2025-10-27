@@ -5,14 +5,12 @@ The (\textbf{logarithmic}) \textbf{Weil height} of a nonzero rational number $a/
 $$ h(a/b) = \log\max\bigl\{|a|,|b|\bigr\}. $$ The height of $0$ is taken to be $0.$
 
 The (\textbf{absolute logarithmic}) \textbf{Weil height} of an element $\alpha$ in a \hyperref[nf]{number field} $K$ is the quantity
-$$ h(\alpha) = \frac{1}{[K:\mathbb{Q}]} \sum_{v\in M_K} [K_v:\mathbb{Q}_v]\log\max\bigl\{\|\alpha\|_v,1\bigr\}, $$
-where $M_K$ is an appropriately normalized set of inequivalent absolute values on $K$. More generally, the height of a point $P=[\alpha_0,\alpha_1,\ldots,\alpha_n]$ in projective space $\mathbb{P}^n(K)$ is given by
-$$ h(P) = \frac{1}{[K:\mathbb{Q}]} \sum_{v\in M_K} [K_v:\mathbb{Q}_v]\log\max_{0\le i\le n}\bigl\{\|\alpha_i\|_v\bigr\}. $$
+$$ h(\alpha) = \frac{1}{[K:\mathbb Q]} \sum_{v\in M_K} [K_v:\mathbb Q_v]\log\max\bigl\{\|\alpha\|_v,1\bigr\}, $$
+where $M_K$ is an appropriately normalized set of inequivalent absolute values on $K$. More generally, the height of a point $P=[\alpha_0,\alpha_1,\ldots,\alpha_n]$ in projective space $\mathbb P^n(K)$ is given by
+$$ h(P) = \frac{1}{[K:\mathbb Q]} \sum_{v\in M_K} [K_v:\mathbb Q_v]\log\max_{0\le i\le n}\bigl\{\|\alpha_i\|_v\bigr\}. $$
 
-If $\mathcal{L}$ is a very amply line bundle on a \hyperref[ag.variety]{projective variety} $V$ inducing an embedding $\iota \colon V \hookrightarrow \mathbb{P}^n$, then the Weil height associated on $X$ associated to $\mathcal{L}$ is given by
+If $\mathcal{L}$ is a very amply line bundle on a \hyperref[ag.variety]{projective variety} $V$ inducing an embedding $\iota \colon V \hookrightarrow \mathbb P^n$, then the Weil height associated on $X$ associated to $\mathcal{L}$ is given by
 $$ h_{\mathcal{L}}(P) = h(\iota(P)).$$
 This definition can be extended to all line bundles by using the following linearity:
-$$ h_{\mathcal{L}_1 \otimes \mathcal{L}_2}(P) = h_{\mathcal{L}_1}(P) + h_{\mathcal{L}_2}(P).$$ 
+$$ h_{\mathcal{L}_1 \otimes \mathcal{L}_2}(P) = h_{\mathcal{L}_1}(P) + h_{\mathcal{L}_2}(P).$$
 \end{definition}
-
-

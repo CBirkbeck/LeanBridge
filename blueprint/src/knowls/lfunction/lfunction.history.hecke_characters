@@ -1,27 +1,24 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.history.hecke_characters}{Hecke L-functions}}
 \begin{definition}\label{lfunction.history.hecke_characters}
 \uses{character.dirichlet,character.hecke}
-\leanok
 The  L-functions  associated with finite characters of number fields (often called \hyperref[character.dirichlet]{Dirichlet charaters}
 or finite \hyperref[character.hecke]{Hecke characters})
 were considered by Hecke in a series of papers beginning in 1917.
 In the first paper of this series, \textit{&Uuml;ber die Zetafunktion}
-\_beliebiger algebraischer Zahlk\"orper\_ \cite{href{https://eudml.org/doc/58974}{G\"ott. Nachr. 1917 77-89 (1917)}},  he refers to $\zeta_k(s)$ as the "Dirichlet-Dedekindsche Zetafunktion". 
+\_beliebiger algebraischer Zahlk\"orper\_ \cite{href{https://eudml.org/doc/58974}{G\"ott. Nachr. 1917 77-89 (1917)}},  he refers to $\zeta_k(s)$ as the "Dirichlet-Dedekindsche Zetafunktion".
 Here he gives the functional equation for the Dedekind zeta-function of any number field.
 In the second
 paper <i>&Uuml;ber eine neue anwendung der Zetafunktionnen
-auf die arithmetik der Zahlk\"orper</i> also in 1917, he refers to it as 
+auf die arithmetik der Zahlk\"orper</i> also in 1917, he refers to it as
 "der Dedekindschen Funktion $\zeta_k(s)$." This paper ends with the remark that
-for abelian extensions $\zeta_k(s)$ can be factored as a product of Dirichlet L-functions. 
-In the third paper in the series, he refers again to 
+for abelian extensions $\zeta_k(s)$ can be factored as a product of Dirichlet L-functions.
+In the third paper in the series, he refers again to
 "Dirichlet-Dedekindsche Funktion $\zeta_k(s)$".
 Here he proves the functional equation for L-functions of finite Hecke characters.
 
 The L-functions associated with Hecke's Gr\"o&beta;encharaktere, i.e. characters of infinite order,
-and their functional equations 
+and their functional equations
 appear in a two-paper series beginning in 1918 \cite{MR1544392}. It is only in the second of these
 papers (1920) that Hecke uses the  term "Gr\"o&beta;encharaktere".
 
 \end{definition}
-
-

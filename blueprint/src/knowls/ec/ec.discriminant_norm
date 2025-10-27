@@ -1,8 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.discriminant_norm}{Norm of discriminant}}
 \begin{definition}\label{ec.discriminant_norm}
 \uses{ec.discriminant}
-\leanok
 The norm of the \hyperref[ec.discriminant]{discriminant}.
 \end{definition}
-
-

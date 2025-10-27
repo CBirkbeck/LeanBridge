@@ -1,7 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.kodaira_dimension}{Kodaira dimension}}
 \begin{definition}\label{ag.kodaira_dimension}
 \uses{}
-\leanok
 Let $X$ be a nonsingular complex algebraic variety with canonical divisor $K$. For each $d \in \mathbb{Z}_{\geq 0}$, the $d^\text{th}$ plurigenus of $X$ is $P_d \colonequals \dim H^0(X, K^{\otimes d})$. The global sections of $K^{\otimes d}$ define a rational map
 $$
 \varphi_d: X \to \mathbb{P}(H^0(X,K^{\otimes d})) \cong \mathbb{P}^{P_d-1} \, .
@@ -12,5 +11,3 @@ $$
 $$
 otherwise.
 \end{definition}
-
-

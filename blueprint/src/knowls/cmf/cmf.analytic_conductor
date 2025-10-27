@@ -1,11 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.analytic_conductor}{Analytic conductor of a classical newform}}
 \begin{definition}\label{cmf.analytic_conductor}
 \uses{cmf.newform}
-The \textbf{analytic conductor} of a \hyperref[cmf.newform]{newform} $f \in S_k^{\mathrm{new}}(N,\chi)$ is the positive real number 
+The \textbf{analytic conductor} of a \hyperref[cmf.newform]{newform} $f \in S_k^{\mathrm{new}}(N,\chi)$ is the positive real number
 \[
 N\left(\frac{\exp(\psi(k/2))}{2\pi}\right)^2,
 \]
 where $\psi(x):=\Gamma'(x)/\Gamma(x)$ is the logarithmic derivative of the Gamma function.
 \end{definition}
-
-

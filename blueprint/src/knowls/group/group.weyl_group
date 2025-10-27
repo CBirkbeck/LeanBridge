@@ -5,5 +5,3 @@ The \textbf{Weyl group} associated to a \hyperref[group.subgroup]{subgroup} $H \
 
 When $G$ is an abstract group, we must specify $H$ as well, and the Weyl group naturally embeds into the \hyperref[group.automorphism]{automorphism} group $\Aut(H)$ and gives the subset of automorphisms of $H$ that are induced by conjugation within $G$.
 \end{definition}
-
-

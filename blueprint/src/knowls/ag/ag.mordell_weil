@@ -3,7 +3,7 @@
 \uses{ag.abelian_variety,ag.dimension}
 The \textbf{Mordell-Weil group} of an \hyperref[ag.abelian_variety]{abelian variety} $A$ over a \hyperref[nf]{number field} $K$ is its group of $K$-rational points $A(K)$.
 
-Weil, building on Mordell's theorem for elliptic curves over $\Q$, proved that the abelian group $A(K)$ is finitely generated.  Thus 
+Weil, building on Mordell's theorem for elliptic curves over $\Q$, proved that the abelian group $A(K)$ is finitely generated.  Thus
 \[
 A(K)\simeq \Z^r \oplus T,
 \]
@@ -11,5 +11,3 @@ where $r$ is a nonnegative integer called the \textbf{Mordell-Weil rank} of $A$,
 
 The torsion subgroup $T$ is the product of at most $2g$ cyclic groups, where $g$ is the \hyperref[ag.dimension]{dimension} of $A$.
 \end{definition}
-
-

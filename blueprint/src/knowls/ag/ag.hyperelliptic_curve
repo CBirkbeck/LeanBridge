@@ -13,5 +13,3 @@ h(x,y,z)=0\qquad w^2=f(x,y,z)
 \]
 where $h(x,y,z)$ is a homogeneous polynomial of degree $2$ (a \textbf{conic}) and $f(x,y,z)$ is a homogeneous polynomial of degree $g+1$.
 \end{definition}
-
-

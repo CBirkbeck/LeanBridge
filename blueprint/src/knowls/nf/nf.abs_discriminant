@@ -3,5 +3,3 @@
 \uses{nf,nf.discriminant}
 The \textbf{absolute discriminant} of a \hyperref[nf]{number field} is the absolute value of its \hyperref[nf.discriminant]{discriminant}.
 \end{definition}
-
-

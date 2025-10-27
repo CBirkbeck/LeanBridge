@@ -3,5 +3,3 @@
 \uses{cmf.satake_parameters}
 The \textbf{Satake angles} $\theta_p = \arg \alpha_p \in [-\pi, \pi]$ are the arguments of a complex embedding of the \hyperref[cmf.satake_parameters]{Satake parameters} $\alpha_p$.
 \end{definition}
-
-

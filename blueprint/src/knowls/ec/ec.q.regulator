@@ -12,5 +12,3 @@ which is independent of the choice of generators.
 
 Special cases are when $E(K)$ has rank $0$, in which case $E(K)/E(K)_{tor}=0$ and $\operatorname{Reg}(E/K)=1$, and when $E(K)$ has rank $1$, in which case $\operatorname{Reg}(E/K)$ is equal to the \hyperref[ec.canonical_height]{canonical height} $\hat{h}(P)$ of a generator $P$.
 \end{definition}
-
-

@@ -6,5 +6,3 @@ An \textbf{exceptional subgroup} of $\GL_2(\F_p)$ does not contain $\SL_2(\F_p)$
 Exceptional subgroups are classified according to their image in $\PGL_2(\F_p)$, which must be isomorphic to one of the alternating groups $A_4$ or $A_5$, or to the symmetric group $S_4$.  These groups are labelled using identifiers containing one of the strings \textbf{A4}, \textbf{A5}, \textbf{S4}, as described in \cite{arxiv:1504.07618,MR3482279}.
 
 \end{definition}
-
-

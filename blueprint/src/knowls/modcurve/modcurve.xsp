@@ -1,13 +1,10 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.xsp}{$X_{\text{sp}}(N)$}}
 \begin{definition}\label{modcurve.xsp}
 \uses{gl2.cartan,modcurve}
-\leanok
 $X_{\text{sp}}(N)$ is the \hyperref[modcurve]{modular curve} $X_H$ for $H\le \GL_2(\widehat{\Z})$ the inverse image of a \hyperref[gl2.cartan]{Cartan subgroup} $\begin{pmatrix} * & 0\\ 0& * \end{pmatrix}$ that is split at every prime dividing $N$. As a moduli space it parameterizes triples $(E,C,D)$ where:
 
 \begin{itemize}
-\item  $E$ is an elliptic curve over $k$, and 
-\item  $C$ and $D$ are $\Gal_k$-stable cyclic subgroups such that $E[N](\overline{k})\simeq C \oplus D$. 
+\item  $E$ is an elliptic curve over $k$, and
+\item  $C$ and $D$ are $\Gal_k$-stable cyclic subgroups such that $E[N](\bar{K})\simeq C \oplus D$.
 \end{itemize}
 \end{definition}
-
-

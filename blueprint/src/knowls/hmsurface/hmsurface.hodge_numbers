@@ -3,5 +3,3 @@
 \uses{}
 The \textbf{Hodge numbers} $h^{p,q}$ of a smooth projective variety $X$ over $\mathbb{C}$ are the dimensions of the complex vector spaces $H^{p,q}(X) := H^q(X,\Omega^p)$ appearing in the Hodge decomposition of the cohomology group $H^n(X,\mathbb{C}) \cong \bigoplus_{p+q=n} H^{p,q}(X)$.
 \end{definition}
-
-

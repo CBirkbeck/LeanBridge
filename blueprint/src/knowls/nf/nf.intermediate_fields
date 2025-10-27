@@ -3,5 +3,3 @@
 \uses{}
 For a number field $K$, \textbf{intermediate fields} $F$ are fields with $\Q\subsetneqq F \subsetneqq K$.
 \end{definition}
-
-

@@ -9,5 +9,3 @@ with all successive quotients $N_{i+1}/N_i$ cyclic. It is stronger than requirin
 
 While every nilpotent group is supersolvable, the converse does not hold as shown by <a href="{{url\_for('abstract.index')}}?nilpotent=no&supersolvable=yes">these examples</a>.  Similarly, <a href="{{url\_for('abstract.index')}}?metacyclic=no&supersolvable=yes">these examples</a> show that not every supersolvable group is metacyclic.
 \end{definition}
-
-

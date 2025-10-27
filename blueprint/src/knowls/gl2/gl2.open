@@ -5,8 +5,6 @@ An \textbf{open subgroup} $H$ of a \hyperref[gl2.profinite]{profinite group} $G$
 
 Open subgroups of $G$ necessarily have finite index (since $G$ is compact), but not every finite index subgroup of $G$ is necessarily open.
 
-When the profinite group $G$ is a matrix group over a ring $R$ that is equipped with canonical projections to finite rings of the form $\Z/n\Z$ (take $R=\Z_{\ell}$ or $R=\widehat{\Z}$, for example), we use $G(n)$ to denote the image of $G$ under the group homomorphism induced by the projection $R\to\Z/n\Z$.  In this situation we may identify $H$ with its projection to $G(N)$, where $N$ is the least positive integer for which $H$ is the inverse image of its projection to $G(N)$ (this $N$ is the \hyperref[gl2.level]{level} of $H$).
+When the profinite group $G$ is a matrix group over a ring $R$ that is equipped with canonical projections to finite rings of the form $\Z/n\Z$ (take $R=\Z_\ell$ or $R=\widehat{\Z}$, for example), we use $G(n)$ to denote the image of $G$ under the group homomorphism induced by the projection $R\to\Z/n\Z$.  In this situation we may identify $H$ with its projection to $G(N)$, where $N$ is the least positive integer for which $H$ is the inverse image of its projection to $G(N)$ (this $N$ is the \hyperref[gl2.level]{level} of $H$).
 
 \end{definition}
-
-

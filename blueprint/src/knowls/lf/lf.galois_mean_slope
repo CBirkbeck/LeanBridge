@@ -7,5 +7,3 @@ ideal for $K$ over $\Q_p$ is $(p^{[K:\Q_p]\cdot \alpha})$.
 
 The Galois mean slope can be computed as a weighted average of the \hyperref[lf.slopes]{wild Artin slopes} and \hyperref[lf.tame_degree]{tame degree} of $K$.
 \end{definition}
-
-

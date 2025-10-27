@@ -1,8 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.j_invariant_denominator_valuation}{j-invariant denominator valuation}}
 \begin{definition}\label{ec.j_invariant_denominator_valuation}
 \uses{ec.j_invariant}
-\leanok
 The valuation of the denominator of the \hyperref[ec.j_invariant]{\(j\)-invariant} at a prime.  This is \(0\) if the \(j\)-invariant has non-negative valuation, and is minus the valuation otherwise.
 \end{definition}
-
-

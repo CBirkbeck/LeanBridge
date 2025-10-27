@@ -1,4 +1,4 @@
-\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.analytic_sha_order}{Analytic order of $\Sha$}}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.analytic_sha_order}{Analytic order of Sha}}
 \begin{definition}\label{ec.analytic_sha_order}
 \uses{ec,ec.base_change,ec.mordell_weil_group,ec.period,ec.rank,ec.regulator,ec.tamagawa_number,ec.torsion_subgroup,group.abelian,group.galois.absolute,group.order,group.torsion,nf,nf.discriminant,nf.place,nf.prime}
 The \textbf{Tate-Shafarevich group} $\Sha$ of an \hyperref[ec]{elliptic curve} $E$ defined over a \hyperref[nf]{number field} $K$ is a \hyperref[group.torsion]{torsion} \hyperref[group.abelian]{abelian group}, which can be defined in terms of Galois cohomology as
@@ -11,11 +11,11 @@ The group $\Sha$ is conjectured to be finite, and its \hyperref[group.order]{ord
 $$
 \Sha_{\text{an}} := |D_K|^{1/2}\cdot \frac{L^{(r)}(E,1)} {r!} \cdot \frac{\#E(K)_{\rm tor}^2}{\mathrm{Reg}_{\rm NT}(E/K)}  \cdot \frac{1}{ \Omega(E/K)  \cdot \prod_{\mathfrak{p}} c_{\mathfrak{p}}}.
 $$
-Here 
-$D_K$ is the \hyperref[nf.discriminant]{discriminant} of $K$, 
-$L(E,s)$ is the $L$-function of $E/K$, $r$ is the analytic \hyperref[ec.rank]{rank} of $E/K$, 
-$\mathrm{Reg}_{\rm NT}(E/K)$ is the N\'eron-Tate (un-normalised) \hyperref[ec.regulator]{regulator} of $E/K$,  $E(K)_{\rm tor}$ is the \hyperref[ec.torsion_subgroup]{torsion subgroup} of the \hyperref[ec.mordell_weil_group]{Mordell-Weil group} $E(K)$, 
-$\Omega(E/K)$ is the \hyperref[ec.period]{global period} of $E/K$, 
+Here
+$D_K$ is the \hyperref[nf.discriminant]{discriminant} of $K$,
+$L(E,s)$ is the $L$-function of $E/K$, $r$ is the analytic \hyperref[ec.rank]{rank} of $E/K$,
+$\mathrm{Reg}_{\rm NT}(E/K)$ is the N\'eron-Tate (un-normalised) \hyperref[ec.regulator]{regulator} of $E/K$,  $E(K)_{\rm tor}$ is the \hyperref[ec.torsion_subgroup]{torsion subgroup} of the \hyperref[ec.mordell_weil_group]{Mordell-Weil group} $E(K)$,
+$\Omega(E/K)$ is the \hyperref[ec.period]{global period} of $E/K$,
 and $c_{\mathfrak{p}}$ is the \hyperref[ec.tamagawa_number]{Tamagawa number} of $E$ at the \hyperref[nf.prime]{prime} $\mathfrak{p}$ of $K$.
 
 It is known that if $\Sha$ is finite then its order is a square, so one expects the real number $\Sha_{\text{an}}$ to always be a square integer.
@@ -23,5 +23,3 @@ It is known that if $\Sha$ is finite then its order is a square, so one expects 
 For elliptic curves defined over \(\Q\) of rank $0$ or $1$, it is a theorem that $\Sha$<sub>an</sub> is a positive rational number, and this rational number can in principle be computed exactly. This exact  computation has only been carried out for the curves in the database with rank $0$.  For curves of rank $2$ and above, there is no such theorem, and the values computed are floating point approximate values which are very close to integers.  In the LMFDB we store and display the rounded values in this case.
 
 \end{definition}
-
-

@@ -7,5 +7,3 @@ An \textbf{archimedean local field} is a local field whose absolute value is \hy
 
 A \textbf{nonarchimedean local field} is a local field whose absolute value is \hyperref[nf.absolute_value]{nonarchimedean}. Such a field is either isomorphic to a finite extension of $\Q_p$ when $K$ has \hyperref[ring.characteristic]{characteristic} zero (in which case it is a \hyperref[lf.padic_field]{$p$-adic field}), or to a finite extension of $\F_p((t))$ when $K$ has characteristic $p$.  In both cases $p$ is the characteristic of the \hyperref[lf.residue_field]{residue field} of $K$..
 \end{definition}
-
-

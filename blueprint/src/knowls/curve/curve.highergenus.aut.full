@@ -3,5 +3,3 @@
 \uses{g2c.aut_grp}
 A group of automorphisms $G$ acting on a curve $X$ is necessarily a subgroup of the \hyperref[g2c.aut_grp]{automorphism group} $\Aut(X)$, but need not equal $\Aut(X)$.  When $G=\Aut(X)$ we say that $G$ is the \textbf{full group of automorphisms}.
 \end{definition}
-
-

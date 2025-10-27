@@ -1,13 +1,13 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.reflex_field}{Reflex field}}
 \begin{definition}\label{nf.reflex_field}
 \uses{group.subgroup,nf.cm_field,nf.complex_embedding,nf.degree,nf.embedding}
-Let $K$ be a \hyperref[nf.cm_field]{CM number field} and let $\overline{\mathbb{Q}}$ be the algebraic closure of $\Q$ in $\C$. A subset $\Phi \subset \mathrm{Hom}(K, \overline{\mathbb{Q}})$ is called a \textbf{CM type} if for every \hyperref[nf.embedding]{embedding} $\iota \in \mathrm{Hom}(K, \overline{\mathbb{Q}})$ either $\iota \in \Phi$ or $\overline{\iota} \in \Phi$, but not both, where $\overline{\iota}$ is the complex conjugate of $\iota$. 
+Let $K$ be a \hyperref[nf.cm_field]{CM number field} and let $\overline{\mathbb{Q}}$ be the algebraic closure of $\Q$ in $\C$. A subset $\Phi \subset \mathrm{Hom}(K, \overline{\mathbb{Q}})$ is called a \textbf{CM type} if for every \hyperref[nf.embedding]{embedding} $\iota \in \mathrm{Hom}(K, \overline{\mathbb{Q}})$ either $\iota \in \Phi$ or $\overline{\iota} \in \Phi$, but not both, where $\overline{\iota}$ is the complex conjugate of $\iota$.
 
 Given a \hyperref[nf.cm_field]{CM field} $K$ and a CM type $\Phi$, the \textbf{reflex field} is the fixed field inside $\overline{\Q}$ corresponding to the \hyperref[group.subgroup]{subgroup} $\{ \rho \in \Gal(\overline{\Q}/\Q) : \rho \Phi = \Phi \}$ of $\Gal(\overline{\Q}/\Q)$. A CM type $\Phi$ and its complement $\overline{\Phi}$, which is the same as the set of complex conjugate embeddings, have the same reflex field. The number of complex conjugate pairs of CM types is $2^{g-1}$, where $2g=[K:\Q]$, the \hyperref[nf.degree]{degree} of $K$ over $\Q$.
 
 To specify a CM type $\Phi$ for the CM field $K=\Q(a)$:
 <ol>
-<li>fix an order 
+<li>fix an order
 $
 (\iota_1,\overline{\iota_1}), \dots,  (\iota_g,\overline{\iota_g})
 $
@@ -26,5 +26,3 @@ In the LMFDB, there is a potentially incomplete list of reflex fields for each C
 \item -->
 \end{itemize}
 \end{definition}
-
-

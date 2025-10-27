@@ -7,5 +7,3 @@ with nonzero \hyperref[g2c.discriminant]{discriminant} and $\deg h \le 3$ and $\
 This equation can be viewed as defining the function field of the curve, or as a smooth model of the curve in the weighted projective plane. Every curve of genus 2 admits a degree 2 cover of the projective line (consider the function $x$) and is therefore a \hyperref[ag.hyperelliptic_curve]{hyperelliptic curve}.
 
 \end{definition}
-
-

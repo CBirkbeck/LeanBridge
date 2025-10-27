@@ -9,11 +9,9 @@ for some non-zero rational number $c$ called the \textbf{Manin constant} of $E$.
 
 It is conjectured that $c=1$ for all optimal curves, and there are several results stating that $c=1$ if certain conditions hold: see Amod Agashe, Ken Ribet and William Stein: The Manin Constant, Pure and Applied Mathematics Quarterly, Vol. 2 no.2 (2006), pp. 617–636.  In an appendix to that paper, John Cremona gives an algorithm for verifying that $c=1$ in individual cases, and proves that $c=1$ for all optimal elliptic curves over $\Q$ in the database. K\k{e}stutis \v{C}esnavi\v{c}ius proves $c=1$ for \hyperref[ec.semistable]{semistable elliptic curves} over $\Q$, and more generally that $v_p(c) = 0$ if $p^2 \nmid N$ in *The Manin constant in the semistable case*, Compositio Math. \textbf{154} (2018), 1889–1920.
 
-For non-optimal elliptic curves $E'$ over $\Q$, the \textbf{Manin constant} is defined, in terms of the Manin constant of the unique optimal curve \hyperref[ec.isogeny]{isogenous} to $E'$.   Let $\varphi:X_0(N)\to E$ and $f$ be as above, and $\psi:E\to E'$ an isogeny of least degree from $E$ to $E'$.  Then we obtain a parametrization $\psi\circ\varphi:X_0(N)\to E'$ and define the Manin constant $c'$ of $E'$ to be the non-zero rational number such that 
+For non-optimal elliptic curves $E'$ over $\Q$, the \textbf{Manin constant} is defined, in terms of the Manin constant of the unique optimal curve \hyperref[ec.isogeny]{isogenous} to $E'$.   Let $\varphi:X_0(N)\to E$ and $f$ be as above, and $\psi:E\to E'$ an isogeny of least degree from $E$ to $E'$.  Then we obtain a parametrization $\psi\circ\varphi:X_0(N)\to E'$ and define the Manin constant $c'$ of $E'$ to be the non-zero rational number such that
 \[
    (\psi\circ\varphi)^*\omega_{E'} = c' \cdot 2\pi i f(z)dz.
 \]
 This is an integer multiple of the Manin constant of $E$, since $\psi^*\omega_{E'}$ is an integer multiple of $\omega_E$; the multiplier divides the degree of $\psi$ but may be strictly less: it may equal $1$.
 \end{definition}
-
-

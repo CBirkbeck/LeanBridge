@@ -3,5 +3,3 @@
 \uses{ec,ec.weierstrass_coeffs,nf.ring_of_integers}
 An \textbf{integral model} for an \hyperref[ec]{elliptic curve} \(E\) defined over a number field \(K\) is a \hyperref[ec.weierstrass_coeffs]{Weierstrass equation} for \(E\) all of whose coefficients are in the \hyperref[nf.ring_of_integers]{ring of integers} of \(K\).
 \end{definition}
-
-

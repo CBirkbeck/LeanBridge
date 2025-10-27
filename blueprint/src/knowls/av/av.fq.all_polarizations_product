@@ -6,5 +6,3 @@ A polarized \hyperref[ag.abelian_variety]{abelian variety} $(A,\lambda)$ is \tex
 \[ (A,\lambda) \simeq (A_1,\lambda_1) \times (A_2,\lambda_2). \]
 If this is not the case, we say that $(A,\lambda)$ is \textbf{indecomposable}.
 \end{definition}
-
-

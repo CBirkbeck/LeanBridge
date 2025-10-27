@@ -8,5 +8,3 @@ The 2-torsion field of the \hyperref[g2c.jacobian]{Jacobian} of a \hyperref[ag.h
 For abelian varieties over number fields, the 2-torsion field is specified by giving a number field of minimal degree and absolute discriminant whose Galois closure is equal to the 2-torsion field.
 
 \end{definition}
-
-

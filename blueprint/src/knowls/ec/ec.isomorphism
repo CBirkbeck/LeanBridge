@@ -7,5 +7,3 @@ Isomorphism is an equivalence relation, the equivalnce classes being called \tex
 
 When $E$ and $E'$ are defined by \hyperref[ec.weierstrass_coeffs]{Weierstrass models}, such an isomorphism is uniquely represented as a \hyperref[ec.weierstrass_isomorphism]{Weierstrass isomorphism} between these models.
 \end{definition}
-
-

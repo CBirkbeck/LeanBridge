@@ -6,5 +6,3 @@ $\chi(\mathcal{O}_X) = \sum_{i=0}^{\dim X} (-1)^i \dim H^i(X, \mathcal{O}_X)$.
 Note that some authors call this quantity the holomorphic Euler characteristic.
 Additionally, some authors refer to the quantity $p_a(X) = (-1)^{\dim X} (\chi(\mathcal{O}_X) - 1)$ as the arithmetic genus.
 \end{definition}
-
-

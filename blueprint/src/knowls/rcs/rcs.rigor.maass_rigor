@@ -1,7 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.rigor.maass_rigor}{Reliability of rigorous Maass forms data}}
 \begin{definition}\label{rcs.rigor.maass_rigor}
 \uses{mf.maass.mwf.fourierexpansion,mf.maass.mwf.spectralparameter}
-\leanok
 Maass form data, in the LMFDB and elsewhere, is inherently approximate.  The data
 are decimal approximations to numbers which (in general) are conjectured to be
 transcendental and not expressible in terms of well-known constants.
@@ -25,12 +24,10 @@ An individual Maass form
 A Maass form $f(z)$ on a group $G$ is specified by a \hyperref[mf.maass.mwf.spectralparameter]{spectral parameter} $R$ and coefficients (Hecke eigenvalues) $a_1=1$, $a_2$, $a_3$, ..., appearing in its
 \hyperref[mf.maass.mwf.fourierexpansion]{Fourier expansion}.  The parameter $R$ and the coefficients $a_n$ are found by using the transformation properties of $f(z)$ under the group $G$ to form a system of equations.
 
-The decimal numbers listed for the spectral parameter $R$ and the coefficients $a_n$ are 
+The decimal numbers listed for the spectral parameter $R$ and the coefficients $a_n$ are
 \begin{itemize}
 \item proven* to be close to spectral parameter and coefficients of an *actual* Maass form. (Note that error intervals may be displayed on the website after truncation; be careful when considering less significant digits).
 \end{itemize}
 
 In practice, it is much easier to *heuristically* refine a given Maass form using a *heuristic* form of Hejhal's algorithm.
 \end{definition}
-
-

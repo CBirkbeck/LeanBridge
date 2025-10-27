@@ -13,5 +13,3 @@ Not all of the inner twists included in the inner twist count have necessarily b
 
 Inner twist data is available only for newforms for which exact eigenvalue data has been computed; this includes all newforms of \hyperref[cmf.dimension]{dimension} up to $20$ and all newforms of \hyperref[cmf.weight]{weight} 1; when the inner twist count is specified in a search the results include only newforms for which inner twists have been computed.
 \end{definition}
-
-

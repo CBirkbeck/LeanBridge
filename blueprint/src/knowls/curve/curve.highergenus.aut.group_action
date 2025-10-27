@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/curve.highergenus.aut.group_action}{A group acting on a compact Riemann Surface}}
 \begin{definition}\label{curve.highergenus.aut.group_action}
 \uses{g2c.aut_grp,group.fuchsian}
-A \textbf{group $G$ acts on a compact Riemann surface $X$} if there is an injective homomorphism from $G$ to the \hyperref[g2c.aut_grp]{group of automorphisms} of $X$, i.e. a homomorphism $\phi: G \hookrightarrow \mathrm{Aut}(X)$.
+A \textbf{ group $G$ acts on a compact Riemann surface $X$} if there is an injective homomorphism from $G$ to the \hyperref[g2c.aut_grp]{group of automorphisms} of $X$, i.e. a homomorphism $\phi: G \hookrightarrow \mathrm{Aut}(X)$.
 
 Equivalently, a group $G$ acts on $X$ if there is a \hyperref[group.fuchsian]{Fuchsian group} $\Gamma$ and a surjective homomorphism $\eta: \Gamma \to G$ with $\ker( \eta)$ isomorphic to the fundamental group of $X$.
 \end{definition}
-
-

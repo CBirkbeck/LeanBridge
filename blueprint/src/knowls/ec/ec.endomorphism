@@ -3,5 +3,3 @@
 \uses{ag.abelian_variety,ag.endomorphism_ring,ec}
 An \textbf{endomorphism} of an \hyperref[ec]{elliptic curve} defined over a field $K$ is a homomorphism $\varphi\colon E\to E$ defined over $K$.  The set of all endomorphisms of $E$ forms a ring called the \hyperref[ec.endomorphism_ring]{endomorphism ring} of $E$, denoted $\End(E)$, a special case of the \hyperref[ag.endomorphism_ring]{endomorphism ring} of an \hyperref[ag.abelian_variety]{abelian variety}.
 \end{definition}
-
-

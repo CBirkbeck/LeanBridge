@@ -3,5 +3,3 @@
 \uses{belyi.galmap}
 The \textbf{orbit size} is the number of isomorphism classes of \hyperref[belyi.galmap]{Belyi maps} contained in a given Galois orbit.
 \end{definition}
-
-

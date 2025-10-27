@@ -1,8 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.xs4}{$X_{S_4}(\ell)$}}
 \begin{definition}\label{modcurve.xs4}
 \uses{ec.galois_rep_modell_image,modcurve}
-\leanok
 For $\ell$ an odd prime, $X_{S_4}(\ell)$ is the \hyperref[modcurve]{modular curve} $X_H$ for $H\le \GL_2(\widehat{\Z})$ the inverse image of the subgroup of $\PGL_2(\Z/\ell\Z)$ isomorphic to $S_4$ (which is unique up to conjugacy).  It parameterizes elliptic curves whose \hyperref[ec.galois_rep_modell_image]{mod-$\ell$ Galois representation} has projective image $S_4$, one of the three exceptional groups $A_4$, $A_5$, $S_4$ of $\PGL_2(\ell)$ that can arise as projective mod-$\ell$ images, and the only one that can arise for elliptic curves over $\Q$.
 \end{definition}
-
-

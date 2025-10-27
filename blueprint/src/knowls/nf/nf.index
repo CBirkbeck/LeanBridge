@@ -1,8 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.index}{Index of an order}}
 \begin{definition}\label{nf.index}
 \uses{nf,nf.order,nf.ring_of_integers}
-\leanok
 Let $\mathcal{O}$ be an \hyperref[nf.order]{order} in a \hyperref[nf]{number field} $K$. The index of $\mathcal{O}$ is its index as a sublattice of the \hyperref[nf.ring_of_integers]{ring of integers} of $K$.
 \end{definition}
-
-

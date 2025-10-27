@@ -1,12 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/dq.zeros.zeta.toomany}{Too many zeros}}
 \begin{definition}\label{dq.zeros.zeta.toomany}
 \uses{}
-\leanok
 It looks as if you want to have access to a lot of zeros of the Riemann zeta function.
 To avoid overloading the server, we ask you to download them in a raw format, from here: <br>
-\href{https://beta.lmfdb.org/riemann-zeta-zeros/}{https://beta.lmfdb.org/riemann-zeta-zeros/} <br><br>
+<a href="https://beta.lmfdb.org/riemann-zeta-zeros/">https://beta.lmfdb.org/riemann-zeta-zeros/</a> <br><br>
 The code for reading the raw data is here:
-\href{https://github.com/LMFDB/lmfdb/blob/master/lmfdb/zeros/zeta/platt_zeros.py}{https://github.com/LMFDB/lmfdb/blob/master/lmfdb/zeros/zeta/platt\_zeros.py}
+<a href="https://github.com/LMFDB/lmfdb/blob/master/lmfdb/zeros/zeta/platt\_zeros.py">https://github.com/LMFDB/lmfdb/blob/master/lmfdb/zeros/zeta/platt\_zeros.py</a>
 \end{definition}
-
-

@@ -13,5 +13,3 @@ We call the set of polygons satisfying these conditions \textbf{eligible}.  The 
 
 The Newton polygon of an \hyperref[av.fq.ordinary]{ordinary} abelian variety has vertices $(0,0)$, $(g,0)$, and $(2g,g)$ and is the minimal element in this poset, with elevation $0$.  The Newton polygon of a \hyperref[av.fq.supersingular]{supersingular} abelian variety has vertices $(0,0)$ and $(2g,g)$ and is the maximal element in this poset, with elevation $\frac{(g+1)^2}{4}$ ($g$ odd) or $\frac{g(g+2)}{4}$ ($g$ even).  There is a unique Newton polygon of elevation $1$, with vertices $(0,0)$, $(g-1,0)$, $(g+1,1)$, and $(2g, g)$; abelian varieties with this Newton polygon are called \textbf{almost ordinary}.
 \end{definition}
-
-

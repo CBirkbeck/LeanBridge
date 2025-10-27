@@ -3,5 +3,3 @@
 \uses{nf,nf.abelian}
 If a \hyperref[nf]{number field} $K$ is \hyperref[nf.abelian]{abelian}, then $K\subseteq \Q(\zeta_n)$ for some positive integer $n$.  The minimum such $n$ is the \textbf{conductor} of $K$.
 \end{definition}
-
-

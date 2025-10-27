@@ -6,5 +6,3 @@ The \textbf{Hasse-Weil conjecture} predicts that the \hyperref[lfunction]{L-func
 The Hasse-Weil conjecture is implied by modularity and is thus known to hold, for example, when $K=\Q$ and $A$ is an \hyperref[ec]{elliptic curve} or an abelian variety of \hyperref[g2c.gl2type]{$\GL_2$-type}.
 
 \end{definition}
-
-

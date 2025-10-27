@@ -14,5 +14,3 @@ The \textbf{local invariants} of a \hyperref[g2c.g2curve]{genus 2 curve} over $\
 For primes of \hyperref[g2c.good_reduction]{good reduction} the valuations of both discriminant and conductor are $0$, and the Tamagawa number is $1$.
 
 \end{definition}
-
-

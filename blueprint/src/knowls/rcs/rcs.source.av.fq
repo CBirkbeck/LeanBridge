@@ -1,17 +1,16 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.av.fq}{Source of isogeny classes of abelian varieties over finite fields}}
 \begin{definition}\label{rcs.source.av.fq}
 \uses{av.fq.honda_tate,av.fq.weil_polynomial}
-\leanok
 The computation is based of the \hyperref[av.fq.honda_tate]{Honda-Tate theorem} which states that isogeny classes of abelian varieties over finite fields are completely determined by the characteristic polynomial of their Frobenius automorphism acting on the first $\ell$-adic cohomology group. For a given dimension $g$ and base field of size $q$, a complete list of all \hyperref[av.fq.weil_polynomial]{Weil polynomials} that do occur can be enumerated using a technique developed by Kedlaya \cite{mr:2459990,arxiv:math/0608104}. In 2016, Dupuy, Kedlaya, Roe, and Vincent improved upon Kedlaya's original code to generate these tables and the data they contain \cite{arXiv:2003.05380}.
 
-See also the article of Kedlaya and Sutherland \cite{mr:3540942,arxiv:1511.06945}, where these techniques are used to compute Weil polynomials for K3 surfaces. 
+See also the article of Kedlaya and Sutherland \cite{mr:3540942,arxiv:1511.06945}, where these techniques are used to compute Weil polynomials for K3 surfaces.
 
 The determination of which isogeny classes contain Jacobians includes the constraint that if $X$ is a curve over $\F_q$, then the number of degree-$n$ places of $X$ is nonnegative for all positive integers $n$; together with additional constraints from: Howe and Lauter, New methods for bounding the number of points on curves over finite fields \cite{MR2987661, arXiv:1202.6308, doi:10.4171/119-1/12}. This incorporates prior results from the following papers.
 
 \begin{itemize}
 \item  Howe and Lauter, Improved upper bounds for the number of points on curves over finite fields \cite{MR2038778}
 \item  Howe, Maisner, Nart, and Ritzenthaler, Principally polarizable isogeny classes of abelian surfaces over finite fields \cite{MR2367179, doi:10.4310/MRL.2008.v15.n1.a11}
-\item  Howe, Nart, and Ritzenthaler, Jacobians in isogeny classes of abelian surfaces over finite fields \cite{MR2514865} 
+\item  Howe, Nart, and Ritzenthaler, Jacobians in isogeny classes of abelian surfaces over finite fields \cite{MR2514865}
 \item  Korchmáros and Torres, On the genus of a maximal curve \cite{MR1923698, doi:10.1023/A:1017553432375}
 \item  Serre, Rational points on curves over finite fields, [URL](http://www.math.rug.nl/~top/Serrelectures.pdf) (see also [manYPoints database](https://manypoints.org))
 \item  Stohr and Voloch, Weierstrass points and curves over finite field \cite{MR:0812443,doi:10.1112/plms/s3-52.1.1}
@@ -26,10 +25,8 @@ The list of curves with Jacobian in a given isogeny class were computed by:
 \item  Everett Howe (hyperelliptics in dimensions $3$, $4$, and $5$ over $\F_q$ with $q$ odd; \cite{arXiv:2401.15255});
 \item  Xavier Xarles (dimension $4$ over $\F_2$; \cite{arXiv:2007.07822});
 \item  Kiran Kedlaya (hyperelliptics in dimensions $3$ and $4$ over $\F_q$ with $q>2$ even, using the method of Xarles);
-\item  Jonas Bergström, Carel Faber, and Sam Payne (dimension $4$ over $\F_3$; \cite{arXiv:2206.07759}); 
+\item  Jonas Bergström, Carel Faber, and Sam Payne (dimension $4$ over $\F_3$; \cite{arXiv:2206.07759});
 \item  Dusan Dragutinović (dimension $5$ over $\F_2$; \cite{arXiv:2202.07809});
 \item  Steve Huang, Kiran Kedlaya and Jun Bo Lau (dimension $6$ over $\F_2$; \cite{arXiv:2402.00716}).
 \end{itemize}
 \end{definition}
-
-

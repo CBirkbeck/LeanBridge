@@ -3,5 +3,3 @@
 \uses{ag.mordell_weil,g2c.mw_generator}
 The \textbf{order} of a \hyperref[g2c.mw_generator]{generator} of the \hyperref[ag.mordell_weil]{Mordell-Weil group} is the cardinality of the cyclic subgroup it generates.
 \end{definition}
-
-

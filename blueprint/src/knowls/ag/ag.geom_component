@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.geom_component}{Geometric component}}
 \begin{definition}\label{ag.geom_component}
 \uses{group.galois.absolute}
-A \textbf{geometric component} of a smooth scheme $X$ of finite type over a field $k$ is an irreducible component of the base change $X_{\overline{k}}$.  (Because $X_{\overline{k}}$ is smooth, irreducible components are the same as connected components.)  
+A \textbf{geometric component} of a smooth scheme $X$ of finite type over a field $k$ is an irreducible component of the base change $X_{\bar{K}}$.  (Because $X_{\bar{K}}$ is smooth, irreducible components are the same as connected components.)
 
-The set $\pi_0(X_{\overline{k}})$ of geometric components is a finite set with an action of the \hyperref[group.galois.absolute]{absolute Galois group} $\Gal_k$.
+The set $\pi_0(X_{\bar{K}})$ of geometric components is a finite set with an action of the \hyperref[group.galois.absolute]{absolute Galois group} $\Gal_k$.
 \end{definition}
-
-

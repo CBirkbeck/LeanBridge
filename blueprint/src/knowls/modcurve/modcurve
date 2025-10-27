@@ -12,5 +12,3 @@ Like $X_{\text{full}}(N)$, the curve $X_H$ is \hyperref[ag.curve.smooth]{smooth}
 The curve $X_H$ can alternatively be constructed as the coarse moduli space of the stack $\mathcal X_H$ over $\Q$ defined in Deligne-Rapoport \cite{mr:0337993,doi:10.1007/978-3-540-37855-6_4}.  Both constructions of $X_H$ can be carried out over any field of characteristic not dividing $N$, or even over $\Z[1/N]$.
 
 \end{definition}
-
-

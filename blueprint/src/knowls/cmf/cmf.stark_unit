@@ -7,7 +7,5 @@ Stark's conjecture applied to the associated \hyperref[cmf.galois_representation
 e^{m \sum_{\alpha \in \Delta} \alpha(b)L'(0, f^\alpha)} = \varepsilon
 \]
 
-In the case where the coefficients of $\text{Tr}(bf)$ are in $\mathbb{Z}$, Chinburg further conjectured that there exists a Stark unit for $m=1$ \cite{doi:10.1016/0001-8708(83)90006-3}. Notice that if we choose $b = 1$, the preceding condition always holds. Here, we compute the Stark unit of the newform for $b=1$ and $m=1$. 
+In the case where the coefficients of $\text{Tr}(bf)$ are in $\mathbb{Z}$, Chinburg further conjectured that there exists a Stark unit for $m=1$ \cite{doi:10.1016/0001-8708(83)90006-3}. Notice that if we choose $b = 1$, the preceding condition always holds. Here, we compute the Stark unit of the newform for $b=1$ and $m=1$.
 \end{definition}
-
-

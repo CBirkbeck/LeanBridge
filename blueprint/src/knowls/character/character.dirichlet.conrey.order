@@ -1,9 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/character.dirichlet.conrey.order}{Order of a Dirichlet character from its label}}
 \begin{definition}\label{character.dirichlet.conrey.order}
 \uses{character.dirichlet,character.dirichlet.conrey,character.dirichlet.order}
-\leanok
 Since $\chi_q(m^r,n)=\chi_q(m,n)^r,$ a \hyperref[character.dirichlet]{Dirichlet character} of \hyperref[character.dirichlet.conrey]{Conrey index} $m$
 has \hyperref[character.dirichlet.order]{order} $r$, where $r$ is the multiplicative order of $m$ in $(\Z/q\Z)^\times$.
 \end{definition}
-
-

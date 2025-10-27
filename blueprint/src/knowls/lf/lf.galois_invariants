@@ -18,11 +18,11 @@ Let $G^i$ be the $i$th higher ramification group in upper numbering from Serre's
 \end{itemize}
 
 \begin{itemize}
-\item  the group $G^{(1)}/G^{(1+)}$ is cyclic of order prime to $p$.  Its order is the \textbf{tame degree} for $K^{gal}/\Q_p$ as it is the degree of the largest tamely totally ramified subextension.  
+\item  the group $G^{(1)}/G^{(1+)}$ is cyclic of order prime to $p$.  Its order is the \textbf{tame degree} for $K^{gal}/\Q_p$ as it is the degree of the largest tamely totally ramified subextension.
 \end{itemize}
 
 \begin{itemize}
-\item  The group $G^{(1+)}$ is a $p$-group.  Values of $s>1$ giving jumps in the filtration $G^{(s)}\neq G^{(s+)}$ are \textbf{wild Artin slopes}.  We repeat a slope $m$ times if $p^m =[G^{(s)} : G^{(s+)}]$, and then list the wild slopes in non-decreasing order.  
+\item  The group $G^{(1+)}$ is a $p$-group.  Values of $s>1$ giving jumps in the filtration $G^{(s)}\neq G^{(s+)}$ are \textbf{wild Artin slopes}.  We repeat a slope $m$ times if $p^m =[G^{(s)} : G^{(s+)}]$, and then list the wild slopes in non-decreasing order.
 \end{itemize}
 
 \begin{itemize}
@@ -37,5 +37,3 @@ Let $G^i$ be the $i$th higher ramification group in upper numbering from Serre's
 \item  For each jump in the filtration $G^{i}\neq G^{i+}$ gives a \textbf{Swan slope} of $i$.  The Swan slopes are one less than the Artin slopes.
 \end{itemize}
 \end{definition}
-
-

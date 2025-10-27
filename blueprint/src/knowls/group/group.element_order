@@ -3,5 +3,3 @@
 \uses{alg.binary_operation.identity,group,group.cyclic,group.subgroup}
 The \textbf{order} of an element $g$ in a multiplicative \hyperref[group]{group} $G$ is the least positive integer $n$ such that $g^n$ is the \hyperref[alg.binary_operation.identity]{identity element} of $G$, if such an integer exist, and is $\infty$ otherwise.  In an additive group, the order of $g$ is the least positive integer $n$ such that $ng=0$.  In both cases, the order of $g$ is also equal to the cardinality of the \hyperref[group.cyclic]{cyclic} \hyperref[group.subgroup]{subgroup} it generates.
 \end{definition}
-
-

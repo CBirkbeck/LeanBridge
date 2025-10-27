@@ -3,5 +3,3 @@
 \uses{}
 Let $R$ be an order in an étale $\mathbf{Q}$-algebra. Two fractional $R$-ideals $I$ and $J$ are \textbf{weakly equivalent} if $I_{\mathfrak{p}}\simeq J_{\mathfrak{p}}$ as $R_{\mathfrak{p}}$-modules for every maximal ideal $\mathfrak{p}$ of $R$. If $I$ and $J$ are weakly equivalent then $(I:I)=(J:J)$. Such ideals are also said to be locally isomorphic or in the same genus.
 \end{definition}
-
-

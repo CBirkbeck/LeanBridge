@@ -1,23 +1,20 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.history.ramanujan_tau}{Ramanujan tau L-function}}
 \begin{definition}\label{lfunction.history.ramanujan_tau}
 \uses{mf.1.12.1.a.top}
-\leanok
-In 1916 Ramanujan \cite{MR2280861} made the startling observation that the coefficients of the \hyperref[mf.1.12.1.a.top]{$\Delta$ function} 
+In 1916 Ramanujan \cite{MR2280861} made the startling observation that the coefficients of the \hyperref[mf.1.12.1.a.top]{$\Delta$ function}
 are multiplicative! Ramanujan defined $\tau(n)$ by
 $$q\prod_{n=1}^\infty (1-q^n)^{24}=\sum_{n=1}^\infty \tau(n)q^n$$
-and conjectured that $\tau(mn)=\tau(m)\tau(n)$ whenever $m$ and $n$ are relatively prime. 
+and conjectured that $\tau(mn)=\tau(m)\tau(n)$ whenever $m$ and $n$ are relatively prime.
 Moreover that $$\sum_{r=0}^\infty \tau(p^r)X^r = (1-\tau(p)X +p^{11}X^2)^{-1}$$
-and that $|\tau(p)|< 2p^{11/2}$. The first two of these astounding conjectures were  verified 
+and that $|\tau(p)|< 2p^{11/2}$. The first two of these astounding conjectures were  verified
 by Mordell in 1917 (see
 ``On Mr. Ramanujan's Empirical Expansions
 of Modular Functions.''
 Proc. Cambridge Phil. Soc.19, (1917))
  and the last by Deligne in 1974 in work for which he won a Fields
-Medal. It was already known   that 
+Medal. It was already known   that
 $$\Delta(z)=\sum_{n=1}^\infty \tau(n)e(nz)$$
-is a modular form of weight 12. Thus $L(s)=\sum_{n=1}^\infty \tau(n)n^{-s}$ 
-has  a functional equation and (by Mordell) 
-an Euler product.  Ramanujan's discovery was the ushering in of a new age of arithmetic L-functions. 
+is a modular form of weight 12. Thus $L(s)=\sum_{n=1}^\infty \tau(n)n^{-s}$
+has  a functional equation and (by Mordell)
+an Euler product.  Ramanujan's discovery was the ushering in of a new age of arithmetic L-functions.
 \end{definition}
-
-

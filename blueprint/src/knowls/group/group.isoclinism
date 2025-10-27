@@ -10,5 +10,3 @@ $$\sigma \circ \omega_{G_1} = \omega_{G_2} \circ (\phi \times \phi).$$
 
 This is an equivalence relation on groups, and each equivalence class contains at least one \hyperref[group.stem_group]{stem group}.  Note that order is not an isoclinism invariant, but \hyperref[group.nilpotent]{nilpotency class} and \hyperref[group.derived_series]{solvable length} are (except for the trivial group).
 \end{definition}
-
-

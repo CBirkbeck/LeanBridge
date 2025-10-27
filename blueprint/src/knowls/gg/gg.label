@@ -1,8 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/gg.label}{Galois group label}}
 \begin{definition}\label{gg.label}
 \uses{gg.degree,gg.tnumber}
-\leanok
 Labels for Galois groups are of the form $\tt{nTt}$ where $n$ is the \hyperref[gg.degree]{degree} and $t$ is the \hyperref[gg.tnumber]{$T$-number}.
 \end{definition}
-
-

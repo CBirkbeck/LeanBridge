@@ -4,5 +4,3 @@
 A \hyperref[nf]{number field} $K$ is \textbf{totally imaginary} (or \textbf{totally complex}) if it cannot be embedded in the real numbers $\R$; equivalently, $\R$ does not contain the image of any of the homomorphisms from $K$ to $\C$.
 
 \end{definition}
-
-

@@ -1,12 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.sextic_twin}{Twin sextic algebra}}
 \begin{definition}\label{nf.sextic_twin}
 \uses{nf.separable_algebra}
-\leanok
-If $A$ is a \hyperref[nf.separable_algebra]{separable algebra} of degree 6 over a field $F$ (so $\dim_F A=6$), then it has a \textit{twin algebra} $B$ that is also a separable algebra of degree 6 over $F$; the $F$-algebras $A$ and $B$ are related by the non-trivial outer automorphism of $S_6$. 
+If $A$ is a \hyperref[nf.separable_algebra]{separable algebra} of degree 6 over a field $F$ (so $\dim_F A=6$), then it has a \textit{twin algebra} $B$ that is also a separable algebra of degree 6 over $F$; the $F$-algebras $A$ and $B$ are related by the non-trivial outer automorphism of $S_6$.
 
 The symmetric group $S_n$ has a non-trivial outer automorphism if and only if $n=6$, in which case it is unique up to inner automorphisms.  This automorphism interchanges $S_5\leq S_6$ with $\PGL_2(5)\leq S_6$.  In terms of Galois theory, this inclusion gives an absolute resolvent of degree $[G:\PGL_2(5)]=6$.
 
-A common situation is when $A$ is a field but $B$ is not.  Then the nature of the factorization of $B$ assists in the study of $A$.  
+A common situation is when $A$ is a field but $B$ is not.  Then the nature of the factorization of $B$ assists in the study of $A$.
 \end{definition}
-
-

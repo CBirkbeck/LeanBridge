@@ -5,5 +5,3 @@ If $G$ is a \hyperref[group]{group} and $x\in G$, the \textbf{conjugacy class} o
 
 Since conjugation by fixed $g\in G$ is an \hyperref[group.automorphism]{automorphism} of $G$, all conjugate elements have the same \hyperref[group.element_order]{order} in the group.
 \end{definition}
-
-

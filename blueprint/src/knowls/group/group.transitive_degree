@@ -7,5 +7,3 @@ Equivalently, it is the smallest positive integer $n$ such that $S_n$ has a tran
 
 This can be computed as the minimal \hyperref[group.subgroup.index]{index} of a \hyperref[group.subgroup]{subgroup} with trivial \hyperref[group.core]{core}.
 \end{definition}
-
-

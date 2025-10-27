@@ -11,5 +11,3 @@ The \hyperref[group.sl2z]{modular group} $\SL_2(\Z)$ acts properly discontinuous
 \[ \left( \begin{matrix} a & b \\ c& d \end{matrix} \right) \cdot z = \frac{az+b}{cz+d}, \]
 with the obvious conventions regarding $\infty$.
 \end{definition}
-
-

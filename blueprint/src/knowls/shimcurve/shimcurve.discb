@@ -1,11 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/shimcurve.discb}{Discriminant of a quaternion algebra}}
 \begin{definition}\label{shimcurve.discb}
 \uses{shimcurve.quaternion_algebra}
-Let $B$ be a \hyperref[shimcurve.quaternion_algebra]{quaternion algebra} over $\Q$. We say that $B$ is \textbf{ramified} at a 
-prime $p$ if $B\otimes_{\Q} \Q_p$ is a division algebra over 
+Let $B$ be a \hyperref[shimcurve.quaternion_algebra]{quaternion algebra} over $\Q$. We say that $B$ is \textbf{ramified} at a
+prime $p$ if $B\otimes_{\Q} \Q_p$ is a division algebra over
 $\Q_p$; otherwise, we say that $B$ is \textbf{split} at $p$.
 
 The \textbf{discriminant} $\operatorname{disc}(B)$ of $B$ is the product of primes $p$ at which $B$ is ramified.
 \end{definition}
-
-

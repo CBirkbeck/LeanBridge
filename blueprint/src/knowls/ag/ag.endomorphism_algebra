@@ -3,5 +3,3 @@
 \uses{ag.abelian_variety,ag.endomorphism_ring}
 The \textbf{endomorphism algebra} of an \hyperref[ag.abelian_variety]{abelian variety} $A$ is the $\Q$-algebra $\textrm{End}(A)\otimes\Q$, where $\textrm{End}(A)$ is the \hyperref[ag.endomorphism_ring]{endomorphism ring} of $A$.
 \end{definition}
-
-

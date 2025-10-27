@@ -7,5 +7,3 @@ A \textbf{group} $\langle G, *\rangle$ is a set $G$ with a \hyperref[alg.binary_
 2. $*$ has an \hyperref[alg.binary_operation.identity]{identity element}
 3. every element $g\in G$ has an \hyperref[alg.binary_operation.inverse]{inverse}.
 \end{definition}
-
-

@@ -3,5 +3,3 @@
 \uses{ag.abelian_variety}
 The set of \textbf{rational $k$-points} $A(k)$ of an \hyperref[ag.abelian_variety]{abelian variety} $A$ defined over a field $k$ is an abelian group. If $k\subseteq K$ is a field extension, then we have an inlcusion of abelian groups $A(k)\subseteq A(K)$.
 \end{definition}
-
-

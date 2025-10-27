@@ -6,7 +6,7 @@ Maass forms
 \item -----------------
 \end{itemize}
 A \textbf{Maass form} (of weight 0) on a subgroup \(\Gamma\) of \(\GL_{2}(\R)\)
-is a smooth, square-integrable, automorphic eigenfunction of the \hyperref[mf.maass.mwf.laplacian]{Laplace-Beltrami operator} $\Delta$. In other words, 
+is a smooth, square-integrable, automorphic eigenfunction of the \hyperref[mf.maass.mwf.laplacian]{Laplace-Beltrami operator} $\Delta$. In other words,
 $$f\in C^\infty(\mathcal{H}),\quad f\in L^2(\Gamma\backslash{\mathcal H}),\quad f(\gamma z)=f(z)\ \forall\gamma\in\Gamma,\quad (\Delta+\lambda)f(z)=0 \textrm{ for some } \lambda \in \C.$$
 
 Maass forms of weight $k$
@@ -17,13 +17,13 @@ Maass forms of weight $k$
 A Maass form $f$ of \hyperref[mf.maass.mwf.weight]{weight}  $k$ and \hyperref[mf.multipliersystem]{multiplier system} $v$ on a group $\Gamma$ is a smooth function $f:\mathcal{H} \rightarrow\C$ with the following properties:
 
 1. $f$ transforms according to a unitary weight \( k\) \hyperref[mf.slash_action]{slash-action}:
- $ f|[\gamma,k]( z) = v(\gamma) f(z)$ for all $\gamma \in \Gamma$ where 
+ $ f|[\gamma,k]( z) = v(\gamma) f(z)$ for all $\gamma \in \Gamma$ where
 \( f|[\gamma,k]( z) = \exp(-ik\mathrm{Arg}(c z+d)) f(\gamma z)\) for $\gamma=\begin{pmatrix}a & b \\ c & d \end{pmatrix}$
 
-2. $f$ is an eigenfunction of the corresponding weight $k$ Laplacian 
+2. $f$ is an eigenfunction of the corresponding weight $k$ Laplacian
 \( \Delta_k = y^2\left( \frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}\right) - iky\frac{\partial}{\partial x} \)
 
-If the level is equal to 1, the only possible multiplier systems are given by the Dedekind eta function. A compatible multiplier system for weight $k\in \R$ is given by 
+If the level is equal to 1, the only possible multiplier systems are given by the Dedekind eta function. A compatible multiplier system for weight $k\in \R$ is given by
 
 \[ v(A) = v_{\eta}^{2k}:=\eta(Az)^{2k}/\eta(z)^{2k} \]
 
@@ -43,5 +43,3 @@ This convention is usually used in the context of Harmonic weak Maass forms.
 
 
 \end{definition}
-
-

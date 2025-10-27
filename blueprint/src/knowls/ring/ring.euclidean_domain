@@ -7,5 +7,3 @@ such that for all $a\in R$ and all $b\in R-\{0\}$, there exists $q,r\in R$ such 
 
 Euclidean domains are \hyperref[ring.principal_ideal_domain]{principal ideal domains}, and hence, \hyperref[ring.unique_factorization_domain]{unique factorization domains}.
 \end{definition}
-
-

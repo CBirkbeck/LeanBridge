@@ -1,26 +1,23 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.sp2gr.subgroup.congn}{Congruence subgroup of level $N$ of $\Sp(2g,\Z)$}}
 \begin{definition}\label{group.sp2gr.subgroup.congn}
 \uses{group.sp2gr.gamma0,group.sp2gr.gamma1,group.sp2gr.ppal.congruence}
-\leanok
-A subgroup of $\Sp(2g,\Q)$ 
-is called a congruence subgroup of level $N$ 
+A subgroup of $\Sp(2g,\Q)$
+is called a congruence subgroup of level $N$
 if it contains the \hyperref[group.sp2gr.ppal.congruence]{principal congruence subgroup} $\Gamma(N)$.
 
 Examples of such subgroups are:
 <ul>
 <li>
-the principal congruence subgroup 
-\hyperref[group.sp2gr.ppal.congruence]{$\Gamma(N)$}; 
+the principal congruence subgroup
+\hyperref[group.sp2gr.ppal.congruence]{$\Gamma(N)$};
 </li>
-<li> 
-Hecke (or Siegel parabolic) subgroup 
-\hyperref[group.sp2gr.gamma0]{$\Gamma_0(N)$}; 
+<li>
+Hecke (or Siegel parabolic) subgroup
+\hyperref[group.sp2gr.gamma0]{$\Gamma_0(N)$};
 </li>
-<li> 
-the subgroup 
+<li>
+the subgroup
 \hyperref[group.sp2gr.gamma1]{$\Gamma_1(N)$}.
 </li>
 </ul>
 \end{definition}
-
-

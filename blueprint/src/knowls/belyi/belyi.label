@@ -1,7 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/belyi.label}{Belyi map label}}
 \begin{definition}\label{belyi.label}
 \uses{belyi.degree,belyi.galmap,belyi.group,belyi.ramification_type,gg.conway_name}
-The \textbf{label} of a \hyperref[belyi.galmap]{Belyi map} $\phi$ has the form $d$T$G$-$\lambda_0\_{\lambda_1}\_{\lambda_}\infty$-m encoding the following data.
+The \textbf{label} of a \hyperref[belyi.galmap]{Belyi map} $\phi$ has the form $d$T$G$-$\lambda_0\_\lambda_1\_\lambda_\infty$-m encoding the following data.
 
 \begin{itemize}
 \item  $d$T$G$ is the \hyperref[gg.conway_name]{transitive group label} of the \hyperref[belyi.group]{monodromy group} of $\phi$. Here $d$ is the \hyperref[belyi.degree]{degree} of $\phi$.
@@ -15,5 +15,3 @@ The \textbf{label} of a \hyperref[belyi.galmap]{Belyi map} $\phi$ has the form $
 \item  m is the Galois orbit label, a non-negative integer written in base 26 using the 26 symbols a, b, ..., z.
 \end{itemize}
 \end{definition}
-
-

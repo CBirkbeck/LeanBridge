@@ -7,5 +7,3 @@ For elliptic curves defined over $\Q$, this ring is always isomorphic to \(\Z\) 
 
 This is a special case of the \hyperref[ag.endomorphism_ring]{endomorphism ring} of an \hyperref[ag.abelian_variety]{abelian variety}.
 \end{definition}
-
-

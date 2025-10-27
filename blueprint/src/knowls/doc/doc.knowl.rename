@@ -1,12 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/doc.knowl.rename}{Renaming a knowl}}
 \begin{definition}\label{doc.knowl.rename}
 \uses{}
-\leanok
 There are two stages when you rename a knowl; you must be an LMFDB admin to do so.
 
 As a first step, you add the new name to the rename text field and then save.  This will clone the contents to a knowl with that name.  Once you have changed references in the LMFDB codebase, go back to the edit page for the knowl with the old name and click the "Finish Rename" button.
 
 It is safe to finish the renaming process when there are no code references remaining on web.
 \end{definition}
-
-

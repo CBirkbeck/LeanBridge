@@ -1,8 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/st_group.subsupgroups}{Sato-Tate subgroups and supergroups}}
 \begin{definition}\label{st_group.subsupgroups}
 \uses{st_group.component_group,st_group.definition,st_group.degree,st_group.identity_component,st_group.rational,st_group.subgroups,st_group.supgroups,st_group.weight}
-\leanok
-For a fixed \hyperref[st_group.weight]{weight} $w$ and \hyperref[st_group.degree]{degree} $d$, the set of (conjugacy classes of) \hyperref[st_group.definition]{Sato-Tate groups} $G$ with the same \hyperref[st_group.identity_component]{identity component} $G^0$ form a partially ordered set under inclusion. 
+For a fixed \hyperref[st_group.weight]{weight} $w$ and \hyperref[st_group.degree]{degree} $d$, the set of (conjugacy classes of) \hyperref[st_group.definition]{Sato-Tate groups} $G$ with the same \hyperref[st_group.identity_component]{identity component} $G^0$ form a partially ordered set under inclusion.
  This partially ordered set is finite if we restrict to \hyperref[st_group.rational]{rational} Sato-Tate groups, but it need not contain a unique maximal element.
 
 The set of \hyperref[st_group.subgroups]{maximal subgroups} of a Sato-Tate group is always finite, since \hyperref[st_group.component_group]{component groups} are finite, but the list of \hyperref[st_group.supgroups]{minimal supergroups} is not finite in general.
@@ -11,5 +10,3 @@ For rational Sato-Tate groups the set of minimal supergroups that are also ratio
 
 
 \end{definition}
-
-

@@ -3,5 +3,3 @@
 \uses{gl2.level,gl2.open,modcurve}
 The \textbf{level} of a \hyperref[modcurve]{modular curve} $X_H$ is the \hyperref[gl2.level]{level} of the \hyperref[gl2.open]{open subgroup} $H\leq \GL_2(\widehat{\Z})$.
 \end{definition}
-
-

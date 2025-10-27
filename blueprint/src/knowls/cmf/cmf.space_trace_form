@@ -3,5 +3,3 @@
 \uses{cmf.newform,cmf.newspace}
 The \textbf{trace form} of a \hyperref[cmf.newspace]{newspace} $S_k(N,\chi)$ is the modular form obtained by summing its canonical basis of \hyperref[cmf.newform]{newforms}.
 \end{definition}
-
-

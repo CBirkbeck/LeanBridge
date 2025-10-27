@@ -7,5 +7,3 @@ The automorphism group of a \hyperref[g2c.g2curve]{genus 2 curve} necessarily in
 
 The \hyperref[g2c.geom_aut_grp]{geometric automorphism group} of a curve $X/k$ is the automorphism group of $X_{\bar k}$.
 \end{definition}
-
-

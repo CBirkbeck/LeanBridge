@@ -5,5 +5,3 @@ The \textbf{relative discriminant} norm is $N_{K/\mathbb{Q}}(F-V)$, where $F$ is
 $$|N_{K/\mathbb{Q}}(F-V)|=|\Delta_R|/\Delta_{R^+}^2,$$
 where $R=\mathbb{Q}[F,V]$ is the Frobenius order and $R^+=\mathbb{Z}[F+V]$ is the real order.
 \end{definition}
-
-

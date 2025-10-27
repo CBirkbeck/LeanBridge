@@ -1,8 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/doc.knowl.description}{Description field in knowls}}
 \begin{definition}\label{doc.knowl.description}
 \uses{doc.knowl.context_free,doc.knowl.naming_conventions,doc.knowl.naming_suggestions}
-\leanok
 The description field in a Knowl serves as the most accurate description of the Knowl \hyperref[doc.knowl.context_free]{outside of any context}. It is a human-readable version of the Knowl, compliant with the naming \hyperref[doc.knowl.naming_conventions]{conventions} and \hyperref[doc.knowl.naming_suggestions]{suggestions}.
 \end{definition}
-
-

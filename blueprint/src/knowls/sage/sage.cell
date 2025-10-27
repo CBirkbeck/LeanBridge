@@ -3,5 +3,3 @@
 \uses{sage}
 The \textbf{Sage Cell Server} is an open-source, scalable web interface to \hyperref[sage]{SageMath}. It can be used to embed Sage computations into any webpage. Feel free to modify the Sage commands in the white text entry area and use the Sage Cell Server for short computations.
 \end{definition}
-
-

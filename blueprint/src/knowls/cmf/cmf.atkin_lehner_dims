@@ -1,8 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.atkin_lehner_dims}{Dimensions of Atkin-Lehner subspaces}}
 \begin{definition}\label{cmf.atkin_lehner_dims}
 \uses{cmf.atkin-lehner,cmf.level,cmf.newform}
-\leanok
 For each prime dividing the \hyperref[cmf.level]{level} \(N\), the \hyperref[cmf.atkin-lehner]{Atkin-Lehner operator} scales each \hyperref[cmf.newform]{newform} by either \(1\) or \(-1\).  Let \(j\) be the number of primes dividing \(N\).  Ordering the \(2^j\) vectors of \(\pm 1\) lexicographically (with \(1\) before \(-1\)), we show the dimensions of the subspaces of \(S_k^{\mathrm{new}}(\Gamma_0(N),\chi)\) with prescribed Atkin-Lehner eigenvalues.
 \end{definition}
-
-

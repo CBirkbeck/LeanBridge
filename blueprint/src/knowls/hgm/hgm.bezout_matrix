@@ -7,5 +7,3 @@ where $\Phi_n(x)$ is the $n$th cyclotomic polynomial.
 
 Given a hypergeometric motive with \hyperref[hgm.defining_parameters]{defining parameters} $A$ and $B$, its \textbf{Bézout matrix} is the \hyperref[alg.bezout_matrix]{Bézout matrix} of $\Phi_A(x)$ and $\Phi_B(x)$ of degree $\max(\deg \Phi_A(x), \deg \Phi_B(x))$.
 \end{definition}
-
-

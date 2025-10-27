@@ -5,5 +5,3 @@ The \textbf{newform subspace} of a \hyperref[cmf.newform]{newform} $f$ in $S_k^{
 
 Every \hyperref[cmf.newspace]{newspace} has a canonical decomposition into newform subspaces.
 \end{definition}
-
-

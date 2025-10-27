@@ -3,5 +3,3 @@
 \uses{group.center,group.quotient}
 If $H \subset G$ is a subgroup, the \textbf{projective image} of $H$ is the image of $H$ in the \hyperref[group.center]{central} \hyperref[group.quotient]{quotient} $G / Z(G)$.
 \end{definition}
-
-

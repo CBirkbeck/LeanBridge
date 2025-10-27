@@ -2,6 +2,6 @@
 \begin{definition}\label{mf.maass.picard.eigenvalue}
 \uses{mf.bianchi.hyperbolic3space,mf.maass.picard,mf.maass.picard.laplacian}
 Each \hyperref[mf.maass.picard]{Maass form} is associated to an \textbf{eigenvalue} via the eigenvalue equation $(\Delta+\lambda)f(z)=0$ where $\Delta$ is the \hyperref[mf.maass.picard.laplacian]{Laplacian}.  It is convenient to introduce the \textbf{spectral parameter} $r$ which is also called the eigenvalue.  Only if one speaks about the \textbf{true eigenvalue} one refers to $\lambda$, since by convention \textbf{eigenvalue} refers to $r$.  In \hyperref[mf.bianchi.hyperbolic3space]{hyperbolic 3-space}, the eigenvalue is connected to the true eigenvalue via $\lambda=r^2+1$.
+
+Keywords: #Maass #Picard
 \end{definition}
-
-

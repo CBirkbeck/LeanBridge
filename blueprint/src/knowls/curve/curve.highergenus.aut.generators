@@ -7,5 +7,3 @@ Let $Y$ be a compact \hyperref[ag.riemann_surface]{Riemann surface} of genus $0$
 make a counterclockwise loop about $b$ containing no other elements of
 $B$.  This construction associates a generator to each element of $B$ (there will typically be relations among these generators).
 \end{definition}
-
-

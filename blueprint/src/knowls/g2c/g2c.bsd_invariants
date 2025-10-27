@@ -20,5 +20,3 @@ The weak form of the Birch and Swinnerton-Dyer conjecture predicts that the firs
 \]
 No effective method to compute $\Sha(A)$ is currently known (indeed, it is not even known that $\Sha(A)$ is finitely generated, although the BSD conjecture requires this).  However, one can compute (approximations of) the the five remaining quantities and use this to compute the \hyperref[g2c.analytic_sha]{analytic order of Sha}, and under the assumption that  $\Sha(A)$ is finite, one can determine whether its \hyperref[g2c.has_square_sha]{order is a square} or not.  One can also compute the \hyperref[g2c.two_selmer_rank]{rank of the 2-Selmer group} of $A$, which constrains the 2-part of $\Sha(A)$.
 \end{definition}
-
-

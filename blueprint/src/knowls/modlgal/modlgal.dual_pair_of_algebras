@@ -1,16 +1,13 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modlgal.dual_pair_of_algebras}{Dual pair of algebras}}
 \begin{definition}\label{modlgal.dual_pair_of_algebras}
 \uses{}
-\leanok
 Let $R$ be a ring. A dual pair of algebras over $R$ is a triple $(A, B, \phi)$, where $A$ and $B$ are finite locally free $R$-algebras and where $\phi: A \times B \to R$ is a perfect $R$-bilinear map such that the following identities hold for all $a, a' \in A$ and $b, b' \in B$:
 
 1. $\phi(1_A,1_B)=1$;
-2. $\phi(aa',1_B) = \phi(a,1_B)\phi(a',1_B)$; 
+2. $\phi(aa',1_B) = \phi(a,1_B)\phi(a',1_B)$;
 3. $\phi(1_A, bb') = \phi(1_A, b)\phi(1_A, b')$;
 4. $Φ^{(2)}(\mu_1^\phi(a)\mu_1^\phi(a'), b \otimes b') = \phi(aa', bb')= Φ^{( 2 )}( a \otimes a' , \mu_2^\phi( b )\mu_1^\phi( b') )$; here $Φ^{( 2 )} : (A \otimes_R A ) \times ( B \otimes_R B ) \to R$ is the $R$-bilinear map sending $(a \otimes a', b \otimes b')$ to $\phi(a, b)\phi(a', b')$, the map $\mu_1^\phi: A \to A \otimes_R A$ is obtained by taking the $R$-linear dual of the multiplication map $B \otimes_R B \to B$ and applying the isomorphism $\Hom_{R\text{-mod}}(B,R)\cong A$ of $R$-modules given by $\phi$, and similarly for $\mu_2^\phi: B \to B \otimes_R B$.
 
 Dual pairs of algebras and group schemes are related via an (anti)-equivalence of categories. Therefore, all information about a group scheme is encoded in the corresponding dual pair of algebras: see the article \cite{arxiv:1709.09847} for further details, as well as the associated [SageMath package](https://dual-pairs.readthedocs.io/en/latest/).
 
 \end{definition}
-
-

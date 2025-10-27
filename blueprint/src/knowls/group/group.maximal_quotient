@@ -3,5 +3,3 @@
 \uses{group,group.minimal_normal,group.quotient}
 A \textbf{maximal quotient} $M = G/K$ of a \hyperref[group]{group} $G$ is a \hyperref[group.quotient]{quotient} of $G$ with the property that if $H \le K$ is normal in $G$ then either $H=K$ or $H=1$.  Equivalently, $K$ is a \hyperref[group.minimal_normal]{minimal normal subgroup} of $G$.
 \end{definition}
-
-

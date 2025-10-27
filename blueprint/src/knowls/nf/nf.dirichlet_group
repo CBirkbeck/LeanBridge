@@ -5,5 +5,3 @@ If $K$ is an \hyperref[nf.abelian]{abelian number field}, then $K\subseteq \Q(\z
 
 The Galois group $\Gal(\Q(\zeta_n)/\Q)$ is canonically isomorphic to $\Z_n^\times$.  The \hyperref[character.dirichlet]{Dirichlet characters} modulo $n$ form the dual group of homomorphisms $\chi:\Z_n^\times\to\C^\times$.  Since $\Gal(K/\Q)$ is a quotient group of $\Gal(\Q(\zeta_n)/\Q)$, its dual group is a subgroup of the group of Dirichlet characters modulo $n$, called the \textbf{Dirichlet character group} of $K$.
 \end{definition}
-
-

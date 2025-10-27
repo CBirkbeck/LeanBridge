@@ -1,7 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/character.dirichlet.conrey.conductor}{Conductor of a Dirichlet character from its Conrey label}}
 \begin{definition}\label{character.dirichlet.conrey.conductor}
 \uses{character.dirichlet,character.dirichlet.conductor,character.dirichlet.induce}
-\leanok
 Let $$\chi_q(n,\cdot)=\prod_{p|q}\chi_{p^e}(n,\cdot)$$ be the unique factorization of the \hyperref[character.dirichlet]{Dirichlet character} $\chi_q(n,\cdot)$ into characters of prime power modulus $p^e$ under the \hyperref[character.dirichlet.conrey]{Conrey labeling system}.  The \hyperref[character.dirichlet.conductor]{conductor} of $\chi_q(n,\cdot)$ is the product of the conductors of the $\chi_{p^e}(n,\cdot)$.
 
 For odd prime $p$ and $f\leq e$, the isomorphism between $(\Z/p^f\Z)^\times$
@@ -23,5 +22,3 @@ For $p=2$ the conductor of $\chi_{p^e}(n,\cdot)$ is
 \item  $2^{f+2}$ if $e\geq3$ and $\varepsilon n$ has order $2^f$ modulo $2^e$, where $\varepsilon\in\{-1,1\}$ satisfies $n\equiv \epsilon\bmod 4$.
 \end{itemize}
 \end{definition}
-
-

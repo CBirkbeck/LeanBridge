@@ -1,13 +1,13 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.geom_end_alg}{Geometric endomorphism algebra}}
 \begin{definition}\label{g2c.geom_end_alg}
 \uses{ag.abelian_surface,ag.abelian_variety,ag.geom_endomorphism_algebra,ag.geom_simple,av.isogeny,ec,ec.complex_multiplication,nf.cm_field,ring.field}
-The \textbf{geometric endomorphism algebra} of an \hyperref[ag.abelian_surface]{abelian surface} $A$ over a \hyperref[ring.field]{field} $K$ is the $\Q$-algebra $\End(A_{\overline{K}}) \otimes \Q$, the endomorphism algebra of the base change $A_{\overline{K}}$ of $A$ to an algebraic closure $\overline{K}$ of $K$.  This is a special case of the \hyperref[ag.geom_endomorphism_algebra]{geometric endomorphism algebra} of an \hyperref[ag.abelian_variety]{abelian variety}.
+The \textbf{geometric endomorphism algebra} of an \hyperref[ag.abelian_surface]{abelian surface} $A$ over a \hyperref[ring.field]{field} $K$ is the $\Q$-algebra $\End(A_{\bar{K}}) \otimes \Q$, the endomorphism algebra of the base change $A_{\bar{K}}$ of $A$ to an algebraic closure $\bar{K}$ of $K$.  This is a special case of the \hyperref[ag.geom_endomorphism_algebra]{geometric endomorphism algebra} of an \hyperref[ag.abelian_variety]{abelian variety}.
 
-When $A$ is an abelian surface over a number field $K$, there are nine possibilities for $\End(A_{\overline{K}})\otimes\Q$:
+When $A$ is an abelian surface over a number field $K$, there are nine possibilities for $\End(A_{\overline K})\otimes\Q$:
 
 1. $\Q$;
 2. a real quadratic field (in which case $A$ has \textbf{real multiplication}, denoted RM);
-3. a quartic \hyperref[nf.cm_field]{CM field} (in which case $A$ has \textbf{complex multiplication}, denoted CM); 
+3. a quartic \hyperref[nf.cm_field]{CM field} (in which case $A$ has \textbf{complex multiplication}, denoted CM);
 4. a non-split quaternion algebra over $\Q$ (in which case $A$ has \textbf{quaternionic multiplication}, denoted QM);
 5. $\Q\times \Q$;
 6. $F\times \Q$, where $F$ is a quadratic CM field (denoted $\mathrm{CM} \times \Q$);
@@ -15,8 +15,6 @@ When $A$ is an abelian surface over a number field $K$, there are nine possibili
 8. $\mathrm{M}_2(\Q)$;
 9. $\mathrm{M}_2(F)$, where $F$ is a quadratic CM field (denoted $\mathrm{M}_2(\mathrm{CM})$).
 
-The first four cases occur when $A$ is \hyperref[ag.geom_simple]{geometrically simple}, while the last five cases occur when $A_{\overline{K}}$ is \hyperref[av.isogeny]{isogenous} to a product of \hyperref[ec]{elliptic curves} $E_1\times E_2$ over $\overline{K}$. Which of the last five cases occurs depends on whether $E_1$ and/or $E_2$ have \hyperref[ec.complex_multiplication]{complex multiplication}, and whether $E_1$ and $E_2$ are isogenous or not.
+The first four cases occur when $A$ is \hyperref[ag.geom_simple]{geometrically simple}, while the last five cases occur when $A_{\overline K}$ is \hyperref[av.isogeny]{isogenous} to a product of \hyperref[ec]{elliptic curves} $E_1\times E_2$ over $\overline K$. Which of the last five cases occurs depends on whether $E_1$ and/or $E_2$ have \hyperref[ec.complex_multiplication]{complex multiplication}, and whether $E_1$ and $E_2$ are isogenous or not.
 
 \end{definition}
-
-

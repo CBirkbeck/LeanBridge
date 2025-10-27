@@ -3,5 +3,3 @@
 \uses{ring.field}
 Let $A$ be a commutative ring.  An \textbf{$A$-field} is an $A$-algebra that is a \hyperref[ring.field]{field}.
 \end{definition}
-
-

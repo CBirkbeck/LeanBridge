@@ -7,5 +7,3 @@ where $Z_0(G)=\langle e\rangle$ and $Z_i(G)/Z_{i-1}(G)$ is the \hyperref[group.c
 
 Each of the subgroups $Z_i(G)$ is characteristic.  The group is \hyperref[group.nilpotent]{nilpotent} if and only if $Z_i(G)=G$ for some $i$.
 \end{definition}
-
-

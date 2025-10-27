@@ -6,5 +6,3 @@ In each \hyperref[ec.isogeny]{isogeny class} of \hyperref[ec]{elliptic curves} d
 The \textbf{Faltings ratio} of each curve $E$ is the \hyperref[group.subgroup.index]{index} of the N\'e;ron lattice of $E_{\text{min}}$ in that of $E$.
 
 \end{definition}
-
-

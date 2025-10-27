@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.artin_image}{Artin image}}
 \begin{definition}\label{cmf.artin_image}
 \uses{cmf.artin_field,cmf.galois_representation,cmf.newform,cmf.weight}
-The \textbf{Artin image} of a \hyperref[cmf.weight]{weight} one \hyperref[cmf.newform]{newform} is the image of its associated \hyperref[cmf.galois_representation]{Galois representation} $\rho\colon \Gal(\overline{\Q}/\Q)\to \GL_2(\C)$.
+The \textbf{Artin image} of a \hyperref[cmf.weight]{weight} one \hyperref[cmf.newform]{newform} is the image of its associated \hyperref[cmf.galois_representation]{Galois representation} $\rho : \mathrm{Gal}(\bar{\Q}/\Q)\to \GL_2(\C)$.
 
 The Artin image is a finite subgroup of $\GL_2(\C)$ whose cardinality is equal to the degree of the \hyperref[cmf.artin_field]{Artin field}.
 \end{definition}
-
-

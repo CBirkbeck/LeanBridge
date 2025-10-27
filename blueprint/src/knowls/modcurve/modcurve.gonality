@@ -3,5 +3,3 @@
 \uses{ag.geom_component,ag.gonality,modcurve,modcurve.canonical_field}
 The \textbf{$K$-gonality} $\gamma$ of a \hyperref[modcurve]{modular curve} $X_H$ is the \hyperref[ag.gonality]{gonality} of any of its \hyperref[ag.geom_component]{geometric components} over its \hyperref[modcurve.canonical_field]{canonical field of definition} $K$.  (The geometric gonality of that component might be smaller than the $K$-gonality.)
 \end{definition}
-
-

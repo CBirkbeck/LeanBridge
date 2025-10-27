@@ -3,29 +3,27 @@
 \uses{av.tate_module,group.galois.absolute}
 If $A$ is an abelian variety defined over a field $K$ and $m$ is a positive integer, then the \textbf{mod-$m$ Galois representation} attached to $A$ is the continuous homomorphism
 \[
-    \overline{\rho}_{A,m}: \Gal(\overline{K}/K) \to \Aut(A[m])
+    \overline\rho_{A,m}: \Gal(\bar{K}/K) \to \Aut(A[m])
 \]
 describing the action of the \hyperref[group.galois.absolute]{absolute Galois group} of $K$ on the $m$-torsion subgroup $A[m]$.
 
 When the characteristic of $K$ does not divide $m > 1$, we may identify the finite abelian group $A[m]$ with $(\Z/m\Z)^{2g}$. Since the Weil pairing is a non-degenerate, alternating, bilinear pairing $A[m] \times A[m] \to \mu_m$ equivariant with respect to the natural Galois action, we may view the representation as a map
 \[
-    \overline{\rho}_{A,m}: \Gal(\overline{K}/K) \to \GSp_{2g}(\Z/m\Z)
+    \overline\rho_{A,m}: \Gal(\bar{K}/K) \to \GSp_{2g}(\Z/m\Z)
 \]
-defined up to conjugation. In particular, when $m=\ell$ is prime different from the characteristic of $K$, we have the \textbf{mod-$\ell$ Galois representation}
+defined up to conjugation. In particular, when $m=\ell$ is prime different from the characteristic of $K$, we have the mod-$\ell$ Galois representation
 \[
-    \overline{\rho}_{A,\ell}: \Gal(\overline{K}/K) \to \GSp_{2g}(\Z/\ell\Z).
+    \overline\rho_{A,\ell}: \Gal(\bar{K}/K) \to \GSp_{2g}(\Z/\ell\Z).
 \]
 Taking the inverse limit over prime powers $m=\ell^n$ yields the \textbf{$\ell$-adic Galois representation} attached to $A$,
-\[ 
-\rho_{A,\ell}: \Gal(\overline{K}/K) \to \Aut(T_{\ell}(E)) \cong \GSp_{2g}(\Z_{\ell}),
+\[
+\rho_{A,\ell}: \Gal(\bar{K}/K) \to \Aut(T_\ell(E)) \cong \GSp_{2g}(\Z_\ell),
 \]
-which describes the action of the \hyperref[group.galois.absolute]{absolute Galois group} of $K$ on $T_{\ell}(A)$, the \hyperref[av.tate_module]{$\ell$-adic Tate module of $A$}.
+which describes the action of the \hyperref[group.galois.absolute]{absolute Galois group} of $K$ on $T_\ell(A)$, the \hyperref[av.tate_module]{$\ell$-adic Tate module of $A$}.
 
 When $K$ has characteristic zero one can take the inverse limit over all positive integers $m$ (ordered by divisibility) to obtain the \textbf{adelic Galois representation}
-\[ 
-\rho_{A}: \Gal(\overline{K}/K) \to \GSp_{2g}(\hat{\Z}).
+\[
+\rho_{A}: \Gal(\bar{K}/K) \to \GSp_{2g}(\hat \Z).
 \]
 
 \end{definition}
-
-

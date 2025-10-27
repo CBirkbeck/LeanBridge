@@ -1,15 +1,14 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.history.dirichlet}{Dirichlet's work on L-functions}}
 \begin{definition}\label{lfunction.history.dirichlet}
 \uses{character.dirichlet}
-\leanok
-The first use of the letter L to denote  these functions was by Dirichlet in 1837 (see <i>Werke I</i> \cite{MR249268} pages 313-342) 
-who 
+The first use of the letter L to denote  these functions was by Dirichlet in 1837 (see <i>Werke I</i> \cite{MR249268} pages 313-342)
+who
 used L-functions to prove that there are infinitely many primes in any (primitive) arithmetic progression.
 He considered
-series of the form 
+series of the form
 $$L(s,\chi)=\sum_{n=1}^\infty \frac{\chi(n)}{n^s}$$
-where $\chi$ is a \hyperref[character.dirichlet]{(Dirichlet) character}, which is the extension to the integers of a character of the 
-group $(\mathbb{Z}/q\mathbb{Z})^*$. For example the arithmetic function $\chi$ defined by 
+where $\chi$ is a \hyperref[character.dirichlet]{(Dirichlet) character}, which is the extension to the integers of a character of the
+group $(\mathbb Z/q\mathbb Z)^*$. For example the arithmetic function $\chi$ defined by
 
 \[\chi(n)=\begin{cases} 1 & \textrm{ if } n\equiv 1 \bmod 3\\
 \begin{itemize}
@@ -23,11 +22,9 @@ and satisfies a functional equation that
 $$\left(\frac{3}{\pi}\right)^{\frac{s}{2}}\Gamma\left(\frac{s+1}{2}\right) L(s,\chi)$$
 is invariant under $s\to 1-s$. Also, note the special value
 $$L(1,\chi)= \frac{\pi}{3\sqrt{3}};   $$
-Dirichlet needed to know that his L-functions did not vanish at 1 and he 
+Dirichlet needed to know that his L-functions did not vanish at 1 and he
 used special values to prove this fact.
 Dirichlet's original proof was for prime moduli; for composite moduli he required
 his class number formula which was proven in 1839 - 1840 (see his \textit{Werke I}, pp. 411-496).
 
 \end{definition}
-
-

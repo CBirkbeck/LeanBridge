@@ -1,7 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/artin.lfunction}{Artin L-function}}
 \begin{definition}\label{artin.lfunction}
 \uses{artin,artin.ramified_primes,gg.conjugacy_classes,lf.inertia_group,lfunction,lfunction.euler_product}
-\leanok
 The \hyperref[lfunction]{L-function} associated to an
 \hyperref[artin]{Artin representation}
 $\rho:\mathrm{Gal}(\overline{\mathbb{Q}}/\mathbb{Q})\to\mathrm{GL}(V)$
@@ -12,5 +11,3 @@ denotes the \hyperref[gg.conjugacy_classes]{conjugacy class} of Frobenius elemen
 at $p$, $\rho(\mathrm{Frob}(p))$ should be interpreted as acting on the
 invariant subspace $V^{I_p}$ of the \hyperref[lf.inertia_group]{inertia group} at $p$.
 \end{definition}
-
-

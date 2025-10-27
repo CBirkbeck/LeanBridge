@@ -5,5 +5,3 @@ The \textbf{geometric automorphism group} of a curve is the \hyperref[g2c.aut_gr
 
 If $X$ is a curve over a field $k$, its geometric automorphism group is denoted $\mathrm{Aut}(X_{\bar{k}})$.
 \end{definition}
-
-

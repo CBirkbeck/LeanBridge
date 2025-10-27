@@ -5,10 +5,8 @@ Let $K/F$ is finite \hyperref[nf.separable]{separable} extension of fields with 
 
 One way to group these fields is to collect together subfields with the same Galois closure since given one such field, the other fields are in a collection are visible as \hyperref[gg.other_representations]{siblings} of the field.  A natural representative of such a collection would be a field of minimal \hyperref[nf.degree]{degree} over $F$ with ties broken by taking a field whose Galois closure has \hyperref[gg.galois_group]{Galois group} $nTj$ with minimal \hyperref[gg.tnumber]{$j$}.
 
-In group theoretic terms, $G\leq S_n$ where $n=[K:F]$.  The \textbf{resolvents} of $G$ correspond to quotients $G/N$ where $N \unlhd G$.  For each normal \hyperref[group.subgroup]{subgroup} $N$, we then look for $H\leq G$ such that the \hyperref[group.core]{core} of $H$ equals $N$, and then pick the subgroup $H$ of minimal \hyperref[group.subgroup.index]{index} in $G$ so that when $G$ acts transitively on the $m$ left cosets of $H$ by left translation, the \hyperref[gg.tnumber]{T-number} of the permutation reputation is minimized.  
+In group theoretic terms, $G\leq S_n$ where $n=[K:F]$.  The \textbf{resolvents} of $G$ correspond to quotients $G/N$ where $N \unlhd G$.  For each normal \hyperref[group.subgroup]{subgroup} $N$, we then look for $H\leq G$ such that the \hyperref[group.core]{core} of $H$ equals $N$, and then pick the subgroup $H$ of minimal \hyperref[group.subgroup.index]{index} in $G$ so that when $G$ acts transitively on the $m$ left cosets of $H$ by left translation, the \hyperref[gg.tnumber]{T-number} of the permutation reputation is minimized.
 
 The fixed field of $H$ is then a \hyperref[nf.stem_field]{stem field} for $L^N$, the fixed field of $N$ over $F$.  The Galois group for $L^N/F$ has is a subgroup of $S_m$, up to conjugation.
 
 \end{definition}
-
-

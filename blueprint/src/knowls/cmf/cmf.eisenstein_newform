@@ -1,7 +1,0 @@
-\subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.eisenstein_newform}{Eisenstein newform}}
-\begin{definition}\label{cmf.eisenstein_newform}
-\uses{cmf.eisenstein_newspace,cmf.fouriercoefficients,cmf.hecke_operator}
-An \textbf{Eisenstein newform} is an Eisenstein form $f\in E_k^{\rm new}(N,\chi)$ in the \hyperref[cmf.eisenstein_newspace]{Eisenstein new subspace} that is also an eigenform of all \hyperref[cmf.hecke_operator]{Hecke operators}, normalized so that the \hyperref[cmf.fouriercoefficients]{$q$-expansion}  $f(z)=\sum a_n q^n$, where $q=e^{2\pi i z}$, has coefficient $a_1=1$.  The Eisenstein newforms are a basis for the Eisenstein new subspace.
-\end{definition}
-
-

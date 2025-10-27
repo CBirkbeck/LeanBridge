@@ -3,5 +3,3 @@
 \uses{group}
 The \textbf{order} of a \hyperref[group]{group} is its cardinality as a set.
 \end{definition}
-
-

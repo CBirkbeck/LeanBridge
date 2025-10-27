@@ -5,5 +5,3 @@ A maximal ideal, or prime, $\mathfrak{P}$ of an \hyperref[av.fq.order]{order} $R
 
 The \textbf{singular support} of an \hyperref[av.fq.order]{overorder} $S$ of the Frobenius order $\Z[F,V]$ is the set of singular primes of $\Z[F,V]$ that contain the \hyperref[av.fq.conductor]{relative conductor} $(\Z[F,V]:S)$.
 \end{definition}
-
-

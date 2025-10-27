@@ -5,5 +5,3 @@ The \textbf{analytic rank} of an \hyperref[lfunction]{L-function} $L(s)$ is its 
 
 When the analytic rank $r$ is positive, the value listed in the LMFDB is typically an upper bound that is believed to be tight (in the sense that there are known to be $r$ zeroes located very near to the central point).
 \end{definition}
-
-

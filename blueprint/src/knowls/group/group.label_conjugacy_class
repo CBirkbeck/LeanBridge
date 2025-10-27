@@ -6,5 +6,3 @@ The \textbf{label} of a rational \hyperref[group.conjugacy_class]{conjugacy clas
 
 The \textbf{label} of a complex \hyperref[group.conjugacy_class]{conjugacy class} of a group $G$ has the format $NAj$ where $NA$ is the label of the division containing it, (so $N$ is the order of elements in the conjugacy class), and $j$ is an enumeration of class within that rational conjugacy class ($j$ is omitted if there is a single class within rational conjugacy classes).
 \end{definition}
-
-

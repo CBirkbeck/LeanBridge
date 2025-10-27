@@ -3,5 +3,3 @@
 \uses{ring,ring.zero_divisor}
 An \textbf{integral domain} is a \hyperref[ring]{commutative ring} $R$ such that $1_R\neq 0_R$ and $R$ contains no \hyperref[ring.zero_divisor]{zero divisors}.
 \end{definition}
-
-

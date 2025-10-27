@@ -3,5 +3,3 @@
 \uses{ag.variety}
 An \textbf{algebraic curve} is an \hyperref[ag.variety]{algebraic variety} of dimension $1.$
 \end{definition}
-
-

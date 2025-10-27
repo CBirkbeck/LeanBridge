@@ -20,5 +20,3 @@ where $b_n=0$ unless $n$ is a positive power of a prime
 and $b_n\ll n^\theta$ for some $\theta<1/2$.</li>
 </ol>
 \end{definition}
-
-

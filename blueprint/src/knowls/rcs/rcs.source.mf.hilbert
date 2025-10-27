@@ -1,10 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.mf.hilbert}{Source of Hilbert modular form data}}
 \begin{definition}\label{rcs.source.mf.hilbert}
 \uses{}
-\leanok
 The database of Hilbert modular forms was computed by Steve Donnelly and John Voight using algorithms implemented in \cite{href{http://magma.maths.usyd.edu.au/magma/}{Magma}} by Lassina Dembele, Steve Donnelly, Markus Kirschmer, and John Voight; the computational effort is described in Donnelly-Voight \cite{arXiv:1605.02637}.  A detailed overview and mathematical description of these algorithms can be found in a survey by Demb\'el\'e-Voight \cite{arXiv:1010.5727}.
 
 Galois conjugate levels were added by John Cremona and Aurel Page.
 \end{definition}
-
-

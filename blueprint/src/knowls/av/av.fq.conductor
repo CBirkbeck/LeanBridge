@@ -7,5 +7,3 @@ The \textbf{conductor} $\mathfrak{f}_R$ of an \hyperref[av.fq.order]{order} $R$ 
 If $R\subseteq S$ the \textbf{(relative) conductor} of $R$ in $S$ is the biggest $S$-ideal contained in $R$, that is,
 \[ (R:S) = \{ x \in K :\ xS \subseteq R \}. \]
 \end{definition}
-
-

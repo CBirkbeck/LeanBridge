@@ -1,15 +1,14 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/dq.av.fq.further_extent}{Further extent of the data on isogeny classes of abelian varieties over finite fields}}
 \begin{definition}\label{dq.av.fq.further_extent}
 \uses{av.fq.honda_tate}
-\leanok
-For each dimension $g$ and field $\mathbb{F}_q$ with a nonempty collection of isogeny classes in the database the collection of Weil polynomials (and hence isogeny classes) is complete (see the \hyperref[av.fq.honda_tate]{Honda-Tate Theorem}). In particular 
+For each dimension $g$ and field $\mathbb{F}_q$ with a nonempty collection of isogeny classes in the database the collection of Weil polynomials (and hence isogeny classes) is complete (see the \hyperref[av.fq.honda_tate]{Honda-Tate Theorem}). In particular
 
 \begin{itemize}
 \item  every simple isogeny class appears for a given $(g,q)$ in the database
 \end{itemize}
 
 \begin{itemize}
-\item  every non-simple isogeny class appears up to permutation of the isogeny factors is represented in this database. 
+\item  every non-simple isogeny class appears up to permutation of the isogeny factors is represented in this database.
 \end{itemize}
 
 As of October 2016, the data was complete for pairs $(g, q)$ where $q^{g(g-1)/2} \leq 10^7$.
@@ -17,11 +16,11 @@ As of October 2016, the data was complete for pairs $(g, q)$ where $q^{g(g-1)/2}
 Certain auxiliary computations associated to the isogeny classes are incomplete. Here is a list of data which is limited and the reason is it limited:
 
 \begin{itemize}
-\item  The number field associated to the Weil polynomial is sometimes not listed for higher genus. The number fields were pulled from the LMFDB number field database which did not include number fields for higher genus Weil polynomials. In general, number field computations are rather expensive.   
+\item  The number field associated to the Weil polynomial is sometimes not listed for higher genus. The number fields were pulled from the LMFDB number field database which did not include number fields for higher genus Weil polynomials. In general, number field computations are rather expensive.
 \end{itemize}
 
 \begin{itemize}
-\item  The Galois groups associated to Weil polynomials are limited. Galois groups were computed from the number fields which were limited. 
+\item  The Galois groups associated to Weil polynomials are limited. Galois groups were computed from the number fields which were limited.
 \end{itemize}
 
 \begin{itemize}
@@ -60,5 +59,3 @@ Certain auxiliary computations associated to the isogeny classes are incomplete.
 \item  in genus $6$ for $q = 2$.
 \end{itemize}
 \end{definition}
-
-

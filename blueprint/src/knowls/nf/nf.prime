@@ -5,5 +5,3 @@ A \textbf{prime} $\mathfrak p$ of a \hyperref[nf]{number field} $K$ is a nonzero
 
 The ideal $\mathfrak p \cap\mathcal O_K$ is a nonzero prime ideal of $\Z$ (a prime of $\Q$), which is necessarily a principal ideal $(p)$ for some prime number $p$.  The prime $\mathfrak p$ is then said to be a \textbf{prime above} $p$.
 \end{definition}
-
-

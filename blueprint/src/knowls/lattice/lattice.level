@@ -1,7 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.level}{Level of an integral lattice}}
 \begin{definition}\label{lattice.level}
 \uses{lattice.definition,lattice.dual}
-For an \hyperref[lattice.definition]{integral lattice}, $L$, the \textbf{level} is the smallest integer, $k$, such that $k\cdot B(\vec{v},\vec{v})\in 2\mathbb{Z}$ for all $\vec{v}$ in the \hyperref[lattice.dual]{dual} of $L$. 
+For an \hyperref[lattice.definition]{integral lattice}, $L$, the \textbf{level} is the smallest integer, $k$, such that $k\cdot B(\vec{v},\vec{v})\in 2\mathbb Z$ for all $\vec{v}$ in the \hyperref[lattice.dual]{dual} of $L$.
 \end{definition}
-
-

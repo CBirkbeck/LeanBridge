@@ -3,5 +3,3 @@
 \uses{character.dirichlet}
 The \textbf{conductor} of a \hyperref[character.dirichlet]{Dirichlet character} $\chi$ modulo $q$ is the least positive integer $q_1$ dividing $q$ for which $\chi(n+kq_1)=\chi(n)$ for all $n$ and $n+kq_1$ coprime to $q$.
 \end{definition}
-
-

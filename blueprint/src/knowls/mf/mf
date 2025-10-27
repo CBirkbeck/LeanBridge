@@ -14,5 +14,3 @@ of complex functions which have a certain type of \hyperref[mf.transformation_pr
 
 Modular forms of the same \hyperref[cmf.weight]{weight} and \hyperref[mf.multipliersystem]{multiplier system} that are defined over the same group form a $\mathbb{C}$-vector space.
 \end{definition}
-
-

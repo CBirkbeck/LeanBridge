@@ -9,5 +9,3 @@ $\End(E)$ always contains a subring isomorphic to $\Z$, since for $m\in\Z$ there
 
 This is a special case of the \hyperref[ag.endomorphism_ring]{endomorphism ring} of an \hyperref[ag.abelian_variety]{abelian variety}.
 \end{definition}
-
-

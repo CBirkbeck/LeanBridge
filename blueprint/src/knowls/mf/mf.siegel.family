@@ -4,7 +4,7 @@
 Siegel modular forms of degree $g$ transform under the action of a discrete subgroup $\Gamma$ of $\Sp(2g,\Q)$.  We focus on certain discrete subgroups.
 
 \begin{itemize}
-\item  \textbf{Principal congruence subgroup}: \hyperref[group.sp2gr.ppal.congruence]{$\Gamma(N)$}.  
+\item  \textbf{Principal congruence subgroup}: \hyperref[group.sp2gr.ppal.congruence]{$\Gamma(N)$}.
 \item  \textbf{Siegel parabolic subgroup}: \hyperref[group.sp2gr.gamma0]{$\Gamma_0(N)$}.
 \item  \textbf{Paramodular subgroup}: \hyperref[paramodulargroup.sp2gr]{$\Gamma^{\mathrm{para}}(d)$}.
 \end{itemize}
@@ -12,5 +12,3 @@ Siegel modular forms of degree $g$ transform under the action of a discrete subg
 
 
 \end{definition}
-
-

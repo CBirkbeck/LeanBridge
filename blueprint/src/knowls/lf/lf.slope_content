@@ -2,7 +2,7 @@
 \begin{definition}\label{lf.slope_content}
 \uses{lf.galois_invariants,lf.inertia_group,lf.padic_field,lf.residue_field,lf.tame_degree,lf.unramified_degree,lf.unramified_subfield,nf.galois_closure,nf.galois_group}
 Let $L/K$ be an extension of \hyperref[lf.padic_field]{$p$-adic fields}.
-Let $G$ be the \hyperref[nf.galois_group]{Galois group} of the 
+Let $G$ be the \hyperref[nf.galois_group]{Galois group} of the
 \hyperref[nf.galois_closure]{Galois closure}
 $L^{gal}/K$ of $L/K$.  Then $G$ has a filtration by \hyperref[lf.galois_invariants]{higher ramification groups}, which in turn are connected to the discriminants of subfields of $L^{gal}$.  The *slope content* encodes information about this filtration giving the location and sizes of the jumps.
 
@@ -21,7 +21,7 @@ Let $G^i$ be the $i$th higher ramification group in upper numbering from Serre's
 \end{itemize}
 
 \begin{itemize}
-\item  the group $G^{(1)}/G^{(1+)}$ is cyclic of order prime to $p$.  Its order is the \hyperref[lf.tame_degree]{tame degree} for $L^{gal}/K$ as it is the degree of the largest tamely totally ramified subextension.  
+\item  the group $G^{(1)}/G^{(1+)}$ is cyclic of order prime to $p$.  Its order is the \hyperref[lf.tame_degree]{tame degree} for $L^{gal}/K$ as it is the degree of the largest tamely totally ramified subextension.
 \end{itemize}
 
 \begin{itemize}
@@ -32,5 +32,3 @@ The \textbf{Artin slope content} then takes the form $[s_1,\ldots, s_k]_t^u$ whe
 
 The \textbf{Swan slopes} are obtained from the Artin slopes by subtracting 1.
 \end{definition}
-
-

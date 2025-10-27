@@ -7,5 +7,3 @@ A \textbf{symplectic isomorphism} from $M$ to another such structure $M'$ is a $
 
 The same definition makes sense in a context in which each free rank 2 $\Z/N\Z$-module is enriched with a Galois action to make a Galois module, or replaced by a finite \'etale group scheme that is $(\Z/N\Z)^2$ \'etale locally.
 \end{definition}
-
-

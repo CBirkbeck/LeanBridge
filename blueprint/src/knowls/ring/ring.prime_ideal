@@ -5,5 +5,3 @@ If $R$ is a \hyperref[ring]{commutative ring} $R$, an \hyperref[ring.ideal]{idea
 $$ ab\in I \implies a\in I \quad \text{or}\quad b\in I.$$
 
 \end{definition}
-
-

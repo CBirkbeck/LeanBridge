@@ -12,5 +12,3 @@ Here $\mathfrak{g}$ is a Lie or Kac-Moody algebra of a particular type with inde
 
 The map $\mathrm{wt}$ is called the weight function which maps a crystal element to a weight in the weight lattice $P$. The maps $e_i$ and $f_i$ are called Kashiwara raising and lowering operators.
 \end{definition}
-
-

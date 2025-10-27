@@ -1,8 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.degree}{Degree of a Siegel modular form}}
 \begin{definition}\label{mf.siegel.degree}
 \uses{mf.siegel}
-A \hyperref[mf.siegel]{Siegel modular form} on an arithmetic subgroup of 
+A \hyperref[mf.siegel]{Siegel modular form} on an arithmetic subgroup of
 $\Sp(2g,\Q)$ is said to be of \textbf{degree} $g$.
 \end{definition}
-
-

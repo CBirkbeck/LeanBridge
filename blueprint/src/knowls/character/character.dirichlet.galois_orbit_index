@@ -10,5 +10,3 @@ where $n$ is the \hyperref[character.dirichlet.order]{order} of $\chi$ and $t_i:
 
 The \textbf{orbit index} of $\chi$ is the index of $t([\chi])$ in the lexicographic ordering of all such tuples arising for Dirichlet characters of modulus $q$; indexing begins at $1$, which is always the index of the Galois orbit of the \hyperref[character.dirichlet.principal]{principal character} of modulus $1$.
 \end{definition}
-
-

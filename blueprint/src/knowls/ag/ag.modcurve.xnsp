@@ -1,10 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.modcurve.xnsp}{Modular curve $X_{\text{ns}}^{+}(N)$}}
 \begin{definition}\label{ag.modcurve.xnsp}
 \uses{gl2.nonsplit_cartan,modcurve}
-\leanok
 Let $N \ge 1$. The curve $X_{\text{ns}}^{+}(N)$ is the \hyperref[modcurve]{modular curve} $X(\Gamma_{\text{ns}}^{+}(N))$ where $\Gamma_{\text{ns}}^{+}(N)$ is the normalizer of the \hyperref[gl2.nonsplit_cartan]{non-split Cartan subgroup} $\Gamma_{\text{ns}}(N)$.
 
 
 \end{definition}
-
-

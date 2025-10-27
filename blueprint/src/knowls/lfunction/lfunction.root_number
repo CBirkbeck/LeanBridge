@@ -5,7 +5,7 @@ The \textbf{sign} of an \hyperref[lfunction]{L-function} is the complex number $
 
 \[
 \Lambda(s) := N^{s/2}
-\prod_{j=1}^J \Gamma_{\mathbb{R}}(s+\mu_j) \prod_{k=1}^K \Gamma_{\mathbb{C}}(s+\nu_k)
+\prod_{j=1}^J \Gamma_{\mathbb R}(s+\mu_j) \prod_{k=1}^K \Gamma_{\mathbb C}(s+\nu_k)
 \cdot L(s) = \varepsilon \overline{\Lambda}(1-s).
 \]
 
@@ -15,5 +15,3 @@ If all of the coefficients of the Dirichlet series defining $L(s)$ are real, the
 $ \varepsilon = \pm 1 $.  If the coefficients are real and $ \varepsilon = - 1 $,
 then $ L(1/2)=0 $.
 \end{definition}
-
-

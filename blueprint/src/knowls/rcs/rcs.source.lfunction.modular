@@ -1,9 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.lfunction.modular}{Source of Modular L-function Data}}
 \begin{definition}\label{rcs.source.lfunction.modular}
 \uses{cmf.newform,mf.bianchi.newform,mf.hilbert}
-\leanok
 All L-functions of \hyperref[cmf.newform]{classical}, \hyperref[mf.hilbert]{Hilbert}, and \hyperref[mf.bianchi.newform]{Bianchi} modular forms in the database were computed by Edgar Costa using source code provided by David Platt.
 
 \end{definition}
-
-

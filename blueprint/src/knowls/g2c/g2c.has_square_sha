@@ -1,10 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.has_square_sha}{Has square $\Sha$}}
 \begin{definition}\label{g2c.has_square_sha}
 \uses{ag.curve.genus,ag.jacobian,ag.tate_shafarevich,group.order}
-\leanok
 The \hyperref[group.order]{order} of the \hyperref[ag.tate_shafarevich]{Tate-Shafarevich group} of the \hyperref[ag.jacobian]{Jacobian} of a curve is either a square, or twice a square, assuming it is finite; this is a theorem of Poonen and Stoll \cite{arXiv:math/9911267,doi:10.2307/121064}.
 
 For elliptic curves, only the square case can occur, but for Jacobians of \hyperref[ag.curve.genus]{genus} 2 curves, both cases are known to occur.
 \end{definition}
-
-

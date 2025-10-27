@@ -5,5 +5,3 @@ The \textbf{discriminant} $\Delta$ of an \hyperref[ec]{elliptic curve} $E$ defin
 It is the \hyperref[ec.discriminant]{discriminant} of the \hyperref[ec.q.minimal_weierstrass_equation]{minimal Weierstrass equation} of the curve.
 
 \end{definition}
-
-

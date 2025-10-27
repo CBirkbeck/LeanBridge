@@ -5,5 +5,3 @@ If $H$ and $H'$ are open subgroups of $\GL_2(\widehat{\Z})$, the \textbf{fiber p
 
 Concretely, in the case that $H$ and $H'$ have coprime \hyperref[gl2.level]{levels} $N$ and $N'$, this means that $X_H\times X_H' = X_{H\cap H'}$, a modular curve of level $NN'$.
 \end{definition}
-
-

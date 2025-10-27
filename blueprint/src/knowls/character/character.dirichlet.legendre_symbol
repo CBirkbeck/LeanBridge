@@ -16,5 +16,3 @@ It can be computed efficiently by using the following formulae inductively:
 
 In particular, for a fixed odd prime $p$, $x \mapsto \left(\frac{x}{p}\right)$ is a \hyperref[character.dirichlet]{Dirichlet character} modulo $p$.
 \end{definition}
-
-

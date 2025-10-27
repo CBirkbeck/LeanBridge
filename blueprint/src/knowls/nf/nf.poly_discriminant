@@ -7,5 +7,3 @@ The \textbf{discriminant} of a monic polynomial $f(x) = \prod_{i=1}^d (x - \alph
 \]
 If $f$ has integral coefficients, $K$ is the \hyperref[nf]{number field} defined by $f$ and $\alpha$ is a root of $f$ in $K$, then the \hyperref[nf.discriminant]{discriminant} $D$ of $K$ divides $\Delta$ and the ratio $\Delta/D$ is the square of the index of $\Z[\alpha]$ in the \hyperref[nf.ring_of_integers]{ring of integers} of $K$.
 \end{definition}
-
-

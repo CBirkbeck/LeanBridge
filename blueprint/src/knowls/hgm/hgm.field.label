@@ -1,8 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/hgm.field.label}{Label of a hypergeometric motive}}
 \begin{definition}\label{hgm.field.label}
 \uses{hgm.familes,hgm.motive}
-\leanok
 \hyperref[hgm.motive]{Hypergeometric motives} $H(A,B,t) \in M(\Q,\Q)$ are labeled following the pattern of $H([3,3],[2,2,4],-1/3)$ having label A3.3\_B2.2.4\_t-1.3  and the corresponding \hyperref[hgm.familes]{family} having label A3.3\_B2.2.4 .
 \end{definition}
-
-

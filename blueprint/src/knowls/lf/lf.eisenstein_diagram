@@ -12,7 +12,7 @@ as $I=\langle m_1,\dots,m_w\rangle_{\epsilon}^f$, or in terms of
 \hyperref[lf.rams]{rams} as $I=(r_1, \dots, r_w)_{\epsilon}^f$.  The
 \textbf{Eisenstein diagram of $I/K$} gives a visual summary of the process
 that produces the generic polynomial
-\[x^e + \pi \sum_{\sigma} f_{\sigma} \pi^j x^i\]
+\[x^e + \pi \sum_\sigma f_\sigma \pi^j x^i\]
 associated to $I/K$.  Here $\sigma$ and $(i,j)$ are related by
 $\sigma = je + i$ with $0 \le i < e$.  The Eisenstein diagram is drawn
 in the vertical strip $R$ with horizontal coordinate $i \in [0,e)$ and
@@ -23,22 +23,22 @@ depends slightly on whether $\gcd(\epsilon, q^f-1) > 1$).
 
 #### A spiral with points representing monomials
 
-We think of the rectangle $R$ as a cut and unrolled cylinder, with each horizontal line segment of constant level $s$ coming from a circle.  We draw the spiral that starts at 
-$(0,0)$ and goes up with slope $1/e$.   This spiral wraps every time it meets the right edge of $R$.  The part of the spiral that goes from $(0,j)$ to $(e,j+1)$ is called the $j^{\rm th}$ ramp.   
+We think of the rectangle $R$ as a cut and unrolled cylinder, with each horizontal line segment of constant level $s$ coming from a circle.  We draw the spiral that starts at
+$(0,0)$ and goes up with slope $1/e$.   This spiral wraps every time it meets the right edge of $R$.  The part of the spiral that goes from $(0,j)$ to $(e,j+1)$ is called the $j^{\rm th}$ ramp.
 
-We place conditions on the term $\pi f_{\sigma} \pi^j x^i$ by referring
-to the unique point $P_{\sigma}$ on ramp $j$ with horizontal
-coordinate $i$.   Equivalently $P_{\sigma}$ is the unique point
-on the spiral with $s = \sigma/e$.  Thus $P_0 = (0,0)$ is the 
+We place conditions on the term $\pi f_\sigma \pi^j x^i$ by referring
+to the unique point $P_\sigma$ on ramp $j$ with horizontal
+coordinate $i$.   Equivalently $P_\sigma$ is the unique point
+on the spiral with $s = \sigma/e$.  Thus $P_0 = (0,0)$ is the
 starting point of the spiral, and as one goes up one
 encounters the points $P_1, \dots, P_{\lfloor e s_w \rfloor}$ in
 order.
 
 #### Bands
 
-For $k=1,\dots,w$, the \textbf{band} $B_k$ is defined to be the set of points in $R$ satisfying $m_k \leq s < s_k$.  As $k$ increases, the $m_k$ strictly increase and so the bottom edges of bands go up.  However the $s_k$ only weakly increase.   So the top edges of the bands $B_k$ for $k$ in a segment of common $s_k$ agree, even as the widths of these bands successively decrease by a factor of $p$.  The vertical width of $B_k$ is given by the \hyperref[lf.rams]{tiny ram} $r_k'$.  We also make the convention that $B_0$ is the set of points with $s=0$.  
+For $k=1,\dots,w$, the \textbf{band} $B_k$ is defined to be the set of points in $R$ satisfying $m_k \leq s < s_k$.  As $k$ increases, the $m_k$ strictly increase and so the bottom edges of bands go up.  However the $s_k$ only weakly increase.   So the top edges of the bands $B_k$ for $k$ in a segment of common $s_k$ agree, even as the widths of these bands successively decrease by a factor of $p$.  The vertical width of $B_k$ is given by the \hyperref[lf.rams]{tiny ram} $r_k'$.  We also make the convention that $B_0$ is the set of points with $s=0$.
 
-We shade bands by gray and indicate overlaps by darkening the gray.  We color bottom edges of bands green and the bounding top edges black.  In the rare cases where an upper edge agrees with a lower edge we dash this boundary using black and green. 
+We shade bands by gray and indicate overlaps by darkening the gray.  We color bottom edges of bands green and the bounding top edges black.  In the rare cases where an upper edge agrees with a lower edge we dash this boundary using black and green.
 These conventions assist in visually identifying the bands, even when they overlap.
 
 \hyperref[lf.herbrand_invariant]{Arithmetic bands}, which are the bands
@@ -50,33 +50,33 @@ not arithmetic.
 #### Index and types of points
 
 We say that the \textbf{index} of an integer $i \in [0,e)$ is $k = w-\operatorname{ord}_p(\gcd(i,p^w)) \in \{0,1,\dots,w\}$.   We partition
- the points $P_{\sigma}$ with index $k$ into five types, using colors and shapes 
- to distinguish the types.  
- 
- The point $P_0 = (0,0)$ plays a special role.  We call it the \textbf{$D$-point} and we mark it by an *olive pentagon*. 
-A $D$-point is \textbf{critical} and 
+ the points $P_\sigma$ with index $k$ into five types, using colors and shapes
+ to distinguish the types.
+
+ The point $P_0 = (0,0)$ plays a special role.  We call it the \textbf{$D$-point} and we mark it by an *olive pentagon*.
+A $D$-point is \textbf{critical} and
 drawn solid if $\gcd(\epsilon,q^f-1)>1$.  Otherwise
 it is \textbf{negligible} and drawn hollow.  Here, like with the red diamonds below,
- the solidness indicates complications in the process 
+ the solidness indicates complications in the process
  of choosing unique distinguished polynomials for fields $L/K$ in the family.
- 
- For $\sigma>0$, we use the band $B_k$ to classify the points $P_{\sigma}$ of index $k$ as follows.  
+
+ For $\sigma>0$, we use the band $B_k$ to classify the points $P_\sigma$ of index $k$ as follows.
 
 \begin{itemize}
-\item  \textbf{$Z$-points} are points beneath $B_k$.  Their 
+\item  \textbf{$Z$-points} are points beneath $B_k$.  Their
 \end{itemize}
 associated color is *clear*, meaning we don't draw them.
- 
+
 \begin{itemize}
-\item  \textbf{$A$-points} are the points $P_{\sigma}$
+\item  \textbf{$A$-points} are the points $P_\sigma$
 \end{itemize}
 which are at the bottom edge of geometric bands $B_k$ for which
-$k$ is final in its segment, meaning that either $k=w$ or $s_{k+1}>s_k$.  We draw them as *solid green squares*. 
+$k$ is final in its segment, meaning that either $k=w$ or $s_{k+1}>s_k$.  We draw them as *solid green squares*.
 
 \begin{itemize}
 \item  \textbf{$B$-points} are points in their governing band $B_k$
 \end{itemize}
-which are not $A$-points.   They are represented by *solid blue disks*. 
+which are not $A$-points.   They are represented by *solid blue disks*.
 
 
 \begin{itemize}
@@ -85,27 +85,25 @@ which are not $A$-points.   They are represented by *solid blue disks*.
 
 #### The generic polynomial
 
-Using the drawn points, we may put conditions on the generic polynomial.  Namely, we may require $f_{\sigma} = 0$ for $Z$-points and negligible $C$-points, $f_{\sigma} \ne 0$ for $A$-points, and $f_0 = 1$ if the $D$-point is negligible.  To make the structure more evident, we replace $f_{\sigma}$ in the generic polynomial by $d_{\sigma}$, $a_{\sigma}$, $b_{\sigma}$, or $c_{\sigma}$ according to whether $P_{\sigma}$ is a $D$-point, $A$-point, $B$-point, or $C$-point.  Let $K_f$ be the unique
+Using the drawn points, we may put conditions on the generic polynomial.  Namely, we may require $f_\sigma = 0$ for $Z$-points and negligible $C$-points, $f_\sigma \ne 0$ for $A$-points, and $f_0 = 1$ if the $D$-point is negligible.  To make the structure more evident, we replace $f_\sigma$ in the generic polynomial by $d_\sigma$, $a_\sigma$, $b_\sigma$, or $c_\sigma$ according to whether $P_\sigma$ is a $D$-point, $A$-point, $B$-point, or $C$-point.  Let $K_f$ be the unique
 \hyperref[lf.ramification_index]{unramified} extension of $K$ of degree
 $f$.  As a consequence of Monge's reduction algorithm
 \cite{doi:10.1142/S1793042114500511}, every extension in the family $I/K$ is represented by a specialization of the generic polynomial, with values for coefficients drawn from a fixed choice of lifts from the residue field $\mathbb{F}_{q^f}$ of $K_f$.
 Additional constraints can be put on the choices of $c_{\sigma}$ and $d_0$, since
 only one representative modulo a subgroup of $\F_{q^f}$ or $\F_{q^f}^{\times}$ is needed.  The \hyperref[lf.family_ambiguity]{ambiguity} of the family measures how far from bijective this association between specialization and field extensions is.
 
-#### The size of a family  
+#### The size of a family
 
 Let $\delta \in \{0,1\}$ be the number of critical $D$-points, and let $\alpha$, $\beta$, and $\gamma$ be the number of $A$-points, $B$-points, and critical $C$-points respectively.  The number of specializations is $(q^f-1)^{\delta+\alpha}
 q^{f\beta+f\gamma}$ (if we ignore the additional constraints on $c_{\sigma}$ and
-$d_0$).  Monge reduction gives another expression for this quantity, namely $\frac{(q^f-1)^{\delta} q^{f\gamma}}{|\Aut(L/K)|}$.  Accordingly, one gets a \hyperref[lf.family_mass]{mass} formula 
+$d_0$).  Monge reduction gives another expression for this quantity, namely $\frac{(q^f-1)^{\delta} q^{f\gamma}}{|\Aut(L/K)|}$.  Accordingly, one gets a \hyperref[lf.family_mass]{mass} formula
 $$M(I/K) := \sum_{L/K \in I/K} \frac{1}{|\Aut(L/K)|}= (q^f-1)^\alpha q^{f\beta}.$$
 In the rigid case $\delta = \gamma = 0$ where $|\Aut(L/K)|=1$ is forced, this
-becomes a cardinality formula. 
+becomes a cardinality formula.
 
 #### Slopes, means, and rams on Eisenstein diagrams
 
-When drawing Eisenstein diagrams we indicate the slopes, means, and rams in appropriate places.  There is no need to tick the vertical axis at the left of the diagram in the traditional way, because the left endpoint of the $j^{\rm th}$ ramp is the integer $j$.  Instead we give decimal approximations to lower edges $m_k$ and upper edges $s_k$.  In the leftmost column, we also give the scaled versions $em_k$ and $es_k$.  These scaled versions make the subscripts on the marked points $P_{\sigma}$ more immediately identifiable.  
+When drawing Eisenstein diagrams we indicate the slopes, means, and rams in appropriate places.  There is no need to tick the vertical axis at the left of the diagram in the traditional way, because the left endpoint of the $j^{\rm th}$ ramp is the integer $j$.  Instead we give decimal approximations to lower edges $m_k$ and upper edges $s_k$.  In the leftmost column, we also give the scaled versions $em_k$ and $es_k$.  These scaled versions make the subscripts on the marked points $P_\sigma$ more immediately identifiable.
 
 The \hyperref[lf.rams]{ram} $r_k$ is printed to the immediate right of the upper boundary of the band $B_k$.  It gives two point counts as follows.  First, keeping in mind that the band $B_k$ includes its lower boundary but not its upper boundary, the number of drawn points in $B_k$ of index at most $k$ is $\lceil r_k \rceil$.  Second, the total number of red diamonds on or below the top edge of $B_k$ is $\lfloor r_k \rfloor$.
 \end{definition}
-
-

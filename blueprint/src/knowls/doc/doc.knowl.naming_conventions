@@ -1,8 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/doc.knowl.naming_conventions}{Naming conventions for knowls}}
 \begin{definition}\label{doc.knowl.naming_conventions}
 \uses{}
-\leanok
 The naming conventions we agreed on, for both Knowl identifiers and description fields.
 \end{definition}
-
-

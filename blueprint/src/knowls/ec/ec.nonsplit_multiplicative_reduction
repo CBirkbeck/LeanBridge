@@ -3,5 +3,3 @@
 \uses{ec,nf}
 An \hyperref[ec]{elliptic curve} \(E\) defined over a \hyperref[nf]{number field} \(K\) is said to have \textbf{non-split multiplicative reduction} at a prime \(\mathfrak{p}\) of \(K\) if the reduction of \(E\) modulo \(\mathfrak{p}\) has a nodal singularity with tangent slopes \textit{not} defined over the residue field at \(\mathfrak{p}\).
 \end{definition}
-
-

@@ -7,5 +7,3 @@ In terms of the Galois correspondence, the group $G$ corresponds to a degree $n$
 
 There can be more than one action with the same transitive classification.  This corresponds to non-isomorphic fields with the same degree, Galois group, and Galois closure.  We indicate multiplicity using the notation "````nTt x k````" where there are ```k``` non-conjugate subgroups such that the action is ```nTt```.
 \end{definition}
-
-

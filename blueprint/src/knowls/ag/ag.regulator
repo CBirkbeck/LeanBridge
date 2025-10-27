@@ -15,5 +15,3 @@ If $A(K)$ has rank $1$, then $\operatorname{Reg}(A/K)$ equals the \hyperref[ag.c
 
 This is a generalisation of the \hyperref[ec.regulator]{regulator of an elliptic curve}.
 \end{definition}
-
-

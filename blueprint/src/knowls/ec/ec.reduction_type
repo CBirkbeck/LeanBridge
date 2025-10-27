@@ -9,9 +9,7 @@ $E$ has \hyperref[ec.good_reduction]{good reduction} at $\mathfrak p$ if $\tilde
 On the other hand, if the reduction of \(E\) modulo \(\mathfrak{p}\) is singular, then
 $E$ has \hyperref[ec.bad_reduction]{bad reduction}.  There are two types of bad reduction are as follows.
 
-$E$ has \textbf{multiplicative reduction} at $\mathfrak p$ if $\tilde E$ has a nodal singularity. It is called \textbf{split multiplicative reduction} if the two tangents at the node are defined over $\F_q$ and \textbf{non-split multiplicative reduction} otherwise.  
+$E$ has \textbf{multiplicative reduction} at $\mathfrak p$ if $\tilde E$ has a nodal singularity. It is called \textbf{split multiplicative reduction} if the two tangents at the node are defined over $\F_q$ and \textbf{non-split multiplicative reduction} otherwise.
 
 $E$ has \textbf{additive reduction} at $\mathfrak p$ if $\tilde E$ has a cuspidal singularity.
 \end{definition}
-
-

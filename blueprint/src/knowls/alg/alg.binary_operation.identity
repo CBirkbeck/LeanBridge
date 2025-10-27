@@ -5,5 +5,3 @@ If $*$ is a \hyperref[alg.binary_operation]{binary operation} on a set $A$, then
 $$ a*e = e*a = a.$$
 Such an identity element $e$, if it exists, is unique and is thus called \textbf{the identity element} of $A$ with respect to $*$.
 \end{definition}
-
-

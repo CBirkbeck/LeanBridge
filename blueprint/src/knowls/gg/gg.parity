@@ -3,5 +3,3 @@
 \uses{gg.galois_group}
 A \hyperref[gg.galois_group]{Galois group} $G\leq S_n$ has \textbf{parity} $1$ if $G\leq A_n$, and $-1$ otherwise.
 \end{definition}
-
-

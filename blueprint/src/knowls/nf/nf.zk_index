@@ -5,5 +5,3 @@ If $K$ is a \hyperref[nf]{number field} with \hyperref[nf.ring_of_integers]{ring
 
 The \textbf{index of the number field} is the greatest common divisor of all $i(\alpha)$ with $\alpha$ as above.
 \end{definition}
-
-

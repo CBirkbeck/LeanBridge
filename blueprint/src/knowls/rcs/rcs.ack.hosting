@@ -1,13 +1,10 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.ack.hosting}{Acknowledgments for hosting}}
 \begin{definition}\label{rcs.ack.hosting}
 \uses{}
-\leanok
 The database and web server were hosted until September 2013 on William
-  Stein's \href{http://wstein.org/grants/screms/}{ NSF-funded} cluster at the University of Washington.
+  Stein's <a href="http://wstein.org/grants/screms/"> NSF-funded</a> cluster at the University of Washington.
 From 2013 until 2016 they were hosted on the
-  \href{http://gow.epsrc.ac.uk/NGBOViewGrant.aspx?GrantRef=EP/K034383/1}{EPSRC-funded} clusters at the Universities of Warwick and Bristol. Since April 2016 the database and web server have been hosted on the \href{https://cloud.google.com/}{Google Cloud Platform}, funded by a \href{http://neukom.dartmouth.edu/programs/2016compx.html}{CompX} grant from the \href{http://neukom.dartmouth.edu/}{Neukom Institute}, and  since October 2017, by a grant from the \href{https://www.simonsfoundation.org/}{Simons Foundation}.
-The website source code is hosted at \href{https://github.com/LMFDB/lmfdb}{GitHub}.
+  <a href="http://gow.epsrc.ac.uk/NGBOViewGrant.aspx?GrantRef=EP/K034383/1">EPSRC-funded</a> clusters at the Universities of Warwick and Bristol. Since April 2016 the database and web server have been hosted on the <a href="https://cloud.google.com/">Google Cloud Platform</a>, funded by a <a href="http://neukom.dartmouth.edu/programs/2016compx.html">CompX</a> grant from the <a href="http://neukom.dartmouth.edu/">Neukom Institute</a>, and  since October 2017, by a grant from the <a href="https://www.simonsfoundation.org/">Simons Foundation</a>.
+The website source code is hosted at <a href="https://github.com/LMFDB/lmfdb">GitHub</a>.
 
 \end{definition}
-
-

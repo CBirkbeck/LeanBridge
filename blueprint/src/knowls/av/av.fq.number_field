@@ -3,5 +3,3 @@
 \uses{ag.base_field,av.fq.weil_polynomial,av.isogeny_class}
 If the \hyperref[av.fq.weil_polynomial]{Weil polynomial} of an \hyperref[av.isogeny_class]{isogeny class of abelian varieties} \hyperref[ag.base_field]{defined} over a finite field is irreducible, then the \textbf{number field} attached to this isogeny class is the finite extension of $\Q$ defined by this irreducible polynomial.
 \end{definition}
-
-

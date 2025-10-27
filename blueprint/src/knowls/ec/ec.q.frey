@@ -1,11 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.q.frey}{Frey curve}}
 \begin{definition}\label{ec.q.frey}
 \uses{}
-Given a triple of integers $A, B, C$ with $A + B = C$, the [\textbf{Frey curve}](https://en.wikipedia.org/wiki/Frey\_curve) (or \textbf{Frey-Hellegouarch curve}) associated to this triple is the elliptic curve 
+Given a triple of integers $A, B, C$ with $A + B = C$, the [\textbf{Frey curve}](https://en.wikipedia.org/wiki/Frey\_curve) (or \textbf{Frey-Hellegouarch curve}) associated to this triple is the elliptic curve
 $$
 y^2 = x(x-A)(x+B).
 $$
 
 \end{definition}
-
-

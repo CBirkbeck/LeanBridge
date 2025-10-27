@@ -1,8 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/alg.matrix.skew_symmetric}{Skew-symmetric matrix}}
 \begin{definition}\label{alg.matrix.skew_symmetric}
 \uses{}
-\leanok
-A matrix $M$ is skew-symmetric if its transpose equals its negation, i.e. if $M^T = -M$. In particular, a skew-symmetric matrix must be square. 
+A matrix $M$ is skew-symmetric if its transpose equals its negation, i.e. if $M^T = -M$. In particular, a skew-symmetric matrix must be square.
 \end{definition}
-
-

@@ -1,7 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.curve_label}{Labels of elliptic curves over number fields}}
 \begin{definition}\label{ec.curve_label}
 \uses{ec.complex_multiplication,ec.conductor_label,ec.isogeny_class,mf.bianchi.newform,mf.hilbert,nf.ideal_labels}
-\leanok
 The label of an elliptic curve over a number field $K$ has three components, denoting the conductor, the isogeny class and the isomorphism class:
 
 \begin{itemize}
@@ -16,5 +15,3 @@ In addition, to specify the elliptic curve completely prepend the label of the b
 
 Where possible the labelling of isogeny classes matches that of associated cusp forms (\hyperref[mf.bianchi.newform]{Bianchi newforms} over imaginary quadratic fields and \hyperref[mf.hilbert]{Hilbert newforms} over totally real fields).   The prefix "CM" on the isogeny class label for certain elliptic curves over imaginary quadratic fields is used, because the Bianchi modular forms conjecturally attached to such curves are not cuspidal.
 \end{definition}
-
-

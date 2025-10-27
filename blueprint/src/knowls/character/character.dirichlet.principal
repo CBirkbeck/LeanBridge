@@ -5,5 +5,3 @@ A \hyperref[character.dirichlet]{Dirichlet character} is \textbf{principal} (or 
 
 The value of the principal Dirichlet character of \hyperref[character.dirichlet.modulus]{modulus} $q$ at an integer $n$ is $1$ if $n$ is coprime to $q$ and $0$ otherwise.
 \end{definition}
-
-

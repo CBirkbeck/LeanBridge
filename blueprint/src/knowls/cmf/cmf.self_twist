@@ -16,5 +16,3 @@ If $D$ is negative, the modular form $f$ is said to have \hyperref[cmf.cm_form]{
 It is possible for a modular form to have multiple non-trivial self twists; this occurs precisely when $f$ is a modular form of weight one whose projective image is isomorphic to $D_2:=C_2\times C_2$; in this case $f$ admits three non-trivial self twists, two of which are CM and one of which is RM.
 
 \end{definition}
-
-

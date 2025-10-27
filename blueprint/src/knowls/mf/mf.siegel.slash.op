@@ -1,15 +1,13 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.slash.op}{Siegel slash operator}}
 \begin{definition}\label{mf.siegel.slash.op}
 \uses{repn.highest.weight}
-For a positive integer $g$, let 
-$\GSp(2g,\Q)^+=\{\gamma\in\GL(2g,\Q)\, \mid \, \exists\, r(g)\in\Q_{>0}: \gamma^t J\gamma=r(g)J\}$ and $f \colon \mathcal{H}_g \to V$, the \textbf{slash operator} (of weight $\rho$) is defined by 
+For a positive integer $g$, let
+$\GSp(2g,\Q)^+=\{\gamma\in\GL(2g,\Q)\, \mid \, \exists\, r(g)\in\Q_{>0}: \gamma^t J\gamma=r(g)J\}$ and $f \colon \mathcal{H}_g \to V$, the \textbf{slash operator} (of weight $\rho$) is defined by
 \[
 (f\vert_{\rho}\alpha)(\tau)=r(\alpha)^{\lambda_1+\ldots+\lambda_g-\frac{g(g+1)}{2}}\rho(c\tau+d)^{-1}f((a\tau+b)(c\tau+d)^{-1})
-\] 
-for $\alpha=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in\GSp(2g,\Q)^+$ and 
-$\rho\colon \GL(g,\C) \to \GL(V)$ an irreducible finite-dimensional 
+\]
+for $\alpha=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in\GSp(2g,\Q)^+$ and
+$\rho\colon \GL(g,\C) \to \GL(V)$ an irreducible finite-dimensional
 representations of $\GL(g,\C)$ of \hyperref[repn.highest.weight]{highest weight}
 $\lambda_1\geqslant \lambda_2\geqslant\ldots\geqslant \lambda_g$.
 \end{definition}
-
-

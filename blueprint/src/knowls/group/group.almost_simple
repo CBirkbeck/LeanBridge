@@ -5,5 +5,3 @@ An \textbf{almost simple group} is a group $G$ that lies between a non-abelian \
 
 Every non-abelian simple group is almost simple, but it is not implied by $G$ being \hyperref[group.quasisimple]{quasisimple}, as shown by <a href="{{url\_for('abstract.index')}}?almost\_simple=yes&quasisimple=no">these examples</a>.
 \end{definition}
-
-

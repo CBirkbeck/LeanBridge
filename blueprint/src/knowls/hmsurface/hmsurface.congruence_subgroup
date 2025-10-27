@@ -5,9 +5,7 @@ Let $F$ be a real quadratic field with ring of integers $\Z_F$. Let
 $\frak{b}$ be a fractional ideal in $F$ (the \hyperref[hmsurface.component_ideal]{component ideal} ).
 
 A \textbf{principal congruence subgroup} $\Gamma_{\frak{b}}(\frak{N})$ is the kernel
-of reduction-modulo-$\frak{N}$ within $\GL^+(\Z_F \oplus \frak{b})$ or $\SL(\Z_F \oplus \frak{b})$. 
+of reduction-modulo-$\frak{N}$ within $\GL^+(\Z_F \oplus \frak{b})$ or $\SL(\Z_F \oplus \frak{b})$.
 A \textbf{congruence subgroup} $\Gamma$ is a subgroup of either $\GL^+(\Z_F \oplus \frak{b})$ or $\SL(\Z_F \oplus \frak{b})$ which contains
 a principal congruence subgroup $\Gamma_{\frak{b}}(\frak{N})$. The minimal such $\frak{N}$ is called the \textbf{level}.
 \end{definition}
-
-

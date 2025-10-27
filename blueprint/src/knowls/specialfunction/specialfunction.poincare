@@ -3,12 +3,10 @@
 \uses{cmf.cusp_form,group.fuchsian.cusps,group.fuchsian.cusps.width,group.sl2z,group.subgroup.index,mf.multipliersystem,mf.upper_half_plane}
 Let $G$ be a subgroup of \hyperref[group.sl2z]{$\Gamma$} of finite \hyperref[group.subgroup.index]{index} $m$, $v$ a \hyperref[mf.multipliersystem]{multiplier system} on $G$ and $k\geq3\in\mathbb{N}$ such that $v(-I)=(-1)^k$. Let $s$ be a \hyperref[group.fuchsian.cusps]{cusp} representative of $G$ with \hyperref[group.fuchsian.cusps.width]{width} $w$ such that $s=\gamma_s(\infty)$ for some $\gamma_s\in\Gamma$ and let $G_s=G\cap\gamma_s\Gamma_{\infty}\gamma_s^{-1}$ be the *stabilizer* of the cusp $s$. Assume that $v$ is trivial on $G_s$. The \textbf{$n$th Poincar\'e; series} for the cusp that $s$ represents is defined as
 \[
-P_k^n(G,v;z;\overline{s})=\sum_{g\in G_s\setminus G}\overline{v(g)}e^{2\pi 
+P_k^n(G,v;z;\overline{s})=\sum_{g\in G_s\setminus G}\overline{v(g)}e^{2\pi
 i(n/w)\gamma_s^{-1}gz}j(\gamma_s^{-1}g,z)^{-k},
 \]
-where $j(\gamma,z)=cz+d$ for $\gamma=\left(\begin{matrix}a&b\\c&d\end{matrix}\right)$. 
+where $j(\gamma,z)=cz+d$ for $\gamma=\left(\begin{matrix}a&b\\c&d\end{matrix}\right)$.
 
-Poincar\'e; series are *holomorphic* on the \hyperref[mf.upper_half_plane]{upper half-plane}. Further more, for a fixed cusp $\overline{S}$, they generate the corresponding space of \hyperref[cmf.cusp_form]{cusp forms}. The series depends on the choice of $\gamma_s$ up to a factor of $e^{2\pi in/w}$, therefore, if $w\mid n$, it does not depend on the cusp representative. 
-\end{definition}
-
-
+Poincar\'e; series are *holomorphic* on the \hyperref[mf.upper_half_plane]{upper half-plane}. Further more, for a fixed cusp $\overline{S}$, they generate the corresponding space of \hyperref[cmf.cusp_form]{cusp forms}. The series depends on the choice of $\gamma_s$ up to a factor of $e^{2\pi in/w}$, therefore, if $w\mid n$, it does not depend on the cusp representative.
+\end{definition}.

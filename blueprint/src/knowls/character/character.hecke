@@ -1,12 +1,10 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/character.hecke}{Hecke character}}
 \begin{definition}\label{character.hecke}
 \uses{nf,nf.ring_of_integers,ring.fractional_ideal,ring.ideal}
-Let $K$ be a \hyperref[nf]{number field} with \hyperref[nf.ring_of_integers]{ring of integers} $\Z_K$ and let $\mathfrak{m}$ be an integral \hyperref[ring.ideal]{ideal} of $\Z_K$. Let $I(\mathfrak{m})$ be the group of \hyperref[ring.fractional_ideal]{fractional ideals} of $\Z_K$ coprime to $\mathfrak{m}$. A \textbf{Hecke character} modulo $\mathfrak{m}$ is a group homomorphism $\chi:I(\mathfrak{m})\to\mathbb{C}^\times$ with the property there exists another group homomorphism $\chi_{\infty}:K^\times/\mathbb{Q}^\times\to\mathbb{C}^\times$ such that
+Let $K$ be a \hyperref[nf]{number field} with \hyperref[nf.ring_of_integers]{ring of integers} $\Z_K$ and let $\mathfrak{m}$ be an integral \hyperref[ring.ideal]{ideal} of $\Z_K$. Let $I(\mathfrak{m})$ be the group of \hyperref[ring.fractional_ideal]{fractional ideals} of $\Z_K$ coprime to $\mathfrak{m}$. A \textbf{Hecke character} modulo $\mathfrak{m}$ is a group homomorphism $\chi:I(\mathfrak{m})\to\mathbb{C}^\times$ with the property there exists another group homomorphism $\chi_\infty:K^\times/\mathbb{Q}^\times\to\mathbb{C}^\times$ such that
 \[
-\chi(\alpha\mathbb{Z}_K)=\chi_{\infty}(\alpha) \text{ for all }\alpha\in 
+\chi(\alpha\mathbb{Z}_K)=\chi_\infty(\alpha) \text{ for all }\alpha\in
 K^\times\text{ such that }\alpha\equiv1 \mod ^*\mathfrak{m},
 \]
 where by $\alpha\equiv1\mod^*{\mathfrak{m}}$ we mean that $v_{\mathfrak{p}}((\alpha-1))\geq v_{\mathfrak{p}}(\mathfrak{m})$ for all prime ideals $\mathfrak{p}\mid\mathfrak{m}$.
 \end{definition}
-
-

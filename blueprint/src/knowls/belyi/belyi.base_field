@@ -1,8 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/belyi.base_field}{Base field of a Belyi map}}
 \begin{definition}\label{belyi.base_field}
 \uses{belyi.galmap}
-The \textbf{base field} of a \hyperref[belyi.galmap]{Belyi map} $\phi:X\to\mathbb{P}^1$ is the field $X$ and $\phi$ are defined over.  
+The \textbf{base field} of a \hyperref[belyi.galmap]{Belyi map} $\phi:X\to\mathbb{P}^1$ is the field $X$ and $\phi$ are defined over.
 (In the database, we take this base field to be the field of moduli whenever possible.)
 \end{definition}
-
-

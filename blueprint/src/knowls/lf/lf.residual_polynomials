@@ -1,12 +1,12 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.residual_polynomials}{Residual polynomials}}
 \begin{definition}\label{lf.residual_polynomials}
 \uses{lf.padic_field,lf.ramification_index,lf.ramification_polygon,lf.residue_field}
-Let $L/K$ be a totally ramified extension of 
+Let $L/K$ be a totally ramified extension of
 \hyperref[lf.padic_field]{$p$-adic fields}, let $\alpha$ be a
-\hyperref[lf.ramification_index]{uniformizer} of $L$ with minimal 
+\hyperref[lf.ramification_index]{uniformizer} of $L$ with minimal
 polynomial $\varphi$ over $K$
-and denote by $v_{\alpha}$ the (exponential) valuation that is
-normalized such that $v_{\alpha}(\alpha)=1$. Let $\underline{L}$ be the
+and denote by $v_\alpha$ the (exponential) valuation that is
+normalized such that $v_\alpha(\alpha)=1$. Let $\underline{L}$ be the
 \hyperref[lf.residue_field]{residue field} of $L$, and for
 $\delta \in \mathcal{O}_L$ write $\underline{\delta}$ for the image of
 $\delta$ in $\underline{L}$.  Let
@@ -15,29 +15,27 @@ $$\rho(x)=\sum_i
 be the \hyperref[lf.ramification_polygon]{ramification polynomial}
 of $L/K$.  Let $S$ be a segment of the
 \hyperref[lf.ramification_polygon]{ramification polygon} of $L/K$
-with length $l$, endpoints $(-k-l,v_{\alpha}(\rho_{k+l}))$,
-$(-k,v_{\alpha}(\rho_k))$, and slope
-$h/m=\left(v_{\alpha}(\rho_k)-v_{\alpha}(\rho_{k+l})\right)/l$.  Then
-$$ A(x)=\sum_{j=0}^{l/m}\underline{\rho_{jm+k}\alpha^{jh-v_{\alpha}(\rho_k)}}x^{j}\in\underline{L}[x]
+with length $l$, endpoints $(-k-l,v_\alpha(\rho_{k+l}))$,
+$(-k,v_\alpha(\rho_k))$, and slope
+$h/m=\left(v_\alpha(\rho_k)-v_\alpha(\rho_{k+l})\right)/l$.  Then
+$$ A(x)=\sum_{j=0}^{l/m}\underline{\rho_{jm+k}\alpha^{jh-v_\alpha(\rho_k)}}x^{j}\in\underline{L}[x]
 $$
 is called the \textbf{residual polynomial} associated to $\rho$ and $S$.
 If $S$ has positive slope then it follows from this construction that
 $x^kA(x^m)$ is an additive polynomial.
 
 Residual polynomials (originally called associated polynomials) were
-introduced by Ore in 1928 \cite{doi:10.1007/BF01459087}.  The \textbf{residual polynomials} of $\varphi$ are the residual polynomials associated to the segments $S_1, \dots, S_{\ell}$ of the \hyperref[lf.ramification_polygon]{ramification polygon} of $\varphi$.  Although the list of residual polynomials associated to $\varphi$ is not an invariant of $L/K$, the definition can be modified to define an invariant.
+introduced by Ore in 1928 \cite{doi:10.1007/BF01459087}.  The \textbf{residual polynomials} of $\varphi$ are the residual polynomials associated to the segments $S_1, \dots, S_\ell$ of the \hyperref[lf.ramification_polygon]{ramification polygon} of $\varphi$.  Although the list of residual polynomials associated to $\varphi$ is not an invariant of $L/K$, the definition can be modified to define an invariant.
 
 For $1\le i\le \ell$, let $h_i/m_i$ be the slope of $S_i$ and $A_i(x)$
 its residual polynomial.  Set
 $$ \mathcal{A}= \left\{
 \left(\gamma_{\delta,1}{A_1}(\underline\delta^{h_1} x),\dots,
-\gamma_{\delta,\ell}{A_{\ell}}(\underline\delta^{h_{\ell}} x)\right) :
+\gamma_{\delta,\ell}{A_\ell}(\underline\delta^{h_\ell} x)\right) :
 \underline\delta\in\underline{K}^\times \right\},$$
-where $\gamma_{\delta,\ell}=\underline\delta^{-h_{\ell}\deg A_{\ell}},$ and $
+where $\gamma_{\delta,\ell}=\underline\delta^{-h_\ell\deg A_\ell},$ and $
 \gamma_{\delta,i}=\gamma_{\delta,i+1}\underline\delta^{-h_i\deg A_i}$ for
 $1\le i\le \ell-1$.  Then $\mathcal{A}$ is an invariant of the extension
 $K[x]/(\varphi)$.  We say that $\mathcal{A}$ is the
 \textbf{equivalence class of residual polynomials} associated to $L/K$.
 \end{definition}
-
-

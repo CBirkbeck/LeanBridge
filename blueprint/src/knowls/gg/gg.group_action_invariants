@@ -14,5 +14,3 @@ The action is \textbf{primitive} if the only block of size larger than 1 for the
 \textbf{Resolvent fields} are other fields inside the splitting field of $f(x)$ over $K$.  These correspond to small index subgroups of $G$,up to conjugation.  For a degree $m$ field $E$, the action of $G$ on the embeddings of $E$ into the splitting field of $f(x)$ gives a transitive group action, which is faithful for the appropriate quotient of $G$.  These are given in terms of the degree of the normal closure of $E$, and information describing the faithful transitive group action corresponding to $E$.
 
 \end{definition}
-
-

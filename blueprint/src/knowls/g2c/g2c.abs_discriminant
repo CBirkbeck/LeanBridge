@@ -3,5 +3,3 @@
 \uses{g2c.discriminant,g2c.g2curve}
 The \textbf{absolute discriminant} of a \hyperref[g2c.g2curve]{genus 2 curve} over $\Q$ is the absolute value of its \hyperref[g2c.discriminant]{discriminant}.
 \end{definition}
-
-

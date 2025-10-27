@@ -3,5 +3,3 @@
 \uses{}
 The \textbf{index} of the Frobenius order is the index of the ring $\mathbb{Z}[F,V]$ in $\mathcal{O}_K$, where $F$ is the Frobenius endomorphism and $V$ is the Verschiebung endomorphism.
 \end{definition}
-
-

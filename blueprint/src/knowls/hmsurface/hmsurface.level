@@ -4,5 +4,3 @@
 The \textbf{level} is a nonzero ideal $\mathfrak{N}$ which determines the \hyperref[hmsurface.congruence_subgroup]{congruence subgroup} $\Gamma_0(\mathfrak{N})_{\mathfrak{b}}$. In the LMFDB, such an ideal $\mathfrak{N}$ is identified by a \hyperref[nf.ideal.label.hmf]{label}.
 
 \end{definition}
-
-

@@ -1,8 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.growth_condition}{Growth condition for a modular form}}
 \begin{definition}\label{mf.growth_condition}
 \uses{mf}
-\leanok
-A \hyperref[mf]{modular form} $f$ satisfies a growth condition which restricts the growth of $f$ as $y\rightarrow \infty$ in complex variables $z=x+iy$.  
+A \hyperref[mf]{modular form} $f$ satisfies a growth condition which restricts the growth of $f$ as $y\rightarrow \infty$ in complex variables $z=x+iy$.
 \end{definition}
-
-

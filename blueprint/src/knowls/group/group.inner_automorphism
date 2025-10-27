@@ -5,10 +5,8 @@ If $G$ is a \hyperref[group]{group} and $g\in G$, then the function $\phi_g:G\to
 \[ \phi_g(x) = gxg^{-1} \]
 is an \hyperref[group.automorphism]{automorphism} of $G$ called an \textbf{inner automorphism}.
 
-The set of inner automorphisms $\mathrm{Inn}(G)$ is a 
+The set of inner automorphisms $\mathrm{Inn}(G)$ is a
 \hyperref[group.subgroup]{subgroup} of $\Aut(G)$, and
 \[ \mathrm{Inn}(G) \cong G/Z(G)\]
 where $Z(G)$ is the \hyperref[group.center]{center} of $G$.
 \end{definition}
-
-

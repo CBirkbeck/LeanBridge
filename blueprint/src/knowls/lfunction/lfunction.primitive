@@ -1,8 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.primitive}{Primitive L-function}}
 \begin{definition}\label{lfunction.primitive}
 \uses{}
-\leanok
 An L-function is <b>primitive</b> if it cannot be written as a product of nontrivial L-functions.  The "trivial L-function" is the constant function $1$.
 \end{definition}
-
-

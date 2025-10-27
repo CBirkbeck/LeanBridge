@@ -7,5 +7,3 @@ The \textbf{degree} of $L/K$ is the dimension of $L$ as a vector space over $K$.
 The \textbf{base degree} $n_0$ of $L/K$ is the degree of $K/\Q_p$.  The \textbf{absolute degree} $n_{\mathrm{abs}}$
 of $L/K$ is the degree of $L/\Q_p$.
 \end{definition}
-
-

@@ -10,5 +10,3 @@ When creating a statistics display, you can choose how proportions are computed.
 \item  \textbf{None}: No proportions will be shown.
 \end{itemize}
 \end{definition}
-
-

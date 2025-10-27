@@ -9,5 +9,3 @@ Equivalently, the subset $H$ must satisfy the following conditions:
 2. the \hyperref[alg.binary_operation.identity]{identity} of $G$ is an element of $H$
 3. for every $a\in H$, the \hyperref[alg.binary_operation.inverse]{inverse} of $a$ in $G$ is also in $H$.
 \end{definition}
-
-

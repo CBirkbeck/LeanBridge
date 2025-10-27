@@ -1,8 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.dim_decomposition}{Decomposition into newforms}}
 \begin{definition}\label{cmf.dim_decomposition}
 \uses{cmf.decomposition.new.gamma0chi}
-\leanok
 We display the dimensions of the factors in the \hyperref[cmf.decomposition.new.gamma0chi]{decomposition} of each space into newforms.
 \end{definition}
-
-

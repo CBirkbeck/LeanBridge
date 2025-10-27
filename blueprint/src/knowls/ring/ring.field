@@ -3,5 +3,3 @@
 \uses{alg.binary_operation.inverse,ring}
 A \textbf{field} is a \hyperref[ring]{commutative ring} $R$ such that $0_R\neq 1_R$ and every nonzero element of $R$ has an \hyperref[alg.binary_operation.inverse]{inverse} in $R$ with respect to multiplication.
 \end{definition}
-
-

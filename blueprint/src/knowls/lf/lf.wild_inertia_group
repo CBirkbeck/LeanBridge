@@ -3,5 +3,3 @@
 \uses{group.sylow_subgroup,lf.inertia_group,nf.is_galois}
 The \textbf{wild inertia group} of a \hyperref[nf.is_galois]{Galois} extension $K/\Q_p$ is the unique \hyperref[group.sylow_subgroup]{$p$-Sylow subgroup} of its \hyperref[lf.inertia_group]{inertia group}.
 \end{definition}
-
-

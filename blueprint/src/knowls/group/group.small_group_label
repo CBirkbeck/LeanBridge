@@ -1,12 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.small_group_label}{Labels for the small group database in GAP and Magma}}
 \begin{definition}\label{group.small_group_label}
 \uses{}
-\leanok
 The computer algebra systems GAP and Magma both include a database of small groups that includes all groups of order up to 2000, except for groups of order 1024. Groups in this database are identified by an ordered pair $[n,d]$ where $n$ is the order of the group and $d$ is a positive integer that distinguishes the group from others of the same order (the value of $d$ is the same in both GAP and Magma).
 
 In both systems, the command "SmallGroup($n$,$d$)" will return an explicit representation of the group in terms of generators and relations.
 
 Magma also associates a descriptive name to each small group.  For example, the command "GroupName(SmallGroup(24,3))" returns the string "SL(2,3)".
 \end{definition}
-
-

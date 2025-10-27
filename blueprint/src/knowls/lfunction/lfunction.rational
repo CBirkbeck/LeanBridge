@@ -7,5 +7,3 @@ L(s)=\prod_pL_p(p^{-s})^{-1}
 \]
 with $L_p\in \Z[T]$.
 \end{definition}
-
-

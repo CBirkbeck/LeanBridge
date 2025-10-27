@@ -3,5 +3,3 @@
 \uses{ag.geom_endomorphism_ring}
 The \textbf{real geometric endomorphism algebra} of an abelian variety $A$ over a field $F$ is the $\R$-algebra $\textrm{End}(A_{\overline{F}})\otimes\R$, where $\textrm{End}(A_{\overline{F}})$ is the \hyperref[ag.geom_endomorphism_ring]{geometric endomorphism ring} of $A$.
 \end{definition}
-
-

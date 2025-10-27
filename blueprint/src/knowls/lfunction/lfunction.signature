@@ -1,11 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.signature}{Signature of an L-function}}
 \begin{definition}\label{lfunction.signature}
 \uses{lfunction.gamma_factor,lfunction.selbergdata}
-The \textbf{signature} either refers to the pair $[J,K]$ where $J$ is the number of \hyperref[lfunction.gamma_factor]{$\Gamma_{\mathbb{R}}$} and $K$ is the number of \hyperref[lfunction.gamma_factor]{$\Gamma_{\mathbb{C}}$} in the \hyperref[lfunction.selbergdata]{Selberg data}, or else it refers to the tuple
+The \textbf{signature} either refers to the pair $[J,K]$ where $J$ is the number of \hyperref[lfunction.gamma_factor]{$\Gamma_{\mathbb R}$} and $K$ is the number of \hyperref[lfunction.gamma_factor]{$\Gamma_{\mathbb C}$} in the \hyperref[lfunction.selbergdata]{Selberg data}, or else it refers to the tuple
 $$
 (\Re(\mu_1),\ldots,\Re(\mu_J); 2\Re(\nu_1),\ldots,2\Re(\nu_K)).
 $$
 Note that the entries in that tuple are non-negative integers.
 \end{definition}
-
-

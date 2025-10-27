@@ -6,5 +6,3 @@ The \textbf{minimal twist} of a \hyperref[cmf.newform]{newform} $f$ is the \hype
 A key feature of the minimal twist $g$ (and more generally, of any twist minimal $g$ of \hyperref[cmf.level]{level} $N$ and minimal character $\chi$) is that for any character $\psi$, the level $M$ of the twist $g\otimes\psi$ can be computed as $M={\rm lcm}(N,{\rm cond}(\psi){\rm cond}(\chi\psi))$.
 
 \end{definition}
-
-

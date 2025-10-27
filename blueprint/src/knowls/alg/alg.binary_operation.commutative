@@ -5,5 +5,3 @@ If $*$ is a \hyperref[alg.binary_operation]{binary operation} on a set $A$, then
 $$ a*b=b*a.$$
 
 \end{definition}
-
-

@@ -3,5 +3,3 @@
 \uses{group.representation.character}
 The \textbf{degree} of a \hyperref[group.representation.character]{character} $\chi$ of a group $G$ is the value given by $\chi(1)$ where $1$ is the trivial element of $G$.
 \end{definition}
-
-

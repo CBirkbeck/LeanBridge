@@ -5,5 +5,3 @@ An \textbf{elliptic curve} over a \hyperref[ring]{commutative ring} $R$ is an \h
 
 For example, an elliptic curve over $\Z[1/N]$ is the same as an \hyperref[ec]{elliptic curve} over $\Q$ with \hyperref[ec.good_reduction]{good reduction} at all primes not dividing $N$.  (More precisely, the latter is the generic fiber of the former.)
 \end{definition}
-
-

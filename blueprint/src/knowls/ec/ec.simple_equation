@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.simple_equation}{Simplified equation}}
 \begin{definition}\label{ec.simple_equation}
 \uses{ec,ec.bad_reduction,ec.good_reduction,ec.q.minimal_weierstrass_equation,ring.characteristic,ring.field}
-Every \hyperref[ec]{elliptic curve} over a \hyperref[ring.field]{field} $k$ whose \hyperref[ring.characteristic]{characteristic} is not 2 or 3 has a \textbf{simplified equation} (or \textbf{short Weierstrass model}) of the form $y^2 = x^3 + Ax + B$.  When $k=\mathbb{Q}$ is the field of rational numbers, one can choose $A$ and $B$ to be integers.
+Every \hyperref[ec]{elliptic curve} over a \hyperref[ring.field]{field} $k$ whose \hyperref[ring.characteristic]{characteristic} is not 2 or 3 has a \textbf{simplified equation} (or \textbf{short Weierstrass model}) of the form $y^2 = x^3 + Ax + B$.  When $k=\mathbb Q$ is the field of rational numbers, one can choose $A$ and $B$ to be integers.
 
 For elliptic curves over $\Q$ this model will necessarily have \hyperref[ec.bad_reduction]{bad reduction} at 2, even when $E$ has \hyperref[ec.good_reduction]{good reduction} at 2; it may also bad reduction at 3 even when the \hyperref[ec.q.minimal_weierstrass_equation]{minimal model} of $E$ does not.
 \end{definition}
-
-

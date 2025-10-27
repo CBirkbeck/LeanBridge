@@ -3,9 +3,7 @@
 \uses{lfunction,lfunction.critical_line,lfunction.normalization,lfunction.rh,lfunction.trivial_zero}
 The \textbf{zeros} of an \hyperref[lfunction]{L-function} $L(s)$ are the complex numbers $\rho$ for which $L(\rho)=0$.
 
-Under the \hyperref[lfunction.rh]{Riemann Hypothesis}, every \hyperref[lfunction.trivial_zero]{non-trivial zero} $\rho$ lies on the \hyperref[lfunction.critical_line]{critical line} $\Re(s)=1/2$ (in the \hyperref[lfunction.normalization]{analytic normalization}).  
+Under the \hyperref[lfunction.rh]{Riemann Hypothesis}, every \hyperref[lfunction.trivial_zero]{non-trivial zero} $\rho$ lies on the \hyperref[lfunction.critical_line]{critical line} $\Re(s)=1/2$ (in the \hyperref[lfunction.normalization]{analytic normalization}).
 
-The \textbf{lowest zero} of an L-function $L(s)$ is the least $\gamma>0$ for which $L(1/2+i\gamma)=0$. Note that even when $L(1/2)=0$, the lowest zero is by definition a positive real number. 
+The \textbf{lowest zero} of an L-function $L(s)$ is the least $\gamma>0$ for which $L(1/2+i\gamma)=0$. Note that even when $L(1/2)=0$, the lowest zero is by definition a positive real number.
 \end{definition}
-
-

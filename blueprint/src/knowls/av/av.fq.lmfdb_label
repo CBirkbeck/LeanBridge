@@ -3,9 +3,9 @@
 \uses{ag.endomorphism_ring,av.deligne_module,av.fq.ordinary,av.fq.weil_polynomial,av.isogeny_class,av.polarization,av.weak_equivalence_class}
 The LMFDB uses a systematic system to label
 \hyperref[av.isogeny_class]{isogeny classes},
-\hyperref[ag.endomorphism_ring]{endomorphism ring}, 
+\hyperref[ag.endomorphism_ring]{endomorphism ring},
 \hyperref[av.weak_equivalence_class]{weak equivalence classes},
-\hyperref[av.deligne_module]{Deligne module}, and  
+\hyperref[av.deligne_module]{Deligne module}, and
 \hyperref[av.polarization]{polarizations} defined over finite fields.
 
 The \textbf{label} format for an \hyperref[av.isogeny_class]{isogeny class} defined over a finite field is  \textbf{g.q.isog}, where
@@ -63,5 +63,3 @@ Each \hyperref[av.polarization]{polarizations} of an \hyperref[av.fq.ordinary]{o
 \end{itemize}
 
 \end{definition}
-
-

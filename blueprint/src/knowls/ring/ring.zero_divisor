@@ -4,5 +4,3 @@
 An element $a$ in a \hyperref[ring]{ring} $R$ is a \textbf{zero divisor} if $a\neq 0_R$ and there exists an element $b\in R-\{0_R\}$ such that
 $$ a\cdot b = 0_R \qquad \text{or}\qquad b\cdot a = 0_R.$$
 \end{definition}
-
-

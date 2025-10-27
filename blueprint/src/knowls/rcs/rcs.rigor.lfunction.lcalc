@@ -1,10 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.rigor.lfunction.lcalc}{Reliability of Dynamically Computed L-function Data}}
 \begin{definition}\label{rcs.rigor.lfunction.lcalc}
 \uses{lfunction.zeros}
-\leanok
 Dynamically computed L-functions are computed on-the-fly at low precision and are meant only to indicate the general shape of the L-function.  Information that cannot be computed quickly may be missing (possibly including \hyperref[lfunction.zeros]{zeros}).
 
 The displayed data may be inaccurate, and in particular may not have the accuracy suggested by the displayed precision.
 \end{definition}
-
-

@@ -1,8 +1,5 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.discriminant_valuation}{Discriminant valuation}}
 \begin{definition}\label{ec.discriminant_valuation}
 \uses{ec.minimal_discriminant}
-\leanok
 The valuation of the \hyperref[ec.minimal_discriminant]{minimal discriminant} at a prime.
 \end{definition}
-
-

@@ -5,5 +5,3 @@ Two \hyperref[cmf.newform]{newforms} $f=\sum a_nq^n$ and $g=\sum b_nq^n$  are \t
 
 The set $\{\sigma(f):\sigma\in\Gal(\overline{\Q}/\Q)\}$ of all Galois conjugates of $f$ is the \hyperref[cmf.galois_orbit]{Galois orbit} of $f$; it has cardinality equal to the \hyperref[cmf.dimension]{dimension} of $f$, equivalently, the \hyperref[nf.degree]{degree} of its \hyperref[cmf.coefficient_field]{coefficient field}
 \end{definition}
-
-

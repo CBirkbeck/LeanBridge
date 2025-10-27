@@ -1,11 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.fuchsian.cusps.width}{Width of a cusp}}
 \begin{definition}\label{group.fuchsian.cusps.width}
 \uses{group.fuchsian.cusps,group.sl2z}
-The \textbf{width} of the \hyperref[group.fuchsian.cusps]{cusp} $\infty$ 
+The \textbf{width} of the \hyperref[group.fuchsian.cusps]{cusp} $\infty$
 for the group $\Gamma$ is the smallest number $w$ such that $T^w=\left(\begin{matrix}1&w\\0&1\end{matrix}\right)\in\Gamma$. Furthermore, for a general $x\in\mathbb{P}^1(\mathbb{Q})$ and $\gamma\in\Gamma$ such that $\gamma\infty=x$, we define the \textbf{width} of $x$ for $\Gamma$ to be the width of $\infty$ for $\gamma^{-1}\Gamma\gamma$.
 
 Note that $T=\left(\begin{matrix}1&1\\0&1\end{matrix}\right)$ is one of the \textbf{generators} of the \hyperref[group.sl2z]{modular group} $\textrm{SL}_2(\mathbb{Z})$.
 
 \end{definition}
-
-

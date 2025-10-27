@@ -5,5 +5,3 @@ The \textbf{special linear group} $\SL(n,q)$ is the group of $n \times n$ matric
 
 The \textbf{projective special linear group} $\PSL(n, q)$ is the \hyperref[group.quotient]{quotient} of $\SL(n, q)$ with the group of $n \times n$ scalar matrices over $\F_q$ with determinant 1.  If either $n > 2$ or $q > 3$, then $\PSL(n, q)$ is a \hyperref[group.simple]{simple} group.
 \end{definition}
-
-

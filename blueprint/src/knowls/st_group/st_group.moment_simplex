@@ -9,5 +9,3 @@ by weighted degree $\sum ie_i$; here $a_i$ denotes the $i$th symmetric function 
 
 The \textbf{moment simplex} of a Sato-Tate group is the triangular table of nonzero mixed moments with rows indexed by even weighted degree and the entries in each row sorted lexicographically by exponent vector.
 \end{definition}
-
-

@@ -1,8 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.g2c}{Source of Genus 2 Curve Data}}
 \begin{definition}\label{rcs.source.g2c}
 \uses{ag.cluster_picture,ag.conductor,ag.endomorphism_ring,ag.geom_endomorphism_ring,ag.jacobian,ag.mordell_weil,g2c.all_rational_points,g2c.analytic_sha,g2c.aut_grp,g2c.bsd_invariants,g2c.discriminant,g2c.g2curve,g2c.galois_rep,g2c.galois_rep.non_maximal_primes,g2c.good_reduction,g2c.has_square_sha,g2c.invariants,g2c.known_rational_points,g2c.local_root_number,g2c.locally_solvable,g2c.mordell_weil_rank,g2c.mw_generator,g2c.num_rat_wpts,g2c.real_period,g2c.regulator,g2c.st_group,g2c.tamagawa,g2c.tame_reduction,g2c.torsion,g2c.two_selmer_rank,lfunction.leading_coeff}
-\leanok
-The database of \hyperref[g2c.g2curve]{genus 2 curves} was constructed by Andrew Booker, Jeroen Sijsling, Andrew Sutherland, John Voight, and Dan Yasaki.  A detailed description of its construction can be found in \cite{doi:10.1112/S146115701600019X,arXiv:1602.03715,MR:3540958}.
+The database of \hyperref[g2c.g2curve]{genus 2 curves} was constructed by Andrew Booker, Jeroen Sijsling, Andrew Sutherland, John Voight, and Dan Yasaki.  A detailed description of its construction can be found in \cite{doi:10.1112/S146115701600019X,,arXiv:1602.03715,MR:3540958}.
 
 \begin{itemize}
 \item  \hyperref[g2c.invariants]{Geometric invariants}, \hyperref[g2c.discriminant]{minimal discriminants}, \hyperref[g2c.aut_grp]{automorphism} groups, \hyperref[g2c.locally_solvable]{local solubility}, number of \hyperref[g2c.num_rat_wpts]{rational Weierstrass points}, \hyperref[g2c.two_selmer_rank]{2-Selmer rank}, \hyperref[g2c.torsion]{torsion subgroup} of the \hyperref[ag.jacobian]{Jacobian}, and \hyperref[g2c.has_square_sha]{squareness of Sha} were computed using built-in Magma functions; code to reproduce these computations can be obtained on each curve's home page.
@@ -56,5 +55,3 @@ The database of \hyperref[g2c.g2curve]{genus 2 curves} was constructed by Andrew
 \item  \hyperref[g2c.local_root_number]{Local root numbers} have been provably computed for odd primes of \hyperref[g2c.tame_reduction]{tame reduction} by Edwina Aylward, Raymond van Bommel, and Harry Spencer using methods described in \cite{ArXiv:1902.08981} and \cite{ArXiv:2007.01749}.
 \end{itemize}
 \end{definition}
-
-

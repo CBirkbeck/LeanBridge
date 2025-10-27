@@ -3,11 +3,9 @@
 \uses{ag.abelian_variety,ag.jacobian,av.isogeny}
 The \textbf{isogeny class} of an \hyperref[ag.abelian_variety]{abelian variety} $A$ over a field $K$ is the set of isomorphism classes of abelian varieties over $K$ that are \hyperref[av.isogeny]{isogenous} to $A$ (over $K$).
 
-When $K$ is a number field, LMFDB entries for isogeny classes typically list only those elements of the isogeny class that are present in the LMFDB; for abelian varieties of dimension greater than 1, this means that the list of elements of the isogeny class will often be incomplete. 
+When $K$ is a number field, LMFDB entries for isogeny classes typically list only those elements of the isogeny class that are present in the LMFDB; for abelian varieties of dimension greater than 1, this means that the list of elements of the isogeny class will often be incomplete.
 
 When $K$ is a finite field, if the LMFDB contains information about an isogeny class of abelian varieties of dimension $g$ over a field of cardinality $q$, then it contains every isogeny class for that dimension over that field. The LMFDB does not contain at present information on individual isomorphism classes of abelian varieties contained in the isogeny classes.
 
 Isogeny class information listed on LFMDB pages for curves refer to the isogeny class of its \hyperref[ag.jacobian]{Jacobian}.
 \end{definition}
-
-

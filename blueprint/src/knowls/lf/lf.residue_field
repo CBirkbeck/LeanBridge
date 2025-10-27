@@ -5,5 +5,3 @@ The \textbf{residue field} of a nonarchimedean local field is the quotient of it
 
 The residue field is finite and its characteristic $p$ is the \textbf{residue field characteristic}.  Finite extensions of $\Q_p$ have residue field characteristic $p$.
 \end{definition}
-
-

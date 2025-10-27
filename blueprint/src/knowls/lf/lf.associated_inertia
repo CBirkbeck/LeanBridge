@@ -4,5 +4,3 @@
 Let $L/K$ be a finite extension, let $L^{un}/K$ be the \hyperref[lf.unramified_subfield]{maximal unramified subextension} of $L/K$, and let $\varphi \in L^{un}[x]$ be an \hyperref[lf.eisenstein_polynomial]{Eisenstein} polynomial defining $L/L^{un}$.  The \textbf{associated inertia} of a segment of the \hyperref[lf.ramification_polygon]{ramification polygon} of
 $\varphi$ is the least common multiple of the degrees of the irreducible factors of the \hyperref[lf.residual_polynomials]{residual polynomial} of that segment.  The associated inertias are divisors of the inertia degree of $\varphi$ and are invariants of $L/K$.
 \end{definition}
-
-

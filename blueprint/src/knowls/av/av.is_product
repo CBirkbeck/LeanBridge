@@ -3,5 +3,3 @@
 \uses{ag.abelian_variety}
 Given two \hyperref[ag.abelian_variety]{abelian variety} $A_1$ and $A_2$ over the same field, one can construct the \textbf{product abelian variety} $A_1\times A_2$.
 \end{definition}
-
-

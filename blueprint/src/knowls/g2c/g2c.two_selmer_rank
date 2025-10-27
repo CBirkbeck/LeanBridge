@@ -5,5 +5,3 @@ The \textbf{2-Selmer rank} of an \hyperref[ag.abelian_variety]{abelian variety} 
 
 The difference between the 2-Selmer rank and the 2-rank of the \hyperref[g2c.torsion]{torsion subgroup} is an upper bound on the rank of the \hyperref[ag.mordell_weil]{Mordell-Weil group}.  This bound is tight if and only if the 2-part of the \hyperref[ag.tate_shafarevich]{Tate-Shafarevich group} is trivial
 \end{definition}
-
-

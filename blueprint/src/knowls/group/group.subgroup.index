@@ -3,5 +3,3 @@
 \uses{group.coset}
 The \textbf{index} of a subgroup $G'$ of a group $G$, denoted $[G:G']$, is the order of the set of \hyperref[group.coset]{left cosets} of $G'$ in $G$.
 \end{definition}
-
-

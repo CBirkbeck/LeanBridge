@@ -6,10 +6,8 @@ Let $f$ be a function from \hyperref[mf.upper_half_plane]{$\mathcal{H}$} to $\ma
 f|_k\gamma(z)=\det(\gamma)^{k/2}(cz+d)^{-k}f(\gamma z).
 \]
 
-Note that, if $f$ is a \hyperref[mf]{modular form} with \hyperref[mf.multipliersystem]{multiplier system} $v$, the \hyperref[mf.transformation_property]{modularity condition} is equivalent to 
+Note that, if $f$ is a \hyperref[mf]{modular form} with \hyperref[mf.multipliersystem]{multiplier system} $v$, the \hyperref[mf.transformation_property]{modularity condition} is equivalent to
 \[
 f|_k\gamma(z)=v(\gamma)f(z).
 \]
 \end{definition}
-
-

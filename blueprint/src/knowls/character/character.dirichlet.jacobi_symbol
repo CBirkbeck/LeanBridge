@@ -1,10 +1,10 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/character.dirichlet.jacobi_symbol}{Jacobi symbol}}
 \begin{definition}\label{character.dirichlet.jacobi_symbol}
 \uses{character.dirichlet.legendre_symbol}
-The \textbf{Jacobi symbol} \(\displaystyle\left(\frac{a}{b}\right)\) is an extension of the \hyperref[character.dirichlet.legendre_symbol]{Legendre symbol} to all positive odd integers $b$ as follows. 
+The \textbf{Jacobi symbol} \(\displaystyle\left(\frac{a}{b}\right)\) is an extension of the \hyperref[character.dirichlet.legendre_symbol]{Legendre symbol} to all positive odd integers $b$ as follows.
 
-We set 
-$ \displaystyle\left(\frac{a}{1}\right) =1 $ for all $a.$ 
+We set
+$ \displaystyle\left(\frac{a}{1}\right) =1 $ for all $a.$
 
 
 If $b>1,$ then it has a decomposition into distinct *odd* primes of the form $b = p_1^{e_1} p_2^{e_2}\cdots p_r^{e_r}$ and the Jacobi symbol is defined as the product of Legendre symbols
@@ -12,11 +12,11 @@ $$ \displaystyle\left(\frac{a}{b}\right) = \left(\frac{a}{p_1}\right)^{e_1} \lef
 
 The Jacobi symbol is multiplicative in the sense that \(\displaystyle\left(\frac{a_1 a_2}{b}\right) = \displaystyle\left(\frac{a_1}{b}\right)\displaystyle\left(\frac{a_2}{b}\right)\) and  \(\displaystyle\left(\frac{a}{b_1b_2}\right) = \displaystyle\left(\frac{a}{b_1}\right)\displaystyle\left(\frac{a}{b_2}\right)\) for all integers $a, a_1, a_2$ and all positive odd integers $b, b_1, b_2.$
 
-It has the same special formulas for $a=-1$ and $a = 2$ as the Legendre symbol, namely 
+It has the same special formulas for $a=-1$ and $a = 2$ as the Legendre symbol, namely
 
 $\left(\displaystyle \frac{-1}{b}\right)= (-1)^{\frac{b-1}{2}} =  \left\{ \begin{array}{cl} 1 & \text{if } b \equiv 1 \bmod 4 \\ -1 & \text{if } b \equiv -1 \bmod 4 \end{array} \right.$  and $\left(\displaystyle \frac{2}{b}\right) = (-1)^{\frac{b^2-1}{8}}=\left\{ \begin{array}{cl} 1 & \text{if } b \equiv \pm1 \bmod 8 \\ -1 & \text{if } b \equiv \pm3 \bmod 8 \end{array} \right.$.
 
-The \textbf{law of quadratic reciprocity states} that for $m,n$ odd positive coprime integers we have 
+The \textbf{law of quadratic reciprocity states} that for $m,n$ odd positive coprime integers we have
 
 $$\left(\displaystyle\frac{n}{m}\right) = (-1)^{\frac{m-1}2 \frac{n-1}2} \left(\displaystyle \frac{m}{n}\right).$$
 
@@ -24,5 +24,3 @@ $$\left(\displaystyle\frac{n}{m}\right) = (-1)^{\frac{m-1}2 \frac{n-1}2} \left(\
 
 
 \end{definition}
-
-

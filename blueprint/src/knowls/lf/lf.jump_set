@@ -36,5 +36,3 @@ values in the sequence $[u_0,u_2,\dots,u_r]$ are
 filled in using the recursion $u_{i+1}=\rho(u_i)$, where
 $\rho(x)=\min\{px,x+e\}$.
 \end{definition}
-
-

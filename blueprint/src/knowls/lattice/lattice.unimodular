@@ -3,5 +3,3 @@
 \uses{lattice.definition,lattice.determinant}
 An \hyperref[lattice.definition]{integral lattice} is \textbf{unimodular} if its \hyperref[lattice.determinant]{determinant} is equal to 1.
 \end{definition}
-
-

@@ -1,11 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/av.fq.honda_tate}{Honda-Tate theorem}}
 \begin{definition}\label{av.fq.honda_tate}
 \uses{ag.abelian_variety,av.fq.weil_polynomial,nf.weil_polynomial}
-\leanok
-The Honda-Tate theorem states that \hyperref[ag.abelian_variety]{abelian varieties} $A$ and $B$ over $\F_q$ are isogenous if and only if they have the same \hyperref[av.fq.weil_polynomial]{characteristic polynomial}, and it characterizes the polynomials that can arise as characteristic polynomials of abelian varieties over $\F_q$ as being the \hyperref[nf.weil_polynomial]{Weil polynomials} satisfying a condition on the multiplicities of factors.  The condition is given explicitly in Waterhouse, "Abelian varieties over finite fields" \cite{MR:265369,doi:10.24033/asens.1183}.
+The Honda-Tate theorem states that \hyperref[ag.abelian_variety]{abelian varieties} $A$ and $B$ over $\F_q$ are isogenous if and only if they have the same \hyperref[av.fq.weil_polynomial]{characteristic polynomial}, and it characterizes the polynomials that can arise as characteristic polynomials of abelian varieties over $\F_q$ as being the \hyperref[nf.weil_polynomial]{Weil polynomials} satisfying a condition on the multiplicities of factors.  The condition is given explicitly in Waterhouse, "Abelian varieties over finite fields" \cite{MR265369,doi:10.24033/asens.1183}.
 
 Moreover, $A$ is isogenous to an abelian subvariety of $B$ if and only $P_A(t)$ divides $P_B(t)$.
 
 \end{definition}
-
-

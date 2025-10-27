@@ -5,5 +5,3 @@ The \textbf{dimension} of an \hyperref[artin]{Artin representation}
 $\rho:\mathrm{Gal}(\overline{\mathbb{Q}}/\mathbb{Q})\to\mathrm{GL}(V)$ is the dimension
 of the associated vector space $V$.
 \end{definition}
-
-

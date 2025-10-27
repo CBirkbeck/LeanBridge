@@ -16,5 +16,3 @@ $K = \Q_p$, the mass is the product of the absolute mass with $f$.
 
 For some families, not all of the fields within the family are contained within the LMFDB.  In these cases, we display the fraction of the absolute mass among those fields within the database as a percentage.
 \end{definition}
-
-

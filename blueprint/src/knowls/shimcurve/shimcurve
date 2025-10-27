@@ -3,9 +3,9 @@
 \uses{ag.curve,shimcurve.discb,shimcurve.enhanced_group,shimcurve.level,shimcurve.polarized_order,shimcurve.quaternion_algebra}
 Let $(O,\mu)$ be a \hyperref[shimcurve.polarized_order]{polarized quaternion order} in an indefinite division
 \hyperref[shimcurve.quaternion_algebra]{quaternion algebra}
-over $\Q$ of \hyperref[shimcurve.discb]{discriminant} $D$. 
+over $\Q$ of \hyperref[shimcurve.discb]{discriminant} $D$.
 Let $\mathcal{H}^\pm \colonequals \C \smallsetminus \R$ be the union of the complex
-upper and lower half planes. Since $B$ is indefinite, we may 
+upper and lower half planes. Since $B$ is indefinite, we may
 fix an embedding $B^\times \hookrightarrow \GL_2(\R)$, and so $B^\times$
 acts on $\mathcal{H}^\pm$ by M\"obius transformations.
 
@@ -16,18 +16,18 @@ Then $\widehat{O}^\times$ is an open compact subgroup of $\widehat{B}^\times$.  
     \[ \Gamma(\widehat{O},N) \colonequals \ker(\widehat{O}^\times \to
         \modstar{O}{NO}). \]
 We form the double coset space
-    \[ X(O;N)^{\text{big}}(\C) \colonequals B^\times\backslash (\mathcal{H}^\pm 
+    \[ X(O;N)^{\text{big}}(\C) \colonequals B^\times\backslash (\mathcal{H}^\pm
         \times \widehat{B}^\times)/\Gamma(\widehat{O},N). \]
-Here, the group actions are as follows: for 
-$\beta \in B^\times$, $\tau \in \mathcal{H}^\pm$, 
+Here, the group actions are as follows: for
+$\beta \in B^\times$, $\tau \in \mathcal{H}^\pm$,
 $\widehat{b} \in \widehat{B}^\times$, and $\widehat{\gamma}
 \in \Gamma(\widehat{O},N)$, we define
-    \[ \beta(\tau,\widehat{b})\widehat{\gamma} 
+    \[ \beta(\tau,\widehat{b})\widehat{\gamma}
     = (\beta\cdot \tau,\beta\widehat{b}\widehat{\gamma}). \]
 
 By work of Shimura and Deligne, $X(O;N)^{\text{big}}(\C)$ is canonically
-the complex points of a (possibly geometrically disconnected) 
-\hyperref[ag.curve]{algebraic curve} 
+the complex points of a (possibly geometrically disconnected)
+\hyperref[ag.curve]{algebraic curve}
 $X(O;N)^{\text{big}}$ over $\Q$, which we call the
 \textbf{full level $N$ Shimura curve associated to $O$}. For example,
 when $N = 1$, the \textbf{level $1$ Shimura curve associated to $O$} can
@@ -36,15 +36,13 @@ be identified with the quotient
 
 
 Let $H \le \Aut_{\pm\mu}(O)\ltimes \widehat{O}^\times$ be an open
-compact subgroup of the \hyperref[shimcurve.enhanced_group]{enhanced semidirect product} of \hyperref[shimcurve.level]{level} $N$. Then $H$ acts on $X(O;N)^{\text{big}}$ by a finite group 
+compact subgroup of the \hyperref[shimcurve.enhanced_group]{enhanced semidirect product} of \hyperref[shimcurve.level]{level} $N$. Then $H$ acts on $X(O;N)^{\text{big}}$ by a finite group
 of automorphisms over $\Q$. We let
     \[ \mathfrak{X}_H \colonequals [H\backslash X(O;N)^{\text{big}}] \]
 be the corresponding stack quotient. The
 \textbf{(quaternionic) Shimura curve of level $H$} is the
-associated coarse space $X_H$.  
+associated coarse space $X_H$.
 
 When $O$ is maximal, we write $X(D;1) \colonequals X(O;1)^{\text{big}}$. When $O$ is
 an Eichler order of level $N$, we write $X_0(D;N) \colonequals X(O;1)^{\text{big}}$.
 \end{definition}
-
-

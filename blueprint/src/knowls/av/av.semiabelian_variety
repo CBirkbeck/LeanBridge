@@ -3,5 +3,3 @@
 \uses{ag.abelian_variety}
 A \textbf{semiabelian variety} is a commutative group variety which is an extension of an \hyperref[ag.abelian_variety]{abelian variety} by a torus.
 \end{definition}
-
-

@@ -11,5 +11,3 @@ One may also define the Selmer group for any \hyperref[av.isogeny]{isogeny} from
 
 Any Selmer group is finite and effectively computable. In fact, all known techniques for computing the \hyperref[ag.mordell_weil]{Mordell-Weil group} of $A$ involve computing a Selmer group.
 \end{definition}
-
-

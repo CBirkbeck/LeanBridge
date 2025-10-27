@@ -7,5 +7,3 @@ If $X$ has a $k$-rational point, then $J(k)$ is isomorphic to the group of degre
 
 The Torelli theorem states that if $X$ and $Y$ are curves whose Jacobians are isomorphic as *principally polarized* abelian varieties, then $X$ and $Y$ are isomorphic.  It is possible, however, for non-isomorphic curves to have Jacobians that are isomorphic as unpolarized abelian varieties.
 \end{definition}
-
-

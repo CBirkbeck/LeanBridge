@@ -12,5 +12,3 @@ We list two types of information about the \textbf{isogeny decomposition} of $J_
 
 When $X_H$ has \hyperref[modcurve.genus]{genus} zero, $J_H$ is the trivial abelian variety of dimension zero, and no isogeny decomposition information is listed.
 \end{definition}
-
-

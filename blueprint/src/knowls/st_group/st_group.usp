@@ -1,8 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/st_group.usp}{Unitary symplectic group}}
 \begin{definition}\label{st_group.usp}
 \uses{st_group.symplectic_form}
-For a positive even integer $d$ the \textbf{unitary symplectic group} $\mathrm{USp}(d)$ is 
-the group of unitary transformations of a $d$-dimensional $\C$-vector space equipped with a \hyperref[st_group.symplectic_form]{symplectic form} $\Omega$.  In other words, the subgroup of $\GL_d(\mathbb{C})$ whose elements $A$ satisfy:
+For a positive even integer $d$ the \textbf{unitary symplectic group} $\mathrm{USp}(d)$ is
+the group of unitary transformations of a $d$-dimensional $\C$-vector space equipped with a \hyperref[st_group.symplectic_form]{symplectic form} $\Omega$.  In other words, the subgroup of $\GL_d(\mathbb C)$ whose elements $A$ satisfy:
 
 \begin{itemize}
 \item  $A^{-1} = \bar A^{\intercal}$ (unitary);
@@ -11,5 +11,3 @@ the group of unitary transformations of a $d$-dimensional $\C$-vector space equi
 
 It is a compact real Lie group that can also be viewed as the intersection of $\mathrm{U}(d)$ and $\mathrm{Sp}(d,\C)$ in $\GL_d(\C)$.
 \end{definition}
-
-

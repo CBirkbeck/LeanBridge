@@ -5,5 +5,3 @@ The \textbf{rational character table} of a finite \hyperref[group]{group} $G$ is
 
 The row corresponding to each rational character is marked by its \hyperref[group.label_rational_group_char]{label} and the columns by the \hyperref[group.label_conjugacy_class]{labels} of the corresponding rational conjugacy class.
 \end{definition}
-
-

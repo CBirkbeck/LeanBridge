@@ -3,5 +3,3 @@
 \uses{belyi.galmap,group.triangle_group}
 A \hyperref[belyi.galmap]{Belyi map} corresponds to a finite index subgroup of a \hyperref[group.triangle_group]{triangle group} $\Delta(a,b,c)$. The \textbf{geometry type} of a Belyi map is spherical, Euclidean, or hyperbolic according to $\frac{1}{a}+\frac{1}{b}+\frac{1}{c}$ being $>1$, $=1$, or $<1$, respectively.
 \end{definition}
-
-

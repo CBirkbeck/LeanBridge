@@ -3,5 +3,3 @@
 \uses{character.dirichlet,character.dirichlet.galois_orbit,cmf.embedding,cmf.inner_twist,cmf.newform}
 It is possible for a \hyperref[cmf.newform]{newform} $f$ to admit an \hyperref[cmf.inner_twist]{inner twist} by more than one \hyperref[character.dirichlet]{Dirichlet character} $\varphi$ in the same \hyperref[character.dirichlet.galois_orbit]{Galois orbit}.  Different \hyperref[cmf.embedding]{embeddings} of $f$ into $\C$ will yield different $\varphi$, but the number of such $\varphi$ is the same for every embedding; this number is the \textbf{multiplicity}.
 \end{definition}
-
-

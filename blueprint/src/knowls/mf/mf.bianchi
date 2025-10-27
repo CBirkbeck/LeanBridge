@@ -2,19 +2,19 @@
 \begin{definition}\label{mf.bianchi}
 \uses{mf.bianchi.bianchicongruencesubgroup,mf.bianchi.bianchigroup,mf.bianchi.fourierbessell,mf.bianchi.hyperbolic3space,nf,nf.class_number,nf.ring_of_integers}
 
-Let $K$ be an imaginary quadratic \hyperref[nf]{number field} of \hyperref[nf.class_number]{class number} $1$, and $\mathcal{O}_K$ be its \hyperref[nf.ring_of_integers]{ring of integers}. Let $\Gamma$ be a \hyperref[mf.bianchi.bianchicongruencesubgroup]{congruence subgroup} of the 
+Let $K$ be an imaginary quadratic \hyperref[nf]{number field} of \hyperref[nf.class_number]{class number} $1$, and $\mathcal{O}_K$ be its \hyperref[nf.ring_of_integers]{ring of integers}. Let $\Gamma$ be a \hyperref[mf.bianchi.bianchicongruencesubgroup]{congruence subgroup} of the
 \hyperref[mf.bianchi.bianchigroup]{Bianchi group} $\textrm{PSL}_2(\mathcal{O}_K)$.
-Let $\mathcal{H}_3$ be \hyperref[mf.bianchi.hyperbolic3space]{hyperbolic 3-space}. A \textbf{Bianchi modular form} for $\Gamma$ with weight $k\ge0$ is a real analytic vector-valued function 
+Let $\mathcal{H}_3$ be \hyperref[mf.bianchi.hyperbolic3space]{hyperbolic 3-space}. A \textbf{Bianchi modular form} for $\Gamma$ with weight $k\ge0$ is a real analytic vector-valued function
 $F: \mathcal{H}_3 \rightarrow \mathbb{C}^{k+1}$ with the properties
 
 1. $F|_k\gamma = F$ for every $\gamma \in \Gamma$;
 2. $F$ is harmonic;
-3. $F$ has at worst polynomial growth at each cusp of $\Gamma$. 
+3. $F$ has at worst polynomial growth at each cusp of $\Gamma$.
 
 The set $M(\Gamma,k)$ of Bianchi modular forms for $\Gamma$ with weight $k$ is a finite dimensional complex vector space. Bianchi modular forms have a \hyperref[mf.bianchi.fourierbessell]{Fourier-Bessel expansion}., with coefficients indexed by elements of $\mathcal{O}_K$.  Bianchi modular forms which vanish at all the cusps are called Bianchi cusp forms; their $0$th coefficient is $0$.
 
 
-In condition 1, the weight $k$ "slash operator" is defined by 
+In condition 1, the weight $k$ "slash operator" is defined by
 $$
 (F |_k\gamma)(z):=\mathrm{Sym}^k(J(\gamma, z)^{-1}) \ F(\gamma z),
 $$
@@ -27,5 +27,3 @@ $$
 Condition 2, harmonicity, is the analogue of the usual condition of being holomorphic for classical and Hilbert modular forms.  It means that $\Psi F=0$ and $\Psi' F=0$, where the differential operators $\Psi$, $\Psi'$ are the Casismir operators which generate the center of the universal enveloping algebra of the Lie algebra associated to the real Lie group $\textrm{PSL}_2(\mathbb{C})$.
 
 \end{definition}
-
-

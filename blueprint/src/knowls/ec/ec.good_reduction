@@ -5,5 +5,3 @@ An \hyperref[ec]{elliptic curve} \(E\) defined over a \hyperref[nf]{number field
 
 If $E$ has good reduction at every prime of $K$ then $E$ is said to have \textbf{everywhere good reduction}.
 \end{definition}
-
-

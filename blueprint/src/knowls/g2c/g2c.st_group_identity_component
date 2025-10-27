@@ -18,5 +18,3 @@ Here CM denotes \hyperref[ag.complex_multiplication]{complex multiplication}, an
 
 For arbitrary $A$, there is a canonical surjective homomorphism from the component group $\mathrm{ST}(A)/\mathrm{ST}^0(A)$ to the group $\mathrm{Gal}(K/\Q)$, where $K$ is the minimal field over which all endomorphisms of $A_{\overline{\Q}}$ can be defined. For $A$ of dimension $\leq 3$, this homomorphism is an isomorphism.
 \end{definition}
-
-

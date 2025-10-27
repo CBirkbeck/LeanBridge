@@ -1,7 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.family_varying}{Data that varies within families}}
 \begin{definition}\label{lf.family_varying}
 \uses{lf.associated_inertia,lf.family_polynomial,lf.hidden_slopes,lf.indices_of_inseparability,lf.jump_set,nf.galois_group}
-\leanok
 The following invariants of field extensions may not be the same for all $L/K$
 in a \hyperref[lf.family_polynomial]{$p$-adic family} $I/K$.  For each
 invariant we list the values that occur for extensions in the family.
@@ -23,5 +22,3 @@ $[I_1,\dots,I_v]$ of $L/K$,
 \item  the \hyperref[lf.jump_set]{jump set} $[j_0,j_1,\dots,j_w]$ of $L$.
 \end{itemize}
 \end{definition}
-
-

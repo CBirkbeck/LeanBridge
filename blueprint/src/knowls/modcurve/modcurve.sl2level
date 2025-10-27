@@ -3,5 +3,3 @@
 \uses{cmf.congruence_subgroup,gl2.level,modcurve}
 The \textbf{$\SL_2$-level} of a \hyperref[modcurve]{modular curve} $X_H$ is the \hyperref[cmf.congruence_subgroup]{level of the congruence subgroup} $\Gamma_H:=H\cap\SL_2(\Z)$.  The $\SL_2$-level divides but need not equal the \hyperref[gl2.level]{level} of $H$.
 \end{definition}
-
-

@@ -3,5 +3,3 @@
 \uses{lfunction.arithmetic,lfunction.central_point}
 The \textbf{leading coefficient} of an \hyperref[lfunction.arithmetic]{arithmetic L-function} is the first nonzero coefficient of its Laurent series expansion at the \hyperref[lfunction.central_point]{central point}.
 \end{definition}
-
-

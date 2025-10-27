@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.a_group}{A-group}}
 \begin{definition}\label{group.a_group}
 \uses{group.abelian,group.monomial,group.solvable,group.z_group}
-An \textbf{A-group} is a group all of whose Sylow subgroups are \hyperref[group.abelian]{abelian}. 
+An \textbf{A-group} is a group all of whose Sylow subgroups are \hyperref[group.abelian]{abelian}.
 
 Every \hyperref[group.z_group]{Z-group} is an A-group, but the converse does not hold, as shown by <a href="{{url\_for('abstract.index')}}?Agroup=yes&Zgroup=no">these examples</a>.  Every \hyperref[group.solvable]{solvable} A-group is \hyperref[group.monomial]{monomial}.
 \end{definition}
-
-

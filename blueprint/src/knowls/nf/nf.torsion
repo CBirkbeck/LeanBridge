@@ -3,5 +3,3 @@
 \uses{nf,nf.unit_group}
 A \textbf{torsion generator} of a \hyperref[nf]{number field} is a primitive root of unity that generates the torsion subgroup of the \hyperref[nf.unit_group]{unit group} (which is necessarily cyclic).
 \end{definition}
-
-

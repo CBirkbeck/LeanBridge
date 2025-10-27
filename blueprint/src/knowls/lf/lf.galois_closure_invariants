@@ -1,7 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.galois_closure_invariants}{Invariants of the Galois closure}}
 \begin{definition}\label{lf.galois_closure_invariants}
 \uses{lf.galois_mean_slope,lf.galois_splitting_model,lf.inertia_group,lf.padic_field,lf.slopes,lf.tame_degree,lf.unramified_degree,lf.wild_inertia_group,nf.galois_closure,nf.galois_group}
-\leanok
 Let $K$ be a \hyperref[lf.padic_field]{$p$-adic field} and let
 $K^{gal}/\Q_p$ be the \hyperref[nf.galois_closure]{Galois closure}
 of $K/\Q_p$.  Some invariants associated to $K^{gal}/\Q_p$ are
@@ -22,5 +21,3 @@ of $K^{gal}/\Q_p$,
 \end{itemize}
 $K/\Q_p$, if one is available.
 \end{definition}
-
-

@@ -1,13 +1,11 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.regulator}{Regulator of a number field}}
 \begin{definition}\label{nf.regulator}
 \uses{nf,nf.fundamental_units}
-Let $\sigma_1,\ldots,\sigma_{r_1}$ be the real embeddings of a \hyperref[nf]{number field} $K$ into the complex numbers $\mathbb{C}$, and $\sigma_{r_1+ 1},\ldots,\sigma_{r_1+r_2}$ be complex embeddings of $K$ into $\C$ such that no two are complex conjugate. Let $u_1,\ldots,u_r$ be a set of \hyperref[nf.fundamental_units]{fundamental units} of $K$. Then $r = r_1 + r_2 -1$.  
+Let $\sigma_1,\ldots,\sigma_{r_1}$ be the real embeddings of a \hyperref[nf]{number field} $K$ into the complex numbers $\mathbb{C}$, and $\sigma_{r_1+ 1},\ldots,\sigma_{r_1+r_2}$ be complex embeddings of $K$ into $\C$ such that no two are complex conjugate. Let $u_1,\ldots,u_r$ be a set of \hyperref[nf.fundamental_units]{fundamental units} of $K$. Then $r = r_1 + r_2 -1$.
 
 Let $M$ be the $(r_1+ r_2-1)\times (r_1+r_2)$ matrix
 $(d_j\log{ \sigma_j(u_i)})$, where $d_j=1$ if $j\leq r_1$, i.e, if $\sigma_j$ is a real embedding, and $d_j=2$ otherwise, i.e., if $\sigma_j$ is a complex embedding.  The sum of the columns of $M$ is the zero vector.
 
 The \textbf{regulator} of $K$ is the absolute value of the determinant of the sub-matrix of $M$ where one column is removed.  Its value is independent of the choice of column which is removed.
- 
+
 \end{definition}
-
-

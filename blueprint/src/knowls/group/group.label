@@ -6,5 +6,3 @@ The \textbf{label} for a \hyperref[group]{group} $G$ has the form $\mathtt{N.i}$
 Subgroups are \hyperref[group.subgroup_label]{labeled} using the ambient group, index, and an ordering of subgroups up to automorphism and then up to conjugacy with the same  invariants.
 
 \end{definition}
-
-

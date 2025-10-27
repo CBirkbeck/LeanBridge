@@ -3,14 +3,12 @@
 \uses{av.fq.frobenius_order,av.fq.number_field,av.isogeny_class,nf.ring_of_integers}
 An \textbf{étale algebra} over $\Q$ is a finite product of number fields.
 
-An \textbf{order} $R$ in an étale algebra $K$ over $\Q$ is a subring $R$ of $K$ whose underlying 
-additive group is free of maximal rank, that is with rank equal to $\dim_{\Q} K$.
+An \textbf{order} $R$ in an étale algebra $K$ over $\Q$ is a subring $R$ of $K$ whose underlying
+additive group is free of maximal rank, that is with rank equal to $\dim_\Q K$.
 
-If $R$ and $S$ are orders satisfying $R \subseteq S$, we say that $S$ is an \textbf{overorder} of $R$. 
+If $R$ and $S$ are orders satisfying $R \subseteq S$, we say that $S$ is an \textbf{overorder} of $R$.
 
 The product $\mathcal{O}_K$ of the \hyperref[nf.ring_of_integers]{ring of integers} of the \hyperref[av.fq.number_field]{number fields} that are the components of $K$ is called the \textbf{maximal order} of $K$. It contains every order in $K$.
 
 The \hyperref[av.fq.frobenius_order]{Frobenius order} of an \hyperref[av.isogeny_class]{isogeny class} is an example of order.
 \end{definition}
-
-

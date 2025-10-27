@@ -8,5 +8,3 @@ In order for a complement to exist, the sequence
 $$1 \to H \to G \to G/H \to 1$$
 must \hyperref[group.nonsplit_product]{split}, in which case the complements are precisely the images of the possible splittings $G/H \to G$.  All complements are isomorphic to $G/H$, and if $K$ is any complement then $G$ can be described as the internal \hyperref[group.semidirect_product]{semidirect product} $H \rtimes K$.
 \end{definition}
-
-

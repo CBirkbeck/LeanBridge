@@ -1,25 +1,21 @@
 #!/usr/bin/env python
 
+# For now, we just pull a dump of the LMFDB's database, write to the knowls/ folder, and record the update.
+# Eventually we may want something fancier.
+
 import os, sys, re
 from pathlib import Path
 from collections import defaultdict
 import networkx as nx
-from psycopg2 import connect
-from psycopg2.sql import SQL, Identifier
 
 KNOWL_RE = re.compile(r"""(\{\{\s*KNOWL(_INC)?\s*\(\s*['"]([a-z0-9._-]+)['"](?:\s*,\s*(?:title\s*=\s*)?("[^"]+"|'[^']+'))?\s*\)\s*\}\})""")
 CURLY_RE = re.compile(r"\{\{([^\}]+)\}\}")
 ITALIC_RE = re.compile(r" _([^_]+)_")
 EMPH_RE = re.compile(r"\*\*([^\*]+)\*\*")
-xdef = r"(?:arxiv|doi|groupprops|href|mathworld|mr|nlab|stacks|wikidata|wikipedia|zbl)"
-DEFINES_RE = re.compile(r"""\{\{\s*DEFINES\s*\(\s*(?:'([^']+)'|"([^"]+)")\s*(?:,\s*(?:clarification_kid\s*=)?(?:'([^']+)'|"([^"]+)"\s*))?(?:,\s*%s+=(?:'[^']+'|"[^"]+"\s*))*(?:,\s*mathlib=(?:'([^']+)'|"([^"]+)"\s*))*(?:,\s*%s+=(?:'[^']+'|"[^"]+"\s*))*\)\s*\}\}""" % (xdef, xdef))
 DELIM_RE = re.compile(r"(\\\[|\\\]|\\\(|\\\)|\$\$|\$)")
 COMMENT_RE = re.compile(r"\{#[^#]+#\}")
 CITE_UNDERSCORE_RE = re.compile(r"\\cite\{[^\}]+\}")
 ITEMIZE_RE = re.compile(r"^\s*[\-\*]")
-SUBACK_RE = re.compile(r"_(\\\w+(?:\{[^\}]+\})?)")
-NOBRACE_RE = re.compile(r"\\(overline|mathbb|widehat|hat)\s*(\\?[a-zA-Z]+)")
-LINK_RE = re.compile(r"""<a\s+href=['"]([^'"]+)['"]>([^<]+)</a>""")
 # url_for('abstract.index') -> https://www.lmfdb.org/Groups/Abstract
 # url_for('modcurve.index_Q',level='11',family='Xsp') -> https://beta.lmfdb.org/ModularCurves/Q?level=11&family=Xsp
 
@@ -44,10 +40,6 @@ def strip_macros(knowls):
         return f"\\hyperref[{kid}]{{{title}}}"
     def cite_subber(match):
         return match.group(0).replace(r"\_", "_")
-    def link_subber(match):
-        url = match.group(1).replace(r"\_", "_")
-        text = match.group(2)
-        return fr"\href{{{url}}}{{{text}}}"
     replacements = [
         (r"\\times", r"\times"),
         ("&check;", r"\checkmark"),
@@ -69,22 +61,8 @@ def strip_macros(knowls):
         # Remove comments
         content = COMMENT_RE.sub("", content)
 
-        leanmissing = set() # Use a set so that we can easily update from inside the def_subber function
-        if EMPH_RE.search(content):
-            # **defined** does not include a mathlib link
-            leanmissing.add(True)
-        # Change **defined** to \textbf{defined}
+        # Change **defined** to \emph{defined}
         content = EMPH_RE.sub(r"\\textbf{\1}", content)
-        def def_subber(match):
-            defstr = match.group(1) or match.group(2)
-            kidstr = match.group(3) or match.group(4)
-            mathlib = match.group(5) or match.group(6)
-            if not kidstr and not mathlib:
-                leanmissing.add(True)
-            return r"\textbf{%s}" % defstr
-        content = DEFINES_RE.sub(def_subber, content)
-        if not leanmissing:
-            content = "\\leanok\n" + content
 
         # Underscores that are not in mathmode
         content = ITALIC_RE.sub(r" \\textit{\1}", content)
@@ -95,15 +73,8 @@ def strip_macros(knowls):
         content = "".join(delim_split)
         # Switch back from \_ to _ inside cite commands
         content = CITE_UNDERSCORE_RE.sub(cite_subber, content)
-        # Put underscores in knowl ids and hyperrefs back in
+        # Put underscores in knowl ids back in
         content = content.replace("~U~", "_")
-
-        # Wrap subscripts in curly braces
-        content = SUBACK_RE.sub(r"_{\1}", content)
-        # Wrap arguments in curly braces
-        content = NOBRACE_RE.sub(r"\\\1{\2}", content)
-        # Fix links
-        content = LINK_RE.sub(link_subber, content)
 
         # Turn markdown lists into itemize
         lines = content.split("\n")
@@ -154,12 +125,14 @@ def clean_content(kwl):
     # We should deal with things like markdown lists, jinja macros (especially KNOWL)
     content = kwl['content']
     safe_id = kwl['id'].replace("_", r"\_")
-    # section headers in latex don't support some math mode characters
-    clean_title = kwl['title'].replace(r"$\ell$", "$l$").replace(r"$\Gamma_1(N)$", "Gamma1(N)")
     # For now, we just add label and dependencies
-    return f"\\subsection{{\\href{{https://beta.lmfdb.org/knowledge/show/{kwl['id']}}}{{{clean_title}}}}}\n\\begin{{definition}}\\label{{{kwl['id']}}}\n\\uses{{{','.join(kwl['links'])}}}\n{content}\n\\end{{definition}}\n\n\n"
+    return f"\\subsection{{\\href{{https://beta.lmfdb.org/knowledge/show/{kwl['id']}}}{{{kwl['title']}}}}}\n\\begin{{definition}}\\label{{{kwl['id']}}}\n\\uses{{{','.join(kwl['links'])}}}\n{content}\n\\end{{definition}}\n\n\n"
 
-def update_knowls(cats=["nf", "ec", "cmf"], delete_old=False):
+def update_knowls(path_to_lmfdb=None, cats=["nf", "ec", "cmf"], delete_old=False):
+    if path_to_lmfdb is None:
+        path_to_lmfdb = os.path.expanduser("~/lmfdb")
+    sys.path.append(path_to_lmfdb)
+    from lmfdb.knowledge.knowl import knowldb
     knowldir = Path("knowls")
 
     omit_verts = set([
@@ -196,7 +169,6 @@ def update_knowls(cats=["nf", "ec", "cmf"], delete_old=False):
         "rcs.cande.lattice",
         "rcs.cande.nf",
         "lmfdb.object_information",
-        "lmfdb.external_definitions",
         "intro.api",
         "test.knowlparam",
         "nf.elkies",
@@ -213,12 +185,7 @@ def update_knowls(cats=["nf", "ec", "cmf"], delete_old=False):
         "test.text",
     ])
 
-    conn = connect(dbname="lmfdb", port=5432, user="lmfdb", password="lmfdb", host="devmirror.lmfdb.xyz")
-    fields = ['id', 'cat', 'content', 'title', 'links', 'defines']
-    selecter = SQL("SELECT DISTINCT ON (id) {0} FROM kwl_knowls WHERE status >= 0 AND type = 0 ORDER BY id, timestamp DESC").format(SQL(", ").join(map(Identifier, fields)))
-    cur = conn.cursor()
-    cur.execute(selecter)
-    all_knowls = [dict(zip(fields, res)) for res in cur if res[0] not in omit_verts]
+    all_knowls = [rec for rec in knowldb.get_all_knowls(fields=['id', 'cat', 'content', 'title', 'links', 'defines'], types=[0]) if rec["id"] not in omit_verts]
     old_knowls = set()
     for cat in knowldir.iterdir():
         for path in cat.iterdir():
@@ -332,7 +299,6 @@ def update_knowls(cats=["nf", "ec", "cmf"], delete_old=False):
         ("cmf.hecke_operator", "cmf.newform"),
         ("cmf.hecke_operator", "cmf.newspace"),
         ("cmf.newspace", "cmf.newform"),
-        ("cmf.eisenstein_newspace", "cmf.eisenstein_newform"),
         ("lfunction", "lfunction.conductor"),
         ("lfunction", "lfunction.critical_line"),
         ("lfunction", "lfunction.critical_strip"),
@@ -437,19 +403,42 @@ def update_knowls(cats=["nf", "ec", "cmf"], delete_old=False):
     skip = set([ # Temporarily skip these...
         #"character.dirichlet.jacobi_symbol",
     ])
-    # Write to autogenerated files that are included into manually edited chapters
+    # Write to a file that can be manually edited
     cat_names = {
-        None: "background",
-        "nf": "number_fields",
-        "ec": "elliptic_curves",
-        "cmf": "modular_forms",
+        "nf": "Number fields",
+        "ec": "Elliptic curves",
+        "cmf": "Modular forms",
         # Add more categories here
     }
-    assert all(cat in cat_names for cat in cats)
-    for (cat, fname) in cat_names.items():
-        with open(f"auto_{fname}.tex", "w") as F:
-            # We should impose some kind of reasonable order, but that's for later
-            # auto_knowls = sorted(by_id.values(), key=lambda rec: rec["id"])
+    with open("auto_content.tex", "w") as F:
+        _ = F.write(r"""\documentclass{article}
+\usepackage{expl3}
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage[unicode,colorlinks=true,linkcolor=blue,urlcolor=magenta, citecolor=blue]{hyperref}
+\usepackage[capitalize,noabbrev]{cleveref}
+\usepackage{autonum}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{environ}
+\usepackage{setspace}
+\renewcommand{\baselinestretch}{1.5}
+\usepackage[skip=12pt, indent=0pt]{parskip}
+\allowdisplaybreaks  % Allows align environments to continue for several pages
+% NOTE: PUT ALL MACROS IN macros/common.tex, macros/print.tex or macros/web.tex.
+\input{macros/common}
+\input{macros/print}
+\title{LMFDB Knowls}
+\author{Chris Birkbeck, David Roe, Andrew Sutherland}
+\begin{document}
+""")
+        # We should impose some kind of reasonable order, but that's for later
+        _ = F.write("\n\\section{Background}\n")
+        auto_knowls = sorted(by_id.values(), key=lambda rec: rec["id"])
+        for kwl in by_id.values():
+            if kwl["cat"] not in cats and kwl["id"] not in skip:
+                _ = F.write(f"\\input{{knowls/{kwl['cat']}/{kwl['id']}}}\n")
+        for cat in cats:
+            _ = F.write(f"\n\n\\section{{{cat_names[cat]}}}\n")
             for kwl in by_id.values():
-                if (cat is None and kwl["cat"] not in cats or cat is not None and kwl["cat"] == cat) and kwl["id"] not in skip:
+                if kwl["cat"] == cat and kwl["id"] not in skip:
                     _ = F.write(f"\\input{{knowls/{kwl['cat']}/{kwl['id']}}}\n")
+        _ = F.write(r"\end{document}")

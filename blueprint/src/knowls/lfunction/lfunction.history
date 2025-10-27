@@ -1,7 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.history}{A history of L-functions}}
 \begin{definition}\label{lfunction.history}
 \uses{lfunction.history.artin,lfunction.history.dedekind,lfunction.history.dirichlet,lfunction.history.euler,lfunction.history.hasse_weil,lfunction.history.hecke_characters,lfunction.history.hecke_operators,lfunction.history.langlands_program,lfunction.history.maass,lfunction.history.ramanujan_tau,lfunction.history.rankin_selberg,lfunction.history.riemanns_memoir,lfunction.history.siegel,lfunction.history.tates_thesis}
-\leanok
 {{ KNOWL\_INC('lfunction.history.euler') }}
 
 <h2>Riemann's memoir</h2>
@@ -14,17 +13,17 @@
 {{ KNOWL\_INC('lfunction.history.dedekind') }}
 
 
-The automorphy properties of 
-Hilbert modular forms  for real quadratic fields were considered in the 
-1901 G\"ottingen 
+The automorphy properties of
+Hilbert modular forms  for real quadratic fields were considered in the
+1901 G\"ottingen
 University Habilitationssschrift of Otto Blumenthal. Therein he refers to
-unpublished  work of 1893-1894 of his advisor David Hilbert. Hilbert modular forms 
+unpublished  work of 1893-1894 of his advisor David Hilbert. Hilbert modular forms
  were significantly
-developed by Hecke in his 1910 dissertation.  
+developed by Hecke in his 1910 dissertation.
 
 <h2>The L-function of $\Delta$</h2>
 {{ KNOWL\_INC('lfunction.history.ramanujan\_tau') }}
- 
+
 <h2>Hecke L-functions</h2>
 {{ KNOWL\_INC('lfunction.history.hecke\_characters') }}
 
@@ -49,12 +48,10 @@ developed by Hecke in his 1910 dissertation.
 {{ KNOWL\_INC('lfunction.history.hasse\_weil') }}
 
 
- 
+
 <h2> Langlands Program </h2>
 
 {{ KNOWL\_INC('lfunction.history.langlands\_program') }}
 
 
 \end{definition}
-
-

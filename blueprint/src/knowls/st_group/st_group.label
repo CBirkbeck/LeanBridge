@@ -1,7 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/st_group.label}{Sato-Tate group labels}}
 \begin{definition}\label{st_group.label}
 \uses{st_group.component_group,st_group.components,st_group.definition,st_group.degree,st_group.identity_component,st_group.moment_simplex,st_group.weight}
-\leanok
 In general \hyperref[st_group.definition]{Sato-Tate group} labels have the form $w.d.A.c.ns$, where
 
 \begin{itemize}
@@ -15,5 +14,3 @@ In general \hyperref[st_group.definition]{Sato-Tate group} labels have the form 
 
 When $w=0$ we the identity component is necessarily trivial and the $A$ is omitted.  When $w=0$ and $d=1$ there is exactly one Sato-Tate group for each value of $c$ and we may omit $n$ and $s$.
 \end{definition}
-
-

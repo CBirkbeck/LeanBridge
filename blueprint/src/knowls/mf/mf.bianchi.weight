@@ -3,5 +3,3 @@
 \uses{mf.bianchi,mf.bianchi.hyperbolic3space}
 The \textbf{weight} of a \hyperref[mf.bianchi]{Bianchi modular form} is the positive integer $k$ occurring in the transformation formula.  In addition, Bianchi modular forms are vector-valued functions $F: \mathcal{H}_3 \rightarrow \C^{k+1}$ where $\mathcal{H}_3$ is \hyperref[mf.bianchi.hyperbolic3space]{Hyperbolic 3-space}, and $k$ is the weight.  For example a Bianchi modular form of weight $2$ takes values in $\C^3$.
 \end{definition}
-
-

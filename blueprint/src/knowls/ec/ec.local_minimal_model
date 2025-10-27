@@ -3,5 +3,3 @@
 \uses{ec,ec.discriminant,ec.weierstrass_coeffs,nf,nf.integral}
 A \textbf{local minimal model} for an \hyperref[ec]{elliptic curve} \(E\) defined over a \hyperref[nf]{number field} \(K\) at a prime \(\mathfrak{p}\) of \(K\) is a \hyperref[ec.weierstrass_coeffs]{Weierstrass equation} for \(E\) all of whose coefficients are \hyperref[nf.integral]{integral}  at \(\mathfrak{p}\), and whose \hyperref[ec.discriminant]{discriminant} has minimal valuation at \(\mathfrak{p}\) among all such equations.
 \end{definition}
-
-

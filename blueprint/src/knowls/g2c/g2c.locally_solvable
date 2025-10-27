@@ -7,5 +7,3 @@ If the curve is \hyperref[ag.singular_point]{non-singular} (or even merely \hype
 
 Curves with a rational point are obviously always locally solvable, but the converse need not hold (unless the curve has \hyperref[ag.curve.genus]{genus} zero).  For example, the genus 1 curve $3x^3+4y^3+5z^3=0$ over $\Q$ is locally solvable but has no rational points (this example is due to Selmer).
 \end{definition}
-
-

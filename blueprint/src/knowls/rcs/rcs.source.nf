@@ -1,7 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.nf}{Source of global number field data}}
 \begin{definition}\label{rcs.source.nf}
 \uses{nf.elkies}
-\leanok
 Number fields were drawn from the following sources.
 <ul>
 <li>The PARI database from the Bordeaux PARI group \cite{href{https://pari.math.u-bordeaux.fr/pub/numberfields/}{pari.math.u-bordeaux.fr/pub/numberfields/}}, which in turn, was a combination of work by several authors:
@@ -32,5 +31,3 @@ Class groups of imaginary quadratic fields with $|D|<2^{40}$ were computed by A.
 Data on whether or not a field is monogenic, its index, and its inessential primes were computed using pair-gp and are based on Ga&aacute;l \cite{MR:1896601}, Gras \cite{MR:0846964}, &Sacute;liwa \cite{MR:0678997}, Nart \cite{MR:0779058}, Mushtaq et. al. \cite{MR:3844199}, and a classical theorem of Dedekind.
 
 \end{definition}
-
-

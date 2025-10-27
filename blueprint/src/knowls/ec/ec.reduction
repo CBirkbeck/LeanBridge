@@ -5,5 +5,3 @@ An \hyperref[ec]{elliptic curve} $E$ over a number field $K$ is \textbf{\hyperre
 
 If $E$ has potential good reduction then it cannot be semistable unless it has everywhere good reduction.
 \end{definition}
-
-

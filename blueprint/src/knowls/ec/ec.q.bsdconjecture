@@ -1,7 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.q.bsdconjecture}{Birch and Swinnerton-Dyer conjecture}}
 \begin{definition}\label{ec.q.bsdconjecture}
 \uses{ag.abelian_variety,ec,ec.analytic_sha_order,ec.mordell_weil_theorem,ec.q.real_period,ec.rank,ec.regulator,ec.tamagawa_number,ec.torsion_order,lfunction,lfunction.central_point}
-The \textbf{Birch and Swinnerton-Dyer} conjecture is one of the Millennium Prize Problems listed by the Clay Mathematics Institute. It relates the order of vanishing and the first non-zero Taylor series coefficient of  the \hyperref[lfunction]{L-function} associated to an \hyperref[ec]{elliptic curve} $E$ defined over $\Q$ at the \hyperref[lfunction.central_point]{central point} $s=1$ to certain arithmetic data, the \hyperref[ec.q.bsd_invariants]{BSD invariants} of $E$. 
+The \textbf{Birch and Swinnerton-Dyer} conjecture is one of the Millennium Prize Problems listed by the Clay Mathematics Institute. It relates the order of vanishing and the first non-zero Taylor series coefficient of  the \hyperref[lfunction]{L-function} associated to an \hyperref[ec]{elliptic curve} $E$ defined over $\Q$ at the \hyperref[lfunction.central_point]{central point} $s=1$ to certain arithmetic data, the \hyperref[ec.q.bsd_invariants]{BSD invariants} of $E$.
 
 Specifically, the BSD conjecture states that the order $r$ of vanishing of $L(E,s)$ at $s=1$ is equal to the \hyperref[ec.rank]{rank} of the \hyperref[ec.mordell_weil_theorem]{Mordell-Weil group} $E(\Q)$,  and that
 
@@ -24,5 +24,3 @@ The quantities appearing in this formula are the \hyperref[ec.q.bsd_invariants]{
 
 There is a similar conjecture for \hyperref[ag.abelian_variety]{abelian varieties}, in which the real period is replaced by the covolume of the period lattice.
 \end{definition}
-
-

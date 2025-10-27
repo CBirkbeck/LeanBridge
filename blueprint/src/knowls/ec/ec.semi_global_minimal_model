@@ -3,5 +3,3 @@
 \uses{ec,ec.discriminant,ec.local_minimal_model,ec.minimal_discriminant,nf,nf.class_number}
 An \hyperref[ec]{elliptic curve} $E$ defined over a \hyperref[nf]{number field} $K$ of \hyperref[nf.class_number]{class number} $h(K)$ greater than $1$ may not have a \hyperref[ec.global_minimal_model]{global minimal model}.  In this case there still exist \textbf{semi-global minimal models} for $E$ which are \hyperref[ec.local_minimal_model]{local minimal models} at all except one prime.  At this prime, the \hyperref[ec.discriminant]{discriminant} valuation exceeds that of the \hyperref[ec.minimal_discriminant]{minimal discriminant ideal} by $12$.
 \end{definition}
-
-

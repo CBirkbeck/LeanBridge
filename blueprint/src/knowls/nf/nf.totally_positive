@@ -3,5 +3,3 @@
 \uses{nf}
 An element $\alpha$ in a \hyperref[nf]{number field} $K$ is \textbf{ totally positive } if $\sigma(\alpha)>0$ for all real embeddings $\sigma$ of $K$ into $\R$.
 \end{definition}
-
-

@@ -1,7 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.field.label}{Label for a $p$-adic field}}
 \begin{definition}\label{lf.field.label}
 \uses{lf.defining_polynomial,lf.degree,lf.discriminant_exponent,lf.family_polynomial,lf.padic_field,lf.ramification_index,lf.rams,lf.residual_polynomials,lf.residue_field,lf.residue_field_degree,lf.wild_segments}
-\leanok
 Each \hyperref[lf.family_polynomial]{$p$-adic family} has a label of the form "p.f.e.cA", where
 
 \begin{itemize}
@@ -17,11 +16,9 @@ Each \hyperref[lf.padic_field]{$p$-adic field} $K$ has a label of the form "p.f.
 \begin{itemize}
 \item  p.f.e.cA is the label of the family containing the field
 \item  i is a positive integer code, shared among fields in the same family with equivalent \hyperref[lf.residual_polynomials]{residual polynomials}, sorted lexicographically by coefficients of the residual polynomial.
-\item  j is a positive integer code, ordering fields in a given family with the same residual polynomials by their \hyperref[lf.defining_polynomial]{defining polynomial}, sorted lexicographically. 
+\item  j is a positive integer code, ordering fields in a given family with the same residual polynomials by their \hyperref[lf.defining_polynomial]{defining polynomial}, sorted lexicographically.
 \end{itemize}
 
 Prior to 2025, local fields in the LMFDB had a different label convention, of the form p.n.c.num, where n was the \hyperref[lf.degree]{degree} and num was an integer code from an unspecified ordering.  If you have a field label in the old form, the website will translate it to the new label if you enter it in the "Find" box at the bottom of the browse page.
 
 \end{definition}
-
-

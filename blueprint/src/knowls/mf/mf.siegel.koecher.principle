@@ -3,10 +3,8 @@
 \uses{mf.siegel.degree,mf.siegel.q-expansion}
 Let $
 f(\tau)=\sum_{n\in L_{\Gamma}^{\vee}} a(n) e^{2 \pi i \text{tr}(n\tau)}$ be the \hyperref[mf.siegel.q-expansion]{q-expansion} of $f\in M_{\rho}(\Gamma)$.
-The \textbf{Koecher principle} says that, for \hyperref[mf.siegel.degree]{degree} $g\geqslant 2$, if $a(n)\neq 0$ then 
-$n$ is positive semidefinite.  
+The \textbf{Koecher principle} says that, for \hyperref[mf.siegel.degree]{degree} $g\geqslant 2$, if $a(n)\neq 0$ then
+$n$ is positive semidefinite.
 
 
 \end{definition}
-
-

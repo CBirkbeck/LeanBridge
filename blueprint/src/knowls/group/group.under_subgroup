@@ -3,5 +3,3 @@
 \uses{group.subgroup}
 If $H \subseteq G$ is a \hyperref[group.subgroup]{subgroup}, an \textbf{under-subgroup} is a subgroup $K \subseteq G$ with $K \subseteq H$.  A \textbf{maximal under-subgroup} is an under-subgroup $K \ne H$ that is maximal with respect to inclusion.
 \end{definition}
-
-

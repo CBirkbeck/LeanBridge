@@ -1,11 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.signature}{Signature of a number field}}
 \begin{definition}\label{nf.signature}
 \uses{nf,nf.complex_embedding,nf.degree,nf.real_embedding}
-The \textbf{signature} of a \hyperref[nf]{number field} $K$ is the pair $[r_1,r_2]$ where $r_1$ is the number of \hyperref[nf.real_embedding]{real embeddings} of $K$ and $r_2$ is the number of conjugate pairs of \hyperref[nf.complex_embedding]{complex embeddings}.  
+The \textbf{signature} of a \hyperref[nf]{number field} $K$ is the pair $[r_1,r_2]$ where $r_1$ is the number of \hyperref[nf.real_embedding]{real embeddings} of $K$ and $r_2$ is the number of conjugate pairs of \hyperref[nf.complex_embedding]{complex embeddings}.
 
 The \hyperref[nf.degree]{degree} of $K$ is $r_1+2r_2$.
 
 
 \end{definition}
-
-

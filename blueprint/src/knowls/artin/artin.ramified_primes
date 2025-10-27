@@ -1,9 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/artin.ramified_primes}{Ramified prime of an Artin representation}}
 \begin{definition}\label{artin.ramified_primes}
 \uses{artin,artin.number_field,nf.ramified_primes}
-If $\rho:\Gal(\overline{\Q}/\Q)\to\GL_n(\C)$ is an \hyperref[artin]{Artin representation} with \hyperref[artin.number_field]{Artin field} $K$, then a prime $p$ is \textbf{ramified} if it is \hyperref[nf.ramified_primes]{ramified} in $K/\Q$.
+If $\rho:\Gal(\bar{\Q}/\Q)\to\GL_n(\C)$ is an \hyperref[artin]{Artin representation} with \hyperref[artin.number_field]{Artin field} $K$, then a prime $p$ is \textbf{ramified} if it is \hyperref[nf.ramified_primes]{ramified} in $K/\Q$.
 
 Equivalently, a prime is ramified if the inertia subgroup for a prime above $p$ is not contained in the kernel of $\rho$.
 \end{definition}
-
-

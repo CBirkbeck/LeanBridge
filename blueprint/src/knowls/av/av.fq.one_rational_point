@@ -1,8 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/av.fq.one_rational_point}{Abelian varieties with one rational point}}
 \begin{definition}\label{av.fq.one_rational_point}
 \uses{ag.abelian_variety,av.isogeny}
-\leanok
-The classification (up to \hyperref[av.isogeny]{isogeny}) of simple \hyperref[ag.abelian_variety]{abelian varieties} over finite fields with only one rational point has been given by Madan-Pal \cite{MR:0439848,ZBL:0339.14028,doi:10.1515/crll.1977.291.78}. It consists of an infinite family of examples over $\F_2$, together with six sporadic examples over $\F_2$ and one each over $\F_3$ and $\F_4$.
+The classification (up to \hyperref[av.isogeny]{isogeny}) of simple \hyperref[ag.abelian_variety]{abelian varieties} over finite fields with only one rational point has been given by [Madan-Pal](http://www.digizeitschriften.de/dms/resolveppn/?PID=GDZPPN00219340X) \cite{MR0439848}. It consists of an infinite family of examples over $\F_2$, together with six sporadic examples over $\F_2$ and one each over $\F_3$ and $\F_4$.
 
 The infinite family consists of, for each positive integer $m \neq 1,2,7,30$, an abelian variety of dimension $\varphi(m)$ with Weil polynomial
 \[
@@ -12,5 +11,3 @@ The infinite family consists of, for each positive integer $m \neq 1,2,7,30$, an
 \]
 
 \end{definition}
-
-

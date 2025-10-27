@@ -3,5 +3,3 @@
 \uses{ec,ec.local_minimal_model,nf}
 Let $E$ be an \hyperref[ec]{elliptic curve} defined over a \hyperref[nf]{number field} $K$, and $\mathfrak{p}$ a prime of $K$.  The \textbf{local minimal discriminant} of $E$ is the ideal $\mathfrak{p}^e$ where $e$ is is the valuation of the discriminant of a \hyperref[ec.local_minimal_model]{local minimal model} for $E$ at $\mathfrak{p}$.
 \end{definition}
-
-

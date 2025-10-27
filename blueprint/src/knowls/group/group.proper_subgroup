@@ -3,5 +3,3 @@
 \uses{group,group.subgroup}
 A \hyperref[group.subgroup]{subgroup} of a \hyperref[group]{group} $G$ is \textbf{proper} if it is not equal to $G$.
 \end{definition}
-
-

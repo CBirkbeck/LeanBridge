@@ -1,9 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.include_all_spaces}{Include all spaces}}
 \begin{definition}\label{cmf.include_all_spaces}
 \uses{cmf.newform,cmf.newspaces}
-\leanok
 By default (the "split" option), only \hyperref[cmf.newspaces]{newspaces} with known decomposition into \hyperref[cmf.newform]{newforms} are included in search results.  If you want to include spaces with large conductor where this decomposition has not been computed, choose the "all" option.
 
 \end{definition}
-
-

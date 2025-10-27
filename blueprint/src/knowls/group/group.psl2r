@@ -3,5 +3,3 @@
 \uses{}
 The \textbf{projective special linear group} $\text{PSL}_2(\mathbb{R})$ is defined as the quotient $\text{PSL}_2(\mathbb{R})=\text{SL}_2(\mathbb{R})/\{\pm I\}$.
 \end{definition}
-
-

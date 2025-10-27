@@ -8,17 +8,15 @@ $$
 defined on the \hyperref[ag.mordell_weil]{Mordell-Weil group} $A(L)$
 which induces a positive definite quadratic form on $A(L)\otimes\R$.
 
-One definition of $\hat{h}(P)$ is $\hat{h}(P)= h_{\mathrm{Kum}}(\sigma(P))$, where $\sigma \colon A \to K$ is the natural map from $A$ to its Kummer surface $K : = A/\{\pm 1\}$, and $h_{\mathrm{kum}} \colon K(L) \to \R$ the canonical height pairing associated to a theta divisor $\Theta$ on $K$, which can be defined by
+One definition of $\hat{h}(P)$ is $\hat h(P)= h_{\mathrm{Kum}}(\sigma(P))$, where $\sigma \colon A \to K$ is the natural map from $A$ to its Kummer surface $K : = A/\{\pm 1\}$, and $h_\mathrm{kum} \colon K(L) \to \R$ the canonical height pairing associated to a theta divisor $\Theta$ on $K$, which can be defined by
 $$
   h_{\mathrm{Kum}}(Q)=\lim_{n\to\infty} n^{-2}h_{\Theta}\bigl(nQ\bigr),
 $$
 where $h_{\Theta}$ is the \hyperref[nf.weil_height]{Weil height} associated to a \hyperref[av.theta_divisor]{theta divisor} $\Theta$ on $K$.
 
-Related to the canonical height is the \textbf{height pairing} 
+Related to the canonical height is the \textbf{height pairing}
 $$
   \langle-,-\rangle : A(L)\times A(L) \to \R
 $$
 defined by $\langle P,Q\rangle = \frac{1}{2}(\hat{h}(P+Q)-\hat{h}(P)-\hat{h}(Q))$, which is a positive definite quadratic form on $A(L)\otimes\R$, used in defining the \hyperref[ag.regulator]{regulator} of $A/L$.
 \end{definition}
-
-

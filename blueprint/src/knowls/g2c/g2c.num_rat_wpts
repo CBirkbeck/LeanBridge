@@ -1,12 +1,10 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.num_rat_wpts}{Weierstrass points of a hyperelliptic curve}}
 \begin{definition}\label{g2c.num_rat_wpts}
 \uses{ag.curve.genus,ag.hyperelliptic_curve,ring.field}
-Every \hyperref[ag.hyperelliptic_curve]{hyperelliptic curve} is a 
+Every \hyperref[ag.hyperelliptic_curve]{hyperelliptic curve} is a
 degree-2 cover of the projective line.  The \textbf{Weierstrass points} of the curve are the ramification points of this cover, of which there are $2g+2$, where $g$ is the \hyperref[ag.curve.genus]{genus} of the curve.
 
 Over a \hyperref[ring.field]{field} of characteristic not 2, a hyperelliptic curve of genus $g$  always has a model of the form $y^2=f(x)$, where $\deg f = 2g+2$, in which case the Weierstrass points are simply the points $(\alpha, 0)$ where $\alpha$ is a root of $f(x)$, of which any number between $0$ and $2g+2$ may be rational (defined over the field of definition of the curve).
 
 For curves with a rational Weierstrass point, by moving this point to infinity one can put the curve in the form $y^2=f(x)$ with $\deg f =2g+1$, but otherwise not.
 \end{definition}
-
-
