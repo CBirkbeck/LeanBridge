@@ -1,4 +1,4 @@
-\subsection{\href{https://beta.lmfdb.org/knowledge/show/modlgal.splitting_field}{Splitting field of a mod-$l$ Galois representation}}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/modlgal.splitting_field}{Splitting field of a mod-$\ell$ Galois representation}}
 \begin{definition}\label{modlgal.splitting_field}
 \uses{modlgal,modlgal.image}
 The \textbf{splitting field} of a \hyperref[modlgal]{mod-$\ell$ Galois representation} $\rho:\Gal_K \to G(\F_{\ell})$ is the fixed field of the kernel of $\rho$.  This is a finite Galois extension $L/K$ with $\Gal(L/K)$ isomorphic to the \hyperref[modlgal.image]{image} of $\rho$.

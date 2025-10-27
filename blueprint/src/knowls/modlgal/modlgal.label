@@ -1,4 +1,4 @@
-\subsection{\href{https://beta.lmfdb.org/knowledge/show/modlgal.label}{Labels of mod-$l$ Galois representations}}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/modlgal.label}{Labels of mod-$\ell$ Galois representations}}
 \begin{definition}\label{modlgal.label}
 \uses{modlgal,modlgal.characteristic,modlgal.conductor,modlgal.dimension}
 \leanok

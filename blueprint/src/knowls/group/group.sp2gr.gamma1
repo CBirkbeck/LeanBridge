@@ -1,4 +1,4 @@
-\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.sp2gr.gamma1}{Subgroup Gamma1(N) of $\Sp(2g,\Z)$}}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.sp2gr.gamma1}{Subgroup $\Gamma_1(N)$ of $\Sp(2g,\Z)$}}
 \begin{definition}\label{group.sp2gr.gamma1}
 \uses{group.sl2z.subgroup.gamma1n,group.sp2gr}
 \leanok

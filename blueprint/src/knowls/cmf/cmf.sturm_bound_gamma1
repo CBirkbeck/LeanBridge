@@ -1,4 +1,4 @@
-\subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.sturm_bound_gamma1}{Sturm bound for Gamma1(N)}}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.sturm_bound_gamma1}{Sturm bound for $\Gamma_1(N)$}}
 \begin{definition}\label{cmf.sturm_bound_gamma1}
 \uses{cmf.fouriercoefficients,cmf.level,cmf.newform,cmf.weight}
 The \textbf{Sturm bound} is an upper bound on the least index where the coefficients of the \hyperref[cmf.fouriercoefficients]{Fourier expansions} of distinct modular forms in the same space must differ.

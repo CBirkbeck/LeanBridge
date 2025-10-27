@@ -1,4 +1,4 @@
-\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.galois_rep_modell_image}{Image of mod-$l$ Galois representation}}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.galois_rep_modell_image}{Image of mod-$\ell$ Galois representation}}
 \begin{definition}\label{ec.galois_rep_modell_image}
 \uses{ec,ec.galois_rep,gl2.borel,gl2.exceptional,gl2.nonsplit_cartan,gl2.normalizer_nonsplit_cartan,gl2.normalizer_split_cartan,gl2.split_cartan,nf}
 Let $\ell$ be a prime and let $E$ be an \hyperref[ec]{elliptic curve} defined over a \hyperref[nf]{number field} $K$.
