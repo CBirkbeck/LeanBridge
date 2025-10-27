@@ -4,7 +4,7 @@ import Lean.Data.Json
 import Lean.Data.Json.FromToJson
 import Mathlib
 
-import LeanBridge.ForMathlib.tactics.LMFDB_Proof_2_0_39_1
+import LeanBridge.ForMathlib.tactics.LMFDB_Proof_4_0_1008_1
 
 open Lean Elab Command IO
 
@@ -186,15 +186,17 @@ end"
     Meta.Tactic.TryThis.addSuggestions (←getRef) suggestions_list.toArray
 
 
+
+
 noncomputable section
 
 open NumberField
 
-abbrev min_poly_2_0_39_1 : Polynomial ℚ := (1) * Polynomial.X ^ 2 + (-1) * Polynomial.X + (10)
+abbrev min_poly_4_0_1008_1 : Polynomial ℚ := (1) * Polynomial.X ^ 4 + (-5) * Polynomial.X ^ 2 + (7)
 
-abbrev K_2_0_39_1 := AdjoinRoot min_poly_2_0_39_1
+abbrev K_4_0_1008_1 := AdjoinRoot min_poly_4_0_1008_1
 
-lemma irreducible_poly :  Irreducible min_poly_2_0_39_1 := by
+lemma irreducible_poly :  Irreducible min_poly_4_0_1008_1 := by
   have := irreducible_T
   rw [Polynomial.IsPrimitive.Int.irreducible_iff_irreducible_map_cast] at this
   · convert this
@@ -207,21 +209,14 @@ lemma irreducible_poly :  Irreducible min_poly_2_0_39_1 := by
     · apply List.cons_ne_nil _ _
     · rfl
 
-instance: Fact (Irreducible min_poly_2_0_39_1) := ⟨irreducible_poly⟩
+instance: Fact (Irreducible min_poly_4_0_1008_1) := ⟨irreducible_poly⟩
 
-axiom LMFDB_NF_2_0_39_1_discr : NumberField.discr K_2_0_39_1 = - 39
+axiom LMFDB_NF_4_0_1008_1_discr : NumberField.discr K_4_0_1008_1 = 1008
 
-axiom LMFDB_NF_2_0_39_1_isGalois : IsGalois ℚ K_2_0_39_1
+axiom LMFDB_NF_4_0_1008_1_isGalois : ¬ IsGalois ℚ K_4_0_1008_1
 
-axiom LMFDB_NF_2_0_39_1_classNumber : NumberField.classNumber K_2_0_39_1 = 4
+axiom LMFDB_NF_4_0_1008_1_classNumber : NumberField.classNumber K_4_0_1008_1 = 1
 
-axiom LMFDB_NF_2_0_39_1_totallyComplex : IsTotallyComplex K_2_0_39_1
-
-instance LMFDB_NF_2_0_39_1_totallyComplexInstance : IsTotallyComplex K_2_0_39_1 := LMFDB_NF_2_0_39_1_totallyComplex
-
-axiom LMFDB_NF_2_0_39_1_isCM : NumberField.IsCMField K_2_0_39_1
 
 end
-
-#LMFDB_search 4 2 1008
 --let python_path := "/home/chris/Github/LeanBridge/.venv/bin/python"
