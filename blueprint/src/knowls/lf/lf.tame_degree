@@ -11,3 +11,5 @@ The \textbf{Galois tame degree} of $L/K$ is the tame degree of $L^{gal}/K$,
 where $L^{gal}/K$ is the \hyperref[nf.galois_closure]{Galois closure}
 of $L/K$.
 \end{definition}
+
+

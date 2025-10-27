@@ -9,3 +9,5 @@ could be larger.  This apparent discrepancy comes from the fact that a Tate twis
 increases the weight of the motive.  This corresponds to the change of variables
 $s \mapsto s + j$ in the L-function of the motive.
 \end{definition}
+
+

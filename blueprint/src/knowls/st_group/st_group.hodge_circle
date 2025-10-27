@@ -14,3 +14,5 @@ for which there exist nonnegative integers $h^{p,q}$ satisfying $\sum h^{p,q}=d$
 
 When $G$ is the Sato-Tate group of a motive $X$ of weight $w$, the $h^{p,q}$ are the Hodge numbers of $X$.  For a $d$-dimensional abelian variety $X$ we necessarily have $h^{0,1}=h^{1,0}=d$.
 \end{definition}
+
+

@@ -1,5 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.contains_negative_one}{Contains $-I$}}
 \begin{definition}\label{modcurve.contains_negative_one}
 \uses{av.twist,ec,modcurve}
+\leanok
 A \hyperref[modcurve]{modular curve} $X_H$ with $-I\in H\in \GL_2(\widehat{\Z})$ has the property that if an \hyperref[ec]{elliptic curve} $E$ over a number field $K$ has $j$-invariant $j(E)\ne 0,1728$ in the image of $j\colon X_H\to X(1)$, then the mod-$N$ Galois image of every \hyperref[av.twist]{twist} of $E$ is conjugate to a subgroup of the projection of $H$ to $\GL_2(\Z/N\Z)$. Modular curves $X_H$ with $-I\not\in H$ do not enjoy this property.
 \end{definition}
+
+

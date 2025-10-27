@@ -7,7 +7,9 @@ Let $E$ be an \hyperref[ec]{elliptic curve} defined over $\Q$ and let $K$ be a \
 
 If there is torsion growth in a field $K$ then obviously the torsion also grows in every extension of $K$.  We say that the torsion growth in $K$ is \textbf{primitive} if $E(K)_{\rm tor}$ is strictly larger than $E(K')_{\rm tor}$ for all proper subfields $K' \subsetneq K$.
 
-For every elliptic curve $E$ there is torsion growth in at least one field of \hyperref[nf.degree]{degree} $2$, $3$, or $4$, and torsion can only grow in fields whose degree is divisible by $2$, $3$, $5$ or $7$:  see Theorem 7.2 of
+For every elliptic curve $E$ there is torsion growth in at least one field of \hyperref[nf.degree]{degree} $2$, $3$, or $4$, and torsion can only grow in fields whose degree is divisible by $2$, $3$, $5$ or $7$:  see Theorem 7.2 of 
 \cite{doi:10.1090/mcom/3478}.  Additionally, there is no primitive torsion growth in fields of degrees $22$ or $26$: see  Lemma 2.11 of \cite{doi:10.1080/10586458.2020.1771638}.  Hence the only degrees less than $24$ in which primitive torsion growth occurs are $2,3,4,5,6,7,8,9,10,12,14,15,16,18,20,21$.
 
 \end{definition}
+
+

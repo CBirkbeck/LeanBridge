@@ -1,5 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.assuming_grh}{Assuming GRH}}
 \begin{definition}\label{nf.assuming_grh}
 \uses{lfunction.rh}
+\leanok
 This computation was completed under the assumption of the \hyperref[lfunction.rh]{Generalized Riemann Hypothesis}.
 \end{definition}
+
+

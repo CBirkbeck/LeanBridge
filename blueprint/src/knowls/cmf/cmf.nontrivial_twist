@@ -3,3 +3,5 @@
 \uses{cmf.inner_twist,cmf.self_twist}
 An \hyperref[cmf.inner_twist]{inner twist} is \textbf{nontrivial} if it is not the \hyperref[cmf.self_twist]{self twist} by the trivial character.
 \end{definition}
+
+

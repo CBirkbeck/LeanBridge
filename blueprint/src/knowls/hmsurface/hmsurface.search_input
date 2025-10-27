@@ -1,5 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/hmsurface.search_input}{Find a Hilbert modular surface}}
 \begin{definition}\label{hmsurface.search_input}
 \uses{hmsurface.hmsurface,hmsurface.label}
+\leanok
 Enter the \hyperref[hmsurface.label]{label} of a \hyperref[hmsurface.hmsurface]{Hilbert modular surface}.
 \end{definition}
+
+

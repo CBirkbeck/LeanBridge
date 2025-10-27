@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.sort_order}{Sort order}}
 \begin{definition}\label{cmf.sort_order}
 \uses{character.dirichlet.galois_orbit_label,cmf.hecke_galois_orbit,cmf.level,cmf.newform,cmf.weight}
+\leanok
 By default \hyperref[cmf.newform]{newform} search results are sorted by \hyperref[cmf.level]{level},
 \hyperref[cmf.weight]{weight},
 \hyperref[character.dirichlet.galois_orbit_label]{character}, and
@@ -8,3 +9,5 @@ By default \hyperref[cmf.newform]{newform} search results are sorted by \hyperre
 
 If a specific sort key is chosen, results will be sorted first on that key and then by level, weight, character, and trace sequence, so that the sort order is always uniquely determined.
 \end{definition}
+
+

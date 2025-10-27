@@ -5,3 +5,5 @@ The \textbf{paramodular conjecture} of Brumer and Kramer \cite{arXiv:1004.4699} 
 
 For squarefree integers $N$ it is further conjectured that this correspondence gives a bijection between \hyperref[av.isogeny_class]{isogeny classes} of paramodular type abelian surfaces of conductor $N$ and paramodular newforms of level $N$.
 \end{definition}
+
+

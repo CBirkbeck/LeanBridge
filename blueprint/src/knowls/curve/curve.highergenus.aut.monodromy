@@ -6,9 +6,11 @@ $\phi^{-1}(y_0)=:\{x_1, \ldots, x_d\} \subset X$.
 
 Consider an element $\gamma$ of the fundamental group $\pi_1(Y-\mathcal{B},y_0)$ (homotopy classes of loops in $Y-\mathcal{B}$ with base point $y_0$).
 For each $x_i\in \phi^{-1}(y_0),$ the loop $\gamma$ lifts to a path in $X$  which starts at $x_i$ and ends at some $x_j \in \phi^{-1}(y_0)$ uniquely determined by $\gamma$.
-This defines a permutation $\sigma_\gamma$ of the set $\{x_1,\ldots,x_d\}$ corresponding to a transitive right action of $\pi_1(Y-\mathcal{B},y_0)$, and the map $\gamma\mapsto \sigma_\gamma$ defines a group homomorphism $\rho\colon\pi_1(Y-\mathcal{B},y_0) \to S_d$.
+This defines a permutation $\sigma_{\gamma}$ of the set $\{x_1,\ldots,x_d\}$ corresponding to a transitive right action of $\pi_1(Y-\mathcal{B},y_0)$, and the map $\gamma\mapsto \sigma_{\gamma}$ defines a group homomorphism $\rho\colon\pi_1(Y-\mathcal{B},y_0) \to S_d$.
 
 The image of $\rho$ is the \textbf{(geometric) monodromy group} of $G$; it is a transitive permutation group of degree $d$ and does not depend on the choice of the base point $y_0$.
 
 
 \end{definition}
+
+

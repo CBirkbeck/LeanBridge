@@ -5,3 +5,5 @@ Let $I/K$ be a \hyperref[lf.family_polynomial]{family} of
 extensions of  \hyperref[lf.padic_field]{$p$-adic fields}.  The
 \textbf{field count} of $I/K$ is the number of extensions in $I/K$.
 \end{definition}
+
+

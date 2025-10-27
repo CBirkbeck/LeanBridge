@@ -1,5 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/curve.highergenus.hurwitz_bound}{Hurwitz bound}}
 \begin{definition}\label{curve.highergenus.hurwitz_bound}
 \uses{curve.highergenus.aut.3.168-42.0.2-3-7.top,curve.highergenus.aut.7.504-156.0.2-3-7.top}
+\leanok
 For any integer $g > 1$, the automorphism group of any curve of genus $g$ over $\C$ has order at most $84(g-1)$. This is not best possible for every $g$, but there do exist infinitely many $g$ for which the bound is achieved; examples include  ($g=3$) and the  ($g=7$). See also [Wikipedia](https://en.wikipedia.org/wiki/Hurwitz%27s\_automorphisms\_theorem).
 \end{definition}
+
+

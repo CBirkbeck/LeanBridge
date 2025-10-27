@@ -13,5 +13,7 @@ The \hyperref[alg.binary_operation.identity]{identity} element of $R$ as a group
 
 The ring $R$ is a \textbf{commutative ring} if $R$ is a ring such that the operation $\cdot$ is \hyperref[alg.binary_operation.commutative]{commutative} on $R$.
 
-We say that $R$ is a \textbf{rng} (also called \textbf{ring without identity}) if conditions 1-3 (but not necessarily 4) are satisfied.
+We say that $R$ is a \textbf{rng} (also called \textbf{ring without identity}) if conditions 1-3 (but not necessarily 4) are satisfied.  
 \end{definition}
+
+

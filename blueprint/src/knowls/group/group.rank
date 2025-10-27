@@ -3,3 +3,5 @@
 \uses{group,group.frattini_subgroup,group.generators,group.presentation}
 The \textbf{rank} of a finite \hyperref[group]{group} $G$ is the minimal number of elements required to \hyperref[group.generators]{generate} it, which is often smaller than the number of generators in a \hyperref[group.presentation]{polycyclic presentation}.  For $p$-groups, the rank can be computed by taking the $\mathbb{F}_p$-dimension of the quotient by the \hyperref[group.frattini_subgroup]{Frattini subgroup}.
 \end{definition}
+
+

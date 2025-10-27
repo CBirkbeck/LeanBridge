@@ -13,3 +13,5 @@ Absolute values that satisfy the stronger condition $|x+y|\le \max(|x|,|y|)$ are
 
 Absolute values $|\ |_1$ and $|\ |_2$ are \textbf{equivalent} if there exists a positive real number $c$ such that $|x|_1 = |x|_2^c$ for all $x\in k$; this defines an equivalence relation on the set of absolute values of $k$.
 \end{definition}
+
+

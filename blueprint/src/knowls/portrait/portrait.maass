@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/portrait.maass}{Pictures for Maass forms}}
 \begin{definition}\label{portrait.maass}
 \uses{cmf.picture_description,mf.maass.mwf,mf.maass.mwf.level}
+\leanok
 For each \hyperref[mf.maass.mwf]{Maass newform} $f$, we use domain coloring to show the plot of $f$. The form $f$ is approximated using the first $50$ coefficients across a $200 \times 200$ mesh.
 
 At each point $z$ in the unit disk $\mathcal{D}$, we assign a color based on the value of $f(\mu(z))$, where $\mu$ is the Möbius transform $\mu: \mathcal{D} \longrightarrow \mathcal{H}$ given by $\mu(z) = \frac{1 - iz}{z - i}$. This transform preserves the apparent orientation of the imaginary axis in $\mathcal{H}$: the point $(0, -1)$ in $\mathcal{D}$ corresponds to $0$ in $\mathcal{H}$, the center of $\mathcal{D}$ corresponds to $i$ in $\mathcal{H}$, and the point $(0, 1)$ in $\mathcal{D}$ corresponds to $i\infty$ in $\mathcal{H}$.
@@ -13,3 +14,5 @@ Maass form portraits are made in essentially the same way as \hyperref[cmf.pictu
 
 Code that makes this type of portrait is available at [github.com/davidlowryduda/maass\_portraits](https://github.com/davidlowryduda/maass\_portraits).
 \end{definition}
+
+

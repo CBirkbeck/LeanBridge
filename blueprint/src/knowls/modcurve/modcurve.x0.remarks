@@ -1,14 +1,17 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.x0.remarks}{Remarks on $X_0(N)$}}
 \begin{definition}\label{modcurve.x0.remarks}
 \uses{ag.bielliptic_curve,ag.hyperelliptic_curve,modcurve.rational_points}
-\hyperref[ag.hyperelliptic_curve]{Hyperelliptic curves}: There are only
+\leanok
+\hyperref[ag.hyperelliptic_curve]{Hyperelliptic curves}: There are only 
 <a href = "{{url\_for('modcurve.index\_Q',level='22, 23, 26, 28, 29, 30, 31, 33, 35, 37, 39, 40, 41, 46, 47, 48, 50, 59, 71',family="X0")}}">19 hyperelliptic curves in this family</a>
- \cite{doi:10.24033/bsmf.1789, MR:0364259}, \cite{doi:10.5802/aif.1273, MR:1150566}.
+ \cite{doi:10.24033/bsmf.1789, MR:0364259}, \cite{doi:10.5802/aif.1273, MR:1150566}. 
 
 
-\hyperref[ag.bielliptic_curve]{Bielliptic curves}: There are only
-<a href = "{{url\_for("modcurve.index\_Q",level="22, 26, 28, 30, 33, 34, 35, 37, 38, 39, 40, 42, 43, 44, 45, 48, 50, 51, 53, 54, 55, 56, 60, 61, 62, 63, 64, 65, 69, 72, 75, 79, 81, 83, 89, 92, 94, 95, 101, 119, 131",family="X0")}}">41 bielliptic curves in this family</a> \cite{doi:10.1006/jnth.1998.2343,MR:1688168}, \cite{arXiv:1207.2009, MR:3086199}. Among them, there are
-<a href = "{{url\_for("modcurve.index\_Q",level="34, 38, 42, 43, 44, 45, 51, 53, 54, 55, 56, 60, 61, 62, 63, 64, 65, 69, 72, 75, 79, 81, 83, 89, 92, 94, 95, 102, 119, 131",family="X0")}}">30 values for which they are non-hyperelliptic</a>.
+\hyperref[ag.bielliptic_curve]{Bielliptic curves}: There are only 
+<a href = "{{url\_for('modcurve.index\_Q',level='22, 26, 28, 30, 33, 34, 35, 37, 38, 39, 40, 42, 43, 44, 45, 48, 50, 51, 53, 54, 55, 56, 60, 61, 62, 63, 64, 65, 69, 72, 75, 79, 81, 83, 89, 92, 94, 95, 101, 119, 131',family="X0")}}">41 bielliptic curves in this family</a> \cite{doi:10.1006/jnth.1998.2343,MR:1688168}, \cite{arXiv:1207.2009, MR:3086199}. Among them, there are 
+<a href = "{{url\_for('modcurve.index\_Q',level='34, 38, 42, 43, 44, 45, 51, 53, 54, 55, 56, 60, 61, 62, 63, 64, 65, 69, 72, 75, 79, 81, 83, 89, 92, 94, 95, 102, 119, 131',family="X0")}}">30 values for which they are non-hyperelliptic</a>. 
 
-\hyperref[modcurve.rational_points]{Rational points}: There are only <a href = "{{url\_for("modcurve.index\_Q",level="1,2,3,4,5,6,7,8,9,10,12,13,16,18,25,11,14,15,17,19,21,27,37,43,67,163",family="X0")}}">26 curves in this family</a> that have non-cuspidal rational points \cite{doi:10.1007/BF01390348, MR:0482230}, \cite{doi:10.1112/jlms/s2-23.3.415, MR:0616546}.
+\hyperref[modcurve.rational_points]{Rational points}: There are only <a href = "{{url\_for('modcurve.index\_Q',level='1,2,3,4,5,6,7,8,9,10,12,13,16,18,25,11,14,15,17,19,21,27,37,43,67,163',family='X0')}}">26 curves in this family</a> that have non-cuspidal rational points \cite{doi:10.1007/BF01390348, MR:0482230}, \cite{doi:10.1112/jlms/s2-23.3.415, MR:0616546}.
 \end{definition}
+
+

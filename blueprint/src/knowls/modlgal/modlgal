@@ -1,6 +1,8 @@
-\subsection{\href{https://beta.lmfdb.org/knowledge/show/modlgal}{Mod-$\ell$ Galois representation}}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/modlgal}{Mod-$l$ Galois representation}}
 \begin{definition}\label{modlgal}
 \uses{ag.algebraic_group,group.galois.absolute,nf}
-A mod-$\ell$ Galois representation is a representation of the \hyperref[group.galois.absolute]{abolute Galois group} $\Gal_K$ of a \hyperref[nf]{number field} $K$ with values in the $\F_{\ell}$-points of an \hyperref[ag.algebraic_group]{algebraic group}.
+A \textbf{mod-$\ell$ Galois representation} is a representation of the \hyperref[group.galois.absolute]{abolute Galois group} $\Gal_K$ of a \hyperref[nf]{number field} $K$ with values in the $\F_{\ell}$-points of an \hyperref[ag.algebraic_group]{algebraic group}.
 
 \end{definition}
+
+

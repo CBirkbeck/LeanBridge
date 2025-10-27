@@ -1,8 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.sp2gr.gamma0}{Subgroup $\Gamma_0(N)$ of $\Sp(2g,\Z)$}}
 \begin{definition}\label{group.sp2gr.gamma0}
 \uses{group.sl2z.subgroup.gamma0n,group.sp2gr}
+\leanok
 The group $\Gamma_0(N)$ in degree $g$ is the subgroup of the integral
-\hyperref[group.sp2gr]{symplectic group}
+\hyperref[group.sp2gr]{symplectic group} 
 $\Sp(2g,\Z)$, defined by
 \[
 \Gamma_0(N)=\left\{
@@ -11,10 +12,12 @@ $\Sp(2g,\Z)$, defined by
 c \equiv 0 \bmod N
 \right\}.
 \]
-The group $\Gamma_0(N)$ is sometimes called the Hecke
+The group $\Gamma_0(N)$ is sometimes called the Hecke 
 congruence subgroup of level $N$.
 
-For $g=1$, it is the subgroup
-\hyperref[group.sl2z.subgroup.gamma0n]{$\Gamma_0(N)$} of
+For $g=1$, it is the subgroup 
+\hyperref[group.sl2z.subgroup.gamma0n]{$\Gamma_0(N)$} of 
 $\SL(2,\Z)$.
 \end{definition}
+
+

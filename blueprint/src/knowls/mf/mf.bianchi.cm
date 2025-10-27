@@ -6,3 +6,5 @@ A \hyperref[mf.bianchi.newform]{Bianchi newform} $F$ of \hyperref[mf.bianchi.lev
 \]
 for all primes $\frak{p}$ not dividing the level.  In particular, $a_{\frak{p}}=0$ for all primes $\frak{p}$ for which $\chi(\frak{p})=-1$.
 \end{definition}
+
+

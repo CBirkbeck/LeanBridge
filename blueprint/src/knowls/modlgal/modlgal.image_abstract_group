@@ -1,5 +1,7 @@
-\subsection{\href{https://beta.lmfdb.org/knowledge/show/modlgal.image_abstract_group}{Abstract image of a mod-$\ell$ representation}}
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/modlgal.image_abstract_group}{Abstract image of a mod-$l$ representation}}
 \begin{definition}\label{modlgal.image_abstract_group}
 \uses{modlgal,modlgal.image}
-For a \hyperref[modlgal]{mod-$\ell$ representation} $\rho:\Gal_K\to G(\F_\ell)$, the \textbf{abstract image} is the isomorphism type of the \hyperref[modlgal.image]{image}  $\rho(\Gal_K)$ as an abstract group.
+For a \hyperref[modlgal]{mod-$\ell$ representation} $\rho:\Gal_K\to G(\F_{\ell})$, the \textbf{abstract image} is the isomorphism type of the \hyperref[modlgal.image]{image}  $\rho(\Gal_K)$ as an abstract group.
 \end{definition}
+
+

@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.modcurve.x1}{Modular curve $X_1(N)$}}
 \begin{definition}\label{ag.modcurve.x1}
 \uses{ag.curve,ag.modcurve.x0,ec,mf.upper_half_plane}
+\leanok
 Let $N \ge 1$. The *modular curve* $X_1(N)$ is an \hyperref[ag.curve]{algebraic curve} defined over $\Q$ (or even $\Z[1/N]$) whose points over any algebraically closed field $k$ of characteristic not dividing $N$ correspond to isomorphism classes of pairs $(E,P)$, where $E$ is an \hyperref[ec]{elliptic curve} over $k$ and $P \in E(k)$ is a torsion point of order exactly $N$, with the exception of particular points called *cusps* which correspond to degenerate such pairs.  If $N \ge 4$, the same description of points is valid even if $k$ is not algebraically closed.
 
 The complex manifold $X_1(N)(\C)$ is biholomorphic to the quotient $\Gamma_1(N) \backslash \mathcal{H}^*$ of the \hyperref[mf.upper_half_plane]{completed upper half plane}.
@@ -13,3 +14,5 @@ The quotient of $X_1(N)$ by $(\Z/N\Z)^* / \{\pm1\}$ is the
 
 
 \end{definition}
+
+

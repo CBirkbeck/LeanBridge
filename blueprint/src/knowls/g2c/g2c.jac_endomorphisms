@@ -1,5 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.jac_endomorphisms}{Endomorphism invariants}}
 \begin{definition}\label{g2c.jac_endomorphisms}
 \uses{ag.abelian_variety,ag.base_change,ag.base_field,ag.endomorphism_algebra,ag.endomorphism_ring,ag.geom_endomorphism_algebra,ag.geom_endomorphism_ring,ag.real_endomorphism_algebra,ag.real_geom_endomorphism_algebra}
+\leanok
 Invariants related to the endomorphisms of an \hyperref[ag.abelian_variety]{abelian variety} $A$ include its \hyperref[ag.endomorphism_ring]{endomorphism ring} $\textrm{End}(A)$, its \hyperref[ag.endomorphism_algebra]{endomorphism algebra} $\textrm{End}(A)\otimes\Q$, and its \hyperref[ag.real_endomorphism_algebra]{real endomorphism algebra} $\textrm{End}(A)\otimes\R$, along with their geometric analogues: the \hyperref[ag.geom_endomorphism_ring]{geometric endomorphism ring}, \hyperref[ag.geom_endomorphism_algebra]{geometric endomorphism algebra}, and \hyperref[ag.real_geom_endomorphism_algebra]{real geometric endomorphism algebra} of the \hyperref[ag.base_change]{base change} of $A$ to an algebraic closure of its \hyperref[ag.base_field]{base field}.
 \end{definition}
+
+

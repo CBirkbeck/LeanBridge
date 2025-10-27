@@ -5,3 +5,5 @@ If $K$ is a \hyperref[nf]{number field} of \hyperref[nf.degree]{degree} $n$ and 
 \[ \textrm{rd}(K) = |D|^{1/n}.\]
 It gives a measure of the discriminant of a number field which is normalized for the degree.  For example, if $K\subseteq L$ are number fields and $L/K$ is unramified, then $\textrm{rd}(K)=\textrm{rd}(L)$.
 \end{definition}
+
+

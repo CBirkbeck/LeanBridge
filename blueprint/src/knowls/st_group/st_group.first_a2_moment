@@ -5,3 +5,5 @@ The \textbf{first $a_2$ moment} of a \hyperref[st_group.definition]{Sato-Tate gr
 
 When $G$ is the Sato-Tate group of an \hyperref[ag.abelian_variety]{abelian variety}, the first $a_2$ moment is equal to the rank of its Néron–Severi group \cite{arxiv:1910.00518,mr:4038255}.
 \end{definition}
+
+

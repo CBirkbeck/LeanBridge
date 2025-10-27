@@ -1,7 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.perfect}{Perfect groups}}
 \begin{definition}\label{group.perfect}
 \uses{group,group.commutator_subgroup}
-A \hyperref[group]{group} $G$ is \textbf{perfect} if it is equal to its own \hyperref[group.commutator_subgroup]{commutator subgroup} $G'$. Equivalently, $G$ has no non-trivial cyclic (equivalently abelian, equivalently soluble) quotients. All non-abelian simple and quasisimple groups are perfect.
+A \hyperref[group]{group} $G$ is \textbf{perfect} if it is equal to its own \hyperref[group.commutator_subgroup]{commutator subgroup} $G'$. Equivalently, $G$ has no non-trivial cyclic (equivalently abelian, equivalently soluble) quotients. All non-abelian simple and quasisimple groups are perfect. 
 
 A perfect group may have cyclic composition factors, for example, $\mathrm{SL}(2,5)=C_2.A_5$ is perfect.
 \end{definition}
+
+

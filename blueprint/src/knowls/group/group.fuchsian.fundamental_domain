@@ -1,14 +1,16 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.fuchsian.fundamental_domain}{Fundamental domain}}
 \begin{definition}\label{group.fuchsian.fundamental_domain}
 \uses{group.sl2z}
-If $G\subseteq\Gamma$ is a subgroup of the \hyperref[group.sl2z]{modular group}, then a closed set
-$F\in\mathcal{H}\cup\mathbb{Q}\cup\{\infty\}$ is said
+If $G\subseteq\Gamma$ is a subgroup of the \hyperref[group.sl2z]{modular group}, then a closed set 
+$F\in\mathcal{H}\cup\mathbb{Q}\cup\{\infty\}$ is said 
 to be a \textbf{fundamental domain} for $G$ if:
 <ol>
-  <li> For any point $z\in\mathcal{H}$ there is a
+  <li> For any point $z\in\mathcal{H}$ there is a 
 $g\in G$ such that $gz\in F$.</li>
-  <li> If $z\not=z'\in F$ are equivalent with respect to the action of $G$,
-that is, if $z'=gz$ for some $g\in G$, then $z$ and
+  <li> If $z\not=z'\in F$ are equivalent with respect to the action of $G$, 
+that is, if $z'=gz$ for some $g\in G$, then $z$ and 
 $z'$ belong to $\partial F$, the boundary of F.</li>
 </ol>
 \end{definition}
+
+

@@ -5,3 +5,5 @@ A \hyperref[cmf.newform]{newform} is \textbf{maximal} if its \hyperref[cmf.galoi
 
 A newform is the \textbf{largest} newform in its ambient subspace if its \hyperref[cmf.dimension]{dimension} is strictly larger than that of any other newform in the same subspace (this includes newforms that are maximal).
 \end{definition}
+
+

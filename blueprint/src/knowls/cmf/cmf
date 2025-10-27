@@ -6,7 +6,7 @@ Let $k$ be a positive integer and let $\Gamma$ be a finite index subgroup of the
 A (classical) \textbf{modular form} $f$ of  \hyperref[cmf.weight]{weight} $k$ on $\Gamma$,  is a holomorphic function defined on the \hyperref[mf.upper_half_plane]{upper half plane} $\mathcal{H}$, which satisfies the transformation property
 \[
 f(\gamma z) = (cz+d)^k f(z)
-\]
+\] 
 for all $z\in\mathcal{H}$ and $\gamma=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in \Gamma$ and is holomorphic  at all the \hyperref[group.fuchsian.cusps]{cusps} of $\Gamma$.
 
 If $\Gamma$ contains the principal congruence subgroup \hyperref[group.sl2z.subgroup.gamman]{$\Gamma(N)$} then $f$ is said to be a modular form of \hyperref[cmf.level]{level} $N$.
@@ -25,3 +25,5 @@ For trivial character $\chi$ of modulus $N$ we have $M_k(N,\chi)=M_k(\Gamma_0(N)
 
 
 \end{definition}
+
+

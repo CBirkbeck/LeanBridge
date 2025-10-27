@@ -3,3 +3,5 @@
 \uses{cmf.fricke}
 The \textbf{minus subspace} of \(S_k(\Gamma_0(N))\) is the eigenspace of the \hyperref[cmf.fricke]{Fricke involution} \(w_N\) with eigenvalue \(-1\).
 \end{definition}
+
+

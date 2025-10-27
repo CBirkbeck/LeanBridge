@@ -1,11 +1,14 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.ack.software}{Acknowledgments for software}}
 \begin{definition}\label{rcs.ack.software}
 \uses{}
-Our website is run on free open source software. We use <a href="https://www.sagemath.org">SageMath</a> for computations on the fly. Some important components used are <a href="https://pari.math.u-bordeaux.fr/">PARI</a>,
-<a href="http://homepages.warwick.ac.uk/staff/J.E.Cremona/mwrank">eclib</a>, and
-<a href="https://code.google.com/p/l-calc/">lcalc</a>.
-The non-mathematical software used includes <a href="http://www.python.org">Python</a>,
-<a href="http://flask.pocoo.org/">Flask</a>, <a href="http://jinja.pocoo.org/">Jinja</a>, <a href="https://www.postgresql.org/">PostgreSQL</a>, <a href="http://initd.org/psycopg/">Psycopg</a>, <a href="https://katex.org/">KaTeX</a>, and <a href="http://git-scm.com">Git</a>.
-Some of the data on this website was computed using other programs, including <a href="http://magma.maths.usyd.edu.au/magma/">Magma</a>, <a href="http://www.wolfram.com/mathematica/">Mathematica</a>, and <a href="https://www.gap-system.org/">GAP</a>.
+\leanok
+Our website is run on free open source software. We use \href{https://www.sagemath.org}{SageMath} for computations on the fly. Some important components used are \href{https://pari.math.u-bordeaux.fr/}{PARI},
+\href{http://homepages.warwick.ac.uk/staff/J.E.Cremona/mwrank}{eclib}, and
+\href{https://code.google.com/p/l-calc/}{lcalc}.
+The non-mathematical software used includes \href{http://www.python.org}{Python},
+\href{http://flask.pocoo.org/}{Flask}, \href{http://jinja.pocoo.org/}{Jinja}, \href{https://www.postgresql.org/}{PostgreSQL}, \href{http://initd.org/psycopg/}{Psycopg}, \href{https://katex.org/}{KaTeX}, and \href{http://git-scm.com}{Git}.
+Some of the data on this website was computed using other programs, including \href{http://magma.maths.usyd.edu.au/magma/}{Magma}, \href{http://www.wolfram.com/mathematica/}{Mathematica}, and \href{https://www.gap-system.org/}{GAP}.
 
 \end{definition}
+
+

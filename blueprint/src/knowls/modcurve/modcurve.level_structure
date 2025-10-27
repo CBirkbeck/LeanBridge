@@ -20,3 +20,5 @@ Invariants of a rational $H$-level structure include:
 \item  \textbf{N-torsion field degree} the minimal degree of an extension $L/K$ for which $E[N]\subseteq E(L)$; this is simply the cardinality of the reduction of $H$ to $\GL_2(\Z/N\Z)$.
 \end{itemize}
 \end{definition}
+
+

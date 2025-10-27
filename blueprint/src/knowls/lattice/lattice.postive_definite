@@ -3,3 +3,5 @@
 \uses{lattice.definition,lattice.gram}
 An \hyperref[lattice.definition]{integral lattice} $L$ is \textbf{positive definite} if the \hyperref[lattice.gram]{Gram matrix} of the bilinear form $B$ on $L$ is a positive definite matrix. This is equivalent to the condition that $B(u,u)>0$ for all $u \in L \setminus\{0\}$.
 \end{definition}
+
+

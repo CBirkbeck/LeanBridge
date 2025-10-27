@@ -5,3 +5,5 @@ The \textbf{fourth trace moment} of a \hyperref[st_group.definition]{Sato-Tate g
 
 By a result known as "Larsen's alternative" \cite{mr:2058618}, if the fourth trace moment is less than or equal to 5 then $G$ is irreducible, and for $G$ of odd \hyperref[st_group.weight]{weight}, the fourth trace moment is 3 when $G=\mathrm{USp}(2g)$ and greater than 3 otherwise.
 \end{definition}
+
+

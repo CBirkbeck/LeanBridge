@@ -3,3 +3,5 @@
 \uses{hgm.bezout_matrix}
 The \textbf{Bézout determinant} of a hypergeometric motive $H$ is the determinant of its \hyperref[hgm.bezout_matrix]{Bézout matrix}.
 \end{definition}
+
+

@@ -14,6 +14,8 @@ when the norm ideal of $L$ is even, and
 \Theta_L(z)=\sum_{v\in L}q^{\langle v,v\rangle}
 \]
 when the norm ideal of $L$ is odd, where $q=e^{2\pi iz}$ in either case. Then the coefficient of $q^n$ gives the number of vectors in the lattice of norm $n$.
-
+  
 {% endif %}
 \end{definition}
+
+

@@ -13,3 +13,5 @@ The \textbf{local data} of an  \hyperref[ec]{elliptic curve} \(E\) defined over 
 \item  the \hyperref[ec.j_invariant_denominator_valuation]{j-invariant denominator valuation} \(\text{ord}_{\mathfrak{p}}(j)_{-}\)
 \end{itemize}
 \end{definition}
+
+

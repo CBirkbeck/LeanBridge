@@ -1,5 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.galois_group.gmodule_v4_type_ii_i}{Galois module structure of Type II (i) for units in biquadratic number fields}}
 \begin{definition}\label{nf.galois_group.gmodule_v4_type_ii_i}
 \uses{}
+\leanok
 The notation follows Mazur and Ullom, Galois module structure of units in real biquadratic number fields, Acta Arithmetica 111.2 (2004) \cite{doi:10.4064/aa111-2-1, MR:2039416}. There are four basic types, I-IV, which describe the structure of the units $U$ modulo roots of unity. The subtype describes the actual structure of the units. Type II (i) means that there are fundamental units $e_1,e_2,e_3$ of the three quadratic subfields such that $\sqrt{e_1e_2},e_2,e_3$ generate the rank 3 group $U/\{\pm 1\}$.
 \end{definition}
+
+

@@ -3,3 +3,5 @@
 \uses{group,group.division}
 A \hyperref[group.division]{division} (or rational conjugacy classes) of a finite \hyperref[group]{group} $G$ is \textbf{maximal} if if a representative generates a maximal cyclic subgroup of $G$.
 \end{definition}
+
+

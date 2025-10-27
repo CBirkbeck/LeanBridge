@@ -5,10 +5,12 @@ The \textbf{degree} of an \hyperref[lfunction]{L-function} is the number $J + 2K
 
 \[
 \Lambda(s) := N^{s/2}
-\prod_{j=1}^J \Gamma_{\mathbb R}(s+\mu_j) \prod_{k=1}^K \Gamma_{\mathbb C}(s+\nu_k)
+\prod_{j=1}^J \Gamma_{\mathbb{R}}(s+\mu_j) \prod_{k=1}^K \Gamma_{\mathbb{C}}(s+\nu_k)
 \cdot L(s) = \varepsilon \overline{\Lambda}(1-s).
 \]
 
-The degree appears as the first component of the \hyperref[lfunction.selbergdata]{Selberg data} of $L(s).$ In all known cases it is the degree of the polynomial of the inverse of the Euler factor at any prime not dividing the \hyperref[lfunction.conductor]{conductor}.
-
+The degree appears as the first component of the \hyperref[lfunction.selbergdata]{Selberg data} of $L(s).$ In all known cases it is the degree of the polynomial of the inverse of the Euler factor at any prime not dividing the \hyperref[lfunction.conductor]{conductor}. 
+ 
 \end{definition}
+
+

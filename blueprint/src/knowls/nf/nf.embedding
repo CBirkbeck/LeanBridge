@@ -8,3 +8,5 @@ Complex embeddings necessarily come in conjugate pairs.  The \hyperref[nf.signat
 For $K=\Q(a)$, where $a$ is an algebraic number with \hyperref[nf.minimal_polynomial]{minimal polynomial} $f(X)$, each embedding $\iota$ is uniquely determined by the value $z=\iota(a)$, which is one of the complex roots of $f(X)$. The embedding is real if $z\in\R$ and complex if $z\notin\R$.
 
 \end{definition}
+
+

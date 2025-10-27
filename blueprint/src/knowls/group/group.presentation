@@ -22,3 +22,5 @@ Any finite solvable group has a polycyclic presentation.  When the size of $G$ i
 \item  among such, minimize the sum of the $b_{i,j,k}$ for noncommuting generators $g_i$ and $g_j$.
 \end{itemize}
 \end{definition}
+
+

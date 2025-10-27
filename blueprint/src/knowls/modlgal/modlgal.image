@@ -3,3 +3,5 @@
 \uses{group.subgroup,modlgal,modlgal.codomain}
 The \textbf{image} of a  \hyperref[modlgal]{mod-$\ell$ Galois representation} $\rho: \Gal_K\to G(\F_{\ell})$ is the \hyperref[group.subgroup]{subgroup} $\rho(\Gal_K)$ of the \hyperref[modlgal.codomain]{codomain} $G(\F_{\ell})$.
 \end{definition}
+
+

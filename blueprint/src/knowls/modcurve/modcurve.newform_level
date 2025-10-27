@@ -3,3 +3,5 @@
 \uses{ag.jacobian,av.decomposition,cmf.level,cmf.newform,gl2.genus,modcurve}
 The \textbf{newform level} of a \hyperref[modcurve]{modular curve} $X_H$ of positive \hyperref[gl2.genus]{genus} is the least common multiple of the \hyperref[cmf.level]{level} of the \hyperref[cmf.newform]{newforms} corresponding to \hyperref[av.decomposition]{isogeny factors} of the \hyperref[ag.jacobian]{Jacobian} of $X_H$.
 \end{definition}
+
+

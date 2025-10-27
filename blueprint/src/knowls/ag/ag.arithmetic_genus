@@ -1,8 +1,10 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.arithmetic_genus}{Arithmetic genus}}
 \begin{definition}\label{ag.arithmetic_genus}
 \uses{ag.holomorphic_euler_char}
-The \textbf{arithmetic genus} of a projective scheme $X$ is $p_a(X) = (-1)^{\dim X}(\chi(X)-1)$ where $\chi(X)$ is the
+The \textbf{arithmetic genus} of a projective scheme $X$ is $p_a(X) = (-1)^{\dim X}(\chi(X)-1)$ where $\chi(X)$ is the 
 \hyperref[ag.holomorphic_euler_char]{holomorphic Euler characteristic}.
 
 
 \end{definition}
+
+

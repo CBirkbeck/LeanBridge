@@ -3,3 +3,5 @@
 \uses{nf,nf.zk_index}
 An \textbf{inessential prime} of a \hyperref[nf]{number field} is a prime divisor of its \hyperref[nf.zk_index]{index}.
 \end{definition}
+
+

@@ -4,10 +4,10 @@
 All known \hyperref[lfunction]{analytic L-functions} have a \textbf{functional equation} that can be written in the form
 \[
 \Lambda(s) := N^{s/2}
-\prod_{j=1}^J \Gamma_{\mathbb R}(s+\mu_j) \prod_{k=1}^K \Gamma_{\mathbb C}(s+\nu_k)
+\prod_{j=1}^J \Gamma_{\mathbb{R}}(s+\mu_j) \prod_{k=1}^K \Gamma_{\mathbb{C}}(s+\nu_k)
 \cdot L(s) = \varepsilon \overline{\Lambda}(1-s),
 \]
-where $N$ is an integer, \hyperref[lfunction.gamma_factor]{$\Gamma_{\mathbb R}$ and $\Gamma_{\mathbb C}$} are defined in terms of the \hyperref[specialfunction.gamma]{$\Gamma$-function,} $\mathrm{Re}(\mu_j) = 0 \ \mathrm{or} \ 1$ (assuming Selberg's eigenvalue conjecture), and $\mathrm{Re}(\nu_k)$ is a positive integer
+where $N$ is an integer, \hyperref[lfunction.gamma_factor]{$\Gamma_{\mathbb{R}}$ and $\Gamma_{\mathbb{C}}$} are defined in terms of the \hyperref[specialfunction.gamma]{$\Gamma$-function,} $\mathrm{Re}(\mu_j) = 0 \ \mathrm{or} \ 1$ (assuming Selberg's eigenvalue conjecture), and $\mathrm{Re}(\nu_k)$ is a positive integer
 or half-integer,
 \[
 \sum \mu_j + 2 \sum \nu_k \ \ \ \ \text{is real},
@@ -18,7 +18,7 @@ data in the functional equation is specified uniquely.  The integer $d = J + 2 K
 is the \hyperref[lfunction.degree]{degree} of the L-function. The integer $N$ is  the \hyperref[lfunction.conductor]{conductor} (or level)
 of the L-function.  The pair $[J,K]$ is the \hyperref[lfunction.signature]{signature} of the L-function.  The parameters
 in the functional equation can be used to make up the 4-tuple called the \hyperref[lfunction.selbergdata]{Selberg data}.
-
+ 
 
 The \hyperref[lfunction.selberg_class.axioms]{axioms} of the \hyperref[lfunction.selberg_class]{Selberg class} are less restrictive than
 given above.
@@ -29,3 +29,5 @@ For many L-functions there is another normalization which is natural. The corres
 called the \hyperref[lfunction.motivic_weight]{motivic weight} of the L-function. The central point is at $s=(w+1)/2$, and the arithmetically normalized Dirichlet coefficients $a_n n^{w/2}$ are algebraic integers.
 
 \end{definition}
+
+

@@ -3,3 +3,5 @@
 \uses{gg.galois_group}
 A \hyperref[gg.galois_group]{Galois group} of an irreducible polynomial $f(x)$ is a transitive subgroup of $S_n$, well-defined up to conjugation.  Its \textbf{degree} is $n=\deg(f)$.
 \end{definition}
+
+

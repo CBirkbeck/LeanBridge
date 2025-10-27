@@ -1,13 +1,15 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.completed}{Completed L-function}}
 \begin{definition}\label{lfunction.completed}
 \uses{lfunction,lfunction.functional_equation,lfunction.gamma_factor}
-If the \hyperref[lfunction]{L-function} $L(s)$ satisfies the \hyperref[lfunction.functional_equation]{functional equation}
+If the \hyperref[lfunction]{L-function} $L(s)$ satisfies the \hyperref[lfunction.functional_equation]{functional equation} 
 \[
 \Lambda(s) := N^{s/2}
-\prod_{j=1}^J \Gamma_{\mathbb R}(s+\mu_j) \prod_{k=1}^K \Gamma_{\mathbb C}(s+\nu_k)
+\prod_{j=1}^J \Gamma_{\mathbb{R}}(s+\mu_j) \prod_{k=1}^K \Gamma_{\mathbb{C}}(s+\nu_k)
 \cdot L(s) = \varepsilon \overline{\Lambda}(1-s),
 \]
 then $\Lambda(s)$ is called the \textbf{completed L-function}.
 
 The completed L-function is the product of the L-function and its \hyperref[lfunction.gamma_factor]{gamma factors}.
 \end{definition}
+
+

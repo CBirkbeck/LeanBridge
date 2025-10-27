@@ -3,3 +3,5 @@
 \uses{group,group.generators}
 A \hyperref[group]{group} $G$ is \textbf{cyclic} if it can be \hyperref[group.generators]{generated} by one element.
 \end{definition}
+
+

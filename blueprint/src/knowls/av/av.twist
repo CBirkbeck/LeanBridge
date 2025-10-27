@@ -3,3 +3,5 @@
 \uses{ag.abelian_variety,ag.base_change}
 A \textbf{twist} of an \hyperref[ag.abelian_variety]{abelian variety} $A$ is an abelian variety $A'$ over the same field that becomes isomorphic to $A$ upon \hyperref[ag.base_change]{base change} to an algebraic closure.
 \end{definition}
+
+

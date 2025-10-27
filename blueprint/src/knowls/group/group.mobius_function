@@ -9,3 +9,5 @@ $$\nu_G(N) = -\sum_{N' < N} \nu_G(N').$$
 
 The möbius subgroup function is used in computing the \hyperref[group.rank]{rank} of $G$, while the möbius quotient function is used in computing the number of faithful representations of $G$.
 \end{definition}
+
+

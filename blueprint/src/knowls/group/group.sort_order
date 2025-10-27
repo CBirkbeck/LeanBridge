@@ -1,5 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.sort_order}{Sort order for groups}}
 \begin{definition}\label{group.sort_order}
 \uses{group,group.label,group.order}
+\leanok
 By default, \hyperref[group]{group} search results are sorted by \hyperref[group.label]{label}, but you can choose to have \hyperref[group.order]{larger} groups show up first.
 \end{definition}
+
+

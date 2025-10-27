@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.family.sp8z}{The ring of Siegel modular forms of degree 4 with respect to  the full modular group}}
 \begin{definition}\label{mf.siegel.family.sp8z}
 \uses{group.sp2gr,mf.siegel.cusp_form,mf.siegel.degree,mf.siegel.ikeda,mf.siegel.miyawaki,mf.siegel.vector_valued,mf.siegel.weight}
+\leanok
 The dimensions for \hyperref[mf.siegel.degree]{degree} 4 \hyperref[mf.siegel.cusp_form]{Siegel modular cusp forms}
 $S_k(\mathrm{Sp}(8,Z))$ for the \hyperref[group.sp2gr]{full modular group}
 for \hyperref[mf.siegel.weight]{weights} $k\le 16$ were proven by C. Poor and D. S. Yuen \cite{mr:2302669}.  Poor and Yuen also computed Fourier coefficients and some eigenvalues.
@@ -8,3 +9,5 @@ for \hyperref[mf.siegel.weight]{weights} $k\le 16$ were proven by C. Poor and D.
 The cusp forms in weights up through 14 are either \hyperref[mf.siegel.ikeda]{Duke-Imamoglu-Ikeda lifts} or \hyperref[mf.siegel.miyawaki]{Miyawaki lifts}.    In weight 16, in addition to these two types of lifts, there are other   eigenforms that have been shown by Ibukiyama to instantiate a conjectural lift from \hyperref[mf.siegel.vector_valued]{vector-valued Siegel modular forms}.
 
 \end{definition}
+
+

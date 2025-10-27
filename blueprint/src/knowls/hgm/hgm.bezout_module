@@ -3,3 +3,5 @@
 \uses{hgm.bezout_matrix,hgm.degree}
 The \textbf{Bezout module} of a hypergeometric motive $M$ is the finite $\mathbb{Z}$-module whose relations matrix is the \hyperref[hgm.bezout_matrix]{Bézout matrix} $B$ of $M$. In other words, it is the quotient $\mathbb{Z}^d/B \mathbb{Z}^d$, where $d$ is the \hyperref[hgm.degree]{degree} of $M$.
 \end{definition}
+
+

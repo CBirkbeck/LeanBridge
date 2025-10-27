@@ -1,13 +1,14 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.lift.miyawaki2}{Miyawaki lift of type II}}
 \begin{definition}\label{mf.siegel.lift.miyawaki2}
 \uses{}
-<b>Miyawaki Lift, Type II (conjectural):</b>  Let $k$ be an even weight.
+\leanok
+<b>Miyawaki Lift, Type II (conjectural):</b>  Let $k$ be an even weight. 
 For each pair of elliptic Hecke cusp eigenforms
-$$f\in{\mathcal S}_{2k-2}(\SL(2,{\mathbb Z}))
+$$f\in{\mathcal S}_{2k-2}(\SL(2,{\mathbb{Z}}))
 \quad\text{quad}\quad
-g\in{\mathcal S}_{k-2}(\SL(2,{\mathbb Z}))$$
+g\in{\mathcal S}_{k-2}(\SL(2,{\mathbb{Z}}))$$
 their Miyawaki lift of type II is a Siegel Hecke cusp eigenform
-$$F\in{\mathcal S}_k(\Sp(6,{\mathbb Z}))$$
+$$F\in{\mathcal S}_k(\Sp(6,{\mathbb{Z}}))$$
 whose standard Euler factors and standard $L$-function factor as
 $$Q_p^{\rm st}(F,X)=Q_p(f,p^{1-k}X)Q_p(f,p^{2-k}X)Q_p^{\rm st}(g,X)$$
 and $$L^{\rm st}(F,s)=L(f,s+k-1)L(f,s+k-2)L^{\rm st}(g,s)$$
@@ -15,3 +16,5 @@ and whose spinor Euler factors and spinor L-function factor as
 $$Q_p^{\rm spin}(F,X)=Q_p(g,p^{k-1}X)Q_p(g,p^{k-2}X)Q_p(f\otimes g,X)$$
 and $$L^{\rm spin}(F,s)=L(g,s-k+1)L(g,s-k+2)L(f\otimes g,s).$$
 \end{definition}
+
+

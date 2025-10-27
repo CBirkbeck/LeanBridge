@@ -1,5 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.dimension_galois_orbit}{Dimension of a Hecke orbit}}
 \begin{definition}\label{cmf.dimension_galois_orbit}
 \uses{cmf.hecke_orbit}
+\leanok
 The dimension of an (irreducible) \hyperref[cmf.hecke_orbit]{Hecke orbit} of a newform $f$.
 \end{definition}
+
+

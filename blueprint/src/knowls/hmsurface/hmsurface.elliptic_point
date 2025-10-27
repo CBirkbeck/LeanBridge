@@ -7,3 +7,5 @@ $$
 $$
 If $F$ is a real quadratic field, an element $\alpha \in \GL_2^+(F)$ is called \textbf{elliptic} if the above condition holds for each real embedding of $F$. An \textbf{elliptic point} is the (necessarily unique) fixed point in $\frak{h}^2$ of an elliptic element.
 \end{definition}
+
+

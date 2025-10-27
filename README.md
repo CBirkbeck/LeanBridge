@@ -1,65 +1,74 @@
-# Lean 4 Project Template
+# Lean LMFDB Bridge Project
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-lightblue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Zulip : Topic](https://img.shields.io/badge/Zulip-Topic-%237E57C2.svg?logo=zulip&logoColor=white)](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Tutorial.3A.20Getting.20Started.20with.20Blueprint-Driven.20Projects)
 [![YouTube : Tutorial](https://img.shields.io/badge/YouTube-Tutorial-%23FF0000.svg?logo=youtube&logoColor=white)](https://youtu.be/KyuyTsLgkMY)
 
-This repository contains a template for blueprint-driven formalization projects in Lean 4.
+This repository contains a [blueprint](https://github.com/PatrickMassot/leanblueprint/) for formalizing definitions within the [L-functions and modular forms database](https://lmfdb.org).  You can view the rendered version [here](https://cbirkbeck.github.io/LeanBridge/).
 
-## Install Lean 4
+The process for updating the contents of this blueprint is different than most other blueprints, because it is built to improve the integration between Mathlib and the LMFDB.  While there is some framing content manually written in [content.tex](https://github.com/CBirkbeck/LeanBridge/blob/main/blueprint/src/content.tex), most of the blueprint is generated from the LMFDB's [knowl database](https://beta.lmfdb.org/knowledge/) using the [update script](https://github.com/CBirkbeck/LeanBridge/blob/main/blueprint/src/update_knowls.py).
 
-Ensure that you have a functioning Lean 4 installation. If you do not, please follow
+Thus most of the work in updating this blueprint takes the following form:
+
+1. [Adding](https://leanprover-community.github.io/contribute/index.html) definitions and theorems to mathlib
+
+1. Linking definitions in LMFDB knowls to mathlib using the [DEFINES macro](https://beta.lmfdb.org/knowledge/show/doc.knowl.guidelines), and linking theorems using the [cite command](https://beta.lmfdb.org/knowledge/show/doc.knowl.guidelines).  Editing and creating knowls requires an account on the LMFDB; contact David Roe or Andrew Sutherland on Zulip (either [LMFDB](https://lmfdb.zulipchat.com) or [Lean](https://leanprover.zulipchat.com)) if you want to get involved.
+
+1. Once definitions have been added to mathlib and linked in the corresponding knowl, run the [update script](https://github.com/CBirkbeck/LeanBridge/blob/main/blueprint/src/update_knowls.py) to update the [knowl folder](https://github.com/CBirkbeck/LeanBridge/tree/main/blueprint/src/knowls) and make a PR to this repository.
+
+## Local setup
+
+1. Ensure that you have a functioning Lean 4 installation. If you do not, please follow
 the [Lean installation guide](https://leanprover-community.github.io/get_started.html).
 
-## Use this Template
-
-To create a new repository using this template, ensure you are on the correct repository page
-([LeanProject](https://github.com/pitmonticone/LeanProject)) and then follow these steps:
-
-1. Click the **Use this template** button located at the top right of the repository page.
-2. Click the **Create a new repository** button.
-3. Select the account or organization where you want to create it, choose a name for the new
-repository, and click the **Create repository** button.
-
-## Clone this Repository
-
-To clone this repository to your local machine, please refer to the relevant section of the
+1. To clone this repository to your local machine, please refer to the relevant section of the
 GitHub documentation [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
-
-## Customize this Template
-
-To tailor this template to your specific project, follow these steps:
 
 1. If you don't have a Python environment, you can install one by following the instructions in the
 [Python installation guide](https://www.python.org/downloads/).
-1. Verify your Python installation by running:
-    ```bash
-    python3 --version
-    ```
-1. Verify your Pip installation by running:
-    ```bash
-    pip3 --version
-    ```
-1. Ensure your terminal is in the project directory by running the following command:
-    ```bash
-    cd path/to/your/project
-    ```
-1.	Execute the customization script by running:
-    ```bash
-    scripts/customize_template.py NewProject
-    ```
-    where `NewProject` must be replaced by the name of your project.
 
-The script [`customize_template.py`](scripts/customize_template.py) will automatically rename the
-project folder and update the necessary files and configurations to match the new project name.
+1. You will need to install PyGraphViz, following the instructions in the
+[installation guide](https://pygraphviz.github.io/documentation/stable/install.html).
 
-## Configure GitHub Pages
+1. If you want to run the update script, you will need to install Networkx using
 
-To set up GitHub Pages for your repository, follow these steps:
+```bash
+pip install networkx
+```
 
-1. Go to the **Settings** tab of your repository.
-2. In the left sidebar, click on the **Pages** section.
-3. In the **Source** dropdown, select `GitHub Actions`.
+and psycopg2 using
+
+```bash
+pip install psycopg2-binary
+```
+
+1. Install LeanBlueprint by running:
+
+```bash
+pip install leanblueprint
+```
+
+If you have an existing installation of LeanBlueprint, you can upgrade to the latest version by
+running:
+
+```bash
+pip install -U leanblueprint
+```
+
+1. You can use `leanblueprint` to build the blueprint locally. The available commands are:
+
+* `leanblueprint pdf` to build the pdf version (this requires a TeX installation
+  of course).
+* `leanblueprint web` to build the web version
+* `leanblueprint checkdecls` to check that every Lean declaration name that appear
+  in the blueprint exist in the project (or in a dependency of the project such
+  as Mathlib). This requires a compiled Lean project, so make sure to run `lake build` beforehand.
+* `leanblueprint all` to run the previous three commands.
+* `leanblueprint serve` to start a local webserver showing your local blueprint
+  (this sounds silly but web browsers paranoia makes it impossible to simply
+  open the generated html pages without serving them). The url you should use
+  in your browser will be displayed and will probably be `http://0.0.0.0:8000/`,
+  unless the port 8000 is already in use.
 
 ## Repository Layout
 
@@ -97,106 +106,8 @@ Lean projects.
 
 ## Blueprint
 
-### 0. Selected Collaborative Projects
-
-- [Fermat's Last Theorem for Exponent 3](https://pitmonticone.github.io/FLT3/) by Riccardo Brasca et al.
-- [Polynomial Freiman-Ruzsa Conjecture](https://github.com/teorth/pfr) by Terence Tao et al.
-- [Fermat's Last Theorem](https://imperialcollegelondon.github.io/FLT/) by Kevin Buzzard et al.
-- [Carleson Operators on Doubling Metric Measure Spaces](http://florisvandoorn.com/carleson/) by Floris van Doorn et al.
-- [Bonn Collaborative Formalization Seminar Series in Analysis](https://github.com/fpvandoorn/BonnAnalysis) by Floris van Doorn et al.
-- [Prime Number Theorem and More](https://github.com/AlexKontorovich/PrimeNumberTheoremAnd) by Alex Kontorovich et al.
-- [Infinity Cosmos](https://github.com/emilyriehl/infinity-cosmos) by Emily Riehl et al.
-- [Analytic Number Theory Exponent Database](https://github.com/teorth/expdb) by Terence Tao et al.
-- [Groupoid Model of Homotopy Type Theory](https://github.com/sinhp/GroupoidModelofHoTTinLean4) by Sina Hazratpour et al.
-- [Equational Theories](https://github.com/teorth/equational_theories) by Terence Tao et al.
-- [Sphere Packing in 8 Dimensions](https://github.com/thefundamentaltheor3m/Sphere-Packing-Lean) by Maryna Viazovska et al.
-
-For more examples of completed and ongoing Lean projects and libraries, please
-see the [Lean Reservoir](https://reservoir.lean-lang.org).
-
-### 1. Install Dependencies
-
-To install the necessary dependencies, follow the instructions in the
-[PyGraphViz installation guide](https://pygraphviz.github.io/documentation/stable/install.html).
-
-### 2. Install LeanBlueprint Package
-
-Assuming you have a properly configured Python environment, install LeanBlueprint by running:
-
-```bash
-pip install leanblueprint
-```
-
-If you have an existing installation of LeanBlueprint, you can upgrade to the latest version by
-running:
-
-```bash
-pip install -U leanblueprint
-```
-
-### 3. Configure Blueprint
-
-To set up the blueprint for your project, run:
-
-```bash
-leanblueprint new
-```
-
-Then, follow the prompts and answer the questions as you like, except for a few specific
-questions which should be answered as indicated below to ensure compatibility with this template.
-
-Respond affirmatively with `y` to the following prompt:
-
-```console
-Proceed with blueprint creation? [y/n]
-```
-
-Respond affirmatively with `y` to the following prompt:
-
-```console
-Modify lakefile and lake-manifest to allow checking declarations exist? [y/n] (y)
-```
-
-Respond affirmatively with `y` to the following prompt:
-
-```console
-Modify lakefile and lake-manifest to allow building the documentation? [y/n] (y):
-```
-
-If you want to generate a Jekyll-based home page for the project, respond
-affirmatively with `y` to the following prompt:
-
-```console
-Do you want to create a home page for the project, with links to the blueprint, the API documentation and the repository? [y/n]:
-```
-
-Respond affirmatively with `y` to the following prompt:
-
-```console
-Configure continuous integration to compile blueprint? [y/n] (y):
-```
-
 For more details about the LeanBlueprint package and its commands, please refer to its
 [documentation](https://github.com/PatrickMassot/leanblueprint/tree/master#starting-a-blueprint).
 
-After configuring the blueprint, please wait for the GitHub Action workflow to finish.
+After pushing changes, please wait for the GitHub Action workflow to finish.
 You can keep track of the progress in the **Actions** tab of your repository.
-
-## Selected Projects Using this Template
-
-If you have used this template to create your own Lean project and would like to share it with the community, please consider opening a [PR](https://github.com/pitmonticone/LeanProject/pulls) to add your project to this list:
-
-- [Infinity Cosmos](https://github.com/emilyriehl/infinity-cosmos) by Emily Riehl et al.
-- [Analytic Number Theory Exponent Database](https://github.com/teorth/expdb) by Terence Tao et al.
-- [Equational Theories](https://github.com/teorth/equational_theories) by Terence Tao et al.
-- [Groupoid Model of Homotopy Type Theory](https://github.com/sinhp/GroupoidModelofHoTTinLean4) by Sina Hazratpour et al.
-- [Soundness of FRI](https://github.com/BoltonBailey/FRISoundness) by Bolton Bailey et al.
-- [Weil's Converse Theorem](https://github.com/CBirkbeck/WeilConverse) by Chris Birkbeck et al.
-- [Proofs from THE BOOK](https://github.com/mo271/FormalBook) by Moritz Firsching et al.
-- [Automata Theory](https://github.com/shetzl/autth) by Stefan Hetzl et al.
-- [Dirichlet Nonvanishing](https://github.com/CBirkbeck/DirichletNonvanishing) by Chris Birkbeck et al.
-- [Seymour's Decomposition Theorem](https://github.com/Ivan-Sergeyev/seymour) by Ivan Sergeyev et al.
-- [Spectral Theorem](https://github.com/oliver-butterley/SpectralThm) by Oliver Butterley and Yoh Tanimoto.
-- [NeuralNetworks](https://github.com/or4nge19/NeuralNetworks) by Matteo Cipollina.
-- [ABC Exceptions](https://github.com/b-mehta/ABC-Exceptions) by Bhavik Mehta et al.
-- [Sphere Packing in 8 Dimensions](https://github.com/thefundamentaltheor3m/Sphere-Packing-Lean) by Maryna Viazovska et al.

@@ -1,12 +1,14 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/hgm.hodge_vector}{Hodge vector of a hypergeometric motive}}
 \begin{definition}\label{hgm.hodge_vector}
 \uses{hgm.defining_parameters,hgm.degree,hgm.familes,hgm.motive,hgm.weight}
-Let $H(A,B)$ be a \hyperref[hgm.familes]{hypergeometric family} of \hyperref[hgm.degree]{degree} $d$ and \hyperref[hgm.weight]{weight} $w$ with \hyperref[hgm.defining_parameters]{defining parameters} $A=[a_1,\ldots,a_m]$ and $B=[b_1,\ldots,b_n]$. The \textbf{Hodge vector} $(h^{0,w},\dots,h^{w,0})$ of $H(A,B)$ records the dimensions $h^{p,q}$ (with $p+q=w$) of the Hodge subspaces associated to the family.
+Let $H(A,B)$ be a \hyperref[hgm.familes]{hypergeometric family} of \hyperref[hgm.degree]{degree} $d$ and \hyperref[hgm.weight]{weight} $w$ with \hyperref[hgm.defining_parameters]{defining parameters} $A=[a_1,\ldots,a_m]$ and $B=[b_1,\ldots,b_n]$. The \textbf{Hodge vector} $(h^{0,w},\dots,h^{w,0})$ of $H(A,B)$ records the dimensions $h^{p,q}$ (with $p+q=w$) of the Hodge subspaces associated to the family.  
 
 The Hodge vector depends on how the indices $a_j$ and  $b_k$ intertwine on the circle $\R/\Z$, and we have $d = \sum_{p=0}^{w} h^{p,w-p}$.   At the extreme of complete intertwining, the Hodge vector is $(h^{0,0}) = (d)$.  At the extreme of complete separation, $d = w+1$ and
-the Hodge vector is $(h^{0,w},\dots,h^{w,0}) = (1,\dots,1)$.
+the Hodge vector is $(h^{0,w},\dots,h^{w,0}) = (1,\dots,1)$.  
 
 For $t \in \Q$ with $t \neq 0,1$, the \hyperref[hgm.motive]{motive} $H(A,B,t)$ has the same Hodge vector as the family.  For $t=1$, the motive $H(A,B,t)$ has degree $d-1$ or $d-2$, according to whether $w$ is even or odd: if $w$ is even, then the middle Hodge number $h^{w/2,w/2}$ drops by $1$, whereas if $w$ is odd, then the two middle Hodge numbers drop by $1$.
 
 
 \end{definition}
+
+

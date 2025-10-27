@@ -1,5 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/av.endomorphism_ring_conductor}{Conductor}}
 \begin{definition}\label{av.endomorphism_ring_conductor}
 \uses{}
+\leanok
 The conductor $\mathfrak{f}_R$ of an order $R$ is the colon ideal $(R:\mathcal{O})$, where $\mathcal{O}$ is the maximal order. Recall that a maximal ideal $\mathfrak{m}$ of $R$ is non-invertible if and only if $\mathfrak{f}_R\subseteq \mathfrak{m}$.
 \end{definition}
+
+

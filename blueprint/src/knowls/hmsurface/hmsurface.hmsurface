@@ -1,9 +1,11 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/hmsurface.hmsurface}{Hilbert modular surface}}
 \begin{definition}\label{hmsurface.hmsurface}
 \uses{hmsurface.congruence_subgroup,mf.upper_half_plane}
-A \textbf{Hilbert modular surface} is a nice algebraic surface that parametrizes abelian surfaces with real multiplication and equipped with level structure.
+A \textbf{Hilbert modular surface} is a nice algebraic surface that parametrizes abelian surfaces with real multiplication and equipped with level structure.  
 
-More precisely, let $F$ be a real quadratic field.  Let $\Gamma < \GL_2^+(F)$ be a \hyperref[hmsurface.congruence_subgroup]{congruence subgroup}.  Then $\Gamma$ is a discrete group acting properly by isometries on the product $\overline{\mathfrak{h}}^2$ of \hyperref[mf.upper_half_plane]{completed upper half-planes}.
+More precisely, let $F$ be a real quadratic field.  Let $\Gamma < \GL_2^+(F)$ be a \hyperref[hmsurface.congruence_subgroup]{congruence subgroup}.  Then $\Gamma$ is a discrete group acting properly by isometries on the product $\overline{\mathfrak{h}}^2$ of \hyperref[mf.upper_half_plane]{completed upper half-planes}.  
 
-The quotient $\overline{Y}(\Gamma)(\C) := \Gamma \backslash \mathfrak{h}^2$ is the set of complex points of a projective surface $Y(\Gamma)$, canonically defined over a number field $E$ (its reflex field).  A \textbf{Hilbert modular surface} is the minimal desingularization $X(\Gamma)$ of $Y(\Gamma)$.  In particular, $X(\Gamma)$ is smooth, projective, and geometrically integral.
+The quotient $\overline{Y}(\Gamma)(\C) := \Gamma \backslash \mathfrak{h}^2$ is the set of complex points of a projective surface $Y(\Gamma)$, canonically defined over a number field $E$ (its reflex field).  A \textbf{Hilbert modular surface} is the minimal desingularization $X(\Gamma)$ of $Y(\Gamma)$.  In particular, $X(\Gamma)$ is smooth, projective, and geometrically integral.  
 \end{definition}
+
+

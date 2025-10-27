@@ -1,5 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/character.dirichlet.conrey.orbit_label}{Labels for Galois orbits of Dirichlet Characters}}
 \begin{definition}\label{character.dirichlet.conrey.orbit_label}
 \uses{character.dirichlet,character.dirichlet.galois_orbit}
+\leanok
 A \hyperref[character.dirichlet.galois_orbit]{Galois orbit} of \hyperref[character.dirichlet]{Dirichlet characters} is labelled as $\texttt{q.A}$, where $\texttt{q}$ is the modulus of the characters in the orbit, and $\texttt{A}$ is a lower-case letter which corresponds to the lexicographic ordering of the Galois-invariant vector $\left( \textup{Order}(\chi), \mathrm{Tr}(\chi(2)), \cdots, \mathrm{Tr}(\chi(\texttt{q} - 1) \right)$, for $\chi$ any Dirichlet character in the orbit. See Section 3.3 of \cite{arXiv:2002.04717} for more details.
 \end{definition}
+
+

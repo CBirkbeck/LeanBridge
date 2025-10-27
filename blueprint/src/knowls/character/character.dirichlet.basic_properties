@@ -1,7 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/character.dirichlet.basic_properties}{Basic properties of Dirichlet characters}}
 \begin{definition}\label{character.dirichlet.basic_properties}
 \uses{character.dirichlet,character.dirichlet.conductor,character.dirichlet.modulus,character.dirichlet.order,character.dirichlet.parity,character.dirichlet.primitive,character.dirichlet.real}
-Basic properties of a \hyperref[character.dirichlet]{Dirichlet character} are
+\leanok
+Basic properties of a \hyperref[character.dirichlet]{Dirichlet character} are 
 
 \begin{itemize}
 \item  its \hyperref[character.dirichlet.modulus]{modulus}
@@ -12,3 +13,5 @@ Basic properties of a \hyperref[character.dirichlet]{Dirichlet character} are
 \item  it is either \hyperref[character.dirichlet.primitive]{primitive/non-primitive}
 \end{itemize}
 \end{definition}
+
+

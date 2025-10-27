@@ -5,7 +5,7 @@ Let \(M_{\rho}(K(N))\) be the space of \hyperref[mf.siegel]{Siegel modular forms
 
 If $M$ is a proper divisor of $N$, then for every divisor $D \mid (N/M)$, there are maps from $M_{\rho}(K(M))$ to $M_{\rho}(K(N))$.  Such modular forms are said to be \textbf{old}, and together they span a subspace $M_{\rho}^{\rm old}(K(N)) \subseteq M_{\rho}(K(N))$.
 
-The orthogonal complement of the $S_{\rho}^{\rm old}(K(N))$ in $S_{\rho}(K(N))$ with respect to the \hyperref[mf.siegel.petersson_scalar_product]{Petersson scalar product} is denoted $S_{\rho}^{\rm new}(K(N))$, and we have the decomposition
+The orthogonal complement of the $S_{\rho}^{\rm old}(K(N))$ in $S_{\rho}(K(N))$ with respect to the \hyperref[mf.siegel.petersson_scalar_product]{Petersson scalar product} is denoted $S_{\rho}^{\rm new}(K(N))$, and we have the decomposition 
 \[
 S_{\rho}(K(N))=S_{\rho}^{\rm old}(K(N))\oplus S_{\rho}^{\rm new}(K(N)).
 \]
@@ -13,3 +13,5 @@ into the \textbf{old subspace} and \textbf{new subspace}.
 
 A \textbf{newform} is a cusp form $f\in S_{\rho}^{\rm new}(K(N))$ that is also an eigenform of all \hyperref[mf.siegel.hecke_operator]{Hecke operators}, normalized so that the \hyperref[mf.siegel.fouriercoefficients]{$q$-expansion}  $f(\tau)=\sum a_{T} q^T$, where $q=e^{2\pi i {\rm tr}(T \tau) }$, begins with the coefficient $a_1=1$.  The newforms are a basis for the vector space $S_{\rho}^{\rm new}(K(N))$.
 \end{definition}
+
+

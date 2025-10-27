@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.cmf}{Source of Classical Modular Forms Data}}
 \begin{definition}\label{rcs.source.cmf}
 \uses{artin,cmf.artin_field,cmf.dimension,cmf.galois_representation,cmf.level,cmf.newform,cmf.projective_field,cmf.projective_image,cmf.stark_unit,cmf.trace_form,cmf.weight}
+\leanok
 Details regarding the construction of the database of classical modular forms can be found in the paper *Computing Classical Modular Forms* \cite{arXiv:2002.04717,doi:10.1007/978-3-030-80914-0_4} by Alex J. Best, Jonathan Bober, Andrew R. Booker, Edgar Costa, John Cremona, Maarten Derickx, David Lowry-Duda, Min Lee, David Roe, Andrew V. Sutherland, and John Voight. In particular, the classical modular forms data in the LMFDB comes from three sources:
 
 
@@ -44,5 +45,7 @@ Additional newforms of weight $2$ and trivial character beyond the scope of \cit
 \item  Data for newforms of composite level $10,000\le N\le 50,000$ was computed by Krit Boonsiriseth as described in his thesis <a href="https://hdl.handle.net/1721.1/156828"><i>Performance Engineering of Modular Symbols</i></a>.  Exact Hecke eigenvalues and complex embeddings are not available for these newforms.
 \end{itemize}
 
-For weight 1 newforms, \hyperref[cmf.stark_unit]{Stark units} were computed by Arnau Padrés Masdemont using <a href="https://github.com/arnaupadress/Finding-Stark-units-attached-to-modular-forms/">this code</a>.
+For weight 1 newforms, \hyperref[cmf.stark_unit]{Stark units} were computed by Arnau Padrés Masdemont using \href{https://github.com/arnaupadress/Finding-Stark-units-attached-to-modular-forms/}{this code}.
 \end{definition}
+
+

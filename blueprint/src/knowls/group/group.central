@@ -5,3 +5,5 @@ A subset, or \hyperref[group.subgroup]{subgroup}, $H$ of a \hyperref[group]{grou
 $gh=hg$ for all $g\in G$ and all $h\in H$.  Equivalently, it is central if and only if it is a subset of the \hyperref[group.center]{center} of the group.
 
 \end{definition}
+
+

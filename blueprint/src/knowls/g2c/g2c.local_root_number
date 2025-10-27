@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.local_root_number}{Local root number}}
 \begin{definition}\label{g2c.local_root_number}
 \uses{ec.local_root_number,g2c.tame_reduction}
+\leanok
 Similar to the case of \hyperref[ec.local_root_number]{local root numbers of elliptic curves}, the local root number of a higher genus curve $C$ is $+1$ or $-1$.
 For any Archimedean place, the local root number is $(-1)^{\mathrm{genus}(C)}$.
 For non-Archimedean places, there is no easy way to characterize it, but the product of all local root numbers, which is called the global root number, is conjectured to be equal to the sign in the functional equation of the $L$-function corresponding to the curve.
@@ -9,3 +10,5 @@ This conjecture is known to hold for curves satisfying modularity.
 For the genus 2 curves in the LMFDB, the root number has been provably computed for all odd primes with \hyperref[g2c.tame_reduction]{tame reduction}.
 For other primes, the correctness of the computed root numbers is contingent on modularity.
 \end{definition}
+
+

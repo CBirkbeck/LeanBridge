@@ -7,3 +7,5 @@ Given an irreducible representation, we can then ask which permutation represent
 
 To determine the smallest permutation representation, we pick one of smallest degree.  If the degree is small enough (less than 48 and not equal to 32), we pick one with the smallest \hyperref[gg.tnumber]{T-number}.  Otherwise we give just the degree.
 \end{definition}
+
+

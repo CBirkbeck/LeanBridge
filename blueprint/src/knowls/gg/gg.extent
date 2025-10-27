@@ -1,6 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/gg.extent}{Extent of Galois group data}}
 \begin{definition}\label{gg.extent}
 \uses{}
+\leanok
 The database contains $512{,}597$ groups, including all transitive subgroups
 of $S_n$, up to conjugation, for $n\leq 47$ and $n\neq 32$.  There is also data for groups in degree $32$ of order less than $512$ and greater than $40{,}000{,}000{,}000$.
 \end{definition}
+
+

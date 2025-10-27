@@ -1,5 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.multiplicative_gal_module}{Multiplicative Galois Module Structure}}
 \begin{definition}\label{nf.multiplicative_gal_module}
 \uses{}
+\leanok
 Let $K$ be a number field with Galois closure $K^{gal}$ and $U$ be the group of units of the ring of integers of $K^{gal}$. Let $\mu \subset U$ be the subgroup of roots of unity which lie in $K^{gal}$.  Let $M=U/\mu$ be the units modulo its torsion subgroup. This is a lattice which is a module for $\Z[G]$ where $G=\textrm{Gal}(K^{gal}/\Q)$. We give a decomposition of $M$ as a direct sum of indecomposable submodules.
 \end{definition}
+
+

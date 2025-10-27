@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/artin.label}{Label for an Artin representation}}
 \begin{definition}\label{artin.label}
 \uses{artin,artin.conductor,artin.dimension,artin.galois_orbit,artin.permutation_container,gg.tnumber}
+\leanok
 The label for an \hyperref[artin]{Artin representation} takes the form A.B.C.DcE where
 
 \begin{itemize}
@@ -10,6 +11,8 @@ The label for an \hyperref[artin]{Artin representation} takes the form A.B.C.DcE
 \item  D is an index to distinguish cases where non-Galois conjugate representations have the same dimension, conductor, and smallest permutation representation;
 \item  E is an index for the representation within its \hyperref[artin.galois_orbit]{Galois conjugates}.
 \end{itemize}
-
+ 
 The conductor is given in factored form with the following encoding.  Underscores (\_) are to be interpreted as multiplication signs and "e" indicates exponentiation.  So, 2e3\_59 converts to $2^3\cdot 59$.
 \end{definition}
+
+

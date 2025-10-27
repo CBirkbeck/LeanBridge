@@ -3,9 +3,11 @@
 \uses{cmf.bad_prime,cmf.character,cmf.hecke_operator,cmf.level,cmf.newform,cmf.weight}
 Let $f$ be \hyperref[cmf.newform]{newform} of \hyperref[cmf.level]{level} $N$, \hyperref[cmf.weight]{weight} $k$ and \hyperref[cmf.character]{character} $\chi$.
 Let $p$ be a \hyperref[cmf.bad_prime]{good prime}, i.e., $p \nmid N$.
-
-The \textbf{Satake parameters} $\alpha_p$ are the reciprocal roots of $L_p\left(p^{-(k-1)/2} t \right)$, where
+ 
+The \textbf{Satake parameters} $\alpha_p$ are the reciprocal roots of $L_p\left(p^{-(k-1)/2} t \right)$, where 
 $$ L_p\left( t \right) =  1 -a_p t + \chi(p)  p^{k-1} t^2 = \det(1 - t \, T_p)
-= (1 - \alpha_p p^{\frac{k-1}{2}}t )(1 - \alpha_p^{-1} \chi(p) p^{\frac{k-1}{2}} t),$$
+= (1 - \alpha_p p^{\frac{k-1}{2}}t )(1 - \alpha_p^{-1} \chi(p) p^{\frac{k-1}{2}} t),$$ 
 $T_p$ is \hyperref[cmf.hecke_operator]{Hecke operator}, and $a_p$ its trace.
 \end{definition}
+
+

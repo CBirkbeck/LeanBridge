@@ -1,15 +1,18 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/paramodulargroup.sp2gr}{Paramodular group in degree g}}
 \begin{definition}\label{paramodulargroup.sp2gr}
 \uses{group.paramodular}
-A paramodular group $\Gamma$ of degree $g$ preserves
-an integral alternating $2g \times 2g$ matrix
-$T=\left( \begin{array}{ll}  0 & d \\ -d & 0 \end{array}\right)$
+\leanok
+A paramodular group $\Gamma$ of degree $g$ preserves 
+an integral alternating $2g \times 2g$ matrix 
+$T=\left( \begin{array}{ll}  0 & d \\ -d & 0 \end{array}\right)$ 
 for $d=\mathrm{diag}(d_1,d_2,\dots,d_g)$ with $d_j\mid d_{j+1}$ for $1\leqslant j \leqslant g-1$:
 $
 \Gamma=\left\{\gamma \in \GL(2g,\mathbb{Z})\, : \, \gamma^t T \gamma=T\right\}.
 $
-For $\delta= \left( \begin{array}{ll}  1_g & 0 \\ 0 & d \end{array}\right)$, the conjugate $\Gamma^{\mathrm{para}}(d)=\delta\Gamma\delta^{-1}\subseteq \mathrm{Sp}(2g,\Q)$ is also referred to as a paramodular group.
+For $\delta= \left( \begin{array}{ll}  1_g & 0 \\ 0 & d \end{array}\right)$, the conjugate $\Gamma^{\mathrm{para}}(d)=\delta\Gamma\delta^{-1}\subseteq \mathrm{Sp}(2g,\Q)$ is also referred to as a paramodular group. 
 
 In degree $2$,
-\hyperref[group.paramodular]{$K(N)$}$= \Gamma^{\mathrm{para}}(1,N)$.
+\hyperref[group.paramodular]{$K(N)$}$= \Gamma^{\mathrm{para}}(1,N)$.   
 \end{definition}
+
+

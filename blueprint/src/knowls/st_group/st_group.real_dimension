@@ -3,3 +3,5 @@
 \uses{st_group.definition}
 The \textbf{real dimension} of a \hyperref[st_group.definition]{Sato-Tate group} is its dimension as a real Lie group.
 \end{definition}
+
+

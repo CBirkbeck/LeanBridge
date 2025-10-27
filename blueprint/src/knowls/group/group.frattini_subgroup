@@ -5,3 +5,5 @@ If $G$ is a group, then the \textbf{Frattini subgroup} of $G$, denoted $\Phi(G)$
 
 The Frattini subgroup is always a \hyperref[group.characteristic_subgroup]{characteristic subgroup}, hence a \hyperref[group.subgroup.normal]{normal} subgroup, of $G$.
 \end{definition}
+
+

@@ -3,3 +3,5 @@
 \uses{ring.field_of_fractions,ring.integral,ring.integral_domain}
 Let $R$ be an \hyperref[ring.integral_domain]{integral domain} and $F$ its \hyperref[ring.field_of_fractions]{field of fractions}.  Then $R$ is \textbf{integrally closed} if $R$ equals the \hyperref[ring.integral]{integral closure} of $R$ in $F$.
 \end{definition}
+
+

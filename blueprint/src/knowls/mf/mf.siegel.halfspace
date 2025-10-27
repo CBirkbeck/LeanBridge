@@ -1,26 +1,29 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.halfspace}{Siegel upper half-space}}
 \begin{definition}\label{mf.siegel.halfspace}
 \uses{group.sp2gr}
+\leanok
 The Siegel upper half-space of degree $g$ is denoted by $\mathcal{H}_g$ and defined as
 \[
 \mathcal{H}_g=
 \left\{
-\tau \in \text{Mat}(g\times g): \tau=\tau^t, \, \text{Im}(\tau)>0
+\tau \in \text{Mat}(g\times g): \tau=\tau^t, \, \text{Im}(\tau)>0 
 \right\}.
-\]
-It is the set of $g\times g$ complex symmetric matrices which have positive definite imaginary part. It is acted on by the <a class="knowl-title" knowl="group.sp2gr"> real symplectic group</a> via
+\]  
+It is the set of $g\times g$ complex symmetric matrices which have positive definite imaginary part. It is acted on by the <a class="knowl-title" knowl="group.sp2gr"> real symplectic group</a> via 
 \[
 \left(
 \begin{matrix}
-\Sp(2g,\R)\times \mathcal{H}_g
-& \to
+\Sp(2g,\R)\times \mathcal{H}_g 
+& \to 
 & \mathcal{H}_g\\
-(M=\left(\begin{matrix}a & b\\ c & d\end{matrix}\right), \tau)
-&\mapsto
-& (a\tau+b)(c\tau+d)^{-1}
+(M=\left(\begin{matrix}a & b\\ c & d\end{matrix}\right), \tau) 
+&\mapsto 
+& (a\tau+b)(c\tau+d)^{-1} 
 \end{matrix}
 \right).\]
 The action of any discrete subgroup of $\Sp(2g,\R)$ on $\mathcal{H}_g$
-is properly discontinuous. Note that the integral symplectic group $\Gamma_g$
+is properly discontinuous. Note that the integral symplectic group $\Gamma_g$ 
 does not act freely on $\mathcal{H}_g$.
 \end{definition}
+
+

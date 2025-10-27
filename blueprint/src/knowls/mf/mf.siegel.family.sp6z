@@ -1,12 +1,15 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.family.sp6z}{The ring of Siegel modular forms of degree 3 with respect to the full modular group}}
 \begin{definition}\label{mf.siegel.family.sp6z}
 \uses{group.sp2gr,mf.siegel,mf.siegel.degree,mf.siegel.lift.miyawaki}
-S Tsuyumine \cite{mr:853217,mr:853222} gives 34 generators for the ring $M_{*}({\rm Sp}(6,\mathbb{Z}))$ of \hyperref[mf.siegel]{Siegel modular forms} of \hyperref[mf.siegel.degree]{degree} 3 with with respect to the
+\leanok
+S Tsuyumine \cite{mr:853217,mr:853222} gives 34 generators for the ring $M_{*}({\rm Sp}(6,\mathbb{Z}))$ of \hyperref[mf.siegel]{Siegel modular forms} of \hyperref[mf.siegel.degree]{degree} 3 with with respect to the 
 \hyperref[group.sp2gr]{full modular group}.  Tsuyumine also gives a formula for the dimensions of the spaces at each weight.
 
-Miyawaki \cite{mr:1194572} computed enough coefficients in weight 12 and 14 to determine the the Euler factor at the prime 2, and conjectured the
+Miyawaki \cite{mr:1194572} computed enough coefficients in weight 12 and 14 to determine the the Euler factor at the prime 2, and conjectured the 
 \hyperref[mf.siegel.lift.miyawaki]{Miyawaki lifts}.
 
 C. Poor, J. Shurman, and D. S. Yuen \cite{arXiv:1604.07216} computed coefficients coefficients in weights 16, 18, 20, 22, and determined the eigenforms.
 
 \end{definition}
+
+

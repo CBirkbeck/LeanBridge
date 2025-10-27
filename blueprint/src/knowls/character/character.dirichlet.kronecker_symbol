@@ -3,7 +3,7 @@
 \uses{character.dirichlet.jacobi_symbol,character.dirichlet.legendre_symbol,character.dirichlet.real}
 The \textbf{Kronecker symbol} \(\displaystyle\left(\frac{a}{n}\right)\) is the multiplicative extension of the \hyperref[character.dirichlet.jacobi_symbol]{Jacobi symbol} \(\displaystyle\left(\frac{a}{m}\right)\), which is defined on all positive odd integers \(m\), to all integers \(n\in\mathbb{Z}\) as follows.
 
-We set
+We set 
 $$\displaystyle\left(\frac{a}{-1}\right) = \left\{ \begin{array}{cl} 1 & \text{if }  a\geq 0\\
 \begin{itemize}
 \item 1 & \text{if } a < 0; \end{array} \right.$$
@@ -14,7 +14,7 @@ $$\displaystyle\left(\frac{a}{2}\right) = \left\{ \begin{array}{cl} 0 & \text{if
 \begin{itemize}
 \item 1 & \text{if } a \equiv \pm 3 \bmod 8; \end{array} \right.$$
 \end{itemize}
-and
+and 
 $$\displaystyle\left(\frac{a}{0}\right) = \left\{ \begin{array}{cl} 1 & \text{if }  a= \pm 1\\
 0 & \text{otherwise }. \end{array} \right.$$
 
@@ -25,3 +25,5 @@ Then for each nonzero integer $n = \sgn(n) p_1^{e_1} p_2^{e_2} \cdots p_r^{e_r}$
 A Dirichlet character can be written as a Kronecker symbol \(\displaystyle\left(\frac{a}{\cdot}\right)\) if and only if it is
 \hyperref[character.dirichlet.real]{real}.
 \end{definition}
+
+

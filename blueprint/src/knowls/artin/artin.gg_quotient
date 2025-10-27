@@ -1,5 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/artin.gg_quotient}{Image of the representation}}
 \begin{definition}\label{artin.gg_quotient}
 \uses{artin,artin.number_field}
-An \hyperref[artin]{Artin representation} $\rho:\textrm{Gal}(\overline{\Q}/\Q)\to \GL(V)$ factors through the Galois group of a finite extension of $\Q$. Thus its image is a finite group $G \subset \GL(V)$ which is canonically isomorphic to the Galois group of a finite extension $K/\Q$ where $K$ is the fixed field of $\ker(\rho)$ and is called the \hyperref[artin.number_field]{Artin field} of $\rho$. We sometimes say that $\Gal(K/\Q)$ is the \textbf{image of the Artin representation} $\rho$.
+An \hyperref[artin]{Artin representation} $\rho:\textrm{Gal}(\overline{\Q}/\Q)\to \GL(V)$ factors through the Galois group of a finite extension of $\Q$. Thus its image is a finite group $G \subset \GL(V)$ which is canonically isomorphic to the Galois group of a finite extension $K/\Q$ where $K$ is the fixed field of $\ker(\rho)$ and is called the \hyperref[artin.number_field]{Artin field} of $\rho$. We sometimes say that $\Gal(K/\Q)$ is the \textbf{image of the Artin representation} $\rho$. 
 \end{definition}
+
+

@@ -1,7 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.gl2.history.combinatorics}{Combinatorics and $q$-series}}
 \begin{definition}\label{mf.gl2.history.combinatorics}
 \uses{group.sl2z,mf,mf.half_integral_weight.dedekind_eta,mf.transformation_property}
-Infinite products are intimately linked to <em>combinatorics</em>, in particular via the partition function $p(n)$, whose generating function is $1/\prod_{n\ge1}(1-q^n)=q^{1/24}/\eta(z)$. Thus, identities involving \hyperref[mf.half_integral_weight.dedekind_eta]{$\eta$} or more general products can usually be translated into combinatorial identities. An extremely simple example is the following: we have trivially
+\leanok
+Infinite products are intimately linked to <em>combinatorics</em>, in particular via the partition function $p(n)$, whose generating function is $1/\prod_{n\ge1}(1-q^n)=q^{1/24}/\eta(z)$. Thus, identities involving \hyperref[mf.half_integral_weight.dedekind_eta]{$\eta$} or more general products can usually be translated into combinatorial identities. An extremely simple example is the following: we have trivially 
 $$\prod_{n\ge1}(1-q^n)=\prod_{n\ge1}(1-q^{2n})\prod_{n\ge1}(1-q^{2n-1})\;,$$
 hence $1/\prod_{n\ge1}(1-q^{2n-1})=\prod_{n\ge1}(1+q^n)\;.$ This can be restated in combinatorial terms as saying that the number of partitions of a positive integer into odd parts is equal to its number of partitions into unequal parts (i.e. without "repetitions"), which is not a totally trivial statement.
 
@@ -24,3 +25,5 @@ A general framework, also valid in several dimensions, has been given by W. Nahm
 
 
 \end{definition}
+
+

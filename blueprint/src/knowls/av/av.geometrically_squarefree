@@ -3,3 +3,5 @@
 \uses{ag.abelian_variety,ag.base_change,av.squarefree}
 An \hyperref[ag.abelian_variety]{abelian variety} is \textbf{geometrically squarefree} if its \hyperref[ag.base_change]{base change} to an algebraic closure of the ground field is \hyperref[av.squarefree]{squarefree}.
 \end{definition}
+
+

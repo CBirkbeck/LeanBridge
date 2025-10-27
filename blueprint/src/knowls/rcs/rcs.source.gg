@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.gg}{Source of transitive group data}}
 \begin{definition}\label{rcs.source.gg}
 \uses{}
+\leanok
 Data here was computed using GAP and Magma, and relies on the following work:
 
 \begin{itemize}
@@ -16,7 +17,7 @@ Data here was computed using GAP and Magma, and relies on the following work:
 Data for regular extensions of $\Q(\mathbf{t})$ come from
 
 \begin{itemize}
-\item  Tim Dokchitser's magma package <a href="https://people.maths.bris.ac.uk/~matyd/InvGal/">Qt.m</a>
+\item  Tim Dokchitser's magma package \href{https://people.maths.bris.ac.uk/~matyd/InvGal/}{Qt.m}
 \item  Malle and Matzat "Inverse Galois theory" \cite{doi:10.1007/978-3-662-55420-3}
 \item  Jensen, Ledet, Yui "Generic polynomials" \cite{MR:1969648}
 \item  Jones and Roberts "Galois number fields with small root discriminant" \cite{MR:2292261}
@@ -24,3 +25,5 @@ Data for regular extensions of $\Q(\mathbf{t})$ come from
 \end{itemize}
 
 \end{definition}
+
+

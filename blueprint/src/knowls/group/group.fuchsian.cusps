@@ -7,3 +7,5 @@ The \textbf{cusps} of a subgroup $\Gamma$ of the \hyperref[group.sl2z]{modular g
 \]
 we define $\gamma\infty = \frac{a}{c}$ when $c\neq 0$, and $\gamma\infty = \infty$ when $c=0$.
 \end{definition}
+
+

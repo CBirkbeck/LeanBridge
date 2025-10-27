@@ -44,48 +44,52 @@ av.isogeny: av.tate_module, ec.isogeny
 av.simple: nf.weil_polynomial
 av.tate_module: ec.padic_tate_module
 av.twist: ec.twists
-character.dirichlet: character.dirichlet.conductor, character.dirichlet.galois_orbit, character.dirichlet.galois_orbit_index, character.dirichlet.galois_orbit_label, character.dirichlet.induce, character.dirichlet.minimal, character.dirichlet.order, character.dirichlet.primitive, character.dirichlet.principal, cmf, cmf.character, cmf.cusp_form, cmf.embedding, cmf.hecke_operator, cmf.inner_twist, cmf.inner_twist_count, cmf.inner_twist_multiplicity, cmf.label, cmf.newspace, cmf.self_twist, cmf.shimura_correspondence, cmf.subspaces, cmf.twist, nf.dirichlet_group
+character.dirichlet: character.dirichlet.conductor, character.dirichlet.galois_orbit, character.dirichlet.galois_orbit_index, character.dirichlet.galois_orbit_label, character.dirichlet.induce, character.dirichlet.minimal, character.dirichlet.order, character.dirichlet.primitive, character.dirichlet.principal, cmf, cmf.character, cmf.cusp_form, cmf.eisenstein_form, cmf.eisenstein_label, cmf.eisenstein_newspace, cmf.eisenstein_series, cmf.embedding, cmf.hecke_operator, cmf.inner_twist, cmf.inner_twist_count, cmf.inner_twist_multiplicity, cmf.label, cmf.labels, cmf.newspace, cmf.self_twist, cmf.shimura_correspondence, cmf.subspaces, cmf.twist, nf.dirichlet_group
 character.dirichlet.conductor: character.dirichlet.minimal, character.dirichlet.primitive, cmf.oldspace, cmf.subspaces, cmf.twist
-character.dirichlet.galois_orbit: character.dirichlet.galois_orbit_index, character.dirichlet.galois_orbit_label, cmf.inner_twist, cmf.inner_twist_multiplicity, cmf.label, cmf.twist, cmf.twist_multiplicity
+character.dirichlet.galois_orbit: character.dirichlet.galois_orbit_index, character.dirichlet.galois_orbit_label, cmf.eisenstein_label, cmf.inner_twist, cmf.inner_twist_multiplicity, cmf.label, cmf.labels, cmf.twist, cmf.twist_multiplicity
 character.dirichlet.galois_orbit_index: character.dirichlet.galois_orbit_label
-character.dirichlet.galois_orbit_label: cmf.embedding_label, cmf.label
-character.dirichlet.induce: character.dirichlet.primitive, character.dirichlet.principal, cmf.newspace, cmf.oldspace, cmf.subspaces
+character.dirichlet.galois_orbit_label: cmf.eisenstein_label, cmf.embedding_label, cmf.label, cmf.labels
+character.dirichlet.induce: character.dirichlet.primitive, character.dirichlet.principal, cmf.eisenstein_newspace, cmf.newspace, cmf.oldspace, cmf.subspaces
 character.dirichlet.minimal: cmf.minimal_twist, cmf.twist_minimal
-character.dirichlet.modulus: character.dirichlet.galois_orbit, character.dirichlet.galois_orbit_index, character.dirichlet.induce, character.dirichlet.minimal, character.dirichlet.order, character.dirichlet.primitive, character.dirichlet.principal, cmf.newspace, cmf.subspaces
+character.dirichlet.modulus: character.dirichlet.galois_orbit, character.dirichlet.galois_orbit_index, character.dirichlet.induce, character.dirichlet.minimal, character.dirichlet.order, character.dirichlet.primitive, character.dirichlet.principal, cmf.eisenstein_newspace, cmf.newspace, cmf.subspaces
 character.dirichlet.order: character.dirichlet.galois_orbit, character.dirichlet.galois_orbit_index, character.dirichlet.minimal, character.dirichlet.value_field, cmf.self_twist
-character.dirichlet.primitive: character.dirichlet.minimal, cmf.inner_twist, cmf.oldspace, cmf.self_twist, cmf.twist, cmf.twist_multiplicity
+character.dirichlet.primitive: character.dirichlet.minimal, cmf.eisenstein_series, cmf.inner_twist, cmf.oldspace, cmf.self_twist, cmf.twist, cmf.twist_multiplicity
 character.dirichlet.principal: character.dirichlet.galois_orbit_index, character.dirichlet.minimal, character.dirichlet.order
 character.dirichlet.value_field: character.dirichlet.galois_orbit, character.dirichlet.galois_orbit_index, cmf.embedding
-cmf: cmf.bad_prime, cmf.character, cmf.cm_form, cmf.cusp_form, cmf.eisenstein, cmf.fouriercoefficients, cmf.hecke_operator, cmf.level, cmf.newspace, cmf.oldspace, cmf.rm_form, cmf.space, cmf.subspaces, cmf.weight
+cmf: cmf.bad_prime, cmf.character, cmf.cm_form, cmf.cusp_form, cmf.eisenstein, cmf.eisenstein_form, cmf.eisenstein_newspace, cmf.fouriercoefficients, cmf.hecke_operator, cmf.level, cmf.newspace, cmf.oldspace, cmf.rm_form, cmf.space, cmf.subspaces, cmf.weight
 cmf.analytic_rank: cmf.fricke
 cmf.artin_field: cmf.artin_image, cmf.stark_unit
 cmf.atkin-lehner: cmf.fricke
 cmf.bad_prime: cmf.satake_parameters
-cmf.character: cmf.embedding, cmf.maximal, cmf.minimal_twist, cmf.newspace, cmf.oldspace, cmf.satake_parameters, cmf.space, cmf.sturm_bound, cmf.subspaces, cmf.twist_minimal
+cmf.character: cmf.eisenstein_newspace, cmf.embedding, cmf.maximal, cmf.minimal_twist, cmf.newspace, cmf.oldspace, cmf.satake_parameters, cmf.space, cmf.sturm_bound, cmf.subspaces, cmf.twist_minimal
 cmf.cm_form: cmf.inner_twist, cmf.sato_tate
-cmf.coefficient_field: cmf.analytic_rank, cmf.coefficient_ring, cmf.defining_polynomial, cmf.dualform, cmf.embedding, cmf.inner_twist, cmf.inner_twist_count, cmf.label, cmf.selfdual, cmf.trace_bound, cmf.trace_form
+cmf.coefficient_field: cmf.analytic_rank, cmf.coefficient_ring, cmf.defining_polynomial, cmf.dualform, cmf.eisenstein_label, cmf.embedding, cmf.inner_twist, cmf.inner_twist_count, cmf.label, cmf.labels, cmf.selfdual, cmf.trace_bound, cmf.trace_form
 cmf.coefficient_ring: cmf.hecke_ring_generators
 cmf.congruence_subgroup: modcurve, modcurve.xn
-cmf.cusp_form: cmf.analytic_rank, cmf.atkin-lehner, cmf.coefficient_field, cmf.dualform, cmf.embedding_label, cmf.hecke_operator, cmf.hecke_orbit, cmf.newspace, cmf.oldspace, cmf.petersson_scalar_product, cmf.q-expansion, cmf.selfdual, cmf.space, cmf.subspaces
+cmf.cusp_form: cmf.analytic_rank, cmf.atkin-lehner, cmf.coefficient_field, cmf.dualform, cmf.eisenstein_form, cmf.embedding_label, cmf.hecke_operator, cmf.hecke_orbit, cmf.newspace, cmf.oldspace, cmf.petersson_scalar_product, cmf.q-expansion, cmf.selfdual, cmf.space, cmf.subspaces
 cmf.dimension: cmf.inner_twist_count, cmf.maximal, cmf.trace_bound, cmf.trace_form
-cmf.embedding: cmf.embedding_label, cmf.inner_twist_multiplicity, cmf.label
-cmf.fouriercoefficients: cmf.coefficient_field, cmf.cusp_form, cmf.newform, cmf.q-expansion, cmf.sturm_bound, cmf.sturm_bound_gamma1
+cmf.eisenstein_form: cmf.eisenstein_newspace
+cmf.eisenstein_newform: cmf.eisenstein_label
+cmf.eisenstein_newspace: cmf.eisenstein_newform
+cmf.eisenstein_series: cmf.eisenstein_form, cmf.eisenstein_newspace
+cmf.embedding: cmf.eisenstein_label, cmf.embedding_label, cmf.inner_twist_multiplicity, cmf.label, cmf.labels
+cmf.fouriercoefficients: cmf.coefficient_field, cmf.cusp_form, cmf.eisenstein_newform, cmf.newform, cmf.q-expansion, cmf.sturm_bound, cmf.sturm_bound_gamma1
 cmf.fricke: cmf.minus_space, cmf.plus_space
 cmf.galois_conjugate: cmf.galois_orbit, cmf.inner_twist, cmf.twist
-cmf.galois_orbit: cmf.dimension, cmf.distinguishing_primes, cmf.embedding, cmf.inner_twist, cmf.label, cmf.maximal, cmf.q-expansion, cmf.trace_bound, cmf.twist, cmf.twist_minimal, cmf.twist_multiplicity
+cmf.galois_orbit: cmf.dimension, cmf.distinguishing_primes, cmf.eisenstein_label, cmf.embedding, cmf.inner_twist, cmf.label, cmf.labels, cmf.maximal, cmf.q-expansion, cmf.trace_bound, cmf.twist, cmf.twist_minimal, cmf.twist_multiplicity
 cmf.galois_representation: cmf.artin_field, cmf.artin_image, cmf.projective_field, cmf.projective_image, cmf.stark_unit
-cmf.hecke_operator: cmf.atkin-lehner, cmf.coefficient_field, cmf.decomposition.new.gamma0chi, cmf.distinguishing_primes, cmf.hecke_orbit, cmf.heckecharpolys, cmf.newform, cmf.newform_subspace, cmf.satake_parameters
+cmf.hecke_operator: cmf.atkin-lehner, cmf.coefficient_field, cmf.decomposition.new.gamma0chi, cmf.distinguishing_primes, cmf.eisenstein_newform, cmf.hecke_orbit, cmf.heckecharpolys, cmf.newform, cmf.newform_subspace, cmf.satake_parameters
 cmf.inner_twist: cmf.inner_twist_count, cmf.inner_twist_multiplicity, cmf.nontrivial_twist, cmf.twist, cmf.twist_multiplicity
 cmf.inner_twist_count: cmf.twist_multiplicity
 cmf.label: cmf.minimal_twist, cmf.twist_minimal
-cmf.level: cmf.bad_prime, cmf.eisenstein, cmf.embedding_label, cmf.hecke_operator, cmf.hecke_orbit, cmf.label, cmf.minimal_twist, cmf.newform_subspace, cmf.newspace, cmf.oldspace, cmf.satake_parameters, cmf.self_twist, cmf.space, cmf.sturm_bound, cmf.sturm_bound_gamma1, cmf.subspaces, cmf.twist_minimal, ec.q.serre_invariants
+cmf.level: cmf.bad_prime, cmf.eisenstein, cmf.eisenstein_label, cmf.eisenstein_newspace, cmf.embedding_label, cmf.hecke_operator, cmf.hecke_orbit, cmf.label, cmf.labels, cmf.minimal_twist, cmf.newform_subspace, cmf.newspace, cmf.oldspace, cmf.satake_parameters, cmf.self_twist, cmf.space, cmf.sturm_bound, cmf.sturm_bound_gamma1, cmf.subspaces, cmf.twist_minimal, ec.q.serre_invariants
 cmf.newform: cmf.analytic_conductor, cmf.artin_field, cmf.artin_image, cmf.coefficient_ring, cmf.decomposition.new.gamma0chi, cmf.dimension, cmf.distinguishing_primes, cmf.dualform, cmf.galois_conjugate, cmf.galois_orbit, cmf.galois_representation, cmf.hecke_ring_generators, cmf.heckecharpolys, cmf.inner_twist, cmf.inner_twist_count, cmf.inner_twist_multiplicity, cmf.label, cmf.maximal, cmf.minimal_twist, cmf.newform_subspace, cmf.projective_field, cmf.projective_image, cmf.q-expansion, cmf.relative_dimension, cmf.satake_parameters, cmf.sato_tate, cmf.self_twist, cmf.selfdual, cmf.space_trace_form, cmf.stark_unit, cmf.sturm_bound, cmf.sturm_bound_gamma1, cmf.trace_bound, cmf.trace_form, cmf.twist, cmf.twist_minimal
 cmf.newform_subspace: cmf.dimension, cmf.galois_orbit, cmf.heckecharpolys
 cmf.newspace: cmf.distinguishing_primes, cmf.newform, cmf.newform_subspace, cmf.oldspace, cmf.space_trace_form, cmf.trace_bound, cmf.trace_form
-cmf.petersson_scalar_product: cmf.hecke_operator, cmf.newspace, cmf.subspaces
+cmf.petersson_scalar_product: cmf.eisenstein_form, cmf.hecke_operator, cmf.newspace, cmf.subspaces
 cmf.projective_image: cmf.self_twist
 cmf.q-expansion: cmf.analytic_rank, cmf.dualform, cmf.eisenstein, cmf.embedding, cmf.hecke_ring_generators, cmf.selfdual, cmf.trace_bound
-cmf.relative_dimension: cmf.label
+cmf.relative_dimension: cmf.eisenstein_label, cmf.label, cmf.labels
 cmf.rm_form: cmf.inner_twist
 cmf.satake_parameters: cmf.satake_angles
 cmf.self_twist: cmf.cm_form, cmf.inner_twist, cmf.inner_twist_count, cmf.nontrivial_twist, cmf.rm_form
@@ -93,7 +97,7 @@ cmf.selfdual: cmf.analytic_rank, cmf.dualform
 cmf.space: cmf.subspaces
 cmf.twist: cmf.minimal_twist, cmf.twist_minimal, cmf.twist_multiplicity
 cmf.twist_minimal: cmf.minimal_twist
-cmf.weight: cmf.artin_field, cmf.artin_image, cmf.atkin-lehner, cmf.cusp_form, cmf.eisenstein, cmf.embedding_label, cmf.galois_representation, cmf.hecke_operator, cmf.inner_twist_count, cmf.label, cmf.newspace, cmf.oldspace, cmf.projective_field, cmf.projective_image, cmf.satake_parameters, cmf.sato_tate, cmf.self_twist, cmf.space, cmf.stark_unit, cmf.sturm_bound, cmf.sturm_bound_gamma1, cmf.subspaces, ec.q.serre_invariants
+cmf.weight: cmf.artin_field, cmf.artin_image, cmf.atkin-lehner, cmf.cusp_form, cmf.eisenstein, cmf.eisenstein_form, cmf.eisenstein_label, cmf.eisenstein_newspace, cmf.eisenstein_series, cmf.embedding_label, cmf.galois_representation, cmf.hecke_operator, cmf.inner_twist_count, cmf.label, cmf.labels, cmf.newspace, cmf.oldspace, cmf.projective_field, cmf.projective_image, cmf.satake_parameters, cmf.sato_tate, cmf.self_twist, cmf.space, cmf.stark_unit, cmf.sturm_bound, cmf.sturm_bound_gamma1, cmf.subspaces, ec.q.serre_invariants
 ec: ag.abelian_variety, ec.additive_reduction, ec.analytic_sha_order, ec.bad_reduction, ec.bsdconjecture, ec.canonical_height, ec.complex_multiplication, ec.conductor, ec.discriminant, ec.endomorphism, ec.endomorphism_ring, ec.galois_rep, ec.galois_rep_modell_image, ec.global_minimal_model, ec.good_ordinary_reduction, ec.good_reduction, ec.good_supersingular_reduction, ec.integral_model, ec.invariants, ec.isogeny, ec.isogeny_class, ec.isogeny_class_degree, ec.isogeny_graph, ec.isogeny_matrix, ec.isomorphism, ec.j_invariant, ec.kodaira_symbol, ec.local_data, ec.local_minimal_discriminant, ec.local_minimal_model, ec.maximal_elladic_galois_rep, ec.maximal_galois_rep, ec.minimal_discriminant, ec.mordell_weil_group, ec.mordell_weil_theorem, ec.multiplicative_reduction, ec.mw_generators, ec.nonsplit_multiplicative_reduction, ec.obstruction_class, ec.period, ec.potential_good_reduction, ec.q.abc_quality, ec.q.analytic_rank, ec.q.analytic_sha_order, ec.q.bsdconjecture, ec.q.canonical_height, ec.q.conductor, ec.q.cremona_label, ec.q.discriminant, ec.q.endomorphism_ring, ec.q.faltings_height, ec.q.faltings_ratio, ec.q.j_invariant, ec.q.lmfdb_label, ec.q.manin_constant, ec.q.minimal_twist, ec.q.modular_degree, ec.q.modular_parametrization, ec.q.naive_height, ec.q.period_lattice, ec.q.regulator, ec.q.semistable, ec.q.special_value, ec.q.szpiro_ratio, ec.q.torsion_growth, ec.q_curve, ec.rank, ec.reduction, ec.reduction_type, ec.regulator, ec.ring, ec.semi_global_minimal_model, ec.semistable, ec.simple_equation, ec.special_value, ec.split_multiplicative_reduction, ec.tamagawa_number, ec.torsion_order, ec.twists, ec.weierstrass_coeffs, modcurve, modcurve.level_structure, st_group.definition
 ec.additive_reduction: ec.bad_reduction, ec.conductor, ec.q.conductor
 ec.analytic_sha_order: ec.bsdconjecture, ec.q.bsdconjecture
@@ -188,7 +192,7 @@ group.normal_series: group.presentation
 group.order: ec.analytic_sha_order, ec.q.analytic_sha_order, group.haar_measure, group.sylow_subgroup
 group.presentation: group.rank
 group.rank: ec.q.period_lattice
-group.sl2z: cmf, cmf.cusp_form, cmf.eisenstein, cmf.level, group.fuchsian.cusps, group.fuchsian.cusps.width, group.fuchsian.fundamental_domain, mf.upper_half_plane
+group.sl2z: cmf, cmf.cusp_form, cmf.eisenstein, cmf.eisenstein_form, cmf.level, group.fuchsian.cusps, group.fuchsian.cusps.width, group.fuchsian.fundamental_domain, mf.upper_half_plane
 group.subgroup: group.characteristic_subgroup, group.coset, group.normal_series, group.subgroup.normal, group.sylow_subgroup, nf.reflex_field, ring.ideal
 group.subgroup.index: cmf.petersson_scalar_product, ec.q.faltings_ratio
 group.subgroup.normal: group.frattini_subgroup, group.normal_series
@@ -359,6 +363,11 @@ cmf.dimension: cmf.galois_orbit, cmf.newform, cmf.newform_subspace
 cmf.distinguishing_primes: cmf.galois_orbit, cmf.hecke_operator, cmf.newform, cmf.newspace
 cmf.dualform: cmf.coefficient_field, cmf.cusp_form, cmf.newform, cmf.q-expansion, cmf.selfdual, lfunction.dual, nf.cm_field
 cmf.eisenstein: af.bernoulli_numbers, af.divisor_function, cmf, cmf.level, cmf.q-expansion, cmf.weight, group.sl2z
+cmf.eisenstein_form: character.dirichlet, cmf, cmf.cusp_form, cmf.eisenstein_series, cmf.petersson_scalar_product, cmf.weight, group.sl2z
+cmf.eisenstein_label: character.dirichlet, character.dirichlet.galois_orbit, character.dirichlet.galois_orbit_label, cmf.coefficient_field, cmf.eisenstein_newform, cmf.embedding, cmf.galois_orbit, cmf.level, cmf.relative_dimension, cmf.weight
+cmf.eisenstein_newform: cmf.eisenstein_newspace, cmf.fouriercoefficients, cmf.hecke_operator
+cmf.eisenstein_newspace: character.dirichlet, character.dirichlet.induce, character.dirichlet.modulus, cmf, cmf.character, cmf.eisenstein_form, cmf.eisenstein_series, cmf.level, cmf.weight
+cmf.eisenstein_series: character.dirichlet, character.dirichlet.primitive, cmf.weight
 cmf.embedding: character.dirichlet, character.dirichlet.value_field, cmf.character, cmf.coefficient_field, cmf.galois_orbit, cmf.q-expansion, lfunction, nf.embedding
 cmf.embedding_label: character.dirichlet.galois_orbit_label, cmf.cusp_form, cmf.embedding, cmf.level, cmf.weight
 cmf.eta_quotient: mf.half_integral_weight.dedekind_eta
@@ -375,6 +384,7 @@ cmf.inner_twist: character.dirichlet, character.dirichlet.galois_orbit, characte
 cmf.inner_twist_count: character.dirichlet, cmf.coefficient_field, cmf.dimension, cmf.inner_twist, cmf.newform, cmf.self_twist, cmf.weight
 cmf.inner_twist_multiplicity: character.dirichlet, character.dirichlet.galois_orbit, cmf.embedding, cmf.inner_twist, cmf.newform
 cmf.label: character.dirichlet, character.dirichlet.galois_orbit, character.dirichlet.galois_orbit_label, cmf.coefficient_field, cmf.embedding, cmf.galois_orbit, cmf.level, cmf.newform, cmf.relative_dimension, cmf.weight
+cmf.labels: character.dirichlet, character.dirichlet.galois_orbit, character.dirichlet.galois_orbit_label, cmf.coefficient_field, cmf.embedding, cmf.galois_orbit, cmf.level, cmf.relative_dimension, cmf.weight
 cmf.level: cmf, group.sl2z
 cmf.maximal: cmf.character, cmf.dimension, cmf.galois_orbit, cmf.newform
 cmf.minimal_twist: character.dirichlet.minimal, cmf.character, cmf.label, cmf.level, cmf.newform, cmf.twist, cmf.twist_minimal

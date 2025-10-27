@@ -3,3 +3,5 @@
 \uses{ec,ec.local_minimal_model,ec.reduction_type,nf}
 The \textbf{Kodaira symbol} of an \hyperref[ec]{elliptic curve} \(E\) defined over a \hyperref[nf]{number field} encodes the \hyperref[ec.reduction_type]{reduction type} of \(E\) at a prime \(\mathfrak{p}\) of \(K\). It describes the combinatorics of the special fiber of the N\'e;ron model of the elliptic curve. The N\'e;ron model is obtained from the \hyperref[ec.local_minimal_model]{local minimal model} for \(E\) at \(\mathfrak{p}\)  using Tate's algorithm. For an exact definition and properties, consult a text on elliptic curves.
 \end{definition}
+
+

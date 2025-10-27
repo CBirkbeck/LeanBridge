@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/doc.knowl.naming_suggestions}{Naming suggestions}}
 \begin{definition}\label{doc.knowl.naming_suggestions}
 \uses{}
+\leanok
 Naming suggestions for Knowls we agreed on:
 
 Start of a knowl id:
@@ -27,3 +28,5 @@ Start of a knowl id:
 
 
 \end{definition}
+
+

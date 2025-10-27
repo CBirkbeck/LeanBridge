@@ -3,3 +3,5 @@
 \uses{lfunction.sign}
 The \textbf{root angle} of an L-function is the argument of its \hyperref[lfunction.sign]{root number}, as a real number $\alpha$ with $-0.5 < \alpha \le 0.5$.
 \end{definition}
+
+

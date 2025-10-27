@@ -8,3 +8,5 @@ In a number field $K$, each nonzero ideal $I$ of its ring of integers $\mathcal{
 In the LMFDB we always represent number fields as $K = \mathbb{Q}[X]/(g(X))$ where $g$ is the unique monic integral polynomial which satisfies the \hyperref[nf.polredabs]{polredabs} condition. In this representation the image of $X$ under the quotient map $\mathbb{Q}[X]\rightarrow\mathbb{Q}[X]/(g(X))$ is a canonical integral primitive element $\alpha$ for $K$.  Fixing this element determines a unique ordering of all $\mathcal{O}_K$-ideals of the same norm.
 
 \end{definition}
+
+

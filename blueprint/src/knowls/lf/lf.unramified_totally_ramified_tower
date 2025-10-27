@@ -7,3 +7,5 @@ Then there is a unique intermediate field $L^{ur}$  such that $L^{ur}/K$ is
 \hyperref[lf.ramification_index]{totally ramified}.  We say that
 $L\supset L^{ur}\supset K$ is the \textbf{canonical tower} associated to $L/K$.
 \end{definition}
+
+

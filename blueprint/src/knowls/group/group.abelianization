@@ -3,3 +3,5 @@
 \uses{group.abelian,group.commutator_subgroup,group.quotient}
 The \textbf{abelianization} of a group $G$ is $G/G'$, the quotient by its \hyperref[group.commutator_subgroup]{commutator subgroup}. The abelianization of $G$ is the largest \hyperref[group.abelian]{abelian} \hyperref[group.quotient]{quotient} of $G$ in the sense that any homomorphism $G\to A$ where $A$ is an abelian group factors as a composition of homomorphisms $G\to G/G'\to A$.
 \end{definition}
+
+

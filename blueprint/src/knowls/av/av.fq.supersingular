@@ -3,3 +3,5 @@
 \uses{ag.abelian_variety,ag.base_field,av.fq.weil_polynomial,lf.newton_polygon,lf.newton_slopes}
 An \hyperref[ag.abelian_variety]{abelian variety} \hyperref[ag.base_field]{defined} over a finite field is \textbf{supersingular} if all of the \hyperref[lf.newton_slopes]{slopes} of the \hyperref[lf.newton_polygon]{Newton polygon} of its \hyperref[av.fq.weil_polynomial]{associated Weil polynomial} have value $1/2$.
 \end{definition}
+
+

@@ -1,9 +1,12 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.sato_tate_group}{Sato-Tate group (of a motive)}}
 \begin{definition}\label{ag.sato_tate_group}
 \uses{}
+\leanok
 The Sato-Tate group of a motive over a number field is a compact (but often disconnected) Lie group which conjecturally governs the variation of Euler factors of the L-function associated to this motive. For example, for (the 1-motive of) a generic abelian variety of dimension $g$, this group is $\mathrm{USp}(2g)$.
 
 For an elliptic curve $E$ over a number field $K$, the Sato-Tate group equals $\mathrm{SU}(2)$ if $E$ does not have complex multiplication. Otherwise, one gets $\mathrm{SO}(2)$ if $E$ has CM defined over $K$, and the normalizer of $\mathrm{SO}(2)$ in $\mathrm{SU}(2)$ if $E$ has CM not defined over $K$.
 
-For an abelian surface $A$ over a number field $K$, there are 52 possible Sato-Tate groups as classified by Fité-Kedlaya-Rotger-Sutherland \cite{arXiv:1110.6638,doi:10.1112/S0010437X12000279,MR:2982436}; of these, 34 can occur for $K = \mathbb{Q}$. The typical case $\mathrm{USp}(4)$ occurs when $\mathrm{End}(A_{\bar{K}}) = \mathbb{Z}$.
+For an abelian surface $A$ over a number field $K$, there are 52 possible Sato-Tate groups as classified by Fité-Kedlaya-Rotger-Sutherland \cite{arXiv:1110.6638,doi:10.1112/S0010437X12000279,MR:2982436}; of these, 34 can occur for $K = \mathbb{Q}$. The typical case $\mathrm{USp}(4)$ occurs when $\mathrm{End}(A_{\overline{K}}) = \mathbb{Z}$.
 \end{definition}
+
+

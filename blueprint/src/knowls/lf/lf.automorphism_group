@@ -6,3 +6,5 @@ $$ \textrm{Aut}(K/F) = \{\sigma:K\to K\mid  \forall a\in F, \sigma(a)=a, \text{ 
 Note, a finite extension is \hyperref[nf.is_galois]{Galois} if and only if $|\textrm{Aut}(K/F)| = [K:F]$.
 
 \end{definition}
+
+

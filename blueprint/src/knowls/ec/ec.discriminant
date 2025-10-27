@@ -3,13 +3,15 @@
 \uses{ag.curve.smooth,ec,ec.weierstrass_coeffs,ring.field}
 The \textbf{discriminant} $\Delta$ of a \hyperref[ec.weierstrass_coeffs]{Weierstrass equation} over a \hyperref[ring.field]{field} $K$ is an element of $K$ defined in terms of the \hyperref[ec.q.minimal_weierstrass_equation]{Weierstrass coefficients}.
 If the \hyperref[ec.weierstrass_coeffs]{Weierstrass equation} is \[y^2+a_1xy+a_3y=x^3+a_2x^2+a_4x+a_6,\] then $\Delta$ is given by a polynomial expression in $a_1,\dots,a_6$, namely,
-\[\Delta=-b_2^2b_8 - 8 b_4^3 -27 b_6 ^2 + 9 b_2 b_4 b_6\] where
+\[\Delta=-b_2^2b_8 - 8 b_4^3 -27 b_6 ^2 + 9 b_2 b_4 b_6\] where 
 \[\begin{aligned}
-b_2 &= a_1^2 + 4 a_2\\
-b_4 &= 2a_4 + a_1 a_3\\
+b_2 &= a_1^2 + 4 a_2\\ 
+b_4 &= 2a_4 + a_1 a_3\\ 
 b_6 &= a_3^2 + 4 a_6 \\
 b_8 &= a_1^2 a_6 + 4 a_2 a_6 - a_1 a_3 a_4 + a_2 a_3^2 - a_4^2.
 \end{aligned}\]
 
 Then $\Delta\neq 0$ if and only if the equation defines a \hyperref[ag.curve.smooth]{smooth} curve, in which case its projective closure gives an \hyperref[ec]{elliptic curve}.
 \end{definition}
+
+

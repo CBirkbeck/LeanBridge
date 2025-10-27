@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.rigor.maass}{Reliability of Maass forms data}}
 \begin{definition}\label{rcs.rigor.maass}
 \uses{mf.maass.mwf.fourierexpansion,mf.maass.mwf.spectralparameter}
+\leanok
 Maass form data, in the LMFDB and elsewhere, is inherently heuristic.  The data
 are decimal approximations to numbers which (in general) are conjectured to be
 transcendental and not expressable in terms of well-known constants,
@@ -30,3 +31,5 @@ The database contains data for the Maass forms on a group with a range of eigenv
 There are two implicit claims in the above sentence:  that each entry in the database corresponds to an actual Maass form (as discussed in the previous section), and that no eigenvalues are missing.  It is not possible to know for sure if there are any missing values.  The situation is analogous to finding roots of a polynomial using the secant method:  One can try various starting points, such as every point on a finely spaced grid, and hope to find all roots.  But unlike the situation for polynomials, there is no known method for determining the exact number of Maass eigenvalues in a given range.
 
 \end{definition}
+
+

@@ -3,3 +3,5 @@
 \uses{character.dirichlet,character.dirichlet.modulus,character.dirichlet.principal}
 The \textbf{order} of a \hyperref[character.dirichlet]{Dirichlet character} $\chi$ is the least positive integer $n$ such that $\chi^n$ is the \hyperref[character.dirichlet.principal]{trivial} character of the same \hyperref[character.dirichlet.modulus]{modulus} as $\chi$. Equivalently, it is the order $n$ of the image of $\chi$ in $\mathbb{C}^\times$, the group of $n$th roots of unity.
 \end{definition}
+
+

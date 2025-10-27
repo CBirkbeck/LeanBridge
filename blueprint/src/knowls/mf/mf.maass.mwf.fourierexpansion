@@ -12,3 +12,5 @@ $$f(z)=\sum_{n=1}^{\infty}c(n)\sqrt{y}K_{ir}(2\pi ny)\sin(2\pi nx).$$
 For a prime $p$ the coefficient $c(p)$ equals the corresponding Hecke eigenvalue.
 
 \end{definition}
+
+

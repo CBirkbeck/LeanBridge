@@ -3,7 +3,7 @@
 \uses{lfunction,lfunction.functional_equation,lfunction.gamma_factor,lfunction.spectral_parameters}
 The \textbf{infinity factor} $L_{\infty}(s)$ of an \hyperref[lfunction]{L-function} $L(s)$ is the product of its \hyperref[lfunction.gamma_factor]{Gamma factors}:
 \[
-L_{\infty}(s) := \prod_{j=1}^J \Gamma_{\mathbb R}(s+\mu_j) \prod_{k=1}^K \Gamma_{\mathbb C}(s+\nu_k).
+L_{\infty}(s) := \prod_{j=1}^J \Gamma_{\mathbb{R}}(s+\mu_j) \prod_{k=1}^K \Gamma_{\mathbb{C}}(s+\nu_k).
 \]
 Here the $\mu_j$ and $\nu_k$ are the \hyperref[lfunction.spectral_parameters]{spectral parameters} of the L-function.
 
@@ -12,3 +12,5 @@ That is, the \hyperref[lfunction.functional_equation]{functional equation} has t
 \Lambda(s) := L_{\infty}(s) L(s) = \varepsilon \overline{\Lambda}(1-s).
 \]
 \end{definition}
+
+

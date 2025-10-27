@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/doc.knowl.annotation_guidelines}{Guidelines for writing annotations}}
 \begin{definition}\label{doc.knowl.annotation_guidelines}
 \uses{doc.knowl,doc.knowl.description,doc.knowl.guidelines}
+\leanok
 Annotations are text that is included at the top or bottom of an object's homepage. They are functionally similar to \hyperref[doc.knowl]{knowls}, but are not required to be context-free; aside from that, the \hyperref[doc.knowl.guidelines]{editing guidelines for knowls} apply also to annotations.
 
 In addition, please observe the following conventions.
@@ -14,3 +15,5 @@ In addition, please observe the following conventions.
 \item  Do not link directly to annotations, but instead to the underlying LMFDB objects.
 \end{itemize}
 \end{definition}
+
+

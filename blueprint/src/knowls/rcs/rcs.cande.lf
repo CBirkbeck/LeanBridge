@@ -1,8 +1,11 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.cande.lf}{Completeness and extent of local field data}}
 \begin{definition}\label{rcs.cande.lf}
 \uses{lf.degree,lf.qp}
-The database contains all extension fields of
-\hyperref[lf.qp]{$\Q_p$} of
+\leanok
+The database contains all extension fields of 
+\hyperref[lf.qp]{$\Q_p$} of 
 \hyperref[lf.degree]{degree} $n$ for $n < 24$ and $p<200$.
 It also contains all absolute families with degree $n < 48$ and $p < 200$, as well as all relative families with absolute degree $n_{\mathrm{absolute}} < 48$, base degree $n_0 < 16$ and $p < 200$.
 \end{definition}
+
+

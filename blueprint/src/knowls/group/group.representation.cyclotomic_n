@@ -3,3 +3,5 @@
 \uses{group.representation.character}
 Given a complex \hyperref[group.representation.character]{character} $\chi$ of a group $G$, define $\Q(\chi)$ to be the smallest field containing $\Q$ and the character values of $\chi$.  This field is abelian and hence has a \textbf{conductor}, a positive integer giving the minimum $n$ so that $\Q(\chi) \subseteq  \Q(\zeta_n)$.
 \end{definition}
+
+

@@ -5,3 +5,5 @@ The \textbf{\hyperref[ec.mordell_weil_group]{Mordell-Weil group}} $E(K)$ of an \
 
 The generators consist of $r$ \textbf{non-torsion generators}, where $r$ is the \hyperref[ec.rank]{rank} of $E(K)$, and up to two \textbf{torsion generators}, which generate the \hyperref[ec.torsion_subgroup]{torsion subgroup} $E(K)_{\textrm{tor}}$.
 \end{definition}
+
+

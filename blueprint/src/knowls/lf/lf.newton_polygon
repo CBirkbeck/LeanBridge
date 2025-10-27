@@ -17,3 +17,5 @@ In the context of isogeny classes of abelian varieties over finite fields, the c
 \item  The second is to give a list of points, called "breaks," $[(x_1,y_1),(x_2,y_2), (x_3,y_3), \ldots]$, for $0 < x_1 < x_2 < x_3 < \ldots$. This denotes the Newton polygon that, starting at $(0,0)$, has constant slope from $(0,0)$ to $(x_1,y_1)$, then has constant (but different) slope from $(x_1,y_1)$ to $(x_2,y_2)$, etc. Note that by the definition of the Newton polygon, each $x_i$ is a positive integer.
 \end{itemize}
 \end{definition}
+
+

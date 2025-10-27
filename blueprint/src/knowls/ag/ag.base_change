@@ -5,3 +5,5 @@ Let $V$ be an \hyperref[ag.variety]{algebraic variety} defined over a \hyperref[
 
 An algebraic variety over a field $L$ is said to be a \textbf{base change} if it is the base change of an algebraic variety defined over a proper subfield of $L$, equivalently, if its \hyperref[ag.base_field]{base field} is not a \hyperref[ag.minimal_field]{minimal field of definition}.
 \end{definition}
+
+

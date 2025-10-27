@@ -1,7 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.class_number}{Class number of an integral lattice}}
 \begin{definition}\label{lattice.class_number}
 \uses{lattice.definition,lattice.genus,lattice.isometry}
-For an \hyperref[lattice.definition]{integral lattice}, $L$, the number of \hyperref[lattice.isometry]{isometry} classes in the \hyperref[lattice.genus]{genus} of $L$ is the \textbf{class number} of $L$.
+For an \hyperref[lattice.definition]{integral lattice}, $L$, the number of \hyperref[lattice.isometry]{isometry} classes in the \hyperref[lattice.genus]{genus} of $L$ is the \textbf{class number} of $L$. 
 
 
 \end{definition}
+
+

@@ -1,6 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modlgal.absolutely_irreducible}{Absolutely irreducible}}
 \begin{definition}\label{modlgal.absolutely_irreducible}
 \uses{group.representation.irrep,modlgal,modlgal.codomain}
-A \hyperref[modlgal]{mod-$\ell$ Galois representation} with \hyperref[modlgal.codomain]{codomain} $G(\F_{\ell})$ is \textbf{absolutely irreducible}
+A \hyperref[modlgal]{mod-$\ell$ Galois representation} with \hyperref[modlgal.codomain]{codomain} $G(\F_{\ell})$ is \textbf{absolutely irreducible} 
  if it is \hyperref[group.representation.irrep]{irreducible}  after extending the codoman to $G(\overline{\F_{\ell}})$.
 \end{definition}
+
+

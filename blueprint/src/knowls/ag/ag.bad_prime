@@ -3,3 +3,5 @@
 \uses{ag.conductor}
 For an abelian variety $A$ of dimension $g$ over a number field $K$, a \textbf{prime of bad reduction} (for $A$) is a prime $\mathfrak{p}$ of $K$ for which the reduction of $A$ modulo $\mathfrak{p}$ is not an abelian variety of dimension $g$ over the residue field at $\mathfrak{p}$.  The number of primes of bad reduction is always finite; these are precisely the primes that divide the \hyperref[ag.conductor]{conductor} of $A$.
 \end{definition}
+
+

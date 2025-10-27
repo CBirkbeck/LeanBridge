@@ -5,3 +5,5 @@ An \hyperref[ec]{elliptic curve} $E$ defined over a \hyperref[nf]{number field} 
 
 This is equivalent to the \hyperref[ec.j_invariant]{$j$-invariant} of $E$ being \hyperref[nf.integral]{integral}.
 \end{definition}
+
+

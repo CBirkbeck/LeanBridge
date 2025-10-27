@@ -8,3 +8,5 @@ For primes $p$ where $A$ has \hyperref[g2c.good_reduction]{good reduction} (all 
 
 The \hyperref[g2c.bad_lfactors]{Euler factors at bad primes} $p$ depend on the type of bad reduction $A$ has at $p$.
 \end{definition}
+
+

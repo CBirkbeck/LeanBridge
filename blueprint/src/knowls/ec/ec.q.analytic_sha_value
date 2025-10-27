@@ -1,5 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.q.analytic_sha_value}{Analytic order of Sha (numerical value)}}
 \begin{definition}\label{ec.q.analytic_sha_value}
 \uses{ec,ec.analytic_sha_order,ec.q.bsdconjecture,ec.rank}
+\leanok
 For an \hyperref[ec]{elliptic curve} defined over $\Q$ of \hyperref[ec.rank]{rank} $0$ or $1$, the \hyperref[ec.analytic_sha_order]{analytic order of $\Sha$} is known to be rational and can been computed exactly. For curves of rank at least $2$ it is not known to be rational, but in all the cases where it has been computed it is close to a square integer, as predicted by the \hyperref[ec.q.bsdconjecture]{Birch and Swinnerton-Dyer} conjecture; in these cases we display the rounded value.
 \end{definition}
+
+

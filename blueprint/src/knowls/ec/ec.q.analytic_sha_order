@@ -5,3 +5,5 @@ The \textbf{Tate-Shafarevic group} $\Sha$ of an \hyperref[ec]{elliptic curve} $E
 
 For elliptic curves of rank $0$ or $1$ it is a theorem that $\Sha$<sub>an</sub> is a positive rational number, and this rational number can be computed exactly; this exact  computation has only been carried out for the curves in the database with rank $0$ and conductor \(N\le 500000\).  These values are always in fact integer squares in all cases computed to date.  For curves of rank $2$ and above, there is no such theorem, and the values computed are simply floating point approximate values which happen to be very close to integers.  In the LMFDB we store and display the rounded values in this case.
 \end{definition}
+
+

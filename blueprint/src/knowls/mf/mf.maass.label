@@ -27,3 +27,5 @@ The shorter form is used when $k=0$ and $a=1$ and $d=1$.
 
 For squarefree level, it is conjectured that there is only one Maass form per eigenvalue $\lambda$, hence $d$ is (currently) always $1$. Generally, there are only finitely many Maass newforms in $M_k(\Gamma_0(N), \chi)$ with the same eigenvalue $\lambda$. Then $d$ denotes the index among these finitely many forms, where the ordering is lexicographical in the sequence $\{ \bigl(\mathrm{Re}(a(n)), \mathrm{Im}(a(n))\bigr) \}_{n \geq 1}$.
 \end{definition}
+
+

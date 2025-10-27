@@ -3,8 +3,10 @@
 \uses{af,af.multiplicative}
 A \textbf{divisor function} is a \hyperref[af.multiplicative]{multiplicative} \hyperref[af]{arithmetic function} of the form
 \[
-\sigma_\tau(n)=\sum_{d\mid n}d^\tau,
+\sigma_{\tau}(n)=\sum_{d\mid n}d^\tau,
 \]
 for some fixed $\tau\in\mathbb{C}$.
 
 \end{definition}
+
+

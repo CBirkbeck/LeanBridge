@@ -1,5 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.rigor.character.dirichlet}{Reliability of Dirichlet Character Data}}
 \begin{definition}\label{rcs.rigor.character.dirichlet}
 \uses{}
+\leanok
 Dirichlet character data is rigorously computed without assumptions or heuristics.
 \end{definition}
+
+

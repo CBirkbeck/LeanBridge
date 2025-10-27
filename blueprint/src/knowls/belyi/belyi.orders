@@ -1,5 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/belyi.orders}{Belyi permutation triple orders}}
 \begin{definition}\label{belyi.orders}
 \uses{belyi.abc}
+\leanok
 A less restrictive version of \hyperref[belyi.abc]{abc\_orders} where only some of the orders are specified.
 \end{definition}
+
+

@@ -13,3 +13,5 @@ where $\theta$ denotes the classical \hyperref[mf.half_integral_weight.theta]{th
 
 These modular forms are related with integral weight modular forms through the \hyperref[cmf.shimura_correspondence]{Shimura correspondence}. In terms of this correspondence, the space of cusp forms can be decomposed according to the \hyperref[mf.half_integral_weight.shimura_decomposition]{Shimura decomposition}.
 \end{definition}
+
+

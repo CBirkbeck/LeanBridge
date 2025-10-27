@@ -8,17 +8,19 @@ $$
 defined on the \hyperref[ec.mordell_weil_group]{Mordell-Weil group} $E(K)$
 which induces a positive definite quadratic form on $E(K)\otimes\R$.
 
-One definition of $\hat{h}(P)$ is
+One definition of $\hat{h}(P)$ is 
 $$
-  \hat h(P)=\lim_{n\to\infty} n^{-2}h\bigl(x(nP)\bigr),
+  \hat{h}(P)=\lim_{n\to\infty} n^{-2}h\bigl(x(nP)\bigr),
 $$ where $h(x)$ is the \hyperref[nf.weil_height]{Weil height} of $x\in K$.  This definition gives the non-normalised height.  A normalised height which is invariant under base-change is given by
 $$
     \frac{1}{[K:\Q]} \hat{h}(P).
 $$
 
-Related to the canonical height is the \textbf{height pairing}
+Related to the canonical height is the \textbf{height pairing} 
 $$
   \langle-,-\rangle : E(K)\times E(K) \to \R
 $$
 defined by $\langle P,Q\rangle = \frac{1}{2}(\hat{h}(P+Q)-\hat{h}(P)-\hat{h}(Q))$, which is a positive definite quadratic form on $E(K)\otimes\R$, used in defining the \hyperref[ec.regulator]{regulator} of $E/K$.
 \end{definition}
+
+
