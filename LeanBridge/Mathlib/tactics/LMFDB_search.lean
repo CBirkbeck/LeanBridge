@@ -183,6 +183,5 @@ axiom LMFDB_NF_2_0_23_1_isCM : IsCMField K_2_0_23_1
 
 end
 
-#LMFDB_search 2 1 31
 
 --let python_path := "/home/chris/Github/LeanBridge/.venv/bin/python"
