@@ -9,3 +9,5 @@ Let $\rho:G\to\GL_n(\C)$ be an irreducible complex \hyperref[group]{group} repre
 
 The type of the representation can be computed via its \hyperref[artin.frobenius_schur_indicator]{Frobenius-Schur indicator}.
 \end{definition}
+
+

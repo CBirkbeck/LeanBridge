@@ -2,15 +2,17 @@
 \begin{definition}\label{lfunction.critical_strip}
 \uses{lfunction.dirichlet_series,lfunction.euler_product,lfunction.functional_equation,lfunction.motivic_weight,lfunction.normalization}
 In the \hyperref[lfunction.normalization]{analytic normalization}, the \hyperref[lfunction.functional_equation]{functional equation} relates $s$ to $1-s$ and the
-\textbf{critical strip} is the open strip $\{ s \in {\mathbb C}: 0 < \Re(s) < 1 \}$.
+\textbf{critical strip} is the open strip $\{ s \in {\mathbb{C}}: 0 < \Re(s) < 1 \}$.
 
 In the arithmetic normalization, the functional equation relates $s$ to $1 + w - s$,
 where $w$ is the \hyperref[lfunction.motivic_weight]{motivic weight} of the L-function,
 and the
-\textbf{critical strip} is the open strip $\{ s \in {\mathbb C}: w/2 < \Re(s) < w/2 + 1 \}$.
+\textbf{critical strip} is the open strip $\{ s \in {\mathbb{C}}: w/2 < \Re(s) < w/2 + 1 \}$.
 
 In either normalization, the \hyperref[lfunction.dirichlet_series]{Dirichlet series} and \hyperref[lfunction.euler_product]{Euler product} converge
 absolutely to the right of the critical strip, and so the L-function
 does not vanish there.  Therefore all nontrivial zeros
 of the L-function lie in (the closure of) the critical strip.
 \end{definition}
+
+

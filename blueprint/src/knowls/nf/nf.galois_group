@@ -2,8 +2,8 @@
 \begin{definition}\label{nf.galois_group}
 \uses{lf.automorphism_group,nf.degree,nf.galois_closure,nf.separable,ring.field}
 Let $K$ be a finite \hyperref[nf.degree]{degree} $n$ \hyperref[nf.separable]{separable extension} of a \hyperref[ring.field]{field} $F$, and $K^{gal}$ be its
-\hyperref[nf.galois_closure]{Galois (or normal) closure}.
-The \textbf{Galois group} for $K/F$ is the \hyperref[lf.automorphism_group]{automorphism group} $\Aut(K^{gal}/F)$.
+\hyperref[nf.galois_closure]{Galois (or normal) closure}. 
+The \textbf{Galois group} for $K/F$ is the \hyperref[lf.automorphism_group]{automorphism group} $\Aut(K^{gal}/F)$.  
 
 This automorphism group acts on the $n$ embeddings $K\hookrightarrow K^{gal}$ via composition.  As a result, we get an injection $\Aut(K^{gal}/F)\hookrightarrow S_n$, which is well-defined up to the labelling of the $n$ embeddings, which corresponds to being well-defined up to conjugation in $S_n$.
 
@@ -14,3 +14,5 @@ There is a \hyperref[nf.galois_group.name]{naming convention} for Galois groups 
 
 
 \end{definition}
+
+

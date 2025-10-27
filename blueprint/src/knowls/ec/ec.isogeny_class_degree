@@ -3,3 +3,5 @@
 \uses{ec,ec.isogeny,ec.isogeny_class}
 The \textbf{isogeny class degree} of an \hyperref[ec.isogeny_class]{isogeny class} of \hyperref[ec]{elliptic curves} is the least common multiple of the degrees of all rational cyclic \hyperref[ec.isogeny]{isogenies} between elliptic curves in the isogeny class.
 \end{definition}
+
+

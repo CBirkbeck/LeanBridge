@@ -3,3 +3,5 @@
 \uses{group,group.complex_character_table,group.conjugacy_class,group.representation.irrep}
 If $G$ is a \hyperref[group]{group} and $\rho:G\to \GL_n(\C)$ is a \hyperref[group.representation.irrep]{representation} of $G$, then the \textbf{character} of $\rho$ is the function $\operatorname{Tr}\circ \rho$ where $\operatorname{Tr}$ is the function which takes the trace of a square matrix.  Since $\operatorname{Tr}(AB) = \operatorname{Tr}(BA)$, the character of $\rho$ is well defined on \hyperref[group.conjugacy_class]{conjugacy classes}; the values $\rho(g)$ for $g$ ranging over the conjugacy classees of $G$ and $\rho$ ranging over all \hyperref[group.representation.irrep]{irreducible} characters of $G$ constitute the \hyperref[group.complex_character_table]{character table} of $G$.
 \end{definition}
+
+

@@ -7,3 +7,5 @@ under Galois morphisms $\zeta_q\mapsto \zeta_q^k$ for all $k$ such that $\chi(k)
 In fact $\chi$ determines a homomorphism $\chi:(\mathbb{Z}/q\mathbb{Z})^\times\to \mathbb{C}^\times$.  Identifying $(\mathbb{Z}/q\mathbb{Z})^\times$ with $\textrm{Gal}(\mathbb{Q}(\zeta_q)/\mathbb{Q})$ by $a\mapsto \sigma_a$ with $\sigma_a(\zeta_q)=\zeta_q^a$, we then identify $\ker(\chi)$ with a subgroup of $\textrm{Gal}(\mathbb{Q}(\zeta_q)/\mathbb{Q})$.
 By the Galois correspondence, the fixed field $\mathbb{Q}(\zeta_q)^{\ker(\chi)}$ of this subgroup is a subfield of $\mathbb{Q}(\zeta_q)$ whose Galois group is isomorphic to $\textrm{Im}(\chi)$, which is cyclic of order $n$ where $n$ is the \hyperref[character.dirichlet.order]{order} of $\chi$.
 \end{definition}
+
+

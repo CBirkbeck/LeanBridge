@@ -5,3 +5,5 @@ A \textbf{division} (or \textbf{rational conjugacy classes}) of a finite \hyperr
 
 Just as values of \hyperref[group.representation.character]{characters} are constant on conjugacy classes, values of \hyperref[group.representation.rational_character]{rational characters} are constant on rational conjugacy classes.
 \end{definition}
+
+

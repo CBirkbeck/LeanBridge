@@ -6,3 +6,5 @@ An \textbf{elliptic curve} $E$ over a field $k$ is a \hyperref[ag.curve.smooth]{
 The most commonly used model for elliptic curves is a \hyperref[ec.weierstrass_coeffs]{Weierstrass model}: a smooth plane cubic with the point $O$ as the unique point at infinity.
 
 \end{definition}
+
+

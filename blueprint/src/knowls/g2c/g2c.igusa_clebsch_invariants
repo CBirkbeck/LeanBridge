@@ -5,7 +5,7 @@ The \textbf{Igusa-Clebsch invariants} of a \hyperref[g2c.g2curve]{genus 2 curve}
 
 For genus 2 curves over $\Q$ we may assume that the Igusa-Clebsch invariants are integral. We can then normalize them by removing a factor of $d^k$ from $I_{2k}$, where $d$ is the largest positive integer for which the invariants remain integral after this normalization.  We can also make the first nonzero $I_{2k}$ with $k$ odd positive by multiplying each $I_{2k}$ by $(-i)^k$.
 
-In the LMFDB, Igusa-Clebsch invariants for genus 2 curves over $\Q$ are always normalized in this way, which means that their values may differ from those returned by the corresponding functions in Sage or Magma; however, they are equivalent as $\overline\mathbb{Q}$-points in weighted projective space and identify the same geometric isomorphism class.
+In the LMFDB, Igusa-Clebsch invariants for genus 2 curves over $\Q$ are always normalized in this way, which means that their values may differ from those returned by the corresponding functions in Sage or Magma; however, they are equivalent as $\overline{\mathbb}{Q}$-points in weighted projective space and identify the same geometric isomorphism class.
 
 The exact definition of the Igusa-Clebsch invariants is as follows. Let $X$ be a curve of genus $2$, which we may assume to be defined by an equation $y^2 = f(x)$ with $f$ a sextic in $x$. Let $c$ be the leading coefficient of $f$, fix an ordering of the roots $x_1,\ldots,x_6$ of $f$ in its splitting field, and let $(i j)$ denote the difference $x_i-x_j$.  Then
 \[
@@ -16,3 +16,5 @@ I_{10} = c^{10} \prod (1 2)^2.\qquad\qquad\qquad\qquad\qquad\qquad\qquad\quad \\
 \]
 Here each sum and product runs over the distinct expressions obtained by applying a permutation to the index set $\{1, \ldots, 6\}$. More precisely, it is obtained by averaging over the $S_6$-Galois orbit of the given expression. Note that $I_{10}$ is simply the discriminant of the sextic polynomial $f$.
 \end{definition}
+
+

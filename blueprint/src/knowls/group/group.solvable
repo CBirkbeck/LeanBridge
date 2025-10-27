@@ -3,5 +3,7 @@
 \uses{group,group.abelian,group.normal_series}
 A \hyperref[group]{group} $G$ is \textbf{solvable} if there exists a chain of subgroups
 \[ \langle e\rangle =H_0\leq H_1 \leq H_2 \leq \cdots \leq H_n=G\]
-such that for all $i<n$, $H_i$ is a normal subgroup of $H_{i+1}$ (i.e., it is a \hyperref[group.normal_series]{subnormal series}) and each quotient $H_{i+1}/H_i$ is \hyperref[group.abelian]{abelian}.
+such that for all $i< n$, $H_i$ is a normal subgroup of $H_{i+1}$ (i.e., it is a \hyperref[group.normal_series]{subnormal series}) and each quotient $H_{i+1}/H_i$ is \hyperref[group.abelian]{abelian}.
 \end{definition}
+
+

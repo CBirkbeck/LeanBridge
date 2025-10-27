@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.inner_twist_proved}{Inner twist proved}}
 \begin{definition}\label{cmf.inner_twist_proved}
 \uses{character.dirichlet,character.dirichlet.primitive,cmf.inner_twist,cmf.newform,cmf.sturm_bound}
+\leanok
 In order to prove that a \hyperref[cmf.newform]{newform} $f\in S_k(N,\chi)$ admits an \hyperref[cmf.inner_twist]{Inner twist} by a \hyperref[character.dirichlet.primitive]{primitive} \hyperref[character.dirichlet]{Dirichlet character} $\phi$ it is sufficient to verify that for some Galois conjugate newform $g\ne f$ the equality
 \[
 a_p(g)=\varphi(p)a_p(f)
@@ -13,3 +14,5 @@ In cases where it is not feasible to test this equality, it is still checked at 
 
 The set of inner twists listed for a newform in the LMFDB is always guaranteed to contain all possible inner twists, regardless of whether or not all the listed inner twists have been proved (false positives are, in principle, possible, but not false negatives).  In particular, if no inner twists are listed then the newform provably does not admit any inner twists.
 \end{definition}
+
+

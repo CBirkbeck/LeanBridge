@@ -9,3 +9,5 @@ The \hyperref[ec.mordell_weil_theorem]{Mordell-Weil Theorem}, first proved by Mo
 
 The Mordell-Weil theorem implies in particular that the \hyperref[ec.torsion_subgroup]{torsion subgroup} $E(K)_{\mathrm{tor}}$ of $E(K)$ is finite, and thus that the \hyperref[ec.torsion_order]{torsion order} of $E$, one of the \hyperref[ec.bsdconjecture]{BSD}  invariants, is finite.
 \end{definition}
+
+

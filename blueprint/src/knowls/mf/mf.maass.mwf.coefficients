@@ -13,3 +13,5 @@ f(x+iy) = \sum_{n=1}^\infty a_n\sqrt{y}K_{iR}(2\pi ny)\sin(2\pi nx).
 \]
 In both cases the real numbers $a_n$ are the \textbf{coefficients} of $f$ and are used to define its \hyperref[lfunction]{L-function} $L(f,s)=\sum_{n=1}^\infty a_nn^{-s}$.
 \end{definition}
+
+

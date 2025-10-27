@@ -3,3 +3,5 @@
 \uses{mot.hodgevector}
 Associated to a motive are vector spaces coming from cohomology $H^*(X)$ of an algebraic variety $X$.  If these vector spaces arise in $H^w(X)$, then $w$ is the \textbf{(motivic) weight} of the motive.  The weight is the number of commas in the \hyperref[mot.hodgevector]{Hodge vector}, i.e., the Hodge vector is of the form $(h^{0,w},\dots,h^{w,0})$.
 \end{definition}
+
+

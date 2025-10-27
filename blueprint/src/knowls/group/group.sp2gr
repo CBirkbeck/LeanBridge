@@ -8,16 +8,18 @@ The real symplectic group of degree $g$ denoted by $\Sp(2g,\R)$ is defined as
 \gamma=\left(\begin{matrix} a & b\\ c & d\end{matrix}\right)\in\GL(2g,\R):
 \, \gamma^t J \gamma=J\right\},
 \]
-where
-$J=\left(\begin{matrix}0 & 1_g\\ -1_g & 0\end{matrix}\right)$
-with $1_g$ is the identity matrix of size $g$.
+where 
+$J=\left(\begin{matrix}0 & 1_g\\ -1_g & 0\end{matrix}\right)$ 
+with $1_g$ is the identity matrix of size $g$. 
 
-By using the following two properties of the Pfaffian:
-$\text{Pf}(\gamma^t J \gamma)=\text{Pf}(J)$ and
-$\text{Pf}(\gamma^t J \gamma)=\det(\gamma)\text{Pf}(J)$, we see that
+By using the following two properties of the Pfaffian: 
+$\text{Pf}(\gamma^t J \gamma)=\text{Pf}(J)$ and 
+$\text{Pf}(\gamma^t J \gamma)=\det(\gamma)\text{Pf}(J)$, we see that 
 $\Sp(2g,\R)$ is a subgroup of $\SL(2g,\R)$.
 
 
 The \textbf{integral symplectic group} $\Gamma_g=\Sp(2g,\Z)$, also called the Siegel modular group,
 is defined as  $\Gamma_g=\Sp(2g,\R)\cap{\rm M}(2g,\Z)$. Clearly $\Gamma_1=\SL(2,\Z)$.
 \end{definition}
+
+

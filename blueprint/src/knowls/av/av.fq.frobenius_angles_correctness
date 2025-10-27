@@ -1,5 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/av.fq.frobenius_angles_correctness}{Correctness of Frobenius angles}}
 \begin{definition}\label{av.fq.frobenius_angles_correctness}
 \uses{}
+\leanok
 The angle rank is computed by applying the LLL algorithm to the Frobenius angles computed to 500 bits of precision. While this provides a high degree of confidence, it does not constitute a rigorous upper or lower bound on the angle rank.
 \end{definition}
+
+

@@ -5,3 +5,5 @@ An \hyperref[ag.abelian_variety]{abelian variety} $A$ defined over a field $K$ i
 
 When $A$ is the Jacobian of a genus 2 curve, the abelian varieties $B_1$ and $B_2$ are necessarily \hyperref[ec]{elliptic curves}.  If $B_1$ and $B_2$ are isogenous elliptic curves, then $A$ is isogenous to the square of $B_1$ (the abelian variety $B_1\times B_1$).
 \end{definition}
+
+

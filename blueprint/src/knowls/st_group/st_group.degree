@@ -6,3 +6,5 @@ The \textbf{degree} $d$ of a \hyperref[st_group.definition]{Sato-Tate group} is 
 For an \hyperref[ag.abelian_variety]{abelian variety} $A$ over a \hyperref[nf]{number field}, the degree $d$ of its Sato-Tate group is twice its dimension $g$ as an abelian variety (if $A=\mathrm{Jac}(C)$ is the \hyperref[ag.jacobian]{Jacobian} of a curve $C$, then $g$ is also the genus of $C$).  The degree $d=2g$ is then also the degree of the characteristic polynomials of the Frobenius endomorphism of the reductions of $A$ modulo good primes.
 
 \end{definition}
+
+

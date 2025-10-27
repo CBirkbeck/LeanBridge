@@ -1,7 +1,10 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/curve.highergenus.aut.characters}{Automorphism group characters}}
 \begin{definition}\label{curve.highergenus.aut.characters}
 \uses{ag.curve.genus,ag.jacobian,curve.highergenus.aut.group_action,curve.highergenus.aut.groupalgebradecomp,group.complex_character_table,group.representation.character,group.representation.irrep}
+\leanok
 If $G$ is a \hyperref[curve.highergenus.aut.group_action]{group acting on a curve} $X/\C$ of \hyperref[ag.curve.genus]{genus} $g$, the induced action of $G$ on the $g$-dimensional $\C$-vector space of holomorphic differentials of $X$ gives rise to a representation of $G$.  The \hyperref[curve.highergenus.aut.groupalgebradecomp]{group algebra decomposition} of the \hyperref[ag.jacobian]{Jacobian} of $X$ into a product $A_1^{e_1}\times \cdots\times A_r^{e_r}$ of powers of $r$ abelian varieties gives rise to $r$ \hyperref[group.representation.irrep]{irreducible subrepresentations} of $G$, each of which has an \hyperref[group.representation.character]{associated character}.
 
 The character of each of these representations is identified by its index in the \hyperref[group.complex_character_table]{character table} for $G$ as listed by Magma (which may differ from GAP).
 \end{definition}
+
+

@@ -3,3 +3,5 @@
 \uses{lfunction}
 The \textbf{dual} of an \hyperref[lfunction]{L-function} $L(s) = \sum_{n=1}^{\infty} \frac{a_n}{n^s}$ is the complex conjugate $\bar{L}(s) = \sum_{n=1}^{\infty} \frac{\bar{a_n}}{n^s}$.
 \end{definition}
+
+

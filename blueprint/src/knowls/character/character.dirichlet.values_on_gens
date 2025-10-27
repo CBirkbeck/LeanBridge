@@ -1,5 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/character.dirichlet.values_on_gens}{Values of a Dirichlet character on generators}}
 \begin{definition}\label{character.dirichlet.values_on_gens}
 \uses{character.dirichlet,character.dirichlet.group.structure,character.dirichlet.modulus}
+\leanok
 A \hyperref[character.dirichlet]{Dirichlet character} $\chi\colon \Z\to \C$ of \hyperref[character.dirichlet.modulus]{modulus} $q$ is determined (via multiplicativity) by the values $\chi(g_1), \ldots, \chi(g_r)$ it takes on any list of generators $g_1,\ldots,g_r$ for the \hyperref[character.dirichlet.group.structure]{group $(\mathbb{Z}/q\mathbb{Z})^\times$}.  The generators $g_i$ can each be specified as integers in the interval $[1,q-1]$, and the values $\chi(g_i)$ are roots of unity $e(r):=\exp(2\pi i r)$, where $r$ is a rational number.
 \end{definition}
+
+

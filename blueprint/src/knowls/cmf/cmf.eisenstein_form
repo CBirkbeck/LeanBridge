@@ -1,0 +1,13 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.eisenstein_form}{Holomorphic Eisenstein modular form}}
+\begin{definition}\label{cmf.eisenstein_form}
+\uses{character.dirichlet,cmf,cmf.cusp_form,cmf.eisenstein_series,cmf.petersson_scalar_product,cmf.weight,group.sl2z}
+Let $k$ be a positive integer and let $\Gamma$ be a finite index subgroup of the \hyperref[group.sl2z]{modular group} $\SL(2,\Z)$.
+
+the \textbf{Eisenstein subspace} $E_k(\Gamma)$ is the orthogonal complement in \hyperref[cmf]{$M_k(\Gamma)$} to the subspace \hyperref[cmf.cusp_form]{$S_k(\Gamma)$} under the \hyperref[cmf.petersson_scalar_product]{Petersson inner product}.  
+
+An \textbf{Eisenstein form} of \hyperref[cmf.weight]{weight} $k$ on $\Gamma$ is a \hyperref[cmf]{modular form} $f\in E_k(\Gamma)$. For each \hyperref[character.dirichlet]{Dirichlet character} $\chi$ of modulus $N$ the Eisenstein forms in \hyperref[cmf]{$M_k(N,\chi)$} form a subspace $E_k(N,\chi)$; these are the Eisenstein forms of weight $k$, level $N$, and character $\chi$.
+
+The space $E_k(N, \chi)$ is spanned by the \hyperref[cmf.eisenstein_series]{$E_k^{\chi_1, \chi_2}(d \\tau)$} where $\chi_1 \chi_2 = \chi$ and $d N_1 N_2 \mid N$, unless $k = 2$ and $\chi = 1$, in which case $E_2^{1,1}(d \tau)$ is not holomorphic, and is replaced by $E_2^{1,1}(\tau) - d E_2^{1,1}(d \tau)$.
+\end{definition}
+
+

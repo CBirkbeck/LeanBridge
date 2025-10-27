@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.invariants}{Invariants of a modular curve}}
 \begin{definition}\label{modcurve.invariants}
 \uses{modcurve,modcurve.cm_discriminants,modcurve.cusps,modcurve.genus,modcurve.gonality,modcurve.index,modcurve.level}
+\leanok
 Invariants of a \hyperref[modcurve]{modular curve} $X_H$ include its
 
 \begin{itemize}
@@ -18,3 +19,5 @@ all of which can be derived group-theoretically as properties of $H$.  Geometric
 \end{itemize}
 
 \end{definition}
+
+

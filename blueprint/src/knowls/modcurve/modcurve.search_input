@@ -1,5 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.search_input}{Label search}}
 \begin{definition}\label{modcurve.search_input}
 \uses{modcurve.label,modcurve.standard}
+\leanok
 You can search for modular curves by \hyperref[modcurve.label]{label}, or by specifying a member of a \hyperref[modcurve.standard]{standard family}.  To search for $X_{ns}^+(13)$, for example, type "$\texttt{Xns+(13)}$".
 \end{definition}
+
+

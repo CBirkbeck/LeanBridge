@@ -5,3 +5,5 @@ The \textbf{isogeny matrix} of an \hyperref[ec.isogeny_class]{isogeny class} of 
 
 In the LMFDB, the rows and columns of the matrices are ordered by the final entry of the label of the elliptic curves in the isogeny class in question, so that the $(i,j)$-th entry is the smallest possible degree of a cyclic isogeny between the $i$-th and $j$-th curve in the isogeny class.
 \end{definition}
+
+

@@ -1,8 +1,11 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.sl2z.subgroup.gamman}{Subgroup $\Gamma(N)$ of $\textrm{SL}(2,\mathbb{Z})$}}
 \begin{definition}\label{group.sl2z.subgroup.gamman}
 \uses{group.sl2z}
+\leanok
 The group $\Gamma(N)$ is the subgroup of \hyperref[group.sl2z]{$\SL(2,\mathbb{Z})$}  that consists of matrices congruent to the identity matrix modulo $N$.  That is,
-\[
+\[ 
 \Gamma(N)=\left\{ \begin{pmatrix} a&b\\ c&d \end{pmatrix}\in\textrm{SL}(2,\mathbb{Z})\ \Bigg|\  \begin{pmatrix} a & b \\ c & d \end{pmatrix}\equiv \begin{pmatrix} 1&0\\ 0&1 \end{pmatrix} \bmod N \right\} .
 \]
 \end{definition}
+
+

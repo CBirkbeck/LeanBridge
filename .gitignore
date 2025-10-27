@@ -38,3 +38,7 @@
 *~
 ## LMFDB
 blueprint/src/flasklog
+## Pip
+.venv/*
+## Update script
+blueprint/src/cycles.txt

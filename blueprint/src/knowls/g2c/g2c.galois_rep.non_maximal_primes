@@ -5,3 +5,5 @@ The \textbf{nonmaximal primes} associated to a \hyperref[g2c.g2curve]{genus $2$ 
 
 This information is currently available only for genus 2 curves whose Jacobian has geometric endomorphism ring $\Z$, equivalently, curves with \hyperref[g2c.st_group]{Sato-Tate group} $\mathrm{USp}(4)$.  In this case the nonmaximal primes are simply the primes $\ell$ for which the mod-$\ell$ \hyperref[g2c.galois_rep]{Galois representation} is not surjective.
 \end{definition}
+
+

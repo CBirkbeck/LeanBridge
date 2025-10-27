@@ -1,9 +1,11 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.representation.schur_index}{Schur index}}
 \begin{definition}\label{group.representation.schur_index}
 \uses{}
-Given a group $G$, a field $K \subseteq \mathbb{C}$ with $F$ a subfield of $K$, and  a character $\chi$ of an irreducible $KG$-module $V$, define the field extension $F(\chi)$ of $F$ formed by adjoining to $F$ all the values the character takes on:
+Given a group $G$, a field $K \subseteq \mathbb{C}$ with $F$ a subfield of $K$, and  a character $\chi$ of an irreducible $KG$-module $V$, define the field extension $F(\chi)$ of $F$ formed by adjoining to $F$ all the values the character takes on: 
 
 $$F(\chi)=F\left(\chi(g) :  g \in G\right).$$
 
 The \textbf{Schur index} of $\chi$ is the minimum of all indices $[E:F(\chi)]$ where E varies over all field $F(\chi) \subseteq E \subseteq K$ so that there is an $EG$-module $W$ with $V\cong K \otimes_E W$.
 \end{definition}
+
+

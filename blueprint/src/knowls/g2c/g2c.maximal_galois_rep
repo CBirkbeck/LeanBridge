@@ -5,3 +5,5 @@ The image of the \hyperref[g2c.galois_rep]{mod-$\ell$  Galois representation} as
 
 For \textbf{generic} curves the \hyperref[ag.geom_endomorphism_ring]{geometric endomorphism ring} of the Jacobian is $\Z$ and the maximal image is $\GSp(4,\Z/\ell\Z)$. In all other cases it is a proper subgroup of $\GSp(4,\Z/\ell\Z)$.
 \end{definition}
+
+

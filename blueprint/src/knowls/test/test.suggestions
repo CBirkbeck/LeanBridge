@@ -1,5 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/test.suggestions}{Test knowl suggestions}}
 \begin{definition}\label{test.suggestions}
 \uses{}
+\leanok
 Let us consider the L-function of an elliptic curve over a number field
 \end{definition}
+
+

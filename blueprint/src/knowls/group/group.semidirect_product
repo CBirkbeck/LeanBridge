@@ -17,3 +17,5 @@ The semidirect product of $N$ and $H$ fits into a sequence
 \[ 1 \to N \to N \rtimes H \to H \to 1, \]
 and is distinguished by the existence of a homomorphism $H \to N \rtimes H$ with image $H'$ that splits the projection $N \rtimes H \to H$.  We refer to such an \hyperref[group.nonsplit_product]{extension} as \textbf{split}, in contrast to other  \textbf{non-split} extensions.
 \end{definition}
+
+

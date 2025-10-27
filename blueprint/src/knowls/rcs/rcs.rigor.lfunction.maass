@@ -1,8 +1,11 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.rigor.lfunction.maass}{Reliability of Maass form L-function data}}
 \begin{definition}\label{rcs.rigor.lfunction.maass}
 \uses{mf.maass.mwf}
+\leanok
 Data for precomputed \hyperref[mf.maass.mwf]{Maass form} L-functions was computed using non-rigorous heuristics.
 
 The displayed data may be inaccurate, and in particular, may not have the accuracy suggested by the displayed precision.
 
 \end{definition}
+
+

@@ -13,3 +13,5 @@ Twist equivalence is an equivalence relation.  The \textbf{twist class} of a new
 
 In the LMFDB each twist class is identified by the label of its \hyperref[cmf.minimal_twist]{minimal twist}.
 \end{definition}
+
+

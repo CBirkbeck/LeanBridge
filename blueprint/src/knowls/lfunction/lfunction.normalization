@@ -8,3 +8,5 @@ For L-functions defined by an Euler product $\prod_p L_p(s)^{-1}$ where the coef
 
 The \textbf{analytic normalization} of an L-function is defined by $L_{an}(s):=L(s+w/2)$, where $L(s)$ is the L-function in its arithmetic normalization.  This moves the central value to $s=1/2$, and the \hyperref[lfunction.functional_equation]{functional equation} of $L_{an}(s)$ relates $s$ to $1-s$.
 \end{definition}
+
+

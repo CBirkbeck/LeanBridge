@@ -1,18 +1,21 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/dq.curve.highergenus.aut.label}{Labeling convention for families of higher genus curves}}
 \begin{definition}\label{dq.curve.highergenus.aut.label}
 \uses{ag.curve,ag.quotient_curve,ag.riemann_surface,curve.highergenus.aut.branchpoints,curve.highergenus.aut.conjugacyclasses,curve.highergenus.aut.generatingvector,curve.highergenus.aut.generators,group.small_group_label,curve.highergenus.aut.monodromy,curve.highergenus.aut.refinedpassport,curve.highergenus.aut.signature}
+\leanok
 Let $X$ be a compact \hyperref[ag.riemann_surface]{Riemann surface} (equivalently, a smooth projective \hyperref[ag.curve]{curve} over $\C$) of genus $g$, let $G$ be a group of automorphisms acting on $X$, and let $g_0$ be the genus of the \hyperref[ag.quotient_curve]{quotient} $Y:=X/G$.  The natural projection $X \to Y$ is \hyperref[curve.highergenus.aut.branchpoints]{branched}  at $r$ points in $Y$, and the corresponding \hyperref[curve.highergenus.aut.generators]{generators} of the \hyperref[curve.highergenus.aut.monodromy]{monodromy group} have orders $m_1$, $m_2$, $\ldots$, $m_r$; the sequence of integers $[g_0; m_1, \ldots, m_r]$ is called the \hyperref[curve.highergenus.aut.signature]{signature} of the  group action.
 
 The label for the family of higher genus curves with a group $G \simeq$ SmallGroup$(n,d)$ acting on it with signature $[g_0; m_1, \ldots, m_r]$ is given as
 $$g.n\text{-}d.g_0.m_1\text{-}m_2\text{-} \cdots \text{-}m_r$$
 For example, the genus 3 Hurwitz curve with automorphism group PSL$(2,7) \simeq $SmallGroup$(168,42)$ and signature $[0;2,3,7]$ is labeled:
-$$\text{5.168-42.0.2-3-7}$$
+$$\text{5.168-42.0.2-3-7}$$ 
 There may be several inequivalent actions described by that label, though.  We also distinguish the actions by which conjugacy classes in $G$ the monodromy generators are from, creating passport labels. For our previous example
-$$\text{5.168-42.0.2-3-7.1} \text{ and } \text{5.168-42.0.2-3-7.2}$$
-represent the two distinct actions of PSL$(2,7)$ as a Hurwitz group on a genus $3$ curve up to \hyperref[curve.highergenus.aut.refinedpassport]{refined passports}.
+$$\text{5.168-42.0.2-3-7.1} \text{ and } \text{5.168-42.0.2-3-7.2}$$ 
+represent the two distinct actions of PSL$(2,7)$ as a Hurwitz group on a genus $3$ curve up to \hyperref[curve.highergenus.aut.refinedpassport]{refined passports}. 
 
 The suffixes $1$ and $2$ are ordinals that are assigned by lexicographically ordering the sequence of \hyperref[curve.highergenus.aut.conjugacyclasses]{conjugacy class identifiers} associated to a refined passport.
 
 In order to explicitly identify elements of $G$ listed in \hyperref[curve.highergenus.aut.generatingvector]{generating vectors} for a given refined passport (and elsewhere), we choose a particular permutation representation of $G$ as a subgroup of $S_{|G|}$, the symmetric group on $|G|$ elements (this choice depends only on the isomorphism class of $G$ and is the same for all $G$ with the same \hyperref[group.small_group_label]{group identifier}).
 
 \end{definition}
+
+

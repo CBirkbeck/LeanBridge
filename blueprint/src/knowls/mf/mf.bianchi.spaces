@@ -14,3 +14,5 @@ The complex vector space $\mathcal{S}_k(\mathcal{N})$ has a rational structure: 
 The irreducible components of $\mathcal{S}_k(\mathcal{N})_{\Q}$ under the action of $\mathbb{T}$ have \textbf{dimension} $d\ge1$, with a basis consisting of $d$ conjugate newforms whose Fourier coefficients are Galois conjugate elements of the associated \textbf{Hecke field}, a Galois extension of $\Q$ of degree $d$.  The \textbf{dimension} of a newform is therefore the dimension of the $\Q$-irreducible component it lies in, and also the degree of its Hecke field.
 
 \end{definition}
+
+

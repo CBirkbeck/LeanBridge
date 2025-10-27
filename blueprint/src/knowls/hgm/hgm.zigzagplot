@@ -1,7 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/hgm.zigzagplot}{Zigzag plot}}
 \begin{definition}\label{hgm.zigzagplot}
 \uses{hgm.defining_parameters,hgm.hodge_vector}
-The \textbf{zigzag plot}, or \textbf{zigzag procedure}, is a graphical representation of the \hyperref[hgm.defining_parameters]{defining parameters of a hypergeometric family} $\alpha$ and $\beta$. For improved readability, we color the $\alpha$ parameters with red, and the $\beta$ parameters with blue. It is constructed by ordering the parameters $\alpha_i$ and $\beta_j$. One draws a point at $(0,0)$ corresponding to the lowest parameter. One then proceeds in uniform steps from left to right, drawing a point for each parameter and then moving diagonally upwards after red points and diagonally downwards after blue points.
+The \textbf{zigzag plot}, or \textbf{zigzag procedure}, is a graphical representation of the \hyperref[hgm.defining_parameters]{defining parameters of a hypergeometric family} $\alpha$ and $\beta$. For improved readability, we color the $\alpha$ parameters with red, and the $\beta$ parameters with blue. It is constructed by ordering the parameters $\alpha_i$ and $\beta_j$. One draws a point at $(0,0)$ corresponding to the lowest parameter. One then proceeds in uniform steps from left to right, drawing a point for each parameter and then moving diagonally upwards after red points and diagonally downwards after blue points. 
 
 The \hyperref[hgm.hodge_vector]{hodge vector} of the corresponding hypergeometric family can be read from the Zigzag plot by counting the number of points of the same color lying on each horizontal line.
 \end{definition}
+
+

@@ -1,9 +1,12 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.ack.maass}{Acknowledgments for Maass forms}}
 \begin{definition}\label{rcs.ack.maass}
 \uses{}
+\leanok
 <h2>Additional acknowledgments</h2>
 
 Initial page design and coding by Stefan Lemurell and Fredrik Strömberg .
 
-The 3-D surface plots shown in the properties box of each Maass form were computed by Andrew V. Sutherland using a variation of an <a href="https://matematicas.uam.es/~fernando.chamizo/dark/d\_maass.html">approach</a> suggested by Fernando Chamizo.
+The 3-D surface plots shown in the properties box of each Maass form were computed by Andrew V. Sutherland using a variation of an \href{https://matematicas.uam.es/~fernando.chamizo/dark/d_maass.html}{approach} suggested by Fernando Chamizo.
 \end{definition}
+
+

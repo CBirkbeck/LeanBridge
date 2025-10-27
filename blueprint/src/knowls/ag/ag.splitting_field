@@ -3,3 +3,5 @@
 \uses{ag.base_field,nf.is_galois}
 The \textbf{splitting field} of an algebraic torus $T$ is the minimal \hyperref[nf.is_galois]{Galois} extension of its \hyperref[ag.base_field]{base field} over which $T$ becomes isomorphic to a power of the multiplicative group $\mathbb{G}_m$.
 \end{definition}
+
+

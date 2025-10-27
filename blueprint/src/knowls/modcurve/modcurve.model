@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.model}{Modular curve models}}
 \begin{definition}\label{modcurve.model}
 \uses{ag.canonical_model,ag.hyperelliptic_curve,modcurve.embedded_model,modcurve.plane_model}
+\leanok
 There are several types of models of modular curves, including
 
 \begin{itemize}
@@ -11,3 +12,5 @@ There are several types of models of modular curves, including
 \end{itemize}
 
 \end{definition}
+
+

@@ -1,7 +1,10 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.num_rat_pts}{Number of rational points}}
 \begin{definition}\label{g2c.num_rat_pts}
 \uses{ag.curve.genus,g2c.all_rational_points,g2c.known_rational_points,nf}
+\leanok
 By a celebrated theorem of Faltings, the number of rational points on a curve of \hyperref[ag.curve.genus]{genus} $g\ge 2$ defined over a \hyperref[nf]{number field} is finite.  Faltings' theorem is unfortunately ineffective, and computing this finite set is a difficult problem, in general.
 
 For curves of genus $g\ge 2$ in the LMFDB, we store all \hyperref[g2c.known_rational_points]{known rational points}, and we indicate cases where this is provably \hyperref[g2c.all_rational_points]{all rational points}.
 \end{definition}
+
+

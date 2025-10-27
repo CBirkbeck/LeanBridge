@@ -1,8 +1,11 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.underlying_object}{Underlying object of an L-function}}
 \begin{definition}\label{lfunction.underlying_object}
 \uses{character.hecke,cmf,ec.q,lfunction.degree,mf.maass.mwf,nf,nf.galois_group}
+\leanok
 L-functions arise from many different sources. Already in \hyperref[lfunction.degree]{degree} 2 we have examples of
-L-functions associated with \hyperref[cmf]{holomorphic cusp forms}, with \hyperref[mf.maass.mwf]{Maass forms,} with \hyperref[ec.q]{elliptic curves,} with characters of \hyperref[nf]{number fields} (\hyperref[character.hecke]{Hecke characters}), and with 2-dimensional representations of the \hyperref[nf.galois_group]{Galois group of a number field} (Artin L-functions).
+L-functions associated with \hyperref[cmf]{holomorphic cusp forms}, with \hyperref[mf.maass.mwf]{Maass forms,} with \hyperref[ec.q]{elliptic curves,} with characters of \hyperref[nf]{number fields} (\hyperref[character.hecke]{Hecke characters}), and with 2-dimensional representations of the \hyperref[nf.galois_group]{Galois group of a number field} (Artin L-functions). 
 
 Sometimes an L-function may arise from more than one source. For example, the L-functions associated with elliptic curves are also associated with weight 2 cusp forms. A goal of the Langlands program ostensibly is to prove that any degree $d$ L-function is associated with an automorphic form on $\mathrm{GL}(d)$. Because of this representation theoretic genesis, one can associate an L-function not only to an automorphic representation but also to symmetric powers, or exterior powers of that representation, or to the tensor product of two representations (the Rankin-Selberg product of two L-functions).
 \end{definition}
+
+

@@ -9,3 +9,5 @@ $$
 exists and is non-zero. In the case no such integer exists, our convention is
 to take $d=-1$.
 \end{definition}
+
+

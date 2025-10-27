@@ -1,6 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.complex_multiplication}{Complex multiplication}}
 \begin{definition}\label{ag.complex_multiplication}
 \uses{ag.abelian_variety,ag.dimension,ag.endomorphism_algebra,ag.endomorphism_ring,ag.geom_simple,nf.cm_field,nf.degree,nf.order}
-A \hyperref[ag.geom_simple]{simple} \hyperref[ag.abelian_variety]{abelian variety} of \hyperref[ag.dimension]{dimension} $g$ is said to have \textbf{complex multiplication} (CM) if its
+A \hyperref[ag.geom_simple]{simple} \hyperref[ag.abelian_variety]{abelian variety} of \hyperref[ag.dimension]{dimension} $g$ is said to have \textbf{complex multiplication} (CM) if its 
 \hyperref[ag.endomorphism_algebra]{endomorphism algebra} is a \hyperref[nf.cm_field]{CM field} of \hyperref[nf.degree]{degree} $2g$, or equivalently, if its \hyperref[ag.endomorphism_ring]{endomorphism ring} is an \hyperref[nf.order]{order} in a CM field of degree $2g$.
 \end{definition}
+
+

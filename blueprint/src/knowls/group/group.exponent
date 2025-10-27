@@ -3,3 +3,5 @@
 \uses{group}
 The \textbf{exponent of a \hyperref[group]{group}} $G$ is the smallest positive integer $n$ such that $g^n=e$ for all $g\in G$.  If no such positive integer exists, then the exponent of the group is infinite.
 \end{definition}
+
+

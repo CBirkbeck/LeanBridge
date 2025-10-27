@@ -3,3 +3,5 @@
 \uses{nf,ring.integral}
 The \textbf{ring of integers} of a \hyperref[nf]{number field} $K$ is the \hyperref[ring.integral]{integral closure} of $\Z$ in $K$.
 \end{definition}
+
+

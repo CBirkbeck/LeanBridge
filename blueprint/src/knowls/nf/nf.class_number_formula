@@ -4,3 +4,5 @@
 If $K$ is a \hyperref[nf]{number field} with \hyperref[nf.signature]{signature} $(r_1, r_2)$, \hyperref[nf.discriminant]{discriminant} $D$, \hyperref[nf.regulator]{regulator} $R$, \hyperref[nf.class_number]{class number} $h$, containing $w$ roots of unity, and Dedekind $\zeta$-function $\zeta_K$, then $\zeta_K$ has a meromorphic continuation to the whole complex plane with a single pole at $s=1$, which is of order $1$.  The \textbf{analytic class number formula} gives the residue at this pole:
 $$ \lim_{s\to 1}\ (s-1)\zeta_K(s) = \frac{2^{r_1}\cdot (2\pi)^{r_2}\cdot R\cdot  h}{w\cdot\sqrt{|D|}} .$$
 \end{definition}
+
+

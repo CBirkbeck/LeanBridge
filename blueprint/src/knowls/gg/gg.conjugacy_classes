@@ -1,5 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/gg.conjugacy_classes}{Conjugacy class}}
 \begin{definition}\label{gg.conjugacy_classes}
 \uses{group.conjugacy_class}
+\leanok
 {{KNOWL\_INC('group.conjugacy\_class')}}  If $G\leq S_n$, then all elements in the conjugacy class of an element have the same cycle type.
 \end{definition}
+
+

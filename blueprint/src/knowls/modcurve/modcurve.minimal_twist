@@ -5,3 +5,5 @@
 
 The \textbf{minimal twist} of a modular curve $X_H$ with $\det(H)=\widehat{\Z}^\times$ is the modular curve whose \hyperref[modcurve.label]{label} is minimal among all twists with $\det(H)=\widehat{\Z}^\times$ (in particular, it has minimal level).
 \end{definition}
+
+

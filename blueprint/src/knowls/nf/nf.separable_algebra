@@ -5,3 +5,5 @@ A (finite) \textbf{separable algebra} $A$ over a field $F$, also called an \text
 
 If $L/K$ is a field extension and $A$ is a separable $K$-algebra then $A\otimes_K L$ is a separable $L$-algebra (which is typically not a field, even when $A$ is).
 \end{definition}
+
+

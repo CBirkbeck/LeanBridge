@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.xarith.remarks}{Remarks on $X_{\mathrm{arith}}(N)$}}
 \begin{definition}\label{modcurve.xarith.remarks}
 \uses{ag.bielliptic_curve,ag.hyperelliptic_curve,curve.highergenus.aut.3.168-42.0.2-3-7.top,curve.highergenus.aut.5.192-181.0.2-3-8.top,modcurve.canonical_field}
+\leanok
 The \hyperref[modcurve.canonical_field]{canonical field of definition} of $X_{\mathrm{arith}}(N)$ is $\Q$, but this is not true of $X(N)$ except when $N\le 2$, in which case $X(N)=X_{\mathrm{arith}}(N)$.
 
 \hyperref[ag.hyperelliptic_curve]{Hyperelliptic curves}: There are no hyperelliptic curves in this family.
@@ -9,3 +10,5 @@ The \hyperref[modcurve.canonical_field]{canonical field of definition} of $X_{\m
  the curve $X_{\textup{arith}}(7)$ is isomorphic to the \hyperref[curve.highergenus.aut.3.168-42.0.2-3-7.top]{Klein quartic} and the curve $X_{\textup{arith}}(8)$
  is isomorphic to the \hyperref[curve.highergenus.aut.5.192-181.0.2-3-8.top]{Wiman curve} \cite{doi:10.4064/aa161-3-6,MR:3145452}.
 \end{definition}
+
+

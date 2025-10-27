@@ -1,5 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.permutation_gens}{Generators of permutation group}}
 \begin{definition}\label{group.permutation_gens}
 \uses{group.permutation_representation,group.solvable}
+\leanok
 For non-\hyperref[group.solvable]{solvable} groups $G$ we give a set of permutations that generate a minimal degree  \hyperref[group.permutation_representation]{faithful transitive permutation representation} of $G$.
 \end{definition}
+
+

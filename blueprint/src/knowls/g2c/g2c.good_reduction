@@ -7,3 +7,5 @@ When $X$ is a curve, any prime of good reduction for $X$ is also a prime of good
 
 For all of the genus 2 curves currently in the LMFDB, every prime of good reduction for the curve is also a prime of good reduction for the Jacobian of the curve.
 \end{definition}
+
+

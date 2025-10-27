@@ -1,6 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/gg.conway_name}{Transitive group name conventions}}
 \begin{definition}\label{gg.conway_name}
 \uses{}
+\leanok
 In the paper \textit{On Transitive Permutation Groups} \cite{MR:1635715,doi:10.1112/S1461157000000115}, by Conway, Hulpke, and McKay, the authors give names to all transitive permutation groups in degrees $\leq 15$ which reflect the transitive action.  These names are used in <code>gap</code>, <code>pari</code>, and <code>SageMath</code>.
 
 \end{definition}
+
+

@@ -3,3 +3,5 @@
 \uses{modlgal,modlgal.codomain,modlgal.image}
 A \hyperref[modlgal]{mod-$\ell$ Galois representation} $\rho: \Gal_K\to G(\F_{\ell})$ is \textbf{surjective} if the \hyperref[modlgal.image]{image} is equal to all of the \hyperref[modlgal.codomain]{codomain}; that is, if $\rho(\Gal_K)=G(\F_{\ell})$.
 \end{definition}
+
+

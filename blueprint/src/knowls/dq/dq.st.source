@@ -1,9 +1,12 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/dq.st.source}{Source of Sato-Tate group data}}
 \begin{definition}\label{dq.st.source}
 \uses{st_group.rational}
+\leanok
 Sato-Tate groups in weight 0 and degree 1 are computed on demand.
 
 \hyperref[st_group.rational]{Rational} Sato-Tate groups in weight 1 and degree 2 are taken from \textit{Hyperelliptic curves, L-polynomials, and random matrices}, by K.S. Kedlaya and A.V. Sutherland \cite{arXiv:0803.4462,doi:10.1090/conm/487,MR:2555991}.
 
 Rational Sato-Tate groups in weight 1 and degree 4 are taken from \textit{Sato-Tate distributions and Galois endomorphism modules in genus $2$}, by F. Fite, K.S. Kedlaya, V. Rotger, and A.V. Sutherland \cite{arXiv:1110.6638,doi:10.1112/S0010437X12000279,MR:2982436}.
 \end{definition}
+
+

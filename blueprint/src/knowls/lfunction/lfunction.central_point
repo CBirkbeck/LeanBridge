@@ -7,3 +7,5 @@ it is the fixed point of the \hyperref[lfunction.functional_equation]{functional
 
 In the \hyperref[lfunction.normalization]{analytic normalization}, the central point is $s=1/2$, in the arithmetic normalization, it is $s=\frac{w+1}{2}$, where $w$ is the \hyperref[lfunction.motivic_weight]{weight} of the L-function.
 \end{definition}
+
+

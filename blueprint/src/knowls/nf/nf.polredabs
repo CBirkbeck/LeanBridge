@@ -1,7 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.polredabs}{Canonical defining polynomial for number fields}}
 \begin{definition}\label{nf.polredabs}
 \uses{nf,nf.poly_discriminant}
-Every \hyperref[nf]{number field} $K$ can be represented as $K = \Q[X]/P(x)$ for some monic $P\in\Z[X]$, called a \textbf{defining polynomial} for $K$.  Among all such defining polynomials, we define the \textbf{reduced defining polynomial} as follows.
+Every \hyperref[nf]{number field} $K$ can be represented as $K = \Q[X]/P(x)$ for some monic $P\in\Z[X]$, called a \textbf{defining polynomial} for $K$.  Among all such defining polynomials, we define the \textbf{reduced defining polynomial} as follows.  
 
 Recall that for a monic polynomial $P(x) = \prod_i(x-\alpha_i)$, the $T_2$ norm of $P$ is $T_2(P) = \sum_i |\alpha_i|^2$.
 
@@ -15,3 +15,5 @@ Then the reduced defining polynomial of $K$ is the first polynomial in $L_1$ wit
 
 The pari/gp function <code>polredabs()</code> computes reduced defining polynomials, which are also commonly called <code>polredabs</code> polynomials.
 \end{definition}
+
+

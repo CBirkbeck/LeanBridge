@@ -1,11 +1,14 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.transformation_property}{Transformation property for modular forms}}
 \begin{definition}\label{mf.transformation_property}
 \uses{group.sl2z,mf,mf.multipliersystem,mf.upper_half_plane}
+\leanok
 A \hyperref[mf]{modular form} $f$ satisfies a transformation property for a group $\Gamma$, which relates the value of $f$ at a point in its domain with the value of $f$ at the point transformed under the action of $\Gamma$ on the domain.
 
 For example in the classical case of $\Gamma = \SL(2,\Z)$, a modular form $f:$\hyperref[mf.upper_half_plane]{$\mathcal{H}$}$\rightarrow\C$ satisfies the transformation
 \[
 f(\gamma z) = f\left(\frac{az+b}{cz+d}\right)= v(\gamma)(cz+d)^kf(z),
-\]
+\]  
 for all $z\in\mathcal{H}$, $\gamma=\left(\begin{array}{ll}a&b\\c&d\end{array}\right)\in$\hyperref[group.sl2z]{$\SL_2(\Z)$} and \hyperref[mf.multipliersystem]{multiplier system} $v$.
 \end{definition}
+
+

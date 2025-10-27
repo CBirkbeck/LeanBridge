@@ -3,7 +3,7 @@
 \uses{}
 Fixing a basis $\{v_1,...,v_n\}$ for a space $V$, the \textbf{Gram matrix} is the $n\times n$ symmetric matrix given by $[B(v_i,v_j)]$.  Similarly, if we fix a basis $\{w_1,...,w_n\}$ for a lattice $L$, then it is also a basis for $V$, and the Gram matrix for $L$ is given by $[B(w_i,w_j)]$.
 
-For example, given the integral lattice $\mathbb Z^3$ on the Euclidean space $\mathbb{R}^3$, in the standard basis $\{e_1,e_2,e_3\}$ the lattice (and hence the space) has a Gram matrix
+For example, given the integral lattice $\mathbb{Z}^3$ on the Euclidean space $\mathbb{R}^3$, in the standard basis $\{e_1,e_2,e_3\}$ the lattice (and hence the space) has a Gram matrix 
 \[
 \begin{bmatrix}
 1 & 0 & 0\\
@@ -11,16 +11,18 @@ For example, given the integral lattice $\mathbb Z^3$ on the Euclidean space $\m
 0 & 0 & 1
 \end{bmatrix}.
 \]
-
-Although Gram matrices are only unique up to a choice of basis, each lattice in the database is identified by a single Gram matrix.  By entering a Gram matrix, $G$, into the search field, the database will return an isometric lattice whose Gram matrix, $A$, is equivalent to $G$ via conjugation by some transition matrix, $T$ (that is, $A=T^tGT$), provided the lattice is in the database.
+    
+Although Gram matrices are only unique up to a choice of basis, each lattice in the database is identified by a single Gram matrix.  By entering a Gram matrix, $G$, into the search field, the database will return an isometric lattice whose Gram matrix, $A$, is equivalent to $G$ via conjugation by some transition matrix, $T$ (that is, $A=T^tGT$), provided the lattice is in the database. 
 
 {% if BETA %}
 
 Lattices in the database are presented in \textbf{Minkowski reduced form}.  That is, for an $n$-dimensional lattice, $L$, the gram matrix, $A$, is given in a basis $\{v_1,...,v_n\}$ such that for each $j\leq n$
 \[
-{v_j}^{*t}\cdot A\cdot {v_j}^*\geq v_j^t \cdot A\cdot v_j
+{v_j}^{*t}\cdot A\cdot {v_j}^*\geq v_j^t \cdot A\cdot v_j 
 \]
-where $v_j^*$ runs through all vectors with which $v_1,...v_{j-1}$ can be extended to a basis. Minkowski reduction is not unique, but when $n\leq 4$, the diagonal entries of a Minkowski reduced Gram matrix are precisely the successive minima of the lattice $L$ [<a href="https://mathscinet.ams.org/mathscinet/search/publdoc.html?arg3=1991&co4=AND&co5=AND&co6=AND&co7=AND&dr=pubyear&pg4=AUCN&pg5=TI&pg6=PC&pg7=ALLF&pg8=ET&r=1&review\_format=html&s4=schulze-pillot&s5=&s6=&s7=&s8=All&sort=Newest&vfpref=html&yearRangeFirst=&yearRangeSecond=&yrop=eq" target="\_blank">MR1096467</a>].
+where $v_j^*$ runs through all vectors with which $v_1,...v_{j-1}$ can be extended to a basis. Minkowski reduction is not unique, but when $n\leq 4$, the diagonal entries of a Minkowski reduced Gram matrix are precisely the successive minima of the lattice $L$ [<a href="https://mathscinet.ams.org/mathscinet/search/publdoc.html?arg3=1991&co4=AND&co5=AND&co6=AND&co7=AND&dr=pubyear&pg4=AUCN&pg5=TI&pg6=PC&pg7=ALLF&pg8=ET&r=1&review\_format=html&s4=schulze-pillot&s5=&s6=&s7=&s8=All&sort=Newest&vfpref=html&yearRangeFirst=&yearRangeSecond=&yrop=eq" target="\_blank">MR1096467</a>].  
 
 {% endif %}
 \end{definition}
+
+

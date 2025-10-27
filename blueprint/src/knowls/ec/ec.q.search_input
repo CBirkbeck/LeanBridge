@@ -1,7 +1,10 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.q.search_input}{Find an elliptic curve}}
 \begin{definition}\label{ec.q.search_input}
 \uses{ec.isogeny_class,ec.q,ec.q.cremona_label,ec.q.lmfdb_label,ec.weierstrass_coeffs}
+\leanok
 To find a specific \hyperref[ec.q]{elliptic curve} over $\Q$ enter its \hyperref[ec.q.lmfdb_label]{LMFDB label} or \hyperref[ec.q.cremona_label]{Cremona label}, or enter its \hyperref[ec.weierstrass_coeffs]{Weierstrass coefficients} as a bracketed list of integers $[a_1,a_2,a_3,a_4,a_6]$.
 
-You can also enter the LMFDB label or Cremona label of an \hyperref[ec.isogeny_class]{isogeny class} of elliptic curves over $\Q$.
+You can also enter the LMFDB label or Cremona label of an \hyperref[ec.isogeny_class]{isogeny class} of elliptic curves over $\Q$. 
 \end{definition}
+
+

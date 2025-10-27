@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/portrait.modcurve}{Pictures of modular curves}}
 \begin{definition}\label{portrait.modcurve}
 \uses{gl2.level,group.fuchsian.action,group.sl2z.fundamental_domain,modcurve,modcurve.index}
+\leanok
 For each \hyperref[modcurve]{modular curve} $X_H$ of \hyperref[gl2.level]{level $N$}, we visualize the modular curve through the \hyperref[group.fuchsian.action]{action} on the \hyperref[group.sl2z.fundamental_domain]{$\mathrm{SL}(2, \mathbb{Z})$ fundamental domain $\mathcal{F}$} by $X_H \cap \mathrm{SL}(2, \mathbb{Z} / N\mathbb{Z})$. In order to better see distinct translations of $\mathcal{F}$, we color the fundamental domain with two separate colors and preserve these colors through translation.
 
 Two modular curves having the same intersection with $\mathrm{SL}(2, \mathbb{Z})$ will have the same picture.
@@ -11,3 +12,5 @@ For modular curves with large \hyperref[modcurve.index]{index}, we only show $38
 
 Pictures of modular curves were implemented by David Lowry-Duda. Details about the implementation and algorithms are contained in the technical note \cite{\href{https://davidlowryduda.com/wp-content/uploads/2022/12/VisualizingModularCurves.pdf}{Visualizing modular curves}}.
 \end{definition}
+
+

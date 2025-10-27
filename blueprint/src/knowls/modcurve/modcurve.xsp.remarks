@@ -1,7 +1,10 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.xsp.remarks}{Remarks on $X_{\mathrm{sp}}(N)$}}
 \begin{definition}\label{modcurve.xsp.remarks}
 \uses{ag.hyperelliptic_curve}
+\leanok
 \hyperref[ag.hyperelliptic_curve]{Hyperelliptic curves}:
-There is only
+There is only 
 <a href = "{{url\_for('modcurve.index\_Q',level='11',family="Xsp")}}">1 hyperelliptic curve in this family</a>, namely $X_{\mathrm{sp}}(11)$ \cite{doi:10.1112/blms/bdw019, MR:3532138}.
 \end{definition}
+
+

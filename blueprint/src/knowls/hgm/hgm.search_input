@@ -1,5 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/hgm.search_input}{Find a hypergeometric motive}}
 \begin{definition}\label{hgm.search_input}
 \uses{hgm.familes,hgm.field.label}
+\leanok
 To find a specific hypergeometric motive or \hyperref[hgm.familes]{family}, enter its \hyperref[hgm.field.label]{label}.
 \end{definition}
+
+

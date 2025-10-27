@@ -1,8 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.congruent_number_problem}{Congruent number problem}}
 \begin{definition}\label{ec.congruent_number_problem}
 \uses{ec,ec.congruent_number,ec.congruent_number_curve}
+\leanok
 The <b>congruent number problem</b> is the problem of determining whether a given
-rational number is or is not a \hyperref[ec.congruent_number]{congruent number}.
+rational number is or is not a \hyperref[ec.congruent_number]{congruent number}.  
 
 Since $n$ is congruent if and only if $nt^2$ is, for any nonzero rational number
 $t$, it is sufficient to consider the case where $n$ is a square-free
@@ -20,6 +21,8 @@ For example, with the $3,4,5$ right triangle and $n = 6$, let $a =
 It is known that a positive integer number $n$ is congruent if and
 only if there exists a rational solution $(x,y)$ with $y\not=0$ to the
 \hyperref[ec]{elliptic curve} equation: \[ E_n:\quad y^2 =
-x^3 - n^2 x, \] or, in other words, a rational point $P=(x,y)$ on the \hyperref[ec.congruent_number_curve]{congruent number curve}
+x^3 - n^2 x, \] or, in other words, a rational point $P=(x,y)$ on the \hyperref[ec.congruent_number_curve]{congruent number curve} 
 $E_n(\Q)$ with $y\not=0$.
 \end{definition}
+
+

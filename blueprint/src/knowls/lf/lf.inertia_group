@@ -12,7 +12,9 @@ Let
 \end{itemize}
 \hyperref[lf.residue_field]{residue fields} of $K$, $L$.
 
-Then each $\sigma\in \Gal(L/K)$ induces a element of $\Gal(\lambda/\kappa)$.  The kernel of the resulting homomorphism
+Then each $\sigma\in \Gal(L/K)$ induces a element of $\Gal(\lambda/\kappa)$.  The kernel of the resulting homomorphism 
 \[ \Gal(L/K) \to \Gal(\lambda/\kappa)\]
 is the \textbf{inertia group} of $L/K$.
 \end{definition}
+
+

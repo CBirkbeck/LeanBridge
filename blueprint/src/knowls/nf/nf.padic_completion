@@ -8,7 +8,7 @@ First, we can take the inverse limit
 $$ \lim_{\leftarrow} \mathcal{O}_K/\mathfrak{P}^n $$
 which is an \hyperref[ring.integral_domain]{integral domain}.  Its \hyperref[ring.field_of_fractions]{field of fractions} is $K_{\mathfrak{P}}$.
 
-Second, since $\mathcal{O}_K$ is a \hyperref[ring.dedekind_domain]{Dedekind domain}, if $\alpha\in K^*$ the \hyperref[ring.fractional_ideal]{fractional ideal}
+Second, since $\mathcal{O}_K$ is a \hyperref[ring.dedekind_domain]{Dedekind domain}, if $\alpha\in K^*$ the \hyperref[ring.fractional_ideal]{fractional ideal} 
 $$\langle \alpha\rangle = \prod_{\mathfrak{Q}} \mathfrak{Q}^{e_{\mathfrak{Q}}}$$
 where the product is over all non-zero prime ideals $\mathfrak{Q}$, all $e_{\mathfrak{Q}}\in\Z$, and all but finitely many $e_{\mathfrak{Q}}=0$.  Then we define
 $v_{\mathfrak{P}}(\alpha)=e_{\mathfrak{P}}$, and then the metric $d$ on $K$ by
@@ -18,3 +18,5 @@ If $K=\Q(a)$, and $f\in\Q[x]$ is the monic \hyperref[ring.irreducible]{irreducib
 
 Finally, the \hyperref[nf.local_algebra]{local algebra} of $K$, $\prod_{j=1}^g K_j$ is a product of the $p$-adic completions of $K$.  The $p$-adic completions of $K$ correspond to the nonarchimedian \hyperref[nf.place]{places} of $K$.
 \end{definition}
+
+

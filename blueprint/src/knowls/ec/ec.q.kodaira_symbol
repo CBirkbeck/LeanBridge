@@ -3,3 +3,5 @@
 \uses{ec.q.minimal_weierstrass_equation,ec.q.reduction_type}
 The \textbf{Kodaira symbol} encodes the \hyperref[ec.q.reduction_type]{reduction type} of an elliptic curve at a prime $p.$ It describes the combinatorics of the special fiber of the N\'e;ron model of the elliptic curve. The N\'e;ron model is obtained from the \hyperref[ec.q.minimal_weierstrass_equation]{minimal Weierstrass equation} using Tate's algorithm. For an exact definition and properties, consult a text on elliptic curves.
 \end{definition}
+
+

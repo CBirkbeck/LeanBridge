@@ -1,27 +1,30 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.subspace.degree.two}{Subspaces of degree 2 Siegel modular forms}}
 \begin{definition}\label{mf.siegel.subspace.degree.two}
 \uses{mf.siegel.cusp_form_degree2,mf.siegel.eisenstein_series,mf.siegel.hecke_operator,mf.siegel.klingen_eisenstein_series,mf.siegel.pertersson_product,mf.siegel.vector_valued_degree_two}
-The space \hyperref[mf.siegel.vector_valued_degree_two]{vector-valued Siegel modular forms} $M_{j,k}(\Gamma_2)$ can be decomposed as
+\leanok
+The space \hyperref[mf.siegel.vector_valued_degree_two]{vector-valued Siegel modular forms} $M_{j,k}(\Gamma_2)$ can be decomposed as 
 \[
 M_{j,k}(\Gamma_2)=S_{j,k}(\Gamma_2)\oplus N_{j,k}(\Gamma_2)
 \]
-where $S_{j,k}(\Gamma_2)$ denotes the subspace of
+where $S_{j,k}(\Gamma_2)$ denotes the subspace of 
 \hyperref[mf.siegel.cusp_form_degree2]{cusp forms} on $\Gamma_2$
-and $N_{j,k}(\Gamma_2)$ denotes its orthogonal complement with respect to the
+and $N_{j,k}(\Gamma_2)$ denotes its orthogonal complement with respect to the 
 \hyperref[mf.siegel.pertersson_product]{Petersson inner product}.
 The previous decomposition is stable under the
-\hyperref[mf.siegel.hecke_operator]{Hecke operators}.
+\hyperref[mf.siegel.hecke_operator]{Hecke operators}. 
 The subspace $N_{j,k}(\Gamma_2)$ can be in turn decomposed into a direct sum, again stable under the
 \hyperref[mf.siegel.hecke_operator]{Hecke operators}. :
 \[
 N_{j,k}(\Gamma_2)=E_{j,k}(\Gamma_2)\oplus KE_{j,k}(\Gamma_2)
-\]
-where $E_{j,k}(\Gamma_2)$ denotes the subspace of
+\] 
+where $E_{j,k}(\Gamma_2)$ denotes the subspace of 
 \hyperref[mf.siegel.eisenstein_series]{Eisenstein series.}
 while $KE_{j,k}(\Gamma_2)$ denotes the subspace of \hyperref[mf.siegel.klingen_eisenstein_series]{Klingen-Eisenstein series.}
 For $k>4$ and $j>0$, the subspace $KE_{j,k}(\Gamma_2)$ is isomorphic
-to the space of cusp forms of weight $k+j$ on $\SL(2,\Z)$.
-
+to the space of cusp forms of weight $k+j$ on $\SL(2,\Z)$. 
+  
 
 
 \end{definition}
+
+

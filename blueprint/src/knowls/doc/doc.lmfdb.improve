@@ -1,5 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/doc.lmfdb.improve}{LMFDB backend}}
 \begin{definition}\label{doc.lmfdb.improve}
 \uses{}
+\leanok
 An extensive backend is in place to perform vast computations and handle the large amounts of data already produced.
 \end{definition}
+
+

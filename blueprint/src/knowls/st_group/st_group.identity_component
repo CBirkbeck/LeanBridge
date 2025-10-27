@@ -3,3 +3,5 @@
 \uses{st_group.component_group,st_group.definition}
 The \textbf{identity component} of a \hyperref[st_group.definition]{Sato-Tate group} $G$ is the connected component $G^0$ of the identity element.  As a compact Lie group, the identity component $G^0$ is a normal subgroup of finite index.  The quotient $G/G^0$ is the \hyperref[st_group.component_group]{component group} of $G$.
 \end{definition}
+
+

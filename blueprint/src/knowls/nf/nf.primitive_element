@@ -1,5 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.primitive_element}{Primitive element}}
 \begin{definition}\label{nf.primitive_element}
 \uses{nf,nf.generator}
+\leanok
 A primitive element for a \hyperref[nf]{number field} $K$ is a \hyperref[nf.generator]{field generator} of $K$. In other words, it is an element $\alpha \in K$ such that the inclusion $\Q(\alpha) \subseteq K$ is an equality. The \textit{primitive element theorem} asserts that every \hyperref[nf]{number field} admits a primitive element.
 \end{definition}
+
+

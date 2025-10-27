@@ -1,11 +1,14 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.cite.g2c}{How to cite genus 2 curves}}
 \begin{definition}\label{rcs.cite.g2c}
 \uses{}
+\leanok
 <h2>Citation</h2>
 
 If you use the database of genus 2 curves in your research please cite:
 
-<a href="https://doi.org/10.1112/S146115701600019X">*A database of genus 2 curves over the rational numbers*</a>, by Andrew R. Booker, Jeroen Sijsling, Andrew V. Sutherland, John Voight, and Dan Yasaki, Twelfth Algorithmic Number Theory Symposium (ANTS XII), LMS Journal of Computation and Mathematics 19 (2016), 235-254 \cite{mr:3540958},
+\href{https://doi.org/10.1112/S146115701600019X}{*A database of genus 2 curves over the rational numbers*}, by Andrew R. Booker, Jeroen Sijsling, Andrew V. Sutherland, John Voight, and Dan Yasaki, Twelfth Algorithmic Number Theory Symposium (ANTS XII), LMS Journal of Computation and Mathematics 19 (2016), 235-254 \cite{mr:3540958},
 
 as well as any of the references cited above that are of particular relevance.
 \end{definition}
+
+

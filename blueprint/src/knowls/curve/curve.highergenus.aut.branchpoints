@@ -6,3 +6,5 @@ If $G$ is a finite group of automorphisms acting on a \hyperref[ag.riemann_surfa
 The points $P$ of $X/G$ whose fibers $\phi^{-1}(P)$ have cardinality strictly less than $d$ are called \textbf{branch points}.
 
 \end{definition}
+
+

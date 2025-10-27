@@ -1,6 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.extent.sp4z_2}{Available samples for $M_{k,2}(\mathrm{Sp}(4,\mathbb{Z}))$}}
 \begin{definition}\label{mf.siegel.extent.sp4z_2}
 \uses{group.sp2gr,mf.siegel.galois_orbit,mf.siegel.vector_valued}
+\leanok
 The following table shows the \hyperref[mf.siegel.galois_orbit]{Galois orbits} of all \hyperref[mf.siegel.vector_valued]{vector valued} cusp forms of weights 10,2 to 30,2 on the \hyperref[group.sp2gr]{full modular group} $\mathrm{Sp}(4,\mathbb{Z})$.
 
 \end{definition}
+
+

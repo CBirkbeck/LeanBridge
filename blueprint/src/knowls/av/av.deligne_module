@@ -3,6 +3,8 @@
 \uses{}
 A \textbf{Deligne module} is a finitely generated free $\mathbb{Z}$-module $M$ together with a $\mathbb{Z}$-linear endomorphism $F$ inducing an action of the Frobenius order $\mathbb{Z}[F,V]$ of some isogeny class determined by a Weil polynomial $h(x)$ such that the action of $F$ on $M$ has characteristic polynomial $h(x)$.
 If the characteristic polynomial $h(x)$ is squarefree, than $M$ can be identified with a fractional $\mathbb{Z}[F,V]$-ideal in in the étale $\mathbb{Q}$-algebra $\mathbb{Q}[F]$.
-The whole category of ordinary abelian variety over any finite field $\mathbb{F}_q$ can be described using Deligne modules, by a result of Deligne \cite{10.1007/BF01406076,MR:254059}.
-The same holds for the category of abelian varieties over a prime finite field $\mathbb{F}_p$ whose characteristic polynomials don't have real roots, thanks to a result by Centeleghe-Stix \cite{10.2140/ant.2015.9.225,MR:3317765,arXiv:1501.02446v1}.
+The whole category of ordinary abelian variety over any finite field $\mathbb{F}_q$ can be described using Deligne modules, by a result of Deligne \cite{doi:10.1007/BF01406076,MR:254059}.
+The same holds for the category of abelian varieties over a prime finite field $\mathbb{F}_p$ whose characteristic polynomials don't have real roots, thanks to a result by Centeleghe-Stix \cite{doi:10.2140/ant.2015.9.225,MR:3317765,arXiv:1501.02446v1}.
 \end{definition}
+
+

@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/gg.simple_name}{Simple group name}}
 \begin{definition}\label{gg.simple_name}
 \uses{}
+\leanok
 We describe abstract groups using standard building blocks:
 <ul>
  <li> $C_n$ denotes the cyclic group of order $n$
@@ -19,3 +20,5 @@ Groups $A$ and $B$ may be used to construct a larger group:
 \end{itemize}
 
 \end{definition}
+
+

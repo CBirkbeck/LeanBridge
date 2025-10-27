@@ -1,7 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.genus_minus_rank}{Genus-rank difference}}
 \begin{definition}\label{modcurve.genus_minus_rank}
 \uses{ag.jacobian,ag.mordell_weil,modcurve,modcurve.genus,modcurve.rank}
-The \textbf{genus-rank difference} of a \hyperref[modcurve]{modular curve} $X_H$ of positive genus is the integer obtained by subtracting the \hyperref[modcurve.rank]{analytic rank} of $X_H$ from its \hyperref[modcurve.genus]{genus}.
+The \textbf{genus-rank difference} of a \hyperref[modcurve]{modular curve} $X_H$ of positive genus is the integer obtained by subtracting the \hyperref[modcurve.rank]{analytic rank} of $X_H$ from its \hyperref[modcurve.genus]{genus}.  
 
 This difference is of interest because the methods available to compute the set of rational points on $X_H$ depend critically on whether the \hyperref[ag.mordell_weil]{Mordell-Weil rank} of its \hyperref[ag.jacobian]{Jacobian} is less than, equal to, or greater than its genus (one expects the Mordell-Weil rank to equal the analytic rank of $X_H$ and the later is much more feasible to compute).
 \end{definition}
+
+

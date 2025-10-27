@@ -3,3 +3,5 @@
 \uses{belyi.galmap}
 The \textbf{degree} of a \hyperref[belyi.galmap]{Belyi map} $\phi:X\to\mathbb{P}^1$ is the degree of $\phi$ as a finite map of curves.
 \end{definition}
+
+

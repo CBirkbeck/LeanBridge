@@ -4,3 +4,5 @@
 A \textbf{Frobenius matrix} for a \hyperref[modlgal]{mod-$\ell$ Galois representation}  is an element of the conjugacy class of the image of the \hyperref[modlgal.absolute_frobenius]{absolute Frobenius} element associated to a particular prime.
 
 \end{definition}
+
+

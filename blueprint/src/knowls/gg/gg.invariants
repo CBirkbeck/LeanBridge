@@ -13,3 +13,5 @@ such that each $G_i$ is normal in $G_{i+1}$ and all quotients $G_{i+1}/G_i$ are 
 
 The \textbf{character table} shows values of all characters of irreducible complex representations of $G$.  The rows are indexed by characters, and the columns by conjugacy classes of $G$.
 \end{definition}
+
+

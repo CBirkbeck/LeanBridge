@@ -6,7 +6,7 @@ a \hyperref[lf.padic_field]{$p$-adic field} $K$.
 We can express $I$ in terms of \hyperref[lf.rams]{rams}
 as $I=(r_1,\dots,r_w)_{\epsilon}^f$, in terms of
 \hyperref[lf.slopes]{Swan slopes} as
-$I=[s_1,\dots,s_w]_{\epsilon}^f$ or in terms of the \hyperref[lf.means]{means} $\langle m_1,\dots,m_w\rangle_\epsilon^f$.  The \textbf{Herbrand function} of $I/K$ is
+$I=[s_1,\dots,s_w]_{\epsilon}^f$ or in terms of the \hyperref[lf.means]{means} $\langle m_1,\dots,m_w\rangle_{\epsilon}^f$.  The \textbf{Herbrand function} of $I/K$ is
 the piecewise linear function $\phi_{I/K}:\R_{\ge0}\rightarrow\R_{\ge0}$
 whose graph is obtained by joining the points
 $(0,0),(r_1,s_1),\dots,(r_w,s_w)$ with
@@ -25,3 +25,5 @@ of $\phi_{I/K}$ give some of the
 the extensions $L/K$ in $I/K$.
 
 \end{definition}
+
+

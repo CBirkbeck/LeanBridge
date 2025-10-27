@@ -1,13 +1,13 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.quasi_modular}{Quasi-modular form}}
 \begin{definition}\label{mf.quasi_modular}
 \uses{af.divisor_function,cmf.weight,group.fuchsian,group.sl2z,mf.growth_condition,mf.multipliersystem,mf.slash_action,mf.upper_half_plane}
-A \textbf{quasi-modular form} of \hyperref[cmf.weight]{weight} $k$ and \hyperref[mf.multipliersystem]{multiplier system} $v$ for a \hyperref[group.fuchsian]{fuchsian group} $G$ is a function $f$ from \hyperref[mf.upper_half_plane]{$\mathfrak{H}$} to $\mathbb{C}$ which is
-holomorphic and satisfies a certain \hyperref[mf.growth_condition]{growth condition} and, for any $\gamma=\left(\begin{matrix}a&b\\c&d\end{matrix}\right)\in G$ and
+A \textbf{quasi-modular form} of \hyperref[cmf.weight]{weight} $k$ and \hyperref[mf.multipliersystem]{multiplier system} $v$ for a \hyperref[group.fuchsian]{fuchsian group} $G$ is a function $f$ from \hyperref[mf.upper_half_plane]{$\mathfrak{H}$} to $\mathbb{C}$ which is 
+holomorphic and satisfies a certain \hyperref[mf.growth_condition]{growth condition} and, for any $\gamma=\left(\begin{matrix}a&b\\c&d\end{matrix}\right)\in G$ and 
 $z\in\mathfrak{H}$, we have:
 \[
 (f|_k\gamma)(z)=v(\gamma)P\left(z,\frac{c}{cz+d}\right),
 \]
-where $P$ is a polynomial in two variables whose coefficients depend only on $f$
+where $P$ is a polynomial in two variables whose coefficients depend only on $f$ 
 and not on $\gamma$ and $f|_k\gamma$ is the \hyperref[mf.slash_action]{weight $k$ slash-action}. The *degree* of $P$ is called the *depth* of $f$.
 
 An example of a quasi-modular form is the Eisenstein series $E_2(z)=1-24\sum_{n\geq1}\sigma_1(n)q^n$, where $q=e^{2\pi iz}$ and $\sigma_1$ is a \hyperref[af.divisor_function]{divisor function}. It has weight $2$ and depth $1$ on \hyperref[group.sl2z]{$\Gamma$} and it has the following transformation property:
@@ -15,3 +15,5 @@ An example of a quasi-modular form is the Eisenstein series $E_2(z)=1-24\sum_{n\
 E_2(\gamma z)=(cz+d)^2E_2(z)-\frac{6i}{\pi}c(cz+d).
 \]
 \end{definition}
+
+

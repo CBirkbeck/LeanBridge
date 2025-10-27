@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.fuchsian.action}{Action of $\SL(2,\R)$ in the upper half-plane}}
 \begin{definition}\label{group.fuchsian.action}
 \uses{mf.upper_half_plane}
+\leanok
 The group $\SL(2,\R)$ acts on the \hyperref[mf.upper_half_plane]{upper half-plane} via
 <b>linear fractional transformation</b>, given by
 $$
@@ -9,3 +10,5 @@ $$
 \frac{a z + b}{c z + d} .
 $$
 \end{definition}
+
+

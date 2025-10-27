@@ -4,5 +4,7 @@
 The \textbf{general linear group} $\GL(n,q)$ is the group of $n \times n$ invertible matrices with entries in the \hyperref[ring.field]{field} $\F_q$ (the finite field with $q$ elements). It has order $\prod_{k=0}^{n-1} (q^n - q^k)$.
 If $p$ is prime, then $\GL(n,p)$ is the \hyperref[group.automorphism]{automorphism group} of the abelian group $C_p^n$.
 
-The \textbf{projective general linear group} $\PGL(n, q)$ is the \hyperref[group.quotient]{quotient} of $\GL(n, q)$ by its subgroup of scalar matrices.
+The \textbf{projective general linear group} $\PGL(n, q)$ is the \hyperref[group.quotient]{quotient} of $\GL(n, q)$ by its subgroup of scalar matrices. 
 \end{definition}
+
+

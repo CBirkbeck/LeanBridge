@@ -3,3 +3,5 @@
 \uses{group.representation.irrep}
 The \textbf{image} of a \hyperref[group.representation.irrep]{representation} of a finite group $G$ is the image of the defining homomorphism $\rho : G \to \GL(V)$ for some vector  space $V$.
 \end{definition}
+
+

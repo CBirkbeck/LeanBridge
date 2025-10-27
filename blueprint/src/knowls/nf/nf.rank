@@ -4,3 +4,5 @@
 The \textbf{rank} of a \hyperref[nf]{number field} $K$ is the size of any set of  \hyperref[nf.fundamental_units]{fundamental units} of $K$. It is equal to $r = r_1 + r_2 -1$ where $r_1$ is the number of real embeddings of $K$ into $\C$ and $2r_2$ is the number of complex embeddings of $K$ into $\C.$
 
 \end{definition}
+
+

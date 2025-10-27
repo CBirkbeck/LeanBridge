@@ -1,8 +1,11 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.ack.lattice}{Lattice additional acknowledgments}}
 \begin{definition}\label{rcs.ack.lattice}
 \uses{}
+\leanok
 <h2>Additional Acknowledgments</h2>
 
 Data computed by Samuele Anni, Stephan Ehlen, Anna Haensch, Gabriele Nebe and Neil Sloane
 
 \end{definition}
+
+

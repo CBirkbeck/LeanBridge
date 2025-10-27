@@ -9,3 +9,5 @@ can be viewed as the \textbf{probability} that a random $g\in G$ satisfies $a_i(
 
 Note that while $\mathrm{Pr}[a_i=n]=0$ implies that $\{g\in G:a_i(g) = n\}$ has measure zero, this set need not be empty (unless $G$ is finite).
 \end{definition}
+
+

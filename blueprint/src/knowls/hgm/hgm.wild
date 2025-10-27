@@ -3,3 +3,5 @@
 \uses{hgm.defining_parameters,hgm.familes}
 A prime $p$ is called \textbf{wild} for a \hyperref[hgm.familes]{hypergeometric family} $H(A,B)$ if it divides an element of the \hyperref[hgm.defining_parameters]{defining parameters} $A$ and $B$.  The name is appropriate since if $p$ is such a prime, then for most $t \in \Q^\times$ the motive $H(A,B,t)$ is wildly ramified at $p$.
 \end{definition}
+
+

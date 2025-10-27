@@ -5,3 +5,5 @@ An \hyperref[ec]{elliptic curve} \(E\) defined over a \hyperref[nf]{number field
 
 An elliptic curve \(E_{\mathfrak{p}}\) defined over a finite field of characteristic \(p\) is \textbf{supersingular} if \(E_{\mathfrak{p}}(\overline{\F_p})\) has no \(p\)-torsion.
 \end{definition}
+
+

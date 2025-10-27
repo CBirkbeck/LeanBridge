@@ -1,10 +1,12 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.analytic_rank}{Analytic rank of a curve}}
 \begin{definition}\label{g2c.analytic_rank}
 \uses{ag.abelian_variety,ag.curve,ag.jacobian,ag.mordell_weil,g2c.bsd_invariants,g2c.hasse_weil_conjecture,lfunction,lfunction.analytic_rank,lfunction.central_point,lfunction.functional_equation,lfunction.sign}
-The \textbf{analytic rank} of an \hyperref[ag.abelian_variety]{abelian variety} is the \hyperref[lfunction.analytic_rank]{analytic rank} of its \hyperref[lfunction]{L-function} $L(A,s)$.  The analytic rank of a \hyperref[ag.curve]{curve} is the analytic rank of its \hyperref[ag.jacobian]{Jacobian}.  The weak form of the \hyperref[g2c.bsd_invariants]{BSD conjecture} implies that the analytic rank is equal to the rank of the \hyperref[ag.mordell_weil]{Mordell-Weil group} of the abelian variety.
+The \textbf{analytic rank} of an \hyperref[ag.abelian_variety]{abelian variety} is the \hyperref[lfunction.analytic_rank]{analytic rank} of its \hyperref[lfunction]{L-function} $L(A,s)$.  The analytic rank of a \hyperref[ag.curve]{curve} is the analytic rank of its \hyperref[ag.jacobian]{Jacobian}.  The weak form of the \hyperref[g2c.bsd_invariants]{BSD conjecture} implies that the analytic rank is equal to the rank of the \hyperref[ag.mordell_weil]{Mordell-Weil group} of the abelian variety.  
 
 Analytic ranks are always computed under the assumption that $L(A,s)$ satisfies the \hyperref[g2c.hasse_weil_conjecture]{Hasse-Weil conjecture} (they are not necessarily well-defined otherwise).  When $A$ is defined over $\Q$, the parity of the analytic rank is always compatible with the \hyperref[lfunction.sign]{sign} of the \hyperref[lfunction.functional_equation]{functional equation}.
 
 In general, analytic ranks stored in the LMFDB are only upper bounds on the true analytic rank (they could be incorrect if $L(A,s)$ has a zero very close to but not on the \hyperref[lfunction.central_point]{central point}).  For abelian varieties over $\Q$ of analytic rank less than 2 this upper bound is necessarily tight, due to parity.
 
 \end{definition}
+
+

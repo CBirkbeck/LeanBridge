@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.taxonomy}{Taxonomy of L-functions}}
 \begin{definition}\label{lfunction.taxonomy}
 \uses{}
+\leanok
 Taxonomy of L-functions
 =======================
 
@@ -168,3 +169,5 @@ Note: The Sato-Tate group determines which operations on the $L$-function
 ($sym^n$, for example) have poles.
 
 \end{definition}
+
+

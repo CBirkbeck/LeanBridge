@@ -1,5 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/doc.knowl.implicit}{Implicit creation of knowls}}
 \begin{definition}\label{doc.knowl.implicit}
 \uses{}
+\leanok
 Following a link to a non-existing Knowl offers the possibility to create, then edit and save a new Knowl.
 \end{definition}
+
+

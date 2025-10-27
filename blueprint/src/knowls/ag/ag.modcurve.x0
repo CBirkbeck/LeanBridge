@@ -1,7 +1,10 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.modcurve.x0}{Modular curve $X_0(N)$}}
 \begin{definition}\label{ag.modcurve.x0}
 \uses{ag.curve,ec,ec.isogeny,mf.upper_half_plane}
+\leanok
 Let $N \ge 1$. The *modular curve* $X_0(N)$ is an \hyperref[ag.curve]{algebraic curve} defined over $\Q$ (or even $\Z[1/N]$) whose points over any algebraically closed field of characteristic not dividing $N$ correspond to isomorphism classes of pairs $(E,\phi)$, where $E$ is an \hyperref[ec]{elliptic curve} and $\phi$ is an \hyperref[ec.isogeny]{isogeny} with domain $E$ and kernel a cyclic group of order $N$, with the exception of particular points called *cusps* which correspond to degenerate such pairs.
 
 The complex manifold $X_0(N)(\C)$ is biholomorphic to the quotient $\Gamma_0(N) \backslash \mathcal{H}^*$ of the \hyperref[mf.upper_half_plane]{completed upper half plane}.
 \end{definition}
+
+

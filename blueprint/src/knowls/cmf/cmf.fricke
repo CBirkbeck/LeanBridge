@@ -1,7 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.fricke}{Fricke involution}}
 \begin{definition}\label{cmf.fricke}
 \uses{cmf.analytic_rank,cmf.atkin-lehner,lfunction,lfunction.functional_equation}
-The \textbf{Fricke involution} is the \hyperref[cmf.atkin-lehner]{Atkin-Lehner involution} $w_N$ on the space $S_k(\Gamma_0(N))$ (induced by the corresponding involution on the modular curve $X_0(N)$).
+The \textbf{Fricke involution} is the \hyperref[cmf.atkin-lehner]{Atkin-Lehner involution} $w_N$ on the space $S_k(\Gamma_0(N))$ (induced by the corresponding involution on the modular curve $X_0(N)$).  
 
 For a newform $f \in S_k^{\textup{new}}(\Gamma_0(N))$, the sign of the \hyperref[lfunction.functional_equation]{functional equation} satisfied by the \hyperref[lfunction]{L-function} attached to $f$ is $i^{-k}$ times the eigenvalue of $\omega_N$ on $f$.  So, for example when $k=2$, the signs swap, and the \hyperref[cmf.analytic_rank]{analytic rank} of $f$ is even when $w_N f = -f$ and odd when $w_N f = +f$.
 \end{definition}
+
+

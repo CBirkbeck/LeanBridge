@@ -13,3 +13,5 @@ The \textbf{agreeable closure} $\widetilde H$ of $H$ is the intersection of all 
 
 The agreeable closure $\widetilde H$ contains $H$ as a \hyperref[group.subgroup.normal]{normal subgroup} and has the same \hyperref[group.commutator_subgroup]{commutator subgroup} as $H$; see Proposition 8.1 of \cite{arxiv:2206.14959}.  It follows that the quotient $\widetilde{H}/H$ (called the \textbf{agreeable quotient}) is finite abelian.
 \end{definition}
+
+

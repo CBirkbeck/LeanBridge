@@ -10,3 +10,5 @@ For an \hyperref[ag.abelian_variety]{abelian variety} $X$, the primes of bad red
 If a curve has good reduction at $\mathfrak{p}$, then its \hyperref[ag.jacobian]{Jacobian} does too.  The converse need not hold.
 
 \end{definition}
+
+

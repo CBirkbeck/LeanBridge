@@ -8,3 +8,5 @@ It is expected that all L-functions satisfy the \hyperref[lfunction.rh]{Riemann 
 It is also conjectured that a precise form of the \hyperref[lfunction.functional_equation]{functional equation} holds for every element of $\mathcal S$. Under this assumption the functional equation is determined by a quadruple known as the \hyperref[lfunction.selbergdata]{Selberg data}, consisting of the \hyperref[lfunction.degree]{degree}, \hyperref[lfunction.conductor]{conductor}, \hyperref[lfunction.spectral_parameters]{spectral parameters}, and \hyperref[lfunction.root_number]{sign}.
 
 \end{definition}
+
+

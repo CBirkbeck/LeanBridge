@@ -1,7 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.log}{$p$-adic logarithm}}
 \begin{definition}\label{lf.log}
 \uses{lf.maximal_ideal,lf.ramification_index,lf.ring_of_integers}
-Let $K$ be a finite extension of $\Q_p$ for some prime $p$, and
+Let $K$ be a finite extension of $\Q_p$ for some prime $p$, and 
 $$ S=\{z \in K : |z|_p < 1\}$$
 where $|\cdot|_p$ is an absolute value on $K$ normalized so that $|p|_p=1/p$.  Then the \textbf{$p$-adic logarithm}
 $ \log_p:S\to K$
@@ -12,3 +12,5 @@ One can extend $\log_p$ to $K$ by defining $\log_p(p)=0$ and $\log_p(\zeta)=0$ w
 If $\mathcal{O}_K$ is the \hyperref[lf.ring_of_integers]{ring of integers} of $K$ and $M$ is the unique \hyperref[lf.maximal_ideal]{maximal ideal} of $\mathcal{O}_K$, then the image of the $p$-adic logarithm,
 $ \log_p(1+M) = M$ provided $e<p-1$ where $e$ is the \hyperref[lf.ramification_index]{ramification index} for $K/\Q_p$.
 \end{definition}
+
+

@@ -4,3 +4,5 @@
 If $*$ is a \hyperref[alg.binary_operation]{binary operation} on a set $A$, then $*$ is \textbf{associative} on $A$ if for all $a,b,c\in A$,
 $$ a*(b*c)=(a*b)*c.$$/div>
 \end{definition}
+
+

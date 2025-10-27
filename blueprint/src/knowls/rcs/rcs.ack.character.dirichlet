@@ -1,9 +1,12 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.ack.character.dirichlet}{Acknowledgments for Dirichlet characters}}
 \begin{definition}\label{rcs.ack.character.dirichlet}
 \uses{}
+\leanok
 <h2>Additional acknowledgments</h2>
 Data computed by Alex Best, Jonathan Bober, David Lowry-Duda, and Andrew Sutherland.
 
 The organization of Dirichlet characters into Galois orbits was implemented by Barinder Banwait.
 
 \end{definition}
+
+

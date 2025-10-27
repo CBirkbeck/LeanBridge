@@ -5,3 +5,5 @@ The \textbf{maximal ideal} of a \hyperref[lf.local_field]{nonarchimedean local f
 
 It consists of all elements of $\mathcal O_K$ that are not \hyperref[ring.unit]{units}, equivalently, all elements of $K$ whose \hyperref[nf.absolute_value]{absolute value} is strictly less than 1.
 \end{definition}
+
+

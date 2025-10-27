@@ -3,3 +3,5 @@
 \uses{character.dirichlet,character.dirichlet.group,character.dirichlet.modulus}
 The set of \hyperref[character.dirichlet]{Dirichlet characters} $\chi\colon\Z\to\C$ of \hyperref[character.dirichlet.modulus]{modulus} $q$ form a \hyperref[character.dirichlet.group]{group} isomorphic (though not canonically) to $(\Z/q\Z)^\times$, which has \textbf{order} $\varphi(q)$, where $\varphi$ is the Euler function.
 \end{definition}
+
+

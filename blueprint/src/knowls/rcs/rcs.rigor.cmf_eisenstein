@@ -1,0 +1,40 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.rigor.cmf_eisenstein}{Reliability of the Classical Modular Form Data}}
+\begin{definition}\label{rcs.rigor.cmf_eisenstein}
+\uses{cmf,cmf.analytic_rank,cmf.coefficient_field,cmf.dimension,cmf.galois_orbit,cmf.inner_twist,cmf.level,cmf.newform,cmf.newspace,cmf.projective_field,cmf.projective_image,cmf.self_twist,cmf.selfdual,cmf.trace_form,cmf.weight,lfunction.sign}
+\leanok
+All \hyperref[cmf]{modular form} data currently in the database has been computed using rigorous algorithms that do not depend on any unproved assumptions or conjectures.  In particular
+
+\begin{itemize}
+\item  All \hyperref[cmf.self_twist]{self twists} and \hyperref[cmf.inner_twist]{inner twists} have been rigorously verified either by checking exact algebraic coefficients or complex analytic coefficients computed to sufficient precision to uniquely identify every such twist (as of February 2020).
+\end{itemize}
+
+\begin{itemize}
+\item  The \hyperref[cmf.analytic_rank]{analytic ranks} have all been rigorously verified by computing winding elements on spaces of modular symbols (and using the \hyperref[lfunction.sign]{sign} of the functional equation in the case of \hyperref[cmf.selfdual]{self dual} \hyperref[cmf.newform]{newforms}).
+\end{itemize}
+
+\begin{itemize}
+\item  For \hyperref[cmf.weight]{weight} 1 newforms, the  classification of the \hyperref[cmf.projective_image]{projective image} as $D_n$, $A_4$, $S_4$, $A_5$ has been rigorously verified by explicitly computing the \hyperref[cmf.projective_field]{projective field} (as of August 2019).
+\end{itemize}
+
+In addition to using mathematically rigorous algorithms whenever possible, we have performed a variety of consistency checks intended to catch any errors in the software packages used to compute modular forms data, or any errors that might have been introduced during post-processing.  The following checks have been performed:
+
+\begin{itemize}
+\item  All newforms and Eisenstein newforms of weight $k > 1$ and \hyperref[cmf.level]{level} $N$ satisfying $Nk^2 \le 2000$ have been independently computed using \cite{href{http://magma.maths.usyd.edu.au/magma/}{Magma}} and \cite{href{https//pari.math.u-bordeaux.fr/}{Pari/GP}}.  By comparing the results of these computations we have verified that the decompositions of each \hyperref[cmf.newspace]{newspace} $S_k^{\rm new}(N,\chi)$ into  \hyperref[cmf.galois_orbit]{Galois orbits} agree (with matching \hyperref[cmf.coefficient_field]{coefficient fields}), that the first 1000 coefficients of the \hyperref[cmf.trace_form]{trace forms} for each Galois orbit agree, and for newforms of \hyperref[cmf.dimension]{dimension} $d\le 20$, that there is an automorphism of the coefficient field that relates the sequences of algebraic eigenvalues $(a_1,\ldots,a_{1000})$ computed by Pari and Magma.
+\end{itemize}
+
+\begin{itemize}
+\item  For all newforms and Eisenstein newforms of weight $k>1$ and level $N$ satisfying $Nk^2 \le 4000$ we have verified that the trace forms computed by Magma (using modular symbols) agree with the trace forms obtained from complex analytic data computed using the explicit trace formula.  This also verifies the dimensions of the coefficient fields.
+\end{itemize}
+
+\begin{itemize}
+\item  For newforms of weight $k=1$ and level $N\le 1000$ we have matched the data computed using Pari/GP with the tables computed by Buzzard and Lauder \cite{arxiv:1605.05346}.
+\end{itemize}
+
+\begin{itemize}
+\item  For dihedral newforms of weight $k=1$ and level $N\le 4000$ we have matched trace forms with data computed using the explicit trace formula in Pari/GP with data computed independently in both Pari/GP and Magma using class field theoretic methods.
+\end{itemize}
+
+See \cite{arXiv:2002.04717} for further details.
+\end{definition}
+
+

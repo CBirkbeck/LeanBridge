@@ -6,3 +6,5 @@ To each \hyperref[modlgal]{mod-$\ell$ Galois representation} $\rho:\Gal_K \to G(
 The determinant character is a $1$-dimensional \hyperref[modlgal]{mod-$\ell$ Galois representation}.  If $\rho$ has \hyperref[modlgal.dimension]{dimension} $1$, the determinant character is the same as the original representation.
 
 \end{definition}
+
+

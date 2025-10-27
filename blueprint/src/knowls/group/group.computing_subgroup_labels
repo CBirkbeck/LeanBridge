@@ -1,9 +1,12 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.computing_subgroup_labels}{Computing labels of subgroups}}
 \begin{definition}\label{group.computing_subgroup_labels}
 \uses{group.conjugacy_class,group.gassmann_equivalence,group.permutation_representation}
+\leanok
 In order to label \hyperref[group.gassmann_equivalence]{Gassmann classes} we first fix an ordering of the \hyperref[group.conjugacy_class]{conjugacy classes} of $G$. Having fixed such an ordering, it is easy to compute a unique identifier for each Gassmann class: we count the intersection of $H$ with each $G$-conjugacy class. We enumerate $H$-conjugacy classes of elements of $H$ in any order, then determine which $G$-conjugacy class they belong to, adding the size of the $H$-conjugacy class to a running tally of the intersection.  An analogous process works for Gassman vectors up to automorphism, where we collect together $G$-conjugacy classes that are related by an automorphism of $G$.
 
 If there are multiple subgroups up to automorphism (resp., conjugation) within a given Gassmann class, we use the subgroup lattice to further order those remaining subgroups. We first order subgroups $H$ in the same Gassmann class using the lex ordering on the sorted list of labels of all (proper) supergroups of $H$. (One can and often does have Gassmann equivalent subgroups for which the lists of supergroups differ.)  Note that here ``supergroup'' refers to inclusions in the poset of subgroups up to automorphism (resp., conjugation), meaning we consider $K$ to be a supergroup of $H$ if it contains any  subgroup equivalent to $H$ up to automorphism (resp., conjugation).
 
 In these cases where two or more Gassmann equivalent subgroups have the same set of supergroups, we resort to computing \hyperref[group.permutation_representation]{permutation representation} signatures. We can, in fact, compute with any supergroup $K$ of $H$ instead of $G$.  This is much more efficient when the index $[K:H]$ is much smaller than $[G:H]$, but does require some care to account for the fact that there may be two or more $G$-conjugates of $H$ contained in $K$ that are not $K$-conjugate.
 \end{definition}
+
+

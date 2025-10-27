@@ -1,5 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.min_rational_irrep_deg}{Minimal degree of a rational irrep}}
 \begin{definition}\label{group.min_rational_irrep_deg}
 \uses{group.representation.faithful,group.representation.irrep}
+\leanok
 The smallest positive integer $d$ such that the group $G$ admits a \hyperref[group.representation.faithful]{faithful} \hyperref[group.representation.irrep]{irreducible} rational representation of degree $d$.
 \end{definition}
+
+

@@ -1,9 +1,11 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.rh}{Generalized Riemann hypothesis}}
 \begin{definition}\label{lfunction.rh}
 \uses{lfunction}
-The \textbf{Riemann hypothesis} is the assertion that if $\rho$ is a zero of an
- \hyperref[lfunction]{analytic L-function} then $\mathrm{Re}(\rho)>0$ implies
-that $\mathrm{Re}(\rho)=1/2.$
-
-
+The \textbf{Riemann hypothesis} is the assertion that if $\rho$ is a zero of an 
+ \hyperref[lfunction]{analytic L-function} then $\mathrm{Re}(\rho)>0$ implies 
+that $\mathrm{Re}(\rho)=1/2.$ 
+ 
+ 
 \end{definition}
+
+

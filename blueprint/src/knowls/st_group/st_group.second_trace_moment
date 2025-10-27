@@ -5,3 +5,5 @@ The \textbf{second trace moment} of a \hyperref[st_group.definition]{Sato-Tate g
 
 When $G$ is the Sato-Tate group of an abelian variety, this is equal to the dimension of its \hyperref[ag.endomorphism_algebra]{endomorphism algebra} \cite{arxiv:1910.00518,mr:4038255}.
 \end{definition}
+
+

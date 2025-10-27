@@ -51,9 +51,11 @@ have identified the lowest \hyperref[lfunction.zeros]{zero} above the real axis.
 that the value of this zero uniquely identifies an L-function.  This
 gives an interesting and useful way of identifying an L-function.
 
-\textbf{Downloading:}  You may download available data, for example moment polynomials of the zeta function.  Some data is available to download within a page, while other data may be obtained through a link in the navigation bar.
+\textbf{Downloading:}  You may download available data, for example moment polynomials of the zeta function.  Some data is available to download within a page, while other data may be obtained through a link in the navigation bar. 
 
 \textbf{Feedback:}  If you encounter any issues or problems while using the LMFDB, please click on Feedback in the upper right hand corner of the header to file a report.
 
 
 \end{definition}
+
+

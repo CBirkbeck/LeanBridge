@@ -18,3 +18,5 @@ where
 
 The Birch and Swinnerton-Dyer for abelian varieties implies that the analytic rank of $A$ is equal to its \hyperref[g2c.mordell_weil_rank]{Mordell-Weil rank}, and that its analytic order of Sha is equal to the order of its \hyperref[ag.tate_shafarevich]{Tate-Shafarevich group}.
 \end{definition}
+
+

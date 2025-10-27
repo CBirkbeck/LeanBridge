@@ -5,3 +5,5 @@ An \textbf{order} in a \hyperref[nf]{number field} $K$ is a subring of $K$ which
 
 Example: $\Z[\sqrt{5}]$ is an order in $K=\Q(\sqrt{5})$. However, it is not maximal, since the maximal order (i.e. ring of integers) of $K$ is $\Z\left[\frac{1+\sqrt{5}}2\right]$.
 \end{definition}
+
+

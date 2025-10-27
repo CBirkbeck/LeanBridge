@@ -1,5 +1,8 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.xpm1.remarks}{Remarks on $X_{\pm 1}(N)$}}
 \begin{definition}\label{modcurve.xpm1.remarks}
 \uses{}
+\leanok
 Over fields whose characteristic is not $2$, the non-cuspidal $k$-points of $X_{\pm 1}(N)$ can be identified with pairs $(j(E),x(P))$ with $j(E),x(P)\in k$, where $E$ is defined by a model of the form $y^2=f(x)$ that depends only on $j(E)$, and $x(P)$ is the $x$-coordinate of a point of order $N$.
 \end{definition}
+
+

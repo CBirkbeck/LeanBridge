@@ -1,8 +1,10 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.sylow_subgroup}{Sylow subgroup}}
 \begin{definition}\label{group.sylow_subgroup}
 \uses{group,group.order,group.subgroup}
-If $p$ is a prime and $G$ is a finite \hyperref[group]{group} of \hyperref[group.order]{order} $p^nm$ where $p\nmid m$, then a \textbf{$p$-Sylow
+If $p$ is a prime and $G$ is a finite \hyperref[group]{group} of \hyperref[group.order]{order} $p^nm$ where $p\nmid m$, then a \textbf{$p$-Sylow 
 subgroup}  of $G$ is any \hyperref[group.subgroup]{subgroup} of order $p^n$.
 
 Sylow subgroups exist for every finite group and prime $p$.
 \end{definition}
+
+

@@ -1,14 +1,16 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.q.reduction_type}{Reduction type of an elliptic curve over $\mathbb Q$}}
 \begin{definition}\label{ec.q.reduction_type}
 \uses{ec.q.minimal_weierstrass_equation}
-The \textbf{reduction type} of an elliptic curve $E$ defined over $\mathbb Q$ at a prime $p$
-depends on the reduction $\tilde E$ of $E$ modulo $p$. This reduction is constructed by taking a \hyperref[ec.q.minimal_weierstrass_equation]{minimal Weierstrass equation} for $E$ and reducing its coefficients modulo $p$ to obtain a curves over $\mathbb F_p$.  The reduced curve is either smooth (non-singular) or has a unique singular point.
+The \textbf{reduction type} of an elliptic curve $E$ defined over $\mathbb{Q}$ at a prime $p$
+depends on the reduction $\tilde E$ of $E$ modulo $p$. This reduction is constructed by taking a \hyperref[ec.q.minimal_weierstrass_equation]{minimal Weierstrass equation} for $E$ and reducing its coefficients modulo $p$ to obtain a curves over $\mathbb{F}_p$.  The reduced curve is either smooth (non-singular) or has a unique singular point.
 
-$E$ has \textbf{good reduction} at $p$ if $\tilde E$ is non-singular over $\mathbb F_p$.   The reduction type is \textbf{ordinary} (ord) if $\tilde E$ is ordinary (equivalently, if $\tilde E(\overline{\F_p})$ has non-trivial $p$-torsion) and \textbf{supersingular} (ss) otherwise.  The coefficient $a(p)$ of the L-function $L(E,s)$ is divisible by $p$ if the reduction is supersingular and not if it is ordinary.
+$E$ has \textbf{good reduction} at $p$ if $\tilde E$ is non-singular over $\mathbb{F}_p$.   The reduction type is \textbf{ordinary} (ord) if $\tilde E$ is ordinary (equivalently, if $\tilde E(\overline{\F_p})$ has non-trivial $p$-torsion) and \textbf{supersingular} (ss) otherwise.  The coefficient $a(p)$ of the L-function $L(E,s)$ is divisible by $p$ if the reduction is supersingular and not if it is ordinary. 
 
-$E$ has \textbf{bad reduction} at $p$ if $\tilde E$ is singular over $\mathbb F_p$. In this case the reduction type is further classified according to the nature of the singularity.  In all cases the singularity is a double point.
+$E$ has \textbf{bad reduction} at $p$ if $\tilde E$ is singular over $\mathbb{F}_p$. In this case the reduction type is further classified according to the nature of the singularity.  In all cases the singularity is a double point.
 
-$E$ has \textbf{multiplicative reduction} at $p$ if $\tilde E$ has a \textbf{nodal} singularity: the singular point is a node, with distinct tangents. It is called \textbf{split} if the two tangents are defined over $\mathbb F_p$ and \textbf{non-split} otherwise. The  coefficient $a(p)$ of $L(E,s)$ is $1$ if the reduction is split and $-1$ if it is non-split.
+$E$ has \textbf{multiplicative reduction} at $p$ if $\tilde E$ has a \textbf{nodal} singularity: the singular point is a node, with distinct tangents. It is called \textbf{split} if the two tangents are defined over $\mathbb{F}_p$ and \textbf{non-split} otherwise. The  coefficient $a(p)$ of $L(E,s)$ is $1$ if the reduction is split and $-1$ if it is non-split.  
 
 $E$ has \textbf{additive reduction} at $p$ if $\tilde E$ has a \textbf{cuspidal} singularity: the singular point is a cusp, with only one tangent. In this case $a(p)=0$.
 \end{definition}
+
+

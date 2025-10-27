@@ -3,3 +3,5 @@
 \uses{belyi.galmap}
 The \textbf{genus} of a \hyperref[belyi.galmap]{Belyi map} $\phi:X\to\mathbb{P}^1$ is the genus of the source $X$.
 \end{definition}
+
+

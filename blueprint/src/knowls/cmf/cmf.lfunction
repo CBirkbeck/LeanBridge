@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.lfunction}{L-function of a classical modular form}}
 \begin{definition}\label{cmf.lfunction}
 \uses{cmf.newform,cmf.q-expansion,lfunction,lfunction.euler_product,lfunction.functional_equation,lfunction.gamma_factor,lfunction.sign}
+\leanok
 For a \hyperref[cmf.newform]{newform} $f\in S_k^{\rm new}(N,\chi)$ with \hyperref[cmf.q-expansion]{q-expansion} $f(z)=\sum a_n n^{(k-1)/2}q^n$, where $q=\exp(2\pi i z)$, the \hyperref[lfunction]{L-function} \(L(s,f) = \sum a_n n^{-s} \) has an \hyperref[lfunction.euler_product]{Euler product} of the form
 \[
 L(s,f)= \prod_{p\mid N} \left(1 - a_p p^{-s}
@@ -17,3 +18,5 @@ where $\varepsilon$ is the \hyperref[lfunction.sign]{sign} of the
 functional equation and $\Gamma_{\C}(s+(k-1)/2)$ is its \hyperref[lfunction.gamma_factor]{gamma factor}.  When $\chi$ is the trivial character, $\varepsilon=\pm 1$, and in general it is a root of unity.
 
 \end{definition}
+
+

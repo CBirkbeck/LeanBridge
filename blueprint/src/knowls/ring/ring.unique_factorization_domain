@@ -1,7 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ring.unique_factorization_domain}{Unique factorization domain}}
 \begin{definition}\label{ring.unique_factorization_domain}
 \uses{ring.associate,ring.integral_domain,ring.irreducible}
-A \textbf{unique factorization domain}, or UFD, is an \hyperref[ring.integral_domain]{integral domain} $R$ such that for every non-zero non-unit $a\in R$ there exist \hyperref[ring.irreducible]{irreducibles} $p_1, \ldots, p_n$ such that
+A \textbf{unique factorization domain}, or UFD, is an \hyperref[ring.integral_domain]{integral domain} $R$ such that for every non-zero non-unit $a\in R$ there exist \hyperref[ring.irreducible]{irreducibles} $p_1, \ldots, p_n$ such that 
 \[ a = p_1\cdots p_n,\]
 and this representation is unique up to the order of the factors and up to \hyperref[ring.associate]{associates}.
 \end{definition}
+
+

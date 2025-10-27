@@ -3,3 +3,5 @@
 \uses{group.sl2z.subgroup.gamman,mf.maass.mwf}
 A \hyperref[mf.maass.mwf]{Maass form} \( f \) is said to have \textbf{level} $N$ if \( f\) is invariant under the principal congruence subgroup \hyperref[group.sl2z.subgroup.gamman]{$\Gamma(N)$}.
 \end{definition}
+
+
