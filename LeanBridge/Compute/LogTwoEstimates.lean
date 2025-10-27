@@ -25,6 +25,8 @@ lemma logb_div_base' {b x : ℝ} (hb : 0 < b) (hb' : b ≠ 1) (hx : x ≠ 0) :
   rw [logb_div hx hb.ne', Real.logb_self_eq_one_iff.2]
   grind
 
+section
+
 /-- the form of goal which is used to prove log2 estimates -/
 def log_base2_goal (x₁ x₂ a₁ a₂ : ℝ) : Prop :=
   0 < x₁ → x₁ ≤ x₂ → a₁ < logb 2 x₁ ∧ logb 2 x₂ < a₂
@@ -51,7 +53,7 @@ lemma log_base2_half {x₁ x₂ a₁ a₂ : ℝ}
 
 lemma log_base2_scale {x₁ x₂ a₁ a₂ : ℝ} (m : ℤ)
     (h : log_base2_goal (x₁ * 2 ^ m) (x₂ * 2 ^ m) (a₁ + m) (a₂ + m)) :
-  log_base2_goal x₁ x₂ a₁ a₂ := by
+    log_base2_goal x₁ x₂ a₁ a₂ := by
   intro hx₁ hx₂
   have i : 0 < (2 : ℝ)^m := zpow_pos zero_lt_two _
   have := h (mul_pos hx₁ i) (mul_le_mul_of_nonneg_right hx₂ i.le)
@@ -63,7 +65,7 @@ lemma log_base2_start {x₁ x₂ a₁ a₂ : ℝ} (hx₁ : 0 < x₁) (hx₂ : x�
   h hx₁ hx₂
 
 lemma log_base2_end {x₁ x₂ a₁ a₂ : ℝ} (hx₁ : 1 < x₁) (hx₂ : x₂ < 2) (ha₁ : a₁ ≤ 0) (ha₂ : 1 ≤ a₂) :
-  log_base2_goal x₁ x₂ a₁ a₂ := by
+    log_base2_goal x₁ x₂ a₁ a₂ := by
   rintro - h
   refine ⟨ha₁.trans_lt (div_pos (log_pos hx₁) (log_pos one_lt_two)), lt_of_lt_of_le ?_ ha₂⟩
   rw [logb, div_lt_one (log_pos one_lt_two)]
@@ -123,4 +125,109 @@ lemma logb_approx_second : -0.24246 < logb 2 x_value2 ∧ logb 2 x_value2 < -0.2
   refine log_base2_half ?_
   norm_num1
   exact log_base2_end (by norm_num1) (by norm_num1) (by norm_num1) (by norm_num1)
+
+end
+
+section
+
+variable {x₁ x₂ a₁ a₂ : ℚ}
+
+def goalShape (x₁ x₂ a₁ a₂ : ℚ) : Prop :=
+  0 < x₁ → x₁ ≤ x₂ → a₁ < logb 2 x₁ ∧ logb 2 x₂ < a₂
+
+lemma goalShape_imp (h₁ : 0 < x₁) (h₂ : x₁ ≤ x₂) (h : goalShape x₁ x₂ a₁ a₂) :
+    ∀ x : ℝ, x ∈ Set.Icc (x₁ : ℝ) x₂ → logb 2 x ∈ Set.Ioo (a₁ : ℝ) a₂ := by
+  intro x hx
+  have := h h₁ h₂
+  simp only [Set.mem_Ioo]
+  simp only [Set.mem_Icc] at hx
+  have : 0 < x := hx.1.trans_lt' (by norm_cast)
+  have : logb 2 x ≤ logb 2 x₂ := logb_le_logb_of_le one_lt_two this hx.2
+  have := logb_le_logb_of_le one_lt_two (by positivity) hx.1
+  grind
+
+lemma goalShape_scale (m : ℕ)
+    (h : goalShape (x₁ ^ (2 ^ m)) (x₂ ^ (2 ^ m)) (2 ^ m * a₁) (2 ^ m * a₂)) :
+    goalShape x₁ x₂ a₁ a₂ := by
+  intro hx₁ hx₂
+  simpa [logb_pow] using h (by positivity) (by gcongr)
+
+lemma goalShape_shift (m : ℤ) (h : goalShape (x₁ * 2 ^ m) (x₂ * 2 ^ m) (a₁ + m) (a₂ + m)) :
+    goalShape x₁ x₂ a₁ a₂ := by
+  intro hx₁ hx₂
+  have h₁ : (0 : ℝ) < x₁ := by norm_cast
+  have h₂ : (0 : ℝ) < x₂ := by norm_cast; order
+  have h₃ : (2 : ℝ) ^ m ≠ 0 := by positivity
+  simpa [logb_mul, ne_of_gt, h₁, h₂, h₃, logb_zpow] using h (by positivity) (by gcongr)
+
+lemma goalShape_trivial (hx₁ : 1 < x₁) (hx₂ : x₂ < 2) (ha₁ : a₁ ≤ 0) (ha₂ : 1 ≤ a₂) :
+    goalShape x₁ x₂ a₁ a₂ := by
+  intro hx₁' hx₂'
+  replace hx₁ : 0 < logb 2 x₁ := logb_pos one_lt_two (by norm_cast)
+  replace hx₂ : logb 2 x₂ < 1 := by
+    simpa using logb_lt_logb (y := 2) one_lt_two (by norm_cast; order) (by norm_cast)
+  exact ⟨hx₁.trans_le' (by norm_cast), hx₂.trans_le (by norm_cast)⟩
+
+lemma goalShape_weaken (x₁' x₂' : ℚ) (h₁ : x₁' ≤ x₁) (h₂ : x₂ ≤ x₂') (h₃ : 0 < x₁')
+    (h : goalShape x₁' x₂' a₁ a₂) :
+    goalShape x₁ x₂ a₁ a₂ := by
+  intro hx₁ hx₂
+  have := h h₃ (by order)
+  have : logb 2 x₁' ≤ logb 2 x₁ :=
+    logb_le_logb_of_le one_lt_two (by norm_cast) (by norm_cast)
+  have : logb 2 x₂ ≤ logb 2 x₂' :=
+    logb_le_logb_of_le one_lt_two (by norm_cast; order) (by norm_cast)
+  grind
+
+lemma logb_approx_second' : -0.242451 < logb 2 x_value2 ∧ logb 2 x_value2 < -0.242450 := by
+  suffices goalShape (1000 / 1183) (1000 / 1183) (-0.242451) (-0.242450) by
+    have := goalShape_imp (by norm_num1) (by norm_num1) this x_value2 (by norm_num [x_value2_eq])
+    simpa using this
+  apply goalShape_shift 1
+  norm_num1
+  apply goalShape_weaken 1.69061707 1.69061708 (by norm_num1) (by norm_num1) (by norm_num1)
+  apply goalShape_scale 1
+  apply goalShape_shift (-1)
+  apply goalShape_weaken 1.42909303 1.42909306 (by norm_num1) (by norm_num1) (by norm_num1)
+  apply goalShape_scale 1
+  apply goalShape_shift (-1)
+  apply goalShape_weaken 1.02115344 1.02115349 (by norm_num1) (by norm_num1) (by norm_num1)
+  apply goalShape_scale 6
+  apply goalShape_shift (-1)
+  apply goalShape_weaken 1.90894891 1.90895490 (by norm_num1) (by norm_num1) (by norm_num1)
+  apply goalShape_scale 1
+  apply goalShape_shift (-1)
+  apply goalShape_weaken 1.82204297 1.82205441 (by norm_num1) (by norm_num1) (by norm_num1)
+  apply goalShape_scale 1
+  apply goalShape_shift (-1)
+  apply goalShape_weaken 1.65992029 1.65994114 (by norm_num1) (by norm_num1) (by norm_num1)
+  apply goalShape_scale 1
+  apply goalShape_shift (-1)
+  apply goalShape_weaken 1.37766768 1.37770230 (by norm_num1) (by norm_num1) (by norm_num1)
+  apply goalShape_scale 2
+  apply goalShape_shift (-1)
+  apply goalShape_weaken 1.80114171 1.80132277 (by norm_num1) (by norm_num1) (by norm_num1)
+  apply goalShape_scale 1
+  apply goalShape_shift (-1)
+  apply goalShape_weaken 1.62205572 1.62238187 (by norm_num1) (by norm_num1) (by norm_num1)
+  apply goalShape_scale 1
+  apply goalShape_shift (-1)
+  apply goalShape_weaken 1.31553237 1.31606147 (by norm_num1) (by norm_num1) (by norm_num1)
+  apply goalShape_scale 2
+  apply goalShape_shift (-1)
+  apply goalShape_weaken 1.49753216 1.49994282 (by norm_num1) (by norm_num1) (by norm_num1)
+  apply goalShape_scale 1
+  apply goalShape_shift (-1)
+  apply goalShape_weaken 1.12130128 1.12491424 (by norm_num1) (by norm_num1) (by norm_num1)
+  apply goalShape_scale 3
+  apply goalShape_shift (-1)
+  apply goalShape_weaken 1.24953535 1.28211010 (by norm_num1) (by norm_num1) (by norm_num1)
+  apply goalShape_scale 2
+  apply goalShape_shift (-1)
+  apply goalShape_weaken 1.21888909 1.35104959 (by norm_num1) (by norm_num1) (by norm_num1)
+  apply goalShape_scale 2
+  apply goalShape_shift (-1)
+  apply goalShape_weaken 1.10363829 1.66592393 (by norm_num1) (by norm_num1) (by norm_num1)
+  apply goalShape_trivial (by norm_num1) (by norm_num1) (by norm_num1) (by norm_num1)
+
 end
