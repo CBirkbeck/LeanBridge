@@ -717,6 +717,10 @@ elab "test_logGoalShape" : tactic => liftMetaFinishingTactic fun g ↦ do
 
 example : -0.242450073677701384625 < logb 2 (1000 / 1183) ∧ logb 2 (1000 / 1183) < -0.242450073677701384624 := by
   prove_goalShape
+  show_term test_logGoalShape
+
+example : 0.1 < logb 2 1.414 ∧ logb 2 1.415 < 0.99 := by
+  prove_goalShape
   test_logGoalShape
 
 end
