@@ -3,6 +3,7 @@ import Lean.Elab.Command
 import Lean.Data.Json
 import Lean.Data.Json.FromToJson
 import Mathlib
+--import LeanBridge.ForMathlib.tactics.LMFDB_proof_4_0_1008_1
 
 open Lean Elab Command IO
 
@@ -11,11 +12,11 @@ elab "#LMFDB_search" degree:num r2:num D_abs:num : command => do
   let r2_val := r2.getNat
   let D_abs_val := D_abs.getNat
 
-  let python_cmd := "/home/chris/miniforge3/envs/sage/bin/python"
-  let python_query_path := "/home/chris/Github/LeanBridge/LeanBridge/ForMathlib/tactics/lmfdb_query.py"
-  let sage_cmd := "/home/chris/miniforge3/envs/sage/bin/sage"
-  let sage_proof_path := "/home/chris/Github/LeanBridge/LeanBridge/ForMathlib/Irreduciblepolys/IrreducibilityLeanProofWriter.sage"
-  let proof_output_dir := "/home/chris/Github/LeanBridge/LeanBridge/ForMathlib/tactics"
+  let python_cmd :=  "/Users/mcu22seu/miniforge3/bin/python"
+  let python_query_path := "/Users/mcu22seu/Documents/GitHub/LeanBridge/LeanBridge/ForMathlib/tactics/lmfdb_query.py"
+  let sage_cmd := "/usr/local/bin/sage"
+  let sage_proof_path := "Users/mcu22seu/Documents/GitHub/LeanBridge/LeanBridge/ForMathlib/Irreduciblepolys/IrreducibilityLeanProofWriter.sage"
+  let proof_output_dir := "Users/mcu22seu/Documents/GitHub/LeanBridge/LeanBridge/ForMathlib/tactics"
   let module_prefix := "LeanBridge.Mathlib.Irreduciblepolys"
 
   logInfo m!"Querying LMFDB with: degree={degree_val}, r2={r2_val}, disc_abs={D_abs_val}"
@@ -184,7 +185,6 @@ end"
     Meta.Tactic.TryThis.addSuggestions (←getRef) suggestions_list.toArray
 
 
-
-
+#LMFDB_search 2 0 5
 
 --let python_path := "/home/chris/Github/LeanBridge/.venv/bin/python"

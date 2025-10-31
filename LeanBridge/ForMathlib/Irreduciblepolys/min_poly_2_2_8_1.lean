@@ -36,22 +36,26 @@ lemma K_int : IsIntegral ℤ K_gen := sorry
 -- The generator as an algebraic integer (element of the ring of integers 𝓞 K)
 def K_gen_int : 𝓞 K_2_2_8_1 := ⟨K_gen, K_int⟩
 
--- Lemma stating that the polynomial identity for the generator holds: min_poly(K_gen_int) = 0
+-- Lemma stating that the polynomial identity for the generator holds
 lemma K_gen_int_pol : K_gen_int^2 - 2 = 0 := by
-  simp [K_2_2_8_1, K_gen_int, min_poly_2_2_8_1]
-  suffices K_gen.val = 0 by exact RingOfIntegers.coe_eq_zero_iff.mp this
+  simp [K_gen_int, min_poly_2_2_8_1]
+  suffices K_gen^2 - 2 = 0 by
+    exact RingOfIntegers.coe_eq_zero_iff.mp this
   simpa [K_gen, min_poly_2_2_8_1] using AdjoinRoot.eval₂_root min_poly_2_2_8_1
+
 
 def fundamental_unit_1 : (𝓞 K_2_2_8_1)ˣ where
   val := K_gen_int + 1
   inv := K_gen_int - 1
   val_inv := by
     -- Proof that val * inv = 1, using the polynomial identity certificate
-    have := (K_gen_int + 1) * (K_gen_int - 1) = 1 + (1) * K_gen_int_pol
+    have : (K_gen_int + 1) * (K_gen_int - 1) = 1 + (1) * K_gen_int^2 - 2 := by ring
+    simp [ K_gen_int_pol ] at this
     grind
   inv_val := by
     -- Proof that inv * val = 1 (using commutativity)
-    have := (K_gen_int + 1) * (K_gen_int - 1) = 1 + (1) * K_gen_int_pol
+    have : (K_gen_int + 1) * (K_gen_int - 1) = 1 + (1) * K_gen_int^2 - 2 := by ring
+    simp [ K_gen_int_pol ] at this
     grind
 
 

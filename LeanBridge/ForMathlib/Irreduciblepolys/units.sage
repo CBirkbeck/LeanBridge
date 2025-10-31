@@ -8,7 +8,7 @@ def polynomial_to_lean(poly, var_name, is_int_poly=False):
     s = str(poly)
     # Replace the variable 'x' with the Lean variable name (e.g., 'K_gen_int')
     s = re.sub(r'x', var_name, s)
-    # FIX: Replace Sage/Python '**' and '^' with Lean's '^'
+    # Replace Sage/Python '**' and '^' with Lean's '^'
     s = re.sub(r'\*\*', r'^', s)
     s = re.sub(r'\^', r'^', s)
 
@@ -66,7 +66,7 @@ def unit_basis_certificate_lean_file(min_poly, lmfdb_id_suffix=""):
     R = min_poly.parent()
     K = NumberField(min_poly, 'a')
 
-    # 1. Determine Naming Convention (CamelCase, LMFDB ID)
+    # 1. Determine Naming Convention
     if not lmfdb_id_suffix:
          lmfdb_id_suffix = generate_lmfdb_id(min_poly)
 
@@ -87,6 +87,11 @@ def unit_basis_certificate_lean_file(min_poly, lmfdb_id_suffix=""):
         return f"Error computing unit group: {e}"
 
     # 3. Start Lean Content (Template)
+
+    # Get the minimal polynomial in the form for the K_gen_int_pol lemma statement
+    lean_min_poly_statement = polynomial_to_lean(min_poly, 'K_gen_int')
+    lean_min_poly_suffices = polynomial_to_lean(min_poly, 'K_gen')
+
     lean_content = f"""
 import Mathlib
 import LeanBridge.ForMathlib.tactics.LMFDB_search
@@ -125,11 +130,13 @@ lemma K_int : IsIntegral ℤ K_gen := sorry
 -- The generator as an algebraic integer (element of the ring of integers 𝓞 K)
 def K_gen_int : 𝓞 {field_id} := ⟨K_gen, K_int⟩
 
--- Lemma stating that the polynomial identity for the generator holds: min_poly(K_gen_int) = 0
-lemma K_gen_int_pol : {polynomial_to_lean(min_poly, 'K_gen_int')} = 0 := by
-  simp [{field_id}, K_gen_int, {min_poly_id}]
-  suffices K_gen.val = 0 by exact RingOfIntegers.coe_eq_zero_iff.mp this
+-- Lemma stating that the polynomial identity for the generator holds
+lemma K_gen_int_pol : {lean_min_poly_statement} = 0 := by
+  simp [K_gen_int, {min_poly_id}]
+  suffices {lean_min_poly_suffices} = 0 by
+    exact RingOfIntegers.coe_eq_zero_iff.mp this
   simpa [K_gen, {min_poly_id}] using AdjoinRoot.eval₂_root {min_poly_id}
+
 """
 
     # 4. Append Unit Definitions (All in one file)
@@ -152,7 +159,8 @@ lemma K_gen_int_pol : {polynomial_to_lean(min_poly, 'K_gen_int')} = 0 := by
         lean_poly_id = polynomial_to_lean(poly_id, 'K_gen_int')
 
         # The key identity: (poly_u) * (poly_u_inv) = 1 + poly_id * min_poly(K_gen_int)
-        identity_lemma = f"({lean_poly_u}) * ({lean_poly_u_inv}) = 1 + ({lean_poly_id}) * K_gen_int_pol"
+        # Note the (poly_id) is explicitly wrapped for clarity, as required.
+        identity_lemma = f"({lean_poly_u}) * ({lean_poly_u_inv}) = 1 + ({lean_poly_id}) * {lean_min_poly_statement}"
 
         # Append the definition to the content
         lean_content += f"""
@@ -161,11 +169,13 @@ def {unit_name} : (𝓞 {field_id})ˣ where
   inv := {lean_poly_u_inv}
   val_inv := by
     -- Proof that val * inv = 1, using the polynomial identity certificate
-    have := {identity_lemma}
+    have : {identity_lemma} := by ring
+    simp [ K_gen_int_pol ] at this
     grind
   inv_val := by
     -- Proof that inv * val = 1 (using commutativity)
-    have := {identity_lemma}
+    have : {identity_lemma} := by ring
+    simp [ K_gen_int_pol ] at this
     grind
 
 """
@@ -178,15 +188,16 @@ def {unit_name} : (𝓞 {field_id})ˣ where
 
     return f"Successfully generated a single Lean unit certificate file: **{file_name}**"
 
-# --- Example Usage: Q(sqrt(2)) defined by x^2 - 2 ---
-# Using the specific LMFDB suffix '2_2_8_1' for the field x^2 - 2
+# -------------------------------------------------------------
+## Example Usage (Only run this once to produce a single file)
+# -------------------------------------------------------------
+
+# We'll use the specific polynomial x^2 - 2 and the LMFDB suffix 'test'
+# to match your template exactly.
+
 R = PolynomialRing(QQ, 'x')
-f = R('x^2 - 2')
+f = R('x^5 - 2')
 
-print(unit_basis_certificate_lean_file(f, lmfdb_id_suffix="2_2_8_1"))
-
-# --- Example Usage: Q(sqrt(5)) defined by x^2 - x - 1 ---
-R_phi = PolynomialRing(QQ, 'x')
-f_phi = R_phi('x^2 - x - 1')
-
-print(unit_basis_certificate_lean_file(f_phi))
+# ONLY RUN THIS ONCE to generate the file min_poly_2_2_8_1.lean
+# which will contain fundamental_unit_1 (and more if the rank were higher).
+print(unit_basis_certificate_lean_file(f, lmfdb_id_suffix="unittest"))
