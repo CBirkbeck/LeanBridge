@@ -19,6 +19,8 @@ open Set
 
 namespace Real
 
+section taylor
+
 set_option linter.unusedSimpArgs false in
 lemma artanh_partial_series_bound_aux' {y : ℝ} (n : ℕ) (hy₁ : -1 < y) (hy₂ : y < 1) :
     HasDerivAt
@@ -80,6 +82,53 @@ lemma artanh_partial_series_lower_bound {x : ℝ} (h₀ : 0 ≤ x) (h : x < 1) (
     _ ≤ 1 - y ^ 2 := sub_le_sub_left (pow_le_pow_left₀ hy.1.le hy.2.le 2) 1
   positivity
 
+lemma log_bounds
+    (n k d : ℕ) (q : ℝ) (hk : k ≠ 0) (hn : n ≠ 0)
+    (hd : d = 2 * k * (k + 1) * ((2 * k + 1) ^ (2 * n - 1)))
+    (hq : q = ∑ i ∈ Finset.range n, (((2 * k + 1 : ℝ) ^ 2)⁻¹) ^ i / (2 * i + 1)) :
+    log ((k + 1) / k) ∈ Set.Icc
+      (2 / (2 * k + 1) * q : ℝ)
+      (2 / (2 * k + 1) * q + (d : ℝ)⁻¹) := by
+  let x₀ := (2 * k + 1 : ℝ)⁻¹
+  have hx₀ : 0 ≤ x₀ := by positivity
+  have hx₁ : x₀ < 1 := inv_lt_one_of_one_lt₀ (by simpa using hk.bot_lt)
+  let t₀ := ∑ i ∈ range n, x₀ ^ (2 * i + 1) / (2 * i + 1)
+  set t₁ := log ((1 + x₀) / (1 - x₀)) with ht₁
+  let e := |x₀| ^ (2 * n + 1) / (1 - x₀ ^ 2)
+  have ht₀ : 2 / (2 * k + 1) * q = 2 * t₀ := by calc
+    _ = 2 * ∑ i ∈ Finset.range n, ((2 * k + 1 : ℝ) ^ 2)⁻¹ ^ i / ((2 * k + 1) * (2 * i + 1)) := by
+      simp [hq, mul_sum, div_mul_div_comm, -inv_pow, mul_div_assoc]
+    _ = 2 * t₀ := by
+      simp only [t₀]
+      congr! 2 with i hi
+      simp [field, pow_succ, pow_mul]
+  have hk' : (k + 1 : ℝ) / k = (1 + x₀) / (1 - x₀) := by
+    simp [x₀, field]
+    ring
+  have ht₀' : t₀ ≤ 1 / 2 * t₁ := artanh_partial_series_lower_bound (by positivity)
+    (inv_lt_one_of_one_lt₀ (by simpa using hk.bot_lt)) n
+  have ht₁' : 1 / 2 * t₁ ≤ t₀ + e := by
+    have he' : |t₀ - 1 / 2 * t₁| ≤ e :=
+      artanh_partial_series_symmetric_bound (by simpa [abs_of_nonneg hx₀] using hx₁) n
+    rw [abs_le] at he'
+    linear_combination he'.1
+  have he : 2 * e = (d : ℝ)⁻¹ := by
+    have hk'' : (2 * k + 1 : ℝ) ^ 2 - 1 = 4 * k * (k + 1) := by ring
+    simp only [e, abs_of_nonneg hx₀, x₀, hd]
+    simp [field, hk'', mul_assoc, ← pow_add]
+    rw [mul_comm]
+    congr! 2
+    · omega
+    · norm_num
+  rw [ht₀, hk', ← ht₁, ← he, ← mul_add]
+  constructor
+  · linear_combination 2 * ht₀'
+  · linear_combination 2 * ht₁'
+
+end taylor
+
+section kernel
+
 def _root_.Nat.eager (n : ℕ) (k : ℕ → ℕ × ℕ) : ℕ × ℕ :=
   n.rec (k 0) (fun n _ ↦ k n.succ)
 
@@ -132,48 +181,7 @@ lemma iterate_rat {k n a b : ℕ} (hk : k ≠ 0) (hb : b ≠ 0):
     rw [iterate_succ', ih (by positivity), toRat_inner_fn hk hb, Finset.sum_range_succ, mul_add,
       ← add_assoc, mul_one_div, ← mul_assoc, pow_succ]
 
-lemma log_bounds
-    (n k d : ℕ) (q : ℝ) (hk : k ≠ 0) (hn : n ≠ 0)
-    (hd : d = 2 * k * (k + 1) * ((2 * k + 1) ^ (2 * n - 1)))
-    (hq : q = ∑ i ∈ Finset.range n, (((2 * k + 1 : ℝ) ^ 2)⁻¹) ^ i / (2 * i + 1)) :
-    log ((k + 1) / k) ∈ Set.Icc
-      (2 / (2 * k + 1) * q : ℝ)
-      (2 / (2 * k + 1) * q + (d : ℝ)⁻¹) := by
-  let x₀ := (2 * k + 1 : ℝ)⁻¹
-  have hx₀ : 0 ≤ x₀ := by positivity
-  have hx₁ : x₀ < 1 := inv_lt_one_of_one_lt₀ (by simpa using hk.bot_lt)
-  let t₀ := ∑ i ∈ range n, x₀ ^ (2 * i + 1) / (2 * i + 1)
-  set t₁ := log ((1 + x₀) / (1 - x₀)) with ht₁
-  let e := |x₀| ^ (2 * n + 1) / (1 - x₀ ^ 2)
-  have ht₀ : 2 / (2 * k + 1) * q = 2 * t₀ := by calc
-    _ = 2 * ∑ i ∈ Finset.range n, ((2 * k + 1 : ℝ) ^ 2)⁻¹ ^ i / ((2 * k + 1) * (2 * i + 1)) := by
-      simp [hq, mul_sum, div_mul_div_comm, -inv_pow, mul_div_assoc]
-    _ = 2 * t₀ := by
-      simp only [t₀]
-      congr! 2 with i hi
-      simp [field, pow_succ, pow_mul]
-  have hk' : (k + 1 : ℝ) / k = (1 + x₀) / (1 - x₀) := by
-    simp [x₀, field]
-    ring
-  have ht₀' : t₀ ≤ 1 / 2 * t₁ := artanh_partial_series_lower_bound (by positivity)
-    (inv_lt_one_of_one_lt₀ (by simpa using hk.bot_lt)) n
-  have ht₁' : 1 / 2 * t₁ ≤ t₀ + e := by
-    have he' : |t₀ - 1 / 2 * t₁| ≤ e :=
-      artanh_partial_series_symmetric_bound (by simpa [abs_of_nonneg hx₀] using hx₁) n
-    rw [abs_le] at he'
-    linear_combination he'.1
-  have he : 2 * e = (d : ℝ)⁻¹ := by
-    have hk'' : (2 * k + 1 : ℝ) ^ 2 - 1 = 4 * k * (k + 1) := by ring
-    simp only [e, abs_of_nonneg hx₀, x₀, hd]
-    simp [field, hk'', mul_assoc, ← pow_add]
-    rw [mul_comm]
-    congr! 2
-    · omega
-    · norm_num
-  rw [ht₀, hk', ← ht₁, ← he, ← mul_add]
-  constructor
-  · linear_combination 2 * ht₀'
-  · linear_combination 2 * ht₁'
+end kernel
 
 lemma abs_sub_le_of_mem_Icc {a b c d : ℝ}
     (ha : a ∈ Icc c d)
@@ -253,6 +261,30 @@ lemma abs_log_sub_le_better
       _ ≤ e * y' * (d' * p + q') * (g * g') := by grw [h₁]
       _ = (p * d + q * 1) * ((2 * k + 1) * y * e) := by grind
 
+lemma abs_log_sub_le_better_red
+    (n k d e p x y : ℕ)
+    (hn : n ≠ 0)
+    (hk : k ≠ 0)
+    -- (hd₀ : d ≠ 0)
+    (he : e = 2 * k * (k + 1) * ((2 * k + 1) ^ (2 * n - 1)))
+    -- (hd : d ≤ e)
+    (hpq : p / d - (d : ℝ)⁻¹ ≤ (2 * x) / ((2 * k + 1) * y))
+    (hpq' : (2 * x : ℝ) / ((2 * k + 1) * y) + (e : ℝ)⁻¹ ≤ p / d + (d : ℝ)⁻¹)
+    (hxy : (x, y) = iterate ((2 * k + 1) ^ 2) n 0 1) :
+    |log ((k + 1) / k) - p / d| ≤ (d : ℝ)⁻¹ := by
+  have : toRat (x, y) = ∑ i ∈ Finset.range n, (((2 * k + 1 : ℝ) ^ 2)⁻¹) ^ i / (2 * i + 1) := by
+    rw [hxy, iterate_rat (by positivity) (by positivity)]
+    simp [toRat]
+  let lo : ℝ := 2 / (2 * k + 1) * (x / y)
+  have hlo : lo = (2 * x) / ((2 * k + 1) * y) := by simp [lo, div_mul_div_comm]
+  rw [← hlo] at hpq hpq'
+  have h₁ : lo ≤ _ ∧ _ ≤ lo + _ :=
+    log_bounds n k e (x / y) hk hn he (by simpa [toRat] using this)
+  rw [abs_le]
+  constructor
+  · linear_combination hpq + h₁.1
+  · linear_combination hpq' + h₁.2
+
 lemma abs_log_sub_le'
     (n k d p q x y : ℕ)
     (hn : n ≠ 0)
@@ -309,6 +341,8 @@ lemma abs_log_sub_le
       _ ≤ (q * (d' * x * 2 + y')) * g := by grw [hpq']
       _ = (2 * x * d + (2 * k + 1) * y * 1) * q := by grind
 
+section
+
 lemma decompose :
     log 2 = 7 * log (16 / 15) + 5 * log (25 / 24) + 3 * log (81 / 80) := by
   have : (2 : ℝ) = (16 / 15) ^ 7 * (25 / 24) ^ 5 * (81 / 80) ^ 3 := by norm_num
@@ -349,47 +383,141 @@ lemma combine
     _ ≤ 15 * (d₁ : ℝ)⁻¹ := by linear_combination 7 * h₁ + 5 * h₂ + 3 * h₃
     _ ≤ (2 ^ i : ℝ)⁻¹ := by grw [← hd₁]; simp
 
--- section
+open Matrix
 
--- def x : Fin 10 → ℤ :=
---   ![84330, 56513, 74396, 53829, 89725, 33896, 75974, 97994, 68941, 16808]
+namespace decomp2
 
--- noncomputable def z_aux : Fin 10 → ℝ :=
---   ![8268800 / 8268799,
---     5909761 / 5909760,
---     5142501 / 5142500,
---     4096576 / 4096575,
---     4090625 / 4090624,
---     4004001 / 4004000,
---     709632 / 709631,
---     613089 / 613088,
---     601426 / 601425,
---     71875 / 71874]
+def x : Fin 10 → ℤ :=
+  ![84330, 56513, 74396, 53829, 89725, 33896, 75974, 97994, 68941, 16808]
 
--- lemma z_aux_ne_zero (i : Fin 10) : z_aux i ≠ 0 := by
---   fin_cases i <;> simp [z_aux]
+noncomputable def z_aux : Fin 10 → ℝ :=
+  ![8268800 / 8268799,
+    5909761 / 5909760,
+    5142501 / 5142500,
+    4096576 / 4096575,
+    4090625 / 4090624,
+    4004001 / 4004000,
+    709632 / 709631,
+    613089 / 613088,
+    601426 / 601425,
+    71875 / 71874]
 
--- theorem main' : ∏ i : Fin 10, z_aux i ^ x i = 2 := by
---   norm_num [Fin.prod_univ_succ, z_aux, x]
+lemma z_aux_ne_zero (i : Fin 10) : z_aux i ≠ 0 := by
+  fin_cases i <;> simp [z_aux]
 
--- lemma main : 84330 * log (8268800 / 8268799) +
---              56513 * log (5909761 / 5909760) +
---              74396 * log (5142501 / 5142500) +
---              53829 * log (4096576 / 4096575) +
---              89725 * log (4090625 / 4090624) +
---              33896 * log (4004001 / 4004000) +
---              75974 * log (709632 / 709631) +
---              97994 * log (613089 / 613088) +
---              68941 * log (601426 / 601425) +
---              16808 * log (71875 / 71874) = log 2 := by
---   suffices ∑ i : Fin 10, (x i : ℝ) * log (z_aux i) = log 2 by
---     norm_num [Fin.sum_univ_succ, z_aux, x] at this
---     simpa [add_assoc] using this
---   rw [← main', log_prod]
---   · simp only [log_zpow]
---   simp [zpow_ne_zero, z_aux_ne_zero]
+theorem main' : ∏ i : Fin 10, z_aux i ^ x i = 2 := by
+  norm_num [Fin.prod_univ_succ, z_aux, x]
 
--- end
+lemma main : 84330 * log (8268800 / 8268799) +
+             56513 * log (5909761 / 5909760) +
+             74396 * log (5142501 / 5142500) +
+             53829 * log (4096576 / 4096575) +
+             89725 * log (4090625 / 4090624) +
+             33896 * log (4004001 / 4004000) +
+             75974 * log (709632 / 709631) +
+             97994 * log (613089 / 613088) +
+             68941 * log (601426 / 601425) +
+             16808 * log (71875 / 71874) = log 2 := by
+  suffices ∑ i : Fin 10, (x i : ℝ) * log (z_aux i) = log 2 by
+    norm_num [Fin.sum_univ_succ, z_aux, x] at this
+    simpa [add_assoc] using this
+  rw [← main', log_prod]
+  · simp only [log_zpow]
+  simp [zpow_ne_zero, z_aux_ne_zero]
+
+end decomp2
+
+section
+
+def A : Matrix (Fin 15) (Fin 15) ℤ :=
+  !![2, 5, -4, -1, 1, -1, -1, 0, 0, 0, -2, 0, 0, 2, 1;
+     1, 5, 0, 2, 0, 0, 0, -2, 0, 1, 1, -1, -3, 1, 0;
+     -6, 4, -2, 0, 2, 2, 0, -2, 2, 0, 0, -1, -1, 0, 0;
+     -1, 1, -5, -1, -1, 1, 0, 1, 1, 1, 1, -2, 0, 1, 0;
+     -8, -1, -1, 4, 1, -2, 1, 0, -1, 1, 0, 0, -1, 0, 1;
+     -1, -1, 3, 0, 4, 0, 1, 1, 0, -1, 0, 0, -2, -1, -1;
+     1, -2, 0, -1, -1, 1, 2, 0, 0, -4, 0, 1, 1, 1, 0;
+     1, -1, 0, 1, 0, 2, 2, -4, 1, -1, 1, 0, 0, -1, 0;
+     -4, -5, 2, 2, -1, 2, -2, 0, 0, 0, 0, -1, 0, 0, 2;
+     9, 1, -2, 1, -3, -1, 0, 0, 1, 0, -2, 0, 2, 0, 0;
+     -6, 2, -2, 6, 0, -1, -1, 2, -1, 0, 0, 0, 0, 0, -1;
+     1, 1, 5, 2, -7, 1, 0, -1, 0, 0, 1, 0, 0, 0, 0;
+     -4, 8, 0, 2, -1, -3, -1, 0, 0, 0, 2, 0, 0, 0, -1;
+     -4, -2, -1, -3, 1, 0, 1, 0, 0, -1, 1, 3, -1, 0, 0;
+     -2, -5, 1, -2, 0, -2, -1, 2, 0, 0, 0, 0, 1, 2, 0]
+
+def x : Fin 15 → ℤ :=
+  ![122324552, -75806406, -58834645, 52889168, -9727598, 90645248, -61102303, 108313849, 6176249,
+    -29974075, 23287250, 64465156, 11016954, 12805279, 19164767]
+
+def y_aux : Fin 15 → ℚ :=
+  ![2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47]
+
+lemma y_aux_ne_zero : ∀ i, y_aux i ≠ 0 := by decide +kernel
+
+noncomputable def y (i : Fin 15) : ℝ := log (y_aux i)
+
+lemma x_vecMul_A : x ᵥ* A = ![1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] := by
+  rw [← Matrix.vecMulᵣ_eq]
+  decide +kernel
+
+def z_aux : Fin 15 → ℚ :=
+  ![929166876 / 929166875,
+    920577798 / 920577797,
+    876219201 / 876219200,
+    658831251 / 658831250,
+    611969281 / 611969280,
+    591130375 / 591130374,
+    490145734 / 490145733,
+    487530862 / 487530861,
+    457318225 / 457318224,
+    415704576 / 415704575,
+    382241601 / 382241600,
+    370256250 / 370256249,
+    308950929 / 308950928,
+    293635441 / 293635440,
+    136835245 / 136835244]
+
+noncomputable def z (i : Fin 15) : ℝ := log (z_aux i)
+
+lemma A_mulVec_y_aux : ∀ j, ∏ i, y_aux i ^ A j i = z_aux j := by decide +kernel
+
+lemma A_mulVec_y : A.map (↑) *ᵥ y = z := by
+  ext i
+  simp [Matrix.mulVec_eq_sum, y, z, ← A_mulVec_y_aux, log_prod, y_aux_ne_zero, zpow_ne_zero,
+    mul_comm]
+
+lemma main : 122324552 * log (929166876 / 929166875) +
+             -75806406 * log (920577798 / 920577797) +
+             -58834645 * log (876219201 / 876219200) +
+             52889168 * log (658831251 / 658831250) +
+             -9727598 * log (611969281 / 611969280) +
+             90645248 * log (591130375 / 591130374) +
+             -61102303 * log (490145734 / 490145733) +
+             108313849 * log (487530862 / 487530861) +
+             6176249 * log (457318225 / 457318224) +
+             -29974075 * log (415704576 / 415704575) +
+             23287250 * log (382241601 / 382241600) +
+             64465156 * log (370256250 / 370256249) +
+             11016954 * log (308950929 / 308950928) +
+             12805279 * log (293635441 / 293635440) +
+             19164767 * log (136835245 / 136835244) = log 2 := by calc
+    _ = (fun i ↦ (x i : ℝ)) ⬝ᵥ z := by
+      simp [dotProduct, Fin.sum_univ_succ, x, z, z_aux, add_assoc]
+    _ = (fun i ↦ (x i : ℝ)) ⬝ᵥ (A.map (↑) *ᵥ y) := by
+      rw [A_mulVec_y]
+    _ = (fun i ↦ (x i : ℝ)) ᵥ* (A.map (↑)) ⬝ᵥ y := by
+      rw [dotProduct_mulVec]
+    _ = (fun i ↦ ((x ᵥ* A) i : ℝ)) ⬝ᵥ y := by
+      congr! 1
+      ext i
+      simp [Matrix.vecMul_eq_sum]
+    _ = log 2 := by
+      simp [x_vecMul_A, dotProduct, y, Fin.sum_univ_succ, y_aux]
+
+end
+
+end
 
 -- adapted from https://hackage.haskell.org/package/base-4.21.0.0/docs/src/Data.Ratio.html#local-6989586621679140706
 partial def simplest (n d n' d' : ℕ) (pn qn pn' qn' : ℕ) : ℕ × ℕ :=
@@ -404,10 +532,10 @@ partial def simplest (n d n' d' : ℕ) (pn qn pn' qn' : ℕ) : ℕ × ℕ :=
 def reduce (n d n' d' : ℕ) : ℕ × ℕ :=
   simplest d' (n' % d') d (n % d) 1 0 (n / d) 1
 
-def iterateC (k : ℕ) : ℕ → ℕ × ℕ → ℕ × ℕ
-  | 0, acc => acc
-  | n + 1, (a, b) =>
-    iterateC k n (b * k + a * (2 * n + 1), (b * k) * (2 * n + 1))
+def iterateC (k : ℕ) : ℕ → ℕ → ℕ → ℕ × ℕ
+  | 0, a, b => (a, b)
+  | n + 1, a, b =>
+    iterateC k n (b * k + a * (2 * n + 1)) ((b * k) * (2 * n + 1))
 
 section
 
@@ -438,7 +566,7 @@ def mkContinuedFractionProof (k n : ℕ) : ℕ × ℕ × ℕ × Expr :=
   let k₂ : ℕ := k + k₁
   let k₃ := k₂ ^ 2
   let d := 2 * k * k₁ * (k₂ ^ (2 * n - 1))
-  let (x, y) := iterateC k₃ n (0, 1)
+  let (x, y) := iterateC k₃ n 0 1
   let g := Nat.gcd d (y * k₂)
   let d' := d / g
   let y' := (y * k₂) / g
@@ -483,7 +611,7 @@ def mkDyadicProof (k n i j : ℕ) : MetaM (ℕ × Expr) := do
   unless (2 * e - d) * q ≥ e * d do
     throwError s!"need larger denominators to stay in interval, try j = \
       {Nat.log2 ((e * d + 2 * e - d - 1) / (2 * e - d) - 1) + 1}"
-  let (x, y) := iterateC k₃ n (0, 1)
+  let (x, y) := iterateC k₃ n 0 1
   let p := (2 * (x * 2) * q * e + q * (y * k₂) + (y * k₂) * e) / (2 * (y * k₂) * e)
   let g' := Nat.gcd e (y * k₂)
   let e' := e / g'
@@ -520,21 +648,26 @@ elab "bound_log%" ppSpace k:num n:num i:num j:num : term => do
   let nm ← Meta.mkAuxLemma [] ty pf none
   return mkConst nm
 
-elab "bound_log2%" ppSpace n₁:num n₂:num n₃:num i:num j:num : command => Elab.Command.liftTermElabM do
-  let n₁ : ℕ := n₁.getNat
-  let n₂ : ℕ := n₂.getNat
-  let n₃ : ℕ := n₃.getNat
+elab "bound_log2%" ppSpace i:num : command => Elab.Command.liftTermElabM do
   let i : ℕ := i.getNat
-  let j : ℕ := j.getNat
-  let q := 2 ^ j
-  unless n₁ ≠ 0 ∧ n₂ ≠ 0 ∧ n₃ ≠ 0 do
-    throwError "all of the first three arguments must be nonzero"
-  let (p₁, pf₁) ← mkDyadicProof 15 n₁ (i + 4) j
-  let ty₁ := mkType 16 15 p₁ q (2 ^ (i + 4))
-  let (p₂, pf₂) ← mkDyadicProof 24 n₂ (i + 4) j
-  let ty₂ := mkType 25 24 p₂ q (2 ^ (i + 4))
-  let (p₃, pf₃) ← mkDyadicProof 80 n₃ (i + 4) j
-  let ty₃ := mkType 81 80 p₃ q (2 ^ (i + 4))
+  let i' : ℕ := i + 4
+  let d' := 2 ^ i'
+  let q := d'
+  let (p₁, pf₁) ← do
+    let k₁ := (d' + 479) / 480
+    let n₁ := (Nat.logC 31 k₁ + 1) / 2 + 1
+    mkDyadicProof 15 n₁ i' i'
+  let ty₁ := mkType 16 15 p₁ q d'
+  let (p₂, pf₂) ← do
+    let k₂ := (d' + 1199) / 1200
+    let n₂ := (Nat.logC 49 k₂ + 1) / 2 + 1
+    mkDyadicProof 24 n₂ i' i'
+  let ty₂ := mkType 25 24 p₂ q d'
+  let (p₃, pf₃) ← do
+    let k₃ := (d' + 12959) / 12960
+    let n₃ := (Nat.logC 161 k₃ + 1) / 2 + 1
+    mkDyadicProof 80 n₃ i' i'
+  let ty₃ := mkType 81 80 p₃ q (2 ^ i')
   let p := p₁ * 7 + p₂ * 5 + p₃ * 3
   let nm ← Meta.mkAuxDefinition (.mkSimple s!"log2Approx{i}") (mkConst ``Rat) (mkDiv p q)
   let nm₁ ← Meta.mkAuxLemma [] ty₁ pf₁ none
@@ -550,14 +683,8 @@ elab "bound_log2%" ppSpace n₁:num n₂:num n₃:num i:num j:num : command => E
       type := ty,
       value := pf})
 
--- noncomputable def log2 := bound_log2% 10100 8910 6821 100000 100006
-
-bound_log2% 33527 29583 22657 332193 332197
-
--- #print log2
--- #print log2._proof_1
-
-bound_log2% 1 1 1 10 15
+-- whatsnew in
+bound_log2% 332193
 
 end
 
