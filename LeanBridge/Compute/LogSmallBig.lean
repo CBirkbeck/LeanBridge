@@ -17,6 +17,10 @@ open Topology BigOperators
 open Finset hiding Icc Ioo
 open Set
 
+def toRat (p : ℕ × ℕ) : ℚ := p.1 / p.2
+
+@[simp] lemma Nat.div_eq' {a b : ℕ} : a.div b = a / b := by rfl
+
 namespace Real
 
 section taylor
@@ -127,6 +131,93 @@ lemma log_bounds
 
 end taylor
 
+section binarySplit
+
+open Finset
+
+variable (p q a b : ℕ → ℕ)
+
+def binarySplit (m n : ℕ) : ℕ × ℕ × ℕ × ℕ :=
+  if m < n then
+    if m + 1 = n then
+      (a m, b m, p m, q m)
+    else
+      let k := (m + n) / 2
+      let (psl, qsl, ptl, qtl) := binarySplit m k
+      let (psr, qsr, ptr, qtr) := binarySplit k n
+      (psl * qtl * qsr + ptl * qsl * psr, qsl * qtl * qsr, ptl * ptr, qtl * qtr)
+  else
+    (0, 1, 1, 1)
+
+def binarySplitSum (n : ℕ) : ℕ × ℕ :=
+  ((binarySplit p q a b 0 n).1, (binarySplit p q a b 0 n).2.1)
+
+variable {p q a b}
+
+lemma binarySplit_nonzero {m n ps qs pt qt : ℕ} (hb : ∀ i, b i ≠ 0) (hq : ∀ i, q i ≠ 0)
+    (h : (ps, qs, pt, qt) = binarySplit p q a b m n) :
+    qs ≠ 0 ∧ qt ≠ 0 := by
+  fun_induction binarySplit generalizing ps qs pt qt with simp_all
+
+lemma binarySplit_pt {m n : ℕ} :
+    (binarySplit p q a b m n).2.2.1 = ∏ j ∈ Ico m n, p j := by
+  fun_induction binarySplit with
+  | case1 | case3 => simp_all
+  | @case2 m n hmn hmn' k psl qsl ptl qtl hl psr qsr ptr qtr hr ih1 ih2 =>
+    simp only [hl] at ih1
+    simp only [hr] at ih2
+    simp only [ih1, ih2]
+    rw [prod_Ico_consecutive _ (by grind) (by grind)]
+
+lemma binarySplit_qt {m n : ℕ} :
+    (binarySplit p q a b m n).2.2.2 = ∏ j ∈ Ico m n, q j := by
+  fun_induction binarySplit with
+  | case1 | case3 => simp_all
+  | @case2 m n hmn hmn' k psl qsl ptl qtl hl psr qsr ptr qtr hr ih1 ih2 =>
+    simp only [hl] at ih1
+    simp only [hr] at ih2
+    simp only [ih1, ih2]
+    rw [prod_Ico_consecutive _ (by grind) (by grind)]
+
+lemma binarySplit_spec {m n ps qs pt qt : ℕ} (hb : ∀ i, b i ≠ 0) (hq : ∀ i, q i ≠ 0)
+    (h : (ps, qs, pt, qt) = binarySplit p q a b m n) :
+    (∏ j ∈ Ico m n, (p j / q j : ℚ) = pt / qt) ∧
+    (∑ i ∈ Ico m n, (a i / b i : ℚ) * (∏ j ∈ Ico m i, p j / q j : ℚ) = ps / qs) := by
+  fun_induction binarySplit generalizing ps qs pt qt with
+  | case1 => simp_all
+  | case3 => simp_all
+  | @case2 m n hmn hmn' k psl qsl ptl qtl hl psr qsr ptr qtr hr ih1 ih2 =>
+    specialize ih1 hl.symm
+    specialize ih2 hr.symm
+    have hmk : m ≤ k := by grind
+    have hkn : k ≤ n := by grind
+    cases h
+    constructor
+    · rw [← prod_Ico_consecutive _ hmk hkn, ih1.1, ih2.1, Nat.cast_mul, Nat.cast_mul,
+        div_mul_div_comm]
+    · calc
+        _ = psl / qsl + ∑ i ∈ Ico k n, a i / b i * (∏ j ∈ Ico m i, p j / q j : ℚ) := by
+          rw [← sum_Ico_consecutive _ hmk hkn, ih1.2]
+        _ = psl / qsl + ptl / qtl * ∑ i ∈ Ico k n, a i / b i * (∏ j ∈ Ico k i, p j / q j : ℚ) := by
+          simp_rw [mul_sum, mul_left_comm ((ptl : ℚ) / _)]
+          congr! 3 with i hi
+          simp only [Finset.mem_Ico] at hi
+          rw [← prod_Ico_consecutive _ hmk hi.1, ih1.1]
+        _ = _ := by
+          obtain ⟨hqsl, hqtl⟩ := binarySplit_nonzero hb hq hl.symm
+          obtain ⟨hqsr, hqtr⟩ := binarySplit_nonzero hb hq hr.symm
+          rw [ih2.2]
+          simp [field]
+
+lemma binarySplitSum_spec {n : ℕ} (hb : ∀ i, b i ≠ 0) (hq : ∀ i, q i ≠ 0) :
+    toRat (binarySplitSum p q a b n) =
+      ∑ i ∈ range n, (a i / b i : ℚ) * (∏ j ∈ range i, p j / q j : ℚ) := by
+  rw [binarySplitSum]
+  match hmn : binarySplit p q a b 0 n with
+  | ⟨pt, qt, ps, qs⟩ => rw [toRat, ← (binarySplit_spec hb hq hmn.symm).2, range_eq_Ico]
+
+end binarySplit
+
 section kernel
 
 def _root_.Nat.eager (n : ℕ) (k : ℕ → ℕ × ℕ) : ℕ × ℕ :=
@@ -163,8 +254,6 @@ lemma iterate_snd_ne_zero {k n a b : ℕ} (hk : k ≠ 0) (hb : b ≠ 0) :
     apply ih _
     positivity
 
-def toRat (p : ℕ × ℕ) : ℚ := p.1 / p.2
-
 lemma toRat_inner_fn {k n a b : ℕ} (hk : k ≠ 0) (hb : b ≠ 0) :
     toRat ⟨b * k + a * (n * 2 + 1), b * k * (n * 2 + 1)⟩ =
       1 / (2 * n + 1) + (k : ℚ)⁻¹ * toRat (a, b) := by
@@ -172,7 +261,7 @@ lemma toRat_inner_fn {k n a b : ℕ} (hk : k ≠ 0) (hb : b ≠ 0) :
   have : (b : ℚ) ≠ 0 := by positivity
   simp [toRat, field]
 
-lemma iterate_rat {k n a b : ℕ} (hk : k ≠ 0) (hb : b ≠ 0):
+lemma iterate_rat {k n a b : ℕ} (hk : k ≠ 0) (hb : b ≠ 0) :
     toRat (iterate k n a b) =
       ∑ i ∈ Finset.range n, ((k : ℚ)⁻¹) ^ i / (2 * i + 1) + (k : ℚ)⁻¹ ^ n * toRat (a, b) := by
   induction n generalizing a b with
@@ -180,6 +269,59 @@ lemma iterate_rat {k n a b : ℕ} (hk : k ≠ 0) (hb : b ≠ 0):
   | succ n ih =>
     rw [iterate_succ', ih (by positivity), toRat_inner_fn hk hb, Finset.sum_range_succ, mul_add,
       ← add_assoc, mul_one_div, ← mul_assoc, pow_succ]
+
+lemma myBinarySplit_aux (k a b : ℕ) :
+    (binarySplit (fun _ ↦ 1) (fun _ ↦ k) (fun _ ↦ 1) (fun i ↦ 2 * i + 1) a b).2.2.1 = 1 := by
+  simp [binarySplit_pt]
+
+def myBinarySplit (k a b : ℕ) : ℕ × ℕ × ℕ :=
+  match binarySplit (fun _ ↦ 1) (fun _ ↦ k) (fun _ ↦ 1) (fun i ↦ 2 * i + 1) a b with
+  | ⟨p, q, _, b⟩ => ⟨p, q, b⟩
+
+def myBinarySplitSum (k n : ℕ) : ℕ × ℕ :=
+  binarySplitSum (fun _ ↦ 1) (fun _ ↦ k) (fun _ ↦ 1) (fun i ↦ 2 * i + 1) n
+
+lemma myBinarySplitSum_eq {k n} :
+    myBinarySplitSum k n = match myBinarySplit k 0 n with | ⟨p, q, _⟩ => (p, q) := by
+  rw [myBinarySplitSum, myBinarySplit, binarySplitSum]
+
+lemma toRat_myBinarySplitSum_eq {k n} (hk : k ≠ 0) :
+    toRat (myBinarySplitSum k n) = ∑ i ∈ Finset.range n, ((k : ℚ)⁻¹) ^ i / (2 * i + 1) := by
+  rw [myBinarySplitSum, binarySplitSum_spec (fun _ ↦ by positivity) (fun _ ↦ hk)]
+  congr! 1 with i hi
+  simp
+  ring
+
+lemma myBinarySplit_of_le {k a b : ℕ} (hab : b.ble a) :
+    myBinarySplit k a b = (0, 1, 1) := by
+  simp only [Nat.ble_eq] at hab
+  rw [myBinarySplit, binarySplit, if_neg (by simpa)]
+
+lemma myBinarySplit_of_base {k a a' b : ℕ} (hab : a.succ.beq b)
+    (ha' : a'.beq (Nat.mul 2 a).succ) :
+    myBinarySplit k a b = (1, a', k) := by
+  simp only [Nat.succ_eq_add_one, Nat.beq_eq, Nat.mul_eq] at hab ha'
+  rw [myBinarySplit, binarySplit, if_pos (by omega), if_pos hab]
+  grind
+
+lemma myBinarySplit_rec {k a b m pl ql bl pr qr br p' q' b' : ℕ} (hab : a.succ.blt b)
+    (hm : m.beq ((a.add b).div 2))
+    (hp' : p'.beq (Nat.add ((pl.mul bl).mul qr) (ql.mul pr)))
+    (hq' : q'.beq ((ql.mul bl).mul qr))
+    (hb' : b'.beq (bl.mul br))
+    (ham : myBinarySplit k a m = (pl, ql, bl))
+    (hmb : myBinarySplit k m b = (pr, qr, br)) :
+    myBinarySplit k a b = (p', q', b') := by
+  simp only [Nat.succ_eq_add_one, Nat.blt_eq, Nat.add_eq, Nat.div_eq', Nat.beq_eq,
+    Nat.mul_eq] at hab hm hp' hq' hb'
+  subst hm hp' hq' hb'
+  rw [myBinarySplit] at ham hmb ⊢
+  rw [binarySplit, if_pos (by grind), if_neg (by grind)]
+  dsimp at ham hmb ⊢
+  cases ham
+  cases hmb
+  rw [myBinarySplit_aux]
+  simp
 
 end kernel
 
@@ -684,15 +826,15 @@ elab "bound_log2%" ppSpace i:num : command => Elab.Command.liftTermElabM do
       value := pf})
 
 -- whatsnew in
-bound_log2% 332193
+-- bound_log2% 332193
 
 end
 
-lemma ineq : (2 ^ 332193 : ℝ)⁻¹ ≤ (10 ^ 100000)⁻¹ := by
-  apply inv_anti₀ (by simp)
-  suffices 10 ^ 100000 ≤ 2 ^ 332193 from mod_cast this
-  decide +kernel
+-- lemma ineq : (2 ^ 332193 : ℝ)⁻¹ ≤ (10 ^ 100000)⁻¹ := by
+--   apply inv_anti₀ (by simp)
+--   suffices 10 ^ 100000 ≤ 2 ^ 332193 from mod_cast this
+--   decide +kernel
 
-example : |log 2 - (log2Approx332193 : ℚ)| ≤ (10 ^ 100000)⁻¹ := calc
-  _ ≤ (2 ^ 332193)⁻¹ := log2Approx332193_spec
-  _ ≤ (10 ^ 100000)⁻¹ := ineq
+-- example : |log 2 - (log2Approx332193 : ℚ)| ≤ (10 ^ 100000)⁻¹ := calc
+--   _ ≤ (2 ^ 332193)⁻¹ := log2Approx332193_spec
+--   _ ≤ (10 ^ 100000)⁻¹ := ineq
