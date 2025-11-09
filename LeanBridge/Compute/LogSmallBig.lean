@@ -4,8 +4,9 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Bhavik Mehta
 -/
 import Mathlib.Analysis.SpecialFunctions.Log.Deriv
-import Mathlib.Analysis.Calculus.Deriv.MeanValue
+import LeanBridge.Compute.Taylor
 import LeanBridge.Compute.Interval
+import LeanBridge.Compute.BinarySplit
 import Mathlib
 
 /-!
@@ -17,74 +18,11 @@ open Topology BigOperators
 open Finset hiding Icc Ioo
 open Set
 
-def toRat (p : ℕ × ℕ) : ℚ := p.1 / p.2
-
 @[simp] lemma Nat.div_eq' {a b : ℕ} : a.div b = a / b := by rfl
 
 namespace Real
 
 section taylor
-
-set_option linter.unusedSimpArgs false in
-lemma artanh_partial_series_bound_aux' {y : ℝ} (n : ℕ) (hy₁ : -1 < y) (hy₂ : y < 1) :
-    HasDerivAt
-      (fun x ↦ 1 / 2 * log ((1 + x) / (1 - x)) - (∑ i ∈ range n, x ^ (2 * i + 1) / (2 * i + 1)))
-      ((y ^ 2) ^ n / (1 - y ^ 2)) y := by
-  refine ((((((hasDerivAt_id _).const_add _).div ((hasDerivAt_id _).const_sub _) (by grind)).log
-          ?_).const_mul _).sub (HasDerivAt.fun_sum fun i hi ↦ (hasDerivAt_pow _ _).div_const _))
-        |>.congr_deriv ?_
-  · simp only [id_eq, div_ne_zero_iff, Pi.div_apply]; grind
-  have : (∑ i ∈ range n, (2*i+1) * y ^ (2*i) / (2*i+1)) = (∑ i ∈ range n, (y^2) ^ i) := by
-    congr with i
-    simp [field, mul_comm, ← pow_mul]
-  have hy₃ : y ^ 2 ≠ 1 := by simp [hy₁.ne', hy₂.ne]
-  have hy₄ : (1 - y) * (1 + y) = 1 - y ^ 2 := by ring
-  simp [this, field, geom_sum_eq hy₃, hy₄, sub_ne_zero_of_ne, hy₃.symm]
-  ring
-
-lemma artanh_partial_series_symmetric_bound {x : ℝ} (h : |x| < 1) (n : ℕ) :
-    |∑ i ∈ range n, x ^ (2 * i + 1) / (2 * i + 1) - 1 / 2 * log ((1 + x) / (1 - x))| ≤
-      |x| ^ (2 * n + 1) / (1 - x ^ 2) := by
-  let F (x : ℝ) : ℝ :=
-    1 / 2 * log ((1 + x) / (1 - x)) - (∑ i ∈ range n, x ^ (2 * i + 1) / (2 * i + 1))
-  let F' (y : ℝ) : ℝ := (y ^ 2) ^ n / (1 - y ^ 2)
-  have hI : Icc (-|x|) |x| ⊆ Ioo (-1 : ℝ) 1 := Icc_subset_Ioo (by simp [h]) h
-  have A : ∀ y ∈ Ioo (-1 : ℝ) 1, HasDerivAt F (F' y) y := by
-    intro y hy
-    exact artanh_partial_series_bound_aux' _ (by grind) (by grind)
-  have B : ∀ y ∈ Set.Icc (-|x|) |x|, ‖F' y‖ ≤ |x| ^ (2 * n) / (1 - x ^ 2) := fun y hy ↦ by
-    have : y ^ 2 ≤ x ^ 2 := sq_le_sq.2 (abs_le.2 hy)
-    calc
-    ‖F' y‖ = (y ^ 2) ^ n / |1 - y ^ 2| := by simp [F']
-    _ = (y ^ 2) ^ n / (1 - y ^ 2) := by rw [abs_of_pos (by simpa [abs_lt] using hI hy)]
-    _ ≤ (x ^ 2) ^ n / (1 - x ^ 2) := by gcongr ?_ ^ n / (1 - ?_); simpa [abs_lt] using h
-    _ ≤ |x| ^ (2 * n) / (1 - x ^ 2) := by simp [pow_mul]
-  have C : ‖F x - F 0‖ ≤ |x| ^ (2 * n) / (1 - x^2) * ‖x - 0‖ :=
-    (convex_Icc (-|x|) |x|).norm_image_sub_le_of_norm_hasDerivWithin_le
-      (fun y hy ↦ (A _ (hI hy)).hasDerivWithinAt) B
-      (by simp) (by simp [le_abs_self, neg_le, neg_le_abs x])
-  simpa [F, abs_sub_comm, pow_succ, div_mul_eq_mul_div] using C
-
-lemma artanh_partial_series_lower_bound {x : ℝ} (h₀ : 0 ≤ x) (h : x < 1) (n : ℕ) :
-    ∑ i ∈ range n, x ^ (2 * i + 1) / (2 * i + 1) ≤ 1 / 2 * log ((1 + x) / (1 - x)) := by
-  let F (x : ℝ) : ℝ :=
-    1 / 2 * log ((1 + x) / (1 - x)) - (∑ i ∈ range n, x ^ (2 * i + 1) / (2 * i + 1))
-  let F' (y : ℝ) : ℝ := (y ^ 2) ^ n / (1 - y ^ 2)
-  have A : ∀ y ∈ Icc 0 x, HasDerivAt F (F' y) y := by
-    intro y hy
-    exact artanh_partial_series_bound_aux' _ (by grind) (by grind)
-  suffices 0 ≤ F x by linear_combination this
-  suffices MonotoneOn F (Icc 0 x) by simpa [F] using this ⟨le_rfl, h₀⟩ ⟨h₀, le_rfl⟩ h₀
-  refine monotoneOn_of_hasDerivWithinAt_nonneg (convex_Icc 0 x)
-    (fun y hy ↦ (A y hy).continuousAt.continuousWithinAt)
-    (fun y hy ↦ (A y (interior_subset hy)).hasDerivWithinAt) ?_
-  intro y hy
-  simp only [interior_Icc, Set.mem_Ioo] at hy
-  simp only [F']
-  have : 0 ≤ 1 - y ^ 2 := by calc
-    0 ≤ 1 - x ^ 2 := by simp [abs_of_nonneg h₀, h.le]
-    _ ≤ 1 - y ^ 2 := sub_le_sub_left (pow_le_pow_left₀ hy.1.le hy.2.le 2) 1
-  positivity
 
 lemma log_bounds
     (n k d : ℕ) (q : ℝ) (hk : k ≠ 0) (hn : n ≠ 0)
@@ -154,10 +92,9 @@ def binarySplitSum (n : ℕ) : ℕ × ℕ :=
 
 variable {p q a b}
 
-lemma binarySplit_nonzero {m n ps qs pt qt : ℕ} (hb : ∀ i, b i ≠ 0) (hq : ∀ i, q i ≠ 0)
-    (h : (ps, qs, pt, qt) = binarySplit p q a b m n) :
-    qs ≠ 0 ∧ qt ≠ 0 := by
-  fun_induction binarySplit generalizing ps qs pt qt with simp_all
+lemma binarySplit_nonzero {m n : ℕ} (hb : ∀ i, b i ≠ 0) (hq : ∀ i, q i ≠ 0) :
+    (binarySplit p q a b m n).2.1 ≠ 0 ∧ (binarySplit p q a b m n).2.2.2 ≠ 0 := by
+  fun_induction binarySplit with simp_all
 
 lemma binarySplit_pt {m n : ℕ} :
     (binarySplit p q a b m n).2.2.1 = ∏ j ∈ Ico m n, p j := by
@@ -204,8 +141,10 @@ lemma binarySplit_spec {m n ps qs pt qt : ℕ} (hb : ∀ i, b i ≠ 0) (hq : ∀
           simp only [Finset.mem_Ico] at hi
           rw [← prod_Ico_consecutive _ hmk hi.1, ih1.1]
         _ = _ := by
-          obtain ⟨hqsl, hqtl⟩ := binarySplit_nonzero hb hq hl.symm
-          obtain ⟨hqsr, hqtr⟩ := binarySplit_nonzero hb hq hr.symm
+          obtain ⟨hqsl, hqtl⟩ := binarySplit_nonzero (p := p) (a := a) (m := m) (n := k) hb hq
+          simp only [hl] at hqsl hqtl
+          obtain ⟨hqsr, hqtr⟩ := binarySplit_nonzero (p := p) (a := a) (m := k) (n := n) hb hq
+          simp only [hr] at hqsr hqtr
           rw [ih2.2]
           simp [field]
 
@@ -323,6 +262,10 @@ lemma myBinarySplit_rec {k a b m pl ql bl pr qr br p' q' b' : ℕ} (hab : a.succ
   rw [myBinarySplit_aux]
   simp
 
+lemma myBinarySplitSum_eq_of {k n p q b} (h : myBinarySplit k 0 n = (p, q, b)) :
+    (p, q) = myBinarySplitSum k n := by
+  rw [myBinarySplitSum_eq, h]
+
 end kernel
 
 lemma abs_sub_le_of_mem_Icc {a b c d : ℝ}
@@ -339,9 +282,7 @@ lemma abs_log_sub_le_better'
     (n k d e p q x y : ℕ)
     (hn : n ≠ 0)
     (hk : k ≠ 0)
-    -- (hd₀ : d ≠ 0)
     (he : e = 2 * k * (k + 1) * ((2 * k + 1) ^ (2 * n - 1)))
-    -- (hd : d ≤ e)
     (hpq : p / q - (d : ℝ)⁻¹ ≤ (2 * x) / ((2 * k + 1) * y))
     (hpq' : (2 * x : ℝ) / ((2 * k + 1) * y) + (e : ℝ)⁻¹ ≤ p / q + (d : ℝ)⁻¹)
     (hxy : (x, y) = iterate ((2 * k + 1) ^ 2) n 0 1) :
@@ -403,20 +344,18 @@ lemma abs_log_sub_le_better
       _ ≤ e * y' * (d' * p + q') * (g * g') := by grw [h₁]
       _ = (p * d + q * 1) * ((2 * k + 1) * y * e) := by grind
 
-lemma abs_log_sub_le_better_red
-    (n k d e p x y : ℕ)
+lemma abs_log_sub_le_better'''
+    (n k d e p q x y : ℕ)
     (hn : n ≠ 0)
     (hk : k ≠ 0)
-    -- (hd₀ : d ≠ 0)
     (he : e = 2 * k * (k + 1) * ((2 * k + 1) ^ (2 * n - 1)))
-    -- (hd : d ≤ e)
-    (hpq : p / d - (d : ℝ)⁻¹ ≤ (2 * x) / ((2 * k + 1) * y))
-    (hpq' : (2 * x : ℝ) / ((2 * k + 1) * y) + (e : ℝ)⁻¹ ≤ p / d + (d : ℝ)⁻¹)
-    (hxy : (x, y) = iterate ((2 * k + 1) ^ 2) n 0 1) :
-    |log ((k + 1) / k) - p / d| ≤ (d : ℝ)⁻¹ := by
+    (hpq : p / q - (d : ℝ)⁻¹ ≤ (2 * x) / ((2 * k + 1) * y))
+    (hpq' : (2 * x : ℝ) / ((2 * k + 1) * y) + (e : ℝ)⁻¹ ≤ p / q + (d : ℝ)⁻¹)
+    (hxy : (x, y) = myBinarySplitSum ((2 * k + 1) ^ 2) n) :
+    |log ((k + 1) / k) - p / q| ≤ (d : ℝ)⁻¹ := by
   have : toRat (x, y) = ∑ i ∈ Finset.range n, (((2 * k + 1 : ℝ) ^ 2)⁻¹) ^ i / (2 * i + 1) := by
-    rw [hxy, iterate_rat (by positivity) (by positivity)]
-    simp [toRat]
+    rw [hxy, toRat_myBinarySplitSum_eq (by positivity)]
+    simp
   let lo : ℝ := 2 / (2 * k + 1) * (x / y)
   have hlo : lo = (2 * x) / ((2 * k + 1) * y) := by simp [lo, div_mul_div_comm]
   rw [← hlo] at hpq hpq'
@@ -426,6 +365,49 @@ lemma abs_log_sub_le_better_red
   constructor
   · linear_combination hpq + h₁.1
   · linear_combination hpq' + h₁.2
+
+lemma abs_log_sub_le_better''
+    (n k k₁ k₂ k₃ d e p q x y g g' q' d' y' e' : ℕ)
+    (hn₀ : Nat.blt 0 n)
+    (hk₀ : Nat.blt 0 k)
+    (hd₀ : Nat.blt 0 d)
+    (hq₀ : Nat.blt 0 q)
+    (he₀ : Nat.blt 0 e)
+    (hk₁ : k₁.beq k.succ) (hk₂ : k₂.beq (k.add k₁)) (hk₃ : k₃.beq (k₂.mul k₂))
+    (he : e.beq ((Nat.mul 2 (k.mul k₁)).mul (k₂.pow ((n.mul 2).sub 1))))
+    (hq' : q.beq (g.mul q')) (hd' : d.beq (g.mul d'))
+    (hy' : (y.mul k₂).beq (g'.mul y')) (he' : e.beq (g'.mul e'))
+    (h₁ : ((d.mul q').mul (((x.mul 2).mul e').add y')).ble ((e.mul y').mul ((d'.mul p).add q')))
+    (h₂ : (((g'.mul y').mul p).mul d').ble (q'.mul ((d.mul (x.mul 2)).add (y.mul k₂))))
+    (hxy : (x, y) = myBinarySplitSum k₃ n) :
+    |log (OfNat.ofNat k₁ / OfNat.ofNat k) - OfNat.ofNat p / OfNat.ofNat q| ≤ (OfNat.ofNat d)⁻¹ := by
+  simp [← mul_assoc, mul_comm n 2] at hn₀ hk₀ hd₀ hq₀ he₀ hk₁ hk₂ hk₃ he hq' hd' hy' he' h₁ h₂
+  replace hk₂ : k₂ = 2 * k + 1 := by grind
+  replace hk₃ : k₃ = (2 * k + 1) ^ 2 := by grind
+  subst hk₁ hk₂ hk₃
+  suffices |log ((k + 1 : ℝ) / k) - (p / q : ℝ)| ≤ (d : ℝ)⁻¹ by
+    rw [← Nat.cast_add_one] at this
+    simpa [← Lean.Grind.Semiring.ofNat_eq_natCast] using this
+  have hy₀ : y ≠ 0 := by
+    rw [myBinarySplitSum, binarySplitSum] at hxy
+    cases hxy
+    exact (binarySplit_nonzero (by intro; positivity) (by intro; positivity)).1
+  apply abs_log_sub_le_better''' n k d e p q x y hn₀.ne' hk₀.ne' he _ _ hxy
+  · rw [← one_div, sub_le_iff_le_add, div_add_div _ _ (by positivity) (by positivity),
+      div_le_div_iff₀ (by positivity) (by positivity)]
+    norm_cast
+    calc
+      p * ((2 * k + 1) * y * d) = g' * y' * p * d' * g := by grind
+      _ ≤ q' * (d * x * 2 + y * (2 * k + 1)) * g := by grw [h₂]
+      _ = (2 * x * d + (2 * k + 1) * y * 1) * q := by grind
+  · rw [← one_div, ← one_div, div_add_div _ _ (by positivity) (by positivity),
+      div_add_div _ _ (by positivity) (by positivity),
+      div_le_div_iff₀ (by positivity) (by positivity)]
+    norm_cast
+    calc
+      (2 * x * e + (2 * k + 1) * y * 1) * (q * d) = d * q' * (x * 2 * e' + y') * (g * g') := by grind
+      _ ≤ e * y' * (d' * p + q') * (g * g') := by grw [h₁]
+      _ = (p * d + q * 1) * ((2 * k + 1) * y * e) := by grind
 
 lemma abs_log_sub_le'
     (n k d p q x y : ℕ)
@@ -703,6 +685,44 @@ def mkType2 (d : ℕ) (e : Q(ℚ)) : Q(Prop) :=
   let d : Q(ℕ) := mkRawNatLit d
   q(|Real.log 2 - $e| ≤ (2 ^ ofNat $d)⁻¹)
 
+def mkNatPairTy : Expr := mkApp2 (mkConst ``Prod [0, 0]) (mkConst ``Nat) (mkConst ``Nat)
+def mkNatTripleTy : Expr := mkApp2 (mkConst ``Prod [0, 0]) (mkConst ``Nat) mkNatPairTy
+
+def mkNatPair (x y : Expr) : Expr :=
+  mkApp4 (mkConst ``Prod.mk [0, 0]) (mkConst ``Nat) (mkConst ``Nat) x y
+
+def mkNatTriple (x y z : Expr) : Expr :=
+  mkApp4 (mkConst ``Prod.mk [0, 0]) (mkConst ``Nat) mkNatPairTy x (mkNatPair y z)
+
+def prove_myBinarySplit (k a b : ℕ) : (ℕ × ℕ × ℕ) × Expr :=
+  if a < b then
+    if a + 1 = b then
+      ((1, 2 * a + 1, k),
+        mkApp6 (mkConst ``myBinarySplit_of_base) (mkNatLit k) (mkNatLit a) (mkNatLit (2 * a + 1))
+          (mkNatLit b) reflBoolTrue reflBoolTrue)
+    else
+      let m := (a + b) / 2
+      let ((pl, ql, bl), pf₁) := prove_myBinarySplit k a m
+      let ((pr, qr, br), pf₂) := prove_myBinarySplit k m b
+      let p' := pl * bl * qr + ql * pr
+      let q' := ql * bl * qr
+      let b' := bl * br
+      let pf := mkApp10 (mkConst ``myBinarySplit_rec) (mkNatLit k) (mkNatLit a) (mkNatLit b)
+        (mkNatLit m) (mkNatLit pl) (mkNatLit ql) (mkNatLit bl) (mkNatLit pr) (mkNatLit qr)
+        (mkNatLit br)
+      let pf := mkApp10 pf (mkNatLit p') (mkNatLit q') (mkNatLit b') reflBoolTrue
+        reflBoolTrue reflBoolTrue reflBoolTrue reflBoolTrue
+        pf₁ pf₂
+      ((p', q', b'), pf)
+  else
+    ((0, 1, 1),
+      mkApp4 (mkConst ``myBinarySplit_of_le) (mkNatLit k) (mkNatLit a) (mkNatLit b) reflBoolTrue)
+
+def prove_myBinarySplitSum (k n : ℕ) : (ℕ × ℕ) × Expr :=
+  let ((p, q, b), pf) := prove_myBinarySplit k 0 n
+  ((p, q), mkApp6 (mkConst ``myBinarySplitSum_eq_of) (mkNatLit k) (mkNatLit n)
+    (mkNatLit p) (mkNatLit q) (mkNatLit b) pf)
+
 def mkContinuedFractionProof (k n : ℕ) : ℕ × ℕ × ℕ × Expr :=
   let k₁ : ℕ := k + 1
   let k₂ : ℕ := k + k₁
@@ -720,11 +740,8 @@ def mkContinuedFractionProof (k n : ℕ) : ℕ × ℕ × ℕ × Expr :=
   let pf₃ : Expr := mkApp7 pf₂ reflBoolTrue reflBoolTrue reflBoolTrue reflBoolTrue
     reflBoolTrue reflBoolTrue reflBoolTrue
   let pf₄ : Expr := mkApp6 pf₃ reflBoolTrue reflBoolTrue reflBoolTrue reflBoolTrue reflBoolTrue
-      (mkApp2
-        (Lean.mkConst ``Eq.refl [1])
-        (mkApp2 (Lean.mkConst ``Prod [0, 0]) (Lean.mkConst ``Nat) (Lean.mkConst ``Nat))
-        (mkApp4 (Lean.mkConst ``Prod.mk [0, 0])
-          (Lean.mkConst ``Nat) (Lean.mkConst ``Nat) (mkRawNatLit x) (mkRawNatLit y)))
+      (mkApp2 (mkConst ``Eq.refl [1]) mkNatPairTy
+        (mkNatPair (mkRawNatLit x) (mkRawNatLit y)))
   (p, q, d, pf₄)
 
 open Lean
@@ -778,6 +795,41 @@ def mkDyadicProof (k n i j : ℕ) : MetaM (ℕ × Expr) := do
           (Lean.mkConst ``Nat) (Lean.mkConst ``Nat) (mkRawNatLit x) (mkRawNatLit y)))
   return (p, pf₆)
 
+def mkDyadicProof' (k n i j : ℕ) : MetaM (ℕ × Expr) := do
+  let k₁ : ℕ := k + 1
+  let k₂ : ℕ := k + k₁
+  let k₃ := k₂ ^ 2
+  let e := 2 * k * k₁ * (k₂ ^ (2 * n - 1))
+  let d : ℕ := 2 ^ i
+  unless d ≤ 2 * e do
+    let lo := (d + 4 * k * k₁ - 1) / (4 * k * k₁)
+    throwError
+      "not enough terms in expansion at {k}; can only get precision {Nat.log2 (2 * e)}.\n\
+      for your desired precision, try {1 + (Nat.logC k₂ lo + 1) / 2} terms"
+  let q := 2 ^ j
+  unless (2 * e - d) * q ≥ e * d do
+    throwError s!"need larger denominators to stay in interval, try j = \
+      {Nat.log2 ((e * d + 2 * e - d - 1) / (2 * e - d) - 1) + 1}"
+  let ((x, y), pf') := prove_myBinarySplitSum k₃ n
+  let p := (2 * (x * 2) * q * e + q * (y * k₂) + (y * k₂) * e) / (2 * (y * k₂) * e)
+  let g' := Nat.gcd e (y * k₂)
+  let e' := e / g'
+  let y' := (y * k₂) / g'
+  let g := Nat.gcd d q
+  let d' := d / g
+  let q' := q / g
+  let pf₁ : Expr := mkApp5 (mkConst ``Real.abs_log_sub_le_better'') (mkNatLit n) (mkRawNatLit k)
+    (mkRawNatLit k₁) (mkNatLit k₂) (mkNatLit k₃)
+  let pf₂ : Expr := mkApp6 pf₁ (mkRawNatLit d) (mkNatLit e) (mkRawNatLit p) (mkRawNatLit q)
+    (mkNatLit x) (mkNatLit y)
+  let pf₃ : Expr := mkApp6 pf₂ (mkNatLit g) (mkNatLit g') (mkNatLit q') (mkNatLit d')
+    (mkNatLit y') (mkNatLit e')
+  let pf₄ : Expr := mkApp5 pf₃ reflBoolTrue reflBoolTrue reflBoolTrue reflBoolTrue reflBoolTrue
+  let pf₅ : Expr := mkApp8 pf₄ reflBoolTrue reflBoolTrue reflBoolTrue reflBoolTrue
+    reflBoolTrue reflBoolTrue reflBoolTrue reflBoolTrue
+  let pf₆ : Expr := mkApp3 pf₅ reflBoolTrue reflBoolTrue pf'
+  return (p, pf₆)
+
 elab "bound_log%" ppSpace k:num n:num i:num j:num : term => do
   let n : ℕ := n.getNat
   let k : ℕ := k.getNat
@@ -786,6 +838,18 @@ elab "bound_log%" ppSpace k:num n:num i:num j:num : term => do
   unless k ≠ 0 do throwError "first argument must be nonzero"
   unless n ≠ 0 do throwError "second argument must be nonzero"
   let (p, pf) ← mkDyadicProof k n i j
+  let ty := mkType (k + 1) k p (2 ^ j) (2 ^ i)
+  let nm ← Meta.mkAuxLemma [] ty pf none
+  return mkConst nm
+
+elab "bound_log'%" ppSpace k:num n:num i:num j:num : term => do
+  let n : ℕ := n.getNat
+  let k : ℕ := k.getNat
+  let i : ℕ := i.getNat
+  let j : ℕ := j.getNat
+  unless k ≠ 0 do throwError "first argument must be nonzero"
+  unless n ≠ 0 do throwError "second argument must be nonzero"
+  let (p, pf) ← mkDyadicProof' k n i j
   let ty := mkType (k + 1) k p (2 ^ j) (2 ^ i)
   let nm ← Meta.mkAuxLemma [] ty pf none
   return mkConst nm
@@ -825,16 +889,51 @@ elab "bound_log2%" ppSpace i:num : command => Elab.Command.liftTermElabM do
       type := ty,
       value := pf})
 
--- whatsnew in
--- bound_log2% 332193
+elab "bound_log2'%" ppSpace i:num : command => Elab.Command.liftTermElabM do
+  let i : ℕ := i.getNat
+  let i' : ℕ := i + 4
+  let d' := 2 ^ i'
+  let q := d'
+  let (p₁, pf₁) ← do
+    let k₁ := (d' + 479) / 480
+    let n₁ := (Nat.logC 31 k₁ + 1) / 2 + 1
+    mkDyadicProof' 15 n₁ i' i'
+  let ty₁ := mkType 16 15 p₁ q d'
+  let (p₂, pf₂) ← do
+    let k₂ := (d' + 1199) / 1200
+    let n₂ := (Nat.logC 49 k₂ + 1) / 2 + 1
+    mkDyadicProof' 24 n₂ i' i'
+  let ty₂ := mkType 25 24 p₂ q d'
+  let (p₃, pf₃) ← do
+    let k₃ := (d' + 12959) / 12960
+    let n₃ := (Nat.logC 161 k₃ + 1) / 2 + 1
+    mkDyadicProof' 80 n₃ i' i'
+  let ty₃ := mkType 81 80 p₃ q (2 ^ i')
+  let p := p₁ * 7 + p₂ * 5 + p₃ * 3
+  let nm ← Meta.mkAuxDefinition (.mkSimple s!"log2Approx{i}") (mkConst ``Rat) (mkDiv p q)
+  let nm₁ ← Meta.mkAuxLemma [] ty₁ pf₁ none
+  let nm₂ ← Meta.mkAuxLemma [] ty₂ pf₂ none
+  let nm₃ ← Meta.mkAuxLemma [] ty₃ pf₃ none
+  let pf : Expr := mkApp7 (mkConst ``combine) (mkRawNatLit p) (mkRawNatLit q) (mkRawNatLit p₁)
+    (mkRawNatLit p₂) (mkRawNatLit p₃) (mkRawNatLit (2 ^ (i + 4))) (mkRawNatLit i)
+  let pf : Expr := mkApp5 pf reflBoolTrue reflBoolTrue (mkConst nm₁) (mkConst nm₂) (mkConst nm₃)
+  let ty := mkType2 i nm
+  let _ ← addDecl (.thmDecl
+    { name := (.mkSimple s!"log2Approx{i}_spec"),
+      levelParams := [],
+      type := ty,
+      value := pf})
+
+whatsnew in
+bound_log2'% 3321929
 
 end
 
--- lemma ineq : (2 ^ 332193 : ℝ)⁻¹ ≤ (10 ^ 100000)⁻¹ := by
---   apply inv_anti₀ (by simp)
---   suffices 10 ^ 100000 ≤ 2 ^ 332193 from mod_cast this
---   decide +kernel
+lemma ineq : (2 ^ 3321929 : ℝ)⁻¹ ≤ (10 ^ 1000000)⁻¹ := by
+  apply inv_anti₀ (by simp)
+  suffices 10 ^ 1000000 ≤ 2 ^ 3321929 from mod_cast this
+  decide +kernel
 
--- example : |log 2 - (log2Approx332193 : ℚ)| ≤ (10 ^ 100000)⁻¹ := calc
---   _ ≤ (2 ^ 332193)⁻¹ := log2Approx332193_spec
---   _ ≤ (10 ^ 100000)⁻¹ := ineq
+example : |log 2 - (log2Approx3321929 : ℚ)| ≤ (10 ^ 1000000)⁻¹ := calc
+  _ ≤ (2 ^ 3321929)⁻¹ := log2Approx3321929_spec
+  _ ≤ (10 ^ 1000000)⁻¹ := ineq
