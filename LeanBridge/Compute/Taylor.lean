@@ -3,10 +3,11 @@ Copyright (c) 2023 Bhavik Mehta. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Bhavik Mehta
 -/
-import Mathlib.Analysis.SpecialFunctions.Log.Deriv
+
 import Mathlib.Analysis.Calculus.Deriv.MeanValue
-import LeanBridge.Compute.Interval
-import Mathlib
+import Mathlib.Analysis.SpecialFunctions.Log.Deriv
+import Mathlib.Analysis.Calculus.Taylor
+import Mathlib.Analysis.SpecialFunctions.Trigonometric.Deriv
 
 /-!
 # Estimates on natural log of rationals close to 1
@@ -18,6 +19,8 @@ open Finset hiding Icc Ioo
 open Set
 
 namespace Real
+
+section artanh
 
 set_option linter.unusedSimpArgs false in
 lemma artanh_partial_series_bound_aux' {y : ℝ} (n : ℕ) (hy₁ : -1 < y) (hy₂ : y < 1) :
@@ -80,68 +83,39 @@ lemma artanh_partial_series_lower_bound {x : ℝ} (h₀ : 0 ≤ x) (h : x < 1) (
     _ ≤ 1 - y ^ 2 := sub_le_sub_left (pow_le_pow_left₀ hy.1.le hy.2.le 2) 1
   positivity
 
-lemma special_log {k : ℕ} (hk : k ≠ 0) :
-    ((1 + (2 * k + 1 : ℝ)⁻¹) / (1 - (2 * k + 1 : ℝ)⁻¹)) = ((k + 1) / k) := by
-  simp [field]
-  ring
+end artanh
 
-lemma log_bounds (k n : ℕ) (t : ℝ) (hk : k ≠ 0) (hn : n ≠ 0) (x : ℝ) (y : ℕ)
-    (ht : t = (k + 1) / k)
-    (hx : x = ∑ i ∈ range n, (2 * k + 1 : ℝ)⁻¹ ^ (2 * i + 1) / (2 * i + 1))
-    (hy : y = ((2 * k + 1) ^ 2 - 1) * (2 * k + 1) ^ (2 * n - 1)) :
-    2 * x ≤ log t ∧ log t ≤ 2 * (x + (y : ℝ)⁻¹) := by
-  subst ht
-  have hk' : (2 * k + 1 : ℝ)⁻¹ < 1 := inv_lt_one_of_one_lt₀ (by simp; omega)
-  have hk'' : 0 < (2 * k + 1 : ℝ)⁻¹ := by simp; positivity
-  have hu := artanh_partial_series_symmetric_bound (x := (2 * k + 1 : ℝ)⁻¹)
-    (by rwa [abs_of_pos hk'']) n
-  have hl := artanh_partial_series_lower_bound (x := (2 * k + 1 : ℝ)⁻¹) (by positivity) hk' n
-  rw [← hx, special_log hk] at hl hu
-  constructor
-  · linear_combination 2 * hl
-  rw [abs_of_nonpos (by linear_combination hl), neg_sub, one_div_mul_eq_div, div_sub' two_ne_zero,
-    div_le_iff₀ zero_lt_two, sub_le_iff_le_add'] at hu
-  grw [hu, mul_add, add_le_add_iff_left, mul_comm, mul_le_mul_iff_right₀ two_pos, abs_of_pos hk'']
-  rw [inv_pow]
-  apply le_of_eq
-  simp [inv_pow, hy, mul_inv_rev, field, ← pow_add]
-  congr! 2
-  grind
+-- section sin
 
-lemma log_16_15 :
-    log (16 / 15) ∈ Set.Icc
-      0.06453852113757117167292391568399292812
-      0.06453852113757117167292391568399292813 := by
-  have := log_bounds 15 13 (16 / 15) (by norm_num) (by norm_num) _ _ (by norm_num) rfl rfl
-  apply interval_end this (by norm_num) (by norm_num)
+-- lemma iteratedDerivWithin_sin_zero {k : ℕ} :
+--     iteratedDeriv k sin 0 = if Even k then 0 else (-1) ^ (k / 2) := by
+--   obtain ⟨i, rfl | rfl⟩ := k.even_or_odd'
+--   · rw [iteratedDeriv_even_sin]
+--     simp
+--   · rw [iteratedDeriv_odd_sin]
+--     simp
+--     congr! 1
+--     grind
 
-lemma log_81_80 :
-    log (81 / 80) ∈ Set.Icc
-      0.01242251999855715331129312863120890676
-      0.01242251999855715331129312863120890677 := by
-  have := log_bounds 80 9 (81 / 80) (by norm_num) (by norm_num) _ _ (by norm_num) rfl rfl
-  apply interval_end this (by norm_num) (by norm_num)
+-- lemma taylorWithinEval_sin {k : ℕ} {a b x : ℝ} :
+--     taylorWithinEval sin (2 * k) (Set.Icc a b) 0 x =
+--       ∑ i ∈ Finset.range k, sorry := by
+--   rw [taylor_within_apply]
+--   refine (Finset.sum_bij_ne_zero (fun i _ _ ↦ 2 * i + 1) (fun i hi _ ↦ by simpa using hi) (by simp)
+--     ?_ ?_).symm
+--   · intro j hj hj'
+--     simp only [Finset.mem_range] at hj
+--     simp [sub_zero, smul_eq_mul, ne_eq, mul_eq_zero, inv_eq_zero, Nat.cast_eq_zero,
+--       pow_eq_zero_iff', not_or, not_and, Decidable.not_not, iteratedDerivWithin_sin_zero] at hj'
 
-lemma log_25_24 :
-    log (25 / 24) ∈ Set.Icc
-      0.040821994520255129554577065155319870177
-      0.040821994520255129554577065155319870180 := by
-  have := log_bounds 24 11 (25 / 24) (by norm_num) (by norm_num) _ _ (by norm_num) rfl rfl
-  apply interval_end this (by norm_num) (by norm_num)
+--   -- · intro i
+--   --   simp only [coe_range, Set.mem_Iio, Set.mem_image]
+--   --   intro hi
 
-lemma log_2 :
-    log 2 ∈ Set.Icc
-      0.693147180559945309417232121458176568
-      0.693147180559945309417232121458176569 := by
-  have : log 2 = 7 * log (16 / 15) + 3 * log (81 / 80) + 5 * log (25 / 24) := by
-    have : (2 : ℝ) = (16 / 15) ^ 7 * (81 / 80) ^ 3 * (25 / 24) ^ 5 := by norm_num
-    rw [this, log_mul (by simp) (by simp), log_mul (by simp) (by simp),
-      log_pow, log_pow, log_pow]
-    simp
-  rw [this]
-  refine interval_end (add_interval (add_interval
-    (mul_interval const_interval log_16_15 (by norm_num1) (by norm_num1))
-    (mul_interval const_interval log_81_80 (by norm_num1) (by norm_num1)))
-    (mul_interval const_interval log_25_24 (by norm_num1) (by norm_num1))) ?_ ?_
-  · norm_num1
-  · norm_num1
+
+-- lemma sin_partial_series_bound {x : ℝ} {n : ℕ} :
+--     |sin x - ∑ i ∈ Finset.range n, ((-1) ^ i * x ^ (2 * i + 1)) / (2 * i + 1).factorial| ≤
+--       x ^ (2 * n + 1) / (2 * n + 1).factorial := by
+--   sorry
+
+-- end sin
