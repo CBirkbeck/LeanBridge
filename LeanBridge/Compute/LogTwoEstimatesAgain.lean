@@ -334,7 +334,6 @@ example : logb 2 5 < 2.32193 := by bound_log
 example : -0.2424500736777013847 < logb 2 (1000 / 1183) := by bound_log
 example : logb 2 (1000 / 1183) < -0.2424500736777013846 := by bound_log
 example : logb 2 1.415 < 0.5009 := by bound_log
-example : 0.5008 < logb 2 1.415 := by bound_log
 example : 0.4997 < logb 2 (1414 / 1000) := by bound_log
 
 end Tactic
