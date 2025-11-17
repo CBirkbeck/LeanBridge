@@ -44,6 +44,7 @@ export default function LMFDBSearchWidget(props) {
   const [generating, setGenerating] = useState(false);
   const [message, setMessage] = useState(null);
   const [messageType, setMessageType] = useState('info');
+  const [generateUnits, setGenerateUnits] = useState(false);  // ADD THIS LINE
 
   // ... rest of the code stays the same
 
@@ -98,7 +99,7 @@ const updateParam = (field, value) => {
     }
   };
 
-  const handleGenerate = async () => {
+    const handleGenerate = async () => {
     const selectedFields = results.filter((r, i) => selected[i]);
     if (selectedFields.length === 0) {
       setMessage('No fields selected');
@@ -109,7 +110,10 @@ const updateParam = (field, value) => {
     setGenerating(true);
     setMessage(null);
     try {
-      const result = await rs.call('generateLeanFiles', selectedFields);
+      const result = await rs.call('generateLeanFiles', {
+        fields: selectedFields,
+        generateUnits: generateUnits
+      });
       setMessage(result);
       setMessageType('success');
     } catch (error) {
@@ -198,6 +202,24 @@ const updateParam = (field, value) => {
       ),
 
       React.createElement('div', { style: { marginTop: '15px' } },
+        React.createElement('div', { style: { marginBottom: '10px' } },
+          React.createElement('label', {
+            style: {
+              display: 'flex',
+              alignItems: 'center',
+              fontSize: '13px',
+              cursor: 'pointer'
+            }
+          },
+            React.createElement('input', {
+              type: 'checkbox',
+              checked: generateUnits,
+              onChange: e => setGenerateUnits(e.target.checked),
+              style: { marginRight: '8px' }
+            }),
+            'Generate fundamental units (slower)'
+          )
+        ),
         React.createElement('button', {
           onClick: handleSearch,
           disabled: searching,

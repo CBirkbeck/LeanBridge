@@ -24,6 +24,8 @@
 # hp : list with values of t ^ i mod f in the partial steps of the exponentiation algorithm.
 # gp : list with polynomials certifying the reduction in each intermediate step.
 
+from io import StringIO
+
 def sqpow(t, f, p) :
     s = p.bit_length() - 1
     binary_list = [int(bit) for bit in bin(p)[2:]]
@@ -739,13 +741,87 @@ lemma T_ofList' : T = ofList l := by norm_num ; ring
             doc.close()
 
 
+def polynomial_to_lean(poly, var_name):
+    """Convert Sage polynomial to Lean syntax"""
+    import re
+    s = str(poly)
+    s = re.sub(r'x', var_name, s)
+    s = s.replace('*', ' * ')
+    s = re.sub(r'(\d)/(\d)', r'((\1) / (\2))', s)
+    s = s.replace('  ', ' ')
+    return s.strip()
 
+def generate_unit_certificates(T, label):
+    """Generate fundamental unit certificates for number field defined by T"""
+    try:
+        K = NumberField(T, 'a')
+        U = K.unit_group()
+        units = U.fundamental_units()
 
-# ----------------- MODIFIED main_sage FUNCTION -----------------
-# This function is the primary entry point called by the Lean tactic.
-def main_sage(coeffs_str, label):
-    # This structure is now decoupled from file system writing.
-    global X, x  # Add this line
+        if len(units) == 0:
+            return ""  # No units to generate
+
+        lines = []
+        lines.append('')
+        lines.append('-- Fundamental Units')
+        lines.append('')
+
+        # Define the generator as an algebraic integer
+
+        lines.append('')
+        lines.append(f'lemma K_int_{label} : IsIntegral ℤ K_gen_{label} := by')
+        lines.append('  sorry')
+        lines.append('')
+        lines.append(f'def K_gen_int_{label} : 𝓞 K_{label} := ⟨K_gen_{label}, K_int_{label}⟩')
+        lines.append('')
+
+        # Work in QQ[x] for certificate calculations
+        Rx.<x> = PolynomialRing(QQ)
+        T_QQ = Rx(T)  # Convert minimal polynomial to QQ[x]
+
+        for i, unit in enumerate(units):
+            unit_idx = i + 1
+            unit_name = f"fundamental_unit_{label}_{unit_idx}"
+
+            unit_inverse = unit.inverse()
+            poly_u = Rx(unit.polynomial())  # Ensure it's in QQ[x]
+            poly_u_inv = Rx(unit_inverse.polynomial())  # Ensure it's in QQ[x]
+
+            # Certificate polynomial: (u * u_inv - 1) should be divisible by T
+            P_x = (poly_u * poly_u_inv) - Rx(1)
+
+            # Verify divisibility (should be exact)
+            quotient, remainder = P_x.quo_rem(T_QQ)
+            if remainder != 0:
+                lines.append(f'-- Warning: unit {unit_idx} certificate has non-zero remainder\n')
+
+            # Convert to Lean
+            lean_poly_u = polynomial_to_lean(poly_u, f'K_gen_int_{label}')
+            lean_poly_u_inv = polynomial_to_lean(poly_u_inv, f'K_gen_int_{label}')
+
+            lines.append(f'def {unit_name} : (𝓞 K_{label})ˣ where')
+            lines.append(f'  val := {lean_poly_u}')
+            lines.append(f'  inv := {lean_poly_u_inv}')
+            lines.append('  val_inv := by sorry')
+            lines.append('  inv_val := by sorry')
+            lines.append('')
+
+        return '\n'.join(lines)
+
+    except Exception as e:
+        return f'-- Unit generation failed: {e}\n'
+
+class UnclosableStringIO(StringIO):
+    """StringIO that ignores close() calls"""
+    def close(self):
+        pass  # Do nothing
+
+    def really_close(self):
+        StringIO.close(self)
+
+def main_sage(coeffs_str, label, generate_units='false'):
+    global X, x
+
     try:
         coeffs_list = [QQ(c.strip()) for c in coeffs_str.split(',')]
     except Exception as e:
@@ -753,6 +829,7 @@ def main_sage(coeffs_str, label):
         sys.exit(1)
 
     R.<X> = PolynomialRing(ZZ)
+    x = X
 
     try:
         T = R(coeffs_list)
@@ -760,10 +837,19 @@ def main_sage(coeffs_str, label):
         print(f"Error converting coefficients to Z[X] polynomial: {e}", file=sys.stderr)
         sys.exit(1)
 
-    # Call the proof generation function, directing output to stdout (which Lean captures)
-    # The file creation happens entirely in the Lean tactic now.
-    LeanProofIrreducible(T, sys.stdout)
+    # Generate irreducibility proof to a buffer that can't be closed
+    proof_buffer = UnclosableStringIO()
+    LeanProofIrreducible(T, proof_buffer)
+    proof_output = proof_buffer.getvalue()
+    proof_buffer.really_close()
 
+    # Print the proof
+    print(proof_output, end='')
+
+    # Optionally generate unit certificates
+    if generate_units.lower() == 'true':
+        unit_code = generate_unit_certificates(T, label)
+        print(unit_code)
 
 # The execution block is simplified and safe for external calls
 if __name__ == "__main__":

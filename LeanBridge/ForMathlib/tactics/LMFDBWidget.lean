@@ -74,6 +74,12 @@ structure NumberFieldResult where
   cm : Bool
   deriving Inhabited, Lean.ToJson, Lean.FromJson, Repr
 
+/-- Parameters for generating Lean files -/
+structure GenerateParams where
+  fields : Array NumberFieldResult
+  generateUnits : Bool
+  deriving Inhabited, Lean.ToJson, Lean.FromJson, Repr
+
 -- Helper functions
 def getSageCondaEnv : IO String := do
   match (← IO.getEnv "LMFDB_SAGE_CONDA_ENV") with
@@ -260,7 +266,7 @@ def doSearchLMFDB (params : SearchParams) : IO (Except String (Array NumberField
   catch e =>
     return .error s!"{e}"
 
-def doGenerateLeanFiles (fields : Array NumberFieldResult) : IO (Except String String) := do
+def doGenerateLeanFiles (fields : Array NumberFieldResult) (generateUnits : Bool := false) : IO (Except String String) := do
   try
     let sage_conda_env ← getSageCondaEnv
     let sage_cmd ← findCondaSage sage_conda_env
@@ -289,7 +295,9 @@ def doGenerateLeanFiles (fields : Array NumberFieldResult) : IO (Except String S
 
       let polyStr := " + ".intercalate polyTerms.toList
 
-      let sageCommandStr := s!"load('{sage_proof_path}'); main_sage('{coeffsStr}', '{validLabel}')"
+      let unitsFlag := if generateUnits then "true" else "false"
+      let sageCommandStr := s!"load('{sage_proof_path}'); main_sage('{coeffsStr}', '{validLabel}', '{unitsFlag}')"
+
       let outputProof ← IO.Process.output {
         cmd := sage_cmd,
         args := #["-c", sageCommandStr],
@@ -298,21 +306,33 @@ def doGenerateLeanFiles (fields : Array NumberFieldResult) : IO (Except String S
         stderr := .piped
       }
 
-      -- ADD THIS DEBUG OUTPUT
+      -- DEBUG OUTPUT
       IO.println s!"[DEBUG] Sage exit code for {validLabel}: {outputProof.exitCode}"
       if outputProof.stderr.trim != "" then
         IO.println s!"[DEBUG] Sage stderr: {outputProof.stderr}"
       if outputProof.stdout.trim != "" then
         IO.println s!"[DEBUG] Sage stdout length: {outputProof.stdout.length}"
 
-      let proofContent :=
+           -- Separate proof content from unit content
+      let (proofContent, unitContent) :=
         if outputProof.exitCode != 0 then
-          -- Include the stderr in the sorry comment so we can see what failed
-          s!"-- Proof generation failed for {validLabel}\n-- Exit code: {outputProof.exitCode}\n-- Error: {outputProof.stderr}\nsorry"
+          (s!"-- Proof generation failed for {validLabel}\n-- Exit code: {outputProof.exitCode}\n-- Error: {outputProof.stderr}\nsorry", "")
+        else if generateUnits then
+          -- Split the output: look for unit-related content
+          let lines := outputProof.stdout.splitOn "\n"
+          let splitIdx := lines.findIdx? (fun line => line.trim.startsWith "lemma K_int_")
+          match splitIdx with
+          | some idx =>
+              let proofLines := (lines.take idx).filter (fun line => !line.trim.startsWith "import")
+              let unitLines := lines.drop idx
+              ("\n".intercalate proofLines, "\n".intercalate unitLines)
+          | none =>
+              let filteredLines := lines.filter (fun line => !line.trim.startsWith "import")
+              ("\n".intercalate filteredLines, "")
         else
           let lines := outputProof.stdout.splitOn "\n"
           let filteredLines := lines.filter (fun line => !line.trim.startsWith "import")
-          "\n".intercalate filteredLines
+          ("\n".intercalate filteredLines, "")
 
       let signedDiscr :=
         if field.disc_sign == -1 then s!"-{field.disc_abs}"
@@ -325,6 +345,10 @@ def doGenerateLeanFiles (fields : Array NumberFieldResult) : IO (Except String S
       let cmAxiom :=
         if field.cm then
           s!"\naxiom LMFDB_NF_{validLabel}_totallyComplex : IsTotallyComplex K_{validLabel}\n\ninstance LMFDB_NF_{validLabel}_totallyComplexInstance : IsTotallyComplex K_{validLabel} := LMFDB_NF_{validLabel}_totallyComplex\n\naxiom LMFDB_NF_{validLabel}_isCM : NumberField.IsCMField K_{validLabel}"
+        else ""
+
+      let kGenAbbrev :=
+        if generateUnits then s!"\nabbrev K_gen_{validLabel} : K_{validLabel} := AdjoinRoot.root min_poly_{validLabel}\n"
         else ""
 
       let fileContent := s!"import Mathlib
@@ -343,7 +367,7 @@ abbrev min_poly_{validLabel} : Polynomial ℚ := {polyStr}
 abbrev K_{validLabel} := AdjoinRoot min_poly_{validLabel}
 
 {proofContent}
-
+{kGenAbbrev}
 lemma irreducible_poly : Irreducible min_poly_{validLabel} := by
   have := irreducible_T
   rw [Polynomial.IsPrimitive.Int.irreducible_iff_irreducible_map_cast] at this
@@ -359,6 +383,8 @@ lemma irreducible_poly : Irreducible min_poly_{validLabel} := by
 
 instance : Fact (Irreducible min_poly_{validLabel}) := ⟨irreducible_poly⟩
 
+{unitContent}
+
 axiom LMFDB_NF_{validLabel}_discr : NumberField.discr K_{validLabel} = {signedDiscr}
 
 axiom LMFDB_NF_{validLabel}_isGalois : {isGaloisAxiom}
@@ -368,6 +394,8 @@ axiom LMFDB_NF_{validLabel}_classNumber : NumberField.classNumber K_{validLabel}
 
 end
 "
+
+
 
       let outputFile := s!"{proof_output_dir}/LMFDB_{validLabel}.lean"
       IO.FS.writeFile outputFile fileContent
@@ -389,9 +417,9 @@ def searchLMFDB (params : SearchParams) : RequestM (RequestTask (Array NumberFie
 
 open LMFDBWidget in
 @[server_rpc_method]
-def generateLeanFiles (fields : Array NumberFieldResult) : RequestM (RequestTask String) :=
+def generateLeanFiles (params : GenerateParams) : RequestM (RequestTask String) :=
   RequestM.asTask do
-    match (← doGenerateLeanFiles fields) with
+    match (← doGenerateLeanFiles params.fields params.generateUnits) with
     | .ok message => return message
     | .error e => throw { code := .internalError, message := e }
 
