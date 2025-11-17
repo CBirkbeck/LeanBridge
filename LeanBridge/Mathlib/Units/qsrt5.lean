@@ -1,4 +1,5 @@
 import Mathlib
+import LeanBridge.Compute.LogPhi
 
 open NumberField InfinitePlace Units Polynomial
 
@@ -280,11 +281,30 @@ lemma rank : rank K = 1 := by
   rw [Units.rank_eq place₂]
   convert @Fintype.card_unique _ place₀_unique _
 
-lemma regulator_mem : regulator K ∈ Set.Ioo 0.48 0.49 := by
+
+
+lemma regulator_mem : regulator K ∈ Set.Icc 0.48121182505960344749775891342436
+    0.48121182505960344749775891342437 := by
   simp_rw [regulator_eq_det K place₂ <| place₀_equiv.trans <| finCongr rank.symm, place₀_mult,
-    place₀_default, fundSystem_eq]
-  simp
-  sorry
+    place₀_default, fundSystem_eq, place₁, realPlace₁, fundUnit1]
+  simp [root₁]
+  have B := bound_log_φ
+  simp [φ] at *
+  norm_cast
+  have := bound_sqrt_5
+  simp at *
+  have H : |Real.log (|1 + √5| / 2)| = Real.log φ := by
+    rw [abs_eq_self.mpr ]
+    congr
+    simp
+    linarith
+    apply Real.log_nonneg
+    rw [abs_eq_self.mpr ]
+    linarith
+    linarith
+  rw [H]
+  apply B
+
 
 axiom discr : discr K = 5
 
