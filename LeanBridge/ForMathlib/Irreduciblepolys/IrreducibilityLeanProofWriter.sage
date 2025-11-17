@@ -294,8 +294,8 @@ def GlobalCertificateIrrF (T, lprimes, f):
                 for j in range(F[i][1]):
                     print(f'  · dsimp ; exact irreducible_ofList_ofCertificateIrreducibleZModOfList\' P{p}P{i}', file = f)
     print(' hm := by decide', file = f)
-    print(' hprod := by decide!', file = f)
-    print(' hinter := by decide!', file = f)
+    print(' hprod := by decide', file = f)
+    print(' hinter := by decide', file = f)
 
 
 # In[120]:
@@ -701,9 +701,7 @@ lemma T_ofList' : T = ofList l := by norm_num ; ring
         print('theorem irreducible_T : Irreducible T := irreducible_of_CertificateIntPolynomial _ _ C ', file = doc)
         doc.close()
     else :
-        print(f'''import LeanBridge.ForMathlib.Irreduciblepolys.IrreduciblePolynomialZModp
-import Mathlib.Tactic.NormNum.Prime
-import LeanBridge.ForMathlib.Irreduciblepolys.BrillhartIrreducibilityTest
+        print(f'''
 
 open Polynomial
 
@@ -747,7 +745,7 @@ lemma T_ofList' : T = ofList l := by norm_num ; ring
 # This function is the primary entry point called by the Lean tactic.
 def main_sage(coeffs_str, label):
     # This structure is now decoupled from file system writing.
-
+    global X, x  # Add this line
     try:
         coeffs_list = [QQ(c.strip()) for c in coeffs_str.split(',')]
     except Exception as e:
