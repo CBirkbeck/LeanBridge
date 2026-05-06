@@ -4,104 +4,19 @@ import Lean.Elab.Command
 import Lean.Data.Json
 import Lean.Data.Json.FromToJson
 import Mathlib
+import LeanBridge.ForMathlib.tactics.LMFDBUtils
 import LeanBridge.ForMathlib.tactics.LMFDB_Proof_2_2_13_1
 
 open Lean Elab Command IO System
-
-/-- Find an executable by trying multiple methods:
-    1. Check if it's an absolute path
-    2. Try to find it in PATH using 'which'
-    3. Throw an error if not found -/
-def findExecutable (name : String) (envVarName? : Option String := none) : IO String := do
-  -- First try environment variable if provided
-  if let some envVar := envVarName? then
-    if let some path := (← IO.getEnv envVar) then
-      if ← FilePath.pathExists path then
-        return path
-
-  -- If name is already an absolute path, check if it exists
-  if name.startsWith "/" then
-    if ← FilePath.pathExists name then
-      return name
-    else
-      throw <| IO.userError s!"Specified path does not exist: {name}"
-
-  -- Try to find in PATH using 'which'
-  let output ← IO.Process.output {
-    cmd := "which",
-    args := #[name],
-    stdin := .null,
-    stdout := .piped,
-    stderr := .piped
-  }
-
-  if output.exitCode == 0 then
-    return output.stdout.trim
-  else
-    let envMsg := match envVarName? with
-      | some envVar => s!" or set the {envVar} environment variable"
-      | none => ""
-    throw <| IO.userError s!"Could not find '{name}' in PATH{envMsg}. Please ensure it is installed."
-
-/-- Get Sage conda environment name from environment variable or use default -/
-def getSageCondaEnv : IO String := do
-  if let some env := (← IO.getEnv "LMFDB_SAGE_CONDA_ENV") then
-    return env
-  else
-    return "sage"  -- default conda environment name
-
-/-- Find Python in the sage conda environment -/
-def findCondaPython (envName : String) : IO String := do
-  let condaInfo ← IO.Process.output {
-    cmd := "conda",
-    args := #["info", "--base"],
-    stdin := .null,
-    stdout := .piped,
-    stderr := .piped
-  }
-
-  if condaInfo.exitCode == 0 then
-    let condaBase := condaInfo.stdout.trim
-    let pythonPath := s!"{condaBase}/envs/{envName}/bin/python"
-    if ← FilePath.pathExists pythonPath then
-      return pythonPath
-
-  throw <| IO.userError s!"Could not find Python in conda environment '{envName}'"
-
-/-- Find the full path to Sage in a conda environment -/
-def findCondaSage (envName : String) : IO String := do
-  -- Get conda base path
-  let condaInfo ← IO.Process.output {
-    cmd := "conda",
-    args := #["info", "--base"],
-    stdin := .null,
-    stdout := .piped,
-    stderr := .piped
-  }
-
-  if condaInfo.exitCode != 0 then
-    throw <| IO.userError "Could not find conda installation"
-
-  let condaBase := condaInfo.stdout.trim
-  let sagePath := s!"{condaBase}/envs/{envName}/bin/sage"
-
-  -- Check if it exists
-  if ← FilePath.pathExists sagePath then
-    return sagePath
-  else
-    throw <| IO.userError s!"Sage not found in conda environment '{envName}' at {sagePath}. Please install sage in the environment with: conda install -c conda-forge sage"
 
 elab "#LMFDB_search" degree:num r2:num D_abs:num : command => do
   let degree_val := degree.getNat
   let r2_val := r2.getNat
   let D_abs_val := D_abs.getNat
 
-  -- Get the conda environment
-  let sage_conda_env ← getSageCondaEnv
-
-  -- Find the full paths to Python and Sage in the conda environment
-  let python_cmd ← findCondaPython sage_conda_env
-  let sage_cmd ← findCondaSage sage_conda_env
+  -- Find Python and Sage using shared discovery logic
+  let python_cmd ← LMFDBUtils.findPython
+  let sage_cmd ← LMFDBUtils.findSage
 
   -- Use relative paths from project root
   let python_query_path := "LeanBridge/ForMathlib/tactics/lmfdb_query.py"
@@ -113,14 +28,9 @@ elab "#LMFDB_search" degree:num r2:num D_abs:num : command => do
   logInfo m!"Using Sage: {sage_cmd}"
   logInfo m!"Querying LMFDB with: degree={degree_val}, r2={r2_val}, disc_abs={D_abs_val}"
 
-  -- 1. Run the Query Script (Python) - using full path
-  let output_query ← IO.Process.output {
-    cmd := python_cmd,
-    args := #[python_query_path, toString degree_val, toString r2_val, toString D_abs_val],
-    stdin := .null,
-    stdout := .piped,
-    stderr := .piped
-  }
+  -- 1. Run the Query Script (Python) with correct PATH
+  let output_query ← LMFDBUtils.runPythonScript python_cmd python_query_path
+    #[toString degree_val, toString r2_val, toString D_abs_val]
 
   if output_query.exitCode != 0 then
     logError s!"LMFDB Query script failed with exit code {output_query.exitCode}:\n{output_query.stderr}"
@@ -186,16 +96,10 @@ elab "#LMFDB_search" degree:num r2:num D_abs:num : command => do
 
       let poly_str := " + ".intercalate poly_terms.toList
 
-      -- Run Sage using full path (no conda activation needed)
+      -- Run Sage with correct PATH for dependencies
       let sage_command_str := s!"load('{sage_proof_path}'); main_sage('{coeffs_str}', '{valid_label}')"
 
-      let output_proof ← IO.Process.output {
-        cmd := sage_cmd,  -- Use full path to sage executable
-        args := #["-c", sage_command_str],
-        stdin := .null,
-        stdout := .piped,
-        stderr := .piped
-      }
+      let output_proof ← LMFDBUtils.runSageCommand sage_cmd #["-c", sage_command_str]
 
       if output_proof.exitCode != 0 then
         logWarning s!"Irreducibility proof generation failed for {valid_label} (Exit Code: {output_proof.exitCode}). Falling back to 'sorry'.\nSage Error: {output_proof.stderr}"

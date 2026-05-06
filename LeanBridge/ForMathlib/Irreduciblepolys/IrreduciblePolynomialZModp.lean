@@ -90,41 +90,28 @@ def charPOfCard (hp: Nat.Prime p) (hcard : Fintype.card F = p ^ n) : CharP F p :
 noncomputable def algHomOfCardPow (K : Type) {n m p: ℕ} [hp : Fact $ Nat.Prime p]
     [Field K] [Fintype K] [Algebra (ZMod p) F] [Algebra (ZMod p) K] (hdvd: m ∣ n)
     (hcp : Fintype.card F = p ^ m) (hc : Fintype.card K = p ^ n) : F →ₐ[ZMod p] K := by
-  have : (X : (ZMod p)[X]) ^ p ^ m - X ∣ X ^ p ^ n - X := by
-    have aux := pow_sub_one_dvd_pow_sub_one (p : ℤ) _ _ hdvd
-    have hdvdp: p ^ m - 1 ∣ p ^ n - 1 := by
-      simp only [← Int.natCast_dvd_natCast,
-        Nat.one_le_pow m p (Nat.zero_lt_of_ne_zero (Ne.symm (NeZero.ne' p))),
-        Nat.cast_sub, Nat.cast_pow, Nat.cast_one,
-        Nat.one_le_pow n p (Nat.zero_lt_of_ne_zero (Ne.symm (NeZero.ne' p))), aux]
-    have := mul_dvd_mul_left X (pow_sub_one_dvd_pow_sub_one (X : (ZMod p)[X]) _ _ hdvdp)
-    rw [mul_sub, mul_sub, mul_pow_sub_one (pow_ne_zero m (Ne.symm (NeZero.ne' p))) _,
-     mul_pow_sub_one (pow_ne_zero n (Ne.symm (NeZero.ne' p))) _, mul_one] at this
-    exact this
-  have := (pow_pow_sub_dvd_pow_pow_sub (α := (ZMod p)[X]) (m := p) ?_ (hdvd)) X
-  rw [← hc] at this
-  have hsplits := Polynomial.splits_of_splits_of_dvd (algebraMap (ZMod p) K) ?_ ?_ this
+  have hp_ne_zero : p ≠ 0 := Nat.Prime.ne_zero hp.out
+  have hdvdpoly : (X : (ZMod p)[X]) ^ p ^ m - X ∣ X ^ Fintype.card K - X := by
+    rw [hc]
+    exact pow_pow_sub_dvd_pow_pow_sub hp_ne_zero hdvd X
+  have hsplits : Splits ((X ^ p ^ m - X : (ZMod p)[X]).map (algebraMap (ZMod p) K)) := by
+    refine Polynomial.Splits.of_dvd (FiniteField.splits_X_pow_card_sub_X p (K := K)) ?_
+      (Polynomial.map_dvd _ hdvdpoly)
+    rw [Polynomial.map_sub, Polynomial.map_pow, map_X]
+    exact FiniteField.X_pow_card_sub_X_ne_zero K Fintype.one_lt_card
+  have hm_ne_zero : m ≠ 0 := fun h => by
+    apply (lt_self_iff_false 1).mp
+    exact lt_of_lt_of_eq (Fintype.one_lt_card (α := F))
+      (Eq.trans hcp (Eq.trans (congrArg (fun x => p ^ x) h) (pow_zero p)))
+  haveI : Fintype (GaloisField p m) := Fintype.ofFinite _
+  have card_gf : Fintype.card (GaloisField p m) = p ^ m := by
+    rw [← GaloisField.card _ _ hm_ne_zero, Nat.card_eq_fintype_card]
+  haveI : Polynomial.IsSplittingField (ZMod p) (GaloisField p m) (X ^ p ^ m - X) :=
+    FiniteField.isSplittingField_of_card_eq _ _ card_gf
   have ϕ := Polynomial.IsSplittingField.lift (GaloisField p m) (X ^ p ^ m - X : (ZMod p)[X]) hsplits
-  have : Fintype (GaloisField p m) := Fintype.ofFinite _
-  have card_galoisField : m ≠ 0 → Fintype.card (GaloisField p m) = p ^ m := by
-    intro hm
-    rw [← GaloisField.card _ _ hm, Nat.card_eq_fintype_card]
-  have iso:= FiniteField.algEquivOfCardEq (K:= F) (K':= (GaloisField p m)) (p:= p) ?_
+  have iso := FiniteField.algEquivOfCardEq (K := F) (K' := GaloisField p m) (p := p)
+    (hcp.trans card_gf.symm)
   exact ϕ.comp iso.toAlgHom
-  rw [card_galoisField, hcp]
-  exact fun h => (lt_self_iff_false _).1 (lt_of_lt_of_eq (Fintype.one_lt_card (α := F))
-    (Eq.trans hcp (Eq.trans (congrArg (fun x => p ^ x) h) (pow_zero p))))
-  by_contra h
-  nth_rw 2 [← pow_one X] at h
-  rw [sub_eq_zero, Polynomial.X_pow_eq_monomial, Polynomial.X_pow_eq_monomial,
-    Polynomial.monomial_left_inj] at h
-  have := Fintype.one_lt_card (α := K)
-  linarith
-  exact one_ne_zero
-  have hcomp : algebraMap (ZMod p) K = (RingHom.id K).comp (algebraMap (ZMod p) K) := rfl
-  rw [hcomp, ← Polynomial.splits_map_iff, Polynomial.map_sub, Polynomial.map_pow, map_X]
-  exact (Polynomial.IsSplittingField.splits')
-  exact Nat.Prime.ne_zero hp.out
 
 /- A ring homomorphism between two finite fields· -/
 noncomputable def ringHomOfCardPow (K : Type) {n : ℕ} [Field K][Fintype K]
@@ -151,17 +138,17 @@ include hd in
  lemma exists_root_of_X_pow_card_sub_X
     (h : (Polynomial.map φ f : K[X]) ∣ (X ^ (Fintype.card K) - X : Polynomial K)) :
   ∃ a : K, Polynomial.eval₂ φ a f = 0 := by
-  have : Polynomial.Splits (RingHom.id K) (Polynomial.map φ f) := by
-    refine Polynomial.splits_of_splits_of_dvd (RingHom.id K) ?_ (Polynomial.IsSplittingField.splits') h
-    by_contra hc
-    rw [sub_eq_zero, Polynomial.X_pow_eq_monomial, ← pow_one X, Polynomial.X_pow_eq_monomial,
-      Polynomial.monomial_left_inj (one_ne_zero)] at hc
-    exact (lt_self_iff_false 1).mp (lt_of_lt_of_eq (Fintype.one_lt_card (α := K)) hc)
-  rw [Polynomial.splits_iff_card_roots] at this
+  have hKsplits : Splits (X ^ Fintype.card K - X : K[X]) := by
+    haveI : IsSplittingField K K (X ^ Fintype.card K - X) := FiniteField.isSplittingField_sub K K
+    simpa using Polynomial.IsSplittingField.splits (K := K) (L := K) (X^Fintype.card K - X)
+  have hsplit : Splits (Polynomial.map φ f : K[X]) :=
+    Polynomial.Splits.of_dvd hKsplits
+      (FiniteField.X_pow_card_sub_X_ne_zero K Fintype.one_lt_card) h
+  rw [Polynomial.splits_iff_card_roots] at hsplit
   have hdeg : (Polynomial.map φ f).natDegree = f.natDegree := natDegree_map _
-  rw [hdeg] at this
-  rw [← this] at hd
-  obtain ⟨a,ha⟩:= Multiset.card_pos_iff_exists_mem.1 hd
+  rw [hdeg] at hsplit
+  rw [← hsplit] at hd
+  obtain ⟨a, ha⟩ := Multiset.card_pos_iff_exists_mem.1 hd
   use a
   replace ha := (Polynomial.isRoot_of_mem_roots ha)
   rw [IsRoot, Polynomial.eval_map] at ha
@@ -204,7 +191,7 @@ lemma natDegree_dvd_of_dvd_X_pow_sub_X {n : ℕ} [Fintype F]
       AdjoinRoot.powerBasis_dim (Irreducible.ne_zero hi)]
   have hqo := Fintype.one_lt_card (α := F)
   have hdim2: Module.finrank F K = n := by
-    have hcard:= @card_eq_pow_finrank F K _ _ _ _ _
+    have hcard:= @Module.card_eq_pow_finrank F K _ _ _ _ _
     rw [hcard', pow_right_inj₀] at hcard
     exact hcard.symm
     linarith ; linarith
@@ -225,7 +212,7 @@ lemma dvd_X_pow_natDegree_sub_X [Fintype F] (hi : Irreducible f) :
         AdjoinRoot.powerBasis_dim (Irreducible.ne_zero hi)]
   haveI hfin : Finite (AdjoinRoot f) := Module.finite_of_finite F
   haveI hfin : Fintype (AdjoinRoot f) := Fintype.ofFinite _
-  have hcard := @card_eq_pow_finrank F (AdjoinRoot f) _ _ _ _ _
+  have hcard := @Module.card_eq_pow_finrank F (AdjoinRoot f) _ _ _ _ _
   rw [hdim1, ← hmdef] at hcard
   set a := AdjoinRoot.root f
   have hpeval2 :
@@ -289,7 +276,7 @@ theorem irreducible_iff_dvd_X_pow_sub_X (f : F[X]) (hd : 0 < f.natDegree) :
       (natDegree_dvd_iff_dvd_X_pow_sub_X hai).2 (dvd_trans ⟨b, heq⟩ hfdvd)
     have aux2: ¬ IsCoprime f (X^(Fintype.card F)^(natDegree a) - X) := by
       by_contra hc
-      exact (Irreducible.not_unit hai )
+      exact (Irreducible.not_isUnit hai )
         (IsCoprime.isUnit_of_dvd' hc ⟨b, heq⟩ ((natDegree_dvd_iff_dvd_X_pow_sub_X hai).1 dvd_rfl ))
     have hdeq := Not.imp aux2 (hmh (a.natDegree) hadvd)
     simp only [ne_eq, not_not] at hdeq

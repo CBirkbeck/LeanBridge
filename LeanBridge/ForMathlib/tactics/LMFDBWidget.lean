@@ -3,6 +3,7 @@ import ProofWidgets.Component.Panel.Basic
 import ProofWidgets.Component.HtmlDisplay
 import Lean.Data.Json
 import Mathlib
+import LeanBridge.ForMathlib.tactics.LMFDBUtils
 
 open Lean Server ProofWidgets Jsx System
 
@@ -59,6 +60,9 @@ structure SearchParams where
   regulator_min : Option Float := none
   regulator_max : Option Float := none
 
+  -- Coefficients (comma-separated, e.g. "-57,-1,1")
+  coeffs : Option String := none
+
   -- Display
   limit : Nat := 50
   deriving Inhabited, Lean.ToJson, Lean.FromJson, Repr
@@ -79,51 +83,6 @@ structure GenerateParams where
   fields : Array NumberFieldResult
   generateUnits : Bool
   deriving Inhabited, Lean.ToJson, Lean.FromJson, Repr
-
--- Helper functions
-def getSageCondaEnv : IO String := do
-  match (← IO.getEnv "LMFDB_SAGE_CONDA_ENV") with
-  | some env => return env
-  | none => return "sage"
-
-def findCondaPython (envName : String) : IO String := do
-  let condaInfo ← IO.Process.output {
-    cmd := "conda",
-    args := #["info", "--base"],
-    stdin := .null,
-    stdout := .piped,
-    stderr := .piped
-  }
-
-  if condaInfo.exitCode == 0 then
-    let condaBase := condaInfo.stdout.trim
-    let pythonPath := s!"{condaBase}/envs/{envName}/bin/python"
-    let pathExists ← System.FilePath.pathExists pythonPath
-    if pathExists then
-      return pythonPath
-
-  throw <| IO.userError s!"Could not find Python in conda environment '{envName}'"
-
-def findCondaSage (envName : String) : IO String := do
-  let condaInfo ← IO.Process.output {
-    cmd := "conda",
-    args := #["info", "--base"],
-    stdin := .null,
-    stdout := .piped,
-    stderr := .piped
-  }
-
-  if condaInfo.exitCode != 0 then
-    throw <| IO.userError "Could not find conda installation"
-
-  let condaBase := condaInfo.stdout.trim
-  let sagePath := s!"{condaBase}/envs/{envName}/bin/sage"
-
-  let pathExists ← System.FilePath.pathExists sagePath
-  if pathExists then
-    return sagePath
-  else
-    throw <| IO.userError s!"Sage not found in conda environment '{envName}'"
 
 /-- Build JSON object from search parameters -/
 def buildJsonQuery (params : SearchParams) : Lean.Json := Id.run do
@@ -211,6 +170,10 @@ def buildJsonQuery (params : SearchParams) : Lean.Json := Id.run do
   if let some v := params.regulator_max then
     fields := fields.push ("regulator_max", Lean.toJson v)
 
+  -- Coefficients
+  if let some v := params.coeffs then
+    fields := fields.push ("coeffs", Lean.toJson v)
+
   -- Limit
   fields := fields.push ("limit", Lean.toJson params.limit)
 
@@ -218,19 +181,13 @@ def buildJsonQuery (params : SearchParams) : Lean.Json := Id.run do
 
 def doSearchLMFDB (params : SearchParams) : IO (Except String (Array NumberFieldResult)) := do
   try
-    let python_cmd := "/home/chris/miniforge3/envs/sage/bin/python"
+    let python_cmd ← LMFDBUtils.findPython
     let python_query_path := "LeanBridge/ForMathlib/tactics/lmfdb_query_range.py"
 
     let jsonObj := buildJsonQuery params
     let jsonStr := toString jsonObj
 
-    let output ← IO.Process.output {
-      cmd := python_cmd,
-      args := #[python_query_path, jsonStr],
-      stdin := .null,
-      stdout := .piped,
-      stderr := .piped
-    }
+    let output ← LMFDBUtils.runPythonScript python_cmd python_query_path #[jsonStr]
 
     if output.exitCode != 0 then
       return .error s!"Query failed: {output.stderr}"
@@ -268,8 +225,7 @@ def doSearchLMFDB (params : SearchParams) : IO (Except String (Array NumberField
 
 def doGenerateLeanFiles (fields : Array NumberFieldResult) (generateUnits : Bool := false) : IO (Except String String) := do
   try
-    let sage_conda_env ← getSageCondaEnv
-    let sage_cmd ← findCondaSage sage_conda_env
+    let sage_cmd ← LMFDBUtils.findSage
 
     let sage_proof_path := "LeanBridge/ForMathlib/Irreduciblepolys/IrreducibilityLeanProofWriter.sage"
     let proof_output_dir := "LeanBridge/ForMathlib/tactics"
@@ -298,13 +254,7 @@ def doGenerateLeanFiles (fields : Array NumberFieldResult) (generateUnits : Bool
       let unitsFlag := if generateUnits then "true" else "false"
       let sageCommandStr := s!"load('{sage_proof_path}'); main_sage('{coeffsStr}', '{validLabel}', '{unitsFlag}')"
 
-      let outputProof ← IO.Process.output {
-        cmd := sage_cmd,
-        args := #["-c", sageCommandStr],
-        stdin := .null,
-        stdout := .piped,
-        stderr := .piped
-      }
+      let outputProof ← LMFDBUtils.runSageCommand sage_cmd #["-c", sageCommandStr]
 
       -- DEBUG OUTPUT
       IO.println s!"[DEBUG] Sage exit code for {validLabel}: {outputProof.exitCode}"

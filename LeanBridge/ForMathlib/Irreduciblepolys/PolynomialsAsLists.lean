@@ -626,15 +626,13 @@ lemma ofList_of_toList (p : Polynomial R) :
     have hgd : natDegree q = n := by
       rw [← Nat.succ_inj, Nat.succ_eq_add_one, Nat.succ_eq_add_one, ← hfrg, heq, natDegree_C_add,
           Polynomial.natDegree_X_mul hqz]
+    have hdeg : natDegree f = natDegree q + 1 := by
+      rw [heq, natDegree_C_add, Polynomial.natDegree_X_mul hqz]
     have hL: toList' q = (List.ofFn fun (i : Fin (natDegree f)) => coeff f (↑i + 1)) := by
-      symm
       unfold toList'
-      convert congr_heq ((heq_self_iff_true _ ).2 True.intro) ?_
-      rw [Fin.heq_fun_iff rfl]
-      intro i
-      dsimp
-      convert hcoeff i
-      · rw [heq, natDegree_C_add, Polynomial.natDegree_X_mul hqz]
+      refine List.ext_getElem (by simp [hdeg]) (fun n h₁ h₂ => ?_)
+      simp only [List.getElem_ofFn]
+      exact (hcoeff n).symm
     rw [← hL, hn q hgd]
     exact heq.symm
   exact this (natDegree p) p rfl
@@ -719,7 +717,7 @@ lemma ofList_foldr_mul {R : Type u} [CommSemiring R] [DecidableEq R](l : List (L
     simp only [List.foldr_nil, List.prod, ofList_one, mul_one]
   | cons b bs hb =>
     intro a
-    erw [List.foldr_cons, ofList_convolve_eq_mul, hb a, List.prod, List.foldr_cons,
+    erw [List.foldr_cons, ofList_convolve_eq_mul, hb a, List.prod_cons,
         ofList_convolve_eq_mul, mul_left_comm]
 
 lemma list_sum_eq_ofList_sum {R : Type u} [Semiring R] [DecidableEq R]

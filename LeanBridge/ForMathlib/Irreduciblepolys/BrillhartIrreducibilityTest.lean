@@ -79,12 +79,11 @@ lemma List.map_maximum {α β: Type*} [LinearOrder α] [LinearOrder β] {l : Lis
 
 lemma pow_lt_abs_eval {R K : Type*} [CommRing R] [Field K] (m : R) (i : R →+* K)
     (ρ : ℝ) (d : ℕ) (hd : d ≠ 0) (abs : AbsoluteValue K ℝ) (p : Polynomial R)
-    (hsplit : Polynomial.Splits i p ) (hdeg : (p.map i).natDegree = d )
+    (hsplit : Polynomial.Splits (p.map i) ) (hdeg : (p.map i).natDegree = d )
     (hcoeff : 1 ≤  abs ((p.map i).leadingCoeff ))
     (hroots : ∀ x ∈ Polynomial.roots (p.map i), (abs x) ≤ ρ )
     (h : ρ ≤ abs (i m) ) : (abs (i m) - ρ) ^ d ≤ abs (i (p.eval m)) := by
-  rw [← Polynomial.eval₂_hom , ← Polynomial.eval_map
-    ,Polynomial.eq_prod_roots_of_splits_id ((Polynomial.splits_id_iff_splits i).2 hsplit) ]
+  rw [← Polynomial.eval₂_hom , ← Polynomial.eval_map, hsplit.eq_prod_roots]
   simp only [algebraMap.coe_one, eval_mul, eval_C, AbsoluteValue.map_mul]
   rw [Polynomial.eval_multiset_prod]
   simp only [Multiset.map_map, Function.comp_apply, eval_sub, eval_X, eval_C]
@@ -96,8 +95,7 @@ lemma pow_lt_abs_eval {R K : Type*} [CommRing R] [Field K] (m : R) (i : R →+* 
   have aux : d =
     (List.map (⇑abs) (Multiset.map (fun x => i m - x) (map i p).roots).toList).length := by
       simp only [List.length_map, Multiset.length_toList, Multiset.card_map]
-      rw [← hdeg, Polynomial.natDegree_eq_card_roots
-        (p := (p.map i)) ((Polynomial.splits_id_iff_splits i).2 hsplit), map_id]
+      rw [← hdeg, hsplit.natDegree_eq_card_roots]
   · simp_rw [← Multiset.prod_toList, map_list_prod]
     rw [aux]
     apply List.pow_le_prod
@@ -193,9 +191,7 @@ lemma irreducible_of_eval_mul_prime (m : ℤ) (ρ : ℝ) (d p s : ℕ) (hdn : d 
     · simp [NormedField.toAbsoluteValue, Int.cast_abs, algebraMap_int_eq, eq_intCast]
     · simp [NormedField.toAbsoluteValue, algebraMap_int_eq, eq_intCast]
       exact le_tsub_of_add_le_left hrho
-    · simp [algebraMap_int_eq]
-      rw [← Polynomial.splits_id_iff_splits]
-      exact IsAlgClosed.splits (k := ℂ ) _
+    · exact IsAlgClosed.splits (k := ℂ) _
   rw [irreducible_iff]
   constructor
   · by_contra hu
@@ -236,11 +232,10 @@ lemma coeffs_le_maxCoeffAux (P : Polynomial ℂ ) (n : ℕ) (hn : n < P.natDegre
     ‖(P.coeff n)‖ ≤ maxCoeffsAux P := by
   unfold maxCoeffsAux
   simp[h]
-  refine List.le_maximum_of_mem
-    (l := List.ofFn (fun n => ‖(P.coeff ↑n)‖ : Fin (P.natDegree) → ℝ)) ?_ ?_
-  · rw [(show n = ↑(⟨n, hn⟩ : Fin (P.natDegree)) by rfl), List.mem_ofFn]
-    use ⟨n, hn⟩
-  · simp only [WithBot.coe_unbot]
+  refine List.le_maximum_of_mem'
+    (l := List.ofFn (fun n => ‖(P.coeff ↑n)‖ : Fin (P.natDegree) → ℝ)) ?_
+  rw [(show n = ↑(⟨n, hn⟩ : Fin (P.natDegree)) by rfl), List.mem_ofFn]
+  use ⟨n, hn⟩
 
 
 /-- The standard Cauchy Bound for the roots of a complex polynomial. For constant polynomials

@@ -1,157 +1,128 @@
 import * as React from 'react';
-const { useState } = React;
+const { useState, useContext, useCallback } = React;
 import { RpcContext } from '@leanprover/infoview';
 
 export default function LMFDBSearchWidget(props) {
-  const initialState = props.initialState || {};
-  const [params, setParams] = useState(initialState.searchParams || {
-    degree_min: null,
-    degree_max: null,
-    signature: null,
-    disc_abs_min: null,
-    disc_abs_max: null,
-    disc_sign: null,
-    rd_min: null,
-    rd_max: null,
-    grd_min: null,
-    grd_max: null,
-    r2_min: null,
-    r2_max: null,
-    class_number: null,
-    narrow_class_number: null,
-    class_group: null,
-    narrow_class_group: null,
-    is_galois: null,
-    galois_label: null,
-    gal_is_abelian: null,
-    gal_is_cyclic: null,
-    gal_is_solvable: null,
-    num_ram_min: null,
-    num_ram_max: null,
-    ramps: null,
-    unramified_primes: null,
-    inessentialp: null,
-    cm: null,
-    monogenic: null,
-    is_minimal_sibling: null,
-    regulator_min: null,
-    regulator_max: null,
+  const rs = useContext(RpcContext);
+
+  const [params, setParams] = useState({
+    degree_min: null, degree_max: null, signature: null,
+    disc_abs_min: null, disc_abs_max: null, disc_sign: null,
+    rd_min: null, rd_max: null, grd_min: null, grd_max: null,
+    r2_min: null, r2_max: null,
+    class_number: null, narrow_class_number: null,
+    class_group: null, narrow_class_group: null,
+    is_galois: null, galois_label: null,
+    gal_is_abelian: null, gal_is_cyclic: null, gal_is_solvable: null,
+    num_ram_min: null, num_ram_max: null,
+    ramps: null, unramified_primes: null, inessentialp: null,
+    cm: null, monogenic: null, is_minimal_sibling: null,
+    regulator_min: null, regulator_max: null,
     limit: 50
   });
-  const [results, setResults] = useState(initialState.results || []);
-  const [selected, setSelected] = useState(initialState.selected || []);
-  const [searching, setSearching] = useState(false);
-  const [generating, setGenerating] = useState(false);
-  const [message, setMessage] = useState(null);
-  const [messageType, setMessageType] = useState('info');
-  const [generateUnits, setGenerateUnits] = useState(false);
   const [coeffSearch, setCoeffSearch] = useState('');
+  const [generateUnits, setGenerateUnits] = useState(false);
 
-  const rs = React.useContext(RpcContext);
+  // Keep results + selected in one state object so they update atomically
+  const [data, setData] = useState({ results: [], selected: [] });
+  const [status, setStatus] = useState({ searching: false, generating: false, message: null, messageType: 'info' });
 
-  const updateParam = (field, value) => {
+  const updateParam = useCallback((field, value) => {
     setParams(prev => {
-      const newParams = { ...prev };
-
+      const p = { ...prev };
       if (value === '' || value === null) {
-        newParams[field] = null;
+        p[field] = null;
+      } else if (field.includes('_min') || field.includes('_max') ||
+                 field === 'limit' || field === 'class_number' ||
+                 field === 'narrow_class_number') {
+        const num = parseInt(value);
+        p[field] = isNaN(num) ? null : num;
+      } else if (field === 'disc_sign') {
+        const num = parseInt(value);
+        p[field] = isNaN(num) ? null : num;
+      } else if (['is_galois', 'cm', 'monogenic', 'gal_is_abelian',
+                   'gal_is_cyclic', 'gal_is_solvable', 'is_minimal_sibling'].includes(field)) {
+        p[field] = value === 'true';
       } else {
-        // Convert to appropriate type based on field name
-        if (field.includes('_min') || field.includes('_max') ||
-            field === 'limit' || field === 'class_number' ||
-            field === 'narrow_class_number' || field === 'r2_min' || field === 'r2_max') {
-          // These should be numbers
-          const num = parseInt(value);
-          newParams[field] = isNaN(num) ? null : num;
-        } else if (field === 'disc_sign') {
-          // Convert disc_sign to integer
-          const num = parseInt(value);
-          newParams[field] = isNaN(num) ? null : num;
-        } else if (field === 'is_galois' || field === 'cm' || field === 'monogenic' ||
-                   field === 'gal_is_abelian' || field === 'gal_is_cyclic' ||
-                   field === 'gal_is_solvable' || field === 'is_minimal_sibling') {
-          // These should be booleans
-          newParams[field] = value === 'true';
-        } else {
-          // Keep as string
-          newParams[field] = value;
-        }
+        p[field] = value;
       }
-
-      return newParams;
+      return p;
     });
-  };
+  }, []);
 
-  const handleSearch = async () => {
-    setSearching(true);
-    setMessage(null);
+  const handleSearch = useCallback(async () => {
+    setStatus({ searching: true, generating: false, message: null, messageType: 'info' });
     try {
-      const searchResults = await rs.call('searchLMFDB', params);
-      setResults(searchResults);
-      setSelected(new Array(searchResults.length).fill(false));
-      setMessage('Found ' + searchResults.length + ' result' + (searchResults.length !== 1 ? 's' : ''));
-      setMessageType('success');
+      const searchParams = { ...params };
+      if (coeffSearch.trim() !== '') {
+        searchParams.coeffs = coeffSearch.trim();
+      }
+      const searchResults = await rs.call('searchLMFDB', searchParams);
+      const arr = Array.isArray(searchResults) ? searchResults : [];
+      // Single atomic update for results + selected
+      setData({ results: arr, selected: new Array(arr.length).fill(false) });
+      setStatus({
+        searching: false, generating: false,
+        message: 'Found ' + arr.length + ' result' + (arr.length !== 1 ? 's' : ''),
+        messageType: 'success'
+      });
     } catch (error) {
-      setMessage('Search failed: ' + error.message);
-      setMessageType('error');
-    } finally {
-      setSearching(false);
+      setStatus({
+        searching: false, generating: false,
+        message: 'Search failed: ' + (error && error.message ? error.message : String(error)),
+        messageType: 'error'
+      });
     }
-  };
+  }, [params, coeffSearch, rs]);
 
-  const handleGenerate = async () => {
-    const selectedFields = results.filter((r, i) => selected[i]);
+  const handleGenerate = useCallback(async () => {
+    const selectedFields = data.results.filter((_, i) => data.selected[i]);
     if (selectedFields.length === 0) {
-      setMessage('No fields selected');
-      setMessageType('error');
+      setStatus(s => ({ ...s, message: 'No fields selected', messageType: 'error' }));
       return;
     }
-
-    setGenerating(true);
-    setMessage(null);
+    setStatus(s => ({ ...s, generating: true, message: null }));
     try {
       const result = await rs.call('generateLeanFiles', {
         fields: selectedFields,
         generateUnits: generateUnits
       });
-      setMessage(result);
-      setMessageType('success');
+      setStatus({ searching: false, generating: false, message: result, messageType: 'success' });
     } catch (error) {
-      setMessage('Generation failed: ' + error.message);
-      setMessageType('error');
-    } finally {
-      setGenerating(false);
+      setStatus({
+        searching: false, generating: false,
+        message: 'Generation failed: ' + (error && error.message ? error.message : String(error)),
+        messageType: 'error'
+      });
     }
-  };
+  }, [data, generateUnits, rs]);
 
-  const toggleSelect = (index) => {
-    setSelected(prev => {
-      const newSelected = [...prev];
-      newSelected[index] = !newSelected[index];
-      return newSelected;
+  const toggleSelect = useCallback((index) => {
+    setData(prev => {
+      const sel = [...prev.selected];
+      sel[index] = !sel[index];
+      return { ...prev, selected: sel };
     });
-  };
+  }, []);
 
-  const selectAll = () => {
-    setSelected(new Array(results.length).fill(true));
-  };
+  const selectAll = useCallback(() => {
+    setData(prev => ({ ...prev, selected: new Array(prev.results.length).fill(true) }));
+  }, []);
 
-  const deselectAll = () => {
-    setSelected(new Array(results.length).fill(false));
-  };
+  const deselectAll = useCallback(() => {
+    setData(prev => ({ ...prev, selected: new Array(prev.results.length).fill(false) }));
+  }, []);
+
+  const { results, selected } = data;
+  const { searching, generating, message, messageType } = status;
+  const selectedCount = selected.filter(Boolean).length;
 
   return React.createElement('div', { style: { padding: '15px', fontFamily: 'sans-serif', maxWidth: '1200px' } },
     React.createElement('h2', { style: { marginTop: 0 } }, 'LMFDB Number Field Search'),
 
     // Coefficient search section
     React.createElement('div', {
-      style: {
-        border: '1px solid #ccc',
-        padding: '15px',
-        marginBottom: '15px',
-        backgroundColor: '#f0f8ff',
-        borderRadius: '4px'
-      }
+      style: { border: '1px solid #ccc', padding: '15px', marginBottom: '15px', backgroundColor: '#f0f8ff', borderRadius: '4px' }
     },
       React.createElement('h3', { style: { marginTop: 0 } }, 'Search by Minimal Polynomial Coefficients'),
       React.createElement('div', { style: { display: 'flex', gap: '10px', alignItems: 'center' } },
@@ -159,48 +130,25 @@ export default function LMFDBSearchWidget(props) {
         React.createElement('input', {
           type: 'text',
           value: coeffSearch,
-          placeholder: 'e.g., -57,-1,1 or 1,0,0,-2',
+          placeholder: 'e.g., -57,-1,1 or -2,0,0,1',
           onChange: e => setCoeffSearch(e.target.value),
-          style: {
-            flex: 1,
-            padding: '8px',
-            border: '1px solid #ccc',
-            borderRadius: '4px'
-          }
+          style: { flex: 1, padding: '8px', border: '1px solid #ccc', borderRadius: '4px' }
         }),
-        coeffSearch.trim() !== '' && React.createElement('button', {
+        coeffSearch.trim() !== '' ? React.createElement('button', {
           onClick: () => setCoeffSearch(''),
-          style: {
-            padding: '8px 16px',
-            backgroundColor: '#dc3545',
-            color: 'white',
-            border: 'none',
-            borderRadius: '4px',
-            cursor: 'pointer'
-          }
-        }, 'Clear')
+          style: { padding: '8px 16px', backgroundColor: '#dc3545', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }
+        }, 'Clear') : null
       ),
       React.createElement('p', {
-        style: {
-          margin: '10px 0 0 0',
-          fontSize: '0.9em',
-          color: '#666'
-        }
-      }, 'Enter coefficients in ascending degree order (constant term first). Example: for X² - X - 57, enter: -57,-1,1')
+        style: { margin: '10px 0 0 0', fontSize: '0.9em', color: '#666' }
+      }, 'Enter coefficients in ascending degree order (constant term first). Example: for X\u00B2 - X - 57, enter: -57,-1,1')
     ),
 
     // Search form
     React.createElement('div', {
-      style: {
-        border: '1px solid #ccc',
-        padding: '15px',
-        marginBottom: '15px',
-        backgroundColor: '#f9f9f9',
-        borderRadius: '4px'
-      }
+      style: { border: '1px solid #ccc', padding: '15px', marginBottom: '15px', backgroundColor: '#f9f9f9', borderRadius: '4px' }
     },
       React.createElement('h3', { style: { marginTop: 0 } }, 'Search Parameters'),
-
       React.createElement('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' } },
         // Left column
         React.createElement('div', null,
@@ -222,7 +170,6 @@ export default function LMFDBSearchWidget(props) {
             { value: 'false', label: 'no' }
           ], params, updateParam)
         ),
-
         // Right column
         React.createElement('div', null,
           createSingleInput('Class number', 'class_number', 'e.g. 1', params, updateParam),
@@ -240,8 +187,7 @@ export default function LMFDBSearchWidget(props) {
               value: params.limit || 50,
               onChange: e => updateParam('limit', parseInt(e.target.value) || 50),
               style: { width: '80px', padding: '4px' },
-              min: 1,
-              max: 1000
+              min: 1, max: 1000
             })
           )
         )
@@ -250,12 +196,7 @@ export default function LMFDBSearchWidget(props) {
       React.createElement('div', { style: { marginTop: '15px' } },
         React.createElement('div', { style: { marginBottom: '10px' } },
           React.createElement('label', {
-            style: {
-              display: 'flex',
-              alignItems: 'center',
-              fontSize: '13px',
-              cursor: 'pointer'
-            }
+            style: { display: 'flex', alignItems: 'center', fontSize: '13px', cursor: 'pointer' }
           },
             React.createElement('input', {
               type: 'checkbox',
@@ -272,9 +213,7 @@ export default function LMFDBSearchWidget(props) {
           style: {
             padding: '8px 20px',
             backgroundColor: searching ? '#ccc' : '#4CAF50',
-            color: 'white',
-            border: 'none',
-            borderRadius: '4px',
+            color: 'white', border: 'none', borderRadius: '4px',
             cursor: searching ? 'not-allowed' : 'pointer',
             fontSize: '14px'
           }
@@ -283,130 +222,95 @@ export default function LMFDBSearchWidget(props) {
     ),
 
     // Message display
-    message && React.createElement('div', {
+    message ? React.createElement('div', {
       style: {
-        padding: '10px',
-        marginBottom: '15px',
-        borderRadius: '4px',
-        backgroundColor: messageType === 'error' ? '#ffebee' :
-                        messageType === 'success' ? '#e8f5e9' : '#e3f2fd',
-        color: messageType === 'error' ? '#c62828' :
-               messageType === 'success' ? '#2e7d32' : '#1565c0'
+        padding: '10px', marginBottom: '15px', borderRadius: '4px',
+        backgroundColor: messageType === 'error' ? '#ffebee' : messageType === 'success' ? '#e8f5e9' : '#e3f2fd',
+        color: messageType === 'error' ? '#c62828' : messageType === 'success' ? '#2e7d32' : '#1565c0'
       }
-    }, message),
+    }, message) : null,
 
     // Results table
-    results.length > 0 && React.createElement('div', {
-      style: {
-        border: '1px solid #ccc',
-        padding: '15px',
-        backgroundColor: '#fff',
-        borderRadius: '4px'
-      }
-    }, (() => {
-      // Filter results based on coefficient search
-      const filteredResults = coeffSearch.trim() === '' ? results :
-        results.filter(r => {
-          const normalizedSearch = coeffSearch.replace(/\s/g, '');
-          const normalizedCoeffs = r.coeffs.replace(/\s/g, '');
-          return normalizedCoeffs === normalizedSearch;
-        });
-
-      return [
-               React.createElement('h3', { style: { marginTop: 0 } },
-          coeffSearch.trim() !== ''
-            ? `Results (${filteredResults.length} filtered from ${results.length} total)`
-            : `Results (${results.length})`,
-          React.createElement('button', {
-            onClick: selectAll,
-            style: { marginLeft: '10px', padding: '4px 8px', fontSize: '12px' }
-          }, 'Select All'),
-          React.createElement('button', {
-            onClick: deselectAll,
-            style: { marginLeft: '5px', padding: '4px 8px', fontSize: '12px' }
-          }, 'Deselect All')
-        ),
-
-        React.createElement('div', {
-          style: {
-            maxHeight: '400px',
-            overflowY: 'auto',
-            border: '1px solid #ddd'
-          }
+    results.length > 0 ? React.createElement('div', {
+      style: { border: '1px solid #ccc', padding: '15px', backgroundColor: '#fff', borderRadius: '4px' }
+    },
+      React.createElement('h3', { style: { marginTop: 0 } },
+        'Results (' + results.length + ')',
+        React.createElement('button', {
+          onClick: selectAll,
+          style: { marginLeft: '10px', padding: '4px 8px', fontSize: '12px' }
+        }, 'Select All'),
+        React.createElement('button', {
+          onClick: deselectAll,
+          style: { marginLeft: '5px', padding: '4px 8px', fontSize: '12px' }
+        }, 'Deselect All')
+      ),
+      React.createElement('div', {
+        style: { maxHeight: '400px', overflowY: 'auto', border: '1px solid #ddd' }
+      },
+        React.createElement('table', {
+          style: { width: '100%', borderCollapse: 'collapse', fontSize: '13px' }
         },
-          React.createElement('table', {
-            style: {
-              width: '100%',
-              borderCollapse: 'collapse',
-              fontSize: '13px'
-            }
+          React.createElement('thead', {
+            style: { position: 'sticky', top: 0, backgroundColor: '#f5f5f5' }
           },
-            React.createElement('thead', {
-              style: {
-                position: 'sticky',
-                top: 0,
-                backgroundColor: '#f5f5f5'
-              }
-            },
-              React.createElement('tr', null,
-                React.createElement('th', { style: { padding: '8px', textAlign: 'left' } }, 'Select'),
-                React.createElement('th', { style: { padding: '8px', textAlign: 'left' } }, 'Label'),
-                React.createElement('th', { style: { padding: '8px', textAlign: 'left' } }, 'Coefficients'),
-                React.createElement('th', { style: { padding: '8px', textAlign: 'center' } }, 'Class #'),
-                React.createElement('th', { style: { padding: '8px', textAlign: 'center' } }, 'Disc'),
-                React.createElement('th', { style: { padding: '8px', textAlign: 'center' } }, 'Galois'),
-                React.createElement('th', { style: { padding: '8px', textAlign: 'center' } }, 'CM')
+            React.createElement('tr', null,
+              React.createElement('th', { style: { padding: '8px', textAlign: 'left' } }, 'Select'),
+              React.createElement('th', { style: { padding: '8px', textAlign: 'left' } }, 'Label'),
+              React.createElement('th', { style: { padding: '8px', textAlign: 'left' } }, 'Coefficients'),
+              React.createElement('th', { style: { padding: '8px', textAlign: 'center' } }, 'Class #'),
+              React.createElement('th', { style: { padding: '8px', textAlign: 'center' } }, 'Disc'),
+              React.createElement('th', { style: { padding: '8px', textAlign: 'center' } }, 'Galois'),
+              React.createElement('th', { style: { padding: '8px', textAlign: 'center' } }, 'CM')
+            )
+          ),
+          React.createElement('tbody', null,
+            results.map((result, idx) =>
+              React.createElement('tr', {
+                key: idx,
+                style: {
+                  backgroundColor: selected[idx] ? '#e3f2fd' : 'white',
+                  borderBottom: '1px solid #eee'
+                }
+              },
+                React.createElement('td', { style: { padding: '8px' } },
+                  React.createElement('input', {
+                    type: 'checkbox',
+                    checked: !!selected[idx],
+                    onChange: () => toggleSelect(idx)
+                  })
+                ),
+                React.createElement('td', { style: { padding: '8px', fontFamily: 'monospace' } },
+                  result.label || ''),
+                React.createElement('td', { style: { padding: '8px', fontFamily: 'monospace', fontSize: '11px' } },
+                  '[' + (result.coeffs || '') + ']'),
+                React.createElement('td', { style: { padding: '8px', textAlign: 'center' } },
+                  result.class_number != null ? result.class_number : ''),
+                React.createElement('td', { style: { padding: '8px', textAlign: 'center' } },
+                  (result.disc_sign === -1 ? '-' : '') + (result.disc_abs != null ? result.disc_abs : '')),
+                React.createElement('td', { style: { padding: '8px', textAlign: 'center' } },
+                  result.is_galois ? '\u2713' : '\u2717'),
+                React.createElement('td', { style: { padding: '8px', textAlign: 'center' } },
+                  result.cm ? '\u2713' : '\u2717')
               )
-            ),
-            React.createElement('tbody', null,
-              filteredResults.map((result) => {
-                const originalIdx = results.indexOf(result);
-                return React.createElement('tr', {
-                  key: originalIdx,
-                  style: {
-                    backgroundColor: selected[originalIdx] ? '#e3f2fd' : 'white',
-                    borderBottom: '1px solid #eee'
-                  }
-                },
-                  React.createElement('td', { style: { padding: '8px' } },
-                    React.createElement('input', {
-                      type: 'checkbox',
-                      checked: selected[originalIdx],
-                      onChange: () => toggleSelect(originalIdx)
-                    })
-                  ),
-                  React.createElement('td', { style: { padding: '8px', fontFamily: 'monospace' } }, result.label),
-                  React.createElement('td', { style: { padding: '8px', fontFamily: 'monospace', fontSize: '11px' } }, '[' + result.coeffs + ']'),
-                  React.createElement('td', { style: { padding: '8px', textAlign: 'center' } }, result.class_number),
-                  React.createElement('td', { style: { padding: '8px', textAlign: 'center' } },
-                    (result.disc_sign === -1 ? '-' : '') + result.disc_abs),
-                  React.createElement('td', { style: { padding: '8px', textAlign: 'center' } },
-                    result.is_galois ? '✓' : '✗'),
-                  React.createElement('td', { style: { padding: '8px', textAlign: 'center' } },
-                    result.cm ? '✓' : '✗')
-                );
-              })
             )
           )
-        ),
-
-        React.createElement('div', { style: { marginTop: '15px' } },
-          React.createElement('button', {
-            onClick: handleGenerate,
-            disabled: generating || selected.filter(Boolean).length === 0,
-            style: {
-              padding: '8px 20px',
-              backgroundColor: (generating || selected.filter(Boolean).length === 0) ? '#ccc' : '#2196F3',
-              color: 'white',
-              border: 'none',
-              borderRadius: '4px',
-              cursor: (generating || selected.filter(Boolean).length === 0) ? 'not-allowed' : 'pointer',
-              fontSize: '14px'
-            }
-          }, generating ? 'Generating...' : 'Generate Lean Files (' + selected.filter(Boolean).length + ' selected)')
         )
-      ];
-    })())
+      ),
+      React.createElement('div', { style: { marginTop: '15px' } },
+        React.createElement('button', {
+          onClick: handleGenerate,
+          disabled: generating || selectedCount === 0,
+          style: {
+            padding: '8px 20px',
+            backgroundColor: (generating || selectedCount === 0) ? '#ccc' : '#2196F3',
+            color: 'white', border: 'none', borderRadius: '4px',
+            cursor: (generating || selectedCount === 0) ? 'not-allowed' : 'pointer',
+            fontSize: '14px'
+          }
+        }, generating ? 'Generating...' : 'Generate Lean Files (' + selectedCount + ' selected)')
+      )
+    ) : null
   );
 }
 
@@ -417,7 +321,7 @@ function createRangeInput(label, minField, maxField, placeholder, params, update
     React.createElement('input', {
       type: 'text',
       placeholder: 'min ' + placeholder,
-      value: params[minField] || '',
+      value: params[minField] != null ? params[minField] : '',
       onChange: e => updateParam(minField, e.target.value),
       style: { width: '70px', marginRight: '5px', padding: '4px' }
     }),
@@ -425,7 +329,7 @@ function createRangeInput(label, minField, maxField, placeholder, params, update
     React.createElement('input', {
       type: 'text',
       placeholder: 'max ' + placeholder,
-      value: params[maxField] || '',
+      value: params[maxField] != null ? params[maxField] : '',
       onChange: e => updateParam(maxField, e.target.value),
       style: { width: '70px', padding: '4px' }
     })
@@ -438,7 +342,7 @@ function createSingleInput(label, field, placeholder, params, updateParam) {
     React.createElement('input', {
       type: 'text',
       placeholder: placeholder,
-      value: params[field] || '',
+      value: params[field] != null ? params[field] : '',
       onChange: e => updateParam(field, e.target.value),
       style: { width: '150px', padding: '4px' }
     })
@@ -446,15 +350,20 @@ function createSingleInput(label, field, placeholder, params, updateParam) {
 }
 
 function createDropdown(label, field, options, params, updateParam) {
+  // Use string comparison for the select value to avoid issues with false/0
+  const currentVal = params[field];
+  const selectValue = currentVal === true ? 'true' : currentVal === false ? 'false'
+    : currentVal != null ? String(currentVal) : '';
+
   return React.createElement('div', { style: { marginBottom: '8px' } },
     React.createElement('label', { style: { display: 'inline-block', width: '150px', fontSize: '13px' } }, label),
     React.createElement('select', {
-      value: params[field] || '',
+      value: selectValue,
       onChange: e => updateParam(field, e.target.value),
       style: { width: '150px', padding: '4px' }
     },
       React.createElement('option', { value: '' }, 'any'),
-      ...options.map(opt =>
+      options.map(opt =>
         React.createElement('option', { key: opt.value, value: opt.value }, opt.label)
       )
     )
