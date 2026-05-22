@@ -1,6 +1,12 @@
-import LeanBridge.ForMathlib.QExpansion.Generic
+import LeanBridge.ForMathlib.QExpansion.IntEval
 import LeanBridge.ForMathlib.QExpansion.Sturm
 import Mathlib.Analysis.Complex.Polynomial.Basic
+import LeanBridge.ForMathlib.QExpansion.LMFDB.Weight_44_part_0
+import LeanBridge.ForMathlib.QExpansion.LMFDB.Weight_44_part_1
+import LeanBridge.ForMathlib.QExpansion.LMFDB.Weight_44_part_2
+
+set_option maxHeartbeats 0
+set_option maxRecDepth 2000
 
 /-!
 # LMFDB level-1 modular form orbit `1.44.a.{a..}` (Hecke field degree 3)
@@ -109,10 +115,16 @@ theorem f_44_part_0_qExpansion_coeff (N n : ℕ) (hn : n < N) :
 def f_44_part_0_qExpList : List ℚ :=
   [0, 1, 0, ((-(366504040644 / 17))), (-8796093022208), ((-(10937580211870146 / 17))), (832374351434612736 / 17), ((-(22194697484969178344 / 17))), 19976984434430705664, (-143138748844282394475)]
 
-/-- One-shot bridge: the symbolic `evalEisList` equals the precomputed list (verified by
-`decide +kernel` once instead of N times). -/
+/-- Bridge: the symbolic `evalEisList` (over ℚ) equals the precomputed list. The heavy kernel work
+is the integer certificate `f_44_part_0_evalEisListZ_eq`; the steps here are cheap rational
+list checks. -/
 lemma f_44_part_0_evalEisList_eq :
     evalEisList f_44_part_0_polyData 10 = f_44_part_0_qExpList := by
+  have h : f_44_part_0_polyData
+      = f_44_part_0_polyDataZ.map
+          (fun t => (t.1, t.2.1, (t.2.2 : ℚ) / f_44_part_0_scale)) := by
+    decide +kernel
+  rw [h, evalEisList_eq_intCast_div, f_44_part_0_evalEisListZ_eq]
   decide +kernel
 
 
@@ -163,10 +175,16 @@ theorem f_44_part_1_qExpansion_coeff (N n : ℕ) (hn : n < N) :
 def f_44_part_1_qExpList : List ℚ :=
   [0, 0, 1, ((-(2511 / 17))), 0, (1410451540 / 17), (286142730300 / 17), (9055650989322 / 17), (-1928663541760), (-92910420289800)]
 
-/-- One-shot bridge: the symbolic `evalEisList` equals the precomputed list (verified by
-`decide +kernel` once instead of N times). -/
+/-- Bridge: the symbolic `evalEisList` (over ℚ) equals the precomputed list. The heavy kernel work
+is the integer certificate `f_44_part_1_evalEisListZ_eq`; the steps here are cheap rational
+list checks. -/
 lemma f_44_part_1_evalEisList_eq :
     evalEisList f_44_part_1_polyData 10 = f_44_part_1_qExpList := by
+  have h : f_44_part_1_polyData
+      = f_44_part_1_polyDataZ.map
+          (fun t => (t.1, t.2.1, (t.2.2 : ℚ) / f_44_part_1_scale)) := by
+    decide +kernel
+  rw [h, evalEisList_eq_intCast_div, f_44_part_1_evalEisListZ_eq]
   decide +kernel
 
 
@@ -217,10 +235,16 @@ theorem f_44_part_2_qExpansion_coeff (N n : ℕ) (hn : n < N) :
 def f_44_part_2_qExpList : List ℚ :=
   [0, 0, 0, (1 / 408), 1, (2487 / 34), ((-(94592 / 17))), (10132871 / 68), (-2209944), 19374597]
 
-/-- One-shot bridge: the symbolic `evalEisList` equals the precomputed list (verified by
-`decide +kernel` once instead of N times). -/
+/-- Bridge: the symbolic `evalEisList` (over ℚ) equals the precomputed list. The heavy kernel work
+is the integer certificate `f_44_part_2_evalEisListZ_eq`; the steps here are cheap rational
+list checks. -/
 lemma f_44_part_2_evalEisList_eq :
     evalEisList f_44_part_2_polyData 10 = f_44_part_2_qExpList := by
+  have h : f_44_part_2_polyData
+      = f_44_part_2_polyDataZ.map
+          (fun t => (t.1, t.2.1, (t.2.2 : ℚ) / f_44_part_2_scale)) := by
+    decide +kernel
+  rw [h, evalEisList_eq_intCast_div, f_44_part_2_evalEisListZ_eq]
   decide +kernel
 
 

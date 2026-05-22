@@ -1,6 +1,11 @@
-import LeanBridge.ForMathlib.QExpansion.Generic
+import LeanBridge.ForMathlib.QExpansion.IntEval
 import LeanBridge.ForMathlib.QExpansion.Sturm
 import Mathlib.Analysis.Complex.Polynomial.Basic
+import LeanBridge.ForMathlib.QExpansion.LMFDB.Weight_30_part_0
+import LeanBridge.ForMathlib.QExpansion.LMFDB.Weight_30_part_1
+
+set_option maxHeartbeats 0
+set_option maxRecDepth 2000
 
 /-!
 # LMFDB level-1 modular form orbit `1.30.a.{a..}` (Hecke field degree 2)
@@ -101,10 +106,16 @@ theorem f_30_part_0_qExpansion_coeff (N n : ℕ) (hn : n < N) :
 def f_30_part_0_qExpList : List ℚ :=
   [0, 1, 0, (-99180), (-82300928), (-9240014250), (-250922631168), (-1803292256920), 3927484661760, 69888751712253]
 
-/-- One-shot bridge: the symbolic `evalEisList` equals the precomputed list (verified by
-`decide +kernel` once instead of N times). -/
+/-- Bridge: the symbolic `evalEisList` (over ℚ) equals the precomputed list. The heavy kernel work
+is the integer certificate `f_30_part_0_evalEisListZ_eq`; the steps here are cheap rational
+list checks. -/
 lemma f_30_part_0_evalEisList_eq :
     evalEisList f_30_part_0_polyData 10 = f_30_part_0_qExpList := by
+  have h : f_30_part_0_polyData
+      = f_30_part_0_polyDataZ.map
+          (fun t => (t.1, t.2.1, (t.2.2 : ℚ) / f_30_part_0_scale)) := by
+    decide +kernel
+  rw [h, evalEisList_eq_intCast_div, f_30_part_0_evalEisListZ_eq]
   decide +kernel
 
 
@@ -149,10 +160,16 @@ theorem f_30_part_1_qExpansion_coeff (N n : ℕ) (hn : n < N) :
 def f_30_part_1_qExpList : List ℚ :=
   [0, 0, 1, (-552), 8640, 116000, (-4868460), 67855536, (-544522240), 2742137280]
 
-/-- One-shot bridge: the symbolic `evalEisList` equals the precomputed list (verified by
-`decide +kernel` once instead of N times). -/
+/-- Bridge: the symbolic `evalEisList` (over ℚ) equals the precomputed list. The heavy kernel work
+is the integer certificate `f_30_part_1_evalEisListZ_eq`; the steps here are cheap rational
+list checks. -/
 lemma f_30_part_1_evalEisList_eq :
     evalEisList f_30_part_1_polyData 10 = f_30_part_1_qExpList := by
+  have h : f_30_part_1_polyData
+      = f_30_part_1_polyDataZ.map
+          (fun t => (t.1, t.2.1, (t.2.2 : ℚ) / f_30_part_1_scale)) := by
+    decide +kernel
+  rw [h, evalEisList_eq_intCast_div, f_30_part_1_evalEisListZ_eq]
   decide +kernel
 
 

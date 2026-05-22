@@ -1,6 +1,10 @@
-import LeanBridge.ForMathlib.QExpansion.Generic
+import LeanBridge.ForMathlib.QExpansion.IntEval
 import LeanBridge.ForMathlib.QExpansion.Sturm
 import Mathlib.Analysis.Complex.Polynomial.Basic
+import LeanBridge.ForMathlib.QExpansion.LMFDB.Weight_26_part_0
+
+set_option maxHeartbeats 0
+set_option maxRecDepth 2000
 
 /-!
 # LMFDB level-1 modular form orbit `1.26.a.{a..}` (Hecke field degree 1)
@@ -93,10 +97,16 @@ theorem f_26_part_0_qExpansion_coeff (N n : ℕ) (hn : n < N) :
 def f_26_part_0_qExpList : List ℚ :=
   [0, 1, (-48), (-195804), (-33552128), (-741989850), 9398592, 39080597192, 3221114880, (-808949403027)]
 
-/-- One-shot bridge: the symbolic `evalEisList` equals the precomputed list (verified by
-`decide +kernel` once instead of N times). -/
+/-- Bridge: the symbolic `evalEisList` (over ℚ) equals the precomputed list. The heavy kernel work
+is the integer certificate `f_26_part_0_evalEisListZ_eq`; the steps here are cheap rational
+list checks. -/
 lemma f_26_part_0_evalEisList_eq :
     evalEisList f_26_part_0_polyData 10 = f_26_part_0_qExpList := by
+  have h : f_26_part_0_polyData
+      = f_26_part_0_polyDataZ.map
+          (fun t => (t.1, t.2.1, (t.2.2 : ℚ) / f_26_part_0_scale)) := by
+    decide +kernel
+  rw [h, evalEisList_eq_intCast_div, f_26_part_0_evalEisListZ_eq]
   decide +kernel
 
 
