@@ -1,41 +1,42 @@
+
 import Lean
 import Lean.Elab.Command
 import Lean.Data.Json
 import Lean.Data.Json.FromToJson
 import Mathlib
+import LeanBridge.ForMathlib.tactics.LMFDBUtils
+import LeanBridge.ForMathlib.tactics.LMFDB_Proof_2_2_13_1
 
-import LeanBridge.ForMathlib.tactics.LMFDB_Proof_4_0_1008_1
-
-open Lean Elab Command IO
+open Lean Elab Command IO System
 
 elab "#LMFDB_search" degree:num r2:num D_abs:num : command => do
   let degree_val := degree.getNat
   let r2_val := r2.getNat
   let D_abs_val := D_abs.getNat
 
-  let python_cmd := "/home/chris/miniforge3/envs/sage/bin/python"
-  let python_query_path := "/home/chris/Github/LeanBridge/LeanBridge/ForMathlib/tactics/lmfdb_query.py"
-  let sage_cmd := "/home/chris/miniforge3/envs/sage/bin/sage"
-  let sage_proof_path := "/home/chris/Github/LeanBridge/LeanBridge/ForMathlib/Irreduciblepolys/IrreducibilityLeanProofWriter.sage"
-  let proof_output_dir := "/home/chris/Github/LeanBridge/LeanBridge/ForMathlib/tactics"
+  -- Find Python and Sage using shared discovery logic
+  let python_cmd ← LMFDBUtils.findPython
+  let sage_cmd ← LMFDBUtils.findSage
+
+  -- Use relative paths from project root
+  let python_query_path := "LeanBridge/ForMathlib/tactics/lmfdb_query.py"
+  let sage_proof_path := "LeanBridge/ForMathlib/Irreduciblepolys/IrreducibilityLeanProofWriter.sage"
+  let proof_output_dir := "LeanBridge/ForMathlib/tactics"
   let module_prefix := "LeanBridge.Mathlib.Irreduciblepolys"
 
+  logInfo m!"Using Python: {python_cmd}"
+  logInfo m!"Using Sage: {sage_cmd}"
   logInfo m!"Querying LMFDB with: degree={degree_val}, r2={r2_val}, disc_abs={D_abs_val}"
 
-  -- 1. Run the Query Script (Python)
-  let output_query ← IO.Process.output {
-    cmd := python_cmd,
-    args := #[python_query_path, toString degree_val, toString r2_val, toString D_abs_val],
-    stdin := .null,
-    stdout := .piped,
-    stderr := .piped
-  }
+  -- 1. Run the Query Script (Python) with correct PATH
+  let output_query ← LMFDBUtils.runPythonScript python_cmd python_query_path
+    #[toString degree_val, toString r2_val, toString D_abs_val]
 
   if output_query.exitCode != 0 then
     logError s!"LMFDB Query script failed with exit code {output_query.exitCode}:\n{output_query.stderr}"
     return
 
-  -- --- START FIX: Logic to handle debug/success lines ---
+  -- Logic to handle debug/success lines
   let response_lines := (output_query.stdout.trim.splitOn "\n").filter (fun s => !s.isEmpty)
 
   let mut data_lines := response_lines
@@ -51,8 +52,6 @@ elab "#LMFDB_search" degree:num r2:num D_abs:num : command => do
   if data_lines.isEmpty then
     logInfo m!"No number fields found with the specified properties."
     return
-  -- --- END FIX ---
-
 
   -- 2. Process Data Lines and Generate Axioms
   let mut suggestions_list : List (Meta.Tactic.TryThis.Suggestion) := []
@@ -71,7 +70,7 @@ elab "#LMFDB_search" degree:num r2:num D_abs:num : command => do
 
       let valid_label := label_val.replace "." "_"
 
-      -- --- Irreducibility Proof Logic (Remains the same) ---
+      -- Irreducibility Proof Logic
       let mut irreducibility_import := ""
       let mut irreducibility_block := ""
 
@@ -97,25 +96,16 @@ elab "#LMFDB_search" degree:num r2:num D_abs:num : command => do
 
       let poly_str := " + ".intercalate poly_terms.toList
 
-         -- 2. Attempt to run the Proof Generator Script (SageMath)
-      let sage_command_str :=
-          s!"load('{sage_proof_path}'); main_sage('{coeffs_str}', '{valid_label}')"
+      -- Run Sage with correct PATH for dependencies
+      let sage_command_str := s!"load('{sage_proof_path}'); main_sage('{coeffs_str}', '{valid_label}')"
 
-      let output_proof ← IO.Process.output {
-        cmd := "/bin/bash",
-        args := #["-c", s!"{sage_cmd} -c \"{sage_command_str}\""],
-        stdin := .null,
-        stdout := .piped,
-        stderr := .piped
-      }
+      let output_proof ← LMFDBUtils.runSageCommand sage_cmd #["-c", sage_command_str]
 
-       if output_proof.exitCode != 0 then
+      if output_proof.exitCode != 0 then
         logWarning s!"Irreducibility proof generation failed for {valid_label} (Exit Code: {output_proof.exitCode}). Falling back to 'sorry'.\nSage Error: {output_proof.stderr}"
         irreducibility_block := s!"instance : Fact (Irreducible min_poly_{valid_label}) := by sorry"
       else
         let proof_module_name := s!"LMFDB_Proof_{valid_label}"
-
-        -- FINAL FIX: Use explicit string concatenation for the file path
         let proof_file_path := proof_output_dir ++ "/" ++ s!"{proof_module_name}.lean"
 
         -- Write the proof to the correct file path using Lean's IO
@@ -124,7 +114,7 @@ elab "#LMFDB_search" degree:num r2:num D_abs:num : command => do
         irreducibility_import := s!"import {module_prefix}.{proof_module_name}"
         irreducibility_block := s!"theorem irreducible_poly : Irreducible min_poly_{valid_label} := irreducible_T"
 
-      -- --- Axiom Construction ---
+      -- Axiom Construction
       let signed_discr :=
         if disc_sign_str == "-1" then
           s!"- {disc_abs_str}"
@@ -186,17 +176,15 @@ end"
     Meta.Tactic.TryThis.addSuggestions (←getRef) suggestions_list.toArray
 
 
-
-
 noncomputable section
 
 open NumberField
 
-abbrev min_poly_4_0_1008_1 : Polynomial ℚ := (1) * Polynomial.X ^ 4 + (-5) * Polynomial.X ^ 2 + (7)
+abbrev min_poly_2_2_13_1 : Polynomial ℚ := (1) * Polynomial.X ^ 2 + (-1) * Polynomial.X + (-3)
 
-abbrev K_4_0_1008_1 := AdjoinRoot min_poly_4_0_1008_1
+abbrev K_2_2_13_1 := AdjoinRoot min_poly_2_2_13_1
 
-lemma irreducible_poly :  Irreducible min_poly_4_0_1008_1 := by
+lemma irreducible_poly :  Irreducible min_poly_2_2_13_1 := by
   have := irreducible_T
   rw [Polynomial.IsPrimitive.Int.irreducible_iff_irreducible_map_cast] at this
   · convert this
@@ -209,15 +197,13 @@ lemma irreducible_poly :  Irreducible min_poly_4_0_1008_1 := by
     · apply List.cons_ne_nil _ _
     · rfl
 
-instance: Fact (Irreducible min_poly_4_0_1008_1) := ⟨irreducible_poly⟩
+instance: Fact (Irreducible min_poly_2_2_13_1) := ⟨irreducible_poly⟩
 
-axiom LMFDB_NF_4_0_1008_1_discr : NumberField.discr K_4_0_1008_1 = 1008
+axiom LMFDB_NF_2_2_13_1_discr : NumberField.discr K_2_2_13_1 = 13
 
-axiom LMFDB_NF_4_0_1008_1_isGalois : ¬ IsGalois ℚ K_4_0_1008_1
+axiom LMFDB_NF_2_2_13_1_isGalois : IsGalois ℚ K_2_2_13_1
 
-axiom LMFDB_NF_4_0_1008_1_classNumber : NumberField.classNumber K_4_0_1008_1 = 1
+axiom LMFDB_NF_2_2_13_1_classNumber : NumberField.classNumber K_2_2_13_1 = 1
 
 
 end
-
---let python_path := "/home/chris/Github/LeanBridge/.venv/bin/python"
