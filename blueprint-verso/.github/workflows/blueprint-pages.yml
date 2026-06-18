@@ -1,0 +1,123 @@
+name: Blueprint Pages Reusable
+
+on:
+  workflow_call:
+    inputs:
+      checkout_submodules:
+        required: false
+        type: boolean
+        default: false
+      harness_enabled:
+        required: false
+        type: boolean
+        default: false
+      warm_dependency_cache:
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: ${{ github.repository }}-blueprint-pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build Blueprint Site
+    runs-on: ubuntu-latest
+    steps:
+      - if: ${{ inputs.checkout_submodules }}
+        uses: actions/checkout@v5
+        with:
+          submodules: recursive
+      - if: ${{ !inputs.checkout_submodules }}
+        uses: actions/checkout@v5
+      - uses: actions/configure-pages@v6
+      - name: Install elan
+        run: |
+          curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | sh -s -- -y
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - if: ${{ inputs.harness_enabled }}
+        name: Read harness config
+        id: harness
+        run: python3 tools/verso-harness/scripts/export_ci_env.py --project-root . >> "$GITHUB_OUTPUT"
+      - name: Restore Lake package cache
+        uses: actions/cache@v5
+        with:
+          path: |
+            .lake/packages/VersoBlueprint
+            .lake/packages/mathlib
+            .lake/packages/subverso
+            .lake/packages/verso
+          key: ${{ runner.os }}-lake-packages-v2-${{ hashFiles('lean-toolchain', 'lake-manifest.json', '.gitmodules') }}
+          restore-keys: |
+            ${{ runner.os }}-lake-packages-v2-
+      - name: Restore root Lean build cache
+        uses: actions/cache@v5
+        with:
+          path: |
+            .lake/build/lib
+            .lake/build/ir
+          key: ${{ runner.os }}-lean-build-v2-${{ hashFiles('lean-toolchain', 'lake-manifest.json', 'lakefile.lean', '.gitmodules', '*.lean', '**/*.lean', 'scripts/ci-pages.sh') }}
+          restore-keys: |
+            ${{ runner.os }}-lean-build-v2-${{ hashFiles('lean-toolchain', 'lake-manifest.json', 'lakefile.lean', '.gitmodules') }}-
+            ${{ runner.os }}-lean-build-v2-
+      - if: ${{ inputs.harness_enabled }}
+        name: Restore formalization Lean build cache
+        uses: actions/cache@v5
+        with:
+          path: |
+            ${{ steps.harness.outputs.formalization_path }}/.lake/build/lib
+            ${{ steps.harness.outputs.formalization_path }}/.lake/build/ir
+          key: ${{ runner.os }}-formalization-build-v1-${{ hashFiles('lean-toolchain', 'lake-manifest.json', 'lakefile.lean', '.gitmodules', '*.lean', '**/*.lean', 'scripts/ci-pages.sh') }}
+          restore-keys: |
+            ${{ runner.os }}-formalization-build-v1-${{ hashFiles('lean-toolchain', 'lake-manifest.json', 'lakefile.lean', '.gitmodules') }}-
+            ${{ runner.os }}-formalization-build-v1-
+      - name: Show tool versions
+        run: |
+          lean --version
+          lake --version
+          python3 --version
+          git submodule status || true
+      - if: ${{ inputs.warm_dependency_cache }}
+        name: Warm Lean dependency cache
+        run: |
+          lake exe cache get || true
+          if [ "${{ inputs.harness_enabled }}" = "true" ] && [ -f "${{ steps.harness.outputs.formalization_path }}/lakefile.lean" ]; then
+            (
+              cd "${{ steps.harness.outputs.formalization_path }}"
+              lake exe cache get || true
+            )
+          fi
+      - if: ${{ inputs.harness_enabled }}
+        name: Select harness Lean toolchain
+        run: |
+          formalization_toolchain="${{ steps.harness.outputs.formalization_path }}/lean-toolchain"
+          if [ -f "$formalization_toolchain" ]; then
+            cp "$formalization_toolchain" lean-toolchain
+          fi
+      - if: ${{ inputs.harness_enabled }}
+        name: Validate harness contract
+        run: python3 tools/verso-harness/scripts/check_harness.py --project-root .
+      - name: Build Blueprint site
+        run: ./scripts/ci-pages.sh
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: _out/site/html-multi
+
+  deploy:
+    name: Deploy Pages
+    if: github.event_name != 'pull_request'
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5
