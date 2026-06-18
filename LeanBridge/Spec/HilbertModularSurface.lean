@@ -6,14 +6,20 @@ import Mathlib
 Tau-Ceti-style spec: properties any correct construction must satisfy, as `sorry`-ed
 goals — not a construction.
 
-For a real quadratic field `F` with the two real embeddings `σ₁, σ₂ : F ↪ ℝ`, the
-**Hilbert modular group** `SL(2, 𝒪_F)` acts on `ℍ × ℍ` by `γ · (z₁, z₂) = (σ₁(γ)·z₁, σ₂(γ)·z₂)`.
-The **Hilbert modular surface** is the (compactified) quotient `SL(2, 𝒪_F) \ (ℍ × ℍ)` — a
-complex surface, singular at finitely many cusps and elliptic points.
+Per the LMFDB (`hmsurface.hmsurface`): for a real quadratic field `F`, a congruence
+subgroup `Γ < GL₂⁺(F)` acts on `ℍ × ℍ` via the two real embeddings of `F`
+(`γ · (z₁, z₂) = (σ₁(γ)·z₁, σ₂(γ)·z₂)`). The projective surface with complex points
+`Γ \ (ℍ × ℍ)` is canonically defined over the reflex field of `F`; the **Hilbert modular
+surface** `X(Γ)` is its **minimal desingularization** — smooth, projective, geometrically
+integral. It parametrizes abelian surfaces with real multiplication by `F` together with
+level structure.
 
-The field `F`, the embeddings, and the homomorphism `SL(2, 𝒪_F) → SL(2,ℝ) × SL(2,ℝ)` are
-themselves def-wanted; we package "‍`Γ ≤ SL(2,ℝ) × SL(2,ℝ)` is the image of a Hilbert
-modular group" as the opaque predicate `IsHilbertModular`.
+The basic case `Γ = SL(2, 𝒪_F)` is the prototype modelled below. The field `F`, the
+embeddings, and the homomorphism into `SL(2,ℝ) × SL(2,ℝ)` are themselves def-wanted; we
+package "‍`Γ` is (the image of) such a Hilbert modular group" as the opaque predicate
+`IsHilbertModular`. (A full spec would also record the minimal-desingularization and
+moduli properties; those are deferred until the prerequisite algebraic-geometry API
+exists, as for the modular-curve spec.)
 -/
 
 namespace LeanBridge.Spec.HilbertModularSurface
