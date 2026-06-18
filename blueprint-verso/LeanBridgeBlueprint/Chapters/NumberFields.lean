@@ -14,7 +14,6 @@ This chapter lists the LMFDB definitions relating to *number fields*, migrated f
 :::definition "nf"
 *Number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf))
 
-\leanok
 A *number field* is a finite degree field extension of the field $`\Q` of rational numbers. In LMFDB, number fields are identified by a label.
 
 Depends on: {uses "nf.degree"}[]

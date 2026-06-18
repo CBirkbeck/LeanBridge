@@ -109,6 +109,10 @@ def transform_body(body):
             break
         body = new
 
+    # --- strip leanblueprint-only commands (status/link markers, not math content) ---
+    body = re.sub(r'\\(leanok|notready|mathlibok|leanchapter)\b', '', body)
+    body = re.sub(r'\\(lean|proves|alsoin|discussion)\s*\{[^}]*\}', '', body)
+
     # --- math -> tokens ---
     def stash_math(content, display):
         c = content.strip()
