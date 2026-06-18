@@ -1,70 +1,56 @@
-name: Compile blueprint
+name: Blueprint (Verso)
+
+# Builds the Verso blueprint in blueprint-verso/ and deploys it to GitHub Pages.
+# (Replaces the old leanblueprint LaTeX pipeline, which built the whole project.)
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
     paths:
-      - '**/*.lean'
-      - '**/blueprint.yml'
-      - 'blueprint/**'
-      - 'home_page/**'
-      - 'lean-toolchain'
-      - 'lakefile.toml'
-      - 'lake-manifest.json'
-  pull_request:
-    branches:
-      - main
-    paths:
-      - '**/*.lean'
-      - '**/blueprint.yml'
-      - 'blueprint/**'
-      - 'home_page/**'
-      - 'lean-toolchain'
-      - 'lakefile.toml'
-      - 'lake-manifest.json'
-  workflow_dispatch: # Allow manual triggering of the workflow from the GitHub Actions interface
+      - 'blueprint-verso/**'
+      - '.github/workflows/blueprint.yml'
+  workflow_dispatch:
 
-# Cancel previous runs if a new commit is pushed to the same PR or branch
-concurrency:
-  group: ${{ github.ref }}  # Group runs by the ref (branch or PR)
-  cancel-in-progress: true  # Cancel any ongoing runs in the same group
-
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
-  contents: read          # Read access to repository contents
-  pages: write            # Write access to GitHub Pages
-  id-token: write         # Write access to ID tokens
-  issues: write           # Write access to issues
-  pull-requests: write    # Write access to pull requests
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
-  build_project:
+  build:
+    name: Build blueprint site
     runs-on: ubuntu-latest
-    name: Build project
     steps:
-      - name: Cleanup to free disk space
-        uses: jlumbroso/free-disk-space@main
+      - uses: actions/checkout@v5
+      - uses: actions/configure-pages@v5
+      - name: Install elan
+        run: |
+          curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Cache Lake packages
+        uses: actions/cache@v4
         with:
-          tool-cache: false
-          android: true # saves approximately 12 GB
-          dotnet: false
-          haskell: false
-          large-packages: false
-          docker-images: false
-          swap-storage: false
-      - name: Checkout project
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+          path: blueprint-verso/.lake/packages
+          key: verso-lake-${{ hashFiles('blueprint-verso/lake-manifest.json', 'blueprint-verso/lean-toolchain') }}
+          restore-keys: verso-lake-
+      - name: Build and render the blueprint
+        working-directory: blueprint-verso
+        run: ./scripts/ci-pages.sh
+      - uses: actions/upload-pages-artifact@v3
         with:
-          fetch-depth: 0 # Fetch all history for all branches and tags
+          path: blueprint-verso/_out/site/html-multi
 
-      - name: Build the project
-        uses: leanprover/lean-action@434f25c2f80ded67bba02502ad3a86f25db50709 # v1.3.0
-        with:
-          use-github-cache: false
-
-      - name: Compile blueprint and documentation
-        uses: leanprover-community/docgen-action@deed0cdc44dd8e5de07a300773eb751d33e32fc8 # 2025-10-26
-        with:
-          blueprint: true
-          homepage: home_page
+  deploy:
+    name: Deploy to Pages
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
