@@ -889,9 +889,10 @@ lemma irreducible_of_CertificateIrreducibleZMod (p n t s: ℕ)[Fact $ Nat.Prime 
     have hmlt1 : m < n := (lt_of_le_of_ne (Nat.le_of_dvd (Fin.size_positive') hmdvd) hneq )
     have hmlt : m < n + 1 := Nat.lt_add_right 1 hmlt1
     convert isCoprime_sub_of_isCoprime_sub_dvd_sub (aux ⟨m, hmlt⟩) ?_
-    exact (C.hhz).symm
+    · rfl
+    · exact (C.hhz).symm
     use (C.a ⟨m, hmlt1⟩ ) , (C.b ⟨m, hmlt1⟩ )
-    convert C.hgcd ⟨m, hmlt1⟩ hmdvd
+    convert C.hgcd ⟨m, hmlt1⟩ hmdvd <;> simp [Fin.coe_castSucc]
 
 
 /-- Certificate for irreducibility of a polynomial `f` over `(ZMod p)`.
@@ -936,7 +937,8 @@ lemma irreducible_of_CertificateIrreducibleZMod' (p n t s: ℕ)[Fact $ Nat.Prime
       exact Nat.div_lt_self hd (Nat.Prime.one_lt hq)
     have hmlt : (n / q) < n + 1 := Nat.lt_add_right 1 hmlt1
     convert isCoprime_sub_of_isCoprime_sub_dvd_sub (aux ⟨(n / q), hmlt⟩) ?_
-    exact (C.hhz).symm
+    · rfl
+    · exact (C.hhz).symm
     use (C.a ⟨(n / q), hmlt1⟩ ) , (C.b ⟨(n / q), hmlt1⟩ )
     rw [← C.hneq, Prime.dvd_finset_prod_iff (Nat.prime_iff.mp hq)] at hqdvd
     obtain ⟨i, _, hi2⟩ := hqdvd

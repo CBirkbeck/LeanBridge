@@ -131,7 +131,7 @@ lemma ne_mul_prime (s p : ℕ) (hp : Nat.Prime p) (q r : ℤ)
       by_contra hct
       rw [hct, mul_zero] at ht
       rw [ht] at hq
-      simp only [not_lt_zero'] at hq
+      simp only [not_lt_zero] at hq
     have := Nat.mul_lt_mul_of_pos_left hr (show (t > 0) by exact Nat.zero_lt_of_ne_zero htz)
     rw [hc, ← not_le] at this
     have aux := Nat.mul_le_mul_left s (show (1 ≤ t) by exact Nat.one_le_iff_ne_zero.mpr htz)
@@ -185,20 +185,17 @@ lemma irreducible_of_eval_mul_prime (m : ℤ) (ρ : ℝ) (d p s : ℕ) (hdn : d 
     convert le_trans (pow_le_pow_right₀ ?_ hadeg) (pow_lt_abs_eval m (algebraMap ℤ ℂ)
       ρ (a.natDegree) hadn (by exact NormedField.toAbsoluteValue ℂ) a ?_ (Polynomial.natDegree_map_eq_of_injective
     (RingHom.injective_int (algebraMap ℤ ℂ)) _ ) hla ha1 hrhoaux)
-    · simp [Int.cast_abs, algebraMap_int_eq, eq_intCast]
-      rw [ NormedField.toAbsoluteValue]
-      simp
-    · simp [NormedField.toAbsoluteValue, Int.cast_abs, algebraMap_int_eq, eq_intCast]
-    · simp [NormedField.toAbsoluteValue, algebraMap_int_eq, eq_intCast]
-      exact le_tsub_of_add_le_left hrho
-    · exact IsAlgClosed.splits (k := ℂ) _
+    all_goals try rfl
+    all_goals try exact IsAlgClosed.splits (k := ℂ) _
+    all_goals try simp [NormedField.toAbsoluteValue, Int.cast_abs, algebraMap_int_eq, eq_intCast]
+    all_goals try exact le_tsub_of_add_le_left hrho
   rw [irreducible_iff]
   constructor
   · by_contra hu
     exact hdeg (Polynomial.natDegree_eq_zero_of_isUnit hu)
   · intros a b hab
     by_contra hcab
-    push_neg at hcab
+    push Not at hcab
     apply ne_mul_prime s p hprime (eval m a) (eval m b)
     · rw [← Int.cast_lt (R := ℝ)]
       exact lt_of_lt_of_le hs (dvdaux a hcab.1 (Dvd.intro _ hab.symm))
@@ -297,7 +294,7 @@ lemma polynomial_roots_le_cauchy_bound (P : Polynomial ℂ ) (z : ℂ)
     rw [mul_assoc, ← norm_pow, ← norm_mul, heq, mul_comm]
     exact mul_le_mul_of_nonneg_right aux1 habs
     refine pow_pos (by linarith) _
-  · push_neg at habs
+  · push Not at habs
     unfold _root_.cauchyBound
     have : 0 ≤ maxCoeffsAux P / ‖P.leadingCoeff‖ :=
       div_nonneg (maxCoeffsAux_nonneg P) (norm_nonneg _)
@@ -333,11 +330,12 @@ lemma polynomial_roots_le_cauchy_bound_scale (P : Polynomial ℂ) (z : ℂ)
     refine Polynomial.scaleRoots_aeval_eq_zero hr
   convert polynomial_roots_le_cauchy_bound (P.scaleRoots r⁻¹) (r⁻¹ * z)
     (by rw [Polynomial.natDegree_scaleRoots] ; exact hd) hroots
+  all_goals try rfl
   unfold _root_.cauchyBound Polynomial.leadingCoeff
   rw [Polynomial.natDegree_scaleRoots, Polynomial.coeff_scaleRoots_natDegree]
   congr
   unfold maxCoeffsAuxScale maxCoeffsAux
-  simp [hd, ↓reduceDIte, one_div, natDegree_scaleRoots, Fin.coe_cast, coeff_scaleRoots, inv_pow,
+  simp [hd, ↓reduceDIte, one_div, natDegree_scaleRoots, Fin.val_cast, coeff_scaleRoots, inv_pow,
     norm_inv, norm_pow]
   congr
   rw [abs_of_nonneg (a := r) (le_of_lt hs)]
@@ -388,7 +386,7 @@ lemma maxCoeffsAuxScale_ofList (l : List ℤ) (hl : l = l.dropTrailingZeros) (r 
       dsimp at i
       simp only [List.get_eq_getElem, List.getElem_dropLast, Function.comp_apply, Rat.cast_mul,
         Rat.cast_abs, Rat.cast_intCast, Rat.cast_inv, Rat.cast_pow, algebraMap_int_eq, ofList_map,
-        Int.coe_castRingHom, Fin.coe_cast]
+        Int.coe_castRingHom, Fin.val_cast]
       simp_rw [ ← (natDegree_ofList _ hz hl), add_tsub_cancel_right,
       ← Polynomial.natDegree_map_eq_of_injective (RingHom.injective_int (algebraMap ℤ ℂ)),
          ofList_map _ _ ]
@@ -510,10 +508,8 @@ lemma irreducible_of_CertificateIrreducibleIntOfPrimeDegrees (f : Polynomial ℤ
       _ (C.F i) (C.D i) (C.hl i) (C.hirr i) (C.hm i) (C.hprod i)
     exact ofList_map _ _
   · exact C.hinter
-  · convert (Rat.cast_le (K := ℝ)).2 C.hrho
-    norm_num
-  · convert (Rat.cast_lt (K := ℝ)).2 C.hs
-    norm_num
+  · convert (Rat.cast_le (K := ℝ)).2 C.hrho <;> first | rfl | norm_num
+  · convert (Rat.cast_lt (K := ℝ)).2 C.hs <;> first | rfl | norm_num
   · rw [← C.hpol]
     exact C.heval
 
@@ -560,9 +556,7 @@ lemma irreducible_of_CertificateIrreducibleIntOfPrime (f : Polynomial ℤ) (l : 
     simp only [not_le, Nat.lt_one_iff] at hc
     rw [Polynomial.eq_C_of_natDegree_eq_zero hc] at hqdvd hqu
     exact hqu (isUnit_C.2 (ofList_isPrimitive 1 l C.hprim (isUnit_one) _ hqdvd))
-  · convert (Rat.cast_le (K := ℝ)).2 C.hrho
-    norm_num
-  · convert (Rat.cast_lt (K := ℝ)).2 C.hs
-    norm_num
+  · convert (Rat.cast_le (K := ℝ)).2 C.hrho <;> first | rfl | norm_num
+  · convert (Rat.cast_lt (K := ℝ)).2 C.hs <;> first | rfl | norm_num
   · rw [← C.hpol]
     exact C.heval

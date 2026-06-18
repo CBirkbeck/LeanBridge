@@ -69,8 +69,13 @@ lemma K_int_4_0_10304_1 : IsIntegral ℤ K_gen_4_0_10304_1 := by
 def K_gen_int_4_0_10304_1 : 𝓞 K_4_0_10304_1 := ⟨K_gen_4_0_10304_1, K_int_4_0_10304_1⟩
 
 def fundamental_unit_4_0_10304_1_1 : (𝓞 K_4_0_10304_1)ˣ where
-  val := ((1) / (4)) * K_gen_int_4_0_10304_1^3 - ((1) / (4)) * K_gen_int_4_0_10304_1^2 + ((1) / (2)) * K_gen_int_4_0_10304_1 + ((3) / (2))
-  inv := ((1) / (4)) * K_gen_int_4_0_10304_1^3 - ((1) / (4)) * K_gen_int_4_0_10304_1^2 + ((1) / (2)) * K_gen_int_4_0_10304_1 - ((1) / (2))
+  -- The unit's coordinates in the power basis are rational, so the value must be built in the
+  -- field `K` (which has division) and then coerced into `𝓞 K`; the ring of integers itself has
+  -- no `Div`. Integrality holds (it is a unit) but is left as `sorry`, matching this file's WIP state.
+  val := ⟨(((1) / (4)) * K_gen_4_0_10304_1 ^ 3 - ((1) / (4)) * K_gen_4_0_10304_1 ^ 2
+            + ((1) / (2)) * K_gen_4_0_10304_1 + ((3) / (2)) : K_4_0_10304_1), by sorry⟩
+  inv := ⟨(((1) / (4)) * K_gen_4_0_10304_1 ^ 3 - ((1) / (4)) * K_gen_4_0_10304_1 ^ 2
+            + ((1) / (2)) * K_gen_4_0_10304_1 - ((1) / (2)) : K_4_0_10304_1), by sorry⟩
   val_inv := by sorry
   inv_val := by sorry
 
