@@ -88,7 +88,7 @@ def IsPotentialGoodReduction (W : WeierstrassCurve K) [W.IsElliptic] : Prop :=
 ordinary. (Ordinary uses `p ∤ aₚ`, the characteristic-independent criterion; see `IsOrdinary`.) -/
 def IsGoodOrdinaryReduction [Finite (ResidueField R)] (W : WeierstrassCurve K) [IsMinimal R W] :
     Prop :=
-  ∃ h : (W.reduction R).IsElliptic, @IsOrdinary _ _ (W.reduction R) h
+  ∃ h : (W.reduction R).IsElliptic, haveI := h; (W.reduction R).IsOrdinary
 
 /-- A minimal Weierstrass curve over `K` (with finite residue field) has **good supersingular
 reduction** (LMFDB `ec.good_supersingular_reduction`) if it has good reduction and the reduced
@@ -96,7 +96,7 @@ elliptic curve is supersingular. (Uses `p ∣ aₚ`, not `aₚ = 0` — correct 
 `IsSupersingular`.) -/
 def IsGoodSupersingularReduction [Finite (ResidueField R)] (W : WeierstrassCurve K)
     [IsMinimal R W] : Prop :=
-  ∃ h : (W.reduction R).IsElliptic, @IsSupersingular _ _ (W.reduction R) h
+  ∃ h : (W.reduction R).IsElliptic, haveI := h; (W.reduction R).IsSupersingular
 
 /-- A minimal Weierstrass curve over `K` (with finite residue field) has **split multiplicative
 reduction** (LMFDB `ec.split_multiplicative_reduction`) if it has multiplicative reduction whose
@@ -258,7 +258,7 @@ def naiveHeight (W : WeierstrassCurve ℚ) [W.IsShortNF] : ℚ :=
 height of its `x`-coordinate (and `0` at the point at infinity). -/
 noncomputable def naivePointHeight {W : WeierstrassCurve ℚ} : W.toAffine.Point → ℝ
   | .zero => 0
-  | @Affine.Point.some _ _ _ x _ _ => Real.log (max (x.num.natAbs : ℝ) (x.den : ℝ))
+  | .some (x := x) .. => Real.log (max (x.num.natAbs : ℝ) (x.den : ℝ))
 
 open Filter in
 /-- The **canonical (Néron–Tate) height** (LMFDB `ec.q.canonical_height`) of a rational point:
