@@ -185,10 +185,19 @@ example (K : Type*) [Field K] [NumberField K] [IsAbelianGalois ℚ K] :
     ∃ n : ℕ, Nonempty (K →ₐ[ℚ] CyclotomicField n ℚ) := by
   sorry
 
-
 /-!
 ## Elliptic curves and modular forms
 -/
+
+/-- Let's define a particular elliptic curve, given by the equation `E : y² + y = x³ - x²`. -/
+noncomputable def E : WeierstrassCurve ℚ := ⟨0, -1, 1, 0, 0⟩
+
+instance : WeierstrassCurve.IsElliptic E := by
+  sorry
+
+variable (P Q R : E.toAffine.Point)
+#check P + Q -- E.Point
+#check P - Q -- E.Point
 
 /-- For a prime `p` of good reduction, the `p`-th coefficient of the L-function of an elliptic
 curve `E / ℚ` is `aₚ = p + 1 - #E(𝔽_p)`, where `E(𝔽_p)` is the group of points of the reduction
@@ -209,12 +218,11 @@ example (E : WeierstrassCurve ℚ) (p : HeightOneSpectrum (𝓞 ℚ))
       Nat.card (((E.baseChange (p.adicCompletion ℚ)).minimal R).reduction R).toAffine.Point := by
   sorry
 
-/-- Let's state a particular case of a weaker version of the modularity theorem, for the elliptic
-curve `E : y² + y = x³ - x²`. -/
-noncomputable def E : WeierstrassCurve ℚ := ⟨0, -1, 1, 0, 0⟩
-
 open CongruenceSubgroup UpperHalfPlane in
-/-- There is a unique normalized weight `2` cusp form of level `Γ₀(11)` whose coefficients agree
+/-- /-- Let's state a particular case of a weaker version of the modularity theorem, for the
+elliptic curve `E : y² + y = x³ - x²`. -/.
+
+There is a unique normalized weight `2` cusp form of level `Γ₀(11)` whose coefficients agree
 with the curve's L-function at every prime. -/
 example : ∃! f : CuspForm (Gamma0 11) 2, (qExpansion 1 f).coeff 1 = 1 ∧
     ∀ (p : Primes), (qExpansion 1 f).coeff p = E.LFunction p := by
