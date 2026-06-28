@@ -4,7 +4,7 @@
 [![Zulip : Topic](https://img.shields.io/badge/Zulip-Topic-%237E57C2.svg?logo=zulip&logoColor=white)](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Tutorial.3A.20Getting.20Started.20with.20Blueprint-Driven.20Projects)
 [![YouTube : Tutorial](https://img.shields.io/badge/YouTube-Tutorial-%23FF0000.svg?logo=youtube&logoColor=white)](https://youtu.be/KyuyTsLgkMY)
 
-This repository contains a [blueprint](https://github.com/PatrickMassot/leanblueprint/) for formalizing definitions within the [L-functions and modular forms database](https://lmfdb.org).  You can view the rendered version [here](https://cbirkbeck.github.io/LeanBridge/).
+This repository contains a [Verso blueprint](https://github.com/leanprover/verso-blueprint) for formalizing definitions within the [L-functions and modular forms database](https://lmfdb.org).  **You can view the rendered blueprint at [cbirkbeck.github.io/LeanBridge](https://cbirkbeck.github.io/LeanBridge/).**
 
 The process for updating the contents of this blueprint is different than most other blueprints, because it is built to improve the integration between Mathlib and the LMFDB.  While there is some framing content manually written in [content.tex](https://github.com/CBirkbeck/LeanBridge/blob/main/blueprint/src/content.tex), most of the blueprint is generated from the LMFDB's [knowl database](https://beta.lmfdb.org/knowledge/) using the [update script](https://github.com/CBirkbeck/LeanBridge/blob/main/blueprint/src/update_knowls.py).
 
