@@ -1,16 +1,14 @@
 import Mathlib.AlgebraicGeometry.EllipticCurve.Reduction
 import Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Point
-import Mathlib.LinearAlgebra.FreeModule.PID
-import Mathlib.Algebra.Module.Torsion
 import Mathlib.RingTheory.DedekindDomain.Dvr
 import Mathlib.RingTheory.DedekindDomain.Ideal.Lemmas
 import Mathlib.RingTheory.Localization.LocalizationLocalization
 import Mathlib.Algebra.BigOperators.Finprod
 import Mathlib.AlgebraicGeometry.EllipticCurve.NormalForms
-import Mathlib.RingTheory.Radical
+import Mathlib.RingTheory.Radical.NatInt
 import Mathlib.RingTheory.UniqueFactorizationDomain.Nat
 import Mathlib.Analysis.SpecialFunctions.Log.Basic
-import Mathlib.RingTheory.ClassGroup
+import Mathlib.RingTheory.ClassGroup.Basic
 
 /-!
 # Elliptic curve definitions for LeanBridge (chapter 4)
@@ -67,7 +65,7 @@ class IsAdditiveReduction (W : WeierstrassCurve K) [IsMinimal R W] : Prop where
 reduction over the residue field of `R` is singular — equivalently, it does not have good
 reduction. -/
 def IsBadReduction (W : WeierstrassCurve K) [IsMinimal R W] : Prop :=
-  ¬ IsGoodReduction R W
+  ¬ HasGoodReduction R W
 
 /-- A minimal Weierstrass curve over `K` has **multiplicative reduction** (LMFDB
 `ec.multiplicative_reduction`) if its reduction over the residue field of `R` has a nodal
@@ -138,26 +136,11 @@ inductive ReductionType
 
 end Reduction
 
-section MordellWeil
-
-variable {K : Type*} [Field K] [DecidableEq K]
-
-/-- Given that `E(K)` is finitely generated — the **Mordell–Weil theorem**, taken here as the
-hypothesis `[Module.Finite ℤ (Affine.Point W)]` since it is not proven in mathlib — the
-**Mordell–Weil generators** (LMFDB `ec.mw_generators`) of `E/K` are a basis of the free part
-`E(K) ⧸ torsion`. That quotient is finitely generated and torsion-free over the PID `ℤ`, hence free,
-so it has a basis; these are the `rank`-many points generating `E(K)` modulo torsion. -/
-noncomputable def mordellWeilGenerators (W : WeierstrassCurve K) [W.IsElliptic]
-    [Module.Finite ℤ (Affine.Point W)] :=
-  Module.Free.chooseBasis ℤ (Affine.Point W ⧸ Submodule.torsion ℤ (Affine.Point W))
-
-end MordellWeil
-
 section GlobalMinimal
 
 open IsDedekindDomain
 
-variable {O : Type*} [CommRing O] [IsDomain O] [IsDedekindDomain O]
+variable {O : Type*} [CommRing O] [IsDedekindDomain O]
 
 /-- A Weierstrass model over `K = FractionRing O` (with `O` the ring of integers, a Dedekind domain)
 is a **global minimal model** (LMFDB `ec.global_minimal_model`) if it is integral over `O` and is a
@@ -313,7 +296,7 @@ infinity is excluded, having no affine coordinates.) The knowl's "integral point
 is then `integralPoints` of the global minimal model; the set is finite by Siegel's theorem, which is
 not part of this definition. -/
 def integralPoints (W : WeierstrassCurve ℚ) : Set W.toAffine.Point :=
-  {P | ∃ (x y : ℤ) (h : W.toAffine.Nonsingular (x : ℚ) (y : ℚ)), P = Affine.Point.some h}
+  {P | ∃ (x y : ℤ) (h : W.toAffine.Nonsingular (x : ℚ) (y : ℚ)), P = Affine.Point.some (x : ℚ) (y : ℚ) h}
 
 end Points
 
