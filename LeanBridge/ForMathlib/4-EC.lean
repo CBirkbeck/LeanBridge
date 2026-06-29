@@ -48,8 +48,9 @@ end FiniteField
 
 section Reduction
 
-variable (R : Type*) [CommRing R] [IsDomain R] [IsDiscreteValuationRing R]
-variable {K : Type*} [Field K] [Algebra R K] [IsFractionRing R K]
+universe u v
+variable (R : Type v) [CommRing R] [IsDomain R] [IsDiscreteValuationRing R]
+variable {K : Type u} [Field K] [Algebra R K] [IsFractionRing R K]
 
 /-- A minimal Weierstrass curve over `K` has **bad reduction** (LMFDB `ec.bad_reduction`) if its
 reduction over the residue field of `R` is singular — equivalently, it does not have good
@@ -58,11 +59,17 @@ def IsBadReduction (W : WeierstrassCurve K) [IsMinimal R W] : Prop :=
   ¬ HasGoodReduction R W
 
 /-- A Weierstrass curve over `K` (with `R` a DVR, `K = Frac R`) has **potential good reduction**
-(LMFDB `ec.potential_good_reduction`) if its `j`-invariant is integral, i.e. lies in `R`. By the
-knowl / Silverman AEC VII.5.5 this is equivalent to `E` acquiring good reduction over a finite
-extension. -/
-def IsPotentialGoodReduction (W : WeierstrassCurve K) [W.IsElliptic] : Prop :=
-  ∃ r : R, algebraMap R K r = W.j
+(LMFDB `ec.potential_good_reduction`) if it acquires good reduction over a finite extension: there is
+a discrete valuation ring `S` extending `R` (compatibly, via the scalar towers `R → S → Frac S` and
+`R → K → Frac S`) whose fraction field `Frac S` is a *finite* extension of `K`, over which `W` has
+good reduction. `S` lives in `K`'s universe (every finite extension of `K` does). Equivalently, by
+Silverman AEC VII.5.5, `j(E) ∈ R`; this takes the base-change form requested in review. -/
+def IsPotentialGoodReduction (W : WeierstrassCurve K) : Prop :=
+  ∃ (S : Type u) (_ : CommRing S) (_ : IsDomain S) (_ : IsDiscreteValuationRing S)
+    (_ : Algebra R S) (_ : Algebra R (FractionRing S)) (_ : Algebra K (FractionRing S))
+    (_ : IsScalarTower R S (FractionRing S)) (_ : IsScalarTower R K (FractionRing S))
+    (_ : FiniteDimensional K (FractionRing S)),
+    HasGoodReduction S (W.baseChange (FractionRing S))
 
 /-- A minimal Weierstrass curve over `K` (with finite residue field) has **good ordinary reduction**
 (LMFDB `ec.good_ordinary_reduction`) if it has good reduction and the reduced elliptic curve is
