@@ -42,6 +42,8 @@ namespace Lookup
 
 initialize registerTraceClass `lookup
 
+/-! #### Literals -/
+
 /-- Extract a natural-number literal from `e`, handling `@OfNat.ofNat _ n _`. -/
 def getNatLit? (e : Expr) : Option Nat :=
   match e.getAppFnArgs with
@@ -54,48 +56,104 @@ def getIntLit? (e : Expr) : Option Int :=
   | (``Neg.neg, #[_, _, a]) => (getNatLit? a).map fun n => -(n : Int)
   | _ => (getNatLit? e).map Int.ofNat
 
-/-- A scalar translated to SQL: the SQL text plus the quantities it references, recorded as
+/-! #### Comparison operators -/
+
+/-- A comparison operator we know how to send to SQL. -/
+inductive Cmp | eq | ne | le | lt | ge | gt
+  deriving Inhabited, BEq
+
+namespace Cmp
+
+/-- The SQL spelling of the operator. -/
+def toSql : Cmp → String
+  | eq => "=" | ne => "<>" | le => "<=" | lt => "<" | ge => ">=" | gt => ">"
+
+/-- The operator whose truth value is the logical negation of this one. -/
+def negate : Cmp → Cmp
+  | eq => ne | ne => eq | le => gt | lt => ge | ge => lt | gt => le
+
+/-- The operator that holds after swapping the operands (equivalently, after negating both
+sides of an order comparison). -/
+def reverse : Cmp → Cmp
+  | eq => eq | ne => ne | le => ge | lt => gt | ge => le | gt => lt
+
+end Cmp
+
+/-! #### Translating Lean expressions to SQL -/
+
+/-- A scalar translated to SQL: its text plus the quantities it references, recorded as
 `(displayName, sqlExpr)` pairs so a counterexample's actual values can be reported. -/
-abbrev SqlScalar := String × Array (String × String)
+structure Scalar where
+  sql : String
+  refs : Array (String × String) := #[]
 
 /-- Translate a scalar Lean expression (applied to the number field) into a SQL scalar over
 `nf_fields`: a column expression or a numeric literal. -/
-def toSqlScalar (e : Expr) : Option SqlScalar :=
+def toSqlScalar (e : Expr) : Option Scalar :=
   match e.getAppFnArgs with
   | (``NumberField.classNumber, _) =>
-      some ("class_number", #[("class number", "class_number")])
+      some { sql := "class_number", refs := #[("class number", "class_number")] }
   | (``Module.finrank, args) =>
       -- `Module.finrank ℚ F` is the degree of the number field `F` over `ℚ`.
       if h : 0 < args.size then
-        if args[0].isConstOf ``Rat then some ("degree", #[("degree", "degree")]) else none
+        if args[0].isConstOf ``Rat then some { sql := "degree", refs := #[("degree", "degree")] }
+        else none
       else none
   | (``abs, args) => args.back?.bind fun x =>
       -- `|NumberField.discr F|` is the absolute discriminant `disc_abs`.
       match x.getAppFnArgs with
-      | (``NumberField.discr, _) => some ("disc_abs", #[("|discriminant|", "disc_abs")])
+      | (``NumberField.discr, _) => some { sql := "disc_abs", refs := #[("|discriminant|", "disc_abs")] }
       | _ => none
-  | (``NumberField.discr, _) =>
-      -- The LMFDB stores the discriminant split as a sign and an absolute value.
-      some ("(disc_sign * disc_abs)", #[("discriminant", "(disc_sign * disc_abs)")])
-  | _ => (getIntLit? e).map fun n => (toString n, #[])
+  | _ => (getIntLit? e).map fun n => { sql := toString n }
 
-/-- Match a binary comparison `Prop`, returning the SQL operator and the two sides. -/
-def matchCmp (e : Expr) : Option (String × Expr × Expr) :=
+/-- Recognise the *signed* discriminant `NumberField.discr F`. -/
+def isDiscr (e : Expr) : Bool :=
   match e.getAppFnArgs with
-  | (``Eq, #[_, a, b])       => some ("=", a, b)
-  | (``LE.le, #[_, _, a, b]) => some ("<=", a, b)
-  | (``LT.lt, #[_, _, a, b]) => some ("<", a, b)
-  | (``GE.ge, #[_, _, a, b]) => some (">=", a, b)
-  | (``GT.gt, #[_, _, a, b]) => some (">", a, b)
+  | (``NumberField.discr, _) => true
+  | _ => false
+
+/-- LMFDB stores the signed discriminant split as `disc_sign * disc_abs`, so translating
+`discr OP k` literally as `(disc_sign * disc_abs) OP k` cannot use the indices. Instead we
+case-split on the sign into index-friendly comparisons on `disc_abs`:
+`discr OP k  ⟺  (disc_sign = 1 ∧ disc_abs OP k) ∨ (disc_sign = -1 ∧ disc_abs revOP -k)`. -/
+def discrCond (cmp : Cmp) (k : Int) : Scalar :=
+  { sql := s!"((disc_sign = 1 AND disc_abs {cmp.toSql} {k}) OR \
+              (disc_sign = -1 AND disc_abs {cmp.reverse.toSql} {-k}))",
+    refs := #[("discriminant", "(disc_sign * disc_abs)")] }
+
+/-- Translate a comparison `cmp a b` into a SQL condition. -/
+def toSqlCondCmp (cmp : Cmp) (a b : Expr) : Option Scalar :=
+  -- Signed-discriminant comparisons against a literal get the index-friendly treatment.
+  if isDiscr a then (getIntLit? b).map (discrCond cmp ·)
+  else if isDiscr b then (getIntLit? a).map (discrCond cmp.reverse ·)
+  else do
+    let sa ← toSqlScalar a
+    let sb ← toSqlScalar b
+    return { sql := s!"{sa.sql} {cmp.toSql} {sb.sql}", refs := sa.refs ++ sb.refs }
+
+/-- Match a comparison `Prop`, returning the operator and the two operands. -/
+def matchCmp (e : Expr) : Option (Cmp × Expr × Expr) :=
+  match e.getAppFnArgs with
+  | (``Eq, #[_, a, b])       => some (.eq, a, b)
+  | (``Ne, #[_, a, b])       => some (.ne, a, b)
+  | (``LE.le, #[_, _, a, b]) => some (.le, a, b)
+  | (``LT.lt, #[_, _, a, b]) => some (.lt, a, b)
+  | (``GE.ge, #[_, _, a, b]) => some (.ge, a, b)
+  | (``GT.gt, #[_, _, a, b]) => some (.gt, a, b)
   | _ => none
 
-/-- Translate a comparison `Prop` into a SQL condition together with the referenced
-quantities. -/
-def toSqlCond (e : Expr) : Option SqlScalar := do
-  let (op, a, b) ← matchCmp e
-  let (sa, ra) ← toSqlScalar a
-  let (sb, rb) ← toSqlScalar b
-  return (s!"{sa} {op} {sb}", ra ++ rb)
+/-- Translate a `Prop` into a SQL condition. -/
+def toSqlCond (e : Expr) : Option Scalar := do
+  let (cmp, a, b) ← matchCmp e
+  toSqlCondCmp cmp a b
+
+/-- Translate the *negation* of a `Prop` into a SQL condition. Negating at the operator level
+(rather than wrapping the whole thing in `NOT (...)`) keeps the query index-friendly. -/
+def toSqlCondNeg (e : Expr) : Option Scalar := do
+  let (cmp, a, b) ← matchCmp e
+  toSqlCondCmp cmp.negate a b
+
+/-! #### Reading and rendering a result row -/
 
 /-- The first returned row of an LMFDB `/sql` response, if any. -/
 def firstRow? (j : Json) : Option Json :=
@@ -132,60 +190,68 @@ def formatPoly (coeffs : String) : String := Id.run do
       out := out ++ (if c < 0 then s!" - {term}" else s!" + {term}")
   return if out.isEmpty then "0" else out
 
+/-! #### Assembling the query and report -/
+
+/-- Deduplicate referenced quantities by their SQL expression, preserving order. -/
+def dedupRefs (refs : Array (String × String)) : Array (String × String) := Id.run do
+  let mut seen : Array String := #[]
+  let mut out : Array (String × String) := #[]
+  for (name, expr) in refs do
+    unless seen.contains expr do
+      seen := seen.push expr
+      out := out.push (name, expr)
+  return out
+
+/-- Build the counterexample query: `label`, the defining polynomial, and the actual values
+of every referenced quantity (cast to text, since the endpoint cannot serialise bignum
+columns directly). -/
+def buildQuery (conds : Array String) (items : Array (String × String)) : String := Id.run do
+  let mut selects : Array String := #["label", "coeffs::text AS coeffs"]
+  for i in [0:items.size] do
+    selects := selects.push s!"({items[i]!.2})::text AS c{i}"
+  let whereClause := String.intercalate " AND " conds.toList
+  return s!"SELECT {String.intercalate ", " selects.toList} FROM nf_fields WHERE {whereClause} LIMIT 1"
+
+/-- Render a counterexample row as a message. -/
+def reportRow (row : Json) (items : Array (String × String)) : MessageData := Id.run do
+  let label := rowStr row "label"
+  let mut vals : Array MessageData := #[]
+  for i in [0:items.size] do
+    vals := vals.push m!"{items[i]!.1} = {rowStr row s!"c{i}"}"
+  return m!"lookup: the statement is FALSE — LMFDB has a counterexample.\n\
+    number field {label}, with minimal polynomial {formatPoly (rowStr row "coeffs")}\n\
+    {MessageData.joinSep vals.toList ", "}\n\
+    https://www.lmfdb.org/NumberField/{label}"
+
+/-- Translate the hypotheses in context into SQL conditions, collecting referenced
+quantities. -/
+def collectHypotheses : TacticM (Array String × Array (String × String)) := do
+  let mut conds : Array String := #[]
+  let mut refs : Array (String × String) := #[]
+  for ldecl in ← getLCtx do
+    if ldecl.isImplementationDetail then continue
+    if let some s := toSqlCond (← instantiateMVars ldecl.type) then
+      conds := conds.push s.sql
+      refs := refs ++ s.refs
+  return (conds, refs)
+
 elab "lookup" : tactic => do
   let goal ← getMainGoal
   goal.withContext do
-    -- Translate each Prop hypothesis we understand into a SQL condition, collecting the
-    -- quantities (columns) referenced along the way.
-    let mut conds : Array String := #[]
-    let mut refs : Array (String × String) := #[]
-    for ldecl in ← getLCtx do
-      if ldecl.isImplementationDetail then continue
-      let ty ← instantiateMVars ldecl.type
-      if let some (c, r) := toSqlCond ty then
-        conds := conds.push c
-        refs := refs ++ r
-    -- The goal becomes the *negated* condition: we hunt for a row that breaks it.
-    let goalTy ← instantiateMVars (← goal.getType)
-    let some (goalCond, goalRefs) := toSqlCond goalTy
-      | throwError "lookup: don't know how to translate the goal into a SQL query:\n{goalTy}"
-    refs := refs ++ goalRefs
-    -- Deduplicate referenced quantities by their SQL expression, preserving order.
-    let mut seen : Array String := #[]
-    let mut items : Array (String × String) := #[]
-    for (name, expr) in refs do
-      unless seen.contains expr do
-        seen := seen.push expr
-        items := items.push (name, expr)
-    -- Build the SELECT list: label, defining polynomial coeffs, and each referenced
-    -- quantity, cast to text (the LMFDB endpoint cannot serialise bignum columns directly).
-    let mut selects : Array String := #["label", "coeffs::text AS coeffs"]
-    for i in [0:items.size] do
-      let (_, expr) := items[i]!
-      selects := selects.push s!"({expr})::text AS c{i}"
-    let whereClause := String.intercalate " AND " (conds.toList ++ [s!"NOT ({goalCond})"])
-    let query := s!"SELECT {String.intercalate ", " selects.toList} \
-      FROM nf_fields WHERE {whereClause} LIMIT 1"
+    let (hypConds, hypRefs) ← collectHypotheses
+    -- The negated goal is the final condition: we hunt for a row that breaks the goal.
+    let some goalCond := toSqlCondNeg (← instantiateMVars (← goal.getType))
+      | throwError "lookup: don't know how to translate the goal into a SQL query"
+    let conds := hypConds.push goalCond.sql
+    let items := dedupRefs (hypRefs ++ goalCond.refs)
+    let query := buildQuery conds items
     trace[lookup] "query:\n{query}"
-    let result ← runSql query
-    match firstRow? result with
+    match firstRow? (← runSql query) with
     | none =>
       -- No counterexample in the database: report, but do *not* close the goal.
       logInfo m!"lookup: no counterexample found in LMFDB \
         (the statement is consistent with the database, but this is not a proof)."
-    | some row =>
-      let label := rowStr row "label"
-      let poly := formatPoly (rowStr row "coeffs")
-      let mut valueLines : Array MessageData := #[]
-      for i in [0:items.size] do
-        let (name, _) := items[i]!
-        let v := rowStr row s!"c{i}"
-        valueLines := valueLines.push m!"{name} = {v}"
-      let values := MessageData.joinSep valueLines.toList ", "
-      throwError m!"lookup: the statement is FALSE — LMFDB has a counterexample.\n\
-        number field {label}, with minimal polynomial {poly}\n\
-        {values}\n\
-        https://www.lmfdb.org/NumberField/{label}"
+    | some row => throwError reportRow row items
 
 end Lookup
 
