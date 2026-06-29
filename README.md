@@ -16,6 +16,49 @@ Thus most of the work in updating this blueprint takes the following form:
 
 1. Once definitions have been added to mathlib and linked in the corresponding knowl, run the [update script](https://github.com/CBirkbeck/LeanBridge/blob/main/blueprint/src/update_knowls.py) to update the [knowl folder](https://github.com/CBirkbeck/LeanBridge/tree/main/blueprint/src/knowls) and make a PR to this repository.
 
+## Linking to Mathlib
+
+The overview above describes the workflow; this section collects the practical details for its key
+step — matching an LMFDB definition or theorem to the right
+[Mathlib](https://github.com/leanprover-community/mathlib4) declaration and recording the link.
+
+### Finding the Mathlib declaration
+
+Before defining anything yourself, check whether Mathlib already has it:
+
+- **[Loogle](https://loogle.lean-lang.org/)** — search by name fragment, type pattern, or
+  conclusion (e.g. `NumberField.discr`, `ClassGroup _`).
+- **[LeanSearch](https://leansearch.net/)** — natural-language search (e.g. "discriminant of a
+  number field").
+- **[Mathlib docs](https://leanprover-community.github.io/mathlib4_docs/)** — the full API, with a
+  search box.
+- **In the editor** — hover over a name for its type and docstring, and use `exact?` / `apply?` to
+  let Lean find a matching lemma.
+
+For example, for a number field `K`:
+
+| LMFDB concept | Mathlib declaration |
+| --- | --- |
+| Degree over ℚ | `Module.finrank ℚ K` |
+| Discriminant | `NumberField.discr K` |
+| Ring of integers | `NumberField.RingOfIntegers K` (`𝓞 K`) |
+| Class group / number | `ClassGroup (𝓞 K)` / `NumberField.classNumber K` |
+| Unit rank / regulator | `NumberField.Units.rank K` / `NumberField.Units.regulator K` |
+| Galois | `IsGalois ℚ K` |
+
+If it genuinely isn't in Mathlib yet, it must first be
+[added to Mathlib](https://leanprover-community.github.io/contribute/index.html).
+
+### Recording the link
+
+Link the declaration from the corresponding LMFDB knowl: use the `DEFINES` macro for definitions and
+the `cite` command for theorems (see the LMFDB
+[knowl guidelines](https://beta.lmfdb.org/knowledge/show/doc.knowl.guidelines) for the exact syntax).
+Editing or creating knowls requires an LMFDB account — contact David Roe or Andrew Sutherland on
+Zulip ([LMFDB](https://lmfdb.zulipchat.com) or [Lean](https://leanprover.zulipchat.com)) to get
+involved. Finally, run the [update script](blueprint/src/update_knowls.py) to refresh the
+[knowl folder](blueprint/src/knowls) and open a PR.
+
 ## Local setup
 
 1. Ensure that you have a functioning Lean 4 installation. If you do not, please follow
