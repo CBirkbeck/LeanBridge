@@ -39,7 +39,7 @@ def ecCurvedata : TableInfo where
   table := "ec_curvedata"
   labelCol := "lmfdb_label"
   descSelects := #["ainvs::text AS ainvs"]
-  describe row := s!"elliptic curve {rowStr row "label"} with a-invariants {rowStr row "ainvs"}"
+  describe row := s!"elliptic curve {rowStr row "label"}: {formatWeierstrass (rowStr row "ainvs")}"
   -- LMFDB EC labels like `15.a2` live at `.../EllipticCurve/Q/15/a/2`.
   url label :=
     match label.splitOn "." with
