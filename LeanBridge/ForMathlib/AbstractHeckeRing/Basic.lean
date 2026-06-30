@@ -288,18 +288,18 @@ lemma DoubleCoset.doubleCoset_eq_iUnion_leftCosets (g : G) :
   rw [Set.iUnion_mul]
 
 /-- The Hecke ring type: formal `Z`-linear combinations of double cosets `HeckeCoset P`. -/
-def 𝕋 (P : HeckePair G) (Z : Type*) [CommRing Z] := Finsupp (HeckeCoset P) Z
+def 𝕋 (P : HeckePair G) (Z : Type*) [Zero Z] := Finsupp (HeckeCoset P) Z
 
 /-- `FunLike` instance for `𝕋 P Z`: treat elements as functions `HeckeCoset P → Z`. -/
-instance instFunLike𝕋 (P : HeckePair G) (Z : Type*) [CommRing Z] :
+instance instFunLike𝕋 (P : HeckePair G) (Z : Type*) [Zero Z] :
     FunLike (𝕋 P Z) (HeckeCoset P) Z :=
   inferInstanceAs (FunLike (HeckeCoset P →₀ Z) (HeckeCoset P) Z)
 
 /-- The Hecke module type: formal `Z`-linear combinations of left cosets `HeckeLeftCoset P`. -/
-def HeckeModule (P : HeckePair G) (Z : Type*) [CommRing Z] := Finsupp (HeckeLeftCoset P) Z
+def HeckeModule (P : HeckePair G) (Z : Type*) [Zero Z] := Finsupp (HeckeLeftCoset P) Z
 
 /-- `FunLike` instance for `HeckeModule P Z`: treat as functions `HeckeLeftCoset P → Z`. -/
-instance instFunLikeHeckeModule (P : HeckePair G) (Z : Type*) [CommRing Z] :
+instance instFunLikeHeckeModule (P : HeckePair G) (Z : Type*) [Zero Z] :
     FunLike (HeckeModule P Z) (HeckeLeftCoset P) Z :=
   inferInstanceAs (FunLike (HeckeLeftCoset P →₀ Z) (HeckeLeftCoset P) Z)
 
@@ -320,10 +320,26 @@ lemma delta_mul_mem (i : H) (a b : Δ) (h₀ : H.toSubmonoid ≤ Δ) :
     a * (i : G) * b ∈ Δ := by
   rw [mul_assoc]; exact Submonoid.mul_mem _ a.2 (Submonoid.mul_mem _ (h₀ i.2) b.2)
 
-/-- The additive commutative group structure on the Hecke ring. -/
-noncomputable instance instAddCommGroup𝕋 : AddCommGroup (𝕋 P Z) :=
+/-- The additive commutative monoid structure on the Hecke ring, for any `AddCommMonoid` of
+coefficients. -/
+noncomputable instance instAddCommMonoid𝕋 (P : HeckePair G) (Z : Type*) [AddCommMonoid Z] :
+    AddCommMonoid (𝕋 P Z) :=
+  inferInstanceAs (AddCommMonoid ((HeckeCoset P) →₀ Z))
+
+/-- The additive commutative group structure on the Hecke ring, when the coefficients form an
+`AddCommGroup`. -/
+noncomputable instance instAddCommGroup𝕋 (P : HeckePair G) (Z : Type*) [AddCommGroup Z] :
+    AddCommGroup (𝕋 P Z) :=
   inferInstanceAs (AddCommGroup ((HeckeCoset P) →₀ Z))
 
-/-- The additive commutative group structure on the Hecke module. -/
-noncomputable instance instAddCommGroupHeckeModule : AddCommGroup (HeckeModule P Z) :=
+/-- The additive commutative monoid structure on the Hecke module, for any `AddCommMonoid` of
+coefficients. -/
+noncomputable instance instAddCommMonoidHeckeModule (P : HeckePair G) (Z : Type*)
+    [AddCommMonoid Z] : AddCommMonoid (HeckeModule P Z) :=
+  inferInstanceAs (AddCommMonoid ((HeckeLeftCoset P) →₀ Z))
+
+/-- The additive commutative group structure on the Hecke module, when the coefficients form an
+`AddCommGroup`. -/
+noncomputable instance instAddCommGroupHeckeModule (P : HeckePair G) (Z : Type*) [AddCommGroup Z] :
+    AddCommGroup (HeckeModule P Z) :=
   inferInstanceAs (AddCommGroup ((HeckeLeftCoset P) →₀ Z))
