@@ -329,10 +329,12 @@ def reportRow (info : TableInfo) (row : Json) (items : Array (String × String))
   let mut vals : Array MessageData := #[]
   for i in [0:items.size] do
     vals := vals.push m!"{items[i]!.1} = {rowStr row s!"c{i}"}"
+  let label := rowStr row "label"
+  -- A markdown link renders as a clickable anchor in the infoview (a bare URL does not).
   return m!"lookup: the statement is FALSE — LMFDB has a counterexample.\n\
     {info.describe row}\n\
     {MessageData.joinSep vals.toList ", "}\n\
-    {info.url (rowStr row "label")}"
+    [{label} on LMFDB]({info.url label})"
 
 /-- Translate the hypotheses in context into SQL condition scalars. A hypothesis that *is* a
 comparison but that we cannot translate is reported as a warning (and dropped), since silently
