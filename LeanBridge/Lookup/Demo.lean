@@ -155,16 +155,53 @@ def matchCmp (e : Expr) : Option (Cmp × Expr × Expr) :=
   | (``GT.gt, #[_, _, a, b]) => some (.gt, a, b)
   | _ => none
 
-/-- Translate a `Prop` into a SQL condition. -/
-def toSqlCond (e : Expr) : Option Scalar := do
-  let (cmp, a, b) ← matchCmp e
-  toSqlCondCmp cmp a b
+/-- The de Bruijn index of a bound variable, if `e` is one. -/
+def bvarIdx? : Expr → Option Nat
+  | .bvar n => some n
+  | _ => none
 
-/-- Translate the *negation* of a `Prop` into a SQL condition. Negating at the operator level
-(rather than wrapping the whole thing in `NOT (...)`) keeps the query index-friendly. -/
-def toSqlCondNeg (e : Expr) : Option Scalar := do
-  let (cmp, a, b) ← matchCmp e
-  toSqlCondCmp cmp.negate a b
+/-- Recognise the commutativity predicate `∀ a b, a * b = b * a` (i.e. "the group is
+abelian"), allowing for the two multiplications to have swapped operands. -/
+def isAbelianPattern (e : Expr) : Bool := Id.run do
+  let .forallE _ _ (.forallE _ _ body _) _ := e | return false
+  let (``Eq, #[_, lhs, rhs]) := body.getAppFnArgs | return false
+  let (``HMul.hMul, la) := lhs.getAppFnArgs | return false
+  let (``HMul.hMul, ra) := rhs.getAppFnArgs | return false
+  if la.size < 2 || ra.size < 2 then return false
+  let some l1 := bvarIdx? la[la.size - 2]! | return false
+  let some l2 := bvarIdx? la[la.size - 1]! | return false
+  let some r1 := bvarIdx? ra[ra.size - 2]! | return false
+  let some r2 := bvarIdx? ra[ra.size - 1]! | return false
+  return l1 == r2 && l2 == r1 && l1 != l2
+
+/-- Translate a boolean-valued property of the object into a SQL boolean-column comparison.
+`positive := false` asks for the property to *fail* (`= 'f'`). -/
+def toSqlPredicate (positive : Bool) (e : Expr) : Option Scalar :=
+  let tf := if positive then "'t'" else "'f'"
+  match e.getAppFnArgs with
+  | (``IsSimpleGroup, _) =>
+      some { sql := s!"simple = {tf}", refs := #[("simple", "simple")], table := "gps_groups" }
+  | _ =>
+      if isAbelianPattern e then
+        some { sql := s!"abelian = {tf}", refs := #[("abelian", "abelian")], table := "gps_groups" }
+      else none
+
+/-- Translate a `Prop` into a SQL condition. `positive := false` translates its negation
+instead; pushing the negation down to the operator / boolean value (rather than wrapping the
+whole condition in SQL `NOT (...)`) keeps the query index-friendly. -/
+partial def toCond (positive : Bool) (e : Expr) : Option Scalar :=
+  match e.getAppFnArgs with
+  | (``Not, #[p]) => toCond (!positive) p
+  | _ =>
+      match matchCmp e with
+      | some (cmp, a, b) => toSqlCondCmp (if positive then cmp else cmp.negate) a b
+      | none => toSqlPredicate positive e
+
+/-- Translate a `Prop` into a SQL condition. -/
+def toSqlCond (e : Expr) : Option Scalar := toCond true e
+
+/-- Translate the *negation* of a `Prop` into a SQL condition (used for the goal). -/
+def toSqlCondNeg (e : Expr) : Option Scalar := toCond false e
 
 /-! #### Reading and rendering a result row -/
 
@@ -247,10 +284,19 @@ def ecCurvedata : TableInfo where
   describe row := m!"elliptic curve {rowStr row "label"} with a-invariants {rowStr row "ainvs"}"
   url := ecUrl
 
+/-- Finite groups. -/
+def gpsGroups : TableInfo where
+  table := "gps_groups"
+  labelCol := "label"
+  descSelects := #["tex_name::text AS tex_name"]
+  describe row := m!"group {rowStr row "label"} ({rowStr row "tex_name"})"
+  url label := s!"https://www.lmfdb.org/Groups/Abstract/{label}"
+
 /-- The table configuration for a table name. -/
 def tableInfo? : String → Option TableInfo
   | "nf_fields" => some nfFields
   | "ec_curvedata" => some ecCurvedata
+  | "gps_groups" => some gpsGroups
   | _ => none
 
 /-! #### Assembling the query and report -/
@@ -379,4 +425,10 @@ example {F : Type*} [Field F] [NumberField F]
 example {W : WeierstrassCurve.Affine ℚ}
     (hW : 4 ≤ Nat.card (AddCommGroup.torsion W.Point)) :
     Module.finrank ℤ W.Point ≤ 0 := by
+  lookup
+
+-- A third object family: `lookup` dispatches boolean properties to `gps_groups`. "Every
+-- simple group is nonabelian" is false — the cyclic groups of prime order are simple and
+-- abelian — so `lookup` surfaces such a group.
+example {G : Type*} [Group G] [IsSimpleGroup G] : ¬ ∀ a b : G, a * b = b * a := by
   lookup
