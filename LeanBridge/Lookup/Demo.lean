@@ -35,6 +35,7 @@ example {W : WeierstrassCurve.Affine ℚ} [W.IsElliptic]
     False := by
   lookup
 
-example {W : WeierstrassCurve.Affine ℚ} [W.IsElliptic] :
-    ¬ Nonempty (AddCommGroup.torsion W.Point ≃+ ZMod 2 × ZMod 10) := by
+example {W : WeierstrassCurve.Affine ℚ} [W.IsElliptic]
+    (e : AddCommGroup.torsion W.Point ≃+ ZMod 2 × ZMod 10) :
+    False := by
   lookup
