@@ -191,6 +191,23 @@ column `col` (`= 't'`, or `= 'f'` when negated). -/
 def flagIs (c : Name) (column : String) : Bool → Expr → Option Cond :=
   fun pos e => if e.isAppOf c then some (boolCol pos column) else none
 
+/-- `flagCond c posSql negSql refs`: matches any application of `c` to the SQL condition
+`posSql` (or `negSql` when negated). Use when a Lean predicate has no dedicated boolean column
+but translates to a condition on existing columns (e.g. `NumberField.IsTotallyReal F` ↦
+`r2 = 0`). `refs` lists the `(displayName, selectExpr)` columns to report. -/
+def flagCond (c : Name) (posSql negSql : String) (refs : Array (String × String)) :
+    Bool → Expr → Option Cond :=
+  fun pos e => if e.isAppOf c then some { sql := if pos then posSql else negSql, refs } else none
+
+/-- `flagCondMentions head obj posSql negSql refs`: like `flagCond`, but for a *generic*
+predicate `head` (e.g. `Finite`, `IsPrincipalIdealRing`) that only identifies this table when
+its argument mentions `obj`. Matches `head … obj …` (e.g. `Finite W.Point`, with `obj` the
+elliptic-curve point group) to `posSql` (or `negSql` when negated). -/
+def flagCondMentions (head obj : Name) (posSql negSql : String) (refs : Array (String × String)) :
+    Bool → Expr → Option Cond :=
+  fun pos e => if e.isAppOf head && containsConst e obj then
+    some { sql := if pos then posSql else negSql, refs } else none
+
 /-- `isAbelian "col"`: matches the commutativity statement `∀ a b, a * b = b * a` to the
 boolean column `col`. -/
 def isAbelian (column : String) : Bool → Expr → Option Cond :=

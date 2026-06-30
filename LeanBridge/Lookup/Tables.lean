@@ -27,12 +27,36 @@ def nfFields : TableInfo where
     -- `|NumberField.discr F|`  ↦  disc_abs
     absOf ``NumberField.discr "disc_abs" "|discriminant|",
     -- `NumberField.discr F`  ↦  disc_sign · disc_abs  (signed, sign-split on comparison)
-    signedValue ``NumberField.discr "disc_sign" "disc_abs" "discriminant"]
+    signedValue ``NumberField.discr "disc_sign" "disc_abs" "discriminant",
+    -- `NumberField.rootDiscr F`  ↦  rd
+    headIs ``NumberField.rootDiscr "rd" "root discriminant",
+    -- `NumberField.Units.regulator F`  ↦  regulator
+    headIs ``NumberField.Units.regulator "regulator" "regulator",
+    -- `NumberField.Units.torsionOrder F`  ↦  torsion_order (number of roots of unity)
+    headIs ``NumberField.Units.torsionOrder "torsion_order" "number of roots of unity",
+    -- `NumberField.InfinitePlace.nrComplexPlaces F`  ↦  r2
+    headIs ``NumberField.InfinitePlace.nrComplexPlaces "r2" "number of complex places"]
   props := #[
     -- `ClassGroup (𝓞 F) ≃* Multiplicative (∏ ZMod nᵢ)`  ↦  class_group = [n₁, …]
     isoStructure ``MulEquiv ``ClassGroup "class_group::text" "class group" true,
     -- additive spelling: `Additive (ClassGroup (𝓞 F)) ≃+ (∏ ZMod nᵢ)`  ↦  class_group = [n₁, …]
-    isoStructure ``AddEquiv ``ClassGroup "class_group::text" "class group" true]
+    isoStructure ``AddEquiv ``ClassGroup "class_group::text" "class group" true,
+    -- `NumberField.IsCMField F`  ↦  cm = 't'
+    flagIs ``NumberField.IsCMField "cm",
+    -- `IsGalois ℚ F`  ↦  is_galois = 't'
+    flagIs ``IsGalois "is_galois",
+    -- `IsAbelianGalois ℚ F`  ↦  gal_is_abelian = 't'
+    flagIs ``IsAbelianGalois "gal_is_abelian",
+    -- `NumberField.IsTotallyReal F`  ↦  no real-place column: r2 = 0
+    flagCond ``NumberField.IsTotallyReal "r2 = 0" "r2 <> 0" #[("r2", "r2")],
+    -- `NumberField.IsTotallyComplex F`  ↦  r1 = 0, i.e. degree = 2·r2 (no r1 column)
+    flagCond ``NumberField.IsTotallyComplex "degree = 2 * r2" "degree <> 2 * r2"
+      #[("degree", "degree"), ("r2", "r2")],
+    -- `Algebra.IsQuadraticExtension ℚ F`  ↦  degree = 2
+    flagCond ``Algebra.IsQuadraticExtension "degree = 2" "degree <> 2" #[("degree", "degree")],
+    -- `IsPrincipalIdealRing (𝓞 F)`  ↦  class_number = 1  (trivial class group)
+    flagCondMentions ``IsPrincipalIdealRing ``NumberField.RingOfIntegers
+      "class_number = 1" "class_number <> 1" #[("class_number", "class_number")]]
 
 /-- Elliptic curves over `ℚ`. -/
 def ecCurvedata : TableInfo where
@@ -52,10 +76,18 @@ def ecCurvedata : TableInfo where
     -- `Module.finrank ℤ W.Point`  ↦  rank
     finrankOver ``Int "rank" "rank",
     -- `Nat.card (AddCommGroup.torsion W.Point)`  ↦  torsion
-    cardMentions ``AddCommGroup.torsion "torsion" "torsion"]
+    cardMentions ``AddCommGroup.torsion "torsion" "torsion",
+    -- `WeierstrassCurve.j W`  ↦  jinv  (model-independent, so exact)
+    headIs ``WeierstrassCurve.j "jinv" "j-invariant"]
   props := #[
     -- `AddCommGroup.torsion W.Point ≃+ (∏ ZMod nᵢ)`  ↦  torsion_structure = {n₁, …}
-    isoStructure ``AddEquiv ``AddCommGroup.torsion "torsion_structure" "torsion structure" false]
+    isoStructure ``AddEquiv ``AddCommGroup.torsion "torsion_structure" "torsion structure" false,
+    -- `Finite W.Point`  ↦  rank = 0  (Mordell–Weil group finite ⟺ rank zero)
+    flagCondMentions ``Finite ``WeierstrassCurve.Affine.Point "rank = 0" "rank <> 0"
+      #[("rank", "rank")],
+    -- `IsAddTorsionFree W.Point`  ↦  torsion = 1
+    flagCondMentions ``IsAddTorsionFree ``WeierstrassCurve.Affine.Point "torsion = 1" "torsion <> 1"
+      #[("torsion", "torsion")]]
 
 /-- Finite groups. -/
 def gpsGroups : TableInfo where
@@ -66,11 +98,28 @@ def gpsGroups : TableInfo where
   url label := s!"https://www.lmfdb.org/Groups/Abstract/{label}"
   -- `order` is a SQL reserved word, so it must be quoted.
   orderBy := "\"order\""
+  scalars := #[
+    -- `Monoid.exponent G`  ↦  exponent
+    headIs ``Monoid.exponent "exponent" "exponent",
+    -- `Group.nilpotencyClass G`  ↦  nilpotency_class
+    headIs ``Group.nilpotencyClass "nilpotency_class" "nilpotency class",
+    -- `Group.rank G`  ↦  rank (minimal number of generators)
+    headIs ``Group.rank "rank" "rank",
+    -- `Nat.card (Subgroup.center G)`  ↦  center_order
+    cardMentions ``Subgroup.center "center_order" "order of the center",
+    -- `Nat.card (ConjClasses G)`  ↦  number_conjugacy_classes
+    cardMentions ``ConjClasses "number_conjugacy_classes" "number of conjugacy classes",
+    -- `Nat.card (MulAut G)`  ↦  aut_order
+    cardMentions ``MulAut "aut_order" "order of the automorphism group"]
   props := #[
     -- `IsSimpleGroup G`  ↦  simple = 't'
     flagIs ``IsSimpleGroup "simple",
     -- `∀ a b : G, a * b = b * a`  ↦  abelian = 't'
-    isAbelian "abelian"]
+    isAbelian "abelian",
+    -- `Group.IsNilpotent G`  ↦  nilpotent = 't'
+    flagIs ``Group.IsNilpotent "nilpotent",
+    -- `Group.IsPerfect G`  ↦  perfect = 't'
+    flagIs ``Group.IsPerfect "perfect"]
 
 /-- All supported object families. To support a new one, add its `TableInfo` here. -/
 def tables : Array TableInfo := #[nfFields, ecCurvedata, gpsGroups]
