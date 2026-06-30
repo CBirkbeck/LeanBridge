@@ -74,6 +74,8 @@ pushing the negation down to the operator / boolean value (rather than wrapping 
 transparent (an isomorphism *exists* iff the structures match). -/
 partial def toCond (positive : Bool) (e : Expr) : Option Cond :=
   match_expr e with
+  | False => some { sql := if positive then "FALSE" else "TRUE" }
+  | True => some { sql := if positive then "TRUE" else "FALSE" }
   | Not p => toCond (!positive) p
   | Nonempty p => toCond positive p
   | _ =>
