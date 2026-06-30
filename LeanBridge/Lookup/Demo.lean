@@ -454,6 +454,13 @@ example {W : WeierstrassCurve.Affine ℚ}
     Module.finrank ℤ W.Point ≤ 0 := by
   lookup
 
+-- "Every elliptic curve over ℚ with rank at least 2 has trivial torsion subgroup." This is
+-- false: e.g. curve `1088.a1` has rank 2 and a 2-torsion point.
+example {W : WeierstrassCurve.Affine ℚ}
+    (hW : 2 ≤ Module.finrank ℤ W.Point) :
+    Nat.card (AddCommGroup.torsion W.Point) = 1 := by
+  lookup
+
 -- A third object family: `lookup` dispatches boolean properties to `gps_groups`. "Every
 -- simple group is nonabelian" is false — the cyclic groups of prime order are simple and
 -- abelian — so `lookup` surfaces such a group.
