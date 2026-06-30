@@ -288,13 +288,20 @@ def reportRow (info : TableInfo) (row : Json) (items : Array (String × String))
     {MessageData.joinSep vals.toList ", "}\n\
     {info.url (rowStr row "label")}"
 
-/-- Translate the hypotheses in context into SQL condition scalars. -/
+/-- Translate the hypotheses in context into SQL condition scalars. A hypothesis that *is* a
+comparison but that we cannot translate is reported as a warning (and dropped), since silently
+ignoring it would weaken any "no counterexample" conclusion. -/
 def collectHypotheses : TacticM (Array Scalar) := do
   let mut out : Array Scalar := #[]
   for ldecl in ← getLCtx do
     if ldecl.isImplementationDetail then continue
-    if let some s := toSqlCond (← instantiateMVars ldecl.type) then
-      out := out.push s
+    let ty ← instantiateMVars ldecl.type
+    match toSqlCond ty with
+    | some s => out := out.push s
+    | none =>
+      if (matchCmp ty).isSome then
+        logWarning m!"lookup: ignoring hypothesis `{ldecl.userName}` : {ty}\n\
+          (couldn't translate it to a SQL condition, so the search ignores this constraint)."
   return out
 
 elab "lookup" : tactic => do
