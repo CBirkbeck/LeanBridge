@@ -1,4 +1,5 @@
 import Mathlib
+import ProofWidgets.Component.HtmlDisplay
 
 -- https://www.lmfdb.org/api/nf_fields/?_format=json&_offset=0
 
@@ -253,8 +254,8 @@ structure TableInfo where
   labelCol : String
   /-- Extra SELECT fragments for the descriptive data (e.g. the defining polynomial). -/
   descSelects : Array String
-  /-- Render the descriptive data of a result row. -/
-  describe : Json → MessageData
+  /-- Render the descriptive data of a result row as plain text. -/
+  describe : Json → String
   /-- Build the LMFDB page URL from a label. -/
   url : String → String
 
@@ -272,7 +273,7 @@ def nfFields : TableInfo where
   table := "nf_fields"
   labelCol := "label"
   descSelects := #["coeffs::text AS coeffs"]
-  describe row := m!"number field {rowStr row "label"}, with minimal polynomial \
+  describe row := s!"number field {rowStr row "label"}, with minimal polynomial \
     {formatPoly (rowStr row "coeffs")}"
   url label := s!"https://www.lmfdb.org/NumberField/{label}"
 
@@ -281,7 +282,7 @@ def ecCurvedata : TableInfo where
   table := "ec_curvedata"
   labelCol := "lmfdb_label"
   descSelects := #["ainvs::text AS ainvs"]
-  describe row := m!"elliptic curve {rowStr row "label"} with a-invariants {rowStr row "ainvs"}"
+  describe row := s!"elliptic curve {rowStr row "label"} with a-invariants {rowStr row "ainvs"}"
   url := ecUrl
 
 /-- Finite groups. -/
@@ -289,7 +290,7 @@ def gpsGroups : TableInfo where
   table := "gps_groups"
   labelCol := "label"
   descSelects := #["tex_name::text AS tex_name"]
-  describe row := m!"group {rowStr row "label"} ({rowStr row "tex_name"})"
+  describe row := s!"group {rowStr row "label"} ({rowStr row "tex_name"})"
   url label := s!"https://www.lmfdb.org/Groups/Abstract/{label}"
 
 /-- The table configuration for a table name. -/
@@ -323,18 +324,35 @@ def buildQuery (info : TableInfo) (conds : Array String) (items : Array (String 
   return s!"SELECT {String.intercalate ", " selects.toList} FROM {info.table} \
     WHERE {whereClause} LIMIT 1"
 
-/-- Render a counterexample row as a message. -/
-def reportRow (info : TableInfo) (row : Json) (items : Array (String × String)) :
-    MessageData := Id.run do
-  let mut vals : Array MessageData := #[]
+/-- The "name = value" strings for the referenced quantities of a result row. -/
+def valueStrs (row : Json) (items : Array (String × String)) : Array String := Id.run do
+  let mut out : Array String := #[]
   for i in [0:items.size] do
-    vals := vals.push m!"{items[i]!.1} = {rowStr row s!"c{i}"}"
+    out := out.push s!"{items[i]!.1} = {rowStr row s!"c{i}"}"
+  return out
+
+open ProofWidgets in
+/-- Render a counterexample row as interactive HTML, including a clickable LMFDB link.
+A bare or markdown URL in a `MessageData` is not linkified by the infoview, so we build an
+actual `<a>` element and embed it via `MessageData.ofHtml`. -/
+def reportHtml (info : TableInfo) (row : Json) (items : Array (String × String)) : Html :=
   let label := rowStr row "label"
-  -- A markdown link renders as a clickable anchor in the infoview (a bare URL does not).
-  return m!"lookup: the statement is FALSE — LMFDB has a counterexample.\n\
+  Html.element "div" #[] #[
+    .text "lookup: the statement is FALSE — LMFDB has a counterexample.",
+    .element "br" #[] #[],
+    .text (info.describe row),
+    .element "br" #[] #[],
+    .text (", ".intercalate (valueStrs row items).toList),
+    .element "br" #[] #[],
+    .element "a" #[("href", toJson (info.url label))] #[.text s!"{label} on LMFDB"]
+  ]
+
+/-- A plain-text fallback for the counterexample, shown where HTML cannot render. -/
+def reportAlt (info : TableInfo) (row : Json) (items : Array (String × String)) : String :=
+  s!"lookup: the statement is FALSE — LMFDB has a counterexample.\n\
     {info.describe row}\n\
-    {MessageData.joinSep vals.toList ", "}\n\
-    [{label} on LMFDB]({info.url label})"
+    {", ".intercalate (valueStrs row items).toList}\n\
+    {info.url (rowStr row "label")}"
 
 /-- Translate the hypotheses in context into SQL condition scalars. A hypothesis that *is* a
 comparison but that we cannot translate is reported as a warning (and dropped), since silently
@@ -375,7 +393,8 @@ elab "lookup" : tactic => do
       -- No counterexample in the database: report, but do *not* close the goal.
       logInfo m!"lookup: no counterexample found in LMFDB \
         (the statement is consistent with the database, but this is not a proof)."
-    | some row => throwError reportRow info row items
+    | some row =>
+      throwError (← MessageData.ofHtml (reportHtml info row items) (reportAlt info row items))
 
 end Lookup
 
