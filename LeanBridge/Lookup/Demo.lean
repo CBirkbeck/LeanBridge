@@ -29,3 +29,12 @@ example {W : WeierstrassCurve.Affine ℚ} [W.IsElliptic]
 
 example {G : Type*} [Group G] [IsSimpleGroup G] : ¬ ∀ a b : G, a * b = b * a := by
   lookup
+
+example {W : WeierstrassCurve.Affine ℚ} [W.IsElliptic]
+    (e : AddCommGroup.torsion W.Point ≃+ ZMod 2 × ZMod 8) :
+    False := by
+  lookup
+
+example {W : WeierstrassCurve.Affine ℚ} [W.IsElliptic] :
+    ¬ Nonempty (AddCommGroup.torsion W.Point ≃+ ZMod 2 × ZMod 10) := by
+  lookup
