@@ -59,16 +59,25 @@ def HeckeCoset (P : HeckePair G) := Quotient (dcSetoid P)
 noncomputable instance instDecidableEqHeckeCoset (P : HeckePair G) :
     DecidableEq (HeckeCoset P) := Classical.decEq _
 
-/-- The Hecke ring type: formal `Z`-linear combinations of double cosets `HeckeCoset P`. -/
-def 𝕋 (P : HeckePair G) (Z : Type*) [CommRing Z] := Finsupp (HeckeCoset P) Z
+/-- The Hecke ring type: formal `Z`-linear combinations of double cosets `HeckeCoset P`. The
+coefficients `Z` need only carry a `Zero` for the type to make sense; algebraic structure on `Z`
+is added by the instances below at the weakest level each requires. -/
+def 𝕋 (P : HeckePair G) (Z : Type*) [Zero Z] := Finsupp (HeckeCoset P) Z
 
 /-- `FunLike` instance for `𝕋 P Z`: treat elements as functions `HeckeCoset P → Z`. -/
-instance instFunLike𝕋 (P : HeckePair G) (Z : Type*) [CommRing Z] :
+instance instFunLike𝕋 (P : HeckePair G) (Z : Type*) [Zero Z] :
     FunLike (𝕋 P Z) (HeckeCoset P) Z :=
   inferInstanceAs (FunLike (HeckeCoset P →₀ Z) (HeckeCoset P) Z)
 
-/-- The additive commutative group structure on the Hecke ring. -/
-noncomputable instance instAddCommGroup𝕋 (P : HeckePair G) (Z : Type*) [CommRing Z] :
+/-- The additive commutative monoid structure on the Hecke ring, for any `AddCommMonoid` of
+coefficients. -/
+noncomputable instance instAddCommMonoid𝕋 (P : HeckePair G) (Z : Type*) [AddCommMonoid Z] :
+    AddCommMonoid (𝕋 P Z) :=
+  inferInstanceAs (AddCommMonoid ((HeckeCoset P) →₀ Z))
+
+/-- The additive commutative group structure on the Hecke ring, when the coefficients form an
+`AddCommGroup`. -/
+noncomputable instance instAddCommGroup𝕋 (P : HeckePair G) (Z : Type*) [AddCommGroup Z] :
     AddCommGroup (𝕋 P Z) :=
   inferInstanceAs (AddCommGroup ((HeckeCoset P) →₀ Z))
 
