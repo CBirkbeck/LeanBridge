@@ -258,6 +258,8 @@ structure TableInfo where
   describe : Json → String
   /-- Build the LMFDB page URL from a label. -/
   url : String → String
+  /-- SQL `ORDER BY` clause picking the "smallest"/simplest counterexample. -/
+  orderBy : String
 
 /-- LMFDB elliptic-curve labels like `15.a2` live at `.../EllipticCurve/Q/15/a/2`. -/
 def ecUrl (label : String) : String :=
@@ -276,6 +278,7 @@ def nfFields : TableInfo where
   describe row := s!"number field {rowStr row "label"}, with minimal polynomial \
     {formatPoly (rowStr row "coeffs")}"
   url label := s!"https://www.lmfdb.org/NumberField/{label}"
+  orderBy := "disc_abs"
 
 /-- Elliptic curves over `ℚ`. -/
 def ecCurvedata : TableInfo where
@@ -284,6 +287,7 @@ def ecCurvedata : TableInfo where
   descSelects := #["ainvs::text AS ainvs"]
   describe row := s!"elliptic curve {rowStr row "label"} with a-invariants {rowStr row "ainvs"}"
   url := ecUrl
+  orderBy := "conductor"
 
 /-- Finite groups. -/
 def gpsGroups : TableInfo where
@@ -292,6 +296,8 @@ def gpsGroups : TableInfo where
   descSelects := #["tex_name::text AS tex_name"]
   describe row := s!"group {rowStr row "label"} ({rowStr row "tex_name"})"
   url label := s!"https://www.lmfdb.org/Groups/Abstract/{label}"
+  -- `order` is a SQL reserved word, so it must be quoted.
+  orderBy := "\"order\""
 
 /-- The table configuration for a table name. -/
 def tableInfo? : String → Option TableInfo
@@ -322,7 +328,7 @@ def buildQuery (info : TableInfo) (conds : Array String) (items : Array (String 
     selects := selects.push s!"({items[i]!.2})::text AS c{i}"
   let whereClause := String.intercalate " AND " conds.toList
   return s!"SELECT {String.intercalate ", " selects.toList} FROM {info.table} \
-    WHERE {whereClause} LIMIT 1"
+    WHERE {whereClause} ORDER BY {info.orderBy} LIMIT 1"
 
 /-- The "name = value" strings for the referenced quantities of a result row. -/
 def valueStrs (row : Json) (items : Array (String × String)) : Array String := Id.run do
