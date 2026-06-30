@@ -128,7 +128,7 @@ actual `<a>` element and embed it via `MessageData.ofHtml`. -/
 def reportHtml (info : TableInfo) (row : Json) (items : Array (String × String)) : Html :=
   let label := rowStr row "label"
   Html.element "div" #[] #[
-    .text "lookup: the statement is FALSE — LMFDB has a counterexample.",
+    .text "the statement is false, LMFDB has a counterexample.",
     .element "br" #[] #[],
     .text (info.describe row),
     .element "br" #[] #[],
@@ -139,7 +139,7 @@ def reportHtml (info : TableInfo) (row : Json) (items : Array (String × String)
 
 /-- A plain-text fallback for the counterexample, shown where HTML cannot render. -/
 def reportAlt (info : TableInfo) (row : Json) (items : Array (String × String)) : String :=
-  s!"lookup: the statement is FALSE — LMFDB has a counterexample.\n\
+  s!"the statement is false, LMFDB has a counterexample.\n\
     {info.describe row}\n\
     {", ".intercalate (valueStrs row items).toList}\n\
     {info.url (rowStr row "label")}"
@@ -158,7 +158,7 @@ def collectHypotheses : TacticM (Array Cond) := do
     | some s => out := out.push s
     | none =>
       if (matchCmp ty).isSome then
-        logWarning m!"lookup: ignoring hypothesis `{ldecl.userName}` : {ty}\n\
+        logWarning m!"ignoring hypothesis `{ldecl.userName}` : {ty}\n\
           (couldn't translate it to a SQL condition, so the search ignores this constraint)."
   return out
 
@@ -167,15 +167,15 @@ elab "lookup" : tactic => do
   goal.withContext do
     -- The negated goal is the final condition: we hunt for a row that breaks the goal.
     let some goalCond := toSqlCondNeg (← instantiateMVars (← goal.getType))
-      | throwError "lookup: don't know how to translate the goal into a SQL query"
+      | throwError "don't know how to translate the goal into a SQL query"
     let conditions := (← collectHypotheses).push goalCond
     -- Every condition must point at the same LMFDB table.
     let info ← match (conditions.filterMap (·.table)).toList.dedup with
       | [t] => match tableInfo? t with
         | some info => pure info
-        | none => throwError "lookup: no table configuration for `{t}`"
-      | [] => throwError "lookup: couldn't determine which LMFDB table the goal is about"
-      | ts => throwError "lookup: the goal mixes multiple LMFDB object types {ts}"
+        | none => throwError "no table configuration for `{t}`"
+      | [] => throwError "couldn't determine which LMFDB table the goal is about"
+      | ts => throwError "the goal mixes multiple LMFDB object types {ts}"
     let conds := conditions.map (·.sql)
     let items := dedupRefs (conditions.foldl (fun acc s => acc ++ s.refs) #[])
     let query := buildQuery info conds items
@@ -183,7 +183,7 @@ elab "lookup" : tactic => do
     match firstRow? (← runSql query) with
     | none =>
       -- No counterexample in the database: report, but do *not* close the goal.
-      logInfo m!"lookup: no counterexample found in LMFDB \
+      logInfo m!"no counterexample found in LMFDB \
         (the statement is consistent with the database, but this is not a proof)."
     | some row =>
       throwError (← MessageData.ofHtml (reportHtml info row items) (reportAlt info row items))
