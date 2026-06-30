@@ -175,13 +175,52 @@ def isAbelianPattern (e : Expr) : Bool := Id.run do
   let some r2 := bvarIdx? ra[ra.size - 1]! | return false
   return l1 == r2 && l2 == r1 && l1 != l2
 
-/-- Translate a boolean-valued property of the object into a SQL boolean-column comparison.
-`positive := false` asks for the property to *fail* (`= 'f'`). -/
-def toSqlPredicate (positive : Bool) (e : Expr) : Option Scalar :=
+/-- Whether `e` mentions the constant `n` anywhere. -/
+def containsConst (e : Expr) (n : Name) : Bool := (e.find? (·.isConstOf n)).isSome
+
+/-- Read a product of cyclic groups `ZMod n₁ × ⋯ × ZMod n_k` (with any `Multiplicative`
+wrappers stripped) as its list of moduli, in the order written. -/
+partial def cyclicFactors? (e : Expr) : Option (Array Nat) :=
+  match e.getAppFnArgs with
+  | (``ZMod, #[n]) => (getNatLit? n).map (#[·])
+  | (``Multiplicative, #[a]) => cyclicFactors? a
+  | (``Prod, #[a, b]) => do return (← cyclicFactors? a) ++ (← cyclicFactors? b)
+  | _ => none
+
+/-- LMFDB encodes the torsion structure as a brace array `{2,4}` and the ideal class group as
+a JSON bracket array `[2, 2]`. -/
+def fmtBraces (f : Array Nat) : String := "{" ++ ",".intercalate (f.toList.map toString) ++ "}"
+def fmtBrackets (f : Array Nat) : String := "[" ++ ", ".intercalate (f.toList.map toString) ++ "]"
+
+/-- Translate an abelian-group-structure claim `lhs ≃ rhs` (where `rhs` is a product of
+cyclics) into an invariant-factor column comparison; `positive := false` negates it (`<>`). -/
+def structCond (positive : Bool) (lhs rhs : Expr) (lhsConst : Name)
+    (col display table : String) (fmt : Array Nat → String) : Option Scalar := do
+  guard (containsConst lhs lhsConst)
+  let factors ← cyclicFactors? rhs
+  return { sql := s!"{col} {if positive then "=" else "<>"} '{fmt factors}'",
+           refs := #[(display, col.replace "::text" "")], table := table }
+
+/-- Translate a property of the object into a SQL condition. Handles boolean flags
+(`IsSimpleGroup`, the abelian pattern) and abelian-group-structure isomorphisms (torsion
+subgroup via `≃+`, ideal class group via `≃*`), optionally wrapped in `Nonempty`.
+`positive := false` asks for the property to *fail*. -/
+partial def toSqlPredicate (positive : Bool) (e : Expr) : Option Scalar :=
   let tf := if positive then "'t'" else "'f'"
   match e.getAppFnArgs with
+  | (``Nonempty, #[inner]) => toSqlPredicate positive inner
   | (``IsSimpleGroup, _) =>
       some { sql := s!"simple = {tf}", refs := #[("simple", "simple")], table := "gps_groups" }
+  | (``AddEquiv, args) =>
+      if 2 ≤ args.size then
+        structCond positive args[0]! args[1]! ``AddCommGroup.torsion
+          "torsion_structure" "torsion structure" "ec_curvedata" fmtBraces
+      else none
+  | (``MulEquiv, args) =>
+      if 2 ≤ args.size then
+        structCond positive args[0]! args[1]! ``ClassGroup
+          "class_group::text" "class group" "nf_fields" fmtBrackets
+      else none
   | _ =>
       if isAbelianPattern e then
         some { sql := s!"abelian = {tf}", refs := #[("abelian", "abelian")], table := "gps_groups" }
@@ -446,6 +485,14 @@ example {F : Type*} [Field F] [NumberField F]
 -- `NumberField.discr F ≥ -100` finds the counterexample `2.0.163.1` (discriminant -163),
 -- while `NumberField.discr F ≥ -163` finds none.
 
+-- The ideal class group *structure* (LMFDB's `class_group`) is supported via `≃*`: "every
+-- degree-2 field of class number 4 has cyclic class group ℤ/4" is false — some are C₂ × C₂.
+-- The class group is multiplicative, so the right-hand side carries `Multiplicative`.
+example {F : Type*} [Field F] [NumberField F]
+    (h1 : NumberField.classNumber F = 4) (h2 : Module.finrank ℚ F = 2) :
+    Nonempty (ClassGroup (NumberField.RingOfIntegers F) ≃* Multiplicative (ZMod 4)) := by
+  lookup
+
 -- A non-number-field example: `lookup` dispatches to the `ec_curvedata` table. This claim is
 -- false — e.g. curve `117.a4` has a 4-torsion point yet positive rank — so `lookup` surfaces
 -- it (with the curve's a-invariants and a link). The `≤ 20` version instead finds nothing.
@@ -459,6 +506,14 @@ example {W : WeierstrassCurve.Affine ℚ}
 example {W : WeierstrassCurve.Affine ℚ}
     (hW : 2 ≤ Module.finrank ℤ W.Point) :
     Nat.card (AddCommGroup.torsion W.Point) = 1 := by
+  lookup
+
+-- Group *structure* is supported too (LMFDB's `torsion_structure`): "every curve whose
+-- torsion subgroup has order 4 has torsion subgroup ≅ ℤ/4" is false — some are ℤ/2 × ℤ/2.
+-- The torsion subgroup is additive, hence `≃+`.
+example {W : WeierstrassCurve.Affine ℚ}
+    (hW : Nat.card (AddCommGroup.torsion W.Point) = 4) :
+    Nonempty (AddCommGroup.torsion W.Point ≃+ ZMod 4) := by
   lookup
 
 -- A third object family: `lookup` dispatches boolean properties to `gps_groups`. "Every
