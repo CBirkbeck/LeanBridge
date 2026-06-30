@@ -131,8 +131,28 @@ def gpsGroups : TableInfo where
     -- `IsSolvable G`  ↦  solvable = 't'
     flagIs ``IsSolvable "solvable"]
 
+/-- Spaces of classical modular forms `S_k(Γ₀(N))` / `M_k(Γ₀(N))`. The object is identified by
+its level and weight, read off the type `CuspForm Γ k` / `ModularForm Γ k` (with `Γ = Γ₀(N)`)
+inside a `Module.finrank ℂ …` — see `modularDim`. -/
+def mfNewspaces : TableInfo where
+  table := "mf_newspaces"
+  labelCol := "label"
+  descSelects := #["level::text AS level", "weight::text AS weight",
+                   "cusp_dim::text AS cusp_dim", "mf_dim::text AS mf_dim"]
+  describe row := s!"space of level {rowStr row "level"}, weight {rowStr row "weight"} \
+    (cuspidal dimension {rowStr row "cusp_dim"}, total dimension {rowStr row "mf_dim"})"
+  -- LMFDB newspace labels `23.2.a` live at `.../holomorphic/23/2/a`.
+  url label := s!"https://www.lmfdb.org/ModularForm/GL2/Q/holomorphic/{label.replace "." "/"}"
+  orderBy := "level"
+  scalars := #[
+    -- `Module.finrank ℂ (CuspForm Γ₀(N) k)` ↦ cusp_dim,  `(ModularForm …)` ↦ mf_dim
+    modularDim]
+  props := #[
+    -- a `CuspForm Γ₀(N) k` / `ModularForm Γ₀(N) k` type ↦ level = N AND weight = k AND trivial char
+    modularSpace]
+
 /-- All supported object families. To support a new one, add its `TableInfo` here. -/
-def tables : Array TableInfo := #[nfFields, ecCurvedata, gpsGroups]
+def tables : Array TableInfo := #[nfFields, ecCurvedata, gpsGroups, mfNewspaces]
 
 /-- The table configuration for a table name. -/
 def tableInfo? (name : String) : Option TableInfo := tables.find? (·.table == name)

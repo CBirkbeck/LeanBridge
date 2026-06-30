@@ -54,11 +54,21 @@ end Cmp
 
 /-- A scalar quantity of an object: an SQL column expression and a human-readable name. A
 quantity stored split as `sign * |·|` records those two columns in `signed?`, so comparisons
-against a literal can be made index-friendly. -/
+against a literal can be made index-friendly. `extraConds` are extra `WHERE` conjuncts the
+quantity implies — used when the object's identity is bundled into the quantity's expression
+rather than supplied by separate hypotheses (e.g. a modular space's level/weight/character read
+off the type inside `Module.finrank ℂ (CuspForm Γ₀(N) k)`). -/
 structure Column where
   sql : String
   display : String
   signed? : Option (String × String) := none
+  extraConds : Array String := #[]
+
+/-- Prefix `core` with the column's extra `WHERE` conjuncts (the object identity it implies),
+if any. -/
+def Column.withConds (c : Column) (core : String) : String :=
+  if c.extraConds.isEmpty then core
+  else s!"{String.intercalate " AND " c.extraConds.toList} AND {core}"
 
 /-- A translated SQL condition: the boolean SQL, the columns it references (as
 `(displayName, selectExpr)` pairs, for reporting), and the LMFDB table it forces. -/
@@ -195,6 +205,41 @@ def cardIs (sql display : String) : Expr → Option Column :=
     | Nat.card _ => some (col sql display)
     | Fintype.card _ _ => some (col sql display)
     | _ => none
+
+/-- From a modular/cusp form *type* `CuspForm Γ k` / `ModularForm Γ k` with `Γ` containing a
+`CongruenceSubgroup.Gamma0 N` subterm, read `(isCuspidal, level N, weight k)`. -/
+def modularSpace? (M : Expr) : Option (Bool × Nat × Int) := do
+  let (isCusp, Γ, k) ← (match_expr M with
+    | CuspForm Γ k => some (true, Γ, k)
+    | ModularForm Γ k => some (false, Γ, k)
+    | _ => none)
+  let kLit ← getIntLit? k
+  let g ← Γ.find? (·.isAppOf ``CongruenceSubgroup.Gamma0)
+  let N ← getNatLit? g.appArg!
+  return (isCusp, N, kLit)
+
+/-- The `WHERE` conjuncts identifying the `mf_newspaces` row for `S_k(Γ₀(N))`: its level, weight
+and the trivial character (`char_orbit_index = 1`, i.e. the `Γ₀(N)` nebentypus). -/
+def mfSpaceConds (N : Nat) (k : Int) : Array String :=
+  #[s!"level = {N}", s!"weight = {k}", "char_orbit_index = 1"]
+
+/-- Recognise `Module.finrank ℂ (CuspForm Γ₀(N) k)` / `(ModularForm Γ₀(N) k)`, mapping to the
+cuspidal/total dimension column of `mf_newspaces` with the level/weight/character pinned. -/
+def modularDim : Expr → Option Column := fun e =>
+  match_expr e with
+  | Module.finrank _ M _ _ _ => do
+      let (isCusp, N, k) ← modularSpace? M
+      pure { sql := if isCusp then "cusp_dim" else "mf_dim", display := "dimension",
+             extraConds := mfSpaceConds N k }
+  | _ => none
+
+/-- Recognise a modular/cusp form *type* `CuspForm Γ₀(N) k` / `ModularForm Γ₀(N) k` (e.g. a
+hypothesis `f : CuspForm Γ₀(N) k`), pinning the space's level, weight and trivial character. The
+polarity is ignored — the type names the object, it is not a refutable property. -/
+def modularSpace : Bool → Expr → Option Cond := fun _ e => do
+  let (_, N, k) ← modularSpace? e
+  some { sql := String.intercalate " AND " (mfSpaceConds N k).toList,
+         refs := #[("level", "level"), ("weight", "weight")] }
 
 /-- `flagIs c "col"`: matches any application of `c` (e.g. `IsSimpleGroup G`) to the boolean
 column `col` (`= 't'`, or `= 'f'` when negated). -/
