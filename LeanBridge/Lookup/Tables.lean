@@ -35,7 +35,15 @@ def nfFields : TableInfo where
     -- `NumberField.Units.torsionOrder F`  ↦  torsion_order (number of roots of unity)
     headIs ``NumberField.Units.torsionOrder "torsion_order" "number of roots of unity",
     -- `NumberField.InfinitePlace.nrComplexPlaces F`  ↦  r2
-    headIs ``NumberField.InfinitePlace.nrComplexPlaces "r2" "number of complex places"]
+    headIs ``NumberField.InfinitePlace.nrComplexPlaces "r2" "number of complex places",
+    -- `Nat.card {p // ¬ Algebra.IsUnramifiedAt ℤ p}`  ↦  num_ram: the prime ideals at which
+    -- `F` is not unramified, i.e. the ramified primes.
+    (fun e => match_expr e with
+      | Nat.card t =>
+          if containsConst t ``Algebra.IsUnramifiedAt && containsConst t ``Not then
+            some (col "num_ram" "number of ramified primes")
+          else none
+      | _ => none)]
   props := #[
     -- `ClassGroup (𝓞 F) ≃* Multiplicative (∏ ZMod nᵢ)`  ↦  class_group = [n₁, …]
     isoStructure ``MulEquiv ``ClassGroup "class_group::text" "class group" true,
