@@ -30,7 +30,9 @@ def nfFields : TableInfo where
     signedValue ``NumberField.discr "disc_sign" "disc_abs" "discriminant"]
   props := #[
     -- `ClassGroup (𝓞 F) ≃* Multiplicative (∏ ZMod nᵢ)`  ↦  class_group = [n₁, …]
-    isoStructure ``MulEquiv ``ClassGroup "class_group::text" "class group" true]
+    isoStructure ``MulEquiv ``ClassGroup "class_group::text" "class group" true,
+    -- additive spelling: `Additive (ClassGroup (𝓞 F)) ≃+ (∏ ZMod nᵢ)`  ↦  class_group = [n₁, …]
+    isoStructure ``AddEquiv ``ClassGroup "class_group::text" "class group" true]
 
 /-- Elliptic curves over `ℚ`. -/
 def ecCurvedata : TableInfo where
