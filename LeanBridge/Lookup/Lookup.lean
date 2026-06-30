@@ -50,19 +50,18 @@ def findScalar (e : Expr) : Option (Column × String) :=
 case-split on the sign, so the comparison hits the indexed absolute-value column rather than
 the non-indexable product. -/
 def colVsLit (c : Column) (table : String) (cmp : Cmp) (k : Int) : Cond :=
-  match c.signed? with
-  | some (signCol, absCol) =>
-      { sql := s!"(({signCol} = 1 AND {absCol} {cmp.toSql} {k}) OR \
-                  ({signCol} = -1 AND {absCol} {cmp.reverse.toSql} {-k}))",
-        refs := #[(c.display, c.sql)], table := some table }
-  | none =>
-      { sql := s!"{c.sql} {cmp.toSql} {k}", refs := #[(c.display, c.sql)], table := some table }
+  let core := match c.signed? with
+    | some (signCol, absCol) =>
+        s!"(({signCol} = 1 AND {absCol} {cmp.toSql} {k}) OR \
+            ({signCol} = -1 AND {absCol} {cmp.reverse.toSql} {-k}))"
+    | none => s!"{c.sql} {cmp.toSql} {k}"
+  { sql := c.withConds core, refs := #[(c.display, c.sql)], table := some table }
 
 /-- Translate a comparison `cmp a b` (column vs literal, or column vs column) into a `Cond`. -/
 def toSqlCondCmp (cmp : Cmp) (a b : Expr) : Option Cond :=
   match findScalar a, findScalar b with
   | some (ca, ta), some (cb, _) =>
-      some { sql := s!"{ca.sql} {cmp.toSql} {cb.sql}",
+      some { sql := ca.withConds (cb.withConds s!"{ca.sql} {cmp.toSql} {cb.sql}"),
              refs := #[(ca.display, ca.sql), (cb.display, cb.sql)], table := some ta }
   | some (ca, ta), none => (getIntLit? b).map (colVsLit ca ta cmp)
   | none, some (cb, tb) => (getIntLit? a).map (colVsLit cb tb cmp.reverse)
