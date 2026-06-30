@@ -12,10 +12,11 @@ parentheses or with trailing punctuation attached.
 - Option B: emit the URL bare on its own line with no surrounding punctuation, relying on
   the infoview's auto-linkification.
 
-**Chosen: Option B.** The previous message put the URL inside `(...)`, which defeats
-auto-linkification; isolating it on its own line is the minimal fix and matches how other
-Lean tactics surface URLs. If it turns out the infoview still does not linkify it, revisit
-with a widget.
+**Update — chosen: markdown link.** A bare URL on its own line still did *not* render as a
+clickable link in the infoview. The infoview does render message markdown, so the report now
+uses an explicit markdown link `[<label> on LMFDB](<url>)`, which renders as a clickable
+anchor. The user explicitly steered away from a ProofWidgets/HTML widget, so this lightweight
+approach is preferred; revisit with a widget only if markdown rendering proves insufficient.
 
 ## Reporting signed-discriminant counterexamples (tasks 3 & 7)
 
