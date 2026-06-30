@@ -147,7 +147,7 @@ instance (Γ₀ : Subgroup (GL (Fin 2) ℝ)) [Γ₀.HasDetPlusMinusOne] (k : ℤ
     show (algebraMap ℝ ℂ r * c) • m = algebraMap ℝ ℂ r • (c • m)
     rw [mul_smul]
 
-variable (Γ₀ : Subgroup (GL (Fin 2) ℝ)) [Γ₀.HasDetOne] (k : ℤ)
+variable (Γ₀ : Subgroup (GL (Fin 2) ℝ)) [Γ₀.HasDetPlusMinusOne] (k : ℤ)
 
 /-- The transition maps of the directed system, made `ℝ`-linear by restriction of scalars; the
 underlying functions are unchanged. -/
@@ -283,19 +283,19 @@ noncomputable def commRep :
 @[simp] lemma commRep_apply (g : ↥(Commensurable.commensurator Γ₀)) :
     commRep Γ₀ k g = smulMap Γ₀ k g := rfl
 
-omit [Γ₀.HasDetOne] in
+omit [Γ₀.HasDetPlusMinusOne] in
 /-- A level (a determinant-one subgroup commensurable with `Γ₀`) lies in the commensurator of `Γ₀`.-/
 lemma carrier_le_commensurator (Γ : CommIndex Γ₀) :
     Γ.carrier ≤ Commensurable.commensurator Γ₀ :=
   Subgroup.commensurable_le_commensurator Γ.commensurable
 
-omit [Γ₀.HasDetOne] in
+omit [Γ₀.HasDetPlusMinusOne] in
 /-- The inclusion of a level into the commensurator `commensurator Γ₀`. -/
 noncomputable def levelIncl (Γ : CommIndex Γ₀) :
     Γ.carrier →* ↥(Commensurable.commensurator Γ₀) :=
   Subgroup.inclusion (carrier_le_commensurator Γ₀ Γ)
 
-omit [Γ₀.HasDetOne] in
+omit [Γ₀.HasDetPlusMinusOne] in
 @[simp] lemma coe_levelIncl (Γ : CommIndex Γ₀) (γ : Γ.carrier) :
     ((levelIncl Γ₀ Γ γ : ↥(Commensurable.commensurator Γ₀)) : GL (Fin 2) ℝ) =
       (γ : GL (Fin 2) ℝ) := rfl

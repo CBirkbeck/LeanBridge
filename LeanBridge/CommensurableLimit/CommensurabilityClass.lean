@@ -85,9 +85,25 @@ instance : Preorder (CommIndex Γ₀) where
 
 @[simp] lemma le_def {i j : CommIndex Γ₀} : i ≤ j ↔ j.carrier ≤ i.carrier := Iff.rfl
 
-/-- The base `Γ₀` (when determinant-one) is itself an index, so the class is nonempty. -/
-instance [Γ₀.HasDetOne] : Nonempty (CommIndex Γ₀) :=
-  ⟨⟨Γ₀, .refl Γ₀, inferInstance⟩⟩
+/-- The determinant-one part `Γ₀ ⊓ ker det` is a determinant-one subgroup commensurable with `Γ₀`
+(when `Γ₀` has determinant `±1` its determinant maps onto a subgroup of `{±1}`, so the det-one part
+has index ≤ 2), hence a valid index — so the class is nonempty. This subsumes the determinant-one
+case via `HasDetOne → HasDetPlusMinusOne`. -/
+instance [Γ₀.HasDetPlusMinusOne] : Nonempty (CommIndex Γ₀) := by
+  refine ⟨⟨Γ₀ ⊓ (Matrix.GeneralLinearGroup.det).ker, ⟨?_, ?_⟩,
+    ⟨fun {g} hg => MonoidHom.mem_ker.mp (Subgroup.mem_inf.mp hg).2⟩⟩⟩
+  · have hsub : (Γ₀ ⊓ (Matrix.GeneralLinearGroup.det).ker).subgroupOf Γ₀
+        = ((Matrix.GeneralLinearGroup.det).comp Γ₀.subtype).ker := by
+      rw [Subgroup.inf_subgroupOf_left, Subgroup.subgroupOf, MonoidHom.comap_ker]
+    show ((Γ₀ ⊓ (Matrix.GeneralLinearGroup.det).ker).subgroupOf Γ₀).index ≠ 0
+    rw [hsub, Subgroup.index_ker]
+    have hfin : (((Matrix.GeneralLinearGroup.det).comp Γ₀.subtype).range : Set ℝˣ) ⊆ {1, -1} := by
+      rintro x ⟨g, rfl⟩
+      simpa using HasDetPlusMinusOne.det_eq g.2
+    have : Finite ((Matrix.GeneralLinearGroup.det).comp Γ₀.subtype).range :=
+      (Set.Finite.subset ((Set.finite_singleton (-1 : ℝˣ)).insert 1) hfin).to_subtype
+    exact Nat.card_ne_zero.mpr ⟨⟨1, one_mem _⟩, this⟩
+  · rw [Subgroup.relIndex_eq_one.mpr inf_le_left]; exact one_ne_zero
 
 /-- The commensurability class is directed under reverse inclusion: two indices have their meet as a
 common upper bound (it is commensurable with `Γ₀` and determinant-one). -/
