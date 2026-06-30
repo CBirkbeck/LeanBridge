@@ -12,17 +12,17 @@ example {F : Type*} [Field F] [NumberField F]
     Nonempty (ClassGroup (NumberField.RingOfIntegers F) ≃* Multiplicative (ZMod 4)) := by
   lookup
 
-example {W : WeierstrassCurve.Affine ℚ}
+example {W : WeierstrassCurve.Affine ℚ} [W.IsElliptic]
     (hW : 4 ≤ Nat.card (AddCommGroup.torsion W.Point)) :
     Module.finrank ℤ W.Point ≤ 0 := by
   lookup
 
-example {W : WeierstrassCurve.Affine ℚ}
+example {W : WeierstrassCurve.Affine ℚ} [W.IsElliptic]
     (hW : 2 ≤ Module.finrank ℤ W.Point) :
     Nat.card (AddCommGroup.torsion W.Point) = 1 := by
   lookup
 
-example {W : WeierstrassCurve.Affine ℚ}
+example {W : WeierstrassCurve.Affine ℚ} [W.IsElliptic]
     (hW : Nat.card (AddCommGroup.torsion W.Point) = 4) :
     Nonempty (AddCommGroup.torsion W.Point ≃+ ZMod 4) := by
   lookup
