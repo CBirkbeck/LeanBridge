@@ -10,8 +10,7 @@ import Mathlib.NumberTheory.ModularForms.Basic
 /-!
 # Modular forms of weight `k` over a commensurability class, as a direct limit
 
-Fix `Γ₀ ≤ GL₂(ℝ)` in the determinant-one part. For each subgroup `Γ` commensurable with `Γ₀` (and
-determinant-one) we have the space `ModularForm Γ k`, and for `Γ′ ≤ Γ` the restriction map
+Fix `Γ₀ ≤ GL₂(ℝ)` with `det = ±1`. For each determinant-one subgroup `Γ` commensurable with `Γ₀` we have the space `ModularForm Γ k`, and for `Γ′ ≤ Γ` the restriction map
 `ModularForm Γ k → ModularForm Γ′ k` (a form invariant under the bigger group is invariant under the
 smaller one). Indexed by `ModularForm.CommIndex Γ₀` under reverse inclusion — a directed poset —
 this is a directed system of `ℂ`-vector spaces, and we define
@@ -90,23 +89,23 @@ instance commDirectedSystem (Γ₀ : Subgroup (GL (Fin 2) ℝ)) (k : ℤ) :
 /-- **Modular forms of weight `k` over the commensurability class of `Γ₀`**, defined as the direct
 limit of `ModularForm Γ k` over all determinant-one subgroups `Γ` commensurable with `Γ₀`, ordered
 by reverse inclusion with restriction as the transition maps. -/
-noncomputable def ModularFormCommensurable (Γ₀ : Subgroup (GL (Fin 2) ℝ)) [Γ₀.HasDetOne]
+noncomputable def ModularFormCommensurable (Γ₀ : Subgroup (GL (Fin 2) ℝ)) [Γ₀.HasDetPlusMinusOne]
     (k : ℤ) : Type :=
   Module.DirectLimit (fun i : CommIndex Γ₀ ↦ ModularForm i.carrier k) (commTransition Γ₀ k)
 
 namespace ModularFormCommensurable
 
-noncomputable instance (Γ₀ : Subgroup (GL (Fin 2) ℝ)) [Γ₀.HasDetOne] (k : ℤ) :
+noncomputable instance (Γ₀ : Subgroup (GL (Fin 2) ℝ)) [Γ₀.HasDetPlusMinusOne] (k : ℤ) :
     AddCommGroup (ModularFormCommensurable Γ₀ k) :=
   inferInstanceAs (AddCommGroup
     (Module.DirectLimit (fun i : CommIndex Γ₀ ↦ ModularForm i.carrier k) (commTransition Γ₀ k)))
 
-noncomputable instance (Γ₀ : Subgroup (GL (Fin 2) ℝ)) [Γ₀.HasDetOne] (k : ℤ) :
+noncomputable instance (Γ₀ : Subgroup (GL (Fin 2) ℝ)) [Γ₀.HasDetPlusMinusOne] (k : ℤ) :
     Module ℂ (ModularFormCommensurable Γ₀ k) :=
   inferInstanceAs (Module ℂ
     (Module.DirectLimit (fun i : CommIndex Γ₀ ↦ ModularForm i.carrier k) (commTransition Γ₀ k)))
 
-variable (Γ₀ : Subgroup (GL (Fin 2) ℝ)) [Γ₀.HasDetOne] (k : ℤ)
+variable (Γ₀ : Subgroup (GL (Fin 2) ℝ)) [Γ₀.HasDetPlusMinusOne] (k : ℤ)
 
 /-- The canonical `ℂ`-linear map of the level-`i` modular forms into the direct limit. -/
 noncomputable def ofLevel (i : CommIndex Γ₀) :
