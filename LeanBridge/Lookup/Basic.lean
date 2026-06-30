@@ -186,6 +186,16 @@ def signedValue (c : Name) (signCol absCol display : String) : Expr → Option C
   fun e => if e.isAppOf c then
     some (col s!"({signCol} * {absCol})" display (some (signCol, absCol))) else none
 
+/-- `cardIs "col" "name"`: matches a cardinality `Nat.card G` or `Fintype.card G` to the column
+`col`. The cardinality is read generically (it doesn't matter whether `G` is a group, or whether
+it is written multiplicatively or additively); it is the *object* — fixed by a group instance
+hypothesis or another property — that determines this is e.g. a group's order. -/
+def cardIs (sql display : String) : Expr → Option Column :=
+  fun e => match_expr e with
+    | Nat.card _ => some (col sql display)
+    | Fintype.card _ _ => some (col sql display)
+    | _ => none
+
 /-- `flagIs c "col"`: matches any application of `c` (e.g. `IsSimpleGroup G`) to the boolean
 column `col` (`= 't'`, or `= 'f'` when negated). -/
 def flagIs (c : Name) (column : String) : Bool → Expr → Option Cond :=
