@@ -110,12 +110,18 @@ def gpsGroups : TableInfo where
     -- `Nat.card (ConjClasses G)`  ↦  number_conjugacy_classes
     cardMentions ``ConjClasses "number_conjugacy_classes" "number of conjugacy classes",
     -- `Nat.card (MulAut G)`  ↦  aut_order
-    cardMentions ``MulAut "aut_order" "order of the automorphism group"]
+    cardMentions ``MulAut "aut_order" "order of the automorphism group",
+    -- `Nat.card G` / `Fintype.card G`  ↦  order  (generic cardinality; last, so the
+    -- `cardMentions` recognisers above claim the cardinalities of named subobjects first)
+    cardIs "\"order\"" "order"]
   props := #[
     -- `IsSimpleGroup G`  ↦  simple = 't'
     flagIs ``IsSimpleGroup "simple",
     -- `∀ a b : G, a * b = b * a`  ↦  abelian = 't'
     isAbelian "abelian",
+    -- a `CommGroup G` / `AddCommGroup G` hypothesis  ↦  abelian = 't'
+    flagIs ``CommGroup "abelian",
+    flagIs ``AddCommGroup "abelian",
     -- `Group.IsNilpotent G`  ↦  nilpotent = 't'
     flagIs ``Group.IsNilpotent "nilpotent",
     -- `Group.IsPerfect G`  ↦  perfect = 't'
