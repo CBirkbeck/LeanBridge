@@ -119,7 +119,11 @@ def gpsGroups : TableInfo where
     -- `Group.IsNilpotent G`  ↦  nilpotent = 't'
     flagIs ``Group.IsNilpotent "nilpotent",
     -- `Group.IsPerfect G`  ↦  perfect = 't'
-    flagIs ``Group.IsPerfect "perfect"]
+    flagIs ``Group.IsPerfect "perfect",
+    -- `IsCyclic G`  ↦  cyclic = 't'  (generic head, but no other table recognises `IsCyclic`)
+    flagIs ``IsCyclic "cyclic",
+    -- `IsSolvable G`  ↦  solvable = 't'
+    flagIs ``IsSolvable "solvable"]
 
 /-- All supported object families. To support a new one, add its `TableInfo` here. -/
 def tables : Array TableInfo := #[nfFields, ecCurvedata, gpsGroups]
