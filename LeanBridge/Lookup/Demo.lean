@@ -81,28 +81,40 @@ end Cmp
 
 /-! #### Translating Lean expressions to SQL -/
 
-/-- A scalar translated to SQL: its text plus the quantities it references, recorded as
-`(displayName, sqlExpr)` pairs so a counterexample's actual values can be reported. -/
+/-- A scalar translated to SQL: its text, the quantities it references (recorded as
+`(displayName, sqlExpr)` pairs so a counterexample's actual values can be reported), and the
+LMFDB table it forces (a literal forces none). -/
 structure Scalar where
   sql : String
   refs : Array (String × String) := #[]
+  table : Option String := none
 
-/-- Translate a scalar Lean expression (applied to the number field) into a SQL scalar over
-`nf_fields`: a column expression or a numeric literal. -/
+/-- Translate a scalar Lean expression (applied to the LMFDB object) into a SQL scalar: a
+column expression tagged with its table, or a numeric literal. -/
 def toSqlScalar (e : Expr) : Option Scalar :=
   match e.getAppFnArgs with
   | (``NumberField.classNumber, _) =>
-      some { sql := "class_number", refs := #[("class number", "class_number")] }
+      some { sql := "class_number", refs := #[("class number", "class_number")], table := "nf_fields" }
   | (``Module.finrank, args) =>
-      -- `Module.finrank ℚ F` is the degree of the number field `F` over `ℚ`.
+      -- `Module.finrank ℚ F` is the degree of a number field; `Module.finrank ℤ W.Point` is
+      -- the rank of an elliptic curve's Mordell–Weil group.
       if h : 0 < args.size then
-        if args[0].isConstOf ``Rat then some { sql := "degree", refs := #[("degree", "degree")] }
+        if args[0].isConstOf ``Rat then
+          some { sql := "degree", refs := #[("degree", "degree")], table := "nf_fields" }
+        else if args[0].isConstOf ``Int then
+          some { sql := "rank", refs := #[("rank", "rank")], table := "ec_curvedata" }
         else none
+      else none
+  | (``Nat.card, args) =>
+      -- `Nat.card ↥(AddCommGroup.torsion W.Point)` is the size of the torsion subgroup.
+      if args.any fun a => (a.find? (·.isConstOf ``AddCommGroup.torsion)).isSome then
+        some { sql := "torsion", refs := #[("torsion", "torsion")], table := "ec_curvedata" }
       else none
   | (``abs, args) => args.back?.bind fun x =>
       -- `|NumberField.discr F|` is the absolute discriminant `disc_abs`.
       match x.getAppFnArgs with
-      | (``NumberField.discr, _) => some { sql := "disc_abs", refs := #[("|discriminant|", "disc_abs")] }
+      | (``NumberField.discr, _) =>
+          some { sql := "disc_abs", refs := #[("|discriminant|", "disc_abs")], table := "nf_fields" }
       | _ => none
   | _ => (getIntLit? e).map fun n => { sql := toString n }
 
@@ -119,7 +131,7 @@ case-split on the sign into index-friendly comparisons on `disc_abs`:
 def discrCond (cmp : Cmp) (k : Int) : Scalar :=
   { sql := s!"((disc_sign = 1 AND disc_abs {cmp.toSql} {k}) OR \
               (disc_sign = -1 AND disc_abs {cmp.reverse.toSql} {-k}))",
-    refs := #[("discriminant", "(disc_sign * disc_abs)")] }
+    refs := #[("discriminant", "(disc_sign * disc_abs)")], table := "nf_fields" }
 
 /-- Translate a comparison `cmp a b` into a SQL condition. -/
 def toSqlCondCmp (cmp : Cmp) (a b : Expr) : Option Scalar :=
@@ -129,7 +141,8 @@ def toSqlCondCmp (cmp : Cmp) (a b : Expr) : Option Scalar :=
   else do
     let sa ← toSqlScalar a
     let sb ← toSqlScalar b
-    return { sql := s!"{sa.sql} {cmp.toSql} {sb.sql}", refs := sa.refs ++ sb.refs }
+    return { sql := s!"{sa.sql} {cmp.toSql} {sb.sql}", refs := sa.refs ++ sb.refs,
+             table := sa.table <|> sb.table }
 
 /-- Match a comparison `Prop`, returning the operator and the two operands. -/
 def matchCmp (e : Expr) : Option (Cmp × Expr × Expr) :=
@@ -190,6 +203,56 @@ def formatPoly (coeffs : String) : String := Id.run do
       out := out ++ (if c < 0 then s!" - {term}" else s!" + {term}")
   return if out.isEmpty then "0" else out
 
+/-! #### LMFDB tables
+
+Each supported object family corresponds to a table, knowing how to select its label and
+descriptive data, render that data, and build a link to the LMFDB page. -/
+
+/-- Per-table knowledge needed to query and report a counterexample. -/
+structure TableInfo where
+  /-- The SQL table name. -/
+  table : String
+  /-- The column holding the LMFDB label (selected `AS label`). -/
+  labelCol : String
+  /-- Extra SELECT fragments for the descriptive data (e.g. the defining polynomial). -/
+  descSelects : Array String
+  /-- Render the descriptive data of a result row. -/
+  describe : Json → MessageData
+  /-- Build the LMFDB page URL from a label. -/
+  url : String → String
+
+/-- LMFDB elliptic-curve labels like `15.a2` live at `.../EllipticCurve/Q/15/a/2`. -/
+def ecUrl (label : String) : String :=
+  match label.splitOn "." with
+  | [conductor, iso] =>
+      let letters := iso.takeWhile Char.isAlpha
+      let number := iso.dropWhile Char.isAlpha
+      s!"https://www.lmfdb.org/EllipticCurve/Q/{conductor}/{letters}/{number}"
+  | _ => s!"https://www.lmfdb.org/EllipticCurve/Q/{label}"
+
+/-- Number fields. -/
+def nfFields : TableInfo where
+  table := "nf_fields"
+  labelCol := "label"
+  descSelects := #["coeffs::text AS coeffs"]
+  describe row := m!"number field {rowStr row "label"}, with minimal polynomial \
+    {formatPoly (rowStr row "coeffs")}"
+  url label := s!"https://www.lmfdb.org/NumberField/{label}"
+
+/-- Elliptic curves over `ℚ`. -/
+def ecCurvedata : TableInfo where
+  table := "ec_curvedata"
+  labelCol := "lmfdb_label"
+  descSelects := #["ainvs::text AS ainvs"]
+  describe row := m!"elliptic curve {rowStr row "label"} with a-invariants {rowStr row "ainvs"}"
+  url := ecUrl
+
+/-- The table configuration for a table name. -/
+def tableInfo? : String → Option TableInfo
+  | "nf_fields" => some nfFields
+  | "ec_curvedata" => some ecCurvedata
+  | _ => none
+
 /-! #### Assembling the query and report -/
 
 /-- Deduplicate referenced quantities by their SQL expression, preserving order. -/
@@ -202,56 +265,62 @@ def dedupRefs (refs : Array (String × String)) : Array (String × String) := Id
       out := out.push (name, expr)
   return out
 
-/-- Build the counterexample query: `label`, the defining polynomial, and the actual values
-of every referenced quantity (cast to text, since the endpoint cannot serialise bignum
-columns directly). -/
-def buildQuery (conds : Array String) (items : Array (String × String)) : String := Id.run do
-  let mut selects : Array String := #["label", "coeffs::text AS coeffs"]
+/-- Build the counterexample query: the label, the descriptive data, and the actual values of
+every referenced quantity (cast to text, since the endpoint cannot serialise bignum columns
+directly). -/
+def buildQuery (info : TableInfo) (conds : Array String) (items : Array (String × String)) :
+    String := Id.run do
+  let mut selects : Array String := #[s!"{info.labelCol} AS label"] ++ info.descSelects
   for i in [0:items.size] do
     selects := selects.push s!"({items[i]!.2})::text AS c{i}"
   let whereClause := String.intercalate " AND " conds.toList
-  return s!"SELECT {String.intercalate ", " selects.toList} FROM nf_fields WHERE {whereClause} LIMIT 1"
+  return s!"SELECT {String.intercalate ", " selects.toList} FROM {info.table} \
+    WHERE {whereClause} LIMIT 1"
 
 /-- Render a counterexample row as a message. -/
-def reportRow (row : Json) (items : Array (String × String)) : MessageData := Id.run do
-  let label := rowStr row "label"
+def reportRow (info : TableInfo) (row : Json) (items : Array (String × String)) :
+    MessageData := Id.run do
   let mut vals : Array MessageData := #[]
   for i in [0:items.size] do
     vals := vals.push m!"{items[i]!.1} = {rowStr row s!"c{i}"}"
   return m!"lookup: the statement is FALSE — LMFDB has a counterexample.\n\
-    number field {label}, with minimal polynomial {formatPoly (rowStr row "coeffs")}\n\
+    {info.describe row}\n\
     {MessageData.joinSep vals.toList ", "}\n\
-    https://www.lmfdb.org/NumberField/{label}"
+    {info.url (rowStr row "label")}"
 
-/-- Translate the hypotheses in context into SQL conditions, collecting referenced
-quantities. -/
-def collectHypotheses : TacticM (Array String × Array (String × String)) := do
-  let mut conds : Array String := #[]
-  let mut refs : Array (String × String) := #[]
+/-- Translate the hypotheses in context into SQL condition scalars. -/
+def collectHypotheses : TacticM (Array Scalar) := do
+  let mut out : Array Scalar := #[]
   for ldecl in ← getLCtx do
     if ldecl.isImplementationDetail then continue
     if let some s := toSqlCond (← instantiateMVars ldecl.type) then
-      conds := conds.push s.sql
-      refs := refs ++ s.refs
-  return (conds, refs)
+      out := out.push s
+  return out
 
 elab "lookup" : tactic => do
   let goal ← getMainGoal
   goal.withContext do
-    let (hypConds, hypRefs) ← collectHypotheses
     -- The negated goal is the final condition: we hunt for a row that breaks the goal.
     let some goalCond := toSqlCondNeg (← instantiateMVars (← goal.getType))
       | throwError "lookup: don't know how to translate the goal into a SQL query"
-    let conds := hypConds.push goalCond.sql
-    let items := dedupRefs (hypRefs ++ goalCond.refs)
-    let query := buildQuery conds items
+    let conditions := (← collectHypotheses).push goalCond
+    -- Every condition must point at the same LMFDB table.
+    let info ← match (conditions.filterMap (·.table)).toList.dedup with
+      | [t] => match tableInfo? t with
+        | some info => pure info
+        | none => throwError "lookup: no table configuration for `{t}`"
+      | [] => throwError "lookup: couldn't determine which LMFDB table the goal is about"
+      | ts => throwError "lookup: the goal mixes multiple LMFDB object types {ts}"
+    let conds := conditions.map (·.sql)
+    let items := dedupRefs (conditions.foldl (fun acc s => acc ++ s.refs) #[])
+    let query := buildQuery info conds items
     trace[lookup] "query:\n{query}"
     match firstRow? (← runSql query) with
     | none =>
       -- No counterexample in the database: report, but do *not* close the goal.
       logInfo m!"lookup: no counterexample found in LMFDB \
         (the statement is consistent with the database, but this is not a proof)."
-    | some row => throwError reportRow row items
+    | some row => throwError reportRow info row items
 
 end Lookup
 
@@ -292,19 +361,15 @@ example {F : Type*} [Field F] [NumberField F]
     |NumberField.discr F| ≤ 163 := by
   lookup
 
--- TEMP signed-discriminant test (FALSE: the disc = -163 field is a counterexample)
-example {F : Type*} [Field F] [NumberField F]
-    (h1 : NumberField.classNumber F = 1) (h2 : Module.finrank ℚ F = 2) :
-    NumberField.discr F ≥ -100 := by
-  lookup
+-- Signed-discriminant queries are supported too (the DB stores `disc_sign * disc_abs`,
+-- and `lookup` case-splits on the sign so the query stays index-friendly):
+-- `NumberField.discr F ≥ -100` finds the counterexample `2.0.163.1` (discriminant -163),
+-- while `NumberField.discr F ≥ -163` finds none.
 
--- TEMP signed-discriminant test (TRUE: -163 is the most negative, so no counterexample)
-example {F : Type*} [Field F] [NumberField F]
-    (h1 : NumberField.classNumber F = 1) (h2 : Module.finrank ℚ F = 2) :
-    NumberField.discr F ≥ -163 := by
+-- A non-number-field example: `lookup` dispatches to the `ec_curvedata` table. This claim is
+-- false — e.g. curve `117.a4` has a 4-torsion point yet positive rank — so `lookup` surfaces
+-- it (with the curve's a-invariants and a link). The `≤ 20` version instead finds nothing.
+example {W : WeierstrassCurve.Affine ℚ}
+    (hW : 4 ≤ Nat.card (AddCommGroup.torsion W.Point)) :
+    Module.finrank ℤ W.Point ≤ 0 := by
   lookup
-
--- example {W : WeierstrassCurve.Affine ℚ}
---     (hW : 4 ≤ Nat.card (AddCommGroup.torsion W.Point)) :
---     Module.finrank ℤ W.Point ≤ 20 := by
---   sorry
