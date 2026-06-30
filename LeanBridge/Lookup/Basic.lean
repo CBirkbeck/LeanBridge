@@ -91,12 +91,13 @@ def matchCmp (e : Expr) : Option (Cmp × Expr × Expr) :=
 /-- Whether `e` mentions the constant `n` anywhere. -/
 def containsConst (e : Expr) (n : Name) : Bool := (e.find? (·.isConstOf n)).isSome
 
-/-- Read a product of cyclic groups `ZMod n₁ × ⋯ × ZMod n_k` (with any `Multiplicative`
-wrappers stripped) as its list of moduli, in the order written. -/
+/-- Read a product of cyclic groups `ZMod n₁ × ⋯ × ZMod n_k` (with any `Multiplicative` or
+`Additive` wrappers stripped) as its list of moduli, in the order written. -/
 partial def cyclicFactors? (e : Expr) : Option (Array Nat) :=
   match_expr e with
   | ZMod n => (getNatLit? n).map (#[·])
   | Multiplicative a => cyclicFactors? a
+  | Additive a => cyclicFactors? a
   | Prod a b => do return (← cyclicFactors? a) ++ (← cyclicFactors? b)
   | _ => none
 
