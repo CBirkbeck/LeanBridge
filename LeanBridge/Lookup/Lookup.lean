@@ -166,6 +166,73 @@ def structCond (positive : Bool) (lhs rhs : Expr) (lhsConst : Name)
   return { sql := s!"{column} {if positive then "=" else "<>"} '{fmt factors}'",
            refs := #[(display, column.replace "::text" "")] }
 
+/-- Recognise an isomorphism `A ≃+ B` or `A ≃* B`, returning the equiv's head constant and the
+two sides. -/
+def matchEquiv (e : Expr) : Option (Name × Expr × Expr) :=
+  match_expr e with
+  | AddEquiv a b _ _ => some (``AddEquiv, a, b)
+  | MulEquiv a b _ _ => some (``MulEquiv, a, b)
+  | _ => none
+
+/-! #### Declarative recognisers
+
+Each table's columns and properties are described by *data* — `ScalarRule`/`PropRule` values.
+All the `Expr`-matching metacode lives in the `match?` interpreters here, so teaching a table a
+new column or property means adding a data constructor to its list (below), not writing a
+matcher. -/
+
+/-- How to recognise a scalar quantity of an object in a Lean expression. -/
+inductive ScalarRule where
+  /-- Head constant `c` applied to anything ↦ column `sql` (shown as `display`). -/
+  | const (c : Name) (sql display : String)
+  /-- `Module.finrank` over base ring `ring` ↦ column (e.g. `ℚ` for degree, `ℤ` for rank). -/
+  | finrank (ring : Name) (sql display : String)
+  /-- `Nat.card` of a type mentioning `inner` ↦ column (e.g. `AddCommGroup.torsion`). -/
+  | cardOf (inner : Name) (sql display : String)
+  /-- `|c …|` (absolute value of a `c`-headed term) ↦ column. -/
+  | absOf (c : Name) (sql display : String)
+  /-- Bare `c …` ↦ a signed quantity stored split as `signCol * absCol`. -/
+  | signed (c : Name) (signCol absCol display : String)
+
+/-- Interpret a `ScalarRule` as a recogniser `Expr → Option Column`. -/
+def ScalarRule.match? : ScalarRule → Expr → Option Column
+  | .const c sql display, e => if e.isAppOf c then some (col sql display) else none
+  | .finrank ring sql display, e =>
+      match_expr e with
+      | Module.finrank r _ _ _ _ => if r.isConstOf ring then some (col sql display) else none
+      | _ => none
+  | .cardOf inner sql display, e =>
+      match_expr e with
+      | Nat.card g => if containsConst g inner then some (col sql display) else none
+      | _ => none
+  | .absOf c sql display, e =>
+      match_expr e with
+      | abs _ _ _ x => if x.isAppOf c then some (col sql display) else none
+      | _ => none
+  | .signed c signCol absCol display, e =>
+      if e.isAppOf c then some (col s!"({signCol} * {absCol})" display (some (signCol, absCol)))
+      else none
+
+/-- How to recognise a boolean/structure property of an object. -/
+inductive PropRule where
+  /-- Head constant `c` ↦ boolean column `column` (`= 't'`, or `= 'f'` when negated). -/
+  | flag (c : Name) (column : String)
+  /-- The commutativity pattern `∀ a b, a * b = b * a` ↦ boolean column. -/
+  | abelian (column : String)
+  /-- An isomorphism `lhs ≃ (∏ ZMod nᵢ)` via `equiv` (``AddEquiv``/``MulEquiv``), with `lhs`
+  mentioning `lhsConst`, compared against the invariant-factor `column`. `bracketed` chooses
+  the JSON `[…]` encoding (ideal class group) over the array `{…}` encoding (torsion). -/
+  | iso (equiv lhsConst : Name) (column display : String) (bracketed : Bool)
+
+/-- Interpret a `PropRule` as a recogniser at a given polarity. -/
+def PropRule.match? : PropRule → Bool → Expr → Option Cond
+  | .flag c column, pos, e => if e.isAppOf c then some (boolCol pos column) else none
+  | .abelian column, pos, e => if isAbelianPattern e then some (boolCol pos column) else none
+  | .iso equiv lhsConst column display bracketed, pos, e => do
+      let (h, a, b) ← matchEquiv e
+      guard (h == equiv)
+      structCond pos a b lhsConst column display (if bracketed then fmtBrackets else fmtBraces)
+
 /-! #### Reading and rendering a result row -/
 
 /-- The first returned row of an LMFDB `/sql` response, if any. -/
@@ -224,10 +291,10 @@ structure TableInfo where
   /-- SQL `ORDER BY` clause picking the "smallest"/simplest counterexample. -/
   orderBy : String
   /-- Recognisers for scalar quantities of this object (used inside comparisons). To teach
-  `lookup` a new column, add a matcher here. -/
-  scalars : Array (Expr → Option Column) := #[]
+  `lookup` a new column, add a `ScalarRule` here. -/
+  scalars : Array ScalarRule := #[]
   /-- Recognisers for boolean/structure properties of this object at a given polarity. -/
-  props : Array (Bool → Expr → Option Cond) := #[]
+  props : Array PropRule := #[]
 
 /-- LMFDB elliptic-curve labels like `15.a2` live at `.../EllipticCurve/Q/15/a/2`. -/
 def ecUrl (label : String) : String :=
@@ -248,27 +315,13 @@ def nfFields : TableInfo where
   url label := s!"https://www.lmfdb.org/NumberField/{label}"
   orderBy := "disc_abs"
   scalars := #[
-    fun e => match_expr e with
-      | NumberField.classNumber _ _ _ => some (col "class_number" "class number")
-      | _ => none,
-    fun e => match_expr e with
-      | Module.finrank r _ _ _ _ => if r.isConstOf ``Rat then some (col "degree" "degree") else none
-      | _ => none,
-    -- `|NumberField.discr F|` is `disc_abs`; the bare signed discriminant is split as
-    -- `disc_sign * disc_abs` (with `signed?` set so comparisons stay index-friendly).
-    fun e => match_expr e with
-      | abs _ _ _ x => match_expr x with
-        | NumberField.discr _ _ _ => some (col "disc_abs" "|discriminant|")
-        | _ => none
-      | NumberField.discr _ _ _ =>
-        some (col "(disc_sign * disc_abs)" "discriminant" (some ("disc_sign", "disc_abs")))
-      | _ => none]
-  props := #[
-    -- ideal class group structure: `ClassGroup (𝓞 F) ≃* Multiplicative (∏ ZMod nᵢ)`.
-    fun pos e => match_expr e with
-      | MulEquiv a b _ _ =>
-        structCond pos a b ``ClassGroup "class_group::text" "class group" fmtBrackets
-      | _ => none]
+    .const ``NumberField.classNumber "class_number" "class number",
+    .finrank ``Rat "degree" "degree",
+    -- `|discr F|` is `disc_abs`; the bare signed discriminant is split as `disc_sign·disc_abs`.
+    .absOf ``NumberField.discr "disc_abs" "|discriminant|",
+    .signed ``NumberField.discr "disc_sign" "disc_abs" "discriminant"]
+  -- ideal class group structure: `ClassGroup (𝓞 F) ≃* Multiplicative (∏ ZMod nᵢ)`.
+  props := #[.iso ``MulEquiv ``ClassGroup "class_group::text" "class group" true]
 
 /-- Elliptic curves over `ℚ`. -/
 def ecCurvedata : TableInfo where
@@ -279,19 +332,10 @@ def ecCurvedata : TableInfo where
   url := ecUrl
   orderBy := "conductor"
   scalars := #[
-    fun e => match_expr e with
-      | Module.finrank r _ _ _ _ => if r.isConstOf ``Int then some (col "rank" "rank") else none
-      | _ => none,
-    fun e => match_expr e with
-      | Nat.card g =>
-        if containsConst g ``AddCommGroup.torsion then some (col "torsion" "torsion") else none
-      | _ => none]
-  props := #[
-    -- torsion subgroup structure: `AddCommGroup.torsion W.Point ≃+ (∏ ZMod nᵢ)`.
-    fun pos e => match_expr e with
-      | AddEquiv a b _ _ =>
-        structCond pos a b ``AddCommGroup.torsion "torsion_structure" "torsion structure" fmtBraces
-      | _ => none]
+    .finrank ``Int "rank" "rank",
+    .cardOf ``AddCommGroup.torsion "torsion" "torsion"]
+  -- torsion subgroup structure: `AddCommGroup.torsion W.Point ≃+ (∏ ZMod nᵢ)`.
+  props := #[.iso ``AddEquiv ``AddCommGroup.torsion "torsion_structure" "torsion structure" false]
 
 /-- Finite groups. -/
 def gpsGroups : TableInfo where
@@ -302,11 +346,7 @@ def gpsGroups : TableInfo where
   url label := s!"https://www.lmfdb.org/Groups/Abstract/{label}"
   -- `order` is a SQL reserved word, so it must be quoted.
   orderBy := "\"order\""
-  props := #[
-    fun pos e => match_expr e with
-      | IsSimpleGroup _ _ => some (boolCol pos "simple")
-      | _ => none,
-    fun pos e => if isAbelianPattern e then some (boolCol pos "abelian") else none]
+  props := #[.flag ``IsSimpleGroup "simple", .abelian "abelian"]
 
 /-- All supported object families. To support a new one, add its `TableInfo` here. -/
 def tables : Array TableInfo := #[nfFields, ecCurvedata, gpsGroups]
@@ -319,7 +359,7 @@ def tableInfo? (name : String) : Option TableInfo := tables.find? (·.table == n
 /-- Find the scalar column an expression denotes (trying every table's recognisers), together
 with the table it belongs to. -/
 def findScalar (e : Expr) : Option (Column × String) :=
-  tables.findSome? fun t => (t.scalars.findSome? (· e)).map (·, t.table)
+  tables.findSome? fun t => (t.scalars.findSome? (·.match? e)).map (·, t.table)
 
 /-- A column compared against an integer literal. A "signed" column stored as `sign * |·|` is
 case-split on the sign, so the comparison hits the indexed absolute-value column rather than
@@ -355,7 +395,7 @@ partial def toCond (positive : Bool) (e : Expr) : Option Cond :=
     match matchCmp e with
     | some (cmp, a, b) => toSqlCondCmp (if positive then cmp else cmp.negate) a b
     | none => tables.findSome? fun t =>
-        (t.props.findSome? (· positive e)).map fun c => { c with table := some t.table }
+        (t.props.findSome? (·.match? positive e)).map fun c => { c with table := some t.table }
 
 /-- Translate a `Prop` into a SQL condition. -/
 def toSqlCond (e : Expr) : Option Cond := toCond true e
