@@ -244,6 +244,26 @@ def formatPoly (coeffs : String) : String := Id.run do
       out := out ++ (if c < 0 then s!" - {term}" else s!" + {term}")
   return if out.isEmpty then "0" else out
 
+/-- Append `c * mono` (with its sign) to a running sum `acc`, skipping a zero coefficient.
+`mono = ""` is the constant term. -/
+def addTerm (acc : String) (c : Int) (mono : String) : String :=
+  if c == 0 then acc
+  else
+    let mag := if mono.isEmpty then toString c.natAbs
+      else if c.natAbs == 1 then mono else s!"{c.natAbs}*{mono}"
+    acc ++ (if c < 0 then " - " else " + ") ++ mag
+
+/-- Format an LMFDB `ainvs` array `{a₁,a₂,a₃,a₄,a₆}` as the Weierstrass equation
+`y² + a₁xy + a₃y = x³ + a₂x² + a₄x + a₆`. -/
+def formatWeierstrass (ainvs : String) : String := Id.run do
+  let stripped := (ainvs.replace "{" "").replace "}" ""
+  let cs := (stripped.splitOn ",").filterMap String.toInt?
+  if cs.length != 5 then return ainvs
+  let (a1, a2, a3, a4, a6) := (cs[0]!, cs[1]!, cs[2]!, cs[3]!, cs[4]!)
+  let lhs := addTerm (addTerm "y^2" a1 "x*y") a3 "y"
+  let rhs := addTerm (addTerm (addTerm "x^3" a2 "x^2") a4 "x") a6 ""
+  return s!"{lhs} = {rhs}"
+
 /-! ## LMFDB tables -/
 
 /-- Everything needed to query one LMFDB table and recognise the Lean expressions that map into
