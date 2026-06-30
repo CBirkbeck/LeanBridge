@@ -8,8 +8,9 @@ example {F : Type*} [Field F] [NumberField F]
   lookup
 
 example {F : Type*} [Field F] [NumberField F]
-    (h1 : NumberField.classNumber F = 4) (h2 : Module.finrank ℚ F = 2) :
-    Nonempty (ClassGroup (NumberField.RingOfIntegers F) ≃* Multiplicative (ZMod 4)) := by
+    (h2 : Module.finrank ℚ F = 2) :
+    NumberField.classNumber F = 4 →
+      ClassGroup (NumberField.RingOfIntegers F) ≃* Multiplicative (ZMod 4) := by
   lookup
 
 example {W : WeierstrassCurve.Affine ℚ} [W.IsElliptic]
