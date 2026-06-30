@@ -12,11 +12,15 @@ parentheses or with trailing punctuation attached.
 - Option B: emit the URL bare on its own line with no surrounding punctuation, relying on
   the infoview's auto-linkification.
 
-**Update — chosen: markdown link.** A bare URL on its own line still did *not* render as a
-clickable link in the infoview. The infoview does render message markdown, so the report now
-uses an explicit markdown link `[<label> on LMFDB](<url>)`, which renders as a clickable
-anchor. The user explicitly steered away from a ProofWidgets/HTML widget, so this lightweight
-approach is preferred; revisit with a widget only if markdown rendering proves insufficient.
+**Update — markdown link also failed.** Neither a bare URL nor a markdown link `[text](url)`
+is linkified by the infoview for a tactic message.
+
+**Final — ProofWidgets HTML embedded in the message.** The report is now built as a
+`ProofWidgets.Html` value containing a real `<a href=...>` element and embedded into the
+thrown error via `MessageData.ofHtml`, which renders the HTML (clickable anchor) in the
+infoview and falls back to a plain-text `alt` everywhere else (e.g. the LSP diagnostic text).
+This is distinct from the project's existing `LMFDBWidget` (which the user noted does not
+help); it uses only the stock `HtmlDisplay` component that ships with ProofWidgets.
 
 ## Reporting signed-discriminant counterexamples (tasks 3 & 7)
 
