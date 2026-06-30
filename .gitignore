@@ -42,4 +42,3 @@ blueprint/src/flasklog
 .venv/*
 ## Update script
 blueprint/src/cycles.txt
-lean_explore_key
