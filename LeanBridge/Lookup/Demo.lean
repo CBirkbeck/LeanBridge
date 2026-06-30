@@ -47,14 +47,14 @@ initialize registerTraceClass `lookup
 
 /-- Extract a natural-number literal from `e`, handling `@OfNat.ofNat _ n _`. -/
 def getNatLit? (e : Expr) : Option Nat :=
-  match e.getAppFnArgs with
-  | (``OfNat.ofNat, #[_, n, _]) => n.rawNatLit?
+  match_expr e with
+  | OfNat.ofNat _ n _ => n.rawNatLit?
   | _ => e.rawNatLit?
 
 /-- Extract an integer literal, handling a leading negation `@Neg.neg _ _ n`. -/
 def getIntLit? (e : Expr) : Option Int :=
-  match e.getAppFnArgs with
-  | (``Neg.neg, #[_, _, a]) => (getNatLit? a).map fun n => -(n : Int)
+  match_expr e with
+  | Neg.neg _ _ a => (getNatLit? a).map fun n => -(n : Int)
   | _ => (getNatLit? e).map Int.ofNat
 
 /-! #### Comparison operators -/
@@ -80,100 +80,46 @@ def reverse : Cmp → Cmp
 
 end Cmp
 
-/-! #### Translating Lean expressions to SQL -/
+/-! #### Translating Lean expressions to SQL
 
-/-- A scalar translated to SQL: its text, the quantities it references (recorded as
-`(displayName, sqlExpr)` pairs so a counterexample's actual values can be reported), and the
-LMFDB table it forces (a literal forces none). -/
-structure Scalar where
+A `Column` is a quantity of an object (an SQL column expression plus a display name); a `Cond`
+is a translated SQL boolean condition. The recognisers that map Lean expressions to columns
+and conditions live *with each table* in the registry below, so adding a column or property to
+a table is a local, one-line change. The generic plumbing here is table-agnostic. -/
+
+/-- A scalar quantity of an object: an SQL column expression and a human-readable name. A
+quantity stored split as `sign * |·|` records those two columns in `signed?`, so comparisons
+against a literal can be made index-friendly. -/
+structure Column where
+  sql : String
+  display : String
+  signed? : Option (String × String) := none
+
+/-- A translated SQL condition: the boolean SQL, the columns it references (as
+`(displayName, selectExpr)` pairs, for reporting), and the LMFDB table it forces. -/
+structure Cond where
   sql : String
   refs : Array (String × String) := #[]
   table : Option String := none
 
-/-- Translate a scalar Lean expression (applied to the LMFDB object) into a SQL scalar: a
-column expression tagged with its table, or a numeric literal. -/
-def toSqlScalar (e : Expr) : Option Scalar :=
-  match e.getAppFnArgs with
-  | (``NumberField.classNumber, _) =>
-      some { sql := "class_number", refs := #[("class number", "class_number")], table := "nf_fields" }
-  | (``Module.finrank, args) =>
-      -- `Module.finrank ℚ F` is the degree of a number field; `Module.finrank ℤ W.Point` is
-      -- the rank of an elliptic curve's Mordell–Weil group.
-      if h : 0 < args.size then
-        if args[0].isConstOf ``Rat then
-          some { sql := "degree", refs := #[("degree", "degree")], table := "nf_fields" }
-        else if args[0].isConstOf ``Int then
-          some { sql := "rank", refs := #[("rank", "rank")], table := "ec_curvedata" }
-        else none
-      else none
-  | (``Nat.card, args) =>
-      -- `Nat.card ↥(AddCommGroup.torsion W.Point)` is the size of the torsion subgroup.
-      if args.any fun a => (a.find? (·.isConstOf ``AddCommGroup.torsion)).isSome then
-        some { sql := "torsion", refs := #[("torsion", "torsion")], table := "ec_curvedata" }
-      else none
-  | (``abs, args) => args.back?.bind fun x =>
-      -- `|NumberField.discr F|` is the absolute discriminant `disc_abs`.
-      match x.getAppFnArgs with
-      | (``NumberField.discr, _) =>
-          some { sql := "disc_abs", refs := #[("|discriminant|", "disc_abs")], table := "nf_fields" }
-      | _ => none
-  | _ => (getIntLit? e).map fun n => { sql := toString n }
+/-- Build a `Column`. -/
+def col (sql display : String) (signed? : Option (String × String) := none) : Column :=
+  { sql, display, signed? }
 
-/-- Recognise the *signed* discriminant `NumberField.discr F`. -/
-def isDiscr (e : Expr) : Bool :=
-  match e.getAppFnArgs with
-  | (``NumberField.discr, _) => true
-  | _ => false
-
-/-- LMFDB stores the signed discriminant split as `disc_sign * disc_abs`, so translating
-`discr OP k` literally as `(disc_sign * disc_abs) OP k` cannot use the indices. Instead we
-case-split on the sign into index-friendly comparisons on `disc_abs`:
-`discr OP k  ⟺  (disc_sign = 1 ∧ disc_abs OP k) ∨ (disc_sign = -1 ∧ disc_abs revOP -k)`. -/
-def discrCond (cmp : Cmp) (k : Int) : Scalar :=
-  { sql := s!"((disc_sign = 1 AND disc_abs {cmp.toSql} {k}) OR \
-              (disc_sign = -1 AND disc_abs {cmp.reverse.toSql} {-k}))",
-    refs := #[("discriminant", "(disc_sign * disc_abs)")], table := "nf_fields" }
-
-/-- Translate a comparison `cmp a b` into a SQL condition. -/
-def toSqlCondCmp (cmp : Cmp) (a b : Expr) : Option Scalar :=
-  -- Signed-discriminant comparisons against a literal get the index-friendly treatment.
-  if isDiscr a then (getIntLit? b).map (discrCond cmp ·)
-  else if isDiscr b then (getIntLit? a).map (discrCond cmp.reverse ·)
-  else do
-    let sa ← toSqlScalar a
-    let sb ← toSqlScalar b
-    return { sql := s!"{sa.sql} {cmp.toSql} {sb.sql}", refs := sa.refs ++ sb.refs,
-             table := sa.table <|> sb.table }
+/-- A boolean-flag condition `column = 't'` (or `column = 'f'` when negated). -/
+def boolCol (positive : Bool) (column : String) : Cond :=
+  { sql := s!"{column} = {if positive then "'t'" else "'f'"}", refs := #[(column, column)] }
 
 /-- Match a comparison `Prop`, returning the operator and the two operands. -/
 def matchCmp (e : Expr) : Option (Cmp × Expr × Expr) :=
-  match e.getAppFnArgs with
-  | (``Eq, #[_, a, b])       => some (.eq, a, b)
-  | (``Ne, #[_, a, b])       => some (.ne, a, b)
-  | (``LE.le, #[_, _, a, b]) => some (.le, a, b)
-  | (``LT.lt, #[_, _, a, b]) => some (.lt, a, b)
-  | (``GE.ge, #[_, _, a, b]) => some (.ge, a, b)
-  | (``GT.gt, #[_, _, a, b]) => some (.gt, a, b)
+  match_expr e with
+  | Eq _ a b => some (.eq, a, b)
+  | Ne _ a b => some (.ne, a, b)
+  | LE.le _ _ a b => some (.le, a, b)
+  | LT.lt _ _ a b => some (.lt, a, b)
+  | GE.ge _ _ a b => some (.ge, a, b)
+  | GT.gt _ _ a b => some (.gt, a, b)
   | _ => none
-
-/-- The de Bruijn index of a bound variable, if `e` is one. -/
-def bvarIdx? : Expr → Option Nat
-  | .bvar n => some n
-  | _ => none
-
-/-- Recognise the commutativity predicate `∀ a b, a * b = b * a` (i.e. "the group is
-abelian"), allowing for the two multiplications to have swapped operands. -/
-def isAbelianPattern (e : Expr) : Bool := Id.run do
-  let .forallE _ _ (.forallE _ _ body _) _ := e | return false
-  let (``Eq, #[_, lhs, rhs]) := body.getAppFnArgs | return false
-  let (``HMul.hMul, la) := lhs.getAppFnArgs | return false
-  let (``HMul.hMul, ra) := rhs.getAppFnArgs | return false
-  if la.size < 2 || ra.size < 2 then return false
-  let some l1 := bvarIdx? la[la.size - 2]! | return false
-  let some l2 := bvarIdx? la[la.size - 1]! | return false
-  let some r1 := bvarIdx? ra[ra.size - 2]! | return false
-  let some r2 := bvarIdx? ra[ra.size - 1]! | return false
-  return l1 == r2 && l2 == r1 && l1 != l2
 
 /-- Whether `e` mentions the constant `n` anywhere. -/
 def containsConst (e : Expr) (n : Name) : Bool := (e.find? (·.isConstOf n)).isSome
@@ -181,10 +127,10 @@ def containsConst (e : Expr) (n : Name) : Bool := (e.find? (·.isConstOf n)).isS
 /-- Read a product of cyclic groups `ZMod n₁ × ⋯ × ZMod n_k` (with any `Multiplicative`
 wrappers stripped) as its list of moduli, in the order written. -/
 partial def cyclicFactors? (e : Expr) : Option (Array Nat) :=
-  match e.getAppFnArgs with
-  | (``ZMod, #[n]) => (getNatLit? n).map (#[·])
-  | (``Multiplicative, #[a]) => cyclicFactors? a
-  | (``Prod, #[a, b]) => do return (← cyclicFactors? a) ++ (← cyclicFactors? b)
+  match_expr e with
+  | ZMod n => (getNatLit? n).map (#[·])
+  | Multiplicative a => cyclicFactors? a
+  | Prod a b => do return (← cyclicFactors? a) ++ (← cyclicFactors? b)
   | _ => none
 
 /-- LMFDB encodes the torsion structure as a brace array `{2,4}` and the ideal class group as
@@ -192,56 +138,37 @@ a JSON bracket array `[2, 2]`. -/
 def fmtBraces (f : Array Nat) : String := "{" ++ ",".intercalate (f.toList.map toString) ++ "}"
 def fmtBrackets (f : Array Nat) : String := "[" ++ ", ".intercalate (f.toList.map toString) ++ "]"
 
-/-- Translate an abelian-group-structure claim `lhs ≃ rhs` (where `rhs` is a product of
-cyclics) into an invariant-factor column comparison; `positive := false` negates it (`<>`). -/
+/-- The de Bruijn index of a bound variable, if `e` is one. -/
+def bvarIdx? : Expr → Option Nat
+  | .bvar n => some n
+  | _ => none
+
+/-- Recognise the commutativity predicate `∀ a b, a * b = b * a` ("the group is abelian"),
+allowing the two multiplications to have swapped operands. -/
+def isAbelianPattern (e : Expr) : Bool :=
+  match e with
+  | .forallE _ _ (.forallE _ _ body _) _ =>
+    match_expr body with
+    | Eq _ lhs rhs =>
+      match_expr lhs with
+      | HMul.hMul _ _ _ _ l1 l2 =>
+        match_expr rhs with
+        | HMul.hMul _ _ _ _ r1 r2 =>
+          (bvarIdx? l1 == bvarIdx? r2) && (bvarIdx? l2 == bvarIdx? r1) &&
+            (bvarIdx? l1).isSome && (bvarIdx? l1 != bvarIdx? l2)
+        | _ => false
+      | _ => false
+    | _ => false
+  | _ => false
+
+/-- Translate an abelian-group-structure claim `lhs ≃ rhs` (with `rhs` a product of cyclics)
+into an invariant-factor column comparison; `positive := false` negates it (`<>`). -/
 def structCond (positive : Bool) (lhs rhs : Expr) (lhsConst : Name)
-    (col display table : String) (fmt : Array Nat → String) : Option Scalar := do
+    (column display : String) (fmt : Array Nat → String) : Option Cond := do
   guard (containsConst lhs lhsConst)
   let factors ← cyclicFactors? rhs
-  return { sql := s!"{col} {if positive then "=" else "<>"} '{fmt factors}'",
-           refs := #[(display, col.replace "::text" "")], table := table }
-
-/-- Translate a property of the object into a SQL condition. Handles boolean flags
-(`IsSimpleGroup`, the abelian pattern) and abelian-group-structure isomorphisms (torsion
-subgroup via `≃+`, ideal class group via `≃*`), optionally wrapped in `Nonempty`.
-`positive := false` asks for the property to *fail*. -/
-partial def toSqlPredicate (positive : Bool) (e : Expr) : Option Scalar :=
-  let tf := if positive then "'t'" else "'f'"
-  match e.getAppFnArgs with
-  | (``Nonempty, #[inner]) => toSqlPredicate positive inner
-  | (``IsSimpleGroup, _) =>
-      some { sql := s!"simple = {tf}", refs := #[("simple", "simple")], table := "gps_groups" }
-  | (``AddEquiv, args) =>
-      if 2 ≤ args.size then
-        structCond positive args[0]! args[1]! ``AddCommGroup.torsion
-          "torsion_structure" "torsion structure" "ec_curvedata" fmtBraces
-      else none
-  | (``MulEquiv, args) =>
-      if 2 ≤ args.size then
-        structCond positive args[0]! args[1]! ``ClassGroup
-          "class_group::text" "class group" "nf_fields" fmtBrackets
-      else none
-  | _ =>
-      if isAbelianPattern e then
-        some { sql := s!"abelian = {tf}", refs := #[("abelian", "abelian")], table := "gps_groups" }
-      else none
-
-/-- Translate a `Prop` into a SQL condition. `positive := false` translates its negation
-instead; pushing the negation down to the operator / boolean value (rather than wrapping the
-whole condition in SQL `NOT (...)`) keeps the query index-friendly. -/
-partial def toCond (positive : Bool) (e : Expr) : Option Scalar :=
-  match e.getAppFnArgs with
-  | (``Not, #[p]) => toCond (!positive) p
-  | _ =>
-      match matchCmp e with
-      | some (cmp, a, b) => toSqlCondCmp (if positive then cmp else cmp.negate) a b
-      | none => toSqlPredicate positive e
-
-/-- Translate a `Prop` into a SQL condition. -/
-def toSqlCond (e : Expr) : Option Scalar := toCond true e
-
-/-- Translate the *negation* of a `Prop` into a SQL condition (used for the goal). -/
-def toSqlCondNeg (e : Expr) : Option Scalar := toCond false e
+  return { sql := s!"{column} {if positive then "=" else "<>"} '{fmt factors}'",
+           refs := #[(display, column.replace "::text" "")] }
 
 /-! #### Reading and rendering a result row -/
 
@@ -299,6 +226,11 @@ structure TableInfo where
   url : String → String
   /-- SQL `ORDER BY` clause picking the "smallest"/simplest counterexample. -/
   orderBy : String
+  /-- Recognisers for scalar quantities of this object (used inside comparisons). To teach
+  `lookup` a new column, add a matcher here. -/
+  scalars : Array (Expr → Option Column) := #[]
+  /-- Recognisers for boolean/structure properties of this object at a given polarity. -/
+  props : Array (Bool → Expr → Option Cond) := #[]
 
 /-- LMFDB elliptic-curve labels like `15.a2` live at `.../EllipticCurve/Q/15/a/2`. -/
 def ecUrl (label : String) : String :=
@@ -318,6 +250,28 @@ def nfFields : TableInfo where
     {formatPoly (rowStr row "coeffs")}"
   url label := s!"https://www.lmfdb.org/NumberField/{label}"
   orderBy := "disc_abs"
+  scalars := #[
+    fun e => match_expr e with
+      | NumberField.classNumber _ _ _ => some (col "class_number" "class number")
+      | _ => none,
+    fun e => match_expr e with
+      | Module.finrank r _ _ _ _ => if r.isConstOf ``Rat then some (col "degree" "degree") else none
+      | _ => none,
+    -- `|NumberField.discr F|` is `disc_abs`; the bare signed discriminant is split as
+    -- `disc_sign * disc_abs` (with `signed?` set so comparisons stay index-friendly).
+    fun e => match_expr e with
+      | abs _ _ _ x => match_expr x with
+        | NumberField.discr _ _ _ => some (col "disc_abs" "|discriminant|")
+        | _ => none
+      | NumberField.discr _ _ _ =>
+        some (col "(disc_sign * disc_abs)" "discriminant" (some ("disc_sign", "disc_abs")))
+      | _ => none]
+  props := #[
+    -- ideal class group structure: `ClassGroup (𝓞 F) ≃* Multiplicative (∏ ZMod nᵢ)`.
+    fun pos e => match_expr e with
+      | MulEquiv a b _ _ =>
+        structCond pos a b ``ClassGroup "class_group::text" "class group" fmtBrackets
+      | _ => none]
 
 /-- Elliptic curves over `ℚ`. -/
 def ecCurvedata : TableInfo where
@@ -327,6 +281,20 @@ def ecCurvedata : TableInfo where
   describe row := s!"elliptic curve {rowStr row "label"} with a-invariants {rowStr row "ainvs"}"
   url := ecUrl
   orderBy := "conductor"
+  scalars := #[
+    fun e => match_expr e with
+      | Module.finrank r _ _ _ _ => if r.isConstOf ``Int then some (col "rank" "rank") else none
+      | _ => none,
+    fun e => match_expr e with
+      | Nat.card g =>
+        if containsConst g ``AddCommGroup.torsion then some (col "torsion" "torsion") else none
+      | _ => none]
+  props := #[
+    -- torsion subgroup structure: `AddCommGroup.torsion W.Point ≃+ (∏ ZMod nᵢ)`.
+    fun pos e => match_expr e with
+      | AddEquiv a b _ _ =>
+        structCond pos a b ``AddCommGroup.torsion "torsion_structure" "torsion structure" fmtBraces
+      | _ => none]
 
 /-- Finite groups. -/
 def gpsGroups : TableInfo where
@@ -337,13 +305,66 @@ def gpsGroups : TableInfo where
   url label := s!"https://www.lmfdb.org/Groups/Abstract/{label}"
   -- `order` is a SQL reserved word, so it must be quoted.
   orderBy := "\"order\""
+  props := #[
+    fun pos e => match_expr e with
+      | IsSimpleGroup _ _ => some (boolCol pos "simple")
+      | _ => none,
+    fun pos e => if isAbelianPattern e then some (boolCol pos "abelian") else none]
+
+/-- All supported object families. To support a new one, add its `TableInfo` here. -/
+def tables : Array TableInfo := #[nfFields, ecCurvedata, gpsGroups]
 
 /-- The table configuration for a table name. -/
-def tableInfo? : String → Option TableInfo
-  | "nf_fields" => some nfFields
-  | "ec_curvedata" => some ecCurvedata
-  | "gps_groups" => some gpsGroups
-  | _ => none
+def tableInfo? (name : String) : Option TableInfo := tables.find? (·.table == name)
+
+/-! #### Dispatch: translating a `Prop` to a SQL condition -/
+
+/-- Find the scalar column an expression denotes (trying every table's recognisers), together
+with the table it belongs to. -/
+def findScalar (e : Expr) : Option (Column × String) :=
+  tables.findSome? fun t => (t.scalars.findSome? (· e)).map (·, t.table)
+
+/-- A column compared against an integer literal. A "signed" column stored as `sign * |·|` is
+case-split on the sign, so the comparison hits the indexed absolute-value column rather than
+the non-indexable product. -/
+def colVsLit (c : Column) (table : String) (cmp : Cmp) (k : Int) : Cond :=
+  match c.signed? with
+  | some (signCol, absCol) =>
+      { sql := s!"(({signCol} = 1 AND {absCol} {cmp.toSql} {k}) OR \
+                  ({signCol} = -1 AND {absCol} {cmp.reverse.toSql} {-k}))",
+        refs := #[(c.display, c.sql)], table := some table }
+  | none =>
+      { sql := s!"{c.sql} {cmp.toSql} {k}", refs := #[(c.display, c.sql)], table := some table }
+
+/-- Translate a comparison `cmp a b` (column vs literal, or column vs column) into a `Cond`. -/
+def toSqlCondCmp (cmp : Cmp) (a b : Expr) : Option Cond :=
+  match findScalar a, findScalar b with
+  | some (ca, ta), some (cb, _) =>
+      some { sql := s!"{ca.sql} {cmp.toSql} {cb.sql}",
+             refs := #[(ca.display, ca.sql), (cb.display, cb.sql)], table := some ta }
+  | some (ca, ta), none => (getIntLit? b).map (colVsLit ca ta cmp)
+  | none, some (cb, tb) => (getIntLit? a).map (colVsLit cb tb cmp.reverse)
+  | none, none => none
+
+/-- Translate a `Prop` into a SQL condition. `positive := false` translates its negation;
+pushing the negation down to the operator / boolean value (rather than wrapping in SQL
+`NOT (...)`) keeps the query index-friendly. `Not` flips the polarity; `Nonempty` is
+transparent (an isomorphism *exists* iff the structures match). -/
+partial def toCond (positive : Bool) (e : Expr) : Option Cond :=
+  match_expr e with
+  | Not p => toCond (!positive) p
+  | Nonempty p => toCond positive p
+  | _ =>
+    match matchCmp e with
+    | some (cmp, a, b) => toSqlCondCmp (if positive then cmp else cmp.negate) a b
+    | none => tables.findSome? fun t =>
+        (t.props.findSome? (· positive e)).map fun c => { c with table := some t.table }
+
+/-- Translate a `Prop` into a SQL condition. -/
+def toSqlCond (e : Expr) : Option Cond := toCond true e
+
+/-- Translate the *negation* of a `Prop` into a SQL condition (used for the goal). -/
+def toSqlCondNeg (e : Expr) : Option Cond := toCond false e
 
 /-! #### Assembling the query and report -/
 
@@ -402,8 +423,8 @@ def reportAlt (info : TableInfo) (row : Json) (items : Array (String × String))
 /-- Translate the hypotheses in context into SQL condition scalars. A hypothesis that *is* a
 comparison but that we cannot translate is reported as a warning (and dropped), since silently
 ignoring it would weaken any "no counterexample" conclusion. -/
-def collectHypotheses : TacticM (Array Scalar) := do
-  let mut out : Array Scalar := #[]
+def collectHypotheses : TacticM (Array Cond) := do
+  let mut out : Array Cond := #[]
   for ldecl in ← getLCtx do
     if ldecl.isImplementationDetail then continue
     let ty ← instantiateMVars ldecl.type
