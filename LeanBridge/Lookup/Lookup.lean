@@ -75,19 +75,19 @@ def combineCond (op : String) (a b : Cond) : Cond :=
 pushing the negation down to the operator / boolean value / connective (rather than wrapping in
 SQL `NOT (...)`) keeps the query index-friendly. `Not` flips the polarity, `Nonempty` is
 transparent, and `∧`/`∨` are pushed through by De Morgan. -/
-partial def toCond (positive : Bool) (e : Expr) : Option Cond :=
+partial def toCond (pos : Bool) (e : Expr) : Option Cond :=
   match_expr e with
-  | False => some { sql := if positive then "FALSE" else "TRUE" }
-  | True => some { sql := if positive then "TRUE" else "FALSE" }
-  | Not p => toCond (!positive) p
-  | Nonempty p => toCond positive p
-  | And a b => return combineCond (if positive then "AND" else "OR") (← toCond positive a) (← toCond positive b)
-  | Or a b => return combineCond (if positive then "OR" else "AND") (← toCond positive a) (← toCond positive b)
+  | False => some { sql := if pos then "FALSE" else "TRUE" }
+  | True => some { sql := if pos then "TRUE" else "FALSE" }
+  | Not p => toCond (!pos) p
+  | Nonempty p => toCond pos p
+  | And a b => return combineCond (if pos then "AND" else "OR") (← toCond pos a) (← toCond pos b)
+  | Or a b => return combineCond (if pos then "OR" else "AND") (← toCond pos a) (← toCond pos b)
   | _ =>
     match matchCmp e with
-    | some (cmp, a, b) => toSqlCondCmp (if positive then cmp else cmp.negate) a b
+    | some (cmp, a, b) => toSqlCondCmp (if pos then cmp else cmp.negate) a b
     | none => tables.findSome? fun t =>
-        (t.props.findSome? (· positive e)).map fun c => { c with table := some t.table }
+        (t.props.findSome? (· pos e)).map fun c => { c with table := some t.table }
 
 /-- Translate a `Prop` into a SQL condition. -/
 def toSqlCond (e : Expr) : Option Cond := toCond true e
