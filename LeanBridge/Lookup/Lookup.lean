@@ -68,16 +68,22 @@ def toSqlCondCmp (cmp : Cmp) (a b : Expr) : Option Cond :=
   | none, some (cb, tb) => (getIntLit? a).map (colVsLit cb tb cmp.reverse)
   | none, none => none
 
+/-- Combine two conditions with a SQL connective, merging their refs and table. -/
+def combineCond (op : String) (a b : Cond) : Cond :=
+  { sql := s!"(({a.sql}) {op} ({b.sql}))", refs := a.refs ++ b.refs, table := a.table <|> b.table }
+
 /-- Translate a `Prop` into a SQL condition. `positive := false` translates its negation;
-pushing the negation down to the operator / boolean value (rather than wrapping in SQL
-`NOT (...)`) keeps the query index-friendly. `Not` flips the polarity; `Nonempty` is
-transparent (an isomorphism *exists* iff the structures match). -/
+pushing the negation down to the operator / boolean value / connective (rather than wrapping in
+SQL `NOT (...)`) keeps the query index-friendly. `Not` flips the polarity, `Nonempty` is
+transparent, and `∧`/`∨` are pushed through by De Morgan. -/
 partial def toCond (positive : Bool) (e : Expr) : Option Cond :=
   match_expr e with
   | False => some { sql := if positive then "FALSE" else "TRUE" }
   | True => some { sql := if positive then "TRUE" else "FALSE" }
   | Not p => toCond (!positive) p
   | Nonempty p => toCond positive p
+  | And a b => return combineCond (if positive then "AND" else "OR") (← toCond positive a) (← toCond positive b)
+  | Or a b => return combineCond (if positive then "OR" else "AND") (← toCond positive a) (← toCond positive b)
   | _ =>
     match matchCmp e with
     | some (cmp, a, b) => toSqlCondCmp (if positive then cmp else cmp.negate) a b
@@ -162,13 +168,30 @@ def collectHypotheses : TacticM (Array Cond) := do
           (couldn't translate it to a SQL condition, so the search ignores this constraint)."
   return out
 
+/-- Peel leading non-dependent implications `a₁ → ⋯ → b` into the antecedents `#[a₁, …]`
+(treated as extra hypotheses) and the final consequent `b`. -/
+partial def peelImplications : Expr → Array Expr × Expr
+  | e@(.forallE _ a b _) =>
+      if b.hasLooseBVars then (#[], e)
+      else let (hyps, goal) := peelImplications b; (#[a] ++ hyps, goal)
+  | e => (#[], e)
+
 elab "lookup" : tactic => do
   let goal ← getMainGoal
   goal.withContext do
-    -- The negated goal is the final condition: we hunt for a row that breaks the goal.
-    let some goalCond := toSqlCondNeg (← instantiateMVars (← goal.getType))
+    -- Treat the antecedents of an implication goal as extra hypotheses; the negated final
+    -- consequent is the condition we hunt for a row to satisfy.
+    let (antecedents, goalType) := peelImplications (← instantiateMVars (← goal.getType))
+    let some goalCond := toSqlCondNeg goalType
       | throwError "don't know how to translate the goal into a SQL query"
-    let conditions := (← collectHypotheses).push goalCond
+    let mut conditions ← collectHypotheses
+    for a in antecedents do
+      match toSqlCond a with
+      | some c => conditions := conditions.push c
+      | none =>
+        if (matchCmp a).isSome then
+          logWarning m!"ignoring antecedent `{a}` (couldn't translate it to a SQL condition)."
+    conditions := conditions.push goalCond
     -- Every condition must point at the same LMFDB table.
     let info ← match (conditions.filterMap (·.table)).toList.dedup with
       | [t] => match tableInfo? t with
