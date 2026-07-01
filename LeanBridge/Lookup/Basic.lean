@@ -1,0 +1,366 @@
+import Mathlib
+
+/-! # `lookup` vocabulary
+
+The table-agnostic building blocks shared by the rest of the tactic: the value types
+(`Column`, `Cond`, `Cmp`), low-level `Expr` matchers, the recogniser combinators used to
+describe a table's columns/properties, small result-row utilities, and the `TableInfo` record.
+
+The concrete tables live in `LeanBridge.Lookup.Tables`; the tactic itself in
+`LeanBridge.Lookup.Lookup`. -/
+
+open Lean Meta
+
+namespace Lookup
+
+/-! ## Literals -/
+
+/-- Extract a natural-number literal from `e`, handling `@OfNat.ofNat _ n _`. -/
+def getNatLit? (e : Expr) : Option Nat :=
+  match_expr e with
+  | OfNat.ofNat _ n _ => n.rawNatLit?
+  | _ => e.rawNatLit?
+
+/-- Extract an integer literal, handling a leading negation `@Neg.neg _ _ n`. -/
+def getIntLit? (e : Expr) : Option Int :=
+  match_expr e with
+  | Neg.neg _ _ a => (getNatLit? a).map fun n => -(n : Int)
+  | _ => (getNatLit? e).map Int.ofNat
+
+/-! ## Comparison operators -/
+
+/-- A comparison operator we know how to send to SQL. -/
+inductive Cmp | eq | ne | le | lt | ge | gt
+  deriving Inhabited, BEq
+
+namespace Cmp
+
+/-- The SQL spelling of the operator. -/
+def toSql : Cmp → String
+  | eq => "=" | ne => "<>" | le => "<=" | lt => "<" | ge => ">=" | gt => ">"
+
+/-- The operator whose truth value is the logical negation of this one. -/
+def negate : Cmp → Cmp
+  | eq => ne | ne => eq | le => gt | lt => ge | ge => lt | gt => le
+
+/-- The operator that holds after swapping the operands (equivalently, after negating both
+sides of an order comparison). -/
+def reverse : Cmp → Cmp
+  | eq => eq | ne => ne | le => ge | lt => gt | ge => le | gt => lt
+
+end Cmp
+
+/-! ## Columns and conditions -/
+
+/-- A scalar quantity of an object: an SQL column expression and a human-readable name. A
+quantity stored split as `sign * |·|` records those two columns in `signed?`, so comparisons
+against a literal can be made index-friendly. `extraConds` are extra `WHERE` conjuncts the
+quantity implies — used when the object's identity is bundled into the quantity's expression
+rather than supplied by separate hypotheses (e.g. a modular space's level/weight/character read
+off the type inside `Module.finrank ℂ (CuspForm Γ₀(N) k)`). -/
+structure Column where
+  sql : String
+  display : String
+  signed? : Option (String × String) := none
+  extraConds : Array String := #[]
+
+/-- Prefix `core` with the column's extra `WHERE` conjuncts (the object identity it implies),
+if any. -/
+def Column.withConds (c : Column) (core : String) : String :=
+  if c.extraConds.isEmpty then core
+  else s!"{String.intercalate " AND " c.extraConds.toList} AND {core}"
+
+/-- A translated SQL condition: the boolean SQL, the columns it references (as
+`(displayName, selectExpr)` pairs, for reporting), and the LMFDB table it forces. -/
+structure Cond where
+  sql : String
+  refs : Array (String × String) := #[]
+  table : Option String := none
+
+/-- Build a `Column`. -/
+def col (sql display : String) (signed? : Option (String × String) := none) : Column :=
+  { sql, display, signed? }
+
+/-- A boolean-flag condition `column = 't'` (or `column = 'f'` when negated). -/
+def boolCol (positive : Bool) (column : String) : Cond :=
+  { sql := s!"{column} = {if positive then "'t'" else "'f'"}", refs := #[(column, column)] }
+
+/-! ## Low-level `Expr` matchers -/
+
+/-- Match a comparison `Prop`, returning the operator and the two operands. -/
+def matchCmp (e : Expr) : Option (Cmp × Expr × Expr) :=
+  match_expr e with
+  | Eq _ a b => some (.eq, a, b)
+  | Ne _ a b => some (.ne, a, b)
+  | LE.le _ _ a b => some (.le, a, b)
+  | LT.lt _ _ a b => some (.lt, a, b)
+  | GE.ge _ _ a b => some (.ge, a, b)
+  | GT.gt _ _ a b => some (.gt, a, b)
+  | _ => none
+
+/-- Whether `e` mentions the constant `n` anywhere. -/
+def containsConst (e : Expr) (n : Name) : Bool := (e.find? (·.isConstOf n)).isSome
+
+/-- Read a product of cyclic groups `ZMod n₁ × ⋯ × ZMod n_k` (with any `Multiplicative` or
+`Additive` wrappers stripped) as its list of moduli, in the order written. The trivial group —
+`ZMod 1`, `Unit`/`PUnit`, or any `ZMod 1` factor — contributes nothing, matching LMFDB's
+convention of dropping trivial invariant factors (so the trivial group is the empty array). -/
+partial def cyclicFactors? (e : Expr) : Option (Array Nat) :=
+  match_expr e with
+  | ZMod n => (getNatLit? n).map fun k => if k == 1 then #[] else #[k]
+  | Unit => some #[]
+  | PUnit => some #[]
+  | Multiplicative a => cyclicFactors? a
+  | Additive a => cyclicFactors? a
+  | Prod a b => do return (← cyclicFactors? a) ++ (← cyclicFactors? b)
+  | _ => none
+
+/-- LMFDB encodes the torsion structure as a brace array `{2,4}` and the ideal class group as
+a JSON bracket array `[2, 2]`. -/
+def fmtBraces (f : Array Nat) : String := "{" ++ ",".intercalate (f.toList.map toString) ++ "}"
+def fmtBrackets (f : Array Nat) : String := "[" ++ ", ".intercalate (f.toList.map toString) ++ "]"
+
+/-- The de Bruijn index of a bound variable, if `e` is one. -/
+def bvarIdx? : Expr → Option Nat
+  | .bvar n => some n
+  | _ => none
+
+/-- Recognise the commutativity predicate `∀ a b, a * b = b * a` ("the group is abelian"),
+allowing the two multiplications to have swapped operands. -/
+def isAbelianPattern (e : Expr) : Bool :=
+  match e with
+  | .forallE _ _ (.forallE _ _ body _) _ =>
+    match_expr body with
+    | Eq _ lhs rhs =>
+      match_expr lhs with
+      | HMul.hMul _ _ _ _ l1 l2 =>
+        match_expr rhs with
+        | HMul.hMul _ _ _ _ r1 r2 =>
+          (bvarIdx? l1 == bvarIdx? r2) && (bvarIdx? l2 == bvarIdx? r1) &&
+            (bvarIdx? l1).isSome && (bvarIdx? l1 != bvarIdx? l2)
+        | _ => false
+      | _ => false
+    | _ => false
+  | _ => false
+
+/-- Translate an abelian-group-structure claim `lhs ≃ rhs` (with `rhs` a product of cyclics)
+into an invariant-factor column comparison; `positive := false` negates it (`<>`). -/
+def structCond (positive : Bool) (lhs rhs : Expr) (lhsConst : Name)
+    (column display : String) (fmt : Array Nat → String) : Option Cond := do
+  guard (containsConst lhs lhsConst)
+  let factors ← cyclicFactors? rhs
+  return { sql := s!"{column} {if positive then "=" else "<>"} '{fmt factors}'",
+           refs := #[(display, column.replace "::text" "")] }
+
+/-- Recognise an isomorphism `A ≃+ B` or `A ≃* B`, returning the equiv's head constant and the
+two sides. -/
+def matchEquiv (e : Expr) : Option (Name × Expr × Expr) :=
+  match_expr e with
+  | AddEquiv a b _ _ => some (``AddEquiv, a, b)
+  | MulEquiv a b _ _ => some (``MulEquiv, a, b)
+  | _ => none
+
+/-! ## Recogniser combinators
+
+A column recogniser is a function `Expr → Option Column`; a property recogniser is
+`Bool → Expr → Option Cond` (the `Bool` is the wanted polarity). A table lists these functions
+directly; the helpers below build the common shapes, and anything unusual is just a lambda of
+the same type. -/
+
+/-- `headIs c "col" "name"`: matches any application of the constant `c` (e.g.
+`NumberField.classNumber F`) to the column `col`, displayed as `name`. -/
+def headIs (c : Name) (sql display : String) : Expr → Option Column :=
+  fun e => if e.isAppOf c then some (col sql display) else none
+
+/-- `finrankOver R "col" "name"`: matches `Module.finrank R _` (e.g. `R = ℚ` for a number
+field's degree, `R = ℤ` for an elliptic curve's rank). -/
+def finrankOver (R : Name) (sql display : String) : Expr → Option Column :=
+  fun e => match_expr e with
+    | Module.finrank r _ _ _ _ => if r.isConstOf R then some (col sql display) else none
+    | _ => none
+
+/-- `cardMentions c "col" "name"`: matches `Nat.card t` where the type `t` mentions `c`
+(e.g. `Nat.card (AddCommGroup.torsion W.Point)`). -/
+def cardMentions (c : Name) (sql display : String) : Expr → Option Column :=
+  fun e => match_expr e with
+    | Nat.card t => if containsConst t c then some (col sql display) else none
+    | _ => none
+
+/-- `absOf c "col" "name"`: matches `|x|` where `x` is an application of `c`
+(e.g. `|NumberField.discr F|`). -/
+def absOf (c : Name) (sql display : String) : Expr → Option Column :=
+  fun e => match_expr e with
+    | abs _ _ _ x => if x.isAppOf c then some (col sql display) else none
+    | _ => none
+
+/-- `signedValue c "signCol" "absCol" "name"`: matches an application of `c` whose value LMFDB
+stores split as `signCol * absCol` (e.g. the signed discriminant). Recording the two columns
+lets comparisons against a literal case-split on the sign and stay index-friendly. -/
+def signedValue (c : Name) (signCol absCol display : String) : Expr → Option Column :=
+  fun e => if e.isAppOf c then
+    some (col s!"({signCol} * {absCol})" display (some (signCol, absCol))) else none
+
+/-- `cardIs "col" "name"`: matches a cardinality `Nat.card G` or `Fintype.card G` to the column
+`col`. The cardinality is read generically (it doesn't matter whether `G` is a group, or whether
+it is written multiplicatively or additively); it is the *object* — fixed by a group instance
+hypothesis or another property — that determines this is e.g. a group's order. -/
+def cardIs (sql display : String) : Expr → Option Column :=
+  fun e => match_expr e with
+    | Nat.card _ => some (col sql display)
+    | Fintype.card _ _ => some (col sql display)
+    | _ => none
+
+/-- From a modular/cusp form *type* `CuspForm Γ k` / `ModularForm Γ k` with `Γ` containing a
+`CongruenceSubgroup.Gamma0 N` subterm, read `(isCuspidal, level N, weight k)`. -/
+def modularSpace? (M : Expr) : Option (Bool × Nat × Int) := do
+  let (isCusp, Γ, k) ← (match_expr M with
+    | CuspForm Γ k => some (true, Γ, k)
+    | ModularForm Γ k => some (false, Γ, k)
+    | _ => none)
+  let kLit ← getIntLit? k
+  let g ← Γ.find? (·.isAppOf ``CongruenceSubgroup.Gamma0)
+  let N ← getNatLit? g.appArg!
+  return (isCusp, N, kLit)
+
+/-- The `WHERE` conjuncts identifying the `mf_newspaces` row for `S_k(Γ₀(N))`: its level, weight
+and the trivial character (`char_orbit_index = 1`, i.e. the `Γ₀(N)` nebentypus). -/
+def mfSpaceConds (N : Nat) (k : Int) : Array String :=
+  #[s!"level = {N}", s!"weight = {k}", "char_orbit_index = 1"]
+
+/-- Recognise `Module.finrank ℂ (CuspForm Γ₀(N) k)` / `(ModularForm Γ₀(N) k)`, mapping to the
+cuspidal/total dimension column of `mf_newspaces` with the level/weight/character pinned. -/
+def modularDim : Expr → Option Column := fun e =>
+  match_expr e with
+  | Module.finrank _ M _ _ _ => do
+      let (isCusp, N, k) ← modularSpace? M
+      pure { sql := if isCusp then "cusp_dim" else "mf_dim", display := "dimension",
+             extraConds := mfSpaceConds N k }
+  | _ => none
+
+/-- Recognise a modular/cusp form *type* `CuspForm Γ₀(N) k` / `ModularForm Γ₀(N) k` (e.g. a
+hypothesis `f : CuspForm Γ₀(N) k`), pinning the space's level, weight and trivial character. The
+polarity is ignored — the type names the object, it is not a refutable property. -/
+def modularSpace : Bool → Expr → Option Cond := fun _ e => do
+  let (_, N, k) ← modularSpace? e
+  some { sql := String.intercalate " AND " (mfSpaceConds N k).toList,
+         refs := #[("level", "level"), ("weight", "weight")] }
+
+/-- `flagIs c "col"`: matches any application of `c` (e.g. `IsSimpleGroup G`) to the boolean
+column `col` (`= 't'`, or `= 'f'` when negated). -/
+def flagIs (c : Name) (column : String) : Bool → Expr → Option Cond :=
+  fun pos e => if e.isAppOf c then some (boolCol pos column) else none
+
+/-- `flagCond c posSql negSql refs`: matches any application of `c` to the SQL condition
+`posSql` (or `negSql` when negated). Use when a Lean predicate has no dedicated boolean column
+but translates to a condition on existing columns (e.g. `NumberField.IsTotallyReal F` ↦
+`r2 = 0`). `refs` lists the `(displayName, selectExpr)` columns to report. -/
+def flagCond (c : Name) (posSql negSql : String) (refs : Array (String × String)) :
+    Bool → Expr → Option Cond :=
+  fun pos e => if e.isAppOf c then some { sql := if pos then posSql else negSql, refs } else none
+
+/-- `flagCondMentions head obj posSql negSql refs`: like `flagCond`, but for a *generic*
+predicate `head` (e.g. `Finite`, `IsPrincipalIdealRing`) that only identifies this table when
+its argument mentions `obj`. Matches `head … obj …` (e.g. `Finite W.Point`, with `obj` the
+elliptic-curve point group) to `posSql` (or `negSql` when negated). -/
+def flagCondMentions (head obj : Name) (posSql negSql : String) (refs : Array (String × String)) :
+    Bool → Expr → Option Cond :=
+  fun pos e => if e.isAppOf head && containsConst e obj then
+    some { sql := if pos then posSql else negSql, refs } else none
+
+/-- `isAbelian "col"`: matches the commutativity statement `∀ a b, a * b = b * a` to the
+boolean column `col`. -/
+def isAbelian (column : String) : Bool → Expr → Option Cond :=
+  fun pos e => if isAbelianPattern e then some (boolCol pos column) else none
+
+/-- `isoStructure equiv c "col" "name" bracketed`: matches an isomorphism `lhs ≃ (∏ ZMod nᵢ)`
+written with `equiv` (``AddEquiv`` or ``MulEquiv``) and `lhs` mentioning `c`, comparing the
+invariant factors against `col`. `bracketed` selects the JSON `[…]` encoding (ideal class
+group) over the array `{…}` encoding (torsion structure). -/
+def isoStructure (equiv c : Name) (column display : String) (bracketed : Bool) :
+    Bool → Expr → Option Cond :=
+  fun pos e => do
+    let (h, a, b) ← matchEquiv e
+    guard (h == equiv)
+    structCond pos a b c column display (if bracketed then fmtBrackets else fmtBraces)
+
+/-! ## Result rows -/
+
+/-- The first returned row of an LMFDB `/sql` response, if any. -/
+def firstRow? (j : Json) : Option Json :=
+  match j.getObjVal? "rows" with
+  | .ok (.arr rs) => rs[0]?
+  | _ => none
+
+/-- Read a (text-cast) field of a row as a string. -/
+def rowStr (row : Json) (key : String) : String :=
+  (row.getObjValAs? String key).toOption.getD "?"
+
+/-- Pretty-print the integer monomial `c * x^e` (its sign is handled by the caller). -/
+def monomial (c : Int) (e : Nat) : String :=
+  if e == 0 then toString c.natAbs
+  else
+    let base := if e == 1 then "x" else s!"x^{e}"
+    if c.natAbs == 1 then base else s!"{c.natAbs}*{base}"
+
+/-- Format an LMFDB `coeffs` array (e.g. `{-1,-1,1}`, lowest degree first) as a polynomial
+in `x`, highest degree first. -/
+def formatPoly (coeffs : String) : String := Id.run do
+  let stripped := (coeffs.replace "{" "").replace "}" ""
+  let cs := (stripped.splitOn ",").filterMap String.toInt?
+  let n := cs.length
+  let mut out := ""
+  for i in [0:n] do
+    let e := n - 1 - i
+    let c := cs[e]!
+    if c == 0 then continue
+    let term := monomial c e
+    if out.isEmpty then
+      out := if c < 0 then s!"-{term}" else term
+    else
+      out := out ++ (if c < 0 then s!" - {term}" else s!" + {term}")
+  return if out.isEmpty then "0" else out
+
+/-- Append `c * mono` (with its sign) to a running sum `acc`, skipping a zero coefficient.
+`mono = ""` is the constant term. -/
+def addTerm (acc : String) (c : Int) (mono : String) : String :=
+  if c == 0 then acc
+  else
+    let mag := if mono.isEmpty then toString c.natAbs
+      else if c.natAbs == 1 then mono else s!"{c.natAbs}*{mono}"
+    acc ++ (if c < 0 then " - " else " + ") ++ mag
+
+/-- Format an LMFDB `ainvs` array `{a₁,a₂,a₃,a₄,a₆}` as the Weierstrass equation
+`y² + a₁xy + a₃y = x³ + a₂x² + a₄x + a₆`. -/
+def formatWeierstrass (ainvs : String) : String := Id.run do
+  let stripped := (ainvs.replace "{" "").replace "}" ""
+  let cs := (stripped.splitOn ",").filterMap String.toInt?
+  if cs.length != 5 then return ainvs
+  let (a1, a2, a3, a4, a6) := (cs[0]!, cs[1]!, cs[2]!, cs[3]!, cs[4]!)
+  let lhs := addTerm (addTerm "y^2" a1 "x*y") a3 "y"
+  let rhs := addTerm (addTerm (addTerm "x^3" a2 "x^2") a4 "x") a6 ""
+  return s!"{lhs} = {rhs}"
+
+/-! ## LMFDB tables -/
+
+/-- Everything needed to query one LMFDB table and recognise the Lean expressions that map into
+its columns. The concrete instances live in `LeanBridge.Lookup.Tables`. -/
+structure TableInfo where
+  /-- The SQL table name. -/
+  table : String
+  /-- The column holding the LMFDB label (selected `AS label`). -/
+  labelCol : String
+  /-- Extra SELECT fragments for the descriptive data (e.g. the defining polynomial). -/
+  descSelects : Array String
+  /-- Render the descriptive data of a result row as plain text. -/
+  describe : Json → String
+  /-- Build the LMFDB page URL from a label. -/
+  url : String → String
+  /-- SQL `ORDER BY` clause picking the "smallest"/simplest counterexample. -/
+  orderBy : String
+  /-- Recognisers for scalar quantities of this object (used inside comparisons). Each is an
+  `Expr → Option Column`; build them with `headIs`/`finrankOver`/… or write a lambda. -/
+  scalars : Array (Expr → Option Column) := #[]
+  /-- Recognisers for boolean/structure properties (the `Bool` is the wanted polarity). -/
+  props : Array (Bool → Expr → Option Cond) := #[]
+
+end Lookup
