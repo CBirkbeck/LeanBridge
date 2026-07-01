@@ -3,7 +3,7 @@ import LeanBridge.Lookup.Lookup
 open Lookup
 
 example {F : Type*} [Field F] [NumberField F]
-    (h1 : NumberField.classNumber F = 1) (h2 : Module.finrank ℚ F = 2) :
+    (h1 : NumberField.classNumber F = 1) (h2 : Module.finrank ℚ F = 2) (h3 : 2 = 2) :
     |NumberField.discr F| ≤ 163 := by
   lookup
 
@@ -51,4 +51,24 @@ example : Module.finrank ℂ
 example {F : Type*} [Field F] [NumberField F] (h : Module.finrank ℚ F = 2) :
     Nat.card {p : PrimeSpectrum (NumberField.RingOfIntegers F) //
       ¬ Algebra.IsUnramifiedAt ℤ p.asIdeal} = 0 := by
+  lookup
+
+example {W : WeierstrassCurve.Affine ℚ} [W.IsElliptic]
+    (hW : 2 ≤ Module.finrank ℤ W.Point) :
+    Nat.card (AddCommGroup.torsion W.Point) ≠ 1 := by
+  lookup
+
+example {W : WeierstrassCurve.Affine ℚ} [W.IsElliptic]
+    (hW : 2 ≤ Module.finrank ℤ W.Point) :
+    ¬ Nonempty (AddCommGroup.torsion W.Point ≃+ ZMod 1) := by
+  lookup
+
+example {W : WeierstrassCurve.Affine ℚ} [W.IsElliptic]
+    (hW : 2 ≤ Module.finrank ℤ W.Point) :
+    AddCommGroup.torsion W.Point ≃+ ZMod 1 := by
+  lookup
+
+example {W : WeierstrassCurve.Affine ℚ} [W.IsElliptic]
+    (hW : 2 ≤ Module.finrank ℤ W.Point) :
+    AddCommGroup.torsion W.Point ≃+ Unit := by
   lookup
