@@ -3,10 +3,10 @@ import ProofWidgets.Component.HtmlDisplay
 
 /-! # The `lookup` tactic
 
-`lookup` reads the local hypotheses and the goal, translates them into a SQL query against
-LMFDB that searches for a *counterexample* (a database object satisfying all the hypotheses but
-**violating** the goal), and reports it if one is found. It never closes the goal: a hit shows
-the statement is false, and a miss is only evidence (the database is not exhaustive).
+`lookup` reads the local hypotheses and the goal, translates them into a SQL query against LMFDB
+that searches for a *counterexample* (a database object that satisfies every hypothesis but
+violates the goal), and reports it if one is found. It never closes the goal: a hit shows the
+statement is false, and a miss is only evidence, since the database is not exhaustive.
 
 The vocabulary lives in `LeanBridge.Lookup.Basic` and the table registry in
 `LeanBridge.Lookup.Tables`; this file wires them into the query, the report, and the tactic. -/
@@ -41,14 +41,14 @@ def runSql (sql : String) : MetaM Json := do
 
 /-! ## Dispatch: translating a `Prop` to a SQL condition -/
 
-/-- Find the scalar column an expression denotes (trying every table's recognisers), together
-with the table it belongs to. -/
+/-- Find the scalar column an expression denotes, and its table, across every table's
+recognisers. -/
 def findScalar (e : Expr) : Option (Column × String) :=
   tables.findSome? fun t => (t.scalars.findSome? (· e)).map (·, t.table)
 
-/-- A column compared against an integer literal. A "signed" column stored as `sign * |·|` is
-case-split on the sign, so the comparison hits the indexed absolute-value column rather than
-the non-indexable product. -/
+/-- A column compared against an integer literal. For a signed column (`sign * |·|`), the
+comparison case-splits on the sign to hit the indexed `abs` column instead of the non-indexable
+product. -/
 def colVsLit (c : Column) (table : String) (cmp : Cmp) (k : Int) : Cond :=
   let core := match c.signed? with
     | some (signCol, absCol) =>
@@ -71,10 +71,10 @@ def toSqlCondCmp (cmp : Cmp) (a b : Expr) : Option Cond :=
 def combineCond (op : String) (a b : Cond) : Cond :=
   { sql := s!"(({a.sql}) {op} ({b.sql}))", refs := a.refs ++ b.refs, table := a.table <|> b.table }
 
-/-- Translate a `Prop` into a SQL condition. `positive := false` translates its negation;
-pushing the negation down to the operator / boolean value / connective (rather than wrapping in
-SQL `NOT (...)`) keeps the query index-friendly. `Not` flips the polarity, `Nonempty` is
-transparent, and `∧`/`∨` are pushed through by De Morgan. -/
+/-- Translate a `Prop` into a SQL condition; `pos := false` translates its negation. The negation
+is pushed onto the operator, boolean value, or connective instead of an SQL `NOT (...)`, to keep
+the query index-friendly. `Not` flips polarity, `Nonempty` is transparent, `∧`/`∨` go through by
+De Morgan. -/
 partial def toCond (pos : Bool) (e : Expr) : Option Cond :=
   match_expr e with
   | False => some { sql := if pos then "FALSE" else "TRUE" }
@@ -127,9 +127,9 @@ def valueStrs (row : Json) (items : Array (String × String)) : Array String := 
   return out
 
 open ProofWidgets in
-/-- Render a counterexample row as interactive HTML, including a clickable LMFDB link.
-A bare or markdown URL in a `MessageData` is not linkified by the infoview, so we build an
-actual `<a>` element and embed it via `MessageData.ofHtml`. -/
+/-- Render a counterexample row as interactive HTML with a clickable LMFDB link. The infoview
+doesn't linkify a bare or markdown URL in `MessageData`, so we build an actual `<a>` element and
+embed it via `MessageData.ofHtml`. -/
 def reportHtml (info : TableInfo) (row : Json) (items : Array (String × String)) : Html :=
   let label := rowStr row "label"
   Html.element "div" #[] #[
@@ -151,9 +151,9 @@ def reportAlt (info : TableInfo) (row : Json) (items : Array (String × String))
 
 /-! ## The tactic -/
 
-/-- Translate the hypotheses in context into SQL conditions. A hypothesis that *is* a
-comparison but that we cannot translate is reported as a warning (and dropped), since silently
-ignoring it would weaken any "no counterexample" conclusion. -/
+/-- Translate the context hypotheses into SQL conditions. If a hypothesis is a comparison we
+can't translate, warn and drop it: ignoring it silently would weaken any "no counterexample"
+conclusion. -/
 def collectHypotheses : TacticM (Array Cond) := do
   let mut out : Array Cond := #[]
   for ldecl in ← getLCtx do

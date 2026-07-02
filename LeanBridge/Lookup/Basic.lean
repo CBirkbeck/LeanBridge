@@ -2,9 +2,9 @@ import Mathlib
 
 /-! # `lookup` vocabulary
 
-The table-agnostic building blocks shared by the rest of the tactic: the value types
-(`Column`, `Cond`, `Cmp`), low-level `Expr` matchers, the recogniser combinators used to
-describe a table's columns/properties, small result-row utilities, and the `TableInfo` record.
+The shared, table-agnostic pieces: the value types (`Column`, `Cond`, `Cmp`), low-level `Expr`
+matchers, the recogniser combinators for a table's columns and properties, result-row helpers,
+and `TableInfo`.
 
 The concrete tables live in `LeanBridge.Lookup.Tables`; the tactic itself in
 `LeanBridge.Lookup.Lookup`. -/
@@ -52,12 +52,9 @@ end Cmp
 
 /-! ## Columns and conditions -/
 
-/-- A scalar quantity of an object: an SQL column expression and a human-readable name. A
-quantity stored split as `sign * |·|` records those two columns in `signed?`, so comparisons
-against a literal can be made index-friendly. `extraConds` are extra `WHERE` conjuncts the
-quantity implies — used when the object's identity is bundled into the quantity's expression
-rather than supplied by separate hypotheses (e.g. a modular space's level/weight/character read
-off the type inside `Module.finrank ℂ (CuspForm Γ₀(N) k)`). -/
+/-- A scalar quantity: an SQL expression and a display name. `signed?` names the `(sign, abs)`
+columns for a value LMFDB stores as `sign * |·|`. `extraConds` are extra `WHERE` conjuncts the
+quantity implies, e.g. a modular space's level and weight from its `Module.finrank ℂ` type. -/
 structure Column where
   sql : String
   display : String
@@ -101,10 +98,9 @@ def matchCmp (e : Expr) : Option (Cmp × Expr × Expr) :=
 /-- Whether `e` mentions the constant `n` anywhere. -/
 def containsConst (e : Expr) (n : Name) : Bool := (e.find? (·.isConstOf n)).isSome
 
-/-- Read a product of cyclic groups `ZMod n₁ × ⋯ × ZMod n_k` (with any `Multiplicative` or
-`Additive` wrappers stripped) as its list of moduli, in the order written. The trivial group —
-`ZMod 1`, `Unit`/`PUnit`, or any `ZMod 1` factor — contributes nothing, matching LMFDB's
-convention of dropping trivial invariant factors (so the trivial group is the empty array). -/
+/-- Read a product of cyclic groups `ZMod n₁ × ⋯ × ZMod n_k` (after stripping any
+`Multiplicative`/`Additive` wrapper) as its list of moduli, in order. A trivial factor (`ZMod 1`,
+`Unit`, `PUnit`) drops out, as LMFDB does, so the trivial group is `#[]`. -/
 partial def cyclicFactors? (e : Expr) : Option (Array Nat) :=
   match_expr e with
   | ZMod n => (getNatLit? n).map fun k => if k == 1 then #[] else #[k]
@@ -125,8 +121,8 @@ def bvarIdx? : Expr → Option Nat
   | .bvar n => some n
   | _ => none
 
-/-- Recognise the commutativity predicate `∀ a b, a * b = b * a` ("the group is abelian"),
-allowing the two multiplications to have swapped operands. -/
+/-- Recognise the commutativity predicate `∀ a b, a * b = b * a` (an abelian group), up to
+swapping the operands of the two products. -/
 def isAbelianPattern (e : Expr) : Bool :=
   match e with
   | .forallE _ _ (.forallE _ _ body _) _ =>
@@ -193,17 +189,16 @@ def absOf (c : Name) (sql display : String) : Expr → Option Column :=
     | abs _ _ _ x => if x.isAppOf c then some (col sql display) else none
     | _ => none
 
-/-- `signedValue c "signCol" "absCol" "name"`: matches an application of `c` whose value LMFDB
-stores split as `signCol * absCol` (e.g. the signed discriminant). Recording the two columns
-lets comparisons against a literal case-split on the sign and stay index-friendly. -/
+/-- `signedValue c "signCol" "absCol" "name"`: matches `c …` whose LMFDB value is split as
+`signCol * absCol` (e.g. the signed discriminant). A comparison then case-splits on the sign to
+stay index-friendly. -/
 def signedValue (c : Name) (signCol absCol display : String) : Expr → Option Column :=
   fun e => if e.isAppOf c then
     some (col s!"({signCol} * {absCol})" display (some (signCol, absCol))) else none
 
-/-- `cardIs "col" "name"`: matches a cardinality `Nat.card G` or `Fintype.card G` to the column
-`col`. The cardinality is read generically (it doesn't matter whether `G` is a group, or whether
-it is written multiplicatively or additively); it is the *object* — fixed by a group instance
-hypothesis or another property — that determines this is e.g. a group's order. -/
+/-- `cardIs "col" "name"`: matches `Nat.card G` or `Fintype.card G` to `col`. It ignores what `G`
+is, so it covers additive groups too; a group instance or another property marks this as a
+group's order. -/
 def cardIs (sql display : String) : Expr → Option Column :=
   fun e => match_expr e with
     | Nat.card _ => some (col sql display)
@@ -222,13 +217,13 @@ def modularSpace? (M : Expr) : Option (Bool × Nat × Int) := do
   let N ← getNatLit? g.appArg!
   return (isCusp, N, kLit)
 
-/-- The `WHERE` conjuncts identifying the `mf_newspaces` row for `S_k(Γ₀(N))`: its level, weight
-and the trivial character (`char_orbit_index = 1`, i.e. the `Γ₀(N)` nebentypus). -/
+/-- The `WHERE` conjuncts for the `mf_newspaces` row of `S_k(Γ₀(N))`: level, weight, and trivial
+character (`char_orbit_index = 1`, the `Γ₀(N)` nebentypus). -/
 def mfSpaceConds (N : Nat) (k : Int) : Array String :=
   #[s!"level = {N}", s!"weight = {k}", "char_orbit_index = 1"]
 
-/-- Recognise `Module.finrank ℂ (CuspForm Γ₀(N) k)` / `(ModularForm Γ₀(N) k)`, mapping to the
-cuspidal/total dimension column of `mf_newspaces` with the level/weight/character pinned. -/
+/-- Match `Module.finrank ℂ (CuspForm Γ₀(N) k)` / `(ModularForm Γ₀(N) k)` to the cuspidal or
+total dimension column of `mf_newspaces`, with level, weight and character pinned. -/
 def modularDim : Expr → Option Column := fun e =>
   match_expr e with
   | Module.finrank _ M _ _ _ => do
@@ -237,9 +232,9 @@ def modularDim : Expr → Option Column := fun e =>
              extraConds := mfSpaceConds N k }
   | _ => none
 
-/-- Recognise a modular/cusp form *type* `CuspForm Γ₀(N) k` / `ModularForm Γ₀(N) k` (e.g. a
-hypothesis `f : CuspForm Γ₀(N) k`), pinning the space's level, weight and trivial character. The
-polarity is ignored — the type names the object, it is not a refutable property. -/
+/-- Match a form *type* `CuspForm Γ₀(N) k` / `ModularForm Γ₀(N) k` (e.g. a hypothesis
+`f : CuspForm Γ₀(N) k`) and pin the space's level, weight and character. Polarity is ignored: a
+type names the object rather than a refutable property. -/
 def modularSpace : Bool → Expr → Option Cond := fun _ e => do
   let (_, N, k) ← modularSpace? e
   some { sql := String.intercalate " AND " (mfSpaceConds N k).toList,
@@ -250,18 +245,16 @@ column `col` (`= 't'`, or `= 'f'` when negated). -/
 def flagIs (c : Name) (column : String) : Bool → Expr → Option Cond :=
   fun pos e => if e.isAppOf c then some (boolCol pos column) else none
 
-/-- `flagCond c posSql negSql refs`: matches any application of `c` to the SQL condition
-`posSql` (or `negSql` when negated). Use when a Lean predicate has no dedicated boolean column
-but translates to a condition on existing columns (e.g. `NumberField.IsTotallyReal F` ↦
-`r2 = 0`). `refs` lists the `(displayName, selectExpr)` columns to report. -/
+/-- `flagCond c posSql negSql refs`: matches `c …` to `posSql` (or `negSql` when negated). Use it
+when a predicate has no boolean column but maps to a condition on existing columns (e.g.
+`NumberField.IsTotallyReal F` ↦ `r2 = 0`). `refs` lists the columns to report. -/
 def flagCond (c : Name) (posSql negSql : String) (refs : Array (String × String)) :
     Bool → Expr → Option Cond :=
   fun pos e => if e.isAppOf c then some { sql := if pos then posSql else negSql, refs } else none
 
-/-- `flagCondMentions head obj posSql negSql refs`: like `flagCond`, but for a *generic*
-predicate `head` (e.g. `Finite`, `IsPrincipalIdealRing`) that only identifies this table when
-its argument mentions `obj`. Matches `head … obj …` (e.g. `Finite W.Point`, with `obj` the
-elliptic-curve point group) to `posSql` (or `negSql` when negated). -/
+/-- Like `flagCond`, but for a *generic* `head` (e.g. `Finite`, `IsPrincipalIdealRing`) that only
+picks this table when its argument mentions `obj`. Matches `head … obj …` (e.g. `Finite W.Point`,
+`obj` the point group) to `posSql`/`negSql`. -/
 def flagCondMentions (head obj : Name) (posSql negSql : String) (refs : Array (String × String)) :
     Bool → Expr → Option Cond :=
   fun pos e => if e.isAppOf head && containsConst e obj then
@@ -273,9 +266,8 @@ def isAbelian (column : String) : Bool → Expr → Option Cond :=
   fun pos e => if isAbelianPattern e then some (boolCol pos column) else none
 
 /-- `isoStructure equiv c "col" "name" bracketed`: matches an isomorphism `lhs ≃ (∏ ZMod nᵢ)`
-written with `equiv` (``AddEquiv`` or ``MulEquiv``) and `lhs` mentioning `c`, comparing the
-invariant factors against `col`. `bracketed` selects the JSON `[…]` encoding (ideal class
-group) over the array `{…}` encoding (torsion structure). -/
+via `equiv` (``AddEquiv``/``MulEquiv``) with `lhs` mentioning `c`, and compares the invariant
+factors against `col`. `bracketed` picks the JSON `[…]` form (class group) over `{…}` (torsion). -/
 def isoStructure (equiv c : Name) (column display : String) (bracketed : Bool) :
     Bool → Expr → Option Cond :=
   fun pos e => do

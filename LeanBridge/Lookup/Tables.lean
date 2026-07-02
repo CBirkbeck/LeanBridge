@@ -2,9 +2,9 @@ import LeanBridge.Lookup.Basic
 
 /-! # LMFDB table registry
 
-The object families `lookup` knows about. **To support a new family, add a `TableInfo` here**
-(and list it in `tables`); **to teach an existing family a new column or property, add a
-recogniser** to its `scalars`/`props` using the combinators from `LeanBridge.Lookup.Basic`. -/
+The object families `lookup` knows about. To add a family, add a `TableInfo` here and list it in
+`tables`. To teach a family a new column or property, add a recogniser to its `scalars`/`props`
+with the combinators from `LeanBridge.Lookup.Basic`. -/
 
 open Lean
 
@@ -90,7 +90,7 @@ def ecCurvedata : TableInfo where
   props := #[
     -- `AddCommGroup.torsion W.Point ≃+ (∏ ZMod nᵢ)`  ↦  torsion_structure = {n₁, …}
     isoStructure ``AddEquiv ``AddCommGroup.torsion "torsion_structure" "torsion structure" false,
-    -- `Finite W.Point`  ↦  rank = 0  (Mordell–Weil group finite ⟺ rank zero)
+    -- `Finite W.Point`  ↦  rank = 0  (Mordell-Weil group finite ⟺ rank zero)
     flagCondMentions ``Finite ``WeierstrassCurve.Affine.Point "rank = 0" "rank <> 0"
       #[("rank", "rank")],
     -- `IsAddTorsionFree W.Point`  ↦  torsion = 1
@@ -139,9 +139,9 @@ def gpsGroups : TableInfo where
     -- `IsSolvable G`  ↦  solvable = 't'
     flagIs ``IsSolvable "solvable"]
 
-/-- Spaces of classical modular forms `S_k(Γ₀(N))` / `M_k(Γ₀(N))`. The object is identified by
-its level and weight, read off the type `CuspForm Γ k` / `ModularForm Γ k` (with `Γ = Γ₀(N)`)
-inside a `Module.finrank ℂ …` — see `modularDim`. -/
+/-- Spaces of classical modular forms `S_k(Γ₀(N))` / `M_k(Γ₀(N))`. Level and weight come from the
+form type `CuspForm Γ k` / `ModularForm Γ k` (`Γ = Γ₀(N)`) inside a `Module.finrank ℂ …`; see
+`modularDim`. -/
 def mfNewspaces : TableInfo where
   table := "mf_newspaces"
   labelCol := "label"
