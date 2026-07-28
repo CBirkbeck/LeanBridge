@@ -1,7 +1,7 @@
 import Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Point
 import Mathlib.AlgebraicGeometry.EllipticCurve.NormalForms
 import Mathlib.AlgebraicGeometry.EllipticCurve.Reduction
-import Mathlib.Analysis.SpecialFunctions.Log.Basic
+import Mathlib.NumberTheory.Height.NumberField
 import Mathlib.RingTheory.Radical.NatInt
 
 /-!
@@ -167,26 +167,25 @@ end GlobalMinimal
 section Height
 
 /-- The **naive height** (LMFDB `ec.q.naive_height`) of an elliptic curve over `ℚ` in short
-Weierstrass form `y² = x³ + a₄x + a₆`: the maximum of `4|a₄|³` and `27a₆²`. -/
+Weierstrass form `y² = x³ + a₄x + a₆`: the maximum of `4|a₄|³` and `27a₆²`. The LMFDB defines this
+as a plain maximum; it is not a logarithmic height in the sense of `Height.logHeight₁`. -/
 def naiveHeight (W : WeierstrassCurve ℚ) [W.IsShortNF] : ℚ :=
   max (4 * |W.a₄| ^ 3) (27 * W.a₆ ^ 2)
 
-/-- The **naive height** of a rational point on a Weierstrass curve over `ℚ`: the logarithm of the
-maximum of the absolute value of the numerator and the denominator of its `x`-coordinate, and `0`
-at the point at infinity. -/
-noncomputable def naivePointHeight {W : WeierstrassCurve ℚ} : W.toAffine.Point → ℝ
-  | .zero => 0
-  | .some (x := x) .. => Real.log (max (x.num.natAbs : ℝ) (x.den : ℝ))
-
-open Filter in
+open Filter Height in
 /-- The **canonical height**, or Néron–Tate height, (LMFDB `ec.q.canonical_height`) of a rational
-point `P` on an elliptic curve over `ℚ`: the limit of `naivePointHeight (n • P) / n ^ 2`. This is
-LMFDB's normalization, twice that of some authors. The limit is taken via `limUnder`, whose value
-is unspecified when the sequence does not converge; convergence is the content of the Néron–Tate
-theorem, which is not proved here. -/
+point `P` on an elliptic curve over `ℚ`: the limit of `logHeight₁ (x (n • P)) / n ^ 2`, where
+`logHeight₁` is the logarithmic height of the `x`-coordinate and the point at infinity contributes
+`0`. This is LMFDB's normalization, twice that of some authors. Mathlib does not (yet) define the
+canonical height. The limit is taken via `limUnder`, whose value is unspecified when the sequence
+does not converge; convergence is the content of the Néron–Tate theorem, which is not proved
+here. -/
 noncomputable def canonicalHeight {W : WeierstrassCurve ℚ} [W.IsElliptic]
     (P : W.toAffine.Point) : ℝ :=
-  limUnder atTop (fun n : ℕ => naivePointHeight (n • P) / (n : ℝ) ^ 2)
+  limUnder atTop fun n : ℕ =>
+    (match n • P with
+      | .zero => 0
+      | .some (x := x) .. => logHeight₁ x) / (n : ℝ) ^ 2
 
 end Height
 
