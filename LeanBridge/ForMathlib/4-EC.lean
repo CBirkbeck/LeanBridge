@@ -140,11 +140,10 @@ holds for all but finitely many `v`, so the (a priori infinite) product is finit
 `IsGlobalMinimalModel` then `𝔡_min = (Δ)`, the principal ideal of that model's discriminant. -/
 noncomputable def minimalDiscriminantIdeal (W : WeierstrassCurve (FractionRing O)) : Ideal O :=
   ∏ᶠ v : HeightOneSpectrum O,
-    v.asIdeal ^
-      (haveI : IsDiscreteValuationRing (Localization.AtPrime v.asIdeal) :=
-        IsLocalization.AtPrime.isDiscreteValuationRing_of_dedekind_domain O v.ne_bot _
-      ((IsDiscreteValuationRing.addVal (Localization.AtPrime v.asIdeal))
-        ((integralModel _ (W.minimal (Localization.AtPrime v.asIdeal))).Δ)).toNat)
+    let R := Localization.AtPrime v.asIdeal
+    haveI : IsDiscreteValuationRing R :=
+      IsLocalization.AtPrime.isDiscreteValuationRing_of_dedekind_domain O v.ne_bot _
+    v.asIdeal ^ (-WithZero.log (v.valuation (FractionRing O) (W.minimal R).Δ)).toNat
 
 /-- The unique **reduced minimal Weierstrass model** over `ℚ` (LMFDB
 `ec.q.minimal_weierstrass_equation`): a global minimal model over `ℤ` whose coefficients are
@@ -172,13 +171,12 @@ over `O`: the `v`-adic valuation of this model's discriminant minus the local mi
 valuation `eᵥ`, divided by `12` (an exact division, since two integral models' discriminant
 valuations differ by a multiple of `12`). -/
 noncomputable def obstructionExponent (W : WeierstrassCurve O) (v : HeightOneSpectrum O) : ℕ :=
-  haveI : IsDiscreteValuationRing (Localization.AtPrime v.asIdeal) :=
+  let R := Localization.AtPrime v.asIdeal
+  haveI : IsDiscreteValuationRing R :=
     IsLocalization.AtPrime.isDiscreteValuationRing_of_dedekind_domain O v.ne_bot _
-  ((IsDiscreteValuationRing.addVal (Localization.AtPrime v.asIdeal)
-      (algebraMap O (Localization.AtPrime v.asIdeal) W.Δ)).toNat -
-    (IsDiscreteValuationRing.addVal (Localization.AtPrime v.asIdeal)
-      (integralModel _
-        ((W.baseChange (FractionRing O)).minimal (Localization.AtPrime v.asIdeal))).Δ).toNat) / 12
+  ((-WithZero.log (v.valuation (FractionRing O) (algebraMap O (FractionRing O) W.Δ))).toNat -
+    (-WithZero.log (v.valuation (FractionRing O)
+      ((W.baseChange (FractionRing O)).minimal R).Δ)).toNat) / 12
 
 /-- The **obstruction class** (Silverman's *Weierstrass class*, LMFDB `ec.obstruction_class`) of an
 integral model `W` over `O`: the ideal class `[∏ᵥ 𝔭ᵥ^{fᵥ}] ∈ ClassGroup O`, where `𝔞 = ∏ᵥ 𝔭ᵥ^{fᵥ}`
