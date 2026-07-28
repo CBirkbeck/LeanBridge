@@ -1,14 +1,8 @@
-import Mathlib.AlgebraicGeometry.EllipticCurve.Reduction
 import Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Point
-import Mathlib.RingTheory.DedekindDomain.Dvr
-import Mathlib.RingTheory.DedekindDomain.Ideal.Lemmas
-import Mathlib.RingTheory.Localization.LocalizationLocalization
-import Mathlib.Algebra.BigOperators.Finprod
 import Mathlib.AlgebraicGeometry.EllipticCurve.NormalForms
-import Mathlib.RingTheory.Radical.NatInt
-import Mathlib.RingTheory.UniqueFactorizationDomain.Nat
+import Mathlib.AlgebraicGeometry.EllipticCurve.Reduction
 import Mathlib.Analysis.SpecialFunctions.Log.Basic
-import Mathlib.RingTheory.ClassGroup.Basic
+import Mathlib.RingTheory.Radical.NatInt
 
 /-!
 # Elliptic curve definitions for LeanBridge (chapter 4)
@@ -27,7 +21,7 @@ variable {F : Type*} [Field F] [Finite F]
 
 /-- The trace of Frobenius `aₚ = #F + 1 − #E(F)` of an elliptic curve over a finite field `F`.
 (`Nat.card` gives the true cardinality since `F` is finite.) -/
-noncomputable def traceOfFrobenius (E : WeierstrassCurve F) [E.IsElliptic] : ℤ :=
+noncomputable def traceOfFrobenius (E : WeierstrassCurve F) : ℤ :=
   (Nat.card F : ℤ) + 1 - Nat.card E.toAffine.Point
 
 /-- An elliptic curve over a finite field is **supersingular** if its characteristic `p` divides its
@@ -35,13 +29,13 @@ trace of Frobenius `aₚ`. The criterion is `p ∣ aₚ`, **not** `aₚ = 0`: fo
 (Hasse gives `|aₚ| ≤ 2√q < p`), but in characteristic 2 and 3 `|aₚ|` can reach or exceed `p`
 (e.g. `aₚ = ±2` at `p = 2`), where `aₚ = 0` would misclassify. `p ∣ aₚ` is correct in all
 characteristics (Silverman, *Arithmetic of Elliptic Curves*, V.3.1). -/
-def IsSupersingular (E : WeierstrassCurve F) [E.IsElliptic] : Prop :=
+def IsSupersingular (E : WeierstrassCurve F) : Prop :=
   (ringChar F : ℤ) ∣ traceOfFrobenius E
 
 /-- An elliptic curve over a finite field is **ordinary** if it is not supersingular, i.e. its
 characteristic `p` does not divide its trace of Frobenius `aₚ` (the divisibility `p ∤ aₚ`, *not*
 `aₚ ≠ 0` — see `IsSupersingular`). -/
-def IsOrdinary (E : WeierstrassCurve F) [E.IsElliptic] : Prop :=
+def IsOrdinary (E : WeierstrassCurve F) : Prop :=
   ¬ E.IsSupersingular
 
 end FiniteField
@@ -64,27 +58,23 @@ a discrete valuation ring `S` extending `R` (compatibly, via the scalar towers `
 `R → K → Frac S`) whose fraction field `Frac S` is a *finite* extension of `K`, over which `W` has
 good reduction. `S` lives in `K`'s universe (every finite extension of `K` does). Equivalently, by
 Silverman AEC VII.5.5, `j(E) ∈ R`; this takes the base-change form requested in review. -/
-def IsPotentialGoodReduction (W : WeierstrassCurve K) : Prop :=
-  ∃ (S : Type u) (_ : CommRing S) (_ : IsDomain S) (_ : IsDiscreteValuationRing S)
-    (_ : Algebra R S) (_ : Algebra R (FractionRing S)) (_ : Algebra K (FractionRing S))
-    (_ : IsScalarTower R S (FractionRing S)) (_ : IsScalarTower R K (FractionRing S))
-    (_ : FiniteDimensional K (FractionRing S)),
-    HasGoodReduction S (W.baseChange (FractionRing S))
+def IsPotentialGoodReduction (W : WeierstrassCurve K) [W.IsElliptic] : Prop :=
+  ∃ r : R, algebraMap R K r = W.j
 
 /-- A minimal Weierstrass curve over `K` (with finite residue field) has **good ordinary reduction**
 (LMFDB `ec.good_ordinary_reduction`) if it has good reduction and the reduced elliptic curve is
 ordinary. (Ordinary uses `p ∤ aₚ`, the characteristic-independent criterion; see `IsOrdinary`.) -/
-def IsGoodOrdinaryReduction [Finite (ResidueField R)] (W : WeierstrassCurve K) [IsMinimal R W] :
-    Prop :=
-  ∃ h : (W.reduction R).IsElliptic, haveI := h; (W.reduction R).IsOrdinary
+def IsGoodOrdinaryReduction [Finite (ResidueField R)] (W : WeierstrassCurve K)
+[HasGoodReduction R W]: Prop :=
+    IsOrdinary (W.reduction R)
 
 /-- A minimal Weierstrass curve over `K` (with finite residue field) has **good supersingular
 reduction** (LMFDB `ec.good_supersingular_reduction`) if it has good reduction and the reduced
 elliptic curve is supersingular. (Uses `p ∣ aₚ`, not `aₚ = 0` — correct in char 2 and 3; see
 `IsSupersingular`.) -/
 def IsGoodSupersingularReduction [Finite (ResidueField R)] (W : WeierstrassCurve K)
-    [IsMinimal R W] : Prop :=
-  ∃ h : (W.reduction R).IsElliptic, haveI := h; (W.reduction R).IsSupersingular
+    [HasGoodReduction R W] : Prop :=
+    IsSupersingular (W.reduction R)
 
 /-- A minimal Weierstrass curve over `K` has **non-split multiplicative reduction** (LMFDB
 `ec.nonsplit_multiplicative_reduction`) if it has multiplicative reduction that is not split — the
@@ -210,7 +200,7 @@ Weierstrass form `y² = x³ + a₄x + a₆`: the quantity `max (4|a₄|³, 27|a�
 instance enforces the short-form requirement (`a₁ = a₂ = a₃ = 0`); a general curve must first be put
 in short form (`W.toShortNF • W`) since the naive height depends on the chosen model. -/
 def naiveHeight (W : WeierstrassCurve ℚ) [W.IsShortNF] : ℚ :=
-  max (4 * |W.a₄| ^ 3) (27 * |W.a₆| ^ 2)
+  max (4 * |W.a₄| ^ 3) (27 * W.a₆ ^ 2)
 
 /-- The **naive height** of a rational point `P ∈ E(ℚ)`: `log max(|num x(P)|, |den x(P)|)`, the
 height of its `x`-coordinate (and `0` at the point at infinity). -/
