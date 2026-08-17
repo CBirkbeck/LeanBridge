@@ -288,4 +288,135 @@ noncomputable def traceBound {ι : Type*} {N : ℕ} (χ : DirichletCharacter ℂ
       e ⟨(qExpansion 1 ⇑(f i)).coeff ((j : ℕ) + 1),
         IntermediateField.subset_adjoin ℚ _ ⟨(j : ℕ), rfl⟩⟩}
 
+/-- The **level-raising map** (degeneracy map) `V_d = ι_d`: `(V_d f)(τ) = f(dτ)` for a positive
+integer `d` — the classical normalization, with no stray power of `d`. For `d ∣ N/M` it maps
+`S_k(M, χ_M)` into `S_k(N, χ)`, and its images from proper divisor levels span the old subspace
+(LMFDB [`cmf.oldspace`](https://www.lmfdb.org/knowledge/show/cmf.oldspace)). -/
+def levelRaisingMap (d : ℕ+) (f : ℍ → ℂ) : ℍ → ℂ :=
+  fun τ => f ⟨((d : ℕ) : ℂ) * τ, by
+    simpa [Complex.mul_im] using mul_pos (by exact_mod_cast d.pos : (0 : ℝ) < (d : ℕ)) τ.im_pos⟩
+
+/-- The **old subspace** `S_k^old(N, χ)` of the cusp forms of weight `k`, level `N` and
+character `χ`: the span of the images `f(dτ)` of the cusp forms `f ∈ S_k(M, χ_M)` over all
+proper divisors `M` of `N` carrying a character `χ_M` that induces `χ` (which forces `M` to be
+divisible by the conductor of `χ`), and all divisors `d` of `N/M`. The knowl's direct-sum
+decomposition into newspaces is a theorem, not encoded; the span lives in the ambient functions
+on `ℍ` since modularity of the raised forms at level `N` is likewise a theorem
+(LMFDB [`cmf.oldspace`](https://www.lmfdb.org/knowledge/show/cmf.oldspace)). -/
+noncomputable def oldspace {N : ℕ} (χ : DirichletCharacter ℂ N) (k : ℤ) :
+    Submodule ℂ (ℍ → ℂ) :=
+  Submodule.span ℂ
+    {g | ∃ (M : ℕ) (hM : M ∣ N) (_ : M ≠ N) (χ' : DirichletCharacter ℂ M)
+      (_ : DirichletCharacter.changeLevel hM χ' = χ) (d : ℕ+) (_ : (d : ℕ) ∣ N / M)
+      (f : CuspForm ↑(Gamma1 M) k) (_ : HasCharacter (Gamma0 M) k χ' ⇑f),
+      g = levelRaisingMap d ⇑f}
+
+/-- The **new subspace** `S_k^new(N, χ)`: the orthogonal complement of the old subspace with
+respect to the Petersson inner product, expressed relative to a pairing `B` that is linear in
+its first argument — the space of `f` with `B f g = 0` for every `g` in the old subspace, an
+intersection of kernels. The LMFDB newspace is this definition at the Petersson pairing (see
+`cmf.petersson_scalar_product`), which is taken as an input until that product is defined; the
+direct-sum decomposition `S_k = S_k^old ⊕ S_k^new` and the newform basis are theorems, not
+encoded
+(LMFDB [`cmf.newspace`](https://www.lmfdb.org/knowledge/show/cmf.newspace)). -/
+noncomputable def newspace {N : ℕ} (χ : DirichletCharacter ℂ N) (k : ℤ)
+    (B : (ℍ → ℂ) →ₗ[ℂ] ((ℍ → ℂ) → ℂ)) : Submodule ℂ (ℍ → ℂ) :=
+  ⨅ g : ↥(oldspace χ k), LinearMap.ker ((LinearMap.proj (g : ℍ → ℂ)).comp B)
+
+/-- The **plus subspace** of `S_k(Γ₀(N))`: the eigenspace of the Fricke involution `w_N` with
+eigenvalue `+1`, here the set of functions fixed by `fricke k hN`. That it is a linear subspace
+of the cusp forms — linearity of `w_N` — is a theorem, not encoded
+(LMFDB [`cmf.plus_space`](https://www.lmfdb.org/knowledge/show/cmf.plus_space)). -/
+def plusSpace (k : ℤ) {N : ℕ} (hN : 0 < N) :
+    Set (CuspForm ↑(Gamma0 N) k) :=
+  {f | fricke k hN ⇑f = ⇑f}
+
+/-- The **minus subspace** of `S_k(Γ₀(N))`: the eigenspace of the Fricke involution `w_N` with
+eigenvalue `-1`, here the set of functions negated by `fricke k hN`. That it is a linear
+subspace of the cusp forms — linearity of `w_N` — is a theorem, not encoded
+(LMFDB [`cmf.minus_space`](https://www.lmfdb.org/knowledge/show/cmf.minus_space)). -/
+def minusSpace (k : ℤ) {N : ℕ} (hN : 0 < N) :
+    Set (CuspForm ↑(Gamma0 N) k) :=
+  {f | fricke k hN ⇑f = -⇑f}
+
+/-- The **old subspace** `M_k^old(N, χ)` of the full space of modular forms of weight `k`,
+level `N` and character `χ`: the span of the images `f(dτ)` of the modular forms
+`f ∈ M_k(M, χ_M)` over proper divisors `M ∣ N` carrying a character `χ_M` that induces `χ`, and
+divisors `d ∣ N/M` — the same degeneracy-map construction as the cuspidal `oldspace`. Of the
+knowl's remaining content, the cuspidal subspace is mathlib's `ModularForm.cuspFormSubmodule`,
+the Eisenstein subspace and its new part are `cmf.eisenstein_form`/`cmf.eisenstein_newspace`,
+and the three direct-sum decompositions are theorems, not encoded
+(LMFDB [`cmf.subspaces`](https://www.lmfdb.org/knowledge/show/cmf.subspaces)). -/
+noncomputable def modularOldspace {N : ℕ} (χ : DirichletCharacter ℂ N) (k : ℤ) :
+    Submodule ℂ (ℍ → ℂ) :=
+  Submodule.span ℂ
+    {g | ∃ (M : ℕ) (hM : M ∣ N) (_ : M ≠ N) (χ' : DirichletCharacter ℂ M)
+      (_ : DirichletCharacter.changeLevel hM χ' = χ) (d : ℕ+) (_ : (d : ℕ) ∣ N / M)
+      (f : ModularForm ↑(Gamma1 M) k) (_ : HasCharacter (Gamma0 M) k χ' ⇑f),
+      g = levelRaisingMap d ⇑f}
+
+/-- A **newform** of weight `k`, level `N` and character `χ`: a cusp form in the new subspace
+`S_k^new(N, χ)` that is a Hecke eigenform, normalized so that its `q`-expansion has `a₁ = 1`.
+The eigenform condition is stated for the operators `T_n` with `n` coprime to the level; that a
+member of the new subspace eigen away from the level is automatically an eigenform for all
+`T_n` — the knowl's phrasing — is Diamond–Shurman Thm 5.8.2, a theorem, not a definition field.
+The pairing `B` is the stand-in for the Petersson product defining the new subspace (see
+`ModularForm.newspace`), and that the newforms form a basis of it is likewise a theorem
+(LMFDB [`cmf.newform`](https://www.lmfdb.org/knowledge/show/cmf.newform)). -/
+structure IsNewform {N : ℕ} (χ : DirichletCharacter ℂ N) (k : ℤ)
+    (B : (ℍ → ℂ) →ₗ[ℂ] ((ℍ → ℂ) → ℂ)) (f : CuspForm ↑(Gamma1 N) k) : Prop where
+  level_pos : 0 < N
+  hasCharacter : HasCharacter (Gamma0 N) k χ ⇑f
+  mem_newspace : ⇑f ∈ newspace χ k B
+  eigen_away : ∀ n : ℕ, 0 < n → n.Coprime N → ∃ c : ℂ, heckeOperator χ k n ⇑f = c • ⇑f
+  normalized : (qExpansion 1 ⇑f).coeff 1 = 1
+
+/-- The **newform subspace** `V_f` of a newform `f` in `S_k^new(N, χ)`: the subspace of the cusp
+forms on `Γ₁(N)` generated by the Galois conjugates of `f` — the span already used by
+`ModularForm.heckeCharpoly`. That every newspace decomposes canonically into newform subspaces
+is a theorem (see `cmf.decomposition.new.gamma0chi`), not encoded
+(LMFDB [`cmf.newform_subspace`](https://www.lmfdb.org/knowledge/show/cmf.newform_subspace)). -/
+noncomputable def newformSubspace {N : ℕ} {χ : DirichletCharacter ℂ N} {k : ℤ}
+    {B : (ℍ → ℂ) →ₗ[ℂ] ((ℍ → ℂ) → ℂ)} (f : CuspForm ↑(Gamma1 N) k)
+    (_hf : IsNewform χ k B f) : Submodule ℂ (CuspForm ↑(Gamma1 N) k) :=
+  Submodule.span ℂ (galoisOrbit f)
+
+/-- The **Atkin-Lehner subspace of `f`** at level `N` and weight `k`: the functions satisfying
+every Atkin-Lehner eigen-equation that `f` satisfies — `g` belongs when, for each admissible
+`W_Q` and each `ε` with `w_Q f = ε • f`, also `w_Q g = ε • g`. Quantifying over all admissible
+matrices avoids choosing one, but identifying this set with the classical Atkin-Lehner subspace
+of a trivial-character newform relies on two theorems, not encoded: such a newform is an
+eigenform of every `w_Q`, and all admissible matrices for a given `Q` induce the same operator
+on the relevant forms
+(LMFDB [`cmf.maximal`](https://www.lmfdb.org/knowledge/show/cmf.maximal)). -/
+def atkinLehnerSubspaceOf (k : ℤ) (N : ℕ) (f : ℍ → ℂ) : Set (ℍ → ℂ) :=
+  {g | ∀ {Q : ℕ} {W : Matrix (Fin 2) (Fin 2) ℤ} (hW : IsAtkinLehnerMatrix N Q W) (ε : ℂ),
+    atkinLehner k hW f = ε • f → atkinLehner k hW g = ε • g}
+
+/-- A newform `f` is **maximal** if its Galois orbit spans the ambient subspace containing it:
+for nontrivial character the entire newspace, for trivial character its Atkin-Lehner subspace
+within the newspace (the eigenvalue-matching set `atkinLehnerSubspaceOf`). The span is taken in
+the ambient functions on `ℍ`, where the newspace lives
+(LMFDB [`cmf.maximal`](https://www.lmfdb.org/knowledge/show/cmf.maximal)). -/
+def IsMaximalNewform {N : ℕ} {χ : DirichletCharacter ℂ N} {k : ℤ}
+    {B : (ℍ → ℂ) →ₗ[ℂ] ((ℍ → ℂ) → ℂ)} (f : CuspForm ↑(Gamma1 N) k)
+    (_hf : IsNewform χ k B f) : Prop :=
+  (χ ≠ 1 → Submodule.span ℂ ((fun g : CuspForm ↑(Gamma1 N) k => ⇑g) '' galoisOrbit f) =
+    newspace χ k B) ∧
+  (χ = 1 →
+    (Submodule.span ℂ ((fun g : CuspForm ↑(Gamma1 N) k => ⇑g) '' galoisOrbit f) :
+      Set (ℍ → ℂ)) = ↑(newspace χ k B) ∩ atkinLehnerSubspaceOf k N ⇑f)
+
+/-- A newform `f` is the **largest** newform in its ambient subspace if its dimension — the
+dimension of its newform subspace — strictly exceeds that of every nonconjugate newform of the
+same character in the same ambient subspace (for trivial character, sharing the Atkin-Lehner
+subspace of `f`; for nontrivial character the ambient is the whole newspace)
+(LMFDB [`cmf.maximal`](https://www.lmfdb.org/knowledge/show/cmf.maximal)). -/
+def IsLargestNewform {N : ℕ} {χ : DirichletCharacter ℂ N} {k : ℤ}
+    {B : (ℍ → ℂ) →ₗ[ℂ] ((ℍ → ℂ) → ℂ)} (f : CuspForm ↑(Gamma1 N) k)
+    (hf : IsNewform χ k B f) : Prop :=
+  ∀ g, ∀ hg : IsNewform χ k B g, ¬ IsGaloisConjugate f g →
+    (χ = 1 → ⇑g ∈ atkinLehnerSubspaceOf k N ⇑f) →
+    Module.finrank ℂ (newformSubspace g hg) < Module.finrank ℂ (newformSubspace f hf)
+
 end ModularForm
