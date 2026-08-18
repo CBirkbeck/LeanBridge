@@ -2,8 +2,10 @@ import Mathlib.Analysis.SpecialFunctions.Gamma.Digamma
 import Mathlib.FieldTheory.Relrank
 import Mathlib.LinearAlgebra.Charpoly.Basic
 import Mathlib.NumberTheory.DirichletCharacter.Basic
+import Mathlib.NumberTheory.LSeries.DirichletContinuation
 import Mathlib.NumberTheory.ModularForms.Basic
 import Mathlib.NumberTheory.ModularForms.CongruenceSubgroups
+import Mathlib.NumberTheory.ModularForms.CuspFormSubmodule
 import Mathlib.NumberTheory.ModularForms.QExpansion
 import Mathlib.NumberTheory.ModularForms.SlashActions
 
@@ -312,12 +314,14 @@ noncomputable def oldspace {N : ℕ} (χ : DirichletCharacter ℂ N) (k : ℤ) :
       g = levelRaisingMap d ⇑f}
 
 /-- The **new subspace** `S_k^new(N, χ)`: the orthogonal complement of the old subspace with
-respect to the Petersson inner product, expressed relative to a pairing `B` that is linear in
-its first argument — the space of `f` with `B f g = 0` for every `g` in the old subspace, an
-intersection of kernels. The LMFDB newspace is this definition at the Petersson pairing (see
-`cmf.petersson_scalar_product`), which is taken as an input until that product is defined; the
-direct-sum decomposition `S_k = S_k^old ⊕ S_k^new` and the newform basis are theorems, not
-encoded
+respect to the Petersson inner product, expressed relative to a pairing `B` — the space of `f`
+with `B f g = 0` for every `g` in the old subspace, an intersection of kernels. Here `B f g`
+stands for the Petersson pairing of `f` and `g` with the arguments ordered so that `B` is
+linear in `f`: since the classical Petersson product is conjugate-linear in one slot, the
+intended instantiation puts `f` in the linear slot (for mathlib's integrand, which conjugates
+its first argument, this means `B f g = ⟨g, f⟩`). `B` is an input until the product is defined
+(see `cmf.petersson_scalar_product`); the direct-sum decomposition `S_k = S_k^old ⊕ S_k^new`
+and the newform basis are theorems, not encoded
 (LMFDB [`cmf.newspace`](https://www.lmfdb.org/knowledge/show/cmf.newspace)). -/
 noncomputable def newspace {N : ℕ} (χ : DirichletCharacter ℂ N) (k : ℤ)
     (B : (ℍ → ℂ) →ₗ[ℂ] ((ℍ → ℂ) → ℂ)) : Submodule ℂ (ℍ → ℂ) :=
@@ -393,16 +397,28 @@ def atkinLehnerSubspaceOf (k : ℤ) (N : ℕ) (f : ℍ → ℂ) : Set (ℍ → �
   {g | ∀ {Q : ℕ} {W : Matrix (Fin 2) (Fin 2) ℤ} (hW : IsAtkinLehnerMatrix N Q W) (ε : ℂ),
     atkinLehner k hW f = ε • f → atkinLehner k hW g = ε • g}
 
+/-- The newspace of the **character orbit** `[χ]`: the subspace `S_k^new(N, [χ])`, the span
+`⨆_σ S_k^new(N, σ∘χ)` of the newspaces at all Galois conjugates of `χ`. Galois conjugation
+sends a newform of nebentypus `χ` to one of nebentypus `σ∘χ`, so a full Galois orbit of
+newforms spans a subspace of this space, not of the fixed-`χ` component; LMFDB newspaces are
+labelled by character orbits accordingly
+(LMFDB [`cmf.newspace`](https://www.lmfdb.org/knowledge/show/cmf.newspace)). -/
+noncomputable def newspaceCharOrbit {N : ℕ} (χ : DirichletCharacter ℂ N) (k : ℤ)
+    (B : (ℍ → ℂ) →ₗ[ℂ] ((ℍ → ℂ) → ℂ)) : Submodule ℂ (ℍ → ℂ) :=
+  ⨆ σ : ℂ ≃ₐ[ℚ] ℂ, newspace (χ.ringHomComp (σ : ℂ →+* ℂ)) k B
+
 /-- A newform `f` is **maximal** if its Galois orbit spans the ambient subspace containing it:
-for nontrivial character the entire newspace, for trivial character its Atkin-Lehner subspace
-within the newspace (the eigenvalue-matching set `atkinLehnerSubspaceOf`). The span is taken in
-the ambient functions on `ℍ`, where the newspace lives
+for nontrivial character the entire newspace of the character orbit `S_k^new(N, [χ])` — the full
+Galois orbit meets every conjugate-character component, so the fixed-`χ` component would be too
+small — and for trivial character its Atkin-Lehner subspace within the newspace (the
+eigenvalue-matching set `atkinLehnerSubspaceOf`; the trivial character is Galois-stable). The
+spans are taken in the ambient functions on `ℍ`, where the newspaces live
 (LMFDB [`cmf.maximal`](https://www.lmfdb.org/knowledge/show/cmf.maximal)). -/
 def IsMaximalNewform {N : ℕ} {χ : DirichletCharacter ℂ N} {k : ℤ}
     {B : (ℍ → ℂ) →ₗ[ℂ] ((ℍ → ℂ) → ℂ)} (f : CuspForm ↑(Gamma1 N) k)
     (_hf : IsNewform χ k B f) : Prop :=
   (χ ≠ 1 → Submodule.span ℂ ((fun g : CuspForm ↑(Gamma1 N) k => ⇑g) '' galoisOrbit f) =
-    newspace χ k B) ∧
+    newspaceCharOrbit χ k B) ∧
   (χ = 1 →
     (Submodule.span ℂ ((fun g : CuspForm ↑(Gamma1 N) k => ⇑g) '' galoisOrbit f) :
       Set (ℍ → ℂ)) = ↑(newspace χ k B) ∩ atkinLehnerSubspaceOf k N ⇑f)
@@ -418,5 +434,127 @@ def IsLargestNewform {N : ℕ} {χ : DirichletCharacter ℂ N} {k : ℤ}
   ∀ g, ∀ hg : IsNewform χ k B g, ¬ IsGaloisConjugate f g →
     (χ = 1 → ⇑g ∈ atkinLehnerSubspaceOf k N ⇑f) →
     Module.finrank ℂ (newformSubspace g hg) < Module.finrank ℂ (newformSubspace f hf)
+
+/-- The **decomposition of the newspace into newforms** along a family
+`f : ι → CuspForm (Γ₁(N)) k` of newforms: the spans of their Galois orbits (taken in the ambient
+functions, where the newspaces live) are independent and jointly span the character-orbit
+newspace `S_k^new(N, [χ])` — full Galois orbits meet every conjugate-character component, so
+the ambient is `newspaceCharOrbit`, not the fixed-`χ` component. The internal direct-sum
+statement is phrased as a proposition about a supplied family rather than as definitional data;
+that such a family exists, that each piece is irreducible and Hecke-stable, and that its
+dimension equals the degree of the coefficient field of its newform are theorems, not encoded
+(LMFDB [`cmf.decomposition.new.gamma0chi`](https://www.lmfdb.org/knowledge/show/cmf.decomposition.new.gamma0chi)). -/
+def IsNewformDecomposition {ι : Type*} {N : ℕ} {χ : DirichletCharacter ℂ N} {k : ℤ}
+    {B : (ℍ → ℂ) →ₗ[ℂ] ((ℍ → ℂ) → ℂ)} (f : ι → CuspForm ↑(Gamma1 N) k)
+    (_hf : ∀ i, IsNewform χ k B (f i)) : Prop :=
+  iSupIndep
+    (fun i => Submodule.span ℂ
+      ((fun g : CuspForm ↑(Gamma1 N) k => ⇑g) '' galoisOrbit (f i))) ∧
+  ⨆ i, Submodule.span ℂ ((fun g : CuspForm ↑(Gamma1 N) k => ⇑g) '' galoisOrbit (f i)) =
+    newspaceCharOrbit χ k B
+
+/-- The **trace form of a newspace**: the modular form obtained by summing its canonical basis
+of newforms, expressed as the sum `∑ᵢ Tr(fᵢ)` of the orbit trace forms over a finite family of
+newforms decomposing the character-orbit newspace — the canonical basis is the union of the
+Galois orbits, and summing within each orbit gives its trace form `ModularForm.traceForm`. The
+coefficient-field membership of the `q`-coefficients is an input; for a genuine cusp form it is
+provable, the constant term vanishing by `qExpansion_coeff_zero` with the `Γ₁(N)` period lemma
+`strictPeriods_Gamma1` and the higher coefficients being generators
+(LMFDB [`cmf.space_trace_form`](https://www.lmfdb.org/knowledge/show/cmf.space_trace_form)). -/
+noncomputable def spaceTraceForm {ι : Type*} [Fintype ι] {N : ℕ}
+    {χ : DirichletCharacter ℂ N} {k : ℤ} {B : (ℍ → ℂ) →ₗ[ℂ] ((ℍ → ℂ) → ℂ)}
+    (f : ι → CuspForm ↑(Gamma1 N) k) (hf : ∀ i, IsNewform χ k B (f i))
+    (_hdec : IsNewformDecomposition f hf)
+    (hmem : ∀ i n, (qExpansion 1 ⇑(f i)).coeff n ∈ coefficientField ⇑(f i)) : ℍ → ℂ :=
+  ∑ i, traceForm ⇑(f i) (hmem i)
+
+open Classical in
+/-- The **holomorphic Eisenstein series** `E_k^(χ₁,χ₂)` of weight `k` attached to primitive
+Dirichlet characters `χ₁` mod `N₁` and `χ₂` mod `N₂`:
+`½ (δ_(χ₁=1) L(1-k, χ₂) + δ_(k=1) δ_(χ₂=1) L(0, χ₁)) + ∑_(n≥1) σ_(k-1)^(χ₁,χ₂)(n) qⁿ`, where
+`σ_(k-1)^(χ₁,χ₂)(n) = ∑_(m∣n) χ₁(n/m) χ₂(m) m^(k-1)` and `L` is the analytically continued
+Dirichlet L-function `DirichletCharacter.LFunction`. This character-pair series is deliberately
+distinct from mathlib's residue-pair-indexed `EisensteinSeries.eisensteinSeries`; relating the
+two, and modularity of this series in `M_k(N₁N₂, χ₁χ₂)`, are theorems, not encoded
+(LMFDB [`cmf.eisenstein_series`](https://www.lmfdb.org/knowledge/show/cmf.eisenstein_series)). -/
+noncomputable def eisensteinSeriesChar {N₁ N₂ : ℕ} [NeZero N₁] [NeZero N₂]
+    (χ₁ : DirichletCharacter ℂ N₁) (χ₂ : DirichletCharacter ℂ N₂) (k : ℤ) (_hk : 0 < k)
+    (_h₁ : χ₁.IsPrimitive) (_h₂ : χ₂.IsPrimitive) : ℍ → ℂ :=
+  fun τ =>
+    (1 / 2) * ((if χ₁ = 1 then DirichletCharacter.LFunction χ₂ (1 - (k : ℂ)) else 0) +
+      (if k = 1 ∧ χ₂ = 1 then DirichletCharacter.LFunction χ₁ 0 else 0)) +
+    ∑' n : ℕ, (∑ m ∈ (n + 1).divisors, χ₁ (((n + 1) / m : ℕ)) * χ₂ m * (m : ℂ) ^ (k - 1))
+      * Function.Periodic.qParam 1 τ ^ (n + 1)
+
+/-- The **Eisenstein subspace** `E_k(Γ)`: the orthogonal complement of the cusp forms
+`S_k(Γ)` (mathlib's `cuspFormSubmodule`) inside `M_k(Γ)` with respect to the Petersson inner
+product, expressed relative to a pairing `B`, as for `ModularForm.newspace` — the intersection
+of the kernels `f ↦ B f g` over cusp forms `g`. Here `B f g` stands for the Petersson pairing
+of `f` and `g` with the arguments ordered so that `B` is linear in `f`: since the classical
+Petersson product is conjugate-linear in one slot, the intended instantiation puts `f` in the
+linear slot (for mathlib's integrand, which conjugates its first argument, this means
+`B f g = ⟨g, f⟩`). `B` is an input until the product is defined (see
+`cmf.petersson_scalar_product`)
+(LMFDB [`cmf.eisenstein_form`](https://www.lmfdb.org/knowledge/show/cmf.eisenstein_form)). -/
+noncomputable def eisensteinSubspace (Γ : Subgroup (GL (Fin 2) ℝ)) (k : ℤ) [Γ.HasDetOne]
+    (B : ModularForm Γ k →ₗ[ℂ] (ModularForm Γ k → ℂ)) : Submodule ℂ (ModularForm Γ k) :=
+  ⨅ g : ↥(cuspFormSubmodule Γ k), LinearMap.ker ((LinearMap.proj (g : ModularForm Γ k)).comp B)
+
+/-- An **Eisenstein form** of weight `k`, level `N` and character `χ`: a modular form in the
+Eisenstein subspace `E_k(Γ₁(N))` that transforms with nebentypus `χ` — the membership predicate
+of the space `E_k(N, χ)`. The knowl's spanning description of `E_k(N, χ)` by the series
+`E_k^(χ₁,χ₂)(dτ)` with `χ₁χ₂ = χ` and `d·N₁·N₂ ∣ N` (with the non-holomorphic `E₂` correction
+`E₂(τ) - d·E₂(dτ)` at `k = 2`, `χ = 1`) is a theorem, deliberately not the definition
+(LMFDB [`cmf.eisenstein_form`](https://www.lmfdb.org/knowledge/show/cmf.eisenstein_form)). -/
+def IsEisensteinForm {N : ℕ} (χ : DirichletCharacter ℂ N) (k : ℤ)
+    (B : ModularForm ↑(Gamma1 N) k →ₗ[ℂ] (ModularForm ↑(Gamma1 N) k → ℂ))
+    (f : ModularForm ↑(Gamma1 N) k) : Prop :=
+  f ∈ eisensteinSubspace ↑(Gamma1 N) k B ∧ HasCharacter (Gamma0 N) k χ ⇑f
+
+open Classical in
+/-- The **new Eisenstein subspace** `E_k^new(N, χ)`: the span of the Eisenstein series
+`E_k^(χ₁,χ₂)` over pairs of primitive characters with the parity compatibility
+`χ₁(-1)χ₂(-1) = (-1)^k` (required for the series to be a modular form; given `χ₁χ₂ = χ` it is
+equivalent to `χ(-1) = (-1)^k`, so the space is `⊥` for wrong-parity `(k, χ)`), with `χ₁χ₂ = χ`
+(as characters mod `N`, via `changeLevel`) and `N₁N₂ = N` exactly — except in the case `k = 2`,
+`χ = 1`, where
+`E₂^new(N) = 0` for composite `N` and, for `N = p` prime, the space is spanned by the corrected
+series `E₂^(1,1)(τ) - p E₂^(1,1)(pτ)`. The old Eisenstein subspace, span of the degeneracy
+images from proper divisor levels, is the `cmf.oldspace`/`cmf.subspaces` construction at
+Eisenstein level; the decomposition `E_k = E_k^old ⊕ E_k^new` is a theorem, not encoded
+(LMFDB [`cmf.eisenstein_newspace`](https://www.lmfdb.org/knowledge/show/cmf.eisenstein_newspace)). -/
+noncomputable def eisensteinNewspace {N : ℕ} [NeZero N] (χ : DirichletCharacter ℂ N) (k : ℤ) :
+    Submodule ℂ (ℍ → ℂ) :=
+  if k = 2 ∧ χ = 1 then
+    if hN : N.Prime then
+      Submodule.span ℂ
+        {eisensteinSeriesChar 1 1 2 two_pos DirichletCharacter.isPrimitive_one_level_one
+            DirichletCharacter.isPrimitive_one_level_one -
+          (N : ℂ) • levelRaisingMap ⟨N, hN.pos⟩
+            (eisensteinSeriesChar 1 1 2 two_pos DirichletCharacter.isPrimitive_one_level_one
+              DirichletCharacter.isPrimitive_one_level_one)}
+    else ⊥
+  else
+    Submodule.span ℂ
+      {g | ∃ (N₁ N₂ : ℕ) (h₁ : NeZero N₁) (h₂ : NeZero N₂) (_ : N₁ * N₂ = N)
+        (χ₁ : DirichletCharacter ℂ N₁) (χ₂ : DirichletCharacter ℂ N₂)
+        (hp₁ : χ₁.IsPrimitive) (hp₂ : χ₂.IsPrimitive) (hk : 0 < k)
+        (hd₁ : N₁ ∣ N) (hd₂ : N₂ ∣ N),
+        χ₁ (-1) * χ₂ (-1) = (-1) ^ k ∧
+        DirichletCharacter.changeLevel hd₁ χ₁ * DirichletCharacter.changeLevel hd₂ χ₂ = χ ∧
+        g = @eisensteinSeriesChar N₁ N₂ h₁ h₂ χ₁ χ₂ k hk hp₁ hp₂}
+
+/-- An **Eisenstein newform** of weight `k`, level `N` and character `χ`: a form in the new
+Eisenstein subspace `E_k^new(N, χ)` that is a Hecke eigenform, normalized so that its
+`q`-expansion has `a₁ = 1`. As in `ModularForm.IsNewform`, the eigenform condition is stated for
+the operators `T_n` with `n` positive and coprime to the level, the full-eigenform statement of
+the knowl being the analogous theorem of Eisenstein newform theory; that the Eisenstein
+newforms are a basis of `E_k^new(N, χ)` is likewise a theorem, not encoded
+(LMFDB [`cmf.eisenstein_newform`](https://www.lmfdb.org/knowledge/show/cmf.eisenstein_newform)). -/
+structure IsEisensteinNewform {N : ℕ} [NeZero N] (χ : DirichletCharacter ℂ N) (k : ℤ)
+    (f : ℍ → ℂ) : Prop where
+  mem_newspace : f ∈ eisensteinNewspace χ k
+  eigen_away : ∀ n : ℕ, 0 < n → n.Coprime N → ∃ c : ℂ, heckeOperator χ k n f = c • f
+  normalized : (qExpansion 1 f).coeff 1 = 1
 
 end ModularForm
