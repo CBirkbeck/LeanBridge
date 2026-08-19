@@ -566,19 +566,20 @@ of `f` and to the conductor of `ψ` — which is `M` itself, `ψ` being primitiv
 defining relation only; that for a newform `f` there exists a unique newform `g` satisfying it
 (so that `f ⊗ ψ` is well defined) is a theorem, not encoded, as is the newform context itself
 (LMFDB [`cmf.twist`](https://www.lmfdb.org/knowledge/show/cmf.twist)). -/
-def IsTwist {N N' M : ℕ} {k : ℤ} (f : CuspForm ↑(Gamma1 N) k) (g : CuspForm ↑(Gamma1 N') k)
-    (ψ : DirichletCharacter ℂ M) (_hψ : ψ.IsPrimitive) : Prop :=
+def IsTwist {N N' : ℕ} {M : ℕ+} {k : ℤ} (f : CuspForm ↑(Gamma1 N) k)
+    (g : CuspForm ↑(Gamma1 N') k) (ψ : DirichletCharacter ℂ M) (_hψ : ψ.IsPrimitive) : Prop :=
   ∀ n : ℕ, 0 < n → n.Coprime N → n.Coprime M →
     (qExpansion 1 ⇑g).coeff n = ψ n * (qExpansion 1 ⇑f).coeff n
 
-/-- Two cusp forms are **twist equivalent** when one is a twist of the other by some primitive
-Dirichlet character. That this generates an equivalence relation (symmetry twists back by the
-conjugate character, transitivity by the product) is a theorem, not encoded; the twist class of
-a newform is its class under this relation
+/-- Two cusp forms are **twist related** when one is a twist of the other by some primitive
+Dirichlet character. On newforms this is the LMFDB's twist equivalence and its class is the
+twist class — but that the relation is symmetric and transitive there (twisting back by the
+conjugate character, composing characters) is a theorem, not encoded, so the generic relation
+is named `IsTwistRelated` rather than an equivalence
 (LMFDB [`cmf.twist`](https://www.lmfdb.org/knowledge/show/cmf.twist)). -/
-def IsTwistEquivalent {N N' : ℕ} {k : ℤ} (f : CuspForm ↑(Gamma1 N) k)
+def IsTwistRelated {N N' : ℕ} {k : ℤ} (f : CuspForm ↑(Gamma1 N) k)
     (g : CuspForm ↑(Gamma1 N') k) : Prop :=
-  ∃ (M : ℕ) (ψ : DirichletCharacter ℂ M) (hψ : ψ.IsPrimitive), IsTwist f g ψ hψ
+  ∃ (M : ℕ+) (ψ : DirichletCharacter ℂ M) (hψ : ψ.IsPrimitive), IsTwist f g ψ hψ
 
 /-- The cusp form `g` is the **dual** of `f`: every coefficient of the `q`-expansion of `g` is
 the complex conjugate of the corresponding coefficient of `f`. The dual of a form of character
@@ -602,7 +603,7 @@ exceptional set. That a nontrivial self-twist character must be quadratic — th
 character of a quadratic field, giving CM or RM by the sign of its discriminant — and the
 weight-one dihedral constraints are theorems, not encoded
 (LMFDB [`cmf.self_twist`](https://www.lmfdb.org/knowledge/show/cmf.self_twist)). -/
-def AdmitsSelfTwist {N M : ℕ} {k : ℤ} (f : CuspForm ↑(Gamma1 N) k)
+def AdmitsSelfTwist {N : ℕ} {M : ℕ+} {k : ℤ} (f : CuspForm ↑(Gamma1 N) k)
     (χ : DirichletCharacter ℂ M) (_hχ : χ.IsPrimitive) : Prop :=
   {p : ℕ | p.Prime ∧
     (qExpansion 1 ⇑f).coeff p ≠ χ p * (qExpansion 1 ⇑f).coeff p}.Finite
@@ -615,7 +616,7 @@ theorem; that each inner twist is determined by its primitive `χ`, and that the
 group, are likewise theorems, not encoded. The trivial automorphism recovers the self-twist
 condition of `cmf.self_twist`
 (LMFDB [`cmf.inner_twist`](https://www.lmfdb.org/knowledge/show/cmf.inner_twist)). -/
-def IsInnerTwist {N M : ℕ} {k : ℤ} (f : CuspForm ↑(Gamma1 N) k)
+def IsInnerTwist {N : ℕ} {M : ℕ+} {k : ℤ} (f : CuspForm ↑(Gamma1 N) k)
     (χ : DirichletCharacter ℂ M) (_hχ : χ.IsPrimitive)
     (σ : coefficientField ⇑f ≃ₐ[ℚ] coefficientField ⇑f) : Prop :=
   {p : ℕ | ∃ hp : p.Prime,
@@ -627,7 +628,7 @@ def IsInnerTwist {N M : ℕ} {k : ℤ} (f : CuspForm ↑(Gamma1 N) k)
 character, i.e. the pair is not `(1, 1)`: the twisting character is nontrivial and/or the Galois
 action is
 (LMFDB [`cmf.nontrivial_twist`](https://www.lmfdb.org/knowledge/show/cmf.nontrivial_twist)). -/
-def IsNontrivialInnerTwist {N M : ℕ} {k : ℤ} (f : CuspForm ↑(Gamma1 N) k)
+def IsNontrivialInnerTwist {N : ℕ} {M : ℕ+} {k : ℤ} (f : CuspForm ↑(Gamma1 N) k)
     (χ : DirichletCharacter ℂ M) (hχ : χ.IsPrimitive)
     (σ : coefficientField ⇑f ≃ₐ[ℚ] coefficientField ⇑f) : Prop :=
   IsInnerTwist f χ hχ σ ∧ ¬(χ = 1 ∧ σ = 1)
@@ -668,19 +669,19 @@ def IsMinimal {N : ℕ} {k : ℤ} (f : CuspForm ↑(Gamma1 N) k) : Prop :=
     (ψ : DirichletCharacter ℂ M) (hψ : ψ.IsPrimitive), IsTwist g f ψ hψ
 
 /-- A newform `f` of level `N` is **twist minimal** if its level achieves the minimum within
-its twist class: every form twist equivalent to `f` has level at least `N`
+its twist class: every newform twist related to `f` — with its own character and newspace
+pairing — has level at least `N`
 (LMFDB [`cmf.twist_minimal`](https://www.lmfdb.org/knowledge/show/cmf.twist_minimal)). -/
 def IsTwistMinimal {N : ℕ} {χ : DirichletCharacter ℂ N} {k : ℤ}
     {B : (ℍ → ℂ) →ₗ[ℂ] ((ℍ → ℂ) → ℂ)} (f : CuspForm ↑(Gamma1 N) k)
     (_hf : IsNewform χ k B f) : Prop :=
-  ∀ (N' : ℕ) (χ' : DirichletCharacter ℂ N')
-    (g : CuspForm ↑(Gamma1 N') k)
-    (_hg : IsNewform χ' k B g),
-  IsTwistEquivalent f g → N ≤ N'
+  ∀ (N' : ℕ) (χ' : DirichletCharacter ℂ N') (B' : (ℍ → ℂ) →ₗ[ℂ] ((ℍ → ℂ) → ℂ))
+    (g : CuspForm ↑(Gamma1 N') k) (_hg : IsNewform χ' k B' g),
+  IsTwistRelated f g → N ≤ N'
 
 /- `cmf.minimal_twist` is intentionally not formalized here: its LMFDB definition includes
 database-specific tie-breaking by lexicographically minimal label. We formalize the underlying
-mathematical notions (`IsTwistEquivalent`, `IsTwistMinimal`, etc.) separately instead. -/
+mathematical notions (`IsTwistRelated`, `IsTwistMinimal`, etc.) separately instead. -/
 
 /-- The **twist multiplicity** of a cusp form orbit `[g]` as a twist of `[f]` by the Galois orbit
 of a primitive character `ψ`: the number of distinct characters `ψ'` in the orbit of `ψ` for
