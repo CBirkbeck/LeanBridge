@@ -1,4 +1,6 @@
+import Mathlib.Analysis.Complex.UpperHalfPlane.Measure
 import Mathlib.Analysis.SpecialFunctions.Gamma.Digamma
+import Mathlib.MeasureTheory.Group.FundamentalDomain
 import Mathlib.FieldTheory.Relrank
 import Mathlib.LinearAlgebra.Charpoly.Basic
 import Mathlib.NumberTheory.DirichletCharacter.Basic
@@ -6,6 +8,7 @@ import Mathlib.NumberTheory.LSeries.DirichletContinuation
 import Mathlib.NumberTheory.ModularForms.Basic
 import Mathlib.NumberTheory.ModularForms.CongruenceSubgroups
 import Mathlib.NumberTheory.ModularForms.CuspFormSubmodule
+import Mathlib.NumberTheory.ModularForms.Petersson
 import Mathlib.NumberTheory.ModularForms.QExpansion
 import Mathlib.NumberTheory.ModularForms.SlashActions
 
@@ -714,5 +717,70 @@ only weight-one forms can have real multiplication is a theorem, not encoded
 def IsRMForm {N : ℕ} {k : ℤ} (f : CuspForm ↑(Gamma1 N) k) : Prop :=
   ∃ (M : ℕ+) (χ : DirichletCharacter ℂ M) (hχ : χ.IsPrimitive) (_hne : χ ≠ 1),
     χ ^ 2 = 1 ∧ χ (-1) = 1 ∧ AdmitsSelfTwist f χ hχ
+
+/-- The **Satake parameters** of a newform `f` of weight `k` and character `χ` at a good prime
+`p`: the reciprocal roots of the normalized local factor `L_p(p^(-(k-1)/2) t)`, where
+`L_p(t) = 1 - a_p t + χ(p) p^(k-1) t²` — equivalently, the roots of the reversed quadratic
+`X² - (a_p / p^((k-1)/2)) X + χ(p)`, as a multiset via `Polynomial.roots`, so a double root is
+counted with multiplicity two. The knowl's identification `L_p(t) = det(1 - t T_p)` on the
+newform subspace, and the unit-circle location of the parameters (Deligne), are theorems, not
+encoded
+(LMFDB [`cmf.satake_parameters`](https://www.lmfdb.org/knowledge/show/cmf.satake_parameters)). -/
+noncomputable def satakeParameters {N : ℕ} (χ : DirichletCharacter ℂ N) {k : ℤ}
+    {B : (ℍ → ℂ) →ₗ[ℂ] ((ℍ → ℂ) → ℂ)} (p : ℕ) (f : CuspForm ↑(Gamma1 N) k)
+    (_hf : IsNewform χ k B f) (_hp : p.Prime) (_hpN : ¬ p ∣ N) : Multiset ℂ :=
+  (Polynomial.X ^ 2 -
+    Polynomial.C ((qExpansion 1 ⇑f).coeff p / (p : ℂ) ^ (((k : ℂ) - 1) / 2)) * Polynomial.X +
+    Polynomial.C (χ p)).roots
+
+/-- The **Satake angles** `θ_p = arg α_p` of a newform at a good prime `p`: the arguments of the
+Satake parameters, as a multiset via `Complex.arg`. Mathlib's `arg` takes values in `(-π, π]`,
+which realizes the knowl's range `[-π, π]`
+(LMFDB [`cmf.satake_angles`](https://www.lmfdb.org/knowledge/show/cmf.satake_angles)). -/
+noncomputable def satakeAngles {N : ℕ} (χ : DirichletCharacter ℂ N) {k : ℤ}
+    {B : (ℍ → ℂ) →ₗ[ℂ] ((ℍ → ℂ) → ℂ)} (p : ℕ) (f : CuspForm ↑(Gamma1 N) k)
+    (hf : IsNewform χ k B f) (hp : p.Prime) (hpN : ¬ p ∣ N) : Multiset ℝ :=
+  (satakeParameters χ p f hf hp hpN).map Complex.arg
+
+/-- The classification of the **identity component** of the Sato-Tate group of a newform of
+weight `k > 1`: `SU(2)` in the generic case, the diagonally embedded `U(1)` in the CM case.
+The CM dichotomy determines only this identity component; the full Sato-Tate group carries
+further component-group structure (tied to inner-twist data) and is left unformalized
+(LMFDB [`cmf.sato_tate`](https://www.lmfdb.org/knowledge/show/cmf.sato_tate)). -/
+inductive SatoTateIdentityComponent
+  /-- The generic case: a newform of weight `k > 1` without complex multiplication has
+  Sato-Tate group with identity component `SU(2)`. -/
+  | su2
+  /-- The CM case: the identity component is the diagonally embedded `U(1)`. -/
+  | u1
+
+open Classical in
+/-- The identity component of the **Sato-Tate group** of a newform of weight `k > 1`: `SU(2)`
+for a newform without complex multiplication, the diagonal `U(1)` for a CM newform — the
+assignment is the CM dichotomy of `ModularForm.IsCMForm`. The full Sato-Tate group (its
+component group requires inner-twist data), the compact-group and Galois-representation content
+of the knowl, the weight-one Artin case, and the (proved) equidistribution statement are not
+formalized
+(LMFDB [`cmf.sato_tate`](https://www.lmfdb.org/knowledge/show/cmf.sato_tate)). -/
+noncomputable def satoTateIdentityComponent {N : ℕ} (χ : DirichletCharacter ℂ N) {k : ℤ}
+    {B : (ℍ → ℂ) →ₗ[ℂ] ((ℍ → ℂ) → ℂ)} (f : CuspForm ↑(Gamma1 N) k)
+    (_hf : IsNewform χ k B f) (_hk : 1 < k) : SatoTateIdentityComponent :=
+  if IsCMForm f then .u1 else .su2
+
+open MeasureTheory in
+/-- The **Petersson scalar product** `⟨f, g⟩_G` of two functions on `ℍ`, with respect to a
+finite-index subgroup `G` of `SL(2, ℤ)` and a fundamental domain `𝔉` for `G`:
+`(1/[SL(2,ℤ):G]) ∫_𝔉 f(z) conj(g(z)) y^k dμ`, where `dμ = dxdy/y²` is mathlib's invariant
+measure on `ℍ` (its `MeasureSpace` instance). The integrand is mathlib's
+`UpperHalfPlane.petersson k g f` — mathlib conjugates the first slot, the knowl the second, so
+the arguments are swapped and `⟨f, g⟩_G` is `ℂ`-linear in `f`, as the pairing inputs `B` of
+`ModularForm.newspace` and `ModularForm.eisensteinSubspace` expect. The Bochner integral is
+junk `0` when not integrable; the knowl's existence statement (the product converges when one
+of `f`, `g` is a cusp form) and independence of the chosen fundamental domain are theorems, not
+encoded
+(LMFDB [`cmf.petersson_scalar_product`](https://www.lmfdb.org/knowledge/show/cmf.petersson_scalar_product)). -/
+noncomputable def peterssonProduct (k : ℤ) (G : Subgroup SL(2, ℤ)) [G.FiniteIndex] (𝔉 : Set ℍ)
+    (_h𝔉 : IsFundamentalDomain G 𝔉) (f g : ℍ → ℂ) : ℂ :=
+  (G.index : ℂ)⁻¹ * ∫ τ in 𝔉, petersson k g f τ
 
 end ModularForm
