@@ -144,26 +144,27 @@ algebraic, the two formulations agree
 def IsGaloisConjugate {N : ℕ} {k : ℤ} (f g : CuspForm ↑(Gamma1 N) k) : Prop :=
   ∃ σ : ℂ ≃ₐ[ℚ] ℂ, ∀ n : ℕ, n ≠ 0 → (qExpansion 1 ⇑g).coeff n = σ ((qExpansion 1 ⇑f).coeff n)
 
-/-- The **Galois orbit** `[f]` of a newform `f`: the set `{σ(f) : σ ∈ Gal(ℚ̄/ℚ)}` of its
-coefficientwise Galois conjugates within the cusp forms on `Γ₁(N)`, also called the newform
-orbit. For a genuine newform this is the LMFDB's finite orbit `[f]`; its finiteness, and the
-fact that it is a basis of the newform subspace it spans, are theorems and not part of the
-definition
+/-- The **Galois orbit** `[f]` of a cusp form `f`: the set `{σ(f) : σ ∈ Gal(ℚ̄/ℚ)}` of its
+coefficientwise Galois conjugates within the cusp forms on `Γ₁(N)`. For a newform this is the
+LMFDB's finite orbit `[f]`, also called the newform orbit; its finiteness, and the fact that it
+is a basis of the subspace it spans (`ModularForm.galoisOrbitSubspace`), are theorems and not
+part of the definition
 (LMFDB [`cmf.galois_orbit`](https://www.lmfdb.org/knowledge/show/cmf.galois_orbit)). -/
 def galoisOrbit {N : ℕ} {k : ℤ} (f : CuspForm ↑(Gamma1 N) k) : Set (CuspForm ↑(Gamma1 N) k) :=
   {g | IsGaloisConjugate f g}
 
-/-- The **trace form** `Tr(f)` of a newform `f` whose coefficient field is `F`: the sum
-`∑ᵢ ι(f)` of the embeddings of `f` over all field embeddings `ι : F → ℂ`, equivalently the sum
-of the distinct Galois conjugates of `f`. Its q-expansion is the coefficientwise field trace
-`∑ Tr_{F/ℚ}(aₙ) qⁿ`, with integer coefficients and `a₁` the dimension of the newform — both
-theorems, not encoded. The `finsum` is junk `0` unless `F` admits only finitely many embeddings,
-as a number field does; and the sum counts each conjugate once only when `F` is exactly the
-coefficient field of `f`, as the LMFDB prescribes
+/-- The **trace form** `Tr(f)` of a cusp form `f` on `Γ₁(N)` whose `q`-expansion coefficients
+lie in a subfield `F`: the sum `∑ᵢ ι(f)` of the embeddings of `f` over all field embeddings
+`ι : F → ℂ`. For a newform with `F` its coefficient field this specializes to the LMFDB's trace
+form — equivalently the sum of the distinct Galois conjugates, with q-expansion the
+coefficientwise field trace `∑ Tr_{F/ℚ}(aₙ) qⁿ`, integer coefficients, and `a₁` the dimension
+of the newform, all theorems, not encoded. The `finsum` is junk `0` unless `F` admits only
+finitely many embeddings, as a number field does; and the sum counts each conjugate once only
+when `F` is exactly the coefficient field of `f`, as the LMFDB prescribes
 (LMFDB [`cmf.trace_form`](https://www.lmfdb.org/knowledge/show/cmf.trace_form)). -/
-noncomputable def traceForm {F : IntermediateField ℚ ℂ} (f : ℍ → ℂ)
-    (hf : ∀ n, (qExpansion 1 f).coeff n ∈ F) : ℍ → ℂ :=
-  ∑ᶠ ι : F →+* ℂ, embeddedForm f ι hf
+noncomputable def traceForm {N : ℕ} {k : ℤ} {F : IntermediateField ℚ ℂ}
+    (f : CuspForm ↑(Gamma1 N) k) (hf : ∀ n, (qExpansion 1 ⇑f).coeff n ∈ F) : ℍ → ℂ :=
+  ∑ᶠ ι : F →+* ℂ, embeddedForm ⇑f ι hf
 
 /-- The **Hecke operator** `T_n` on modular forms of weight `k`, level `N` and character `χ`, in
 its `q`-expansion model: `T_n f` is the function on `ℍ` whose `q`-expansion has coefficients
@@ -239,55 +240,25 @@ noncomputable def heckeOrbit {N : ℕ} (χ : DirichletCharacter ℂ N) (k : ℤ)
     Submodule ℂ (ℍ → ℂ) :=
   Submodule.span ℂ {g | ∃ p : ℕ, p.Prime ∧ p.Coprime N ∧ g = heckeOperator χ k p ⇑f}
 
-open Classical in
-/-- The **Hecke characteristic polynomial** of a newform `f` at a prime `p`: the characteristic
-polynomial of the Hecke operator `T_p` acting on the newform subspace `V_f`, the span of the
-Galois orbit of `f` inside the cusp forms on `Γ₁(N)`. Finite-dimensionality of `V_f` is an
-instance hypothesis (it holds for genuine newforms), and the action is the linear endomorphism
-of `V_f` agreeing pointwise with `heckeOperator χ k p` — unique when it exists, since its values
-are forced — with junk value `0` when no such endomorphism exists. Primality of `p` is not
-required by the formula; the LMFDB uses good primes
-(LMFDB [`cmf.heckecharpolys`](https://www.lmfdb.org/knowledge/show/cmf.heckecharpolys)). -/
-noncomputable def heckeCharpoly {N : ℕ} (χ : DirichletCharacter ℂ N) (k : ℤ) (p : ℕ)
-    (f : CuspForm ↑(Gamma1 N) k) (_hf : HasCharacter (Gamma0 N) k χ ⇑f)
-    [Module.Finite ℂ (Submodule.span ℂ (galoisOrbit f))] : Polynomial ℂ :=
-  if h : ∃ T : Submodule.span ℂ (galoisOrbit f) →ₗ[ℂ] Submodule.span ℂ (galoisOrbit f),
-      ∀ v, ⇑(T v : CuspForm ↑(Gamma1 N) k) = heckeOperator χ k p ⇑(v : CuspForm ↑(Gamma1 N) k) then
-    h.choose.charpoly
-  else 0
-
-/-- A finite set `P` of primes indexes **distinguishing Hecke operators** `𝒯 = {T_p : p ∈ P}`
-for a family `f : ι → CuspForm (Γ₁(N)) k` of nonconjugate newforms with nebentypus `χ`: the
-primes are good (`p ∤ N`, the LMFDB's convenience restriction), and the sets `X_(f i)(𝒯)` of
-Hecke characteristic polynomials of the `T_p` on the newform subspaces are pairwise distinct.
-If the family contains conjugate newforms the proposition is unsatisfiable, so `ι` should index
-orbit representatives. The particular ordered sequence of such primes recorded by the LMFDB (via
-its strictly increasing refinement count) is a database convention, not formalized
-(LMFDB [`cmf.distinguishing_primes`](https://www.lmfdb.org/knowledge/show/cmf.distinguishing_primes)). -/
-def DistinguishesNewforms {ι : Type*} {N : ℕ} (χ : DirichletCharacter ℂ N) (k : ℤ)
-    (f : ι → CuspForm ↑(Gamma1 N) k) (hf : ∀ i, HasCharacter (Gamma0 N) k χ ⇑(f i))
-    [∀ i, Module.Finite ℂ (Submodule.span ℂ (galoisOrbit (f i)))] (P : Finset ℕ) : Prop :=
-  (∀ p ∈ P, p.Prime ∧ ¬ p ∣ N) ∧
-    Function.Injective fun i => (fun p => heckeCharpoly χ k p (f i) (hf i)) '' (P : Set ℕ)
-
-/-- The **coefficient ring generator bound** of a newform `f` with `q`-expansion `∑ aₙ qⁿ`: the
-least positive integer `n` such that `ℤ[a₁, …, aₙ]` is the entire coefficient ring
-`ℤ[a₁, a₂, a₃, …]`, or junk `0` if no finite prefix of the coefficients generates it
+/-- The **coefficient ring generator bound** of a function `f : ℍ → ℂ` with `q`-expansion
+`∑ aₙ qⁿ`: the least positive integer `n` such that `ℤ[a₁, …, aₙ]` is the entire coefficient
+ring `ℤ[a₁, a₂, a₃, …]`, or junk `0` if no finite prefix of the coefficients generates it. For
+a newform the coefficient ring is the Hecke ring and this specializes to the LMFDB's bound
 (LMFDB [`cmf.hecke_ring_generators`](https://www.lmfdb.org/knowledge/show/cmf.hecke_ring_generators)). -/
 noncomputable def heckeRingGeneratorBound (f : ℍ → ℂ) : ℕ :=
   sInf {n | 0 < n ∧
     Subring.closure ((fun m => (qExpansion 1 f).coeff m) '' Set.Icc 1 n) = coefficientRing f}
 
-/-- The **trace bound** of a family `f : ι → CuspForm (Γ₁(N)) k` of nonconjugate newforms with
-nebentypus `χ` spanning the Galois orbits of a newspace: the least positive integer `m` such
+/-- The **trace bound** of a family `f : ι → CuspForm (Γ₁(N)) k`, intended for nonconjugate
+newforms spanning the Galois orbits of a newspace (neither newness nor a nebentypus is enforced —
+the formula reads only q-expansion coefficients): the least positive integer `m` such
 that the traces down to `ℚ` of the coefficients `aₙ`, `n ≤ m`, distinguish the orbits — the
 trace of `aₙ` being the sum of `ι(aₙ)` over the embeddings `ι` of the coefficient field, as in
 `ModularForm.traceForm`. Unlike the universal Sturm bound this is the least such bound for the
 particular space; it is junk `0` if no prefix separates the family, e.g. if `ι` contains
 conjugate newforms, which share all traces
 (LMFDB [`cmf.trace_bound`](https://www.lmfdb.org/knowledge/show/cmf.trace_bound)). -/
-noncomputable def traceBound {ι : Type*} {N : ℕ} (χ : DirichletCharacter ℂ N) (k : ℤ)
-    (f : ι → CuspForm ↑(Gamma1 N) k) (_hf : ∀ i, HasCharacter (Gamma0 N) k χ ⇑(f i)) : ℕ :=
+noncomputable def traceBound {ι : Type*} {N : ℕ} (k : ℤ) (f : ι → CuspForm ↑(Gamma1 N) k) : ℕ :=
   sInf {m | 0 < m ∧ Function.Injective fun i => fun j : Fin m =>
     ∑ᶠ e : coefficientField ⇑(f i) →+* ℂ,
       e ⟨(qExpansion 1 ⇑(f i)).coeff ((j : ℕ) + 1),
@@ -378,15 +349,48 @@ structure IsNewform {N : ℕ} (χ : DirichletCharacter ℂ N) (k : ℤ)
   eigen_away : ∀ n : ℕ, 0 < n → n.Coprime N → ∃ c : ℂ, heckeOperator χ k n ⇑f = c • ⇑f
   normalized : (qExpansion 1 ⇑f).coeff 1 = 1
 
-/-- The **newform subspace** `V_f` of a newform `f` in `S_k^new(N, χ)`: the subspace of the cusp
-forms on `Γ₁(N)` generated by the Galois conjugates of `f` — the span already used by
-`ModularForm.heckeCharpoly`. That every newspace decomposes canonically into newform subspaces
-is a theorem (see `cmf.decomposition.new.gamma0chi`), not encoded
+/-- The **Galois-orbit subspace** `V_f` of a cusp form `f` on `Γ₁(N)`: the subspace of the cusp
+forms generated by the Galois conjugates of `f`. For a newform `f ∈ S_k^new(N, χ)` this is the
+LMFDB's newform subspace (newness is not enforced — the span makes sense for any cusp form);
+that every newspace decomposes canonically into such subspaces is a theorem (see
+`cmf.decomposition.new.gamma0chi`), not encoded
 (LMFDB [`cmf.newform_subspace`](https://www.lmfdb.org/knowledge/show/cmf.newform_subspace)). -/
-noncomputable def newformSubspace {N : ℕ} {χ : DirichletCharacter ℂ N} {k : ℤ}
-    {B : (ℍ → ℂ) →ₗ[ℂ] ((ℍ → ℂ) → ℂ)} (f : CuspForm ↑(Gamma1 N) k)
-    (_hf : IsNewform χ k B f) : Submodule ℂ (CuspForm ↑(Gamma1 N) k) :=
+noncomputable def galoisOrbitSubspace {N : ℕ} {k : ℤ} (f : CuspForm ↑(Gamma1 N) k) :
+    Submodule ℂ (CuspForm ↑(Gamma1 N) k) :=
   Submodule.span ℂ (galoisOrbit f)
+
+/-- The **Hecke characteristic polynomial** of a newform `f` at a prime `p`: the characteristic
+polynomial of the Hecke operator `T_p` on the newform subspace `V_f`
+(`ModularForm.galoisOrbitSubspace`), given by its diagonalization `∏_ι (X - ι(a_p))` over the
+embeddings `ι` of the coefficient field `ℚ(f)`. That the Galois conjugates of `f` form an
+eigenbasis of `V_f` on which `T_p` has eigenvalues the conjugates `ι(a_p)` is a theorem, not
+encoded — each conjugate has its own nebentypus `χ^σ`, so the fixed-`χ` formula
+`heckeOperator χ k p` does not act on `V_f` conjugatewise. The `finprod` is junk `1` unless
+`ℚ(f)` admits only finitely many embeddings, as the number field of a genuine newform does;
+primality of `p` is used only to place `a_p` in `ℚ(f)`
+(LMFDB [`cmf.heckecharpolys`](https://www.lmfdb.org/knowledge/show/cmf.heckecharpolys)). -/
+noncomputable def heckeCharpoly {N : ℕ} (χ : DirichletCharacter ℂ N) (k : ℤ)
+    {B : (ℍ → ℂ) →ₗ[ℂ] ((ℍ → ℂ) → ℂ)} (p : ℕ) (f : CuspForm ↑(Gamma1 N) k)
+    (_hf : IsNewform χ k B f) (hp : p.Prime) : Polynomial ℂ :=
+  ∏ᶠ ι : coefficientField ⇑f →+* ℂ,
+    (Polynomial.X - Polynomial.C (ι ⟨(qExpansion 1 ⇑f).coeff p,
+      IntermediateField.subset_adjoin ℚ _ ⟨p - 1, by simp [Nat.sub_add_cancel hp.pos]⟩⟩))
+
+/-- A finite set `P` of primes indexes **distinguishing Hecke operators** `𝒯 = {T_p : p ∈ P}`
+for a family `f : ι → CuspForm (Γ₁(N)) k` of newforms with nebentypus `χ`: the primes are good
+(`p ∤ N`, the LMFDB's convenience restriction), and the sets `X_(f i)(𝒯)` of Hecke
+characteristic polynomials of the `T_p` on the newform subspaces are pairwise distinct. If the
+family contains Galois-conjugate newforms — which share all Hecke characteristic polynomials —
+the proposition is unsatisfiable, so `ι` should index orbit representatives. The particular
+ordered sequence of such primes recorded by the LMFDB (via its strictly increasing refinement
+count) is a database convention, not formalized
+(LMFDB [`cmf.distinguishing_primes`](https://www.lmfdb.org/knowledge/show/cmf.distinguishing_primes)). -/
+def DistinguishesByHeckeCharpoly {ι : Type*} {N : ℕ} (χ : DirichletCharacter ℂ N) (k : ℤ)
+    {B : (ℍ → ℂ) →ₗ[ℂ] ((ℍ → ℂ) → ℂ)} (f : ι → CuspForm ↑(Gamma1 N) k)
+    (hf : ∀ i, IsNewform χ k B (f i)) (P : Finset ℕ) : Prop :=
+  ∃ hP : ∀ p ∈ P, p.Prime ∧ ¬ p ∣ N,
+    Function.Injective fun i =>
+      Set.range fun p : P => heckeCharpoly χ k p.1 (f i) (hf i) (hP p.1 p.2).1
 
 /-- The **Atkin-Lehner subspace of `f`** at level `N` and weight `k`: the functions satisfying
 every Atkin-Lehner eigen-equation that `f` satisfies — `g` belongs when, for each admissible
@@ -433,10 +437,10 @@ subspace of `f`; for nontrivial character the ambient is the whole newspace)
 (LMFDB [`cmf.maximal`](https://www.lmfdb.org/knowledge/show/cmf.maximal)). -/
 def IsLargestNewform {N : ℕ} {χ : DirichletCharacter ℂ N} {k : ℤ}
     {B : (ℍ → ℂ) →ₗ[ℂ] ((ℍ → ℂ) → ℂ)} (f : CuspForm ↑(Gamma1 N) k)
-    (hf : IsNewform χ k B f) : Prop :=
-  ∀ g, ∀ hg : IsNewform χ k B g, ¬ IsGaloisConjugate f g →
+    (_hf : IsNewform χ k B f) : Prop :=
+  ∀ g, ∀ _hg : IsNewform χ k B g, ¬ IsGaloisConjugate f g →
     (χ = 1 → ⇑g ∈ atkinLehnerSubspaceOf k N ⇑f) →
-    Module.finrank ℂ (newformSubspace g hg) < Module.finrank ℂ (newformSubspace f hf)
+    Module.finrank ℂ (galoisOrbitSubspace g) < Module.finrank ℂ (galoisOrbitSubspace f)
 
 /-- The **decomposition of the newspace into newforms** along a family
 `f : ι → CuspForm (Γ₁(N)) k` of newforms: the spans of their Galois orbits (taken in the ambient
@@ -469,7 +473,7 @@ noncomputable def spaceTraceForm {ι : Type*} [Fintype ι] {N : ℕ}
     (f : ι → CuspForm ↑(Gamma1 N) k) (hf : ∀ i, IsNewform χ k B (f i))
     (_hdec : IsNewformDecomposition f hf)
     (hmem : ∀ i n, (qExpansion 1 ⇑(f i)).coeff n ∈ coefficientField ⇑(f i)) : ℍ → ℂ :=
-  ∑ i, traceForm ⇑(f i) (hmem i)
+  ∑ i, traceForm (f i) (hmem i)
 
 open Classical in
 /-- The **holomorphic Eisenstein series** `E_k^(χ₁,χ₂)` of weight `k` attached to primitive
@@ -624,9 +628,9 @@ def IsInnerTwist {N : ℕ} {M : ℕ+} {k : ℤ} (f : CuspForm ↑(Gamma1 N) k)
       IntermediateField.subset_adjoin ℚ _ ⟨p - 1, by simp [Nat.sub_add_cancel hp.pos]⟩⟩ : ℂ) ≠
       χ p * (qExpansion 1 ⇑f).coeff p}.Finite
 
-/-- An inner twist `(χ, σ)` of `f` is **nontrivial** if it is not the self twist by the trivial
-character, i.e. the pair is not `(1, 1)`: the twisting character is nontrivial and/or the Galois
-action is
+/-- An inner twist `(χ, σ)` of a cusp form `f` is **nontrivial** if it is not the self twist by
+the trivial character, i.e. the pair is not `(1, 1)`: the twisting character `χ` is nontrivial,
+or the automorphism `σ` is nontrivial, or both
 (LMFDB [`cmf.nontrivial_twist`](https://www.lmfdb.org/knowledge/show/cmf.nontrivial_twist)). -/
 def IsNontrivialInnerTwist {N : ℕ} {M : ℕ+} {k : ℤ} (f : CuspForm ↑(Gamma1 N) k)
     (χ : DirichletCharacter ℂ M) (hχ : χ.IsPrimitive)
