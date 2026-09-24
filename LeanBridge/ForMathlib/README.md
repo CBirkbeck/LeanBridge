@@ -5,9 +5,7 @@ the Mathlib file it would be upstreamed to (for example `AlgebraicGeometry/Ellip
 Mathlib's `Mathlib/AlgebraicGeometry/EllipticCurve/`).
 
 LMFDB-specific material (certificates, generated files, examples and the tools that query the
-LMFDB) lives in `LeanBridge/LMFDB/` instead. The exception, for now, is the generated level-one
-certificates in `QExpansion/LMFDB/`, which import the compatibility shims `QExpansion/IntEval` and
-`QExpansion/Sturm`; a follow-up moves them and deletes the shims.
+LMFDB) lives in `LeanBridge/LMFDB/` instead.
 
 Definitions that Tau Ceti already provides are not duplicated here: `LeanBridge.lean` imports
 Tau Ceti's versions and lists which LMFDB knowl each one formalizes.
