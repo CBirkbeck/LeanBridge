@@ -203,7 +203,7 @@ def emit_qexplistZ(name, int_qexp):
 def emit_part_file(weight, j, n_certify, int_poly, D, int_qexp):
     """A standalone module holding the heavy integer-arithmetic `decide +kernel` for piece j.
     Isolated so `lake` builds all pieces (of all forms) in parallel across cores."""
-    header = f"""import LeanBridge.ForMathlib.QExpansion.IntEval
+    header = f"""import LeanBridge.ForMathlib.NumberTheory.ModularForms.QExpansion.IntEval
 
 set_option maxHeartbeats 0
 set_option maxRecDepth 4000
@@ -440,11 +440,11 @@ def emit_full(weight, form_idx=_sage_const_0 ):
         part_files[j] = emit_part_file(weight, j, n_certify, int_poly, D, int_qexp)
 
     part_imports = "\n".join(
-        f"import LeanBridge.ForMathlib.QExpansion.LMFDB.Weight_{weight}_part_{j}"
+        f"import LeanBridge.LMFDB.ModularForms.LevelOne.Weight_{weight}_part_{j}"
         for j in range(n_pieces))
 
-    parts = [f"""import LeanBridge.ForMathlib.QExpansion.IntEval
-import LeanBridge.ForMathlib.QExpansion.Sturm
+    parts = [f"""import LeanBridge.ForMathlib.NumberTheory.ModularForms.QExpansion.IntEval
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.QExpansion.Sturm
 import Mathlib.Analysis.Complex.Polynomial.Basic
 {part_imports}
 
