@@ -49,7 +49,7 @@ lemma qExpansion_deltaForm :
     qExpansion 1 (deltaForm : ℍ → ℂ) =
       (1 / 1728 : ℂ) • ((qExpansion 1 (E₄ : ℍ → ℂ)) ^ 3 - (qExpansion 1 (E₆ : ℍ → ℂ)) ^ 2) := by
   unfold deltaForm
-  rw [ModularForm.IsGLPos.coe_smul E₄CubeSubE₆SqForm' (1 / 1728 : ℂ),
+  rw [FunLike.coe_smul (1 / 1728 : ℂ) E₄CubeSubE₆SqForm',
     ModularForm.qExpansion_smul one_pos one_mem_strictPeriods_SL]
   congr 1
   unfold E₄CubeSubE₆SqForm'

@@ -32,7 +32,7 @@ def Finsupp.ofList {R : Type*} [DecidableEq R] [Zero R] (xs : List R) : ℕ →�
 
 /-- Sends the list `[a₀, …, aₙ]` to the polynomial `a₀ + … + aₙ * X ^ n`.  -/
 def Polynomial.ofList {R : Type*} [Semiring R] [DecidableEq R] (xs : List R) : R[X] :=
-  ⟨Finsupp.ofList xs⟩
+  ⟨.ofCoeff (Finsupp.ofList xs)⟩
 
 @[simp] lemma Polynomial.coeff_ofList {R : Type*} [Semiring R] [DecidableEq R] (xs : List R)
     (n : ℕ) : (ofList xs).coeff n = xs.getD n 0 := by
@@ -205,8 +205,8 @@ lemma dropTrailingZeros_iter [Zero R] (l : List R) [DecidableEq R] :
       decide_eq_false_iff_not, h, ↓reduceIte, List.dropTrailingZeros]
 
 @[simp]
-lemma dropTrailingZeros_zero [Zero R] [DecidableEq R] : ([0] : List R).dropTrailingZeros = [] := by
-  simp
+lemma dropTrailingZeros_zero [Zero R] [DecidableEq R] : ([0] : List R).dropTrailingZeros = [] :=
+  List.dropTrailingZeros_eq_empty [] rfl
 
 lemma dropTrailingZeros_cons [Zero R] [DecidableEq R] (a : R) (as : List R) :
     (a :: as).dropTrailingZeros =  (a :: as.dropTrailingZeros).dropTrailingZeros:= by
@@ -566,16 +566,15 @@ lemma toList_comp_ofList (l : List R) :
   show (toList' (ofList l)).dropTrailingZeros = l.dropTrailingZeros
   induction l with
   | nil => simp only [toList', ofList_nil, natDegree_zero, zero_add, List.ofFn_succ, Nat.reduceAdd,
-      Fin.isValue, Fin.cast_eq_self, Fin.val_eq_zero, coeff_zero, List.ofFn_zero, List.all_nil,
-      List.dropTrailingZeros_eq_empty, List.dropTrailingZeros_nil]
+      Fin.isValue, Fin.cast_eq_self, Fin.val_eq_zero, coeff_zero, List.ofFn_zero,
+      dropTrailingZeros_zero, List.dropTrailingZeros_nil]
   | cons a as ha =>
     simp only [ofList_cons]
     rw [Polynomial.toList'_cons, dropTrailingZeros_cons, ha, ← dropTrailingZeros_cons]
 
 lemma toList_zero : toList (0 : R[X]) = [] := by
   simp only [toList, toList', natDegree_zero, zero_add, List.ofFn_succ, Nat.reduceAdd, Fin.isValue,
-    Fin.cast_eq_self, Fin.val_eq_zero, coeff_zero, List.ofFn_zero, List.all_nil,
-    List.dropTrailingZeros_eq_empty]
+    Fin.cast_eq_self, Fin.val_eq_zero, coeff_zero, List.ofFn_zero, dropTrailingZeros_zero]
 
 lemma nil_of_ofList_eq_zero (l : List R)
     (hdt : l = l.dropTrailingZeros) (hz : ofList l = 0) : l = [] := by
@@ -588,8 +587,8 @@ lemma toList_eq_toList' (p : R[X]) (hpz : p ≠ 0) :
     unfold toList'
     simp
   erw [eq_dropTrailingZeros_iff_last_entry_ne_zero _ this]
-  unfold toList'
   rw [List.getLast_eq_getElem]
+  unfold toList'
   simp only [List.length_ofFn, add_tsub_cancel_right, List.getElem_ofFn, coeff_natDegree, ne_eq,
     leadingCoeff_eq_zero, hpz, not_false_eq_true]
 
@@ -799,7 +798,7 @@ lemma ofList_eq_sum' {R : Type u} [Semiring R] [DecidableEq R]
         intro i
         have := List.get_ofFn f (Fin.cast (List.length_ofFn (f := f)).symm i)
         rw [List.get_of_eq hm] at this
-        simp only [Fin.coe_cast, Fin.cast_trans, Fin.cast_eq_self] at this
+        simp only [Fin.coe_cast, Fin.cast_cast, Fin.cast_eq_self] at this
         rw [← this, List.get_eq_getElem, List.getElem_replicate]
       simp_rw [this]
       simp only [ofList_zero, coeff_zero, map_zero, zero_mul, Finset.sum_const_zero]
@@ -865,7 +864,7 @@ lemma listOfFn_of_FnOfList
 lemma FnOfList_of_OfFn {α : Type*} (n : ℕ) (a : Fin n → α) :
     FnOfList n (List.ofFn a) (List.length_ofFn (f := a)) = a := by
   unfold FnOfList
-  simp only [List.get_ofFn, Fin.cast_trans, Fin.cast_eq_self]
+  simp only [List.get_ofFn, Fin.cast_cast, Fin.cast_eq_self]
 
 ------------
 
