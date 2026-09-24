@@ -20,6 +20,13 @@ name = "IdealArithmetic"
 git = "https://github.com/CBirkbeck/CertifyingInvariantsNF.git"
 rev = "galois-v431-bump"
 
+[[require]]
+name = "TauCeti"
+git = "https://github.com/TauCetiProject/TauCeti"
+rev = "main"
+
+# Tau Ceti builds with `warningAsError`, so mathlib must be pinned to exactly the commit in Tau Ceti's
+# `lake-manifest.json` (and `lean-toolchain` must match Tau Ceti's): bump all three together.
 # Keep `require mathlib` last so that Mathlib's pins of its own dependencies take precedence.
 [[require]]
 name = "mathlib"
