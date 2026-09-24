@@ -1,6 +1,6 @@
 import Mathlib
-import LeanBridge.ForMathlib.tactics.LMFDB_search
-import LeanBridge.ForMathlib.tactics.LMFDB_Proof_2_2_8_1
+import LeanBridge.LMFDB.Tactic.LMFDB_search
+import LeanBridge.LMFDB.NumberFields.LMFDB_Proof_2_2_8_1
 
 noncomputable section
 
