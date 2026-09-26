@@ -92,43 +92,15 @@ def lean_ainvs(a):
     return ", ".join(str(x) for x in a)
 
 
-MULT_BLOCK = """  all_goals
-    constructor
-    · unfold MultiplicativeAt MinimalAt
-      decide
-    · exact eulerFactorMult_of_count _ ⟨by decide⟩ _ (by decide)
-"""
-
-ADD_BLOCK = """  all_goals
-    constructor
-    · unfold AdditiveAt MinimalAt
-      decide
-    · rfl
-"""
-
-
-def commented(block):
-    return "".join("  -- " + line[2:] for line in block.splitlines(True))
-
-
-def empty_table_note(table, model):
-    return (
-        f"  -- once `{table}` has a row, continue exactly as in `{model}` (kept out of the proof\n"
-        f"  -- while the table is empty, otherwise the unreachable-tactic linter complains):\n"
-    )
-
-
 # The curve and the three tables are substituted for `{lean_ainvs}`, `{apGood}`, `{apMult}`,
-# `{apAdd}`; the two bad-prime proof blocks are spliced in from MULT_BLOCK / ADD_BLOCK so that
-# either can be commented out when its table is empty.
+# `{apAdd}`.
 TEMPLATE = """import Mathlib
 
 /-!
 # Euler-factor certificate for an elliptic curve over `ℤ`
 
 Every local Euler factor of the curve `E` below is recomputed here from a point count over `𝔽ₚ`
-and checked against the `a_p` recorded in the LMFDB.  Each table row is discharged by `decide`,
-so the `#print axioms` lines at the end are the certificate.
+and checked against the `a_p` recorded in the LMFDB.  
 
 | reduction at `p` | Euler factor       | `a_p`                             |
 | ---------------- | ------------------ | --------------------------------- |
@@ -140,12 +112,6 @@ Throughout, `N_p` is the *affine* point count, which at a bad prime includes the
 -/
 
 open Polynomial
-
-set_option maxRecDepth 10000
-
--- Targets of TODO 1 and 2 below.
-#check WeierstrassCurve.localPolynomial
-#check WeierstrassCurve
 
 /-- `E : y² + a₁xy + a₃y = x³ + a₂x² + a₄x + a₆` over `ℤ`, in its LMFDB minimal model. -/
 def E : WeierstrassCurve ℤ := ⟨{lean_ainvs}⟩
@@ -169,7 +135,11 @@ def affineCount (p : ℕ) (h : Fact p.Prime) : ℕ :=
   | y ^ 2 + E.a₁ * x * y + E.a₃ * y = x ^ 3 + E.a₂ * x^2 + E.a₄ * x + E.a₆} : Finset _).card
 
 /-- The same count via Legendre symbols: the fibre over `x` has `legendreSym p (disc) + 1`
-points, where `disc` is the discriminant of the quadratic in `y`. -/
+points, where `disc` is the discriminant of the quadratic in `y`.
+
+Not used by the certificates below, which `decide` on `affineCount` directly (`O(p²)`, fine for
+`p < 30`).  Kept, with `affineCount_eq_legendreCount`, for a later speed-up: evaluating the symbol
+by Euler's criterion (`legendreSym.eq_pow`) brings the count to `O(p log p)` for `p ≠ 2`. -/
 def legendreCount (p : ℕ) (h : Fact p.Prime) : ℤ :=
   ∑ x : ZMod p,
       (legendreSym p
@@ -187,23 +157,7 @@ theorem card_quadratic_roots_eq_card_sqrts_discrim {F : Type*} [Field F] [Fintyp
   have : NeZero (2 : F) := ⟨h2⟩
   have h2a : 2 * a ≠ 0 := mul_ne_zero h2 ha
   refine Finset.card_nbij' (fun y => 2 * a * y + b) (fun z => (z - b) / (2 * a)) ?_ ?_ ?_ ?_
-  · -- a root `y` yields the square root `2a·y + b` of the discriminant
-    intro y hy
-    simp [discrim]
-    grind
-  · -- a square root `z` yields back the root `(z - b) / 2a`
-    intro z hz
-    simp [discrim] at hz
-    simp
-    field_simp
-    grind
-  · -- the two maps are mutually inverse
-    intro y _
-    field_simp
-    ring
-  · intro z _
-    field_simp
-    ring
+  <;> intro _ _ <;> grind [discrim]
 
 /-- The two counts agree away from `p = 2`, where completing the square is unavailable. -/
 theorem affineCount_eq_legendreCount (p : ℕ) (h : Fact p.Prime)
@@ -228,14 +182,12 @@ theorem affineCount_eq_legendreCount (p : ℕ) (h : Fact p.Prime)
 
 /-- Euler factor at a good prime: `1 - a_p X + p X²` with `a_p = p - N_p`. -/
 noncomputable def eulerFactorGood (p : ℕ) (h : Fact p.Prime) : ℤ[X] :=
-  let N_p := affineCount p h
-  1 - C (p - N_p : ℤ) * X + C (p : ℤ) * X ^ 2
+  1 - C (p - affineCount p h : ℤ) * X + C (p : ℤ) * X ^ 2
 
 /-- Euler factor at a multiplicative prime: `1 - a_p X`, again with `a_p = p - N_p`.  The affine
 count `N_p` now includes the node, which makes `a_p = ±1`. -/
 noncomputable def eulerFactorMult (p : ℕ) (h : Fact p.Prime) : ℤ[X] :=
-  let N_p := affineCount p h
-  1 - C (p - N_p : ℤ) * X
+  1 - C (p - affineCount p h : ℤ) * X
 
 /-- Euler factor at an additive prime: the constant `1`. -/
 noncomputable def eulerFactorAdd (p : ℕ) (_ : Fact p.Prime) : ℤ[X] := 1
@@ -280,11 +232,7 @@ Here `MinimalAt` carries real weight, since `p ∣ c₄` says nothing about mini
 def AdditiveAt (p : ℕ) (h : Fact p.Prime) :=
   MinimalAt p h ∧ ((p : ℤ) ∣ E.Δ) ∧ ((p : ℤ) ∣ E.c₄)
   deriving Decidable
-
-#eval apGood.map fun (p, _) => if hp : p.Prime then decide (GoodAt p ⟨hp⟩) else false
-#eval apMult.map fun (p, _) => if hp : p.Prime then decide (MultiplicativeAt p ⟨hp⟩) else false
-#eval apAdd.map fun p => if hp : p.Prime then decide (AdditiveAt p ⟨hp⟩) else false
-
+  
 /-! ### The certificates -/
 
 /-- One iteration of the good-prime loop: the count `N_p` pins down the Euler factor.  Works
@@ -304,6 +252,12 @@ theorem eulerFactorMult_of_count (p : ℕ) (h : Fact p.Prime) (a : ℤ)
   simp only [hN, sub_sub_cancel, C_neg]
   ring
 
+-- The three certificates share one proof shape.  When a table is empty, `fin_cases` closes every
+-- goal and the `all_goals` block is dead code, which the unused- and unreachable-tactic linters
+-- would flag; they are switched off for each certificate so the template stays uniform.
+
+set_option linter.unusedTactic false in
+set_option linter.unreachableTactic false in
 /-- Every `(p, a_p)` row of `apGood` is certified. -/
 theorem apGood_certified : ∀ pa ∈ apGood, ∀ h : Fact pa.1.Prime, GoodAt pa.1 h ∧
     eulerFactorGood pa.1 h = 1 + C (-pa.2 : ℤ) * X + C (pa.1 : ℤ) * X ^ 2 := by
@@ -316,24 +270,34 @@ theorem apGood_certified : ∀ pa ∈ apGood, ∀ h : Fact pa.1.Prime, GoodAt pa
       decide
     · exact eulerFactorGood_of_count _ ⟨by decide⟩ _ (by decide)
 
-#print axioms apGood_certified
 
+set_option linter.unusedTactic false in
+set_option linter.unreachableTactic false in
 /-- Every `(p, a_p)` row of `apMult` is certified. -/
 theorem apMult_certified : ∀ pa ∈ apMult, ∀ h : Fact pa.1.Prime, MultiplicativeAt pa.1 h ∧
     eulerFactorMult pa.1 h = 1 + C (-pa.2 : ℤ) * X := by
   intro pa hpa h
   unfold apMult at hpa
   fin_cases hpa
-""" + MULT_BLOCK + """
+  all_goals
+    constructor
+    · unfold MultiplicativeAt MinimalAt
+      decide
+    · exact eulerFactorMult_of_count _ ⟨by decide⟩ _ (by decide)
+
+set_option linter.unusedTactic false in
+set_option linter.unreachableTactic false in
 /-- Every prime of `apAdd` is certified additive, with Euler factor `1`. -/
 theorem apAdd_certified : ∀ p ∈ apAdd, ∀ h : Fact p.Prime, AdditiveAt p h ∧
     eulerFactorAdd p h = 1 := by
   intro p hp h
   unfold apAdd at hp
   fin_cases hp
-""" + empty_table_note("apAdd", "apMult_certified") + commented(ADD_BLOCK) + """
-#print axioms apMult_certified
-#print axioms apAdd_certified
+  all_goals
+    constructor
+    · unfold AdditiveAt MinimalAt
+      decide
+    · rfl
 
 /- TODO:
 1. make it mathlib `WeierstrassCurve.localPolynomial` compatible
@@ -361,14 +325,6 @@ def render(a):
     src = replace_once(src, "{apGood}", lean_pairs(good))
     src = replace_once(src, "{apMult}", lean_pairs(mult))
     src = replace_once(src, "{apAdd}", lean_nats(add))
-    # `fin_cases` on an empty table closes every goal, so a proof block after it is dead code and
-    # Mathlib's unreachable-tactic linter warns; keep the block commented out in that case.
-    if add:
-        src = replace_once(src, empty_table_note("apAdd", "apMult_certified") + commented(ADD_BLOCK),
-                           ADD_BLOCK)
-    if not mult:
-        src = replace_once(src, MULT_BLOCK,
-                           empty_table_note("apMult", "apGood_certified") + commented(MULT_BLOCK))
     return src, (good, mult, add, warnings)
 
 
