@@ -8,7 +8,7 @@ Usage:
 
 Example:
     sage scripts/lmfdb_qexp_to_e4e6.sage 16 \
-        LeanBridge/ForMathlib/QExpansion/LMFDB_1_16_a_a.lean
+        LeanBridge/LMFDB/ModularForms/LMFDB_1_16_a_a.lean
 
 Currently supports level-1 weights k where dim S_k = 1 (k = 12, 16, 18, 20, 22, 26).
 For these weights the unique normalized newform is labelled `1.k.a.a` in the LMFDB.
@@ -140,8 +140,8 @@ def emit_lean(weight, poly, qexp_coeffs):
   qexp_certify lmfdb_{label}_qExpansion_coeff lmfdb_{label}_polyData {sturm} {n} {v_str}""")
     sturm_examples_str = "\n\n".join(sturm_examples)
 
-    return f"""import LeanBridge.ForMathlib.QExpansion.Generic
-import LeanBridge.ForMathlib.QExpansion.Examples  -- for `qexp_certify` macro
+    return f"""import LeanBridge.ForMathlib.NumberTheory.ModularForms.QExpansion.Generic
+import LeanBridge.LMFDB.ModularForms.Examples  -- for `qexp_certify` macro
 
 /-!
 # LMFDB level-1 modular form `1.{weight}.a.a`

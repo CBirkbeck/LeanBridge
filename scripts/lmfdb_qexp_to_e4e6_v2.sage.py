@@ -9,7 +9,7 @@ Usage:
 
 Example:
     sage scripts/lmfdb_qexp_to_e4e6_v2.sage 60 0 \
-        LeanBridge/ForMathlib/QExpansion/LMFDB_1_60_a_orbit.lean
+        LeanBridge/LMFDB/ModularForms/LMFDB_1_60_a_orbit.lean
 """
 
 
@@ -282,8 +282,8 @@ def emit_full(weight, form_idx=_sage_const_0 ):
     alpha_name = f"α_{weight}"
 
     # Header
-    parts = [f"""import LeanBridge.ForMathlib.QExpansion.Generic
-import LeanBridge.ForMathlib.QExpansion.Examples
+    parts = [f"""import LeanBridge.ForMathlib.NumberTheory.ModularForms.QExpansion.Generic
+import LeanBridge.LMFDB.ModularForms.Examples
 import Mathlib.FieldTheory.IsAlgClosed.Basic
 
 /-!
