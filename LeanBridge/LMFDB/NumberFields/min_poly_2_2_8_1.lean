@@ -17,8 +17,8 @@ abbrev min_poly_2_2_8_1 : Polynomial ℚ := ((min_poly_2_2_8_1_int).mapRingHom (
 abbrev K_2_2_8_1 := AdjoinRoot min_poly_2_2_8_1
 
 -- ASSUME: Irreducibility and LMFDB axioms are proved/stated elsewhere
-lemma irreducible_poly : Irreducible min_poly_2_2_8_1 := sorry
-instance: Fact (Irreducible min_poly_2_2_8_1) := ⟨irreducible_poly⟩
+lemma irreducible_min_poly_2_2_8_1 : Irreducible min_poly_2_2_8_1 := sorry
+instance: Fact (Irreducible min_poly_2_2_8_1) := ⟨irreducible_min_poly_2_2_8_1⟩
 axiom LMFDB_NF_2_2_8_1_discr : NumberField.discr K_2_2_8_1 = sorry
 axiom LMFDB_NF_2_2_8_1_isGalois : IsGalois ℚ K_2_2_8_1
 axiom LMFDB_NF_2_2_8_1_classNumber : NumberField.classNumber K_2_2_8_1 = sorry
@@ -41,7 +41,13 @@ lemma K_gen_int_pol : K_gen_int^2 - 2 = 0 := by
   simp [K_gen_int, min_poly_2_2_8_1]
   suffices K_gen^2 - 2 = 0 by
     exact RingOfIntegers.coe_eq_zero_iff.mp this
-  simpa [K_gen, min_poly_2_2_8_1] using AdjoinRoot.eval₂_root min_poly_2_2_8_1
+  have hf : min_poly_2_2_8_1 = Polynomial.X ^ 2 - 2 := by
+    simp [min_poly_2_2_8_1]
+    ring
+  have h : Polynomial.aeval K_gen (Polynomial.X ^ 2 - 2 : Polynomial ℚ) = 0 := by
+    rw [← hf]
+    exact (AdjoinRoot.aeval_eq _).trans AdjoinRoot.mk_self
+  simpa [map_ofNat] using h
 
 
 def fundamental_unit_1 : (𝓞 K_2_2_8_1)ˣ where
@@ -49,14 +55,10 @@ def fundamental_unit_1 : (𝓞 K_2_2_8_1)ˣ where
   inv := K_gen_int - 1
   val_inv := by
     -- Proof that val * inv = 1, using the polynomial identity certificate
-    have : (K_gen_int + 1) * (K_gen_int - 1) = 1 + (1) * K_gen_int^2 - 2 := by ring
-    simp [ K_gen_int_pol ] at this
-    grind
+    linear_combination K_gen_int_pol
   inv_val := by
     -- Proof that inv * val = 1 (using commutativity)
-    have : (K_gen_int + 1) * (K_gen_int - 1) = 1 + (1) * K_gen_int^2 - 2 := by ring
-    simp [ K_gen_int_pol ] at this
-    grind
+    linear_combination K_gen_int_pol
 
 
 end

@@ -1,4 +1,10 @@
+/-
+Copyright (c) 2024 Alain Chavarri Villarello. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Alain Chavarri Villarello
+-/
 import Mathlib.FieldTheory.Finite.GaloisField
+import Mathlib.FieldTheory.Finite.Extension
 import LeanBridge.ForMathlib.Algebra.Polynomial.PolynomialsAsLists
 
 /-! # Irreducibility of polynomials
@@ -30,10 +36,12 @@ based on degree analysis.
 
 open BigOperators Polynomial
 
+universe u
+
 section AuxiliaryLemmas
 
 lemma isCoprime_sub_of_isCoprime_sub_dvd_sub {R : Type}[CommRing R]
-    {a b c f: R}(h1: f ∣ a - b) (h2 : IsCoprime f (b - c)) :
+    {a b c f : R}(h1: f ∣ a - b) (h2 : IsCoprime f (b - c)) :
     IsCoprime f (a - c) := by
   rcases h1 with ⟨z, hz⟩
   have : a - c = (b - c) + f * z := by rw [← hz] ; ring
@@ -48,156 +56,17 @@ lemma List.expand_ZMod (p : ℕ) [Fact $ Nat.Prime p] (l : List (ZMod p)) :
   rw [ZMod.frobenius_zmod]
   exact (map_id'' (congrFun rfl) (expand p l)).symm
 
-lemma pow_sub_one_dvd_pow_sub_one {α : Type*}[Ring α](x : α)(m n : ℕ)
-    (hdvd : m ∣ n) : x ^ m - 1 ∣ x ^ n - 1 := by
-  convert Commute.sub_dvd_pow_sub_pow (x := x ^ m) (y := 1)
-    (Commute.one_right _) hdvd.choose using 1
-  rw [one_pow, ← pow_mul, ← hdvd.choose_spec]
-
-lemma pow_pow_sub_dvd_pow_pow_sub {α : Type*} [Ring α] {m n r: ℕ}
-    (hpn : m ≠ 0) (hdvd : n ∣ r) (x : α) : (x ^ (m ^ n) - x) ∣ (x ^ (m ^ r) - x) := by
-  have hdvdp: m ^ n - 1 ∣ m ^ r - 1 := by
-    simp only [← Int.natCast_dvd_natCast, Nat.one_le_pow n m (Nat.zero_lt_of_ne_zero hpn),
-    Nat.cast_sub, Nat.cast_pow, Nat.cast_one,
-    Nat.one_le_pow r m (Nat.zero_lt_of_ne_zero hpn)]
-    exact pow_sub_one_dvd_pow_sub_one _ _ _ hdvd
-  convert mul_dvd_mul_left x (pow_sub_one_dvd_pow_sub_one x (m ^ n - 1) (m ^ r - 1) hdvdp) using 1
-  rw [mul_sub, mul_pow_sub_one (pow_ne_zero n hpn) _, mul_one]
-  rw [mul_sub, mul_pow_sub_one (pow_ne_zero r hpn) _, mul_one]
-
 end AuxiliaryLemmas
 
 section Morphisms
-
-variable {F : Type*} [Field F] [DecidableEq F] {f : F[X]}
-   [Fintype F] (hi : Irreducible f) {p n : ℕ}
-
-def charPOfCard (hp: Nat.Prime p) (hcard : Fintype.card F = p ^ n) : CharP F p := by
-  have card_pow_ne_zero : n ≠ 0 :=
-    fun h => (lt_self_iff_false _).1 (lt_of_lt_of_eq (Fintype.one_lt_card (α := F))
-    (Eq.trans hcard (Eq.trans (congrArg (fun x => p ^ x) h) (pow_zero p))))
-  have := FiniteField.cast_card_eq_zero (K:= F)
-  rw [hcard] at this
-  simp only [Nat.cast_pow, pow_eq_zero_iff', ne_eq, (card_pow_ne_zero),
-    not_false_eq_true, and_true] at this
-  rcases (Nat.dvd_prime hp).1 (ringChar.dvd this) with h1 | h2
-  · have := ringChar.Nat.cast_ringChar (R:= F)
-    rw [h1] at this
-    simp only [Nat.cast_one, one_ne_zero] at this
-  · exact ringChar.of_eq h2
-
-/- A `(ZMod p)`-algebra morphism between two finite fields· -/
-noncomputable def algHomOfCardPow (K : Type) {n m p: ℕ} [hp : Fact $ Nat.Prime p]
-    [Field K] [Fintype K] [Algebra (ZMod p) F] [Algebra (ZMod p) K] (hdvd: m ∣ n)
-    (hcp : Fintype.card F = p ^ m) (hc : Fintype.card K = p ^ n) : F →ₐ[ZMod p] K := by
-  have hp_ne_zero : p ≠ 0 := Nat.Prime.ne_zero hp.out
-  have hdvdpoly : (X : (ZMod p)[X]) ^ p ^ m - X ∣ X ^ Fintype.card K - X := by
-    rw [hc]
-    exact pow_pow_sub_dvd_pow_pow_sub hp_ne_zero hdvd X
-  have hsplits : Splits ((X ^ p ^ m - X : (ZMod p)[X]).map (algebraMap (ZMod p) K)) := by
-    refine Polynomial.Splits.of_dvd (FiniteField.splits_X_pow_card_sub_X p (K := K)) ?_
-      (Polynomial.map_dvd _ hdvdpoly)
-    rw [Polynomial.map_sub, Polynomial.map_pow, map_X]
-    exact FiniteField.X_pow_card_sub_X_ne_zero K Fintype.one_lt_card
-  have hm_ne_zero : m ≠ 0 := fun h => by
-    apply (lt_self_iff_false 1).mp
-    exact lt_of_lt_of_eq (Fintype.one_lt_card (α := F))
-      (Eq.trans hcp (Eq.trans (congrArg (fun x => p ^ x) h) (pow_zero p)))
-  haveI : Fintype (GaloisField p m) := Fintype.ofFinite _
-  have card_gf : Fintype.card (GaloisField p m) = p ^ m := by
-    rw [← GaloisField.card _ _ hm_ne_zero, Nat.card_eq_fintype_card]
-  haveI : Polynomial.IsSplittingField (ZMod p) (GaloisField p m) (X ^ p ^ m - X) :=
-    FiniteField.isSplittingField_of_card_eq _ _ card_gf
-  have ϕ := Polynomial.IsSplittingField.lift (GaloisField p m) (X ^ p ^ m - X : (ZMod p)[X]) hsplits
-  have iso := FiniteField.algEquivOfCardEq (K := F) (K' := GaloisField p m) (p := p)
-    (hcp.trans card_gf.symm)
-  exact ϕ.comp iso.toAlgHom
-
-/- A ring homomorphism between two finite fields· -/
-noncomputable def ringHomOfCardPow (K : Type) {n : ℕ} [Field K][Fintype K]
-    (hc : Fintype.card K = (Fintype.card F) ^ n) : F →+* K := by
-  choose p _ m hp hm using FiniteField.card' F
-  rw [ hm, ← pow_mul] at hc
-  have hdvd : (m : ℕ) ∣ m * n  := ⟨n, rfl⟩
-  haveI := charPOfCard hp hm
-  haveI := charPOfCard hp hc
-  haveI : Fact $ Nat.Prime p := { out := hp }
-  haveI : Algebra (ZMod p) F := ZMod.algebra F p
-  haveI : Algebra (ZMod p) K := ZMod.algebra K p
-  exact AlgHom.toRingHom (algHomOfCardPow K hdvd hm hc)
 
 end Morphisms
 
 section IrreducibilityTheory
 
-variable {F : Type*} [Field F]  {p : ℕ} [CharP F p]
+variable {p : ℕ} {F : Type*} [hf : Field F]  [CharP F p]
  {f : F[X]} (K : Type) [Field K] [Fintype K] [CharP K p] (hd : 0 < f.natDegree)
  (φ : F →+* K)
-
-include hd in
- lemma exists_root_of_X_pow_card_sub_X
-    (h : (Polynomial.map φ f : K[X]) ∣ (X ^ (Fintype.card K) - X : Polynomial K)) :
-  ∃ a : K, Polynomial.eval₂ φ a f = 0 := by
-  have hKsplits : Splits (X ^ Fintype.card K - X : K[X]) := by
-    haveI : IsSplittingField K K (X ^ Fintype.card K - X) := FiniteField.isSplittingField_sub K K
-    simpa using Polynomial.IsSplittingField.splits (K := K) (L := K) (X^Fintype.card K - X)
-  have hsplit : Splits (Polynomial.map φ f : K[X]) :=
-    Polynomial.Splits.of_dvd hKsplits
-      (FiniteField.X_pow_card_sub_X_ne_zero K Fintype.one_lt_card) h
-  rw [Polynomial.splits_iff_card_roots] at hsplit
-  have hdeg : (Polynomial.map φ f).natDegree = f.natDegree := natDegree_map _
-  rw [hdeg] at hsplit
-  rw [← hsplit] at hd
-  obtain ⟨a, ha⟩ := Multiset.card_pos_iff_exists_mem.1 hd
-  use a
-  replace ha := (Polynomial.isRoot_of_mem_roots ha)
-  rw [IsRoot, Polynomial.eval_map] at ha
-  exact ha
-
-noncomputable def algebraAdjoinRootOfDvd
-    (hdvd : (Polynomial.map φ f : K[X]) ∣ (X ^ (Fintype.card K) - X : K[X]) ) :
-    Algebra (AdjoinRoot f) K := by
-  have := exists_root_of_X_pow_card_sub_X K hd φ hdvd
-  choose a ha using this
-  refine RingHom.toAlgebra (AdjoinRoot.lift φ a ha)
-
-include hd in
-lemma natDegree_dvd_of_dvd_X_pow_sub_X {n : ℕ} [Fintype F]
-   (hn : n ≠ 0) (hi : Irreducible f) (h : f ∣ (X ^ ((Fintype.card F) ^ n) - X)) :
-    f.natDegree ∣ n := by
-  choose p _ m hp hm' using FiniteField.card' F
-  haveI : Fact $ Nat.Prime p := { out := hp }
-  have : ∀ m, Fintype (GaloisField p m) := fun m => Fintype.ofFinite _
-  have hcard' : Fintype.card (GaloisField p (m * n)) = (Fintype.card F) ^ n := by
-    rw [Fintype.card_eq_nat_card, GaloisField.card p (m * n) ?_, hm', pow_mul]
-    simp only [ne_eq, mul_eq_zero, PNat.ne_zero, false_or]
-    exact hn
-  let K := GaloisField p (m * n)
-  let ψ := ringHomOfCardPow K hcard'
-  replace h := Polynomial.map_dvd ψ h
-  simp only [Polynomial.map_sub, Polynomial.map_pow, map_X] at h
-  rw [← hcard'] at h
-  have := exists_root_of_X_pow_card_sub_X K hd ψ h
-  letI hal := algebraAdjoinRootOfDvd K hd ψ h
-  letI hal2 : Algebra F K := RingHom.toAlgebra
-    (RingHom.comp (algebraMap (AdjoinRoot f) K) (algebraMap F (AdjoinRoot f)))
-  haveI hfinite: IsScalarTower F (AdjoinRoot f) K := IsScalarTower.of_algebraMap_eq' rfl
-  haveI hfinite2 : FiniteDimensional F (AdjoinRoot f) :=
-  PowerBasis.finite (AdjoinRoot.powerBasis (Irreducible.ne_zero hi))
-  haveI : Fact $ Irreducible f := { out := hi }
-  have := Module.finrank_mul_finrank F (AdjoinRoot f) K
-  have hdim1: Module.finrank F (AdjoinRoot f)= f.natDegree := by
-    rw [PowerBasis.finrank (AdjoinRoot.powerBasis (Irreducible.ne_zero hi)),
-      AdjoinRoot.powerBasis_dim (Irreducible.ne_zero hi)]
-  have hqo := Fintype.one_lt_card (α := F)
-  have hdim2: Module.finrank F K = n := by
-    have hcard:= @Module.card_eq_pow_finrank F K _ _ _ _ _
-    rw [hcard', pow_right_inj₀] at hcard
-    exact hcard.symm
-    linarith ; linarith
-  rw [hdim1, hdim2] at this
-  use (Module.finrank (AdjoinRoot f) K)
-  exact this.symm
 
 variable [DecidableEq F]
 
@@ -236,16 +105,16 @@ lemma dvd_X_pow_natDegree_sub_X [Fintype F] (hi : Irreducible f) :
   rw [hg,  mul_assoc, ← mul_assoc g gi, hgi, one_mul]
   exact ht
 
-variable [Fintype F] {n : ℕ}
+variable [Fintype F]
 
-lemma dvd_X_pow_natDegree_sub_X_of_natDegree_dvd (hi : Irreducible f)
+lemma dvd_X_pow_natDegree_sub_X_of_natDegree_dvd {n : ℕ} (hi : Irreducible f)
     (hdvd : f.natDegree ∣ n) : f ∣ (X ^ ((Fintype.card F) ^ n) - X : F[X]) :=
   dvd_trans (dvd_X_pow_natDegree_sub_X hi)
-  (pow_pow_sub_dvd_pow_pow_sub Fintype.card_ne_zero hdvd X)
+  (dvd_pow_pow_sub_self_of_dvd hdvd)
 
 /-- If `f` is irreducible, then its degree divides `n` if and only if `f` divides
   `X ^ ((Fintype.card F) ^ n) - X` -/
-theorem natDegree_dvd_iff_dvd_X_pow_sub_X (hi : Irreducible f) :
+theorem natDegree_dvd_iff_dvd_X_pow_sub_X {n : ℕ} (hi : Irreducible f) :
     f.natDegree ∣ n ↔ f ∣ (X ^ ((Fintype.card F) ^ n) - X : F[X]) := by
   by_cases hn : n = 0
   · rw [hn]
@@ -254,7 +123,8 @@ theorem natDegree_dvd_iff_dvd_X_pow_sub_X (hi : Irreducible f) :
       natDegree_pos_iff_degree_pos.mpr (Polynomial.degree_pos_of_irreducible hi)
     constructor
     · exact dvd_X_pow_natDegree_sub_X_of_natDegree_dvd hi
-    · refine natDegree_dvd_of_dvd_X_pow_sub_X hd hn hi
+    · rw [Fintype.card_eq_nat_card]
+      refine Irreducible.natDegree_dvd_of_dvd_X_pow_card_pow_sub_X hi
 
 /-- A useful result to prove irreducibility of polynomials over finite fields. -/
 theorem irreducible_iff_dvd_X_pow_sub_X (f : F[X]) (hd : 0 < f.natDegree) :
@@ -302,7 +172,7 @@ lemma isCoprime_X_pow_sub_X_of_dvd_of_maximal_dvd (f : F[X])
     (Nat.minFac_prime hno)
         (dvd_trans (b := f.natDegree / m) (Nat.minFac_dvd _ )
         (Nat.div_dvd_of_dvd hmdvd)) ))
-        (pow_pow_sub_dvd_pow_pow_sub (Fintype.card_ne_zero) (haux) X))
+        (dvd_pow_pow_sub_self_of_dvd (haux)))
 
 /-- A version of `irreducible_iff_dvd_X_pow_sub_X` which only ranges through maximal proper
   divisors of the degree of `f`. This is the statament used for Rabin's test. -/
@@ -315,7 +185,8 @@ theorem irreducible_iff_dvd_X_pow_sub_X' (f : F[X]) (hd : 0 < f.natDegree) :
   · intro hi
     refine ⟨(natDegree_dvd_iff_dvd_X_pow_sub_X hi).1 dvd_rfl, ?_⟩
     intro p hp hpne
-    rcases (EuclideanDomain.dvd_or_coprime f (X ^ ((Fintype.card F) ^ ((f.natDegree) / p)) - X) hi ) with h1 | h2
+    rcases (EuclideanDomain.dvd_or_coprime f (X ^ ((Fintype.card F) ^ ((f.natDegree) / p)) - X) hi )
+      with h1 | h2
     · exfalso
       have hpdvd : (f.natDegree / p) ∣ f.natDegree := by exact Nat.div_dvd_of_dvd hpne
       have := (dvd_antisymm hpdvd ((natDegree_dvd_iff_dvd_X_pow_sub_X hi).2 h1))
@@ -408,7 +279,7 @@ lemma multisetSum_mem_partialSums
   obtain ⟨L₂, hL1, hL2⟩ := hle
   rw [← List.mem_sublists] at hL2
   rw [← auxeq, Multiset.sum_coe, ← List.Perm.sum_eq hL1]
-  exact @List.mem_map_of_mem _ _ _ _ List.sum hL2
+  exact List.mem_map_of_mem hL2
 
 /-- If `a` divides `f` and `σ : R →+* K` maps the leading coefficient of `f` to a non-zero element,
   then the degree of `a` is contained in the list of partial sums of the degrees of the factors
@@ -416,7 +287,7 @@ lemma multisetSum_mem_partialSums
 lemma natDegree_in_partialSums  {R : Type*} [CommRing R] [IsDomain R] [DecidableEq R]
     [UniqueFactorizationMonoid R] [NormalizationMonoid R] (f a : Polynomial R)
     (hdvd : a ∣ f)  (K : Type*) [CommRing K] [IsDomain K] [DecidableEq K]
-    [UniqueFactorizationMonoid K] [NormalizationMonoid K]
+    [UniqueFactorizationMonoid K][NormalizationMonoid K]
     (σ : R →+* K) (L : List ℕ)
     (hmf : σ (f.leadingCoeff) ≠ 0 )
     (hfL :↑L = (Multiset.map natDegree (UniqueFactorizationMonoid.normalizedFactors (map σ f)))) :
@@ -447,9 +318,7 @@ lemma natDegree_in_partialSums_monic {R : Type*} [CommRing R] [IsDomain R] [Deci
   rw [hS2]
   exact multisetSum_mem_partialSums S L hS1
 
-variable {n : ℕ}
-
-lemma natDegree_in_partialSums_int (f a : Polynomial ℤ)
+lemma natDegree_in_partialSums_int {n : ℕ} (f a : Polynomial ℤ)
     (hdvd : a ∣ f) (p : Fin n → ℕ) [∀ i, Fact $ Nat.Prime (p i )]
     (L : Fin n → List ℕ) (hmf : ∀ i, (algebraMap ℤ (ZMod (p i))) (f.leadingCoeff) ≠ 0)
     (hfL : ∀ i , ↑(L i) = (Multiset.map natDegree (UniqueFactorizationMonoid.normalizedFactors
@@ -459,7 +328,7 @@ lemma natDegree_in_partialSums_int (f a : Polynomial ℤ)
   refine natDegree_in_partialSums  f a hdvd
     (ZMod (p i)) (algebraMap ℤ (ZMod (p i))) (L i) (hmf i) (hfL i)
 
-lemma natDegree_in_partialSums_int_monic (f a : Polynomial ℤ)
+lemma natDegree_in_partialSums_int_monic {n : ℕ} (f a : Polynomial ℤ)
     (hf : Monic f) (hdvd : a ∣ f) (p : Fin n → ℕ)
     [∀ i, Fact $ Nat.Prime (p i )] (L : Fin n → List ℕ)
     (hfL : ∀ i , ↑(L i) = (Multiset.map natDegree (UniqueFactorizationMonoid.normalizedFactors
@@ -469,8 +338,6 @@ lemma natDegree_in_partialSums_int_monic (f a : Polynomial ℤ)
   refine natDegree_in_partialSums_monic f a hf hdvd
     (ZMod (p i)) (algebraMap ℤ (ZMod (p i))) (L i) (hfL i)
 
-instance instNatCast [NeZero n] : NatCast (Fin n) := by exact Fin.NatCast.instNatCast n
-
 /- Computes the intersection of a finite number of lists· -/
 def List.bagInterOfFn {R : Type*} [BEq R] {n : ℕ} : (Fin n → List R) → List R :=
   match n with
@@ -478,8 +345,8 @@ def List.bagInterOfFn {R : Type*} [BEq R] {n : ℕ} : (Fin n → List R) → Lis
   | 1 => fun f => (f ↑0)
   | Nat.succ (Nat.succ n) =>
       fun f =>
-      let f' := fun (i : Fin (Nat.succ n)) => f (i : ℕ);
-      List.bagInter (List.bagInterOfFn f') (f ↑(Nat.succ n))
+      let f' := fun i => f (i.castSucc);
+      List.bagInter (List.bagInterOfFn f') (f (Fin.last (Nat.succ n)))
 
 lemma bagInterOfFn_mem {R : Type*} [DecidableEq R] {n : ℕ} [NeZero n] (L : Fin n → List R) (a : R) :
     a ∈ List.bagInterOfFn L ↔ ∀ i, a ∈ L i :=
@@ -491,25 +358,24 @@ lemma bagInterOfFn_mem {R : Type*} [DecidableEq R] {n : ℕ} [NeZero n] (L : Fin
     | zero =>
       unfold List.bagInterOfFn
       constructor
-      · intro ha  ; intro i ; fin_cases i ; exact ha
+      · intro ha  i; fin_cases i ; exact ha
       · intro ha ; exact ha 0
     | succ n hn =>
       unfold List.bagInterOfFn
       constructor
-      · intro ha ; intro i
+      · intro ha i
         by_cases h : i = Fin.last _
         · rw [h]
-          convert (List.mem_bagInter.1 ha).2
-          simp only [Fin.natCast_eq_last]
-        · convert (hn (λ i => L (i : Fin (Nat.succ n))) (by exact Nat.succ_ne_zero n)).1 (List.mem_bagInter.1 ha).1 (Fin.castPred i h)
-          exact (Fin.cast_val_eq_self i).symm
+          exact (List.mem_bagInter.1 ha).2
+        · exact (hn (λ i => L (i.castSucc)) (by exact Nat.succ_ne_zero n)).1
+            (List.mem_bagInter.1 ha).1 (Fin.castPred i h)
       · intro h
         rw [List.mem_bagInter]
         constructor
-        · rw [(hn (λ i => L (i : Fin (Nat.succ n))) (by exact Nat.succ_ne_zero n))]
+        · rw [(hn (λ i => L (i.castSucc)) (by exact Nat.succ_ne_zero n))]
           intro i
-          exact h i
-        · exact h (Nat.succ n)
+          exact h i.castSucc
+        · exact h (Fin.last (Nat.succ n))
 
 /-- For `f` monic of degree `n`, if the intersection of the lists of partial sums of the degrees
   of the factors of `f` modulo a finite set of primes is equal to `[0, n]`, then `f` is irreducible. -/
@@ -569,10 +435,12 @@ lemma le_natDegree_of_partialSums (f : Polynomial ℤ) (d : ℕ) (hf : f.IsPrimi
   have hqdeg : q.natDegree ≠ 0 := by
     intro hc
     rw [Polynomial.eq_C_of_natDegree_eq_zero hc] at hqdvd hqu
-    exact hqu (Polynomial.isUnit_C.2 (Polynomial.isPrimitive_iff_isUnit_of_C_dvd.1 hf (q.coeff 0) hqdvd))
-  have := List.mem_filter_of_mem ((bagInterOfFn_mem _ _).2 (natDegree_in_partialSums_int f q hqdvd p L hmf hL))
-    (p := fun a => a ≠ 0 )
-    (by simp  [ne_eq, hqdeg, not_false_eq_true])
+    exact hqu (Polynomial.isUnit_C.2 (Polynomial.isPrimitive_iff_isUnit_of_C_dvd.1 hf
+      (q.coeff 0) hqdvd))
+  have := List.mem_filter_of_mem ((bagInterOfFn_mem _ _).2
+    (natDegree_in_partialSums_int f q hqdvd p L hmf hL))
+    (p := fun a =>a ≠ 0 )
+    (by simp only [ne_eq, hqdeg, not_false_eq_true, decide_true])
   apply_fun Option.getD at hmin
   have aux := congr_fun hmin 0
   rw [Option.getD_some, List.getD_min?_eq_untopD_minimum, WithTop.untopD_eq_iff ] at aux
@@ -580,8 +448,6 @@ lemma le_natDegree_of_partialSums (f : Polynomial ℤ) (d : ℕ) (hf : f.IsPrimi
   · exact List.minimum_le_of_mem this h1
   · exfalso
     exact hdz h2.2
-
-universe u
 
 /-- The list of degrees of the normalized factors of `ofList l` is obtained from the lengths of
   the lists corresponding to irreducible polynomials that when multiplied together equal `l`. -/
@@ -652,9 +518,12 @@ structure IrreducibleCertificateIntPolynomial (T : Polynomial ℤ) (l : List ℤ
   D : ∀ i , Fin (m i) → ℕ
   hl : ∀ i j, (F i j).length = D i j + 1
   hirr : ∀ i j , Irreducible (ofList (F i j))
-  hm : ∀ i j, (F i j).getLast (List.ne_nil_of_length_pos (lt_of_lt_of_eq (Nat.succ_pos (D i j)) (hl i j).symm) ) ≠ 0
-  hprod : ∀ i, (List.prod (List.ofFn (fun j => F i j))).dropTrailingZeros' = List.map (algebraMap ℤ (ZMod (p i))) l
-  hinter : ((List.bagInterOfFn (fun i => partialSums (List.ofFn (D i)))).filter (fun a => a ≠ 0)).min? = some d
+  hm : ∀ i j, (F i j).getLast
+    (List.ne_nil_of_length_pos (lt_of_lt_of_eq (Nat.succ_pos (D i j)) (hl i j).symm) ) ≠ 0
+  hprod : ∀ i, (List.prod (List.ofFn (fun j => F i j))).dropTrailingZeros'
+    = List.map (algebraMap ℤ (ZMod (p i))) l
+  hinter : ((List.bagInterOfFn (fun i =>
+    partialSums (List.ofFn (D i)))).filter (fun a => a ≠ 0)).min? = some d
 
 lemma irreducible_of_CertificateIntPolynomial (T : Polynomial ℤ) (l : List ℤ)
     (C : IrreducibleCertificateIntPolynomial T l) : Irreducible T := by
@@ -730,7 +599,7 @@ def FnToNat {n : ℕ} (t : ℕ) (b : Fin n → ℕ) : ℕ := ∑ i, (b i) * (t ^
 lemma FnToNat_eval_single {n : ℕ}(t : ℕ)(j : Fin n):
     FnToNat t (Finsupp.single j 1) = t ^ (j : ℕ) := by
   unfold FnToNat
-  rw [Fintype.sum_eq_single j, Finsupp.single_eq_same, one_mul]
+  rw [Fintype.sum_eq_single j,Finsupp.single_eq_same, one_mul]
   intro x hx
   rw [Finsupp.single_apply]
   simp only [mul_eq_zero]
@@ -739,8 +608,8 @@ lemma FnToNat_eval_single {n : ℕ}(t : ℕ)(j : Fin n):
 
 /-- The `square-and-multiply`-type algorithm. Gives a way to prove `x ^ n` by
   providing a list `y` with intermediate steps. -/
-lemma square_and_multiply_algorithm {R : Type*} [Monoid R] {s t: ℕ} (y : Fin (s + 1) → R)
-    (bit : Fin (s + 1) → ℕ) (x : R) (hs : y s = x ^ (bit s : ℕ))
+lemma square_and_multiply_algorithm {R : Type*} [Monoid R] {s t : ℕ} (y : Fin (s + 1) → R)
+    (bit : Fin (s + 1) → ℕ) (x : R) (hs : y (Fin.last s) = x ^ (bit (Fin.last s) : ℕ))
     (hmul : ∀ (i : Fin s),
       y (Fin.castSucc i) = (y (Fin.succ i)) ^ t * x ^ (bit (Fin.castSucc i) : ℕ)) :
      y 0 = x ^ (FnToNat t bit) := by
@@ -748,25 +617,22 @@ lemma square_and_multiply_algorithm {R : Type*} [Monoid R] {s t: ℕ} (y : Fin (
   | zero =>
     erw [hs]
     unfold FnToNat
-    simp [Nat.reduceAdd, Finset.univ_unique, Fin.val_eq_zero, pow_zero, mul_one,
-      Finset.sum_singleton, Fin.default_eq_zero]
+    simp only [Fin.last_zero, Fin.isValue, Nat.reduceAdd, Finset.univ_unique, Fin.default_eq_zero,
+      Fin.val_eq_zero, pow_zero, mul_one, Finset.sum_singleton]
   | succ s hsucc =>
     let bit' := λ (i : Fin (s + 1)) => bit (Fin.succ i)
     let y' := λ (i : Fin (s + 1)) => y (Fin.succ i)
     have aux : FnToNat t bit = t * (FnToNat t bit') + (bit 0 : ℕ) := by
-      unfold FnToNat
+      unfold FnToNat bit'
       erw [Fin.sum_univ_succ, pow_zero, mul_one, add_comm, Finset.mul_sum]
-      simp [Fin.val_succ]
+      simp only [Fin.val_succ, add_left_inj]
       congr
       simp_rw [mul_comm, ← mul_assoc, pow_succ, mul_comm]
-      aesop
     rw [aux, mul_comm, pow_add, pow_mul]
     have aux2 := hsucc y' bit' ?_ ?_
     swap
-    convert hs
-    · repeat { rw [Fin.natCast_eq_last, Fin.natCast_eq_last] ; rfl }
-    · rw [Fin.natCast_eq_last, Fin.natCast_eq_last] ; rfl
-    rw [← aux2] ; exact (hmul 0)
+    · convert hs <;> rfl
+    · rw [← aux2] ; exact (hmul 0)
     · intro i
       exact hmul (Fin.succ i)
 
@@ -776,14 +642,14 @@ lemma certificate_aux (p n t s : ℕ) [Fact $ Nat.Prime p] [NeZero n]
     (hbits : FnToNat t bit = p) (h : Fin (n + 1) → (ZMod p)[X])
     (g : Fin n → Fin s → (ZMod p)[X])
     (h' : Fin n → Fin (s + 1) → (ZMod p)[X])
-    (hs : ∀ (i : Fin n), h' i s = (h (Fin.castSucc i)) ^ (bit s))
+    (hs : ∀ (i : Fin n), h' i (Fin.last s) = (h (Fin.castSucc i)) ^ (bit (Fin.last s)))
     (hz : ∀ (i : Fin n), h' i 0 = h (Fin.succ i))
     (hmul : ∀ (i : Fin n) , ∀ (j : Fin s), f * (g i j) =
-    (h' i (Fin.succ j)) ^ t * (h i) ^ (bit (Fin.castSucc j) : ℕ) - h' i (Fin.castSucc j))
+    (h' i (Fin.succ j)) ^ t * (h i.castSucc) ^ (bit (Fin.castSucc j) : ℕ) - h' i (Fin.castSucc j))
     (i : Fin n) :
     f ∣ (h (Fin.castSucc i)) ^ p - h (Fin.succ i) := by
   have aux : ∀ i , ∀ j , f ∣ (h' i (Fin.succ j)) ^ t *
-    (h i) ^ (bit (Fin.castSucc j) : ℕ) - h' i (Fin.castSucc j) := by
+    (h i.castSucc) ^ (bit (Fin.castSucc j) : ℕ) - h' i (Fin.castSucc j) := by
     intro i j
     use (g i j)
     exact (hmul i j).symm
@@ -797,50 +663,49 @@ lemma certificate_aux (p n t s : ℕ) [Fact $ Nat.Prime p] [NeZero n]
     simp only [y]
     rw [hs i] ; rfl
   · intro j
-    convert (aux i j).symm
-    simp only [Fin.coe_eq_castSucc]
+    exact (aux i j).symm
+
 
 lemma certificate_aux' (p n t s : ℕ) [NeZero n] [hp : Fact $ Nat.Prime p]
     (f : (ZMod p)[X]) (bit : Fin (s + 1) → ℕ)
     (hbits : FnToNat t bit = p) (h : Fin (n + 1) → (ZMod p)[X])
     (g : Fin n → Fin s → (ZMod p)[X])
     (h' : Fin n → Fin (s + 1) → (ZMod p)[X])
-    (hs : ∀ (i : Fin n), h' i s = (h (Fin.castSucc i)) ^ (bit s))
+    (hs : ∀ (i : Fin n), h' i (Fin.last s) = (h (Fin.castSucc i)) ^ (bit (Fin.last s)))
     (hz : ∀ (i : Fin n), h' i 0 = h (Fin.succ i))
     (hmul : ∀ (i : Fin n) , ∀ (j : Fin s), f * (g i j) =
-      (h' i (Fin.succ j)) ^ t * (h i) ^ (bit (Fin.castSucc j) : ℕ) - h' i (Fin.castSucc j))
+      (h' i (Fin.succ j)) ^ t * (h i.castSucc) ^ (bit (Fin.castSucc j) : ℕ) - h' i (Fin.castSucc j))
     (k : Fin (n + 1)) : f ∣ (h 0) ^ (p ^ (k : ℕ)) - h k := by
   have aux := certificate_aux p n t s f bit hbits h g h' hs hz hmul
   simp_rw [← Ideal.Quotient.eq_zero_iff_dvd, map_sub, map_pow, sub_eq_zero] at aux ⊢
-  let bit := (Finsupp.single (k : Fin (k + 1)) (1 : ℕ))
-  have hpow: FnToNat p bit = p ^ ( (k : Fin (k + 1)) : ℕ) := FnToNat_eval_single p (k : Fin (k + 1))
-  have : ( (k : Fin (k + 1)) : ℕ)  = ((k : Fin (n + 1)) : ℕ ) :=
-    by simp only [Fin.natCast_eq_last, Fin.val_last]
+  let bit := (Finsupp.single (Fin.last k) (1 : ℕ))
+  have hpow: FnToNat p bit = p ^ ( (Fin.last k) : ℕ) := FnToNat_eval_single p (Fin.last k)
+  have : ((Fin.last k) : ℕ)  = ((k : Fin (n + 1)) : ℕ ) := by simp only [Fin.val_last]
   rw [this] at hpow
   rw [← hpow]
   let y : (Fin (k + 1) → ((ZMod p)[X]) ⧸ (Ideal.span {f}) ) :=
-    λ i => Ideal.Quotient.mk (Ideal.span {f}) (h (((k.val - i.val) : ℕ)))
+    λ i => Ideal.Quotient.mk (Ideal.span {f}) (h ( Fin.ofNat _ ((k.val - i.val) : ℕ)))
   convert (square_and_multiply_algorithm y bit _ ?_ ?_).symm
   · simp only [Fin.val_zero, tsub_zero]
     exact (Fin.cast_val_eq_self k).symm
-  · simp only [Fin.natCast_eq_last, Fin.val_last, tsub_self, Finsupp.single_eq_same, pow_one, y,
-    bit]
-    aesop
+  · simp only [Fin.ofNat_eq_cast, Fin.val_last, tsub_self, Fin.natCast_zero,
+    Finsupp.single_eq_same, pow_one, y, bit]
   · intro i
-    have hnz: 0 < k.val - i.val := by zify[i.2] ; linarith[i.2]
-    have hle: k.val - i.val - 1 < n := by zify[i.2, k.2, hnz] ; linarith [i.2, k.2, hnz]
+    have hnz: 0 < k.val - i.val := by grind
+    have hle: k.val - i.val - 1 < n := by grind
     convert (aux ⟨k.val - i.val - 1 , hle ⟩).symm
-    · rw [← Fin.val_inj, Fin.val_succ, Fin.val_cast_of_lt]
-      simp only [Fin.coe_castSucc]
-      exact Nat.eq_add_of_sub_eq hnz rfl
-      exact (tsub_lt_iff_right (Nat.succ_le_of_lt hnz)).mp hle
+    · rw [← Fin.val_inj, Fin.val_succ]
+      simp only [Fin.val_castSucc, Fin.ofNat_eq_cast, Fin.val_natCast]
+      rw [Nat.mod_eq_of_lt]
+      grind ; grind
     · have auxb: bit (Fin.castSucc i) = 0 := by
-        refine Finsupp.single_eq_of_ne' (Fin.ne_of_gt ?_)
-        simp [Fin.natCast_eq_last, Fin.castSucc_lt_last i]
+        refine Finsupp.single_eq_of_ne (Fin.ne_of_lt ?_)
+        simp only [Fin.castSucc_lt_last i]
       erw [auxb, pow_zero, mul_one]
       dsimp ;
       simp only [Fin.val_succ, y]
       congr
+      simp only [Fin.ofNat_eq_cast]
       rw [← Fin.val_inj, Fin.val_cast_of_lt]
       rfl
       exact Nat.lt_add_right 1 hle
@@ -855,21 +720,22 @@ lemma certificate_aux' (p n t s : ℕ) [NeZero n] [hp : Fact $ Nat.Prime p]
 The degree of the polynomials needed in the certificate is at most `2 * n * (t - 1)`.
 The number of polynomials required is `2 * n * logₜ(p) + 3 * n`· Sometimes it might be advantageous
 to take `t = p` because computing `p`-powers is easy in characteristic `p`.  -/
-structure CertificateIrreducibleZMod (p n t s : ℕ) [Fact $ Nat.Prime p] [NeZero n] (f : (ZMod p)[X]) where
+structure CertificateIrreducibleZMod (p n t s : ℕ) [Fact $ Nat.Prime p] [NeZero n]
+    (f : (ZMod p)[X]) where
   hdeg : f.natDegree = n
   bit : Fin (s + 1) → ℕ
   hbits : FnToNat t bit = p
   h : Fin (n + 1) → (ZMod p)[X]
   g : Fin n → Fin s → (ZMod p)[X]
   h' : Fin n → Fin (s + 1) → (ZMod p)[X]
-  hs : ∀ (i : Fin n), h' i s = (h (Fin.castSucc i)) ^ (bit s)
+  hs : ∀ (i : Fin n), h' i (Fin.last s) = (h (Fin.castSucc i)) ^ (bit (Fin.last s))
   hz : ∀ (i : Fin n), h' i 0 = h (Fin.succ i)
   hmul : ∀ (i : Fin n) , ∀ (j : Fin s), f * (g i j) =
-    (h' i (Fin.succ j)) ^ t * (h i) ^ (bit (Fin.castSucc j) : ℕ) - h' i (Fin.castSucc j)
+    (h' i (Fin.succ j)) ^ t * (h i.castSucc) ^ (bit (Fin.castSucc j) : ℕ) - h' i (Fin.castSucc j)
   a : Fin n → (ZMod p)[X]
   b : Fin n → (ZMod p)[X]
   hhz : h 0 = X
-  hhn : h n = X
+  hhn : h (Fin.last n) = X
   hgcd : ∀ (m : Fin n), ↑m ∣ n → (a m) * f + (b m) * ((h (Fin.castSucc m)) - X) = 1
 
 
@@ -878,30 +744,32 @@ lemma irreducible_of_CertificateIrreducibleZMod (p n t s: ℕ)[Fact $ Nat.Prime 
     {f : (ZMod p)[X]} (C : CertificateIrreducibleZMod p n t s f) : Irreducible f := by
   have hd : 0 < f.natDegree := by
     rw [C.hdeg]
-    exact Fin.size_positive'
+    exact Fin.pos'
   rw [irreducible_iff_dvd_X_pow_sub_X f hd, ZMod.card, C.hdeg]
   have aux := certificate_aux' p n t s f C.bit C.hbits C.h C.g C.h' C.hs C.hz C.hmul
   constructor
-  · have aux1 := aux n
-    rw [C.hhz, C.hhn, Fin.natCast_eq_last, Fin.val_last] at aux1
+  · have aux1 := aux (Fin.last n)
+    rw [C.hhz, C.hhn, Fin.val_last] at aux1
     exact aux1
   · intro m hmdvd hneq
-    have hmlt1 : m < n := (lt_of_le_of_ne (Nat.le_of_dvd (Fin.size_positive') hmdvd) hneq )
+    have hmlt1 : m < n := (lt_of_le_of_ne (Nat.le_of_dvd (Fin.pos') hmdvd) hneq )
     have hmlt : m < n + 1 := Nat.lt_add_right 1 hmlt1
     convert isCoprime_sub_of_isCoprime_sub_dvd_sub (aux ⟨m, hmlt⟩) ?_
     · rfl
-    · exact (C.hhz).symm
+    exact (C.hhz).symm
     use (C.a ⟨m, hmlt1⟩ ) , (C.b ⟨m, hmlt1⟩ )
-    convert C.hgcd ⟨m, hmlt1⟩ hmdvd <;> simp [Fin.coe_castSucc]
+    convert C.hgcd ⟨m, hmlt1⟩ hmdvd
+    rfl
 
 
 /-- Certificate for irreducibility of a polynomial `f` over `(ZMod p)`.
 This is the version of `CertificateIrreducibleZMod` in which `hgcd` only ranges through
 maximal proper divisors of `n`. This requires a factorization of `n`. -/
-structure CertificateIrreducibleZMod' (p n t s : ℕ) [Fact $ Nat.Prime p] [NeZero n] (f : (ZMod p)[X]) where
+structure CertificateIrreducibleZMod' (p n t s : ℕ) [Fact $ Nat.Prime p] [NeZero n]
+    (f : (ZMod p)[X]) where
   m : ℕ
   P : Fin m → ℕ
-  exp : Fin m → ℕ
+  exp : Fin m →  ℕ
   hneq : ∏ i : Fin m, (P i) ^ (exp i) = n
   hP : ∀ i, Nat.Prime (P i)
   hdeg : f.natDegree = n
@@ -910,26 +778,27 @@ structure CertificateIrreducibleZMod' (p n t s : ℕ) [Fact $ Nat.Prime p] [NeZe
   h : Fin (n + 1) → (ZMod p)[X]
   g : Fin n → Fin s → (ZMod p)[X]
   h' : Fin n → Fin (s + 1) → (ZMod p)[X]
-  hs : ∀ (i : Fin n), h' i s = (h (Fin.castSucc i)) ^ (bit s)
+  hs : ∀ (i : Fin n), h' i (Fin.last s) = (h (Fin.castSucc i)) ^ (bit (Fin.last s))
   hz : ∀ (i : Fin n), h' i 0 = h (Fin.succ i)
   hmul : ∀ (i : Fin n) , ∀ (j : Fin s), f * (g i j) =
-    (h' i (Fin.succ j)) ^ t * (h i) ^ (bit (Fin.castSucc j) : ℕ) - h' i (Fin.castSucc j)
+    (h' i (Fin.succ j)) ^ t * (h i.castSucc) ^ (bit (Fin.castSucc j) : ℕ) - h' i (Fin.castSucc j)
   a : Fin n → (ZMod p)[X]
   b : Fin n → (ZMod p)[X]
   hhz : h 0 = X
-  hhn : h n = X
-  hgcd : ∀ (i : Fin m), (a ↑(n / (P i))) * f + (b ↑(n / (P i))) * ((h ↑(n / (P i))) - X) = 1
+  hhn : h (Fin.last n) = X
+  hgcd : ∀ (i : Fin m), (a (Fin.ofNat _ (n / (P i)))) * f + (b (Fin.ofNat _ (n / (P i))))
+    * ((h (Fin.ofNat _ (n / (P i)))) - X) = 1
 
 lemma irreducible_of_CertificateIrreducibleZMod' (p n t s: ℕ)[Fact $ Nat.Prime p] [NeZero n]
     {f : (ZMod p)[X]} (C : CertificateIrreducibleZMod' p n t s f) : Irreducible f := by
   have hd : 0 < f.natDegree := by
     rw [C.hdeg]
-    exact Fin.size_positive'
+    exact Fin.pos'
   rw [irreducible_iff_dvd_X_pow_sub_X' f hd, ZMod.card, C.hdeg]
   have aux := certificate_aux' p n t s f C.bit C.hbits C.h C.g C.h' C.hs C.hz C.hmul
   constructor
-  · have aux1 := aux n
-    rw [C.hhz, C.hhn, Fin.natCast_eq_last, Fin.val_last] at aux1
+  · have aux1 := aux (Fin.last n)
+    rw [C.hhz, C.hhn, Fin.val_last] at aux1
     exact aux1
   · intro q hq hqdvd
     have hmlt1 : (n / q) < n := by
@@ -938,44 +807,46 @@ lemma irreducible_of_CertificateIrreducibleZMod' (p n t s: ℕ)[Fact $ Nat.Prime
     have hmlt : (n / q) < n + 1 := Nat.lt_add_right 1 hmlt1
     convert isCoprime_sub_of_isCoprime_sub_dvd_sub (aux ⟨(n / q), hmlt⟩) ?_
     · rfl
-    · exact (C.hhz).symm
+    exact (C.hhz).symm
     use (C.a ⟨(n / q), hmlt1⟩ ) , (C.b ⟨(n / q), hmlt1⟩ )
     rw [← C.hneq, Prime.dvd_finset_prod_iff (Nat.prime_iff.mp hq)] at hqdvd
     obtain ⟨i, _, hi2⟩ := hqdvd
     simp_rw [(Nat.prime_dvd_prime_iff_eq hq (C.hP i)).1 (Nat.Prime.dvd_of_dvd_pow hq hi2)]
       at hmlt1 hmlt ⊢
     convert (C.hgcd i)
-    · simp only [Fin.val_natCast]
-      exact (Nat.mod_eq_of_lt hmlt1).symm
-    · simp only [Fin.val_natCast]
-      exact (Nat.mod_eq_of_lt hmlt1).symm
-    · simp only [Fin.val_natCast]
-      exact (Nat.mod_eq_of_lt hmlt).symm
+    · simp only [Fin.ofNat_eq_cast, Fin.val_natCast]
+      rw [Nat.mod_eq_of_lt hmlt1]
+    · simp only [Fin.ofNat_eq_cast, Fin.val_natCast]
+      rw [Nat.mod_eq_of_lt hmlt1]
+    · simp only [Fin.ofNat_eq_cast, Fin.val_natCast]
+      rw [Nat.mod_eq_of_lt hmlt]
 
 /-- Certificate for irreducibility of a polynomial `f` over `(ZMod p)`.
 This is the version of `CertificateIrreducibleZMod` using lists, making the goals decidable.  -/
 structure CertificateIrreducibleZModOfList (p n t s : ℕ) [Fact $ Nat.Prime p] [NeZero n]
-(l : List (ZMod p)) where
-  hlen : l.length = n + 1
-  htr : l = l.dropTrailingZeros'
-  bit : Fin (s + 1) → ℕ
-  hbits : FnToNat t bit = p
-  h : Fin (n + 1) → List (ZMod p)
-  g : Fin n → Fin s → List (ZMod p)
-  h' : Fin n → Fin (s + 1) → List (ZMod p)
-  hs : ∀ (i : Fin n), h' i s = h (Fin.castSucc i) ^ (bit s)
-  hz : ∀ (i : Fin n), h' i 0 = h (Fin.succ i)
-  hmul : ∀ (i : Fin n) , ∀ (j : Fin s), (l * (g i j)).dropTrailingZeros' =
-    ((h' i (Fin.succ j)) ^ t * (h i) ^ (bit (Fin.castSucc j) : ℕ) - h' i (Fin.castSucc j)).dropTrailingZeros'
-  a : Fin n → List (ZMod p)
-  b : Fin n → List (ZMod p)
-  hhz : h 0 = [0, 1]
-  hhn : h n = [0, 1]
-  hgcd : ∀ (m : Fin n),
-    ↑m ∣ n → ((a m) * l + (b m) * ((h (Fin.castSucc m)) - [(0 : ZMod p), 1])).dropTrailingZeros' = 1
+  (l : List (ZMod p)) where
+    hlen : l.length = n + 1
+    htr : l = l.dropTrailingZeros'
+    bit : Fin (s + 1) → ℕ
+    hbits : FnToNat t bit = p
+    h : Fin (n + 1) → List (ZMod p)
+    g : Fin n → Fin s → List (ZMod p)
+    h' : Fin n → Fin (s + 1) → List (ZMod p)
+    hs : ∀ (i : Fin n), h' i (Fin.last s) = h (Fin.castSucc i) ^ (bit (Fin.last s))
+    hz : ∀ (i : Fin n), h' i 0 = h (Fin.succ i)
+    hmul : ∀ (i : Fin n) , ∀ (j : Fin s), (l * (g i j)).dropTrailingZeros' =
+      ((h' i (Fin.succ j)) ^ t * (h i.castSucc) ^ (bit (Fin.castSucc j) : ℕ) -
+        h' i (Fin.castSucc j)).dropTrailingZeros'
+    a : Fin n → List (ZMod p)
+    b : Fin n → List (ZMod p)
+    hhz : h 0 = [0, 1]
+    hhn : h (Fin.last n) = [0, 1]
+    hgcd : ∀ (m : Fin n),
+      ↑m ∣ n → ((a m) * l + (b m) * ((h (Fin.castSucc m)) - [(0 : ZMod p), 1])).dropTrailingZeros' = 1
 
-lemma irreducible_ofList_ofCertificateIrreducibleZModOfList {p n t s : ℕ} [Fact $ Nat.Prime p] [NeZero n]
-    {l : List (ZMod p)} (C : CertificateIrreducibleZModOfList p n t s l) : Irreducible (ofList l) := by
+lemma irreducible_ofList_ofCertificateIrreducibleZModOfList {p n t s : ℕ}
+    [Fact $ Nat.Prime p] [NeZero n] {l : List (ZMod p)}
+    (C : CertificateIrreducibleZModOfList p n t s l) : Irreducible (ofList l) := by
    refine irreducible_of_CertificateIrreducibleZMod (p := p) (n := n) (t:= t) (s:= s) ?_
    exact
    { hdeg := by
@@ -991,12 +862,12 @@ lemma irreducible_ofList_ofCertificateIrreducibleZModOfList {p n t s : ℕ} [Fac
      hbits := C.hbits,
      hhz := by
        rw [C.hhz]
-       simp only [ofList_cons, ofList_nil, map_zero, map_one, mul_zero, add_zero, mul_one, zero_add],
+       simp only [ofList_cons, ofList_nil, map_zero, map_one, mul_zero, add_zero, mul_one, zero_add]
      hhn := by
        rw [C.hhn]
-       simp only [ofList_cons, ofList_nil, map_zero, map_one, mul_zero, add_zero, mul_one, zero_add],
+       simp only [ofList_cons, ofList_nil, map_zero, map_one, mul_zero, add_zero, mul_one, zero_add]
      hs := by intro i ; rw [C.hs i, ofList_pow_eq_pow]
-     hz := by intro i  ; rw [C.hz i]
+     hz := by intro i ; rw [C.hz i]
      hgcd := by
        intro m hdvd
        have := C.hgcd m hdvd
@@ -1023,7 +894,7 @@ lemma irreducible_ofList_ofCertificateIrreducibleZModOfList {p n t s : ℕ} [Fac
 This is the version of `CertificateIrreducibleZMod'` using lists, in which `hgcd` only ranges through
 maximal proper divisors of `n`. This requires a factorization of `n`.
 (See `CertificateIrreducibleZMod` for explanation). -/
-structure CertificateIrreducibleZModOfList' (p n t s : ℕ) [Fact $ Nat.Prime p] [NeZero n]
+structure CertificateIrreducibleZModOfList' (p n t s : ℕ) [NeZero n]
   (l : List (ZMod p)) where
   m : ℕ
   P : Fin m → ℕ
@@ -1037,16 +908,18 @@ structure CertificateIrreducibleZModOfList' (p n t s : ℕ) [Fact $ Nat.Prime p]
   h : Fin (n + 1) → List (ZMod p)
   g : Fin n → Fin s → List (ZMod p)
   h' : Fin n → Fin (s + 1) → List (ZMod p)
-  hs : ∀ (i : Fin n), h' i s = h (Fin.castSucc i) ^ (bit s)
+  hs : ∀ (i : Fin n), h' i (Fin.last s) = h (Fin.castSucc i) ^ (bit (Fin.last s))
   hz : ∀ (i : Fin n), h' i 0 = h (Fin.succ i)
   hmul : ∀ (i : Fin n) , ∀ (j : Fin s), (l * (g i j)).dropTrailingZeros' =
-    ((h' i (Fin.succ j)) ^ t * (h i) ^ (bit (Fin.castSucc j) : ℕ) - h' i (Fin.castSucc j)).dropTrailingZeros'
+    ((h' i (Fin.succ j)) ^ t * (h i.castSucc) ^ (bit (Fin.castSucc j) : ℕ)
+      - h' i (Fin.castSucc j)).dropTrailingZeros'
   a : Fin n → List (ZMod p)
   b : Fin n → List (ZMod p)
   hhz : h 0 = [0, 1]
-  hhn : h n = [0, 1]
+  hhn : h (Fin.last n) = [0, 1]
   hgcd : ∀ (i : Fin m),
-     ((a ↑(n / (P i))) * l + (b ↑(n / (P i))) * ((h ↑(n / (P i))) - [(0 : ZMod p), 1])).dropTrailingZeros' = 1
+     ((a (Fin.ofNat _ (n / (P i)))) * l + (b (Fin.ofNat _ (n / (P i))))
+      * ((h (Fin.ofNat _ (n / (P i)))) - [(0 : ZMod p), 1])).dropTrailingZeros' = 1
 
 
 lemma irreducible_ofList_ofCertificateIrreducibleZModOfList' {p n t s : ℕ} [Fact $ Nat.Prime p]
@@ -1055,6 +928,7 @@ lemma irreducible_ofList_ofCertificateIrreducibleZModOfList' {p n t s : ℕ} [Fa
    refine irreducible_of_CertificateIrreducibleZMod' (p := p) (n := n) (t:= t) (s:= s) ?_
    exact
    { P := C.P,
+      m := C.m,
       exp := C.exp,
       hneq := C.hneq,
       hP := C.hP,
@@ -1096,17 +970,15 @@ lemma irreducible_ofList_ofCertificateIrreducibleZModOfList' {p n t s : ℕ} [Fa
        ofList_addPointwise_eq_add, List.neg_eq_neg_one_mul, ofList_convolve_eq_mul, ofList_pow_eq_pow,
        ofList_convolve_eq_mul, ofList_pow_eq_pow]
        simp only [ofList_cons, ofList_nil, map_neg, map_one, mul_zero, add_zero,  neg_mul, one_mul]
-       rfl
-     m := C.m }
+       rfl }
 
 
-universe u
 /-- List version of the fact that linear polynomials over a field are irreducible.  -/
 lemma irreducible_ofList_of_linear {R : Type u} [Field R] [DecidableEq R] (l : List R)
-  (hlen : l.length = 2) (htr : l = l.dropTrailingZeros') : Irreducible (ofList l) := by
+  (hlen : l.length = 2) (htr : l= l.dropTrailingZeros') : Irreducible (ofList l) := by
   rw [← dropTrailingZeros_eq_dropTrailingZeros'] at htr
   apply Polynomial.irreducible_of_degree_eq_one
   erw [Polynomial.degree_eq_iff_natDegree_eq_of_pos (Nat.zero_lt_succ Nat.zero)]
   apply_fun (fun x => x + 1) using (add_left_injective 1)
   dsimp
-  rw [natDegree_ofList _ (List.ne_nil_of_length_pos (Nat.lt_of_sub_eq_succ hlen)) htr, hlen]
+  rw [natDegree_ofList _ (List.ne_nil_of_length_pos (Nat.lt_of_sub_eq_succ hlen)) htr,hlen]

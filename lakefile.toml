@@ -16,11 +16,6 @@ git = "https://github.com/leanprover/doc-gen4"
 rev = "v4.34.0-rc2"
 
 [[require]]
-name = "IdealArithmetic"
-git = "https://github.com/CBirkbeck/CertifyingInvariantsNF.git"
-rev = "galois-v431-bump"
-
-[[require]]
 name = "TauCeti"
 git = "https://github.com/TauCetiProject/TauCeti"
 rev = "main"

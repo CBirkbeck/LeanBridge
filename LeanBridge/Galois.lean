@@ -1,12 +1,11 @@
-import IdealArithmetic.Galois.Examples.DegSixA4C2
+import LeanBridge.IdealArithmetic.Galois.Examples.DegSixA4C2
 
 /-!
-# Galois-group certificates (bridged from `CertifyingInvariantsNF`)
+# Galois-group certificates
 
-This module makes the Galois-group certification library
-(`IdealArithmetic.Galois`, developed in the `CertifyingInvariantsNF` project)
-available inside LeanBridge, linking LMFDB Galois-group data (`nTk` labels) to
-formal Lean proofs.
+This module exposes the Galois-group certification library
+(`LeanBridge.IdealArithmetic.Galois`, which comes from the `CertifyingInvariantsNF` project),
+linking LMFDB Galois-group data (`nTk` labels) to formal Lean proofs.
 
 The showcase result, re-exported below: the degree-6 number field
 `ℚ[x]/(x⁶ − 5x⁴ − 50x² + 125)` has Galois group `A₄ × C₂` — the transitive

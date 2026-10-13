@@ -1,3 +1,8 @@
+/-
+Copyright (c) 2024 Alain Chavarri Villarello. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Alain Chavarri Villarello
+-/
 import Mathlib.Algebra.CharP.Lemmas
 import Mathlib.Algebra.GCDMonoid.Basic
 import Mathlib.Algebra.Polynomial.Div
@@ -14,11 +19,11 @@ to Mathlib polynomials.
 ## Main definitions:
 - `Polynomial.ofList` : turns a list of coefficients into the corresponding polynomial.
 - `computablePolynomialRingEquiv` : the ring isomorphism between computable polynomials and Mathlib
-polynomials
-
--/
+polynomials -/
 
 open Polynomial BigOperators
+
+universe u
 
 variable {R : Type*}
 
@@ -93,15 +98,13 @@ def List.dropTrailingZeros' [Zero R][DecidableEq R] : List R → List R
 
 @[simp]
 lemma addPointwise_nil_left [AddMonoid R] (l : List R) : List.addPointwise [] l = l := by
-  induction l with
-  | nil => rfl
-  | cons => rfl
+  induction l
+  rfl ; rfl
 
 @[simp]
 lemma addPointwise_nil_right [AddMonoid R] (l : List R) : List.addPointwise l [] = l := by
-  induction l with
-  | nil => rfl
-  | cons => rfl
+  induction l
+  rfl ; rfl
 
 @[simp]
 lemma addPointwise_cons [AddMonoid R] (x y : R) (l l' : List R) :
@@ -122,51 +125,61 @@ lemma ofList_mulPointwise_eq_C_mul [DecidableEq R] [Semiring R] (c : R) (l : Lis
 lemma ofList_map [Semiring R ][DecidableEq R] {S : Type*} [Semiring S] [DecidableEq S]
  (l : List R) (f : R →+* S) : Polynomial.map f (ofList l) = ofList (List.map f l) := by
   induction l with
-  | nil =>  simp only [List.map_nil, ofList_nil, Polynomial.map_zero]
+  | nil => simp only [List.map_nil, ofList_nil, Polynomial.map_zero]
   | cons a as ha =>
     simp only [List.map_cons, ofList_cons, Polynomial.map_add, map_C, Polynomial.map_mul, map_X]
     rw [ha]
 
 lemma List.ofList_convolve_nil_right [DecidableEq R] [Semiring R] (l : List R) :
     Polynomial.ofList (l.convolve []) = 0 := by
-  induction l with
-  | nil => simp only [convolve, ofList_nil]
-  | cons a as ha =>
-    simp only [convolve, ofList_nil]
+  induction l
+  simp only [convolve, ofList_nil]
+  simp only [convolve, ofList_nil]
 
 lemma ofList_zeros [DecidableEq R] [Semiring R] (l : List R) (h : ∀ x ∈ l, x = 0) : ofList l = 0 := by
   induction l with
   | nil => rfl
-  | cons  a as ha =>
+  | cons a as ha =>
     simp only [ofList_cons]
     have : ∀ x ∈ as , x = 0 := by exact fun x a_1 => h x (List.Mem.tail a a_1)
     rw [ha this, h a (List.Mem.head as), map_zero, mul_zero, add_zero]
 
 lemma List.dropTrailingZeros_of_zero [Zero R] [DecidableEq R]
     (l : List R) (h : ∀ x ∈ l, x = 0) : l.dropTrailingZeros = [] := by
-  induction l with
-  | nil => rfl
-  | cons a as ha =>
-  by_cases h2 : ¬ a = 0 ∨ ∃ x ∈ as, ¬x = 0
-  · simp only [dropTrailingZeros, ne_eq, decide_not, any_eq_true, Bool.not_eq_true',
-    decide_eq_false_iff_not, ite_eq_right_iff]
-    push_neg
-    simp only [mem_cons, forall_eq_or_imp] at h
-    simpa using h
-  · simp only [dropTrailingZeros, ne_eq, decide_not, any_eq_true, Bool.not_eq_true',
-      decide_eq_false_iff_not, h2, ↓reduceIte]
+  match l with
+  | [] => rfl
+  | (a :: as) =>
+    by_cases h2 : ¬ a = 0 ∨ ∃ x ∈ as, ¬x = 0
+    · simp only [dropTrailingZeros, ne_eq, decide_not, any_eq_true, Bool.not_eq_eq_eq_not,
+      Bool.not_true, decide_eq_false_iff_not, ite_eq_right_iff, reduceCtorEq, imp_false, not_or,
+      Decidable.not_not, not_exists, not_and]
+      simp only [mem_cons, forall_eq_or_imp] at h
+      simpa using h
+    · simp only [dropTrailingZeros, ne_eq, decide_not, any_eq_true, Bool.not_eq_eq_eq_not,
+      Bool.not_true, decide_eq_false_iff_not, h2, ↓reduceIte]
+
+lemma ofList_eq_zero_iff [Semiring R] [DecidableEq R] (l : List R) :
+  ofList l = 0 ↔ ∀ x ∈ l, x = 0 := by
+  constructor
+  · intro hl x hxmem
+    obtain ⟨i, hi, hia⟩ := List.mem_iff_getElem.mp hxmem
+    have hl' : (ofList l).coeff i = 0 := by
+      rw [hl, coeff_zero]
+    rw [coeff_ofList, List.getD_eq_getElem _ _ hi] at hl'
+    rw [← hia, hl']
+  · intro h
+    exact ofList_zeros l h
 
 lemma List.dropTrailingZeros_ne_zero_of_ne_zero [Zero R] [DecidableEq R]
     (l : List R) (h : ∃ x ∈ l, x ≠ 0) : ∃ x ∈ l.dropTrailingZeros, x ≠ 0 := by
   induction l with
-  | nil =>  simp only [not_mem_nil, ne_eq, false_and, exists_const] at h
+  | nil => simp only [not_mem_nil, ne_eq, false_and, exists_const] at h
   | cons a as ha =>
-  simp only [mem_cons, ne_eq, exists_eq_or_imp] at h
-  simp only [dropTrailingZeros, ne_eq, decide_not, any_eq_true, Bool.not_eq_true',
-      decide_eq_false_iff_not, h, ↓reduceIte, mem_cons, exists_eq_or_imp]
-  rcases h with h1 | h2
-  · exact Or.inl h1
-  · exact not_or_of_imp fun _ => ha h2
+    simp only [mem_cons, ne_eq, exists_eq_or_imp] at h
+    simp [dropTrailingZeros, h]
+    rcases h with h1 | h2
+    · exact Or.inl h1
+    · exact not_or_of_imp fun _ => ha h2
 
 @[simp]
 lemma ofList_dropTrailingZeros_eq_ofList [Semiring R] [DecidableEq R] (l : List R) :
@@ -174,35 +187,35 @@ lemma ofList_dropTrailingZeros_eq_ofList [Semiring R] [DecidableEq R] (l : List 
   induction l with
   | nil => simp only [ofList_nil, List.dropTrailingZeros]
   | cons a as ha =>
-  by_cases h : (a ≠ 0 ∨ as.any (fun x => x ≠ 0))
-  · simp only [ne_eq, decide_not, List.any_eq_true, Bool.not_eq_true', decide_eq_false_iff_not] at h
-    simp only [List.dropTrailingZeros, ne_eq, decide_not, List.any_eq_true, Bool.not_eq_true',
-      decide_eq_false_iff_not, h, ↓reduceIte, ofList_cons]
-    rw [ha]
-  · simp only [ne_eq, decide_not, List.any_eq_true, Bool.not_eq_true', decide_eq_false_iff_not] at h
-    simp only [List.dropTrailingZeros, ne_eq, decide_not, List.any_eq_true, Bool.not_eq_true',
-      decide_eq_false_iff_not, h, ↓reduceIte, ofList_cons, ofList_nil]
-    push_neg at h
-    rw [h.1, ofList_zeros as h.2, map_zero, mul_zero, add_zero]
+    by_cases h : (a ≠ 0 ∨ as.any (fun x => x ≠ 0))
+    · simp only [ne_eq, decide_not, List.any_eq_true, Bool.not_eq_true', decide_eq_false_iff_not] at h
+      simp only [List.dropTrailingZeros, ne_eq, decide_not, List.any_eq_true, Bool.not_eq_true',
+        decide_eq_false_iff_not, h, ↓reduceIte, ofList_cons]
+      rw [ha]
+    · simp only [ne_eq, decide_not, List.any_eq_true, Bool.not_eq_true', decide_eq_false_iff_not] at h
+      simp only [List.dropTrailingZeros, ne_eq, decide_not, List.any_eq_true, Bool.not_eq_true',
+        decide_eq_false_iff_not, h, ↓reduceIte, ofList_cons, ofList_nil]
+      push Not at h
+      rw [h.1, ofList_zeros as h.2, map_zero, mul_zero, add_zero]
 
 lemma dropTrailingZeros_iter [Zero R] (l : List R) [DecidableEq R] :
     l.dropTrailingZeros =  (l.dropTrailingZeros).dropTrailingZeros := by
   induction l with
   | nil => simp only [List.dropTrailingZeros]
   | cons a as ha =>
-  by_cases h : (a ≠ 0 ∨ as.any (fun x => x ≠ 0))
-  · simp only [ne_eq, decide_not, List.any_eq_true, Bool.not_eq_true', decide_eq_false_iff_not] at  h
-    simp only [List.dropTrailingZeros, ne_eq, decide_not, List.any_eq_true, Bool.not_eq_true',
-      decide_eq_false_iff_not, h, ↓reduceIte, List.dropTrailingZeros]
-    rcases h with h1 | h2
-    · simp only [h1, not_false_eq_true, true_or, ↓reduceIte, List.cons.injEq, true_and]
-      exact ha
-    · simp only [List.dropTrailingZeros_ne_zero_of_ne_zero as h2, or_true, ↓reduceIte,
-      List.cons.injEq, true_and]
-      exact ha
-  · simp only [ne_eq, decide_not, List.any_eq_true, Bool.not_eq_true', decide_eq_false_iff_not] at h
-    simp only [List.dropTrailingZeros, ne_eq, decide_not, List.any_eq_true, Bool.not_eq_true',
-      decide_eq_false_iff_not, h, ↓reduceIte, List.dropTrailingZeros]
+    by_cases h : (a ≠ 0 ∨ as.any (fun x => x ≠ 0))
+    · simp only [ne_eq, decide_not, List.any_eq_true, Bool.not_eq_true', decide_eq_false_iff_not] at  h
+      simp only [List.dropTrailingZeros, ne_eq, decide_not, List.any_eq_true, Bool.not_eq_true',
+        decide_eq_false_iff_not, h, ↓reduceIte, List.dropTrailingZeros]
+      rcases h with h1 | h2
+      · simp only [h1, not_false_eq_true, true_or, ↓reduceIte, List.cons.injEq, true_and]
+        exact ha
+      · simp only [List.dropTrailingZeros_ne_zero_of_ne_zero as h2, or_true, ↓reduceIte,
+        List.cons.injEq, true_and]
+        exact ha
+    · simp only [ne_eq, decide_not, List.any_eq_true, Bool.not_eq_true', decide_eq_false_iff_not] at h
+      simp only [List.dropTrailingZeros, ne_eq, decide_not, List.any_eq_true, Bool.not_eq_true',
+        decide_eq_false_iff_not, h, ↓reduceIte, List.dropTrailingZeros]
 
 @[simp]
 lemma dropTrailingZeros_zero [Zero R] [DecidableEq R] : ([0] : List R).dropTrailingZeros = [] :=
@@ -220,7 +233,7 @@ lemma dropTrailingZeros_cons [Zero R] [DecidableEq R] (a : R) (as : List R) :
     · simp[List.dropTrailingZeros_ne_zero_of_ne_zero, h2]
       exact dropTrailingZeros_iter as
   · simp only [ne_eq, decide_not, List.any_eq_true, Bool.not_eq_true', decide_eq_false_iff_not] at h
-    push_neg at h
+    push Not at h
     have : ∀ x ∈ (0 :: as), x = 0 := by
       simp only [List.mem_cons, forall_eq_or_imp]
       exact And.imp (fun _ ↦ trivial) (fun a => a) h
@@ -231,8 +244,7 @@ lemma dropTrailingZeros_append_zero [Zero R] [DecidableEq R] (l : List R) :
     (l ++ [0]).dropTrailingZeros = l.dropTrailingZeros := by
   induction l with
   | nil => simp [List.dropTrailingZeros]
-  | cons a as ha =>
-    rw [List.cons_append, dropTrailingZeros_cons, ha, ← dropTrailingZeros_cons]
+  | cons _ _ ha => rw [List.cons_append, dropTrailingZeros_cons, ha, ← dropTrailingZeros_cons]
 
 lemma dropTrailingZeros_append_ne_zero [Zero R] [DecidableEq R] (a : R) (ha : a ≠ 0)(l : List R) :
     (l ++ [a]).dropTrailingZeros = l ++ [a] := by
@@ -256,12 +268,12 @@ lemma dropTrailingZeros_length [Zero R] [DecidableEq R] (l : List R) :
   induction l with
   | nil => simp only [List.dropTrailingZeros, List.length_nil, le_refl]
   | cons a as ha =>
-  by_cases h : ¬a = 0 ∨ ∃ x ∈ as, ¬x = 0
-  · simp only [List.dropTrailingZeros, ne_eq, decide_not, List.any_eq_true, Bool.not_eq_true',
-    decide_eq_false_iff_not, h, ↓reduceIte, List.length_cons]
-    exact Nat.pred_le_iff.mp ha
-  · simp only [List.dropTrailingZeros, ne_eq, decide_not, List.any_eq_true, Bool.not_eq_true',
-      decide_eq_false_iff_not, h, ↓reduceIte, List.length_nil, List.length_cons, zero_le]
+    by_cases h : ¬a = 0 ∨ ∃ x ∈ as, ¬x = 0
+    · simp only [List.dropTrailingZeros, ne_eq, decide_not, List.any_eq_true, Bool.not_eq_true',
+      decide_eq_false_iff_not, h, ↓reduceIte, List.length_cons]
+      exact Nat.pred_le_iff.mp ha
+    · simp only [List.dropTrailingZeros, ne_eq, decide_not, List.any_eq_true, Bool.not_eq_true',
+        decide_eq_false_iff_not, h, ↓reduceIte, List.length_nil, List.length_cons, zero_le]
 
 lemma eq_dropTrailingZeros_iff_last_entry_ne_zero
     [Zero R] [DecidableEq R] (l : List R) (hz : l ≠ []) :
@@ -289,7 +301,7 @@ lemma dropTrailingZeros_eq_dropTrailingZeros'
   | (a :: as) =>
     by_cases h : (a :: as).getLast (List.cons_ne_nil a as) ≠ 0
     · unfold List.dropTrailingZeros'
-      simp only [ne_eq, h, not_false_eq_true, ↓reduceIte]
+      simp only [ ne_eq, h, not_false_eq_true, ↓reduceIte]
       rw [← eq_dropTrailingZeros_iff_last_entry_ne_zero] at h
       rw [← h]
     · unfold List.dropTrailingZeros'
@@ -330,30 +342,49 @@ instance [Semiring R] : AddZeroClass (List R) where
   zero_add := addPointwise_nil_left
   add_zero := addPointwise_nil_right
 
+instance [Semiring R] : MulZeroClass (List R) where
+  zero_mul := by
+    intro a
+    induction a ; repeat rfl
+  mul_zero := by
+    intro a
+    induction a ; repeat rfl
+
+lemma List.zero_def [Zero R] : (0 : List R) = [] := rfl
+
+lemma List.one_def [One R] : (1 : List R) = [1] := rfl
+
+lemma List.add_def [AddMonoid R] (l₁ l₂ : List R) : l₁ + l₂ = l₁.addPointwise l₂ := rfl
+
+lemma List.mul_def [Semiring R] (l₁ l₂ : List R) : l₁ * l₂ = l₁.convolve l₂ := rfl
+
+lemma List.pow_def [Semiring R] (l : List R) (n : ℕ): l ^ n = npowRec n l := rfl
+
+lemma List.neg_def [AddGroup R] (l : List R) : - l  = l.neg := rfl
 
 @[simp]
 lemma List.mul_nil [Semiring R] (l : List R) : l * [] = [] := by
-  induction l with
-  | nil => rfl
-  | cons => rfl
+  induction l
+  · rfl
+  · rfl
 
 @[simp]
 lemma List.nil_mul [Semiring R] (l : List R) : [] * l = [] := by
-  induction l with
-  | nil => rfl
-  | cons => rfl
+  induction l
+  · rfl
+  · rfl
 
 @[simp]
 lemma List.nil_add [AddMonoid R] (l : List R) : [] + l = l := by
-  induction l with
-  | nil => rfl
-  | cons => rfl
+  induction l
+  · rfl
+  · rfl
 
 @[simp]
 lemma List.add_nil [AddMonoid R] (l : List R) : l + [] = l := by
-  induction l with
-  | nil => rfl
-  | cons => rfl
+  induction l
+  · rfl
+  · rfl
 
 lemma List.neg_eq_neg_one_mul [Ring R] (l : List R) : l.neg = [- 1] * l := by
   match l with
@@ -396,45 +427,42 @@ lemma List.mul_eq_mulPointwise [Semiring R] (l : List R) (a : R) :
   | [] => rfl
   | (b :: bs) => by
     rw [(show [a] * (b :: bs) = [a].convolve (b :: bs) by rfl)]
-    simp only [convolve, mulAddPointwise, addPointwise, add_zero, one_mul, map_nil, mulPointwise,
-      map_cons]
+    simp only [convolve, mulAddPointwise, addPointwise, add_zero, one_mul, map_nil,
+      mulPointwise, map_cons]
 
 /- Lemmas relating operations on functions `Fin n → R` and lists. -/
 
-variable {n : ℕ} universe u
-
-lemma List.add_length_ofFn [AddMonoid R] (a b : Fin n →  R):
+lemma List.add_length_ofFn {n : ℕ} [AddMonoid R] (a b : Fin n →  R):
     List.length ((List.ofFn a) + (List.ofFn b)) = n := by
   simp only [List.add_length, length_ofFn, max_self]
 
-lemma List.add_ofFn [AddMonoid R] (a b : Fin n →  R) :
+lemma List.add_ofFn {n : ℕ} [AddMonoid R] (a b : Fin n →  R) :
     (List.ofFn a) + (List.ofFn b) = List.ofFn (a + b) := by
   induction n with
   | zero =>
-  simp only [ofFn_zero, Matrix.empty_add_empty]
-  rfl
+    simp only [ofFn_zero, Matrix.empty_add_empty]
+    rfl
   | succ n hn =>
-    rw [List.ofFn_succ (f := a), List.ofFn_succ (f := b), ofFn_succ, Pi.add_apply]
+    rw [List.ofFn_succ, List.ofFn_succ , ofFn_succ, Pi.add_apply]
     erw [← hn (fun i => a (Fin.succ i)) (fun i => b (Fin.succ i))]
     rfl
 
-
 variable [Semiring R]
 
-lemma List.mulPointwise_ofFn (a : Fin n → R) (c : R) :
+lemma List.mulPointwise_ofFn {n : ℕ} (a : Fin n → R) (c : R) :
     List.mulPointwise c (List.ofFn a) = List.ofFn (c • a) := by
   match n with
   | 0 =>
     simp only [ofFn_zero, Matrix.smul_empty]
     rfl
   | Nat.succ n =>
-    rw [List.ofFn_succ (f := a)]
+    rw [List.ofFn_succ]
     unfold mulPointwise
     simp only [map_cons, map_ofFn, ofFn_succ, Pi.smul_apply, smul_eq_mul, cons.injEq, ofFn_inj,
       true_and]
     rfl
 
-lemma List.sum_ofFn' {m : ℕ} (hm : m ≠ 0) (f : Fin m → (Fin n → R)) :
+lemma List.sum_ofFn' {m n : ℕ} (hm : m ≠ 0) (f : Fin m → (Fin n → R)) :
     List.ofFn (∑ i, f i) = List.sum (List.ofFn (fun i => List.ofFn (f i))) := by
   induction m with
   | zero => contradiction
@@ -450,9 +478,6 @@ lemma List.sum_ofFn' {m : ℕ} (hm : m ≠ 0) (f : Fin m → (Fin n → R)) :
 
 /- Properties of `ofList` -/
 
-lemma List.pow_def {l : List R} {n : ℕ} : l ^ n = npowRec n l := rfl
-
-lemma List.one_eq : (1 : List R) = [1] := rfl
 
 omit [Semiring R] in
 lemma List.zero_eq : (0 : List R) = [] := rfl
@@ -460,7 +485,7 @@ lemma List.zero_eq : (0 : List R) = [] := rfl
 variable [DecidableEq R]
 
 lemma ofList_one : ofList (1 : List R) = 1 := by
-  simp only [List.one_eq, ofList_cons, ofList_nil, map_one, mul_zero, add_zero]
+  simp only [List.one_def, ofList_cons, ofList_nil, map_one, mul_zero, add_zero]
 
 lemma ofList_zero : ofList (0 : List R) = 0 := by
   simp only [List.zero_eq, ofList_nil]
@@ -472,22 +497,24 @@ lemma ofList_natCast {n : ℕ} : ofList (n : List R) = n :=
   ofList_singleton _
 
 /-- `ofList` respects addition. -/
+@[simp]
 lemma ofList_addPointwise_eq_add (l₁ l₂ : List R) :
     ofList (l₁ + l₂) = ofList (l₁) + ofList (l₂) := by
   have : ∀ (l : List R) , Polynomial.ofList (l₁.addPointwise l) =
   Polynomial.ofList (l₁) + Polynomial.ofList (l) := by
     induction l₁ with
     | nil => intro l ; simp only [addPointwise_nil_left, ofList_nil, zero_add]
-    | cons a as ha =>
-    intro l
-    match l with
-    | [] => simp only [ofList_nil, addPointwise_nil_right, add_zero]
-    | (b :: bs) =>
-      simp only [addPointwise_cons, ofList_cons, map_add, ha bs, add_assoc, add_comm, mul_add ]
-      rw [add_comm (C a) _, add_comm (C a) _, add_assoc]
+    | cons a as ha  =>
+      intro l
+      match l with
+      | [] => simp only [ofList_nil, addPointwise_nil_right, add_zero]
+      | (b :: bs) =>
+        simp only [addPointwise_cons, ofList_cons, map_add, ha bs, add_assoc, add_comm, mul_add ]
+        rw [add_comm (C a) _, add_comm (C a) _, add_assoc]
   exact this l₂
 
 /-- `ofList` respects multiplication. -/
+@[simp]
 lemma ofList_convolve_eq_mul (l₁ l₂ : List R) :
     ofList (l₁ *  l₂) = ofList (l₁) * ofList (l₂) := by
   induction l₁ with
@@ -503,77 +530,58 @@ lemma ofList_convolve_eq_mul (l₁ l₂ : List R) :
       simp only [add_comm, mul_add, add_assoc, add_mul, X_mul, mul_assoc]
       abel
 
+@[simp]
+lemma ofList_sub {S : Type*} [CommRing S][DecidableEq S] (l₁ l₂ : List S) :
+    ofList (l₁ - l₂) = ofList (l₁) - ofList (l₂) := by
+    erw [ofList_addPointwise_eq_add, List.neg_eq_neg_one_mul]
+    simp
+    rfl
+
 /-- `ofList` respects powers. -/
+@[simp]
 lemma ofList_pow_eq_pow (l : List R) (n : ℕ) : ofList (l ^ n) = (ofList l) ^ n := by
   induction n with
-  | zero =>
-    simp only [List.pow_def, npowRec, ofList_one, pow_zero]
-  | succ n hn =>
+  | zero => simp only [List.pow_def, npowRec, ofList_one, pow_zero]
+  | succ n hn  =>
     have : l ^ (Nat.succ (n := n)) = npowRec (Nat.succ (n := n)) l := by rfl
     rw [this]
     simp only [npowRec]
     erw [ofList_convolve_eq_mul, hn, pow_succ]
 
-/-- Sends a polynomial to a list of its coefficients. The zero polynomial is sent to `[0]`. -/
-def Polynomial.toList' [DecidableEq R] (p : Polynomial R) : List R :=
-  List.ofFn (λ (i : Fin (p.natDegree + 1)) => p.coeff i : Fin (p.natDegree + 1) → R)
-
-@[simp]
-lemma Polynomial.toList'_length (p : Polynomial R) :
-    (Polynomial.toList' p).length = p.natDegree + 1 := List.length_ofFn (f := fun i => coeff p ↑i)
-
-@[simp]
-lemma Polynomial.toList_C (a : R) : toList' (C a) = [a] := by
-  unfold toList'
-  rw [List.ofFn_succ]
-  congr
-  · simp only [Fin.val_zero, coeff_C_zero]
-  · simp only [natDegree_C, List.ofFn_zero]
-
-lemma Polynomial.toList_cons_of_add_ne_zero [Nontrivial R] (a : R)
-    (p : Polynomial R) (hp : p ≠ 0) :
-    toList' (C a + X * p) = (a :: toList' p) := by
-  have heqdeg : (C a + X * p).natDegree = p.natDegree + 1 := by
-    rw [natDegree_C_add, Polynomial.natDegree_X_mul hp]
-  unfold Polynomial.toList'
-  rw [List.ofFn_succ]
-  congr
-  · simp only [Fin.val_zero, coeff_add, coeff_C_zero, mul_coeff_zero, coeff_X_zero, zero_mul,
-    add_zero]
-  · simp only [Fin.val_succ, coeff_add, coeff_C_succ, coeff_X_mul, zero_add]
-    rw [Fin.heq_fun_iff heqdeg]
-    simp only [implies_true]
-
-lemma Polynomial.toList'_cons (a : R) (p : Polynomial R) :
-    (toList' (C a + X * p)).dropTrailingZeros = (a :: toList' p).dropTrailingZeros := by
-  by_cases hp : p = 0
-  · rw [hp, mul_zero, add_zero, Polynomial.toList_C, ← C_0, Polynomial.toList_C]
-    simp [List.dropTrailingZeros]
-  · haveI : Nontrivial R := by
-      by_contra h
-      rw [not_nontrivial_iff_subsingleton, ← Polynomial.subsingleton_iff_subsingleton] at h
-      exact hp (Subsingleton.eq_zero p)
-    congr
-    exact Polynomial.toList_cons_of_add_ne_zero a p hp
-
-/-- Sends a polynomial to a list of its coefficients (with non-zero last entry).
-  The zero polynomial is sent to `[]`. -/
-def Polynomial.toList [DecidableEq R] (p : Polynomial R) := (toList' p).dropTrailingZeros
+/-- Sends a polynomial to a list of its coefficients. The zero polynomial is sent to [].  -/
+def Polynomial.toList [DecidableEq R] (p : Polynomial R) : List R :=
+  (List.ofFn (λ (i : Fin (p.natDegree + 1)) => p.coeff i : Fin (p.natDegree + 1) → R)).dropTrailingZeros
 
 /-- `toList` is the left inverse of ofList (modulo trailing zeros). -/
 lemma toList_comp_ofList (l : List R) :
    toList (ofList l) = l.dropTrailingZeros := by
-  show (toList' (ofList l)).dropTrailingZeros = l.dropTrailingZeros
-  induction l with
-  | nil => simp only [toList', ofList_nil, natDegree_zero, zero_add, List.ofFn_succ, Nat.reduceAdd,
-      Fin.isValue, Fin.cast_eq_self, Fin.val_eq_zero, coeff_zero, List.ofFn_zero,
-      dropTrailingZeros_zero, List.dropTrailingZeros_nil]
-  | cons a as ha =>
-    simp only [ofList_cons]
-    rw [Polynomial.toList'_cons, dropTrailingZeros_cons, ha, ← dropTrailingZeros_cons]
+  by_cases hN : Nontrivial R
+  · induction l with
+    | nil => simp [toList, List.dropTrailingZeros]
+    | cons a as ha =>
+      by_cases has : ofList as = 0
+      · rw [ofList_cons, has, dropTrailingZeros_cons]
+        rw [ofList_eq_zero_iff] at has
+        rw [List.dropTrailingZeros_of_zero _ has, mul_zero, add_zero, ← ofList_singleton]
+        simp [toList]
+      · have : natDegree (ofList (a :: as)) = natDegree (ofList as) + 1 := by
+          rw [ofList_cons, natDegree_C_add, natDegree_X_mul has]
+        unfold Polynomial.toList
+        rw [List.ofFn_succ, dropTrailingZeros_cons]
+        nth_rw 2 [dropTrailingZeros_cons]
+        rw [← ha]
+        congr 3
+        rw [List.ofFn_inj', Fin.sigma_eq_iff_eq_comp_cast]
+        refine ⟨this, rfl⟩
+  · rw [not_nontrivial_iff_subsingleton] at hN
+    rw [Subsingleton.eq_zero (ofList l)]
+    simp [toList]
+    apply List.dropTrailingZeros_of_zero
+    intro x _
+    exact Subsingleton.eq_zero x
 
 lemma toList_zero : toList (0 : R[X]) = [] := by
-  simp only [toList, toList', natDegree_zero, zero_add, List.ofFn_succ, Nat.reduceAdd, Fin.isValue,
+  simp only [toList, natDegree_zero, zero_add, List.ofFn_succ, Nat.reduceAdd, Fin.isValue,
     Fin.cast_eq_self, Fin.val_eq_zero, coeff_zero, List.ofFn_zero, dropTrailingZeros_zero]
 
 lemma nil_of_ofList_eq_zero (l : List R)
@@ -581,69 +589,77 @@ lemma nil_of_ofList_eq_zero (l : List R)
   rw [← toList_comp_ofList l , hz, toList_zero] at hdt
   exact hdt
 
-lemma toList_eq_toList' (p : R[X]) (hpz : p ≠ 0) :
-    toList' p = toList p := by
-  have : toList' p ≠ [] := by
-    unfold toList'
+lemma Fn_eq_toList (p : R[X]) (hpz : p ≠ 0) :
+    List.ofFn (λ (i : Fin (p.natDegree + 1)) => p.coeff i : Fin (p.natDegree + 1) → R) = toList p := by
+  have : List.ofFn (λ (i : Fin (p.natDegree + 1)) => p.coeff i : Fin (p.natDegree + 1) → R) ≠ [] := by
     simp
   erw [eq_dropTrailingZeros_iff_last_entry_ne_zero _ this]
   rw [List.getLast_eq_getElem]
-  unfold toList'
   simp only [List.length_ofFn, add_tsub_cancel_right, List.getElem_ofFn, coeff_natDegree, ne_eq,
     leadingCoeff_eq_zero, hpz, not_false_eq_true]
 
+
 /-- `ofList` is the right inverse of `toList'`. -/
-lemma ofList_of_toList (p : Polynomial R) :
-    ofList (Polynomial.toList' p) = p := by
-  have : ∀ (n : ℕ) (f : Polynomial R) , f.natDegree = n → ofList (Polynomial.toList' f) = f := by
+lemma ofList_comp_toList (p : Polynomial R) :
+    ofList (toList p) = p := by
+  -- Do induction over the degree of the polynomial
+  have : ∀ (n : ℕ) (f : Polynomial R) , f.natDegree = n → ofList (toList f) = f := by
     intro n
     induction n with
     | zero =>
-    intro f hnat
-    · rw [Polynomial.eq_C_of_natDegree_eq_zero hnat]
-      simp only [toList_C, ofList_cons, ofList_nil, mul_zero, add_zero]
+      intro f hnat
+      rw [Polynomial.eq_C_of_natDegree_eq_zero hnat]
+      simp [toList]
     | succ n hn =>
-    intro f hfrg
-    unfold toList'
-    simp only [List.ofFn_succ, Fin.val_zero, Fin.val_succ, ofList_cons]
-    obtain ⟨q, hq⟩ := (Polynomial.X_dvd_iff (f := Polynomial.erase 0 f)).2 (erase_same _ _)
-    have heq : f = C (coeff f 0) + X * q := by
-      rw [← hq]
-      exact (Polynomial.monomial_add_erase f 0).symm
-    have hqz : q ≠ 0 := by
-      by_contra h
-      rw [h, mul_zero, add_zero] at heq
-      rw [heq, natDegree_C] at hfrg
-      simp at hfrg
-    haveI : Nontrivial R := by
-      rw [← Polynomial.nontrivial_iff]
-      exact nontrivial_of_ne _ _ hqz
-    have hcoeff : ∀ i , coeff f (i + 1) = coeff q i := by
-      intro i
-      rw [heq]
-      simp only [coeff_add, coeff_C_succ, coeff_X_mul, zero_add]
-    have hgd : natDegree q = n := by
-      rw [← Nat.succ_inj, Nat.succ_eq_add_one, Nat.succ_eq_add_one, ← hfrg, heq, natDegree_C_add,
-          Polynomial.natDegree_X_mul hqz]
-    have hdeg : natDegree f = natDegree q + 1 := by
-      rw [heq, natDegree_C_add, Polynomial.natDegree_X_mul hqz]
-    have hL: toList' q = (List.ofFn fun (i : Fin (natDegree f)) => coeff f (↑i + 1)) := by
-      unfold toList'
-      refine List.ext_getElem (by simp [hdeg]) (fun n h₁ h₂ => ?_)
-      simp only [List.getElem_ofFn]
-      exact (hcoeff n).symm
-    rw [← hL, hn q hgd]
-    exact heq.symm
+      intro f hfrg
+      simp only [toList, List.ofFn_succ, Fin.val_zero, Fin.val_succ,
+        ofList_dropTrailingZeros_eq_ofList, ofList_cons]
+      obtain ⟨q, hq⟩ := (Polynomial.X_dvd_iff (f := Polynomial.erase 0 f)).2 (erase_same _ _)
+      have heq : f = C (coeff f 0) + X * q := by
+        rw [← hq]
+        exact (Polynomial.monomial_add_erase f 0).symm
+      have hqz : q ≠ 0 := fun h => by
+        rw [h, mul_zero, add_zero] at heq ; rw [heq, natDegree_C] at hfrg
+        simp at hfrg
+      haveI : Nontrivial R := by
+        rw [← Polynomial.nontrivial_iff]
+        exact nontrivial_of_ne _ _ hqz
+      have hcoeff : ∀ i , coeff f (i + 1) = coeff q i :=
+        fun i => by rw [heq] ; simp only [coeff_add, coeff_C_succ, coeff_X_mul, zero_add]
+      have hgd : natDegree q = n := by
+        rw [← Nat.succ_inj, Nat.succ_eq_add_one, Nat.succ_eq_add_one, ← hfrg, heq, natDegree_C_add,
+            Polynomial.natDegree_X_mul hqz]
+      have hL: toList q = (List.ofFn fun (i : Fin (natDegree f))
+        => coeff f (↑i + 1)).dropTrailingZeros := by
+        symm
+        congr 1
+        rw [List.ofFn_inj', Fin.sigma_eq_iff_eq_comp_cast]
+        refine ⟨by rw [hgd, hfrg] , by ext i ; exact hcoeff i⟩
+      rw [← ofList_dropTrailingZeros_eq_ofList, ← hL, hn q hgd]
+      exact heq.symm
   exact this (natDegree p) p rfl
 
 lemma natDegree_ofList (l : List R) (hz : l ≠ 0) (hlz : l = l.dropTrailingZeros) :
     natDegree (ofList l) + 1 = l.length := by
-  rw [← toList_comp_ofList, ← toList_eq_toList'] at hlz
+  rw [← toList_comp_ofList, ← Fn_eq_toList] at hlz
   nth_rw 2 [hlz]
-  rw [Polynomial.toList'_length (ofList l)]
+  simp only [coeff_ofList, List.getD_eq_getElem?_getD, List.ofFn_succ, Fin.val_zero, Fin.val_succ,
+    List.length_cons, List.length_ofFn]
   by_contra hc
   rw [hc, toList_zero] at hlz
   exact hz hlz
+
+lemma natDegree_eq_length_sub_one (l : List R) (hz : l ≠ 0) (hlz : l = l.dropTrailingZeros) :
+  natDegree (ofList l) = l.length - 1 := by
+  apply_fun (fun x ↦ x + 1)
+  dsimp
+  rw [natDegree_ofList l hz hlz]
+  have : 1 ≤ l.length  := by
+    by_contra hc
+    simp only [not_le, Nat.lt_one_iff, List.length_eq_zero_iff] at hc
+    exact hz hc
+  · omega
+  · exact add_left_injective 1
 
 lemma natDegree_ofList' (l : List R) (hz : l.dropTrailingZeros ≠ 0) :
     natDegree (ofList l) + 1 = l.dropTrailingZeros.length := by
@@ -674,10 +690,10 @@ lemma List.self_eq_dropTrailingZeros_append_zero {R : Type*} [DecidableEq R] [Ze
       simp only [dropTrailingZeros, ne_eq, decide_not, any_eq_true, Bool.not_eq_true',
         decide_eq_false_iff_not, h, ↓reduceIte, nil_append]
       use (a :: as).length
-      push_neg at h
-      simp only [h, length_cons, replicate, cons.injEq, true_and]
+      push Not at h
       rw [List.eq_replicate_length]
-      exact h.2
+      simp only [List.mem_cons, forall_eq_or_imp]
+      exact ⟨h.1, h.2⟩
 
 lemma ofList_eq_zero {R : Type u} [Semiring R] [DecidableEq R]
     (l : List R) (h : ofList l = 0) : ∃ (n : ℕ) , l = List.replicate n 0 := by
@@ -716,14 +732,14 @@ lemma ofList_foldr_mul {R : Type u} [CommSemiring R] [DecidableEq R](l : List (L
     simp only [List.foldr_nil, List.prod, ofList_one, mul_one]
   | cons b bs hb =>
     intro a
-    erw [List.foldr_cons, ofList_convolve_eq_mul, hb a, List.prod_cons,
-        ofList_convolve_eq_mul, mul_left_comm]
+    simp only [List.foldr_cons, ofList_convolve_eq_mul, hb a, List.prod, mul_left_comm]
 
 lemma list_sum_eq_ofList_sum {R : Type u} [Semiring R] [DecidableEq R]
     {n : ℕ}(f : Fin n → List R) : ofList ((List.ofFn f).sum) = ∑ k, ofList (f k) := by
   induction n with
-  | zero => simp only [ofList_zero, List.ofFn_zero, List.sum_nil, Finset.univ_eq_empty,
-    Finset.sum_empty]
+  | zero =>
+    simp only [ofList_zero, List.ofFn_zero, List.sum_nil, Finset.univ_eq_empty,
+      Finset.sum_empty]
   | succ n hn =>
     erw [List.ofFn_succ, List.sum, List.foldr_cons, ofList_addPointwise_eq_add, ofList_foldr_add,
       hn, zero_add, Fin.sum_univ_succ]
@@ -731,18 +747,19 @@ lemma list_sum_eq_ofList_sum {R : Type u} [Semiring R] [DecidableEq R]
 lemma list_sum_eq_ofList_prod {R : Type u} [CommRing R] [DecidableEq R]
     {n : ℕ}(f : Fin n → List R) : ofList ((List.ofFn f).prod) = ∏ k, ofList (f k) := by
   induction n with
-  | zero => simp only [ofList_one, List.ofFn_zero, List.prod, List.foldr_nil, Finset.univ_eq_empty,
-    Finset.prod_empty]
+  | zero =>
+    simp only [ofList_one, List.ofFn_zero, List.prod, List.foldr_nil, Finset.univ_eq_empty,
+      Finset.prod_empty]
   | succ n hn =>
     erw [List.ofFn_succ, List.prod, List.foldr_cons, ofList_convolve_eq_mul, ofList_foldr_mul,
       hn, ofList_one]
-    simp only [ one_mul, Fin.prod_univ_succ]
+    simp only [one_mul, Fin.prod_univ_succ]
 
 lemma List.dvd_foldl_gcd {R : Type u} [CommSemiring R] [IsDomain R]
     [DecidableEq R] [GCDMonoid R] (x : R) (l : List R) (hdvd : ∀ a, a ∈ l → x ∣ a) :
     x ∣ List.foldr gcd 0 l := by
   induction l with
-  | nil =>  simp only [foldr_nil, dvd_zero]
+  | nil => simp only [foldr_nil, dvd_zero]
   | cons b bs hb =>
     simp only [mem_cons, forall_eq_or_imp] at hdvd
     rw [foldr_cons]
@@ -781,8 +798,9 @@ lemma ofList_eq_sum' {R : Type u} [Semiring R] [DecidableEq R]
   ext k
   by_cases hk : k < (List.ofFn f).length
   · rw [ofList_coeff _ k hk]
-    simp only [finset_sum_coeff, coeff_C_mul, coeff_X_pow, mul_ite, mul_one, mul_zero]
-    rw [Fintype.sum_eq_single (Fin.cast (List.length_ofFn (f := f)) ⟨k, hk⟩)]
+    simp only [finset_sum_coeff, coeff_C_mul, coeff_X_pow, mul_ite,
+      mul_one, mul_zero]
+    rw [Fintype.sum_eq_single (Fin.cast (List.length_ofFn) ⟨k, hk⟩)]
     · simp
     · intro x hx
       simp only [Fin.cast_mk, ne_eq, ite_eq_right_iff] at hx ⊢
@@ -796,9 +814,9 @@ lemma ofList_eq_sum' {R : Type u} [Semiring R] [DecidableEq R]
       erw [ht, List.nil_append] at hm
       have : ∀ (i : Fin n), f i = 0 := by
         intro i
-        have := List.get_ofFn f (Fin.cast (List.length_ofFn (f := f)).symm i)
+        have := List.get_ofFn f (Fin.cast (List.length_ofFn).symm i)
         rw [List.get_of_eq hm] at this
-        simp only [Fin.coe_cast, Fin.cast_cast, Fin.cast_eq_self] at this
+        simp only [Fin.val_cast, Fin.cast_cast, Fin.cast_eq_self] at this
         rw [← this, List.get_eq_getElem, List.getElem_replicate]
       simp_rw [this]
       simp only [ofList_zero, coeff_zero, map_zero, zero_mul, Finset.sum_const_zero]
@@ -833,11 +851,12 @@ lemma monic_ofList {R : Type u} [Semiring R] [DecidableEq R]
         rw [eq_dropTrailingZeros_iff_last_entry_ne_zero _ hlen]
         rw [List.getLast_eq_getLastD, h]
         simp only [ne_eq, one_ne_zero, not_false_eq_true]
-      erw [← Polynomial.coeff_natDegree, aux, ofList_coeff (a :: ls) _ (Nat.pred_lt (n := List.length (a :: ls)) (by simp only [List.length_cons,
-        ne_eq, Nat.succ_ne_zero, not_false_eq_true])), ← List.getLast_eq_getElem (l := a :: ls) hlen]
+      erw [← Polynomial.coeff_natDegree, aux, ofList_coeff (a :: ls) _
+        (Nat.pred_lt (n := List.length (a :: ls)) (by simp only [List.length_cons,
+        ne_eq, Nat.succ_ne_zero, not_false_eq_true])), ← List.getLast_eq_getElem hlen]
       rw [List.getLast_eq_getLastD, h]
     · rw [← Polynomial.nontrivial_iff, nontrivial_iff (α := R[X])] at hn
-      push_neg at hn
+      push Not at hn
       rw [hn (ofList (a :: ls)) 1]
       simp only [monic_one, Monic.leadingCoeff]
 
@@ -862,7 +881,7 @@ lemma listOfFn_of_FnOfList
   rw [← List.ofFn_congr hl _, List.ofFn_get]
 
 lemma FnOfList_of_OfFn {α : Type*} (n : ℕ) (a : Fin n → α) :
-    FnOfList n (List.ofFn a) (List.length_ofFn (f := a)) = a := by
+    FnOfList n (List.ofFn a) (List.length_ofFn) = a := by
   unfold FnOfList
   simp only [List.get_ofFn, Fin.cast_cast, Fin.cast_eq_self]
 
@@ -898,8 +917,9 @@ lemma List.expand_char {R : Type u} [CommSemiring R] [DecidableEq R] (p : ℕ)
           rw [← C_pow]
           rfl
         · unfold expand
-          simp only [has, ↓reduceIte, cons_append, ofList_cons, Polynomial.map_add, map_C,
-            Polynomial.map_mul, map_X, ofList_map, map_append, map_replicate, map_zero]
+          simp only [has, ↓reduceIte, cons_append, ofList_cons,
+            Polynomial.map_add, map_C, Polynomial.map_mul, map_X, ofList_map, map_append,
+            map_replicate, map_zero]
           erw [add_pow_expChar_of_commute _ (Commute.all _ _), ← C_pow, mul_pow]
           rw [map_nil, nil_append, ofList_replicate_zero_append,
             ← ofList_dropTrailingZeros_eq_ofList (map (⇑(frobenius R p)) (expand p as)),
@@ -925,6 +945,18 @@ lemma ofList_derivative_eq_derivative (l : List R) :
       one_mul, zero_add]
     rw [ofList_addPointwise_eq_add, ← has]
     simp only [ofList_cons, map_zero, zero_add]
+
+def List.eval [Semiring R] (x : R) : List R → R
+  | [] => 0
+  | (a :: as) => a + (eval x as) * x
+
+lemma eval_of_list_eq_eval (x : R) (l : List R) : eval x (ofList l) = List.eval x l := by
+  induction l with
+  | nil => simp[List.eval]
+  | _ _ _ hin =>
+    simp[List.eval]
+    rw [Polynomial.X_mul, Polynomial.eval_mul_X, hin]
+
 
 ----------------------------------------------------------------------
 
@@ -963,10 +995,10 @@ instance [Semiring R] : SMul ℕ (ComputablePolynomial R) where
 
 /-- Sends a polynomial to the corresponding computable polynomial. -/
 def toComputablePolynomial (p : R[X]) : ComputablePolynomial R :=
-  ⟨toList p, dropTrailingZeros_iter (toList' p) ⟩
+  ⟨toList p, dropTrailingZeros_iter _ ⟩
 
 /-- Sends a computable polynomial to the corresponding polynomial. -/
-noncomputable def ofComputablePolynomial (p : ComputablePolynomial R) := ofList p.1
+def ofComputablePolynomial (p : ComputablePolynomial R) := ofList p.1
 
 lemma toComputablePolynomial_comp_ofComputablePolynomial (p : ComputablePolynomial R):
   toComputablePolynomial (ofComputablePolynomial p) = p := by
@@ -982,7 +1014,7 @@ lemma ofComputablePolynomial_comp_toComputablePolynomial (p : Polynomial R) :
   unfold toComputablePolynomial
   unfold ofComputablePolynomial
   dsimp
-  erw [ofList_dropTrailingZeros_eq_ofList, ofList_of_toList]
+  rw [ofList_comp_toList]
 
 
 lemma ofComputablePolynomial_injective : Function.Injective (ofComputablePolynomial (R := R)) := by
@@ -1012,7 +1044,7 @@ lemma ofComputablePolynomial_nsmul (p : ComputablePolynomial R) (n : ℕ) :
   ofComputablePolynomial (n • p) = n • (ofComputablePolynomial p) := by
   unfold ofComputablePolynomial
   erw [ofList_dropTrailingZeros_eq_ofList, ofList_convolve_eq_mul, ofList_dropTrailingZeros_eq_ofList]
-  simp only [ofList_singleton, map_natCast, nsmul_eq_mul]
+  simp only [ofList_cons, map_natCast, ofList_nil, mul_zero, add_zero, nsmul_eq_mul]
 
 lemma ofComputablePolynomial_npow (p : ComputablePolynomial R) (n : ℕ) :
   ofComputablePolynomial (p ^ n) = (ofComputablePolynomial p) ^ n := by
@@ -1064,7 +1096,8 @@ lemma ofComputablePolynomial_sub (p q: ComputablePolynomial R) :
   unfold ofComputablePolynomial
   erw [ofList_dropTrailingZeros_eq_ofList, ofList_addPointwise_eq_add,
     ofList_dropTrailingZeros_eq_ofList, List.neg_eq_neg_one_mul, ofList_convolve_eq_mul]
-  simp only [ofList_singleton, map_neg, map_one, neg_mul, one_mul, sub_eq_add_neg]
+  simp only [ofList_singleton, map_neg, map_one, neg_mul, one_mul,
+      sub_eq_add_neg]
 
 lemma ofComputablePolynomial_zsmul (p : ComputablePolynomial R) (z : ℤ) :
   ofComputablePolynomial (z • p) = z • (ofComputablePolynomial p) := by
@@ -1094,7 +1127,7 @@ noncomputable instance ComputablePolynomial.ring [Ring R] : Ring (ComputablePoly
   · exact ofComputablePolynomial_natCast
   · exact ofComputablePolynomial_intCast
 
-noncomputable def ofComputablePolynomialRingHom [Ring R] : ComputablePolynomial R →+* R[X] where
+def ofComputablePolynomialRingHom [Ring R] : ComputablePolynomial R →+* R[X] where
   toFun := ofComputablePolynomial
   map_one' := ofComputablePolynomial_one
   map_mul' := ofComputablePolynomial_mul
@@ -1102,7 +1135,7 @@ noncomputable def ofComputablePolynomialRingHom [Ring R] : ComputablePolynomial 
   map_add' := ofComputablePolynomial_add
 
 /- Ring isomorphism between polynomials and computable polynomials. -/
-noncomputable def computablePolynomialRingEquiv [Ring R] : ComputablePolynomial R ≃+* R[X] where
+def computablePolynomialRingEquiv [Ring R] : ComputablePolynomial R ≃+* R[X] where
   toFun := ofComputablePolynomial
   invFun := toComputablePolynomial
   left_inv := toComputablePolynomial_comp_ofComputablePolynomial
