@@ -481,7 +481,7 @@ lemma subgroup_closure_eq_classGroup' {m n : Type} {D : ℝ} {b : ℕ}
       refine (congr_arg _ ?_)
       ext i
       simp only [ClassGroup.congr, MonoidHom.coe_coe, Function.comp_apply, E]
-      apply ClassGroup.map_apply'
+      apply ClassGroup.mapOfInjective_apply'
       rfl
     · intro i
       simp only [hg', gg, gg']
@@ -683,8 +683,7 @@ def primesBelowBoundCertificate_of_Interval (S : Type*) [CommRing S] [Nontrivial
         · rw [h0]
           exact Nat.Prime.one_lt hp
         · convert hc
-          · rfl
-          · simp only [Fin.coeSucc_eq_succ]
+          simp only [Fin.coeSucc_eq_succ]
       specialize this (Fin.last r)
       rw [hr] at this
       linarith
@@ -766,8 +765,7 @@ def primesBelowBoundCertificate_of_Interval' (S : Type*) [CommRing S] [Nontrivia
         · rw [h0]
           exact Nat.Prime.one_lt hp
         · convert hc
-          · rfl
-          · simp only [Fin.coeSucc_eq_succ]
+          simp only [Fin.coeSucc_eq_succ]
       specialize this (Fin.last r)
       rw [hr] at this
       linarith

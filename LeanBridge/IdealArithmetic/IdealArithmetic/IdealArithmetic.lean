@@ -248,7 +248,6 @@ lemma ideal_le_of_certificate [Algebra R O] {r n m : ℕ}
   convert (submodule_span_le_span_iff (fun i => B.equivFun.symm (v i))
     (fun i => B.equivFun.symm (w i))
     _ rfl (by intro s hs ; exact fun a ↦ SMulMemClass.smul_mem s a)).2 ?_
-  · rfl
   · intro i
     use (A.g i)
     refine table_sum_smul B w (v i) (A.g i) ?_

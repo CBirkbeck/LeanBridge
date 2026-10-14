@@ -14,7 +14,7 @@ class groups of isomorphic domains are isomorphic.
 ## Main definition
 - `FractionalIdeal.mapOfInjective'`: given an injective `R →+* S`, maps
   fractional ideals of `R` to fractional ideals of `S`.
-- `ClassGroup.map` : given an injective `R →+* S` between domains, maps
+- `ClassGroup.mapOfInjective` : given an injective `R →+* S` between domains, maps
   the class group of `R` to  the class group of `S`.
 - `ClassGroup.congr`: given an isomorphism `R ≃+* S`, this is the induced isomorphism
   between class groups.
@@ -22,8 +22,8 @@ class groups of isomorphic domains are isomorphic.
 ## Main results
 - `FractionalIdeal.mapOfInjective_apply_int'` : the application of the map
   `FractionalIdeal.mapOfInjective'` to integral ideals corresponds to `Ideal.map`.
-- `ClassGroup.map_apply'`: the map `ClassGroup.map` applied to integral ideals of Dedekind
-  domains.  -/
+- `ClassGroup.mapOfInjective_apply'`: the map `ClassGroup.mapOfInjective` applied to integral
+  ideals of Dedekind domains.  -/
 
 
 open FractionalIdeal
@@ -212,7 +212,7 @@ lemma FractionalIdeal.mapOfInjective_apply_int' {R S : Type*} (F K : Type*) [Com
 
 /-- Given an injective morhism ` R →+* S` between domains, this is the induced group homomorphism
   between class groups. -/
-noncomputable def ClassGroup.map {R S : Type*} [CommRing R]
+noncomputable def ClassGroup.mapOfInjective {R S : Type*} [CommRing R]
     [CommRing S] [IsDomain R] [IsDomain S] {φ : R →+* S} (hinj : Function.Injective φ) :
     ClassGroup R →* ClassGroup S := by
   let F := FractionRing R
@@ -250,24 +250,26 @@ noncomputable def ClassGroup.map {R S : Type*} [CommRing R]
 
 -- I need algebra instance to exist for FractionalIdeal.mapOfInjective'
 
-def ClassGroup.map_apply {R S : Type*} [CommRing R]
+def ClassGroup.mapOfInjective_apply {R S : Type*} [CommRing R]
     [CommRing S] [IsDomain R] [IsDomain S] [Algebra R S] (hinj : Function.Injective (algebraMap R S))
     (I : (FractionalIdeal (nonZeroDivisors R) (FractionRing R))ˣ) :
-    ClassGroup.map hinj (ClassGroup.mk (FractionRing R) I) = ClassGroup.mk (FractionRing S)
-      ((Units.map (FractionalIdeal.mapOfInjective' _ (FractionRing S) hinj)) I) := by
-  unfold ClassGroup.map
+    ClassGroup.mapOfInjective hinj (ClassGroup.mk (FractionRing R) I) =
+      ClassGroup.mk (FractionRing S)
+        ((Units.map (FractionalIdeal.mapOfInjective' _ (FractionRing S) hinj)) I) := by
+  unfold ClassGroup.mapOfInjective
   unfold ClassGroup.mk
   simp only [canonicalEquiv_self]
   rfl
 
-/-- In the case of Dedekind domains, the map `ClassGroup.map` applied to integral ideals. -/
-lemma ClassGroup.map_apply' {R S : Type*} [CommRing R]
+/-- In the case of Dedekind domains, the map `ClassGroup.mapOfInjective` applied to integral
+  ideals. -/
+lemma ClassGroup.mapOfInjective_apply' {R S : Type*} [CommRing R]
     [IsDedekindDomain R] [CommRing S] [IsDedekindDomain S]
     (φ : R →+* S) (hinj : Function.Injective φ)
     (I : nonZeroDivisors (Ideal R)) (J : nonZeroDivisors (Ideal S))
-    (hI : ↑J = Ideal.map φ I) : ClassGroup.map hinj (mk0 I) = mk0 J := by
+    (hI : ↑J = Ideal.map φ I) : ClassGroup.mapOfInjective hinj (mk0 I) = mk0 J := by
   letI : Algebra R S := φ.toAlgebra
-  erw [← ClassGroup.mk_mk0 (K := FractionRing R), ClassGroup.map_apply hinj,
+  erw [← ClassGroup.mk_mk0 (K := FractionRing R), ClassGroup.mapOfInjective_apply hinj,
     ← ClassGroup.mk_mk0 (K := FractionRing S)]
   congr
   have : ((FractionalIdeal.mk0 (FractionRing R)) I :
@@ -277,20 +279,20 @@ lemma ClassGroup.map_apply' {R S : Type*} [CommRing R]
   rfl
 
 
-/-- Given an isomorphism between domains, the left inverse of `ClassGroup.map` is given by the
-  map between class groups induced by the inverse of the isomorphism. -/
-lemma ClassGroup.map_inverse_apply {R S : Type*} [CommRing R]
+/-- Given an isomorphism between domains, the left inverse of `ClassGroup.mapOfInjective` is given
+  by the map between class groups induced by the inverse of the isomorphism. -/
+lemma ClassGroup.mapOfInjective_inverse_apply {R S : Type*} [CommRing R]
   [CommRing S] [IsDomain R] [IsDomain S] (φ : R ≃+* S) (I : ClassGroup R) :
-  ClassGroup.map (φ := φ.symm.toRingHom) (RingEquiv.injective φ.symm)
-    (ClassGroup.map (φ := φ.toRingHom) (RingEquiv.injective φ) I) = I := by
+  ClassGroup.mapOfInjective (φ := φ.symm.toRingHom) (RingEquiv.injective φ.symm)
+    (ClassGroup.mapOfInjective (φ := φ.toRingHom) (RingEquiv.injective φ) I) = I := by
   letI : Algebra R S := φ.toRingHom.toAlgebra
   letI : Algebra S R := φ.symm.toRingHom.toAlgebra
   let J := Quot.out I
   have : ClassGroup.mk (FractionRing R) J = I := by
     rw [← ClassGroup.Quot_mk_eq_mk]
     exact Quot.out_eq I
-  erw [← this, ClassGroup.map_apply (RingEquiv.injective φ) J,
-    ClassGroup.map_apply (RingEquiv.injective φ.symm) _]
+  erw [← this, ClassGroup.mapOfInjective_apply (RingEquiv.injective φ) J,
+    ClassGroup.mapOfInjective_apply (RingEquiv.injective φ.symm) _]
   congr
   show ((Units.map (mapOfInjective' (FractionRing S) (FractionRing R)
     (RingEquiv.injective φ.symm))).comp
@@ -328,15 +330,15 @@ lemma ClassGroup.map_inverse_apply {R S : Type*} [CommRing R]
 /-- Given an isomorphism between domains, this is the induced isomorphism between class groups. -/
 noncomputable def ClassGroup.congr {R S : Type*} [CommRing R]
     [CommRing S] [IsDomain R] [IsDomain S] (φ : R ≃+* S) : ClassGroup R ≃* ClassGroup S where
-  toFun := ClassGroup.map (RingEquiv.injective φ)
-  invFun := ClassGroup.map (RingEquiv.injective φ.symm)
-  map_mul' := fun x y ↦ MonoidHom.map_mul (map (RingEquiv.injective φ)) x y
+  toFun := ClassGroup.mapOfInjective (RingEquiv.injective φ)
+  invFun := ClassGroup.mapOfInjective (RingEquiv.injective φ.symm)
+  map_mul' := fun x y ↦ MonoidHom.map_mul (ClassGroup.mapOfInjective (RingEquiv.injective φ)) x y
   left_inv := by
     intro I
-    exact ClassGroup.map_inverse_apply φ I
+    exact ClassGroup.mapOfInjective_inverse_apply φ I
   right_inv := by
     intro J
-    exact ClassGroup.map_inverse_apply φ.symm J
+    exact ClassGroup.mapOfInjective_inverse_apply φ.symm J
 
 
 /-

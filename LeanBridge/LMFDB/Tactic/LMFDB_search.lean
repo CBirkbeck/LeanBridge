@@ -37,7 +37,7 @@ elab "#LMFDB_search" degree:num r2:num D_abs:num : command => do
     return
 
   -- Logic to handle debug/success lines
-  let response_lines := (output_query.stdout.trim.splitOn "\n").filter (fun s => !s.isEmpty)
+  let response_lines := (output_query.stdout.trimAscii.toString.splitOn "\n").filter (fun s => !s.isEmpty)
 
   let mut data_lines := response_lines
 

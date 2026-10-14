@@ -192,7 +192,7 @@ def doSearchLMFDB (params : SearchParams) : IO (Except String (Array NumberField
     if output.exitCode != 0 then
       return .error s!"Query failed: {output.stderr}"
 
-    let lines := (output.stdout.trim.splitOn "\n").filter (fun s => !s.isEmpty)
+    let lines := (output.stdout.trimAscii.toString.splitOn "\n").filter (fun s => !s.isEmpty)
     let mut results : Array NumberFieldResult := #[]
 
     for line in lines do
@@ -258,9 +258,9 @@ def doGenerateLeanFiles (fields : Array NumberFieldResult) (generateUnits : Bool
 
       -- DEBUG OUTPUT
       IO.println s!"[DEBUG] Sage exit code for {validLabel}: {outputProof.exitCode}"
-      if outputProof.stderr.trim != "" then
+      if outputProof.stderr.trimAscii.toString != "" then
         IO.println s!"[DEBUG] Sage stderr: {outputProof.stderr}"
-      if outputProof.stdout.trim != "" then
+      if outputProof.stdout.trimAscii.toString != "" then
         IO.println s!"[DEBUG] Sage stdout length: {outputProof.stdout.length}"
 
            -- Separate proof content from unit content
@@ -270,18 +270,18 @@ def doGenerateLeanFiles (fields : Array NumberFieldResult) (generateUnits : Bool
         else if generateUnits then
           -- Split the output: look for unit-related content
           let lines := outputProof.stdout.splitOn "\n"
-          let splitIdx := lines.findIdx? (fun line => line.trim.startsWith "lemma K_int_")
+          let splitIdx := lines.findIdx? (fun line => line.trimAscii.toString.startsWith "lemma K_int_")
           match splitIdx with
           | some idx =>
-              let proofLines := (lines.take idx).filter (fun line => !line.trim.startsWith "import")
+              let proofLines := (lines.take idx).filter (fun line => !line.trimAscii.toString.startsWith "import")
               let unitLines := lines.drop idx
               ("\n".intercalate proofLines, "\n".intercalate unitLines)
           | none =>
-              let filteredLines := lines.filter (fun line => !line.trim.startsWith "import")
+              let filteredLines := lines.filter (fun line => !line.trimAscii.toString.startsWith "import")
               ("\n".intercalate filteredLines, "")
         else
           let lines := outputProof.stdout.splitOn "\n"
-          let filteredLines := lines.filter (fun line => !line.trim.startsWith "import")
+          let filteredLines := lines.filter (fun line => !line.trimAscii.toString.startsWith "import")
           ("\n".intercalate filteredLines, "")
 
       let signedDiscr :=

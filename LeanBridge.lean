@@ -20,7 +20,7 @@ copies:
 * `ec.q.canonical_height`: `WeierstrassCurve.Affine.Point.canonicalHeight`, which is half of
   LMFDB's normalization (the knowl notes both conventions).
 * The trace of Frobenius: `WeierstrassCurve.frobeniusTrace`. -/
-import TauCeti.AlgebraicGeometry.EllipticCurve.CanonicalHeight
+import TauCeti.AlgebraicGeometry.EllipticCurve.CanonicalHeight.Basic
 import TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.Class
 import TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.DiscriminantIdeal
 import TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.LocalDiscriminant

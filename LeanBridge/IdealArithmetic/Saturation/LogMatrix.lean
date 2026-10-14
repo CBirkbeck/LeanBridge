@@ -98,7 +98,6 @@ lemma LogFiniteRing_of_pow  {R : Type*} {p : ℕ} [CommRing R] [Fintype R] {ζ :
   refine Nat.modEq_of_dvd ?_
   refine dvd_trans (Int.natCast_dvd_natCast.2 hdvd) ?_
   convert aux
-  · rfl
   simp only [IsUnit.unit_spec]
   simp_rw [ ← hz, ← Units.val_pow_eq_pow_val, ← zpow_natCast, Units.val_inj,
     ← orderOf_dvd_sub_iff_zpow_eq_zpow, ← orderOf_units, hz, ← IsPrimitiveRoot.eq_orderOf hr]
@@ -387,7 +386,7 @@ lemma linearIndependent_int_iff_no_common_divisor {M ι R: Type*} [AddCommGroup 
             rw [pow_one]
             exact hc j (hSaux _ hj)
           · intro hj
-            rw [multiplicity_eq_one_of_not_finiteMultiplicity hm]
+            exact absurd (FiniteMultiplicity.of_prime_left hp (Finset.mem_filter.1 hj).2) hm
         have aux : ∀ i ∈ s , ∃ k, g i = p ^ m * k := by
           intro i hi
           by_cases hgi : g i ≠ 0

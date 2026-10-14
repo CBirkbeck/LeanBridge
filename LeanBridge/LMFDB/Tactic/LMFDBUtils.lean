@@ -14,7 +14,7 @@ def getCondaBase : IO (Option String) := do
     stderr := .piped
   }
   if result.exitCode == 0 then
-    return some result.stdout.trim
+    return some result.stdout.trimAscii.toString
   return none
 
 /-- Get Sage conda environment name from LMFDB_SAGE_CONDA_ENV, defaulting to "sage". -/
@@ -33,7 +33,7 @@ def findOnPath (name : String) : IO (Option String) := do
     stderr := .piped
   }
   if result.exitCode == 0 then
-    return some result.stdout.trim
+    return some result.stdout.trimAscii.toString
   return none
 
 /-- Find Python for LMFDB queries. Checks in order:

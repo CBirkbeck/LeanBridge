@@ -512,7 +512,6 @@ lemma units_linear_independent_of_pMaximalUnitsCertificateDvdT {O : Type*} [Comm
   rw [← matrix_of_pMaximalUnitsCertificateDvdT C]
   refine le_antisymm ?_ ?_
   · convert (Matrix.rank_le_card_width) _
-    rfl
     simp only [Fintype.card_fin, Fintype.card_unique, Fintype.card_sum]
     infer_instance
   · simp only [Fintype.card_fin, Fintype.card_unique, Equiv.toFun_as_coe, CompTriple.comp_eq]
@@ -546,7 +545,6 @@ lemma units_of_pMaximalUnitsCertificateDvdT {O : Type*} [CommRing O]
   rw [← matrix_of_pMaximalUnitsCertificateDvdT C]
   refine le_antisymm ?_ ?_
   · convert (Matrix.rank_le_card_width) _
-    rfl
     simp only [Fintype.card_fin, Fintype.card_unique, Fintype.card_sum]
     infer_instance
   · simp only [Fintype.card_fin, Fintype.card_unique, Equiv.toFun_as_coe, CompTriple.comp_eq]
@@ -629,7 +627,6 @@ lemma pSaturated_of_CertificateNDvdT {O : Type*} [CommRing O]
   · rw [← matrix_of_NonPrincipalCertificateNDvdT C]
     refine le_antisymm ?_ ?_
     · convert (Matrix.rank_le_card_width) _
-      rfl
       simp only [Fintype.card_sum, Fintype.card_fin]
       infer_instance
     · rw [← Matrix.rank_reindex (Equiv.refl _) ((finSumFinEquiv.trans (finCongr C.hc.symm))) ]
@@ -729,7 +726,6 @@ lemma pSaturated_of_CertificateDvdT {O : Type*} [CommRing O]
   · rw [← matrix_of_NonPrincipalCertificateDvdT C]
     refine le_antisymm ?_ ?_
     · convert (Matrix.rank_le_card_width) _
-      rfl
       simp only [Fintype.card_sum, Fintype.card_fin, Fintype.card_unique]
       infer_instance
     · rw [Matrix.rank_reindex ]

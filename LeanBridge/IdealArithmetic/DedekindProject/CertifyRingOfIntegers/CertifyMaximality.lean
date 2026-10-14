@@ -754,7 +754,6 @@ def map_mul_α (α : O) : (Ip mod' p) → (Ip mod' p) := by
       ring
     · exact Ideal.mul_mem_left _ _ i.2
   convert aux2
-  rfl
 
 omit hpI [Nontrivial O] [Module.Free ℤ O] in
 lemma map_mul_α_aux2 (α : O) (β : Ip) :
