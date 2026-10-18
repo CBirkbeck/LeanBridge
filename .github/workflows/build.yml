@@ -9,6 +9,7 @@ on:
     branches: [main]
     paths:
       - '**/*.lean'
+      - '!blueprint-verso/**'
       - 'lean-toolchain'
       - 'lakefile.toml'
       - 'lake-manifest.json'
@@ -18,6 +19,7 @@ on:
     branches: [main]
     paths:
       - '**/*.lean'
+      - '!blueprint-verso/**'
       - 'lean-toolchain'
       - 'lakefile.toml'
       - 'lake-manifest.json'
