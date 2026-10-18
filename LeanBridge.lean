@@ -17,8 +17,8 @@ copies:
   `WeierstrassCurve.weierstrassDefectClass` (for an integral equation, via the exponents
   `WeierstrassCurve.obstructionExponentAt`).
 * `ec.q.naive_height`: `WeierstrassCurve.naiveHeight`, on the minimal short model.
-* `ec.q.canonical_height`: `WeierstrassCurve.Affine.Point.canonicalHeight`, which is half of
-  LMFDB's normalization (the knowl notes both conventions).
+* `ec.q.canonical_height`: `WeierstrassCurve.Affine.Point.canonicalHeight`, in LMFDB's
+  normalization `lim log max(|Aₙ|, |Dₙ|) / n²`, not the half of it that some sources use.
 * The trace of Frobenius: `WeierstrassCurve.frobeniusTrace`. -/
 import TauCeti.AlgebraicGeometry.EllipticCurve.CanonicalHeight.Basic
 import TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.Class
