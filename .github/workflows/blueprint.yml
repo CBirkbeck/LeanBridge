@@ -2,12 +2,19 @@ name: Blueprint (Verso)
 
 # Builds the Verso blueprint in blueprint-verso/ and deploys it to GitHub Pages.
 # (Replaces the old leanblueprint LaTeX pipeline, which built the whole project.)
+# The blueprint depends on LeanBridge for its `(lean := ...)` links, so Mathlib comes from its cache
+# and the other packages and LeanBridge's own build outputs are kept in the Actions cache.
 
 on:
   push:
     branches: [main]
     paths:
       - 'blueprint-verso/**'
+      - 'LeanBridge/**'
+      - 'LeanBridge.lean'
+      - 'lakefile.toml'
+      - 'lake-manifest.json'
+      - 'lean-toolchain'
       - '.github/workflows/blueprint.yml'
   workflow_dispatch:
 
@@ -31,15 +38,30 @@ jobs:
         run: |
           curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | sh -s -- -y --default-toolchain none
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
-      - name: Cache Lake packages
-        uses: actions/cache@v4
+      - name: Restore Lake packages and LeanBridge build outputs
+        uses: actions/cache/restore@v4
         with:
-          path: blueprint-verso/.lake/packages
-          key: verso-lake-${{ hashFiles('blueprint-verso/lake-manifest.json', 'blueprint-verso/lean-toolchain') }}
-          restore-keys: verso-lake-
+          path: |
+            blueprint-verso/.lake/packages
+            !blueprint-verso/.lake/packages/mathlib
+            .lake/build
+          key: blueprint-lake-${{ hashFiles('blueprint-verso/lake-manifest.json', 'blueprint-verso/lean-toolchain') }}-${{ github.sha }}
+          restore-keys: blueprint-lake-${{ hashFiles('blueprint-verso/lake-manifest.json', 'blueprint-verso/lean-toolchain') }}-
+      - name: Fetch Mathlib's cache
+        working-directory: blueprint-verso
+        run: lake exe cache get
       - name: Build and render the blueprint
         working-directory: blueprint-verso
         run: ./scripts/ci-pages.sh
+      - name: Save Lake packages and LeanBridge build outputs
+        if: ${{ !cancelled() }}
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            blueprint-verso/.lake/packages
+            !blueprint-verso/.lake/packages/mathlib
+            .lake/build
+          key: blueprint-lake-${{ hashFiles('blueprint-verso/lake-manifest.json', 'blueprint-verso/lean-toolchain') }}-${{ github.sha }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: blueprint-verso/_out/site/html-multi
