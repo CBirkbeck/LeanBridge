@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import os, sys, re
+from copy import copy
 from pathlib import Path
 from collections import defaultdict
 import networkx as nx
@@ -431,6 +432,7 @@ def update_knowls(cats=["nf", "ec", "cmf"], delete_old=False):
         kid = rec["id"]
         cat = kid.split(".")[0]
         assert cat == rec["cat"]
+        (knowldir / cat).mkdir(exist_ok=True)
         with open(knowldir / cat / rec["id"], "w") as F:
             _ = F.write(clean_content(rec))
 
@@ -453,3 +455,6 @@ def update_knowls(cats=["nf", "ec", "cmf"], delete_old=False):
             for kwl in by_id.values():
                 if (cat is None and kwl["cat"] not in cats or cat is not None and kwl["cat"] == cat) and kwl["id"] not in skip:
                     _ = F.write(f"\\input{{knowls/{kwl['cat']}/{kwl['id']}}}\n")
+
+if __name__ == "__main__":
+    update_knowls()
