@@ -1,0 +1,65 @@
+name: Build LeanBridge
+
+# Builds every hand-written Lean module with `scripts/build-modules.sh`; see that script for what
+# it leaves out. Mathlib comes from its cache; Tau Ceti's and LeanBridge's own build outputs are
+# kept in the Actions cache between runs.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**/*.lean'
+      - 'lean-toolchain'
+      - 'lakefile.toml'
+      - 'lake-manifest.json'
+      - 'scripts/build-modules.sh'
+      - '.github/workflows/build.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - '**/*.lean'
+      - 'lean-toolchain'
+      - 'lakefile.toml'
+      - 'lake-manifest.json'
+      - 'scripts/build-modules.sh'
+      - '.github/workflows/build.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build hand-written modules
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install elan
+        run: |
+          curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      # Clones the dependencies into .lake/packages, so the build outputs are restored only after.
+      - name: Fetch Mathlib's cache
+        run: lake exe cache get
+      - name: Restore Tau Ceti and LeanBridge build outputs
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            .lake/packages/TauCeti/.lake/build
+            .lake/build
+          key: lake-build-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-${{ github.sha }}
+          restore-keys: lake-build-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-
+      - name: Build
+        run: ./scripts/build-modules.sh
+      - name: Save Tau Ceti and LeanBridge build outputs
+        if: ${{ !cancelled() && github.ref == 'refs/heads/main' }}
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            .lake/packages/TauCeti/.lake/build
+            .lake/build
+          key: lake-build-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-${{ github.sha }}
