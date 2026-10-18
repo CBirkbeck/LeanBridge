@@ -6,7 +6,7 @@
 
 This repository contains a [Verso blueprint](https://github.com/leanprover/verso-blueprint) for formalizing definitions within the [L-functions and modular forms database](https://lmfdb.org).  **You can view the rendered blueprint at [cbirkbeck.github.io/LeanBridge](https://cbirkbeck.github.io/LeanBridge/).**
 
-The process for updating the contents of this blueprint is different than most other blueprints, because it is built to improve the integration between Mathlib and the LMFDB.  While there is some framing content manually written in [content.tex](https://github.com/CBirkbeck/LeanBridge/blob/main/blueprint/src/content.tex), most of the blueprint is generated from the LMFDB's [knowl database](https://beta.lmfdb.org/knowledge/) using the [update script](https://github.com/CBirkbeck/LeanBridge/blob/main/blueprint/src/update_knowls.py).
+The process for updating the contents of this blueprint is different than most other blueprints, because it is built to improve the integration between Mathlib and the LMFDB.  While there is some framing content manually written in [content.tex](https://github.com/CBirkbeck/LeanBridge/blob/main/blueprint/src/content.tex), most of the blueprint is generated from the LMFDB's [knowl database](https://beta.lmfdb.org/knowledge/) using the [update script](https://github.com/CBirkbeck/LeanBridge/blob/main/blueprint/src/update_knowls.py), whose output [convert_knowls.py](https://github.com/CBirkbeck/LeanBridge/blob/main/blueprint-verso/scripts/convert_knowls.py) turns into the chapters of the Verso blueprint.
 
 Thus most of the work in updating this blueprint takes the following form:
 
@@ -14,7 +14,7 @@ Thus most of the work in updating this blueprint takes the following form:
 
 1. Linking definitions in LMFDB knowls to mathlib using the [DEFINES macro](https://beta.lmfdb.org/knowledge/show/doc.knowl.guidelines), and linking theorems using the [cite command](https://beta.lmfdb.org/knowledge/show/doc.knowl.guidelines).  Editing and creating knowls requires an account on the LMFDB; contact David Roe or Andrew Sutherland on Zulip (either [LMFDB](https://lmfdb.zulipchat.com) or [Lean](https://leanprover.zulipchat.com)) if you want to get involved.
 
-1. Once definitions have been added to mathlib and linked in the corresponding knowl, run the [update script](https://github.com/CBirkbeck/LeanBridge/blob/main/blueprint/src/update_knowls.py) to update the [knowl folder](https://github.com/CBirkbeck/LeanBridge/tree/main/blueprint/src/knowls) and make a PR to this repository.
+1. Once definitions have been added to mathlib and linked in the corresponding knowl, refresh the [knowl folder](https://github.com/CBirkbeck/LeanBridge/tree/main/blueprint/src/knowls) and the Verso chapters (see [Updating the blueprint](#updating-the-blueprint)) and make a PR to this repository.
 
 ## Linking to Mathlib
 
@@ -56,101 +56,72 @@ the `cite` command for theorems (see the LMFDB
 [knowl guidelines](https://beta.lmfdb.org/knowledge/show/doc.knowl.guidelines) for the exact syntax).
 Editing or creating knowls requires an LMFDB account — contact David Roe or Andrew Sutherland on
 Zulip ([LMFDB](https://lmfdb.zulipchat.com) or [Lean](https://leanprover.zulipchat.com)) to get
-involved. Finally, run the [update script](blueprint/src/update_knowls.py) to refresh the
-[knowl folder](blueprint/src/knowls) and open a PR.
+involved. Finally, refresh the blueprint (see [Updating the blueprint](#updating-the-blueprint)) and
+open a PR.
 
 ## Local setup
 
-1. Ensure that you have a functioning Lean 4 installation. If you do not, please follow
-the [Lean installation guide](https://leanprover-community.github.io/get_started.html).
+1. Install Lean by following the
+   [Lean installation guide](https://leanprover-community.github.io/get_started.html), and clone
+   this repository.
 
-1. To clone this repository to your local machine, please refer to the relevant section of the
-GitHub documentation [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
+1. Download Mathlib's compiled files, then build:
 
-1. If you don't have a Python environment, you can install one by following the instructions in the
-[Python installation guide](https://www.python.org/downloads/).
+   ```bash
+   lake exe cache get
+   lake build
+   ```
 
-1. You will need to install PyGraphViz, following the instructions in the
-[installation guide](https://pygraphviz.github.io/documentation/stable/install.html).
+   `lake build` builds [`LeanBridge.lean`](LeanBridge.lean), a curated import of the library. To
+   build every hand-written module, as CI does, run `./scripts/build-modules.sh`; it leaves out the
+   generated level-one certificates, the `lookup` demo (which queries the LMFDB over the network)
+   and one experiment. The first build also compiles the parts of Tau Ceti that LeanBridge imports.
 
-1. If you want to run the update script, you will need to install Networkx using
+## Updating the blueprint
 
-```bash
-pip install networkx
-```
-
-and psycopg2 using
-
-```bash
-pip install psycopg2-binary
-```
-
-1. Install LeanBlueprint by running:
+The update script downloads the knowls from a public mirror of the LMFDB database, so it needs
+Python with [NetworkX](https://networkx.org) and [psycopg2](https://www.psycopg.org):
 
 ```bash
-pip install leanblueprint
+pip install networkx psycopg2-binary
+cd blueprint/src
+python update_knowls.py
+cd ../..
+python blueprint-verso/scripts/convert_knowls.py
 ```
 
-If you have an existing installation of LeanBlueprint, you can upgrade to the latest version by
-running:
+`update_knowls.py` rewrites the [knowl folder](blueprint/src/knowls),
+[`definitions.txt`](blueprint/src/definitions.txt), [`edges.txt`](blueprint/src/edges.txt) and the
+`auto_*.tex` chapter lists. `convert_knowls.py` turns these into the chapters in
+[`blueprint-verso/LeanBridgeBlueprint/Chapters`](blueprint-verso/LeanBridgeBlueprint/Chapters). To
+check that the site builds, run `./scripts/ci-pages.sh` in `blueprint-verso/`; it writes the site to
+`blueprint-verso/_out/site/html-multi/`.
 
-```bash
-pip install -U leanblueprint
-```
+## Repository layout
 
-1. You can use `leanblueprint` to build the blueprint locally. The available commands are:
-
-* `leanblueprint pdf` to build the pdf version (this requires a TeX installation
-  of course).
-* `leanblueprint web` to build the web version
-* `leanblueprint checkdecls` to check that every Lean declaration name that appear
-  in the blueprint exist in the project (or in a dependency of the project such
-  as Mathlib). This requires a compiled Lean project, so make sure to run `lake build` beforehand.
-* `leanblueprint all` to run the previous three commands.
-* `leanblueprint serve` to start a local webserver showing your local blueprint
-  (this sounds silly but web browsers paranoia makes it impossible to simply
-  open the generated html pages without serving them). The url you should use
-  in your browser will be displayed and will probably be `http://0.0.0.0:8000/`,
-  unless the port 8000 is already in use.
-
-## Repository Layout
-
-The template repository is organized as follows (listing the main folders and files):
-
-- [`.github`](.github) contains GitHub-specific configuration files and workflows.
-    - [`workflows`](.github/workflows) contains GitHub Actions workflow files.
-        - [`build-project.yml`](.github/workflows/build-project.yml) defines the workflow for building
-        the Lean project on pushes, pull requests, and manual triggers. This is a minimalistic build
-        workflow which is not necessary if you decide to generate a blueprint (see instructions below)
-        and can be manually disabled by clicking on the **Actions** tab, selecting **Build Project**
-        in the left sidebar, then clicking the horizontal triple dots (⋯) on the right,
-        and choosing **Disable workflow**.
-        - [`create-release.yml`](.github/workflows/create-release.yml): defines the workflow for creating a new Git tag and GitHub release when the `lean-toolchain` file is updated in the `main` branch. Ensure the following settings are configured under **Settings > Actions > General > Workflow permissions**: "Read and write permissions" and "Allow GitHub Actions to create and approve pull requests".
-        - [`update.yml`](.github/workflows/update.yml) is the dependency
-        update workflow to be triggered manually by default. [It's not documented yet, but it will be soon.]
-    - [`dependabot.yml`](.github/dependabot.yml) is the configuration file to automate CI dependency updates.
-- [`.vscode`](.vscode) contains Visual Studio Code configuration files
-    - [`extensions.json`](.vscode/extensions.json) recommends VS Code extensions for the project.
-    - [`settings.json`](.vscode/settings.json) defines the project-specific settings for VS Code.
-- [`Project`](Project) should contain the Lean code files.
-    - [`Mathlib`](Project/Mathlib) should contain `.lean` files with declarations missing from the
-    current version of Mathlib.
-    - [`Example.lean`](Project/Example.lean) is a sample Lean file.
-- [`scripts`](scripts) contains scripts to update Mathlib ensuring that the latest version is
-fetched and integrated into the development environment.
-- [`.gitignore`](.gitignore) specifies files and folders to be ignored by Git.
-and environment.
-- [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) should contain the code of conduct for the project.
-- [`CONTRIBUTING.md`](CONTRIBUTING.md) should provide the guidelines for contributing to the
-project.
-- [`lakefile.toml`](lakefile.toml) is the configuration file for the Lake build system used in
-Lean projects.
-- [`lean-toolchain`](lean-toolchain) specifies the Lean version and toolchain used for the project.
-
-## Blueprint
-
-For more details about the LeanBlueprint package and its commands, please refer to its
-[documentation](https://github.com/PatrickMassot/leanblueprint/tree/master#starting-a-blueprint).
-
-After pushing changes, please wait for the GitHub Action workflow to finish.
-You can keep track of the progress in the **Actions** tab of your repository.
+- [`LeanBridge.lean`](LeanBridge.lean): the root import of the library. Its header lists the Tau Ceti
+  declarations that LeanBridge uses for LMFDB elliptic-curve knowls instead of its own copies.
+- [`LeanBridge/ForMathlib`](LeanBridge/ForMathlib): declarations that belong in Mathlib, laid out as
+  Mathlib's own directories.
+- [`LeanBridge/LMFDB`](LeanBridge/LMFDB): LMFDB-specific material: certificates for LMFDB number
+  fields and level-one newforms, and tactics that query the LMFDB.
+- [`LeanBridge/IdealArithmetic`](LeanBridge/IdealArithmetic): vendored from CertifyingInvariantsNF:
+  certified rings of integers, discriminants, class groups and Galois groups of number fields.
+- [`LeanBridge/Lookup`](LeanBridge/Lookup): the `lookup` tactic, which searches the LMFDB for a
+  counterexample to the goal.
+- [`LeanBridge/Spec`](LeanBridge/Spec): specifications, with `sorry`, of objects not yet defined:
+  modular curves, Shimura curves and Hilbert modular surfaces.
+- [`blueprint/src`](blueprint/src): the knowls as LaTeX, the update script, and its
+  `definitions.txt` and `edges.txt`.
+- [`blueprint-verso`](blueprint-verso): the Verso blueprint project.
+- [`scripts`](scripts): `build-modules.sh`, and the Sage scripts that generate the level-one
+  certificates.
+- [`widget`](widget): the JavaScript of the LMFDB search widget.
+- [`home_page`](home_page): the Jekyll home page of the old LaTeX blueprint site, no longer
+  deployed.
+- [`.github/workflows`](.github/workflows): [`build.yml`](.github/workflows/build.yml) builds the
+  Lean library with `scripts/build-modules.sh`; [`blueprint.yml`](.github/workflows/blueprint.yml)
+  builds the Verso blueprint and deploys it to GitHub Pages;
+  [`create-release.yml`](.github/workflows/create-release.yml) tags a release when `lean-toolchain`
+  changes on `main`; [`update.yml`](.github/workflows/update.yml) updates the dependencies when run
+  by hand.
