@@ -136,8 +136,10 @@ def gpsGroups : TableInfo where
     flagIs ``Group.IsPerfect "perfect",
     -- `IsCyclic G`  ↦  cyclic = 't'  (generic head, but no other table recognises `IsCyclic`)
     flagIs ``IsCyclic "cyclic",
-    -- `IsSolvable G`  ↦  solvable = 't'
-    flagIs ``IsSolvable "solvable"]
+    -- `Group.IsSolvable G`  ↦  solvable = 't'
+    flagIs ``Group.IsSolvable "solvable",
+    -- the root `IsSolvable G` is a deprecated alias with its own head constant, so match it too
+    flagIs `IsSolvable "solvable"]
 
 /-- Spaces of classical modular forms `S_k(Γ₀(N))` / `M_k(Γ₀(N))`. Level and weight come from the
 form type `CuspForm Γ k` / `ModularForm Γ k` (`Γ = Γ₀(N)`) inside a `Module.finrank ℂ …`; see
