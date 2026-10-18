@@ -17,6 +17,8 @@ namespace IdealArithmetic.Galois
 
 open Polynomial Finset Polynomial.Gal
 
+attribute [local instance] factSplitsSplittingField
+
 variable {F : Type*} [Field F]
 
 private lemma prod_erase_sub_eq_neg_one_pow_mul_prod_Ioi_sq {R : Type*} [CommRing R] {n : ℕ}

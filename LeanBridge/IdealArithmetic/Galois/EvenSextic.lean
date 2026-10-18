@@ -25,6 +25,8 @@ open Polynomial
 
 namespace IdealArithmetic.Galois.EvenSextic
 
+attribute [local instance] factSplitsSplittingField
+
 variable {R : Type*} [CommRing R]
 
 /-- **(L4.2 monicity).** `g(X²)` is monic when `g` is. -/

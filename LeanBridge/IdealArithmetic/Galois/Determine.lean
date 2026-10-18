@@ -20,6 +20,8 @@ namespace IdealArithmetic.Galois
 
 open Polynomial Finset Polynomial.Gal
 
+attribute [local instance] factSplitsSplittingField
+
 /-- A subgroup of a symmetric group with exactly three elements lies in the alternating group: each
 element has order dividing `3`, hence odd, so its sign (a square root of unity of that odd order) is
 `1`. This is general (no cubic-specific data) and could live in `Parity.lean`. -/

@@ -35,6 +35,8 @@ open Polynomial
 
 namespace IdealArithmetic.Galois.DegSix
 
+attribute [local instance] factSplitsSplittingField
+
 /-- The showcase polynomial `f = X⁶ − 5X⁴ − 50X² + 125 ∈ ℤ[X]`. -/
 noncomputable def f : ℤ[X] := X ^ 6 - 5 * X ^ 4 - 50 * X ^ 2 + 125
 
