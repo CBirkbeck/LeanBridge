@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ring.integral}{Integral element of a ring}}
 \begin{definition}\label{ring.integral}
 \uses{ring}
+\lean{IsIntegral,integralClosure}
 \leanok
 If $R\subseteq S$ are \hyperref[ring]{commutative rings}, an element $s\in S$ is \textbf{integral} over $R$ if there exists $n\in\Z^+$ and $a_i\in R$ such that
 $$ s^n+a_{n-1} s^{n-1}+\cdots + a_0 =0\,.$$

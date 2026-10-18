@@ -4,8 +4,12 @@
 Reads blueprint/src/{macros/common.tex, auto_*.tex, knowls/...} and emits
 blueprint-verso/LeanBridgeBlueprint/Chapters/*.lean.  Every referenced knowl is a
 single `\\begin{definition}\\label{L}\\uses{...} BODY \\end{definition}` block; it
-becomes an informal Verso `:::definition "L"` chunk (no `(lean := )` yet).
+becomes a Verso `:::definition "L"` chunk. Its `(lean := ...)` names are the Mathlib
+declarations the knowl links with `DEFINES(..., mathlib=...)` (written as `\\lean{...}` by
+update_knowls.py) followed by the Tau Ceti and LeanBridge declarations listed for it in
+blueprint/src/lean_links.json, whose modules the generated Prelude imports.
 """
+import json
 import re
 import os
 import sys
@@ -42,6 +46,11 @@ for _, af, _ in CHAPTERS:
         m = re.search(r'\\label\{([^}]+)\}', open(fp).read())
         if m:
             ALL_LABELS.add(m.group(1))
+
+# Tau Ceti and LeanBridge declarations for knowls, as {label: {declaration: module}}; the knowls
+# themselves can only link Mathlib.
+_links_path = os.path.join(SRC, "lean_links.json")
+LEAN_LINKS = json.load(open(_links_path)) if os.path.exists(_links_path) else {}
 
 
 def tex_prelude_block():
@@ -195,6 +204,9 @@ def convert_knowl(path):
     uses_m = re.search(r'\\uses\{([^}]*)\}', txt)
     uses = [u.strip() for u in uses_m.group(1).split(',')] if uses_m else []
     uses = [u for u in uses if u in ALL_LABELS and u != label]
+    lean_m = re.search(r'\\lean\{([^}]*)\}', txt)
+    decls = [d.strip() for d in lean_m.group(1).split(',') if d.strip()] if lean_m else []
+    decls += [d for d in LEAN_LINKS.get(label, {}) if d not in decls]
     # body = between the (label/uses) header and \end{definition}
     body = txt.split(r'\begin{definition}', 1)[1]
     body = body.rsplit(r'\end{definition}', 1)[0]
@@ -208,7 +220,8 @@ def convert_knowl(path):
         link = f' ([LMFDB]({url}))' if url else ''
         lead = f'*{t}.*{link}\n\n'
     uses_line = ' '.join(f'{{uses "{u}"}}[]' for u in uses)
-    chunk = f':::definition "{label}"\n{lead}{body}\n'
+    lean = f' (lean := "{", ".join(decls)}")' if decls else ''
+    chunk = f':::definition "{label}"{lean}\n{lead}{body}\n'
     if uses_line:
         chunk += f'\nDepends on: {uses_line}\n'
     chunk += ':::\n'
@@ -219,12 +232,19 @@ def chapter_intro(title):
     return f"This chapter lists the LMFDB definitions relating to *{title.lower()}*, migrated from the LaTeX blueprint. Each definition links back to its LMFDB knowl."
 
 
+def lean_imports():
+    """`Mathlib` for the knowls' links, then the modules of the mapped declarations in the chapters."""
+    mods = {mod for label, links in LEAN_LINKS.items() if label in ALL_LABELS for mod in links.values()}
+    return ["Mathlib"] + sorted(mods)
+
+
 def emit_prelude():
     out = os.path.join(os.path.dirname(OUT), "Prelude.lean")
     parts = [
         "import Verso",
         "import VersoManual",
         "import VersoBlueprint",
+        *[f"import {mod}" for mod in lean_imports()],
         "",
         "open Verso Verso.Genre Verso.Genre.Manual Informal",
         "",

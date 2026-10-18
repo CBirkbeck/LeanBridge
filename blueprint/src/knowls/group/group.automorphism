@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.automorphism}{Automorphisms of a group}}
 \begin{definition}\label{group.automorphism}
 \uses{group,group.isomorphism}
+\lean{MulAut}
 \leanok
 If $G$ is a \hyperref[group]{group}, an \textbf{automorphism} of $G$ is a \hyperref[group.isomorphism]{group isomorphism} $f:G\to G$.
 

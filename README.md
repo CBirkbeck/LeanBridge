@@ -93,8 +93,15 @@ python blueprint-verso/scripts/convert_knowls.py
 `update_knowls.py` rewrites the [knowl folder](blueprint/src/knowls),
 [`definitions.txt`](blueprint/src/definitions.txt), [`edges.txt`](blueprint/src/edges.txt) and the
 `auto_*.tex` chapter lists. `convert_knowls.py` turns these into the chapters in
-[`blueprint-verso/LeanBridgeBlueprint/Chapters`](blueprint-verso/LeanBridgeBlueprint/Chapters). To
-check that the site builds, run `./scripts/ci-pages.sh` in `blueprint-verso/`; it writes the site to
+[`blueprint-verso/LeanBridgeBlueprint/Chapters`](blueprint-verso/LeanBridgeBlueprint/Chapters).
+
+Each chapter entry links its Lean declarations with `(lean := ...)`: the Mathlib declarations that the
+knowl records with `DEFINES(..., mathlib=...)`, followed by the Tau Ceti and LeanBridge declarations
+listed for it in [`blueprint/src/lean_links.json`](blueprint/src/lean_links.json) (knowls can only
+link Mathlib). That file maps each knowl to `{declaration: module}`; the converter imports the
+modules into the generated `Prelude.lean`. For this the blueprint project depends on LeanBridge, so
+it uses the same toolchain. To check that the site builds, run `lake exe cache get` and then
+`./scripts/ci-pages.sh` in `blueprint-verso/`; the site is written to
 `blueprint-verso/_out/site/html-multi/`.
 
 ## Repository layout
@@ -111,9 +118,10 @@ check that the site builds, run `./scripts/ci-pages.sh` in `blueprint-verso/`; i
   counterexample to the goal.
 - [`LeanBridge/Spec`](LeanBridge/Spec): specifications, with `sorry`, of objects not yet defined:
   modular curves, Shimura curves and Hilbert modular surfaces.
-- [`blueprint/src`](blueprint/src): the knowls as LaTeX, the update script, and its
-  `definitions.txt` and `edges.txt`.
-- [`blueprint-verso`](blueprint-verso): the Verso blueprint project.
+- [`blueprint/src`](blueprint/src): the knowls as LaTeX, the update script, its `definitions.txt`
+  and `edges.txt`, and `lean_links.json`.
+- [`blueprint-verso`](blueprint-verso): the Verso blueprint project, which depends on LeanBridge for
+  its links to Lean declarations.
 - [`scripts`](scripts): `build-modules.sh`, and the Sage scripts that generate the level-one
   certificates.
 - [`widget`](widget): the JavaScript of the LMFDB search widget.

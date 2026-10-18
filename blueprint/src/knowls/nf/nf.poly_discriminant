@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.poly_discriminant}{Discriminant of polynomial}}
 \begin{definition}\label{nf.poly_discriminant}
 \uses{nf,nf.discriminant,nf.ring_of_integers}
+\lean{Polynomial.discr}
 \leanok
 The \textbf{discriminant} of a monic polynomial $f(x) = \prod_{i=1}^d (x - \alpha_i)$ is the quantity
 \[

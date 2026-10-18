@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.torsion_subgroup}{Torsion subgroup of an elliptic curve}}
 \begin{definition}\label{ec.torsion_subgroup}
 \uses{ec.mordell_weil_group,ec.mordell_weil_theorem}
+\lean{AddCommGroup.torsion}
 For an elliptic curve $E$ over a field $K,$ the \textbf{torsion subgroup} of $E$ over $K$ is the subgroup $E(K)_{\text{tor}}$ of the \hyperref[ec.mordell_weil_group]{Mordell-Weil group} $E(K)$ consisting of points of finite order.  For a number field $K$ this is always a finite group, since by the \hyperref[ec.mordell_weil_theorem]{Mordell-Weil Theorem} $E(K)$ is finitely generated.
 
 The torsion subgroup is always either cyclic or a product of two cyclic groups.

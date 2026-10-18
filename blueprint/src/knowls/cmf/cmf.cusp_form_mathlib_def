@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.cusp_form_mathlib_def}{Cuspidal modular form (mathlib)}}
 \begin{definition}\label{cmf.cusp_form_mathlib_def}
 \uses{}
+\lean{CuspForm}
 \leanok
 This is \textbf{CuspForm $\Gamma$ $k$} in mathlib. In the LMFDB definition, $k$ is a positive integer and $\Gamma$ is a finite-index subgroup of $\SL_2(\mathbb{Z})$. Mathlib is more general: $k$ is an integer
 and $\Gamma$ is a subgroup of $\GL_2(\mathbb{R})$.

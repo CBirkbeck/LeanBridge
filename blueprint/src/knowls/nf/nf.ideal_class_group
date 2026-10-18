@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.ideal_class_group}{Ideal class group of a number field}}
 \begin{definition}\label{nf.ideal_class_group}
 \uses{nf,nf.ring_of_integers,ring.fractional_ideal,ring.principal_fractional_ideal}
+\lean{ClassGroup}
 \leanok
 The \textbf{ideal class group} of a \hyperref[nf]{number field} $K$ with \hyperref[nf.ring_of_integers]{ring of integers} $O_K$ is the group of equivalence classes of ideals, given by the quotient of the multiplicative group of all \hyperref[ring.fractional_ideal]{fractional ideals} of $O_K$ by the subgroup of \hyperref[ring.principal_fractional_ideal]{principal fractional ideals}.  
 

@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.absolute_value}{Absolute value of a field}}
 \begin{definition}\label{nf.absolute_value}
 \uses{}
+\lean{Archimedean}
 An \textbf{absolute value} of a field $k$ is a function $|\ |:k\to \R_{\ge 0}$ that satisfies:
 
 \begin{itemize}

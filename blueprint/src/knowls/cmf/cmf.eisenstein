@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.eisenstein}{Holomorphic Eisenstein series of level 1}}
 \begin{definition}\label{cmf.eisenstein}
 \uses{af.bernoulli_numbers,af.divisor_function,cmf,cmf.level,cmf.q-expansion,cmf.weight,group.sl2z}
+\lean{ModularForm.E}
  For an even integer $k\geq4$, we define the (normalized) holomorphic \textbf{Eisenstein series} of level 1
 \[
   E_k(z)=\frac{1}{2\zeta(k)}\sum_{(c,d)\ne(0,0)}(cz+d)^{-k}=\sum_{\left(\begin{matrix} a&b\\c&d \end{matrix}\right)\in\ \Gamma_{\infty}\setminus \SL(2,\Z)

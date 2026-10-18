@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.weierstrass_isomorphism}{Isomorphism between Weierstrass models}}
 \begin{definition}\label{ec.weierstrass_isomorphism}
 \uses{ec.isomorphism,ec.weierstrass_coeffs}
+\lean{WeierstrassCurve.VariableChange}
 Two \hyperref[ec.weierstrass_coeffs]{Weierstrass models} $E$, $E'$ over a field $K$ with Weierstrass coefficients $[a_1,a_2,a_3,a_4,a_6]$ and $[a'_1,a'_2,a'_3,a'_4,a'_6]$ are \textbf{isomorphic over $K$} if there exist $u\in K^*$ and $r,s,t\in K$ such that
 $$
 \begin{aligned}       u  a_1' &= a_1+2s,                               \\

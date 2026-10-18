@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf}{Number field}}
 \begin{definition}\label{nf}
 \uses{nf.degree}
+\lean{NumberField}
 \leanok
 A \textbf{number field} is a field extension of finite \hyperref[nf.degree]{degree} of the field $\Q$ of rational numbers. In the LMFDB, number fields are identified by a \hyperref[nf.label]{label}.
 

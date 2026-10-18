@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ring.field_of_fractions_mathlib}{Field of fractions (mathlib)}}
 \begin{definition}\label{ring.field_of_fractions_mathlib}
 \uses{ring}
+\lean{FractionRing}
 \leanok
 This is also defined in mathlib as \textbf{Fraction Ring}, which is the localisation at the non-zero divisors of your ring. When your ring $R$ is a \hyperref[ring]{commutative ring} and an \hyperref[ring]{integral domain} then gets the fact that this is a field.
 \end{definition}

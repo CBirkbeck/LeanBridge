@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.mordell_weil_group}{Mordell-Weil group}}
 \begin{definition}\label{ec.mordell_weil_group}
 \uses{ag.abelian_variety,ag.mordell_weil,ec,nf}
+\lean{WeierstrassCurve.Affine.Point}
 For an \hyperref[ec]{elliptic curve} $E$ defined over a field $K$, the \textbf{Mordell-Weil group} of $E/K$ is the group $E(K)$ of $K$-rational points of $E$. It is a finitely-generated Abelian group.
 
 This is a special case of the \hyperref[ag.mordell_weil]{Mordell-Weil group of an abelian variety}.

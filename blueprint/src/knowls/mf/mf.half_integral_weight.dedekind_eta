@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.half_integral_weight.dedekind_eta}{Dedekind eta function}}
 \begin{definition}\label{mf.half_integral_weight.dedekind_eta}
 \uses{}
+\lean{ModularForm.eta}
 \leanok
 We define the \textbf{Dedekind eta function} $\eta(z)$ by the formula
 \[

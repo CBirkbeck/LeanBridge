@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.q.j_invariant}{j-invariant of a rational elliptic curve}}
 \begin{definition}\label{ec.q.j_invariant}
 \uses{ec,ec.q.discriminant,ec.weierstrass_coeffs}
+\lean{WeierstrassCurve.j}
 \leanok
 The \textbf{$j$-invariant} of an \hyperref[ec]{elliptic curve} $E$ defined over $\mathbb{Q}$ is an invariant of the isomorphism class of $E$ over  $\overline{\mathbb{Q}}$ .
 If the \hyperref[ec.weierstrass_coeffs]{Weierstrass equation} of $E$ is \[y^2+a_1xy+a_3y=x^3+a_2x^2+a_4x+a_6,\] then its $j$-invariant is given by 

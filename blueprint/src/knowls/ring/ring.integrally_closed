@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ring.integrally_closed}{Integrally closed}}
 \begin{definition}\label{ring.integrally_closed}
 \uses{ring.field_of_fractions,ring.integral,ring.integral_domain}
+\lean{IsIntegrallyClosed}
 \leanok
 Let $R$ be an \hyperref[ring.integral_domain]{integral domain} and $F$ its \hyperref[ring.field_of_fractions]{field of fractions}.  Then $R$ is \textbf{integrally closed} if $R$ equals the \hyperref[ring.integral]{integral closure} of $R$ in $F$.
 \end{definition}

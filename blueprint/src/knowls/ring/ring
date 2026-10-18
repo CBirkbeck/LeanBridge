@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ring}{Definition of ring}}
 \begin{definition}\label{ring}
 \uses{alg.binary_operation,alg.binary_operation.associative,alg.binary_operation.commutative,alg.binary_operation.identity,group.abelian}
+\lean{Ring,CommRing,NonUnitalRing}
 A \textbf{ring} is a set $R$ with two \hyperref[alg.binary_operation]{binary operations} $+$ and $\cdot$ such that
 
 1. $R$ is an \hyperref[group.abelian]{abelian group} with respect to $+$

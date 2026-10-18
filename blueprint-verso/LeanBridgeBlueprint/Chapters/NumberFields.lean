@@ -11,7 +11,7 @@ open Informal
 
 This chapter lists the LMFDB definitions relating to *number fields*, migrated from the LaTeX blueprint. Each definition links back to its LMFDB knowl.
 
-:::definition "nf"
+:::definition "nf" (lean := "NumberField")
 *Number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf))
 
 A *number field* is a field extension of finite {bpref "nf.degree"}[degree] of the field $`\Q` of rational numbers. In the LMFDB, number fields are identified by a label.
@@ -27,7 +27,7 @@ A {bpref "nf"}[number field] $`K` is *abelian* if it is Galois over $`\Q` and it
 Depends on: {uses "nf"}[] {uses "nf.galois_group"}[]
 :::
 
-:::definition "nf.abs_discriminant"
+:::definition "nf.abs_discriminant" (lean := "NumberField.discr")
 *Absolute discriminant of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.abs_discriminant))
 
 The *absolute discriminant* of a {bpref "nf"}[number field] is the absolute value of its {bpref "nf.discriminant"}[discriminant].
@@ -35,7 +35,7 @@ The *absolute discriminant* of a {bpref "nf"}[number field] is the absolute valu
 Depends on: {uses "nf"}[] {uses "nf.discriminant"}[]
 :::
 
-:::definition "nf.absolute_value"
+:::definition "nf.absolute_value" (lean := "Archimedean")
 *Absolute value of a field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.absolute_value))
 
 An *absolute value* of a field $`k` is a function $`|\ |:k\to \R_{\ge 0}` that satisfies:
@@ -59,7 +59,7 @@ Two {bpref "nf"}[number fields] are *arithmetically equivalent* if they have the
 Depends on: {uses "nf"}[] {uses "nf.degree"}[] {uses "nf.discriminant"}[] {uses "nf.galois_group"}[] {uses "nf.sibling"}[] {uses "nf.signature"}[]
 :::
 
-:::definition "nf.class_number"
+:::definition "nf.class_number" (lean := "NumberField.classNumber")
 *Class number of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.class_number))
 
 The *class number* of a {bpref "nf"}[number field] $`K` is the order of the {bpref "nf.ideal_class_group"}[ideal class group] of $`K`.
@@ -123,7 +123,7 @@ The *degree* of a {bpref "nf"}[number field] $`K` is its degree as an extension 
 Depends on: {uses "nf.degree_mathlib_def"}[]
 :::
 
-:::definition "nf.degree_mathlib_def"
+:::definition "nf.degree_mathlib_def" (lean := "Module.finrank")
 *Number field degree (mathlib).* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.degree_mathlib_def))
 
 This is also defined in mathlib as 'finrank ℚ K', where $`K` is the number field and 'finrank ℚ' is its *module rank* over the rationals.
@@ -139,7 +139,7 @@ The Galois group $`\Gal(\Q(\zeta_n)/\Q)` is canonically isomorphic to $`\Z_n^\ti
 Depends on: {uses "character.dirichlet"}[] {uses "nf.abelian"}[] {uses "nf.conductor"}[]
 :::
 
-:::definition "nf.discriminant"
+:::definition "nf.discriminant" (lean := "NumberField.discr")
 *Discriminant of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.discriminant))
 
 The *discriminant* of a {bpref "nf"}[number field] $`K` is the square of the determinant of the matrix
@@ -157,7 +157,7 @@ The discriminant of $`K` is a non-zero integer divisible exactly by the primes w
 Depends on: {uses "nf"}[] {uses "nf.integral_basis"}[]
 :::
 
-:::definition "nf.discriminant_root_field"
+:::definition "nf.discriminant_root_field" (lean := "Polynomial.discr, TauCeti.discrField, TauCeti.evenAutSubgroup")
 *Discriminant root field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.discriminant_root_field))
 
 If $`K/F` is a finite algebraic extension, it can be defined by a polynomial $`f(x)\in F[x]`.  The *polynomial discriminant*, $`\mathrm{disc}(f)`, is well-defined up a factor of a non-zero square.  The *discriminant root field* of the extension is $`F(\sqrt{\mathrm{disc}(f)})`, which is well-defined.
@@ -241,7 +241,7 @@ The {bpref "nf.minimal_polynomial"}[minimal polynomial] of a generator is a {bpr
 Depends on: {uses "nf"}[] {uses "nf.defining_polynomial"}[] {uses "nf.minimal_polynomial"}[]
 :::
 
-:::definition "nf.ideal_class_group"
+:::definition "nf.ideal_class_group" (lean := "ClassGroup")
 *Ideal class group of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.ideal_class_group))
 
 The *ideal class group* of a {bpref "nf"}[number field] $`K` with {bpref "nf.ring_of_integers"}[ring of integers] $`O_K` is the group of equivalence classes of ideals, given by the quotient of the multiplicative group of all {bpref "ring.fractional_ideal"}[fractional ideals] of $`O_K` by the subgroup of {bpref "ring.principal_fractional_ideal"}[principal fractional ideals].
@@ -289,7 +289,7 @@ For example taking the weight function $`w` with $`w(g) = 1` for all non-identit
 More general weight functions can be considered over more general base number fields. See ??? for further details.
 :::
 
-:::definition "nf.inessential_prime"
+:::definition "nf.inessential_prime" (lean := "TauCeti.NumberField.IntegralPrimitiveElement.index, TauCeti.NumberField.IsCommonIndexDivisor")
 *Inessential prime.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.inessential_prime))
 
 An *inessential prime* of a {bpref "nf"}[number field] is a prime divisor of its {bpref "nf.zk_index"}[index].
@@ -305,7 +305,7 @@ An element of a {bpref "nf"}[number field] $`K` is *integral* if it is {bpref "r
 Depends on: {uses "nf"}[] {uses "ring.integral"}[]
 :::
 
-:::definition "nf.integral_basis"
+:::definition "nf.integral_basis" (lean := "NumberField.RingOfIntegers.basis")
 *Integral basis of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.integral_basis))
 
 An *integral basis* of a {bpref "nf"}[number field] $`K` is a $`\mathbb{Z}`-basis for the {bpref "nf.ring_of_integers"}[ring of integers] of $`K`.  This is also a $`\mathbb{Q}`-basis for $`K`.
@@ -341,7 +341,7 @@ Given a global {bpref "nf"}[number field] $`K` and a prime $`p`, the *local alge
 Depends on: {uses "nf"}[] {uses "nf.separable_algebra"}[]
 :::
 
-:::definition "nf.max_p"
+:::definition "nf.max_p" (lean := "NumberField.ramifiedPrimes")
 *Maximum ramified prime.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.max_p))
 
 If $`K` is a {bpref "nf"}[number field], the *maximum ramified prime* is simply the largest prime {bpref "nf.ramified_primes"}[ramified] in $`K`.  By convention, we take this to be $`0` for $`\Q`, the unique unramified extension of $`\Q`.
@@ -383,7 +383,7 @@ $`x^n+a_{n-1} x^{n-1}+\cdots +a_0`
 Depends on: {uses "nf"}[] {uses "nf.degree"}[] {uses "nf.discriminant"}[] {uses "nf.galois_group"}[] {uses "nf.sibling"}[]
 :::
 
-:::definition "nf.monogenic"
+:::definition "nf.monogenic" (lean := "TauCeti.NumberField.IsMonogenic")
 *Monogenic field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.monogenic))
 
 A {bpref "nf"}[number field] $`K` is *monogenic* if its {bpref "nf.ring_of_integers"}[ring of integers] $`\mathcal{O}_K` equals $`\Z[\alpha]` for some $`\alpha \in \mathcal{O}_K`.
@@ -391,7 +391,7 @@ A {bpref "nf"}[number field] $`K` is *monogenic* if its {bpref "nf.ring_of_integ
 Depends on: {uses "nf"}[] {uses "nf.ring_of_integers"}[]
 :::
 
-:::definition "nf.monomial_order"
+:::definition "nf.monomial_order" (lean := "TauCeti.GlobalNumberFields.NumberFieldOrder, TauCeti.NumberField.IntegralPrimitiveElement.adjoin")
 *Monomial order.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.monomial_order))
 
 A *monomial order* in a {bpref "nf"}[number field] $`K` is an {bpref "nf.order"}[order] of the form $`\Z[\alpha]`, where $`\alpha` is an element of $`K`. The element $`\alpha` is necessarily both an {bpref "nf.ring_of_integers"}[algebraic integer] and a primitive element for $`K`.
@@ -399,7 +399,7 @@ A *monomial order* in a {bpref "nf"}[number field] $`K` is an {bpref "nf.order"}
 Depends on: {uses "nf"}[] {uses "nf.order"}[] {uses "nf.ring_of_integers"}[]
 :::
 
-:::definition "nf.narrow_class_group"
+:::definition "nf.narrow_class_group" (lean := "NumberField.IsTotallyPositive, NumberField.NarrowClassGroup, NumberField.NarrowClassGroup.toClassGroup, NumberField.narrowPrincipalSubgroup")
 *Narrow class group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.narrow_class_group))
 
 The *narrow class group* (also called the *strict class group*) of a {bpref "nf"}[number field] $`K` is the group of equivalence classes of ideals, given by the quotient of the multiplicative group of all fractional ideals of $`K` by the subgroup of principal fractional ideals which have a {bpref "nf.totally_positive"}[totally positive] generator.  It is a
@@ -408,7 +408,7 @@ finite abelian group whose order is the {bpref "nf.narrow_class_number"}[narrow 
 Depends on: {uses "nf"}[] {uses "nf.totally_positive"}[]
 :::
 
-:::definition "nf.narrow_class_number"
+:::definition "nf.narrow_class_number" (lean := "NumberField.NarrowClassGroup")
 *Narrow class number.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.narrow_class_number))
 
 The *narrow class number* (also called the *strict class number*) of an {bpref "nf"}[algebraic number field] is the order of its {bpref "nf.narrow_class_group"}[narrow class group].
@@ -438,7 +438,7 @@ various fields.  Examples include:
 In the general syntax, each $`\texttt{si}` may be built using the functions $`\texttt{sqrt}` (or $`\texttt{root}`) and $`\texttt{cbrt}`, together with the usual arithmetic operations $`\texttt{+}`, $`\texttt{-}`, $`\texttt{*}`, $`\texttt{/}`, ^, and parentheses.  The usual constants $`\texttt{i}`, $`\texttt{zetaN}` and $`\texttt{phi}` (for $`(1 + \sqrt{5})/2`) are also supported.  Some examples include:  "$`\texttt{Q(sqrt2,sqrt3)}`", "$`\texttt{Q(sqrt(1+sqrt2))}`","$`\texttt{Q(cbrt(1+zeta7))}`", and "$`\texttt{Q(5}`^$`\texttt{(1/12))}`".
 :::
 
-:::definition "nf.order"
+:::definition "nf.order" (lean := "TauCeti.GlobalNumberFields.NumberFieldOrder, TauCeti.GlobalNumberFields.maximalNumberFieldOrder")
 *Order.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.order))
 
 An *order* in a {bpref "nf"}[number field] $`K` is a subring of $`K` which is also a lattice in $`K`. Every order in $`K` is contained in the ring of integers of $`K`, which is itself an order in $`K`; for this reason, the ring of integers is sometimes called the _maximal order_.
@@ -507,7 +507,7 @@ The pari/gp function <code>polredabs()</code> computes reduced defining polynomi
 Depends on: {uses "nf"}[] {uses "nf.poly_discriminant"}[]
 :::
 
-:::definition "nf.poly_discriminant"
+:::definition "nf.poly_discriminant" (lean := "Polynomial.discr")
 *Discriminant of polynomial.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.poly_discriminant))
 
 The *discriminant* of a monic polynomial $`f(x) = \prod_{i=1}^d (x - \alpha_i)` is the quantity
@@ -624,7 +624,7 @@ $`h/h^+`.
 Depends on: {uses "nf"}[] {uses "nf.class_number"}[] {uses "nf.cm_field"}[] {uses "nf.totally_real"}[]
 :::
 
-:::definition "nf.ring_of_integers"
+:::definition "nf.ring_of_integers" (lean := "NumberField.RingOfIntegers")
 *Ring of integers of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.ring_of_integers))
 
 The *ring of integers* of a {bpref "nf"}[number field] $`K` is the {bpref "ring.integral"}[integral closure] of $`\Z` in $`K`.
@@ -727,7 +727,7 @@ A {bpref "nf"}[number field] $`K` is *totally imaginary* (or *totally complex*) 
 Depends on: {uses "nf"}[]
 :::
 
-:::definition "nf.totally_positive"
+:::definition "nf.totally_positive" (lean := "NumberField.IsTotallyPositive, NumberField.totallyPositiveUnits")
 *Totally positive.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.totally_positive))
 
 An element $`\alpha` in a {bpref "nf"}[number field] $`K` is *totally positive* if $`\sigma(\alpha)>0` for all real embeddings $`\sigma` of $`K` into $`\R`.

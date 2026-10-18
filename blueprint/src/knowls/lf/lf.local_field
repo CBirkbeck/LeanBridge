@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.local_field}{Local field}}
 \begin{definition}\label{lf.local_field}
 \uses{nf.absolute_value,ring.characteristic,ring.field}
+\lean{IsNonarchimedeanLocalField}
 A \textbf{local field} is a \hyperref[ring.field]{field} $K$ with a non-trivial \hyperref[nf.absolute_value]{absolute value} $|\ |$ that is locally compact in the topology induced by the distance metric $d(x,y):=|x-y|$.
 
 An \textbf{archimedean local field} is a local field whose absolute value is \hyperref[nf.absolute_value]{archimedean}; such a field is isomorphic to $\R$ or $\C$.

@@ -71,6 +71,7 @@ def strip_macros(knowls):
         content = COMMENT_RE.sub("", content)
 
         leanmissing = set() # Use a set so that we can easily update from inside the def_subber function
+        leandecls = [] # Mathlib declarations linked by DEFINES(..., mathlib=...), in order
         if EMPH_RE.search(content):
             # **defined** does not include a mathlib link
             leanmissing.add(True)
@@ -82,6 +83,10 @@ def strip_macros(knowls):
             mathlib = match.group(5) or match.group(6)
             if not kidstr and not mathlib:
                 leanmissing.add(True)
+            if mathlib and "#" in mathlib:
+                decl = mathlib.split("#", 1)[1]
+                if decl not in leandecls:
+                    leandecls.append(decl)
             return r"\textbf{%s}" % defstr
         content = DEFINES_RE.sub(def_subber, content)
         if not leanmissing:
@@ -131,6 +136,9 @@ def strip_macros(knowls):
         # Prepare for knowl inclusions below
         if "KNOWL_INC" in content:
             doinc.add(kid)
+        # Added last, so that the underscore escaping above leaves the declaration names alone
+        if leandecls:
+            content = "\\lean{%s}\n" % ",".join(leandecls) + content
         rec["content"] = content
 
     # Special cases

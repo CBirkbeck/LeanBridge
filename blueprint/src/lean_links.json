@@ -1,0 +1,542 @@
+{
+  "ag.abelian_surface": {
+    "TauCeti.AlgebraicGeometry.AbelianVariety": "TauCeti.AlgebraicGeometry.AbelianVariety.Basic",
+    "TauCeti.AlgebraicGeometry.AbelianVariety.dim": "TauCeti.AlgebraicGeometry.AbelianVariety.Basic",
+    "TauCeti.AlgebraicGeometry.AbelianVariety.prod": "TauCeti.AlgebraicGeometry.AbelianVariety.Product"
+  },
+  "ag.abelian_variety": {
+    "TauCeti.AlgebraicGeometry.AbelianVariety": "TauCeti.AlgebraicGeometry.AbelianVariety.Basic"
+  },
+  "ag.arithmetic_genus": {
+    "AlgebraicGeometry.Scheme.Modules.eulerCharBelow": "TauCeti.AlgebraicGeometry.Cohomology.EulerCharacteristic",
+    "AlgebraicGeometry.Scheme.genus": "TauCeti.AlgebraicGeometry.Cohomology.Genus"
+  },
+  "ag.curve.genus": {
+    "AlgebraicGeometry.Scheme.IsCurveOver": "TauCeti.AlgebraicGeometry.Curves.Basic",
+    "AlgebraicGeometry.Scheme.genus": "TauCeti.AlgebraicGeometry.Cohomology.Genus",
+    "TauCeti.genus": "TauCeti.FieldTheory.FunctionField.RiemannRoch.Genus"
+  },
+  "ag.endomorphism_algebra": {
+    "TauCeti.AlgebraicGeometry.AbelianVariety.End": "TauCeti.AlgebraicGeometry.AbelianVariety.End.Basic"
+  },
+  "ag.endomorphism_ring": {
+    "TauCeti.AlgebraicGeometry.AbelianVariety.End": "TauCeti.AlgebraicGeometry.AbelianVariety.End.Basic"
+  },
+  "ag.geom_endomorphism_algebra": {
+    "TauCeti.AlgebraicGeometry.AbelianVariety.End": "TauCeti.AlgebraicGeometry.AbelianVariety.End.Basic",
+    "TauCeti.AlgebraicGeometry.AbelianVariety.End.baseChange": "TauCeti.AlgebraicGeometry.AbelianVariety.End.BaseChange",
+    "TauCeti.AlgebraicGeometry.AbelianVariety.baseChange": "TauCeti.AlgebraicGeometry.AbelianVariety.Basic"
+  },
+  "ag.geom_endomorphism_ring": {
+    "TauCeti.AlgebraicGeometry.AbelianVariety.End": "TauCeti.AlgebraicGeometry.AbelianVariety.End.Basic",
+    "TauCeti.AlgebraicGeometry.AbelianVariety.End.baseChange": "TauCeti.AlgebraicGeometry.AbelianVariety.End.BaseChange",
+    "TauCeti.AlgebraicGeometry.AbelianVariety.baseChange": "TauCeti.AlgebraicGeometry.AbelianVariety.Basic"
+  },
+  "ag.holomorphic_euler_char": {
+    "AlgebraicGeometry.Scheme.Modules.eulerCharBelow": "TauCeti.AlgebraicGeometry.Cohomology.EulerCharacteristic"
+  },
+  "ag.mordell_weil": {
+    "TauCeti.AlgebraicGeometry.AbelianVariety": "TauCeti.AlgebraicGeometry.AbelianVariety.Basic"
+  },
+  "ag.real_endomorphism_algebra": {
+    "TauCeti.AlgebraicGeometry.AbelianVariety.End": "TauCeti.AlgebraicGeometry.AbelianVariety.End.Basic"
+  },
+  "ag.real_geom_endomorphism_algebra": {
+    "TauCeti.AlgebraicGeometry.AbelianVariety.End": "TauCeti.AlgebraicGeometry.AbelianVariety.End.Basic",
+    "TauCeti.AlgebraicGeometry.AbelianVariety.baseChange": "TauCeti.AlgebraicGeometry.AbelianVariety.Basic"
+  },
+  "artin.frobenius_schur_indicator": {
+    "FDRep.frobeniusSchurIndicator": "TauCeti.RepresentationTheory.CharacterTable.FrobeniusSchur.Basic",
+    "TauCeti.Representation.frobeniusSchurIndicator": "TauCeti.RepresentationTheory.CharacterTable.FrobeniusSchur.Basic"
+  },
+  "av.fq.group_structure": {
+    "TauCeti.AlgebraicGeometry.AbelianVariety": "TauCeti.AlgebraicGeometry.AbelianVariety.Basic",
+    "TauCeti.GroupScheme.baseChangePointMulEquiv": "TauCeti.AlgebraicGeometry.GroupScheme.CentralIsogeny.BaseChange"
+  },
+  "av.is_product": {
+    "TauCeti.AlgebraicGeometry.AbelianVariety.prod": "TauCeti.AlgebraicGeometry.AbelianVariety.Product"
+  },
+  "av.tate_module": {
+    "TauCeti.AlgebraicGeometry.AbelianVariety": "TauCeti.AlgebraicGeometry.AbelianVariety.Basic",
+    "TauCeti.GroupScheme.torsion": "TauCeti.AlgebraicGeometry.GroupScheme.Torsion",
+    "TauCeti.TateModule": "TauCeti.Algebra.Module.Torsion.TateModule",
+    "WeierstrassCurve.tateModuleGaloisRepresentation": "TauCeti.AlgebraicGeometry.EllipticCurve.TateModule.Galois"
+  },
+  "av.twist": {
+    "TauCeti.AlgebraicGeometry.AbelianVariety": "TauCeti.AlgebraicGeometry.AbelianVariety.Basic",
+    "TauCeti.AlgebraicGeometry.AbelianVariety.baseChange": "TauCeti.AlgebraicGeometry.AbelianVariety.Basic"
+  },
+  "belyi.abc": {
+    "TauCeti.PermutationTriple": "TauCeti.Combinatorics.PermutationTriple.Basic",
+    "TauCeti.PermutationTriple.orderTriple": "TauCeti.Combinatorics.PermutationTriple.GeometryType"
+  },
+  "belyi.geometry_type": {
+    "TauCeti.GeometryType": "TauCeti.Combinatorics.PermutationTriple.GeometryType",
+    "TauCeti.GeometryType.ofOrders": "TauCeti.Combinatorics.PermutationTriple.GeometryType",
+    "TauCeti.IsSphericalSignature": "TauCeti.GroupTheory.TriangleGroup.Signatures",
+    "TauCeti.PermutationTriple.geometryType": "TauCeti.Combinatorics.PermutationTriple.GeometryType",
+    "TauCeti.TriangleGroup": "TauCeti.GroupTheory.TriangleGroup.Basic"
+  },
+  "belyi.group": {
+    "TauCeti.PermutationTriple.IsConnected": "TauCeti.Combinatorics.PermutationTriple.Basic",
+    "TauCeti.PermutationTriple.monodromyGroup": "TauCeti.Combinatorics.PermutationTriple.Basic",
+    "TauCeti.TransitiveGroupLabel": "TauCeti.GroupTheory.Perm.TransitiveGroupLabel.Basic"
+  },
+  "belyi.passport": {
+    "TauCeti.PassportSpec": "TauCeti.Combinatorics.PermutationTriple.Passport.Basic",
+    "TauCeti.PassportSpec.HasPassport": "TauCeti.Combinatorics.PermutationTriple.Passport.Basic",
+    "TauCeti.PassportSpec.IsAdmissible": "TauCeti.Combinatorics.PermutationTriple.Passport.Basic"
+  },
+  "belyi.permutation_triple": {
+    "TauCeti.ConnectedTriple": "TauCeti.Combinatorics.PermutationTriple.IsoClass",
+    "TauCeti.PermutationTriple": "TauCeti.Combinatorics.PermutationTriple.Basic",
+    "TauCeti.PermutationTriple.IsConnected": "TauCeti.Combinatorics.PermutationTriple.Basic",
+    "TauCeti.PermutationTriple.equivOppositeConvention": "TauCeti.Combinatorics.PermutationTriple.Basic"
+  },
+  "cmf.analytic_rank": {
+    "HeckeRing.GL2.Newform.analyticRank": "TauCeti.NumberTheory.ModularForms.Newforms.AnalyticInvariants"
+  },
+  "cmf.atkin-lehner": {
+    "HeckeRing.GL2.Newform.atkinLehnerSign": "TauCeti.NumberTheory.ModularForms.AtkinLehner.Sign",
+    "TauCeti.IsAtkinLehnerMatrix": "TauCeti.NumberTheory.ModularForms.AtkinLehner.Matrix",
+    "TauCeti.Nat.IsExactDivisor.normalizedAtkinLehnerOperatorCusp": "TauCeti.NumberTheory.ModularForms.AtkinLehner.Normalized",
+    "TauCeti.atkinLehnerMatrix": "TauCeti.NumberTheory.ModularForms.AtkinLehner.Matrix",
+    "TauCeti.atkinLehnerOperatorCusp": "TauCeti.NumberTheory.ModularForms.AtkinLehner.Operator"
+  },
+  "cmf.character": {
+    "HeckeRing.GL2.Newform.dirichletLift": "TauCeti.NumberTheory.ModularForms.Newforms.Newform",
+    "modFormCharSpace": "TauCeti.NumberTheory.ModularForms.DiamondOperators"
+  },
+  "cmf.coefficient_field": {
+    "TauCeti.CoefficientField": "TauCeti.NumberTheory.ModularForms.Newforms.Fields"
+  },
+  "cmf.defining_polynomial": {
+    "TauCeti.CoefficientField": "TauCeti.NumberTheory.ModularForms.Newforms.Fields"
+  },
+  "cmf.dualform": {
+    "CuspForm.conj": "TauCeti.NumberTheory.ModularForms.Conjugate",
+    "HeckeRing.GL2.Newform.conj": "TauCeti.NumberTheory.ModularForms.Newforms.Conjugate"
+  },
+  "cmf.fricke": {
+    "CuspForm.frickeCompletedL": "TauCeti.NumberTheory.ModularForms.LFunction.FunctionalEquation",
+    "HeckeRing.GL2.Newform.frickePseudoEigenvalue": "TauCeti.NumberTheory.ModularForms.Newforms.Fricke",
+    "HeckeRing.GL2.Newform.frickeSign": "TauCeti.NumberTheory.ModularForms.Newforms.Fricke",
+    "TauCeti.Nat.IsExactDivisor.normalizedAtkinLehnerOperatorCusp": "TauCeti.NumberTheory.ModularForms.AtkinLehner.Normalized",
+    "TauCeti.normalizedFrickeOperatorCusp": "TauCeti.NumberTheory.ModularForms.Fricke.Normalized"
+  },
+  "cmf.hecke_operator": {
+    "HeckeRing.GL2.heckeRingHomCharSpace": "TauCeti.NumberTheory.ModularForms.HeckeSlash.Nebentypus.Action",
+    "HeckeRing.GL2.heckeTCompositeGamma0": "TauCeti.NumberTheory.HeckeRing.GL2.Gamma0.Diagonal.Composite",
+    "HeckeRing.GL2.heckeTNat": "TauCeti.NumberTheory.ModularForms.HeckeSlash.Operators"
+  },
+  "cmf.hecke_orbit": {
+    "HeckeRing.GL2.heckeRingHomCuspCharSpace": "TauCeti.NumberTheory.ModularForms.HeckeSlash.Nebentypus.Action",
+    "HeckeRing.GL2.heckeTCuspNat": "TauCeti.NumberTheory.ModularForms.HeckeSlash.Operators"
+  },
+  "cmf.minus_space": {
+    "TauCeti.Nat.IsExactDivisor.normalizedAtkinLehnerOperatorCusp": "TauCeti.NumberTheory.ModularForms.AtkinLehner.Normalized"
+  },
+  "cmf.newform": {
+    "HeckeRing.GL2.Newform": "TauCeti.NumberTheory.ModularForms.Newforms.Newform",
+    "HeckeRing.GL2.Newform.basis": "TauCeti.NumberTheory.ModularForms.Newforms.OrthogonalBasis",
+    "HeckeRing.GL2.Newform.toEigenform": "TauCeti.NumberTheory.ModularForms.Newforms.FullEigenform",
+    "TauCeti.cuspFormsNew": "TauCeti.NumberTheory.ModularForms.Newforms.Basic"
+  },
+  "cmf.newspace": {
+    "TauCeti.cuspFormsNew": "TauCeti.NumberTheory.ModularForms.Newforms.Basic",
+    "TauCeti.cuspFormsOld": "TauCeti.NumberTheory.ModularForms.Newforms.Basic",
+    "cuspFormCharSpace": "TauCeti.NumberTheory.ModularForms.DiamondOperators"
+  },
+  "cmf.oldspace": {
+    "TauCeti.CuspForm.levelRaise": "TauCeti.NumberTheory.ModularForms.Degeneracy",
+    "TauCeti.cuspFormsOld": "TauCeti.NumberTheory.ModularForms.Newforms.Basic",
+    "TauCeti.cuspFormsOldMultiples": "TauCeti.NumberTheory.ModularForms.Newforms.Basic"
+  },
+  "cmf.plus_space": {
+    "TauCeti.Nat.IsExactDivisor.normalizedAtkinLehnerOperatorCusp": "TauCeti.NumberTheory.ModularForms.AtkinLehner.Normalized"
+  },
+  "cmf.relative_dimension": {
+    "TauCeti.CharacterField": "TauCeti.NumberTheory.ModularForms.Newforms.Fields",
+    "TauCeti.CoefficientField": "TauCeti.NumberTheory.ModularForms.Newforms.Fields"
+  },
+  "cmf.selfdual": {
+    "CuspForm.conj": "TauCeti.NumberTheory.ModularForms.Conjugate",
+    "HeckeRing.GL2.Newform.IsSelfDual": "TauCeti.NumberTheory.ModularForms.Newforms.SelfDual"
+  },
+  "cmf.space": {
+    "cuspFormCharSpace": "TauCeti.NumberTheory.ModularForms.DiamondOperators",
+    "modFormCharSpace": "TauCeti.NumberTheory.ModularForms.DiamondOperators"
+  },
+  "cmf.space_trace_form": {
+    "HeckeRing.GL2.Newform": "TauCeti.NumberTheory.ModularForms.Newforms.Newform",
+    "HeckeRing.GL2.Newform.basis": "TauCeti.NumberTheory.ModularForms.Newforms.OrthogonalBasis"
+  },
+  "curve.highergenus.aut.full": {
+    "TauCeti.Diff": "TauCeti.Geometry.Diffeomorphism.Group"
+  },
+  "curve.highergenus.aut.group_action": {
+    "TauCeti.Diff": "TauCeti.Geometry.Diffeomorphism.Group"
+  },
+  "curve.highergenus.aut.quotientgenus": {
+    "TauCeti.genus": "TauCeti.FieldTheory.FunctionField.RiemannRoch.Genus"
+  },
+  "ec.bad_reduction": {
+    "WeierstrassCurve.IsBadReduction": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Reduction"
+  },
+  "ec.canonical_height": {
+    "WeierstrassCurve.Affine.Point.canonicalHeight": "TauCeti.AlgebraicGeometry.EllipticCurve.CanonicalHeight.Basic",
+    "WeierstrassCurve.Affine.neronTatePairing": "TauCeti.AlgebraicGeometry.EllipticCurve.CanonicalHeight.Basic"
+  },
+  "ec.conductor": {
+    "WeierstrassCurve.algorithmicConductor": "TauCeti.AlgebraicGeometry.EllipticCurve.TateAlgorithm.Reduction.Conductor",
+    "WeierstrassCurve.algorithmicOggExponent": "TauCeti.AlgebraicGeometry.EllipticCurve.TateAlgorithm.Reduction.Curve"
+  },
+  "ec.endomorphism": {
+    "TauCeti.Isogeny": "TauCeti.AlgebraicGeometry.EllipticCurve.Isogeny.Basic",
+    "TauCeti.Isogeny.Hom": "TauCeti.AlgebraicGeometry.EllipticCurve.Isogeny.Hom.Basic"
+  },
+  "ec.endomorphism_ring": {
+    "TauCeti.Isogeny.Hom": "TauCeti.AlgebraicGeometry.EllipticCurve.Isogeny.Hom.Basic",
+    "TauCeti.Isogeny.mulByIntIsogeny": "TauCeti.AlgebraicGeometry.EllipticCurve.Isogeny.MulByInt.MapsInfinity"
+  },
+  "ec.geom_endomorphism_ring": {
+    "WeierstrassCurve.GeometricEnd": "TauCeti.AlgebraicGeometry.EllipticCurve.Isogeny.Hom.ComplexMultiplication"
+  },
+  "ec.global_minimal_model": {
+    "WeierstrassCurve.IsGlobalMinimal": "TauCeti.AlgebraicGeometry.EllipticCurve.GlobalMinimalModel"
+  },
+  "ec.good_ordinary_reduction": {
+    "WeierstrassCurve.HasGoodOrdinaryReduction": "TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.OrdinaryReduction",
+    "WeierstrassCurve.IsOrdinary": "TauCeti.AlgebraicGeometry.EllipticCurve.Supersingular"
+  },
+  "ec.good_supersingular_reduction": {
+    "WeierstrassCurve.HasGoodSupersingularReduction": "TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.OrdinaryReduction",
+    "WeierstrassCurve.IsSupersingular": "TauCeti.AlgebraicGeometry.EllipticCurve.Supersingular"
+  },
+  "ec.invariants": {
+    "WeierstrassCurve.algorithmicConductor": "TauCeti.AlgebraicGeometry.EllipticCurve.TateAlgorithm.Reduction.Conductor",
+    "WeierstrassCurve.minimalDiscriminantIdeal": "TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.DiscriminantIdeal"
+  },
+  "ec.kodaira_symbol": {
+    "TauCeti.ReductionSymbol": "TauCeti.AlgebraicGeometry.EllipticCurve.TateAlgorithm.Reduction.Symbol",
+    "WeierstrassCurve.reductionSymbol": "TauCeti.AlgebraicGeometry.EllipticCurve.TateAlgorithm.Reduction.Curve"
+  },
+  "ec.local_minimal_discriminant": {
+    "WeierstrassCurve.localMinimalDiscriminant": "TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.LocalDiscriminant",
+    "WeierstrassCurve.localMinimalDiscriminantValuation": "TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.Valuation"
+  },
+  "ec.minimal_discriminant": {
+    "WeierstrassCurve.minimalDiscriminantIdeal": "TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.DiscriminantIdeal"
+  },
+  "ec.mordell_weil_theorem": {
+    "WeierstrassCurve.Affine.fg_point_of_numberField": "TauCeti.AlgebraicGeometry.EllipticCurve.MordellWeil.FinitelyGenerated"
+  },
+  "ec.nonsplit_multiplicative_reduction": {
+    "WeierstrassCurve.IsNonsplitMultiplicativeReduction": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Reduction"
+  },
+  "ec.obstruction_class": {
+    "WeierstrassCurve.globalMinimalityClass": "TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.Class",
+    "WeierstrassCurve.weierstrassDefectClass": "TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.Class"
+  },
+  "ec.padic_tate_module": {
+    "TauCeti.TateModule": "TauCeti.Algebra.Module.Torsion.TateModule",
+    "WeierstrassCurve.tateModuleGaloisRepresentation": "TauCeti.AlgebraicGeometry.EllipticCurve.TateModule.Galois"
+  },
+  "ec.potential_good_reduction": {
+    "WeierstrassCurve.HasPotentialGoodReduction": "TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.PotentialGoodReduction"
+  },
+  "ec.q.abc_quality": {
+    "WeierstrassCurve.abcQuality": "TauCeti.AlgebraicGeometry.EllipticCurve.AbcQuality"
+  },
+  "ec.q.canonical_height": {
+    "WeierstrassCurve.Affine.Point.canonicalHeight": "TauCeti.AlgebraicGeometry.EllipticCurve.CanonicalHeight.Basic",
+    "WeierstrassCurve.Affine.canonicalHeightQuadratic": "TauCeti.AlgebraicGeometry.EllipticCurve.CanonicalHeight.Basic",
+    "WeierstrassCurve.Affine.neronTatePairing": "TauCeti.AlgebraicGeometry.EllipticCurve.CanonicalHeight.Basic"
+  },
+  "ec.q.conductor": {
+    "WeierstrassCurve.algorithmicConductor": "TauCeti.AlgebraicGeometry.EllipticCurve.TateAlgorithm.Reduction.Conductor",
+    "WeierstrassCurve.algorithmicOggExponent": "TauCeti.AlgebraicGeometry.EllipticCurve.TateAlgorithm.Reduction.Curve"
+  },
+  "ec.q.discriminant": {
+    "WeierstrassCurve.minimalDiscriminantIdeal": "TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.DiscriminantIdeal",
+    "WeierstrassCurve.reducedMinimalModel": "TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.Reduced"
+  },
+  "ec.q.endomorphism_ring": {
+    "TauCeti.Isogeny.Hom": "TauCeti.AlgebraicGeometry.EllipticCurve.Isogeny.Hom.Basic",
+    "WeierstrassCurve.GeometricEnd": "TauCeti.AlgebraicGeometry.EllipticCurve.Isogeny.Hom.ComplexMultiplication",
+    "WeierstrassCurve.HasGeometricCM": "TauCeti.AlgebraicGeometry.EllipticCurve.Isogeny.Hom.ComplexMultiplication"
+  },
+  "ec.q.frey": {
+    "TauCeti.freyCurve": "TauCeti.AlgebraicGeometry.EllipticCurve.FreyCurve.Basic"
+  },
+  "ec.q.integral_points": {
+    "WeierstrassCurve.integralPoints": "TauCeti.AlgebraicGeometry.EllipticCurve.Affine.Point.Integral"
+  },
+  "ec.q.kodaira_symbol": {
+    "TauCeti.ReductionSymbol": "TauCeti.AlgebraicGeometry.EllipticCurve.TateAlgorithm.Reduction.Symbol",
+    "WeierstrassCurve.reductionSymbol": "TauCeti.AlgebraicGeometry.EllipticCurve.TateAlgorithm.Reduction.Curve"
+  },
+  "ec.q.minimal_weierstrass_equation": {
+    "WeierstrassCurve.IsGlobalMinimal": "TauCeti.AlgebraicGeometry.EllipticCurve.GlobalMinimalModel",
+    "WeierstrassCurve.IsReducedMinimal": "TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.Reduced",
+    "WeierstrassCurve.reducedMinimalModel": "TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.Reduced"
+  },
+  "ec.q.naive_height": {
+    "WeierstrassCurve.minimalPairModel": "TauCeti.AlgebraicGeometry.EllipticCurve.MinimalPairModel",
+    "WeierstrassCurve.naiveHeight": "TauCeti.AlgebraicGeometry.EllipticCurve.MinimalPairModel",
+    "WeierstrassCurve.shortEquationHeight": "TauCeti.AlgebraicGeometry.EllipticCurve.MinimalPairModel"
+  },
+  "ec.q.real_period": {
+    "WeierstrassCurve.realPeriod": "TauCeti.AlgebraicGeometry.EllipticCurve.RealPeriod",
+    "WeierstrassCurve.realPeriodLIntegral": "TauCeti.AlgebraicGeometry.EllipticCurve.RealPeriod",
+    "WeierstrassCurve.reducedMinimalModel": "TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.Reduced"
+  },
+  "ec.q.reduction_type": {
+    "WeierstrassCurve.HasGoodOrdinaryReduction": "TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.OrdinaryReduction",
+    "WeierstrassCurve.IsNonsplitMultiplicativeReduction": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Reduction",
+    "WeierstrassCurve.ReductionType": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Reduction"
+  },
+  "ec.q.regulator": {
+    "WeierstrassCurve.Affine.neronTatePairing": "TauCeti.AlgebraicGeometry.EllipticCurve.CanonicalHeight.Basic",
+    "WeierstrassCurve.Affine.neronTatePairingModTorsion": "TauCeti.AlgebraicGeometry.EllipticCurve.MordellWeil.PointModTorsion.Basic",
+    "WeierstrassCurve.Affine.regulator": "TauCeti.AlgebraicGeometry.EllipticCurve.MordellWeil.Regulator.Basic"
+  },
+  "ec.q.semistable": {
+    "WeierstrassCurve.IsSemistable": "TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.Semistable"
+  },
+  "ec.reduction": {
+    "WeierstrassCurve.HasPotentialGoodReduction": "TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.PotentialGoodReduction",
+    "WeierstrassCurve.IsSemistable": "TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.Semistable"
+  },
+  "ec.reduction_type": {
+    "WeierstrassCurve.HasGoodOrdinaryReduction": "TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.OrdinaryReduction",
+    "WeierstrassCurve.IsNonsplitMultiplicativeReduction": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Reduction",
+    "WeierstrassCurve.ReductionType": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Reduction"
+  },
+  "ec.ring": {
+    "TauCeti.AlgebraicGeometry.EllipticCurveGeom": "TauCeti.AlgebraicGeometry.EllipticCurve.Scheme.Geom.Basic",
+    "WeierstrassCurve.toEllipticCurveGeom": "TauCeti.AlgebraicGeometry.EllipticCurve.Scheme.OfWeierstrass"
+  },
+  "ec.scheme": {
+    "TauCeti.AlgebraicGeometry.EllipticCurveGeom": "TauCeti.AlgebraicGeometry.EllipticCurve.Scheme.Geom.Basic",
+    "TauCeti.AlgebraicGeometry.IsLocallyWeierstrass": "TauCeti.AlgebraicGeometry.EllipticCurve.Scheme.Geom.Basic"
+  },
+  "ec.semi_global_minimal_model": {
+    "WeierstrassCurve.IsSemiGlobalMinimal": "TauCeti.AlgebraicGeometry.EllipticCurve.GlobalMinimalModel",
+    "WeierstrassCurve.IsSharpSemiGlobalMinimalAt": "TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.ObstructionExponent"
+  },
+  "ec.semistable": {
+    "WeierstrassCurve.IsSemistable": "TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.Semistable"
+  },
+  "g2c.decomposition": {
+    "TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny": "TauCeti.AlgebraicGeometry.AbelianVariety.Isogeny",
+    "TauCeti.AlgebraicGeometry.AbelianVariety.baseChange": "TauCeti.AlgebraicGeometry.AbelianVariety.Basic",
+    "TauCeti.AlgebraicGeometry.AbelianVariety.dim": "TauCeti.AlgebraicGeometry.AbelianVariety.Basic",
+    "TauCeti.AlgebraicGeometry.AbelianVariety.prod": "TauCeti.AlgebraicGeometry.AbelianVariety.Product"
+  },
+  "g2c.end_alg": {
+    "TauCeti.AlgebraicGeometry.AbelianVariety.End": "TauCeti.AlgebraicGeometry.AbelianVariety.End.Basic",
+    "TauCeti.AlgebraicGeometry.AbelianVariety.dim": "TauCeti.AlgebraicGeometry.AbelianVariety.Basic"
+  },
+  "g2c.geom_end_alg": {
+    "TauCeti.AlgebraicGeometry.AbelianVariety.End": "TauCeti.AlgebraicGeometry.AbelianVariety.End.Basic",
+    "TauCeti.AlgebraicGeometry.AbelianVariety.End.baseChange": "TauCeti.AlgebraicGeometry.AbelianVariety.End.BaseChange",
+    "TauCeti.AlgebraicGeometry.AbelianVariety.baseChange": "TauCeti.AlgebraicGeometry.AbelianVariety.Basic"
+  },
+  "g2c.good_reduction": {
+    "TauCeti.Model": "TauCeti.AlgebraicGeometry.Curves.StableReduction.Model.Basic"
+  },
+  "g2c.isogeny_class": {
+    "TauCeti.AlgebraicGeometry.AbelianVariety": "TauCeti.AlgebraicGeometry.AbelianVariety.Basic",
+    "TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny": "TauCeti.AlgebraicGeometry.AbelianVariety.Isogeny"
+  },
+  "g2c.num_rat_wpts": {
+    "TauCeti.Place.weierstrassWeight": "TauCeti.FieldTheory.FunctionField.Consequences.WeierstrassGaps",
+    "TauCeti.branchPlaces": "TauCeti.FieldTheory.FunctionField.Hyperelliptic.BranchPlaces"
+  },
+  "g2c.torsion": {
+    "TauCeti.AlgebraicGeometry.AbelianVariety": "TauCeti.AlgebraicGeometry.AbelianVariety.Basic",
+    "TauCeti.GroupScheme.torsion": "TauCeti.AlgebraicGeometry.GroupScheme.Torsion"
+  },
+  "group.complex_character_table": {
+    "TauCeti.characterTable": "TauCeti.RepresentationTheory.CharacterTable.Table",
+    "TauCeti.irreducibleCharacters": "TauCeti.RepresentationTheory.CharacterTable.Table"
+  },
+  "group.elementary": {
+    "TauCeti.IsElementary": "TauCeti.GroupTheory.Elementary",
+    "TauCeti.IsPElementary": "TauCeti.GroupTheory.Elementary"
+  },
+  "group.fuchsian": {
+    "Subgroup.IsCofinite": "TauCeti.Analysis.Complex.Fuchsian.Covolume"
+  },
+  "group.fuchsian.cusps.width": {
+    "TauCeti.ModularForm.cuspTranslationOrbitWidth": "TauCeti.NumberTheory.ModularForms.Norm.Cusps",
+    "TauCeti.Subgroup.integerCuspWidth": "TauCeti.NumberTheory.ModularForms.Cusps.Basic"
+  },
+  "group.heisenberg": {
+    "TauCeti.HeisenbergGroup": "TauCeti.GroupTheory.SpecificGroups.Heisenberg"
+  },
+  "group.hyperelementary": {
+    "TauCeti.IsHyperelementary": "TauCeti.GroupTheory.Elementary",
+    "TauCeti.IsPHyperelementary": "TauCeti.GroupTheory.Elementary"
+  },
+  "group.representation.type": {
+    "Representation.IsQuaternionicStructure": "TauCeti.RepresentationTheory.QuaternionicStructure",
+    "Representation.IsRealizableOverReal": "TauCeti.RepresentationTheory.RealForm",
+    "TauCeti.Representation.frobeniusSchurIndicator": "TauCeti.RepresentationTheory.CharacterTable.FrobeniusSchur.Basic"
+  },
+  "group.spinor_norm": {
+    "CliffordAlgebra.orthogonalSpinorNorm": "TauCeti.LinearAlgebra.CliffordAlgebra.Spin.SpinorNorm.Basic",
+    "CliffordAlgebra.spinorNorm": "TauCeti.LinearAlgebra.CliffordAlgebra.Spin.SpinorNorm.Basic",
+    "TauCeti.QuadraticMap.specialOrthogonalGroup": "TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.Basic"
+  },
+  "group.sporadic": {
+    "TauCeti.ClassificationStatement": "TauCeti.GroupTheory.SpecificGroups.CFSG.Classification",
+    "TauCeti.SporadicName": "TauCeti.GroupTheory.SpecificGroups.CFSG.Index",
+    "TauCeti.SporadicName.Group": "TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation",
+    "TauCeti.SporadicName.presentation": "TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation"
+  },
+  "group.triangle_group": {
+    "TauCeti.TriangleGroup": "TauCeti.GroupTheory.TriangleGroup.Basic"
+  },
+  "hmsurface.arithmetic_genus": {
+    "AlgebraicGeometry.Scheme.Modules.eulerCharBelow": "TauCeti.AlgebraicGeometry.Cohomology.EulerCharacteristic",
+    "AlgebraicGeometry.Scheme.genus": "TauCeti.AlgebraicGeometry.Cohomology.Genus",
+    "TauCeti.AlgebraicGeometry.Scheme.Modules.Cohomology": "TauCeti.AlgebraicGeometry.Cohomology.Basic"
+  },
+  "hmsurface.hodge_numbers": {
+    "AlgebraicGeometry.Scheme.relativeDifferentials": "TauCeti.AlgebraicGeometry.Modules.Differentials.Basic",
+    "SheafOfModules.exteriorPower": "TauCeti.Algebra.Category.ModuleCat.Sheaf.ExteriorPower.Basic",
+    "TauCeti.AlgebraicGeometry.Scheme.Modules.Cohomology": "TauCeti.AlgebraicGeometry.Cohomology.Basic"
+  },
+  "lattice.automorphism_group": {
+    "TauCeti.BilinForm.isometryGroup": "TauCeti.LinearAlgebra.BilinearForm.Isometry",
+    "TauCeti.IntegralLattice.Isometry": "TauCeti.LinearAlgebra.IntegralLattice.Isometry.Basic",
+    "TauCeti.IntegralLattice.specialOrthogonalGroup": "TauCeti.LinearAlgebra.IntegralLattice.Isometry.Group"
+  },
+  "lattice.definition": {
+    "TauCeti.IntegralLattice": "TauCeti.LinearAlgebra.IntegralLattice.Basic"
+  },
+  "lattice.determinant": {
+    "TauCeti.IntegralLattice.determinant": "TauCeti.LinearAlgebra.IntegralLattice.Gram",
+    "TauCeti.IntegralLattice.gramDet": "TauCeti.LinearAlgebra.IntegralLattice.Gram"
+  },
+  "lattice.even_sublattice": {
+    "TauCeti.IntegralLattice.evenSublattice": "TauCeti.LinearAlgebra.IntegralLattice.Characteristic.EvenSublattice",
+    "TauCeti.IntegralLattice.evenSubmodule": "TauCeti.LinearAlgebra.IntegralLattice.Characteristic.EvenSublattice"
+  },
+  "lattice.genus": {
+    "TauCeti.IntegralLattice.SameGenus": "TauCeti.NumberTheory.IntegralLattice.Genus",
+    "TauCeti.IntegralLattice.localIntegralForm": "TauCeti.NumberTheory.IntegralLattice.Localization.Basic"
+  },
+  "lattice.gram": {
+    "TauCeti.IntegralLattice.IsMinkowskiReduced": "TauCeti.LinearAlgebra.IntegralLattice.PosDef.Reduction",
+    "TauCeti.IntegralLattice.gramMatrix": "TauCeti.LinearAlgebra.IntegralLattice.Gram"
+  },
+  "lattice.group_order": {
+    "TauCeti.IntegralLattice.Isometry": "TauCeti.LinearAlgebra.IntegralLattice.Isometry.Basic"
+  },
+  "lattice.hermite_number": {
+    "TauCeti.IntegralLattice.discriminant": "TauCeti.LinearAlgebra.IntegralLattice.Gram",
+    "TauCeti.IntegralLattice.minimum": "TauCeti.LinearAlgebra.IntegralLattice.PosDef.Minimum"
+  },
+  "lattice.hyperbolic_plane": {
+    "TauCeti.IntegralLattice.hyperbolicPlane": "TauCeti.LinearAlgebra.IntegralLattice.Examples"
+  },
+  "lattice.level": {
+    "TauCeti.IntegralLattice.level": "TauCeti.LinearAlgebra.IntegralLattice.Level"
+  },
+  "lattice.minimal_vector": {
+    "TauCeti.IntegralLattice.minimum": "TauCeti.LinearAlgebra.IntegralLattice.PosDef.Minimum",
+    "TauCeti.IntegralLattice.vectorsOfNorm": "TauCeti.LinearAlgebra.IntegralLattice.Norm"
+  },
+  "lattice.minimum": {
+    "TauCeti.IntegralLattice.minimum": "TauCeti.LinearAlgebra.IntegralLattice.PosDef.Minimum",
+    "TauCeti.IntegralLattice.vectorsOfNorm": "TauCeti.LinearAlgebra.IntegralLattice.Norm"
+  },
+  "lattice.parity": {
+    "TauCeti.IntegralLattice.IsEven": "TauCeti.LinearAlgebra.IntegralLattice.Even"
+  },
+  "lattice.primitive": {
+    "LinearMap.BilinForm.scaleIdeal": "TauCeti.LinearAlgebra.BilinearForm.Ideals",
+    "TauCeti.IntegralLattice.scaleIdeal": "TauCeti.LinearAlgebra.IntegralLattice.Ideals"
+  },
+  "lattice.unimodular": {
+    "TauCeti.IntegralLattice.IsUnimodular": "TauCeti.LinearAlgebra.IntegralLattice.Unimodular"
+  },
+  "lf.discriminant_exponent": {
+    "TauCeti.differentExponent": "TauCeti.NumberTheory.LocalField.Different.Basic",
+    "TauCeti.discriminantExponent": "TauCeti.NumberTheory.LocalField.Discriminant.Basic",
+    "TauCeti.discriminantIdeal": "TauCeti.NumberTheory.LocalField.Discriminant.Basic"
+  },
+  "lf.galois_mean_slope": {
+    "TauCeti.FinitePadicExtension": "TauCeti.NumberTheory.LocalField.AbsoluteRamificationIndex",
+    "TauCeti.discriminantExponent": "TauCeti.NumberTheory.LocalField.Discriminant.Basic"
+  },
+  "lf.ramification_index": {
+    "TauCeti.IsTamelyRamified": "TauCeti.NumberTheory.LocalField.RamificationIndex",
+    "TauCeti.IsTotallyRamified": "TauCeti.NumberTheory.LocalField.RamificationIndex",
+    "TauCeti.absoluteRamificationIndex": "TauCeti.NumberTheory.LocalField.AbsoluteRamificationIndex",
+    "TauCeti.ramificationIndex": "TauCeti.NumberTheory.LocalField.RamificationIndex"
+  },
+  "lf.residue_field_degree": {
+    "TauCeti.inertiaDegree": "TauCeti.NumberTheory.LocalField.InertiaDegree"
+  },
+  "lf.unramified_subfield": {
+    "TauCeti.inertiaDegree": "TauCeti.NumberTheory.LocalField.InertiaDegree",
+    "TauCeti.maximalUnramifiedExtension": "TauCeti.NumberTheory.LocalField.Unramified.Maximal",
+    "TauCeti.unramifiedExtension": "TauCeti.NumberTheory.LocalField.Unramified.Existence"
+  },
+  "lf.unramified_totally_ramified_tower": {
+    "TauCeti.IsTotallyRamified": "TauCeti.NumberTheory.LocalField.RamificationIndex",
+    "TauCeti.unramifiedExtension": "TauCeti.NumberTheory.LocalField.Unramified.Existence"
+  },
+  "lf.wild_inertia_group": {
+    "TauCeti.LocalFieldsRamification.lowerRamificationGroup": "TauCeti.NumberTheory.LocalField.RamificationGroup",
+    "TauCeti.ramificationGroupOneSylow": "TauCeti.NumberTheory.LocalField.UnitFiltration.RamificationGroup",
+    "TauCeti.wildInertiaSubgroup": "TauCeti.NumberTheory.LocalField.WildInertia"
+  },
+  "mf.bianchi.hyperbolic3space": {
+    "TauCeti.HyperbolicMetric": "TauCeti.Geometry.Manifold.Riemannian.Hyperbolic",
+    "TauCeti.UpperHalfSpace": "TauCeti.Geometry.Manifold.Riemannian.Hyperbolic.UpperHalfSpace.Basic",
+    "TauCeti.UpperHalfSpace.hyperbolicMetric": "TauCeti.Geometry.Manifold.Riemannian.Hyperbolic.UpperHalfSpace.Metric"
+  },
+  "modlgal.absolutely_irreducible": {
+    "Representation.baseChange": "TauCeti.RepresentationTheory.BaseChange"
+  },
+  "nf.discriminant_root_field": {
+    "TauCeti.discrField": "TauCeti.FieldTheory.GaloisGroups.Discriminant.Field",
+    "TauCeti.evenAutSubgroup": "TauCeti.FieldTheory.GaloisGroups.Discriminant.Field"
+  },
+  "nf.inessential_prime": {
+    "TauCeti.NumberField.IntegralPrimitiveElement.index": "TauCeti.NumberTheory.NumberField.Index.Basic",
+    "TauCeti.NumberField.IsCommonIndexDivisor": "TauCeti.NumberTheory.NumberField.Index.CommonIndexDivisor"
+  },
+  "nf.max_p": {
+    "NumberField.ramifiedPrimes": "TauCeti.NumberTheory.NumberField.RamifiedPrimes"
+  },
+  "nf.monogenic": {
+    "TauCeti.NumberField.IsMonogenic": "TauCeti.NumberTheory.NumberField.Monogenic"
+  },
+  "nf.monomial_order": {
+    "TauCeti.GlobalNumberFields.NumberFieldOrder": "TauCeti.NumberTheory.NumberField.Global.Orders.Basic",
+    "TauCeti.NumberField.IntegralPrimitiveElement.adjoin": "TauCeti.NumberTheory.NumberField.Index.Basic"
+  },
+  "nf.narrow_class_group": {
+    "NumberField.IsTotallyPositive": "TauCeti.NumberTheory.NumberField.TotallyPositive",
+    "NumberField.NarrowClassGroup": "TauCeti.NumberTheory.NumberField.NarrowClassGroup.Basic",
+    "NumberField.NarrowClassGroup.toClassGroup": "TauCeti.NumberTheory.NumberField.NarrowClassGroup.Basic",
+    "NumberField.narrowPrincipalSubgroup": "TauCeti.NumberTheory.NumberField.NarrowClassGroup.Basic"
+  },
+  "nf.narrow_class_number": {
+    "NumberField.NarrowClassGroup": "TauCeti.NumberTheory.NumberField.NarrowClassGroup.Basic"
+  },
+  "nf.order": {
+    "TauCeti.GlobalNumberFields.NumberFieldOrder": "TauCeti.NumberTheory.NumberField.Global.Orders.Basic",
+    "TauCeti.GlobalNumberFields.maximalNumberFieldOrder": "TauCeti.NumberTheory.NumberField.Global.Orders.Basic"
+  },
+  "nf.totally_positive": {
+    "NumberField.IsTotallyPositive": "TauCeti.NumberTheory.NumberField.TotallyPositive",
+    "NumberField.totallyPositiveUnits": "TauCeti.NumberTheory.NumberField.TotallyPositive"
+  }
+}

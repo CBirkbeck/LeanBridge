@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.degree_mathlib_def}{Number field degree (mathlib)}}
 \begin{definition}\label{nf.degree_mathlib_def}
 \uses{}
+\lean{Module.finrank}
 \leanok
 This is also defined in mathlib as `finrank ℚ K`, where $K$ is the number field and `finrank ℚ` is its \textbf{module rank} over the rationals.
 \end{definition}

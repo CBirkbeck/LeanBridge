@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.group_mathlib_defn}{Group (mathlib)}}
 \begin{definition}\label{group.group_mathlib_defn}
 \uses{}
+\lean{Monoid}
 \leanok
 A group in mathlib is defined as a \textbf{monoid} (which has the data of a binary operation, an identity element $1$ and is associative) with an operation ${}^{-1}$ such that $a^ {-1} * a = 1$. 
 \end{definition}

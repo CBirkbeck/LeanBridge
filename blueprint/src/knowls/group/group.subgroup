@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.subgroup}{Subgroup of a group}}
 \begin{definition}\label{group.subgroup}
 \uses{alg.binary_operation,alg.binary_operation.identity,alg.binary_operation.inverse,group}
+\lean{Subgroup}
 \leanok
 If $G$ is a \hyperref[group]{group}, a subset $H\subseteq G$ is a \textbf{subgroup} of $G$ if the \hyperref[alg.binary_operation]{binary operation} of $G$ restricts to a \hyperref[alg.binary_operation]{binary operation} on $H$, and $H$ is a group for this induced operation.
 

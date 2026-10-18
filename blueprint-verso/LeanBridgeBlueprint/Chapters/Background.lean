@@ -11,13 +11,13 @@ open Informal
 
 This chapter lists the LMFDB definitions relating to *background*, migrated from the LaTeX blueprint. Each definition links back to its LMFDB knowl.
 
-:::definition "af"
+:::definition "af" (lean := "ArithmeticFunction")
 *Arithmetic function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/af))
 
 An *arithmetic function* is a complex-valued function whose domain is the positive integers.
 :::
 
-:::definition "af.bernoulli_numbers"
+:::definition "af.bernoulli_numbers" (lean := "bernoulli")
 *Bernoulli numbers.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/af.bernoulli_numbers))
 
 The *Bernoulli numbers* are the rational numbers $`B_n` that appear as coefficients of the formal power series
@@ -39,13 +39,13 @@ for some fixed $`\tau\in\mathbb{C}`.
 Depends on: {uses "af"}[] {uses "af.multiplicative"}[]
 :::
 
-:::definition "af.multiplicative"
+:::definition "af.multiplicative" (lean := "ArithmeticFunction.IsMultiplicative")
 *Multiplicative arithmetic function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/af.multiplicative))
 
 An arithmetic function $`f:\mathbb{Z}_{>0}\to \C` is *multiplicative* if $`f(mn)=f(m)f(n)` for all coprime integers $`m,n>0`, and is not the zero-function (in particular, $`f(1)=1`).
 :::
 
-:::definition "ag.abelian_variety"
+:::definition "ag.abelian_variety" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety")
 *Abelian variety.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.abelian_variety))
 
 An *abelian variety* defined over the field $`K` is a smooth connected projective {bpref "ag.variety"}[variety] equipped with the structure of an algebraic group. The group law is automatically commutative.
@@ -102,7 +102,7 @@ An *algebraic curve* is an {bpref "ag.variety"}[algebraic variety] of dimension 
 Depends on: {uses "ag.variety"}[]
 :::
 
-:::definition "ag.curve.genus"
+:::definition "ag.curve.genus" (lean := "AlgebraicGeometry.Scheme.IsCurveOver, AlgebraicGeometry.Scheme.genus, TauCeti.genus")
 *Genus of a smooth curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.curve.genus))
 
 The *genus* of a smooth projective geometrically integral curve $`C` defined over a field $`k` is the dimension of the $`k`-vector space of regular differentials $`H^0(C, \omega_C)`.  When $`k=\C` this coincides with the topological genus of the corresponding {bpref "ag.riemann_surface"}[Riemann surface].
@@ -132,7 +132,7 @@ of distinct {bpref "ag.irreducible"}[irreducible] subvarieties of $`V`.
 Depends on: {uses "ag.irreducible"}[] {uses "ag.variety"}[]
 :::
 
-:::definition "ag.endomorphism_algebra"
+:::definition "ag.endomorphism_algebra" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.End")
 *Endomorphism algebra.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.endomorphism_algebra))
 
 The *endomorphism algebra* of an {bpref "ag.abelian_variety"}[abelian variety] $`A` is the $`\Q`-algebra $`\textrm{End}(A)\otimes\Q`, where $`\textrm{End}(A)` is the {bpref "ag.endomorphism_ring"}[endomorphism ring] of $`A`.
@@ -140,7 +140,7 @@ The *endomorphism algebra* of an {bpref "ag.abelian_variety"}[abelian variety] $
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.endomorphism_ring"}[]
 :::
 
-:::definition "ag.endomorphism_ring"
+:::definition "ag.endomorphism_ring" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.End")
 *Endomorphism ring.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.endomorphism_ring))
 
 An *endomorphism* of an {bpref "ag.abelian_variety"}[abelian variety] $`A` over a field $`k` is a homomorphism $`\varphi \colon A \to A` defined over $`k`.  The set of endomorphisms of an abelian variety $`A` can be given the structure of a ring in which addition is defined pointwise (using the group operation of $`A`) and multiplication is composition; this ring is called the *endomorphism ring* of $`A`, denoted $`\textrm{End}(A)`.
@@ -150,7 +150,7 @@ For endomorphisms defined over an extension of $`k`, we instead speak about the 
 Depends on: {uses "ag.abelian_variety"}[]
 :::
 
-:::definition "ag.geom_endomorphism_ring"
+:::definition "ag.geom_endomorphism_ring" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.End, TauCeti.AlgebraicGeometry.AbelianVariety.End.baseChange, TauCeti.AlgebraicGeometry.AbelianVariety.baseChange")
 *Geometric endomorphism ring.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.geom_endomorphism_ring))
 
 For an abelian variety $`A` over a field $`F`, the *geometric endomorphism ring* of $`A` is $`\End(A_{\overline{F}})`, the {bpref "ag.endomorphism_ring"}[endomorphism ring] of the base change of $`A` to an algebraic closure $`\overline{F}` of $`F`.
@@ -216,7 +216,7 @@ In general, an algebraic variety may have more than one minimal field of definit
 Depends on: {uses "ag.base_change"}[] {uses "ag.curve.genus"}[] {uses "ag.variety"}[] {uses "ring.field"}[]
 :::
 
-:::definition "ag.mordell_weil"
+:::definition "ag.mordell_weil" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety")
 *Mordell-Weil group of an abelian variety.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.mordell_weil))
 
 The *Mordell-Weil group* of an {bpref "ag.abelian_variety"}[abelian variety] $`A` over a {bpref "nf"}[number field] $`K` is its group of $`K`-rational points $`A(K)`.
@@ -232,7 +232,7 @@ The torsion subgroup $`T` is the product of at most $`2g` cyclic groups, where $
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.dimension"}[]
 :::
 
-:::definition "ag.projective_space"
+:::definition "ag.projective_space" (lean := "Projectivization")
 *Projective space.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.projective_space))
 
 *Projective space* $`\mathbb{P}^n(K)` of {bpref "ag.dimension"}[dimension] $`n` over a {bpref "ring.field"}[field] $`K` is the set $`(K^{n+1}\setminus\{0\})/{}\sim{}`, where
@@ -342,7 +342,7 @@ Such an identity element $`e`, if it exists, is unique and is thus called *the i
 Depends on: {uses "alg.binary_operation"}[]
 :::
 
-:::definition "alg.binary_operation.inverse"
+:::definition "alg.binary_operation.inverse" (lean := "Invertible")
 *Inverse for a binary operation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/alg.binary_operation.inverse))
 
 If $`*` is a {bpref "alg.binary_operation"}[binary operation] on a set $`A` having {bpref "alg.binary_operation.identity"}[identity element] $`e\in A`, then an element $`a\in A` has an *inverse* in $`A` with respect to $`*` if there exists $`a'\in A` such that
@@ -452,7 +452,7 @@ An {bpref "ag.abelian_variety"}[abelian variety] is *simple* if it is nonzero an
 Depends on: {uses "ag.abelian_variety"}[]
 :::
 
-:::definition "av.tate_module"
+:::definition "av.tate_module" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety, TauCeti.GroupScheme.torsion, TauCeti.TateModule, WeierstrassCurve.tateModuleGaloisRepresentation")
 *Tate module of an abelian variety.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.tate_module))
 
 Let $`p \in \mathbb{Z}_{\geq 0}` be a prime and $`A` an abelian variety of dimension $`g` defined over a field $`K`. The *$`p`-adic Tate module* of $`A` is the inverse limit
@@ -466,7 +466,7 @@ If $`K` has characteristic not equal to $`p`, then $`T_p(A)` is a free $`\Z_p`-m
 Depends on: {uses "av.isogeny"}[] {uses "group.galois.absolute"}[]
 :::
 
-:::definition "av.twist"
+:::definition "av.twist" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety, TauCeti.AlgebraicGeometry.AbelianVariety.baseChange")
 *Twist of an abelian variety.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.twist))
 
 A *twist* of an {bpref "ag.abelian_variety"}[abelian variety] $`A` is an abelian variety $`A'` over the same field that becomes isomorphic to $`A` upon {bpref "ag.base_change"}[base change] to an algebraic closure.
@@ -474,7 +474,7 @@ A *twist* of an {bpref "ag.abelian_variety"}[abelian variety] $`A` is an abelian
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.base_change"}[]
 :::
 
-:::definition "character.dirichlet"
+:::definition "character.dirichlet" (lean := "DirichletCharacter")
 *Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet))
 
 A *Dirichlet character* is a function $`\chi: \Z\to \C` together with a positive integer $`q` called the *modulus* such that $`\chi` is completely multiplicative, i.e. $`\chi(mn)=\chi(m)\chi(n)` for all integers $`m` and $`n`, and $`\chi` is periodic modulo $`q`, i.e. $`\chi(n+q)=\chi(n)` for all $`n`. If $`(n,q)>1` then $`\chi(n)=0`, whereas if $`(n,q)=1`, then $`\chi(n)` is a root of unity. The character $`\chi` is {bpref "character.dirichlet.primitive"}[primitive] if its
@@ -482,7 +482,7 @@ A *Dirichlet character* is a function $`\chi: \Z\to \C` together with a positive
 is equal to its modulus.
 :::
 
-:::definition "character.dirichlet.conductor"
+:::definition "character.dirichlet.conductor" (lean := "DirichletCharacter.conductor")
 *Conductor of a Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.conductor))
 
 The *conductor* of a {bpref "character.dirichlet"}[Dirichlet character] $`\chi` modulo $`q` is the least positive integer $`q_1` dividing $`q` for which $`\chi(n+kq_1)=\chi(n)` for all $`n` and $`n+kq_1` coprime to $`q`.
@@ -522,7 +522,7 @@ The *label* of a {bpref "character.dirichlet.galois_orbit"}[Galois orbit] of a {
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.galois_orbit"}[] {uses "character.dirichlet.galois_orbit_index"}[]
 :::
 
-:::definition "character.dirichlet.induce"
+:::definition "character.dirichlet.induce" (lean := "DirichletCharacter.changeLevel")
 *Induced Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.induce))
 
 A {bpref "character.dirichlet"}[Dirichlet character] $`\chi_1` of {bpref "character.dirichlet.modulus"}[modulus] $`q_1` is said to be *induced* by a Dirichlet character $`\chi_2` of modulus $`q_2` dividing $`q_1` if $`\chi_1(m)=\chi_2(m)` for all $`m` coprime to $`q_1`.
@@ -554,7 +554,7 @@ Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.conductor"
 A *Dirichlet character* is a function $`\chi: \mathbb{Z}\to \mathbb{C}` together with a positive integer $`q`, called the *modulus* of the character, such that $`\chi` is completely multiplicative, i.e. $`\chi(mn)=\chi(m)\chi(n)` for all integers $`m` and $`n`, and $`\chi` is periodic modulo $`q`, i.e. $`\chi(n+q)=\chi(n)` for all $`n`. If $`(n,q)>1` then $`\chi(n)=0`, whereas if $`(n,q)=1`, then $`\chi(n)` is a root of unity.
 :::
 
-:::definition "character.dirichlet.order"
+:::definition "character.dirichlet.order" (lean := "orderOf")
 *Order of a Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.order))
 
 The *order* of a {bpref "character.dirichlet"}[Dirichlet character] $`\chi` is the least positive integer $`n` such that $`\chi^n` is the {bpref "character.dirichlet.principal"}[trivial] character of the same {bpref "character.dirichlet.modulus"}[modulus] as $`\chi`. Equivalently, it is the order $`n` of the image of $`\chi` in $`\mathbb{C}^\times`, the group of $`n`th roots of unity.
@@ -562,7 +562,7 @@ The *order* of a {bpref "character.dirichlet"}[Dirichlet character] $`\chi` is t
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.modulus"}[] {uses "character.dirichlet.principal"}[]
 :::
 
-:::definition "character.dirichlet.primitive"
+:::definition "character.dirichlet.primitive" (lean := "DirichletCharacter.IsPrimitive")
 *Primitive Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.primitive))
 
 A {bpref "character.dirichlet"}[Dirichlet character] $`\chi` is *primitive* if its
@@ -629,7 +629,7 @@ This equation can be viewed as defining the function field of the curve, or as a
 Depends on: {uses "ag.hyperelliptic_curve"}[] {uses "g2c.discriminant"}[] {uses "g2c.minimal_equation"}[]
 :::
 
-:::definition "g2c.good_reduction"
+:::definition "g2c.good_reduction" (lean := "TauCeti.Model")
 *Primes of good reduction.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.good_reduction))
 
 A {bpref "ag.variety"}[variety] $`X` over $`\mathbb{Q}` is said to have *good reduction* at a prime $`p` if it has an integral model whose reduction modulo $`p` defines a smooth variety of the same dimension; otherwise, $`p` is said to be a prime of *bad reduction*.
@@ -801,7 +801,7 @@ where $`a` and $`b` are minimally chosen positive integers and $`r` is the least
 Depends on: {uses "gl2.split_cartan"}[]
 :::
 
-:::definition "gl2.open"
+:::definition "gl2.open" (lean := "OpenSubgroup")
 *Open subgroup.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gl2.open))
 
 An *open subgroup* $`H` of a {bpref "gl2.profinite"}[profinite group] $`G` is a subgroup that is open in the topology of $`G`, which implies that it is equal to the inverse image of its projection to a a finite quotient of $`G`.
@@ -813,7 +813,7 @@ When the profinite group $`G` is a matrix group over a ring $`R` that is equippe
 Depends on: {uses "gl2.profinite"}[]
 :::
 
-:::definition "gl2.profinite"
+:::definition "gl2.profinite" (lean := "ProfiniteGrp")
 *Profinite group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gl2.profinite))
 
 A *profinite group* is a compact totally disconnected topological group.  Equivalently, it is the inverse limit of a system of finite groups equipped with the discrete topology.
@@ -841,7 +841,7 @@ where $`a` and $`b` are minimally chosen positive integers and $`r` is the least
 Depends on: {uses "gl2.cartan"}[]
 :::
 
-:::definition "group"
+:::definition "group" (lean := "Group")
 *Definition of group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group))
 
 A *group*   $`\langle G, *\rangle` is a set $`G` with a {bpref "alg.binary_operation"}[binary operation] $`*` such that
@@ -853,7 +853,7 @@ A *group*   $`\langle G, *\rangle` is a set $`G` with a {bpref "alg.binary_opera
 Depends on: {uses "alg.binary_operation"}[] {uses "alg.binary_operation.associative"}[] {uses "alg.binary_operation.identity"}[] {uses "alg.binary_operation.inverse"}[]
 :::
 
-:::definition "group.abelian"
+:::definition "group.abelian" (lean := "CommGroup")
 *Abelian group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.abelian))
 
 A {bpref "group"}[group] is *abelian* if its {bpref "alg.binary_operation"}[operation] is {bpref "alg.binary_operation.commutative"}[commutative].
@@ -861,7 +861,7 @@ A {bpref "group"}[group] is *abelian* if its {bpref "alg.binary_operation"}[oper
 Depends on: {uses "alg.binary_operation"}[] {uses "alg.binary_operation.commutative"}[] {uses "group"}[]
 :::
 
-:::definition "group.automorphism"
+:::definition "group.automorphism" (lean := "MulAut")
 *Automorphisms of a group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.automorphism))
 
 If $`G` is a {bpref "group"}[group], an *automorphism* of $`G` is a {bpref "group.isomorphism"}[group isomorphism] $`f:G\to G`.
@@ -871,7 +871,7 @@ The set of automorphisms of $`G`, $`\Aut(G)`, is a group under composition.
 Depends on: {uses "group"}[] {uses "group.isomorphism"}[]
 :::
 
-:::definition "group.characteristic_subgroup"
+:::definition "group.characteristic_subgroup" (lean := "Subgroup.Characteristic")
 *Characteristic subgroup.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.characteristic_subgroup))
 
 A {bpref "group.subgroup"}[subgroup] $`H` of a {bpref "group"}[group] $`G`  is a *characteristic subgroup* if $`\phi(H)=H` for all {bpref "group.automorphism"}[automorphisms] $`\phi\in \Aut(G)`.
@@ -895,7 +895,7 @@ The left cosets partition $`G`, as do the right cosets.
 Depends on: {uses "group"}[] {uses "group.subgroup"}[]
 :::
 
-:::definition "group.frattini_subgroup"
+:::definition "group.frattini_subgroup" (lean := "frattini")
 *Frattini subgroup of a group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.frattini_subgroup))
 
 If $`G` is a group, then the *Frattini subgroup* of $`G`, denoted $`\Phi(G)`, is the intersection of all {bpref "group.maximal_subgroup"}[maximal subgroups] of $`G`.  If there are no maximal subgroups of $`G`, then $`\Phi(G)=G`.
@@ -917,7 +917,7 @@ we define $`\gamma\infty = \frac{a}{c}` when $`c\neq 0`, and $`\gamma\infty = \i
 Depends on: {uses "group.sl2z"}[]
 :::
 
-:::definition "group.fuchsian.cusps.width"
+:::definition "group.fuchsian.cusps.width" (lean := "TauCeti.ModularForm.cuspTranslationOrbitWidth, TauCeti.Subgroup.integerCuspWidth")
 *Width of a cusp.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.fuchsian.cusps.width))
 
 The *width* of the {bpref "group.fuchsian.cusps"}[cusp] $`\infty`
@@ -1072,7 +1072,7 @@ $$`S:=\begin{pmatrix}0&-1\\1&0\end{pmatrix}\quad\text{and}\quad T:=\begin{pmatri
 \end{pmatrix}.`
 :::
 
-:::definition "group.subgroup"
+:::definition "group.subgroup" (lean := "Subgroup")
 *Subgroup of a group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.subgroup))
 
 If $`G` is a {bpref "group"}[group], a subset $`H\subseteq G` is a *subgroup* of $`G` if the {bpref "alg.binary_operation"}[binary operation] of $`G` restricts to a {bpref "alg.binary_operation"}[binary operation] on $`H`, and $`H` is a group for this induced operation.
@@ -1168,7 +1168,7 @@ is the *inertia group* of $`L/K`.
 Depends on: {uses "lf.maximal_ideal"}[] {uses "lf.padic_field"}[] {uses "lf.residue_field"}[] {uses "nf.is_galois"}[]
 :::
 
-:::definition "lf.local_field"
+:::definition "lf.local_field" (lean := "IsNonarchimedeanLocalField")
 *Local field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.local_field))
 
 A *local field* is a {bpref "ring.field"}[field] $`K` with a non-trivial {bpref "nf.absolute_value"}[absolute value] $`|\ |` that is locally compact in the topology induced by the distance metric $`d(x,y):=|x-y|`.
@@ -1180,7 +1180,7 @@ A *nonarchimedean local field* is a local field whose absolute value is {bpref "
 Depends on: {uses "nf.absolute_value"}[] {uses "ring.characteristic"}[] {uses "ring.field"}[]
 :::
 
-:::definition "lf.maximal_ideal"
+:::definition "lf.maximal_ideal" (lean := "IsLocalRing.maximalIdeal")
 *Maximal ideal of a local field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.maximal_ideal))
 
 The *maximal ideal* of a {bpref "lf.local_field"}[nonarchimedean local field] $`K` is the unique {bpref "ring.maximal_ideal"}[maximal ideal] of its {bpref "lf.ring_of_integers"}[ring of integers] $`\mathcal O_K`.
@@ -1199,7 +1199,7 @@ A *$`p`-adic field* (or *local number field*) is a finite extension of
 Depends on: {uses "lf.local_field"}[] {uses "lf.qp"}[] {uses "ring.characteristic"}[]
 :::
 
-:::definition "lf.qp"
+:::definition "lf.qp" (lean := "Padic")
 *Definition of $`\Q_p`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.qp))
 
 If $`p` is a prime number, then every rational number $`r` can be written in the form $`r=p^j \frac{a}{b}` where $`\gcd(p, ab)=1`.  We define $`|r|_p = p^{-j}`, and define a metric on $`\Q` by $`d(u,v) = |u-v|_p`; in other words, $`u` and $`v` are close to each other if they are congruent modulo a larger power of $`p`.
@@ -1209,7 +1209,7 @@ The completion of $`\Q` with respect to this metric is the field of *p-adic numb
 Example: the element $`a = 3 + 7 + 2 \cdot 7^2 + 6 \cdot 7^3 + 7^4 + 2 \cdot 7^5 + \cdots` satisfies $`a^2=2`, since truncating the expansion after $`n` terms and squaring yields a number which is congruent to $`2 \bmod 7^n`.
 :::
 
-:::definition "lf.residue_field"
+:::definition "lf.residue_field" (lean := "IsLocalRing.ResidueField")
 *Residue field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.residue_field))
 
 The *residue field* of a nonarchimedean local field is the quotient of its {bpref "lf.ring_of_integers"}[ring of integers] by its unique {bpref "lf.maximal_ideal"}[maximal ideal].
@@ -1219,7 +1219,7 @@ The residue field is finite and its characteristic $`p` is the *residue field ch
 Depends on: {uses "lf.maximal_ideal"}[] {uses "lf.ring_of_integers"}[]
 :::
 
-:::definition "lf.ring_of_integers"
+:::definition "lf.ring_of_integers" (lean := "Valuation.integer")
 *Ring of integers of a local field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.ring_of_integers))
 
 The *ring of integers* of a {bpref "lf.local_field"}[local field] $`K` with {bpref "nf.absolute_value"}[absolute value] $`|\ |` is the subring
@@ -1228,7 +1228,7 @@ $`\mathcal O_K := \{x\in K:|x|\le 1\}`; it is a discrete valuation ring.
 Depends on: {uses "lf.local_field"}[] {uses "nf.absolute_value"}[]
 :::
 
-:::definition "lf.wild_inertia_group"
+:::definition "lf.wild_inertia_group" (lean := "TauCeti.LocalFieldsRamification.lowerRamificationGroup, TauCeti.ramificationGroupOneSylow, TauCeti.wildInertiaSubgroup")
 *Wild inertia group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.wild_inertia_group))
 
 The *wild inertia group* of a {bpref "nf.is_galois"}[Galois] extension $`K/\Q_p` is the unique {bpref "group.sylow_subgroup"}[$`p`-Sylow subgroup] of its {bpref "lf.inertia_group"}[inertia group].
@@ -1420,7 +1420,7 @@ known as the Selberg data.
 Depends on: {uses "lfunction.functional_equation"}[]
 :::
 
-:::definition "mf.half_integral_weight.dedekind_eta"
+:::definition "mf.half_integral_weight.dedekind_eta" (lean := "ModularForm.eta")
 *Dedekind eta function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.half_integral_weight.dedekind_eta))
 
 We define the *Dedekind eta function* $`\eta(z)` by the formula
@@ -1527,7 +1527,7 @@ There are three variants of the modular curve $`Y(N)`:
 Depends on: {uses "alg.symplectic_isomorphism"}[] {uses "cmf.congruence_subgroup"}[] {uses "ec.ring"}[] {uses "gl2.open"}[] {uses "mf.upper_half_plane"}[] {uses "ring.a-field"}[]
 :::
 
-:::definition "ring"
+:::definition "ring" (lean := "Ring, CommRing, NonUnitalRing")
 *Definition of ring.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ring))
 
 A *ring* is a set $`R` with two {bpref "alg.binary_operation"}[binary operations] $`+` and $`\cdot` such that
@@ -1571,7 +1571,7 @@ The characteristic of a {bpref "ring.field"}[field] $`k` is either $`0` or a pri
 Depends on: {uses "group"}[] {uses "ring"}[] {uses "ring.field"}[]
 :::
 
-:::definition "ring.dedekind_domain"
+:::definition "ring.dedekind_domain" (lean := "IsDedekindDomain")
 *Dedekind domain.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ring.dedekind_domain))
 
 A *Dedekind domain* $`D` is a {bpref "ring.integral_domain"}[integral domain] which is not a {bpref "ring.field"}[field] such that
@@ -1593,7 +1593,7 @@ In addition, every {bpref "ring.fractional_ideal"}[fractional ideal] $`I` is inv
 Depends on: {uses "nf"}[] {uses "nf.ring_of_integers"}[] {uses "ring.field"}[] {uses "ring.fractional_ideal"}[] {uses "ring.ideal"}[] {uses "ring.integral_domain"}[] {uses "ring.integrally_closed"}[] {uses "ring.maximal_ideal"}[] {uses "ring.noetherian"}[] {uses "ring.prime_ideal"}[]
 :::
 
-:::definition "ring.field"
+:::definition "ring.field" (lean := "Field")
 *Field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ring.field))
 
 A *field* is a {bpref "ring"}[commutative ring] $`R` such that $`0_R\neq 1_R` and every nonzero element of $`R` has an {bpref "alg.binary_operation.inverse"}[inverse] in $`R` with respect to multiplication.
@@ -1611,7 +1611,7 @@ It can be constructed by mimicking the set of fractions $`a/b` where $`a,b\in R`
 Depends on: {uses "ring.field"}[] {uses "ring.field_of_fractions_mathlib"}[] {uses "ring.integral_domain"}[]
 :::
 
-:::definition "ring.field_of_fractions_mathlib"
+:::definition "ring.field_of_fractions_mathlib" (lean := "FractionRing")
 *Field of fractions (mathlib).* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ring.field_of_fractions_mathlib))
 
 This is also defined in mathlib as *Fraction Ring*, which is the localisation at the non-zero divisors of your ring. When your ring $`R` is a {bpref "ring"}[commutative ring] and an {bpref "ring"}[integral domain] then gets the fact that this is a field.
@@ -1619,7 +1619,7 @@ This is also defined in mathlib as *Fraction Ring*, which is the localisation at
 Depends on: {uses "ring"}[]
 :::
 
-:::definition "ring.fractional_ideal"
+:::definition "ring.fractional_ideal" (lean := "FractionalIdeal")
 *Fractional ideal.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ring.fractional_ideal))
 
 If $`R` is an {bpref "ring.integral_domain"}[integral domain] with {bpref "ring.field_of_fractions"}[field of fractions] $`K`, then a *fractional ideal* $`I` of $`R` is an $`R`-submodule of $`K` such that there exists $`d\in R-\{0\}` with
@@ -1640,7 +1640,7 @@ In a polynomial ring $`R[X_1,\dots,X_n]`, an ideal is *homogeneous* if it can be
 Depends on: {uses "group.subgroup"}[] {uses "ring"}[]
 :::
 
-:::definition "ring.integral"
+:::definition "ring.integral" (lean := "IsIntegral, integralClosure")
 *Integral element of a ring.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ring.integral))
 
 If $`R\subseteq S` are {bpref "ring"}[commutative rings], an element $`s\in S` is *integral* over $`R` if there exists $`n\in\Z^+` and $`a_i\in R` such that
@@ -1652,7 +1652,7 @@ The *integral closure* of $`R` in $`S` is $`\{s\in S\mid s \text{ is integral ov
 Depends on: {uses "ring"}[]
 :::
 
-:::definition "ring.integral_domain"
+:::definition "ring.integral_domain" (lean := "IsDomain")
 *Integral domain.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ring.integral_domain))
 
 An *integral domain* is a {bpref "ring"}[commutative ring] $`R` such that $`1_R\neq 0_R` and $`R` contains no {bpref "ring.zero_divisor"}[zero divisors].
@@ -1660,7 +1660,7 @@ An *integral domain* is a {bpref "ring"}[commutative ring] $`R` such that $`1_R\
 Depends on: {uses "ring"}[] {uses "ring.zero_divisor"}[]
 :::
 
-:::definition "ring.integrally_closed"
+:::definition "ring.integrally_closed" (lean := "IsIntegrallyClosed")
 *Integrally closed.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ring.integrally_closed))
 
 Let $`R` be an {bpref "ring.integral_domain"}[integral domain] and $`F` its {bpref "ring.field_of_fractions"}[field of fractions].  Then $`R` is *integrally closed* if $`R` equals the {bpref "ring.integral"}[integral closure] of $`R` in $`F`.
@@ -1668,7 +1668,7 @@ Let $`R` be an {bpref "ring.integral_domain"}[integral domain] and $`F` its {bpr
 Depends on: {uses "ring.field_of_fractions"}[] {uses "ring.integral"}[] {uses "ring.integral_domain"}[]
 :::
 
-:::definition "ring.irreducible"
+:::definition "ring.irreducible" (lean := "Irreducible")
 *Irreducible element.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ring.irreducible))
 
 An element $`x \ne 0` of a {bpref "ring"}[commutative ring] $`R` is *irreducible* if it is not a {bpref "ring.unit"}[unit] and has the property that  whenever $`x=yz` for some $`y,z \in R`, either $`y` or $`z` is a unit.
@@ -1676,7 +1676,7 @@ An element $`x \ne 0` of a {bpref "ring"}[commutative ring] $`R` is *irreducible
 Depends on: {uses "ring"}[] {uses "ring.unit"}[]
 :::
 
-:::definition "ring.maximal_ideal"
+:::definition "ring.maximal_ideal" (lean := "Ideal.IsMaximal")
 *Maximal ideal.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ring.maximal_ideal))
 
 In a {bpref "ring"}[ring] $`R`, an {bpref "ring.ideal"}[ideal] $`M` is *maximal* if $`M\neq R` and for all ideals $`I` of $`R`,
@@ -1686,7 +1686,7 @@ $$`M\subseteq I \subseteq R\implies M=I\quad\text{or}\quad I=R.`
 Depends on: {uses "ring"}[] {uses "ring.ideal"}[]
 :::
 
-:::definition "ring.noetherian"
+:::definition "ring.noetherian" (lean := "IsNoetherianRing")
 *Noetherian ring.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ring.noetherian))
 
 A {bpref "ring"}[commutative ring] $`R` is *Noetherian* if for every ascending chain of {bpref "ring.ideal"}[ideals]
@@ -1698,7 +1698,7 @@ there exists $`N` such that for all $`n\geq N`, $`I_n=I_N`.
 Depends on: {uses "ring"}[] {uses "ring.ideal"}[]
 :::
 
-:::definition "ring.prime_ideal"
+:::definition "ring.prime_ideal" (lean := "Ideal.IsPrime")
 *Prime ideal.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ring.prime_ideal))
 
 If $`R` is a {bpref "ring"}[commutative ring] $`R`, an {bpref "ring.ideal"}[ideal] $`I \ne R` is *prime* if for all $`a,b\in R`,
@@ -1718,7 +1718,7 @@ $$`\{ar\mid r\in R\}\,.`
 Depends on: {uses "ring.field_of_fractions"}[] {uses "ring.integral_domain"}[]
 :::
 
-:::definition "ring.unit"
+:::definition "ring.unit" (lean := "IsUnit")
 *Unit in a ring.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ring.unit))
 
 A *unit* in a {bpref "ring"}[commutative ring] $`R` is an element $`x \in R` so that there exists $`y \in R` with $`xy = 1`.  The set of units in $`R` is denoted $`R^*` or $`R^\times` and forms a {bpref "group"}[group] under multiplication.
@@ -1736,7 +1736,7 @@ $$`a\cdot b = 0_R \qquad \text{or}\qquad b\cdot a = 0_R.`
 Depends on: {uses "ring"}[]
 :::
 
-:::definition "specialfunction.gamma"
+:::definition "specialfunction.gamma" (lean := "Complex.Gamma")
 *Euler gamma function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/specialfunction.gamma))
 
 The *(Euler) gamma function $`\Gamma(z)`* is defined by the integral

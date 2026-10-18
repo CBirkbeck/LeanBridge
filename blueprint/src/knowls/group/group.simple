@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.simple}{Simple groups}}
 \begin{definition}\label{group.simple}
 \uses{group,group.abelian,group.cyclic,group.order,group.subgroup.normal}
+\lean{IsSimpleGroup}
 \leanok
 A non-trivial \hyperref[group]{group} $G$ is \textbf{simple} if its only \hyperref[group.subgroup.normal]{normal} subgroups are the trivial group and $G$ itself. 
 

@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.q-expansion_mathlib_def}{q-expansion of a modular form (mathlib)}}
 \begin{definition}\label{cmf.q-expansion_mathlib_def}
 \uses{cmf}
+\lean{UpperHalfPlane.qExpansion}
 \leanok
 This is \textbf{qExpansion} in mathlib. In the LMFDB definition, $f$ is a \hyperref[cmf]{modular form}, and its period is assumed to be $1$. Mathlib is more general: $f$ may be any function from $\mathcal{H}\to\mathbb{C}$ and the period $h$ is an explicit parameter.
 \end{definition}

@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.space_mathlib_def}{Spaces of modular forms (mathlib)}}
 \begin{definition}\label{cmf.space_mathlib_def}
 \uses{}
+\lean{ModularForm}
 \leanok
 This is \textbf{ModularForm $\Gamma$ $k$} in mathlib. The LMFDB definition is specified by a level $N$, weight $k$, and character $\chi$, whereas the mathlib definition is specified by a subgroup $\Gamma$ and weight $k$, with no character.
 

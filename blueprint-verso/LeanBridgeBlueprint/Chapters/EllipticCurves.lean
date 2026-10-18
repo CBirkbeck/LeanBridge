@@ -11,7 +11,7 @@ open Informal
 
 This chapter lists the LMFDB definitions relating to *elliptic curves*, migrated from the LaTeX blueprint. Each definition links back to its LMFDB knowl.
 
-:::definition "ec"
+:::definition "ec" (lean := "WeierstrassCurve.IsElliptic")
 *Elliptic curve over a field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec))
 
 An *elliptic curve* $`E` over a field $`k` is a {bpref "ag.curve.smooth"}[smooth] {bpref "ag.curve"}[projective curve] of {bpref "ag.curve.genus"}[genus] $`1` together with a distinguished $`k`-rational point $`O`.
@@ -21,7 +21,7 @@ The most commonly used model for elliptic curves is a {bpref "ec.weierstrass_coe
 Depends on: {uses "ag.curve"}[] {uses "ag.curve.genus"}[] {uses "ag.curve.smooth"}[]
 :::
 
-:::definition "ec.additive_reduction"
+:::definition "ec.additive_reduction" (lean := "WeierstrassCurve.HasAdditiveReduction")
 *Additive reduction.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.additive_reduction))
 
 An {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K` is said to have *additive reduction* at a prime $`\mathfrak{p}` of $`K` if the reduction of $`E` modulo $`\mathfrak{p}` has a cuspidal singularity.
@@ -56,7 +56,7 @@ For elliptic curves defined over $`\Q` of rank $`0` or $`1`, it is a theorem tha
 Depends on: {uses "ec"}[] {uses "ec.base_change"}[] {uses "ec.mordell_weil_group"}[] {uses "ec.period"}[] {uses "ec.rank"}[] {uses "ec.regulator"}[] {uses "ec.tamagawa_number"}[] {uses "ec.torsion_subgroup"}[] {uses "group.abelian"}[] {uses "group.galois.absolute"}[] {uses "group.order"}[] {uses "group.torsion"}[] {uses "nf"}[] {uses "nf.discriminant"}[] {uses "nf.place"}[] {uses "nf.prime"}[]
 :::
 
-:::definition "ec.bad_reduction"
+:::definition "ec.bad_reduction" (lean := "WeierstrassCurve.IsBadReduction")
 *Bad reduction of an elliptic curve at a prime.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.bad_reduction))
 
 An {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K` is said to have *bad reduction* at a {bpref "nf.prime"}[prime] $`\mathfrak{p}` of $`K` if the reduction of $`E` modulo $`\mathfrak{p}` is singular.
@@ -73,7 +73,7 @@ A curve has bad reduction at $`\mathfrak{p}` if and only if $`\mathfrak{p}` divi
 Depends on: {uses "ec"}[] {uses "ec.additive_reduction"}[] {uses "ec.discriminant"}[] {uses "ec.nonsplit_multiplicative_reduction"}[] {uses "ec.split_multiplicative_reduction"}[] {uses "nf"}[] {uses "nf.prime"}[]
 :::
 
-:::definition "ec.base_change"
+:::definition "ec.base_change" (lean := "WeierstrassCurve.baseChange")
 *Base change.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.base_change))
 
 If $`E` is an elliptic curve defined over a field $`K`, and $`L` is an extension field of $`K`, then the same equation defining $`E` as an elliptic curve over $`K` also defines a curve over $`L` called the *base change* of $`E` from $`K` to $`L`.   Any curve defined over $`L` which is isomorphic to $`E` over $`L` is called a base-change curve from $`K` to $`L`.  A sufficient but not necessary condition for a curve to be a base change is that the coefficients of its Weierstrass equation lie in $`K`.
@@ -119,7 +119,7 @@ There is a similar conjecture for {bpref "ag.abelian_variety"}[abelian varieties
 Depends on: {uses "ag.abelian_variety"}[] {uses "ec"}[] {uses "ec.analytic_sha_order"}[] {uses "ec.period"}[] {uses "ec.rank"}[] {uses "ec.regulator"}[] {uses "ec.tamagawa_number"}[] {uses "ec.torsion_subgroup"}[] {uses "lfunction"}[] {uses "lfunction.analytic_rank"}[] {uses "lfunction.central_point"}[] {uses "lfunction.leading_coeff"}[] {uses "nf"}[] {uses "nf.discriminant"}[] {uses "nf.prime"}[]
 :::
 
-:::definition "ec.canonical_height"
+:::definition "ec.canonical_height" (lean := "WeierstrassCurve.Affine.Point.canonicalHeight, WeierstrassCurve.Affine.neronTatePairing")
 *Canonical height on an elliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.canonical_height))
 
 Let $`E` be an {bpref "ec"}[elliptic curve] defined over a {bpref "nf"}[number field] $`K`.  The *canonical height* on $`E` is a function
@@ -164,7 +164,7 @@ CM elliptic curves are examples of {bpref "ag.complex_multiplication"}[CM abelia
 Depends on: {uses "ag.complex_multiplication"}[] {uses "ec"}[] {uses "ec.endomorphism_ring"}[] {uses "ec.geom_endomorphism_ring"}[] {uses "ec.j_invariant"}[] {uses "nf.class_number"}[] {uses "nf.order"}[] {uses "ring.characteristic"}[]
 :::
 
-:::definition "ec.conductor"
+:::definition "ec.conductor" (lean := "WeierstrassCurve.algorithmicConductor, WeierstrassCurve.algorithmicOggExponent")
 *Conductor of an elliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.conductor))
 
 The *conductor* of an {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K` is an ideal of the {bpref "nf.ring_of_integers"}[ring of integers] of $`K` that is divisible by the prime ideals of {bpref "ec.bad_reduction"}[bad reduction] and no others.  It is defined as
@@ -200,7 +200,7 @@ The *conductor norm* is the norm $`[\mathcal{O}_K:\mathfrak{n}]` of the ideal $`
 Depends on: {uses "ec"}[] {uses "ec.additive_reduction"}[] {uses "ec.bad_reduction"}[] {uses "ec.good_reduction"}[] {uses "ec.multiplicative_reduction"}[] {uses "nf"}[] {uses "nf.ring_of_integers"}[]
 :::
 
-:::definition "ec.discriminant"
+:::definition "ec.discriminant" (lean := "WeierstrassCurve.Δ")
 *Discriminant of a Weierstrass equation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.discriminant))
 
 The *discriminant* $`\Delta` of a {bpref "ec.weierstrass_coeffs"}[Weierstrass equation] over a {bpref "ring.field"}[field] $`K` is an element of $`K` defined in terms of the {bpref "ec.q.minimal_weierstrass_equation"}[Weierstrass coefficients].
@@ -223,7 +223,7 @@ Then $`\Delta\neq 0` if and only if the equation defines a {bpref "ag.curve.smoo
 Depends on: {uses "ag.curve.smooth"}[] {uses "ec"}[] {uses "ec.weierstrass_coeffs"}[] {uses "ring.field"}[]
 :::
 
-:::definition "ec.endomorphism"
+:::definition "ec.endomorphism" (lean := "TauCeti.Isogeny, TauCeti.Isogeny.Hom")
 *Endomorphism of an elliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.endomorphism))
 
 An *endomorphism* of an {bpref "ec"}[elliptic curve] defined over a field $`K` is a homomorphism $`\varphi\colon E\to E` defined over $`K`.  The set of all endomorphisms of $`E` forms a ring called the {bpref "ec.endomorphism_ring"}[endomorphism ring] of $`E`, denoted $`\End(E)`, a special case of the {bpref "ag.endomorphism_ring"}[endomorphism ring] of an {bpref "ag.abelian_variety"}[abelian variety].
@@ -231,7 +231,7 @@ An *endomorphism* of an {bpref "ec"}[elliptic curve] defined over a field $`K` i
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.endomorphism_ring"}[] {uses "ec"}[]
 :::
 
-:::definition "ec.endomorphism_ring"
+:::definition "ec.endomorphism_ring" (lean := "TauCeti.Isogeny.Hom, TauCeti.Isogeny.mulByIntIsogeny")
 *Endomorphism ring of an elliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.endomorphism_ring))
 
 The *endomorphism ring* $`\End(E)` of an {bpref "ec"}[elliptic curve] $`E` over a field $`K` is the ring of all {bpref "ec.endomorphism"}[endomorphisms] of $`E` defined over $`K`.  For endomorphisms defined over extensions, we speak of the {bpref "ec.geom_endomorphism_ring"}[geometric endomorphism ring] of $`E`.
@@ -313,7 +313,7 @@ When $`\bar\rho_{E,\ell}` does not contain $`\SL(2,\F_{\ell})`  the possibilitie
 Depends on: {uses "ec"}[] {uses "ec.galois_rep"}[] {uses "gl2.borel"}[] {uses "gl2.exceptional"}[] {uses "gl2.nonsplit_cartan"}[] {uses "gl2.normalizer_nonsplit_cartan"}[] {uses "gl2.normalizer_split_cartan"}[] {uses "gl2.split_cartan"}[] {uses "nf"}[]
 :::
 
-:::definition "ec.geom_endomorphism_ring"
+:::definition "ec.geom_endomorphism_ring" (lean := "WeierstrassCurve.GeometricEnd")
 *Geometric endomorphism ring.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.geom_endomorphism_ring))
 
 The *geometric endomorphism ring* of an elliptic curve $`E` over a field $`K` is $`\End(E_{\overline{K}})`, the {bpref "ec.endomorphism_ring"}[endomorphism ring] of the base change of $`E` to an algebraic closure $`\overline{K}` of $`K`.
@@ -323,7 +323,7 @@ This is a special case of the {bpref "ag.geom_endomorphism_ring"}[geometric endo
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.geom_endomorphism_ring"}[] {uses "ec.endomorphism_ring"}[]
 :::
 
-:::definition "ec.global_minimal_model"
+:::definition "ec.global_minimal_model" (lean := "WeierstrassCurve.IsGlobalMinimal")
 *Global minimal model.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.global_minimal_model))
 
 A *global minimal model* for an {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K` is a {bpref "ec.weierstrass_coeffs"}[Weierstrass equation] for $`E` which is {bpref "ec.integral_model"}[integral] and is a {bpref "ec.local_minimal_model"}[local minimal model] at all primes of $`K`.
@@ -333,7 +333,7 @@ When $`K` has {bpref "nf.class_number"}[class number] $`1` all elliptic curves o
 Depends on: {uses "ec"}[] {uses "ec.integral_model"}[] {uses "ec.local_minimal_model"}[] {uses "ec.weierstrass_coeffs"}[] {uses "nf"}[] {uses "nf.class_number"}[] {uses "nf.ideal_class_group"}[]
 :::
 
-:::definition "ec.good_ordinary_reduction"
+:::definition "ec.good_ordinary_reduction" (lean := "WeierstrassCurve.HasGoodOrdinaryReduction, WeierstrassCurve.IsOrdinary")
 *Good ordinary reduction.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.good_ordinary_reduction))
 
 An {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K` is said to have *ordinary reduction* at a prime $`\mathfrak{p}` of $`K` if the reduction $`E_{\mathfrak{p}}` of $`E` modulo $`\mathfrak{p}` is smooth, and $`E_{\mathfrak{p}}` is ordinary.
@@ -343,7 +343,7 @@ An elliptic curve $`E_{\mathfrak{p}}` defined over a finite field of characteris
 Depends on: {uses "ec"}[] {uses "nf"}[]
 :::
 
-:::definition "ec.good_reduction"
+:::definition "ec.good_reduction" (lean := "WeierstrassCurve.HasGoodReduction")
 *Good reduction.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.good_reduction))
 
 An {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K` is said to have *good reduction* at a {bpref "nf.prime"}[prime] $`\mathfrak{p}` of $`K` if the reduction of $`E` modulo $`\mathfrak{p}` is {bpref "ag.curve.smooth"}[smooth].
@@ -353,7 +353,7 @@ If $`E` has good reduction at every prime of $`K` then $`E` is said to have *eve
 Depends on: {uses "ag.curve.smooth"}[] {uses "ec"}[] {uses "nf"}[] {uses "nf.prime"}[]
 :::
 
-:::definition "ec.good_supersingular_reduction"
+:::definition "ec.good_supersingular_reduction" (lean := "WeierstrassCurve.HasGoodSupersingularReduction, WeierstrassCurve.IsSupersingular")
 *Good supersingular reduction.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.good_supersingular_reduction))
 
 An {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K` is said to have *supersingular reduction* at a prime $`\mathfrak{p}` of $`K` if the reduction $`E_{\mathfrak{p}}` of $`E` modulo $`\mathfrak{p}` is smooth, and $`E_{\mathfrak{p}}` is supersingular.
@@ -363,7 +363,7 @@ An elliptic curve $`E_{\mathfrak{p}}` defined over a finite field of characteris
 Depends on: {uses "ec"}[] {uses "nf"}[]
 :::
 
-:::definition "ec.integral_model"
+:::definition "ec.integral_model" (lean := "WeierstrassCurve.IsIntegral")
 *Integral model.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.integral_model))
 
 An *integral model* for an {bpref "ec"}[elliptic curve] $`E` defined over a number field $`K` is a {bpref "ec.weierstrass_coeffs"}[Weierstrass equation] for $`E` all of whose coefficients are in the {bpref "nf.ring_of_integers"}[ring of integers] of $`K`.
@@ -391,7 +391,7 @@ $$`E(k)_{\text{tors}}^\text{is} = \{P \in E(k)_{\text{tors}} : \langle P, Q \ran
 For curves $`E/\Q`, the intrinsic subgroup is cyclic with order at most $`5`, by the results of .
 :::
 
-:::definition "ec.invariants"
+:::definition "ec.invariants" (lean := "WeierstrassCurve.algorithmicConductor, WeierstrassCurve.minimalDiscriminantIdeal")
 *Elliptic curve invariants.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.invariants))
 
 The invariants of an {bpref "ec"}[elliptic curve] $`E` over a {bpref "nf"}[number field] $`K` are its
@@ -467,7 +467,7 @@ In the LMFDB, the rows and columns of the matrices are ordered by the final entr
 Depends on: {uses "ec"}[] {uses "ec.isogeny_class"}[]
 :::
 
-:::definition "ec.isomorphism"
+:::definition "ec.isomorphism" (lean := "WeierstrassCurve.VariableChange")
 *Isomorphism of elliptic curves.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.isomorphism))
 
 An *isomorphism* between two {bpref "ec"}[elliptic curves] $`E`, $`E'` defined over a field $`K` is an {bpref "ec.isogeny"}[isogeny] $`f:E\to E'` such that there exist an {bpref "ec.isogeny"}[isogeny] $`g:E'\to E` with the compositions $`g\circ f` and $`f\circ g` being the identity maps.  Equivalently, an isomorphism $`E\to E'` is an isogeny of degree $`1`.
@@ -479,7 +479,7 @@ When $`E` and $`E'` are defined by {bpref "ec.weierstrass_coeffs"}[Weierstrass m
 Depends on: {uses "ec"}[] {uses "ec.isogeny"}[]
 :::
 
-:::definition "ec.j_invariant"
+:::definition "ec.j_invariant" (lean := "WeierstrassCurve.j")
 *j-invariant of an elliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.j_invariant))
 
 The *$`j`-invariant* of an {bpref "ec"}[elliptic curve] $`E` defined over a field $`K` is an invariant of the {bpref "ec.isomorphism"}[isomorphism class]  of $`E` over  $`\overline{K}`.
@@ -509,7 +509,7 @@ is the {bpref "ec.discriminant"}[discriminant] of $`E.`
 Depends on: {uses "ec"}[] {uses "ec.discriminant"}[] {uses "ec.isomorphism"}[] {uses "ec.weierstrass_coeffs"}[]
 :::
 
-:::definition "ec.kodaira_symbol"
+:::definition "ec.kodaira_symbol" (lean := "TauCeti.ReductionSymbol, WeierstrassCurve.reductionSymbol")
 *Kodaira symbol.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.kodaira_symbol))
 
 The *Kodaira symbol* of an {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] encodes the {bpref "ec.reduction_type"}[reduction type] of $`E` at a prime $`\mathfrak{p}` of $`K`. It describes the combinatorics of the special fiber of the Ne;ron model of the elliptic curve. The Ne;ron model is obtained from the {bpref "ec.local_minimal_model"}[local minimal model] for $`E` at $`\mathfrak{p}`  using Tate's algorithm. For an exact definition and properties, consult a text on elliptic curves.
@@ -539,7 +539,7 @@ The *local data* of an  {bpref "ec"}[elliptic curve] $`E` defined over a {bpref 
 Depends on: {uses "ec"}[] {uses "ec.kodaira_symbol"}[] {uses "ec.reduction_type"}[] {uses "ec.tamagawa_number"}[] {uses "nf"}[]
 :::
 
-:::definition "ec.local_minimal_discriminant"
+:::definition "ec.local_minimal_discriminant" (lean := "WeierstrassCurve.localMinimalDiscriminant, WeierstrassCurve.localMinimalDiscriminantValuation")
 *Local minimal discriminant of an elliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.local_minimal_discriminant))
 
 Let $`E` be an {bpref "ec"}[elliptic curve] defined over a {bpref "nf"}[number field] $`K`, and $`\mathfrak{p}` a prime of $`K`.  The *local minimal discriminant* of $`E` is the ideal $`\mathfrak{p}^e` where $`e` is is the valuation of the discriminant of a {bpref "ec.local_minimal_model"}[local minimal model] for $`E` at $`\mathfrak{p}`.
@@ -547,7 +547,7 @@ Let $`E` be an {bpref "ec"}[elliptic curve] defined over a {bpref "nf"}[number f
 Depends on: {uses "ec"}[] {uses "ec.local_minimal_model"}[] {uses "nf"}[]
 :::
 
-:::definition "ec.local_minimal_model"
+:::definition "ec.local_minimal_model" (lean := "WeierstrassCurve.minimal")
 *Local minimal model.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.local_minimal_model))
 
 A *local minimal model* for an {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K` at a prime $`\mathfrak{p}` of $`K` is a {bpref "ec.weierstrass_coeffs"}[Weierstrass equation] for $`E` all of whose coefficients are {bpref "nf.integral"}[integral]  at $`\mathfrak{p}`, and whose {bpref "ec.discriminant"}[discriminant] has minimal valuation at $`\mathfrak{p}` among all such equations.
@@ -589,7 +589,7 @@ For $`K=\Q`, the image of a maximal $`\bar\rho_{E,\ell}` is $`\GL_2(\F_{\ell})`,
 Depends on: {uses "ec"}[] {uses "ec.complex_multiplication"}[] {uses "ec.galois_rep"}[] {uses "ec.geom_endomorphism_ring"}[] {uses "gl2.borel"}[] {uses "gl2.normalizer_nonsplit_cartan"}[] {uses "gl2.normalizer_split_cartan"}[] {uses "nf"}[]
 :::
 
-:::definition "ec.minimal_discriminant"
+:::definition "ec.minimal_discriminant" (lean := "WeierstrassCurve.minimalDiscriminantIdeal")
 *Minimal discriminant.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.minimal_discriminant))
 
 The *minimal discriminant* (or minimal discriminant ideal) of an {bpref "ec"}[elliptic curve] $`E` over a {bpref "nf"}[number field] $`K` is the ideal $`\mathfrak{D}_{min}` of the {bpref "nf.ring_of_integers"}[ring of integers] of $`K` given by
@@ -603,7 +603,7 @@ If $`E` has a {bpref "ec.weierstrass_coeffs"}[Weierstrass model] which is a {bpr
 Depends on: {uses "ec"}[] {uses "ec.discriminant"}[] {uses "ec.global_minimal_model"}[] {uses "ec.local_minimal_discriminant"}[] {uses "ec.weierstrass_coeffs"}[] {uses "nf"}[] {uses "nf.prime"}[] {uses "nf.ring_of_integers"}[]
 :::
 
-:::definition "ec.mordell_weil_group"
+:::definition "ec.mordell_weil_group" (lean := "WeierstrassCurve.Affine.Point")
 *Mordell-Weil group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.mordell_weil_group))
 
 For an {bpref "ec"}[elliptic curve] $`E` defined over a field $`K`, the *Mordell-Weil group* of $`E/K` is the group $`E(K)` of $`K`-rational points of $`E`. It is a finitely-generated Abelian group.
@@ -617,7 +617,7 @@ The Mordell-Weil theorem implies in particular that the {bpref "ec.torsion_subgr
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.mordell_weil"}[] {uses "ec"}[] {uses "nf"}[]
 :::
 
-:::definition "ec.mordell_weil_theorem"
+:::definition "ec.mordell_weil_theorem" (lean := "WeierstrassCurve.Affine.fg_point_of_numberField")
 *Mordell-Weil theorem.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.mordell_weil_theorem))
 
 For an {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`F`, the *Mordell-Weil theorem* states that the set $`E(F)` of $`F`-rational points on $`E` is a finitely generated Abelian group.
@@ -627,7 +627,7 @@ This group is called the {bpref "ec.mordell_weil_group"}[Mordell-Weil] group of 
 Depends on: {uses "ec"}[] {uses "ec.mordell_weil_group"}[] {uses "nf"}[]
 :::
 
-:::definition "ec.multiplicative_reduction"
+:::definition "ec.multiplicative_reduction" (lean := "WeierstrassCurve.HasMultiplicativeReduction")
 *Multiplicative reduction.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.multiplicative_reduction))
 
 An {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K` is said to have *multiplicative reduction* at a prime $`\mathfrak p` of $`K` if the reduction of $`E` modulo $`\mathfrak p` has a nodal singularity.
@@ -647,7 +647,7 @@ The generators consist of $`r` *non-torsion generators*, where $`r` is the {bpre
 Depends on: {uses "ec"}[] {uses "ec.mordell_weil_group"}[] {uses "ec.rank"}[] {uses "ec.torsion_subgroup"}[] {uses "group.abelian"}[] {uses "nf"}[]
 :::
 
-:::definition "ec.nonsplit_multiplicative_reduction"
+:::definition "ec.nonsplit_multiplicative_reduction" (lean := "WeierstrassCurve.IsNonsplitMultiplicativeReduction")
 *Non-split multiplicative reduction.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.nonsplit_multiplicative_reduction))
 
 An {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K` is said to have *non-split multiplicative reduction* at a prime $`\mathfrak{p}` of $`K` if the reduction of $`E` modulo $`\mathfrak{p}` has a nodal singularity with tangent slopes _not_ defined over the residue field at $`\mathfrak{p}`.
@@ -655,7 +655,7 @@ An {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $
 Depends on: {uses "ec"}[] {uses "nf"}[]
 :::
 
-:::definition "ec.obstruction_class"
+:::definition "ec.obstruction_class" (lean := "WeierstrassCurve.globalMinimalityClass, WeierstrassCurve.weierstrassDefectClass")
 *Obstruction class of an elliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.obstruction_class))
 
 Let $`E` be an {bpref "ec"}[elliptic curve] defined over a {bpref "nf"}[number field] $`K`.  The *obstruction class* of $`E` is an {bpref "nf.ideal_class_group"}[ideal class] of $`K` which is trivial if and only if $`E` has a {bpref "ec.global_minimal_model"}[global minimal model].
@@ -663,7 +663,7 @@ Let $`E` be an {bpref "ec"}[elliptic curve] defined over a {bpref "nf"}[number f
 Depends on: {uses "ec"}[] {uses "ec.global_minimal_model"}[] {uses "nf"}[] {uses "nf.ideal_class_group"}[]
 :::
 
-:::definition "ec.padic_tate_module"
+:::definition "ec.padic_tate_module" (lean := "TauCeti.TateModule, WeierstrassCurve.tateModuleGaloisRepresentation")
 *Tate module of an elliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.padic_tate_module))
 
 Let $`p \in \mathbb{Z}_{\geq 0}` be a prime and $`E` an elliptic curve defined over a field $`K`. The *$`p`-adic Tate module* of $`E` is the inverse limit
@@ -711,7 +711,7 @@ where $`\mathfrak{d}` is the {bpref "ec.minimal_discriminant"}[minimal discrimin
 Depends on: {uses "ec"}[] {uses "ec.base_change"}[] {uses "ec.discriminant"}[] {uses "ec.global_minimal_model"}[] {uses "ec.minimal_discriminant"}[] {uses "ec.q.period_lattice"}[] {uses "ec.weierstrass_coeffs"}[] {uses "nf"}[] {uses "nf.embedding"}[] {uses "nf.place"}[]
 :::
 
-:::definition "ec.potential_good_reduction"
+:::definition "ec.potential_good_reduction" (lean := "WeierstrassCurve.HasPotentialGoodReduction")
 *Potential good reduction.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.potential_good_reduction))
 
 An {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K` is said to have *potential good reduction* if $`E` has {bpref "ec.good_reduction"}[everywhere good reduction] over a finite extension of $`K`.
@@ -721,7 +721,7 @@ This is equivalent to the {bpref "ec.j_invariant"}[$`j`-invariant] of $`E` being
 Depends on: {uses "ec"}[] {uses "ec.good_reduction"}[] {uses "ec.j_invariant"}[] {uses "nf"}[] {uses "nf.integral"}[]
 :::
 
-:::definition "ec.q"
+:::definition "ec.q" (lean := "WeierstrassCurve.IsElliptic")
 *Elliptic curve over $`\mathbb Q`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q))
 
 An *elliptic curve $`E` over $`\mathbb{Q}`* has a Weierstrass equation of the form
@@ -736,7 +736,7 @@ Note that such an equation is not unique and $`E` has a unique {bpref "ec.q.mini
 Depends on: {uses "ec.q.discriminant"}[] {uses "ec.q.minimal_weierstrass_equation"}[]
 :::
 
-:::definition "ec.q.abc_quality"
+:::definition "ec.q.abc_quality" (lean := "WeierstrassCurve.abcQuality")
 *$`abc` quality.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.abc_quality))
 
 Given a triple $`a,b,c` of nonzero coprime integers, the *quality* of the triple is defined as
@@ -809,7 +809,7 @@ There is a similar conjecture for {bpref "ag.abelian_variety"}[abelian varieties
 Depends on: {uses "ag.abelian_variety"}[] {uses "ec"}[] {uses "ec.analytic_sha_order"}[] {uses "ec.mordell_weil_theorem"}[] {uses "ec.q.real_period"}[] {uses "ec.rank"}[] {uses "ec.regulator"}[] {uses "ec.tamagawa_number"}[] {uses "ec.torsion_order"}[] {uses "lfunction"}[] {uses "lfunction.central_point"}[]
 :::
 
-:::definition "ec.q.canonical_height"
+:::definition "ec.q.canonical_height" (lean := "WeierstrassCurve.Affine.Point.canonicalHeight, WeierstrassCurve.Affine.canonicalHeightQuadratic, WeierstrassCurve.Affine.neronTatePairing")
 *Canonical height.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.canonical_height))
 
 Let $`E` be an {bpref "ec"}[elliptic curve] defined over $`\mathbb{Q}`.
@@ -837,7 +837,7 @@ For a number field $`K`, the *canonical height* of $`P\in E(K)` is given by $`\h
 Depends on: {uses "ec"}[] {uses "ec.regulator"}[] {uses "nf.weil_height"}[]
 :::
 
-:::definition "ec.q.conductor"
+:::definition "ec.q.conductor" (lean := "WeierstrassCurve.algorithmicConductor, WeierstrassCurve.algorithmicOggExponent")
 *Conductor of an elliptic curve over $`\Q`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.conductor))
 
 The *conductor* $`N` of an {bpref "ec"}[elliptic curve] $`E` defined over $`\Q` is a positive integer divisible by the primes of bad reduction and no others.  It has the form $`N=\prod p^{e_p}`, where the exponent $`e_p` is
@@ -878,7 +878,7 @@ In the Cremona labeling, it is somewhat difficult to describe the mechanisms for
 Depends on: {uses "ec"}[] {uses "ec.isogeny"}[] {uses "ec.isogeny_class"}[] {uses "ec.isomorphism"}[] {uses "ec.q.conductor"}[] {uses "ec.q.optimal"}[]
 :::
 
-:::definition "ec.q.discriminant"
+:::definition "ec.q.discriminant" (lean := "WeierstrassCurve.minimalDiscriminantIdeal, WeierstrassCurve.reducedMinimalModel")
 *Discriminant of an elliptic curve over $`\Q`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.discriminant))
 
 The *discriminant* $`\Delta` of an {bpref "ec"}[elliptic curve] $`E` defined over $`\mathbb{Q}` is a nonzero integer divisible exactly by the primes of bad reduction.
@@ -887,7 +887,7 @@ It is the {bpref "ec.discriminant"}[discriminant] of the {bpref "ec.q.minimal_we
 Depends on: {uses "ec"}[] {uses "ec.discriminant"}[] {uses "ec.q.minimal_weierstrass_equation"}[]
 :::
 
-:::definition "ec.q.endomorphism_ring"
+:::definition "ec.q.endomorphism_ring" (lean := "TauCeti.Isogeny.Hom, WeierstrassCurve.GeometricEnd, WeierstrassCurve.HasGeometricCM")
 *Endomorphism ring of an elliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.endomorphism_ring))
 
 The *endomorphism ring* $`\End(E)` of an {bpref "ec"}[elliptic curve] $`E` is the ring of all {bpref "ec.endomorphism"}[endomorphisms] of $`E` defined over $`K`.  For endomorphisms defined over extensions, we speak of the {bpref "ec.geom_endomorphism_ring"}[geometric endomorphism ring] of $`E`.
@@ -928,7 +928,7 @@ The *Faltings ratio* of each curve $`E` is the {bpref "group.subgroup.index"}[in
 Depends on: {uses "ec"}[] {uses "ec.isogeny"}[] {uses "ec.q.faltings_height"}[] {uses "ec.q.period_lattice"}[] {uses "group.subgroup.index"}[]
 :::
 
-:::definition "ec.q.frey"
+:::definition "ec.q.frey" (lean := "TauCeti.freyCurve")
 *Frey curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.frey))
 
 Given a triple of integers $`A, B, C` with $`A + B = C`, the [*Frey curve*](https://en.wikipedia.org/wiki/Frey_curve) (or *Frey-Hellegouarch curve*) associated to this triple is the elliptic curve
@@ -936,7 +936,7 @@ Given a triple of integers $`A, B, C` with $`A + B = C`, the [*Frey curve*](http
 $$`y^2 = x(x-A)(x+B).`
 :::
 
-:::definition "ec.q.integral_points"
+:::definition "ec.q.integral_points" (lean := "WeierstrassCurve.integralPoints")
 *Integral points.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.integral_points))
 
 The *integral points* on a given model of an elliptic curve $`E` defined over $`\Q` are the points $`P=(x,y)` on the model that have integral coordinates $`x` and $`y`.
@@ -944,7 +944,7 @@ The *integral points* on a given model of an elliptic curve $`E` defined over $`
 The number of integral points is finite, by a theorem of Siegel.
 :::
 
-:::definition "ec.q.j_invariant"
+:::definition "ec.q.j_invariant" (lean := "WeierstrassCurve.j")
 *j-invariant of a rational elliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.j_invariant))
 
 The *$`j`-invariant* of an {bpref "ec"}[elliptic curve] $`E` defined over $`\mathbb{Q}` is an invariant of the isomorphism class of $`E` over  $`\overline{\mathbb{Q}}` .
@@ -971,7 +971,7 @@ is the {bpref "ec.q.discriminant"}[discriminant] of $`E.`
 Depends on: {uses "ec"}[] {uses "ec.q.discriminant"}[] {uses "ec.weierstrass_coeffs"}[]
 :::
 
-:::definition "ec.q.kodaira_symbol"
+:::definition "ec.q.kodaira_symbol" (lean := "TauCeti.ReductionSymbol, WeierstrassCurve.reductionSymbol")
 *Kodaira symbol.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.kodaira_symbol))
 
 The *Kodaira symbol* encodes the {bpref "ec.q.reduction_type"}[reduction type] of an elliptic curve at a prime $`p.` It describes the combinatorics of the special fiber of the Ne;ron model of the elliptic curve. The Ne;ron model is obtained from the {bpref "ec.q.minimal_weierstrass_equation"}[minimal Weierstrass equation] using Tate's algorithm. For an exact definition and properties, consult a text on elliptic curves.
@@ -1048,7 +1048,7 @@ The minimal quadratic twist depends only on the $`j`-invariant unless $`j=0` or 
 Depends on: {uses "ec"}[] {uses "ec.complex_multiplication"}[] {uses "ec.isogeny_class"}[] {uses "ec.j_invariant"}[] {uses "ec.minimal_discriminant"}[] {uses "ec.q.conductor"}[] {uses "ec.twists"}[] {uses "nf.order"}[]
 :::
 
-:::definition "ec.q.minimal_weierstrass_equation"
+:::definition "ec.q.minimal_weierstrass_equation" (lean := "WeierstrassCurve.IsGlobalMinimal, WeierstrassCurve.IsReducedMinimal, WeierstrassCurve.reducedMinimalModel")
 *Minimal Weierstrass equation over $`\mathbb Q`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.minimal_weierstrass_equation))
 
 Every elliptic curve over $`\mathbb{Q}` has an integral Weierstrass model (or equation) of the form
@@ -1074,7 +1074,7 @@ A *modular parametrization* of an {bpref "ec"}[elliptic curve] $`E` over $`\math
 Depends on: {uses "ec"}[]
 :::
 
-:::definition "ec.q.naive_height"
+:::definition "ec.q.naive_height" (lean := "WeierstrassCurve.minimalPairModel, WeierstrassCurve.naiveHeight, WeierstrassCurve.shortEquationHeight")
 *Naive height.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.naive_height))
 
 The *naive height* of an {bpref "ec"}[elliptic curve] in short {bpref "ec.weierstrass_coeffs"}[Weierstrass form]
@@ -1116,7 +1116,7 @@ Note that the period lattice depends on the choice of Weierstrass model of $`E`;
 Depends on: {uses "ec"}[] {uses "ec.global_minimal_model"}[] {uses "ec.q.discriminant"}[] {uses "ec.q.real_period"}[] {uses "ec.weierstrass_coeffs"}[] {uses "group.rank"}[]
 :::
 
-:::definition "ec.q.real_period"
+:::definition "ec.q.real_period" (lean := "WeierstrassCurve.realPeriod, WeierstrassCurve.realPeriodLIntegral, WeierstrassCurve.reducedMinimalModel")
 *Real period.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.real_period))
 
 For an elliptic curve $`E` defined over $`\R` with period lattice $`\Lambda`, the *real period* $`\Omega` is the least positive element of $`\Lambda\cap\R` multiplied by the number of components of $`E(\R)`.
@@ -1126,7 +1126,7 @@ When an elliptic curve is defined by means of a {bpref "ec.weierstrass_coeffs"}[
 Depends on: {uses "ec.q.minimal_weierstrass_equation"}[] {uses "ec.weierstrass_coeffs"}[] {uses "ec.weierstrass_isomorphism"}[]
 :::
 
-:::definition "ec.q.reduction_type"
+:::definition "ec.q.reduction_type" (lean := "WeierstrassCurve.HasGoodOrdinaryReduction, WeierstrassCurve.IsNonsplitMultiplicativeReduction, WeierstrassCurve.ReductionType")
 *Reduction type of an elliptic curve over $`\mathbb Q`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.reduction_type))
 
 The *reduction type* of an elliptic curve $`E` defined over $`\mathbb{Q}` at a prime $`p`
@@ -1143,7 +1143,7 @@ $`E` has *additive reduction* at $`p` if $`\tilde E` has a *cuspidal* singularit
 Depends on: {uses "ec.q.minimal_weierstrass_equation"}[]
 :::
 
-:::definition "ec.q.regulator"
+:::definition "ec.q.regulator" (lean := "WeierstrassCurve.Affine.neronTatePairing, WeierstrassCurve.Affine.neronTatePairingModTorsion, WeierstrassCurve.Affine.regulator")
 *Regulator of elliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.regulator))
 
 The *regulator* of an {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K,` denoted $`\operatorname{Reg}(E/K)`, is the volume of $`E(K)/E(K)_{tor}` with respect to the *height pairing* $`\langle -,-\rangle` associated to the {bpref "ec.canonical_height"}[canonical height] $`\hat{h}`, i.e. $`\langle P,Q\rangle = \frac{1}{2}(\hat{h}(P+Q)-\hat{h}(P)-\hat{h}(Q))`.
@@ -1159,7 +1159,7 @@ Special cases are when $`E(K)` has rank $`0`, in which case $`E(K)/E(K)_{tor}=0`
 Depends on: {uses "ec"}[] {uses "ec.canonical_height"}[] {uses "ec.mordell_weil_group"}[] {uses "nf"}[]
 :::
 
-:::definition "ec.q.semistable"
+:::definition "ec.q.semistable" (lean := "WeierstrassCurve.IsSemistable")
 *Semistable elliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.semistable))
 
 An {bpref "ec"}[elliptic curve] is *semistable* if it has {bpref "ec.reduction_type"}[multiplicative reduction] at every {bpref "ec.bad_reduction"}[bad prime].
@@ -1226,7 +1226,7 @@ For every elliptic curve $`E` there is torsion growth in at least one field of {
 Depends on: {uses "ec"}[] {uses "ec.torsion_subgroup"}[] {uses "nf"}[] {uses "nf.degree"}[]
 :::
 
-:::definition "ec.q.torsion_subgroup"
+:::definition "ec.q.torsion_subgroup" (lean := "AddCommGroup.torsion")
 *Torsion subgroup of an elliptic curve over $`\mathbb Q`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.torsion_subgroup))
 
 If $`E` is an elliptic curve defined over $`\mathbb{Q}`, its *torsion subgroup* is the subgroup of the Mordell-Weil group $`E(\mathbb{Q})` consisting of all the rational points of finite order.  It is a finite abelian group of order at most $`16` (by a theorem of Mazur), which is a product of at most $`2` cyclic factors.  The "torsion structure" is the list of invariants of the group:
@@ -1249,7 +1249,7 @@ Elliptic curves with {bpref "ec.complex_multiplication"}[CM] are all $`\mathbb{Q
 Depends on: {uses "ec"}[] {uses "ec.base_change"}[] {uses "ec.complex_multiplication"}[] {uses "ec.isogeny"}[] {uses "nf"}[]
 :::
 
-:::definition "ec.rank"
+:::definition "ec.rank" (lean := "CommGroup.freeRank")
 *Rank of an elliptic curve over a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.rank))
 
 The rank of an {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K` is the *rank* of its {bpref "ec.mordell_weil_group"}[Mordell-Weil group] $`E(K)`.
@@ -1265,7 +1265,7 @@ Rank is an {bpref "ec.isogeny"}[isogeny] invariant: all curves in an {bpref "ec.
 Depends on: {uses "ec"}[] {uses "ec.isogeny"}[] {uses "ec.isogeny_class"}[] {uses "ec.mordell_weil_group"}[] {uses "ec.mordell_weil_theorem"}[] {uses "ec.torsion_subgroup"}[] {uses "nf"}[]
 :::
 
-:::definition "ec.reduction"
+:::definition "ec.reduction" (lean := "WeierstrassCurve.HasPotentialGoodReduction, WeierstrassCurve.IsSemistable")
 *Reduction of an elliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.reduction))
 
 An {bpref "ec"}[elliptic curve] $`E` over a number field $`K` is *{bpref "ec.semistable"}[semistable]* if it has {bpref "ec.reduction_type"}[multiplicative reduction] at every {bpref "ec.bad_reduction"}[bad prime], and has *{bpref "ec.potential_good_reduction"}[potential good reduction]* if its {bpref "ec.j_invariant"}[$`j`-invariant] is {bpref "nf.integral"}[integral].
@@ -1275,7 +1275,7 @@ If $`E` has potential good reduction then it cannot be semistable unless it has 
 Depends on: {uses "ec"}[] {uses "ec.bad_reduction"}[] {uses "ec.j_invariant"}[] {uses "ec.potential_good_reduction"}[] {uses "ec.reduction_type"}[] {uses "ec.semistable"}[] {uses "nf.integral"}[]
 :::
 
-:::definition "ec.reduction_type"
+:::definition "ec.reduction_type" (lean := "WeierstrassCurve.HasGoodOrdinaryReduction, WeierstrassCurve.IsNonsplitMultiplicativeReduction, WeierstrassCurve.ReductionType")
 *Reduction type.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.reduction_type))
 
 The *reduction type* of an {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K` at a prime $`\mathfrak{p}` of $`K`
@@ -1315,7 +1315,7 @@ where $`d` is the {bpref "nf.degree"}[degree] $`[K:\Q]`.
 Depends on: {uses "ec"}[] {uses "ec.base_change"}[] {uses "ec.canonical_height"}[] {uses "ec.mordell_weil_group"}[] {uses "ec.rank"}[] {uses "nf"}[] {uses "nf.degree"}[]
 :::
 
-:::definition "ec.ring"
+:::definition "ec.ring" (lean := "TauCeti.AlgebraicGeometry.EllipticCurveGeom, WeierstrassCurve.toEllipticCurveGeom")
 *Elliptic curve over a ring.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.ring))
 
 An *elliptic curve* over a {bpref "ring"}[commutative ring] $`R` is an {bpref "ec.scheme"}[elliptic scheme] $`E \to \operatorname{Spec} R`.
@@ -1325,13 +1325,13 @@ For example, an elliptic curve over $`\Z[1/N]` is the same as an {bpref "ec"}[el
 Depends on: {uses "ec"}[] {uses "ec.good_reduction"}[] {uses "ec.scheme"}[] {uses "ring"}[]
 :::
 
-:::definition "ec.scheme"
+:::definition "ec.scheme" (lean := "TauCeti.AlgebraicGeometry.EllipticCurveGeom, TauCeti.AlgebraicGeometry.IsLocallyWeierstrass")
 *Elliptic scheme.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.scheme))
 
 An *elliptic scheme* over a scheme $`S` is a smooth proper morphism $`E \to S` whose fibers are elliptic curves.
 :::
 
-:::definition "ec.semi_global_minimal_model"
+:::definition "ec.semi_global_minimal_model" (lean := "WeierstrassCurve.IsSemiGlobalMinimal, WeierstrassCurve.IsSharpSemiGlobalMinimalAt")
 *Semi-global minimal model.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.semi_global_minimal_model))
 
 An {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K` of {bpref "nf.class_number"}[class number] $`h(K)` greater than $`1` may not have a {bpref "ec.global_minimal_model"}[global minimal model].  In this case there still exist *semi-global minimal models* for $`E` which are {bpref "ec.local_minimal_model"}[local minimal models] at all except one prime.  At this prime, the {bpref "ec.discriminant"}[discriminant] valuation exceeds that of the {bpref "ec.minimal_discriminant"}[minimal discriminant ideal] by $`12`.
@@ -1339,7 +1339,7 @@ An {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $
 Depends on: {uses "ec"}[] {uses "ec.discriminant"}[] {uses "ec.local_minimal_model"}[] {uses "ec.minimal_discriminant"}[] {uses "nf"}[] {uses "nf.class_number"}[]
 :::
 
-:::definition "ec.semistable"
+:::definition "ec.semistable" (lean := "WeierstrassCurve.IsSemistable")
 *Semistable elliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.semistable))
 
 An {bpref "ec"}[elliptic curve] is *semistable* if it has {bpref "ec.reduction_type"}[multiplicative reduction] at every {bpref "ec.bad_reduction"}[bad prime].
@@ -1347,7 +1347,7 @@ An {bpref "ec"}[elliptic curve] is *semistable* if it has {bpref "ec.reduction_t
 Depends on: {uses "ec"}[] {uses "ec.bad_reduction"}[] {uses "ec.reduction_type"}[]
 :::
 
-:::definition "ec.simple_equation"
+:::definition "ec.simple_equation" (lean := "WeierstrassCurve.IsShortNF")
 *Simplified equation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.simple_equation))
 
 Every {bpref "ec"}[elliptic curve] over a {bpref "ring.field"}[field] $`k` whose {bpref "ring.characteristic"}[characteristic] is not 2 or 3 has a *simplified equation* (or *short Weierstrass model*) of the form $`y^2 = x^3 + Ax + B`.  When $`k=\mathbb{Q}` is the field of rational numbers, one can choose $`A` and $`B` to be integers.
@@ -1367,7 +1367,7 @@ The special value appears in the {bpref "ec.bsdconjecture"}[Birch and Swinnerton
 Depends on: {uses "ec"}[] {uses "ec.bsdconjecture"}[] {uses "lfunction"}[] {uses "lfunction.leading_coeff"}[] {uses "lfunction.normalization"}[] {uses "nf"}[]
 :::
 
-:::definition "ec.split_multiplicative_reduction"
+:::definition "ec.split_multiplicative_reduction" (lean := "WeierstrassCurve.HasSplitMultiplicativeReduction")
 *Split multiplicative reduction.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.split_multiplicative_reduction))
 
 An {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K` is said to have *split multiplicative reduction*  at a prime $`\mathfrak{p}` of $`K` if the reduction of $`E` modulo $`\mathfrak{p}` has a nodal singularity with both tangent slopes defined over the residue field at $`\mathfrak{p}`.
@@ -1399,7 +1399,7 @@ When $`K=\Q` the torsion order $`n` satisfies $`n\le16`, by a theorem of Mazur.
 Depends on: {uses "ec"}[] {uses "ec.mordell_weil_group"}[] {uses "ec.mordell_weil_theorem"}[] {uses "ec.torsion_subgroup"}[]
 :::
 
-:::definition "ec.torsion_subgroup"
+:::definition "ec.torsion_subgroup" (lean := "AddCommGroup.torsion")
 *Torsion subgroup of an elliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.torsion_subgroup))
 
 For an elliptic curve $`E` over a field $`K,` the *torsion subgroup* of $`E` over $`K` is the subgroup $`E(K)_{\text{tor}}` of the {bpref "ec.mordell_weil_group"}[Mordell-Weil group] $`E(K)` consisting of points of finite order.  For a number field $`K` this is always a finite group, since by the {bpref "ec.mordell_weil_theorem"}[Mordell-Weil Theorem] $`E(K)` is finitely generated.
@@ -1434,7 +1434,7 @@ Elliptic curve twists are a special case of {bpref "av.twist"}[twists of abelian
 Depends on: {uses "av.twist"}[] {uses "ec"}[] {uses "ec.j_invariant"}[] {uses "g2c.aut_grp"}[] {uses "ring.characteristic"}[] {uses "ring.field"}[]
 :::
 
-:::definition "ec.weierstrass_coeffs"
+:::definition "ec.weierstrass_coeffs" (lean := "WeierstrassCurve")
 *Weierstrass equation or model.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.weierstrass_coeffs))
 
 A *Weierstrass equation* or *Weierstrass model* over a field $`k` is a plane curve $`E` of the form
@@ -1454,7 +1454,7 @@ Two smooth Weierstrass models define isomorphic elliptic curves if and only if t
 Depends on: {uses "ec"}[]
 :::
 
-:::definition "ec.weierstrass_isomorphism"
+:::definition "ec.weierstrass_isomorphism" (lean := "WeierstrassCurve.VariableChange")
 *Isomorphism between Weierstrass models.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.weierstrass_isomorphism))
 
 Two {bpref "ec.weierstrass_coeffs"}[Weierstrass models] $`E`, $`E'` over a field $`K` with Weierstrass coefficients $`[a_1,a_2,a_3,a_4,a_6]` and $`[a'_1,a'_2,a'_3,a'_4,a'_6]` are *isomorphic over $`K`* if there exist $`u\in K^*` and $`r,s,t\in K` such that

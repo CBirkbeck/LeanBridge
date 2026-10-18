@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.dimension_mathlib_def}{Dimension (mathlib)}}
 \begin{definition}\label{cmf.dimension_mathlib_def}
 \uses{cmf.space,cmf.space_mathlib_def}
+\lean{Module.finrank}
 \leanok
 This is defined as `finrank ℂ (ModularForm Γ k)` in mathlib, where \hyperref[cmf.space_mathlib_def]{ModularForm $\Gamma$ $k$} is the \hyperref[cmf.space]{space of modular forms} and finrank ℂ gives its  \textbf{module rank} over $\mathbb{C}$.
 \end{definition}

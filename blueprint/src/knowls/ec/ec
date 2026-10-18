@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec}{Elliptic curve over a field}}
 \begin{definition}\label{ec}
 \uses{ag.curve,ag.curve.genus,ag.curve.smooth}
+\lean{WeierstrassCurve.IsElliptic}
 \leanok
 An \textbf{elliptic curve} $E$ over a field $k$ is a \hyperref[ag.curve.smooth]{smooth} \hyperref[ag.curve]{projective curve} of \hyperref[ag.curve.genus]{genus} $1$ together with a distinguished $k$-rational point $O$.
 

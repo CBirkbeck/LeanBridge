@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.fouriercoefficients_mathlib_def}{Fourier coefficients of a modular form (mathlib)}}
 \begin{definition}\label{cmf.fouriercoefficients_mathlib_def}
 \uses{cmf,cmf.q-expansion}
+\lean{PowerSeries.coeff}
 \leanok
 This is `(qExpansion h f).coeff n` in mathlib, where \(f:\mathcal H\to\mathbb{C}\) is the \hyperref[cmf]{modular form}, \(h\) is the period parameter used to define the \hyperref[cmf.q-expansion]{q-expansion} of \(f\), and `coeff n` extracts its \textbf{$n$-th coefficient}.
 \end{definition}

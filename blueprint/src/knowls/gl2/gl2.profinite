@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/gl2.profinite}{Profinite group}}
 \begin{definition}\label{gl2.profinite}
 \uses{}
+\lean{ProfiniteGrp}
 \leanok
 A \textbf{profinite group} is a compact totally disconnected topological group.  Equivalently, it is the inverse limit of a system of finite groups equipped with the discrete topology.
 
