@@ -1,0 +1,8 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/av.fq.cyclic_group_points}{Cyclic group of points}}
+\begin{definition}\label{av.fq.cyclic_group_points}
+\uses{ag.abelian_variety,av.isogeny_class,group.cyclic}
+We say that an \hyperref[av.isogeny_class]{isogeny class} of \hyperref[ag.abelian_variety]{abelian varieties} over a finite field $\F_q$ is \textbf{cyclic} if the group of points $A(\F_q)$ is \hyperref[group.cyclic]{cyclic} for every abelian variety $A$ in the isogeny class.
+
+\end{definition}
+
+

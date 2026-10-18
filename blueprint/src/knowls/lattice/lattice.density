@@ -1,9 +1,22 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.density}{Density of an integral lattice}}
 \begin{definition}\label{lattice.density}
-\uses{lattice.definition,lattice.dimension}
-The \textbf{density} of an $n\times n$ \hyperref[lattice.definition]{integral lattice} is  the density of the lattice-centered sphere packing in $\mathbb{R}^n$. 
+\uses{lattice.definition,lattice.dimension,lattice.gram,lattice.minimum,lattice.positive_definite}
+The density of a \hyperref[lattice.positive_definite]{positive definite} \hyperref[lattice.definition]{integral lattice} $L$ of \hyperref[lattice.dimension]{rank} $n$ is the density of the lattice-centered sphere packing in $\mathbb{R}^n$.  
 
-The \textbf{lattice packing problem} of \hyperref[lattice.dimension]{dimension} $n$ is to find the lattices which maximize the density. In general, these may not be solutions of the \textbf{sphere packing problem}, which asks for the maximum density of a sphere packing in which the centers of the spheres need not form an integral lattice.
+The volume of a sphere in dimension $n$ is
+\[
+V_n = \frac{\pi^{n/2}}{(n/2)!} = \frac{2^n \pi^{(n-1)/2}((n-1)/2)!}{n!},
+\]
+where the first form is most useful when $n$ is even and the second form most useful when $n$ is odd.  Suppose that $L$ has \hyperref[lattice.gram]{Gram matrix} $G$ and \hyperref[lattice.minimum]{minimum} $2\rho$.  Then the \textbf{density} of $L$ is
+\[
+\Delta = \frac{V_n \rho^n}{\sqrt{\det G}}
+\]
+while the \textbf{center density} of $L$ is
+\[
+\delta = \frac{\Delta}{V_n} = \frac{\rho^n}{\sqrt{\det G}}.
+\]
+
+The \textbf{lattice packing problem} of dimension $n$ is to find the \hyperref[lattice.positive_definite]{positive definite} lattices of rank $n$ which maximize the density. In general, these may not be solutions of the \textbf{sphere packing problem}, which asks for the maximum density of a sphere packing in which the centers of the spheres need not form an integral lattice.
 \end{definition}
 
 

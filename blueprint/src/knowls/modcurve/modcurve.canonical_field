@@ -5,7 +5,7 @@ Let $X_H$ be the \hyperref[modcurve]{modular curve} over $\mathbb{Q}$ associated
 
 Let $N$ be the \hyperref[modcurve.level]{level} of $H$, which is the smallest $N \ge 1$ such that $H$ is the inverse image of a subgroup $H_N \le \operatorname{GL}_2(\mathbb{Z}/N\mathbb{Z})$.  Then $K$ is a number field contained in $\mathbb{Q}(\zeta_N)$.  
 
-Since $K$ is abelian, it is independent of the choice of $C \in S$, and every geometric component of $X_H$ has a canonical model over $K$.
+Since $K$ is abelian, it is independent of the choice of $C$, and every geometric component of $X_H$ has a canonical model over $K$.
 
 Equivalently, $K$ can be defined as the ring of global regular functions of the $\mathbb{Q}$-scheme $X_H$.
 

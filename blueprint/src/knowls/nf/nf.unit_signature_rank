@@ -1,0 +1,13 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.unit_signature_rank}{Unit signature rank of a number field}}
+\begin{definition}\label{nf.unit_signature_rank}
+\uses{nf,nf.real_embedding}
+Let $K$ be a \hyperref[nf]{number field} with at least one \hyperref[nf.real_embedding]{real embedding}, and let $\sigma_1, \dots, \sigma_{r_1} : K \to \R$ be the $r_1$ real embeddings of $K$.  The \textbf{signature} of a nonzero element $\alpha \in K$ is the $r_1$-tuple of signs of $\sigma(\alpha)$ over all real embeddings $\sigma$ of $K$, viewed as lying in the additive group $\F_2$. I.e. the signature is the vector $(\text{sign}(\sigma_1(\alpha)), \dots, \text{sign}(\sigma_{r_1}(\alpha))) \in \F_2^{r_1}$, where $\text{sign}(x) = 0$ if $x$ is positive, otherwise $\text{sign}(x) = 1$ if $x$ is negative.
+
+The collection of all signatures of units $\alpha \in \mathcal{O}_K^\times$ can be viewed as a subspace of $\F_2^{r_1}$.  The dimension of this subspace (over $\F_2$) is the \textbf{unit signature rank} of $K$.
+
+By convention, we define the unit signature rank of a totally complex field to be $0$.
+
+If $K$ has at least one real embedding, then the unit signature rank is always a positive integer which is at most the number of real embeddings $r_1$ of $K$.  If $K$ is a real quadratic field, then the unit signature rank of $K$ is $1$ if the fundamental unit for $K$ has norm $1$, otherwise the unit signature rank of $K$ is $2$ if the fundamental unit for $K$ has norm $-1$.
+\end{definition}
+
+

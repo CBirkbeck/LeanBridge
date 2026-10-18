@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.x1.remarks}{Remarks on $X_1(N)$}}
 \begin{definition}\label{modcurve.x1.remarks}
-\uses{ag.bielliptic_curve,ag.hyperelliptic_curve}
+\uses{ag.bielliptic_curve,ag.hyperelliptic_curve,modcurve.rational_points}
 \leanok
 \hyperref[ag.hyperelliptic_curve]{Hyperelliptic curves}: There are only 
 <a href = "{{url\_for('modcurve.index\_Q',level='13,16,18',family="X1")}}">3 hyperelliptic curves in this family</a> 
@@ -9,6 +9,9 @@
 \hyperref[ag.bielliptic_curve]{Bielliptic curves}: There are only 
 <a href = "{{url\_for('modcurve.index\_Q',level='13,16,17,18,20,21,22,24',family="X1")}}">8 bielliptic curves in this family</a> 
 \cite{doi:10.4064/aa112-1-5,MR:2040593}.
+
+
+\hyperref[modcurve.rational_points]{Rational points}: There are only <a href = "{{url\_for('modcurve.index\_Q',level='1,2,3,4,5,6,7,8,9,10,12',family='X1')}}">11 curves in this family</a> that have non-cuspidal rational points \cite{doi.org/10.1007/BFb0063941, MR:0450283}. These are exactly the curves of genus 0.
 \end{definition}
 
 

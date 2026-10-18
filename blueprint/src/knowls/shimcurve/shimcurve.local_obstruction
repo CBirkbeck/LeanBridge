@@ -1,0 +1,9 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/shimcurve.local_obstruction}{Local obstruction }}
+\begin{definition}\label{shimcurve.local_obstruction}
+\uses{shimcurve,shimcurve.genus}
+A \hyperref[shimcurve]{Shimura curve} $X_H/\Q$ has a \textbf{local obstruction} (to rational points) if it has no real points, or if it has no $\Q_p$-points for some prime $p$.
+
+When $X$ has \hyperref[shimcurve.genus]{genus} $0$ the absence of local obstructions guarantees the existence of rational points, but this is not true in general.
+\end{definition}
+
+

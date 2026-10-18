@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.petersson_scalar_product}{Petersson scalar product}}
 \begin{definition}\label{cmf.petersson_scalar_product}
-\uses{cmf.cusp_form,group.fuchsian.fundamental_domain,group.subgroup.index}
+\uses{cmf.cusp_form,cmf.petersson_scalar_product_mathlib_def,group.fuchsian.fundamental_domain,group.subgroup.index}
+\leanok
 Let $f$ and $g$ be two modular forms with respect to a \hyperref[group.subgroup.index]{finite index} subgroup $G$ of $\Gamma$. When it exists, we define the 
 \textbf{Petersson scalar product} of $f$ and $g$ with respect to the group $G$ 
 by

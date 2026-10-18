@@ -1,0 +1,17 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.action}{Group action}}
+\begin{definition}\label{group.action}
+\uses{alg.binary_operation.identity,group}
+A (left) \textbf{group action} of a \hyperref[group]{group} $G$ on a set $A$ is a function
+$ \cdot : G\times A \to A $
+such that
+<ul>
+<li> for all $a\in A$, $e\cdot a = a$ where $e$ is the \hyperref[alg.binary_operation.identity]{identity} element of $G$
+  <li> for all $g,h\in G$ and all $a\in A$, $g\cdot (h\cdot a) = (gh)\cdot a$.
+</ul>
+
+The action is \textbf{transitive} if for all $a,b\in A$, there exists $g\in G$ such that $g\cdot a = b$.
+
+
+\end{definition}
+
+

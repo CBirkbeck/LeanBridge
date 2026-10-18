@@ -1,0 +1,7 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.algebraic}{Algebraic lattice}}
+\begin{definition}\label{lattice.algebraic}
+\uses{}
+A lattice is called \textbf{algebraic} if it can be realized as a free $\mathbb{Z}$-module in an algebraic number field.
+\end{definition}
+
+

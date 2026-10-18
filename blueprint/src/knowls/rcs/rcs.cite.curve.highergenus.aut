@@ -1,8 +1,13 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.cite.curve.highergenus.aut}{How to cite curves of higher genus with automorphism group data}}
 \begin{definition}\label{rcs.cite.curve.highergenus.aut}
 \uses{}
-\leanok
+<h2>Citation</h2>
 
+If you use the database of higher genus curves with automorphisms in your research please cite:
+
+J. Paulhus, \href{https://doi.org/10.1007/978-3-031-17859-7_35}{\textbf{A database of group actions on Riemann surfaces}}, in \textit{Birational geometry, K\"ahler-Einstein metrics and degenerations}, 693--708, Springer Proc. Math. Stat., 409, Springer, Cham, \cite{MR:4606662},
+
+as well as any of the references cited above that are of particular relevance.
 \end{definition}
 
 

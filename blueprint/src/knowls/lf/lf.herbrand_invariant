@@ -35,7 +35,7 @@ Alternatively, one can start with a Herbrand invariant $I$ and then
 identify fields $K$ such that there exist extensions $L/K$ whose
 Herbrand invariant is $I$.  Let $I=(r_1,\dots,r_w)_{\epsilon}^f$, with
 $r_1,\dots,r_w$ a weakly increasing sequence of positive rationals and
-$\epsilon,f\in\N$.  Let $b_1<\dots<b_t$ be the distinct elements of
+$\epsilon,f\in\N$.  Let $b_1 < \dots < b_t$ be the distinct elements of
 $r_1,\dots,r_w$ and let $d_i$ be the multiplicity of $b_i$.  Let $K$
 be a $p$-adic field and let $e_K$ be the
 \hyperref[lf.ramification_index]{absolute ramification index}
@@ -46,7 +46,7 @@ of the following must hold:
 \begin{itemize}
 \item  $p\nmid(p^{d_i}-1)b_i$ and
 \end{itemize}
-  $b_i<\displaystyle\frac{p^{d_1+\dots+d_{i-1}+1}\epsilon e_K}{p-1}$,
+  $b_i < \displaystyle\frac{p^{d_1+\dots+d_{i-1}+1}\epsilon e_K}{p-1}$,
 
 \begin{itemize}
 \item  $d_i=1$ and $b_i=\displaystyle\frac{p^{d_1+\dots+d_{i-1}+1}\epsilon e_K}{p-1}$.

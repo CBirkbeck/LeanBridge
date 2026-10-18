@@ -1,0 +1,14 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/gg.malle_b}{Malle's constant $b(G)$}}
+\begin{definition}\label{gg.malle_b}
+\uses{gg.index,gg.malle_a,group.division,group.subgroup}
+Let $G$ be a \hyperref[group.subgroup]{subgroup} of $S_n$ and $\mathrm{CL}_{\Q}(G)$ the collection of \hyperref[group.division]{rational conjugacy classes} of $G$.
+
+\textbf{Malle's constant $b(G)$}  is defined to be
+\[ b(G)=\# \{ C \in \mathrm{CL}_{\Q}(G) : \textrm{ind}(C) = a(G)^{-1}\}  \]
+where $\textrm{ind}(C)$ is the \hyperref[gg.index]{index} of $C$. Here $a(G)$ is \hyperref[gg.malle_a]{Malle's constant $a(G)$}, so that $b(G)$ is the number of non-identity rational conjugacy classes of $G$ of minimal index.
+
+These constants appear in the conjectures of Malle on asymptotics for the number of number fields with a given Galois group $G\leq S_n$ \cite{MR1884706}, \cite{MR2068887}.
+
+\end{definition}
+
+

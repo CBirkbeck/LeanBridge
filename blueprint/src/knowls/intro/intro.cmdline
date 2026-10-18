@@ -1,0 +1,14 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/intro.cmdline}{Command line interface}}
+\begin{definition}\label{intro.cmdline}
+\uses{}
+\leanok
+The LMFDB offers a command line interface, which you can access by cloning the [LMFDB repository](https://github.com/lmfdb/lmfdb); see the documentation [here](https://github.com/lmfdb/lmfdb/blob/cmdline/CommandLineSearch.md).  Running this interface requires that [Sage](https://sagemath.org) be installed, but it offers several kinds of access via the command line:
+
+\begin{itemize}
+\item  search input and output parsing and download files as done through the website, replicating many online features.
+\item  dictionary parsing as in [psycodict](https://github.com/roed314/psycodict), replicating much of the functionality of [lmfdb-lite](https://github.com/roed314/lmfdb-lite).
+\item  raw SQL access, allowing for queries that are difficult to perform with other methods.
+\end{itemize}
+\end{definition}
+
+

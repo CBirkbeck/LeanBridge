@@ -1,0 +1,20 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.discriminant_group}{Discriminant group}}
+\begin{definition}\label{lattice.discriminant_group}
+\uses{group.abelian,lattice.definition,lattice.dual,lattice.genus,lattice.parity,lattice.signature}
+For an \hyperref[lattice.definition]{integral lattice} $L$ with associated bilinear form $B$, the \textbf{discriminant group} is the finite \hyperref[group.abelian]{abelian group} $L^\vee / L$, where $L^\vee$ is the \hyperref[lattice.dual]{dual lattice} of $L$.
+
+The discriminant group is trivial if and only if $L$ is self-dual (i.e. unimodular).
+
+The discriminant group $L^\vee/L$ is equipped with a \textbf{torsion bilinear form}:
+
+$$ B_L\colon L^\vee/L\times L^\vee/L\to \mathbb{Q}/\mathbb{Z},\, (u+L, v+L)\mapsto B(u,v)+\mathbb{Z}.$$
+If the integral lattice $L$ is \hyperref[lattice.parity]{even}, the group $L^\vee/L$ is moreover equipped with a \textbf{torsion quadratic form}:
+$$ Q_L\colon L^\vee/L\to\mathbb{Q}/2\mathbb{Z},\, u+L\mapsto B(u,u)+2\mathbb{Z}.$$
+
+For a set of generators $\{u_1+L,\ldots, u_r+L\}$ of $L^\vee/L$, one can represent the form $Q_L$ (resp. $B_L$ if $L$ is  \hyperref[lattice.parity]{odd}) by a \textbf{Gram matrix} $M$: The diagonal entries of $M$ are given by rational representatives of $Q_L(u_i+L)\in\mathbb{Q}/2\mathbb{Z}$ (resp. of $B_L(u_i+L, u_i+L)\in\mathbb{Q}/\mathbb{Z}$) for all $1\leq i\leq r$, and the off-diagonal entries are given by rational representatives of $B_L(u_i+L, u_j+L)\in\mathbb{Q}/\mathbb{Z}$ for all $i\neq j$.
+
+The isometry class of the pair $(L^\vee/L, Q_L)$ as a finite abelian group equipped with a torsion quadratic form (resp. of the pair $(L^\vee/L, B_L)$ as a finite abelian group equipped with a torsion bilinear form, if $L$ is odd) is uniquely determined by the \hyperref[lattice.genus]{genus} of $L$. Its isometry class is thus an intrinsic invariant of the genus, and together with the \hyperref[lattice.signature]{signature} they uniquely determine the genus of $L$.
+
+\end{definition}
+
+

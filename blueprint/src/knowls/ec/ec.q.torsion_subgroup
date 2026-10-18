@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.q.torsion_subgroup}{Torsion subgroup of an elliptic curve over $\mathbb Q$}}
 \begin{definition}\label{ec.q.torsion_subgroup}
 \uses{}
+\leanok
 If $E$ is an elliptic curve defined over $\mathbb{Q}$, its \textbf{torsion subgroup} is the subgroup of the Mordell-Weil group $E(\mathbb{Q})$ consisting of all the rational points of finite order.  It is a finite abelian group of order at most $16$ (by a theorem of Mazur), which is a product of at most $2$ cyclic factors.  The "torsion structure" is the list of invariants of the group:
 
 \begin{itemize}

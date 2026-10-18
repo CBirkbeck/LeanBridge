@@ -1,0 +1,8 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/av.fq.noncyclic_primes}{Non-cyclic primes}}
+\begin{definition}\label{av.fq.noncyclic_primes}
+\uses{ag.abelian_variety,av.fq.cyclic_group_points,av.isogeny_class,group.cyclic,group.primary_decomposition}
+We say that an \hyperref[av.isogeny_class]{isogeny class} of \hyperref[ag.abelian_variety]{abelian varieties} over a finite field $\F_q$ is \textbf{non-cyclic at $\ell$} if the \hyperref[group.primary_decomposition]{$\ell$-primary part} of the group of points $A(\F_q)$ is \hyperref[group.cyclic]{non-cyclic} for some abelian variety $A$ in the isogeny class.  If an isogeny class is not \hyperref[av.fq.cyclic_group_points]{cyclic} then there exists at least one prime $\ell$ so that it is non-cyclic at $\ell$.
+
+\end{definition}
+
+

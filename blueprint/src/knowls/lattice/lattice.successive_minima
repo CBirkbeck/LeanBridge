@@ -1,0 +1,13 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.successive_minima}{Successive minima}}
+\begin{definition}\label{lattice.successive_minima}
+\uses{}
+\textbf{Successive minima} $\lambda_1,\dots,\lambda_n$ of a $\boldsymbol 0$-symmetric convex body $K \subset \mathbb{R}^n$ with respect to a full-rank lattice $L \subset \mathbb{R}^n$ is defined as $\lambda_i = \min \{ t > 0 : \text{dim}_{\mathbb{R}} \text{span}_{\mathbb{R}}(tK \cap L) \geq i \}$. Then $0 < \lambda_1 \leq \dots \leq \lambda_n$, and
+$$\frac{2^n \text{det}(L)}{n! \text{Vol}(K)} \leq \lambda_1 \cdots \lambda_n \leq \frac{2^n \text{det}(L)}{\text{Vol}(K)},$$
+by Minkowski's Successive Minima Theorem. Successive minima of $L$ are the successive minima of the unit ball with respect to $L$.
+
+
+
+
+\end{definition}
+
+

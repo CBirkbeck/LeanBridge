@@ -1,0 +1,7 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.festi_veniani_index}{Festi-Veniani index of a lattice}}
+\begin{definition}\label{lattice.festi_veniani_index}
+\uses{lattice.automorphism_group,lattice.definition,lattice.discriminant_group}
+For an \hyperref[lattice.definition]{integral lattice} $L$, the \textbf{Festi--Veniani index} of $L$ is the index of the \hyperref[lattice.automorphism_group]{automorphism group} of $L$ in the automorphism group of the \hyperref[lattice.discriminant_group]{discriminant group} $L^\vee/L$.
+\end{definition}
+
+

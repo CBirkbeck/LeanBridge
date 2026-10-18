@@ -18,7 +18,7 @@ where $e_L=v_L(p)$ is the absolute \hyperref[lf.ramification_index]{ramification
 $L$.  
 
 It follows that
-$0=i_{\nu}<i_{\nu-1}\le\dots\le i_1\le i_0$.  The value
+$0=i_{\nu} < i_{\nu-1}\le\dots\le i_1\le i_0$.  The value
 of $i_j^{\pi_L}$ can depend on the choice of $\pi_L$,
 but $i_j$ depends only on $L/K$.  The fact that $i_j$ is
 well-defined puts constraints on the possibilities for

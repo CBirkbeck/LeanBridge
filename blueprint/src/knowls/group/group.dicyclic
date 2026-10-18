@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.dicyclic}{Dicyclic group}}
 \begin{definition}\label{group.dicyclic}
 \uses{group,group.cyclic,group.order,group.semidirect_product}
+\leanok
 A \textbf{dicyclic group} of \hyperref[group.order]{order} $4n$, denoted $\mathrm{Dic}_n$ or $Q_{4n}$, is a non-split extension of a \hyperref[group.cyclic]{cyclic} \hyperref[group]{group} of order $2n$ by a cyclic group of order $2$.  That is, $\mathrm{Dic}_n$ has a subgroup of index $2$ which is cyclic, but it is not a \hyperref[group.semidirect_product]{semidirect product} of that subgroup and a subgroup of order $2$.
 
 The dicyclic group of order $4n$ can be given by generators and relations:

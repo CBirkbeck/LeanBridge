@@ -3,7 +3,7 @@
 \uses{ec,ec.global_minimal_model,ec.q.discriminant,ec.q.real_period,ec.weierstrass_coeffs,group.rank}
 For $E$ an \hyperref[ec]{elliptic curve} defined over $\C$ by a \hyperref[ec.weierstrass_coeffs]{Weierstrass equation} with coefficients $a_1,a_2,a_3,a_4,a_6$, the \textbf{period lattice} of $E$ is the set $\Lambda$ of periods of the invariant differential $dx/(2y+a_1x+a_3)$, which is a discrete lattice of \hyperref[group.rank]{rank} $2$ in $\C$.   There is an isomorphism (of complex Lie groups) $\C/\Lambda \cong E(\C)$ defined in terms of the Weierstrass $\wp$-function.
 
-For elliptic curves defined over $\R$ (and in particular, for those defined over $\Q$), the period lattice has one of two possible types dependng on the sign of the \hyperref[ec.q.discriminant]{discriminant} $\Delta$ of $E$:
+For elliptic curves defined over $\R$ (and in particular, for those defined over $\Q$), the period lattice has one of two possible types depending on the sign of the \hyperref[ec.q.discriminant]{discriminant} $\Delta$ of $E$:
 
 \begin{itemize}
 \item  If $\Delta>0$, then $\Lambda$ is *rectangular*, with a $\Z$-basis of the form $\left<x,yi\right>$, where $x$ and $y$ are positive real numbers; in this case, $E(\R)$ has two connected components.

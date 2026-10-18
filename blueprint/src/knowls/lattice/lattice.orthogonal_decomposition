@@ -1,0 +1,21 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.orthogonal_decomposition}{Orthogonal decomposition of a lattice}}
+\begin{definition}\label{lattice.orthogonal_decomposition}
+\uses{}
+Let $L$ be an integral lattice, with bilinear form $B : L \times L \to \Z$. An \textbf{orthogonal decomposition} of $L$ is a direct sum decomposition
+
+$$ L = L_1 \oplus L_2 \oplus \dots \oplus L_r $$
+
+such that $B(x_i, x_j) = 0$ for all $x_i \in L_i$, $x_j \in L_j$, where $i \not = j$.  Equivalently, if $G$ is the Gram matrix of $L$, then after a suitable change of basis, it has the block diagonal form
+
+$$ G = \begin{pmatrix}  G_1 & & & \\ & G_2 & & \\ & & \ddots & \\ & & & G_r  \end{pmatrix} $$
+
+where each $G_i$ is a Gram matrix for $L_i$.
+
+ A lattice is (orthogonally) \textbf{indecomposable} if it does not admit a non-trivial orthogonal decomposition.
+
+A theorem of Kneser states that every lattice admits a unique orthogonal decomposition into indecomposable summands.  This decomposition is unique up to ordering and isometry of the summands.
+
+
+\end{definition}
+
+

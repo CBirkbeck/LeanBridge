@@ -1,0 +1,23 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.inertial_height_function}{Inertial height function}}
+\begin{definition}\label{nf.inertial_height_function}
+\uses{}
+Let $G$ be a finite group. A \textbf{weight function} on $G$ is a a function $w:G \to \R_{\geq 0}$ such that:
+
+1. $w(g) = 0$ if and only if $g$ equals the identity element of $G$.
+2. $w(h g h^{-1}) = w(g)$ for all $g,h \in G$, i.e. $w$ is invariant under conjugacy.
+3. $w(g^n) = w(g)$ for all $g \in G$ and all natural numbers $n$ with $n \nmid \#G$, i.e. $w$ is invariant under invertible powering.
+
+Let $p$ be a prime with $p \nmid \#G$ and $\Gamma_{\Q_p}$ the absolute Galois group of $\Q_p$. We define the \textbf{local height function} associated to $w$ to be
+$$H_{w,p}: \Hom(\Gamma_{\Q_p}, G) \to \R_{>0}, \quad \varphi \mapsto w(\varphi(\tau_p))$$
+where $\tau_p$ is any choice of generator of the tame inertia group of $\Gamma_{\Q_p}$. 
+
+For $p \mid \#G$, we take $H_p: \Hom(\Gamma_{\Q_p}, G) \to \R_{>0}$ to be any positive function on the finite set $\Hom(\Gamma_{\Q_p}, G)$. We define the associated \textbf{inertial height function} to be
+$$H: \Hom(\Gamma_{\Q}, G) \to \R_{>0}, \quad \varphi \mapsto \prod_{p \mid \#G} H_p(\varphi) \prod_{p \mid \#G} H_{w,p}(\varphi)$$
+the product of local heights. 
+
+For example taking the weight function $w$ with $w(g) = 1$ for all non-identity elements $g \in G$, an associated inertial height function is the \textbf{radical discriminant}: the product of primes which are ramified in the corresponding number field.
+
+More general weight functions can be considered over more general base number fields. See ??? for further details.
+\end{definition}
+
+

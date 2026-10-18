@@ -1,0 +1,9 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.root_sublattice}{Root sublattice}}
+\begin{definition}\label{lattice.root_sublattice}
+\uses{lattice.definition,lattice.positive_definite}
+The \textbf{root sublattice} of a \hyperref[lattice.positive_definite]{positive definite} \hyperref[lattice.definition]{integral lattice} $L$ is the sublattice of $L$ spanned by vectors of length at most equal to 2.
+
+A positive definite integral lattice $L$ is called a \textbf{root lattice} if it is equal to its root sublattice.
+\end{definition}
+
+

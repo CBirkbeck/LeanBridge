@@ -1,0 +1,13 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.cande.shimcurve}{Completeness of the Shimura curve database}}
+\begin{definition}\label{rcs.cande.shimcurve}
+\uses{shimcurve,shimcurve.aut_pm_mu_o,shimcurve.disco,shimcurve.is_coarse}
+\leanok
+The database currently contains data on the following \hyperref[shimcurve]{Shimura curves}: 
+
+\begin{itemize}
+\item  $X(D;1)$ for $D\in\Z_{>0}$ squarefree and $D\leq 1000$,
+\item  all $X_H$ for $H \le$ \hyperref[shimcurve.aut_pm_mu_o]{$\Aut_{\pm\mu}(O)$} $\ltimes (O/NO)^{\times}$ where $O$ is a maximal order of \hyperref[shimcurve.disco]{reduced discriminant} $6$, $H$ \hyperref[shimcurve.is_coarse]{coarse}, and $N=2, 3, 4$, and $6$. 
+\end{itemize}
+\end{definition}
+
+

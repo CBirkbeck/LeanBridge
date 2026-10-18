@@ -1,0 +1,7 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.arithmetic}{Arithmetic lattice}}
+\begin{definition}\label{lattice.arithmetic}
+\uses{lattice.definition,lattice.similarity}
+A lattice is called \textbf{arithmetic} if it is \hyperref[lattice.similarity]{similar} to an \hyperref[lattice.definition]{integral lattice}.
+\end{definition}
+
+

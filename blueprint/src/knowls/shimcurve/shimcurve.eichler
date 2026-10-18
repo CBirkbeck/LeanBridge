@@ -1,0 +1,7 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/shimcurve.eichler}{Eichler Orders}}
+\begin{definition}\label{shimcurve.eichler}
+\uses{shimcurve.disco,shimcurve.order,shimcurve.quaternion_algebra}
+An \textbf{Eichler \hyperref[shimcurve.order]{order}} $O$ inside a \hyperref[shimcurve.quaternion_algebra]{quaternion algebra} $B$ is the intersection of two (not necessarily distinct) maximal orders. Over $\Q$, the \hyperref[shimcurve.disco]{reduced discriminant} of an Eichler order $O$ is of the form $\mathrm{disc}(O)=D\cdot M$ with $\gcd(D,M)=1$, in which case we say $O$ is \textbf{Eichler of level $M$}. 
+\end{definition}
+
+

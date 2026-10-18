@@ -8,9 +8,13 @@ $P_K$ which are principal.  If $P_K=(\pi_K)$, the element $\pi_K$ is a
 \textbf{uniformizer} for $K$.
 
 We have $\pi_K\mathcal{O}_L=P_L^e$ for some positive integer $e$, which factors as $e = p^w e_{\mathrm{tame}}$ with $e_{\mathrm{tame}}$ coprime to $p$.  The integer $e$
-is the \textbf{ramification index}, $w$ is the \textbf{wild ramification exponent} and $e_{\mathrm{tame}}$ is the \textbf{tame ramification index} of $L/K$.  If $e=1$ we say that the
-extension $L/K$ is \textbf{unramified}, and if $e=[L:K]$ we say that $L/K$
-is \textbf{totally ramified}.
+is the \textbf{ramification index}, $w$ is the \textbf{wild ramification exponent} and $e_{\mathrm{tame}}$ is the \textbf{tame ramification index} of $L/K$.  
+
+\begin{itemize}
+\item  If $e=1$ we say that the extension $L/K$ is \textbf{unramified}.
+\item  If $e=[L:K]$ we say that $L/K$ is \textbf{totally ramified}.
+\item  If $p \nmid e$ we say that $L/K$ is \textbf{tamely ramified}.
+\end{itemize}
 
 The \textbf{base ramification index} $e_0$ of $L/K$ is the ramification index of $K/\Q_p$.
 The \textbf{absolute ramification index} $e_{\mathrm{abs}}$ of $L/K$ is the ramification index of

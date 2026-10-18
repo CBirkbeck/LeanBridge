@@ -1,0 +1,9 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.perfect}{Perfect lattice}}
+\begin{definition}\label{lattice.perfect}
+\uses{lattice.arithmetic,lattice.minimal_vector,lattice.similarity,lattice.well_rounded}
+A lattice $L$ in $\mathbb{R}^n$ is called \textbf{perfect} if the space of $n \times n$ real symmetric matrices is spanned by the set of $n \times n$ symmetric matrices
+$$\{ x x^{\top} : x \in S(L) \},$$
+where $S(L)$ is the set of \hyperref[lattice.minimal_vector]{minimal vectors} of $L$. A perfect lattice is \hyperref[lattice.well_rounded]{well-rounded}, \hyperref[lattice.arithmetic]{arithmetic}, and is uniquely determined by its minimal vectors. Further, there are only finitely many \hyperref[lattice.similarity]{similarity classes} of perfect lattices in each dimension $n \geq 2$.
+\end{definition}
+
+

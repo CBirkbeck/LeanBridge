@@ -1,0 +1,11 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.spherical_design}{Spherical design lattice}}
+\begin{definition}\label{lattice.spherical_design}
+\uses{lattice.eutactic,lattice.minimal_vector,lattice.perfect}
+A collection of $m \geq 1$ points $\{ v_1,\dots,v_m \}$ on a sphere $S_n(r)$ of radius $r >0$ in $\mathbb{R}^n$ centered at the origin is a called a \textbf{spherical $t$-design} if for every polynomial $f(x) = f(x_1,\dots,x_n)$ in $n$ variables with real coefficients of degree no bigger than $t$, $t \geq 1$,
+$$\int_{S_n(r)} f(x) dx = \frac{1}{m} \sum_{i=1}^m f(v_i),$$
+where the measure $dx$ is normalized so that the measure of $S_n(r)$ is $1$. A lattice $L$ is called a \textbf{spherical $t$-design lattice} if its set of \hyperref[lattice.minimal_vector]{minimal vectors} $S(L)$ is a spherical $t$-design. 
+
+A lattice is a spherical $2$-design if and only if it is \hyperref[lattice.eutactic]{strongly eutactic}. A lattice $L$ is called \textbf{strongly perfect} if it is a spherical $4$-design; this last condition implies that it is \hyperref[lattice.perfect]{perfect} and is a strictly stronger condition.
+\end{definition}
+
+

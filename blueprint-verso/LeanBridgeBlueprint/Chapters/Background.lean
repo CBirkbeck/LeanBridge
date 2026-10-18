@@ -239,6 +239,8 @@ Depends on: {uses "ag.abelian_variety"}[] {uses "ag.dimension"}[]
 
 $$`(x_0,x_1,\dots,x_n) \sim (y_0,y_1,\dots,y_n) \iff x_0=\lambda y_0, \dots, x_n=\lambda y_n\quad\text{for some}\ \lambda\in K^*.`
 
+This is also known as the *projectivization* of the vector space $`K^{n+1}`.
+
 The equivalence class of $`(x_0,x_1,\dots,x_n)` in $`\mathbb{P}^n(K)` is denoted by $`(x_0:x_1:\dots:x_n)`, and the $`x_i` are called *homogeneous coordinates*.  Thus
 
 $$`\mathbb{P}^n(K) = \{(x_0:\dots:x_n)\mid x_0,\dots,x_n\in K,\ \text{not all zero}\}.`
@@ -302,7 +304,7 @@ Depends on: {uses "ag.affine_space"}[] {uses "ag.projective_space"}[] {uses "rin
 :::definition "alg.binary_operation"
 *Binary operation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/alg.binary_operation))
 
-A *binary operation* on a set $`S` is a function $`S\times S\to S`.
+A *binary operation*,  on a set $`S` is a function $`S\times S\to S`.
 
 If the operation is denoted by $`*`, then the output of this function applied to $`(s_1,s_2)` is typically denoted $`s_1*s_2`.
 :::
@@ -842,7 +844,7 @@ Depends on: {uses "gl2.cartan"}[]
 :::definition "group"
 *Definition of group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group))
 
-A *group* $`\langle G, *\rangle` is a set $`G` with a {bpref "alg.binary_operation"}[binary operation] $`*` such that
+A *group*   $`\langle G, *\rangle` is a set $`G` with a {bpref "alg.binary_operation"}[binary operation] $`*` such that
 
 1. $`*` is {bpref "alg.binary_operation.associative"}[associative]
 2. $`*` has an {bpref "alg.binary_operation.identity"}[identity element]
@@ -1192,9 +1194,19 @@ Depends on: {uses "lf.local_field"}[] {uses "lf.ring_of_integers"}[] {uses "nf.a
 *$`p`-adic field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.padic_field))
 
 A *$`p`-adic field* (or *local number field*) is a finite extension of
-$`\Q_p`, equivalently, a {bpref "lf.local_field"}[nonarchimedean local field] of {bpref "ring.characteristic"}[characteristic] zero.
+{bpref "lf.qp"}[$`\Q_p`], equivalently, a {bpref "lf.local_field"}[nonarchimedean local field] of {bpref "ring.characteristic"}[characteristic] zero.
 
-Depends on: {uses "lf.local_field"}[] {uses "ring.characteristic"}[]
+Depends on: {uses "lf.local_field"}[] {uses "lf.qp"}[] {uses "ring.characteristic"}[]
+:::
+
+:::definition "lf.qp"
+*Definition of $`\Q_p`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.qp))
+
+If $`p` is a prime number, then every rational number $`r` can be written in the form $`r=p^j \frac{a}{b}` where $`\gcd(p, ab)=1`.  We define $`|r|_p = p^{-j}`, and define a metric on $`\Q` by $`d(u,v) = |u-v|_p`; in other words, $`u` and $`v` are close to each other if they are congruent modulo a larger power of $`p`.
+
+The completion of $`\Q` with respect to this metric is the field of *p-adic numbers*, denoted as $`\Q_p`. Any non-zero element $`x \in \Q_p` can be written uniquely as the sum of a convergent series $`x = \sum_{n=n_0}^{+\infty} a_n p^n`, where $`a_n \in \{ 0, \cdots, p-1 \}`, $`n_0 \in \Z` is such that $`|x|_p=p^{-n_0}`, and $`a_{n_0} \neq 0`.
+
+Example: the element $`a = 3 + 7 + 2 \cdot 7^2 + 6 \cdot 7^3 + 7^4 + 2 \cdot 7^5 + \cdots` satisfies $`a^2=2`, since truncating the expansion after $`n` terms and squaring yields a number which is congruent to $`2 \bmod 7^n`.
 :::
 
 :::definition "lf.residue_field"
@@ -1532,7 +1544,7 @@ The {bpref "alg.binary_operation.identity"}[identity] element of $`R` as a group
 
 The ring $`R` is a *commutative ring* if $`R` is a ring such that the operation $`\cdot` is {bpref "alg.binary_operation.commutative"}[commutative] on $`R`.
 
-We say that $`R` is a *rng* (also called *ring without identity*) if conditions 1-3 (but not necessarily 4) are satisfied.
+We say that $`R` is a *rng* (also called *ring without identity* or *non-unital ring*) if conditions 1-3 (but not necessarily 4) are satisfied.
 
 Depends on: {uses "alg.binary_operation"}[] {uses "alg.binary_operation.associative"}[] {uses "alg.binary_operation.commutative"}[] {uses "alg.binary_operation.identity"}[] {uses "group.abelian"}[]
 :::
@@ -1596,7 +1608,15 @@ If $`R` is an {bpref "ring.integral_domain"}[integral domain], then its *field o
 
 It can be constructed by mimicking the set of fractions $`a/b` where $`a,b\in R` with $`b\neq 0` following the usual rules for fraction arithmetic.  It is unique, up to unique isomorphism.
 
-Depends on: {uses "ring.field"}[] {uses "ring.integral_domain"}[]
+Depends on: {uses "ring.field"}[] {uses "ring.field_of_fractions_mathlib"}[] {uses "ring.integral_domain"}[]
+:::
+
+:::definition "ring.field_of_fractions_mathlib"
+*Field of fractions (mathlib).* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ring.field_of_fractions_mathlib))
+
+This is also defined in mathlib as *Fraction Ring*, which is the localisation at the non-zero divisors of your ring. When your ring $`R` is a {bpref "ring"}[commutative ring] and an {bpref "ring"}[integral domain] then gets the fact that this is a field.
+
+Depends on: {uses "ring"}[]
 :::
 
 :::definition "ring.fractional_ideal"
@@ -1681,7 +1701,7 @@ Depends on: {uses "ring"}[] {uses "ring.ideal"}[]
 :::definition "ring.prime_ideal"
 *Prime ideal.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ring.prime_ideal))
 
-If $`R` is a {bpref "ring"}[commutative ring] $`R`, an {bpref "ring.ideal"}[ideal] $`I` is *prime* if for all $`a,b\in R`,
+If $`R` is a {bpref "ring"}[commutative ring] $`R`, an {bpref "ring.ideal"}[ideal] $`I \ne R` is *prime* if for all $`a,b\in R`,
 
 $$`ab\in I \implies a\in I \quad \text{or}\quad b\in I.`
 

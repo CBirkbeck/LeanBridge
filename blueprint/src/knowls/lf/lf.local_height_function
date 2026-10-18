@@ -1,0 +1,16 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.local_height_function}{Local height function}}
+\begin{definition}\label{lf.local_height_function}
+\uses{group.galois.absolute,group.weight_function,lf.inertia_group,lf.ramification_index}
+Let $G$ be a finite group and $w$ a \hyperref[group.weight_function]{weight function} on $G$.
+
+Let $p$ be a prime with $p \nmid \#G$ and $\Gamma_{\Q_p}$ the \hyperref[group.galois.absolute]{absolute Galois group} of $\Q_p$. Let $\varphi_p: \Gamma_{\Q_p} \to G$ be a continuous homomorphism and $K_{\varphi_p} = \overline{\Q}_p^{\ker \varphi_p}$ the associated finite extension of $\Q_p$. As $p \nmid \#G$ the extension $\Q_p \subset K_{\varphi_p}$ is \hyperref[lf.ramification_index]{tamely ramified}, thus its \hyperref[lf.inertia_group]{inertia group} is cyclic  \cite{href{https://stacks.math.columbia.edu/tag/09EE}{tag 09EE}}. Let $\tau_p \in \Gal(K_{\varphi_p}/\Q_p)$ be a choice of generator of the inertia group. 
+
+
+We define the \textbf{local height} of $\varphi_p$ with respect to $w$ to be 
+$$H_{w,p}(\varphi_p):=w(\varphi_p(\tau_p)).$$
+This yields a well-defined \textbf{local height function}
+$H_{w,p}: \Hom_{\textrm{cts}}(\Gamma_{\Q_p}, G) \to \R_{>0}$
+associated to $w$.
+\end{definition}
+
+

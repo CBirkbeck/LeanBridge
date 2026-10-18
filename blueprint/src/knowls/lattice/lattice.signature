@@ -1,0 +1,9 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.signature}{Signature of an integral lattice}}
+\begin{definition}\label{lattice.signature}
+\uses{lattice.definition,lattice.gram,lattice.nondegenerate,lattice.positive_definite}
+For a \hyperref[lattice.nondegenerate]{nondegenerate} \hyperref[lattice.definition]{integral lattice} $L$, the \textbf{signature} of $L$ is a pair $(n_+, n_-)$, where $n_+$ (resp. $n_-$) is the number of positive (resp. negative) eigenvalues of a \hyperref[lattice.gram]{Gram matrix} for $L$.  Note that the \hyperref[lattice.nondegenerate]{signature} of a degenerate lattice has an extra component $n_0$ for the number of $0$ eigenvalues.  The signature classifies lattices up to isometry over the real numbers.
+
+If $L$ has signature $(n,0)$ we say it is \hyperref[lattice.positive_definite]{positive definite}; if it has signature $(0,n)$ we say it is \textbf{negative definite}; otherwise we say it is \textbf{indefinite}.
+\end{definition}
+
+

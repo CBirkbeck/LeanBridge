@@ -14,7 +14,7 @@ This chapter lists the LMFDB definitions relating to *number fields*, migrated f
 :::definition "nf"
 *Number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf))
 
-A *number field* is a finite degree field extension of the field $`\Q` of rational numbers. In LMFDB, number fields are identified by a label.
+A *number field* is a field extension of finite {bpref "nf.degree"}[degree] of the field $`\Q` of rational numbers. In the LMFDB, number fields are identified by a label.
 
 Depends on: {uses "nf.degree"}[]
 :::
@@ -119,6 +119,14 @@ Depends on: {uses "nf"}[]
 *Degree of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.degree))
 
 The *degree* of a {bpref "nf"}[number field] $`K` is its degree as an extension of the rational field $`\mathbb{Q}`, i.e., the dimension of $`K` as a $`\mathbb{Q}`-vector space.  The degree of $`K/\Q` is written $`[K:\mathbb{Q}]`.
+
+Depends on: {uses "nf.degree_mathlib_def"}[]
+:::
+
+:::definition "nf.degree_mathlib_def"
+*Number field degree (mathlib).* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.degree_mathlib_def))
+
+This is also defined in mathlib as 'finrank ℚ K', where $`K` is the number field and 'finrank ℚ' is its *module rank* over the rationals.
 :::
 
 :::definition "nf.dirichlet_group"
@@ -152,7 +160,7 @@ Depends on: {uses "nf"}[] {uses "nf.integral_basis"}[]
 :::definition "nf.discriminant_root_field"
 *Discriminant root field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.discriminant_root_field))
 
-If $`K/F` is a finite algebraic extension, it can be defined by a polynomial $`f(x)\in F[x]`.  The polynomial discriminant, $`\mathrm{disc}(f)`, is well-defined up a factor of a non-zero square.  The *discriminant root field* of the extension is $`F(\sqrt{\mathrm{disc}(f)})`, which is well-defined.
+If $`K/F` is a finite algebraic extension, it can be defined by a polynomial $`f(x)\in F[x]`.  The *polynomial discriminant*, $`\mathrm{disc}(f)`, is well-defined up a factor of a non-zero square.  The *discriminant root field* of the extension is $`F(\sqrt{\mathrm{disc}(f)})`, which is well-defined.
 
 If $`n=[K:F]`, then the Galois group $`G` for $`K/F` is a subgroup of $`S_n`, well-defined up to conjugation.  The discriminant root field can alternatively be described as the fixed field of $`G\cap A_n`.
 :::
@@ -255,6 +263,32 @@ In the LMFDB we always represent number fields as $`K = \mathbb{Q}[X]/(g(X))` wh
 Depends on: {uses "nf.polredabs"}[]
 :::
 
+:::definition "nf.inertial_height_function"
+*Inertial height function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.inertial_height_function))
+
+Let $`G` be a finite group. A *weight function* on $`G` is a a function $`w:G \to \R_{\geq 0}` such that:
+
+1. $`w(g) = 0` if and only if $`g` equals the identity element of $`G`.
+2. $`w(h g h^{-1}) = w(g)` for all $`g,h \in G`, i.e. $`w` is invariant under conjugacy.
+3. $`w(g^n) = w(g)` for all $`g \in G` and all natural numbers $`n` with $`n \nmid \#G`, i.e. $`w` is invariant under invertible powering.
+
+Let $`p` be a prime with $`p \nmid \#G` and $`\Gamma_{\Q_p}` the absolute Galois group of $`\Q_p`. We define the *local height function* associated to $`w` to be
+
+$$`H_{w,p}: \Hom(\Gamma_{\Q_p}, G) \to \R_{>0}, \quad \varphi \mapsto w(\varphi(\tau_p))`
+
+where $`\tau_p` is any choice of generator of the tame inertia group of $`\Gamma_{\Q_p}`.
+
+For $`p \mid \#G`, we take $`H_p: \Hom(\Gamma_{\Q_p}, G) \to \R_{>0}` to be any positive function on the finite set $`\Hom(\Gamma_{\Q_p}, G)`. We define the associated *inertial height function* to be
+
+$$`H: \Hom(\Gamma_{\Q}, G) \to \R_{>0}, \quad \varphi \mapsto \prod_{p \mid \#G} H_p(\varphi) \prod_{p \mid \#G} H_{w,p}(\varphi)`
+
+the product of local heights.
+
+For example taking the weight function $`w` with $`w(g) = 1` for all non-identity elements $`g \in G`, an associated inertial height function is the *radical discriminant*: the product of primes which are ramified in the corresponding number field.
+
+More general weight functions can be considered over more general base number fields. See ??? for further details.
+:::
+
 :::definition "nf.inessential_prime"
 *Inessential prime.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.inessential_prime))
 
@@ -305,6 +339,14 @@ Then $`K` is *Galois* over $`F` if $`K^{\Aut(K/F)} = F`.
 Given a global {bpref "nf"}[number field] $`K` and a prime $`p`, the *local algebra* for $`K` is $`K\otimes \Q_p`.  This is a finite {bpref "nf.separable_algebra"}[separable algebra] over $`\Q_p` which is isomorphic to a finite direct product of finite extension fields of $`\Q_p`.
 
 Depends on: {uses "nf"}[] {uses "nf.separable_algebra"}[]
+:::
+
+:::definition "nf.max_p"
+*Maximum ramified prime.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.max_p))
+
+If $`K` is a {bpref "nf"}[number field], the *maximum ramified prime* is simply the largest prime {bpref "nf.ramified_primes"}[ramified] in $`K`.  By convention, we take this to be $`0` for $`\Q`, the unique unramified extension of $`\Q`.
+
+Depends on: {uses "nf"}[] {uses "nf.ramified_primes"}[]
 :::
 
 :::definition "nf.maximal_cm_subfield"
@@ -381,13 +423,19 @@ Depends on: {uses "nf"}[] {uses "nf.class_number"}[] {uses "nf.ideal_class_group
 The LMFDB supports *nicknames*, short human-readable names for
 various fields.  Examples include:
 
-- Q, for the rationals $`\mathbb{Q}`
+- "$`\texttt{Q}`", for the rationals $`\mathbb{Q}`,
 
-- Qi, for $`\mathbb{Q}(i)`
+- "$`\texttt{Qi}`", for $`\mathbb{Q}(i)`,
 
-- QsqrtN, for $`\mathbb{Q}(\sqrt{N})`, as in Qsqrt-5 for $`\mathbb{Q}(\sqrt{-5})`
+- "$`\texttt{QsqrtN}`", for $`\mathbb{Q}(\sqrt{N})`, as in Qsqrt-5 for $`\mathbb{Q}(\sqrt{-5})`,
 
-- QzetaN, for $`\mathbb{Q}(\zeta_N)`, where $`\zeta_N` is a primitive $`N`th root of unity.
+- "$`\texttt{QzetaN}`", for $`\mathbb{Q}(\zeta_N)`, where $`\zeta_N` is a primitive $`N`th root of unity,
+
+- "$`\texttt{QzetaN+}`", for $`\mathbb{Q}(\zeta_N)^+`; i.e. the maximal real subfield of $`\mathbb{Q}(\zeta_N)` (equivalently, the field $`\mathbb{Q}(\zeta_N + \zeta_N^{-1})`).
+
+- more generally, "$`\texttt{Q(s1, s2, ... ,sk)}`", for the field generated by algebraic numbers $`s_1,s_2,\dots,s_k`.
+
+In the general syntax, each $`\texttt{si}` may be built using the functions $`\texttt{sqrt}` (or $`\texttt{root}`) and $`\texttt{cbrt}`, together with the usual arithmetic operations $`\texttt{+}`, $`\texttt{-}`, $`\texttt{*}`, $`\texttt{/}`, ^, and parentheses.  The usual constants $`\texttt{i}`, $`\texttt{zetaN}` and $`\texttt{phi}` (for $`(1 + \sqrt{5})/2`) are also supported.  Some examples include:  "$`\texttt{Q(sqrt2,sqrt3)}`", "$`\texttt{Q(sqrt(1+sqrt2))}`","$`\texttt{Q(cbrt(1+zeta7))}`", and "$`\texttt{Q(5}`^$`\texttt{(1/12))}`".
 :::
 
 :::definition "nf.order"
@@ -481,6 +529,14 @@ The ideal $`\mathfrak p \cap\mathcal O_K` is a nonzero prime ideal of $`\Z` (a p
 Depends on: {uses "nf"}[] {uses "nf.ring_of_integers"}[] {uses "ring.prime_ideal"}[]
 :::
 
+:::definition "nf.radical_discriminant"
+*Radical discriminant of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.radical_discriminant))
+
+The *radical discriminant* of a {bpref "nf"}[number field] $`K` is the product of the primes dividing the {bpref "nf.discriminant"}[discriminant] of $`K`, i.e. the product of the primes which ramify in $`K`.
+
+Depends on: {uses "nf"}[] {uses "nf.discriminant"}[]
+:::
+
 :::definition "nf.ramified_primes"
 *Ramified (rational) prime of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.ramified_primes))
 
@@ -552,7 +608,7 @@ Depends on: {uses "nf.cm_field"}[] {uses "nf.reflex_field"}[]
 Let $`\sigma_1,\ldots,\sigma_{r_1}` be the real embeddings of a {bpref "nf"}[number field] $`K` into the complex numbers $`\mathbb{C}`, and $`\sigma_{r_1+ 1},\ldots,\sigma_{r_1+r_2}` be complex embeddings of $`K` into $`\C` such that no two are complex conjugate. Let $`u_1,\ldots,u_r` be a set of {bpref "nf.fundamental_units"}[fundamental units] of $`K`. Then $`r = r_1 + r_2 -1`.
 
 Let $`M` be the $`(r_1+ r_2-1)\times (r_1+r_2)` matrix
-$`(d_j\log{ \sigma_j(u_i)})`, where $`d_j=1` if $`j\leq r_1`, i.e, if $`\sigma_j` is a real embedding, and $`d_j=2` otherwise, i.e., if $`\sigma_j` is a complex embedding.  The sum of the columns of $`M` is the zero vector.
+$`(d_j\log{ |\sigma_j(u_i)|})`, where $`d_j=1` if $`j\leq r_1`, i.e, if $`\sigma_j` is a real embedding, and $`d_j=2` otherwise, i.e., if $`\sigma_j` is a complex embedding.  The sum of the columns of $`M` is the zero vector.
 
 The *regulator* of $`K` is the absolute value of the determinant of the sub-matrix of $`M` where one column is removed.  Its value is independent of the choice of column which is removed.
 
@@ -698,6 +754,20 @@ The unit group of $`K` has as invariants the {bpref "nf.rank"}[rank]
  and the {bpref "nf.regulator"}[regulator] of $`K`.
 
 Depends on: {uses "nf"}[] {uses "nf.ring_of_integers"}[]
+:::
+
+:::definition "nf.unit_signature_rank"
+*Unit signature rank of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.unit_signature_rank))
+
+Let $`K` be a {bpref "nf"}[number field] with at least one {bpref "nf.real_embedding"}[real embedding], and let $`\sigma_1, \dots, \sigma_{r_1} : K \to \R` be the $`r_1` real embeddings of $`K`.  The *signature* of a nonzero element $`\alpha \in K` is the $`r_1`-tuple of signs of $`\sigma(\alpha)` over all real embeddings $`\sigma` of $`K`, viewed as lying in the additive group $`\F_2`. I.e. the signature is the vector $`(\text{sign}(\sigma_1(\alpha)), \dots, \text{sign}(\sigma_{r_1}(\alpha))) \in \F_2^{r_1}`, where $`\text{sign}(x) = 0` if $`x` is positive, otherwise $`\text{sign}(x) = 1` if $`x` is negative.
+
+The collection of all signatures of units $`\alpha \in \mathcal{O}_K^\times` can be viewed as a subspace of $`\F_2^{r_1}`.  The dimension of this subspace (over $`\F_2`) is the *unit signature rank* of $`K`.
+
+By convention, we define the unit signature rank of a totally complex field to be $`0`.
+
+If $`K` has at least one real embedding, then the unit signature rank is always a positive integer which is at most the number of real embeddings $`r_1` of $`K`.  If $`K` is a real quadratic field, then the unit signature rank of $`K` is $`1` if the fundamental unit for $`K` has norm $`1`, otherwise the unit signature rank of $`K` is $`2` if the fundamental unit for $`K` has norm $`-1`.
+
+Depends on: {uses "nf"}[] {uses "nf.real_embedding"}[]
 :::
 
 :::definition "nf.unramified_prime"

@@ -1,0 +1,9 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/gg.transitivity}{Transitivity number}}
+\begin{definition}\label{gg.transitivity}
+\uses{group,group.action}
+If a \hyperref[group]{group} $G$ acts on a set $A$ of order $n$ and $k\leq n$, then $G$ is \textbf{$k$-transitive} if it acts \hyperref[group.action]{transitively} on the set 
+$$ S=\{(a_1,\ldots,a_k)\in A^k \mid a_i \text{ are distinct}\}.$$
+The largest such value $k$ is the \textbf{transitivity number} of the action.
+\end{definition}
+
+

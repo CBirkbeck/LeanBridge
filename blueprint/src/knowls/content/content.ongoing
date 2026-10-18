@@ -1,0 +1,64 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/content.ongoing}{Ongoing work}}
+\begin{definition}\label{content.ongoing}
+\uses{}
+
+
+
+The following projects are ongoing; feel free to [contact us](/contact) if you have questions or are interested in helping.  \textbf{Warning}: preliminary versions of the projects below are not yet reviewed for inclusion in the LMFDB and may not yet satisfy our reliability criteria.
+
+#### Improving beta sections for inclusion into the main LMFDB site
+
+\begin{itemize}
+\item  [Modular curves](/ModularCurve/Q).  Work is ongoing (Fall 2025) to greatly expand the scope of the data to higher level, compute more models, tighten gonality bounds and run thorough point searches.  Contacts: David Roe, Andrew Sutherland.
+\end{itemize}
+
+\begin{itemize}
+\item  [Hypergeometric motives](/Motive/Hypergeometric/Q).  We plan (2026) to compute L-functions for many specialization points of the hypergeometric families already stored in the database.  Contacts: Edgar Costa, Kiran Kedlaya, David Roberts, David Roe.
+\end{itemize}
+
+\begin{itemize}
+\item  [Lattices](/Lattice).  We plan ([workshop@MIT](https://math.mit.edu/~roed/conferences/Lat26/), February 2026) to recompute the lattice data in the LMFDB in preparation for the [Fall 2026 semester at ICERM](https://icerm.brown.edu/program/semester\_program/sp-f26) on K3 surfaces.  Contacts: Eran Assaf, David Roe.
+\end{itemize}
+
+\begin{itemize}
+\item  [Siegel modular forms](/ModularForm/GSp/Q).  There is [partial progress](https://github.com/assaferan/lmfdb/tree/smf\_week) on redoing the Siegel modular form section of the LMFDB, though active work is not planned in the near future.  Contact: Eran Assaf.
+\end{itemize}
+
+#### New sections not yet in beta
+
+\begin{itemize}
+\item  [Mod-$\ell$ Galois representations](/ModLGaloisRepresentation/Q).  We hope to make this new section of the LMFDB public in 2026.  Contacts: John Cremona, John Jones, Andrew Sutherland.
+\end{itemize}
+
+\begin{itemize}
+\item  Shimura curves.  There is [partial progress](https://github.com/assaferan/lmfdb/tree/shimura\_curves) on adding Shimura curves to the LMFDB, with computations done using [this code](https://github.com/ciaran-schembri/ShimCurve).  Active work is not planned in the near future.  Contacts: Eran Assaf, David Roe, John Voight.
+\end{itemize}
+
+\begin{itemize}
+\item  Hilbert modular surfaces.  There is [partial progress](https://github.com/j-kieffer/lmfdb/tree/hmsurfaces) on adding Hilbert modular surfaces to the LMFDB, with computations done using [this code](https://github.com/edgarcosta/hilbertmodularforms).  Active work is not planned in the near future.  Contacts: Eran Assaf, Edgar Costa, John Voight.
+\end{itemize}
+
+#### Improvements to existing sections
+
+\begin{itemize}
+\item  Eisenstein series in [classical modular forms](/ModularForm/GL2/Q/holomorphic).  We are working (Fall 2025) to add data for Eisenstein series, complementing the existing newform data.  Contact: Eran Assaf.
+\end{itemize}
+
+\begin{itemize}
+\item  Many more [genus 2 curves](/Genus2Curve/Q).  We plan (Spring 2026) to add a dataset of several million new curves to the LMFDB.  Contact: Andrew Sutherland.
+\end{itemize}
+
+\begin{itemize}
+\item  Isomorphism classes and polarizations for [abelian varieties over $\mathbb{F}_q$](/Variety/Abelian/Fq).  We plan (2026) to add new data for the existing isogeny classes, creating a database of polarized abelian varieties up to isomorphism.  Contacts: Edgar Costa, David Roe.
+\end{itemize}
+
+\begin{itemize}
+\item  New landscapes of [L-functions](/L).  We plan (2026) to add many new transcendental L-functions, computed iteratively from functional equations.  Contacts: David Farmer, David Roberts.
+\end{itemize}
+
+\begin{itemize}
+\item  More [higher genus families](/HigherGenus/C/Aut).  We plan (2026-2027) to greatly expand the database of higher genus families.  Contact: Jen Paulhus.
+\end{itemize}
+\end{definition}
+
+

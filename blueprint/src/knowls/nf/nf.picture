@@ -1,0 +1,18 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.picture}{Pictures for number fields}}
+\begin{definition}\label{nf.picture}
+\uses{nf,nf.frobenius_cycle_types,nf.ramified_primes,nf.ring_of_integers,nf.spectrum_ring_of_integers}
+\leanok
+For each \hyperref[nf]{number field} $F$, the picture displays the \hyperref[nf.spectrum_ring_of_integers]{prime spectrum} of the \hyperref[nf.ring_of_integers]{ring of integers} $\mathcal{O}_F$ of $F$, visualized as a curve over $\operatorname{Spec} \mathbb{Z}$. This is by analogy with algebraic curves, since points on a curve over $\mathbb{C}$ are in bijection with prime ideals of its coordinate ring. Each prime ideal in $\operatorname{Spec} \mathcal{O}_F$ is drawn as a point, and the lines connecting the points are purely for aesthetical purposes, having no deeper meaning.
+
+\begin{itemize}
+\item  A point is colored if it corresponds to a \hyperref[nf.ramified_primes]{ramified prime}, with ramification index corresponding to the hue of the point.
+\item  The radius of a point is proportional to its \hyperref[nf.frobenius_cycle_types]{residue degree}.
+\end{itemize}
+
+In the portrait in the properties box, only the spectrum of $\mathcal{O}_F$ is drawn, while at the bottom of the number field page, we also draw $\operatorname{Spec} \mathbb{Z}$. This way we can intuitively study the fibers of the map $\operatorname{Spec} \mathcal{O}_F \to \operatorname{Spec} \mathbb{Z}$, where the fiber above a rational prime $p$ is the set of primes of $\mathcal{O}_F$ lying above $p$.
+
+
+
+\end{definition}
+
+

@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/specialfunction.gamma}{Euler gamma function}}
 \begin{definition}\label{specialfunction.gamma}
 \uses{}
+\leanok
 The \textbf{(Euler) gamma function $\Gamma(z)$} is defined by the integral 
 $$
 \Gamma(z) = \int_0^{ \infty } e^{-t} t^{z} \frac{dt}{t}

@@ -1,0 +1,11 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.hyperbolic_plane}{Hyperbolic plane}}
+\begin{definition}\label{lattice.hyperbolic_plane}
+\uses{lattice.definition,lattice.gram,lattice.isometry,lattice.nondegenerate,lattice.parity,lattice.signature,lattice.unimodular,ring.characteristic,ring.field}
+The \textbf{hyperbolic plane} $U$ is the \hyperref[lattice.definition]{integral lattice} with \hyperref[lattice.gram]{Gram matrix}
+\[
+\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}.
+\]
+Over a \hyperref[ring.field]{field} with \hyperref[ring.characteristic]{characteristic} not $2$, every \hyperref[lattice.nondegenerate]{nondegenerate} \hyperref[lattice.signature]{indefinite} quadratic space is \hyperref[lattice.isometry]{isometric} to a direct sum of a definite quadratic space and some number of copies of the hyperbolic plane.  A version also holds for \hyperref[lattice.parity]{even} \hyperref[lattice.unimodular]{unimodular} lattices, which can be written as $U^{\oplus r} \oplus E_8^{\oplus s}$ or $U^{\oplus r} \oplus E_8(-1)^{\oplus s}$.  But this direct sum decomposition does not hold for lattices.
+\end{definition}
+
+

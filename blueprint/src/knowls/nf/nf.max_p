@@ -1,0 +1,7 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.max_p}{Maximum ramified prime}}
+\begin{definition}\label{nf.max_p}
+\uses{nf,nf.ramified_primes}
+If $K$ is a \hyperref[nf]{number field}, the \textbf{maximum ramified prime} is simply the largest prime \hyperref[nf.ramified_primes]{ramified} in $K$.  By convention, we take this to be $0$ for $\Q$, the unique unramified extension of $\Q$.
+\end{definition}
+
+

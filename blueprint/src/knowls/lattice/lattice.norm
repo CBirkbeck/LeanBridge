@@ -1,0 +1,7 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.norm}{Norm of a vector}}
+\begin{definition}\label{lattice.norm}
+\uses{lattice.definition,lattice.gram}
+Given an \hyperref[lattice.definition]{integral lattice} $L$ with associated bilinear map $B$, the \textbf{norm} of a vector $v \in L$ is $B(v, v)$. If $L$ has \hyperref[lattice.gram]{Gram matrix} $A$, then the norm of $v$ is $v^T A v$.
+\end{definition}
+
+

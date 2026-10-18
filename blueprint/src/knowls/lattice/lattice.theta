@@ -1,21 +1,19 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.theta}{Theta series for an integral lattice}}
 \begin{definition}\label{lattice.theta}
-\uses{lattice.definition,lattice.gram}
-The \textbf{theta series}, $\Theta_L$, of an \hyperref[lattice.definition]{integral lattice} $L$ is the generating function for the number of vectors $v\in L$ of norm $n$, where the norm is defined as $\langle v,v\rangle=v^tAv$ where $A$ is a \hyperref[lattice.gram]{Gram matrix} for $L$.
+\uses{cmf,cmf.level,cmf.weight,lattice.definition,lattice.dimension,lattice.level,lattice.quadratic_form}
+The \textbf{theta series} $\Theta_L$ of an \hyperref[lattice.definition]{integral lattice} $L$ is a generating function for the number of vectors $v\in L$ of \hyperref[lattice.quadratic_form]{norm} $n$.  Specifically, we define
 
-{%if BETA %}
+\[
+\Theta_L(q) = \sum_{v \in L} q^{\frac{1}{2}\langle v,v \rangle}
+\]
 
-Following the [conventions adopted by Magma](http://magma.maths.usyd.edu.au/magma/handbook/text/314), in order for the theta series to be a modular form on $\Gamma_0(N)$ with $N$ minimal, we define
+If $L$ has \hyperref[lattice.dimension]{rank} $n$ and \hyperref[lattice.level]{level} $N$ and we take $q = e^{2\pi i z}$ as usual, this will be a modular form of \hyperref[cmf.weight]{weight} $k = \frac{n}{2}$ and \hyperref[cmf.level]{level} $N$.  In the case that $n$ is odd, to get a \hyperref[cmf]{classical modular form} with integer weight one may apply the Shimura lift, which will produce a modular form of weight $n-1$.
+
+In order to express the theta series in terms of a power series with integral exponents, we will usually record
 \[
-\Theta_L(z)=\sum_{v\in L}q^{\frac{1}{2}\langle v,v\rangle}
+\Theta_L(q^2) = \sum_{v \in L} q^{\langle v,v \rangle},
 \]
-when the norm ideal of $L$ is even, and
-\[
-\Theta_L(z)=\sum_{v\in L}q^{\langle v,v\rangle}
-\]
-when the norm ideal of $L$ is odd, where $q=e^{2\pi iz}$ in either case. Then the coefficient of $q^n$ gives the number of vectors in the lattice of norm $n$.
-  
-{% endif %}
+which allows a more direct recovery of the number of vectors of each possible norm.
 \end{definition}
 
 

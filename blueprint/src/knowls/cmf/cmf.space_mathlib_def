@@ -1,0 +1,12 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.space_mathlib_def}{Spaces of modular forms (mathlib)}}
+\begin{definition}\label{cmf.space_mathlib_def}
+\uses{}
+\leanok
+This is \textbf{ModularForm $\Gamma$ $k$} in mathlib. The LMFDB definition is specified by a level $N$, weight $k$, and character $\chi$, whereas the mathlib definition is specified by a subgroup $\Gamma$ and weight $k$, with no character.
+
+For $\Gamma=\Gamma_0(N)$, the mathlib space corresponds to $M_k(N,1)$, the space of modular forms with trivial character.
+
+For $\Gamma=\Gamma_1(N)$, recall the decomposition $M_k(\Gamma_1(N))=\bigoplus_{\chi\bmod N} M_k(N,\chi)$ where only characters satisfying $\chi(-1)=(-1)^k$ can contribute to nonzero summands. Hence the mathlib space for $M_k(\Gamma_1(N))$ is the direct sum of the corresponding character spaces from the LMFDB.
+\end{definition}
+
+

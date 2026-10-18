@@ -1,0 +1,7 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.parity}{Parity of a lattice}}
+\begin{definition}\label{lattice.parity}
+\uses{lattice.definition,lattice.gram}
+If an \hyperref[lattice.definition]{integral lattice} $L$ has \hyperref[lattice.gram]{Gram matrix} $M$, we say that $L$ is \textbf{even} if all of the diagonal entries of $M$ are even, and \textbf{odd} otherwise.
+\end{definition}
+
+

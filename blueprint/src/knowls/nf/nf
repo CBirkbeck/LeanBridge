@@ -2,8 +2,7 @@
 \begin{definition}\label{nf}
 \uses{nf.degree}
 \leanok
-A \textbf{number field} is a finite degree field extension of the field $\Q$ of rational numbers. In LMFDB, number fields are identified by a \hyperref[nf.label]{label}.
-
+A \textbf{number field} is a field extension of finite \hyperref[nf.degree]{degree} of the field $\Q$ of rational numbers. In the LMFDB, number fields are identified by a \hyperref[nf.label]{label}.
 
 \end{definition}
 

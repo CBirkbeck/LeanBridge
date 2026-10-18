@@ -1,0 +1,7 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.minimum}{Minimum}}
+\begin{definition}\label{lattice.minimum}
+\uses{lattice.definition}
+For an \hyperref[lattice.definition]{integral lattice}, $L$, the \textbf{minimum}, denoted $m(L)$, is the length of the shortest non-zero vector in $L$.  A \textbf{minimal vector} in $L$ is a vector $\vec{v}$ such that $Q(\vec{v})=m(L)$.  
+\end{definition}
+
+

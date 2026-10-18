@@ -1,0 +1,9 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.covering_radius}{Covering radius}}
+\begin{definition}\label{lattice.covering_radius}
+\uses{lattice.successive_minima}
+\textbf{Covering radius} (also known as \textbf{inhomogeneous minimum}) of a convex $\boldsymbol 0$-symmetric set $K$ in $\mathbb{R}^n$ with respect to a full-rank lattice $L \subset \mathbb{R}^n$ is $\mu = \min \{ t > 0 : \bigcup_{\boldsymbol x \in L} (\boldsymbol x + tK) = \mathbb{R}^n \}$. Covering radius satisfies Jarn\'ik's inequality:
+$$\frac{1}{2} \lambda_n \leq \mu \leq \frac{1}{2} \sum_{i=1}^n \lambda_i \leq \frac{n}{2} \lambda_n,$$
+where $\lambda_1,\dots,\lambda_n$ are the \hyperref[lattice.successive_minima]{successive minima} of $K$ with respect to $L$. The covering radius of the unit ball with respect to $L$ is called the covering radius of $L$.
+\end{definition}
+
+

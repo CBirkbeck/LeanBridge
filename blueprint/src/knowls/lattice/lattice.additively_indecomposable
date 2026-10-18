@@ -1,0 +1,12 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.additively_indecomposable}{Additively indecomposable lattice}}
+\begin{definition}\label{lattice.additively_indecomposable}
+\uses{lattice.definition,lattice.dimension,lattice.nondegenerate,lattice.orthogonal_decomposition,lattice.positive_definite,lattice.unimodular}
+A \hyperref[lattice.positive_definite]{positive definite} \hyperref[lattice.definition]{integral lattice} $L$ is \textbf{additively indecomposable} if it cannot be written as a sum of two nonzero \hyperref[lattice.nondegenerate]{positive semi-definite} integral lattices.
+
+Every additively indecomposable lattice is (orthogonally) \hyperref[lattice.orthogonal_decomposition]{indecomposable}, though the converse is not true in general.  However, every \hyperref[lattice.unimodular]{unimodular} (orthogonally) indecomposable lattice is additively indecomposable.
+
+The only additively indecomposable integral lattices of \hyperref[lattice.dimension]{rank} up to $8$ are $\Z$, $E_6$, $E_7$, and $E_8$, proven by Mordell and Ko.
+
+\end{definition}
+
+

@@ -2,28 +2,31 @@
 \begin{definition}\label{rcs.cande.mf.bianchi}
 \uses{mf.bianchi,mf.bianchi.level,mf.bianchi.newform,mf.bianchi.weight,mf.bianchi.weight2,nf,nf.abs_discriminant,nf.class_number}
 \leanok
-The database contains information about \hyperref[mf.bianchi]{Bianchi modular forms} over all imaginary quadratic \hyperref[nf]{number fields} of absolute discrimant up to \(700\),  for a range of levels which depends on the field.
+The database contains information about \hyperref[mf.bianchi]{Bianchi modular forms} over all imaginary quadratic \hyperref[nf]{number fields} of absolute discrimant up to \(2500\),  for a range of levels which depends on the field.
 
 
 ### Newform data
 
 \hyperref[mf.bianchi.newform]{Bianchi Newform} data is available for levels of the form $\Gamma_0(\mathfrak{n})\le \GL_2(\mathcal{O}_K)$ and not for the larger spaces forms of level $\Gamma_0(\mathfrak{n})\cap \SL_2(\mathcal{O}_K)$. 
 
-For \(212\) imaginary quadratic fields, which are all those of \hyperref[nf.abs_discriminant]{absolute discriminant} less than \(700\) and include all of 
-\hyperref[nf.class_number]{class number} \(1\) and \(2\),  the database contains all Bianchi newforms of \hyperref[mf.bianchi.weight]{weight} \(2\), trivial character, and \hyperref[mf.bianchi.newform]{dimension} \(1\) for levels of norm up to a bound that depends on the field:
+For \(763\) imaginary quadratic fields, which are all those of \hyperref[nf.abs_discriminant]{absolute discriminant} less than \(2500\) and include all of 
+\hyperref[nf.class_number]{class number} \({}\le5\) except \(\Q(\sqrt{-2683})\),  the database contains details of Bianchi newforms of \hyperref[mf.bianchi.weight]{weight} \(2\) and trivial character, and \hyperref[mf.bianchi.newform]{dimension} \(1\), for levels of norm up to a bound that depends on the field.  Note that for some of these fields there are no newforms of dimension \(1\) with level in this range.
 <table>
 <tr>
 <th>\hyperref[nf.abs_discriminant]{Absolute discriminant}<td>3<td>4<td>7, 8, 11<td>19, 43<td>67<td>163<td>23<td>31
 <td>15, 20, 24, 35--120
-<td>121--700
+<td>121--1000
+<td>1001-2100
+<td>2101-2500
 </tr>
-<th>Level norm bound<td>150000<td>100000<td>50000<td>15000<td>10000<td>5000<td>3000<td>5000<td align="center">1000<td align="center">100
+<tr>
+<th>Level norm bound<td>150000<td>100000<td>50000<td>15000<td>10000<td>5000<td>3000<td>5000<td align="center">1000<td align="center">100<td align="center">15<td align="center">11
 </tr>
 </table>
 
 <!---Over $\mathbb{Q}(\sqrt{-1})$ only,  for levels of norm up to 5000, we also have all newforms of dimension 2.--->
 
-For each of the newforms of dimension 1, the database contains all Atkin-Lehner eigenvalues and Hecke eigenvalues $a_{\mathfrak{p}}$ for at least the first few primes $\mathfrak{p}$ by norm.  For the newforms of dimension 2 it contains the first fifteen $a_{\mathfrak{p}}$, but no Atkin-Lehner eigenvalues.
+For each newform of dimension 1, the database contains all Atkin-Lehner eigenvalues and Hecke eigenvalues $a_{\mathfrak{p}}$ for the first few primes $\mathfrak{p}$ by norm.  <!---For the newforms of dimension 2 it contains the first fifteen $a_{\mathfrak{p}}$, but no Atkin-Lehner eigenvalues.--->
 
 
 ### Dimension data
@@ -31,7 +34,7 @@ For each of the newforms of dimension 1, the database contains all Atkin-Lehner 
 Dimension data for full cuspidal and new spaces for a range of \hyperref[mf.bianchi.weight]{weights} and $\SL_2$-levels over the imaginary quadratic fields of discriminant -8, -11, -19, -43, -67, -163  are available. 
 <!---\(\SL_2\)-dimension data for the three remaining imaginary quadratic fields of class number one (discriminants -3, -4, -7) is in preparation.--->
 
-Over each of the  imaginary quadratic fields and levels in the table above, we have the dimensions of the full \hyperref[mf.bianchi.weight2]{cuspidal} space and the  new subspace at each $\GL_2$-\hyperref[mf.bianchi.level]{level}, for \hyperref[mf.bianchi.weight]{weight} \(2\) forms with trivial character. Over some of these fields we also have the cuspidal and new dimensions for a range of $\SL_2$-levels, and for a range of \hyperref[mf.bianchi.weight]{weights}.
+Over each of the  imaginary quadratic fields and levels in the range given in the table above, the database contains the dimensions of the full \hyperref[mf.bianchi.weight2]{cuspidal} space and the  new subspace at each $\GL_2$-\hyperref[mf.bianchi.level]{level}, for \hyperref[mf.bianchi.weight]{weight} \(2\) forms with trivial character. Over some of these fields we also have the cuspidal and new dimensions for a range of $\SL_2$-levels, and for a range of \hyperref[mf.bianchi.weight]{weights}.
 \end{definition}
 
 

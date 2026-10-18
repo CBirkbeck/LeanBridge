@@ -1,8 +1,12 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.rigor.belyi}{Reliability of Belyi map data}}
 \begin{definition}\label{rcs.rigor.belyi}
-\uses{}
+\uses{ag.base_field,belyi.degree,belyi.galmap,belyi.genus,group.triangle_group}
 \leanok
+To ensure that the map $X \to \mathbb{P}^1$ provided is indeed a \hyperref[belyi.galmap]{Belyi map}, we first verify by taking (exact) preimages that the ramification above $\{0,1,\infty\} \subseteq \mathbb{P}^1$ is correct (in particular, it has the correct \hyperref[belyi.degree]{degree}).  We then also verify that $X$ has the correct \hyperref[belyi.genus]{genus}; it follows by the Riemann-Hurwitz theorem that there can be no other ramification, so the map is indeed a Belyi map.  
 
+The permutation triple, specified by the action of monodromy on preimages of the branch points, was certified a posteriori using a rigorous algorithm involving path tracking \cite{arxiv:2604.15562}.  Even without that, the complex accuracy set in the numerical \hyperref[group.triangle_group]{triangle group} method was almost surely enough to automatically ensure this.
+
+Once the Belyi map is verified and associated with the correct permutation triple for all Belyi maps of a given degree, \hyperref[ag.base_field]{base fields} and Galois orbits can be read off directly.  Other invariants of the map or its orbits can then be obtained from the corresponding monodromy triple by means of a short calculation.
 \end{definition}
 
 

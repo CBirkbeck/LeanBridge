@@ -1,0 +1,11 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.even_sublattice}{Even sublattice}}
+\begin{definition}\label{lattice.even_sublattice}
+\uses{lattice.definition,lattice.parity}
+The \textbf{even sublattice} of an \hyperref[lattice.definition]{integral lattice} $L$ is the sublattice of $L$ spanned by vectors of even length.
+
+An integral lattice $L$ is \hyperref[lattice.parity]{even} exactly when it is equal to its even sublattice.
+
+In general, the even sublattice $L_0$ of an integral lattice $L$ has index at most equal to 2.
+\end{definition}
+
+

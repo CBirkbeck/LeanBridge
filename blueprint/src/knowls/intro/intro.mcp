@@ -1,0 +1,8 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/intro.mcp}{MCP server}}
+\begin{definition}\label{intro.mcp}
+\uses{}
+\leanok
+You can connect the LMFDB to many large language models by using the [MCP server](https://github.com/AndrewVSutherland/lmfdb-mcp).  This allows the models to query the LMFDB via a direct SQL connection in order to answer natural language queries.
+\end{definition}
+
+

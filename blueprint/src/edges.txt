@@ -56,7 +56,7 @@ character.dirichlet.order: character.dirichlet.galois_orbit, character.dirichlet
 character.dirichlet.primitive: character.dirichlet.minimal, cmf.eisenstein_series, cmf.inner_twist, cmf.oldspace, cmf.self_twist, cmf.twist, cmf.twist_multiplicity
 character.dirichlet.principal: character.dirichlet.galois_orbit_index, character.dirichlet.minimal, character.dirichlet.order
 character.dirichlet.value_field: character.dirichlet.galois_orbit, character.dirichlet.galois_orbit_index, cmf.embedding
-cmf: cmf.bad_prime, cmf.character, cmf.cm_form, cmf.cusp_form, cmf.eisenstein, cmf.eisenstein_form, cmf.eisenstein_newspace, cmf.fouriercoefficients, cmf.hecke_operator, cmf.level, cmf.newspace, cmf.oldspace, cmf.rm_form, cmf.space, cmf.subspaces, cmf.weight
+cmf: cmf.bad_prime, cmf.character, cmf.cm_form, cmf.coefficient_ring, cmf.cusp_form, cmf.eisenstein, cmf.eisenstein_form, cmf.eisenstein_newspace, cmf.fouriercoefficients, cmf.fouriercoefficients_mathlib_def, cmf.hecke_operator, cmf.level, cmf.newspace, cmf.oldspace, cmf.q-expansion_mathlib_def, cmf.rm_form, cmf.space, cmf.subspaces, cmf.weight
 cmf.analytic_rank: cmf.fricke
 cmf.artin_field: cmf.artin_image, cmf.stark_unit
 cmf.atkin-lehner: cmf.fricke
@@ -66,8 +66,11 @@ cmf.cm_form: cmf.inner_twist, cmf.sato_tate
 cmf.coefficient_field: cmf.analytic_rank, cmf.coefficient_ring, cmf.defining_polynomial, cmf.dualform, cmf.eisenstein_label, cmf.embedding, cmf.inner_twist, cmf.inner_twist_count, cmf.label, cmf.labels, cmf.selfdual, cmf.trace_bound, cmf.trace_form
 cmf.coefficient_ring: cmf.hecke_ring_generators
 cmf.congruence_subgroup: modcurve, modcurve.xn
-cmf.cusp_form: cmf.analytic_rank, cmf.atkin-lehner, cmf.coefficient_field, cmf.dualform, cmf.eisenstein_form, cmf.embedding_label, cmf.hecke_operator, cmf.hecke_orbit, cmf.newspace, cmf.oldspace, cmf.petersson_scalar_product, cmf.q-expansion, cmf.selfdual, cmf.space, cmf.subspaces
+cmf.cusp_form: cmf.analytic_rank, cmf.atkin-lehner, cmf.coefficient_field, cmf.cusp_form_subspace_mathlib_def, cmf.dualform, cmf.eisenstein_form, cmf.embedding_label, cmf.hecke_operator, cmf.hecke_orbit, cmf.newspace, cmf.oldspace, cmf.petersson_scalar_product, cmf.q-expansion, cmf.selfdual, cmf.space, cmf.subspaces
+cmf.cusp_form_mathlib_def: cmf.cusp_form
+cmf.cusp_form_subspace_mathlib_def: cmf.subspaces
 cmf.dimension: cmf.inner_twist_count, cmf.maximal, cmf.trace_bound, cmf.trace_form
+cmf.dimension_mathlib_def: cmf.dimension
 cmf.eisenstein_form: cmf.eisenstein_newspace
 cmf.eisenstein_newform: cmf.eisenstein_label
 cmf.eisenstein_newspace: cmf.eisenstein_newform
@@ -78,23 +81,26 @@ cmf.fricke: cmf.minus_space, cmf.plus_space
 cmf.galois_conjugate: cmf.galois_orbit, cmf.inner_twist, cmf.twist
 cmf.galois_orbit: cmf.dimension, cmf.distinguishing_primes, cmf.eisenstein_label, cmf.embedding, cmf.inner_twist, cmf.label, cmf.labels, cmf.maximal, cmf.q-expansion, cmf.trace_bound, cmf.twist, cmf.twist_minimal, cmf.twist_multiplicity
 cmf.galois_representation: cmf.artin_field, cmf.artin_image, cmf.projective_field, cmf.projective_image, cmf.stark_unit
-cmf.hecke_operator: cmf.atkin-lehner, cmf.coefficient_field, cmf.decomposition.new.gamma0chi, cmf.distinguishing_primes, cmf.eisenstein_newform, cmf.hecke_orbit, cmf.heckecharpolys, cmf.newform, cmf.newform_subspace, cmf.satake_parameters
+cmf.hecke_operator: cmf.atkin-lehner, cmf.coefficient_field, cmf.coefficient_ring, cmf.decomposition.new.gamma0chi, cmf.distinguishing_primes, cmf.eisenstein_newform, cmf.hecke_orbit, cmf.heckecharpolys, cmf.newform, cmf.satake_parameters
 cmf.inner_twist: cmf.inner_twist_count, cmf.inner_twist_multiplicity, cmf.nontrivial_twist, cmf.twist, cmf.twist_multiplicity
 cmf.inner_twist_count: cmf.twist_multiplicity
 cmf.label: cmf.minimal_twist, cmf.twist_minimal
-cmf.level: cmf.bad_prime, cmf.eisenstein, cmf.eisenstein_label, cmf.eisenstein_newspace, cmf.embedding_label, cmf.hecke_operator, cmf.hecke_orbit, cmf.label, cmf.labels, cmf.minimal_twist, cmf.newform_subspace, cmf.newspace, cmf.oldspace, cmf.satake_parameters, cmf.self_twist, cmf.space, cmf.sturm_bound, cmf.sturm_bound_gamma1, cmf.subspaces, cmf.twist_minimal, ec.q.serre_invariants
+cmf.level: cmf.bad_prime, cmf.eisenstein, cmf.eisenstein_label, cmf.eisenstein_newspace, cmf.embedding_label, cmf.hecke_operator, cmf.hecke_orbit, cmf.label, cmf.labels, cmf.minimal_twist, cmf.newspace, cmf.oldspace, cmf.satake_parameters, cmf.self_twist, cmf.space, cmf.sturm_bound, cmf.sturm_bound_gamma1, cmf.subspaces, cmf.twist_minimal, ec.q.serre_invariants
 cmf.newform: cmf.analytic_conductor, cmf.artin_field, cmf.artin_image, cmf.coefficient_ring, cmf.decomposition.new.gamma0chi, cmf.dimension, cmf.distinguishing_primes, cmf.dualform, cmf.galois_conjugate, cmf.galois_orbit, cmf.galois_representation, cmf.hecke_ring_generators, cmf.heckecharpolys, cmf.inner_twist, cmf.inner_twist_count, cmf.inner_twist_multiplicity, cmf.label, cmf.maximal, cmf.minimal_twist, cmf.newform_subspace, cmf.projective_field, cmf.projective_image, cmf.q-expansion, cmf.relative_dimension, cmf.satake_parameters, cmf.sato_tate, cmf.self_twist, cmf.selfdual, cmf.space_trace_form, cmf.stark_unit, cmf.sturm_bound, cmf.sturm_bound_gamma1, cmf.trace_bound, cmf.trace_form, cmf.twist, cmf.twist_minimal
 cmf.newform_subspace: cmf.dimension, cmf.galois_orbit, cmf.heckecharpolys
 cmf.newspace: cmf.distinguishing_primes, cmf.newform, cmf.newform_subspace, cmf.oldspace, cmf.space_trace_form, cmf.trace_bound, cmf.trace_form
 cmf.petersson_scalar_product: cmf.eisenstein_form, cmf.hecke_operator, cmf.newspace, cmf.subspaces
+cmf.petersson_scalar_product_mathlib_def: cmf.petersson_scalar_product
 cmf.projective_image: cmf.self_twist
-cmf.q-expansion: cmf.analytic_rank, cmf.dualform, cmf.eisenstein, cmf.embedding, cmf.hecke_ring_generators, cmf.selfdual, cmf.trace_bound
+cmf.q-expansion: cmf.analytic_rank, cmf.dualform, cmf.eisenstein, cmf.embedding, cmf.fouriercoefficients_mathlib_def, cmf.hecke_ring_generators, cmf.selfdual, cmf.trace_bound
+cmf.q-expansion_mathlib_def: cmf.q-expansion
 cmf.relative_dimension: cmf.eisenstein_label, cmf.label, cmf.labels
 cmf.rm_form: cmf.inner_twist
 cmf.satake_parameters: cmf.satake_angles
 cmf.self_twist: cmf.cm_form, cmf.inner_twist, cmf.inner_twist_count, cmf.nontrivial_twist, cmf.rm_form
 cmf.selfdual: cmf.analytic_rank, cmf.dualform
-cmf.space: cmf.subspaces
+cmf.space: cmf.dimension_mathlib_def, cmf.subspaces
+cmf.space_mathlib_def: cmf, cmf.cusp_form_subspace_mathlib_def, cmf.dimension_mathlib_def, cmf.space
 cmf.twist: cmf.minimal_twist, cmf.twist_minimal, cmf.twist_multiplicity
 cmf.twist_minimal: cmf.minimal_twist
 cmf.weight: cmf.artin_field, cmf.artin_image, cmf.atkin-lehner, cmf.cusp_form, cmf.eisenstein, cmf.eisenstein_form, cmf.eisenstein_label, cmf.eisenstein_newspace, cmf.eisenstein_series, cmf.embedding_label, cmf.galois_representation, cmf.hecke_operator, cmf.inner_twist_count, cmf.label, cmf.labels, cmf.newspace, cmf.oldspace, cmf.projective_field, cmf.projective_image, cmf.satake_parameters, cmf.sato_tate, cmf.self_twist, cmf.space, cmf.stark_unit, cmf.sturm_bound, cmf.sturm_bound_gamma1, cmf.subspaces, ec.q.serre_invariants
@@ -203,6 +209,7 @@ lf.inertia_group: artin.conductor, lf.wild_inertia_group
 lf.local_field: lf.maximal_ideal, lf.padic_field, lf.ring_of_integers
 lf.maximal_ideal: lf.inertia_group, lf.residue_field
 lf.padic_field: artin.conductor, lf.inertia_group
+lf.qp: lf.padic_field
 lf.residue_field: lf.inertia_group
 lf.ring_of_integers: lf.maximal_ideal, lf.residue_field, nf.padic_completion
 lf.wild_inertia_group: artin.conductor
@@ -227,7 +234,7 @@ modcurve: ec.galois_rep_adelic_image
 modcurve.cusps: modcurve
 modcurve.level_structure: modcurve
 modcurve.xn: modcurve
-nf: artin.number_field, cmf.defining_polynomial, cmf.projective_field, cmf.q-expansion, ec.additive_reduction, ec.analytic_sha_order, ec.bad_reduction, ec.bsdconjecture, ec.canonical_height, ec.conductor, ec.galois_rep, ec.galois_rep_modell_image, ec.global_minimal_model, ec.good_ordinary_reduction, ec.good_reduction, ec.good_supersingular_reduction, ec.invariants, ec.isogeny, ec.kodaira_symbol, ec.local_data, ec.local_minimal_discriminant, ec.local_minimal_model, ec.maximal_elladic_galois_rep, ec.maximal_galois_rep, ec.minimal_discriminant, ec.mordell_weil_group, ec.mordell_weil_theorem, ec.multiplicative_reduction, ec.mw_generators, ec.nonsplit_multiplicative_reduction, ec.obstruction_class, ec.period, ec.potential_good_reduction, ec.q.regulator, ec.q.torsion_growth, ec.q_curve, ec.rank, ec.reduction_type, ec.regulator, ec.semi_global_minimal_model, ec.special_value, ec.split_multiplicative_reduction, ec.tamagawa_number, modcurve.level_structure, nf.abelian, nf.abs_discriminant, nf.arithmetically_equivalent, nf.class_number, nf.class_number_formula, nf.cm_field, nf.complex_embedding, nf.conductor, nf.defining_polynomial, nf.discriminant, nf.embedding, nf.fundamental_units, nf.galois_root_discriminant, nf.generator, nf.ideal_class_group, nf.inessential_prime, nf.integral, nf.integral_basis, nf.local_algebra, nf.maximal_cm_subfield, nf.minimal_polynomial, nf.minimal_sibling, nf.monogenic, nf.monomial_order, nf.narrow_class_group, nf.narrow_class_number, nf.order, nf.padic_completion, nf.place, nf.polredabs, nf.poly_discriminant, nf.prime, nf.rank, nf.regulator, nf.relative_class_number, nf.ring_of_integers, nf.root_discriminant, nf.serre_odlyzko_bound, nf.signature, nf.torsion, nf.totally_imaginary, nf.totally_positive, nf.totally_real, nf.unit_group, nf.unramified_prime, nf.weil_height, nf.zk_index, ring.dedekind_domain
+nf: artin.number_field, cmf.defining_polynomial, cmf.projective_field, cmf.q-expansion, ec.additive_reduction, ec.analytic_sha_order, ec.bad_reduction, ec.bsdconjecture, ec.canonical_height, ec.conductor, ec.galois_rep, ec.galois_rep_modell_image, ec.global_minimal_model, ec.good_ordinary_reduction, ec.good_reduction, ec.good_supersingular_reduction, ec.invariants, ec.isogeny, ec.kodaira_symbol, ec.local_data, ec.local_minimal_discriminant, ec.local_minimal_model, ec.maximal_elladic_galois_rep, ec.maximal_galois_rep, ec.minimal_discriminant, ec.mordell_weil_group, ec.mordell_weil_theorem, ec.multiplicative_reduction, ec.mw_generators, ec.nonsplit_multiplicative_reduction, ec.obstruction_class, ec.period, ec.potential_good_reduction, ec.q.regulator, ec.q.torsion_growth, ec.q_curve, ec.rank, ec.reduction_type, ec.regulator, ec.semi_global_minimal_model, ec.special_value, ec.split_multiplicative_reduction, ec.tamagawa_number, modcurve.level_structure, nf.abelian, nf.abs_discriminant, nf.arithmetically_equivalent, nf.class_number, nf.class_number_formula, nf.cm_field, nf.complex_embedding, nf.conductor, nf.defining_polynomial, nf.discriminant, nf.embedding, nf.fundamental_units, nf.galois_root_discriminant, nf.generator, nf.ideal_class_group, nf.inessential_prime, nf.integral, nf.integral_basis, nf.local_algebra, nf.max_p, nf.maximal_cm_subfield, nf.minimal_polynomial, nf.minimal_sibling, nf.monogenic, nf.monomial_order, nf.narrow_class_group, nf.narrow_class_number, nf.order, nf.padic_completion, nf.place, nf.polredabs, nf.poly_discriminant, nf.prime, nf.radical_discriminant, nf.rank, nf.regulator, nf.relative_class_number, nf.ring_of_integers, nf.root_discriminant, nf.serre_odlyzko_bound, nf.signature, nf.torsion, nf.totally_imaginary, nf.totally_positive, nf.totally_real, nf.unit_group, nf.unit_signature_rank, nf.unramified_prime, nf.weil_height, nf.zk_index, ring.dedekind_domain
 nf.abelian: nf.conductor, nf.dirichlet_group
 nf.absolute_value: lf.local_field, lf.maximal_ideal, lf.ring_of_integers, nf.place
 nf.class_number: ec.complex_multiplication, ec.global_minimal_model, ec.semi_global_minimal_model, nf.class_number_formula, nf.narrow_class_number, nf.relative_class_number
@@ -236,7 +243,8 @@ nf.complex_embedding: nf.embedding, nf.place, nf.reflex_field, nf.signature
 nf.conductor: nf.dirichlet_group
 nf.defining_polynomial: nf.generator
 nf.degree: ag.complex_multiplication, cmf.galois_conjugate, ec.q.torsion_growth, ec.regulator, nf, nf.arithmetically_equivalent, nf.embedding, nf.galois_group, nf.maximal_cm_subfield, nf.minimal_sibling, nf.reflex_field, nf.root_discriminant, nf.separable, nf.serre_odlyzko_bound, nf.signature
-nf.discriminant: cmf.self_twist, ec.analytic_sha_order, ec.bsdconjecture, nf.abs_discriminant, nf.arithmetically_equivalent, nf.class_number_formula, nf.minimal_sibling, nf.poly_discriminant, nf.root_discriminant, nf.unramified_prime
+nf.degree_mathlib_def: nf.degree
+nf.discriminant: cmf.self_twist, ec.analytic_sha_order, ec.bsdconjecture, nf.abs_discriminant, nf.arithmetically_equivalent, nf.class_number_formula, nf.minimal_sibling, nf.poly_discriminant, nf.radical_discriminant, nf.root_discriminant, nf.unramified_prime
 nf.embedding: cmf.embedding, cmf.q-expansion, ec.period, nf.reflex_field
 nf.fundamental_units: nf.rank, nf.regulator
 nf.galois_closure: nf.galois_group, nf.galois_root_discriminant, nf.sibling, nf.stem_field
@@ -253,11 +261,11 @@ nf.place: ec.analytic_sha_order, ec.period
 nf.polredabs: nf.ideal_labels
 nf.poly_discriminant: nf.polredabs
 nf.prime: artin.conductor, ec.analytic_sha_order, ec.bad_reduction, ec.bsdconjecture, ec.good_reduction, ec.minimal_discriminant, ec.q.serre_invariants, nf.padic_completion
-nf.ramified_primes: artin.ramified_primes
-nf.real_embedding: nf.embedding, nf.place, nf.signature
+nf.ramified_primes: artin.ramified_primes, nf.max_p
+nf.real_embedding: nf.embedding, nf.place, nf.signature, nf.unit_signature_rank
 nf.reflex_field: nf.reflex_reflex_field
 nf.regulator: nf.class_number_formula
-nf.ring_of_integers: ec.conductor, ec.integral_model, ec.minimal_discriminant, ec.reduction_type, nf.ideal_class_group, nf.integral_basis, nf.monogenic, nf.monomial_order, nf.place, nf.poly_discriminant, nf.prime, nf.unit_group, nf.zk_index, ring.dedekind_domain
+nf.ring_of_integers: cmf.coefficient_ring, ec.conductor, ec.integral_model, ec.minimal_discriminant, ec.reduction_type, nf.ideal_class_group, nf.integral_basis, nf.monogenic, nf.monomial_order, nf.place, nf.poly_discriminant, nf.prime, nf.unit_group, nf.zk_index, ring.dedekind_domain
 nf.root_discriminant: nf.galois_root_discriminant, nf.serre_odlyzko_bound
 nf.separable: nf.galois_closure, nf.galois_group, nf.separable_algebra, nf.sibling
 nf.separable_algebra: nf.local_algebra
@@ -269,12 +277,13 @@ nf.totally_real: cmf.selfdual, nf.cm_field, nf.relative_class_number, st_group.d
 nf.unit_group: nf.fundamental_units, nf.torsion
 nf.weil_height: ec.canonical_height, ec.q.canonical_height
 nf.zk_index: nf.inessential_prime
-ring: ec.ring, ring.characteristic, ring.field, ring.ideal, ring.integral, ring.integral_domain, ring.irreducible, ring.maximal_ideal, ring.noetherian, ring.prime_ideal, ring.unit, ring.zero_divisor
+ring: ec.ring, ring.characteristic, ring.field, ring.field_of_fractions_mathlib, ring.ideal, ring.integral, ring.integral_domain, ring.irreducible, ring.maximal_ideal, ring.noetherian, ring.prime_ideal, ring.unit, ring.zero_divisor
 ring.a-field: modcurve.xn
 ring.characteristic: ec.complex_multiplication, ec.simple_equation, ec.twists, lf.local_field, lf.padic_field
 ring.dedekind_domain: nf.padic_completion
 ring.field: ag.affine_space, ag.base_change, ag.minimal_field, ag.projective_space, ag.variety, ec.discriminant, ec.simple_equation, ec.twists, group.galois.absolute, lf.automorphism_group, lf.local_field, nf.galois_group, ring.a-field, ring.characteristic, ring.dedekind_domain, ring.field_of_fractions
 ring.field_of_fractions: nf.padic_completion, ring.fractional_ideal, ring.integrally_closed, ring.principal_fractional_ideal
+ring.field_of_fractions_mathlib: ring.field_of_fractions
 ring.fractional_ideal: nf.ideal_class_group, nf.padic_completion, ring.dedekind_domain
 ring.ideal: ec.invariants, ring.dedekind_domain, ring.maximal_ideal, ring.noetherian, ring.prime_ideal
 ring.integral: nf.integral, nf.ring_of_integers, ring.integrally_closed
@@ -345,7 +354,7 @@ character.dirichlet.order: character.dirichlet, character.dirichlet.modulus, cha
 character.dirichlet.primitive: character.dirichlet, character.dirichlet.conductor, character.dirichlet.induce, character.dirichlet.modulus
 character.dirichlet.principal: character.dirichlet, character.dirichlet.induce, character.dirichlet.modulus
 character.dirichlet.value_field: character.dirichlet.order
-cmf: character.dirichlet, group.fuchsian.cusps, group.sl2z, mf.upper_half_plane
+cmf: character.dirichlet, cmf.space_mathlib_def, group.fuchsian.cusps, group.sl2z, mf.upper_half_plane
 cmf.analytic_conductor: cmf.newform
 cmf.analytic_rank: cmf.coefficient_field, cmf.cusp_form, cmf.q-expansion, cmf.selfdual, lfunction.analytic_rank
 cmf.artin_field: cmf.galois_representation, cmf.newform, cmf.weight, nf.sibling
@@ -355,11 +364,13 @@ cmf.bad_prime: cmf, cmf.level
 cmf.character: character.dirichlet, cmf
 cmf.cm_form: cmf, cmf.self_twist
 cmf.coefficient_field: cmf.cusp_form, cmf.fouriercoefficients, cmf.hecke_operator
-cmf.coefficient_ring: cmf.coefficient_field, cmf.newform
-cmf.cusp_form: character.dirichlet, cmf, cmf.fouriercoefficients, cmf.weight, group.fuchsian.cusps, group.sl2z
+cmf.coefficient_ring: cmf, cmf.coefficient_field, cmf.hecke_operator, cmf.newform, nf.ring_of_integers
+cmf.cusp_form: character.dirichlet, cmf, cmf.cusp_form_mathlib_def, cmf.fouriercoefficients, cmf.weight, group.fuchsian.cusps, group.sl2z
+cmf.cusp_form_subspace_mathlib_def: cmf.cusp_form, cmf.space_mathlib_def
 cmf.decomposition.new.gamma0chi: cmf.hecke_operator, cmf.newform
 cmf.defining_polynomial: cmf.coefficient_field, nf
-cmf.dimension: cmf.galois_orbit, cmf.newform, cmf.newform_subspace
+cmf.dimension: cmf.dimension_mathlib_def, cmf.galois_orbit, cmf.newform, cmf.newform_subspace
+cmf.dimension_mathlib_def: cmf.space, cmf.space_mathlib_def
 cmf.distinguishing_primes: cmf.galois_orbit, cmf.hecke_operator, cmf.newform, cmf.newspace
 cmf.dualform: cmf.coefficient_field, cmf.cusp_form, cmf.newform, cmf.q-expansion, cmf.selfdual, lfunction.dual, nf.cm_field
 cmf.eisenstein: af.bernoulli_numbers, af.divisor_function, cmf, cmf.level, cmf.q-expansion, cmf.weight, group.sl2z
@@ -372,6 +383,7 @@ cmf.embedding: character.dirichlet, character.dirichlet.value_field, cmf.charact
 cmf.embedding_label: character.dirichlet.galois_orbit_label, cmf.cusp_form, cmf.embedding, cmf.level, cmf.weight
 cmf.eta_quotient: mf.half_integral_weight.dedekind_eta
 cmf.fouriercoefficients: cmf, group.fuchsian.cusps, group.fuchsian.cusps.width
+cmf.fouriercoefficients_mathlib_def: cmf, cmf.q-expansion
 cmf.fricke: cmf.analytic_rank, cmf.atkin-lehner, lfunction, lfunction.functional_equation
 cmf.galois_conjugate: cmf.newform, nf.degree
 cmf.galois_orbit: cmf.galois_conjugate, cmf.newform, cmf.newform_subspace
@@ -390,15 +402,16 @@ cmf.maximal: cmf.character, cmf.dimension, cmf.galois_orbit, cmf.newform
 cmf.minimal_twist: character.dirichlet.minimal, cmf.character, cmf.label, cmf.level, cmf.newform, cmf.twist, cmf.twist_minimal
 cmf.minus_space: cmf.fricke
 cmf.newform: cmf.fouriercoefficients, cmf.hecke_operator, cmf.newspace
-cmf.newform_subspace: cmf.hecke_operator, cmf.level, cmf.newform, cmf.newspace
+cmf.newform_subspace: cmf.newform, cmf.newspace
 cmf.newspace: character.dirichlet, character.dirichlet.induce, character.dirichlet.modulus, cmf, cmf.character, cmf.cusp_form, cmf.level, cmf.petersson_scalar_product, cmf.weight
 cmf.nontrivial_twist: cmf.inner_twist, cmf.self_twist
 cmf.oldspace: character.dirichlet.conductor, character.dirichlet.induce, character.dirichlet.primitive, cmf, cmf.character, cmf.cusp_form, cmf.level, cmf.newspace, cmf.weight
-cmf.petersson_scalar_product: cmf.cusp_form, group.fuchsian.fundamental_domain, group.subgroup.index
+cmf.petersson_scalar_product: cmf.cusp_form, cmf.petersson_scalar_product_mathlib_def, group.fuchsian.fundamental_domain, group.subgroup.index
 cmf.plus_space: cmf.fricke
 cmf.projective_field: cmf.galois_representation, cmf.newform, cmf.weight, nf, nf.sibling
 cmf.projective_image: cmf.galois_representation, cmf.newform, cmf.weight
-cmf.q-expansion: cmf.cusp_form, cmf.fouriercoefficients, cmf.galois_orbit, cmf.newform, group.fuchsian.cusps, nf, nf.embedding
+cmf.q-expansion: cmf.cusp_form, cmf.fouriercoefficients, cmf.galois_orbit, cmf.newform, cmf.q-expansion_mathlib_def, group.fuchsian.cusps, nf, nf.embedding
+cmf.q-expansion_mathlib_def: cmf
 cmf.relative_dimension: cmf.newform
 cmf.rm_form: cmf, cmf.self_twist
 cmf.satake_angles: cmf.satake_parameters
@@ -407,12 +420,12 @@ cmf.sato_tate: cmf.cm_form, cmf.newform, cmf.weight
 cmf.self_twist: character.dirichlet, character.dirichlet.order, character.dirichlet.primitive, cmf.level, cmf.newform, cmf.projective_image, cmf.weight, nf.discriminant
 cmf.selfdual: cmf.coefficient_field, cmf.cusp_form, cmf.newform, cmf.q-expansion, lfunction.self-dual, nf.cm_field, nf.totally_real
 cmf.shimura_correspondence: character.dirichlet
-cmf.space: cmf, cmf.character, cmf.cusp_form, cmf.level, cmf.weight
+cmf.space: cmf, cmf.character, cmf.cusp_form, cmf.level, cmf.space_mathlib_def, cmf.weight
 cmf.space_trace_form: cmf.newform, cmf.newspace
 cmf.stark_unit: cmf.artin_field, cmf.galois_representation, cmf.newform, cmf.weight
 cmf.sturm_bound: cmf.character, cmf.fouriercoefficients, cmf.level, cmf.newform, cmf.weight
 cmf.sturm_bound_gamma1: cmf.fouriercoefficients, cmf.level, cmf.newform, cmf.weight
-cmf.subspaces: character.dirichlet, character.dirichlet.conductor, character.dirichlet.induce, character.dirichlet.modulus, cmf, cmf.character, cmf.cusp_form, cmf.level, cmf.petersson_scalar_product, cmf.space, cmf.weight
+cmf.subspaces: character.dirichlet, character.dirichlet.conductor, character.dirichlet.induce, character.dirichlet.modulus, cmf, cmf.character, cmf.cusp_form, cmf.cusp_form_subspace_mathlib_def, cmf.level, cmf.petersson_scalar_product, cmf.space, cmf.weight
 cmf.trace_bound: cmf.coefficient_field, cmf.dimension, cmf.galois_orbit, cmf.newform, cmf.newspace, cmf.q-expansion
 cmf.trace_form: cmf.coefficient_field, cmf.dimension, cmf.newform, cmf.newspace
 cmf.twist: character.dirichlet, character.dirichlet.conductor, character.dirichlet.galois_orbit, character.dirichlet.primitive, cmf.galois_conjugate, cmf.galois_orbit, cmf.inner_twist, cmf.newform
@@ -551,7 +564,7 @@ lf.automorphism_group: nf.is_galois, ring.field
 lf.inertia_group: lf.maximal_ideal, lf.padic_field, lf.residue_field, nf.is_galois
 lf.local_field: nf.absolute_value, ring.characteristic, ring.field
 lf.maximal_ideal: lf.local_field, lf.ring_of_integers, nf.absolute_value, ring.maximal_ideal, ring.unit
-lf.padic_field: lf.local_field, ring.characteristic
+lf.padic_field: lf.local_field, lf.qp, ring.characteristic
 lf.residue_field: lf.maximal_ideal, lf.ring_of_integers
 lf.ring_of_integers: lf.local_field, nf.absolute_value
 lf.wild_inertia_group: group.sylow_subgroup, lf.inertia_group, nf.is_galois
@@ -581,6 +594,7 @@ nf.cm_field: nf, nf.totally_imaginary, nf.totally_real
 nf.complex_embedding: nf, nf.minimal_polynomial
 nf.conductor: nf, nf.abelian
 nf.defining_polynomial: nf
+nf.degree: nf.degree_mathlib_def
 nf.dirichlet_group: character.dirichlet, nf.abelian, nf.conductor
 nf.discriminant: nf, nf.integral_basis
 nf.embedding: nf, nf.complex_embedding, nf.degree, nf.minimal_polynomial, nf.real_embedding, nf.signature
@@ -595,6 +609,7 @@ nf.inessential_prime: nf, nf.zk_index
 nf.integral: nf, ring.integral
 nf.integral_basis: nf, nf.ring_of_integers
 nf.local_algebra: nf, nf.separable_algebra
+nf.max_p: nf, nf.ramified_primes
 nf.maximal_cm_subfield: nf, nf.cm_field, nf.degree
 nf.minimal_polynomial: nf
 nf.minimal_sibling: nf, nf.degree, nf.discriminant, nf.galois_group, nf.sibling
@@ -608,6 +623,7 @@ nf.place: nf, nf.absolute_value, nf.complex_embedding, nf.real_embedding, nf.rin
 nf.polredabs: nf, nf.poly_discriminant
 nf.poly_discriminant: nf, nf.discriminant, nf.ring_of_integers
 nf.prime: nf, nf.ring_of_integers, ring.prime_ideal
+nf.radical_discriminant: nf, nf.discriminant
 nf.rank: nf, nf.fundamental_units
 nf.reflex_field: group.subgroup, nf.cm_field, nf.complex_embedding, nf.degree, nf.embedding
 nf.reflex_reflex_field: nf.cm_field, nf.reflex_field
@@ -626,6 +642,7 @@ nf.totally_imaginary: nf
 nf.totally_positive: nf
 nf.totally_real: nf
 nf.unit_group: nf, nf.ring_of_integers
+nf.unit_signature_rank: nf, nf.real_embedding
 nf.unramified_prime: nf, nf.discriminant
 nf.weil_height: ag.variety, nf
 nf.weil_polynomial: ag.abelian_variety, av.simple
@@ -635,7 +652,8 @@ ring.a-field: ring.field
 ring.characteristic: group, ring, ring.field
 ring.dedekind_domain: nf, nf.ring_of_integers, ring.field, ring.fractional_ideal, ring.ideal, ring.integral_domain, ring.integrally_closed, ring.maximal_ideal, ring.noetherian, ring.prime_ideal
 ring.field: alg.binary_operation.inverse, ring
-ring.field_of_fractions: ring.field, ring.integral_domain
+ring.field_of_fractions: ring.field, ring.field_of_fractions_mathlib, ring.integral_domain
+ring.field_of_fractions_mathlib: ring
 ring.fractional_ideal: ring.field_of_fractions, ring.integral_domain
 ring.ideal: group.subgroup, ring
 ring.integral: ring

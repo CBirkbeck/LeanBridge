@@ -1,0 +1,9 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.eutactic}{Eutactic lattice}}
+\begin{definition}\label{lattice.eutactic}
+\uses{lattice.arithmetic,lattice.minimal_vector,lattice.similarity,lattice.well_rounded}
+A lattice $L$ in $\mathbb{R}^n$ is called \textbf{eutactic} if there exist positive real numbers $c_1,\dots,c_m$ such that for every $v \in \mathbb{R}^n$, the inner product
+$$(v,v) = \sum_{j=1}^n c_j (v,x_j)^2,$$
+where the sum is over all the \hyperref[lattice.minimal_vector]{minimal vectors} of $L$. A eutactic lattice is \hyperref[lattice.well_rounded]{well-rounded}, and there are only finitely many \hyperref[lattice.similarity]{similarity classes} of eutactic lattices in each dimension $n \geq 2$. A lattice is called \textbf{strongly eutactic} if the eutaxy coefficients $c_1 = \dots = c_m$. Strongly eutactic lattices are \hyperref[lattice.arithmetic]{arithmetic}.
+\end{definition}
+
+

@@ -1,0 +1,7 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/shimcurve.is_coarse}{Is coarse}}
+\begin{definition}\label{shimcurve.is_coarse}
+\uses{}
+We say a subgroup $H\leq\Aut_{\pm\mu}(O)\ltimes(O/NO)^{\times}$ is \textbf{coarse} if $H$ contains the projection of the kernel of the map $f: \Aut_{\pm\mu}(O)\ltimes O^{\times}\to N_{B^{\times}}(O)/\Q^{\times}$ defined by $(w,x)\mapsto w\cdot x$.
+\end{definition}
+
+

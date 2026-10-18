@@ -2,9 +2,7 @@
 \begin{definition}\label{nf.search_input}
 \uses{nf,nf.defining_polynomial,nf.label,nf.nickname}
 \leanok
-You can search for a specific \hyperref[nf]{number field} by entering its \hyperref[nf.label]{label}, its
-  \hyperref[nf.nickname]{name}, or its defining
-  \hyperref[nf.defining_polynomial]{polynomial}.
+You can search for a specific \hyperref[nf]{number field} by entering its \hyperref[nf.label]{label}, its \hyperref[nf.nickname]{name}, or its defining \hyperref[nf.defining_polynomial]{polynomial}.  You can also enter any comma-separated list of labels, names, or polynomials, to return a corresponding search results page.
 \end{definition}
 
 

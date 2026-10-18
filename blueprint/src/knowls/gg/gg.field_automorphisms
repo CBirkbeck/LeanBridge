@@ -8,7 +8,7 @@ Although $F$ might not be Galois over $K$, one can consider the group \hyperref[
 
 The group $\Aut(F/K)$ can be computed via the Galois correspondence. Group-theoretically, the order $\# \Aut(F/K)$ equals the order of the \hyperref[group.centralizer]{centralizer} of $G$ in $S_n$.
 
-If $F/K$ is realized as the extension $F = K[x]/(f(x))$ for some polynomial $f(x) \in K[x]$ then, the degree $\#\Aut(F/K)$ is the number of roots of $f(x)$ in $F$.
+If $F/K$ is realized as the extension $F = K[x]/(f(x))$ for some polynomial $f(x) \in K[x]$ then, the order $\#\Aut(F/K)$ is the number of roots of $f(x)$ in $F$.
 \end{definition}
 
 

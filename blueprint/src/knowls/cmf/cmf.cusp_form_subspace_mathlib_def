@@ -1,0 +1,8 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.cusp_form_subspace_mathlib_def}{Cuspidal subspace (mathlib)}}
+\begin{definition}\label{cmf.cusp_form_subspace_mathlib_def}
+\uses{cmf.cusp_form,cmf.space_mathlib_def}
+\leanok
+This is \textbf{cuspFormSubmodule $\Gamma$ $k$} in mathlib. It is the submodule of the \hyperref[cmf.space_mathlib_def]{ModularForm $\Gamma$ $k$} consisting of \hyperref[cmf.cusp_form]{cusp forms}.
+\end{definition}
+
+

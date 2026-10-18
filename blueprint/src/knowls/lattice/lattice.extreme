@@ -1,0 +1,7 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.extreme}{Extreme lattice}}
+\begin{definition}\label{lattice.extreme}
+\uses{lattice.density,lattice.eutactic,lattice.perfect}
+A lattice $L$ in $\mathbb{R}^n$ is called \textbf{extreme} if it is a local maximum of the \hyperref[lattice.density]{packing density} function in $\mathbb{R}^n$. A theorem of Voronoi asserts that a lattice is extreme if and only if it is \hyperref[lattice.perfect]{perfect} and \hyperref[lattice.eutactic]{eutactic}.
+\end{definition}
+
+

@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/shimcurve}{Shimura curve}}
 \begin{definition}\label{shimcurve}
-\uses{ag.curve,shimcurve.discb,shimcurve.enhanced_group,shimcurve.level,shimcurve.polarized_order,shimcurve.quaternion_algebra}
+\uses{ag.curve,shimcurve.aut_pm_mu_o,shimcurve.discb,shimcurve.enhanced_group,shimcurve.level,shimcurve.polarized_order,shimcurve.quaternion_algebra}
 Let $(O,\mu)$ be a \hyperref[shimcurve.polarized_order]{polarized quaternion order} in an indefinite division
 \hyperref[shimcurve.quaternion_algebra]{quaternion algebra}
 over $\Q$ of \hyperref[shimcurve.discb]{discriminant} $D$. 
@@ -35,7 +35,7 @@ be identified with the quotient
     \[ X(O;1)^{\text{big}}(\C) = O^\times\backslash \mathcal{H}^\pm. \]
 
 
-Let $H \le \Aut_{\pm\mu}(O)\ltimes \widehat{O}^\times$ be an open
+Let $H \le$ \hyperref[shimcurve.aut_pm_mu_o]{$\Aut_{\pm\mu}(O)$} $\ltimes \widehat{O}^\times$ be an open
 compact subgroup of the \hyperref[shimcurve.enhanced_group]{enhanced semidirect product} of \hyperref[shimcurve.level]{level} $N$. Then $H$ acts on $X(O;N)^{\text{big}}$ by a finite group 
 of automorphisms over $\Q$. We let
     \[ \mathfrak{X}_H \colonequals [H\backslash X(O;N)^{\text{big}}] \]

@@ -1,0 +1,9 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.pneighbor}{p-Neighbor of a lattice}}
+\begin{definition}\label{lattice.pneighbor}
+\uses{}
+Given an integral lattice $L$ and a prime $p$, a \textbf{$p$-neighbor} of $L$ is an integral lattice $M$ such that
+$$ [L : L \cap M ] = [M : L \cap M ] = p.$$
+We denote the $p$-neighborhood relation as $L \sim_p M$.  This is a symmetric relation, but in general is not  reflexive nor transitive.  If two lattices are $p$-neighbors, then they lie in the same genus.
+\end{definition}
+
+

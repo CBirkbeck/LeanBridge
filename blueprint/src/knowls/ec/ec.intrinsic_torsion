@@ -1,0 +1,21 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/ec.intrinsic_torsion}{Order of the Intrinsic Subgroup}}
+\begin{definition}\label{ec.intrinsic_torsion}
+\uses{}
+Let $E$ be an elliptic curve over a field $k$. Define the pairing
+\[
+\langle \cdot, \cdot \rangle \colon E(k)_{\text{tors}} \times E(k)_{\text{tors}} \to k^\times \otimes \mathbb{Q}/\mathbb{Z}
+\]
+as follows. Let $P, Q \in E(k)_{\text{tors}}$. Take $n \in \Z$ such that $nP = 0$, and $f \in k(E)^\times$ with $\operatorname{div}(f) = n(P - O)$. Let $D = \sum e_jQ_j \in \operatorname{Div}^0(X)$ so that $P, O \notin |D|$ and $[D] = [Q - O]$; we define
+\[
+\langle P, Q \rangle = \prod_j N_{k(Q_j)/k}(f(Q_j))^{e_j} \otimes \frac 1n.
+\]
+In \cite{arXiv:2512.00787}, Yamazaki et al. show that this definition is independent of $n$ and $f$, and the pairing is symmetric and biadditive.
+
+The \textbf{intrinsic subgroup} of $E$ is the set
+\[
+E(k)_{\text{tors}}^\text{is} = \{P \in E(k)_{\text{tors}} : \langle P, Q \rangle = 0 \text{ for all } Q \in E(k)_{\text{tors}}\}.
+\]
+For curves $E/\Q$, the intrinsic subgroup is cyclic with order at most $5$, by the results of \cite{arXiv:2512.00787}.
+\end{definition}
+
+

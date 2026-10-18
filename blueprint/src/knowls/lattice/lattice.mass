@@ -1,0 +1,9 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.mass}{Mass of a lattice}}
+\begin{definition}\label{lattice.mass}
+\uses{lattice.automorphism_group,lattice.definition,lattice.genus}
+For an \hyperref[lattice.definition]{integral lattice} $L$, the \textbf{mass} of $L$ is the weighted sum
+$$ \sum_{\Lambda} \frac{1}{\# \text{Aut} (\Lambda)} $$
+where the sum runs over all isometry classes of lattices $\Lambda$ in the same \hyperref[lattice.genus]{genus} as $L$.  Here $\text{Aut}(\Lambda)$ denotes the \hyperref[lattice.automorphism_group]{automorphism group} of $\Lambda$.
+\end{definition}
+
+

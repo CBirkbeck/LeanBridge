@@ -1,0 +1,9 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.conway_genus_symbol}{Conway symbol}}
+\begin{definition}\label{lattice.conway_genus_symbol}
+\uses{lattice.definition,lattice.genus,lattice.signature}
+The \textbf{Conway genus symbol} of an \hyperref[lattice.definition]{integral lattice} $L$ is an invariant of the \hyperref[lattice.genus]{genus} of $L$.  It is given in the form $\text{I}_{r,s}(\cdots)$ or $\text{II}_{r,s}(\cdots)$ where the Roman numeral $\text{I}$ or $\text{II}$ indicates the type of $L$, and $(r,s)$ is the \hyperref[lattice.signature]{signature} of $L$.
+
+For a complete description of the Conway symbol, see Conway-Sloane, Chapter 15.
+\end{definition}
+
+

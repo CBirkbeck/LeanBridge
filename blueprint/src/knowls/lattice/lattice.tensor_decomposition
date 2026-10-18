@@ -1,0 +1,15 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.tensor_decomposition}{Tensor decomposition of a lattice}}
+\begin{definition}\label{lattice.tensor_decomposition}
+\uses{lattice.definition,lattice.dimension}
+Given \hyperref[lattice.definition]{integral lattices} $L_1$ and $L_2$, we define the \textbf{tensor product} of $L_1$ and $L_2$ as the lattice $L = L_1 \otimes_{\Z} L_2$, where the associated bilinear form is defined as
+
+$$ B( v_1 \otimes w_1, v_2 \otimes w_2 ) = B_{L_1} ( v_1, v_2) B_{L_2} (w_1,  w_2), $$
+
+extended bilinearly. The \hyperref[lattice.dimension]{rank} of $L$ is the product of the ranks of $L_1$ and $L_2$, and the determinant of $L$ is $ \det(L_1)^{\operatorname{rank}(L_2)} \cdot \det(L_2)^{\operatorname{rank}(L_1)}$.
+
+We say that $L$ is \textbf{tensor decomposable} if it can be written as $L = L_1 \otimes L_2$ for some integral lattices $L_1$ and $L_2$.  If not, we say $L$ is \textbf{tensor indecomposable}.
+
+A \textbf{tensor decomposition} of $L$ is a decomposition of the form $L = L_1 \otimes L_2 \otimes \dots \otimes L_r$.
+\end{definition}
+
+

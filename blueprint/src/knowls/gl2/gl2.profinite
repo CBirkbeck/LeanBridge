@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/gl2.profinite}{Profinite group}}
 \begin{definition}\label{gl2.profinite}
 \uses{}
+\leanok
 A \textbf{profinite group} is a compact totally disconnected topological group.  Equivalently, it is the inverse limit of a system of finite groups equipped with the discrete topology.
 
 For example, if we take the finite groups $\GL_2(\Z/n\Z)$ as $n$ varies over positive integers, order them by divisibility of $n$ and consider the inverse system equipped with reduction maps $\GL_2(\Z/n\Z)\to \GL_2(\Z/m\Z)$ for all positive integers $m|n$, then the inverse limit

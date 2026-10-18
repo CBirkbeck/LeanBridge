@@ -1,0 +1,8 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.conjugacy_class_search_input}{Find a conjugacy class of a group}}
+\begin{definition}\label{group.conjugacy_class_search_input}
+\uses{group.complex_character_table,group.conjugacy_class,group.label,group.label_conjugacy_class}
+\leanok
+If you enter a \hyperref[group.label]{ group label}, you will be directed to a list of all \hyperref[group.conjugacy_class]{conjugacy classes} for that group. If you enter a \hyperref[group.label_conjugacy_class]{conjugacy class label}, you will be directed to a page with that particular conjugacy class highlighted on the corresponding \hyperref[group.complex_character_table]{character table}.
+\end{definition}
+
+

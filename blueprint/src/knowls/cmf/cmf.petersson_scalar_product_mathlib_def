@@ -1,0 +1,9 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/cmf.petersson_scalar_product_mathlib_def}{Petersson scalar product (mathlib)}}
+\begin{definition}\label{cmf.petersson_scalar_product_mathlib_def}
+\uses{}
+\leanok
+The mathlib definition \textbf{petersson} defines only the integrand of the Petersson scalar product. Mathlib uses the conjugate of the first argument, whereas the LMFDB definition uses the conjugate of the second argument.
+
+\end{definition}
+
+

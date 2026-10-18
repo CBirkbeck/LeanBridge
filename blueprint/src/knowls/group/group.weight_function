@@ -1,0 +1,13 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.weight_function}{Weight function}}
+\begin{definition}\label{group.weight_function}
+\uses{group.division}
+Let $G$ be a finite group. A \textbf{weight function} on $G$ is a function $w:G \to \R_{\geq 0}$ such that:
+
+1. $w(g) = 0$ if and only if $g$ equals the identity element of $G$.
+2. $w(h g h^{-1}) = w(g)$ for all $g,h \in G$, i.e. $w$ is invariant under conjugacy.
+3. $w(g^n) = w(g)$ for all $g \in G$ and all natural numbers $n$ with $n \nmid \#G$, i.e. $w$ is invariant under invertible powering.
+
+Any weight function takes constant value on each \hyperref[group.division]{rational conjugacy class} of $G$.
+\end{definition}
+
+

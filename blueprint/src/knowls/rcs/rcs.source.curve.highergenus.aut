@@ -1,7 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.curve.highergenus.aut}{Source of higher genus curves with automorphisms data}}
 \begin{definition}\label{rcs.source.curve.highergenus.aut}
 \uses{ag.jacobian,ag.riemann_surface,ag.shimura_variety,curve.highergenus.aut.generatingvector,curve.highergenus.aut.signature}
-A paper with a detailed description of the data may be found at \cite{href{http://www.math.grinnell.edu/~paulhusj/Paulhus-lmfdb.pdf}{ www.math.grinnell.edu/~paulhusj/Paulhus-lmfdb.pdf}}.
+A paper with a detailed description of the data is cited at the bottom of the page and may be found \cite{href{https://jenpaulhus.com/research/Paulhus-lmfdb2022.pdf}{here}}.
 
 ### Original Data of Thomas Breuer
 

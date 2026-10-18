@@ -1,0 +1,15 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/nf.valuation_equivalence}{Two notions of equivalence for valuations}}
+\begin{definition}\label{nf.valuation_equivalence}
+\uses{}
+\leanok
+Let $v_1$ and $v_2$ are valuations of a ring $R$, $p \in \mathbb{R}_{>1}$, and we set $\lvert x \rvert_1 = p^{-v_1(x)}$ and $\lvert x \rvert_2 = p^{-v_2(x)}$, the following are equivalent:
+
+\begin{itemize}
+\item  there exists a positive real number $c$ such that $|x|_1 = |x|_2^c$ for all $x\in R$,
+\item  for all elements $r, s \in R$, $v_1(r) \le v_1(s)$ if and only if $v_2(r) \le v_2(s)$.
+\end{itemize}
+
+The second form is the definition used in \href{https://leanprover-community.github.io/mathlib4_docs/Mathlib/RingTheory/Valuation/Basic.html#Valuation.IsEquiv}{mathlib}.
+\end{definition}
+
+

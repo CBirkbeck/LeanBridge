@@ -1,0 +1,26 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/portrait.character.dirichlet}{Pictures for Dirichlet characters}}
+\begin{definition}\label{portrait.character.dirichlet}
+\uses{character.dirichlet,character.dirichlet.gauss_sum,character.dirichlet.modulus,character.dirichlet.order,character.dirichlet.primitive,character.dirichlet.principal}
+\leanok
+For each \hyperref[character.dirichlet]{Dirichlet character} $\chi$ of \hyperref[character.dirichlet.modulus]{modulus} $N$ and each residue $a$ modulo $N$, we draw the partial \hyperref[character.dirichlet.gauss_sum]{Gauss sums}
+$$ S_a(k) = \sum_{n = 1}^{k} \chi(n) e^{2\pi i a n/N} $$
+as segments from the origin of the complex plane to $S_a(k)$. All the segments belonging to a given $a$ share a hue, running through the spectrum from red at $a = 0$ to violet at $a = N-1$; within one hue the segments for small $k$ are darkened and those for large $k$ are drawn at full brightness, so the eye can follow the partial sums as they accumulate. A large dot marks the last of them, the complete Gauss sum $\tau_a(\chi) = S_a(N-1)$.
+
+Only the stages $k$ coprime to $N$ are drawn: $\chi(n) = 0$ whenever $\gcd(n, N) > 1$, so each omitted stage would simply repeat the segment before it.
+
+The grey circle has radius $\sqrt N$. If $\chi$ is \hyperref[character.dirichlet.primitive]{primitive}, then $|\tau_a(\chi)| = \sqrt N$ for every $a$ coprime to $N$, and $\tau_a(\chi) = 0$ for every other $a$: the picture of a primitive character is $\phi(N)$ dots on the circle together with a cluster of dots at the origin, and a character is primitive exactly when its coprime dots reach the circle.
+
+Several other properties of $\chi$ can be read off the picture.
+
+\begin{itemize}
+\item  Since $\tau_a(\chi) = \overline{\chi(a)}\,\tau_1(\chi)$ for primitive $\chi$ and $a$ coprime to $N$, the dots on the circle are the vertices of a regular $n$-gon, where $n$ is the \hyperref[character.dirichlet.order]{order} of $\chi$.
+\item  $S_{N-a}(k) = \overline{S_a(k)}$ when $\chi$ is real, so the picture of a real character is symmetric about the real axis.
+\item  The \hyperref[character.dirichlet.principal]{principal character} shows a single long red spike along the positive real axis, of length $\phi(N)$, since then $S_0(k)$ just counts the units up to $k$.
+\end{itemize}
+
+The pictures are drawn when the page is requested rather than stored in the database, so they are only shown when there is little work to do: the number of segments is $N\phi(N)$, and we draw the picture only when that is at most $25000$. This is why a character of modulus $300$ has a picture while one of modulus $293$ does not.
+
+The design follows [Alex Best's demo](https://alexjbest.github.io/dirich/).
+\end{definition}
+
+

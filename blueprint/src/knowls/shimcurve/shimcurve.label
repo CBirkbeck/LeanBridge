@@ -1,0 +1,21 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/shimcurve.label}{Label of a Shimura curve}}
+\begin{definition}\label{shimcurve.label}
+\uses{shimcurve,shimcurve.discb,shimcurve.disco,shimcurve.enhanced_group,shimcurve.genus,shimcurve.index,shimcurve.level,shimcurve.nrdmu,shimcurve.polarized_order,shimcurve.quaternion_algebra}
+Let $(O,\mu)$ be a \hyperref[shimcurve.polarized_order]{polarized order} in an indefinite 
+division \hyperref[shimcurve.quaternion_algebra]{quaternion 
+algebra} $B$ over $\Q$ of \hyperref[shimcurve.discb]{discriminant} $D$. Let $H \le \Aut_{\pm\mu}(O)\ltimes \widehat{O}^\times$ be an open
+compact subgroup of the \hyperref[shimcurve.enhanced_group]{enhanced semidirect product} of \hyperref[shimcurve.level]{level} $N$. The \textbf{label} of the \hyperref[shimcurve]{Shimura Curve} $X_H$ has the form $\mathtt{D.d.\delta.N.i.g.c.n}$, where 
+
+\begin{itemize}
+\item  $D$ is the \hyperref[shimcurve.discb]{discriminant} of $B$,
+\item  $d$ is the \hyperref[shimcurve.disco]{reduced discriminant} of $O$, which is omitted when $O$ is maximal,
+\item  $\delta$ is the \hyperref[shimcurve.nrdmu]{degree} of the polarized element $\mu$,
+\item  $N$ is the \hyperref[shimcurve.level]{level} of $H$,
+\item  $i$ is the \hyperref[shimcurve.index]{index} of $H$, 
+\item  $g$ is the \hyperref[shimcurve.genus]{genus} of $X_H$,
+\item  $c$ is a base-26 ordinal that uniquely identifies the Gassman class of $H$ among groups of the same level, index, and genus, and 
+\item  $n$ is a positive integer that distinguishes nonconjugate subgroups of the same level, index, genus, and Gassmann class.
+\end{itemize}
+\end{definition}
+
+

@@ -1,0 +1,7 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/gg.semiconcentrated}{Semiconcentrated group}}
+\begin{definition}\label{gg.semiconcentrated}
+\uses{gg.index,group,group.proper_subgroup}
+A transitive permutation \hyperref[group]{group} $G$ is \textbf{semiconcentrated} if there exists an element of minimal \hyperref[gg.index]{index} so that the minimal normal subgroup containing it is a \hyperref[group.proper_subgroup]{proper} subgroup of $G$.
+\end{definition}
+
+

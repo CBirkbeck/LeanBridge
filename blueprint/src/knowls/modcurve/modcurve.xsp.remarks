@@ -3,8 +3,8 @@
 \uses{ag.hyperelliptic_curve}
 \leanok
 \hyperref[ag.hyperelliptic_curve]{Hyperelliptic curves}:
-There is only 
-<a href = "{{url\_for('modcurve.index\_Q',level='11',family="Xsp")}}">1 hyperelliptic curve in this family</a>, namely $X_{\mathrm{sp}}(11)$ \cite{doi:10.1112/blms/bdw019, MR:3532138}.
+The modular curve $X_{\mathrm{sp}}(N)$ is isomorphic to $X_0(N^2)$ \cite{https://doi.org/10.1112/S0024611598000392, MR:1625491}.
+There are no hyperelliptic curves in this family   \cite{doi:10.24033/bsmf.1789, MR:0364259}.
 \end{definition}
 
 

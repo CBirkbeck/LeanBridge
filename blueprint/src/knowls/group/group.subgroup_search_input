@@ -1,0 +1,8 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.subgroup_search_input}{Find a subgroup of a group}}
+\begin{definition}\label{group.subgroup_search_input}
+\uses{group.label,group.subgroup_label}
+\leanok
+Enter a \hyperref[group.label]{group label} to search for subgroups with that abstract group label or enter a \hyperref[group.subgroup_label]{subgroup label} to go to the page for that subgroup.
+\end{definition}
+
+

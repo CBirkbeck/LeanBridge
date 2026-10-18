@@ -2,7 +2,7 @@
 \begin{definition}\label{rcs.source.modlgal}
 \uses{}
 \leanok
-TBA
+Data for dual pairs of algebras associated to mod-$\ell$ Galois representations were computed by Peter Bruin available at this \href{https://github.com/sanni85/Mod-l-galois-representations/tree/master/code/dual_pairs}{GitHub repo}.
 \end{definition}
 
 

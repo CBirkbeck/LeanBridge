@@ -1,0 +1,58 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/content.announcements}{Announcements}}
+\begin{definition}\label{content.announcements}
+\uses{}
+
+
+
+
+\begin{itemize}
+\item  [IGP24 competition](https://competition.sair.foundation/competitions/igp24/) launched! (6/26)
+\item  An [LMFDB MCP server](https://github.com/AndrewVSutherland/lmfdb-mcp) is now available (4/26)
+\item  \textbf{New section} on [abstract groups](/Groups/Abstract) (8/25)
+\item  \textbf{New section} on [Belyi maps](/Belyi) (7/25)
+\item  \textbf{Major revision} to [$p$-adic fields](/padicField) (7/25)
+\item  Add CM subfields and narrow class groups to [number fields](/NumberField) (7/25)
+\item  Add portraits for [Galois groups](/GaloisGroup) (7/25)
+\item  Add portraits for [number fields](/NumberField) (6/25)
+\item  Add regular families for [Galois groups](/GaloisGroup) (6/25)
+\item  Add SW and BHKSSW elliptic curve [datasets](/datasets) (11/24)
+\item  Documented [API interface options](/api/options) (11/24)
+\item  Add Stark units for [modular forms](/ModularForm/GL2/Q/holomorphic) (11/24)
+\item  New Newton polygon plots for [abelian varieties](/Variety/Abelian/Fq) (10/24)
+\item  Add relative class numbers for [CM number fields](/NumberField) (9/24)
+\item  Add Serre invariants for [elliptic curves over $\Q$](/EllipticCurve/Q) (8/24)
+\item  Add Malle invariants for [Galois groups](/GaloisGroup) (7/24)
+\item  \textbf{Major revision} to [Maass forms](/ModularForm/GL2/Q/Maass) (5/24)
+\item  Add 700,000 [modular forms](/ModularForm/GL2/Q/holomorphic) (5/24)
+\item  Add Zigzag plot to [hypergeometric motives](/Motive/Hypergeometric/Q) (4/24)
+\item  Improved character tables for [Galois groups](/GaloisGroup) (4/24)
+\item  Extend [Dirichlet character](/Character/Dirichlet) data to conductor $10^6$ (4/24)
+\item  Add ABC quality and Szpiro ratio for [elliptic curves over $\Q$](/EllipticCurve/Q) (3/24)
+\item  Add Galois root discriminant for [number fields](/NumberField) (2/24)
+\item  Allow control over columns displayed and downloaded in search results (11/23)
+\item  Add twist section for [elliptic curves over $\Q$](/EllipticCurve/Q) (6/23)
+\item  \textbf{Beta section} on [modular curves](/ModularCurve) (7/23)
+\item  Add discriminant root field for [number fields](/NumberField) (4/23)
+\item  Add ramification polygon and other invariants to [$p$-adic fields](/padicField) (3/23)
+\item  Add reflex fields for CM [number fields](/NumberField) (12/22)
+\item  Add adelic images for [elliptic curves over $\Q$](/EllipticCurve/Q) (11/22)
+\item  Add whether [number fields](/NumberField) are monogenic (3/22)
+\item  Add ability to sort all search results (2/22)
+\item  \textbf{Beta section} on [abstract groups](/Groups/Abstract) (10/21)
+\item  Add $\ell$-adic Galois images for [elliptic curves over $\Q$](/EllipticCurve/Q) (9/21)
+\item  Search for [number fields](/NumberField) by completion (6/21)
+\item  Add Faltings heights for [elliptic curves over $\Q$](/EllipticCurve/Q) (3/21)
+\item  Add search and browse pages for [L-functions](/L) (1/21)
+\item  Search [Galois groups](/GaloisGroup) by number of arithmetically equivalent fields (10/20)
+\item  Display class number formula on [number field](/NumberField) pages (10/20)
+\item  Add lists of interesting objects in each LMFDB section (9/20)
+\item  Add cluster pictures for [genus 2 curves](/Genus2Curve/Q) (8/20)
+\item  Search for [number fields](/NumberField) by subfield (4/20)
+\item  Add portraits for [Belyi maps](/Belyi) (3/20)
+\item  Add number of automorphisms for [number fields](/NumberField) (1/20)
+\item  Add regulators for [genus 2 curves](/Genus2Curve/Q) (11/19)
+\item  \textbf{Major revision} to [classical modular forms](/ModularForm/GL2/Q/holomorphic) (3/19)
+\end{itemize}
+\end{definition}
+
+

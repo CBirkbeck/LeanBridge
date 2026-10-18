@@ -1,0 +1,9 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.pneighbor_adjacency}{p-Neighbor adjacency matrix of a lattice}}
+\begin{definition}\label{lattice.pneighbor_adjacency}
+\uses{lattice.class_number,lattice.definition,lattice.genus,lattice.isometry,lattice.pneighbor}
+Let $\mathcal{G}$ be a \hyperref[lattice.genus]{genus}  of \hyperref[lattice.definition]{integral lattices}, with \hyperref[lattice.class_number]{class number} $h$ and with representatives $\{L_1, L_2, \dots, L_h\}$.  The \textbf{p-neighbor adjacency graph} of $\mathcal{G}$ is the weighted directed graph with $h$ vertices  $\{L_1, L_2, \dots, L_h\}$, and with a directed edge from $L_i$ to $L_j$, where the edge weight is the number of \hyperref[lattice.pneighbor]{$p$-neighbors} of $L_i$ which are \hyperref[lattice.isometry]{isometric} to $L_j$.
+
+The \textbf{$p$-neighbor adjacency matrix} is the adjacency matrix of the $p$-neighbor adjacency graph.  In general, the $p$-neighbor adjacency matrix does not need to be symmetric, and can contain self-edges.
+\end{definition}
+
+

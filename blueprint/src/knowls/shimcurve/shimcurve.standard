@@ -1,0 +1,15 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/shimcurve.standard}{Standard Shimura curves}}
+\begin{definition}\label{shimcurve.standard}
+\uses{shimcurve,shimcurve.xd1,shimcurve.xd1_star,shimcurve.xdm1,shimcurve.xdn,shimcurve.xdn_star}
+\leanok
+Let $D$ and $N$ denote positive integers with $D$ squarefree. Standard \hyperref[shimcurve]{Shimura curves} include: 
+
+\hyperref[shimcurve.xd1]{$X(D;1)$},
+\hyperref[shimcurve.xdn]{$X(D;N)$},
+\hyperref[shimcurve.xd1_star]{$X^*(D,1)$},
+\hyperref[shimcurve.xdn_star]{$X^*(D,N)$},
+\hyperref[shimcurve.xdm1]{$X(D,M;1)$}.
+
+\end{definition}
+
+

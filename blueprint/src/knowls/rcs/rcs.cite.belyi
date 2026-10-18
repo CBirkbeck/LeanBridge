@@ -2,7 +2,11 @@
 \begin{definition}\label{rcs.cite.belyi}
 \uses{}
 \leanok
+If you use the database of Belyi maps in your research please cite:
 
+\href{https://doi.org/10.2140/obs.2019.2.375}{*A database of Belyi maps*}, by Michael Musty, Sam Schiavone, Jeroen Sijsling, and John Voight, Proceedings of the Thirteenth Algorithmic Number Theory Symposium (ANTS-XIII), eds. Renate Scheidler and Jonathan Sorenson, Open Book Series 2, Mathematical Sciences Publishers, Berkeley, 2019, 375-392 \cite{mr:3952023},
+
+as well as any of the references cited above that are of particular relevance.
 \end{definition}
 
 

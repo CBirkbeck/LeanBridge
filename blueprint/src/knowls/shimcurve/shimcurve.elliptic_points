@@ -1,0 +1,7 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/shimcurve.elliptic_points}{Elliptic point on a Shimura curve}}
+\begin{definition}\label{shimcurve.elliptic_points}
+\uses{shimcurve}
+An \textbf{elliptic point} of a \hyperref[shimcurve]{Shimura curve} $X_H$ is a point with a nontrivial stabilizer group (that can be of order $2, 3, 4$, or $6$). 
+\end{definition}
+
+

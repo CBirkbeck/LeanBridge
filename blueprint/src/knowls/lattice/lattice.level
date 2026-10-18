@@ -1,7 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.level}{Level of an integral lattice}}
 \begin{definition}\label{lattice.level}
-\uses{lattice.definition,lattice.dual}
-For an \hyperref[lattice.definition]{integral lattice}, $L$, the \textbf{level} is the smallest integer, $k$, such that $k\cdot B(\vec{v},\vec{v})\in 2\mathbb{Z}$ for all $\vec{v}$ in the \hyperref[lattice.dual]{dual} of $L$. 
+\uses{group.exponent,lattice.conway_genus_symbol,lattice.definition,lattice.discriminant,lattice.discriminant_group,lattice.dual}
+For an \hyperref[lattice.definition]{integral lattice}, $L$, the \textbf{level} is the smallest integer, $N$, such that $N\cdot B(\vec{v},\vec{v})\in 2\mathbb{Z}$ for all $\vec{v}$ in the \hyperref[lattice.dual]{dual} of $L$.
+
+This is related to the \hyperref[group.exponent]{exponent} $e$ of the \hyperref[lattice.discriminant_group]{discriminant group}: either $N = e$ or $N = 2e$.  You can determine when the second case occurs using the \hyperref[lattice.conway_genus_symbol]{Conway genus symbol}: the level will be $2e$ when the highest $2$-adic block is of type I, and it will be $e$ when the highest $2$-adic block is of type II (or if $2$ does not divide the \hyperref[lattice.discriminant]{discriminant}).
 \end{definition}
 
 

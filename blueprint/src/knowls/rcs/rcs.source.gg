@@ -22,6 +22,7 @@ Data for regular extensions of $\Q(\mathbf{t})$ come from
 \item  Jensen, Ledet, Yui "Generic polynomials" \cite{MR:1969648}
 \item  Jones and Roberts "Galois number fields with small root discriminant" \cite{MR:2292261}
 \item  Krumm "Galois groups in a family of dynatomic polynomials" \cite{doi:10.1016/j.jnt.2017.11.011}
+\item  Huang, Jackson, Lee, Poonen, Pries, and Zhang "The Mathieu group $M_{23}$ is a Galois group over $Q$" \cite{arXiv:2608.08538}
 \end{itemize}
 
 \end{definition}

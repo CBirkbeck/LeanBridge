@@ -1,0 +1,19 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.invariants}{Lattice Invariants}}
+\begin{definition}\label{lattice.invariants}
+\uses{lattice.class_number,lattice.definition,lattice.determinant,lattice.dimension,lattice.discriminant,lattice.level,lattice.signature}
+\leanok
+The basic invariants of an \hyperref[lattice.definition]{integral lattice} $L$ are:
+
+\begin{itemize}
+\item  the \hyperref[lattice.dimension]{rank} $n$,
+\item  the \hyperref[lattice.signature]{signature} $(n_+, n_-)$,
+\item  the \hyperref[lattice.determinant]{determinant},
+\item  the \hyperref[lattice.discriminant]{discriminant},
+\item  the \hyperref[lattice.level]{level},
+\item  the \hyperref[lattice.class_number]{class number}.
+\end{itemize}
+
+
+\end{definition}
+
+

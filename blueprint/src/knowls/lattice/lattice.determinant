@@ -1,8 +1,9 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.determinant}{Determinant of an integral lattice}}
 \begin{definition}\label{lattice.determinant}
-\uses{lattice.definition,lattice.gram}
-For an \hyperref[lattice.definition]{integral lattice}, $L$, with \hyperref[lattice.gram]{Gram matrix} $G$, the \textbf{determinant} of the lattice with respect to $G$ is the determinant of the Gram matrix. 
+\uses{lattice.definition,lattice.dimension,lattice.gram,lattice.positive_definite}
+For an \hyperref[lattice.definition]{integral lattice} $L$, the \textbf{determinant} of $L$ is defined as the determinant of the \hyperref[lattice.gram]{Gram matrix} associated to any basis of $L$.
 
+If $L$ is \hyperref[lattice.positive_definite]{positive definite} of \hyperref[lattice.dimension]{rank} $n$, then the determinant of $L$ is also the square of the volume of the fundamental parallelotope of the Euclidean embedding of $L$ in $\R^n$.
 \end{definition}
 
 

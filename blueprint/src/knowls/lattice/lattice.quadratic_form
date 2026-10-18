@@ -1,0 +1,11 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.quadratic_form}{Quadratic form of a lattice}}
+\begin{definition}\label{lattice.quadratic_form}
+\uses{lattice.definition,lattice.gram,lattice.parity}
+Given an \hyperref[lattice.definition]{integral lattice} $L$ with \hyperref[lattice.gram]{Gram matrix} $G$, the \textbf{quadratic form} of $L$ is the function on $L \otimes \mathbb{Q}$ defined by
+\[
+Q(\mathbf{v}) = \langle \mathbf{v},\mathbf{v}\rangle = \mathbf{v}^{\mathrm{T}}G\mathbf{v}.
+\]
+We will refer to the value $Q(v)$ as the \textbf{norm} of $v$.  By construction, $Q(L) \subseteq \mathbb{Z}$, and we say that $Q$ or $L$ is \textbf{universal} if $Q(L) = \mathbb{Z}$.  An \hyperref[lattice.parity]{even} lattice can never be universal since $Q(L) \subseteq 2\mathbb{Z}$; we say that $L$ is \textbf{even universal} if $Q(L) \supseteq 2\mathbb{Z}$.
+\end{definition}
+
+

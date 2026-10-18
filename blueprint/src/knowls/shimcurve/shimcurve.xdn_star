@@ -1,0 +1,10 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/shimcurve.xdn_star}{$X^*(D;N)$}}
+\begin{definition}\label{shimcurve.xdn_star}
+\uses{shimcurve,shimcurve.aut_pm_mu_o,shimcurve.discb,shimcurve.maximal,shimcurve.polarized_order,shimcurve.quaternion_algebra}
+\leanok
+Let $(O,\mu)$ be a \hyperref[shimcurve.maximal]{maximal}  \hyperref[shimcurve.polarized_order]{polarized quaternion order} in an indefinite division
+\hyperref[shimcurve.quaternion_algebra]{quaternion algebra}
+over $\Q$ of \hyperref[shimcurve.discb]{discriminant} $D$. $X^*(D;N)$ is the \hyperref[shimcurve]{Shimura curve} corresponding to $H\leq$ \hyperref[shimcurve.aut_pm_mu_o]{$\Aut_{\pm\mu}(O)$}$\ltimes \widehat{O}^\times$ arising from the inverse image of \hyperref[shimcurve.aut_pm_mu_o]{$\Aut_{\pm\mu}(O)$}$\ltimes(O/NO)^{\times}$. 
+\end{definition}
+
+

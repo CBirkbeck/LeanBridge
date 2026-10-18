@@ -1,0 +1,7 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/shimcurve.simple}{Simple Shimura curves}}
+\begin{definition}\label{shimcurve.simple}
+\uses{ag.abelian_variety,ag.jacobian,av.simple,shimcurve}
+A \hyperref[shimcurve]{Shimura curve} $X_H$ is \textbf{simple} if its \hyperref[ag.jacobian]{Jacobian} is a \hyperref[av.simple]{simple} \hyperref[ag.abelian_variety]{abelian variety}.
+\end{definition}
+
+

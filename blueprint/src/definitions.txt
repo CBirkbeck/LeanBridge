@@ -107,6 +107,7 @@ ag.primitive:
 ag.projective_space:
     * Projective space
     * homogeneous coordinates
+    * projectivization
 ag.quotient_curve:
     * quotient curve
 ag.real_endomorphism_algebra:
@@ -218,6 +219,8 @@ av.fq.conductor:
 av.fq.conjugate_stable:
     * CM-involution
     * conjugate stable
+av.fq.cyclic_group_points:
+    * cyclic
 av.fq.endomorphism_ring_notation:
     * $\#\mathrm{Pic}$
     * $\#\mathrm{weak} = 1 $
@@ -257,6 +260,8 @@ av.fq.newton_elevation:
     * almost ordinary
     * elevation
     * eligible
+av.fq.noncyclic_primes:
+    * non-cyclic at $\ell$
 av.fq.number_field:
     * number field
 av.fq.order:
@@ -357,7 +362,7 @@ belyi.permutation_triple:
 belyi.ramification_type:
     * ramification type
 character.dirichlet:
-    * dirichlet character
+    * Dirichlet character
     * modulus
 character.dirichlet.conductor:
     * conductor
@@ -450,6 +455,10 @@ cmf.congruence_subgroup:
     * principal congruence subgroup
 cmf.cusp_form:
     * cusp form
+cmf.cusp_form_mathlib_def:
+    * CuspForm $\Gamma$ $k$
+cmf.cusp_form_subspace_mathlib_def:
+    * cuspFormSubmodule $\Gamma$ $k$
 cmf.decomposition.new.gamma0chi:
     * {{ knowl(mf.elliptic.newform, title=newform) }}
 cmf.defining_polynomial:
@@ -457,6 +466,8 @@ cmf.defining_polynomial:
 cmf.dimension:
     * dimension
     * relative dimension
+cmf.dimension_mathlib_def:
+    * module rank
 cmf.distinguishing_primes:
     * distinguishes
 cmf.dualform:
@@ -486,6 +497,8 @@ cmf.eta_quotient:
 cmf.fouriercoefficients:
     * Fourier coefficients
     * Fourier expansion
+cmf.fouriercoefficients_mathlib_def:
+    * $n$-th coefficient
 cmf.fricke:
     * Fricke involution
 cmf.galois_conjugate:
@@ -538,6 +551,8 @@ cmf.oldspace:
     * old
 cmf.petersson_scalar_product:
     * Petersson scalar product
+cmf.petersson_scalar_product_mathlib_def:
+    * petersson
 cmf.plus_space:
     * plus subspace
 cmf.projective_field:
@@ -547,6 +562,8 @@ cmf.projective_image:
     * types
 cmf.q-expansion:
     * $q$-expansion
+cmf.q-expansion_mathlib_def:
+    * qExpansion
 cmf.relative_dimension:
     * relative dimension
 cmf.rm_form:
@@ -565,6 +582,8 @@ cmf.shimura_correspondence:
     * shimura correspondence
 cmf.space:
     * space
+cmf.space_mathlib_def:
+    * ModularForm $\Gamma$ $k$
 cmf.space_trace_form:
     * trace form
 cmf.stark_unit:
@@ -574,6 +593,7 @@ cmf.sturm_bound:
 cmf.sturm_bound_gamma1:
     * S
 cmf.subspaces:
+    * cuspidal subspace
     * new subspace
     * old subspace
 cmf.trace_bound:
@@ -593,6 +613,12 @@ cmf.weight:
     * weight
 combin.hasse_diagram:
     * Hasse diagram
+content.announcements:
+    * Beta section
+    * Major revision
+    * New section
+content.ongoing:
+    * Warning
 crystals.crystal:
     * ($u_q(\mathfrak{g})$-)crystal
 curve.highergenus.aut.braid_equivalence:
@@ -697,6 +723,8 @@ ec.good_supersingular_reduction:
     * supersingular reduction
 ec.integral_model:
     * integral model
+ec.intrinsic_torsion:
+    * intrinsic subgroup
 ec.invariants:
     * conductor norm
     * minimal discriminant norm
@@ -910,8 +938,8 @@ ec.weierstrass_coeffs:
     * Weierstrass equation
     * Weierstrass model
 ec.weierstrass_isomorphism:
-    * isomorphic over $k$
-    * weierstrass isomorphisms
+    * Weierstrass isomorphisms
+    * isomorphic over $K$
 field.finite.conway_polynomial:
     * Conway polynomials
 g2c.abs_discriminant:
@@ -1025,6 +1053,8 @@ g2c.two_selmer_rank:
     * 2-Selmer rank
 g2c.two_torsion_field:
     * 2-torsion field
+gg.concentrated:
+    * concentrated
 gg.degree:
     * degree
 gg.elusive_group:
@@ -1050,7 +1080,9 @@ gg.invariants:
     * order
     * solvable
 gg.malle_a:
-    * Malle's constant
+    * Malle
+gg.malle_b:
+    * Malle
 gg.other_representations:
     * siblings
 gg.parity:
@@ -1061,10 +1093,15 @@ gg.regular_extension:
     * regular
 gg.resolvents:
     * resolvents
+gg.semiconcentrated:
+    * semiconcentrated
 gg.subfields:
     * subfields
 gg.subnormal_series:
     * subnormal series
+gg.transitivity:
+    * $k$-transitive
+    * transitivity number
 gl2.borel:
     * B
     * B.a.b
@@ -1121,6 +1158,9 @@ group.abelian_invariants:
     * primary abelian invariants
 group.abelianization:
     * abelianization
+group.action:
+    * group action
+    * transitive
 group.almost_simple:
     * almost simple group
 group.alternating:
@@ -1219,6 +1259,8 @@ group.generalized_quaternion:
     * (generalized) quaternion group
 group.generators:
     * generators
+group.group_mathlib_defn:
+    * monoid
 group.group_ring:
     * group ring
 group.haar_measure:
@@ -1443,6 +1485,8 @@ group.unitary:
     * special unitary group
 group.upper_central_series:
     * upper central series
+group.weight_function:
+    * weight function
 group.weyl_group:
     * Weyl group
 group.wreath_product:
@@ -1545,22 +1589,61 @@ intro.features:
     * Related Objects:
     * Searching:
     * Zeros of L-functions Search:
+lattice.additively_indecomposable:
+    * additively indecomposable
+lattice.algebraic:
+    * algebraic
+lattice.arithmetic:
+    * arithmetic
 lattice.automorphism_group:
     * automorphism group
 lattice.class_number:
     * class number
+lattice.conway_genus_symbol:
+    * Conway genus symbol
+lattice.covering_radius:
+    * Covering radius
+    * inhomogeneous minimum
 lattice.definition:
-    * integral lattice
+    * integral
+    * lattice
+    * quadratic space
 lattice.density:
+    * center density
     * density
     * lattice packing problem
     * sphere packing problem
 lattice.determinant:
     * determinant
 lattice.dimension:
-    * dimension
+    * rank
+lattice.discriminant:
+    * 2-adic unit discriminant
+    * Witt discriminant
+    * absolute discriminant
+    * discriminant
+    * geometric discriminant
+    * half discriminant
+    * quadratic discriminant
+lattice.discriminant_group:
+    * Gram matrix
+    * discriminant group
+    * torsion bilinear form
+    * torsion quadratic form
 lattice.dual:
     * dual
+    * rescaled dual
+lattice.euclidean_basis:
+    * Euclidean basis
+lattice.eutactic:
+    * eutactic
+    * strongly eutactic
+lattice.even_sublattice:
+    * even sublattice
+lattice.extreme:
+    * extreme
+lattice.festi_veniani_index:
+    * Festi--Veniani index
 lattice.genus:
     * genus
 lattice.gram:
@@ -1569,7 +1652,9 @@ lattice.gram:
 lattice.group_order:
     * group order
 lattice.hermite_number:
-    * hermite number
+    * Hermite number
+lattice.hyperbolic_plane:
+    * hyperbolic plane
 lattice.isometry:
     * class
     * isometric
@@ -1580,24 +1665,88 @@ lattice.kissing:
     * lattice kissing number problem
 lattice.level:
     * level
+lattice.mass:
+    * mass
 lattice.minimal_vector:
     * minimal vector
-    * minimal vector length
+    * minimum
+lattice.minimum:
+    * minimal vector
+    * minimum
+lattice.nondegenerate:
+    * nondegenerate
+    * positive semidefinite
+    * signature
+lattice.norm:
+    * norm
+lattice.norm1_sublattice:
+    * norm 1 sublattice
 lattice.normalized_minimal_vector:
     * normalized
+lattice.orthogonal_decomposition:
+    * indecomposable
+    * orthogonal decomposition
+lattice.parity:
+    * even
+    * odd
+lattice.perfect:
+    * perfect
+lattice.pneighbor:
+    * $p$-neighbor
+lattice.pneighbor_adjacency:
+    * $p$-neighbor adjacency matrix
+    * p-neighbor adjacency graph
+lattice.positive_definite:
+    * positive definite
 lattice.postive_definite:
     * positive definite
 lattice.primitive:
     * primitive
+lattice.quadratic_form:
+    * even universal
+    * norm
+    * quadratic form
+    * universal
 lattice.root_lattice:
     * root lattice
     * root system
     * roots
     * weyl group
+lattice.root_sublattice:
+    * root lattice
+    * root sublattice
+lattice.signature:
+    * indefinite
+    * negative definite
+    * signature
+lattice.similarity:
+    * similar
+lattice.spherical_design:
+    * spherical $t$-design
+    * spherical $t$-design lattice
+    * strongly perfect
+lattice.sublattice:
+    * Even sublattice
+    * Max diag sublattice
+    * Min vector sublattice
+    * Norm 1 sublattice
+    * Root sublattice
+    * sublattice
+lattice.successive_minima:
+    * Successive minima
+lattice.tensor_decomposition:
+    * tensor decomposable
+    * tensor decomposition
+    * tensor indecomposable
+    * tensor product
 lattice.theta:
     * theta series
 lattice.unimodular:
     * unimodular
+lattice.well_rounded:
+    * generated by minimal vectors
+    * strongly well-rounded
+    * well-rounded
 lf.associated_inertia:
     * associated inertia
 lf.automorphism_group:
@@ -1676,12 +1825,17 @@ lf.indices_of_inseparability:
     * index of inseparability
 lf.inertia_group:
     * inertia group
+lf.intermediate_fields:
+    * intermediate fields
 lf.jump_set:
     * jump set
 lf.local_field:
     * archimedean local field
     * local field
     * nonarchimedean local field
+lf.local_height_function:
+    * local height
+    * local height function
 lf.log:
     * $p$-adic logarithm
 lf.maximal_ideal:
@@ -1699,11 +1853,14 @@ lf.packet:
 lf.padic_field:
     * $p$-adic field
     * local number field
+lf.qp:
+    * p-adic numbers
 lf.ramification_index:
     * absolute ramification index
     * base ramification index
     * ramification index
     * tame ramification index
+    * tamely ramified
     * totally ramified
     * uniformizer
     * unramified
@@ -2041,7 +2198,7 @@ modcurve.cm_discriminants:
     * CM discriminants
     * CM points
 modcurve.cusp_orbits:
-    * Galois orbit
+    * cusp orbits
     * cusps
 modcurve.cusp_widths:
     * cusps
@@ -2217,12 +2374,15 @@ nf.defining_polynomial:
     * defining polynomial
 nf.degree:
     * degree
+nf.degree_mathlib_def:
+    * module rank
 nf.dirichlet_group:
     * dirichlet character group
 nf.discriminant:
     * discriminant
 nf.discriminant_root_field:
     * discriminant root field
+    * polynomial discriminant
 nf.embedding:
     * embedding
 nf.frobenius_cycle_types:
@@ -2244,6 +2404,11 @@ nf.ideal_class_group:
     * ideal class group
 nf.ideal_labels:
     * ideal label
+nf.inertial_height_function:
+    * inertial height function
+    * local height function
+    * radical discriminant
+    * weight function
 nf.inessential_prime:
     * inessential prime
 nf.integral:
@@ -2256,6 +2421,8 @@ nf.is_galois:
     * galois
 nf.local_algebra:
     * local algebra
+nf.max_p:
+    * maximum ramified prime
 nf.maximal_cm_subfield:
     * maximal CM subfield
 nf.minimal_polynomial:
@@ -2292,6 +2459,8 @@ nf.poly_discriminant:
 nf.prime:
     * prime
     * prime above
+nf.radical_discriminant:
+    * radical discriminant
 nf.ramified_primes:
     * ramified prime
 nf.rank:
@@ -2336,6 +2505,9 @@ nf.totally_real:
     * totally real
 nf.unit_group:
     * unit group
+nf.unit_signature_rank:
+    * signature
+    * unit signature rank
 nf.unramified_prime:
     * unramified (rational) prime
 nf.weil_height:
@@ -2358,9 +2530,13 @@ rcs.cande.lfunction:
     * {{KNOWL('lfunction.known_degree4','Degree 4')}}
 rcs.cande.modcurve:
     * note that this excludes many known rational points
+rcs.cite.curve.highergenus.aut:
+    * A database of group actions on Riemann surfaces
 rcs.rigor.modcurve:
     * known issues with the rational points data
     * the absence of rational points should not be taken as an indication that none are known
+    * use with caution
+rcs.rigor.shimcurve:
     * use with caution
 rcs.source.curve.highergenus.aut:
     * Corresponding Character(s)
@@ -2372,6 +2548,7 @@ repn.highest.weight:
     * the highest weight
 ring:
     * commutative ring
+    * non-unital ring
     * ring
     * ring without identity
     * rng
@@ -2389,6 +2566,8 @@ ring.field:
     * field
 ring.field_of_fractions:
     * field of fractions
+ring.field_of_fractions_mathlib:
+    * Fraction Ring
 ring.fractional_ideal:
     * fractional ideal
 ring.ideal:
@@ -2406,7 +2585,7 @@ ring.irreducible:
 ring.maximal_ideal:
     * maximal
 ring.noetherian:
-    * noetherian
+    * Noetherian
 ring.prime_ideal:
     * prime
 ring.principal_fractional_ideal:
@@ -2425,6 +2604,10 @@ shimcurve:
     * (quaternionic) Shimura curve of level $H$
     * full level $N$ Shimura curve associated to $O$
     * level $1$ Shimura curve associated to $O$
+shimcurve.aut_pm_mu_o:
+    * automorphisms of $O$ preserving the polarization $\mu$ (up to sign)
+shimcurve.decomposition:
+    * isogeny decomposition
 shimcurve.discb:
     * discriminant
     * ramified
@@ -2432,16 +2615,29 @@ shimcurve.discb:
 shimcurve.disco:
     * discriminant
     * reduced discriminant
+shimcurve.eichler:
+    * Eichler of level $M$
+    * Eichler {{KNOWL('shimcurve.order','order')}}
+shimcurve.elliptic_points:
+    * elliptic point
 shimcurve.enhanced_group:
     * enhanced group (associated to $(O,\mu)$)
 shimcurve.genus:
     * genus
+shimcurve.genus_minus_rank:
+    * genus-rank difference
 shimcurve.gonality:
     * $K$-gonality
 shimcurve.index:
     * index
+shimcurve.is_coarse:
+    * coarse
+shimcurve.label:
+    * label
 shimcurve.level:
     * level
+shimcurve.local_obstruction:
+    * local obstruction
 shimcurve.nrdmu:
     * polarization degree
 shimcurve.order:
@@ -2456,8 +2652,12 @@ shimcurve.quaternion_algebra:
     * nonsplit
     * quaternion algebra
     * split
+shimcurve.rank:
+    * analytic rank
+shimcurve.simple:
+    * simple
 specialfunction.gamma:
-    * (euler) gamma function $\gamma(z)$
+    * (Euler) gamma function $\Gamma(z)$
 specialfunction.k_bessel:
     * $k$-bessel functions
 specialfunction.poincare:
@@ -2590,10 +2790,14 @@ $k$-gonality:
 $K$-gonality:
     * modcurve.gonality
     * shimcurve.gonality
+$k$-transitive:
+    * gg.transitivity
 $N :=[\mathcal{O}_{\mathbb{Q}[F]}:R]$:
     * av.fq.lmfdb_label
 $n$-Selmer group:
     * ag.selmer_group
+$n$-th coefficient:
+    * cmf.fouriercoefficients_mathlib_def
 $n$th poincar&eacute; series:
     * specialfunction.poincare
 $p$-adic completion of $K$ at $\mathfrak{P}$:
@@ -2609,6 +2813,10 @@ $p$-corank:
     * av.fq.p_rank
 $p$-group:
     * group.pgroup
+$p$-neighbor:
+    * lattice.pneighbor
+$p$-neighbor adjacency matrix:
+    * lattice.pneighbor_adjacency
 $p$-rank:
     * av.fq.p_rank
 $p$-Sylow 
@@ -2628,7 +2836,7 @@ $Z$-points:
     * ag.shimura_variety
 (CP):
     * modcurve.other_labels
-(euler) gamma function $\gamma(z)$:
+(Euler) gamma function $\Gamma(z)$:
     * specialfunction.gamma
 (general) unitary group:
     * group.unitary
@@ -2658,6 +2866,8 @@ $Z$-points:
     * ec.q.manin_constant
 1p3:
     * g2c.galois_rep_image
+2-adic unit discriminant:
+    * lattice.discriminant
 2-Selmer rank:
     * g2c.two_selmer_rank
 2-torsion field:
@@ -2668,6 +2878,8 @@ $Z$-points:
     * g2c.galois_rep_image
 \'etale $F$-algebra:
     * nf.separable_algebra
+A database of group actions on Riemann surfaces:
+    * rcs.cite.curve.highergenus.aut
 A-group:
     * group.a_group
 A4:
@@ -2691,6 +2903,7 @@ absolute degree:
     * lf.degree
 absolute discriminant:
     * g2c.abs_discriminant
+    * lattice.discriminant
     * nf.abs_discriminant
 absolute discriminant exponent:
     * lf.discriminant_exponent
@@ -2718,6 +2931,8 @@ additive reduction:
     * ec.additive_reduction
     * ec.q.reduction_type
     * ec.reduction_type
+additively indecomposable:
+    * lattice.additively_indecomposable
 adelic Galois representation:
     * av.galois_rep
     * ec.galois_rep
@@ -2733,6 +2948,8 @@ agreeable closure:
     * modcurve.agreeable
 agreeable quotient:
     * modcurve.agreeable
+algebraic:
+    * lattice.algebraic
 algebraic curve:
     * ag.curve
 algebraic genus:
@@ -2769,6 +2986,7 @@ analytic rank:
     * lfunction.analytic_rank
     * mf.bianchi.anr
     * modcurve.rank
+    * shimcurve.rank
 angle corank:
     * av.fq.angle_rank
 angle rank:
@@ -2778,6 +2996,7 @@ archimedean:
 archimedean local field:
     * lf.local_field
 arithmetic:
+    * lattice.arithmetic
     * lfunction.arithmetic
 arithmetic function:
     * af
@@ -2832,6 +3051,8 @@ automorphism group:
     * g2c.aut_grp
     * lattice.automorphism_group
     * lf.automorphism_group
+automorphisms of $O$ preserving the polarization $\mu$ (up to sign):
+    * shimcurve.aut_pm_mu_o
 B:
     * ec.galois_rep_modell_image
     * gl2.borel
@@ -2876,6 +3097,8 @@ belyi map:
     * belyi.galmap
 Bernoulli numbers:
     * af.bernoulli_numbers
+Beta section:
+    * content.announcements
 Bezout module:
     * hgm.bezout_module
 Bianchi group associated to:
@@ -2942,6 +3165,8 @@ Cartan subgroup:
 center:
     * group.center
     * group.representation.center
+center density:
+    * lattice.density
 central:
     * group.central
 central character:
@@ -3000,6 +3225,8 @@ Cn:
     * gl2.normalizer_nonsplit_cartan
 Cn.a.b:
     * gl2.nonsplit_cartan
+coarse:
+    * shimcurve.is_coarse
 codomain:
     * modlgal.codomain
 coefficient field:
@@ -3061,6 +3288,8 @@ component group:
     * st_group.component_group
 composition factors:
     * group.chief_series
+concentrated:
+    * gg.concentrated
 conductor:
     * ag.conductor
     * artin.conductor
@@ -3095,6 +3324,8 @@ conrey index:
     * character.dirichlet.conrey.index
 contains:
     * artin.permutation_container
+Conway genus symbol:
+    * lattice.conway_genus_symbol
 Conway polynomials:
     * field.finite.conway_polynomial
 corresponding character(s):
@@ -3103,6 +3334,8 @@ Corresponding Character(s):
     * rcs.source.curve.highergenus.aut
 coset:
     * group.coset
+Covering radius:
+    * lattice.covering_radius
 Coxeter graph:
     * group.coxeter
 Coxeter group:
@@ -3126,12 +3359,19 @@ cusp:
 cusp form:
     * cmf.cusp_form
     * mf.siegel.cusp_form_degree2
+cusp orbits:
+    * modcurve.cusp_orbits
 cusp-index:
     * hgm.cusp_index
+CuspForm $\Gamma$ $k$:
+    * cmf.cusp_form_mathlib_def
+cuspFormSubmodule $\Gamma$ $k$:
+    * cmf.cusp_form_subspace_mathlib_def
 cuspidal:
     * ec.q.reduction_type
     * mf.bianchi.weight2
 cuspidal subspace:
+    * cmf.subspaces
     * mf.bianchi.spaces
 cusps:
     * group.fuchsian.cusps
@@ -3139,6 +3379,7 @@ cusps:
     * modcurve.cusp_widths
     * modcurve.cusps
 cyclic:
+    * av.fq.cyclic_group_points
     * ec.isogeny
     * gg.invariants
     * group.cyclic
@@ -3218,7 +3459,6 @@ dimension:
     * artin.dimension
     * cmf.dimension
     * curve.highergenus.aut.dimension
-    * lattice.dimension
     * mf.bianchi.newform
     * mf.bianchi.spaces
     * mf.hilbert.dimension
@@ -3232,8 +3472,9 @@ direct factors:
     * group.direct_product
 direct product:
     * group.direct_product
-dirichlet character:
+Dirichlet character:
     * character.dirichlet
+dirichlet character:
     * character.dirichlet.modulus
 dirichlet character group:
     * nf.dirichlet_group
@@ -3245,6 +3486,7 @@ discriminant:
     * ec.discriminant
     * ec.q.discriminant
     * g2c.discriminant
+    * lattice.discriminant
     * lf.discriminant_exponent
     * nf.discriminant
     * nf.poly_discriminant
@@ -3252,6 +3494,8 @@ discriminant:
     * shimcurve.disco
 discriminant exponent:
     * lf.discriminant_exponent
+discriminant group:
+    * lattice.discriminant_group
 discriminant root field:
     * nf.discriminant_root_field
 distinguishes:
@@ -3271,6 +3515,10 @@ dual:
     * lfunction.dual
 E:
     * ring.euclidean_domain
+Eichler of level $M$:
+    * shimcurve.eichler
+Eichler {{KNOWL('shimcurve.order','order')}}:
+    * shimcurve.eichler
 eigenvalue:
     * mf.maass.mwf.eigenvalue
     * mf.maass.picard.eigenvalue
@@ -3304,6 +3552,7 @@ elliptic curve $E$ over $\mathbb{Q}$:
 elliptic point:
     * hmsurface.elliptic_point
     * modcurve.elliptic_points
+    * shimcurve.elliptic_points
 elliptic scheme:
     * ec.scheme
 elusive group:
@@ -3347,15 +3596,26 @@ eta product:
     * cmf.eta_quotient
 eta quotient:
     * cmf.eta_quotient
+Euclidean basis:
+    * lattice.euclidean_basis
 Euler factors:
     * lfunction.euler_product
 Euler product:
     * lfunction.euler_product
 euler product:
     * lfunction.riemann.euler_product
+eutactic:
+    * lattice.eutactic
 even:
     * artin.parity
+    * lattice.parity
     * mf.maass.mwf.symmetry
+even sublattice:
+    * lattice.even_sublattice
+Even sublattice:
+    * lattice.sublattice
+even universal:
+    * lattice.quadratic_form
 everywhere good reduction:
     * ec.good_reduction
 exceptional:
@@ -3369,6 +3629,8 @@ extended Cartan subgroup:
     * gl2.cartan
 extension:
     * group.nonsplit_product
+extreme:
+    * lattice.extreme
 faithful:
     * group.permutation_representation
     * group.representation.faithful
@@ -3381,6 +3643,8 @@ family:
 Feedback::
     * intro
     * intro.features
+Festi--Veniani index:
+    * lattice.festi_veniani_index
 fiber product:
     * modcurve.fiber_product
 field:
@@ -3409,6 +3673,8 @@ Fourier-Bessel expansion:
     * mf.bianchi.fourierbessell
 fourth trace moment:
     * st_group.fourth_trace_moment
+Fraction Ring:
+    * ring.field_of_fractions_mathlib
 fractional ideal:
     * ring.fractional_ideal
 Frattini subgroup:
@@ -3488,7 +3754,6 @@ Galois mean slope:
 Galois orbit:
     * artin.galois_orbit
     * cmf.galois_orbit
-    * modcurve.cusp_orbits
 galois orbit:
     * character.dirichlet.galois_orbit
 galois representation:
@@ -3517,6 +3782,8 @@ general kissing number problem:
     * lattice.kissing
 general linear group:
     * group.general_linear
+generated by minimal vectors:
+    * lattice.well_rounded
 generating vector:
     * curve.highergenus.aut.generatingvector
 generator:
@@ -3541,10 +3808,13 @@ genus:
     * shimcurve.genus
 genus-rank difference:
     * modcurve.genus_minus_rank
+    * shimcurve.genus_minus_rank
 geometric automorphism group:
     * g2c.geom_aut_grp
 geometric component:
     * ag.geom_component
+geometric discriminant:
+    * lattice.discriminant
 geometric endomorphism algebra:
     * ag.geom_endomorphism_algebra
     * g2c.geom_end_alg
@@ -3584,12 +3854,16 @@ good reduction:
     * ec.good_reduction
     * ec.q.reduction_type
     * g2c.good_reduction
+Gram matrix:
+    * lattice.discriminant_group
 gram matrix:
     * lattice.gram
 group:
     * group
 group $G$ acts on a compact Riemann surface $X$:
     * curve.highergenus.aut.group_action
+group action:
+    * group.action
 group algebra decomposition:
     * curve.highergenus.aut.groupalgebradecomp
 group homomorphism:
@@ -3602,6 +3876,8 @@ group ring:
     * group.group_ring
 Haar measure:
     * group.haar_measure
+half discriminant:
+    * lattice.discriminant
 Hall subgroup:
     * group.subgroup.hall
 Hasse diagram:
@@ -3647,7 +3923,7 @@ Herbrand function:
     * lf.herbrand_function
 Herbrand invariant:
     * lf.herbrand_invariant
-hermite number:
+Hermite number:
     * lattice.hermite_number
 hidden Artin slopes:
     * lf.hidden_slopes
@@ -3676,6 +3952,8 @@ homothetic:
     * ec.q.real_period
 Hyperbolic 3-space:
     * mf.bianchi.hyperbolic3space
+hyperbolic plane:
+    * lattice.hyperbolic_plane
 hyperelementary:
     * group.hyperelementary
 hyperelliptic curve:
@@ -3716,7 +3994,9 @@ image order:
 indecomposable:
     * av.fq.all_polarizations_product
     * gg.int_modules
+    * lattice.orthogonal_decomposition
 indefinite:
+    * lattice.signature
     * shimcurve.quaternion_algebra
 index:
     * av.fq.index_of_order
@@ -3742,12 +4022,16 @@ inertia group:
     * lf.inertia_group
 inertia subgroup:
     * lf.galois_invariants
+inertial height function:
+    * nf.inertial_height_function
 inessential prime:
     * nf.inessential_prime
 infinite places:
     * nf.place
 infinity factor:
     * lfunction.infinity_factor
+inhomogeneous minimum:
+    * lattice.covering_radius
 inner automorphism:
     * group.inner_automorphism
 inner twist count:
@@ -3755,6 +4039,7 @@ inner twist count:
 inner twists:
     * cmf.inner_twist
 integral:
+    * lattice.definition
     * nf.integral
     * ring.integral
 integral basis:
@@ -3763,8 +4048,6 @@ integral closure:
     * ring.integral
 integral domain:
     * ring.integral_domain
-integral lattice:
-    * lattice.definition
 integral model:
     * ec.integral_model
 integral points:
@@ -3778,7 +4061,10 @@ integrally closed:
 Interesting::
     * intro
 intermediate fields:
+    * lf.intermediate_fields
     * nf.intermediate_fields
+intrinsic subgroup:
+    * ec.intrinsic_torsion
 inverse:
     * alg.binary_operation.inverse
 invertible:
@@ -3822,6 +4108,7 @@ isogeny classes:
     * ec.isogeny
 isogeny decomposition:
     * modcurve.decomposition
+    * shimcurve.decomposition
 isogeny factors:
     * av.decomposition
 isogeny graph:
@@ -3832,7 +4119,7 @@ isometric:
     * lattice.isometry
 isometry class:
     * lattice.isometry
-isomorphic over $k$:
+isomorphic over $K$:
     * ec.weierstrass_isomorphism
 isomorphism:
     * ec.isomorphism
@@ -3898,6 +4185,7 @@ label:
     * mf.maass.label
     * mf.siegel.label
     * modcurve.label
+    * shimcurve.label
 label of a rational character:
     * group.label_rational_group_char
 laplace-beltrami operator:
@@ -3906,6 +4194,8 @@ large:
     * group.division_small_large
 largest:
     * cmf.maximal
+lattice:
+    * lattice.definition
 lattice kissing number problem:
     * lattice.kissing
 lattice packing problem:
@@ -3955,6 +4245,11 @@ local field:
     * lf.local_field
 local Hecke algebra:
     * mf.siegel.hecke_operator
+local height:
+    * lf.local_height_function
+local height function:
+    * lf.local_height_function
+    * nf.inertial_height_function
 local invariants:
     * g2c.local_invariants
 local minimal discriminant:
@@ -3965,6 +4260,7 @@ local number field:
     * lf.padic_field
 local obstruction:
     * modcurve.local_obstruction
+    * shimcurve.local_obstruction
 local root number:
     * lf.root_number
 locally principal:
@@ -3987,14 +4283,20 @@ maass form:
 Maass form:
     * mf.maass.mwf
     * mf.maass.picard
-Malle's constant:
+Major revision:
+    * content.announcements
+Malle:
     * gg.malle_a
+    * gg.malle_b
 Manin constant:
     * ec.q.manin_constant
 mass:
+    * lattice.mass
     * lf.family_mass
 mass of the family:
     * lf.family_mass
+Max diag sublattice:
+    * lattice.sublattice
 maximal:
     * av.fq.maximal_zfv
     * cmf.maximal
@@ -4023,12 +4325,16 @@ maximal under-subgroup:
     * group.under_subgroup
 maximal unramified subextension:
     * lf.unramified_subfield
+maximum ramified prime:
+    * nf.max_p
 mean:
     * lf.means
 means:
     * lf.means
 metabelian:
     * group.metabelian
+Min vector sublattice:
+    * lattice.sublattice
 minimal:
     * character.dirichlet.minimal
     * cmf.minimal
@@ -4070,10 +4376,12 @@ minimal twist:
     * modcurve.minimal_twist
 minimal vector:
     * lattice.minimal_vector
-minimal vector length:
-    * lattice.minimal_vector
+    * lattice.minimum
 minimal weierstrass equation:
     * ec.q.minimal_weierstrass_equation
+minimum:
+    * lattice.minimal_vector
+    * lattice.minimum
 minkowski reduced form:
     * lattice.gram
 minus subspace:
@@ -4100,6 +4408,11 @@ modular group:
     * group.sl2z
 modular parametrization:
     * ec.q.modular_parametrization
+ModularForm $\Gamma$ $k$:
+    * cmf.space_mathlib_def
+module rank:
+    * cmf.dimension_mathlib_def
+    * nf.degree_mathlib_def
 modulus:
     * character.dirichlet
     * character.dirichlet.modulus
@@ -4117,6 +4430,8 @@ monodromy group:
     * belyi.group
 monogenic:
     * nf.monogenic
+monoid:
+    * group.group_mathlib_defn
 monomial:
     * group.monomial
 monomial order:
@@ -4171,8 +4486,12 @@ Navigation Bars::
     * intro.features
 necklace:
     * modcurve.xns_plus.remarks
+negative definite:
+    * lattice.signature
 negligible:
     * lf.eisenstein_diagram
+New section:
+    * content.announcements
 new subspace:
     * cmf.eisenstein_newspace
     * cmf.newspace
@@ -4206,8 +4525,10 @@ Nn.a.b:
     * gl2.normalizer_nonsplit_cartan
 nodal:
     * ec.q.reduction_type
-noetherian:
+Noetherian:
     * ring.noetherian
+non-cyclic at $\ell$:
+    * av.fq.noncyclic_primes
 non-singular:
     * ag.singular_point
 non-split:
@@ -4224,12 +4545,16 @@ non-torsion generators:
     * ec.mw_generators
 non-trivial:
     * group.trivial_subgroup
+non-unital ring:
+    * ring
 nonabelian:
     * modlgal.abelian
 nonarchimedean:
     * nf.absolute_value
 nonarchimedean local field:
     * lf.local_field
+nondegenerate:
+    * lattice.nondegenerate
 none:
     * stats.proportions
 nonmaximal primes:
@@ -4242,6 +4567,13 @@ nonsplit Cartan:
     * modcurve.name
 nontrivial:
     * cmf.nontrivial_twist
+norm:
+    * lattice.norm
+    * lattice.quadratic_form
+norm 1 sublattice:
+    * lattice.norm1_sublattice
+Norm 1 sublattice:
+    * lattice.sublattice
 normal:
     * group.subgroup.normal
 normal closure:
@@ -4284,6 +4616,7 @@ obstruction class:
     * ec.obstruction_class
 odd:
     * artin.parity
+    * lattice.parity
     * mf.maass.mwf.symmetry
 old:
     * cmf.oldspace
@@ -4327,6 +4660,8 @@ oriented necklace:
     * modcurve.xns.remarks
 orthogonal:
     * hgm.type
+orthogonal decomposition:
+    * lattice.orthogonal_decomposition
 orthogonal group:
     * group.orthogonal
 other-dihedral group:
@@ -4339,6 +4674,10 @@ over-subgroup:
     * group.over_subgroup
 overorder:
     * av.fq.order
+p-adic numbers:
+    * lf.qp
+p-neighbor adjacency graph:
+    * lattice.pneighbor_adjacency
 packet:
     * lf.packet
 parallel weight:
@@ -4355,6 +4694,7 @@ passport:
     * belyi.passport
 perfect:
     * group.perfect
+    * lattice.perfect
 period lattice:
     * ec.q.period_lattice
 permutation module:
@@ -4364,6 +4704,8 @@ permutation representation:
     * group.permutation_representation
 permutation triple:
     * belyi.permutation_triple
+petersson:
+    * cmf.petersson_scalar_product_mathlib_def
 Petersson scalar product:
     * cmf.petersson_scalar_product
 Picard group:
@@ -4392,8 +4734,13 @@ polycyclic sequence:
     * group.presentation
 polycyclic series:
     * group.presentation
+polynomial discriminant:
+    * nf.discriminant_root_field
 positive definite:
+    * lattice.positive_definite
     * lattice.postive_definite
+positive semidefinite:
+    * lattice.nondegenerate
 potential complex multiplication:
     * ec.complex_multiplication
 potential good reduction:
@@ -4480,11 +4827,21 @@ projective symplectic group:
     * group.symplectic
 projective variety:
     * ag.variety
+projectivization:
+    * ag.projective_space
 proper:
     * group.proper_subgroup
 Properties::
     * intro
     * intro.features
+qExpansion:
+    * cmf.q-expansion_mathlib_def
+quadratic discriminant:
+    * lattice.discriminant
+quadratic form:
+    * lattice.quadratic_form
+quadratic space:
+    * lattice.definition
 quadratic twists:
     * ec.twists
 quality:
@@ -4507,6 +4864,9 @@ quotient group:
     * group.quotient
 radical:
     * group.radical
+radical discriminant:
+    * nf.inertial_height_function
+    * nf.radical_discriminant
 ramification index:
     * lf.ramification_index
 ramification polygon:
@@ -4528,6 +4888,7 @@ Random::
 rank:
     * ec.rank
     * group.rank
+    * lattice.dimension
     * nf.rank
 rational:
     * group.rational_group
@@ -4623,6 +4984,8 @@ reliability:
     * rcs
 representation:
     * group.representation.irrep
+rescaled dual:
+    * lattice.dual
 residual polynomial:
     * lf.residual_polynomials
 residual polynomials:
@@ -4665,9 +5028,14 @@ root discriminant:
     * nf.root_discriminant
 root lattice:
     * lattice.root_lattice
+    * lattice.root_sublattice
 root number:
     * artin.root_number
     * lfunction.sign
+root sublattice:
+    * lattice.root_sublattice
+Root sublattice:
+    * lattice.sublattice
 root system:
     * lattice.root_lattice
 roots:
@@ -4726,6 +5094,8 @@ semiabelian variety:
     * av.semiabelian_variety
 semicanonical polynomials:
     * lf.family_polynomial
+semiconcentrated:
+    * gg.semiconcentrated
 semidirect factor:
     * group.semidirect_product
 semidirect product:
@@ -4772,13 +5142,19 @@ sign:
 signature:
     * curve.highergenus.aut.signature
     * hgm.signature
+    * lattice.nondegenerate
+    * lattice.signature
     * lfunction.signature
     * nf.signature
+    * nf.unit_signature_rank
+similar:
+    * lattice.similarity
 simple:
     * ag.simple
     * av.simple
     * group.simple
     * modcurve.simple
+    * shimcurve.simple
 simplified equation:
     * ec.simple_equation
     * g2c.simple_equation
@@ -4834,6 +5210,10 @@ spectral parameters:
     * lfunction.spectral_parameters
 sphere packing problem:
     * lattice.density
+spherical $t$-design:
+    * lattice.spherical_design
+spherical $t$-design lattice:
+    * lattice.spherical_design
 spinor norm:
     * group.spinor_norm
 split:
@@ -4878,6 +5258,12 @@ strict class group:
     * nf.narrow_class_group
 strict class number:
     * nf.narrow_class_number
+strongly eutactic:
+    * lattice.eutactic
+strongly perfect:
+    * lattice.spherical_design
+strongly well-rounded:
+    * lattice.well_rounded
 structure:
     * character.dirichlet.group.structure
 Sturm bound:
@@ -4890,9 +5276,13 @@ subgroup:
     * group.subgroup
 subgroup diagram:
     * group.subgroup.diagram
+sublattice:
+    * lattice.sublattice
 subnormal series:
     * gg.subnormal_series
     * group.normal_series
+Successive minima:
+    * lattice.successive_minima
 supersingular:
     * av.fq.supersingular
     * ec.good_supersingular_reduction
@@ -4943,11 +5333,21 @@ tame degree:
     * lf.tame_degree
 tame ramification index:
     * lf.ramification_index
+tamely ramified:
+    * lf.ramification_index
 Tate-Shafarevic group:
     * ec.q.analytic_sha_order
 Tate-Shafarevich group:
     * ag.tate_shafarevich
     * ec.analytic_sha_order
+tensor decomposable:
+    * lattice.tensor_decomposition
+tensor decomposition:
+    * lattice.tensor_decomposition
+tensor indecomposable:
+    * lattice.tensor_decomposition
+tensor product:
+    * lattice.tensor_decomposition
 the:
     * ec.q.real_period
 the absence of rational points should not be taken as an indication that none are known:
@@ -4969,6 +5369,8 @@ top Artin slope:
     * modlgal.top_slope
 topologically equivalent:
     * curve.highergenus.aut.topological_equivalence
+torsion bilinear form:
+    * lattice.discriminant_group
 torsion generator:
     * nf.torsion
 torsion generators:
@@ -4980,6 +5382,8 @@ torsion order:
     * g2c.torsion_order
 torsion primes:
     * g2c.torsion_order
+torsion quadratic form:
+    * lattice.discriminant_group
 torsion structure:
     * ec.torsion_subgroup
 torsion subgroup:
@@ -5011,8 +5415,11 @@ trace zero density:
     * st_group.trace_zero_density
 transitive:
     * belyi.permutation_triple
+    * group.action
     * group.permutation_representation
     * group.wreath_product
+transitivity number:
+    * gg.transitivity
 triangle group:
     * group.triangle_group
 trigonal automorphism:
@@ -5062,8 +5469,12 @@ unit:
     * ring.unit
 unit group:
     * nf.unit_group
+unit signature rank:
+    * nf.unit_signature_rank
 unitary symplectic group:
     * st_group.usp
+universal:
+    * lattice.quadratic_form
 unramified:
     * artin.unramified_primes
     * lf.ramification_index
@@ -5082,6 +5493,7 @@ upper half-plane:
     * mf.upper_half_plane
 use with caution:
     * rcs.rigor.modcurve
+    * rcs.rigor.shimcurve
 vector-valued Siegel modular forms:
     * mf.siegel
 visible Artin slopes:
@@ -5094,6 +5506,8 @@ Von Dyck group:
     * group.triangle_group
 vs unconstrained:
     * stats.proportions
+Warning:
+    * content.ongoing
 weak equivalence class:
     * av.fq.weak_equivalence_class
 weakly equivalent:
@@ -5103,7 +5517,7 @@ Weierstrass coefficients:
 Weierstrass equation:
     * ec.weierstrass_coeffs
     * g2c.g2curve
-weierstrass isomorphisms:
+Weierstrass isomorphisms:
     * ec.weierstrass_isomorphism
 Weierstrass model:
     * ag.hyperelliptic_curve
@@ -5120,12 +5534,17 @@ weight:
     * st_group.weight
 weight $k$ slash-action:
     * mf.slash_action
+weight function:
+    * group.weight_function
+    * nf.inertial_height_function
 Weil $q$-polynomial:
     * nf.weil_polynomial
 Weil height:
     * nf.weil_height
 Weil polynomial:
     * av.fq.weil_polynomial
+well-rounded:
+    * lattice.well_rounded
 Weyl group:
     * group.weyl_group
 weyl group:
@@ -5146,6 +5565,8 @@ wild ramification exponent:
     * lf.ramification_index
 wild Swan slopes:
     * lf.slopes
+Witt discriminant:
+    * lattice.discriminant
 wreath product:
     * group.wreath_product
 Z-function:

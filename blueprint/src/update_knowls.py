@@ -374,6 +374,7 @@ def update_knowls(cats=["nf", "ec", "cmf"], delete_old=False):
         ("character.dirichlet", "character.dirichlet.conductor"),
         ("character.dirichlet", "character.dirichlet.primitive"),
         ("character.dirichlet.induce", "character.dirichlet.primitive"),
+        ("cmf.fouriercoefficients", "cmf.fouriercoefficients_mathlib_def"),
     ])
     edges = []
     kid_to_num = {}

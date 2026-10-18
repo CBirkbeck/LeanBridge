@@ -1,0 +1,11 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.euclidean_basis}{Euclidean basis of a lattice}}
+\begin{definition}\label{lattice.euclidean_basis}
+\uses{lattice.definition,lattice.dimension,lattice.gram,lattice.positive_definite}
+Let $L$ be a \hyperref[lattice.positive_definite]{positive definite} \hyperref[lattice.definition]{integral lattice} of \hyperref[lattice.dimension]{rank} $n$ with \hyperref[lattice.gram]{Gram matrix} $G = (g_{ij})$.  A \textbf{Euclidean basis} for $L$ is a collection of vectors $v_1, \dots, v_n \in \R^n$ such that
+
+$$ \langle v_i, v_j \rangle = g_{ij}, $$
+
+for all $i, j$.  Equivalently, if $B$ denotes the matrix whose rows are $v_i$, then $G = BB^T$.  This gives an explicit realization of the lattice $L \hookrightarrow \R^n$ as a discrete lattice in $\R^n$, with respect to the usual dot product norm.
+\end{definition}
+
+

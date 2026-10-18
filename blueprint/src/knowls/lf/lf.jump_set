@@ -17,7 +17,7 @@ with each $\alpha_i$ satisfying one of the following
 conditions:
 
 \begin{itemize}
-\item  $v_K(\alpha_i)<pe/(p-1)$ and
+\item  $v_K(\alpha_i) < pe/(p-1)$ and
 \end{itemize}
 $p\nmid v_K(\alpha_i)$,
 \begin{itemize}

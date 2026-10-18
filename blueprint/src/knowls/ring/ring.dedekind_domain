@@ -1,6 +1,7 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ring.dedekind_domain}{Dedekind domain}}
 \begin{definition}\label{ring.dedekind_domain}
 \uses{nf,nf.ring_of_integers,ring.field,ring.fractional_ideal,ring.ideal,ring.integral_domain,ring.integrally_closed,ring.maximal_ideal,ring.noetherian,ring.prime_ideal}
+\leanok
 A \textbf{Dedekind domain} $D$ is a \hyperref[ring.integral_domain]{integral domain} which is not a \hyperref[ring.field]{field} such that
 
 1. $D$ is \hyperref[ring.noetherian]{Noetherian};

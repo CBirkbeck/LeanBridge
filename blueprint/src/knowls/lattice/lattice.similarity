@@ -1,0 +1,7 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.similarity}{Similarity of lattices}}
+\begin{definition}\label{lattice.similarity}
+\uses{lattice.density,lattice.eutactic,lattice.isometry,lattice.perfect,lattice.primitive,lattice.well_rounded}
+Lattices $L$ and $M$ are called \textbf{similar} if there exists a real constant $\alpha$ so that $L$ is \hyperref[lattice.isometry]{isometric} to $\alpha M$. Key properties of lattices, such as \hyperref[lattice.well_rounded]{well-roundedness}, \hyperref[lattice.eutactic]{eutaxy}, \hyperref[lattice.perfect]{perfection}, \hyperref[lattice.density]{packing density} are preserved on similarity classes.  Each similarity class that contains an integer lattice contains a unique \hyperref[lattice.primitive]{primitive} integer lattice.
+\end{definition}
+
+

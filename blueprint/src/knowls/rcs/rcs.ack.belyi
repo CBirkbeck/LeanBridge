@@ -2,7 +2,11 @@
 \begin{definition}\label{rcs.ack.belyi}
 \uses{}
 \leanok
+The underlying algorithm (numerical computation of modular forms on triangle groups) that was used to compute Belyi maps can be found in \href{https://doi.org/10.1112/S1461157014000084}{*Numerical calculation of three-point branched covers of the projective line*}, by Michael Klug, Michael Musty, Sam Schiavone, and John Voight, LMS J. Comput. Math. <b>17</b> (2014), no. 1, 379-430, \cite{mr:3356040}. 
 
+For the monodromy group certification, computed from the exact equations over number fields using certified homotopy continuation, see Alexandre Guillemot and John Voight \cite{arxiv:2604.15562}.
+
+The visualisations of Belyi maps were developed by Reymond Akpanya using the drawing routine in \cite{arxiv:2505.01480}.
 \end{definition}
 
 

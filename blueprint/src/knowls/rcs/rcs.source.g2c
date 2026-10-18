@@ -55,6 +55,11 @@ The database of \hyperref[g2c.g2curve]{genus 2 curves} was constructed by Andrew
 \begin{itemize}
 \item  \hyperref[g2c.local_root_number]{Local root numbers} have been provably computed for odd primes of \hyperref[g2c.tame_reduction]{tame reduction} by Edwina Aylward, Raymond van Bommel, and Harry Spencer using methods described in \cite{ArXiv:1902.08981} and \cite{ArXiv:2007.01749}.
 \end{itemize}
+
+\begin{itemize}
+\item  \hyperref[g2c.bsd_invariants]{Verified BSD invariants} for genus 2 curves with real multiplication by Timo Keller and Michael Stoll using the methods described in \cite{doi:10.1017/fms.2024.133}.
+\end{itemize}
+
 \end{definition}
 
 

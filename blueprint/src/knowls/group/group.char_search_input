@@ -1,0 +1,9 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/group.char_search_input}{Find a irreducible complex character of a group}}
+\begin{definition}\label{group.char_search_input}
+\uses{group.complex_character_table,group.label,group.label_complex_group_char}
+\leanok
+If you enter a \hyperref[group.label]{group label} you will be directed to the \hyperref[group.complex_character_table]{character table} for that group, or enter a specific \hyperref[group.label_complex_group_char]{character label} to see it highlighted on the corresponding character table.
+
+\end{definition}
+
+

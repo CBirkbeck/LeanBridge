@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.source.av.fq}{Source of isogeny classes of abelian varieties over finite fields}}
 \begin{definition}\label{rcs.source.av.fq}
-\uses{av.fq.honda_tate,av.fq.weil_polynomial}
+\uses{av.fq.cyclic_group_points,av.fq.honda_tate,av.fq.weil_polynomial}
 \leanok
 The computation is based of the \hyperref[av.fq.honda_tate]{Honda-Tate theorem} which states that isogeny classes of abelian varieties over finite fields are completely determined by the characteristic polynomial of their Frobenius automorphism acting on the first $\ell$-adic cohomology group. For a given dimension $g$ and base field of size $q$, a complete list of all \hyperref[av.fq.weil_polynomial]{Weil polynomials} that do occur can be enumerated using a technique developed by Kedlaya \cite{mr:2459990,arxiv:math/0608104}. In 2016, Dupuy, Kedlaya, Roe, and Vincent improved upon Kedlaya's original code to generate these tables and the data they contain \cite{arXiv:2003.05380}.
 
@@ -30,6 +30,11 @@ The list of curves with Jacobian in a given isogeny class were computed by:
 \item  Dusan Dragutinović (dimension $5$ over $\F_2$; \cite{arXiv:2202.07809});
 \item  Steve Huang, Kiran Kedlaya and Jun Bo Lau (dimension $6$ over $\F_2$; \cite{arXiv:2402.00716}).
 \end{itemize}
+
+\hyperref[av.fq.cyclic_group_points]{Cyclic} isogeny classes and lists of \hyperref[av.fq.noncyclic_primes]{noncyclic primes} primes were computed by Haonan Gu, using results of Alejandro J. Giangreco-Maidana \cite{arXiv:1806.10842}.
+
+
+
 \end{definition}
 
 

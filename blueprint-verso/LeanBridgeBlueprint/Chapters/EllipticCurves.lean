@@ -371,6 +371,26 @@ An *integral model* for an {bpref "ec"}[elliptic curve] $`E` defined over a numb
 Depends on: {uses "ec"}[] {uses "ec.weierstrass_coeffs"}[] {uses "nf.ring_of_integers"}[]
 :::
 
+:::definition "ec.intrinsic_torsion"
+*Order of the Intrinsic Subgroup.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.intrinsic_torsion))
+
+Let $`E` be an elliptic curve over a field $`k`. Define the pairing
+
+$$`\langle \cdot, \cdot \rangle \colon E(k)_{\text{tors}} \times E(k)_{\text{tors}} \to k^\times \otimes \mathbb{Q}/\mathbb{Z}`
+
+as follows. Let $`P, Q \in E(k)_{\text{tors}}`. Take $`n \in \Z` such that $`nP = 0`, and $`f \in k(E)^\times` with $`\operatorname{div}(f) = n(P - O)`. Let $`D = \sum e_jQ_j \in \operatorname{Div}^0(X)` so that $`P, O \notin |D|` and $`[D] = [Q - O]`; we define
+
+$$`\langle P, Q \rangle = \prod_j N_{k(Q_j)/k}(f(Q_j))^{e_j} \otimes \frac 1n.`
+
+In , Yamazaki et al. show that this definition is independent of $`n` and $`f`, and the pairing is symmetric and biadditive.
+
+The *intrinsic subgroup* of $`E` is the set
+
+$$`E(k)_{\text{tors}}^\text{is} = \{P \in E(k)_{\text{tors}} : \langle P, Q \rangle = 0 \text{ for all } Q \in E(k)_{\text{tors}}\}.`
+
+For curves $`E/\Q`, the intrinsic subgroup is cyclic with order at most $`5`, by the results of .
+:::
+
 :::definition "ec.invariants"
 *Elliptic curve invariants.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.invariants))
 
@@ -1083,7 +1103,7 @@ Depends on: {uses "ec.isogeny_class"}[] {uses "ec.q"}[] {uses "ec.q.conductor"}[
 
 For $`E` an {bpref "ec"}[elliptic curve] defined over $`\C` by a {bpref "ec.weierstrass_coeffs"}[Weierstrass equation] with coefficients $`a_1,a_2,a_3,a_4,a_6`, the *period lattice* of $`E` is the set $`\Lambda` of periods of the invariant differential $`dx/(2y+a_1x+a_3)`, which is a discrete lattice of {bpref "group.rank"}[rank] $`2` in $`\C`.   There is an isomorphism (of complex Lie groups) $`\C/\Lambda \cong E(\C)` defined in terms of the Weierstrass $`\wp`-function.
 
-For elliptic curves defined over $`\R` (and in particular, for those defined over $`\Q`), the period lattice has one of two possible types dependng on the sign of the {bpref "ec.q.discriminant"}[discriminant] $`\Delta` of $`E`:
+For elliptic curves defined over $`\R` (and in particular, for those defined over $`\Q`), the period lattice has one of two possible types depending on the sign of the {bpref "ec.q.discriminant"}[discriminant] $`\Delta` of $`E`:
 
 - If $`\Delta>0`, then $`\Lambda` is \*rectangular\*, with a $`\Z`-basis of the form $`\left<x,yi\right>`, where $`x` and $`y` are positive real numbers; in this case, $`E(\R)` has two connected components.
 
@@ -1232,7 +1252,7 @@ Depends on: {uses "ec"}[] {uses "ec.base_change"}[] {uses "ec.complex_multiplica
 :::definition "ec.rank"
 *Rank of an elliptic curve over a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.rank))
 
-The *rank* of an {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K` is the rank of its {bpref "ec.mordell_weil_group"}[Mordell-Weil group] $`E(K)`.
+The rank of an {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K` is the *rank* of its {bpref "ec.mordell_weil_group"}[Mordell-Weil group] $`E(K)`.
 
 The {bpref "ec.mordell_weil_theorem"}[Mordell-Weil Theorem] says that $`E(K)` is a finitely-generated abelian group, hence
 
@@ -1350,7 +1370,7 @@ Depends on: {uses "ec"}[] {uses "ec.bsdconjecture"}[] {uses "lfunction"}[] {uses
 :::definition "ec.split_multiplicative_reduction"
 *Split multiplicative reduction.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.split_multiplicative_reduction))
 
-An {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K` is said to have *split multiplicative reduction* at a prime $`\mathfrak{p}` of $`K` if the reduction of $`E` modulo $`\mathfrak{p}` has a nodal singularity with both tangent slopes defined over the residue field at $`\mathfrak{p}`.
+An {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K` is said to have *split multiplicative reduction*  at a prime $`\mathfrak{p}` of $`K` if the reduction of $`E` modulo $`\mathfrak{p}` has a nodal singularity with both tangent slopes defined over the residue field at $`\mathfrak{p}`.
 
 Depends on: {uses "ec"}[] {uses "nf"}[]
 :::
@@ -1395,7 +1415,7 @@ The *torsion structure* is the list of invariants of the group:
 
 For $`K=\Q` the possible torsion structures are $`[n]` for $`n\le10` and $`n=12`, and $`[2,2n]` for $`n=1,2,3,4`.
 
-Depends on: {uses "ec.mordell_weil_theorem"}[] {uses "ec.mordell_weil_group"}[]
+Depends on: {uses "ec.mordell_weil_group"}[] {uses "ec.mordell_weil_theorem"}[]
 :::
 
 :::definition "ec.twists"

@@ -1,0 +1,9 @@
+\subsection{\href{https://beta.lmfdb.org/knowledge/show/rcs.rigor.shimcurve}{Reliability of Shimura curve data}}
+\begin{definition}\label{rcs.rigor.shimcurve}
+\uses{}
+None of the data in the Shimura curves database depends on any heuristics or unproven conjectures, but it is still in an early alpha state and should be regarded as provisional, \textbf{use with caution}!
+
+
+\end{definition}
+
+
