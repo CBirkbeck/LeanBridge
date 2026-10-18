@@ -29,7 +29,6 @@ of an element in a commutative ring.
 - `self_isRadicalPart_of_coprime'` : gives conditions that guarantee that the
   reduction of a polynomial is its own radical.  -/
 
-
 variable {R : Type*} [CommMonoidWithZero R]
 
 /-- `b` is the radical part of `a` if it has the same prime divisors as `a` and is squarefree· -/
@@ -224,13 +223,11 @@ lemma radical_isRadicalPart {M : Type*} [CommMonoidWithZero M]
     refine UniqueFactorizationMonoid.dvd_radical_iff (Prime.isRadical hp) ha
   · exact UniqueFactorizationMonoid.squarefree_radical
 
-
 /-- We prove that the radical is associated to an element satisfying the predicate `IsRadicalPart`. -/
 lemma IsRadicalPart_associated_radical {M : Type*} [CommMonoidWithZero M]
   [NormalizationMonoid M] [UniqueFactorizationMonoid M] {a b : M} (ha : a ≠ 0)
     (h : IsRadicalPart b a) : Associated b (radical a) := by
   exact IsRadicalPart_unique (radical_isRadicalPart ha) h
-
 
 /-- A certificate for the radical part of polynomials:
   `k` is the radical of `f` if `k ∣ f`, there is `n` such that `f ∣ k ^ n `,

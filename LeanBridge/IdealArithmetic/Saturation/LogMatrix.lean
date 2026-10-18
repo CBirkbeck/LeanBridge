@@ -80,7 +80,6 @@ noncomputable def LogFiniteRing {R : Type*} [CommRing R] [Fintype R] {ζ : R}
     exact (n : ZMod p)
   · exact 0
 
-
 lemma LogFiniteRing_of_pow  {R : Type*} {p : ℕ} [CommRing R] [Fintype R] {ζ : R}
     (hr : IsPrimitiveRoot ζ (Fintype.card Rˣ)) (hdvd : p ∣ (Fintype.card Rˣ)) (n : ℕ) :
     LogFiniteRing hr p (ζ ^ n) = (n : ZMod p) := by
@@ -101,8 +100,6 @@ lemma LogFiniteRing_of_pow  {R : Type*} {p : ℕ} [CommRing R] [Fintype R] {ζ :
   simp only [IsUnit.unit_spec]
   simp_rw [ ← hz, ← Units.val_pow_eq_pow_val, ← zpow_natCast, Units.val_inj,
     ← orderOf_dvd_sub_iff_zpow_eq_zpow, ← orderOf_units, hz, ← IsPrimitiveRoot.eq_orderOf hr]
-
-
 
 lemma LogFiniteRing_of_ne_unit_eq_zero {R : Type*} {p : ℕ} [CommRing R] [Fintype R] {ζ : R}
     (hr : IsPrimitiveRoot ζ (Fintype.card Rˣ))
@@ -171,7 +168,6 @@ lemma LogFiniteRing_p_power_eq_zero {R : Type*} {p : ℕ} [CommRing R] [Fintype 
   simp only [CharP.cast_eq_zero, zero_mul]
 
 end DiscreteLog
-
 
 section LogMatrix
 
@@ -556,7 +552,6 @@ lemma not_principal_of_full_rank_matrix'' {S ι τ κ γ : Type*} {p : ℕ} [hp 
     rw [← Nat.dvd_gcd_mul_iff_dvd_mul, hdvdc, one_mul] at hdvdp
     exact hdvdp
 
-
 /-- In the case that `p` does not divide the torsion order, if the discrete logarithm
   matrix formed from a collection of units `uᵢ` is of full rank, then these units are independent
   (linearly independent in the additive version of `Sˣ ⧸ (CommGroup.torsion Sˣ)` ). -/
@@ -725,7 +720,6 @@ lemma units_up_to_p_power_of_full_rank_matrix_of_p_not_dvd_torsion {S ι τ : Ty
   rw [← auxl, ← mul_pow, mul_comm, Eq.comm] at hl
   exact ⟨_ , hl⟩
 
-
 /-- In the case that `p` divides the torsion order, if the discrete logarithm
   matrix formed from a collection of units `uᵢ` and a set of generators for the torsion subgroup
   of `Sˣ` is of full rank, then the units `uᵢ` are independent
@@ -783,7 +777,6 @@ lemma units_linear_independent_of_full_rank_matrix_of_p_dvd_torsion {S ι τ κ:
       cases j
       · simp only [Sum.elim_inl, hu]
       · simp only [Sum.elim_inr, hv]
-
 
 /-- In the case that `p` divides the torsion order, if the discrete logarithm
   matrix formed from a collection of units `uᵢ` and a set of generators for the torsion subgroup
@@ -926,8 +919,6 @@ lemma units_up_to_p_power_of_full_rank_matrix_of_p_dvd_torsion' {S ι τ κ: Typ
  obtain ⟨a, ha⟩ := hkmem
  use a , 1
  simp [ha]
-
-
 
 section NonPrincipality
 

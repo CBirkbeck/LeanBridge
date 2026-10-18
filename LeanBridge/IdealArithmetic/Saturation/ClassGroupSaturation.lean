@@ -24,7 +24,6 @@ Results to prove an isomorphism between a finite group `G` and an abstract group
 - `class_number_of_saturated`: the class number of a Dedekind domain `S` given a
   tuple of ideals of `S` that is `p`-saturated for every prime `p`.  -/
 
-
 lemma addOrderOf_ne_eq_addSubgroup {ι : Type*} (n : ι → ℕ) [∀ i, NeZero (n i)]
     {p : ℕ} (hpos : 1 < p) (H : AddSubgroup (∀ i : ι , (ZMod (n i))))
     (hdvd : ∀ a : ι → ℕ, (fun i => ↑(a i)) ∈ H →  (∀ i, n i ∣ p * (a i)) → ∀ i, n i ∣ a i) :
@@ -196,7 +195,6 @@ lemma card_of_generators_saturated {G : Type*} [CommGroup G] {ι : Type*} [Finty
     Nat.card_congr (AddEquivOfGeneratorsMult h hgen hdvd).symm.toEquiv , Nat.card_pi]
   simp only [Nat.card_eq_fintype_card, ZMod.card]
 
-
 --#count_heartbeats in
 /-- Version of `AddEquivOfGeneratorsMult` for the class group of a Dedekind domain `S`. -/
 noncomputable def equivClassGroupOfSaturated {S : Type*} [CommRing S] [IsDomain S]
@@ -257,7 +255,6 @@ lemma class_number_of_saturated {S : Subalgebra ℤ K} [IsDedekindDomain S]
   ← Nat.card_congr (Additive.toMul (α := ClassGroup S)),
     Nat.card_congr (equivClassGroupOfSaturated hI' h hgen hdvd).symm.toEquiv , Nat.card_pi]
   simp only [Nat.card_eq_fintype_card, ZMod.card]
-
 
 section Principal
 

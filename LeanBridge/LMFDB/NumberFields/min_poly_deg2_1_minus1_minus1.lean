@@ -61,5 +61,4 @@ def fundamental_unit_1 : (𝓞 K_deg2_1_minus1_minus1)ˣ where
     -- Proof that inv * val = 1 (using commutativity)
     linear_combination K_gen_int_pol
 
-
 end

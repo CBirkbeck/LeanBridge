@@ -47,7 +47,6 @@ polynomials over the integers given as lists.
 
 -/
 
-
 open Polynomial Complex
 
 section AuxiliaryLemmas
@@ -239,7 +238,6 @@ lemma coeffs_le_maxCoeffAux (P : Polynomial ℂ ) (n : ℕ) (hn : n < P.natDegre
   rw [(show n = ↑(⟨n, hn⟩ : Fin (P.natDegree)) by rfl), List.mem_ofFn]
   use ⟨n, hn⟩
 
-
 /-- The standard Cauchy Bound for the roots of a complex polynomial. For constant polynomials
 it returns the dummy value 1. Note that this bound is sensitive to scaling· -/
 noncomputable def cauchyBound (P : Polynomial ℂ ) : ℝ := 1 + (maxCoeffsAux P) / ‖(P.leadingCoeff)‖
@@ -429,7 +427,6 @@ lemma ofList_roots_le_cauchy_bound_scale (l : List ℤ)
   rw [← natDegree_ofList l this hl] at hdeg
   linarith
 
-
 /- # CERTIFICATES BASED ON PRIME WITNESS -/
 
 /-- A certificiate for the irreducibility of `T` based on `irreducible_of_eval_mul_prime`.
@@ -480,7 +477,6 @@ structure CertificateIrreducibleIntOfPrimeDegreeAnalysis (f : Polynomial ℤ) (l
   hrho : ρ + 1 ≤ |M|
   hs : s < (|M| - ρ) ^ d
   heval : |f.eval M| = s * P
-
 
 lemma irreducible_of_CertificateIrreducibleIntOfPrimeDegrees (f : Polynomial ℤ) (l : List ℤ)
  (C : CertificateIrreducibleIntOfPrimeDegreeAnalysis f l) : Irreducible f := by
@@ -538,7 +534,6 @@ structure CertificateIrreducibleIntOfPrime (f : Polynomial ℤ) (l : List ℤ) w
   hrho : ρ + 1 ≤ |M|
   hs : s < (|M| - ρ)
   heval : |f.eval M| = s * P
-
 
 lemma irreducible_of_CertificateIrreducibleIntOfPrime (f : Polynomial ℤ) (l : List ℤ)
   (C : CertificateIrreducibleIntOfPrime f l) : Irreducible f := by

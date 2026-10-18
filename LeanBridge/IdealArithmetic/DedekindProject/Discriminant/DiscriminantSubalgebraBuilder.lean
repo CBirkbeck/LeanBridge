@@ -43,7 +43,6 @@ lemma algebraBuilder_discr_eq_mul_polynomial_discr (hi : Irreducible T)
     rw [← aux, ← Algebra.discr_of_isAdjoinRootMonic (isAMK A) this]
     exact OfBuilderList_discr_eq_prod_discr' A
 
-
 lemma algebraBuilder_discr_eq_mul_polynomial_discr' (hi : Irreducible T)
   (A : SubalgebraBuilderLists n ℤ ℚ K T l) :
       (Algebra.discr ℤ (basisOfBuilderLists T l A) ) =

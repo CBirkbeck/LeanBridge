@@ -29,7 +29,6 @@ some of its properties.
   adapted from the proofs involving quotients by ideals such as
   `Ideal.quotientEquivPiZMod`.  -/
 
-
 open scoped BigOperators
 
 open scoped Classical

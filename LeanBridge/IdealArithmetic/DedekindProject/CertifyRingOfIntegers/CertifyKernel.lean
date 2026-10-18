@@ -25,8 +25,6 @@ Lemmas to certify the kernel of a linear map.
 - `ker_eq_bot_of_linearMap_to_linearMaps` : a condition certifying that the kernel of a map
   `A →ₗ[R] B →ₗ[R] C` is trivial· -/
 
-
-
 variable {A R: Type*} {n : ℕ} [AddCommGroup A]
 
 open BigOperators Module
@@ -51,7 +49,6 @@ lemma linearIndependent_of_repr_diag {τ ι: Type*} [CommRing R] [Module R A] (b
     right
     exact hj.2 k hk
   · simp only [h, not_true, Finsupp.coe_smul, IsEmpty.forall_iff]
-
 
 /-- Let `v` and `v'` are families of vectors, where `v` is linearly independent
   and the sum of the cardinalities of `v` and `v'`equals the rank of the module·
@@ -124,7 +121,6 @@ lemma basisKernelOfLinearIndependentKerImEq_apply {B : Type*} [DivisionRing R]
     unfold basisKernelOfLinearIndependentKerIm
     simp only [Basis.coe_mk]
 
-
 /-- If `v` is a collection of vectors with the same cardinality as a basis, and `f` is an `R`-linear map
 such that ` f ∘ v` is linearly independent, then the kernel of `f` is trivial· -/
 lemma kernel_eq_bot_of_linearIndependent_im {B : Type*} [DivisionRing R]
@@ -174,7 +170,6 @@ noncomputable def basisExtensionKernelOfLinearIndependentKerIm
   rw [Module.finrank_eq_card_basis b]
   exact hcard
 
-
 lemma basisExtensionKernelOfLinearIndependentKerIm_apply_inl
     {B: Type*} [DivisionRing R]
     [Module R A] [Nontrivial A][AddCommGroup B][Module R B] {τ₁ τ₂ τ₃ : Type* } [Fintype τ₁]
@@ -221,7 +216,6 @@ lemma linearIndependent_linearMaps_of_repr_diag {R B : Type*} {τ : Type*}
       erw [Finsupp.coe_smul, Pi.smul_apply, hjk2 l hlne, smul_zero]
     . simp only [hins, not_true, Finsupp.coe_smul, IsEmpty.forall_iff]
 
-
 /-- If `f` is a linear map from `A` to `B →ₗ[R] C `, then its kernel is trivial if there exists
 a family of vectors `v` with the same cardinality as the dimension of `A` such that for every `i`
 there is an entry in the matrix representation of `f ∘ v i` different from zero and such that
@@ -232,7 +226,6 @@ lemma ker_eq_bot_of_linearMap_to_linearMaps {B C : Type*} [AddCommGroup B] [AddC
  (h : ∀ (i : τ₁), (∃ (j : τ₂) (k : τ₃), b''.repr ((f ∘ v) i (b' j)) k ≠  0
   ∧ ( ∀ l, l ≠ i →  b''.repr ((f ∘ v) l (b' j)) k = 0 ))) : LinearMap.ker f = ⊥ :=
   kernel_eq_bot_of_linearIndependent_im b f v (linearIndependent_linearMaps_of_repr_diag (f ∘ v) b' b'' h)
-
 
  lemma linearIndependent_of_linearIndependent_eval {R B : Type*} {τ : Type*} [CommRing R]
   [Module R A][AddCommGroup B][Module R B] (v : τ → (A →ₗ[R] B) )

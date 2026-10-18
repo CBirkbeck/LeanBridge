@@ -24,7 +24,6 @@ results to certify divisibility conditions on the order of the torsion subgroup.
   torsion order by using a witness ideal.
 - `eq_card_torsion_of_pow_of_gcd `: can be used to prove the exact size of the torsion subgroup.  -/
 
-
 open Classical Finset NumberField InfinitePlace Polynomial Module
 
 /-- The real embeddings of a number field are in bijection with the real
@@ -109,12 +108,10 @@ lemma card_infinite_place_adjoin_root (K : Type*) [Field K] [NumberField K] (f :
     Module.finrank_eq_card_basis (AdjoinRoot.powerBasisAux hf)]
   simp
 
-
 /- Note: If the torsion subgroup (which is cyclic) has cardinality divisible by `t`,
   then it has a root of order `t` and thus is a root of `Φₜ(X)`. The order of this polynomial `φ(t)`
   divides the degree `n` of `K`.
   Hence, if `p^m` divides torsion order, then `p^(m-1) * (p - 1)` divides `n`. -/
-
 
 /-- If an element `x` of prime order `p` is mapped through a ring homomorphism,
   and the characteristic of the codomain does not divide `p`, then the image
@@ -165,7 +162,6 @@ lemma orderOf_prime_pow_map  {S R : Type*} {q p m : ℕ} [CommRing S] [IsDomain 
   · rw [h2]
     intro h
     simp only [zero_dvd_iff, pow_eq_zero_iff', Nat.Prime.ne_zero hp.out, ne_eq, false_and] at h
-
 
 /-- Provides a way to certify that a prime `p` does not divide the order of the torsion subgroup.
   The existance of such a certificate can be proven with Chebotarev's density theorem.   -/
@@ -243,13 +239,10 @@ lemma dvd_of_dvd_torsion {S : Type*} [CommRing S] [IsDomain S]
   intro hpndvd
   exact not_dvd_torsion_of_not_dvd hq hC I hcard hpndvd hneq
 
-
-
 /- Note: In the case of number fields, if there is a torsion element of order `m`, then
   its minimal poly of order `φ(m)` divides the degree `d` of the number field. In particular,
   if `p` divides `m`, then `p-1` must divide `d`. Hence, prime divisors of the size of the
   torsion group are a subset of the primes `≤ d + 1` such that `p-1 ∣ d`. -/
-
 
 /-- We can certify that the size of the torsion group is exactly `n`, without explicitely
   calculating it if:
@@ -314,9 +307,6 @@ theorem prime_sub_dvd_finrank_of_prime_dvd_card_torsion {K : Type*} [Field K]
   · rw [← this, Polynomial.natDegree_cyclotomic, Nat.totient_prime hp.out]
   · rw [← minpoly.ne_zero_iff, ← this]
     exact cyclotomic_ne_zero p ℚ
-
-
-
 
 open Polynomial
 

@@ -395,7 +395,6 @@ lemma List.neg_eq_neg_one_mul [Ring R] (l : List R) : l.neg = [- 1] * l := by
     · simp only [neg_mul, one_mul, mul_zero, add_zero]
     · simp only [neg_mul, one_mul, convolve, map_nil, addPointwise]
 
-
 lemma List.add_length [AddMonoid R] (l₁ l₂ : List R) :
     (l₁ + l₂).length = max l₁.length l₂.length := by
   have : ∀ (l : List R), (l₁ + l).length = max l₁.length l.length := by
@@ -477,7 +476,6 @@ lemma List.sum_ofFn' {m n : ℕ} (hm : m ≠ 0) (f : Fin m → (Fin n → R)) :
       rfl
 
 /- Properties of `ofList` -/
-
 
 omit [Semiring R] in
 lemma List.zero_eq : (0 : List R) = [] := rfl
@@ -597,7 +595,6 @@ lemma Fn_eq_toList (p : R[X]) (hpz : p ≠ 0) :
   rw [List.getLast_eq_getElem]
   simp only [List.length_ofFn, add_tsub_cancel_right, List.getElem_ofFn, coeff_natDegree, ne_eq,
     leadingCoeff_eq_zero, hpz, not_false_eq_true]
-
 
 /-- `ofList` is the right inverse of `toList'`. -/
 lemma ofList_comp_toList (p : Polynomial R) :
@@ -957,7 +954,6 @@ lemma eval_of_list_eq_eval (x : R) (l : List R) : eval x (ofList l) = List.eval 
     simp[List.eval]
     rw [Polynomial.X_mul, Polynomial.eval_mul_X, hin]
 
-
 ----------------------------------------------------------------------
 
 section ComputablePolynomialsSemiring
@@ -1015,7 +1011,6 @@ lemma ofComputablePolynomial_comp_toComputablePolynomial (p : Polynomial R) :
   unfold ofComputablePolynomial
   dsimp
   rw [ofList_comp_toList]
-
 
 lemma ofComputablePolynomial_injective : Function.Injective (ofComputablePolynomial (R := R)) := by
   intro a b hab

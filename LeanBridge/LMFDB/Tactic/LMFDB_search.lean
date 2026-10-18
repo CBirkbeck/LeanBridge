@@ -175,7 +175,6 @@ end"
   liftTermElabM <|
     Meta.Tactic.TryThis.addSuggestions (←getRef) suggestions_list.toArray
 
-
 noncomputable section
 
 open NumberField
@@ -204,6 +203,5 @@ axiom LMFDB_NF_2_2_13_1_discr : NumberField.discr K_2_2_13_1 = 13
 axiom LMFDB_NF_2_2_13_1_isGalois : IsGalois ℚ K_2_2_13_1
 
 axiom LMFDB_NF_2_2_13_1_classNumber : NumberField.classNumber K_2_2_13_1 = 1
-
 
 end

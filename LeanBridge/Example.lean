@@ -16,6 +16,4 @@ axiom LMFDB_sdfsd : NumberField.IsCMField K := by sorry
 
 end
 
-
-
  -/

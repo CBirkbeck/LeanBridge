@@ -24,7 +24,6 @@ def squareAndMultiply_aux (m b e res : ℕ) : ℕ :=
       let res' := if (Nat.add e 1) % 2 = 1 then (Nat.mul res b) % m else res
       squareAndMultiply_aux m ((b * b) % m) ((Nat.add e 1) / 2) res'
 
-
 lemma squareAndMultiply_aux_eq_pow {m b e res} :
     (squareAndMultiply_aux m b e res : ZMod m) = res * (b : ZMod m) ^ e := by
   revert b res
@@ -79,7 +78,6 @@ lemma squareAndMultiply_eq_pow {m b e} :
   rw [squareAndMultiply_aux_eq_pow ]
   simp only [Nat.cast_one, ZMod.natCast_mod, one_mul]
 
-
 /-- Tactic to simplify expressions of the form `(a : ZMod m) ^ n` using a tail-recursive algorithm. -/
 macro "zmod_pow" : tactic =>
   `(tactic| (
@@ -90,7 +88,6 @@ macro "zmod_pow" : tactic =>
   ))
 
 -- EXAMPLES
-
 
 example : (3 : ZMod 30) ^ 11002324556787 = 27  := by
   zmod_pow

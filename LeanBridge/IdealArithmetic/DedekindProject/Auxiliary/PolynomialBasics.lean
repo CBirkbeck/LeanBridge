@@ -5,7 +5,6 @@ Authors: Alain Chavarri Villarello
 -/
 import Mathlib.Algebra.Polynomial.FieldDivision
 
-
 /-! # Polynomials lifts
 
 Basic results on lifts of polynomials mod `π`. -/

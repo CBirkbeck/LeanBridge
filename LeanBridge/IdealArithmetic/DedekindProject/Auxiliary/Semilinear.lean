@@ -79,7 +79,6 @@ theorem LinearIndependent.mapₛₗ {v : ι → M} {f : M →ₛₗ[g] N}
     rw [Finsupp.add_apply]
     exact add_mem (hx i) (hy i)
 
-
 variable [RingHomSurjective g] in
 theorem Submodule.finsupp_mem_smul_top (x : ι →₀ R) (I : Ideal R)
     (h : ∀ i, x i ∈ I) : x ∈ (I • ⊤ : Submodule R (ι →₀ R)) := by

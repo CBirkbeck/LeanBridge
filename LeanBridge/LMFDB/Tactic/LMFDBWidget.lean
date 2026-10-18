@@ -345,8 +345,6 @@ axiom LMFDB_NF_{validLabel}_classNumber : NumberField.classNumber K_{validLabel}
 end
 "
 
-
-
       let outputFile := s!"{proof_output_dir}/LMFDB_{validLabel}.lean"
       IO.FS.writeFile outputFile fileContent
 

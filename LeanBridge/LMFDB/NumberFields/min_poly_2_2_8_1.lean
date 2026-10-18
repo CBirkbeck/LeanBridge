@@ -49,7 +49,6 @@ lemma K_gen_int_pol : K_gen_int^2 - 2 = 0 := by
     exact (AdjoinRoot.aeval_eq _).trans AdjoinRoot.mk_self
   simpa [map_ofNat] using h
 
-
 def fundamental_unit_1 : (𝓞 K_2_2_8_1)ˣ where
   val := K_gen_int + 1
   inv := K_gen_int - 1
@@ -59,6 +58,5 @@ def fundamental_unit_1 : (𝓞 K_2_2_8_1)ˣ where
   inv_val := by
     -- Proof that inv * val = 1 (using commutativity)
     linear_combination K_gen_int_pol
-
 
 end

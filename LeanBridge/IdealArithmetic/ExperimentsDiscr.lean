@@ -14,8 +14,6 @@ open Polynomial
 
 #eval sylvesterMatrix (ofList [(1 : ℤ),2,3,4,5]) (ofList (List.derivative [(1 : ℤ),2,3,4,5]))
 
-
-
 @[reducible]
 def S := !![(2 : ℤ), 0, 0, 0, 1, 0, 0;
   6, 2, 0, 0, 2, 1, 0;
@@ -58,7 +56,6 @@ def Vinv := !![ 1 ,0, 0, 0, 0, 0,0;
 lemma hVmul : V * Vinv = 1 := by
   decide
 
-
 lemma hvS : V * S = Sdiag := by decide
 
 lemma detSdiag : |Sdiag.det| = 54000 := by
@@ -91,13 +88,9 @@ theorem discr : |discriminant (ofList [(1 : ℤ),2,3,4,5] )| = 10800 := by
   --unfold discriminant
   --unfold modifiedSylvesterMatrix
 
-
-
 -- det_of_upperTriangular
 --#eval sylvesterMatrix (ofList [1,(1 : ℤ),2,3,4,5]) (ofList (List.derivative [1,(1 : ℤ),2,3,4,5]))
 ---------------------------
-
-
 
 #eval sylvesterMatrix (ofList [-1,2,56,2,3,4,5,-7,1]) (ofList (List.derivative [-1,2,56,2,3,4,5,-7,1]))
 
@@ -117,7 +110,6 @@ def S2 := !![2, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0;
   0, 0, 0, 0, 0, 8, -49, 30, 0, 0, 0, 0, 1, -7, 5;
   0, 0, 0, 0, 0, 0, 8, -49, 0, 0, 0, 0, 0, 1, -7;
   0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 1]
-
 
 @[reducible]
 def S2D := !![ (1 : ℤ), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 614320849259999702437;
@@ -208,15 +200,12 @@ theorem discr2 : |discriminant (ofList [-1,2,56,2,3,4,5,-7,1] )| = 9352477484538
   rfl
   refine mul_right_injective₀ (by decide)
 
-
 -----------------------------------
-
 
 @[reducible]
 def t := ![-4,-3,-2,-1,0,1,2,3,4]
 
 #eval ∏ i ∈ Finset.univ, ∏ j ∈ Finset.univ.erase i, (t i - t j)
-
 
 example : ∏ i ∈ Finset.univ, ∏ j ∈ Finset.univ.erase i, (t i - t j) = 25569049282962188245401600000000 := by
   decide
@@ -231,8 +220,6 @@ example : discriminant (∏ i,  (X - C (t i))) = 2556904928296218824540160000000
   have aux : ∏ i ∈ Finset.univ, ∏ j ∈ Finset.univ.erase i, (t i - t j) = 25569049282962188245401600000000 := by decide
   rw [aux] ; norm_num
   exact RingHom.injective_int (algebraMap ℤ ℚ)
-
-
 
 def SturmRC : SturmBuilderOfList [[-18, -15, -10, 10, 0, 1], [-15, -20, 30, 0, 5], [9, 6, 3, -2], [-3, -4, -9], [-39, -25], [1]] [-18, -15, -10, 10, 0, 1] [-15, -20, 30, 0, 5] where
   hlen := by decide
@@ -259,7 +246,6 @@ def SturmRC : SturmBuilderOfList [[-18, -15, -10, 10, 0, 1], [-15, -20, 30, 0, 5
     have hi : i < 4 := by omega
     interval_cases i <;> (dsimp ; decide)
 
-
 def DiscrOfPseudoRemainderCoeff {R : Type*} [CommRing R] [LinearOrder R] (P : List (List R)) (f : List R)
   (i : ℕ) : R :=
     if H : i + 2 < P.length ∧ i < f.length then
@@ -274,7 +260,6 @@ def DiscrOfPseudoRemainder {R : Type*} [CommRing R] [Div R] [LinearOrder R] [Inh
       ((P.getLastD 0).getLastD 0) ^ (P[P.length - 2].length - 1)) / (∏ (i : Fin (P.length - 2)), e[i] ^ ((P[i.val + 1]).length - 1))
     else 0
 
-
 abbrev P := [[-18, -15, -10, 10, 0, 1], [-15, -20, 30, 0, 5], [9, 6, 3, -2], [-3, -4, -9], [-39, -25], [1]]
 #eval (P[1].getLastD 0) ^ 2
 
@@ -284,7 +269,6 @@ abbrev P := [[-18, -15, -10, 10, 0, 1], [-15, -20, 30, 0, 5], [9, 6, 3, -2], [-3
 
 example : DiscrOfPseudoRemainder [[-18, -15, -10, 10, 0, 1], [-15, -20, 30, 0, 5], [9, 6, 3, -2], [-3, -4, -9], [-39, -25], [1]] [25, 4, 81, 625] [(50 : ℤ), 25, 16, 11664] = 14400000000 := by
   decide
-
 
 def T8 : SturmBuilderOfList [[-1, 2, 56, 2, 3, 4, 5, -7, 1], [2, 112, 6, 12, 20, 30, -49, 8], [50, -896, -2730, -164, -236, -306, 263], [-10317, 26744, 409348, -75968, 11487, 9730], [118039, -210658, -4396196, 3136696, -497669], [-891307726, 226789062, 30505154223, -38072891440], [-45100387975686, 152751896379902, 1843938372217163], [159617440905728815, 8192722259337557422], [1]] [-1, 2, 56, 2, 3, 4, 5, -7, 1] [2, 112, 6, 12, 20, 30, -49, 8] where
   hlen := by decide
@@ -315,16 +299,12 @@ def T8 : SturmBuilderOfList [[-1, 2, 56, 2, 3, 4, 5, -7, 1], [2, 112, 6, 12, 20,
   [64, 69169, 94672900, 247674433561, 1449545062602025273600, 3400108720534880761404431768569, 67120698018645091490934057609147286084]
   [1, 64, 484183, 1932100, 1733721034927, 1449545062602025273600, 3179944025378457415939922163175606093704156735676809]
 
-
 #count_heartbeats
 example : DiscrOfPseudoRemainder [[-1, 2, 56, 2, 3, 4, 5, -7, 1], [2, 112, 6, 12, 20, 30, -49, 8], [50, -896, -2730, -164, -236, -306, 263], [-10317, 26744, 409348, -75968, 11487, 9730], [118039, -210658, -4396196, 3136696, -497669], [-891307726, 226789062, 30505154223, -38072891440], [-45100387975686, 152751896379902, 1843938372217163], [159617440905728815, 8192722259337557422], [1]]
   [64, 69169, 94672900, 247674433561, 1449545062602025273600, 3400108720534880761404431768569, 67120698018645091490934057609147286084]
   [1, 64, 484183, 1932100, 1733721034927, 1449545062602025273600, 3179944025378457415939922163175606093704156735676809]  = 935247748453823378961 := by decide
 
-
-
 -- -935247748453823378961
-
 
 def T12 : SturmBuilderOfList [[-1, -3, 4, -3, 4, -7, 8, -5, 2, -1, 2, -2, 1], [-3, 8, -9, 16, -35, 48, -35, 16, -9, 20, -22, 12], [75, 190, -231, 146, -157, 246, -253, 134, -39, -2, -2], [71, 154, -281, 214, -195, 282, -319, 210, -81, 10], [-10211, -24224, 35581, -23964, 23455, -36012, 38859, -22620, 7221], [-2267, -4492, 8045, 382, 1384, -5348, 5424, -1734], [246562, 814245, -405514, -231107, -606672, 731024, -399754], [14471167, 16037714, -36741730, -13829396, 17035399, -23152604], [-3486108299, -5816633006, 9229540306, -954771996, 311520877], [71085451054, 150856520123, -136214103852, -61173383617], [208293783922595, 367093071086944, -527066681760297], [-15465343873515557, -79274710004591368], [-1]] [-1, -3, 4, -3, 4, -7, 8, -5, 2, -1, 2, -2, 1] [-3, 8, -9, 16, -35, 48, -35, 16, -9, 20, -22, 12] where
   hlen := by decide
@@ -385,8 +365,6 @@ def Polyp : SturmBuilderOfList [[-1, -3, 4, -3, 4, -7, 8, -5, 2, -1, 2, -2, 1], 
     have hi : i < 11 := by omega
     interval_cases i <;> (dsimp ; decide)
 
-
-
 def T7 : SturmBuilderOfList [[1, -1, -1, 3, -4, 4, -2, 1], [-1, -2, 9, -16, 20, -12, 7], [-47, 46, 17, -52, 44, -32], [-13, 82, -93, 44, -28], [135, -130, 171, -136], [403, -4322, 5207], [-47825, 26106], [-1]] [1, -1, -1, 3, -4, 4, -2, 1] [-1, -2, 9, -16, 20, -12, 7] where
   hlen := by decide
   h0 := by decide
@@ -411,8 +389,6 @@ def T7 : SturmBuilderOfList [[1, -1, -1, 3, -4, 4, -2, 1], [-1, -2, 9, -16, 20, 
     intro i hi
     have hi : i < 6 := by omega
     interval_cases i <;> (dsimp ; decide)
-
-
 
 #eval DiscrOfPseudoRemainder [[1, -1, -1, 3, -4, 4, -2, 1], [-1, -2, 9, -16, 20, -12, 7], [-47, 46, 17, -52, 44, -32], [-13, 82, -93, 44, -28], [135, -130, 171, -136], [403, -4322, 5207], [-47825, 26106], [-1]] [49, 1024, 784, 18496, 27112849, 681523236] [1, 196, 256, 196, 73984, 6788162665583]
 
@@ -452,10 +428,8 @@ example : DiscrOfPseudoRemainder [[1, -2, 3, -5, 9, -12, 13, -11, 7, -3, 1], [-2
    [100, 3481, 82944, 2468041, 170772624, 25755625, 2308157024644, 860515882371601, 158810404]
    [1, 100, 3481, 82944, 2468041, 170772624, 25755625, 6963709743350948, 19791865294546823] = -209352647 := by decide
 
-
 --------------------------------------------------------------
 section DiscriminantMod
-
 
 variable {R : Type*} [CommRing R] [DecidableEq R]
 
@@ -476,7 +450,6 @@ def Resultant_3_3 (a0 a1 a2 b0 b1 b2 : R) :=
     (a1*a2^2 - 2*a1^2 - a0*a2)*b0*b1 + (-a0*a2^2 + 2*a0*a1)*b1^2 + (-a1^2*a2 + 2*a0*a2^2 + a0*a1)*b0*b2 +
     (a0*a1*a2 - 3*a0^2)*b1*b2 + (-a0^2*a2)*b2^2 + (a1^3 - 3*a0*a1*a2 + 3*a0^2)*b0 +
     (-a0*a1^2 + 2*a0^2*a2)*b1 + a0^2*a1*b2 - a0^3
-
 
 lemma resultant_1_1 {a0 b0 : R}:
   resultant (ofList [a0, 1]) (ofList [b0, 1])
@@ -500,14 +473,10 @@ lemma resultant_3_3 {a0 a1 a2 b0 b1 b2 : R}:
 
 lemma discriminant_2 {a0 a1 : R} : discriminant ( ofList [a0, a1, 1]) = a1 ^ 2 - 4 * a0 := by sorry
 
-
-
 lemma discriminant_prod {τ : Type*} [Fintype τ] [LT τ] [DecidableEq τ] [∀ i, DecidablePred (fun j : τ ↦ i < j)]
   (P : τ → R[X]) :
   discriminant (∏ i, P i) = (∏ i, discriminant (P i)) * ∏ i, (∏ j ∈ {j | i < j}, (resultant (P i) (P j)) ^ 2) := by
   sorry
-
-
 
 lemma list_prod_aux  { n : ℕ} (p : ℕ) (F : Fin n → List (ZMod p) )
   (l : List ℤ) (h : (List.prod (List.ofFn (fun i => F i))).dropTrailingZeros' = List.map (algebraMap ℤ (ZMod p)) l) :
@@ -523,8 +492,6 @@ lemma discriminant_map_lists {l : List ℤ} {p : ℕ} (hl : l.getLastD 0 = 1) (h
 lemma discriminant_prod_aux {n : ℕ} {P : Fin n → R[X]} (A : Matrix (Fin n) (Fin n) R)
   (h : ∀ i j, i < j → A i j = resultant (P i) (P j)) (hd : ∀ i, A i i = discriminant (P i)) :
   discriminant (∏ i, P i) = (∏ i, A i i) * (∏ i, ∏ j ∈ {j | i < j}, (A i j) ^ 2) := by sorry
-
-
 
 @[reducible]
 def F12 := ![[(8276 : ZMod 11311), 7498, 1], [6505, 1523, 1], [5790, 1916, 1], [6782, 5651, 1], [9839, 6443, 1], [9588, 10900, 1]]
@@ -594,7 +561,6 @@ def A108739 : Matrix (Fin 6) (Fin 6) (ZMod 108739) := !![  7044 , 77043 , 74527 
      0   ,   0    ,  0  ,95894  ,68164, 101318;
      0    ,  0    ,  0   ,   0  ,80115 , 91957;
      0    ,  0  ,    0   ,   0   ,   0 , 16931]
-
 
 example : algebraMap ℤ (ZMod 108739) (discriminant (ofList [-1, -3, 4, -3, 4, -7, 8, -5, 2, -1, 2, -2, 1]))  = 33732 := by
   rw [discriminant_map_lists]

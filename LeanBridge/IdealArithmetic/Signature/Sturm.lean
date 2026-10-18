@@ -70,8 +70,6 @@ for an  eventual PR to Mathlib.
 * `Assia Mahboubi` and `Cyril Cohen` formalized sign changes of pseudo-remainder sequences
  in Coq over real closed fields. Sturm theorem is a corollary of these results.-/
 
-
-
 def IsRealClosedField (F : Type*) [Field F] [LinearOrder F] [IsStrictOrderedRing F] : Prop :=
     ∀ {a b t : F} , ∀ {P : F[X]},
     a ≤ b → t ∈ Set.Ioo (P.eval a) (P.eval b) → ∃ s, s ∈ Set.Ioo a b ∧ P.eval s = t
@@ -110,7 +108,6 @@ lemma sign_ne_eq_iff_of_ne_zero {a b : SignType} (ha : a ≠ 0) (hb : b ≠ 0) :
   cases b ; simp at hb ; simp ; simp
   cases b ; simp at hb ; simp ; simp
 
-
 lemma polynomial_has_root_of_mul_neg (hc : IsRealClosedField F) {a b : F} (hab : a ≤ b)
     {P : F[X]} (habm : (P.eval a) * (P.eval b) < 0) : ∃ s ∈ Ioo a b , P.eval s = 0 := by
   rcases lt_trichotomy (P.eval a) 0 with hl1 | hl2 | hl3
@@ -120,14 +117,12 @@ lemma polynomial_has_root_of_mul_neg (hc : IsRealClosedField F) {a b : F} (hab :
   · have : eval b P < 0 := by nlinarith
     exact polynomial_has_root_of_pos_le_zero hc hab hl3 this
 
-
 lemma polynomial_has_root_of_ne_sign (hc : IsRealClosedField F) {a b : F} (hab : a ≤ b)
     {P : F[X]} (hne : SignType.sign (P.eval a) ≠ SignType.sign (P.eval b)) (hanz : P.eval a ≠ 0)
     (hbnz : P.eval b ≠ 0) : ∃ s ∈ Ioo a b , P.eval s = 0 := by
   rw [sign_ne_eq_iff_of_ne_zero (by simp[hanz]) (by simp[hbnz] ), ← sign_mul,
     sign_eq_neg_one_iff] at hne
   exact polynomial_has_root_of_mul_neg hc hab hne
-
 
 lemma neg_of_ne_zero_of_exists_neg (hc : IsRealClosedField F) {a b m : F} {P : F[X]}
     (hP : ∀ x ∈ Ioo a b , P.eval x ≠ 0) (hm : m ∈ Ioo a b) (hneg : P.eval m < 0) :
@@ -164,7 +159,6 @@ lemma nonpos_of_ne_zero_of_exists_neg (hc : IsRealClosedField F) {a b m : F} {P 
     simp only [mem_Ioo] at hs1
     exact ⟨lt_trans hm.1 hs1.1, hs1.2⟩
   · exact le_of_lt (neg_of_ne_zero_of_exists_neg hc hP hm hneg x hx)
-
 
 lemma pos_of_ne_zero_of_exists_pos (hc : IsRealClosedField F) {a b m : F} {P : F[X]}
     (hP : ∀ x ∈ Ioo a b , P.eval x ≠ 0) (hm : m ∈ Ioo a b) (hpos : P.eval m > 0) :
@@ -475,7 +469,6 @@ def signChanges' (L : List R) : ℕ :=
 def signChanges (L : List R) : ℕ  :=
   signChanges' (List.filter (fun x => if x ≠ 0 then true else false) L)
 
-
 lemma signChanges_def (L : List R) : signChanges L = signChanges' (List.filter (fun x => if x ≠ 0 then true else false) L) := by
   rfl
 
@@ -485,7 +478,6 @@ lemma signChanges_eq_signChanges' (L : List R) (hz : ∀ x ∈ L, x ≠ 0) : sig
 
 end
 
-
 --set_option trace.profiler true
 
 --#count_heartbeats
@@ -493,8 +485,6 @@ end
 
 -- unseal Rat.mul
 -- example : (123457738291098765612345773829109876561234577382910987656123457738291098765612345773829109876561234577382910987656 : ℚ) * (-345678998765678912345773829109876561234577382910987656123457738291098765612345773829109876561234577382910987656) < 0 := by decide
-
-
 
 section
 variable{R : Type*} [CommRing R] [LinearOrder R]
@@ -538,7 +528,6 @@ structure IsSturmSequence [LinearOrder R] (P : List R[X]) (p q : R[X])  where
   hrem : ∀ i, ∀ h2 : i + 2 < P.length ,
     (∃ e f : R, ∃ Q : R[X], 0 < e ∧ 0 < f ∧ C e * P[i] = Q * P[i + 1] - C f * P[i + 2] )
 
-
 lemma sturm_sequence_ne_nil [LinearOrder R] {P : List R[X]} {p q : R[X]}
   (hs : IsSturmSequence P p q) : P ≠ [] := by
   have := hs.hlen
@@ -574,7 +563,6 @@ lemma zero_not_member_of_mono {P : List R[X]}
     rw [hi] at this
     simp at this
 
-
 variable [LinearOrder R]
 
 /-- The zero polynomial is not in a sturm sequence. -/
@@ -600,7 +588,6 @@ lemma zero_not_member' {P : List R[X]} {p q : R[X]}
   intro h
   have : P[i] ∈ P := List.getElem_mem hi
   exact zero_not_member hs (h ▸ this)
-
 
 lemma p_ne_zero {P : List R[X]} {p q : R[X]}
     (hs : IsSturmSequence P p q) : p ≠ 0 := by
@@ -653,7 +640,6 @@ lemma q_ne_zero {P : List R[X]} {p q : R[X]}
       rw[← map_C, ← Polynomial.map_mul, heq]
       simp
 
-
 /-- A sturm sequence evaluated at any element `a` cannot have two consecutive zeros. -/
 lemma no_consecutive_zero1 [IsStrictOrderedRing R] (P : List R[X]) (p q : R[X])
     (hs : IsSturmSequence P p q) (a : R) (i : ℕ)
@@ -685,7 +671,6 @@ lemma no_consecutive_zero1 [IsStrictOrderedRing R] (P : List R[X]) (p q : R[X])
   simp only [eval_C] at aux
   exact hcz aux
 
-
 lemma sturm_sequence_cons (P : List R[X]) (p q : R[X]) (a : R[X]) (hPl : 2 ≤ P.length)
     (hs : IsSturmSequence (a :: P) p q) : IsSturmSequence P q P[1] where
   hlen := hPl
@@ -708,8 +693,6 @@ lemma sturm_sequence_cons (P : List R[X]) (p q : R[X]) (a : R[X]) (hPl : 2 ≤ P
     simp at heq
     exact ⟨e, f, Q, hepos, hfpos, heq⟩
 
-
-
 end
 
 open SignType
@@ -719,7 +702,6 @@ variable {R : Type*}
 @[simp]
 lemma signChanges_nil [Zero R] [Preorder R] [DecidableLT R]  [DecidableEq R]
   : signChanges (R := R) [] = 0 := rfl
-
 
 @[simp]
 lemma signChanges_single' [Zero R] [Preorder R] [DecidableLT R]  (a : R) : signChanges' [a] = 0 := by
@@ -732,7 +714,6 @@ lemma signChanges_single [Zero R] [Preorder R] [DecidableLT R] [DecidableEq R] (
   · simp[signChanges, ha]
   · push Not at ha
     simp [signChanges, signChanges', ha]
-
 
 lemma signChanges_zero_head [Zero R] [Preorder R] [DecidableLT R] [DecidableEq R]
   (as : List R)  : signChanges (0 :: as) = signChanges as := by
@@ -775,7 +756,6 @@ lemma signChanges_cons_eq_add [Zero R] [Preorder R] [DecidableLT R] [DecidableEq
   · push Not at ha
     rw [ha]
     simp[signChanges_zero_head, signChanges_single]
-
 
 lemma signChanges_modify_zero [Zero R] [Preorder R] [DecidableLT R] [DecidableEq R]
   (a : R) (bs : List R) :
@@ -866,8 +846,6 @@ lemma signChanges_map {S : Type*} [Zero R] [LinearOrder R] [DecidableLT R] [Deci
     simp[this x]
   rw [this]
   apply signChanges_map' f hmono1 hmono2
-
-
 
 lemma signChanges_eq_map_sign_int [Zero R] [LinearOrder R] [DecidableLT R] [DecidableEq R]
   (L : List R) : signChanges L = signChanges (L.map (fun x ↦ sign x)) := by
@@ -995,7 +973,6 @@ lemma sign_changes_add_triple [Zero R] [LinearOrder R] [DecidableLT R]  (a b c :
   signChanges' (a :: b :: c :: as) = signChanges' [a, b, c] + signChanges' (c :: as) := by
   exact sign_changes_add [a, b] as c
 
-
 lemma List.getElem_cons_pred {α : Type* } (a : α) (as : List α) (i : ℕ) (h : i  < (a :: as).length)
   (hi' : i - 1 < as.length) (hi : i ≠ 0) : (a :: as)[i] = as[i - 1] := by
   match i with
@@ -1062,7 +1039,6 @@ lemma List.three_le_length_iff {α : Type*} {l : List α} :  3 ≤ l.length ↔ 
     use a , b, c, as
   · rintro ⟨a, b, c, as, has⟩
     simp [has]
-
 
 -- If I just case match, the proof is too slow.
 lemma aux_induction_list_opposite_sign {n : ℕ}(L₁ L₂ : List R)
@@ -1184,7 +1160,6 @@ lemma aux_induction_list_opposite_sign {n : ℕ}(L₁ L₂ : List R)
             exact hszero
             exact hlast
 
-
 lemma signChanges_eq_of_lists_opposite_sign (L₁ L₂ : List R)
   (hzL1 : ∀ x ∈ L₁, x ≠ 0) (hzL2 : ∀ x ∈ L₂, x ≠ 0)
   (hlen : L₁.length = L₂.length) (hlast : sign (L₁.getLastD 0) = sign (L₂.getLastD 0))
@@ -1192,7 +1167,6 @@ lemma signChanges_eq_of_lists_opposite_sign (L₁ L₂ : List R)
     (1 ≤ i ∧ L₁[i - 1] * L₁[i + 1] < 0 ∧ sign (L₁[i - 1]) = sign (L₂[i - 1]) ∧ sign (L₁[i + 1]) = sign (L₂[i + 1]))) :
     signChanges L₁ = signChanges L₂ := by
   exact aux_induction_list_opposite_sign L₁ L₂ hzL1 hzL2 rfl hlen hlast hi
-
 
 variable (F : Type*) [Field F] [LinearOrder F] [IsStrictOrderedRing F]
 
@@ -1242,7 +1216,6 @@ lemma polynomial_change_sign_aux (hc : IsRealClosedField F) {a b e f : F} (P0 P1
       exact hz2 c (mem_Icc_of_Ioo hcmem) hcr
       simp [hz2 a (by simp ; exact le_of_lt hab)]
       simp [hz2 b (by simp ; exact le_of_lt hab)]
-
 
 lemma sturm_sequence_unique_root_ne_p (hc : IsRealClosedField F) {a b : F} (hab : a < b)
    {P : List F[X]} {p q : F[X]} (hs : IsSturmSequence P p q) {c : F} (hcmem : c ∈ Ioo a b)
@@ -1345,7 +1318,6 @@ lemma signChanges_derivative  (hc : IsRealClosedField F) {a b : F} (hab : a < b)
   · simp ; exact hderivn b (by simp[le_of_lt hab] )
   · simp ; exact hderivn a (by simp[le_of_lt hab] )
 
-
 lemma sturm_sequence_unique_root_p (hc : IsRealClosedField F) {a b : F} (hab : a < b)
    {P : List F[X]} {p : F[X]} (hs : IsSturmSequence P p (derivative p)) {c : F} (hcmem : c ∈ Ioo a b)
    (hpr : p.eval c = 0) (hr : ∀ x ∈ Icc a b, ∀ i , ∀ h : i < P.length , P[i].eval x = 0 → x = c) :
@@ -1401,7 +1373,6 @@ lemma sturm_sequence_unique_root_p (hc : IsRealClosedField F) {a b : F} (hab : a
         exact hr x hxmem (i + 1) (by simp ; omega) hieval
       · simp ; by_contra! hc' ; simp[hasn] at hc'
 
-
 open Finset
 
 lemma roots_of_prod_mem_iff (a b : F) (P : List F[X]) (x : F) (hz : 0 ∉ P) :
@@ -1428,7 +1399,6 @@ lemma roots_mem_le_roots_prod {P : List F[X]} (hz : 0 ∉ P) {i : ℕ} (hi : i <
     rw [this]
     simp
     exact ⟨P[i] , by simp[hx.2]⟩
-
 
 omit [Field F] [IsStrictOrderedRing F]
 lemma finset_card_add_interval {a b c : F} (hcmem : c ∈ Icc a b) {S : Finset F} (hcn : c ∉ S)  :
@@ -1465,7 +1435,6 @@ lemma finset_card_add_interval {a b c : F} (hcmem : c ∈ Icc a b) {S : Finset F
       rw [← aux] at hw
       exact hcn hw.1
 
-
 lemma finset_sorted_list_cons_cons  {F : Type u_2} [Field F] [LinearOrder F]
     {u v : F} {as : List F} {S : Finset F} (heq : S.sort (fun x y => x ≤ y) = (u :: v :: as)) :
     ∀ x ∈ S , x = u ∨ v ≤ x := by
@@ -1500,8 +1469,6 @@ lemma finset_sorted_list_cons_cons  {F : Type u_2} [Field F] [LinearOrder F]
       rw [← heqc] at this
       simp at this
       exact this.1.1
-
-
 
 lemma not_mem_finset_card_eq_one_of_sorted_mem_interval {a b d u v : F} {as : List F}
   {S : Finset F}  (heqc : (u :: v :: as) = ((S.filter (fun x => x ∈ Icc a b)).sort (fun x y => x ≤ y)))
@@ -1555,13 +1522,11 @@ lemma not_mem_finset_card_eq_one_of_sorted_not_mem  {a b d u v : F} [Field F]
   rw [aux2.1 ⟨hc, aux1.1⟩] at hle1
   simp at hle1
 
-
 lemma not_mem_finset_card_eq_one_of_sorted_single {a b u : F} {S : Finset F}
   (heq : [u] = ((S.filter (fun x => x ∈ Icc a b)).sort (fun x y => x ≤ y)) )
   (x : F) : x ∈ (S.filter (fun x => x ∈ Icc a b)) ↔ x = u := by
   rw [← Finset.mem_sort (r := fun x y => x ≤ y) , ← heq]
   simp
-
 
 lemma sturm_theorem_induction_aux [Field F] [IsStrictOrderedRing F]
     (hc : IsRealClosedField F) {n : ℕ} {a b : F} (hab : a < b)
@@ -1731,7 +1696,6 @@ lemma sturm_theorem_induction_aux [Field F] [IsStrictOrderedRing F]
       rw [← hn (#(filter (fun x ↦ x ∈ Set.Icc d b) P.prod.roots.toFinset) ) hcard2 hdlb hdnz hb rfl]
       rw [add_assoc]
 
-
 /-- `Sturm Theorem` for intervals (we assume that none of the polynomials in the sequence
   have zeros at the extremes of the interval.)-/
 theorem sturm_theorem [Field F] [IsStrictOrderedRing F] (hc : IsRealClosedField F) {a b : F} (hab : a < b)
@@ -1742,7 +1706,6 @@ theorem sturm_theorem [Field F] [IsStrictOrderedRing F] (hc : IsRealClosedField 
   symm
   apply Nat.sub_eq_of_eq_add
   apply Eq.symm (sturm_theorem_induction_aux F hc hab hs ha hb rfl)
-
 
 -- Sturm over `(-∞ , ∞)`
 lemma pos_at_infinity_of_leading_coeff_pos [Field F] [IsStrictOrderedRing F]
@@ -1805,7 +1768,6 @@ lemma pos_at_infinity_of_leading_coeff_pos [Field F] [IsStrictOrderedRing F]
     field_simp
     exact Std.IsPreorder.le_refl y
 
-
   lemma neg_at_infinity_of_leading_coeff_neg [Field F] [IsStrictOrderedRing F]
   (P : F[X]) (hP : P.leadingCoeff < 0) : ∃ N : F, ∀ x, (N < x → P.eval x < 0) := by
     have := pos_at_infinity_of_leading_coeff_pos F (-P)
@@ -1830,7 +1792,6 @@ lemma pos_at_infinity_of_leading_coeff_pos [Field F] [IsStrictOrderedRing F]
     have := pos_at_neg_infinity_of_leading_coeff_mul_pos F (-P)
     simp at this
     exact this hP
-
 
 lemma sign_at_infinity_eq_sign_leading_coeff [Field F] [IsStrictOrderedRing F]
   (P : F[X]) (hn : P ≠ 0) : ∃ N : F, ∀ x, N < x  →
@@ -1934,7 +1895,6 @@ theorem sturm_theorem_total [Field F] [IsStrictOrderedRing F]  (hc : IsRealClose
       exact (aux1 i hi (M + 1) (by linarith)).1
     · simp
 
-
 /-- We can compute over a subring of the real closed field. -/
 theorem sturm_theorem_map {R : Type*} [Field F] [IsStrictOrderedRing F]
   [CommRing R] [LinearOrder R]
@@ -1956,7 +1916,6 @@ theorem sturm_theorem_map {R : Type*} [Field F] [IsStrictOrderedRing F]
     rw [Polynomial.eval_map, Polynomial.eval₂_hom]
     refine (map_ne_zero_iff f (StrictMono.injective hmono)).mpr (hb i (List.length_map (Polynomial.map f) ▸ hi))
 
-
 theorem sturm_theorem_total_map {R : Type*} [Field F] [IsStrictOrderedRing F]
     [CommRing R] [LinearOrder R] (hc : IsRealClosedField F)
     (f : R →+* F) (hmono : StrictMono f) {P : List R[X]} {p : R[X]} (hs : IsSturmSequence P p (derivative p)) :
@@ -1966,12 +1925,9 @@ theorem sturm_theorem_total_map {R : Type*} [Field F] [IsStrictOrderedRing F]
   rw [sturm_theorem_total F hc this]
   · rw [signChangesInfty_map f hmono, signChangesNInfty_map f hmono]
 
-
-
 section SturmOfList
 
 variable {R : Type*}  [CommRing R] [LinearOrder R]
-
 
 structure SturmBuilderOfList (P : List (List R)) (p : List R) (q : List R) where
   hlen : 2 ≤ P.length
@@ -2008,7 +1964,6 @@ lemma SturmBuilderOfList_not_mem_nil {P : List (List R)} {p : List R} {q : List 
   · have := h.hmono i (by omega)
     rw [hi] at this
     simp at this
-
 
 lemma SturmBuilderOfList_isSturm {P : List (List R)} {p : List R} {q : List R}
   (h : SturmBuilderOfList P p q) :
@@ -2076,7 +2031,6 @@ lemma signChangesInftyOfList_eq_signChangesInfty  {P : List (List R)} {p : List 
   rw [← hia, dropTrailingZeros_eq_dropTrailingZeros']
   exact h.hdrop i hi
 
-
 lemma signChangesNInftyOfList_eq_signChangesNInfty  {P : List (List R)} {p : List R} {q : List R}
   (h : SturmBuilderOfList P p q) :  signChangesNInftyOfList P = signChangesNInfty (List.map (ofList) P) := by
   unfold signChangesNInfty signChangesNInftyOfList
@@ -2104,7 +2058,6 @@ lemma signChangesSeqOfList_eq_signChangesPolySeq {P : List (List R)}
   congr 1
   simp [eval_of_list_eq_eval]
 
-
 lemma sturm_theorem_map_ofList {R : Type*} [Field F] [IsStrictOrderedRing F]
   [CommRing R] [LinearOrder R] [IsStrictOrderedRing R]
   (hc : IsRealClosedField F) (f : R →+* F) (hmono : StrictMono f) {a b : R} (hab : a < b)
@@ -2123,7 +2076,6 @@ lemma sturm_theorem_map_ofList {R : Type*} [Field F] [IsStrictOrderedRing F]
   · simp [eval_of_list_eq_eval]
     exact hb
 
-
 lemma sturm_theorem_total_map_ofList {R : Type*} [Field F] [IsStrictOrderedRing F]
   [CommRing R] [LinearOrder R] [IsStrictOrderedRing R] (hc : IsRealClosedField F)
     (f : R →+* F) (hmono : StrictMono f) {P : List (List R)} {p : List R}
@@ -2133,8 +2085,6 @@ lemma sturm_theorem_total_map_ofList {R : Type*} [Field F] [IsStrictOrderedRing 
     sturm_theorem_total_map F hc f hmono]
   · rw [← ofList_derivative_eq_derivative, ← ofList_dropTrailingZeros_eq_ofList p.derivative]
     exact SturmBuilderOfList_isSturm h
-
-
 
 /-- EXAMPLE 1:  `X ^ 5 - 3 * X ^ 3 + 9 * X - 8` -/
 
@@ -2168,7 +2118,6 @@ def SturmBuilderExample1 : SturmBuilderOfList [[-8, 9, 0, -3, 0, 1], [9, 0, -9, 
     have hi : i < 4 := by omega
     interval_cases i <;> dsimp <;> decide
 
-
 /-- The polynomial `X ^ 5 - 3 * X ^ 3 + 9 * X - 8` has exactly `1` real root -/
 theorem real_roots1 :
     #(Multiset.toFinset (X ^ 5 - 3 * X ^ 3 + 9 * X - 8 : ℝ[X]).roots) = 1 := by
@@ -2183,7 +2132,6 @@ theorem real_roots1 :
   rw [hpoly]
   exact (sturm_theorem_total_map_ofList ℝ Real.IsRealClosedField (algebraMap ℤ ℝ)
     Int.cast_strictMono (hd ▸ SturmBuilderExample1)).trans (by decide)
-
 
 /-- EXAMPLE 2:  `X^8 - X^7 - 3*X^6 + 3*X^5 + 3*X^4 - 6*X^3 - 2*X^2 + 3*X + 1` -/
 
@@ -2218,7 +2166,6 @@ def SturmBuilderExample2 : SturmBuilderOfList P2 [1, 3, -2, -6, 3, 3, -3, -1, 1]
     intro i hi
     have hi : i < 7 := by omega
     interval_cases i <;> dsimp <;> decide
-
 
 /-- The polynomial `X^8 - X^7 - 3*X^6 + 3*X^5 + 3*X^4 - 6*X^3 - 2*X^2 + 3*X + 1` has exactly `4` real root -/
 theorem real_roots2 :

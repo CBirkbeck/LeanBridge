@@ -196,7 +196,7 @@ def CertificateIrrModpFFP (f, p, N, doc):
     print(f'def P{p}P{N} : CertificateIrreducibleZModOfList\' {p} {n} 2 {s} {f.list()} where', file = doc)
     print(f' m := {len(P)}', file = doc)
     print(f' P := !{P}', file = doc)
-    print(f' exp := !{E} ', file = doc)
+    print(f' exp := !{E}', file = doc)
     print(' hneq := by decide', file = doc)
     print(' hP := by decide', file = doc)
     print(' hlen := by decide', file = doc)
@@ -683,7 +683,7 @@ local notation "T" => ({T} : ℤ[X])
 local notation "l" => {T.list()}
 
 lemma T_ofList' : T = ofList l := by norm_num ; ring
-    ''', file = doc)
+''', file = doc)
         for p in lprimes:
             print(f'instance hp{p}\' : Fact $ Nat.Prime {p} := fact_iff.2 (by norm_num)', file = doc)
         print('', file = doc)
@@ -700,7 +700,7 @@ lemma T_ofList' : T = ofList l := by norm_num ; ring
                         print('', file = doc)
         GlobalCertificateIrrF(T, lprimes, doc)
         print('', file = doc)
-        print('theorem irreducible_T : Irreducible T := irreducible_of_CertificateIntPolynomial _ _ C ', file = doc)
+        print('theorem irreducible_T : Irreducible T := irreducible_of_CertificateIntPolynomial _ _ C', file = doc)
         doc.close()
     else :
         print(f'''
@@ -712,7 +712,7 @@ local notation "T" => ({T} : ℤ[X])
 local notation "l" => {T.list()}
 
 lemma T_ofList' : T = ofList l := by norm_num ; ring
-    ''', file = doc)
+''', file = doc)
         if flagP == 0:
             flag, M, prime = FindPrimeFactorLPFW(T, rho, dmin, 50)
         if abs(T(M))/ prime >= abs(M) - rho and dmin > 1 and flagP == 0 :
@@ -732,12 +732,12 @@ lemma T_ofList' : T = ofList l := by norm_num ; ring
                             print('', file = doc)
             GlobalCertificateLPFWDegree(T, lprimes, dmin, f, rho, M, prime, doc)
             print('', file = doc)
-            print('theorem irreducible_T : Irreducible T := irreducible_of_CertificateIrreducibleIntOfPrimeDegrees _ _ C ', file = doc)
+            print('theorem irreducible_T : Irreducible T := irreducible_of_CertificateIrreducibleIntOfPrimeDegrees _ _ C', file = doc)
             doc.close()
         else :
             GlobalCertificateLPFW (T, f, rho, M, prime, doc)
             print('', file = doc)
-            print('theorem irreducible_T : Irreducible T := irreducible_of_CertificateIrreducibleIntOfPrime _ _ C ', file = doc)
+            print('theorem irreducible_T : Irreducible T := irreducible_of_CertificateIrreducibleIntOfPrime _ _ C', file = doc)
             doc.close()
 
 

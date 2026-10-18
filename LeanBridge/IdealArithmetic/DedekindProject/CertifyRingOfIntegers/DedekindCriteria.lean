@@ -22,7 +22,6 @@ We prove a version of the Pohst-Zassenhaus theorem and Dedekind criterion.
 - `piMaximal_of_satisfiesDedekindCriteria` : if `T` satisfies Dedekind criterion at
   the prime `π`, then the subalgebra `R[X]/(T)` is `π`-maximal.   -/
 
-
 open BigOperators Polynomial Module
 
 ---------------------------------------------------------------------------------------
@@ -134,7 +133,6 @@ section PartI
   1·  The multiplier ring of an `O`-ideal.
   2·  The over ring of `O` in `Om` with respect to an element `α ∈ R `. -/
 
-
 variable {R : Type _} [CommRing R]
 variable {K : Type _} [CommRing K]  [Algebra R K]
 
@@ -184,7 +182,6 @@ def multiplierRing {O : Subalgebra R K} (I : Ideal O) : Subalgebra R K where
 lemma multiplierRing_mem {O : Subalgebra R K} (I : Ideal O) (x : K) :
     x ∈ multiplierRing I ↔
       ∀ (i : O), i ∈ I → (∃ (j : O), j ∈ I ∧ ↑i * x = j ) := by rfl
-
 
 /-- `O` is contained in the multiplier ring of an `O`-ideal· -/
 lemma subalgebra_le_multiplierRing {O : Subalgebra R K} (I : Ideal O) :
@@ -360,7 +357,6 @@ lemma exists_radical_pow_not_in_order {O : Subalgebra R K}  {Om : Subalgebra R K
   push Not at this
   exact this
 
-
 /-- If `α ∈ O` and `O` is equal to the multiplier ring of the radical of `α`, then
   `O` is equal to the over ring with respect to `α`· -/
 lemma order_eq_overRing_of_multiplierRing_eq_order {O : Subalgebra R K}
@@ -516,7 +512,6 @@ variable {T : Polynomial R} { O : Type _} [CommRing O] [Algebra R O] (j : IsAdjo
 variable {K : Type*} [Field K] (q : R →+* K )
 
 local notation f:70 " mod " _π  :70 => (map q f)
-
 
 /-- If `T` and `A` are a polynomials with coefficients in `R` and `θ` is a root of `T`,
  then `A(θ) ∈ πR[θ]` if and only if `T mod π ∣ A mod π`·  -/
@@ -824,7 +819,6 @@ variable (O : Subalgebra R K)
 variable {F : Type*} [Field F]  [DecidableEq F] (q : R →+* F )
 local notation f:70 " mod " _π  :70 => (map q f)
 
-
 lemma order_eq_multiplierRing_of_dedekindCriterion' (hqsurj : Function.Surjective q)
     (hqker : RingHom.ker q = Ideal.span {π}) (j : IsAdjoinRoot O T)
     {g h f k : Polynomial R} {a b c: Polynomial F} (hm: T.Monic)
@@ -913,7 +907,6 @@ lemma order_eq_multiplierRing_of_dedekindCriterion (hqsurj : Function.Surjective
   rw [add_assoc, add_comm _ (c * _), ← add_assoc] at hgcd
   exact order_eq_multiplierRing_of_dedekindCriterion' O q hqsurj hqker j hm hg hpinz hf hk hgcd
 
-
 /- # DEFINITION OF DEDEKIND'S CRITERION
 
 A polynomial `T` with coefficients in `R` satisfies Dedekind's criterion for the prime `π` if
@@ -938,7 +931,6 @@ def satisfiesDedekindCriterion (π : R)( T : Polynomial R) : Prop :=
   IsRadicalPart (g mod π ) (T mod π)
   ∧ f * (C π) = g * h - T
   ∧ (a * (f mod π) + b * (g mod π) + c * (h mod π) = 1)
-
 
 variable (hqsurj : Function.Surjective q) (hqker : RingHom.ker q = Ideal.span {π})
 include hqsurj hqker
@@ -998,8 +990,6 @@ lemma satisfiesDedekindCriterion_of_coprime {n : R} (T a b : Polynomial R)
   exact hgcd
 
 end PartIII
-
-
 
 section PartV
 
@@ -1067,7 +1057,6 @@ lemma piMaximal_of_root_in_subalgebra_of_satisfiesDedekindCriterion
   exact piMaximal_of_gt_adjoinRoot_of_satisfiesDedekindCriterion hp hm
     (Algebra.adjoin R {θ}) O q hqsurj hqker Om j hmc' hmc heqr hd
 
-
 end PartV
 
 section PartInteger
@@ -1077,7 +1066,6 @@ where `R = ℤ` and `F = ZMod p` -/
 
 variable {K : Type _} [CommRing K]
 local notation f:70 " mod " p   :70 => (map (algebraMap ℤ (ZMod p)) f)
-
 
 /-- Dedekind criterion for integer polynomials. -/
 def satisfiesDedekindCriterionInt (T : Polynomial ℤ) (p : ℕ) : Prop :=
@@ -1118,7 +1106,6 @@ lemma order_eq_of_satisfiesDedekindCriteria {T : ℤ[X]} (j : IsAdjoinRoot O T) 
     use f , g, h, a, b, c
     exact ⟨ hg, hf, hgcd⟩
   exact order_eq_of_satisfiesDedekindCriterion O q hqsurj hqker j hm hpinz this
-
 
 /-- Let `T` be a monic prime polynomial in `ℤ[X]` with root `θ`· Assume
  `O = ℤ[θ]` has equal rank as `Om`, with `Om` a `ℤ`-subalgebra, free and finite

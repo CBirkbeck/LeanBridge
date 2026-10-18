@@ -13,8 +13,6 @@ abbrev min_poly_4_0_10304_1 : Polynomial ℚ := (1) * Polynomial.X ^ 4 + (-2) * 
 
 abbrev K_4_0_10304_1 := AdjoinRoot min_poly_4_0_10304_1
 
-
-
 open Polynomial
 
 local notation "T" => (X^4 - 2*X^3 + 7*X^2 - 4*X + 14 : ℤ[X])
@@ -22,7 +20,7 @@ local notation "T" => (X^4 - 2*X^3 + 7*X^2 - 4*X + 14 : ℤ[X])
 local notation "l" => [14, -4, 7, -2, 1]
 
 lemma T_ofList' : T = ofList l := by norm_num ; ring
-    
+
 noncomputable def C : CertificateIrreducibleIntOfPrime T l where
  hpol := T_ofList'
  hdeg := by decide
@@ -40,11 +38,9 @@ noncomputable def C : CertificateIrreducibleIntOfPrime T l where
  hs := by norm_num
  heval := by norm_num
 
-theorem irreducible_T : Irreducible T := irreducible_of_CertificateIrreducibleIntOfPrime _ _ C 
+theorem irreducible_T : Irreducible T := irreducible_of_CertificateIrreducibleIntOfPrime _ _ C
 
 -- Fundamental Units
-
-
 
 abbrev K_gen_4_0_10304_1 : K_4_0_10304_1 := AdjoinRoot.root min_poly_4_0_10304_1
 
@@ -78,8 +74,6 @@ def fundamental_unit_4_0_10304_1_1 : (𝓞 K_4_0_10304_1)ˣ where
             + ((1) / (2)) * K_gen_4_0_10304_1 - ((1) / (2)) : K_4_0_10304_1), by sorry⟩
   val_inv := by sorry
   inv_val := by sorry
-
-
 
 axiom LMFDB_NF_4_0_10304_1_discr : NumberField.discr K_4_0_10304_1 = 10304
 

@@ -30,7 +30,6 @@ Kenny Lau, Anne Baanen and Andrew Yang.
 
 open Polynomial
 
-
 lemma resultant_prod_X_sub_C {K ι : Type*} [Field K] {m : ℕ} [DecidableEq ι] (f : K[X])
   (hm : f.natDegree ≤ m) (s : Finset ι) (u : ι → K) :
     resultant f (∏ i ∈ s, (X - C (u i))) m = (-1) ^ (m * s.card) * ∏ i ∈ s, eval (u i) f := by
@@ -68,7 +67,6 @@ lemma derivative_prod_X_sub_C {R ι: Type*} [CommRing R] [DecidableEq ι] (s : F
     derivative (∏ i ∈ s, (X - C (t i))) = ∑ i ∈ s, ∏ j ∈ s.erase i, (X - C (t j)) := by
   rw [derivative_prod']
   exact Finset.sum_congr rfl (by simp)
-
 
 theorem resultant_map_injective {S R : Type*} [CommRing R] [CommRing S] {φ : R →+* S}
     (hφ : Function.Injective φ) (f g : R[X]) :
@@ -170,7 +168,6 @@ theorem discriminant_map'' {R : Type*} [CommRing R] {S : Type*} [CommRing S]
       Polynomial.degree_map_eq_of_leadingCoeff_ne_zero _ h2]
     exact hdeg
 
-
 @[simp]
 theorem discriminant_map {K : Type*} [Field K] [CharZero K] {L : Type*}
   [Field L] [CharZero L] (φ : K →+* L) (f : K[X]) :
@@ -187,7 +184,6 @@ theorem discriminant_map {K : Type*} [Field K] [CharZero K] {L : Type*}
   · assumption
   · apply RingHom.injective
   · rwa [natDegree_map]
-
 
 lemma Monic.discr_def {R : Type*} [CommRing R]  [IsAddTorsionFree R] (f : R[X]) (hf : Monic f) :
     discr f = (-1) ^ (f.natDegree * (f.natDegree - 1) / 2) * resultant f (derivative f) := by
@@ -251,7 +247,6 @@ def List.equivFin {α : Type*} [DecidableEq α] {s : List α} (hs : s.Nodup) :
     s.toList.Nodup ↔ s.Nodup := by
   rw [← Multiset.coe_toList s, Multiset.coe_nodup, Multiset.coe_toList]
 
-
 @[simps!]
 noncomputable def Multiset.equivFin {α : Type*} {s : Multiset α} (hs : s.Nodup) :
     { x // x ∈ s } ≃ Fin (Multiset.card s) := by
@@ -266,8 +261,6 @@ lemma Fin.sum_card_sub_one_sub_self {n : ℕ} :
   · simp
   · simp only [← Finset.sum_range, add_tsub_cancel_right, Finset.sum_flip (f := fun x => x),
       Finset.sum_range_id]
-
-
 
 theorem Algebra.discr_of_isAdjoinRootMonic {K F : Type*} [Field K] [Field F] [CharZero F]
     [Algebra F K] {T : F[X]} (f : IsAdjoinRootMonic K T) (hT : Irreducible T) :

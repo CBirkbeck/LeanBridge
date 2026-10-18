@@ -6,8 +6,6 @@ noncomputable section
 
 open NumberField
 
-
-
 abbrev min_poly_2_2_8_1_int : Polynomial ℤ := (1) * Polynomial.X ^ 2 + (-2)
 
 abbrev min_poly_2_2_8_1 : Polynomial ℚ := ((min_poly_2_2_8_1_int).mapRingHom (Int.castRingHom ℚ))
@@ -35,7 +33,6 @@ axiom LMFDB_NF_2_2_8_1_isGalois : IsGalois ℚ K_2_2_8_1
 
 axiom LMFDB_NF_2_2_8_1_classNumber : NumberField.classNumber K_2_2_8_1 = 1
 
-
 lemma unit_rank : NumberField.Units.rank K_2_2_8_1 = 1 := by
   simp_rw [Units.rank]
 
@@ -50,7 +47,6 @@ lemma K_int : IsIntegral ℤ K_gen := by
     monicity
     simp
   · simpa [K_gen, min_poly_2_2_8_1] using AdjoinRoot.eval₂_root min_poly_2_2_8_1
-
 
 def K_gen_int : 𝓞 K_2_2_8_1 := ⟨K_gen, K_int⟩
 

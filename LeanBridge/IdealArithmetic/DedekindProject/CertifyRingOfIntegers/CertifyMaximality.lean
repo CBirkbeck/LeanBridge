@@ -27,7 +27,6 @@ objects, maps, and bases that will help us certify the `p`-maximality of `O`.
 - `ker_map_to_end_lin_eq_bot_of_mul_ne_zero_of_single_eval` : another way to certify that the
   kernel of `map_to_end_lin` is trivial using less operations.    -/
 
-
 open BigOperators Pointwise Module
 
 lemma smul_int_coe_eq_mul {S R : Type* } [CommRing R]
@@ -55,7 +54,6 @@ lemma iter_Frob (R : Type*) (p : ℕ) [CommRing R]
     ( (Frob R p) ^ n) x = x ^ (p ^ n) := by
   rw [Module.End.pow_apply]
   exact iterate_frobenius p n x
-
 
 /--If `M` is an `R`-submodule, then an element is in `y • ⊤` if and only if it can be written as `y • a` for `a` in `M`· -/
 lemma smul_top_mem_iff_eq_smul {R M : Type*} [AddCommGroup M][CommRing R][Module R M](y : R) (x : M) :
@@ -193,7 +191,6 @@ instance module_modp_is_zmodp_module [NeZero n] :
         show a.val • (x + y) = a.val • x + a.val • y
         exact smul_add _ _ _ }
 
-
 lemma zmodp_smul_def [NeZero n] (x : M mod' n) (r : ZMod n) :
   r • x = (r.val) • x := rfl
 
@@ -297,7 +294,6 @@ lemma zmod_smul_eq_mul [NeZero p] (x : R) (m : ZMod p) :
   erw [← hq, ← ZMod.intCast_zmod_cast m , ← zsmul_map_zmodsmul, zsmul_eq_mul, map_mul]
   simp only [ZMod.intCast_cast, ZMod.cast_id', id_eq, ZMod.natCast_val]
 
-
 /-- The ring `O / pO`, with `p` prime, has characteristic equal to `p`· -/
 instance char_R_eq_p [hp : Fact $ Nat.Prime p] [Nontrivial R]: CharP R p := by
   rw [← RingHom.charP_iff_charP  (algebraMap (ZMod p) R) p]
@@ -358,7 +354,6 @@ lemma basis_zmodp_repr_mul_eq_zmodp_basis_repr_mul {τ : Type* } [NeZero p]
     (basis_zmodp_algebra O p b).repr (((basis_zmodp_algebra O p b) i) * ((basis_zmodp_algebra O p b) j)) k
     =  ((algebraMap ℤ (ZMod p)) ∘ (b.repr ((b i) * (b j)))) k := by
   rw [basis_is_modp O p b i, basis_is_modp O p b j, ← map_mul, ← basis_zmodp_repr_eq_zmodp_basis_repr ]
-
 
 end Part1
 
@@ -426,7 +421,6 @@ lemma radical_eq_kernel_iter_frob (n j : ℕ) [Fact $ Nat.Prime p] [Nontrivial O
   { ext x ; erw [LinearMap.mem_ker ,  iter_Frob]; exact radical_eq_kernel_iter_frob_aux O p n j b hle x }
 
 end PartIII
-
 
 section PartIV
 
@@ -507,7 +501,6 @@ noncomputable def basis_radical_of_basis_radical_mod [IsTorsionFree ℤ O]{n m :
   · exact heq2
   · exact heq3
 
-
 omit [Nontrivial O] in
 lemma basis_radical_def_left {n m : ℕ}[Nonempty (Fin m ⊕ Fin n)]
     (b : Fin m → O ) (b' : Fin n → O ) (b1 : Basis (Fin m) (ZMod p) (Ip mod''' p))
@@ -521,7 +514,6 @@ lemma basis_radical_def_left {n m : ℕ}[Nonempty (Fin m ⊕ Fin n)]
   unfold basisSubmoduleModOfBasisMod
   erw [Basis.mk_apply]
   rfl
-
 
 omit [Nontrivial O] in
 lemma basis_radical_def_right {n m : ℕ} [Nonempty (Fin m ⊕ Fin n)]
@@ -573,7 +565,6 @@ noncomputable def basis_radical_of_linear_independent_ker_im [IsTorsionFree ℤ 
     erw [basisExtensionKernelOfLinearIndependentKerIm_apply_inr]
     exact hmod2 i
 
-
 lemma basis_radical_of_linear_independent_ker_im_in_b_Ip [IsTorsionFree ℤ O]
     {n m j : ℕ}[Nonempty (Fin m ⊕ Fin n)](b : Fin m → O ) (_b' : Fin n → O )
     (v : Fin m → R) (v' : Fin n → R ) (hmod1 : ∀ (i : Fin m), v i = (b i mod'' p))
@@ -596,7 +587,6 @@ lemma basis_radical_of_linear_independent_ker_im_in_b_Ip [IsTorsionFree ℤ O]
       (basis_zmodp_algebra O p b3) ((Frob R p) ^ j) v v' hlin1 hlin2 hker i
   simp_rw [hmod1] at heq'
   exact in_radical_of_in_radical_mod O p (in_radical_mod_of_mod_eq O p _ _ (heq' i))
-
 
 lemma basis_radical_of_linear_independent_ker_im_def_in_Ip [IsTorsionFree ℤ O]
     {n m j : ℕ} [Nonempty (Fin m ⊕ Fin n)] (b : Fin m → O ) (b' : Fin n → O )
@@ -660,7 +650,6 @@ lemma basis_radical_of_linear_independent_ker_im_in_Ip [IsTorsionFree ℤ O]
     rw [zsmul_eq_mul]
     refine Ideal.mul_mem_left _ _ ?_
     exact Ideal.le_radical ((p_smul_top' O ↑p _ ).2 ⟨b' c, rfl⟩)
-
 
 /-- The coordinates of the image of `∑ sᵢ • bᵢ + ∑ tⱼ • (p * b'ⱼ)` in `Iₚ / pO`
   with respect to the basis `basis_radical_of_linear_independent_ker_im`·  -/
@@ -961,20 +950,16 @@ lemma ker_map_to_end_lin_eq_bot_of_mul_ne_zero_of_single_eval {τ₁ τ₂: Type
   map_mul_α_def, mul_α_aux_def ]
   exact hi
 
-
 end PartIV
-
 
 variable {K : Type*} [CommRing K] [IsTorsionFree ℤ K]
 variable (O : Subalgebra ℤ K) (p : ℕ) [hpI : Fact $ Nat.Prime p]
-
 
 local notation "Ip" => Ideal.radical (Ideal.span {(p : O)} )
 local notation I "mod'" p =>  I ⧸ ((p : ℤ ) • (⊤ : Submodule ℤ I ) )
 local notation x "mod" p => (@Submodule.Quotient.mk ℤ Ip _ _ _ ((p : ℤ ) • (⊤ : Submodule ℤ Ip ))) x
 local notation "R" =>  O ⧸ Ideal.span {(p : O)}
 local notation x "mod''" p => (Ideal.Quotient.mk (Ideal.span {(p : O)} )) x
-
 
 /-- If the kernel of `map_to_end_lin` is trivial, then `O` equals the multiplier ring of `Iₚ`·  -/
 theorem mult_ring_eq_ring_of_trivial_ker_map_to_end_lin

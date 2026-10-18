@@ -271,11 +271,6 @@ lemma discr_eq_discr_fraction_field_powerBasis {R Q K : Type*} {n : ℕ} [NeZero
     Algebra.adjoinRootEquivOfRootMem, IsAdjoinRoot.algEquiv_root, Algebra.adjoin_isAdjoinRoot_root,
     Subalgebra.coe_val, SubmonoidClass.coe_pow, finCongr_symm, finCongr_apply, Fin.val_cast]
 
-
-
-
-
-
 noncomputable def Subalgebra.algEquivOfInclusion {R M : Type _} [CommRing R]
     [CommRing M] [Algebra R M] (O Om : Subalgebra R M) (hm : O ≤ Om) :
     O  ≃ₐ[R] (Subalgebra.inclusion hm).range := by
@@ -355,7 +350,6 @@ lemma inv_det_eq_integral_fraction_field {n : ℕ} {R Q K : Type*} [NeZero n] [C
   simp_rw [RingHom.map_det, RingHom.mapMatrix_apply,
     ← inv_matrix_eq_integral_fraction_field O O' hm b b' A hb]
   simp only [Matrix.det_nonsing_inv, Ring.inverse_eq_inv']
-
 
 /-- If `s` is a subset of an `R`-algebra `M`, then the `R`-span of `s` is closed under multiplication
 if and only if every pairwise product of elements in `s` lies in the span of `s`·  -/
@@ -451,7 +445,6 @@ theorem isDomainOfIsAdjointRootPrime {O R: Type _} [CommRing O][CommRing R][IsDo
   have := AlgEquiv.toRingEquiv (IsAdjoinRoot.algEquiv hj (AdjoinRoot.isAdjoinRoot T))
   have _ : IsDomain (AdjoinRoot T) := AdjoinRoot.isDomain_of_prime hp
   exact MulEquiv.isDomain (AdjoinRoot T) this
-
 
 lemma rank_subalgebra_eq_card_basis {n : ℕ} {K R : Type*} [CommRing K]
     [CommRing R] [StrongRankCondition R] [Algebra R K] (O : Subalgebra R K)

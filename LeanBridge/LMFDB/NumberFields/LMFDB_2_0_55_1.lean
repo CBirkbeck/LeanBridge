@@ -13,8 +13,6 @@ abbrev min_poly_2_0_55_1 : Polynomial ℚ := (1) * Polynomial.X ^ 2 + (-1) * Pol
 
 abbrev K_2_0_55_1 := AdjoinRoot min_poly_2_0_55_1
 
-
-
 open Polynomial
 
 local notation "T" => (X^2 - X + 14 : ℤ[X])
@@ -22,7 +20,7 @@ local notation "T" => (X^2 - X + 14 : ℤ[X])
 local notation "l" => [14, -1, 1]
 
 lemma T_ofList' : T = ofList l := by norm_num ; ring
-    
+
 noncomputable def C : CertificateIrreducibleIntOfPrime T l where
  hpol := T_ofList'
  hdeg := by decide
@@ -40,9 +38,7 @@ noncomputable def C : CertificateIrreducibleIntOfPrime T l where
  hs := by norm_num
  heval := by norm_num
 
-theorem irreducible_T : Irreducible T := irreducible_of_CertificateIrreducibleIntOfPrime _ _ C 
-
-
+theorem irreducible_T : Irreducible T := irreducible_of_CertificateIrreducibleIntOfPrime _ _ C
 
 abbrev K_gen_2_0_55_1 : K_2_0_55_1 := AdjoinRoot.root min_poly_2_0_55_1
 
@@ -60,8 +56,6 @@ lemma irreducible_poly : Irreducible min_poly_2_0_55_1 := by
     · rfl
 
 instance : Fact (Irreducible min_poly_2_0_55_1) := ⟨irreducible_poly⟩
-
-
 
 axiom LMFDB_NF_2_0_55_1_discr : NumberField.discr K_2_0_55_1 = -55
 

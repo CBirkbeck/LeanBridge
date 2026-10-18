@@ -28,7 +28,6 @@ this times table. We also define efficient exponentiation.
 
 open BigOperators Module
 
-
 variable {n : ℕ} {R : Type*} [Semiring R]
 
 lemma list_sum_length {m : ℕ} (hn : n ≠ 0) (f : Fin n → List R) (h : ∀ i, (f i).length = m) :
@@ -65,7 +64,6 @@ lemma table_mul_list_length (a b : List R) : (table_mul_list' T a b).length = n 
       refine list_sum_length (R := R) hn _ ?_
       · intro j
         rw [List.mulPointwise_length, List.length_ofFn]
-
 
 lemma FnOfList_add_ofFn  (a b c : Fin n → R)
     (hc : List.ofFn c = (List.ofFn a) + (List.ofFn b))  :
@@ -197,7 +195,6 @@ lemma table_sum_smul' {S : Type*} {m : ℕ} [NonUnitalNonAssocSemiring S] [Modul
     convert hc
     rw [List.mulPointwise_ofFn, one_smul]
 
-
 lemma table_sum_sum {l : ℕ} {S : Type*} {m : ℕ} [NonUnitalNonAssocSemiring S] [Module R S]
     [SMulCommClass R S S] [IsScalarTower R S S] (B : Basis (Fin n) R S)
     (a : Fin l → Fin m → Fin n → R) (b : Fin n → R)
@@ -223,20 +220,17 @@ lemma table_sum_sum {l : ℕ} {S : Type*} {m : ℕ} [NonUnitalNonAssocSemiring S
       convert table_sum_smul' B _ _ hc
       simp only [Basis.equivFun_symm_apply, map_sum]
 
-
 /-- A version of `table_mul_list'` in which the entries of the times table
   are given by lists instead of vectors `Fin n → R`. This performs better. -/
 def table_mul_list (T : Fin n → Fin n → List R) (a : List R) (b : List R) :=
   List.sum (List.ofFn (fun i => List.sum (List.ofFn
   (fun j => List.mulPointwise ((List.getD a i 0) * (List.getD b j 0))  (T i j)))))
 
-
 lemma table_mul_eq_table_mul' {a b : List R} (T' :  Fin n → Fin n → Fin n → R)
     (T : Fin n → Fin n → List R)
     (h : ∀ i j , T i j = List.ofFn (T' i j)) : table_mul_list T a b = table_mul_list' T' a b := by
   unfold table_mul_list' table_mul_list
   simp_rw [h]
-
 
 lemma table_sum_mul {S : Type*} {m : ℕ} [NonUnitalNonAssocSemiring S] [Module R S]
     [SMulCommClass R S S] [IsScalarTower R S S] (B : Basis (Fin n) R S)
@@ -255,7 +249,6 @@ lemma table_sum_mul {S : Type*} {m : ℕ} [NonUnitalNonAssocSemiring S] [Module 
     simp_rw [← this]
     simp_rw [← hd] at hc
     exact table_sum_smul' B d c hc
-
 
 /-- Exponentiation by squaring given a times table `T`. -/
 @[reducible]
@@ -377,8 +370,6 @@ lemma table_nPow_sq_table_eq_pow {S : Type*} [Semiring S] [Module R S] [SMulComm
           (Nat.zero_lt_succ _) (Nat.one_lt_ofNat)))
           (Nat.div_pos (nataux2 (Nat.succ m) (Nat.succ_ne_zero m) hp) (Nat.ofNat_pos)) d auxd,
           ← pow_add , nataux _ hp]
-
-
 
 lemma table_polynomial_eval {S : Type*} [Semiring S] [Module R S] [SMulCommClass R S S]
     [IsScalarTower R S S] (T' :  Fin n → Fin n → Fin n → R ) (T : Fin n → Fin n → List R)

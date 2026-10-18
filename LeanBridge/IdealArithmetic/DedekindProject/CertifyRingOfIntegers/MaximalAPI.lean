@@ -28,7 +28,6 @@ lemma nonempty_sum_of_pos {n m : ℕ } (h : 0 < m + n) : Nonempty ((Fin m) ⊕ (
   haveI : Nonempty (Fin (m + n)) := Fin.pos_iff_nonempty.mp h
   exact Equiv.nonempty (finSumFinEquiv)
 
-
 section Proofs
 
 variable {p t : ℕ} [Fact $ Nat.Prime p] {O : Type*} [CommRing O] {m n : ℕ}
@@ -74,7 +73,6 @@ lemma wFrob_linearIndependent [Nontrivial O] [Module.Free ℤ O] (w : Fin n → 
     rfl
   simp_rw [this]
   exact v_linearIndependent B wFrob w_ind hindw
-
 
 lemma v_is_reduced_mod {k : ℕ} (b1 : Fin k → (Fin (m + n) → ℤ))
     (v : Fin k → (Fin (m + n) → (ZMod p)))
@@ -123,7 +121,6 @@ lemma rad_eq_smul_top_of_CertificateOfUnramified
   simp only [Submodule.mem_bot] at aux
   exact Ideal.Quotient.eq_zero_iff_mem.1 aux
 
-
 omit [Fact (Nat.Prime p)] [Nontrivial O] [Module.Free ℤ O] in
 lemma zsmul_p_aux {a : O} : (p : ℤ) • a = p * a := by
   rw [zsmul_eq_mul]
@@ -147,7 +144,6 @@ variable
   (hwFrobComp : ∀ j, ( ((basis_zmodp_algebra O p B).equivFun.symm).toFun (w j)) ^ (p ^ t) =
     (((basis_zmodp_algebra O p B).equivFun.symm).toFun (wFrob j) ))-- Proof that wFrob is the image of w under the Frobenius map.
 
-
 noncomputable def BasisRadMod : Basis (Fin m ⊕ Fin n) (ZMod p) (Ip mod' p) := by
   let b1' := (λ j => ( ((B.equivFun.symm).toFun) (b1 j)))
   let b2' := (λ j => ( ((B.equivFun.symm).toFun) (b2 j)))
@@ -159,7 +155,6 @@ noncomputable def BasisRadMod : Basis (Fin m ⊕ Fin n) (ZMod p) (Ip mod' p) := 
   · exact v_linearIndependent B v v_ind hindv
   · exact wFrob_linearIndependent B w w_ind wFrob hindw hwFrobComp
   · exact v_in_Frob_ker B v hvFrobKer
-
 
 include v w hle hmod1 hindv hindw hvFrobKer hwFrobComp in
 lemma aux_in_Ip (k : Fin m ⊕ Fin n):
@@ -174,7 +169,6 @@ lemma aux_in_Ip (k : Fin m ⊕ Fin n):
   · exact v_linearIndependent B v v_ind hindv
   · exact wFrob_linearIndependent B w w_ind wFrob hindw hwFrobComp
   · exact v_in_Frob_ker B v hvFrobKer
-
 
 local notation "B'" => BasisRadMod B hle b1 b2 v w wFrob v_ind w_ind hmod1 hmod2 hindv hindw hvFrobKer hwFrobComp
 local notation "InAux" k => aux_in_Ip B hle b1 b2 v w wFrob v_ind w_ind hmod1 hindv hindw hvFrobKer hwFrobComp k
@@ -251,7 +245,6 @@ lemma ker_map_eq_bot_of_data : LinearMap.ker (map_to_end_lin O p) = ⊥ := by
         convert hindab.2 l hl
         rfl
 
-
 -- Linear independence by evaluating `n` endomorphisms at a single witness.
 
 include B b1 b2 hle v w wFrob v_ind w_ind hmod1 hindv hindw hvFrobKer hwFrobComp in
@@ -281,7 +274,6 @@ variable
   (ac_indw : Fin (m + n) → (Fin m ⊕ Fin n))
   (hacindw : ∀ i , ((algebraMap ℤ (ZMod p)) ((Sum.elim (fun j => aw i j) (fun j => cw i j)) (ac_indw i)) ≠ 0 ∧
       ∀ k , k ≠ i → (algebraMap ℤ (ZMod p)) ((Sum.elim (fun j => aw k j) (fun j => cw k j)) (ac_indw i)) = 0))
-
 
 include B g b1 b2 hle v w wFrob v_ind w_ind hmod1 hmod2 hindv hindw hvFrobKer hwFrobComp wit1 wit2 hacindw hmulw in
 /-- Given the certifying data, the map `map_to_end_lin` has trivial endomorphism· -/
@@ -320,15 +312,12 @@ lemma ker_map_eq_bot_of_data_witness : LinearMap.ker (map_to_end_lin O p) = ⊥ 
       exact hacindw.2 k hk
   exact sum_in_Ip B hle b1 b2 v w wFrob v_ind w_ind hmod1 hindv hindw hvFrobKer hwFrobComp wit1 wit2
 
-
 end Proofs
-
 
 section ProofLists
 
 /- Here we translate the previous certifying data into our computations with lists using a
   times table·  -/
-
 
 variable {p t : ℕ} {O : Type*} [CommRing O] {m n : ℕ}
   (B : Basis (Fin (m + n)) ℤ O)
@@ -411,7 +400,6 @@ lemma hmul_lists_aux_length (a1 : Fin m → ℤ ) (a2 : Fin n → ℤ  )
           rw [List.mulPointwise_length, List.length_ofFn]
         · intro i
           rw [List.mulPointwise_length, List.length_ofFn]
-
 
 variable
   (g : Fin (m + n) → (Fin (m + n) → ℤ))
@@ -537,7 +525,6 @@ lemma hwFrobComp_lists (j : Fin n)
 
 end ProofLists
 
-
 section Data
 
 /- This collection of data proves that `O` is `p`-maximal· -/
@@ -599,7 +586,6 @@ lemma pMaximal_of_data [Module.Free ℤ Om] [Module.Finite ℤ Om]: piMaximal (p
   exact ker_map_eq_bot_of_data B hle b1 b2 v w wFrob v_ind w_ind hmod1 hmod2 hindv hindw hvFrobKer
     hwFrobComp g a c d e ab_ind hindab hmul1 hmul2
 
-
 variable
   (wit1 : Fin m → ℤ)
   (wit2 : Fin n → ℤ)
@@ -643,8 +629,6 @@ variable {K : Type*} (p : ℕ) [CommRing K] [NoZeroSMulDivisors ℤ K]
 local notation "O*" => Subalgebra.toSubmodule (AlgHom.range (Subalgebra.inclusion hm))
 
 attribute [-instance]  Lean.Omega.IntList.instAdd
-
-
 
 /-- A certificate for `p`-maximality which requires verifying `n` identities in `O / pO`
 and `n ^ 2` identities in `O` :
@@ -762,7 +746,6 @@ theorem pMaximal_of_MaximalOrderCertificateLists [Module.Free ℤ Om] [Module.Fi
   · exact fun i j => hmul1_lists C.TT.basis C.b1 C.b2 C.g C.TT.table C.T C.heq C.TT.basis_mul_basis C.a C.c i j (C.hmul1 i j)
   · exact fun i j => hmul2_lists C.TT.basis C.b1 C.b2 C.g C.TT.table C.T C.heq C.TT.basis_mul_basis C.d C.e i j (C.hmul2 i j)
 
-
 /-- A certificate for `p`-maximality which requires verifying `n` identities in `O / pO`
   and only `n` identities in `O`.
   This is similar to `MaximalOrderCertificateLists` (see for details) but we prove
@@ -810,7 +793,6 @@ structure MaximalOrderCertificateWLists {K : Type*} [CommRing K] [CommRing K]
   hacindw : ∀ i , ((algebraMap ℤ (ZMod p)) ((Sum.elim (fun j => a i j) (fun j => c i j)) (ac_indw i)) ≠ 0 ∧
         ∀ k , k ≠ i → (algebraMap ℤ (ZMod p)) ((Sum.elim (fun j => a k j) (fun j => c k j)) (ac_indw i)) = 0)
 
-
 /-- We get a proof of the `p`-maximality of `O` from a term of type
    `MaximalOrderCertificateWLists` -/
 theorem pMaximal_of_MaximalOrderCertificateWLists [Module.Free ℤ Om] [Module.Finite ℤ Om]
@@ -822,7 +804,5 @@ theorem pMaximal_of_MaximalOrderCertificateWLists [Module.Free ℤ Om] [Module.F
   exact fun j => hwFrobComp_lists C.TT.basis C.TT.table C.T C.heq C.TT.basis_mul_basis C.TMod C.hTMod C.w C.wFrob _ (C.hwFrobComp j)
   intro i
   refine hmul_lists_witness C.TT.basis C.b1 C.b2 C.g C.TT.table C.T C.heq C.TT.basis_mul_basis C.w1 C.w2 C.a C.c i (C.hmulw i)
-
-
 
 end Certificate

@@ -9,7 +9,7 @@ local notation "T" => (X^4 - 5*X^2 + 7 : ℤ[X])
 local notation "l" => [7, 0, -5, 0, 1]
 
 lemma T_ofList' : T = ofList l := by norm_num ; ring
-    
+
 noncomputable def C : CertificateIrreducibleIntOfPrime T l where
  hpol := T_ofList'
  hdeg := by decide
@@ -27,4 +27,4 @@ noncomputable def C : CertificateIrreducibleIntOfPrime T l where
  hs := by norm_num
  heval := by norm_num
 
-theorem irreducible_T : Irreducible T := irreducible_of_CertificateIrreducibleIntOfPrime _ _ C 
+theorem irreducible_T : Irreducible T := irreducible_of_CertificateIrreducibleIntOfPrime _ _ C

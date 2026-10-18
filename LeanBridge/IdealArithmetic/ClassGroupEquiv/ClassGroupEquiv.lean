@@ -25,7 +25,6 @@ class groups of isomorphic domains are isomorphic.
 - `ClassGroup.mapOfInjective_apply'`: the map `ClassGroup.mapOfInjective` applied to integral
   ideals of Dedekind domains.  -/
 
-
 open FractionalIdeal
 open Pointwise
 
@@ -80,7 +79,6 @@ lemma FractionalIdeal.den_mul_self_eq_num'' {R S P : Type*} [CommRing R] [CommRi
       one_mul] at hb2
     rw [← hb2]
     exact hb1
-
 
 /-- Maps fractional ideals with respect to submonoid of `R` to fractional ideals with respect
   to a submonoid of `S`. -/
@@ -182,7 +180,6 @@ noncomputable def FractionalIdeal.mapOfInjective' {R S : Type*} (F K : Type*) [C
    map_one' := by simp only [FractionalIdeal.map_one, map_one]
    map_mul' := by simp only [FractionalIdeal.map_mul, map_mul, implies_true]}
 
-
 lemma FractionalIdeal.mapOfInjective_apply' {R S : Type*} (F K : Type*) [CommRing R] [Nontrivial R]
     [CommRing S] [IsDomain S] [CommRing F] [CommRing K] [Algebra R F] [Algebra S K] [Algebra R S]
     (hinj : Function.Injective (algebraMap R S)) [IsFractionRing R F] [IsFractionRing S K]
@@ -278,7 +275,6 @@ lemma ClassGroup.mapOfInjective_apply' {R S : Type*} [CommRing R]
     FractionalIdeal.mapOfInjective_apply_int', ← hI]
   rfl
 
-
 /-- Given an isomorphism between domains, the left inverse of `ClassGroup.mapOfInjective` is given
   by the map between class groups induced by the inverse of the isomorphism. -/
 lemma ClassGroup.mapOfInjective_inverse_apply {R S : Type*} [CommRing R]
@@ -340,7 +336,6 @@ noncomputable def ClassGroup.congr {R S : Type*} [CommRing R]
     intro J
     exact ClassGroup.mapOfInjective_inverse_apply φ.symm J
 
-
 /-
 
 Code for Dedekind domain case
@@ -399,7 +394,6 @@ lemma ClassGroup.map0_apply {R S : Type*} [CommRing R]
   simp only [map_mul, Ideal.map_mul, Ideal.map_span, Set.image_singleton,
         Submonoid.coe_mul, ← hI] at hab
   exact hab
-
 
 noncomputable def ClassGroup.equiv0 {R S : Type*} [CommRing R]
   [IsDedekindDomain R] [CommRing S] [IsDedekindDomain S]

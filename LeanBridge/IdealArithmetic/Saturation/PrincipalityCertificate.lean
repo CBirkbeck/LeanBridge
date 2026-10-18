@@ -62,10 +62,7 @@ lemma is_primitive_root_finite_field {F : Type*} [Field F] [Fintype F] {n : ℕ}
   rw [orderOf_of_IsOrderOf h, hcard]
   exact Fintype.card_units F
 
-
 end PowCert
-
-
 
 /-- Given an ideal `I` of norm a prime integer `q`, this is the 'discrete logarithm' map that
 sends `x` in `O` to `n % p` in `ZMod p`, where `ζ ^ n = x mod I` and `ζ` is a generator of
@@ -78,7 +75,6 @@ noncomputable def LogFiniteZMod {O : Type*} [CommRing O] {q : ℕ}
   refine LogFiniteRing (ζ := (ζ : ZMod q)) ?_ p (φ x)
   convert hr
   simp only [ZMod.card_units_eq_totient, Nat.totient_prime hq.out]
-
 
 attribute [-instance]  Lean.Omega.IntList.instAdd
 
@@ -115,7 +111,6 @@ lemma apply_map_ZMod {O : Type*} [CommRing O] {q ζ : ℕ}
     exact  sub_eq_add_neg _ _
   rw [Ideal.Quotient.eq.2 hmem, map_intCast, map_intCast]
 
-
 lemma eq_of_DiscreteLogCertificate {O : Type*} [CommRing O] {q ζ : ℕ}
     [hq : Fact $ Nat.Prime q] {I : Ideal O} {hcard : Nat.card (O ⧸ I) = q}
     {hr : IsPrimitiveRoot (ζ : ZMod q) (q - 1)} {p : ℕ} {x : O} {l : ZMod p}
@@ -134,7 +129,6 @@ variable {ι τ κ : Type*} {O : Type*} [CommRing O] [Fintype ι] [Fintype τ]
   (p : ℕ) {q : τ → ℕ} [hF : ∀ i, Fact $ Nat.Prime (q i)]
   {I : τ → Ideal O} (hcard : ∀ j, Nat.card (O ⧸ (I j)) = q j)
   (x : ι → O) {ζ : τ → ℕ} (hr : ∀ i, IsPrimitiveRoot (ζ i : ZMod (q i)) (q i - 1))
-
 
 def F (q : τ → ℕ) : τ → Type _ := fun i => (ZMod (q i))
 
@@ -161,14 +155,11 @@ lemma hr_aux : ∀ i , IsPrimitiveRoot (ζ i : ZMod (q i)) (Fintype.card (F q i)
   convert hr i
   convert (ZMod.card_units_eq_totient (q i)).trans (Nat.totient_prime (hF i).out) <;> rfl
 
-
 noncomputable def MatrixLogZMod : Matrix τ ι (ZMod p) :=
   fun i j => LogFiniteZMod (hcard i) (hr i) p (x j)
 
-
 lemma MatrixLog_eq :
   MatrixLogZMod p hcard x hr = MatrixLogProd p (F q) (φ hcard) x _ (hr_aux hr) := by rfl
-
 
 lemma not_principal_of_full_rank_matrixLogZMod {p n : ℕ} [hp : Fact $ Nat.Prime p]
     [IsDomain O] (u : ι → O) (hu : ∀ i, IsUnit (u i))
@@ -215,7 +206,6 @@ lemma pSaturated_of_full_rank_matrixLogZMod [IsIntegrallyClosed O] {κ γ} [Fint
   · intro i j
     apply (isUnit_iff_ne_zero (a := (φ hcard i) (a (ψ j)))).2
     exact hua i j
-
 
 /-- Specialized version of `units_linear_independent_of_full_rank_matrix_of_p_not_dvd_torsion`. -/
 lemma units_linear_independent_not_dvd_torsion_of_full_rank {p : ℕ} [hp : Fact $ Nat.Prime p]
@@ -274,7 +264,6 @@ lemma units_up_to_p_power_dvd_torsion_of_full_rank [Fintype κ] {p : ℕ} [hp : 
   · erw [← MatrixLog_eq p hcard _ hr]
     exact hrank
 
-
 lemma units_linear_independent_dvd_torsion_of_full_rank [Fintype κ] {p : ℕ}
     [hp : Fact $ Nat.Prime p] [IsDomain O] [Module.Finite ℤ (Additive (Oˣ ⧸ (CommGroup.torsion Oˣ)))]
     [Module.Free ℤ (Additive (Oˣ ⧸ (CommGroup.torsion Oˣ)))]
@@ -295,9 +284,7 @@ lemma units_linear_independent_dvd_torsion_of_full_rank [Fintype κ] {p : ℕ}
   · erw [← MatrixLog_eq p hcard _ hr]
     exact hrank
 
-
 end
-
 
 -- Note: we allow the inclusion of more than r prime ideals, so these can be reused
 -- when we want to certify the class group.
@@ -333,7 +320,6 @@ structure pMaximalUnitsCertificateNDvdT (O : Type*)  [CommRing O]
 --Note: Removing the last rows so that the matrix is square we get an
 -- invertible matrix (simple way to check that M is full rank)
 
-
 lemma matrix_of_pMaximalUnitsCertificateNDvdT {O : Type*} [CommRing O] {p : ℕ}
     (C : pMaximalUnitsCertificateNDvdT O p) :
       C.M.submatrix (Fin.castLE C.hrle) id  =
@@ -361,7 +347,6 @@ lemma units_linear_independent_of_pMaximalUnitsCertificateNDvdT {O : Type*} [Com
   · refine le_of_eq_of_le ?_ (Matrix.rank_mul_le_left _ C.Minv)
     rw [C.hInv]
     simp only [Fintype.card_fin, Matrix.rank_one]
-
 
 lemma units_of_pMaximalUnitsCertificateNDvdT {O : Type*} [CommRing O]
     [IsDomain O] [Module.Finite ℤ (Additive (Oˣ ⧸ (CommGroup.torsion Oˣ)))]
@@ -417,7 +402,6 @@ structure pMaximalUnitsCertificateDvdT (O : Type*) [CommRing O] (p : ℕ) where
   Minv : Matrix (Fin (r + 1)) (Fin (r + 1)) (ZMod p)
   hInv : (M.submatrix (Fin.castLE hrle) id) * Minv = 1
 
-
 lemma torsion_of_pMaximalUnitsCertificateDvdT {O : Type*} [CommRing O] {p : ℕ}
     [IsCyclic (CommGroup.torsion Oˣ)] (C : pMaximalUnitsCertificateDvdT O p) :
     ∀ w ∈ CommGroup.torsion Oˣ, (∃ (a : ℤ) , (∃ t ∈ CommGroup.torsion Oˣ ,
@@ -468,7 +452,6 @@ lemma torsion_of_pMaximalUnitsCertificateDvdT {O : Type*} [CommRing O] {p : ℕ}
     nth_rw 1 [← mul_one r, ← hab]
     congr
     ring
-
 
 lemma matrix_of_pMaximalUnitsCertificateDvdT {O : Type*} [CommRing O] {p : ℕ}
     [IsCyclic (CommGroup.torsion Oˣ)] (C : pMaximalUnitsCertificateDvdT O p) :
@@ -523,7 +506,6 @@ lemma units_linear_independent_of_pMaximalUnitsCertificateDvdT {O : Type*} [Comm
     rw [C.hInv]
     simp only [Fintype.card_fin, Matrix.rank_one]
 
-
 lemma units_of_pMaximalUnitsCertificateDvdT {O : Type*} [CommRing O]
     [IsDomain O] [Module.Finite ℤ (Additive (Oˣ ⧸ (CommGroup.torsion Oˣ)))]
     [Module.Free ℤ (Additive (Oˣ ⧸ (CommGroup.torsion Oˣ)))] {p : ℕ}
@@ -557,7 +539,6 @@ lemma units_of_pMaximalUnitsCertificateDvdT {O : Type*} [CommRing O]
     simp only [Fintype.card_fin, Matrix.rank_one]
   · simp [C.huc]
 
-
 /-- In the case where `p` does not divide the torsion order.
   Certify that a tuple of ideals is `p`-saturated in the class group. This extends
   a certificate for a `p`-maximal system of units. -/
@@ -582,7 +563,6 @@ structure pSaturatedClassGroupCertificateNDvdT {O : Type*} [CommRing O] (p : ℕ
   hN : ((Matrix.of (fun i => Sum.elim (M i) (N i))).reindex (Equiv.refl _)
     (finSumFinEquiv.trans (finCongr hc.symm))) * NInv = 1
 
-
 lemma matrix_of_NonPrincipalCertificateNDvdT {O : Type*} [CommRing O]
   {c p : ℕ} {J : Fin c → Ideal O} {n : Fin c → ℕ}
   (C : pSaturatedClassGroupCertificateNDvdT p J n) :
@@ -596,7 +576,6 @@ lemma matrix_of_NonPrincipalCertificateNDvdT {O : Type*} [CommRing O]
     · simp only [Matrix.of_apply, Sum.elim_inr, MatrixLogZMod]
       haveI : Fact $ Nat.Prime (C.q i) := C.hqP i
       rw [eq_of_DiscreteLogCertificate (C.hM2 i k)]
-
 
 lemma pSaturated_of_CertificateNDvdT {O : Type*} [CommRing O]
     [IsDomain O] [IsIntegrallyClosed O] [Module.Finite ℤ (Additive (Oˣ ⧸ (CommGroup.torsion Oˣ)))]
@@ -634,7 +613,6 @@ lemma pSaturated_of_CertificateNDvdT {O : Type*} [CommRing O]
       rw [C.hN]
       simp only [Fintype.card_fin, Matrix.rank_one, C.hc]
 
-
 /-- In the case where `p` divides the torsion order.
   Certify that a tuple of ideals is `p`-saturated in the class group. This extends
   a certificate for a `p`-maximal system of units. -/
@@ -658,7 +636,6 @@ structure pSaturatedClassGroupCertificateDvdT {O : Type*} [CommRing O] (p : ℕ)
   NInv : Matrix (Fin t) (Fin t) (ZMod p)
   hN : ((Matrix.of (fun i => Sum.elim (M i) (N i))).reindex (Equiv.refl _)
     (finSumFinEquiv.trans (finCongr hc.symm))) * NInv = 1
-
 
 lemma matrix_of_NonPrincipalCertificateDvdT {O : Type*} [CommRing O]
     {c p : ℕ} {J : Fin c → Ideal O} {n : Fin c → ℕ}
@@ -688,7 +665,6 @@ lemma matrix_of_NonPrincipalCertificateDvdT {O : Type*} [CommRing O]
     Matrix.of_apply, Sum.elim_inr, MatrixLogZMod]
     haveI : Fact $ Nat.Prime (C.q i) := C.hqP i
     rw [eq_of_DiscreteLogCertificate (C.hM3 i k)]
-
 
 lemma pSaturated_of_CertificateDvdT {O : Type*} [CommRing O]
     [IsDomain O] [IsIntegrallyClosed O] [Module.Finite ℤ (Additive (Oˣ ⧸ (CommGroup.torsion Oˣ)))]
@@ -735,7 +711,6 @@ lemma pSaturated_of_CertificateDvdT {O : Type*} [CommRing O]
       simp only [Fintype.card_fin, Matrix.rank_one, C.hc]
       simp only [Fintype.card_sum, Fintype.card_fin, Fintype.card_unique]
 
-
 -- Note that proofs of `I^n = ⟨a⟩` are already included in the certificates for `p`
 -- (but `n` might be `1`, so no `p`-certificate).
 
@@ -758,13 +733,10 @@ noncomputable def ClassGroup_equiv_of_pSaturatedCertificate  {O : Type*} [CommRi
   | inl C => exact pSaturated_of_CertificateDvdT C r b hr hdvd
   | inr C => exact pSaturated_of_CertificateNDvdT C r b hr hdvd
 
-
-
 ---------------------------------------------------------------------------------------------------
 
 -- For principal ideals. Deprecated because we can just use p-saturation certificate for
 -- a single ideal.
-
 
 -- Dirichlet Unit theorem applies to orders of K, so we make this
 -- certificate more general.
@@ -799,7 +771,6 @@ noncomputable def ClassGroup_equiv_of_pSaturatedCertificate  {O : Type*} [CommRi
  hNiv : (M.submatrix (Fin.castSucc) (Fin.castSucc)) * N = 1
  -- Order the prime ideals q i in such a way that removing the last row and column induce an
  -- invertible matrix.
-
 
 lemma matrix_of_NonPrincipalCertificateNDvdT {O : Type*} [CommRing O]
   [IsDomain O] [Module.Finite ℤ (Additive (Oˣ ⧸ (CommGroup.torsion Oˣ)))]
@@ -847,7 +818,6 @@ LinearIndependent ℤ (fun i => Additive.ofMul (QuotientGroup.mk (s := (CommGrou
   · refine le_of_eq_of_le ?_ (Matrix.rank_mul_le_left _ C.N)
     rw [C.hNiv]
     simp only [Fintype.card_fin, Matrix.rank_one]
-
 
 lemma units_of_NonPrincipalCertificateNDvdT {O : Type*} [CommRing O]
   [IsDomain O] [Module.Finite ℤ (Additive (Oˣ ⧸ (CommGroup.torsion Oˣ)))]
@@ -933,7 +903,6 @@ hInv : M * Minv = 1
 N : Matrix (Fin (r + 1)) (Fin (r + 1)) (ZMod p)
 hNiv : (M.submatrix (Fin.castSucc) (Fin.castSucc)) * N = 1
 
-
 lemma torsion_of_NonPrincipalCertificateDvdT {O : Type*} [CommRing O]
   [IsDomain O] [Module.Finite ℤ (Additive (Oˣ ⧸ (CommGroup.torsion Oˣ)))]
   [Module.Free ℤ (Additive (Oˣ ⧸ (CommGroup.torsion Oˣ)))]
@@ -1016,7 +985,6 @@ lemma matrix_of_NonPrincipalCertificateDvdT {O : Type*} [CommRing O]
       rw [Fin.val_cast_of_lt (show (C.r + 1 < C.r + 1 + 1) by omega)]
       simp only [Fin.coe_natAdd, Fin.val_eq_zero, add_zero]
 
-
 lemma submatrix_of_NonPrincipalCertificateDvdT {O : Type*} [CommRing O]
   [IsDomain O] [Module.Finite ℤ (Additive (Oˣ ⧸ (CommGroup.torsion Oˣ)))]
   [Module.Free ℤ (Additive (Oˣ ⧸ (CommGroup.torsion Oˣ)))]
@@ -1037,7 +1005,6 @@ lemma submatrix_of_NonPrincipalCertificateDvdT {O : Type*} [CommRing O]
       simp only [Fin.coe_eq_castSucc]
       rw [← Fin.coe_eq_castSucc]
       repeat {simp}
-
 
 lemma units_linear_independent_of_NonPrincipalCertificateDvdT {O : Type*} [CommRing O]
   [IsDomain O] [Module.Finite ℤ (Additive (Oˣ ⧸ (CommGroup.torsion Oˣ)))]
@@ -1067,7 +1034,6 @@ lemma units_linear_independent_of_NonPrincipalCertificateDvdT {O : Type*} [CommR
     refine le_of_eq_of_le ?_ (Matrix.rank_mul_le_left _ C.N)
     rw [C.hNiv]
     simp only [Fintype.card_fin, Matrix.rank_one]
-
 
 lemma units_of_NonPrincipalCertificateDvdT {O : Type*} [CommRing O]
   [IsDomain O] [Module.Finite ℤ (Additive (Oˣ ⧸ (CommGroup.torsion Oˣ)))]
@@ -1100,7 +1066,6 @@ lemma units_of_NonPrincipalCertificateDvdT {O : Type*} [CommRing O]
     rw [C.hNiv]
     simp only [Fintype.card_fin, Matrix.rank_one]
   · simp [C.huc]
-
 
 lemma not_principal_of_NonPrincipalCertificateDvdT  {O : Type*} [CommRing O]
     [IsDomain O] [Module.Finite ℤ (Additive (Oˣ ⧸ (CommGroup.torsion Oˣ)))]

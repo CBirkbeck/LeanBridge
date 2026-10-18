@@ -34,7 +34,6 @@ We define certificates for basic ideal operations.
 - `IdealMulEqCertificate'`: certifies a multiplication of ideals.
 - `IsInClass` : expresses that two ideals belong to the same ideal class.
 
-
 -/
 
 section I
@@ -123,7 +122,6 @@ lemma ideal_eq_R_span [Algebra R O] {ι τ : Type _} [Fintype ι] [Fintype τ]
     refine Ideal.mul_mem_left _ _ (Ideal.subset_span ?_)
     exact Set.mem_range_self i.1
 
-
 lemma ideal_eq_R_span' [Algebra R O] {ι τ κ: Type _} [Fintype ι] [Fintype τ]
   [Fintype κ] (v : ι → O) (B : τ → O) (w : κ → O)
   (hspan : ⊤ = Submodule.span R (Set.range B))
@@ -200,7 +198,6 @@ lemma ideal_eq_of_IdealEqSpanCertificate [Algebra R O] {r n m : ℕ} [NeZero r]
     simp_rw [hmulaux]
     refine table_sum_smul TT.basis _ _ _ ?_
     exact A.hle2 i j
-
 
 /-- Purely computational version of `IdealEqSpanCertificate`, with  times table in term of lists. -/
 structure IdealEqSpanCertificate' {r n m : ℕ}
@@ -893,9 +890,5 @@ lemma relation_of_RelationCertificate [Algebra R O] {r m n : ℕ} [NeZero r]
   exact { T := T, heq := heq, hI := hieq2, hmul := C.hw }
   refine ideal_eq_of_IdealEqCertificateO' heq rfl rfl ?_
   exact { g := C.g, h := C.h, hle1 := C.hle1, hle2 := C.hle2}
-
-
-
-
 
 end I

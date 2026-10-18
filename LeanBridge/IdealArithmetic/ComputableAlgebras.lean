@@ -9,7 +9,6 @@ import LeanBridge.IdealArithmetic.DedekindProject.Auxiliary.LinearAlgebraAuxilia
 import LeanBridge.IdealArithmetic.DedekindProject.TimesTable.Defs
 import LeanBridge.IdealArithmetic.DedekindProject.TimesTable.TimesTableAsLists
 
-
 open BigOperators
 
 /- By reflection, we can provide Decidable instances for basic arithmetic operations on a
@@ -35,7 +34,6 @@ lemma table_add_list_eq_add_iff {S : Type*} [AddCommMonoid S] [Module R S] [Mul 
     apply_fun TT.basis.equivFun.symm
     rw [← hc, map_add]
     exact LinearEquiv.injective TT.basis.equivFun.symm
-
 
 lemma table_mulPointwise_eq_smul_iff {S : Type*} [AddCommMonoid S] [Module R S] [Mul S]
     (TT : TimesTable (Fin n) R S) (a c : Fin n → R) (d : R) :
@@ -79,7 +77,6 @@ instance (priority := 10001) [DecidableEq R] {S : Type*} [AddCommMonoid S] [Modu
   Decidable (d • (TT.basis.equivFun.symm a) = TT.basis.equivFun.symm b) :=
   fun a b d => decidable_of_iff _ (table_mulPointwise_eq_smul_iff TT a b d)
 
-
 instance (priority := 10001) [DecidableEq R] {S : Type*} [NonUnitalNonAssocSemiring S] [Module R S]
   [SMulCommClass R S S] [IsScalarTower R S S] {TT : TimesTable (Fin n) R S} : ∀ (a b c : Fin n → R),
   Decidable ((TT.basis.equivFun.symm a) * (TT.basis.equivFun.symm b) = TT.basis.equivFun.symm c) :=
@@ -109,7 +106,6 @@ example : T3.basis.equivFun.symm ![1,2,3] * T3.basis.equivFun.symm ![-1,3,4]  =
 
 example : T3.basis.equivFun.symm ![1,2,3] + T3.basis.equivFun.symm ![-1,3,4]  =
   T3.basis.equivFun.symm ![0, 5, 7] := by decide
-
 
 -- This is slightly faster
 example : List.ofFn ![101, -128, -89] = table_mul_list' T3.table (List.ofFn ![1,2,3]) (List.ofFn ![-1,3,4]) := by decide

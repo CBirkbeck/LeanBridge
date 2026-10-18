@@ -9,9 +9,7 @@ import Mathlib.RingTheory.ZMod
 import Mathlib.Data.ZMod.QuotientRing
 import Mathlib.Algebra.Field.ZMod
 
-
 open Ideal UniqueFactorizationMonoid Polynomial RingHom Algebra Classical
-
 
 noncomputable section Adjoin
 
@@ -20,7 +18,6 @@ variable (R)  {S : Type*} [CommRing R]  [CommRing S] [Algebra R S]
 namespace AdjoinRoot
 
 /- A down-to-earth version of Kummer-Dedekind, for explicit computational uses. -/
-
 
 lemma algHomDvd_polynomial_apply (f g h : S[X]) (hgf : g ∣ f) :
   algHomOfDvd S f g hgf (Ideal.Quotient.mk _ h) = Ideal.Quotient.mk _ h := by
@@ -77,7 +74,6 @@ noncomputable def quotMapEquivQuotQuotMap' :
     ((Algebra.adjoin.powerBasis' hx').quotientEquivQuotientMinpolyMap I).toRingEquiv.trans <|
     quotEquivOfEq (by rw [Algebra.adjoin.powerBasis'_minpoly_gen hx'])
 
-
 /-- Same as `quotMapEquivQuotQuotMap_symm_apply` in Mathlib but without the Dedekind domain assumption for `S`. -/
 lemma quotMapEquivQuotQuotMap_symm_apply' (Q : R[X]) :
     (quotMapEquivQuotQuotMap' hx hx').symm (Q.map (Ideal.Quotient.mk I)) = Q.aeval x := by
@@ -100,7 +96,6 @@ def quotMapHom (d : (R ⧸ I)[X])
   exact RingHom.comp ((AdjoinRoot.algHomOfDvd (R ⧸ I) (S := (R ⧸ I))
     (Polynomial.map (Ideal.Quotient.mk I) (minpoly R x)) d hd).toRingHom)
     (quotMapEquivQuotQuotMap' hx hx').toRingHom
-
 
 lemma quotMapHom_ker (d : R[X])
   (hd : Polynomial.map (Ideal.Quotient.mk I) d ∣ (Polynomial.map (Ideal.Quotient.mk I) (minpoly R x))) :
@@ -161,20 +156,16 @@ lemma ideal_span_pair_maximal (hI : IsMaximal I) (d : R[X])
   refine MulEquiv.isField (Field.toIsField (R :=
     (R ⧸ I)[X] ⧸ span {Polynomial.map (Ideal.Quotient.mk I) d})) (quotMapEquiv hx hx' _ hd).toMulEquiv
 
-
-
 end
 
 variable {p : ℕ}  {S : Type*} [CommRing S] {x : S}
   (hx : comap (algebraMap ℤ S) (conductor ℤ x) ⊔ (span {(p : ℤ)}) = ⊤) (hx' : IsIntegral ℤ x)
-
 
 lemma quotMapInt.ideal_span_eq_span (d : ℤ[X]) :
   span {↑p, (aeval x) d} = span (↑(Ideal.map (algebraMap ℤ S) (span {↑p})) ∪ {(aeval x) d}) := by
   simp only [algebraMap_int_eq, map_span, eq_intCast, Set.image_singleton, Int.cast_natCast,
   Set.union_singleton]
   rw [Set.pair_comm, Ideal.span_insert, Ideal.span_insert, span_eq]
-
 
 variable  [IsDomain S] [CharZero S]
 
@@ -218,7 +209,6 @@ lemma ideal_span_pair_maximal_int [Fact $ Nat.Prime p] (d : ℤ[X]) (d' : (ZMod 
     simp only [mapEquiv_apply, Polynomial.map_map]
     exact hdeq ▸ hdirr
 
-
 lemma card_quot_span [Fact $ Nat.Prime p]  (d : ℤ[X]) (d' : (ZMod p) [X])
   (hdeq : d' = d.map (algebraMap ℤ (ZMod p)))
   (hd : d' ∣ (minpoly ℤ x).map (algebraMap ℤ (ZMod p))) :
@@ -234,11 +224,6 @@ lemma card_quot_span [Fact $ Nat.Prime p]  (d : ℤ[X]) (d' : (ZMod p) [X])
     (AdjoinRoot.powerBasis hdz).basis, (AdjoinRoot.powerBasis_dim hdz)]
   simp only [Nat.card_eq_fintype_card, ZMod.card, Fintype.card_fin]
   exact RingEquiv.bijective (quotMapEquivInt hx hx' d d' hdeq hd)
-
-
-
-
-
 
 lemma prod_ideal_eq_span_singleton {n} [Fact $ Nat.Prime p]
   (d : Fin n → ℤ[X]) --(d' : Fin n → (ZMod p)[X])
@@ -261,15 +246,6 @@ lemma prod_ideal_eq_span_singleton {n} [Fact $ Nat.Prime p]
     sorry
     --rcases hx with hx1 | hx2 | hx3 | hx4
 
-
-
-
-
-
-
-
-
-
   /- suffices aux : (Finset.univ (α := τ)) = ∅ ∨ ∏ i, I i ≤ Ideal.span {↑p} from by
     rw [← false_or (p := ∏ i, I i ≤ span {↑p})]
     convert aux
@@ -290,61 +266,27 @@ lemma prod_ideal_eq_span_singleton {n} [Fact $ Nat.Prime p]
   --intro x hx
   --sorry
 
-
-
 /- lemma prod_ideal_eq_span_singleton {τ} [Fintype τ] [Fact $ Nat.Prime p]
   (d : τ → ℤ[X])  (hdeq : ∀ i, d' i = (d i).map (algebraMap ℤ (ZMod p)))
   (d' : τ → (ZMod p)[X]) (hcoprime : Pairwise (IsCoprime) d')
   (hprod : ∏ i, d' i = (minpoly ℤ x).map (algebraMap ℤ (ZMod p)))
   (I : τ → Ideal S) (hI : ∀ i, I i = Ideal.span {↑p, d.aeval x}) : -/
 
-
   --apply?
-
-
 
 -- (AdjoinRoot.mk (X ^ r - 1)) (AKSPolynomial n a) = (AdjoinRoot.mk (X ^ r - 1)) (AKSRightSide n a)
 
 -- Ideal.Quotient.mk
 
-
-
-
-
-
-
-
-
-
   --swap
-
 
   --refine RingEquiv.trans (quotEquivOfEq (show ))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #exit
-
 
 def liftPolynomial (a : S) : R[X] := by
   refine (Polynomial.map_surjective (Ideal.Quotient.mk _) (Ideal.Quotient.mk_surjective)
   (Ideal.Quotient.mk_surjective ((quotMapEquivQuotQuotMap' hx hx') (Ideal.Quotient.mk _ a))).choose ).choose
-
 
 lemma quotMapEquiv_apply (a : S) : (quotMapEquivQuotQuotMap' hx hx' (Ideal.Quotient.mk _ a)) =
   Ideal.Quotient.mk _ ((liftPolynomial hx hx' a).map (algebraMap R (R ⧸ I))) := by
@@ -353,7 +295,6 @@ lemma quotMapEquiv_apply (a : S) : (quotMapEquivQuotQuotMap' hx hx' (Ideal.Quoti
   (Ideal.Quotient.mk_surjective ((quotMapEquivQuotQuotMap' hx hx') (Ideal.Quotient.mk _ a))).choose ).choose_spec
   have aux2 := (Ideal.Quotient.mk_surjective ((quotMapEquivQuotQuotMap' hx hx') (Ideal.Quotient.mk _ a))).choose_spec
   erw [aux1, aux2]
-
 
 lemma quotMapHom_apply (d : R[X])
   (hd : d.map (algebraMap R (R ⧸ I)) ∣ Polynomial.map (Ideal.Quotient.mk I) (minpoly R x))
@@ -365,7 +306,6 @@ lemma quotMapHom_apply (d : R[X])
     coe_coe, Function.comp_apply]
   erw [quotMapEquiv_apply, AdjoinRoot.algHomDvd_polynomial_apply]
   rfl
-
 
 def quotMapHomKer (d : R[X])
   (hd : d.map (algebraMap R (R ⧸ I)) ∈ normalizedFactors (Polynomial.map (Ideal.Quotient.mk I) (minpoly R x))) :

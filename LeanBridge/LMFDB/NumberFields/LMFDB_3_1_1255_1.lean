@@ -13,8 +13,6 @@ abbrev min_poly_3_1_1255_1 : Polynomial ℚ := (1) * Polynomial.X ^ 3 + (-1) * P
 
 abbrev K_3_1_1255_1 := AdjoinRoot min_poly_3_1_1255_1
 
-
-
 open Polynomial
 
 local notation "T" => (X^3 - X^2 + 4*X + 5 : ℤ[X])
@@ -22,7 +20,7 @@ local notation "T" => (X^3 - X^2 + 4*X + 5 : ℤ[X])
 local notation "l" => [5, 4, -1, 1]
 
 lemma T_ofList' : T = ofList l := by norm_num ; ring
-    
+
 noncomputable def C : CertificateIrreducibleIntOfPrime T l where
  hpol := T_ofList'
  hdeg := by decide
@@ -40,11 +38,9 @@ noncomputable def C : CertificateIrreducibleIntOfPrime T l where
  hs := by norm_num
  heval := by norm_num
 
-theorem irreducible_T : Irreducible T := irreducible_of_CertificateIrreducibleIntOfPrime _ _ C 
+theorem irreducible_T : Irreducible T := irreducible_of_CertificateIrreducibleIntOfPrime _ _ C
 
 -- Fundamental Units
-
-
 
 abbrev K_gen_3_1_1255_1 : K_3_1_1255_1 := AdjoinRoot.root min_poly_3_1_1255_1
 
@@ -74,13 +70,10 @@ def fundamental_unit_3_1_1255_1_1 : (𝓞 K_3_1_1255_1)ˣ where
   val_inv := by sorry
   inv_val := by sorry
 
-
-
 axiom LMFDB_NF_3_1_1255_1_discr : NumberField.discr K_3_1_1255_1 = -1255
 
 axiom LMFDB_NF_3_1_1255_1_isGalois : ¬ IsGalois ℚ K_3_1_1255_1
 
 axiom LMFDB_NF_3_1_1255_1_classNumber : NumberField.classNumber K_3_1_1255_1 = 2
-
 
 end

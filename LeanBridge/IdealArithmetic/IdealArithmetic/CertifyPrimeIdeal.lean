@@ -157,7 +157,6 @@ lemma ideal_norm_eq_prod' {r : ℕ} {O : Type*} [CommRing O] [IsDomain O]
   apply_fun (fun f => f j) at this
   exact hij this
 
-
 /-- If `K` is an algebra over a finite field `F` and has size `(#F) ^ n`, then it has
   rank `n` over `F`. -/
 noncomputable def isAdjoinRoot_of_adjoin_root_irreducible_finite {F K : Type*} {n : ℕ}
@@ -340,7 +339,6 @@ lemma CertifiedPrimeIdeal.isPrime {O : Type*} {p : ℕ} [Fact $ Nat.Prime p] [Co
     rw [Ideal.Quotient.maximal_ideal_iff_isField_quotient]
     exact CertifiedPrimeIdeal.residue_field_is_field I
 
-
 /- A purely computational version of `CertifiedPrimeIdeal` -/
 structure CertifiedPrimeIdeal' {r m : ℕ} [NeZero r] {T : Fin r → Fin r → List ℤ}
   {v : Fin m → Fin r → ℤ} {w : Fin r → Fin r → ℤ} (A : IdealEqSpanCertificate' T v w) (p : ℕ) where
@@ -375,7 +373,6 @@ structure CertifiedPrimeIdeal' {r m : ℕ} [NeZero r] {T : Fin r → Fin r → L
       else List.mulPointwise (P[i]' (by rw [hlen] ; exact i.isLt ))
       (nPow_sq_table T (List.ofFn a) i) ))
 
-
 /-- Correctness of `CertifiedPrimeIdeal` . -/
 lemma CertifiedPrimeIdeal'.idealNorm {O : Type*} {p : ℕ} [Fact $ Nat.Prime p] [CommRing O] [IsDomain O]
   {r m : ℕ} [NeZero r] {TT  : TimesTable (Fin r) ℤ O}
@@ -387,7 +384,6 @@ lemma CertifiedPrimeIdeal'.idealNorm {O : Type*} {p : ℕ} [Fact $ Nat.Prime p] 
   convert ideal_norm_eq_prod' TT.basis _ _ (C.hd) C.i C.j (C.hij) ?_
   rw [C.hcard]
   exact ideal_eq_of_IdealEqSpanCertificate' heq rfl A
-
 
 /-- Correctness of `CertifiedPrimeIdeal` . -/
 lemma CertifiedPrimeIdeal'.isPrime {O : Type*} {p : ℕ} [Fact $ Nat.Prime p] [CommRing O] [IsDomain O]
@@ -418,7 +414,6 @@ lemma CertifiedPrimeIdeal'.isPrime {O : Type*} {p : ℕ} [Fact $ Nat.Prime p] [C
       hpol := C.hpol }
   exact CertifiedPrimeIdeal.isPrime CC
 
-
 /-- The quotient by an ideal of norm equal to a prime `p` is isomorphic to `ZMod p`.  -/
 noncomputable def modIdealEquivZMod {O : Type*} {p : ℕ} (hp : Nat.Prime p)
   [CommRing O] (I : Ideal O) (hcard : Nat.card (O ⧸ I) = p) : O ⧸ I ≃+* (ZMod p) := by
@@ -447,9 +442,6 @@ lemma prime_ideal_of_norm_prime {O : Type*} {p : ℕ} (hp : Nat.Prime p) [CommRi
   refine Ideal.IsMaximal.isPrime ?_
   rw [Ideal.Quotient.maximal_ideal_iff_isField_quotient]
   exact MulEquiv.isField (Field.toIsField (ZMod p)) (modIdealEquivZMod hp I hcard)
-
-
-
 
 -- I substituted the q in dedekind criterion with algebra instance, so we can use the isScalarTower
 /- A more general version of isAdjoinRoot_of_adjoin_root_irreducible_finite using the PID index.

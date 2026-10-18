@@ -17,7 +17,6 @@ upper triangular form, together with the certifying data of its multiplication t
 with the structure `SubalgebraBuilder` we construct the corresponding subalgebra of `K`.
 We also give an expression for the discriminant of this subalgebra.
 
-
 ## Main definitions:
 - `SubalgebraBuilder` : builds a subalgebra from an `R`-basis
 - `SubalgebraBuilderLists` : a version of `SubalgebraBuilder` using
@@ -28,7 +27,6 @@ We also give an expression for the discriminant of this subalgebra.
 - `OfBuilderList_discr_eq_prod_discr'` : an expression for the discriminant of the
   subalgebra constructed with `SubalgebraBuilderLists` in terms of the discriminant
   of a power basis·     -/
-
 
 open BigOperators Pointwise Polynomial Module
 
@@ -156,7 +154,6 @@ section IntPoly
 variable {Q K: Type*} [Field Q][CommRing K][Algebra Q K]
   {R ι: Type*} [Fintype ι][CommRing R][Algebra R Q][Algebra R K][IsScalarTower R Q K]
 
-
 variable
   (T : R[X])
   (B : ι →  R[X])(d : R)(hd : d ≠ 0)(s : ι → ι → R[X])(a : ι → ι → ι → R)
@@ -245,7 +242,6 @@ lemma basisSubalgebraOfPolysIntTable [IsFractionRing R Q] (i i' k : ι) :
   exact basisSubalgebraOfPolysTable (R := R) (map (algebraMap R Q) T) h b s' a _ _ _ _ i i' k
 
 end IntPoly
-
 
 section LinInd
 
@@ -345,9 +341,7 @@ lemma hc_aux {d : R}
     rw [mul_comm, hsymma i j, toSymmFun_apply_eq, toSymmFun_apply s j i (le_of_lt h) ]
     exact hc_le j i (le_of_lt h)
 
-
 end LinInd
-
 
 /-- The subalgebra builder for `K = Q[θ]`, with `θ` a root of a polynomial  `T` of degree `n`.
   The basis for the subalgebra is given as `wⱼ = (1/d) Bⱼ(θ) `
@@ -377,7 +371,6 @@ structure SubalgebraBuilder
   (hin : ∀ i, c i i ≠ 0)
   (hsymma : ∀ i j , a i j = a j i)
   (hc_le : ∀ i j, i ≤ j → (B i) * (B j) =  ∑ k, (C (d * (a i j k))) * (B k) - T * (s i j) )
-
 
 /-- The version of `SubalgebraBuilder` using lists for polynomial arithmetic.
 Let `K = Q[θ]`, with `θ` a root of a polynomial  `T` of degree `n`.
@@ -409,7 +402,6 @@ structure SubalgebraBuilderLists
   (hsymma : ∀ i j , a i j = a j i)
   (hc_le : ∀ i j, i ≤ j → ((List.ofFn (B i)) * (List.ofFn (B j))).dropTrailingZeros' =
     ((List.ofFn (fun k => [(d * (a i j k))] * (List.ofFn (B k)))).sum - l * (s i j) ).dropTrailingZeros')
-
 
 variable {n : ℕ} [NeZero n] {R Q K : Type*} [CommRing R]
   [IsDomain R]
@@ -452,7 +444,6 @@ lemma basisOfBuilder_zero_eq_one (T : R[X]) (A : SubalgebraBuilder n R Q K T) :
   basisOfBuilder T A 0 = 1 := by
   rw [← Subtype.val_inj, basisOfBuilder_apply]
   simp_rw [hone_aux (Q := Q) _ A.d A.hd _ A.honed, map_one, OneMemClass.coe_one]
-
 
 /-- The times table for the subalgebra constructed from the `SubalgebraBuilder` -/
 noncomputable def timesTableOfSubalgebraBuilder
@@ -665,7 +656,6 @@ lemma OfBuilderList_discr_eq_prod_discr' :
     rw [Algebra.adjoin_isAdjoinRoot_root]
     erw [IsAdjoinRootMonic.basis_apply]
     rfl
-
 
 /-- An expression for the discriminant over `R` of a basis for
   the subalgebra `subalgebraOfBuilderLists` -/

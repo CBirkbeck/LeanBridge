@@ -39,7 +39,6 @@ lemma List.ofFn_addCases {n m} {α} (left : Fin m → α) (right : Fin n → α)
   ext i
   exact Fin.addCases_left i
 
-
 lemma List.addCases_comp {n m} {α} (f : Fin m → α)  (eq : n = m) :
     List.ofFn (f ∘ (Fin.cast eq))  = List.ofFn f := by
   refine ofFn_inj'.mpr ?_
@@ -79,7 +78,6 @@ def indexPair {r : ℕ} (e : Fin r → ℕ) (j : Fin (∑ i, e i)) : Σ (i : Fin
       refine j' ?_
       simp only [Fin.val_cast]
       omega
-
 
 lemma indexPair_left_aux {r : ℕ} {e : Fin (r + 1) → ℕ} {j : Fin (∑ i, e i)}
     (h : j < ∑ (i : Fin r), e i.castSucc) :
@@ -177,7 +175,6 @@ lemma addCasesIter_apply {α : Type*} {r : ℕ} (e : Fin r → ℕ) (g : ∀ i, 
         erw [Fin.natAdd_subNat_cast (i := Fin.cast (Fin.sum_univ_castSucc e) j )]
       rw [this, Fin.addCases_right, indexPair_right_aux h]
 
-
 section
 
 /-- If the `g i : Fin (e i) → A` are a family of tuples,`f : Fin (∑ i, s i) → List A`, and
@@ -247,6 +244,5 @@ lemma forall_addCasesIter_prop {A B : Type*} {r : ℕ} {e : Fin r → ℕ}
   intro k
   rw [addCasesIter_apply, addCasesIter_apply]
   refine h (indexPair e k).1 (indexPair e k).2
-
 
 end

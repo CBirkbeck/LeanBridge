@@ -199,7 +199,6 @@ theorem irreducible_iff_dvd_X_pow_sub_X' (f : F[X]) (hd : 0 < f.natDegree) :
 
 end IrreducibilityTheory
 
-
 ------------------------------------------------------------------------------------------
 
 section DegreeAnalysisTheory
@@ -489,7 +488,6 @@ by looking at its factorization type modulo different primes. A key requirement 
 to prove the irreducibility of polynomials over `(ZMod p)`. We provide a certificate for this
 purpose later.  -/
 
-
 /-- A certificate for the irreducibility of `T` using lists, based on degree analysis:
   - `n` is the length of the tuple of primes.
   - `p` is a tuple of primes such that the leading coefficient of `T` is non-zero modulo
@@ -583,14 +581,12 @@ lemma irreducible_of_CertificateIntPolynomial (T : Polynomial ℤ) (l : List ℤ
       exact Polynomial.isUnit_C.2 (Polynomial.isPrimitive_iff_isUnit_of_C_dvd.1
         (ofList_isPrimitive 1 l C.hprim (isUnit_one)) (a.coeff 0) (Dvd.intro _ hab.symm))
 
-
 ------------------------------------------------------------------------
 /- # CERTIFICATE FOR IRREDUCIBILITY MOD P
 
 To prove irreducibility of polynomials over `(ZMod p)` we form a certificate based on
 `irreducible_iff_dvd_X_pow_sub_X`. In order to prove `f ∣ X ^ n - X` we use repeated `t`-powering,
 often taking `t = 2`, and provide certifying polynomials at each step.  -/
-
 
 /-- Takes a function `Fin n → ℕ` and interprets it as a list of digits of a number in base `t`.
 We use this instead of `Nat.ofDigits` to control for the number of digits.  -/
@@ -604,7 +600,6 @@ lemma FnToNat_eval_single {n : ℕ}(t : ℕ)(j : Fin n):
   rw [Finsupp.single_apply]
   simp only [mul_eq_zero]
   simp only [hx.symm, ↓reduceIte, pow_eq_zero_iff', ne_eq, true_or]
-
 
 /-- The `square-and-multiply`-type algorithm. Gives a way to prove `x ^ n` by
   providing a list `y` with intermediate steps. -/
@@ -636,7 +631,6 @@ lemma square_and_multiply_algorithm {R : Type*} [Monoid R] {s t : ℕ} (y : Fin 
     · intro i
       exact hmul (Fin.succ i)
 
-
 lemma certificate_aux (p n t s : ℕ) [Fact $ Nat.Prime p] [NeZero n]
     (f : (ZMod p)[X]) (bit : Fin (s + 1) → ℕ)
     (hbits : FnToNat t bit = p) (h : Fin (n + 1) → (ZMod p)[X])
@@ -664,7 +658,6 @@ lemma certificate_aux (p n t s : ℕ) [Fact $ Nat.Prime p] [NeZero n]
     rw [hs i] ; rfl
   · intro j
     exact (aux i j).symm
-
 
 lemma certificate_aux' (p n t s : ℕ) [NeZero n] [hp : Fact $ Nat.Prime p]
     (f : (ZMod p)[X]) (bit : Fin (s + 1) → ℕ)
@@ -738,8 +731,6 @@ structure CertificateIrreducibleZMod (p n t s : ℕ) [Fact $ Nat.Prime p] [NeZer
   hhn : h (Fin.last n) = X
   hgcd : ∀ (m : Fin n), ↑m ∣ n → (a m) * f + (b m) * ((h (Fin.castSucc m)) - X) = 1
 
-
-
 lemma irreducible_of_CertificateIrreducibleZMod (p n t s: ℕ)[Fact $ Nat.Prime p] [NeZero n]
     {f : (ZMod p)[X]} (C : CertificateIrreducibleZMod p n t s f) : Irreducible f := by
   have hd : 0 < f.natDegree := by
@@ -759,7 +750,6 @@ lemma irreducible_of_CertificateIrreducibleZMod (p n t s: ℕ)[Fact $ Nat.Prime 
     use (C.a ⟨m, hmlt1⟩ ) , (C.b ⟨m, hmlt1⟩ )
     convert C.hgcd ⟨m, hmlt1⟩ hmdvd
     rfl
-
 
 /-- Certificate for irreducibility of a polynomial `f` over `(ZMod p)`.
 This is the version of `CertificateIrreducibleZMod` in which `hgcd` only ranges through
@@ -887,7 +877,6 @@ lemma irreducible_ofList_ofCertificateIrreducibleZModOfList {p n t s : ℕ}
        simp only [ofList_cons, ofList_nil, map_neg, map_one, mul_zero, add_zero,  neg_mul, one_mul]
        rfl }
 
-
 /-- Certificate for irreducibility of a polynomial `f` over `(ZMod p)`.
 This is the version of `CertificateIrreducibleZMod'` using lists, in which `hgcd` only ranges through
 maximal proper divisors of `n`. This requires a factorization of `n`.
@@ -918,7 +907,6 @@ structure CertificateIrreducibleZModOfList' (p n t s : ℕ) [NeZero n]
   hgcd : ∀ (i : Fin m),
      ((a (Fin.ofNat _ (n / (P i)))) * l + (b (Fin.ofNat _ (n / (P i))))
       * ((h (Fin.ofNat _ (n / (P i)))) - [(0 : ZMod p), 1])).dropTrailingZeros' = 1
-
 
 lemma irreducible_ofList_ofCertificateIrreducibleZModOfList' {p n t s : ℕ} [Fact $ Nat.Prime p]
     [NeZero n] {l : List (ZMod p)} (C : CertificateIrreducibleZModOfList' p n t s l) :
@@ -969,7 +957,6 @@ lemma irreducible_ofList_ofCertificateIrreducibleZModOfList' {p n t s : ℕ} [Fa
        ofList_convolve_eq_mul, ofList_pow_eq_pow]
        simp only [ofList_cons, ofList_nil, map_neg, map_one, mul_zero, add_zero,  neg_mul, one_mul]
        rfl }
-
 
 /-- List version of the fact that linear polynomials over a field are irreducible.  -/
 lemma irreducible_ofList_of_linear {R : Type u} [Field R] [DecidableEq R] (l : List R)

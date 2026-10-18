@@ -245,7 +245,6 @@ theorem PowerBasis.repr_aeval_gen_of_natDegree_lt {R S : Type _} [CommRing R] [R
     rw [coeff_eq_zero_of_natDegree_lt, zero_mul]
     rwa [Nat.lt_succ_iff, not_le] at hk
 
-
 @[simp]
 theorem PowerBasis.repr_aeval_gen {R S : Type _} [CommRing R] [Ring S] [Algebra R S]
     (pb : PowerBasis R S) (f : R[X]) (k) :

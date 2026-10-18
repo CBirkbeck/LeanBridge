@@ -26,7 +26,6 @@ open Polynomial BigOperators
 /-
 # A CERTIFICATE FOR DEDEKIND'S CRITERION  -/
 
-
 /-- Certifies that a polynomial `T` satisfies Dedekind criterion at a prime `p`.
 - `g` : a lift of the radical of `T mod p`
 - `n` : natural such that `T mod p ∣ (g mod p) ^ n`
@@ -125,7 +124,6 @@ theorem satisfiesDedekindCriterion_of_certificate_lists (T : ℤ[X])(l : List �
   by
   rw [← heq]
   exact satisfiesDedekindCriterion_of_certificate (ofList l) p C'
-
 
 /-- Certifies that `T` satisfies Dedekind criterion for all but finitely many primes
  in the list `pb` -

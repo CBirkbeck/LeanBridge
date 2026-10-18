@@ -34,7 +34,6 @@ lemma resultant_pseudoremainder_of_split_monic {K : Type*} [Field K]
   ring
   rfl ; rfl
 
-
 lemma resultant_pseudoremainder_of_split {K : Type*} [Field K]
     {ι κ τ : Type*} [DecidableEq ι] [DecidableEq κ] [DecidableEq τ] {s₁ : Finset ι} {t₁ : ι → K}
     {s₂ : Finset κ} {t₂ : κ → K} {s₃ : Finset τ} {t₃ : τ → K}
@@ -122,7 +121,6 @@ lemma resultant_pseudoremainder {K : Type*} [Field K] {P₁ P₂ P₃ Q : K[X]}
   · simp only [ne_eq, map_eq_zero, leadingCoeff_eq_zero, hP3, not_false_eq_true]
   · simp only [ne_eq, map_eq_zero, he, not_false_eq_true]
 
-
 lemma resultant_psuedoremainder' {R : Type*} [CommRing R] [IsDomain R] {P₁ P₂ P₃ Q : R[X]}
   (hP1 : P₁ ≠ 0) (hP2 : P₂ ≠ 0) (hP3 : P₃ ≠ 0) {e f : R} (he : e ≠ 0)
   (heq : C e * P₁ = Q * P₂ - C f * P₃) (hmono : P₃.natDegree ≤ P₁.natDegree) :
@@ -150,7 +148,6 @@ lemma resultant_psuedoremainder' {R : Type*} [CommRing R] [IsDomain R] {P₁ P�
     ← zpow_natCast _ (P₁.natDegree - P₃.natDegree), Nat.cast_sub hmono]
   refine IsUnit.pow _ ((isUnit_iff_ne_zero).2 ?_)
   all_goals exact (map_ne_zero_iff (algebraMap R K) auxInj).mpr he
-
 
 lemma prod_mul_resultant_of_premainder_sequence_rec {R : Type*} [CommRing R] [IsDomain R]
     {P : List R[X]}  {p q : R[X]} (hlen : 2 ≤ P.length) (h0 : P[0] = p)
@@ -223,8 +220,6 @@ lemma prod_mul_resultant_of_premainder_sequence {R : Type*} [CommRing R] [IsDoma
     simp only [coeff_natDegree, natDegree_C, pow_zero, one_mul]
     exact hz
 
-
-
 lemma resultant_eq_div_of_premainder_sequence {R : Type*} [CommRing R] [IsDomain R]
     [Div R] [MulDivCancelClass R] {P : List R[X]}  {p q : R[X]} (hlen : 2 ≤ P.length)
     (h0 : P[0] = p) (h1 : P[1] = q) {c : R} (hcz : c ≠ 0) (hcl : P.getLastD 0 = C c)
@@ -267,7 +262,6 @@ def DiscriminantOfPRemainder {R : Type*} [CommRing R] [Div R]  [Inhabited R]
   if hlen : 1 ≤ P.length then
   ((-1) ^ ((P[0].length - 1) * (P[0].length - 2) / 2) *
     ResultantOfPRemainder P e f) / (P[0].getLastD 0) else 0
-
 
 theorem resultant_eq_ResultantOfPRemainder_of_SturmBuilderOfList {R : Type*} [CommRing R]
     [IsDomain R] [Div R] [MulDivCancelClass R] [LinearOrder R] [Inhabited R]
@@ -379,8 +373,6 @@ theorem resultant_eq_ResultantOfPRemainder_of_SturmBuilderOfList {R : Type*} [Co
     simp only [List.getElem_map, ← ofList_mulPointwise_eq_C_mul, h.hrem i hi]
     simp only [ofList_sub, ofList_convolve_eq_mul, ofList_mulPointwise_eq_C_mul]
 
-
-
 /-- Should be able to get rid of the no smul divisors with ℕ. -/
 theorem discriminant_eq_DiscriminantOfPRemainder_of_SturmBuilderOfList
     {R : Type*} [CommRing R] [IsDomain R] [Div R] [MulDivCancelClass R]
@@ -416,9 +408,7 @@ theorem discriminant_eq_DiscriminantOfPRemainder_of_SturmBuilderOfList
   rw [dropTrailingZeros_eq_dropTrailingZeros']
   exact h.hdrop 0 (by omega)
 
-
 -------------- EXAMPLE
-
 
 def T12 : SturmBuilderOfList [[-1, -3, 4, -3, 4, -7, 8, -5, 2, -1, 2, -2, 1], [-3, 8, -9, 16, -35, 48, -35, 16, -9, 20, -22, 12], [75, 190, -231, 146, -157, 246, -253, 134, -39, -2, -2], [71, 154, -281, 214, -195, 282, -319, 210, -81, 10], [-10211, -24224, 35581, -23964, 23455, -36012, 38859, -22620, 7221], [-2267, -4492, 8045, 382, 1384, -5348, 5424, -1734], [246562, 814245, -405514, -231107, -606672, 731024, -399754], [14471167, 16037714, -36741730, -13829396, 17035399, -23152604], [-3486108299, -5816633006, 9229540306, -954771996, 311520877], [71085451054, 150856520123, -136214103852, -61173383617], [208293783922595, 367093071086944, -527066681760297], [-15465343873515557, -79274710004591368], [-1]] [-1, -3, 4, -3, 4, -7, 8, -5, 2, -1, 2, -2, 1] [-3, 8, -9, 16, -35, 48, -35, 16, -9, 20, -22, 12] where
   hlen := by decide
@@ -445,7 +435,6 @@ def T12 : SturmBuilderOfList [[-1, -3, 4, -3, 4, -7, 8, -5, 2, -1, 2, -2, 1], [-
     have hi : i < 11 := by omega
     interval_cases i <;> (dsimp ; decide)
 
-
 set_option maxRecDepth 1000
 
 theorem discr12 : discr (C (-1) + C (-3) * X + C 4 * X ^ 2 + C (-3) * X ^ 3
@@ -454,7 +443,6 @@ theorem discr12 : discr (C (-1) + C (-3) * X + C 4 * X ^ 2 + C (-3) * X ^ 3
     convert discriminant_eq_DiscriminantOfPRemainder_of_SturmBuilderOfList T12
     · simp ; ring
     · decide
-
 
 def T8 : SturmBuilderOfList [[-1, 2, 56, 2, 3, 4, 5, -7, 1], [2, 112, 6, 12, 20, 30, -49, 8], [50, -896, -2730, -164, -236, -306, 263], [-10317, 26744, 409348, -75968, 11487, 9730], [118039, -210658, -4396196, 3136696, -497669], [-891307726, 226789062, 30505154223, -38072891440], [-45100387975686, 152751896379902, 1843938372217163], [159617440905728815, 8192722259337557422], [1]] [-1, 2, 56, 2, 3, 4, 5, -7, 1] [2, 112, 6, 12, 20, 30, -49, 8] where
   hlen := by decide
@@ -480,7 +468,6 @@ def T8 : SturmBuilderOfList [[-1, 2, 56, 2, 3, 4, 5, -7, 1], [2, 112, 6, 12, 20,
     intro i hi
     have hi : i < 7 := by omega
     interval_cases i <;> (dsimp ; decide)
-
 
 theorem discr8 : discr (C (-1) + C 2 * X + C 56 * X ^ 2 + C 2 * X ^ 3 +
   C 3 * X ^ 4 + C 4 * X ^ 5 + C 5 * X ^ 6 + C (-7) * X ^ 7 + X ^ 8) = 935247748453823378961 := by

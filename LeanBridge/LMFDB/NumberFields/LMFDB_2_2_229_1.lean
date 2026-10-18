@@ -13,8 +13,6 @@ abbrev min_poly_2_2_229_1 : Polynomial ℚ := (1) * Polynomial.X ^ 2 + (-1) * Po
 
 abbrev K_2_2_229_1 := AdjoinRoot min_poly_2_2_229_1
 
-
-
 open Polynomial
 
 local notation "T" => (X^2 - X - 57 : ℤ[X])
@@ -22,7 +20,7 @@ local notation "T" => (X^2 - X - 57 : ℤ[X])
 local notation "l" => [-57, -1, 1]
 
 lemma T_ofList' : T = ofList l := by norm_num ; ring
-    
+
 noncomputable def C : CertificateIrreducibleIntOfPrime T l where
  hpol := T_ofList'
  hdeg := by decide
@@ -40,8 +38,7 @@ noncomputable def C : CertificateIrreducibleIntOfPrime T l where
  hs := by norm_num
  heval := by norm_num
 
-theorem irreducible_T : Irreducible T := irreducible_of_CertificateIrreducibleIntOfPrime _ _ C 
-
+theorem irreducible_T : Irreducible T := irreducible_of_CertificateIrreducibleIntOfPrime _ _ C
 
 lemma irreducible_poly : Irreducible min_poly_2_2_229_1 := by
   have := irreducible_T
@@ -58,13 +55,10 @@ lemma irreducible_poly : Irreducible min_poly_2_2_229_1 := by
 
 instance : Fact (Irreducible min_poly_2_2_229_1) := ⟨irreducible_poly⟩
 
-
-
 axiom LMFDB_NF_2_2_229_1_discr : NumberField.discr K_2_2_229_1 = 229
 
 axiom LMFDB_NF_2_2_229_1_isGalois : IsGalois ℚ K_2_2_229_1
 
 axiom LMFDB_NF_2_2_229_1_classNumber : NumberField.classNumber K_2_2_229_1 = 3
-
 
 end

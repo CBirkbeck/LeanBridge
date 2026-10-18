@@ -23,7 +23,6 @@ namespace LeanBridge.QExpansion
 open ModularForm EisensteinSeries PowerSeries UpperHalfPlane
 open scoped MatrixGroups
 
-
 /-- Minimal polynomial of α (degree 5) as `Polynomial ℂ`. -/
 noncomputable def α_60_minpoly : Polynomial ℂ :=
   Polynomial.X ^ 5 +
@@ -66,9 +65,7 @@ lemma α_60_is_root :
     Polynomial.eval_C, Polynomial.eval_X] at h
   linear_combination h
 
-
 /-! ## Piece 0: coefficient of α^0 -/
-
 
 def f_60_part_0_polyData : List (ℕ × ℕ × ℚ) :=
   [(0, 10, (5185148146054337089929901799 / 76320863395569936138240)), (3, 8, ((-(5825514192155339176487187803 / 15264172679113987227648)))), (6, 6, (6684736484409042545356820879 / 7632086339556993613824)), (9, 4, ((-(7762815030115298296134369443 / 7632086339556993613824)))), (12, 2, (9059749827740524265039251895 / 15264172679113987227648)), (15, 0, ((-(10575540866917705024914736619 / 76320863395569936138240))))]
@@ -122,9 +119,7 @@ theorem f_60_part_0_qExpansion_coeff (N n : ℕ) (hn : n < N) :
       = ((evalEisList f_60_part_0_polyData N).getD n 0 : ℚ) :=
   qexp_coeff_via_E4E6 _ _ f_60_part_0_qExpansion_eq_evalEisPS N n hn
 
-
 /-! ## Piece 1: coefficient of α^1 -/
-
 
 def f_60_part_1_polyData : List (ℕ × ℕ × ℚ) :=
   [(0, 10, (365482671337002988925 / 27787578352733729637531648)), (3, 8, ((-(504844818195162827917 / 27787578352733729637531648)))), (6, 6, (21500617278330743353 / 13893789176366864818765824)), (9, 4, ((-(372727752050929607797 / 13893789176366864818765824)))), (12, 2, (1553873220629370338113 / 27787578352733729637531648)), (15, 0, ((-(712056804226012770233 / 27787578352733729637531648))))]
@@ -178,9 +173,7 @@ theorem f_60_part_1_qExpansion_coeff (N n : ℕ) (hn : n < N) :
       = ((evalEisList f_60_part_1_polyData N).getD n 0 : ℚ) :=
   qexp_coeff_via_E4E6 _ _ f_60_part_1_qExpansion_eq_evalEisPS N n hn
 
-
 /-! ## Piece 2: coefficient of α^2 -/
-
 
 def f_60_part_2_polyData : List (ℕ × ℕ × ℚ) :=
   [(0, 10, ((-(14832138603393380713 / 46096257977782929421108500234240)))), (3, 8, (15201380199242427493 / 9219251595556585884221700046848)), (6, 6, ((-(15990469472602824817 / 4609625797778292942110850023424)))), (9, 4, (17199406423474572685 / 4609625797778292942110850023424)), (12, 2, ((-(18828191051857671097 / 9219251595556585884221700046848)))), (15, 0, (20876823357752120053 / 46096257977782929421108500234240))]
@@ -234,9 +227,7 @@ theorem f_60_part_2_qExpansion_coeff (N n : ℕ) (hn : n < N) :
       = ((evalEisList f_60_part_2_polyData N).getD n 0 : ℚ) :=
   qexp_coeff_via_E4E6 _ _ f_60_part_2_qExpansion_eq_evalEisPS N n hn
 
-
 /-! ## Piece 3: coefficient of α^3 -/
-
 
 def f_60_part_3_polyData : List (ℕ × ℕ × ℚ) :=
   [(0, 10, (951292525 / 37462355689880729942234209714176)), (3, 8, ((-(42473954987 / 262236489829165109595639467999232)))), (6, 6, (45855587423 / 131118244914582554797819733999616)), (9, 4, ((-(365043157 / 1101833990878844998301006168064)))), (12, 2, (2072211751 / 15425675872303829976214086352896)), (15, 0, ((-(4243595935 / 262236489829165109595639467999232))))]
@@ -290,9 +281,7 @@ theorem f_60_part_3_qExpansion_coeff (N n : ℕ) (hn : n < N) :
       = ((evalEisList f_60_part_3_polyData N).getD n 0 : ℚ) :=
   qexp_coeff_via_E4E6 _ _ f_60_part_3_qExpansion_eq_evalEisPS N n hn
 
-
 /-! ## Piece 4: coefficient of α^4 -/
-
 
 def f_60_part_4_polyData : List (ℕ × ℕ × ℚ) :=
   [(0, 10, (149173 / 849646227046494955089871876317511680)), (3, 8, ((-(144385 / 169929245409298991017974375263502336)))), (6, 6, (142621 / 84964622704649495508987187631751168)), (9, 4, ((-(143881 / 84964622704649495508987187631751168)))), (12, 2, (148165 / 169929245409298991017974375263502336)), (15, 0, ((-(155473 / 849646227046494955089871876317511680))))]
@@ -346,9 +335,7 @@ theorem f_60_part_4_qExpansion_coeff (N n : ℕ) (hn : n < N) :
       = ((evalEisList f_60_part_4_polyData N).getD n 0 : ℚ) :=
   qexp_coeff_via_E4E6 _ _ f_60_part_4_qExpansion_eq_evalEisPS N n hn
 
-
 /-! ## Combined LMFDB form -/
-
 
 noncomputable def lmfdb_1_60_a_orbit : ModularForm 𝒮ℒ 60 :=
   f_60_part_0 +
@@ -383,9 +370,7 @@ lemma lmfdb_1_60_a_orbit_coeff_decomp (n : ℕ) :
     ModularForm.qExpansion_smul one_pos one_mem_strictPeriods_SL]
   simp [smul_eq_mul]
 
-
 /-! ## Sturm-bound coefficient lemmas (n = 0, …, 5) -/
-
 
 lemma lmfdb_1_60_a_orbit_qExpansion_coeff_0 :
     (PowerSeries.coeff (R := ℂ) 0)
@@ -483,9 +468,7 @@ lemma lmfdb_1_60_a_orbit_qExpansion_coeff_5 :
     show (evalEisList f_60_part_4_polyData 6).getD 5 0 = (((-(175863 / 65359038803775324160))) : ℚ) from by decide +kernel]
   push_cast; ring
 
-
 /-! ## Uniqueness theorem -/
-
 
 /-- **Uniqueness theorem.** Any level-1 weight-60 modular form `f` whose first 6
 q-coefficients match the LMFDB-published values for `1.60.a.{a..}` is equal to our
@@ -508,6 +491,5 @@ theorem identifies_lmfdb_1_60_a_orbit (f : ModularForm 𝒮ℒ 60)
   · rw [h_3, lmfdb_1_60_a_orbit_qExpansion_coeff_3]
   · rw [h_4, lmfdb_1_60_a_orbit_qExpansion_coeff_4]
   · rw [h_5, lmfdb_1_60_a_orbit_qExpansion_coeff_5]
-
 
 end LeanBridge.QExpansion
