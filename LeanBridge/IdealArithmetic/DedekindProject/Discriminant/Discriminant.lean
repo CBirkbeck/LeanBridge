@@ -75,7 +75,7 @@ theorem resultant_map_injective {S R : Type*} [CommRing R] [CommRing S] {φ : R 
   rw [Polynomial.natDegree_map_eq_of_injective hφ]
   rw [Polynomial.natDegree_map_eq_of_injective hφ]
 
-lemma Polynomial.discr_def {R : Type*} [CommRing R] [IsAddTorsionFree R]
+lemma Polynomial.discr_def {R : Type*} [CommRing R] [HasUniqueDiv R]
     (f : R[X]) (hf : natDegree f ≠ 0) :
     f.leadingCoeff * discr f =
       (-1) ^ (f.natDegree * (f.natDegree - 1) / 2) * resultant f (derivative f) := by
@@ -87,14 +87,14 @@ lemma Polynomial.discr_def {R : Type*} [CommRing R] [IsAddTorsionFree R]
   · rw [← sq, ← pow_mul]
     simp only [even_two, Even.mul_left, Even.neg_pow, one_pow]
   · exact (Polynomial.natDegree_eq_of_degree_eq_some
-      (Polynomial.degree_derivative_eq f (by omega) )).symm
+      (Polynomial.degree_derivative hf)).symm
   · rw [← Polynomial.natDegree_pos_iff_degree_pos]
     omega
   · refine IsUnit.mul_right_injective (M := R) ?_
     refine IsUnit.pow  (n := (f.natDegree * (f.natDegree - 1) / 2) ) ?_
     simp only [IsUnit.neg_iff, isUnit_one]
 
-/-  We don't require the `[IsAddTorsionFree R]` if the
+/-  We don't require the `[HasUniqueDiv R]` if the
   degree of the derivative of `f` equals `n-1`. -/
 lemma Polynomial.discr_def' {R : Type*} [CommRing R]
     (f : R[X]) (hf : natDegree f ≠ 0)
@@ -117,7 +117,7 @@ lemma Polynomial.discr_def' {R : Type*} [CommRing R]
 
 @[simp]
 theorem discriminant_map' {R : Type*} [CommRing R]
-  [IsAddTorsionFree R] {S : Type*} [CommRing S] [IsDomain S] [IsAddTorsionFree S] (φ : R →+* S)
+  [HasUniqueDiv R] {S : Type*} [CommRing S] [IsDomain S] [HasUniqueDiv S] (φ : R →+* S)
     (hφ : Function.Injective φ) (f : R[X]) :
     discr (f.map φ) = φ (discr f) := by
   by_cases hf0 : f.natDegree = 0
@@ -185,7 +185,7 @@ theorem discriminant_map {K : Type*} [Field K] [CharZero K] {L : Type*}
   · apply RingHom.injective
   · rwa [natDegree_map]
 
-lemma Monic.discr_def {R : Type*} [CommRing R]  [IsAddTorsionFree R] (f : R[X]) (hf : Monic f) :
+lemma Monic.discr_def {R : Type*} [CommRing R]  [HasUniqueDiv R] (f : R[X]) (hf : Monic f) :
     discr f = (-1) ^ (f.natDegree * (f.natDegree - 1) / 2) * resultant f (derivative f) := by
   by_cases hf0 : natDegree f = 0
   · obtain ⟨r, hr⟩ := Polynomial.natDegree_eq_zero.1 hf0

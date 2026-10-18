@@ -633,7 +633,7 @@ inductive IdealMulLeChainCertificate {R : Type*} [CommRing R] {r m : ℕ}
     IdealMulLeCertificate' T v uu w → IdealMulLeChainCertificate T u w
 
 /-- The intermediate ideals corresponding to a chain. -/
-def IdealMulChainCertificate.Ideals [Algebra R O] {r m s : ℕ}
+noncomputable def IdealMulChainCertificate.Ideals [Algebra R O] {r m s : ℕ}
     (TT  : TimesTable (Fin r) R O)
     {T : Fin r → Fin r → List R} {u : Fin m → Fin r → R} {w : Fin s → Fin r → R} :
     (A : IdealMulChainCertificate T u w) → List (Ideal O)
@@ -641,7 +641,7 @@ def IdealMulChainCertificate.Ideals [Algebra R O] {r m s : ℕ}
   | cons (uu := uu) B _ => (B.Ideals TT) ++ [(Ideal.span (Set.range (fun i => (TT.basis).equivFun.symm (uu i))))]
 
 /-- The intermediate ideals corresponding to a chain. -/
-def IdealMulLeChainCertificate.Ideals [Algebra R O] {r m s : ℕ}
+noncomputable def IdealMulLeChainCertificate.Ideals [Algebra R O] {r m s : ℕ}
     (TT  : TimesTable (Fin r) R O)
     {T : Fin r → Fin r → List R} {u : Fin m → Fin r → R} {w : Fin s → Fin r → R} :
     (A : IdealMulLeChainCertificate T u w) → List (Ideal O)

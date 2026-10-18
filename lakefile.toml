@@ -13,12 +13,12 @@ git = "https://github.com/PatrickMassot/checkdecls.git"
 [[require]]
 name = "«doc-gen4»"
 git = "https://github.com/leanprover/doc-gen4"
-rev = "v4.35.0-rc3"
+rev = "v4.35.0"
 
 [[require]]
 name = "TauCeti"
 git = "https://github.com/TauCetiProject/TauCeti"
-rev = "main"
+rev = "1f9b4414105d86e487a4ac4c3d3397076a44d0d2"
 
 # Tau Ceti builds with `warningAsError`, so mathlib must be pinned to exactly the commit in Tau Ceti's
 # `lake-manifest.json` (and `lean-toolchain` must match Tau Ceti's): bump all three together.
@@ -26,7 +26,7 @@ rev = "main"
 [[require]]
 name = "mathlib"
 git = "https://github.com/leanprover-community/mathlib4.git"
-rev = "3b531c35df33d6bbe64b4e87dec056211d3a5676"
+rev = "074063781836922cb02701cd12943c9f51731afa"
 
 [[lean_lib]]
 name = "LeanBridge"

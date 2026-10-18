@@ -343,7 +343,7 @@ lemma nat_up_to_p_power_iff_int_up_to_p_power {S ι : Type*} [CommRing S]
   proving that there exists a linear combination of the elements in `v` where at least one
   coefficient is not divisible by a prime `p`. -/
 lemma linearIndependent_int_iff_no_common_divisor {M ι R: Type*} [AddCommGroup M]
-  [CommRing R] [IsDomain R] [WfDvdMonoid R] [Module R M] [NoZeroSMulDivisors R M]
+  [CommRing R] [IsDomain R] [WfDvdMonoid R] [Module R M] [Module.IsTorsionFree R M]
   {p : R} (hp : Prime p) (v : ι → M) : ¬ LinearIndependent R v ↔
     ∃ (s : Finset ι) (g : ι → R), (∃ i ∈ s, ¬ p ∣ (g i)) ∧ ∑ i ∈ s, g i • v i = 0  := by
   by_cases hnnempty : Nonempty ι

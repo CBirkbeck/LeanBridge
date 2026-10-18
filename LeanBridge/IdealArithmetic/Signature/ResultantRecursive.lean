@@ -376,7 +376,7 @@ theorem resultant_eq_ResultantOfPRemainder_of_SturmBuilderOfList {R : Type*} [Co
 /-- Should be able to get rid of the no smul divisors with ℕ. -/
 theorem discriminant_eq_DiscriminantOfPRemainder_of_SturmBuilderOfList
     {R : Type*} [CommRing R] [IsDomain R] [Div R] [MulDivCancelClass R]
-    [IsAddTorsionFree R] [LinearOrder R] [Inhabited R] {P : List (List R)} {p : List R}
+    [HasUniqueDiv R] [LinearOrder R] [Inhabited R] {P : List (List R)} {p : List R}
     (h : SturmBuilderOfList P p (List.derivative p).dropTrailingZeros) :
       discr (ofList p) = DiscriminantOfPRemainder P h.e h.f := by
   have := h.hlen

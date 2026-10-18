@@ -199,7 +199,7 @@ lemma subalgebra_le_multiplierRing {O : Subalgebra R K} (I : Ideal O) :
 `R`-subalgebra consisting of the elements `x` in `Om` such that
    `α ^ j • x` is in `O` for some nonnegative integer `j`· -/
 def overRing {O : Subalgebra R K} (α : R) {Om : Subalgebra R K} (_ : O ≤ Om) : Subalgebra R K where
-  carrier := fun (x : K) => x ∈ Om ∧ ∃ (j : ℕ) , α ^ j • x ∈ O
+  carrier := {x : K | x ∈ Om ∧ ∃ (j : ℕ) , α ^ j • x ∈ O}
   mul_mem' := by
     rintro a b ⟨ ha, ⟨ j,hj ⟩ ⟩ ⟨ hb, ⟨ j',hj' ⟩ ⟩
     constructor
