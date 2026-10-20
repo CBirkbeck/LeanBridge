@@ -108,8 +108,9 @@ it uses the same toolchain. To check that the site builds, run `lake exe cache g
 
 - [`LeanBridge.lean`](LeanBridge.lean): the root import of the library. Its header lists the Tau Ceti
   declarations that LeanBridge uses for LMFDB elliptic-curve knowls instead of its own copies.
-- [`LeanBridge/ForMathlib`](LeanBridge/ForMathlib): declarations that belong in Mathlib, laid out as
-  Mathlib's own directories.
+- [`LeanBridge/ForMathlib`](LeanBridge/ForMathlib): formalisations of the blueprint's LMFDB knowls on
+  top of Mathlib and Tau Ceti, laid out as Mathlib's own directories. Each declaration's docstring
+  names its knowl, and `blueprint/src/lean_links.json` links the knowls to them.
 - [`LeanBridge/LMFDB`](LeanBridge/LMFDB): LMFDB-specific material: certificates for LMFDB number
   fields and level-one newforms, and tactics that query the LMFDB.
 - [`LeanBridge/IdealArithmetic`](LeanBridge/IdealArithmetic): vendored from CertifyingInvariantsNF:
