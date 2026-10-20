@@ -1,0 +1,14 @@
+# Lake configuration that adds Tau Ceti's public build cache. With it, Tau Ceti modules are fetched
+# instead of built from source:
+#   LAKE_CONFIG=scripts/tauceti-cache.toml lake cache get --service tauceti-public \
+#     --repo TauCetiProject/TauCeti --package TauCeti --mappings-only
+#   LAKE_CONFIG=scripts/tauceti-cache.toml lake build
+# `--mappings-only` downloads only the input-to-output mappings; the build then fetches the outputs
+# of the Tau Ceti modules it needs. Modules missing from the cache are built as usual.
+cache.defaultService = "tauceti-public"
+
+[[cache.service]]
+name = "tauceti-public"
+kind = "s3"
+artifactEndpoint = "https://cache.taucetiproject.org/artifacts"
+revisionEndpoint = "https://cache.taucetiproject.org/revisions"

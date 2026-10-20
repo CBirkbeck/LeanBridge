@@ -65,17 +65,21 @@ open a PR.
    [Lean installation guide](https://leanprover-community.github.io/get_started.html), and clone
    this repository.
 
-1. Download Mathlib's compiled files, then build:
+1. Download Mathlib's and Tau Ceti's compiled files, then build:
 
    ```bash
    lake exe cache get
+   export LAKE_CONFIG=$PWD/scripts/tauceti-cache.toml
+   lake cache get --service tauceti-public --repo TauCetiProject/TauCeti --package TauCeti --mappings-only
    lake build
    ```
 
    `lake build` builds [`LeanBridge.lean`](LeanBridge.lean), a curated import of the library. To
    build every hand-written module, as CI does, run `./scripts/build-modules.sh`; it leaves out the
    generated level-one certificates, the `lookup` demo (which queries the LMFDB over the network)
-   and one experiment. The first build also compiles the parts of Tau Ceti that LeanBridge imports.
+   and one experiment. With `LAKE_CONFIG` set to
+   [`scripts/tauceti-cache.toml`](scripts/tauceti-cache.toml), the build fetches the Tau Ceti
+   modules that LeanBridge imports from Tau Ceti's public cache instead of compiling them.
 
 ## Updating the blueprint
 
@@ -123,8 +127,8 @@ it uses the same toolchain. To check that the site builds, run `lake exe cache g
   and `edges.txt`, and `lean_links.json`.
 - [`blueprint-verso`](blueprint-verso): the Verso blueprint project, which depends on LeanBridge for
   its links to Lean declarations.
-- [`scripts`](scripts): `build-modules.sh`, and the Sage scripts that generate the level-one
-  certificates.
+- [`scripts`](scripts): `build-modules.sh`, `tauceti-cache.toml` (Tau Ceti's public build cache, for
+  `LAKE_CONFIG`), and the Sage scripts that generate the level-one certificates.
 - [`widget`](widget): the JavaScript of the LMFDB search widget.
 - [`home_page`](home_page): the Jekyll home page of the old LaTeX blueprint site, no longer
   deployed.

@@ -1,8 +1,9 @@
 name: Build LeanBridge
 
 # Builds every hand-written Lean module with `scripts/build-modules.sh`; see that script for what
-# it leaves out. Mathlib comes from its cache; Tau Ceti's and LeanBridge's own build outputs are
-# kept in the Actions cache between runs.
+# it leaves out. Mathlib comes from its cache and Tau Ceti from Tau Ceti's public cache
+# (`scripts/tauceti-cache.toml`); Tau Ceti's and LeanBridge's own build outputs are also kept in
+# the Actions cache between runs.
 
 on:
   push:
@@ -14,6 +15,7 @@ on:
       - 'lakefile.toml'
       - 'lake-manifest.json'
       - 'scripts/build-modules.sh'
+      - 'scripts/tauceti-cache.toml'
       - '.github/workflows/build.yml'
   pull_request:
     branches: [main]
@@ -24,6 +26,7 @@ on:
       - 'lakefile.toml'
       - 'lake-manifest.json'
       - 'scripts/build-modules.sh'
+      - 'scripts/tauceti-cache.toml'
       - '.github/workflows/build.yml'
   workflow_dispatch:
 
@@ -55,7 +58,18 @@ jobs:
             .lake/build
           key: lake-build-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-${{ github.sha }}
           restore-keys: lake-build-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-
+      # Only the mappings: the build then fetches the Tau Ceti modules it needs. If the cache is
+      # unreachable, the build falls back to building Tau Ceti from source.
+      - name: Fetch Tau Ceti's cache mappings
+        continue-on-error: true
+        env:
+          LAKE_CONFIG: ${{ github.workspace }}/scripts/tauceti-cache.toml
+        run: >-
+          lake cache get --service tauceti-public --repo TauCetiProject/TauCeti --package TauCeti
+          --mappings-only
       - name: Build
+        env:
+          LAKE_CONFIG: ${{ github.workspace }}/scripts/tauceti-cache.toml
         run: ./scripts/build-modules.sh
       - name: Save Tau Ceti and LeanBridge build outputs
         if: ${{ !cancelled() && github.ref == 'refs/heads/main' }}
