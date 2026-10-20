@@ -99,14 +99,14 @@ python blueprint-verso/scripts/convert_knowls.py
 `auto_*.tex` chapter lists. `convert_knowls.py` turns these into the chapters in
 [`blueprint-verso/LeanBridgeBlueprint/Chapters`](blueprint-verso/LeanBridgeBlueprint/Chapters).
 
-Each chapter entry links its Lean declarations with `(lean := ...)`: the Mathlib declarations that the
-knowl records with `DEFINES(..., mathlib=...)`, followed by the Tau Ceti and LeanBridge declarations
-listed for it in [`blueprint/src/lean_links.json`](blueprint/src/lean_links.json) (knowls can only
-link Mathlib). That file maps each knowl to `{declaration: module}`; the converter imports the
-modules into the generated `Prelude.lean`. For this the blueprint project depends on LeanBridge, so
-it uses the same toolchain. To check that the site builds, run `lake exe cache get` and then
-`./scripts/ci-pages.sh` in `blueprint-verso/`; the site is written to
-`blueprint-verso/_out/site/html-multi/`.
+Each chapter entry links its Lean declarations with `(lean := ...)`: the Mathlib declarations that
+the knowl records with `DEFINES(..., mathlib=...)`, followed by the declarations listed for it in
+[`blueprint/src/lean_links.json`](blueprint/src/lean_links.json): Tau Ceti and LeanBridge ones,
+which knowls cannot link, and Mathlib ones for knowls that do not record them yet. That file maps
+each knowl to `{declaration: module}`; the converter imports the modules into the generated
+`Prelude.lean`. For this the blueprint project depends on LeanBridge, so it uses the same toolchain.
+To check that the site builds, run `lake exe cache get` and then `./scripts/ci-pages.sh` in
+`blueprint-verso/`; the site is written to `blueprint-verso/_out/site/html-multi/`.
 
 ## Repository layout
 

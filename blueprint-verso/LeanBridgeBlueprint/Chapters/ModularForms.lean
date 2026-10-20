@@ -11,7 +11,7 @@ open Informal
 
 This chapter lists the LMFDB definitions relating to *modular forms*, migrated from the LaTeX blueprint. Each definition links back to its LMFDB knowl.
 
-:::definition "cmf"
+:::definition "cmf" (lean := "ModularForm, SlashInvariantForm.slash_action_eqn'")
 *Classical modular form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf))
 
 Let $`k` be a positive integer and let $`\Gamma` be a finite index subgroup of the {bpref "group.sl2z"}[modular group] $`\SL(2,\Z)`.
@@ -107,7 +107,7 @@ In the case $`Q=N`, the Atkin-Lehner involution $`w_N` is also called the {bpref
 Depends on: {uses "cmf.cusp_form"}[] {uses "cmf.hecke_operator"}[] {uses "cmf.weight"}[]
 :::
 
-:::definition "cmf.bad_prime"
+:::definition "cmf.bad_prime" (lean := "Nat.primeFactors, Nat.mem_primeFactors, CongruenceSubgroup.Gamma")
 *Bad prime.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.bad_prime))
 
 A *bad prime* for a {bpref "cmf"}[modular form] $`f` is a prime dividing the {bpref "cmf.level"}[level] of $`f`.
@@ -163,7 +163,7 @@ Depends on: {uses "cmf"}[] {uses "cmf.coefficient_field"}[] {uses "cmf.hecke_ope
 A *congruence subgroup* $`\Gamma` of $`\SL_2(\Z)` is a subgroup that contains a *principal congruence subgroup* $`\Gamma(N) := \ker \left( \operatorname{SL}_2(\mathbb{Z}) \to \operatorname{SL}_2(\mathbb{Z}/N\mathbb{Z}) \right)` for some $`N\ge 1`.  The least such $`N` is the *level* of $`\Gamma`.
 :::
 
-:::definition "cmf.cusp_form"
+:::definition "cmf.cusp_form" (lean := "CuspForm, ModularForm.cuspFormSubmodule, CuspFormClass.qExpansion_coeff_zero")
 *Cuspidal modular form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.cusp_form))
 
 Let $`k` be a positive integer and let $`\Gamma` be a finite index subgroup of the {bpref "group.sl2z"}[modular group] $`\SL(2,\Z)`.
@@ -383,7 +383,7 @@ The *label* complex embedded holomorphic {bpref "cmf.cusp_form"}[cusp form] $`f`
 Depends on: {uses "character.dirichlet.galois_orbit_label"}[] {uses "cmf.cusp_form"}[] {uses "cmf.embedding"}[] {uses "cmf.level"}[] {uses "cmf.weight"}[]
 :::
 
-:::definition "cmf.eta_quotient"
+:::definition "cmf.eta_quotient" (lean := "ModularForm.eta, ModularForm.eta_ne_zero")
 *Eta quotient.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.eta_quotient))
 
 An *eta quotient* is any function $`f` of the form
@@ -397,7 +397,7 @@ An *eta product* is an eta quotient in which all the $`r_i` are non-negative.
 Depends on: {uses "mf.half_integral_weight.dedekind_eta"}[]
 :::
 
-:::definition "cmf.fouriercoefficients"
+:::definition "cmf.fouriercoefficients" (lean := "UpperHalfPlane.qExpansion, PowerSeries.coeff, UpperHalfPlane.hasSum_qExpansion, UpperHalfPlane.cuspFunction, Subgroup.strictWidthInfty")
 *Fourier coefficients of a modular form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.fouriercoefficients))
 
 Let $`f` be a {bpref "cmf"}[modular form] on a finite index subgroup $`\Gamma` of $`\SL_2(\Z)`,

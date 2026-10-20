@@ -1387,7 +1387,7 @@ The product of the Tamagawa numbers over all primes is a positive integer known 
 Depends on: {uses "ec"}[] {uses "ec.good_reduction"}[] {uses "nf"}[]
 :::
 
-:::definition "ec.torsion_order"
+:::definition "ec.torsion_order" (lean := "AddCommGroup.torsion, Nat.card, WeierstrassCurve.Affine.finite_torsion, WeierstrassCurve.Affine.Point")
 *Torsion order of an elliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.torsion_order))
 
 The *torsion order* of an {bpref "ec"}[elliptic curve] $`E` over a field $`K` is the order of the {bpref "ec.torsion_subgroup"}[torsion subgroup] $`E(K)_{\text{tor}}` of its {bpref "ec.mordell_weil_group"}[Mordell-Weil group] E(K).

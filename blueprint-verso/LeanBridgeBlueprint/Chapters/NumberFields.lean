@@ -19,7 +19,7 @@ A *number field* is a field extension of finite {bpref "nf.degree"}[degree] of t
 Depends on: {uses "nf.degree"}[]
 :::
 
-:::definition "nf.abelian"
+:::definition "nf.abelian" (lean := "IsAbelianGalois")
 *Abelian number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.abelian))
 
 A {bpref "nf"}[number field] $`K` is *abelian* if it is Galois over $`\Q` and its {bpref "nf.galois_group"}[Galois group] $`\Gal(K/\Q)` is abelian.
@@ -51,7 +51,7 @@ Absolute values that satisfy the stronger condition $`|x+y|\le \max(|x|,|y|)` ar
 Absolute values $`|\ |_1` and $`|\ |_2` are *equivalent* if there exists a positive real number $`c` such that $`|x|_1 = |x|_2^c` for all $`x\in k`; this defines an equivalence relation on the set of absolute values of $`k`.
 :::
 
-:::definition "nf.arithmetically_equivalent"
+:::definition "nf.arithmetically_equivalent" (lean := "NumberField.dedekindZeta")
 *Arithmetically equivalent fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.arithmetically_equivalent))
 
 Two {bpref "nf"}[number fields] are *arithmetically equivalent* if they have the same Dedekind $`\zeta`-functions. Arithmetically equivalent fields share many invariants, such as their {bpref "nf.degree"}[degrees], {bpref "nf.signature"}[signatures], {bpref "nf.discriminant"}[discriminants], and {bpref "nf.galois_group"}[Galois groups].  For a given field, the existence of an arithmetically equivalent {bpref "nf.sibling"}[sibling] depends only on the Galois group.
@@ -77,7 +77,7 @@ $$`\lim_{s\to 1}\ (s-1)\zeta_K(s) = \frac{2^{r_1}\cdot (2\pi)^{r_2}\cdot R\cdot 
 Depends on: {uses "nf"}[] {uses "nf.class_number"}[] {uses "nf.discriminant"}[] {uses "nf.regulator"}[] {uses "nf.signature"}[]
 :::
 
-:::definition "nf.cm_field"
+:::definition "nf.cm_field" (lean := "NumberField.IsCMField, NumberField.IsCMField.ofCMExtension, NumberField.isTotallyReal_maximalRealSubfield")
 *CM number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.cm_field))
 
 A *CM field* is a {bpref "nf.totally_imaginary"}[totally complex] quadratic extension of a {bpref "nf.totally_real"}[totally real] {bpref "nf"}[number field].
@@ -85,7 +85,7 @@ A *CM field* is a {bpref "nf.totally_imaginary"}[totally complex] quadratic exte
 Depends on: {uses "nf"}[] {uses "nf.totally_imaginary"}[] {uses "nf.totally_real"}[]
 :::
 
-:::definition "nf.complex_embedding"
+:::definition "nf.complex_embedding" (lean := "NumberField.ComplexEmbedding.IsReal, NumberField.ComplexEmbedding.conjugate, NumberField.InfinitePlace.card_complex_embeddings")
 *Complex embedding.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.complex_embedding))
 
 A *complex embedding* of a {bpref "nf"}[number field] $`K` is a nonzero field homomorphism $`K\to \C` whose image is not contained in $`\R`.
@@ -105,7 +105,7 @@ If a {bpref "nf"}[number field] $`K` is {bpref "nf.abelian"}[abelian], then $`K\
 Depends on: {uses "nf"}[] {uses "nf.abelian"}[]
 :::
 
-:::definition "nf.defining_polynomial"
+:::definition "nf.defining_polynomial" (lean := "IsAdjoinRoot, AdjoinRoot, IntermediateField.adjoinRootEquivAdjoin")
 *Defining Polynomial of a Number Field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.defining_polynomial))
 
 A *defining polynomial* of a {bpref "nf"}[number field] $`K` is an irreducible polynomial $`f\in\Q[x]` such that $`K\cong \mathbb{Q}(a)`, where $`a` is a root of $`f(x)`. Equivalently, it is a polynomial $`f\in \Q[x]` such that $`K \cong \Q[x]/(f)`.
@@ -115,7 +115,7 @@ A root $`a \in K` of the defining polynomial is a {bpref "nf.generator"}[generat
 Depends on: {uses "nf"}[]
 :::
 
-:::definition "nf.degree"
+:::definition "nf.degree" (lean := "Module.finrank")
 *Degree of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.degree))
 
 The *degree* of a {bpref "nf"}[number field] $`K` is its degree as an extension of the rational field $`\mathbb{Q}`, i.e., the dimension of $`K` as a $`\mathbb{Q}`-vector space.  The degree of $`K/\Q` is written $`[K:\mathbb{Q}]`.
@@ -165,7 +165,7 @@ If $`K/F` is a finite algebraic extension, it can be defined by a polynomial $`f
 If $`n=[K:F]`, then the Galois group $`G` for $`K/F` is a subgroup of $`S_n`, well-defined up to conjugation.  The discriminant root field can alternatively be described as the fixed field of $`G\cap A_n`.
 :::
 
-:::definition "nf.embedding"
+:::definition "nf.embedding" (lean := "RingHom, NumberField.Embeddings.card, NumberField.ComplexEmbedding.IsReal, NumberField.Embeddings.range_eval_eq_rootSet_minpoly")
 *Embedding of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.embedding))
 
 An *embedding* of a {bpref "nf"}[number field] $`K` is a field homomorphism $`K\to \C`.  A number field of {bpref "nf.degree"}[degree] $`n` has $`n` distinct embeddings, which may be distinguished as {bpref "nf.real_embedding"}[real] or {bpref "nf.complex_embedding"}[complex] depending on whether the image of the embedding is contained in $`\R` or not.
@@ -192,7 +192,7 @@ of $`G` that fixes $`P_i` and acts on the quotient $`\mathcal{O}_K/P_i` via the 
 Alternatively, for each prime $`P_i`, its *residue degree* $`f_i` is defined by $`|\mathcal{O}_K/P_i| = p^{f_i}`.  The list of $`f_i` is the same partition of $`n` as the cycle decomposition described above.
 :::
 
-:::definition "nf.fundamental_units"
+:::definition "nf.fundamental_units" (lean := "NumberField.Units.fundSystem, NumberField.Units.basisModTorsion, NumberField.Units.exist_unique_eq_mul_prod")
 *Fundamental units of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.fundamental_units))
 
 A minimal set of generators of a maximal torsion-free subgroup of the {bpref "nf.unit_group"}[unit group] of a {bpref "nf"}[number field] $`K` is called a set of *fundamental units* for $`K`.
@@ -200,7 +200,7 @@ A minimal set of generators of a maximal torsion-free subgroup of the {bpref "nf
 Depends on: {uses "nf"}[] {uses "nf.unit_group"}[]
 :::
 
-:::definition "nf.galois_closure"
+:::definition "nf.galois_closure" (lean := "IntermediateField.normalClosure, IsNormalClosure, IsGalois.normalClosure_of_isSeparable, IntermediateField.normalClosure_le_iff_of_normal")
 *Galois closure of an extension.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.galois_closure))
 
 If $`K` is a {bpref "nf.separable"}[separable] algebraic extension of a field $`F`, then its *Galois closure* is the smallest extension field, in terms of inclusion, which contains $`K` and is Galois over $`F`.  If $`K=F(\alpha)` where $`\alpha` has irreducible polynomial $`f` over $`F`, then the Galois closure of $`K` is the splitting field of $`f` over $`F`.
@@ -208,7 +208,7 @@ If $`K` is a {bpref "nf.separable"}[separable] algebraic extension of a field $`
 Depends on: {uses "nf.separable"}[]
 :::
 
-:::definition "nf.galois_group"
+:::definition "nf.galois_group" (lean := "Polynomial.Gal, Polynomial.Gal.galActionHom, Polynomial.Gal.galActionHom_injective, TauCeti.galEquivNormalClosure")
 *Galois group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.galois_group))
 
 Let $`K` be a finite {bpref "nf.degree"}[degree] $`n` {bpref "nf.separable"}[separable extension] of a {bpref "ring.field"}[field] $`F`, and $`K^{gal}` be its
@@ -224,7 +224,7 @@ There is a naming convention for Galois groups up to degree $`47`.
 Depends on: {uses "lf.automorphism_group"}[] {uses "nf.degree"}[] {uses "nf.galois_closure"}[] {uses "nf.separable"}[] {uses "ring.field"}[]
 :::
 
-:::definition "nf.galois_root_discriminant"
+:::definition "nf.galois_root_discriminant" (lean := "NumberField.rootDiscr, IntermediateField.normalClosure, IsNormalClosure")
 *Galois root discriminant.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.galois_root_discriminant))
 
 The *Galois root discriminant* of a {bpref "nf"}[number field] is the {bpref "nf.root_discriminant"}[root discriminant] of its {bpref "nf.galois_closure"}[Galois closure].
@@ -232,7 +232,7 @@ The *Galois root discriminant* of a {bpref "nf"}[number field] is the {bpref "nf
 Depends on: {uses "nf"}[] {uses "nf.galois_closure"}[] {uses "nf.root_discriminant"}[]
 :::
 
-:::definition "nf.generator"
+:::definition "nf.generator" (lean := "IntermediateField.adjoin, IntermediateField.adjoinRootEquivAdjoin, Field.exists_primitive_element")
 *Generator of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.generator))
 
 A *generator* of a {bpref "nf"}[number field] $`K` is an element $`a\in K` such that $`K=\Q(a)`.
@@ -297,7 +297,7 @@ An *inessential prime* of a {bpref "nf"}[number field] is a prime divisor of its
 Depends on: {uses "nf"}[] {uses "nf.zk_index"}[]
 :::
 
-:::definition "nf.integral"
+:::definition "nf.integral" (lean := "IsIntegral")
 *Integral elements.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.integral))
 
 An element of a {bpref "nf"}[number field] $`K` is *integral* if it is {bpref "ring.integral"}[integral] over $`\Z`.
@@ -313,13 +313,13 @@ An *integral basis* of a {bpref "nf"}[number field] $`K` is a $`\mathbb{Z}`-basi
 Depends on: {uses "nf"}[] {uses "nf.ring_of_integers"}[]
 :::
 
-:::definition "nf.intermediate_fields"
+:::definition "nf.intermediate_fields" (lean := "IntermediateField")
 *Intermediate fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.intermediate_fields))
 
 For a number field $`K`, *intermediate fields* $`F` are fields with $`\Q\subsetneqq F \subsetneqq K`.
 :::
 
-:::definition "nf.is_galois"
+:::definition "nf.is_galois" (lean := "IsGalois, IsGalois.tfae")
 *Is a Galois extension.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.is_galois))
 
 Let $`F` be a subfield of $`K`,
@@ -333,7 +333,7 @@ $$`K^{\Aut(K/F)} = \{ a\in K \mid \sigma(a)=a\}.`
 Then $`K` is *Galois* over $`F` if $`K^{\Aut(K/F)} = F`.
 :::
 
-:::definition "nf.local_algebra"
+:::definition "nf.local_algebra" (lean := "TensorProduct, Padic, Algebra.Etale.baseChange, Algebra.Etale.iff_exists_algEquiv_prod")
 *Local algebra.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.local_algebra))
 
 Given a global {bpref "nf"}[number field] $`K` and a prime $`p`, the *local algebra* for $`K` is $`K\otimes \Q_p`.  This is a finite {bpref "nf.separable_algebra"}[separable algebra] over $`\Q_p` which is isomorphic to a finite direct product of finite extension fields of $`\Q_p`.
@@ -357,7 +357,7 @@ The *maximal CM subfield* of a {bpref "nf"}[number field] is the largest subfiel
 Depends on: {uses "nf"}[] {uses "nf.cm_field"}[] {uses "nf.degree"}[]
 :::
 
-:::definition "nf.minimal_polynomial"
+:::definition "nf.minimal_polynomial" (lean := "minpoly, minpoly.unique, minpoly.irreducible")
 *Minimal polynomial.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.minimal_polynomial))
 
 The *minimal polynomial* of an element $`a` in a {bpref "nf"}[number field] $`K` is the unique monic polynomial $`f(X)\in\Q[X]` of minimal degree such that $`f(a)=0`. It is necessarily irreducible over $`\Q.`
@@ -448,7 +448,7 @@ Example: $`\Z[\sqrt{5}]` is an order in $`K=\Q(\sqrt{5})`. However, it is not ma
 Depends on: {uses "nf"}[]
 :::
 
-:::definition "nf.padic_completion"
+:::definition "nf.padic_completion" (lean := "IsDedekindDomain.HeightOneSpectrum.adicCompletion, IsDedekindDomain.HeightOneSpectrum.valuation")
 *$`p`-adic completion of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.padic_completion))
 
 Let $`K` be a {bpref "nf"}[number field], $`\mathcal{O}_K` its {bpref "lf.ring_of_integers"}[ring of integers], $`\mathfrak{P}` a non-zero {bpref "nf.prime"}[prime ideal] of $`\mathcal{O}_K`, and $`p\in \Z\cap \mathfrak{P}`.
@@ -519,7 +519,7 @@ If $`f` has integral coefficients, $`K` is the {bpref "nf"}[number field] define
 Depends on: {uses "nf"}[] {uses "nf.discriminant"}[] {uses "nf.ring_of_integers"}[]
 :::
 
-:::definition "nf.prime"
+:::definition "nf.prime" (lean := "IsDedekindDomain.HeightOneSpectrum, Ideal.LiesOver, Ideal.under, Ideal.primesOver")
 *Prime of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.prime))
 
 A *prime* $`\mathfrak p` of a {bpref "nf"}[number field] $`K` is a nonzero {bpref "ring.prime_ideal"}[prime ideal] of its {bpref "nf.ring_of_integers"}[ring of integers] $`\mathcal O_K`.
@@ -529,7 +529,7 @@ The ideal $`\mathfrak p \cap\mathcal O_K` is a nonzero prime ideal of $`\Z` (a p
 Depends on: {uses "nf"}[] {uses "nf.ring_of_integers"}[] {uses "ring.prime_ideal"}[]
 :::
 
-:::definition "nf.radical_discriminant"
+:::definition "nf.radical_discriminant" (lean := "UniqueFactorizationMonoid.radical, NumberField.discr, Int.radical_eq_prod_primeFactors, NumberField.not_dvd_discr_iff_isUnramifiedIn")
 *Radical discriminant of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.radical_discriminant))
 
 The *radical discriminant* of a {bpref "nf"}[number field] $`K` is the product of the primes dividing the {bpref "nf.discriminant"}[discriminant] of $`K`, i.e. the product of the primes which ramify in $`K`.
@@ -537,7 +537,7 @@ The *radical discriminant* of a {bpref "nf"}[number field] $`K` is the product o
 Depends on: {uses "nf"}[] {uses "nf.discriminant"}[]
 :::
 
-:::definition "nf.ramified_primes"
+:::definition "nf.ramified_primes" (lean := "Algebra.IsUnramifiedIn, Algebra.isUnramifiedIn_iff_forall_ramificationIdx_eq_one, Ideal.ramificationIdx, Ideal.IsDedekindDomain.ramificationIdx_eq_normalizedFactors_count, NumberField.not_dvd_discr_iff_isUnramifiedIn")
 *Ramified (rational) prime of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.ramified_primes))
 
 A prime integer $`p` is a *ramified prime* of a number field $`K` if, when the ideal generated by $`p` is factored into prime ideals in the ring of integers
@@ -550,7 +550,7 @@ there is an $`i` such that $`e_i\geq 2`.
 The ramified primes of $`K` are the primes dividing the {bpref "nf.discriminant"}[discriminant] of $`K`.
 :::
 
-:::definition "nf.rank"
+:::definition "nf.rank" (lean := "NumberField.Units.rank, NumberField.Units.finrank_modTorsion, NumberField.InfinitePlace.card_eq_nrRealPlaces_add_nrComplexPlaces")
 *Rank of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.rank))
 
 The *rank* of a {bpref "nf"}[number field] $`K` is the size of any set of  {bpref "nf.fundamental_units"}[fundamental units] of $`K`. It is equal to $`r = r_1 + r_2 -1` where $`r_1` is the number of real embeddings of $`K` into $`\C` and $`2r_2` is the number of complex embeddings of $`K` into $`\C.`
@@ -558,7 +558,7 @@ The *rank* of a {bpref "nf"}[number field] $`K` is the size of any set of  {bpre
 Depends on: {uses "nf"}[] {uses "nf.fundamental_units"}[]
 :::
 
-:::definition "nf.real_embedding"
+:::definition "nf.real_embedding" (lean := "RingHom, NumberField.ComplexEmbedding.IsReal, NumberField.ComplexEmbedding.IsReal.embedding, NumberField.InfinitePlace.card_real_embeddings")
 *Real embedding.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.real_embedding))
 
 A *real embedding* of a number field $`K` is a field homomorphism $`K\to \R`.  A single number field may have several distinct real embeddings.
@@ -602,7 +602,7 @@ The reflex field of the reflex field is also the smallest field of definition of
 Depends on: {uses "nf.cm_field"}[] {uses "nf.reflex_field"}[]
 :::
 
-:::definition "nf.regulator"
+:::definition "nf.regulator" (lean := "NumberField.Units.regulator, NumberField.Units.regulator_eq_det")
 *Regulator of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.regulator))
 
 Let $`\sigma_1,\ldots,\sigma_{r_1}` be the real embeddings of a {bpref "nf"}[number field] $`K` into the complex numbers $`\mathbb{C}`, and $`\sigma_{r_1+ 1},\ldots,\sigma_{r_1+r_2}` be complex embeddings of $`K` into $`\C` such that no two are complex conjugate. Let $`u_1,\ldots,u_r` be a set of {bpref "nf.fundamental_units"}[fundamental units] of $`K`. Then $`r = r_1 + r_2 -1`.
@@ -615,7 +615,7 @@ The *regulator* of $`K` is the absolute value of the determinant of the sub-matr
 Depends on: {uses "nf"}[] {uses "nf.fundamental_units"}[]
 :::
 
-:::definition "nf.relative_class_number"
+:::definition "nf.relative_class_number" (lean := "NumberField.classNumber, NumberField.maximalRealSubfield, NumberField.IsCMField")
 *Relative class number of a CM field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.relative_class_number))
 
 If $`K` is a {bpref "nf"}[number field] with {bpref "nf.cm_field"}[CM] with {bpref "nf.class_number"}[class number] $`h`, and $`K^+` is its maximal {bpref "nf.totally_real"}[totally real] subfield with class number $`h^+`, then $`h^+` divides $`h` and the *relative class number* is
@@ -632,7 +632,7 @@ The *ring of integers* of a {bpref "nf"}[number field] $`K` is the {bpref "ring.
 Depends on: {uses "nf"}[] {uses "ring.integral"}[]
 :::
 
-:::definition "nf.root_discriminant"
+:::definition "nf.root_discriminant" (lean := "NumberField.rootDiscr")
 *Root discriminant of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.root_discriminant))
 
 If $`K` is a {bpref "nf"}[number field] of {bpref "nf.degree"}[degree] $`n` and {bpref "nf.discriminant"}[discriminant] $`D`, then the *root discriminant* of $`K` is
@@ -644,7 +644,7 @@ It gives a measure of the discriminant of a number field which is normalized for
 Depends on: {uses "nf"}[] {uses "nf.degree"}[] {uses "nf.discriminant"}[]
 :::
 
-:::definition "nf.separable"
+:::definition "nf.separable" (lean := "IsSeparable, Algebra.IsSeparable, Polynomial.Separable, Polynomial.nodup_aroots_iff_of_splits")
 *Separable extension.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.separable))
 
 If $`K/F` is a finite {bpref "nf.degree"}[degree] field extension, $`\alpha\in K` is *separable* over $`F` if its monic irreducible polynomial has distinct roots in the algebraic closure $`\overline{F}`.
@@ -656,7 +656,7 @@ All algebraic extensions of local and global number fields are separable.
 Depends on: {uses "nf.degree"}[]
 :::
 
-:::definition "nf.separable_algebra"
+:::definition "nf.separable_algebra" (lean := "Algebra.Etale, Algebra.Etale.iff_exists_algEquiv_prod, Algebra.Etale.baseChange")
 *Separable algebra.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.separable_algebra))
 
 A (finite) *separable algebra* $`A` over a field $`F`, also called an *\'etale $`F`-algebra*, is an  $`F`-algebra of finite dimension that is isomorphic to a product of {bpref "nf.separable"}[separable] field extensions of $`F`.
@@ -690,7 +690,7 @@ A finite dimensional separable $`\Q`-algebra is isomorphic to a product of numbe
 Depends on: {uses "nf.galois_closure"}[] {uses "nf.separable"}[]
 :::
 
-:::definition "nf.signature"
+:::definition "nf.signature" (lean := "NumberField.InfinitePlace.nrRealPlaces, NumberField.InfinitePlace.nrComplexPlaces, NumberField.InfinitePlace.card_real_embeddings, NumberField.InfinitePlace.card_complex_embeddings, NumberField.InfinitePlace.card_add_two_mul_card_eq_rank")
 *Signature of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.signature))
 
 The *signature* of a {bpref "nf"}[number field] $`K` is the pair $`[r_1,r_2]` where $`r_1` is the number of {bpref "nf.real_embedding"}[real embeddings] of $`K` and $`r_2` is the number of conjugate pairs of {bpref "nf.complex_embedding"}[complex embeddings].
@@ -700,7 +700,7 @@ The {bpref "nf.degree"}[degree] of $`K` is $`r_1+2r_2`.
 Depends on: {uses "nf"}[] {uses "nf.complex_embedding"}[] {uses "nf.degree"}[] {uses "nf.real_embedding"}[]
 :::
 
-:::definition "nf.stem_field"
+:::definition "nf.stem_field" (lean := "IsNormalClosure, IntermediateField.adjoin, AdjoinRoot, IntermediateField.adjoinRootEquivAdjoin")
 *Stem field for a Galois extension.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.stem_field))
 
 If $`K/F` is a {bpref "nf.is_galois"}[Galois] extension of fields, a *stem field* for $`K/F` is a field $`E` such that $`F\subseteq E\subseteq K` and $`K` is the {bpref "nf.galois_closure"}[Galois closure] of $`E/F`.
@@ -711,7 +711,7 @@ If $`f\in F[x]` is a separable irreducible polynomial of degree $`n` with roots 
 Depends on: {uses "nf.galois_closure"}[] {uses "nf.is_galois"}[]
 :::
 
-:::definition "nf.torsion"
+:::definition "nf.torsion" (lean := "NumberField.Units.torsion, IsPrimitiveRoot, NumberField.Units.torsionOrder, NumberField.Units.rootsOfUnity_eq_torsion, IsPrimitiveRoot.zpowers_eq")
 *Unit group torsion.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.torsion))
 
 A *torsion generator* of a {bpref "nf"}[number field] is a primitive root of unity that generates the torsion subgroup of the {bpref "nf.unit_group"}[unit group] (which is necessarily cyclic).
@@ -719,7 +719,7 @@ A *torsion generator* of a {bpref "nf"}[number field] is a primitive root of uni
 Depends on: {uses "nf"}[] {uses "nf.unit_group"}[]
 :::
 
-:::definition "nf.totally_imaginary"
+:::definition "nf.totally_imaginary" (lean := "NumberField.IsTotallyComplex, NumberField.IsTotallyComplex.complexEmbedding_not_isReal, NumberField.nrRealPlaces_eq_zero_iff")
 *Totally imaginary.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.totally_imaginary))
 
 A {bpref "nf"}[number field] $`K` is *totally imaginary* (or *totally complex*) if it cannot be embedded in the real numbers $`\R`; equivalently, $`\R` does not contain the image of any of the homomorphisms from $`K` to $`\C`.
@@ -735,7 +735,7 @@ An element $`\alpha` in a {bpref "nf"}[number field] $`K` is *totally positive* 
 Depends on: {uses "nf"}[]
 :::
 
-:::definition "nf.totally_real"
+:::definition "nf.totally_real" (lean := "NumberField.IsTotallyReal, NumberField.IsTotallyReal.complexEmbedding_isReal, NumberField.nrComplexPlaces_eq_zero_iff, NumberField.Embeddings.range_eval_eq_rootSet_minpoly")
 *Totally real.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.totally_real))
 
 A {bpref "nf"}[global number field] $`K` is always of the form $`K=\Q(\alpha)` where $`\alpha` has monic irreducible polynomial $`f(x)\in\Q[x]`.  The field is *totally real* if all of the roots of $`f(x)` in $`\C` lie in the real numbers $`\R`.
@@ -745,7 +745,7 @@ Equivalently, $`K` is totally real if all the embeddings of $`K` into $`\C` have
 Depends on: {uses "nf"}[]
 :::
 
-:::definition "nf.unit_group"
+:::definition "nf.unit_group" (lean := "NumberField.RingOfIntegers, Units, NumberField.Units.torsion, NumberField.Units.exist_unique_eq_mul_prod")
 *Unit group of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.unit_group))
 
 The *unit group* of a {bpref "nf"}[number field] $`K` is the group of units of the {bpref "nf.ring_of_integers"}[ring of integers] of $`K`.  It is a finitely generated abelian group with cyclic torsion subgroup.  A set of generators of a maximal torsion-free subgroup is called a set of {bpref "nf.fundamental_units"}[fundamental units] for $`K`.
@@ -770,7 +770,7 @@ If $`K` has at least one real embedding, then the unit signature rank is always 
 Depends on: {uses "nf"}[] {uses "nf.real_embedding"}[]
 :::
 
-:::definition "nf.unramified_prime"
+:::definition "nf.unramified_prime" (lean := "Algebra.IsUnramifiedIn, Algebra.isUnramifiedIn_iff_forall_ramificationIdx_eq_one, Ideal.ramificationIdx, Ideal.IsDedekindDomain.ramificationIdx_eq_normalizedFactors_count, NumberField.not_dvd_discr_iff_isUnramifiedIn")
 *Unramified (rational) prime of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.unramified_prime))
 
 A *unramified (rational) prime* of a {bpref "nf"}[number field ] $`K` is a prime integer $`p` such that the ideal generated by $`p` is factored into distinct prime ideals in the ring of integers $`\mathcal{O}_K` of $`K`

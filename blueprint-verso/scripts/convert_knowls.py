@@ -6,8 +6,9 @@ blueprint-verso/LeanBridgeBlueprint/Chapters/*.lean.  Every referenced knowl is 
 single `\\begin{definition}\\label{L}\\uses{...} BODY \\end{definition}` block; it
 becomes a Verso `:::definition "L"` chunk. Its `(lean := ...)` names are the Mathlib
 declarations the knowl links with `DEFINES(..., mathlib=...)` (written as `\\lean{...}` by
-update_knowls.py) followed by the Tau Ceti and LeanBridge declarations listed for it in
-blueprint/src/lean_links.json, whose modules the generated Prelude imports.
+update_knowls.py) followed by the declarations listed for it in blueprint/src/lean_links.json
+(Tau Ceti and LeanBridge ones, and Mathlib ones the knowl does not link yet), whose modules the
+generated Prelude imports.
 """
 import json
 import re
@@ -47,8 +48,8 @@ for _, af, _ in CHAPTERS:
         if m:
             ALL_LABELS.add(m.group(1))
 
-# Tau Ceti and LeanBridge declarations for knowls, as {label: {declaration: module}}; the knowls
-# themselves can only link Mathlib.
+# Declarations for knowls, as {label: {declaration: module}}: Tau Ceti and LeanBridge ones, which
+# the knowls themselves cannot link, and Mathlib ones for knowls that do not link them yet.
 _links_path = os.path.join(SRC, "lean_links.json")
 LEAN_LINKS = json.load(open(_links_path)) if os.path.exists(_links_path) else {}
 

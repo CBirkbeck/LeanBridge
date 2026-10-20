@@ -55,7 +55,7 @@ An abelian variety of dimension 1 is the same as an {bpref "ec"}[elliptic curve]
 Depends on: {uses "ag.variety"}[] {uses "ec"}[]
 :::
 
-:::definition "ag.affine_space"
+:::definition "ag.affine_space" (lean := "AlgebraicGeometry.AffineSpace, AlgebraicGeometry.AffineSpace.homOverEquiv, AlgebraicGeometry.AffineSpace.coord")
 *Affine space.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.affine_space))
 
 *Affine space* $`\mathbb{A}^n(K)` of {bpref "ag.dimension"}[dimension] $`n` over a {bpref "ring.field"}[field] $`K` is the set $`K^n`.
@@ -77,7 +77,7 @@ An algebraic variety over a field $`L` is said to be a *base change* if it is th
 Depends on: {uses "ag.variety"}[] {uses "ring.field"}[]
 :::
 
-:::definition "ag.base_field"
+:::definition "ag.base_field" (lean := "AlgebraicGeometry.Scheme.Over")
 *Base field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.base_field))
 
 The *base field*, of an {bpref "ag.abelian_variety"}[algebraic variety] is the field over which it is defined; it necessarily contains the coefficients of a set of defining equations for the variety, but it is not necessarily a {bpref "ag.minimal_field"}[minimal field of definition].
@@ -112,7 +112,7 @@ The quantity defined above is sometimes also called the *algebraic genus* or the
 Depends on: {uses "ag.riemann_surface"}[]
 :::
 
-:::definition "ag.curve.smooth"
+:::definition "ag.curve.smooth" (lean := "AlgebraicGeometry.Smooth, AlgebraicGeometry.Scheme.Hom.smoothLocus_eq_top_iff")
 *Smoothness of an algebraic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.curve.smooth))
 
 Let $`C` be an {bpref "ag.curve"}[algebraic curve] over a perfect field $`k`. Then $`C` is called *smooth* if the extension of $`C` to the algebraic closure of $`k` is {bpref "ag.singular_point"}[non-singular] at all of its points.
@@ -120,7 +120,7 @@ Let $`C` be an {bpref "ag.curve"}[algebraic curve] over a perfect field $`k`. Th
 Depends on: {uses "ag.curve"}[] {uses "ag.singular_point"}[]
 :::
 
-:::definition "ag.dimension"
+:::definition "ag.dimension" (lean := "topologicalKrullDim, TopologicalSpace.IrreducibleCloseds")
 *Dimension of an algebraic variety.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.dimension))
 
 The *dimension* of an {bpref "ag.variety"}[algebraic variety] $`V` is the maximal length $`d` of a chain
@@ -184,7 +184,7 @@ where $`h(x,y,z)` is a homogeneous polynomial of degree $`2` (a *conic*) and $`f
 Depends on: {uses "ag.curve"}[] {uses "ag.curve.genus"}[]
 :::
 
-:::definition "ag.irreducible"
+:::definition "ag.irreducible" (lean := "IrreducibleSpace, AlgebraicGeometry.GeometricallyIrreducible")
 *Irreducible variety.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.irreducible))
 
 A {bpref "ag.variety"}[variety] defined over a field $`F` is *irreducible* if it is nonempty and cannot be decomposed as the union of two strictly smaller varieties over $`F`. It is *geometrically irreducible* if it remains irreducible when seen as a variety over the algebraic closure of $`F`.
@@ -260,7 +260,7 @@ The natural projection $`X\to X/H` that sends each point on $`X` to its $`H`-orb
 Depends on: {uses "ag.curve"}[] {uses "ag.variety"}[] {uses "g2c.aut_grp"}[]
 :::
 
-:::definition "ag.riemann_surface"
+:::definition "ag.riemann_surface" (lean := "IsManifold, ChartedSpace, ConnectedSpace, T2Space")
 *Riemann surface.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.riemann_surface))
 
 A *Riemann surface* is a connected complex manifold of dimension one.  Compact Riemann surfaces can be identified with smooth projective curves over $`\C`.
@@ -274,7 +274,7 @@ An {bpref "ag.abelian_variety"}[abelian variety] is *simple* if it is nonzero an
 Depends on: {uses "ag.abelian_variety"}[]
 :::
 
-:::definition "ag.singular_point"
+:::definition "ag.singular_point" (lean := "AlgebraicGeometry.Scheme.Hom.smoothLocus, Algebra.smoothLocus, Algebra.smoothLocus_eq_compl_support_inter")
 *Non-singular point (definition).* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.singular_point))
 
 Let $`V` be a variety over a perfect field $`F`. A point $`P` of $`V` is *non-singular* if the module of differentials of $`V` is locally free at $`P`.  According to the Jacobian criterion, if $`V` is defined in a neighborhood of $`P` by affine polynomial equations $`f_1(X_1, \ldots, X_n) = \ldots =f_r(X_1, \ldots, X_n)=0`, then $`V` is non-singular at $`P` if the Jacobian matrix $`\left( \frac{\partial f_i}{\partial X_j} \right)_{ij}` has the same rank as the codimension of $`V` in $`\mathbb{A}^n`.
@@ -309,7 +309,7 @@ A *binary operation*,  on a set $`S` is a function $`S\times S\to S`.
 If the operation is denoted by $`*`, then the output of this function applied to $`(s_1,s_2)` is typically denoted $`s_1*s_2`.
 :::
 
-:::definition "alg.binary_operation.associative"
+:::definition "alg.binary_operation.associative" (lean := "Std.Associative, Semigroup")
 *Associative binary operation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/alg.binary_operation.associative))
 
 If $`*` is a {bpref "alg.binary_operation"}[binary operation] on a set $`A`, then $`*` is *associative* on $`A` if for all $`a,b,c\in A`,
@@ -320,7 +320,7 @@ $$`a*(b*c)=(a*b)*c.`
 Depends on: {uses "alg.binary_operation"}[]
 :::
 
-:::definition "alg.binary_operation.commutative"
+:::definition "alg.binary_operation.commutative" (lean := "Std.Commutative, CommMagma")
 *Commutative binary operation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/alg.binary_operation.commutative))
 
 If $`*` is a {bpref "alg.binary_operation"}[binary operation] on a set $`A`, then $`*` is *commutative* on $`A` if for all $`a,b\in A`,
@@ -330,7 +330,7 @@ $$`a*b=b*a.`
 Depends on: {uses "alg.binary_operation"}[]
 :::
 
-:::definition "alg.binary_operation.identity"
+:::definition "alg.binary_operation.identity" (lean := "Std.LawfulIdentity, MulOneClass, MulOneClass.ext")
 *Identity for a binary operation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/alg.binary_operation.identity))
 
 If $`*` is a {bpref "alg.binary_operation"}[binary operation] on a set $`A`, then $`A` has an *identity* element with respect to $`*` if there exists $`e\in A` such that for all $`a\in A`,
@@ -395,7 +395,7 @@ Note that if $`p` is {bpref "artin.unramified_primes"}[unramified] in $`K`, then
 Depends on: {uses "artin"}[] {uses "artin.unramified_primes"}[] {uses "gg.galois_group"}[] {uses "lf.inertia_group"}[] {uses "lf.padic_field"}[] {uses "lf.wild_inertia_group"}[] {uses "nf.is_galois"}[] {uses "nf.prime"}[]
 :::
 
-:::definition "artin.number_field"
+:::definition "artin.number_field" (lean := "Representation.artinField, IntermediateField.fixedField, MonoidHom.ker, InfiniteGalois.IntermediateFieldEquivClosedSubgroup, InfiniteGalois.isOpen_and_normal_iff_finite_and_isGalois")
 *Number field associated to an Artin representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/artin.number_field))
 
 The *Artin field* is a {bpref "nf"}[number field] associated to an {bpref "artin"}[Artin representation]
@@ -414,7 +414,7 @@ An {bpref "artin"}[Artin representation] $`\rho:\Gal(\overline{\Q}/\Q)\to \GL(V)
 Depends on: {uses "artin"}[]
 :::
 
-:::definition "artin.ramified_primes"
+:::definition "artin.ramified_primes" (lean := "Algebra.IsUnramifiedIn, Representation.artinField, Algebra.isUnramifiedIn_iff_forall_ramificationIdx_eq_one")
 *Ramified prime of an Artin representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/artin.ramified_primes))
 
 If $`\rho:\Gal(\overline{\Q}/\Q)\to\GL_n(\C)` is an {bpref "artin"}[Artin representation] with {bpref "artin.number_field"}[Artin field] $`K`, then a prime $`p` is *ramified* if it is {bpref "nf.ramified_primes"}[ramified] in $`K/\Q`.
@@ -424,7 +424,7 @@ Equivalently, a prime is ramified if the inertia subgroup for a prime above $`p`
 Depends on: {uses "artin"}[] {uses "artin.number_field"}[] {uses "nf.ramified_primes"}[]
 :::
 
-:::definition "artin.unramified_primes"
+:::definition "artin.unramified_primes" (lean := "Algebra.IsUnramifiedIn, Representation.artinField, Algebra.isUnramifiedIn_iff_forall_ramificationIdx_eq_one")
 *Unramified prime of an Artin representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/artin.unramified_primes))
 
 If $`\rho:\Gal(\overline{\Q}/\Q)\to\GL_n(\C)` is an {bpref "artin"}[Artin representation], a prime $`p` is *unramified* if it is not {bpref "artin.ramified_primes"}[ramified].
@@ -548,7 +548,7 @@ For a composite modulus $`N` with prime power factorization $`N=p_1^{e_1}\cdots 
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.conductor"}[] {uses "character.dirichlet.modulus"}[] {uses "character.dirichlet.order"}[] {uses "character.dirichlet.primitive"}[] {uses "character.dirichlet.principal"}[]
 :::
 
-:::definition "character.dirichlet.modulus"
+:::definition "character.dirichlet.modulus" (lean := "DirichletCharacter, MulChar, DirichletCharacter.apply_eq_zero_iff, MulChar.apply_mem_rootsOfUnity")
 *Modulus of a Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.modulus))
 
 A *Dirichlet character* is a function $`\chi: \mathbb{Z}\to \mathbb{C}` together with a positive integer $`q`, called the *modulus* of the character, such that $`\chi` is completely multiplicative, i.e. $`\chi(mn)=\chi(m)\chi(n)` for all integers $`m` and $`n`, and $`\chi` is periodic modulo $`q`, i.e. $`\chi(n+q)=\chi(n)` for all $`n`. If $`(n,q)>1` then $`\chi(n)=0`, whereas if $`(n,q)=1`, then $`\chi(n)` is a root of unity.
@@ -571,7 +571,7 @@ A {bpref "character.dirichlet"}[Dirichlet character] $`\chi` is *primitive* if i
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.conductor"}[] {uses "character.dirichlet.induce"}[] {uses "character.dirichlet.modulus"}[]
 :::
 
-:::definition "character.dirichlet.principal"
+:::definition "character.dirichlet.principal" (lean := "MulChar.trivial, MulChar.trivial_apply, DirichletCharacter.factorsThrough_one_iff")
 *Principal Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.principal))
 
 A {bpref "character.dirichlet"}[Dirichlet character] is *principal* (or *trivial*) if it has {bpref "character.dirichlet.order"}[order] $`1`, equivalently, if it is {bpref "character.dirichlet.induce"}[induced] by the unique Dirichlet character of modulus 1.
@@ -581,7 +581,7 @@ The value of the principal Dirichlet character of {bpref "character.dirichlet.mo
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.induce"}[] {uses "character.dirichlet.modulus"}[]
 :::
 
-:::definition "character.dirichlet.value_field"
+:::definition "character.dirichlet.value_field" (lean := "TauCeti.CharacterField, IntermediateField.adjoin")
 *Field of values of a Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.value_field))
 
 The *field of values* of a Dirichlet character $`\chi\colon\Z\to\C` is the field $`\Q(\chi(\Z))` generated by its values; it is equal to the cyclotomic field $`\Q(\zeta_n)`, where $`n` is the {bpref "character.dirichlet.order"}[order] of $`\chi`.
@@ -657,7 +657,7 @@ One can always transform the minimal equation into a simplified equation $`y^2 =
 Depends on: {uses "ag.curve.genus"}[] {uses "ag.curve.smooth"}[] {uses "ag.hyperelliptic_curve"}[] {uses "g2c.discriminant"}[] {uses "g2c.good_reduction"}[]
 :::
 
-:::definition "gg.galois_group"
+:::definition "gg.galois_group" (lean := "Polynomial.Gal, Polynomial.Gal.galActionHom, Polynomial.Gal.galActionHom_injective, Polynomial.Gal.galAction_isPretransitive")
 *Galois group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gg.galois_group))
 
 The *Galois group* of an irreducible separable polynomial of degree $`n` can be embedded in $`S_n` through its action on the roots of the polynomial, with the image being well-defined up to labeling of the roots.  Different labelings lead to conjugate subgroups.  The subgroup acts transitively on $`\{1,\ldots,n\}`.  Conversely, for every transitive subgroup $`G` of $`S_n` with $`n\in\mathbb{Z}^+`, there is a field $`K` such that $`G` is the Galois group of some polynomial over $`K`.
@@ -703,7 +703,7 @@ Exceptional subgroups are classified according to their image in $`\PGL_2(\F_p)`
 Depends on: {uses "gl2.borel"}[] {uses "gl2.normalizer_cartan"}[]
 :::
 
-:::definition "gl2.index"
+:::definition "gl2.index" (lean := "Subgroup.index, Subgroup.quotient_finite_of_isOpen, Subgroup.index_ne_zero_of_finite")
 *Index of an open subgroup.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gl2.index))
 
 The *index* of an {bpref "gl2.open"}[open subgroup] $`H` of a {bpref "gl2.profinite"}[profinite group] $`G` is the positive integer $`[G:H]`.
@@ -879,7 +879,7 @@ A {bpref "group.subgroup"}[subgroup] $`H` of a {bpref "group"}[group] $`G`  is a
 Depends on: {uses "group"}[] {uses "group.automorphism"}[] {uses "group.subgroup"}[]
 :::
 
-:::definition "group.coset"
+:::definition "group.coset" (lean := "QuotientGroup.leftRel, QuotientGroup.rightRel, QuotientGroup.eq_class_eq_leftCoset, QuotientGroup.rightRel_r_eq_rightCosetEquivalence")
 *Coset of a subgroup.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.coset))
 
 If $`G` is a {bpref "group"}[group] and $`H` is a {bpref "group.subgroup"}[subgroup] of $`G`, then a left *coset* of $`H` is a set
@@ -905,7 +905,7 @@ The Frattini subgroup is always a {bpref "group.characteristic_subgroup"}[charac
 Depends on: {uses "group.characteristic_subgroup"}[] {uses "group.maximal_subgroup"}[] {uses "group.subgroup.normal"}[]
 :::
 
-:::definition "group.fuchsian.cusps"
+:::definition "group.fuchsian.cusps" (lean := "CuspOrbits, IsCusp, Subgroup.IsArithmetic.isCusp_iff_isCusp_SL2Z, isCusp_SL2Z_iff")
 *Cusps of a subgroup of the modular group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.fuchsian.cusps))
 
 The *cusps* of a subgroup $`\Gamma` of the {bpref "group.sl2z"}[modular group] are equivalence classes of points in $`\mathbb{Q}\cup\infty` under the action of $`\Gamma` by linear fractional transformation, where for
@@ -945,7 +945,7 @@ $`z'` belong to $`\partial F`, the boundary of F.</li>
 Depends on: {uses "group.sl2z"}[]
 :::
 
-:::definition "group.galois.absolute"
+:::definition "group.galois.absolute" (lean := "Field.absoluteGaloisGroup")
 *Absolute Galois group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.galois.absolute))
 
 The *absolute Galois group* of a {bpref "ring.field"}[field] $`K` is the group of all automorphisms of the algebraic closure of $`K` that fix the field $`K`.
@@ -953,7 +953,7 @@ The *absolute Galois group* of a {bpref "ring.field"}[field] $`K` is the group o
 Depends on: {uses "ring.field"}[]
 :::
 
-:::definition "group.generators"
+:::definition "group.generators" (lean := "Subgroup.closure, Subgroup.closure_le, Subgroup.mem_closure")
 *Generators of a group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.generators))
 
 If $`G` is a {bpref "group"}[group] and $`S` is a subset of $`G`, then $`S` is a set of *generators* if the smallest subgroup of $`G` containing $`S` equals $`G`.
@@ -967,7 +967,7 @@ The {bpref "group.automorphism"}[automorphism group] of $`G` acts on such $`S`, 
 Depends on: {uses "group"}[] {uses "group.automorphism"}[]
 :::
 
-:::definition "group.haar_measure"
+:::definition "group.haar_measure" (lean := "MeasureTheory.Measure.IsHaarMeasure, MeasureTheory.Measure.haarMeasure, MeasureTheory.Measure.haarMeasure_self, MeasureTheory.Measure.isHaarMeasure_eq_of_isProbabilityMeasure")
 *Haar measure of a topological group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.haar_measure))
 
 For $`G` a locally compact topological {bpref "group"}[group], a *Haar measure* on $`G` is a nonnegative, countably additive, real-valued measure on $`G` which is invariant under left translation on $`G`. Any such measure is also invariant under right translation on $`G`.
@@ -979,7 +979,7 @@ As a special case, if $`G` is finite of {bpref "group.order"}[order] $`n`, then 
 Depends on: {uses "group"}[] {uses "group.order"}[]
 :::
 
-:::definition "group.homomorphism"
+:::definition "group.homomorphism" (lean := "MonoidHom, MonoidHom.mk'")
 *Group homomorphism.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.homomorphism))
 
 If $`G` and $`H` are {bpref "group"}[groups], then a *group homomorphism* from $`G` to $`H` is a function
@@ -991,7 +991,7 @@ such that for all $`a,b\in G`, $`f(a*b)=f(a)*f(b)`.
 Depends on: {uses "group"}[]
 :::
 
-:::definition "group.isomorphism"
+:::definition "group.isomorphism" (lean := "MulEquiv, MulEquiv.ofBijective")
 *Group isomorphism.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.isomorphism))
 
 A *group isomorphism* is a {bpref "group.homomorphism"}[group homomorphism] $`f:G\to H` which is bijective.
@@ -999,7 +999,7 @@ A *group isomorphism* is a {bpref "group.homomorphism"}[group homomorphism] $`f:
 Depends on: {uses "group.homomorphism"}[]
 :::
 
-:::definition "group.maximal_subgroup"
+:::definition "group.maximal_subgroup" (lean := "IsCoatom, IsCoatom.le_iff")
 *Maximal subgroup of a group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.maximal_subgroup))
 
 If $`G` is a group, a subgroup $`M` is a *maximal subgroup* if for every subgroup $`H` such that $`M\subseteq H \subseteq G`, either $`H=M` or $`H=G`.
@@ -1019,7 +1019,7 @@ A subnormal series where $`H_i` is normal in $`G` for all $`i` is a *normal seri
 Depends on: {uses "group"}[] {uses "group.subgroup"}[] {uses "group.subgroup.normal"}[]
 :::
 
-:::definition "group.order"
+:::definition "group.order" (lean := "Nat.card, Cardinal.mk")
 *Order of a group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.order))
 
 The *order* of a {bpref "group"}[group] is its cardinality as a set.
@@ -1055,7 +1055,7 @@ Any finite solvable group has a polycyclic presentation.  When the size of $`G` 
 Depends on: {uses "group.normal_series"}[]
 :::
 
-:::definition "group.rank"
+:::definition "group.rank" (lean := "Group.rank, Group.rank_spec, Group.rank_le")
 *Rank.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.rank))
 
 The *rank* of a finite {bpref "group"}[group] $`G` is the minimal number of elements required to {bpref "group.generators"}[generate] it, which is often smaller than the number of generators in a {bpref "group.presentation"}[polycyclic presentation].  For $`p`-groups, the rank can be computed by taking the $`\mathbb{F}_p`-dimension of the quotient by the {bpref "group.frattini_subgroup"}[Frattini subgroup].
@@ -1063,7 +1063,7 @@ The *rank* of a finite {bpref "group"}[group] $`G` is the minimal number of elem
 Depends on: {uses "group"}[] {uses "group.frattini_subgroup"}[] {uses "group.generators"}[] {uses "group.presentation"}[]
 :::
 
-:::definition "group.sl2z"
+:::definition "group.sl2z" (lean := "Matrix.SpecialLinearGroup, ModularGroup.S, ModularGroup.T, SpecialLinearGroup.SL2Z_generators")
 The *modular group* is the group of  $`2\times2` matrices with integer coefficients and determinant $`1`; it is denoted by $`\mathrm{SL}(2,\mathbb{Z})` or $`\mathrm{SL}_2(\Z)`.
 
 A standard set of generators for the modular group are the matrices:
@@ -1086,7 +1086,7 @@ Equivalently, the subset $`H` must satisfy the following conditions:
 Depends on: {uses "alg.binary_operation"}[] {uses "alg.binary_operation.identity"}[] {uses "alg.binary_operation.inverse"}[] {uses "group"}[]
 :::
 
-:::definition "group.subgroup.index"
+:::definition "group.subgroup.index" (lean := "Subgroup.index")
 *Index of a subgroup.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.subgroup.index))
 
 The *index* of a subgroup $`G'` of a group $`G`, denoted $`[G:G']`, is the order of the set of {bpref "group.coset"}[left cosets] of $`G'` in $`G`.
@@ -1094,7 +1094,7 @@ The *index* of a subgroup $`G'` of a group $`G`, denoted $`[G:G']`, is the order
 Depends on: {uses "group.coset"}[]
 :::
 
-:::definition "group.subgroup.normal"
+:::definition "group.subgroup.normal" (lean := "Subgroup.Normal, Subgroup.normal_iff_map_conj_eq, normal_iff_eq_cosets, QuotientGroup.Quotient.group")
 *Normal subgroup of a group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.subgroup.normal))
 
 If $`H` is a {bpref "group.subgroup"}[subgroup] of a {bpref "group"}[group] $`G`, then $`H` is *normal* if any of the following equivalent conditions hold:
@@ -1109,7 +1109,7 @@ If $`H` is a normal subgroup, we write $`H \lhd G`, and the set of left cosets $
 Depends on: {uses "alg.binary_operation"}[] {uses "group"}[] {uses "group.coset"}[] {uses "group.subgroup"}[]
 :::
 
-:::definition "group.sylow_subgroup"
+:::definition "group.sylow_subgroup" (lean := "Sylow, Sylow.card_eq_multiplicity, Sylow.ofCard, Sylow.nonempty")
 *Sylow subgroup.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.sylow_subgroup))
 
 If $`p` is a prime and $`G` is a finite {bpref "group"}[group] of {bpref "group.order"}[order] $`p^nm` where $`p\nmid m`, then a *$`p`-Sylow
@@ -1120,7 +1120,7 @@ Sylow subgroups exist for every finite group and prime $`p`.
 Depends on: {uses "group"}[] {uses "group.order"}[] {uses "group.subgroup"}[]
 :::
 
-:::definition "group.torsion"
+:::definition "group.torsion" (lean := "IsMulTorsion, CommGroup.torsion, AddCommGroup.torsion")
 *Torsion group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.torsion))
 
 A *torsion {bpref "group"}[group]* is a group in which every element has finite order.
@@ -1130,7 +1130,7 @@ The elements of finite order in an {bpref "group.abelian"}[abelian] group $`A` f
 Depends on: {uses "group"}[] {uses "group.abelian"}[]
 :::
 
-:::definition "lf.automorphism_group"
+:::definition "lf.automorphism_group" (lean := "AlgEquiv, AlgEquiv.aut, IsGalois.card_aut_eq_finrank, IsGalois.of_card_aut_eq_finrank")
 *Automorphism group of a field extension.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.automorphism_group))
 
 If $`K/F` is an extension of {bpref "ring.field"}[fields], its *automorphism group* is
@@ -1142,7 +1142,7 @@ Note, a finite extension is {bpref "nf.is_galois"}[Galois] if and only if $`|\te
 Depends on: {uses "nf.is_galois"}[] {uses "ring.field"}[]
 :::
 
-:::definition "lf.inertia_group"
+:::definition "lf.inertia_group" (lean := "ValuationSubring.inertiaSubgroup, Ideal.inertia, Ideal.Quotient.stabilizerHom, Ideal.Quotient.map_ker_stabilizer_subtype")
 *Inertia group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.inertia_group))
 
 Let
@@ -1190,7 +1190,7 @@ It consists of all elements of $`\mathcal O_K` that are not {bpref "ring.unit"}[
 Depends on: {uses "lf.local_field"}[] {uses "lf.ring_of_integers"}[] {uses "nf.absolute_value"}[] {uses "ring.maximal_ideal"}[] {uses "ring.unit"}[]
 :::
 
-:::definition "lf.padic_field"
+:::definition "lf.padic_field" (lean := "TauCeti.FinitePadicExtension, Padic, FiniteDimensional")
 *$`p`-adic field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.padic_field))
 
 A *$`p`-adic field* (or *local number field*) is a finite extension of
@@ -1258,7 +1258,7 @@ When the analytic rank $`r` is positive, the value listed in the LMFDB is typica
 Depends on: {uses "lfunction.central_point"}[] {uses "lfunction"}[]
 :::
 
-:::definition "lfunction.arithmetic"
+:::definition "lfunction.arithmetic" (lean := "IsAlgebraic, LSeries")
 *Arithmetic L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.arithmetic))
 
 An {bpref "lfunction"}[L-function] $`L(s) = \sum_{n=1}^{\infty} a_n n^{-s}`  is called *arithmetic* if its Dirichlet coefficients $`a_n` are algebraic numbers.
@@ -1293,13 +1293,13 @@ $`\Re(s) = \frac{1+w}2`.
 Depends on: {uses "lfunction"}[] {uses "lfunction.functional_equation"}[]
 :::
 
-:::definition "lfunction.dirichlet_series"
+:::definition "lfunction.dirichlet_series" (lean := "LSeries, LSeries.term, ArithmeticFunction")
 *Dirichlet series.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.dirichlet_series))
 
 A *Dirichlet series* is a formal series of the form $`F(s) = {\displaystyle \sum_{n=1}^{\infty} \frac{a_n}{ n^{s}}}`, where $`a_n \in {\mathbb{C}}`.
 :::
 
-:::definition "lfunction.dual"
+:::definition "lfunction.dual" (lean := "LSeries, starRingEnd")
 *Dual of an L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.dual))
 
 The *dual* of an {bpref "lfunction"}[L-function] $`L(s) = \sum_{n=1}^{\infty} \frac{a_n}{n^s}` is the complex conjugate $`\bar{L}(s) = \sum_{n=1}^{\infty} \frac{\bar{a_n}}{n^s}`.
@@ -1307,7 +1307,7 @@ The *dual* of an {bpref "lfunction"}[L-function] $`L(s) = \sum_{n=1}^{\infty} \f
 Depends on: {uses "lfunction"}[]
 :::
 
-:::definition "lfunction.euler_product"
+:::definition "lfunction.euler_product" (lean := "ArithmeticFunction.eulerProduct, ArithmeticFunction.ofPowerSeries, EulerProduct.eulerProduct_tprod")
 *Euler product of an L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.euler_product))
 
 It is expected that the *Euler product* of an {bpref "lfunction"}[L-function] of degree $`d` and conductor $`N` can be written as
@@ -1358,7 +1358,7 @@ called the motivic weight of the L-function. The central point is at $`s=(w+1)/2
 Depends on: {uses "lfunction.gamma_factor"}[] {uses "specialfunction.gamma"}[]
 :::
 
-:::definition "lfunction.gamma_factor"
+:::definition "lfunction.gamma_factor" (lean := "Complex.Gammaℝ, Complex.Gammaℂ, Complex.Gammaℝ_mul_Gammaℝ_add_one")
 *Gamma factors.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.gamma_factor))
 
 The complex functions
@@ -1405,7 +1405,7 @@ that $`\mathrm{Re}(\rho)=1/2.`
 Depends on: {uses "lfunction"}[]
 :::
 
-:::definition "lfunction.self-dual"
+:::definition "lfunction.self-dual" (lean := "LSeries, starRingEnd, Complex.conj_eq_iff_real")
 *Self-dual L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.self-dual))
 
 An L-function $`L(s) = \sum_{n=1}^{\infty} \frac{a_n}{n^s}` is called *self-dual* if its Dirichlet coefficients $`a_n` are real.
@@ -1549,7 +1549,7 @@ We say that $`R` is a *rng* (also called *ring without identity* or *non-unital 
 Depends on: {uses "alg.binary_operation"}[] {uses "alg.binary_operation.associative"}[] {uses "alg.binary_operation.commutative"}[] {uses "alg.binary_operation.identity"}[] {uses "group.abelian"}[]
 :::
 
-:::definition "ring.a-field"
+:::definition "ring.a-field" (lean := "Algebra, Field")
 *$`A`-field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ring.a-field))
 
 Let $`A` be a commutative ring.  An *$`A`-field* is an $`A`-algebra that is a {bpref "ring.field"}[field].
@@ -1557,7 +1557,7 @@ Let $`A` be a commutative ring.  An *$`A`-field* is an $`A`-algebra that is a {b
 Depends on: {uses "ring.field"}[]
 :::
 
-:::definition "ring.characteristic"
+:::definition "ring.characteristic" (lean := "ringChar, CharP, CharP.addOrderOf_one, CharP.char_is_prime_or_zero")
 *Characteristic of a ring.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ring.characteristic))
 
 The *characteristic* of a {bpref "ring"}[ring] is the least positive integer $`n` for which
@@ -1601,7 +1601,7 @@ A *field* is a {bpref "ring"}[commutative ring] $`R` such that $`0_R\neq 1_R` an
 Depends on: {uses "alg.binary_operation.inverse"}[] {uses "ring"}[]
 :::
 
-:::definition "ring.field_of_fractions"
+:::definition "ring.field_of_fractions" (lean := "FractionRing, IsFractionRing, FractionRing.field, IsFractionRing.lift, FractionRing.algEquiv")
 *Field of fractions of an integral domain.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ring.field_of_fractions))
 
 If $`R` is an {bpref "ring.integral_domain"}[integral domain], then its *field of fractions* $`F` is the smallest {bpref "ring.field"}[field] containing $`R`.
@@ -1628,7 +1628,7 @@ $$`dI=\{da\mid a\in I\} \subseteq R\,.`
 Depends on: {uses "ring.field_of_fractions"}[] {uses "ring.integral_domain"}[]
 :::
 
-:::definition "ring.ideal"
+:::definition "ring.ideal" (lean := "TwoSidedIdeal, Ideal, Ideal.IsHomogeneous, MvPolynomial.gradedAlgebra, Ideal.IsHomogeneous.iff_exists")
 *Ideal of a ring.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ring.ideal))
 
 If $`R` is a {bpref "ring"}[ring], a subset $`I\subseteq R` is an *ideal* of $`R` if $`I` is a {bpref "group.subgroup"}[subgroup] of $`R` for $`+` and for all $`a\in I` and all $`r\in R`,
@@ -1708,7 +1708,7 @@ $$`ab\in I \implies a\in I \quad \text{or}\quad b\in I.`
 Depends on: {uses "ring"}[] {uses "ring.ideal"}[]
 :::
 
-:::definition "ring.principal_fractional_ideal"
+:::definition "ring.principal_fractional_ideal" (lean := "FractionalIdeal.spanSingleton, toPrincipalIdeal, FractionalIdeal.mem_spanSingleton")
 *Principal fractional ideal.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ring.principal_fractional_ideal))
 
 Let $`R` be an {bpref "ring.integral_domain"}[integral domain] with {bpref "ring.field_of_fractions"}[field of fractions] $`K`.  If $`a\in K^\times`, then the *principal fractional ideal* generated by $`a` is the set
@@ -1726,7 +1726,7 @@ A *unit* in a {bpref "ring"}[commutative ring] $`R` is an element $`x \in R` so 
 Depends on: {uses "group"}[] {uses "ring"}[]
 :::
 
-:::definition "ring.zero_divisor"
+:::definition "ring.zero_divisor" (lean := "nonZeroDivisors, notMem_nonZeroDivisors_iff")
 *Zero divisor.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ring.zero_divisor))
 
 An element $`a` in a {bpref "ring"}[ring] $`R` is a *zero divisor* if $`a\neq 0_R` and there exists an element $`b\in R-\{0_R\}` such that
@@ -1765,7 +1765,7 @@ This is known for all elliptic curves over {bpref "nf.totally_real"}[totally rea
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.dimension"}[] {uses "artin"}[] {uses "ec"}[] {uses "group.haar_measure"}[] {uses "nf.cm_field"}[] {uses "nf.totally_real"}[] {uses "st_group.usp"}[]
 :::
 
-:::definition "st_group.symplectic_form"
+:::definition "st_group.symplectic_form" (lean := "LinearMap.BilinForm.IsAlt, LinearMap.BilinForm.Nondegenerate, LinearMap.BilinForm")
 *Symplectic form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.symplectic_form))
 
 A *symplectic form* on a vector space $`V` over a field $`k` is a non-degenerate alternating bilinear form $`\omega\colon V\times V\to k`.  This means that
@@ -1783,7 +1783,7 @@ $$`\Omega = \begin{bmatrix} 0 & I_n\\ -I_n & 0\end{bmatrix},`
 where $`I_n` denotes the $`n\times n` identity matrix.
 :::
 
-:::definition "st_group.usp"
+:::definition "st_group.usp" (lean := "Matrix.unitaryGroup, Matrix.symplecticGroup, SymplecticGroup.mem_iff', Matrix.J")
 *Unitary symplectic group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.usp))
 
 For a positive even integer $`d` the *unitary symplectic group* $`\mathrm{USp}(d)` is
