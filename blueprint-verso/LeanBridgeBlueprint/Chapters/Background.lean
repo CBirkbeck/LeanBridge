@@ -27,7 +27,7 @@ $$`\frac{T}{e^T-1}=\sum_{n\ge 0}B_n\frac{T^n}{n!},`
 which has radius of convergence $`2\pi`.
 :::
 
-:::definition "af.divisor_function"
+:::definition "af.divisor_function" (lean := "ArithmeticFunction.divisorFunction, ArithmeticFunction.isMultiplicative_divisorFunction, ArithmeticFunction.divisorFunction_natCast, ArithmeticFunction.sigma")
 *Divisor function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/af.divisor_function))
 
 A *divisor function* is a {bpref "af.multiplicative"}[multiplicative] {bpref "af"}[arithmetic function] of the form
@@ -67,7 +67,7 @@ $$`\mathbb{A}^n(K) = \{(x_1,\dots,x_n)\mid x_1,\dots,x_n\in K\}.`
 Depends on: {uses "ring.field"}[]
 :::
 
-:::definition "ag.base_change"
+:::definition "ag.base_change" (lean := "AlgebraicGeometry.Scheme.IsBaseChangeFromSubfield, AlgebraicGeometry.Scheme.isBaseChangeFromSubfield_iff, AlgebraicGeometry.Scheme.isBaseChangeFromSubfield_pullback, CategoryTheory.Over.pullback, AlgebraicGeometry.Scheme.IsVarietyOver")
 *Base change.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.base_change))
 
 Let $`V` be an {bpref "ag.variety"}[algebraic variety] defined over a {bpref "ring.field"}[field] $`K`. If $`L/K` is a field extension, then any set of equations that define $`V` over $`K` can be used to define an algebraic variety over $`L`, the *base change* of $`V` from $`K` to $`L` (typically denoted $`V_L`).
@@ -85,7 +85,7 @@ The *base field*, of an {bpref "ag.abelian_variety"}[algebraic variety] is the f
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.minimal_field"}[]
 :::
 
-:::definition "ag.complex_multiplication"
+:::definition "ag.complex_multiplication" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.HasComplexMultiplication, TauCeti.AlgebraicGeometry.AbelianVariety.EndAlgebra, TauCeti.AlgebraicGeometry.AbelianVariety.hasComplexMultiplication_congr, TauCeti.AlgebraicGeometry.AbelianVariety.End, NumberField.IsCMField")
 *Complex multiplication.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.complex_multiplication))
 
 A {bpref "ag.geom_simple"}[simple] {bpref "ag.abelian_variety"}[abelian variety] of {bpref "ag.dimension"}[dimension] $`g` is said to have *complex multiplication* (CM) if its
@@ -94,7 +94,7 @@ A {bpref "ag.geom_simple"}[simple] {bpref "ag.abelian_variety"}[abelian variety]
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.dimension"}[] {uses "ag.endomorphism_algebra"}[] {uses "ag.endomorphism_ring"}[] {uses "ag.geom_simple"}[] {uses "nf.cm_field"}[] {uses "nf.degree"}[] {uses "nf.order"}[]
 :::
 
-:::definition "ag.curve"
+:::definition "ag.curve" (lean := "AlgebraicGeometry.Scheme.IsAlgebraicCurveOver, AlgebraicGeometry.Scheme.isAlgebraicCurveOver_iff_isCurveOver_and_geometricallyIntegral, AlgebraicGeometry.Scheme.IsAlgebraicCurveOver.isFunctionField, AlgebraicGeometry.Scheme.IsVarietyOver, AlgebraicGeometry.Scheme.IsCurveOver")
 *Algebraic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.curve))
 
 An *algebraic curve* is an {bpref "ag.variety"}[algebraic variety] of dimension $`1.`
@@ -158,7 +158,7 @@ For an abelian variety $`A` over a field $`F`, the *geometric endomorphism ring*
 Depends on: {uses "ag.endomorphism_ring"}[]
 :::
 
-:::definition "ag.geom_simple"
+:::definition "ag.geom_simple" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.IsGeometricallySimple, TauCeti.AlgebraicGeometry.AbelianVariety.isGeometricallySimple_congr, TauCeti.AlgebraicGeometry.AbelianVariety.IsSimple, TauCeti.AlgebraicGeometry.AbelianVariety.baseChange")
 *Geometrically simple.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.geom_simple))
 
 An {bpref "ag.abelian_variety"}[abelian variety] over a field $`k` is *geometrically (or absolutely) simple* if it is {bpref "ag.simple"}[simple] when viewed as a variety over $`\bar k`.
@@ -204,7 +204,7 @@ The Torelli theorem states that if $`X` and $`Y` are curves whose Jacobians are 
 Depends on: {uses "ag.abelian_variety"}[]
 :::
 
-:::definition "ag.minimal_field"
+:::definition "ag.minimal_field" (lean := "AlgebraicGeometry.Scheme.fieldsOfDefinition, AlgebraicGeometry.Scheme.IsMinimalFieldOfDefinition, AlgebraicGeometry.Scheme.top_mem_fieldsOfDefinition, AlgebraicGeometry.Scheme.isUpperSet_fieldsOfDefinition, AlgebraicGeometry.Scheme.mem_fieldsOfDefinition_pullback")
 *Minimal field of definition.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.minimal_field))
 
 Let $`V/k` be an {bpref "ag.variety"}[algebraic variety] defined over a {bpref "ring.field"}[field] $`k` and let $`S` be the set of subfields $`k_0\subseteq k`  for which there exists an algebraic variety $`V_0/k_0` whose {bpref "ag.base_change"}[base change] to $`k` is isomorphic to $`V`.
@@ -266,7 +266,7 @@ Depends on: {uses "ag.curve"}[] {uses "ag.variety"}[] {uses "g2c.aut_grp"}[]
 A *Riemann surface* is a connected complex manifold of dimension one.  Compact Riemann surfaces can be identified with smooth projective curves over $`\C`.
 :::
 
-:::definition "ag.simple"
+:::definition "ag.simple" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.IsSimple, TauCeti.AlgebraicGeometry.AbelianVariety.isSimple_congr, TauCeti.AlgebraicGeometry.AbelianVariety.not_isSimple_trivial, TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogenous, TauCeti.AlgebraicGeometry.AbelianVariety.prod")
 *Simple.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.simple))
 
 An {bpref "ag.abelian_variety"}[abelian variety] is *simple* if it is nonzero and not isogenous to a product of abelian varieties of lower dimension.
@@ -280,7 +280,7 @@ Depends on: {uses "ag.abelian_variety"}[]
 Let $`V` be a variety over a perfect field $`F`. A point $`P` of $`V` is *non-singular* if the module of differentials of $`V` is locally free at $`P`.  According to the Jacobian criterion, if $`V` is defined in a neighborhood of $`P` by affine polynomial equations $`f_1(X_1, \ldots, X_n) = \ldots =f_r(X_1, \ldots, X_n)=0`, then $`V` is non-singular at $`P` if the Jacobian matrix $`\left( \frac{\partial f_i}{\partial X_j} \right)_{ij}` has the same rank as the codimension of $`V` in $`\mathbb{A}^n`.
 :::
 
-:::definition "ag.variety"
+:::definition "ag.variety" (lean := "MvPolynomial.IsAffineAlgebraicSet, MvPolynomial.IsAffineVarietyOver, MvPolynomial.IsProjectiveAlgebraicSet, MvPolynomial.IsProjectiveVarietyOver, AlgebraicGeometry.Scheme.IsVarietyOver")
 *Algebraic variety.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.variety))
 
 There are two main kinds of *algebraic varieties*, \*affine varieties\* and \*projective varieties\*.   Both are defined as the set of common zeros of a collection of polynomials.
@@ -352,7 +352,7 @@ $$`a*a' = a'*a = e.`
 Depends on: {uses "alg.binary_operation"}[] {uses "alg.binary_operation.identity"}[]
 :::
 
-:::definition "alg.symplectic_isomorphism"
+:::definition "alg.symplectic_isomorphism" (lean := "LinearEquiv.IsSymplectic, LinearEquiv.isSymplectic_iff, exteriorPower.map")
 *Symplectic isomorphism.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/alg.symplectic_isomorphism))
 
 Let $`N \ge 1`.  Let $`\mu_N` be the group of $`N`th roots of unity in some algebraically closed field of characteristic not dividing $`N`.  Let $`M` be a free rank $`2` $`\Z/N\Z`-module together with an isomorphism $`\alpha \colon \bigwedge^2 M \stackrel{\sim}\to \mu_N`, or equivalently with a nondegenerate alternating pairing $`M \times M \to \mu_N`.  For example, $`M` could be $`E[N]` for an elliptic curve $`E`, together with the Weil pairing.  Or $`M` could be $`\Z/N\Z \times \mu_N` with the "determinant" pairing $`(a,\gamma),(b,\delta) \mapsto \delta^a/\gamma^b`.
@@ -362,7 +362,7 @@ A *symplectic isomorphism* from $`M` to another such structure $`M'` is a $`\Z/N
 The same definition makes sense in a context in which each free rank 2 $`\Z/N\Z`-module is enriched with a Galois action to make a Galois module, or replaced by a finite etale group scheme that is $`(\Z/N\Z)^2` etale locally.
 :::
 
-:::definition "artin"
+:::definition "artin" (lean := "Representation.IsArtin, Representation.artinField, Representation.isArtin_iff_exists_finiteGaloisIntermediateField, Representation.isArtin_iff_continuous, Representation.IsArtin.artinField_le_iff")
 *Artin representation (definition).* ([LMFDB](https://beta.lmfdb.org/knowledge/show/artin))
 
 An *Artin representation* is a continuous homomorphism
@@ -373,7 +373,7 @@ finite-dimensional $`\C`-vector space $`V`.  Here continuity means that $`\rho` 
 Depends on: {uses "group.galois.absolute"}[] {uses "nf.galois_group"}[]
 :::
 
-:::definition "artin.conductor"
+:::definition "artin.conductor" (lean := "Representation.artinConductor, Representation.artinConductorExponent, Representation.artinConductorExponentAt, Representation.artinConductorExponent_eq, Ideal.ramificationGroup")
 *Conductor of an Artin representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/artin.conductor))
 
 The *conductor* of an {bpref "artin"}[Artin representation] is a positive integer that measures its ramification.  It can be expressed as a product of local conductors.
@@ -406,7 +406,7 @@ $`\mathrm{Gal}(K/\Q)`.
 Depends on: {uses "artin"}[] {uses "nf"}[]
 :::
 
-:::definition "artin.parity"
+:::definition "artin.parity" (lean := "Representation.IsEven, Representation.IsOdd, Field.absoluteGaloisGroup.complexConjugation, Representation.det_complexConjugation_eq, Representation.isEven_or_isOdd")
 *Parity of a representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/artin.parity))
 
 An {bpref "artin"}[Artin representation] $`\rho:\Gal(\overline{\Q}/\Q)\to \GL(V)` is *even* or *odd* if $`\det(\rho(c))` equals $`1` or $`-1`, respectively, where $`c` is a complex conjugation.
@@ -444,7 +444,7 @@ Two abelian varieties are *isogenous* if there is an isogeny between them. This 
 Depends on: {uses "ag.abelian_variety"}[]
 :::
 
-:::definition "av.simple"
+:::definition "av.simple" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.IsSimple, TauCeti.AlgebraicGeometry.AbelianVariety.isSimple_congr, TauCeti.AlgebraicGeometry.AbelianVariety.not_isSimple_trivial, TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogenous, TauCeti.AlgebraicGeometry.AbelianVariety.prod")
 *Simple abelian variety.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.simple))
 
 An {bpref "ag.abelian_variety"}[abelian variety] is *simple* if it is nonzero and not isogenous to a product of abelian varieties of lower dimension.
@@ -490,7 +490,7 @@ The *conductor* of a {bpref "character.dirichlet"}[Dirichlet character] $`\chi` 
 Depends on: {uses "character.dirichlet"}[]
 :::
 
-:::definition "character.dirichlet.galois_orbit"
+:::definition "character.dirichlet.galois_orbit" (lean := "MulChar.galoisOrbit")
 *Galois orbit of a Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.galois_orbit))
 
 The *Galois orbit* of a {bpref "character.dirichlet"}[Dirichlet character] $`\chi` of {bpref "character.dirichlet.modulus"}[modulus] $`q` and {bpref "character.dirichlet.order"}[order] $`n` is the set $`[\chi]:=\{\sigma(\chi): \sigma\in \Gal(\Q(\zeta_n)/\Q)\}`, where $`\sigma(\chi)` denotes the Dirichlet character of modulus $`q` defined by  $`k \mapsto \sigma(\chi(k))`.  The map $`\chi\to \sigma(\chi)` defines a faithful action of the {bpref "nf.galois_group"}[Galois group] $`\Gal(\Q(\zeta_n)/\Q)` on the set of Dirichlet characters of modulus $`q` and order $`n`, each of which has $`\Q(\zeta_n)` as its {bpref "character.dirichlet.value_field"}[field of values].
@@ -498,7 +498,7 @@ The *Galois orbit* of a {bpref "character.dirichlet"}[Dirichlet character] $`\ch
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.modulus"}[] {uses "character.dirichlet.order"}[] {uses "character.dirichlet.value_field"}[] {uses "nf.galois_group"}[]
 :::
 
-:::definition "character.dirichlet.galois_orbit_index"
+:::definition "character.dirichlet.galois_orbit_index" (lean := "DirichletCharacter.galoisOrbitIndex, DirichletCharacter.galoisOrbitTraceVector, DirichletCharacter.galoisOrbitIndex_eq_iff, DirichletCharacter.galoisOrbitTraceVector_eq_iff, DirichletCharacter.galoisOrbitIndex_one")
 *Orbit index of a Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.galois_orbit_index))
 
 The {bpref "character.dirichlet.galois_orbit"}[Galois orbits] of {bpref "character.dirichlet"}[Dirichlet characters] of {bpref "character.dirichlet.modulus"}[modulus] $`q` are ordered as follows.
@@ -513,7 +513,7 @@ The *orbit index* of $`\chi` is the index of $`t([\chi])` in the lexicographic o
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.galois_orbit"}[] {uses "character.dirichlet.modulus"}[] {uses "character.dirichlet.order"}[] {uses "character.dirichlet.principal"}[] {uses "character.dirichlet.value_field"}[]
 :::
 
-:::definition "character.dirichlet.galois_orbit_label"
+:::definition "character.dirichlet.galois_orbit_label" (lean := "DirichletCharacter.galoisOrbitLabel, DirichletCharacter.letterCode, DirichletCharacter.letterCode_zero, DirichletCharacter.letterCode_one, DirichletCharacter.letterCode_twentySix")
 *Label of a Galois orbit of a Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.galois_orbit_label))
 
 The *label* of a {bpref "character.dirichlet.galois_orbit"}[Galois orbit] of a {bpref "character.dirichlet"}[Dirichlet character] $`\chi` of modulus $`N` takes the form $`N.a`, where $`a` is a letter or string of letters representing the {bpref "character.dirichlet.galois_orbit_index"}[index] of the Galois orbit.
@@ -532,7 +532,7 @@ A Dirichlet character is {bpref "character.dirichlet.primitive"}[primitive] if i
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.modulus"}[]
 :::
 
-:::definition "character.dirichlet.minimal"
+:::definition "character.dirichlet.minimal" (lean := "DirichletCharacter.IsMinimal, DirichletCharacter.IsMinimalOfPrimePowerModulus, DirichletCharacter.primePowerPart, DirichletCharacter.IsPrimitive.isMinimalOfPrimePowerModulus, DirichletCharacter.isMinimalOfPrimePowerModulus_one_iff")
 *Minimal Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.minimal))
 
 A {bpref "character.dirichlet"}[Dirichlet character] $`\chi` of prime power {bpref "character.dirichlet.modulus"}[modulus] $`N` is *minimal* if the following conditions both hold:
@@ -589,7 +589,7 @@ The *field of values* of a Dirichlet character $`\chi\colon\Z\to\C` is the field
 Depends on: {uses "character.dirichlet.order"}[]
 :::
 
-:::definition "g2c.aut_grp"
+:::definition "g2c.aut_grp" (lean := "HyperellipticEquation.hyperellipticInvolution, HyperellipticEquation.orderOf_hyperellipticInvolution, GenusTwoCurve.nontrivial_algEquiv, GenusTwoCurve.orderOf_hyperellipticInvolution, CategoryTheory.Aut")
 *Automorphism group of an algebraic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.aut_grp))
 
 An *automorphism* of an {bpref "ag.curve"}[algebraic curve] is an isomorphism from the curve to itself.  The set of automorphisms of a curve $`X` form a group $`\mathrm{Aut}(X)` under composition; this is the *automorphism group* of the curve.
@@ -616,7 +616,7 @@ where $`\text{lc}(f)` denotes the leading coefficient of $`f` and $`\text{disc}(
 The *discriminant* of a genus 2 curve over $`\Q` is the discriminant of a {bpref "g2c.minimal_equation"}[minimal equation] for the curve; it is an invariant of the curve that does not depend on the choice of minimal equation.
 :::
 
-:::definition "g2c.g2curve"
+:::definition "g2c.g2curve" (lean := "GenusTwoCurve, HyperellipticEquation, HyperellipticEquation.FunctionField, GenusTwoCurve.genus_functionField, GenusTwoCurve.isHyperellipticFunctionField")
 *Genus 2 curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.g2curve))
 
 Every (smooth, projective, geometrically integral) curve of genus 2 can be defined by a *Weierstrass equation* of the form
@@ -641,7 +641,7 @@ For all of the genus 2 curves currently in the LMFDB, every prime of good reduct
 Depends on: {uses "ag.jacobian"}[] {uses "ag.variety"}[]
 :::
 
-:::definition "g2c.minimal_equation"
+:::definition "g2c.minimal_equation" (lean := "HyperellipticEquation.IsMinimal, HyperellipticEquation, HyperellipticEquation.discriminant, HyperellipticEquation.weightedEquation, HyperellipticEquation.simplifiedPolynomial")
 *Minimal equation of a hyperelliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.minimal_equation))
 
 Every ({bpref "ag.curve.smooth"}[smooth], projective, geometrically integral) {bpref "ag.hyperelliptic_curve"}[hyperelliptic curve] $`X` over $`\Q` of {bpref "ag.curve.genus"}[genus] $`g` can be defined by an integral Weierstrass equation
@@ -663,7 +663,7 @@ Depends on: {uses "ag.curve.genus"}[] {uses "ag.curve.smooth"}[] {uses "ag.hyper
 The *Galois group* of an irreducible separable polynomial of degree $`n` can be embedded in $`S_n` through its action on the roots of the polynomial, with the image being well-defined up to labeling of the roots.  Different labelings lead to conjugate subgroups.  The subgroup acts transitively on $`\{1,\ldots,n\}`.  Conversely, for every transitive subgroup $`G` of $`S_n` with $`n\in\mathbb{Z}^+`, there is a field $`K` such that $`G` is the Galois group of some polynomial over $`K`.
 :::
 
-:::definition "gl2.borel"
+:::definition "gl2.borel" (lean := "Matrix.GeneralLinearGroup.IsBorelSubgroup, TauCeti.GL2Borel, Matrix.GeneralLinearGroup.labelBAB, Matrix.GeneralLinearGroup.isBorelSubgroup_iff_exists_lineStabilizer, ZMod.leastPrimitiveRoot")
 *Borel subgroup.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gl2.borel))
 
 A *Borel subgroup* of a general linear group is a subgroup that is conjugate to the group of upper triangular matrices.
@@ -681,7 +681,7 @@ $$`\begin{pmatrix}a&0\\0&1/a\end{pmatrix},\ \begin{pmatrix}b&0\\0&r/b\end{pmatri
 where $`a` and $`b` are minimally chosen positive integers and $`r` is the least positive integer generating $`(\Z/p\Z)^\times\simeq \F_p^\times`, as defined in .
 :::
 
-:::definition "gl2.cartan"
+:::definition "gl2.cartan" (lean := "Matrix.GeneralLinearGroup.cartanSubgroup, Matrix.GeneralLinearGroup.canonicalInvolution, Matrix.GeneralLinearGroup.extendedCartanSubgroup, Matrix.GeneralLinearGroup.IsCartanSubgroup, Matrix.GeneralLinearGroup.IsExtendedCartanSubgroup")
 *Cartan subgroup.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gl2.cartan))
 
 Let $`R` be a commutative ring.  Given a free rank $`2` etale $`R`-algebra $`A` equipped with a basis, any $`a \in A^\times` defines an $`R`-linear multiplication-by-$`a` map $`A \to A`, so we get an injective homomorphism $`A^\times \to \Aut_{\text{R-module}}(A) \simeq \GL_2(R)`, and the image is called a *Cartan subgroup* of $`\GL_2(R)`.  The canonical involution of the $`R`-algebra $`A` gives another element of $`\Aut_{\text{R-module}}(A)`; we call the group generated by it and the Cartan subgroup $`A^\times` the *extended Cartan subgroup*.  The Cartan subgroup has index $`2` in the extended Cartan subgroup.
@@ -693,7 +693,7 @@ If $`R=\Z/p^e\Z`, again there are two possibilities for $`A`: the split algebra 
 If $`R=\Z/N\Z` for some $`N \ge 1`, then $`A` can be split or nonsplit independently at each prime dividing $`N`.
 :::
 
-:::definition "gl2.exceptional"
+:::definition "gl2.exceptional" (lean := "Matrix.GeneralLinearGroup.IsExceptionalSubgroup, Matrix.GeneralLinearGroup.projectiveImage, Matrix.GeneralLinearGroup.ExceptionalType, Matrix.GeneralLinearGroup.HasExceptionalType, Matrix.ProjGenLinGroup")
 *Exceptional subgroup.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gl2.exceptional))
 
 An *exceptional subgroup* of $`\GL_2(\F_p)` does not contain $`\SL_2(\F_p)` and is not contained in a {bpref "gl2.borel"}[Borel subgroup] or in the {bpref "gl2.normalizer_cartan"}[normalizer of a Cartan subgroup].
@@ -713,7 +713,7 @@ When $`G` is a matrix group over $`\widehat{\Z}` or $`\Z_{\ell}` and $`H` is a s
 Depends on: {uses "gl2.level"}[] {uses "gl2.open"}[] {uses "gl2.profinite"}[]
 :::
 
-:::definition "gl2.level"
+:::definition "gl2.level" (lean := "Matrix.GeneralLinearGroup.adelicLevel, Matrix.GeneralLinearGroup.adelicReduction, Matrix.GeneralLinearGroup.adelicLevel_pos, Matrix.GeneralLinearGroup.padicLevel, Matrix.GeneralLinearGroup.exists_padicLevel_eq_pow_of_isOpen")
 *Level of an open subgroup.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gl2.level))
 
 The *level* of an {bpref "gl2.open"}[open subgroup] $`H` of a matrix group $`G` over $`\widehat{\Z}` is the least positive integer $`N` for which $`H` is equal to the inverse image of its projection to the reduction of $`G` modulo $`N`.
@@ -723,7 +723,7 @@ This also applies to open subgroups of matrix groups over $`\Z_{\ell}`, in which
 Depends on: {uses "gl2.open"}[]
 :::
 
-:::definition "gl2.nonsplit_cartan"
+:::definition "gl2.nonsplit_cartan" (lean := "Matrix.GeneralLinearGroup.IsNonsplitCartanSubgroup, Matrix.GeneralLinearGroup.labelCn, Matrix.GeneralLinearGroup.mem_labelCn_iff, Matrix.GeneralLinearGroup.labelCn_two_eq_of_index_eq_two, Matrix.GeneralLinearGroup.labelCnAB")
 *Non-split Cartan subgroup.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gl2.nonsplit_cartan))
 
 A *non-split Cartan subgroup* of $`\GL_2(\F_p)` is a {bpref "gl2.cartan"}[Cartan subgroup] that is not diagonalizable over $`\F_p`.  Every non-split Cartan subgroup is a cyclic group isomorphic to $`\F_{p^2}^\times`.
@@ -744,7 +744,7 @@ where $`a` and $`b` are minimally chosen positive integers and $`\varepsilon` is
 Depends on: {uses "gl2.cartan"}[]
 :::
 
-:::definition "gl2.normalizer_cartan"
+:::definition "gl2.normalizer_cartan" (lean := "Matrix.GeneralLinearGroup.IsCartanNormalizer, Subgroup.normalizer, Matrix.GeneralLinearGroup.extendedCartanSubgroup_le_normalizer")
 *Normalizer of a Cartan subgroup.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gl2.normalizer_cartan))
 
 For $`p>2` the *normalizer of a Cartan subgroup* of $`\GL_2(\F_p)` is a maximal subgroup of $`\GL_2(\F_p)` that contains a {bpref "gl2.cartan"}[Cartan subgroup] with index 2.  It is the normalizer in $`\GL_2(\F_p)` of the Cartan subgroup it contains.
@@ -754,7 +754,7 @@ For $`p=2` the Cartan subgroups of $`\GL_2(\F_2)` are already normal and we inst
 Depends on: {uses "gl2.cartan"}[]
 :::
 
-:::definition "gl2.normalizer_nonsplit_cartan"
+:::definition "gl2.normalizer_nonsplit_cartan" (lean := "Matrix.GeneralLinearGroup.IsNonsplitCartanNormalizer, Matrix.GeneralLinearGroup.labelNn, Matrix.GeneralLinearGroup.labelNn_eq_sup, Matrix.GeneralLinearGroup.labelNn_two, Matrix.GeneralLinearGroup.labelNnAB")
 *Normalizer of a non-split Cartan subgroup.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gl2.normalizer_nonsplit_cartan))
 
 For $`p>2` the *normalizer of a non-split Cartan subgroup* of $`\GL_2(\F_p)` is a maximal subgroup of $`\GL_2(\F_p)` that contains a {bpref "gl2.nonsplit_cartan"}[non-split Cartan subgroup] with index 2,
@@ -775,7 +775,7 @@ where $`a` and $`b` are minimally chosen positive integers and $`\varepsilon` is
 Depends on: {uses "gl2.nonsplit_cartan"}[]
 :::
 
-:::definition "gl2.normalizer_split_cartan"
+:::definition "gl2.normalizer_split_cartan" (lean := "Matrix.GeneralLinearGroup.IsSplitCartanNormalizer, Matrix.GeneralLinearGroup.labelNs, Matrix.GeneralLinearGroup.isSplitCartanNormalizer_labelNs, Matrix.GeneralLinearGroup.labelNsAB, Matrix.GeneralLinearGroup.labelNsABC")
 *Normalizer of a split Cartan subgroup.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gl2.normalizer_split_cartan))
 
 The *normalizer of a split Cartan subgroup* of $`\GL_2(\F_p)` is a maximal subgroup of $`\GL_2(\F_p)` that contains a {bpref "gl2.split_cartan"}[split Cartan subgroup] with index 2.  For $`p>2` such a group is in fact the normalizer in $`\GL_2(\F_p)` of the split Cartan subgroup it contains, but for $`p=2` this is not the case (the split Cartan subgroup of $`\GL_2(\F_2)` is already normal).
@@ -825,7 +825,7 @@ $$`\lim_{\overset{\longleftarrow}{n}} \GL_2(\Z/n\Z) \simeq \GL_2(\widehat{\Z})`
 is a profinite group which is isomorphic to the group of invertible $`2\times 2` matrices over the topological ring $`\widehat{\Z}`, which is the inverse limit of the finite rings $`\Z/n\Z` equipped with the discrete topology.
 :::
 
-:::definition "gl2.split_cartan"
+:::definition "gl2.split_cartan" (lean := "Matrix.GeneralLinearGroup.IsSplitCartanSubgroup, TauCeti.diagonalTorus, Matrix.GeneralLinearGroup.cartanSubgroup_piBasisFun, Matrix.GeneralLinearGroup.isSplitCartanSubgroup_diagonalTorus, Matrix.GeneralLinearGroup.labelCsAB")
 *Split Cartan subgroup.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gl2.split_cartan))
 
 A *split Cartan subgroup* of $`\GL_2(\F_p)` is a {bpref "gl2.cartan"}[Cartan subgroup] that is diagonalizable over $`\F_p`.  Every split Cartan subgroup is conjugate to the subgroup of diagonal matrices, which is isomorphic to $`\F_p^\times\times\F_p^\times`.
@@ -928,7 +928,7 @@ Note that $`T=\left(\begin{matrix}1&1\\0&1\end{matrix}\right)` is one of the *ge
 Depends on: {uses "group.fuchsian.cusps"}[] {uses "group.sl2z"}[]
 :::
 
-:::definition "group.fuchsian.fundamental_domain"
+:::definition "group.fuchsian.fundamental_domain" (lean := "ModularGroup.IsFundamentalDomain, ModularGroup.isFundamentalDomain_fd, ModularGroup.fd, UpperHalfPlane.Completed")
 *Fundamental domain.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.fuchsian.fundamental_domain))
 
 If $`G\subseteq\Gamma` is a subgroup of the {bpref "group.sl2z"}[modular group], then a closed set
@@ -1005,7 +1005,7 @@ Depends on: {uses "group.homomorphism"}[]
 If $`G` is a group, a subgroup $`M` is a *maximal subgroup* if for every subgroup $`H` such that $`M\subseteq H \subseteq G`, either $`H=M` or $`H=G`.
 :::
 
-:::definition "group.normal_series"
+:::definition "group.normal_series" (lean := "Subgroup.SubnormalSeries, Subgroup.NormalSeries, Subgroup.isSubnormal_iff_exists_subnormalSeries, Subgroup.SubnormalSeries.isSubnormal, Subgroup.IsSubnormal")
 *Normal series of a group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.normal_series))
 
 If $`G` is a {bpref "group"}[group], a *subnormal series* for $`G` is a chain of subgroups
@@ -1027,7 +1027,7 @@ The *order* of a {bpref "group"}[group] is its cardinality as a set.
 Depends on: {uses "group"}[]
 :::
 
-:::definition "group.presentation"
+:::definition "group.presentation" (lean := "PresentedGroup, Subgroup.SubnormalSeries.IsPolycyclic, PolycyclicSequence, PolycyclicSequence.relOrder, PolycyclicPresentation.relators")
 *Presentation of a finite group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.presentation))
 
 A *presentation* of a group $`G` is a description of $`G` as the quotient $`F/R` of a free group $`F` generated by a specified set of generators, modulo the normal subgroup $`R` generated by a set of words in those generators.  When $`G` is abelian we instead express $`G` as a quotient of a free abelian group $`F` so that we can omit commutator relations.
@@ -1236,7 +1236,7 @@ The *wild inertia group* of a {bpref "nf.is_galois"}[Galois] extension $`K/\Q_p`
 Depends on: {uses "group.sylow_subgroup"}[] {uses "lf.inertia_group"}[] {uses "nf.is_galois"}[]
 :::
 
-:::definition "lfunction"
+:::definition "lfunction" (lean := "AnalyticLFunction, AnalyticLFunction.SelbergData, AnalyticLFunction.eqOn_toFun_of_coeff_eq, AnalyticLFunction.zeta, LSeries")
 *L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction))
 
 An (analytic) *L-function* is a {bpref "lfunction.dirichlet_series"}[Dirichlet series] that has an {bpref "lfunction.euler_product"}[Euler product] and satisfies a certain type of {bpref "lfunction.functional_equation"}[functional equation].
@@ -1248,7 +1248,7 @@ It is also conjectured that a precise form of the {bpref "lfunction.functional_e
 Depends on: {uses "lfunction.dirichlet_series"}[] {uses "lfunction.euler_product"}[] {uses "lfunction.functional_equation"}[]
 :::
 
-:::definition "lfunction.analytic_rank"
+:::definition "lfunction.analytic_rank" (lean := "AnalyticLFunction.analyticRank, AnalyticLFunction.natCast_analyticRank, AnalyticLFunction.iteratedDeriv_analyticRank_ne_zero, AnalyticLFunction.analyticOrderNatAt_arithmeticNormalization, AnalyticLFunction.analyticRank_congr")
 *Analytic rank.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.analytic_rank))
 
 The *analytic rank* of an {bpref "lfunction"}[L-function] $`L(s)` is its order of vanishing at its {bpref "lfunction.central_point"}[central point].
@@ -1326,7 +1326,7 @@ $$`L_p(s)=\prod_{n=1}^{d_p}\left( 1-\frac{\beta_{n}(p)}{p^s}\right)^{-1} \text{ 
 The functions $`L_p(s)` are called *Euler factors* (or *local factors*).
 :::
 
-:::definition "lfunction.functional_equation"
+:::definition "lfunction.functional_equation" (lean := "AnalyticLFunction.SelbergData, AnalyticLFunction.SelbergData.gammaFactor, AnalyticLFunction.SelbergData.degree, AnalyticLFunction.completed_eq, AnalyticLFunction.completed_eq_sign_mul_conj")
 *Functional equation of an L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.functional_equation))
 
 All known {bpref "lfunction"}[analytic L-functions] have a *functional equation* that can be written in the form
@@ -1374,7 +1374,7 @@ and can also be viewed as "missing" factors of the {bpref "lfunction.euler_produ
 Depends on: {uses "lfunction.euler_product"}[]
 :::
 
-:::definition "lfunction.leading_coeff"
+:::definition "lfunction.leading_coeff" (lean := "AnalyticLFunction.leadingCoeff, AnalyticLFunction.leadingCoeff_eq_iteratedDeriv, AnalyticLFunction.meromorphicTrailingCoeffAt_arithmeticNormalization, AnalyticAt.meromorphicTrailingCoeffAt_eq_iteratedDeriv_div_factorial, meromorphicTrailingCoeffAt")
 *Leading coefficient.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.leading_coeff))
 
 The *leading coefficient* of an {bpref "lfunction.arithmetic"}[arithmetic L-function] is the first nonzero coefficient of its Laurent series expansion at the {bpref "lfunction.central_point"}[central point].
@@ -1382,7 +1382,7 @@ The *leading coefficient* of an {bpref "lfunction.arithmetic"}[arithmetic L-func
 Depends on: {uses "lfunction.arithmetic"}[] {uses "lfunction.central_point"}[]
 :::
 
-:::definition "lfunction.normalization"
+:::definition "lfunction.normalization" (lean := "AnalyticLFunction.arithmeticNormalization, AnalyticLFunction.arithmeticCoeff, AnalyticLFunction.arithmeticNormalization_eq_LSeries, AnalyticLFunction.completed_sub_eq_sign_mul_conj, AnalyticLFunction.motivicWeight")
 *Normalization of an L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.normalization))
 
 In its *arithmetic normalization*, an L-function $`L(s)` of weight $`w` has its central value at $`s=\frac{w+1}{2}`
@@ -1395,7 +1395,7 @@ The *analytic normalization* of an L-function is defined by $`L_{an}(s):=L(s+w/2
 Depends on: {uses "lfunction.functional_equation"}[]
 :::
 
-:::definition "lfunction.rh"
+:::definition "lfunction.rh" (lean := "AnalyticLFunction.RiemannHypothesis, GeneralizedRiemannHypothesis, AnalyticLFunction.zeros, riemannHypothesis_iff_zeta, RiemannHypothesis")
 *Generalized Riemann hypothesis.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.rh))
 
 The *Riemann hypothesis* is the assertion that if $`\rho` is a zero of an
@@ -1411,7 +1411,7 @@ Depends on: {uses "lfunction"}[]
 An L-function $`L(s) = \sum_{n=1}^{\infty} \frac{a_n}{n^s}` is called *self-dual* if its Dirichlet coefficients $`a_n` are real.
 :::
 
-:::definition "lfunction.sign"
+:::definition "lfunction.sign" (lean := "AnalyticLFunction.sign, AnalyticLFunction.SelbergData.sign, AnalyticLFunction.norm_sign, AnalyticLFunction.completed_eq_sign_mul_conj")
 *Sign of the functional equation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.sign))
 
 The *sign* of the functional equation of an analytic L-function, also called the *root number*, is the complex number $`\varepsilon` that appears in the {bpref "lfunction.functional_equation"}[functional equation] of $`\Lambda(s)=\varepsilon \overline{\Lambda}(1-s)`.  The sign appears as the 4th entry in the quadruple
@@ -1434,7 +1434,7 @@ It is related to the Discriminant modular form via the formula
 $$`\Delta(z)=\eta^{24}(z).`
 :::
 
-:::definition "mf.upper_half_plane"
+:::definition "mf.upper_half_plane" (lean := "UpperHalfPlane.Completed, UpperHalfPlane.Completed.hasBasis_nhds_ratCast, UpperHalfPlane.Completed.hasBasis_nhds_infty, UpperHalfPlane.Completed.smul_cusp, UpperHalfPlane")
 *Upper half-plane.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.upper_half_plane))
 
 The *upper half-plane* $`\mathcal{H}` is the set of complex numbers whose imaginary part is positive, endowed with the topology induced from $`\C`.
@@ -1480,7 +1480,7 @@ The *cusps* of a modular curve $`X_H` correspond to the complement of $`Y_H` in 
 The *rational cusps* (also called *$`\Q`-cusps*) are the cusps fixed by $`\Gal_{\Q}`.
 :::
 
-:::definition "modcurve.level_structure"
+:::definition "modcurve.level_structure" (lean := "WeierstrassCurve.levelStructure, WeierstrassCurve.IsRationalLevelStructure, WeierstrassCurve.cyclicIsogenyFieldDegree, WeierstrassCurve.cyclicTorsionFieldDegree, WeierstrassCurve.torsionFieldDegree")
 *Level structure of a modular curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.level_structure))
 
 Let $`H` be an {bpref "gl2.open"}[open subgroup] of $`\GL_2(\widehat{\Z})` of {bpref "gl2.level"}[level] $`N`, let $`\pi_N\colon \GL_2(\widehat{\Z})\to \GL_2(\Z/N\Z)` be the natural projection, and let $`E` be an {bpref "ec"}[elliptic curve] over a {bpref "nf"}[number field] $`K`.

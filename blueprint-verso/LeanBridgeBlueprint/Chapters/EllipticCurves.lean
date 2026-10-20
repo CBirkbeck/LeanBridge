@@ -29,7 +29,7 @@ An {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $
 Depends on: {uses "ec"}[] {uses "nf"}[]
 :::
 
-:::definition "ec.analytic_sha_order"
+:::definition "ec.analytic_sha_order" (lean := "WeierstrassCurve.analyticShaOrder, WeierstrassCurve.BirchSwinnertonDyer.analyticShaOrder_eq, WeierstrassCurve.sha, WeierstrassCurve.mem_sha_iff, WeierstrassCurve.shafarevichTateGroup")
 *Analytic order of $`\Sha`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.analytic_sha_order))
 
 The *Tate-Shafarevich group* $`\Sha` of an {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K` is a {bpref "group.torsion"}[torsion] {bpref "group.abelian"}[abelian group], which can be defined in terms of Galois cohomology as
@@ -83,7 +83,7 @@ When $`K=\Q` and $`L` is a number field, elliptic curves over $`L` which are bas
 Depends on: {uses "ec.j_invariant"}[]
 :::
 
-:::definition "ec.bsdconjecture"
+:::definition "ec.bsdconjecture" (lean := "WeierstrassCurve.BirchSwinnertonDyer, WeierstrassCurve.WeakBirchSwinnertonDyer, WeierstrassCurve.birchSwinnertonDyer_iff, WeierstrassCurve.globalPeriod, WeierstrassCurve.Affine.regulator")
 *Birch Swinnerton-Dyer conjecture.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.bsdconjecture))
 
 The *Birch and Swinnerton-Dyer* conjecture (*BSD*) is one of the Millennium Prize Problems listed by the Clay Mathematics Institute. It relates the order of vanishing (or {bpref "lfunction.analytic_rank"}[analytic rank]) and the {bpref "lfunction.leading_coeff"}[leading coefficient] of  the {bpref "lfunction"}[L-function] associated to an {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K` at the {bpref "lfunction.central_point"}[central point] $`s=1` to certain arithmetic data, the *BSD invariants* of $`E`.
@@ -145,7 +145,7 @@ defined by $`\langle P,Q\rangle = \frac{1}{2}(\hat{h}(P+Q)-\hat{h}(P)-\hat{h}(Q)
 Depends on: {uses "ec"}[] {uses "ec.mordell_weil_group"}[] {uses "nf"}[] {uses "nf.weil_height"}[]
 :::
 
-:::definition "ec.complex_multiplication"
+:::definition "ec.complex_multiplication" (lean := "WeierstrassCurve.HasCM, WeierstrassCurve.HasGeometricCM, WeierstrassCurve.cmDiscriminant, WeierstrassCurve.geometricCMDiscriminant, WeierstrassCurve.hasGeometricCM_iff_of_j_eq")
 *Complex multiplication.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.complex_multiplication))
 
 An {bpref "ec"}[elliptic curve] whose {bpref "ec.endomorphism_ring"}[endomorphism ring] is larger than $`\Z` is said to have *complex multiplication* (often abbreviated to CM).  In this case, for curves defined over fields of {bpref "ring.characteristic"}[characteristic] zero, the endomorphism ring is isomorphic to an {bpref "nf.order"}[order] in an imaginary quadratic field.  The discriminant of this order is the *CM discriminant*.
@@ -245,7 +245,7 @@ This is a special case of the {bpref "ag.endomorphism_ring"}[endomorphism ring] 
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.endomorphism_ring"}[] {uses "ec"}[] {uses "ec.endomorphism"}[]
 :::
 
-:::definition "ec.galois_rep"
+:::definition "ec.galois_rep" (lean := "WeierstrassCurve.torsionGaloisAction, WeierstrassCurve.modGaloisRepresentationGL, WeierstrassCurve.tateModuleGaloisRepresentation, WeierstrassCurve.tateModuleGaloisRepresentationGL, WeierstrassCurve.adelicGaloisRepresentationGL")
 *Galois representations attached to an elliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.galois_rep))
 
 If $`E` is an {bpref "ec"}[elliptic curve] defined over a field $`K` and $`m` is a positive integer, then the *mod-$`m` Galois representation* attached to $`E` is the continuous homomorphism
@@ -411,7 +411,7 @@ Each {bpref "ec.weierstrass_coeffs"}[Weierstrass model] for $`E` also has a {bpr
 Depends on: {uses "ec"}[] {uses "ec.conductor"}[] {uses "ec.discriminant"}[] {uses "ec.endomorphism_ring"}[] {uses "ec.j_invariant"}[] {uses "ec.minimal_discriminant"}[] {uses "ec.weierstrass_coeffs"}[] {uses "nf"}[] {uses "ring.ideal"}[] {uses "st_group.definition"}[]
 :::
 
-:::definition "ec.isogeny"
+:::definition "ec.isogeny" (lean := "TauCeti.Isogeny, WeierstrassCurve.IsIsogenous, TauCeti.Isogeny.degree, TauCeti.Isogeny.IsCyclic, WeierstrassCurve.isogenySetoid")
 *Isogeny between elliptic curves.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.isogeny))
 
 Let $`E_1` and $`E_2` be two {bpref "ec"}[elliptic curves] defined over a field $`K`. An *isogeny* (over $`K`) between $`E_1` and $`E_2` is a non-constant morphism $`f\colon E_1 \to E_2` defined over $`K`, i.e., a morphism of curves given by rational functions with coefficients in $`K`, such that $`f(O_{E_1})= O_{E_2}`.  Elliptic curves $`E_1` and $`E_2` are called *isogenous* if there exists an isogeny $`f\colon E_1 \to E_2`.
@@ -431,7 +431,7 @@ An isogeny of elliptic curves is a special case of an {bpref "av.isogeny"}[isoge
 Depends on: {uses "ag.base_field"}[] {uses "av.isogeny"}[] {uses "ec"}[] {uses "ec.endomorphism"}[] {uses "ec.endomorphism_ring"}[] {uses "group.homomorphism"}[] {uses "nf"}[] {uses "nf.is_galois"}[]
 :::
 
-:::definition "ec.isogeny_class"
+:::definition "ec.isogeny_class" (lean := "WeierstrassCurve.isogenyClass, WeierstrassCurve.IsomorphismClass, WeierstrassCurve.IsIsogenous")
 *Isogeny class of an elliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.isogeny_class))
 
 The *isogeny class (over a field $`K`)* of an {bpref "ec"}[elliptic curve] $`E` defined over $`K` is the set of all isomorphism classes of elliptic curves defined over $`K` that are {bpref "ec.isogeny"}[isogenous] to $`E` over $`K`.  Over a number field $`K` this is always a finite set; over $`\Q`, it has at most 8 elements by a theorem of Kenku .
@@ -439,7 +439,7 @@ The *isogeny class (over a field $`K`)* of an {bpref "ec"}[elliptic curve] $`E` 
 Depends on: {uses "ec"}[] {uses "ec.isogeny"}[]
 :::
 
-:::definition "ec.isogeny_class_degree"
+:::definition "ec.isogeny_class_degree" (lean := "WeierstrassCurve.isogenyClassDegree, WeierstrassCurve.isogenyClassCyclicDegrees, WeierstrassCurve.IsomorphismClass.cyclicIsogenyDegrees, TauCeti.Isogeny.IsCyclic")
 *Isogeny class degree.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.isogeny_class_degree))
 
 The *isogeny class degree* of an {bpref "ec.isogeny_class"}[isogeny class] of {bpref "ec"}[elliptic curves] is the least common multiple of the degrees of all rational cyclic {bpref "ec.isogeny"}[isogenies] between elliptic curves in the isogeny class.
@@ -447,7 +447,7 @@ The *isogeny class degree* of an {bpref "ec.isogeny_class"}[isogeny class] of {b
 Depends on: {uses "ec"}[] {uses "ec.isogeny"}[] {uses "ec.isogeny_class"}[]
 :::
 
-:::definition "ec.isogeny_graph"
+:::definition "ec.isogeny_graph" (lean := "WeierstrassCurve.IsogenyGraph, WeierstrassCurve.IsomorphismClass.HasIsogenyOfDegree")
 *Isogeny graph of an isogeny class of elliptic curves.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.isogeny_graph))
 
 The *isogeny graph* of an {bpref "ec.isogeny_class"}[isogeny class] of {bpref "ec"}[elliptic curves] is the graph whose vertices are the isomorphism classes (over the base field) of elliptic curves in the isogeny class and whose edges are the isogenies of prime degree between the curves representing the vertices.
@@ -457,7 +457,7 @@ The vertices of the isogeny graphs in the LMFDB are labeled by the final entry o
 Depends on: {uses "ec"}[] {uses "ec.isogeny_class"}[]
 :::
 
-:::definition "ec.isogeny_matrix"
+:::definition "ec.isogeny_matrix" (lean := "WeierstrassCurve.isogenyMatrix, WeierstrassCurve.isSymm_isogenyMatrix, WeierstrassCurve.IsomorphismClass.cyclicIsogenyDegrees, TauCeti.Isogeny.IsCyclic.dual")
 *Isogeny matrix of an isogeny class of elliptic curves.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.isogeny_matrix))
 
 The *isogeny matrix* of an {bpref "ec.isogeny_class"}[isogeny class] of {bpref "ec"}[elliptic curves] is a symmetric matrix with integral entries that records the minimum among the degrees of the cyclic isogenies between the elliptic curves in the isogeny class.
@@ -555,7 +555,7 @@ A *local minimal model* for an {bpref "ec"}[elliptic curve] $`E` defined over a 
 Depends on: {uses "ec"}[] {uses "ec.discriminant"}[] {uses "ec.weierstrass_coeffs"}[] {uses "nf"}[] {uses "nf.integral"}[]
 :::
 
-:::definition "ec.maximal_elladic_galois_rep"
+:::definition "ec.maximal_elladic_galois_rep" (lean := "WeierstrassCurve.IsMaximalTateModuleGaloisRepresentation, WeierstrassCurve.tateModuleGeometricEndCentralizer, WeierstrassCurve.tateModuleGaloisRepresentation, WeierstrassCurve.GeometricEnd")
 *Maximal $`l`-adic Galois representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.maximal_elladic_galois_rep))
 
 Let $`E` be an {bpref "ec"}[elliptic curve] over a {bpref "nf"}[number field] $`K`, let $`\ell` be prime, and let
@@ -571,7 +571,7 @@ In general, let $`\mathcal{O}` be the {bpref "ec.geom_endomorphism_ring"}[geomet
 Depends on: {uses "ec"}[] {uses "ec.complex_multiplication"}[] {uses "ec.galois_rep"}[] {uses "ec.geom_endomorphism_ring"}[] {uses "nf"}[]
 :::
 
-:::definition "ec.maximal_galois_rep"
+:::definition "ec.maximal_galois_rep" (lean := "WeierstrassCurve.IsMaximalModGaloisRepresentation, WeierstrassCurve.torsionGeometricEndCentralizer, WeierstrassCurve.isMaximalModGaloisRepresentation_iff_of_not_hasGeometricCM, WeierstrassCurve.GeometricEnd, TauCeti.Isogeny.Hom.torsionRepresentation")
 *Maximal Galois representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.maximal_galois_rep))
 
 Let $`E` be an {bpref "ec"}[elliptic curve] over a {bpref "nf"}[number field] $`K`, let $`\ell` be prime, and let
@@ -637,7 +637,7 @@ The case of multiplicative reduction is further subdivided into {bpref "ec.split
 Depends on: {uses "ec"}[] {uses "ec.nonsplit_multiplicative_reduction"}[] {uses "ec.split_multiplicative_reduction"}[] {uses "nf"}[]
 :::
 
-:::definition "ec.mw_generators"
+:::definition "ec.mw_generators" (lean := "WeierstrassCurve.Affine.IsMordellWeilGenerators, WeierstrassCurve.Affine.IsTorsionBasis, WeierstrassCurve.Affine.exists_isMordellWeilGenerators, WeierstrassCurve.Affine.PointModTorsion, WeierstrassCurve.Affine.fg_point_of_numberField")
 *Mordell-Weil generators.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.mw_generators))
 
 The *{bpref "ec.mordell_weil_group"}[Mordell-Weil group]* $`E(K)` of an {bpref "ec"}[elliptic curve] $`E` over a {bpref "nf"}[number field] $`K` is a finitely generated {bpref "group.abelian"}[abelian] group, explicitly described by giving a $`\Z`-basis for the group, equivalently, a (minimal) set of *Mordell-Weil generators*, each of which is a rational point on the curve.
@@ -679,7 +679,7 @@ This is a special case of the {bpref "av.tate_module"}[Tate module of an abelian
 Depends on: {uses "av.tate_module"}[] {uses "ec.endomorphism"}[] {uses "group.galois.absolute"}[]
 :::
 
-:::definition "ec.period"
+:::definition "ec.period" (lean := "WeierstrassCurve.globalPeriod, WeierstrassCurve.localPeriod, WeierstrassCurve.complexPeriod, WeierstrassCurve.realPeriod, WeierstrassCurve.minimalDiscriminantIdeal")
 *Global period of an elliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.period))
 
 The *global period* $`\Omega(E/K)` of an {bpref "ec"}[elliptic curve] defined over a {bpref "nf"}[number field] $`K` is a product of local factors $`\Omega_v(E_v/K_v)`, one for each infinite {bpref "nf.place"}[place] $`v` of $`K`.  Here, $`K_v` denotes the completion of $`K` at $`v` (so $`K_v=\R` for a real place and $`K_v=\C` for a complex place), and $`E_v` denotes the {bpref "ec.base_change"}[base change] of $`E` to $`K_v`.
@@ -752,7 +752,7 @@ The reason for defining the quality of $`E` in this way comes from the equivalen
 Depends on: {uses "ec"}[] {uses "ec.j_invariant"}[] {uses "ec.q.conductor"}[]
 :::
 
-:::definition "ec.q.analytic_rank"
+:::definition "ec.q.analytic_rank" (lean := "WeierstrassCurve.analyticRank, WeierstrassCurve.IsAnalyticLFunction, WeierstrassCurve.analyticRank_eq, WeierstrassCurve.analyticRank_eq_analyticOrderNatAt, WeierstrassCurve.LFunction")
 *Analytic rank of an elliptic curve over $`\Q`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.analytic_rank))
 
 The *analytic rank* of an {bpref "ec"}[elliptic curve] $`E` is the analytic rank of its {bpref "lfunction"}[L-function] $`L(E,s)`.   The weak form of the BSD conjecture implies that the analytic rank is equal to the rank of the {bpref "ec.mordell_weil_group"}[Mordell-Weil group] of $`E`.
@@ -764,7 +764,7 @@ In general, analytic ranks stored in the LMFDB are only upper bounds on the true
 Depends on: {uses "ag.mordell_weil"}[] {uses "ec"}[] {uses "ec.mordell_weil_group"}[] {uses "lfunction"}[] {uses "lfunction.central_point"}[] {uses "lfunction.functional_equation"}[] {uses "lfunction.sign"}[]
 :::
 
-:::definition "ec.q.analytic_sha_order"
+:::definition "ec.q.analytic_sha_order" (lean := "WeierstrassCurve.analyticShaOrder, WeierstrassCurve.analyticShaOrder_eq_of_isGlobalMinimal, WeierstrassCurve.BirchSwinnertonDyer.analyticShaOrder_eq, WeierstrassCurve.sha, WeierstrassCurve.specialValue")
 *Analytic order of $`\Sha`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.analytic_sha_order))
 
 The *Tate-Shafarevic group* $`\Sha` of an {bpref "ec"}[elliptic curve] $`E` defined over $`\mathbb{Q}` is a torsion group defined in terms of Galois cohomology, which is conjectured to be finite.  Its {bpref "group.order"}[order] $`\#\Sha` appears in the strong form of the Birch-Swinnerton-Dyer Conjecture for $`E`.  The value of the order which is predicted by the conjecture is called the *Analytic Order of Sha*, $`\Sha_{an}`. <!--Note that the value of $`\Sha`<sub>an</sub> predicted by the conjecture is always a square.-->
@@ -774,7 +774,7 @@ For elliptic curves of rank $`0` or $`1` it is a theorem that $`\Sha`<sub>an</su
 Depends on: {uses "ec"}[] {uses "group.order"}[]
 :::
 
-:::definition "ec.q.bsdconjecture"
+:::definition "ec.q.bsdconjecture" (lean := "WeierstrassCurve.BirchSwinnertonDyer, WeierstrassCurve.birchSwinnertonDyer_iff_of_isGlobalMinimal, WeierstrassCurve.globalPeriod_eq_realPeriod_of_isGlobalMinimal, WeierstrassCurve.tamagawaProduct, WeierstrassCurve.Affine.regulator")
 *Birch and Swinnerton-Dyer conjecture.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.bsdconjecture))
 
 The *Birch and Swinnerton-Dyer* conjecture is one of the Millennium Prize Problems listed by the Clay Mathematics Institute. It relates the order of vanishing and the first non-zero Taylor series coefficient of  the {bpref "lfunction"}[L-function] associated to an {bpref "ec"}[elliptic curve] $`E` defined over $`\Q` at the {bpref "lfunction.central_point"}[central point] $`s=1` to certain arithmetic data, the BSD invariants of $`E`.
@@ -899,7 +899,7 @@ This is a special case of the {bpref "ag.endomorphism_ring"}[endomorphism ring] 
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.endomorphism_ring"}[] {uses "ec"}[] {uses "ec.endomorphism"}[] {uses "ec.geom_endomorphism_ring"}[]
 :::
 
-:::definition "ec.q.faltings_height"
+:::definition "ec.q.faltings_height" (lean := "WeierstrassCurve.faltingsHeight, WeierstrassCurve.stableFaltingsHeight, WeierstrassCurve.periodCovolume, WeierstrassCurve.reducedMinimalModel")
 *Faltings height of an elliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.faltings_height))
 
 The *Faltings height* of an {bpref "ec"}[elliptic curve] $`E` defined over $`\Q` is the quantity
@@ -979,7 +979,7 @@ The *Kodaira symbol* encodes the {bpref "ec.q.reduction_type"}[reduction type] o
 Depends on: {uses "ec.q.minimal_weierstrass_equation"}[] {uses "ec.q.reduction_type"}[]
 :::
 
-:::definition "ec.q.lmfdb_label"
+:::definition "ec.q.lmfdb_label" (lean := "WeierstrassCurve.lmfdbLabel, WeierstrassCurve.lmfdbIsogenyClassIndex, WeierstrassCurve.isogenyClassLetters, WeierstrassCurve.lmfdbIsomorphismClassIndex, WeierstrassCurve.reducedMinimalModel")
 *Label for an elliptic curve over $`\mathbb Q`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.lmfdb_label))
 
 The *LMFDB label* of an elliptic curve $`E` over $`\mathbb{Q}` is  a way of indexing the elliptic curves over $`\mathbb{Q}.` It has the form "11.a1" or "10050.bf2".
@@ -1021,7 +1021,7 @@ This is an integer multiple of the Manin constant of $`E`, since $`\psi^*\omega_
 Depends on: {uses "ec"}[] {uses "ec.isogeny"}[] {uses "ec.q.conductor"}[] {uses "ec.q.modular_parametrization"}[] {uses "ec.q.optimal"}[] {uses "ec.semistable"}[]
 :::
 
-:::definition "ec.q.minimal_twist"
+:::definition "ec.q.minimal_twist" (lean := "WeierstrassCurve.IsMinimalTwist, WeierstrassCurve.IsMinimalQuadraticTwist, WeierstrassCurve.IsQuadraticTwist, WeierstrassCurve.minimalTwistKey, WeierstrassCurve.LFunction")
 The *minimal quadratic twist* of an elliptic curve $`E` defined over $`\mathbb{Q}` is defined as follows.
 
 - First consider the finite set of all {bpref "ec.twists"}[quadratic twists]  of $`E` which have minimal {bpref "ec.q.conductor"}[conductor].  If this set contains just one curve, it is the minimal quadratic twist.
@@ -1185,7 +1185,7 @@ In general, the Serre weight $`k` is divisible by $`2` and the Serre conductor $
 Depends on: {uses "cmf.level"}[] {uses "cmf.weight"}[] {uses "ec.galois_rep"}[] {uses "nf.prime"}[]
 :::
 
-:::definition "ec.q.special_value"
+:::definition "ec.q.special_value" (lean := "WeierstrassCurve.specialValue, WeierstrassCurve.specialValue_eq_iteratedDeriv, WeierstrassCurve.iteratedDeriv_eq_zero_of_lt_analyticRank, WeierstrassCurve.specialValue_eq")
 *Special value of an elliptic curve L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.special_value))
 
 The *special value* of an {bpref "ec"}[elliptic curve] $`E/\Q` is the first nonzero value of $`L^{(r)}(E,1)/r!` for $`r\in \Z_{\ge 0}`, where $`L(E,s)` is the $`L`-function of $`E` in its {bpref "lfunction.normalization"}[arithmetic normalization].
@@ -1195,7 +1195,7 @@ The special value appears on the LHS of the formula in the {bpref "ec.q.bsdconje
 Depends on: {uses "ec"}[] {uses "ec.q.bsdconjecture"}[] {uses "lfunction.normalization"}[]
 :::
 
-:::definition "ec.q.szpiro_ratio"
+:::definition "ec.q.szpiro_ratio" (lean := "WeierstrassCurve.algorithmicModifiedSzpiroRatio, WeierstrassCurve.algorithmicSzpiroRatio, TauCeti.AlgorithmicModifiedSzpiroConjecture, WeierstrassCurve.algorithmicConductor")
 *Szpiro ratio.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.szpiro_ratio))
 
 The (modified) *Szpiro ratio* of an {bpref "ec"}[elliptic curve] $`E` is defined as
@@ -1213,7 +1213,7 @@ also has the property of only taking values larger than $`6+\epsilon` finitely m
 Depends on: {uses "ec"}[] {uses "ec.minimal_discriminant"}[] {uses "ec.q.conductor"}[] {uses "ec.q.j_invariant"}[]
 :::
 
-:::definition "ec.q.torsion_growth"
+:::definition "ec.q.torsion_growth" (lean := "WeierstrassCurve.HasTorsionGrowth, WeierstrassCurve.HasPrimitiveTorsionGrowth, AddCommGroup.torsion, WeierstrassCurve.Affine.Point.baseChange")
 *Torsion growth in number fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.torsion_growth))
 
 Let $`E` be an {bpref "ec"}[elliptic curve] defined over $`\Q` and let $`K` be a {bpref "nf"}[number field].  We say that there is *torsion growth* from $`\Q` to $`K` if the {bpref "ec.torsion_subgroup"}[torsion subgroup] $`E(K)_{\rm tor}` of $`E(K)` is strictly larger than $`E(\Q)_{\rm tor}`.
@@ -1238,7 +1238,7 @@ If $`E` is an elliptic curve defined over $`\mathbb{Q}`, its *torsion subgroup* 
 - $`[n_1,n_2]` with $`n_1\mid n_2` for a product of cyclic groups of orders $`n_1` and $`n_2` (only $`[2,2m]` for $`m=2,4,6` or $`8` occur over $`\mathbb{Q}`).
 :::
 
-:::definition "ec.q_curve"
+:::definition "ec.q_curve" (lean := "WeierstrassCurve.IsQCurve, WeierstrassCurve.isQCurve_baseChange, WeierstrassCurve.isQCurve_of_j_eq_ratCast, WeierstrassCurve.IsIsogenous")
 An {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K` is a $`\mathbb{Q}`*-curve* if it is {bpref "ec.isogeny"}[isogenous] over $`\overline{K}` to each of its Galois conjugates.  Note that the isogenies need not be defined over $`K` itself.
 
 An elliptic curve which is the {bpref "ec.base_change"}[base change] of a curve defined over $`\mathbb{Q}` is a $`\mathbb{Q}`-curve, but not all $`\mathbb{Q}`-curves are
@@ -1293,7 +1293,7 @@ $`E` has *additive reduction* at $`\mathfrak p` if $`\tilde E` has a cuspidal si
 Depends on: {uses "ec"}[] {uses "ec.bad_reduction"}[] {uses "ec.good_reduction"}[] {uses "nf"}[] {uses "nf.ring_of_integers"}[]
 :::
 
-:::definition "ec.regulator"
+:::definition "ec.regulator" (lean := "WeierstrassCurve.Affine.normalizedRegulator, WeierstrassCurve.Affine.regulator, WeierstrassCurve.Affine.neronTatePairing, WeierstrassCurve.Affine.Point.canonicalHeight")
 *Regulator of an elliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.regulator))
 
 The *regulator* of an {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K`, denoted $`\operatorname{Reg}(E/K)`, is the volume of $`E(K)/E(K)_{tor}` with respect to the *height pairing* $`\langle -,-\rangle` associated to the {bpref "ec.canonical_height"}[canonical height] $`\hat{h}`, i.e. $`\langle P,Q\rangle = \frac{1}{2}(\hat{h}(P+Q)-\hat{h}(P)-\hat{h}(Q))`.
@@ -1357,7 +1357,7 @@ For elliptic curves over $`\Q` this model will necessarily have {bpref "ec.bad_r
 Depends on: {uses "ec"}[] {uses "ec.bad_reduction"}[] {uses "ec.good_reduction"}[] {uses "ec.q.minimal_weierstrass_equation"}[] {uses "ring.characteristic"}[] {uses "ring.field"}[]
 :::
 
-:::definition "ec.special_value"
+:::definition "ec.special_value" (lean := "WeierstrassCurve.specialValue, WeierstrassCurve.specialValue_eq, WeierstrassCurve.specialValue_eq_iteratedDeriv, WeierstrassCurve.iteratedDeriv_eq_zero_of_lt_analyticRank, WeierstrassCurve.specialValue_ne_zero")
 *Special value of an elliptic curve L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.special_value))
 
 The *special value* of an {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K` is the first nonzero value of $`L^{(r)}(E,1)/r!` for $`r\in \Z_{\ge 0}`, where $`L(E/K,s)` is the {bpref "lfunction"}[L-function] of $`E` in its {bpref "lfunction.normalization"}[arithmetic normalization].  It is also known as the {bpref "lfunction.leading_coeff"}[*leading coefficient*] of the L-function.
@@ -1375,7 +1375,7 @@ An {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $
 Depends on: {uses "ec"}[] {uses "nf"}[]
 :::
 
-:::definition "ec.tamagawa_number"
+:::definition "ec.tamagawa_number" (lean := "WeierstrassCurve.tamagawaNumber, WeierstrassCurve.tamagawaProduct, WeierstrassCurve.Affine.nonsingularReduction, WeierstrassCurve.minimal")
 *Tamagawa number.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.tamagawa_number))
 
 The *Tamagawa number* of an {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] at a prime $`\mathfrak{p}` of $`K` is the index $`[E(K_{\mathfrak{p}}):E^0(K_{\mathfrak{p}})]`, where $`K_{\mathfrak{p}}` is the completion of $`K` at $`\mathfrak{p}` and $`E^0(K_{\mathfrak{p}})` is the subgroup of $`E(K_{\mathfrak{p}})` consisting of all points whose reduction modulo $`\mathfrak{p}` is smooth.
@@ -1418,7 +1418,7 @@ For $`K=\Q` the possible torsion structures are $`[n]` for $`n\le10` and $`n=12`
 Depends on: {uses "ec.mordell_weil_group"}[] {uses "ec.mordell_weil_theorem"}[]
 :::
 
-:::definition "ec.twists"
+:::definition "ec.twists" (lean := "WeierstrassCurve.IsTwist, WeierstrassCurve.quadraticTwist, WeierstrassCurve.quarticTwist, WeierstrassCurve.sexticTwist, WeierstrassCurve.VariableChange.twistCohomologyClass")
 *Twists of elliptic curves.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.twists))
 
 A *twist* of an {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "ring.field"}[field] $`K` is another elliptic curve $`E'`, also defined over $`K`, which is isomorphic to $`E` over the algebraic closure of $`K`.

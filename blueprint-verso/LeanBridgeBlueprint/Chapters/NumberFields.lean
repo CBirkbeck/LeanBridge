@@ -97,7 +97,7 @@ For $`K=\Q(a)` where $`a` is an algebraic number with {bpref "nf.minimal_polynom
 Depends on: {uses "nf"}[] {uses "nf.minimal_polynomial"}[]
 :::
 
-:::definition "nf.conductor"
+:::definition "nf.conductor" (lean := "NumberField.abelianConductor, NumberField.nonempty_algHom_cyclotomicField_iff, NumberField.nonempty_algHom_cyclotomicField_abelianConductor, NumberField.abelianConductor_pos_iff, NumberField.isAbelianGalois_of_abelianConductor_pos")
 *Conductor of an abelian number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.conductor))
 
 If a {bpref "nf"}[number field] $`K` is {bpref "nf.abelian"}[abelian], then $`K\subseteq \Q(\zeta_n)` for some positive integer $`n`.  The minimum such $`n` is the *conductor* of $`K`.
@@ -129,7 +129,7 @@ Depends on: {uses "nf.degree_mathlib_def"}[]
 This is also defined in mathlib as 'finrank ℚ K', where $`K` is the number field and 'finrank ℚ' is its *module rank* over the rationals.
 :::
 
-:::definition "nf.dirichlet_group"
+:::definition "nf.dirichlet_group" (lean := "NumberField.dirichletCharacterGroup, NumberField.dirichletCharacterGroup_eq, NumberField.card_dirichletCharacterGroup, NumberField.dirichletConductor_dirichletCharacterGroup, IsCyclotomicExtension.Rat.intermediateFieldEquivSubgroupChar")
 *Dirichlet group of an Abelian number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.dirichlet_group))
 
 If $`K` is an {bpref "nf.abelian"}[abelian number field], then $`K\subseteq \Q(\zeta_n)` for some positive integer $`n`.  Take the minimal such $`n`, i.e., the {bpref "nf.conductor"}[conductor] of $`K`.
@@ -177,7 +177,7 @@ For $`K=\Q(a)`, where $`a` is an algebraic number with {bpref "nf.minimal_polyno
 Depends on: {uses "nf"}[] {uses "nf.complex_embedding"}[] {uses "nf.degree"}[] {uses "nf.minimal_polynomial"}[] {uses "nf.real_embedding"}[] {uses "nf.signature"}[]
 :::
 
-:::definition "nf.frobenius_cycle_types"
+:::definition "nf.frobenius_cycle_types" (lean := "NumberField.frobeniusCycleType, NumberField.fullCycleType_toPerm_eq_frobeniusCycleType, NumberField.frobeniusCycleType_congr, IsArithFrobAt, Ideal.inertiaDeg")
 *Frobenius cycle types.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.frobenius_cycle_types))
 
 If $`K` is a degree $`n` extension of $`\mathbb{Q}`, $`\hat{K}` its normal closure and $`G=\text{Gal}(\hat{K}/\mathbb{Q})`, then $`G` acts on the set of $`n` embeddings of $`K\to \hat{K}` giving an embedding $`G\to S_n`.  Let $`\mathcal{O}_K` be the ring of integers of $`K` and $`p` a prime number.  Then
@@ -349,7 +349,7 @@ If $`K` is a {bpref "nf"}[number field], the *maximum ramified prime* is simply 
 Depends on: {uses "nf"}[] {uses "nf.ramified_primes"}[]
 :::
 
-:::definition "nf.maximal_cm_subfield"
+:::definition "nf.maximal_cm_subfield" (lean := "NumberField.maximalCMSubfield, NumberField.isCMField_maximalCMSubfield_iff, NumberField.IsCMField.le_maximalCMSubfield, NumberField.IsCMField.eq_maximalCMSubfield, NumberField.maximalCMSubfield_eq_maximalRealSubfield_iff")
 *Maximal CM subfield.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.maximal_cm_subfield))
 
 The *maximal CM subfield* of a {bpref "nf"}[number field] is the largest subfield by {bpref "nf.degree"}[degree] which is a {bpref "nf.cm_field"}[CM field].
@@ -487,7 +487,7 @@ When $`K` is a {bpref "nf"}[number field] each nonarchimedean place arises from 
 Depends on: {uses "nf"}[] {uses "nf.absolute_value"}[] {uses "nf.complex_embedding"}[] {uses "nf.real_embedding"}[] {uses "nf.ring_of_integers"}[] {uses "ring.prime_ideal"}[]
 :::
 
-:::definition "nf.polredabs"
+:::definition "nf.polredabs" (lean := "NumberField.IsPolredabs, NumberField.polredabs, NumberField.IsDefiningPolynomial, NumberField.exists_isPolredabs, NumberField.IsPolredabs.eq")
 *Canonical defining polynomial for number fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.polredabs))
 
 Every {bpref "nf"}[number field] $`K` can be represented as $`K = \Q[X]/P(x)` for some monic $`P\in\Z[X]`, called a *defining polynomial* for $`K`.  Among all such defining polynomials, we define the *reduced defining polynomial* as follows.
@@ -564,7 +564,7 @@ Depends on: {uses "nf"}[] {uses "nf.fundamental_units"}[]
 A *real embedding* of a number field $`K` is a field homomorphism $`K\to \R`.  A single number field may have several distinct real embeddings.
 :::
 
-:::definition "nf.reflex_field"
+:::definition "nf.reflex_field" (lean := "NumberField.CMType, NumberField.CMType.reflexField, NumberField.CMType.stabilizer, NumberField.CMType.reflexField_compl, NumberField.CMType.card_cmType")
 *Reflex field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.reflex_field))
 
 Let $`K` be a {bpref "nf.cm_field"}[CM number field] and let $`\overline{\mathbb{Q}}` be the algebraic closure of $`\Q` in $`\C`. A subset $`\Phi \subset \mathrm{Hom}(K, \overline{\mathbb{Q}})` is called a *CM type* if for every {bpref "nf.embedding"}[embedding] $`\iota \in \mathrm{Hom}(K, \overline{\mathbb{Q}})` either $`\iota \in \Phi` or $`\overline{\iota} \in \Phi`, but not both, where $`\overline{\iota}` is the complex conjugate of $`\iota`.
@@ -680,7 +680,7 @@ Consequently, any number field whose root discriminant lies below $`\Omega` can 
 Depends on: {uses "lfunction.rh"}[] {uses "nf"}[] {uses "nf.degree"}[] {uses "nf.root_discriminant"}[]
 :::
 
-:::definition "nf.sibling"
+:::definition "nf.sibling" (lean := "Algebra.IsSibling, Algebra.galoisClosure, Algebra.isSibling_iff, Algebra.galoisClosure_eq_normalClosure, Algebra.isNormalClosure_galoisClosure")
 *Sibling fields and algebras.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.sibling))
 
 Two finite {bpref "nf.separable"}[separable extension fields] $`K_1` and $`K_2` of a ground field $`F` are called *siblings* if they are not isomorphic, but have isomorphic {bpref "nf.galois_closure"}[Galois closures].
@@ -756,7 +756,7 @@ The unit group of $`K` has as invariants the {bpref "nf.rank"}[rank]
 Depends on: {uses "nf"}[] {uses "nf.ring_of_integers"}[]
 :::
 
-:::definition "nf.unit_signature_rank"
+:::definition "nf.unit_signature_rank" (lean := "NumberField.unitSignatureRank, TauCeti.GlobalNumberFields.integerUnitSignatures, NumberField.unitSignatureRank_pos, NumberField.unitSignatureRank_le, NumberField.unitSignatureRank_eq_zero_iff")
 *Unit signature rank of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.unit_signature_rank))
 
 Let $`K` be a {bpref "nf"}[number field] with at least one {bpref "nf.real_embedding"}[real embedding], and let $`\sigma_1, \dots, \sigma_{r_1} : K \to \R` be the $`r_1` real embeddings of $`K`.  The *signature* of a nonzero element $`\alpha \in K` is the $`r_1`-tuple of signs of $`\sigma(\alpha)` over all real embeddings $`\sigma` of $`K`, viewed as lying in the additive group $`\F_2`. I.e. the signature is the vector $`(\text{sign}(\sigma_1(\alpha)), \dots, \text{sign}(\sigma_{r_1}(\alpha))) \in \F_2^{r_1}`, where $`\text{sign}(x) = 0` if $`x` is positive, otherwise $`\text{sign}(x) = 1` if $`x` is negative.
@@ -808,7 +808,7 @@ $$`h_{\mathcal{L}_1 \otimes \mathcal{L}_2}(P) = h_{\mathcal{L}_1}(P) + h_{\mathc
 Depends on: {uses "ag.variety"}[] {uses "nf"}[]
 :::
 
-:::definition "nf.weil_polynomial"
+:::definition "nf.weil_polynomial" (lean := "Polynomial.IsWeilPolynomial, Polynomial.finite_setOf_isWeilPolynomial, Polynomial.IsWeilPolynomial.mahlerMeasure_le")
 *Weil polynomial.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.weil_polynomial))
 
 For a prime power $`q`, a *Weil $`q`-polynomial* is a monic polynomial with integer coefficients whose complex roots are of absolute value $`\sqrt{q}`.
@@ -820,7 +820,7 @@ The characteristic polynomial of an {bpref "ag.abelian_variety"}[abelian variety
 Depends on: {uses "ag.abelian_variety"}[] {uses "av.simple"}[]
 :::
 
-:::definition "nf.zk_index"
+:::definition "nf.zk_index" (lean := "NumberField.fieldIndex, NumberField.dvd_fieldIndex_iff, TauCeti.NumberField.IntegralPrimitiveElement.index, NumberField.isCommonIndexDivisor_iff_dvd_fieldIndex, NumberField.fieldIndex_eq_one_of_isMonogenic")
 *Index of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.zk_index))
 
 If $`K` is a {bpref "nf"}[number field] with {bpref "nf.ring_of_integers"}[ring of integers] $`\mathcal{O}_K`, then for all $`\alpha\in\mathcal{O}_K` such that $`K=\Q(\alpha)`, the index of $`\alpha`, $`i(\alpha)` is the index of the {bpref "nf.order"}[order] $`\Z[\alpha]`.
