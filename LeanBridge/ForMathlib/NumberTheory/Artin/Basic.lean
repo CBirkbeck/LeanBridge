@@ -40,6 +40,35 @@ correspondence for open subgroups applies.
 
 open IntermediateField
 
+namespace MonoidHom
+
+variable {K H : Type*} [Field K] [CharZero K] [MulOneClass H] (φ : Gal(AlgebraicClosure K/K) →* H)
+  (hφ : IsOpen (φ.ker : Set Gal(AlgebraicClosure K/K)))
+
+include hφ in
+lemma fixingSubgroup_fixedField_ker : (fixedField φ.ker).fixingSubgroup = φ.ker :=
+  InfiniteGalois.fixingSubgroup_fixedField ⟨φ.ker, φ.ker.isClosed_of_isOpen hφ⟩
+
+include hφ in
+lemma finiteDimensional_fixedField_ker : FiniteDimensional K (fixedField φ.ker) :=
+  (InfiniteGalois.isOpen_iff_finite _).mp <| (φ.fixingSubgroup_fixedField_ker hφ).symm ▸ hφ
+
+include hφ in
+lemma isGalois_fixedField_ker : IsGalois K (fixedField φ.ker) :=
+  (InfiniteGalois.normal_iff_isGalois _).mp <|
+    (φ.fixingSubgroup_fixedField_ker hφ).symm ▸ φ.normal_ker
+
+lemma finrank_fixedField_ker {G : Type*} [Group G] (φ : Gal(AlgebraicClosure K/K) →* G)
+    (hφ : IsOpen (φ.ker : Set Gal(AlgebraicClosure K/K))) :
+    Module.finrank K (fixedField φ.ker) = Nat.card φ.range := by
+  have : FiniteDimensional K (fixedField φ.ker) := φ.finiteDimensional_fixedField_ker hφ
+  have : IsGalois K (fixedField φ.ker) := φ.isGalois_fixedField_ker hφ
+  rw [← IsGalois.card_aut_eq_finrank, ← Nat.card_congr (InfiniteGalois.normalAutEquivQuotient
+    (⟨φ.ker, φ.ker.isClosed_of_isOpen hφ⟩ : ClosedSubgroup Gal(AlgebraicClosure K/K))).toEquiv,
+    Nat.card_congr (QuotientGroup.quotientKerEquivRange φ).toEquiv]
+
+end MonoidHom
+
 namespace Representation
 
 variable {K V : Type*} [Field K] [AddCommGroup V] [Module ℂ V]
@@ -123,15 +152,15 @@ include h
 /-- **An Artin representation factors through the Galois group of its Artin field**: the subgroup
 fixing the Artin field is the kernel. -/
 lemma fixingSubgroup_artinField : ρ.artinField.fixingSubgroup = ρ.ker :=
-  InfiniteGalois.fixingSubgroup_fixedField ⟨ρ.ker, ρ.ker.isClosed_of_isOpen h.isOpen_ker⟩
+  ρ.fixingSubgroup_fixedField_ker h.isOpen_ker
 
 /-- **The Artin field of an Artin representation is a finite extension.** -/
 lemma finiteDimensional : FiniteDimensional K ρ.artinField :=
-  (InfiniteGalois.isOpen_iff_finite _).mp <| h.fixingSubgroup_artinField ▸ h.isOpen_ker
+  ρ.finiteDimensional_fixedField_ker h.isOpen_ker
 
 /-- **The Artin field of an Artin representation is a Galois extension.** -/
 lemma isGalois : IsGalois K ρ.artinField :=
-  (InfiniteGalois.normal_iff_isGalois _).mp <| h.fixingSubgroup_artinField ▸ ρ.normal_ker
+  ρ.isGalois_fixedField_ker h.isOpen_ker
 
 /-- **The Artin field is the smallest field through whose Galois group an Artin representation
 factors**: `ρ` is trivial on `Gal(K̄/L)` if and only if `L` contains the Artin field of `ρ`. -/

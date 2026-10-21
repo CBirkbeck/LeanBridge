@@ -1,7 +1,7 @@
-import Mathlib.FieldTheory.Galois.Infinite
 import Mathlib.GroupTheory.SpecificGroups.Alternating
 import Mathlib.GroupTheory.SpecificGroups.Dihedral
 import Mathlib.RingTheory.Frobenius
+import LeanBridge.ForMathlib.NumberTheory.Artin.Basic
 import TauCeti.NumberTheory.ModularForms.Newforms.Newform
 
 /-!
@@ -33,7 +33,10 @@ subgroups of `PGL₂(ℂ)`, which says that the projective image has one of the 
   attached to a newform of weight one.
 * `HeckeRing.GL2.Newform.GaloisRep.projective` (LMFDB `cmf.galois_representation`): the
   projective Galois representation `Gal(ℚ̄/ℚ) → PGL₂(ℂ)`.
-* `HeckeRing.GL2.Newform.GaloisRep.artinField` (LMFDB `cmf.artin_field`).
+* `HeckeRing.GL2.Newform.GaloisRep.toRepresentation`: the Galois representation as an Artin
+  representation of `Gal(ℚ̄/ℚ)` on `ℂ²`.
+* `HeckeRing.GL2.Newform.GaloisRep.artinField` (LMFDB `cmf.artin_field`): the Artin field
+  `Representation.artinField` of that representation.
 * `HeckeRing.GL2.Newform.GaloisRep.artinImage` (LMFDB `cmf.artin_image`).
 * `HeckeRing.GL2.Newform.GaloisRep.projectiveField` (LMFDB `cmf.projective_field`).
 * `HeckeRing.GL2.Newform.GaloisRep.projectiveImage` (LMFDB `cmf.projective_image`).
@@ -50,7 +53,7 @@ subgroups of `PGL₂(ℂ)`, which says that the projective image has one of the 
   subfield of the Artin field.
 -/
 
-open IntermediateField Polynomial UpperHalfPlane
+open IntermediateField Matrix Polynomial UpperHalfPlane
 
 namespace HeckeRing.GL2.Newform
 
@@ -84,8 +87,18 @@ structure GaloisRep (f : Newform N 1) where
 
 namespace GaloisRep
 
-variable {f : Newform N 1} (ρ : GaloisRep f) {H : Type*} [Group H]
-    (φ : Gal(AlgebraicClosure ℚ/ℚ) →* H) (hφ : IsOpen (φ.ker : Set Gal(AlgebraicClosure ℚ/ℚ)))
+variable {f : Newform N 1} (ρ : GaloisRep f)
+
+/-- The Galois representation of a weight-one newform as a representation of `Gal(ℚ̄/ℚ)` on `ℂ²`,
+through the identification of `GL₂(ℂ)` with the automorphisms of `ℂ²`. -/
+noncomputable def toRepresentation : Representation ℂ Gal(AlgebraicClosure ℚ/ℚ) (Fin 2 → ℂ) :=
+  (Units.coeHom _).comp <| GeneralLinearGroup.toLin.toMonoidHom.comp ρ.toMonoidHom
+
+lemma ker_toRepresentation : ρ.toRepresentation.ker = ρ.toMonoidHom.ker :=
+  Subgroup.ext fun _ ↦ (map_eq_one_iff _ toLinAlgEquiv'.injective).trans Units.val_eq_one
+
+lemma isArtin_toRepresentation : ρ.toRepresentation.IsArtin :=
+  ⟨inferInstance, ρ.ker_toRepresentation ▸ ρ.isOpen_ker⟩
 
 /-- The **projective Galois representation** (LMFDB `cmf.galois_representation`)
 `ρ̄ : Gal(ℚ̄/ℚ) → PGL₂(ℂ)` of a weight-one newform: the composite of its Galois representation
@@ -99,7 +112,7 @@ noncomputable def projective :
 fixed by the kernel of its Galois representation. It is a number field, of degree the order of
 the Artin image (`finrank_artinField`). -/
 noncomputable def artinField : IntermediateField ℚ (AlgebraicClosure ℚ) :=
-  fixedField ρ.toMonoidHom.ker
+  ρ.toRepresentation.artinField
 
 /-- The **Artin image** (LMFDB `cmf.artin_image`) of a weight-one newform: the image of its Galois
 representation in `GL₂(ℂ)`. It is finite, of order the degree of the Artin field
@@ -142,22 +155,8 @@ def ProjectiveImageType.IsTypeOf :
   | .octahedral, H => Nonempty (H ≃* Equiv.Perm (Fin 4))
   | .icosahedral, H => Nonempty (H ≃* alternatingGroup (Fin 5))
 
-include hφ in
-private lemma fixingSubgroup_fixedField_ker : (fixedField φ.ker).fixingSubgroup = φ.ker :=
-  InfiniteGalois.fixingSubgroup_fixedField ⟨φ.ker, φ.ker.isClosed_of_isOpen hφ⟩
-
-include hφ in
-private lemma finiteDimensional_fixedField_ker : FiniteDimensional ℚ (fixedField φ.ker) :=
-  (InfiniteGalois.isOpen_iff_finite _).mp <| (fixingSubgroup_fixedField_ker φ hφ).symm ▸ hφ
-
-include hφ in
-private lemma finrank_fixedField_ker : Module.finrank ℚ (fixedField φ.ker) = Nat.card φ.range := by
-  have hfin : FiniteDimensional ℚ (fixedField φ.ker) := finiteDimensional_fixedField_ker φ hφ
-  have hgal : IsGalois ℚ (fixedField φ.ker) := (InfiniteGalois.normal_iff_isGalois _).mp <|
-    (fixingSubgroup_fixedField_ker φ hφ).symm ▸ φ.normal_ker
-  rw [← IsGalois.card_aut_eq_finrank, ← Nat.card_congr (InfiniteGalois.normalAutEquivQuotient
-    (⟨φ.ker, φ.ker.isClosed_of_isOpen hφ⟩ : ClosedSubgroup Gal(AlgebraicClosure ℚ/ℚ))).toEquiv,
-    Nat.card_congr (QuotientGroup.quotientKerEquivRange φ).toEquiv]
+lemma artinField_eq_fixedField : ρ.artinField = fixedField ρ.toMonoidHom.ker :=
+  congrArg fixedField ρ.ker_toRepresentation
 
 lemma ker_le_ker_projective : ρ.toMonoidHom.ker ≤ ρ.projective.ker :=
   ρ.toMonoidHom.ker_le_comap (QuotientGroup.mk' (Subgroup.center (GL (Fin 2) ℂ))).ker
@@ -166,19 +165,22 @@ lemma isOpen_ker_projective : IsOpen (ρ.projective.ker : Set Gal(AlgebraicClosu
   Subgroup.isOpen_mono ρ.ker_le_ker_projective ρ.isOpen_ker
 
 instance : FiniteDimensional ℚ ρ.artinField :=
-  finiteDimensional_fixedField_ker _ ρ.isOpen_ker
+  ρ.isArtin_toRepresentation.finiteDimensional
+
+instance : IsGalois ℚ ρ.artinField :=
+  ρ.isArtin_toRepresentation.isGalois
 
 instance : FiniteDimensional ℚ ρ.projectiveField :=
-  finiteDimensional_fixedField_ker _ ρ.isOpen_ker_projective
+  ρ.projective.finiteDimensional_fixedField_ker ρ.isOpen_ker_projective
 
 /-- **The degree of the Artin field is the order of the Artin image**: the Artin field is a finite
 Galois extension of `ℚ`, with Galois group the Artin image. -/
 lemma finrank_artinField : Module.finrank ℚ ρ.artinField = Nat.card ρ.artinImage :=
-  finrank_fixedField_ker _ ρ.isOpen_ker
+  ρ.artinField_eq_fixedField ▸ ρ.toMonoidHom.finrank_fixedField_ker ρ.isOpen_ker
 
 /-- **The degree of the projective field is the order of the projective image.** -/
 lemma finrank_projectiveField : Module.finrank ℚ ρ.projectiveField = Nat.card ρ.projectiveImage :=
-  finrank_fixedField_ker _ ρ.isOpen_ker_projective
+  ρ.projective.finrank_fixedField_ker ρ.isOpen_ker_projective
 
 instance : Finite ρ.artinImage :=
   Nat.finite_of_card_ne_zero (ρ.finrank_artinField ▸ Module.finrank_pos.ne')
@@ -189,7 +191,7 @@ instance : Finite ρ.projectiveImage :=
 /-- **The projective field is a subfield of the Artin field**, the kernel of `ρ` being contained in
 that of `ρ̄`. -/
 lemma projectiveField_le_artinField : ρ.projectiveField ≤ ρ.artinField :=
-  fixedField_antitone ρ.ker_le_ker_projective
+  ρ.artinField_eq_fixedField ▸ fixedField_antitone ρ.ker_le_ker_projective
 
 end GaloisRep
 
