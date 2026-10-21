@@ -11,6 +11,7 @@ import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Arithmetic.ComplexP
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Arithmetic.FaltingsHeight
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Arithmetic.GlobalPeriod
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Arithmetic.LocalData
+import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Arithmetic.MordellWeil
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Arithmetic.MordellWeilGenerators
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Arithmetic.Regulator
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Arithmetic.SzpiroRatio
@@ -47,6 +48,7 @@ import LeanBridge.ForMathlib.AlgebraicGeometry.Variety.Basic
 import LeanBridge.ForMathlib.AlgebraicGeometry.Variety.FieldOfDefinition
 import LeanBridge.ForMathlib.AlgebraicGeometry.Variety.Projective
 import LeanBridge.ForMathlib.Analysis.Complex.UpperHalfPlane.Completed
+import LeanBridge.ForMathlib.GroupTheory.FiniteAbelian.Basic
 import LeanBridge.ForMathlib.GroupTheory.PolycyclicPresentation
 import LeanBridge.ForMathlib.GroupTheory.SubnormalSeries
 import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.Borel
