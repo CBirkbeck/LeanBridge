@@ -9,13 +9,23 @@ where `L_p(t) = 1 - a_p t + χ(p) p^{k-1} t²`; that is, the roots of
 `X² - a_p p^{-(k-1)/2} X + χ(p)`. They are Tau Ceti's Satake parameters
 `HeckeRing.GL2.Newform.satakeParameters`, the roots of `X² - a_p X + χ(p) p^{k-1}`, divided by
 `p^{(k-1)/2}`. Their product is `χ(p)`, so they are `α_p` and `α_p⁻¹ χ(p)`, and by the
-Ramanujan–Deligne bound (not proved here) they lie on the unit circle. The Satake angles are their
-arguments `θ_p = arg α_p`.
+Ramanujan–Deligne bound they lie on the unit circle. The Satake angles are their arguments
+`θ_p = arg α_p`.
+
+The Ramanujan–Deligne bound `|a_p| ≤ 2 p^{(k-1)/2}` at the primes `p ∤ N` is Deligne's theorem,
+which is not proved here. It is stated, in the style of Mathlib's `RiemannHypothesis`, as the
+proposition `HeckeRing.GL2.Newform.RamanujanDeligne`, and the bound at a single prime is
+`HeckeRing.GL2.Newform.RamanujanBoundAt`. Its consequences are proved under the bound at a single
+prime `p ∤ N`, so that they hold at every such prime given Deligne's theorem: the Satake parameters
+lie on the unit circle, and `a_p = 2 p^{(k-1)/2} cos θ_p` when `χ(p) = 1`.
 
 ## Main definitions
 
 * `HeckeRing.GL2.Newform.normalizedSatakeParameters` (LMFDB `cmf.satake_parameters`).
 * `HeckeRing.GL2.Newform.satakeAngles` (LMFDB `cmf.satake_angles`).
+* `HeckeRing.GL2.Newform.RamanujanBoundAt`: the Ramanujan bound `|a_p| ≤ 2 p^{(k-1)/2}` at `p`.
+* `HeckeRing.GL2.Newform.RamanujanDeligne`: Deligne's theorem, the Ramanujan bound for every
+  newform at every prime not dividing its level, which is not proved here.
 
 ## Main results
 
@@ -34,6 +44,16 @@ arguments `θ_p = arg α_p`.
 * `HeckeRing.GL2.Newform.satakeAngles_eq_pair_satakeAngle`: at a prime with `χ(p) = 1` and under
   the Ramanujan–Deligne bound, the Satake angles are `±θ_p`, for Tau Ceti's Satake angle
   `θ_p ∈ [0, π)`.
+* `HeckeRing.GL2.Newform.RamanujanBoundAt.norm_eq_one_of_mem_normalizedSatakeParameters` and
+  `HeckeRing.GL2.Newform.RamanujanBoundAt.norm_eq_rpow_of_mem_satakeParameters`: under the
+  Ramanujan bound at a prime `p ∤ N`, the Satake parameters lie on the unit circle, that is, Tau
+  Ceti's have absolute value `p^{(k-1)/2}`.
+* `HeckeRing.GL2.Newform.RamanujanBoundAt.qExpansion_coeff_eq_two_mul_rpow_mul_cos`: under the
+  Ramanujan bound at a prime with `χ(p) = 1`, `a_p = 2 p^{(k-1)/2} cos θ_p` for both Satake angles
+  `θ_p`.
+* `HeckeRing.GL2.Newform.RamanujanDeligne.qExpansion_coeff_eq_two_mul_rpow_mul_cos_satakeAngle`:
+  given Deligne's theorem, `a_p = 2 p^{(k-1)/2} cos θ_p` at a prime `p ∤ N` where `a_p` is real,
+  for Tau Ceti's Satake angle `θ_p ∈ [0, π]`.
 -/
 
 open Polynomial UpperHalfPlane
@@ -42,7 +62,8 @@ open scoped ComplexConjugate Real
 namespace HeckeRing.GL2.Newform
 
 variable {N : ℕ} [NeZero N] {k : ℤ} (f : Newform N k) (p : ℕ) (hp : p ≠ 0) {α β : ℂ} {θ r : ℝ}
-    (hr : 0 < r)
+    (hr : 0 < r) (hpp : p.Prime) (hpN : p.Coprime N) (hχ : f.dirichletLift p = 1)
+    (hreal : conj ((qExpansion 1 f.toCuspForm).coeff p) = (qExpansion 1 f.toCuspForm).coeff p)
 
 private lemma X_sq_sub_C_mul_X_add_C_eq (b c : ℂ) :
     X ^ 2 - C b * X + C c = C 1 * X ^ 2 + C (-b) * X + C c := by
@@ -75,6 +96,8 @@ good primes `p ∤ N`, where they are `α_p` and `α_p⁻¹ χ(p)`
 noncomputable def normalizedSatakeParameters : Multiset ℂ :=
   (X ^ 2 - C ((qExpansion 1 f.toCuspForm).coeff p / ((p : ℝ) ^ (((k : ℝ) - 1) / 2) : ℝ)) * X + C
     (f.dirichletLift p)).roots
+
+variable (hα : α ∈ f.normalizedSatakeParameters p)
 
 /-- **The Satake parameters are characterised by their sum and product**: `{α, β}` are the
 Satake parameters of `f` at `p` exactly when `α + β = a_p p^{-(k-1)/2}` and `α β = χ(p)`. -/
@@ -137,10 +160,10 @@ lemma normalizedSatakeParameters_eq_map_div : f.normalizedSatakeParameters p =
     mul_div_cancel_right₀ _ (mul_ne_zero (ofReal_rpow_ne_zero p hp) (ofReal_rpow_ne_zero p hp))]
   exact ⟨rfl, rfl⟩
 
+include hpN hα in
 /-- **The Satake parameters at a good prime are `α_p` and `α_p⁻¹ χ(p)`**, for either of them
 `α_p`: the factorisation `L_p(t) = (1 - α_p p^{(k-1)/2} t) (1 - α_p⁻¹ χ(p) p^{(k-1)/2} t)`. -/
-lemma normalizedSatakeParameters_eq_pair_inv_mul (hpN : p.Coprime N)
-    (hα : α ∈ f.normalizedSatakeParameters p) :
+lemma normalizedSatakeParameters_eq_pair_inv_mul :
     f.normalizedSatakeParameters p = {α, α⁻¹ * f.dirichletLift p} := by
   rcases f.exists_normalizedSatakeParameters_eq_pair p with ⟨β, γ, h⟩
   rcases (f.normalizedSatakeParameters_eq_pair_iff p).mp h with ⟨-, hprod⟩
@@ -164,11 +187,14 @@ the Ramanujan–Deligne bound, they are the `e^{i θ_p}`
 noncomputable def satakeAngles : Multiset ℝ :=
   (f.normalizedSatakeParameters p).map Complex.arg
 
+variable (hθ : θ ∈ f.satakeAngles p)
+
 @[simp]
 lemma card_satakeAngles : Multiset.card (f.satakeAngles p) = 2 := by
   rw [satakeAngles, Multiset.card_map, card_normalizedSatakeParameters]
 
-lemma mem_Ioc_of_mem_satakeAngles (hθ : θ ∈ f.satakeAngles p) : θ ∈ Set.Ioc (-π) π := by
+include hθ in
+lemma mem_Ioc_of_mem_satakeAngles : θ ∈ Set.Ioc (-π) π := by
   rcases Multiset.mem_map.mp hθ with ⟨α, -, rfl⟩
   exact ⟨α.neg_pi_lt_arg, α.arg_le_pi⟩
 
@@ -194,10 +220,10 @@ lemma normalizedSatakeParameters_eq_map_exp_satakeAngles
     Complex.norm_mul_exp_arg_mul_I]
 
 include hr in
-private lemma arg_ofReal_mul_exp_mul_I (hθ : θ ∈ Set.Ioc (-π) π) :
+private lemma arg_ofReal_mul_exp_mul_I (hθ' : θ ∈ Set.Ioc (-π) π) :
     Complex.arg (r * Complex.exp (θ * Complex.I)) = θ := by
   rw [Complex.exp_mul_I]
-  exact Complex.arg_mul_cos_add_sin_mul_I hr hθ
+  exact Complex.arg_mul_cos_add_sin_mul_I hr hθ'
 
 include hr in
 private lemma map_arg_pair_ofReal_mul_exp (h₀ : 0 ≤ θ) (hπ : θ < π) : Multiset.map Complex.arg
@@ -206,13 +232,13 @@ private lemma map_arg_pair_ofReal_mul_exp (h₀ : 0 ≤ θ) (hπ : θ < π) : Mu
     ← Complex.ofReal_neg, arg_ofReal_mul_exp_mul_I hr ⟨by linarith [Real.pi_pos], hπ.le⟩,
     arg_ofReal_mul_exp_mul_I hr ⟨by linarith, by linarith [Real.pi_pos]⟩]
 
+include hχ in
 /-- **The Satake angles at a prime with `χ(p) = 1`**: under the Ramanujan–Deligne bound
 `|a_p| ≤ 2 p^{(k-1)/2}`, they are `±θ_p` for Tau Ceti's Satake angle `θ_p`, the unique angle in
 `[0, π]` with `a_p = 2 p^{(k-1)/2} cos θ_p`, provided `θ_p ≠ π`. Tau Ceti's angle takes as an
 argument that `a_p` is real, which follows from `χ(p) = 1`
 (`conj_qExpansion_coeff_eq_self_of_dirichletLift_eq_one`). -/
-lemma satakeAngles_eq_pair_satakeAngle (hpp : p.Prime) (hχ : f.dirichletLift p = 1)
-    (hreal : conj ((qExpansion 1 f.toCuspForm).coeff p) = (qExpansion 1 f.toCuspForm).coeff p)
+lemma satakeAngles_eq_pair_satakeAngle
     (hR : ‖(qExpansion 1 f.toCuspForm).coeff p‖ ≤ 2 * (p : ℝ) ^ (((k : ℝ) - 1) / 2))
     (hπ : f.satakeAngle hpp hreal hR ≠ π) :
     f.satakeAngles p = {f.satakeAngle hpp hreal hR, -f.satakeAngle hpp hreal hR} := by
@@ -220,5 +246,107 @@ lemma satakeAngles_eq_pair_satakeAngle (hpp : p.Prime) (hχ : f.dirichletLift p 
     f.satakeParameters_eq_exp_satakeAngle hpp hR hχ]
   exact map_arg_pair_ofReal_mul_exp (Real.rpow_pos_of_pos (mod_cast hpp.pos) _)
     (f.satakeAngle_nonneg hpp _ hR) ((f.satakeAngle_le_pi hpp _ hR).lt_of_ne hπ)
+
+/-- The **Ramanujan bound** for a newform `f` at `p`: `|a_p| ≤ 2 p^{(k-1)/2}`, where `a_p` is the
+`p`-th Fourier coefficient of `f`. At the primes `p ∤ N` it is Deligne's theorem
+(`RamanujanDeligne`), which is not proved here. It is the hypothesis `hR` of Tau Ceti's Satake
+angle `satakeAngle`. -/
+def RamanujanBoundAt : Prop :=
+  ‖(qExpansion 1 f.toCuspForm).coeff p‖ ≤ 2 * (p : ℝ) ^ (((k : ℝ) - 1) / 2)
+
+/-- **Deligne's theorem** (the Ramanujan–Petersson conjecture for newforms), stated in the style of
+Mathlib's `RiemannHypothesis` and not proved here: every newform `f` of level `N` and weight `k`
+satisfies the Ramanujan bound `|a_p| ≤ 2 p^{(k-1)/2}` (`RamanujanBoundAt`) at every prime `p ∤ N`.
+Deligne deduced it for `k ≥ 2` from his proof of the Weil conjectures, and Deligne and Serre proved
+it for `k = 1`; there are no newforms of weight `k ≤ 0`. -/
+def RamanujanDeligne : Prop :=
+  ∀ {N : ℕ} [NeZero N] {k : ℤ} (f : Newform N k) {p : ℕ}, p.Prime → p.Coprime N →
+    f.RamanujanBoundAt p
+
+private lemma norm_eq_one_of_norm_mul_eq_one (hc : ‖α * β‖ = 1)
+    (ha : α + β = α * β * conj (α + β)) (h2 : ‖α + β‖ ≤ 2) : ‖α‖ = 1 := by
+  have hcc : α * β * (conj α * conj β) = 1 := by
+    rw [← map_mul, Complex.mul_conj', hc, Complex.ofReal_one, one_pow]
+  rw [map_add] at ha
+  have key : (1 - β * conj β) * (α * conj β - 1) = 0 := by
+    linear_combination conj β * ha + hcc
+  have hαβ : ‖α‖ * ‖β‖ = 1 := by
+    rw [← norm_mul, hc]
+  rcases mul_eq_zero.mp key with h | h
+  · have hβ : ‖β‖ ^ 2 = 1 := by
+      exact_mod_cast (Complex.mul_conj' β).symm.trans (sub_eq_zero.mp h).symm
+    nlinarith [norm_nonneg β]
+  · have hn : ‖α + β‖ ^ 2 = ‖α‖ ^ 2 + ‖β‖ ^ 2 + 2 := by
+      rw [← Complex.normSq_eq_norm_sq, Complex.normSq_add, sub_eq_zero.mp h,
+        Complex.normSq_eq_norm_sq, Complex.normSq_eq_norm_sq, Complex.one_re, mul_one]
+    have hle : (‖α‖ - ‖β‖) ^ 2 ≤ 0 := by
+      nlinarith [norm_nonneg (α + β)]
+    have heq : ‖α‖ = ‖β‖ :=
+      sub_eq_zero.mp <| pow_eq_zero_iff two_ne_zero |>.mp <| hle.antisymm <| sq_nonneg _
+    rw [← heq] at hαβ
+    nlinarith [norm_nonneg α]
+
+variable {f p} (hR : f.RamanujanBoundAt p)
+
+include hpp in
+private lemma rpow_pos_of_prime : 0 < (p : ℝ) ^ (((k : ℝ) - 1) / 2) :=
+  Real.rpow_pos_of_pos (mod_cast hpp.pos) _
+
+include hpp hpN hα hR in
+/-- **The Satake parameters lie on the unit circle** at a prime `p ∤ N` under the Ramanujan bound,
+so at every such prime by Deligne's theorem (`RamanujanDeligne`). The Satake parameters are `α` and
+`α⁻¹ χ(p)`, with `|χ(p)| = 1`, and `a_p = χ(p) conj a_p`
+(`qExpansion_coeff_eq_dirichletLift_mul_conj`): together with the bound
+`|α + α⁻¹ χ(p)| = |a_p| p^{-(k-1)/2} ≤ 2`, this forces `|α| = 1`. -/
+lemma RamanujanBoundAt.norm_eq_one_of_mem_normalizedSatakeParameters : ‖α‖ = 1 := by
+  rcases (f.normalizedSatakeParameters_eq_pair_iff p).mp
+    (f.normalizedSatakeParameters_eq_pair_inv_mul p hpN hα) with ⟨hsum, hprod⟩
+  refine norm_eq_one_of_norm_mul_eq_one (β := α⁻¹ * f.dirichletLift p) ?_ ?_ ?_
+  · rw [hprod, ← ZMod.coe_unitOfCoprime p hpN]
+    exact f.dirichletLift.unit_norm_eq_one _
+  · rw [hsum, hprod, map_div₀, Complex.conj_ofReal, ← mul_div_assoc,
+      ← f.qExpansion_coeff_eq_dirichletLift_mul_conj hpp hpN]
+  · rw [hsum, norm_div, Complex.norm_of_nonneg (rpow_pos_of_prime hpp).le,
+      div_le_iff₀ (rpow_pos_of_prime hpp)]
+    exact hR
+
+include hpp hpN hR in
+/-- **The Satake parameters have absolute value `p^{(k-1)/2}`** in Tau Ceti's arithmetic
+normalisation, at a prime `p ∤ N` under the Ramanujan bound, so at every such prime by Deligne's
+theorem (`RamanujanDeligne`). -/
+lemma RamanujanBoundAt.norm_eq_rpow_of_mem_satakeParameters (hα' : α ∈ f.satakeParameters p) :
+    ‖α‖ = (p : ℝ) ^ (((k : ℝ) - 1) / 2) := by
+  rw [← div_eq_one_iff_eq (rpow_pos_of_prime hpp).ne',
+    ← Complex.norm_of_nonneg (rpow_pos_of_prime hpp).le, ← norm_div]
+  exact hR.norm_eq_one_of_mem_normalizedSatakeParameters hpp hpN <|
+    f.normalizedSatakeParameters_eq_map_div p hpp.ne_zero ▸ Multiset.mem_map_of_mem _ hα'
+
+include hpp hχ hθ hR in
+/-- **`a_p = 2 p^{(k-1)/2} cos θ_p` for every Satake angle `θ_p = arg α_p`** at a prime with
+`χ(p) = 1`, under the Ramanujan bound, so at every such prime by Deligne's theorem
+(`RamanujanDeligne`). There the Satake parameters are `α_p` and `α_p⁻¹ = conj α_p`, so
+`a_p p^{-(k-1)/2} = 2 Re α_p = 2 cos θ_p`. Unlike `satakeAngles_eq_pair_satakeAngle`, this includes
+the angle `θ_p = π`. At a prime with `χ(p) ≠ 1` the identity fails in general, even where `a_p` is
+real. -/
+lemma RamanujanBoundAt.qExpansion_coeff_eq_two_mul_rpow_mul_cos : (qExpansion 1 f.toCuspForm).coeff
+    p = ((2 * (p : ℝ) ^ (((k : ℝ) - 1) / 2) * Real.cos θ : ℝ) : ℂ) := by
+  have hpN : p.Coprime N :=
+    not_not.mp fun h ↦ zero_ne_one <| (f.dirichletLift_apply_eq_zero p h).symm.trans hχ
+  rcases Multiset.mem_map.mp hθ with ⟨α, hα, rfl⟩
+  have hα₁ : ‖α‖ = 1 := hR.norm_eq_one_of_mem_normalizedSatakeParameters hpp hpN hα
+  rcases (f.normalizedSatakeParameters_eq_pair_iff p).mp
+    (f.normalizedSatakeParameters_eq_pair_inv_mul p hpN hα) with ⟨hsum, -⟩
+  rw [hχ, mul_one, Complex.inv_eq_conj hα₁, Complex.add_conj,
+    eq_div_iff (ofReal_rpow_ne_zero p hpp.ne_zero)] at hsum
+  rw [Complex.cos_arg (norm_ne_zero_iff.mp (hα₁.trans_ne one_ne_zero)), hα₁, div_one, ← hsum,
+    ← Complex.ofReal_mul, mul_right_comm]
+
+/-- **Deligne's theorem gives `a_p = 2 p^{(k-1)/2} cos θ_p`** at a prime `p ∤ N` where `a_p` is
+real, for Tau Ceti's Satake angle `θ_p ∈ [0, π]` (`satakeAngle`), whose Ramanujan bound hypothesis
+Deligne's theorem supplies. -/
+lemma RamanujanDeligne.qExpansion_coeff_eq_two_mul_rpow_mul_cos_satakeAngle
+    (hD : RamanujanDeligne) : (qExpansion 1 f.toCuspForm).coeff p = ((2 * (p : ℝ) ^ (((k : ℝ) - 1) /
+    2) * Real.cos (f.satakeAngle hpp hreal (hD f hpp hpN)) : ℝ) : ℂ) :=
+  f.qExpansion_coeff_eq_two_mul_rpow_mul_cos_satakeAngle hpp hreal _
 
 end HeckeRing.GL2.Newform
