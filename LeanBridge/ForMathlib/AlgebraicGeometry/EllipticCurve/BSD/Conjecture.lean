@@ -1,12 +1,11 @@
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Arithmetic.GlobalPeriod
+import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Arithmetic.Regulator
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Arithmetic.Tamagawa
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.BSD.LFunction
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.BSD.Sha
 import Mathlib.NumberTheory.Height.EllipticCurve
 import Mathlib.NumberTheory.NumberField.Discriminant.Defs
 import TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.GlobalExistence
-import TauCeti.AlgebraicGeometry.EllipticCurve.MordellWeil.FinitelyGenerated
-import TauCeti.AlgebraicGeometry.EllipticCurve.MordellWeil.Regulator.Basic
 
 /-!
 # The Birch and Swinnerton-Dyer conjecture
@@ -121,8 +120,9 @@ lemma BirchSwinnertonDyer.weakBirchSwinnertonDyer : W.WeakBirchSwinnertonDyer :=
 
 include h in
 /-- The Birch and Swinnerton-Dyer conjecture predicts that the analytic order of Ш is the order of
-Ш, given that the regulator and the Tamagawa numbers do not vanish. -/
-lemma BirchSwinnertonDyer.analyticShaOrder_eq (hd : W.toAffine.regulator * W.tamagawaProduct ≠ 0) :
+Ш, given that the Tamagawa product does not vanish; the regulator does not, by
+`WeierstrassCurve.Affine.regulator_pos`. -/
+lemma BirchSwinnertonDyer.analyticShaOrder_eq (hc : W.tamagawaProduct ≠ 0) :
     W.analyticShaOrder = Nat.card W.sha := by
   have hD : √|(discr K : ℝ)| ≠ 0 :=
     Real.sqrt_ne_zero'.mpr <| abs_pos.mpr <| Int.cast_ne_zero.mpr <| discr_ne_zero K
@@ -133,9 +133,7 @@ lemma BirchSwinnertonDyer.analyticShaOrder_eq (hd : W.toAffine.regulator * W.tam
   have ht : (Nat.card (AddCommGroup.torsion W.toAffine.Point) : ℝ) ≠ 0 :=
     Nat.cast_ne_zero.mpr Nat.card_pos.ne'
   have hR : W.toAffine.regulator ≠ 0 :=
-    left_ne_zero_of_mul hd
-  have hc : (W.tamagawaProduct : ℝ) ≠ 0 :=
-    right_ne_zero_of_mul hd
+    W.toAffine.regulator_pos.ne'
   rw [analyticShaOrder, h.2.2.2, Complex.ofReal_re]
   field_simp
 

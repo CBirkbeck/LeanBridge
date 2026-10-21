@@ -61,6 +61,7 @@ import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.NonsplitCartan
 import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.SplitCartan
 import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.SutherlandLabel
 import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.SymplecticIsomorphism
+import LeanBridge.ForMathlib.LinearAlgebra.Matrix.PosDef
 import LeanBridge.ForMathlib.NumberTheory.ArithmeticFunction.DivisorFunction
 import LeanBridge.ForMathlib.NumberTheory.Artin.Basic
 import LeanBridge.ForMathlib.NumberTheory.Artin.Conductor
