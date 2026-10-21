@@ -16,6 +16,8 @@ splitting law, identifies it with the cycle type of a Frobenius element. The LMF
 ## Main definitions
 
 * `NumberField.frobeniusCycleType` (LMFDB `nf.frobenius_cycle_types`).
+* `NumberField.frobeniusPartition`: the Frobenius cycle type at a prime unramified in `K`, as a
+  partition of `[K : F]`.
 
 ## Main results
 
@@ -24,6 +26,8 @@ splitting law, identifies it with the cycle type of a Frobenius element. The LMF
   type of `p` in `K`.
 * `NumberField.frobeniusCycleType_congr`: isomorphic extensions have the same Frobenius cycle
   types.
+* `NumberField.sum_frobeniusCycleType`: at a prime unramified in `K`, the parts of the Frobenius
+  cycle type, which are always positive, sum to `[K : F]`.
 -/
 
 open Equiv Ideal MulAction TauCeti.FieldTheory
@@ -71,13 +75,21 @@ lemma frobeniusCycleType_congr : frobeniusCycleType K p = frobeniusCycleType K' 
   rw [frobeniusCycleType, ← Multiset.map_univ_val_equiv eP, Multiset.map_map]
   exact Multiset.map_congr rfl fun P _ ↦ inertiaDeg_comap_mapAlgEquiv p e P
 
+variable {p} in
+lemma pos_of_mem_frobeniusCycleType {n : ℕ} (hn : n ∈ frobeniusCycleType K p) : 0 < n := by
+  have : Module.Finite (𝓞 F) (𝓞 K) := .of_restrictScalars_finite ℤ (𝓞 F) (𝓞 K)
+  rcases Multiset.mem_map.mp hn with ⟨P, -, rfl⟩
+  exact P.1.inertiaDeg_pos (𝓞 F)
+
+variable [NumberField F]
+
 open scoped Classical in
 /-- **Frobenius cycle types.** Let `L / F` be a finite Galois extension into which `K` embeds, and
 `σ ∈ Gal(L/F)` a Frobenius element at a prime `Q` of `L` above `p` unramified over `F`. Then the
 cycle type, fixed points included, of the permutation of the embeddings `K → L` induced by `σ` is
 the multiset of the residue degrees of the primes of `K` above `p`. -/
-lemma fullCycleType_toPerm_eq_frobeniusCycleType [NumberField F] (φ : K →ₐ[F] L) (Q : Ideal (𝓞 L))
-    [Q.IsPrime] [Q.LiesOver p] [Algebra.IsUnramifiedAt (𝓞 F) Q] {σ : L ≃ₐ[F] L}
+lemma fullCycleType_toPerm_eq_frobeniusCycleType (φ : K →ₐ[F] L) (Q : Ideal (𝓞 L)) [Q.IsPrime]
+    [Q.LiesOver p] [Algebra.IsUnramifiedAt (𝓞 F) Q] {σ : L ≃ₐ[F] L}
     (hσ : IsArithFrobAt (𝓞 F) σ Q) :
     (MulAction.toPerm σ : Equiv.Perm (K →ₐ[F] L)).fullCycleType = frobeniusCycleType K p := by
   have h : (MulAction.toPerm σ : Equiv.Perm (K →ₐ[F] L)) =
@@ -93,5 +105,27 @@ lemma fullCycleType_toPerm_eq_frobeniusCycleType [NumberField F] (φ : K →ₐ[
   exact (congrArg (fun E : IntermediateField F L ↦ frobeniusCycleType E p)
     (IsGalois.fixedField_fixingSubgroup φ.fieldRange)).trans
     (frobeniusCycleType_congr p φ.equivFieldRange).symm
+
+variable {p} (hp : Algebra.IsUnramifiedIn (𝓞 K) p)
+
+include hp in
+/-- **The Frobenius cycle type is a partition of the degree**: at a prime `p` of `F` unramified in
+`K`, the residue degrees of the primes of `K` above `p` sum to `[K : F]`. This is the fundamental
+identity `∑ e_P f_P = [K : F]` with every ramification index `e_P` equal to `1`. -/
+lemma sum_frobeniusCycleType : (frobeniusCycleType K p).sum = Module.finrank F K := by
+  rw [IsFractionRing.finrank_eq (𝓞 F) F (𝓞 K) K, ← sum_ramification_inertia_eq_finrank p (𝓞 K)]
+  exact Finset.sum_congr rfl fun P _ ↦ by rw [hp.ramificationIdx_eq_one P.2.2, one_mul]
+
+/-- The **Frobenius cycle type** (LMFDB `nf.frobenius_cycle_types`) of a prime `p` of `F`
+unramified in `K`, as a partition of `[K : F]`: its parts are the residue degrees of the primes of
+`K` above `p`, which are positive and sum to `[K : F]` (`sum_frobeniusCycleType`). -/
+noncomputable def frobeniusPartition : (Module.finrank F K).Partition where
+  parts := frobeniusCycleType K p
+  parts_pos := pos_of_mem_frobeniusCycleType
+  parts_sum := sum_frobeniusCycleType hp
+
+@[simp]
+lemma parts_frobeniusPartition : (frobeniusPartition hp).parts = frobeniusCycleType K p :=
+  rfl
 
 end NumberField
