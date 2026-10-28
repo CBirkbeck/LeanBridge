@@ -2,17 +2,13 @@
 \begin{definition}\label{mf.maass.mwf}
 \uses{mf.maass.mwf.laplacian,mf.multipliersystem,mf.slash_action}
 Maass forms
-\begin{itemize}
-\item -----------------
-\end{itemize}
+------------------
 A \textbf{Maass form} (of weight 0) on a subgroup \(\Gamma\) of \(\GL_{2}(\R)\)
 is a smooth, square-integrable, automorphic eigenfunction of the \hyperref[mf.maass.mwf.laplacian]{Laplace-Beltrami operator} $\Delta$. In other words, 
 $$f\in C^\infty(\mathcal{H}),\quad f\in L^2(\Gamma\backslash{\mathcal H}),\quad f(\gamma z)=f(z)\ \forall\gamma\in\Gamma,\quad (\Delta+\lambda)f(z)=0 \textrm{ for some } \lambda \in \C.$$
 
 Maass forms of weight $k$
-\begin{itemize}
-\item -----------------
-\end{itemize}
+------------------
 
 A Maass form $f$ of \hyperref[mf.maass.mwf.weight]{weight}  $k$ and \hyperref[mf.multipliersystem]{multiplier system} $v$ on a group $\Gamma$ is a smooth function $f:\mathcal{H} \rightarrow\C$ with the following properties:
 
@@ -33,9 +29,7 @@ or one of its 6 conjugates. One can show that $v(A)$ is well-defined and indepen
 
 
 Remark:
-\begin{itemize}
-\item ------
-\end{itemize}
+-------
  One can also consider Maass forms transforming with the usual "holomorphic" weight $k$ slash-action. In this case the corresponding weight $k$ Laplacian will look slightly different: \( \Delta_k = y^2\left( \frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}\right) - iky\left(\frac{\partial}{\partial x}+i\frac{\partial}{\partial y}\right). \)
 This convention is usually used in the context of Harmonic weak Maass forms.
 

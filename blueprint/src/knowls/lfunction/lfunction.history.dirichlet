@@ -12,9 +12,7 @@ where $\chi$ is a \hyperref[character.dirichlet]{(Dirichlet) character}, which i
 group $(\mathbb{Z}/q\mathbb{Z})^*$. For example the arithmetic function $\chi$ defined by 
 
 \[\chi(n)=\begin{cases} 1 & \textrm{ if } n\equiv 1 \bmod 3\\
-\begin{itemize}
-\item 1 & \textrm{ if } n\equiv 2\bmod 3\\
-\end{itemize}
+-1 & \textrm{ if } n\equiv 2\bmod 3\\
 0 & \textrm{ if  }n\equiv 0\bmod 3\end{cases}\]
 
 is a Dirichlet character modulo 3. The above L-function has an Euler product

@@ -25,9 +25,7 @@ Then you can cite a certain object much like quoting a specific theorem from a p
 
 In order to make the <code>\url</code> and <code>\href</code> commands to work, one should use the [hyperref](http://ctan.org/pkg/hyperref) package.
 
-\begin{itemize}
-\item ---------------
-\end{itemize}
+----------------
 
 To cite a specific page in the LMFDB, such as the home page of the L-function of the first
 rank 4 elliptic curve/$\Q$ shown in the example below, you can cite it as

@@ -22,9 +22,7 @@ The CM types in the LMFDB are grouped in Galois orbits under the action of $\mat
 In the LMFDB, there is a potentially incomplete list of reflex fields for each CM field $K$ of \hyperref[nf.degree]{degree} at most 12.  For each reflex field, it is indicated for how many of the $2^{[K:\mathbb{Q}]/2 - 1}$ pairs of complementary CM types this particular field is the reflex field. The only reflex fields listed are those of degree at most 36.
 
 
-\begin{itemize}
-\item -->
-\end{itemize}
+--->
 \end{definition}
 
 

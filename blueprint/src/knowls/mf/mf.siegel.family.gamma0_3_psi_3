@@ -14,9 +14,7 @@ Let
 $$
 A_2\begin{pmatrix}2&1\\1&2\end{pmatrix},\qquad E_6\begin{pmatrix}
 2&-1&0&0&0&0\\
-\begin{itemize}
-\item 1&2&-1&0&0&0\\
-\end{itemize}
+-1&2&-1&0&0&0\\
 0&-1&2&-1&0&-1\\
 0&0&-1&2&-1&0\\
 0&0&0&-1&2&0\\

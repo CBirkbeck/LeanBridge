@@ -17,7 +17,7 @@ DEFINES_RE = re.compile(r"""\{\{\s*DEFINES\s*\(\s*(?:'([^']+)'|"([^"]+)")\s*(?:,
 DELIM_RE = re.compile(r"(\\\[|\\\]|\\\(|\\\)|\$\$|\$)")
 COMMENT_RE = re.compile(r"\{#[^#]+#\}")
 CITE_UNDERSCORE_RE = re.compile(r"\\cite\{[^\}]+\}")
-ITEMIZE_RE = re.compile(r"^\s*[\-\*]")
+ITEMIZE_RE = re.compile(r"^\s*[\-\*](?=\s)") # a bullet is followed by a space, unlike a rule "-----"
 SUBACK_RE = re.compile(r"_(\\\w+(?:\{[^\}]+\})?)")
 NOBRACE_RE = re.compile(r"\\(overline|mathbb|widehat|hat)\s*(\\?[a-zA-Z]+)")
 LINK_RE = re.compile(r"""<a\s+href=['"]([^'"]+)['"]>([^<]+)</a>""")
@@ -111,21 +111,29 @@ def strip_macros(knowls):
         # Fix links
         content = LINK_RE.sub(link_subber, content)
 
-        # Turn markdown lists into itemize
+        # Turn markdown lists into itemize, except on lines that start in math mode (a row of a
+        # matrix can start with a minus sign)
         lines = content.split("\n")
+        in_math = []
+        math = False
+        for line in lines:
+            in_math.append(math)
+            math ^= len(DELIM_RE.findall(line)) % 2 == 1
         in_itemize = False
         i = 0
         while i < len(lines):
             line = lines[i]
-            if ITEMIZE_RE.match(line):
+            if ITEMIZE_RE.match(line) and not in_math[i]:
                 if not in_itemize:
                     lines[i:i] = [r"\begin{itemize}"]
+                    in_math[i:i] = [False]
                     i += 1
                     in_itemize = True
                 lines[i] = ITEMIZE_RE.sub(r"\\item ", line)
             else:
                 if in_itemize:
                     lines[i:i] = [r"\end{itemize}"]
+                    in_math[i:i] = [False]
                     i += 1
                     in_itemize = False
             i += 1

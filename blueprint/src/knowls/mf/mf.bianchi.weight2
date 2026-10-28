@@ -4,9 +4,7 @@
 Weight 2 Bianchi modular forms are particularly important in regard to their conjectural connections with abelian varieties of $\textrm{GL}_2$-type. In the weight 2  case, we have $F: \mathcal{H}_3 \rightarrow \mathbb{C}^3$ and
 $$(F |_k\gamma)(z)=\dfrac{1}{|r|^2+|s|^2} 
 \begin{pmatrix}  \bar{r}^2 & 2\bar{r}s & s^2 \\ 
-\begin{itemize}
-\item \bar{r}\bar{s} & |r|^2-|s|^2 & rs \\ 
-\end{itemize}
+                          -\bar{r}\bar{s} & |r|^2-|s|^2 & rs \\ 
                           \bar{s}^2 & -2r\bar{s} & r^2 \end{pmatrix} F(\gamma z)$$
 where $\gamma=\begin{pmatrix} a &b \\ c&d \end{pmatrix}$ and $r=cx+d$ and $s=cy$.
 
