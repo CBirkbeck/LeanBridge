@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.automorphic_type}{Automorphic type}}
 \begin{definition}\label{mf.siegel.automorphic_type}
-\uses{mf.siegel.degree,mf.siegel.lift.saito_kurokawa,mf.siegel.newform}
+\uses{mf.siegel.degree,mf.siegel.newform}
 The \textbf{automorphic type} of a \hyperref[mf.siegel.newform]{Siegel newform} $f \in S_{k,j}(\Gamma)$ of \hyperref[mf.siegel.degree]{degree} 2 is a letter indicating the type of the Arthur parameters of the automorphic representation $\pi$ associated to $f$.
 These fall into six classes of (packets of ) representations:
 

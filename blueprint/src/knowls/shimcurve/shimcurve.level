@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/shimcurve.level}{Level of a Shimura curve}}
 \begin{definition}\label{shimcurve.level}
-\uses{shimcurve,shimcurve.enhanced_group,shimcurve.polarized_order}
+\uses{shimcurve.enhanced_group,shimcurve.polarized_order}
 Let $(O,\mu)$ be a \hyperref[shimcurve.polarized_order]{polarized quaternion order}, and let 
 $G \colonequals \Aut_{\pm\mu}(O)\ltimes \widehat{O}^\times$ be the corresponding
 \hyperref[shimcurve.enhanced_group]{enhanced semidirect product}.

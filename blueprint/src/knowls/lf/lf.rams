@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.rams}{Rams}}
 \begin{definition}\label{lf.rams}
-\uses{lf.herbrand_invariant,lf.means,lf.padic_field,lf.ramification_index,lf.slopes,lf.wild_inertia_group}
+\uses{lf.means,lf.padic_field,lf.ramification_index,lf.slopes,lf.wild_inertia_group}
 Let $L/K$ be an extension of \hyperref[lf.padic_field]{$p$-adic fields}
 with \hyperref[lf.ramification_index]{ramification index} $e = \epsilon p^w$.
 The \textbf{rams} $r_1 \le \dots \le r_w$ of $L/K$ are the same as the positive lower

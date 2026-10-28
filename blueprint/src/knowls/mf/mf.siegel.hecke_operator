@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.hecke_operator}{Hecke operators}}
 \begin{definition}\label{mf.siegel.hecke_operator}
-\uses{mf.borel_subgroup,mf.siegel,repn.highest.weight}
+\uses{mf.siegel,repn.highest.weight}
 For a positive integer $g$, let 
 $\GSp(2g,\Q)^+=\{\gamma\in\GL(2g,\Q)\, \mid \, \exists\, r(g)\in\Q_{>0}: \gamma^t J\gamma=r(g)J\}$.
 

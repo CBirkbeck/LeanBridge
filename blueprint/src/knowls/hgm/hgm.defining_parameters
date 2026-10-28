@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/hgm.defining_parameters}{Defining parameters of a hypergeometric motive}}
 \begin{definition}\label{hgm.defining_parameters}
-\uses{hgm.degree,hgm.familes}
+\uses{hgm.familes}
 A hypergeometric motive $H(A,B,t)$ in $M(\Q,\Q)$ is described by a \hyperref[hgm.familes]{hypergeometric family} $H(A,B)$ in $M(\Q(t),t)$ along with a specialization point $t \in \Q^\times$. Here, $A$ and $B$ are disjoint multisets of positive integers and are the \textbf{defining parameters} of the hypergeometric family; they are subject to a constraint that
 $$
 \sum_{a \in A} \phi(a) = \sum_{b \in B} \phi(b);

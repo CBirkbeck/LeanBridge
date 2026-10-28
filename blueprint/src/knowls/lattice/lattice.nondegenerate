@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.nondegenerate}{Nondegenerate lattice}}
 \begin{definition}\label{lattice.nondegenerate}
-\uses{lattice.definition,lattice.gram,lattice.signature}
+\uses{lattice.definition,lattice.gram}
 An \hyperref[lattice.definition]{integral lattice} $L$ with bilinear form $B$ is \textbf{nondegenerate} if
 \[
 \{w \in L : B(v, w) = 0 \text{ for all } v \in L\} = 0.

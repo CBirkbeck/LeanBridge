@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/hmsurface.congruence_subgroup}{Congruence Subgroup}}
 \begin{definition}\label{hmsurface.congruence_subgroup}
-\uses{hmsurface.component_ideal}
+\uses{}
 Let $F$ be a real quadratic field with ring of integers $\Z_F$. Let
 $\frak{b}$ be a fractional ideal in $F$ (the \hyperref[hmsurface.component_ideal]{component ideal} ).
 

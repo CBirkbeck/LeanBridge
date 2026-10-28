@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lattice.definition}{Integral Lattice}}
 \begin{definition}\label{lattice.definition}
-\uses{lattice.gram,lattice.nondegenerate,lattice.signature}
+\uses{lattice.gram}
 Let $V$ be an $n$-dimensional vector space over a topological field $F$ (with $\text{char}(F) \neq 2$) equipped with a nonsingular symmetric bilinear map $B:V\times V\rightarrow F$ and associated quadratic map $Q(v):=B(v,v).$  The pair $(V,Q)$ is a \textbf{quadratic space}.  Fixing a basis, $\{v_1,...,v_n\}$ for $V$, the space $(V,Q)$ has an associated quadratic form, that is, a homogeneous degree 2 polynomial, given by 
 \[
 f(x_1,...,x_n)=\sum_{i,j}B(v_i,v_j)x_ix_j,

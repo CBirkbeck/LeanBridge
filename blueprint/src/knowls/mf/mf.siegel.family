@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.family}{Family of Siegel groups}}
 \begin{definition}\label{mf.siegel.family}
-\uses{group.sp2gr.gamma0,group.sp2gr.ppal.congruence,paramodulargroup.sp2gr}
+\uses{}
 Siegel modular forms of degree $g$ transform under the action of a discrete subgroup $\Gamma$ of $\Sp(2g,\Q)$.  We focus on certain discrete subgroups.
 
 \begin{itemize}

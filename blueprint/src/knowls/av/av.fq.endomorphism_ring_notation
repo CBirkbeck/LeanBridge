@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/av.fq.endomorphism_ring_notation}{Endomorphism ring notation}}
 \begin{definition}\label{av.fq.endomorphism_ring_notation}
-\uses{ag.endomorphism_ring,av.fq.frobenius_order,av.fq.lmfdb_label,av.isogeny_class,av.weak_equivalence_class}
+\uses{ag.endomorphism_ring,av.fq.lmfdb_label,av.isogeny_class,av.weak_equivalence_class}
 In the graph, each vertex correspond to an \hyperref[ag.endomorphism_ring]{endomorphism} of abelian varieties in the \hyperref[av.isogeny_class]{isogeny class} and each edge correspond to an inclusion.
 
 For each \hyperref[ag.endomorphism_ring]{endomorphism ring} $S$, we use the following \textbf{notation} $[\mathrm{index}]^{\#\mathrm{weak}\cdot \#\mathrm{Pic}}_i$ : 

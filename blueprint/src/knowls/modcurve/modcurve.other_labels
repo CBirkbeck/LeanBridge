@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/modcurve.other_labels}{Other labels for modular curves}}
 \begin{definition}\label{modcurve.other_labels}
-\uses{ec.galois_rep_modell_image,modcurve.standard}
+\uses{ec.galois_rep_modell_image}
 Modular curves are identified in the literature using several different labeling conventions.  In addition to the \hyperref[modcurve.standard]{standard names} for the classical modular curves $X(N), X_0(N), X_1(N), X_{\mathrm ns}^+(N), X_{\mathrm sp}^+(N)$, etc., there are a number of labeling systems that are used in different contexts, including:
 
 \begin{itemize}

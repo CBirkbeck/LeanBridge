@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/artin.permutation_container}{Containing permutation representation}}
 \begin{definition}\label{artin.permutation_container}
-\uses{gg.tnumber}
+\uses{}
 If $\rho:G\to \GL_n(\C)$ is a representation of a finite group $G$, then $\rho$ is equivalent to a direct sum of irreducible representations.  We say that $\rho$ \textbf{contains} each of these representations.
 
 Given an irreducible representation, we can then ask which permutation representations contain it.  There is at least one because the regular representation of $G$ contains all irreducible representations of $G$.

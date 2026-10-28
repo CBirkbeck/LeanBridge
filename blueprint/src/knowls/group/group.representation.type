@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.representation.type}{Type of a complex group representation}}
 \begin{definition}\label{group.representation.type}
-\uses{artin.frobenius_schur_indicator,group,group.representation.character}
+\uses{group,group.representation.character}
 Let $\rho:G\to\GL_n(\C)$ be an irreducible complex \hyperref[group]{group} representation.  Then $\rho$ is one of three \textbf{types}:
 
 1. \textbf{Real} if $\rho$ is conjugate to a representation $G\to \GL_n(\R)$

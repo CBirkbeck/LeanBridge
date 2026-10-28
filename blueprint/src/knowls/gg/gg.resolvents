@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/gg.resolvents}{Resolvents of a Galois group}}
 \begin{definition}\label{gg.resolvents}
-\uses{gg.galois_group,gg.other_representations,gg.tnumber,group.core,group.subgroup,group.subgroup.index,nf.degree,nf.galois_closure,nf.separable,nf.stem_field}
+\uses{gg.galois_group,gg.other_representations,group.core,group.subgroup,group.subgroup.index,nf.degree,nf.galois_closure,nf.separable,nf.stem_field}
 Let $K/F$ is finite \hyperref[nf.separable]{separable} extension of fields with \hyperref[nf.galois_closure]{Galois closure} $L$ and let let $G= \Gal(L/F)$.  Then any subfield of $L$ is a resolvent field for $K/F$.  These are in bijection with the subgroups of $G$.
 
 One way to group these fields is to collect together subfields with the same Galois closure since given one such field, the other fields are in a collection are visible as \hyperref[gg.other_representations]{siblings} of the field.  A natural representative of such a collection would be a field of minimal \hyperref[nf.degree]{degree} over $F$ with ties broken by taking a field whose Galois closure has \hyperref[gg.galois_group]{Galois group} $nTj$ with minimal \hyperref[gg.tnumber]{$j$}.

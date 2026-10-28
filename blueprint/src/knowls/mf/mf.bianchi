@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.bianchi}{Bianchi modular form}}
 \begin{definition}\label{mf.bianchi}
-\uses{mf.bianchi.bianchicongruencesubgroup,mf.bianchi.bianchigroup,mf.bianchi.fourierbessell,mf.bianchi.hyperbolic3space,nf,nf.class_number,nf.ring_of_integers}
+\uses{mf.bianchi.bianchigroup,mf.bianchi.hyperbolic3space,nf,nf.class_number,nf.ring_of_integers}
 
 Let $K$ be an imaginary quadratic \hyperref[nf]{number field} of \hyperref[nf.class_number]{class number} $1$, and $\mathcal{O}_K$ be its \hyperref[nf.ring_of_integers]{ring of integers}. Let $\Gamma$ be a \hyperref[mf.bianchi.bianchicongruencesubgroup]{congruence subgroup} of the 
 \hyperref[mf.bianchi.bianchigroup]{Bianchi group} $\textrm{PSL}_2(\mathcal{O}_K)$.

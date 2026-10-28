@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.newform}{Siegel newform}}
 \begin{definition}\label{mf.siegel.newform}
-\uses{group.paramodular,mf.siegel,mf.siegel.fouriercoefficients,mf.siegel.hecke_operator,mf.siegel.petersson_scalar_product,mf.siegel.weight}
+\uses{mf.siegel,mf.siegel.hecke_operator,mf.siegel.weight}
 Let \(M_{\rho}(K(N))\) be the space of \hyperref[mf.siegel]{Siegel modular forms} of \hyperref[mf.siegel.weight]{weight} $\rho$ and \hyperref[group.paramodular]{paramodular level} $N$.
 
 If $M$ is a proper divisor of $N$, then for every divisor $D \mid (N/M)$, there are maps from $M_{\rho}(K(M))$ to $M_{\rho}(K(N))$.  Such modular forms are said to be \textbf{old}, and together they span a subspace $M_{\rho}^{\rm old}(K(N)) \subseteq M_{\rho}(K(N))$.

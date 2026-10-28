@@ -9,7 +9,7 @@ and $e$ the \hyperref[lf.ramification_index]{ramification degree} of
 $L/K$.  Since $H(L/K)$ is 0 if $L/K$ is tamely ramified, and positive otherwise,
 $H(L/K)$ is a measure of the wild ramification of $L/K$.  The height $H(L/K)$
 can be expressed in terms of the \hyperref[lf.means]{mean} $m$ of $L/K$ by
-$H(L/K)=em$.  If $L/K$ is unramified (i.e., $f=1$) then $H(L/K)$ is equal to the
+$H(L/K)=em$.  If $L/K$ is totally ramified (i.e., $f=1$) then $H(L/K)$ is equal to the
 0th \hyperref[lf.indices_of_inseparability]{index of inseparability} $i_0$.
 
 

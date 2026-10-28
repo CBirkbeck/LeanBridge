@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf}{Modular form (general)}}
 \begin{definition}\label{mf}
-\uses{cmf,cmf.weight,mf.bianchi,mf.growth_condition,mf.hilbert,mf.maass,mf.multipliersystem,mf.siegel,mf.transformation_property}
+\uses{cmf,cmf.weight,mf.bianchi,mf.hilbert,mf.maass,mf.multipliersystem,mf.siegel}
 The term \textbf{modular form} is used to describe several types
 of complex functions which have a certain type of \hyperref[mf.transformation_property]{functional equation} and \hyperref[mf.growth_condition]{growth condition}.  Examples include:
 

@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.half_integral_weight.theta}{Theta function}}
 \begin{definition}\label{mf.half_integral_weight.theta}
-\uses{cmf.level,mf.half_integral_weight,mf.half_integral_weight.dedekind_eta}
+\uses{cmf.level,mf.half_integral_weight.dedekind_eta}
 The (classical) \textbf{theta function} $\theta(z)$ is a holomorphic modular form of \hyperref[mf.half_integral_weight]{half-integral weight} $1/2$ and \hyperref[cmf.level]{level} 4, defined by the formula
 \[
 \theta(z)=\sum_{n=-\infty}^\infty e^{\pi iz n^2}.

@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.degree}{Degree of an L-function}}
 \begin{definition}\label{lfunction.degree}
-\uses{lfunction,lfunction.conductor,lfunction.functional_equation,lfunction.selbergdata,lfunction.gamma_factor}
+\uses{lfunction,lfunction.conductor,lfunction.functional_equation,lfunction.gamma_factor}
 The \textbf{degree} of an \hyperref[lfunction]{L-function} is the number $J + 2K$ of \hyperref[lfunction.gamma_factor]{Gamma factors} occurring in its \hyperref[lfunction.functional_equation]{functional equation}
 
 \[

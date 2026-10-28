@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel}{Siegel modular form}}
 \begin{definition}\label{mf.siegel}
-\uses{cmf,group.sp2gr,group.sp2gr.subgroup.congn,mf.siegel.halfspace,mf.siegel.koecher.principle,paramodulargroup.sp2gr,repn.highest.weight,repn.irrep.gl}
+\uses{cmf,group.sp2gr,repn.highest.weight}
 Let $g\ge 2$ be an integer, let
 $\rho\colon \GL(g,\mathbb{C})\to \GL(V)$ be a finite-dimensional complex representation, and let 
 $\Gamma \leq \GSp(2g,\Q)$ be an arithmetic subgroup.  

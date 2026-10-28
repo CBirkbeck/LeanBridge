@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.maass.mwf}{Maass form on GL2(R) with trivial character}}
 \begin{definition}\label{mf.maass.mwf}
-\uses{mf.maass.mwf.laplacian,mf.maass.mwf.weight,mf.multipliersystem,mf.slash_action}
+\uses{mf.maass.mwf.laplacian,mf.multipliersystem,mf.slash_action}
 Maass forms
 \begin{itemize}
 \item -----------------

@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.weight}{Weight of a Siegel modular form}}
 \begin{definition}\label{mf.siegel.weight}
-\uses{mf.siegel,mf.siegel.degree,mf.siegel.halfspace,repn.irrep.gl}
+\uses{mf.siegel,mf.siegel.degree}
 The \textbf{weight} of a \hyperref[mf.siegel]{Siegel modular form} $f$ of \hyperref[mf.siegel.degree]{degree} $g$ is the 
 finite-dimensional complex representation $\rho$ of $\GL(g,\mathbb{C})$
 that occurs in the modular transformation property of $f$ under the action of $\gamma = \left( \begin{array}{ll}  a & b \\ c & d \end{array}\right)$ on the \hyperref[mf.siegel.halfspace]{Siegel upper half space $\mathcal{H}_g$}.  That is, the weight is the representation $\rho$

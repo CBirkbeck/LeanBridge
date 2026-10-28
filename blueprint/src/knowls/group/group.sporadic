@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.sporadic}{Sporadic groups}}
 \begin{definition}\label{group.sporadic}
-\uses{group.alternating,group.cyclic,group.lie_type,group.order,group.simple}
+\uses{group.alternating,group.cyclic,group.order,group.simple}
 By the classification of finite \hyperref[group.simple]{simple} groups, we know that every finite simple group is either \hyperref[group.cyclic]{cyclic} of prime \hyperref[group.order]{order}, an \hyperref[group.alternating]{alternating} group, a member of one of 16 infinite families of simple groups of \hyperref[group.lie_type]{Lie type}, or one of 26 exceptions called \textbf{sporadic groups}.
 
 The 26 sporadic groups are:

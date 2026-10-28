@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.level}{Level of a Siegel modular form}}
 \begin{definition}\label{mf.siegel.level}
-\uses{group.paramodular,group.sp2gr.gamma0,group.sp2gr.ppal.congruence,group.sp2gr.subgroup.congn,mf.siegel,minimal.level.sp2gr.subgroup.congn}
+\uses{mf.siegel}
 A \hyperref[mf.siegel]{Siegel modular form} on a discrete subgroup $\Gamma$ of $\Sp(2g,\Q)$  is said to be of \textbf{level} $N$ if $\Gamma$ is a 
 \hyperref[group.sp2gr.subgroup.congn]{congruence subgroup of level} $N$.
 

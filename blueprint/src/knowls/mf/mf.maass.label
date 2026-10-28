@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.maass.label}{Label of a Maass newform}}
 \begin{definition}\label{mf.maass.label}
-\uses{character.dirichlet,character.dirichlet.conrey,mf.maass.mwf,mf.maass.mwf.eigenvalue,mf.maass.mwf.level,mf.maass.mwf.weight,mf.maass.spectral_index}
+\uses{character.dirichlet,mf.maass.mwf,mf.maass.mwf.eigenvalue,mf.maass.mwf.level,mf.maass.mwf.weight,mf.maass.spectral_index}
 The \textbf{label} of a \hyperref[mf.maass.mwf]{Maass newform} $f \in M_k(\Gamma_0(N), \chi)$ either has the format $N.k.a.m.d$ or $N.m$, where
 
 \begin{itemize}

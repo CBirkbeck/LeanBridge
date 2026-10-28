@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.newspace}{Space of paramodular newforms}}
 \begin{definition}\label{mf.siegel.newspace}
-\uses{mf.siegel.character,mf.siegel.cusp_form,mf.siegel.level,mf.siegel.newform,mf.siegel.petersson_scalar_product,mf.siegel.space,mf.siegel.weight_k_j}
+\uses{mf.siegel.character,mf.siegel.level,mf.siegel.newform,mf.siegel.weight_k_j}
 For each \hyperref[mf.siegel.level]{level} $N$, \hyperref[mf.siegel.weight_k_j]{weight} $k$, and \hyperref[mf.siegel.character]{character} $\chi$ the \hyperref[mf.siegel.space]{space} $S_{k,j}(K(N),\chi)$ of \hyperref[mf.siegel.cusp_form]{cuspidal modular forms} can be decomposed as an internal direct sum
 \[
 S_{k,j}(K(N),\chi) = S_{k,j}^{\rm old}(K(N),\chi) \oplus S_{k,j}^{\rm new}(K(N),\chi).

@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.galois_splitting_model}{Galois splitting model of a local field}}
 \begin{definition}\label{lf.galois_splitting_model}
-\uses{lf.galois_closure_invariants}
+\uses{}
 Let $K$ be a finite extension of $\Q_p$.
 A \textbf{Galois splitting model} of $K$ is an irreducible polynomial $f\in\Q[x]$ such that $K\cong \Q_p[x]/(f)$, and the Galois group of $f$ over $\Q$ is isomorphic to the Galois group of $f$ over $\Q_p$. 
 

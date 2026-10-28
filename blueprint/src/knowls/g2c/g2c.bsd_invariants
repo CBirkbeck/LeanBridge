@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/g2c.bsd_invariants}{BSD invariants}}
 \begin{definition}\label{g2c.bsd_invariants}
-\uses{ag.abelian_variety,ag.mordell_weil,ag.regulator,g2c.analytic_rank,g2c.analytic_sha,g2c.has_square_sha,g2c.mordell_weil_rank,g2c.real_period,g2c.tamagawa,ag.tate_shafarevich,g2c.torsion,g2c.two_selmer_rank,lfunction,lfunction.leading_coeff}
+\uses{ag.abelian_variety,ag.mordell_weil,ag.regulator,g2c.analytic_rank,g2c.analytic_sha,g2c.mordell_weil_rank,g2c.real_period,g2c.tamagawa,ag.tate_shafarevich,g2c.torsion,g2c.two_selmer_rank,lfunction,lfunction.leading_coeff}
 The \textbf{BSD invariants} of an \hyperref[ag.abelian_variety]{abelian variety} $A/\Q$ include:
 
 \begin{itemize}

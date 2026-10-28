@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.selberg_class.axioms}{Selberg class axioms}}
 \begin{definition}\label{lfunction.selberg_class.axioms}
-\uses{lfunction.euler_product,lfunction.functional_equation,lfunction.selberg_class}
+\uses{lfunction.euler_product,lfunction.functional_equation}
 The \textbf{ Selberg axioms} for $F(s)=\sum_{n=1}^\infty \frac{a_n}{n^s}$ in the \hyperref[lfunction.selberg_class]{Selberg class} are:
 <ol>
 <li>   Analyticity: $(s-1)^mF(s)$ is an entire function of

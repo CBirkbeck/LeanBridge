@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.siegel.cusp_form_degree2}{Siegel cusp form of degree 2}}
 \begin{definition}\label{mf.siegel.cusp_form_degree2}
-\uses{mf.siegel.siegel_operator_degree_two,mf.siegel.slash_operator_degree_two,mf.siegel.vector_valued_degree_two}
+\uses{}
 Let $f$ be a \hyperref[mf.siegel.vector_valued_degree_two]{vector-valued Siegel modular form} on 
 an arithmetic subsgroup $\Gamma$ of $\GSp(4,\Q)$ then $f$ is called a \textbf{cusp form} if for any $\gamma\in \Sp(4,\Q)$, we have 
 \[

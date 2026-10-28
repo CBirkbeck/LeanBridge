@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.bianchi.fourierbessell}{Fourier-Bessel expansion}}
 \begin{definition}\label{mf.bianchi.fourierbessell}
-\uses{mf.bianchi,mf.bianchi.bianchicongruencesubgroup,mf.bianchi.bianchigroup,mf.bianchi.hyperbolic3space,mf.bianchi.weight}
+\uses{mf.bianchi,mf.bianchi.bianchigroup,mf.bianchi.hyperbolic3space,mf.bianchi.weight}
 Let $F$ be a  \hyperref[mf.bianchi]{Bianchi modular form} of \hyperref[mf.bianchi.weight]{weight} $2$ with respect to the \hyperref[mf.bianchi.bianchicongruencesubgroup]{congruence subgroup} $\Gamma$ of a \hyperref[mf.bianchi.bianchigroup]{Bianchi group}. As a function on \hyperref[mf.bianchi.hyperbolic3space]{hyperbolic 3-space} $\mathcal{H}_3 = \{ (x,y) \in \C \times \R \mid y>0 \}$,  $F$ is a periodic function in the variable $x\in\C$, and  has a \textbf{Fourier-Bessel expansion} of the form 
 $$F(x,y)=\sum_{0 \not =\alpha \in \mathcal{O}_K}c(\alpha) y^2 \mathbb{K}\left ( \dfrac{4\pi|\alpha|y}{\sqrt{|\triangle|}} \right )
                         \psi\left (\dfrac{\alpha x}{\sqrt{\triangle}} \right ),$$

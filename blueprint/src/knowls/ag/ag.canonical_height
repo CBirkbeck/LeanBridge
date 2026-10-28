@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/ag.canonical_height}{Canonical height of an abelian variety}}
 \begin{definition}\label{ag.canonical_height}
-\uses{ag.abelian_variety,ag.mordell_weil,ag.regulator,av.princ_polarizable,av.theta_divisor,nf,nf.weil_height}
+\uses{ag.abelian_variety,ag.mordell_weil,av.princ_polarizable,av.theta_divisor,nf,nf.weil_height}
 Let $A$ be a \hyperref[av.princ_polarizable]{principally polarised} \hyperref[ag.abelian_variety]{abelian variety} defined over a \hyperref[nf]{number field} $L$.  The \textbf{canonical height} on $A$ is a function
 $$
    \hat{h}: A(L) \to \R_{ {}\ge0}

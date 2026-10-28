@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.root_number}{Sign of an L-function}}
 \begin{definition}\label{lfunction.root_number}
-\uses{lfunction,lfunction.functional_equation,lfunction.selbergdata}
+\uses{lfunction,lfunction.functional_equation}
 The \textbf{sign} of an \hyperref[lfunction]{L-function} is the complex number $\varepsilon$ occurring in its \hyperref[lfunction.functional_equation]{functional equation}
 
 \[

@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/mf.bianchi.hecke_algebra}{Hecke algebra}}
 \begin{definition}\label{mf.bianchi.hecke_algebra}
-\uses{mf.bianchi,mf.bianchi.level,mf.bianchi.spaces,mf.bianchi.weight}
+\uses{mf.bianchi,mf.bianchi.level,mf.bianchi.weight}
 Let $K$ be an imaginary quadratic field and  $\mathcal{M}_k(\Gamma)$ the space of \hyperref[mf.bianchi]{Bianchi modular forms} of \hyperref[mf.bianchi.weight]{weight} $k$ and \hyperref[mf.bianchi.level]{level} $\Gamma=\Gamma_0(\mathcal{N})$  for some integral ideal $\mathcal{N}$ of $\mathcal{O}_K$.
 
 The (level $\mathcal{N}$) \textbf{Hecke algebra} $\mathbb{T}$ is a commutative algebra of linear \textbf{Hecke operators} acting on $\mathcal{M}_k(\Gamma)$.  It preserves the \hyperref[mf.bianchi.spaces]{cuspidal subspace} $\mathcal{S}_k(\mathcal{N})$ of Bianchi cusp forms and the \hyperref[mf.bianchi.spaces]{new subspace} $\mathcal{S}_k(\mathcal{N})^{\text{new}}$, and also preserves the rational and integral structures on these.

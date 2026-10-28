@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.supersolvable}{Supersolvable group}}
 \begin{definition}\label{group.supersolvable}
-\uses{group.abelian,group.metacyclic,group.monomial,group.nilpotent,group.solvable,group.subgroup.normal}
+\uses{group.abelian,group.nilpotent,group.solvable,group.subgroup.normal}
 A group is \textbf{supersolvable} if there are nested \hyperref[group.subgroup.normal]{normal} subgroups $N_i\lhd G$
 
 $${1}=N_0 < N_1 < N_2 < \ldots < N_k = G$$

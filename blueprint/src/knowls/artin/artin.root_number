@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/artin.root_number}{Root number of an Artin representation}}
 \begin{definition}\label{artin.root_number}
-\uses{artin,artin.lfunction,lfunction.functional_equation}
+\uses{artin,lfunction.functional_equation}
 The \textbf{root number} of an \hyperref[artin]{Artin representation} $\rho$,
 also called the \textbf{sign}, is the constant $W(\rho)$ appearing in the
 \hyperref[lfunction.functional_equation]{functional equation}

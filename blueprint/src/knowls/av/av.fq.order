@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/av.fq.order}{Order in an étale algebra}}
 \begin{definition}\label{av.fq.order}
-\uses{av.fq.frobenius_order,av.fq.number_field,av.isogeny_class,nf.ring_of_integers}
+\uses{av.fq.number_field,av.isogeny_class,nf.ring_of_integers}
 An \textbf{étale algebra} over $\Q$ is a finite product of number fields.
 
 An \textbf{order} $R$ in an étale algebra $K$ over $\Q$ is a subring $R$ of $K$ whose underlying 

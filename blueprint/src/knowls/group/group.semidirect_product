@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/group.semidirect_product}{Semidirect product of groups}}
 \begin{definition}\label{group.semidirect_product}
-\uses{group,group.automorphism,group.direct_product,group.homomorphism,group.nonsplit_product,group.subgroup,group.subgroup.normal}
+\uses{group,group.automorphism,group.direct_product,group.homomorphism,group.subgroup,group.subgroup.normal}
 Suppose $H$ and $N$ are \hyperref[group]{groups} with operations $*_H$ and $*_N$ and $\phi:H\to \Aut(N)$ is a \hyperref[group.homomorphism]{homomorphism} to the \hyperref[group.automorphism]{automorphism} group of $N$. Then the set $N\times H$ with the operation
 \[ (n_1, h_1)*(n_2, h_2) = (n_1*_N \phi(h_1)(n_2),  h_1 *_H h_2)\]
 is a group called a \textbf{semidirect product} of $H$ and $N$ denoted $N:H$ or $N\rtimes H$.  If $\phi$ is the trivial homomorphism, then the resulting group is the \hyperref[group.direct_product]{direct product} $N\times H$, so it is a \textbf{trivial semidirect product}.

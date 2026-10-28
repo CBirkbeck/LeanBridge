@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/belyi.label}{Belyi map label}}
 \begin{definition}\label{belyi.label}
-\uses{belyi.degree,belyi.galmap,belyi.group,belyi.ramification_type,gg.conway_name}
+\uses{belyi.degree,belyi.galmap,belyi.group,belyi.ramification_type}
 The \textbf{label} of a \hyperref[belyi.galmap]{Belyi map} $\phi$ has the form $d$T$G$-$\lambda_0\_{\lambda_1}\_{\lambda_}\infty$-m encoding the following data.
 
 \begin{itemize}
