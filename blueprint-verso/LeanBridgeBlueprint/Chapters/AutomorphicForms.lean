@@ -631,7 +631,7 @@ $$`f\in C^\infty(\mathcal{H}),\quad f\in L^2(\Gamma\backslash{\mathcal H}),\quad
 Depends on: {uses "mf.maass.mwf.laplacian"}[] {uses "mf.maass.mwf.weight"}[]
 :::
 
-:::definition "mf.maass.picard"
+:::definition "mf.maass.picard" (lean := "HyperbolicThreeSpace.IsPicardMaassForm, HyperbolicThreeSpace.PicardGroup, HyperbolicThreeSpace.laplacian, HyperbolicThreeSpace.moebius, HyperbolicThreeSpace.hyperbolicVolume")
 *Maass forms on PSL(2,Z\[i\]).* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass.picard))
 
 A *Maass form* is a smooth, square-integrable, automorphic eigenfunction of the Laplacian,
@@ -679,7 +679,7 @@ Exceptional eigenvalues are conjectured to not exist. In practice, the latter in
 Depends on: {uses "mf.maass.mwf.eigenvalue"}[] {uses "mf.maass.mwf.spectralparameter"}[] {uses "mf.maass.exceptional_eigenvalue"}[]
 :::
 
-:::definition "mf.multipliersystem"
+:::definition "mf.multipliersystem" (lean := "MonoidHom.IsMultiplierSystem, MonoidHom.isMultiplierSystem_of_slash_eq_smul, CongruenceSubgroup.nebentypusMultiplier, CongruenceSubgroup.isMultiplierSystem_nebentypusMultiplier_iff, CongruenceSubgroup.mem_modFormCharSpace_iff_slash_eq_smul")
 *Multiplier system.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.multipliersystem))
 
 A *multiplier system* of weight $`k\in\mathbb{Z}` for a group $`G` is a group homomorphism from $`G` to the group $`S^1` of complex numbers of modulus $`1`, with the added condition that, if $`-I\in G`, then $`v(-I)=(-1)^k`.
@@ -770,7 +770,7 @@ These fall into six classes of (packets of ) representations:
 Depends on: {uses "mf.siegel.degree"}[] {uses "mf.siegel.newform"}[]
 :::
 
-:::definition "mf.siegel.character"
+:::definition "mf.siegel.character" (lean := "SiegelUpperHalfSpace.modularForms, SiegelUpperHalfSpace.mem_modularForms_iff_slash, SiegelUpperHalfSpace.slash, SiegelUpperHalfSpace.IsHolomorphic, SiegelUpperHalfSpace")
 *Siegel modular form with character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.character))
 
 Let $`g\ge 2` be an integer, let
@@ -808,7 +808,7 @@ It is also known as the *Hecke ring*, since the $`a_n` generate the same ring as
 Depends on: {uses "mf.siegel.coefficient_field"}[] {uses "mf.siegel.newform"}[]
 :::
 
-:::definition "mf.siegel.cusp_form_degree2"
+:::definition "mf.siegel.cusp_form_degree2" (lean := "SiegelUpperHalfSpace.cuspFormsKJ, SiegelUpperHalfSpace.IsCuspForm, SiegelUpperHalfSpace.SiegelOperatorVanishes, SiegelUpperHalfSpace.rhoKJ, SiegelUpperHalfSpace.slash")
 *Siegel cusp form of degree 2.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.cusp_form_degree2))
 
 Let $`f` be a vector-valued Siegel modular form on
@@ -848,7 +848,7 @@ The *relative dimension* of $`S_{k,j}^{\rm new}(K(N),\chi)`  is its dimension as
 Depends on: {uses "mf.siegel.newform"}[]
 :::
 
-:::definition "mf.siegel.family"
+:::definition "mf.siegel.family" (lean := "SymplecticGroup.Gamma, SymplecticGroup.Gamma0, SymplecticGroup.paramodular, SymplecticGroup.paramodularGL, SymplecticGroup.paramodularDelta_mul_mul_mem")
 *Family of Siegel groups.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.family))
 
 Siegel modular forms of degree $`g` transform under the action of a discrete subgroup $`\Gamma` of $`\Sp(2g,\Q)`.  We focus on certain discrete subgroups.

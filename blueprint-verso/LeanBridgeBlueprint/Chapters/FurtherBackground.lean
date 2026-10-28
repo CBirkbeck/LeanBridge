@@ -11,7 +11,7 @@ open Informal
 
 This chapter lists the LMFDB definitions relating to *further background*, migrated from the LaTeX blueprint. Each definition links back to its LMFDB knowl. The definitions from this area that the number field, elliptic curve and modular form chapters depend on are in the Background chapter instead.
 
-:::definition "alg.bezout_matrix"
+:::definition "alg.bezout_matrix" (lean := "Polynomial.bezoutMatrix, Polynomial.sub_mul_sum_bezoutMatrix, Polynomial.det_bezoutMatrix, Polynomial.resultant, Polynomial.sylvester")
 *Bézout matrix.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/alg.bezout_matrix))
 
 Given two polynomials $`f` and $`g` of degree at most $`n`, their *degree $`n` Bézout matrix* is the $`n\times n` matrix $`(c_{ij})` where
@@ -60,7 +60,7 @@ Here $`\mathfrak{g}` is a Lie or Kac-Moody algebra of a particular type with ind
 The map $`\mathrm{wt}` is called the weight function which maps a crystal element to a weight in the weight lattice $`P`. The maps $`e_i` and $`f_i` are called Kashiwara raising and lowering operators.
 :::
 
-:::definition "field.finite.conway_polynomial"
+:::definition "field.finite.conway_polynomial" (lean := "FiniteField.conwayPolynomial, FiniteField.conwayKey, FiniteField.conwayKey_lt_conwayKey_iff, FiniteField.IsConwayCompatible, FiniteField.minimalFor_conwayPolynomial")
 *Conway polynomial.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/field.finite.conway_polynomial))
 
 *Conway polynomials* give a standardized defining polynomial for defining finite fields.
@@ -123,7 +123,7 @@ and this representation is unique up to the order of the factors and up to {bpre
 Depends on: {uses "ring.associate"}[] {uses "ring.integral_domain"}[] {uses "ring.irreducible"}[]
 :::
 
-:::definition "specialfunction.k_bessel"
+:::definition "specialfunction.k_bessel" (lean := "Complex.besselK, Complex.besselKIntegrand, Complex.integrableOn_besselKIntegrand, Complex.besselK_neg, Complex.conj_besselK_I_mul")
 *$`K`-Bessel functions.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/specialfunction.k_bessel))
 
 For $`x\in\mathbb{R}_{>0}` and $`\nu\in\mathbb{C}` we define the *$`K`-Bessel functions*

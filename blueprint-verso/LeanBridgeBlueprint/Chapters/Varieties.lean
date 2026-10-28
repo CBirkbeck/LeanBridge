@@ -110,7 +110,7 @@ More information about cluster pictures can be found in _A user's guide to the l
 Depends on: {uses "ag.hyperelliptic_curve"}[] {uses "ec"}[]
 :::
 
-:::definition "ag.cohen_macaulay_type"
+:::definition "ag.cohen_macaulay_type" (lean := "Subalgebra.cohenMacaulayType, Subalgebra.cohenMacaulayTypeAt, Subalgebra.traceDual, TauCeti.GlobalNumberFields.NumberFieldOrder.cohenMacaulayType_eq_one_iff_isGorenstein, TauCeti.GlobalNumberFields.NumberFieldOrder.cohenMacaulayType_eq_one_iff_forall_isUnit")
 *Cohen-Macaulay type.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.cohen_macaulay_type))
 
 The *Cohen-Macaulay* type of an order $`R`, is the minimal number of generators (as an $`R`-module) of a canonical module of $`R`.

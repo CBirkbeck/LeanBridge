@@ -89,7 +89,7 @@ In the literature, the word _level_ is sometimes used instead of _conductor_.
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.conductor"}[] {uses "cmf.cusp_form"}[] {uses "lfunction"}[] {uses "lfunction.functional_equation"}[]
 :::
 
-:::definition "lfunction.critical_strip"
+:::definition "lfunction.critical_strip" (lean := "AnalyticLFunction.criticalStrip, AnalyticLFunction.arithmeticCriticalStrip, AnalyticLFunction.summable_norm_tsum_term_prime_pow_sub_one, AnalyticLFunction.toFun_ne_zero, AnalyticLFunction.mem_closure_criticalStrip_of_completed_eq_zero")
 *Critical strip.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.critical_strip))
 
 In the {bpref "lfunction.normalization"}[analytic normalization], the {bpref "lfunction.functional_equation"}[functional equation] relates $`s` to $`1-s` and the
@@ -259,7 +259,7 @@ then $`L(1/2)=0`.
 Depends on: {uses "lfunction"}[] {uses "lfunction.functional_equation"}[]
 :::
 
-:::definition "lfunction.selberg_class"
+:::definition "lfunction.selberg_class" (lean := "LSeries.selbergClass, LSeries.delta_mem_selbergClass")
 *Selberg class of L-functions.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.selberg_class))
 
 The *Selberg class* $`\mathcal{S}` is the set of
@@ -269,7 +269,7 @@ that satisfy the four {bpref "lfunction.selberg_class.axioms"}[Selberg class axi
 Depends on: {uses "lfunction.dirichlet_series"}[] {uses "lfunction.rh"}[] {uses "lfunction.selberg_class.axioms"}[]
 :::
 
-:::definition "lfunction.selberg_class.axioms"
+:::definition "lfunction.selberg_class.axioms" (lean := "LSeries.SelbergAxioms, LSeries.SelbergAnalyticity, LSeries.RamanujanHypothesis, LSeries.SelbergFunctionalEquation, LSeries.SelbergEulerProduct")
 *Selberg class axioms.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.selberg_class.axioms))
 
 The *Selberg axioms* for $`F(s)=\sum_{n=1}^\infty \frac{a_n}{n^s}` in the {bpref "lfunction.selberg_class"}[Selberg class] are:

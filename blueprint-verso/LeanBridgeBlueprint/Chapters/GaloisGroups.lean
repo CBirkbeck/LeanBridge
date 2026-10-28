@@ -27,7 +27,7 @@ A {bpref "gg.galois_group"}[Galois group] of an irreducible polynomial $`f(x)` i
 Depends on: {uses "gg.galois_group"}[]
 :::
 
-:::definition "gg.elusive_group"
+:::definition "gg.elusive_group" (lean := "Subgroup.IsElusive, Subgroup.isElusive_map_permCongrHom_iff, Subgroup.isElusive_map_conj_iff, derangements")
 *Elusive group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gg.elusive_group))
 
 An *elusive group* is a transitive permutation group $`H\leq S_n` with no fixed-point-free elements of prime order.
@@ -128,7 +128,7 @@ These constants appear in the conjectures of Malle on asymptotics for the number
 Depends on: {uses "gg.index"}[] {uses "gg.malle_a"}[] {uses "group.division"}[] {uses "group.subgroup"}[]
 :::
 
-:::definition "gg.other_representations"
+:::definition "gg.other_representations" (lean := "Subgroup.IsSibling, IntermediateField.isSibling_fixedField_iff_isSibling, IntermediateField.isSibling_fixedField_iff, Algebra.IsSibling, Subgroup.normalCore")
 *Siblings for a Galois group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gg.other_representations))
 
 An abstract group $`G` may be a transitive subgroup of $`S_n` for different $`n` and even in different (non-conjugate) ways for a given $`n`.  Each action is identified by a label of the form "'nTt"' where $`n` is the {bpref "gg.degree"}[degree] and "'t"' is the T-number classifying the action.

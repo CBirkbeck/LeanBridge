@@ -263,7 +263,7 @@ In the LMFDB we always represent number fields as $`K = \mathbb{Q}[X]/(g(X))` wh
 Depends on: {uses "nf.polredabs"}[]
 :::
 
-:::definition "nf.inertial_height_function"
+:::definition "nf.inertial_height_function" (lean := "NumberField.WeightFunction, NumberField.WeightFunction.localHeight, NumberField.WeightFunction.localHeight_eq, NumberField.WeightFunction.inertialHeight, NumberField.WeightFunction.inertialHeight_indicator")
 *Inertial height function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.inertial_height_function))
 
 Let $`G` be a finite group. A *weight function* on $`G` is a a function $`w:G \to \R_{\geq 0}` such that:

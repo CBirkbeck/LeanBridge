@@ -1278,7 +1278,7 @@ In the {bpref "lfunction.normalization"}[analytic normalization], the central po
 Depends on: {uses "lfunction"}[] {uses "lfunction.critical_line"}[] {uses "lfunction.functional_equation"}[]
 :::
 
-:::definition "lfunction.critical_line"
+:::definition "lfunction.critical_line" (lean := "AnalyticLFunction.criticalLine, AnalyticLFunction.arithmeticCriticalLine, AnalyticLFunction.mem_criticalLine_iff_one_sub_conj_eq, AnalyticLFunction.mem_arithmeticCriticalLine_iff_add_sub_conj_eq, AnalyticLFunction.riemannHypothesis_iff_mem_criticalLine")
 *Critical line of an L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.critical_line))
 
 The *critical line* of an {bpref "lfunction"}[L-function]  is the line of symmetry of its {bpref "lfunction.functional_equation"}[functional equation].

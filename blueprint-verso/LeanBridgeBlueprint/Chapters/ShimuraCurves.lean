@@ -72,7 +72,7 @@ an Eichler order of level $`N`, we write $`X_0(D;N) \colonequals X(O;1)^{\text{b
 Depends on: {uses "ag.curve"}[] {uses "shimcurve.aut_pm_mu_o"}[] {uses "shimcurve.discb"}[] {uses "shimcurve.enhanced_group"}[] {uses "shimcurve.level"}[] {uses "shimcurve.polarized_order"}[] {uses "shimcurve.quaternion_algebra"}[]
 :::
 
-:::definition "shimcurve.aut_pm_mu_o"
+:::definition "shimcurve.aut_pm_mu_o" (lean := "Subalgebra.autPmMu, Subalgebra.unitsNormalizer, Subalgebra.NormalizerModScalars")
 Let $`(O,\mu)` be a {bpref "shimcurve.polarized_order"}[polarized quaternion order] in an indefinite division
 {bpref "shimcurve.quaternion_algebra"}[quaternion algebra]
 over $`\Q`. Let $`N_{B^{\times}}(O)=\{\gamma\in B^{\times}:\gamma^{-1}O\gamma=O\}` be the normalizer of $`O` in $`B`. Then the *automorphisms of $`O` preserving the polarization $`\mu` (up to sign)* is defined by $`\Aut_{\pm\mu}(O)=\{\gamma\in N_{B^{\times}}(O)/\Q^{\times}:\gamma^{-1}\mu\gamma=\pm\mu\}`.
@@ -204,7 +204,7 @@ $`H \le \Aut_{\pm\mu}(O)\ltimes \widehat{O}^\times` in the
 Depends on: {uses "shimcurve"}[] {uses "shimcurve.enhanced_group"}[]
 :::
 
-:::definition "shimcurve.is_coarse"
+:::definition "shimcurve.is_coarse" (lean := "Subalgebra.IsCoarseSubgroup, Subalgebra.EnhancedGroupMod, Subalgebra.autPmMuMul, Subalgebra.autPmMu, Subalgebra.isCoarseSubgroup_iff")
 *Is coarse.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.is_coarse))
 
 We say a subgroup $`H\leq\Aut_{\pm\mu}(O)\ltimes(O/NO)^{\times}` is *coarse* if $`H` contains the projection of the kernel of the map $`f: \Aut_{\pm\mu}(O)\ltimes O^{\times}\to N_{B^{\times}}(O)/\Q^{\times}` defined by $`(w,x)\mapsto w\cdot x`.

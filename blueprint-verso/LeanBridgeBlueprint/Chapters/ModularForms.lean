@@ -1087,7 +1087,7 @@ When $`g` is an {bpref "cmf.inner_twist"}[inner twist] of $`f`, this multiplicit
 Depends on: {uses "character.dirichlet.galois_orbit"}[] {uses "character.dirichlet.primitive"}[] {uses "cmf.galois_orbit"}[] {uses "cmf.inner_twist"}[] {uses "cmf.inner_twist_count"}[] {uses "cmf.twist"}[]
 :::
 
-:::definition "cmf.weight"
+:::definition "cmf.weight" (lean := "ModularForm.HasWeight, ModularForm.HasWeight.unique, ModularForm.mem_modFormCharSpace_iff_hasWeight, ModularForm.thetaFactor, ModularForm.weightFactor")
 *Weight of an elliptic modular form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.weight))
 
 The *weight* of an elliptic {bpref "cmf"}[modular form] $`f` is the integer or half-integer power of $`(cz+d)` that occurs in the modular transformation property of $`f` under the action of $`\gamma = \left( \begin{array}{ll}  a & b \\ c & d \end{array}\right)` on the upper half plane.  That is, the weight is the number $`k`

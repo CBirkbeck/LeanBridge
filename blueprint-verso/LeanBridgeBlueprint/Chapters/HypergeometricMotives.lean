@@ -49,7 +49,7 @@ The exponents $`c_p` in the *conductor* $`N = \prod_p p^{c_p}` of a {bpref "hgm.
 Depends on: {uses "hgm.motive"}[] {uses "hgm.tame"}[] {uses "hgm.wild"}[]
 :::
 
-:::definition "hgm.cusp_index"
+:::definition "hgm.cusp_index" (lean := "Hypergeometric.CuspIndex, Hypergeometric.Parameters, Nat.totient")
 *Cusp index.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/hgm.cusp_index))
 
 A *cusp-index* of degree $`d` is a weakly increasing

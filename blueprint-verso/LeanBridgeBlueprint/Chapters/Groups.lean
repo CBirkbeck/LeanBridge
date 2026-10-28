@@ -65,7 +65,7 @@ Every {bpref "group.z_group"}[Z-group] is an A-group, but the converse does not 
 Depends on: {uses "group.abelian"}[] {uses "group.monomial"}[] {uses "group.solvable"}[] {uses "group.z_group"}[]
 :::
 
-:::definition "group.abelian_invariants"
+:::definition "group.abelian_invariants" (lean := "AddCommGroup.smithAbelianInvariants, AddCommGroup.smithAbelianInvariants_eq_iff, AddCommGroup.primaryAbelianInvariants, AddCommGroup.primaryAbelianInvariants_eq_iff, CommGroup.smithAbelianInvariants_additive_eq_iff")
 *Abelian invariants.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.abelian_invariants))
 
 There are two canonical forms for an abelian group $`A`:
@@ -221,7 +221,7 @@ The commutator subgroup is always a {bpref "group.subgroup.normal"}[normal] subg
 Depends on: {uses "group"}[] {uses "group.abelian"}[] {uses "group.quotient"}[] {uses "group.subgroup"}[] {uses "group.subgroup.normal"}[]
 :::
 
-:::definition "group.complete"
+:::definition "group.complete" (lean := "Group.IsComplete, Group.isComplete_iff, Subgroup.isComplement'_centralizer, Group.surjective_conj_of_isComplement', MulAut.conj")
 *Complete group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.complete))
 
 A group $`G` is *complete* if one of the following equivalent conditions holds:
@@ -707,7 +707,7 @@ For example, the Quaternion group of order 8 has order statistics $`\{1,2,4,4,4,
 Depends on: {uses "group.element_order"}[]
 :::
 
-:::definition "group.orthogonal"
+:::definition "group.orthogonal" (lean := "TauCeti.QuadraticMap.orthogonalGroup, TauCeti.QuadraticMap.specialOrthogonalGroup, QuadraticForm.projectiveOrthogonalGroup, QuadraticForm.projectiveSpecialOrthogonalGroup, QuadraticForm.ellipticForm")
 *Orthogonal group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.orthogonal))
 
 An *orthogonal group* over a vector space $`V` of dimension $`n` over a field $`F` is a subgroup of $`\GL_n(F)` that fixes a quadratic form $`Q`, i.e. all those $`m` such that $`Q(mx) = Q(x)` for all $`x \in V`.
@@ -797,7 +797,7 @@ A *$`p`-group* is a {bpref "group"}[group] whose {bpref "group.order"}[order] is
 Depends on: {uses "group"}[] {uses "group.order"}[]
 :::
 
-:::definition "group.primary_decomposition"
+:::definition "group.primary_decomposition" (lean := "AddCommGroup.exists_addEquiv_pi_zmod_isPrimePow, AddCommGroup.exists_equiv_of_addEquiv_pi_zmod, AddCommGroup.primaryAbelianInvariants, AddCommGroup.primaryAbelianInvariants_eq_iff, AddCommGroup.equiv_directSum_zmod_of_finite")
 *Primary decomposition of abelian group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.primary_decomposition))
 
 Every finite abelian group $`G` is isomorphic to a direct product of cyclic groups of prime power order, and this decomposition is unique up to reordering.  It is referred to as the *primary decomposition* of $`G`.
@@ -933,7 +933,7 @@ The value taken by a rational character is constant on each {bpref "group.divisi
 Depends on: {uses "group"}[] {uses "group.division"}[] {uses "group.representation.character"}[]
 :::
 
-:::definition "group.representation.schur_index"
+:::definition "group.representation.schur_index" (lean := "FDRep.schurIndex, FDRep.IsRealizedOver, FDRep.characterField, FDRep.schurIndex_pos, FDRep.exists_relfinrank_eq_schurIndex")
 *Schur index.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.representation.schur_index))
 
 Given a group $`G`, a field $`K \subseteq \mathbb{C}` with $`F` a subfield of $`K`, and  a character $`\chi` of an irreducible $`KG`-module $`V`, define the field extension $`F(\chi)` of $`F` formed by adjoining to $`F` all the values the character takes on:

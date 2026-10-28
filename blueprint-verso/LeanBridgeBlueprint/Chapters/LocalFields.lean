@@ -375,7 +375,7 @@ The Galois mean slope can be computed as a weighted average of the {bpref "lf.sl
 Depends on: {uses "lf.discriminant_exponent"}[] {uses "lf.slopes"}[] {uses "lf.tame_degree"}[] {uses "nf.is_galois"}[]
 :::
 
-:::definition "lf.galois_splitting_model"
+:::definition "lf.galois_splitting_model" (lean := "Polynomial.IsGaloisSplittingModel, Polynomial.Gal.restrictMap, Polynomial.Gal.nonempty_mulEquiv_iff_bijective_restrictMap, Polynomial.IsGaloisSplittingModel.finrank_eq")
 *Galois splitting model of a local field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.galois_splitting_model))
 
 Let $`K` be a finite extension of $`\Q_p`.

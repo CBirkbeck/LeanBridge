@@ -20,7 +20,7 @@ Note that some authors call this quantity the holomorphic Euler characteristic.
 Additionally, some authors refer to the quantity $`p_a(X) = (-1)^{\dim X} (\chi(\mathcal{O}_X) - 1)` as the arithmetic genus.
 :::
 
-:::definition "hmsurface.congruence_subgroup"
+:::definition "hmsurface.congruence_subgroup" (lean := "HilbertModularGroup.principalCongruenceSubgroup, HilbertModularGroup.IsCongruenceSubgroup, HilbertModularGroup.IsLevel, HilbertModularGroup.level, HilbertModularGroup.glPlus")
 *Congruence Subgroup.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/hmsurface.congruence_subgroup))
 
 Let $`F` be a real quadratic field with ring of integers $`\Z_F`. Let
@@ -32,7 +32,7 @@ A *congruence subgroup* $`\Gamma` is a subgroup of either $`\GL^+(\Z_F \oplus \f
 a principal congruence subgroup $`\Gamma_{\frak{b}}(\frak{N})`. The minimal such $`\frak{N}` is called the *level*.
 :::
 
-:::definition "hmsurface.elliptic_point"
+:::definition "hmsurface.elliptic_point" (lean := "Matrix.GeneralLinearGroup.IsEllipticTuple, Matrix.GeneralLinearGroup.ellipticPoint, Matrix.GeneralLinearGroup.IsTotallyElliptic, Matrix.GeneralLinearGroup.IsEllipticPoint, Matrix.GeneralLinearGroup.smul_eq_self_iff_eq_ellipticPoint")
 *Elliptic point.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/hmsurface.elliptic_point))
 
 A transformation $`(\alpha_1, \ldots, \alpha_n) \in \GL_2^+(\R)^n` is called *elliptic* if each
@@ -42,7 +42,7 @@ $$`\operatorname{tr}(\alpha_i)^2 - 4\det(\alpha_i) < 0.`
 If $`F` is a real quadratic field, an element $`\alpha \in \GL_2^+(F)` is called *elliptic* if the above condition holds for each real embedding of $`F`. An *elliptic point* is the (necessarily unique) fixed point in $`\frak{h}^2` of an elliptic element.
 :::
 
-:::definition "hmsurface.euler_number"
+:::definition "hmsurface.euler_number" (lean := "AlgebraicGeometry.Scheme.topologicalEulerNumber, AlgebraicGeometry.Scheme.bettiNumber, AlgebraicGeometry.Scheme.ComplexPoint, AlgebraicGeometry.Scheme.ComplexPoint.continuous_eval, TopCat.singularCohomology")
 *Topological Euler number.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/hmsurface.euler_number))
 
 The *(topological) Euler number* of a smooth projective variety $`X` over a field of characteristic zero is the quantity
@@ -70,7 +70,7 @@ Depends on: {uses "hmsurface.congruence_subgroup"}[] {uses "mf.upper_half_plane"
 The *Hodge numbers* $`h^{p,q}` of a smooth projective variety $`X` over $`\mathbb{C}` are the dimensions of the complex vector spaces $`H^{p,q}(X) := H^q(X,\Omega^p)` appearing in the Hodge decomposition of the cohomology group $`H^n(X,\mathbb{C}) \cong \bigoplus_{p+q=n} H^{p,q}(X)`.
 :::
 
-:::definition "hmsurface.kodaira_dimension"
+:::definition "hmsurface.kodaira_dimension" (lean := "AlgebraicGeometry.Scheme.kodairaDimension, AlgebraicGeometry.Scheme.PlurigenusIsBigO, AlgebraicGeometry.Scheme.plurigenus, AlgebraicGeometry.Scheme.canonicalSheaf, AlgebraicGeometry.Scheme.kodairaDimension_eq_of_tendsto")
 *Kodaira dimension.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/hmsurface.kodaira_dimension))
 
 The *Kodaira dimension* of a projective variety $`X` with canonical bundle $`K`

@@ -371,7 +371,7 @@ An *integral model* for an {bpref "ec"}[elliptic curve] $`E` defined over a numb
 Depends on: {uses "ec"}[] {uses "ec.weierstrass_coeffs"}[] {uses "nf.ring_of_integers"}[]
 :::
 
-:::definition "ec.intrinsic_torsion"
+:::definition "ec.intrinsic_torsion" (lean := "WeierstrassCurve.Affine.intrinsicTorsion, WeierstrassCurve.Affine.intrinsicPairingValue, WeierstrassCurve.Affine.IsIntrinsicPairingDatum, WeierstrassCurve.Affine.IsIntrinsicPairingDatum.intrinsicPairingValue_eq, WeierstrassCurve.Affine.exists_isIntrinsicPairingDatum")
 *Order of the Intrinsic Subgroup.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.intrinsic_torsion))
 
 Let $`E` be an elliptic curve over a field $`k`. Define the pairing

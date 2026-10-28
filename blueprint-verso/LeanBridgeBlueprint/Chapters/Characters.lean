@@ -82,7 +82,7 @@ The set of {bpref "character.dirichlet"}[Dirichlet characters] $`\chi\colon\Z\to
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.modulus"}[]
 :::
 
-:::definition "character.dirichlet.group.structure"
+:::definition "character.dirichlet.group.structure" (lean := "DirichletCharacter.groupStructure, DirichletCharacter.groupStructure_eq_iff, DirichletCharacter.groupStructure_eq, AddCommGroup.smithAbelianInvariants")
 *Structure of a Dirichlet group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.group.structure))
 
 The *structure* of a Dirichlet character group of Dirichlet characters of {bpref "character.dirichlet.modulus"}[modulus] $`q` refers to its isomorphism type as a finite abelian group, which can be uniquely expressed as a product of cyclic groups $`C_{n_1}\times C_{n_2}\cdots\times C_{n_r}` with $`n_1|n_2|\cdots |n_r`.  This is the same as the structure of the group $`(\Z/q\Z)^\times`.
@@ -124,7 +124,7 @@ $$`\left(\displaystyle\frac{n}{m}\right) = (-1)^{\frac{m-1}2 \frac{n-1}2} \left(
 Depends on: {uses "character.dirichlet.legendre_symbol"}[]
 :::
 
-:::definition "character.dirichlet.kloosterman_sum"
+:::definition "character.dirichlet.kloosterman_sum" (lean := "kloostermanSum, DirichletCharacter.kloostermanSum_stdAddChar, kloostermanSum_zero_right, ZMod.stdAddChar, gaussSum")
 *Kloosterman sum.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.kloosterman_sum))
 
 Let $`\chi` be a {bpref "character.dirichlet"}[Dirichlet character] with modulus $`q`. The *Kloosterman sum* $`K(a,b,\chi)` is defined by

@@ -25,7 +25,7 @@ Two generating vectors from the same refined passport are considered  *braid equ
 Depends on: {uses "curve.highergenus.aut.generatingvector"}[] {uses "curve.highergenus.aut.refinedpassport"}[]
 :::
 
-:::definition "curve.highergenus.aut.branchpoints"
+:::definition "curve.highergenus.aut.branchpoints" (lean := "MulAction.branchPoints, MulAction.mk_mem_branchPoints_iff, MulAction.finite_branchPoints, MulAction.finite_branchPoints_of_subgroup, TauCeti.Diff")
 *Branch Points.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/curve.highergenus.aut.branchpoints))
 
 If $`G` is a finite group of automorphisms acting on a {bpref "ag.riemann_surface"}[Riemann surface] $`X`, and $`\phi\colon X\to X/G` is the natural projection to the quotient $`X/G` (the compact Riemann surface whose points are the $`G`-orbits of $`X`), then all but finitely many fibers of the map $`\phi` have cardinality $`d:=|G|`.
@@ -59,7 +59,7 @@ The *generating vector* of a group of automorphisms $`G` acting on a compact {bp
 Depends on: {uses "ag.riemann_surface"}[] {uses "curve.highergenus.aut.branchpoints"}[] {uses "curve.highergenus.aut.generators"}[] {uses "curve.highergenus.aut.monodromy"}[]
 :::
 
-:::definition "curve.highergenus.aut.generators"
+:::definition "curve.highergenus.aut.generators" (lean := "TauCeti.RiemannSurface.IsStandardGeneratingSystem, TauCeti.RiemannSurface.IsStandardGenerator, TauCeti.RiemannSurface.IsolatingDisc, TauCeti.RiemannSurface.IsolatingDisc.loop, TauCeti.RiemannSurface.exists_isStandardGenerator")
 *Standard generators.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/curve.highergenus.aut.generators))
 
 Let $`Y` be a compact {bpref "ag.riemann_surface"}[Riemann surface] of genus $`0`, let $`B` be a finite set of points in $`Y`, and let $`y_0` be a point in $`Y` that is not in $`B`.

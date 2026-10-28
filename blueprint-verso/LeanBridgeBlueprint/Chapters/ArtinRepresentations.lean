@@ -59,7 +59,7 @@ An {bpref "artin"}[Artin representation] $`\rho:\textrm{Gal}(\overline{\Q}/\Q)\t
 Depends on: {uses "artin"}[] {uses "artin.number_field"}[]
 :::
 
-:::definition "artin.permutation_container"
+:::definition "artin.permutation_container" (lean := "Representation.Contains, Representation.minPermutationDegree, Representation.contains_ofMulAction_quotient_iff, Representation.contains_ofMulAction_quotient_bot, Representation.ofMulAction")
 *Containing permutation representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/artin.permutation_container))
 
 If $`\rho:G\to \GL_n(\C)` is a representation of a finite group $`G`, then $`\rho` is equivalent to a direct sum of irreducible representations.  We say that $`\rho` *contains* each of these representations.
