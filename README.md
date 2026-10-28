@@ -98,6 +98,12 @@ python blueprint-verso/scripts/convert_knowls.py
 [`definitions.txt`](blueprint/src/definitions.txt), [`edges.txt`](blueprint/src/edges.txt) and the
 `auto_*.tex` chapter lists. `convert_knowls.py` turns these into the chapters in
 [`blueprint-verso/LeanBridgeBlueprint/Chapters`](blueprint-verso/LeanBridgeBlueprint/Chapters).
+The blueprint has every knowl that defines something: the number field, elliptic curve and modular
+form knowls in their own chapters, the knowls they depend on in the background chapter, and every
+other knowl in a chapter for its area. A new knowl category needs an entry in `area_names` in
+`update_knowls.py`, and a new chapter one in `CHAPTERS` in `convert_knowls.py` and an `include` in
+`LeanBridgeBlueprint/Blueprint.lean`. The script breaks cycles among the knowls' links with its
+`omit_edges` list and writes any it finds to `cycles.txt`.
 
 Each chapter entry links its Lean declarations with `(lean := ...)`: the Mathlib declarations that
 the knowl records with `DEFINES(..., mathlib=...)`, followed by the declarations listed for it in

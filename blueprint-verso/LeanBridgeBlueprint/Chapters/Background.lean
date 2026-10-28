@@ -166,7 +166,7 @@ An {bpref "ag.abelian_variety"}[abelian variety] over a field $`k` is *geometric
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.simple"}[]
 :::
 
-:::definition "ag.hyperelliptic_curve"
+:::definition "ag.hyperelliptic_curve" (lean := "AlgebraicGeometry.Scheme.IsHyperellipticCurveOver, AlgebraicGeometry.Scheme.isHyperellipticCurveOver_iff, HyperellipticEquation, HyperellipticEquation.FunctionField, HyperellipticEquation.isHyperellipticFunctionField, MvPolynomial.IsHomogeneous")
 *Hyperelliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.hyperelliptic_curve))
 
 A *hyperelliptic curve* $`X` over a field $`k` is a smooth projective  {bpref "ag.curve"}[algebraic curve] of {bpref "ag.curve.genus"}[genus] $`g\ge 2` that admits a 2-to-1 map $`X\to \mathbb{P}^1` defined over the algebraic closure $`\bar k`.
@@ -439,7 +439,7 @@ Depends on: {uses "artin"}[] {uses "artin.number_field"}[] {uses "artin.ramified
 
 An *isogeny* of {bpref "ag.abelian_variety"}[abelian varieties] is a surjective algebraic group homomorphism with finite kernel.
 
-Two abelian varieties are *isogenous* if there is an isogeny between them. This defines an equivalence relation on the set of isomorphism classes.  Equivalence classes are called isogeny classes.
+Two abelian varieties are *isogenous* if there is an isogeny between them. This defines an equivalence relation on the set of isomorphism classes.  Equivalence classes are called {bpref "av.isogeny_class"}[isogeny classes].
 
 Depends on: {uses "ag.abelian_variety"}[]
 :::
@@ -447,7 +447,7 @@ Depends on: {uses "ag.abelian_variety"}[]
 :::definition "av.simple" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.IsSimple, TauCeti.AlgebraicGeometry.AbelianVariety.isSimple_congr, TauCeti.AlgebraicGeometry.AbelianVariety.not_isSimple_trivial, TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogenous, TauCeti.AlgebraicGeometry.AbelianVariety.prod")
 *Simple abelian variety.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.simple))
 
-An {bpref "ag.abelian_variety"}[abelian variety] is *simple* if it is nonzero and not isogenous to a product of abelian varieties of lower dimension.
+An {bpref "ag.abelian_variety"}[abelian variety] is *simple* if it is nonzero and not {bpref "av.decomposition"}[isogenous] to a product of abelian varieties of lower dimension.
 
 Depends on: {uses "ag.abelian_variety"}[]
 :::
@@ -461,7 +461,7 @@ $$`T_p(A) = \lim_{\xleftarrow[n \in \mathbb{N}]{}} A[p^n].`
 
 Here for $`m\in\mathbb{Z}_{> 0}`, $`A[m]` denotes the $`m`-torsion subgroup of $`A`, which is the kernel of the multiplication-by-$`m` {bpref "av.isogeny"}[isogeny] of $`A`.
 
-If $`K` has characteristic not equal to $`p`, then $`T_p(A)` is a free $`\Z_p`-module of rank $`2g`. It carries an action of the {bpref "group.galois.absolute"}[absolute Galois group] of $`K`, and thus has an associated Galois representation.
+If $`K` has characteristic not equal to $`p`, then $`T_p(A)` is a free $`\Z_p`-module of rank $`2g`. It carries an action of the {bpref "group.galois.absolute"}[absolute Galois group] of $`K`, and thus has an associated {bpref "av.galois_rep"}[Galois representation].
 
 Depends on: {uses "av.isogeny"}[] {uses "group.galois.absolute"}[]
 :::
@@ -596,7 +596,7 @@ An *automorphism* of an {bpref "ag.curve"}[algebraic curve] is an isomorphism fr
 
 The automorphism group of a {bpref "g2c.g2curve"}[genus 2 curve] necessarily includes the *hyperelliptic involution* $`(x,y)\mapsto(x,-y)`, which is an automorphism of order 2; this means that the automorphism group of a genus 2 curve is never trivial.
 
-The geometric automorphism group of a curve $`X/k` is the automorphism group of $`X_{\bar k}`.
+The {bpref "g2c.geom_aut_grp"}[geometric automorphism group] of a curve $`X/k` is the automorphism group of $`X_{\bar k}`.
 
 Depends on: {uses "ag.curve"}[] {uses "g2c.g2curve"}[]
 :::
@@ -652,7 +652,7 @@ where $`h(x)` and $`f(x)` are integral polynomials of degree at most $`g+1` and 
 
 The equation $`y^2+h(x)y=f(x)` uniquely determines a homogeneous equation of weighted degree 6 in variables $`x,y,z`, where $`y` has weight $`g+1`, while $`x` and $`z` both have weight 1: one homogenizes $`h(x)` to obtain a homogeneous polynomial $`h(x,z)` of degree $`g+1` and homogenizes $`f(x)` to obtain a homogeneous polynomial $`f(x,z)` of degree $`2g+2`.  This yields a smooth projective model $`y^2+h(x,z)y=f(x,z)` for the curve $`X`.
 
-One can always transform the minimal equation into a simplified equation $`y^2 = g(x) = 4f(x)+h(x)^2`, but this equation need not have minimal discriminant and may have bad reduction at primes that do not divide the minimal discriminant (it will always have bad reduction at the prime $`2`).
+One can always transform the minimal equation into a {bpref "g2c.simple_equation"}[simplified equation] $`y^2 = g(x) = 4f(x)+h(x)^2`, but this equation need not have minimal discriminant and may have bad reduction at primes that do not divide the minimal discriminant (it will always have bad reduction at the prime $`2`).
 
 Depends on: {uses "ag.curve.genus"}[] {uses "ag.curve.smooth"}[] {uses "ag.hyperelliptic_curve"}[] {uses "g2c.discriminant"}[] {uses "g2c.good_reduction"}[]
 :::
@@ -1241,9 +1241,9 @@ Depends on: {uses "group.sylow_subgroup"}[] {uses "lf.inertia_group"}[] {uses "n
 
 An (analytic) *L-function* is a {bpref "lfunction.dirichlet_series"}[Dirichlet series] that has an {bpref "lfunction.euler_product"}[Euler product] and satisfies a certain type of {bpref "lfunction.functional_equation"}[functional equation].
 
-It is expected that all L-functions satisfy the {bpref "lfunction.rh"}[Riemann Hypothesis,] that all of the zeros in the critical strip are on the {bpref "lfunction.critical_line"}[critical line]. Selberg has defined a class $`\mathcal S` of Dirichlet series that satisfy the Selberg axioms. It is conjectured (but far from proven) that $`\mathcal S` is precisely the set of all L-functions. Selberg's axioms have not been verified for all of the L-functions in this database but are known to hold for many of them.
+It is expected that all L-functions satisfy the {bpref "lfunction.rh"}[Riemann Hypothesis,] that all of the {bpref "lfunction.zeros"}[zeros] in the {bpref "lfunction.critical_strip"}[critical strip] are on the {bpref "lfunction.critical_line"}[critical line]. Selberg has defined a class $`\mathcal S` of Dirichlet series that satisfy the {bpref "lfunction.selberg_class.axioms"}[Selberg axioms.] It is conjectured (but far from proven) that $`\mathcal S` is precisely the set of all L-functions. Selberg's axioms have not been verified for all of the L-functions in this database but are known to hold for many of them.
 
-It is also conjectured that a precise form of the {bpref "lfunction.functional_equation"}[functional equation] holds for every element of $`\mathcal S`. Under this assumption the functional equation is determined by a quadruple known as the Selberg data, consisting of the degree, conductor, spectral parameters, and sign.
+It is also conjectured that a precise form of the {bpref "lfunction.functional_equation"}[functional equation] holds for every element of $`\mathcal S`. Under this assumption the functional equation is determined by a quadruple known as the {bpref "lfunction.selbergdata"}[Selberg data], consisting of the {bpref "lfunction.degree"}[degree], {bpref "lfunction.conductor"}[conductor], {bpref "lfunction.spectral_parameters"}[spectral parameters], and {bpref "lfunction.root_number"}[sign].
 
 Depends on: {uses "lfunction.dirichlet_series"}[] {uses "lfunction.euler_product"}[] {uses "lfunction.functional_equation"}[]
 :::
@@ -1273,7 +1273,7 @@ The *central point* of an {bpref "lfunction"}[L-function] is the
 point on the real axis of the {bpref "lfunction.critical_line"}[critical line].  Equivalently,
 it is the fixed point of the {bpref "lfunction.functional_equation"}[functional equation].
 
-In the {bpref "lfunction.normalization"}[analytic normalization], the central point is $`s=1/2`, in the arithmetic normalization, it is $`s=\frac{w+1}{2}`, where $`w` is the weight of the L-function.
+In the {bpref "lfunction.normalization"}[analytic normalization], the central point is $`s=1/2`, in the arithmetic normalization, it is $`s=\frac{w+1}{2}`, where $`w` is the {bpref "lfunction.motivic_weight"}[weight] of the L-function.
 
 Depends on: {uses "lfunction"}[] {uses "lfunction.critical_line"}[] {uses "lfunction.functional_equation"}[]
 :::
@@ -1310,7 +1310,7 @@ Depends on: {uses "lfunction"}[]
 :::definition "lfunction.euler_product" (lean := "ArithmeticFunction.eulerProduct, ArithmeticFunction.ofPowerSeries, EulerProduct.eulerProduct_tprod")
 *Euler product of an L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.euler_product))
 
-It is expected that the *Euler product* of an {bpref "lfunction"}[L-function] of degree $`d` and conductor $`N` can be written as
+It is expected that the *Euler product* of an {bpref "lfunction"}[L-function] of {bpref "lfunction.degree"}[degree] $`d` and {bpref "lfunction.conductor"}[conductor] $`N` can be written as
 
 $$`L(s)=\prod_p L_p(s)`
 
@@ -1341,19 +1341,19 @@ or half-integer,
 $$`\sum \mu_j + 2 \sum \nu_k \ \ \ \ \text{is real},`
 
 and $`\varepsilon` is the {bpref "lfunction.sign"}[sign] of the functional equation.
-With those restrictions on the spectral parameters, the
+With those restrictions on the {bpref "lfunction.spectral_parameters"}[spectral parameters], the
 data in the functional equation is specified uniquely.  The integer $`d = J + 2 K`
-is the degree of the L-function. The integer $`N` is  the conductor (or level)
-of the L-function.  The pair $`[J,K]` is the signature of the L-function.  The parameters
-in the functional equation can be used to make up the 4-tuple called the Selberg data.
+is the {bpref "lfunction.degree"}[degree] of the L-function. The integer $`N` is  the {bpref "lfunction.conductor"}[conductor] (or level)
+of the L-function.  The pair $`[J,K]` is the {bpref "lfunction.signature"}[signature] of the L-function.  The parameters
+in the functional equation can be used to make up the 4-tuple called the {bpref "lfunction.selbergdata"}[Selberg data].
 
-The axioms of the Selberg class are less restrictive than
+The {bpref "lfunction.selberg_class.axioms"}[axioms] of the {bpref "lfunction.selberg_class"}[Selberg class] are less restrictive than
 given above.
 
 Note that the functional equation above has the {bpref "lfunction.central_point"}[central point] at $`s=1/2`, and relates $`s\leftrightarrow 1-s`.
 
 For many L-functions there is another normalization which is natural. The corresponding functional equation relates $`s\leftrightarrow w+1-s` for some positive integer $`w`,
-called the motivic weight of the L-function. The central point is at $`s=(w+1)/2`, and the arithmetically normalized Dirichlet coefficients $`a_n n^{w/2}` are algebraic integers.
+called the {bpref "lfunction.motivic_weight"}[motivic weight] of the L-function. The central point is at $`s=(w+1)/2`, and the arithmetically normalized Dirichlet coefficients $`a_n n^{w/2}` are algebraic integers.
 
 Depends on: {uses "lfunction.gamma_factor"}[] {uses "specialfunction.gamma"}[]
 :::
@@ -1385,7 +1385,7 @@ Depends on: {uses "lfunction.arithmetic"}[] {uses "lfunction.central_point"}[]
 :::definition "lfunction.normalization" (lean := "AnalyticLFunction.arithmeticNormalization, AnalyticLFunction.arithmeticCoeff, AnalyticLFunction.arithmeticNormalization_eq_LSeries, AnalyticLFunction.completed_sub_eq_sign_mul_conj, AnalyticLFunction.motivicWeight")
 *Normalization of an L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.normalization))
 
-In its *arithmetic normalization*, an L-function $`L(s)` of weight $`w` has its central value at $`s=\frac{w+1}{2}`
+In its *arithmetic normalization*, an L-function $`L(s)` of weight $`w` has its {bpref "lfunction.central_value"}[central value] at $`s=\frac{w+1}{2}`
 and the {bpref "lfunction.functional_equation"}[functional equation] relates
 $`s` to $`1 + w - s`.
 For L-functions defined by an Euler product $`\prod_p L_p(s)^{-1}` where the coefficients of $`L_p` are algebraic integers, this is the usual normalization implied by the definition.
@@ -1415,7 +1415,7 @@ An L-function $`L(s) = \sum_{n=1}^{\infty} \frac{a_n}{n^s}` is called *self-dual
 *Sign of the functional equation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.sign))
 
 The *sign* of the functional equation of an analytic L-function, also called the *root number*, is the complex number $`\varepsilon` that appears in the {bpref "lfunction.functional_equation"}[functional equation] of $`\Lambda(s)=\varepsilon \overline{\Lambda}(1-s)`.  The sign appears as the 4th entry in the quadruple
-known as the Selberg data.
+known as the {bpref "lfunction.selbergdata"}[Selberg data.]
 
 Depends on: {uses "lfunction.functional_equation"}[]
 :::
@@ -1755,7 +1755,7 @@ and can thus be continued into a meromorphic function on the complex plane, whos
 
 The *Sato-Tate group* of a motive $`X` is a compact Lie group $`G` containing (as a dense subset) the image of a representation that maps Frobenius elements to conjugacy classes.  When $`X` is an Artin motive, $`G` corresponds to the image of the {bpref "artin"}[Artin representation]; when $`X` is an {bpref "ag.abelian_variety"}[abelian variety] over a number field, one can define $`G` in terms of an $`\ell`-adic Galois representation attached to $`X`.
 
-For motives of even weight $`w` and degree $`d`, the Sato-Tate group is a compact subgroup of the orthogonal group $`\mathrm{O}(d)`.  For motives of odd weight $`w` and even degree $`d`, the Sato-Tate group is a compact subgroup of the {bpref "st_group.usp"}[unitary symplectic group] $`\mathrm{USp}(d)`.  For motives $`X` arising as {bpref "ag.abelian_variety"}[abelian varieties], the weight is always $`w=1` and the the degree is $`d=2g`, where $`g` is the {bpref "ag.dimension"}[dimension] of the variety.
+For motives of even {bpref "st_group.weight"}[weight] $`w` and {bpref "st_group.degree"}[degree] $`d`, the Sato-Tate group is a compact subgroup of the orthogonal group $`\mathrm{O}(d)`.  For motives of odd weight $`w` and even degree $`d`, the Sato-Tate group is a compact subgroup of the {bpref "st_group.usp"}[unitary symplectic group] $`\mathrm{USp}(d)`.  For motives $`X` arising as {bpref "ag.abelian_variety"}[abelian varieties], the weight is always $`w=1` and the the degree is $`d=2g`, where $`g` is the {bpref "ag.dimension"}[dimension] of the variety.
 
 The simplest case is when $`X` is an {bpref "ec"}[elliptic curve] $`E/\Q`, in which case $`G` is either $`\mathrm{SU}(2)=\mathrm{USp}(2)` (the generic case), or $`G` is $`N(\mathrm{U}(1))`, the normalizer of the subgroup $`\mathrm{U}(1)` of diagonal matrices in $`\mathrm{SU}(2)`, which contains $`\mathrm{U}(1)` with index 2.
 

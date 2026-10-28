@@ -272,7 +272,7 @@ When $`K` has characteristic zero one can take the inverse limit over all positi
 
 $$`\rho_{E}: \Gal(\overline{K}/K) \to \GL(2,\hat{\Z}).`
 
-If $`E` is an elliptic curve without {bpref "ec.complex_multiplication"}[complex multiplication] that is defined over a {bpref "nf"}[number field], then the image of $`\rho_E` is an {bpref "gl2.open"}[open subgroup] of $`\GL(2,\hat{\Z})` that has an associated {bpref "gl2.level"}[level], {bpref "gl2.index"}[index], and genus.
+If $`E` is an elliptic curve without {bpref "ec.complex_multiplication"}[complex multiplication] that is defined over a {bpref "nf"}[number field], then the image of $`\rho_E` is an {bpref "gl2.open"}[open subgroup] of $`\GL(2,\hat{\Z})` that has an associated {bpref "gl2.level"}[level], {bpref "gl2.index"}[index], and {bpref "gl2.genus"}[genus].
 
 Depends on: {uses "ec"}[] {uses "ec.complex_multiplication"}[] {uses "ec.padic_tate_module"}[] {uses "gl2.index"}[] {uses "gl2.level"}[] {uses "gl2.open"}[] {uses "group.galois.absolute"}[] {uses "nf"}[]
 :::

@@ -260,6 +260,9 @@ def update_knowls(cats=["nf", "ec", "cmf"], delete_old=False):
             for kid in by_def[term]:
                 _ = F.write("    * " + kid + "\n")
     print(f"{len(by_id)} knowls define something")
+    # Knowls about the LMFDB itself rather than mathematics
+    site_cats = set(["content", "doc", "dq", "intro", "rcs", "sage", "stats", "test"])
+    by_id = {kid: rec for kid, rec in by_id.items() if rec["cat"] not in site_cats}
 
 
     # Now we trim to only things that are dependencies of knowls in the specified categories, and build a networkx DiGraph for the next step
@@ -383,6 +386,54 @@ def update_knowls(cats=["nf", "ec", "cmf"], delete_old=False):
         ("character.dirichlet", "character.dirichlet.primitive"),
         ("character.dirichlet.induce", "character.dirichlet.primitive"),
         ("cmf.fouriercoefficients", "cmf.fouriercoefficients_mathlib_def"),
+        # Cycles among the knowls outside the core chapters
+        ("ag.holomorphic_euler_char", "ag.arithmetic_genus"),
+        ("ag.canonical_height", "ag.regulator"),
+        ("ag.gonality", "ag.gonality_geom"),
+        ("group.representation.type", "artin.frobenius_schur_indicator"),
+        ("av.fq.p_rank", "av.fq.ordinary"),
+        ("g2c.analytic_rank", "g2c.bsd_invariants"),
+        ("g2c.st_group", "g2c.st_group_identity_component"),
+        ("group.commutator_subgroup", "group.abelianization"),
+        ("group.representation.character", "group.complex_character_table"),
+        ("group.representation.irrep", "group.complex_character_table"),
+        ("group.representation.irrep", "group.representation.character"),
+        ("group.division", "group.representation.rational_character"),
+        ("group.isoclinism", "group.stem_group"),
+        ("group.minimal_normal", "group.maximal_quotient"),
+        ("group.nilpotent", "group.supersolvable"),
+        ("group.nilpotent", "group.monomial"),
+        ("group.supersolvable", "group.monomial"),
+        ("group.semidirect_product", "group.nonsplit_product"),
+        ("group.semi_dihedral", "group.other_dihedral"),
+        ("group.schur_multiplier", "group.stem_extension"),
+        ("hgm.tame", "hgm.conductor"),
+        ("hgm.defining_parameters", "hgm.degree"),
+        ("hgm.familes", "hgm.degree"),
+        ("hgm.weight", "mot.hodgevector"),
+        ("lattice.similarity", "lattice.eutactic"),
+        ("lattice.similarity", "lattice.perfect"),
+        ("lattice.definition", "lattice.nondegenerate"),
+        ("lattice.definition", "lattice.signature"),
+        ("lattice.nondegenerate", "lattice.signature"),
+        ("lattice.positive_definite", "lattice.signature"),
+        ("lf.means", "lf.heights"),
+        ("lf.rams", "lf.herbrand_invariant"),
+        ("lf.family_polynomial", "lf.eisenstein_diagram"),
+        ("lf.family_polynomial", "lf.family_ambiguity"),
+        ("lf.ramification_polygon", "lf.family_polynomial"),
+        ("lf.slopes", "lf.hidden_slopes"),
+        ("lfunction.root_number", "lfunction.selbergdata"),
+        ("lfunction.selberg_class.axioms", "lfunction.selberg_class"),
+        ("lfunction.zeros", "lfunction.trivial_zero"),
+        ("mf.bianchi", "mf.bianchi.fourierbessell"),
+        ("mf.bianchi.sign", "mf.bianchi.anr"),
+        ("mf.bianchi.hecke_algebra", "mf.bianchi.spaces"),
+        ("mf.half_integral_weight.theta", "mf.half_integral_weight"),
+        ("mf.maass.mwf", "mf.maass.mwf.weight"),
+        ("mf.siegel", "mf.siegel.koecher.principle"),
+        ("shimcurve.level", "shimcurve"),
+        ("st_group.identity_component", "st_group.component_group"),
     ])
     edges = []
     kid_to_num = {}
@@ -390,28 +441,38 @@ def update_knowls(cats=["nf", "ec", "cmf"], delete_old=False):
     by_source = defaultdict(list)
     by_target = defaultdict(list)
     next_num = 0
-    keep = newkeep = set(rec["id"] for rec in by_id.values() if cats is None or rec["cat"] in cats)
-    while newkeep:
-        nextkeep = set()
-        for kid in newkeep:
-            if kid not in kid_to_num:
-                kid_to_num[kid] = next_num
-                num_to_kid[next_num] = kid
-                next_num += 1
-            source = kid_to_num[kid]
-            by_id[kid]["links"] = [link for link in by_id[kid]["links"] if link in by_id and (kid, link) not in omit_edges] # link might be a top or bottom knowl, or not define anything...
-            for link in by_id[kid]["links"]:
-                if link not in kid_to_num:
-                    kid_to_num[link] = next_num
-                    num_to_kid[next_num] = link
+    keep = set()
+    def add_with_links(newkeep):
+        # Add the knowls in newkeep to keep, together with every knowl they link to, recursively
+        nonlocal next_num
+        newkeep = newkeep.difference(keep)
+        keep.update(newkeep)
+        while newkeep:
+            nextkeep = set()
+            for kid in newkeep:
+                if kid not in kid_to_num:
+                    kid_to_num[kid] = next_num
+                    num_to_kid[next_num] = kid
                     next_num += 1
-                if link not in keep:
-                    nextkeep.add(link)
-                edges.append((source, kid_to_num[link]))
-                by_source[kid].append(link)
-                by_target[link].append(kid)
-        keep = keep.union(nextkeep)
-        newkeep = copy(nextkeep)
+                source = kid_to_num[kid]
+                by_id[kid]["links"] = [link for link in by_id[kid]["links"] if link in by_id and (kid, link) not in omit_edges] # link might be a top or bottom knowl, or not define anything...
+                for link in by_id[kid]["links"]:
+                    if link not in kid_to_num:
+                        kid_to_num[link] = next_num
+                        num_to_kid[next_num] = link
+                        next_num += 1
+                    if link not in keep:
+                        nextkeep.add(link)
+                    edges.append((source, kid_to_num[link]))
+                    by_source[kid].append(link)
+                    by_target[link].append(kid)
+            keep.update(nextkeep)
+            newkeep = nextkeep
+    # The knowls in cats and the knowls they depend on (the background chapter) form the core of the
+    # blueprint; every other knowl that defines something goes into a chapter for its area
+    add_with_links(set(rec["id"] for rec in by_id.values() if rec["cat"] in cats))
+    core = copy(keep)
+    add_with_links(set(by_id))
     all_by_id = {rec["id"]: rec for rec in all_knowls}
     by_id = {rec["id"]: rec for rec in all_knowls if rec["id"] in keep}
 
@@ -454,16 +515,56 @@ def update_knowls(cats=["nf", "ec", "cmf"], delete_old=False):
         "nf": "number_fields",
         "ec": "elliptic_curves",
         "cmf": "modular_forms",
-        # Add more categories here
     }
     assert all(cat in cat_names for cat in cats)
-    for (cat, fname) in cat_names.items():
-        with open(f"auto_{fname}.tex", "w") as F:
+    # Chapters for the knowls outside the core, by area
+    area_names = {
+        "af": "further_background",
+        "alg": "further_background",
+        "combin": "further_background",
+        "crystals": "further_background",
+        "field": "further_background",
+        "ring": "further_background",
+        "specialfunction": "further_background",
+        "group": "groups",
+        "gl2": "groups",
+        "repn": "groups",
+        "gg": "galois_groups",
+        "lf": "local_fields",
+        "character": "characters",
+        "artin": "artin_representations",
+        "modlgal": "galois_representations",
+        "lfunction": "l_functions",
+        "ag": "varieties",
+        "av": "abelian_varieties",
+        "g2c": "genus_2_curves",
+        "curve": "higher_genus_curves",
+        "belyi": "belyi_maps",
+        "modcurve": "modular_curves",
+        "shimcurve": "shimura_curves",
+        "hmsurface": "hilbert_modular_surfaces",
+        "mf": "automorphic_forms",
+        "st_group": "sato_tate_groups",
+        "hgm": "hypergeometric_motives",
+        "mot": "hypergeometric_motives",
+        "lattice": "lattices",
+    }
+    def fname(kwl):
+        if kwl["cat"] in cats:
+            return cat_names[kwl["cat"]]
+        if kwl["id"] in core:
+            return cat_names[None]
+        return area_names[kwl["cat"]]
+    by_fname = defaultdict(list)
+    for kwl in by_id.values():
+        if kwl["id"] not in skip:
+            by_fname[fname(kwl)].append(kwl)
+    for name in list(cat_names.values()) + sorted(set(area_names.values())):
+        with open(f"auto_{name}.tex", "w") as F:
             # We should impose some kind of reasonable order, but that's for later
             # auto_knowls = sorted(by_id.values(), key=lambda rec: rec["id"])
-            for kwl in by_id.values():
-                if (cat is None and kwl["cat"] not in cats or cat is not None and kwl["cat"] == cat) and kwl["id"] not in skip:
-                    _ = F.write(f"\\input{{knowls/{kwl['cat']}/{kwl['id']}}}\n")
+            for kwl in by_fname[name]:
+                _ = F.write(f"\\input{{knowls/{kwl['cat']}/{kwl['id']}}}\n")
 
 if __name__ == "__main__":
     update_knowls()

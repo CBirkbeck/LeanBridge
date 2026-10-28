@@ -590,7 +590,7 @@ In the LMFDB, there is a potentially incomplete list of reflex fields for each C
 Depends on: {uses "group.subgroup"}[] {uses "nf.cm_field"}[] {uses "nf.complex_embedding"}[] {uses "nf.degree"}[] {uses "nf.embedding"}[]
 :::
 
-:::definition "nf.reflex_reflex_field"
+:::definition "nf.reflex_reflex_field" (lean := "NumberField.CMType.reflexReflexField, NumberField.CMType.reflexType, NumberField.CMType.reflexField, NumberField.CMType.IsInducedFrom")
 *Reflex field of the reflex field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.reflex_reflex_field))
 
 Let $`K` be a {bpref "nf.cm_field"}[CM number field] and let $`N` a normal closure of $`K`, let $`\Phi \subset \mathrm{Hom}(K, \overline{\mathbb{Q}})` be a {bpref "nf.reflex_field"}[CM type] and $`L` its associated {bpref "nf.reflex_field"}[reflex field]. Then $`\Phi` induces a CM type $`\Phi_N \subset \mathrm{Hom}(N, \mathbb{C})` by taking the maps that restrict to a map inside $`\Phi` on $`K`. The maps in $`\Phi_N` are isomorphisms on the image $`F` of $`N` inside $`\overline{\mathbb{Q}}` and by inverting them, we obtain a CM type on $`F` with values in $`N`. The *reflex field of the reflex field* is the reflex field of this CM type.
@@ -815,7 +815,7 @@ For a prime power $`q`, a *Weil $`q`-polynomial* is a monic polynomial with inte
 
 Given $`q` and a nonnegative integer $`d`, there are only finitely many Weil $`q`-polynomials of degree $`d`.
 
-The characteristic polynomial of an {bpref "ag.abelian_variety"}[abelian variety] over $`\F_q` is a Weil $`q`-polynomial, but it is not quite true that every Weil $`q`-polynomial arises in this way.  Every irreducible Weil $`q`-polynomial has a unique power that is the characteristic polynomial of a {bpref "av.simple"}[simple abelian variety] over $`\F_q`; it is the products of these powers that arise from abelian varieties.
+The {bpref "av.fq.weil_polynomial"}[characteristic polynomial] of an {bpref "ag.abelian_variety"}[abelian variety] over $`\F_q` is a Weil $`q`-polynomial, but it is not quite true that every Weil $`q`-polynomial arises in this way.  Every irreducible Weil $`q`-polynomial has a unique power that is the characteristic polynomial of a {bpref "av.simple"}[simple abelian variety] over $`\F_q`; it is the products of these powers that arise from abelian varieties.
 
 Depends on: {uses "ag.abelian_variety"}[] {uses "av.simple"}[]
 :::

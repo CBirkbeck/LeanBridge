@@ -24,7 +24,47 @@ CHAPTERS = [
     ("NumberFields", "auto_number_fields.tex", "Number fields"),
     ("EllipticCurves", "auto_elliptic_curves.tex", "Elliptic curves"),
     ("ModularForms", "auto_modular_forms.tex", "Modular forms"),
+    # The other knowls, by area (the Background chapter has those the chapters above depend on)
+    ("FurtherBackground", "auto_further_background.tex", "Further background"),
+    ("Groups", "auto_groups.tex", "Groups"),
+    ("GaloisGroups", "auto_galois_groups.tex", "Galois groups"),
+    ("LocalFields", "auto_local_fields.tex", "Local fields"),
+    ("Characters", "auto_characters.tex", "Dirichlet characters"),
+    ("ArtinRepresentations", "auto_artin_representations.tex", "Artin representations"),
+    ("GaloisRepresentations", "auto_galois_representations.tex", "Mod-ℓ Galois representations"),
+    ("LFunctions", "auto_l_functions.tex", "L-functions"),
+    ("Varieties", "auto_varieties.tex", "Varieties"),
+    ("AbelianVarieties", "auto_abelian_varieties.tex", "Abelian varieties"),
+    ("Genus2Curves", "auto_genus_2_curves.tex", "Genus 2 curves"),
+    ("HigherGenusCurves", "auto_higher_genus_curves.tex", "Higher genus curves"),
+    ("BelyiMaps", "auto_belyi_maps.tex", "Belyi maps"),
+    ("ModularCurves", "auto_modular_curves.tex", "Modular curves"),
+    ("ShimuraCurves", "auto_shimura_curves.tex", "Shimura curves"),
+    ("HilbertModularSurfaces", "auto_hilbert_modular_surfaces.tex", "Hilbert modular surfaces"),
+    ("AutomorphicForms", "auto_automorphic_forms.tex", "Automorphic forms"),
+    ("SatoTateGroups", "auto_sato_tate_groups.tex", "Sato-Tate groups"),
+    ("HypergeometricMotives", "auto_hypergeometric_motives.tex", "Hypergeometric motives"),
+    ("Lattices", "auto_lattices.tex", "Lattices"),
 ]
+CORE_CHAPTERS = 4
+
+# How the chapter introductions name the topic, where lowercasing the title is wrong
+TOPICS = {
+    "GaloisGroups": "Galois groups",
+    "Characters": "Dirichlet characters",
+    "ArtinRepresentations": "Artin representations",
+    "GaloisRepresentations": "mod-ℓ Galois representations",
+    "LFunctions": "L-functions",
+    "BelyiMaps": "Belyi maps",
+    "ShimuraCurves": "Shimura curves",
+    "HilbertModularSurfaces": "Hilbert modular surfaces",
+    "SatoTateGroups": "Sato-Tate groups",
+}
+
+# Page names for chapters whose title Verso cannot turn into a readable one
+FILES = {
+    "GaloisRepresentations": "Mod-l-Galois-representations",
+}
 
 
 def knowl_paths(autofile):
@@ -122,6 +162,18 @@ def transform_body(body):
     # --- strip leanblueprint-only commands (status/link markers, not math content) ---
     body = re.sub(r'\\(leanok|notready|mathlibok|leanchapter)\b', '', body)
     body = re.sub(r'\\(lean|proves|alsoin|discussion)\s*\{[^}]*\}', '', body)
+
+    # --- raw HTML links, which update_knowls.py leaves when the URL has quotes or other
+    # attributes follow it; LMFDB-internal URLs become absolute ---
+    def html_link(m):
+        url = m.group(1).replace('\\_', '_')
+        url = url.replace("{{url_for('abstract.index')}}", 'https://beta.lmfdb.org/Groups/Abstract/')
+        if url.startswith('/'):
+            url = 'https://beta.lmfdb.org' + url
+        return tok(f'[{m.group(2)}]({url})')
+    body = re.sub(r'<a\s+href="?([^"\s>]+)"?[^>]*>([^<]*)</a>', html_link, body)
+    # --- Markdown headings, which Verso does not allow inside a definition, become bold lines ---
+    body = re.sub(r'(?m)^[ \t]*#{1,6}[ \t]+(.+?)[ \t]*$', r'\\textbf{\1}', body)
 
     # --- math -> tokens ---
     def stash_math(content, display):
@@ -229,8 +281,16 @@ def convert_knowl(path):
     return chunk
 
 
-def chapter_intro(title):
-    return f"This chapter lists the LMFDB definitions relating to *{title.lower()}*, migrated from the LaTeX blueprint. Each definition links back to its LMFDB knowl."
+def chapter_intro(modname, title, in_background):
+    topic = TOPICS.get(modname, title.lower())
+    intro = f"This chapter lists the LMFDB definitions relating to *{topic}*, migrated from the LaTeX blueprint. Each definition links back to its LMFDB knowl."
+    if in_background:
+        intro += " The definitions from this area that the number field, elliptic curve and modular form chapters depend on are in the Background chapter instead."
+    return intro
+
+
+def categories(autofile):
+    return {os.path.basename(p).split(".")[0] for p in knowl_paths(autofile)}
 
 
 def lean_imports():
@@ -259,6 +319,8 @@ def emit_prelude():
 
 def emit_chapter(modname, autofile, title):
     chunks = [convert_knowl(p) for p in knowl_paths(autofile) if os.path.exists(os.path.join(SRC, p))]
+    core = [m for m, _, _ in CHAPTERS[:CORE_CHAPTERS]]
+    in_background = modname not in core and bool(categories(autofile) & categories("auto_background.tex"))
     parts = [
         "import Verso",
         "import VersoManual",
@@ -270,8 +332,9 @@ def emit_chapter(modname, autofile, title):
         "open Informal",
         "",
         f'#doc (Manual) "{title}" =>',
+        *(["%%%", f'file := "{FILES[modname]}"', "%%%"] if modname in FILES else []),
         "",
-        chapter_intro(title),
+        chapter_intro(modname, title, in_background),
         "",
     ]
     parts += chunks
