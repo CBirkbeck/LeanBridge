@@ -585,7 +585,7 @@ The CM types in the LMFDB are grouped in Galois orbits under the action of $`\ma
 <!--- (commented out by John Cremona: this information should be in the completeness knowl for number fields)
 In the LMFDB, there is a potentially incomplete list of reflex fields for each CM field $`K` of {bpref "nf.degree"}[degree] at most 12.  For each reflex field, it is indicated for how many of the $`2^{[K:\mathbb{Q}]/2 - 1}` pairs of complementary CM types this particular field is the reflex field. The only reflex fields listed are those of degree at most 36.
 
-- -->
+--->
 
 Depends on: {uses "group.subgroup"}[] {uses "nf.cm_field"}[] {uses "nf.complex_embedding"}[] {uses "nf.degree"}[] {uses "nf.embedding"}[]
 :::

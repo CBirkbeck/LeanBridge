@@ -281,9 +281,7 @@ Weight 2 Bianchi modular forms are particularly important in regard to their con
 
 $$`(F |_k\gamma)(z)=\dfrac{1}{|r|^2+|s|^2}
 \begin{pmatrix}  \bar{r}^2 & 2\bar{r}s & s^2 \\
-\begin{itemize}
-\item \bar{r}\bar{s} & |r|^2-|s|^2 & rs \\
-\end{itemize}
+                          -\bar{r}\bar{s} & |r|^2-|s|^2 & rs \\
                           \bar{s}^2 & -2r\bar{s} & r^2 \end{pmatrix} F(\gamma z)`
 
 where $`\gamma=\begin{pmatrix} a &b \\ c&d \end{pmatrix}` and $`r=cx+d` and $`s=cy`.
@@ -466,17 +464,14 @@ Depends on: {uses "character.dirichlet"}[] {uses "mf.maass.mwf"}[] {uses "mf.maa
 *Maass form on GL2(R) with trivial character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass.mwf))
 
 Maass forms
-
-- -----------------
-
+------------------
 A *Maass form* (of weight 0) on a subgroup $`\Gamma` of $`\GL_{2}(\R)`
 is a smooth, square-integrable, automorphic eigenfunction of the {bpref "mf.maass.mwf.laplacian"}[Laplace-Beltrami operator] $`\Delta`. In other words,
 
 $$`f\in C^\infty(\mathcal{H}),\quad f\in L^2(\Gamma\backslash{\mathcal H}),\quad f(\gamma z)=f(z)\ \forall\gamma\in\Gamma,\quad (\Delta+\lambda)f(z)=0 \textrm{ for some } \lambda \in \C.`
 
 Maass forms of weight $`k`
-
-- -----------------
+------------------
 
 A Maass form $`f` of {bpref "mf.maass.mwf.weight"}[weight]  $`k` and {bpref "mf.multipliersystem"}[multiplier system] $`v` on a group $`\Gamma` is a smooth function $`f:\mathcal{H} \rightarrow\C` with the following properties:
 
@@ -494,9 +489,7 @@ $$`v(A) = v_{\eta}^{2k}:=\eta(Az)^{2k}/\eta(z)^{2k}`
 or one of its 6 conjugates. One can show that $`v(A)` is well-defined and independent of the point $`z` in the upper half-plane.
 
 Remark:
-
-- ------
-
+-------
  One can also consider Maass forms transforming with the usual "holomorphic" weight $`k` slash-action. In this case the corresponding weight $`k` Laplacian will look slightly different: $`\Delta_k = y^2\left( \frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}\right) - iky\left(\frac{\partial}{\partial x}+i\frac{\partial}{\partial y}\right).`
 This convention is usually used in the context of Harmonic weak Maass forms.
 
@@ -642,7 +635,7 @@ Maass forms on PSL$`(2,{\mathbb{Z}}[i])` live in the upper half-space $`{\mathca
 The *Picard group* $`\Gamma=`PSL$`(2,{\mathbb{Z}}[i])` is a discrete, cofinite, but non-cocompact subgroup of the group of isometries PSL$`(2,{\mathbb{C}})` ,where the isometries are given by linear fractional transformations $`z\to(az+b)(cz+d)^{-1}` with $`a,b,c,d\in {\mathbb{C}}`, $`ad-bc\not=0`.
 :::
 
-:::definition "mf.maass.picard.eigenvalue"
+:::definition "mf.maass.picard.eigenvalue" (lean := "HyperbolicThreeSpace.picardTrueEigenvalue, HyperbolicThreeSpace.HasPicardSpectralParameter, HyperbolicThreeSpace.IsPicardMaassForm.eigenvalue_eq, HyperbolicThreeSpace.HasPicardSpectralParameter.eq_or_eq_neg, HyperbolicThreeSpace.IsPicardMaassForm")
 *Spectral parameter of Maass forms on PSL(2,Z\[i\]).* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass.picard.eigenvalue))
 
 Each {bpref "mf.maass.picard"}[Maass form] is associated to an *eigenvalue* via the eigenvalue equation $`(\Delta+\lambda)f(z)=0` where $`\Delta` is the Laplacian.  It is convenient to introduce the *spectral parameter* $`r` which is also called the eigenvalue.  Only if one speaks about the *true eigenvalue* one refers to $`\lambda`, since by convention *eigenvalue* refers to $`r`.  In {bpref "mf.bianchi.hyperbolic3space"}[hyperbolic 3-space], the eigenvalue is connected to the true eigenvalue via $`\lambda=r^2+1`.
@@ -650,7 +643,7 @@ Each {bpref "mf.maass.picard"}[Maass form] is associated to an *eigenvalue* via 
 Depends on: {uses "mf.bianchi.hyperbolic3space"}[] {uses "mf.maass.picard"}[]
 :::
 
-:::definition "mf.maass.picard.fourierexpansion"
+:::definition "mf.maass.picard.fourierexpansion" (lean := "HyperbolicThreeSpace.picardFourierTerm, HyperbolicThreeSpace.HasPicardFourierExpansion, Complex.besselK")
 *Fourier expansion of a Maass form on PSL(2,Z\[i\]).* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass.picard.fourierexpansion))
 
 The *Fourier expansion* of a Maass forrm on PSL$`(2,\Z[i])` reads

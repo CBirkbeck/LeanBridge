@@ -1266,7 +1266,7 @@ An {bpref "lfunction"}[L-function] $`L(s) = \sum_{n=1}^{\infty} a_n n^{-s}`  is 
 Depends on: {uses "lfunction"}[]
 :::
 
-:::definition "lfunction.central_point"
+:::definition "lfunction.central_point" (lean := "AnalyticLFunction.centralPoint, AnalyticLFunction.arithmeticCentralPoint, AnalyticLFunction.criticalLine_inter_im_eq_zero, AnalyticLFunction.one_sub_eq_self_iff")
 *Central point of an L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.central_point))
 
 The *central point* of an {bpref "lfunction"}[L-function] is the
@@ -1516,13 +1516,13 @@ There are three variants of the modular curve $`Y(N)`:
 
 3. There is a functor sending each $`\Z[1/N]`-algebra $`R` to the set of pairs $`(E,\alpha)` consisting of an elliptic curve $`E` over $`R` and a {bpref "alg.symplectic_isomorphism"}[symplectic isomorphism] $`\alpha \colon E[N] \to \Z/N\Z \times \mu_N`.  For $`N \ge 3`, this functor is represented by a smooth affine $`\mathbb{Z}[1/N]`-scheme $`Y_{\mathrm{arith}}(N)`.  Over any field $`k` with $`\operatorname{char} k \nmid N`, the curve $`Y_{\mathrm{arith}}(N)_k` is geometrically integral.
 
-- Relationships\*: Over any {bpref "ring.a-field"}[$`\Z[1/N,\zeta]`-field] $`k`, the curve $`Y_{\mathrm{arith}}(N)_k` is isomorphic to $`Y(N)_k` and to a connected component of $`Y_{\mathrm{full}}(N)_k`.
+\*Relationships\*: Over any {bpref "ring.a-field"}[$`\Z[1/N,\zeta]`-field] $`k`, the curve $`Y_{\mathrm{arith}}(N)_k` is isomorphic to $`Y(N)_k` and to a connected component of $`Y_{\mathrm{full}}(N)_k`.
 
-- Complex points\*: The group {bpref "cmf.congruence_subgroup"}[$`\Gamma(N)`] acts on the {bpref "mf.upper_half_plane"}[upper half-plane] $`\mathfrak{h}`, and the quotient $`\Gamma(N) \backslash \mathfrak{h}` is biholomorphic to $`Y(N)(\mathbb{C}) \simeq Y_{\textup{arith}}(\C)` (choosing $`\zeta_N \in \C`).
+\*Complex points\*: The group {bpref "cmf.congruence_subgroup"}[$`\Gamma(N)`] acts on the {bpref "mf.upper_half_plane"}[upper half-plane] $`\mathfrak{h}`, and the quotient $`\Gamma(N) \backslash \mathfrak{h}` is biholomorphic to $`Y(N)(\mathbb{C}) \simeq Y_{\textup{arith}}(\C)` (choosing $`\zeta_N \in \C`).
 
-- Compactifications\*: For each variant, there is a corresponding smooth projective model, denoted $`X_{\mathrm{full}}(N)`, $`X(N)`, or $`X_{\mathrm{arith}}(N)`.
+\*Compactifications\*: For each variant, there is a corresponding smooth projective model, denoted $`X_{\mathrm{full}}(N)`, $`X(N)`, or $`X_{\mathrm{arith}}(N)`.
 
-- Quotients\*: For each {bpref "gl2.open"}[open subgroup] $`H \le \GL_2(\widehat{\Z})`, there is a quotient {bpref "modcurve"}[$`X_H`] of $`X_{\mathrm{full}}(N)`.
+\*Quotients\*: For each {bpref "gl2.open"}[open subgroup] $`H \le \GL_2(\widehat{\Z})`, there is a quotient {bpref "modcurve"}[$`X_H`] of $`X_{\mathrm{full}}(N)`.
 
 Depends on: {uses "alg.symplectic_isomorphism"}[] {uses "cmf.congruence_subgroup"}[] {uses "ec.ring"}[] {uses "gl2.open"}[] {uses "mf.upper_half_plane"}[] {uses "ring.a-field"}[]
 :::

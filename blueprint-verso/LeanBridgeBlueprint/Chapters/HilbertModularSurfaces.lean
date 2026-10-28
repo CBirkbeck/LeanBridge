@@ -82,7 +82,7 @@ exists and is non-zero. In the case no such integer exists, our convention is
 to take $`d=-1`.
 :::
 
-:::definition "hmsurface.level"
+:::definition "hmsurface.level" (lean := "HilbertModularGroup.gammaZero, HilbertModularGroup.isCongruenceSubgroup_gammaZero, HilbertModularGroup.principalCongruenceSubgroup_le_gammaZero, HilbertModularGroup.gammaZeroLattice")
 *Definition of the level.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/hmsurface.level))
 
 The *level* is a nonzero ideal $`\mathfrak{N}` which determines the {bpref "hmsurface.congruence_subgroup"}[congruence subgroup] $`\Gamma_0(\mathfrak{N})_{\mathfrak{b}}`. In the LMFDB, such an ideal $`\mathfrak{N}` is identified by a label.

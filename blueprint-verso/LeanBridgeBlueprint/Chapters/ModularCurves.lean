@@ -54,9 +54,7 @@ Rational points on a {bpref "modcurve"}[modular curve] $`X_H` that correspond to
 
 Over $`\Q` these correspond to rational points in the fiber of the map $`j\colon X_H\to X(1)` above one of the $`13` $`j`-invariants of CM elliptic curves over $`\Q` corresponding to one of the *CM discriminants*
 
-$$`\begin{itemize}
-\item 3,-4,-7,-8,-11,-12,-16,-19,-27, -27, -43,-67,-163,
-\end{itemize}`
+$$`-3,-4,-7,-8,-11,-12,-16,-19,-27, -27, -43,-67,-163,`
  of {bpref "nf.order"}[imaginary quadratic orders] of {bpref "nf.class_number"}[class number] one.  These $`13` orders lie in $`9` distinct imaginary quadratic fields.
 
 Depends on: {uses "ec.complex_multiplication"}[] {uses "modcurve"}[] {uses "nf.class_number"}[] {uses "nf.order"}[]

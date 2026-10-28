@@ -11,7 +11,7 @@ open Informal
 
 This chapter lists the LMFDB definitions relating to *lattices*, migrated from the LaTeX blueprint. Each definition links back to its LMFDB knowl.
 
-:::definition "lattice.additively_indecomposable"
+:::definition "lattice.additively_indecomposable" (lean := "TauCeti.IntegralLattice.IsAdditivelyIndecomposable, TauCeti.IntegralLattice.IsAdditivelyIndecomposable.isOrthogonallyIndecomposable, TauCeti.IntegralLattice.IsOrthogonallyIndecomposable")
 *Additively indecomposable lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.additively_indecomposable))
 
 A {bpref "lattice.positive_definite"}[positive definite] {bpref "lattice.definition"}[integral lattice] $`L` is *additively indecomposable* if it cannot be written as a sum of two nonzero {bpref "lattice.nondegenerate"}[positive semi-definite] integral lattices.
@@ -550,7 +550,7 @@ If $`L` has signature $`(n,0)` we say it is {bpref "lattice.positive_definite"}[
 Depends on: {uses "lattice.definition"}[] {uses "lattice.gram"}[] {uses "lattice.nondegenerate"}[] {uses "lattice.positive_definite"}[]
 :::
 
-:::definition "lattice.similarity"
+:::definition "lattice.similarity" (lean := "TauCeti.IntegralLattice.IsSimilar, TauCeti.IntegralLattice.IsSimilar.symm, TauCeti.IntegralLattice.IsSimilar.trans, TauCeti.IntegralLattice.Isometry.isSimilar")
 *Similarity of lattices.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.similarity))
 
 Lattices $`L` and $`M` are called *similar* if there exists a real constant $`\alpha` so that $`L` is {bpref "lattice.isometry"}[isometric] to $`\alpha M`. Key properties of lattices, such as {bpref "lattice.well_rounded"}[well-roundedness], {bpref "lattice.eutactic"}[eutaxy], {bpref "lattice.perfect"}[perfection], {bpref "lattice.density"}[packing density] are preserved on similarity classes.  Each similarity class that contains an integer lattice contains a unique {bpref "lattice.primitive"}[primitive] integer lattice.

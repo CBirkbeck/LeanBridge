@@ -11,6 +11,7 @@ import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.Basic
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.BranchPoints
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.CohenMacaulayType
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.Hyperelliptic
+import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.Monodromy
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.StandardGenerators
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Arithmetic.ComplexPeriod
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Arithmetic.FaltingsHeight
@@ -49,6 +50,7 @@ import LeanBridge.ForMathlib.AlgebraicGeometry.HilbertModularSurface.CongruenceS
 import LeanBridge.ForMathlib.AlgebraicGeometry.HilbertModularSurface.EllipticPoint
 import LeanBridge.ForMathlib.AlgebraicGeometry.HilbertModularSurface.EulerNumber
 import LeanBridge.ForMathlib.AlgebraicGeometry.HilbertModularSurface.KodairaDimension
+import LeanBridge.ForMathlib.AlgebraicGeometry.HilbertModularSurface.Level
 import LeanBridge.ForMathlib.AlgebraicGeometry.Variety.Affine
 import LeanBridge.ForMathlib.AlgebraicGeometry.Variety.Basic
 import LeanBridge.ForMathlib.AlgebraicGeometry.Variety.FieldOfDefinition
@@ -64,12 +66,14 @@ import LeanBridge.ForMathlib.GroupTheory.PolycyclicPresentation
 import LeanBridge.ForMathlib.GroupTheory.Sibling
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.Orthogonal
 import LeanBridge.ForMathlib.GroupTheory.SubnormalSeries
+import LeanBridge.ForMathlib.LinearAlgebra.Lattice.AdditiveDecomposition
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.Algebraic
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.Density
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.Dual
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.Kissing
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.OrthogonalDecomposition
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.RootSublattice
+import LeanBridge.ForMathlib.LinearAlgebra.Lattice.Similarity
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.Sublattice
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.TensorProduct
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.Universal
@@ -89,6 +93,7 @@ import LeanBridge.ForMathlib.NumberTheory.Artin.Basic
 import LeanBridge.ForMathlib.NumberTheory.Artin.Conductor
 import LeanBridge.ForMathlib.NumberTheory.Artin.Parity
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.MaassPicard
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.MaassPicardSpectral
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.UpperHalfSpace
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CongruenceSubgroups
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwo
@@ -99,12 +104,18 @@ import LeanBridge.ForMathlib.NumberTheory.DirichletCharacter.GroupStructure
 import LeanBridge.ForMathlib.NumberTheory.DirichletCharacter.KloostermanSum
 import LeanBridge.ForMathlib.NumberTheory.DirichletCharacter.Minimal
 import LeanBridge.ForMathlib.NumberTheory.Hypergeometric.CuspIndex
+import LeanBridge.ForMathlib.NumberTheory.LFunction.AnalyticConductor
 import LeanBridge.ForMathlib.NumberTheory.LFunction.AnalyticRank
 import LeanBridge.ForMathlib.NumberTheory.LFunction.Basic
+import LeanBridge.ForMathlib.NumberTheory.LFunction.CentralCharacter
+import LeanBridge.ForMathlib.NumberTheory.LFunction.CentralPoint
 import LeanBridge.ForMathlib.NumberTheory.LFunction.CriticalStrip
+import LeanBridge.ForMathlib.NumberTheory.LFunction.LowestZero
 import LeanBridge.ForMathlib.NumberTheory.LFunction.RiemannHypothesis
+import LeanBridge.ForMathlib.NumberTheory.LFunction.RiemannSiegelTheta
 import LeanBridge.ForMathlib.NumberTheory.LFunction.RiemannZeta
 import LeanBridge.ForMathlib.NumberTheory.LFunction.SelbergClass
+import LeanBridge.ForMathlib.NumberTheory.LFunction.ZFunction
 import LeanBridge.ForMathlib.NumberTheory.LocalField.GaloisSplittingModel
 import LeanBridge.ForMathlib.NumberTheory.ModularCurve.FundamentalDomain
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Analytic.AnalyticConductor

@@ -144,13 +144,11 @@ The *Kronecker symbol* $`\displaystyle\left(\frac{a}{n}\right)` is the multiplic
 We set
 
 $$`\displaystyle\left(\frac{a}{-1}\right) = \left\{ \begin{array}{cl} 1 & \text{if }  a\geq 0\\
-\begin{itemize}
-\item 1 & \text{if } a < 0; \end{array} \right.`
+-1 & \text{if } a < 0; \end{array} \right.`
 
 $$`\displaystyle\left(\frac{a}{2}\right) = \left\{ \begin{array}{cl} 0 & \text{if }  a\equiv 0 \bmod 2\\
  1 & \text{if }  a\equiv \pm 1 \bmod 8\\
-\begin{itemize}
-\item 1 & \text{if } a \equiv \pm 3 \bmod 8; \end{array} \right.`
+-1 & \text{if } a \equiv \pm 3 \bmod 8; \end{array} \right.`
 
 and
 

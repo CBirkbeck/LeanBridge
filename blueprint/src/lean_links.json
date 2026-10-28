@@ -866,6 +866,13 @@
   "curve.highergenus.aut.group_action": {
     "TauCeti.Diff": "TauCeti.Geometry.Diffeomorphism.Group"
   },
+  "curve.highergenus.aut.monodromy": {
+    "MulAction.monodromyGroup": "LeanBridge.ForMathlib.AlgebraicGeometry.Curve.Monodromy",
+    "MulAction.unbranchedProjection": "LeanBridge.ForMathlib.AlgebraicGeometry.Curve.Monodromy",
+    "MulAction.isCoveringMap_unbranchedProjection": "LeanBridge.ForMathlib.AlgebraicGeometry.Curve.Monodromy",
+    "MulAction.card_fiber_unbranchedProjection": "LeanBridge.ForMathlib.AlgebraicGeometry.Curve.Monodromy",
+    "MulAction.branchPoints": "LeanBridge.ForMathlib.AlgebraicGeometry.Curve.BranchPoints"
+  },
   "curve.highergenus.aut.quotientgenus": {
     "TauCeti.genus": "TauCeti.FieldTheory.FunctionField.RiemannRoch.Genus"
   },
@@ -1918,6 +1925,17 @@
     "AlgebraicGeometry.Scheme.canonicalSheaf": "LeanBridge.ForMathlib.AlgebraicGeometry.HilbertModularSurface.KodairaDimension",
     "AlgebraicGeometry.Scheme.kodairaDimension_eq_of_tendsto": "LeanBridge.ForMathlib.AlgebraicGeometry.HilbertModularSurface.KodairaDimension"
   },
+  "hmsurface.level": {
+    "HilbertModularGroup.gammaZero": "LeanBridge.ForMathlib.AlgebraicGeometry.HilbertModularSurface.Level",
+    "HilbertModularGroup.isCongruenceSubgroup_gammaZero": "LeanBridge.ForMathlib.AlgebraicGeometry.HilbertModularSurface.Level",
+    "HilbertModularGroup.principalCongruenceSubgroup_le_gammaZero": "LeanBridge.ForMathlib.AlgebraicGeometry.HilbertModularSurface.Level",
+    "HilbertModularGroup.gammaZeroLattice": "LeanBridge.ForMathlib.AlgebraicGeometry.HilbertModularSurface.Level"
+  },
+  "lattice.additively_indecomposable": {
+    "TauCeti.IntegralLattice.IsAdditivelyIndecomposable": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.AdditiveDecomposition",
+    "TauCeti.IntegralLattice.IsAdditivelyIndecomposable.isOrthogonallyIndecomposable": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.AdditiveDecomposition",
+    "TauCeti.IntegralLattice.IsOrthogonallyIndecomposable": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.OrthogonalDecomposition"
+  },
   "lattice.algebraic": {
     "TauCeti.IntegralLattice.IsAlgebraic": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.Algebraic",
     "NumberField.minkowskiForm": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.Algebraic",
@@ -2073,6 +2091,12 @@
     "TauCeti.IntegralLattice.IsNegDef": "TauCeti.LinearAlgebra.IntegralLattice.Signature",
     "TauCeti.IntegralLattice.IsIndefinite": "TauCeti.LinearAlgebra.IntegralLattice.Signature"
   },
+  "lattice.similarity": {
+    "TauCeti.IntegralLattice.IsSimilar": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.Similarity",
+    "TauCeti.IntegralLattice.IsSimilar.symm": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.Similarity",
+    "TauCeti.IntegralLattice.IsSimilar.trans": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.Similarity",
+    "TauCeti.IntegralLattice.Isometry.isSimilar": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.Similarity"
+  },
   "lattice.tensor_decomposition": {
     "TauCeti.IntegralLattice.tensorProduct": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.TensorProduct",
     "TauCeti.IntegralLattice.IsTensorDecomposable": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.TensorProduct",
@@ -2164,6 +2188,11 @@
     "AnalyticLFunction.zeta": "LeanBridge.ForMathlib.NumberTheory.LFunction.RiemannZeta",
     "LSeries": "Mathlib.NumberTheory.LSeries.Basic"
   },
+  "lfunction.analytic_conductor": {
+    "AnalyticLFunction.analyticConductor": "LeanBridge.ForMathlib.NumberTheory.LFunction.AnalyticConductor",
+    "AnalyticLFunction.SelbergData.analyticConductor": "LeanBridge.ForMathlib.NumberTheory.LFunction.AnalyticConductor",
+    "AnalyticLFunction.SelbergData.analyticConductor_eq_analyticConductorLMFDB": "LeanBridge.ForMathlib.NumberTheory.LFunction.AnalyticConductor"
+  },
   "lfunction.analytic_rank": {
     "AnalyticLFunction.analyticRank": "LeanBridge.ForMathlib.NumberTheory.LFunction.AnalyticRank",
     "AnalyticLFunction.natCast_analyticRank": "LeanBridge.ForMathlib.NumberTheory.LFunction.AnalyticRank",
@@ -2179,6 +2208,17 @@
     "AnalyticLFunction.conductor": "LeanBridge.ForMathlib.NumberTheory.LFunction.Basic",
     "Nat.primeFactors": "Mathlib.Data.Nat.PrimeFin",
     "AnalyticLFunction.exists_eulerFactor": "LeanBridge.ForMathlib.NumberTheory.LFunction.Basic"
+  },
+  "lfunction.central_character": {
+    "AnalyticLFunction.IsCentralCharacter": "LeanBridge.ForMathlib.NumberTheory.LFunction.CentralCharacter",
+    "AnalyticLFunction.eulerFactor": "LeanBridge.ForMathlib.NumberTheory.LFunction.CentralCharacter",
+    "AnalyticLFunction.IsCentralCharacter.eq": "LeanBridge.ForMathlib.NumberTheory.LFunction.CentralCharacter"
+  },
+  "lfunction.central_point": {
+    "AnalyticLFunction.centralPoint": "LeanBridge.ForMathlib.NumberTheory.LFunction.CentralPoint",
+    "AnalyticLFunction.arithmeticCentralPoint": "LeanBridge.ForMathlib.NumberTheory.LFunction.CentralPoint",
+    "AnalyticLFunction.criticalLine_inter_im_eq_zero": "LeanBridge.ForMathlib.NumberTheory.LFunction.CentralPoint",
+    "AnalyticLFunction.one_sub_eq_self_iff": "LeanBridge.ForMathlib.NumberTheory.LFunction.CentralPoint"
   },
   "lfunction.central_value": {
     "AnalyticLFunction.toFun": "LeanBridge.ForMathlib.NumberTheory.LFunction.Basic",
@@ -2345,6 +2385,19 @@
     "AnalyticLFunction.SelbergData.ν": "LeanBridge.ForMathlib.NumberTheory.LFunction.Basic",
     "AnalyticLFunction.SelbergData.gammaFactor": "LeanBridge.ForMathlib.NumberTheory.LFunction.Basic"
   },
+  "lfunction.zeros": {
+    "AnalyticLFunction.zeros": "LeanBridge.ForMathlib.NumberTheory.LFunction.RiemannHypothesis",
+    "AnalyticLFunction.lowestZero": "LeanBridge.ForMathlib.NumberTheory.LFunction.LowestZero",
+    "AnalyticLFunction.centralPoint_add_lowestZero_mul_I_mem_zeros": "LeanBridge.ForMathlib.NumberTheory.LFunction.LowestZero",
+    "AnalyticLFunction.lowestZero_le": "LeanBridge.ForMathlib.NumberTheory.LFunction.LowestZero"
+  },
+  "lfunction.zfunction": {
+    "AnalyticLFunction.zFunction": "LeanBridge.ForMathlib.NumberTheory.LFunction.ZFunction",
+    "riemannSiegelTheta": "LeanBridge.ForMathlib.NumberTheory.LFunction.RiemannSiegelTheta",
+    "exp_riemannSiegelTheta_mul_I": "LeanBridge.ForMathlib.NumberTheory.LFunction.RiemannSiegelTheta",
+    "ofReal_hardyZ_eq_exp_mul_riemannZeta": "LeanBridge.ForMathlib.NumberTheory.LFunction.RiemannSiegelTheta",
+    "AnalyticLFunction.ofReal_zFunction": "LeanBridge.ForMathlib.NumberTheory.LFunction.ZFunction"
+  },
   "mf.bianchi.bianchigroup": {
     "Matrix.ProjectiveSpecialLinearGroup": "Mathlib.LinearAlgebra.Matrix.ProjectiveSpecialLinearGroup",
     "NumberField.RingOfIntegers": "Mathlib.NumberTheory.NumberField.Basic",
@@ -2369,6 +2422,18 @@
     "HyperbolicThreeSpace.laplacian": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.UpperHalfSpace",
     "HyperbolicThreeSpace.moebius": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.UpperHalfSpace",
     "HyperbolicThreeSpace.hyperbolicVolume": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.UpperHalfSpace"
+  },
+  "mf.maass.picard.eigenvalue": {
+    "HyperbolicThreeSpace.picardTrueEigenvalue": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.MaassPicardSpectral",
+    "HyperbolicThreeSpace.HasPicardSpectralParameter": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.MaassPicardSpectral",
+    "HyperbolicThreeSpace.IsPicardMaassForm.eigenvalue_eq": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.MaassPicardSpectral",
+    "HyperbolicThreeSpace.HasPicardSpectralParameter.eq_or_eq_neg": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.MaassPicardSpectral",
+    "HyperbolicThreeSpace.IsPicardMaassForm": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.MaassPicard"
+  },
+  "mf.maass.picard.fourierexpansion": {
+    "HyperbolicThreeSpace.picardFourierTerm": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.MaassPicardSpectral",
+    "HyperbolicThreeSpace.HasPicardFourierExpansion": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.MaassPicardSpectral",
+    "Complex.besselK": "LeanBridge.ForMathlib.Analysis.SpecialFunctions.BesselK"
   },
   "mf.multipliersystem": {
     "MonoidHom.IsMultiplierSystem": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.Basic",

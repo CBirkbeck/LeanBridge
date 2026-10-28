@@ -11,7 +11,7 @@ open Informal
 
 This chapter lists the LMFDB definitions relating to *L-functions*, migrated from the LaTeX blueprint. Each definition links back to its LMFDB knowl. The definitions from this area that the number field, elliptic curve and modular form chapters depend on are in the Background chapter instead.
 
-:::definition "lfunction.analytic_conductor"
+:::definition "lfunction.analytic_conductor" (lean := "AnalyticLFunction.analyticConductor, AnalyticLFunction.SelbergData.analyticConductor, AnalyticLFunction.SelbergData.analyticConductor_eq_analyticConductorLMFDB")
 *Analytic conductor.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.analytic_conductor))
 
 The *analytic conductor* of an {bpref "lfunction"}[L-function] $`L(s)` with {bpref "lfunction.infinity_factor"}[infinity factor] $`L_{\infty}(s)` and {bpref "lfunction.conductor"}[conductor] $`N` is the real number
@@ -29,7 +29,7 @@ The *bad primes* of an {bpref "lfunction"}[L-function] are the primes that divid
 Depends on: {uses "lfunction"}[] {uses "lfunction.conductor"}[]
 :::
 
-:::definition "lfunction.central_character"
+:::definition "lfunction.central_character" (lean := "AnalyticLFunction.IsCentralCharacter, AnalyticLFunction.eulerFactor, AnalyticLFunction.IsCentralCharacter.eq")
 *Central character of an L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.central_character))
 
 An L-function has an {bpref "lfunction.euler_product"}[Euler product] of the form
@@ -351,7 +351,7 @@ For {bpref "lfunction.arithmetic"}[arithmetic] L-functions, the poles are at cer
 Depends on: {uses "lfunction.arithmetic"}[] {uses "lfunction.completed"}[] {uses "lfunction.functional_equation"}[] {uses "lfunction.gamma_factor"}[] {uses "lfunction.normalization"}[] {uses "lfunction.zeros"}[]
 :::
 
-:::definition "lfunction.zeros"
+:::definition "lfunction.zeros" (lean := "AnalyticLFunction.zeros, AnalyticLFunction.lowestZero, AnalyticLFunction.centralPoint_add_lowestZero_mul_I_mem_zeros, AnalyticLFunction.lowestZero_le")
 *Zeros of an L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.zeros))
 
 The *zeros* of an {bpref "lfunction"}[L-function] $`L(s)` are the complex numbers $`\rho` for which $`L(\rho)=0`.
@@ -363,7 +363,7 @@ The *lowest zero* of an L-function $`L(s)` is the least $`\gamma>0` for which $`
 Depends on: {uses "lfunction"}[] {uses "lfunction.critical_line"}[] {uses "lfunction.normalization"}[] {uses "lfunction.rh"}[]
 :::
 
-:::definition "lfunction.zfunction"
+:::definition "lfunction.zfunction" (lean := "AnalyticLFunction.zFunction, riemannSiegelTheta, exp_riemannSiegelTheta_mul_I, ofReal_hardyZ_eq_exp_mul_riemannZeta, AnalyticLFunction.ofReal_zFunction")
 *Z-function of an L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.zfunction))
 
 The (Hardy or Riemann-Siegel) *Z-function* for the Riemann zeta-function is  a real-valued function defined in terms of the values of $`\zeta(s)` on the {bpref "lfunction.critical_line"}[ critical line] via the formula
