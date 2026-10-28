@@ -20,7 +20,7 @@ The set of automorphisms of an {bpref "ag.variety"}[algebraic variety] $`X` form
 Depends on: {uses "ag.variety"}[]
 :::
 
-:::definition "av.decomposition"
+:::definition "av.decomposition" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogenyDecomposition, TauCeti.AlgebraicGeometry.AbelianVariety.listProd, TauCeti.AlgebraicGeometry.AbelianVariety.isIsogenyDecomposition_trivial_nil, TauCeti.AlgebraicGeometry.AbelianVariety.IsSimple, TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogenous")
 *Decomposition into isogeny factors.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.decomposition))
 
 Any abelian variety $`A` is isogenous to a product of {bpref "av.simple"}[simple] abelian varieties $`B_i`, called the *isogeny factors* of $`A`:
@@ -62,7 +62,7 @@ If this is not the case, we say that $`(A,\lambda)` is *indecomposable*.
 Depends on: {uses "ag.abelian_variety"}[]
 :::
 
-:::definition "av.fq.angle_rank"
+:::definition "av.fq.angle_rank" (lean := "Complex.angleRank, Polynomial.angleRank, Polynomial.angleCorank, Polynomial.IsWeilPolynomial")
 *Angle rank of a set.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.fq.angle_rank))
 
 For any set $`\{\alpha_1, \alpha_2, \ldots, \alpha_s\}` of non-zero complex numbers, the *angle rank* of the set is the quantity
@@ -104,7 +104,7 @@ This is the *CM-involution* of $`K` and it is denoted by $`\overline{\cdot}`.
 An order $`R` in $`K` is *conjugate stable* if $`R = \overline{R}`.
 :::
 
-:::definition "av.fq.cyclic_group_points"
+:::definition "av.fq.cyclic_group_points" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.IsCyclicIsogenyClass, TauCeti.AlgebraicGeometry.AbelianVariety.RationalPoint, TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogenous")
 *Cyclic group of points.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.fq.cyclic_group_points))
 
 We say that an {bpref "av.isogeny_class"}[isogeny class] of {bpref "ag.abelian_variety"}[abelian varieties] over a finite field $`\F_q` is *cyclic* if the group of points $`A(\F_q)` is {bpref "group.cyclic"}[cyclic] for every abelian variety $`A` in the isogeny class.
@@ -133,7 +133,7 @@ by fractional $`\mathbb{Z}[F,V]`-ideals $`I` with multiplicator ring equal to $`
 Depends on: {uses "ag.endomorphism_ring"}[] {uses "av.fq.lmfdb_label"}[] {uses "av.isogeny_class"}[] {uses "av.weak_equivalence_class"}[]
 :::
 
-:::definition "av.fq.frobenius_angles"
+:::definition "av.fq.frobenius_angles" (lean := "Polynomial.frobeniusAngles, Polynomial.IsWeilPolynomial.sqrt_mul_exp_arg_mul_I, Polynomial.IsWeilPolynomial")
 *Frobenius angles.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.fq.frobenius_angles))
 
 Given an {bpref "av.isogeny_class"}[isogeny class of abelian varieties] {bpref "ag.base_field"}[defined] over a finite field $`\F_q`, its {bpref "av.fq.weil_polynomial"}[Weil polynomial] is such that all of its roots $`\alpha_1,\alpha_2, \ldots, \alpha_{2g}` have absolute value $`\sqrt{q}`. Therefore all of the information on the roots is contained in the quantities
@@ -259,7 +259,7 @@ The Newton polygon of an {bpref "av.fq.ordinary"}[ordinary] abelian variety has 
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.dimension"}[] {uses "av.fq.ordinary"}[] {uses "av.fq.supersingular"}[] {uses "lf.newton_polygon"}[]
 :::
 
-:::definition "av.fq.noncyclic_primes"
+:::definition "av.fq.noncyclic_primes" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.IsNonCyclicAt, TauCeti.AlgebraicGeometry.AbelianVariety.exists_isNonCyclicAt, CommGroup.isCyclic_of_forall_isCyclic_primaryComponent, CommGroup.primaryComponent")
 *Non-cyclic primes.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.fq.noncyclic_primes))
 
 We say that an {bpref "av.isogeny_class"}[isogeny class] of {bpref "ag.abelian_variety"}[abelian varieties] over a finite field $`\F_q` is *non-cyclic at $`\ell`* if the {bpref "group.primary_decomposition"}[$`\ell`-primary part] of the group of points $`A(\F_q)` is {bpref "group.cyclic"}[non-cyclic] for some abelian variety $`A` in the isogeny class.  If an isogeny class is not {bpref "av.fq.cyclic_group_points"}[cyclic] then there exists at least one prime $`\ell` so that it is non-cyclic at $`\ell`.
@@ -267,7 +267,7 @@ We say that an {bpref "av.isogeny_class"}[isogeny class] of {bpref "ag.abelian_v
 Depends on: {uses "ag.abelian_variety"}[] {uses "av.fq.cyclic_group_points"}[] {uses "av.isogeny_class"}[] {uses "group.cyclic"}[] {uses "group.primary_decomposition"}[]
 :::
 
-:::definition "av.fq.number_field"
+:::definition "av.fq.number_field" (lean := "Polynomial.WeilNumberField, AdjoinRoot, Polynomial.IsWeilPolynomial")
 *Number field of an isogeny class of abelian varieties.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.fq.number_field))
 
 If the {bpref "av.fq.weil_polynomial"}[Weil polynomial] of an {bpref "av.isogeny_class"}[isogeny class of abelian varieties] {bpref "ag.base_field"}[defined] over a finite field is irreducible, then the *number field* attached to this isogeny class is the finite extension of $`\Q` defined by this irreducible polynomial.
@@ -292,7 +292,7 @@ The Frobenius order of an {bpref "av.isogeny_class"}[isogeny class] is an exampl
 Depends on: {uses "av.fq.number_field"}[] {uses "av.isogeny_class"}[] {uses "nf.ring_of_integers"}[]
 :::
 
-:::definition "av.fq.ordinary"
+:::definition "av.fq.ordinary" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.IsOrdinary, TauCeti.AlgebraicGeometry.AbelianVariety.isOrdinary_congr, TauCeti.AlgebraicGeometry.AbelianVariety.IsOrdinary.pCorank_eq_zero, TauCeti.AlgebraicGeometry.AbelianVariety.pRank")
 *Ordinary.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.fq.ordinary))
 
 An {bpref "ag.abelian_variety"}[abelian variety] of {bpref "ag.dimension"}[dimension] $`g` {bpref "ag.base_field"}[defined] over a finite field $`\F_q` with $`q = p^r` is *ordinary* if it has {bpref "av.fq.p_rank"}[$`p`-rank] equal to $`g`.
@@ -320,7 +320,7 @@ The Picard group $`\Pic(\mathcal{O}_K)` of the {bpref "nf.ring_of_integers"}[rin
 Depends on: {uses "av.fq.number_field"}[] {uses "av.fq.order"}[] {uses "nf.class_number"}[] {uses "nf.ideal_class_group"}[] {uses "nf.ring_of_integers"}[]
 :::
 
-:::definition "av.fq.singular_dimensions"
+:::definition "av.fq.singular_dimensions" (lean := "Submodule.IsLocallyPrincipalAt, FractionalIdeal.isLocallyPrincipalAt_of_isUnit, Submodule.residueFinrank, FractionalIdeal")
 *Dimension of a fractional ideal at residue fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.fq.singular_dimensions))
 
 Let $`R` be an {bpref "av.fq.order"}[order] in an étale algebra $`K` and $`I` a fractional $`R`-ideal.
@@ -337,7 +337,7 @@ For each fractional $`R`-ideal $`I` with $`(I:I)=R`, we record the dimensions of
 Depends on: {uses "av.fq.order"}[] {uses "av.fq.singular_primes"}[]
 :::
 
-:::definition "av.fq.singular_primes"
+:::definition "av.fq.singular_primes" (lean := "Subalgebra.singularPrimes, Polynomial.singularSupport, Subalgebra.relativeConductor, Subalgebra.singularPrimes_eq_empty_iff, Polynomial.frobeniusOrder")
 *Singular primes and singular support.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.fq.singular_primes))
 
 A maximal ideal, or prime, $`\mathfrak{P}` of an {bpref "av.fq.order"}[order] $`R` in an étale algebra over $`\Q` is a *singular primes* if it divides the {bpref "av.fq.conductor"}[conductor] $`\mathfrak{f}_R=(R:\mathcal{O}_K)` of $`R`.
@@ -439,7 +439,7 @@ An {bpref "ag.abelian_variety"}[abelian variety] is *geometrically simple* if it
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.base_change"}[] {uses "av.simple"}[]
 :::
 
-:::definition "av.geometrically_squarefree"
+:::definition "av.geometrically_squarefree" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.IsGeometricallySquarefree, TauCeti.AlgebraicGeometry.AbelianVariety.isGeometricallySquarefree_congr, TauCeti.AlgebraicGeometry.AbelianVariety.IsSquarefree, TauCeti.AlgebraicGeometry.AbelianVariety.baseChange")
 *Geometrically squarefree abelian variety.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.geometrically_squarefree))
 
 An {bpref "ag.abelian_variety"}[abelian variety] is *geometrically squarefree* if its {bpref "ag.base_change"}[base change] to an algebraic closure of the ground field is {bpref "av.squarefree"}[squarefree].
@@ -509,7 +509,7 @@ A *semiabelian variety* is a commutative group variety which is an extension of 
 Depends on: {uses "ag.abelian_variety"}[]
 :::
 
-:::definition "av.squarefree"
+:::definition "av.squarefree" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.IsSquarefree, TauCeti.AlgebraicGeometry.AbelianVariety.isSquarefree_congr, TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogenyDecomposition")
 *Squarefree abelian variety.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.squarefree))
 
 An {bpref "ag.abelian_variety"}[abelian variety] is *squarefree* if, in its {bpref "av.decomposition"}[isogeny decomposition], no simple factor occurs up to isogeny with exponent larger than 1.

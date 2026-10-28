@@ -178,7 +178,7 @@ The {bpref "lf.rams"}[ram] $`r_k` is printed to the immediate right of the upper
 Depends on: {uses "lf.family_ambiguity"}[] {uses "lf.family_mass"}[] {uses "lf.herbrand_invariant"}[] {uses "lf.means"}[] {uses "lf.padic_field"}[] {uses "lf.ramification_index"}[] {uses "lf.rams"}[] {uses "lf.residue_field"}[] {uses "lf.residue_field_degree"}[] {uses "lf.slopes"}[]
 :::
 
-:::definition "lf.eisenstein_form"
+:::definition "lf.eisenstein_form" (lean := "Polynomial.IsEisensteinForm, Polynomial.IsEisensteinAt.isEisensteinForm")
 *Eisenstein form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.eisenstein_form))
 
 Let $`K` be a {bpref "lf.padic_field"}[$`p`-adic field], $`\mathcal{O}_K` its {bpref "lf.ring_of_integers"}[ring of integers], and $`\pi` a {bpref "lf.ramification_index"}[uniformizer] for $`\mathcal{O}_K`.
@@ -222,7 +222,7 @@ If $`K` is a finite extension of $`\Q_p` with ring of integers $`\mathcal{O}_K`,
 Depends on: {uses "lf.ramification_index"}[] {uses "ring.field_of_fractions"}[]
 :::
 
-:::definition "lf.family_ambiguity"
+:::definition "lf.family_ambiguity" (lean := "IsNonarchimedeanLocalField.HerbrandInvariant.ambiguity, IsNonarchimedeanLocalField.HerbrandInvariant")
 *Ambiguity of a family.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.family_ambiguity))
 
 Let $`K` be be a {bpref "lf.padic_field"}[$`p`-adic field]
@@ -408,7 +408,7 @@ of $`L/K` which correspond to the segments of the
 Depends on: {uses "lf.discriminant_exponent"}[] {uses "lf.indices_of_inseparability"}[] {uses "lf.means"}[] {uses "lf.padic_field"}[] {uses "lf.ramification_index"}[] {uses "lf.ramification_polygon"}[] {uses "lf.residue_field_degree"}[]
 :::
 
-:::definition "lf.herbrand_function"
+:::definition "lf.herbrand_function" (lean := "IsNonarchimedeanLocalField.HerbrandInvariant.herbrandFunction, IsNonarchimedeanLocalField.HerbrandInvariant.swanSlope, IsNonarchimedeanLocalField.HerbrandInvariant.herbrandFunction_of_mem_Icc, IsNonarchimedeanLocalField.HerbrandInvariant.herbrandFunction_of_le")
 *Herbrand function of a family.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.herbrand_function))
 
 Let $`I/K` be a {bpref "lf.family_polynomial"}[family] of extensions of
@@ -617,7 +617,7 @@ associated to $`w`.
 Depends on: {uses "group.galois.absolute"}[] {uses "group.weight_function"}[] {uses "lf.inertia_group"}[] {uses "lf.ramification_index"}[]
 :::
 
-:::definition "lf.log"
+:::definition "lf.log" (lean := "IsNonarchimedeanLocalField.iwasawaLog, IsNonarchimedeanLocalField.iwasawaLog_of_mem_unitFiltration, IsNonarchimedeanLocalField.iwasawaLog_primeUnit, IsNonarchimedeanLocalField.iwasawaLog_eq_zero_of_pow_eq_one, IsNonarchimedeanLocalField.iwasawaLog_eq_of_pow_eq")
 *$`p`-adic logarithm.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.log))
 
 Let $`K` be a finite extension of $`\Q_p` for some prime $`p`, and
@@ -991,7 +991,7 @@ slopes] of $`L/K`.
 Depends on: {uses "lf.galois_invariants"}[] {uses "lf.padic_field"}[]
 :::
 
-:::definition "lf.tame_degree"
+:::definition "lf.tame_degree" (lean := "IsNonarchimedeanLocalField.tameDegree, IsNonarchimedeanLocalField.galoisTameDegree, IsNonarchimedeanLocalField.ordProj_mul_tameDegree, IsNonarchimedeanLocalField.not_dvd_tameDegree, Algebra.galoisClosure")
 *Tame degree of a local field extension.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.tame_degree))
 
 Let $`K` be a {bpref "lf.padic_field"}[$`p`-adic field] and let
@@ -1007,7 +1007,7 @@ of $`L/K`.
 Depends on: {uses "lf.padic_field"}[] {uses "lf.unramified_subfield"}[] {uses "nf.galois_closure"}[]
 :::
 
-:::definition "lf.top_slope"
+:::definition "lf.top_slope" (lean := "IsNonarchimedeanLocalField.topArtinSlopeOfIsGalois, IsNonarchimedeanLocalField.topArtinSlope, IsNonarchimedeanLocalField.upperRamificationGroup_eq_bot_iff, IsNonarchimedeanLocalField.topArtinSlopeOfIsGalois_of_subsingleton, TauCeti.LocalFieldsRamification.upperRamificationGroup")
 *Top Artin slope for an extension of local fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.top_slope))
 
 Let $`L/K` be an extension of {bpref "lf.padic_field"}[$`p`-adic fields]
@@ -1027,7 +1027,7 @@ is $`0`.
 Depends on: {uses "lf.padic_field"}[] {uses "lf.slopes"}[]
 :::
 
-:::definition "lf.unramified_degree"
+:::definition "lf.unramified_degree" (lean := "TauCeti.inertiaDegree, TauCeti.finrank_unramifiedExtension_inertiaDegree, TauCeti.unramifiedExtension, IsNonarchimedeanLocalField.galoisUnramifiedDegree, TauCeti.eq_unramifiedExtension_inertiaDegree_iff")
 *Unramified degree of a local field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.unramified_degree))
 
 Let $`L/K` be a finite extension of {bpref "lf.padic_field"}[$`p`-adic fields],

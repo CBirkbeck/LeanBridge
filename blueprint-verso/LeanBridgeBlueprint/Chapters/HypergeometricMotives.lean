@@ -11,7 +11,7 @@ open Informal
 
 This chapter lists the LMFDB definitions relating to *hypergeometric motives*, migrated from the LaTeX blueprint. Each definition links back to its LMFDB knowl.
 
-:::definition "hgm.bezout_determinant"
+:::definition "hgm.bezout_determinant" (lean := "Hypergeometric.Parameters.bezoutDeterminant, Hypergeometric.Parameters.bezoutDeterminant_eq")
 *Bézout determinant.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/hgm.bezout_determinant))
 
 The *Bézout determinant* of a hypergeometric motive $`H` is the determinant of its {bpref "hgm.bezout_matrix"}[Bézout matrix].
@@ -19,7 +19,7 @@ The *Bézout determinant* of a hypergeometric motive $`H` is the determinant of 
 Depends on: {uses "hgm.bezout_matrix"}[]
 :::
 
-:::definition "hgm.bezout_matrix"
+:::definition "hgm.bezout_matrix" (lean := "Hypergeometric.Parameters.bezoutMatrix, Hypergeometric.CuspIndex.cyclotomicProd, Hypergeometric.CuspIndex.natDegree_cyclotomicProd, Polynomial.bezoutMatrix")
 *Bézout matrix of a hypergeometric motive.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/hgm.bezout_matrix))
 
 For a list of integers $`C=[c_1,\ldots, c_n]` we associate the polynomial
@@ -33,7 +33,7 @@ Given a hypergeometric motive with {bpref "hgm.defining_parameters"}[defining pa
 Depends on: {uses "alg.bezout_matrix"}[] {uses "hgm.defining_parameters"}[]
 :::
 
-:::definition "hgm.bezout_module"
+:::definition "hgm.bezout_module" (lean := "Hypergeometric.Parameters.BezoutModule")
 *Bézout module of a hypergeometric motive.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/hgm.bezout_module))
 
 The *Bezout module* of a hypergeometric motive $`M` is the finite $`\mathbb{Z}`-module whose relations matrix is the {bpref "hgm.bezout_matrix"}[Bézout matrix] $`B` of $`M`. In other words, it is the quotient $`\mathbb{Z}^d/B \mathbb{Z}^d`, where $`d` is the {bpref "hgm.degree"}[degree] of $`M`.
@@ -59,7 +59,7 @@ Hypergeometric families $`H(A,B)` are indexed by pairs
 $`(A,B)` of cusp-indices of a common degree having no common entries.
 :::
 
-:::definition "hgm.defining_parameters"
+:::definition "hgm.defining_parameters" (lean := "Hypergeometric.Parameters, Hypergeometric.CuspIndex.fractions, Hypergeometric.Parameters.gammaVector, Hypergeometric.Parameters.algebraMap_div_eq_prod_gammaExponent")
 *Defining parameters of a hypergeometric motive.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/hgm.defining_parameters))
 
 A hypergeometric motive $`H(A,B,t)` in $`M(\Q,\Q)` is described by a {bpref "hgm.familes"}[hypergeometric family] $`H(A,B)` in $`M(\Q(t),t)` along with a specialization point $`t \in \Q^\times`. Here, $`A` and $`B` are disjoint multisets of positive integers and are the *defining parameters* of the hypergeometric family; they are subject to a constraint that
@@ -79,7 +79,7 @@ where $`\Phi_n(x)` denotes the $`n`-th cyclotomic polynomial.
 Depends on: {uses "hgm.familes"}[]
 :::
 
-:::definition "hgm.degree"
+:::definition "hgm.degree" (lean := "Hypergeometric.Parameters.degree, Hypergeometric.Parameters.degree_eq_sum_totient_B")
 *Degree of a hypergeometric motive.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/hgm.degree))
 
 Associated to a motive are vector spaces coming from cohomology of an algebraic variety.  The dimension of these vector spaces is the *degree* of the motive.
@@ -152,7 +152,7 @@ For $`t \in \Q` with $`t \neq 0,1`, the {bpref "hgm.motive"}[motive] $`H(A,B,t)`
 Depends on: {uses "hgm.defining_parameters"}[] {uses "hgm.degree"}[] {uses "hgm.familes"}[] {uses "hgm.motive"}[] {uses "hgm.weight"}[]
 :::
 
-:::definition "hgm.imprimitivity_index"
+:::definition "hgm.imprimitivity_index" (lean := "Hypergeometric.Parameters.rotationNumber, Hypergeometric.Parameters.rotationGroup")
 *Imprimitivity index of a hypergeometric motive.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/hgm.imprimitivity_index))
 
 If a hypergeometric family has {bpref "hgm.defining_parameters"}[defining parameters] $`A=(a_1,\ldots,a_n)` and $`B=(b_1,\ldots,b_m)`, then we can view the parameters as giving two multisets of roots of unity, namely for $`A`, the primitive $`a_i`-th roots of unity repeated according to their multiplicities in $`A`, and similarly for $`B`.  These sets has a rotational symmetry group $`R`, which may be trivial.  The *rotation number* is the order of $`R`.
@@ -183,7 +183,7 @@ $`1` or $`2` less than the other $`H(A,B,t)`.
 Depends on: {uses "hgm.familes"}[]
 :::
 
-:::definition "hgm.rotation_number"
+:::definition "hgm.rotation_number" (lean := "Hypergeometric.Parameters.rotationNumber, Hypergeometric.Parameters.rotationGroup, Hypergeometric.Parameters.finite_rotationGroup")
 *Imprimitivity index of a hypergeometric motive.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/hgm.rotation_number))
 
 If a hypergeometric family has {bpref "hgm.defining_parameters"}[defining parameters] $`A=(a_1,\ldots,a_n)` and $`B=(b_1,\ldots,b_m)`, then we can view the parameters as giving two multisets of roots of unity, namely for $`A`, the primitive $`a_i`-th roots of unity repeated according to their multiplicities in $`A`, and similarly for $`B`.  These sets has a rotational symmetry group $`R`, which may be trivial.  The *rotation number* is the order of $`R`.
@@ -201,7 +201,7 @@ The archimedean root number can be recovered from the signature $`s` and the Hod
 Depends on: {uses "hgm.hodge_vector"}[]
 :::
 
-:::definition "hgm.tame"
+:::definition "hgm.tame" (lean := "Hypergeometric.Parameters.IsTamePrime, Hypergeometric.Parameters.isTamePrime_iff_padicValRat")
 *Tame primes for hypergeometric families.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/hgm.tame))
 
 A prime $`p` is called *tame* for a {bpref "hgm.motive"}[hypergeometric motive] $`H(A,B,t)` if $`p` is not {bpref "hgm.wild"}[wild] and either $`v_p(t) \ne 0` or $`v_p(t-1) \ne 0`.  The {bpref "hgm.conductor"}[conductor] of $`H(A,B,t)` is supported at a subset of the tame and wild primes.
@@ -223,7 +223,7 @@ Depends on: {uses "hgm.motive"}[] {uses "hgm.weight"}[]
 Associated to a motive are vector spaces coming from cohomology $`H^*(X)` of an algebraic variety $`X`.  If these vector spaces arise in $`H^w(X)`, then $`w` is the *(motivic) weight* of the motive.  The weight is the number of commas in the {bpref "mot.hodgevector"}[Hodge vector], i.e., the Hodge vector is of the form $`(h^{0,w},\dots,h^{w,0})`.
 :::
 
-:::definition "hgm.wild"
+:::definition "hgm.wild" (lean := "Hypergeometric.Parameters.IsWildPrime")
 *Wild primes for hypergeometric families.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/hgm.wild))
 
 A prime $`p` is called *wild* for a {bpref "hgm.familes"}[hypergeometric family] $`H(A,B)` if it divides an element of the {bpref "hgm.defining_parameters"}[defining parameters] $`A` and $`B`.  The name is appropriate since if $`p` is such a prime, then for most $`t \in \Q^\times` the motive $`H(A,B,t)` is wildly ramified at $`p`.
@@ -231,7 +231,7 @@ A prime $`p` is called *wild* for a {bpref "hgm.familes"}[hypergeometric family]
 Depends on: {uses "hgm.defining_parameters"}[] {uses "hgm.familes"}[]
 :::
 
-:::definition "hgm.zigzagplot"
+:::definition "hgm.zigzagplot" (lean := "Hypergeometric.Parameters.zigzagHeights, Hypergeometric.Parameters.hodgeVector")
 *Zigzag plot.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/hgm.zigzagplot))
 
 The *zigzag plot*, or *zigzag procedure*, is a graphical representation of the {bpref "hgm.defining_parameters"}[defining parameters of a hypergeometric family] $`\alpha` and $`\beta`. For improved readability, we color the $`\alpha` parameters with red, and the $`\beta` parameters with blue. It is constructed by ordering the parameters $`\alpha_i` and $`\beta_j`. One draws a point at $`(0,0)` corresponding to the lowest parameter. One then proceeds in uniform steps from left to right, drawing a point for each parameter and then moving diagonally upwards after red points and diagonally downwards after blue points.

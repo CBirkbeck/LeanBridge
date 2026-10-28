@@ -87,7 +87,7 @@ If $`R` is a {bpref "ring"}[commutative ring], two elements $`x, y \in R` are *a
 Depends on: {uses "ring"}[] {uses "ring.unit"}[]
 :::
 
-:::definition "ring.euclidean_domain"
+:::definition "ring.euclidean_domain" (lean := "IsNatEuclidean, IsNatEuclidean.toEuclideanDomain, IsNatEuclidean.isPrincipalIdealRing, EuclideanDomain")
 *Euclidean domain.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ring.euclidean_domain))
 
 An *Euclidean domain* is an {bpref "ring.integral_domain"}[integral domain] $`R` with a function

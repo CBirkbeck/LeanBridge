@@ -225,7 +225,7 @@ This expansion holds in the region $`\Re(s)>1,` where the product is absolutely 
 $$`\prod_{p } \frac{1}{1-p^{-s}} = \prod_p \left(\sum_{k=0}^\infty p^{-ks} \right) = \sum_{n=1}^\infty n^{-s} = \zeta(s).`
 :::
 
-:::definition "lfunction.root_analytic_conductor"
+:::definition "lfunction.root_analytic_conductor" (lean := "AnalyticLFunction.rootAnalyticConductor, AnalyticLFunction.rootAnalyticConductor_pow_degree")
 *Root analytic conductor.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.root_analytic_conductor))
 
 If $`d` is the {bpref "lfunction.degree"}[degree] of the {bpref "lfunction"}[L-function] $`L(s)`, the *root analytic conductor* $`\alpha` of $`L` is the $`d`th root of the {bpref "lfunction.analytic_conductor"}[analytic conductor] of $`L`.  It plays a role analogous to the {bpref "nf.root_discriminant"}[root discriminant] for {bpref "nf"}[number fields].
@@ -337,7 +337,7 @@ The *spectral parameters* are the numbers $`\mu_j` and $`\nu_k` that appear as s
 Depends on: {uses "lfunction"}[] {uses "lfunction.functional_equation"}[] {uses "lfunction.gamma_factor"}[]
 :::
 
-:::definition "lfunction.trivial_zero"
+:::definition "lfunction.trivial_zero" (lean := "AnalyticLFunction.trivialZeros, AnalyticLFunction.SelbergData.gammaPoles, AnalyticLFunction.zeros")
 *Trivial zeros of an L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.trivial_zero))
 
 The {bpref "lfunction.zeros"}[zeros] of an L-function $`L(s)` that occur at

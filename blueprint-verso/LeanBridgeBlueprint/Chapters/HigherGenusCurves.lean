@@ -11,7 +11,7 @@ open Informal
 
 This chapter lists the LMFDB definitions relating to *higher genus curves*, migrated from the LaTeX blueprint. Each definition links back to its LMFDB knowl.
 
-:::definition "curve.highergenus.aut.braid_equivalence"
+:::definition "curve.highergenus.aut.braid_equivalence" (lean := "Hurwitz.braidOperation, Hurwitz.braidOperationGroup, Hurwitz.braidEquivalence, Hurwitz.braidMove")
 *Braid Equivalence.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/curve.highergenus.aut.braid_equivalence))
 
 Given a group $`G`, the *braid operations* on an $`n`-tuples of elements in $`G` are the maps
@@ -35,7 +35,7 @@ The points $`P` of $`X/G` whose fibers $`\phi^{-1}(P)` have cardinality strictly
 Depends on: {uses "ag.riemann_surface"}[]
 :::
 
-:::definition "curve.highergenus.aut.dimension"
+:::definition "curve.highergenus.aut.dimension" (lean := "MulAction.signatureDimension, MulAction.signatureDimension_signature, MulAction.signature")
 *Dimension of a family of curves.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/curve.highergenus.aut.dimension))
 
 Given a group of automorphisms $`G` acting on a curve $`X/\C` of genus $`g`, with {bpref "curve.highergenus.aut.signature"}[signature] $`[g_0;m_1, \ldots, m_r]`, the *dimension* of the family of curves with this signature is $`3g_0+r-3`, where $`r` is the number of {bpref "curve.highergenus.aut.branchpoints"}[branch points] of the map $`X \to X/G` and $`g_0` is the {bpref "curve.highergenus.aut.quotientgenus"}[quotient genus].
@@ -117,7 +117,7 @@ For a group of automorphisms $`G` acting on a curve $`X`, the {bpref "ag.curve.g
 Depends on: {uses "ag.curve.genus"}[]
 :::
 
-:::definition "curve.highergenus.aut.refinedpassport"
+:::definition "curve.highergenus.aut.refinedpassport" (lean := "RefinedPassport, RefinedPassport.ofGeneratingVector, RefinedPassport.ofGeneratingVector_eq_ofGeneratingVector_iff")
 *Refined passport.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/curve.highergenus.aut.refinedpassport))
 
 Let $`G` be a group of automorphisms acting on a compact {bpref "ag.riemann_surface"}[Riemann surface] $`X` of genus $`g`,  let  $`(s_1, \ldots, s_n)` be a {bpref "curve.highergenus.aut.generatingvector"}[generating vector] for the action of $`G` on $`X`, and let $`\mathcal{C}=(C_1, \ldots, C_n)` be the corresponding vector of conjugacy classes of $`G`.

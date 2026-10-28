@@ -277,7 +277,7 @@ If $`E` is an elliptic curve without {bpref "ec.complex_multiplication"}[complex
 Depends on: {uses "ec"}[] {uses "ec.complex_multiplication"}[] {uses "ec.padic_tate_module"}[] {uses "gl2.index"}[] {uses "gl2.level"}[] {uses "gl2.open"}[] {uses "group.galois.absolute"}[] {uses "nf"}[]
 :::
 
-:::definition "ec.galois_rep_adelic_image"
+:::definition "ec.galois_rep_adelic_image" (lean := "WeierstrassCurve.adelicGaloisImageGenus, Matrix.GeneralLinearGroup.adelicGenus, WeierstrassCurve.adelicGaloisImageLevel, WeierstrassCurve.adelicGaloisImageIndex")
 *Image of the adelic Galois representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.galois_rep_adelic_image))
 
 The image of the {bpref "ec.galois_rep"}[adelic Galois representation] associate to an elliptic curve $`E` over a number field $`K` that does not have {bpref "ec.complex_multiplication"}[potential complex multiplication] is an {bpref "gl2.open"}[open subgroup] $`H` of $`\GL(2,\widehat{\Z})`.  The subgroup $`H` has

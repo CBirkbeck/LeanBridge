@@ -39,7 +39,7 @@ The set of automorphisms of an {bpref "ag.variety"}[algebraic variety] $`X` form
 Depends on: {uses "ag.variety"}[]
 :::
 
-:::definition "ag.bad_prime"
+:::definition "ag.bad_prime" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.badPrimes, TauCeti.AlgebraicGeometry.AbelianVariety.HasGoodReductionAt, AlgebraicGeometry.Scheme.HasGoodReductionAt, TauCeti.AlgebraicGeometry.AbelianVariety")
 *Prime of bad reduction.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.bad_prime))
 
 For an abelian variety $`A` of dimension $`g` over a number field $`K`, a *prime of bad reduction* (for $`A`) is a prime $`\mathfrak{p}` of $`K` for which the reduction of $`A` modulo $`\mathfrak{p}` is not an abelian variety of dimension $`g` over the residue field at $`\mathfrak{p}`.  The number of primes of bad reduction is always finite; these are precisely the primes that divide the {bpref "ag.conductor"}[conductor] of $`A`.
@@ -47,7 +47,7 @@ For an abelian variety $`A` of dimension $`g` over a number field $`K`, a *prime
 Depends on: {uses "ag.conductor"}[]
 :::
 
-:::definition "ag.bielliptic_curve"
+:::definition "ag.bielliptic_curve" (lean := "AlgebraicGeometry.Scheme.IsBiellipticCurveOver, AlgebraicGeometry.Scheme.IsBiellipticInvolution, TauCeti.IsBiellipticFunctionField, TauCeti.IsBiellipticInvolution, TauCeti.IsEllipticFunctionField")
 *Bielliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.bielliptic_curve))
 
 A smooth projective {bpref "ag.curve"}[algebraic curve] $`X` defined over a field $`k` of {bpref "ag.curve.genus"}[genus] $`g\ge 2` is a *bielliptic curve* if and only if it satisfies one of the following conditions:
@@ -130,7 +130,7 @@ Isogenous abelian varieties have the same conductor.
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.jacobian"}[]
 :::
 
-:::definition "ag.cyclic_trigonal"
+:::definition "ag.cyclic_trigonal" (lean := "AlgebraicGeometry.Scheme.IsCyclicTrigonalCurveOver, TauCeti.IsCyclicTrigonalFunctionField, TauCeti.IsTrigonalAutomorphism, TauCeti.isCyclicTrigonalFunctionField_iff_exists_isTrigonalAutomorphism")
 *Cyclic trigonal curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.cyclic_trigonal))
 
 An {bpref "ag.curve"}[algebraic curve] $`X` is a *cyclic trigonal curve* if there is an order $`3` subgroup $`H` of its {bpref "g2c.aut_grp"}[automorphism group] such that the {bpref "ag.quotient_curve"}[quotient curve] $`X/H` is isomorphic to $`\mathbb{P}^1`.
@@ -158,7 +158,7 @@ For an abelian variety $`A` over a field $`F`, the *geometric endomorphism algeb
 Depends on: {uses "ag.geom_endomorphism_ring"}[]
 :::
 
-:::definition "ag.gonality"
+:::definition "ag.gonality" (lean := "TauCeti.gonality, AlgebraicGeometry.Scheme.gonality, TauCeti.IsFunctionField.exists_finrank_eq_gonality, TauCeti.IsFunctionField.gonality_pos")
 *Gonality of a curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.gonality))
 
 The *gonality* (or *$`k`-gonality*) of an integral {bpref "ag.curve"}[algebraic curve] $`X` over a field $`k` is the minimal degree of a dominant $`k`-morphism $`X \to \mathbb{P}^1_k`.  Equivalently, it is the minimum of $`[k(X):k(t)]` as $`t` ranges over (transcendental) elements of the function field $`k(X)` of $`X`.
@@ -168,7 +168,7 @@ The base extension of any dominant morphism $`X \to \mathbb{P}^1_k`  is a domina
 Depends on: {uses "ag.curve"}[]
 :::
 
-:::definition "ag.gonality_geom"
+:::definition "ag.gonality_geom" (lean := "AlgebraicGeometry.Scheme.geometricGonality, AlgebraicGeometry.Scheme.IsHyperellipticCurveOver.geometricGonality_le_two, AlgebraicGeometry.Scheme.geometricBaseChange, TauCeti.gonality")
 *Geometric gonality.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.gonality_geom))
 
 Let $`X` be a geometrically integral {bpref "ag.curve"}[algebraic curve] over a field $`k`.
@@ -179,7 +179,7 @@ The *geometric gonality* (or *$`\overline{k}`-gonality*) of $`X` is the {bpref "
 Depends on: {uses "ag.curve"}[] {uses "ag.gonality"}[]
 :::
 
-:::definition "ag.good_reduction"
+:::definition "ag.good_reduction" (lean := "AlgebraicGeometry.Scheme.HasGoodReductionAt, AlgebraicGeometry.Scheme.badReductionPrimes, TauCeti.Model, TauCeti.Model.IsProper, AlgebraicGeometry.Smooth")
 *Good and bad reduction.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.good_reduction))
 
 A smooth proper {bpref "ag.variety"}[variety] $`X` over a {bpref "nf"}[number field] $`K` is said to have *good reduction* at a {bpref "nf.prime"}[prime] $`\mathfrak{p}` if it has a model over $`\mathcal{O}_{K, \mathfrak{p}}` whose reduction modulo $`\mathfrak{p}` is a smooth variety over the residue field; more precisely, $`X` has good reduction if it is the generic fiber of a smooth proper scheme over $`\mathcal{O}_{K, \mathfrak{p}}`.  Otherwise, $`\mathfrak{p}` is said to be a prime of *bad reduction*.
@@ -207,7 +207,7 @@ See also the {bpref "ag.arithmetic_genus"}[arithmetic genus].
 A *plane model* of a smooth projective curve $`X` is a closed curve $`f(x,y,z)=0` in $`\mathbb{P}^2` that is birational to $`X`.  Such a model is *singular* if the zero locus of $`f` and its partial derivatives is non-empty, otherwise it is *smooth*.
 :::
 
-:::definition "ag.potential_good_reduction"
+:::definition "ag.potential_good_reduction" (lean := "AlgebraicGeometry.Scheme.HasPotentialGoodReductionAt, AlgebraicGeometry.Scheme.HasGoodReductionAt, WeierstrassCurve.HasPotentialGoodReduction")
 *Potential good reduction.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.potential_good_reduction))
 
 A smooth proper {bpref "ag.variety"}[variety] $`X` over a {bpref "nf"}[number field] $`K` is said to have *potential good reduction* at a {bpref "nf.prime"}[prime] $`\mathfrak{p}` if there is a finite extension $`L \supset K` such that the {bpref "ag.base_change"}[base change] $`X_L` has {bpref "ag.good_reduction"}[good reduction] at all primes $`\mathfrak{q}` of $`L` above $`\mathfrak{p}`.
@@ -239,7 +239,7 @@ The *real geometric endomorphism algebra* of an abelian variety $`A` over a fiel
 Depends on: {uses "ag.geom_endomorphism_ring"}[]
 :::
 
-:::definition "ag.real_multiplication"
+:::definition "ag.real_multiplication" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.HasRealMultiplication, TauCeti.AlgebraicGeometry.AbelianVariety.HasNontrivialRealMultiplication, TauCeti.AlgebraicGeometry.AbelianVariety.hasRealMultiplication_congr, TauCeti.AlgebraicGeometry.AbelianVariety.EndAlgebra")
 *Real multiplication.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.real_multiplication))
 
 An {bpref "ag.abelian_variety"}[abelian variety] is said to have *real multiplication* (RM) if its {bpref "ag.endomorphism_algebra"}[endomorphism algebra] is a totally real (number) field.  (In most situations, we exclude the trivial case of RM by $`\Q`.)
@@ -292,7 +292,7 @@ One definition starts with connected complex manifolds such that for every point
 Then, *(connected) Shimura varieties* are quotients of Hermitian symmetric domains by torsion-free subgroups of the group of automorphisms of the domain.
 :::
 
-:::definition "ag.splitting_field"
+:::definition "ag.splitting_field" (lean := "TauCeti.torusSplittingField, TauCeti.IsTorusSplittingField, TauCeti.IsTorusSplitOver, TauCeti.IsTorusSplittingField.torusSplittingField_eq, TauCeti.torusCommHopfAlgProperty")
 *Splitting field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.splitting_field))
 
 The *splitting field* of an algebraic torus $`T` is the minimal {bpref "nf.is_galois"}[Galois] extension of its {bpref "ag.base_field"}[base field] over which $`T` becomes isomorphic to a power of the multiplicative group $`\mathbb{G}_m`.

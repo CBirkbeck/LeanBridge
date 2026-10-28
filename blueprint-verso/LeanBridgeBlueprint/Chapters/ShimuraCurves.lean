@@ -96,7 +96,7 @@ When $`X_H` has {bpref "modcurve.genus"}[genus] zero, $`J_H` is the trivial abel
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.dimension"}[] {uses "ag.jacobian"}[] {uses "av.decomposition"}[] {uses "av.isogeny"}[] {uses "av.simple"}[] {uses "cmf.galois_orbit"}[] {uses "cmf.label"}[] {uses "cmf.newform"}[] {uses "cmf.weight"}[] {uses "modcurve.genus"}[] {uses "shimcurve"}[]
 :::
 
-:::definition "shimcurve.discb"
+:::definition "shimcurve.discb" (lean := "QuaternionAlgebra.discriminant, QuaternionAlgebra.IsRamifiedAt, QuaternionAlgebra.IsSplitAt")
 *Discriminant of a quaternion algebra.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.discb))
 
 Let $`B` be a {bpref "shimcurve.quaternion_algebra"}[quaternion algebra] over $`\Q`. We say that $`B` is *ramified* at a
@@ -108,7 +108,7 @@ The *discriminant* $`\operatorname{disc}(B)` of $`B` is the product of primes $`
 Depends on: {uses "shimcurve.quaternion_algebra"}[]
 :::
 
-:::definition "shimcurve.disco"
+:::definition "shimcurve.disco" (lean := "Subalgebra.quaternionDisc, Subalgebra.quaternionDiscrd, Subalgebra.quaternionDiscOfBasis, QuaternionAlgebra.reducedTrace, QuaternionAlgebra.reducedTrace_quaternionAlgebra")
 *Discriminant of a quaternion order.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.disco))
 
 Let $`B` be a {bpref "shimcurve.quaternion_algebra"}[quaternion algebra] over $`\Q`, and let $`O\subset B` be an
@@ -129,7 +129,7 @@ $$`\operatorname{discrd}(O)^2 = \operatorname{disc}(O).`
 Depends on: {uses "shimcurve.order"}[] {uses "shimcurve.quaternion_algebra"}[]
 :::
 
-:::definition "shimcurve.eichler"
+:::definition "shimcurve.eichler" (lean := "Subalgebra.IsEichlerOrder, Subalgebra.IsEichlerOrderOfLevel, Subalgebra.IsMaximalQuaternionOrder, Subalgebra.IsQuaternionOrder")
 *Eichler Orders.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.eichler))
 
 An *Eichler {bpref "shimcurve.order"}[order]* $`O` inside a {bpref "shimcurve.quaternion_algebra"}[quaternion algebra] $`B` is the intersection of two (not necessarily distinct) maximal orders. Over $`\Q`, the {bpref "shimcurve.disco"}[reduced discriminant] of an Eichler order $`O` is of the form $`\mathrm{disc}(O)=D\cdot M` with $`\gcd(D,M)=1`, in which case we say $`O` is *Eichler of level $`M`*.
@@ -265,7 +265,7 @@ When $`X` has {bpref "shimcurve.genus"}[genus] $`0` the absence of local obstruc
 Depends on: {uses "shimcurve"}[] {uses "shimcurve.genus"}[]
 :::
 
-:::definition "shimcurve.nrdmu"
+:::definition "shimcurve.nrdmu" (lean := "PolarizedQuaternionOrder.degree, QuaternionAlgebra.reducedNorm, QuaternionAlgebra.reducedNorm_quaternionAlgebra")
 *Polarization degree of a polarized order.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.nrdmu))
 
 Let $`(O,\mu)` be a {bpref "shimcurve.polarized_order"}[polarized quaternion order]. The *polarization degree*
@@ -292,7 +292,7 @@ algebra; however, the number of $`B^\times`-conjugacy classes is finite (and in 
 Depends on: {uses "nf.order"}[] {uses "shimcurve.quaternion_algebra"}[]
 :::
 
-:::definition "shimcurve.polarized_order"
+:::definition "shimcurve.polarized_order" (lean := "PolarizedQuaternionOrder, Subalgebra.IsPolarization, QuaternionAlgebra.IsIndefinite, QuaternionAlgebra.IsDivision")
 *Polarized quaternion order.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.polarized_order))
 
 Let $`O` be an {bpref "shimcurve.order"}[order] in an indefinite

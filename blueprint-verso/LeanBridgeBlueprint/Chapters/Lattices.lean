@@ -29,7 +29,7 @@ Depends on: {uses "lattice.definition"}[] {uses "lattice.dimension"}[] {uses "la
 A lattice is called *algebraic* if it can be realized as a free $`\mathbb{Z}`-module in an algebraic number field.
 :::
 
-:::definition "lattice.arithmetic"
+:::definition "lattice.arithmetic" (lean := "ZLattice.IsArithmetic, ZLattice.IsArithmetic.smul")
 *Arithmetic lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.arithmetic))
 
 A lattice is called *arithmetic* if it is {bpref "lattice.similarity"}[similar] to an {bpref "lattice.definition"}[integral lattice].
@@ -63,7 +63,7 @@ For a complete description of the Conway symbol, see Conway-Sloane, Chapter 15.
 Depends on: {uses "lattice.definition"}[] {uses "lattice.genus"}[] {uses "lattice.signature"}[]
 :::
 
-:::definition "lattice.covering_radius"
+:::definition "lattice.covering_radius" (lean := "ZLattice.inhomogeneousMinimum, ZLattice.coveringRadius, ZLattice.coveringRadius_eq")
 *Covering radius.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.covering_radius))
 
 *Covering radius* (also known as *inhomogeneous minimum*) of a convex $`\boldsymbol 0`-symmetric set $`K` in $`\mathbb{R}^n` with respect to a full-rank lattice $`L \subset \mathbb{R}^n` is $`\mu = \min \{ t > 0 : \bigcup_{\boldsymbol x \in L} (\boldsymbol x + tK) = \mathbb{R}^n \}`. Covering radius satisfies Jarnik's inequality:
@@ -133,7 +133,7 @@ The *rank* of an {bpref "lattice.definition"}[integral lattice] is the rank of i
 Depends on: {uses "lattice.definition"}[]
 :::
 
-:::definition "lattice.discriminant"
+:::definition "lattice.discriminant" (lean := "TauCeti.IntegralLattice.determinant, TauCeti.IntegralLattice.wittDiscriminant, TauCeti.IntegralLattice.geometricDiscriminant, TauCeti.IntegralLattice.halfDiscriminant, TauCeti.IntegralLattice.twoAdicUnitDiscriminant")
 *Discriminant of an integral lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.discriminant))
 
 For an {bpref "lattice.definition"}[integral lattice] $`L`, the *discriminant* $`D` of $`L` is defined as the determinant of the {bpref "lattice.gram"}[Gram matrix] associated to any basis of $`L`.
@@ -155,7 +155,7 @@ There are several different conventions for the term "discriminant" in the liter
 Depends on: {uses "lattice.definition"}[] {uses "lattice.dimension"}[] {uses "lattice.gram"}[] {uses "lattice.hyperbolic_plane"}[] {uses "lattice.postive_definite"}[] {uses "lattice.quadratic_form"}[]
 :::
 
-:::definition "lattice.discriminant_group"
+:::definition "lattice.discriminant_group" (lean := "TauCeti.IntegralLattice.DiscriminantGroup, TauCeti.IntegralLattice.discriminantPairing, TauCeti.IntegralLattice.torsionQuadraticForm, TauCeti.IntegralLattice.IsDiscriminantGramMatrix, TauCeti.IntegralLattice.isDiscriminantGramMatrix_form")
 *Discriminant group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.discriminant_group))
 
 For an {bpref "lattice.definition"}[integral lattice] $`L` with associated bilinear form $`B`, the *discriminant group* is the finite {bpref "group.abelian"}[abelian group] $`L^\vee / L`, where $`L^\vee` is the {bpref "lattice.dual"}[dual lattice] of $`L`.
@@ -197,7 +197,7 @@ for all $`i, j`.  Equivalently, if $`B` denotes the matrix whose rows are $`v_i`
 Depends on: {uses "lattice.definition"}[] {uses "lattice.dimension"}[] {uses "lattice.gram"}[] {uses "lattice.positive_definite"}[]
 :::
 
-:::definition "lattice.eutactic"
+:::definition "lattice.eutactic" (lean := "ZLattice.minimalVectors, ZLattice.IsEutactic, ZLattice.IsStronglyEutactic, ZLattice.IsStronglyEutactic.isEutactic, ZLattice.IsEutactic.span_minimalVectors")
 *Eutactic lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.eutactic))
 
 A lattice $`L` in $`\mathbb{R}^n` is called *eutactic* if there exist positive real numbers $`c_1,\dots,c_m` such that for every $`v \in \mathbb{R}^n`, the inner product
@@ -229,7 +229,7 @@ A lattice $`L` in $`\mathbb{R}^n` is called *extreme* if it is a local maximum o
 Depends on: {uses "lattice.density"}[] {uses "lattice.eutactic"}[] {uses "lattice.perfect"}[]
 :::
 
-:::definition "lattice.festi_veniani_index"
+:::definition "lattice.festi_veniani_index" (lean := "TauCeti.IntegralLattice.discriminantGroupAction, TauCeti.IntegralLattice.festiVenianiIndex, TauCeti.IntegralLattice.festiVenianiIndex_ne_zero, TauCeti.IntegralLattice.Isometry.discriminantGroupEquiv")
 *Festi-Veniani index of a lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.festi_veniani_index))
 
 For an {bpref "lattice.definition"}[integral lattice] $`L`, the *Festi--Veniani index* of $`L` is the index of the {bpref "lattice.automorphism_group"}[automorphism group] of $`L` in the automorphism group of the {bpref "lattice.discriminant_group"}[discriminant group] $`L^\vee/L`.
@@ -425,7 +425,7 @@ If an {bpref "lattice.definition"}[integral lattice] $`L` has {bpref "lattice.gr
 Depends on: {uses "lattice.definition"}[] {uses "lattice.gram"}[]
 :::
 
-:::definition "lattice.perfect"
+:::definition "lattice.perfect" (lean := "ZLattice.IsPerfect, ZLattice.IsPerfect.span_minimalVectors, ZLattice.minimalVectors")
 *Perfect lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.perfect))
 
 A lattice $`L` in $`\mathbb{R}^n` is called *perfect* if the space of $`n \times n` real symmetric matrices is spanned by the set of $`n \times n` symmetric matrices

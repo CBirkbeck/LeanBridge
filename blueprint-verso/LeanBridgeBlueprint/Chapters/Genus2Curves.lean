@@ -19,7 +19,7 @@ The *absolute discriminant* of a {bpref "g2c.g2curve"}[genus 2 curve] over $`\Q`
 Depends on: {uses "g2c.discriminant"}[] {uses "g2c.g2curve"}[]
 :::
 
-:::definition "g2c.all_rational_points"
+:::definition "g2c.all_rational_points" (lean := "HyperellipticEquation.RationalPoint, HyperellipticEquation.IsWeightedSolution, HyperellipticEquation.weightedScale, AlgebraicGeometry.Scheme.PointOver")
 *Rational points.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.all_rational_points))
 
 For a curve $`X` of {bpref "ag.curve.genus"}[genus] $`g\ge 2` over $`\Q` (or any number fields) the set of *rational points* $`X(\Q)` is finite, by a theorem of Faltings. At present no algorithm is known that explicitly computes a provably complete list of the points in $`X(\Q)`, for any given curve $`X`, but in specific cases, including when the rank of the {bpref "ag.jacobian"}[Jacobian] of $`X` is less than $`g`, this can often be accomplished.
@@ -230,7 +230,7 @@ The *geometric isomorphism class* of a {bpref "ag.curve"}[curve] $`C` {bpref "ag
 Depends on: {uses "ag.base_change"}[] {uses "ag.base_field"}[] {uses "ag.curve"}[]
 :::
 
-:::definition "g2c.gl2type"
+:::definition "g2c.gl2type" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.IsSimpleGL2Type, TauCeti.AlgebraicGeometry.AbelianVariety.IsGL2Type, TauCeti.AlgebraicGeometry.AbelianVariety.IsCurveGL2Type")
 *$`\GL_2`-type.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.gl2type))
 
 A {bpref "ag.simple"}[simple] {bpref "ag.abelian_variety"}[abelian variety] $`A` over a field $`K` is said to be of *$`\textbf{GL}_2`-type* if its {bpref "ag.endomorphism_algebra"}[endomorphism algebra] $`\mathrm{End}(A)\otimes\Q` is commutative and has dimension (as a $`\Q`-vector space) equal to the dimension of $`A` (as an abelian variety).  More generally, an abelian variety is said to be of *$`\textbf{GL}_2`-type* if it is isogenous (over the ground field) to a product of pairwise non-isogenous simple abelian varieties of $`\textrm{GL}_2`-type.
@@ -359,7 +359,7 @@ For primes of {bpref "g2c.good_reduction"}[good reduction] the valuations of bot
 Depends on: {uses "ag.conductor"}[] {uses "ag.jacobian"}[] {uses "g2c.discriminant"}[] {uses "g2c.g2curve"}[] {uses "g2c.good_reduction"}[] {uses "g2c.tamagawa"}[]
 :::
 
-:::definition "g2c.locally_solvable"
+:::definition "g2c.locally_solvable" (lean := "AlgebraicGeometry.Scheme.IsLocallySolvable, AlgebraicGeometry.Scheme.PointOver, AlgebraicGeometry.Scheme.isLocallySolvable_of_nonempty, AlgebraicGeometry.Scheme.HasPointIn")
 *Locally solvable.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.locally_solvable))
 
 A {bpref "ag.curve"}[curve] defined over the rational numbers is said to be *locally solvable* if the equation(s) defining the curve have a solution over $`\R` and over {bpref "lf.qp"}[$`\Q_p`] for every prime $`p`.  For curves over {bpref "nf"}[number fields] we require solutions over every completion of the number field.

@@ -67,7 +67,7 @@ The *class number* of a {bpref "nf"}[number field] $`K` is the order of the {bpr
 Depends on: {uses "nf"}[] {uses "nf.ideal_class_group"}[]
 :::
 
-:::definition "nf.class_number_formula"
+:::definition "nf.class_number_formula" (lean := "NumberField.ClassNumberFormula, NumberField.exists_tendsto_sub_one_mul_dedekindZeta, NumberField.dedekindZeta_residue")
 *Analytic class number formula.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.class_number_formula))
 
 If $`K` is a {bpref "nf"}[number field] with {bpref "nf.signature"}[signature] $`(r_1, r_2)`, {bpref "nf.discriminant"}[discriminant] $`D`, {bpref "nf.regulator"}[regulator] $`R`, {bpref "nf.class_number"}[class number] $`h`, containing $`w` roots of unity, and Dedekind $`\zeta`-function $`\zeta_K`, then $`\zeta_K` has a meromorphic continuation to the whole complex plane with a single pole at $`s=1`, which is of order $`1`.  The *analytic class number formula* gives the residue at this pole:
@@ -666,7 +666,7 @@ If $`L/K` is a field extension and $`A` is a separable $`K`-algebra then $`A\oti
 Depends on: {uses "nf.separable"}[]
 :::
 
-:::definition "nf.serre_odlyzko_bound"
+:::definition "nf.serre_odlyzko_bound" (lean := "NumberField.serreOdlyzkoBound, NumberField.minRootDiscr, NumberField.SerreOdlyzkoInequality")
 *Serre Odlyzko bound.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.serre_odlyzko_bound))
 
 For each positive integer $`n`, let $`C_n` for the minimum {bpref "nf.root_discriminant"}[root discriminant] for all {bpref "nf"}[number fields] of {bpref "nf.degree"}[degree] $`n`.  Assuming the {bpref "lfunction.rh"}[Generalized Riemann Hypothesis], $`\limsup C_n \geq \Omega` where

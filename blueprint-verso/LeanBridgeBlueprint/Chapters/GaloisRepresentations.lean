@@ -14,7 +14,7 @@ file := "Mod-l-Galois-representations"
 
 This chapter lists the LMFDB definitions relating to *mod-ℓ Galois representations*, migrated from the LaTeX blueprint. Each definition links back to its LMFDB knowl.
 
-:::definition "modlgal"
+:::definition "modlgal" (lean := "MonoidHom.IsModEllGaloisRep, MonoidHom.splittingField, MonoidHom.galoisFactor, Field.absoluteGaloisGroup")
 *Mod-$`l` Galois representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modlgal))
 
 A *mod-$`\ell` Galois representation* is a representation of the {bpref "group.galois.absolute"}[abolute Galois group] $`\Gal_K` of a {bpref "nf"}[number field] $`K` with values in the $`\F_{\ell}`-points of an algebraic group.
@@ -64,7 +64,7 @@ The *codomain* of a {bpref "modlgal"}[mod-$`\ell` Galois representation] $`\rho:
 Depends on: {uses "modlgal"}[]
 :::
 
-:::definition "modlgal.conductor"
+:::definition "modlgal.conductor" (lean := "Representation.modEllConductor, Representation.conductorExponent, Representation.conductorExponentAt, Representation.conductorExponent_eq, Representation.conductorExponent_eq_zero")
 *Conductor.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modlgal.conductor))
 
 The *conductor* of an {bpref "modlgal"}[mod-$`\ell` Galois representation] is a positive integer coprime to $`\ell` that measures ramification.  It can be expressed as a product of local conductors.
@@ -114,7 +114,7 @@ $`1`-dimensional {bpref "modlgal"}[mod-$`\ell` Galois representations] are also 
 Depends on: {uses "modlgal"}[]
 :::
 
-:::definition "modlgal.frobenius_charpoly"
+:::definition "modlgal.frobenius_charpoly" (lean := "MonoidHom.frobeniusCharpoly, MonoidHom.frobeniusCharpoly_eq, MonoidHom.frobeniusClass, NumberField.artinSymbol")
 *Characteristic polynomial of Frobenius.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modlgal.frobenius_charpoly))
 
 Let $`\rho:\Gal_K\to G(\F_{\ell})` be a {bpref "modlgal"}[mod-$`\ell` Galois representation].   The *characteristic polynomial of Frobenius* of a {bpref "nf.prime"}[prime] $`\frak{p}` of $`K` at which $`\rho` is {bpref "modlgal.ramified"}[unramified] is the characteristic polynomial of $`\rho(\text{Frob}_{\frak{p}})`.
@@ -124,7 +124,7 @@ Note that {bpref "modlgal.ramified"}[unramified] primes $`\frak{p}` of $`K` are,
 Depends on: {uses "modlgal"}[] {uses "modlgal.ramified"}[] {uses "modlgal.splitting_field"}[] {uses "nf.prime"}[]
 :::
 
-:::definition "modlgal.frobenius_determinant"
+:::definition "modlgal.frobenius_determinant" (lean := "MonoidHom.frobeniusDet, MonoidHom.frobeniusDet_eq, MonoidHom.frobeniusClass")
 *Frobenius determinant.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modlgal.frobenius_determinant))
 
 Let $`\rho:\Gal_K\to G(\F_{\ell})` be a {bpref "modlgal"}[mod-$`\ell` Galois representation].   The *Frobenius determinant* of a {bpref "nf.prime"}[prime] $`\frak{p}` of $`K` at which $`\rho` is {bpref "modlgal.ramified"}[unramified] is the determinant of $`\rho(\text{Frob}_{\frak{p}})`.  This is the same as the value of the {bpref "modlgal.determinant"}[determinant character] at $`\text{Frob}_{\frak{p}}`.
@@ -134,7 +134,7 @@ Note that {bpref "modlgal.ramified"}[unramified] primes $`\frak{p}` of $`K` are,
 Depends on: {uses "modlgal"}[] {uses "modlgal.determinant"}[] {uses "modlgal.ramified"}[] {uses "modlgal.splitting_field"}[] {uses "nf.prime"}[]
 :::
 
-:::definition "modlgal.frobenius_matrix"
+:::definition "modlgal.frobenius_matrix" (lean := "MonoidHom.IsFrobeniusMatrix, MonoidHom.frobeniusClass, MonoidHom.galoisFactor_restrictNormalHom")
 *Frobenius matrix.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modlgal.frobenius_matrix))
 
 A *Frobenius matrix* for a {bpref "modlgal"}[mod-$`\ell` Galois representation]  is an element of the conjugacy class of the image of the absolute Frobenius element associated to a particular prime.
@@ -142,7 +142,7 @@ A *Frobenius matrix* for a {bpref "modlgal"}[mod-$`\ell` Galois representation] 
 Depends on: {uses "modlgal"}[]
 :::
 
-:::definition "modlgal.frobenius_order"
+:::definition "modlgal.frobenius_order" (lean := "MonoidHom.frobeniusOrder, MonoidHom.frobeniusOrder_eq, MonoidHom.frobeniusClass")
 *Frobenius order.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modlgal.frobenius_order))
 
 Let $`\rho:\Gal_K\to G(\F_{\ell})` be a {bpref "modlgal"}[mod-$`\ell` Galois representation].   The *Frobenius order* of a {bpref "nf.prime"}[prime] $`\frak{p}` of $`K` at which $`\rho` is {bpref "modlgal.ramified"}[unramified] is the {bpref "group.order"}[order] of $`\rho(\text{Frob}_{\frak{p}})` as an element of the finite group $`G(\F_{\ell})`.
@@ -160,7 +160,7 @@ A *Frobenius prime* or *good prime* for a {bpref "modlgal"}[mod-$`\ell` Galois r
 Depends on: {uses "modlgal"}[] {uses "modlgal.ramified"}[] {uses "modlgal.splitting_field"}[] {uses "nf.prime"}[]
 :::
 
-:::definition "modlgal.frobenius_trace"
+:::definition "modlgal.frobenius_trace" (lean := "MonoidHom.frobeniusTrace, MonoidHom.frobeniusTrace_eq, MonoidHom.frobeniusClass")
 *Frobenius trace.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modlgal.frobenius_trace))
 
 Let $`\rho:\Gal_K\to G(\F_{\ell})` be a {bpref "modlgal"}[mod-$`\ell` Galois representation].   The *Frobenius trace* of a {bpref "nf.prime"}[prime] $`\frak{p}` of $`K` at which $`\rho` is {bpref "modlgal.ramified"}[unramified] is the trace of $`\rho(\text{Frob}_{\frak{p}})`.
