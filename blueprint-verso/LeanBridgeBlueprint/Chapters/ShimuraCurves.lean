@@ -145,7 +145,7 @@ An *elliptic point* of a {bpref "shimcurve"}[Shimura curve] $`X_H` is a point wi
 Depends on: {uses "shimcurve"}[]
 :::
 
-:::definition "shimcurve.enhanced_group"
+:::definition "shimcurve.enhanced_group" (lean := "Subalgebra.EnhancedGroup, Subalgebra.completedUnits, Subalgebra.completedUnitsAction")
 *Enhanced group associated to a polarized quaternion order.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.enhanced_group))
 
 Let $`(O,\mu)` be a {bpref "shimcurve.polarized_order"}[polarized quaternion order].
@@ -193,7 +193,7 @@ The *$`K`-gonality* $`\gamma` of a {bpref "shimcurve"}[Shimura curve] $`X_H` is 
 Depends on: {uses "ag.geom_component"}[] {uses "ag.gonality"}[] {uses "shimcurve"}[]
 :::
 
-:::definition "shimcurve.index"
+:::definition "shimcurve.index" (lean := "Subgroup.index, Subalgebra.EnhancedGroup")
 *Index of a Shimura curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.index))
 
 The *index* of a {bpref "shimcurve"}[Shimura curve]
@@ -237,7 +237,7 @@ compact subgroup of the {bpref "shimcurve.enhanced_group"}[enhanced semidirect p
 Depends on: {uses "shimcurve"}[] {uses "shimcurve.discb"}[] {uses "shimcurve.disco"}[] {uses "shimcurve.enhanced_group"}[] {uses "shimcurve.genus"}[] {uses "shimcurve.index"}[] {uses "shimcurve.level"}[] {uses "shimcurve.nrdmu"}[] {uses "shimcurve.polarized_order"}[] {uses "shimcurve.quaternion_algebra"}[]
 :::
 
-:::definition "shimcurve.level"
+:::definition "shimcurve.level" (lean := "Subalgebra.enhancedGroupLevel, Subalgebra.enhancedGroupKernel, Subalgebra.enhancedGroupKernel_le_of_level_pos")
 *Level of a Shimura curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.level))
 
 Let $`(O,\mu)` be a {bpref "shimcurve.polarized_order"}[polarized quaternion order], and let

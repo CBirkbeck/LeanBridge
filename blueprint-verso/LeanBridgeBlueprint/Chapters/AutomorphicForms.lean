@@ -11,7 +11,7 @@ open Informal
 
 This chapter lists the LMFDB definitions relating to *automorphic forms*, migrated from the LaTeX blueprint. Each definition links back to its LMFDB knowl. The definitions from this area that the number field, elliptic curve and modular form chapters depend on are in the Background chapter instead.
 
-:::definition "mf"
+:::definition "mf" (lean := "ModularForm.multiplierSpace, ModularForm.mem_multiplierSpace_one_iff, ModularForm")
 *Modular form (general).* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf))
 
 The term *modular form* is used to describe several types
@@ -212,7 +212,7 @@ In particular,  if $`x \in \C`, we have $`x \mapsto \begin{pmatrix} x & 0 \\ 0 &
 $`\mathcal{H}_3 \subset \mathbb{H}`.
 :::
 
-:::definition "mf.bianchi.level"
+:::definition "mf.bianchi.level" (lean := "Ideal.gamma0GL, Ideal.gamma0SL, Ideal.mem_gamma0SL, Ideal.absNorm")
 *Level of a Bianchi modular form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.bianchi.level))
 
 The <b>level</b> of a {bpref "mf.bianchi"}[Bianchi modular form] $`F` is the discrete subgroup $`\Gamma` of $`\PSL(2,\C)` such that $`F|_k\gamma = F` for every $`\gamma \in \Gamma`, where $`k` is the {bpref "mf.bianchi.weight"}[weight] of $`F`.
@@ -336,7 +336,7 @@ It is possible for a modular form to have more than one self twist; this occurs 
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.order"}[] {uses "character.dirichlet.primitive"}[] {uses "cmf.level"}[] {uses "cmf.newform"}[] {uses "cmf.projective_image"}[] {uses "cmf.rm_form"}[] {uses "cmf.weight"}[] {uses "nf.discriminant"}[]
 :::
 
-:::definition "mf.half_integral_weight"
+:::definition "mf.half_integral_weight" (lean := "ModularForm.halfIntegralWeightSpace, ModularForm.halfIntegralWeightCuspSpace, ModularForm.hasWeight_of_mem_halfIntegralWeightSpace, ModularForm.thetaFactor")
 *Half-integral weight modular forms.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.half_integral_weight))
 
 Let $`k` be an odd integer, and let $`N` a positive integer divisible by $`4`. Let $`\chi` be a {bpref "character.dirichlet"}[character] modulo $`N`. A *modular form of half-integral {bpref "cmf.weight"}[weight]* $`k/2` , {bpref "cmf.level"}[level] $`N` and character $`\chi` is an holomorphic function defined on the upper half plane $`\mathcal{H}`, satisfying the transformation formula
@@ -425,7 +425,7 @@ The term *Maass form* is used for automorphic forms on $`GL_{n}` (for some posit
 Instead of satisfying the  Cauchy-Riemann equations (as holomorphic functions do), these functions are eigenfunctions of the Casimir element in the universal enveloping algebra of the Lie algebra of $`GL_{n}`.
 :::
 
-:::definition "mf.maass.exceptional_eigenvalue"
+:::definition "mf.maass.exceptional_eigenvalue" (lean := "UpperHalfPlane.IsExceptionalMaassEigenvalue, UpperHalfPlane.isExceptionalMaassEigenvalue_iff, UpperHalfPlane.SelbergEigenvalueConjecture")
 *Exceptional eigenvalues of Maass forms.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass.exceptional_eigenvalue))
 
 Each {bpref "mf.maass.mwf.eigenvalue"}[eigenvalue] $`\lambda` of a {bpref "mf.maass.mwf"}[Maass form] can be written as $`\lambda = \frac{1}{4} + R^2`, where $`R` is the {bpref "mf.maass.mwf.spectralparameter"}[spectral parameter].
@@ -532,7 +532,7 @@ The above three cases are proven and the generalization of 3. to other square fa
 Depends on: {uses "cmf.character"}[] {uses "mf.maass.mwf"}[] {uses "mf.maass.mwf.eigenvalue"}[] {uses "mf.maass.mwf.laplacian"}[]
 :::
 
-:::definition "mf.maass.mwf.eigenvalue"
+:::definition "mf.maass.mwf.eigenvalue" (lean := "UpperHalfPlane.IsMaassForm, UpperHalfPlane.maassEigenvalue, UpperHalfPlane.IsMaassForm.eigenvalue_eq, UpperHalfPlane.hyperbolicLaplacian")
 *The eigenvalue of a Maass form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass.mwf.eigenvalue))
 
 The *eigenvalue* $`\lambda` of a {bpref "mf.maass.mwf"}[Maass newform] on GL(2) refers to the eigenvalue of the eigenspace of the {bpref "mf.maass.mwf.laplacian"}[Laplace-Baltrami operator] in which it lies.
@@ -576,7 +576,7 @@ Note that it is sometimes defined without the minus sign in front.
 Depends on: {uses "mf.upper_half_plane"}[]
 :::
 
-:::definition "mf.maass.mwf.level"
+:::definition "mf.maass.mwf.level" (lean := "UpperHalfPlane.IsMaassFormOfLevel")
 *The level of a Maass form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass.mwf.level))
 
 A {bpref "mf.maass.mwf"}[Maass form] $`f` is said to have *level* $`N` if $`f` is invariant under the principal congruence subgroup $`\Gamma(N)`.
@@ -584,7 +584,7 @@ A {bpref "mf.maass.mwf"}[Maass form] $`f` is said to have *level* $`N` if $`f` i
 Depends on: {uses "mf.maass.mwf"}[]
 :::
 
-:::definition "mf.maass.mwf.spectralparameter"
+:::definition "mf.maass.mwf.spectralparameter" (lean := "UpperHalfPlane.HasMaassSpectralParameter, UpperHalfPlane.HasMaassSpectralParameter.eq_or_eq_neg")
 *The spectral parameter of a Maass waveform.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass.mwf.spectralparameter))
 
 If $`f` is a {bpref "mf.maass.mwf"}[Maass form] with {bpref "mf.maass.mwf.laplacian"}[Laplace] eigenvalue $`\lambda = \frac{1}{4}+R^{2}`, the number $`R` is said to be the *spectral parameter* of $`f`.
@@ -592,7 +592,7 @@ If $`f` is a {bpref "mf.maass.mwf"}[Maass form] with {bpref "mf.maass.mwf.laplac
 Depends on: {uses "mf.maass.mwf"}[] {uses "mf.maass.mwf.laplacian"}[]
 :::
 
-:::definition "mf.maass.mwf.symmetry"
+:::definition "mf.maass.mwf.symmetry" (lean := "UpperHalfPlane.maassReflection, UpperHalfPlane.coe_maassReflection_smul, UpperHalfPlane.IsEvenMaassForm, UpperHalfPlane.IsOddMaassForm")
 *The symmetry of a Maass form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass.mwf.symmetry))
 
 The {bpref "group.sl2z"}[modular group] and its congruence subgroups has an outer automorphism of order two, which is given by the reflection in the imaginary axis: $`z=x+iy \mapsto -\bar{z}=-x+iy`.
@@ -613,7 +613,7 @@ $`\Delta_k = y^2\left( \frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partia
 Depends on: {uses "mf.maass.mwf"}[] {uses "mf.maass.mwf.laplacian"}[]
 :::
 
-:::definition "mf.maass.mwf.weight0"
+:::definition "mf.maass.mwf.weight0" (lean := "UpperHalfPlane.IsMaassForm, UpperHalfPlane.hyperbolicLaplacian")
 *Maass forms of weight 0.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass.mwf.weight0))
 
 A *Maass form* of {bpref "mf.maass.mwf.weight"}[weight] 0 on a subgroup $`\Gamma` of $`\GL_{2}(\R)`
@@ -678,7 +678,7 @@ Depends on: {uses "mf.maass.mwf.eigenvalue"}[] {uses "mf.maass.mwf.spectralparam
 A *multiplier system* of weight $`k\in\mathbb{Z}` for a group $`G` is a group homomorphism from $`G` to the group $`S^1` of complex numbers of modulus $`1`, with the added condition that, if $`-I\in G`, then $`v(-I)=(-1)^k`.
 :::
 
-:::definition "mf.quasi_modular"
+:::definition "mf.quasi_modular" (lean := "ModularForm.IsQuasiModularForm, ModularForm.HasQuasiModularDepth, ModularForm.quasiModularPolynomial, ModularForm.isQuasiModularForm_E2")
 *Quasi-modular form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.quasi_modular))
 
 A *quasi-modular form* of {bpref "cmf.weight"}[weight] $`k` and {bpref "mf.multipliersystem"}[multiplier system] $`v` for a {bpref "group.fuchsian"}[fuchsian group] $`G` is a function $`f` from {bpref "mf.upper_half_plane"}[$`\mathfrak{H}`] to $`\mathbb{C}` which is

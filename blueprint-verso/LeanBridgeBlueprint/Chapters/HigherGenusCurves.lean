@@ -51,7 +51,7 @@ A group of automorphisms $`G` acting on a curve $`X` is necessarily a subgroup o
 Depends on: {uses "g2c.aut_grp"}[]
 :::
 
-:::definition "curve.highergenus.aut.generatingvector"
+:::definition "curve.highergenus.aut.generatingvector" (lean := "MulAction.IsGeneratingVector")
 *Generating Vector.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/curve.highergenus.aut.generatingvector))
 
 The *generating vector* of a group of automorphisms $`G` acting on a compact {bpref "ag.riemann_surface"}[Riemann surface] $`X` is a list of generators for the {bpref "curve.highergenus.aut.monodromy"}[monodromy group] of $`G` obtained by taking the image of the {bpref "curve.highergenus.aut.generators"}[standard generators] for $`\pi_1(Y-B,y_0)` under the image of the map $`\rho\colon \pi_1(Y-B,y_0)\to S_d` used to define the monodromy group, where $`B` is the set of {bpref "curve.highergenus.aut.branchpoints"}[branch points] of the projection $`\phi\colon X\to Y=X/G`, and $`y_0` is any point on $`Y` that is not in $`B`.
@@ -139,7 +139,7 @@ The sequence of integers $`[g_0; m_1, \ldots, m_r]` is the *signature* of the gr
 Depends on: {uses "curve.highergenus.aut.branchpoints"}[] {uses "curve.highergenus.aut.generators"}[] {uses "curve.highergenus.aut.quotientgenus"}[]
 :::
 
-:::definition "curve.highergenus.aut.topological_equivalence"
+:::definition "curve.highergenus.aut.topological_equivalence" (lean := "Homeomorph.TopologicallyEquivalent, Homeomorph.IsOrientationPreserving, Homeomorph.topologicallyEquivalent_refl")
 *Topological Equivalence.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/curve.highergenus.aut.topological_equivalence))
 
 Given a group $`G` {bpref "curve.highergenus.aut.group_action"}[acting] on a compact Riemann surface $`X` by the maps $`\phi_1: G \hookrightarrow \mathrm{Aut}(X)` and $`\phi_2: G \hookrightarrow \mathrm{Aut}(X)`, then $`\phi_1` and $`\phi_2` are *topologically equivalent* if there is an automorphism $`\omega` of $`G` and an orientation preserving homeomorphism $`h: X \to X` so that

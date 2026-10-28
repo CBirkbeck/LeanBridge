@@ -221,7 +221,7 @@ In general, the even sublattice $`L_0` of an integral lattice $`L` has index at 
 Depends on: {uses "lattice.definition"}[] {uses "lattice.parity"}[]
 :::
 
-:::definition "lattice.extreme"
+:::definition "lattice.extreme" (lean := "ZLattice.packingDensity, ZLattice.IsExtreme")
 *Extreme lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.extreme))
 
 A lattice $`L` in $`\mathbb{R}^n` is called *extreme* if it is a local maximum of the {bpref "lattice.density"}[packing density] function in $`\mathbb{R}^n`. A theorem of Voronoi asserts that a lattice is extreme if and only if it is {bpref "lattice.perfect"}[perfect] and {bpref "lattice.eutactic"}[eutactic].
@@ -558,7 +558,7 @@ Lattices $`L` and $`M` are called *similar* if there exists a real constant $`\a
 Depends on: {uses "lattice.density"}[] {uses "lattice.isometry"}[] {uses "lattice.primitive"}[] {uses "lattice.well_rounded"}[]
 :::
 
-:::definition "lattice.spherical_design"
+:::definition "lattice.spherical_design" (lean := "EuclideanSpace.IsSphericalDesign, ZLattice.IsSphericalDesign, ZLattice.IsStronglyPerfect, EuclideanSpace.IsSphericalDesign.mono")
 *Spherical design lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.spherical_design))
 
 A collection of $`m \geq 1` points $`\{ v_1,\dots,v_m \}` on a sphere $`S_n(r)` of radius $`r >0` in $`\mathbb{R}^n` centered at the origin is a called a *spherical $`t`-design* if for every polynomial $`f(x) = f(x_1,\dots,x_n)` in $`n` variables with real coefficients of degree no bigger than $`t`, $`t \geq 1`,

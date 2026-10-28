@@ -68,7 +68,7 @@ The *base discriminant exponent* $`c_0` of $`L/K` is the discriminant exponent o
 Depends on: {uses "lf.padic_field"}[] {uses "lf.ramification_index"}[] {uses "lf.ring_of_integers"}[]
 :::
 
-:::definition "lf.eisenstein_diagram"
+:::definition "lf.eisenstein_diagram" (lean := "IsNonarchimedeanLocalField.HerbrandInvariant.eisensteinDiagram, IsNonarchimedeanLocalField.HerbrandInvariant.pointType, IsNonarchimedeanLocalField.HerbrandInvariant.band, IsNonarchimedeanLocalField.HerbrandInvariant.pointIndex, IsNonarchimedeanLocalField.HerbrandInvariant.IsCritical")
 *Eisenstein diagram.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.eisenstein_diagram))
 
 Let $`K` be a {bpref "lf.padic_field"}[$`p`-adic field] whose
@@ -337,7 +337,7 @@ $`I/K`.
 Depends on: {uses "lf.herbrand_invariant"}[] {uses "lf.indices_of_inseparability"}[] {uses "lf.padic_field"}[] {uses "lf.ramification_index"}[] {uses "lf.residue_field"}[] {uses "lf.residue_field_degree"}[] {uses "lf.slopes"}[] {uses "lf.unramified_degree"}[]
 :::
 
-:::definition "lf.galois_invariants"
+:::definition "lf.galois_invariants" (lean := "IsNonarchimedeanLocalField.wildArtinSlopes, IsNonarchimedeanLocalField.swanSlopes, IsNonarchimedeanLocalField.galoisTameDegree, IsNonarchimedeanLocalField.galoisUnramifiedDegree, IsNonarchimedeanLocalField.upperRamificationGroup_eq_of_mem_Ioc")
 *Galois invariants of a local field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.galois_invariants))
 
 Let $`K^{gal}` be the Galois closure of a {bpref "lf.padic_field"}[$`p`-adic field] $`K`. The first Galois invariant of $`K` is the {bpref "nf.galois_group"}[Galois group] $`G=\Gal(K^{gal}/\mathbb{Q}_p)`.  Most of the remaining invariants relate to the filtration on $`G` by higher ramification groups.
@@ -515,7 +515,7 @@ The *Galois Artin slopes* and *hidden Artin slopes* are defined analogously.  In
 Depends on: {uses "lf.padic_field"}[] {uses "lf.slopes"}[] {uses "nf.galois_closure"}[]
 :::
 
-:::definition "lf.indices_of_inseparability"
+:::definition "lf.indices_of_inseparability" (lean := "IsNonarchimedeanLocalField.inseparabilityIndex, IsNonarchimedeanLocalField.inseparabilityIndexOf, IsNonarchimedeanLocalField.addValuation")
 *Indices of inseparability.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.indices_of_inseparability))
 
 Let $`L/K` be a finite extension of {bpref "lf.padic_field"}[$`p`-adic fields] and let
@@ -599,7 +599,7 @@ $`\rho(x)=\min\{px,x+e\}`.
 Depends on: {uses "lf.padic_field"}[]
 :::
 
-:::definition "lf.local_height_function"
+:::definition "lf.local_height_function" (lean := "IsNonarchimedeanLocalField.localHeight, IsNonarchimedeanLocalField.localHeight_eq, Group.IsWeightFunction.apply_eq_of_zpowers_eq")
 *Local height function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.local_height_function))
 
 Let $`G` be a finite group and $`w` a {bpref "group.weight_function"}[weight function] on $`G`.
@@ -904,7 +904,7 @@ play a central role in Galois embedding problems.
 Finally, we note that for a global number field $`K`, the global root number $`\epsilon(K) = \prod \epsilon(K_p)` is always $`1`.
 :::
 
-:::definition "lf.slope_content"
+:::definition "lf.slope_content" (lean := "IsNonarchimedeanLocalField.artinSlopeContent, IsNonarchimedeanLocalField.wildArtinSlopes, IsNonarchimedeanLocalField.swanSlopes, IsNonarchimedeanLocalField.upperRamificationGroup_eq_of_mem_Ioc")
 *Slope content of an extension of $`p`-adic fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.slope_content))
 
 Let $`L/K` be an extension of {bpref "lf.padic_field"}[$`p`-adic fields].
@@ -1096,7 +1096,7 @@ depend on the choice of $`L/K\in I/K`.
 Depends on: {uses "lf.family_polynomial"}[] {uses "lf.ramification_polygon"}[] {uses "lf.slopes"}[]
 :::
 
-:::definition "lf.wild_slopes"
+:::definition "lf.wild_slopes" (lean := "IsNonarchimedeanLocalField.wildArtinSlopesOfIsGalois, IsNonarchimedeanLocalField.upperRamificationGroup_eq_of_mem_Ioc")
 *Wild Artin slopes of a local field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.wild_slopes))
 
 Let $`K` be a finite {bpref "nf.is_galois"}[Galois] extension of $`\Q_p` for some prime $`p`.  The *wild Artin slopes* indicate the locations and sizes of jumps in the filtration of the {bpref "nf.galois_group"}[Galois group] by higher ramification groups.  See {bpref "lf.galois_invariants"}[Galois invariants] of a local number field for more information.

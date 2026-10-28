@@ -29,7 +29,7 @@ The agreeable closure $`\widetilde H` contains $`H` as a {bpref "group.subgroup.
 Depends on: {uses "gl2.open"}[] {uses "group.commutator_subgroup"}[] {uses "group.subgroup.normal"}[] {uses "modcurve"}[] {uses "modcurve.level"}[]
 :::
 
-:::definition "modcurve.canonical_field"
+:::definition "modcurve.canonical_field" (lean := "Matrix.GeneralLinearGroup.canonicalField, Matrix.GeneralLinearGroup.canonicalFieldOfLevel, Matrix.GeneralLinearGroup.detReduction")
 *Canonical field of definition of a modular curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.canonical_field))
 
 Let $`X_H` be the {bpref "modcurve"}[modular curve] over $`\mathbb{Q}` associated to an open subgroup $`H \le \operatorname{GL}_2(\widehat{\mathbb{Z}})`.  Let $`\pi_0((X_H)_{\overline{\Q}})` be the set of {bpref "ag.geom_component"}[geometric components].  Since $`X_H` is integral, the action of $`\Gal_{\Q}` on $`\pi_0((X_H)_{\overline{\Q}})` is transitive.  Let $`C` be one of the geometric components.  The *canonical field of definition* of $`C` is the subfield $`K` of $`\overline{\mathbb{Q}}` fixed by the stabilizer $`\operatorname{Stab}_{\Gal_{\Q}}(C)`.
@@ -60,7 +60,7 @@ $$`-3,-4,-7,-8,-11,-12,-16,-19,-27, -27, -43,-67,-163,`
 Depends on: {uses "ec.complex_multiplication"}[] {uses "modcurve"}[] {uses "nf.class_number"}[] {uses "nf.order"}[]
 :::
 
-:::definition "modcurve.cusp_orbits"
+:::definition "modcurve.cusp_orbits" (lean := "Matrix.GeneralLinearGroup.CuspOrbit, Matrix.GeneralLinearGroup.cuspOrbitSize, Matrix.GeneralLinearGroup.numCuspOrbitsOfSize, Matrix.GeneralLinearGroup.cuspGaloisRel, Matrix.GeneralLinearGroup.adelicCyclotomicCharacter")
 *Cusp orbits.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.cusp_orbits))
 
 For an {bpref "gl2.open"}[open subgroup] $`H` of $`\GL_2(\widehat{\Z})` with $`\det(H) =\widehat{\Z}^\times`, the *cusps* of $`H` are the double cosets $`\pm H  \backslash \GL_2(\widehat{\Z}) /\langle\delta\rangle`, where $`\delta := \begin{bmatrix}1&1\\0&1\end{bmatrix}`.  These correspond to the {bpref "modcurve.cusps"}[cusps]  of the {bpref "modcurve"}[modular curve] $`X_H`.

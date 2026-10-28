@@ -139,7 +139,7 @@ A *prime of good reduction* or *good prime* is a prime that is not a bad prime, 
 Depends on: {uses "hgm.conductor"}[] {uses "hgm.motive"}[] {uses "hgm.tame"}[] {uses "hgm.wild"}[]
 :::
 
-:::definition "hgm.hodge_vector"
+:::definition "hgm.hodge_vector" (lean := "Hypergeometric.Parameters.hodgeVector, Hypergeometric.Parameters.sum_hodgeVector, Hypergeometric.Parameters.hodgeVectorAtOne")
 *Hodge vector of a hypergeometric motive.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/hgm.hodge_vector))
 
 Let $`H(A,B)` be a {bpref "hgm.familes"}[hypergeometric family] of {bpref "hgm.degree"}[degree] $`d` and {bpref "hgm.weight"}[weight] $`w` with {bpref "hgm.defining_parameters"}[defining parameters] $`A=[a_1,\ldots,a_m]` and $`B=[b_1,\ldots,b_n]`. The *Hodge vector* $`(h^{0,w},\dots,h^{w,0})` of $`H(A,B)` records the dimensions $`h^{p,q}` (with $`p+q=w`) of the Hodge subspaces associated to the family.
@@ -209,7 +209,7 @@ A prime $`p` is called *tame* for a {bpref "hgm.motive"}[hypergeometric motive] 
 Depends on: {uses "hgm.motive"}[] {uses "hgm.wild"}[]
 :::
 
-:::definition "hgm.type"
+:::definition "hgm.type" (lean := "Hypergeometric.Parameters.IsOrthogonalType, Hypergeometric.Parameters.IsSymplecticType, Hypergeometric.Parameters.isSymplecticType_iff_not_isOrthogonalType")
 *The type of a hypergeometric motive.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/hgm.type))
 
 A {bpref "hgm.motive"}[hypergeometric motive] $`M` of {bpref "hgm.weight"}[weight] $`w` is of *orthogonal* or *symplectic* *type* according as $`w` is even or odd. This corresponds to the fact that the motivic Galois group of $`M` is either a subgroup of the conformal orthogonal group or conformal symplectic group depending on the parity of $`w`.
@@ -241,7 +241,7 @@ The {bpref "hgm.hodge_vector"}[hodge vector] of the corresponding hypergeometric
 Depends on: {uses "hgm.defining_parameters"}[] {uses "hgm.hodge_vector"}[]
 :::
 
-:::definition "mot.hodgevector"
+:::definition "mot.hodgevector" (lean := "Hypergeometric.Parameters.hodgeVector, Hypergeometric.Parameters.sum_hodgeVector, Hypergeometric.Parameters.hodgeVectorAtOne")
 *Hodge vector of a hypergeometric motive.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mot.hodgevector))
 
 Let $`H(A,B)` be a {bpref "hgm.familes"}[hypergeometric family] of {bpref "hgm.degree"}[degree] $`d` and {bpref "hgm.weight"}[weight] $`w` with {bpref "hgm.defining_parameters"}[defining parameters] $`A=[a_1,\ldots,a_m]` and $`B=[b_1,\ldots,b_n]`. The *Hodge vector* $`(h^{0,w},\dots,h^{w,0})` of $`H(A,B)` records the dimensions $`h^{p,q}` (with $`p+q=w`) of the Hodge subspaces associated to the family.

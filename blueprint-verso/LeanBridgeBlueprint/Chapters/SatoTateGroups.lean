@@ -85,7 +85,7 @@ By a result known as "Larsen's alternative" , if the fourth trace moment is less
 Depends on: {uses "group.haar_measure"}[] {uses "st_group.definition"}[] {uses "st_group.weight"}[]
 :::
 
-:::definition "st_group.hodge_circle"
+:::definition "st_group.hodge_circle" (lean := "SatoTateGroup.IsHodgeCircle, SatoTateGroup.HasHodgeEigenvalues")
 *Hodge circle.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.hodge_circle))
 
 For a {bpref "st_group.definition"}[Sato-Tate group] $`G` of {bpref "st_group.degree"}[degree] $`d` and {bpref "st_group.weight"}[weight] $`w` a *Hodge circle* is a continuous homomorphism
@@ -161,7 +161,7 @@ Note that while $`\mathrm{Pr}[a_i=n]=0` implies that $`\{g\in G:a_i(g) = n\}` ha
 Depends on: {uses "group.haar_measure"}[] {uses "st_group.definition"}[]
 :::
 
-:::definition "st_group.rational"
+:::definition "st_group.rational" (lean := "SatoTateGroup.IsRational, SatoTateGroup.IsRationalSubgroup, TauCeti.rationalWeylRep")
 *Rational Sato-Tate group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.rational))
 
 A {bpref "st_group.definition"}[Sato-Tate group] $`G` of {bpref "st_group.degree"}[degree] $`d` is said to be *rational* if for every irreducible character $`\chi` of $`\GL_d(\C)` and every component $`H` of $`G` we have
@@ -203,7 +203,7 @@ For a {bpref "st_group.definition"}[Sato-Tate group] $`G`, its *maximal subgroup
 Depends on: {uses "st_group.definition"}[] {uses "st_group.identity_component"}[]
 :::
 
-:::definition "st_group.supgroups"
+:::definition "st_group.supgroups" (lean := "SatoTateGroup.IsMinimalSupergroup, SatoTateGroup.IsMinimalRationalSupergroup, SatoTateGroup.IsMaximal, SatoTateGroup.IsFiniteIndexSupergroup")
 *Minimal supergroups.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.supgroups))
 
 The *minimal supergroups* of a {bpref "st_group.definition"}[Sato-Tate group] $`G` are the groups $`H` that properly contain $`G` with finite index and do not properly contain any other proper supergroup of $`G`; they necessarily have the same {bpref "st_group.identity_component"}[identity component] $`H^0=G^0` as $`G`.

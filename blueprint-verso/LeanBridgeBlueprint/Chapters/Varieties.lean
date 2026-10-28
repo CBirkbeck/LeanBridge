@@ -96,7 +96,7 @@ The *canonical map* of a curve $`C` of {bpref "ag.curve.genus"}[genus] $`g` is t
 Depends on: {uses "ag.curve.genus"}[] {uses "ag.hyperelliptic_curve"}[]
 :::
 
-:::definition "ag.cluster_picture"
+:::definition "ag.cluster_picture" (lean := "Polynomial.IsPadicCluster, Polynomial.padicClusterSize, Polynomial.padicClusterDepth, Polynomial.padicClusterRelDepth, Polynomial.isPadicCluster_rootSet")
 *Cluster picture.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.cluster_picture))
 
 Let $`H` be an {bpref "ec"}[elliptic] or {bpref "ag.hyperelliptic_curve"}[hyperelliptic curve] over $`\Q` given by an equation $`y^2 = f(x)`, and let $`p` be an odd prime number. Then the *cluster picture* of $`H` at $`p` associated to this particular equation for $`H`, is a graphical representation of the $`p`-adic distances between the roots of $`f`.
@@ -317,7 +317,7 @@ It is a {bpref "group.torsion"}[torsion abelian group] that is conjectured to be
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.torsor"}[] {uses "g2c.locally_solvable"}[] {uses "group.galois.absolute"}[] {uses "group.torsion"}[] {uses "nf"}[] {uses "nf.absolute_value"}[] {uses "nf.place"}[]
 :::
 
-:::definition "ag.torsor"
+:::definition "ag.torsor" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.IsPrincipalHomogeneousSpace, TauCeti.AlgebraicGeometry.AbelianVariety.orbitMap, TauCeti.AlgebraicGeometry.AbelianVariety.sepClosureOver")
 *Principal homogeneous space.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.torsor))
 
 A *principal homogeneous space* (or *torsor*) of an {bpref "ag.abelian_variety"}[abelian variety] $`A` over a field $`k` is a {bpref "ag.variety"}[variety] $`X` equipped with an $`A`-action such that ($`X_{\overline{k}}` with the induced $`A_{\overline{k}}`-action) is isomorphic to ($`A_{\overline{k}}` with  $`A_{\overline{k}}`-action given by translation).

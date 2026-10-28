@@ -414,7 +414,7 @@ The *exponent of a {bpref "group"}[group]* $`G` is the smallest positive integer
 Depends on: {uses "group"}[]
 :::
 
-:::definition "group.fitting_subgroup"
+:::definition "group.fitting_subgroup" (lean := "Subgroup.fittingSubgroup, Subgroup.isNilpotent_fittingSubgroup, Subgroup.le_fittingSubgroup, Subgroup.isNilpotent_sup")
 *Fitting subgroup of a group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.fitting_subgroup))
 
 The *Fitting subgroup* of a {bpref "group"}[group] $`G`, denoted $`\mathrm{Fit}(G)`, is the largest {bpref "group.subgroup.normal"}[normal] {bpref "group.subgroup"}[subgroup] of $`G` which is {bpref "group.nilpotent"}[nilpotent].  Since the product of a collection of normal nilpotent subgroups of a group is nilpotent, the Fitting subgroup is unique.
@@ -532,7 +532,7 @@ where $`Z(G)` is the {bpref "group.center"}[center] of $`G`.
 Depends on: {uses "group"}[] {uses "group.automorphism"}[] {uses "group.center"}[] {uses "group.subgroup"}[]
 :::
 
-:::definition "group.isoclinism"
+:::definition "group.isoclinism" (lean := "Group.Isoclinism, Group.IsIsoclinic, Group.centralCommutatorMap, Group.IsIsoclinic.symm, Group.IsIsoclinic.trans")
 *Isoclinism.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.isoclinism))
 
 For a group $`G` and its {bpref "group.commutator_subgroup"}[commutator] $`G'`, write $`\omega_G` for the map $`G \times G \to G'` defined by $`\omega_G(x, y) = x^{-1}y^{-1}xy`, and note that $`\omega_G` descends to a map on $`G / Z(G) \times G / Z(G)`.
@@ -1308,7 +1308,7 @@ If $`G` is a {bpref "group"}[group] with {bpref "alg.binary_operation.identity"}
 Depends on: {uses "alg.binary_operation.identity"}[] {uses "group"}[] {uses "group.subgroup"}[]
 :::
 
-:::definition "group.type"
+:::definition "group.type" (lean := "Group.typeLength, Group.TypeLength, Group.compositionLength, derivedLength, Group.nilpotencyClass")
 *Type of groups.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.type))
 
 For a finite {bpref "group"}[group] $`G`, we write *Type - length* as follows
@@ -1336,7 +1336,7 @@ If $`H \subseteq G` is a {bpref "group.subgroup"}[subgroup], an *under-subgroup*
 Depends on: {uses "group.subgroup"}[]
 :::
 
-:::definition "group.unitary"
+:::definition "group.unitary" (lean := "Matrix.generalUnitaryGroup, Matrix.specialUnitaryGroupFq, Matrix.projectiveGeneralUnitaryGroup, Matrix.projectiveSpecialUnitaryGroup, Matrix.sesquiUnitaryGroup")
 *Unitary group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.unitary))
 
 The *(general) unitary group* $`\GU(n, q)` is the group of $`n \times n` unitary matrices with entries in the {bpref "ring.field"}[field] $`\F_{q^2}` (the finite field with $`q^2` elements).  Here, a matrix is \*unitary\* if the inverse of $`M` equals the conjugate transpose of $`M`.

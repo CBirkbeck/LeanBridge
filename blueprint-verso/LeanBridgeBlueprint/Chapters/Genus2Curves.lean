@@ -139,7 +139,7 @@ The first three cases occur when $`A` is {bpref "ag.simple"}[simple], while the 
 Depends on: {uses "ag.abelian_surface"}[] {uses "ag.abelian_variety"}[] {uses "ag.endomorphism_algebra"}[] {uses "ag.simple"}[] {uses "av.isogeny"}[] {uses "ec"}[] {uses "ring.field"}[]
 :::
 
-:::definition "g2c.g2_invariants"
+:::definition "g2c.g2_invariants" (lean := "Polynomial.g2Invariants, HyperellipticEquation.g2Invariants")
 *G2-invariants of a genus 2 curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.g2_invariants))
 
 The *G2-invariants* of a {bpref "g2c.g2curve"}[genus 2 curve] are absolute invariants associated to the {bpref "g2c.geom_iso_class"}[geometric isomorphism class] of the curve.  They are denoted $`g_1,g_2,g_3`.
@@ -252,7 +252,7 @@ The Hasse-Weil conjecture is implied by modularity and is thus known to hold, fo
 Depends on: {uses "ag.abelian_variety"}[] {uses "ec"}[] {uses "g2c.gl2type"}[] {uses "lfunction"}[] {uses "lfunction.critical_strip"}[] {uses "lfunction.functional_equation"}[] {uses "lfunction.selberg_class"}[] {uses "nf"}[]
 :::
 
-:::definition "g2c.igusa_clebsch_invariants"
+:::definition "g2c.igusa_clebsch_invariants" (lean := "Polynomial.igusaClebsch, HyperellipticEquation.igusaClebsch, Polynomial.sexticOrbitSum, Polynomial.sexticOrbitSum_comp, Polynomial.normalizeWeighted")
 *Igusa-Clebsch invariants of a genus 2 curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.igusa_clebsch_invariants))
 
 The *Igusa-Clebsch invariants* of a {bpref "g2c.g2curve"}[genus 2 curve] are weighted projective invariants associated to the {bpref "g2c.geom_iso_class"}[geometric isomorphism class] of the curve.  They are denoted $`I_2, I_4, I_6, I_{10}`, where the subscript indicates the weight.
@@ -273,7 +273,7 @@ Here each sum and product runs over the distinct expressions obtained by applyin
 Depends on: {uses "g2c.g2curve"}[] {uses "g2c.geom_iso_class"}[]
 :::
 
-:::definition "g2c.igusa_invariants"
+:::definition "g2c.igusa_invariants" (lean := "Polynomial.igusa, HyperellipticEquation.igusa, Polynomial.normalizeWeighted")
 *Igusa invariants of a genus 2 curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.igusa_invariants))
 
 The *Igusa invariants* of a {bpref "g2c.g2curve"}[genus 2 curve] are weighted projective invariants associated to the {bpref "g2c.geom_iso_class"}[geometric isomorphism class] of the curve.  They are denoted $`J_2, J_4, J_6, J_8, J_{10}`, where the subscript indicates the weight.
