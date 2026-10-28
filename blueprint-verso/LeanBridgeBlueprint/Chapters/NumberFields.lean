@@ -475,7 +475,7 @@ Finally, the {bpref "nf.local_algebra"}[local algebra] of $`K`, $`\prod_{j=1}^g 
 Depends on: {uses "lf.ring_of_integers"}[] {uses "nf"}[] {uses "nf.local_algebra"}[] {uses "nf.prime"}[] {uses "ring.dedekind_domain"}[] {uses "ring.field_of_fractions"}[] {uses "ring.fractional_ideal"}[] {uses "ring.integral_domain"}[] {uses "ring.irreducible"}[]
 :::
 
-:::definition "nf.place"
+:::definition "nf.place" (lean := "AbsoluteValue.Place, AbsoluteValue.Place.IsArchimedean, AbsoluteValue.Place.isArchimedean_iff_isReal_or_isComplex, AbsoluteValue.Place.not_isArchimedean_iff_exists_finitePlace, AbsoluteValue.Completion")
 *Place of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.place))
 
 A *place* $`v` of a field $`K` is an equivalence class of non-trivial {bpref "nf.absolute_value"}[absolute values] on $`K`.  As with absolute values, places may be classified as archimedean or nonarchimedean, since these properties are preserved under equivalence.

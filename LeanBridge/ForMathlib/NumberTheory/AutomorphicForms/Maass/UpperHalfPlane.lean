@@ -48,7 +48,8 @@ variable (f z) in
 function `f` on the upper half-plane at `z = x + iy`: the Laplace–Beltrami operator of the metric
 `(dx² + dy²) / y²`, with the sign making it negative semi-definite, as in the LMFDB's equation
 `(Δ + λ) f = 0` with `λ ≥ 0`. The knowl `mf.maass.mwf.laplacian` writes `Δ` with a minus sign,
-which is incompatible with that equation; this is its negative. The function is given on `ℂ`; only its values near `z` matter. -/
+which is incompatible with that equation; this is its negative. The function is given on `ℂ`; only
+its values near `z` matter. -/
 noncomputable def hyperbolicLaplacian : ℂ :=
   (z.im ^ 2 : ℝ) * (fderiv ℝ (fun w ↦ fderiv ℝ f w 1) z 1 +
     fderiv ℝ (fun w ↦ fderiv ℝ f w Complex.I) z Complex.I)
@@ -62,12 +63,14 @@ variable (Γ f) in
 Laplacian.
 
 Square-integrability on `Γ \ ℍ` is the integrability of `|f|²` on a fundamental domain of the image
-of `Γ` in `PGL(2, ℝ)`, which acts faithfully on `ℍ` (so that `Γ` may contain `-1`), for Mathlib's `GL(2, ℝ)`-invariant measure `dx dy / y²` on `ℍ`; for a `Γ`-invariant `f` it does not
+of `Γ` in `PGL(2, ℝ)`, which acts faithfully on `ℍ` (so that `Γ` may contain `-1`), for Mathlib's `GL(2, ℝ)`-invariant
+measure `dx dy / y²` on `ℍ`; for a `Γ`-invariant `f` it does not
 depend on the fundamental domain. The zero function satisfies the conditions for every `λ`: the
 eigenvalue of a nonzero Maass form is unique (`IsMaassForm.eigenvalue_eq`). -/
 def IsMaassForm (eigenvalue : ℂ) : Prop :=
   ContDiffOn ℝ ∞ f {z | 0 < z.im} ∧
-    (∃ D : Set ℍ, IsFundamentalDomain (Γ.map ProjGenLinGroup.mk) D ∧ IntegrableOn (fun z : ℍ ↦ ‖f z‖ ^ 2) D) ∧
+    (∃ D : Set ℍ, IsFundamentalDomain (Γ.map ProjGenLinGroup.mk) D ∧
+      IntegrableOn (fun z : ℍ ↦ ‖f z‖ ^ 2) D) ∧
     (∀ γ ∈ Γ, ∀ z : ℍ, f ↑(γ • z) = f z) ∧
     ∀ z : ℂ, 0 < z.im → hyperbolicLaplacian f z + eigenvalue * f z = 0
 

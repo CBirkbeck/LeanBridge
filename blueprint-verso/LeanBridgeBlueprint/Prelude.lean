@@ -151,14 +151,20 @@ import LeanBridge.ForMathlib.NumberTheory.Artin.Basic
 import LeanBridge.ForMathlib.NumberTheory.Artin.Conductor
 import LeanBridge.ForMathlib.NumberTheory.Artin.GaloisOrbit
 import LeanBridge.ForMathlib.NumberTheory.Artin.Parity
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.FourierBessel
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.Level
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.MaassPicard
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.MaassPicardSpectral
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.UpperHalfSpace
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.Weight
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CongruenceSubgroups
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwo
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.Level
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ModularForm
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PhiOperator
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ScalarValued
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SimilitudeSlash
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.UpperHalfSpace
 import LeanBridge.ForMathlib.NumberTheory.DirichletCharacter.GaloisOrbitLabel
 import LeanBridge.ForMathlib.NumberTheory.DirichletCharacter.GroupStructure
@@ -212,6 +218,7 @@ import LeanBridge.ForMathlib.NumberTheory.ModularForms.Analytic.Satake
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Analytic.SturmBound
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Eisenstein.Series
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Eisenstein.Subspace
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.Basic
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.Basic
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.HalfIntegralWeight
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ModularForm
@@ -240,6 +247,8 @@ import LeanBridge.ForMathlib.NumberTheory.NumberField.FieldIndex
 import LeanBridge.ForMathlib.NumberTheory.NumberField.FrobeniusCycleType
 import LeanBridge.ForMathlib.NumberTheory.NumberField.InertialHeight
 import LeanBridge.ForMathlib.NumberTheory.NumberField.MaximalCMSubfield
+import LeanBridge.ForMathlib.NumberTheory.NumberField.Ostrowski
+import LeanBridge.ForMathlib.NumberTheory.NumberField.Place
 import LeanBridge.ForMathlib.NumberTheory.NumberField.Polredabs
 import LeanBridge.ForMathlib.NumberTheory.NumberField.ReflexField
 import LeanBridge.ForMathlib.NumberTheory.NumberField.ReflexReflexField
@@ -266,6 +275,7 @@ import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.EnhancedGroup
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.QuaternionOrder
 import LeanBridge.ForMathlib.RepresentationTheory.CharacterCenter
 import LeanBridge.ForMathlib.RepresentationTheory.FaithfulDegree
+import LeanBridge.ForMathlib.RepresentationTheory.HighestWeight
 import LeanBridge.ForMathlib.RepresentationTheory.MGroup
 import LeanBridge.ForMathlib.RepresentationTheory.PermutationContainer
 import LeanBridge.ForMathlib.RepresentationTheory.RationalCharacter
@@ -322,6 +332,7 @@ import Mathlib.AlgebraicGeometry.ResidueField
 import Mathlib.Analysis.Complex.UpperHalfPlane.Basic
 import Mathlib.Analysis.InnerProductSpace.GramMatrix
 import Mathlib.Analysis.Meromorphic.TrailingCoefficient
+import Mathlib.Analysis.Normed.Field.WithAbs
 import Mathlib.Analysis.SpecialFunctions.Complex.Arg
 import Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar
 import Mathlib.Analysis.SpecialFunctions.Gamma.Deligne

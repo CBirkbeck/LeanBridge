@@ -2993,6 +2993,12 @@
     "NumberField.RingOfIntegers": "Mathlib.NumberTheory.NumberField.Basic",
     "NumberField.IsTotallyComplex": "Mathlib.NumberTheory.NumberField.InfinitePlace.TotallyRealComplex"
   },
+  "mf.bianchi.fourierbessell": {
+    "HyperbolicThreeSpace.HasBianchiFourierBesselExpansion": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.FourierBessel",
+    "HyperbolicThreeSpace.bianchiFourierBesselTerm": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.FourierBessel",
+    "HyperbolicThreeSpace.bianchiBesselVector": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.FourierBessel",
+    "Complex.besselK": "LeanBridge.ForMathlib.Analysis.SpecialFunctions.BesselK"
+  },
   "mf.bianchi.hyperbolic3space": {
     "TauCeti.HyperbolicMetric": "TauCeti.Geometry.Manifold.Riemannian.Hyperbolic",
     "TauCeti.UpperHalfSpace": "TauCeti.Geometry.Manifold.Riemannian.Hyperbolic.UpperHalfSpace.Basic",
@@ -3018,10 +3024,32 @@
   "mf.half_integral_weight.theta": {
     "jacobiTheta": "Mathlib.NumberTheory.ModularForms.JacobiTheta.OneVariable"
   },
+  "mf.hilbert": {
+    "HilbertModularForm": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.Basic",
+    "HilbertModularForm.IsCuspForm": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.Basic",
+    "HilbertModularForm.automorphyFactor": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.Basic",
+    "HilbertModularForm.VanishesAtCusps": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.Basic",
+    "HilbertModularGroup.gammaZero": "LeanBridge.ForMathlib.AlgebraicGeometry.HilbertModularSurface.Level"
+  },
+  "mf.hilbert.level_norm": {
+    "HilbertModularForm.level": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.Basic",
+    "HilbertModularForm.levelNorm": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.Basic"
+  },
+  "mf.hilbert.weight_vector": {
+    "HilbertModularForm.weight": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.Basic",
+    "HilbertModularForm.IsParallelWeight": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.Basic"
+  },
   "mf.maass.exceptional_eigenvalue": {
     "UpperHalfPlane.IsExceptionalMaassEigenvalue": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane",
     "UpperHalfPlane.isExceptionalMaassEigenvalue_iff": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane",
     "UpperHalfPlane.SelbergEigenvalueConjecture": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane"
+  },
+  "mf.maass.mwf": {
+    "UpperHalfPlane.IsMaassForm": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane",
+    "UpperHalfPlane.IsMaassFormOfWeight": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.Weight",
+    "UpperHalfPlane.maassSlash": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.Weight",
+    "UpperHalfPlane.maassLaplacian": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.Weight",
+    "UpperHalfPlane.isMaassFormOfWeight_zero_iff": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.Weight"
   },
   "mf.maass.mwf.eigenvalue": {
     "UpperHalfPlane.IsMaassForm": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane",
@@ -3041,6 +3069,10 @@
     "UpperHalfPlane.coe_maassReflection_smul": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane",
     "UpperHalfPlane.IsEvenMaassForm": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane",
     "UpperHalfPlane.IsOddMaassForm": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane"
+  },
+  "mf.maass.mwf.weight": {
+    "UpperHalfPlane.maassLaplacian": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.Weight",
+    "UpperHalfPlane.IsMaassFormOfWeight": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.Weight"
   },
   "mf.maass.mwf.weight0": {
     "UpperHalfPlane.IsMaassForm": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane",
@@ -3078,6 +3110,13 @@
     "ModularForm.quasiModularPolynomial": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.QuasiModular",
     "ModularForm.isQuasiModularForm_E2": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.QuasiModular"
   },
+  "mf.siegel": {
+    "SiegelUpperHalfSpace.modularForms": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ModularForm",
+    "SiegelUpperHalfSpace.scalarModularForms": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ScalarValued",
+    "SiegelUpperHalfSpace.mem_scalarModularForms_iff": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ScalarValued",
+    "SymplecticGroup.IsArithmetic": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.Level",
+    "SiegelUpperHalfSpace.IsHolomorphic": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.UpperHalfSpace"
+  },
   "mf.siegel.character": {
     "SiegelUpperHalfSpace.modularForms": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ModularForm",
     "SiegelUpperHalfSpace.mem_modularForms_iff_slash": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ModularForm",
@@ -3092,12 +3131,46 @@
     "SiegelUpperHalfSpace.rhoKJ": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwo",
     "SiegelUpperHalfSpace.slash": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ModularForm"
   },
+  "mf.siegel.degree": {
+    "SiegelUpperHalfSpace": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.UpperHalfSpace",
+    "SiegelUpperHalfSpace.modularForms": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ModularForm"
+  },
   "mf.siegel.family": {
     "SymplecticGroup.Gamma": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CongruenceSubgroups",
     "SymplecticGroup.Gamma0": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CongruenceSubgroups",
     "SymplecticGroup.paramodular": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CongruenceSubgroups",
     "SymplecticGroup.paramodularGL": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CongruenceSubgroups",
     "SymplecticGroup.paramodularDelta_mul_mul_mem": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CongruenceSubgroups"
+  },
+  "mf.siegel.level": {
+    "SymplecticGroup.IsCongruenceOfLevel": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.Level",
+    "SymplecticGroup.isCongruenceOfLevel_Gamma0": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.Level",
+    "SymplecticGroup.IsCongruenceOfLevel.mul": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.Level",
+    "SiegelUpperHalfSpace.modularForms": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ModularForm"
+  },
+  "mf.siegel.phi": {
+    "SiegelUpperHalfSpace.siegelPhi": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PhiOperator",
+    "SiegelUpperHalfSpace.HasSiegelPhi": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PhiOperator",
+    "SiegelUpperHalfSpace.phiPoint": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PhiOperator",
+    "SiegelUpperHalfSpace.siegelPhi_eq": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PhiOperator",
+    "SiegelUpperHalfSpace.HasSiegelPhi.add": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PhiOperator"
+  },
+  "mf.siegel.slash.op": {
+    "SiegelUpperHalfSpace.gspSlash": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SimilitudeSlash",
+    "SiegelUpperHalfSpace.gspPlus": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SimilitudeSlash",
+    "SiegelUpperHalfSpace.multiplier": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SimilitudeSlash",
+    "SiegelUpperHalfSpace.gspSmul_val": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SimilitudeSlash",
+    "SiegelUpperHalfSpace.gspSlash_ofSp": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SimilitudeSlash"
+  },
+  "mf.siegel.weight": {
+    "SiegelUpperHalfSpace.modularForms": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ModularForm",
+    "SiegelUpperHalfSpace.rhoKJ": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwo",
+    "SiegelUpperHalfSpace.modularFormsKJ": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwo",
+    "Representation.highestWeight": "LeanBridge.ForMathlib.RepresentationTheory.HighestWeight"
+  },
+  "mf.siegel.weight_k_j": {
+    "SiegelUpperHalfSpace.rhoKJ": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwo",
+    "SiegelUpperHalfSpace.modularFormsKJ": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwo"
   },
   "mf.slash_action": {
     "SlashAction": "Mathlib.NumberTheory.ModularForms.SlashActions",
@@ -3476,6 +3549,13 @@
   "nf.padic_completion": {
     "IsDedekindDomain.HeightOneSpectrum.adicCompletion": "Mathlib.RingTheory.DedekindDomain.AdicValuation",
     "IsDedekindDomain.HeightOneSpectrum.valuation": "Mathlib.RingTheory.DedekindDomain.AdicValuation"
+  },
+  "nf.place": {
+    "AbsoluteValue.Place": "LeanBridge.ForMathlib.NumberTheory.NumberField.Place",
+    "AbsoluteValue.Place.IsArchimedean": "LeanBridge.ForMathlib.NumberTheory.NumberField.Place",
+    "AbsoluteValue.Place.isArchimedean_iff_isReal_or_isComplex": "LeanBridge.ForMathlib.NumberTheory.NumberField.Ostrowski",
+    "AbsoluteValue.Place.not_isArchimedean_iff_exists_finitePlace": "LeanBridge.ForMathlib.NumberTheory.NumberField.Ostrowski",
+    "AbsoluteValue.Completion": "Mathlib.Analysis.Normed.Field.WithAbs"
   },
   "nf.polredabs": {
     "NumberField.IsPolredabs": "LeanBridge.ForMathlib.NumberTheory.NumberField.Polredabs",

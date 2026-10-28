@@ -14,7 +14,7 @@ file maps both into the places of `K`, injectively, onto archimedean and nonarch
 respectively.
 
 That every place of a number field arises in this way is Ostrowski's theorem for number fields,
-which is not available (Mathlib has it for `ℚ`). The completions of `K` at its infinite and finite
+proved in `LeanBridge.ForMathlib.NumberTheory.NumberField.Ostrowski`. The completions of `K` at its infinite and finite
 places are `NumberField.InfinitePlace.Completion` and
 `IsDedekindDomain.HeightOneSpectrum.adicCompletion`.
 
