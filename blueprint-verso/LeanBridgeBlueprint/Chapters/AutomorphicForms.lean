@@ -853,7 +853,7 @@ Siegel modular forms of degree $`g` transform under the action of a discrete sub
 - *Paramodular subgroup*: $`\Gamma^{\mathrm{para}}(d)`.
 :::
 
-:::definition "mf.siegel.hecke_operator"
+:::definition "mf.siegel.hecke_operator" (lean := "SiegelUpperHalfSpace.siegelHeckeRingOf, SiegelUpperHalfSpace.localSiegelHeckeRingOf, SiegelUpperHalfSpace.heckeTSqOf, SiegelUpperHalfSpace.heckeOperator, SiegelUpperHalfSpace.IsHeckeEigenform")
 *Hecke operators.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.hecke_operator))
 
 For a positive integer $`g`, let

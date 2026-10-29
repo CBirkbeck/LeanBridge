@@ -3160,6 +3160,13 @@
     "SymplecticGroup.paramodularGL": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CongruenceSubgroups",
     "SymplecticGroup.paramodularDelta_mul_mul_mem": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CongruenceSubgroups"
   },
+  "mf.siegel.hecke_operator": {
+    "SiegelUpperHalfSpace.siegelHeckeRingOf": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.HeckeRing",
+    "SiegelUpperHalfSpace.localSiegelHeckeRingOf": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.HeckeRing",
+    "SiegelUpperHalfSpace.heckeTSqOf": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.HeckeRing",
+    "SiegelUpperHalfSpace.heckeOperator": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.HeckeOperator",
+    "SiegelUpperHalfSpace.IsHeckeEigenform": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.HeckeOperator"
+  },
   "mf.siegel.level": {
     "SymplecticGroup.IsCongruenceOfLevel": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.Level",
     "SymplecticGroup.isCongruenceOfLevel_Gamma0": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.Level",
