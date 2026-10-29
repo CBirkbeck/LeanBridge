@@ -9,7 +9,8 @@ matrices `α = (a, b; c, d)` of `HilbertModularGroup.heckeSet 𝔑 𝔭 𝔟 �
 `c ∈ 𝔑𝔟`, `(det α) = 𝔭`, `det α ≫ 0`) are the cosets of `(π, 0; 0, 1)` and of the `(1, β; 0, π)`,
 `β ∈ 𝔟⁻¹ / π 𝔟⁻¹`, each exactly once. This is the hypothesis
 `HilbertModularForm.IsHeckeCosetDecomposition` of `Hilbert/HeckeFourier.lean`, which is therefore
-discharged for every such prime.
+discharged for every such prime. For a prime `𝔭 ⊇ 𝔑`, the same argument gives the cosets of the
+operator `U_𝔭` in `Hilbert/HeckeU.lean`.
 
 The proof is elementwise and avoids counting lattices. A matrix `γ` with `γ₀₀, γ₁₁ ∈ 𝒪_F`,
 `γ₀₁ ∈ 𝔟⁻¹`, `γ₁₀ ∈ 𝔑𝔟` and `(det γ)⁻¹ ∈ 𝒪_F` totally positive lies in `Γ₀(𝔑)_𝔟`, since its

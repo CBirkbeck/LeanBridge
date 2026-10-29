@@ -24,7 +24,8 @@ prime `𝔭 ∤ 𝔑`, the right cosets of `Δ` are determined in `Hilbert/Hecke
 (`HilbertModularForm.isHeckeCosetDecomposition`); that `Δ` is this one double coset is not proved,
 so the agreement with `heckeTSpace` is not formalised. The operator is not normalised: the LMFDB's
 `T_𝔫` differs by a power of `N(𝔫)` and by a rescaling of the components, which changes eigenforms
-by that rescaling and eigenvalues by that power.
+by that rescaling and eigenvalues by that power. For a prime `𝔭 ⊇ 𝔑`, Shimura's `T(𝔭)` (the operator
+`U_𝔭`) uses the matrices of `Δ` with `a` a unit modulo `𝔑`; it is in `Hilbert/HeckeU.lean`.
 
 ## Main definitions
 

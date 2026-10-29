@@ -255,6 +255,7 @@ import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.HeckeIdeal
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.HeckeOperator
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.HeckeRing
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.HeckeSpace
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.HeckeU
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.Basic
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.HalfIntegralWeight
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ModularForm

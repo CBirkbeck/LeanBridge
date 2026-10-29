@@ -11,7 +11,9 @@ cosets `Γ₀(𝔑)_𝔟 α` of `Δ = HilbertModularGroup.heckeSet 𝔑 𝔭 �
 cosets are represented by `(π, 0; 0, 1)` and the `(1, b; 0, π)` with `b ∈ 𝔟⁻¹ / π 𝔟⁻¹`, each
 exactly once. This coset decomposition (`HilbertModularForm.IsHeckeCosetDecomposition`) is a
 hypothesis of the results below; it is proved for such primes in
-`Hilbert/HeckeCosetDecomposition.lean` (`HilbertModularForm.isHeckeCosetDecomposition`).
+`Hilbert/HeckeCosetDecomposition.lean` (`HilbertModularForm.isHeckeCosetDecomposition`). For a
+prime `𝔭 ⊇ 𝔑`, the operator `U_𝔭`, whose cosets are those of the `(1, b; 0, π)` only, is in
+`Hilbert/HeckeU.lean`.
 
 On Fourier expansions `ψ(z) = ∑ a(ν) e^{2πi Tr(νz)}` over `ν ∈ (𝔟⁻¹)^∨`, in parallel weight `m`,
 `ψ ∣ (1, b; 0, π)` has coefficients `N(𝔭)^{-m/2} a(ν) e^{2πi Tr(π⁻¹νb)}` at `π⁻¹ν`, and the sum over
