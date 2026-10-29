@@ -3156,6 +3156,19 @@
     "SiegelUpperHalfSpace.IsHolomorphic": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.UpperHalfSpace",
     "SiegelUpperHalfSpace": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.UpperHalfSpace"
   },
+  "mf.siegel.coefficient_field": {
+    "SiegelUpperHalfSpace.coefficientField": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierExpansion",
+    "SiegelUpperHalfSpace.vectorCoefficientField": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CoefficientField",
+    "SiegelUpperHalfSpace.heckeField": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CoefficientField",
+    "SiegelUpperHalfSpace.fourierCoeffs_eq_range": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierUniqueness",
+    "SiegelUpperHalfSpace.vectorFourierCoeffs_eq_range": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CoefficientField"
+  },
+  "mf.siegel.coefficient_ring": {
+    "SiegelUpperHalfSpace.coefficientRing": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierExpansion",
+    "SiegelUpperHalfSpace.vectorCoefficientRing": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CoefficientField",
+    "SiegelUpperHalfSpace.heckeRing": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CoefficientField",
+    "SiegelUpperHalfSpace.heckeEigenvalues_eq_range": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CoefficientField"
+  },
   "mf.siegel.cusp_form_degree2": {
     "SiegelUpperHalfSpace.cuspFormsKJ": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwo",
     "SiegelUpperHalfSpace.IsCuspForm": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwo",

@@ -177,6 +177,7 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.HeckeFourier
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.HeckeGamma0
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.Weight
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CoefficientField
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CongruenceSubgroups
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwo
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierExpansion

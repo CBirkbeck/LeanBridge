@@ -164,8 +164,11 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.Hecke
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.HeckeFourier
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.Weight
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CoefficientField
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CongruenceSubgroups
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwo
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierExpansion
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierUniqueness
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.HeckeOperator
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.HeckeRing
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.Level
