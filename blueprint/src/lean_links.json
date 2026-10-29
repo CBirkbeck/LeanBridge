@@ -3042,6 +3042,13 @@
     "HilbertModularForm.VanishesAtCusps": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.Basic",
     "HilbertModularGroup.gammaZero": "LeanBridge.ForMathlib.AlgebraicGeometry.HilbertModularSurface.Level"
   },
+  "mf.hilbert.hecke_orbit": {
+    "HilbertModularForm.heckeIdealOrbit": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.HeckeIdeal",
+    "HilbertModularForm.heckeIdealOrbit_eq_span": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.HeckeIdeal",
+    "HilbertModularForm.heckeIdealSpace": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.HeckeIdeal",
+    "HilbertModularForm.space": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.HeckeSpace",
+    "HilbertModularGroup.finite_heckeCosets": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.HeckeIdeal"
+  },
   "mf.hilbert.level_norm": {
     "HilbertModularForm.level": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.Basic",
     "HilbertModularForm.levelNorm": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.Basic"

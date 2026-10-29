@@ -247,6 +247,7 @@ import LeanBridge.ForMathlib.NumberTheory.ModularForms.Eisenstein.Series
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Eisenstein.Subspace
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.Basic
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.HeckeEigenvalue
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.HeckeIdeal
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.HeckeOperator
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.HeckeRing
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.HeckeSpace
