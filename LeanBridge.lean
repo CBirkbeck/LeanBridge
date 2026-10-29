@@ -258,6 +258,7 @@ import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Level
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Maximal
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.NewformSubspace
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.TraceBound
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.TraceBoundExists
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.TraceForm
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.SatoTate.GaloisRepresentation
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.Basic
