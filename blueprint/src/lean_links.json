@@ -3053,6 +3053,13 @@
     "HilbertModularForm.level": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.Basic",
     "HilbertModularForm.levelNorm": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.Basic"
   },
+  "mf.hilbert.q_expansion": {
+    "HilbertModularForm.HasHilbertFourierExpansion": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.FourierExpansion",
+    "HilbertModularForm.HasHilbertFourierExpansion.unique": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.FourierExpansion",
+    "HilbertModularForm.fourierCoeff": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.FourierExpansion",
+    "HilbertModularForm.idealCoeff": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.FourierCoefficient",
+    "HilbertModularForm.idealCoeff_eq": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.FourierCoefficient"
+  },
   "mf.hilbert.weight_vector": {
     "HilbertModularForm.weight": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.Basic",
     "HilbertModularForm.IsParallelWeight": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.Basic"
