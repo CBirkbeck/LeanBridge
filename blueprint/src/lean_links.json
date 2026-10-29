@@ -3155,6 +3155,13 @@
     "SiegelUpperHalfSpace.siegelPhi_eq": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PhiOperator",
     "SiegelUpperHalfSpace.HasSiegelPhi.add": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PhiOperator"
   },
+  "mf.siegel.q-expansion": {
+    "SiegelUpperHalfSpace.HasSiegelFourierExpansion": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierExpansion",
+    "SiegelUpperHalfSpace.translationLattice": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierExpansion",
+    "SiegelUpperHalfSpace.dualLattice": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierExpansion",
+    "SiegelUpperHalfSpace.fourierExp": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierExpansion",
+    "SiegelUpperHalfSpace.HasSiegelFourierExpansion.add": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierExpansion"
+  },
   "mf.siegel.slash.op": {
     "SiegelUpperHalfSpace.gspSlash": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SimilitudeSlash",
     "SiegelUpperHalfSpace.gspPlus": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SimilitudeSlash",
