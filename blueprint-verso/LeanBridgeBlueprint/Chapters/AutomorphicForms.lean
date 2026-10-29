@@ -542,7 +542,7 @@ This eigenvalue is a real number that is typically written in the form $`\lambda
 Depends on: {uses "mf.maass.mwf"}[] {uses "mf.maass.mwf.laplacian"}[] {uses "mf.maass.mwf.spectralparameter"}[]
 :::
 
-:::definition "mf.maass.mwf.fourierexpansion"
+:::definition "mf.maass.mwf.fourierexpansion" (lean := "UpperHalfPlane.HasMaassFourierExpansion, UpperHalfPlane.HasMaassCosineExpansion, UpperHalfPlane.HasMaassSineExpansion, UpperHalfPlane.maassHeckeOperator, UpperHalfPlane.IsMaassHeckeEigenform.coeff_prime_eq")
 *Fourier expansion of Maass form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass.mwf.fourierexpansion))
 
 The *Fourier expansion* (at infinity) of a {bpref "mf.maass.mwf"}[Maass form] of a non-cocompact subgroup of PSL$`(2,\R)` reads

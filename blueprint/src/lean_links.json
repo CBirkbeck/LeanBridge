@@ -3068,6 +3068,13 @@
     "UpperHalfPlane.IsMaassForm.eigenvalue_eq": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane",
     "UpperHalfPlane.hyperbolicLaplacian": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane"
   },
+  "mf.maass.mwf.fourierexpansion": {
+    "UpperHalfPlane.HasMaassFourierExpansion": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.FourierExpansion",
+    "UpperHalfPlane.HasMaassCosineExpansion": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.FourierExpansion",
+    "UpperHalfPlane.HasMaassSineExpansion": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.FourierExpansion",
+    "UpperHalfPlane.maassHeckeOperator": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.Hecke",
+    "UpperHalfPlane.IsMaassHeckeEigenform.coeff_prime_eq": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.HeckeFourier"
+  },
   "mf.maass.mwf.level": {
     "UpperHalfPlane.IsMaassFormOfLevel": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane"
   },

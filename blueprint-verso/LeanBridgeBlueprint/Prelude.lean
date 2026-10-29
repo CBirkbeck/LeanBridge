@@ -159,6 +159,9 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.MaassPicardSp
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.ModularForm
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.Slash
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.UpperHalfSpace
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.FourierExpansion
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.Hecke
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.HeckeFourier
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.Weight
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CongruenceSubgroups
