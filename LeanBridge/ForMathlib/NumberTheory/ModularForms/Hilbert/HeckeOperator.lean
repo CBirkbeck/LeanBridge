@@ -14,8 +14,8 @@ group, the Hecke operator `T_𝔭` of the double coset `Γ₀(𝔑)_𝔟 diag(1,
 component `f_𝔟` of a Hilbert modular form (LMFDB `mf.hilbert`). A Hilbert modular form is a Hecke
 eigenform if it is nonzero and an eigenvector, with one eigenvalue for all components, of every
 such `T_𝔭` with `𝔭 ∤ 𝔑`. The general `T_𝔭`, which permutes the components by `𝔟 ↦ 𝔟𝔭⁻¹`, is not
-formalised, nor is it proved that the slash operator preserves holomorphy and boundedness at the
-cusps, which would make `T_𝔭` an endomorphism of the space of Hilbert modular forms.
+formalised. That the slash operator preserves holomorphy and boundedness at the cusps, making `T_𝔭`
+an endomorphism of the space of Hilbert modular forms, is proved in `Hilbert/HeckeSpace.lean`.
 
 ## Main definitions
 

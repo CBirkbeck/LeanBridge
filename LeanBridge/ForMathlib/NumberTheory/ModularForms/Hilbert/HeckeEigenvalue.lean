@@ -13,8 +13,9 @@ line `ℂ f`.
 Only the primes that are trivial in the narrow class group are covered, for which `T_𝔭` maps each
 component to itself: the general `T_𝔭`, which permutes the components by `𝔟 ↦ 𝔟𝔭⁻¹`, and the
 operators `T_𝔫` for composite `𝔫` are not formalised, nor is the normalisation `a_(1) = 1`, which
-needs Fourier expansions. The Hecke orbit is a subspace of the tuples of functions on `ℍⁿ`, since it
-is not proved that the slash operator preserves holomorphy and boundedness at the cusps.
+needs Fourier expansions. The Hecke orbit is defined as a subspace of the tuples of functions on
+`ℍⁿ`; it lies in the space of Hilbert modular forms by `heckeOrbit_le_space` in
+`Hilbert/HeckeSpace.lean`.
 
 ## Main definitions
 
