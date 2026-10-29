@@ -3171,7 +3171,7 @@
     "SiegelUpperHalfSpace.translationLattice": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierExpansion",
     "SiegelUpperHalfSpace.dualLattice": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierExpansion",
     "SiegelUpperHalfSpace.fourierExp": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierExpansion",
-    "SiegelUpperHalfSpace.HasSiegelFourierExpansion.add": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierExpansion"
+    "SiegelUpperHalfSpace.HasSiegelFourierExpansion.unique": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierUniqueness"
   },
   "mf.siegel.slash.op": {
     "SiegelUpperHalfSpace.gspSlash": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SimilitudeSlash",

@@ -177,6 +177,7 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.Weight
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CongruenceSubgroups
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwo
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierExpansion
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierUniqueness
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.Level
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ModularForm
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PhiOperator
