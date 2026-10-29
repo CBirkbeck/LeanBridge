@@ -9,8 +9,9 @@ and `𝔭 = (π)` an ideal with `π` totally positive. The Hecke operator `T_�
 `HilbertModularForm.heckeIdealOperator` is `ψ ↦ ∑ ψ ∣ₖ α` over representatives `α` of the right
 cosets `Γ₀(𝔑)_𝔟 α` of `Δ = HilbertModularGroup.heckeSet 𝔑 𝔭 𝔟 𝔟`. For a prime `𝔭 ∤ 𝔑`, these
 cosets are represented by `(π, 0; 0, 1)` and the `(1, b; 0, π)` with `b ∈ 𝔟⁻¹ / π 𝔟⁻¹`, each
-exactly once; this elementary divisor theorem for `𝒪_F ⊕ 𝔟` is not proved here, and is a hypothesis
-(`HilbertModularForm.IsHeckeCosetDecomposition`) of the results below.
+exactly once. This coset decomposition (`HilbertModularForm.IsHeckeCosetDecomposition`) is a
+hypothesis of the results below; it is proved for such primes in
+`Hilbert/HeckeCosetDecomposition.lean` (`HilbertModularForm.isHeckeCosetDecomposition`).
 
 On Fourier expansions `ψ(z) = ∑ a(ν) e^{2πi Tr(νz)}` over `ν ∈ (𝔟⁻¹)^∨`, in parallel weight `m`,
 `ψ ∣ (1, b; 0, π)` has coefficients `N(𝔭)^{-m/2} a(ν) e^{2πi Tr(π⁻¹νb)}` at `π⁻¹ν`, and the sum over
@@ -390,9 +391,8 @@ variable (𝔑 : Ideal (𝓞 F))
 /-- The **coset decomposition** of the Hecke operator `T_𝔭` on the component of `𝔟`, for
 `𝔭 = (π)` with `π` totally positive: the right cosets `Γ₀(𝔑)_𝔟 α` of the matrices `α` of
 `HilbertModularGroup.heckeSet 𝔑 𝔭 𝔟 𝔟` are the cosets of `(π, 0; 0, 1)` and of the `(1, b; 0, π)`,
-`b ∈ 𝔟⁻¹ / π 𝔟⁻¹`, each exactly once. It holds for a prime `𝔭 ∤ 𝔑` (an elementary divisor
-theorem for `𝒪_F ⊕ 𝔟`: the lattices `α⁻¹(𝒪_F ⊕ 𝔟)` are the `N(𝔭) + 1` lattices containing
-`𝒪_F ⊕ 𝔟` with index `𝔭`), which is not proved here. -/
+`b ∈ 𝔟⁻¹ / π 𝔟⁻¹`, each exactly once. It holds for a prime `𝔭 ∤ 𝔑`: see
+`HilbertModularForm.isHeckeCosetDecomposition` in `Hilbert/HeckeCosetDecomposition.lean`. -/
 def IsHeckeCosetDecomposition : Prop :=
   Set.BijOn
     (fun r ↦ (⟦heckeCosetRep π 𝔟 r⟧ : gammaZeroRightCosets 𝔑 (𝔟 : FractionalIdeal (𝓞 F)⁰ F)))

@@ -248,6 +248,7 @@ import LeanBridge.ForMathlib.NumberTheory.ModularForms.Eisenstein.Subspace
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.Basic
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.FourierCoefficient
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.FourierExpansion
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.HeckeCosetDecomposition
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.HeckeEigenvalue
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.HeckeFourier
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.HeckeIdeal

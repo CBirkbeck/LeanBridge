@@ -19,11 +19,12 @@ differ, so the finite quotient is used directly rather than a Hecke pair. Since 
 
 For a prime `𝔭 ∤ 𝔑` this is the Hecke operator `T_𝔭`, and for `𝔫` coprime to `𝔑` Shimura's
 `T(𝔫)`, as a sum over all matrices of determinant `𝔫`. When `𝔭 = (π)` with `π` totally positive,
-the double coset `Γ₀(𝔑)_𝔟 diag(1, π) Γ₀(𝔑)_𝔟` of `HilbertModularGroup.heckeT` lies in `Δ`; that
-it is all of `Δ` (an elementary divisor theorem for `𝒪_F ⊕ 𝔟`) is not proved, so the agreement with
-`heckeTSpace` is not formalised. The operator is not normalised: the LMFDB's `T_𝔫` differs by a
-power of `N(𝔫)` and by a rescaling of the components, which changes eigenforms by that rescaling
-and eigenvalues by that power.
+the double coset `Γ₀(𝔑)_𝔟 diag(1, π) Γ₀(𝔑)_𝔟` of `HilbertModularGroup.heckeT` lies in `Δ`. For a
+prime `𝔭 ∤ 𝔑`, the right cosets of `Δ` are determined in `Hilbert/HeckeCosetDecomposition.lean`
+(`HilbertModularForm.isHeckeCosetDecomposition`); that `Δ` is this one double coset is not proved,
+so the agreement with `heckeTSpace` is not formalised. The operator is not normalised: the LMFDB's
+`T_𝔫` differs by a power of `N(𝔫)` and by a rescaling of the components, which changes eigenforms
+by that rescaling and eigenvalues by that power.
 
 ## Main definitions
 
