@@ -3866,6 +3866,9 @@
     "Subalgebra.enhancedGroupKernel": "LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.EnhancedGroup",
     "Subalgebra.enhancedGroupKernel_le_of_level_pos": "LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.EnhancedGroup"
   },
+  "shimcurve.local_obstruction": {
+    "AlgebraicGeometry.Scheme.HasLocalObstruction": "LeanBridge.ForMathlib.AlgebraicGeometry.LocalObstruction"
+  },
   "shimcurve.nrdmu": {
     "PolarizedQuaternionOrder.degree": "LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.QuaternionOrder",
     "QuaternionAlgebra.reducedNorm": "LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.QuaternionOrder",
@@ -3889,6 +3892,9 @@
     "IsSimpleRing": "Mathlib.RingTheory.SimpleRing.Defs",
     "TauCeti.Algebra.IsSplittingField": "TauCeti.Algebra.CentralSimple.Splitting",
     "TauCeti.QuaternionAlgebra.nonempty_algEquiv_matrix_tfae": "TauCeti.Algebra.Quaternion.SplittingCriterion"
+  },
+  "shimcurve.simple": {
+    "AlgebraicGeometry.Scheme.HasSimpleJacobian": "LeanBridge.ForMathlib.AlgebraicGeometry.Curve.SimpleJacobian"
   },
   "specialfunction.k_bessel": {
     "Complex.besselK": "LeanBridge.ForMathlib.Analysis.SpecialFunctions.BesselK",

@@ -255,7 +255,7 @@ $`H`.
 Depends on: {uses "shimcurve.enhanced_group"}[] {uses "shimcurve.polarized_order"}[]
 :::
 
-:::definition "shimcurve.local_obstruction"
+:::definition "shimcurve.local_obstruction" (lean := "AlgebraicGeometry.Scheme.HasLocalObstruction")
 *Local obstruction.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.local_obstruction))
 
 A {bpref "shimcurve"}[Shimura curve] $`X_H/\Q` has a *local obstruction* (to rational points) if it has no real points, or if it has no $`\Q_p`-points for some prime $`p`.
@@ -343,7 +343,7 @@ The {bpref "ec.bsdconjecture"}[Birch and Swinnerton-Dyer] conjecture for modular
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.jacobian"}[] {uses "ag.mordell_weil"}[] {uses "av.decomposition"}[] {uses "av.simple"}[] {uses "cmf.analytic_rank"}[] {uses "cmf.galois_orbit"}[] {uses "cmf.newform"}[] {uses "ec.bsdconjecture"}[] {uses "lfunction"}[] {uses "lfunction.central_point"}[] {uses "shimcurve"}[]
 :::
 
-:::definition "shimcurve.simple"
+:::definition "shimcurve.simple" (lean := "AlgebraicGeometry.Scheme.HasSimpleJacobian")
 *Simple Shimura curves.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.simple))
 
 A {bpref "shimcurve"}[Shimura curve] $`X_H` is *simple* if its {bpref "ag.jacobian"}[Jacobian] is a {bpref "av.simple"}[simple] {bpref "ag.abelian_variety"}[abelian variety].
