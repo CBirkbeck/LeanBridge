@@ -52,7 +52,7 @@ In particular, if $`g` is a base change from $`\Q` to $`K`, then $`a_{\mathfrak{
 Depends on: {uses "mf"}[] {uses "nf"}[]
 :::
 
-:::definition "mf.bianchi"
+:::definition "mf.bianchi" (lean := "HyperbolicThreeSpace.IsBianchiModularForm, HyperbolicThreeSpace.bianchiSlash, HyperbolicThreeSpace.IsBianchiHarmonic, HyperbolicThreeSpace.casimirOne, HyperbolicThreeSpace.IsBianchiCuspidal")
 *Bianchi modular form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.bianchi))
 
 Let $`K` be an imaginary quadratic {bpref "nf"}[number field] of {bpref "nf.class_number"}[class number] $`1`, and $`\mathcal{O}_K` be its {bpref "nf.ring_of_integers"}[ring of integers]. Let $`\Gamma` be a congruence subgroup of the
@@ -266,7 +266,7 @@ The irreducible components of $`\mathcal{S}_k(\mathcal{N})_{\Q}` under the actio
 Depends on: {uses "cmf"}[] {uses "cmf.petersson_scalar_product"}[] {uses "mf.bianchi"}[] {uses "mf.bianchi.hecke_algebra"}[] {uses "mf.bianchi.level"}[] {uses "mf.bianchi.weight"}[]
 :::
 
-:::definition "mf.bianchi.weight"
+:::definition "mf.bianchi.weight" (lean := "HyperbolicThreeSpace.IsBianchiModularForm, HyperbolicThreeSpace.bianchiSlash")
 *Weight of a Bianchi modular form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.bianchi.weight))
 
 The *weight* of a {bpref "mf.bianchi"}[Bianchi modular form] is the positive integer $`k` occurring in the transformation formula.  In addition, Bianchi modular forms are vector-valued functions $`F: \mathcal{H}_3 \rightarrow \C^{k+1}` where $`\mathcal{H}_3` is {bpref "mf.bianchi.hyperbolic3space"}[Hyperbolic 3-space], and $`k` is the weight.  For example a Bianchi modular form of weight $`2` takes values in $`\C^3`.

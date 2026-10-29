@@ -2988,6 +2988,13 @@
     "ModularForm.mem_multiplierSpace_one_iff": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ModularForm",
     "ModularForm": "Mathlib.NumberTheory.ModularForms.Basic"
   },
+  "mf.bianchi": {
+    "HyperbolicThreeSpace.IsBianchiModularForm": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.ModularForm",
+    "HyperbolicThreeSpace.bianchiSlash": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.Slash",
+    "HyperbolicThreeSpace.IsBianchiHarmonic": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.Casimir",
+    "HyperbolicThreeSpace.casimirOne": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.Casimir",
+    "HyperbolicThreeSpace.IsBianchiCuspidal": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.ModularForm"
+  },
   "mf.bianchi.bianchigroup": {
     "Matrix.ProjectiveSpecialLinearGroup": "Mathlib.LinearAlgebra.Matrix.ProjectiveSpecialLinearGroup",
     "NumberField.RingOfIntegers": "Mathlib.NumberTheory.NumberField.Basic",
@@ -3009,6 +3016,10 @@
     "Ideal.gamma0SL": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.Level",
     "Ideal.mem_gamma0SL": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.Level",
     "Ideal.absNorm": "Mathlib.RingTheory.Ideal.Norm.AbsNorm"
+  },
+  "mf.bianchi.weight": {
+    "HyperbolicThreeSpace.IsBianchiModularForm": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.ModularForm",
+    "HyperbolicThreeSpace.bianchiSlash": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.Slash"
   },
   "mf.ellitpic.self_twist": {
     "HeckeRing.GL2.Newform.HasSelfTwist": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.SelfTwist",

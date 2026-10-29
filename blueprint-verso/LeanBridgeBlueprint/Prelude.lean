@@ -151,10 +151,13 @@ import LeanBridge.ForMathlib.NumberTheory.Artin.Basic
 import LeanBridge.ForMathlib.NumberTheory.Artin.Conductor
 import LeanBridge.ForMathlib.NumberTheory.Artin.GaloisOrbit
 import LeanBridge.ForMathlib.NumberTheory.Artin.Parity
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.Casimir
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.FourierBessel
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.Level
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.MaassPicard
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.MaassPicardSpectral
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.ModularForm
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.Slash
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.UpperHalfSpace
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.Weight
