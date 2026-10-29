@@ -1,0 +1,291 @@
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SimilitudeSlash
+import TauCeti.NumberTheory.HeckeRing.Associativity
+
+/-!
+# The Hecke ring of `Sp(2g, ℤ)`
+
+Inside `G = GL(2g, ℚ)`, the integral symplectic group `Γ = Sp(2g, ℤ)` and the monoid
+`S = GSp(2g, ℚ)⁺ ∩ M(2g, ℤ)` of integral similitudes with positive multiplier form a Hecke pair:
+every `α ∈ S` commensurates `Γ`. Indeed, if `d = det α`, then `d α⁻¹ = adj α` is integral, so for
+`γ ∈ Γ(|d|)`, `γ = 1 + d E` with `E` integral, both `α γ α⁻¹ = 1 + α E adj(α)` and
+`α⁻¹ γ α = 1 + adj(α) E α` are integral, and symplectic since conjugation by a similitude
+preserves `Sp(2g, ℚ)`. So the principal congruence subgroup `Γ(|d|)`, of finite index in `Γ`, lies
+in `Γ ∩ αΓα⁻¹` and `α Γ(|d|) α⁻¹` lies in `Γ ∩ αΓα⁻¹`. In particular `ΓαΓ` is a finite union of
+right cosets `Γα_i`, and the Hecke ring of Mathlib (`HeckeRing`) is defined.
+
+The LMFDB defines the Hecke algebra as the `Γ`-invariants `L(Γ, S)^Γ` of the free module on the
+right cosets `Γα`; it has the double cosets `ΓαΓ`, identified with the sum of their right cosets,
+as a basis, which is the description `HeckeRing` takes.
+
+## Main definitions
+
+* `SiegelUpperHalfSpace.heckeGamma`: `Sp(2g, ℤ)` as a subgroup of `GL(2g, ℚ)`.
+* `SiegelUpperHalfSpace.heckeMonoid`: the semigroup `S` in `GL(2g, ℚ)`.
+* `SiegelUpperHalfSpace.heckeMonoidAt`: the semigroup `S_p` of the elements of `S` whose
+  multiplier is a power of `p`.
+* `SiegelUpperHalfSpace.siegelHeckeRing` (LMFDB `mf.siegel.hecke_operator`): the Hecke algebra
+  `𝓗(Γ)`, and `SiegelUpperHalfSpace.localSiegelHeckeRing` the local Hecke algebra `𝓗_p(Γ)`;
+  they are rings by the convolution product of Tau Ceti, Shimura's product of double cosets.
+* `SiegelUpperHalfSpace.heckeDiagonal`: the diagonal elements `diag(d)` of `S_p`.
+* `SiegelUpperHalfSpace.heckeT`, `SiegelUpperHalfSpace.heckeTi`,
+  `SiegelUpperHalfSpace.heckeTSq` (LMFDB `mf.siegel.hecke_operator`): `T(p)`, `T_i(p²)` and
+  `T(p²) = ∑ᵢ T_i(p²)`.
+
+## Main results
+
+* `SiegelUpperHalfSpace.mem_commensurator_heckeGamma`: every element of `S` commensurates
+  `Sp(2g, ℤ)`; so `(Γ, S)` and `(Γ, S_p)` are Hecke pairs (the instances
+  `IsHeckeTriple (heckeMonoid l) (heckeGamma l) (heckeGamma l)` and its local analogue), and
+  every double coset `ΓαΓ` with `α ∈ S` is a finite union of right cosets.
+-/
+
+open Matrix Subgroup Commensurable
+
+open scoped Pointwise
+
+namespace SiegelUpperHalfSpace
+
+variable (l : Type*) [Fintype l] [DecidableEq l]
+
+/-- The embedding `Sp(2g, ℤ) → GL(2g, ℚ)`. -/
+def spToGL : symplecticGroup l ℤ →* GL (l ⊕ l) ℚ :=
+  (Units.map (Int.castRingHom ℚ).mapMatrix.toMonoidHom).comp <|
+    (Units.map (symplecticGroup l ℤ).subtype).comp toUnits.toMonoidHom
+
+lemma spToGL_injective : Function.Injective (spToGL l) := fun _ _ h ↦
+  Subtype.ext <| Matrix.map_injective Int.cast_injective <| congrArg Units.val h
+
+/-- The group `Γ = Sp(2g, ℤ)` (LMFDB `mf.siegel.hecke_operator`), as a subgroup of `GL(2g, ℚ)`. -/
+def heckeGamma : Subgroup (GL (l ⊕ l) ℚ) :=
+  (⊤ : Subgroup (symplecticGroup l ℤ)).map (spToGL l)
+
+/-- The semigroup `S = GSp(2g, ℚ)⁺ ∩ M(2g, ℤ)` (LMFDB `mf.siegel.hecke_operator`) of integral
+symplectic similitudes with positive multiplier, as a submonoid of `GL(2g, ℚ)`. -/
+def heckeMonoid : Submonoid (GL (l ⊕ l) ℚ) :=
+  (integralGSpPlus l).comap (Units.coeHom _)
+
+/-- The semigroup `S_p` (LMFDB `mf.siegel.hecke_operator`) of the `α ∈ S` whose multiplier `r(α)`
+is a power of `p`, from which the local Hecke algebra at `p` is built. -/
+def heckeMonoidAt (p : ℕ) : Submonoid (GL (l ⊕ l) ℚ) where
+  carrier := {x | x ∈ heckeMonoid l ∧
+    ∃ k : ℕ, (x : Matrix (l ⊕ l) (l ⊕ l) ℚ)ᵀ * J l ℚ * x = ((p : ℚ) ^ k) • J l ℚ}
+  mul_mem' {x y} hx hy := by
+    rcases hx with ⟨hx, k, hk⟩
+    rcases hy with ⟨hy, m, hm⟩
+    refine ⟨mul_mem hx hy, k + m, ?_⟩
+    have h : ((x * y : GL (l ⊕ l) ℚ) : Matrix (l ⊕ l) (l ⊕ l) ℚ)ᵀ * J l ℚ * (x * y : GL (l ⊕ l) ℚ) =
+        (y : Matrix (l ⊕ l) (l ⊕ l) ℚ)ᵀ * ((x : Matrix (l ⊕ l) (l ⊕ l) ℚ)ᵀ * J l ℚ * x) * y := by
+      simp only [Units.val_mul, transpose_mul, Matrix.mul_assoc]
+    rw [h, hk, Matrix.mul_smul, Matrix.smul_mul, hm, smul_smul, pow_add, mul_comm]
+  one_mem' := ⟨one_mem _, 0, by simp⟩
+
+variable {l} {x : GL (l ⊕ l) ℚ}
+
+/-- An element of `S` in `GL(2g, ℚ)`, as an element of the monoid `GSp(2g, ℚ)⁺` of matrices. -/
+def heckeMonoidToGSpPlus : heckeMonoid l →* gspPlus l where
+  toFun y := ⟨(y : GL (l ⊕ l) ℚ), y.2.1⟩
+  map_one' := rfl
+  map_mul' _ _ := rfl
+
+lemma mem_heckeGamma (hs : (x : Matrix (l ⊕ l) (l ⊕ l) ℚ) ∈ symplecticGroup l ℚ)
+    (hi : (x : Matrix (l ⊕ l) (l ⊕ l) ℚ) ∈ (Int.castRingHom ℚ).mapMatrix.range) :
+    x ∈ heckeGamma l := by
+  rcases hi with ⟨M, hM⟩
+  have hMs : M ∈ symplecticGroup l ℤ := by
+    rw [SymplecticGroup.mem_iff]
+    refine Matrix.map_injective (Int.cast_injective (α := ℚ)) ?_
+    dsimp only
+    have h (N : Matrix (l ⊕ l) (l ⊕ l) ℤ) : N.map (↑) = (Int.castRingHom ℚ).mapMatrix N :=
+      rfl
+    rw [RingHom.mapMatrix_apply] at hM
+    rw [h, h, map_mul, map_mul]
+    simp only [RingHom.mapMatrix_apply, transpose_map, hM, map_J]
+    exact SymplecticGroup.mem_iff.mp hs
+  exact ⟨⟨M, hMs⟩, trivial, Units.ext hM⟩
+
+lemma heckeGamma_le_heckeMonoid : (heckeGamma l).toSubmonoid ≤ heckeMonoid l := by
+  rintro _ ⟨γ, -, rfl⟩
+  exact ⟨⟨1, one_pos, by
+    rw [one_smul, ← SymplecticGroup.mem_iff']
+    exact (SymplecticGroup.map (Int.castRingHom ℚ) γ).2⟩, γ, rfl⟩
+
+lemma heckeGamma_le_heckeMonoidAt (p : ℕ) : (heckeGamma l).toSubmonoid ≤ heckeMonoidAt l p :=
+  fun _ hγ ↦ ⟨heckeGamma_le_heckeMonoid hγ, 0, by
+    rcases hγ with ⟨γ, -, rfl⟩
+    rw [pow_zero, one_smul, ← SymplecticGroup.mem_iff']
+    exact (SymplecticGroup.map (Int.castRingHom ℚ) γ).2⟩
+
+lemma heckeMonoidAt_le_heckeMonoid (p : ℕ) : heckeMonoidAt l p ≤ heckeMonoid l :=
+  fun _ hx ↦ hx.1
+
+private lemma one_add_smul_of_mem_Gamma {d : ℤ} {γ : symplecticGroup l ℤ}
+    (hγ : γ ∈ SymplecticGroup.Gamma l d.natAbs) : ∃ E ∈ (Int.castRingHom ℚ).mapMatrix.range,
+      (spToGL l γ : Matrix (l ⊕ l) (l ⊕ l) ℚ) = 1 + (d : ℚ) • E := by
+  have h (i j : l ⊕ l) : d ∣ (γ : Matrix (l ⊕ l) (l ⊕ l) ℤ) i j - (1 : Matrix _ _ ℤ) i j := by
+    rw [← Int.natAbs_dvd, ← ZMod.intCast_zmod_eq_zero_iff_dvd, Int.cast_sub]
+    have hγ' : ((γ : Matrix (l ⊕ l) (l ⊕ l) ℤ).map (Int.cast : ℤ → ZMod d.natAbs)) i j =
+        (1 : Matrix (l ⊕ l) (l ⊕ l) (ZMod d.natAbs)) i j :=
+      congrFun (congrFun (SymplecticGroup.mem_Gamma_iff.mp hγ) i) j
+    rw [map_apply] at hγ'
+    rw [hγ', sub_eq_zero]
+    rcases eq_or_ne i j with rfl | hij <;> simp [one_apply, *]
+  refine ⟨(Int.castRingHom ℚ).mapMatrix (of fun i j ↦
+    ((γ : Matrix (l ⊕ l) (l ⊕ l) ℤ) i j - (1 : Matrix _ _ ℤ) i j) / d), ⟨_, rfl⟩, ?_⟩
+  ext i j
+  have hq : ((γ : Matrix (l ⊕ l) (l ⊕ l) ℤ) i j : ℚ) =
+      (1 : Matrix (l ⊕ l) (l ⊕ l) ℚ) i j + d * (((γ : Matrix (l ⊕ l) (l ⊕ l) ℤ) i j -
+        (1 : Matrix _ _ ℤ) i j) / d : ℤ) := by
+    rw [← Int.cast_mul, Int.mul_ediv_cancel' (h i j)]
+    rcases eq_or_ne i j with rfl | hij' <;> simp [one_apply, *]
+  simpa [spToGL] using hq
+
+private lemma mul_mul_mem_symplecticGroup {X Y Z : Matrix (l ⊕ l) (l ⊕ l) ℚ} {s t : ℚ}
+    (hX : Xᵀ * J l ℚ * X = s • J l ℚ) (hY : Y ∈ symplecticGroup l ℚ)
+    (hZ : Zᵀ * J l ℚ * Z = t • J l ℚ) (hst : s * t = 1) : X * Y * Z ∈ symplecticGroup l ℚ := by
+  have h : (X * Y * Z)ᵀ * J l ℚ * (X * Y * Z) = Zᵀ * (Yᵀ * (Xᵀ * J l ℚ * X) * Y) * Z := by
+    simp only [transpose_mul, Matrix.mul_assoc]
+  rw [SymplecticGroup.mem_iff', h, hX, Matrix.mul_smul, Matrix.smul_mul,
+    SymplecticGroup.mem_iff'.mp hY, Matrix.mul_smul, Matrix.smul_mul, hZ, smul_smul, hst, one_smul]
+
+private lemma transpose_mul_J_mul_of_mul_eq_one {X Y : Matrix (l ⊕ l) (l ⊕ l) ℚ} {r : ℚ}
+    (hr : r ≠ 0) (hX : Xᵀ * J l ℚ * X = r • J l ℚ) (hXY : X * Y = 1) :
+    Yᵀ * J l ℚ * Y = r⁻¹ • J l ℚ := by
+  have h : (X * Y)ᵀ * J l ℚ * (X * Y) = Yᵀ * (Xᵀ * J l ℚ * X) * Y := by
+    simp only [transpose_mul, Matrix.mul_assoc]
+  rw [hXY, transpose_one, Matrix.one_mul, Matrix.mul_one, hX, Matrix.mul_smul,
+    Matrix.smul_mul] at h
+  exact (eq_inv_smul_iff₀ hr).mpr h.symm
+
+private lemma smul_coe_inv {M : Matrix (l ⊕ l) (l ⊕ l) ℤ}
+    (hM : (Int.castRingHom ℚ).mapMatrix M = x) :
+    (M.det : ℚ) • ((x⁻¹ : GL (l ⊕ l) ℚ) : Matrix (l ⊕ l) (l ⊕ l) ℚ) =
+      (Int.castRingHom ℚ).mapMatrix M.adjugate := by
+  have hd : (M.det : ℚ) = (x : Matrix (l ⊕ l) (l ⊕ l) ℚ).det := by
+    rw [← hM, ← RingHom.map_det, eq_intCast]
+  have h0 : (M.det : ℚ) ≠ 0 := hd ▸ (isUnits_det_units x).ne_zero
+  rw [coe_units_inv, inv_def, ← hd, Ring.inverse_eq_inv', smul_smul, mul_inv_cancel₀ h0, one_smul,
+    ← hM, RingHom.map_adjugate]
+
+/-- **Every element of `S = GSp(2g, ℚ)⁺ ∩ M(2g, ℤ)` commensurates `Sp(2g, ℤ)`**: if `d = det α`,
+the principal congruence subgroup `Γ(|d|)` lies in `Γ ∩ αΓα⁻¹` and its conjugate `α Γ(|d|) α⁻¹`
+lies in `Γ`, so `αΓα⁻¹ ∩ Γ` has finite index in both `Γ` and `αΓα⁻¹`. -/
+lemma mem_commensurator_heckeGamma (hx : (x : Matrix (l ⊕ l) (l ⊕ l) ℚ) ∈ integralGSpPlus l) :
+    x ∈ commensurator (heckeGamma l) := by
+  rcases hx with ⟨⟨r, hr, hxr⟩, M, hM⟩
+  have hxM : (x : Matrix (l ⊕ l) (l ⊕ l) ℚ) ∈ (Int.castRingHom ℚ).mapMatrix.range := ⟨M, hM⟩
+  have hinv : (M.det : ℚ) • ((x⁻¹ : GL (l ⊕ l) ℚ) : Matrix (l ⊕ l) (l ⊕ l) ℚ) ∈
+      (Int.castRingHom ℚ).mapMatrix.range :=
+    ⟨_, (smul_coe_inv hM).symm⟩
+  have hx' : ((x⁻¹ : GL (l ⊕ l) ℚ) : Matrix (l ⊕ l) (l ⊕ l) ℚ)ᵀ * J l ℚ *
+      (x⁻¹ : GL (l ⊕ l) ℚ) = r⁻¹ • J l ℚ :=
+    transpose_mul_J_mul_of_mul_eq_one hr.ne' hxr (Units.mul_inv x)
+  have : NeZero M.det.natAbs := ⟨Int.natAbs_ne_zero.mpr fun h ↦ (isUnits_det_units x).ne_zero <| by
+    rw [← hM, ← RingHom.map_det, h, map_zero]⟩
+  have hΓ : ((SymplecticGroup.Gamma l M.det.natAbs).map (spToGL l)).Commensurable
+      (heckeGamma l) := by
+    refine ⟨⟨?_⟩, ⟨(relIndex_eq_one.mpr (map_mono le_top)).trans_ne one_ne_zero⟩⟩
+    rw [heckeGamma, relIndex_map_map_of_injective _ _ (spToGL_injective l), relIndex_top_right]
+    exact (Subgroup.finiteIndex_ker _).index_ne_zero
+  have h₁ : (SymplecticGroup.Gamma l M.det.natAbs).map (spToGL l) ≤
+      MulAut.conj x • heckeGamma l := by
+    rintro _ ⟨γ, hγ, rfl⟩
+    rw [mem_smul_pointwise_iff_exists]
+    refine ⟨x⁻¹ * spToGL l γ * x, ?_, by simp [MulAut.smul_def, mul_assoc]⟩
+    rcases one_add_smul_of_mem_Gamma hγ with ⟨E, hE, hγE⟩
+    refine mem_heckeGamma ?_ ?_
+    · rw [Units.val_mul, Units.val_mul]
+      exact mul_mul_mem_symplecticGroup hx' (SymplecticGroup.map (Int.castRingHom ℚ) γ).2 hxr
+        (inv_mul_cancel₀ hr.ne')
+    · rw [Units.val_mul, Units.val_mul, hγE, Matrix.mul_add, Matrix.add_mul, Matrix.mul_one,
+        Units.inv_mul, Matrix.mul_smul, Matrix.smul_mul, ← Matrix.smul_mul, ← Matrix.smul_mul]
+      exact add_mem (one_mem _) (mul_mem (mul_mem hinv hE) hxM)
+  have h₂ : MulAut.conj x • (SymplecticGroup.Gamma l M.det.natAbs).map (spToGL l) ≤
+      heckeGamma l := by
+    intro _ hy
+    rw [mem_smul_pointwise_iff_exists] at hy
+    rcases hy with ⟨_, ⟨γ, hγ, rfl⟩, rfl⟩
+    rcases one_add_smul_of_mem_Gamma hγ with ⟨E, hE, hγE⟩
+    rw [MulAut.smul_def, MulAut.conj_apply]
+    refine mem_heckeGamma ?_ ?_
+    · rw [Units.val_mul, Units.val_mul]
+      exact mul_mul_mem_symplecticGroup hxr (SymplecticGroup.map (Int.castRingHom ℚ) γ).2 hx'
+        (mul_inv_cancel₀ hr.ne')
+    · rw [Units.val_mul, Units.val_mul, hγE, Matrix.mul_add, Matrix.add_mul, Matrix.mul_one,
+        Units.mul_inv, Matrix.mul_smul, Matrix.smul_mul, ← Matrix.mul_smul]
+      exact add_mem (one_mem _) (mul_mem (mul_mem hxM hE) hinv)
+  have : ((SymplecticGroup.Gamma l M.det.natAbs).map (spToGL l)).IsFiniteRelIndex
+      (heckeGamma l) :=
+    hΓ.1
+  refine ⟨isFiniteRelIndex_of_le_left _ h₁, ?_⟩
+  have : (MulAut.conj x • (SymplecticGroup.Gamma l M.det.natAbs).map (spToGL l)).IsFiniteRelIndex
+      (MulAut.conj x • heckeGamma l) :=
+    (hΓ.smul (MulAut.conj x)).1
+  exact isFiniteRelIndex_of_le_left _ h₂
+
+private lemma heckeDiagonal_ne_zero {ι : Type*} {d : ι ⊕ ι → ℕ} {p k : ℕ} (hp : 0 < p)
+    (hd : ∀ j, d (.inl j) * d (.inr j) = p ^ k) (i : ι ⊕ ι) : (d i : ℚ) ≠ 0 := by
+  have h (j : ι) : d (.inl j) * d (.inr j) ≠ 0 :=
+    (hd j).trans_ne (pow_pos hp k).ne'
+  rcases i with j | j
+  · exact Nat.cast_ne_zero.mpr (left_ne_zero_of_mul (h j))
+  · exact Nat.cast_ne_zero.mpr (right_ne_zero_of_mul (h j))
+
+/-- The diagonal matrix `diag(d)` with positive integer entries such that `d_j d_{g + j} = p ^ k`
+for every `j`, an element of `S_p` of multiplier `p ^ k`, such as `diag(1_g, p 1_g)` of `T(p)` and
+`diag(1_i, p 1_{g - i}, p² 1_i, p 1_{g - i})` of `T_i(p²)` (LMFDB `mf.siegel.hecke_operator`). -/
+def heckeDiagonal (d : l ⊕ l → ℕ) (p k : ℕ) (hp : 0 < p)
+    (hd : ∀ j, d (.inl j) * d (.inr j) = p ^ k) : heckeMonoidAt l p where
+  val := ⟨diagonal fun i ↦ (d i : ℚ), diagonal fun i ↦ (d i : ℚ)⁻¹,
+    by rw [diagonal_mul_diagonal, ← diagonal_one]
+       exact congrArg diagonal <| funext fun i ↦ mul_inv_cancel₀ <| heckeDiagonal_ne_zero hp hd i,
+    by rw [diagonal_mul_diagonal, ← diagonal_one]
+       exact congrArg diagonal <| funext fun i ↦ inv_mul_cancel₀ <| heckeDiagonal_ne_zero hp hd i⟩
+  property := by
+    refine ⟨⟨⟨(p : ℚ) ^ k, pow_pos (Nat.cast_pos.mpr hp) k, ?_⟩,
+      diagonal fun i ↦ (d i : ℤ), by simp [diagonal_map]⟩, k, ?_⟩ <;>
+    · ext (i | i) (j | j) <;> rcases eq_or_ne i j with rfl | hij <;>
+        simp [J, mul_comm, *] <;>
+        exact_mod_cast hd i
+
+instance : IsHeckeTriple (heckeMonoid l) (heckeGamma l) (heckeGamma l) :=
+  .of_diagonal heckeGamma_le_heckeMonoid fun _ hx ↦ mem_commensurator_heckeGamma hx
+
+instance (p : ℕ) : IsHeckeTriple (heckeMonoidAt l p) (heckeGamma l) (heckeGamma l) :=
+  .of_diagonal (heckeGamma_le_heckeMonoidAt p) fun _ hx ↦ mem_commensurator_heckeGamma hx.1
+
+variable (l) in
+/-- The **Hecke algebra** `𝓗(Γ) = L(Γ, S)^Γ` (LMFDB `mf.siegel.hecke_operator`) of
+`Γ = Sp(2g, ℤ)`: the complex Hecke ring of the Hecke pair `(Γ, S)`, with
+`S = GSp(2g, ℚ)⁺ ∩ M(2g, ℤ)`. Its basis is the double cosets `ΓαΓ`, `α ∈ S`, each identified with
+the sum of the finitely many right cosets `Γα_i` it is the union of, which is how the LMFDB
+identifies `L(Γ, S)^Γ` with formal sums of double cosets. -/
+abbrev siegelHeckeRing : Type _ :=
+  HeckeRing (heckeMonoid l) (heckeGamma l) ℂ
+
+variable (l) in
+/-- The **local Hecke algebra** `𝓗_p(Γ) = L(Γ, S_p)^Γ` (LMFDB `mf.siegel.hecke_operator`) at `p`
+of `Γ = Sp(2g, ℤ)`, built from the elements of `S` whose multiplier is a power of `p`. -/
+abbrev localSiegelHeckeRing (p : ℕ) : Type _ :=
+  HeckeRing (heckeMonoidAt l p) (heckeGamma l) ℂ
+
+variable (l) in
+/-- The Hecke operator `T(p) = Γ diag(1_g, p 1_g) Γ` (LMFDB `mf.siegel.hecke_operator`), a double
+coset of `Γ = Sp(2g, ℤ)` with a representative in `S_p`. -/
+def heckeT (p : ℕ) (hp : p.Prime) : HeckeCoset (heckeMonoid l) (heckeGamma l) (heckeGamma l) :=
+  HeckeCoset.mk _ _ ⟨_, (heckeDiagonal (Sum.elim 1 fun _ ↦ p) p 1 hp.pos fun _ ↦ by simp).2.1⟩
+
+/-- The Hecke operator `T_i(p²) = Γ diag(1_i, p 1_{g - i}, p² 1_i, p 1_{g - i}) Γ`
+(LMFDB `mf.siegel.hecke_operator`) for `0 ≤ i ≤ g`, a double coset of `Γ = Sp(2g, ℤ)` with a
+representative in `S_p`. For `i > g` it is `T_g(p²)`. -/
+def heckeTi {n : ℕ} (i p : ℕ) (hp : p.Prime) :
+    HeckeCoset (heckeMonoid (Fin n)) (heckeGamma (Fin n)) (heckeGamma (Fin n)) :=
+  HeckeCoset.mk _ _ ⟨_, (heckeDiagonal (Sum.elim (fun j : Fin n ↦ if (j : ℕ) < i then 1 else p)
+    fun j ↦ if (j : ℕ) < i then p ^ 2 else p) p 2 hp.pos fun j ↦ by
+      by_cases hj : (j : ℕ) < i <;> simp [hj, sq]).2.1⟩
+
+/-- The element `T(p²) = ∑_{i = 0}^g T_i(p²)` (LMFDB `mf.siegel.hecke_operator`) of the Hecke
+algebra of `Γ = Sp(2g, ℤ)`. -/
+noncomputable def heckeTSq (n p : ℕ) (hp : p.Prime) : siegelHeckeRing (Fin n) :=
+  (Finset.range (n + 1)).sum fun i ↦ HeckeCosetModule.single ℂ (heckeTi i p hp) 1
+
+end SiegelUpperHalfSpace
