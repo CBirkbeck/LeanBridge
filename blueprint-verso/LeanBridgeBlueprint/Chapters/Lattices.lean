@@ -9,7 +9,7 @@ open Informal
 
 #doc (Manual) "Lattices" =>
 
-This chapter lists the LMFDB definitions relating to *lattices*, migrated from the LaTeX blueprint. Each definition links back to its LMFDB knowl.
+This section lists the LMFDB definitions in the category `lattice`. Each definition links back to its LMFDB knowl.
 
 :::definition "lattice.additively_indecomposable" (lean := "TauCeti.IntegralLattice.IsAdditivelyIndecomposable, TauCeti.IntegralLattice.IsAdditivelyIndecomposable.isOrthogonallyIndecomposable, TauCeti.IntegralLattice.IsOrthogonallyIndecomposable")
 *Additively indecomposable lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.additively_indecomposable))

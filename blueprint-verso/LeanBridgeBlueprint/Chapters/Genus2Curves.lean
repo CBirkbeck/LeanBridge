@@ -9,7 +9,7 @@ open Informal
 
 #doc (Manual) "Genus 2 curves" =>
 
-This chapter lists the LMFDB definitions relating to *genus 2 curves*, migrated from the LaTeX blueprint. Each definition links back to its LMFDB knowl. The definitions from this area that the number field, elliptic curve and modular form chapters depend on are in the Background chapter instead.
+This section lists the LMFDB definitions in the category `g2c`. Each definition links back to its LMFDB knowl.
 
 :::definition "g2c.abs_discriminant" (lean := "HyperellipticEquation.discriminant, HyperellipticEquation.IsMinimal, HyperellipticEquation.IsMinimal.abs_discriminant_eq")
 *Absolute discriminant.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.abs_discriminant))
@@ -65,6 +65,18 @@ where
 The Birch and Swinnerton-Dyer for abelian varieties implies that the analytic rank of $`A` is equal to its {bpref "g2c.mordell_weil_rank"}[Mordell-Weil rank], and that its analytic order of Sha is equal to the order of its {bpref "ag.tate_shafarevich"}[Tate-Shafarevich group].
 
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.mordell_weil"}[] {uses "ag.regulator"}[] {uses "g2c.analytic_rank"}[] {uses "g2c.mordell_weil_rank"}[] {uses "g2c.real_period"}[] {uses "g2c.tamagawa"}[] {uses "ag.tate_shafarevich"}[] {uses "g2c.torsion"}[] {uses "lfunction"}[] {uses "lfunction.leading_coeff"}[]
+:::
+
+:::definition "g2c.aut_grp" (lean := "HyperellipticEquation.hyperellipticInvolution, HyperellipticEquation.orderOf_hyperellipticInvolution, GenusTwoCurve.nontrivial_algEquiv, GenusTwoCurve.orderOf_hyperellipticInvolution, CategoryTheory.Aut")
+*Automorphism group of an algebraic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.aut_grp))
+
+An *automorphism* of an {bpref "ag.curve"}[algebraic curve] is an isomorphism from the curve to itself.  The set of automorphisms of a curve $`X` form a group $`\mathrm{Aut}(X)` under composition; this is the *automorphism group* of the curve.
+
+The automorphism group of a {bpref "g2c.g2curve"}[genus 2 curve] necessarily includes the *hyperelliptic involution* $`(x,y)\mapsto(x,-y)`, which is an automorphism of order 2; this means that the automorphism group of a genus 2 curve is never trivial.
+
+The {bpref "g2c.geom_aut_grp"}[geometric automorphism group] of a curve $`X/k` is the automorphism group of $`X_{\bar k}`.
+
+Depends on: {uses "ag.curve"}[] {uses "g2c.g2curve"}[]
 :::
 
 :::definition "g2c.bad_lfactors"
@@ -129,6 +141,21 @@ When $`A` is the Jacobian of a genus 2 curve, the abelian varieties $`B_1` and $
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.geom_simple"}[] {uses "av.isogeny"}[] {uses "ag.simple"}[] {uses "ec"}[]
 :::
 
+:::definition "g2c.discriminant"
+*Discriminant of a genus 2 curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.discriminant))
+
+The discriminant $`\Delta` of a Weierstrass equation $`y^2+h(x)y=f(x)` can be computed as
+
+$$`\Delta := \begin{cases}
+2^8\text{lc}(f)^2\text{disc}(f+h^2/4)&\text{if }f+h^2/4\text{ has odd degree},\\
+2^8\text{disc}(f+h^2/4)&\text{if }f+h^2/4\text{ has even degree},
+\end{cases}`
+
+where $`\text{lc}(f)` denotes the leading coefficient of $`f` and $`\text{disc}(f)` its discriminant.
+
+The *discriminant* of a genus 2 curve over $`\Q` is the discriminant of a {bpref "g2c.minimal_equation"}[minimal equation] for the curve; it is an invariant of the curve that does not depend on the choice of minimal equation.
+:::
+
 :::definition "g2c.end_alg" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.End, TauCeti.AlgebraicGeometry.AbelianVariety.dim")
 *Endomorphism algebra.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.end_alg))
 
@@ -167,6 +194,19 @@ except when $`J_4` is also zero, in which case
 $$`(g_1,g_2,g_3) = (0,\,0,\,J_6^5 / J_{10}^3).\qquad\qquad\quad`
 
 Depends on: {uses "g2c.g2curve"}[] {uses "g2c.geom_iso_class"}[] {uses "g2c.igusa_invariants"}[]
+:::
+
+:::definition "g2c.g2curve" (lean := "GenusTwoCurve, HyperellipticEquation, HyperellipticEquation.FunctionField, GenusTwoCurve.genus_functionField, GenusTwoCurve.isHyperellipticFunctionField")
+*Genus 2 curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.g2curve))
+
+Every (smooth, projective, geometrically integral) curve of genus 2 can be defined by a *Weierstrass equation* of the form
+$$`y^2+h(x)y=f(x)`
+
+with nonzero {bpref "g2c.discriminant"}[discriminant] and $`\deg h \le 3` and $`\deg f \le 6`; in order to have genus 2 we must have $`\deg h = 3` or $`\deg f =5,6`.  Over a field whose characteristic is not 2 one can complete the square to make $`h(x)` zero, but this will yield a model with bad reduction at 2 that is typically not a {bpref "g2c.minimal_equation"}[minimal equation] for the curve.
+
+This equation can be viewed as defining the function field of the curve, or as a smooth model of the curve in the weighted projective plane. Every curve of genus 2 admits a degree 2 cover of the projective line (consider the function $`x`) and is therefore a {bpref "ag.hyperelliptic_curve"}[hyperelliptic curve].
+
+Depends on: {uses "ag.hyperelliptic_curve"}[] {uses "g2c.discriminant"}[] {uses "g2c.minimal_equation"}[]
 :::
 
 :::definition "g2c.galois_rep"
@@ -282,6 +322,18 @@ Depends on: {uses "ag.abelian_variety"}[] {uses "ag.endomorphism_algebra"}[] {us
 For an {bpref "ag.abelian_variety"}[abelian variety] $`A` over $`\Q`, the local factor that appears in the {bpref "lfunction.euler_product"}[Euler product] of its {bpref "lfunction"}[L-function] $`L(A,s)` at a {bpref "ag.good_reduction"}[good prime] $`p` is an integer polynomial $`L_p(T)` of degree $`2p` that is reciprocal to the characteristic polynomial $`\chi(T)` of the Frobenius endomorphism of the reduction of $`A` modulo $`p`, meaning that $`L_p(T)=T^{2g}\chi(T^{-1})`.
 
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.good_reduction"}[] {uses "lfunction"}[] {uses "lfunction.euler_product"}[]
+:::
+
+:::definition "g2c.good_reduction" (lean := "TauCeti.Model")
+*Primes of good reduction.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.good_reduction))
+
+A {bpref "ag.variety"}[variety] $`X` over $`\mathbb{Q}` is said to have *good reduction* at a prime $`p` if it has an integral model whose reduction modulo $`p` defines a smooth variety of the same dimension; otherwise, $`p` is said to be a prime of *bad reduction*.
+
+When $`X` is a curve, any prime of good reduction for $`X` is also a prime of good reduction for its {bpref "ag.jacobian"}[Jacobian], but the converse need not hold when $`X` has genus $`g>1`.
+
+For all of the genus 2 curves currently in the LMFDB, every prime of good reduction for the curve is also a prime of good reduction for the Jacobian of the curve.
+
+Depends on: {uses "ag.jacobian"}[] {uses "ag.variety"}[]
 :::
 
 :::definition "g2c.has_square_sha" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.HasSquareSha, TauCeti.AlgebraicGeometry.AbelianVariety.tateShafarevichGroup, TauCeti.AlgebraicGeometry.AbelianVariety.mem_tateShafarevichGroup_iff, TauCeti.AlgebraicGeometry.AbelianVariety.pointRes, TauCeti.AlgebraicGeometry.AbelianVariety.IsJacobian")
@@ -473,6 +525,22 @@ The image of the {bpref "g2c.galois_rep"}[mod-$`\ell`  Galois representation] as
 For *generic* curves the {bpref "ag.geom_endomorphism_ring"}[geometric endomorphism ring] of the Jacobian is $`\Z` and the maximal image is $`\GSp(4,\Z/\ell\Z)`. In all other cases it is a proper subgroup of $`\GSp(4,\Z/\ell\Z)`.
 
 Depends on: {uses "ag.geom_endomorphism_ring"}[] {uses "ag.jacobian"}[]
+:::
+
+:::definition "g2c.minimal_equation" (lean := "HyperellipticEquation.IsMinimal, HyperellipticEquation, HyperellipticEquation.discriminant, HyperellipticEquation.weightedEquation, HyperellipticEquation.simplifiedPolynomial")
+*Minimal equation of a hyperelliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.minimal_equation))
+
+Every ({bpref "ag.curve.smooth"}[smooth], projective, geometrically integral) {bpref "ag.hyperelliptic_curve"}[hyperelliptic curve] $`X` over $`\Q` of {bpref "ag.curve.genus"}[genus] $`g` can be defined by an integral Weierstrass equation
+
+$$`y^2+h(x)y=f(x),`
+
+where $`h(x)` and $`f(x)` are integral polynomials of degree at most $`g+1` and $`2g+2`, respectively.    Each such equation has a {bpref "g2c.discriminant"}[discriminant] $`\Delta`.  A *minimal equation* is one for which $`|\Delta|` is minimal among all integral Weierstrass equations for the same curve.  Over $`\Q`, every hyperelliptic curve has a minimal equation.  The prime divisors of $`\Delta` are the primes of {bpref "g2c.good_reduction"}[bad reduction] for $`X`.
+
+The equation $`y^2+h(x)y=f(x)` uniquely determines a homogeneous equation of weighted degree 6 in variables $`x,y,z`, where $`y` has weight $`g+1`, while $`x` and $`z` both have weight 1: one homogenizes $`h(x)` to obtain a homogeneous polynomial $`h(x,z)` of degree $`g+1` and homogenizes $`f(x)` to obtain a homogeneous polynomial $`f(x,z)` of degree $`2g+2`.  This yields a smooth projective model $`y^2+h(x,z)y=f(x,z)` for the curve $`X`.
+
+One can always transform the minimal equation into a {bpref "g2c.simple_equation"}[simplified equation] $`y^2 = g(x) = 4f(x)+h(x)^2`, but this equation need not have minimal discriminant and may have bad reduction at primes that do not divide the minimal discriminant (it will always have bad reduction at the prime $`2`).
+
+Depends on: {uses "ag.curve.genus"}[] {uses "ag.curve.smooth"}[] {uses "ag.hyperelliptic_curve"}[] {uses "g2c.discriminant"}[] {uses "g2c.good_reduction"}[]
 :::
 
 :::definition "g2c.mordell_weil_rank" (lean := "Module.finrank, TauCeti.AlgebraicGeometry.AbelianVariety, TauCeti.AlgebraicGeometry.AbelianVariety.isCommMonObj, CategoryTheory.Hom.commGroup")

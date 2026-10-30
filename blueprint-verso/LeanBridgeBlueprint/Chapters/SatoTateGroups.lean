@@ -7,9 +7,13 @@ open Verso.Genre
 open Verso.Genre.Manual
 open Informal
 
-#doc (Manual) "Sato-Tate groups" =>
+#doc (Manual) "Sato–Tate groups" =>
+%%%
+tag := "sato-tate-groups"
+file := "Sato-Tate-groups"
+%%%
 
-This chapter lists the LMFDB definitions relating to *Sato-Tate groups*, migrated from the LaTeX blueprint. Each definition links back to its LMFDB knowl. The definitions from this area that the number field, elliptic curve and modular form chapters depend on are in the Background chapter instead.
+This section lists the LMFDB definitions in the category `st_group`. Each definition links back to its LMFDB knowl.
 
 :::definition "st_group.ambient" (lean := "SatoTateGroup.ambient, SatoTateGroup.ambientGroup, Matrix.satoTateForm, Matrix.reindex_J_eq_satoTateForm, SatoTateGroup.mem_ambientGroup_iff_of_even")
 *Ambient group of a Sato-Tate group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.ambient))
@@ -61,6 +65,21 @@ Depends on: {uses "st_group.component_group"}[] {uses "st_group.connected"}[] {u
 A {bpref "st_group.definition"}[Sato-Tate group] $`G` is *connected* if it is connected as a topological group.  In this case it is equal to its {bpref "st_group.identity_component"}[identity component] $`G^0` and the {bpref "st_group.component_group"}[component group] $`G/G^0` is trivial.
 
 Depends on: {uses "st_group.component_group"}[] {uses "st_group.definition"}[] {uses "st_group.identity_component"}[]
+:::
+
+:::definition "st_group.definition"
+*Sato-Tate group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.definition))
+
+The *Sato-Tate group* of a motive $`X` is a compact Lie group $`G` containing (as a dense subset) the image of a representation that maps Frobenius elements to conjugacy classes.  When $`X` is an Artin motive, $`G` corresponds to the image of the {bpref "artin"}[Artin representation]; when $`X` is an {bpref "ag.abelian_variety"}[abelian variety] over a number field, one can define $`G` in terms of an $`\ell`-adic Galois representation attached to $`X`.
+
+For motives of even {bpref "st_group.weight"}[weight] $`w` and {bpref "st_group.degree"}[degree] $`d`, the Sato-Tate group is a compact subgroup of the orthogonal group $`\mathrm{O}(d)`.  For motives of odd weight $`w` and even degree $`d`, the Sato-Tate group is a compact subgroup of the {bpref "st_group.usp"}[unitary symplectic group] $`\mathrm{USp}(d)`.  For motives $`X` arising as {bpref "ag.abelian_variety"}[abelian varieties], the weight is always $`w=1` and the the degree is $`d=2g`, where $`g` is the {bpref "ag.dimension"}[dimension] of the variety.
+
+The simplest case is when $`X` is an {bpref "ec"}[elliptic curve] $`E/\Q`, in which case $`G` is either $`\mathrm{SU}(2)=\mathrm{USp}(2)` (the generic case), or $`G` is $`N(\mathrm{U}(1))`, the normalizer of the subgroup $`\mathrm{U}(1)` of diagonal matrices in $`\mathrm{SU}(2)`, which contains $`\mathrm{U}(1)` with index 2.
+
+The generalized Sato-Tate conjecture states that when ordered by norm, the sequence of images of Frobenius elements under this representation is equidistributed with respect to the pushforward of the {bpref "group.haar_measure"}[Haar measure] of $`G` onto its set of conjugacy classes.
+This is known for all elliptic curves over {bpref "nf.totally_real"}[totally real] number fields (including $`\mathbb{Q}`) or {bpref "nf.cm_field"}[CM fields].
+
+Depends on: {uses "ag.abelian_variety"}[] {uses "ag.dimension"}[] {uses "artin"}[] {uses "ec"}[] {uses "group.haar_measure"}[] {uses "nf.cm_field"}[] {uses "nf.totally_real"}[] {uses "st_group.usp"}[]
 :::
 
 :::definition "st_group.degree" (lean := "SatoTateGroup, SatoTateGroup.degree, SatoTateGroup.natDegree_charpoly")
@@ -263,6 +282,24 @@ A rational Sato-Tate group is *maximal* if it has no supergroups.
 Depends on: {uses "st_group.definition"}[] {uses "st_group.identity_component"}[] {uses "st_group.rational"}[]
 :::
 
+:::definition "st_group.symplectic_form" (lean := "LinearMap.BilinForm.IsAlt, LinearMap.BilinForm.Nondegenerate, LinearMap.BilinForm")
+*Symplectic form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.symplectic_form))
+
+A *symplectic form* on a vector space $`V` over a field $`k` is a non-degenerate alternating bilinear form $`\omega\colon V\times V\to k`.  This means that
+
+- if $`\omega(u,v)=0` for all $`v\in V` then $`u=0` (non-degenerate);
+
+- $`\omega(v,v)=0` for all $`v\in V` (alternating);
+
+- $`\omega(\lambda u+v,w)=\lambda\omega(u,v)+\omega(v,w)` and $`\omega(u,\lambda v+w)=\omega(u)+\lambda\omega(v,w)` for all $`\lambda\in k`, $`u,v,w\in V` (bilinear).
+
+A finite dimensional vector space admitting a symplectic form $`\omega` necessarily has even dimension $`2n`, and in this case $`\omega` can be represented by a matrix $`\Omega\in k^{2n\times 2n}` that satisfies $`u^\intercal\Omega v=\omega(u,w)` for all $`u,v\in V`.  One can always choose a basis for $`V` so that
+
+$$`\Omega = \begin{bmatrix} 0 & I_n\\ -I_n & 0\end{bmatrix},`
+
+where $`I_n` denotes the $`n\times n` identity matrix.
+:::
+
 :::definition "st_group.trace_moments" (lean := "SatoTateGroup.traceMoment, SatoTateGroup.trace, SatoTateGroup.charpolyCoeff_one")
 *Trace moments of a Sato-Tate group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.trace_moments))
 
@@ -283,6 +320,21 @@ The *trace zero density* of a {bpref "st_group.definition"}[Sato-Tate group] is 
 On each component of a Sato-Tate group, the trace is either constant and equal to zero, or varies continuously taking each particular value with probability zero; so this probability is simply the ratio of the number of components on which the trace is identically zero to the total number of components.
 
 Depends on: {uses "group.haar_measure"}[] {uses "st_group.definition"}[]
+:::
+
+:::definition "st_group.usp" (lean := "Matrix.unitaryGroup, Matrix.symplecticGroup, SymplecticGroup.mem_iff', Matrix.J")
+*Unitary symplectic group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.usp))
+
+For a positive even integer $`d` the *unitary symplectic group* $`\mathrm{USp}(d)` is
+the group of unitary transformations of a $`d`-dimensional $`\C`-vector space equipped with a {bpref "st_group.symplectic_form"}[symplectic form] $`\Omega`.  In other words, the subgroup of $`\GL_d(\mathbb{C})` whose elements $`A` satisfy:
+
+- $`A^{-1} = \bar A^{\intercal}` (unitary);
+
+- $`A^\intercal \Omega A=\Omega` (symplectic).
+
+It is a compact real Lie group that can also be viewed as the intersection of $`\mathrm{U}(d)` and $`\mathrm{Sp}(d,\C)` in $`\GL_d(\C)`.
+
+Depends on: {uses "st_group.symplectic_form"}[]
 :::
 
 :::definition "st_group.weight"

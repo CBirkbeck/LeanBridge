@@ -9,7 +9,7 @@ open Informal
 
 #doc (Manual) "Shimura curves" =>
 
-This chapter lists the LMFDB definitions relating to *Shimura curves*, migrated from the LaTeX blueprint. Each definition links back to its LMFDB knowl.
+This section lists the LMFDB definitions in the category `shimcurve`. Each definition links back to its LMFDB knowl. `sh.disc` and `sh.level` also belong here, although their ids put them in another LMFDB category.
 
 :::definition "sh.disc" (lean := "QuaternionAlgebra.discriminant, QuaternionAlgebra.IsRamifiedAt")
 *Discriminant of a Shimura curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/sh.disc))

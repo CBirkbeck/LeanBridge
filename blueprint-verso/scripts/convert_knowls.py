@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Mechanical 1:1 migration of the LMFDB-knowl LaTeX blueprint into Verso chapters.
 
-Reads blueprint/src/{macros/common.tex, auto_*.tex, knowls/...} and emits
-blueprint-verso/LeanBridgeBlueprint/Chapters/*.lean.  Every referenced knowl is a
+Reads blueprint/src/{structure.json, macros/common.tex, auto_*.tex, knowls/...} and emits
+blueprint-verso/LeanBridgeBlueprint/Chapters/*.lean: one module per chapter and subchapter of
+structure.json, where a chapter with subchapters includes theirs.  Every referenced knowl is a
 single `\\begin{definition}\\label{L}\\uses{...} BODY \\end{definition}` block; it
 becomes a Verso `:::definition "L"` chunk. Its `(lean := ...)` names are the Mathlib
 declarations the knowl links with `DEFINES(..., mathlib=...)` (written as `\\lean{...}` by
@@ -19,52 +20,10 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 SRC = os.path.join(ROOT, "blueprint", "src")
 OUT = os.path.join(ROOT, "blueprint-verso", "LeanBridgeBlueprint", "Chapters")
 
-CHAPTERS = [
-    ("Background", "auto_background.tex", "Background"),
-    ("NumberFields", "auto_number_fields.tex", "Number fields"),
-    ("EllipticCurves", "auto_elliptic_curves.tex", "Elliptic curves"),
-    ("ModularForms", "auto_modular_forms.tex", "Modular forms"),
-    # The other knowls, by area (the Background chapter has those the chapters above depend on)
-    ("FurtherBackground", "auto_further_background.tex", "Further background"),
-    ("Groups", "auto_groups.tex", "Groups"),
-    ("GaloisGroups", "auto_galois_groups.tex", "Galois groups"),
-    ("LocalFields", "auto_local_fields.tex", "Local fields"),
-    ("Characters", "auto_characters.tex", "Dirichlet characters"),
-    ("ArtinRepresentations", "auto_artin_representations.tex", "Artin representations"),
-    ("GaloisRepresentations", "auto_galois_representations.tex", "Mod-ℓ Galois representations"),
-    ("LFunctions", "auto_l_functions.tex", "L-functions"),
-    ("Varieties", "auto_varieties.tex", "Varieties"),
-    ("AbelianVarieties", "auto_abelian_varieties.tex", "Abelian varieties"),
-    ("Genus2Curves", "auto_genus_2_curves.tex", "Genus 2 curves"),
-    ("HigherGenusCurves", "auto_higher_genus_curves.tex", "Higher genus curves"),
-    ("BelyiMaps", "auto_belyi_maps.tex", "Belyi maps"),
-    ("ModularCurves", "auto_modular_curves.tex", "Modular curves"),
-    ("ShimuraCurves", "auto_shimura_curves.tex", "Shimura curves"),
-    ("HilbertModularSurfaces", "auto_hilbert_modular_surfaces.tex", "Hilbert modular surfaces"),
-    ("AutomorphicForms", "auto_automorphic_forms.tex", "Automorphic forms"),
-    ("SatoTateGroups", "auto_sato_tate_groups.tex", "Sato-Tate groups"),
-    ("HypergeometricMotives", "auto_hypergeometric_motives.tex", "Hypergeometric motives"),
-    ("Lattices", "auto_lattices.tex", "Lattices"),
-]
-CORE_CHAPTERS = 4
-
-# How the chapter introductions name the topic, where lowercasing the title is wrong
-TOPICS = {
-    "GaloisGroups": "Galois groups",
-    "Characters": "Dirichlet characters",
-    "ArtinRepresentations": "Artin representations",
-    "GaloisRepresentations": "mod-ℓ Galois representations",
-    "LFunctions": "L-functions",
-    "BelyiMaps": "Belyi maps",
-    "ShimuraCurves": "Shimura curves",
-    "HilbertModularSurfaces": "Hilbert modular surfaces",
-    "SatoTateGroups": "Sato-Tate groups",
-}
-
-# Page names for chapters whose title Verso cannot turn into a readable one
-FILES = {
-    "GaloisRepresentations": "Mod-l-Galois-representations",
-}
+# The chapters and their subchapters; a chapter without subchapters lists its knowls itself. Each
+# such leaf has a list auto_<list>.tex of its knowls, written by update_knowls.py.
+STRUCTURE = json.load(open(os.path.join(SRC, "structure.json")))["chapters"]
+LEAVES = [leaf for chapter in STRUCTURE for leaf in chapter.get("subchapters", [chapter])]
 
 
 def knowl_paths(autofile):
@@ -79,8 +38,8 @@ def knowl_paths(autofile):
 
 # ---- collect every defined label (for {uses}/hyperref filtering) ----
 ALL_LABELS = set()
-for _, af, _ in CHAPTERS:
-    for p in knowl_paths(af):
+for leaf in LEAVES:
+    for p in knowl_paths(f"auto_{leaf['list']}.tex"):
         fp = os.path.join(SRC, p)
         if not os.path.exists(fp):
             continue
@@ -302,16 +261,47 @@ def convert_knowl(path):
     return chunk
 
 
-def chapter_intro(modname, title, in_background):
-    topic = TOPICS.get(modname, title.lower())
-    intro = f"This chapter lists the LMFDB definitions relating to *{topic}*, migrated from the LaTeX blueprint. Each definition links back to its LMFDB knowl."
-    if in_background:
-        intro += " The definitions from this area that the number field, elliptic curve and modular form chapters depend on are in the Background chapter instead."
+def names(xs):
+    """The items as inline code: `a`, `b` and `c`."""
+    xs = [f"`{x}`" for x in xs]
+    return xs[0] if len(xs) == 1 else ", ".join(xs[:-1]) + " and " + xs[-1]
+
+
+def leaf_intro(leaf, is_chapter):
+    """The introduction of a chapter without subchapters or of a subchapter: its LMFDB categories (the
+    part of the ids before the first or second dot) and the knowls placed there despite their ids."""
+    cats = leaf["categories"]
+    kind = ("subcategor" if all("." in c for c in cats) else "categor") + ("y" if len(cats) == 1 else "ies")
+    # subcategories that have a subchapter of their own
+    others = [c for other in LEAVES for c in other["categories"] if any(c.startswith(x + ".") for x in cats)]
+    intro = (f"This {'chapter' if is_chapter else 'section'} lists the LMFDB definitions in the {kind} "
+             f"{names(cats)}" + (f", apart from those in {names(others)}" if others else "")
+             + ". Each definition links back to its LMFDB knowl.")
+    wrong = leaf.get("wrong_labels", [])
+    if wrong:
+        intro += (f" {names(wrong)} also {'belongs' if len(wrong) == 1 else 'belong'} here, although "
+                  f"{'its id puts it' if len(wrong) == 1 else 'their ids put them'} in another LMFDB category.")
     return intro
 
 
-def categories(autofile):
-    return {os.path.basename(p).split(".")[0] for p in knowl_paths(autofile)}
+def chapter_intro(chapter):
+    cats = [c for sub in chapter["subchapters"] for c in sub["categories"]]
+    return (f"This chapter lists the LMFDB definitions in the categories {names(cats)}, with a section "
+            "for each. Each definition links back to its LMFDB knowl.")
+
+
+def verso_title(title):
+    """A title as the contents of a Lean string literal holding Verso markup: Verso's markup characters
+    are escaped (titles are parsed as markup, so `𝔽_q` would start an emphasis), then backslashes and
+    quotes for Lean."""
+    markup = re.sub(r'([_*\[\]{}`])', r'\\\1', title)
+    return markup.replace('\\', '\\\\').replace('"', '\\"')
+
+
+def metadata(part):
+    """Verso part metadata: a tag and a page name, where structure.json gives them."""
+    fields = [f'{key} := "{part[key]}"' for key in ("tag", "file") if key in part]
+    return ["%%%", *fields, "%%%"] if fields else []
 
 
 def lean_imports():
@@ -338,10 +328,10 @@ def emit_prelude():
     return out
 
 
-def emit_chapter(modname, autofile, title):
+def emit_leaf(leaf, is_chapter):
+    """The module of a chapter without subchapters or of a subchapter, with its definitions."""
+    autofile = f"auto_{leaf['list']}.tex"
     chunks = [convert_knowl(p) for p in knowl_paths(autofile) if os.path.exists(os.path.join(SRC, p))]
-    core = [m for m, _, _ in CHAPTERS[:CORE_CHAPTERS]]
-    in_background = modname not in core and bool(categories(autofile) & categories("auto_background.tex"))
     parts = [
         "import Verso",
         "import VersoManual",
@@ -352,26 +342,58 @@ def emit_chapter(modname, autofile, title):
         "open Verso.Genre.Manual",
         "open Informal",
         "",
-        f'#doc (Manual) "{title}" =>',
-        *(["%%%", f'file := "{FILES[modname]}"', "%%%"] if modname in FILES else []),
+        f'#doc (Manual) "{verso_title(leaf["title"])}" =>',
+        *metadata(leaf),
         "",
-        chapter_intro(modname, title, in_background),
+        leaf_intro(leaf, is_chapter),
         "",
     ]
     parts += chunks
-    out = os.path.join(OUT, f"{modname}.lean")
+    out = os.path.join(OUT, f"{leaf['module']}.lean")
     with open(out, "w") as f:
         f.write("\n".join(parts))
     return out, len(chunks)
+
+
+def emit_parent(chapter):
+    """The module of a chapter with subchapters, which includes theirs."""
+    subs = chapter["subchapters"]
+    parts = [
+        "import Verso",
+        "import VersoManual",
+        "import VersoBlueprint",
+        *[f"import LeanBridgeBlueprint.Chapters.{sub['module']}" for sub in subs],
+        "",
+        "open Verso.Genre",
+        "open Verso.Genre.Manual",
+        "open Informal",
+        "",
+        f'#doc (Manual) "{verso_title(chapter["title"])}" =>',
+        *metadata(chapter),
+        "",
+        chapter_intro(chapter),
+        "",
+        *[f"{{include 1 LeanBridgeBlueprint.Chapters.{sub['module']}}}\n" for sub in subs],
+    ]
+    out = os.path.join(OUT, f"{chapter['module']}.lean")
+    with open(out, "w") as f:
+        f.write("\n".join(parts))
+    return out
 
 
 if __name__ == "__main__":
     only = sys.argv[1] if len(sys.argv) > 1 else None
     os.makedirs(OUT, exist_ok=True)
     print(f"prelude -> {emit_prelude()}")
-    for modname, autofile, title in CHAPTERS:
-        if only and modname != only:
-            continue
-        out, n = emit_chapter(modname, autofile, title)
-        print(f"{modname}: {n} definitions -> {out}")
+    for chapter in STRUCTURE:
+        for leaf in chapter.get("subchapters", []):
+            if not only or only == leaf["module"]:
+                out, n = emit_leaf(leaf, False)
+                print(f"{leaf['module']}: {n} definitions -> {out}")
+        if not only or only == chapter["module"]:
+            if "subchapters" in chapter:
+                print(f"{chapter['module']}: {len(chapter['subchapters'])} sections -> {emit_parent(chapter)}")
+            else:
+                out, n = emit_leaf(chapter, True)
+                print(f"{chapter['module']}: {n} definitions -> {out}")
     print(f"total labels defined: {len(ALL_LABELS)}")

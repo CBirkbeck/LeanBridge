@@ -9,7 +9,40 @@ open Informal
 
 #doc (Manual) "Artin representations" =>
 
-This chapter lists the LMFDB definitions relating to *Artin representations*, migrated from the LaTeX blueprint. Each definition links back to its LMFDB knowl. The definitions from this area that the number field, elliptic curve and modular form chapters depend on are in the Background chapter instead.
+This section lists the LMFDB definitions in the category `artin`. Each definition links back to its LMFDB knowl.
+
+:::definition "artin" (lean := "Representation.IsArtin, Representation.artinField, Representation.isArtin_iff_exists_finiteGaloisIntermediateField, Representation.isArtin_iff_continuous, Representation.IsArtin.artinField_le_iff")
+*Artin representation (definition).* ([LMFDB](https://beta.lmfdb.org/knowledge/show/artin))
+
+An *Artin representation* is a continuous homomorphism
+$`\rho:\mathrm{Gal}(\overline{\Q}/\Q)\to\GL(V)` from the
+{bpref "group.galois.absolute"}[absolute Galois group] of $`\Q` to the automorphism group of a
+finite-dimensional $`\C`-vector space $`V`.  Here continuity means that $`\rho` factors through the {bpref "nf.galois_group"}[Galois group] of some finite extension $`K/\Q`. The smallest such $`K` is called the {bpref "artin.number_field"}[Artin field] of $`\rho`.
+
+Depends on: {uses "group.galois.absolute"}[] {uses "nf.galois_group"}[]
+:::
+
+:::definition "artin.conductor" (lean := "Representation.artinConductor, Representation.artinConductorExponent, Representation.artinConductorExponentAt, Representation.artinConductorExponent_eq, Ideal.ramificationGroup")
+*Conductor of an Artin representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/artin.conductor))
+
+The *conductor* of an {bpref "artin"}[Artin representation] is a positive integer that measures its ramification.  It can be expressed as a product of local conductors.
+
+Let $`K/\Q` be a {bpref "nf.is_galois"}[Galois] extension and $`\rho:\Gal(K/\Q)\to\GL(V)` an Artin representation.  Then the conductor of $`\rho` is
+$`\prod_p p^{f(\rho,p)}`
+for non-negative integers $`f(\rho,p)`, where the product is taken over prime numbers $`p`.
+
+To define the exponents $`f(\rho,p)`, fix a {bpref "nf.prime"}[prime] $`\mathfrak{p}` of $`K` above $`p` and consider the corresponding extension of {bpref "lf.padic_field"}[local fields] $`K_{\mathfrak{p}}/\Q_p` with {bpref "gg.galois_group"}[Galois group] $`G`.  Then $`G` has a filtration of higher ramification groups in lower numbering $`G_i`, as defined in Chapter IV of Serre's _Local Fields_ .  In particular, $`G_{-1}=G`, $`G_0` is the {bpref "lf.inertia_group"}[inertia group] of $`K_{\mathfrak{p}}/\Q_p`, and $`G_1` is the {bpref "lf.wild_inertia_group"}[wild inertia group], which is a finite $`p`-group.
+
+Let $`g_i = |G_i|`.  Then
+
+$$`f(\rho, p) = \sum_{i\geq 0} \frac{g_i}{g_0} (\dim(V) - \dim(V^{G_i}))`
+
+where $`V^{G_i}` is the subspace of $`V` fixed by $`G_i`.
+
+Note that if $`p` is {bpref "artin.unramified_primes"}[unramified] in $`K`, then $`f(\rho,p)=0` and conversely, if $`\rho` is faithful and $`p` is ramified in $`K`, then $`f(\rho,p)>0`.
+
+Depends on: {uses "artin"}[] {uses "artin.unramified_primes"}[] {uses "gg.galois_group"}[] {uses "lf.inertia_group"}[] {uses "lf.padic_field"}[] {uses "lf.wild_inertia_group"}[] {uses "nf.is_galois"}[] {uses "nf.prime"}[]
+:::
 
 :::definition "artin.determinant" (lean := "LinearMap.det, Representation.IsArtin")
 *Determinant of an Artin representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/artin.determinant))
@@ -107,6 +140,25 @@ invariant subspace $`V^{I_p}` of the {bpref "lf.inertia_group"}[inertia group] a
 Depends on: {uses "artin"}[] {uses "artin.ramified_primes"}[] {uses "gg.conjugacy_classes"}[] {uses "lf.inertia_group"}[] {uses "lfunction"}[] {uses "lfunction.euler_product"}[]
 :::
 
+:::definition "artin.number_field" (lean := "Representation.artinField, IntermediateField.fixedField, MonoidHom.ker, InfiniteGalois.IntermediateFieldEquivClosedSubgroup, InfiniteGalois.isOpen_and_normal_iff_finite_and_isGalois")
+*Number field associated to an Artin representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/artin.number_field))
+
+The *Artin field* is a {bpref "nf"}[number field] associated to an {bpref "artin"}[Artin representation]
+$`\rho:\mathrm{Gal}(\overline{\Q}/\Q)\to\GL(V)`
+by being the smallest Galois extension $`K/\mathbb{Q}` such that $`\rho` factors through
+$`\mathrm{Gal}(K/\Q)`.
+
+Depends on: {uses "artin"}[] {uses "nf"}[]
+:::
+
+:::definition "artin.parity" (lean := "Representation.IsEven, Representation.IsOdd, Field.absoluteGaloisGroup.complexConjugation, Representation.det_complexConjugation_eq, Representation.isEven_or_isOdd")
+*Parity of a representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/artin.parity))
+
+An {bpref "artin"}[Artin representation] $`\rho:\Gal(\overline{\Q}/\Q)\to \GL(V)` is *even* or *odd* if $`\det(\rho(c))` equals $`1` or $`-1`, respectively, where $`c` is a complex conjugation.
+
+Depends on: {uses "artin"}[]
+:::
+
 :::definition "artin.permutation_container" (lean := "Representation.Contains, Representation.minPermutationDegree, Representation.contains_ofMulAction_quotient_iff, Representation.contains_ofMulAction_quotient_bot, Representation.ofMulAction")
 *Containing permutation representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/artin.permutation_container))
 
@@ -151,6 +203,16 @@ An *projective stem field* is a {bpref "nf.stem_field"}[stem field] for the {bpr
 Depends on: {uses "artin"}[] {uses "artin.projective_field"}[] {uses "nf.stem_field"}[]
 :::
 
+:::definition "artin.ramified_primes" (lean := "Algebra.IsUnramifiedIn, Representation.artinField, Algebra.isUnramifiedIn_iff_forall_ramificationIdx_eq_one")
+*Ramified prime of an Artin representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/artin.ramified_primes))
+
+If $`\rho:\Gal(\overline{\Q}/\Q)\to\GL_n(\C)` is an {bpref "artin"}[Artin representation] with {bpref "artin.number_field"}[Artin field] $`K`, then a prime $`p` is *ramified* if it is {bpref "nf.ramified_primes"}[ramified] in $`K/\Q`.
+
+Equivalently, a prime is ramified if the inertia subgroup for a prime above $`p` is not contained in the kernel of $`\rho`.
+
+Depends on: {uses "artin"}[] {uses "artin.number_field"}[] {uses "nf.ramified_primes"}[]
+:::
+
 :::definition "artin.root_number"
 *Root number of an Artin representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/artin.root_number))
 
@@ -176,4 +238,14 @@ Depends on: {uses "artin"}[] {uses "artin.number_field"}[] {uses "nf.stem_field"
 For an {bpref "artin"}[Artin Representation], complex conjugation gives a well-defined conjugacy class $`c` in the Galois group, so it has a well-defined character value.
 
 Depends on: {uses "artin"}[]
+:::
+
+:::definition "artin.unramified_primes" (lean := "Algebra.IsUnramifiedIn, Representation.artinField, Algebra.isUnramifiedIn_iff_forall_ramificationIdx_eq_one")
+*Unramified prime of an Artin representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/artin.unramified_primes))
+
+If $`\rho:\Gal(\overline{\Q}/\Q)\to\GL_n(\C)` is an {bpref "artin"}[Artin representation], a prime $`p` is *unramified* if it is not {bpref "artin.ramified_primes"}[ramified].
+
+Equivalently, a prime is unramified if the inertia subgroup for a prime above $`p` in the {bpref "artin.number_field"}[Artin field] of $`\rho` is contained in the kernel of $`\rho`.
+
+Depends on: {uses "artin"}[] {uses "artin.number_field"}[] {uses "artin.ramified_primes"}[]
 :::

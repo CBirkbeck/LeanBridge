@@ -96,13 +96,16 @@ python blueprint-verso/scripts/convert_knowls.py
 
 `update_knowls.py` rewrites the [knowl folder](blueprint/src/knowls),
 [`definitions.txt`](blueprint/src/definitions.txt), [`edges.txt`](blueprint/src/edges.txt) and the
-`auto_*.tex` chapter lists. `convert_knowls.py` turns these into the chapters in
+`auto_*.tex` lists, one for each section. `convert_knowls.py` turns these into the chapters and
+sections in
 [`blueprint-verso/LeanBridgeBlueprint/Chapters`](blueprint-verso/LeanBridgeBlueprint/Chapters).
-The blueprint has every knowl that defines something: the number field, elliptic curve and modular
-form knowls in their own chapters, the knowls they depend on in the background chapter, and every
-other knowl in a chapter for its area. A new knowl category needs an entry in `area_names` in
-`update_knowls.py`, and a new chapter one in `CHAPTERS` in `convert_knowls.py` and an `include` in
-`LeanBridgeBlueprint/Blueprint.lean`. The script breaks cycles among the knowls' links with its
+The blueprint has every knowl with mathematical content: the knowls that define something, and those
+listed in [`math_knowls.txt`](blueprint/src/math_knowls.txt). Its chapters and sections, in
+[`structure.json`](blueprint/src/structure.json), follow the LMFDB's categories of knowls, the part
+of a knowl's id before the first or second dot; a knowl whose category is wrong is listed there under
+`wrong_labels` in the section it belongs to. A new knowl category needs a section in
+`structure.json`, and a new chapter also an `include` in `LeanBridgeBlueprint/Blueprint.lean`.
+The script breaks cycles among the knowls' links with its
 `omit_edges` list and writes any it finds to `cycles.txt`.
 
 Each chapter entry links its Lean declarations with `(lean := ...)`: the Mathlib declarations that

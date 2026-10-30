@@ -9,7 +9,23 @@ open Informal
 
 #doc (Manual) "Modular curves" =>
 
-This chapter lists the LMFDB definitions relating to *modular curves*, migrated from the LaTeX blueprint. Each definition links back to its LMFDB knowl. The definitions from this area that the number field, elliptic curve and modular form chapters depend on are in the Background chapter instead.
+This section lists the LMFDB definitions in the category `modcurve`. Each definition links back to its LMFDB knowl.
+
+:::definition "modcurve"
+*Modular curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve))
+
+For each {bpref "gl2.open"}[open subgroup] $`H \le \GL_2(\widehat{\Z})`, there is a *modular curve* $`X_H`, defined as a quotient of the {bpref "modcurve.xn"}[full modular curve] $`X_{\text{full}}(N)`, where $`N` is the {bpref "gl2.level"}[level] of $`H`.  More precisely, $`H` is the inverse image of a subgroup $`H_N \le \GL_2(\Z/N\Z)`, which acts on $`X_{\text{full}}(N)` over $`\Q`, and $`X_H` is the {bpref "ag.quotient_curve"}[quotient curve] $`H_N \backslash X_{\text{full}}(N)`, also defined over $`\Q`.
+
+Like $`X_{\text{full}}(N)`, the curve $`X_H` is {bpref "ag.curve.smooth"}[smooth], projective, and integral, and when $`\det(H)=\widehat{\Z}` it is also geometrically integral, but in general it may have several {bpref "modcurve.components"}[geometric components], as is the case for $`X_{\text{full}}(N)` when $`N>2`.
+
+*Rational points*: When $`-1\in H` the rational points of $`X_H`  consist of  {bpref "modcurve.cusps"}[cusps] and $`\Gal_{\Q}`-stable isomorphism classes of pairs $`(E,[\iota]_H)`, where $`E` is an {bpref "ec"}[elliptic curve] over $`\Q`, and $`[\iota]_H` is an {bpref "modcurve.level_structure"}[$`H`-level structure] on $`E`.  Such points exist precisely when the image of the {bpref "ec.galois_rep"}[adelic Galois representation] $`\rho_E\colon \Gal_{\Q}\to \GL_2(\widehat{\Z})` is conjugate to a subgroup of $`H`.
+
+*Complex points*: The {bpref "cmf.congruence_subgroup"}[congruence subgroup] $`\Gamma_H:= H\cap \SL_2(\Z)` acts on the {bpref "mf.upper_half_plane"}[completed upper half-plane] $`\overline{\mathfrak{h}}`; one connected component of $`X_H(\C)` is biholomorphic to the quotient $`\Gamma_H \backslash \overline{\mathfrak{h}}`.
+
+The curve $`X_H` can alternatively be constructed as the coarse moduli space of the stack $`\mathcal X_H` over $`\Q` defined in Deligne-Rapoport .  Both constructions of $`X_H` can be carried out over any field of characteristic not dividing $`N`, or even over $`\Z[1/N]`.
+
+Depends on: {uses "ag.curve.smooth"}[] {uses "ag.quotient_curve"}[] {uses "cmf.congruence_subgroup"}[] {uses "ec"}[] {uses "ec.galois_rep"}[] {uses "gl2.level"}[] {uses "gl2.open"}[] {uses "mf.upper_half_plane"}[] {uses "modcurve.cusps"}[] {uses "modcurve.level_structure"}[] {uses "modcurve.xn"}[]
+:::
 
 :::definition "modcurve.agreeable" (lean := "Matrix.GeneralLinearGroup.IsAgreeable, Matrix.GeneralLinearGroup.agreeableClosure, Matrix.GeneralLinearGroup.AgreeableQuotient, Matrix.GeneralLinearGroup.adelicScalars, Matrix.GeneralLinearGroup.adelicSL")
 *Agreeable.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.agreeable))
@@ -105,6 +121,16 @@ For an open subgroup $`H` of $`\GL_2(\widehat{\Z})` with $`\det(H) =\widehat{\Z}
 The *width* of a cusp $`c \in \pm H  \backslash \GL_2(\widehat{\Z}) /\langle \delta\rangle` is the number of right cosets it contains, or equivalently the smallest integer $`h` such that $`c\delta^h = c`. The sum of the cusp widths is equal to the {bpref "modcurve.psl2index"}[$`\PSL_2`-index] of $`H`.
 
 Depends on: {uses "modcurve.cusps"}[] {uses "modcurve.psl2index"}[]
+:::
+
+:::definition "modcurve.cusps"
+*Cusps of a modular curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.cusps))
+
+The *cusps* on $`X_H` are the points whose image under the canonical morphism $`j\colon X_H\to X(1)\simeq \mathbb{P}^1` is $`\infty`.  It is only the noncuspidal points that parametrize elliptic curves (with level structure).
+
+The *cusps* of a modular curve $`X_H` correspond to the complement of $`Y_H` in $`X_H`, where $`Y_H` is the coarse moduli stack $`\mathcal M_H^0` defined in .
+
+The *rational cusps* (also called *$`\Q`-cusps*) are the cusps fixed by $`\Gal_{\Q}`.
 :::
 
 :::definition "modcurve.decomposition"
@@ -268,6 +294,31 @@ Depends on: {uses "gl2.genus"}[] {uses "gl2.index"}[] {uses "gl2.label"}[] {uses
 The *level* of a {bpref "modcurve"}[modular curve] $`X_H` is the {bpref "gl2.level"}[level] of the {bpref "gl2.open"}[open subgroup] $`H\leq \GL_2(\widehat{\Z})`.
 
 Depends on: {uses "gl2.level"}[] {uses "gl2.open"}[] {uses "modcurve"}[]
+:::
+
+:::definition "modcurve.level_structure" (lean := "WeierstrassCurve.levelStructure, WeierstrassCurve.IsRationalLevelStructure, WeierstrassCurve.cyclicIsogenyFieldDegree, WeierstrassCurve.cyclicTorsionFieldDegree, WeierstrassCurve.torsionFieldDegree")
+*Level structure of a modular curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.level_structure))
+
+Let $`H` be an {bpref "gl2.open"}[open subgroup] of $`\GL_2(\widehat{\Z})` of {bpref "gl2.level"}[level] $`N`, let $`\pi_N\colon \GL_2(\widehat{\Z})\to \GL_2(\Z/N\Z)` be the natural projection, and let $`E` be an {bpref "ec"}[elliptic curve] over a {bpref "nf"}[number field] $`K`.
+
+An *$`H`-level structure* on $`E` is the $`H`-orbit $`[\iota]_H:=\{ h\circ \iota\colon h\in \pi_N(H)\}` of an isomorphism $`\iota\colon E[N]\overset{\sim}{\rightarrow}(\Z/N\Z)^2`.
+
+An $`H`-level structure on $`E` is *rational* if it lies in a $`\Gal_K`-stable isomorphism class of pairs $`(E,[\iota]_H)`, where $`\sigma\in \Gal_K` acts via $`(E,[\iota]_H)\mapsto (E^\sigma,[\iota\circ\sigma^{-1}]_H)`.
+Two pairs $`(E,[\iota]_H)` and $`(E',[\iota']_H)` are isomorphic if there is an isomorphism $`\phi\colon E\to E'` that induces an isomorphism $`\phi_N\colon E[N]\to E'[N]` for which $`\phi_N^*([\iota']_H) = [\iota]_H`.
+
+If $`E` admits a rational $`H`-level structure $`[\iota]_H` then image of its {bpref "ec.galois_rep"}[adelic Galois representation] $`\rho_E\colon \Gal_K\to \GL_2(\widehat{\Z})` is conjugate to a subgroup of $`H` and the isomorphism class of $`(E,[\iota]_H)` is a non-cuspidal $`K`-rational point on the modular curve $`X_H`.
+
+When $`-1\in H` every non-cuspidal $`K`-rational point on $`X_H` arises in this way.  When $`-1\not\in H` this is almost true, but there may be exceptions at points with $`j(E)=0,1728`.
+
+Invariants of a rational $`H`-level structure include:
+
+- *Cyclic $`\boldsymbol{N}`-isogeny field degree*: the minimal degree of an extension $`L/K` over which the {bpref "ec.base_change"}[base change] $`E_L` admits a rational cyclic isogeny of degree $`N`; equivalently, the index of the largest subgroup of $`H` fixing a subgroup of $`(\Z/N\Z)^2` isomorphic to $`\Z/N\Z`.
+
+- *Cyclic $`\boldsymbol{N}`-torsion field degree*: the minimal degree of an extension $`L/K` for which $`E_L` has a rational point of order $`N`; equivalently, the index of the largest subgroup of $`H` that fixes a point of order $`N` in $`(\Z/N\Z)^2`.
+
+- *N-torsion field degree* the minimal degree of an extension $`L/K` for which $`E[N]\subseteq E(L)`; this is simply the cardinality of the reduction of $`H` to $`\GL_2(\Z/N\Z)`.
+
+Depends on: {uses "ec"}[] {uses "ec.base_change"}[] {uses "ec.galois_rep"}[] {uses "gl2.level"}[] {uses "gl2.open"}[] {uses "nf"}[]
 :::
 
 :::definition "modcurve.local_obstruction" (lean := "AlgebraicGeometry.Scheme.HasLocalObstruction, AlgebraicGeometry.Scheme.HasPointIn, AlgebraicGeometry.Scheme.not_hasLocalObstruction")
@@ -500,6 +551,28 @@ $`X(N)` is the {bpref "modcurve"}[modular curve] $`X_H` for $`H\le \GL_2(\wideha
 There are other {bpref "modcurve.xn"}[variants].
 
 Depends on: {uses "modcurve"}[] {uses "modcurve.cusps"}[] {uses "modcurve.xn"}[]
+:::
+
+:::definition "modcurve.xn"
+*Modular curve $`X(N)`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.xn))
+
+There are three variants of the modular curve $`Y(N)`:
+
+1. There is a functor sending each $`\Z[1/N]`-algebra $`R` to the set of (isomorphism classes of) pairs $`(E,\alpha)` such that $`E` is an {bpref "ec.ring"}[elliptic curve over $`R`] and $`\alpha \colon E[N] \to (\Z/N\Z)^2` is an isomorphism of group schemes.  Suppose that $`N \ge 3`; then this functor is represented by a smooth affine $`\mathbb{Z}[1/N]`-scheme $`Y_{\mathrm{full}}(N)`, called the *full modular curve of level $`N`*.  (If $`N<3`, it is representable only by an algebraic stack, and one must take the coarse moduli space to get a scheme.)  For any field $`k` with $`\operatorname{char} k \nmid N`, the set $`Y_{\mathrm{full}}(N)(k)` is the set of isomorphism classes of triples $`(E,P,Q)` , where $`E` is an elliptic curve over $`k` and $`P,Q \in E(k)` form a $`(\Z/N\Z)`-basis of $`E[N]`.  The curve $`Y_{\mathrm{full}}(N)_{\Q}` is integral but typically has several {bpref "modcurve.components"}[geometric components].
+
+2. Let $`\zeta_N \in \overline{\Q}` be a primitive $`N`th root of unity.  There is a functor sending each $`\Z[1/N,\zeta_N]`-algebra $`R` to the set of pairs $`(E,\alpha)` such that $`E` is an elliptic curve over $`R` and $`\alpha \colon E[N] \to (\Z/N\Z)^2` is an isomorphism of group schemes such that the resulting elements $`P,Q \in E[N](R)` satisfy $`e_N(P,Q)=\zeta_N`.  For $`N \ge 3`, this functor is represented by a smooth affine $`\Z[1/N,\zeta_N]`-scheme $`Y(N)`, called the *classical modular curve of level $`N`*.  Over any {bpref "ring.a-field"}[$`\Z[1/N,\zeta_N]`-field] $`k`, the curve $`Y(N)_k` is geometrically integral.
+
+3. There is a functor sending each $`\Z[1/N]`-algebra $`R` to the set of pairs $`(E,\alpha)` consisting of an elliptic curve $`E` over $`R` and a {bpref "alg.symplectic_isomorphism"}[symplectic isomorphism] $`\alpha \colon E[N] \to \Z/N\Z \times \mu_N`.  For $`N \ge 3`, this functor is represented by a smooth affine $`\mathbb{Z}[1/N]`-scheme $`Y_{\mathrm{arith}}(N)`.  Over any field $`k` with $`\operatorname{char} k \nmid N`, the curve $`Y_{\mathrm{arith}}(N)_k` is geometrically integral.
+
+\*Relationships\*: Over any {bpref "ring.a-field"}[$`\Z[1/N,\zeta]`-field] $`k`, the curve $`Y_{\mathrm{arith}}(N)_k` is isomorphic to $`Y(N)_k` and to a {bpref "modcurve.components"}[connected component] of $`Y_{\mathrm{full}}(N)_k`.
+
+\*Complex points\*: The group {bpref "cmf.congruence_subgroup"}[$`\Gamma(N)`] acts on the {bpref "mf.upper_half_plane"}[upper half-plane] $`\mathfrak{h}`, and the quotient $`\Gamma(N) \backslash \mathfrak{h}` is biholomorphic to $`Y(N)(\mathbb{C}) \simeq Y_{\textup{arith}}(\C)` (choosing $`\zeta_N \in \C`).
+
+\*Compactifications\*: For each variant, there is a corresponding smooth projective model, denoted $`X_{\mathrm{full}}(N)`, $`X(N)`, or $`X_{\mathrm{arith}}(N)`.
+
+\*Quotients\*: For each {bpref "gl2.open"}[open subgroup] $`H \le \GL_2(\widehat{\Z})`, there is a quotient {bpref "modcurve"}[$`X_H`] of $`X_{\mathrm{full}}(N)`.
+
+Depends on: {uses "alg.symplectic_isomorphism"}[] {uses "cmf.congruence_subgroup"}[] {uses "ec.ring"}[] {uses "gl2.open"}[] {uses "mf.upper_half_plane"}[] {uses "ring.a-field"}[]
 :::
 
 :::definition "modcurve.xns"

@@ -9,7 +9,53 @@ open Informal
 
 #doc (Manual) "L-functions" =>
 
-This chapter lists the LMFDB definitions relating to *L-functions*, migrated from the LaTeX blueprint. Each definition links back to its LMFDB knowl. The definitions from this area that the number field, elliptic curve and modular form chapters depend on are in the Background chapter instead.
+This chapter lists the LMFDB definitions in the category `lfunction`. Each definition links back to its LMFDB knowl. `af`, `af.bernoulli_numbers`, `af.divisor_function`, `af.multiplicative` and `specialfunction.gamma` also belong here, although their ids put them in another LMFDB category.
+
+:::definition "af" (lean := "ArithmeticFunction")
+*Arithmetic function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/af))
+
+An *arithmetic function* is a complex-valued function whose domain is the positive integers.
+:::
+
+:::definition "af.bernoulli_numbers" (lean := "bernoulli")
+*Bernoulli numbers.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/af.bernoulli_numbers))
+
+The *Bernoulli numbers* are the rational numbers $`B_n` that appear as coefficients of the formal power series
+
+$$`\frac{T}{e^T-1}=\sum_{n\ge 0}B_n\frac{T^n}{n!},`
+
+which has radius of convergence $`2\pi`.
+:::
+
+:::definition "af.divisor_function" (lean := "ArithmeticFunction.divisorFunction, ArithmeticFunction.isMultiplicative_divisorFunction, ArithmeticFunction.divisorFunction_natCast, ArithmeticFunction.sigma")
+*Divisor function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/af.divisor_function))
+
+A *divisor function* is a {bpref "af.multiplicative"}[multiplicative] {bpref "af"}[arithmetic function] of the form
+
+$$`\sigma_{\tau}(n)=\sum_{d\mid n}d^\tau,`
+
+for some fixed $`\tau\in\mathbb{C}`.
+
+Depends on: {uses "af"}[] {uses "af.multiplicative"}[]
+:::
+
+:::definition "af.multiplicative" (lean := "ArithmeticFunction.IsMultiplicative")
+*Multiplicative arithmetic function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/af.multiplicative))
+
+An arithmetic function $`f:\mathbb{Z}_{>0}\to \C` is *multiplicative* if $`f(mn)=f(m)f(n)` for all coprime integers $`m,n>0`, and is not the zero-function (in particular, $`f(1)=1`).
+:::
+
+:::definition "lfunction" (lean := "AnalyticLFunction, AnalyticLFunction.SelbergData, AnalyticLFunction.eqOn_toFun_of_coeff_eq, AnalyticLFunction.zeta, LSeries")
+*L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction))
+
+An (analytic) *L-function* is a {bpref "lfunction.dirichlet_series"}[Dirichlet series] that has an {bpref "lfunction.euler_product"}[Euler product] and satisfies a certain type of {bpref "lfunction.functional_equation"}[functional equation].
+
+It is expected that all L-functions satisfy the {bpref "lfunction.rh"}[Riemann Hypothesis,] that all of the {bpref "lfunction.zeros"}[zeros] in the {bpref "lfunction.critical_strip"}[critical strip] are on the {bpref "lfunction.critical_line"}[critical line]. Selberg has defined a class $`\mathcal S` of Dirichlet series that satisfy the {bpref "lfunction.selberg_class.axioms"}[Selberg axioms.] It is conjectured (but far from proven) that $`\mathcal S` is precisely the set of all L-functions. Selberg's axioms have not been verified for all of the L-functions in this database but are known to hold for many of them.
+
+It is also conjectured that a precise form of the {bpref "lfunction.functional_equation"}[functional equation] holds for every element of $`\mathcal S`. Under this assumption the functional equation is determined by a quadruple known as the {bpref "lfunction.selbergdata"}[Selberg data], consisting of the {bpref "lfunction.degree"}[degree], {bpref "lfunction.conductor"}[conductor], {bpref "lfunction.spectral_parameters"}[spectral parameters], and {bpref "lfunction.root_number"}[sign].
+
+Depends on: {uses "lfunction.dirichlet_series"}[] {uses "lfunction.euler_product"}[] {uses "lfunction.functional_equation"}[]
+:::
 
 :::definition "lfunction.analytic_conductor" (lean := "AnalyticLFunction.analyticConductor, AnalyticLFunction.SelbergData.analyticConductor, AnalyticLFunction.SelbergData.analyticConductor_eq_analyticConductorLMFDB")
 *Analytic conductor.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.analytic_conductor))
@@ -19,6 +65,24 @@ The *analytic conductor* of an {bpref "lfunction"}[L-function] $`L(s)` with {bpr
 $$`A := \mathrm{exp}\left(2\mathrm{Re}\left(\frac{L_{\infty}'(1/2)}{L_{\infty}(1/2)}\right)\right)N.`
 
 Depends on: {uses "lfunction"}[] {uses "lfunction.conductor"}[] {uses "lfunction.infinity_factor"}[]
+:::
+
+:::definition "lfunction.analytic_rank" (lean := "AnalyticLFunction.analyticRank, AnalyticLFunction.natCast_analyticRank, AnalyticLFunction.iteratedDeriv_analyticRank_ne_zero, AnalyticLFunction.analyticOrderNatAt_arithmeticNormalization, AnalyticLFunction.analyticRank_congr")
+*Analytic rank.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.analytic_rank))
+
+The *analytic rank* of an {bpref "lfunction"}[L-function] $`L(s)` is its order of vanishing at its {bpref "lfunction.central_point"}[central point].
+
+When the analytic rank $`r` is positive, the value listed in the LMFDB is typically an upper bound that is believed to be tight (in the sense that there are known to be $`r` zeroes located very near to the central point).
+
+Depends on: {uses "lfunction.central_point"}[] {uses "lfunction"}[]
+:::
+
+:::definition "lfunction.arithmetic" (lean := "IsAlgebraic, LSeries")
+*Arithmetic L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.arithmetic))
+
+An {bpref "lfunction"}[L-function] $`L(s) = \sum_{n=1}^{\infty} a_n n^{-s}`  is called *arithmetic* if its Dirichlet coefficients $`a_n` are algebraic numbers.
+
+Depends on: {uses "lfunction"}[]
 :::
 
 :::definition "lfunction.bad_prime" (lean := "AnalyticLFunction.conductor, Nat.primeFactors, AnalyticLFunction.exists_eulerFactor")
@@ -38,6 +102,18 @@ where $`L_p(x) = 1 + a_p x + \ldots + (-1)^d \chi(p) x^d`. The character $`\chi`
 Here, $`N` is the {bpref "lfunction.conductor"}[conductor] of $`L`.
 
 Depends on: {uses "character.dirichlet"}[] {uses "lfunction.conductor"}[] {uses "lfunction.euler_product"}[]
+:::
+
+:::definition "lfunction.central_point" (lean := "AnalyticLFunction.centralPoint, AnalyticLFunction.arithmeticCentralPoint, AnalyticLFunction.criticalLine_inter_im_eq_zero, AnalyticLFunction.one_sub_eq_self_iff")
+*Central point of an L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.central_point))
+
+The *central point* of an {bpref "lfunction"}[L-function] is the
+point on the real axis of the {bpref "lfunction.critical_line"}[critical line].  Equivalently,
+it is the fixed point of the {bpref "lfunction.functional_equation"}[functional equation].
+
+In the {bpref "lfunction.normalization"}[analytic normalization], the central point is $`s=1/2`, in the arithmetic normalization, it is $`s=\frac{w+1}{2}`, where $`w` is the {bpref "lfunction.motivic_weight"}[weight] of the L-function.
+
+Depends on: {uses "lfunction"}[] {uses "lfunction.critical_line"}[] {uses "lfunction.functional_equation"}[]
 :::
 
 :::definition "lfunction.central_value" (lean := "AnalyticLFunction.toFun, AnalyticLFunction.analyticRank_eq_zero_iff, AnalyticLFunction.arithmeticNormalization_add")
@@ -89,6 +165,21 @@ In the literature, the word _level_ is sometimes used instead of _conductor_.
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.conductor"}[] {uses "cmf.cusp_form"}[] {uses "lfunction"}[] {uses "lfunction.functional_equation"}[]
 :::
 
+:::definition "lfunction.critical_line" (lean := "AnalyticLFunction.criticalLine, AnalyticLFunction.arithmeticCriticalLine, AnalyticLFunction.mem_criticalLine_iff_one_sub_conj_eq, AnalyticLFunction.mem_arithmeticCriticalLine_iff_add_sub_conj_eq, AnalyticLFunction.riemannHypothesis_iff_mem_criticalLine")
+*Critical line of an L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.critical_line))
+
+The *critical line* of an {bpref "lfunction"}[L-function]  is the line of symmetry of its {bpref "lfunction.functional_equation"}[functional equation].
+
+In the {bpref "lfunction.normalization"}[analytic normalization], the functional equation relates $`s` to $`1-s` and the
+critical line is the line $`\Re(s) = \frac12`.
+
+In the arithmetic normalization, the functional equation relates $`s` to $`1 + w - s`,
+where $`w` is the motivic weight.  In that normalization the critical line is
+$`\Re(s) = \frac{1+w}2`.
+
+Depends on: {uses "lfunction"}[] {uses "lfunction.functional_equation"}[]
+:::
+
 :::definition "lfunction.critical_strip" (lean := "AnalyticLFunction.criticalStrip, AnalyticLFunction.arithmeticCriticalStrip, AnalyticLFunction.summable_norm_tsum_term_prime_pow_sub_one, AnalyticLFunction.toFun_ne_zero, AnalyticLFunction.mem_closure_criticalStrip_of_completed_eq_zero")
 *Critical strip.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.critical_strip))
 
@@ -138,6 +229,87 @@ These L-functions were introduced by [Peter Gustav Lejeune Dirichlet](https://en
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.conductor"}[] {uses "lfunction"}[] {uses "lfunction.dirichlet_series"}[] {uses "lfunction.euler_product"}[] {uses "lfunction.functional_equation"}[]
 :::
 
+:::definition "lfunction.dirichlet_series" (lean := "LSeries, LSeries.term, ArithmeticFunction")
+*Dirichlet series.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.dirichlet_series))
+
+A *Dirichlet series* is a formal series of the form $`F(s) = {\displaystyle \sum_{n=1}^{\infty} \frac{a_n}{ n^{s}}}`, where $`a_n \in {\mathbb{C}}`.
+:::
+
+:::definition "lfunction.dual" (lean := "LSeries, starRingEnd")
+*Dual of an L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.dual))
+
+The *dual* of an {bpref "lfunction"}[L-function] $`L(s) = \sum_{n=1}^{\infty} \frac{a_n}{n^s}` is the complex conjugate $`\bar{L}(s) = \sum_{n=1}^{\infty} \frac{\bar{a_n}}{n^s}`.
+
+Depends on: {uses "lfunction"}[]
+:::
+
+:::definition "lfunction.euler_product" (lean := "ArithmeticFunction.eulerProduct, ArithmeticFunction.ofPowerSeries, EulerProduct.eulerProduct_tprod")
+*Euler product of an L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.euler_product))
+
+It is expected that the *Euler product* of an {bpref "lfunction"}[L-function] of {bpref "lfunction.degree"}[degree] $`d` and {bpref "lfunction.conductor"}[conductor] $`N` can be written as
+
+$$`L(s)=\prod_p L_p(s)`
+
+where for  $`p\nmid N`
+
+$$`L_p(s)=\prod_{n=1}^d  \left( 1-\frac{\alpha_{n}(p)}{p^s}\right)^{-1} \text{ with } |\alpha_{n}(p)|=1`
+
+and
+for $`p\mid N`,
+
+$$`L_p(s)=\prod_{n=1}^{d_p}\left( 1-\frac{\beta_{n}(p)}{p^s}\right)^{-1} \text{ where } d_p < d \text{ and  } |\beta_n(p)|\le 1.`
+
+The functions $`L_p(s)` are called *Euler factors* (or *local factors*).
+:::
+
+:::definition "lfunction.functional_equation" (lean := "AnalyticLFunction.SelbergData, AnalyticLFunction.SelbergData.gammaFactor, AnalyticLFunction.SelbergData.degree, AnalyticLFunction.completed_eq, AnalyticLFunction.completed_eq_sign_mul_conj")
+*Functional equation of an L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.functional_equation))
+
+All known {bpref "lfunction"}[analytic L-functions] have a *functional equation* that can be written in the form
+
+$$`\Lambda(s) := N^{s/2}
+\prod_{j=1}^J \Gamma_{\mathbb{R}}(s+\mu_j) \prod_{k=1}^K \Gamma_{\mathbb{C}}(s+\nu_k)
+\cdot L(s) = \varepsilon \overline{\Lambda}(1-s),`
+
+where $`N` is an integer, {bpref "lfunction.gamma_factor"}[$`\Gamma_{\mathbb{R}}` and $`\Gamma_{\mathbb{C}}`] are defined in terms of the {bpref "specialfunction.gamma"}[$`\Gamma`-function,] $`\mathrm{Re}(\mu_j) = 0 \ \mathrm{or} \ 1` (assuming Selberg's eigenvalue conjecture), and $`\mathrm{Re}(\nu_k)` is a positive integer
+or half-integer,
+
+$$`\sum \mu_j + 2 \sum \nu_k \ \ \ \ \text{is real},`
+
+and $`\varepsilon` is the {bpref "lfunction.sign"}[sign] of the functional equation.
+With those restrictions on the {bpref "lfunction.spectral_parameters"}[spectral parameters], the
+data in the functional equation is specified uniquely.  The integer $`d = J + 2 K`
+is the {bpref "lfunction.degree"}[degree] of the L-function. The integer $`N` is  the {bpref "lfunction.conductor"}[conductor] (or level)
+of the L-function.  The pair $`[J,K]` is the {bpref "lfunction.signature"}[signature] of the L-function.  The parameters
+in the functional equation can be used to make up the 4-tuple called the {bpref "lfunction.selbergdata"}[Selberg data].
+
+The {bpref "lfunction.selberg_class.axioms"}[axioms] of the {bpref "lfunction.selberg_class"}[Selberg class] are less restrictive than
+given above.
+
+Note that the functional equation above has the {bpref "lfunction.central_point"}[central point] at $`s=1/2`, and relates $`s\leftrightarrow 1-s`.
+
+For many L-functions there is another normalization which is natural. The corresponding functional equation relates $`s\leftrightarrow w+1-s` for some positive integer $`w`,
+called the {bpref "lfunction.motivic_weight"}[motivic weight] of the L-function. The central point is at $`s=(w+1)/2`, and the arithmetically normalized Dirichlet coefficients $`a_n n^{w/2}` are algebraic integers.
+
+Depends on: {uses "lfunction.gamma_factor"}[] {uses "specialfunction.gamma"}[]
+:::
+
+:::definition "lfunction.gamma_factor" (lean := "Complex.Gammaℝ, Complex.Gammaℂ, Complex.Gammaℝ_mul_Gammaℝ_add_one")
+*Gamma factors.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.gamma_factor))
+
+The complex functions
+
+$$`\Gamma_{\R}(s) := \pi^{-s/2}\Gamma(s/2)\qquad\text{and}\qquad \Gamma_{\C}(s):= 2(2\pi)^{-s}\Gamma(s)`
+
+that appear in the {bpref "lfunction.functional_equation"}[functional equation] of an L-function are known as *gamma factors*.  Here $`\Gamma(s):=\int_0^\infty e^{-t}t^{s-1}dt` is Euler's gamma function.
+
+The gamma factors satisfy
+$`\Gamma_{\C}(s) = \Gamma_{\R}(s) \Gamma_{\R}(s + 1)`
+and can also be viewed as "missing" factors of the {bpref "lfunction.euler_product"}[Euler product] of an L-function corresponding to (real or complex) archimedean places.
+
+Depends on: {uses "lfunction.euler_product"}[]
+:::
+
 :::definition "lfunction.infinity_factor" (lean := "AnalyticLFunction.SelbergData.gammaFactor, AnalyticLFunction.completed_eq")
 *Infinity factor of an L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.infinity_factor))
 
@@ -172,6 +344,14 @@ Each {bpref "lfunction"}[L-function] $`L` has a label of the form d-N-q.k-x-y-i,
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.conrey"}[] {uses "character.dirichlet.induce"}[] {uses "character.dirichlet.primitive"}[] {uses "lfunction"}[] {uses "lfunction.central_character"}[] {uses "lfunction.conductor"}[] {uses "lfunction.degree"}[] {uses "lfunction.functional_equation"}[] {uses "lfunction.normalization"}[] {uses "lfunction.spectral_label"}[]
 :::
 
+:::definition "lfunction.leading_coeff" (lean := "AnalyticLFunction.leadingCoeff, AnalyticLFunction.leadingCoeff_eq_iteratedDeriv, AnalyticLFunction.meromorphicTrailingCoeffAt_arithmeticNormalization, AnalyticAt.meromorphicTrailingCoeffAt_eq_iteratedDeriv_div_factorial, meromorphicTrailingCoeffAt")
+*Leading coefficient.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.leading_coeff))
+
+The *leading coefficient* of an {bpref "lfunction.arithmetic"}[arithmetic L-function] is the first nonzero coefficient of its Laurent series expansion at the {bpref "lfunction.central_point"}[central point].
+
+Depends on: {uses "lfunction.arithmetic"}[] {uses "lfunction.central_point"}[]
+:::
+
 :::definition "lfunction.motivic_weight" (lean := "AnalyticLFunction.motivicWeight, AnalyticLFunction.arithmeticCoeff, AnalyticLFunction.isIntegral_arithmeticCoeff_motivicWeight")
 *Motivic weight.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.motivic_weight))
 
@@ -184,6 +364,19 @@ increases the weight of the motive.  This corresponds to the change of variables
 $`s \mapsto s + j` in the L-function of the motive.
 
 Depends on: {uses "lfunction"}[] {uses "lfunction.arithmetic"}[] {uses "lfunction.normalization"}[]
+:::
+
+:::definition "lfunction.normalization" (lean := "AnalyticLFunction.arithmeticNormalization, AnalyticLFunction.arithmeticCoeff, AnalyticLFunction.arithmeticNormalization_eq_LSeries, AnalyticLFunction.completed_sub_eq_sign_mul_conj, AnalyticLFunction.motivicWeight")
+*Normalization of an L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.normalization))
+
+In its *arithmetic normalization*, an L-function $`L(s)` of weight $`w` has its {bpref "lfunction.central_value"}[central value] at $`s=\frac{w+1}{2}`
+and the {bpref "lfunction.functional_equation"}[functional equation] relates
+$`s` to $`1 + w - s`.
+For L-functions defined by an Euler product $`\prod_p L_p(s)^{-1}` where the coefficients of $`L_p` are algebraic integers, this is the usual normalization implied by the definition.
+
+The *analytic normalization* of an L-function is defined by $`L_{an}(s):=L(s+w/2)`, where $`L(s)` is the L-function in its arithmetic normalization.  This moves the central value to $`s=1/2`, and the {bpref "lfunction.functional_equation"}[functional equation] of $`L_{an}(s)` relates $`s` to $`1-s`.
+
+Depends on: {uses "lfunction.functional_equation"}[]
 :::
 
 :::definition "lfunction.primitive" (lean := "AnalyticLFunction.IsPrimitive, AnalyticLFunction.IsTrivial, AnalyticLFunction.one, AnalyticLFunction.mul, AnalyticLFunction.isPrimitive_zeta")
@@ -202,6 +395,16 @@ $$`L(s)=\prod_pL_p(p^{-s})^{-1}`
 with $`L_p\in \Z[T]`.
 
 Depends on: {uses "lfunction.arithmetic"}[] {uses "lfunction.coefficient_field"}[] {uses "lfunction.euler_product"}[] {uses "lfunction.normalization"}[]
+:::
+
+:::definition "lfunction.rh" (lean := "AnalyticLFunction.RiemannHypothesis, GeneralizedRiemannHypothesis, AnalyticLFunction.zeros, riemannHypothesis_iff_zeta, RiemannHypothesis")
+*Generalized Riemann hypothesis.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.rh))
+
+The *Riemann hypothesis* is the assertion that if $`\rho` is a zero of an
+ {bpref "lfunction"}[analytic L-function] then $`\mathrm{Re}(\rho)>0` implies
+that $`\mathrm{Re}(\rho)=1/2.`
+
+Depends on: {uses "lfunction"}[]
 :::
 
 :::definition "lfunction.riemann" (lean := "riemannZeta, AnalyticLFunction.zeta, zeta_eq_tsum_one_div_nat_cpow, completedRiemannZeta_one_sub, riemannZeta_residue_one")
@@ -341,6 +544,21 @@ are the {bpref "lfunction.spectral_parameters"}[spectral parameters], and $`\var
 Depends on: {uses "lfunction"}[] {uses "lfunction.conductor"}[] {uses "lfunction.degree"}[] {uses "lfunction.functional_equation"}[] {uses "lfunction.gamma_factor"}[] {uses "lfunction.normalization"}[] {uses "lfunction.root_number"}[] {uses "lfunction.spectral_parameters"}[]
 :::
 
+:::definition "lfunction.self-dual" (lean := "LSeries, starRingEnd, Complex.conj_eq_iff_real")
+*Self-dual L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.self-dual))
+
+An L-function $`L(s) = \sum_{n=1}^{\infty} \frac{a_n}{n^s}` is called *self-dual* if its Dirichlet coefficients $`a_n` are real.
+:::
+
+:::definition "lfunction.sign" (lean := "AnalyticLFunction.sign, AnalyticLFunction.SelbergData.sign, AnalyticLFunction.norm_sign, AnalyticLFunction.completed_eq_sign_mul_conj")
+*Sign of the functional equation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.sign))
+
+The *sign* of the functional equation of an analytic L-function, also called the *root number*, is the complex number $`\varepsilon` that appears in the {bpref "lfunction.functional_equation"}[functional equation] of $`\Lambda(s)=\varepsilon \overline{\Lambda}(1-s)`.  The sign appears as the 4th entry in the quadruple
+known as the {bpref "lfunction.selbergdata"}[Selberg data.]
+
+Depends on: {uses "lfunction.functional_equation"}[]
+:::
+
 :::definition "lfunction.signature" (lean := "AnalyticLFunction.SelbergData.μ, AnalyticLFunction.SelbergData.ν, AnalyticLFunction.SelbergData.re_eq_zero_or_one_of_mem_μ, AnalyticLFunction.SelbergData.exists_two_mul_re_eq_of_mem_ν")
 *Signature of an L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.signature))
 
@@ -444,4 +662,18 @@ The square root is chosen so that $`Z(t)>0` for sufficiently small $`t>0`.
 The multiset of zeros of $`Z(t)` matches that of $`L(1/2+it)` and $`Z(t)` changes sign at the zeros of $`L(1/2+it)` of odd multiplicity.
 
 Depends on: {uses "lfunction.critical_line"}[] {uses "lfunction.functional_equation"}[]
+:::
+
+:::definition "specialfunction.gamma" (lean := "Complex.Gamma")
+*Euler gamma function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/specialfunction.gamma))
+
+The *(Euler) gamma function $`\Gamma(z)`* is defined by the integral
+
+$$`\Gamma(z) = \int_0^{ \infty } e^{-t} t^{z} \frac{dt}{t}`
+
+for Re$`(z) > 0`. It satisfies the functional equation
+
+$$`\Gamma(z+1) = z \Gamma(z),`
+
+and can thus be continued into a meromorphic function on the complex plane, whose poles are at the non-positive integers $`\{0,-1,-2,\ldots\}`.
 :::

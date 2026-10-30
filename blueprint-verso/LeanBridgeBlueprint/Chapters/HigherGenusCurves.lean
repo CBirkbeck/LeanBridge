@@ -7,9 +7,9 @@ open Verso.Genre
 open Verso.Genre.Manual
 open Informal
 
-#doc (Manual) "Higher genus curves" =>
+#doc (Manual) "Higher genus families" =>
 
-This chapter lists the LMFDB definitions relating to *higher genus curves*, migrated from the LaTeX blueprint. Each definition links back to its LMFDB knowl.
+This section lists the LMFDB definitions in the category `curve`. Each definition links back to its LMFDB knowl.
 
 :::definition "curve.highergenus.aut.braid_equivalence" (lean := "Hurwitz.braidOperation, Hurwitz.braidOperationGroup, Hurwitz.braidEquivalence, Hurwitz.braidMove")
 *Braid Equivalence.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/curve.highergenus.aut.braid_equivalence))

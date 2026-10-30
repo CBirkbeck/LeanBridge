@@ -9,7 +9,7 @@ open Informal
 
 #doc (Manual) "Local fields" =>
 
-This chapter lists the LMFDB definitions relating to *local fields*, migrated from the LaTeX blueprint. Each definition links back to its LMFDB knowl. The definitions from this area that the number field, elliptic curve and modular form chapters depend on are in the Background chapter instead.
+This section lists the LMFDB definitions in the category `lf`. Each definition links back to its LMFDB knowl.
 
 :::definition "lf" (lean := "IsNonarchimedeanLocalField, TauCeti.FinitePadicExtension")
 *$`p`-adic field (local number field).* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf))
@@ -26,6 +26,18 @@ Let $`L/K` be a finite extension, let $`L^{un}/K` be the {bpref "lf.unramified_s
 $`\varphi` is the least common multiple of the degrees of the irreducible factors of the {bpref "lf.residual_polynomials"}[residual polynomial] of that segment.  The associated inertias are divisors of the inertia degree of $`\varphi` and are invariants of $`L/K`.
 
 Depends on: {uses "lf.eisenstein_polynomial"}[] {uses "lf.ramification_polygon"}[] {uses "lf.residual_polynomials"}[] {uses "lf.unramified_subfield"}[]
+:::
+
+:::definition "lf.automorphism_group" (lean := "AlgEquiv, AlgEquiv.aut, IsGalois.card_aut_eq_finrank, IsGalois.of_card_aut_eq_finrank")
+*Automorphism group of a field extension.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.automorphism_group))
+
+If $`K/F` is an extension of {bpref "ring.field"}[fields], its *automorphism group* is
+
+$$`\textrm{Aut}(K/F) = \{\sigma:K\to K\mid  \forall a\in F, \sigma(a)=a, \text{ and } \sigma \text{ is an isomorphism}\}.`
+
+Note, a finite extension is {bpref "nf.is_galois"}[Galois] if and only if $`|\textrm{Aut}(K/F)| = [K:F]`.
+
+Depends on: {uses "nf.is_galois"}[] {uses "ring.field"}[]
 :::
 
 :::definition "lf.defining_polynomial" (lean := "IsAdjoinRoot, IsAdjoinRootMonic, minpoly, IntermediateField.adjoinRootEquivAdjoin")
@@ -673,6 +685,32 @@ some cases give new information.
 Depends on: {uses "lf.padic_field"}[] {uses "lf.ramification_index"}[] {uses "lf.slopes"}[] {uses "lf.unramified_subfield"}[]
 :::
 
+:::definition "lf.inertia_group" (lean := "ValuationSubring.inertiaSubgroup, Ideal.inertia, Ideal.Quotient.stabilizerHom, Ideal.Quotient.map_ker_stabilizer_subtype")
+*Inertia group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.inertia_group))
+
+Let
+
+- $`K` be a {bpref "lf.padic_field"}[$`p`-adic field].
+
+- $`L` a finite {bpref "nf.is_galois"}[Galois] extension of $`K`.
+
+- $`\mathcal{O}_K`, $`\mathcal{O}_L` the rings of integers for $`K`, $`L`,
+
+- $`P_K`, $`P_L` the unique {bpref "lf.maximal_ideal"}[maximal ideals] of $`\mathcal{O}_K`, $`\mathcal{O}_L`, and
+
+- $`\kappa=\mathcal{O}_K/P_K`, $`\lambda=\mathcal{O}_L/P_L` the
+
+{bpref "lf.residue_field"}[residue fields] of $`K`, $`L`.
+
+Then each $`\sigma\in \Gal(L/K)` induces a element of $`\Gal(\lambda/\kappa)`.  The kernel of the resulting homomorphism
+
+$$`\Gal(L/K) \to \Gal(\lambda/\kappa)`
+
+is the *inertia group* of $`L/K`.
+
+Depends on: {uses "lf.maximal_ideal"}[] {uses "lf.padic_field"}[] {uses "lf.residue_field"}[] {uses "nf.is_galois"}[]
+:::
+
 :::definition "lf.inertia_group_search" (lean := "ValuationSubring.inertiaSubgroup, Ideal.inertia, Ideal.Quotient.stabilizerHom, Ideal.Quotient.map_ker_stabilizer_subtype")
 *Inertia group searching.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.inertia_group_search))
 
@@ -732,6 +770,18 @@ $`\rho(x)=\min\{px,x+e\}`.
 Depends on: {uses "lf.padic_field"}[]
 :::
 
+:::definition "lf.local_field" (lean := "IsNonarchimedeanLocalField")
+*Local field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.local_field))
+
+A *local field* is a {bpref "ring.field"}[field] $`K` with a non-trivial {bpref "nf.absolute_value"}[absolute value] $`|\ |` that is locally compact in the topology induced by the distance metric $`d(x,y):=|x-y|`.
+
+An *archimedean local field* is a local field whose absolute value is {bpref "nf.absolute_value"}[archimedean]; such a field is isomorphic to $`\R` or $`\C`.
+
+A *nonarchimedean local field* is a local field whose absolute value is {bpref "nf.absolute_value"}[nonarchimedean]. Such a field is either isomorphic to a finite extension of $`\Q_p` when $`K` has {bpref "ring.characteristic"}[characteristic] zero (in which case it is a {bpref "lf.padic_field"}[$`p`-adic field]), or to a finite extension of $`\F_p((t))` when $`K` has characteristic $`p`.  In both cases $`p` is the characteristic of the {bpref "lf.residue_field"}[residue field] of $`K`..
+
+Depends on: {uses "nf.absolute_value"}[] {uses "ring.characteristic"}[] {uses "ring.field"}[]
+:::
+
 :::definition "lf.local_height_function" (lean := "IsNonarchimedeanLocalField.localHeight, IsNonarchimedeanLocalField.localHeight_eq, Group.IsWeightFunction.apply_eq_of_zpowers_eq")
 *Local height function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.local_height_function))
 
@@ -769,6 +819,16 @@ If $`\mathcal{O}_K` is the {bpref "lf.ring_of_integers"}[ring of integers] of $`
 $`\log_p(1+M) = M` provided $`e<p-1` where $`e` is the {bpref "lf.ramification_index"}[ramification index] for $`K/\Q_p`.
 
 Depends on: {uses "lf.maximal_ideal"}[] {uses "lf.ramification_index"}[] {uses "lf.ring_of_integers"}[]
+:::
+
+:::definition "lf.maximal_ideal" (lean := "IsLocalRing.maximalIdeal")
+*Maximal ideal of a local field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.maximal_ideal))
+
+The *maximal ideal* of a {bpref "lf.local_field"}[nonarchimedean local field] $`K` is the unique {bpref "ring.maximal_ideal"}[maximal ideal] of its {bpref "lf.ring_of_integers"}[ring of integers] $`\mathcal O_K`.
+
+It consists of all elements of $`\mathcal O_K` that are not {bpref "ring.unit"}[units], equivalently, all elements of $`K` whose {bpref "nf.absolute_value"}[absolute value] is strictly less than 1.
+
+Depends on: {uses "lf.local_field"}[] {uses "lf.ring_of_integers"}[] {uses "nf.absolute_value"}[] {uses "ring.maximal_ideal"}[] {uses "ring.unit"}[]
 :::
 
 :::definition "lf.means"
@@ -856,6 +916,25 @@ Then $`L_1/K`, $`L_2/K` are in the same packet if
 Thus the family $`I/K` is partitioned into packets.
 
 Depends on: {uses "group.permutation_representation"}[] {uses "lf.family_polynomial"}[] {uses "lf.hidden_slopes"}[] {uses "lf.padic_field"}[] {uses "lf.ramification_index"}[] {uses "lf.residual_polynomials"}[] {uses "lf.residue_field_degree"}[] {uses "nf.galois_closure"}[]
+:::
+
+:::definition "lf.padic_field" (lean := "TauCeti.FinitePadicExtension, Padic, FiniteDimensional")
+*$`p`-adic field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.padic_field))
+
+A *$`p`-adic field* (or *local number field*) is a finite extension of
+{bpref "lf.qp"}[$`\Q_p`], equivalently, a {bpref "lf.local_field"}[nonarchimedean local field] of {bpref "ring.characteristic"}[characteristic] zero.
+
+Depends on: {uses "lf.local_field"}[] {uses "lf.qp"}[] {uses "ring.characteristic"}[]
+:::
+
+:::definition "lf.qp" (lean := "Padic")
+*Definition of $`\Q_p`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.qp))
+
+If $`p` is a prime number, then every rational number $`r` can be written in the form $`r=p^j \frac{a}{b}` where $`\gcd(p, ab)=1`.  We define $`|r|_p = p^{-j}`, and define a metric on $`\Q` by $`d(u,v) = |u-v|_p`; in other words, $`u` and $`v` are close to each other if they are congruent modulo a larger power of $`p`.
+
+The completion of $`\Q` with respect to this metric is the field of *p-adic numbers*, denoted as $`\Q_p`. Any non-zero element $`x \in \Q_p` can be written uniquely as the sum of a convergent series $`x = \sum_{n=n_0}^{+\infty} a_n p^n`, where $`a_n \in \{ 0, \cdots, p-1 \}`, $`n_0 \in \Z` is such that $`|x|_p=p^{-n_0}`, and $`a_{n_0} \neq 0`.
+
+Example: the element $`a = 3 + 7 + 2 \cdot 7^2 + 6 \cdot 7^3 + 7^4 + 2 \cdot 7^5 + \cdots` satisfies $`a^2=2`, since truncating the expansion after $`n` terms and squaring yields a number which is congruent to $`2 \bmod 7^n`.
 :::
 
 :::definition "lf.ramification_index" (lean := "Valuation.Uniformizer, TauCeti.IsTamelyRamified, TauCeti.IsTotallyRamified, TauCeti.absoluteRamificationIndex, TauCeti.ramificationIndex")
@@ -991,6 +1070,16 @@ $`K[x]/(\varphi)`.  We say that $`\mathcal{A}` is the
 Depends on: {uses "lf.padic_field"}[] {uses "lf.ramification_index"}[] {uses "lf.ramification_polygon"}[] {uses "lf.residue_field"}[]
 :::
 
+:::definition "lf.residue_field" (lean := "IsLocalRing.ResidueField")
+*Residue field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.residue_field))
+
+The *residue field* of a nonarchimedean local field is the quotient of its {bpref "lf.ring_of_integers"}[ring of integers] by its unique {bpref "lf.maximal_ideal"}[maximal ideal].
+
+The residue field is finite and its characteristic $`p` is the *residue field characteristic*.  Finite extensions of $`\Q_p` have residue field characteristic $`p`.
+
+Depends on: {uses "lf.maximal_ideal"}[] {uses "lf.ring_of_integers"}[]
+:::
+
 :::definition "lf.residue_field_degree" (lean := "TauCeti.inertiaDegree")
 *Residue field degree of a local field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.residue_field_degree))
 
@@ -1003,6 +1092,15 @@ The *base residue field degree* $`f_0` of $`L/K` is the residue field degree of 
 residue field degree of $`L` over $`\Q_p`.
 
 Depends on: {uses "lf.padic_field"}[] {uses "lf.residue_field"}[]
+:::
+
+:::definition "lf.ring_of_integers" (lean := "Valuation.integer")
+*Ring of integers of a local field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.ring_of_integers))
+
+The *ring of integers* of a {bpref "lf.local_field"}[local field] $`K` with {bpref "nf.absolute_value"}[absolute value] $`|\ |` is the subring
+$`\mathcal O_K := \{x\in K:|x|\le 1\}`; it is a discrete valuation ring.
+
+Depends on: {uses "lf.local_field"}[] {uses "nf.absolute_value"}[]
 :::
 
 :::definition "lf.root_number"
@@ -1223,6 +1321,14 @@ The *visible Artin slopes* of $`K` correspond to segments which have slopes grea
 For a {bpref "nf.is_galois"}[Galois] extension $`K/\Q_p`, the visible Artin slopes are the same as the {bpref "lf.wild_slopes"}[wild Artin slopes] of the extension.  For a general extension, the list of visible Artin slopes is a subset of the list of wild Artin slopes of its Galois closure.  The {bpref "lf.hidden_slopes"}[hidden slopes] of $`K` are obtained by removing (as multisets) the visible slopes of $`K` from the set of all slopes of the Galois closure.
 
 Depends on: {uses "lf.discriminant_exponent"}[] {uses "lf.hidden_slopes"}[] {uses "lf.wild_slopes"}[] {uses "nf.is_galois"}[]
+:::
+
+:::definition "lf.wild_inertia_group" (lean := "TauCeti.LocalFieldsRamification.lowerRamificationGroup, TauCeti.ramificationGroupOneSylow, TauCeti.wildInertiaSubgroup")
+*Wild inertia group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.wild_inertia_group))
+
+The *wild inertia group* of a {bpref "nf.is_galois"}[Galois] extension $`K/\Q_p` is the unique {bpref "group.sylow_subgroup"}[$`p`-Sylow subgroup] of its {bpref "lf.inertia_group"}[inertia group].
+
+Depends on: {uses "group.sylow_subgroup"}[] {uses "lf.inertia_group"}[] {uses "nf.is_galois"}[]
 :::
 
 :::definition "lf.wild_inertia_group_search" (lean := "TauCeti.LocalFieldsRamification.lowerRamificationGroup, TauCeti.ramificationGroupOneSylow, TauCeti.wildInertiaSubgroup")

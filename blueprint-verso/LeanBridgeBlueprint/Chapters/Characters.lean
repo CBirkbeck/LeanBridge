@@ -9,7 +9,23 @@ open Informal
 
 #doc (Manual) "Dirichlet characters" =>
 
-This chapter lists the LMFDB definitions relating to *Dirichlet characters*, migrated from the LaTeX blueprint. Each definition links back to its LMFDB knowl. The definitions from this area that the number field, elliptic curve and modular form chapters depend on are in the Background chapter instead.
+This section lists the LMFDB definitions in the category `character`. Each definition links back to its LMFDB knowl.
+
+:::definition "character.dirichlet" (lean := "DirichletCharacter")
+*Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet))
+
+A *Dirichlet character* is a function $`\chi: \Z\to \C` together with a positive integer $`q` called the *modulus* such that $`\chi` is completely multiplicative, i.e. $`\chi(mn)=\chi(m)\chi(n)` for all integers $`m` and $`n`, and $`\chi` is periodic modulo $`q`, i.e. $`\chi(n+q)=\chi(n)` for all $`n`. If $`(n,q)>1` then $`\chi(n)=0`, whereas if $`(n,q)=1`, then $`\chi(n)` is a root of unity. The character $`\chi` is {bpref "character.dirichlet.primitive"}[primitive] if its
+{bpref "character.dirichlet.conductor"}[conductor]
+is equal to its modulus.
+:::
+
+:::definition "character.dirichlet.conductor" (lean := "DirichletCharacter.conductor")
+*Conductor of a Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.conductor))
+
+The *conductor* of a {bpref "character.dirichlet"}[Dirichlet character] $`\chi` modulo $`q` is the least positive integer $`q_1` dividing $`q` for which $`\chi(n+kq_1)=\chi(n)` for all $`n` and $`n+kq_1` coprime to $`q`.
+
+Depends on: {uses "character.dirichlet"}[]
+:::
 
 :::definition "character.dirichlet.conrey"
 *Conrey label of Dirichlet characters.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.conrey))
@@ -161,6 +177,38 @@ By the Galois correspondence, the fixed field $`\mathbb{Q}(\zeta_q)^{\ker(\chi)}
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.order"}[]
 :::
 
+:::definition "character.dirichlet.galois_orbit" (lean := "MulChar.galoisOrbit")
+*Galois orbit of a Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.galois_orbit))
+
+The *Galois orbit* of a {bpref "character.dirichlet"}[Dirichlet character] $`\chi` of {bpref "character.dirichlet.modulus"}[modulus] $`q` and {bpref "character.dirichlet.order"}[order] $`n` is the set $`[\chi]:=\{\sigma(\chi): \sigma\in \Gal(\Q(\zeta_n)/\Q)\}`, where $`\sigma(\chi)` denotes the Dirichlet character of modulus $`q` defined by  $`k \mapsto \sigma(\chi(k))`.  The map $`\chi\to \sigma(\chi)` defines a faithful action of the {bpref "nf.galois_group"}[Galois group] $`\Gal(\Q(\zeta_n)/\Q)` on the set of Dirichlet characters of modulus $`q` and order $`n`, each of which has $`\Q(\zeta_n)` as its {bpref "character.dirichlet.value_field"}[field of values].
+
+Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.modulus"}[] {uses "character.dirichlet.order"}[] {uses "character.dirichlet.value_field"}[] {uses "nf.galois_group"}[]
+:::
+
+:::definition "character.dirichlet.galois_orbit_index" (lean := "DirichletCharacter.galoisOrbitIndex, DirichletCharacter.galoisOrbitTraceVector, DirichletCharacter.galoisOrbitIndex_eq_iff, DirichletCharacter.galoisOrbitTraceVector_eq_iff, DirichletCharacter.galoisOrbitIndex_one")
+*Orbit index of a Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.galois_orbit_index))
+
+The {bpref "character.dirichlet.galois_orbit"}[Galois orbits] of {bpref "character.dirichlet"}[Dirichlet characters] of {bpref "character.dirichlet.modulus"}[modulus] $`q` are ordered as follows.
+Let $`\chi` be any character in the Galois orbit $`[\chi]` and define the $`N`-tuple of integers
+
+$$`t([\chi]) := (n,t_1,t_2,\ldots,t_{q-1}) \in \Z^q,`
+
+where $`n` is the {bpref "character.dirichlet.order"}[order] of $`\chi` and $`t_i:=\mathrm{tr}_{\Q(\chi)/\Q}(\chi(i))` is the trace of $`\chi(i)` from the {bpref "character.dirichlet.value_field"}[field of values] of $`\chi` to $`\Q`.  The $`q`-tuple $`t([\chi])` is independent of the choice of representative $`\chi` and uniquely identifies the Galois orbit $`[\chi]`.
+
+The *orbit index* of $`\chi` is the index of $`t([\chi])` in the lexicographic ordering of all such tuples arising for Dirichlet characters of modulus $`q`; indexing begins at $`1`, which is always the index of the Galois orbit of the {bpref "character.dirichlet.principal"}[principal character] of modulus $`1`.
+
+Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.galois_orbit"}[] {uses "character.dirichlet.modulus"}[] {uses "character.dirichlet.order"}[] {uses "character.dirichlet.principal"}[] {uses "character.dirichlet.value_field"}[]
+:::
+
+:::definition "character.dirichlet.galois_orbit_label" (lean := "DirichletCharacter.galoisOrbitLabel, DirichletCharacter.letterCode, DirichletCharacter.letterCode_zero, DirichletCharacter.letterCode_one, DirichletCharacter.letterCode_twentySix")
+*Label of a Galois orbit of a Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.galois_orbit_label))
+
+The *label* of a {bpref "character.dirichlet.galois_orbit"}[Galois orbit] of a {bpref "character.dirichlet"}[Dirichlet character] $`\chi` of modulus $`N` takes the form $`N.a`, where $`a` is a letter or string of letters representing the {bpref "character.dirichlet.galois_orbit_index"}[index] of the Galois orbit.
+ The index $`1` is written as $`a`, the index  $`2` is written as $`b`, the index $`27` is written as $`ba`, and so on.
+
+Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.galois_orbit"}[] {uses "character.dirichlet.galois_orbit_index"}[]
+:::
+
 :::definition "character.dirichlet.gauss_sum" (lean := "gaussSum, ZMod.stdAddChar, AddChar.mulShift")
 *Gauss sum.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.gauss_sum))
 
@@ -207,6 +255,16 @@ Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.modulus"}[
 The *structure* of a {bpref "character.dirichlet.group"}[Dirichlet character group] of Dirichlet characters of {bpref "character.dirichlet.modulus"}[modulus] $`q` refers to its isomorphism type as a finite abelian group, which can be uniquely expressed as a product of cyclic groups $`C_{n_1}\times C_{n_2}\cdots\times C_{n_r}` with $`n_1|n_2|\cdots |n_r`.  This is the same as the structure of the group $`(\Z/q\Z)^\times`.
 
 Depends on: {uses "character.dirichlet.modulus"}[]
+:::
+
+:::definition "character.dirichlet.induce" (lean := "DirichletCharacter.changeLevel")
+*Induced Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.induce))
+
+A {bpref "character.dirichlet"}[Dirichlet character] $`\chi_1` of {bpref "character.dirichlet.modulus"}[modulus] $`q_1` is said to be *induced* by a Dirichlet character $`\chi_2` of modulus $`q_2` dividing $`q_1` if $`\chi_1(m)=\chi_2(m)` for all $`m` coprime to $`q_1`.
+
+A Dirichlet character is {bpref "character.dirichlet.primitive"}[primitive] if it is not induced by any character other than itself; every Dirichlet character is induced by a uniquely determined primitive Dirichlet character.
+
+Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.modulus"}[]
 :::
 
 :::definition "character.dirichlet.jacobi_sum" (lean := "jacobiSum")
@@ -304,12 +362,61 @@ In particular, for a fixed odd prime $`p`, $`x \mapsto \left(\frac{x}{p}\right)`
 Depends on: {uses "character.dirichlet"}[]
 :::
 
+:::definition "character.dirichlet.minimal" (lean := "DirichletCharacter.IsMinimal, DirichletCharacter.IsMinimalOfPrimePowerModulus, DirichletCharacter.primePowerPart, DirichletCharacter.IsPrimitive.isMinimalOfPrimePowerModulus, DirichletCharacter.isMinimalOfPrimePowerModulus_one_iff")
+*Minimal Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.minimal))
+
+A {bpref "character.dirichlet"}[Dirichlet character] $`\chi` of prime power {bpref "character.dirichlet.modulus"}[modulus] $`N` is *minimal* if the following conditions both hold:
+
+1. The {bpref "character.dirichlet.conductor"}[conductor] of $`\chi` does not lie in the open interval $`(\sqrt{N},N)`, and if $`N` is a square divisible by 16 then $`{\rm cond}(\chi)\in \{\sqrt{N},N\}`.
+
+2. Both the {bpref "character.dirichlet.order"}[order] and conductor of $`\chi` are minimal among the set of all Dirichlet character $`\chi\psi^2` for which $`{\rm cond}(\psi){\rm cond}(\chi\psi) | N`.
+
+This includes all {bpref "character.dirichlet.primitive"}[primitive] Dirichlet characters of prime power modulus, but not every minimal Dirichlet character of prime power modulus is primitive.
+
+For a composite modulus $`N` with prime power factorization $`N=p_1^{e_1}\cdots p_n^{e_n}`, a Dirichlet character $`\chi` of modulus $`N` is *minimal* if and only if every character in its unique factorization into Dirichlet characters of modulus $`p_1^{e_1},\cdots,p_n^{e_n}` is minimal.  The {bpref "character.dirichlet.principal"}[trivial] Dirichlet character is minimal.
+
+Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.conductor"}[] {uses "character.dirichlet.modulus"}[] {uses "character.dirichlet.order"}[] {uses "character.dirichlet.primitive"}[] {uses "character.dirichlet.principal"}[]
+:::
+
+:::definition "character.dirichlet.modulus" (lean := "DirichletCharacter, MulChar, DirichletCharacter.apply_eq_zero_iff, MulChar.apply_mem_rootsOfUnity")
+*Modulus of a Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.modulus))
+
+A *Dirichlet character* is a function $`\chi: \mathbb{Z}\to \mathbb{C}` together with a positive integer $`q`, called the *modulus* of the character, such that $`\chi` is completely multiplicative, i.e. $`\chi(mn)=\chi(m)\chi(n)` for all integers $`m` and $`n`, and $`\chi` is periodic modulo $`q`, i.e. $`\chi(n+q)=\chi(n)` for all $`n`. If $`(n,q)>1` then $`\chi(n)=0`, whereas if $`(n,q)=1`, then $`\chi(n)` is a root of unity.
+:::
+
+:::definition "character.dirichlet.order" (lean := "orderOf")
+*Order of a Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.order))
+
+The *order* of a {bpref "character.dirichlet"}[Dirichlet character] $`\chi` is the least positive integer $`n` such that $`\chi^n` is the {bpref "character.dirichlet.principal"}[trivial] character of the same {bpref "character.dirichlet.modulus"}[modulus] as $`\chi`. Equivalently, it is the order $`n` of the image of $`\chi` in $`\mathbb{C}^\times`, the group of $`n`th roots of unity.
+
+Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.modulus"}[] {uses "character.dirichlet.principal"}[]
+:::
+
 :::definition "character.dirichlet.parity" (lean := "DirichletCharacter.Even, DirichletCharacter.Odd, DirichletCharacter.even_or_odd")
 *Parity of a Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.parity))
 
 A character has odd/even *parity* if it is odd/even as a function. A {bpref "character.dirichlet"}[Dirichlet character] $`\chi\colon\Z\to\C` is odd if $`\chi(-1) = -1` and even if $`\chi(-1)=1.`
 
 Depends on: {uses "character.dirichlet"}[]
+:::
+
+:::definition "character.dirichlet.primitive" (lean := "DirichletCharacter.IsPrimitive")
+*Primitive Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.primitive))
+
+A {bpref "character.dirichlet"}[Dirichlet character] $`\chi` is *primitive* if its
+{bpref "character.dirichlet.conductor"}[conductor] is equal to its {bpref "character.dirichlet.modulus"}[modulus]; equivalently, $`\chi` is not {bpref "character.dirichlet.induce"}[induced] by a Dirichlet character of smaller modulus.
+
+Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.conductor"}[] {uses "character.dirichlet.induce"}[] {uses "character.dirichlet.modulus"}[]
+:::
+
+:::definition "character.dirichlet.principal" (lean := "MulChar.trivial, MulChar.trivial_apply, DirichletCharacter.factorsThrough_one_iff")
+*Principal Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.principal))
+
+A {bpref "character.dirichlet"}[Dirichlet character] is *principal* (or *trivial*) if it has {bpref "character.dirichlet.order"}[order] $`1`, equivalently, if it is {bpref "character.dirichlet.induce"}[induced] by the unique Dirichlet character of modulus 1.
+
+The value of the principal Dirichlet character of {bpref "character.dirichlet.modulus"}[modulus] $`q` at an integer $`n` is $`1` if $`n` is coprime to $`q` and $`0` otherwise.
+
+Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.induce"}[] {uses "character.dirichlet.modulus"}[]
 :::
 
 :::definition "character.dirichlet.real" (lean := "MulChar.IsQuadratic, Complex.conj_eq_iff_real")
@@ -328,6 +435,14 @@ There are two number fields naturally associated to a {bpref "character.dirichle
 - the {bpref "character.dirichlet.field_cut_out"}[fixed field]: $`\mathbb{Q}(\zeta_q)^{\ker(\chi)}`.
 
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.field_cut_out"}[] {uses "character.dirichlet.modulus"}[] {uses "character.dirichlet.value_field"}[]
+:::
+
+:::definition "character.dirichlet.value_field" (lean := "TauCeti.CharacterField, IntermediateField.adjoin")
+*Field of values of a Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.value_field))
+
+The *field of values* of a Dirichlet character $`\chi\colon\Z\to\C` is the field $`\Q(\chi(\Z))` generated by its values; it is equal to the cyclotomic field $`\Q(\zeta_n)`, where $`n` is the {bpref "character.dirichlet.order"}[order] of $`\chi`.
+
+Depends on: {uses "character.dirichlet.order"}[]
 :::
 
 :::definition "character.hecke"

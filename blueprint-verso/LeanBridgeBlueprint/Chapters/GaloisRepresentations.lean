@@ -7,12 +7,13 @@ open Verso.Genre
 open Verso.Genre.Manual
 open Informal
 
-#doc (Manual) "Mod-ℓ Galois representations" =>
+#doc (Manual) "Mod-ℓ Galois" =>
 %%%
-file := "Mod-l-Galois-representations"
+tag := "mod-l-galois"
+file := "Mod-l-Galois"
 %%%
 
-This chapter lists the LMFDB definitions relating to *mod-ℓ Galois representations*, migrated from the LaTeX blueprint. Each definition links back to its LMFDB knowl.
+This section lists the LMFDB definitions in the category `modlgal`. Each definition links back to its LMFDB knowl.
 
 :::definition "modlgal" (lean := "MonoidHom.IsModEllGaloisRep, MonoidHom.splittingField, MonoidHom.galoisFactor, Field.absoluteGaloisGroup")
 *Mod-$`l` Galois representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modlgal))

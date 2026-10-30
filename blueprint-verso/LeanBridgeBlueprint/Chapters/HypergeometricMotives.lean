@@ -9,7 +9,7 @@ open Informal
 
 #doc (Manual) "Hypergeometric motives" =>
 
-This chapter lists the LMFDB definitions relating to *hypergeometric motives*, migrated from the LaTeX blueprint. Each definition links back to its LMFDB knowl.
+This chapter lists the LMFDB definitions in the category `hgm`. Each definition links back to its LMFDB knowl. `mot.hodgevector` and `mot.width` also belong here, although their ids put them in another LMFDB category.
 
 :::definition "hgm.bezout_determinant" (lean := "Hypergeometric.Parameters.bezoutDeterminant, Hypergeometric.Parameters.bezoutDeterminant_eq")
 *Bézout determinant.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/hgm.bezout_determinant))

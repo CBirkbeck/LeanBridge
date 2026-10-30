@@ -9,7 +9,7 @@ open Informal
 
 #doc (Manual) "Belyi maps" =>
 
-This chapter lists the LMFDB definitions relating to *Belyi maps*, migrated from the LaTeX blueprint. Each definition links back to its LMFDB knowl.
+This section lists the LMFDB definitions in the category `belyi`. Each definition links back to its LMFDB knowl.
 
 :::definition "belyi.abc" (lean := "TauCeti.PermutationTriple, TauCeti.PermutationTriple.orderTriple")
 *abc triple for Belyi maps.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/belyi.abc))

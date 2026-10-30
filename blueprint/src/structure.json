@@ -1,0 +1,62 @@
+{
+  "_doc": "Chapters and subchapters of the blueprint. A knowl goes to the subchapter (or chapter without subchapters) whose categories contain the part of its id before the second dot, or else the part before the first dot; a knowl listed in wrong_labels goes there instead, because its LMFDB category is wrong. update_knowls.py writes one auto_<list>.tex per subchapter; blueprint-verso/scripts/convert_knowls.py writes one Verso module per chapter and subchapter.",
+  "chapters": [
+    {"title": "Background", "module": "Background", "subchapters": [
+      {"title": "Ring theory", "module": "RingTheory", "list": "ring_theory", "categories": ["ring", "gl2", "alg"]},
+      {"title": "Algebraic geometry", "module": "AlgebraicGeometry", "list": "algebraic_geometry", "categories": ["ag"]},
+      {"title": "Miscellaneous", "module": "BackgroundMiscellaneous", "list": "background_miscellaneous", "categories": ["crystals"],
+       "tag": "background-miscellaneous", "file": "Background-miscellaneous"}
+    ]},
+    {"title": "L-functions", "module": "LFunctions", "list": "l_functions", "categories": ["lfunction"],
+     "wrong_labels": ["af", "af.bernoulli_numbers", "af.divisor_function", "af.multiplicative", "specialfunction.gamma"]},
+    {"title": "Modular forms", "module": "ModularForms", "subchapters": [
+      {"title": "Classical", "module": "ClassicalModularForms", "list": "classical_modular_forms", "categories": ["cmf"],
+       "wrong_labels": ["specialfunction.poincare"], "tag": "classical-modular-forms", "file": "Classical-modular-forms"},
+      {"title": "Maass", "module": "MaassForms", "list": "maass_forms", "categories": ["mf.maass"],
+       "wrong_labels": ["specialfunction.k_bessel"], "tag": "maass-forms", "file": "Maass-forms"},
+      {"title": "Hilbert", "module": "HilbertModularForms", "list": "hilbert_modular_forms", "categories": ["mf.hilbert"],
+       "tag": "hilbert-modular-forms", "file": "Hilbert-modular-forms"},
+      {"title": "Bianchi", "module": "BianchiModularForms", "list": "bianchi_modular_forms", "categories": ["mf.bianchi"],
+       "tag": "bianchi-modular-forms", "file": "Bianchi-modular-forms"},
+      {"title": "Siegel", "module": "SiegelModularForms", "list": "siegel_modular_forms", "categories": ["mf.siegel"],
+       "wrong_labels": ["paramodulargroup.sp2gr", "repn.highest.weight", "repn.irrep.gl"], "tag": "siegel-modular-forms",
+       "file": "Siegel-modular-forms"},
+      {"title": "Miscellaneous", "module": "ModularFormsMiscellaneous", "list": "modular_forms_miscellaneous", "categories": ["mf"],
+       "wrong_labels": ["hecke_algebra.definition"], "tag": "modular-forms-miscellaneous", "file": "Modular-forms-miscellaneous"}
+    ]},
+    {"title": "Varieties", "module": "Varieties", "subchapters": [
+      {"title": "Elliptic curves", "module": "EllipticCurves", "list": "elliptic_curves", "categories": ["ec"]},
+      {"title": "Genus 2 curves", "module": "Genus2Curves", "list": "genus_2_curves", "categories": ["g2c"]},
+      {"title": "Shimura curves", "module": "ShimuraCurves", "list": "shimura_curves", "categories": ["shimcurve"],
+       "wrong_labels": ["sh.disc", "sh.level"]},
+      {"title": "Modular curves", "module": "ModularCurves", "list": "modular_curves", "categories": ["modcurve"]},
+      {"title": "Hilbert surfaces", "module": "HilbertModularSurfaces", "list": "hilbert_modular_surfaces", "categories": ["hmsurface"]},
+      {"title": "Higher genus families", "module": "HigherGenusCurves", "list": "higher_genus_curves", "categories": ["curve"]},
+      {"title": "Abelian varieties over 𝔽_q", "module": "AbelianVarietiesFq", "list": "abelian_varieties_fq", "categories": ["av.fq"],
+       "wrong_labels": ["field.finite.conway_polynomial"], "tag": "abelian-varieties-fq", "file": "Abelian-varieties-over-Fq"},
+      {"title": "Belyi maps", "module": "BelyiMaps", "list": "belyi_maps", "categories": ["belyi"]},
+      {"title": "Miscellaneous", "module": "VarietiesMiscellaneous", "list": "varieties_miscellaneous", "categories": ["av"],
+       "tag": "varieties-miscellaneous", "file": "Varieties-miscellaneous"}
+    ]},
+    {"title": "Fields", "module": "Fields", "subchapters": [
+      {"title": "Number fields", "module": "NumberFields", "list": "number_fields", "categories": ["nf"]},
+      {"title": "Local fields", "module": "LocalFields", "list": "local_fields", "categories": ["lf"]}
+    ]},
+    {"title": "Representations", "module": "Representations", "subchapters": [
+      {"title": "Dirichlet characters", "module": "Characters", "list": "characters", "categories": ["character"]},
+      {"title": "Artin representations", "module": "ArtinRepresentations", "list": "artin_representations", "categories": ["artin"]},
+      {"title": "Mod-ℓ Galois", "module": "GaloisRepresentations", "list": "galois_representations", "categories": ["modlgal"],
+       "tag": "mod-l-galois", "file": "Mod-l-Galois"}
+    ]},
+    {"title": "Hypergeometric motives", "module": "HypergeometricMotives", "list": "hypergeometric_motives", "categories": ["hgm"],
+     "wrong_labels": ["mot.hodgevector", "mot.width"]},
+    {"title": "Groups", "module": "Groups", "subchapters": [
+      {"title": "Galois groups", "module": "GaloisGroups", "list": "galois_groups", "categories": ["gg"]},
+      {"title": "Sato–Tate groups", "module": "SatoTateGroups", "list": "sato_tate_groups", "categories": ["st_group"],
+       "tag": "sato-tate-groups", "file": "Sato-Tate-groups"},
+      {"title": "Abstract groups", "module": "AbstractGroups", "list": "abstract_groups", "categories": ["group"],
+       "wrong_labels": ["combin.hasse_diagram", "commensurable.group"]},
+      {"title": "Lattices", "module": "Lattices", "list": "lattices", "categories": ["lattice"]}
+    ]}
+  ]
+}

@@ -7,9 +7,9 @@ open Verso.Genre
 open Verso.Genre.Manual
 open Informal
 
-#doc (Manual) "Hilbert modular surfaces" =>
+#doc (Manual) "Hilbert surfaces" =>
 
-This chapter lists the LMFDB definitions relating to *Hilbert modular surfaces*, migrated from the LaTeX blueprint. Each definition links back to its LMFDB knowl.
+This section lists the LMFDB definitions in the category `hmsurface`. Each definition links back to its LMFDB knowl.
 
 :::definition "hmsurface.arithmetic_genus" (lean := "AlgebraicGeometry.Scheme.Modules.eulerCharBelow, AlgebraicGeometry.Scheme.genus, TauCeti.AlgebraicGeometry.Scheme.Modules.Cohomology")
 *Arithmetic genus.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/hmsurface.arithmetic_genus))

@@ -9,7 +9,7 @@ open Informal
 
 #doc (Manual) "Elliptic curves" =>
 
-This chapter lists the LMFDB definitions relating to *elliptic curves*, migrated from the LaTeX blueprint. Each definition links back to its LMFDB knowl.
+This section lists the LMFDB definitions in the category `ec`. Each definition links back to its LMFDB knowl.
 
 :::definition "ec" (lean := "WeierstrassCurve.IsElliptic")
 *Elliptic curve over a field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec))

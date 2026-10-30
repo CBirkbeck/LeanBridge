@@ -9,7 +9,7 @@ open Informal
 
 #doc (Manual) "Galois groups" =>
 
-This chapter lists the LMFDB definitions relating to *Galois groups*, migrated from the LaTeX blueprint. Each definition links back to its LMFDB knowl. The definitions from this area that the number field, elliptic curve and modular form chapters depend on are in the Background chapter instead.
+This section lists the LMFDB definitions in the category `gg`. Each definition links back to its LMFDB knowl.
 
 :::definition "gg.arithmetically_equivalent" (lean := "MulAction.arithmeticallyEquivalentCount, Subgroup.arithmeticallyEquivalentSiblings, MulAction.arithmeticallyEquivalentCount_eq, Subgroup.IsGassmannEquivalent, Subgroup.IsGassmannEquivalent.index_eq")
 *Arithmetically equivalent siblings.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gg.arithmetically_equivalent))
@@ -67,6 +67,12 @@ The group $`\Aut(F/K)` can be computed via the Galois correspondence. Group-theo
 If $`F/K` is realized as the extension $`F = K[x]/(f(x))` for some polynomial $`f(x) \in K[x]` then, the order $`\#\Aut(F/K)` is the number of roots of $`f(x)` in $`F`.
 
 Depends on: {uses "gg.galois_group"}[] {uses "group.centralizer"}[] {uses "lf.automorphism_group"}[]
+:::
+
+:::definition "gg.galois_group" (lean := "Polynomial.Gal, Polynomial.Gal.galActionHom, Polynomial.Gal.galActionHom_injective, Polynomial.Gal.galAction_isPretransitive")
+*Galois group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gg.galois_group))
+
+The *Galois group* of an irreducible separable polynomial of degree $`n` can be embedded in $`S_n` through its action on the roots of the polynomial, with the image being well-defined up to labeling of the roots.  Different labelings lead to conjugate subgroups.  The subgroup acts transitively on $`\{1,\ldots,n\}`.  Conversely, for every transitive subgroup $`G` of $`S_n` with $`n\in\mathbb{Z}^+`, there is a field $`K` such that $`G` is the Galois group of some polynomial over $`K`.
 :::
 
 :::definition "gg.generic_polynomial"

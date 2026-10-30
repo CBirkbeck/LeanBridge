@@ -9,7 +9,7 @@ open Informal
 
 #doc (Manual) "Number fields" =>
 
-This chapter lists the LMFDB definitions relating to *number fields*, migrated from the LaTeX blueprint. Each definition links back to its LMFDB knowl.
+This section lists the LMFDB definitions in the category `nf`. Each definition links back to its LMFDB knowl.
 
 :::definition "nf" (lean := "NumberField")
 *Number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf))
