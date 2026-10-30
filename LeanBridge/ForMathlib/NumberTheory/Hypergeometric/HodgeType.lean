@@ -54,8 +54,10 @@ lemma isSymplecticType_iff_not_isOrthogonalType : P.IsSymplecticType ↔ ¬P.IsO
 middle entry `h^{w/2, w/2}` (the entry of index `i` with `2i = w`) drops by `1` if the weight `w`
 is even, and the two middle entries (the entries of index `i` with `2i + 1 = w` or `2i = w + 1`)
 drop by `1` if `w` is odd. For `t ≠ 0, 1` the motive `H(A, B, t)` has the Hodge vector of the
-family, `Hypergeometric.Parameters.hodgeVector`. That the middle entries are positive, so that the
-degree drops by `1` or `2`, is not proved here. -/
+family, `Hypergeometric.Parameters.hodgeVector`. The middle entries are positive
+(`Hypergeometric.Parameters.ne_zero_of_mem_hodgeVector`), so that the degree drops by `1` or `2`
+when the family has positive degree (`Hypergeometric.Parameters.motiveDegree_one_add_one`,
+`Hypergeometric.Parameters.motiveDegree_one_add_two`). -/
 def hodgeVectorAtOne : List ℕ :=
   P.hodgeVector.mapIdx fun i h ↦
     if 2 * i = P.weight ∨ 2 * i + 1 = P.weight ∨ 2 * i = P.weight + 1 then h - 1 else h

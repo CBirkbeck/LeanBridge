@@ -372,7 +372,7 @@ The *splitting field* of an algebraic torus $`T` is the minimal {bpref "nf.is_ga
 Depends on: {uses "ag.base_field"}[] {uses "nf.is_galois"}[]
 :::
 
-:::definition "ag.tate_shafarevich"
+:::definition "ag.tate_shafarevich" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.tateShafarevichGroup, TauCeti.AlgebraicGeometry.AbelianVariety.mem_tateShafarevichGroup_iff, TauCeti.AlgebraicGeometry.AbelianVariety.pointRes")
 *Tate-Shafarevich group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.tate_shafarevich))
 
 The *Tate-Shafarevich group* of an {bpref "ag.abelian_variety"}[abelian variety] $`A` over a {bpref "nf"}[number field] $`K` is

@@ -25,6 +25,7 @@ import LeanBridge.ForMathlib.AlgebraicGeometry.AbelianVariety.Jacobian
 import LeanBridge.ForMathlib.AlgebraicGeometry.AbelianVariety.RealMultiplication
 import LeanBridge.ForMathlib.AlgebraicGeometry.AbelianVariety.SelmerGroup
 import LeanBridge.ForMathlib.AlgebraicGeometry.AbelianVariety.Simple
+import LeanBridge.ForMathlib.AlgebraicGeometry.AbelianVariety.TateShafarevichGroup
 import LeanBridge.ForMathlib.AlgebraicGeometry.AbelianVariety.Torsor
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.Basic
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.Bielliptic

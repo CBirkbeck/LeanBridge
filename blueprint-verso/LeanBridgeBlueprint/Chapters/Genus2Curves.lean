@@ -284,7 +284,7 @@ For an {bpref "ag.abelian_variety"}[abelian variety] $`A` over $`\Q`, the local 
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.good_reduction"}[] {uses "lfunction"}[] {uses "lfunction.euler_product"}[]
 :::
 
-:::definition "g2c.has_square_sha"
+:::definition "g2c.has_square_sha" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.HasSquareSha, TauCeti.AlgebraicGeometry.AbelianVariety.tateShafarevichGroup, TauCeti.AlgebraicGeometry.AbelianVariety.mem_tateShafarevichGroup_iff, TauCeti.AlgebraicGeometry.AbelianVariety.pointRes, TauCeti.AlgebraicGeometry.AbelianVariety.IsJacobian")
 *Has square $`\Sha`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.has_square_sha))
 
 The {bpref "group.order"}[order] of the {bpref "ag.tate_shafarevich"}[Tate-Shafarevich group] of the {bpref "ag.jacobian"}[Jacobian] of a curve is either a square, or twice a square, assuming it is finite; this is a theorem of Poonen and Stoll .

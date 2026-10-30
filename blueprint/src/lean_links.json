@@ -234,6 +234,11 @@
     "TauCeti.IsTorusSplittingField.torusSplittingField_eq": "LeanBridge.ForMathlib.Algebra.AlgebraicGroup.TorusSplittingField",
     "TauCeti.torusCommHopfAlgProperty": "TauCeti.Algebra.AlgebraicGroup.Torus.Basic"
   },
+  "ag.tate_shafarevich": {
+    "TauCeti.AlgebraicGeometry.AbelianVariety.tateShafarevichGroup": "LeanBridge.ForMathlib.AlgebraicGeometry.AbelianVariety.TateShafarevichGroup",
+    "TauCeti.AlgebraicGeometry.AbelianVariety.mem_tateShafarevichGroup_iff": "LeanBridge.ForMathlib.AlgebraicGeometry.AbelianVariety.TateShafarevichGroup",
+    "TauCeti.AlgebraicGeometry.AbelianVariety.pointRes": "LeanBridge.ForMathlib.AlgebraicGeometry.AbelianVariety.TateShafarevichGroup"
+  },
   "ag.torsor": {
     "TauCeti.AlgebraicGeometry.AbelianVariety.IsPrincipalHomogeneousSpace": "LeanBridge.ForMathlib.AlgebraicGeometry.AbelianVariety.Torsor",
     "TauCeti.AlgebraicGeometry.AbelianVariety.orbitMap": "LeanBridge.ForMathlib.AlgebraicGeometry.AbelianVariety.Torsor",
@@ -1672,6 +1677,13 @@
   },
   "g2c.good_reduction": {
     "TauCeti.Model": "TauCeti.AlgebraicGeometry.Curves.StableReduction.Model.Basic"
+  },
+  "g2c.has_square_sha": {
+    "TauCeti.AlgebraicGeometry.AbelianVariety.HasSquareSha": "LeanBridge.ForMathlib.AlgebraicGeometry.AbelianVariety.TateShafarevichGroup",
+    "TauCeti.AlgebraicGeometry.AbelianVariety.tateShafarevichGroup": "LeanBridge.ForMathlib.AlgebraicGeometry.AbelianVariety.TateShafarevichGroup",
+    "TauCeti.AlgebraicGeometry.AbelianVariety.mem_tateShafarevichGroup_iff": "LeanBridge.ForMathlib.AlgebraicGeometry.AbelianVariety.TateShafarevichGroup",
+    "TauCeti.AlgebraicGeometry.AbelianVariety.pointRes": "LeanBridge.ForMathlib.AlgebraicGeometry.AbelianVariety.TateShafarevichGroup",
+    "TauCeti.AlgebraicGeometry.AbelianVariety.IsJacobian": "LeanBridge.ForMathlib.AlgebraicGeometry.AbelianVariety.Jacobian"
   },
   "g2c.igusa_clebsch_invariants": {
     "Polynomial.igusaClebsch": "LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.IgusaInvariants",
