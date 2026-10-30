@@ -88,7 +88,7 @@ defined by $`\langle P,Q\rangle = \frac{1}{2}(\hat{h}(P+Q)-\hat{h}(P)-\hat{h}(Q)
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.mordell_weil"}[] {uses "av.princ_polarizable"}[] {uses "av.theta_divisor"}[] {uses "nf"}[] {uses "nf.weil_height"}[]
 :::
 
-:::definition "ag.canonical_model"
+:::definition "ag.canonical_model" (lean := "AlgebraicGeometry.Scheme.canonicalMap, AlgebraicGeometry.Scheme.canonicalModel, AlgebraicGeometry.Scheme.linearSystemMap, TauCeti.canonicalDivisor, AlgebraicGeometry.Scheme.eq_linearSystemMap_iff")
 *Canonical model.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.canonical_model))
 
 The *canonical map* of a curve $`C` of {bpref "ag.curve.genus"}[genus] $`g` is the map to $`\mathbb{P}^{g-1}` defined by the canonical class.  For {bpref "ag.hyperelliptic_curve"}[non-hyperelliptic] curves of genus larger than 1, this map is an embedding, and its image is a normal curve called the *canonical model* of $`C`.
@@ -140,6 +140,14 @@ A generator of such a subgroup $`H` is called a *trigonal automorphism*.
 Depends on: {uses "ag.curve"}[] {uses "ag.quotient_curve"}[] {uses "g2c.aut_grp"}[]
 :::
 
+:::definition "ag.fq.point_counts" (lean := "AlgebraicGeometry.Scheme.PointOver, Nat.card, GaloisField")
+*Point counts of a variety.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.fq.point_counts))
+
+If $`X` is a {bpref "ag.variety"}[variety] {bpref "ag.base_field"}[defined] over a finite field $`\mathbb{F}_q`, one can show that it will have finitely many points that are defined over that field. Upon extending the base field to $`\mathbb{F}_{q^2}`, $`\mathbb{F}_{q^3}`, $`\mathbb{F}_{q^4}`, etc. the number of points of $`X` defined over those fields remains finite, as long as we consider only field extensions of finite degree over $`\mathbb{F}_q`.
+
+Depends on: {uses "ag.base_field"}[] {uses "ag.variety"}[]
+:::
+
 :::definition "ag.geom_component" (lean := "irreducibleComponents, AlgebraicGeometry.Scheme.geometricBaseChange")
 *Geometric component.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.geom_component))
 
@@ -172,7 +180,7 @@ Depends on: {uses "ag.curve"}[]
 *Geometric gonality.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.gonality_geom))
 
 Let $`X` be a geometrically integral {bpref "ag.curve"}[algebraic curve] over a field $`k`.
-Let $`\overline{k}` be an algebraic closure of $`k`.
+Let $`\overline{k}` be an {bpref "nf.algebraic_closure"}[algebraic closure] of $`k`.
 Let $`X_{\overline{k}}` be the base extension.
 The *geometric gonality* (or *$`\overline{k}`-gonality*) of $`X` is the {bpref "ag.gonality"}[gonality] of $`X_{\overline{k}}`, that is, the minimal degree of a dominant morphism $`X_{\overline{k}} \to \mathbb{P}^1_{\overline{k}}`.
 
@@ -199,6 +207,60 @@ Depends on: {uses "ag.abelian_variety"}[] {uses "ag.conductor"}[] {uses "ag.jaco
 The *holomorphic Euler characteristic* of a projective scheme $`X` is the alternating sum $`\chi(X)=\chi(\mathcal{O}_X) = \sum_{i=0}^{\dim X} (-1)^i \dim H^i(X, \mathcal{O}_X)`.
 
 See also the {bpref "ag.arithmetic_genus"}[arithmetic genus].
+:::
+
+:::definition "ag.isolated_point"
+*Isolated point.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.isolated_point))
+
+A closed point $`x` on a curve $`C` is isolated if it is not contained in a family of effective degree $`d` divisors parametrized by $`\mathbb{P}^1` or a positive rank abelian variety.
+:::
+
+:::definition "ag.kodaira_dimension"
+*Kodaira dimension.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.kodaira_dimension))
+
+Let $`X` be a nonsingular complex algebraic variety with canonical divisor $`K`. For each $`d \in \mathbb{Z}_{\geq 0}`, the $`d^\text{th}` plurigenus of $`X` is $`P_d \colonequals \dim H^0(X, K^{\otimes d})`. The global sections of $`K^{\otimes d}` define a rational map
+
+$$`\varphi_d: X \to \mathbb{P}(H^0(X,K^{\otimes d})) \cong \mathbb{P}^{P_d-1} \, .`
+
+The Kodaira dimension $`\kappa(X)` is defined to be $`-1` if $`P_d = 0` for all $`d`, and
+
+$$`\kappa(X) \colonequals \sup_d \, \dim(\varphi_d(X))`
+
+otherwise.
+:::
+
+:::definition "ag.modcurve.x0"
+*Modular curve $`X_0(N)`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.modcurve.x0))
+
+Let $`N \ge 1`. The \*modular curve\* $`X_0(N)` is an {bpref "ag.curve"}[algebraic curve] defined over $`\Q` (or even $`\Z[1/N]`) whose points over any algebraically closed field of characteristic not dividing $`N` correspond to isomorphism classes of pairs $`(E,\phi)`, where $`E` is an {bpref "ec"}[elliptic curve] and $`\phi` is an {bpref "ec.isogeny"}[isogeny] with domain $`E` and kernel a cyclic group of order $`N`, with the exception of particular points called \*cusps\* which correspond to degenerate such pairs.
+
+The complex manifold $`X_0(N)(\C)` is biholomorphic to the quotient $`\Gamma_0(N) \backslash \mathcal{H}^*` of the {bpref "mf.upper_half_plane"}[completed upper half plane].
+
+Depends on: {uses "ag.curve"}[] {uses "ec"}[] {uses "ec.isogeny"}[] {uses "mf.upper_half_plane"}[]
+:::
+
+:::definition "ag.modcurve.x1"
+*Modular curve $`X_1(N)`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.modcurve.x1))
+
+Let $`N \ge 1`. The \*modular curve\* $`X_1(N)` is an {bpref "ag.curve"}[algebraic curve] defined over $`\Q` (or even $`\Z[1/N]`) whose points over any algebraically closed field $`k` of characteristic not dividing $`N` correspond to isomorphism classes of pairs $`(E,P)`, where $`E` is an {bpref "ec"}[elliptic curve] over $`k` and $`P \in E(k)` is a torsion point of order exactly $`N`, with the exception of particular points called \*cusps\* which correspond to degenerate such pairs.  If $`N \ge 4`, the same description of points is valid even if $`k` is not algebraically closed.
+
+The complex manifold $`X_1(N)(\C)` is biholomorphic to the quotient $`\Gamma_1(N) \backslash \mathcal{H}^*` of the {bpref "mf.upper_half_plane"}[completed upper half plane].
+
+There is an action of the group $`(\Z/N\Z)^*` on $`X_1(N)`,
+in which $`c \bmod N` maps $`(E,P)` to $`(E,cP)`.
+The subgroup $`\{\pm 1\}` acts trivially, because $`(E,-P)` is isomorphic to $`(E,P)` via $`[-1]`.
+The quotient of $`X_1(N)` by $`(\Z/N\Z)^* / \{\pm1\}` is the
+{bpref "ag.modcurve.x0"}[modular curve $`X_0(N)`].
+
+Depends on: {uses "ag.curve"}[] {uses "ag.modcurve.x0"}[] {uses "ec"}[] {uses "mf.upper_half_plane"}[]
+:::
+
+:::definition "ag.modcurve.xnsp"
+*Modular curve $X\_\{\text\{ns.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.modcurve.xnsp))
+
+Let $`N \ge 1`. The curve $`X_{\text{ns}}^{+}(N)` is the {bpref "modcurve"}[modular curve] $`X(\Gamma_{\text{ns}}^{+}(N))` where $`\Gamma_{\text{ns}}^{+}(N)` is the normalizer of the {bpref "gl2.nonsplit_cartan"}[non-split Cartan subgroup] $`\Gamma_{\text{ns}}(N)`.
+
+Depends on: {uses "gl2.nonsplit_cartan"}[] {uses "modcurve"}[]
 :::
 
 :::definition "ag.plane_model"
@@ -266,7 +328,17 @@ This is a generalisation of the {bpref "ec.regulator"}[regulator of an elliptic 
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.canonical_height"}[] {uses "ag.mordell_weil"}[] {uses "ec.regulator"}[] {uses "nf"}[]
 :::
 
-:::definition "ag.selmer_group"
+:::definition "ag.sato_tate_group"
+*Sato-Tate group (of a motive).* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.sato_tate_group))
+
+The Sato-Tate group of a motive over a number field is a compact (but often disconnected) Lie group which conjecturally governs the variation of Euler factors of the L-function associated to this motive. For example, for (the 1-motive of) a generic abelian variety of dimension $`g`, this group is $`\mathrm{USp}(2g)`.
+
+For an elliptic curve $`E` over a number field $`K`, the Sato-Tate group equals $`\mathrm{SU}(2)` if $`E` does not have complex multiplication. Otherwise, one gets $`\mathrm{SO}(2)` if $`E` has CM defined over $`K`, and the normalizer of $`\mathrm{SO}(2)` in $`\mathrm{SU}(2)` if $`E` has CM not defined over $`K`.
+
+For an abelian surface $`A` over a number field $`K`, there are 52 possible Sato-Tate groups as classified by Fité-Kedlaya-Rotger-Sutherland ; of these, 34 can occur for $`K = \mathbb{Q}`. The typical case $`\mathrm{USp}(4)` occurs when $`\mathrm{End}(A_{\overline{K}}) = \mathbb{Z}`.
+:::
+
+:::definition "ag.selmer_group" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.numberFieldSelmerGroup, TauCeti.AlgebraicGeometry.AbelianVariety.mem_numberFieldSelmerGroup_iff, TauCeti.AlgebraicGeometry.AbelianVariety.kummerCondition, TauCeti.AlgebraicGeometry.AbelianVariety.torsionRes, TauCeti.AlgebraicGeometry.AbelianVariety.TorsionCoeff")
 *Selmer group of an abelian variety.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.selmer_group))
 
 Let $`A` be an {bpref "ag.abelian_variety"}[abelian variety] over a {bpref "nf"}[number field] $`K`.

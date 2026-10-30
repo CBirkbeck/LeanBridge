@@ -22,15 +22,15 @@ $$`f(\gamma z) = (cz+d)^k f(z)`
 
 for all $`z\in\mathcal{H}` and $`\gamma=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in \Gamma` and is holomorphic  at all the {bpref "group.fuchsian.cusps"}[cusps] of $`\Gamma`.
 
-If $`\Gamma` contains the principal congruence subgroup $`\Gamma(N)` then $`f` is said to be a modular form of {bpref "cmf.level"}[level] $`N`.
+If $`\Gamma` contains the principal congruence subgroup {bpref "group.sl2z.subgroup.gamman"}[$`\Gamma(N)`] then $`f` is said to be a modular form of {bpref "cmf.level"}[level] $`N`.
 
 For each fixed choice of $`k` and $`\Gamma` the set of modular forms of weight $`k` on $`G` form a finite-dimensional $`\mathbb{C}`-vector space denoted $`M_k(\Gamma)`.
 
-For the congruence subgroup $`\Gamma_1(N)` the space $`M_k(\Gamma_1(N))` decomposes as a direct sum of subspaces $`M_k(N,\chi)` over the group of {bpref "character.dirichlet"}[Dirichlet characters] $`\chi` of modulus $`N`, where $`M_k(N,\chi)` is the subspace of forms $`f\in M_k(N)` that satisfy
+For the congruence subgroup {bpref "group.sl2z.subgroup.gamma1n"}[$`\Gamma_1(N)`] the space $`M_k(\Gamma_1(N))` decomposes as a direct sum of subspaces $`M_k(N,\chi)` over the group of {bpref "character.dirichlet"}[Dirichlet characters] $`\chi` of modulus $`N`, where $`M_k(N,\chi)` is the subspace of forms $`f\in M_k(N)` that satisfy
 
 $$`f(\gamma z) = \chi(d)(cz+d)^k f(z)`
 
-for all $`\gamma=\begin{pmatrix}a&b\\c&d\end{pmatrix}` in $`\Gamma_0(N)`.
+for all $`\gamma=\begin{pmatrix}a&b\\c&d\end{pmatrix}` in {bpref "group.sl2z.subgroup.gamma0n"}[$`\Gamma_0(N)`].
 
 Elements of $`M_k(N,\chi)` are said to be modular forms of weight $`k`, level $`N`, and character $`\chi`.
 
@@ -96,15 +96,23 @@ Let $`N` be a positive integer, and let $`Q` be a positive divisor of $`N` satis
 
 $$`W_Q=\left( \begin{matrix} Qx & y \\ Nz & Qt\end{matrix} \right)`
 
-has determinant $`Q`. The matrix $`W_Q` normalizes the group $`\Gamma_0(N)`, and for any {bpref "cmf.weight"}[weight] $`k` it induces a linear operator $`w_Q` on the space of {bpref "cmf.cusp_form"}[cusp forms]  $`S_k(\Gamma_0(N))` that commutes with the {bpref "cmf.hecke_operator"}[Hecke operators] $`T_p` for all $`p \nmid Q` and acts as its own inverse.
+has determinant $`Q`. The matrix $`W_Q` normalizes the group {bpref "group.sl2z.subgroup.gamma0n"}[$`\Gamma_0(N)`], and for any {bpref "cmf.weight"}[weight] $`k` it induces a linear operator $`w_Q` on the space of {bpref "cmf.cusp_form"}[cusp forms]  $`S_k(\Gamma_0(N))` that commutes with the {bpref "cmf.hecke_operator"}[Hecke operators] $`T_p` for all $`p \nmid Q` and acts as its own inverse.
 
 The linear operator $`w_Q` does not depend on the choice of $`x,y,z,t` and is called the *Atkin-Lehner involution* of $`S_k(\Gamma_0(N))`.  Any cusp form $`f` in $`S_k(\Gamma_0(N))` which is an eigenform for all $`T_p` with $`p \nmid N` is also an eigenform for $`w_Q`, with eigenvalue $`\pm 1`.
 
-The matrix $`W_Q` induces an automorphism of the modular curve $`X_0(N)` that is also denoted $`w_Q`.
+The matrix $`W_Q` induces an automorphism of the {bpref "ag.modcurve.x0"}[modular curve $`X_0(N)`] that is also denoted $`w_Q`.
 
 In the case $`Q=N`, the Atkin-Lehner involution $`w_N` is also called the {bpref "cmf.fricke"}[Fricke involution].
 
 Depends on: {uses "cmf.cusp_form"}[] {uses "cmf.hecke_operator"}[] {uses "cmf.weight"}[]
+:::
+
+:::definition "cmf.atkin_lehner_dims" (lean := "TauCeti.atkinLehnerSubspace, TauCeti.atkinLehnerDim, TauCeti.atkinLehnerDims, TauCeti.sum_atkinLehnerDim, HeckeRing.GL2.Newform.toCuspFormGamma0_mem_atkinLehnerSubspace")
+*Dimensions of Atkin-Lehner subspaces.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.atkin_lehner_dims))
+
+For each prime dividing the {bpref "cmf.level"}[level] $`N`, the {bpref "cmf.atkin-lehner"}[Atkin-Lehner operator] scales each {bpref "cmf.newform"}[newform] by either $`1` or $`-1`.  Let $`j` be the number of primes dividing $`N`.  Ordering the $`2^j` vectors of $`\pm 1` lexicographically (with $`1` before $`-1`), we show the dimensions of the subspaces of $`S_k^{\mathrm{new}}(\Gamma_0(N),\chi)` with prescribed Atkin-Lehner eigenvalues.
+
+Depends on: {uses "cmf.atkin-lehner"}[] {uses "cmf.level"}[] {uses "cmf.newform"}[]
 :::
 
 :::definition "cmf.bad_prime" (lean := "Nat.primeFactors, Nat.mem_primeFactors, CongruenceSubgroup.Gamma")
@@ -198,6 +206,48 @@ The {bpref "cmf.hecke_operator"}[Hecke algebra] acts on $`S_k^{\mathrm{new}}(N, 
 Depends on: {uses "cmf.hecke_operator"}[] {uses "cmf.newform"}[]
 :::
 
+:::definition "cmf.decomposition.new.gamma1"
+*Decomposition into newforms for Gamma1(N).* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.decomposition.new.gamma1))
+
+The space of newforms of weight $`k` on $`\Gamma_1(N)` decomposes as
+
+$$`S_k^{\mathrm{new}}(\Gamma_1(N)) \cong \bigoplus_{\chi \bmod N} S_k^{\mathrm{new}}(N, \chi),`
+
+where the direct sum is over all {bpref "character.dirichlet"}[Dirichlet characters] modulo $`N`. If $`\chi` and $`\chi'` are in the same {bpref "character.dirichlet.galois_orbit"}[Galois orbit], then $`S_k^{\mathrm{new}}(N, \chi)` and $`S_k^{\mathrm{new}}(N, \chi')` are Galois conjugate and we identify them since we define {bpref "cmf.newform"}[newforms] as Galois orbits.
+
+Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.galois_orbit"}[] {uses "cmf.newform"}[]
+:::
+
+:::definition "cmf.decomposition.old.gamma0chi"
+*Oldspace decomposition for newform space.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.decomposition.old.gamma0chi))
+
+There are natural inclusion maps from lower level; the old subspace is the span of their images.  For $`M` dividing the level $`N` and divisible by $`\operatorname{cond}(\chi)`, for $`\chi_M` of modulus $`M` inducing $`\chi`, and for $`d \mid (N/M)`, the maps
+
+$$`\begin{aligned}
+  \alpha_{M, d} : S_k(\Gamma_0(M), \chi_M) & \to S_k(\Gamma_0(N), \chi) \\\\
+  f(q) & \mapsto f(q^d)
+  \end{aligned}`
+
+  induce an isomorphism
+
+$$`S_k(\Gamma_0(N), \chi) \cong \bigoplus_{M,d} \alpha_{M,d}\left(S_k^{\mathrm{new}}(\Gamma_0(M), \chi_M)\right).`
+:::
+
+:::definition "cmf.decomposition.old.gamma1"
+*Oldspace decomposition for Gamma1(N).* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.decomposition.old.gamma1))
+
+There are natural inclusion maps from lower level; the old subspace is the span of their images.  For $`M` dividing the level $`N`, and for $`t` dividing $`\frac{N}{M}`, the maps
+
+$$`\begin{aligned}
+  \alpha_{M, t} : S_k(\Gamma_1(M)) & \to S_k(\Gamma_1(N)) \\\\
+  f(q) & \mapsto f(q^t)
+  \end{aligned}`
+
+  induce an isomorphism
+
+$$`S_k(\Gamma_1(N)) \cong \bigoplus_{M,t} \alpha_{M,t}\left(S_k^{\mathrm{new}}(\Gamma_1(M))\right).`
+:::
+
 :::definition "cmf.defining_polynomial" (lean := "TauCeti.CoefficientField")
 *Defining polynomial.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.defining_polynomial))
 
@@ -216,6 +266,14 @@ The *dimension* of a {bpref "cmf.newform"}[newform] refers to the dimension of i
 The *relative dimension* of $`S_k^{\rm new}(N,\chi)`  is its dimension as a $`\Q(\chi)`-vector space, where $`\Q(\chi)` is the field generated by the values of $`\chi`, and similarly for newform subspaces.
 
 Depends on: {uses "cmf.dimension_mathlib_def"}[] {uses "cmf.galois_orbit"}[] {uses "cmf.newform"}[] {uses "cmf.newform_subspace"}[]
+:::
+
+:::definition "cmf.dimension_galois_orbit" (lean := "HeckeRing.GL2.Newform.dimension, HeckeRing.GL2.Newform.newformSubspace, HeckeRing.GL2.Newform.dimension_eq_ncard_galoisOrbit")
+*Dimension of a Hecke orbit.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.dimension_galois_orbit))
+
+The dimension of an (irreducible) {bpref "cmf.hecke_orbit"}[Hecke orbit] of a newform $`f`.
+
+Depends on: {uses "cmf.hecke_orbit"}[]
 :::
 
 :::definition "cmf.dimension_mathlib_def" (lean := "Module.finrank")
@@ -243,7 +301,7 @@ Depends on: {uses "cmf.galois_orbit"}[] {uses "cmf.hecke_operator"}[] {uses "cmf
 :::definition "cmf.dualform" (lean := "CuspForm.conj, HeckeRing.GL2.Newform.conj")
 *Dual cuspform.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.dualform))
 
-The *dual* of a {bpref "cmf.cusp_form"}[cuspidal modular form] $`f` is the form whose coefficients $`a_n` in its {bpref "cmf.q-expansion"}[$`q`-expansion] are the complex conjugates of those of $`f`.  The L-function of the dual form is the {bpref "lfunction.dual"}[dual] of the L-function of $`f`.
+The *dual* of a {bpref "cmf.cusp_form"}[cuspidal modular form] $`f` is the form whose coefficients $`a_n` in its {bpref "cmf.q-expansion"}[$`q`-expansion] are the complex conjugates of those of $`f`.  The {bpref "cmf.lfunction"}[L-function] of the dual form is the {bpref "lfunction.dual"}[dual] of the L-function of $`f`.
 
 The {bpref "cmf.coefficient_field"}[coefficient field] of a {bpref "cmf.selfdual"}[non-self-dual] {bpref "cmf.newform"}[newform] is a {bpref "nf.cm_field"}[CM field].
 
@@ -298,11 +356,11 @@ The *label* of an {bpref "cmf.eisenstein_newform"}[Eisenstein newform] $`f\in E_
 
 - $`N.a` is the {bpref "character.dirichlet.galois_orbit_label"}[label] of the {bpref "character.dirichlet.galois_orbit"}[Galois orbit] of the {bpref "character.dirichlet"}[Dirichlet character] $`\chi`;
 
-- $`x` is the label of the {bpref "cmf.galois_orbit"}[Galois orbit] of the newform $`f`.
+- $`x` is the {bpref "cmf.hecke_galois_orbit"}[label] of the {bpref "cmf.galois_orbit"}[Galois orbit] of the newform $`f`.
 
 For each {bpref "cmf.embedding"}[embedding] of the {bpref "cmf.coefficient_field"}[coefficient field] of $`f` into the complex numbers, the corresponding modular form over $`\C` has a label of the form $`N.k.E.a.x.n.i`, where
 
-- $`n` determines the Conrey label $`N.n` of the Dirichlet character $`\chi`;
+- $`n` determines the {bpref "character.dirichlet.conrey"}[Conrey label] $`N.n` of the Dirichlet character $`\chi`;
 
 - $`i` is an integer ranging from 1 to the {bpref "cmf.relative_dimension"}[relative dimension] of the newform that distinguishes embeddings with the same character $`\chi`.
 
@@ -374,9 +432,9 @@ The *label* complex embedded holomorphic {bpref "cmf.cusp_form"}[cusp form] $`f`
 
 - $`N.a` is the {bpref "character.dirichlet.galois_orbit_label"}[label] of the Galois orbit of the Dirichlet character,
 
-- $`x` is the Hecke Galois orbit label,
+- $`x` is the {bpref "cmf.hecke_galois_orbit"}[Hecke Galois orbit label],
 
-- $`N.c` is the Conrey label for the character corresponding to the {bpref "cmf.embedding"}[embedding], and
+- $`N.c` is the {bpref "character.dirichlet.conrey"}[Conrey label] for the character corresponding to the {bpref "cmf.embedding"}[embedding], and
 
 - $`j` is the index for the embedding within those with the same Dirichlet character, these are ordered by the vector $`\iota(a_n)`, where we order the complex numbers first by their real part and then by their imaginary part.
 
@@ -481,6 +539,30 @@ Composing the representation $`\rho` with the natural map $`\GL_2(\C)\to \PGL_2(
 Depends on: {uses "artin"}[] {uses "artin.conductor"}[] {uses "artin.parity"}[] {uses "cmf.newform"}[] {uses "cmf.weight"}[]
 :::
 
+:::definition "cmf.hecke_galois_orbit"
+*Galois orbit label.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.hecke_galois_orbit))
+
+The {bpref "cmf.galois_orbit"}[Galois orbits] within each {bpref "cmf.newspace"}[space of newforms] $`S^{\rm new}_k(N,[\chi])` are labeled using small roman letters: $`a, b, c, \ldots, z, aa, ba, \ldots`, with orbits ordered according to the lexicographical ordering of their integer trace sequences
+
+$$`({\rm tr}_{K/\Q}(a_1),\ {\rm tr}_{K/\Q}(a_2), {\rm tr}_{K\Q}(a_3),\ \ldots)`
+
+obtained by taking traces of Hecke eigenvalues $`a_1,a_2,\ldots` from the coefficient field $`K` down to $`\Q`.
+
+Depends on: {uses "cmf.galois_orbit"}[] {uses "cmf.newspace"}[]
+:::
+
+:::definition "cmf.hecke_kernels" (lean := "HeckeRing.GL2.Newform.heckeKernel, HeckeRing.GL2.Newform.mem_heckeKernel, HeckeRing.GL2.Newform.map_iInf_heckeKernel, HeckeRing.GL2.Newform.map_iInf_heckeKernel_eq_newformSubspace_inf, HeckeRing.GL2.Newform.coeffMinpoly")
+*Hecke kernel.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.hecke_kernels))
+
+Each {bpref "cmf.newform"}[newform] $`f=\sum a_n^n` necessarily lies in the kernel of the linear operator $`g_n(T_n)`, where $`g_n\in \Z[X]` is the minimal polynomial of $`a_n` and $`T_n` is the $`n`th {bpref "cmf.hecke_operator"}[Hecke operator] acting on the {bpref "cmf.newspace"}[newspace] $`S_k^{\rm new}(N,\chi)` in which $`f` lies.
+
+If $`X` is a set of {bpref "cmf.distinguishing_primes"}[distinguishing primes] for $`S^{\rm new}_k(N,\chi)`, then the {bpref "cmf.galois_orbit"}[Galois orbit] of $`f` can be uniquely identified as the intersection of the kernels of the linear operators $`\{g_p(T_p):p \in X\}`.
+
+This characterization allows one to reconstruct the newform $`f` without computing a basis of newforms for $`S_k^{\rm new}(N,\chi)`, which may be computationally useful when the {bpref "cmf.dimension"}[dimension] of $`f` is much smaller than that of $`S_k^{\rm new}(N,\chi)`.
+
+Depends on: {uses "cmf.dimension"}[] {uses "cmf.distinguishing_primes"}[] {uses "cmf.galois_orbit"}[] {uses "cmf.hecke_operator"}[] {uses "cmf.newform"}[] {uses "cmf.newspace"}[]
+:::
+
 :::definition "cmf.hecke_operator" (lean := "HeckeRing.GL2.heckeRingHomCharSpace, HeckeRing.GL2.heckeTCompositeGamma0, HeckeRing.GL2.heckeTNat")
 *Hecke operator.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.hecke_operator))
 
@@ -531,7 +613,7 @@ Depends on: {uses "cmf.hecke_operator"}[] {uses "cmf.newform"}[] {uses "cmf.newf
 
 $$`a_p(g) = \chi(p)a_p(f)`
 
-for all but finitely many primes $`p`.  Without loss of generality, we may assume that $`\chi` is a {bpref "character.dirichlet.primitive"}[primitive] Dirichlet character, and by a theorem of Ribet , the newform $`g` is conjugate to $`f` via a $`\Q`-automorphism $`\sigma` of the {bpref "cmf.coefficient_field"}[coefficient field] of $`f`.  The set of pairs $`(\chi,\sigma)` form the group of inner twists of $`f`.
+for all but finitely many primes $`p`.  Without loss of generality, we may assume that $`\chi` is a {bpref "character.dirichlet.primitive"}[primitive] Dirichlet character, and by a theorem of Ribet , the newform $`g` is conjugate to $`f` via a $`\Q`-automorphism $`\sigma` of the {bpref "cmf.coefficient_field"}[coefficient field] of $`f`.  The set of pairs $`(\chi,\sigma)` form the {bpref "cmf.inner_twist_group"}[group of inner twists] of $`f`.
 
 Each pair $`(\chi,\sigma)` corresponding to an inner twist of $`f` is uniquely determined by the the primitive character $`\chi`, and we say that $`f` admits an inner twist by $`\chi`.  When $`\sigma=1` is is the trivial automorphism, we have $`g=f` and say that $`f` admits a {bpref "cmf.self_twist"}[self twist] by $`\chi`; in this case $`\chi` is either the trivial character or the Kronecker character of a quadratic field.
 
@@ -551,13 +633,29 @@ Associated to each inner twist is a pair $`(\chi,\sigma)`, where $`\chi` is a pr
 
 Pairs with $`\sigma=1` are {bpref "cmf.self_twist"}[self twists] $`(\chi,1)`, including the pair $`(1,1)` corresponding to the twist of $`f` by the trivial character; self twists are included in the count of inner twists.
 
-The set of pairs $`(\chi,\sigma)` forms the group of inner twists; the inner twist count is the cardinality of this group.
+The set of pairs $`(\chi,\sigma)` forms the {bpref "cmf.inner_twist_group"}[group of inner twists]; the inner twist count is the cardinality of this group.
 
 Not all of the inner twists included in the inner twist count have necessarily been proved; those that have are explicitly identified in the table of inner twists on the newforms home page.  In cases where not every inner twist has been proved the inner twist should be viewed as a rigorous upper bound that is believed to be tight.
 
 Inner twist data is available only for newforms for which exact eigenvalue data has been computed; this includes all newforms of {bpref "cmf.dimension"}[dimension] up to $`20` and all newforms of {bpref "cmf.weight"}[weight] 1; when the inner twist count is specified in a search the results include only newforms for which inner twists have been computed.
 
 Depends on: {uses "character.dirichlet"}[] {uses "cmf.coefficient_field"}[] {uses "cmf.dimension"}[] {uses "cmf.inner_twist"}[] {uses "cmf.newform"}[] {uses "cmf.self_twist"}[] {uses "cmf.weight"}[]
+:::
+
+:::definition "cmf.inner_twist_group"
+*Inner twist group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.inner_twist_group))
+
+For a given {bpref "cmf.newform"}[newform] $`f`, the set of pairs $`(\chi,\sigma)` giving rise to an {bpref "cmf.inner_twist"}[inner twist] of $`f` form a group $`G`; here $`\chi` is a {bpref "character.dirichlet.primitive"}[primitive] {bpref "character.dirichlet"}[Dirichlet character] and $`\sigma`, is a $`\Q`-automorphism of the {bpref "cmf.coefficient_field"}[coefficient field] $`K` of $`f`.
+
+The group operation is given by
+
+$$`(\chi,\sigma)\cdot (\chi',\sigma') = (\chi\sigma(\chi'),\sigma\sigma').`
+
+The projection map $`(\chi,\sigma)\mapsto \sigma` is a group homomorphism $`G\to \Aut_{\Q}(K)` with kernel equal to the subgroup of {bpref "cmf.self_twist"}[self\_twists] and abelian image.
+
+The projection map $`(\chi,\sigma)\mapsto \chi` is injective, but it is not a group homomorphism, in general, although its restriction to the subgroup of self twists is.
+
+Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.primitive"}[] {uses "cmf.coefficient_field"}[] {uses "cmf.inner_twist"}[] {uses "cmf.newform"}[] {uses "cmf.self_twist"}[]
 :::
 
 :::definition "cmf.inner_twist_multiplicity" (lean := "HeckeRing.GL2.Newform.innerTwistMultiplicity, HeckeRing.GL2.Newform.HasInnerTwist, HeckeRing.GL2.Newform.IsGaloisConjugateBy.innerTwistMultiplicity_eq, MulChar.galoisOrbit")
@@ -579,11 +677,11 @@ The *label* of a {bpref "cmf.newform"}[newform] $`f\in S_k^{\rm new}(N,\chi)` ha
 
 - $`N.a` is the {bpref "character.dirichlet.galois_orbit_label"}[label] of the {bpref "character.dirichlet.galois_orbit"}[Galois orbit] of the {bpref "character.dirichlet"}[Dirichlet character] $`\chi`;
 
-- $`x` is the label of the {bpref "cmf.galois_orbit"}[Galois orbit] of the newform $`f`.
+- $`x` is the {bpref "cmf.hecke_galois_orbit"}[label] of the {bpref "cmf.galois_orbit"}[Galois orbit] of the newform $`f`.
 
 For each {bpref "cmf.embedding"}[embedding] of the {bpref "cmf.coefficient_field"}[coefficient field] of $`f` into the complex numbers, the corresponding modular form over $`\C` has a label of the form $`N.k.a.x.n.i`, where
 
-- $`n` determines the Conrey label $`N.n` of the Dirichlet character $`\chi`;
+- $`n` determines the {bpref "character.dirichlet.conrey"}[Conrey label] $`N.n` of the Dirichlet character $`\chi`;
 
 - $`i` is an integer ranging from 1 to the {bpref "cmf.relative_dimension"}[relative dimension] of the newform that distinguishes embeddings with the same character $`\chi`.
 
@@ -593,7 +691,7 @@ Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.galois_orb
 :::definition "cmf.labels"
 *Label of a classical modular form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.labels))
 
-The *label* of a $`f\in M_k^{\\rm new}(N,\chi)` has the format $`N.k.A.a.x`, where
+The *label* of a {bpref "cmf.new_subspaces"}[$`f\in M_k^{\\rm new}(N,\chi)`] has the format $`N.k.A.a.x`, where
 
 - $`N` is the {bpref "cmf.level"}[level];
 
@@ -603,11 +701,11 @@ The *label* of a $`f\in M_k^{\\rm new}(N,\chi)` has the format $`N.k.A.a.x`, whe
 
 - $`A` is a character signifying the automorphic type of the modular form - $`E` for Eisenstein or $`C` for cuspidal.
 
-- $`x` is the label of the {bpref "cmf.galois_orbit"}[Galois orbit] of the newform $`f`.
+- $`x` is the {bpref "cmf.hecke_galois_orbit"}[label] of the {bpref "cmf.galois_orbit"}[Galois orbit] of the newform $`f`.
 
 For each {bpref "cmf.embedding"}[embedding] of the {bpref "cmf.coefficient_field"}[coefficient field] of $`f` into the complex numbers, the corresponding modular form over $`\C` has a label of the form $`N.k.A.a.x.n.i`, where
 
-- $`n` determines the Conrey label $`N.n` of the Dirichlet character $`\chi`;
+- $`n` determines the {bpref "character.dirichlet.conrey"}[Conrey label] $`N.n` of the Dirichlet character $`\chi`;
 
 - $`i` is an integer ranging from 1 to the {bpref "cmf.relative_dimension"}[relative dimension] of the newform that distinguishes embeddings with the same character $`\chi`.
 
@@ -619,17 +717,38 @@ Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.galois_orb
 :::definition "cmf.level" (lean := "ModularForm.IsLevel, ModularForm.isLevel_iff, HeckeRing.GL2.Newform.level, HeckeRing.GL2.Newform.level_le, CongruenceSubgroup.Gamma")
 *Level of a modular form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.level))
 
-A *level* of a {bpref "cmf"}[modular form] $`f` is a positive integer $`N` such that $`f` is a modular form on a subgroup $`\Gamma` of {bpref "group.sl2z"}[$`\operatorname{SL}_2(\mathbb{Z})`] that contains the principal congruence subgroup $`\Gamma(N)`.
+A *level* of a {bpref "cmf"}[modular form] $`f` is a positive integer $`N` such that $`f` is a modular form on a subgroup $`\Gamma` of {bpref "group.sl2z"}[$`\operatorname{SL}_2(\mathbb{Z})`] that contains the principal congruence subgroup {bpref "group.sl2z.subgroup.gamman"}[$`\Gamma(N)`].
 
 The *level* of a {bpref "cmf"}[newform] is the least such integer $`N`.
 
 Depends on: {uses "cmf"}[] {uses "group.sl2z"}[]
 :::
 
+:::definition "cmf.lfunction"
+*L-function of a classical modular form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.lfunction))
+
+For a {bpref "cmf.newform"}[newform] $`f\in S_k^{\rm new}(N,\chi)` with {bpref "cmf.q-expansion"}[q-expansion] $`f(z)=\sum a_n n^{(k-1)/2}q^n`, where $`q=\exp(2\pi i z)`, the {bpref "lfunction"}[L-function] $`L(s,f) = \sum a_n n^{-s}` has an {bpref "lfunction.euler_product"}[Euler product] of the form
+
+$$`L(s,f)= \prod_{p\mid N} \left(1 - a_p p^{-s}
+\right)^{-1}\prod_{p\nmid N} \left(1 - a_p p^{-s} + \chi(p) \cdot p^{-2s}
+\right)^{-1}`
+
+and satisfies the {bpref "lfunction.functional_equation"}[functional equation]
+
+$$`\Lambda(s,f) = N^{s/2} \Gamma_{\mathbb{C}
+} \left(s + \frac{k-1}{2} \right)\cdot L(s, f) = \varepsilon
+\overline{\Lambda}(1-s,f),`
+
+where $`\varepsilon` is the {bpref "lfunction.sign"}[sign] of the
+functional equation and $`\Gamma_{\C}(s+(k-1)/2)` is its {bpref "lfunction.gamma_factor"}[gamma factor].  When $`\chi` is the trivial character, $`\varepsilon=\pm 1`, and in general it is a root of unity.
+
+Depends on: {uses "cmf.newform"}[] {uses "cmf.q-expansion"}[] {uses "lfunction"}[] {uses "lfunction.euler_product"}[] {uses "lfunction.functional_equation"}[] {uses "lfunction.gamma_factor"}[] {uses "lfunction.sign"}[]
+:::
+
 :::definition "cmf.maximal" (lean := "HeckeRing.GL2.Newform.IsMaximal, HeckeRing.GL2.Newform.IsLargest, HeckeRing.GL2.Newform.ambientSubspace, HeckeRing.GL2.Newform.ambientNewforms, HeckeRing.GL2.Newform.isMaximal_iff")
 *Maximal newform.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.maximal))
 
-A {bpref "cmf.newform"}[newform] is *maximal* if its {bpref "cmf.galois_orbit"}[Galois orbit] spans the ambient subspace that contains it (its Atkin-Lehner subspace when the {bpref "cmf.character"}[character] is trivial, the entire newspace otherwise).
+A {bpref "cmf.newform"}[newform] is *maximal* if its {bpref "cmf.galois_orbit"}[Galois orbit] spans the ambient subspace that contains it (its {bpref "cmf.atkin_lehner_dims"}[Atkin-Lehner subspace] when the {bpref "cmf.character"}[character] is trivial, the entire newspace otherwise).
 
 A newform is the *largest* newform in its ambient subspace if its {bpref "cmf.dimension"}[dimension] is strictly larger than that of any other newform in the same subspace (this includes newforms that are maximal).
 
@@ -658,6 +777,18 @@ Depends on: {uses "character.dirichlet.minimal"}[] {uses "cmf.character"}[] {use
 The *minus subspace* of $`S_k(\Gamma_0(N))` is the eigenspace of the {bpref "cmf.fricke"}[Fricke involution] $`w_N` with eigenvalue $`-1`.
 
 Depends on: {uses "cmf.fricke"}[]
+:::
+
+:::definition "cmf.new_subspaces"
+*New subspaces of modular forms.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.new_subspaces))
+
+The space $`M_k(N,\chi)` of {bpref "cmf"}[modular forms] of {bpref "cmf.level"}[level] $`N`, {bpref "cmf.weight"}[weight] $`k`, and {bpref "cmf.character"}[character] $`\chi` can be decomposed
+
+$$`M_k(N,\chi) = M_k^{\rm old}(N,\chi) \oplus M_k^{\rm new}(N,\chi)`
+
+into old and new subspaces, defined using the corresponding decompositions of {bpref "cmf.eisenstein_newspace"}[$`E_k(N,\chi)`] and {bpref "cmf.newspace"}[$`S_k(N,\chi)`] as $`M_k^{\rm old}(N,\chi) = E_k^{\rm old}(N,\chi) \oplus S_k^{\rm old}(N, \chi)` and $`M_k^{\rm new}(N,\chi) = E_k^{\rm new}(N,\chi) \oplus S_k^{\rm new}(N, \chi)`.
+
+Depends on: {uses "cmf"}[] {uses "cmf.character"}[] {uses "cmf.eisenstein_newspace"}[] {uses "cmf.level"}[] {uses "cmf.newspace"}[] {uses "cmf.weight"}[]
 :::
 
 :::definition "cmf.newform" (lean := "HeckeRing.GL2.Newform, HeckeRing.GL2.Newform.basis, HeckeRing.GL2.Newform.toEigenform, TauCeti.cuspFormsNew")
@@ -694,6 +825,26 @@ The *new subspace* $`S_k^{\rm new}(N,\chi)` is the orthogonal complement of $`S_
 A basis for the new subspace is given by {bpref "cmf.newform"}[newforms].
 
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.induce"}[] {uses "character.dirichlet.modulus"}[] {uses "cmf"}[] {uses "cmf.character"}[] {uses "cmf.cusp_form"}[] {uses "cmf.level"}[] {uses "cmf.petersson_scalar_product"}[] {uses "cmf.weight"}[]
+:::
+
+:::definition "cmf.newspaces"
+*Space of newforms.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.newspaces))
+
+The {bpref "cmf.newform"}[new part] of the space $`S_k(N,\chi)` of {bpref "cmf.cusp_form"}[cusp forms] of {bpref "cmf.weight"}[weight] $`k`, {bpref "cmf.level"}[level] $`N`, and {bpref "character.dirichlet"}[character] $`\chi` is the space of $`S_k^{\rm new}(N,\chi)` of {bpref "cmf.newform"}[newforms].
+
+It can be decomposed into irreducible subspaces under the action of the {bpref "cmf.hecke_operator"}[Hecke operators], each of which corresponds to a Galois orbit of newforms (the absolute Galois group of $`\Q` acts the set of newforms in $`S_k^{\rm new}(N,\chi)` via its action on the coefficients of {bpref "cmf.fouriercoefficients"}[$`q`-expansions]).
+
+Depends on: {uses "character.dirichlet"}[] {uses "cmf.cusp_form"}[] {uses "cmf.fouriercoefficients"}[] {uses "cmf.hecke_operator"}[] {uses "cmf.level"}[] {uses "cmf.newform"}[] {uses "cmf.weight"}[]
+:::
+
+:::definition "cmf.nk2" (lean := "HeckeRing.GL2.Newform.levelMulWeightSq, HeckeRing.GL2.Newform.tendsto_analyticConductorLMFDB_div_levelMulWeightSq, HeckeRing.GL2.Newform.analyticConductorLMFDB")
+*Nk^2.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.nk2))
+
+The integer $`Nk^2` is the product of the {bpref "cmf.level"}[level] and the square of the {bpref "cmf.weight"}[weight] of a {bpref "cmf"}[modular form] or space of modular forms.
+
+Asymptotically (as $`k\to\infty`) this quantity is proportional to the {bpref "cmf.analytic_conductor"}[analytic conductor].
+
+Depends on: {uses "cmf"}[] {uses "cmf.analytic_conductor"}[] {uses "cmf.level"}[] {uses "cmf.weight"}[]
 :::
 
 :::definition "cmf.nontrivial_twist" (lean := "HeckeRing.GL2.Newform.nontrivialInnerTwists, HeckeRing.GL2.Newform.ncard_nontrivialInnerTwists")
@@ -875,10 +1026,20 @@ It is possible for a modular form to have multiple non-trivial self twists; this
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.order"}[] {uses "character.dirichlet.primitive"}[] {uses "cmf.level"}[] {uses "cmf.newform"}[] {uses "cmf.projective_image"}[] {uses "cmf.weight"}[] {uses "nf.discriminant"}[]
 :::
 
+:::definition "cmf.self_twist_field"
+*Self twist field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.self_twist_field))
+
+{bpref "cmf.inner_twist"}[Inner twists] that are {bpref "cmf.self_twist"}[self-twists] arise either from the {bpref "character.dirichlet.principal"}[trivial character], or from the {bpref "character.dirichlet.kronecker_symbol"}[Kronecker character] of a quadratic field $`K`.
+
+When $`K` is an imaginary quadratic field the {bpref "cmf.newform"}[newform] is said to have {bpref "cmf.cm_form"}[complex multiplication] (CM) by $`K`, and when $`K` is a real quadratic field the newform is said to have {bpref "cmf.rm_form"}[real multiplication] (RM) by $`K`.
+
+Depends on: {uses "character.dirichlet.kronecker_symbol"}[] {uses "character.dirichlet.principal"}[] {uses "cmf.cm_form"}[] {uses "cmf.inner_twist"}[] {uses "cmf.newform"}[] {uses "cmf.rm_form"}[] {uses "cmf.self_twist"}[]
+:::
+
 :::definition "cmf.selfdual" (lean := "CuspForm.conj, HeckeRing.GL2.Newform.IsSelfDual")
 *Self dual modular form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.selfdual))
 
-A {bpref "cmf.cusp_form"}[cuspidal modular form] $`f` is said to be *self dual* if the coefficients $`a_n` that appear in its {bpref "cmf.q-expansion"}[$`q`-expansion] are real numbers; equivalently, the L-function of the modular form is {bpref "lfunction.self-dual"}[self dual].
+A {bpref "cmf.cusp_form"}[cuspidal modular form] $`f` is said to be *self dual* if the coefficients $`a_n` that appear in its {bpref "cmf.q-expansion"}[$`q`-expansion] are real numbers; equivalently, the {bpref "cmf.lfunction"}[L-function] of the modular form is {bpref "lfunction.self-dual"}[self dual].
 
 The {bpref "cmf.coefficient_field"}[coefficient field] of a {bpref "cmf.newform"}[newform] is either a {bpref "nf.totally_real"}[totally real] number field or a {bpref "nf.cm_field"}[CM field], depending on whether the newform is self dual or not.
 
@@ -936,7 +1097,7 @@ Depends on: {uses "cmf.newform"}[] {uses "cmf.newspace"}[]
 :::definition "cmf.stark_unit"
 *Stark unit of a newform of weight one.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.stark_unit))
 
-Stark's conjecture applied to the associated {bpref "cmf.galois_representation"}[Galois representation] of a {bpref "cmf.newform"}[newform] $`f(z)=\sum a_n q^n` of {bpref "cmf.weight"}[weight] one  states the following. Let $`E=\mathbb{Q}((a_n)_{n \in \mathbb{N}})`, $`\Delta=\text{Gal}(E/\mathbb{Q})` and $`f^\alpha(z)=\sum \alpha(a_n) q^n` for $`\alpha \in \Delta`. Let $`L(s, f)` be the L-function of $`f`. Then, for all $`b \in E^*` there exists an integer $`m \geq 1` and a unit $`\varepsilon` in the {bpref "cmf.artin_field"}[Artin field] of $`f`, called the *Stark unit*, such that
+Stark's conjecture applied to the associated {bpref "cmf.galois_representation"}[Galois representation] of a {bpref "cmf.newform"}[newform] $`f(z)=\sum a_n q^n` of {bpref "cmf.weight"}[weight] one  states the following. Let $`E=\mathbb{Q}((a_n)_{n \in \mathbb{N}})`, $`\Delta=\text{Gal}(E/\mathbb{Q})` and $`f^\alpha(z)=\sum \alpha(a_n) q^n` for $`\alpha \in \Delta`. Let $`L(s, f)` be the {bpref "cmf.lfunction"}[L-function] of $`f`. Then, for all $`b \in E^*` there exists an integer $`m \geq 1` and a unit $`\varepsilon` in the {bpref "cmf.artin_field"}[Artin field] of $`f`, called the *Stark unit*, such that
 
 $$`e^{m \sum_{\alpha \in \Delta} \alpha(b)L'(0, f^\alpha)} = \varepsilon`
 

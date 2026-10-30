@@ -200,6 +200,125 @@ The *conductor norm* is the norm $`[\mathcal{O}_K:\mathfrak{n}]` of the ideal $`
 Depends on: {uses "ec"}[] {uses "ec.additive_reduction"}[] {uses "ec.bad_reduction"}[] {uses "ec.good_reduction"}[] {uses "ec.multiplicative_reduction"}[] {uses "nf"}[] {uses "nf.ring_of_integers"}[]
 :::
 
+:::definition "ec.conductor_label"
+*Conductor labels for elliptic curves.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.conductor_label))
+
+The LMFDB uses a systematic labelling of {bpref "ec.conductor"}[conductors] of elliptic curves defined over each {bpref "nf"}[number field] $`K`.  The conductors are integral ideals of $`K`.  For an ideal of norm $`N` the label has the form $`N.i` where $`i` is the index (starting from $`1`) of the ideal in an ordered list of all integral ideals of norm $`N`.
+
+- over imaginary quadratic fields, we use the {bpref "nf.ideal_labels"}[standard labelling scheme] for ideals;
+
+- over totally real fields, we use the same labels for ideals as are used for levels of Hilbert modular forms; the order of these is recorded in the database;
+
+- over other fields, the ordering of the ideals of fixed norm is recorded in the database.
+
+In future it is planned to move to using the {bpref "nf.ideal_labels"}[standard labelling scheme] for ideals over all fields.
+
+Depends on: {uses "ec.conductor"}[] {uses "nf"}[] {uses "nf.ideal_labels"}[]
+:::
+
+:::definition "ec.conductor_valuation" (lean := "WeierstrassCurve.algorithmicOggExponent, WeierstrassCurve.count_algorithmicConductor, WeierstrassCurve.algorithmicConductor, WeierstrassCurve.localData_conductorValuation")
+*Conductor valuation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.conductor_valuation))
+
+The valuation of the {bpref "ec.conductor"}[conductor] at a prime.
+
+Depends on: {uses "ec.conductor"}[]
+:::
+
+:::definition "ec.congruent_number" (lean := "Rat.IsCongruentNumber, Rat.IsCongruentNumber.pos, Rat.isCongruentNumber_six, Rat.isCongruentNumber_five")
+*Congruent numbers.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.congruent_number))
+
+A <b>congruent number</b>  $`n` is a positive rational number which is the area
+$`\frac{1}{2}XY` of a right triangle with rational legs $`X`, $`Y` and
+rational hypotenuse $`Z`, so  $`X,Y,Z` are positive rational numbers satisfying the equations
+$$`X^2 + Y^2 = Z^2 \tag{1}`
+ and
+$$`\frac{1}{2} XY = n. \tag{2}`
+
+For example, $`6` is a congruent number because it is the area of the
+$`3,4,5` right triangle.  So is $`5`, with $`(X,Y,Z)=(3/2,20/3,41/6)`, while none of the integers $`1`, $`2`, $`3` or $`4` is a congruent number.  The integers less than $`100` which are congruent are
+
+$$`5,6,7,13,14,15,20,21,22,23,24,28,29,30,31,34,37,38,39,41,45,46,47,
+52,53,54,55,56,60,61,62,63,65,69,70,71,77,78,79,80,84,85,86,87,88,92,93,94,95,96`
+:::
+
+:::definition "ec.congruent_number_curve" (lean := "WeierstrassCurve.congruentNumberCurve, WeierstrassCurve.congruentNumberPoint, WeierstrassCurve.isOfFinAddOrder_congruentNumberCurve_iff, Rat.isCongruentNumber_iff_finrank_pos, WeierstrassCurve.exists_two_nsmul_eq_some_congruentNumberCurve_iff")
+*Congruent number curves.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.congruent_number_curve))
+
+For each positive integer $`n`, the <b>congruent number curve</b> $`E_n` is the {bpref "ec"}[elliptic curve] defined over $`\Q` with {bpref "ec.weierstrass_coeffs"}[equation] $`y^2 = x(x^2-n^2)`.
+Rational points $`(x,y)\in E_n(\Q)` with $`y\not=0` are associated  to solutions of the {bpref "ec.congruent_number_problem"}[congruent number problem] for $`n`:
+given rational numbers $`X,Y,Z` satisfying $`X^2+Y^2=Z^2` and $`XY=2n`, set $`x=\frac{1}{4}Z^2` and $`y=\frac{1}{8}Z(X^2-Y^2)`; then $`y^2=x(x^2-n^2)`.
+
+The only rational points of
+finite order on $`E_n(\Q)` are the point at infinity (the origin for
+the group law) and the three points of order $`2`: $`(0,0)`, $`(\pm
+n,0)`; thus, $`n` is congruent if and only if $`E_n(\Q)` is infinite,
+that is, if and only if the {bpref "ec.rank"}[rank] of
+$`E_n(\Q)` is positive.
+
+For example, the elliptic curve $`E_6: y^2 = x^3 - 36x` has rank $`1`,
+with {bpref "ec.mordell_weil_group"}[Mordell-Weil group] $`E_6(\Q)` generated (modulo torsion) by $`P =
+(-3,9)`, and $`2P=(25/4,-35/8)` is the rational point arising from the
+$`(3,4,5)`-triangle.  In general, only points in $`2E_n(\Q)` come from
+solutions to the congruent number problem; these are the rational points $`(x,y)` for which $`x` and $`x\pm n` are all squares.
+
+The {bpref "ec.q.conductor"}[conductor] of $`E_n` is $`32n_0^2` when the square-free part $`n_0` of $`n` is odd, and  $`16n_0^2` when $`n_0` is even.
+
+Each congruent number elliptic curve $`E_n` belongs to an {bpref "ec.isogeny_class"}[isogeny class] of four  isogenous curves, connected by {bpref "ec.isogeny"}[2-isogenies].  The curves $`2`-isogenous to
+$`E_n=[0,0,0,-n^2,0]` are $`[0,0,0,4n^2,0]` and $`[0,\pm 12n,0,n^2,0]`.
+
+Depends on: {uses "ec"}[] {uses "ec.isogeny"}[] {uses "ec.isogeny_class"}[] {uses "ec.mordell_weil_group"}[] {uses "ec.q.conductor"}[] {uses "ec.rank"}[] {uses "ec.weierstrass_coeffs"}[]
+:::
+
+:::definition "ec.congruent_number_problem" (lean := "Rat.isCongruentNumber_iff_exists_isSquare, Rat.isCongruentNumber_iff_exists_equation, Rat.isCongruentNumber_mul_sq_iff, Rat.exists_squarefree_mul_sq, Rat.IsCongruentNumber")
+*Congruent number problem.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.congruent_number_problem))
+
+The <b>congruent number problem</b> is the problem of determining whether a given
+rational number is or is not a {bpref "ec.congruent_number"}[congruent number].
+
+Since $`n` is congruent if and only if $`nt^2` is, for any nonzero rational number
+$`t`, it is sufficient to consider the case where $`n` is a square-free
+integer; some sources state the congruent number problem only for positive integers for this reason.
+
+A positive integer $`n` is congruent if and only if there exists a
+rational number $`a`, such that $`a`, $`a-n` and $`a+n` are all squares of
+rational numbers.  For, given rational $`X,Y,Z` satisfying $`X^2+Y^2=Z^2` and $`XY=2n`,
+the rational number $`a=(Z/2)^2` satisfies $`a\pm n=((X\pm Y)/2)^2`, and conversely, given $`a=A^2` with $`a+n=B^2` and $`a-n=C^2`, set $`(X,Y,Z)=(2A,B+C,B-C)`.
+
+For example, with the $`3,4,5` right triangle and $`n = 6`, let $`a =
+25/4=(5/2)^2`; then $`a-n=25/4 - 6 = (1/2)^2` and $`a+n=25/4 + 6 =
+(7/2)^2`.
+
+It is known that a positive integer number $`n` is congruent if and
+only if there exists a rational solution $`(x,y)` with $`y\not=0` to the
+{bpref "ec"}[elliptic curve] equation:
+$$`E_n:\quad y^2 =
+x^3 - n^2 x,`
+ or, in other words, a rational point $`P=(x,y)` on the {bpref "ec.congruent_number_curve"}[congruent number curve]
+$`E_n(\Q)` with $`y\not=0`.
+
+Depends on: {uses "ec"}[] {uses "ec.congruent_number"}[] {uses "ec.congruent_number_curve"}[]
+:::
+
+:::definition "ec.curve_label"
+*Labels of elliptic curves over number fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.curve_label))
+
+The label of an elliptic curve over a number field $`K` has three components, denoting the conductor, the isogeny class and the isomorphism class:
+
+- The {bpref "ec.conductor_label"}[conductor label] is a label for the conductor, which is an integral ideal of the base field, whose format depends on the field but always includes the norm of the conductor.
+
+- The {bpref "ec.isogeny_class"}[isogeny class] label normally consists of one or more letters a-z or A-Z; the ordering of the isogeny classes is based on lexicographical ordering of the Dirichlet coefficients of the L-series.  For this to be well-defined, a {bpref "nf.ideal_labels"}[standard ordering] is used for the primes of the base field.   In the case of elliptic curves $`E` defined over an imaginary quadratic field $`K`, the isogeny class label has a prefix "CM" for curves with {bpref "ec.complex_multiplication"}[complex multiplication] by an order in $`K` itself.
+
+- The isomorphism class is a positive integer giving the index (starting at 1) of the curve in its {bpref "ec.isogeny_class"}[isogeny class].
+
+Together these give a label of the form $`N.a1` where $`N` is the conductor label, $`a` the class and $`1` the curve number.  Omitting the third component gives an isogeny class label, of the form $`N.a`.
+
+In addition, to specify the elliptic curve completely prepend the label of the base field to give a full label of the curve, for example 3.1.23.1-89.1-A1.
+
+Where possible the labelling of isogeny classes matches that of associated cusp forms ({bpref "mf.bianchi.newform"}[Bianchi newforms] over imaginary quadratic fields and {bpref "mf.hilbert"}[Hilbert newforms] over totally real fields).   The prefix "CM" on the isogeny class label for certain elliptic curves over imaginary quadratic fields is used, because the Bianchi modular forms conjecturally attached to such curves are not cuspidal.
+
+Depends on: {uses "ec.complex_multiplication"}[] {uses "ec.conductor_label"}[] {uses "ec.isogeny_class"}[] {uses "mf.bianchi.newform"}[] {uses "mf.hilbert"}[] {uses "nf.ideal_labels"}[]
+:::
+
 :::definition "ec.discriminant" (lean := "WeierstrassCurve.Δ")
 *Discriminant of a Weierstrass equation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.discriminant))
 
@@ -221,6 +340,22 @@ b_8 &= a_1^2 a_6 + 4 a_2 a_6 - a_1 a_3 a_4 + a_2 a_3^2 - a_4^2.
 Then $`\Delta\neq 0` if and only if the equation defines a {bpref "ag.curve.smooth"}[smooth] curve, in which case its projective closure gives an {bpref "ec"}[elliptic curve].
 
 Depends on: {uses "ag.curve.smooth"}[] {uses "ec"}[] {uses "ec.weierstrass_coeffs"}[] {uses "ring.field"}[]
+:::
+
+:::definition "ec.discriminant_norm" (lean := "Ideal.absNorm, WeierstrassCurve.minimalDiscriminantIdeal, WeierstrassCurve.absNorm_minimalDiscriminantIdeal, Algebra.norm, WeierstrassCurve.Δ")
+*Norm of discriminant.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.discriminant_norm))
+
+The norm of the {bpref "ec.discriminant"}[discriminant].
+
+Depends on: {uses "ec.discriminant"}[]
+:::
+
+:::definition "ec.discriminant_valuation" (lean := "WeierstrassCurve.localMinimalDiscriminantValuation, WeierstrassCurve.count_minimalDiscriminantIdeal_eq_localMinimalDiscriminantValuation, WeierstrassCurve.minimalDiscriminantIdeal, WeierstrassCurve.localData_discriminantValuation")
+*Discriminant valuation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.discriminant_valuation))
+
+The valuation of the {bpref "ec.minimal_discriminant"}[minimal discriminant] at a prime.
+
+Depends on: {uses "ec.minimal_discriminant"}[]
 :::
 
 :::definition "ec.endomorphism" (lean := "TauCeti.Isogeny, TauCeti.Isogeny.Hom")
@@ -290,6 +425,22 @@ the following invariants:
 - The *genus* of $`H` is the genus of the corresponding {bpref "modcurve"}[modular curve] $`X_H`.
 
 Depends on: {uses "ec.complex_multiplication"}[] {uses "ec.galois_rep"}[] {uses "gl2.open"}[] {uses "modcurve"}[]
+:::
+
+:::definition "ec.galois_rep_elladic_image"
+*Image of $`l`-adic Galois representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.galois_rep_elladic_image))
+
+Let $`E/K` be an {bpref "ec"}[elliptic curve] over a {bpref "nf"}[number field], let $`\ell` be a prime, and let $`H` be the image of the {bpref "ec.galois_rep"}[$`\ell`-adic Galois representation]
+
+$$`\rho_{E,\ell}\colon G_{\Q}\to \Aut(E[\ell^{\infty}])\simeq \GL_2(\Z_{\ell}).`
+
+If $`E` does not have {bpref "ec.complex_multiplication"}[potential complex multiplication], then $`H` is an {bpref "gl2.open"}[open subgroup] of $`\GL_2(\Z_{\ell})` that is equal to the inverse image of its projection to $`\GL_2(\Z/\ell^n\Z)`, where $`\ell^n` is the {bpref "gl2.level"}[level] of $`H`.
+
+If $`E` has potential complex multiplication by an imaginary quadratic order $`\mathcal O`, then $`H` is an open subgroup of a {bpref "gl2.cartan"}[Cartan subgroup] of $`\GL_2(\Z_{\ell})` or its normalizer, depending on whether $`K` contains $`\mathcal O` or not.  The particular Cartan subgroup depends on $`\mathcal O` and $`\ell`, but in every case $`H` is determined by its projection to $`\GL_2(\Z/\ell^n\Z)`, where $`n` is $`4,3,1,1,\ldots` for $`\ell=2,3,5,7,\ldots`.
+
+The subgroup $`H` can be identified (up to conjugacy) by giving the {bpref "gl2.label"}[label] of its projection to $`\GL_2(\Z/\ell^n\Z)` as defined by by Rouse, Sutherland, and Zureick-Brown in .
+
+Depends on: {uses "ec"}[] {uses "ec.complex_multiplication"}[] {uses "ec.galois_rep"}[] {uses "gl2.cartan"}[] {uses "gl2.label"}[] {uses "gl2.level"}[] {uses "gl2.open"}[] {uses "nf"}[]
 :::
 
 :::definition "ec.galois_rep_modell_image"
@@ -406,7 +557,7 @@ The invariants of an {bpref "ec"}[elliptic curve] $`E` over a {bpref "nf"}[numbe
 
 - {bpref "st_group.definition"}[Sato-Tate group], $`\text{ST}(E)`
 
-Each {bpref "ec.weierstrass_coeffs"}[Weierstrass model] for $`E` also has a {bpref "ec.discriminant"}[discriminant], $`\Delta`, and discriminant norm, $`N(\Delta)`, which are not strictly invariants of $`E` since different models have, in general, different discriminants.
+Each {bpref "ec.weierstrass_coeffs"}[Weierstrass model] for $`E` also has a {bpref "ec.discriminant"}[discriminant], $`\Delta`, and {bpref "ec.discriminant_norm"}[discriminant norm], $`N(\Delta)`, which are not strictly invariants of $`E` since different models have, in general, different discriminants.
 
 Depends on: {uses "ec"}[] {uses "ec.conductor"}[] {uses "ec.discriminant"}[] {uses "ec.endomorphism_ring"}[] {uses "ec.j_invariant"}[] {uses "ec.minimal_discriminant"}[] {uses "ec.weierstrass_coeffs"}[] {uses "nf"}[] {uses "ring.ideal"}[] {uses "st_group.definition"}[]
 :::
@@ -479,6 +630,28 @@ When $`E` and $`E'` are defined by {bpref "ec.weierstrass_coeffs"}[Weierstrass m
 Depends on: {uses "ec"}[] {uses "ec.isogeny"}[]
 :::
 
+:::definition "ec.iwasawa_invariants"
+*Iwasawa invariants of elliptic curves.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.iwasawa_invariants))
+
+The Iwasawa invariants of elliptic curves are {bpref "ec.lambda_invariant"}[$`\lambda`-invariants] and
+{bpref "ec.mu_invariant"}[$`\mu`-invariants].
+
+For an elliptic curve $`E` and a prime $`p` of {bpref "ec.good_ordinary_reduction"}[ordinary] or {bpref "ec.multiplicative_reduction"}[multiplicative reduction],
+the $`\lambda`- and $`\mu`-invariants are non-negative integers $`\lambda_p(E)` and $`\mu_p(E)` which arise as the Iwasawa invariants of the $`p`-adic L-function $`L_p(E)`.
+
+If $`E` has {bpref "ec.good_supersingular_reduction"}[supersingular reduction] at $`p`, then there are two associated $`p`-adic L-functions: $`L_{p,\alpha}(E)` and $`L_{p,\beta}(E)` associated to the pair of roots $`\alpha` and $`\beta` of the Hecke polynomial $`x^2-a_p(E)x+p`.  However, in this case, these functions are not Iwasawa functions.  Instead, we consider the pair of Iwasawa functions $`L_p^+(E)` and $`L_p^-(E)` as defined in Robert Pollack, _On the p-adic L-function of a modular form at a supersingular prime_, Duke Mathematical Journal, 118 (2003) no. 3, 523-558 (when $`a_p(E)=0`) and Florian Sprung, _Iwasawa theory for elliptic curves at supersingular primes: a pair of main conjectures_. J. Number Theory 132 (2012), no. 7, 1483–1506 (when $`a_p(E)` is non-zero). We then get two $`\lambda`-invariants: $`\lambda^+_p(E)` and $`\lambda^-_p(E)`, and two $`\mu`-invariants: $`\mu^+_p(E)` and $`\mu^-_p(E)`.  These invariants are computed as in section 6 of Bernadette Perrin-Riou, _Arithmétique des courbes elliptiques à réduction supersingulière en p_, Experimental Mathematics 12 (2003), no. 2, 155–186 .
+
+We note that if $`E` has rank 0, then its Iwasawa invariants at a prime $`p>5` are zero unless at least one of the following hold:
+
+1. the $`p`-adic valuation of $`L(E,1)/\Omega_E` is non-zero;
+2. $`p` is a split multiplicative prime;
+3. $`a_p=1`.
+
+Conditions (1) and (2) hold for only finitely many $`p`.  Condition (3) will hold for finitely many $`p` if $`E` possesses a non-trivial torsion point.  In this case, we compute  a prime $`q` so that for all good $`p \geq q` the Iwasawa invariants at $`p` vanish.
+
+Depends on: {uses "ec.good_ordinary_reduction"}[] {uses "ec.good_supersingular_reduction"}[] {uses "ec.lambda_invariant"}[] {uses "ec.mu_invariant"}[] {uses "ec.multiplicative_reduction"}[]
+:::
+
 :::definition "ec.j_invariant" (lean := "WeierstrassCurve.j")
 *j-invariant of an elliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.j_invariant))
 
@@ -509,12 +682,34 @@ is the {bpref "ec.discriminant"}[discriminant] of $`E.`
 Depends on: {uses "ec"}[] {uses "ec.discriminant"}[] {uses "ec.isomorphism"}[] {uses "ec.weierstrass_coeffs"}[]
 :::
 
+:::definition "ec.j_invariant_denominator_valuation" (lean := "WeierstrassCurve.LocalData.jDenominatorValuation, WeierstrassCurve.localData, WeierstrassCurve.j")
+*j-invariant denominator valuation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.j_invariant_denominator_valuation))
+
+The valuation of the denominator of the {bpref "ec.j_invariant"}[$`j`-invariant] at a prime.  This is $`0` if the $`j`-invariant has non-negative valuation, and is minus the valuation otherwise.
+
+Depends on: {uses "ec.j_invariant"}[]
+:::
+
 :::definition "ec.kodaira_symbol" (lean := "TauCeti.ReductionSymbol, WeierstrassCurve.reductionSymbol")
 *Kodaira symbol.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.kodaira_symbol))
 
 The *Kodaira symbol* of an {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] encodes the {bpref "ec.reduction_type"}[reduction type] of $`E` at a prime $`\mathfrak{p}` of $`K`. It describes the combinatorics of the special fiber of the Ne;ron model of the elliptic curve. The Ne;ron model is obtained from the {bpref "ec.local_minimal_model"}[local minimal model] for $`E` at $`\mathfrak{p}`  using Tate's algorithm. For an exact definition and properties, consult a text on elliptic curves.
 
 Depends on: {uses "ec"}[] {uses "ec.local_minimal_model"}[] {uses "ec.reduction_type"}[] {uses "nf"}[]
+:::
+
+:::definition "ec.lambda_invariant"
+*lambda-invariant of an elliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.lambda_invariant))
+
+The analytic $`\lambda`-invariant of an elliptic curve $`E` at a prime $`p` of {bpref "ec.good_ordinary_reduction"}[ordinary] or {bpref "ec.multiplicative_reduction"}[multiplicative reduction] is the number of zeroes of the $`p`-adic L-function of $`E`.  Explicitly, if we write the $`p`-adic L-function of $`E` as a power series in a variable $`T`:
+
+$$`L_p(E,T) = p^{\mu_p(E)} (a_0 + a_1 T + a_2 T^2 + ...)`
+
+where $`\mu_p(E)` is the {bpref "ec.mu_invariant"}[$`\mu`-invariant] of $`E`, then the $`\lambda`-invariant is the first index $`i` such that $`a_i` is a $`p`-adic unit.  By the main conjecture for elliptic curves, this invariant should match the algebraic $`\lambda`-invariant which is defined analogously in terms of the Selmer group of $`E`.
+
+When $`E` has {bpref "ec.good_supersingular_reduction"}[supersingular reduction] at $`p`, there is a pair of $`p`-adic $`L`-functions: $`L_p^+(E,T)` and $`L_p^-(E,T)` and one defines analogously a pair of $`\lambda`-invariants: $`\lambda^+_p(E)` and $`\lambda^-_p(E)`.
+
+Depends on: {uses "ec.good_ordinary_reduction"}[] {uses "ec.good_supersingular_reduction"}[] {uses "ec.mu_invariant"}[] {uses "ec.multiplicative_reduction"}[]
 :::
 
 :::definition "ec.local_data"
@@ -528,13 +723,13 @@ The *local data* of an  {bpref "ec"}[elliptic curve] $`E` defined over a {bpref 
 
 - the {bpref "ec.reduction_type"}[reduction type]
 
-- the local root number
+- the {bpref "ec.local_root_number"}[local root number]
 
-- the conductor valuation $`\text{ord}_{\mathfrak{p}}(\mathfrak{N})`
+- the {bpref "ec.conductor_valuation"}[conductor valuation] $`\text{ord}_{\mathfrak{p}}(\mathfrak{N})`
 
-- the discriminant\_valuation $`\text{ord}_{\mathfrak{p}}(\mathfrak{D})`
+- the {bpref "ec.discriminant_valuation"}[discriminant\_valuation] $`\text{ord}_{\mathfrak{p}}(\mathfrak{D})`
 
-- the j-invariant denominator valuation $`\text{ord}_{\mathfrak{p}}(j)_{-}`
+- the {bpref "ec.j_invariant_denominator_valuation"}[j-invariant denominator valuation] $`\text{ord}_{\mathfrak{p}}(j)_{-}`
 
 Depends on: {uses "ec"}[] {uses "ec.kodaira_symbol"}[] {uses "ec.reduction_type"}[] {uses "ec.tamagawa_number"}[] {uses "nf"}[]
 :::
@@ -553,6 +748,16 @@ Depends on: {uses "ec"}[] {uses "ec.local_minimal_model"}[] {uses "nf"}[]
 A *local minimal model* for an {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K` at a prime $`\mathfrak{p}` of $`K` is a {bpref "ec.weierstrass_coeffs"}[Weierstrass equation] for $`E` all of whose coefficients are {bpref "nf.integral"}[integral]  at $`\mathfrak{p}`, and whose {bpref "ec.discriminant"}[discriminant] has minimal valuation at $`\mathfrak{p}` among all such equations.
 
 Depends on: {uses "ec"}[] {uses "ec.discriminant"}[] {uses "ec.weierstrass_coeffs"}[] {uses "nf"}[] {uses "nf.integral"}[]
+:::
+
+:::definition "ec.local_root_number"
+*Local root number.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.local_root_number))
+
+The local root number of an {bpref "ec"}[elliptic curve] $`E` over a {bpref "nf"}[number field] at a {bpref "nf.prime"}[prime] $`\mathfrak p` is the sign of the local functional equation of $`E`.  This is equal to $`+1` at primes of {bpref "ec.good_reduction"}[good] or {bpref "ec.nonsplit_multiplicative_reduction"}[non-split multiplicative reduction], $`-1` at primes of {bpref "ec.split_multiplicative_reduction"}[split multiplicative reduction], and at primes of {bpref "ec.additive_reduction"}[additive reduction] is $`\pm1` with no simple characterization.
+
+For an elliptic curve defined over $`\Q`, the root number at a prime $`p` is also equal to the eigenvalue of the associated {bpref "cmf.atkin-lehner"}[Atkin-Lehner involution] for the associated {bpref "cmf"}[modular form].
+
+Depends on: {uses "cmf"}[] {uses "cmf.atkin-lehner"}[] {uses "ec"}[] {uses "ec.additive_reduction"}[] {uses "ec.good_reduction"}[] {uses "ec.nonsplit_multiplicative_reduction"}[] {uses "ec.split_multiplicative_reduction"}[] {uses "nf"}[] {uses "nf.prime"}[]
 :::
 
 :::definition "ec.maximal_elladic_galois_rep" (lean := "WeierstrassCurve.IsMaximalTateModuleGaloisRepresentation, WeierstrassCurve.tateModuleGeometricEndCentralizer, WeierstrassCurve.tateModuleGaloisRepresentation, WeierstrassCurve.GeometricEnd")
@@ -625,6 +830,16 @@ For an {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number fiel
 This group is called the {bpref "ec.mordell_weil_group"}[Mordell-Weil] group of $`E/K`.
 
 Depends on: {uses "ec"}[] {uses "ec.mordell_weil_group"}[] {uses "nf"}[]
+:::
+
+:::definition "ec.mu_invariant"
+*mu-invariant of an elliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.mu_invariant))
+
+The analytic $`\mu`-invariant of an elliptic curve $`E` at a prime of {bpref "ec.good_ordinary_reduction"}[ordinary] or {bpref "ec.multiplicative_reduction"}[multiplicative reduction] is the largest integer $`n` such that $`p^n` divides the $`p`-adic $`L`-function of $`E`.  By the main conjecture for elliptic curves, this invariant should match the algebraic $`\mu`-invariant which is defined analogously in terms of the Selmer group of $`E`.
+
+When $`E` has {bpref "ec.good_supersingular_reduction"}[supersingular reduction] at $`p`, there is a pair of $`p`-adic $`L`-functions: $`L_p^+(E,T)` and $`L_p^-(E,T)` and one defines analogously a pair of $`\mu`-invariants: $`\mu^+_p(E)` and $`\mu^-_p(E)`.
+
+Depends on: {uses "ec.good_ordinary_reduction"}[] {uses "ec.good_supersingular_reduction"}[] {uses "ec.multiplicative_reduction"}[]
 :::
 
 :::definition "ec.multiplicative_reduction" (lean := "WeierstrassCurve.HasMultiplicativeReduction")
@@ -1004,7 +1219,7 @@ Depends on: {uses "ec"}[] {uses "ec.conductor"}[] {uses "ec.isogeny_class"}[] {u
 :::definition "ec.q.manin_constant"
 *Manin constant for elliptic curves over $`\Q`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.manin_constant))
 
-Let $`E` be an {bpref "ec.q.optimal"}[optimal] {bpref "ec"}[elliptic curves] of {bpref "ec.q.conductor"}[conductor] $`N`, let $`f` be the modular form associated to $`E`, and let $`\varphi:X_0(N)\to E` be the associated {bpref "ec.q.modular_parametrization"}[modular parametrization]. Let $`\omega_E` be the Ne;ron differential on $`E`.  Then the pull-back $`\varphi^*\omega_E` of $`\omega_E` to $`X_0(N)` satisfies
+Let $`E` be an {bpref "ec.q.optimal"}[optimal] {bpref "ec"}[elliptic curves] of {bpref "ec.q.conductor"}[conductor] $`N`, let $`f` be the {bpref "ec.q.modular_form"}[modular form] associated to $`E`, and let $`\varphi:X_0(N)\to E` be the associated {bpref "ec.q.modular_parametrization"}[modular parametrization]. Let $`\omega_E` be the Ne;ron differential on $`E`.  Then the pull-back $`\varphi^*\omega_E` of $`\omega_E` to $`X_0(N)` satisfies
 
 $$`\varphi^*\omega_E = c \cdot 2\pi i f(z)dz`
 
@@ -1064,6 +1279,14 @@ Each such equation has a {bpref "ec.q.discriminant"}[discriminant] $`\Delta`.  A
 The *modular degree* of an {bpref "ec"}[elliptic curve] over $`\Q` is the minimum degree of a {bpref "ec.q.modular_parametrization"}[modular parametrization] of the curve.
 
 Depends on: {uses "ec"}[] {uses "ec.q.modular_parametrization"}[]
+:::
+
+:::definition "ec.q.modular_form"
+*Modular form associated to an elliptic curve/$`\mathbb Q`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.modular_form))
+
+For every {bpref "ec"}[elliptic curve] over $`\Q` of conductor $`N`, there is a unique {bpref "cmf.weight"}[weight] $`2` {bpref "cmf.newform"}[newform] for $`\Gamma_0(N)` with the same L-function. This was proved by Breuil, Conrad, Diamond, and Taylor, building on the proof of Fermat's last theorem by Wiles and Taylor-Wiles.
+
+Depends on: {uses "cmf.newform"}[] {uses "cmf.weight"}[] {uses "ec"}[]
 :::
 
 :::definition "ec.q.modular_parametrization"
@@ -1167,7 +1390,7 @@ An {bpref "ec"}[elliptic curve] is *semistable* if it has {bpref "ec.reduction_t
 Depends on: {uses "ec"}[] {uses "ec.bad_reduction"}[] {uses "ec.reduction_type"}[]
 :::
 
-:::definition "ec.q.serre_invariants"
+:::definition "ec.q.serre_invariants" (lean := "WeierstrassCurve.serreInvariants, WeierstrassCurve.serreWeight, WeierstrassCurve.serreConductor, WeierstrassCurve.IsSerreExceptional, WeierstrassCurve.IsCongruentNewform")
 *Serre invariants.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.serre_invariants))
 
 Let $`\bar \rho_{E,\ell}` be the mod-$`\ell` {bpref "ec.galois_rep"}[Galois representation] of an elliptic curve $`E/\Q`.
@@ -1213,6 +1436,18 @@ also has the property of only taking values larger than $`6+\epsilon` finitely m
 Depends on: {uses "ec"}[] {uses "ec.minimal_discriminant"}[] {uses "ec.q.conductor"}[] {uses "ec.q.j_invariant"}[]
 :::
 
+:::definition "ec.q.tamagawa_numbers" (lean := "WeierstrassCurve.tamagawaNumber, WeierstrassCurve.Affine.nonsingularReduction, WeierstrassCurve.tamagawaNumber_eq_one_of_hasGoodReduction, WeierstrassCurve.hasFiniteMulSupport_tamagawaNumber")
+*Tamagawa numbers for an elliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.tamagawa_numbers))
+
+If $`E` is an elliptic curve defined over the $`p`-adic field $`\mathbb{Q}_p,` its Tamagawa number is the finite index
+
+$$`c_p=[E(\mathbb{Q}_p):E^0(\mathbb{Q}_p)].`
+
+Here $`E^0(\mathbb{Q}_p)` is the subgroup of points which have good reduction. If $`E` has good reduction, then $`E(\mathbb{Q}_p)=E^0(\mathbb{Q}_p)` and $`c_p=1`.
+
+An elliptic curve $`E` defined over $`\mathbb{Q}` has a Tamagawa number $`c_p` at every prime $`p`, with $`c_p=1` for all primes of good reduction (and hence $`c_p=1` for all but finitely many primes).
+:::
+
 :::definition "ec.q.torsion_growth" (lean := "WeierstrassCurve.HasTorsionGrowth, WeierstrassCurve.HasPrimitiveTorsionGrowth, AddCommGroup.torsion, WeierstrassCurve.Affine.Point.baseChange")
 *Torsion growth in number fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.torsion_growth))
 
@@ -1236,6 +1471,14 @@ If $`E` is an elliptic curve defined over $`\mathbb{Q}`, its *torsion subgroup* 
 - $`[n]` for a cyclic group of order $`n` (only $`n=2,3,4,5,6,7,8,9,10` or $`12` occur for elliptic curves over $`\mathbb{Q}`);
 
 - $`[n_1,n_2]` with $`n_1\mid n_2` for a product of cyclic groups of orders $`n_1` and $`n_2` (only $`[2,2m]` for $`m=2,4,6` or $`8` occur over $`\mathbb{Q}`).
+:::
+
+:::definition "ec.q.weil_height" (lean := "WeierstrassCurve.Affine.Point.naiveHeight, WeierstrassCurve.Affine.Point.naiveHeight_eq_logHeight₁, Height.logHeight₁, Rat.mulHeight₁_eq_max")
+*Weil height of a point on an elliptic curve over $`\Q`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.weil_height))
+
+The Weil height (also known as the naive height) $`h(P)` of a rational point $`P` with coordinates $`(x,y)` on an {bpref "ec.q"}[elliptic curve] defined over $`\Q` is defined to be $`\log\max(|a|,|b|)` where the rational number $`x` is expressed as $`x=a/b` with $`a,b` coprime integers.
+
+Depends on: {uses "ec.q"}[]
 :::
 
 :::definition "ec.q_curve" (lean := "WeierstrassCurve.IsQCurve, WeierstrassCurve.isQCurve_baseChange, WeierstrassCurve.isQCurve_of_j_eq_ratCast, WeierstrassCurve.IsIsogenous")
@@ -1323,6 +1566,12 @@ An *elliptic curve* over a {bpref "ring"}[commutative ring] $`R` is an {bpref "e
 For example, an elliptic curve over $`\Z[1/N]` is the same as an {bpref "ec"}[elliptic curve] over $`\Q` with {bpref "ec.good_reduction"}[good reduction] at all primes not dividing $`N`.  (More precisely, the latter is the generic fiber of the former.)
 
 Depends on: {uses "ec"}[] {uses "ec.good_reduction"}[] {uses "ec.scheme"}[] {uses "ring"}[]
+:::
+
+:::definition "ec.rouse_label"
+*Rouse label.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.rouse_label))
+
+The Rouse label associated with an elliptic curve is the label given to the modular curve parametrizing all elliptic curves whose 2-adic image is contained in some specific subgroup of $`\GL(2,\Z_2)`.
 :::
 
 :::definition "ec.scheme" (lean := "TauCeti.AlgebraicGeometry.EllipticCurveGeom, TauCeti.AlgebraicGeometry.IsLocallyWeierstrass")

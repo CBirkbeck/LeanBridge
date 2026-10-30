@@ -245,6 +245,22 @@ For an {bpref "lattice.definition"}[integral lattice], $`L` with underlying quad
 Depends on: {uses "lattice.definition"}[]
 :::
 
+:::definition "lattice.genus_label"
+*Label of a genus of lattices.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.genus_label))
+
+Label is in the format $`r.s.d.j_1.j_2....j_k.x`, where
+
+- $`r` is the rank of the lattices
+
+- $`s` is the signature ($`n_+ - n_-`)
+
+- $`d` is the absolute value of the determinant
+
+- If $`p_1, \ldots , p_k` are the primes whose squares divide $`d` ($`p_i^2 \mid d`), then $`j_1, \ldots ,j_k` are corresponding rank decompositions of their Jordan forms, omitting the first, encoded in base $`62` (digits $`0-9`, then lowercase $`a-z`, then uppercase $`A-Z`). For example, if the pairs of (valuation, rank) appearing in the decomposition are $`(3, 1), (4,10), (6,37)`, it will be encoded as 01a0B.
+
+- The last component of the label, $`x`, is a hexadecimal string whose bits represent the local data. Let $`n_2` be the number of non-zero blocks in the Jordan decomposition at $`2`. The least $`n_2` bits specify the types (I or II) of the non-zero blocks at $`2`. From these, once can deduce the compartments and trains in the local symbol at $`2`, let $`c, t` be their numbers. The next $`3c` bits represent the oddities of the compartments, with every $`3` bits giving an oddity mod $`8`. The next $`t` bits represent the signs of the trains. Finally, for every other prime $`p` dividing $`d`, in increasing order, if there are $`n_p` non-zero blocks in the Jordan decomposition at $`p`, we add $`n_p` bits representing the signs of these blocks.
+:::
+
 :::definition "lattice.gram" (lean := "TauCeti.IntegralLattice.IsMinkowskiReduced, TauCeti.IntegralLattice.gramMatrix")
 *Gram matrix.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.gram))
 
@@ -321,6 +337,18 @@ The *kissing number* of a lattice, $`L`, is the number of vectors of {bpref "lat
 The *lattice kissing number problem* in {bpref "lattice.dimension"}[dimension] $`n` is to find the lattices of dimension $`n` which maximize the kissing number. In general, these may not be solutions of the *general kissing number problem*, which asks for the maximum number of spheres with non-overlapping interiors in dimension $`n` which are all tangent to a single sphere.
 
 Depends on: {uses "lattice.dimension"}[] {uses "lattice.minimal_vector"}[]
+:::
+
+:::definition "lattice.label"
+*LMFDB label of an integral lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.label))
+
+The label of a lattice is given by
+
+{bpref "lattice.dimension"}[dimension].{bpref "lattice.determinant"}[determinant].{bpref "lattice.level"}[level].{bpref "lattice.class_number"}[class\_number].N
+
+where N is a counter enumerating lattices for which the first four parameters are identical. If the {bpref "lattice.class_number"}[class number] is not available, then the corresponding field is set to 0.
+
+Depends on: {uses "lattice.class_number"}[] {uses "lattice.determinant"}[] {uses "lattice.dimension"}[] {uses "lattice.level"}[]
 :::
 
 :::definition "lattice.level" (lean := "TauCeti.IntegralLattice.level")

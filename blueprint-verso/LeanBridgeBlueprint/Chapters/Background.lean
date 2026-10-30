@@ -187,7 +187,7 @@ Depends on: {uses "ag.curve"}[] {uses "ag.curve.genus"}[]
 :::definition "ag.irreducible" (lean := "IrreducibleSpace, AlgebraicGeometry.GeometricallyIrreducible")
 *Irreducible variety.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.irreducible))
 
-A {bpref "ag.variety"}[variety] defined over a field $`F` is *irreducible* if it is nonempty and cannot be decomposed as the union of two strictly smaller varieties over $`F`. It is *geometrically irreducible* if it remains irreducible when seen as a variety over the algebraic closure of $`F`.
+A {bpref "ag.variety"}[variety] defined over a field $`F` is *irreducible* if it is nonempty and cannot be decomposed as the union of two strictly smaller varieties over $`F`. It is *geometrically irreducible* if it remains irreducible when seen as a variety over the {bpref "nf.algebraic_closure"}[algebraic closure] of $`F`.
 
 Depends on: {uses "ag.variety"}[]
 :::
@@ -301,7 +301,7 @@ We define projective notions similarly.  A *projective algebraic set* is a subse
 Depends on: {uses "ag.affine_space"}[] {uses "ag.projective_space"}[] {uses "ring.field"}[] {uses "ring.prime_ideal"}[]
 :::
 
-:::definition "alg.binary_operation"
+:::definition "alg.binary_operation" (lean := "Mul")
 *Binary operation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/alg.binary_operation))
 
 A *binary operation*,  on a set $`S` is a function $`S\times S\to S`.
@@ -908,7 +908,7 @@ Depends on: {uses "group.characteristic_subgroup"}[] {uses "group.maximal_subgro
 :::definition "group.fuchsian.cusps" (lean := "CuspOrbits, IsCusp, Subgroup.IsArithmetic.isCusp_iff_isCusp_SL2Z, isCusp_SL2Z_iff")
 *Cusps of a subgroup of the modular group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.fuchsian.cusps))
 
-The *cusps* of a subgroup $`\Gamma` of the {bpref "group.sl2z"}[modular group] are equivalence classes of points in $`\mathbb{Q}\cup\infty` under the action of $`\Gamma` by linear fractional transformation, where for
+The *cusps* of a subgroup $`\Gamma` of the {bpref "group.sl2z"}[modular group] are equivalence classes of points in $`\mathbb{Q}\cup\infty` under the action of $`\Gamma` by {bpref "group.fuchsian.action"}[linear fractional transformation], where for
 
 $$`\gamma=\left(\begin{array}{ll}a&b\\c&d \end{array}\right)\in\Gamma,`
 
@@ -948,7 +948,7 @@ Depends on: {uses "group.sl2z"}[]
 :::definition "group.galois.absolute" (lean := "Field.absoluteGaloisGroup")
 *Absolute Galois group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.galois.absolute))
 
-The *absolute Galois group* of a {bpref "ring.field"}[field] $`K` is the group of all automorphisms of the algebraic closure of $`K` that fix the field $`K`.
+The *absolute Galois group* of a {bpref "ring.field"}[field] $`K` is the group of all automorphisms of the {bpref "nf.algebraic_closure"}[algebraic closure] of $`K` that fix the field $`K`.
 
 Depends on: {uses "ring.field"}[]
 :::
@@ -1459,7 +1459,7 @@ Depends on: {uses "group.sl2z"}[]
 
 For each {bpref "gl2.open"}[open subgroup] $`H \le \GL_2(\widehat{\Z})`, there is a *modular curve* $`X_H`, defined as a quotient of the {bpref "modcurve.xn"}[full modular curve] $`X_{\text{full}}(N)`, where $`N` is the {bpref "gl2.level"}[level] of $`H`.  More precisely, $`H` is the inverse image of a subgroup $`H_N \le \GL_2(\Z/N\Z)`, which acts on $`X_{\text{full}}(N)` over $`\Q`, and $`X_H` is the {bpref "ag.quotient_curve"}[quotient curve] $`H_N \backslash X_{\text{full}}(N)`, also defined over $`\Q`.
 
-Like $`X_{\text{full}}(N)`, the curve $`X_H` is {bpref "ag.curve.smooth"}[smooth], projective, and integral, and when $`\det(H)=\widehat{\Z}` it is also geometrically integral, but in general it may have several geometric components, as is the case for $`X_{\text{full}}(N)` when $`N>2`.
+Like $`X_{\text{full}}(N)`, the curve $`X_H` is {bpref "ag.curve.smooth"}[smooth], projective, and integral, and when $`\det(H)=\widehat{\Z}` it is also geometrically integral, but in general it may have several {bpref "modcurve.components"}[geometric components], as is the case for $`X_{\text{full}}(N)` when $`N>2`.
 
 *Rational points*: When $`-1\in H` the rational points of $`X_H`  consist of  {bpref "modcurve.cusps"}[cusps] and $`\Gal_{\Q}`-stable isomorphism classes of pairs $`(E,[\iota]_H)`, where $`E` is an {bpref "ec"}[elliptic curve] over $`\Q`, and $`[\iota]_H` is an {bpref "modcurve.level_structure"}[$`H`-level structure] on $`E`.  Such points exist precisely when the image of the {bpref "ec.galois_rep"}[adelic Galois representation] $`\rho_E\colon \Gal_{\Q}\to \GL_2(\widehat{\Z})` is conjugate to a subgroup of $`H`.
 
@@ -1510,13 +1510,13 @@ Depends on: {uses "ec"}[] {uses "ec.base_change"}[] {uses "ec.galois_rep"}[] {us
 
 There are three variants of the modular curve $`Y(N)`:
 
-1. There is a functor sending each $`\Z[1/N]`-algebra $`R` to the set of (isomorphism classes of) pairs $`(E,\alpha)` such that $`E` is an {bpref "ec.ring"}[elliptic curve over $`R`] and $`\alpha \colon E[N] \to (\Z/N\Z)^2` is an isomorphism of group schemes.  Suppose that $`N \ge 3`; then this functor is represented by a smooth affine $`\mathbb{Z}[1/N]`-scheme $`Y_{\mathrm{full}}(N)`, called the *full modular curve of level $`N`*.  (If $`N<3`, it is representable only by an algebraic stack, and one must take the coarse moduli space to get a scheme.)  For any field $`k` with $`\operatorname{char} k \nmid N`, the set $`Y_{\mathrm{full}}(N)(k)` is the set of isomorphism classes of triples $`(E,P,Q)` , where $`E` is an elliptic curve over $`k` and $`P,Q \in E(k)` form a $`(\Z/N\Z)`-basis of $`E[N]`.  The curve $`Y_{\mathrm{full}}(N)_{\Q}` is integral but typically has several geometric components.
+1. There is a functor sending each $`\Z[1/N]`-algebra $`R` to the set of (isomorphism classes of) pairs $`(E,\alpha)` such that $`E` is an {bpref "ec.ring"}[elliptic curve over $`R`] and $`\alpha \colon E[N] \to (\Z/N\Z)^2` is an isomorphism of group schemes.  Suppose that $`N \ge 3`; then this functor is represented by a smooth affine $`\mathbb{Z}[1/N]`-scheme $`Y_{\mathrm{full}}(N)`, called the *full modular curve of level $`N`*.  (If $`N<3`, it is representable only by an algebraic stack, and one must take the coarse moduli space to get a scheme.)  For any field $`k` with $`\operatorname{char} k \nmid N`, the set $`Y_{\mathrm{full}}(N)(k)` is the set of isomorphism classes of triples $`(E,P,Q)` , where $`E` is an elliptic curve over $`k` and $`P,Q \in E(k)` form a $`(\Z/N\Z)`-basis of $`E[N]`.  The curve $`Y_{\mathrm{full}}(N)_{\Q}` is integral but typically has several {bpref "modcurve.components"}[geometric components].
 
 2. Let $`\zeta_N \in \overline{\Q}` be a primitive $`N`th root of unity.  There is a functor sending each $`\Z[1/N,\zeta_N]`-algebra $`R` to the set of pairs $`(E,\alpha)` such that $`E` is an elliptic curve over $`R` and $`\alpha \colon E[N] \to (\Z/N\Z)^2` is an isomorphism of group schemes such that the resulting elements $`P,Q \in E[N](R)` satisfy $`e_N(P,Q)=\zeta_N`.  For $`N \ge 3`, this functor is represented by a smooth affine $`\Z[1/N,\zeta_N]`-scheme $`Y(N)`, called the *classical modular curve of level $`N`*.  Over any {bpref "ring.a-field"}[$`\Z[1/N,\zeta_N]`-field] $`k`, the curve $`Y(N)_k` is geometrically integral.
 
 3. There is a functor sending each $`\Z[1/N]`-algebra $`R` to the set of pairs $`(E,\alpha)` consisting of an elliptic curve $`E` over $`R` and a {bpref "alg.symplectic_isomorphism"}[symplectic isomorphism] $`\alpha \colon E[N] \to \Z/N\Z \times \mu_N`.  For $`N \ge 3`, this functor is represented by a smooth affine $`\mathbb{Z}[1/N]`-scheme $`Y_{\mathrm{arith}}(N)`.  Over any field $`k` with $`\operatorname{char} k \nmid N`, the curve $`Y_{\mathrm{arith}}(N)_k` is geometrically integral.
 
-\*Relationships\*: Over any {bpref "ring.a-field"}[$`\Z[1/N,\zeta]`-field] $`k`, the curve $`Y_{\mathrm{arith}}(N)_k` is isomorphic to $`Y(N)_k` and to a connected component of $`Y_{\mathrm{full}}(N)_k`.
+\*Relationships\*: Over any {bpref "ring.a-field"}[$`\Z[1/N,\zeta]`-field] $`k`, the curve $`Y_{\mathrm{arith}}(N)_k` is isomorphic to $`Y(N)_k` and to a {bpref "modcurve.components"}[connected component] of $`Y_{\mathrm{full}}(N)_k`.
 
 \*Complex points\*: The group {bpref "cmf.congruence_subgroup"}[$`\Gamma(N)`] acts on the {bpref "mf.upper_half_plane"}[upper half-plane] $`\mathfrak{h}`, and the quotient $`\Gamma(N) \backslash \mathfrak{h}` is biholomorphic to $`Y(N)(\mathbb{C}) \simeq Y_{\textup{arith}}(\C)` (choosing $`\zeta_N \in \C`).
 

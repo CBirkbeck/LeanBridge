@@ -42,7 +42,7 @@ Equivalently, $`K` can be defined as the ring of global regular functions of the
 
 Also, $`K` is the subfield of $`\mathbb{Q}^{\textup{ab}}` fixed by $`\det(H) \le \widehat{\mathbb{Z}}^\times`, or equivalently the subfield of $`\mathbb{Q}(\zeta_N)` fixed by $`\det(H_N) \subset (\mathbb{Z}/N\mathbb{Z})^\times`.
 
-It can happen that a geometric component of $`X_H` is definable over a field smaller than its canonical field of definition.  For example, the canonical field of definition of a geometric component of the {bpref "modcurve.xn"}[full modular curve] $`X_{\text{full}}(N)_{\mathbb{Q}}` is $`\mathbb{Q}(\zeta_N)`, but any such geometric component is the base extension of the curve $`X_{\mathrm{arith}}(N)` over $`\mathbb{Q}`.
+It can happen that a geometric component of $`X_H` is definable over a field smaller than its canonical field of definition.  For example, the canonical field of definition of a geometric component of the {bpref "modcurve.xn"}[full modular curve] $`X_{\text{full}}(N)_{\mathbb{Q}}` is $`\mathbb{Q}(\zeta_N)`, but any such geometric component is the base extension of the curve {bpref "modcurve.xarith"}[$`X_{\mathrm{arith}}(N)`] over $`\mathbb{Q}`.
 
 Depends on: {uses "ag.geom_component"}[] {uses "modcurve"}[] {uses "modcurve.level"}[] {uses "modcurve.xn"}[]
 :::
@@ -58,6 +58,29 @@ $$`-3,-4,-7,-8,-11,-12,-16,-19,-27, -27, -43,-67,-163,`
  of {bpref "nf.order"}[imaginary quadratic orders] of {bpref "nf.class_number"}[class number] one.  These $`13` orders lie in $`9` distinct imaginary quadratic fields.
 
 Depends on: {uses "ec.complex_multiplication"}[] {uses "modcurve"}[] {uses "nf.class_number"}[] {uses "nf.order"}[]
+:::
+
+:::definition "modcurve.components"
+*Geometric components of a modular curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.components))
+
+For the {bpref "modcurve.xn"}[full modular curve] $`X_{\mathrm{full}}(N)_{\Q}`,
+the set $`\pi_0(X_{\mathrm{full}}(N)_{\overline{\Q}})` of {bpref "ag.geom_component"}[geometric components] is in bijection with the set $`\mu_N^{\text{prim}}` of primitive $`N`th roots of unity (map $`(E,P,Q)` to the Weil pairing $`e_N(P,Q)`).
+
+For the {bpref "modcurve"}[quotient curve] $`(X_H)_{\Q}`, we have $`\pi_0((X_H)_{\overline{\Q}}) \simeq \det(H_N) \backslash \pi_0(X_{\mathrm{full}}(N)_{\overline{\Q}})\simeq \det(H_N) \backslash \mu_N^{\text{prim}}`.  Thus the number of geometric components is the index $`((\Z/N\Z)^\times : \det H_N)`.
+
+The statements above hold also if $`\Q` and $`\overline{\Q}` are replaced by $`k` and $`\overline{k}`, for any field $`k` of characteristic not dividing $`N`.
+
+The curve $`(X_H)_{\Q}` is integral.  It is geometrically integral if and only if $`\det H_N = (\Z/N\Z)^\times`, or equivalently $`\det H = \widehat{\Z}^\times`.
+
+Depends on: {uses "ag.geom_component"}[] {uses "modcurve"}[] {uses "modcurve.xn"}[]
+:::
+
+:::definition "modcurve.contains_negative_one" (lean := "Subgroup.adjoinNegOne_eq_self_iff, Subgroup.adjoinNegOne")
+*Contains $`-I`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.contains_negative_one))
+
+A {bpref "modcurve"}[modular curve] $`X_H` with $`-I\in H\in \GL_2(\widehat{\Z})` has the property that if an {bpref "ec"}[elliptic curve] $`E` over a number field $`K` has $`j`-invariant $`j(E)\ne 0,1728` in the image of $`j\colon X_H\to X(1)`, then the mod-$`N` Galois image of every {bpref "av.twist"}[twist] of $`E` is conjugate to a subgroup of the projection of $`H` to $`\GL_2(\Z/N\Z)`. Modular curves $`X_H` with $`-I\not\in H` do not enjoy this property.
+
+Depends on: {uses "av.twist"}[] {uses "ec"}[] {uses "modcurve"}[]
 :::
 
 :::definition "modcurve.cusp_orbits" (lean := "Matrix.GeneralLinearGroup.CuspOrbit, Matrix.GeneralLinearGroup.cuspOrbitSize, Matrix.GeneralLinearGroup.numCuspOrbitsOfSize, Matrix.GeneralLinearGroup.cuspGaloisRel, Matrix.GeneralLinearGroup.adelicCyclotomicCharacter")
@@ -98,6 +121,19 @@ We list two types of information about the *isogeny decomposition* of $`J_H`:
 When $`X_H` has {bpref "modcurve.genus"}[genus] zero, $`J_H` is the trivial abelian variety of dimension zero, and no isogeny decomposition information is listed.
 
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.dimension"}[] {uses "ag.jacobian"}[] {uses "av.decomposition"}[] {uses "av.isogeny"}[] {uses "av.simple"}[] {uses "cmf.galois_orbit"}[] {uses "cmf.label"}[] {uses "cmf.newform"}[] {uses "cmf.weight"}[] {uses "modcurve"}[] {uses "modcurve.genus"}[]
+:::
+
+:::definition "modcurve.elliptic_curve_of_point"
+*Elliptic curve associated to a rational point.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.elliptic_curve_of_point))
+
+Let $`X_H` be a {bpref "modcurve"}[modular curve] with $`-1\in H`.
+The non-cuspidal $`K`-rational points on a modular curve $`X_H` are in one-to-one correspondence with isomorphism classes of pairs $`(E,[\iota]_H)`.  where $`E` is an {bpref "ec"}[elliptic curve] over $`K` and $`[\iota]_H` is a $`K`-rational {bpref "modcurve.level_structure"}[$`H`-level structure] on $`E`.
+
+The isomorphism class of $`(E,[\iota]_H)` includes pairs $`(E',[\iota']_H)` for each of the infinitely many quadratic twists $`E'` of $`E` (because $`-1\in H`), but on modular curve pages and search results we list only the {bpref "ec.q.minimal_twist"}[minimal quadratic twist] of $`E`.
+
+A quadratic twist-minimal elliptic curve $`E` may admit multiple non-isomorphic rational $`H`-level structures corresponding to multiple $`K`-rational points on $`X_H`, but in search results for low degreee points we list $`E` only once.
+
+Depends on: {uses "ec"}[] {uses "ec.q.minimal_twist"}[] {uses "modcurve"}[] {uses "modcurve.level_structure"}[]
 :::
 
 :::definition "modcurve.elliptic_points" (lean := "Matrix.GeneralLinearGroup.ellipticPoints, Matrix.GeneralLinearGroup.modularGammaPSL, Matrix.GeneralLinearGroup.ellipticPoints_eq_ellipticOrbits, Subgroup.ellipticOrbits, Matrix.GeneralLinearGroup.modularGamma")
@@ -322,6 +358,12 @@ Modular curves are identified in the literature using several different labeling
 Depends on: {uses "ec.galois_rep_modell_image"}[]
 :::
 
+:::definition "modcurve.point_degree"
+*Degree of a point on a modular curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.point_degree))
+
+The degree of a point $`x` on a modular curve $`X` is the degree $`[\mathbb{Q}(x): \mathbb{Q}]`.
+:::
+
 :::definition "modcurve.point_residue_field" (lean := "AlgebraicGeometry.Scheme.residueField")
 *Residue field of a point on a modular curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.point_residue_field))
 
@@ -349,11 +391,21 @@ Depends on: {uses "modcurve"}[] {uses "modcurve.modular_cover"}[]
 :::definition "modcurve.rank"
 *Analytic rank.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.rank))
 
-The *analytic rank* of a {bpref "modcurve"}[modular curve] is the order of vanishing of its {bpref "lfunction"}[L-function] at its {bpref "lfunction.central_point"}[central point], which is equal to the sums of the {bpref "cmf.analytic_rank"}[analytic ranks] of the L-functions of the {bpref "av.simple"}[simple] modular {bpref "ag.abelian_variety"}[abelian varieties] corresponding to {bpref "cmf.galois_orbit"}[Galois orbits] of {bpref "cmf.newform"}[modular forms] that are the {bpref "av.decomposition"}[isogeny factors] of its {bpref "ag.jacobian"}[Jacobian].
+The *analytic rank* of a {bpref "modcurve"}[modular curve] is the order of vanishing of its {bpref "lfunction"}[L-function] at its {bpref "lfunction.central_point"}[central point], which is equal to the sums of the {bpref "cmf.analytic_rank"}[analytic ranks] of the {bpref "cmf.lfunction"}[L-functions] of the {bpref "av.simple"}[simple] modular {bpref "ag.abelian_variety"}[abelian varieties] corresponding to {bpref "cmf.galois_orbit"}[Galois orbits] of {bpref "cmf.newform"}[modular forms] that are the {bpref "av.decomposition"}[isogeny factors] of its {bpref "ag.jacobian"}[Jacobian].
 
 The {bpref "ec.bsdconjecture"}[Birch and Swinnerton-Dyer] conjecture for modular abelian varieties implies that the analytic rank is equal to the {bpref "ag.mordell_weil"}[Mordell-Weil rank] of the Jacobian.
 
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.jacobian"}[] {uses "ag.mordell_weil"}[] {uses "av.decomposition"}[] {uses "av.simple"}[] {uses "cmf.analytic_rank"}[] {uses "cmf.galois_orbit"}[] {uses "cmf.newform"}[] {uses "ec.bsdconjecture"}[] {uses "lfunction"}[] {uses "lfunction.central_point"}[] {uses "modcurve"}[]
+:::
+
+:::definition "modcurve.rational_points"
+*Rational points on a modular curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.rational_points))
+
+The rational points on a {bpref "modcurve"}[modular curve] $`X_H` may be divided into three categories: {bpref "modcurve.cusps"}[cuspidal points], {bpref "modcurve.cm_discriminants"}[CM points], and non-cuspidal non-CM points.
+
+{bpref "modcurve.genus"}[Genus] zero curves with a rational point are isomorphic to $`\mathbb{P}^1` and therefore have infinitely many rational points.  Genus one curves with a rational point whose {bpref "ag.jacobian"}[Jacobian] has positive Mordell-Weil rank are isomorphic to an {bpref "ec"}[elliptic curve] with infinitely many rational points.  In all other cases, the set of rational points is finite.
+
+Depends on: {uses "ag.jacobian"}[] {uses "ec"}[] {uses "modcurve"}[] {uses "modcurve.cm_discriminants"}[] {uses "modcurve.cusps"}[] {uses "modcurve.genus"}[]
 :::
 
 :::definition "modcurve.relative_index" (lean := "Subgroup.relIndex")
@@ -380,14 +432,148 @@ The *$`\SL_2`-level* of a {bpref "modcurve"}[modular curve] $`X_H` is the {bpref
 Depends on: {uses "cmf.congruence_subgroup"}[] {uses "gl2.level"}[] {uses "modcurve"}[]
 :::
 
+:::definition "modcurve.x0"
+*$`X_0(N)`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.x0))
+
+$`X_0(N)` is the {bpref "modcurve"}[modular curve] $`X_H` for $`H\le \GL_2(\widehat{\Z})` the inverse image of $`\begin{pmatrix} \ast & \ast \\ 0 & \ast \end{pmatrix} \subset \GL_2(\Z/N\Z)`. Over a field $`k` of characteristic not dividing $`N`, its {bpref "modcurve.cusps"}[non-cuspidal] $`k`-rational points correspond to $`\bar k`-isomorphism classes of pairs $`(E,C)`, where:
+
+- $`E` is an elliptic curve over $`k`, and
+
+- $`C` is a $`\Gal_k`-stable cyclic subgroup of $`E[N](\overline{k})` of order $`N` (equivalently, the kernel of a $`k`-rational isogeny $`E\to E'` of degree $`N`).
+
+Depends on: {uses "modcurve"}[] {uses "modcurve.cusps"}[]
+:::
+
+:::definition "modcurve.x1"
+*$`X_1(N)`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.x1))
+
+$`X_1(N)` is the {bpref "modcurve"}[modular curve] $`X_H` for $`H\le \GL_2(\widehat{\Z})` the inverse image of $`\begin{pmatrix} 1 & * \\ 0 & * \end{pmatrix} < \GL_2(\Z/N\Z)`. Over a field $`k` of characteristic not dividing $`N`, its {bpref "modcurve.cusps"}[non-cuspidal] $`k`-rational points correspond to $`\bar k`-isomorphism classes of pairs $`(E,P)`, where:
+
+- $`E` is an elliptic curve over $`k`, and
+
+- $`P \in E[N](k)` is a point of order $`N`.
+
+Depends on: {uses "modcurve"}[] {uses "modcurve.cusps"}[]
+:::
+
+:::definition "modcurve.x1mn"
+*$`X_1(M,MN)`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.x1mn))
+
+$`X_{\mathrm{arith},1}(M,MN)` is the {bpref "modcurve"}[modular curve] $`X_H` for $`H\le \GL_2(\widehat{\Z})` the inverse image of $`\begin{pmatrix} 1 & M* \\ 0 & * \end{pmatrix} \subset \GL_2(\Z/MN\Z)`. Over a field $`k` of characteristic not dividing $`MN`, its {bpref "modcurve.cusps"}[non-cuspidal] $`k`-rational points correspond to $`\bar k`-isomorphism classes of triples $`(E,P,C)`, where:
+
+- $`E` is an elliptic curve over $`k`,
+
+- $`P \in E[MN](k)` is a point of order $`MN`, and
+
+- $`C \leq E[M](\overline{k})` is a $`\Gal_k`-stable cyclic subgroup of order $`M` such that $`E[M]=\langle NP \rangle \oplus C`.
+
+Depends on: {uses "modcurve"}[] {uses "modcurve.cusps"}[]
+:::
+
+:::definition "modcurve.xarith"
+*$X\_\{\mathrm\{arith.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.xarith))
+
+$`X_{\mathrm{arith}}(N)` is the {bpref "modcurve"}[modular curve] $`X_H` for $`H\leq \GL_2(\widehat{\Z})` the inverse image of $`\begin{pmatrix}1&0\\0&*\end{pmatrix}\leq \GL_2(\Z/N\Z)`.
+
+As a moduli space, $`X_{\mathrm{arith}}` parametrizes isomorphism classes of triples $`(E,\phi,P)`, where:
+
+- $`E` is a generalized elliptic curve,
+
+- $`P` is a point of exact order $`N`,
+
+- and $`\phi \colon E \to E'` is a cyclic $`N`-isogeny such that $`E[N]` is generated by $`P` and $`\ker\phi`.
+
+Alternatively, it parametrizes isomorphism classes of pairs $`(E,\psi)` where $`E` is a generalized elliptic curve and $`\psi \colon \mu_N\times \Z/N\Z\xrightarrow{\sim} E[N]` is a symplectic isomorphism.
+
+Depends on: {uses "modcurve"}[]
+:::
+
+:::definition "modcurve.xfull"
+*$`X(N)`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.xfull))
+
+$`X(N)` is the {bpref "modcurve"}[modular curve] $`X_H` for $`H\le \GL_2(\widehat{\Z})` the inverse image of the trivial subgroup of $`\GL_2(\Z/N\Z)`. Over a field $`k` of characteristic not dividing $`N`, its {bpref "modcurve.cusps"}[non-cuspidal] $`k`-rational points correspond to triples $`(E,P,Q)`, where:
+
+- $`E` is an elliptic curve over $`k`, and
+
+- $`P,Q \in E(k)` form a basis for $`E[N](\overline{k})`.
+
+There are other {bpref "modcurve.xn"}[variants].
+
+Depends on: {uses "modcurve"}[] {uses "modcurve.cusps"}[] {uses "modcurve.xn"}[]
+:::
+
+:::definition "modcurve.xns"
+*$X\_\{\text\{ns.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.xns))
+
+$`X_{\text{ns}}(N)` is the {bpref "modcurve"}[modular curve] $`X_H` for $`H\le \GL_2(\widehat{\Z})` the inverse image of a {bpref "gl2.cartan"}[Cartan subgroup] of $`\GL_2(\Z/N\Z)` that is nonsplit at every prime dividing $`N`.
+
+Depends on: {uses "gl2.cartan"}[] {uses "modcurve"}[]
+:::
+
 :::definition "modcurve.xns.remarks"
 *Remarks on $X\_\{\mathrm\{ns.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.xns.remarks))
 
 For $`N=p` prime modular curve $`X_{\mathrm{ns}}(p)` has the following moduli interpretation.  It parameterizes $`\bar k`-isomorphism classes of pairs $`(E,\mathfrak o)` where $`E` is an elliptic curve over $`k` and $`\mathfrak o` is a $`k`-rational *oriented necklace*: a $`\Gal_k`-stable cyclic permutation of the $`p+1` cyclic subgroups of $`E[p](\bar k)` of order $`p` .
 :::
 
+:::definition "modcurve.xns_plus"
+*$X\_\{\text\{ns.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.xns_plus))
+
+$`X_{\text{ns}}^+(N)` is the {bpref "modcurve"}[modular curve] $`X_H` for $`H\le \GL_2(\widehat{\Z})` the inverse image of an {bpref "gl2.cartan"}[extended Cartan subgroup] of $`\GL_2(\Z/N\Z)` that is nonsplit at every prime dividing $`N`.
+
+Depends on: {uses "gl2.cartan"}[] {uses "modcurve"}[]
+:::
+
 :::definition "modcurve.xns_plus.remarks"
 *Remarks on $X\_\{\mathrm\{ns.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.xns_plus.remarks))
 
 For $`N=p` prime the modular curve $`X_{\mathrm{ns}}^+(p)` has the following moduli interpretation.  Non-cuspidal points correspond to $`\bar k`-isomorphism classes of pairs $`(E,\mathfrak o)` where $`E` is an elliptic curve over $`k` and $`\mathfrak o` is a $`k`-rational (unoriented) *necklace*: a $`\Gal_k`-stable pair of inverse cyclic permutations of the $`p+1` cyclic subgroups of $`E[p](\bar k)` of order $`p` .
+:::
+
+:::definition "modcurve.xpm1"
+$`X_{\pm 1}(N)` is the {bpref "modcurve"}[modular curve] $`X_H` for $`H\le GL_2(\widehat{\Z})` the inverse image of $`\begin{pmatrix} \pm 1 & * \\ 0 & * \end{pmatrix} \subset \GL_2(\Z/N\Z)`. Over a field $`k` of characteristic not dividing $`N`, its {bpref "modcurve.cusps"}[non-cuspidal] $`k`-rational points correspond to $`\bar k`-isomorphism classes of pairs $`(E,\pm P)`, where:
+
+- $`E` is an elliptic curve over $`k`, and
+
+- $`P \in E[N]` is a point of order $`N` for which the set $`\{P,-P\}` is $`\Gal_k`-stable.
+
+The modular curve {bpref "modcurve.x1"}[$`X_1(N)`] is a {bpref "modcurve.quadratic_refinements"}[quadratic refinement] of $`X_{\pm1}(N)`.
+
+Depends on: {uses "modcurve"}[] {uses "modcurve.cusps"}[] {uses "modcurve.quadratic_refinements"}[] {uses "modcurve.x1"}[]
+:::
+
+:::definition "modcurve.xpm1mn"
+$`X_{\mathrm{arith},\pm1}(M,MN)` is the {bpref "modcurve"}[modular curve] $`X_H` for $`H\le \GL_2(\widehat{\Z})` the inverse image of $`\begin{pmatrix} \pm 1 & M* \\ 0 & * \end{pmatrix} \subset \GL_2(\Z/MN\Z)`. The modular curve {bpref "modcurve.x1mn"}[$`X_{\mathrm{arith},1}(M,MN)`] is one of its {bpref "modcurve.quadratic_refinements"}[quadratic refinements].
+
+Depends on: {uses "modcurve"}[] {uses "modcurve.quadratic_refinements"}[] {uses "modcurve.x1mn"}[]
+:::
+
+:::definition "modcurve.xs4"
+For $`\ell` an odd prime, $`X_{S_4}(\ell)` is the {bpref "modcurve"}[modular curve] $`X_H` for $`H\le \GL_2(\widehat{\Z})` the inverse image of the subgroup of $`\PGL_2(\Z/\ell\Z)` isomorphic to $`S_4` (which is unique up to conjugacy).  It parameterizes elliptic curves whose {bpref "ec.galois_rep_modell_image"}[mod-$`\ell` Galois representation] has projective image $`S_4`, one of the three exceptional groups $`A_4`, $`A_5`, $`S_4` of $`\PGL_2(\ell)` that can arise as projective mod-$`\ell` images, and the only one that can arise for elliptic curves over $`\Q`.
+
+Depends on: {uses "ec.galois_rep_modell_image"}[] {uses "modcurve"}[]
+:::
+
+:::definition "modcurve.xsp"
+*$X\_\{\text\{sp.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.xsp))
+
+$`X_{\text{sp}}(N)` is the {bpref "modcurve"}[modular curve] $`X_H` for $`H\le \GL_2(\widehat{\Z})` the inverse image of a {bpref "gl2.cartan"}[Cartan subgroup] $`\begin{pmatrix} * & 0\\ 0& * \end{pmatrix}` that is split at every prime dividing $`N`. As a moduli space it parameterizes triples $`(E,C,D)` where:
+
+- $`E` is an elliptic curve over $`k`, and
+
+- $`C` and $`D` are $`\Gal_k`-stable cyclic subgroups such that $`E[N](\overline{k})\simeq C \oplus D`.
+
+Depends on: {uses "gl2.cartan"}[] {uses "modcurve"}[]
+:::
+
+:::definition "modcurve.xsp_plus"
+*$X\_\{\text\{sp.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.xsp_plus))
+
+$`X_{\text{sp}}^+(N)` is the {bpref "modcurve"}[modular curve] $`X_H` for $`H\le \GL_2(\widehat{\Z})` the inverse image of an {bpref "gl2.cartan"}[extended Cartan subgroup] $`\begin{pmatrix} * & 0 \\ 0 & * \end{pmatrix} \cup \begin{pmatrix} 0 & * \\ * & 0 \end{pmatrix}\subseteq \GL_2(\Z/N\Z)` that is split at every prime dividing $`N`. As a moduli space it parameterizes pairs $`(E,\{C,D\})` where:
+
+- $`E` is an elliptic curve over $`k`, and
+
+- $`\{C,D\}` is a $`\Gal_k`-stable pair of cyclic subgroups such that $`E[N](\overline{k})\simeq C \oplus D`.  (Neither $`C` nor $`D` need be $`\Gal_k`-stable.)
+
+Depends on: {uses "gl2.cartan"}[] {uses "modcurve"}[]
 :::

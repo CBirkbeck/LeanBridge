@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.wild_inertia_group_search}{Wild inertia group search}}
 \begin{definition}\label{lf.wild_inertia_group_search}
-\uses{gg.label,group.small_group_label,lf.wild_inertia_group,nf.galois_group.name}
+\uses{gg.label,group.small_group_label,lf.wild_inertia_group}
 \leanok
 {{KNOWL\_INC('lf.wild\_inertia\_group')}}
 

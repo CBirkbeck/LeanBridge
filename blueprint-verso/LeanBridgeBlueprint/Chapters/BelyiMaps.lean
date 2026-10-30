@@ -96,6 +96,14 @@ The *orbit size* is the number of isomorphism classes of {bpref "belyi.galmap"}[
 Depends on: {uses "belyi.galmap"}[]
 :::
 
+:::definition "belyi.pass_size" (lean := "TauCeti.PassportSpec.passportSize, TauCeti.PassportSpec.passportSize_eq_card_hasPassport, TauCeti.ConnectedIsoClass, TauCeti.ConnectedIsoClass.HasPassport")
+*Passport size of a Belyi map.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/belyi.pass_size))
+
+The number of isomorphism classes of Belyi maps belonging to a given {bpref "belyi.passport"}[passport].
+
+Depends on: {uses "belyi.passport"}[]
+:::
+
 :::definition "belyi.passport" (lean := "TauCeti.PassportSpec, TauCeti.PassportSpec.HasPassport, TauCeti.PassportSpec.IsAdmissible")
 *Passport.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/belyi.passport))
 
@@ -106,6 +114,22 @@ A *passport* is the data of a transitive subgroup of the symmetric group $`S_d` 
 *Transitive permutation triple.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/belyi.permutation_triple))
 
 A *permutation triple* is a triple of permutations $`\sigma=(\sigma_0,\sigma_1,\sigma_{\infty}) \in S_d^3` such that $`\sigma_{\infty}\sigma_1\sigma_0=1`.  A permutation triple is *transitive* if the subgroup $`\langle \sigma \rangle` is a transitive subgroup of the symmetric group $`S_d`.
+:::
+
+:::definition "belyi.primitive" (lean := "TauCeti.PermutationTriple.IsPrimitive, TauCeti.PermutationTriple.monodromyGroup, MulAction.IsPreprimitive")
+*Primitive Belyi map.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/belyi.primitive))
+
+A Belyi map is primitive if its {bpref "belyi.group"}[monodromy group] is {bpref "gg.primitive"}[primitive] as a transitive subgroup of $`S_d`.
+
+Depends on: {uses "belyi.group"}[] {uses "gg.primitive"}[]
+:::
+
+:::definition "belyi.primitivization"
+*Primitivization of a Belyi map.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/belyi.primitivization))
+
+Given a Belyi map $`\phi` the primitivization of $`\phi` is the subcover of minimal degree with primitive {bpref "belyi.group"}[monodromy group], which is unique up to isomorphism.
+
+Depends on: {uses "belyi.group"}[]
 :::
 
 :::definition "belyi.ramification_type"

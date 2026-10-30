@@ -21,6 +21,12 @@ $$`\frac{f(x)g(y)-f(y)g(x)}{x-y} = \sum_{i,j=1}^n c_{ij} x^i y^{j}.`
 The determinant of this matrix is the resultant of the two polynomials.
 :::
 
+:::definition "alg.matrix.skew_symmetric" (lean := "LieAlgebra.Orthogonal.so, LieAlgebra.Orthogonal.mem_so, Matrix.IsSkewAdjoint")
+*Skew-symmetric matrix.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/alg.matrix.skew_symmetric))
+
+A matrix $`M` is skew-symmetric if its transpose equals its negation, i.e. if $`M^T = -M`. In particular, a skew-symmetric matrix must be square.
+:::
+
 :::definition "alg.symmetric_bilinear_form" (lean := "LinearMap.BilinForm, LinearMap.BilinForm.IsSymm")
 *Symmetric bilinear form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/alg.symmetric_bilinear_form))
 
@@ -58,6 +64,31 @@ $$`\begin{aligned}
 Here $`\mathfrak{g}` is a Lie or Kac-Moody algebra of a particular type with index set $`I`.
 
 The map $`\mathrm{wt}` is called the weight function which maps a crystal element to a weight in the weight lattice $`P`. The maps $`e_i` and $`f_i` are called Kashiwara raising and lowering operators.
+:::
+
+:::definition "crystals.highest_weight"
+*Highest weight crystals.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/crystals.highest_weight))
+
+Highest weight crystals are {bpref "crystals.crystal"}[Crystal] which have a highest weight element. A highest weight element $`b` is annihilated by all Kashiwara raising operators:
+
+$$`e_i b = 0 \quad \text{for all } i\in I.`
+
+The weight of the highest weight element is used to label the crystal.
+
+Depends on: {uses "crystals.crystal"}[]
+:::
+
+:::definition "crystals.littelmann_path"
+*Littelmann path model for crystals.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/crystals.littelmann_path))
+
+The Littelmann path model provides a unified combinatorial model for highest weight crystals that applies to all symmetrizable Kac-Moody algebras.
+
+Let $`P` be the weight lattice in the dual of a Cartan subalgebra of the semisimple Lie algebra $`\mathfrak{g}`.
+A Littelmann path is a piecewise-linear mapping
+
+$$`\pi:[0,1]\cap \mathbf{Q} \rightarrow P\otimes_{\mathbf{Z}}\mathbf{Q}`
+
+such that $`\pi(0) = 0` and $`\pi(1)` are weights. Littelmann defined the Kashiwara raising and lowering operators $`e_i` and $`f_i` on these paths.
 :::
 
 :::definition "field.finite.conway_polynomial" (lean := "FiniteField.conwayPolynomial, FiniteField.conwayKey, FiniteField.conwayKey_lt_conwayKey_iff, FiniteField.IsConwayCompatible, FiniteField.minimalFor_conwayPolynomial")

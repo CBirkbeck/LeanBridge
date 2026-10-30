@@ -14,7 +14,7 @@ This chapter lists the LMFDB definitions relating to *number fields*, migrated f
 :::definition "nf" (lean := "NumberField")
 *Number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf))
 
-A *number field* is a field extension of finite {bpref "nf.degree"}[degree] of the field $`\Q` of rational numbers. In the LMFDB, number fields are identified by a label.
+A *number field* is a field extension of finite {bpref "nf.degree"}[degree] of the field $`\Q` of rational numbers. In the LMFDB, number fields are identified by a {bpref "nf.label"}[label].
 
 Depends on: {uses "nf.degree"}[]
 :::
@@ -49,6 +49,16 @@ An *absolute value* of a field $`k` is a function $`|\ |:k\to \R_{\ge 0}` that s
 Absolute values that satisfy the stronger condition $`|x+y|\le \max(|x|,|y|)` are *nonarchimedean*, while those that do not are *archimedean*; the latter arise only in fields of characteristic zero.  The *trivial absolute value* assigns 1 to every nonzero element of $`k`; it is a nonarchimedean absolute value.
 
 Absolute values $`|\ |_1` and $`|\ |_2` are *equivalent* if there exists a positive real number $`c` such that $`|x|_1 = |x|_2^c` for all $`x\in k`; this defines an equivalence relation on the set of absolute values of $`k`.
+:::
+
+:::definition "nf.algebraic_closure" (lean := "IsAlgClosure, AlgebraicClosure, IsAlgClosure.equiv, algebraicClosure.isAlgClosure, algebraicClosure")
+*Algebraic closure of a field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.algebraic_closure))
+
+An algebraic closure of a field $`K` is a minimal algebraically closed field extension of $`K`.  It is unique up to (non-canonical) isomorphism. It is usually denoted $`\overline{K}`.
+
+For any {bpref "nf"}[number field], its algebraic closure is usually denoted by $`\overline{\Q}`, and it is isomorphic to the field of all algebraic numbers in $`\C`.
+
+Depends on: {uses "nf"}[]
 :::
 
 :::definition "nf.arithmetically_equivalent" (lean := "NumberField.dedekindZeta")
@@ -113,6 +123,17 @@ A *defining polynomial* of a {bpref "nf"}[number field] $`K` is an irreducible p
 A root $`a \in K` of the defining polynomial is a {bpref "nf.generator"}[generator] of $`K`.
 
 Depends on: {uses "nf"}[]
+:::
+
+:::definition "nf.defining_polynomial.normalization" (lean := "NumberField.polredabs, NumberField.IsPolredabs, Polynomial.t2Norm, NumberField.exists_isPolredabs, NumberField.IsPolredabs.eq")
+*Normalization of defining polynomials for number fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.defining_polynomial.normalization))
+
+A number field can be {bpref "nf.defining_polynomial"}[defined] by many different irreducible polynomials $`f(x)\in\Q[x]`.
+The normalized polynomial is the {bpref "nf.polredabs"}[output of gp/pari's <code>polredabs</code>], which is effectively a canonically chosen defining polynomial.
+
+Normalized polynomials are always monic with integer coefficients, such that the sum of the squares of the absolute values of all complex roots of $`f(x)` is minimized.  When there is more than one such polynomial, the tie is broken based on the size of the polynomial's coefficients and discriminant.
+
+Depends on: {uses "nf.defining_polynomial"}[] {uses "nf.polredabs"}[]
 :::
 
 :::definition "nf.degree" (lean := "Module.finrank")
@@ -224,6 +245,48 @@ There is a naming convention for Galois groups up to degree $`47`.
 Depends on: {uses "lf.automorphism_group"}[] {uses "nf.degree"}[] {uses "nf.galois_closure"}[] {uses "nf.separable"}[] {uses "ring.field"}[]
 :::
 
+:::definition "nf.galois_group.gmodule_v4_type_i_i" (lean := "NumberField.Units.IsMazurUllomTypeI₁, NumberField.Units.QuadraticUnitFrame, NumberField.Units.QuadraticUnitFrame.unitClass, NumberField.Units.IsFundamentalUnit, NumberField.Units.nonempty_quadraticUnitFrame")
+*Galois module structure of Type I (i) for units in biquadratic number fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.galois_group.gmodule_v4_type_i_i))
+
+The notation follows Mazur and Ullom, Galois module structure of units in real biquadratic number fields, Acta Arithmetica 111.2 (2004) .  There are four basic types, I-IV, which describe the structure of the units $`U` modulo roots of unity. The subtype describes the actual structure of the units. Type I (i) means that there is a generating set for $`U/\{\pm 1\}` consisting of fundamental units of the quadratic subfields.
+:::
+
+:::definition "nf.galois_group.gmodule_v4_type_i_ii" (lean := "NumberField.Units.IsMazurUllomTypeI₂, NumberField.Units.QuadraticUnitFrame, NumberField.Units.QuadraticUnitFrame.unitClass, NumberField.Units.IsFundamentalUnit, NumberField.Units.nonempty_quadraticUnitFrame")
+*Galois module structure of Type I (ii) for units in biquadratic number fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.galois_group.gmodule_v4_type_i_ii))
+
+The notation follows Mazur and Ullom, Galois module structure of units in real biquadratic number fields, Acta Arithmetica 111.2 (2004) . There are four basic types, I-IV, which describe the structure of the units $`U` modulo roots of unity. The subtype describes the actual structure of the units. Type I (ii) means that there are fundamental units $`e_1,e_2,e_3` of the three quadratic subfields such that $`\sqrt{e_1},e_2,e_3` generate the rank 3 group $`U/\{\pm 1\}`.
+:::
+
+:::definition "nf.galois_group.gmodule_v4_type_i_iii" (lean := "NumberField.Units.IsMazurUllomTypeI₃, NumberField.Units.QuadraticUnitFrame, NumberField.Units.QuadraticUnitFrame.unitClass, NumberField.Units.IsFundamentalUnit, NumberField.Units.nonempty_quadraticUnitFrame")
+*Galois module structure of Type I (iii) for units in biquadratic number fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.galois_group.gmodule_v4_type_i_iii))
+
+The notation follows Mazur and Ullom, Galois module structure of units in real biquadratic number fields, Acta Arithmetica 111.2 (2004) . There are four basic types, I-IV, which describe the structure of the units $`U` modulo roots of unity. The subtype describes the actual structure of the units. Type I (iii) means that there are fundamental units $`e_1,e_2,e_3` of the three quadratic subfields such that $`\sqrt{e_1},\sqrt{e_2},e_3` generate the rank 3 group $`U/\{\pm 1\}`.
+:::
+
+:::definition "nf.galois_group.gmodule_v4_type_ii_i" (lean := "NumberField.Units.IsMazurUllomTypeII₁, NumberField.Units.QuadraticUnitFrame, NumberField.Units.QuadraticUnitFrame.unitClass, NumberField.Units.IsFundamentalUnit, NumberField.Units.nonempty_quadraticUnitFrame")
+*Galois module structure of Type II (i) for units in biquadratic number fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.galois_group.gmodule_v4_type_ii_i))
+
+The notation follows Mazur and Ullom, Galois module structure of units in real biquadratic number fields, Acta Arithmetica 111.2 (2004) . There are four basic types, I-IV, which describe the structure of the units $`U` modulo roots of unity. The subtype describes the actual structure of the units. Type II (i) means that there are fundamental units $`e_1,e_2,e_3` of the three quadratic subfields such that $`\sqrt{e_1e_2},e_2,e_3` generate the rank 3 group $`U/\{\pm 1\}`.
+:::
+
+:::definition "nf.galois_group.gmodule_v4_type_ii_ii" (lean := "NumberField.Units.IsMazurUllomTypeII₂, NumberField.Units.QuadraticUnitFrame, NumberField.Units.QuadraticUnitFrame.unitClass, NumberField.Units.IsFundamentalUnit, NumberField.Units.nonempty_quadraticUnitFrame")
+*Galois module structure of Type II (ii) for units in biquadratic number fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.galois_group.gmodule_v4_type_ii_ii))
+
+The notation follows Mazur and Ullom, Galois module structure of units in real biquadratic number fields, Acta Arithmetica 111.2 (2004) . There are four basic types, I-IV, which describe the structure of the units $`U` modulo roots of unity. The subtype describes the actual structure of the units. Type II (ii) means that there are fundamental units $`e_1,e_2,e_3` of the three quadratic subfields such that $`\sqrt{e_1e_2},e_2,\sqrt{e_3}` generate the rank 3 group $`U/\{\pm 1\}`.
+:::
+
+:::definition "nf.galois_group.gmodule_v4_type_iii" (lean := "NumberField.Units.IsMazurUllomTypeIII, NumberField.Units.QuadraticUnitFrame, NumberField.Units.QuadraticUnitFrame.unitClass, NumberField.Units.IsFundamentalUnit, NumberField.Units.nonempty_quadraticUnitFrame")
+*Galois module structure of Type III for units in biquadratic number fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.galois_group.gmodule_v4_type_iii))
+
+The notation follows Mazur and Ullom, Galois module structure of units in real biquadratic number fields, Acta Arithmetica 111.2 (2004) . There are four basic types, I-IV, which describe the structure of the units $`U` modulo roots of unity. The subtype describes the actual structure of the units. Type III means that there are fundamental units $`e_1,e_2,e_3` of the three quadratic subfields such that $`\sqrt{e_1e_2},\sqrt{e_2e_3},\sqrt{e_3e_1}` generate the rank 3 group $`U/\{\pm 1\}`.
+:::
+
+:::definition "nf.galois_group.gmodule_v4_type_iv" (lean := "NumberField.Units.IsMazurUllomTypeIV, NumberField.Units.QuadraticUnitFrame, NumberField.Units.QuadraticUnitFrame.unitClass, NumberField.Units.IsFundamentalUnit, NumberField.Units.nonempty_quadraticUnitFrame")
+*Galois module structure of Type IV for units in biquadratic number fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.galois_group.gmodule_v4_type_iv))
+
+The notation follows Mazur and Ullom, Galois module structure of units in real biquadratic number fields, Acta Arithmetica 111.2 (2004) . There are four basic types, I-IV, which describe the structure of the units $`U` modulo roots of unity. The subtype describes the actual structure of the units. Type IV means that there are fundamental units $`e_1,e_2,e_3` of the three quadratic subfields such that $`\sqrt{e_1e_2e_3},e_2,e_3` generate the rank 3 group $`U/\{\pm 1\}`.
+:::
+
 :::definition "nf.galois_root_discriminant" (lean := "NumberField.rootDiscr, IntermediateField.normalClosure, IsNormalClosure")
 *Galois root discriminant.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.galois_root_discriminant))
 
@@ -239,6 +302,12 @@ A *generator* of a {bpref "nf"}[number field] $`K` is an element $`a\in K` such 
 The {bpref "nf.minimal_polynomial"}[minimal polynomial] of a generator is a {bpref "nf.defining_polynomial"}[defining polynomial] for $`K`.
 
 Depends on: {uses "nf"}[] {uses "nf.defining_polynomial"}[] {uses "nf.minimal_polynomial"}[]
+:::
+
+:::definition "nf.ideal.label.hmf"
+*Hilbert modular form convention for the label of a number field ideal.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.ideal.label.hmf))
+
+In the Hilbert modular form pages, an ideal $`I` of a number field is represented by the label $`[N,m,\alpha]`, where $`N` is the absolute norm of the ideal, $`m` is the smallest rational integer in the ideal, and $`\alpha` is an element chosen so that $`(m,\alpha)=I`.
 :::
 
 :::definition "nf.ideal_class_group" (lean := "ClassGroup")
@@ -261,6 +330,14 @@ In a number field $`K`, each nonzero ideal $`I` of its ring of integers $`\mathc
 In the LMFDB we always represent number fields as $`K = \mathbb{Q}[X]/(g(X))` where $`g` is the unique monic integral polynomial which satisfies the {bpref "nf.polredabs"}[polredabs] condition. In this representation the image of $`X` under the quotient map $`\mathbb{Q}[X]\rightarrow\mathbb{Q}[X]/(g(X))` is a canonical integral primitive element $`\alpha` for $`K`.  Fixing this element determines a unique ordering of all $`\mathcal{O}_K`-ideals of the same norm.
 
 Depends on: {uses "nf.polredabs"}[]
+:::
+
+:::definition "nf.index" (lean := "TauCeti.GlobalNumberFields.NumberFieldOrder.index, TauCeti.GlobalNumberFields.NumberFieldOrder.index_def, TauCeti.GlobalNumberFields.NumberFieldOrder")
+*Index of an order.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.index))
+
+Let $`\mathcal{O}` be an {bpref "nf.order"}[order] in a {bpref "nf"}[number field] $`K`. The index of $`\mathcal{O}` is its index as a sublattice of the {bpref "nf.ring_of_integers"}[ring of integers] of $`K`.
+
+Depends on: {uses "nf"}[] {uses "nf.order"}[] {uses "nf.ring_of_integers"}[]
 :::
 
 :::definition "nf.inertial_height_function" (lean := "NumberField.WeightFunction, NumberField.WeightFunction.localHeight, NumberField.WeightFunction.localHeight_eq, NumberField.WeightFunction.inertialHeight, NumberField.WeightFunction.inertialHeight_indicator")
@@ -333,6 +410,24 @@ $$`K^{\Aut(K/F)} = \{ a\in K \mid \sigma(a)=a\}.`
 Then $`K` is *Galois* over $`F` if $`K^{\Aut(K/F)} = F`.
 :::
 
+:::definition "nf.label"
+*Number field label.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.label))
+
+Each (global) number field has a unique label of the form d.r.D.i where
+<ul>
+<li>$`d` is the {bpref "nf.degree"}[degree];
+<li>$`r` is the real signature;  the full {bpref "nf.signature"}[signature] is therefore $`[r,(d-r)/2]`;
+<li>$`D` is the absolute value of the {bpref "nf.discriminant"}[discriminant];
+<li>$`i` is the index, counting from 1.  This is in case there is more than one
+  field with the same signature and absolute value of the
+  discriminant: for example [4.0.1008.1](/NumberField/4.0.1008.1) and [4.0.1008.2](/NumberField/4.0.1008.2).
+</ul>
+The discriminant portion of the label can take the form $`a_1` e $`\epsilon_1` \textit\{ $`a}2` e $`\epsilon_2` _$`\cdots`_ $`a_k` e $`\epsilon_k` to mean the absolute value of the
+discriminant equals $`a_1^{\epsilon_1}a_2^{\epsilon_2}\cdots a_k^{\epsilon_k}`.  The separators are the letter e and the underscore symbol.
+
+Depends on: {uses "nf.degree"}[] {uses "nf.discriminant"}[] {uses "nf.signature"}[]
+:::
+
 :::definition "nf.local_algebra" (lean := "TensorProduct, Padic, Algebra.Etale.baseChange, Algebra.Etale.iff_exists_algEquiv_prod")
 *Local algebra.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.local_algebra))
 
@@ -372,11 +467,11 @@ The *minimal sibling* of a {bpref "nf"}[number field] is a {bpref "nf.sibling"}[
 
 - its {bpref "nf.degree"}[degree]
 
-- the T-number of its {bpref "nf.galois_group"}[Galois group]
+- the {bpref "gg.tnumber"}[T-number] of its {bpref "nf.galois_group"}[Galois group]
 
 - the absolute value of its {bpref "nf.discriminant"}[discriminant]
 
-- the vector $`(a_0, a_1, \ldots, a_{n-1})` of coefficients of its normalized defining polynomial
+- the vector $`(a_0, a_1, \ldots, a_{n-1})` of coefficients of its {bpref "nf.defining_polynomial.normalization"}[normalized defining polynomial]
 
 $`x^n+a_{n-1} x^{n-1}+\cdots +a_0`
 
@@ -394,9 +489,15 @@ Depends on: {uses "nf"}[] {uses "nf.ring_of_integers"}[]
 :::definition "nf.monomial_order" (lean := "TauCeti.GlobalNumberFields.NumberFieldOrder, TauCeti.NumberField.IntegralPrimitiveElement.adjoin")
 *Monomial order.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.monomial_order))
 
-A *monomial order* in a {bpref "nf"}[number field] $`K` is an {bpref "nf.order"}[order] of the form $`\Z[\alpha]`, where $`\alpha` is an element of $`K`. The element $`\alpha` is necessarily both an {bpref "nf.ring_of_integers"}[algebraic integer] and a primitive element for $`K`.
+A *monomial order* in a {bpref "nf"}[number field] $`K` is an {bpref "nf.order"}[order] of the form $`\Z[\alpha]`, where $`\alpha` is an element of $`K`. The element $`\alpha` is necessarily both an {bpref "nf.ring_of_integers"}[algebraic integer] and a {bpref "nf.primitive_element"}[primitive element] for $`K`.
 
 Depends on: {uses "nf"}[] {uses "nf.order"}[] {uses "nf.ring_of_integers"}[]
+:::
+
+:::definition "nf.multiplicative_gal_module" (lean := "TauCeti.NumberField.Units.unitLatticeSubrep, TauCeti.NumberField.Units.logSpaceRep, NumberField.Units.unitLattice, NumberField.Units.logEmbedding, NumberField.Units.dirichletUnitTheorem.logEmbedding_ker")
+*Multiplicative Galois Module Structure.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.multiplicative_gal_module))
+
+Let $`K` be a number field with Galois closure $`K^{gal}` and $`U` be the group of units of the ring of integers of $`K^{gal}`. Let $`\mu \subset U` be the subgroup of roots of unity which lie in $`K^{gal}`.  Let $`M=U/\mu` be the units modulo its torsion subgroup. This is a lattice which is a module for $`\Z[G]` where $`G=\textrm{Gal}(K^{gal}/\Q)`. We give a decomposition of $`M` as a direct sum of indecomposable submodules.
 :::
 
 :::definition "nf.narrow_class_group" (lean := "NumberField.IsTotallyPositive, NumberField.NarrowClassGroup, NumberField.NarrowClassGroup.toClassGroup, NumberField.narrowPrincipalSubgroup")
@@ -527,6 +628,14 @@ A *prime* $`\mathfrak p` of a {bpref "nf"}[number field] $`K` is a nonzero {bpre
 The ideal $`\mathfrak p \cap\mathcal O_K` is a nonzero prime ideal of $`\Z` (a prime of $`\Q`), which is necessarily a principal ideal $`(p)` for some prime number $`p`.  The prime $`\mathfrak p` is then said to be a *prime above* $`p`.
 
 Depends on: {uses "nf"}[] {uses "nf.ring_of_integers"}[] {uses "ring.prime_ideal"}[]
+:::
+
+:::definition "nf.primitive_element" (lean := "IntermediateField.adjoin, Field.exists_primitive_element")
+*Primitive element.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.primitive_element))
+
+A primitive element for a {bpref "nf"}[number field] $`K` is a {bpref "nf.generator"}[field generator] of $`K`. In other words, it is an element $`\alpha \in K` such that the inclusion $`\Q(\alpha) \subseteq K` is an equality. The _primitive element theorem_ asserts that every {bpref "nf"}[number field] admits a primitive element.
+
+Depends on: {uses "nf"}[] {uses "nf.generator"}[]
 :::
 
 :::definition "nf.radical_discriminant" (lean := "UniqueFactorizationMonoid.radical, NumberField.discr, Int.radical_eq_prod_primeFactors, NumberField.not_dvd_discr_iff_isUnramifiedIn")
@@ -680,6 +789,18 @@ Consequently, any number field whose root discriminant lies below $`\Omega` can 
 Depends on: {uses "lfunction.rh"}[] {uses "nf"}[] {uses "nf.degree"}[] {uses "nf.root_discriminant"}[]
 :::
 
+:::definition "nf.sextic_twin" (lean := "Algebra.IsSexticTwin, Algebra.sexticTwin, Algebra.exists_isSexticTwin, Algebra.IsSexticTwin.nonempty_algEquiv, Equiv.Perm.outerAutFinSix")
+*Twin sextic algebra.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.sextic_twin))
+
+If $`A` is a {bpref "nf.separable_algebra"}[separable algebra] of degree 6 over a field $`F` (so $`\dim_F A=6`), then it has a _twin algebra_ $`B` that is also a separable algebra of degree 6 over $`F`; the $`F`-algebras $`A` and $`B` are related by the non-trivial outer automorphism of $`S_6`.
+
+The symmetric group $`S_n` has a non-trivial outer automorphism if and only if $`n=6`, in which case it is unique up to inner automorphisms.  This automorphism interchanges $`S_5\leq S_6` with $`\PGL_2(5)\leq S_6`.  In terms of Galois theory, this inclusion gives an absolute resolvent of degree $`[G:\PGL_2(5)]=6`.
+
+A common situation is when $`A` is a field but $`B` is not.  Then the nature of the factorization of $`B` assists in the study of $`A`.
+
+Depends on: {uses "nf.separable_algebra"}[]
+:::
+
 :::definition "nf.sibling" (lean := "Algebra.IsSibling, Algebra.galoisClosure, Algebra.isSibling_iff, Algebra.galoisClosure_eq_normalClosure, Algebra.isNormalClosure_galoisClosure")
 *Sibling fields and algebras.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.sibling))
 
@@ -698,6 +819,13 @@ The *signature* of a {bpref "nf"}[number field] $`K` is the pair $`[r_1,r_2]` wh
 The {bpref "nf.degree"}[degree] of $`K` is $`r_1+2r_2`.
 
 Depends on: {uses "nf"}[] {uses "nf.complex_embedding"}[] {uses "nf.degree"}[] {uses "nf.real_embedding"}[]
+:::
+
+:::definition "nf.spectrum_ring_of_integers" (lean := "PrimeSpectrum, AlgebraicGeometry.Spec, NumberField.RingOfIntegers")
+*Prime spectrum of ring of integers in a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.spectrum_ring_of_integers))
+
+The \*(prime) spectrum\* of a ring $`R`, $`\operatorname{Spec} R`, is the set of prime ideals in $`R`. In particular, if $`F` is a number field with ring of integers $`\mathcal{O}_F`, the spectrum $`\operatorname{Spec} \mathcal{O}_F` can be thought of as a curve over
+$`\operatorname{Spec} \mathbb{Z}`.
 :::
 
 :::definition "nf.stem_field" (lean := "IsNormalClosure, IntermediateField.adjoin, AdjoinRoot, IntermediateField.adjoinRootEquivAdjoin")
@@ -781,6 +909,18 @@ The unramified primes of $`K` are the primes which do not divide the {bpref "nf.
 Depends on: {uses "nf"}[] {uses "nf.discriminant"}[]
 :::
 
+:::definition "nf.valuation_equivalence" (lean := "Valuation.IsEquiv, AddValuation.IsEquiv, AbsoluteValue.isEquiv_iff_exists_rpow_eq, AbsoluteValue.IsEquiv")
+*Two notions of equivalence for valuations.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.valuation_equivalence))
+
+Let $`v_1` and $`v_2` are valuations of a ring $`R`, $`p \in \mathbb{R}_{>1}`, and we set $`\lvert x \rvert_1 = p^{-v_1(x)}` and $`\lvert x \rvert_2 = p^{-v_2(x)}`, the following are equivalent:
+
+- there exists a positive real number $`c` such that $`|x|_1 = |x|_2^c` for all $`x\in R`,
+
+- for all elements $`r, s \in R`, $`v_1(r) \le v_1(s)` if and only if $`v_2(r) \le v_2(s)`.
+
+The second form is the definition used in [mathlib](https://leanprover-community.github.io/mathlib4_docs/Mathlib/RingTheory/Valuation/Basic.html#Valuation.IsEquiv).
+:::
+
 :::definition "nf.weil_height"
 *Weil height.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.weil_height))
 
@@ -823,7 +963,7 @@ Depends on: {uses "ag.abelian_variety"}[] {uses "av.simple"}[]
 :::definition "nf.zk_index" (lean := "NumberField.fieldIndex, NumberField.dvd_fieldIndex_iff, TauCeti.NumberField.IntegralPrimitiveElement.index, NumberField.isCommonIndexDivisor_iff_dvd_fieldIndex, NumberField.fieldIndex_eq_one_of_isMonogenic")
 *Index of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.zk_index))
 
-If $`K` is a {bpref "nf"}[number field] with {bpref "nf.ring_of_integers"}[ring of integers] $`\mathcal{O}_K`, then for all $`\alpha\in\mathcal{O}_K` such that $`K=\Q(\alpha)`, the index of $`\alpha`, $`i(\alpha)` is the index of the {bpref "nf.order"}[order] $`\Z[\alpha]`.
+If $`K` is a {bpref "nf"}[number field] with {bpref "nf.ring_of_integers"}[ring of integers] $`\mathcal{O}_K`, then for all $`\alpha\in\mathcal{O}_K` such that $`K=\Q(\alpha)`, the index of $`\alpha`, $`i(\alpha)` is the {bpref "nf.index"}[index] of the {bpref "nf.order"}[order] $`\Z[\alpha]`.
 
 The *index of the number field* is the greatest common divisor of all $`i(\alpha)` with $`\alpha` as above.
 

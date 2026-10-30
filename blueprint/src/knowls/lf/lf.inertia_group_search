@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lf.inertia_group_search}{Inertia group searching}}
 \begin{definition}\label{lf.inertia_group_search}
-\uses{gg.galois_group,gg.label,group.small_group_label,lf.defining_polynomial,lf.inertia_group,lf.unramified_degree,nf.galois_group.name,ring.irreducible}
+\uses{gg.galois_group,gg.label,group.small_group_label,lf.defining_polynomial,lf.inertia_group,lf.unramified_degree,ring.irreducible}
 \leanok
 {{KNOWL\_INC('lf.inertia\_group')}}
 

@@ -11,6 +11,12 @@ open Informal
 
 This chapter lists the LMFDB definitions relating to *groups*, migrated from the LaTeX blueprint. Each definition links back to its LMFDB knowl. The definitions from this area that the number field, elliptic curve and modular form chapters depend on are in the Background chapter instead.
 
+:::definition "commensurable.group" (lean := "Subgroup.Commensurable, Subgroup.IsFiniteRelIndex")
+*commensurable group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/commensurable.group))
+
+Two groups $`G` and $`H` are commensurable if their intersection $`G \cap H` has finite index in $`G` and in $`H`.
+:::
+
 :::definition "gl2.genus" (lean := "Matrix.GeneralLinearGroup.adelicGenus, Matrix.GeneralLinearGroup.padicGenus, Matrix.GeneralLinearGroup.reductionGenus, Subgroup.modularGenusFormula, Subgroup.numFixedRightCosets")
 *Genus of a subgroup of $`\GL_2`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gl2.genus))
 
@@ -98,12 +104,46 @@ The action is *transitive* if for all $`a,b\in A`, there exists $`g\in G` such t
 Depends on: {uses "alg.binary_operation.identity"}[] {uses "group"}[]
 :::
 
+:::definition "group.affine_general_linear" (lean := "AffineEquiv.group, AffineEquiv.linearHom, AffineEquiv.constVAddHom, GaloisField")
+*Affine general linear group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.affine_general_linear))
+
+The {bpref "group.general_linear"}[general linear group] $`\GL(n,q)` acts on the vector space $`\F_q^n` by matrix multiplication. The affine general linear group is the group $`\AGL(n,q) = \F_q^n \rtimes \GL(n,q)`. It is the group of all invertible affine transformations of $`\F_q^n`.
+
+Depends on: {uses "group.general_linear"}[]
+:::
+
+:::definition "group.affine_linear_automorphism" (lean := "AffineEquiv.AffineGeneralSemilinearGroup, AffineEquiv.AffineSpecialSemilinearGroup, AffineEquiv.conjAlgEquivHom, AffineEquiv.conjAlgEquiv_apply_eq_mulVec_add, AffineEquiv.conjAlgEquiv_mem_affineSpecialLinearGroup")
+*Affine linear group twisted by automorphisms.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.affine_linear_automorphism))
+
+The group $`\AGammaL(n,q)` is the semi-direct product of $`\AGL(n,q)`, the {bpref "group.affine_general_linear"}[affine general linear group], with the group $`A` of field automorphisms of $`\F_q/\F_p`.
+
+Similarly, the group $`\ASigmaL(n,q)` is the semi-direct product of $`\ASL(n,q)`, the {bpref "group.affine_special_linear"}[affine special linear group], with $`A`.
+
+Depends on: {uses "group.affine_general_linear"}[] {uses "group.affine_special_linear"}[]
+:::
+
+:::definition "group.affine_special_linear" (lean := "AffineEquiv.affineSpecialLinearGroup, AffineEquiv.mem_affineSpecialLinearGroup_iff_det, AffineEquiv.apply_eq_mulVec_add, AffineEquiv.group, AffineEquiv.linearHom")
+*Affine special linear group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.affine_special_linear))
+
+The affine special linear group $`\ASL(n,q)` is the subgroup of the {bpref "group.affine_general_linear"}[affine general linear group] $`\AGL(n,q) = \F_q^n \rtimes \GL(n,q)` of all affine transformations $`x \mapsto Mx + v` such that $`\det(M)=1`. It is the affine analogue of the {bpref "group.special_linear"}[special linear group].
+
+Depends on: {uses "group.affine_general_linear"}[] {uses "group.special_linear"}[]
+:::
+
+:::definition "group.affine_symplectic" (lean := "AffineEquiv.affineSymplecticGroup, AffineEquiv.mem_affineSymplecticGroup_iff, AffineEquiv.linearMatrixHom, Matrix.symplecticGroup, TauCeti.GLSymplectic")
+*Affine symplectic group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.affine_symplectic))
+
+The affine symplectic group $`\ASp(n,q)` is the subgroup of the {bpref "group.affine_general_linear"}[affine general linear group] $`\AGL(n,q) = \F_q^n \rtimes \GL(n,q)` of all affine transformations $`x \mapsto Mx + v` such that $`M` is an element of the {bpref "group.symplectic"}[symplectic group] $`\Sp(n,q)`.
+
+Depends on: {uses "group.affine_general_linear"}[] {uses "group.symplectic"}[]
+:::
+
 :::definition "group.almost_simple" (lean := "IsAlmostSimple, IsSimpleGroup.isAlmostSimple")
 *Almost simple group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.almost_simple))
 
 An *almost simple group* is a group $`G` that lies between a non-abelian {bpref "group.simple"}[simple] group $`S` and its {bpref "group.automorphism"}[automorphism] group Aut$`(S)`, i.e. $`S \subseteq G \subseteq`Aut$`(S).`
 
-Every non-abelian simple group is almost simple, but it is not implied by $`G` being quasisimple, as shown by [these examples](https://beta.lmfdb.org/Groups/Abstract/?almost_simple=yes&quasisimple=no).
+Every non-abelian simple group is almost simple, but it is not implied by $`G` being {bpref "group.quasisimple"}[quasisimple], as shown by [these examples](https://beta.lmfdb.org/Groups/Abstract/?almost_simple=yes&quasisimple=no).
 
 Depends on: {uses "group.automorphism"}[] {uses "group.simple"}[]
 :::
@@ -122,6 +162,17 @@ Depends on: {uses "group.order"}[] {uses "group.simple"}[] {uses "group.solvable
 If $`H \subseteq G` is a {bpref "group.subgroup"}[subgroup], we refer to $`G` as the *ambient group* of $`H`.
 
 Depends on: {uses "group.subgroup"}[]
+:::
+
+:::definition "group.aut_phi_ratio" (lean := "Group.autPhiRatio, IsCyclic.autPhiRatio_eq_one, IsCyclic.card_mulAut, MulAut, Nat.totient")
+*$`\phi`-ratio.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.aut_phi_ratio))
+
+Given a {bpref "group"}[group] $`G` and its {bpref "group.automorphism"}[automorphism] group $`A`, the $`\phi`-ratio is the size of the automorphism group divided by $`\phi(G)` where $`\phi` represents Euler's totient function, that is
+$$`|A|/\phi(G).`
+
+For {bpref "group.cyclic"}[cyclic] groups, the size of their automorphism group is always $`\phi(G)` and hence this ratio is $`1`.
+
+Depends on: {uses "group"}[] {uses "group.automorphism"}[] {uses "group.cyclic"}[]
 :::
 
 :::definition "group.autjugacy_class" (lean := "MulAction.orbit, MulAut, MulAut.applyMulAction")
@@ -159,6 +210,14 @@ A subset, or {bpref "group.subgroup"}[subgroup], $`H` of a {bpref "group"}[group
 $`gh=hg` for all $`g\in G` and all $`h\in H`.  Equivalently, it is central if and only if it is a subset of the {bpref "group.center"}[center] of the group.
 
 Depends on: {uses "group"}[] {uses "group.center"}[] {uses "group.subgroup"}[]
+:::
+
+:::definition "group.central_quotient" (lean := "Subgroup.center, QuotientGroup.Quotient.group, MulAut.conj, MulAut.ker_conj, QuotientGroup.quotientKerEquivRange")
+*Central quotient.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.central_quotient))
+
+The central quotient of a {bpref "group"}[group] $`G` is $`G/Z(G)`, where $`Z(G)` is the {bpref "group.center"}[center] of $`G`. The central quotient is isomorphic to the group of {bpref "group.inner_automorphism"}[inner automorphisms] of $`G`.
+
+Depends on: {uses "group"}[] {uses "group.center"}[] {uses "group.inner_automorphism"}[]
 :::
 
 :::definition "group.centralizer" (lean := "Subgroup.centralizer, Subgroup.mem_centralizer_iff")
@@ -251,6 +310,14 @@ If $`G` is a {bpref "group"}[group] and $`x\in G`, the *conjugacy class* of $`x`
 Since conjugation by fixed $`g\in G` is an {bpref "group.automorphism"}[automorphism] of $`G`, all conjugate elements have the same {bpref "group.element_order"}[order] in the group.
 
 Depends on: {uses "group"}[] {uses "group.automorphism"}[] {uses "group.element_order"}[]
+:::
+
+:::definition "group.conjugacy_class.power_classes" (lean := "ConjClasses.pow, ConjClasses.mk_pow")
+*Power classes.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.conjugacy_class.power_classes))
+
+If $`G` is a {bpref "group"}[group], $`g\in G` is an element of a {bpref "group.conjugacy_class"}[conjugacy class] $`P`, and $`n` is a positive integer, then $`nP` denotes the conjugacy class of the element $`g^n`.
+
+Depends on: {uses "group"}[] {uses "group.conjugacy_class"}[]
 :::
 
 :::definition "group.core" (lean := "Subgroup.normalCore, Subgroup.normalCore_eq_iSup")
@@ -429,7 +496,7 @@ Given a prime power $`q`, the *Frobenius group* $`F_q` is the group of invertibl
 
 $$`F_q := \{ \varphi : \F_q \to \F_q \mid \exists a, b \in \F_q \text{ such that } a \neq 0 \text{ and } \varphi(x) = ax + b \text{ for all } x \in \F_q \}`
 
-where the usual composition of maps is the group operation. It has {bpref "group.order"}[order] $`q(q-1)` and is a {bpref "group.z_group"}[Z-group] (and hence is metacyclic and {bpref "group.solvable"}[solvable]).
+where the usual composition of maps is the group operation. It has {bpref "group.order"}[order] $`q(q-1)` and is a {bpref "group.z_group"}[Z-group] (and hence is {bpref "group.metacyclic"}[metacyclic] and {bpref "group.solvable"}[solvable]).
 
 Depends on: {uses "group.order"}[] {uses "group.solvable"}[] {uses "group.z_group"}[]
 :::
@@ -448,6 +515,19 @@ $$`\text{covol}(G)=\int_{\mathfrak{F}(G)}d\mu<\infty,`
 where $`\mathfrak{F}(G)` is the {bpref "group.fuchsian.fundamental_domain"}[fundamental domain] of $`G`.
 
 Depends on: {uses "group.fuchsian.fundamental_domain"}[] {uses "mf.upper_half_plane"}[]
+:::
+
+:::definition "group.fuchsian.action" (lean := "UpperHalfPlane.SLAction, UpperHalfPlane.coe_specialLinearGroup_apply, UpperHalfPlane.specialLinearGroup_apply")
+*Action of $`\SL(2,\R)` in the upper half-plane.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.fuchsian.action))
+
+The group $`\SL(2,\R)` acts on the {bpref "mf.upper_half_plane"}[upper half-plane] via
+<b>linear fractional transformation</b>, given by
+
+$$`\begin{pmatrix}a&b\\c&d \end{pmatrix}(z)
+ =
+\frac{a z + b}{c z + d} .`
+
+Depends on: {uses "mf.upper_half_plane"}[]
 :::
 
 :::definition "group.gassmann_equivalence"
@@ -556,7 +636,7 @@ Depends on: {uses "group.commutator_subgroup"}[] {uses "group.derived_series"}[]
 
 The *label* for a {bpref "group"}[group] $`G` has the form $`\mathtt{N.i}`, where $`\mathtt{N}` is the {bpref "group.order"}[order] of the group and $`\mathtt{i}` is the small group id that distinguishes groups of the same order (as determined in GAP). If a group is not in GAP Small Groups database, we replace $`\mathtt{i}` with an incrementing letter code, assigning labels to groups as they are added to our database.
 
-Subgroups are labeled using the ambient group, index, and an ordering of subgroups up to automorphism and then up to conjugacy with the same  invariants.
+Subgroups are {bpref "group.subgroup_label"}[labeled] using the ambient group, index, and an ordering of subgroups up to automorphism and then up to conjugacy with the same  invariants.
 
 Depends on: {uses "group"}[] {uses "group.order"}[]
 :::
@@ -587,6 +667,20 @@ The *label of a rational character* of a {bpref "group"}[group] has the form $`N
 Depends on: {uses "group"}[]
 :::
 
+:::definition "group.linear" (lean := "TauCeti.GeneralLinear.hopfIdealPointsSubgroup, TauCeti.HopfIdeal, TauCeti.GeneralLinear.coordinateHopfAlgebra, TauCeti.ProjectiveGeneralLinear.coordinateHopfAlgebra, Matrix.ProjGenLinGroup")
+*Linear and Projective Linear Groups.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.linear))
+
+Over any field $`K`, linear group usually refers to an algebraic group which is a (Zariski closed) subgroup of the general linear group GL$`(n,K)` of invertible $`n\times n` matrices with coefficients in $`K`. Similarly, projective linear group refers to a closed subgroup of $`\text{PGL}(n,K)=\text{GL}(n,K)/\{\text{scalar matrices}\}`, the group of linear automorphisms of the projective $`n`-space. When $`K=\mathbb{F}_q` is a finite field, these groups are finite, and often simple or almost simple, and so they play an important role in the classification of finite simple groups.
+:::
+
+:::definition "group.linear_automorphism" (lean := "Matrix.GeneralSemilinearGroup, Matrix.SpecialSemilinearGroup, Matrix.ProjectiveGeneralSemilinearGroup, Matrix.ProjectiveSpecialSemilinearGroup, Matrix.GeneralLinearGroup.entrywiseAut")
+*Linear group twisted by automorphisms.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.linear_automorphism))
+
+The group $`\Gamma\mathrm{L} (n,q)` is the semi-direct product of $`\GL(n,q)` with the group of field automorphisms $`A = \Aut(\F_q / \F_p)`, acting $`\GL(n,q)` entry-wise. Similarly, $`\Sigma \mathrm{L}(n,q)` is the semi-direct product of $`\SL(n,q)` with $`A`.
+
+The projective linear groups twisted by automorphisms are $`\PGammaL(n,q)` and $`\PSigmaL(n,q)`, the quotients of $`\Gamma \mathrm{L}(n,q)` and $`\Sigma \mathrm{L}(n,q)`, respectively, by their subgroups of scalar matrices.
+:::
+
 :::definition "group.lower_central_series" (lean := "Subgroup.lowerCentralSeries, Subgroup.nilpotent_iff_lowerCentralSeries")
 *Lower central series of a group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.lower_central_series))
 
@@ -603,6 +697,16 @@ Then, $`G` is {bpref "group.nilpotent"}[nilpotent] if and only if $`G^k =\langle
 Depends on: {uses "group"}[] {uses "group.nilpotent"}[] {uses "group.normal_series"}[] {uses "group.subgroup"}[]
 :::
 
+:::definition "group.matrix_group" (lean := "Matrix.GeneralLinearGroup, Subgroup")
+*Matrix group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.matrix_group))
+
+A matrix group is a subgroup of $`\GL_n(R)` for some commutative ring $`R`.
+
+A given abstract group may have more than one presentation as a matrix group over different rings $`R`.
+
+The value $`z_k` in a given matrix represents a primitive element of the finite field $`\F_{p^k}` for some prime $`p`.
+:::
+
 :::definition "group.maximal_quotient" (lean := "MonoidHom.IsMaximalQuotient, QuotientGroup.isMaximalQuotient_mk'")
 *Maximal quotient of a group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.maximal_quotient))
 
@@ -614,23 +718,65 @@ Depends on: {uses "group"}[] {uses "group.minimal_normal"}[] {uses "group.quotie
 :::definition "group.metabelian" (lean := "IsMetabelian, isMetabelian_iff_exists_normal, isMetabelian_iff_derivedSeries_two")
 *Metabelian group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.metabelian))
 
-A finite group $`G` is *metabelian* if its commutator subgroup is abelian. Equivalently, $`G` is an extension of an abelian group by an abelian group. Metabelian groups are {bpref "group.solvable"}[solvable], and they include all {bpref "group.abelian"}[abelian], {bpref "group.dihedral"}[dihedral], {bpref "group.generalized_quaternion"}[quaternion], metacyclic, extra​special groups and groups of $`p`-rank one.
+A finite group $`G` is *metabelian* if its commutator subgroup is abelian. Equivalently, $`G` is an extension of an abelian group by an abelian group. Metabelian groups are {bpref "group.solvable"}[solvable], and they include all {bpref "group.abelian"}[abelian], {bpref "group.dihedral"}[dihedral], {bpref "group.generalized_quaternion"}[quaternion], {bpref "group.metacyclic"}[metacyclic], extra​special groups and groups of $`p`-rank one.
 
-Every metacylic group is metabelian, but the converse does not hold, as shown by [these examples](https://beta.lmfdb.org/Groups/Abstract/?metacyclic=no&metabelian=yes).
+Every {bpref "group.metacyclic"}[metacylic] group is metabelian, but the converse does not hold, as shown by [these examples](https://beta.lmfdb.org/Groups/Abstract/?metacyclic=no&metabelian=yes).
 
 Depends on: {uses "group.abelian"}[] {uses "group.dihedral"}[] {uses "group.generalized_quaternion"}[] {uses "group.solvable"}[]
+:::
+
+:::definition "group.metacyclic" (lean := "IsMetacyclic, IsMetacyclic.isSupersolvable, IsZGroup.isMetacyclic, IsKleinFour.isMetacyclic, IsKleinFour.not_isZGroup")
+*Metacyclic group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.metacyclic))
+
+A metacyclic group is an {bpref "group.nonsplit_product"}[extension] of a cyclic group by a cyclic group.  All metacyclic groups are {bpref "group.supersolvable"}[supersolvable] and in particular {bpref "group.monomial"}[monomial].
+
+Every {bpref "group.z_group"}[Z-group] is metacyclic, but the converse does not hold, as shown by [these examples](https://beta.lmfdb.org/Groups/Abstract/?metacyclic=yes&Zgroup=no).
+
+Depends on: {uses "group.monomial"}[] {uses "group.nonsplit_product"}[] {uses "group.supersolvable"}[] {uses "group.z_group"}[]
+:::
+
+:::definition "group.min_complex_irrep_deg" (lean := "irreducibleDegree, Matrix.GeneralLinearGroup.representation")
+*Minimal degree of a complex irrep.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.min_complex_irrep_deg))
+
+The smallest positive integer $`d` such that the group $`G` admits a {bpref "group.representation.faithful"}[faithful] {bpref "group.representation.irrep"}[irreducible] complex representation of degree $`d`.
+
+Depends on: {uses "group.representation.faithful"}[] {uses "group.representation.irrep"}[]
+:::
+
+:::definition "group.min_complex_rep_deg" (lean := "linearDegree")
+*Minimal degree of a complex representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.min_complex_rep_deg))
+
+The smallest positive integer $`d` such that the group $`G` admits a {bpref "group.representation.faithful"}[faithful] complex representation of degree $`d`.
+
+Depends on: {uses "group.representation.faithful"}[]
 :::
 
 :::definition "group.min_faithful_linear" (lean := "linearDegree, irreducibleDegree, Matrix.GeneralLinearGroup.representation")
 *Minimal faithful linear representations.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.min_faithful_linear))
 
-A {bpref "group"}[group] $`G` can always be represented as a matrix group, but the degree of the matrix group is constrained both by $`G` and the {bpref "ring"}[ring] $`R` from which the matrix entries are drawn.  The *linear degree* $`\operatorname{lin}_R(G)` is the minimal degree $`n` of a {bpref "group.representation.faithful"}[faithful] {bpref "group.representation.irrep"}[linear representation] $`\rho : G \hookrightarrow \GL_n(R)`, and the *irreducible degree* $`\operatorname{irr}_R(G)` is the minimal degree $`n` of a faithful {bpref "group.representation.irrep"}[irreducible] representation $`\rho: G \hookrightarrow \GL_n(R)`.  Note that, while a faithful linear representation always exists, there may be no faithful irreducible representations of $`G` (in which case we conventionally set $`\operatorname{irr}_R(G) = -1`).
+A {bpref "group"}[group] $`G` can always be represented as a {bpref "group.matrix_group"}[matrix group], but the degree of the matrix group is constrained both by $`G` and the {bpref "ring"}[ring] $`R` from which the matrix entries are drawn.  The *linear degree* $`\operatorname{lin}_R(G)` is the minimal degree $`n` of a {bpref "group.representation.faithful"}[faithful] {bpref "group.representation.irrep"}[linear representation] $`\rho : G \hookrightarrow \GL_n(R)`, and the *irreducible degree* $`\operatorname{irr}_R(G)` is the minimal degree $`n` of a faithful {bpref "group.representation.irrep"}[irreducible] representation $`\rho: G \hookrightarrow \GL_n(R)`.  Note that, while a faithful linear representation always exists, there may be no faithful irreducible representations of $`G` (in which case we conventionally set $`\operatorname{irr}_R(G) = -1`).
 
 For fields $`R` of {bpref "ring.characteristic"}[characteristic] 0, these values can be characterized in terms of the {bpref "group.complex_character_table"}[character table] of $`G`.  A {bpref "group.representation.character"}[character] $`\chi` of degree $`n` is faithful if the only $`g \in G` with $`\chi(g) = n` is $`g=1`.  The value $`\operatorname{irr}_{\mathbb{C}}(G)` can thus be read off of the character table, but computing $`\operatorname{lin}_{\mathbb{C}}(G)` requires finding linear combinations of characters that are faithful.
 
 For fields $`k` that are not algebraically closed, summing over Galois orbits of complex characters yields {bpref "group.representation.rational_character"}[characters with values in $`k`], and the resulting characters will be faithful if and only if each of the summands is.  However, the {bpref "group.representation.schur_index"}[Schur index] now plays a role, since multiple copies of the given $`k`-values character may be needed in order to produce an actual representation with matrix entries in $`k`.  Both $`\operatorname{lin}_R(G)` and $`\operatorname{irr}_R(G)` are defined in terms of the matrix degree of a representation, which may be larger than the degree of a minimal faithful $`k`-valued character.
 
 Depends on: {uses "group"}[] {uses "group.complex_character_table"}[] {uses "group.representation.character"}[] {uses "group.representation.faithful"}[] {uses "group.representation.irrep"}[] {uses "group.representation.rational_character"}[] {uses "group.representation.schur_index"}[] {uses "ring"}[] {uses "ring.characteristic"}[]
+:::
+
+:::definition "group.min_rational_irrep_deg" (lean := "irreducibleDegree, Matrix.GeneralLinearGroup.representation")
+*Minimal degree of a rational irrep.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.min_rational_irrep_deg))
+
+The smallest positive integer $`d` such that the group $`G` admits a {bpref "group.representation.faithful"}[faithful] {bpref "group.representation.irrep"}[irreducible] rational representation of degree $`d`.
+
+Depends on: {uses "group.representation.faithful"}[] {uses "group.representation.irrep"}[]
+:::
+
+:::definition "group.min_rational_rep_deg" (lean := "linearDegree")
+*Minimal degree of a rational representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.min_rational_rep_deg))
+
+The smallest positive integer $`d` such that the group $`G` admits a {bpref "group.representation.faithful"}[faithful] rational representation of degree $`d`.
+
+Depends on: {uses "group.representation.faithful"}[]
 :::
 
 :::definition "group.minimal_normal" (lean := "Subgroup.IsMinimalNormal, Subgroup.isMinimalNormal_iff")
@@ -697,6 +843,30 @@ If no such subgroup $`\tilde Q` exists, then $`G` is a *non-split extension* of 
 Depends on: {uses "group"}[] {uses "group.quotient"}[] {uses "group.semidirect_product"}[] {uses "group.subgroup.normal"}[]
 :::
 
+:::definition "group.omega"
+*Omega (Lie group).* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.omega))
+
+The groups $`\Omega(n,q)` and $`\Omega^{\pm}(n,q)` are subgroups of the {bpref "group.orthogonal"}[special orthogonal groups] $`\SO(n,q)` and $`\SO^{\pm}(n,q)`. Their specific definitions depend on the properties of $`n` and $`q`.
+
+When $`n` is odd, $`\Omega(n,q)` is a subgroup of $`\SO(n,q)`. If $`q` is odd, $`\Omega(n,q)` is the kernel of the {bpref "group.spinor_norm"}[spinor norm map] $`\SO(n,q) \to (\F_q^\times)/(\F_q^\times)^2`, and is an index $`2` subgroup of $`\SO(n,q)`. When $`q` is even, we define $`\Omega(n,q) = \SO(n,q)`.
+
+When $`n` is even, $`\Omega^{\pm}(n,q)` is a subgroup of $`\SO^{\pm}(n,q)`. To define it, we use the _quasideterminant_ map, sending $`g \in \SO(n,q)` to $`(-1)^d`, where $`d` is the dimension of the subspace of $`V = \F_q^n` fixed by $`g`. Then $`\Omega^{\pm}(n,q)` is the kernel of this map, i.e. all those $`g` fixing an even-dimensional subspace of $`V`.
+
+The groups $`\POmega(n,q)` are $`\POmega^{\pm}(n,q)` are the quotients of $`\Omega(n,q)` and $`\Omega^{\pm}(n,q)`, respectively, by their subgroups of scalar matrices.
+
+(see , pages xi-xii)
+
+Depends on: {uses "group.orthogonal"}[] {uses "group.spinor_norm"}[]
+:::
+
+:::definition "group.order_conjugacy_class" (lean := "IsConj.orderOf_eq, SemiconjBy.orderOf_eq, ConjClasses")
+*Order of elements in a conjugacy class.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.order_conjugacy_class))
+
+All elements in a particular {bpref "group.conjugacy_class"}[conjugacy class] are of the same {bpref "group.element_order"}[order] in the group.
+
+Depends on: {uses "group.conjugacy_class"}[] {uses "group.element_order"}[]
+:::
+
 :::definition "group.order_stats" (lean := "Monoid.orderStatistics, Monoid.count_orderStatistics")
 *Order statistics of a group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.order_stats))
 
@@ -753,6 +923,40 @@ Depends on: {uses "group"}[] {uses "group.automorphism"}[] {uses "group.inner_au
 If $`H \subseteq G` is a {bpref "group.subgroup"}[subgroup], an *over-subgroup* is a subgroup $`K \subseteq G` with $`H \subseteq K`.  A *minimal over-subgroup* is an over-subgroup $`K \ne H` that is minimal with respect to inclusion.
 
 Depends on: {uses "group.subgroup"}[]
+:::
+
+:::definition "group.paramodular" (lean := "SymplecticGroup.paramodular, SymplecticGroup.mem_paramodular_iff, SymplecticGroup.paramodularGL")
+*Paramodular group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.paramodular))
+
+The paramodular group $`K(N)` of level $`N` is defined as
+
+$$`K(N)=\left\{
+\left(\begin{matrix}
+ * & N* & * &*\\
+* & * & * & */N\\
+* & N* &*&*\\
+N*&N*&N*&*
+\end{matrix}\right)
+:
+*\in{\Bbb Z}\right\}\cap \mathrm{Sp}(4, {\Bbb Q})`
+
+where  $`\mathrm{Sp}(4, {\Bbb Q})`
+is the {bpref "group.sp2gr"}[symplectic group]
+with rational entries.
+
+The paramodular group is defined more intrinsically as the stabilizer in $`\Sp(4,\Q)`
+of $`\Z\oplus\Z\oplus\Z\oplus N\Z` (column vectors).
+Thus it comprises the $`\Sp(4,\Q)` matrices
+
+$$`\left(\begin{matrix}
+ * & * & * &*/N\\
+* & * & * & */N\\
+* & * &*&*/N\\
+N*&N*&N*&*\end{matrix}\right)`
+
+but the symplectic conditions imply that such matrices satisfy the stronger entrywise conditions shown above.
+
+Depends on: {uses "group.sp2gr"}[]
 :::
 
 :::definition "group.perfect" (lean := "Group.IsPerfect")
@@ -815,6 +1019,16 @@ Depends on: {uses "group"}[] {uses "group.subgroup"}[]
 The *projective special linear group* $`\text{PSL}_2(\mathbb{R})` is defined as the quotient $`\text{PSL}_2(\mathbb{R})=\text{SL}_2(\mathbb{R})/\{\pm I\}`.
 :::
 
+:::definition "group.quasisimple" (lean := "IsQuasisimple, isQuasisimple_iff_isSimpleGroup_quotient_center, IsSimpleGroup.isQuasisimple, Group.IsPerfect, IsSimpleGroup")
+*Quasisimple group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.quasisimple))
+
+A quasisimple group is a {bpref "group.perfect"}[perfect] group that is a central extension of a {bpref "group.simple"}[simple] group.
+
+Every {bpref "group.abelian"}[nonabelian] simple group is quasisimple, but it is not implied by $`G` being {bpref "group.almost_simple"}[almost simple], as shown by [these examples](https://beta.lmfdb.org/Groups/Abstract/?almost_simple=no&quasisimple=yes).
+
+Depends on: {uses "group.abelian"}[] {uses "group.almost_simple"}[] {uses "group.perfect"}[] {uses "group.simple"}[]
+:::
+
 :::definition "group.quotient" (lean := "QuotientGroup.Quotient.group, QuotientGroup.mk'")
 *Quotient group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.quotient))
 
@@ -825,6 +1039,14 @@ $$`(aN)*(bN) = (ab)N`
 is well-defined.  The result is a group, called a *quotient group* of $`G` by $`N`.
 
 Depends on: {uses "group"}[] {uses "group.coset"}[] {uses "group.subgroup.normal"}[]
+:::
+
+:::definition "group.quotient_size" (lean := "Subgroup.index, Subgroup.index_eq_card, QuotientGroup.Quotient.group")
+*Size of a quotient.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.quotient_size))
+
+The size of the quotient of a finite group by a subgroup is the number of corresponding {bpref "group.coset"}[cosets].  When the subgroup is normal, this number is the order of the {bpref "group.quotient"}[quotient group].
+
+Depends on: {uses "group.coset"}[] {uses "group.quotient"}[]
 :::
 
 :::definition "group.radical" (lean := "Subgroup.solvableRadical, Subgroup.isSolvable_solvableRadical, Subgroup.le_solvableRadical, Subgroup.isSolvable_sup")
@@ -919,6 +1141,14 @@ The *kernel* of the {bpref "group.representation.character"}[character] $`\chi` 
 $$`\ker(\chi)=\{g \in G : \chi(g)=\chi(1)\}.`
 
 Depends on: {uses "group.representation.character"}[]
+:::
+
+:::definition "group.representation.min_perm_rep"
+*Minimum permutation representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.representation.min_perm_rep))
+
+The smallest permutation representation containing the given {bpref "group.representation.character"}[character] $`\chi`, as a {bpref "gg.tnumber"}[transitive group].
+
+Depends on: {uses "gg.tnumber"}[] {uses "group.representation.character"}[]
 :::
 
 :::definition "group.representation.rational_character"
@@ -1027,6 +1257,19 @@ A conjugacy class is of size $`1` if and only if the element is in the {bpref "g
 Depends on: {uses "group.center"}[] {uses "group.conjugacy_class"}[] {uses "group.order"}[]
 :::
 
+:::definition "group.sl2z.fundamental_domain" (lean := "ModularGroup.isFundamentalDomain_fd, ModularGroup.fd, ModularGroup.IsFundamentalDomain, UpperHalfPlane.Completed")
+*Fundamental domain of $`\SL(2,\Z)`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.sl2z.fundamental_domain))
+
+Let $`\mathfrak{F}` be the following set:
+
+$$`\mathfrak{F}=\{z\in\mathcal{H} : |z|\geq1 \text{ and
+} |\Re(z)|\leq1/2\}\cup\{\infty\}.`
+
+Then $`\mathfrak{F}` is a {bpref "group.fuchsian.fundamental_domain"}[fundamental domain] for the action of $`\Gamma` on $`\mathcal{H}`.
+
+Depends on: {uses "group.fuchsian.fundamental_domain"}[]
+:::
+
 :::definition "group.sl2z.genus_subgroup"
 *Genus of a subgroup of the modular group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.sl2z.genus_subgroup))
 
@@ -1035,6 +1278,37 @@ The *genus* of a finite index subgroup $`G` of the {bpref "group.sl2z"}[modular 
 Here $`\mathcal{H}` denotes the complex upper halfplane  on which $`G` acts by linear fractional transformations, and $`G\backslash \mathcal{H}` denotes the quotient of $`\mathcal{H}` by this action (points of $`G\backslash\mathcal{H}` correspond to $`G`-orbits in $`\mathcal{H}`).
 
 Depends on: {uses "ag.riemann_surface"}[] {uses "group.fuchsian.cusps"}[] {uses "group.sl2z"}[]
+:::
+
+:::definition "group.sl2z.subgroup.gamma0n" (lean := "CongruenceSubgroup.Gamma0, CongruenceSubgroup.Gamma0_mem")
+The group $`\Gamma_0(N)` is the subgroup of $`\textrm{SL}(2,\mathbb{Z})` that consists of matrices whose lower-left entry is 0 modulo $`N`.  That is,
+
+$$`\Gamma_0(N) = \left\lbrace \left .\begin{pmatrix} a & b \\ c & d \end{pmatrix}\in \textrm{SL}(2,\mathbb{Z})\ \right|\  c\equiv 0 \bmod N \right\rbrace.`
+:::
+
+:::definition "group.sl2z.subgroup.gamma1n" (lean := "CongruenceSubgroup.Gamma1, CongruenceSubgroup.Gamma1_mem")
+The group $`\Gamma_1(N)` is the subgroup of $`\textrm{SL}(2,\mathbb{Z})` defined
+by the congruences:
+
+$$`\Gamma_1(N) = \left\lbrace \left .\begin{pmatrix} a & b \\ c & d \end{pmatrix}\in \textrm{SL}(2,\mathbb{Z})\ \right| \ c\equiv 0,\ a \equiv d\equiv 1 \bmod N \right\rbrace.`
+:::
+
+:::definition "group.sl2z.subgroup.gamman" (lean := "CongruenceSubgroup.Gamma, CongruenceSubgroup.Gamma_mem")
+The group $`\Gamma(N)` is the subgroup of {bpref "group.sl2z"}[$`\SL(2,\mathbb{Z})`]  that consists of matrices congruent to the identity matrix modulo $`N`.  That is,
+
+$$`\Gamma(N)=\left\{ \begin{pmatrix} a&b\\ c&d \end{pmatrix}\in\textrm{SL}(2,\mathbb{Z})\ \Bigg|\  \begin{pmatrix} a & b \\ c & d \end{pmatrix}\equiv \begin{pmatrix} 1&0\\ 0&1 \end{pmatrix} \bmod N \right\} .`
+
+Depends on: {uses "group.sl2z"}[]
+:::
+
+:::definition "group.small_group_label"
+*Labels for the small group database in GAP and Magma.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.small_group_label))
+
+The computer algebra systems GAP and Magma both include a database of small groups that includes all groups of order up to 2000, except for groups of order 1024. Groups in this database are identified by an ordered pair $`[n,d]` where $`n` is the order of the group and $`d` is a positive integer that distinguishes the group from others of the same order (the value of $`d` is the same in both GAP and Magma).
+
+In both systems, the command "SmallGroup($`n`,$`d`)" will return an explicit representation of the group in terms of generators and relations.
+
+Magma also associates a descriptive name to each small group.  For example, the command "GroupName(SmallGroup(24,3))" returns the string "SL(2,3)".
 :::
 
 :::definition "group.socle" (lean := "Subgroup.socle, Subgroup.le_socle")
@@ -1082,6 +1356,102 @@ $`\Sp(2g,\R)` is a subgroup of $`\SL(2g,\R)`.
 
 The *integral symplectic group* $`\Gamma_g=\Sp(2g,\Z)`, also called the Siegel modular group,
 is defined as  $`\Gamma_g=\Sp(2g,\R)\cap{\rm M}(2g,\Z)`. Clearly $`\Gamma_1=\SL(2,\Z)`.
+:::
+
+:::definition "group.sp2gr.gamma0" (lean := "SymplecticGroup.Gamma0, SymplecticGroup.mem_Gamma0_iff")
+*Subgroup $`\Gamma_0(N)` of $`\Sp(2g,\Z)`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.sp2gr.gamma0))
+
+The group $`\Gamma_0(N)` in degree $`g` is the subgroup of the integral
+{bpref "group.sp2gr"}[symplectic group]
+$`\Sp(2g,\Z)`, defined by
+
+$$`\Gamma_0(N)=\left\{
+\begin{pmatrix}a&b\\c&d\end{pmatrix}\in \Sp(2g,\Z)
+:
+c \equiv 0 \bmod N
+\right\}.`
+
+The group $`\Gamma_0(N)` is sometimes called the Hecke
+congruence subgroup of level $`N`.
+
+For $`g=1`, it is the subgroup
+{bpref "group.sl2z.subgroup.gamma0n"}[$`\Gamma_0(N)`] of
+$`\SL(2,\Z)`.
+
+Depends on: {uses "group.sl2z.subgroup.gamma0n"}[] {uses "group.sp2gr"}[]
+:::
+
+:::definition "group.sp2gr.gamma1"
+*Subgroup Gamma1(N) of $`\Sp(2g,\Z)`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.sp2gr.gamma1))
+
+The subgroup $`\Gamma_1(N)` of the integral
+{bpref "group.sp2gr"}[symplectic group]
+$`\Sp(2g,\Z)`
+is defined by:
+
+$$`\Gamma_1(N)=
+\left\{
+\begin{pmatrix} a & b \\ c & d \end{pmatrix}\in \Sp(2g,\Z)\ \vert
+\begin{pmatrix} a & b \\ c & d \end{pmatrix}\equiv
+\begin{pmatrix} 1_g & * \\ 0 & 1_g \end{pmatrix}
+ \bmod N
+\right\}.`
+
+For $`g=1`, it is the subgroup
+{bpref "group.sl2z.subgroup.gamma1n"}[$`\Gamma_1(N)`] of
+$`\SL(2,\Z)`.
+
+Depends on: {uses "group.sl2z.subgroup.gamma1n"}[] {uses "group.sp2gr"}[]
+:::
+
+:::definition "group.sp2gr.ppal.congruence" (lean := "SymplecticGroup.Gamma, SymplecticGroup.mem_Gamma_iff")
+*Subgroup $`\Gamma(N)` of $`\Sp(2g,\Z)`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.sp2gr.ppal.congruence))
+
+The principal congruence subgroup of level $`N`, $`\Gamma(N)`,
+of the integral {bpref "group.sp2gr"}[symplectic group]
+$`\Sp(2g,\Z)`
+is the subgroup of $`\Sp(2g,\Z)` that consists of matrices congruent to the identity matrix modulo $`N`:
+
+$$`\Gamma(N)=\left\{
+\begin{pmatrix}a&b\\c&d\end{pmatrix}\in \Sp(2g,{\Z})
+:
+\begin{pmatrix}a&b\\c&d\end{pmatrix} \equiv
+\begin{pmatrix}1_g&0\\0&1_g\end{pmatrix}
+ \bmod N
+\right\}`
+
+where $`1_g` stands for the identity matrix of size $`g`.
+For $`g=1`, it is the subgroup
+{bpref "group.sl2z.subgroup.gamman"}[$`\Gamma(N)`] of
+$`\SL(2,\Z)`.
+
+Depends on: {uses "group.sl2z.subgroup.gamman"}[] {uses "group.sp2gr"}[]
+:::
+
+:::definition "group.sp2gr.subgroup.congn" (lean := "SymplecticGroup.IsCongruenceOfLevel, SymplecticGroup.isCongruenceOfLevel_Gamma, SymplecticGroup.isCongruenceOfLevel_Gamma0")
+*Congruence subgroup of level $`N` of $`\Sp(2g,\Z)`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.sp2gr.subgroup.congn))
+
+A subgroup of $`\Sp(2g,\Q)`
+is called a congruence subgroup of level $`N`
+if it contains the {bpref "group.sp2gr.ppal.congruence"}[principal congruence subgroup] $`\Gamma(N)`.
+
+Examples of such subgroups are:
+<ul>
+<li>
+the principal congruence subgroup
+{bpref "group.sp2gr.ppal.congruence"}[$`\Gamma(N)`];
+</li>
+<li>
+Hecke (or Siegel parabolic) subgroup
+{bpref "group.sp2gr.gamma0"}[$`\Gamma_0(N)`];
+</li>
+<li>
+the subgroup
+{bpref "group.sp2gr.gamma1"}[$`\Gamma_1(N)`].
+</li>
+</ul>
+
+Depends on: {uses "group.sp2gr.gamma0"}[] {uses "group.sp2gr.gamma1"}[] {uses "group.sp2gr.ppal.congruence"}[]
 :::
 
 :::definition "group.special_linear" (lean := "Matrix.SpecialLinearGroup, Matrix.ProjectiveSpecialLinearGroup, Matrix.SpecialLinearGroup.mem_center_iff, GaloisField")
@@ -1242,6 +1612,16 @@ If $`H \subset G` is a subgroup, the *projective image* of $`H` is the image of 
 Depends on: {uses "group.center"}[] {uses "group.quotient"}[]
 :::
 
+:::definition "group.subgroup_label"
+*Subgroup labels.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.subgroup_label))
+
+The full label of a {bpref "group.subgroup"}[subgroup] is of the form $`\mathtt{N.i.m.a}` or $`\mathtt{N.i.m.a.j}`.  In either case, $`\mathtt{N.i}` is the {bpref "group.label"}[label] of the {bpref "group.ambient"}[ambient group], $`\mathtt{m}` is the {bpref "group.subgroup.index"}[index] of the subgroup in the ambient group, $`\mathtt{a}` distinguishes subgroups up to {bpref "group.automorphism"}[automorphism] and $`\mathtt{j}` distinguishes subgroups up to conjugacy.  Both $`\mathtt{a}` and $`\mathtt{j}` take the form of a sequence of letters followed by an ordinal. The letters are a base 26 (a=0, z=25) encoding of the ordering up to {bpref "group.gassmann_equivalence"}[Gassmann-equivalence], and the integer following distinguishes groups in the same Gassmann class.  (For details on how we label Gassmann classes and order subgroups within a Gassmann class, see Computing labels of subgroups.) For some ambient groups, we only compute subgroups up to automorphism (in which case the first form is used, omitting the $`\mathtt{j}`.
+
+When the ambient group is clear from context, sometimes the short label $`\mathtt{m.a}` or $`\mathtt{m.a.j}` is used instead.
+
+Depends on: {uses "group.ambient"}[] {uses "group.automorphism"}[] {uses "group.gassmann_equivalence"}[] {uses "group.label"}[] {uses "group.subgroup"}[] {uses "group.subgroup.index"}[]
+:::
+
 :::definition "group.supersolvable" (lean := "Group.IsSupersolvable, Subgroup.NormalSeries, Subgroup.SubnormalSeries.IsPolycyclic")
 *Supersolvable group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.supersolvable))
 
@@ -1249,7 +1629,7 @@ A group is *supersolvable* if there are nested {bpref "group.subgroup.normal"}[n
 
 $$`{1}=N_0 < N_1 < N_2 < \ldots < N_k = G`
 
-with all successive quotients $`N_{i+1}/N_i` cyclic. It is stronger than requiring $`N_{i+1}/N_i` to be abelian (because $`N_i \lhd G`), so not all {bpref "group.solvable"}[solvable] groups are supersolvable. The smallest solvable groups that are not supersolvable are $`A_4`, $`S_4`, SL$`_2(\mathbb{F}_3)` and $`C_2\times A_4`. All supersolvable groups are {bpref "group.monomial"}[monomial], and all {bpref "group.abelian"}[abelian], {bpref "group.nilpotent"}[nilpotent], metacyclic groups, Z-groups and groups of square-free order are supersolvable. Supersolvable groups are closed under subgroups and quotients (but not extensions), and a group is supersolvable if and only if each of its maximal subgroups has prime index.
+with all successive quotients $`N_{i+1}/N_i` cyclic. It is stronger than requiring $`N_{i+1}/N_i` to be abelian (because $`N_i \lhd G`), so not all {bpref "group.solvable"}[solvable] groups are supersolvable. The smallest solvable groups that are not supersolvable are $`A_4`, $`S_4`, SL$`_2(\mathbb{F}_3)` and $`C_2\times A_4`. All supersolvable groups are {bpref "group.monomial"}[monomial], and all {bpref "group.abelian"}[abelian], {bpref "group.nilpotent"}[nilpotent], {bpref "group.metacyclic"}[metacyclic] groups, Z-groups and groups of square-free order are supersolvable. Supersolvable groups are closed under subgroups and quotients (but not extensions), and a group is supersolvable if and only if each of its maximal subgroups has prime index.
 
 While every nilpotent group is supersolvable, the converse does not hold as shown by [these examples](https://beta.lmfdb.org/Groups/Abstract/?nilpotent=no&supersolvable=yes).  Similarly, [these examples](https://beta.lmfdb.org/Groups/Abstract/?metacyclic=no&supersolvable=yes) show that not every supersolvable group is metacyclic.
 
@@ -1267,7 +1647,7 @@ Depends on: {uses "group.almost_simple"}[] {uses "group.solvable"}[]
 :::definition "group.symplectic" (lean := "Matrix.symplecticGroup, Matrix.J, Subgroup.center")
 *Symplectic group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.symplectic))
 
-The *symplectic group* $`\Sp(2n, q)` is the group of invertible $`2n \times 2n` matrices $`M` with entries in $`\F_q`, which satisfy the condition that $`M^T \Omega M = \Omega`, for $`\Omega` is any fixed invertible skew-symmetric matrix over $`\F_q`.   For example, $`\Omega` can be taken to be the block matrix
+The *symplectic group* $`\Sp(2n, q)` is the group of invertible $`2n \times 2n` matrices $`M` with entries in $`\F_q`, which satisfy the condition that $`M^T \Omega M = \Omega`, for $`\Omega` is any fixed invertible {bpref "alg.matrix.skew_symmetric"}[skew-symmetric matrix] over $`\F_q`.   For example, $`\Omega` can be taken to be the block matrix
 
 $$`\Omega = \begin{pmatrix} 0 & I_n \\ -I_n & 0 \end{pmatrix},`
 
@@ -1408,7 +1788,7 @@ Depends on: {uses "group"}[] {uses "group.semidirect_product"}[]
 :::definition "group.z_group" (lean := "IsZGroup")
 *Z-group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.z_group))
 
-A *Z-group* is a (finite) group all of whose Sylow subgroups are {bpref "group.cyclic"}[cyclic]. Such groups are metacyclic, {bpref "group.supersolvable"}[supersolvable] and {bpref "group.monomial"}[monomial].
+A *Z-group* is a (finite) group all of whose Sylow subgroups are {bpref "group.cyclic"}[cyclic]. Such groups are {bpref "group.metacyclic"}[metacyclic], {bpref "group.supersolvable"}[supersolvable] and {bpref "group.monomial"}[monomial].
 
 Every cyclic group is a Z-group, but the converse does not hold, as shown by [these examples](https://beta.lmfdb.org/Groups/Abstract/?Zgroup=yes&cyclic=no).
 
@@ -1425,4 +1805,14 @@ The $`g`-tuple of integers $`(\lambda_1,\lambda_2, \ldots, \lambda_g)` is called
 
 For example the $`1`-dimensional representation of $`\GL(g,\C)` given by the determinant has highest weight $`(1,\ldots,1)` while the standard $`g`-dimensional representation
 has highest weight $`(1,0,\ldots,0)`.
+:::
+
+:::definition "repn.irrep.gl"
+*Irreducible representations of $`\GL(g,\C)`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/repn.irrep.gl))
+
+The irreducible finite-dimensional representations of $`\GL(g,\C)` correspond bijectively to the $`g`-tuples of integers $`(\lambda_1,\ldots,\lambda_g)` with
+$`\lambda_1\geqslant \lambda_2\geqslant\ldots\geqslant \lambda_g` called
+{bpref "repn.highest.weight"}[highest weight of the representation].
+
+Depends on: {uses "repn.highest.weight"}[]
 :::

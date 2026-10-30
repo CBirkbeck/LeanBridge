@@ -42,12 +42,18 @@ The whole category of ordinary abelian variety over any finite field $`\mathbb{F
 The same holds for the category of abelian varieties over a prime finite field $`\mathbb{F}_p` whose characteristic polynomials don't have real roots, thanks to a result by Centeleghe-Stix .
 :::
 
-:::definition "av.endomorphism_field"
+:::definition "av.endomorphism_field" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.endomorphismField, TauCeti.AlgebraicGeometry.AbelianVariety.endRange, TauCeti.AlgebraicGeometry.AbelianVariety.End.baseChangeTower, TauCeti.AlgebraicGeometry.AbelianVariety.endomorphismField_le, TauCeti.AlgebraicGeometry.AbelianVariety.baseChange")
 *Endomorphism field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.endomorphism_field))
 
 The *endomorphism field* of an {bpref "ag.abelian_variety"}[abelian variety] $`A` over a field $`k` is the minimal extension $`L \supset k` in $`\overline{k}` such that $`\End A_L = \End A_{\overline{k}}`.  It is a finite Galois extension of $`k`.
 
 Depends on: {uses "ag.abelian_variety"}[]
+:::
+
+:::definition "av.endomorphism_ring_conductor" (lean := "Subalgebra.relativeConductor, integralClosure, TauCeti.GlobalNumberFields.NumberFieldOrder.conductor")
+*Conductor.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.endomorphism_ring_conductor))
+
+The conductor $`\mathfrak{f}_R` of an order $`R` is the colon ideal $`(R:\mathcal{O})`, where $`\mathcal{O}` is the maximal order. Recall that a maximal ideal $`\mathfrak{m}` of $`R` is non-invertible if and only if $`\mathfrak{f}_R\subseteq \mathfrak{m}`.
 :::
 
 :::definition "av.fq.all_polarizations_product"
@@ -74,10 +80,10 @@ The angle rank of a polynomial is the angle rank of the set of its non-zero root
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.dimension"}[] {uses "av.fq.supersingular"}[] {uses "av.fq.weil_polynomial"}[]
 :::
 
-:::definition "av.fq.bass_zfv"
+:::definition "av.fq.bass_zfv" (lean := "Polynomial.HasBassFrobeniusOrder, Subalgebra.IsBass, Subalgebra.IsGorenstein, Subalgebra.overorders, Polynomial.frobeniusOrder")
 *Bass Frobenius order.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.fq.bass_zfv))
 
-The Frobenius order of an {bpref "av.isogeny_class"}[isogeny class] of abelian varieties over a finite field is *Bass* if all over-orders for the order $`\mathbb{Z}[F,V]` are Gorenstein, where $`F` is the Frobenius endomorphism and $`V` is the Verschiebung endomorphism.
+The {bpref "av.fq.frobenius_order"}[Frobenius order] of an {bpref "av.isogeny_class"}[isogeny class] of abelian varieties over a finite field is *Bass* if all over-orders for the order $`\mathbb{Z}[F,V]` are Gorenstein, where $`F` is the Frobenius endomorphism and $`V` is the Verschiebung endomorphism.
 
 Depends on: {uses "av.isogeny_class"}[]
 :::
@@ -104,6 +110,16 @@ This is the *CM-involution* of $`K` and it is denoted by $`\overline{\cdot}`.
 An order $`R` in $`K` is *conjugate stable* if $`R = \overline{R}`.
 :::
 
+:::definition "av.fq.curve_point_counts"
+*Point counts of the curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.fq.curve_point_counts))
+
+If an {bpref "ag.abelian_variety"}[abelian variety] $`A` {bpref "ag.base_field"}[defined] over a finite field $`\mathbb{F}_q` is the {bpref "ag.jacobian"}[Jacobian] of a curve $`X`, then from the data for $`A` we can produce a count of the (finite) number of points of $`X` defined over $`\mathbb{F}_q` and its extensions $`\mathbb{F}_{q^2}`, $`\mathbb{F}_{q^3}`, $`\mathbb{F}_{q^4}`, etc.
+
+Even if $`A` is not known to be {bpref "av.isogeny"}[isogenous] to a Jacobian, we can still perform this computation. In that case, we refer to the virtual curve associated to $`A`, since we do not know a priori if the curve whose points we are counting exists. In particular, if the point count returns a negative number, or if the point count returns a number for $`\mathbb{F}_{q^n}` smaller than for $`\mathbb{F}_{q^d}` for some factor $`d \mid n`, then we know that $`A` is not isogenous to a Jacobian.
+
+Depends on: {uses "ag.abelian_variety"}[] {uses "ag.base_field"}[] {uses "ag.jacobian"}[] {uses "av.isogeny"}[]
+:::
+
 :::definition "av.fq.cyclic_group_points" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.IsCyclicIsogenyClass, TauCeti.AlgebraicGeometry.AbelianVariety.RationalPoint, TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogenous")
 *Cyclic group of points.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.fq.cyclic_group_points))
 
@@ -121,14 +137,14 @@ For each {bpref "ag.endomorphism_ring"}[endomorphism ring] $`S`, we use the foll
 
 - *$`\mathrm{index}`* is the index of the inclusion (of additive groups) $`S\subseteq \mathcal{O}`, where $`\mathcal{O}` is the maximal order of the étale $`\mathbb{Q}`-algebra $`\mathbb{Q}[F]`;
 
-- *$`i`* is a counter that uniquely identifies the order $`S` among all the overorders of $`\mathbb{Z}[F,V]` with index in $`\mathcal{O}` equal to $`\mathrm{index}`. See also {bpref "av.fq.lmfdb_label"}[isogeny label].
+- *$`i`* is a counter that uniquely identifies the order $`S` among all the overorders of {bpref "av.fq.frobenius_order"}[$`\mathbb{Z}[F,V]`] with index in $`\mathcal{O}` equal to $`\mathrm{index}`. See also {bpref "av.fq.lmfdb_label"}[isogeny label].
 
 - *$`\#\mathrm{weak}`* is the number of
 
 {bpref "av.weak_equivalence_class"}[weak equivalence classes] represented
-by fractional $`\mathbb{Z}[F,V]`-ideals $`I` with multiplicator ring equal to $`S`, that is, satisfying $`(I:I)=S`; if $`S` is Gorenstein, that is, *$`\#\mathrm{weak} = 1`* this number is omitted from the notation.
+by fractional {bpref "av.fq.frobenius_order"}[$`\mathbb{Z}[F,V]`]-ideals $`I` with multiplicator ring equal to $`S`, that is, satisfying $`(I:I)=S`; if $`S` is Gorenstein, that is, *$`\#\mathrm{weak} = 1`* this number is omitted from the notation.
 
-- *$`\#\mathrm{Pic}`* is the size of the Picard groups of $`S`, that is, the number of invertible fractional $`S`-ideals.
+- *$`\#\mathrm{Pic}`* is the size of the Picard groups of $`S`, that is, the number of invertible fractional {bpref "av.fq.frobenius_order"}[$`S`]-ideals.
 
 Depends on: {uses "ag.endomorphism_ring"}[] {uses "av.fq.lmfdb_label"}[] {uses "av.isogeny_class"}[] {uses "av.weak_equivalence_class"}[]
 :::
@@ -145,12 +161,40 @@ which we call the *Frobenius angles* of the Weil polynomial.
 Depends on: {uses "ag.base_field"}[] {uses "av.fq.weil_polynomial"}[] {uses "av.isogeny_class"}[]
 :::
 
+:::definition "av.fq.frobenius_order" (lean := "Polynomial.frobeniusOrder, Polynomial.EtaleAlgebra, Polynomial.EtaleAlgebra.frobenius, Polynomial.EtaleAlgebra.verschiebung")
+*Frobenius Order.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.fq.frobenius_order))
+
+The subring $`\Z[F,V]` of the {bpref "ag.endomorphism_ring"}[endomorphism ring] generated by the Frobenius and Verschiebung endomorphisms of an {bpref "av.isogeny_class"}[isogeny class] of abelian varieties defined over $`\F_q`.
+
+The Frobenius {bpref "av.fq.order"}[order] is an example of order in the étale algebra $`K=\Q[F]`.
+
+Depends on: {uses "ag.endomorphism_ring"}[] {uses "av.fq.order"}[] {uses "av.isogeny_class"}[]
+:::
+
+:::definition "av.fq.galois_group" (lean := "Polynomial.Gal, Polynomial.IsWeilPolynomial, Polynomial.SplittingField")
+*Galois group of an isogeny class of abelian varieties.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.fq.galois_group))
+
+The Galois group attached to an {bpref "av.isogeny_class"}[isogeny class of abelian varieties] over a finite field is the Galois group of the splitting field of its Weil polynomial over $`\Q`.
+
+Depends on: {uses "av.isogeny_class"}[]
+:::
+
 :::definition "av.fq.group_structure" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety, TauCeti.GroupScheme.baseChangePointMulEquiv")
 *Group of points.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.fq.group_structure))
 
 The set of *rational $`k`-points* $`A(k)` of an {bpref "ag.abelian_variety"}[abelian variety] $`A` defined over a field $`k` is an abelian group. If $`k\subseteq K` is a field extension, then we have an inlcusion of abelian groups $`A(k)\subseteq A(K)`.
 
 Depends on: {uses "ag.abelian_variety"}[]
+:::
+
+:::definition "av.fq.honda_tate"
+*Honda-Tate theorem.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.fq.honda_tate))
+
+The Honda-Tate theorem states that {bpref "ag.abelian_variety"}[abelian varieties] $`A` and $`B` over $`\F_q` are isogenous if and only if they have the same {bpref "av.fq.weil_polynomial"}[characteristic polynomial], and it characterizes the polynomials that can arise as characteristic polynomials of abelian varieties over $`\F_q` as being the {bpref "nf.weil_polynomial"}[Weil polynomials] satisfying a condition on the multiplicities of factors.  The condition is given explicitly in Waterhouse, "Abelian varieties over finite fields" .
+
+Moreover, $`A` is isogenous to an abelian subvariety of $`B` if and only $`P_A(t)` divides $`P_B(t)`.
+
+Depends on: {uses "ag.abelian_variety"}[] {uses "av.fq.weil_polynomial"}[] {uses "nf.weil_polynomial"}[]
 :::
 
 :::definition "av.fq.index_of_order" (lean := "AddSubgroup.relIndex, integralClosure, TauCeti.GlobalNumberFields.NumberFieldOrder.index")
@@ -168,6 +212,42 @@ Depends on: {uses "av.fq.order"}[]
 The LMFDB allows one to search for {bpref "av.isogeny_class"}[isogeny classes of abelian varieties] over finite fields by specifying the first few coefficients of the {bpref "av.fq.l-polynomial"}[L-polynomial] of the isogeny class. The coefficients are ordered in increasing order of the degree of the term, and the initial coefficients *do not include* the leading constant term 1.
 
 Depends on: {uses "av.fq.l-polynomial"}[] {uses "av.isogeny_class"}[]
+:::
+
+:::definition "av.fq.is_zconductor_sum" (lean := "Subalgebra.IsIntConductorSum, Subalgebra.IsConductorSum, Subalgebra.isIntConductorSum_iff_surjective, Subalgebra.relativeConductor, integralClosure")
+*$`\Z`-conductor sum.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.fq.is_zconductor_sum))
+
+Whether an {bpref "av.fq.order"}[order] $`R` in an étale algebra $`K` can be written as
+$`R = \Z + \mathfrak{f}_R`,
+where $`\mathfrak{f}_R` is the {bpref "av.fq.conductor"}[conductor] of $`R` in the maximal order $`\mathcal{O}_K` of $`K`.
+
+Depends on: {uses "av.fq.conductor"}[] {uses "av.fq.order"}[]
+:::
+
+:::definition "av.fq.is_zfvconductor_sum" (lean := "Polynomial.IsFrobeniusConductorSum, Subalgebra.IsConductorSum, Subalgebra.isConductorSum_iff_surjective, Polynomial.isFrobeniusConductorSum_of_isIntConductorSum, Polynomial.frobeniusOrder")
+*$`\Z[F,V]`-conductor sum.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.fq.is_zfvconductor_sum))
+
+Whether an {bpref "av.fq.order"}[overorder] $`R` of the {bpref "av.fq.frobenius_order"}[Frobenius order] $`\Z[F,V]` can be written as
+$`R = \Z[F,V] + \mathfrak{f}_R`,
+where $`\mathfrak{f}_R` is the {bpref "av.fq.conductor"}[conductor] of $`R` in the maximal order $`\mathcal{O}_K` of the étale algebra $`K=\Q[F]`.
+
+Depends on: {uses "av.fq.conductor"}[] {uses "av.fq.frobenius_order"}[] {uses "av.fq.order"}[]
+:::
+
+:::definition "av.fq.isogeny_class_size" (lean := "CategoryTheory.isIsomorphicSetoid, TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogenous, TauCeti.AlgebraicGeometry.AbelianVariety.isIsogenous_congr")
+*Isomorphism classes within an isogeny class.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.fq.isogeny_class_size))
+
+Each {bpref "av.isogeny_class"}[isogeny class] of abelian varieties is divided into isomorphism classes.  Since some of these abelian varieties might not be {bpref "av.princ_polarizable"}[principally polarizable], isomorphism means isomorphism of \*unpolarized\* abelian varieties.
+
+Depends on: {uses "av.isogeny_class"}[] {uses "av.princ_polarizable"}[]
+:::
+
+:::definition "av.fq.jacobian"
+*Jacobian of a curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.fq.jacobian))
+
+{bpref "ag.jacobian"}[]
+
+Depends on: {uses "ag.jacobian"}[]
 :::
 
 :::definition "av.fq.l-polynomial"
@@ -206,7 +286,7 @@ The label *isog* is obtained in the following manner: If the {bpref "av.fq.weil_
 
 $$`1 + a_1 x + a_2 x^2 + \cdots +a_gx^g+ qa_{g-1}x^{g+1} \cdots + q^{g-1}a_1 x^{2g-1} + q^g x^{2g},`
 
-the label contains the integer coefficients $`a_1, \ldots a_g`, encoded in base 26 with the symbols a, b, c... z, where a = 0, and separated by underscores. Negative numbers are distinguished from positive numbers by a leading a. For example, ae\\_j\\_ap denotes the polynomial
+the label contains the integer coefficients $`a_1, \ldots a_g`, encoded in base 26 with the symbols a, b, c... z, where a = 0, and separated by underscores. Negative numbers are distinguished from positive numbers by a leading a. For example, ae\_j\_ap denotes the polynomial
 
 $$`1 -4x + 9x^2 - 15x^3 +9qx^4 - 4q^2 x^5 + q^3 x^6,`
 
@@ -233,6 +313,14 @@ Each {bpref "av.polarization"}[polarizations] of an {bpref "av.fq.ordinary"}[ord
 - *$`k`* is an index that determines the polarization among all the ones with the same degree.
 
 Depends on: {uses "ag.endomorphism_ring"}[] {uses "av.deligne_module"}[] {uses "av.fq.ordinary"}[] {uses "av.fq.weil_polynomial"}[] {uses "av.isogeny_class"}[] {uses "av.polarization"}[] {uses "av.weak_equivalence_class"}[]
+:::
+
+:::definition "av.fq.max_cohen_macaulay_type" (lean := "Polynomial.maxCohenMacaulayType, Subalgebra.maxCohenMacaulayType, Subalgebra.cohenMacaulayType, Subalgebra.overorders, Subalgebra.isBass_iff_maxCohenMacaulayType_eq_one")
+*Maximum Cohen-Macaulay.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.fq.max_cohen_macaulay_type))
+
+The maximum {bpref "ag.cohen_macaulay_type"}[Cohen-Macaulay type] of the overorders of the {bpref "av.fq.bass_zfv"}[Frobenius order] of the isogeny class.
+
+Depends on: {uses "ag.cohen_macaulay_type"}[] {uses "av.fq.bass_zfv"}[]
 :::
 
 :::definition "av.fq.maximal_zfv" (lean := "Polynomial.HasMaximalFrobeniusOrder, Polynomial.frobeniusOrder, Polynomial.EtaleAlgebra, Polynomial.IsWeilPolynomial.hasMaximalFrobeniusOrder_iff, integralClosure")
@@ -287,7 +375,7 @@ If $`R` and $`S` are orders satisfying $`R \subseteq S`, we say that $`S` is an 
 
 The product $`\mathcal{O}_K` of the {bpref "nf.ring_of_integers"}[ring of integers] of the {bpref "av.fq.number_field"}[number fields] that are the components of $`K` is called the *maximal order* of $`K`. It contains every order in $`K`.
 
-The Frobenius order of an {bpref "av.isogeny_class"}[isogeny class] is an example of order.
+The {bpref "av.fq.frobenius_order"}[Frobenius order] of an {bpref "av.isogeny_class"}[isogeny class] is an example of order.
 
 Depends on: {uses "av.fq.number_field"}[] {uses "av.isogeny_class"}[] {uses "nf.ring_of_integers"}[]
 :::
@@ -447,6 +535,14 @@ An {bpref "ag.abelian_variety"}[abelian variety] is *geometrically squarefree* i
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.base_change"}[] {uses "av.squarefree"}[]
 :::
 
+:::definition "av.hyperelliptic_count"
+*Number of hyperelliptic Jacobians.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.hyperelliptic_count))
+
+The number of {bpref "ag.jacobian"}[Jacobians] of {bpref "ag.hyperelliptic_curve"}[hyperelliptic curves] in each {bpref "av.isogeny_class"}[isogeny class] (up to isomorphism of {bpref "av.princ_polarizable"}[principally polarized abelian varieties]) has been computed for $`g \le 2` and $`q \le 211`; and for $`g = 3` and $`q \le 13` that are either prime or odd.
+
+Depends on: {uses "ag.hyperelliptic_curve"}[] {uses "ag.jacobian"}[] {uses "av.isogeny_class"}[] {uses "av.princ_polarizable"}[]
+:::
+
 :::definition "av.is_product" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.prod")
 *Product abelian variety.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.is_product))
 
@@ -467,6 +563,14 @@ When $`K` is a finite field, if the LMFDB contains information about an isogeny 
 Isogeny class information listed on LFMDB pages for curves refer to the isogeny class of its {bpref "ag.jacobian"}[Jacobian].
 
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.jacobian"}[] {uses "av.isogeny"}[]
+:::
+
+:::definition "av.jacobian_count"
+*Number of Jacobians.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.jacobian_count))
+
+The number of {bpref "ag.jacobian"}[Jacobians] in each {bpref "av.isogeny_class"}[isogeny class] (up to isomorphism of {bpref "av.princ_polarizable"}[principally polarized abelian varieties]) has been computed for $`g \le 2` and $`q \le 211`; and for $`g = 3` and $`q \le 5`.
+
+Depends on: {uses "ag.jacobian"}[] {uses "av.isogeny_class"}[] {uses "av.princ_polarizable"}[]
 :::
 
 :::definition "av.polarization"
@@ -501,7 +605,7 @@ An isogeny class of abelian varieties is principally polarizable if one of its m
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.jacobian"}[] {uses "av.polarization"}[]
 :::
 
-:::definition "av.semiabelian_variety"
+:::definition "av.semiabelian_variety" (lean := "TauCeti.AlgebraicGeometry.SemiabelianVariety, TauCeti.AlgebraicGeometry.IsTorusGroupScheme, TauCeti.AlgebraicGeometry.AbelianVariety.toSemiabelianVariety, TauCeti.AlgebraicGeometry.isTorusGroupScheme_of_isZero, TauCeti.AlgebraicGeometry.AbelianVariety")
 *Semiabelian variety.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.semiabelian_variety))
 
 A *semiabelian variety* is a commutative group variety which is an extension of an {bpref "ag.abelian_variety"}[abelian variety] by a torus.

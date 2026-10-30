@@ -154,6 +154,24 @@ $$`\Lambda(s) := L_{\infty}(s) L(s) = \varepsilon \overline{\Lambda}(1-s).`
 Depends on: {uses "lfunction"}[] {uses "lfunction.functional_equation"}[] {uses "lfunction.gamma_factor"}[] {uses "lfunction.spectral_parameters"}[]
 :::
 
+:::definition "lfunction.label"
+*Label of L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.label))
+
+Each {bpref "lfunction"}[L-function] $`L` has a label of the form d-N-q.k-x-y-i, where
+
+- $`d` is the {bpref "lfunction.degree"}[degree] of $`L`.
+
+- $`N` is the {bpref "lfunction.conductor"}[conductor] of $`L`.  When $`N` is a perfect power $`m^n` we write $`N` as $`m`e$`n`, since $`N` can be very large for some imprimitive L-functions.
+
+- q.k is the {bpref "character.dirichlet.conrey"}[label] of the {bpref "character.dirichlet.primitive"}[primitive] {bpref "character.dirichlet"}[Dirichlet character] from which the {bpref "lfunction.central_character"}[central character] is {bpref "character.dirichlet.induce"}[induced].
+
+- x-y is the {bpref "lfunction.spectral_label"}[spectral label] encoding the $`\mu_j` and $`\nu_j` in the {bpref "lfunction.normalization"}[analytically normalized] {bpref "lfunction.functional_equation"}[functional equation].
+
+- i is a non-negative integer disambiguating between L-functions that would otherwise have the same label.
+
+Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.conrey"}[] {uses "character.dirichlet.induce"}[] {uses "character.dirichlet.primitive"}[] {uses "lfunction"}[] {uses "lfunction.central_character"}[] {uses "lfunction.conductor"}[] {uses "lfunction.degree"}[] {uses "lfunction.functional_equation"}[] {uses "lfunction.normalization"}[] {uses "lfunction.spectral_label"}[]
+:::
+
 :::definition "lfunction.motivic_weight" (lean := "AnalyticLFunction.motivicWeight, AnalyticLFunction.arithmeticCoeff, AnalyticLFunction.isIntegral_arithmeticCoeff_motivicWeight")
 *Motivic weight.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.motivic_weight))
 
@@ -166,6 +184,12 @@ increases the weight of the motive.  This corresponds to the change of variables
 $`s \mapsto s + j` in the L-function of the motive.
 
 Depends on: {uses "lfunction"}[] {uses "lfunction.arithmetic"}[] {uses "lfunction.normalization"}[]
+:::
+
+:::definition "lfunction.primitive" (lean := "AnalyticLFunction.IsPrimitive, AnalyticLFunction.IsTrivial, AnalyticLFunction.one, AnalyticLFunction.mul, AnalyticLFunction.isPrimitive_zeta")
+*Primitive L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.primitive))
+
+An L-function is <b>primitive</b> if it cannot be written as a product of nontrivial L-functions.  The "trivial L-function" is the constant function $`1`.
 :::
 
 :::definition "lfunction.rational" (lean := "AnalyticLFunction.arithmeticCoeff, AnalyticLFunction.motivicWeight, IntermediateField.adjoin")
@@ -329,12 +353,39 @@ Note that the entries in that tuple are non-negative integers.
 Depends on: {uses "lfunction.gamma_factor"}[] {uses "lfunction.selbergdata"}[]
 :::
 
+:::definition "lfunction.spectral_label" (lean := "AnalyticLFunction.SelbergData.spectralLabel, AnalyticLFunction.spectralLabel, AnalyticLFunction.spectralLabelRe, AnalyticLFunction.spectralLabelIm, AnalyticLFunction.SelbergData.prod_labelμ_mul_prod_labelν")
+*Spectral label.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.spectral_label))
+
+The {bpref "lfunction.spectral_parameters"}[spectral parameters] are encoded as a string "x-y".  Here x is the concatenation of expressions of the form r$`u` and c$`v`.  The first indicates that $`\Gamma_{\R}(s + \mu)` appears in the {bpref "lfunction.functional_equation"}[functional equation] with $`\Re(\mu) = u`, and the second that $`\Gamma_{\C}(s + \nu)` appears with $`2\Re(\nu) = v`.  The factor of $`2` is included so that the $`u` and $`v`s are integral.  In the multiset of $`u` and $`v`s, if the multiplicities are all a multiple of an integer $`n > 1` then we use e$`n` to shorten x.  For example, r0r0c0c0 is encoded r0c0e2.  The $`\Gamma_{\R}` terms and $`\Gamma_{\C}` terms are separately sorted, and we use the identity $`\Gamma_{\C}(s) = \Gamma_{\R}(s)\Gamma_{\R}(s + 1)` as much as possible to combine pairs $`\Gamma_{\R}(s + \mu)\Gamma_{\R}(s + \mu + 1)` into $`\Gamma_{\C}(s + \mu)` in the interest of brevity.
+
+Similarly, y is either 0 (indicating that all $`\mu_j` and $`\nu_j` are real), or the concatenation of expressions of the form p$`t`, m$`t` or c$`t` indicating complex numbers with imaginary part either $`t` or $`-t` or both (respectively).  These imaginary parts are listed in the same order as the real parts and are sorted by increasing absolute value within parameters with the same real part.  We round imaginary parts to two digits after the decimal point.  We write p0 when the imaginary part is zero to the known precision, and p0.00 and m0.00 for imaginary parts with an absolute value smaller than $`0.5 \cdot 10^{-2}`.
+
+Depends on: {uses "lfunction.functional_equation"}[] {uses "lfunction.spectral_parameters"}[]
+:::
+
 :::definition "lfunction.spectral_parameters" (lean := "AnalyticLFunction.SelbergData.μ, AnalyticLFunction.SelbergData.ν, AnalyticLFunction.SelbergData.gammaFactor")
 *L-function spectral parameters.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.spectral_parameters))
 
 The *spectral parameters* are the numbers $`\mu_j` and $`\nu_k` that appear as shifts in the {bpref "lfunction.gamma_factor"}[gamma factors] ($`\Gamma_{\mathbb{R}}` and $`\Gamma_{\mathbb{C}}`, respectively) in the {bpref "lfunction.functional_equation"}[functional equation] of an {bpref "lfunction"}[L-function].
 
 Depends on: {uses "lfunction"}[] {uses "lfunction.functional_equation"}[] {uses "lfunction.gamma_factor"}[]
+:::
+
+:::definition "lfunction.symm"
+*Symmetric power of an L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.symm))
+
+Let $`L(s)` be an L-function given by an Euler product
+
+$$`L(s)= \prod_{p\not\in S} \prod_{j=1}^r \left (1-
+\frac{\alpha_j}{p^s}\right)^{-1} \times \prod_{p \in S} L_p(s),`
+
+where $`S` is a finite set of primes.  The  symmetric $`n`-th power of $`L(s)` is an L-function given by an Euler product
+
+$$`L(s,\mathrm{sym}^n) = \prod_{p\not\in S}\prod_{ { \mathrm{degree}-n} \atop  \mathrm{monomials}\,m} \left( 1-
+\frac{m(\alpha_1,\dotsc,\alpha_r)}{p^s} \right)^{-1} \times
+\prod_{p\in S} L_p(s,\mathrm{sym}^n).`
+
+The Euler factors at the primes $`p\in S` (the  "bad" primes) are computed via a more complicated recipe which involves a non-trivial amount of information about the underlying object.   The degree of an Euler factor at one of the bad primes will be smaller than the degree of the Euler factors outside the set $`S`.
 :::
 
 :::definition "lfunction.trivial_zero" (lean := "AnalyticLFunction.trivialZeros, AnalyticLFunction.SelbergData.gammaPoles, AnalyticLFunction.zeros")

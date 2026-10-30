@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/shimcurve.xdn_star}{$X^*(D;N)$}}
 \begin{definition}\label{shimcurve.xdn_star}
-\uses{shimcurve,shimcurve.aut_pm_mu_o,shimcurve.discb,shimcurve.maximal,shimcurve.polarized_order,shimcurve.quaternion_algebra}
+\uses{shimcurve,shimcurve.aut_pm_mu_o,shimcurve.discb,shimcurve.polarized_order,shimcurve.quaternion_algebra}
 \leanok
 Let $(O,\mu)$ be a \hyperref[shimcurve.maximal]{maximal}  \hyperref[shimcurve.polarized_order]{polarized quaternion order} in an indefinite division
 \hyperref[shimcurve.quaternion_algebra]{quaternion algebra}

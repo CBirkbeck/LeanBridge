@@ -11,6 +11,18 @@ open Informal
 
 This chapter lists the LMFDB definitions relating to *Shimura curves*, migrated from the LaTeX blueprint. Each definition links back to its LMFDB knowl.
 
+:::definition "sh.disc" (lean := "QuaternionAlgebra.discriminant, QuaternionAlgebra.IsRamifiedAt")
+*Discriminant of a Shimura curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/sh.disc))
+
+The discriminant of a Shimura curve is the discriminant of the associated quaternion algebra.
+:::
+
+:::definition "sh.level" (lean := "Subalgebra.IsEichlerOrderOfLevel, Subalgebra.IsEichlerOrder")
+*Level of a Shimura curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/sh.level))
+
+The level of a Shimura curve is the level of the associated Eichler order.
+:::
+
 :::definition "shimcurve"
 *Shimura curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve))
 
@@ -78,6 +90,22 @@ Let $`(O,\mu)` be a {bpref "shimcurve.polarized_order"}[polarized quaternion ord
 over $`\Q`. Let $`N_{B^{\times}}(O)=\{\gamma\in B^{\times}:\gamma^{-1}O\gamma=O\}` be the normalizer of $`O` in $`B`. Then the *automorphisms of $`O` preserving the polarization $`\mu` (up to sign)* is defined by $`\Aut_{\pm\mu}(O)=\{\gamma\in N_{B^{\times}}(O)/\Q^{\times}:\gamma^{-1}\mu\gamma=\pm\mu\}`.
 
 Depends on: {uses "shimcurve.polarized_order"}[] {uses "shimcurve.quaternion_algebra"}[]
+:::
+
+:::definition "shimcurve.b"
+*$`B\langle i,j\rangle`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.b))
+
+A {bpref "shimcurve.quaternion_algebra"}[quaternion algebra]
+$`B` over a {bpref "ring.field"}[field] $`F` of
+{bpref "ring.characteristic"}[characteristic] not equal
+to 2 has elements $`i,j \in B` such that $`\{1,i,j,ij\}` is an
+$`F`-basis for $`B`, and such that there exists $`a,b \in F`
+with $`i^2 = a`, $`j^2 = b`, and $`ji = -ij`. In this case, we
+write
+
+$$`B = B\langle i,j\rangle = \left(\frac{a,b}{F}\right).`
+
+Depends on: {uses "ring.characteristic"}[] {uses "ring.field"}[] {uses "shimcurve.quaternion_algebra"}[]
 :::
 
 :::definition "shimcurve.decomposition"
@@ -336,7 +364,7 @@ Depends on: {uses "ring.characteristic"}[] {uses "ring.field"}[]
 :::definition "shimcurve.rank"
 *Analytic rank.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.rank))
 
-The *analytic rank* of a {bpref "shimcurve"}[Shimura curve] is the order of vanishing of its {bpref "lfunction"}[L-function] at its {bpref "lfunction.central_point"}[central point], which is equal to the sums of the {bpref "cmf.analytic_rank"}[analytic ranks] of the L-functions of the {bpref "av.simple"}[simple] modular {bpref "ag.abelian_variety"}[abelian varieties] corresponding to {bpref "cmf.galois_orbit"}[Galois orbits] of {bpref "cmf.newform"}[modular forms] that are the {bpref "av.decomposition"}[isogeny factors] of its {bpref "ag.jacobian"}[Jacobian].
+The *analytic rank* of a {bpref "shimcurve"}[Shimura curve] is the order of vanishing of its {bpref "lfunction"}[L-function] at its {bpref "lfunction.central_point"}[central point], which is equal to the sums of the {bpref "cmf.analytic_rank"}[analytic ranks] of the {bpref "cmf.lfunction"}[L-functions] of the {bpref "av.simple"}[simple] modular {bpref "ag.abelian_variety"}[abelian varieties] corresponding to {bpref "cmf.galois_orbit"}[Galois orbits] of {bpref "cmf.newform"}[modular forms] that are the {bpref "av.decomposition"}[isogeny factors] of its {bpref "ag.jacobian"}[Jacobian].
 
 The {bpref "ec.bsdconjecture"}[Birch and Swinnerton-Dyer] conjecture for modular abelian varieties implies that the analytic rank is equal to the {bpref "ag.mordell_weil"}[Mordell-Weil rank] of the Jacobian.
 
@@ -349,4 +377,54 @@ Depends on: {uses "ag.abelian_variety"}[] {uses "ag.jacobian"}[] {uses "ag.morde
 A {bpref "shimcurve"}[Shimura curve] $`X_H` is *simple* if its {bpref "ag.jacobian"}[Jacobian] is a {bpref "av.simple"}[simple] {bpref "ag.abelian_variety"}[abelian variety].
 
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.jacobian"}[] {uses "av.simple"}[] {uses "shimcurve"}[]
+:::
+
+:::definition "shimcurve.xd1"
+*$`X(D;1)`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.xd1))
+
+Let $`(O,\mu)` be a maximal {bpref "shimcurve.polarized_order"}[polarized quaternion order] in an indefinite division
+{bpref "shimcurve.quaternion_algebra"}[quaternion algebra]
+over $`\Q` of {bpref "shimcurve.discb"}[discriminant] $`D`. $`X(D;1)` is the {bpref "shimcurve"}[Shimura curve] corresponding to $`H=\{1\}\leq` {bpref "shimcurve.aut_pm_mu_o"}[$`\Aut_{\pm\mu}(O)`] $`\ltimes \widehat{O}^\times`.
+
+Depends on: {uses "shimcurve"}[] {uses "shimcurve.aut_pm_mu_o"}[] {uses "shimcurve.discb"}[] {uses "shimcurve.polarized_order"}[] {uses "shimcurve.quaternion_algebra"}[]
+:::
+
+:::definition "shimcurve.xd1_star"
+*$`X^*(D;1)`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.xd1_star))
+
+Let $`(O,\mu)` be a maximal  {bpref "shimcurve.polarized_order"}[polarized quaternion order] in an indefinite division
+{bpref "shimcurve.quaternion_algebra"}[quaternion algebra]
+over $`\Q` of {bpref "shimcurve.discb"}[discriminant] $`D`. $`X^*(D;1)` is the {bpref "shimcurve"}[Shimura curve] corresponding to $`H=`{bpref "shimcurve.aut_pm_mu_o"}[$`\Aut_{\pm\mu}(O)`]$`\leq` {bpref "shimcurve.aut_pm_mu_o"}[$`\Aut_{\pm\mu}(O)`]$`\ltimes \widehat{O}^\times`.
+
+Depends on: {uses "shimcurve"}[] {uses "shimcurve.aut_pm_mu_o"}[] {uses "shimcurve.discb"}[] {uses "shimcurve.polarized_order"}[] {uses "shimcurve.quaternion_algebra"}[]
+:::
+
+:::definition "shimcurve.xdm1"
+*$`X(D,M;1)`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.xdm1))
+
+Let $`(O,\mu)` be a {bpref "shimcurve.polarized_order"}[polarized quaternion order] in an indefinite division
+{bpref "shimcurve.quaternion_algebra"}[quaternion algebra] that is {bpref "shimcurve.eichler"}[Eichler] of level $`M`
+over $`\Q` of {bpref "shimcurve.discb"}[discriminant] $`D`. $`X(D,M;1)` is the {bpref "shimcurve"}[Shimura curve] corresponding to $`H=\{1\}\leq` {bpref "shimcurve.aut_pm_mu_o"}[$`\Aut_{\pm\mu}(O)`] $`\ltimes \widehat{O}^\times`.
+
+Depends on: {uses "shimcurve"}[] {uses "shimcurve.aut_pm_mu_o"}[] {uses "shimcurve.discb"}[] {uses "shimcurve.eichler"}[] {uses "shimcurve.polarized_order"}[] {uses "shimcurve.quaternion_algebra"}[]
+:::
+
+:::definition "shimcurve.xdn"
+*$`X(D;N)`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.xdn))
+
+Let $`(O,\mu)` be a maximal  {bpref "shimcurve.polarized_order"}[polarized quaternion order] in an indefinite division
+{bpref "shimcurve.quaternion_algebra"}[quaternion algebra]
+over $`\Q` of {bpref "shimcurve.discb"}[discriminant] $`D` and $`N` be a positive integer. $`X(D;N)` is the {bpref "shimcurve"}[Shimura curve] corresponding to the subgroup $`H\leq` {bpref "shimcurve.aut_pm_mu_o"}[$`\Aut_{\pm\mu}(O)`]$`\ltimes \widehat{O}^\times` arising from the inverse image of $`(O/NO)^{\times}`.
+
+Depends on: {uses "shimcurve"}[] {uses "shimcurve.aut_pm_mu_o"}[] {uses "shimcurve.discb"}[] {uses "shimcurve.polarized_order"}[] {uses "shimcurve.quaternion_algebra"}[]
+:::
+
+:::definition "shimcurve.xdn_star"
+*$`X^*(D;N)`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.xdn_star))
+
+Let $`(O,\mu)` be a maximal  {bpref "shimcurve.polarized_order"}[polarized quaternion order] in an indefinite division
+{bpref "shimcurve.quaternion_algebra"}[quaternion algebra]
+over $`\Q` of {bpref "shimcurve.discb"}[discriminant] $`D`. $`X^*(D;N)` is the {bpref "shimcurve"}[Shimura curve] corresponding to $`H\leq` {bpref "shimcurve.aut_pm_mu_o"}[$`\Aut_{\pm\mu}(O)`]$`\ltimes \widehat{O}^\times` arising from the inverse image of {bpref "shimcurve.aut_pm_mu_o"}[$`\Aut_{\pm\mu}(O)`]$`\ltimes(O/NO)^{\times}`.
+
+Depends on: {uses "shimcurve"}[] {uses "shimcurve.aut_pm_mu_o"}[] {uses "shimcurve.discb"}[] {uses "shimcurve.polarized_order"}[] {uses "shimcurve.quaternion_algebra"}[]
 :::

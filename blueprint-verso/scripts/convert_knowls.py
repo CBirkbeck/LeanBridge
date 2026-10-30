@@ -179,6 +179,9 @@ def transform_body(body):
     def stash_math(content, display):
         c = content.strip()
         return tok(f'\n$$`{c}`\n' if display else f'$`{c}`')
+    # MathJax script tags, whose underscores update_knowls.py escaped as in prose
+    body = re.sub(r'<script type="math/tex(; mode=display)?">(.+?)</script>',
+                  lambda m: stash_math(m.group(2).replace('\\_', '_'), bool(m.group(1))), body, flags=re.S)
     body = re.sub(r'\$\$(.+?)\$\$', lambda m: stash_math(m.group(1), True), body, flags=re.S)
     body = re.sub(r'\\\[(.+?)\\\]', lambda m: stash_math(m.group(1), True), body, flags=re.S)
     body = re.sub(r'\\\((.+?)\\\)', lambda m: stash_math(m.group(1), False), body, flags=re.S)
@@ -196,9 +199,23 @@ def transform_body(body):
         lbl, txt = m.group(1), m.group(2)
         return tok(f'{{bpref "{lbl}"}}[{txt}]' if lbl in ALL_LABELS else txt)
 
+    # An included knowl (KNOWL_INC) becomes a reference to it, titled by the reference itself
+    def knowl_inc(m):
+        lbl = m.group(1).replace('\\_', '_').strip()
+        return tok(f'{{bpref "{lbl}"}}[]' if lbl in ALL_LABELS
+                   else f'[{lbl}](https://beta.lmfdb.org/knowledge/show/{lbl})')
+
+    # Raw knowl links <a ... knowl="ID">text</a>, which update_knowls.py leaves as they are
+    def knowl_anchor(m):
+        lbl = m.group(1).replace('\\_', '_').strip()
+        txt = m.group(2).replace('\\_', '_').strip()
+        return tok(f'{{bpref "{lbl}"}}[{txt}]') if lbl in ALL_LABELS else txt
+
     for _ in range(8):
         before = body
         body = re.sub(r"\{\{\s*KNOWL\('((?:[^'\\]|\\.)*)',\s*'((?:[^'\\]|\\.)*)'\)\s*\}\}", knowl, body)
+        body = re.sub(r"\{\{\s*KNOWL\\?_INC\('((?:[^'\\]|\\.)*)'[^}]*\)\s*\}\}", knowl_inc, body)
+        body = re.sub(r'<a\s[^>]*?\bknowl="([^"]+)"[^>]*>([^<]*)</a>', knowl_anchor, body)
         body = re.sub(r'\\hyperref\[([^\]]+)\]\{' + BRACED + r'\}', hyperref, body)
         body = re.sub(r'\\ref\{([^}]+)\}',
                       lambda m: tok(f'{{bpref "{m.group(1)}"}}[]') if m.group(1) in ALL_LABELS else '',
@@ -228,6 +245,10 @@ def transform_body(body):
 
     # --- LaTeX quotes -> straight quotes (backtick is special in Verso) ---
     body = body.replace('``', '"').replace("''", '"').replace('`', "'")
+
+    # --- LaTeX's escaped underscore is a literal underscore, which Verso escapes the same way;
+    # without this, the escape below would turn it into an escaped backslash and an emphasis mark
+    body = body.replace('\\_', tok('\\_'))
 
     # --- escape residual Verso/Markdown specials in plain text. All generated
     # markup ({bpref}/links/math/*bold*/_emph_) is tokenised placeholders with no

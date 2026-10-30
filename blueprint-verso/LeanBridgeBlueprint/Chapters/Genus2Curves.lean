@@ -67,6 +67,14 @@ The Birch and Swinnerton-Dyer for abelian varieties implies that the analytic ra
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.mordell_weil"}[] {uses "ag.regulator"}[] {uses "g2c.analytic_rank"}[] {uses "g2c.mordell_weil_rank"}[] {uses "g2c.real_period"}[] {uses "g2c.tamagawa"}[] {uses "ag.tate_shafarevich"}[] {uses "g2c.torsion"}[] {uses "lfunction"}[] {uses "lfunction.leading_coeff"}[]
 :::
 
+:::definition "g2c.bad_lfactors"
+*Euler factors at bad primes.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.bad_lfactors))
+
+For an {bpref "ag.abelian_variety"}[abelian variety] $`A` over $`\Q`, the local factor that appears in the Euler product of its L-function at a {bpref "ag.good_reduction"}[bad prime] $`p` depends on the type of reduction $`A` has at $`p`.  In general, the degree of the Euler factor at a bad prime will be less than the degree of the L-function (which is $`2g`, where $`g` is the dimension of the abelian variety).
+
+Depends on: {uses "ag.abelian_variety"}[] {uses "ag.good_reduction"}[]
+:::
+
 :::definition "g2c.bsd_invariants"
 *BSD invariants.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.bsd_invariants))
 
@@ -92,7 +100,7 @@ The weak form of the Birch and Swinnerton-Dyer conjecture predicts that the firs
 
 $$`\frac{L^{(r)}(A,1)}{r!} = \frac{\#\Sha(A)\Omega_AR_AT_A}{(\#A(\Q)_{\rm tor})^2}.`
 
-No effective method to compute $`\Sha(A)` is currently known (indeed, it is not even known that $`\Sha(A)` is finitely generated, although the BSD conjecture requires this).  However, one can compute (approximations of) the the five remaining quantities and use this to compute the {bpref "g2c.analytic_sha"}[analytic order of Sha], and under the assumption that  $`\Sha(A)` is finite, one can determine whether its order is a square or not.  One can also compute the {bpref "g2c.two_selmer_rank"}[rank of the 2-Selmer group] of $`A`, which constrains the 2-part of $`\Sha(A)`.
+No effective method to compute $`\Sha(A)` is currently known (indeed, it is not even known that $`\Sha(A)` is finitely generated, although the BSD conjecture requires this).  However, one can compute (approximations of) the the five remaining quantities and use this to compute the {bpref "g2c.analytic_sha"}[analytic order of Sha], and under the assumption that  $`\Sha(A)` is finite, one can determine whether its {bpref "g2c.has_square_sha"}[order is a square] or not.  One can also compute the {bpref "g2c.two_selmer_rank"}[rank of the 2-Selmer group] of $`A`, which constrains the 2-part of $`\Sha(A)`.
 
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.mordell_weil"}[] {uses "ag.regulator"}[] {uses "g2c.analytic_rank"}[] {uses "g2c.analytic_sha"}[] {uses "g2c.mordell_weil_rank"}[] {uses "g2c.real_period"}[] {uses "g2c.tamagawa"}[] {uses "ag.tate_shafarevich"}[] {uses "g2c.torsion"}[] {uses "g2c.two_selmer_rank"}[] {uses "lfunction"}[] {uses "lfunction.leading_coeff"}[]
 :::
@@ -161,12 +169,20 @@ $$`(g_1,g_2,g_3) = (0,\,0,\,J_6^5 / J_{10}^3).\qquad\qquad\quad`
 Depends on: {uses "g2c.g2curve"}[] {uses "g2c.geom_iso_class"}[] {uses "g2c.igusa_invariants"}[]
 :::
 
+:::definition "g2c.galois_rep"
+*Galois representations attached to the Jacobian of a genus 2 curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.galois_rep))
+
+Let $`A` be the {bpref "g2c.jacobian"}[Jacobian of a genus 2 curve] $`C` defined over a field $`K`. Then $`A` is an abelian variety and hence has associated {bpref "av.galois_rep"}[Galois representations].
+
+Depends on: {uses "av.galois_rep"}[] {uses "g2c.jacobian"}[]
+:::
+
 :::definition "g2c.galois_rep.non_maximal_primes"
 *Nonmaximal primes associated to genus $`2` curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.galois_rep.non_maximal_primes))
 
-The *nonmaximal primes* associated to a {bpref "g2c.g2curve"}[genus $`2` curve] are the finitely many primes $`\ell` for which the image of the mod-$`\ell` Galois representation is not as large as possible, subject to constraints imposed by the {bpref "ag.geom_endomorphism_ring"}[geometric endomorphism ring] of the {bpref "ag.jacobian"}[Jacobian] of $`C`.
+The *nonmaximal primes* associated to a {bpref "g2c.g2curve"}[genus $`2` curve] are the finitely many primes $`\ell` for which the image of the mod-$`\ell` {bpref "g2c.galois_rep"}[Galois representation] is not as large as possible, subject to constraints imposed by the {bpref "ag.geom_endomorphism_ring"}[geometric endomorphism ring] of the {bpref "ag.jacobian"}[Jacobian] of $`C`.
 
-This information is currently available only for genus 2 curves whose Jacobian has geometric endomorphism ring $`\Z`, equivalently, curves with {bpref "g2c.st_group"}[Sato-Tate group] $`\mathrm{USp}(4)`.  In this case the nonmaximal primes are simply the primes $`\ell` for which the mod-$`\ell` Galois representation is not surjective.
+This information is currently available only for genus 2 curves whose Jacobian has geometric endomorphism ring $`\Z`, equivalently, curves with {bpref "g2c.st_group"}[Sato-Tate group] $`\mathrm{USp}(4)`.  In this case the nonmaximal primes are simply the primes $`\ell` for which the mod-$`\ell` {bpref "g2c.galois_rep"}[Galois representation] is not surjective.
 
 Depends on: {uses "ag.geom_endomorphism_ring"}[] {uses "ag.jacobian"}[] {uses "g2c.g2curve"}[] {uses "g2c.st_group"}[]
 :::
@@ -190,10 +206,28 @@ Two-plus-Two *2p2*, Non-Semistable *nss*, and last but very much not least, the 
 Depends on: {uses "ec.galois_rep"}[] {uses "g2c.g2curve"}[]
 :::
 
+:::definition "g2c.galois_rep_modell_image"
+*Mod-$`l` Galois image of a genus 2 curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.galois_rep_modell_image))
+
+Let $`\ell` be a prime and let $`C` be an {bpref "g2c.g2curve"}[genus 2 curve]  over a number field $`K` with Jacobian $`A`.
+
+Subgroups $`G` of $`\GSp(4,\F_{\ell})` that can arise as the image of the mod-$`\ell` {bpref "g2c.galois_rep"}[Galois representation]
+
+$$`\bar\rho_{A,\ell}\colon {\Gal}(\overline{K}/K)\to \GSp(4,\F_{\ell})`
+
+attached to $`A` that do not contain $`\Sp(4,\F_{\ell})` are identified up to conjugacy using labels of the form
+
+$$`\texttt{L.i.n},`
+
+where $`\texttt{L}` is the prime $`\ell`, $`\texttt{i}` is the index of $`G` in $`\GSp(4,\F_{\ell})`, and $`\texttt{n}` is a positive integer that distinguishes subgroups of $`\GSp(4,\F_{\ell})` of the same index.  Clicking on such a label will provide more details about $`G`, including generators that can be used to construct it.
+
+Depends on: {uses "g2c.g2curve"}[] {uses "g2c.galois_rep"}[]
+:::
+
 :::definition "g2c.geom_aut_grp" (lean := "CategoryTheory.Aut, AlgebraicGeometry.Scheme.geometricBaseChange")
 *Geometric automorphism group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.geom_aut_grp))
 
-The *geometric automorphism group* of a curve is the {bpref "g2c.aut_grp"}[automorphism group] of its {bpref "ag.base_change"}[base change] to the algebraic closure of its base field.
+The *geometric automorphism group* of a curve is the {bpref "g2c.aut_grp"}[automorphism group] of its {bpref "ag.base_change"}[base change] to the {bpref "nf.algebraic_closure"}[algebraic closure] of its base field.
 
 If $`X` is a curve over a field $`k`, its geometric automorphism group is denoted $`\mathrm{Aut}(X_{\bar{k}})`.
 
@@ -225,7 +259,7 @@ Depends on: {uses "ag.abelian_surface"}[] {uses "ag.abelian_variety"}[] {uses "a
 :::definition "g2c.geom_iso_class" (lean := "AlgebraicGeometry.Scheme.geometricBaseChange, CategoryTheory.IsIsomorphic, CategoryTheory.isIsomorphicSetoid")
 *Geometric isomorphism class of a curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.geom_iso_class))
 
-The *geometric isomorphism class* of a {bpref "ag.curve"}[curve] $`C` {bpref "ag.base_field"}[over a field] $`K` is the isomorphism class of the {bpref "ag.base_change"}[base change] of $`C` to the algebraic closure of $`K`.
+The *geometric isomorphism class* of a {bpref "ag.curve"}[curve] $`C` {bpref "ag.base_field"}[over a field] $`K` is the isomorphism class of the {bpref "ag.base_change"}[base change] of $`C` to the {bpref "nf.algebraic_closure"}[algebraic closure] of $`K`.
 
 Depends on: {uses "ag.base_change"}[] {uses "ag.base_field"}[] {uses "ag.curve"}[]
 :::
@@ -240,6 +274,24 @@ Let $`\ell \in \mathbb{Z}_{> 0}` be a prime, and let $`V_{\ell}(A) = T_{\ell}(A)
 A curve is said to be of $`\text{GL}_2`-type if its {bpref "ag.jacobian"}[Jacobian] is of $`\text{GL}_2`-type.
 
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.endomorphism_algebra"}[] {uses "ag.jacobian"}[] {uses "ag.simple"}[] {uses "av.galois_rep"}[] {uses "av.tate_module"}[]
+:::
+
+:::definition "g2c.good_lfactors"
+*Local L-factors at good primes.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.good_lfactors))
+
+For an {bpref "ag.abelian_variety"}[abelian variety] $`A` over $`\Q`, the local factor that appears in the {bpref "lfunction.euler_product"}[Euler product] of its {bpref "lfunction"}[L-function] $`L(A,s)` at a {bpref "ag.good_reduction"}[good prime] $`p` is an integer polynomial $`L_p(T)` of degree $`2p` that is reciprocal to the characteristic polynomial $`\chi(T)` of the Frobenius endomorphism of the reduction of $`A` modulo $`p`, meaning that $`L_p(T)=T^{2g}\chi(T^{-1})`.
+
+Depends on: {uses "ag.abelian_variety"}[] {uses "ag.good_reduction"}[] {uses "lfunction"}[] {uses "lfunction.euler_product"}[]
+:::
+
+:::definition "g2c.has_square_sha"
+*Has square $`\Sha`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.has_square_sha))
+
+The {bpref "group.order"}[order] of the {bpref "ag.tate_shafarevich"}[Tate-Shafarevich group] of the {bpref "ag.jacobian"}[Jacobian] of a curve is either a square, or twice a square, assuming it is finite; this is a theorem of Poonen and Stoll .
+
+For elliptic curves, only the square case can occur, but for Jacobians of {bpref "ag.curve.genus"}[genus] 2 curves, both cases are known to occur.
+
+Depends on: {uses "ag.curve.genus"}[] {uses "ag.jacobian"}[] {uses "ag.tate_shafarevich"}[] {uses "group.order"}[]
 :::
 
 :::definition "g2c.hasse_weil_conjecture"
@@ -309,7 +361,7 @@ Isogeny class information listed on LMFDB pages for curves refer to the isogeny 
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.jacobian"}[] {uses "av.isogeny"}[]
 :::
 
-:::definition "g2c.jac_end_lattice"
+:::definition "g2c.jac_end_lattice" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.endomorphismLattice, TauCeti.AlgebraicGeometry.AbelianVariety.endRange, TauCeti.AlgebraicGeometry.AbelianVariety.endomorphismField, TauCeti.AlgebraicGeometry.AbelianVariety.End.baseChangeTower_baseChange, TauCeti.AlgebraicGeometry.AbelianVariety.range_baseChange_le_endRange")
 *Endomorphism lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.jac_end_lattice))
 
 Let $`A` be an {bpref "ag.abelian_variety"}[abelian variety] over a field $`F`.  Given a field extension $`F' \supseteq F`, there is a natural inclusion of {bpref "ag.endomorphism_ring"}[endomorphism rings] $`\End(A)\subseteq\mathrm{End}(A_{F'})`, where $`A_{F'}` denotes the base change of $`A` to $`F'`.
@@ -317,6 +369,16 @@ Let $`A` be an {bpref "ag.abelian_variety"}[abelian variety] over a field $`F`. 
 Let $`K` be the {bpref "av.endomorphism_field"}[endomorphism field] of $`A`.  The set of endomorphism rings $`\mathrm{End}(A_{F'})` over subextensions $`K \supseteq F' \supseteq F` forms a lattice under inclusion, called the *endomorphism lattice* of $`A` over $`F`.
 
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.endomorphism_ring"}[] {uses "av.endomorphism_field"}[]
+:::
+
+:::definition "g2c.jacobian"
+*Jacobian of a genus 2 curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.jacobian))
+
+The {bpref "ag.jacobian"}[Jacobian] of a {bpref "g2c.g2curve"}[genus 2 curve] is an {bpref "ag.abelian_surface"}[abelian surface] (an {bpref "ag.abelian_variety"}[abelian variety] of dimension 2).
+
+Properties of the Jacobian include its {bpref "ag.mordell_weil"}[Mordell-Weil group] and its {bpref "ag.endomorphism_ring"}[endomorphism ring].
+
+Depends on: {uses "ag.abelian_surface"}[] {uses "ag.abelian_variety"}[] {uses "ag.endomorphism_ring"}[] {uses "ag.jacobian"}[] {uses "ag.mordell_weil"}[] {uses "g2c.g2curve"}[]
 :::
 
 :::definition "g2c.known_rational_points"
@@ -329,12 +391,30 @@ Rational points on hyperelliptic curves are written in projective coordinates wi
 Depends on: {uses "g2c.minimal_equation"}[] {uses "nf"}[]
 :::
 
+:::definition "g2c.label"
+*Label of a genus 2 curve over $`\Q`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.label))
+
+The label of a {bpref "g2c.g2curve"}[genus 2 curve] over $`\Q` has the form $`N`.$`s`.$`D`.$`n`, where
+
+- $`N` is the {bpref "ag.conductor"}[conductor],
+
+- $`s` is a string of letters that distinguishes this isogeny class among those with the same conductor,
+
+- $`D` is the {bpref "g2c.abs_discriminant"}[absolute discriminant], and
+
+- $`n` is a positive integer that distinguishes the curve among other curves with the same absolute discriminant in the same isogeny class.
+
+In particular, $`N.s` is the label of the isogeny class of the {bpref "g2c.jacobian"}[Jacobian] of the curve. The values $`s` and $`n` are assigned as curves are added to the database and carry no intrinsic meaning
+
+Depends on: {uses "ag.conductor"}[] {uses "g2c.abs_discriminant"}[] {uses "g2c.g2curve"}[] {uses "g2c.jacobian"}[]
+:::
+
 :::definition "g2c.lfunction"
 The *L-function* of an {bpref "ag.abelian_variety"}[Abelian variety] $`A` over $`\Q` is defined as an {bpref "lfunction.euler_product"}[Euler product] $`\prod_p L_p(p^{-s})` over primes $`p`, where the *L-polynomial* $`L_p(T)` is an integer polynomial of degree at most $`2g`, where $`g` is the dimension of $`A`; the L-function of a curve is then defined as the L-function of its {bpref "ag.jacobian"}[Jacobian].  The $`L`-function is an invariant of the {bpref "g2c.isogeny_class"}[isogeny class] of $`A`.
 
 For primes $`p` where $`A` has {bpref "g2c.good_reduction"}[good reduction] (all but finitely many), the polynomial $`L_p(T)=T^{2g}\chi(T^{-1})` is determined by the characteristic polynomial $`\chi(T)` of the Frobenius endomomrphism of the reduction of $`A` modulo $`p`.
 
-The Euler factors at bad primes $`p` depend on the type of bad reduction $`A` has at $`p`.
+The {bpref "g2c.bad_lfactors"}[Euler factors at bad primes] $`p` depend on the type of bad reduction $`A` has at $`p`.
 
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.jacobian"}[] {uses "g2c.good_reduction"}[] {uses "g2c.isogeny_class"}[] {uses "lfunction.euler_product"}[]
 :::
@@ -350,13 +430,27 @@ The *local invariants* of a {bpref "g2c.g2curve"}[genus 2 curve] over $`\Q` incl
 
 - The {bpref "g2c.tamagawa"}[Tamagawa number] $`c_p` ;
 
-- The local root number;
+- The {bpref "g2c.local_root_number"}[local root number];
 
-- The L-factor at $`p`.
+- The {bpref "g2c.bad_lfactors"}[L-factor] at $`p`.
 
 For primes of {bpref "g2c.good_reduction"}[good reduction] the valuations of both discriminant and conductor are $`0`, and the Tamagawa number is $`1`.
 
 Depends on: {uses "ag.conductor"}[] {uses "ag.jacobian"}[] {uses "g2c.discriminant"}[] {uses "g2c.g2curve"}[] {uses "g2c.good_reduction"}[] {uses "g2c.tamagawa"}[]
+:::
+
+:::definition "g2c.local_root_number"
+*Local root number.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.local_root_number))
+
+Similar to the case of {bpref "ec.local_root_number"}[local root numbers of elliptic curves], the local root number of a higher genus curve $`C` is $`+1` or $`-1`.
+For any Archimedean place, the local root number is $`(-1)^{\mathrm{genus}(C)}`.
+For non-Archimedean places, there is no easy way to characterize it, but the product of all local root numbers, which is called the global root number, is conjectured to be equal to the sign in the functional equation of the $`L`-function corresponding to the curve.
+This conjecture is known to hold for curves satisfying modularity.
+
+For the genus 2 curves in the LMFDB, the root number has been provably computed for all odd primes with {bpref "g2c.tame_reduction"}[tame reduction].
+For other primes, the correctness of the computed root numbers is contingent on modularity.
+
+Depends on: {uses "ec.local_root_number"}[] {uses "g2c.tame_reduction"}[]
 :::
 
 :::definition "g2c.locally_solvable" (lean := "AlgebraicGeometry.Scheme.IsLocallySolvable, AlgebraicGeometry.Scheme.PointOver, AlgebraicGeometry.Scheme.isLocallySolvable_of_nonempty, AlgebraicGeometry.Scheme.HasPointIn")
@@ -374,7 +468,7 @@ Depends on: {uses "ag.curve"}[] {uses "ag.curve.genus"}[] {uses "ag.irreducible"
 :::definition "g2c.maximal_galois_rep"
 *Maximal image.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.maximal_galois_rep))
 
-The image of the mod-$`\ell`  Galois representation associated to a genus 2 curve is *maximal* if it is as large as possible given constraints imposed by the Weil pairing and endomorphisms of the {bpref "ag.jacobian"}[Jacobian].
+The image of the {bpref "g2c.galois_rep"}[mod-$`\ell`  Galois representation] associated to a genus 2 curve is *maximal* if it is as large as possible given constraints imposed by the Weil pairing and endomorphisms of the {bpref "ag.jacobian"}[Jacobian].
 
 For *generic* curves the {bpref "ag.geom_endomorphism_ring"}[geometric endomorphism ring] of the Jacobian is $`\Z` and the maximal image is $`\GSp(4,\Z/\ell\Z)`. In all other cases it is a proper subgroup of $`\GSp(4,\Z/\ell\Z)`.
 
@@ -431,7 +525,7 @@ Depends on: {uses "ag.curve.genus"}[] {uses "ag.hyperelliptic_curve"}[] {uses "r
 :::definition "g2c.paramodular_conjecture"
 *Paramodular conjecture.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.paramodular_conjecture))
 
-The *paramodular conjecture* of Brumer and Kramer  makes precise an earlier conjecture of Yoshida [eudml.org/doc/142747](https://eudml.org/doc/142747).  The conjecture states that for every {bpref "ag.abelian_surface"}[abelian surface] $`A/\Q` of paramodular type (meaning $`\End(A)=\Z`) there exists a corresponding paramodular newform of level $`N` equal to the {bpref "ag.conductor"}[conductor] of $`A`.
+The *paramodular conjecture* of Brumer and Kramer  makes precise an earlier conjecture of Yoshida [eudml.org/doc/142747](https://eudml.org/doc/142747).  The conjecture states that for every {bpref "ag.abelian_surface"}[abelian surface] $`A/\Q` of paramodular type (meaning $`\End(A)=\Z`) there exists a corresponding {bpref "mf.siegel.newform.paramodular"}[paramodular newform] of level $`N` equal to the {bpref "ag.conductor"}[conductor] of $`A`.
 
 For squarefree integers $`N` it is further conjectured that this correspondence gives a bijection between {bpref "av.isogeny_class"}[isogeny classes] of paramodular type abelian surfaces of conductor $`N` and paramodular newforms of level $`N`.
 
@@ -455,9 +549,18 @@ Depends on: {uses "ag.abelian_variety"}[] {uses "ag.curve.genus"}[] {uses "ag.di
 :::definition "g2c.regulator"
 *Regulator of a genus 2 curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.regulator))
 
-The *regulator* of a {bpref "g2c.g2curve"}[genus 2 curve] is the {bpref "ag.regulator"}[regulator] of its  Jacobian.
+The *regulator* of a {bpref "g2c.g2curve"}[genus 2 curve] is the {bpref "ag.regulator"}[regulator] of its  {bpref "g2c.jacobian"}[Jacobian].
 
 Depends on: {uses "ag.regulator"}[] {uses "g2c.g2curve"}[]
+:::
+
+:::definition "g2c.semistable_reduction"
+*Semistable reduction.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.semistable_reduction))
+
+A curve $`C` over a local field $`K` is said to have _semistable reduction_ if there exists a model over $`\mathcal{O}_K`, such that the special fibre is semistable, i.e., the special fibre is a geometrically reduced curve with at most nodal singularities, and each component of geometric genus 0 has at least 2 singular points, counted with multiplicity.
+This is the equivalent of {bpref "ec.semistable"}[semistable reduction for elliptic curves].
+
+Depends on: {uses "ec.semistable"}[]
 :::
 
 :::definition "g2c.simple_equation" (lean := "HyperellipticEquation.simplifiedPolynomial, HyperellipticEquation.w, HyperellipticEquation.w_sq")
@@ -528,6 +631,16 @@ The product of the Tamagawa numbers over all primes is a positive integer known 
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.base_change"}[] {uses "ag.jacobian"}[] {uses "g2c.good_reduction"}[] {uses "lf.padic_field"}[]
 :::
 
+:::definition "g2c.tame_reduction"
+*Tame reduction.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.tame_reduction))
+
+The semistable reduction theorem asserts that any curve $`C` attains {bpref "g2c.semistable_reduction"}[semistable reduction] after a finite extension of the base field.
+If semistable reduction, can be attained after a {bpref "lf.tame_degree"}[tame extension] of the base field, then $`C` is said to have _tame reduction_, otherwise $`C` has _wild reduction_.
+For primes $`p > 2g + 1`, any curve of genus $`g` has tame reduction at $`p`.
+
+Depends on: {uses "g2c.semistable_reduction"}[] {uses "lf.tame_degree"}[]
+:::
+
 :::definition "g2c.torsion" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety, TauCeti.GroupScheme.torsion")
 *Torsion subgroup.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.torsion))
 
@@ -546,7 +659,7 @@ The *torsion order* of a finitely-generated abelian group such as the Mordell-We
 Depends on: {uses "ag.jacobian"}[] {uses "g2c.torsion"}[] {uses "nf"}[]
 :::
 
-:::definition "g2c.two_selmer_rank"
+:::definition "g2c.two_selmer_rank" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.twoSelmerRank, TauCeti.AlgebraicGeometry.AbelianVariety.numberFieldSelmerGroup, TauCeti.AlgebraicGeometry.AbelianVariety.mem_numberFieldSelmerGroup_iff, TauCeti.AlgebraicGeometry.AbelianVariety.kummerCondition, TauCeti.AlgebraicGeometry.AbelianVariety.TorsionCoeff")
 *2-Selmer rank.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.two_selmer_rank))
 
 The *2-Selmer rank* of an {bpref "ag.abelian_variety"}[abelian variety] is the rank of its {bpref "ag.selmer_group"}[2-Selmer group].
@@ -561,7 +674,7 @@ Depends on: {uses "ag.abelian_variety"}[] {uses "ag.mordell_weil"}[] {uses "ag.s
 
 The *2-torsion field* of an {bpref "ag.abelian_variety"}[abelian variety] is the minimal field extension over which the 2-torsion subgroup of its {bpref "ag.mordell_weil"}[Mordell-Weil group] is rational; it is a Galois extension of the field over which the abelian variety is defined.
 
-The 2-torsion field of the Jacobian of a {bpref "ag.hyperelliptic_curve"}[hyperelliptic curve] of the form $`y^2=f(x)` is the same as the splitting field of the polynomial $`f(x)`.
+The 2-torsion field of the {bpref "g2c.jacobian"}[Jacobian] of a {bpref "ag.hyperelliptic_curve"}[hyperelliptic curve] of the form $`y^2=f(x)` is the same as the splitting field of the polynomial $`f(x)`.
 
 For abelian varieties over number fields, the 2-torsion field is specified by giving a number field of minimal degree and absolute discriminant whose Galois closure is equal to the 2-torsion field.
 

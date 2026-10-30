@@ -251,6 +251,11 @@ def update_knowls(cats=["nf", "ec", "cmf"], delete_old=False):
     # Collect definitions in a file, and only keep knowls that define something
     by_id = {rec["id"]: rec for rec in all_knowls}
     print(f"{len(by_id)} knowls before filtering")
+    # Knowls that define nothing but have mathematical content (listed in math_knowls.txt) are added
+    # to the blueprint after the defining ones, below
+    with open("math_knowls.txt") as F:
+        math_ids = set(line.split("#")[0].strip() for line in F) - {""}
+    math_by_id = {kid: rec for kid, rec in by_id.items() if kid in math_ids and not rec["defines"]}
     with open("definitions.txt", "w") as F:
         by_def = defaultdict(list)
         for kid in sorted(by_id):
@@ -276,6 +281,9 @@ def update_knowls(cats=["nf", "ec", "cmf"], delete_old=False):
     # Now we trim to only things that are dependencies of knowls in the specified categories, and build a networkx DiGraph for the next step
     omit_edges = set([
         # We've manually removed some edges to prevent cycles
+        ("character.dirichlet.conrey", "character.dirichlet.conrey.order"),
+        ("character.dirichlet.group", "character.dirichlet.conrey"),
+        ("ec.congruent_number_curve", "ec.congruent_number_problem"),
         ("ec.q.lmfdb_label", "ec.q.cremona_label"),
         ("ec.q.cremona_label", "ec.q.lmfdb_label"),
         ("ec.q.optimal", "ec.q.cremona_label"),
@@ -481,6 +489,11 @@ def update_knowls(cats=["nf", "ec", "cmf"], delete_old=False):
     add_with_links(set(rec["id"] for rec in by_id.values() if rec["cat"] in cats))
     core = copy(keep)
     add_with_links(set(by_id))
+    # Then the knowls of math_knowls.txt, which go into the chapters of their areas, with their links
+    # to every knowl kept; links to them from the defining knowls are left out, so that the defining
+    # knowls keep their dependencies and chapters
+    by_id.update(math_by_id)
+    add_with_links(set(math_by_id))
     all_by_id = {rec["id"]: rec for rec in all_knowls}
     by_id = {rec["id"]: rec for rec in all_knowls if rec["id"] in keep}
 
@@ -537,6 +550,7 @@ def update_knowls(cats=["nf", "ec", "cmf"], delete_old=False):
         "group": "groups",
         "gl2": "groups",
         "repn": "groups",
+        "commensurable": "groups",
         "gg": "galois_groups",
         "lf": "local_fields",
         "character": "characters",
@@ -550,8 +564,11 @@ def update_knowls(cats=["nf", "ec", "cmf"], delete_old=False):
         "belyi": "belyi_maps",
         "modcurve": "modular_curves",
         "shimcurve": "shimura_curves",
+        "sh": "shimura_curves",
         "hmsurface": "hilbert_modular_surfaces",
         "mf": "automorphic_forms",
+        "hecke_algebra": "automorphic_forms",
+        "paramodulargroup": "automorphic_forms",
         "st_group": "sato_tate_groups",
         "hgm": "hypergeometric_motives",
         "mot": "hypergeometric_motives",

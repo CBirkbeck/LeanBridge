@@ -35,6 +35,32 @@ The points $`P` of $`X/G` whose fibers $`\phi^{-1}(P)` have cardinality strictly
 Depends on: {uses "ag.riemann_surface"}[]
 :::
 
+:::definition "curve.highergenus.aut.characters"
+*Automorphism group characters.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/curve.highergenus.aut.characters))
+
+If $`G` is a {bpref "curve.highergenus.aut.group_action"}[group acting on a curve] $`X/\C` of {bpref "ag.curve.genus"}[genus] $`g`, the induced action of $`G` on the $`g`-dimensional $`\C`-vector space of holomorphic differentials of $`X` gives rise to a representation of $`G`.  The {bpref "curve.highergenus.aut.groupalgebradecomp"}[group algebra decomposition] of the {bpref "ag.jacobian"}[Jacobian] of $`X` into a product $`A_1^{e_1}\times \cdots\times A_r^{e_r}` of powers of $`r` abelian varieties gives rise to $`r` {bpref "group.representation.irrep"}[irreducible subrepresentations] of $`G`, each of which has an {bpref "group.representation.character"}[associated character].
+
+The character of each of these representations is identified by its index in the {bpref "group.complex_character_table"}[character table] for $`G` as listed by Magma (which may differ from GAP).
+
+Depends on: {uses "ag.curve.genus"}[] {uses "ag.jacobian"}[] {uses "curve.highergenus.aut.group_action"}[] {uses "curve.highergenus.aut.groupalgebradecomp"}[] {uses "group.complex_character_table"}[] {uses "group.representation.character"}[] {uses "group.representation.irrep"}[]
+:::
+
+:::definition "curve.highergenus.aut.conjugacyclasses"
+*Conjugacy classes.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/curve.highergenus.aut.conjugacyclasses))
+
+Conjugacy classes in a group of automorphisms are identified by their index in the list of conjugacy clases returned by Magma.
+
+For example, the unique conjugacy class in the group $`SL(2,3)` that contains elements of order 4 appears as the 5th conjugacy class in the list of conjugacy classes for this group and is identified by the ordinal $`5`. Information about this conjugacy class, including an explicit representative can be obtained in Magma using either of the commands below:
+
+- "ConjugacyClasses(SL(2,3))\[5\];"
+
+- "ConjugacyClasses(SmallGroup(24,3))\[5\];"
+
+Here $`[24,3]` is the {bpref "group.small_group_label"}[group identifier] for the group $`SL(2,3)`.
+
+Depends on: {uses "group.small_group_label"}[]
+:::
+
 :::definition "curve.highergenus.aut.dimension" (lean := "MulAction.signatureDimension, MulAction.signatureDimension_signature, MulAction.signature")
 *Dimension of a family of curves.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/curve.highergenus.aut.dimension))
 
@@ -151,4 +177,10 @@ Equivalently, if the actions are described as surjective homomorphisms $`\eta_1:
 $$`\begin{matrix}\Gamma & \xrightarrow{\mathit{\eta_1}}& G \\ \Big\downarrow h & & \Big\downarrow \omega  \\ \Gamma & \xrightarrow{\mathit{\eta_2}}& G  \end{matrix}`
 
 Depends on: {uses "curve.highergenus.aut.group_action"}[] {uses "group.fuchsian"}[]
+:::
+
+:::definition "curve.highergenus.hurwitz_bound" (lean := "TauCeti.card_algEquiv_le_eighty_four_mul_genus_sub_one_of_charZero, TauCeti.finite_algEquiv_of_two_le_genus, TauCeti.natCard_le_eighty_four_mul_genus_sub_one_of_charZero")
+*Hurwitz bound.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/curve.highergenus.hurwitz_bound))
+
+For any integer $`g > 1`, the automorphism group of any curve of genus $`g` over $`\C` has order at most $`84(g-1)`. This is not best possible for every $`g`, but there do exist infinitely many $`g` for which the bound is achieved; examples include  ($`g=3`) and the  ($`g=7`). See also [Wikipedia](https://en.wikipedia.org/wiki/Hurwitz%27s_automorphisms_theorem).
 :::
