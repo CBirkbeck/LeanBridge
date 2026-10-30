@@ -32,8 +32,9 @@ variable (k : ℕ) (γ : SL(2, ℂ)) (p : ℂ × ℝ) (z : HyperbolicThreeSpace)
 /-- The **symmetric power** `Sym^k(A)` (LMFDB `mf.bianchi`) of a `2 × 2` complex matrix
 `A = (a, b; c, d)`: the matrix of the substitution `X ↦ aX + bY`, `Y ↦ cX + dY` on the homogeneous
 polynomials of degree `k` in the basis `X^{k-i} Y^i`, whose entry `(i, j)` is the coefficient of
-`X^{k-j} Y^j` in `(aX + bY)^{k-i} (cX + dY)^i`. It is multiplicative (not proved here), and
-`Sym^2` is the matrix of LMFDB `mf.bianchi.weight2` (`bianchiSlash_two`). -/
+`X^{k-j} Y^j` in `(aX + bY)^{k-i} (cX + dY)^i`. It is multiplicative
+(`HyperbolicThreeSpace.symPowMatrix_mul`), and `Sym^2` is the matrix of LMFDB `mf.bianchi.weight2`
+(`bianchiSlash_two`). -/
 def symPowMatrix (A : Matrix (Fin 2) (Fin 2) ℂ) : Matrix (Fin (k + 1)) (Fin (k + 1)) ℂ :=
   of fun i j ↦ ∑ q ∈ Finset.range (j + 1), ((k - i : ℕ).choose (j - q) * (i : ℕ).choose q : ℂ) *
     A 0 0 ^ (k - i - (j - q)) * A 0 1 ^ (j - q) * A 1 0 ^ (i - q) * A 1 1 ^ q
