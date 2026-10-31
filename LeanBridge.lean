@@ -235,11 +235,16 @@ import LeanBridge.ForMathlib.NumberTheory.Artin.LFunction
 import LeanBridge.ForMathlib.NumberTheory.Artin.Label
 import LeanBridge.ForMathlib.NumberTheory.Artin.Parity
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.BaseChange
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.BaseChangeAutomorphism
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.AnalyticRank
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.AnalyticRankOfWeight
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.BaseChange
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.BaseChangeOfWeight
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.BaseChangePowerSum
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.Casimir
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.ClassGroupHecke
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.ComplexMultiplication
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.ComplexMultiplicationOfWeight
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.CongruenceSubgroup
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.FourierBessel
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.Fricke
@@ -349,6 +354,7 @@ import LeanBridge.ForMathlib.NumberTheory.Hypergeometric.Weight
 import LeanBridge.ForMathlib.NumberTheory.Hypergeometric.WildTamePrimes
 import LeanBridge.ForMathlib.NumberTheory.LFunction.AnalyticConductor
 import LeanBridge.ForMathlib.NumberTheory.LFunction.AnalyticRank
+import LeanBridge.ForMathlib.NumberTheory.LFunction.AnalyticRankParity
 import LeanBridge.ForMathlib.NumberTheory.LFunction.Basic
 import LeanBridge.ForMathlib.NumberTheory.LFunction.CentralCharacter
 import LeanBridge.ForMathlib.NumberTheory.LFunction.CentralPoint
@@ -418,7 +424,9 @@ import LeanBridge.ForMathlib.NumberTheory.ModularForms.Eisenstein.NewOld
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Eisenstein.Series
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Eisenstein.Subspace
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.HeckeAlgebra
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.BaseChange
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.Basic
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.ComplexMultiplication
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.FourierCoefficient
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.FourierExpansion
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.HeckeCosetDecomposition

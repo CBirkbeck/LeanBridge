@@ -3656,6 +3656,14 @@
     "HyperbolicThreeSpace.casimirOne": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.Casimir",
     "HyperbolicThreeSpace.IsBianchiCuspidal": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.ModularForm"
   },
+  "mf.bianchi.base_change": {
+    "HyperbolicThreeSpace.IsBianchiHeckeEigenform.IsBaseChange": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.BaseChangeOfWeight",
+    "HyperbolicThreeSpace.BianchiNewformOfWeight.IsBaseChange": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.BaseChangeOfWeight",
+    "HeckeRing.GL2.Newform.quadraticBaseChangeEigenvalue": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.BaseChangeOfWeight",
+    "HyperbolicThreeSpace.IsBianchiHeckeEigenform.isBaseChange_iff_frobeniusPowerSum": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.BaseChangePowerSum",
+    "HyperbolicThreeSpace.IsBianchiHeckeEigenform.IsBaseChange.eigenvalue_eq_eigenvalue": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.BaseChangeOfWeight",
+    "HyperbolicThreeSpace.IsBianchiHeckeEigenform.IsBaseChange.isBaseChangeOfEulerFactors": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.BaseChangePowerSum"
+  },
   "mf.bianchi.bianchicongruencesubgroup": {
     "Ideal.gammaPSL": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.CongruenceSubgroup",
     "Ideal.mk_mem_gammaPSL_iff": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.CongruenceSubgroup",
@@ -3668,6 +3676,14 @@
     "Matrix.ProjectiveSpecialLinearGroup": "Mathlib.LinearAlgebra.Matrix.ProjectiveSpecialLinearGroup",
     "NumberField.RingOfIntegers": "Mathlib.NumberTheory.NumberField.Basic",
     "NumberField.IsTotallyComplex": "Mathlib.NumberTheory.NumberField.InfinitePlace.TotallyRealComplex"
+  },
+  "mf.bianchi.cm": {
+    "HyperbolicThreeSpace.IsBianchiHeckeEigenform.HasCMBy": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.ComplexMultiplicationOfWeight",
+    "HyperbolicThreeSpace.IsBianchiHeckeEigenform.HasCM": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.ComplexMultiplicationOfWeight",
+    "HyperbolicThreeSpace.IsBianchiHeckeEigenform.HasCMBy.eigenvalue_eq_zero": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.ComplexMultiplicationOfWeight",
+    "HyperbolicThreeSpace.BianchiNewformOfWeight.HasCMBy": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.ComplexMultiplicationOfWeight",
+    "HyperbolicThreeSpace.BianchiNewformOfWeight.HasCM": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.ComplexMultiplicationOfWeight",
+    "TauCeti.GlobalNumberFields.IsIdealHeckeCharacter": "LeanBridge.ForMathlib.NumberTheory.NumberField.HeckeIdealCharacter"
   },
   "mf.bianchi.fourierbessell": {
     "HyperbolicThreeSpace.HasBianchiFourierBesselExpansion": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.FourierBessel",

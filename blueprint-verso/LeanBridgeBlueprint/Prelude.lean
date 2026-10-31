@@ -181,7 +181,10 @@ import LeanBridge.ForMathlib.NumberTheory.Artin.Conductor
 import LeanBridge.ForMathlib.NumberTheory.Artin.GaloisOrbit
 import LeanBridge.ForMathlib.NumberTheory.Artin.LFunction
 import LeanBridge.ForMathlib.NumberTheory.Artin.Parity
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.BaseChangeOfWeight
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.BaseChangePowerSum
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.Casimir
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.ComplexMultiplicationOfWeight
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.CongruenceSubgroup
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.FourierBessel
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.HeckeAlgebra

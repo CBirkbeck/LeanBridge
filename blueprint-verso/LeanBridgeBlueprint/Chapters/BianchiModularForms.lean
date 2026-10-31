@@ -50,7 +50,7 @@ Let $`F` be a {bpref "mf.bianchi.newform"}[Bianchi newform] over the imaginary q
 Depends on: {uses "mf.bianchi.newform"}[] {uses "mf.bianchi.sign"}[]
 :::
 
-:::definition "mf.bianchi.base_change"
+:::definition "mf.bianchi.base_change" (lean := "HyperbolicThreeSpace.IsBianchiHeckeEigenform.IsBaseChange, HyperbolicThreeSpace.BianchiNewformOfWeight.IsBaseChange, HeckeRing.GL2.Newform.quadraticBaseChangeEigenvalue, HyperbolicThreeSpace.IsBianchiHeckeEigenform.isBaseChange_iff_frobeniusPowerSum, HyperbolicThreeSpace.IsBianchiHeckeEigenform.IsBaseChange.eigenvalue_eq_eigenvalue, HyperbolicThreeSpace.IsBianchiHeckeEigenform.IsBaseChange.isBaseChangeOfEulerFactors")
 *Base-change Bianchi modular forms.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.bianchi.base_change))
 
 For every {bpref "cmf.newform"}[classical elliptic newform] $`f` and every imaginary quadratic field $`K` one can define the *base-change* $`F` of $`f` to $`K`.
@@ -101,7 +101,7 @@ identified with the group of orientation-preserving isometries of the
 Depends on: {uses "mf.bianchi.hyperbolic3space"}[]
 :::
 
-:::definition "mf.bianchi.cm"
+:::definition "mf.bianchi.cm" (lean := "HyperbolicThreeSpace.IsBianchiHeckeEigenform.HasCMBy, HyperbolicThreeSpace.IsBianchiHeckeEigenform.HasCM, HyperbolicThreeSpace.IsBianchiHeckeEigenform.HasCMBy.eigenvalue_eq_zero, HyperbolicThreeSpace.BianchiNewformOfWeight.HasCMBy, HyperbolicThreeSpace.BianchiNewformOfWeight.HasCM, TauCeti.GlobalNumberFields.IsIdealHeckeCharacter")
 *CM Bianchi newforms.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.bianchi.cm))
 
 A {bpref "mf.bianchi.newform"}[Bianchi newform] $`F` of {bpref "mf.bianchi.level"}[level] $`\mathcal{N}` over an imaginary quadratic field $`K` is said to have *Complex Multiplication* or *CM* if it is equal to its own twist by a non-trivial Hecke character $`\chi`.  Such a character $`\chi` is necessarily quadratic.  The CM property is characterised in terms of the Hecke eigenvalues $`a_{\frak{p}}`of $`F` by the property that
