@@ -22,9 +22,8 @@ commensurable with the image of `G(ℤ)` under a surjective homomorphism with co
 `G(ℝ)` onto the identity component of `Aut(M)`, for an algebraic group `G` over `ℚ`. Without it,
 `Γ \ M` need not be an algebraic variety, nor even Hausdorff, as `Γ` need not be discrete, and the
 compact Riemann surfaces `Γ \ ℍ` given by the non-arithmetic cocompact Fuchsian groups are not
-Shimura curves. Arithmeticity needs algebraic groups over `ℚ` with their real and integral points
-and the Lie group structure of `Aut(M)`, which are not available, so connected Shimura varieties are
-not formalised here.
+Shimura curves. Connected Shimura varieties, with this arithmeticity condition, are formalised in
+`LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.ConnectedShimuraVariety`.
 
 Holomorphic maps are the complex analytic ones, `ContMDiff` of order `ω` for the models `𝓘(ℂ, E)`,
 and the holomorphic automorphisms of `M` form a subgroup of its permutations.

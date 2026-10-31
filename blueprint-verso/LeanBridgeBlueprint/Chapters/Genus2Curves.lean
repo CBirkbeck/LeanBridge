@@ -737,7 +737,7 @@ The difference between the 2-Selmer rank and the 2-rank of the {bpref "g2c.torsi
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.mordell_weil"}[] {uses "ag.selmer_group"}[] {uses "ag.tate_shafarevich"}[] {uses "g2c.torsion"}[]
 :::
 
-:::definition "g2c.two_torsion_field"
+:::definition "g2c.two_torsion_field" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.torsionField, TauCeti.AlgebraicGeometry.AbelianVariety.torsionField_le_iff, TauCeti.AlgebraicGeometry.AbelianVariety.isGalois_torsionField, TauCeti.AlgebraicGeometry.AbelianVariety.finiteDimensional_torsionField, TauCeti.AlgebraicGeometry.AbelianVariety.torsionRep")
 *2-torsion field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.two_torsion_field))
 
 The *2-torsion field* of an {bpref "ag.abelian_variety"}[abelian variety] is the minimal field extension over which the 2-torsion subgroup of its {bpref "ag.mordell_weil"}[Mordell-Weil group] is rational; it is a Galois extension of the field over which the abelian variety is defined.

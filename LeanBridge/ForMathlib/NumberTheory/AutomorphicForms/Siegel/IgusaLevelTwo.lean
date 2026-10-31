@@ -1,0 +1,116 @@
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.IgusaRing
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ThetaTransformation
+import Mathlib.RingTheory.MvPolynomial.Homogeneous
+
+/-!
+# The ring of Siegel modular forms of degree 2 on `Γ[2]`
+
+Igusa determined the graded ring `R = ⊕_k M_k(Γ[2])` of Siegel modular forms of degree 2 on the
+principal congruence subgroup `Γ[2]` of `Sp(4, ℤ)` (LMFDB `mf.siegel.family.gamma_2`) in terms of
+the theta constants `ϑᵢ = ϑ_{nᵢ}` of the ten even characteristics `n₁, …, n₁₀`: with `xᵢ = ϑᵢ⁴`,
+the ring of forms of even weight is `R^ev ≅ ℂ[x₁, …, x₅]/(f)` for a quartic `f` (the Igusa
+quartic), and `R = R^ev[χ₅]/(χ₅² + 2¹⁴χ₁₀)` for `χ₅ = ∏ ϑᵢ`. The structure theorem rests on
+dimension formulas and is stated here, not proved (`IgusaLevelTwoStructure`).
+
+The ten characteristics are exactly the even ones among the sixteen `(μ, ν) ∈ {0, 1}² × {0, 1}²`
+(`exists_evenChar_of_even`); the theta constants of the six odd ones vanish
+(`SiegelUpperHalfSpace.thetaConstant_eq_zero_of_odd`), and the `ϑᵢ` are holomorphic
+(`SiegelUpperHalfSpace.isHolomorphic_thetaConstant`). Their transformation laws under the Siegel
+parabolic subgroup and the partial inversion `J₁`, which generate `Sp(4, ℤ)`, are
+`SiegelUpperHalfSpace.thetaConstant_smul_of_mem_siegelParabolic` and
+`SiegelUpperHalfSpace.thetaConstant_eq_partialInversion`.
+
+The knowl's other notions are not formalised here: the subgroup `Γ₁[2]` and the quotients
+`Γ₁[2]/Γ[2] ≅ (ℤ/2ℤ)³`, `Γ₀[2]/Γ[2] ≅ ℤ/2ℤ × S₄`, `Γ₀[2]/Γ₁[2] ≅ S₃`, `Sp(4, ℤ)/Γ[2] ≅ S₆`, the
+action of `S₆` on `M_{k,j}(Γ[2])` with its isotypic decomposition (the action of `Sp(4, ℤ)/Γ[2]`
+on the `Γ[2]`-invariant functions is `SiegelUpperHalfSpace.levelTwoSlashRep`), and the Eisenstein
+subspace `E_{k,j}(Γ[2])`.
+
+## Main definitions
+
+* `SiegelUpperHalfSpace.IgusaLevelTwo.principal`: the group `Γ[2]`, in `Sp(4, ℚ)`.
+* `SiegelUpperHalfSpace.IgusaLevelTwo.evenChar`: the ten even characteristics `n₁, …, n₁₀`.
+* `SiegelUpperHalfSpace.IgusaLevelTwo.thetaEven`, `SiegelUpperHalfSpace.IgusaLevelTwo.x`: the
+  theta constants `ϑᵢ` and their fourth powers `xᵢ`.
+* `SiegelUpperHalfSpace.IgusaLevelTwo.IgusaLevelTwoStructure`: Igusa's theorem, as a statement, in
+  which `R^ev = ⊕_k M_{2k}(Γ[2])` is `SiegelUpperHalfSpace.evenWeightModularForms` with the trivial
+  character.
+
+## Main results
+
+* `SiegelUpperHalfSpace.IgusaLevelTwo.exists_evenChar_of_even`: every even characteristic in
+  `{0, 1}² × {0, 1}²` is one of the `nᵢ`.
+-/
+
+open Matrix
+
+namespace SiegelUpperHalfSpace.IgusaLevelTwo
+
+/-- The principal congruence subgroup `Γ[2]` of `Sp(4, ℤ)` (LMFDB `mf.siegel.family.gamma_2`), as a
+subgroup of `Sp(4, ℚ)`. -/
+abbrev principal : Subgroup (symplecticGroup (Fin 2) ℚ) :=
+  (SymplecticGroup.Gamma (Fin 2) 2).map (SymplecticGroup.map (Int.castRingHom ℚ))
+
+/-- The ten **even theta characteristics** `n₁, …, n₁₀` of degree 2 (LMFDB
+`mf.siegel.family.gamma_2`), in the knowl's lexicographic order: the knowl writes `nᵢ = (μ, ν)` as
+`[μ₁ μ₂; ν₁ ν₂]`, and its `nᵢ₊₁` is `evenChar i`. -/
+def evenChar : Fin 10 → (Fin 2 → ℤ) × (Fin 2 → ℤ) :=
+  ![(![0, 0], ![0, 0]), (![0, 0], ![0, 1]), (![0, 0], ![1, 0]), (![0, 0], ![1, 1]),
+    (![0, 1], ![0, 0]), (![0, 1], ![1, 0]), (![1, 0], ![0, 0]), (![1, 0], ![0, 1]),
+    (![1, 1], ![0, 0]), (![1, 1], ![1, 1])]
+
+/-- The **theta constant** `ϑᵢ = ϑ_{nᵢ}` of the even characteristic `nᵢ` (LMFDB
+`mf.siegel.family.gamma_2`). -/
+noncomputable def thetaEven (i : Fin 10) : SiegelUpperHalfSpace (Fin 2) → ℂ :=
+  thetaConstant (evenChar i).1 (evenChar i).2
+
+/-- The fourth power **`xᵢ = ϑᵢ⁴`** (LMFDB `mf.siegel.family.gamma_2`), a Siegel modular form of
+weight 2 on `Γ[2]` by Igusa's theorem, which is not proved here (`IgusaLevelTwoStructure`). -/
+noncomputable def x (i : Fin 10) : SiegelUpperHalfSpace (Fin 2) → ℂ :=
+  thetaEven i ^ 4
+
+lemma even_evenChar (i : Fin 10) : Even ((evenChar i).1 ⬝ᵥ (evenChar i).2) := by
+  fin_cases i <;> decide
+
+/-- **The `nᵢ` are all the even characteristics**: every `(μ, ν) ∈ {0, 1}² × {0, 1}²` with `μ ⬝ᵥ ν`
+even is one of the ten `nᵢ`. -/
+lemma exists_evenChar_of_even {μ ν : Fin 2 → Fin 2}
+    (h : Even ((fun i ↦ (μ i : ℤ)) ⬝ᵥ fun i ↦ (ν i : ℤ))) :
+    ∃ i, evenChar i = ((fun j ↦ (μ j : ℤ)), fun j ↦ (ν j : ℤ)) := by
+  revert μ ν
+  decide
+
+lemma prod_thetaEven : ∏ i, thetaEven i = Ibukiyama.chi5 := by
+  simp [Fin.prod_univ_succ, thetaEven, evenChar, Ibukiyama.chi5]
+  ring1
+
+lemma isHolomorphic_thetaEven (i : Fin 10) : IsHolomorphic (thetaEven i) :=
+  isHolomorphic_thetaConstant _ _
+
+lemma isHolomorphic_x (i : Fin 10) : IsHolomorphic (x i) :=
+  (isHolomorphic_thetaEven i).pow 4
+
+/-- **Igusa's theorem on `Γ[2]`** (LMFDB `mf.siegel.family.gamma_2`), as a statement: the `xᵢ` are
+modular forms of weight 2 and `χ₅ = ∏ ϑᵢ` one of weight 5 on `Γ[2]`; the ring
+`R^ev = ⊕_k M_{2k}(Γ[2])` of forms of even weight (`evenWeightModularForms` with the trivial
+character) is generated by `x₁, …, x₅` with a single relation, the Igusa quartic, so that
+`R^ev ≅ ℂ[x₁, …, x₅]/(f)` for a nonzero homogeneous `f` of degree 4; and the ring of all forms is
+`R = R^ev[χ₅]/(χ₅² + 2¹⁴χ₁₀) = R^ev ⊕ χ₅ R^ev`, where `χ₁₀` is Igusa's cusp form of weight 10 on
+`Sp(4, ℤ)` (`SiegelUpperHalfSpace.Igusa.chi10`). The knowl does not give `f`. It is a theorem of
+Igusa, which is not proved here. -/
+structure IgusaLevelTwoStructure : Prop where
+  x_mem (i : Fin 10) : x i ∈ scalarModularForms 2 principal
+  chi5_mem : Ibukiyama.chi5 ∈ scalarModularForms 5 principal
+  adjoin_eq :
+    (Algebra.adjoin ℂ (Set.range fun i : Fin 5 ↦ x (Fin.castLE (by norm_num) i))).toSubmodule =
+      evenWeightModularForms principal 1
+  exists_quartic : ∃ f : MvPolynomial (Fin 5) ℂ, f ≠ 0 ∧ f.IsHomogeneous 4 ∧
+    RingHom.ker (MvPolynomial.aeval fun i : Fin 5 ↦ x (Fin.castLE (by norm_num) i)) = Ideal.span {f}
+  chi5_sq : Ibukiyama.chi5 ^ 2 = -((2 : ℂ) ^ 14) • Igusa.chi10
+  sup_eq : evenWeightModularForms principal 1 ⊔
+    (evenWeightModularForms principal 1).map (LinearMap.mulLeft ℂ Ibukiyama.chi5) =
+      gradedModularForms principal
+  disjoint : Disjoint (evenWeightModularForms principal 1)
+    ((evenWeightModularForms principal 1).map (LinearMap.mulLeft ℂ Ibukiyama.chi5))
+
+end SiegelUpperHalfSpace.IgusaLevelTwo

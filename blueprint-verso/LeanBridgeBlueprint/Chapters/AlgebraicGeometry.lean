@@ -575,7 +575,7 @@ Any Selmer group is finite and effectively computable. In fact, all known techni
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.mordell_weil"}[] {uses "av.isogeny"}[] {uses "group.galois.absolute"}[] {uses "nf"}[] {uses "nf.absolute_value"}[] {uses "nf.place"}[]
 :::
 
-:::definition "ag.shimura_variety"
+:::definition "ag.shimura_variety" (lean := "IsHermitianSymmetricDomain, biholomorphismGroup, Subgroup.IsDefinedOverRat, IsArithmeticSubgroup, IsConnectedShimuraVarietyGroup, ConnectedShimuraVariety")
 *Shimura variety.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.shimura_variety))
 
 There are a number of different ways to define a Shimura variety.

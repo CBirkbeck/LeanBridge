@@ -74,7 +74,7 @@ Base-change as defined here is a special case of a more general definition of {b
 Depends on: {uses "cmf.cm_form"}[] {uses "cmf.newform"}[] {uses "mf.base_change"}[] {uses "mf.bianchi.hecke_algebra"}[]
 :::
 
-:::definition "mf.bianchi.bianchicongruencesubgroup"
+:::definition "mf.bianchi.bianchicongruencesubgroup" (lean := "Ideal.gammaPSL, Ideal.mk_mem_gammaPSL_iff, Subgroup.IsPSLCongruenceSubgroup, Ideal.gammaSL, Ideal.gammaPSL_normal, Subgroup.IsPSLCongruenceSubgroup.finiteIndex")
 *Congruence subgroup of a Bianchi group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.bianchi.bianchicongruencesubgroup))
 
 Let $`K` be an imaginary quadratic field with {bpref "nf.ring_of_integers"}[ring of integers] $`\mathcal{O}_K`.  For a nonzero ideal $`\mathfrak{N}` of $`\mathcal{O}_K`, the <b>principal congruence subgroup of level $`\mathfrak{N}`</b> is

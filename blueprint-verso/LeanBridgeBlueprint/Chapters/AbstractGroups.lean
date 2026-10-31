@@ -252,7 +252,7 @@ The *Chevalley groups* are examples of groups of Lie type over finite {bpref "ri
 Depends on: {uses "group.general_linear"}[] {uses "group.orthogonal"}[] {uses "group.simple"}[] {uses "group.special_linear"}[] {uses "group.symplectic"}[] {uses "group.unitary"}[] {uses "ring.field"}[]
 :::
 
-:::definition "group.chief_series"
+:::definition "group.chief_series" (lean := "Subgroup.NormalSeries.IsChief, Subgroup.NormalSeries.compositionFactorMultiplicity, Subgroup.NormalSeries.IsChief.exists_isSimpleGroup_mulEquiv_pi, Subgroup.NormalSeries.IsChief.compositionFactorMultiplicity_eq_sum, Subgroup.NormalSeries.IsChief.compositionFactorMultiplicity_eq, Subgroup.NormalSeries.exists_isChief")
 *Chief series of a group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.chief_series))
 
 If $`G` is a {bpref "group"}[group], the *chief series* of $`G` is a {bpref "group.normal_series"}[normal series]
@@ -1247,7 +1247,7 @@ The *rank* of a finite {bpref "group"}[group] $`G` is the minimal number of elem
 Depends on: {uses "group"}[] {uses "group.frattini_subgroup"}[] {uses "group.generators"}[] {uses "group.presentation"}[]
 :::
 
-:::definition "group.rational_character_table"
+:::definition "group.rational_character_table" (lean := "FDRep.rationalCharacterTable, FDRep.irreducibleRationalCharacters, RatConjClasses, FDRep.rationalCharacterTable_mk, FDRep.card_irreducibleRationalCharacters")
 *Rational character table of a group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.rational_character_table))
 
 The *rational character table* of a finite {bpref "group"}[group] $`G` is a square tabulation of the values of {bpref "group.representation.rational_character"}[irreducible rational characters] on the {bpref "group.division"}[rational conjugacy classes] of $`G`.
@@ -1341,7 +1341,7 @@ The smallest permutation representation containing the given {bpref "group.repre
 Depends on: {uses "gg.tnumber"}[] {uses "group.representation.character"}[]
 :::
 
-:::definition "group.representation.rational_character"
+:::definition "group.representation.rational_character" (lean := "FDRep.IsRationalCharacter, FDRep.rationalCharacter, FDRep.exists_isRationalCharacter_character_eq_rationalCharacter, FDRep.rationalCharacterSpace, FDRep.irreducibleRationalCharacterBasis, FDRep.IsRationalCharacter.character_eq_of_isRationallyConj")
 *Rational character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.representation.rational_character))
 
 A *rational character* of a finite {bpref "group"}[group] $`G` is {bpref "group.representation.character"}[complex character] taking values in $`\Q`. Such a character can be obtained by taking the sum of Galois conjugates of an irreducible complex character, and we will refer to these as *irreducible rational characters* even though they are not irreducible as complex characters.  The irreducible rational characters form a $`\Q`-basis for the $`\Q`-vector space of rational characters.
@@ -1469,7 +1469,7 @@ Then $`\mathfrak{F}` is a {bpref "group.fuchsian.fundamental_domain"}[fundamenta
 Depends on: {uses "group.fuchsian.fundamental_domain"}[]
 :::
 
-:::definition "group.sl2z.genus_subgroup"
+:::definition "group.sl2z.genus_subgroup" (lean := "ModularGroup.topologicalGenus, TopCat.topologicalGenus, Subgroup.compactSpace_compactifiedQuotient_map_sl2zToPSL2R, Subgroup.CompactifiedQuotient, ModularGroup.degree_compactifiedQuotientMap_eq_natCard_cosets")
 *Genus of a subgroup of the modular group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.sl2z.genus_subgroup))
 
 The *genus* of a finite index subgroup $`G` of the {bpref "group.sl2z"}[modular group] is the genus of the corresponding compact {bpref "ag.riemann_surface"}[Riemann surface] arising from the compactification of $`G\backslash\mathcal{H},` which is obtained by adjoining the {bpref "group.fuchsian.cusps"}[cusps] of $`G`.
@@ -1580,7 +1580,7 @@ $`\SL(2,\Z)`.
 Depends on: {uses "group.sl2z.subgroup.gamma0n"}[] {uses "group.sp2gr"}[]
 :::
 
-:::definition "group.sp2gr.gamma1"
+:::definition "group.sp2gr.gamma1" (lean := "SymplecticGroup.Gamma1, SymplecticGroup.mem_Gamma1_iff, SymplecticGroup.toSL, SymplecticGroup.Gamma1_fin_one, SymplecticGroup.map_toSL_Gamma1, CongruenceSubgroup.Gamma1")
 *Subgroup Gamma1(N) of $`\Sp(2g,\Z)`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.sp2gr.gamma1))
 
 The subgroup $`\Gamma_1(N)` of the integral

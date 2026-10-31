@@ -92,7 +92,7 @@ over $`\Q`. Let $`N_{B^{\times}}(O)=\{\gamma\in B^{\times}:\gamma^{-1}O\gamma=O\
 Depends on: {uses "shimcurve.polarized_order"}[] {uses "shimcurve.quaternion_algebra"}[]
 :::
 
-:::definition "shimcurve.b"
+:::definition "shimcurve.b" (lean := "QuaternionAlgebra, QuaternionAlgebra.Basis, QuaternionAlgebra.exists_nonempty_algEquiv_of_finrank_eq_four, QuaternionAlgebra.exists_bijective_liftHom_of_finrank_eq_four")
 *$`B\langle i,j\rangle`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.b))
 
 A {bpref "shimcurve.quaternion_algebra"}[quaternion algebra]

@@ -119,7 +119,7 @@ It is also known as the *Hecke ring*, since the $`a_n` generate the same ring as
 Depends on: {uses "mf.siegel.coefficient_field"}[] {uses "mf.siegel.newform"}[]
 :::
 
-:::definition "mf.siegel.cusp_form"
+:::definition "mf.siegel.cusp_form" (lean := "SiegelUpperHalfSpace.IsSiegelCuspForm, SiegelUpperHalfSpace.siegelCuspForms, SiegelUpperHalfSpace.IsSiegelCuspForm.siegelPhi_slash, SiegelUpperHalfSpace.siegelPhi, SiegelUpperHalfSpace.slash, SiegelUpperHalfSpace.modularForms")
 *Siegel cusp form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.cusp_form))
 
 A {bpref "mf.siegel"}[Siegel modular form]
@@ -741,7 +741,7 @@ form $`E_{n, n_1}(f)` of degree $`n` and weight $`k` such that the {bpref "mf.si
 operator] maps $`E_{n, n_1}(f)` to $`f`.
 :::
 
-:::definition "mf.siegel.koecher.principle"
+:::definition "mf.siegel.koecher.principle" (lean := "SiegelUpperHalfSpace.KoecherPrinciple, SiegelUpperHalfSpace.koecherPrinciple, SiegelUpperHalfSpace.HasSiegelFourierExpansion, SiegelUpperHalfSpace.dualLattice, SiegelUpperHalfSpace.modularForms, SymplecticGroup.IsArithmetic")
 *Koecher principle.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.koecher.principle))
 
 Let $`f(\tau)=\sum_{n\in L_{\Gamma}^{\vee}} a(n) e^{2 \pi i \text{tr}(n\tau)}` be the {bpref "mf.siegel.q-expansion"}[q-expansion] of $`f\in M_{\rho}(\Gamma)`.
@@ -1175,7 +1175,7 @@ with respect to the subgroup $`\Gamma_0(\ell)`.
 When $`m` is not a multiple of $`4`, one gets a Siegel modular form with a character.
 :::
 
-:::definition "mf.siegel.vector_valued"
+:::definition "mf.siegel.vector_valued" (lean := "SiegelUpperHalfSpace.modularForms, SiegelUpperHalfSpace.HasModerateGrowth, SiegelUpperHalfSpace.modularFormsDegreeOne, SiegelUpperHalfSpace.rhoKJ, SiegelUpperHalfSpace.modularFormsKJ")
 *Vector-valued Siegel modular forms.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.vector_valued))
 
 Let $`\rho: \GL_g(\mathbb{C})\to \GL(V),` where $`V` is a finite-dimensional complex vector space, be an irreducible representation.  A (vector valued) Siegel modular form of degree $`g`, weight $`\rho`, with respect to a subgroup

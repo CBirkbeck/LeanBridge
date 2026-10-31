@@ -15,7 +15,7 @@ file := "Maass-forms"
 
 This section lists the LMFDB definitions in the subcategory `mf.maass`. Each definition links back to its LMFDB knowl. `specialfunction.k_bessel` also belongs here, although its id puts it in another LMFDB category.
 
-:::definition "mf.maass"
+:::definition "mf.maass" (lean := "Matrix.GeneralLinearGroup.IsKFiniteMaassForm, Matrix.GeneralLinearGroup.IsAutomorphicForm, Matrix.GeneralLinearGroup.IsCasimirEigenfunction, Matrix.GeneralLinearGroup.IsCenterFinite, Matrix.GeneralLinearGroup.IsOrthogonalFinite, Matrix.GeneralLinearGroup.casimirOperator")
 *Maass forms on GL(n).* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass))
 
 The term *Maass form* is used for automorphic forms on $`GL_{n}` (for some positive integer n), which are not holomorphic.
@@ -111,7 +111,7 @@ In both cases the real numbers $`a_n` are the *coefficients* of $`f` and are use
 Depends on: {uses "lfunction"}[] {uses "mf.maass.mwf"}[] {uses "mf.maass.mwf.spectralparameter"}[] {uses "mf.maass.mwf.symmetry"}[] {uses "mf.maass.mwf.weight"}[] {uses "specialfunction.k_bessel"}[]
 :::
 
-:::definition "mf.maass.mwf.dimension"
+:::definition "mf.maass.mwf.dimension" (lean := "UpperHalfPlane.maassMultiplicity, UpperHalfPlane.maassNewSpace, UpperHalfPlane.maassOldSpace, UpperHalfPlane.maassSpace, UpperHalfPlane.maassPetersson, UpperHalfPlane.IsMaassNewform")
 *Multiplicity of an eigenvalue.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass.mwf.dimension))
 
 The *multiplicity* of an {bpref "mf.maass.mwf.eigenvalue"}[eigenvalue] $`\lambda` of the {bpref "mf.maass.mwf.laplacian"}[Laplace-Beltrami operator] refers to the dimension of the eigenspace $`\mathcal{M}(\Gamma,\chi,\lambda)` of {bpref "mf.maass.mwf"}[Maass newforms] on the group $`\Gamma` of {bpref "cmf.character"}[character] $`\chi` with the same Laplace eigenvalue $`\lambda`.

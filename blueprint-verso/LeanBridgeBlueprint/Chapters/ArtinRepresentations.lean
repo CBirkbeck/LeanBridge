@@ -124,7 +124,7 @@ The conductor is given in factored form with the following encoding.  Underscore
 Depends on: {uses "artin"}[] {uses "artin.conductor"}[] {uses "artin.dimension"}[] {uses "artin.galois_orbit"}[] {uses "artin.permutation_container"}[] {uses "gg.tnumber"}[]
 :::
 
-:::definition "artin.lfunction"
+:::definition "artin.lfunction" (lean := "Representation.IsArtin.lFunction, Representation.IsArtin.multipliable_lFunction, Representation.artinLFunction, Representation.frobeniusInertiaInvariants, Representation.apply_eq_frobeniusInertiaInvariants, Representation.artinEulerPolynomial_eq")
 *Artin L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/artin.lfunction))
 
 The {bpref "lfunction"}[L-function] associated to an

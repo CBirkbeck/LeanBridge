@@ -20,7 +20,8 @@ For a subgroup `Γ` of `Sp(2g, ℚ)`, the translation lattice `L_Γ` is the set 
 * `SiegelUpperHalfSpace.HasSiegelFourierExpansion` (LMFDB `mf.siegel.q-expansion`): `a` is a
   family of Fourier coefficients of `f`.
 * `SiegelUpperHalfSpace.KoecherPrinciple` (LMFDB `mf.siegel.koecher.principle`): the statement of
-  the Koecher principle.
+  the Koecher principle, proved for arithmetic `Γ` in
+  `LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.KoecherPrinciple`.
 * `SiegelUpperHalfSpace.coefficientField` (LMFDB `mf.siegel.coefficient_field`): the coefficient
   field of a scalar-valued form.
 * `SiegelUpperHalfSpace.coefficientRing` (LMFDB `mf.siegel.coefficient_ring`): its coefficient
@@ -110,7 +111,8 @@ variable (ρ : Representation ℂ (GL l ℂ) V)
 
 /-- The **Koecher principle** (LMFDB `mf.siegel.koecher.principle`), as a statement: for degree
 `g ≥ 2`, every Fourier coefficient `a(n) ≠ 0` of a Siegel modular form `f ∈ M_ρ(Γ)` is indexed by a
-positive semidefinite `n`. It is a theorem for arithmetic `Γ`, which is not proved here. -/
+positive semidefinite `n`. It is a theorem for arithmetic `Γ`
+(`SiegelUpperHalfSpace.koecherPrinciple`). -/
 def KoecherPrinciple : Prop :=
   2 ≤ Fintype.card l → ∀ f ∈ modularForms ρ Γ 1, ∀ a : dualLattice Γ → V,
     HasSiegelFourierExpansion Γ f a → ∀ n, a n ≠ 0 → (n : Matrix l l ℚ).PosSemidef

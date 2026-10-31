@@ -288,7 +288,7 @@ This is defined as 'finrank ℂ (ModularForm Γ k)' in mathlib, where {bpref "cm
 Depends on: {uses "cmf.space"}[] {uses "cmf.space_mathlib_def"}[]
 :::
 
-:::definition "cmf.distinguishing_primes"
+:::definition "cmf.distinguishing_primes" (lean := "HeckeRing.GL2.Newform.DistinguishesNewforms, HeckeRing.GL2.Newform.heckeCharpolyClassCount, HeckeRing.GL2.Newform.IsDistinguishingPrimeSeq, HeckeRing.GL2.Newform.distinguishingPrimes, HeckeRing.GL2.Newform.IsDistinguishingPrimeSeq.eq, HeckeRing.GL2.Newform.mem_distinguishingPrimes_iff")
 *Distinguishing Hecke operators.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.distinguishing_primes))
 
 For a {bpref "cmf.newspace"}[newspace] $`S^\mathrm{new}_k(N,\chi)` we say that a set of {bpref "cmf.hecke_operator"}[Hecke operators] $`\mathcal T:=\{T_{p_1},\ldots,T_{p_r}\}` *distinguishes* the {bpref "cmf.newform"}[newforms] in the space if the sets $`X_f(\mathcal T)` of characteristic polynomials of the $`T_p\in \mathcal T` acting on the subspace $`V_f` spanned by the {bpref "cmf.galois_orbit"}[Galois orbit] of $`f` in $`S_k^\mathrm{new}(N,\chi)` are distinct as $`f` ranges over (non-conjugate) newforms in $`S_k^\mathrm{new}(N,\chi)`.
@@ -728,7 +728,7 @@ The *level* of a {bpref "cmf"}[newform] is the least such integer $`N`.
 Depends on: {uses "cmf"}[] {uses "group.sl2z"}[]
 :::
 
-:::definition "cmf.lfunction"
+:::definition "cmf.lfunction" (lean := "HeckeRing.GL2.Newform.analyticL, HeckeRing.GL2.Newform.hasSum_analyticL, HeckeRing.GL2.Newform.analyticL_eulerProduct, HeckeRing.GL2.Newform.analyticCompletedL, HeckeRing.GL2.Newform.rootNumber, HeckeRing.GL2.Newform.analyticCompletedL_eq_rootNumber_mul")
 *L-function of a classical modular form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.lfunction))
 
 For a {bpref "cmf.newform"}[newform] $`f\in S_k^{\rm new}(N,\chi)` with {bpref "cmf.q-expansion"}[q-expansion] $`f(z)=\sum a_n n^{(k-1)/2}q^n`, where $`q=\exp(2\pi i z)`, the {bpref "lfunction"}[L-function] $`L(s,f) = \sum a_n n^{-s}` has an {bpref "lfunction.euler_product"}[Euler product] of the form

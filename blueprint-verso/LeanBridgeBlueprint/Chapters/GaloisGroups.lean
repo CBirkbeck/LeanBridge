@@ -75,7 +75,7 @@ Depends on: {uses "gg.galois_group"}[] {uses "group.centralizer"}[] {uses "lf.au
 The *Galois group* of an irreducible separable polynomial of degree $`n` can be embedded in $`S_n` through its action on the roots of the polynomial, with the image being well-defined up to labeling of the roots.  Different labelings lead to conjugate subgroups.  The subgroup acts transitively on $`\{1,\ldots,n\}`.  Conversely, for every transitive subgroup $`G` of $`S_n` with $`n\in\mathbb{Z}^+`, there is a field $`K` such that $`G` is the Galois group of some polynomial over $`K`.
 :::
 
-:::definition "gg.generic_polynomial"
+:::definition "gg.generic_polynomial" (lean := "Polynomial.IsGeneric, Polynomial.IsSpecialisationAt, Polynomial.IsSpecialisationAt.eq, Polynomial.isGenericPolynomial_iff")
 *Generic polynomial.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gg.generic_polynomial))
 
 Let $`K` be a {bpref "ring.field"}[field] and $`G` a finite {bpref "group"}[group], $`t_1, \ldots, t_n` and $`x` indeterminants.  A polynomial $`f(t_1,\ldots,t_n,x)\in K(t_1,\ldots,t_n)[x]` is *generic* for G if

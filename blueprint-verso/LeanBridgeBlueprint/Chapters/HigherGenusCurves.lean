@@ -153,7 +153,7 @@ The tuple $`(g,G,\mathcal{C})` is called a *refined passport* (some authors say 
 Depends on: {uses "ag.riemann_surface"}[] {uses "curve.highergenus.aut.generatingvector"}[]
 :::
 
-:::definition "curve.highergenus.aut.signature"
+:::definition "curve.highergenus.aut.signature" (lean := "Subgroup.signature, Subgroup.signaturePeriods, Subgroup.mem_branchPlaces_iff, Subgroup.natCard_stabilizer_eq_ramificationIdxIn, TauCeti.AlgebraicGeometry.RegularProperCurveCat.signature, TauCeti.AlgebraicGeometry.RegularProperCurveCat.genus_quotient")
 *Signature of a group action on a curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/curve.highergenus.aut.signature))
 
 Let $`G` be a group of automorphisms acting on a curve $`X/\C` of genus at least $`2`, let $`g_0` be the {bpref "curve.highergenus.aut.quotientgenus"}[genus of the quotient] $`Y:=X/G`, and let $`B` be the set of {bpref "curve.highergenus.aut.branchpoints"}[branch points] of the projection $`\phi\colon X\to Y`. For each {bpref "curve.highergenus.aut.generators"}[standard generator] for $`\pi_1(Y-B,y_0)` corresponding to the elements of $`B=\{y_1,\ldots,y_r\}` and a fixed pre-image of $`y_0`, there is a lift of that loop to a path in $`X - \phi^{-1}(B)` starting at the particular pre-image of $`y_0`. The lifted path ends at some (possibly different) pre-image of $`y_0`. Varying the particular pre-images of $`y_0` and then recording the end point corresponding to that starting point induces a permutation on those pre-images.

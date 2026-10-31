@@ -69,7 +69,7 @@ This is the *CM-involution* of $`K` and it is denoted by $`\overline{\cdot}`.
 An order $`R` in $`K` is *conjugate stable* if $`R = \overline{R}`.
 :::
 
-:::definition "av.fq.curve_point_counts"
+:::definition "av.fq.curve_point_counts" (lean := "Polynomial.virtualPointCount, Polynomial.rootPowerSum, Polynomial.Monic.virtualPointCount_eq, Polynomial.IsWeilPolynomial.virtualPointCount_eq, WeierstrassCurve.virtualPointCount_eq_pointCount, WeierstrassCurve.virtualPointCount_le_virtualPointCount")
 *Point counts of the curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.fq.curve_point_counts))
 
 If an {bpref "ag.abelian_variety"}[abelian variety] $`A` {bpref "ag.base_field"}[defined] over a finite field $`\mathbb{F}_q` is the {bpref "ag.jacobian"}[Jacobian] of a curve $`X`, then from the data for $`A` we can produce a count of the (finite) number of points of $`X` defined over $`\mathbb{F}_q` and its extensions $`\mathbb{F}_{q^2}`, $`\mathbb{F}_{q^3}`, $`\mathbb{F}_{q^4}`, etc.

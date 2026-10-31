@@ -570,7 +570,7 @@ the extensions $`L/K` in $`I/K`.
 Depends on: {uses "lf.family_polynomial"}[] {uses "lf.indices_of_inseparability"}[] {uses "lf.means"}[] {uses "lf.padic_field"}[] {uses "lf.rams"}[] {uses "lf.slopes"}[]
 :::
 
-:::definition "lf.herbrand_invariant"
+:::definition "lf.herbrand_invariant" (lean := "IsNonarchimedeanLocalField.HerbrandInvariant, IsNonarchimedeanLocalField.herbrandInvariantOfTower, IsNonarchimedeanLocalField.visibleHerbrandInvariant, IsNonarchimedeanLocalField.HerbrandInvariant.IsGeometricRam, IsNonarchimedeanLocalField.HerbrandInvariant.IsArithmeticRam, IsNonarchimedeanLocalField.HerbrandInvariant.IsCompatibleWith")
 *Herbrand invariant.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.herbrand_invariant))
 
 A *Herbrand invariant* $`I` is the collection of ramification
@@ -990,7 +990,7 @@ of any $`L/K\in I/K`.  The slopes of the segments of $`P` are the
 Depends on: {uses "lf.eisenstein_polynomial"}[] {uses "lf.newton_polygon"}[] {uses "lf.padic_field"}[] {uses "lf.ramification_index"}[] {uses "lf.rams"}[] {uses "lf.unramified_subfield"}[]
 :::
 
-:::definition "lf.rams"
+:::definition "lf.rams" (lean := "IsNonarchimedeanLocalField.ramsOfSubgroup, IsNonarchimedeanLocalField.visibleRams, IsNonarchimedeanLocalField.swanSlopesOfSubgroup_eq_map_herbrandOfTower, IsNonarchimedeanLocalField.ramsOfSubgroup_range_restrictScalarsHom_of_isGalois, IsNonarchimedeanLocalField.HerbrandInvariant.smallRam, IsNonarchimedeanLocalField.HerbrandInvariant.tinyRam")
 *Rams.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.rams))
 
 Let $`L/K` be an extension of {bpref "lf.padic_field"}[$`p`-adic fields]
@@ -1216,7 +1216,7 @@ of all $`L/K\in I/K` whose list of residual polynomials is in $`\mathcal{A}`.
 Depends on: {uses "lf.family_polynomial"}[] {uses "lf.padic_field"}[] {uses "lf.residual_polynomials"}[]
 :::
 
-:::definition "lf.swan_slopes"
+:::definition "lf.swan_slopes" (lean := "IsNonarchimedeanLocalField.swanSlopesOfSubgroup, IsNonarchimedeanLocalField.relIndex_upperRamificationGroup_eq_pow_countP, IsNonarchimedeanLocalField.swanSlopesOfSubgroup_comap_restrictNormalHom, IsNonarchimedeanLocalField.swanSlopesOfSubgroup_range_restrictScalarsHom_of_isGalois, IsNonarchimedeanLocalField.visibleSwanSlopes, IsNonarchimedeanLocalField.visibleSwanSlopes_eq_swanSlopesOfSubgroup")
 *Swan slopes.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.swan_slopes))
 
 Let $`L/K` be an extension of {bpref "lf.padic_field"}[$`p`-adic fields].

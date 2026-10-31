@@ -14,8 +14,8 @@ here.
 
 A set of Hecke operators `T_p` distinguishes the newforms of a space of newforms (LMFDB
 `cmf.distinguishing_primes`) if their characteristic polynomials on the newform subspaces separate
-the Galois orbits. The canonical sequence of distinguishing primes that the LMFDB lists is a
-database convention and is not formalised.
+the Galois orbits. The sequence of distinguishing primes that the LMFDB lists, chosen greedily, is
+formalised in `LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.DistinguishingPrimes`.
 
 ## Main definitions
 
