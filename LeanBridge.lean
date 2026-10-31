@@ -136,6 +136,8 @@ import LeanBridge.ForMathlib.AlgebraicTopology.TopologicalGenus
 import LeanBridge.ForMathlib.Analysis.Complex.UpperHalfPlane.Completed
 import LeanBridge.ForMathlib.Analysis.Complex.UpperHalfPlane.StripIntegral
 import LeanBridge.ForMathlib.Analysis.SpecialFunctions.BesselK
+import LeanBridge.ForMathlib.Analysis.SpecialFunctions.BesselKRecurrence
+import LeanBridge.ForMathlib.Analysis.SpecialFunctions.BesselKUnique
 import LeanBridge.ForMathlib.FieldTheory.AlgebraGaloisClosure
 import LeanBridge.ForMathlib.FieldTheory.Finite.ConwayPolynomial
 import LeanBridge.ForMathlib.FieldTheory.FunctionField.AutomorphismSignature
@@ -202,11 +204,14 @@ import LeanBridge.ForMathlib.LinearAlgebra.Lattice.DiscriminantForm
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.Dual
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.FestiVeniani
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusLabel
+import LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusLabelCanonical
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbol
+import LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolCanonical
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolDeterminant
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolDyadic
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolOddPrime
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolSign
+import LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolStopSign
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.Kissing
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.Label
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.OrthogonalDecomposition
@@ -262,6 +267,7 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.Fricke
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.HarmonicOneForm
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.HeckeAlgebra
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.HeckeOperator
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.HodgeCasimir
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.Label
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.Level
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.MaassPicard
@@ -273,6 +279,7 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.Slash
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.SlashAction
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.UpperHalfSpace
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.WeightTwo
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.WhittakerHarmonic
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.Basic
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.FourierCoefficients
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.FourierExpansion
