@@ -33,11 +33,11 @@ The structure sheaf of `X / H` is the sheaf of `H`-invariant functions on `X`,
 `𝒪_{X/H} = (π_* 𝒪_X)^H`, and the projection is an epimorphism of schemes, which is the uniqueness
 half of the universal property of the quotient among all schemes over `k` by which
 `AlgebraicGeometry.Scheme.IsQuotientCurve` characterizes the quotient curve of an algebraic curve.
-The existence half of that universal property, which needs a morphism of schemes to be glued from
-the invariant sections, is not formalised. Of the geometric integrality of `X / H` that
-`AlgebraicGeometry.Scheme.IsQuotientCurve` also asks for, geometric irreducibility is proved, but
-not geometric reducedness, which needs the separability of `k(X)^H` over `k`. The quotient of a
-curve that is not proper or not regular is not formalised either.
+Geometric irreducibility of `X / H` is proved here. The existence half of the universal property
+and the geometric reducedness of `X / H`, hence `AlgebraicGeometry.Scheme.IsQuotientCurve` for this
+construction, are proved in `LeanBridge.ForMathlib.AlgebraicGeometry.Curve.RegularQuotientUniversal`
+and `LeanBridge.ForMathlib.AlgebraicGeometry.Curve.RegularQuotientIsQuotientCurve`. The quotient of a
+curve that is not proper or not regular is not formalised.
 
 ## Main definitions
 

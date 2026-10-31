@@ -12,9 +12,11 @@ morphism from `X` invariant under `H` factors uniquely through it. This universa
 characterizes the quotient curve up to unique isomorphism, and it is how the quotient curve is
 defined here.
 
-The existence of `X / H`, by gluing the invariant quotients `Spec Aᴴ` of an `H`-stable affine cover
-of `X` (Tau Ceti's `TauCeti.AffineInvariantQuotient.quotient` for one affine chart), and the
-surjectivity of the projection are not formalised.
+For a regular proper curve `X`, the quotient curve `X / H` exists, and its projection is surjective
+with the `H`-orbits as fibres: `LeanBridge.ForMathlib.AlgebraicGeometry.Curve.RegularQuotientIsQuotientCurve`.
+The existence of `X / H` for other curves, by gluing the invariant quotients `Spec Aᴴ` of an
+`H`-stable affine cover of `X` (Tau Ceti's `TauCeti.AffineInvariantQuotient.quotient` for one affine
+chart), is not formalised.
 
 ## Main definitions
 

@@ -24,9 +24,11 @@ weights `wt(π) - αᵢ` and `wt(π) + αᵢ`, with `εᵢ(fᵢ π) = εᵢ(π) 
 `εᵢ(eᵢ π) = εᵢ(π) - 1` and `φᵢ(eᵢ π) = φᵢ(π) + 1`. For paths whose local minima of `Hᵢ` are
 integers, `fᵢ` and `eᵢ` reflect `π` between two times, as in `RootPairing.LittelmannPath.reflect`.
 
-The remaining crystal axiom `eᵢ fᵢ π = π` and Littelmann's theorem that the paths obtained from
-the straight-line path to a dominant weight `λ` form the highest weight crystal `B(λ)` are not
-formalised here.
+The crystal axioms (`eᵢ fᵢ π = π` and `fᵢ eᵢ π = π`), so that the paths form a crystal, and the
+agreement of `fᵢ` and `eᵢ` with Littelmann's reflections on paths with integral minima are proved in
+`LeanBridge.ForMathlib.LinearAlgebra.RootSystem.LittelmannPathCrystal`. Littelmann's theorem that
+the paths obtained from the straight-line path to a dominant weight `λ` form the highest weight
+crystal `B(λ)` is not formalised.
 
 ## Main definitions
 

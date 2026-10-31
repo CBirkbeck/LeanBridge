@@ -1092,6 +1092,14 @@
     "HeckeRing.GL2.Newform.GaloisRep.finrank_projectiveField": "LeanBridge.ForMathlib.NumberTheory.ModularForms.SatoTate.GaloisRepresentation",
     "HeckeRing.GL2.Newform.GaloisRep.projectiveField_le_artinField": "LeanBridge.ForMathlib.NumberTheory.ModularForms.SatoTate.GaloisRepresentation"
   },
+  "cmf.projective_image": {
+    "HeckeRing.GL2.Newform.GaloisRep.projectiveImage": "LeanBridge.ForMathlib.NumberTheory.ModularForms.SatoTate.GaloisRepresentation",
+    "HeckeRing.GL2.Newform.GaloisRep.ProjectiveImageType": "LeanBridge.ForMathlib.NumberTheory.ModularForms.SatoTate.GaloisRepresentation",
+    "HeckeRing.GL2.Newform.GaloisRep.ProjectiveImageType.IsTypeOf": "LeanBridge.ForMathlib.NumberTheory.ModularForms.SatoTate.GaloisRepresentation",
+    "HeckeRing.GL2.Newform.GaloisRep.typeOfProjectiveImage": "LeanBridge.ForMathlib.NumberTheory.ModularForms.SatoTate.ProjectiveImageClassification",
+    "HeckeRing.GL2.Newform.GaloisRep.exists_isTypeOf_projectiveImage_iff": "LeanBridge.ForMathlib.NumberTheory.ModularForms.SatoTate.ProjectiveImageClassification",
+    "Matrix.ProjGenLinGroup.classification": "LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.FiniteProjectiveSubgroup"
+  },
   "cmf.q-expansion": {
     "UpperHalfPlane.qExpansion": "Mathlib.NumberTheory.ModularForms.QExpansion",
     "CuspFormClass.qExpansion_coeff_zero": "Mathlib.NumberTheory.ModularForms.QExpansion",
@@ -1194,6 +1202,15 @@
   "commensurable.group": {
     "Subgroup.Commensurable": "Mathlib.GroupTheory.Commensurable",
     "Subgroup.IsFiniteRelIndex": "Mathlib.GroupTheory.Index"
+  },
+  "crystals.crystal": {
+    "RootPairing.Base.Crystal": "LeanBridge.ForMathlib.LinearAlgebra.RootSystem.Crystal",
+    "RootPairing.Base.Crystal.IsSeminormal": "LeanBridge.ForMathlib.LinearAlgebra.RootSystem.Crystal"
+  },
+  "crystals.highest_weight": {
+    "RootPairing.Base.Crystal.IsHighestWeight": "LeanBridge.ForMathlib.LinearAlgebra.RootSystem.Crystal",
+    "RootPairing.Base.Crystal.IsHighestWeightCrystal": "LeanBridge.ForMathlib.LinearAlgebra.RootSystem.Crystal",
+    "RootPairing.Base.Crystal.IsHighestWeightCrystal.wt_eq": "LeanBridge.ForMathlib.LinearAlgebra.RootSystem.Crystal"
   },
   "curve.highergenus.aut.braid_equivalence": {
     "Hurwitz.braidOperation": "LeanBridge.ForMathlib.GroupTheory.BraidEquivalence",
@@ -2106,6 +2123,14 @@
     "Subgroup.centralizer": "Mathlib.GroupTheory.Subgroup.Centralizer",
     "Subgroup.mem_centralizer_iff": "Mathlib.GroupTheory.Subgroup.Centralizer"
   },
+  "group.chevalley": {
+    "Matrix.SpecialLinearGroup": "Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup",
+    "Matrix.symplecticGroup": "Mathlib.LinearAlgebra.SymplecticGroup",
+    "QuadraticForm.chevalleyB": "LeanBridge.ForMathlib.GroupTheory.SpecificGroups.Chevalley",
+    "QuadraticForm.chevalleyD": "LeanBridge.ForMathlib.GroupTheory.SpecificGroups.Chevalley",
+    "QuadraticForm.chevalleyDOfCharTwo": "LeanBridge.ForMathlib.GroupTheory.SpecificGroups.OmegaGroupCharTwo",
+    "TauCeti.QuadraticMap.specialOrthogonalGroup": "TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.Basic"
+  },
   "group.chief_series": {
     "Subgroup.NormalSeries.IsChief": "LeanBridge.ForMathlib.GroupTheory.ChiefSeries",
     "Subgroup.NormalSeries.compositionFactorMultiplicity": "LeanBridge.ForMathlib.GroupTheory.ChiefFactor",
@@ -2388,6 +2413,14 @@
     "Subgroup.isSubnormal_iff_exists_subnormalSeries": "LeanBridge.ForMathlib.GroupTheory.SubnormalSeries",
     "Subgroup.SubnormalSeries.isSubnormal": "LeanBridge.ForMathlib.GroupTheory.SubnormalSeries",
     "Subgroup.IsSubnormal": "Mathlib.GroupTheory.IsSubnormal"
+  },
+  "group.omega": {
+    "QuadraticForm.omegaGroup": "LeanBridge.ForMathlib.GroupTheory.SpecificGroups.Chevalley",
+    "QuadraticForm.dicksonOmegaGroup": "LeanBridge.ForMathlib.GroupTheory.SpecificGroups.OmegaGroupCharTwo",
+    "QuadraticForm.quasideterminant": "LeanBridge.ForMathlib.LinearAlgebra.QuadraticForm.DicksonInvariant",
+    "TauCeti.QuadraticMap.specialOrthogonalGroup": "TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.Basic",
+    "QuadraticForm.projectiveOmegaGroup": "LeanBridge.ForMathlib.GroupTheory.SpecificGroups.OmegaGroup",
+    "QuadraticForm.projectiveDicksonOmegaGroup": "LeanBridge.ForMathlib.GroupTheory.SpecificGroups.OmegaGroupCharTwo"
   },
   "group.order": {
     "Nat.card": "Mathlib.SetTheory.Cardinal.Finite",
@@ -4778,6 +4811,22 @@
     "SymplecticGroup.paramodular": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CongruenceSubgroups",
     "SymplecticGroup.paramodularForm": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CongruenceSubgroups",
     "SymplecticGroup.paramodularDelta": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CongruenceSubgroups"
+  },
+  "repn.highest.weight": {
+    "Representation.highestWeight": "LeanBridge.ForMathlib.RepresentationTheory.HighestWeight",
+    "Representation.IsGLHighestWeightVector": "LeanBridge.ForMathlib.RepresentationTheory.HighestWeight",
+    "Representation.existsUnique_isGLHighestWeightVector": "LeanBridge.ForMathlib.RepresentationTheory.HighestWeightTheorem",
+    "Representation.IsGLHighestWeightVector.eq_highestWeight": "LeanBridge.ForMathlib.RepresentationTheory.HighestWeightTheorem",
+    "Representation.IsGLHighestWeightVector.mem_span_singleton": "LeanBridge.ForMathlib.RepresentationTheory.HighestWeightTheorem",
+    "Representation.antitone_highestWeight": "LeanBridge.ForMathlib.RepresentationTheory.HighestWeight"
+  },
+  "repn.irrep.gl": {
+    "Representation.existsUnique_nonempty_equiv_rationalWeylRep": "LeanBridge.ForMathlib.RepresentationTheory.HighestWeightTheorem",
+    "Representation.nonempty_equiv_rationalWeylRep_iff_eq_highestWeight": "LeanBridge.ForMathlib.RepresentationTheory.HighestWeightTheorem",
+    "TauCeti.rationalWeylRep": "TauCeti.RepresentationTheory.ClassicalGroups.WeylModule.Rational",
+    "TauCeti.isIrreducible_rationalWeylRep": "TauCeti.RepresentationTheory.ClassicalGroups.WeylModule.Rational",
+    "TauCeti.isRationalRep_rationalWeylRep": "LeanBridge.ForMathlib.RepresentationTheory.HighestWeightTheorem",
+    "TauCeti.nonempty_equiv_rationalWeylRep_iff": "TauCeti.RepresentationTheory.ClassicalGroups.WeylModule.Weight.HighestWeight"
   },
   "ring.a-field": {
     "Algebra": "Mathlib.Algebra.Algebra.Defs",

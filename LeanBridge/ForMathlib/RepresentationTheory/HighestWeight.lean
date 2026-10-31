@@ -17,8 +17,9 @@ nonzero rational representation it is dominant and is the weight of a highest we
 the rational Weyl module `V_λ` (Tau Ceti's `TauCeti.rationalWeylRep`), irreducible by Tau Ceti, it
 is `λ`, so it is the highest weight in the usual sense on every representation isomorphic to some
 `V_λ`. The determinant and the standard representation have highest weights `(1, …, 1)` and
-`(1, 0, …, 0)`, as in the knowl. That every irreducible rational representation is isomorphic to
-some `V_λ`, equivalently has a unique highest weight line, is not proved.
+`(1, 0, …, 0)`, as in the knowl. That every irreducible rational representation has a unique highest
+weight line and is isomorphic to a unique `V_λ`, the theorem of the highest weight, is proved in
+`LeanBridge.ForMathlib.RepresentationTheory.HighestWeightTheorem`.
 
 ## Main definitions
 

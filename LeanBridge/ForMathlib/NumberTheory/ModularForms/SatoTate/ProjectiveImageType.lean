@@ -16,7 +16,8 @@ their orders and, for a dihedral group of order `12`, `24` or `60`, by its nontr
 type is then defined, given that the projective image has one.
 
 That it has one combines the classification of the finite subgroups of `PGL₂(ℂ)` (cyclic,
-dihedral, `A₄`, `S₄` or `A₅`), which is not formalised, with the irreducibility of the Galois
+dihedral, `A₄`, `S₄` or `A₅`), proved in
+`LeanBridge.ForMathlib.NumberTheory.ModularForms.SatoTate.ProjectiveImageClassification`, with the irreducibility of the Galois
 representation `ρ`, part of the Deligne–Serre theorem: the projective image of an irreducible
 representation is not cyclic, which is proved here, since an eigenvector of a lift of a generator of
 a cyclic projective image is an eigenvector of every `ρ(σ)`. The structure
@@ -117,7 +118,9 @@ end ProjectiveImageType
 given that it has one: the type `t`, unique by `ProjectiveImageType.IsTypeOf.eq`, such that the
 projective image is isomorphic to `D_n` (`n ≥ 2`), `A₄`, `S₄` or `A₅` as `t` says. That the
 projective image has a type is the classification of the finite subgroups of `PGL₂(ℂ)` together
-with the irreducibility of `ρ`, which are not proved here and enter as the hypothesis `h`. -/
+with the irreducibility of `ρ`, which enter here as the hypothesis `h` (both are discharged in
+`LeanBridge.ForMathlib.NumberTheory.ModularForms.SatoTate.ProjectiveImageClassification`, given the
+irreducibility of `ρ`). -/
 noncomputable def projectiveImageType
     (h : ∃ t : ProjectiveImageType, t.IsTypeOf ρ.projectiveImage) : ProjectiveImageType :=
   h.choose
@@ -182,7 +185,8 @@ lemma not_isCyclic_projectiveImage [Representation.IsIrreducible ρ.toRepresenta
 
 /-- **The projective image of an irreducible Galois representation has a type**, given the
 classification of the finite subgroups of `PGL₂(ℂ)`: here the hypothesis `hcl` that every finite
-subgroup of `PGL₂(ℂ)` is cyclic or of one of the four types, which is not proved here. The
+subgroup of `PGL₂(ℂ)` is cyclic or of one of the four types, proved in
+`LeanBridge.ForMathlib.NumberTheory.ModularForms.SatoTate.ProjectiveImageClassification`. The
 projective image is finite, and it is not cyclic (`not_isCyclic_projectiveImage`). -/
 lemma exists_isTypeOf_projectiveImage [Representation.IsIrreducible ρ.toRepresentation]
     (hcl : ∀ H : Subgroup (GL (Fin 2) ℂ ⧸ Subgroup.center (GL (Fin 2) ℂ)), Finite H →

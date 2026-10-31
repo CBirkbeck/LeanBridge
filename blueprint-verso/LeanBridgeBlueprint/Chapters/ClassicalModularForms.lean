@@ -922,7 +922,7 @@ This number field is typically identified as the Galois closure of a {bpref "nf.
 Depends on: {uses "cmf.galois_representation"}[] {uses "cmf.newform"}[] {uses "cmf.weight"}[] {uses "nf"}[] {uses "nf.sibling"}[]
 :::
 
-:::definition "cmf.projective_image"
+:::definition "cmf.projective_image" (lean := "HeckeRing.GL2.Newform.GaloisRep.projectiveImage, HeckeRing.GL2.Newform.GaloisRep.ProjectiveImageType, HeckeRing.GL2.Newform.GaloisRep.ProjectiveImageType.IsTypeOf, HeckeRing.GL2.Newform.GaloisRep.typeOfProjectiveImage, HeckeRing.GL2.Newform.GaloisRep.exists_isTypeOf_projectiveImage_iff, Matrix.ProjGenLinGroup.classification")
 *Projective image.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.projective_image))
 
 The *projective image* of a {bpref "cmf.weight"}[weight] one {bpref "cmf.newform"}[newform] is the image of its associated {bpref "cmf.galois_representation"}[projective Galois representation] $`\rho\colon \Gal(\overline{\Q}/\Q)\to \PGL_2(\C)`.  It is a finite subgroup of $`\PGL_2(\C)` that can be classified as one of four *types*: It is either isomorphic to a dihedral group $`D_n` for some integer $`n\ge 2` (where $`D_2:=C_2\times C_2` is the Klein group), or to one of $`A_4, S_4, A_5`, where $`A_n` and $`S_n` respectively denote the alternating and symmetric groups on $`n` letters.

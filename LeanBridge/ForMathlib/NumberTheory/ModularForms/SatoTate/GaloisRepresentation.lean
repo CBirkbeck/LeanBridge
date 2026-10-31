@@ -24,8 +24,10 @@ the choice of `ρ` beyond its kernel and image, which are determined up to conju
 The Artin image is finite, of order the degree of the Artin field, and the same holds for the
 projective image and field (`HeckeRing.GL2.Newform.GaloisRep.finrank_artinField`,
 `HeckeRing.GL2.Newform.GaloisRep.finrank_projectiveField`). The classification of the finite
-subgroups of `PGL₂(ℂ)`, which says that the projective image has one of the four types of
-`HeckeRing.GL2.Newform.GaloisRep.ProjectiveImageType`, is not formalised.
+subgroups of `PGL₂(ℂ)` is proved in `LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.FiniteProjectiveSubgroup`;
+with the irreducibility of the representation it gives the projective image one of the four types
+of `HeckeRing.GL2.Newform.GaloisRep.ProjectiveImageType`
+(`LeanBridge.ForMathlib.NumberTheory.ModularForms.SatoTate.ProjectiveImageClassification`).
 
 ## Main definitions
 

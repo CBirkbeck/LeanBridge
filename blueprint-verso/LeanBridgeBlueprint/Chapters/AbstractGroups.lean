@@ -236,7 +236,7 @@ A {bpref "group.subgroup"}[subgroup] $`H` of a {bpref "group"}[group] $`G`  is a
 Depends on: {uses "group"}[] {uses "group.automorphism"}[] {uses "group.subgroup"}[]
 :::
 
-:::definition "group.chevalley"
+:::definition "group.chevalley" (lean := "Matrix.SpecialLinearGroup, Matrix.symplecticGroup, QuadraticForm.chevalleyB, QuadraticForm.chevalleyD, QuadraticForm.chevalleyDOfCharTwo, TauCeti.QuadraticMap.specialOrthogonalGroup")
 *Chevalley group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.chevalley))
 
 The *Chevalley groups* are examples of groups of Lie type over finite {bpref "ring.field"}[fields].  They generalise the classical {bpref "group.general_linear"}[linear], {bpref "group.symplectic"}[symplectic], {bpref "group.orthogonal"}[orthogonal], and {bpref "group.unitary"}[unitary] matrix groups. In many cases, these are examples of finite {bpref "group.simple"}[simple] groups.
@@ -989,7 +989,7 @@ A subnormal series where $`H_i` is normal in $`G` for all $`i` is a *normal seri
 Depends on: {uses "group"}[] {uses "group.subgroup"}[] {uses "group.subgroup.normal"}[]
 :::
 
-:::definition "group.omega"
+:::definition "group.omega" (lean := "QuadraticForm.omegaGroup, QuadraticForm.dicksonOmegaGroup, QuadraticForm.quasideterminant, TauCeti.QuadraticMap.specialOrthogonalGroup, QuadraticForm.projectiveOmegaGroup, QuadraticForm.projectiveDicksonOmegaGroup")
 *Omega (Lie group).* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.omega))
 
 The groups $`\Omega(n,q)` and $`\Omega^{\pm}(n,q)` are subgroups of the {bpref "group.orthogonal"}[special orthogonal groups] $`\SO(n,q)` and $`\SO^{\pm}(n,q)`. Their specific definitions depend on the properties of $`n` and $`q`.

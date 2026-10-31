@@ -1248,7 +1248,7 @@ In degree $`2`,
 Depends on: {uses "group.paramodular"}[]
 :::
 
-:::definition "repn.highest.weight"
+:::definition "repn.highest.weight" (lean := "Representation.highestWeight, Representation.IsGLHighestWeightVector, Representation.existsUnique_isGLHighestWeightVector, Representation.IsGLHighestWeightVector.eq_highestWeight, Representation.IsGLHighestWeightVector.mem_span_singleton, Representation.antitone_highestWeight")
 *Highest weight of an irreducible representation of $`\GL(g,\C)`..* ([LMFDB](https://beta.lmfdb.org/knowledge/show/repn.highest.weight))
 
 Let $`\rho\colon \GL(g,\C)\to \GL(V)` be a finite-dimensional irreducible representation  Then there exists a unique $`1`-dimensional subspace $`\langle v_0 \rangle` of $`V`
@@ -1260,7 +1260,7 @@ For example the $`1`-dimensional representation of $`\GL(g,\C)` given by the det
 has highest weight $`(1,0,\ldots,0)`.
 :::
 
-:::definition "repn.irrep.gl"
+:::definition "repn.irrep.gl" (lean := "Representation.existsUnique_nonempty_equiv_rationalWeylRep, Representation.nonempty_equiv_rationalWeylRep_iff_eq_highestWeight, TauCeti.rationalWeylRep, TauCeti.isIrreducible_rationalWeylRep, TauCeti.isRationalRep_rationalWeylRep, TauCeti.nonempty_equiv_rationalWeylRep_iff")
 *Irreducible representations of $`\GL(g,\C)`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/repn.irrep.gl))
 
 The irreducible finite-dimensional representations of $`\GL(g,\C)` correspond bijectively to the $`g`-tuples of integers $`(\lambda_1,\ldots,\lambda_g)` with
