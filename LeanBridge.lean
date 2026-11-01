@@ -294,8 +294,10 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.WhittakerHarm
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.WhittakerRadial
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.WhittakerUnique
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.Basic
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.CoefficientGrowth
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.FourierCoefficients
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.IndexRaising
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.WeightTwo
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.CoefficientsUnique
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.ConstantNewform
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.CuspNewform
@@ -352,12 +354,16 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.KoecherPrincip
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.Label
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LatticeThetaSeries
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.Level
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LevelTwoOddCharacteristics
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LevelTwoQuotient
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LevelTwoScalarRepresentation
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LevelTwoSymmetricRepresentation
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftEisenstein
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftFourierJacobi
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftHolomorphic
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftIndexRaising
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftInvariance
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftModularity
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftParabolic
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MiyawakiLift
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ModularForm
@@ -375,6 +381,7 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PeterssonDefin
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PeterssonProduct
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PhiOperator
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.QuotientSlashRepresentation
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.RiemannThetaRelation
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SaitoKurokawaLift
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SatohBracket
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ScalarValued
