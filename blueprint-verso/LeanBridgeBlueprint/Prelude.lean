@@ -85,9 +85,11 @@ import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Twist.MinimalTwist
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Twist.QuarticSextic
 import LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.Automorphism
 import LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.Curve
+import LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.CurveDiscriminant
 import LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.Equation
 import LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.FunctionField
 import LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.IgusaInvariants
+import LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.IsomorphicEquations
 import LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.MinimalEquation
 import LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.RationalPoint
 import LeanBridge.ForMathlib.AlgebraicGeometry.HilbertModularSurface.CongruenceSubgroup
@@ -318,6 +320,12 @@ import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.HeckeU
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.Basic
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.HalfIntegralWeight
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ModularForm
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.Poincare
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareConvergence
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareCuspForm
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareHolomorphic
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareSpanCuspForm
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareSpanFiniteOrder
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.QuasiModular
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ShimuraDecomposition
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.Weight

@@ -1714,6 +1714,14 @@
     "TauCeti.AlgebraicGeometry.AbelianVariety.dim": "TauCeti.AlgebraicGeometry.AbelianVariety.Basic",
     "TauCeti.AlgebraicGeometry.AbelianVariety.prod": "TauCeti.AlgebraicGeometry.AbelianVariety.Product"
   },
+  "g2c.discriminant": {
+    "HyperellipticEquation.discriminant": "LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.Equation",
+    "GenusTwoCurve.minimalDiscriminant": "LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.CurveDiscriminant",
+    "GenusTwoCurve.minimalDiscriminant_eq": "LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.CurveDiscriminant",
+    "GenusTwoCurve.exists_isMinimalEquation": "LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.CurveDiscriminant",
+    "HyperellipticEquation.IsMinimal.discriminant_eq": "LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.IsomorphicEquations",
+    "HyperellipticEquation.nonempty_algEquiv_iff_exists_changeOfVariables": "LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.IsomorphicEquations"
+  },
   "g2c.end_alg": {
     "TauCeti.AlgebraicGeometry.AbelianVariety.End": "TauCeti.AlgebraicGeometry.AbelianVariety.End.Basic",
     "TauCeti.AlgebraicGeometry.AbelianVariety.dim": "TauCeti.AlgebraicGeometry.AbelianVariety.Basic"
@@ -4976,6 +4984,14 @@
     "Complex.integrableOn_besselKIntegrand": "LeanBridge.ForMathlib.Analysis.SpecialFunctions.BesselK",
     "Complex.besselK_neg": "LeanBridge.ForMathlib.Analysis.SpecialFunctions.BesselK",
     "Complex.conj_besselK_I_mul": "LeanBridge.ForMathlib.Analysis.SpecialFunctions.BesselK"
+  },
+  "specialfunction.poincare": {
+    "ModularForm.poincareSeries": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.Poincare",
+    "ModularForm.poincareSeries_eq_tsum_of_section": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareConvergence",
+    "ModularForm.mdifferentiable_poincareSeries_of_three_le": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareHolomorphic",
+    "ModularForm.poincareSeries_mem_multiplierCuspSpace": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareCuspForm",
+    "ModularForm.span_range_poincareCuspForm_eq_top": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareSpanCuspForm",
+    "ModularForm.span_poincareSeries_eq_multiplierCuspSpace_of_finiteIndex": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareSpanFiniteOrder"
   },
   "st_group.ambient": {
     "SatoTateGroup.ambient": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.Basic",

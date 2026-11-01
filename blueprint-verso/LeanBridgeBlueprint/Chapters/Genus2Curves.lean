@@ -141,7 +141,7 @@ When $`A` is the Jacobian of a genus 2 curve, the abelian varieties $`B_1` and $
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.geom_simple"}[] {uses "av.isogeny"}[] {uses "ag.simple"}[] {uses "ec"}[]
 :::
 
-:::definition "g2c.discriminant"
+:::definition "g2c.discriminant" (lean := "HyperellipticEquation.discriminant, GenusTwoCurve.minimalDiscriminant, GenusTwoCurve.minimalDiscriminant_eq, GenusTwoCurve.exists_isMinimalEquation, HyperellipticEquation.IsMinimal.discriminant_eq, HyperellipticEquation.nonempty_algEquiv_iff_exists_changeOfVariables")
 *Discriminant of a genus 2 curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.discriminant))
 
 The discriminant $`\Delta` of a Weierstrass equation $`y^2+h(x)y=f(x)` can be computed as

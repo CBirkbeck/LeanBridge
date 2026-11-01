@@ -105,10 +105,12 @@ import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Twist.QuarticSextic
 import LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.Automorphism
 import LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.ChangeOfVariables
 import LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.Curve
+import LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.CurveDiscriminant
 import LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.Equation
 import LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.FunctionField
 import LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.GaloisImageLabel
 import LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.IgusaInvariants
+import LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.IsomorphicEquations
 import LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.Label
 import LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.MaximalGaloisImage
 import LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.MinimalEquation
@@ -280,6 +282,8 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.SlashAction
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.UpperHalfSpace
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.WeightTwo
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.WhittakerHarmonic
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.WhittakerRadial
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.WhittakerUnique
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.Basic
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.FourierCoefficients
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.FourierExpansion
@@ -464,7 +468,10 @@ import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ModularForm
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.Poincare
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareConvergence
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareCuspForm
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareHolomorphic
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareSpan
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareSpanCuspForm
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareSpanFiniteOrder
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareUnfolding
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.QuasiModular
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ShimuraCorrespondence
@@ -473,6 +480,7 @@ import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.Weight
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.AtkinLehnerDimension
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.CoefficientRing
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.ComplexAutomorphism
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.CrossLevelMultiplicityOne
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Dimension
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.DistinguishingPrimes
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Embedding
@@ -489,6 +497,7 @@ import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.NewformSubspace
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.OldSpaceDecomposition
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.StarkUnit
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.StarkUnitConjugates
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.StrongMainLemma
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.TraceBound
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.TraceBoundExists
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.TraceForm

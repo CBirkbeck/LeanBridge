@@ -10,8 +10,14 @@ function fields are isomorphic over `ℚ`, since a smooth projective curve is de
 function field.
 
 The discriminant of an integral equation is computed over `ℚ`; it is an integer, which is not
-proved here, and neither is the existence of minimal equations, nor the fact that the primes
-dividing the minimal discriminant are the primes of bad reduction.
+proved here, and neither is the fact that the primes dividing the minimal discriminant are the
+primes of bad reduction. In `LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.CurveDiscriminant`,
+`2^(4g + 4)` times the discriminant is shown to be the discriminant of an integer binary form
+(`HyperellipticEquation.two_pow_mul_discriminant_toRat`) and minimal equations are shown to exist
+(`HyperellipticEquation.exists_isMinimal_algEquiv`); in
+`LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.IsomorphicEquations`, two minimal equations of
+the same curve are shown to have the same discriminant
+(`HyperellipticEquation.IsMinimal.discriminant_eq`).
 
 ## Main definitions
 

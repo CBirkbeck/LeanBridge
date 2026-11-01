@@ -17,8 +17,11 @@ of an abelian variety is not available.
 
 What is formalised is the absolute discriminant `D`, the absolute value of the discriminant of a
 minimal equation, which does not depend on the minimal equation
-(`HyperellipticEquation.IsMinimal.abs_discriminant_eq`). That it is an integer, and that every
-genus 2 curve over `ℚ` has a minimal equation, are not proved here.
+(`HyperellipticEquation.IsMinimal.abs_discriminant_eq`). Every genus 2 curve over `ℚ` has a minimal
+equation, so `D` is positive (`GenusTwoCurve.exists_isMinimalEquation` and
+`GenusTwoCurve.absDiscriminant_pos` in
+`LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.CurveDiscriminant`); that it is an integer is not
+proved here.
 
 ## Main definitions
 
@@ -48,8 +51,9 @@ open scoped Classical in
 /-- The **absolute discriminant** `D` (LMFDB `g2c.abs_discriminant`, and the `D` of the label
 `N.s.D.n` of LMFDB `g2c.label`) of a genus 2 curve `C` over `ℚ`: the absolute value `|Δ|` of the
 discriminant of a minimal equation of `C`, which does not depend on the minimal equation
-(`absDiscriminant_eq`), and `0` if `C` has no minimal equation, which does not happen (not proved
-here). It is a positive integer, which is not proved here either. -/
+(`absDiscriminant_eq`), and `0` if `C` has no minimal equation, which does not happen
+(`GenusTwoCurve.exists_isMinimalEquation`). It is positive (`GenusTwoCurve.absDiscriminant_pos`)
+and an integer, which is not proved here. -/
 noncomputable def absDiscriminant : ℚ :=
   if h : ∃ E, C.IsMinimalEquation E then |h.choose.toRat.discriminant| else 0
 

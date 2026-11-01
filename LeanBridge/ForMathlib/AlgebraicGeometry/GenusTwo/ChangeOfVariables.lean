@@ -20,10 +20,11 @@ closed field, `F` is a product of `n` linear forms `uᵢx + vᵢz`, roots at inf
 discriminant is `∏_{i < j} (uᵢvⱼ - uⱼvᵢ)²`, which scales by `(ad - bc)²` in each factor.
 
 That two equations with isomorphic function fields are related by such a change of variables,
-which would make the discriminant an invariant of the curve, is not proved here: it needs the
-uniqueness of the hyperelliptic involution together with Lüroth's description of the generators of
-`K(x)`. Nor is the converse, that a change of variables with `ad - bc ≠ 0` and `e ≠ 0` gives an
-equation with an isomorphic function field.
+which makes the discriminant an invariant of the curve, and the converse, that a change of
+variables with `ad - bc ≠ 0` and `e ≠ 0` gives an equation with an isomorphic function field, are
+proved in `LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.IsomorphicEquations`
+(`HyperellipticEquation.nonempty_algEquiv_iff_exists_changeOfVariables`), from the uniqueness of the
+rational subfield of index `2` and the description of the generators of `K(x)`.
 
 ## Main definitions
 
@@ -423,9 +424,10 @@ variable {E E' : HyperellipticEquation g ℤ}
 `g2c.discriminant`): if two minimal equations of the same curve, with isomorphic function fields,
 are related by a change of variables, the factor `e^(-(8g + 4)) (ad - bc)^((2g + 2)(2g + 1))`
 relating their discriminants is a square, so it is `1` as the discriminants have the same absolute
-value, and the discriminants are equal. That any two equations of the same curve are related by a
-change of variables is not proved here, nor that a change of variables gives an isomorphic function
-field. -/
+value, and the discriminants are equal. Any two equations of the same curve are related by a change
+of variables, so the hypothesis `hc` can be dropped: see
+`HyperellipticEquation.IsMinimal.discriminant_eq` in
+`LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.IsomorphicEquations`. -/
 lemma IsMinimal.discriminant_eq_of_changeOfVariables (hE : E.IsMinimal) (hE' : E'.IsMinimal)
     (eF : E'.toRat.FunctionField ≃ₐ[ℚ] E.toRat.FunctionField) {a b c d e : ℚ} (he : e ≠ 0)
     {t : ℚ[X]} (ht : t.natDegree ≤ g + 1)

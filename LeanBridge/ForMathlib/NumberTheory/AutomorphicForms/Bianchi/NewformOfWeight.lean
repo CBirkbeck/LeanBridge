@@ -76,10 +76,11 @@ variable {K : Type*} [Field K] (σ : K →+* ℂ) (δ : ℂ) (k : ℕ) (u : ℂ)
 `ℂ^{k+1} = Sym^k(ℂ²)` of `bianchiSlash`, for the phase `u = μ / |μ|` of a frequency `μ ∈ ℂ`: the
 function `y W_k(u, 4π|μ|y) e^{2πi(μx + conj(μx))}` is the harmonic one, of moderate growth, among
 the functions of `(x, y)` of this frequency (its harmonicity is proved in
-`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.WhittakerHarmonic`, its uniqueness is
-not proved), which gives the Fourier–Bessel
-expansion of Bianchi cusp forms of weight `k`. It is meant for even `k`, the weights with nonzero
-forms; in weight `2` it is the vector of LMFDB `mf.bianchi.fourierbessell`
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.WhittakerHarmonic`, its uniqueness up
+to a scalar for `k ≥ 1` in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.WhittakerUnique`), which gives the
+Fourier–Bessel expansion of Bianchi cusp forms of weight `k`. It is meant for even `k`, the weights
+with nonzero forms; in weight `2` it is the vector of LMFDB `mf.bianchi.fourierbessell`
 (`bianchiWhittakerVector_two`). -/
 noncomputable def bianchiWhittakerVector : Fin (k + 1) → ℂ :=
   fun j ↦ (I * u) ^ ((k / 2 : ℕ) - (j : ℕ) : ℤ) * besselK ((j : ℕ) - (k : ℂ) / 2) t
@@ -185,11 +186,14 @@ so that the coefficient of `(1)` in its Fourier–Bessel expansion of weight `k`
 `2` these are the newforms `BianchiNewform` (`BianchiNewform.toBianchiNewformOfWeight`), with the
 same eigenvalues and coefficients.
 
-The normalisation rests on a fact not proved here: that `y W_k(u, 4π|μ|y) ψ(μx)` is, up to a
-scalar, the only harmonic function of moderate growth of frequency `μ` (`bianchiWhittakerVector`),
-so that every cusp form of weight `k` has such an expansion. That this function is harmonic is
-proved in every weight (`HyperbolicThreeSpace.isBianchiHarmonic_bianchiWhittakerFunction`); its
-uniqueness is not. -/
+The normalisation rests on `y W_k(u, 4π|μ|y) ψ(μx)` being, up to a scalar, the only harmonic
+function of moderate growth of frequency `μ` (`bianchiWhittakerVector`). That this function is
+harmonic is proved in every weight
+(`HyperbolicThreeSpace.isBianchiHarmonic_bianchiWhittakerFunction`), and that it is the only one,
+up to a scalar, among the harmonic functions `ψ(μx) φ(y)` with `φ` of class `C²` and of moderate
+growth is proved for `k ≥ 1` (`HyperbolicThreeSpace.isBianchiHarmonic_bianchiFourierMode_iff`).
+That every cusp form of weight `k` is the sum of such Fourier modes, so has such an expansion, is
+not proved here. -/
 structure BianchiNewformOfWeight where
   /-- The newform `F : ℋ₃ → ℂ^{k+1}`. -/
   toFun : HyperbolicThreeSpace → Fin (k + 1) → ℂ
