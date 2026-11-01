@@ -26,7 +26,9 @@ with symmetric lifts of `N` and `S`, and `J₁`, `J₂`, `J` are reductions of i
 The identification `Sp(4, ℤ/2ℤ) ≅ S₆` of the knowl, through the action on the six odd theta
 characteristics, is `SymplecticGroup.oddCharEquiv` in
 `LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LevelTwoOddCharacteristics`. The
-identification `P(ℤ/2ℤ) ≅ ℤ/2ℤ × S₄` (so `Γ₀[2]/Γ[2] ≅ ℤ/2ℤ × S₄`) is not formalised.
+identification `P(ℤ/2ℤ) ≅ ℤ/2ℤ × S₄` (so `Γ₀[2]/Γ[2] ≅ ℤ/2ℤ × S₄`) is
+`SymplecticGroup.quotientGammaTwoGamma0EquivProd` in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LevelTwoParabolic`.
 
 ## Main definitions
 

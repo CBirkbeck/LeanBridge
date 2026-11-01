@@ -144,6 +144,7 @@ import LeanBridge.ForMathlib.Analysis.SpecialFunctions.BesselKNonvanishing
 import LeanBridge.ForMathlib.Analysis.SpecialFunctions.BesselKRecurrence
 import LeanBridge.ForMathlib.Analysis.SpecialFunctions.BesselKUnique
 import LeanBridge.ForMathlib.Analysis.SpecialFunctions.BesselKUniqueComplex
+import LeanBridge.ForMathlib.Analysis.SpecialFunctions.BesselKUniqueIntegrable
 import LeanBridge.ForMathlib.FieldTheory.AlgebraGaloisClosure
 import LeanBridge.ForMathlib.FieldTheory.Finite.ConwayPolynomial
 import LeanBridge.ForMathlib.FieldTheory.FunctionField.AutomorphismSignature
@@ -301,7 +302,9 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.WeightTwo
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.WeightTwoVanishing
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.CoefficientsUnique
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.ConstantNewform
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.ConstantTerm
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.CuspNewform
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.CuspNewformExpansion
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.FourierCoefficientODE
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.FourierExpansion
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.FourierExpansionExists
@@ -355,10 +358,13 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.KoecherPrincip
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.Label
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LatticeThetaSeries
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.Level
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LevelTwoIsotypic
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LevelTwoOddCharacteristics
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LevelTwoParabolic
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LevelTwoQuotient
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LevelTwoScalarRepresentation
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LevelTwoSymmetricRepresentation
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LevelTwoVectorRepresentation
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftCuspForm
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftEisenstein
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftFourierJacobi
@@ -632,6 +638,7 @@ import LeanBridge.ForMathlib.RepresentationTheory.RationalCharacter
 import LeanBridge.ForMathlib.RepresentationTheory.RationalCharacterBasis
 import LeanBridge.ForMathlib.RepresentationTheory.RationalCharacterTable
 import LeanBridge.ForMathlib.RepresentationTheory.SchurIndex
+import LeanBridge.ForMathlib.RepresentationTheory.SpechtDegreesSix
 import LeanBridge.ForMathlib.RingTheory.FractionalIdeal.LocallyPrincipal
 import LeanBridge.ForMathlib.RingTheory.Polynomial.EisensteinForm
 /- LMFDB elliptic-curve knowls formalized in Tau Ceti, which LeanBridge uses instead of its own

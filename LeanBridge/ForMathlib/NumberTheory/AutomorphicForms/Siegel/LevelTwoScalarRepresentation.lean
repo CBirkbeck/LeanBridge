@@ -13,8 +13,10 @@ knowl `mf.siegel.family.gamma_2` on the scalar-valued forms, the case `j = 0` of
 It is a subrepresentation of `SiegelUpperHalfSpace.quotientSlashRep` for the weight `det^k`. In
 weight 2 the fourth powers `θ_m⁴` of the theta constants, among them Igusa's generators `xᵢ`, span
 a subrepresentation, since `Sp(4, ℤ)` permutes them up to constants. The knowl identifies
-`Sp(4, ℤ)/Γ[2]` with the symmetric group `S₆`, which is not formalised here, nor is the holomorphy
-of the slash operator for the vector-valued weights `ρ_{k,j}`, `j > 0`.
+`Sp(4, ℤ)/Γ[2]` with the symmetric group `S₆`, which is
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LevelTwoOddCharacteristics`; the
+holomorphy of the slash operator for the vector-valued weights `ρ_{k,j}`, `j > 0`, is
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LevelTwoVectorRepresentation`.
 
 ## Main definitions
 
@@ -153,7 +155,8 @@ variable (k) in
 /-- The **representation of `Sp(4, ℤ)/Γ[2]` on `M_k(Γ[2])`** (LMFDB `mf.siegel.family.gamma_2`),
 by `g ↦ (f ↦ f ∣_k g⁻¹)`, on the scalar-valued Siegel modular forms of weight `k` on the principal
 congruence subgroup `Γ[2]`, on which `Γ[2]` acts trivially. The knowl identifies `Sp(4, ℤ)/Γ[2]`
-with the symmetric group `S₆`, which is not formalised. -/
+with the symmetric group `S₆` (`SymplecticGroup.quotientGammaTwoEquivPerm`); the representation of
+`S₆` is `SiegelUpperHalfSpace.levelTwoSymmetricRep`. -/
 noncomputable def levelTwoScalarRep : Representation ℂ
     (symplecticGroup (Fin 2) ℤ ⧸ SymplecticGroup.Gamma (Fin 2) 2)
       (scalarModularForms k principal) :=

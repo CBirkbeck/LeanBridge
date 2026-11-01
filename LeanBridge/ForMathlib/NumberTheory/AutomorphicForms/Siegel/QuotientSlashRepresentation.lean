@@ -10,8 +10,12 @@ all `γ ∈ Γ`, since `f ∣ gγ = f ∣ (gγg⁻¹)g`; so `g ↦ (f ↦ f ∣_
 `Sp(2g, ℤ)` on them in which `Γ` acts trivially, a representation of `Sp(2g, ℤ)/Γ`. The Siegel
 modular forms on `Γ` are such functions. For `Γ = Γ[2]` in degree 2 this is the action of
 `Sp(4, ℤ)/Γ[2]`, a group isomorphic to `S₆`, on `M_{k,j}(Γ[2])` of the knowl
-`mf.siegel.family.gamma_2`; the isomorphism with `S₆`, the preservation of holomorphy by the slash
-operator and the isotypic decomposition are not formalised.
+`mf.siegel.family.gamma_2`; the isomorphism with `S₆` and the preservation of holomorphy by the
+slash operator are in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LevelTwoOddCharacteristics` and
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LevelTwoVectorRepresentation`, and
+the isotypic multiplicities are defined in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LevelTwoIsotypic`.
 
 ## Main definitions
 
@@ -110,8 +114,8 @@ lemma mem_intSlashInvariants_of_mem_modularForms {f : SiegelUpperHalfSpace l →
 /-- The **representation of `Sp(4, ℤ)/Γ[2]`** on the functions `f : ℋ₂ → Sym^j(ℂ²)` invariant
 under the slash operator of weight `ρ_{k,j}` of the principal congruence subgroup `Γ[2]` (LMFDB
 `mf.siegel.family.gamma_2`), which contain `M_{k,j}(Γ[2])`
-(`mem_intSlashInvariants_of_mem_modularForms`). The knowl identifies `Sp(4, ℤ)/Γ[2]` with `S₆`,
-which is not formalised. -/
+(`mem_intSlashInvariants_of_mem_modularForms`). The knowl identifies `Sp(4, ℤ)/Γ[2]` with `S₆`
+(`SymplecticGroup.quotientGammaTwoEquivPerm`). -/
 noncomputable abbrev levelTwoSlashRep (k : ℤ) (j : ℕ) :
     Representation ℂ (symplecticGroup (Fin 2) ℤ ⧸ SymplecticGroup.Gamma (Fin 2) 2)
       (intSlashInvariants (rhoKJ k j) (SymplecticGroup.Gamma (Fin 2) 2)) :=

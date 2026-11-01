@@ -16,8 +16,9 @@ integrations by parts in `x`. For `λ = 1/4 + R²` and `n ≠ 0`, if `a_n` and `
 polynomially, then `a_n(y)` is a multiple of `√y K_{iR}(2π|n|y)`
 (`Complex.eq_div_mul_sqrt_mul_besselK_of_ode`): this is the `n`-th term of the Fourier expansion of
 a Maass form (LMFDB `mf.maass.mwf.fourierexpansion`, `mf.maass.mwf.coefficients`). The growth
-bound is a hypothesis: it is not part of the definition of Maass forms, which only asks for
-square-integrability on `Γ₀(N) \ ℍ`, and it is not derived from it here.
+bound is a hypothesis here; it is replaced by an integrability condition implied by
+square-integrability on `Γ₀(N) \ ℍ` in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.CuspNewformExpansion`.
 
 ## Main results
 

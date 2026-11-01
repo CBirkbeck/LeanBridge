@@ -16,11 +16,12 @@ as `γ T^N γ⁻¹ ∈ Γ(N) ≤ Γ₀(N)`, so the integral is a multiple of the
 
 At the cusp `∞` this gives the vanishing constant term `∫_0^1 F(t + iy) dt = 0` of the existence
 theorems of the cosine and sine expansions, which hold for Maass cusp newforms provided `F` and
-`∂F/∂y` grow at most polynomially at `∞`. These growth bounds are hypotheses here: they hold for
-Maass cusp forms (which decay exponentially at the cusps, with their derivatives), a consequence of
-the cuspidality and of the eigenvalue equation that is not proved. With them, the coefficients
-`a(n) / a(1)`, `a = maassCoefficients R F`, of the cusp newform normalised by `a(1) = 1` are real
-at every index `n` prime to `N`, provided `a(1) ≠ 0`, which holds at level `1`
+`∂F/∂y` grow at most polynomially at `∞`. These growth bounds are hypotheses here; they are
+removed in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.CuspNewformExpansion`
+(`UpperHalfPlane.IsMaassCuspNewform.hasMaassCosineExpansion` and the sine version). With them, the
+coefficients `a(n) / a(1)`, `a = maassCoefficients R F`, of the cusp newform normalised by
+`a(1) = 1` are real at every index `n` prime to `N`, provided `a(1) ≠ 0`, which holds at level `1`
 (`UpperHalfPlane.IsMaassNewform.coeff_one_ne_zero_of_hasMaassCosineExpansion`).
 
 ## Main definitions

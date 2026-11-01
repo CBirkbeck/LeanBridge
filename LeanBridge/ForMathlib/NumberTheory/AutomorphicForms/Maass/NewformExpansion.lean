@@ -6,9 +6,11 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.TrivialCharacte
 
 A Maass newform `F` of weight `0` on `Γ₀(N)` with trivial character and spectral parameter `R`
 (`UpperHalfPlane.IsMaassNewform`) is invariant under `z ↦ z + 1`. If its constant term vanishes
-and `F` and `∂F/∂y` grow at most polynomially in `y`, uniformly in `x` (hypotheses that hold for
-Maass cusp forms, the forms of the LMFDB, but are not proved here: the definition only asks for
-square-integrability), then, if `F` is even, it has the cosine expansion
+and `F` and `∂F/∂y` grow at most polynomially in `y`, uniformly in `x` (hypotheses that are
+removed in `LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.CuspNewformExpansion`, from
+square-integrability alone, and in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.ConstantTerm` for real `R`), then, if
+`F` is even, it has the cosine expansion
 `F(x + iy) = ∑_{n ≥ 1} a(n) √y K_{iR}(2πny) cos(2πnx)` with `a = maassCoefficients R F` (LMFDB
 `mf.maass.mwf.coefficients`), and if it is odd, the sine expansion with these coefficients. The
 coefficients are unique (`UpperHalfPlane.HasMaassCosineExpansion.unique`,

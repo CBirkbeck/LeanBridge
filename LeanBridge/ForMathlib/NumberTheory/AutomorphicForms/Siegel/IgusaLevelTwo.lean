@@ -20,11 +20,19 @@ parabolic subgroup and the partial inversion `J₁`, which generate `Sp(4, ℤ)`
 `SiegelUpperHalfSpace.thetaConstant_smul_of_mem_siegelParabolic` and
 `SiegelUpperHalfSpace.thetaConstant_eq_partialInversion`.
 
-The knowl's other notions are not formalised here: the subgroup `Γ₁[2]` and the quotients
-`Γ₁[2]/Γ[2] ≅ (ℤ/2ℤ)³`, `Γ₀[2]/Γ[2] ≅ ℤ/2ℤ × S₄`, `Γ₀[2]/Γ₁[2] ≅ S₃`, `Sp(4, ℤ)/Γ[2] ≅ S₆`, the
-action of `S₆` on `M_{k,j}(Γ[2])` with its isotypic decomposition (the action of `Sp(4, ℤ)/Γ[2]`
-on the `Γ[2]`-invariant functions is `SiegelUpperHalfSpace.levelTwoSlashRep`), and the Eisenstein
-subspace `E_{k,j}(Γ[2])`.
+The knowl's other notions are formalised elsewhere: the quotients `Γ₁[2]/Γ[2] ≅ (ℤ/2ℤ)³`,
+`Γ₀[2]/Γ₁[2] ≅ S₃` and `Sp(4, ℤ)/Γ[2] ≅ S₆` in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LevelTwoQuotient` and
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LevelTwoOddCharacteristics`,
+`Γ₀[2]/Γ[2] ≅ ℤ/2ℤ × S₄` in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LevelTwoParabolic`, the action of `S₆`
+on `M_{k,j}(Γ[2])` and the isotypic multiplicities in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LevelTwoVectorRepresentation` and
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LevelTwoIsotypic`, and the modularity of
+the `xᵢ` and of `χ₅` in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.IgusaLevelTwoModularity` and
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ChiFiveLevelTwo`. The Eisenstein
+subspace `E_{k,j}(Γ[2])` is not formalised.
 
 ## Main definitions
 

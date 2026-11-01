@@ -15,10 +15,12 @@ converges (`UpperHalfPlane.hasSum_fourierCoeffOn_mul_exp`) and its coefficients 
 constant is fixed at a point where `K_{iR}` does not vanish (`Complex.exists_besselK_ne_zero`).
 
 The two hypotheses are not part of `UpperHalfPlane.IsMaassForm` or `UpperHalfPlane.maassSpace`,
-which ask for square-integrability on `Γ₀(N) \ ℍ` only: moderate growth and the vanishing of the
-constant term hold for Maass cusp forms (the forms of the LMFDB) but are not proved here for them,
-and the constant newform `1` of level `1` (`UpperHalfPlane.isMaassNewform_const_one`) has no such
-expansion.
+which ask for square-integrability on `Γ₀(N) \ ℍ` only. Moderate growth is replaced by
+square-integrability in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.CuspNewformExpansion`, and the constant
+term vanishes for real `R`
+(`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.ConstantTerm`); the constant newform
+`1` of level `1` (`UpperHalfPlane.isMaassNewform_const_one`, `R = ±i/2`) has no such expansion.
 
 For an even (odd) form the coefficients satisfy `a(-n) = a(n)` (`a(-n) = -a(n)`), by the uniqueness
 of the Fourier coefficients, so that the expansion is a cosine (sine) expansion with coefficients
