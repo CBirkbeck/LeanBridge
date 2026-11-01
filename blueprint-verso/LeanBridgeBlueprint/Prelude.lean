@@ -395,7 +395,6 @@ import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.Basic
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.Generators
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.HodgeCircle
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.Rational
-import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.AdelicEllipticPoint
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.Coarse
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.ConnectedShimuraVariety
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.EnhancedGroup

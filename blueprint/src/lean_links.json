@@ -4943,14 +4943,6 @@
     "Subalgebra.IsMaximalQuaternionOrder": "LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.QuaternionOrder",
     "Subalgebra.IsQuaternionOrder": "LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.QuaternionOrder"
   },
-  "shimcurve.elliptic_points": {
-    "Subalgebra.ShimuraCurvePoints": "LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.AdelicEllipticPoint",
-    "Subalgebra.shimuraCurveEllipticPoints": "LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.AdelicEllipticPoint",
-    "Subalgebra.shimuraAdelicStabilizer": "LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.AdelicEllipticPoint",
-    "Subalgebra.natCard_shimuraAdelicStabilizer_mem": "LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.AdelicEllipticPoint",
-    "Subalgebra.quotientMk_mem_shimuraCurveEllipticPoints_iff_natCard_mem": "LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.AdelicEllipticPoint",
-    "Subalgebra.quotientMk_one_mem_shimuraCurveEllipticPoints_iff": "LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.AdelicEllipticPoint"
-  },
   "shimcurve.enhanced_group": {
     "Subalgebra.EnhancedGroup": "LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.EnhancedGroup",
     "Subalgebra.completedUnits": "LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.EnhancedGroup",
