@@ -17,7 +17,8 @@ weight `k` on `Sp(4, ℤ)` as soon as its series converges absolutely on `ℋ₂
 absolutely if the Fourier coefficients of `φ` grow polynomially, `‖c(n, r)‖ ≤ C (1 + |n|)^A`: the
 divisor sums then satisfy `|a(n, r, m)| ≤ C' (1 + n + m)^{k + 2A}`, and the terms are dominated by
 `e^{-πε(|n| + |r| + |m|)/2}` up to a constant. That bound on `c(n, r)` (a Hecke-type estimate for
-Jacobi forms) is not proved here.
+Jacobi forms) is proved in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.CoefficientGrowth`.
 
 ## Main results
 
@@ -379,9 +380,9 @@ lemma summable_maassLift_of_norm_jacobiCoeff_le (hφ : φ ∈ jacobiFormSpace k 
 /-- **The theorem of Maass, reduced to a polynomial bound for the Fourier coefficients of `φ`**
 (LMFDB `mf.siegel.lift.maass`): for a Jacobi form `φ ∈ J_{k,1}` of weight `k ≥ 3` whose Fourier
 coefficients satisfy `‖c(n, r)‖ ≤ C (1 + |n|)^A`, the Maass lift is a Siegel modular form of weight
-`k` on `Sp(4, ℤ)`. Every Jacobi form satisfies such a bound (its coefficients grow polynomially in
-`4n - r²`), but this is not proved here, so this is the `mem_modularForms` part of
-`MaassLiftTheorem` for `k ≥ 3` under that hypothesis. -/
+`k` on `Sp(4, ℤ)`. Every Jacobi form satisfies such a bound
+(`ModularForm.norm_jacobiCoeff_le_of_mem_jacobiFormSpace_one`), so this gives the
+`mem_modularForms` part of `MaassLiftTheorem` for `k ≥ 3`. -/
 lemma maassLift_mem_scalarModularForms_of_norm_jacobiCoeff_le (hφ : φ ∈ jacobiFormSpace k 1)
     (hk : 3 ≤ k) (hc : ∀ n r : ℤ, ‖jacobiCoeff φ (n, r)‖ ≤ C * (1 + |(n : ℝ)|) ^ A) :
     maassLift k φ ∈ scalarModularForms k (integral (Fin 2)) :=

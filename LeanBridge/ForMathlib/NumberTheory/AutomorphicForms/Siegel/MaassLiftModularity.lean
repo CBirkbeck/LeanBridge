@@ -20,7 +20,10 @@ Taylor development of Jacobi forms) and from the cusp-form condition `Φ(Vφ ∣
 `γ ∈ Sp(4, ℚ)`, for the Jacobi cusp forms `φ` of weight `k ≥ 3`. Of the vanishing of `J_{2,1}`,
 the part coming from `M_2(SL(2, ℤ)) = 0` and the reduction to the coefficient of `z²` are proved
 (`ModularForm.eq_zero_of_mem_jacobiFormSpace_two_of_tsum_sq`); the vanishing of that coefficient
-(a cusp form of weight `4`) and the cusp-form condition are not proved here.
+(a cusp form of weight `4`) and the cusp-form condition are proved in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.WeightTwoVanishing` and
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftCuspForm`, which proves
+`MaassLiftTheorem`.
 
 ## Main results
 
@@ -93,7 +96,9 @@ lemma maassLift_mem_scalarModularForms_of_ne_two (hφ : φ ∈ jacobiFormSpace k
 in `φ(τ, z)`, a cusp form of weight `4` on `SL(2, ℤ)`; then `φ = 0`), and the Maass lift of every
 Jacobi cusp form of index `1` and weight `k ≥ 3` satisfies the cusp-form condition
 `Φ(Vφ ∣ γ) = 0` for every `γ ∈ Sp(4, ℚ)`. Both are true (Eichler and Zagier, Theorems 3.5 and
-6.2) and are not proved here; everything else is. -/
+6.2) and are proved in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.WeightTwoVanishing` and
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftCuspForm`. -/
 lemma maassLiftTheorem_of_forall
     (h2 : ∀ φ ∈ jacobiFormSpace 2 1, ∀ n : ℤ, ∑' r : ℤ, (r : ℂ) ^ 2 * jacobiCoeff φ (n, r) = 0)
     (hcusp : ∀ (k : ℤ) (φ : ℍ × ℂ → ℂ), 3 ≤ k → φ ∈ jacobiCuspFormSpace k 1 →

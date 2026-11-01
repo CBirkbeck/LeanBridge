@@ -298,6 +298,7 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.CoefficientGro
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.FourierCoefficients
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.IndexRaising
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.WeightTwo
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.WeightTwoVanishing
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.CoefficientsUnique
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.ConstantNewform
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.CuspNewform
@@ -358,6 +359,7 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LevelTwoOddCha
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LevelTwoQuotient
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LevelTwoScalarRepresentation
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LevelTwoSymmetricRepresentation
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftCuspForm
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftEisenstein
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftFourierJacobi
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftHolomorphic
@@ -367,6 +369,7 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftModul
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftParabolic
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MiyawakiLift
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ModularForm
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParabolicDecomposition
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularArithmetic
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularLevelRaising
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularLevelRaisingCuspForms

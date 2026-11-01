@@ -4080,6 +4080,14 @@
     "ModularForm.jacobiCoeff": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.FourierCoefficients",
     "ModularForm.HasJacobiFourierExpansion.unique": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.FourierCoefficients"
   },
+  "mf.siegel.lift.maass": {
+    "SiegelUpperHalfSpace.maassLift": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.GritsenkoLift",
+    "SiegelUpperHalfSpace.maassCoeff": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.GritsenkoLift",
+    "SiegelUpperHalfSpace.MaassLiftTheorem": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.GritsenkoLift",
+    "SiegelUpperHalfSpace.maassLiftTheorem": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftCuspForm",
+    "SiegelUpperHalfSpace.maassLiftLinearMap": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftCuspForm",
+    "SiegelUpperHalfSpace.isCuspForm_maassLift": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftCuspForm"
+  },
   "mf.siegel.newform_subspace": {
     "SiegelUpperHalfSpace.newformSubspace": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularNewform",
     "SiegelUpperHalfSpace.self_mem_newformSubspace": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularNewform",

@@ -846,7 +846,7 @@ where $`\zeta` is the {bpref "lfunction.riemann"}[Riemann zeta function].
 Depends on: {uses "cmf"}[] {uses "group.sp2gr"}[] {uses "lfunction.riemann"}[] {uses "mf.siegel"}[] {uses "mf.siegel.lift.saito_kurokawa"}[]
 :::
 
-:::definition "mf.siegel.lift.maass"
+:::definition "mf.siegel.lift.maass" (lean := "SiegelUpperHalfSpace.maassLift, SiegelUpperHalfSpace.maassCoeff, SiegelUpperHalfSpace.MaassLiftTheorem, SiegelUpperHalfSpace.maassLiftTheorem, SiegelUpperHalfSpace.maassLiftLinearMap, SiegelUpperHalfSpace.isCuspForm_maassLift")
 *Maass lift from Jacobi form to Siegel modular form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.lift.maass))
 
 A Maass lift is a lift from {bpref "mf.jacobi"}[Jacobi forms] to {bpref "mf.siegel"}[Siegel modular forms] of degree 2 with respect to the {bpref "group.sp2gr"}[Siegel modular group].

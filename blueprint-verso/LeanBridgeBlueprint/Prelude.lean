@@ -236,6 +236,7 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.KlingenEisenst
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.KoecherPrinciple
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LatticeThetaSeries
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.Level
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftCuspForm
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ModularForm
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularNewform
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PhiOperator

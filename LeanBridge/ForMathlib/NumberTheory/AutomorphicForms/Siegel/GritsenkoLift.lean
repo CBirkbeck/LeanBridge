@@ -21,8 +21,11 @@ it is the Gritsenko lift of level `1` (`maassLift_eq_gritsenkoLift`).
 
 The two lifts are defined here by these formulas, as sums of series (`tsum`). That the series
 converge absolutely on `ℋ₂`, which needs the polynomial growth of the coefficients `c(n, r)`, and
-the theorems of Gritsenko and of Maass are stated (`GritsenkoLiftTheorem`, `MaassLiftTheorem`) and
-not proved. The coefficient formula of the knowl `mf.siegel.lift.gritsenko` was checked numerically
+the theorems of Gritsenko and of Maass are stated (`GritsenkoLiftTheorem`, `MaassLiftTheorem`);
+the theorem of Maass is proved in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftCuspForm`
+(`SiegelUpperHalfSpace.maassLiftTheorem`), that of Gritsenko is not proved. The coefficient
+formula of the knowl `mf.siegel.lift.gritsenko` was checked numerically
 on `φ = φ_{10,1}^N ∈ J_{10N,N}^cusp`, `N = 1, 2, 3`, against elements of `K(N)` outside its Jacobi
 subgroup, such as `(τ, z, ω) ↦ (τ - z²/ω, z/(Nω), -1/(N²ω))`: no condition `gcd(d, N) = 1` on the
 divisors `d` is needed (with that condition the lift is not paramodular).
@@ -130,17 +133,20 @@ on the Siegel upper half-space `ℋ₂` defined by its Fourier coefficients:
 `a(n, r, m)` is given by `maassCoeff` from the Fourier coefficients `c(n, r)` of `φ`
 (`jacobiCoeff`). For a Jacobi form `φ ∈ J_{k,1}` of index `1` the series converges absolutely, and
 `Vφ` is a Siegel modular form of weight `k` on `Sp(4, ℤ)`, a cusp form if `φ` is one
-(`MaassLiftTheorem`, not proved here): this is the map `V : J_{k,1} → M_k(Sp(4, ℤ))` of Eichler and
-Zagier, whose image is the Maass space, spanned by the Saito–Kurokawa lifts. The knowl gives no
-formula; this is that of Eichler and Zagier. The `tsum` is the sum of the series wherever it
-converges absolutely, and the junk value `0` elsewhere. -/
+(`MaassLiftTheorem`, proved as `maassLiftTheorem` in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftCuspForm`, where the lift is
+also the linear map `maassLiftLinearMap`): this is the map `V : J_{k,1} → M_k(Sp(4, ℤ))` of
+Eichler and Zagier, whose image is the Maass space, spanned by the Saito–Kurokawa lifts. The knowl
+gives no formula; this is that of Eichler and Zagier. The `tsum` is the sum of the series wherever
+it converges absolutely, and the junk value `0` elsewhere. -/
 noncomputable def maassLift : ℂ :=
   ∑' p : ℤ × ℤ × ℤ, maassCoeff k (jacobiCoeff φ) p.1 p.2.1 p.2.2 * liftExp 1 p.1 p.2.1 p.2.2 Z
 
 /-- **The theorem of Maass** (LMFDB `mf.siegel.lift.maass`), as a statement: for a Jacobi form
 `φ ∈ J_{k,1}`, the series of the Maass lift converges absolutely on `ℋ₂`, the Maass lift `Vφ` is a
 Siegel modular form of weight `k` on `Sp(4, ℤ)`, and it is a cusp form if `φ` is one (Eichler and
-Zagier, Theorem 6.2). It is not proved here. -/
+Zagier, Theorem 6.2). It is proved as `maassLiftTheorem` in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftCuspForm`. -/
 structure MaassLiftTheorem : Prop where
   summable : ∀ (k : ℤ) (φ : ℍ × ℂ → ℂ), φ ∈ jacobiFormSpace k 1 →
     ∀ Z : SiegelUpperHalfSpace (Fin 2), Summable fun p : ℤ × ℤ × ℤ ↦

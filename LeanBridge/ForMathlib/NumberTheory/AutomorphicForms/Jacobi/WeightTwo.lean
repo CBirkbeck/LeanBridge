@@ -15,7 +15,9 @@ A Jacobi form of index `1` is determined by its Taylor coefficients of order `0`
 `∑_r r² c(n, r) = 0` for every `n` force `c = 0`, by induction on `n` with the elliptic
 transformation law `c(n, r) = c(n - |r| + 1, |r| - 2)`. So `J_{2,1} = 0` as soon as the coefficient
 of `z²` in `φ(τ, z)` vanishes; that coefficient is a cusp form of weight `4` on `SL(2, ℤ)`, hence
-`0`, which is not proved here.
+`0`, which is proved in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.WeightTwoVanishing`
+(`ModularForm.eq_zero_of_mem_jacobiFormSpace_two`).
 
 ## Main definitions
 
@@ -145,7 +147,7 @@ lemma jacobiCoeff_eq_zero_of_tsum_eq_zero (hφ : φ ∈ jacobiFormSpace k 1)
 coefficient `-2π² ∑_n (∑_r r² c(n, r)) qⁿ` of `z²` in `φ(τ, z)` vanishes; the coefficient of `z⁰`,
 `φ(τ, 0)`, vanishes since there are no nonzero modular forms of weight `2` on `SL(2, ℤ)`. The
 coefficient of `z²` is a cusp form of weight `4` on `SL(2, ℤ)`, hence `0` (Eichler and Zagier,
-Theorem 3.5), which is not proved here. -/
+Theorem 3.5); see `eq_zero_of_mem_jacobiFormSpace_two`. -/
 lemma eq_zero_of_mem_jacobiFormSpace_two_of_tsum_sq (hφ : φ ∈ jacobiFormSpace 2 1)
     (h2 : ∀ n : ℤ, ∑' r : ℤ, (r : ℂ) ^ 2 * jacobiCoeff φ (n, r) = 0) : φ = 0 :=
   eq_zero_of_jacobiCoeff_eq_zero hφ <| jacobiCoeff_eq_zero_of_tsum_eq_zero hφ
