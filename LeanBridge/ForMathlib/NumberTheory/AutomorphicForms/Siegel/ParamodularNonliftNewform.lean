@@ -35,9 +35,10 @@ a Hecke eigenform `F` on the paramodular group `K(N)` (`SiegelUpperHalfSpace.IsH
 which is not a Gritsenko lift (`SiegelUpperHalfSpace.IsGritsenkoLift`) and is not the image of a
 paramodular cusp form of lower level under a level raising operator
 (`SiegelUpperHalfSpace.IsNotFromLowerLevel`). The knowl names the level raising operators `V_m^±`
-and `U_m` without defining them; those of Roberts and Schmidt, `θ`, `θ'` and `η` at the primes `p`,
-whom it cites, are used here, `θ'` and `η` being identified without their book at hand. As in the
-knowl, `F` is a paramodular form, not required to be a cusp form. -/
+and `U_m` without defining them; those of Roberts and Schmidt, `θ_p`, `θ'_p` and `η_p` at the primes
+`p` (Roberts–Schmidt 2006, §4: `levelRaisingThetaPrime`, `levelRaisingTheta`, `levelRaisingEta`),
+whom it cites, are used here. As in the knowl, `F` is a paramodular form, not required to be a cusp
+form. -/
 def IsParamodularNonliftNewform (F : slashInvariantsOf (TauCeti.detPowerRep ℂ 2 k)
     (heckeMonoidOf (paramodularLevel N)) (heckeGammaOf (paramodularLevel N))) : Prop :=
   IsHeckeEigenform (TauCeti.detPowerRep ℂ 2 k) F ∧ ¬IsGritsenkoLift k N F ∧

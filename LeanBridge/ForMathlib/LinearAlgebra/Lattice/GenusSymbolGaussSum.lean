@@ -148,7 +148,8 @@ lemma SameGenus.compartmentOddities_eq (h : L.SameGenus M) :
   h.compartmentOddities_eq_of_dyadicGaussOddity_eq h.dyadicGaussOddity_eq
 
 /-- **The label of the genus is a genus invariant** (LMFDB `lattice.genus_label`): lattices in the
-same genus have the same label. -/
+same genus have the same label `canonicalGenusLabel` (for the LMFDB's exact encoding, see
+`SameGenus.lmfdbGenusLabel_eq`). -/
 lemma SameGenus.canonicalGenusLabel_congr (h : L.SameGenus M) :
     L.canonicalGenusLabel = M.canonicalGenusLabel :=
   h.canonicalGenusLabel_eq h.compartmentOddities_eq

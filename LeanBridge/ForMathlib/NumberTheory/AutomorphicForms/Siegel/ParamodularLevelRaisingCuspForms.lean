@@ -2,18 +2,19 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularLev
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularNewform
 
 /-!
-# The level raising operators `θ` and `η` preserve cusp forms
+# The level raising operators `θ'_p` and `η` preserve cusp forms
 
-The level raising operators `θ = [K(M) K(Mp)]` and `η = [K(M) diag(1, p, 1, p⁻¹) K(Mp²)]` of
+The level raising operators `θ'_p = [K(M) K(Mp)]` and `η = [K(M) diag(1, p, 1, p⁻¹) K(Mp²)]` of
 Roberts and Schmidt are sums of slash operators of elements of `Sp(4, ℚ)`: the representatives of
 the right cosets of `K(M) K(Mp)` are products of elements of the paramodular groups, and
 `η = diag(1, p, 1, p⁻¹)` has multiplier `1` (`SiegelUpperHalfSpace.coe_levelRaisingEta`). The cusp
-condition `Φ(F ∣_ρ γ) = 0` for all `γ ∈ Sp(4, ℚ)` is preserved by such slash operators, so `θ` and
-`η` map the cusp forms `S_ρ(K(M))` to `S_ρ(K(Mp))` and `S_ρ(K(Mp²))`, as soon as the slash
+condition `Φ(F ∣_ρ γ) = 0` for all `γ ∈ Sp(4, ℚ)` is preserved by such slash operators, so `θ'_p`
+and `η` map the cusp forms `S_ρ(K(M))` to `S_ρ(K(Mp))` and `S_ρ(K(Mp²))`, as soon as the slash
 operator preserves holomorphy, as it does for the holomorphic representations `ρ` of the LMFDB
 (taken as a hypothesis, as for the Hecke operators in
-`SiegelUpperHalfSpace.heckeOperator_mem_modularForms`). The operator `θ'` involves similitudes of
-multiplier `p`, and is not treated here.
+`SiegelUpperHalfSpace.heckeOperator_mem_modularForms`). The operator `θ_p`
+(`SiegelUpperHalfSpace.levelRaisingThetaPrime`) involves similitudes of multiplier `p`; it is
+treated in `ParamodularLevelRaisingThetaPrime`.
 
 ## Main definitions
 
@@ -21,7 +22,7 @@ multiplier `p`, and is not treated here.
 
 ## Main results
 
-* `SiegelUpperHalfSpace.levelRaisingTheta_mem_paramodularCuspForms`: `θ` maps `S_ρ(K(M))` to
+* `SiegelUpperHalfSpace.levelRaisingTheta_mem_paramodularCuspForms`: `θ'_p` maps `S_ρ(K(M))` to
   `S_ρ(K(Mp))` when the slash operator preserves holomorphy.
 * `SiegelUpperHalfSpace.levelRaisingEta_mem_paramodularCuspForms`: `η` maps `S_ρ(K(M))` to
   `S_ρ(K(Mp²))` when the slash operator preserves holomorphy.
@@ -57,10 +58,10 @@ lemma heckeMonoidSlash_eq_slash {Δ : Submonoid (GL (Fin 2 ⊕ Fin 2) ℚ)}
   rw [← gspSlash_ofSp]
   exact congrArg (gspSlash ρ · f) (Subtype.ext (congrArg Units.val h))
 
-/-- **The level raising operator `θ` maps `S_ρ(K(M))` to `S_ρ(K(Mp))`** when the slash operator of
-`GSp(4, ℚ)⁺` preserves holomorphy, as it does for the holomorphic representations `ρ` of the
-LMFDB: `θF = ∑ᵢ F ∣_ρ γᵢ` is `K(Mp)`-invariant, holomorphic, and a cusp form, the representatives
-`γᵢ` of the right cosets of `K(M) K(Mp)` lying in `Sp(4, ℚ)`. -/
+/-- **The level raising operator `θ'_p` maps `S_ρ(K(M))` to `S_ρ(K(Mp))`** when the slash operator
+of `GSp(4, ℚ)⁺` preserves holomorphy, as it does for the holomorphic representations `ρ` of the
+LMFDB: `θ'_p F = ∑ᵢ F ∣_ρ γᵢ` is `K(Mp)`-invariant, holomorphic, and a cusp form, the
+representatives `γᵢ` of the right cosets of `K(M) K(Mp)` lying in `Sp(4, ℚ)`. -/
 lemma levelRaisingTheta_mem_paramodularCuspForms
     (hρ : ∀ α f, IsHolomorphic f → IsHolomorphic (gspSlash ρ α f))
     (hF : (F : SiegelUpperHalfSpace (Fin 2) → V) ∈ paramodularCuspForms ρ M) :

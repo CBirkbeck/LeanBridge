@@ -161,6 +161,8 @@ import LeanBridge.ForMathlib.LinearAlgebra.Lattice.DiscriminantConventions
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.DiscriminantForm
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.Dual
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.FestiVeniani
+import LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusLabel
+import LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusLabelLMFDB
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolCanonical
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolGaussSum
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolSign
@@ -238,6 +240,8 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LatticeThetaSe
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.Level
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftCuspForm
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ModularForm
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularLevelRaisingThetaPrime
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularNewEigenform
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularNewform
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PhiOperator
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SatohBracket
@@ -362,11 +366,13 @@ import LeanBridge.ForMathlib.NumberTheory.NumberField.FieldIndex
 import LeanBridge.ForMathlib.NumberTheory.NumberField.FrobeniusCycleType
 import LeanBridge.ForMathlib.NumberTheory.NumberField.HeckeIdealCharacter
 import LeanBridge.ForMathlib.NumberTheory.NumberField.HeckeIdealCharacterIdelic
+import LeanBridge.ForMathlib.NumberTheory.NumberField.IdealLabelOrder
 import LeanBridge.ForMathlib.NumberTheory.NumberField.InertialHeight
 import LeanBridge.ForMathlib.NumberTheory.NumberField.MaximalCMSubfield
 import LeanBridge.ForMathlib.NumberTheory.NumberField.Ostrowski
 import LeanBridge.ForMathlib.NumberTheory.NumberField.Place
 import LeanBridge.ForMathlib.NumberTheory.NumberField.Polredabs
+import LeanBridge.ForMathlib.NumberTheory.NumberField.PrimeIdealOrder
 import LeanBridge.ForMathlib.NumberTheory.NumberField.ReflexField
 import LeanBridge.ForMathlib.NumberTheory.NumberField.ReflexReflexField
 import LeanBridge.ForMathlib.NumberTheory.NumberField.SerreOdlyzkoBound

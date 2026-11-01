@@ -10,20 +10,22 @@ subgroup of `Sp(2g, ℚ)`. So for arithmetic subgroups `Γ₁`, `Γ₂` the doub
 finite union `⊔ᵢ Γ₁ αᵢ` of right cosets, and `F ↦ ∑ᵢ F ∣_ρ αᵢ` maps the `Γ₁`-invariant functions to
 the `Γ₂`-invariant ones (Shimura, §3.4).
 
-In degree `2`, the level raising operators of Roberts and Schmidt on paramodular forms of level
-`M`, for a prime `p`, are the double coset operators
-* `θ = [K(M) K(Mp)]`, the trace from `K(M) ∩ K(Mp)` to `K(Mp)`;
-* `θ' = [K(M) diag(p, p, 1, 1) K(Mp)]`, a nonzero multiple of the conjugate
-  `F ↦ θ(F ∣ μ_M) ∣ μ_{Mp}` of `θ` by the Fricke involutions
-  `μ_N = (0, N, 0, 0; 1, 0, 0, 0; 0, 0, 0, 1; 0, 0, N, 0)` of `K(N)`, since
-  `μ_M μ_{Mp} = M diag(1, p, p, 1)` and `diag(1, p, p, 1)` lies in that double coset;
-* `η = [K(M) diag(1, p, 1, p⁻¹) K(Mp²)]`, a single right coset, that is
-  `F ↦ F ∣ diag(1, p, 1, p⁻¹)`, with `(F ∣ η)(τ, z, ω) = ρ(diag(1, p)) F(τ, pz, p²ω)`.
-These are the classical forms of the operators `θ`, `θ'` and `η` of Roberts and Schmidt's *Local
-newforms for GSp(4)*, Chapter 3: `η` comes from `diag(ϖ⁻¹, 1, 1, ϖ)` and `θ'` from the relation
-`θ' = π(u_{n + 1}) θ π(u_n)` with the Atkin–Lehner elements `u_n`. This identification was made
-without the book at hand, and the facts above about the double cosets are not proved here; the old
-subspaces only depend on the pair `{θ, θ'}`, not on which of the two is called `θ`.
+In degree `2`, the level raising operators of Roberts and Schmidt (*On modular forms for the
+paramodular group*, in *Automorphic forms and zeta functions*, World Scientific 2006, §4;
+https://sites.math.unt.edu/~schmidt/papers/arakawa.pdf) on paramodular forms of level `M`, for a
+prime `p`, are the double coset operators
+* `θ_p = [K(M) diag(p, p, 1, 1) K(Mp)]`, the sum of `F ∣ diag(p, p, 1, 1) ι(γ)` over
+  `γ ∈ Γ₀(p) \ SL(2, ℤ)` (their (10), their slash operator being trivial on scalars), here
+  `levelRaisingThetaPrime`;
+* `θ'_p = u_p θ_p u_p`, its conjugate by the Atkin–Lehner involutions (their (14)), which is the
+  trace `[K(M) K(Mp)]` from `K(M) ∩ K(Mp)` to `K(Mp)` (their (16)), here `levelRaisingTheta`;
+* `η_p F = F ∣ η_p⁻¹`, `η_p = diag(1, p⁻¹, 1, p)` (their (7)), the double coset operator of
+  `[K(M) diag(1, p, 1, p⁻¹) K(Mp²)]`, a single right coset, with
+  `(η_p F)(τ, z, ω) = ρ(diag(1, p)) F(τ, pz, p²ω)`, here `levelRaisingEta`.
+The Lean names `levelRaisingTheta` and `levelRaisingThetaPrime` are thus swapped with respect to
+Roberts and Schmidt. These are the classical forms of the local operators `θ`, `θ'` and `η` of
+their book *Local newforms for GSp(4)*. The coset decompositions are not proved here (see
+`ParamodularLevelRaisingEta` and `ParamodularLevelRaisingThetaPrime`), nor is their (16).
 
 ## Main definitions
 
@@ -38,7 +40,8 @@ subspaces only depend on the pair `{θ, θ'}`, not on which of the two is called
 * `SiegelUpperHalfSpace.thetaPrimeDiag`, `SiegelUpperHalfSpace.etaDiag`: the similitudes
   `diag(p, p, 1, 1)` and `diag(1, p, 1, p⁻¹)`.
 * `SiegelUpperHalfSpace.levelRaisingTheta`, `SiegelUpperHalfSpace.levelRaisingThetaPrime`,
-  `SiegelUpperHalfSpace.levelRaisingEta`: the level raising operators `θ`, `θ'` and `η`.
+  `SiegelUpperHalfSpace.levelRaisingEta`: the level raising operators `θ'_p`, `θ_p` and `η_p` of
+  Roberts and Schmidt (in this order).
 
 ## Main results
 
@@ -215,7 +218,8 @@ variable {V : Type*} [AddCommGroup V] [Module ℂ V] (ρ : Representation ℂ (G
     (M p : ℕ+)
 
 /-- The similitude `diag(p, p, 1, 1)`, of multiplier `p`, acting on `ℋ₂` by `Z ↦ pZ`, whose double
-coset `K(M) diag(p, p, 1, 1) K(Mp)` gives the level raising operator `θ'`. -/
+coset `K(M) diag(p, p, 1, 1) K(Mp)` gives the level raising operator `θ_p` of Roberts and Schmidt
+(`SiegelUpperHalfSpace.levelRaisingThetaPrime`). -/
 def thetaPrimeDiag : gspPlusGL (Fin 2) :=
   diagSimilitude (fun _ ↦ (p : ℚ)) (fun _ ↦ 1) p (by positivity) fun _ ↦ mul_one _
 
@@ -224,30 +228,37 @@ slash operator gives the level raising operator `η`. -/
 def etaDiag : gspPlusGL (Fin 2) :=
   diagSimilitude ![1, (p : ℚ)] ![1, (p : ℚ)⁻¹] 1 one_pos fun i ↦ by fin_cases i <;> simp
 
-/-- The **level raising operator** `θ` (Roberts–Schmidt) from paramodular forms of level `M` to
-those of level `Mp`: the trace `F ↦ ∑ᵢ F ∣_ρ γᵢ` over the right cosets `(K(M) ∩ K(Mp)) γᵢ` of
-`K(Mp)`, that is the double coset operator of `K(M) · 1 · K(Mp)`. -/
+/-- The **level raising operator** `θ'_p` of Roberts and Schmidt (*On modular forms for the
+paramodular group*, §4, equations (14) and (16)) from paramodular forms of level `M` to those of
+level `Mp`: the trace `F ↦ ∑ᵢ F ∣_ρ γᵢ` over the right cosets `(K(M) ∩ K(Mp)) γᵢ` of `K(Mp)`, that
+is the double coset operator of `K(M) · 1 · K(Mp)`. Roberts and Schmidt define
+`θ'_p = u_p θ_p u_p` with the Atkin–Lehner involutions `u_p` and show (their (16)) that it is this
+trace, for a prime `p` (not proved here). Despite its name, this is their `θ'_p`; their `θ_p` is
+`SiegelUpperHalfSpace.levelRaisingThetaPrime`. -/
 noncomputable def levelRaisingTheta :
     slashInvariantsOf ρ (gspPlusGL (Fin 2)) (heckeGammaOf (paramodularLevel M)) →ₗ[ℂ]
       slashInvariantsOf ρ (gspPlusGL (Fin 2)) (heckeGammaOf (paramodularLevel (M * p))) :=
   doubleCosetOperator ρ (HeckeCoset.mk _ _ 1)
 
-/-- The **level raising operator** `θ'` (Roberts–Schmidt) from paramodular forms of level `M` to
-those of level `Mp`: the double coset operator of `K(M) diag(p, p, 1, 1) K(Mp)`. It is a nonzero
-multiple of `F ↦ θ(F ∣ μ_M) ∣ μ_{Mp}` for the Fricke involutions
-`μ_N = (0, N, 0, 0; 1, 0, 0, 0; 0, 0, 0, 1; 0, 0, N, 0)` of `K(N)`:
-`μ_M μ_{Mp} = M diag(1, p, p, 1)`, and `diag(1, p, p, 1)` is conjugate to `diag(p, p, 1, 1)` by an
-element of `K(M) ∩ K(Mp)` (not proved here). Roberts and Schmidt's `θ'` is the Atkin–Lehner
-conjugate of their `θ`, which is how it is identified here, without their book at hand. -/
+/-- The **level raising operator** `θ_p` of Roberts and Schmidt (*On modular forms for the
+paramodular group*, §4, equation (10)) from paramodular forms of level `M` to those of level `Mp`,
+for a prime `p`: the double coset operator of `K(M) diag(p, p, 1, 1) K(Mp)`, which is the sum of
+`F ∣_ρ diag(p, p, 1, 1) ι(γ)` over `γ ∈ Γ₀(p) \ SL(2, ℤ)` (proved in
+`ParamodularLevelRaisingThetaPrime`); Roberts and Schmidt's slash operator, trivial on scalars,
+makes their `θ_p` equal to `p^(3 - k)` times this operator for `ρ = det^k`. Despite its name, this
+is their `θ_p`; their `θ'_p`, its conjugate by the Atkin–Lehner involutions, is the trace
+`SiegelUpperHalfSpace.levelRaisingTheta`. -/
 noncomputable def levelRaisingThetaPrime :
     slashInvariantsOf ρ (gspPlusGL (Fin 2)) (heckeGammaOf (paramodularLevel M)) →ₗ[ℂ]
       slashInvariantsOf ρ (gspPlusGL (Fin 2)) (heckeGammaOf (paramodularLevel (M * p))) :=
   doubleCosetOperator ρ (HeckeCoset.mk _ _ (thetaPrimeDiag p))
 
-/-- The **level raising operator** `η` (Roberts–Schmidt) from paramodular forms of level `M` to
-those of level `Mp²`: the double coset operator of `K(M) diag(1, p, 1, p⁻¹) K(Mp²)`, a single right
-coset since `diag(1, p, 1, p⁻¹) K(Mp²) diag(1, p, 1, p⁻¹)⁻¹ ⊆ K(M)` (not proved here), so
-`F ↦ F ∣_ρ diag(1, p, 1, p⁻¹)`, that is `(F ∣ η)(τ, z, ω) = ρ(diag(1, p)) F(τ, pz, p²ω)`. -/
+/-- The **level raising operator** `η_p` of Roberts and Schmidt (§4, equation (7):
+`η_p F = F ∣ η_p⁻¹`, `η_p = diag(1, p⁻¹, 1, p)`) from paramodular forms of level `M` to those of
+level `Mp²`: the double coset operator of `K(M) diag(1, p, 1, p⁻¹) K(Mp²)`, a single right coset
+since `diag(1, p, 1, p⁻¹) K(Mp²) diag(1, p, 1, p⁻¹)⁻¹ ⊆ K(M)`
+(`SiegelUpperHalfSpace.doubleCoset_etaDiag`), so `F ↦ F ∣_ρ diag(1, p, 1, p⁻¹)`, that is
+`(η_p F)(τ, z, ω) = ρ(diag(1, p)) F(τ, pz, p²ω)` (`SiegelUpperHalfSpace.coe_levelRaisingEta`). -/
 noncomputable def levelRaisingEta :
     slashInvariantsOf ρ (gspPlusGL (Fin 2)) (heckeGammaOf (paramodularLevel M)) →ₗ[ℂ]
       slashInvariantsOf ρ (gspPlusGL (Fin 2)) (heckeGammaOf (paramodularLevel (M * p * p))) :=

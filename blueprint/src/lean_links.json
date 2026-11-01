@@ -3096,6 +3096,14 @@
     "TauCeti.IntegralLattice.SameGenus": "TauCeti.NumberTheory.IntegralLattice.Genus",
     "TauCeti.IntegralLattice.localIntegralForm": "TauCeti.NumberTheory.IntegralLattice.Localization.Basic"
   },
+  "lattice.genus_label": {
+    "TauCeti.IntegralLattice.lmfdbGenusLabel": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusLabelLMFDB",
+    "TauCeti.IntegralLattice.GenusLabelData.lmfdbLabel": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusLabelLMFDB",
+    "TauCeti.IntegralLattice.GenusLabelData.lmfdbRankCode": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusLabelLMFDB",
+    "TauCeti.IntegralLattice.GenusLabelData.labelBits": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusLabel",
+    "TauCeti.IntegralLattice.SameGenus.lmfdbGenusLabel_eq": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusLabelLMFDB",
+    "TauCeti.IntegralLattice.lmfdbGenusLabel_eq_canonicalGenusLabel_iff": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusLabelLMFDB"
+  },
   "lattice.gram": {
     "TauCeti.IntegralLattice.IsMinkowskiReduced": "TauCeti.LinearAlgebra.IntegralLattice.PosDef.Reduction",
     "TauCeti.IntegralLattice.gramMatrix": "TauCeti.LinearAlgebra.IntegralLattice.Gram"
@@ -4088,6 +4096,14 @@
     "SiegelUpperHalfSpace.maassLiftLinearMap": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftCuspForm",
     "SiegelUpperHalfSpace.isCuspForm_maassLift": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftCuspForm"
   },
+  "mf.siegel.newform.paramodular": {
+    "SiegelUpperHalfSpace.IsNewParamodularEigenform": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularNewEigenform",
+    "SiegelUpperHalfSpace.IsNotLevelRaised": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularNewEigenform",
+    "SiegelUpperHalfSpace.paramodularVPlus": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularNewEigenform",
+    "SiegelUpperHalfSpace.paramodularVMinus": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularNewEigenform",
+    "SiegelUpperHalfSpace.paramodularU": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularNewEigenform",
+    "SiegelUpperHalfSpace.coe_levelRaisingThetaPrime": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularLevelRaisingThetaPrime"
+  },
   "mf.siegel.newform_subspace": {
     "SiegelUpperHalfSpace.newformSubspace": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularNewform",
     "SiegelUpperHalfSpace.self_mem_newformSubspace": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularNewform",
@@ -4570,6 +4586,14 @@
     "IntermediateField.adjoin": "Mathlib.FieldTheory.IntermediateField.Adjoin.Defs",
     "IntermediateField.adjoinRootEquivAdjoin": "Mathlib.FieldTheory.IntermediateField.Adjoin.Basic",
     "Field.exists_primitive_element": "Mathlib.FieldTheory.PrimitiveElement"
+  },
+  "nf.ideal_labels": {
+    "NumberField.lmfdbIdealLabel": "LeanBridge.ForMathlib.NumberTheory.NumberField.IdealLabelOrder",
+    "NumberField.idealLabel": "LeanBridge.ForMathlib.NumberTheory.NumberField.IdealLabelOrder",
+    "NumberField.IdealLT": "LeanBridge.ForMathlib.NumberTheory.NumberField.IdealLabelOrder",
+    "NumberField.idealLabel_injective": "LeanBridge.ForMathlib.NumberTheory.NumberField.IdealLabelOrder",
+    "NumberField.primeKey": "LeanBridge.ForMathlib.NumberTheory.NumberField.PrimeIdealOrder",
+    "NumberField.padicFactor": "LeanBridge.ForMathlib.NumberTheory.NumberField.PrimeIdealOrder"
   },
   "nf.index": {
     "TauCeti.GlobalNumberFields.NumberFieldOrder.index": "TauCeti.NumberTheory.NumberField.Global.Orders.Discriminant",

@@ -11,8 +11,10 @@ norm is that of Cremona, Page and Sutherland, which depends only on the integral
 `α` of `K`, for the LMFDB the root of the polredabs polynomial of `K`
 (`NumberField.polredabs`): it orders the primes above `p` through the factors of the minimal
 polynomial of `α` over `ℤ_p` and extends this to all ideals. The knowl does not state that
-ordering, and it is not formalised: the label is defined here relative to any strict total order
-`r` on the ideals, only its restriction to the ideals of each norm mattering. For every such order
+ordering; it is `NumberField.IdealLT`, with the labels `NumberField.idealLabel` and
+`NumberField.lmfdbIdealLabel` (`LeanBridge.ForMathlib.NumberTheory.NumberField.IdealLabelOrder`).
+Here the label is defined relative to any strict total order `r` on the ideals, only its
+restriction to the ideals of each norm mattering. For every such order
 the labels identify the ideals (`Ideal.normLabel_injective`) and take exactly the values `N.i`,
 `1 ≤ i ≤ #{J | N(J) = N}` (`Ideal.exists_normLabel_eq`).
 
@@ -40,7 +42,7 @@ variable {S : Type*} [CommRing S] [IsDedekindDomain S] [Infinite S] [Module.Free
 /-- The **index** `i` (LMFDB `nf.ideal_labels`) of an ideal `I` of a ring of integers `S` among the
 ideals of its norm `N`, for an ordering `r` of the ideals: `1` plus the number of ideals of norm `N`
 before `I`, so that `I` is the `i`-th ideal of norm `N`. The LMFDB uses the ordering of Cremona,
-Page and Sutherland, which is not formalised. -/
+Page and Sutherland (`NumberField.IdealLT`, giving the label `NumberField.idealLabel`). -/
 noncomputable def normLabelIndex : ℕ :=
   {J : Ideal S | absNorm J = absNorm I ∧ r J I}.ncard + 1
 

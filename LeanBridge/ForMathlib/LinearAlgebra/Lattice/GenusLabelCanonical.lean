@@ -12,7 +12,11 @@ signs at the odd primes. The encoding `TauCeti.IntegralLattice.genusLabel` of
 train signs as parameters. Here they are those of the canonical `2`-adic symbol of the lattice
 (`LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolCanonical`), computed from its chosen
 dyadic Jordan splitting by oddity fusion and sign walking, which makes the label a function of the
-lattice alone. There are as many compartment oddities and train signs as the encoding reads.
+lattice alone. There are as many compartment oddities and train signs as the encoding reads. The
+LMFDB's exact encoding, whose rank codes also keep the rank `n₁`, is
+`TauCeti.IntegralLattice.lmfdbGenusLabel` of
+`LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusLabelLMFDB`; the label here agrees with it
+exactly when the determinant is squarefree.
 
 Every input of the label but the compartment oddities is a genus invariant, the train signs by
 `LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolStopSign`. So the label is a genus invariant

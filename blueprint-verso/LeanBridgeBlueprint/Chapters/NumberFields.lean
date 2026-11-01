@@ -320,7 +320,7 @@ Since $`K` is a {bpref "nf"}[number field], the ideal class group of $`K` is a f
 Depends on: {uses "nf"}[] {uses "nf.ring_of_integers"}[] {uses "ring.fractional_ideal"}[] {uses "ring.principal_fractional_ideal"}[]
 :::
 
-:::definition "nf.ideal_labels"
+:::definition "nf.ideal_labels" (lean := "NumberField.lmfdbIdealLabel, NumberField.idealLabel, NumberField.IdealLT, NumberField.idealLabel_injective, NumberField.primeKey, NumberField.padicFactor")
 *Ideal labels.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.ideal_labels))
 
 In the LMFDB ideals in rings of integers of number fields are identified using the labeling system developed by John Cremona, Aurel Page and Andrew Sutherland .

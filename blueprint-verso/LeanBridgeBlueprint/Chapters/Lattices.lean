@@ -245,7 +245,7 @@ For an {bpref "lattice.definition"}[integral lattice], $`L` with underlying quad
 Depends on: {uses "lattice.definition"}[]
 :::
 
-:::definition "lattice.genus_label"
+:::definition "lattice.genus_label" (lean := "TauCeti.IntegralLattice.lmfdbGenusLabel, TauCeti.IntegralLattice.GenusLabelData.lmfdbLabel, TauCeti.IntegralLattice.GenusLabelData.lmfdbRankCode, TauCeti.IntegralLattice.GenusLabelData.labelBits, TauCeti.IntegralLattice.SameGenus.lmfdbGenusLabel_eq, TauCeti.IntegralLattice.lmfdbGenusLabel_eq_canonicalGenusLabel_iff")
 *Label of a genus of lattices.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.genus_label))
 
 Label is in the format $`r.s.d.j_1.j_2....j_k.x`, where

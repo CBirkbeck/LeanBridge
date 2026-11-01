@@ -31,12 +31,14 @@ The knowl leaves some conventions open, which are fixed as follows.
   scale `pᵢ ^ v` for `2 ≤ v ≤ m`, `m` the largest scale exponent of a nonzero constituent, and is
   empty when `m ≤ 1`. This is the reading under which the knowl's example holds with its pairs
   read as (scale exponent, rank): `(3, 1), (4, 10), (6, 37)` give `01a0B`, that is `n₂, …, n₆`,
-  while omitting only `n₀`, as the text says, would give `001a0B`. The example also fits the text
-  if its first entries are positions counted from `1` (scale exponent plus one), the code being
-  then `n₁, …, n_m`: the knowl does not settle which. Since `∑_v v n_v` is the valuation of `d` at
-  `pᵢ` (`TauCeti.IntegralLattice.factorization_natAbs_determinant`), the ranks `n₀` and `n₁` are
-  determined by `r`, this valuation and the others, and the primes with `pᵢ ∥ d` carry no
-  information (`n₁ = 1`).
+  while omitting only `n₀`, as the text says, would give `001a0B`. The LMFDB's data and code omit
+  only `n₀` (checked in round ZP): the LMFDB label is
+  `TauCeti.IntegralLattice.lmfdbGenusLabel` of
+  `LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusLabelLMFDB`, which agrees with this encoding
+  exactly when `|d|` is squarefree, and the knowl's example is wrong. Since `∑_v v n_v` is the
+  valuation of `d` at `pᵢ` (`TauCeti.IntegralLattice.factorization_natAbs_determinant`), the ranks
+  `n₀` and `n₁` are determined by `r`, this valuation and the others, and the primes with `pᵢ ∥ d`
+  carry no information (`n₁ = 1`).
 * A bit `1` stands for the type `I` and for the sign `-1`; the bits of an oddity are its binary
   digits from the least significant. Only the scale exponents up to the valuation of `d` are
   scanned, which covers all the nonzero constituents of a lattice

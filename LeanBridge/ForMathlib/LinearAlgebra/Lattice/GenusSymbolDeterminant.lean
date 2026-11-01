@@ -11,8 +11,8 @@ with blocks `p ^ j` times matrices of unit determinant. Hence the determinant of
 determinant is `∑_j j n_j` (`TauCeti.IntegralLattice.factorization_natAbs_determinant`). This is the
 identity behind the Conway genus symbol (LMFDB `lattice.conway_genus_symbol`) recording the
 powers `q = p ^ j` of the Jordan constituents, and behind the label of a genus
-(LMFDB `lattice.genus_label`), whose rank codes at `p` omit the ranks `n₀` and `n₁`, determined by
-the rank, the valuation of the determinant and the other ranks.
+(LMFDB `lattice.genus_label`), whose rank codes at `p` omit the rank `n₀`, determined by the rank
+and the other ranks (`TauCeti.IntegralLattice.jordanRank_zero_add_sum_eq_rank`).
 
 ## Main definitions
 
