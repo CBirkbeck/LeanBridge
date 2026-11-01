@@ -51,18 +51,8 @@ lemma eq_div_mul_besselK_of_ode_of_integrableOn (hv : ∀ x, 0 < x → HasDerivA
     hasDerivAt_besselK_eq_add ν hy
   let W : ℝ → ℂ := fun y ↦ (y : ℂ) * (v y * (-besselK (ν + 1) y + ν / y * besselK ν y) -
     v' y * besselK ν y)
-  have hW (y : ℝ) (hy : 0 < y) : HasDerivAt W 0 y := by
-    have hy' : (y : ℂ) ≠ 0 := ofReal_ne_zero.mpr hy.ne'
-    refine ((hasDerivAt_id y).ofReal_comp.mul (((hv y hy).mul
-      (hasDerivAt_neg_besselK_add ν hy)).sub ((hv' y hy).mul (hK y hy)))).congr_deriv ?_
-    refine mul_left_cancel₀ hy' ?_
-    simp only [Pi.mul_apply, Pi.sub_apply, id, ofReal_one]
-    field_simp
-    linear_combination (-besselK ν y) * hode y hy
   have hconst (y : ℝ) (hy : 0 < y) : W y = W 1 :=
-    isOpen_Ioi.is_const_of_deriv_eq_zero isPreconnected_Ioi
-      (fun z hz ↦ (hW z hz).differentiableAt.differentiableWithinAt)
-      (fun z hz ↦ (hW z hz).deriv) hy (mem_Ioi.mpr one_pos)
+    wronskian_besselK_eq hv hv' hode hy one_pos
   have hW₁ : W 1 = 0 := by
     let c₀ : ℝ := 2⁻¹ * ∫ t in Ioi 0, ‖besselKIntegrand ν 1 t‖
     let c₁ : ℝ := 2⁻¹ * ∫ t in Ioi 0, ‖besselKIntegrand (ν + 1) 1 t‖
@@ -190,24 +180,7 @@ lemma eq_div_mul_besselK_of_ode_of_integrableOn (hv : ∀ x, 0 < x → HasDerivA
       simpa using ((tendsto_pow_mul_exp_neg_atTop_nhds_zero (k + 1)).comp
         (tendsto_atTop_add_const_right atTop 1 tendsto_id)).const_mul (6 * (D * rexp 2 * I))
     exact norm_le_zero_iff.mp (ge_of_tendsto hlim hbound)
-  have hW₀ : v x₀ * (-besselK (ν + 1) x₀ + ν / x₀ * besselK ν x₀) - v' x₀ * besselK ν x₀ = 0 :=
-    (mul_eq_zero.mp <| (hconst x₀ hx₀).trans hW₁).resolve_left (ofReal_ne_zero.mpr hx₀.ne')
-  refine sub_eq_zero.mp <| eq_zero_of_besselODE (ν := ν)
-    (v := fun y ↦ v y - v x₀ / besselK ν x₀ * besselK ν y)
-    (v' := fun y ↦ v' y - v x₀ / besselK ν x₀ * (-besselK (ν + 1) y + ν / y * besselK ν y))
-    (v'' := fun y ↦ v'' y - v x₀ / besselK ν x₀ *
-      (besselK ν y + besselK (ν + 1) y / y + (ν ^ 2 - ν) / (y : ℂ) ^ 2 * besselK ν y))
-    (fun y hy ↦ (hv y hy).sub ((hK y hy).const_mul _))
-    (fun y hy ↦ (hv' y hy).sub ((hasDerivAt_neg_besselK_add ν hy).const_mul _)) (fun y hy ↦ ?_)
-    hx₀ ?_ ?_ hx
-  · have hy' : (y : ℂ) ≠ 0 := ofReal_ne_zero.mpr hy.ne'
-    field_simp
-    linear_combination besselK ν x₀ * hode y hy
-  · field_simp
-    ring1
-  · have hx₀' : (x₀ : ℂ) ≠ 0 := ofReal_ne_zero.mpr hx₀.ne'
-    field_simp at hW₀ ⊢
-    linear_combination -hW₀
+  exact eq_div_mul_besselK_of_ode_of_wronskian_eq_zero hv hv' hode hW₁ one_pos hx₀ hK₀ hx
 
 /-- **The solutions of the Maass equation integrable against a power are the multiples of
 `√y K_{iR}(κy)`**: for `κ > 0` and `R ∈ ℂ`, a solution `v` of
@@ -223,49 +196,9 @@ lemma eq_div_mul_sqrt_mul_besselK_of_ode_of_integrableOn (hκ : 0 < κ)
     (hint : IntegrableOn (fun x ↦ ‖v x‖ / x ^ k) (Ioi a)) (hx₀ : 0 < x₀)
     (hK : besselK (I * R) (κ * x₀) ≠ 0) (hx : 0 < x) :
     v x = v x₀ / (√x₀ * besselK (I * R) (κ * x₀)) * (√x * besselK (I * R) (κ * x)) := by
+  refine eq_div_mul_sqrt_mul_besselK_of_forall hκ hv hv' hode hx fun _ hu hu' hode' ↦ ?_
   let ρ : ℝ → ℝ := fun t ↦ (√(t / κ))⁻¹
-  have hρ (t : ℝ) (ht : 0 < t) : HasDerivAt ρ (-ρ t / (2 * t)) t :=
-    hasDerivAt_inv_sqrt_div hκ ht
-  have hs (t : ℝ) : HasDerivAt (fun t : ℝ ↦ t / κ) κ⁻¹ t := by
-    simpa using (hasDerivAt_id t).div_const κ
   let u : ℝ → ℂ := fun t ↦ (ρ t : ℂ) * v (t / κ)
-  let u' : ℝ → ℂ := fun t ↦ ((-ρ t / (2 * t) : ℝ) : ℂ) * v (t / κ) +
-    ((ρ t / κ : ℝ) : ℂ) * v' (t / κ)
-  let u'' : ℝ → ℂ := fun t ↦ ((3 * ρ t / (4 * t ^ 2) : ℝ) : ℂ) * v (t / κ) -
-    ((ρ t / (t * κ) : ℝ) : ℂ) * v' (t / κ) + ((ρ t / κ ^ 2 : ℝ) : ℂ) * v'' (t / κ)
-  have hu (t : ℝ) (ht : 0 < t) : HasDerivAt u (u' t) t := by
-    refine ((hρ t ht).ofReal_comp.mul ((hv (t / κ) (div_pos ht hκ)).scomp t (hs t))).congr_deriv ?_
-    simp only [u', Function.comp_apply, real_smul]
-    push_cast
-    ring1
-  have hu' (t : ℝ) (ht : 0 < t) : HasDerivAt u' (u'' t) t := by
-    have h1 : HasDerivAt (fun t ↦ -ρ t / (2 * t)) (3 * ρ t / (4 * t ^ 2)) t := by
-      refine ((hρ t ht).neg.div ((hasDerivAt_id t).const_mul 2)
-        (mul_ne_zero two_ne_zero ht.ne')).congr_deriv ?_
-      simp only [id, Pi.neg_apply]
-      field_simp
-      ring1
-    have h2 : HasDerivAt (fun t ↦ ρ t / κ) (-ρ t / (2 * t) / κ) t := (hρ t ht).div_const κ
-    refine ((h1.ofReal_comp.mul ((hv (t / κ) (div_pos ht hκ)).scomp t (hs t))).add
-      (h2.ofReal_comp.mul ((hv' (t / κ) (div_pos ht hκ)).scomp t (hs t)))).congr_deriv ?_
-    have hκ' : (κ : ℂ) ≠ 0 := ofReal_ne_zero.mpr hκ.ne'
-    have ht' : (t : ℂ) ≠ 0 := ofReal_ne_zero.mpr ht.ne'
-    simp only [u'', Function.comp_apply, real_smul]
-    push_cast
-    field_simp
-    ring1
-  have hode' (t : ℝ) (ht : 0 < t) :
-      (t : ℂ) ^ 2 * u'' t + t * u' t - ((t : ℂ) ^ 2 + (I * R) ^ 2) * u t = 0 := by
-    have hκ' : (κ : ℂ) ≠ 0 := ofReal_ne_zero.mpr hκ.ne'
-    have ht' : (t : ℂ) ≠ 0 := ofReal_ne_zero.mpr ht.ne'
-    have e : (t : ℂ) ^ 2 * u'' t + t * u' t - ((t : ℂ) ^ 2 + (I * R) ^ 2) * u t =
-        (ρ t : ℂ) * (((t / κ : ℝ) : ℂ) ^ 2 * v'' (t / κ) +
-          (1 / 4 + R ^ 2 - ((κ * (t / κ) : ℝ) : ℂ) ^ 2) * v (t / κ)) := by
-      simp only [u', u'', mul_pow, I_sq]
-      push_cast
-      field_simp
-      ring1
-    rw [e, hode (t / κ) (div_pos ht hκ), mul_zero]
   have hb : 0 < κ * max a 1 := mul_pos hκ (lt_max_of_lt_right one_pos)
   have hint' : IntegrableOn (fun t ↦ (κ ^ k)⁻¹ * (‖v (κ⁻¹ * t)‖ / (κ⁻¹ * t) ^ k))
       (Ioi (κ * max a 1)) := by
@@ -292,12 +225,7 @@ lemma eq_div_mul_sqrt_mul_besselK_of_ode_of_integrableOn (hκ : 0 < κ)
       simp only [u]
       rw [norm_mul, norm_real, Real.norm_of_nonneg hρ0]
       exact mul_le_of_le_one_left (norm_nonneg _) hρ1
-  have key : u (κ * x) = u (κ * x₀) / besselK (I * R) (κ * x₀) * besselK (I * R) (κ * x) :=
-    eq_div_mul_besselK_of_ode_of_integrableOn hu hu' hode' hU (mul_pos hκ hx₀) hK (mul_pos hκ hx)
-  have hsx : ((√x : ℝ) : ℂ) ≠ 0 := ofReal_ne_zero.mpr (Real.sqrt_pos.mpr hx).ne'
-  simp only [u, ρ] at key
-  push_cast at key ⊢
-  field_simp at key ⊢
-  linear_combination key
+  exact eq_div_mul_besselK_of_ode_of_integrableOn hu hu' hode' hU (mul_pos hκ hx₀) hK
+    (mul_pos hκ hx)
 
 end Complex

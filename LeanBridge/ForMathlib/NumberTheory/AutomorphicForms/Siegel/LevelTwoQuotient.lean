@@ -112,20 +112,6 @@ private lemma exists_slLift (hA : A.det ≠ 0) :
   revert A
   decide
 
-private lemma fromBlocks_mem_of_mem_siegelParabolic (hg : g ∈ siegelParabolic (Fin 2) R) :
-    fromBlocks g.1.toBlocks₁₁ g.1.toBlocks₁₂ 0 g.1.toBlocks₂₂ ∈ symplecticGroup (Fin 2) R := by
-  rw [← (hg : g.1.toBlocks₂₁ = 0), fromBlocks_toBlocks]
-  exact g.2
-
-private lemma transpose_toBlocks₁₁_mul_toBlocks₂₂ (hg : g ∈ siegelParabolic (Fin 2) R) :
-    g.1.toBlocks₁₁ᵀ * g.1.toBlocks₂₂ = 1 := by
-  simpa using (fromBlocks_mem_iff.mp (fromBlocks_mem_of_mem_siegelParabolic hg)).2.2
-
-private lemma toBlocks₁₁_mul_transpose_toBlocks₂₂ (hg : g ∈ siegelParabolic (Fin 2) R) :
-    g.1.toBlocks₁₁ * g.1.toBlocks₂₂ᵀ = 1 := by
-  rw [← transpose_transpose g.1.toBlocks₁₁, ← transpose_mul,
-    mul_eq_one_comm.mp (transpose_toBlocks₁₁_mul_toBlocks₂₂ hg), transpose_one]
-
 private lemma mem_range_of_toBlocks₂₁_eq_zero {p : symplecticGroup (Fin 2) (ZMod 2)}
     (hp : p.1.toBlocks₂₁ = 0) : p ∈ (map (Int.castRingHom (ZMod 2)) :
       symplecticGroup (Fin 2) ℤ →* symplecticGroup (Fin 2) (ZMod 2)).range := by
@@ -158,7 +144,7 @@ private lemma mem_range_of_toBlocks₂₁_eq_zero {p : symplecticGroup (Fin 2) (
       upperSym (p.1.toBlocks₂₂ᵀ * p.1.toBlocks₁₂) hS = p := Subtype.ext <| by
     rw [Submonoid.coe_mul, hr, upperSym, fromBlocks_multiply, hDE, ← Matrix.mul_assoc,
       toBlocks₁₁_mul_transpose_toBlocks₂₂ hp]
-    conv_rhs => rw [← fromBlocks_toBlocks p.1, hp]
+    conv_rhs => rw [eq_fromBlocks_of_mem_siegelParabolic hp]
     simp
   exact e ▸ mul_mem ⟨_, rfl⟩ (upperSym_mem_range hS)
 
@@ -192,10 +178,6 @@ element of `Sp(4, ℤ/2ℤ)` into the Siegel parabolic subgroup, whose elements
 lemma surjective_map_zmod_two : Function.Surjective (map (Int.castRingHom (ZMod 2)) :
     symplecticGroup (Fin 2) ℤ →* symplecticGroup (Fin 2) (ZMod 2)) := by
   intro M
-  have hmem : fromBlocks M.1.toBlocks₁₁ M.1.toBlocks₁₂ M.1.toBlocks₂₁ M.1.toBlocks₂₂ ∈
-      symplecticGroup (Fin 2) (ZMod 2) := by
-    rw [fromBlocks_toBlocks]
-    exact M.2
   have e : M⁻¹.1 * M.1 = 1 := by
     rw [← Submonoid.coe_mul, inv_mul_cancel, Submonoid.coe_one]
   have hinj (v : Fin 2 → ZMod 2) (hA : M.1.toBlocks₁₁ *ᵥ v = 0)
@@ -207,7 +189,8 @@ lemma surjective_map_zmod_two : Function.Surjective (map (Int.castRingHom (ZMod 
       rw [← one_mulVec (Sum.elim v 0), ← e, ← mulVec_mulVec, h0, mulVec_zero]
     funext j
     simpa using congrFun h1 (.inl j)
-  rcases exists_lowerSym _ _ (fromBlocks_mem_iff.mp hmem).1 hinj with ⟨i, N, hN, h0⟩
+  rcases exists_lowerSym _ _ (fromBlocks_mem_iff.mp (fromBlocks_toBlocks_mem M)).1 hinj with
+    ⟨i, N, hN, h0⟩
   have hp : (lowerSym N hN * map (Int.castRingHom (ZMod 2)) (wInt i) * M).1.toBlocks₂₁ = 0 := by
     rw [Submonoid.coe_mul, Submonoid.coe_mul, lowerSym, coe_map_wInt, ← fromBlocks_toBlocks M.1,
       fromBlocks_multiply, fromBlocks_multiply, toBlocks_fromBlocks₂₁]
@@ -239,10 +222,6 @@ reduction modulo 2, onto the Siegel parabolic subgroup `{(A, B; 0, D)}` of `Sp(4
 noncomputable def quotientGammaTwoGamma0Equiv : Gamma0 (Fin 2) 2 ⧸
     (Gamma (Fin 2) 2).subgroupOf (Gamma0 (Fin 2) 2) ≃* siegelParabolic (Fin 2) (ZMod 2) :=
   comapQuotientEquiv _ surjective_map_zmod_two _
-
-private lemma eq_fromBlocks_of_mem_siegelUnipotent (hg : g ∈ siegelUnipotent (Fin 2) R) :
-    g.1 = fromBlocks 1 g.1.toBlocks₁₂ 0 1 := by
-  conv_lhs => rw [← fromBlocks_toBlocks g.1, hg.1, hg.2.1, hg.2.2]
 
 private lemma transpose_toBlocks₁₂_of_mem_siegelUnipotent (hg : g ∈ siegelUnipotent (Fin 2) R) :
     g.1.toBlocks₁₂ᵀ = g.1.toBlocks₁₂ := by

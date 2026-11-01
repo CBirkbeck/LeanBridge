@@ -131,11 +131,9 @@ lemma coe_bianchiHeckeTPrime_eq_sum (h𝔭p : 𝔭.IsPrime) (h𝔭𝔑 : 𝔭 �
         F := by
   have hϖ : algebraMap (𝓞 K) K (IsPrincipal.generator 𝔭) = bianchiIdealGenerator 𝔭 h𝔭 :=
     rfl
-  have hϖ𝔭 : FractionalIdeal.spanSingleton (𝓞 K)⁰ (bianchiIdealGenerator 𝔭 h𝔭 : K) =
-      (𝔭 : FractionalIdeal (𝓞 K)⁰ K) := by
-    rw [← hϖ, ← FractionalIdeal.coeIdeal_span_singleton, Ideal.span_singleton_generator]
   have hD : IsHeckeCosetDecomposition (bianchiIdealGenerator 𝔭 h𝔭) 1 𝔭 𝔑 :=
-    isHeckeCosetDecomposition hϖ𝔭 h𝔭p h𝔭𝔑 (isTotallyPositive_of_isTotallyComplex _)
+    isHeckeCosetDecomposition (spanSingleton_bianchiIdealGenerator 𝔭 h𝔭) h𝔭p h𝔭𝔑
+      (isTotallyPositive_of_isTotallyComplex _)
   have hout : doubleCoset ((heckeT 1 𝔑 (bianchiIdealGenerator 𝔭 h𝔭)
       (isTotallyPositive_of_isTotallyComplex _)).out : GL (Fin 2) K) (bianchiGammaZero 𝔑)
         (bianchiGammaZero 𝔑) = doubleCoset (heckeDiagonal (bianchiIdealGenerator 𝔭 h𝔭)

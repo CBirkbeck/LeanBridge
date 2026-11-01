@@ -186,33 +186,6 @@ lemma map_algebraMap_map_intCast : SymplecticGroup.map (algebraMap ℚ ℝ)
     ext i j
     simp
 
-private lemma mul_J_mul_transpose_of_mem_siegelParabolic
-    (hγ : γ ∈ SymplecticGroup.siegelParabolic l ℤ) :
-    fromBlocks (γ : Matrix (l ⊕ l) (l ⊕ l) ℤ).toBlocks₁₁ (γ : Matrix (l ⊕ l) (l ⊕ l) ℤ).toBlocks₁₂
-      0 (γ : Matrix (l ⊕ l) (l ⊕ l) ℤ).toBlocks₂₂ * J l ℤ *
-      (fromBlocks (γ : Matrix (l ⊕ l) (l ⊕ l) ℤ).toBlocks₁₁
-        (γ : Matrix (l ⊕ l) (l ⊕ l) ℤ).toBlocks₁₂ 0 (γ : Matrix (l ⊕ l) (l ⊕ l) ℤ).toBlocks₂₂)ᵀ =
-      J l ℤ := by
-  rw [← show (γ : Matrix (l ⊕ l) (l ⊕ l) ℤ).toBlocks₂₁ = 0 from hγ, fromBlocks_toBlocks]
-  exact SymplecticGroup.mem_iff.mp γ.2
-
-lemma toBlocks₂₂_mul_transpose_toBlocks₁₁ (hγ : γ ∈ SymplecticGroup.siegelParabolic l ℤ) :
-    (γ : Matrix (l ⊕ l) (l ⊕ l) ℤ).toBlocks₂₂ * (γ : Matrix (l ⊕ l) (l ⊕ l) ℤ).toBlocks₁₁ᵀ = 1 := by
-  simpa [J, fromBlocks_transpose, fromBlocks_multiply] using
-    congrArg toBlocks₂₁ (mul_J_mul_transpose_of_mem_siegelParabolic hγ)
-
-lemma toBlocks₁₁_mul_transpose_toBlocks₂₂ (hγ : γ ∈ SymplecticGroup.siegelParabolic l ℤ) :
-    (γ : Matrix (l ⊕ l) (l ⊕ l) ℤ).toBlocks₁₁ * (γ : Matrix (l ⊕ l) (l ⊕ l) ℤ).toBlocks₂₂ᵀ = 1 := by
-  rw [← transpose_transpose (γ : Matrix (l ⊕ l) (l ⊕ l) ℤ).toBlocks₁₁, ← transpose_mul,
-    toBlocks₂₂_mul_transpose_toBlocks₁₁ hγ, transpose_one]
-
-lemma toBlocks₁₂_mul_transpose_toBlocks₁₁ (hγ : γ ∈ SymplecticGroup.siegelParabolic l ℤ) :
-    (γ : Matrix (l ⊕ l) (l ⊕ l) ℤ).toBlocks₁₂ * (γ : Matrix (l ⊕ l) (l ⊕ l) ℤ).toBlocks₁₁ᵀ =
-      (γ : Matrix (l ⊕ l) (l ⊕ l) ℤ).toBlocks₁₁ * (γ : Matrix (l ⊕ l) (l ⊕ l) ℤ).toBlocks₁₂ᵀ := by
-  refine add_neg_eq_zero.mp ?_
-  simpa [J, fromBlocks_transpose, fromBlocks_multiply] using
-    congrArg toBlocks₁₁ (mul_J_mul_transpose_of_mem_siegelParabolic hγ)
-
 lemma denom_of_mem_siegelParabolic (hγ : γ ∈ SymplecticGroup.siegelParabolic l ℤ) :
     denom (SymplecticGroup.map (Int.castRingHom ℝ) γ) Ω.val =
       (γ : Matrix (l ⊕ l) (l ⊕ l) ℤ).toBlocks₂₂.map (Int.castRingHom ℂ) := by
@@ -229,8 +202,8 @@ lemma val_smul_of_mem_siegelParabolic (hγ : γ ∈ SymplecticGroup.siegelParabo
   have hD : ((γ : Matrix (l ⊕ l) (l ⊕ l) ℤ).toBlocks₂₂.map (Int.castRingHom ℂ))⁻¹ =
       (γ : Matrix (l ⊕ l) (l ⊕ l) ℤ).toBlocks₁₁ᵀ.map (Int.castRingHom ℂ) := by
     refine inv_eq_right_inv ?_
-    rw [← Matrix.map_mul, toBlocks₂₂_mul_transpose_toBlocks₁₁ hγ, Matrix.map_one _ (map_zero _)
-      (map_one _)]
+    rw [← Matrix.map_mul, SymplecticGroup.toBlocks₂₂_mul_transpose_toBlocks₁₁ hγ,
+      Matrix.map_one _ (map_zero _) (map_one _)]
   rw [val_smul, num, denom, SymplecticGroup.coe_map_apply, map_ofReal_toBlocks₁₁,
     map_ofReal_toBlocks₁₂, map_ofReal_toBlocks₂₁, map_ofReal_toBlocks₂₂,
     show (γ : Matrix (l ⊕ l) (l ⊕ l) ℤ).toBlocks₂₁ = 0 from hγ, Matrix.map_zero _ (map_zero _),
@@ -250,10 +223,10 @@ lemma thetaConstant_smul_of_mem_siegelParabolic (hγ : γ ∈ SymplecticGroup.si
           (ν + S *ᵥ μ + S.diag)) Ω := by
   have hDA : (γ : Matrix (l ⊕ l) (l ⊕ l) ℤ).toBlocks₂₂ *
       (γ : Matrix (l ⊕ l) (l ⊕ l) ℤ).toBlocks₁₁ᵀ = 1 :=
-    toBlocks₂₂_mul_transpose_toBlocks₁₁ hγ
+    SymplecticGroup.toBlocks₂₂_mul_transpose_toBlocks₁₁ hγ
   have hS : (γ : Matrix (l ⊕ l) (l ⊕ l) ℤ).toBlocks₁₂ * (γ : Matrix (l ⊕ l) (l ⊕ l) ℤ).toBlocks₁₁ᵀ =
       (γ : Matrix (l ⊕ l) (l ⊕ l) ℤ).toBlocks₁₁ * (γ : Matrix (l ⊕ l) (l ⊕ l) ℤ).toBlocks₁₂ᵀ :=
-    toBlocks₁₂_mul_transpose_toBlocks₁₁ hγ
+    SymplecticGroup.toBlocks₁₂_mul_transpose_toBlocks₁₁ hγ
   rw [thetaConstant, thetaConstant, val_smul_of_mem_siegelParabolic Ω hγ, ← tsum_mul_left]
   set A : Matrix l l ℤ := (γ : Matrix (l ⊕ l) (l ⊕ l) ℤ).toBlocks₁₁
   set D : Matrix l l ℤ := (γ : Matrix (l ⊕ l) (l ⊕ l) ℤ).toBlocks₂₂

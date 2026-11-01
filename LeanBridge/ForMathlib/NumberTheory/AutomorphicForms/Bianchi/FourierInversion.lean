@@ -46,7 +46,7 @@ namespace HyperbolicThreeSpace
 variable {K : Type*} [Field K] {σ : K →+* ℂ}
 
 variable (σ) [IsTotallyComplex K] in
-private lemma exists_im_ne_zero : ∃ x : K, (σ x).im ≠ 0 := by
+lemma exists_im_ne_zero_of_isTotallyComplex : ∃ x : K, (σ x).im ≠ 0 := by
   by_contra h
   exact IsTotallyComplex.complexEmbedding_not_isReal σ <| ComplexEmbedding.isReal_iff.mpr <|
     RingHom.ext fun x ↦ conj_eq_iff_im.mpr <| not_not.mp fun hx ↦ h ⟨x, hx⟩
@@ -61,19 +61,6 @@ private lemma contDiff_extend_apply
   contDiff_iff_contDiffAt.mpr fun t ↦ contDiffAt_pi.mp
     ((hF (.mk (WithLp.toLp 2 (t, y)) hy)).contDiffAt.comp t (f := fun t : ℂ ↦ (t, y))
       (by fun_prop)) j
-
-private lemma span_integralLatticeBasis_le_cuspTranslations
-    (hΓ : ∀ a : 𝓞 K, ∃ γ ∈ Γ, (γ : Matrix (Fin 2) (Fin 2) (𝓞 K)) = !![1, a; 0, 1]) :
-    (Submodule.span ℤ (range (integralLatticeBasis σ hK hx))).toAddSubgroup ≤
-      cuspTranslations σ Γ 1 := by
-  rw [Submodule.span_int_eq_addSubgroupClosure, AddSubgroup.closure_le]
-  rintro _ ⟨i, rfl⟩
-  rcases hΓ (RingOfIntegers.basis K i) with ⟨γ, hγ, he⟩
-  refine AddSubgroup.subset_closure ⟨integralBasis K i, ⟨γ, hγ, ?_⟩, ?_⟩
-  · rw [he, integralBasis_apply]
-    ext i j
-    fin_cases i <;> fin_cases j <;> simp
-  · simp [integralLatticeBasis]
 
 /-- **Fourier inversion for Bianchi modular forms** (LMFDB `mf.bianchi.spaces`): let `K` be a
 quadratic field embedded in `ℂ` by `σ` with `σ(K) ⊄ ℝ`, `Γ` a level containing the unipotent
@@ -160,7 +147,7 @@ lemma exists_hasBianchiWhittakerExpansion_of_mem_bianchiCuspForms [IsTotallyComp
     (hK₂ : finrank ℚ K = 2) {𝔑 : Ideal (𝓞 K)} (hF : F ∈ bianchiCuspForms σ 𝔑.gamma0GL k)
     (hk : k ≠ 0) :
     ∃ c : 𝓞 K → ℂ, HasBianchiWhittakerExpansion σ ((discr K : ℂ) ^ (2⁻¹ : ℂ)) k (extend F) c := by
-  rcases exists_im_ne_zero σ with ⟨y, hy⟩
+  rcases exists_im_ne_zero_of_isTotallyComplex σ with ⟨y, hy⟩
   exact ⟨_, hF.2.hasBianchiWhittakerExpansion hK₂ hy hF.1 (exists_mem_gamma0GL 𝔑) hk
     (cpow_ofNat_inv_pow _ 2)⟩
 

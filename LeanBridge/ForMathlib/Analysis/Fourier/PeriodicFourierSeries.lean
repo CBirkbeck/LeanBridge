@@ -20,7 +20,27 @@ half-plane invariant under `z ↦ z + 1`, the first step towards the Fourier exp
 
 open Complex Function MeasureTheory Real Set
 
-variable {T : ℝ} [hT : Fact (0 < T)] {g g' g'' : ℝ → ℂ} {n : ℤ}
+variable {T M : ℝ} [hT : Fact (0 < T)] {g g' g'' : ℝ → ℂ} {n : ℤ}
+
+variable (g n) in
+lemma fourierCoeffOn_eq_integral_exp : fourierCoeffOn (lt_add_of_pos_right 0 one_pos) g n =
+    ∫ t in (0 : ℝ)..1, cexp (-(2 * π * I * n) * t) * g t := by
+  rw [fourierCoeffOn_eq_integral]
+  simp only [zero_add, sub_zero, div_one, one_smul]
+  refine intervalIntegral.integral_congr fun t _ ↦ ?_
+  rw [fourier_coe_apply]
+  congr 2
+  push_cast
+  ring1
+
+variable (n) in
+lemma norm_integral_exp_mul_le (hM : ∀ t ∈ Icc (0 : ℝ) 1, ‖g t‖ ≤ M) :
+    ‖∫ t in (0 : ℝ)..1, cexp (-(2 * π * I * n) * t) * g t‖ ≤ M := by
+  refine (intervalIntegral.norm_integral_le_of_norm_le_const (C := M) fun t ht ↦ ?_).trans_eq
+    (by simp)
+  rw [uIoc_of_le zero_le_one] at ht
+  rw [norm_mul, norm_exp]
+  simpa using hM t (Ioc_subset_Icc_self ht)
 
 lemma fourierCoeffOn_eq_mul_fourierCoeffOn_deriv (hg : ∀ x, HasDerivAt g (g' x) x)
     (hg' : Continuous g') (hp : Periodic g T) (hn : n ≠ 0) :
@@ -71,22 +91,18 @@ lemma summable_fourierCoeffOn_of_periodic (hg : ∀ x, HasDerivAt g (g' x) x)
   rw [norm_mul, norm_mul, hnorm, e]
   gcongr
 
-/-- **The Fourier series of a periodic `C²` function converges to it**: for `g` twice
-differentiable on `ℝ` with a continuous second derivative and of period `T > 0`,
-`g(x) = ∑_{n ∈ ℤ} c_n(g) e^{2πinx/T}` with `c_n(g) = (1/T) ∫_0^T g(t) e^{-2πint/T} dt`, the series
-converging absolutely (`summable_fourierCoeffOn_of_periodic`). -/
-lemma hasSum_fourierCoeffOn_of_periodic (hg : ∀ x, HasDerivAt g (g' x) x)
-    (hg' : ∀ x, HasDerivAt g' (g'' x) x) (hc : Continuous g'') (hp : Periodic g T) (x : ℝ) :
+lemma hasSum_fourierCoeffOn_of_summable (hg : Continuous g) (hp : Periodic g T)
+    (hs : Summable (fourierCoeffOn (lt_add_of_pos_right 0 hT.out) g)) (x : ℝ) :
     HasSum (fun n : ℤ ↦ fourierCoeffOn (lt_add_of_pos_right 0 hT.out) g n •
       fourier n (x : AddCircle T)) (g x) := by
-  have hcont : Continuous (AddCircle.liftIco T 0 g) := AddCircle.liftIco_continuous (hp 0).symm
-    (continuous_iff_continuousAt.mpr fun x ↦ (hg x).continuousAt).continuousOn
-  have hF : fourierCoeff (AddCircle.liftIco T 0 g) =
-      fourierCoeffOn (lt_add_of_pos_right 0 hT.out) g :=
+  have hcont : Continuous (AddCircle.liftIco T 0 g) :=
+    AddCircle.liftIco_continuous (hp 0).symm hg.continuousOn
+  have hF :
+      fourierCoeff (AddCircle.liftIco T 0 g) = fourierCoeffOn (lt_add_of_pos_right 0 hT.out) g :=
     funext fun n ↦ fourierCoeff_liftIco_eq g n
   have h0 : Summable (fourierCoeff (⟨_, hcont⟩ : C(AddCircle T, ℂ))) := by
     rw [ContinuousMap.coe_mk, hF]
-    exact summable_fourierCoeffOn_of_periodic hg hg' hc hp
+    exact hs
   have h : HasSum (fun n ↦ fourierCoeff (⟨_, hcont⟩ : C(AddCircle T, ℂ)) n •
       fourier n (x : AddCircle T)) ((⟨_, hcont⟩ : C(AddCircle T, ℂ)) x) :=
     has_pointwise_sum_fourier_series_of_summable h0 x
@@ -98,3 +114,14 @@ lemma hasSum_fourierCoeffOn_of_periodic (hg : ∀ x, HasDerivAt g (g' x) x)
     rw [hy, QuotientAddGroup.mk_sub, QuotientAddGroup.mk_zsmul, AddCircle.coe_period, smul_zero,
       sub_zero]
   rw [← hcoe, AddCircle.liftIco_coe_apply (toIcoMod_mem_Ico hT.out 0 x), hy, hp.sub_zsmul_eq]
+
+/-- **The Fourier series of a periodic `C²` function converges to it**: for `g` twice
+differentiable on `ℝ` with a continuous second derivative and of period `T > 0`,
+`g(x) = ∑_{n ∈ ℤ} c_n(g) e^{2πinx/T}` with `c_n(g) = (1/T) ∫_0^T g(t) e^{-2πint/T} dt`, the series
+converging absolutely (`summable_fourierCoeffOn_of_periodic`). -/
+lemma hasSum_fourierCoeffOn_of_periodic (hg : ∀ x, HasDerivAt g (g' x) x)
+    (hg' : ∀ x, HasDerivAt g' (g'' x) x) (hc : Continuous g'') (hp : Periodic g T) (x : ℝ) :
+    HasSum (fun n : ℤ ↦ fourierCoeffOn (lt_add_of_pos_right 0 hT.out) g n •
+      fourier n (x : AddCircle T)) (g x) :=
+  hasSum_fourierCoeffOn_of_summable (continuous_iff_continuousAt.mpr fun x ↦ (hg x).continuousAt)
+    hp (summable_fourierCoeffOn_of_periodic hg hg' hc hp) x

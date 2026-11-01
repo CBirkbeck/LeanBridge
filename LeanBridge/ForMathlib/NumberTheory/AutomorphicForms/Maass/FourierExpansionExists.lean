@@ -47,30 +47,11 @@ open scoped ContDiff
 
 namespace UpperHalfPlane
 
-variable {f : ℂ → ℂ} {R : ℂ} {a : ℤ → ℂ} {C : ℝ} {N : ℕ} {g : ℝ → ℂ} (n : ℤ)
-
-variable (g) in
-lemma fourierCoeffOn_eq_integral_exp : fourierCoeffOn (lt_add_of_pos_right 0 one_pos) g n =
-    ∫ t in (0 : ℝ)..1, Complex.exp (-(2 * π * Complex.I * n) * t) * g t := by
-  rw [fourierCoeffOn_eq_integral]
-  simp only [zero_add, sub_zero, div_one, one_smul]
-  refine intervalIntegral.integral_congr fun t _ ↦ ?_
-  rw [fourier_coe_apply]
-  congr 2
-  push_cast
-  ring1
+variable {f : ℂ → ℂ} {R : ℂ} {a : ℤ → ℂ} {C : ℝ} {N : ℕ} (n : ℤ)
 
 lemma norm_exp_neg_two_pi_I_mul (t : ℝ) : ‖Complex.exp (-(2 * π * Complex.I * n) * t)‖ = 1 := by
   rw [Complex.norm_exp]
   simp
-
-lemma norm_integral_exp_mul_le {B : ℝ} (hg : ∀ t, ‖g t‖ ≤ B) :
-    ‖∫ t in (0 : ℝ)..1, Complex.exp (-(2 * π * Complex.I * n) * t) * g t‖ ≤ B := by
-  have h : ‖∫ t in (0 : ℝ)..1, Complex.exp (-(2 * π * Complex.I * n) * t) * g t‖ ≤ B * |1 - 0| :=
-    intervalIntegral.norm_integral_le_of_norm_le_const fun t _ ↦ by
-      rw [norm_mul, norm_exp_neg_two_pi_I_mul, one_mul]
-      exact hg t
-  simpa using h
 
 variable {n} in
 lemma two_pi_mul_abs_mul_div (hn : n ≠ 0) (x : ℝ) :
@@ -107,8 +88,9 @@ lemma exists_hasMaassFourierExpansion (hf : ContDiffOn ℝ ∞ f {z | 0 < z.im})
     have hKn : (Complex.I * R).besselK (2 * π * |(n : ℝ)| * (x₀ / (2 * π * |(n : ℝ)|))) ≠ 0 := by
       rwa [hxn]
     rw [fourierCoeff_eq_div_mul_sqrt_mul_besselK hf hper hΔ hn
-      (hb.mono fun s hs ↦ norm_integral_exp_mul_le n hs)
-      (hb'.mono fun s hs ↦ norm_integral_exp_mul_le n hs) hyn hKn z.im_pos, hxn, Int.cast_abs]
+      (hb.mono fun s hs ↦ norm_integral_exp_mul_le n fun t _ ↦ hs t)
+      (hb'.mono fun s hs ↦ norm_integral_exp_mul_le n fun t _ ↦ hs t) hyn hKn z.im_pos, hxn,
+      Int.cast_abs]
     ring1
 
 lemma HasMaassFourierExpansion.comp_neg_of_even (h : HasMaassFourierExpansion f R a)

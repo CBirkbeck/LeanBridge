@@ -33,7 +33,7 @@ private lemma eq_fromBlocks_of_toBlocks {M : Matrix (l ⊕ l) (l ⊕ l) R} (h₁
     (h₂₁ : M.toBlocks₂₁ = 0) (h₂₂ : M.toBlocks₂₂ = 1) : M = fromBlocks 1 M.toBlocks₁₂ 0 1 := by
   conv_lhs => rw [← fromBlocks_toBlocks M, h₁₁, h₂₁, h₂₂]
 
-variable [Fintype l] (N : ℕ) {A : symplecticGroup l ℤ}
+variable [Fintype l] (N : ℕ) {A : symplecticGroup l ℤ} {g : symplecticGroup l R}
 
 variable (l R) in
 /-- The subgroup of `Sp(2g, R)` of the matrices `(1, b; 0, 1)`, the unipotent radical of the Siegel
@@ -50,6 +50,10 @@ def siegelUnipotent : Subgroup (symplecticGroup l R) where
   inv_mem' {B} hB := by
     rw [Set.mem_ofPred_eq, coe_inv, eq_fromBlocks_of_toBlocks hB.1 hB.2.1 hB.2.2]
     simp [J, fromBlocks_transpose, fromBlocks_multiply, fromBlocks_neg]
+
+lemma eq_fromBlocks_of_mem_siegelUnipotent (hg : g ∈ siegelUnipotent l R) :
+    g.1 = fromBlocks 1 g.1.toBlocks₁₂ 0 1 :=
+  eq_fromBlocks_of_toBlocks hg.1 hg.2.1 hg.2.2
 
 variable (l) in
 /-- The **congruence subgroup `Γ₁(N)`** (LMFDB `group.sp2gr.gamma1`) of `Sp(2g, ℤ)`: the matrices

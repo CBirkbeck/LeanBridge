@@ -168,11 +168,12 @@ private def charPerm (hγ : γ ∈ SymplecticGroup.siegelParabolic (Fin 2) ℤ) 
       (((γ : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) ℤ).toBlocks₁₂ *
         (γ : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) ℤ).toBlocks₁₁ᵀ) i i : ZMod 2)
   left_inv v := by
-    simp only [mulVec_mulVec, ← Matrix.map_mul, toBlocks₁₁_mul_transpose_toBlocks₂₂ hγ,
+    simp only [mulVec_mulVec, ← Matrix.map_mul,
+      SymplecticGroup.toBlocks₁₁_mul_transpose_toBlocks₂₂ hγ,
       Matrix.map_one _ (map_zero _) (map_one _), one_mulVec, add_sub_cancel_right]
   right_inv w := by
     simp only [sub_add_cancel, mulVec_mulVec, ← Matrix.map_mul,
-      mul_eq_one_comm.mp (toBlocks₁₁_mul_transpose_toBlocks₂₂ hγ),
+      SymplecticGroup.transpose_toBlocks₂₂_mul_toBlocks₁₁ hγ,
       Matrix.map_one _ (map_zero _) (map_one _), one_mulVec]
 
 private lemma charPerm_apply (hγ : γ ∈ SymplecticGroup.siegelParabolic (Fin 2) ℤ)
@@ -250,8 +251,9 @@ def twiceUpper (hγ : γ ∈ SymplecticGroup.siegelParabolic (Fin 2) ℤ) : symp
       (γ : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) ℤ).toBlocks₁₂) 0
         (γ : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) ℤ).toBlocks₂₂, by
     rw [SymplecticGroup.mem_iff, J, fromBlocks_transpose, fromBlocks_multiply, fromBlocks_multiply]
-    simp [toBlocks₂₂_mul_transpose_toBlocks₁₁ hγ, toBlocks₁₁_mul_transpose_toBlocks₂₂ hγ,
-      Matrix.add_mul, Matrix.mul_add, toBlocks₁₂_mul_transpose_toBlocks₁₁ hγ]⟩
+    simp [SymplecticGroup.toBlocks₂₂_mul_transpose_toBlocks₁₁ hγ,
+      SymplecticGroup.toBlocks₁₁_mul_transpose_toBlocks₂₂ hγ, Matrix.add_mul, Matrix.mul_add,
+      SymplecticGroup.toBlocks₁₂_mul_transpose_toBlocks₁₁ hγ]⟩
 
 lemma twiceUpper_mem (hγ : γ ∈ SymplecticGroup.siegelParabolic (Fin 2) ℤ) :
     twiceUpper hγ ∈ SymplecticGroup.siegelParabolic (Fin 2) ℤ :=

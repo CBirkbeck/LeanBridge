@@ -51,32 +51,12 @@ variable {R : Type*} [CommRing R] (p q : siegelParabolic (Fin 2) R) (M N : Matri
     (r s : siegelParabolic (Fin 2) (ZMod 2)) (x : Fin 2 → ZMod 2)
     {A S : Matrix (Fin 2) (Fin 2) (ZMod 2)} (hA : A.det = 1) (hS : Sᵀ = S)
 
-private lemma eq_fromBlocks_of_siegelParabolic :
-    p.1.1 = fromBlocks p.1.1.toBlocks₁₁ p.1.1.toBlocks₁₂ 0 p.1.1.toBlocks₂₂ := by
-  conv_lhs => rw [← fromBlocks_toBlocks p.1.1, (p.2 : p.1.1.toBlocks₂₁ = 0)]
-
-private lemma fromBlocks_mem_symplecticGroup :
-    fromBlocks p.1.1.toBlocks₁₁ p.1.1.toBlocks₁₂ 0 p.1.1.toBlocks₂₂ ∈ symplecticGroup (Fin 2) R :=
-  eq_fromBlocks_of_siegelParabolic p ▸ p.1.2
-
-private lemma transpose_toBlocks₁₁_mul_toBlocks₂₂_eq_one :
-    p.1.1.toBlocks₁₁ᵀ * p.1.1.toBlocks₂₂ = 1 := by
-  simpa using (fromBlocks_mem_iff.mp (fromBlocks_mem_symplecticGroup p)).2.2
-
-private lemma transpose_toBlocks₂₂_mul_toBlocks₁₁ : p.1.1.toBlocks₂₂ᵀ * p.1.1.toBlocks₁₁ = 1 := by
-  rw [← transpose_transpose p.1.1.toBlocks₁₁, ← transpose_mul,
-    transpose_toBlocks₁₁_mul_toBlocks₂₂_eq_one p, transpose_one]
-
-private lemma toBlocks₁₁_mul_transpose_toBlocks₂₂_eq_one :
-    p.1.1.toBlocks₁₁ * p.1.1.toBlocks₂₂ᵀ = 1 :=
-  mul_eq_one_comm.mp (transpose_toBlocks₂₂_mul_toBlocks₁₁ p)
-
 private lemma val_mul_siegelParabolic : (p * q).1.1 = fromBlocks
     (p.1.1.toBlocks₁₁ * q.1.1.toBlocks₁₁)
     (p.1.1.toBlocks₁₁ * q.1.1.toBlocks₁₂ + p.1.1.toBlocks₁₂ * q.1.1.toBlocks₂₂) 0
     (p.1.1.toBlocks₂₂ * q.1.1.toBlocks₂₂) := by
-  rw [Subgroup.coe_mul, Submonoid.coe_mul, eq_fromBlocks_of_siegelParabolic p,
-    eq_fromBlocks_of_siegelParabolic q, fromBlocks_multiply]
+  rw [Subgroup.coe_mul, Submonoid.coe_mul, eq_fromBlocks_of_mem_siegelParabolic p.2,
+    eq_fromBlocks_of_mem_siegelParabolic q.2, fromBlocks_multiply]
   simp
 
 /-- The symmetric matrix `S = DᵀB` of an element `(A, B; 0, D) = (A, 0; 0, D)(1, S; 0, 1)` of the
@@ -86,7 +66,7 @@ def parabolicSym : Matrix (Fin 2) (Fin 2) R :=
 
 lemma transpose_parabolicSym : (parabolicSym p)ᵀ = parabolicSym p := by
   rw [parabolicSym, transpose_mul, transpose_transpose,
-    (fromBlocks_mem_iff.mp (fromBlocks_mem_symplecticGroup p)).2.1]
+    (fromBlocks_mem_iff.mp (fromBlocks_mem_of_mem_siegelParabolic p.2)).2.1]
 
 /-- **The symmetric part of a product**: `S_{pq} = D_qᵀ S_p D_q + S_q` for elements `p`, `q` of the
 Siegel parabolic subgroup, since `D_pᵀ A_p = 1`. -/
@@ -94,7 +74,7 @@ lemma parabolicSym_mul : parabolicSym (p * q) =
     q.1.1.toBlocks₂₂ᵀ * parabolicSym p * q.1.1.toBlocks₂₂ + parabolicSym q := by
   rw [parabolicSym, parabolicSym, parabolicSym, val_mul_siegelParabolic, toBlocks_fromBlocks₂₂,
     toBlocks_fromBlocks₁₂, transpose_mul, Matrix.mul_add, Matrix.mul_assoc, Matrix.mul_assoc,
-    ← Matrix.mul_assoc p.1.1.toBlocks₂₂ᵀ p.1.1.toBlocks₁₁, transpose_toBlocks₂₂_mul_toBlocks₁₁,
+    ← Matrix.mul_assoc p.1.1.toBlocks₂₂ᵀ p.1.1.toBlocks₁₁, transpose_toBlocks₂₂_mul_toBlocks₁₁ p.2,
     Matrix.one_mul, add_comm]
   simp only [Matrix.mul_assoc]
 
@@ -128,7 +108,7 @@ def parabolicSign : siegelParabolic (Fin 2) (ZMod 2) →* Multiplicative (ZMod 2
   map_mul' r s := by
     rw [← ofAdd_add, parabolicSym_mul, symForm_add, symForm_transpose_mul_mul _ _
       (transpose_parabolicSym r) (det_ne_zero_of_left_inverse
-        (transpose_toBlocks₁₁_mul_toBlocks₂₂_eq_one s))]
+        (transpose_toBlocks₁₁_mul_toBlocks₂₂ s.2))]
 
 /-- The **affine action** `x ↦ A(x + diag S)` of `(A, B; 0, D) ∈ P(ℤ/2ℤ)` on `(ℤ/2ℤ)²`, where
 `S = DᵀB`. It is `x ↦ Ax + diag(ABᵀ)`. -/
@@ -142,7 +122,7 @@ lemma parabolicAffine_mul :
     toBlocks_fromBlocks₁₁, ← mulVec_mulVec]
   congr 1
   rw [mulVec_add, mulVec_add, mulVec_add, mulVec_mulVec,
-    toBlocks₁₁_mul_transpose_toBlocks₂₂_eq_one s, one_mulVec]
+    toBlocks₁₁_mul_transpose_toBlocks₂₂ s.2, one_mulVec]
   abel
 
 lemma parabolicAffine_eq_add_diag :
@@ -151,7 +131,7 @@ lemma parabolicAffine_eq_add_diag :
       r.1.1.toBlocks₁₁ *ᵥ (parabolicSym r).diag := by
     simpa using diag_transpose_mul_mul _ r.1.1.toBlocks₁₁ᵀ (transpose_parabolicSym r)
   rw [parabolicAffine, mulVec_add, ← h, parabolicSym, ← Matrix.mul_assoc,
-    toBlocks₁₁_mul_transpose_toBlocks₂₂_eq_one, Matrix.one_mul, ← diag_transpose, transpose_mul,
+    toBlocks₁₁_mul_transpose_toBlocks₂₂ r.2, Matrix.one_mul, ← diag_transpose, transpose_mul,
     transpose_transpose]
 
 lemma parabolicAffine_one : parabolicAffine 1 x = x := by
@@ -188,18 +168,18 @@ lemma injective_parabolicHom : Function.Injective parabolicHom := by
   have hdiag : (parabolicSym r).diag = 0 := by
     have h0 : r.1.1.toBlocks₁₁ *ᵥ (parabolicSym r).diag = 0 := by
       simpa [parabolicAffine] using haff 0
-    rw [← one_mulVec (parabolicSym r).diag, ← transpose_toBlocks₂₂_mul_toBlocks₁₁ r,
+    rw [← one_mulVec (parabolicSym r).diag, ← transpose_toBlocks₂₂_mul_toBlocks₁₁ r.2,
       ← mulVec_mulVec, h0, mulVec_zero]
   have hA : r.1.1.toBlocks₁₁ = 1 := ext_of_mulVec_single fun i ↦ by
     rw [one_mulVec]
     simpa [parabolicAffine, hdiag] using haff (Pi.single i 1)
   have hD : r.1.1.toBlocks₂₂ = 1 := by
-    simpa [hA] using transpose_toBlocks₁₁_mul_toBlocks₂₂_eq_one r
+    simpa [hA] using transpose_toBlocks₁₁_mul_toBlocks₂₂ r.2
   have hB : r.1.1.toBlocks₁₂ = 0 := by
     simpa [parabolicSym, hD] using
       eq_zero_of_symForm_eq_zero _ (transpose_parabolicSym r) hdiag hsign
   refine Subtype.ext (Subtype.ext ?_)
-  rw [eq_fromBlocks_of_siegelParabolic r, hA, hB, hD, fromBlocks_one]
+  rw [eq_fromBlocks_of_mem_siegelParabolic r.2, hA, hB, hD, fromBlocks_one]
   rfl
 
 /-- The element `(A, AS; 0, A⁻ᵀ)` of `P(ℤ/2ℤ)`, for `det A = 1` and `S` symmetric. -/

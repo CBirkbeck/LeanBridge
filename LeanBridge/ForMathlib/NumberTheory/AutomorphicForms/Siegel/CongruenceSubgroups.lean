@@ -31,7 +31,7 @@ open Matrix
 namespace SymplecticGroup
 
 variable {l : Type*} [DecidableEq l] [Fintype l] {R S : Type*} [CommRing R] [CommRing S]
-    (f : R →+* S) (N : ℕ) {A : symplecticGroup l ℤ}
+    (f : R →+* S) (N : ℕ) {A : symplecticGroup l ℤ} {g : symplecticGroup l R}
 
 /-- The homomorphism `Sp(2g, R) → Sp(2g, S)` induced by a ring homomorphism `f : R → S`, applying
 `f` to the entries. -/
@@ -76,6 +76,38 @@ def siegelParabolic : Subgroup (symplecticGroup l R) where
     ext i j
     have hB' : (B : Matrix (l ⊕ l) (l ⊕ l) R) (.inr j) (.inl i) = 0 := congrFun (congrFun hB j) i
     simp [toBlocks₂₁, coe_inv, J, Matrix.mul_apply, one_apply, hB']
+
+lemma eq_fromBlocks_of_mem_siegelParabolic (hg : g ∈ siegelParabolic l R) :
+    g.1 = fromBlocks g.1.toBlocks₁₁ g.1.toBlocks₁₂ 0 g.1.toBlocks₂₂ := by
+  rw [← (hg : g.1.toBlocks₂₁ = 0), fromBlocks_toBlocks]
+
+lemma fromBlocks_mem_of_mem_siegelParabolic (hg : g ∈ siegelParabolic l R) :
+    fromBlocks g.1.toBlocks₁₁ g.1.toBlocks₁₂ 0 g.1.toBlocks₂₂ ∈ symplecticGroup l R := by
+  rw [← eq_fromBlocks_of_mem_siegelParabolic hg]
+  exact g.2
+
+lemma transpose_toBlocks₁₁_mul_toBlocks₂₂ (hg : g ∈ siegelParabolic l R) :
+    g.1.toBlocks₁₁ᵀ * g.1.toBlocks₂₂ = 1 := by
+  simpa using (fromBlocks_mem_iff.mp (fromBlocks_mem_of_mem_siegelParabolic hg)).2.2
+
+lemma toBlocks₂₂_mul_transpose_toBlocks₁₁ (hg : g ∈ siegelParabolic l R) :
+    g.1.toBlocks₂₂ * g.1.toBlocks₁₁ᵀ = 1 :=
+  mul_eq_one_comm.mp (transpose_toBlocks₁₁_mul_toBlocks₂₂ hg)
+
+lemma transpose_toBlocks₂₂_mul_toBlocks₁₁ (hg : g ∈ siegelParabolic l R) :
+    g.1.toBlocks₂₂ᵀ * g.1.toBlocks₁₁ = 1 := by
+  rw [← transpose_transpose g.1.toBlocks₁₁, ← transpose_mul, transpose_toBlocks₁₁_mul_toBlocks₂₂ hg,
+    transpose_one]
+
+lemma toBlocks₁₁_mul_transpose_toBlocks₂₂ (hg : g ∈ siegelParabolic l R) :
+    g.1.toBlocks₁₁ * g.1.toBlocks₂₂ᵀ = 1 :=
+  mul_eq_one_comm.mp (transpose_toBlocks₂₂_mul_toBlocks₁₁ hg)
+
+lemma toBlocks₁₂_mul_transpose_toBlocks₁₁ (hg : g ∈ siegelParabolic l R) :
+    g.1.toBlocks₁₂ * g.1.toBlocks₁₁ᵀ = g.1.toBlocks₁₁ * g.1.toBlocks₁₂ᵀ := by
+  refine add_neg_eq_zero.mp ?_
+  simpa [J, fromBlocks_transpose, fromBlocks_multiply] using
+    congrArg toBlocks₁₁ (mem_iff.mp (fromBlocks_mem_of_mem_siegelParabolic hg))
 
 variable (l) in
 /-- The **Siegel parabolic subgroup** `Γ₀(N)` (LMFDB `group.sp2gr.gamma0`, `mf.siegel.family`) of

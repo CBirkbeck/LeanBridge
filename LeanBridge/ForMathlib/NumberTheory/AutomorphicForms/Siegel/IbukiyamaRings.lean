@@ -55,21 +55,11 @@ namespace SymplecticGroup
 
 variable {l : Type*} [Fintype l] [DecidableEq l] {R : Type*} [CommRing R] (γ : siegelParabolic l R)
 
-private lemma eq_fromBlocks_of_mem_siegelParabolic :
-    ((γ : symplecticGroup l R) : Matrix (l ⊕ l) (l ⊕ l) R) = fromBlocks
-      (γ : Matrix (l ⊕ l) (l ⊕ l) R).toBlocks₁₁ (γ : Matrix (l ⊕ l) (l ⊕ l) R).toBlocks₁₂ 0
-        (γ : Matrix (l ⊕ l) (l ⊕ l) R).toBlocks₂₂ := by
-  rw [← γ.2, fromBlocks_toBlocks]
-
 /-- **The block `D` of `γ = (A, B; 0, D)` in the Siegel parabolic subgroup is invertible**: the
 symplectic relation gives `AᵀD = 1`. -/
 lemma isUnit_det_toBlocks₂₂ :
-    IsUnit ((γ : symplecticGroup l R) : Matrix (l ⊕ l) (l ⊕ l) R).toBlocks₂₂.det := by
-  have h : (γ : Matrix (l ⊕ l) (l ⊕ l) R)ᵀ * J l R * γ = J l R :=
-    mem_iff'.mp (γ : symplecticGroup l R).2
-  rw [eq_fromBlocks_of_mem_siegelParabolic, fromBlocks_transpose, J, fromBlocks_multiply,
-    fromBlocks_multiply] at h
-  exact isUnit_det_of_left_inverse <| by simpa using congrArg toBlocks₁₂ h
+    IsUnit ((γ : symplecticGroup l R) : Matrix (l ⊕ l) (l ⊕ l) R).toBlocks₂₂.det :=
+  isUnit_det_of_left_inverse (transpose_toBlocks₁₁_mul_toBlocks₂₂ γ.2)
 
 /-- The homomorphism `γ ↦ det D` on the Siegel parabolic subgroup `{C = 0}` of `Sp(2g, R)`, for
 `γ = (A, B; 0, D)`, with values in the units of `R`: `AᵀD = 1`. -/
@@ -80,8 +70,8 @@ noncomputable def siegelParabolicDet : siegelParabolic l R →* Rˣ where
       toBlocks_fromBlocks₂₂, det_one]
   map_mul' γ γ' := Units.ext <| by
     rw [IsUnit.unit_spec, Units.val_mul, IsUnit.unit_spec, IsUnit.unit_spec, Subgroup.coe_mul,
-      Submonoid.coe_mul, eq_fromBlocks_of_mem_siegelParabolic γ,
-      eq_fromBlocks_of_mem_siegelParabolic γ', fromBlocks_multiply]
+      Submonoid.coe_mul, eq_fromBlocks_of_mem_siegelParabolic γ.2,
+      eq_fromBlocks_of_mem_siegelParabolic γ'.2, fromBlocks_multiply]
     simp
 
 lemma map_intCast_injective {S : Type*} [CommRing S] [CharZero S] :

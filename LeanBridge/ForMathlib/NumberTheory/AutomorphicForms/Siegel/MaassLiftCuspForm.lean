@@ -49,19 +49,6 @@ namespace SiegelUpperHalfSpace
 variable {k : ℤ} {φ : ℍ × ℂ → ℂ} {P : symplecticGroup (Fin 2) ℝ} (τ' : ℍ) (n r m : ℤ)
     (c c' : ℤ × ℤ → ℂ) (u : ℂ)
 
-private lemma sq_mul_disc_of_mem_divisors {d : ℕ} (hd : d ∈ ((n.gcd r : ℤ).gcd m).divisors) :
-    (d : ℤ) ^ 2 * (4 * (n * m / (d : ℤ) ^ 2) - (r / d) ^ 2) = 4 * n * m - r ^ 2 := by
-  have hd0 : (d : ℤ) ≠ 0 := Nat.cast_ne_zero.mpr (Nat.pos_of_mem_divisors hd).ne'
-  have hg : (d : ℤ) ∣ ((n.gcd r : ℤ).gcd m : ℤ) :=
-    Int.natCast_dvd_natCast.mpr (Nat.dvd_of_mem_divisors hd)
-  rcases (hg.trans (Int.gcd_dvd_left _ _)).trans (Int.gcd_dvd_left _ _) with ⟨n₁, rfl⟩
-  rcases (hg.trans (Int.gcd_dvd_left _ _)).trans (Int.gcd_dvd_right _ _) with ⟨r₁, rfl⟩
-  rcases hg.trans (Int.gcd_dvd_right _ _) with ⟨m₁, rfl⟩
-  have h₁ : (d : ℤ) * n₁ * (d * m₁) / d ^ 2 = n₁ * m₁ :=
-    Int.ediv_eq_of_eq_mul_right (pow_ne_zero 2 hd0) (by ring1)
-  rw [h₁, Int.mul_ediv_cancel_left _ hd0]
-  ring1
-
 lemma maassCoeff_eq_zero_of_le (hφ : φ ∈ jacobiCuspFormSpace k 1) (h : 4 * n * m ≤ r ^ 2) :
     maassCoeff k (jacobiCoeff φ) n r m = 0 := by
   rw [maassCoeff]
@@ -95,21 +82,13 @@ lemma pos_of_maassCoeff_ne_zero (hφ : φ ∈ jacobiCuspFormSpace k 1)
         mul_pos (sub_pos.mpr hr') (pow_pos (abs_pos.mpr hy) 2), sq_abs y]
     nlinarith
 
-private lemma mul_transpose_toBlocks₁₁_eq_one (hP : P ∈ siegelParabolic (Fin 2) ℝ) :
-    P.1.toBlocks₂₂ * P.1.toBlocks₁₁ᵀ = 1 := by
-  have h : fromBlocks P.1.toBlocks₁₁ P.1.toBlocks₁₂ 0 P.1.toBlocks₂₂ * J (Fin 2) ℝ *
-      (fromBlocks P.1.toBlocks₁₁ P.1.toBlocks₁₂ 0 P.1.toBlocks₂₂)ᵀ = J (Fin 2) ℝ := by
-    rw [← (hP : P.1.toBlocks₂₁ = 0), fromBlocks_toBlocks]
-    exact SymplecticGroup.mem_iff.mp P.2
-  simpa [J, fromBlocks_transpose, fromBlocks_multiply] using congrArg toBlocks₂₁ h
-
 lemma im_smul_diagPoint (hP : P ∈ siegelParabolic (Fin 2) ℝ) (t : Set.Ioi (0 : ℝ)) (i j : Fin 2) :
     ((P • diagPoint τ' t).val i j).im = P.1.toBlocks₁₁ i 0 * P.1.toBlocks₁₁ j 0 * τ'.im +
       P.1.toBlocks₁₁ i 1 * P.1.toBlocks₁₁ j 1 * t := by
   have hD : P.1.toBlocks₂₂.map ofReal * P.1.toBlocks₁₁ᵀ.map ofReal = 1 := by
     have h : (P.1.toBlocks₂₂ * P.1.toBlocks₁₁ᵀ).map ofRealHom =
         (1 : Matrix (Fin 2) (Fin 2) ℝ).map ofRealHom :=
-      congrArg (Matrix.map · ofRealHom) (mul_transpose_toBlocks₁₁_eq_one hP)
+      congrArg (Matrix.map · ofRealHom) (toBlocks₂₂_mul_transpose_toBlocks₁₁ hP)
     rwa [Matrix.map_mul, Matrix.map_one _ (map_zero _) (map_one _)] at h
   rw [val_smul, num, denom, (hP : P.1.toBlocks₂₁ = 0), Matrix.map_zero _ ofReal_zero,
     Matrix.zero_mul, zero_add, inv_eq_right_inv hD]
@@ -139,7 +118,7 @@ lemma tendsto_maassLift_smul_diagPoint (hφ : φ ∈ jacobiCuspFormSpace k 1)
     congr 1
     ring1
   have hdet : P.1.toBlocks₂₂.det * P.1.toBlocks₁₁.det = 1 := by
-    rw [← det_transpose P.1.toBlocks₁₁, ← det_mul, mul_transpose_toBlocks₁₁_eq_one hP, det_one]
+    rw [← det_transpose P.1.toBlocks₁₁, ← det_mul, toBlocks₂₂_mul_transpose_toBlocks₁₁ hP, det_one]
   have hcol : P.1.toBlocks₁₁ 0 1 ≠ 0 ∨ P.1.toBlocks₁₁ 1 1 ≠ 0 := by
     refine not_and_or.mp fun h ↦ right_ne_zero_of_mul_eq_one hdet ?_
     rw [det_fin_two, h.1, h.2]

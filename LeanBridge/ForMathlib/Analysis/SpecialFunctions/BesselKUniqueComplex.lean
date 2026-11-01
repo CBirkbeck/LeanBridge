@@ -34,7 +34,7 @@ open Filter MeasureTheory Real Set Topology
 
 namespace Complex
 
-variable {ν R : ℂ} {κ : ℝ} {v v' v'' : ℝ → ℂ} {x₀ x C : ℝ} {N : ℕ}
+variable {ν R : ℂ} {κ : ℝ} {v v' v'' : ℝ → ℂ} {x₀ x y C : ℝ} {N : ℕ}
 
 /-- **Uniqueness of the solutions of the modified Bessel equation**: a solution `v` of
 `x² v'' + x v' - (x² + ν²) v = 0` on `(0, ∞)` with `v(x₀) = v'(x₀) = 0` at some `x₀ > 0` vanishes on
@@ -97,6 +97,51 @@ lemma eq_zero_of_besselODE (hv : ∀ x, 0 < x → HasDerivAt v (v' x) x)
     (hmem x (le_max_left _ _) (min_le_left _ _))
   exact congrArg Prod.fst h
 
+lemma wronskian_besselK_eq (hv : ∀ x, 0 < x → HasDerivAt v (v' x) x)
+    (hv' : ∀ x, 0 < x → HasDerivAt v' (v'' x) x)
+    (hode : ∀ x : ℝ, 0 < x → (x : ℂ) ^ 2 * v'' x + x * v' x - ((x : ℂ) ^ 2 + ν ^ 2) * v x = 0)
+    (hx : 0 < x) (hy : 0 < y) :
+    x * (v x * (-besselK (ν + 1) x + ν / x * besselK ν x) - v' x * besselK ν x) =
+      y * (v y * (-besselK (ν + 1) y + ν / y * besselK ν y) - v' y * besselK ν y) := by
+  have hW (t : ℝ) (ht : 0 < t) : HasDerivAt (fun t : ℝ ↦ (t : ℂ) *
+      (v t * (-besselK (ν + 1) t + ν / t * besselK ν t) - v' t * besselK ν t)) 0 t := by
+    have ht' : (t : ℂ) ≠ 0 := ofReal_ne_zero.mpr ht.ne'
+    refine ((hasDerivAt_id t).ofReal_comp.mul (((hv t ht).mul (hasDerivAt_neg_besselK_add ν ht)).sub
+      ((hv' t ht).mul (hasDerivAt_besselK_eq_add ν ht)))).congr_deriv ?_
+    refine mul_left_cancel₀ ht' ?_
+    simp only [Pi.mul_apply, Pi.sub_apply, id, ofReal_one]
+    field_simp
+    linear_combination (-besselK ν t) * hode t ht
+  exact isOpen_Ioi.is_const_of_deriv_eq_zero isPreconnected_Ioi
+    (fun t ht ↦ (hW t ht).differentiableAt.differentiableWithinAt) (fun t ht ↦ (hW t ht).deriv)
+    hx hy
+
+lemma eq_div_mul_besselK_of_ode_of_wronskian_eq_zero (hv : ∀ x, 0 < x → HasDerivAt v (v' x) x)
+    (hv' : ∀ x, 0 < x → HasDerivAt v' (v'' x) x)
+    (hode : ∀ x : ℝ, 0 < x → (x : ℂ) ^ 2 * v'' x + x * v' x - ((x : ℂ) ^ 2 + ν ^ 2) * v x = 0)
+    (hW : y * (v y * (-besselK (ν + 1) y + ν / y * besselK ν y) - v' y * besselK ν y) = 0)
+    (hy : 0 < y) (hx₀ : 0 < x₀) (hK₀ : besselK ν x₀ ≠ 0) (hx : 0 < x) :
+    v x = v x₀ / besselK ν x₀ * besselK ν x := by
+  have hW₀ : v x₀ * (-besselK (ν + 1) x₀ + ν / x₀ * besselK ν x₀) - v' x₀ * besselK ν x₀ = 0 :=
+    (mul_eq_zero.mp <| (wronskian_besselK_eq hv hv' hode hx₀ hy).trans hW).resolve_left
+      (ofReal_ne_zero.mpr hx₀.ne')
+  refine sub_eq_zero.mp <| eq_zero_of_besselODE (ν := ν)
+    (v := fun t ↦ v t - v x₀ / besselK ν x₀ * besselK ν t)
+    (v' := fun t ↦ v' t - v x₀ / besselK ν x₀ * (-besselK (ν + 1) t + ν / t * besselK ν t))
+    (v'' := fun t ↦ v'' t - v x₀ / besselK ν x₀ *
+      (besselK ν t + besselK (ν + 1) t / t + (ν ^ 2 - ν) / (t : ℂ) ^ 2 * besselK ν t))
+    (fun t ht ↦ (hv t ht).sub ((hasDerivAt_besselK_eq_add ν ht).const_mul _))
+    (fun t ht ↦ (hv' t ht).sub ((hasDerivAt_neg_besselK_add ν ht).const_mul _)) (fun t ht ↦ ?_)
+    hx₀ ?_ ?_ hx
+  · have ht' : (t : ℂ) ≠ 0 := ofReal_ne_zero.mpr ht.ne'
+    field_simp
+    linear_combination besselK ν x₀ * hode t ht
+  · field_simp
+    ring1
+  · have hx₀' : (x₀ : ℂ) ≠ 0 := ofReal_ne_zero.mpr hx₀.ne'
+    field_simp at hW₀ ⊢
+    linear_combination -hW₀
+
 /-- **The decaying solutions of the modified Bessel equation are the multiples of `K_ν`**, for every
 order `ν ∈ ℂ`: a solution `v` of `x² v'' + x v' - (x² + ν²) v = 0` on `(0, ∞)` which grows at most
 polynomially at `∞`, with its derivative, is `v(x₀) / K_ν(x₀) · K_ν` for every `x₀ > 0` with
@@ -110,23 +155,8 @@ lemma eq_div_mul_besselK_of_ode_of_ne_zero (hv : ∀ x, 0 < x → HasDerivAt v (
     (hv₁ : ∀ᶠ x in atTop, ‖v x‖ ≤ C * x ^ N) (hv₂ : ∀ᶠ x in atTop, ‖v' x‖ ≤ C * x ^ N)
     (hx₀ : 0 < x₀) (hK₀ : besselK ν x₀ ≠ 0) (hx : 0 < x) :
     v x = v x₀ / besselK ν x₀ * besselK ν x := by
-  have hK (y : ℝ) (hy : 0 < y) :
-      HasDerivAt (fun y : ℝ ↦ besselK ν y) (-besselK (ν + 1) y + ν / y * besselK ν y) y :=
-    hasDerivAt_besselK_eq_add ν hy
   let W : ℝ → ℂ := fun y ↦ (y : ℂ) * (v y * (-besselK (ν + 1) y + ν / y * besselK ν y) -
     v' y * besselK ν y)
-  have hW (y : ℝ) (hy : 0 < y) : HasDerivAt W 0 y := by
-    have hy' : (y : ℂ) ≠ 0 := ofReal_ne_zero.mpr hy.ne'
-    refine ((hasDerivAt_id y).ofReal_comp.mul (((hv y hy).mul
-      (hasDerivAt_neg_besselK_add ν hy)).sub ((hv' y hy).mul (hK y hy)))).congr_deriv ?_
-    refine mul_left_cancel₀ hy' ?_
-    simp only [Pi.mul_apply, Pi.sub_apply, id, ofReal_one]
-    field_simp
-    linear_combination (-besselK ν y) * hode y hy
-  have hconst (y : ℝ) (hy : 0 < y) : W y = W 1 :=
-    isOpen_Ioi.is_const_of_deriv_eq_zero isPreconnected_Ioi
-      (fun z hz ↦ (hW z hz).differentiableAt.differentiableWithinAt)
-      (fun z hz ↦ (hW z hz).deriv) hy (mem_Ioi.mpr one_pos)
   have hbound : ∀ᶠ y in atTop, ‖W y‖ ≤ C * ((2⁻¹ * ∫ t in Ioi 0,
       ‖besselKIntegrand (ν + 1) 1 t‖) + ‖ν‖ * (2⁻¹ * ∫ t in Ioi 0,
         ‖besselKIntegrand ν 1 t‖) + 2⁻¹ * ∫ t in Ioi 0, ‖besselKIntegrand ν 1 t‖) *
@@ -174,25 +204,8 @@ lemma eq_div_mul_besselK_of_ode_of_ne_zero (hv : ∀ x, 0 < x → HasDerivAt v (
         ‖ν‖ * (2⁻¹ * ∫ t in Ioi 0, ‖besselKIntegrand ν 1 t‖) +
           2⁻¹ * ∫ t in Ioi 0, ‖besselKIntegrand ν 1 t‖) * rexp 1)
   have hW₁ : W 1 = 0 := tendsto_nhds_unique (tendsto_const_nhds.congr'
-    ((eventually_gt_atTop 0).mono fun y hy ↦ (hconst y hy).symm)) hlim
-  have hW₀ : v x₀ * (-besselK (ν + 1) x₀ + ν / x₀ * besselK ν x₀) - v' x₀ * besselK ν x₀ = 0 :=
-    (mul_eq_zero.mp <| (hconst x₀ hx₀).trans hW₁).resolve_left (ofReal_ne_zero.mpr hx₀.ne')
-  refine sub_eq_zero.mp <| eq_zero_of_besselODE (ν := ν)
-    (v := fun y ↦ v y - v x₀ / besselK ν x₀ * besselK ν y)
-    (v' := fun y ↦ v' y - v x₀ / besselK ν x₀ * (-besselK (ν + 1) y + ν / y * besselK ν y))
-    (v'' := fun y ↦ v'' y - v x₀ / besselK ν x₀ *
-      (besselK ν y + besselK (ν + 1) y / y + (ν ^ 2 - ν) / (y : ℂ) ^ 2 * besselK ν y))
-    (fun y hy ↦ (hv y hy).sub ((hK y hy).const_mul _))
-    (fun y hy ↦ (hv' y hy).sub ((hasDerivAt_neg_besselK_add ν hy).const_mul _)) (fun y hy ↦ ?_)
-    hx₀ ?_ ?_ hx
-  · have hy' : (y : ℂ) ≠ 0 := ofReal_ne_zero.mpr hy.ne'
-    field_simp
-    linear_combination besselK ν x₀ * hode y hy
-  · field_simp
-    ring1
-  · have hx₀' : (x₀ : ℂ) ≠ 0 := ofReal_ne_zero.mpr hx₀.ne'
-    field_simp at hW₀ ⊢
-    linear_combination -hW₀
+    ((eventually_gt_atTop 0).mono fun y hy ↦ wronskian_besselK_eq hv hv' hode one_pos hy)) hlim
+  exact eq_div_mul_besselK_of_ode_of_wronskian_eq_zero hv hv' hode hW₁ one_pos hx₀ hK₀ hx
 
 lemma hasDerivAt_inv_sqrt_div (hκ : 0 < κ) (hx : 0 < x) :
     HasDerivAt (fun t ↦ (√(t / κ))⁻¹) (-(√(x / κ))⁻¹ / (2 * x)) x := by
@@ -203,20 +216,18 @@ lemma hasDerivAt_inv_sqrt_div (hκ : 0 < κ) (hx : 0 < x) :
   simp only [Function.comp_apply, id, hsq]
   field_simp
 
-/-- **The decaying solutions of the Maass equation are the multiples of `√y K_{iR}(κy)`**: for
-`κ > 0` and `R ∈ ℂ`, a solution `v` of `y² v'' + (1/4 + R² - κ² y²) v = 0` on `(0, ∞)` (the equation
-of the `n`-th Fourier coefficient `v(y)` of a Maass form `∑ v_n(y) e^{2πinx}` with Laplace
-eigenvalue `1/4 + R²`, for `κ = 2π|n|`) which grows at most polynomially at `∞`, with its
-derivative, is `v(y₀) / (√y₀ K_{iR}(κy₀)) · √y K_{iR}(κy)` for every `y₀ > 0` with
-`K_{iR}(κy₀) ≠ 0`. The function `t ↦ v(t/κ) / √(t/κ)` solves the modified Bessel equation of order
-`iR` (`eq_div_mul_besselK_of_ode_of_ne_zero`). -/
-lemma eq_div_mul_sqrt_mul_besselK_of_ode (hκ : 0 < κ) (hv : ∀ x, 0 < x → HasDerivAt v (v' x) x)
+lemma eq_div_mul_sqrt_mul_besselK_of_forall (hκ : 0 < κ) (hv : ∀ x, 0 < x → HasDerivAt v (v' x) x)
     (hv' : ∀ x, 0 < x → HasDerivAt v' (v'' x) x)
     (hode : ∀ x : ℝ, 0 < x → (x : ℂ) ^ 2 * v'' x +
-      (1 / 4 + R ^ 2 - ((κ * x : ℝ) : ℂ) ^ 2) * v x = 0) (hv₁ : ∀ᶠ x in atTop, ‖v x‖ ≤ C * x ^ N)
-    (hv₂ : ∀ᶠ x in atTop, ‖v' x‖ ≤ C * x ^ N) (hx₀ : 0 < x₀) (hK : besselK (I * R) (κ * x₀) ≠ 0)
-    (hx : 0 < x) :
-    v x = v x₀ / (√x₀ * besselK (I * R) (κ * x₀)) * (√x * besselK (I * R) (κ * x)) := by
+      (1 / 4 + R ^ 2 - ((κ * x : ℝ) : ℂ) ^ 2) * v x = 0) (hx : 0 < x) :
+    letI u : ℝ → ℂ := fun t ↦ (((√(t / κ))⁻¹ : ℝ) : ℂ) * v (t / κ)
+    letI u' : ℝ → ℂ := fun t ↦
+      ((-(√(t / κ))⁻¹ / (2 * t) : ℝ) : ℂ) * v (t / κ) + (((√(t / κ))⁻¹ / κ : ℝ) : ℂ) * v' (t / κ)
+    (∀ u'' : ℝ → ℂ, (∀ t, 0 < t → HasDerivAt u (u' t) t) → (∀ t, 0 < t → HasDerivAt u' (u'' t) t) →
+      (∀ t : ℝ, 0 < t → (t : ℂ) ^ 2 * u'' t + t * u' t - ((t : ℂ) ^ 2 + (I * R) ^ 2) * u t = 0) →
+        u (κ * x) = u (κ * x₀) / besselK (I * R) (κ * x₀) * besselK (I * R) (κ * x)) →
+      v x = v x₀ / (√x₀ * besselK (I * R) (κ * x₀)) * (√x * besselK (I * R) (κ * x)) := by
+  intro h
   let ρ : ℝ → ℝ := fun t ↦ (√(t / κ))⁻¹
   have hρ (t : ℝ) (ht : 0 < t) : HasDerivAt ρ (-ρ t / (2 * t)) t :=
     hasDerivAt_inv_sqrt_div hκ ht
@@ -260,6 +271,33 @@ lemma eq_div_mul_sqrt_mul_besselK_of_ode (hκ : 0 < κ) (hv : ∀ x, 0 < x → H
       field_simp
       ring1
     rw [e, hode (t / κ) (div_pos ht hκ), mul_zero]
+  have key : u (κ * x) = u (κ * x₀) / besselK (I * R) (κ * x₀) * besselK (I * R) (κ * x) :=
+    h u'' hu hu' hode'
+  have hsx : ((√x : ℝ) : ℂ) ≠ 0 := ofReal_ne_zero.mpr (Real.sqrt_pos.mpr hx).ne'
+  simp only [u, ρ] at key
+  push_cast at key ⊢
+  field_simp at key ⊢
+  linear_combination key
+
+/-- **The decaying solutions of the Maass equation are the multiples of `√y K_{iR}(κy)`**: for
+`κ > 0` and `R ∈ ℂ`, a solution `v` of `y² v'' + (1/4 + R² - κ² y²) v = 0` on `(0, ∞)` (the equation
+of the `n`-th Fourier coefficient `v(y)` of a Maass form `∑ v_n(y) e^{2πinx}` with Laplace
+eigenvalue `1/4 + R²`, for `κ = 2π|n|`) which grows at most polynomially at `∞`, with its
+derivative, is `v(y₀) / (√y₀ K_{iR}(κy₀)) · √y K_{iR}(κy)` for every `y₀ > 0` with
+`K_{iR}(κy₀) ≠ 0`. The function `t ↦ v(t/κ) / √(t/κ)` solves the modified Bessel equation of order
+`iR` (`eq_div_mul_besselK_of_ode_of_ne_zero`). -/
+lemma eq_div_mul_sqrt_mul_besselK_of_ode (hκ : 0 < κ) (hv : ∀ x, 0 < x → HasDerivAt v (v' x) x)
+    (hv' : ∀ x, 0 < x → HasDerivAt v' (v'' x) x)
+    (hode : ∀ x : ℝ, 0 < x → (x : ℂ) ^ 2 * v'' x +
+      (1 / 4 + R ^ 2 - ((κ * x : ℝ) : ℂ) ^ 2) * v x = 0) (hv₁ : ∀ᶠ x in atTop, ‖v x‖ ≤ C * x ^ N)
+    (hv₂ : ∀ᶠ x in atTop, ‖v' x‖ ≤ C * x ^ N) (hx₀ : 0 < x₀) (hK : besselK (I * R) (κ * x₀) ≠ 0)
+    (hx : 0 < x) :
+    v x = v x₀ / (√x₀ * besselK (I * R) (κ * x₀)) * (√x * besselK (I * R) (κ * x)) := by
+  refine eq_div_mul_sqrt_mul_besselK_of_forall hκ hv hv' hode hx fun _ hu hu' hode' ↦ ?_
+  let ρ : ℝ → ℝ := fun t ↦ (√(t / κ))⁻¹
+  let u : ℝ → ℂ := fun t ↦ (ρ t : ℂ) * v (t / κ)
+  let u' : ℝ → ℂ := fun t ↦ ((-ρ t / (2 * t) : ℝ) : ℂ) * v (t / κ) +
+    ((ρ t / κ : ℝ) : ℂ) * v' (t / κ)
   have hρ0 (t : ℝ) : 0 ≤ ρ t := inv_nonneg.mpr (Real.sqrt_nonneg _)
   have hρ1 (t : ℝ) (ht : κ ≤ t) : ρ t ≤ 1 :=
     inv_le_one_of_one_le₀ (Real.one_le_sqrt.mpr ((one_le_div hκ).mpr ht))
@@ -291,12 +329,7 @@ lemma eq_div_mul_sqrt_mul_besselK_of_ode (hκ : 0 < κ) (hv : ∀ x, 0 < x → H
     rw [norm_mul, norm_mul]
     nlinarith [norm_nonneg (v (t / κ)), norm_nonneg (v' (t / κ)), inv_nonneg.mpr hκ.le,
       norm_nonneg ((-ρ t / (2 * t) : ℝ) : ℂ), norm_nonneg ((ρ t / κ : ℝ) : ℂ)]
-  have key : u (κ * x) = u (κ * x₀) / besselK (I * R) (κ * x₀) * besselK (I * R) (κ * x) :=
-    eq_div_mul_besselK_of_ode_of_ne_zero hu hu' hode' hb₁ hb₂ (mul_pos hκ hx₀) hK (mul_pos hκ hx)
-  have hsx : ((√x : ℝ) : ℂ) ≠ 0 := ofReal_ne_zero.mpr (Real.sqrt_pos.mpr hx).ne'
-  simp only [u, ρ] at key
-  push_cast at key ⊢
-  field_simp at key ⊢
-  linear_combination key
+  exact eq_div_mul_besselK_of_ode_of_ne_zero hu hu' hode' hb₁ hb₂ (mul_pos hκ hx₀) hK
+    (mul_pos hκ hx)
 
 end Complex

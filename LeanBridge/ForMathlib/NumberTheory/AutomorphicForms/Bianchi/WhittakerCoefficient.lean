@@ -65,12 +65,6 @@ namespace HyperbolicThreeSpace
 
 variable {K : Type*} [Field K] {σ : K →+* ℂ}
 
-variable (σ) [IsTotallyComplex K] in
-lemma exists_im_ne_zero_of_isTotallyComplex : ∃ x : K, (σ x).im ≠ 0 := by
-  by_contra h
-  exact IsTotallyComplex.complexEmbedding_not_isReal σ <| ComplexEmbedding.isReal_iff.mpr <|
-    RingHom.ext fun x ↦ conj_eq_iff_im.mpr <| not_not.mp fun hx ↦ h ⟨x, hx⟩
-
 private lemma eq_zero_of_forall_add_conj {ι : Type*} [Fintype ι] (b : Basis ι ℝ ℂ) {ν : ℂ}
     (h : ∀ i, ν * b i + conj (ν * b i) = 0) : ν = 0 := by
   have hz (z : ℂ) : ν * z + conj (ν * z) = 0 := by
@@ -83,14 +77,6 @@ private lemma eq_zero_of_forall_add_conj {ι : Type*} [Fintype ι] (b : Basis ι
 
 variable [NumberField K] {δ : ℂ} {k : ℕ} {x : K} {f : ℂ × ℝ → Fin (k + 1) → ℂ} {c c' : 𝓞 K → ℂ}
   {α : 𝓞 K}
-
-lemma norm_eq_sqrt_of_sq_eq_discr (hδ : δ ^ 2 = discr K) : ‖δ‖ = √|(discr K : ℝ)| := by
-  rw [← Real.sqrt_sq (norm_nonneg δ), ← norm_pow, hδ, norm_intCast]
-
-private lemma integralLatticeBasis_apply_eq (hK : finrank ℚ K = 2) (hx : (σ x).im ≠ 0)
-    (i : Free.ChooseBasisIndex ℤ (𝓞 K)) :
-    integralLatticeBasis σ hK hx i = σ (RingOfIntegers.basis K i) := by
-  rw [integralLatticeBasis, Basis.mk_apply, integralBasis_apply]
 
 private lemma bianchiWhittakerVector_zero_ne_zero {u : ℂ} (hu : u ≠ 0) {t : ℝ} (ht : 0 < t) :
     bianchiWhittakerVector k u t 0 ≠ 0 := by
@@ -112,10 +98,7 @@ lemma eq_zero_of_hasSum_smul_bianchiWhittakerFunction (hK : finrank ℚ K = 2) (
       c β • bianchiWhittakerFunction (σ β.1 / (δ * σ p)) k z) 0) (hα : α ≠ 0) : c α = 0 := by
   choose m hm using fun (β : {α : 𝓞 K // α ≠ 0}) i ↦
     exists_intCast_eq_of_sq_eq_discr σ hK hx hδ (β.1 * RingOfIntegers.basis K i)
-  have hδ₀ : δ ≠ 0 := by
-    rintro rfl
-    rw [zero_pow two_ne_zero, eq_comm, Int.cast_eq_zero] at hδ
-    exact discr_ne_zero K hδ
+  have hδ₀ : δ ≠ 0 := ne_zero_of_sq_eq_discr K hδ
   have hp₀ : σ (p : K) ≠ 0 := (map_ne_zero σ).mpr (RingOfIntegers.coe_ne_zero_iff.mpr hp)
   have hexp (β : {α : 𝓞 K // α ≠ 0}) (v : Free.ChooseBasisIndex ℤ (𝓞 K) → ℝ) :
       cexp (2 * π * I * (σ (β.1 : K) / (δ * σ p) *
@@ -153,7 +136,7 @@ lemma eq_zero_of_hasSum_smul_bianchiWhittakerFunction (hK : finrank ℚ K = 2) (
       have e : (σ (β.1 : K) - σ (β'.1 : K)) / (δ * σ p) * σ p =
           (σ (β.1 : K) - σ (β'.1 : K)) / δ := by
         field_simp
-      rw [integralLatticeBasis_apply_eq, e]
+      rw [integralLatticeBasis_apply, e]
       push_cast at h₁ h₂
       simp only [map_sub, map_mul, map_div₀] at h₁ h₂ ⊢
       linear_combination h₁ - h₂

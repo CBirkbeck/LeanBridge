@@ -68,24 +68,18 @@ lemma apply_zero_of_mem_jacobiFormSpace_two (hφ : φ ∈ jacobiFormSpace 2 1) (
   congrArg (fun F : ModularForm 𝒮ℒ 2 ↦ F τ) <|
     rank_zero_iff_forall_zero.mp levelOne_weight_two_rank_zero (jacobiRestrictZero hφ)
 
-/-- **The coefficients of the restriction to `z = 0`**: if a Jacobi form `φ` of index `1`
-vanishes on `z = 0`, then `∑_r c(n, r) = 0` for every `n`, these being the coefficients of the
-`q`-expansion `φ(τ, 0) = ∑_n (∑_r c(n, r)) qⁿ`. -/
-lemma tsum_jacobiCoeff_eq_zero (hφ : φ ∈ jacobiFormSpace k 1) (h : ∀ τ : ℍ, φ (τ, 0) = 0) (n : ℤ) :
-    ∑' r : ℤ, jacobiCoeff φ (n, r) = 0 := by
-  have hc : HasJacobiFourierExpansion φ (jacobiCoeff φ) :=
-    hasJacobiFourierExpansion_jacobiCoeff_of_mem_jacobiFormSpace hφ
-  have hd : (fun p : ℤ × ℤ ↦ if p.2 = 0 then ∑' r : ℤ, jacobiCoeff φ (p.1, r) else 0) = 0 := by
+lemma tsum_eq_zero_of_hasSum_jacobiFourierExp {c : ℤ × ℤ → ℂ}
+    (hc : ∀ τ : ℍ, HasSum (fun p ↦ c p * jacobiFourierExp p (τ, 0)) 0) (n : ℤ) :
+    ∑' r : ℤ, c (n, r) = 0 := by
+  have hd : (fun p : ℤ × ℤ ↦ if p.2 = 0 then ∑' r : ℤ, c (p.1, r) else 0) = 0 := by
     refine eq_zero_of_hasSum_jacobiFourierExp fun x ↦ ?_
     have he (p : ℤ × ℤ) : jacobiFourierExp p (x.1, 0) = jacobiFourierExp (p.1, 0) x := by
       simp [jacobiFourierExp]
-    have h1 :
-        HasSum (fun m : ℤ ↦ (∑' r : ℤ, jacobiCoeff φ (m, r)) * jacobiFourierExp (m, 0) x) 0 := by
-      rw [← h x.1]
-      refine (hc (x.1, 0)).prod_fiberwise fun m ↦ ?_
-      have hs : Summable fun r : ℤ ↦ jacobiCoeff φ (m, r) * jacobiFourierExp (m, 0) x := by
-        simpa only [he] using (hc (x.1, 0)).summable.prod_factor m
-      have hs' : Summable fun r : ℤ ↦ jacobiCoeff φ (m, r) :=
+    have h1 : HasSum (fun m : ℤ ↦ (∑' r : ℤ, c (m, r)) * jacobiFourierExp (m, 0) x) 0 := by
+      refine (hc x.1).prod_fiberwise fun m ↦ ?_
+      have hs : Summable fun r : ℤ ↦ c (m, r) * jacobiFourierExp (m, 0) x := by
+        simpa only [he] using (hc x.1).summable.prod_factor m
+      have hs' : Summable fun r : ℤ ↦ c (m, r) :=
         (summable_mul_right_iff (Complex.exp_ne_zero _)).mp hs
       simpa only [he] using hs'.hasSum.mul_right (jacobiFourierExp (m, 0) x)
     refine ((Prod.mk_left_injective (0 : ℤ)).hasSum_iff fun p hp ↦ ?_).mp ?_
@@ -93,6 +87,14 @@ lemma tsum_jacobiCoeff_eq_zero (hφ : φ ∈ jacobiFormSpace k 1) (h : ∀ τ : 
       simp [h0]
     · simpa [Function.comp_def] using h1
   simpa using congrFun hd (n, 0)
+
+/-- **The coefficients of the restriction to `z = 0`**: if a Jacobi form `φ` of index `1`
+vanishes on `z = 0`, then `∑_r c(n, r) = 0` for every `n`, these being the coefficients of the
+`q`-expansion `φ(τ, 0) = ∑_n (∑_r c(n, r)) qⁿ`. -/
+lemma tsum_jacobiCoeff_eq_zero (hφ : φ ∈ jacobiFormSpace k 1) (h : ∀ τ : ℍ, φ (τ, 0) = 0) (n : ℤ) :
+    ∑' r : ℤ, jacobiCoeff φ (n, r) = 0 :=
+  tsum_eq_zero_of_hasSum_jacobiFourierExp (fun τ ↦ by
+    simpa only [h τ] using hasJacobiFourierExpansion_jacobiCoeff_of_mem_jacobiFormSpace hφ (τ, 0)) n
 
 /-- **A Jacobi form of index `1` is determined by its Taylor coefficients at `z = 0` of order `0`
 and `2`** (Eichler and Zagier, Theorem 3.5), on Fourier coefficients: if `∑_r c(n, r) = 0` and

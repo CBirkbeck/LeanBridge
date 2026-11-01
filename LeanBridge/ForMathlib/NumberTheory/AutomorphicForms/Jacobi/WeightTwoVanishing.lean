@@ -47,15 +47,9 @@ namespace ModularForm
 variable {k : ℤ} {N : ℕ} {φ : ℍ × ℂ → ℂ} {c : ℤ × ℤ → ℂ} {f : ℂ → ℂ} (p : ℤ × ℤ) (τ : ℍ)
     (γ : SL(2, ℤ)) (n : ℤ) {w : ℂ}
 
-private lemma norm_jacobiFourierExp_eq (x : ℍ × ℂ) :
-    ‖jacobiFourierExp p x‖ = rexp (-(2 * π * (p.1 * x.1.im + p.2 * x.2.im))) := by
-  rw [jacobiFourierExp, Complex.norm_exp]
-  congr 1
-  simp
-
 private lemma norm_jacobiFourierExp_le_add {δ : ℝ} (hw : |w.im| ≤ δ) : ‖jacobiFourierExp p (τ, w)‖ ≤
     ‖jacobiFourierExp p (τ, δ * I)‖ + ‖jacobiFourierExp p (τ, -δ * I)‖ := by
-  norm_num [norm_jacobiFourierExp_eq]
+  norm_num [norm_jacobiFourierExp]
   rcases le_total 0 (p.2 : ℝ) with h | h
   · refine (Real.exp_le_exp.mpr ?_).trans (le_add_of_nonneg_left (Real.exp_pos _).le)
     nlinarith [mul_nonneg (mul_nonneg Real.pi_pos.le h) (by linarith [abs_le.mp hw] : 0 ≤ w.im + δ)]
@@ -185,7 +179,7 @@ lemma mdifferentiable_jacobiSecondDeriv (hφ : φ ∈ jacobiFormSpace k N) :
     by_cases hc : jacobiCoeff φ p = 0
     · simp [hc]
     rw [norm_mul (jacobiCoeff φ p * _ * _), norm_mul (jacobiCoeff φ p * _ * _),
-      norm_jacobiFourierExp_eq]
+      norm_jacobiFourierExp]
     refine mul_le_mul_of_nonneg_left ?_ (norm_nonneg _)
     refine (norm_cexp_mul_le p (nonneg_of_jacobiCoeff_ne_zero hφ hc) hw.le).trans_eq ?_
     simp [τ₀]
@@ -214,7 +208,7 @@ lemma isZeroAtImInfty_jacobiSecondDeriv (hφ : φ ∈ jacobiFormSpace k N) :
       nlinarith [nonneg_of_jacobiCoeff_ne_zero hφ hc0, sq_pos_iff.mpr hp2]
     have ht : Tendsto (fun τ : ℍ ↦ jacobiFourierExp p (τ, 0)) atImInfty (𝓝 0) := by
       refine tendsto_zero_iff_norm_tendsto_zero.mpr ?_
-      simp only [norm_jacobiFourierExp_eq, zero_im, mul_zero, add_zero]
+      simp only [norm_jacobiFourierExp, zero_im, mul_zero, add_zero]
       refine Real.tendsto_exp_atBot.comp <| tendsto_neg_atTop_atBot.comp ?_
       exact (tendsto_comap.const_mul_atTop hp1).const_mul_atTop two_pi_pos
     simpa using ht.const_mul (jacobiCoeff φ p * (2 * π * I * p.2) * (2 * π * I * p.2))
@@ -226,7 +220,7 @@ lemma isZeroAtImInfty_jacobiSecondDeriv (hφ : φ ∈ jacobiFormSpace k N) :
     · simp [hc]
     rw [norm_mul (jacobiCoeff φ p * _ * _), norm_mul (jacobiCoeff φ p * _ * _)]
     refine mul_le_mul_of_nonneg_left ?_ (norm_nonneg _)
-    simp only [norm_jacobiFourierExp_eq, UpperHalfPlane.I_im]
+    simp only [norm_jacobiFourierExp, UpperHalfPlane.I_im]
     have hp : (0 : ℝ) ≤ p.1 := Int.cast_nonneg <| nonneg_of_jacobiCoeff_ne_zero hφ hc
     refine Real.exp_le_exp.mpr ?_
     nlinarith [mul_nonneg (mul_nonneg Real.pi_pos.le hp) (sub_nonneg.mpr hτ)]
@@ -251,26 +245,6 @@ noncomputable def jacobiSecondDerivCuspForm (hφ : φ ∈ jacobiFormSpace k 1)
   zero_at_cusps' hc := (OnePoint.isZeroAt_iff_forall_SL2Z hc).mpr fun γ _ ↦
     (slash_jacobiSecondDeriv γ hφ h0).symm ▸ isZeroAtImInfty_jacobiSecondDeriv hφ
 
-lemma tsum_eq_zero_of_hasSum_jacobiFourierExp
-    (hc : ∀ τ : ℍ, HasSum (fun p ↦ c p * jacobiFourierExp p (τ, 0)) 0) :
-    ∑' r : ℤ, c (n, r) = 0 := by
-  have hd : (fun p : ℤ × ℤ ↦ if p.2 = 0 then ∑' r : ℤ, c (p.1, r) else 0) = 0 := by
-    refine eq_zero_of_hasSum_jacobiFourierExp fun x ↦ ?_
-    have he (p : ℤ × ℤ) : jacobiFourierExp p (x.1, 0) = jacobiFourierExp (p.1, 0) x := by
-      simp [jacobiFourierExp]
-    have h1 : HasSum (fun m : ℤ ↦ (∑' r : ℤ, c (m, r)) * jacobiFourierExp (m, 0) x) 0 := by
-      refine (hc x.1).prod_fiberwise fun m ↦ ?_
-      have hs : Summable fun r : ℤ ↦ c (m, r) * jacobiFourierExp (m, 0) x := by
-        simpa only [he] using (hc x.1).summable.prod_factor m
-      have hs' : Summable fun r : ℤ ↦ c (m, r) :=
-        (summable_mul_right_iff (Complex.exp_ne_zero _)).mp hs
-      simpa only [he] using hs'.hasSum.mul_right (jacobiFourierExp (m, 0) x)
-    refine ((Prod.mk_left_injective (0 : ℤ)).hasSum_iff fun p hp ↦ ?_).mp ?_
-    · have h0 : p.2 ≠ 0 := fun h0 ↦ hp ⟨p.1, Prod.ext rfl h0.symm⟩
-      simp [h0]
-    · simpa [Function.comp_def] using h1
-  simpa using congrFun hd (n, 0)
-
 /-- **The `z²`-coefficients of a Jacobi form vanishing at `z = 0`**: if `φ ∈ J_{k,1}`, `k < 10`,
 satisfies `φ(τ, 0) = 0` for every `τ`, then `∑_r r² c(n, r) = 0` for every `n`, as
 `∂²φ/∂z²(τ, 0) = -4π² ∑_n (∑_r r² c(n, r)) qⁿ` is a cusp form of weight `k + 2 < 12` on
@@ -285,7 +259,7 @@ lemma tsum_sq_mul_jacobiCoeff_eq_zero_of_apply_zero (hφ : φ ∈ jacobiFormSpac
     have hτ : jacobiSecondDeriv φ τ = 0 := congrArg (fun F : CuspForm 𝒮ℒ (k + 2) ↦ F τ) hF
     exact (hτ ▸ hasSum_jacobiSecondDeriv τ hφ).congr_fun fun p ↦ by ring1
   have h : ∑' r : ℤ, (2 * π * I) ^ 2 * ((r : ℂ) ^ 2 * jacobiCoeff φ (n, r)) = 0 :=
-    tsum_eq_zero_of_hasSum_jacobiFourierExp n hc
+    tsum_eq_zero_of_hasSum_jacobiFourierExp hc n
   rw [tsum_mul_left] at h
   exact (mul_eq_zero.mp h).resolve_left (by simp)
 

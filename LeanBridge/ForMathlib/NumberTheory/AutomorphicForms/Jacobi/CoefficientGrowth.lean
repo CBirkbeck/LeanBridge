@@ -120,7 +120,7 @@ noncomputable def jacobiSupBound (f : ℍ × ℂ → ℂ) : ℝ :=
   ∑' p : ℤ × ℤ, ‖jacobiCoeff f p‖ *
     (rexp (-(π * ((p.1 : ℝ) + p.2 / 2))) + rexp (-(π * ((p.1 : ℝ) - p.2 / 2))))
 
-private lemma norm_jacobiFourierExp (p : ℤ × ℤ) (x : ℍ × ℂ) :
+lemma norm_jacobiFourierExp (p : ℤ × ℤ) (x : ℍ × ℂ) :
     ‖jacobiFourierExp p x‖ = rexp (-(2 * π * (p.1 * x.1.im + p.2 * x.2.im))) := by
   rw [jacobiFourierExp, Complex.norm_exp]
   congr 1

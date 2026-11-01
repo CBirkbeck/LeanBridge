@@ -91,7 +91,7 @@ private lemma content_formTransform (h : A * A' = 1) :
   simpa only [formTransform_formTransform, h, formTransform_one] using
     content_dvd A' (formTransform A p)
 
-private lemma sq_mul_disc {d : ℕ} (hd : d ∈ ((n.gcd r : ℤ).gcd m).divisors) :
+lemma sq_mul_disc_of_mem_divisors {d : ℕ} (hd : d ∈ ((n.gcd r : ℤ).gcd m).divisors) :
     (d : ℤ) ^ 2 * (4 * (n * m / (d : ℤ) ^ 2) - (r / d) ^ 2) = 4 * n * m - r ^ 2 := by
   have hd0 : (d : ℤ) ≠ 0 := Nat.cast_ne_zero.mpr (Nat.pos_of_mem_divisors hd).ne'
   have hg : (d : ℤ) ∣ ((n.gcd r : ℤ).gcd m : ℤ) :=
@@ -114,7 +114,8 @@ private lemma liftDivisorSum_eq (hφ : φ ∈ jacobiFormSpace k 1) {n' r' m' : �
   congr 1
   exact jacobiCoeff_eq_of_mem_jacobiFormSpace_one hφ <| mul_left_cancel₀
     (pow_ne_zero 2 (Nat.cast_ne_zero.mpr (Nat.pos_of_mem_divisors hd).ne')) <|
-      (sq_mul_disc n' r' m' (hg ▸ hd)).trans (hD.trans (sq_mul_disc n r m hd).symm)
+      (sq_mul_disc_of_mem_divisors n' r' m' (hg ▸ hd)).trans
+        (hD.trans (sq_mul_disc_of_mem_divisors n r m hd).symm)
 
 lemma liftDivisorSum_eq_zero (hφ : φ ∈ jacobiFormSpace k 1) (h : 4 * n * m < r ^ 2) :
     liftDivisorSum k (jacobiCoeff φ) n r m = 0 :=
@@ -122,7 +123,7 @@ lemma liftDivisorSum_eq_zero (hφ : φ ∈ jacobiFormSpace k 1) (h : 4 * n * m <
     rw [jacobiCoeff_eq_zero_of_mem_jacobiFourierSupported hφ.2.2, mul_zero]
     rintro ⟨-, hle⟩
     have h₁ : (d : ℤ) ^ 2 * (4 * (n * m / (d : ℤ) ^ 2) - (r / d) ^ 2) = 4 * n * m - r ^ 2 :=
-      sq_mul_disc n r m hd
+      sq_mul_disc_of_mem_divisors n r m hd
     simp only [Nat.cast_one] at hle
     linarith [mul_nonneg (sq_nonneg (d : ℤ)) (sub_nonneg.mpr hle)]
 

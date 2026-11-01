@@ -349,21 +349,16 @@ lemma BianchiNewformOfWeight.eigenvalue_mul_coeff_eq (hK : finrank ℚ K = 2) (h
   have hk : Even k := G.even hK
   have h𝔭𝔑' : 𝔭.1 ⊔ 𝔑 = ⊤ := (𝔭.2.1.isMaximal 𝔭.2.2).out.2 _
     (lt_of_le_not_ge le_sup_left fun h ↦ h𝔭𝔑 (le_sup_right.trans h))
-  have hϖ : algebraMap (𝓞 K) K (IsPrincipal.generator 𝔭.1) = bianchiIdealGenerator 𝔭.1 𝔭.2.2 :=
-    rfl
-  have hϖ𝔭 : FractionalIdeal.spanSingleton (𝓞 K)⁰ (bianchiIdealGenerator 𝔭.1 𝔭.2.2 : K) =
-      (𝔭.1 : FractionalIdeal (𝓞 K)⁰ K) := by
-    rw [← hϖ, ← FractionalIdeal.coeIdeal_span_singleton, Ideal.span_singleton_generator]
   have hcard : Nat.card (HeckeTranslations (bianchiIdealGenerator 𝔭.1 𝔭.2.2) 1) =
       Ideal.absNorm 𝔭.1 :=
-    natCard_heckeTranslations _ 𝔭.1 hϖ𝔭
+    natCard_heckeTranslations _ 𝔭.1 (spanSingleton_bianchiIdealGenerator 𝔭.1 𝔭.2.2)
   have hN₀ : Ideal.absNorm 𝔭.1 ≠ 0 := (Ideal.absNorm_eq_zero_iff).not.mpr 𝔭.2.2
   have : Finite (HeckeTranslations (bianchiIdealGenerator 𝔭.1 𝔭.2.2) 1) :=
     Nat.finite_of_card_ne_zero (hcard ▸ hN₀)
   let _ : Fintype (HeckeTranslations (bianchiIdealGenerator 𝔭.1 𝔭.2.2) 1) :=
     Fintype.ofFinite _
   have hN : (Ideal.absNorm 𝔭.1 : ℝ) = ‖σ (bianchiIdealGenerator 𝔭.1 𝔭.2.2)‖ ^ 2 :=
-    absNorm_eq_norm_sq hK hϖ𝔭
+    absNorm_eq_norm_sq hK (spanSingleton_bianchiIdealGenerator 𝔭.1 𝔭.2.2)
   have ht : 0 < ‖σ (bianchiIdealGenerator 𝔭.1 𝔭.2.2)‖ :=
     norm_pos_iff.mpr ((map_ne_zero σ).mpr (bianchiIdealGenerator 𝔭.1 𝔭.2.2).ne_zero)
   have hN' : (((Ideal.absNorm 𝔭.1 : ℝ) ^ (((k : ℝ) - 2) / 4) : ℝ) : ℂ) ≠ 0 :=

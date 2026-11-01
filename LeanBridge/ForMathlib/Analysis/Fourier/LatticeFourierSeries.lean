@@ -42,26 +42,12 @@ open scoped ComplexConjugate ContDiff
 variable (B : Basis (Fin 2) ℝ ℂ) {g g' : ℝ → ℂ} {G H : ℝ × ℝ → ℂ} {f : ℂ → ℂ} {m n : ℤ} {M : ℝ}
   {ν ν' : ℂ} (x y : ℝ) (z : ℂ)
 
-private lemma fourierCoeffOn_zero_one_eq : fourierCoeffOn (lt_add_of_pos_right 0 one_pos) g n =
-    ∫ t in (0 : ℝ)..1, cexp (-(2 * π * I * n * t)) * g t := by
-  rw [fourierCoeffOn_eq_integral]
-  simp only [fourier_coe_apply]
-  norm_num
-
 private lemma intervalIntegral_cexp_mul_eq (hg : ∀ x, HasDerivAt g (g' x) x) (hg' : Continuous g')
     (hp : Periodic g 1) (hn : n ≠ 0) : ∫ t in (0 : ℝ)..1, cexp (-(2 * π * I * n * t)) * g t =
       1 / (2 * π * I * n) * ∫ t in (0 : ℝ)..1, cexp (-(2 * π * I * n * t)) * g' t := by
   have hT : Fact ((0 : ℝ) < 1) := ⟨one_pos⟩
-  rw [← fourierCoeffOn_zero_one_eq, ← fourierCoeffOn_zero_one_eq]
-  simpa using fourierCoeffOn_eq_mul_fourierCoeffOn_deriv hg hg' hp hn
-
-private lemma norm_intervalIntegral_cexp_mul_le (hM : ∀ t ∈ Icc (0 : ℝ) 1, ‖g t‖ ≤ M) :
-    ‖∫ t in (0 : ℝ)..1, cexp (-(2 * π * I * n * t)) * g t‖ ≤ M := by
-  refine (intervalIntegral.norm_integral_le_of_norm_le_const (C := M) fun t ht ↦ ?_).trans_eq
-    (by simp)
-  rw [uIoc_of_le zero_le_one] at ht
-  rw [norm_mul, norm_exp]
-  simpa using hM t (Ioc_subset_Icc_self ht)
+  simpa only [fourierCoeffOn_eq_integral_exp, neg_mul, ofReal_one] using
+    fourierCoeffOn_eq_mul_fourierCoeffOn_deriv hg hg' hp hn
 
 variable (H) in
 /-- `H : ℝ × ℝ → ℂ` is smooth and of period `1` in each variable. -/
@@ -172,8 +158,9 @@ variable (m n) in
 private lemma norm_doubleCoeff_le (hM : ∀ p ∈ Icc (0 : ℝ) 1 ×ˢ Icc (0 : ℝ) 1, ‖H p‖ ≤ M) :
     ‖doubleCoeff H m n‖ ≤ M := by
   rw [doubleCoeff_eq_snd]
-  exact norm_intervalIntegral_cexp_mul_le fun s hs ↦
-    norm_intervalIntegral_cexp_mul_le fun t ht ↦ hM (s, t) ⟨hs, ht⟩
+  have h (s : ℝ) (hs : s ∈ Icc (0 : ℝ) 1) : ‖sndCoeff H n s‖ ≤ M := by
+    simpa only [neg_mul, sndCoeff] using norm_integral_exp_mul_le n fun t ht ↦ hM (s, t) ⟨hs, ht⟩
+  simpa only [neg_mul] using norm_integral_exp_mul_le m h
 
 private lemma norm_inv_two_pi_I_mul_le (hn : n ≠ 0) :
     ‖1 / (2 * π * I * n) * (1 / (2 * π * I * n) * z)‖ ≤ 1 / (n : ℝ) ^ 2 * ‖z‖ := by
@@ -248,30 +235,6 @@ private lemma summable_doubleCoeff (hG : IsSmoothBiperiodic G) :
     exact (mul_le_mul_of_nonneg_left (mul_le_mul_of_nonneg_left hK (by positivity))
       (by positivity)).trans_eq (by ring1)
 
-private lemma hasSum_fourierCoeffOn_of_summable {T : ℝ} [hT : Fact (0 < T)] (hg : Continuous g)
-    (hp : Periodic g T) (hs : Summable (fourierCoeffOn (lt_add_of_pos_right 0 hT.out) g)) :
-    HasSum (fun n : ℤ ↦ fourierCoeffOn (lt_add_of_pos_right 0 hT.out) g n •
-      fourier n (x : AddCircle T)) (g x) := by
-  have hcont : Continuous (AddCircle.liftIco T 0 g) :=
-    AddCircle.liftIco_continuous (hp 0).symm hg.continuousOn
-  have hF :
-      fourierCoeff (AddCircle.liftIco T 0 g) = fourierCoeffOn (lt_add_of_pos_right 0 hT.out) g :=
-    funext fun n ↦ fourierCoeff_liftIco_eq g n
-  have h0 : Summable (fourierCoeff (⟨_, hcont⟩ : C(AddCircle T, ℂ))) := by
-    rw [ContinuousMap.coe_mk, hF]
-    exact hs
-  have h : HasSum (fun n ↦ fourierCoeff (⟨_, hcont⟩ : C(AddCircle T, ℂ)) n •
-      fourier n (x : AddCircle T)) ((⟨_, hcont⟩ : C(AddCircle T, ℂ)) x) :=
-    has_pointwise_sum_fourier_series_of_summable h0 x
-  rw [ContinuousMap.coe_mk, hF] at h
-  convert h using 1
-  have hy : toIcoMod hT.out 0 x = x - toIcoDiv hT.out 0 x • T := by
-    rw [← self_sub_toIcoMod, sub_sub_cancel]
-  have hcoe : ((toIcoMod hT.out 0 x : ℝ) : AddCircle T) = (x : AddCircle T) := by
-    rw [hy, QuotientAddGroup.mk_sub, QuotientAddGroup.mk_zsmul, AddCircle.coe_period, smul_zero,
-      sub_zero]
-  rw [← hcoe, AddCircle.liftIco_coe_apply (toIcoMod_mem_Ico hT.out 0 x), hy, hp.sub_zsmul_eq]
-
 private lemma hasSum_doubleCoeff (hG : IsSmoothBiperiodic G) : HasSum (fun q : ℤ × ℤ ↦
     doubleCoeff G q.1 q.2 * cexp (2 * π * I * (q.1 * x + q.2 * y))) (G (x, y)) := by
   have hT : Fact ((0 : ℝ) < 1) := ⟨one_pos⟩
@@ -285,7 +248,8 @@ private lemma hasSum_doubleCoeff (hG : IsSmoothBiperiodic G) : HasSum (fun q : �
       rw [hG.apply_add_one_fst]
   have hc (m n : ℤ) :
       fourierCoeffOn (lt_add_of_pos_right 0 one_pos) (sndCoeff G n) m = doubleCoeff G m n := by
-    rw [fourierCoeffOn_zero_one_eq, doubleCoeff_eq_snd]
+    rw [fourierCoeffOn_eq_integral_exp, doubleCoeff_eq_snd]
+    simp only [neg_mul]
   have hS : Summable fun q : ℤ × ℤ ↦ doubleCoeff G q.2 q.1 :=
     (Equiv.prodComm ℤ ℤ).summable_iff.mpr (summable_doubleCoeff hG)
   have h₃ (n : ℤ) :
@@ -294,10 +258,10 @@ private lemma hasSum_doubleCoeff (hG : IsSmoothBiperiodic G) : HasSum (fun q : �
       rw [funext fun m ↦ hc m n]
       exact hS.prod_factor n
     simpa only [hc, fourier_coe_apply, smul_eq_mul, ofReal_one, div_one] using
-      hasSum_fourierCoeffOn_of_summable x (ha n) (hap n) hs
+      hasSum_fourierCoeffOn_of_summable (ha n) (hap n) hs x
   have h₄ : HasSum (fun n : ℤ ↦ sndCoeff G n x * cexp (2 * π * I * n * y)) (G (x, y)) := by
-    simpa only [fourierCoeffOn_zero_one_eq, fourier_coe_apply, smul_eq_mul, ofReal_one, div_one,
-      sndCoeff] using hasSum_fourierCoeffOn_of_periodic
+    simpa only [fourierCoeffOn_eq_integral_exp, neg_mul, fourier_coe_apply, smul_eq_mul, ofReal_one,
+      div_one, sndCoeff] using hasSum_fourierCoeffOn_of_periodic
         (hasDerivAt_snd_of_differentiable x · hG.differentiable)
         (hasDerivAt_snd_of_differentiable x · (hG.fderiv (0, 1)).differentiable)
         (((hG.fderiv (0, 1)).fderiv (0, 1)).contDiff.continuous.comp (by fun_prop))

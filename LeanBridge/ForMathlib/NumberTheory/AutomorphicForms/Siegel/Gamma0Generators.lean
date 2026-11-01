@@ -163,7 +163,7 @@ lemma rotation_mul_apply_inr_of_eq_zero (h₀ : γ.1 (.inr 0) j = 0) (h₁ : γ.
     (rotation M * γ).1 (.inr i) j = 0 := by
   fin_cases i <;> simp [rotation, Matrix.mul_apply, h₀, h₁]
 
-private lemma fromBlocks_toBlocks_mem :
+lemma fromBlocks_toBlocks_mem :
     fromBlocks γ.1.toBlocks₁₁ γ.1.toBlocks₁₂ γ.1.toBlocks₂₁ γ.1.toBlocks₂₂ ∈
       symplecticGroup (Fin 2) R := by
   rw [fromBlocks_toBlocks]

@@ -31,9 +31,9 @@ theorems, not proved here; `U_𝔭` is not self-adjoint in general.
 
 ## Main definitions
 
+* `HyperbolicThreeSpace.bianchiIdealGenerator`: a generator of a nonzero ideal of `𝒪_K`.
 * `HyperbolicThreeSpace.bianchiHeckeOperatorModularForms` (LMFDB `mf.bianchi.hecke_algebra`): the
   Hecke operator of a double coset on `M_k(Γ₀(𝔑))`.
-* `HyperbolicThreeSpace.bianchiIdealGenerator`: a generator of a nonzero ideal of `𝒪_K`.
 * `HyperbolicThreeSpace.bianchiHeckeTPrime` (LMFDB `mf.bianchi.hecke_algebra`): the Hecke operator
   `T_𝔭` on `M_k(Γ₀(𝔑))`.
 * `HyperbolicThreeSpace.bianchiHeckeAlgebra` (LMFDB `mf.bianchi.hecke_algebra`): the Hecke
@@ -55,7 +55,7 @@ open Complex Matrix NumberField HilbertModularGroup
 
 open Submodule (IsPrincipal)
 
-open scoped ComplexConjugate MatrixGroups Topology
+open scoped ComplexConjugate MatrixGroups Topology nonZeroDivisors
 
 namespace HyperbolicThreeSpace
 
@@ -285,6 +285,23 @@ lemma HasPolynomialGrowthAtCusps.bianchiSlash (hF : HasPolynomialGrowthAtCusps �
     inv_mul_le_iff₀ (by positivity), mul_one]
   nlinarith
 
+section
+
+variable [NumberField K] [IsPrincipalIdealRing (𝓞 K)] (𝔭 : Ideal (𝓞 K)) (h𝔭 : 𝔭 ≠ ⊥)
+
+/-- A generator `π ∈ Kˣ` of a nonzero ideal `𝔭` of `𝒪_K`, a principal ideal domain. -/
+noncomputable def bianchiIdealGenerator : Kˣ :=
+  Units.mk0 (algebraMap (𝓞 K) K (IsPrincipal.generator 𝔭)) <|
+    (map_ne_zero_iff _ RingOfIntegers.coe_injective).mpr fun h ↦
+      h𝔭 ((IsPrincipal.eq_bot_iff_generator_eq_zero 𝔭).mpr h)
+
+lemma spanSingleton_bianchiIdealGenerator :
+    FractionalIdeal.spanSingleton (𝓞 K)⁰ (bianchiIdealGenerator 𝔭 h𝔭 : K) = 𝔭 := by
+  rw [bianchiIdealGenerator, Units.val_mk0, ← FractionalIdeal.coeIdeal_span_singleton,
+    Ideal.span_singleton_generator]
+
+end
+
 variable [IsTotallyComplex K] {𝔑 : Ideal (𝓞 K)}
 
 lemma IsBianchiModularForm.mem_bianchiSlashInvariants (hF : IsBianchiModularForm σ 𝔑.gamma0GL k F) :
@@ -350,12 +367,6 @@ lemma coe_bianchiHeckeOperatorModularForms (Φ : bianchiModularForms σ 𝔑.gam
   rfl
 
 variable [IsPrincipalIdealRing (𝓞 K)] (𝔭 : Ideal (𝓞 K)) (h𝔭 : 𝔭 ≠ ⊥)
-
-/-- A generator `π ∈ Kˣ` of a nonzero ideal `𝔭` of `𝒪_K`, a principal ideal domain. -/
-noncomputable def bianchiIdealGenerator : Kˣ :=
-  Units.mk0 (algebraMap (𝓞 K) K (IsPrincipal.generator 𝔭)) <|
-    (map_ne_zero_iff _ RingOfIntegers.coe_injective).mpr fun h ↦
-      h𝔭 ((IsPrincipal.eq_bot_iff_generator_eq_zero 𝔭).mpr h)
 
 /-- The **Hecke operator `T_𝔭`** (LMFDB `mf.bianchi.hecke_algebra`) on the space `M_k(Γ₀(𝔑))` of
 Bianchi modular forms of weight `k` and level `Γ₀(𝔑)`, for a nonzero prime `𝔭 = (π)` of `𝒪_K`, a

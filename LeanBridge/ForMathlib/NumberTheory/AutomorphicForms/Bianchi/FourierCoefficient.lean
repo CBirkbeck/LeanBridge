@@ -781,10 +781,13 @@ private lemma conj_mul_conj_sub (u v : ℂ) :
   ring1
 
 variable (K) in
-private lemma ne_zero_of_sq_eq_discr (hδ : δ ^ 2 = discr K) : δ ≠ 0 := by
+lemma ne_zero_of_sq_eq_discr (hδ : δ ^ 2 = discr K) : δ ≠ 0 := by
   intro h
   rw [h, zero_pow two_ne_zero, eq_comm, Int.cast_eq_zero] at hδ
   exact discr_ne_zero K hδ
+
+lemma norm_eq_sqrt_of_sq_eq_discr (hδ : δ ^ 2 = discr K) : ‖δ‖ = √|(discr K : ℝ)| := by
+  rw [← Real.sqrt_sq (norm_nonneg δ), ← norm_pow, hδ, norm_intCast]
 
 /-- **The frequencies `σ(z) / √Δ`, `z ∈ 𝒪_K`, are dual to `σ(𝒪_K)`**: for a quadratic field `K`
 embedded in `ℂ` by `σ` with `σ(K) ⊄ ℝ` and `δ² = Δ`, `σ(z) / δ + conj(σ(z) / δ)` is an integer
@@ -905,12 +908,12 @@ noncomputable def integralLatticeBasis (hK : finrank ℚ K = 2) (hx : (σ x).im 
 
 variable {σ}
 
-private lemma integralLatticeBasis_apply (hK : finrank ℚ K = 2) (hx : (σ x).im ≠ 0)
+lemma integralLatticeBasis_apply (hK : finrank ℚ K = 2) (hx : (σ x).im ≠ 0)
     (i : Free.ChooseBasisIndex ℤ (𝓞 K)) :
     integralLatticeBasis σ hK hx i = σ (RingOfIntegers.basis K i) := by
   rw [integralLatticeBasis, Basis.mk_apply, integralBasis_apply]
 
-private lemma span_integralLatticeBasis_le (hK : finrank ℚ K = 2) (hx : (σ x).im ≠ 0)
+lemma span_integralLatticeBasis_le_cuspTranslations (hK : finrank ℚ K = 2) (hx : (σ x).im ≠ 0)
     (hΓ : ∀ a : 𝓞 K, ∃ γ ∈ Γ, (γ : Matrix (Fin 2) (Fin 2) (𝓞 K)) = !![1, a; 0, 1]) :
     (Submodule.span ℤ (range (integralLatticeBasis σ hK hx))).toAddSubgroup ≤
       cuspTranslations σ Γ 1 := by
@@ -1010,9 +1013,8 @@ lemma IsBianchiModularForm.hasBianchiWhittakerExpansion_of_finrank_eq_two
         (F z)) : HasBianchiWhittakerExpansion σ δ k (extend F) fun α ↦
     bianchiFourierCoeff (ZSpan.fundamentalDomain (integralLatticeBasis σ hK hx)) (σ α / δ) F 1 0 /
       bianchiWhittakerVector k (σ α / δ / ‖σ α / δ‖) (4 * π * ‖σ α / δ‖) 0 := by
-  have hδ' : ‖δ‖ = √|(discr K : ℝ)| := by
-    rw [← Real.sqrt_sq (norm_nonneg δ), ← norm_pow, hδ, norm_intCast]
-  exact hF.hasBianchiWhittakerExpansion_of_basis _ (span_integralLatticeBasis_le hK hx hΓ) hk hδ'
+  exact hF.hasBianchiWhittakerExpansion_of_basis _
+    (span_integralLatticeBasis_le_cuspTranslations hK hx hΓ) hk (norm_eq_sqrt_of_sq_eq_discr hδ)
     (fun α _ ↦ cexp_eq_one_of_mem_span hK hx hδ α) fun z ↦
       (dualEquiv hK hx hδ).hasSum_iff.mpr (hsum z)
 
@@ -1047,7 +1049,8 @@ lemma IsBianchiModularForm.hasBianchiWhittakerExpansion_of_isBianchiCuspidal
       bianchiWhittakerVector k (σ α / δ / ‖σ α / δ‖) (4 * π * ‖σ α / δ‖) 0 := by
   have hT : cuspTranslations σ Γ 1 =
       (Submodule.span ℤ (range (integralLatticeBasis σ hK hx))).toAddSubgroup :=
-    le_antisymm (cuspTranslations_le_span hK hx) (span_integralLatticeBasis_le hK hx hΓ)
+    le_antisymm (cuspTranslations_le_span hK hx)
+      (span_integralLatticeBasis_le_cuspTranslations hK hx hΓ)
   have hP : IsAddFundamentalDomain (cuspTranslations σ Γ 1)
       (ZSpan.fundamentalDomain (integralLatticeBasis σ hK hx)) :=
     hT ▸ ZSpan.isAddFundamentalDomain' _ _

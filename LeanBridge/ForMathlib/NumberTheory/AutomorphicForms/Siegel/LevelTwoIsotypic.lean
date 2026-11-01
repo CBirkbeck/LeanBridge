@@ -96,6 +96,33 @@ noncomputable def gammaOneMultiplicity (ν : Nat.Partition 3) : ℕ :=
   finrank ℂ (Representation.IntertwiningMap (TauCeti.spechtModuleℂ ν).ρ
     (gammaOneVectorSymmetricRep k j))
 
+private lemma map_invariants_eq_modularFormsKJ {P : Type*} [Group P]
+    {H K : Subgroup (Matrix.symplecticGroup (Fin 2) ℤ)}
+    (σ : Representation ℂ P (modularFormsKJ k j (H.map (SymplecticGroup.map (Int.castRingHom ℚ)))))
+    (hHK : H ≤ K) (h₁ : ∀ p, ∃ γ ∈ K, ∀ F,
+      (σ p F).1 = slash (rhoKJ k j) (SymplecticGroup.map (Int.castRingHom ℝ) γ⁻¹) F)
+    (h₂ : ∀ γ ∈ K, ∃ p, ∀ F,
+      (σ p F).1 = slash (rhoKJ k j) (SymplecticGroup.map (Int.castRingHom ℝ) γ⁻¹) F) :
+    Submodule.map (modularFormsKJ k j (H.map (SymplecticGroup.map (Int.castRingHom ℚ)))).subtype
+      (Representation.invariants
+        (V := modularFormsKJ k j (H.map (SymplecticGroup.map (Int.castRingHom ℚ)))) σ) =
+      modularFormsKJ k j (K.map (SymplecticGroup.map (Int.castRingHom ℚ))) := by
+  ext f
+  refine ⟨fun hf ↦ ?_, fun hf ↦ ?_⟩
+  · rcases Submodule.mem_map.mp hf with ⟨F, hF, rfl⟩
+    refine mem_modularFormsKJ_of_slash_eq k F.2.1 fun γ hγ ↦ ?_
+    rcases h₂ γ⁻¹ (inv_mem hγ) with ⟨p, hp⟩
+    have e : slash (rhoKJ k j) (SymplecticGroup.map (Int.castRingHom ℝ) γ⁻¹⁻¹) F = F :=
+      (hp F).symm.trans (congrArg Subtype.val ((Representation.mem_invariants _ _).mp hF p))
+    rwa [inv_inv] at e
+  · have hf' : f ∈ modularFormsKJ k j (H.map (SymplecticGroup.map (Int.castRingHom ℚ))) :=
+      mem_modularFormsKJ_of_slash_eq k hf.1 fun δ hδ ↦
+        mem_intSlashInvariants_of_mem_modularForms _ _ hf δ (hHK hδ)
+    refine Submodule.mem_map.mpr ⟨⟨f, hf'⟩, (Representation.mem_invariants _ _).mpr fun p ↦ ?_, rfl⟩
+    rcases h₁ p with ⟨γ, hγ, hp⟩
+    exact Subtype.ext <|
+      (hp _).trans (mem_intSlashInvariants_of_mem_modularForms _ _ hf _ (inv_mem hγ))
+
 /-- **`M_{k,j}(Sp(4, ℤ))` is the space of `S₆`-invariants of `M_{k,j}(Γ[2])`** (LMFDB
 `mf.siegel.family.gamma_2`): a modular form on `Γ[2]` is one on `Sp(4, ℤ)` exactly when it is fixed
 by `S₆ ≅ Sp(4, ℤ)/Γ[2]`, so the trivial isotypic part `s[6]` of `M_{k,j}(Γ[2])` is
@@ -104,25 +131,15 @@ lemma map_invariants_levelTwoVectorSymmetricRep : Submodule.map
     (modularFormsKJ k j IgusaLevelTwo.principal).subtype (Representation.invariants
       (V := modularFormsKJ k j IgusaLevelTwo.principal) (levelTwoVectorSymmetricRep k j)) =
     modularFormsKJ k j (integral (Fin 2)) := by
-  ext f
-  refine ⟨fun hf ↦ ?_, fun hf ↦ ?_⟩
-  · rcases Submodule.mem_map.mp hf with ⟨F, hF, rfl⟩
-    refine mem_modularFormsKJ_of_slash_eq k F.2.1 fun γ _ ↦ ?_
-    have h : levelTwoVectorSymmetricRep k j (quotientGammaTwoEquivPerm γ⁻¹) F = F :=
-      (Representation.mem_invariants _ _).mp hF _
-    rw [levelTwoVectorSymmetricRep, MonoidHom.comp_apply, MulEquiv.coe_toMonoidHom,
-      MulEquiv.symm_apply_apply] at h
-    have e : slash (rhoKJ k j) (SymplecticGroup.map (Int.castRingHom ℝ) γ⁻¹⁻¹) F = F :=
-      congrArg Subtype.val h
-    rwa [inv_inv] at e
-  · have hf' : f ∈ modularFormsKJ k j IgusaLevelTwo.principal :=
-      mem_modularFormsKJ_of_slash_eq k hf.1 fun δ _ ↦
-        mem_intSlashInvariants_of_mem_modularForms _ _ hf δ (Subgroup.mem_top δ)
-    refine Submodule.mem_map.mpr ⟨⟨f, hf'⟩, (Representation.mem_invariants _ _).mpr fun σ ↦ ?_, rfl⟩
-    rcases QuotientGroup.mk_surjective (quotientGammaTwoEquivPerm.symm σ) with ⟨x, hx⟩
-    refine Subtype.ext ?_
+  refine map_invariants_eq_modularFormsKJ k j (levelTwoVectorSymmetricRep k j) le_top (fun p ↦ ?_)
+    fun γ _ ↦ ⟨quotientGammaTwoEquivPerm γ, fun F ↦ ?_⟩
+  · rcases QuotientGroup.mk_surjective (quotientGammaTwoEquivPerm.symm p) with ⟨x, hx⟩
+    refine ⟨x, Subgroup.mem_top x, fun F ↦ ?_⟩
     rw [levelTwoVectorSymmetricRep, MonoidHom.comp_apply, MulEquiv.coe_toMonoidHom, ← hx]
-    exact mem_intSlashInvariants_of_mem_modularForms _ _ hf _ (Subgroup.mem_top x⁻¹)
+    rfl
+  · rw [levelTwoVectorSymmetricRep, MonoidHom.comp_apply, MulEquiv.coe_toMonoidHom,
+      MulEquiv.symm_apply_apply]
+    rfl
 
 /-- **`M_{k,j}(Γ₀[2])` is the space of `S₃`-invariants of `M_{k,j}(Γ₁[2])`** (LMFDB
 `mf.siegel.family.gamma_2`): a modular form on `Γ₁[2]` is one on `Γ₀[2]` exactly when it is fixed
@@ -132,26 +149,15 @@ lemma map_invariants_gammaOneVectorSymmetricRep : Submodule.map
     (Representation.invariants (V := modularFormsKJ k j ((Gamma1 (Fin 2) 2).map
       (SymplecticGroup.map (Int.castRingHom ℚ)))) (gammaOneVectorSymmetricRep k j)) =
     modularFormsKJ k j ((Gamma0 (Fin 2) 2).map (SymplecticGroup.map (Int.castRingHom ℚ))) := by
-  ext f
-  refine ⟨fun hf ↦ ?_, fun hf ↦ ?_⟩
-  · rcases Submodule.mem_map.mp hf with ⟨F, hF, rfl⟩
-    refine mem_modularFormsKJ_of_slash_eq k F.2.1 fun γ hγ ↦ ?_
-    have h : gammaOneVectorSymmetricRep k j
-        (quotientGammaOneGamma0EquivPerm (⟨γ⁻¹, inv_mem hγ⟩ : Gamma0 (Fin 2) 2)) F = F :=
-      (Representation.mem_invariants _ _).mp hF _
-    rw [gammaOneVectorSymmetricRep, MonoidHom.comp_apply, MulEquiv.coe_toMonoidHom,
-      MulEquiv.symm_apply_apply] at h
-    have e : slash (rhoKJ k j) (SymplecticGroup.map (Int.castRingHom ℝ) γ⁻¹⁻¹) F = F :=
-      congrArg Subtype.val h
-    rwa [inv_inv] at e
-  · have hf' :
-        f ∈ modularFormsKJ k j ((Gamma1 (Fin 2) 2).map (SymplecticGroup.map (Int.castRingHom ℚ))) :=
-      mem_modularFormsKJ_of_slash_eq k hf.1 fun δ hδ ↦
-        mem_intSlashInvariants_of_mem_modularForms _ _ hf δ (Gamma1_le_Gamma0 2 hδ)
-    refine Submodule.mem_map.mpr ⟨⟨f, hf'⟩, (Representation.mem_invariants _ _).mpr fun σ ↦ ?_, rfl⟩
-    rcases QuotientGroup.mk_surjective (quotientGammaOneGamma0EquivPerm.symm σ) with ⟨x, hx⟩
-    refine Subtype.ext ?_
+  refine map_invariants_eq_modularFormsKJ k j (gammaOneVectorSymmetricRep k j) (Gamma1_le_Gamma0 2)
+    (fun p ↦ ?_) fun γ hγ ↦ ⟨quotientGammaOneGamma0EquivPerm (⟨γ, hγ⟩ : Gamma0 (Fin 2) 2),
+      fun F ↦ ?_⟩
+  · rcases QuotientGroup.mk_surjective (quotientGammaOneGamma0EquivPerm.symm p) with ⟨x, hx⟩
+    refine ⟨x, x.2, fun F ↦ ?_⟩
     rw [gammaOneVectorSymmetricRep, MonoidHom.comp_apply, MulEquiv.coe_toMonoidHom, ← hx]
-    exact mem_intSlashInvariants_of_mem_modularForms _ _ hf _ (x⁻¹).2
+    rfl
+  · rw [gammaOneVectorSymmetricRep, MonoidHom.comp_apply, MulEquiv.coe_toMonoidHom,
+      MulEquiv.symm_apply_apply]
+    rfl
 
 end SiegelUpperHalfSpace
