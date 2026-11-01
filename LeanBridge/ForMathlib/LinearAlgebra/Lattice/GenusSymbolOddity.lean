@@ -17,7 +17,9 @@ For a Jordan decomposition `⊕_q q f_q` over the powers `q = 2 ^ k` and a scale
 the constituents. When the constituent of scale `2 ^ m` has type `II` (zero constituents included),
 the Gauss sum `Σ_(x ∈ L ⊗ ℤ_2 / 2 ^ m) exp(2 π i x² / 2 ^ (m + 1))` is `ζ₈ ^ Θ_m` times a positive
 real, so that `Θ_m` is an isometry invariant of the dyadic localization and a genus invariant; this
-classical fact is not formalised here, and enters the results below as a hypothesis.
+classical fact enters the results below as a hypothesis, and is proved in
+`LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolGaussSum`
+(`TauCeti.IntegralLattice.SameGenus.dyadicGaussOddity_eq`), where the results are unconditional.
 
 The main result is that the oddities of the compartments of the canonical symbol are determined by
 the scales and types of the constituents, the signs of the trains and the Gauss oddities at the
@@ -28,7 +30,8 @@ prepending a constituent to a symbol changes the canonical oddities of at most t
 its oddity and by the sign walk between it and the next constituent
 (`TauCeti.IntegralLattice.DyadicBlock.map_canonicalOddity_cons_cons`). For a lattice, the
 oddities of the compartments of its canonical `2`-adic symbol, and so its label (LMFDB
-`lattice.genus_label`), are genus invariants as soon as the Gauss oddities are.
+`lattice.genus_label`), are genus invariants as soon as the Gauss oddities are, which they are
+(`LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolGaussSum`).
 
 ## Main definitions
 
@@ -713,7 +716,8 @@ the partial sum `⊕_(q < 2 ^ m) q f_q`. When the constituent of scale `2 ^ m` h
 so that `Θ_m` does not depend on the splitting and is a genus invariant: the sum is the product of
 those of the constituents, and that of a unimodular form `f` of rank `n` over `ℤ_2` modulo `2 ^ s`,
 `s ≥ 1`, is `2 ^ (n s / 2) ε ^ s ζ₈ ^ t` with the sign `ε` and the oddity `t` of `f`. This
-classical fact is not formalised here. -/
+classical fact is proved in `LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolGaussSum`
+(`TauCeti.IntegralLattice.SameGenus.dyadicGaussOddity_eq`). -/
 noncomputable def dyadicGaussOddity : ZMod 8 :=
   DyadicBlock.gaussOddity L.dyadicConstituents m
 
@@ -765,8 +769,9 @@ lemma oddity_eq_zero_of_mem_dyadicConstituents (hz : z ∈ L.dyadicConstituents)
 /-- **The oddities of the compartments of the canonical `2`-adic symbol are genus invariants once
 the Gauss oddities are.** If `L` and `M` are in the same genus and have the same Gauss oddity
 `Θ_m` at every scale `2 ^ m` at which the dyadic Jordan constituent of `L` has type `II` (a genus
-invariant by Gauss sums, not formalised here), then the canonical `2`-adic symbols of `L` and `M`
-have the same oddities of the compartments. -/
+invariant by Gauss sums: `SameGenus.dyadicGaussOddity_eq`, where this lemma is made unconditional as
+`SameGenus.compartmentOddities_eq`), then the canonical `2`-adic symbols of `L` and `M` have the
+same oddities of the compartments. -/
 lemma SameGenus.compartmentOddities_eq_of_dyadicGaussOddity_eq (h : L.SameGenus M)
     (hΘ : ∀ m, L.dyadicJordanType m = .II → L.dyadicGaussOddity m = M.dyadicGaussOddity m) :
     L.compartmentOddities = M.compartmentOddities :=
@@ -779,7 +784,8 @@ lemma SameGenus.compartmentOddities_eq_of_dyadicGaussOddity_eq (h : L.SameGenus 
 
 /-- **The label of the genus is a genus invariant once the Gauss oddities are**: lattices in the
 same genus with the same Gauss oddities at the scales at which the dyadic Jordan constituent of
-`L` has type `II` (a genus invariant by Gauss sums, not formalised here) have the same label (LMFDB
+`L` has type `II` (a genus invariant by Gauss sums: `SameGenus.dyadicGaussOddity_eq`, where this
+lemma is made unconditional as `SameGenus.canonicalGenusLabel_congr`) have the same label (LMFDB
 `lattice.genus_label`). -/
 lemma SameGenus.canonicalGenusLabel_eq_of_dyadicGaussOddity_eq (h : L.SameGenus M)
     (hΘ : ∀ m, L.dyadicJordanType m = .II → L.dyadicGaussOddity m = M.dyadicGaussOddity m) :

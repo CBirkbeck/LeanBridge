@@ -16,12 +16,18 @@ two cosine expansions of `f`, or two absolutely convergent sine expansions, have
 coefficients, as soon as the `K`-Bessel function `K_{iR}` does not vanish identically on
 `(0, ∞)`. They do not depend on the sign of `R`.
 
-Not proved here: the existence of the expansions (the Fourier expansion of a Maass cusp form, whose
-coefficients solve the modified Bessel equation and are forced to be multiples of `K_{iR}` by
-square-integrability), the non-vanishing of `K_{iR}` somewhere on `(0, ∞)` (its asymptotics
-`K_ν(x) ~ √(π / 2x) e^{-x}`), the absolute convergence of sine expansions, and the reality of the
-`a(n)` of a newform (the self-adjointness of the Hecke operators and multiplicity one). So the
-coefficients of a newform are a function of the newform only through these theorems.
+Proved elsewhere: the non-vanishing of `K_{iR}` somewhere on `(0, ∞)`
+(`Complex.exists_besselK_ne_zero` in
+`LeanBridge.ForMathlib.Analysis.SpecialFunctions.BesselKNonvanishing`), which with `HasMaassCosineExpansion.unique` and `HasMaassSineExpansion.unique` (in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.CoefficientsUnique`) makes the
+coefficients of every expansion unique, sine expansions included without absolute convergence; and
+the existence of the expansions for every Maass form with vanishing constant term and polynomial
+growth of `f` and `∂f/∂y` (`IsMaassNewform.hasMaassCosineExpansion_maassCoefficients` and its sine
+analogue in `LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformExpansion`). Not
+proved: that a newform has these cusp-form properties (`IsMaassNewform` asks only for
+square-integrability, and the constant `1` satisfies it without having an expansion), and the
+reality of the `a(n)` of a newform normalised by `a(1) = 1` (the self-adjointness of the Hecke
+operators and multiplicity one).
 
 ## Main definitions
 
@@ -58,7 +64,8 @@ provided `K_{iR}` does not vanish identically on `(0, ∞)`, and do not depend o
 (`maassCoefficients_neg`). For a Maass newform `f`
 of weight `0` on `Γ₀(N)` with eigenvalue `1/4 + R²` (`IsMaassNewform`), the LMFDB's coefficients
 are those of the newform normalised by `a(1) = 1`, which are real; the existence of the expansion
-and the reality are not proved here. -/
+is proved in `LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformExpansion` for
+newforms with vanishing constant term and polynomial growth, and the reality is not proved. -/
 noncomputable def maassCoefficients : ℕ+ → ℂ :=
   if h : ∃ c, HasMaassCosineExpansion f r c then h.choose
   else if h' : ∃ c, HasMaassSineExpansion f r c then h'.choose else 0

@@ -53,7 +53,7 @@ For an {bpref "lattice.definition"}[integral lattice], $`L`, the number of {bpre
 Depends on: {uses "lattice.definition"}[] {uses "lattice.genus"}[] {uses "lattice.isometry"}[]
 :::
 
-:::definition "lattice.conway_genus_symbol"
+:::definition "lattice.conway_genus_symbol" (lean := "TauCeti.IntegralLattice.conwayGenusSymbolSigned, TauCeti.IntegralLattice.SameGenus.conwayGenusSymbolSigned_eq, TauCeti.IntegralLattice.compartmentOddities, TauCeti.IntegralLattice.trainSigns, TauCeti.IntegralLattice.SameGenus.compartmentOddities_eq, TauCeti.IntegralLattice.SameGenus.trainSigns_eq")
 *Conway symbol.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.conway_genus_symbol))
 
 The *Conway genus symbol* of an {bpref "lattice.definition"}[integral lattice] $`L` is an invariant of the {bpref "lattice.genus"}[genus] of $`L`.  It is given in the form $`\text{I}_{r,s}(\cdots)` or $`\text{II}_{r,s}(\cdots)` where the Roman numeral $`\text{I}` or $`\text{II}` indicates the type of $`L`, and $`(r,s)` is the {bpref "lattice.signature"}[signature] of $`L`.

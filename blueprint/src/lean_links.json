@@ -3014,6 +3014,14 @@
     "TauCeti.IntegralLattice.Isometry": "TauCeti.LinearAlgebra.IntegralLattice.Isometry.Basic",
     "TauCeti.IntegralLattice.specialOrthogonalGroup": "TauCeti.LinearAlgebra.IntegralLattice.Isometry.Group"
   },
+  "lattice.conway_genus_symbol": {
+    "TauCeti.IntegralLattice.conwayGenusSymbolSigned": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolSign",
+    "TauCeti.IntegralLattice.SameGenus.conwayGenusSymbolSigned_eq": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolSign",
+    "TauCeti.IntegralLattice.compartmentOddities": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolCanonical",
+    "TauCeti.IntegralLattice.trainSigns": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolCanonical",
+    "TauCeti.IntegralLattice.SameGenus.compartmentOddities_eq": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolGaussSum",
+    "TauCeti.IntegralLattice.SameGenus.trainSigns_eq": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolStopSign"
+  },
   "lattice.covering_radius": {
     "ZLattice.inhomogeneousMinimum": "LeanBridge.ForMathlib.Algebra.Module.ZLattice.CoveringRadius",
     "ZLattice.coveringRadius": "LeanBridge.ForMathlib.Algebra.Module.ZLattice.CoveringRadius",

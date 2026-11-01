@@ -18,8 +18,10 @@ Every input of the label but the compartment oddities is a genus invariant, the 
 `LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolStopSign`. So the label is a genus invariant
 as soon as the compartment oddities are, which is proved when the `2`-adic symbol has no
 compartment (all its constituents have type `II`) and when the dyadic localization is modular, for
-instance when the determinant is odd. In general this is the part of Conway and Sloane's theorem
-that the canonical `2`-adic symbol is a genus invariant that is not proved.
+instance when the determinant is odd. In general it is proved in
+`LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolGaussSum`
+(`TauCeti.IntegralLattice.SameGenus.canonicalGenusLabel_congr`), through the Gauss oddities of
+`LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolOddity` and dyadic Gauss sums.
 
 ## Main definitions
 

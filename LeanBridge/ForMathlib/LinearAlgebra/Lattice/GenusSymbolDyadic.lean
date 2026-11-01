@@ -23,8 +23,9 @@ version.
 The sign and the oddity of a constituent do not depend on the choice of basis or characteristic
 vector, but they depend on the Jordan decomposition: only the total oddity of each compartment and
 the total sign of each train are invariants, up to the rules of oddity fusion and sign walking,
-which lead to Conway and Sloane's canonical `2`-adic symbol. That normal form and its invariance
-are not formalised.
+which lead to Conway and Sloane's canonical `2`-adic symbol. That normal form is formalised in
+`LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolCanonical`, and its genus invariance in
+`LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolGaussSum`.
 
 ## Main definitions
 

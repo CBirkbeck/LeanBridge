@@ -161,6 +161,10 @@ import LeanBridge.ForMathlib.LinearAlgebra.Lattice.DiscriminantConventions
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.DiscriminantForm
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.Dual
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.FestiVeniani
+import LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolCanonical
+import LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolGaussSum
+import LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolSign
+import LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolStopSign
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.Kissing
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.OrthogonalDecomposition
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.RootSublattice
