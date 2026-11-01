@@ -12,8 +12,11 @@ square-integrability), then, if `F` is even, it has the cosine expansion
 `F(x + iy) = ∑_{n ≥ 1} a(n) √y K_{iR}(2πny) cos(2πnx)` with `a = maassCoefficients R F` (LMFDB
 `mf.maass.mwf.coefficients`), and if it is odd, the sine expansion with these coefficients. The
 coefficients are unique (`UpperHalfPlane.HasMaassCosineExpansion.unique`,
-`UpperHalfPlane.HasMaassSineExpansion.unique`), so they are a function of `F`; their reality for
-the newform normalised by `a(1) = 1` is not proved here.
+`UpperHalfPlane.HasMaassSineExpansion.unique`), so they are a function of `F`. For cusp newforms
+(`UpperHalfPlane.IsMaassCuspNewform`, which removes the constant-term hypothesis) the normalised
+coefficients `a(n) / a(1)` are real for `n` prime to `N`, and `a(1) ≠ 0` at level `1`
+(`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.CuspNewform`); `a(1) ≠ 0` at higher
+level and the reality of the other coefficients are not proved.
 
 ## Main results
 

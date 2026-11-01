@@ -137,6 +137,7 @@ import LeanBridge.ForMathlib.AlgebraicGeometry.Variety.Projective
 import LeanBridge.ForMathlib.AlgebraicTopology.TopologicalGenus
 import LeanBridge.ForMathlib.Analysis.Complex.UpperHalfPlane.Completed
 import LeanBridge.ForMathlib.Analysis.Complex.UpperHalfPlane.StripIntegral
+import LeanBridge.ForMathlib.Analysis.Fourier.LatticeFourierSeries
 import LeanBridge.ForMathlib.Analysis.Fourier.PeriodicFourierSeries
 import LeanBridge.ForMathlib.Analysis.SpecialFunctions.BesselK
 import LeanBridge.ForMathlib.Analysis.SpecialFunctions.BesselKNonvanishing
@@ -272,6 +273,7 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.ComplexMultip
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.CongruenceSubgroup
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.FourierBessel
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.FourierCoefficient
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.FourierInversion
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.Fricke
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.HarmonicOneForm
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.HeckeAlgebra
@@ -296,6 +298,7 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.FourierCoeffic
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.IndexRaising
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.CoefficientsUnique
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.ConstantNewform
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.CuspNewform
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.FourierCoefficientODE
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.FourierExpansion
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.FourierExpansionExists
@@ -305,11 +308,13 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.GeneralLinearKF
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.Hecke
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.HeckeFourier
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.HeckeGamma0
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.HeckeSelfAdjoint
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.HeckeSineExpansion
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.HeckeSquareIntegrable
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.Label
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.Newform
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformCoefficients
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformCoefficientsReal
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformExpansion
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.SpectralIndex
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.TrivialCharacter

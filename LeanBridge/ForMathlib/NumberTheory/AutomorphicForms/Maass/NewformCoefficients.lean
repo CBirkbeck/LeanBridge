@@ -18,7 +18,8 @@ coefficients, as soon as the `K`-Bessel function `K_{iR}` does not vanish identi
 
 Proved elsewhere: the non-vanishing of `K_{iR}` somewhere on `(0, ∞)`
 (`Complex.exists_besselK_ne_zero` in
-`LeanBridge.ForMathlib.Analysis.SpecialFunctions.BesselKNonvanishing`), which with `HasMaassCosineExpansion.unique` and `HasMaassSineExpansion.unique` (in
+`LeanBridge.ForMathlib.Analysis.SpecialFunctions.BesselKNonvanishing`), which with
+`HasMaassCosineExpansion.unique` and `HasMaassSineExpansion.unique` (in
 `LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.CoefficientsUnique`) makes the
 coefficients of every expansion unique, sine expansions included without absolute convergence; and
 the existence of the expansions for every Maass form with vanishing constant term and polynomial
@@ -26,8 +27,11 @@ growth of `f` and `∂f/∂y` (`IsMaassNewform.hasMaassCosineExpansion_maassCoef
 analogue in `LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformExpansion`). Not
 proved: that a newform has these cusp-form properties (`IsMaassNewform` asks only for
 square-integrability, and the constant `1` satisfies it without having an expansion), and the
-reality of the `a(n)` of a newform normalised by `a(1) = 1` (the self-adjointness of the Hecke
-operators and multiplicity one).
+reality of the `a(n)` of a newform normalised by `a(1) = 1` beyond the coefficients prime to the
+level (proved for cusp newforms, with `a(1) ≠ 0` at level `1`, in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.CuspNewform`, from the
+self-adjointness of the Hecke operators in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.HeckeSelfAdjoint`).
 
 ## Main definitions
 
@@ -65,7 +69,8 @@ provided `K_{iR}` does not vanish identically on `(0, ∞)`, and do not depend o
 of weight `0` on `Γ₀(N)` with eigenvalue `1/4 + R²` (`IsMaassNewform`), the LMFDB's coefficients
 are those of the newform normalised by `a(1) = 1`, which are real; the existence of the expansion
 is proved in `LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformExpansion` for
-newforms with vanishing constant term and polynomial growth, and the reality is not proved. -/
+newforms with vanishing constant term and polynomial growth, and the reality for the coefficients
+prime to the level in `LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.CuspNewform`. -/
 noncomputable def maassCoefficients : ℕ+ → ℂ :=
   if h : ∃ c, HasMaassCosineExpansion f r c then h.choose
   else if h' : ∃ c, HasMaassSineExpansion f r c then h'.choose else 0

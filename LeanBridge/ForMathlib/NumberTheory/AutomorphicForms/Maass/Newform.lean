@@ -30,9 +30,11 @@ fundamental domain (`integrableOn_iff_of_isFundamentalDomain`), nor does the Pet
 product (`maassPetersson_eq_setIntegral`).
 
 Not proved here: that the new space is finite-dimensional and spanned by newforms (Selberg's
-spectral theory of `L²(Γ₀(N) \ ℍ)`, and the self-adjointness and commutativity of the Hecke
-operators on it). The multiplicity is therefore defined as a cardinal, the rank of the new space,
-which is the LMFDB's dimension without assuming its finiteness.
+spectral theory of `L²(Γ₀(N) \ ℍ)`, and the commutativity of the Hecke operators on it; their
+self-adjointness for `p ∤ N` is proved in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.HeckeSelfAdjoint`). The multiplicity is
+therefore defined as a cardinal, the rank of the new space, which is the LMFDB's dimension without
+assuming its finiteness.
 
 ## Main definitions
 
