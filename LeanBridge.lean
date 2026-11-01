@@ -278,6 +278,7 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.FourierInvers
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.Fricke
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.HarmonicOneForm
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.HeckeAlgebra
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.HeckeCosetDecomposition
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.HeckeOperator
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.HodgeCasimir
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.Label
@@ -291,8 +292,11 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.Slash
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.SlashAction
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.UpperHalfSpace
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.WeightTwo
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.WhittakerCoefficient
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.WhittakerHarmonic
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.WhittakerHecke
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.WhittakerRadial
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.WhittakerSlash
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.WhittakerUnique
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.Basic
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.CoefficientGrowth
