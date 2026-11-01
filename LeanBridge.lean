@@ -315,6 +315,8 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.SpectralIndex
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.TrivialCharacter
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.Weight
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ChiFiveLevelTwo
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ChiFiveTransformation
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CoefficientField
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CongruenceSubgroups
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CuspForm
@@ -337,6 +339,7 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.IbukiyamaLevel
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.IbukiyamaParabolic
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.IbukiyamaRings
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.IgusaLevelTwo
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.IgusaLevelTwoModularity
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.IgusaRing
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.InvariantMeasure
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.KlingenEisenstein
@@ -344,6 +347,7 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.KoecherPrincip
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.Label
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LatticeThetaSeries
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.Level
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LevelTwoScalarRepresentation
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftEisenstein
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftFourierJacobi
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftHolomorphic
