@@ -29,6 +29,8 @@ with trivial character, and doubling sends `M_k(Γ₀(2))` to `M_k(Γ₀(4))`, w
 
 * `SiegelUpperHalfSpace.slashCharStabilizer`: the elements `γ` of a subgroup `Γ` of `Sp(2g, ℤ)`
   with `f ∣_ρ γ = ψ(γ) f`, a subgroup of `Sp(2g, ℤ)`.
+* `SiegelUpperHalfSpace.Ibukiyama.charMap`, `SiegelUpperHalfSpace.Ibukiyama.charMapInv`: the
+  bijection `(μ, ν) ↦ (Aᵀμ, Dᵀ(ν + Sμ + diag S))` of the characteristics modulo 2 and its inverse.
 
 ## Main results
 
@@ -501,7 +503,7 @@ private lemma thetaConstant_sq_eq_of_cast_eq {a a' b b' : Fin 2 → ℤ}
   rcases Int.even_or_odd (a' ⬝ᵥ fun i ↦ (b i - b' i) / 2) with h | h <;> rw [h.neg_one_zpow] <;>
     ring1
 
-private lemma cast_liftChar (a : Fin 2 → ZMod 2) : (fun i ↦ ((liftChar a i : ℤ) : ZMod 2)) = a := by
+lemma intCast_liftChar (a : Fin 2 → ZMod 2) : (fun i ↦ ((liftChar a i : ℤ) : ZMod 2)) = a := by
   ext i
   simp [liftChar]
 
@@ -556,36 +558,43 @@ variable (A D S v) in
 /-- The bijection `(μ, ν) ↦ (Aᵀμ, Dᵀ(ν + Sμ + diag S))` of `(ℤ/2ℤ)² × (ℤ/2ℤ)²`, by which an
 element `(A, B; 0, D)` of the Siegel parabolic subgroup with `S = BAᵀ` permutes the characteristics
 modulo 2. -/
-private def charMap : (Fin 2 → ZMod 2) × (Fin 2 → ZMod 2) :=
+def charMap : (Fin 2 → ZMod 2) × (Fin 2 → ZMod 2) :=
   (Aᵀ *ᵥ v.1, Dᵀ *ᵥ (v.2 + S *ᵥ v.1 + S.diag))
 
 variable (A D S w) in
 /-- The inverse `(μ, ν) ↦ (Dμ, Aν - SDμ - diag S)` of `charMap`. -/
-private def charMapInv : (Fin 2 → ZMod 2) × (Fin 2 → ZMod 2) :=
+def charMapInv : (Fin 2 → ZMod 2) × (Fin 2 → ZMod 2) :=
   (D *ᵥ w.1, A *ᵥ w.2 - S *ᵥ (D *ᵥ w.1) - S.diag)
 
 private lemma mul_transpose_eq_one (hDA : D * Aᵀ = 1) : A * Dᵀ = 1 := by
   rw [← transpose_transpose A, ← transpose_mul, hDA, transpose_one]
 
-private lemma charMap_mem (hDA : D * Aᵀ = 1) (hS : Sᵀ = S) (hv : v ∈ sixChars) :
+lemma charMap_fst_dotProduct_snd (hDA : D * Aᵀ = 1) (hS : Sᵀ = S) :
+    (charMap A D S v).1 ⬝ᵥ (charMap A D S v).2 = v.1 ⬝ᵥ v.2 := by
+  dsimp only [charMap]
+  rw [mulVec_dotProduct_mulVec, transpose_transpose, mul_transpose_eq_one hDA, one_mulVec,
+    dotProduct_add, dotProduct_add, add_assoc, quad_eq_zero hS, add_zero]
+
+lemma charMapInv_fst_dotProduct_snd (hDA : D * Aᵀ = 1) (hS : Sᵀ = S) :
+    (charMapInv A D S w).1 ⬝ᵥ (charMapInv A D S w).2 = w.1 ⬝ᵥ w.2 := by
+  dsimp only [charMapInv]
+  rw [dotProduct_sub, dotProduct_sub, mulVec_dotProduct_mulVec,
+    mul_eq_one_comm.mp (mul_transpose_eq_one hDA), one_mulVec, sub_sub, quad_eq_zero hS, sub_zero]
+
+private lemma charMap_mem_sixChars (hDA : D * Aᵀ = 1) (hS : Sᵀ = S) (hv : v ∈ sixChars) :
     charMap A D S v ∈ sixChars := by
   simp only [sixChars, Finset.mem_filter, Finset.mem_univ, true_and, charMap] at hv ⊢
-  refine ⟨fun h0 ↦ hv.1 ?_, ?_⟩
-  · rw [← one_mulVec v.1, ← hDA, ← mulVec_mulVec, h0, mulVec_zero]
-  · rw [mulVec_dotProduct_mulVec, transpose_transpose, mul_transpose_eq_one hDA, one_mulVec,
-      dotProduct_add, dotProduct_add, hv.2, zero_add, quad_eq_zero hS]
+  refine ⟨fun h0 ↦ hv.1 ?_, (charMap_fst_dotProduct_snd hDA hS).trans hv.2⟩
+  rw [← one_mulVec v.1, ← hDA, ← mulVec_mulVec, h0, mulVec_zero]
 
-private lemma charMapInv_mem (hDA : D * Aᵀ = 1) (hS : Sᵀ = S) (hw : w ∈ sixChars) :
+private lemma charMapInv_mem_sixChars (hDA : D * Aᵀ = 1) (hS : Sᵀ = S) (hw : w ∈ sixChars) :
     charMapInv A D S w ∈ sixChars := by
   simp only [sixChars, Finset.mem_filter, Finset.mem_univ, true_and, charMapInv] at hw ⊢
-  refine ⟨fun h0 ↦ hw.1 ?_, ?_⟩
-  · rw [← one_mulVec w.1, ← mul_eq_one_comm.mp hDA, ← mulVec_mulVec, h0, mulVec_zero]
-  · rw [dotProduct_sub, dotProduct_sub, mulVec_dotProduct_mulVec,
-      mul_eq_one_comm.mp (mul_transpose_eq_one hDA), one_mulVec, hw.2, zero_sub, ← neg_add',
-      quad_eq_zero hS, neg_zero]
+  refine ⟨fun h0 ↦ hw.1 ?_, (charMapInv_fst_dotProduct_snd hDA hS).trans hw.2⟩
+  rw [← one_mulVec w.1, ← mul_eq_one_comm.mp hDA, ← mulVec_mulVec, h0, mulVec_zero]
 
 variable (v) in
-private lemma charMapInv_charMap (hDA : D * Aᵀ = 1) : charMapInv A D S (charMap A D S v) = v := by
+lemma charMapInv_charMap (hDA : D * Aᵀ = 1) : charMapInv A D S (charMap A D S v) = v := by
   rw [charMapInv, charMap, mulVec_mulVec v.1 D Aᵀ, hDA, one_mulVec, mulVec_mulVec _ A Dᵀ,
     mul_transpose_eq_one hDA, one_mulVec]
   refine Prod.ext rfl ?_
@@ -593,15 +602,15 @@ private lemma charMapInv_charMap (hDA : D * Aᵀ = 1) : charMapInv A D S (charMa
   abel
 
 variable (w) in
-private lemma charMap_charMapInv (hDA : D * Aᵀ = 1) : charMap A D S (charMapInv A D S w) = w := by
+lemma charMap_charMapInv (hDA : D * Aᵀ = 1) : charMap A D S (charMapInv A D S w) = w := by
   have h : A *ᵥ w.2 - S *ᵥ (D *ᵥ w.1) - S.diag + S *ᵥ (D *ᵥ w.1) + S.diag = A *ᵥ w.2 := by
     abel
   rw [charMap, charMapInv, h, mulVec_mulVec w.1 Aᵀ D, mul_eq_one_comm.mp hDA, one_mulVec,
     mulVec_mulVec w.2 Dᵀ A, mul_eq_one_comm.mp (mul_transpose_eq_one hDA), one_mulVec]
 
-private lemma cast_mulVec (M : Matrix (Fin 2) (Fin 2) ℤ) {v : Fin 2 → ℤ} {w : Fin 2 → ZMod 2}
-    (h : (fun j ↦ (v j : ZMod 2)) = w) (i : Fin 2) :
-    ((M *ᵥ v) i : ZMod 2) = (M.map (Int.castRingHom (ZMod 2)) *ᵥ w) i := by
+lemma intCast_mulVec_apply (M : Matrix (Fin 2) (Fin 2) ℤ) {u : Fin 2 → ℤ} {u' : Fin 2 → ZMod 2}
+    (h : (fun j ↦ (u j : ZMod 2)) = u') (i : Fin 2) :
+    ((M *ᵥ u) i : ZMod 2) = (M.map (Int.castRingHom (ZMod 2)) *ᵥ u') i := by
   rw [← eq_intCast (Int.castRingHom (ZMod 2)), RingHom.map_mulVec, ← h]
   rfl
 
@@ -619,10 +628,12 @@ private lemma thetaConstant_liftChar_smul_sq (hp : p ∈ siegelParabolic (Fin 2)
   rw [thetaConstant_smul_of_mem_siegelParabolic _ _ Ω hp, mul_pow]
   congr 1
   refine thetaConstant_sq_eq_of_cast_eq Ω (fun i ↦ ?_) fun i ↦ ?_
-  · rw [congrFun (cast_liftChar _) i, charMap, cast_mulVec _ (cast_liftChar v.1), transpose_map]
-  · rw [congrFun (cast_liftChar _) i, charMap, cast_mulVec _ (w := v.2 + _ + _), transpose_map]
+  · rw [congrFun (intCast_liftChar _) i, charMap, intCast_mulVec_apply _ (intCast_liftChar v.1),
+      transpose_map]
+  · rw [congrFun (intCast_liftChar _) i, charMap, intCast_mulVec_apply _ (u' := v.2 + _ + _),
+      transpose_map]
     ext j
-    simp [congrFun (cast_liftChar v.2) j, cast_mulVec _ (cast_liftChar v.1) j]
+    simp [congrFun (intCast_liftChar v.2) j, intCast_mulVec_apply _ (intCast_liftChar v.1) j]
 
 /-- **`K` is invariant under the Siegel parabolic subgroup of `Sp(4, ℤ)`**: `γ = (A, B; 0, D)`
 multiplies the squares of the six theta constants of `K` by `e^{-πi(μᵀSμ/2 + μᵀ diag S)}`,
@@ -643,8 +654,8 @@ lemma K_smul_of_mem_siegelParabolic (hp : p ∈ siegelParabolic (Fin 2) ℤ) :
   congr 1
   rw [Finset.prod_congr rfl fun v _ ↦ thetaConstant_liftChar_smul_sq Ω v hp,
     Finset.prod_mul_distrib, prod_phase hS, one_mul]
-  exact Finset.prod_nbij' _ _ (fun v hv ↦ charMap_mem hDA hS' hv)
-    (fun w hw ↦ charMapInv_mem hDA hS' hw) (fun v _ ↦ charMapInv_charMap v hDA)
+  exact Finset.prod_nbij' _ _ (fun v hv ↦ charMap_mem_sixChars hDA hS' hv)
+    (fun w hw ↦ charMapInv_mem_sixChars hDA hS' hw) (fun v _ ↦ charMapInv_charMap v hDA)
       (fun w _ ↦ charMap_charMapInv w hDA) fun v _ ↦ rfl
 
 /-- **`K` is a Siegel modular form of weight 6 on the Siegel parabolic subgroup of `Sp(4, ℤ)`**:

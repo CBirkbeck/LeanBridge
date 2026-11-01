@@ -42,8 +42,8 @@ open scoped ComplexConjugate MatrixGroups
 
 namespace HyperbolicThreeSpace
 
-variable {V : Type*} [NormedAddCommGroup V] [NormedSpace ℂ V] (b : Fin 3) (w : ℂ)
-  (Φ Φ₁ Φ₂ : SL(2, ℂ) → V)
+variable {V : Type*} [NormedAddCommGroup V] [NormedSpace ℂ V] {E : Type*} [NormedAddCommGroup E]
+  [NormedSpace ℝ E] (b : Fin 3) (w : ℂ) (Φ Φ₁ Φ₂ : SL(2, ℂ) → V)
 
 /-- The one-parameter subgroups `w ↦ exp(wX)` of `SL(2, ℂ)` for the basis `X = H, E, F` of
 `𝔰𝔩₂(ℂ)`: `exp(wH) = (e^w, 0; 0, e^{-w})`, `exp(wE) = (1, w; 0, 1)` and `exp(wF) = (1, 0; w, 1)`. -/
@@ -268,40 +268,39 @@ private lemma contDiff_normSq {n : WithTop ℕ∞} : ContDiff ℝ n fun z : ℂ 
 private lemma contDiff_ofReal {n : WithTop ℕ∞} : ContDiff ℝ n fun x : ℝ ↦ (x : ℂ) :=
   ofRealCLM.contDiff
 
-private lemma contDiff_sl2Exp_apply (i j : Fin 2) :
+lemma contDiff_sl2Exp_mul_apply (i j : Fin 2) :
     ContDiff ℝ 2 fun s : ℝ ↦ (sl2Exp b (s * w) : Matrix (Fin 2) (Fin 2) ℂ) i j := by
   fin_cases b <;> fin_cases i <;> fin_cases j <;> simp [sl2Exp] <;> fun_prop
 
-private lemma contDiff_mul_apply {γ₁ γ₂ : ℝ × ℝ → SL(2, ℂ)}
-    (h₁ : ∀ i j, ContDiff ℝ 2 fun st ↦ (γ₁ st : Matrix (Fin 2) (Fin 2) ℂ) i j)
-    (h₂ : ∀ i j, ContDiff ℝ 2 fun st ↦ (γ₂ st : Matrix (Fin 2) (Fin 2) ℂ) i j) (i j : Fin 2) :
-    ContDiff ℝ 2 fun st ↦ ((γ₁ st * γ₂ st : SL(2, ℂ)) : Matrix (Fin 2) (Fin 2) ℂ) i j := by
+lemma contDiff_mul_apply {γ₁ γ₂ : E → SL(2, ℂ)}
+    (h₁ : ∀ i j, ContDiff ℝ 2 fun x ↦ (γ₁ x : Matrix (Fin 2) (Fin 2) ℂ) i j)
+    (h₂ : ∀ i j, ContDiff ℝ 2 fun x ↦ (γ₂ x : Matrix (Fin 2) (Fin 2) ℂ) i j) (i j : Fin 2) :
+    ContDiff ℝ 2 fun x ↦ ((γ₁ x * γ₂ x : SL(2, ℂ)) : Matrix (Fin 2) (Fin 2) ℂ) i j := by
   simp only [SpecialLinearGroup.coe_mul, mul_apply, Fin.sum_univ_two]
   exact ((h₁ i 0).mul (h₂ 0 j)).add ((h₁ i 1).mul (h₂ 1 j))
 
 variable {k F} in
-private lemma contDiff_bianchiLift_comp
-    (hF : ∀ z : HyperbolicThreeSpace, AnalyticAt ℝ (extend F) z.coords) (γ : ℝ × ℝ → SL(2, ℂ))
-    (hγ : ∀ i j, ContDiff ℝ 2 fun st ↦ (γ st : Matrix (Fin 2) (Fin 2) ℂ) i j) :
-    ContDiff ℝ 2 fun st ↦ bianchiLift k F (γ st) := by
-  have h₀₀ : ContDiff ℝ 2 fun st ↦ (γ st : Matrix (Fin 2) (Fin 2) ℂ) 0 0 := hγ 0 0
-  have h₀₁ : ContDiff ℝ 2 fun st ↦ (γ st : Matrix (Fin 2) (Fin 2) ℂ) 0 1 := hγ 0 1
-  have h₁₀ : ContDiff ℝ 2 fun st ↦ (γ st : Matrix (Fin 2) (Fin 2) ℂ) 1 0 := hγ 1 0
-  have h₁₁ : ContDiff ℝ 2 fun st ↦ (γ st : Matrix (Fin 2) (Fin 2) ℂ) 1 1 := hγ 1 1
-  have hN (st : ℝ × ℝ) : moebiusDenom (γ st) (0, 1) ≠ 0 :=
-    (moebiusDenom_pos (γ st) (p := (0, 1)) one_pos).ne'
-  have hD : ContDiff ℝ 2 fun st ↦ moebiusDenom (γ st) (0, 1) := by
+lemma contDiff_bianchiLift_comp (hF : ∀ z : HyperbolicThreeSpace, AnalyticAt ℝ (extend F) z.coords)
+    {γ : E → SL(2, ℂ)} (hγ : ∀ i j, ContDiff ℝ 2 fun x ↦ (γ x : Matrix (Fin 2) (Fin 2) ℂ) i j) :
+    ContDiff ℝ 2 fun x ↦ bianchiLift k F (γ x) := by
+  have h₀₀ : ContDiff ℝ 2 fun x ↦ (γ x : Matrix (Fin 2) (Fin 2) ℂ) 0 0 := hγ 0 0
+  have h₀₁ : ContDiff ℝ 2 fun x ↦ (γ x : Matrix (Fin 2) (Fin 2) ℂ) 0 1 := hγ 0 1
+  have h₁₀ : ContDiff ℝ 2 fun x ↦ (γ x : Matrix (Fin 2) (Fin 2) ℂ) 1 0 := hγ 1 0
+  have h₁₁ : ContDiff ℝ 2 fun x ↦ (γ x : Matrix (Fin 2) (Fin 2) ℂ) 1 1 := hγ 1 1
+  have hN (x : E) : moebiusDenom (γ x) (0, 1) ≠ 0 :=
+    (moebiusDenom_pos (γ x) (p := (0, 1)) one_pos).ne'
+  have hD : ContDiff ℝ 2 fun x ↦ moebiusDenom (γ x) (0, 1) := by
     simp only [moebiusDenom]
     fun_prop
-  have hM : ContDiff ℝ 2 fun st ↦ moebius (γ st) (0, 1) := by
+  have hM : ContDiff ℝ 2 fun x ↦ moebius (γ x) (0, 1) := by
     simp only [moebius, div_eq_mul_inv, ← ofReal_inv]
     fun_prop (disch := first | exact hN | exact hN _)
-  have hE : ContDiff ℝ 2 fun st ↦ extend F (moebius (γ st) (0, 1)) :=
+  have hE : ContDiff ℝ 2 fun x ↦ extend F (moebius (γ x) (0, 1)) :=
     contDiff_iff_contDiffAt.2 fun x ↦
       ContDiffAt.comp (g := extend F) x (hF (γ x • basePoint)).contDiffAt hM.contDiffAt
   simp only [bianchiLift_apply, inv_automorphyFactor]
   refine contDiff_pi.2 fun i ↦ ?_
-  simp only [mulVec, dotProduct]
+  simp only [mulVec]
   refine ContDiff.sum fun j _ ↦ ContDiff.mul ?_ (contDiff_pi.1 hE j)
   simp only [symPowMatrix, of_apply, Matrix.smul_apply, cons_val_zero, cons_val_one, ← ofReal_inv]
   fun_prop (disch := first | exact hN | exact hN _)
@@ -312,10 +311,10 @@ subgroups, so that the Casimir operators act linearly on such lifts. -/
 lemma isLieSmooth_bianchiLift (hF : ∀ z : HyperbolicThreeSpace, AnalyticAt ℝ (extend F) z.coords) :
     IsLieSmooth (bianchiLift k F) := by
   intro g b₁ w₁ b₂ w₂
-  exact contDiff_bianchiLift_comp hF _ <| contDiff_mul_apply
+  exact contDiff_bianchiLift_comp hF <| contDiff_mul_apply
     (contDiff_mul_apply (fun _ _ ↦ contDiff_const) fun i j ↦
-      (contDiff_sl2Exp_apply b₁ w₁ i j).comp contDiff_fst)
-    fun i j ↦ (contDiff_sl2Exp_apply b₂ w₂ i j).comp contDiff_snd
+      (contDiff_sl2Exp_mul_apply b₁ w₁ i j).comp contDiff_fst)
+    fun i j ↦ (contDiff_sl2Exp_mul_apply b₂ w₂ i j).comp contDiff_snd
 
 lemma isBianchiHarmonic_zero : IsBianchiHarmonic k 0 := by
   have h : bianchiLift k 0 = 0 := by

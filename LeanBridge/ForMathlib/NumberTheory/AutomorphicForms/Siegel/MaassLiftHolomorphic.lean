@@ -57,23 +57,9 @@ private lemma add_mul_add_nonneg {n r m a b c : ℝ} (hn : 0 ≤ n) (hm : 0 ≤ 
     mul_le_mul hr hb (sq_nonneg b) (by positivity)
   nlinarith [sq_nonneg (n * a - m * c), mul_nonneg hn ha, mul_nonneg hm hc]
 
-/-- The constant `ε = det(Im Ω) / tr(Im Ω) > 0` of `Ω ∈ ℋ₂`. -/
-private noncomputable def liftDecay : ℝ :=
-  ((Ω.val 0 0).im * (Ω.val 1 1).im - (Ω.val 0 1).im ^ 2) / ((Ω.val 0 0).im + (Ω.val 1 1).im)
-
-private lemma liftDecay_pos : 0 < liftDecay Ω := by
-  have h10 : Ω.val 1 0 = Ω.val 0 1 := congrFun (congrFun Ω.transpose_val 0) 1
-  have ha : 0 < (Ω.val 0 0).im := by simpa using Ω.posDef_im.diag_pos (i := 0)
-  have hc : 0 < (Ω.val 1 1).im := by simpa using Ω.posDef_im.diag_pos (i := 1)
-  have hdet : 0 < (Ω.val 0 0).im * (Ω.val 1 1).im - (Ω.val 0 1).im ^ 2 := by
-    have h : 0 < (Ω.val.map im).det := Ω.posDef_im.det_pos
-    rw [Matrix.det_fin_two] at h
-    simpa [h10, sq] using h
-  exact div_pos hdet (add_pos ha hc)
-
-private lemma liftDecay_mul_le (hp : 0 ≤ p.1 ∧ 0 ≤ p.2.2 ∧ p.2.1 ^ 2 ≤ 4 * p.1 * p.2.2) :
-    liftDecay Ω * (p.1 + p.2.2) ≤
-      p.1 * (Ω.val 0 0).im + p.2.1 * (Ω.val 0 1).im + p.2.2 * (Ω.val 1 1).im := by
+private lemma decay_mul_add_le (hp : 0 ≤ p.1 ∧ 0 ≤ p.2.2 ∧ p.2.1 ^ 2 ≤ 4 * p.1 * p.2.2) :
+    decay Ω * (p.1 + p.2.2) ≤ p.1 * (Ω.val 0 0).im + p.2.1 * (Ω.val 0 1).im +
+      p.2.2 * (Ω.val 1 1).im := by
   have ha : 0 < (Ω.val 0 0).im := by simpa using Ω.posDef_im.diag_pos (i := 0)
   have hc : 0 < (Ω.val 1 1).im := by simpa using Ω.posDef_im.diag_pos (i := 1)
   have hn : (0 : ℝ) ≤ p.1 := by exact_mod_cast hp.1
@@ -84,7 +70,7 @@ private lemma liftDecay_mul_le (hp : 0 ≤ p.1 ∧ 0 ≤ p.2.2 ∧ p.2.1 ^ 2 ≤
         p.2.2 * ((Ω.val 0 1).im ^ 2 + (Ω.val 1 1).im ^ 2) :=
     add_mul_add_nonneg hn hm hr (by positivity) (by positivity) <| by
       nlinarith [sq_nonneg ((Ω.val 0 0).im * (Ω.val 1 1).im - (Ω.val 0 1).im ^ 2)]
-  rw [liftDecay, div_mul_eq_mul_div, div_le_iff₀ (by positivity)]
+  rw [decay, div_mul_eq_mul_div, div_le_iff₀ (by positivity)]
   nlinarith [key]
 
 /-- The linear form `W ↦ nW₀₀ + r(W₀₁ + W₁₀)/2 + mW₁₁` on the square matrices given by their
@@ -130,62 +116,42 @@ variable {W₀ : Fin 2 → Fin 2 → ℂ}
 
 private lemma im_liftForm_ge (hW₀ : W₀ ∈ symmetrizePreimage (Fin 2))
     (hp : 0 ≤ p.1 ∧ 0 ≤ p.2.2 ∧ p.2.1 ^ 2 ≤ 4 * p.1 * p.2.2)
-    (hW : ‖W - W₀‖ < liftDecay ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩ / 4) :
-    liftDecay ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩ / 2 * (p.1 + p.2.2) ≤
+    (hW : ‖W - W₀‖ < decay ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩ / 4) :
+    decay ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩ / 2 * (p.1 + p.2.2) ≤
       (liftForm p W).im := by
   have hn : (0 : ℝ) ≤ p.1 := by exact_mod_cast hp.1
   have hm : (0 : ℝ) ≤ p.2.2 := by exact_mod_cast hp.2.1
   have hr : |(p.2.1 : ℝ)| ≤ p.1 + p.2.2 := abs_le_add_of_posSemidef p hp
-  have h1 : liftDecay ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩ * (p.1 + p.2.2) ≤
-      (liftForm p W₀).im := by
+  have h1 :
+      decay ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩ * (p.1 + p.2.2) ≤ (liftForm p W₀).im := by
     rw [liftForm_apply]
-    simpa using liftDecay_mul_le p ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩ hp
+    simpa using decay_mul_add_le p ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩ hp
   have h2 : |(liftForm p (W - W₀)).im| ≤ (|(p.1 : ℝ)| + |(p.2.1 : ℝ)| + |(p.2.2 : ℝ)|) *
-      (liftDecay ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩ / 4) :=
+      (decay ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩ / 4) :=
     (abs_im_le_norm _).trans <| ((liftForm p).le_opNorm _).trans <| mul_le_mul
       (LinearMap.mkContinuous_norm_le _ (by positivity) _) hW.le (norm_nonneg _) (by positivity)
   have h3 : (liftForm p W).im = (liftForm p W₀).im + (liftForm p (W - W₀)).im := by
     rw [map_sub, sub_im, add_sub_cancel]
   rw [abs_of_nonneg hn, abs_of_nonneg hm] at h2
-  nlinarith [abs_le.mp h2, liftDecay_pos ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩]
-
-private lemma rexp_mul_le {t : ℝ} (hε : 0 < ε) :
-    rexp (-(π * (ε / 2) * t)) * (π * (2 * t)) ≤ 8 / ε * rexp (-(π * (ε / 4) * t)) := by
-  have hE : 0 ≤ rexp (-(π * (ε / 4) * t)) := (Real.exp_pos _).le
-  have hEF : rexp (-(π * (ε / 4) * t)) * rexp (π * (ε / 4) * t) = 1 := by
-    rw [← Real.exp_add, neg_add_cancel, Real.exp_zero]
-  have hkey : π * (ε / 4) * t ≤ rexp (π * (ε / 4) * t) :=
-    (le_add_of_nonneg_right zero_le_one).trans (Real.add_one_le_exp _)
-  have hsq : rexp (-(π * (ε / 2) * t)) =
-      rexp (-(π * (ε / 4) * t)) * rexp (-(π * (ε / 4) * t)) := by
-    rw [← Real.exp_add]
-    congr 1
-    ring1
-  have h : rexp (-(π * (ε / 4) * t)) * rexp (-(π * (ε / 4) * t)) * (π * (2 * t)) =
-      8 / ε * rexp (-(π * (ε / 4) * t)) * (rexp (-(π * (ε / 4) * t)) * (π * (ε / 4) * t)) := by
-    field_simp
-    ring1
-  rw [hsq, h]
-  refine (mul_le_mul_of_nonneg_left (mul_le_mul_of_nonneg_left hkey hE) (by positivity)).trans ?_
-  rw [hEF, mul_one]
+  nlinarith [abs_le.mp h2, decay_pos ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩]
 
 private lemma norm_fderiv_liftTerm_le (hφ : φ ∈ jacobiFormSpace k 1)
     (hW₀ : W₀ ∈ symmetrizePreimage (Fin 2))
-    (hW : ‖W - W₀‖ < liftDecay ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩ / 4) :
+    (hW : ‖W - W₀‖ < decay ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩ / 4) :
     ‖maassCoeff k (jacobiCoeff φ) p.1 p.2.1 p.2.2 •
       cexp (2 * π * I * liftForm p W) • (2 * π * I) • liftForm p‖ ≤
         ‖maassCoeff k (jacobiCoeff φ) p.1 p.2.1 p.2.2‖ *
-          (8 / liftDecay ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩ *
-            rexp (-(π * (liftDecay ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩ / 4) *
+          (8 / decay ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩ *
+            rexp (-(π * (decay ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩ / 4) *
               (2 * (p.1 + p.2.2))))) := by
   by_cases hp : 0 ≤ p.1 ∧ 0 ≤ p.2.2 ∧ p.2.1 ^ 2 ≤ 4 * p.1 * p.2.2
   · have hn : (0 : ℝ) ≤ p.1 := by exact_mod_cast hp.1
     have hm : (0 : ℝ) ≤ p.2.2 := by exact_mod_cast hp.2.1
     have hr : |(p.2.1 : ℝ)| ≤ p.1 + p.2.2 := abs_le_add_of_posSemidef p hp
     have hexp : ‖cexp (2 * π * I * liftForm p W)‖ ≤
-        rexp (-(π * (liftDecay ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩ / 2) *
+        rexp (-(π * (decay ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩ / 2) *
           (2 * (p.1 + p.2.2)))) := by
-      have h : liftDecay ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩ / 2 * (p.1 + p.2.2) ≤
+      have h : decay ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩ / 2 * (p.1 + p.2.2) ≤
           (liftForm p W).im :=
         im_liftForm_ge p W hW₀ hp hW
       rw [Complex.norm_exp, Real.exp_le_exp]
@@ -202,7 +168,7 @@ private lemma norm_fderiv_liftTerm_le (hφ : φ ∈ jacobiFormSpace k 1)
       nlinarith [Real.pi_pos]
     rw [norm_smul, norm_smul]
     exact mul_le_mul_of_nonneg_left ((mul_le_mul hexp hL (norm_nonneg _)
-      (Real.exp_pos _).le).trans (rexp_mul_le (liftDecay_pos _))) (norm_nonneg _)
+      (Real.exp_pos _).le).trans (rexp_neg_mul_mul_le (decay_pos _))) (norm_nonneg _)
   · rw [maassCoeff_eq_zero_of_not_posSemidef _ _ _ hφ hp, norm_smul, norm_zero, zero_mul, zero_mul]
 
 private lemma summable_norm_maassCoeff_mul_rexp
@@ -223,11 +189,11 @@ private lemma hasFDerivAt_tsum_liftTerm (hφ : φ ∈ jacobiFormSpace k 1)
     (hW₀ : W₀ ∈ symmetrizePreimage (Fin 2)) : HasFDerivAt (fun W ↦ ∑' p, liftTerm k φ p W)
       (∑' p, maassCoeff k (jacobiCoeff φ) p.1 p.2.1 p.2.2 •
         cexp (2 * π * I * liftForm p W₀) • (2 * π * I) • liftForm p) W₀ := by
-  have hε : 0 < liftDecay ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩ := liftDecay_pos _
-  have hε4 : 0 < liftDecay ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩ / 4 := by
+  have hε : 0 < decay ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩ := decay_pos _
+  have hε4 : 0 < decay ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩ / 4 := by
     positivity
   refine hasFDerivAt_tsum_of_isPreconnected (((summable_norm_maassCoeff_mul_rexp hs hε4).mul_left
-    (8 / liftDecay ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩)).congr fun p ↦ ?_)
+    (8 / decay ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩)).congr fun p ↦ ?_)
     Metric.isOpen_ball (convex_ball _ _).isPreconnected (fun p W _ ↦ hasFDerivAt_liftTerm p W)
     (fun p W hW ↦ norm_fderiv_liftTerm_le p W hφ hW₀ ?_) (Metric.mem_ball_self hε4)
     ((hs ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩).congr fun p ↦ ?_)
@@ -278,50 +244,48 @@ private lemma summable_of_norm_maassCoeff_le (hφ : φ ∈ jacobiFormSpace k 1) 
       ‖maassCoeff k (jacobiCoeff φ) p.1 p.2.1 p.2.2‖ ≤ C * (1 + (p.1 + p.2.2 : ℝ)) ^ B) :
     Summable fun p : ℤ × ℤ × ℤ ↦
       maassCoeff k (jacobiCoeff φ) p.1 p.2.1 p.2.2 * liftExp 1 p.1 p.2.1 p.2.2 Ω := by
-  have hε : 0 < liftDecay Ω := liftDecay_pos Ω
-  have hc : 0 < π * liftDecay Ω / 2 := by positivity
-  have hg : Summable fun p : ℤ × ℤ × ℤ ↦ rexp (-(π * liftDecay Ω / 2 * |(p.1 : ℝ)|)) *
-      (rexp (-(π * liftDecay Ω / 2 * |(p.2.1 : ℝ)|)) *
-        rexp (-(π * liftDecay Ω / 2 * |(p.2.2 : ℝ)|))) :=
+  have hε : 0 < decay Ω := decay_pos Ω
+  have hc : 0 < π * decay Ω / 2 := by positivity
+  have hg : Summable fun p : ℤ × ℤ × ℤ ↦ rexp (-(π * decay Ω / 2 * |(p.1 : ℝ)|)) *
+      (rexp (-(π * decay Ω / 2 * |(p.2.1 : ℝ)|)) *
+        rexp (-(π * decay Ω / 2 * |(p.2.2 : ℝ)|))) :=
     (summable_rexp_neg_mul_abs hc).mul_of_nonneg ((summable_rexp_neg_mul_abs hc).mul_of_nonneg
       (summable_rexp_neg_mul_abs hc) (fun _ ↦ (Real.exp_pos _).le)
         fun _ ↦ (Real.exp_pos _).le) (fun _ ↦ (Real.exp_pos _).le) fun _ ↦ by positivity
-  refine Summable.of_norm_bounded (hg.mul_left (C * (B.factorial / (π * liftDecay Ω) ^ B) *
-    rexp (π * liftDecay Ω))) fun p ↦ ?_
+  refine Summable.of_norm_bounded (hg.mul_left (C * (B.factorial / (π * decay Ω) ^ B) *
+    rexp (π * decay Ω))) fun p ↦ ?_
   by_cases hp : 0 ≤ p.1 ∧ 0 ≤ p.2.2 ∧ p.2.1 ^ 2 ≤ 4 * p.1 * p.2.2
   · have hn : (0 : ℝ) ≤ p.1 := by exact_mod_cast hp.1
     have hm : (0 : ℝ) ≤ p.2.2 := by exact_mod_cast hp.2.1
     have hr : |(p.2.1 : ℝ)| ≤ p.1 + p.2.2 := abs_le_add_of_posSemidef p hp
-    have hexp :
-        ‖liftExp 1 p.1 p.2.1 p.2.2 Ω‖ ≤ rexp (-(2 * π * (liftDecay Ω * (p.1 + p.2.2)))) := by
-      have h : liftDecay Ω * (p.1 + p.2.2) ≤
+    have hexp : ‖liftExp 1 p.1 p.2.1 p.2.2 Ω‖ ≤ rexp (-(2 * π * (decay Ω * (p.1 + p.2.2)))) := by
+      have h : decay Ω * (p.1 + p.2.2) ≤
           p.1 * (Ω.val 0 0).im + p.2.1 * (Ω.val 0 1).im + p.2.2 * (Ω.val 1 1).im :=
-        liftDecay_mul_le p Ω hp
+        decay_mul_add_le p Ω hp
       rw [liftExp, Complex.norm_exp, Real.exp_le_exp]
       simp only [Nat.cast_one, mul_re, mul_im, ofReal_re, ofReal_im, I_re, I_im, re_ofNat,
         im_ofNat, add_im, intCast_re, intCast_im, one_re, one_im]
       nlinarith [Real.pi_pos]
-    have hpow : (1 + (p.1 + p.2.2 : ℝ)) ^ B ≤ B.factorial / (π * liftDecay Ω) ^ B *
-        rexp (π * liftDecay Ω * (1 + (p.1 + p.2.2))) :=
+    have hpow : (1 + (p.1 + p.2.2 : ℝ)) ^ B ≤ B.factorial / (π * decay Ω) ^ B *
+        rexp (π * decay Ω * (1 + (p.1 + p.2.2))) :=
       pow_le_mul_rexp B (by positivity) (by positivity)
-    have hsplit : rexp (π * liftDecay Ω * (1 + (p.1 + p.2.2))) *
-        rexp (-(2 * π * (liftDecay Ω * (p.1 + p.2.2)))) ≤ rexp (π * liftDecay Ω) *
-          (rexp (-(π * liftDecay Ω / 2 * |(p.1 : ℝ)|)) *
-            (rexp (-(π * liftDecay Ω / 2 * |(p.2.1 : ℝ)|)) *
-              rexp (-(π * liftDecay Ω / 2 * |(p.2.2 : ℝ)|)))) := by
+    have hsplit : rexp (π * decay Ω * (1 + (p.1 + p.2.2))) *
+        rexp (-(2 * π * (decay Ω * (p.1 + p.2.2)))) ≤ rexp (π * decay Ω) *
+          (rexp (-(π * decay Ω / 2 * |(p.1 : ℝ)|)) *
+            (rexp (-(π * decay Ω / 2 * |(p.2.1 : ℝ)|)) *
+              rexp (-(π * decay Ω / 2 * |(p.2.2 : ℝ)|)))) := by
       simp only [← Real.exp_add, Real.exp_le_exp]
       rw [abs_of_nonneg hn, abs_of_nonneg hm]
-      nlinarith [Real.pi_pos,
-        mul_le_mul_of_nonneg_left hr (by positivity : (0 : ℝ) ≤ π * liftDecay Ω)]
+      nlinarith [Real.pi_pos, mul_le_mul_of_nonneg_left hr (by positivity : (0 : ℝ) ≤ π * decay Ω)]
     rw [norm_mul]
     refine ((mul_le_mul (ha p hp) hexp (norm_nonneg _) (by positivity)).trans
       (mul_le_mul_of_nonneg_right (mul_le_mul_of_nonneg_left hpow hC)
         (Real.exp_pos _).le)).trans ?_
-    have h2 : C * (B.factorial / (π * liftDecay Ω) ^ B *
-        rexp (π * liftDecay Ω * (1 + (p.1 + p.2.2)))) *
-          rexp (-(2 * π * (liftDecay Ω * (p.1 + p.2.2)))) =
-        C * (B.factorial / (π * liftDecay Ω) ^ B) * (rexp (π * liftDecay Ω * (1 + (p.1 + p.2.2))) *
-          rexp (-(2 * π * (liftDecay Ω * (p.1 + p.2.2))))) := by
+    have h2 : C * (B.factorial / (π * decay Ω) ^ B *
+        rexp (π * decay Ω * (1 + (p.1 + p.2.2)))) *
+          rexp (-(2 * π * (decay Ω * (p.1 + p.2.2)))) =
+        C * (B.factorial / (π * decay Ω) ^ B) * (rexp (π * decay Ω * (1 + (p.1 + p.2.2))) *
+          rexp (-(2 * π * (decay Ω * (p.1 + p.2.2))))) := by
       ring1
     rw [h2]
     refine (mul_le_mul_of_nonneg_left hsplit (by positivity)).trans (le_of_eq ?_)

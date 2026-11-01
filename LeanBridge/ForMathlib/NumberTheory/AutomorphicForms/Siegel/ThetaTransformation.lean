@@ -26,6 +26,7 @@ variable, uniformly with the derivatives on a ball around each point. The transf
 
 * `SymplecticGroup.partialInversion`: the partial inversion `J₁ ∈ Sp(4, ℤ)`, acting by
   `(τ, z; z, ω) ↦ (-1/τ, z/τ; z/τ, ω - z²/τ)`.
+* `SiegelUpperHalfSpace.decay`: the constant `ε = det(Im Ω) / tr(Im Ω) > 0` of `Ω ∈ ℋ₂`.
 
 ## Main results
 
@@ -347,10 +348,10 @@ lemma val_partialInversion_smul :
 
 /-- The constant `ε = det(Im Ω) / tr(Im Ω) > 0` of `Ω ∈ ℋ₂`, for which `xᵀ (Im Ω) x ≥ ε xᵀx` for
 every real vector `x`. -/
-private noncomputable def decay : ℝ :=
+noncomputable def decay : ℝ :=
   ((Ω.val 0 0).im * (Ω.val 1 1).im - (Ω.val 0 1).im ^ 2) / ((Ω.val 0 0).im + (Ω.val 1 1).im)
 
-private lemma decay_pos : 0 < decay Ω := by
+lemma decay_pos : 0 < decay Ω := by
   have ha : 0 < (Ω.val 0 0).im := by simpa using Ω.posDef_im.diag_pos (i := 0)
   have hc : 0 < (Ω.val 1 1).im := by simpa using Ω.posDef_im.diag_pos (i := 1)
   have hdet : 0 < (Ω.val 0 0).im * (Ω.val 1 1).im - (Ω.val 0 1).im ^ 2 := by
@@ -539,7 +540,7 @@ private lemma norm_thetaTerm_le (hZ₀ : Z₀ ∈ symmetrizePreimage (Fin 2)) (n
   simp only [mul_re, mul_im, ofReal_re, ofReal_im, I_re, I_im, add_re, add_im]
   nlinarith [Real.pi_pos]
 
-private lemma rexp_mul_le {ε t : ℝ} (hε : 0 < ε) :
+lemma rexp_neg_mul_mul_le {ε t : ℝ} (hε : 0 < ε) :
     rexp (-(π * (ε / 2) * t)) * (π * (2 * t)) ≤ 8 / ε * rexp (-(π * (ε / 4) * t)) := by
   have hE : 0 ≤ rexp (-(π * (ε / 4) * t)) := (Real.exp_pos _).le
   have hEF : rexp (-(π * (ε / 4) * t)) * rexp (π * (ε / 4) * t) = 1 := by
@@ -584,7 +585,7 @@ private lemma hasFDerivAt_tsum_thetaTerm (hZ₀ : Z₀ ∈ symmetrizePreimage (F
       Real.pi_pos.le, ← hexp]
     refine (mul_le_mul (norm_thetaTerm_le μ ν hZ₀ n hZ) (mul_le_mul_of_nonneg_left
       (norm_quadForm_le _) Real.pi_pos.le) (by positivity) (Real.exp_pos _).le).trans ?_
-    exact rexp_mul_le hε0
+    exact rexp_neg_mul_mul_le hε0
   · refine hg.of_norm_bounded fun n ↦ ?_
     rw [← hexp]
     refine (norm_thetaTerm_le μ ν hZ₀ n (by rwa [sub_self, norm_zero])).trans ?_

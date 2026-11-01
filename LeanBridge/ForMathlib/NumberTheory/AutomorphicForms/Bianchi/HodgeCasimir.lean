@@ -124,23 +124,12 @@ lemma lieDerivOne_lieDerivOne_mul_of_eq_zero (h₁ : IsLieSmooth f₁) (h₂ : I
   rw [lieDerivOne_lieDerivOne_mul b b' h₁ h₂]
   simp [hf₁, hf₂]
 
-private lemma contDiff_sl2Exp_apply' (i j : Fin 2) :
-    ContDiff ℝ 2 fun s : ℝ ↦ (sl2Exp b (s * w) : Matrix (Fin 2) (Fin 2) ℂ) i j := by
-  fin_cases b <;> fin_cases i <;> fin_cases j <;> simp [sl2Exp] <;> fun_prop
-
-private lemma contDiff_mul_apply' {γ₁ γ₂ : ℝ × ℝ → SL(2, ℂ)}
-    (h₁ : ∀ i j, ContDiff ℝ 2 fun st ↦ (γ₁ st : Matrix (Fin 2) (Fin 2) ℂ) i j)
-    (h₂ : ∀ i j, ContDiff ℝ 2 fun st ↦ (γ₂ st : Matrix (Fin 2) (Fin 2) ℂ) i j) (i j : Fin 2) :
-    ContDiff ℝ 2 fun st ↦ ((γ₁ st * γ₂ st : SL(2, ℂ)) : Matrix (Fin 2) (Fin 2) ℂ) i j := by
-  simp only [SpecialLinearGroup.coe_mul, mul_apply, Fin.sum_univ_two]
-  exact ((h₁ i 0).mul (h₂ 0 j)).add ((h₁ i 1).mul (h₂ 1 j))
-
 lemma isLieSmooth_of_contDiff (h : ∀ γ : ℝ × ℝ → SL(2, ℂ),
     (∀ i j, ContDiff ℝ 2 fun st ↦ (γ st : Matrix (Fin 2) (Fin 2) ℂ) i j) → ContDiff ℝ 2 (Φ ∘ γ)) :
     IsLieSmooth Φ :=
-  fun _ b₁ w₁ b₂ w₂ ↦ h _ <| contDiff_mul_apply' (contDiff_mul_apply' (fun _ _ ↦ contDiff_const)
-    fun i j ↦ (contDiff_sl2Exp_apply' b₁ w₁ i j).comp contDiff_fst)
-      fun i j ↦ (contDiff_sl2Exp_apply' b₂ w₂ i j).comp contDiff_snd
+  fun _ b₁ w₁ b₂ w₂ ↦ h _ <| contDiff_mul_apply (contDiff_mul_apply (fun _ _ ↦ contDiff_const)
+    fun i j ↦ (contDiff_sl2Exp_mul_apply b₁ w₁ i j).comp contDiff_fst)
+      fun i j ↦ (contDiff_sl2Exp_mul_apply b₂ w₂ i j).comp contDiff_snd
 
 /-- `Im(a c̄ + b d̄)` for `g = (a, b; c, d)`. -/
 private noncomputable def topIm (g : SL(2, ℂ)) : ℂ :=
