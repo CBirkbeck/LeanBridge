@@ -1469,7 +1469,7 @@ Then $`\mathfrak{F}` is a {bpref "group.fuchsian.fundamental_domain"}[fundamenta
 Depends on: {uses "group.fuchsian.fundamental_domain"}[]
 :::
 
-:::definition "group.sl2z.genus_subgroup" (lean := "ModularGroup.topologicalGenus, TopCat.topologicalGenus, Subgroup.compactSpace_compactifiedQuotient_map_sl2zToPSL2R, Subgroup.CompactifiedQuotient, ModularGroup.degree_compactifiedQuotientMap_eq_natCard_cosets")
+:::definition "group.sl2z.genus_subgroup"
 *Genus of a subgroup of the modular group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.sl2z.genus_subgroup))
 
 The *genus* of a finite index subgroup $`G` of the {bpref "group.sl2z"}[modular group] is the genus of the corresponding compact {bpref "ag.riemann_surface"}[Riemann surface] arising from the compactification of $`G\backslash\mathcal{H},` which is obtained by adjoining the {bpref "group.fuchsian.cusps"}[cusps] of $`G`.

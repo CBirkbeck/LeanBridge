@@ -50,7 +50,7 @@ Let $`F` be a {bpref "mf.bianchi.newform"}[Bianchi newform] over the imaginary q
 Depends on: {uses "mf.bianchi.newform"}[] {uses "mf.bianchi.sign"}[]
 :::
 
-:::definition "mf.bianchi.base_change" (lean := "HyperbolicThreeSpace.IsBianchiHeckeEigenform.IsBaseChange, HyperbolicThreeSpace.BianchiNewformOfWeight.IsBaseChange, HeckeRing.GL2.Newform.quadraticBaseChangeEigenvalue, HyperbolicThreeSpace.IsBianchiHeckeEigenform.isBaseChange_iff_frobeniusPowerSum, HyperbolicThreeSpace.IsBianchiHeckeEigenform.IsBaseChange.eigenvalue_eq_eigenvalue, HyperbolicThreeSpace.IsBianchiHeckeEigenform.IsBaseChange.isBaseChangeOfEulerFactors")
+:::definition "mf.bianchi.base_change"
 *Base-change Bianchi modular forms.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.bianchi.base_change))
 
 For every {bpref "cmf.newform"}[classical elliptic newform] $`f` and every imaginary quadratic field $`K` one can define the *base-change* $`F` of $`f` to $`K`.

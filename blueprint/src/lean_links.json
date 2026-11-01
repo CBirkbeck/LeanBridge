@@ -912,14 +912,6 @@
     "HeckeRing.GL2.Newform.newformSubspace": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.NewformSubspace",
     "HeckeRing.GL2.Newform.dimension_eq_ncard_galoisOrbit": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Dimension"
   },
-  "cmf.distinguishing_primes": {
-    "HeckeRing.GL2.Newform.DistinguishesNewforms": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.HeckeCharpoly",
-    "HeckeRing.GL2.Newform.heckeCharpolyClassCount": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.DistinguishingPrimes",
-    "HeckeRing.GL2.Newform.IsDistinguishingPrimeSeq": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.DistinguishingPrimes",
-    "HeckeRing.GL2.Newform.distinguishingPrimes": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.DistinguishingPrimes",
-    "HeckeRing.GL2.Newform.IsDistinguishingPrimeSeq.eq": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.DistinguishingPrimes",
-    "HeckeRing.GL2.Newform.mem_distinguishingPrimes_iff": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.DistinguishingPrimes"
-  },
   "cmf.dualform": {
     "CuspForm.conj": "TauCeti.NumberTheory.ModularForms.Conjugate",
     "HeckeRing.GL2.Newform.conj": "TauCeti.NumberTheory.ModularForms.Newforms.Conjugate"
@@ -1091,14 +1083,6 @@
     "HeckeRing.GL2.Newform.GaloisRep.projectiveField": "LeanBridge.ForMathlib.NumberTheory.ModularForms.SatoTate.GaloisRepresentation",
     "HeckeRing.GL2.Newform.GaloisRep.finrank_projectiveField": "LeanBridge.ForMathlib.NumberTheory.ModularForms.SatoTate.GaloisRepresentation",
     "HeckeRing.GL2.Newform.GaloisRep.projectiveField_le_artinField": "LeanBridge.ForMathlib.NumberTheory.ModularForms.SatoTate.GaloisRepresentation"
-  },
-  "cmf.projective_image": {
-    "HeckeRing.GL2.Newform.GaloisRep.projectiveImage": "LeanBridge.ForMathlib.NumberTheory.ModularForms.SatoTate.GaloisRepresentation",
-    "HeckeRing.GL2.Newform.GaloisRep.ProjectiveImageType": "LeanBridge.ForMathlib.NumberTheory.ModularForms.SatoTate.GaloisRepresentation",
-    "HeckeRing.GL2.Newform.GaloisRep.ProjectiveImageType.IsTypeOf": "LeanBridge.ForMathlib.NumberTheory.ModularForms.SatoTate.GaloisRepresentation",
-    "HeckeRing.GL2.Newform.GaloisRep.typeOfProjectiveImage": "LeanBridge.ForMathlib.NumberTheory.ModularForms.SatoTate.ProjectiveImageClassification",
-    "HeckeRing.GL2.Newform.GaloisRep.exists_isTypeOf_projectiveImage_iff": "LeanBridge.ForMathlib.NumberTheory.ModularForms.SatoTate.ProjectiveImageClassification",
-    "Matrix.ProjGenLinGroup.classification": "LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.FiniteProjectiveSubgroup"
   },
   "cmf.q-expansion": {
     "UpperHalfPlane.qExpansion": "Mathlib.NumberTheory.ModularForms.QExpansion",
@@ -2644,13 +2628,6 @@
     "ModularGroup.IsFundamentalDomain": "LeanBridge.ForMathlib.NumberTheory.ModularCurve.FundamentalDomain",
     "UpperHalfPlane.Completed": "LeanBridge.ForMathlib.Analysis.Complex.UpperHalfPlane.Completed"
   },
-  "group.sl2z.genus_subgroup": {
-    "ModularGroup.topologicalGenus": "LeanBridge.ForMathlib.NumberTheory.ModularCurve.CompactRiemannSurface",
-    "TopCat.topologicalGenus": "LeanBridge.ForMathlib.AlgebraicTopology.TopologicalGenus",
-    "Subgroup.compactSpace_compactifiedQuotient_map_sl2zToPSL2R": "LeanBridge.ForMathlib.NumberTheory.ModularCurve.CompactRiemannSurface",
-    "Subgroup.CompactifiedQuotient": "TauCeti.Analysis.Complex.Fuchsian.Compactification.Basic",
-    "ModularGroup.degree_compactifiedQuotientMap_eq_natCard_cosets": "LeanBridge.ForMathlib.NumberTheory.ModularCurve.CompactRiemannSurface"
-  },
   "group.sl2z.subgroup.gamma0n": {
     "CongruenceSubgroup.Gamma0": "Mathlib.NumberTheory.ModularForms.CongruenceSubgroups",
     "CongruenceSubgroup.Gamma0_mem": "Mathlib.NumberTheory.ModularForms.CongruenceSubgroups"
@@ -3713,14 +3690,6 @@
     "HyperbolicThreeSpace.casimirOne": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.Casimir",
     "HyperbolicThreeSpace.IsBianchiCuspidal": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.ModularForm"
   },
-  "mf.bianchi.base_change": {
-    "HyperbolicThreeSpace.IsBianchiHeckeEigenform.IsBaseChange": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.BaseChangeOfWeight",
-    "HyperbolicThreeSpace.BianchiNewformOfWeight.IsBaseChange": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.BaseChangeOfWeight",
-    "HeckeRing.GL2.Newform.quadraticBaseChangeEigenvalue": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.BaseChangeOfWeight",
-    "HyperbolicThreeSpace.IsBianchiHeckeEigenform.isBaseChange_iff_frobeniusPowerSum": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.BaseChangePowerSum",
-    "HyperbolicThreeSpace.IsBianchiHeckeEigenform.IsBaseChange.eigenvalue_eq_eigenvalue": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.BaseChangeOfWeight",
-    "HyperbolicThreeSpace.IsBianchiHeckeEigenform.IsBaseChange.isBaseChangeOfEulerFactors": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.BaseChangePowerSum"
-  },
   "mf.bianchi.bianchicongruencesubgroup": {
     "Ideal.gammaPSL": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.CongruenceSubgroup",
     "Ideal.mk_mem_gammaPSL_iff": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.CongruenceSubgroup",
@@ -4095,14 +4064,6 @@
     "SiegelUpperHalfSpace.maassLiftTheorem": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftCuspForm",
     "SiegelUpperHalfSpace.maassLiftLinearMap": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftCuspForm",
     "SiegelUpperHalfSpace.isCuspForm_maassLift": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftCuspForm"
-  },
-  "mf.siegel.newform.paramodular": {
-    "SiegelUpperHalfSpace.IsNewParamodularEigenform": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularNewEigenform",
-    "SiegelUpperHalfSpace.IsNotLevelRaised": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularNewEigenform",
-    "SiegelUpperHalfSpace.paramodularVPlus": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularNewEigenform",
-    "SiegelUpperHalfSpace.paramodularVMinus": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularNewEigenform",
-    "SiegelUpperHalfSpace.paramodularU": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularNewEigenform",
-    "SiegelUpperHalfSpace.coe_levelRaisingThetaPrime": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularLevelRaisingThetaPrime"
   },
   "mf.siegel.newform_subspace": {
     "SiegelUpperHalfSpace.newformSubspace": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularNewform",

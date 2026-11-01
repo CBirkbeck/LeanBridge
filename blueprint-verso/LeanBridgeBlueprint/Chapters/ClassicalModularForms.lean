@@ -288,7 +288,7 @@ This is defined as 'finrank ℂ (ModularForm Γ k)' in mathlib, where {bpref "cm
 Depends on: {uses "cmf.space"}[] {uses "cmf.space_mathlib_def"}[]
 :::
 
-:::definition "cmf.distinguishing_primes" (lean := "HeckeRing.GL2.Newform.DistinguishesNewforms, HeckeRing.GL2.Newform.heckeCharpolyClassCount, HeckeRing.GL2.Newform.IsDistinguishingPrimeSeq, HeckeRing.GL2.Newform.distinguishingPrimes, HeckeRing.GL2.Newform.IsDistinguishingPrimeSeq.eq, HeckeRing.GL2.Newform.mem_distinguishingPrimes_iff")
+:::definition "cmf.distinguishing_primes"
 *Distinguishing Hecke operators.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.distinguishing_primes))
 
 For a {bpref "cmf.newspace"}[newspace] $`S^\mathrm{new}_k(N,\chi)` we say that a set of {bpref "cmf.hecke_operator"}[Hecke operators] $`\mathcal T:=\{T_{p_1},\ldots,T_{p_r}\}` *distinguishes* the {bpref "cmf.newform"}[newforms] in the space if the sets $`X_f(\mathcal T)` of characteristic polynomials of the $`T_p\in \mathcal T` acting on the subspace $`V_f` spanned by the {bpref "cmf.galois_orbit"}[Galois orbit] of $`f` in $`S_k^\mathrm{new}(N,\chi)` are distinct as $`f` ranges over (non-conjugate) newforms in $`S_k^\mathrm{new}(N,\chi)`.
@@ -922,7 +922,7 @@ This number field is typically identified as the Galois closure of a {bpref "nf.
 Depends on: {uses "cmf.galois_representation"}[] {uses "cmf.newform"}[] {uses "cmf.weight"}[] {uses "nf"}[] {uses "nf.sibling"}[]
 :::
 
-:::definition "cmf.projective_image" (lean := "HeckeRing.GL2.Newform.GaloisRep.projectiveImage, HeckeRing.GL2.Newform.GaloisRep.ProjectiveImageType, HeckeRing.GL2.Newform.GaloisRep.ProjectiveImageType.IsTypeOf, HeckeRing.GL2.Newform.GaloisRep.typeOfProjectiveImage, HeckeRing.GL2.Newform.GaloisRep.exists_isTypeOf_projectiveImage_iff, Matrix.ProjGenLinGroup.classification")
+:::definition "cmf.projective_image"
 *Projective image.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.projective_image))
 
 The *projective image* of a {bpref "cmf.weight"}[weight] one {bpref "cmf.newform"}[newform] is the image of its associated {bpref "cmf.galois_representation"}[projective Galois representation] $`\rho\colon \Gal(\overline{\Q}/\Q)\to \PGL_2(\C)`.  It is a finite subgroup of $`\PGL_2(\C)` that can be classified as one of four *types*: It is either isomorphic to a dihedral group $`D_n` for some integer $`n\ge 2` (where $`D_2:=C_2\times C_2` is the Klein group), or to one of $`A_4, S_4, A_5`, where $`A_n` and $`S_n` respectively denote the alternating and symmetric groups on $`n` letters.

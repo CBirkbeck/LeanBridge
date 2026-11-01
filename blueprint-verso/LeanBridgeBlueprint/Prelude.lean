@@ -104,7 +104,6 @@ import LeanBridge.ForMathlib.AlgebraicGeometry.Variety.Basic
 import LeanBridge.ForMathlib.AlgebraicGeometry.Variety.FieldOfDefinition
 import LeanBridge.ForMathlib.AlgebraicGeometry.Variety.GoodReduction
 import LeanBridge.ForMathlib.AlgebraicGeometry.Variety.Projective
-import LeanBridge.ForMathlib.AlgebraicTopology.TopologicalGenus
 import LeanBridge.ForMathlib.Analysis.Complex.UpperHalfPlane.Completed
 import LeanBridge.ForMathlib.Analysis.SpecialFunctions.BesselK
 import LeanBridge.ForMathlib.FieldTheory.Finite.ConwayPolynomial
@@ -180,7 +179,6 @@ import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.Borel
 import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.Cartan
 import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.CartanNormalizer
 import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.Exceptional
-import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.FiniteProjectiveSubgroup
 import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.LeastPrimitiveRoot
 import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.Level
 import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.NonsplitCartan
@@ -195,8 +193,6 @@ import LeanBridge.ForMathlib.NumberTheory.Artin.Conductor
 import LeanBridge.ForMathlib.NumberTheory.Artin.GaloisOrbit
 import LeanBridge.ForMathlib.NumberTheory.Artin.LFunction
 import LeanBridge.ForMathlib.NumberTheory.Artin.Parity
-import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.BaseChangeOfWeight
-import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.BaseChangePowerSum
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.Casimir
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.ComplexMultiplicationOfWeight
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.CongruenceSubgroup
@@ -240,8 +236,6 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LatticeThetaSe
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.Level
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftCuspForm
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ModularForm
-import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularLevelRaisingThetaPrime
-import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularNewEigenform
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularNewform
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PhiOperator
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SatohBracket
@@ -301,7 +295,6 @@ import LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.GeneratingPrimes
 import LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.TopSlope
 import LeanBridge.ForMathlib.NumberTheory.ModularCurve.Agreeable
 import LeanBridge.ForMathlib.NumberTheory.ModularCurve.CanonicalField
-import LeanBridge.ForMathlib.NumberTheory.ModularCurve.CompactRiemannSurface
 import LeanBridge.ForMathlib.NumberTheory.ModularCurve.CongruenceSubgroupOfOpen
 import LeanBridge.ForMathlib.NumberTheory.ModularCurve.CuspOrbits
 import LeanBridge.ForMathlib.NumberTheory.ModularCurve.CuspWidth
@@ -341,7 +334,6 @@ import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.Weight
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.AtkinLehnerDimension
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.CoefficientRing
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Dimension
-import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.DistinguishingPrimes
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Embedding
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisConjugate
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisOrbit
@@ -353,7 +345,6 @@ import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Maximal
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.NewformSubspace
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.TraceForm
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.SatoTate.GaloisRepresentation
-import LeanBridge.ForMathlib.NumberTheory.ModularForms.SatoTate.ProjectiveImageClassification
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.Basic
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.InnerTwist
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.Minimal
@@ -760,7 +751,6 @@ import TauCeti.AlgebraicGeometry.GroupScheme.CentralIsogeny.BaseChange
 import TauCeti.AlgebraicGeometry.GroupScheme.Torsion
 import TauCeti.AlgebraicGeometry.Modules.Differentials.Basic
 import TauCeti.AlgebraicTopology.Cohomology.Basic
-import TauCeti.Analysis.Complex.Fuchsian.Compactification.Basic
 import TauCeti.Analysis.Complex.Fuchsian.Covolume
 import TauCeti.Analysis.Complex.Fuchsian.Elliptic.Finite
 import TauCeti.Combinatorics.PermutationTriple.Basic
