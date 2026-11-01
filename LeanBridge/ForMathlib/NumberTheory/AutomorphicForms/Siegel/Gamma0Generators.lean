@@ -294,11 +294,6 @@ private lemma euclid {N : ℤ} (hN : 0 < N) (hN₄ : N ≤ 4) {Q : ℤ → ℤ �
 
 variable {N : ℕ} {γ : symplecticGroup (Fin 2) ℤ}
 
-lemma siegelParabolic_le_Gamma0 : siegelParabolic (Fin 2) ℤ ≤ Gamma0 (Fin 2) N := fun γ hγ ↦
-  mem_Gamma0_iff.mpr fun i j ↦ by
-    rw [show γ.1 (.inr i) (.inl j) = 0 from congrFun (congrFun hγ i) j]
-    exact dvd_zero _
-
 lemma embedFirst_lowerUnipotent_mem_Gamma0 (s : ℤ) :
     embedFirst (lowerUnipotent (N * s)) ∈ Gamma0 (Fin 2) N :=
   mem_Gamma0_iff.mpr fun i j ↦ by

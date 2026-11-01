@@ -178,6 +178,13 @@ private lemma map_ofReal_toBlocks₂₂ :
 
 variable [DecidableEq l] {γ : symplecticGroup l ℤ}
 
+variable (γ) in
+lemma map_algebraMap_map_intCast : SymplecticGroup.map (algebraMap ℚ ℝ)
+    (SymplecticGroup.map (Int.castRingHom ℚ) γ) = SymplecticGroup.map (Int.castRingHom ℝ) γ :=
+  Subtype.ext <| by
+    ext i j
+    simp
+
 private lemma mul_J_mul_transpose_of_mem_siegelParabolic
     (hγ : γ ∈ SymplecticGroup.siegelParabolic l ℤ) :
     fromBlocks (γ : Matrix (l ⊕ l) (l ⊕ l) ℤ).toBlocks₁₁ (γ : Matrix (l ⊕ l) (l ⊕ l) ℤ).toBlocks₁₂
@@ -192,6 +199,11 @@ lemma toBlocks₂₂_mul_transpose_toBlocks₁₁ (hγ : γ ∈ SymplecticGroup.
     (γ : Matrix (l ⊕ l) (l ⊕ l) ℤ).toBlocks₂₂ * (γ : Matrix (l ⊕ l) (l ⊕ l) ℤ).toBlocks₁₁ᵀ = 1 := by
   simpa [J, fromBlocks_transpose, fromBlocks_multiply] using
     congrArg toBlocks₂₁ (mul_J_mul_transpose_of_mem_siegelParabolic hγ)
+
+lemma toBlocks₁₁_mul_transpose_toBlocks₂₂ (hγ : γ ∈ SymplecticGroup.siegelParabolic l ℤ) :
+    (γ : Matrix (l ⊕ l) (l ⊕ l) ℤ).toBlocks₁₁ * (γ : Matrix (l ⊕ l) (l ⊕ l) ℤ).toBlocks₂₂ᵀ = 1 := by
+  rw [← transpose_transpose (γ : Matrix (l ⊕ l) (l ⊕ l) ℤ).toBlocks₁₁, ← transpose_mul,
+    toBlocks₂₂_mul_transpose_toBlocks₁₁ hγ, transpose_one]
 
 lemma toBlocks₁₂_mul_transpose_toBlocks₁₁ (hγ : γ ∈ SymplecticGroup.siegelParabolic l ℤ) :
     (γ : Matrix (l ⊕ l) (l ⊕ l) ℤ).toBlocks₁₂ * (γ : Matrix (l ⊕ l) (l ⊕ l) ℤ).toBlocks₁₁ᵀ =
@@ -289,6 +301,12 @@ def partialInversion : symplecticGroup (Fin 2) ℤ :=
     simp only [fromBlocks_inj]
     refine ⟨?_, ?_, ?_, ?_⟩ <;> ext i j <;> fin_cases i <;> fin_cases j <;> simp [vecMul]⟩
 
+lemma siegelParabolic_le_Gamma0 {l : Type*} [Fintype l] [DecidableEq l] {N : ℕ} :
+    siegelParabolic l ℤ ≤ Gamma0 l N :=
+  fun γ hγ ↦ mem_Gamma0_iff.mpr fun i j ↦ by
+    rw [show γ.1 (.inr i) (.inl j) = 0 from congrFun (congrFun hγ i) j]
+    exact dvd_zero _
+
 end SymplecticGroup
 
 namespace SiegelUpperHalfSpace
@@ -298,7 +316,7 @@ variable (Ω : SiegelUpperHalfSpace (Fin 2)) (μ ν : Fin 2 → ℤ)
 private lemma val_one_zero : Ω.val 1 0 = Ω.val 0 1 := by
   rw [← transpose_apply Ω.val 0 1, Ω.transpose_val]
 
-private lemma val_zero_zero_ne_zero : Ω.val 0 0 ≠ 0 := fun h ↦ by
+lemma val_zero_zero_ne_zero : Ω.val 0 0 ≠ 0 := fun h ↦ by
   simpa [h] using Ω.posDef_im.diag_pos (i := 0)
 
 lemma val_partialInversion_smul :

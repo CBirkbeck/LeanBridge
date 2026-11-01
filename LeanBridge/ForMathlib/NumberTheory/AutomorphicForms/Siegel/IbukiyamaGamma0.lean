@@ -95,9 +95,6 @@ lemma det_denom_partialInversion :
     (denom (map (Int.castRingHom ℝ) partialInversion) Ω.val).det = Ω.val 0 0 := by
   simp [denom, partialInversion, det_fin_two, Matrix.mul_apply, toBlocks₂₁, toBlocks₂₂]
 
-private lemma val_zero_zero_ne_zero' : Ω.val 0 0 ≠ 0 := fun h ↦ by
-  simpa [h] using Ω.posDef_im.diag_pos (i := 0)
-
 lemma map_partialInversion_mul_embedFirst_lowerUnipotent :
     map (Int.castRingHom ℝ) partialInversion * map (Int.castRingHom ℝ)
       (embedFirst (lowerUnipotent c)) = map (Int.castRingHom ℝ) (embedFirst (upperUnipotent (-c))) *
@@ -129,7 +126,7 @@ lemma thetaConstant_embedFirst_lowerUnipotent_smul_pow_four :
     thetaConstant μ ν (map (Int.castRingHom ℝ) (embedFirst (lowerUnipotent (2 * k))) • Ω) ^ 4 =
       (denom (map (Int.castRingHom ℝ) (embedFirst (lowerUnipotent (2 * k)))) Ω.val).det ^ 2 *
         thetaConstant μ ν Ω ^ 4 := by
-  refine mul_left_cancel₀ (pow_ne_zero 2 (val_zero_zero_ne_zero'
+  refine mul_left_cancel₀ (pow_ne_zero 2 (val_zero_zero_ne_zero
     (map (Int.castRingHom ℝ) (embedFirst (lowerUnipotent (2 * k))) • Ω))) ?_
   linear_combination thetaConstant_partialInversion_smul_pow_four
     (map (Int.castRingHom ℝ) (embedFirst (lowerUnipotent (2 * k))) • Ω) μ ν -
@@ -142,7 +139,7 @@ lemma thetaConstant_embedFirst_lowerUnipotent_smul_pow_four :
 lemma thetaConstant_partialInversion_smul_sq :
     thetaConstant ![ν 0, μ 1] ![μ 0, ν 1] (map (Int.castRingHom ℝ) partialInversion • Ω) ^ 2 =
       -I * Ω.val 0 0 * cexp (-(π * I * (μ 0 * ν 0 : ℤ))) * thetaConstant μ ν Ω ^ 2 := by
-  have hτ : Ω.val 0 0 ≠ 0 := val_zero_zero_ne_zero' Ω
+  have hτ : Ω.val 0 0 ≠ 0 := val_zero_zero_ne_zero Ω
   have hμ : ![ν 0, μ 1] = ![-ν 0, μ 1] + 2 • ![ν 0, 0] := by
     ext i
     fin_cases i <;> simp
@@ -186,7 +183,7 @@ lemma thetaConstant_embedFirst_lowerUnipotent_smul_sq :
         (denom (map (Int.castRingHom ℝ) (embedFirst (lowerUnipotent (2 * k)))) Ω.val).det *
           thetaConstant μ ν Ω ^ 2 := by
   refine mul_left_cancel₀ (mul_ne_zero (mul_ne_zero (neg_ne_zero.mpr I_ne_zero)
-    (val_zero_zero_ne_zero' (map (Int.castRingHom ℝ) (embedFirst (lowerUnipotent (2 * k))) • Ω)))
+    (val_zero_zero_ne_zero (map (Int.castRingHom ℝ) (embedFirst (lowerUnipotent (2 * k))) • Ω)))
       (Complex.exp_ne_zero (-(π * I * (μ 0 * ν 0 : ℤ))))) ?_
   linear_combination -thetaConstant_partialInversion_smul_sq
     (map (Int.castRingHom ℝ) (embedFirst (lowerUnipotent (2 * k))) • Ω) μ ν +
@@ -254,12 +251,6 @@ def slashCharStabilizer : Subgroup (symplecticGroup l ℤ) where
     conv_rhs => rw [← h]
     rw [smul_smul, show (⟨a⁻¹, Γ.inv_mem ha⟩ : Γ) = ⟨a, ha⟩⁻¹ from rfl, map_inv ψ,
       ← Units.val_mul, inv_mul_cancel, Units.val_one, one_smul]
-
-lemma map_algebraMap_map_intCast (γ : symplecticGroup l ℤ) :
-    map (algebraMap ℚ ℝ) (map (Int.castRingHom ℚ) γ) = map (Int.castRingHom ℝ) γ :=
-  Subtype.ext <| by
-    ext i j
-    simp
 
 /-- **Invariance under generators gives a modular form**: a holomorphic `f : ℋ_g → V` with
 `f ∣_ρ γ = ψ(γ) f` for all `γ` in a subgroup `Γ` of `Sp(2g, ℤ)` is a Siegel modular form of weight
@@ -444,34 +435,6 @@ lemma f2_comp_double_mem_gamma0_four : f2 ∘ double ∈ scalarModularForms 2 (g
   linear_combination ((denom (map (algebraMap ℚ ℝ) (γ : symplecticGroup (Fin 2) ℚ)) τ.val).det *
     f1 (double τ)) ^ 2 * hψ
 
-private lemma toBlocks₁₁_mul_transpose_toBlocks₂₂' (hp : p ∈ siegelParabolic (Fin 2) ℤ) :
-    p.1.toBlocks₁₁ * p.1.toBlocks₂₂ᵀ = 1 := by
-  rw [← transpose_transpose p.1.toBlocks₁₁, ← transpose_mul, toBlocks₂₂_mul_transpose_toBlocks₁₁ hp,
-    transpose_one]
-
-/-- The element `(A, 2B; 0, D)` of the Siegel parabolic subgroup, for `p = (A, B; 0, D)` in it,
-which acts on `2Ω` as `p` acts on `Ω`. -/
-private def twiceUpper (hp : p ∈ siegelParabolic (Fin 2) ℤ) : symplecticGroup (Fin 2) ℤ :=
-  ⟨fromBlocks p.1.toBlocks₁₁ (p.1.toBlocks₁₂ + p.1.toBlocks₁₂) 0 p.1.toBlocks₂₂, by
-    rw [SymplecticGroup.mem_iff, J, fromBlocks_transpose, fromBlocks_multiply, fromBlocks_multiply]
-    simp [toBlocks₂₂_mul_transpose_toBlocks₁₁ hp, toBlocks₁₁_mul_transpose_toBlocks₂₂' hp,
-      Matrix.add_mul, Matrix.mul_add, toBlocks₁₂_mul_transpose_toBlocks₁₁ hp]⟩
-
-private lemma twiceUpper_mem (hp : p ∈ siegelParabolic (Fin 2) ℤ) :
-    twiceUpper hp ∈ siegelParabolic (Fin 2) ℤ :=
-  toBlocks_fromBlocks₂₁ _ _ _ _
-
-variable {Ω} in
-private lemma twiceUpper_smul_double (hp : p ∈ siegelParabolic (Fin 2) ℤ) :
-    map (Int.castRingHom ℝ) (twiceUpper hp) • double Ω =
-      double (map (Int.castRingHom ℝ) p • Ω) := by
-  ext1
-  rw [val_smul_of_mem_siegelParabolic _ (twiceUpper_mem hp), double_val, double_val,
-    val_smul_of_mem_siegelParabolic Ω hp]
-  simp only [twiceUpper, toBlocks_fromBlocks₁₁, toBlocks_fromBlocks₁₂, Matrix.add_mul,
-    Matrix.mul_add, smul_add, two_smul]
-  rw [Matrix.map_add _ (map_add _)]
-
 private lemma det_denom_twiceUpper (hp : p ∈ siegelParabolic (Fin 2) ℤ) :
     (denom (map (Int.castRingHom ℝ) (twiceUpper hp)) (double Ω).val).det =
       (denom (map (Int.castRingHom ℝ) p) Ω.val).det := by
@@ -508,7 +471,7 @@ lemma comp_double_mem_gamma0_four (hF : F ∈ scalarModularForms k (gamma0 2)) :
       rw [MonoidHom.one_apply, Units.val_one, slash_eq_smul_iff]
       intro τ
       rw [one_smul, detPowerRep_denomGL, Function.comp_apply, Function.comp_apply,
-        ← twiceUpper_smul_double hp, apply_smul_of_mem_gamma0 hF
+        ← twiceUpper_smul_double τ hp, apply_smul_of_mem_gamma0 hF
           (siegelParabolic_le_Gamma0 (twiceUpper_mem hp)), det_denom_twiceUpper]
   simpa using mem_modularForms_map_of_le_slashCharStabilizer _ _ _ 1 hF.1.comp_double hle
 
@@ -538,17 +501,9 @@ private lemma thetaConstant_sq_eq_of_cast_eq {a a' b b' : Fin 2 → ℤ}
   rcases Int.even_or_odd (a' ⬝ᵥ fun i ↦ (b i - b' i) / 2) with h | h <;> rw [h.neg_one_zpow] <;>
     ring1
 
-/-- The integral lift `(a₁.val, a₂.val) ∈ {0, 1}²` of `a ∈ (ℤ/2ℤ)²`. -/
-private def lift (a : Fin 2 → ZMod 2) : Fin 2 → ℤ :=
-  fun i ↦ (a i).val
-
-private lemma lift_cons (a b : ZMod 2) : lift ![a, b] = ![(a.val : ℤ), (b.val : ℤ)] := by
+private lemma cast_liftChar (a : Fin 2 → ZMod 2) : (fun i ↦ ((liftChar a i : ℤ) : ZMod 2)) = a := by
   ext i
-  fin_cases i <;> rfl
-
-private lemma cast_lift (a : Fin 2 → ZMod 2) : (fun i ↦ ((lift a i : ℤ) : ZMod 2)) = a := by
-  ext i
-  simp [lift]
+  simp [liftChar]
 
 /-- The six even characteristics `(μ, ν) ∈ (ℤ/2ℤ)² × (ℤ/2ℤ)²` with `μ ≠ 0`, those of `K`. -/
 private def sixChars : Finset ((Fin 2 → ZMod 2) × (Fin 2 → ZMod 2)) :=
@@ -565,19 +520,19 @@ private lemma prod_sixChars (φ : (Fin 2 → ZMod 2) × (Fin 2 → ZMod 2) → �
     Finset.prod_insert (by decide), Finset.prod_insert (by decide), Finset.prod_insert (by decide),
     Finset.prod_singleton]
 
-private lemma K_eq_prod : K Ω =
-    (∏ v ∈ sixChars, thetaConstant (lift v.1) (lift v.2) Ω ^ 2) / 4096 := by
+private lemma K_eq_prod :
+    K Ω = (∏ v ∈ sixChars, thetaConstant (liftChar v.1) (liftChar v.2) Ω ^ 2) / 4096 := by
   rw [prod_sixChars]
-  simp only [lift_cons, ZMod.val_zero, ZMod.val_one, Nat.cast_zero, Nat.cast_one]
+  simp only [liftChar_cons, ZMod.val_zero, ZMod.val_one, Nat.cast_zero, Nat.cast_one]
   simp only [K, theta, Pi.div_apply, Pi.pow_apply, Pi.mul_apply, Pi.ofNat_apply]
   ring1
 
 private lemma prod_phase {S : Matrix (Fin 2) (Fin 2) ℤ} (hS : Sᵀ = S) :
-    ∏ v ∈ sixChars, cexp (-(π * I * ((lift v.1 ⬝ᵥ S *ᵥ lift v.1 : ℤ) / 4 +
-      (lift v.1 ⬝ᵥ S.diag : ℤ) / 2))) ^ 2 = 1 := by
+    ∏ v ∈ sixChars, cexp (-(π * I * ((liftChar v.1 ⬝ᵥ S *ᵥ liftChar v.1 : ℤ) / 4 +
+      (liftChar v.1 ⬝ᵥ S.diag : ℤ) / 2))) ^ 2 = 1 := by
   have h10 : S 1 0 = S 0 1 := IsSymm.apply hS 0 1
   rw [prod_sixChars]
-  simp only [lift_cons, ZMod.val_zero, ZMod.val_one, Nat.cast_zero, Nat.cast_one,
+  simp only [liftChar_cons, ZMod.val_zero, ZMod.val_one, Nat.cast_zero, Nat.cast_one,
     ← Complex.exp_nat_mul, ← Complex.exp_add]
   refine Complex.exp_eq_one_iff.mpr ⟨-(3 * S 0 0 + S 0 1 + 3 * S 1 1), ?_⟩
   simp [dotProduct, mulVec, h10]
@@ -651,22 +606,23 @@ private lemma cast_mulVec (M : Matrix (Fin 2) (Fin 2) ℤ) {v : Fin 2 → ℤ} {
   rfl
 
 variable (v) in
-private lemma thetaConstant_lift_smul_sq (hp : p ∈ siegelParabolic (Fin 2) ℤ) :
+private lemma thetaConstant_liftChar_smul_sq (hp : p ∈ siegelParabolic (Fin 2) ℤ) :
     letI S : Matrix (Fin 2) (Fin 2) ℤ := p.1.toBlocks₁₂ * p.1.toBlocks₁₁ᵀ
-    thetaConstant (lift v.1) (lift v.2) (map (Int.castRingHom ℝ) p • Ω) ^ 2 =
-      cexp (-(π * I * ((lift v.1 ⬝ᵥ S *ᵥ lift v.1 : ℤ) / 4 + (lift v.1 ⬝ᵥ S.diag : ℤ) / 2))) ^ 2 *
-        thetaConstant (lift (charMap (p.1.toBlocks₁₁.map (Int.castRingHom (ZMod 2)))
-          (p.1.toBlocks₂₂.map (Int.castRingHom (ZMod 2))) (S.map (Int.castRingHom (ZMod 2))) v).1)
-          (lift (charMap (p.1.toBlocks₁₁.map (Int.castRingHom (ZMod 2)))
-            (p.1.toBlocks₂₂.map (Int.castRingHom (ZMod 2))) (S.map (Int.castRingHom (ZMod 2)))
-              v).2) Ω ^ 2 := by
+    thetaConstant (liftChar v.1) (liftChar v.2) (map (Int.castRingHom ℝ) p • Ω) ^ 2 =
+      cexp (-(π * I * ((liftChar v.1 ⬝ᵥ S *ᵥ liftChar v.1 : ℤ) / 4 +
+        (liftChar v.1 ⬝ᵥ S.diag : ℤ) / 2))) ^ 2 *
+          thetaConstant (liftChar (charMap (p.1.toBlocks₁₁.map (Int.castRingHom (ZMod 2)))
+            (p.1.toBlocks₂₂.map (Int.castRingHom (ZMod 2))) (S.map (Int.castRingHom (ZMod 2))) v).1)
+            (liftChar (charMap (p.1.toBlocks₁₁.map (Int.castRingHom (ZMod 2)))
+              (p.1.toBlocks₂₂.map (Int.castRingHom (ZMod 2))) (S.map (Int.castRingHom (ZMod 2)))
+                v).2) Ω ^ 2 := by
   rw [thetaConstant_smul_of_mem_siegelParabolic _ _ Ω hp, mul_pow]
   congr 1
   refine thetaConstant_sq_eq_of_cast_eq Ω (fun i ↦ ?_) fun i ↦ ?_
-  · rw [congrFun (cast_lift _) i, charMap, cast_mulVec _ (cast_lift v.1), transpose_map]
-  · rw [congrFun (cast_lift _) i, charMap, cast_mulVec _ (w := v.2 + _ + _), transpose_map]
+  · rw [congrFun (cast_liftChar _) i, charMap, cast_mulVec _ (cast_liftChar v.1), transpose_map]
+  · rw [congrFun (cast_liftChar _) i, charMap, cast_mulVec _ (w := v.2 + _ + _), transpose_map]
     ext j
-    simp [congrFun (cast_lift v.2) j, cast_mulVec _ (cast_lift v.1) j]
+    simp [congrFun (cast_liftChar v.2) j, cast_mulVec _ (cast_liftChar v.1) j]
 
 /-- **`K` is invariant under the Siegel parabolic subgroup of `Sp(4, ℤ)`**: `γ = (A, B; 0, D)`
 multiplies the squares of the six theta constants of `K` by `e^{-πi(μᵀSμ/2 + μᵀ diag S)}`,
@@ -685,16 +641,11 @@ lemma K_smul_of_mem_siegelParabolic (hp : p ∈ siegelParabolic (Fin 2) ℤ) :
     rw [← transpose_map, hS]
   rw [K_eq_prod, K_eq_prod]
   congr 1
-  rw [Finset.prod_congr rfl fun v _ ↦ thetaConstant_lift_smul_sq Ω v hp, Finset.prod_mul_distrib,
-    prod_phase hS, one_mul]
+  rw [Finset.prod_congr rfl fun v _ ↦ thetaConstant_liftChar_smul_sq Ω v hp,
+    Finset.prod_mul_distrib, prod_phase hS, one_mul]
   exact Finset.prod_nbij' _ _ (fun v hv ↦ charMap_mem hDA hS' hv)
     (fun w hw ↦ charMapInv_mem hDA hS' hw) (fun v _ ↦ charMapInv_charMap v hDA)
       (fun w _ ↦ charMap_charMapInv w hDA) fun v _ ↦ rfl
-
-private lemma det_denom_sq_of_mem_siegelParabolic (hp : p ∈ siegelParabolic (Fin 2) ℤ) :
-    (denom (map (Int.castRingHom ℝ) p) Ω.val).det ^ 2 = 1 := by
-  rw [denom_of_mem_siegelParabolic Ω hp, ← RingHom.mapMatrix_apply, ← RingHom.map_det]
-  rcases Int.isUnit_iff.mp (isUnit_det_toBlocks₂₂ ⟨p, hp⟩) with h | h <;> simp [h]
 
 /-- **`K` is a Siegel modular form of weight 6 on the Siegel parabolic subgroup of `Sp(4, ℤ)`**:
 it is invariant under `P(ℤ)`, and `det(cΩ + d)⁶ = (det D)⁶ = 1` there. -/

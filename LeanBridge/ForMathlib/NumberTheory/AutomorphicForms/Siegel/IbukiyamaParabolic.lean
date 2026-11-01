@@ -86,10 +86,10 @@ lemma isHolomorphic_f1 : IsHolomorphic f1 :=
 variable (Ω : SiegelUpperHalfSpace (Fin 2)) {γ : symplecticGroup (Fin 2) ℤ}
 
 /-- The integral lift `(v₁.val, v₂.val) ∈ {0, 1}²` of a vector `v ∈ (ℤ/2ℤ)²`. -/
-private def liftChar (v : Fin 2 → ZMod 2) : Fin 2 → ℤ :=
+def liftChar (v : Fin 2 → ZMod 2) : Fin 2 → ℤ :=
   fun i ↦ (v i).val
 
-private lemma liftChar_cons (a b : ZMod 2) : liftChar ![a, b] = ![(a.val : ℤ), (b.val : ℤ)] := by
+lemma liftChar_cons (a b : ZMod 2) : liftChar ![a, b] = ![(a.val : ℤ), (b.val : ℤ)] := by
   ext i
   fin_cases i <;> rfl
 
@@ -154,13 +154,6 @@ private lemma thetaConstant_zero_smul_liftChar (hγ : γ ∈ SymplecticGroup.sie
   ext j
   simp [liftChar]
 
-private lemma toBlocks₁₁_mul_transpose_toBlocks₂₂
-    (hγ : γ ∈ SymplecticGroup.siegelParabolic (Fin 2) ℤ) :
-    (γ : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) ℤ).toBlocks₁₁ *
-      (γ : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) ℤ).toBlocks₂₂ᵀ = 1 := by
-  rw [← transpose_transpose (γ : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) ℤ).toBlocks₁₁,
-    ← transpose_mul, toBlocks₂₂_mul_transpose_toBlocks₁₁ hγ, transpose_one]
-
 /-- The permutation `v ↦ Dᵀ(v + diag(S))` of `(ℤ/2ℤ)²`, with `S = BAᵀ`, by which an element
 `γ = (A, B; 0, D)` of the Siegel parabolic subgroup of `Sp(4, ℤ)` permutes the characteristics
 `(0, v)` of the theta constants; its inverse is `w ↦ Aw - diag(S)`, since `ADᵀ = DᵀA = 1`. -/
@@ -212,22 +205,8 @@ lemma Y_smul_of_mem_siegelParabolic (hγ : γ ∈ SymplecticGroup.siegelParaboli
 abbrev parabolic : Subgroup (symplecticGroup (Fin 2) ℚ) :=
   (SymplecticGroup.siegelParabolic (Fin 2) ℤ).map (SymplecticGroup.map (Int.castRingHom ℚ))
 
-private lemma siegelParabolic_le_Gamma0 (N : ℕ) :
-    SymplecticGroup.siegelParabolic (Fin 2) ℤ ≤ SymplecticGroup.Gamma0 (Fin 2) N := fun γ hγ ↦
-  SymplecticGroup.mem_Gamma0_iff.mpr fun i j ↦ by
-    rw [show (γ : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) ℤ) (.inr i) (.inl j) = 0 from
-      congrFun (congrFun hγ i) j]
-    exact dvd_zero _
-
 lemma parabolic_le_gamma0 (N : ℕ) : parabolic ≤ gamma0 N :=
-  Subgroup.map_mono <| siegelParabolic_le_Gamma0 N
-
-private lemma map_algebraMap_map_intCast (γ : symplecticGroup (Fin 2) ℤ) :
-    SymplecticGroup.map (algebraMap ℚ ℝ) (SymplecticGroup.map (Int.castRingHom ℚ) γ) =
-      SymplecticGroup.map (Int.castRingHom ℝ) γ :=
-  Subtype.ext <| by
-    ext i j
-    simp
+  Subgroup.map_mono SymplecticGroup.siegelParabolic_le_Gamma0
 
 private lemma det_toBlocks₂₂_eq_one_or (hγ : γ ∈ SymplecticGroup.siegelParabolic (Fin 2) ℤ) :
     (γ : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) ℤ).toBlocks₂₂.det = 1 ∨
@@ -240,7 +219,7 @@ private lemma det_denom_eq (hγ : γ ∈ SymplecticGroup.siegelParabolic (Fin 2)
   rw [denom_of_mem_siegelParabolic Ω hγ]
   exact ((Int.castRingHom ℂ).map_det _).symm
 
-private lemma det_denom_sq (hγ : γ ∈ SymplecticGroup.siegelParabolic (Fin 2) ℤ) :
+lemma det_denom_sq_of_mem_siegelParabolic (hγ : γ ∈ SymplecticGroup.siegelParabolic (Fin 2) ℤ) :
     (denom (SymplecticGroup.map (Int.castRingHom ℝ) γ) Ω.val).det ^ 2 = 1 := by
   rw [det_denom_eq Ω hγ]
   rcases det_toBlocks₂₂_eq_one_or hγ with h1 | h1 <;> simp [h1]
@@ -252,7 +231,7 @@ lemma X_mem_parabolic : X ∈ scalarModularForms 2 parabolic := by
   refine ⟨isHolomorphic_X, ?_⟩
   rintro ⟨_, γ, hγ, rfl⟩ τ
   rw [map_algebraMap_map_intCast, X_smul_of_mem_siegelParabolic τ hγ, zpow_ofNat,
-    det_denom_sq τ hγ, one_mul]
+    det_denom_sq_of_mem_siegelParabolic τ hγ, one_mul]
 
 /-- **`Y` is a Siegel modular form of weight 4 on the Siegel parabolic subgroup of `Sp(4, ℤ)`**:
 it is holomorphic, invariant under `P(ℤ)`, and `det(cΩ + d)⁴ = (det D)⁴ = 1` there. -/
@@ -261,12 +240,11 @@ lemma Y_mem_parabolic : Y ∈ scalarModularForms 4 parabolic := by
   refine ⟨isHolomorphic_Y, ?_⟩
   rintro ⟨_, γ, hγ, rfl⟩ τ
   rw [map_algebraMap_map_intCast, Y_smul_of_mem_siegelParabolic τ hγ, zpow_ofNat,
-    show 4 = 2 * 2 by rfl, pow_mul, det_denom_sq τ hγ, one_pow, one_mul]
+    show 4 = 2 * 2 by rfl, pow_mul, det_denom_sq_of_mem_siegelParabolic τ hγ, one_pow, one_mul]
 
 /-- For `γ = (A, B; 0, D)` in the Siegel parabolic subgroup of `Sp(4, ℤ)`, the element
 `(A, 2B; 0, D)`, which acts on `2Ω` as `γ` acts on `Ω`. -/
-private def twiceB (hγ : γ ∈ SymplecticGroup.siegelParabolic (Fin 2) ℤ) :
-    symplecticGroup (Fin 2) ℤ :=
+def twiceUpper (hγ : γ ∈ SymplecticGroup.siegelParabolic (Fin 2) ℤ) : symplecticGroup (Fin 2) ℤ :=
   ⟨fromBlocks (γ : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) ℤ).toBlocks₁₁
     ((γ : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) ℤ).toBlocks₁₂ +
       (γ : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) ℤ).toBlocks₁₂) 0
@@ -275,19 +253,19 @@ private def twiceB (hγ : γ ∈ SymplecticGroup.siegelParabolic (Fin 2) ℤ) :
     simp [toBlocks₂₂_mul_transpose_toBlocks₁₁ hγ, toBlocks₁₁_mul_transpose_toBlocks₂₂ hγ,
       Matrix.add_mul, Matrix.mul_add, toBlocks₁₂_mul_transpose_toBlocks₁₁ hγ]⟩
 
-private lemma twiceB_mem (hγ : γ ∈ SymplecticGroup.siegelParabolic (Fin 2) ℤ) :
-    twiceB hγ ∈ SymplecticGroup.siegelParabolic (Fin 2) ℤ :=
+lemma twiceUpper_mem (hγ : γ ∈ SymplecticGroup.siegelParabolic (Fin 2) ℤ) :
+    twiceUpper hγ ∈ SymplecticGroup.siegelParabolic (Fin 2) ℤ :=
   toBlocks_fromBlocks₂₁ _ _ _ _
 
-private lemma twiceB_smul_double (hγ : γ ∈ SymplecticGroup.siegelParabolic (Fin 2) ℤ) :
-    SymplecticGroup.map (Int.castRingHom ℝ) (twiceB hγ) • double Ω =
+lemma twiceUpper_smul_double (hγ : γ ∈ SymplecticGroup.siegelParabolic (Fin 2) ℤ) :
+    SymplecticGroup.map (Int.castRingHom ℝ) (twiceUpper hγ) • double Ω =
       double (SymplecticGroup.map (Int.castRingHom ℝ) γ • Ω) := by
   have hd (Ω' : SiegelUpperHalfSpace (Fin 2)) : (double Ω').val = (2 : ℂ) • Ω'.val := rfl
   ext1
-  rw [val_smul_of_mem_siegelParabolic _ (twiceB_mem hγ), hd, hd,
+  rw [val_smul_of_mem_siegelParabolic _ (twiceUpper_mem hγ), hd, hd,
     val_smul_of_mem_siegelParabolic Ω hγ]
-  simp only [twiceB, toBlocks_fromBlocks₁₁, toBlocks_fromBlocks₁₂, Matrix.add_mul, Matrix.mul_add,
-    smul_add, two_smul]
+  simp only [twiceUpper, toBlocks_fromBlocks₁₁, toBlocks_fromBlocks₁₂, Matrix.add_mul,
+    Matrix.mul_add, smul_add, two_smul]
   rw [Matrix.map_add _ (map_add _)]
 
 private lemma f1_double_smul (hγ : γ ∈ SymplecticGroup.siegelParabolic (Fin 2) ℤ) :
@@ -295,9 +273,9 @@ private lemma f1_double_smul (hγ : γ ∈ SymplecticGroup.siegelParabolic (Fin 
   have h0 : (![0, 0] : Fin 2 → ℤ) = 0 := by
     ext i
     fin_cases i <;> rfl
-  rw [f1, Pi.pow_apply, Pi.pow_apply, theta, h0, ← twiceB_smul_double Ω hγ,
-    thetaConstant_smul_of_mem_siegelParabolic 0 0 _ (twiceB_mem hγ)]
-  simp only [twiceB, toBlocks_fromBlocks₁₁, toBlocks_fromBlocks₁₂, toBlocks_fromBlocks₂₂,
+  rw [f1, Pi.pow_apply, Pi.pow_apply, theta, h0, ← twiceUpper_smul_double Ω hγ,
+    thetaConstant_smul_of_mem_siegelParabolic 0 0 _ (twiceUpper_mem hγ)]
+  simp only [twiceUpper, toBlocks_fromBlocks₁₁, toBlocks_fromBlocks₁₂, toBlocks_fromBlocks₂₂,
     mulVec_zero, zero_dotProduct, Int.cast_zero, zero_div, add_zero, mul_zero, neg_zero,
     Complex.exp_zero, one_mul, zero_add]
   rw [Matrix.add_mul, diag_add, mulVec_add, ← two_smul ℕ, ← zero_add (2 • _),
@@ -309,7 +287,7 @@ lemma psi4Rat_map_of_mem_siegelParabolic (hγ : γ ∈ SymplecticGroup.siegelPar
     (h : SymplecticGroup.map (Int.castRingHom ℚ) γ ∈ gamma0 4) :
     (SymplecticGroup.psi4Rat (Fin 2) ⟨SymplecticGroup.map (Int.castRingHom ℚ) γ, h⟩ : ℂ) =
       ((γ : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) ℤ).toBlocks₂₂.det : ℂ) := by
-  have hmem : γ ∈ SymplecticGroup.Gamma0 (Fin 2) 4 := siegelParabolic_le_Gamma0 4 hγ
+  have hmem : γ ∈ SymplecticGroup.Gamma0 (Fin 2) 4 := SymplecticGroup.siegelParabolic_le_Gamma0 hγ
   have e : ((SymplecticGroup.Gamma0 (Fin 2) 4).equivMapOfInjective _
       SymplecticGroup.map_intCast_injective).symm ⟨_, h⟩ = ⟨γ, hmem⟩ := by
     rw [MulEquiv.symm_apply_eq]
