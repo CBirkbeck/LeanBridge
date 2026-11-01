@@ -588,12 +588,14 @@ import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.IdentityComponent
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.Label
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.MomentMatrix
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.Rational
+import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.AdelicEllipticPoint
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.Coarse
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.ConnectedShimuraVariety
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.EllipticPoint
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.EllipticPointKernel
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.EllipticPointStabilizer
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.EnhancedGroup
+import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.FiniteAdelicAlgebra
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.FuchsianGroup
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.Label
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.QuaternionOrder
