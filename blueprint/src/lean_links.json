@@ -4611,8 +4611,8 @@
     "TauCeti.NumberField.IntegralPrimitiveElement.adjoin": "TauCeti.NumberTheory.NumberField.Index.Basic"
   },
   "nf.multiplicative_gal_module": {
-    "TauCeti.NumberField.Units.unitLatticeSubrep": "TauCeti.NumberTheory.NumberField.Units.LogEmbedding",
-    "TauCeti.NumberField.Units.logSpaceRep": "TauCeti.NumberTheory.NumberField.Units.LogEmbedding",
+    "TauCeti.NumberField.Units.unitLatticeSubrep": "TauCeti.NumberTheory.NumberField.Units.Log.Embedding",
+    "TauCeti.NumberField.Units.logSpaceRep": "TauCeti.NumberTheory.NumberField.Units.Log.Embedding",
     "NumberField.Units.unitLattice": "Mathlib.NumberTheory.NumberField.Units.DirichletTheorem",
     "NumberField.Units.logEmbedding": "Mathlib.NumberTheory.NumberField.Units.DirichletTheorem",
     "NumberField.Units.dirichletUnitTheorem.logEmbedding_ker": "Mathlib.NumberTheory.NumberField.Units.DirichletTheorem"

@@ -1,4 +1,3 @@
-import LeanBridge.ForMathlib.LinearAlgebra.Matrix.PosDef
 import TauCeti.AlgebraicGeometry.EllipticCurve.MordellWeil.Regulator.Basic
 import TauCeti.AlgebraicGeometry.EllipticCurve.MordellWeil.FinitelyGenerated
 
@@ -17,7 +16,8 @@ height `ĥ / [K : ℚ]`, which is invariant under base change, and
 
 The pairing is positive definite on `E(K) ⊗ ℝ`, so both regulators are positive. Positivity of
 `ĥ` on the nonzero points of the lattice `E(K)/E(K)_tors` would not suffice for this; what does is
-Northcott finiteness for `ĥ` over a number field, through `Matrix.IsSymm.posDef_of_northcott`.
+Northcott finiteness for `ĥ` over a number field, through Tau Ceti's
+`WeierstrassCurve.Affine.posDef_neronTateGramMatrix` and `WeierstrassCurve.Affine.regulator_pos`.
 
 ## Main definitions
 
@@ -29,10 +29,7 @@ Northcott finiteness for `ĥ` over a number field, through `Matrix.IsSymm.posDef
   `Reg_NT(E/K) = [K : ℚ] ^ r Reg(E/K)`.
 * `WeierstrassCurve.Affine.normalizedRegulator_eq_abs_det`: `Reg(E/K)` is the absolute
   determinant of the Gram matrix of the normalised height pairing on any basis of `E(K)/E(K)_tors`.
-* `WeierstrassCurve.Affine.posDef_neronTateGramMatrix`: the Néron–Tate pairing is positive
-  definite on `E(K) ⊗ ℝ`, that is, its Gram matrix on any basis of `E(K)/E(K)_tors` is.
-* `WeierstrassCurve.Affine.regulator_pos` and `WeierstrassCurve.Affine.normalizedRegulator_pos`:
-  `Reg_NT(E/K) > 0` and `Reg(E/K) > 0`.
+* `WeierstrassCurve.Affine.normalizedRegulator_pos`: `Reg(E/K) > 0`.
 * `WeierstrassCurve.Affine.normalizedRegulator_eq_one_of_finrank_eq_zero`: in rank `0`,
   `Reg(E/K) = 1`.
 * `WeierstrassCurve.Affine.normalizedRegulator_eq_canonicalHeight_div`: in rank `1`,
@@ -75,25 +72,6 @@ lemma normalizedRegulator_eq_abs_det :
 
 lemma normalizedRegulator_nonneg : 0 ≤ W.normalizedRegulator :=
   div_nonneg W.regulator_nonneg (by positivity)
-
-/-- **The Néron–Tate pairing is positive definite on `E(K) ⊗ ℝ`**: its Gram matrix on any basis
-`b` of `E(K)/E(K)_tors` is positive definite. The quadratic form of the Gram matrix at an integer
-vector `c` is the canonical height `ĥ(P)` of a point `P` lifting `∑ᵢ cᵢ bᵢ`, so it has finitely
-many integer points of bounded value, the canonical height being Northcott over a number field. -/
-lemma posDef_neronTateGramMatrix : (W.neronTateGramMatrix b).PosDef := by
-  refine (isSymm_neronTateGramMatrix b).posDef_of_northcott ⟨fun C ↦ (((Northcott.finite_le
-    (h := Point.canonicalHeight (W := W)) C).image (torsion ℤ W.Point).mkQ).preimage
-    b.equivFun.symm.injective.injOn).subset fun c hc ↦ ?_⟩
-  rcases mkQ_surjective _ (b.equivFun.symm c) with ⟨P, hP⟩
-  refine ⟨P, ?_, hP⟩
-  rw [Set.mem_ofPred_eq, ← neronTatePairing_self, ← neronTatePairingModTorsion_mk, ← mkQ_apply, hP]
-  simpa [dotProduct, Matrix.mulVec, mul_comm, neronTatePairingModTorsion_comm] using hc
-
-/-- **The Néron–Tate regulator is positive**: `Reg_NT(E/K) > 0`, the Néron–Tate pairing being
-positive definite on `E(K) ⊗ ℝ`. -/
-lemma regulator_pos : 0 < W.regulator :=
-  (abs_pos.mpr (W.posDef_neronTateGramMatrix (finBasis ℤ _)).det_pos.ne').trans_eq
-    (W.regulator_eq_abs_det_neronTateGramMatrix _).symm
 
 /-- **The regulator is positive**: `Reg(E/K) > 0`. -/
 lemma normalizedRegulator_pos : 0 < W.normalizedRegulator :=

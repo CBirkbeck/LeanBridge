@@ -795,7 +795,7 @@ lemma ofList_eq_sum' {R : Type u} [Semiring R] [DecidableEq R]
   ext k
   by_cases hk : k < (List.ofFn f).length
   · rw [ofList_coeff _ k hk]
-    simp only [finset_sum_coeff, coeff_C_mul, coeff_X_pow, mul_ite,
+    simp only [finsetSum_coeff, coeff_C_mul, coeff_X_pow, mul_ite,
       mul_one, mul_zero]
     rw [Fintype.sum_eq_single (Fin.cast (List.length_ofFn) ⟨k, hk⟩)]
     · simp
@@ -823,7 +823,7 @@ lemma ofList_eq_sum' {R : Type u} [Semiring R] [DecidableEq R]
         exact not_lt.1 hk
       rw [Polynomial.coeff_eq_zero_of_natDegree_lt this]
       simp only [List.length_ofFn] at hk
-      simp only [finset_sum_coeff, coeff_C_mul, coeff_X_pow, mul_ite, mul_one, mul_zero]
+      simp only [finsetSum_coeff, coeff_C_mul, coeff_X_pow, mul_ite, mul_one, mul_zero]
       rw [Fintype.sum_eq_zero]
       simp only [ite_eq_right_iff]
       intro a hk2

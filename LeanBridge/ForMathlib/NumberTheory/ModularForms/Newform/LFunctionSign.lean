@@ -192,7 +192,8 @@ lemma analyticCompletedL_eq_cpow_mul_Gammaℂ_mul_analyticL (hk : 0 < k)
   have hΓ : Gammaℂ (s + ((k : ℂ) - 1) / 2) ≠ 0 :=
     mul_ne_zero (mul_ne_zero two_ne_zero (cpow_ne_zero_iff.mpr (.inl (mul_ne_zero two_ne_zero
       (ofReal_ne_zero.mpr Real.pi_ne_zero))))) (Gamma_ne_zero hs)
-  rw [f.analyticCompletedL_eq_cpow_mul_Λ hk, analyticL, ModularForm.L, mul_assoc]
+  rw [f.analyticCompletedL_eq_cpow_mul_Λ hk, analyticL, ModularForm.L_apply_of_ne_zero _ _ fun h ↦
+    hΓ (by rw [h, Gammaℂ_def, Gamma_zero, mul_zero]), mul_assoc]
   generalize s + ((k : ℂ) - 1) / 2 = w at hΓ ⊢
   field_simp
 
@@ -237,7 +238,10 @@ lemma exists_analyticCompletedL_ne_zero (hk : 0 < k) : ∃ s, f.analyticComplete
   rw [f.analyticCompletedL_eq_cpow_mul_Λ hk, sub_add_cancel]
   refine mul_ne_zero (cpow_ne_zero_iff.mpr (.inl (Nat.cast_ne_zero.mpr (NeZero.ne N))))
     (mul_ne_zero two_ne_zero fun hΛ ↦ hw ?_)
-  rw [Pi.zero_apply, ModularForm.L, hΛ, zero_mul]
+  rcases eq_or_ne w 0 with rfl | hw0
+  · rw [ModularForm.L_apply_zero, (CuspFormClass.zero_at_infty f.toCuspForm).valueAtInfty_eq_zero,
+      neg_zero, Pi.zero_apply]
+  · rw [ModularForm.L_apply_of_ne_zero _ _ hw0, hΛ, zero_mul, Pi.zero_apply]
 
 /-- **The sign is determined by the functional equation**: a constant `c` with
 `Λ(s, f) = c conj (Λ(1 - conj s, f))` for every `s` is the sign `ε`. -/

@@ -30,7 +30,7 @@ lemma resultant_pseudoremainder_of_split_monic {K : Type*} [Field K]
     simp only [eval_sub, eval_X, eval_C, sub_self]
   simp_rw [Finset.prod_congr rfl this]
   rw [← Finset.pow_card_mul_prod, prod_X_sub_C_resultant,
-    ← neg_one_mul (f / e), mul_pow, natDegree_finset_prod_X_sub_C_eq_card]
+    ← neg_one_mul (f / e), mul_pow, natDegree_finsetProd_X_sub_C_eq_card]
   ring
   rfl ; rfl
 
@@ -48,7 +48,7 @@ lemma resultant_pseudoremainder_of_split {K : Type*} [Field K]
     Polynomial.resultant_C_mul_left _ _ _ _ x₂, Polynomial.resultant_C_mul_right _ _ _ _ x₃]
   rw [Polynomial.natDegree_C_mul hx1, Polynomial.natDegree_C_mul hx2, Polynomial.natDegree_C_mul hx3,
     resultant_pseudoremainder_of_split_monic _ heq ]
-  simp only [natDegree_finset_prod_X_sub_C_eq_card, zpow_sub₀ hx2, zpow_natCast]
+  simp only [natDegree_finsetProd_X_sub_C_eq_card, zpow_sub₀ hx2, zpow_natCast]
   field_simp
   ring_nf
   rw [← one_mul (f ^ s₂.card * x₃ ^ s₂.card * e⁻¹ ^ s₂.card),
@@ -69,11 +69,11 @@ lemma resultant_pseudoremainder_of_split' {K : Type*} [Field K]
       (-1) ^ ((s₁.card + 1) * (s₂.card)) * (f / e) ^ (s₂.card) * x₂ ^ (s₁.card - s₃.card : ℤ) *
       (resultant (C x₂ * ∏ i ∈ s₂, (X - C (t₂ i))) (C x₃ * ∏ i ∈ s₃, (X - C (t₃ i)) ) c d) := by
   have hcard1 : s₁.card = (C x₁ * ∏ i ∈ s₁, (X - C (t₁ i))).natDegree := by
-    rw [Polynomial.natDegree_C_mul hx1, natDegree_finset_prod_X_sub_C_eq_card]
+    rw [Polynomial.natDegree_C_mul hx1, natDegree_finsetProd_X_sub_C_eq_card]
   have hcard2: s₂.card = (C x₂ * ∏ i ∈ s₂, (X - C (t₂ i))).natDegree := by
-    rw [Polynomial.natDegree_C_mul hx2, natDegree_finset_prod_X_sub_C_eq_card]
+    rw [Polynomial.natDegree_C_mul hx2, natDegree_finsetProd_X_sub_C_eq_card]
   have hcard3: s₃.card = (C x₃ * ∏ i ∈ s₃, (X - C (t₃ i)) ).natDegree := by
-    rw [Polynomial.natDegree_C_mul hx3, natDegree_finset_prod_X_sub_C_eq_card]
+    rw [Polynomial.natDegree_C_mul hx3, natDegree_finsetProd_X_sub_C_eq_card]
   simp_rw [ha ▸ hcard1, hb ▸ hcard2, hc ▸ hcard2, hd ▸ hcard3]
   exact resultant_pseudoremainder_of_split hx1 hx2 hx3 he heq
 

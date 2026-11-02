@@ -1,5 +1,5 @@
 import TauCeti.AlgebraicGeometry.AbelianVariety.Hom.Basic
-import TauCeti.AlgebraicGeometry.PicardFunctor.PicZero
+import TauCeti.AlgebraicGeometry.PicardFunctor.PicZero.Basic
 import Mathlib.Algebra.Category.Grp.Ulift
 import Mathlib.CategoryTheory.ConcreteCategory.EpiMono
 

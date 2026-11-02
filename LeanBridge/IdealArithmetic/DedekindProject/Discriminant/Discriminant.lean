@@ -197,10 +197,10 @@ lemma Monic.discr_def {R : Type*} [CommRing R]  [HasUniqueDiv R] (f : R[X]) (hf 
 lemma discriminant_prod_X_sub_C {K : Type*} [Field K] [CharZero K] {ι : Type*}
     [DecidableEq ι] (s : Finset ι) (t : ι → K) :
     discr (∏ i ∈ s, (X - C (t i))) = (-1) ^ (s.card * (s.card - 1) / 2) * ∏ i ∈ s, ∏ j ∈ s.erase i, (t i - t j) := by
-  rw [Monic.discr_def, derivative_prod_X_sub_C, prod_X_sub_C_resultant, natDegree_finset_prod_X_sub_C_eq_card s t]
+  rw [Monic.discr_def, derivative_prod_X_sub_C, prod_X_sub_C_resultant, natDegree_finsetProd_X_sub_C_eq_card s t]
   congr 1
   refine Finset.prod_congr rfl (fun i hi => ?_)
-  simp [eval_finset_sum, eval_prod]
+  simp [eval_finsetSum, eval_prod]
   refine Finset.sum_eq_single _
       (fun j _ hji => Finset.prod_eq_zero (Finset.mem_erase.mpr ⟨hji.symm, hi⟩) (sub_self _))
       (fun h => (h hi).elim)

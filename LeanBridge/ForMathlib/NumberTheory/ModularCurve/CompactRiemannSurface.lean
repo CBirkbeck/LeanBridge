@@ -54,9 +54,6 @@ open MulAction OnePoint Set UpperHalfPlane TauCeti RiemannSurface Subgroup CuspD
 
 open scoped MatrixGroups
 
-lemma sl2zToPSL2R_smul (g : SL(2, ℤ)) (z : ℍ) : sl2zToPSL2R g • z = g • z := by
-  simp
-
 namespace Subgroup
 
 variable (H : Subgroup SL(2, ℤ))
@@ -73,12 +70,6 @@ instance : DiscreteTopology (H.map sl2zToPSL2R) :=
 
 instance : ConnectedSpace (H.map sl2zToPSL2R).CompactifiedQuotient where
   toNonempty := ⟨ofQuotient (Quotient.mk _ I)⟩
-
-lemma isCuspPoint_map_sl2zToPSL2R_smul_infty (g : SL(2, ℤ)) :
-    (H.map sl2zToPSL2R).IsCuspPoint (sl2zToPSL2R g • (∞ : OnePoint ℝ)) := by
-  refine (isCuspPoint_map_sl2zToPSL2R_iff_orbit_infty H _).mpr ?_
-  rw [← range_sl2zToPSL2R_eq_range_psl2zToPSL2R]
-  exact ⟨⟨sl2zToPSL2R g, g, rfl⟩, rfl⟩
 
 lemma exists_quotientMk_smul_mem_image_horodisc (A : (H.map sl2zToPSL2R).CuspOrbit → ℝ)
     (g : SL(2, ℤ)) : ∃ T : ℝ, ∀ w : ℍ, T < w.im → ∃ C : (H.map sl2zToPSL2R).CuspOrbit,

@@ -868,7 +868,7 @@ import TauCeti.NumberTheory.NumberField.Monogenic
 import TauCeti.NumberTheory.NumberField.NarrowClassGroup.Basic
 import TauCeti.NumberTheory.NumberField.RamifiedPrimes
 import TauCeti.NumberTheory.NumberField.TotallyPositive
-import TauCeti.NumberTheory.NumberField.Units.LogEmbedding
+import TauCeti.NumberTheory.NumberField.Units.Log.Embedding
 import TauCeti.RepresentationTheory.BaseChange
 import TauCeti.RepresentationTheory.CharacterTable.FieldOfValues
 import TauCeti.RepresentationTheory.CharacterTable.FrobeniusSchur.Basic

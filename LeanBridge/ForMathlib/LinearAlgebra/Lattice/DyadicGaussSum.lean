@@ -641,11 +641,6 @@ lemma finrank_add_finrank_of_isCompl (hST : IsCompl S T) :
     finrank ℤ_[2] S + finrank ℤ_[2] T = finrank ℤ_[2] K := by
   rw [← finrank_prod, (S.prodEquivOfIsCompl T hST).finrank_eq]
 
-lemma isPerfPair_restrict_of_isCompl_orthogonal (hC : C.IsPerfPair) (hCs : C.IsSymm)
-    (hST : IsCompl S (C.orthogonal S)) : (C.restrict S).IsPerfPair :=
-  C.isPerfPair_restrict_of_isCompl hC hST.symm hCs.orthogonal_apply_eq_zero
-    C.apply_orthogonal_eq_zero
-
 lemma isPerfPair_restrict_orthogonal (hC : C.IsPerfPair) (hCs : C.IsSymm)
     (hST : IsCompl S (C.orthogonal S)) : (C.restrict (C.orthogonal S)).IsPerfPair :=
   C.isPerfPair_restrict_of_isCompl hC hST C.apply_orthogonal_eq_zero hCs.orthogonal_apply_eq_zero
@@ -660,10 +655,11 @@ lemma dyadicGaussSum_of_isCompl_orthogonal (hC : C.IsPerfPair) (hCs : C.IsSymm)
           ZMod.stdAddChar (C.restrict (C.orthogonal S)).dyadicOddity) :
     C.dyadicGaussSum k = (√2 : ℂ) ^ ((k + 1) * finrank ℤ_[2] K) * C.dyadicDetSign ^ (k - 1) *
       ZMod.stdAddChar C.dyadicOddity := by
+  have : C.IsPerfPair := hC
   rw [C.dyadicGaussSum_eq_mul_of_isCompl k hST C.apply_orthogonal_eq_zero
     hCs.orthogonal_apply_eq_zero, hS, hT, C.dyadicDetSign_eq_mul_of_isCompl hST
     C.apply_orthogonal_eq_zero hCs.orthogonal_apply_eq_zero,
-    C.dyadicOddity_eq_add_of_isCompl hC hCs (C.isPerfPair_restrict_of_isCompl_orthogonal hC hCs hST)
+    C.dyadicOddity_eq_add_of_isCompl hC hCs (C.isPerfPair_restrict_of_isCompl_orthogonal hCs S hST)
       (C.isPerfPair_restrict_orthogonal hC hCs hST) hST C.apply_orthogonal_eq_zero
       hCs.orthogonal_apply_eq_zero,
     ← finrank_add_finrank_of_isCompl hST, AddChar.map_add_eq_mul, mul_add, pow_add]
@@ -801,9 +797,10 @@ lemma dyadicGaussSum_of_eq_two_or_eq_three (hk : k = 2 ∨ k = 3) (hC : C.IsPerf
     have hrank : finrank ℤ_[2] (ℤ_[2] ∙ x) + finrank ℤ_[2] (C.orthogonal (ℤ_[2] ∙ x)) =
         finrank ℤ_[2] K :=
       finrank_add_finrank_of_isCompl hST
+    have : C.IsPerfPair := hC
     refine C.dyadicGaussSum_of_isCompl_orthogonal k hC hCs hST ?_ ?_
     · exact (C.restrict _).dyadicGaussSum_of_finrank_eq_one k hk
-        (C.isPerfPair_restrict_of_isCompl_orthogonal hC hCs hST) (hCs.restrict _) h1
+        (C.isPerfPair_restrict_of_isCompl_orthogonal hCs _ hST) (hCs.restrict _) h1
     · exact ih _ (by omega) (C.restrict _) (C.isPerfPair_restrict_orthogonal hC hCs hST)
         (hCs.restrict _) rfl
   have heven (y : K) : (2 : ℤ_[2]) ∣ C y y := by

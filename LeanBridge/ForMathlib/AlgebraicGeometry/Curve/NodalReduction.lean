@@ -12,7 +12,7 @@ has at least two singular points, counted with multiplicity.
 This file formalises the first part of this condition, over a discrete valuation ring `R` with
 fraction field `K`: `C` has **nodal reduction** if it has a proper model over `R` (Tau Ceti's
 `TauCeti.Model`) which is a nodal relative curve (Tau Ceti's
-`TauCeti.AlgebraicGeometry.AtWorstNodalOfRelativeDimensionOne`: syntomic of relative dimension
+`TauCeti.AlgebraicGeometry.AffineAtWorstNodalOfRelativeDimensionOne`: syntomic of relative dimension
 one, with relative singular subscheme unramified over `R`), so that its special fibre is a
 geometrically reduced curve with at most nodal singularities. This is the Stacks Project's notion
 of semistable reduction. The condition on the components of geometric genus zero of the special
@@ -45,14 +45,14 @@ variable (R : Type u) {K : Type u} [CommRing R] [IsDomain R] [IsDiscreteValuatio
 reduction** (LMFDB `g2c.semistable_reduction`, without the condition on the components of genus
 zero) if it is the generic fibre of a proper model over `R` (Tau Ceti's `TauCeti.Model`, flat and
 finitely presented with an identification of its generic fibre with `C`) which is a nodal relative
-curve (`TauCeti.AlgebraicGeometry.AtWorstNodalOfRelativeDimensionOne`), so that its special fibre
-is a geometrically reduced curve with at most nodal singularities.
+curve (`TauCeti.AlgebraicGeometry.AffineAtWorstNodalOfRelativeDimensionOne`), so that its special
+fibre is a geometrically reduced curve with at most nodal singularities.
 
 The LMFDB's semistable reduction asks moreover that each component of geometric genus zero of the
 special fibre has at least two singular points, counted with multiplicity; for a curve of genus at
 least one, this does not change the existence of such a model (not proved here). -/
 def HasNodalReduction : Prop :=
-  ∃ M : Model R K C toK, M.IsProper ∧ AtWorstNodalOfRelativeDimensionOne M.toBase
+  ∃ M : Model R K C toK, M.IsProper ∧ AffineAtWorstNodalOfRelativeDimensionOne M.toBase
 
 variable {R toK}
 
@@ -63,6 +63,6 @@ lemma HasNodalReduction.of_smooth (M : Model R K C toK) (hM : M.IsProper)
   let _ : M.total.Over (Spec (.of R)) := ⟨M.toBase⟩
   have h : SmoothOfRelativeDimension 1 (M.total ↘ Spec (.of R)) :=
     ‹SmoothOfRelativeDimension 1 M.toBase›
-  exact ⟨M, hM, AtWorstNodalOfRelativeDimensionOne.of_smooth⟩
+  exact ⟨M, hM, AffineAtWorstNodalOfRelativeDimensionOne.of_smooth⟩
 
 end AlgebraicGeometry.Scheme
