@@ -34,8 +34,9 @@ That `y W_k ψ(μx)` is, up to a scalar, the only harmonic function `ψ(μx) φ(
 `LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.WhittakerUnique`, from the radial
 equations of `LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.WhittakerRadial`, which
 reuse the functions `Q`, `P`, `y`, `θ` on `SL(2, ℂ)` of this file with their Lie derivatives,
-Casimir values and brackets (namespace `HyperbolicThreeSpace.WhittakerCasimir`). That every Bianchi
-cusp form has a Fourier–Bessel expansion is not proved here.
+Casimir values and brackets (namespace `HyperbolicThreeSpace.WhittakerCasimir`). Every Bianchi cusp
+form of weight `k ≥ 1` has a Fourier–Bessel expansion:
+`IsBianchiCuspidal.hasBianchiWhittakerExpansion`.
 
 ## Main definitions
 

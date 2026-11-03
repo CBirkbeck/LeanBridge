@@ -3830,7 +3830,17 @@
     "HyperbolicThreeSpace.bianchiSlash": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.Slash",
     "HyperbolicThreeSpace.IsBianchiHarmonic": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.Casimir",
     "HyperbolicThreeSpace.casimirOne": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.Casimir",
-    "HyperbolicThreeSpace.IsBianchiCuspidal": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.ModularForm"
+    "HyperbolicThreeSpace.IsBianchiCuspidal": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.ModularForm",
+    "HyperbolicThreeSpace.finiteDimensional_bianchiModularForms": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.ConstantTerm",
+    "HyperbolicThreeSpace.mem_bianchiCuspForms_iff": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.CuspTranslations"
+  },
+  "mf.bianchi.anr": {
+    "HyperbolicThreeSpace.BianchiNewformOfWeight.IsAnalyticRank": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.AnalyticRankOfWeight",
+    "HyperbolicThreeSpace.BianchiNewformOfWeight.lCoeff": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.AnalyticRankOfWeight",
+    "HyperbolicThreeSpace.BianchiNewformOfWeight.IsAnalyticRank.eq": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.AnalyticRankOfWeight",
+    "HyperbolicThreeSpace.BianchiNewformOfWeight.exists_isAnalyticRank": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.NewformLFunction",
+    "HyperbolicThreeSpace.BianchiNewformOfWeight.analyticLFunction": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.NewformLFunction",
+    "HyperbolicThreeSpace.BianchiNewformOfWeight.neg_one_pow_mul_eq_neg_one_pow": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.NewformLFunction"
   },
   "mf.bianchi.bianchicongruencesubgroup": {
     "Ideal.gammaPSL": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.CongruenceSubgroup",
@@ -3864,7 +3874,11 @@
     "HyperbolicThreeSpace.bianchiHeckeTPrime": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.HeckeAlgebra",
     "HyperbolicThreeSpace.bianchiHeckeOperatorModularForms": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.HeckeAlgebra",
     "HyperbolicThreeSpace.isBianchiModularForm_bianchiHeckeOperator": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.HeckeAlgebra",
-    "HyperbolicThreeSpace.bianchiHeckeOperator": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.HeckeOperator"
+    "HyperbolicThreeSpace.bianchiHeckeOperator": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.HeckeOperator",
+    "HyperbolicThreeSpace.commute_bianchiHeckeTPrimeCusp": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.HeckeNewspace",
+    "HyperbolicThreeSpace.bianchiHeckeTPrimeCusp_mem_bianchiNewSubspace": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.HeckeNewspace",
+    "HyperbolicThreeSpace.bianchiHeckeOperatorModularForms_mem_bianchiCuspForms": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.CuspTranslations",
+    "HyperbolicThreeSpace.bianchiPetersson_bianchiHeckeTPrime": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.HeckeSelfAdjoint"
   },
   "mf.bianchi.hyperbolic3space": {
     "TauCeti.HyperbolicMetric": "TauCeti.Geometry.Manifold.Riemannian.Hyperbolic",
@@ -3876,6 +3890,14 @@
     "Ideal.gamma0SL": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.Level",
     "Ideal.mem_gamma0SL": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.Level",
     "Ideal.absNorm": "Mathlib.RingTheory.Ideal.Norm.AbsNorm"
+  },
+  "mf.bianchi.sign": {
+    "HyperbolicThreeSpace.bianchiFricke": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.Fricke",
+    "HyperbolicThreeSpace.BianchiNewformOfWeight.HasSign": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.Fricke",
+    "HyperbolicThreeSpace.BianchiNewformOfWeight.exists_bianchiFricke_eq_smul": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.FrickeNewform",
+    "HyperbolicThreeSpace.BianchiNewformOfWeight.analyticLFunction": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.NewformLFunction",
+    "HyperbolicThreeSpace.BianchiNewformOfWeight.neg_one_pow_mul_eq_neg_one_pow": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.NewformLFunction",
+    "HyperbolicThreeSpace.BianchiNewformOfWeight.eq_neg_one_pow_of_weight_two": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.NewformLFunction"
   },
   "mf.bianchi.weight": {
     "HyperbolicThreeSpace.IsBianchiModularForm": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.ModularForm",

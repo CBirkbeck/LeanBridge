@@ -18,12 +18,15 @@ degree `4`, its Dirichlet coefficients in the analytic normalisation, with centr
 
 The **analytic rank** (LMFDB `mf.bianchi.anr`) is the order of vanishing at the central point of
 any analytic L-function (`AnalyticLFunction`) with these Dirichlet coefficients, which does not
-depend on the choice (`IsAnalyticRank.eq`). The analytic continuation and functional equation of
-`L(F, s)`, which give such an L-function, are theorems not proved here. Its parity is given by the
-sign `ε` of the functional equation, `ε = (-1)ʳ`, when the Dirichlet coefficients are real and the
-gamma factor is real at the central point (`IsAnalyticRank.sign_eq_neg_one_pow`); that the
-coefficients are real and that `ε` is the sign of `F` (LMFDB `mf.bianchi.sign`) are theorems not
-proved here.
+depend on the choice (`IsAnalyticRank.eq`). Over `K` of class number `1`, for `k ≥ 1`, the analytic
+continuation and functional equation of `L(F, s)` give such an L-function
+(`BianchiNewformOfWeight.analyticLFunction`, `BianchiNewformOfWeight.exists_isAnalyticRank`). Its
+parity is given by the sign `ε` of the functional equation, `ε = (-1)ʳ`, when the Dirichlet
+coefficients are real and the gamma factor is real at the central point
+(`IsAnalyticRank.sign_eq_neg_one_pow`); the coefficients are real
+(`BianchiNewformOfWeight.conj_lCoeff`), and `ε` is `(-1)^{k/2+1}` times the sign of `F`
+(`BianchiNewformOfWeight.neg_one_pow_mul_eq_neg_one_pow`), equal to it only for `k ≡ 2 mod 4`,
+contrary to LMFDB `mf.bianchi.sign`.
 
 ## Main definitions
 
@@ -60,7 +63,7 @@ variable {k : ℕ} (F : BianchiNewformOfWeight σ k 𝔑)
 newform `F` of weight `k` in the analytic normalisation, where `c(𝔫)` is the Fourier–Bessel
 coefficient of `F` at a generator of `𝔫`, its Hecke eigenvalue `a_𝔫` in the arithmetic
 normalisation, and `k / 4` is half the motivic weight `k / 2`. The coefficient does not depend on
-the generator since `diag(u, 1) ∈ Γ₀(𝔑)` for the units `u` (not proved here). -/
+the generator since `diag(u, 1) ∈ Γ₀(𝔑)` for the units `u` (`coeff_unit_mul`). -/
 noncomputable def lCoeff (n : ℕ) : ℂ :=
   ∑ᶠ 𝔫 ∈ {𝔫 : Ideal (𝓞 K) | Ideal.absNorm 𝔫 = n},
     F.coeff (IsPrincipal.generator 𝔫) / ((n : ℝ) ^ ((k : ℝ) / 4) : ℝ)
@@ -68,8 +71,8 @@ noncomputable def lCoeff (n : ℕ) : ℂ :=
 /-- A Bianchi newform `F` of weight `k` has **analytic rank** `r` (LMFDB `mf.bianchi.anr`): `r` is
 the order of vanishing at the centre `s = 1 / 2` of its critical strip of the analytic continuation
 of its L-function, that is the analytic rank of an analytic L-function whose Dirichlet coefficients
-are those of `F`. The analytic rank is unique (`IsAnalyticRank.eq`); that it exists, the analytic
-continuation of `L(F, s)`, is a theorem, not proved here. -/
+are those of `F`. The analytic rank is unique (`IsAnalyticRank.eq`); it exists over `K` of class
+number `1`, for `k ≥ 1` (`exists_isAnalyticRank`). -/
 def IsAnalyticRank (r : ℕ) : Prop :=
   ∃ L : AnalyticLFunction, (∀ n ≠ 0, L.coeff n = F.lCoeff n) ∧ L.analyticRank = r
 
@@ -85,9 +88,9 @@ lemma IsAnalyticRank.eq (h : F.IsAnalyticRank r) (h' : F.IsAnalyticRank r') : r 
 /-- **The sign of the functional equation determines the parity of the analytic rank** (LMFDB
 `mf.bianchi.anr`): if `F` has analytic rank `r` and real Dirichlet coefficients, then every analytic
 L-function `L` with the Dirichlet coefficients of `F` whose gamma factor is real at the central
-point has sign `(-1)ʳ`. The coefficients are real as the Hecke eigenvalues are, and the gamma factor
-of `L(F, s)` is `Γ_ℂ(s + k / 4)²`, theorems not proved here, as is the equality of the sign of `L`
-with the sign of `F` (LMFDB `mf.bianchi.sign`). -/
+point has sign `(-1)ʳ`. The coefficients are real (`conj_lCoeff`), the gamma factor of `L(F, s)` is
+`Γ_ℂ(s + k / 4)²` (`gammaFactor_selbergData`), and the sign of `L` is `(-1)^{k/2+1}` times the sign
+of `F` (`neg_one_pow_mul_eq_neg_one_pow`). -/
 lemma IsAnalyticRank.sign_eq_neg_one_pow (h : F.IsAnalyticRank r)
     (hF : ∀ n ≠ 0, conj (F.lCoeff n) = F.lCoeff n) {L : AnalyticLFunction}
     (hL : ∀ n ≠ 0, L.coeff n = F.lCoeff n)

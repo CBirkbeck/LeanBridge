@@ -27,10 +27,13 @@ The normalisation uses the Fourier–Bessel expansion of LMFDB `mf.bianchi.fouri
 only formalised in weight `2` (`HasBianchiFourierBesselExpansion`), the weight of the LMFDB's
 Bianchi newforms, so newforms are defined in weight `2` only, while the knowl defines them in every
 weight: for `F` in the convention of `bianchiSlash`, the function `y F` is the one of the knowl. The
-orthogonality conditions include the integrability of the integrands, which holds for cusp forms.
-That the integrals do not depend on the fundamental domain, that the newspace has a basis of
-newforms, that the eigenvalues `a_𝔭` are totally real algebraic integers and the coefficients of
-index `𝔭`, that the Hecke field is a totally real number field and that its degree is the dimension
+orthogonality conditions include the integrability of the integrands, which holds for cusp forms. At
+level `Γ₀(𝔑)`, over `K` of class number `1` and for `k ≥ 1`: the integrals do not depend on the
+fundamental domain (`bianchiPetersson_eq`), the newspace has a basis of newforms
+(`span_range_toFun`, `linearIndependent_range_toFun`), the eigenvalues `a_𝔭` are real in the given
+embedding (`BianchiNewformOfWeight.conj_eigenvalue`) and the coefficients of index `𝔭` for `𝔭 ∤ 𝔑`
+(`BianchiNewformOfWeight.eigenvalue_eq_idealCoeff`). That the `a_𝔭` are totally real algebraic
+integers, that the Hecke field is a totally real number field and that its degree is the dimension
 of the irreducible component of the rational newspace containing `F` are theorems, not proved here.
 The LMFDB also calls the Hecke field a Galois extension of `ℚ`, which is not true in general.
 
@@ -123,8 +126,9 @@ lemma symPowInner_smul_left (c : ℂ) : symPowInner k (c • v) w = c * symPowIn
 of the image `Γ̄` of `Γ` in `PSL(2, ℂ)` for the hyperbolic volume `dμ = dx₁ dx₂ dy / y³`. For an
 imaginary quadratic `K` and a congruence subgroup `Γ`, `Γ̄` is discrete, so that fundamental domains
 exist and the condition is not vacuous; for cusp forms the integrand is integrable and
-`Γ`-invariant, so that the integral does not depend on the fundamental domain. These facts are not
-proved here. -/
+`Γ`-invariant, so that the integral does not depend on the fundamental domain. These facts are
+proved for `Γ₀(𝔑)` over `K` of class number `1` (`exists_isFundamentalDomain_bianchiPSLGroup`,
+`integrableOn_bianchiPairing`, `bianchiPetersson_eq`). -/
 def IsBianchiPeterssonOrthogonal (F G : HyperbolicThreeSpace → Fin (k + 1) → ℂ) : Prop :=
   ∀ s : Set HyperbolicThreeSpace, IsFundamentalDomain (bianchiPSLGroup σ Γ) s hyperbolicVolume →
     IntegrableOn (fun z ↦ (z.height ^ k : ℂ) * symPowInner k (F z) (G z)) s hyperbolicVolume ∧
@@ -176,7 +180,8 @@ eigenvalue `a_𝔭`, normalised so that the coefficient of `(1)` in its Fourier�
 (LMFDB `mf.bianchi.fourierbessell`) is `1`. As `F` follows the convention of `bianchiSlash`, the
 function with the knowl's Fourier–Bessel expansion is `y F(x, y)`. The expansion is taken with the
 principal square root `√Δ` of the discriminant `Δ` of `K`; the other square root gives the
-coefficients `α ↦ c(-α)`, which are the same since `diag(-1, 1) ∈ Γ₀(𝔑)` (not proved here).
+coefficients `α ↦ c(-α)`, which are the same since `diag(-1, 1) ∈ Γ₀(𝔑)`
+(`BianchiNewformOfWeight.coeff_unit_mul`).
 
 Newforms are only defined here in weight `2`, the weight of the LMFDB's Bianchi newforms, as the
 Fourier–Bessel expansion is only formalised there; the LMFDB defines them in every weight. -/

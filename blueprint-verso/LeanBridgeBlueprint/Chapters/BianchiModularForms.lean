@@ -15,7 +15,7 @@ file := "Bianchi-modular-forms"
 
 This section lists the LMFDB definitions in the subcategory `mf.bianchi`. Each definition links back to its LMFDB knowl.
 
-:::definition "mf.bianchi" (lean := "HyperbolicThreeSpace.IsBianchiModularForm, HyperbolicThreeSpace.bianchiSlash, HyperbolicThreeSpace.IsBianchiHarmonic, HyperbolicThreeSpace.casimirOne, HyperbolicThreeSpace.IsBianchiCuspidal")
+:::definition "mf.bianchi" (lean := "HyperbolicThreeSpace.IsBianchiModularForm, HyperbolicThreeSpace.bianchiSlash, HyperbolicThreeSpace.IsBianchiHarmonic, HyperbolicThreeSpace.casimirOne, HyperbolicThreeSpace.IsBianchiCuspidal, HyperbolicThreeSpace.finiteDimensional_bianchiModularForms, HyperbolicThreeSpace.mem_bianchiCuspForms_iff")
 *Bianchi modular form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.bianchi))
 
 Let $`K` be an imaginary quadratic {bpref "nf"}[number field] of {bpref "nf.class_number"}[class number] $`1`, and $`\mathcal{O}_K` be its {bpref "nf.ring_of_integers"}[ring of integers]. Let $`\Gamma` be a {bpref "mf.bianchi.bianchicongruencesubgroup"}[congruence subgroup] of the
@@ -42,7 +42,7 @@ Condition 2, harmonicity, is the analogue of the usual condition of being holomo
 Depends on: {uses "mf.bianchi.bianchigroup"}[] {uses "mf.bianchi.hyperbolic3space"}[] {uses "nf"}[] {uses "nf.class_number"}[] {uses "nf.ring_of_integers"}[]
 :::
 
-:::definition "mf.bianchi.anr"
+:::definition "mf.bianchi.anr" (lean := "HyperbolicThreeSpace.BianchiNewformOfWeight.IsAnalyticRank, HyperbolicThreeSpace.BianchiNewformOfWeight.lCoeff, HyperbolicThreeSpace.BianchiNewformOfWeight.IsAnalyticRank.eq, HyperbolicThreeSpace.BianchiNewformOfWeight.exists_isAnalyticRank, HyperbolicThreeSpace.BianchiNewformOfWeight.analyticLFunction, HyperbolicThreeSpace.BianchiNewformOfWeight.neg_one_pow_mul_eq_neg_one_pow")
 *Analytic rank of a Bianchi newform.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.bianchi.anr))
 
 Let $`F` be a {bpref "mf.bianchi.newform"}[Bianchi newform] over the imaginary quadratic field $`K`.   The *analytic rank* of $`F` is the order of vanishing of the L-function attached to $`F` at the centre of its critical strip.  The parity of the analytic rank is determined by the {bpref "mf.bianchi.sign"}[sign] of $`F`.
@@ -137,7 +137,7 @@ and decreasing rapidly at infinity.
 Depends on: {uses "mf.bianchi"}[] {uses "mf.bianchi.bianchigroup"}[] {uses "mf.bianchi.hyperbolic3space"}[] {uses "mf.bianchi.weight"}[]
 :::
 
-:::definition "mf.bianchi.hecke_algebra" (lean := "HyperbolicThreeSpace.bianchiHeckeAlgebra, HyperbolicThreeSpace.bianchiHeckeTPrime, HyperbolicThreeSpace.bianchiHeckeOperatorModularForms, HyperbolicThreeSpace.isBianchiModularForm_bianchiHeckeOperator, HyperbolicThreeSpace.bianchiHeckeOperator")
+:::definition "mf.bianchi.hecke_algebra" (lean := "HyperbolicThreeSpace.bianchiHeckeAlgebra, HyperbolicThreeSpace.bianchiHeckeTPrime, HyperbolicThreeSpace.bianchiHeckeOperatorModularForms, HyperbolicThreeSpace.isBianchiModularForm_bianchiHeckeOperator, HyperbolicThreeSpace.bianchiHeckeOperator, HyperbolicThreeSpace.commute_bianchiHeckeTPrimeCusp, HyperbolicThreeSpace.bianchiHeckeTPrimeCusp_mem_bianchiNewSubspace, HyperbolicThreeSpace.bianchiHeckeOperatorModularForms_mem_bianchiCuspForms, HyperbolicThreeSpace.bianchiPetersson_bianchiHeckeTPrime")
 *Hecke algebra.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.bianchi.hecke_algebra))
 
 Let $`K` be an imaginary quadratic field and  $`\mathcal{M}_k(\Gamma)` the space of {bpref "mf.bianchi"}[Bianchi modular forms] of {bpref "mf.bianchi.weight"}[weight] $`k` and {bpref "mf.bianchi.level"}[level] $`\Gamma=\Gamma_0(\mathcal{N})`  for some integral ideal $`\mathcal{N}` of $`\mathcal{O}_K`.
@@ -223,7 +223,7 @@ For each prime $`\frak{p}` of $`K` not dividing the level $`\mathcal{N}`, the ei
 Depends on: {uses "mf.bianchi"}[] {uses "mf.bianchi.hecke_algebra"}[] {uses "mf.bianchi.level"}[] {uses "mf.bianchi.spaces"}[] {uses "mf.bianchi.weight"}[]
 :::
 
-:::definition "mf.bianchi.sign"
+:::definition "mf.bianchi.sign" (lean := "HyperbolicThreeSpace.bianchiFricke, HyperbolicThreeSpace.BianchiNewformOfWeight.HasSign, HyperbolicThreeSpace.BianchiNewformOfWeight.exists_bianchiFricke_eq_smul, HyperbolicThreeSpace.BianchiNewformOfWeight.analyticLFunction, HyperbolicThreeSpace.BianchiNewformOfWeight.neg_one_pow_mul_eq_neg_one_pow, HyperbolicThreeSpace.BianchiNewformOfWeight.eq_neg_one_pow_of_weight_two")
 *Sign of a Bianchi newform.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.bianchi.sign))
 
 Let $`F` be a {bpref "mf.bianchi.newform"}[Bianchi newform] of {bpref "mf.bianchi.level"}[level] $`\mathcal{N}`.  When $`\mathcal{N}=(N)` is principal, $`F` is an eigenform for the *Fricke involution* $`W_N` defined by the matrix $`\left(\begin{matrix}0&-1\\N&0\end{matrix}\right)`.

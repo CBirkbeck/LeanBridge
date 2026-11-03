@@ -60,7 +60,8 @@ the imaginary quadratic field `K` embedded in `ℂ` by `σ`, with coefficients `
 `δ` of `Δ`, the series converging (unconditionally) at every point of `ℋ₃`.
 
 The hypothesis `δ ^ 2 = Δ` is left to the user. That every weight 2 Bianchi cusp form has such an
-expansion is a theorem, not proved here. -/
+expansion is `exists_hasBianchiWhittakerExpansion_of_mem_bianchiCuspForms`, in its weight-`k`
+form. -/
 def HasBianchiFourierBesselExpansion (F : ℂ × ℝ → Fin 3 → ℂ) (c : 𝓞 K → ℂ) : Prop :=
   ∀ p : ℂ × ℝ, 0 < p.2 →
     HasSum (fun α : {α : 𝓞 K // α ≠ 0} ↦ bianchiFourierBesselTerm σ δ c p α) (F p)

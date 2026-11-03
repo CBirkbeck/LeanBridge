@@ -171,8 +171,9 @@ lemma isBianchiCuspidal_zero : IsBianchiCuspidal σ Γ k 0 := by
 variable (k)
 
 /-- The space **`M_k(Γ)` of Bianchi modular forms** (LMFDB `mf.bianchi.spaces`) of weight `k` and
-level `Γ`, such as `Γ₀(𝔑)`, over `K`, embedded in `ℂ` by `σ`, as a complex vector space. Its finite
-dimension is a theorem, not proved here. -/
+level `Γ`, such as `Γ₀(𝔑)`, over `K`, embedded in `ℂ` by `σ`, as a complex vector space. It is
+finite dimensional for `Γ₀(𝔑)`, `𝔑 ≠ 0`, `K` imaginary quadratic of class number `1` and `k ≥ 1`
+(`finiteDimensional_bianchiModularForms`); for other `Γ` and for `k = 0` this is not proved here. -/
 def bianchiModularForms : Submodule ℂ (HyperbolicThreeSpace → Fin (k + 1) → ℂ) where
   carrier := {F | IsBianchiModularForm σ Γ k F}
   add_mem' := IsBianchiModularForm.add σ Γ
@@ -194,7 +195,8 @@ lemma bianchiCuspForms_le : bianchiCuspForms σ Γ k ≤ bianchiModularForms σ 
 `n ∈ 𝓞_K`, over `K` embedded in `ℂ` by `σ`: `F` is an eigenform of the **Fricke involution** `W_n`,
 given by the matrix `(0, -1; n, 0)`, with eigenvalue `-ε`, that is `F ∣_k g = -ε F` for every
 `g ∈ SL(2, ℂ)` representing the image of `W_n` in `PSL₂(ℂ)`. The LMFDB defines the sign for Bianchi
-newforms of level `(n)`, which are eigenforms of `W_n`; newforms are not formalised here. -/
+newforms of level `(n)`, which are eigenforms of `W_n`; for newforms, see
+`BianchiNewformOfWeight.HasSign`. -/
 def HasBianchiSign (n : 𝓞 K) (ε : ℂ) : Prop :=
   ∀ (g : SL(2, ℂ)) (s : ℂ), (g : Matrix (Fin 2) (Fin 2) ℂ) = s⁻¹ • !![0, -1; σ n, 0] →
     bianchiSlash k g F = -ε • F

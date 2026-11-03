@@ -26,8 +26,8 @@ of the Whittaker function. The radial equation of index `j` of the first Casimir
 `R_{j+1}` from `R_j` and its first two derivatives, as `4πiμ(k - j) y ≠ 0` for `j < k`, so all `R_j`
 are proportional.
 
-That the Fourier coefficients of a Bianchi cusp form are such Fourier modes, and that the form is
-the sum of its Fourier coefficients, are not proved here.
+The Fourier coefficients of a Bianchi cusp form are such Fourier modes, and the form is the sum of
+its Fourier coefficients: `IsBianchiModularForm.hasSum_bianchiFourierMode`.
 
 ## Main results
 

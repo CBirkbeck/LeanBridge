@@ -11,10 +11,13 @@ modular forms of the same weight and level, and since `W_n² = -n` acts triviall
 involution of `M_k(Γ₀(n))`, whose eigenvalues are `±1`.
 
 A Bianchi newform `F` of level `(n)` is an eigenform of `W_n`, and its **sign** is minus the
-eigenvalue. That every newform is an eigenform of `W_n` is a consequence of multiplicity one for
-the newspace, not proved here: the sign is defined for the newforms which are eigenforms of `W_n`,
-and is then `±1` and unique. Its equality with the sign of the functional equation of the
-L-function of `F`, and the parity of the analytic rank, are theorems, not proved here.
+eigenvalue. Every newform is an eigenform of `W_n`, over `K` of class number `1` and for `k ≥ 1`, by
+multiplicity one for the newspace (`BianchiNewformOfWeight.exists_bianchiFricke_eq_smul`): the sign
+is defined for the newforms which are eigenforms of `W_n`, and is then `±1` and unique. The sign of
+the functional equation of the L-function of `F` is `(-1)^{k/2+1}` times the sign of `F`
+(`BianchiNewformOfWeight.completedL_add_one_sub`), so the two agree only for `k ≡ 2 mod 4`, contrary
+to the knowl, and this gives the parity of the analytic rank
+(`BianchiNewformOfWeight.neg_one_pow_mul_eq_neg_one_pow`).
 
 ## Main definitions
 
@@ -179,9 +182,10 @@ variable {σ k n} (F : BianchiNewformOfWeight σ k (Ideal.span {n}))
 /-- A Bianchi newform `F` of weight `k` and principal level `(n)` has **sign** `ε` (LMFDB
 `mf.bianchi.sign`) if it is an eigenform of the Fricke involution `W_n` (`bianchiFricke`) with
 eigenvalue `-ε`. The sign is then `±1` (`HasSign.eq_one_or_eq_neg_one`) and unique (`HasSign.eq`).
-That every newform of level `(n)` has a sign, that is, is an eigenform of `W_n`, is a consequence
-of multiplicity one, not proved here; the LMFDB states that the sign is the sign of the functional
-equation of the L-function of `F`, also not proved here. -/
+Every newform of level `(n)` has a sign, that is, is an eigenform of `W_n`
+(`exists_bianchiFricke_eq_smul`); the LMFDB states that the sign is the sign of the functional
+equation of the L-function of `F`, which holds only for `k ≡ 2 mod 4`
+(`neg_one_pow_mul_eq_neg_one_pow`). -/
 def HasSign (ε : ℂ) : Prop :=
   bianchiFricke σ k n F.toBianchiModularForm = -ε • F.toBianchiModularForm
 
@@ -209,8 +213,9 @@ variable (hW : ∃ c : ℂ, bianchiFricke σ k n F.toBianchiModularForm = c • 
 
 /-- The **sign** (LMFDB `mf.bianchi.sign`) of a Bianchi newform `F` of weight `k` and principal
 level `(n)`: minus the eigenvalue of the Fricke involution `W_n` on `F`. It is defined under the
-hypothesis `hW` that `F` is an eigenform of `W_n`, which holds for every newform by multiplicity
-one for the newspace (a theorem, not proved here); it is then `±1` for `F ≠ 0`. -/
+hypothesis `hW` that `F` is an eigenform of `W_n`, which holds for every newform by multiplicity one
+for the newspace (`exists_bianchiFricke_eq_smul`, `hasSign_sign_exists`); it is then `±1` for
+`F ≠ 0`. -/
 noncomputable def sign : ℂ :=
   -hW.choose
 

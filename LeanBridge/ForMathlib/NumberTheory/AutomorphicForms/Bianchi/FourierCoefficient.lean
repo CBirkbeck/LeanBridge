@@ -52,10 +52,9 @@ For a cusp form the constant term vanishes, the translations of the level fixing
 exactly `σ(𝒪_K)`, so it suffices that the full Fourier series over the dual lattice converges
 (`IsBianchiModularForm.hasBianchiWhittakerExpansion_of_isBianchiCuspidal`).
 
-Not proved here, and the remaining hypothesis of these theorems: that the Fourier series of the
-smooth periodic function `x ↦ F(x, y)` over the dual lattice of `σ(𝒪_K)` converges to it (Fourier
-inversion on `ℂ / σ(𝒪_K)`, which needs the decay of the Fourier coefficients of smooth functions on
-a two-dimensional torus, not in Mathlib).
+The remaining hypothesis of these theorems, that the Fourier series of the smooth periodic function
+`x ↦ F(x, y)` over the dual lattice of `σ(𝒪_K)` converges to it, is discharged by
+`IsBianchiModularForm.hasSum_bianchiFourierMode`.
 
 ## Main definitions
 
@@ -650,9 +649,11 @@ variable [NumberField K] {δ : ℂ}
 number field `K` embedded in `ℂ` by `σ`, `Λ` a countable subgroup of the translations fixing `∞`
 with a bounded fundamental domain `P`, and `δ` with `|δ| = √|Δ|` such that the frequencies
 `σ(α) / δ`, `α ∈ 𝒪_K`, are dual to `Λ`. If the Fourier series `∑_{α ≠ 0} ψ(μx) φ_μ(y)`,
-`μ = σ(α) / δ`, converges to `F` (Fourier inversion, with vanishing constant term, an unproved
-hypothesis here), then `F` has the Fourier–Bessel expansion of weight `k`
-(`HasBianchiWhittakerExpansion`) with `c(α) = φ_μ(1)₀ / W_k(u, 4π|μ|)₀`. -/
+`μ = σ(α) / δ`, converges to `F` (Fourier inversion,
+`IsBianchiModularForm.hasSum_bianchiFourierMode`, with vanishing constant term, the hypothesis being
+discharged for cusp forms in `IsBianchiCuspidal.hasBianchiWhittakerExpansion`), then `F` has the
+Fourier–Bessel expansion of weight `k` (`HasBianchiWhittakerExpansion`) with
+`c(α) = φ_μ(1)₀ / W_k(u, 4π|μ|)₀`. -/
 lemma IsBianchiModularForm.hasBianchiWhittakerExpansion (hF : IsBianchiModularForm σ Γ k F)
     (hΛ : Λ ≤ cuspTranslations σ Γ 1) (hk : k ≠ 0) (hδ : ‖δ‖ = √|(discr K : ℝ)|)
     (hP : IsAddFundamentalDomain Λ P) (hPb : IsBounded P)
@@ -998,10 +999,11 @@ weight `k ≥ 1` and level `Γ`, and `δ` a square root of the discriminant `Δ`
 of `BianchiNewformOfWeight`), so that the frequencies `σ(α) / δ`, `α ∈ 𝒪_K`, are exactly the
 points of the dual lattice of `σ(𝒪_K)` (`exists_intCast_eq_of_sq_eq_discr`,
 `exists_div_eq_of_dual`). If the Fourier series `∑_{ν ≠ 0} ψ(νx) φ_ν(y)` of `F` over the nonzero
-points `ν` of that dual lattice converges to `F` (Fourier inversion on `ℂ / σ(𝒪_K)`, with
-vanishing constant term, not proved here), then `F` has the Fourier–Bessel expansion of weight `k`
-with `c(α) = φ_μ(1)₀ / W_k(u, 4π|μ|)₀`, `μ = σ(α) / δ`, the Fourier coefficients being taken over
-the fundamental parallelogram of `σ(𝒪_K)`. -/
+points `ν` of that dual lattice converges to `F` (Fourier inversion on `ℂ / σ(𝒪_K)`,
+`IsBianchiModularForm.hasSum_bianchiFourierMode`, with vanishing constant term, the hypothesis being
+discharged for cusp forms in `IsBianchiCuspidal.hasBianchiWhittakerExpansion`), then `F` has the
+Fourier–Bessel expansion of weight `k` with `c(α) = φ_μ(1)₀ / W_k(u, 4π|μ|)₀`, `μ = σ(α) / δ`, the
+Fourier coefficients being taken over the fundamental parallelogram of `σ(𝒪_K)`. -/
 lemma IsBianchiModularForm.hasBianchiWhittakerExpansion_of_finrank_eq_two
     (hF : IsBianchiModularForm σ Γ k F) (hK : finrank ℚ K = 2) (hx : (σ x).im ≠ 0)
     (hΓ : ∀ a : 𝓞 K, ∃ γ ∈ Γ, (γ : Matrix (Fin 2) (Fin 2) (𝓞 K)) = !![1, a; 0, 1]) (hk : k ≠ 0)
@@ -1032,9 +1034,11 @@ private lemma cuspTranslations_le_span (hK : finrank ℚ K = 2) (hx : (σ x).im 
 `mf.bianchi.spaces`, `mf.bianchi.newform`): under the hypotheses of
 `IsBianchiModularForm.hasBianchiWhittakerExpansion_of_finrank_eq_two`, for a cusp form `F` it
 suffices that the full Fourier series `∑_ν ψ(νx) φ_ν(y)` of `F` over the dual lattice of
-`σ(𝒪_K)` converges to `F` (Fourier inversion on `ℂ / σ(𝒪_K)`, not proved here): its constant term
-vanishes (`IsBianchiCuspidal.bianchiFourierCoeff_zero`), the translations of `Γ` fixing `∞` being
-exactly `σ(𝒪_K)`. -/
+`σ(𝒪_K)` converges to `F` (Fourier inversion on `ℂ / σ(𝒪_K)`,
+`IsBianchiModularForm.hasSum_bianchiFourierMode`, which discharges this hypothesis in
+`IsBianchiCuspidal.hasBianchiWhittakerExpansion`): its constant term vanishes
+(`IsBianchiCuspidal.bianchiFourierCoeff_zero`), the translations of `Γ` fixing `∞` being exactly
+`σ(𝒪_K)`. -/
 lemma IsBianchiModularForm.hasBianchiWhittakerExpansion_of_isBianchiCuspidal
     (hF : IsBianchiModularForm σ Γ k F) (hc : IsBianchiCuspidal σ Γ k F) (hK : finrank ℚ K = 2)
     (hx : (σ x).im ≠ 0)

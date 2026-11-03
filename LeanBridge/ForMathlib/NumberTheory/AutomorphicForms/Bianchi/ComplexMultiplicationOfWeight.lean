@@ -26,7 +26,8 @@ For fields of any class number, the same notion is defined for the Hecke eigenfo
 `IsBianchiHeckeEigenform` on the tuples of Bianchi modular forms indexed by the class group, whose
 eigenvalues `a_𝔭` are defined at every prime `𝔭 ∤ 𝔑`, principal or not. These include every Bianchi
 newform, and the definition for them does not involve the Fourier–Bessel normalisation on which
-`BianchiNewformOfWeight` rests in weight `k > 2` (facts not proved here).
+`BianchiNewformOfWeight` rests in weight `k > 2` (`BianchiNewformOfWeight.eigenvalue_eq_idealCoeff`,
+at class number `1`).
 
 ## Main definitions
 

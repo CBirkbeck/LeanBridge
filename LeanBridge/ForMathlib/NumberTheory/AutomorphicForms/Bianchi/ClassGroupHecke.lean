@@ -29,8 +29,9 @@ eigenvalues `a_𝔭`; its **Hecke field** is the field they generate, and its **
 of the Hecke field (LMFDB `mf.bianchi.newform` for class number `1`). It is **normalised** if the
 component of the trivial class, with `𝔟 = 𝒪_K`, has the Fourier–Bessel coefficient `c(1) = 1`.
 That the operators preserve cusp forms, commute, and that the eigenvalues `a_𝔭` are the Fourier
-coefficients of a normalised eigenform are theorems, not proved here; newforms, which need the
-oldforms of every component, are only formalised for class number `1`
+coefficients of a normalised eigenform are theorems, not proved here (proved for class number `1`:
+`commute_bianchiHeckeTPrimeCusp`, `BianchiNewformOfWeight.eigenvalue_eq_idealCoeff`); newforms,
+which need the oldforms of every component, are only formalised for class number `1`
 (`BianchiNewformOfWeight`).
 
 ## Main definitions
@@ -255,8 +256,9 @@ noncomputable def bianchiHeckeIdeal : Module.End ℂ (bianchiClassGroupForms σ 
 
 /-- The **arithmetic Hecke operator** `N(𝔞)^{(k - 2) / 4} T_𝔞` (LMFDB `mf.bianchi.newform`) on the
 space of Bianchi modular forms of weight `k` and level `𝔑` over `K` of any class number, as in
-`bianchiHeckeTPrimeArith`: its eigenvalues `a_𝔭` on newforms are the LMFDB's, algebraic integers
-equal to the Fourier–Bessel coefficients (theorems, not proved here). In weight `2` it is `T_𝔞`. -/
+`bianchiHeckeTPrimeArith`: its eigenvalues `a_𝔭` on newforms are the LMFDB's, equal to the
+Fourier–Bessel coefficients at class number `1` (`BianchiNewformOfWeight.eigenvalue_eq_idealCoeff`),
+and algebraic integers (theorems, not proved here). In weight `2` it is `T_𝔞`. -/
 noncomputable def bianchiHeckeIdealArith : Module.End ℂ (bianchiClassGroupForms σ k 𝔑 𝔟) :=
   (((Ideal.absNorm (𝔞 : Ideal (𝓞 K)) : ℝ) ^ (((k : ℝ) - 2) / 4) : ℝ) : ℂ) •
     bianchiHeckeIdeal σ k 𝔑 𝔟 𝔞

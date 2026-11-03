@@ -31,9 +31,10 @@ cuspidal or not, indexed by the class group of `K`, whose eigenvalues `a_𝔭` a
 prime `𝔭 ∤ 𝔑`, principal or not; for class number `1` it is also defined for the newforms of every
 weight (`BianchiNewformOfWeight`). The relation on eigenforms only involves the eigenvalues of the
 arithmetic Hecke operators, not the Fourier–Bessel normalisation on which `BianchiNewformOfWeight`
-rests in weight `k > 2` (facts not proved here). As the knowl of LMFDB `mf.base_change` states for
-base changes from `ℚ`, the eigenvalues of a base change are invariant under the automorphisms of
-`K`: they agree at any two primes above the same `p ∤ N`.
+rests in weight `k > 2` (`BianchiNewformOfWeight.eigenvalue_eq_idealCoeff`, at class number `1`). As
+the knowl of LMFDB `mf.base_change` states for base changes from `ℚ`, the eigenvalues of a base
+change are invariant under the automorphisms of `K`: they agree at any two primes above the same
+`p ∤ N`.
 
 ## Main definitions
 
