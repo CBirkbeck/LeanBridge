@@ -1379,6 +1379,14 @@
     "WeierstrassCurve.adelicGaloisImageLevel": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.GaloisRep.AdelicImage",
     "WeierstrassCurve.adelicGaloisImageIndex": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.GaloisRep.AdelicImage"
   },
+  "ec.galois_rep_modell_image": {
+    "Matrix.GeneralLinearGroup.HasSutherlandClass": "LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.SutherlandGroupLabel",
+    "Matrix.GeneralLinearGroup.IsCanonicalSutherlandLabel": "LeanBridge.ForMathlib.GroupTheory.SpecificGroups.GL2CanonicalLabel",
+    "Matrix.GeneralLinearGroup.sutherlandLabel": "LeanBridge.ForMathlib.GroupTheory.SpecificGroups.GL2LabelClassification",
+    "Matrix.GeneralLinearGroup.sutherlandLabel_eq_sutherlandLabel_iff": "LeanBridge.ForMathlib.GroupTheory.SpecificGroups.GL2LabelClassification",
+    "WeierstrassCurve.modGaloisImageLabel": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.GaloisRep.ModEllImageCanonicalLabel",
+    "WeierstrassCurve.modGaloisImageLabel_cls_eq_S4": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.GaloisRep.ModEllImageCanonicalLabel"
+  },
   "ec.geom_endomorphism_ring": {
     "WeierstrassCurve.GeometricEnd": "TauCeti.AlgebraicGeometry.EllipticCurve.Isogeny.Hom.ComplexMultiplication"
   },

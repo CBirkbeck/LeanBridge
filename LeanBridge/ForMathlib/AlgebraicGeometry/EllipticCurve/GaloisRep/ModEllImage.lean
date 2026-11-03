@@ -12,9 +12,13 @@ representation, a subgroup of the automorphisms of `E[ℓ]`; in a basis of `E[�
 `ℓS.a.b.c`, decorated by `[d]` when the determinant is not surjective, `d` being the index of the
 image of the determinant in `𝔽_ℓˣ`. A label `S.a.b.c` with `S` among `B`, `Cs`, `Ns`, `Cn`, `Nn`
 names an explicit subgroup (`Matrix.GeneralLinearGroup.SutherlandLabel.subgroup`), and the image has
-that label when it is that subgroup in some basis; for the exceptional labels only the type `A4`,
-`S4`, `A5` of the projective image is recorded. The choice of the minimal `a`, `b`, `c` among
-labels naming conjugate subgroups is a database convention and is not formalised.
+that label, in the sense of this file, when it is that subgroup in some basis; for the exceptional
+labels this file records only the type `A4`, `S4`, `A5` of the projective image. Several labels can
+name conjugate subgroups, and these relations do not choose among them. The choice of Sutherland's
+script, which gives every subgroup of `GL₂(𝔽_ℓ)` exactly one label
+(`Matrix.GeneralLinearGroup.existsUnique_isCanonicalSutherlandLabel`), is
+`Matrix.GeneralLinearGroup.IsCanonicalSutherlandLabel`, and the resulting label of the mod-`ℓ`
+image, which does not depend on the basis, is `WeierstrassCurve.modGaloisImageLabel`.
 
 ## Main definitions
 
@@ -67,9 +71,10 @@ mod-`ℓ` image in `𝔽_ℓˣ`; the label of the image carries `[d]` when `d > 
 noncomputable def modGaloisImageDetIndex : ℕ :=
   ((W.modGaloisImage (K := K) ℓ).map (Units.map LinearMap.det)).index
 
-/-- The mod-`ℓ` image **has Sutherland's label** `ℓS.a.b.c` (LMFDB `ec.galois_rep_modell_image`),
-for `S` among `B`, `Cs`, `Ns`, `Cn`, `Nn`: in some basis of `E[ℓ]` it is the subgroup of
-`GL₂(𝔽_ℓ)` named by the label, that is, it is conjugate to that subgroup. -/
+/-- The mod-`ℓ` image **has the label** `ℓS.a.b.c` (LMFDB `ec.galois_rep_modell_image`), for `S`
+among `B`, `Cs`, `Ns`, `Cn`, `Nn`: in some basis of `E[ℓ]` it is the subgroup of `GL₂(𝔽_ℓ)` named by
+the label, that is, it is conjugate to that subgroup. Several labels can name conjugate subgroups;
+Sutherland's label of the image, the one his script chooses, is `modGaloisImageLabel`. -/
 def HasModGaloisImageLabel (L : GeneralLinearGroup.SutherlandLabel) : Prop :=
   ∃ b : Module.Basis (Fin 2) (ZMod ℓ) (AddSubgroup.torsionBy (W⁄K).toAffine.Point (ℓ : ℤ)),
     W.modGaloisImageGL ℓ b = L.subgroup ℓ

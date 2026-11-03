@@ -443,7 +443,7 @@ The subgroup $`H` can be identified (up to conjugacy) by giving the {bpref "gl2.
 Depends on: {uses "ec"}[] {uses "ec.complex_multiplication"}[] {uses "ec.galois_rep"}[] {uses "gl2.cartan"}[] {uses "gl2.label"}[] {uses "gl2.level"}[] {uses "gl2.open"}[] {uses "nf"}[]
 :::
 
-:::definition "ec.galois_rep_modell_image"
+:::definition "ec.galois_rep_modell_image" (lean := "Matrix.GeneralLinearGroup.HasSutherlandClass, Matrix.GeneralLinearGroup.IsCanonicalSutherlandLabel, Matrix.GeneralLinearGroup.sutherlandLabel, Matrix.GeneralLinearGroup.sutherlandLabel_eq_sutherlandLabel_iff, WeierstrassCurve.modGaloisImageLabel, WeierstrassCurve.modGaloisImageLabel_cls_eq_S4")
 *Image of mod-$`l` Galois representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.galois_rep_modell_image))
 
 Let $`\ell` be a prime and let $`E` be an {bpref "ec"}[elliptic curve] defined over a {bpref "nf"}[number field] $`K`.

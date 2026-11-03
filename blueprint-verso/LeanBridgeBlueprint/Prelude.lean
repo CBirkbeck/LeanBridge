@@ -73,6 +73,7 @@ import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.GaloisRep.AdelicIma
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.GaloisRep.AdelicImageGenus
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.GaloisRep.Basic
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.GaloisRep.Maximal
+import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.GaloisRep.ModEllImageCanonicalLabel
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.GaloisRep.SerreInvariants
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.IntrinsicTorsion.Basic
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Isogeny.Basic
@@ -144,6 +145,8 @@ import LeanBridge.ForMathlib.GroupTheory.SolvableRadical
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.AGroup
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.AlmostSimple
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.Chevalley
+import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.GL2CanonicalLabel
+import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.GL2LabelClassification
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.Metabelian
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.Metacyclic
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.ModularMaximalCyclic
@@ -189,6 +192,7 @@ import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.LeastPrimitiveRoot
 import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.Level
 import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.NonsplitCartan
 import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.SplitCartan
+import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.SutherlandGroupLabel
 import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.SymplecticIsomorphism
 import LeanBridge.ForMathlib.LinearAlgebra.Matrix.SemilinearGroup
 import LeanBridge.ForMathlib.LinearAlgebra.QuadraticForm.DicksonInvariant

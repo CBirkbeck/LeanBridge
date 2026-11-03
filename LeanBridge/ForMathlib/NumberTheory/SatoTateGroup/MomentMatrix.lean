@@ -14,15 +14,28 @@ writes as the monomials `e₁^{c₁} ⋯ e_g^{c_g}` in the elementary symmetric 
 The character of highest weight `λ` at a matrix with eigenvalues `x₁^{±1}, …, x_g^{±1}` is the
 symplectic Schur function `sp_λ = det(e_{λ'ᵢ - i + j} - e_{λ'ᵢ - i - j})_{1 ≤ i, j ≤ λ₁}` of
 Koike and Terada, `e_k` the elementary symmetric functions of the eigenvalues, which agrees with
-Weyl's character formula (this agreement and the irreducibility are not proved here). Each is an
-integer polynomial in the coefficients `aᵢ = (-1)ⁱ eᵢ` of the characteristic polynomial, as the
-knowl says. The LMFDB orders the characters by the degree `c₁ + ⋯ + c_g` of the monomial and then
-by an order on exponent vectors; the moment matrix is indexed here by the exponent vectors
-themselves, the order being a display convention.
+Weyl's character formula (`SatoTateGroup.symplecticSchur_mul_det`), and these functions are exactly
+the irreducible characters of `USp(2g)` (`SatoTateGroup.HasSymplecticMonomial.ambientCharacter_eq`,
+`SatoTateGroup.exists_ambientCharacter_eq_symplecticSchur`,
+`SatoTateGroup.exists_symplecticSchur_eq_ambientCharacter`). Each is an integer polynomial in the
+coefficients `aᵢ = (-1)ⁱ eᵢ` of the characteristic polynomial, as the knowl says. The LMFDB orders
+the characters by the degree `c₁ + ⋯ + c_g` of the monomial and then, as its data shows, by
+decreasing lexicographic order of the exponent vectors (`SatoTateGroup.IsBeforeInDisplayOrder`). In
+odd weight this is the order `SatoTateGroup.IsBeforeInMomentMatrix` of the rows and columns of the
+moment matrix (`SatoTateGroup.HasSymplecticMonomial.isBeforeInMomentMatrix_iff`), a linear order
+(`SatoTateGroup.isLinearOrder_isBeforeInMomentMatrix`). The moment matrix of this file is indexed by
+the exponent vectors themselves and does not order them.
 
-In even weight the ambient group is `O(d)`, whose irreducible characters are not formalised; the
-moment matrix is defined here for the symplectic ambient group, that of the Sato–Tate groups of odd
-weight.
+This file defines the moment matrix for the symplectic ambient group, that of the Sato–Tate groups
+of odd weight. The moment matrix over the irreducible characters of the ambient group in both
+weights is `SatoTateGroup.momentMatrix`, and in odd weight it is the one of this file
+(`SatoTateGroup.momentMatrix_eq_symplecticMomentMatrix`). In even weight the ambient group is
+`O(d)`, whose irreducible characters are given by Tau Ceti's unitary dual
+(`SatoTateGroup.ambientCharacter`). The order `SatoTateGroup.IsBeforeInMomentMatrix` of the rows and
+columns is then the order of Weyl's monomials (`SatoTateGroup.isBeforeInMomentMatrix_iff_of_even`),
+a total preorder, and it is a linear order exactly when Weyl's monomial
+`SatoTateGroup.orthogonalMonomial` is injective on the irreducible characters of `O(d)`
+(`SatoTateGroup.antisymm_isBeforeInMomentMatrix_iff`), which is classical and not proved here.
 
 ## Main definitions
 
@@ -32,8 +45,9 @@ weight.
   eigenvalues.
 * `SatoTateGroup.symplecticCharacter` (LMFDB `st_group.moment_matrix`): the irreducible character
   of `USp(2g)` of highest weight `λ`, as a random variable on a Sato–Tate group.
-* `SatoTateGroup.symplecticMomentMatrix` (LMFDB `st_group.moment_matrix`): the moment matrix, whose
-  diagonal (`Matrix.diag`) is the vector of the `E[χ²]`.
+* `SatoTateGroup.symplecticMomentMatrix` (LMFDB `st_group.moment_matrix`): the moment matrix in odd
+  weight, indexed by the exponent vectors, whose diagonal (`Matrix.diag`) is the vector of the
+  `E[χ²]`.
 
 ## Main results
 
@@ -72,8 +86,9 @@ noncomputable def esymmOfInt (m : ℤ) : ℂ :=
 `λ = c₁ ω₁ + ⋯ + c_g ω_g` of `USp(2g)`, evaluated at a multiset `s` of eigenvalues:
 `det(e_{λ'ᵢ - i + j} - e_{λ'ᵢ - i - j})_{1 ≤ i, j ≤ λ₁}`, `λ'` the conjugate partition, `e_k` the
 elementary symmetric functions of `s` and `λ₁ = c₁ + ⋯ + c_g`. At the eigenvalues of a matrix of
-`USp(2g)` it is the irreducible character of highest weight `λ` (Weyl's character formula; not
-proved here). -/
+`USp(2g)` it is the irreducible character of highest weight `λ`
+(`HasSymplecticMonomial.ambientCharacter_eq`), by Weyl's character formula and the identity
+`symplecticSchur_mul_det`. -/
 noncomputable def symplecticSchur : ℂ :=
   (of fun i j : Fin (∑ k, c k) ↦
     esymmOfInt s (conjugateHighestWeight c (i + 1) - i + j) -
@@ -108,7 +123,10 @@ and degree `2g`: the matrix of the moments `E[χ_c χ_{c'}]`, for the Haar proba
 of the irreducible characters `χ_c` of its ambient group `USp(2g)`, indexed by their highest weights
 `e₁^{c₁} ⋯ e_g^{c_g}`. Its **diagonal** is `Matrix.diag`, the vector of the `E[χ_c²]`
 (`diag_symplecticMomentMatrix`). The LMFDB lists the characters by the degree `c₁ + ⋯ + c_g` and
-then by an order on exponent vectors, a display convention not recorded here. -/
+then, as its data shows, by decreasing lexicographic order of the exponent vectors
+(`IsBeforeInDisplayOrder`), which this matrix does not record; in odd weight
+`momentMatrix_eq_symplecticMomentMatrix` compares it with `momentMatrix`, whose rows and columns are
+ordered by `IsBeforeInMomentMatrix`. -/
 noncomputable def symplecticMomentMatrix :
     Matrix (Fin (G.degree / 2) → ℕ) (Fin (G.degree / 2) → ℕ) ℂ :=
   of fun c c' ↦ G.expectation (G.symplecticCharacter c * G.symplecticCharacter c')

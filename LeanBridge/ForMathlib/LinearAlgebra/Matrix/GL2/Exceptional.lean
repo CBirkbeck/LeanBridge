@@ -10,7 +10,12 @@ A subgroup of `GL₂(𝔽_p)` is exceptional if it does not contain `SL₂(𝔽_
 Borel subgroup nor in the normalizer of a Cartan subgroup, the latter in the LMFDB's convention
 (`Matrix.GeneralLinearGroup.IsCartanNormalizer`). By Dickson's classification its image in
 `PGL₂(𝔽_p)` is then isomorphic to `A₄`, `S₄` or `A₅`, which is what Sutherland's labels `A4`, `S4`,
-`A5` record; the classification itself is not proved here.
+`A5` record. The classification itself is proved: every subgroup of `GL₂(𝔽_p)` has a Sutherland
+class (`Matrix.GeneralLinearGroup.exists_hasSutherlandClass`), and the image in `PGL₂(𝔽_p)` of a
+subgroup of order prime to `p` is cyclic, dihedral or isomorphic to `A₄`, `S₄` or `A₅`
+(`Matrix.GeneralLinearGroup.classification_projectiveImage`). The consequence stated above for an
+exceptional subgroup, that it has one of these types
+(`Matrix.GeneralLinearGroup.HasExceptionalType`), is not proved here.
 
 ## Main definitions
 

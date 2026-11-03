@@ -9,12 +9,17 @@ The LMFDB identifies a subgroup of `GL₂(𝔽_ℓ)` lying in a Borel subgroup o
 Cartan subgroup, up to conjugacy, by Sutherland's label `ℓS.a.b.c`, where `S` is one of `B`, `Cs`,
 `Ns`, `Cn`, `Nn` and `a`, `b`, `c` are optional nonnegative integers (the knowl says positive, but
 Sutherland's tables contain `5Cn.0.1`). Each label names an explicit subgroup of `GL₂(𝔽_ℓ)`,
-defined in the files of the five families; a subgroup has a label when it is conjugate to the
-subgroup the label names. The labels `A4`, `S4`, `A5` of exceptional subgroups record the type of
-their image in `PGL₂(𝔽_ℓ)` (`Matrix.GeneralLinearGroup.HasExceptionalType`) and are not listed here.
-Sutherland's full labels `ℓS.a.b.c[d]`, with his conditions on `a`, `b`, `c`, are
+defined in the files of the five families; a subgroup is named by a label when it is conjugate to
+the subgroup the label names, and several labels can name conjugate subgroups. The labels `A4`,
+`S4`, `A5` of exceptional subgroups record the type of their image in `PGL₂(𝔽_ℓ)`
+(`Matrix.GeneralLinearGroup.HasExceptionalType`) and are not listed here. Sutherland's full labels
+`ℓS.a.b.c[d]`, with the conditions on `a`, `b`, `c` of his script, are
+`Matrix.GeneralLinearGroup.IsCanonicalSutherlandLabel`
+(`LeanBridge.ForMathlib.GroupTheory.SpecificGroups.GL2CanonicalLabel`), and every subgroup has
+exactly one (`Matrix.GeneralLinearGroup.existsUnique_isCanonicalSutherlandLabel`). The relation
 `Matrix.GeneralLinearGroup.IsSutherlandLabel`
-(`LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.SutherlandGroupLabel`).
+(`LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.SutherlandGroupLabel`) agrees with it except on
+`Ns`, `Cn`, `Nn`.
 
 ## Main definitions
 

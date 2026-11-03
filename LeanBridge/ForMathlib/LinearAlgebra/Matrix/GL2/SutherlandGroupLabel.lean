@@ -16,13 +16,22 @@ subgroups `G` of `GL₂(𝔽_ℓ)` by labels `ℓS.a.b.c[d]`, which the LMFDB us
 * `a`, `b`, `c` are optional nonnegative integers. For `G`, `B`, `Cs`, `Cn`, `Ns`, `Nn` the label
   names a subgroup of `GL₂(𝔽_ℓ)` by generators built from `r`, the least positive integer
   generating the subgroup of index `d` of `𝔽_ℓˣ`, and `ε`, the least primitive root modulo `ℓ`;
-  the label of `G` is the one naming a group conjugate to `G`, with `a`, `b`, `c` minimal and, for
-  `Ns` and `Nn`, with the number of integers that Sutherland's script chooses. For `A4`, `S4`,
+  the label of `G` is the one naming a group conjugate to `G` with the form and the integers that
+  Sutherland's script chooses, lexicographically least only among the integers satisfying its
+  conditions (`Matrix.GeneralLinearGroup.SutherlandGroupLabel.CanonicalParamsOf`). For `A4`, `S4`,
   `A5` they record the index `[det G : det Z(G)]`, `Z(G) = G ∩ Z(ℓ)` the scalars.
 
 The groups of the labels with `d = 1` are the LMFDB's groups of `SutherlandLabel.subgroup`. Where
 the paper's text is ambiguous or slips, the definitions follow its tables and its Magma script
-(reference [68] of the paper), as the docstrings say.
+(reference [68] of the paper) on the points their docstrings name. The relation
+`Matrix.GeneralLinearGroup.IsSutherlandLabel` of this file is not the label of the script on all
+classes: it is not functional on `Ns`, and it differs from the script on `Ns`, `Cn`, `Nn`. The
+relation that follows the script is `Matrix.GeneralLinearGroup.IsCanonicalSutherlandLabel`, for
+which every subgroup has exactly one label
+(`Matrix.GeneralLinearGroup.existsUnique_isCanonicalSutherlandLabel`) and two subgroups have the
+same label exactly when they are conjugate
+(`Matrix.GeneralLinearGroup.sutherlandLabel_eq_sutherlandLabel_iff`). In the results of this file, a
+label of a subgroup means one for `IsSutherlandLabel`.
 
 ## Main definitions
 
@@ -35,8 +44,9 @@ the paper's text is ambiguous or slips, the definitions follow its tables and it
   `labelNsABD`, `labelNsABCD` and `labelNnABC` are the other groups the labels name.
 * `Matrix.GeneralLinearGroup.SutherlandGroupLabel` (LMFDB `ec.galois_rep_modell_image`): a label
   `ℓS.a.b.c[d]`, and `SutherlandGroupLabel.namedSubgroup`, the subgroup it names.
-* `Matrix.GeneralLinearGroup.IsSutherlandLabel` (LMFDB `ec.galois_rep_modell_image`): a label is
-  Sutherland's label of a subgroup.
+* `Matrix.GeneralLinearGroup.IsSutherlandLabel`: a label is a label of a subgroup, for the
+  conditions `Matrix.GeneralLinearGroup.SutherlandGroupLabel.ParamsOf`; Sutherland's label itself
+  (LMFDB `ec.galois_rep_modell_image`) is `Matrix.GeneralLinearGroup.IsCanonicalSutherlandLabel`.
 
 ## Main results
 
@@ -379,13 +389,20 @@ lexicographically minimal for `Cn` and `Nn`, and with `c = [Z(ℓ) : H ∩ Z(ℓ
 of `C_ns` and `!![a, ε * b; b, a]` generating the part in `C_ns`, which contains `H ∩ Z(ℓ)`, for
 `Nn.a.b.c` (as in Corollary 3.17 and Sutherland's script). The text leaves implicit which of the
 two forms of `Ns` and `Nn` labels applies when both name a conjugate of `H`; as in Sutherland's
-script, `ℓNs.a.b[d]` is used when the determinant-one part of the group lies in `C_s` and
+script, `ℓNs.a.b[d]` is used when the determinant-one part of the group it names lies in `C_s` and
 `ℓNs.a.b.c[d]` otherwise (which also excludes `b ≡ 0 mod ℓ`, where the second generator is not
 invertible), and `ℓNn.a.b.c[d]` exactly in the case `IsNnDetDisjoint` of Corollary 3.17. For `A4`,
-`ℓA4.a[d]` records `a = [det H : det Z(H)]`; `ℓS4` is used when `Z(H) = Z(ℓ)` and `d = 1`,
-`ℓS4[d]` when `d > 1` and `[det H : det Z(H)] = 2`, and `ℓS4.1[d]` when this index is `1`; and
-`ℓA5.1[d]` when it is `1` (the paper's text writes `ℓA5.[d]`, its tables, e.g. `11A5.1[2]`, and
-Sutherland's script `ℓA5.1[d]`). -/
+`ℓA4.a[d]` records `a = [det H : det Z(H)]`; `ℓS4` is used when `Z(H) = Z(ℓ)` and `d = 1`, `ℓS4[d]`
+when `d > 1` and `[det H : det Z(H)] = 2`, and `ℓS4.1[d]` when this index is `1`; and `ℓA5.1[d]`
+when it is `1` (the paper's text writes `ℓA5.[d]`, its tables, e.g. `11A5.1[2]`, and Sutherland's
+script `ℓA5.1[d]`). On `Ns`, `Cn`, `Nn` these are not the conditions of his script, which are
+`SutherlandGroupLabel.CanonicalParamsOf`. On `Ns` they are not functional: a group with projective
+image the Klein group can lie in `C_s⁺` in two ways, with non-conjugate diagonal parts, which fall
+into different forms, and the script prefers the cyclic one (`IsNsCyclicPreferred`). Also on `Ns`
+they minimise `b`, `c` over all the conjugates of `H`, where the script takes them in a specific
+conjugate (`IsNsNormalForm`). On `Cn` and `Nn` they take `(a, b)` lexicographically least among all
+the pairs naming a conjugate of `H`, where the script looks only at some of the generators of the
+cyclic part (`IsScriptCartanGen`). `IsSutherlandLabel` gives examples. -/
 def SutherlandGroupLabel.ParamsOf : Prop :=
   match L.cls, L.params with
   | .G, [] => True
@@ -424,11 +441,16 @@ def SutherlandGroupLabel.ParamsOf : Prop :=
   | .A5, [a] => a = 1 ∧ detCenterIndex p H = 1
   | _, _ => False
 
-/-- `L` is **Sutherland's label** `ℓS.a.b.c[d]` of the subgroup `H` of `GL₂(𝔽_p)`
-(arXiv:1504.07618, §6.4; LMFDB `ec.galois_rep_modell_image`): `H` has class `S`, `d` is the index
-of `det H` in `𝔽_pˣ`, `H` is conjugate to the group the label names (classes `G`, `B`, `Cs`, `Cn`,
-`Ns`, `Nn`), and the integers `a`, `b`, `c` satisfy Sutherland's conditions
-(`SutherlandGroupLabel.ParamsOf`). -/
+/-- `L` is a **label** `ℓS.a.b.c[d]` of the subgroup `H` of `GL₂(𝔽_p)` for the conditions
+`SutherlandGroupLabel.ParamsOf` (arXiv:1504.07618, §6.4): `H` has class `S`, `d` is the index of
+`det H` in `𝔽_pˣ`, `H` is conjugate to the group the label names (classes `G`, `B`, `Cs`, `Cn`,
+`Ns`, `Nn`), and the integers `a`, `b`, `c` satisfy these conditions. This relation is not
+functional on `Ns`: the group of order `8` of `5Ns.2.1[2]` also has the label `5Ns.4.1.1[2]`. It
+differs from Sutherland's script on `Ns`, `Cn`, `Nn`: it gives `13Ns.5.1`, `23Cn.1.5`, `17Nn.1.1.1`
+where the LMFDB, which follows the script, has `13Ns.5.2`, `23Cn.1.11`, `17Nn.3.7.1`. The relation
+that follows the script (LMFDB `ec.galois_rep_modell_image`), with exactly one label for each
+subgroup, is `IsCanonicalSutherlandLabel`; on the other classes it is this relation
+(`isCanonicalSutherlandLabel_iff_of_cls_ne`). -/
 def IsSutherlandLabel : Prop :=
   HasSutherlandClass p H L.cls ∧ L.d = (H.map GeneralLinearGroup.det).index ∧
     (∀ K ∈ L.namedSubgroup p, K ∈ subgroupConjClass p H) ∧ L.ParamsOf p H
@@ -523,11 +545,14 @@ lemma exists_isLexLeastPair {P : ℕ → ℕ → Prop} (h : ∃ a b, P a b) :
     wellFounded_lt.min_mem s hs, fun a' b' h' ↦
       not_lt.mp (wellFounded_lt.not_lt_min s (x := toLex (a', b')) h')⟩
 
-/-- **Sutherland's label of a subgroup of `GL₂(𝔽_p)` is unique given its number of integers** `a`,
-`b`, `c`. Labels of a subgroup with different numbers of integers could only be its `Ns.a.b[d]` and
-`Ns.a.b.c[d]`, or its `Nn.a.b[d]` and `Nn.a.b.c[d]` (`IsSutherlandLabel.eq`). The conditions taken
-from Sutherland's script (`SutherlandGroupLabel.ParamsOf`) are meant to separate these forms, by his
-Lemma 3.16 and Corollaries 3.17 and 3.18; this is not proved here. -/
+/-- **A label of `IsSutherlandLabel` of a subgroup of `GL₂(𝔽_p)` is unique given its number of
+integers** `a`, `b`, `c`. Labels of a subgroup with different numbers of integers could only be its
+`Ns.a.b[d]` and `Ns.a.b.c[d]`, or its `Nn.a.b[d]` and `Nn.a.b.c[d]` (`IsSutherlandLabel.eq`). The
+conditions `SutherlandGroupLabel.ParamsOf` do not separate the two forms of `Ns`: the group of order
+`8` of `5Ns.2.1[2]` also has the label `5Ns.4.1.1[2]`. That they separate the two forms of `Nn` is
+not proved for this relation. For `IsCanonicalSutherlandLabel` the two forms exclude each other, by
+`IsCanonicalSutherlandLabel.false_of_Ns` and, for odd `p`, `IsCanonicalSutherlandLabel.false_of_Nn`,
+so the label is unique (`IsCanonicalSutherlandLabel.eq`). -/
 lemma IsSutherlandLabel.eq_of_length_eq (hL : IsSutherlandLabel p H L)
     (hL' : IsSutherlandLabel p H L') (hlen : L.params.length = L'.params.length) : L = L' := by
   have hcls : L.cls = L'.cls := hL.cls_eq hL'
@@ -581,9 +606,11 @@ lemma IsSutherlandLabel.false_of_S4 (hL : IsSutherlandLabel p H ⟨.S4, [], d⟩
     exact absurd hu (by decide)
   · exact absurd (h₂.symm.trans h'.2) (by decide)
 
-/-- **Sutherland's label of a subgroup of `GL₂(𝔽_p)` of class other than `Ns` and `Nn` is
-unique**; for these two classes it is unique given its number of integers
-(`IsSutherlandLabel.eq_of_length_eq`). -/
+/-- **A label of `IsSutherlandLabel` of a subgroup of `GL₂(𝔽_p)` of class other than `Ns` and `Nn`
+is unique**; for these two classes it is unique given its number of integers
+(`IsSutherlandLabel.eq_of_length_eq`), and on `Ns` it is not unique without that: `5Ns.2.1[2]` and
+`5Ns.4.1.1[2]` label one group. For `IsCanonicalSutherlandLabel` the label is unique on all classes
+(`IsCanonicalSutherlandLabel.eq`). -/
 lemma IsSutherlandLabel.eq (hL : IsSutherlandLabel p H L) (hL' : IsSutherlandLabel p H L')
     (hNs : L.cls ≠ .Ns) (hNn : L.cls ≠ .Nn) : L = L' := by
   by_cases hlen : L.params.length = L'.params.length
@@ -695,9 +722,12 @@ lemma exists_isSutherlandLabel_of_le_labelCn (hp : p ≠ 2) (hK : H ≤ labelCn 
   rw [Option.mem_def, SutherlandGroupLabel.namedSubgroup, Option.some_inj] at hN
   exact hN ▸ hab.1.2
 
-/-- **Every subgroup of `GL₂(𝔽_p)` of class `Cn` has a Sutherland label**, for odd `p`
+/-- **Every subgroup of `GL₂(𝔽_p)` of class `Cn` has a label of `IsSutherlandLabel`**, for odd `p`
 (arXiv:1504.07618, §6.4): `ℓCn[d]` or `ℓCn.a.b[d]`, a generator `!![a, ε * b; b, a]` of a conjugate
-in `C_ns` giving a pair `(a, b)` and hence a lexicographically least one. -/
+in `C_ns` giving a pair `(a, b)` and hence a lexicographically least one. This least pair need not
+be that of Sutherland's script: the relation gives `23Cn.1.5` where the LMFDB has `23Cn.1.11`.
+Sutherland's label `ℓCn[d]` or `ℓCn.a.b[d]` exists by `exists_isCanonicalSutherlandLabel_of_cls_Cn`,
+with no condition on `p`. -/
 lemma exists_isSutherlandLabel_of_hasSutherlandClass_Cn (hp : p ≠ 2)
     (hH : HasSutherlandClass p H .Cn) : ∃ L : SutherlandGroupLabel, IsSutherlandLabel p H L := by
   rcases hH.1.1 with ⟨K, hK, hKCn⟩
