@@ -61,9 +61,9 @@ Shimura's theta multiplier `ModularForm.thetaFactor`, that are holomorphic at th
 `γ ∈ SL(2, ℤ)`, `|cz + d|^(-k/2) f(γz)` is bounded as `Im z → ∞`. The LMFDB requires `k` odd and
 `4 ∣ N` (`hasWeight_of_mem_halfIntegralWeightSpace`); the space is defined for all `k` and `N`.
 
-The LMFDB defines `j(γ, z) = θ(γz) / θ(z)` with `θ(z) = Σ_n e^{2πin²z}`; Shimura's formula
-`j(γ, z) = (c/d) ε_d⁻¹ (cz + d)^(1/2)` for `γ ∈ Γ₀(4)` is used instead, its equality with the
-quotient of theta functions being a theorem that is not proved here. -/
+The LMFDB defines `j(γ, z) = θ(γz) / θ(z)`; Shimura's formula
+`j(γ, z) = (c/d) ε_d⁻¹ (cz + d)^(1/2)` for `γ ∈ Γ₀(4)` is used instead, and
+`ModularForm.thetaSeries_smul` proves `θ(γz) = j(γ, z) θ(z)` for `θ(z) = Σ_n e^{2πin²z}`. -/
 def halfIntegralWeightSpace : Submodule ℂ (ℍ → ℂ) where
   carrier := {f | MDiff f ∧
     (∀ γ ∈ Gamma0 N, ∀ z, f (γ • z) = χ (γ 1 1) * weightFactor k γ z * f z) ∧

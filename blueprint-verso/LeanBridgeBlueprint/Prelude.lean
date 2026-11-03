@@ -357,6 +357,7 @@ import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareSpanCu
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareSpanFiniteOrder
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.QuasiModular
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ShimuraDecomposition
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ThetaMultiplier
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.Weight
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.AtkinLehnerDimension
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.CoefficientIntegrality

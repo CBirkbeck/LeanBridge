@@ -3888,7 +3888,9 @@
     "ModularForm.halfIntegralWeightSpace": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.HalfIntegralWeight",
     "ModularForm.halfIntegralWeightCuspSpace": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.HalfIntegralWeight",
     "ModularForm.hasWeight_of_mem_halfIntegralWeightSpace": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.HalfIntegralWeight",
-    "ModularForm.thetaFactor": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.Weight"
+    "ModularForm.thetaFactor": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.Weight",
+    "ModularForm.thetaSeries_smul": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ThetaMultiplier",
+    "ModularForm.thetaSeries_mem_halfIntegralWeightSpace": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ThetaMultiplier"
   },
   "mf.half_integral_weight.shimura_decomposition": {
     "ModularForm.ShimuraDecomposition": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ShimuraDecomposition",
@@ -3898,7 +3900,10 @@
     "ModularForm.halfIntegralHeckeCoeff": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ShimuraDecomposition"
   },
   "mf.half_integral_weight.theta": {
-    "jacobiTheta": "Mathlib.NumberTheory.ModularForms.JacobiTheta.OneVariable"
+    "jacobiTheta": "Mathlib.NumberTheory.ModularForms.JacobiTheta.OneVariable",
+    "ModularForm.thetaSeries": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ThetaMultiplier",
+    "ModularForm.thetaSeries_eq": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ThetaMultiplier",
+    "ModularForm.thetaSeries_mem_halfIntegralWeightSpace": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ThetaMultiplier"
   },
   "mf.hilbert": {
     "HilbertModularForm": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.Basic",

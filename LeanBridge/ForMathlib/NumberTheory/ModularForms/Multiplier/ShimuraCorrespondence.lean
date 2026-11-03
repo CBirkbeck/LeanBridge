@@ -16,10 +16,11 @@ defined by the identity of Dirichlet series
 
 for `g = ∑ aₙ qⁿ`, where `χ_t(m) = χ(m) (-1/m) ^ λ (t/m)`. That the right-hand side is the L-series
 of a modular form of weight `k - 1`, level `N/2` and character `χ²`, a cusp form when `k ≥ 5`, is
-Shimura's theorem (1973), which is not proved here, and neither is the Hecke linearity of `Sh_t`.
-This file defines the relation `F = Sh_t(g)` by the coefficients of `F`: its `n`-th Fourier
-coefficient is `∑_{d ∣ n} χ_t(d) d ^ (λ - 1) a_{t(n/d)²}`, the Dirichlet convolution that the
-identity expresses. The relation is linear in `g`, and it determines a cusp form `F`.
+Shimura's theorem (1973), which is not proved here. The Hecke equivariance of `Sh_t` on coefficients
+is `ModularForm.shimuraCoeff_halfIntegralHeckeCoeff`. This file defines the relation `F = Sh_t(g)`
+by the coefficients of `F`: its `n`-th Fourier coefficient is
+`∑_{d ∣ n} χ_t(d) d ^ (λ - 1) a_{t(n/d)²}`, the Dirichlet convolution that the identity expresses.
+The relation is linear in `g`, and it determines a cusp form `F`.
 
 The knowl writes `χ_t(m) = χ(m) (-1/m) (t/m)`, without the exponent `λ`; that is Shimura's
 character only for odd `λ`, and the character `χ(m) ((-1) ^ λ t / m)` of Shimura's theorem is used

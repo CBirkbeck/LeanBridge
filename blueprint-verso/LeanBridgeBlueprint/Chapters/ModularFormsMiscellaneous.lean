@@ -103,7 +103,7 @@ A {bpref "mf"}[modular form] $`f` satisfies a growth condition which restricts t
 Depends on: {uses "mf"}[]
 :::
 
-:::definition "mf.half_integral_weight" (lean := "ModularForm.halfIntegralWeightSpace, ModularForm.halfIntegralWeightCuspSpace, ModularForm.hasWeight_of_mem_halfIntegralWeightSpace, ModularForm.thetaFactor")
+:::definition "mf.half_integral_weight" (lean := "ModularForm.halfIntegralWeightSpace, ModularForm.halfIntegralWeightCuspSpace, ModularForm.hasWeight_of_mem_halfIntegralWeightSpace, ModularForm.thetaFactor, ModularForm.thetaSeries_smul, ModularForm.thetaSeries_mem_halfIntegralWeightSpace")
 *Half-integral weight modular forms.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.half_integral_weight))
 
 Let $`k` be an odd integer, and let $`N` a positive integer divisible by $`4`. Let $`\chi` be a {bpref "character.dirichlet"}[character] modulo $`N`. A *modular form of half-integral {bpref "cmf.weight"}[weight]* $`k/2` , {bpref "cmf.level"}[level] $`N` and character $`\chi` is an holomorphic function defined on the upper half plane $`\mathcal{H}`, satisfying the transformation formula
@@ -147,7 +147,7 @@ where $`F` runs over all newforms of weight $`k-1`, level dividing $`N/2` and ch
 $$`S_{k/2}(N, \chi, F) =\{ g \in S_0'(N, \chi): T_{p^2} g = \lambda_p(F) g \quad \forall\, p\nmid N\}.`
 :::
 
-:::definition "mf.half_integral_weight.theta" (lean := "jacobiTheta")
+:::definition "mf.half_integral_weight.theta" (lean := "jacobiTheta, ModularForm.thetaSeries, ModularForm.thetaSeries_eq, ModularForm.thetaSeries_mem_halfIntegralWeightSpace")
 *Theta function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.half_integral_weight.theta))
 
 The (classical) *theta function* $`\theta(z)` is a holomorphic modular form of {bpref "mf.half_integral_weight"}[half-integral weight] $`1/2` and {bpref "cmf.level"}[level] 4, defined by the formula
