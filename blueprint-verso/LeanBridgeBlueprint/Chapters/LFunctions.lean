@@ -589,7 +589,7 @@ The *spectral parameters* are the numbers $`\mu_j` and $`\nu_k` that appear as s
 Depends on: {uses "lfunction"}[] {uses "lfunction.functional_equation"}[] {uses "lfunction.gamma_factor"}[]
 :::
 
-:::definition "lfunction.symm"
+:::definition "lfunction.symm" (lean := "AnalyticLFunction.symmetricPowerEulerFactor, AnalyticLFunction.IsSymmetricPower, AnalyticLFunction.symmetricPowerDirichletSeries, AnalyticLFunction.abscissaOfAbsConv_symmetricPowerDirichletSeries_lt_top, AnalyticLFunction.hasProd_eval_symmetricPowerLocalFactor_inv, AnalyticLFunction.isSymmetricPower_iff")
 *Symmetric power of an L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.symm))
 
 Let $`L(s)` be an L-function given by an Euler product

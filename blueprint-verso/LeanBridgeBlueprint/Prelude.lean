@@ -302,6 +302,8 @@ import LeanBridge.ForMathlib.NumberTheory.LFunction.RiemannZeta
 import LeanBridge.ForMathlib.NumberTheory.LFunction.RootAnalyticConductor
 import LeanBridge.ForMathlib.NumberTheory.LFunction.SelbergClass
 import LeanBridge.ForMathlib.NumberTheory.LFunction.SpectralLabel
+import LeanBridge.ForMathlib.NumberTheory.LFunction.SymmetricPower
+import LeanBridge.ForMathlib.NumberTheory.LFunction.SymmetricPowerEulerProduct
 import LeanBridge.ForMathlib.NumberTheory.LFunction.TrivialZero
 import LeanBridge.ForMathlib.NumberTheory.LFunction.ZFunction
 import LeanBridge.ForMathlib.NumberTheory.LocalField.DeligneRamificationBreaks

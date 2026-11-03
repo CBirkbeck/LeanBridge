@@ -3794,6 +3794,14 @@
     "AnalyticLFunction.SelbergData.ν": "LeanBridge.ForMathlib.NumberTheory.LFunction.Basic",
     "AnalyticLFunction.SelbergData.gammaFactor": "LeanBridge.ForMathlib.NumberTheory.LFunction.Basic"
   },
+  "lfunction.symm": {
+    "AnalyticLFunction.symmetricPowerEulerFactor": "LeanBridge.ForMathlib.NumberTheory.LFunction.SymmetricPower",
+    "AnalyticLFunction.IsSymmetricPower": "LeanBridge.ForMathlib.NumberTheory.LFunction.SymmetricPower",
+    "AnalyticLFunction.symmetricPowerDirichletSeries": "LeanBridge.ForMathlib.NumberTheory.LFunction.SymmetricPowerEulerProduct",
+    "AnalyticLFunction.abscissaOfAbsConv_symmetricPowerDirichletSeries_lt_top": "LeanBridge.ForMathlib.NumberTheory.LFunction.SymmetricPowerEulerProduct",
+    "AnalyticLFunction.hasProd_eval_symmetricPowerLocalFactor_inv": "LeanBridge.ForMathlib.NumberTheory.LFunction.SymmetricPowerEulerProduct",
+    "AnalyticLFunction.isSymmetricPower_iff": "LeanBridge.ForMathlib.NumberTheory.LFunction.SymmetricPowerEulerProduct"
+  },
   "lfunction.trivial_zero": {
     "AnalyticLFunction.trivialZeros": "LeanBridge.ForMathlib.NumberTheory.LFunction.TrivialZero",
     "AnalyticLFunction.SelbergData.gammaPoles": "LeanBridge.ForMathlib.NumberTheory.LFunction.TrivialZero",
