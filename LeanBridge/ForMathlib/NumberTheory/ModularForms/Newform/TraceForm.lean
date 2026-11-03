@@ -10,8 +10,11 @@ conjugates, here the sum of the newforms in its Galois orbit. It is a cusp form 
 
 The LMFDB describes it equivalently as the sum `∑ ι(f)` over the embeddings `ι` of the coefficient
 field `ℚ(f)` into `ℂ`, so that `aₙ(Tr(f)) = Tr_{ℚ(f)/ℚ}(aₙ(f))` is an integer. That needs every
-Galois conjugate of `f` to be a newform, a theorem that is not proved here; the identity and the
-integrality are proved under that hypothesis.
+Galois conjugate of `f` to be a newform, which holds by
+`HeckeRing.GL2.Newform.exists_isGaloisConjugateBy`, in `Newform/GaloisConjugateExists.lean`. The
+identity and the integrality are proved here in weight at least two, under that hypothesis; in every
+weight they follow from `HeckeRing.GL2.Newform.coeffTrace_eq_sum_galoisOrbit` and
+`HeckeRing.GL2.Newform.exists_int_coeffTrace_of_newform`, in `Newform/GaloisOrbitInvariants.lean`.
 
 The trace form of a space of newforms `S_k^{new}(N, χ)` is the sum of the trace forms of its
 newform orbits, i.e. of the newforms in the Galois orbits of the newforms of nebentypus `χ`.
@@ -30,8 +33,9 @@ newform orbits, i.e. of the newforms in the Galois orbits of the newforms of neb
 * `HeckeRing.GL2.Newform.qExpansion_coeff_one_traceForm`: its first coefficient is the dimension
   of `f`.
 * `HeckeRing.GL2.Newform.qExpansion_coeff_traceForm_eq_trace`,
-  `HeckeRing.GL2.Newform.exists_int_qExpansion_coeff_traceForm`: if every Galois conjugate of `f`
-  is a newform, then in weight at least two `aₙ(Tr(f)) = Tr_{ℚ(f)/ℚ}(aₙ(f))`, an integer.
+  `HeckeRing.GL2.Newform.exists_int_qExpansion_coeff_traceForm`: if every Galois conjugate of `f` is
+  a newform, which holds by `HeckeRing.GL2.Newform.exists_isGaloisConjugateBy`, then in weight at
+  least two `aₙ(Tr(f)) = Tr_{ℚ(f)/ℚ}(aₙ(f))`, an integer.
 -/
 
 open UpperHalfPlane TauCeti CongruenceSubgroup Matrix.SpecialLinearGroup
@@ -40,14 +44,18 @@ open scoped MatrixGroups
 
 namespace HeckeRing.GL2.Newform
 
+-- `hf` holds by `exists_isGaloisConjugateBy`, in `Newform/GaloisConjugateExists.lean`, and the
+-- results taking `hk` and `hf` follow in every weight from `coeffTrace_eq_sum_galoisOrbit` and
+-- `exists_int_coeffTrace_of_newform`, in `Newform/GaloisOrbitInvariants.lean`.
 variable {N : ℕ} [NeZero N] {k : ℤ} {f g : Newform N k} {χ : (ZMod N)ˣ →* ℂˣ} (hk : 2 ≤ k)
   (hf : ∀ σ : Gal(ℂ/ℚ), ∃ g : Newform N k, f.IsGaloisConjugateBy σ g) (n : ℕ)
 
 variable (f) in
 /-- The **trace form** `Tr(f)` of a newform `f` (LMFDB `cmf.trace_form`): the sum of the distinct
 Galois conjugates of `f`, i.e. of the newforms in its Galois orbit. The LMFDB equivalently sums the
-embeddings `ι(f)` over all embeddings `ι` of the coefficient field, which is the same sum as soon as
-every Galois conjugate of `f` is a newform (`qExpansion_coeff_traceForm_eq_trace`). -/
+embeddings `ι(f)` over all embeddings `ι` of the coefficient field, which is the same sum, as every
+Galois conjugate of `f` is a newform (`galoisOrbitEmbedding_bijective`, in
+`Newform/GaloisActionOnNewforms.lean`, and `qExpansion_coeff_traceForm_eq_trace`). -/
 noncomputable def traceForm : CuspForm ((Gamma1 N).map (mapGL ℝ)) k :=
   ∑ᶠ g ∈ f.galoisOrbit, g.toCuspForm
 
@@ -83,8 +91,10 @@ lemma qExpansion_coeff_one_traceForm : (qExpansion 1 f.traceForm).coeff 1 = f.di
 
 include hk hf in
 /-- **The coefficients of the trace form are traces**: in weight at least two, if every Galois
-conjugate of `f` is a newform (a theorem not proved here), then `aₙ(Tr(f))` is the trace from
-`ℚ(f)` to `ℚ` of `aₙ(f)`, the trace form being the sum of the embeddings of `f`. -/
+conjugate of `f` is a newform, then `aₙ(Tr(f))` is the trace from `ℚ(f)` to `ℚ` of `aₙ(f)`, the
+trace form being the sum of the embeddings of `f`. The hypothesis `hf` holds by
+`exists_isGaloisConjugateBy`, in `Newform/GaloisConjugateExists.lean`, and the identity follows in
+every weight from `coeffTrace_eq_sum_galoisOrbit`, in `Newform/GaloisOrbitInvariants.lean`. -/
 lemma qExpansion_coeff_traceForm_eq_trace : (qExpansion 1 f.traceForm).coeff n =
     algebraMap ℚ ℂ (Algebra.trace ℚ (CoefficientField f) (f.orbitQExpansion.coeff n)) := by
   have : NumberField (CoefficientField f) := numberField_CoefficientField f hk
@@ -97,8 +107,11 @@ lemma qExpansion_coeff_traceForm_eq_trace : (qExpansion 1 f.traceForm).coeff n =
 
 include hk hf in
 /-- **The trace form has integer coefficients**, in weight at least two, if every Galois conjugate
-of `f` is a newform (a theorem not proved here): the coefficients of a newform are algebraic
-integers, so their traces are integers. -/
+of `f` is a newform: the coefficients of a newform are algebraic integers, so their traces are
+integers. The hypothesis `hf` holds by `exists_isGaloisConjugateBy`, in
+`Newform/GaloisConjugateExists.lean`, and the integrality follows in every weight from
+`coeffTrace_eq_sum_galoisOrbit` and `exists_int_coeffTrace_of_newform`, in
+`Newform/GaloisOrbitInvariants.lean`. -/
 lemma exists_int_qExpansion_coeff_traceForm : ∃ m : ℤ, (qExpansion 1 f.traceForm).coeff n = m := by
   have : NumberField (CoefficientField f) := numberField_CoefficientField f hk
   have hn : IsIntegral ℤ (f.orbitQExpansion.coeff n) :=

@@ -899,7 +899,11 @@
     "HeckeRing.GL2.Newform.IsGaloisConjugate.hasCMBy_iff": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.SelfTwist"
   },
   "cmf.coefficient_field": {
-    "TauCeti.CoefficientField": "TauCeti.NumberTheory.ModularForms.Newforms.Fields"
+    "TauCeti.CoefficientField": "TauCeti.NumberTheory.ModularForms.Newforms.Fields",
+    "HeckeRing.GL2.Newform.numberField_coefficientField": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisActionOnNewforms",
+    "HeckeRing.GL2.Newform.isIntegral_coeff": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.CoefficientIntegrality",
+    "TauCeti.CharacterField_le_CoefficientField": "TauCeti.NumberTheory.ModularForms.Newforms.Fields",
+    "HeckeRing.GL2.Newform.IsGaloisConjugateBy.coefficientFieldEquiv": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisConjugate"
   },
   "cmf.coefficient_ring": {
     "UpperHalfPlane.qExpansionCoeffRing": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.CoefficientRing",
@@ -913,6 +917,22 @@
     "ModularForm.cuspFormSubmodule": "Mathlib.NumberTheory.ModularForms.CuspFormSubmodule",
     "CuspFormClass.qExpansion_coeff_zero": "Mathlib.NumberTheory.ModularForms.QExpansion"
   },
+  "cmf.decomposition.new.gamma0chi": {
+    "HeckeRing.GL2.Newform.rationalPiece": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.RationalStructure",
+    "HeckeRing.GL2.Newform.exists_apply_eq_of_mem_rationalPiece": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.RationalStructure",
+    "HeckeRing.GL2.Newform.span_rationalPiece": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.RationalStructure",
+    "HeckeRing.GL2.Newform.finrank_newformSubspaceOver": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.RationalStructure",
+    "HeckeRing.GL2.NewformOrbit.iSup_newformSubspace_inf_cuspFormCharSpace": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.RationalStructure",
+    "HeckeRing.GL2.Newform.numberField_coefficientField": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisActionOnNewforms"
+  },
+  "cmf.decomposition.new.gamma1": {
+    "TauCeti.iSup_inf_cuspFormsNew_cuspFormCharSpace": "TauCeti.NumberTheory.ModularForms.Newforms.Nebentypus",
+    "iSupIndep_cuspFormCharSpace": "TauCeti.NumberTheory.ModularForms.CharacterDecomp",
+    "TauCeti.GaloisAction.conjCusp": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisActionOnNewforms",
+    "TauCeti.GaloisAction.conjCusp_mem_cuspFormsNew_inf_cuspFormCharSpace_iff": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisActionOnNewforms",
+    "HeckeRing.GL2.Newform.exists_conjCusp_mem_iff_of_mem_galoisOrbit": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisActionOnNewforms",
+    "HeckeRing.GL2.Newform.finrank_cuspFormsNew_inf_cuspFormCharSpace_comp": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisActionOnNewforms"
+  },
   "cmf.defining_polynomial": {
     "TauCeti.CoefficientField": "TauCeti.NumberTheory.ModularForms.Newforms.Fields"
   },
@@ -920,8 +940,11 @@
     "HeckeRing.GL2.Newform.dimension": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Dimension",
     "HeckeRing.GL2.Newform.relativeDimension": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Dimension",
     "HeckeRing.GL2.Newform.finrank_span_toCuspForm_eq_finrank": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Dimension",
-    "HeckeRing.GL2.Newform.dimension_eq_finrank": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Dimension",
-    "Module.finrank": "Mathlib.LinearAlgebra.Dimension.Finrank"
+    "Module.finrank": "Mathlib.LinearAlgebra.Dimension.Finrank",
+    "HeckeRing.GL2.Newform.dimension_eq_finrank_coefficientField": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisActionOnNewforms",
+    "HeckeRing.GL2.Newform.relativeDimension_eq_finrank": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.RationalStructure",
+    "HeckeRing.GL2.Newform.dimension_eq_ncard_galoisOrbit": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Dimension",
+    "HeckeRing.GL2.Newform.finrank_rationalPiece": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.RationalStructure"
   },
   "cmf.dimension_galois_orbit": {
     "HeckeRing.GL2.Newform.dimension": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Dimension",
@@ -944,6 +967,14 @@
     "EisensteinSeries.hasSum_charEisensteinSeries": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Eisenstein.Series",
     "EisensteinSeries.qExpansion_normalizedCharEisensteinSeriesMF": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Eisenstein.Series",
     "EisensteinSeries.charEisensteinSeries_eq_normalizedCharEisensteinSeriesMF": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Eisenstein.Series"
+  },
+  "cmf.embedding": {
+    "HeckeRing.GL2.Newform.isIntegral_coeff": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.CoefficientIntegrality",
+    "HeckeRing.GL2.Newform.IsEmbedding": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Embedding",
+    "HeckeRing.GL2.Newform.exists_isEmbedding": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisActionOnNewforms",
+    "HeckeRing.GL2.Newform.IsEmbedding.LSeries_ne": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisOrbitInvariants",
+    "HeckeRing.GL2.Newform.IsEmbedding.χ_eq_iff": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisOrbitInvariants",
+    "HeckeRing.GL2.Newform.IsEmbedding.dirichletLift_mem_galoisOrbit": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisOrbitInvariants"
   },
   "cmf.eta_quotient": {
     "ModularForm.eta": "Mathlib.NumberTheory.ModularForms.DedekindEta",
@@ -968,14 +999,25 @@
     "HeckeRing.GL2.Newform.IsGaloisConjugateBy": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisConjugate",
     "HeckeRing.GL2.Newform.isGaloisConjugateBy_iff_forall_pnat": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisConjugate",
     "HeckeRing.GL2.Newform.isGaloisConjugate_iff_exists_isEmbedding": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Embedding",
-    "HeckeRing.GL2.Newform.ncard_galoisOrbit_le": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisOrbit"
+    "HeckeRing.GL2.Newform.exists_isGaloisConjugateBy": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisConjugateExists",
+    "HeckeRing.GL2.Newform.ncard_galoisOrbit_eq_finrank": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisActionOnNewforms"
   },
   "cmf.galois_orbit": {
     "HeckeRing.GL2.Newform.galoisOrbit": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisOrbit",
     "HeckeRing.GL2.NewformOrbit": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisOrbit",
     "HeckeRing.GL2.Newform.galoisOrbitRel": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisOrbit",
     "HeckeRing.GL2.Newform.finite_galoisOrbit": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisOrbit",
-    "HeckeRing.GL2.Newform.galoisOrbitBasis": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.NewformSubspace"
+    "HeckeRing.GL2.Newform.galoisOrbitBasis": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.NewformSubspace",
+    "HeckeRing.GL2.Newform.orbit_algebraicClosure_eq_galoisOrbit": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisActionOnNewforms",
+    "HeckeRing.GL2.Newform.orbit_eq_galoisOrbit": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisActionOnNewforms"
+  },
+  "cmf.hecke_galois_orbit": {
+    "HeckeRing.GL2.NewformOrbit.traceSeq": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisOrbitLabel",
+    "HeckeRing.GL2.NewformOrbit.letterLabel": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisOrbitLabel",
+    "HeckeRing.GL2.Newform.exists_int_coeffTrace_of_newform": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisOrbitInvariants",
+    "HeckeRing.GL2.NewformOrbit.traceSeq_injective": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisOrbitInvariants",
+    "HeckeRing.GL2.NewformOrbit.letterLabel_eq_iff": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisOrbitInvariants",
+    "HeckeRing.GL2.NewformOrbit.image_labelIndex": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisOrbitInvariants"
   },
   "cmf.hecke_kernels": {
     "HeckeRing.GL2.Newform.heckeKernel": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.HeckeKernel",
@@ -1071,6 +1113,14 @@
     "TauCeti.cuspFormsOld": "TauCeti.NumberTheory.ModularForms.Newforms.Basic",
     "cuspFormCharSpace": "TauCeti.NumberTheory.ModularForms.DiamondOperators"
   },
+  "cmf.newspaces": {
+    "TauCeti.cuspFormsNew": "TauCeti.NumberTheory.ModularForms.Newforms.Basic",
+    "HeckeRing.GL2.Newform.coeff_smul_algebraicClosure": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisActionOnNewforms",
+    "HeckeRing.GL2.Newform.orbit_algebraicClosure_eq_galoisOrbit": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisActionOnNewforms",
+    "HeckeRing.GL2.Newform.rationalPiece": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.RationalStructure",
+    "HeckeRing.GL2.Newform.eq_bot_or_eq_rationalPiece": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.RationalStructure",
+    "HeckeRing.GL2.NewformOrbit.iSup_newformSubspace_inf_cuspFormCharSpace": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.RationalStructure"
+  },
   "cmf.nk2": {
     "HeckeRing.GL2.Newform.levelMulWeightSq": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Analytic.LevelMulWeightSq",
     "HeckeRing.GL2.Newform.tendsto_analyticConductorLMFDB_div_levelMulWeightSq": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Analytic.LevelMulWeightSq",
@@ -1105,11 +1155,16 @@
     "CuspFormClass.qExpansion_coeff_zero": "Mathlib.NumberTheory.ModularForms.QExpansion",
     "HeckeRing.GL2.Newform.orbitQExpansion": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Embedding",
     "HeckeRing.GL2.Newform.map_orbitQExpansion": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Embedding",
-    "HeckeRing.GL2.Newform.IsGaloisConjugateBy.map_orbitQExpansion": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Embedding"
+    "HeckeRing.GL2.Newform.IsGaloisConjugateBy.map_orbitQExpansion": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Embedding",
+    "HeckeRing.GL2.Newform.isIntegral_coeff": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.CoefficientIntegrality",
+    "HeckeRing.GL2.Newform.numberField_coefficientField": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisActionOnNewforms"
   },
   "cmf.relative_dimension": {
     "TauCeti.CharacterField": "TauCeti.NumberTheory.ModularForms.Newforms.Fields",
-    "TauCeti.CoefficientField": "TauCeti.NumberTheory.ModularForms.Newforms.Fields"
+    "TauCeti.CoefficientField": "TauCeti.NumberTheory.ModularForms.Newforms.Fields",
+    "HeckeRing.GL2.Newform.relativeDimension": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Dimension",
+    "HeckeRing.GL2.Newform.relativeDimension_eq_finrank": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.RationalStructure",
+    "TauCeti.CharacterField_le_CoefficientField": "TauCeti.NumberTheory.ModularForms.Newforms.Fields"
   },
   "cmf.rm_form": {
     "HeckeRing.GL2.Newform.HasRM": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.SelfTwist",
@@ -1167,6 +1222,14 @@
   "cmf.sturm_bound_gamma1": {
     "TauCeti.ModularForm.sturm_bound_finiteIndex_SL2Z": "TauCeti.NumberTheory.ModularForms.SturmBound",
     "TauCeti.ModularForm.eq_of_sturm_bound": "TauCeti.NumberTheory.ModularForms.SturmBound"
+  },
+  "cmf.trace_bound": {
+    "HeckeRing.GL2.Newform.traceBound": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.TraceBound",
+    "HeckeRing.GL2.Newform.TracesDistinguishNewforms": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.TraceBound",
+    "HeckeRing.GL2.Newform.exists_tracesDistinguish": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisOrbitInvariants",
+    "HeckeRing.GL2.Newform.tracesDistinguish_traceBound": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisOrbitInvariants",
+    "HeckeRing.GL2.Newform.coeffTrace_one_eq_dimension": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisOrbitInvariants",
+    "HeckeRing.GL2.Newform.traceBound_eq_one_of_dimension": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisOrbitInvariants"
   },
   "cmf.trace_form": {
     "HeckeRing.GL2.Newform.traceForm": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.TraceForm",

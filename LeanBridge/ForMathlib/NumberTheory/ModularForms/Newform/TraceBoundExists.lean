@@ -5,14 +5,19 @@ import Mathlib.RingTheory.Trace.Basic
 /-!
 # The trace bound exists if Galois conjugates of newforms are newforms
 
-In weight `k ≥ 2`, assume that every Galois conjugate `σ(f)` of a newform `f` of level `N` and
-weight `k` is again a newform of level `N` and weight `k`. This is a theorem (Shimura), which is not
-proved in LeanBridge: it needs a `ℚ`-structure on `S_k(Γ₁(N))` stable under the Hecke operators,
-such as a basis with rational Fourier coefficients, or the Eichler–Shimura isomorphism at level `N`.
-Under that assumption, the trace `Tr_{ℚ(f)/ℚ}(aₙ)` is the sum of the `aₙ` over the Galois orbit of
-`f`, and since newforms are linearly independent, the traces of all the coefficients distinguish
-the Galois orbits. There are finitely many newforms, so the traces of the first `m` coefficients do
-for some `m`, and the trace bound (LMFDB `cmf.trace_bound`) is the least such `m`.
+This file works in weight `k ≥ 2`, under the hypothesis that every Galois conjugate `σ(f)` of a
+newform `f` of level `N` and weight `k` is again a newform of level `N` and weight `k`. The
+hypothesis holds by `HeckeRing.GL2.Newform.exists_isGaloisConjugateBy`, in
+`Newform/GaloisConjugateExists.lean`. Under it, the trace `Tr_{ℚ(f)/ℚ}(aₙ)` is the sum of the `aₙ`
+over the Galois orbit of `f`, and since newforms are linearly independent, the traces of all the
+coefficients distinguish the Galois orbits. There are finitely many newforms, so the traces of the
+first `m` coefficients do for some `m`, and the trace bound (LMFDB `cmf.trace_bound`) is the least
+such `m`.
+
+The same results, in every weight and with no hypothesis, are
+`HeckeRing.GL2.Newform.coeffTrace_eq_sum_galoisOrbit`,
+`HeckeRing.GL2.Newform.isGaloisConjugate_of_forall_coeffTrace_eq` and
+`HeckeRing.GL2.Newform.exists_tracesDistinguish`, in `Newform/GaloisOrbitInvariants.lean`.
 
 ## Main results
 
@@ -32,7 +37,10 @@ variable {N : ℕ} [NeZero N] {k : ℤ}
 
 /-- **The trace of a coefficient is its sum over the Galois orbit**: in weight at least two, if
 every Galois conjugate of a newform of level `N` and weight `k` is a newform, then
-`Tr_{ℚ(f)/ℚ}(aₙ(f)) = ∑_{g ∈ [f]} aₙ(g)`. -/
+`Tr_{ℚ(f)/ℚ}(aₙ(f)) = ∑_{g ∈ [f]} aₙ(g)`. The hypothesis `hS` holds by `exists_isGaloisConjugateBy`,
+in `Newform/GaloisConjugateExists.lean`, and `coeffTrace_eq_sum_galoisOrbit`, in
+`Newform/GaloisOrbitInvariants.lean`, is the same identity in every weight, with neither
+hypothesis. -/
 lemma coeffTrace_eq_sum (hk : 2 ≤ k)
     (hS : ∀ (g : Newform N k) (σ : Gal(ℂ/ℚ)), ∃ g' : Newform N k, g.IsGaloisConjugateBy σ g')
     (f : Newform N k) (n : ℕ) : (f.coeffTrace n : ℂ) =
@@ -53,7 +61,10 @@ lemma coeffTrace_eq_sum (hk : 2 ≤ k)
 /-- **The traces of the coefficients distinguish the Galois orbits**: in weight at least two, if
 every Galois conjugate of a newform of level `N` and weight `k` is a newform, then newforms `f` and
 `g` with `Tr(aₙ(f)) = Tr(aₙ(g))` for all `n ≥ 1` are Galois conjugate. Otherwise the sums of their
-Galois orbits would have the same `q`-expansion, against the linear independence of newforms. -/
+Galois orbits would have the same `q`-expansion, against the linear independence of newforms. The
+hypothesis `hS` holds by `exists_isGaloisConjugateBy`, in `Newform/GaloisConjugateExists.lean`, and
+`isGaloisConjugate_of_forall_coeffTrace_eq`, in `Newform/GaloisOrbitInvariants.lean`, is the same
+statement in every weight, with neither hypothesis. -/
 lemma isGaloisConjugate_of_coeffTrace_eq (hk : 2 ≤ k)
     (hS : ∀ (g : Newform N k) (σ : Gal(ℂ/ℚ)), ∃ g' : Newform N k, g.IsGaloisConjugateBy σ g')
     {f g : Newform N k} (h : ∀ n, 0 < n → f.coeffTrace n = g.coeffTrace n) :
@@ -88,7 +99,10 @@ lemma isGaloisConjugate_of_coeffTrace_eq (hk : 2 ≤ k)
 /-- **The trace bound exists**: in weight at least two, if every Galois conjugate of a newform of
 level `N` and weight `k` is a newform, then the traces of the first `m` coefficients distinguish the
 Galois orbits of newforms of nebentypus `χ` for some `m ≥ 1`. So `traceBound N k χ` is then the
-least such `m`, and not the junk value `0`. -/
+least such `m`, and not the junk value `0`. The hypothesis `hS` holds by
+`exists_isGaloisConjugateBy`, in `Newform/GaloisConjugateExists.lean`, and
+`exists_tracesDistinguish`, in `Newform/GaloisOrbitInvariants.lean`, is the same statement in every
+weight, with neither hypothesis. -/
 lemma exists_tracesDistinguishNewforms (hk : 2 ≤ k)
     (hS : ∀ (g : Newform N k) (σ : Gal(ℂ/ℚ)), ∃ g' : Newform N k, g.IsGaloisConjugateBy σ g')
     (χ : (ZMod N)ˣ →* ℂˣ) : ∃ m, 0 < m ∧ TracesDistinguishNewforms N k χ m := by

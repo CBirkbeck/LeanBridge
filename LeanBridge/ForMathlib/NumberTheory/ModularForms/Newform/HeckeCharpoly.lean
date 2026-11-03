@@ -10,7 +10,10 @@ Galois conjugates `g` of `f` form an eigenbasis of `V_f`, with eigenvalues `a_p(
 `∏_{g ∈ [f]} (X - a_p(g))`. The LMFDB records it with integer coefficients, computed on the rational
 structure of `V_f`; here `V_f` is the complex span of the Galois orbit, whose characteristic
 polynomial is the same polynomial seen in `ℂ[X]`. That its coefficients are integers is not proved
-here.
+here, though it follows from what other modules prove in every weight: the `a_p(g)` are algebraic
+integers (`HeckeRing.GL2.Newform.isIntegral_coeff`, in `Newform/CoefficientIntegrality.lean`), and
+the automorphisms of `ℂ` permute the Galois orbit (`HeckeRing.GL2.Newform.orbit_eq_galoisOrbit`, in
+`Newform/GaloisActionOnNewforms.lean`), so that they fix the coefficients, which are thus rational.
 
 A set of Hecke operators `T_p` distinguishes the newforms of a space of newforms (LMFDB
 `cmf.distinguishing_primes`) if their characteristic polynomials on the newform subspaces separate

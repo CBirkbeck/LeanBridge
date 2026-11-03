@@ -359,11 +359,16 @@ import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.QuasiModular
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ShimuraDecomposition
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.Weight
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.AtkinLehnerDimension
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.CoefficientIntegrality
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.CoefficientRing
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Dimension
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Embedding
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisActionOnNewforms
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisConjugate
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisConjugateExists
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisOrbit
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisOrbitInvariants
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisOrbitLabel
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.HeckeCharpoly
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.HeckeKernel
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.LFunctionSign
@@ -371,6 +376,8 @@ import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Level
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Maximal
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.NebentypusRigidity
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.NewformSubspace
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.RationalStructure
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.TraceBound
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.TraceForm
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.SatoTate.GaloisRepresentation
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.Basic
@@ -866,6 +873,7 @@ import TauCeti.NumberTheory.ModularForms.AtkinLehner.Matrix
 import TauCeti.NumberTheory.ModularForms.AtkinLehner.Normalized
 import TauCeti.NumberTheory.ModularForms.AtkinLehner.Operator
 import TauCeti.NumberTheory.ModularForms.AtkinLehner.Sign
+import TauCeti.NumberTheory.ModularForms.CharacterDecomp
 import TauCeti.NumberTheory.ModularForms.Conjugate
 import TauCeti.NumberTheory.ModularForms.Cusps.Basic
 import TauCeti.NumberTheory.ModularForms.Degeneracy
@@ -880,6 +888,7 @@ import TauCeti.NumberTheory.ModularForms.Newforms.Conjugate
 import TauCeti.NumberTheory.ModularForms.Newforms.Fields
 import TauCeti.NumberTheory.ModularForms.Newforms.Fricke
 import TauCeti.NumberTheory.ModularForms.Newforms.FullEigenform
+import TauCeti.NumberTheory.ModularForms.Newforms.Nebentypus
 import TauCeti.NumberTheory.ModularForms.Newforms.Newform
 import TauCeti.NumberTheory.ModularForms.Newforms.NumberField
 import TauCeti.NumberTheory.ModularForms.Newforms.OrthogonalBasis

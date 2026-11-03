@@ -12,15 +12,16 @@ Hecke eigenforms in the new subspace of `S_k(Γ₁(N))`, with a nebentypus.
 
 The LMFDB takes `σ ∈ Gal(ℚ̄/ℚ)`. Here `σ` is an automorphism of `ℂ`, an element of `Gal(ℂ/ℚ)`
 (Mathlib's notation for `ℂ ≃ₐ[ℚ] ℂ`), which acts on the complex Fourier coefficients of a newform
-directly. This is the same relation: the coefficients of a newform are algebraic (Tau Ceti proves
-it in weight at least two), so only the restriction of `σ` to `ℚ̄` matters, and every automorphism
-of `ℚ̄` extends to `ℂ`.
+directly. This is the same relation: the coefficients of a newform are algebraic, in every weight
+(`HeckeRing.GL2.Newform.isIntegral_coeff`, in `Newform/CoefficientIntegrality.lean`), so only the
+restriction of `σ` to `ℚ̄` matters, and every automorphism of `ℚ̄` extends to `ℂ`.
 
 The relation is defined between newforms of any two levels and weights, as the LMFDB definition
 does not fix them, so that it applies for instance to a newform and a twist of it. Galois conjugate
 newforms do have the same level and weight, but that is not proved here. That `σ(f)` exists for
 every newform `f` and every `σ`, i.e. that `σ` applied to the coefficients of a newform gives a
-newform, is not proved either.
+newform of the level and weight of `f`, is `HeckeRing.GL2.Newform.exists_isGaloisConjugateBy`, in
+`Newform/GaloisConjugateExists.lean`.
 
 ## Main definitions
 

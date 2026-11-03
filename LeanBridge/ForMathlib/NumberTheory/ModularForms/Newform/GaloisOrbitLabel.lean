@@ -11,8 +11,9 @@ The LMFDB labels the Galois orbits of newforms (LMFDB `cmf.galois_orbit`) in a s
 ordered by the lexicographic order of their trace sequences `(Tr(a₁), Tr(a₂), Tr(a₃), …)`, where
 `Tr` is the trace from the coefficient field down to `ℚ`, and the orbit in position `i`, counted
 from `0`, is labelled by the letter code of `i` (`DirichletCharacter.letterCode`). The traces are
-rational integers in weight at least two (`HeckeRing.GL2.Newform.exists_int_coeffTrace`); they are
-kept in `ℚ`, whose order agrees with that of `ℤ`.
+rational integers (`HeckeRing.GL2.Newform.exists_int_coeffTrace` in weight at least two, and
+`HeckeRing.GL2.Newform.exists_int_coeffTrace_of_newform`, in `Newform/GaloisOrbitInvariants.lean`,
+in every weight); they are kept in `ℚ`, whose order agrees with that of `ℤ`.
 
 The space `S_k^{new}(N, [χ])` is the sum of the spaces `S_k^{new}(N, χ')` over the characters `χ'`
 in the Galois orbit `[χ]` of `χ` (Tau Ceti's `MulChar.galoisOrbit`), so the newform orbits in it
@@ -20,14 +21,15 @@ are those whose nebentypus lies in `[χ]`. Galois conjugate newforms have Galois
 nebentypus, so `[χ]` is an invariant of the newform orbit
 (`HeckeRing.GL2.NewformOrbit.characterOrbit`).
 
-The position of an orbit is the number of orbits of its space with a smaller trace sequence. It
-is a strictly increasing function of the trace sequence on the orbits of a space, smaller than
-their number. Distinct orbits have distinct trace sequences as soon as every Galois conjugate of a
-newform is a newform (LeanBridge issue #38), and so distinct orbits of a space then have distinct
-labels, the labels of the `m` orbits of a space being the letter codes of `0, …, m - 1`; this is
-proved here under the hypothesis `TauCeti.HasRationalHeckeForm`, equivalent to issue #38 in weight
-at least two, not unconditionally. The letter code itself is injective
-(`DirichletCharacter.letterCode_injective`).
+The position of an orbit is the number of orbits of its space with a smaller trace sequence. It is a
+strictly increasing function of the trace sequence on the orbits of a space, smaller than their
+number. Distinct orbits have distinct trace sequences, as every Galois conjugate of a newform is a
+newform (LeanBridge issue #38), and so distinct orbits of a space have distinct labels, the labels
+of the `m` orbits of a space being the letter codes of `0, …, m - 1`. This is proved here in weight
+at least two, under the hypothesis `TauCeti.HasRationalHeckeForm`, which holds by
+`TauCeti.hasRationalHeckeForm`, in `Newform/GaloisActionOnNewforms.lean`;
+`Newform/GaloisOrbitInvariants.lean` has it in every weight, with no hypothesis. The letter code
+itself is injective (`DirichletCharacter.letterCode_injective`).
 
 The knowl lists the labels as `a, b, c, …, z, aa, ba, …`; the letter code writes `25, 26, 27` as
 `z, ba, bb`, and `aa` does not occur.
@@ -47,18 +49,24 @@ The knowl lists the labels as `a, b, c, …, z, aa, ba, …`; the letter code wr
 
 * `DirichletCharacter.letterCode_injective`: the letter code is injective.
 * `HeckeRing.GL2.Newform.exists_int_coeffTrace`: in weight at least two the traces `Tr(aₙ)` are
-  integers.
+  integers; `HeckeRing.GL2.Newform.exists_int_coeffTrace_of_newform` has this in every weight.
 * `HeckeRing.GL2.NewformOrbit.labelIndex_lt_labelIndex`: within a space, an orbit with a smaller
   trace sequence has a smaller position.
 * `HeckeRing.GL2.NewformOrbit.labelIndex_lt_ncard`: the position of an orbit is smaller than the
   number of orbits of its space.
 * `HeckeRing.GL2.NewformOrbit.traceSeq_injective_of_hasRationalHeckeForm`: in weight at least two,
-  if the rational Hecke algebra is a `ℚ`-form, distinct orbits have distinct trace sequences.
+  if the rational Hecke algebra is a `ℚ`-form, which holds by `TauCeti.hasRationalHeckeForm`,
+  distinct orbits have distinct trace sequences.
 * `HeckeRing.GL2.NewformOrbit.labelIndex_eq_iff_of_hasRationalHeckeForm`,
   `HeckeRing.GL2.NewformOrbit.letterLabel_eq_iff_of_hasRationalHeckeForm`: then distinct orbits of
   a space have distinct positions and distinct letter labels.
 * `HeckeRing.GL2.NewformOrbit.image_labelIndex_of_hasRationalHeckeForm`: then the positions of the
   `m` orbits of a space are `0, …, m - 1`.
+
+These last results hold in every weight, with no hypothesis, as
+`HeckeRing.GL2.NewformOrbit.traceSeq_injective`, `HeckeRing.GL2.NewformOrbit.labelIndex_eq_iff`,
+`HeckeRing.GL2.NewformOrbit.letterLabel_eq_iff` and `HeckeRing.GL2.NewformOrbit.image_labelIndex`,
+in `Newform/GaloisOrbitInvariants.lean`.
 -/
 
 open UpperHalfPlane TauCeti
@@ -135,7 +143,8 @@ lemma IsGaloisConjugate.galoisOrbit_dirichletLift_eq (hfg : f.IsGaloisConjugate 
 
 variable (f) in
 /-- **The traces of the coefficients of a newform are integers** in weight at least two: the
-coefficients are algebraic integers. -/
+coefficients are algebraic integers. `exists_int_coeffTrace_of_newform`, in
+`Newform/GaloisOrbitInvariants.lean`, is the same statement in every weight. -/
 lemma exists_int_coeffTrace (hk : 2 ≤ k) (n : ℕ) : ∃ m : ℤ, f.coeffTrace n = m := by
   have : NumberField (CoefficientField f) := numberField_CoefficientField f hk
   have hn : IsIntegral ℤ (f.orbitQExpansion.coeff n) :=
@@ -200,7 +209,10 @@ lemma labelIndex_lt_ncard :
 
 /-- **Distinct newform orbits have distinct trace sequences, if the rational Hecke algebra is a
 `ℚ`-form**, in weight at least two: then every Galois conjugate of a newform is a newform, and the
-traces of the coefficients distinguish the Galois orbits. -/
+traces of the coefficients distinguish the Galois orbits. The hypothesis `hH` holds by
+`TauCeti.hasRationalHeckeForm`, in `Newform/GaloisActionOnNewforms.lean`, and `traceSeq_injective`,
+in `Newform/GaloisOrbitInvariants.lean`, is the same statement in every weight, with neither
+hypothesis. -/
 lemma traceSeq_injective_of_hasRationalHeckeForm (hk : 2 ≤ k) (hH : HasRationalHeckeForm N k) :
     Function.Injective (traceSeq (N := N) (k := k)) := by
   intro O O'
@@ -213,8 +225,11 @@ lemma traceSeq_injective_of_hasRationalHeckeForm (hk : 2 ≤ k) (hH : HasRationa
     congrFun (toLex.injective h) (n - 1)
   rwa [Nat.sub_add_cancel hn] at hfg
 
-/-- **Distinct newform orbits of a space have distinct positions, if the rational Hecke algebra is
-a `ℚ`-form**, in weight at least two. -/
+/-- **Distinct newform orbits of a space have distinct positions, if the rational Hecke algebra is a
+`ℚ`-form**, in weight at least two. The hypothesis `hH` holds by `TauCeti.hasRationalHeckeForm`, in
+`Newform/GaloisActionOnNewforms.lean`, and `labelIndex_eq_iff`, in
+`Newform/GaloisOrbitInvariants.lean`, is the same statement in every weight, with neither
+hypothesis. -/
 lemma labelIndex_eq_iff_of_hasRationalHeckeForm (hk : 2 ≤ k) (hH : HasRationalHeckeForm N k)
     (h : O'.characterOrbit = O.characterOrbit) : O'.labelIndex = O.labelIndex ↔ O' = O := by
   refine ⟨fun hO ↦ ?_, fun hO ↦ hO ▸ rfl⟩
@@ -225,7 +240,10 @@ lemma labelIndex_eq_iff_of_hasRationalHeckeForm (hk : 2 ≤ k) (hH : HasRational
 
 /-- **Distinct newform orbits of a space have distinct letter labels, if the rational Hecke algebra
 is a `ℚ`-form**, in weight at least two: their positions are distinct, and the letter code is
-injective. -/
+injective. The hypothesis `hH` holds by `TauCeti.hasRationalHeckeForm`, in
+`Newform/GaloisActionOnNewforms.lean`, and `letterLabel_eq_iff`, in
+`Newform/GaloisOrbitInvariants.lean`, is the same statement in every weight, with neither
+hypothesis. -/
 lemma letterLabel_eq_iff_of_hasRationalHeckeForm (hk : 2 ≤ k) (hH : HasRationalHeckeForm N k)
     (h : O'.characterOrbit = O.characterOrbit) : O'.letterLabel = O.letterLabel ↔ O' = O :=
   DirichletCharacter.letterCode_injective.eq_iff.trans <|
@@ -233,7 +251,10 @@ lemma letterLabel_eq_iff_of_hasRationalHeckeForm (hk : 2 ≤ k) (hH : HasRationa
 
 /-- **The positions of the newform orbits of a space are `0, …, m - 1`**, where `m` is the number
 of orbits of the space, if the rational Hecke algebra is a `ℚ`-form, in weight at least two: the
-orbits of a space of newforms are labelled by the letter codes of `0, …, m - 1`. -/
+orbits of a space of newforms are labelled by the letter codes of `0, …, m - 1`. The hypothesis `hH`
+holds by `TauCeti.hasRationalHeckeForm`, in `Newform/GaloisActionOnNewforms.lean`, and
+`image_labelIndex`, in `Newform/GaloisOrbitInvariants.lean`, is the same statement in every weight,
+with neither hypothesis. -/
 lemma image_labelIndex_of_hasRationalHeckeForm (hk : 2 ≤ k) (hH : HasRationalHeckeForm N k) :
     labelIndex '' {O' : NewformOrbit N k | O'.characterOrbit = O.characterOrbit} =
       Set.Iio {O' : NewformOrbit N k | O'.characterOrbit = O.characterOrbit}.ncard := by

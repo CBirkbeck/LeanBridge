@@ -5,16 +5,18 @@ import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisConjugate
 # The `q`-expansion of a newform orbit and the embeddings of a newform
 
 The coefficients `aₙ` of a newform `f` generate its coefficient field `K = ℚ(f)`, Tau Ceti's
-`TauCeti.CoefficientField f`, a number field in weight at least two. The LMFDB `q`-expansion of the
-newform orbit `[f]` (LMFDB `cmf.q-expansion`) is `∑ aₙ qⁿ` with coefficients in `K`, forgetting the
-embedding `K ⊆ ℂ`, and each embedding `ι : K → ℂ` gives an *embedding* `ι(f) = ∑ ι(aₙ) qⁿ` of
-`f` (LMFDB `cmf.embedding`).
+`TauCeti.CoefficientField f`, a number field in every weight
+(`HeckeRing.GL2.Newform.numberField_coefficientField`, in `Newform/GaloisActionOnNewforms.lean`).
+The LMFDB `q`-expansion of the newform orbit `[f]` (LMFDB `cmf.q-expansion`) is `∑ aₙ qⁿ` with
+coefficients in `K`, forgetting the embedding `K ⊆ ℂ`, and each embedding `ι : K → ℂ` gives an
+*embedding* `ι(f) = ∑ ι(aₙ) qⁿ` of `f` (LMFDB `cmf.embedding`).
 
 Tau Ceti's newforms are complex, i.e. already embedded. Here `K` is the subfield `ℚ(f) ⊆ ℂ` viewed
 as an abstract field, which is well defined on the orbit up to the isomorphisms
 `IsGaloisConjugateBy.coefficientFieldEquiv`, and `ι(f)` is a complex newform `g` with `bₙ = ι(aₙ)`.
-That such a newform exists for every `ι` is the theorem that Galois conjugates of newforms are
-newforms, which is not proved here.
+That such a newform exists for every `ι` follows from the theorem that Galois conjugates of newforms
+are newforms: it is `HeckeRing.GL2.Newform.exists_isEmbedding`, in
+`Newform/GaloisActionOnNewforms.lean`.
 
 ## Main definitions
 

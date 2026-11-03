@@ -11,9 +11,11 @@ distinguish their Galois orbits. The traces are invariants of the Galois orbit, 
 space have coefficient fields of distinct degrees (the LMFDB says distinct dimensions, the dimension
 of a newform being the degree of its coefficient field).
 
-That some `m` distinguishes the Galois orbits follows from the linear independence of the trace
-forms, whose coefficients are these traces once every Galois conjugate of a newform is known to be
-a newform; this is not proved here, and the trace bound is `0` if no `m` works.
+Some `m` distinguishes the Galois orbits, by the linear independence of the trace forms, whose
+coefficients are these traces as every Galois conjugate of a newform is a newform. This is
+`HeckeRing.GL2.Newform.exists_tracesDistinguish`, in `Newform/GaloisOrbitInvariants.lean`, so the
+trace bound, which is `0` if no `m` works, is positive
+(`HeckeRing.GL2.Newform.traceBound_pos_of_newform`).
 
 ## Main definitions
 
@@ -70,8 +72,8 @@ def TracesDistinguishNewforms : Prop :=
 variable (N k χ) in
 /-- The **trace bound** of the space of newforms `S_k^{new}(N, χ)` (LMFDB `cmf.trace_bound`): the
 least `m ≥ 1` such that the traces `Tr_{ℚ(f)/ℚ}(aₙ)` for `1 ≤ n ≤ m` distinguish the Galois orbits
-of the newforms of nebentypus `χ`. It is `0` if there is no such `m`, which does not happen, but
-that is not proved here. -/
+of the newforms of nebentypus `χ`. It is `0` if there is no such `m`, which does not happen
+(`traceBound_pos_of_newform`, in `Newform/GaloisOrbitInvariants.lean`). -/
 noncomputable def traceBound : ℕ :=
   sInf {m | 0 < m ∧ TracesDistinguishNewforms N k χ m}
 

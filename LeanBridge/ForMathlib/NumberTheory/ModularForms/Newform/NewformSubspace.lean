@@ -10,9 +10,12 @@ The Galois orbit is a basis of it, since distinct newforms are linearly independ
 stable under the Hecke operators `T_p` at every prime `p`, each conjugate being an eigenform.
 
 The LMFDB's rationality statements refer to the rational structure of `V_f`, its subspace of forms
-with rational coefficients, whose complexification is `V_f`; it is not formalised here. Over `ℚ`
-the newform subspaces are the irreducible pieces of the newspace under the Hecke algebra; over
-`ℂ`, as here, they still give its canonical decomposition, the decomposition of
+with rational coefficients, whose complexification is `V_f`. It is
+`HeckeRing.GL2.Newform.rationalPiece` for `F = ℚ`, in `Newform/RationalStructure.lean`, with complex
+span `V_f` by `HeckeRing.GL2.Newform.span_rationalPiece` and
+`HeckeRing.GL2.Newform.newformSubspaceOver_bot`. Over `ℚ` the newform subspaces are the irreducible
+pieces of the newspace under the Hecke algebra (`HeckeRing.GL2.Newform.eq_bot_or_eq_rationalPiece`);
+over `ℂ`, as here, they still give its canonical decomposition, the decomposition of
 `S_k(Γ₁(N))ⁿᵉʷ = ⨁ S_k^{new}(N, χ)` along the Galois orbits of newforms (LMFDB
 `cmf.decomposition.new.gamma0chi`).
 

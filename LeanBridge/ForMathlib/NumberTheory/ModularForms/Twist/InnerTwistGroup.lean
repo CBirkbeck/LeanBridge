@@ -18,9 +18,11 @@ primitive characters at almost all primes, as primitive Dirichlet characters tha
 all primes are equal (`DirichletCharacter.eq_of_isPrimitive_of_eventually_eq`, by Dirichlet's
 theorem on primes in arithmetic progressions). The projection to `σ` is a homomorphism to
 `Gal(ℂ/ℚ)` whose kernel consists of the self twists, and more generally the pairs `(χ, σ)` with `σ`
-trivial on the coefficients of `f` are the self twists of `f`; for `σ = 1` the law is the product
-of characters. When `σ(f)` is a newform `g`, the inner twist pair `(χ, σ)` is the inner twist
-`(χ, g)` of `HeckeRing.GL2.Newform.innerTwists`, and every inner twist arises in this way.
+trivial on the coefficients of `f` are the self twists of `f`; for `σ = 1` the law is the product of
+characters. The Galois conjugate `σ(f)` is a newform `g`
+(`HeckeRing.GL2.Newform.exists_isGaloisConjugateBy`, in `Newform/GaloisConjugateExists.lean`), and
+the inner twist pair `(χ, σ)` is the inner twist `(χ, g)` of `HeckeRing.GL2.Newform.innerTwists`;
+every inner twist arises in this way.
 
 The group of the LMFDB is the image of this group under `(χ, σ) ↦ (χ, σ|_K)`. That `σ` maps `K`
 onto itself and that `χ` takes values in `K`, so that the law descends to the pairs
@@ -47,8 +49,8 @@ are finitely many inner twists, are theorems of Ribet that are not proved here.
   consists of the self twists.
 * `HeckeRing.GL2.Newform.innerTwistMul_fst_of_snd_eq_one`: on the self twists, the law is the
   product of characters.
-* `HeckeRing.GL2.Newform.mk_mem_innerTwistPairs_iff`: inner twist pairs and inner twists agree
-  when `σ(f)` is a newform.
+* `HeckeRing.GL2.Newform.mk_mem_innerTwistPairs_iff`: inner twist pairs and inner twists agree, for
+  the newform `g = σ(f)`.
 * `HeckeRing.GL2.Newform.mk_mem_innerTwists_iff_exists`: the inner twists `(χ, g)` of `f` are the
   `(χ, σ(f))` for its inner twist pairs `(χ, σ)`.
 -/
@@ -237,9 +239,9 @@ lemma innerTwistMul_fst_of_snd_eq_one (hx : x.2 = 1) :
   exact congrArg (fun ψ : DirichletCharacter ℂ y.1.1 ↦ (⟨⟨_, Nat.pos_of_ne_zero
     (conductor_ne_zero (χ.2.mul ψ))⟩, χ.2.primitive_mul ψ⟩ : Σ M : ℕ+, DirichletCharacter ℂ M)) h
 
-/-- **Inner twist pairs and inner twists agree** when the Galois conjugate `σ(f)` is a newform `g`:
-`(χ, σ)` is an inner twist pair of `f` exactly when `(χ, g)` is an inner twist of `f` in the sense
-of `HeckeRing.GL2.Newform.innerTwists`. -/
+/-- **Inner twist pairs and inner twists agree**, for the newform `g = σ(f)`: `(χ, σ)` is an inner
+twist pair of `f` exactly when `(χ, g)` is an inner twist of `f` in the sense of
+`HeckeRing.GL2.Newform.innerTwists`. -/
 lemma mk_mem_innerTwistPairs_iff (hg : f.IsGaloisConjugateBy σ g) :
     (χ, σ) ∈ f.innerTwistPairs ↔ (χ, g) ∈ f.innerTwists :=
   ⟨fun h ↦ ⟨h.1, hg.isGaloisConjugate, h.2.mono fun p hp hp' ↦ (hg.coeff p).trans (hp hp')⟩,

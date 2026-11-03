@@ -8,19 +8,18 @@ The Stark unit of a newform `f` of weight one (LMFDB `cmf.stark_unit`) is built 
 derivatives at `0` of the L-functions `L(s, f^α)` of its Galois conjugates `f^α = ∑ α(aₙ) qⁿ`, for
 `α` in the Galois group of its coefficient field `E`. In `HeckeRing.GL2.Newform.galoisConjLFunction`
 the L-function `L(s, f^α)` is the entire continuation of `∑ α(aₙ) n^{-s}`, with the junk value `0`
-when there is none; the continuation exists when `f^α` is a newform, which is known for `α = 1`.
+when there is none; the continuation exists when `f^α` is a newform, as it is for every `α`.
 
-This file shows that the junk value does not occur, for every `α`, as soon as the rational Hecke
+This file shows that the junk value does not occur, for every `α`, given that the rational Hecke
 algebra of the newspace of weight one is a `ℚ`-form of the complex one
-(`TauCeti.HasRationalHeckeForm N 1`): then `f^α` is a newform, and `L(s, f^α)` is its
-L-function. The hypothesis holds (weight-one forms also have a rational structure), but it is not
-proved here.
+(`TauCeti.HasRationalHeckeForm N 1`): then `f^α` is a newform, and `L(s, f^α)` is its L-function.
+The hypothesis holds, by `TauCeti.hasRationalHeckeForm`, in `Newform/GaloisActionOnNewforms.lean`.
 
 ## Main results
 
 * `HeckeRing.GL2.Newform.exists_galoisConjLFunction_eq_L_of_hasRationalHeckeForm`: if the rational
-  Hecke algebra of weight one is a `ℚ`-form, then for every `α` the Galois conjugate `f^α` is a
-  newform `g`, and `L(s, f^α)` is the L-function of `g`.
+  Hecke algebra of weight one is a `ℚ`-form, which holds by `TauCeti.hasRationalHeckeForm`, then for
+  every `α` the Galois conjugate `f^α` is a newform `g`, and `L(s, f^α)` is the L-function of `g`.
 -/
 
 open UpperHalfPlane TauCeti
@@ -32,7 +31,8 @@ variable {N : ℕ} [NeZero N] (f : Newform N 1)
 /-- **The Galois conjugates of a newform of weight one are newforms, with their L-functions, if
 the rational Hecke algebra is a `ℚ`-form**: for every automorphism `α` of the coefficient field of
 `f`, there is a newform `g` with coefficients `α(aₙ)`, and the L-function `L(s, f^α)` entering the
-Stark unit (LMFDB `cmf.stark_unit`) is the L-function of `g`, not the junk value `0`. -/
+Stark unit (LMFDB `cmf.stark_unit`) is the L-function of `g`, not the junk value `0`. The hypothesis
+`hH` holds by `TauCeti.hasRationalHeckeForm`, in `Newform/GaloisActionOnNewforms.lean`. -/
 lemma exists_galoisConjLFunction_eq_L_of_hasRationalHeckeForm (hH : HasRationalHeckeForm N 1)
     (α : CoefficientField f ≃ₐ[ℚ] CoefficientField f) : ∃ g : Newform N 1,
       (∀ n, (qExpansion 1 g.toCuspForm).coeff n = f.galoisConjCoeff α n) ∧

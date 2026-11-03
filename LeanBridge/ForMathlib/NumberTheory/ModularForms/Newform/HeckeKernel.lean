@@ -190,8 +190,10 @@ two: if the minimal polynomials of the `aₙ(f)`, `n ∈ X`, separate `f` from t
 nebentypus `χ` that are not Galois conjugate to it, the intersection of the Hecke kernels of `f`
 over `X` is the `χ`-part `V_f ∩ S_k(N, χ)` of its newform subspace, spanned by the Galois
 conjugates of `f` of nebentypus `χ`. The LMFDB asks for a set of distinguishing primes instead,
-which separates the orbits by the characteristic polynomials of the `T_p` on the `V_h`; this is
-not enough when another orbit has a different dimension but the same minimal polynomials. -/
+which separates the orbits by the characteristic polynomials of the `T_p` on the `V_h`; this is not
+enough when another orbit has a different dimension but the same minimal polynomials. `hk` serves
+only to get that the `aₙ(f)` are algebraic, which holds in every weight by `isIntegral_coeff`, in
+`Newform/CoefficientIntegrality.lean`. -/
 lemma map_iInf_heckeKernel_eq_newformSubspace_inf (hk : 2 ≤ k) (hX : X.Nonempty)
     (hsep : ∀ h : Newform N k, h.χ = f.χ → (∀ n ∈ X, h.coeffMinpoly n = f.coeffMinpoly n) →
       f.IsGaloisConjugate h) : (⨅ n ∈ X, f.heckeKernel n).map (cuspFormCharSpace k f.χ).subtype =
