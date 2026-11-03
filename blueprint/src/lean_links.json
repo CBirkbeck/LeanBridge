@@ -3920,7 +3920,9 @@
     "ModularForm.hasWeight_of_mem_halfIntegralWeightSpace": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.HalfIntegralWeight",
     "ModularForm.thetaFactor": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.Weight",
     "ModularForm.thetaSeries_smul": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ThetaMultiplier",
-    "ModularForm.thetaSeries_mem_halfIntegralWeightSpace": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ThetaMultiplier"
+    "ModularForm.thetaSeries_mem_halfIntegralWeightSpace": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ThetaMultiplier",
+    "ModularForm.thetaSeries_mul_discriminant_mem_halfIntegralWeightCuspSpace": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ThetaDiscriminant",
+    "ModularForm.thetaSeries_mul_discriminant_ne_zero": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ThetaDiscriminant"
   },
   "mf.half_integral_weight.shimura_decomposition": {
     "ModularForm.ShimuraDecomposition": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ShimuraDecomposition",

@@ -17,7 +17,9 @@ forms of weight `k/2` and character `χ` to modular forms of weight `k - 1` and 
 prime `p ∤ N`; `T_{p²}` is Shimura's Hecke operator, given on `q`-expansions by
 `a(n) ↦ a(p²n) + χ(p) ((-1)^λ n / p) p^{λ-1} a(n) + χ(p²) p^{k-2} a(n/p²)`, `λ = (k - 1)/2`.
 
-The decomposition rests on Shimura's theorem and is stated here, not proved. The knowl defines
+The decomposition is stated here, not proved: beyond Shimura's lifting theorem
+(`ModularForm.shimuraCorrespondence`, for `k ≥ 3`), it needs Shimura's Hecke operators `T_{p²}` on
+`S_{k/2}(N, χ)` and his results on their eigenforms. The knowl defines
 `S₀'(N, χ)` as the orthogonal complement of `S₀(N, χ)` in `S_{3/2}(N, χ)`; it is the complement in
 `S_{k/2}(N, χ)`, of which the `S_{k/2}(N, χ, F)` are subspaces. The knowl does not say which theta
 series span `S₀(N, χ)`; they are Shimura's unary theta series. The orthogonality is that of the
@@ -222,7 +224,7 @@ def ShimuraIndex : Type :=
 /-- **The Shimura decomposition** (LMFDB `mf.half_integral_weight.shimura_decomposition`), as a
 statement: `S₀'(N, χ) = ⊕_F S_{k/2}(N, χ, F)`, where `F` runs over the newforms of weight `k - 1`,
 level dividing `N/2` and character `χ²`. It holds for odd `k ≥ 3` and `4 ∣ N`, by Shimura's
-theorem, and is not proved here. -/
+results on the Hecke eigenforms of `S_{k/2}(N, χ)`, and is not proved here. -/
 structure ShimuraDecomposition : Prop where
   iSupIndep : iSupIndep fun F : ShimuraIndex N χ k ↦ shimuraEigenspace χ k F.2.1
   iSup_eq : ⨆ F : ShimuraIndex N χ k, shimuraEigenspace χ k F.2.1 = shimuraComplement χ k

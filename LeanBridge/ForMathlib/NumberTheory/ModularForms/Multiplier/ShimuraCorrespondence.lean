@@ -16,7 +16,8 @@ defined by the identity of Dirichlet series
 
 for `g = ∑ aₙ qⁿ`, where `χ_t(m) = χ(m) (-1/m) ^ λ (t/m)`. That the right-hand side is the L-series
 of a modular form of weight `k - 1`, level `N/2` and character `χ²`, a cusp form when `k ≥ 5`, is
-Shimura's theorem (1973), which is not proved here. The Hecke equivariance of `Sh_t` on coefficients
+Shimura's theorem (1973), proved for `k ≥ 3` as `ModularForm.shimuraCorrespondence` and
+`ModularForm.shimuraCorrespondenceCusp`. The Hecke equivariance of `Sh_t` on coefficients
 is `ModularForm.shimuraCoeff_halfIntegralHeckeCoeff`. This file defines the relation `F = Sh_t(g)`
 by the coefficients of `F`: its `n`-th Fourier coefficient is
 `∑_{d ∣ n} χ_t(d) d ^ (λ - 1) a_{t(n/d)²}`, the Dirichlet convolution that the identity expresses.
@@ -76,8 +77,9 @@ noncomputable def shimuraCoeff (a : ℕ → ℂ) : ℕ → ℂ :=
 of a cusp form `g ∈ S_{k/2}(N, χ)` of half-integral weight if its Fourier coefficients `bₙ`,
 `n ≥ 1`, are those of the Dirichlet series `L(χ_t, s + 1 - λ) ∑ a_{tm²} m ^ (-s)`, where `aₙ` are
 the Fourier coefficients of `g` and `λ = (k - 1) / 2`, that is,
-`L(s, F) = L(χ_t, s + 1 - λ) ∑ a_{tm²} m ^ (-s)`. By Shimura's theorem, which is not proved here,
-`g` has a Shimura lift of weight `k - 1`, level `N/2` and character `χ²`, a cusp form if `k ≥ 5`;
+`L(s, F) = L(χ_t, s + 1 - λ) ∑ a_{tm²} m ^ (-s)`. By Shimura's theorem
+(`ModularForm.isShimuraLift_shimuraLift`, for `k ≥ 3`), `g` has a Shimura lift of weight `k - 1`,
+level `N/2` and character `χ²`, a cusp form if `k ≥ 5`;
 a cusp form is determined as a Shimura lift (`IsShimuraLift.eq`). -/
 def IsShimuraLift (g : halfIntegralWeightCuspSpace χ k) (F : ℍ → ℂ) : Prop :=
   ∀ n ≠ 0, (qExpansion 1 F).coeff n =

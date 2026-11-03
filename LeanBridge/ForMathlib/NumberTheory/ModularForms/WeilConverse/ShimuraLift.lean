@@ -12,8 +12,11 @@ series of `A`, and Weil's converse theorem, which turns them into modularity. Th
 `ModularForm.HasWeilFunctionalEquations.modularForm_mem`. This file records the consequence, which
 is conditional and is not Shimura's theorem: what remains of modularity is
 `HasWeilFunctionalEquations (shimuraCoeff χ k t a) b (k - 1) χ'`, for some character `χ'` modulo
-some `M` and a dual sequence `b`, none of which is proved here. Shimura's theorem also says that
-one may take `χ' = χ²` and, by Niwa for `k ≥ 5` and Cipra for `k = 3`, the level `M = N / 2`.
+some `M` and a dual sequence `b`. Shimura's theorem also says that one may take `χ' = χ²` and,
+by Niwa for `k ≥ 7` and Cipra for `k = 3, 5`, the level `M = N / 2`. For `k ≥ 3` the theorem is
+`ModularForm.shimuraCorrespondence`, proved by a theta kernel without the converse theorem; with
+`ModularForm.hasWeilFunctionalEquations_qExpansion_coeff`, the modular form it gives satisfies the
+hypothesis of `ModularForm.HasWeilFunctionalEquations.isShimuraLift` for every `g`.
 
 ## Main results
 

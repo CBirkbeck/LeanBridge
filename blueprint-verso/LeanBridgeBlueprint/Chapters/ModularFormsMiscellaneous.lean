@@ -103,7 +103,7 @@ A {bpref "mf"}[modular form] $`f` satisfies a growth condition which restricts t
 Depends on: {uses "mf"}[]
 :::
 
-:::definition "mf.half_integral_weight" (lean := "ModularForm.halfIntegralWeightSpace, ModularForm.halfIntegralWeightCuspSpace, ModularForm.hasWeight_of_mem_halfIntegralWeightSpace, ModularForm.thetaFactor, ModularForm.thetaSeries_smul, ModularForm.thetaSeries_mem_halfIntegralWeightSpace")
+:::definition "mf.half_integral_weight" (lean := "ModularForm.halfIntegralWeightSpace, ModularForm.halfIntegralWeightCuspSpace, ModularForm.hasWeight_of_mem_halfIntegralWeightSpace, ModularForm.thetaFactor, ModularForm.thetaSeries_smul, ModularForm.thetaSeries_mem_halfIntegralWeightSpace, ModularForm.thetaSeries_mul_discriminant_mem_halfIntegralWeightCuspSpace, ModularForm.thetaSeries_mul_discriminant_ne_zero")
 *Half-integral weight modular forms.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.half_integral_weight))
 
 Let $`k` be an odd integer, and let $`N` a positive integer divisible by $`4`. Let $`\chi` be a {bpref "character.dirichlet"}[character] modulo $`N`. A *modular form of half-integral {bpref "cmf.weight"}[weight]* $`k/2` , {bpref "cmf.level"}[level] $`N` and character $`\chi` is an holomorphic function defined on the upper half plane $`\mathcal{H}`, satisfying the transformation formula
