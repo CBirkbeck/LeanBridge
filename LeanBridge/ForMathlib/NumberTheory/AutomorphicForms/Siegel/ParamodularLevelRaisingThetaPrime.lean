@@ -16,10 +16,13 @@ the double coset operator `SiegelUpperHalfSpace.levelRaisingThetaPrime` is
 `diag(p, p, 1, 1)` is `p diag(1, 1, p⁻¹, p⁻¹)`; Roberts and Schmidt normalise the slash operator by
 `λ(g)^k`, so that scalar matrices act trivially, while `SiegelUpperHalfSpace.gspSlash` carries the
 factor `r^(2k - 3)` for `ρ = det^k`, so for that `ρ` their `θ_p` is `p^(3 - k)` times
-`levelRaisingThetaPrime` (a normalisation, not proved here). Their `θ'_p = u_p θ_p u_p` is shown
-in the same paper (equation (16)) to be the trace from `K(M) ∩ K(Mp)` to `K(Mp)`, which is
-`SiegelUpperHalfSpace.levelRaisingTheta`: the names `θ` and `θ'` of the two existing operators are
-swapped with respect to Roberts and Schmidt.
+`levelRaisingThetaPrime` (`SiegelUpperHalfSpace.rsTheta_eq_smul_levelRaisingThetaPrime`). Their
+`θ'_p = u_p θ_p u_p` is shown in the same paper (equation (16)) to be the trace from `K(M) ∩ K(Mp)`
+to `K(Mp)`, which is `SiegelUpperHalfSpace.levelRaisingTheta`
+(`SiegelUpperHalfSpace.rsThetaPrime_eq_levelRaisingTheta`, for `ρ = det^k` and `M = q M₀` with `q p`
+and `M₀` coprime, in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularRobertsSchmidt`): the names
+`θ` and `θ'` of the two existing operators are swapped with respect to Roberts and Schmidt.
 
 The file then proves that `θ_p` maps the cusp forms `S_ρ(K(M))` to `S_ρ(K(Mp))` when the slash
 operator preserves holomorphy: each term is `(F ∣ diag(p, p, 1, 1)) ∣ ι(γ)`, and

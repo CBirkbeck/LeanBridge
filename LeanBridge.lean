@@ -403,6 +403,7 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MiyawakiLift
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ModularForm
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParabolicDecomposition
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularArithmetic
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularAtkinLehner
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularLevelRaising
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularLevelRaisingCuspForms
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularLevelRaisingEta
@@ -413,6 +414,8 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularNew
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularNonliftNewform
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularNonliftNewformLevelOne
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularOldModularForms
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularPattern
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularRobertsSchmidt
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PeterssonDecomposition
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PeterssonDefinite
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PeterssonProduct
@@ -428,6 +431,11 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SymmetricCongr
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ThetaConstant
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ThetaTransformation
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.UpperHalfSpace
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.VectorHeckeStability
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.VectorKlingenBound
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.VectorKlingenEisenstein
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.VectorKlingenTerm
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.VectorSiegelEisensteinVanishing
 import LeanBridge.ForMathlib.NumberTheory.DirichletCharacter.GaloisOrbitLabel
 import LeanBridge.ForMathlib.NumberTheory.DirichletCharacter.GroupStructure
 import LeanBridge.ForMathlib.NumberTheory.DirichletCharacter.KloostermanSum
@@ -660,13 +668,17 @@ import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.Label
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.MomentMatrix
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.Rational
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.AdelicEllipticPoint
+import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.BigDoubleCoset
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.Coarse
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.ConnectedShimuraVariety
+import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.DoubleCosetHalfPlanes
+import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.DoubleCosetLevelGroup
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.EllipticPoint
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.EllipticPointKernel
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.EllipticPointStabilizer
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.EnhancedGroup
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.FiniteAdelicAlgebra
+import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.FiniteAdelicComparison
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.FuchsianGroup
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.Label
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.QuaternionOrder

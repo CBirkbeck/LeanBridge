@@ -35,7 +35,10 @@ any subgroup and `ι` any `ℚ`-algebra map. The finiteness of the double coset 
 proved. The double coset space `B^× \ (ℋ^± × B̂^×) / K_H` of LMFDB `shimcurve` is in bijection
 with `B^×_+ \ (ℍ × B̂^×) / K_H` because `B` has elements of negative norm
 (`AlgHom.exists_det_lt_zero`), which exchange the two half-planes, while an element of `B^×` fixing
-a point of `ℍ` has positive norm; the bijection itself, which needs a model of `ℋ^±`, is not proved.
+a point of `ℍ` has positive norm; the bijection itself, for `B` central simple of dimension `4`, is
+`Subalgebra.shimuraCurvePointsEquivDoubleCoset`, in
+`LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.DoubleCosetLevelGroup`, with the model
+`UpperLowerHalfPlane` of `ℋ^±`.
 
 ## Main definitions
 
@@ -447,8 +450,10 @@ noncomputable instance :
 curve `X_H`, the orbits of `B^×_+ × K_H` acting on `ℍ × B̂^×` by
 `(β, k) • (τ, b) = (β τ, β b k⁻¹)`. Since `B^×` contains elements of negative norm
 (`AlgHom.exists_det_lt_zero`), which exchange the two half-planes, this is the double coset space
-`B^× \ (ℋ^± × B̂^×) / K_H` of LMFDB `shimcurve`, with the same stabilizers (this identification is
-not proved here). Its geometric components are the `Γ_b \ ℍ`, for `b` in the double cosets
+`B^× \ (ℋ^± × B̂^×) / K_H` of LMFDB `shimcurve`, with stabilizer groups of the same order
+(`Subalgebra.shimuraCurvePointsEquivDoubleCoset`,
+`Subalgebra.natCard_shimuraDoubleCosetStabilizer_ofUpperHalfPlane`, for `B` central simple of
+dimension `4`). Its geometric components are the `Γ_b \ ℍ`, for `b` in the double cosets
 `B^×_+ \ B̂^× / K_H`. -/
 abbrev ShimuraCurvePoints : Type _ :=
   orbitRel.Quotient (shimuraPositiveUnits ι × shimuraLevelGroup hO μ H) (ℍ × O.FiniteAdelicAlgebraˣ)

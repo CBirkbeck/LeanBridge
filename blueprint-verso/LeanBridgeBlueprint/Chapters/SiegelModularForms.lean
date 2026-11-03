@@ -990,7 +990,7 @@ A *newform* is a cusp form $`f\in S_{\rho}^{\rm new}(K(N))` that is also an eige
 Depends on: {uses "mf.siegel"}[] {uses "mf.siegel.hecke_operator"}[] {uses "mf.siegel.weight"}[]
 :::
 
-:::definition "mf.siegel.newform.paramodular"
+:::definition "mf.siegel.newform.paramodular" (lean := "SiegelUpperHalfSpace.IsNewParamodularEigenform, SiegelUpperHalfSpace.IsNotLevelRaised, SiegelUpperHalfSpace.isNotLevelRaised_detPowerRep_iff, SiegelUpperHalfSpace.rsThetaPrime_eq_levelRaisingTheta, SiegelUpperHalfSpace.rsThetaPrime_eq_rsEta_add_sum, SiegelUpperHalfSpace.rsTheta_eq_smul_levelRaisingThetaPrime")
 *Paramodular newform.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.newform.paramodular))
 
 A paramodular form on $`K(N)`

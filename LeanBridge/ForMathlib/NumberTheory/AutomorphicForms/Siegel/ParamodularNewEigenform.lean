@@ -191,8 +191,9 @@ variable (hρ : ∀ α f, IsHolomorphic f → IsHolomorphic (gspSlash ρ α f))
 (`SiegelUpperHalfSpace.coe_paramodularVPlus`), the double coset operator of
 `K(M) diag(p, p, 1, 1) K(Mp)`, compatible with the operator `V_p` of Eichler and Zagier on the
 Fourier–Jacobi coefficients (Roberts–Schmidt, equation (11), not proved here). Roberts and Schmidt
-normalise the slash operator so that scalar matrices act trivially, which multiplies the operator
-by a nonzero constant (`p^(3 - k)` for `ρ = det^k`, not proved here). It is defined when the slash
+normalise the slash operator so that scalar matrices act trivially, which multiplies the operator by
+a nonzero constant (`p^(3 - k)` for `ρ = det^k`,
+`SiegelUpperHalfSpace.rsTheta_eq_smul_levelRaisingThetaPrime`). It is defined when the slash
 operator preserves holomorphy (`hρ`), as it does for the holomorphic `ρ` of the LMFDB. The knowl
 does not say which of `θ_p`, `θ'_p` it calls `V_p^+`. -/
 noncomputable def paramodularVPlus (hp : (p : ℕ).Prime) :
@@ -200,11 +201,12 @@ noncomputable def paramodularVPlus (hp : (p : ℕ).Prime) :
   paramodularCuspFormsMap ρ (levelRaisingThetaPrime ρ M p) fun _ hF ↦
     levelRaisingThetaPrime_mem_paramodularCuspForms ρ M p hp hρ hF
 
-/-- The **level raising operator** `V_p^-` (LMFDB `mf.siegel.newform.paramodular`) from
-`S_ρ(K(M))` to `S_ρ(K(Mp))`: the trace `F ↦ ∑ᵢ F ∣_ρ γᵢ` over the right cosets
-`(K(M) ∩ K(Mp)) γᵢ` of `K(Mp)` (`SiegelUpperHalfSpace.levelRaisingTheta`), which for a prime `p`
-is the operator `θ'_p = u_p θ_p u_p` of Roberts and Schmidt (their equation (16), not proved here).
-It is defined when the slash operator preserves holomorphy (`hρ`). -/
+/-- The **level raising operator** `V_p^-` (LMFDB `mf.siegel.newform.paramodular`) from `S_ρ(K(M))`
+to `S_ρ(K(Mp))`: the trace `F ↦ ∑ᵢ F ∣_ρ γᵢ` over the right cosets `(K(M) ∩ K(Mp)) γᵢ` of `K(Mp)`
+(`SiegelUpperHalfSpace.levelRaisingTheta`), which for a prime `p` is the operator
+`θ'_p = u_p θ_p u_p` of Roberts and Schmidt (their equation (16);
+`SiegelUpperHalfSpace.rsThetaPrime_eq_levelRaisingTheta` for `ρ = det^k` and `M = q M₀` with `q p`
+and `M₀` coprime). It is defined when the slash operator preserves holomorphy (`hρ`). -/
 noncomputable def paramodularVMinus :
     paramodularCuspForms ρ M →ₗ[ℂ] paramodularCuspForms ρ (M * p) :=
   paramodularCuspFormsMap ρ (levelRaisingTheta ρ M p) fun _ hF ↦

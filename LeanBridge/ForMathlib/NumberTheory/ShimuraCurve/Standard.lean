@@ -31,12 +31,17 @@ They are read here as the inverse images of `{1} ⊆ (O/NO)^×` and of `Aut_{±�
 makes `X(D;N)` the full level `N` Shimura curve of LMFDB `shimcurve`, with `X(D;1)` and `X^*(D;1)`
 the cases `N = 1`.
 
-The Shimura curves themselves, their canonical models over `ℚ` and their complex points
-`B^× \ (ℋ^± × B̂^×) / H`, are not available, so the curves are recorded by their data: the
-discriminant `D` of `B`, the condition on the order `O` (maximal, or Eichler of level `M`) and the
-subgroup `H` of the enhanced group. As in `LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.Label`,
-the enhanced group is Mathlib's semidirect product `Ô^× ⋊ Aut_{±μ}(O)`, and `B` is any `ℚ`-algebra,
-`O` any subring and `μ` any element in the definitions of the groups.
+The Shimura curves themselves and their canonical models over `ℚ` are not formalised, so the curves
+are recorded by their data: the discriminant `D` of `B`, the condition on the order `O` (maximal, or
+Eichler of level `M`) and the subgroup `H` of the enhanced group. Their complex points are defined
+as the orbits `H \ X(O;N)^big(ℂ)` (`Subalgebra.ShimuraCurveOrbits`, in
+`LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.BigDoubleCoset`), which are the double coset space
+`B^× \ (ℋ^± × B̂^×) / K_H` (`Subalgebra.ShimuraDoubleCoset`,
+`Subalgebra.shimuraCurveOrbitsEquivDoubleCoset`), for `K_H` the group
+`Subalgebra.shimuraLevelGroup`, when `H` contains the kernel of reduction modulo `N`, as the groups
+here do. As in `LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.Label`, the enhanced group is
+Mathlib's semidirect product `Ô^× ⋊ Aut_{±μ}(O)`, and `B` is any `ℚ`-algebra, `O` any subring and
+`μ` any element in the definitions of the groups.
 
 ## Main definitions
 

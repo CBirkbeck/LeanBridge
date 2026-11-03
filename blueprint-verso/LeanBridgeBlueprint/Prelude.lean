@@ -247,7 +247,9 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LatticeThetaSe
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.Level
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftCuspForm
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ModularForm
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularNewEigenform
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularNewform
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularRobertsSchmidt
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PhiOperator
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SatohBracket
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ScalarValued
@@ -406,9 +408,13 @@ import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.Basic
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.Generators
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.HodgeCircle
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.Rational
+import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.BigDoubleCoset
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.Coarse
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.ConnectedShimuraVariety
+import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.DoubleCosetHalfPlanes
+import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.DoubleCosetLevelGroup
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.EnhancedGroup
+import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.FiniteAdelicComparison
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.QuaternionOrder
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.ShimuraVariety
 import LeanBridge.ForMathlib.RepresentationTheory.CharacterCenter

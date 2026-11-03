@@ -4115,6 +4115,14 @@
     "SiegelUpperHalfSpace.maassLiftLinearMap": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftCuspForm",
     "SiegelUpperHalfSpace.isCuspForm_maassLift": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftCuspForm"
   },
+  "mf.siegel.newform.paramodular": {
+    "SiegelUpperHalfSpace.IsNewParamodularEigenform": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularNewEigenform",
+    "SiegelUpperHalfSpace.IsNotLevelRaised": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularNewEigenform",
+    "SiegelUpperHalfSpace.isNotLevelRaised_detPowerRep_iff": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularRobertsSchmidt",
+    "SiegelUpperHalfSpace.rsThetaPrime_eq_levelRaisingTheta": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularRobertsSchmidt",
+    "SiegelUpperHalfSpace.rsThetaPrime_eq_rsEta_add_sum": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularRobertsSchmidt",
+    "SiegelUpperHalfSpace.rsTheta_eq_smul_levelRaisingThetaPrime": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularRobertsSchmidt"
+  },
   "mf.siegel.newform_subspace": {
     "SiegelUpperHalfSpace.newformSubspace": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularNewform",
     "SiegelUpperHalfSpace.self_mem_newformSubspace": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularNewform",
@@ -4977,6 +4985,14 @@
     "Subalgebra.IsEichlerOrderOfLevel": "LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.QuaternionOrder",
     "Subalgebra.IsMaximalQuaternionOrder": "LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.QuaternionOrder",
     "Subalgebra.IsQuaternionOrder": "LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.QuaternionOrder"
+  },
+  "shimcurve.elliptic_points": {
+    "Subalgebra.shimuraCurveOrbitsEllipticPoints": "LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.BigDoubleCoset",
+    "Subalgebra.shimuraDoubleCosetStabilizer": "LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.DoubleCosetHalfPlanes",
+    "Subalgebra.natCard_shimuraDoubleCosetStabilizer_mem": "LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.DoubleCosetLevelGroup",
+    "Subalgebra.shimuraCurvePointsEquivOrbits": "LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.BigDoubleCoset",
+    "Subalgebra.shimuraCurvePointsEquivOrbits_mem_iff": "LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.BigDoubleCoset",
+    "Subalgebra.tensorZHatEquivFiniteAdelicAlgebra": "LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.FiniteAdelicComparison"
   },
   "shimcurve.enhanced_group": {
     "Subalgebra.EnhancedGroup": "LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.EnhancedGroup",

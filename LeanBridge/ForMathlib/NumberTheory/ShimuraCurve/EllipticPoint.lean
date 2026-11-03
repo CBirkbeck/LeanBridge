@@ -19,11 +19,16 @@ image `Γ_H` under `f : Aut_{±μ}(O) ⋉ O^× → N_{B^×}(O) / ℚ^×` of the 
 An elliptic point is a point with nontrivial stabilizer. On this component it is the orbit of a
 point `τ` of `ℍ` fixed by an element of `Γ_H^+` that is not a scalar: the scalars `ℚ^×` act
 trivially (`Subalgebra.smul_eq_self_of_mem_normalizerRatUnits`), and for a quaternion algebra `B`
-they are the only elements doing so (not proved). This is the analogue for Shimura curves of the
-elliptic points `Matrix.GeneralLinearGroup.ellipticPoints` of a modular curve, through
-`Γ_H = H ∩ SL₂(ℤ)`. The other geometric components, `Γ_b^+ \ ℍ` for `Γ_b^+` the elements of
-positive norm of `B^× ∩ b K_H b⁻¹` and the other double cosets `B^× b K_H`, are not covered, nor is
-the fact that the stabilizers are finite of order `2`, `3`, `4` or `6`.
+they are the only elements doing so (`Subalgebra.forall_smul_eq_self_iff_mem_normalizerRatUnits`,
+for `B` central simple over `ℚ`). This is the analogue for Shimura curves of the elliptic points
+`Matrix.GeneralLinearGroup.ellipticPoints` of a modular curve, through `Γ_H = H ∩ SL₂(ℤ)`. The other
+geometric components, `Γ_b^+ \ ℍ` for `Γ_b^+` the elements of positive norm of `B^× ∩ b K_H b⁻¹` and
+the other double cosets `B^× b K_H`, are treated in
+`LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.AdelicEllipticPoint`, and compared with
+`B^× \ (ℋ^± × B̂^×) / K_H` in
+`LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.DoubleCosetLevelGroup`. For `B` central simple of
+dimension `4` and `O` an order, the stabilizers are finite of order `1`, `2`, `3`, `4` or `6`
+(`Subalgebra.natCard_shimuraStabilizer_mem`, `Subalgebra.natCard_shimuraAdelicStabilizer_mem`).
 
 As in `LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.EnhancedGroup`, `B` is any `ℚ`-algebra, `O`
 any subring, `μ` any element, `H` any subgroup of the enhanced group and `ι` any `ℚ`-algebra map.

@@ -11,9 +11,12 @@ Let `O` be an order of a quaternion algebra `B` over `ℚ`. As in
 `(x_N)_N ∈ ∏_N O/NO` over the positive integers `N`, and `B̂ = B ⊗_ℤ ℤ̂ = B ⊗_ℚ 𝔸_f` (LMFDB
 `shimcurve`) is `Ô ⊗ ℚ`, the localization `Ô[1/n : n ≥ 1]` of `Ô` at the positive integers, which
 are central: these agree with the tensor products since `O` is free of finite rank over `ℤ` and
-`𝔸_f = ℤ̂ ⊗ ℚ`. The localization is Mathlib's Ore localization. A `ℤ`-basis of `O` being a
-`ℚ`-basis of `B`, every `x ∈ B` has a multiple `n x ∈ O`, `n ≥ 1`, and `x ↦ (n x) / n` is the
-embedding `B → B̂`.
+`𝔸_f = ℤ̂ ⊗ ℚ` (`Subalgebra.tensorZHatEquivFiniteAdelicAlgebra`,
+`Subalgebra.tensorAdelesEquivFiniteAdelicAlgebra` and
+`Subalgebra.mem_completedOrderSubalgebra_iff_exists_tensor`, in
+`LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.FiniteAdelicComparison`). The localization is
+Mathlib's Ore localization. A `ℤ`-basis of `O` being a `ℚ`-basis of `B`, every `x ∈ B` has a
+multiple `n x ∈ O`, `n ≥ 1`, and `x ↦ (n x) / n` is the embedding `B → B̂`.
 
 The two facts which make `Ô` and `B̂` the expected objects are proved: every element of `B̂` has a
 multiple in `Ô` by a positive integer, and `B ∩ Ô = O`, that is, an element of `B` whose image lies

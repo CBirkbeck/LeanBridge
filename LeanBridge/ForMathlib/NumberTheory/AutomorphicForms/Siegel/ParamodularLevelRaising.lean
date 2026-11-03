@@ -25,7 +25,14 @@ prime `p`, are the double coset operators
 The Lean names `levelRaisingTheta` and `levelRaisingThetaPrime` are thus swapped with respect to
 Roberts and Schmidt. These are the classical forms of the local operators `θ`, `θ'` and `η` of
 their book *Local newforms for GSp(4)*. The coset decompositions are not proved here (see
-`ParamodularLevelRaisingEta` and `ParamodularLevelRaisingThetaPrime`), nor is their (16).
+`ParamodularLevelRaisingEta` and `ParamodularLevelRaisingThetaPrime`). The comparison with the
+operators of Roberts and Schmidt, with their slash operator for `ρ = det^k`, is in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularRobertsSchmidt`: `θ_p` is
+`p^(3 - k)` times `levelRaisingThetaPrime`
+(`SiegelUpperHalfSpace.rsTheta_eq_smul_levelRaisingThetaPrime`), `η_p` is `levelRaisingEta`
+(`SiegelUpperHalfSpace.rsEta_eq_levelRaisingEta`), and, for `M = q M₀` with `q p` and `M₀` coprime,
+`θ'_p` is `levelRaisingTheta` (`SiegelUpperHalfSpace.rsThetaPrime_eq_levelRaisingTheta`), which
+gives their (16) (`SiegelUpperHalfSpace.rsThetaPrime_eq_rsEta_add_sum`).
 
 ## Main definitions
 
@@ -233,8 +240,9 @@ paramodular group*, §4, equations (14) and (16)) from paramodular forms of leve
 level `Mp`: the trace `F ↦ ∑ᵢ F ∣_ρ γᵢ` over the right cosets `(K(M) ∩ K(Mp)) γᵢ` of `K(Mp)`, that
 is the double coset operator of `K(M) · 1 · K(Mp)`. Roberts and Schmidt define
 `θ'_p = u_p θ_p u_p` with the Atkin–Lehner involutions `u_p` and show (their (16)) that it is this
-trace, for a prime `p` (not proved here). Despite its name, this is their `θ'_p`; their `θ_p` is
-`SiegelUpperHalfSpace.levelRaisingThetaPrime`. -/
+trace, for a prime `p`: for `ρ = det^k` and `M = q M₀` with `q p` and `M₀` coprime, this is
+`SiegelUpperHalfSpace.rsThetaPrime_eq_levelRaisingTheta`. Despite its name, this is their `θ'_p`;
+their `θ_p` is `SiegelUpperHalfSpace.levelRaisingThetaPrime`. -/
 noncomputable def levelRaisingTheta :
     slashInvariantsOf ρ (gspPlusGL (Fin 2)) (heckeGammaOf (paramodularLevel M)) →ₗ[ℂ]
       slashInvariantsOf ρ (gspPlusGL (Fin 2)) (heckeGammaOf (paramodularLevel (M * p))) :=

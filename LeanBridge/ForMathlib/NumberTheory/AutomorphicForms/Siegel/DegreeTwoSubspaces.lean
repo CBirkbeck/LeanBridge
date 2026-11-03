@@ -8,9 +8,21 @@ The space `M_{k,j}(Γ)` of Siegel modular forms of degree `2` and weight `ρ_{k,
 decomposes as `M_{k,j}(Γ) = S_{k,j}(Γ) ⊕ N_{k,j}(Γ)`, where `N_{k,j}(Γ)` is the orthogonal
 complement of the cusp forms for the Petersson inner product, which converges as soon as one of
 the forms is a cusp form. For `Γ = Sp(4, ℤ)` the LMFDB further decomposes `N_{k,j}` into the
-subspaces of Siegel Eisenstein series and Klingen–Eisenstein series. The decomposition and its
-stability under the Hecke operators are theorems which are not proved here, and vector-valued
-Siegel and Klingen–Eisenstein series of weight `ρ_{k,j}` are not available.
+subspaces of Siegel Eisenstein series and Klingen–Eisenstein series. The decomposition and the
+stability of `N_{k,j}(Γ)` under the Hecke operators are theorems which are not proved here. On
+`Γ = Sp(4, ℤ)`, the Hecke operators preserve `M_{k,j}(Γ)` and `S_{k,j}(Γ)`
+(`SiegelUpperHalfSpace.heckeOperator_mem_modularFormsKJ`,
+`SiegelUpperHalfSpace.heckeOperator_mem_cuspFormsKJ`, in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.VectorHeckeStability`). The
+vector-valued Siegel Eisenstein series of weight `ρ_{k,j}` are
+`SiegelUpperHalfSpace.IsVectorSiegelEisensteinSeries`, in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.EisensteinSubspace`, and their span
+vanishes for `j > 0` (`SiegelUpperHalfSpace.siegelEisensteinSubspaceKJ_eq_bot`). The vector-valued
+Klingen–Eisenstein series are `SiegelUpperHalfSpace.vectorKlingenEisenstein`, in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.VectorKlingenEisenstein`; the modular
+forms in their span form `SiegelUpperHalfSpace.klingenEisensteinSubspaceKJ`, which is isomorphic to
+the space of cusp forms of weight `k + j` on `SL(2, ℤ)` for `k > 4` and `j` even
+(`SiegelUpperHalfSpace.klingenEisensteinEquiv`).
 
 ## Main definitions
 

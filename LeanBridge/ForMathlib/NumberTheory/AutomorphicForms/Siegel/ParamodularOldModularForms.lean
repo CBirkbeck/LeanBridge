@@ -10,8 +10,10 @@ level `N` obtained from modular forms of a lower level `M ∣ N` through the lev
 as for the old cusp forms `SiegelUpperHalfSpace.paramodularOldSubspace`, the level raising
 operators `θ'_p`, `θ_p` (from level `N / p`) and `η` (from level `N / p²`) of Roberts and Schmidt
 are used, at the primes `p`. A composite of these operators from a lower level ends with one of
-them, so its image lies in `M_ρ^old(K(N))` as soon as the operators preserve modular forms, which is
-not proved here.
+them, so its image lies in `M_ρ^old(K(N))` when the slash operator preserves holomorphy, the
+operators then preserving modular forms
+(`SiegelUpperHalfSpace.doubleCosetOperator_mem_modularForms`,
+`SiegelUpperHalfSpace.levelRaisingModularImage_comp_le`).
 
 ## Main definitions
 

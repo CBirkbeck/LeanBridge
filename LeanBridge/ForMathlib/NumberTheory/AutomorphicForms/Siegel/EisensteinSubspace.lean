@@ -12,8 +12,10 @@ parabolic subgroup `P = {(A, B; 0, D)}` in `Sp(2g, ℤ)`. For `γ ∈ P`, `ρ(C_
 spanned by these series for `ρ = ρ_{k,j} = det^k ⊗ Sym^j`; for scalar weight `ρ = det^k` and
 `v = 1` they are the Siegel Eisenstein series `ψ_k` of
 `SiegelUpperHalfSpace.siegelEisensteinSeries`, and `1` is invariant for even `k`. That the series
-converge for `k > g + 1` (to Siegel modular forms), that `E_{j,k}(Γ₂)` vanishes for `j > 0`, and
-the decompositions of the knowl are not proved here.
+converge for `k > g + 1` (to Siegel modular forms) and the decompositions of the knowl are not
+proved here. For `j > 0`, `E_{j,k}(Γ₂)` vanishes
+(`SiegelUpperHalfSpace.siegelEisensteinSubspaceKJ_eq_bot`, in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.VectorSiegelEisensteinVanishing`).
 
 ## Main definitions
 
@@ -126,8 +128,9 @@ def siegelEisensteinSubspace : Submodule ℂ (SiegelUpperHalfSpace l → V) :=
 /-- The space `E_{j,k}(Γ₂)` of **Siegel Eisenstein series of degree `2`** (LMFDB
 `mf.siegel.subspace.degree.two`) and weight `ρ_{k,j} = det^k ⊗ Sym^j`
 (`SiegelUpperHalfSpace.rhoKJ`) on `Γ₂ = Sp(4, ℤ)`, spanned by the vector-valued Siegel Eisenstein
-series of the vectors of `Sym^j(ℂ²)` invariant under `GL(2, ℤ)`. For `j = 0` and even `k > 3` it
-is spanned by `ψ_k`; that it vanishes for `j > 0` is not proved here. -/
+series of the vectors of `Sym^j(ℂ²)` invariant under `GL(2, ℤ)`. For `j = 0` and even `k > 3` it is
+spanned by `ψ_k`, whose convergence is not proved here; for `j > 0` it vanishes
+(`SiegelUpperHalfSpace.siegelEisensteinSubspaceKJ_eq_bot`). -/
 noncomputable abbrev siegelEisensteinSubspaceKJ (k : ℤ) (j : ℕ) :
     Submodule ℂ (SiegelUpperHalfSpace (Fin 2) → Sym[ℂ]^j (Fin 2 → ℂ)) :=
   siegelEisensteinSubspace (rhoKJ k j)
