@@ -49,19 +49,6 @@ polynomial from below (Monge, p. 8): they vanish at the `Z`-points of the Eisens
   and `IsNonarchimedeanLocalField.HerbrandInvariant.pointType_visibleHerbrandInvariant_ne_Z`: the
   same statements for an extension `E` of `K` inside `K̄`, where `M` is the Galois closure of `E`
   and no tower remains in the statement.
-
-## What remains of Monge's representation theorem
-
-`IsNonarchimedeanLocalField.HerbrandInvariant.MongeRepresentation` (LMFDB `lf.family_polynomial`) is
-not proved. For its direct part, the invariance of `S_m` under `π ↦ π + O(π ^ 2)` is in
-`LeanBridge.ForMathlib.NumberTheory.LocalField.MongeInvariance`, and it remains to prove that `S_m`
-is surjective when `m` is not a ramification break, the second part of Proposition 3 (the digits
-above the bands can be reduced to the representatives of `0`), the termination of the reduction by
-truncating above the top break (Remark 1, the argument of Krasner's lemma, Mathlib's `IsKrasner`,
-with Tau Ceti's normed-field structure on a local field), and the comparison of the Herbrand
-invariants of `L / K_f` and `L / K`. For the converse, it remains
-to compute the polygon of a semicanonical polynomial from its digits, and to recover its Herbrand
-invariant from the polygon.
 -/
 
 open Algebra Finset IntermediateField IsDiscreteValuationRing Polynomial TauCeti IsLocalRing

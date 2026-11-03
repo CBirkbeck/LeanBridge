@@ -27,8 +27,16 @@ when `gcd(ε, q ^ f - 1) = 1`. The knowl leaves the subgroups `W_σ` to Monge's 
 and they are data here (`IsNonarchimedeanLocalField.HerbrandInvariant.SemicanonicalChoice`). The
 polynomials are defined over any commutative ring `R` with an element `π`, the LMFDB's case being
 `R = 𝒪_{K_f}`; over a discrete valuation ring with uniformiser `π` the semicanonical polynomials are
-Eisenstein polynomials of degree `e`. That every extension in `I / K` is generated over `K_f` by a
-root of a semicanonical polynomial (Monge) is not formalised.
+Eisenstein polynomials of degree `e`. With Monge's subgroups `W_σ`, every extension in `I / K` is,
+up to `K`-isomorphism, generated over `K_f` by a root of a semicanonical polynomial, and conversely,
+when `I / K` is not empty, a root of such a polynomial generates an extension in `I / K`
+(`IsNonarchimedeanLocalField.HerbrandInvariant.mongeRepresentation`, in
+`LeanBridge.ForMathlib.NumberTheory.LocalField.MongeRepresentationProof`): this is the first
+statement of Monge's Theorem 1, with his Proposition 3, his Remark 1 and the converse of his §2.2.
+The second statement of his Theorem 1, the number of reduced polynomials generating an extension, is
+not proved, and neither is the closing sentence of the knowl, that the ambiguity of the family
+(LMFDB `lf.family_ambiguity`) bounds the number of semicanonical polynomials of an extension in
+`I / K`.
 
 The knowl writes the terms of `f_I` as `a_{σ(i, j)} π_K ^ i x ^ j` with `σ(i, j) = e j + i`, which
 is inconsistent with its term `d_0 π_K` and with LMFDB `lf.eisenstein_diagram`; the monomial of
@@ -171,8 +179,10 @@ end SemicanonicalChoice
 for a uniformiser `π` and choices `D` of coefficient sets: the specialisations
 `x ^ e + π ∑_σ f_σ π ^ j x ^ i` of the generic polynomial with `f_σ` in the set
 `D.coeffSet σ` attached to the type of `P_σ`: `d_0 ∈ 𝒟`, `a_σ ∈ ℛ ∖ {0}`, `b_σ ∈ ℛ` and
-`c_σ ∈ S_σ`. Over the ring of integers of `K_f`, with Monge's choice of the `S_σ`, every extension
-in the family `I / K` is generated over `K_f` by a root of one of them (not formalised). -/
+`c_σ ∈ S_σ`. For a `p`-adic field `K`, over the ring of integers of `K_f` and with Monge's choice of
+the `S_σ` (`mongeSemicanonicalPolynomials`), every extension in the family `I / K` is, up to
+`K`-isomorphism, generated over `K_f` by a root of one of them (`mongeRepresentation`, the first
+statement of Monge's Theorem 1, with his Proposition 3 and his Remark 1). -/
 def semicanonicalPolynomials {𝔪 : Ideal R} (D : I.SemicanonicalChoice 𝔪) : Set R[X] :=
   {g | ∃ f : ℕ → R, (∀ σ ∈ I.genericIndices, f σ ∈ D.coeffSet σ) ∧ I.specialisation π f = g}
 

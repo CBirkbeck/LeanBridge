@@ -4,12 +4,14 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.Basic
 # The index raising operators on Jacobi forms of index `1`
 
 For `m ≥ 1`, the index raising operator `V_m` of Eichler and Zagier (§4) sends a function
-`φ : ℍ × ℂ → ℂ` to `(φ ∣ V_m)(τ, z) = m⁻¹ ∑ a^k φ((aτ + b)/d, az)`, the sum running over the
-upper triangular representatives `(a, b; 0, d)`, `ad = m`, `0 ≤ b < d`, of the cosets
-`SL(2, ℤ) \ M_m` of the integral matrices of determinant `m`; this is Eichler and Zagier's
+`φ : ℍ × ℂ → ℂ` to `(φ ∣ V_m)(τ, z) = m⁻¹ ∑ a^k φ((aτ + b)/d, az)`, the sum running over the upper
+triangular representatives `(a, b; 0, d)`, `ad = m`, `0 ≤ b < d`, of the cosets `SL(2, ℤ) \ M_m` of
+the integral matrices of determinant `m`; this is Eichler and Zagier's
 `m^{k-1} ∑ d^{-k} φ((aτ + b)/d, az)`. If `φ` transforms like a Jacobi form of weight `k` and index
 `1` under `SL(2, ℤ)`, then `φ ∣ V_m` transforms like a Jacobi form of weight `k` and index `m` under
-`S = (0, -1; 1, 0)`: `(φ ∣ V_m)(-1/τ, z/τ) = τ^k e^{2πimz²/τ} (φ ∣ V_m)(τ, z)`.
+`S = (0, -1; 1, 0)`: `(φ ∣ V_m)(-1/τ, z/τ) = τ^k e^{2πimz²/τ} (φ ∣ V_m)(τ, z)`. For `φ` of index
+`N ≥ 1`, the same law with index `Nm` is `ModularForm.indexRaising_S_of_index`, in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.GritsenkoLiftModularity`.
 
 The proof follows the coset argument. Right multiplication by `S` permutes the cosets: with
 `g = gcd(b, d)`, `b = gb₁`, `d = gd₁` and `v ∈ [0, d₁)` the residue of `-b₁⁻¹` modulo `d₁`,

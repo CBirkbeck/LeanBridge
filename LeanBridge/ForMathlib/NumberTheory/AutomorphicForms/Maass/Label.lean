@@ -11,12 +11,20 @@ of the Dirichlet character `χ`, `m` the spectral index of the eigenvalue `λ` o
 `f` among the finitely many Maass newforms of level `N`, character `χ` and eigenvalue `λ`, ordered
 lexicographically by the sequences `(Re a(n), Im a(n))_{n ≥ 1}` of their coefficients.
 
-Maass newforms with character, their coefficients as functions of the form, the discreteness of
-their spectrum and the finiteness of their eigenspaces are not available, nor are Conrey labels of
-Dirichlet characters. So the index `d` is defined relative to a given finite set of coefficient
-sequences, the spectral index relative to a given set of eigenvalues
-(`UpperHalfPlane.maassSpectralIndex`), and the label from its five components. The lexicographic
-order on the sequences `(Re a(n), Im a(n))_{n ≥ 1}` is Mathlib's on `Lex (ℕ+ → Lex (ℝ × ℝ))`.
+The label is defined here from its five components (`UpperHalfPlane.maassLabel`), with the index `d`
+relative to a given finite set of coefficient sequences (`UpperHalfPlane.maassCoeffIndex`) and the
+spectral index relative to a given set of eigenvalues (`UpperHalfPlane.maassSpectralIndex`). For
+weight `0` and level `N ≠ 0`: the Maass cusp forms with character `χ` and a given eigenvalue form a
+finite-dimensional space (`UpperHalfPlane.finite_maassCuspSpace`); the Maass cusp newforms with
+character `χ` have a discrete spectrum (`UpperHalfPlane.finite_maassNewformSpectrum_inter_Iic`), in
+which `UpperHalfPlane.maassNewformSpectralIndexLabel` is the spectral index; and for the trivial
+character, whose Conrey label is `N.1`, the even and odd cusp newforms with a given eigenvalue,
+normalised by `a(1) = 1`, have finitely many coefficient sequences
+(`UpperHalfPlane.finite_maassNewformCoeffSet`), and their label is
+`UpperHalfPlane.maassNewformLabel`. Not available: the Conrey labels of the nontrivial characters,
+at the pinned Mathlib and Tau Ceti; the coefficients of the newforms with a nontrivial character;
+and the new space in weight `k ≠ 0`. The lexicographic order on the sequences
+`(Re a(n), Im a(n))_{n ≥ 1}` is Mathlib's on `Lex (ℕ+ → Lex (ℝ × ℝ))`.
 
 ## Main definitions
 
@@ -49,12 +57,14 @@ lemma maassCoeffKey_injective : Function.Injective maassCoeffKey :=
     congrFun (toLex.injective h) n
 
 open scoped Classical in
-/-- The **index** `d` (LMFDB `mf.maass.label`) of a sequence `c` of coefficients in a finite set
-`F` of them: one more than the number of sequences in `F` before `c` in the lexicographic order of
-the sequences `(Re c(n), Im c(n))_{n ≥ 1}` (`UpperHalfPlane.maassCoeffKey`). For `F` the set of the
-coefficient sequences of the Maass newforms of a given level, character and eigenvalue, finite by
-a theorem not proved here, it is the index `d` in the label of the newform with coefficients `c`;
-it determines `c` in `F` (`maassCoeffIndex_injOn`). -/
+/-- The **index** `d` (LMFDB `mf.maass.label`) of a sequence `c` of coefficients in a finite set `F`
+of them: one more than the number of sequences in `F` before `c` in the lexicographic order of the
+sequences `(Re c(n), Im c(n))_{n ≥ 1}` (`UpperHalfPlane.maassCoeffKey`). For `F` the set of the
+coefficient sequences of the normalised Maass newforms of a given level, character and eigenvalue,
+it is the index `d` in the label of the newform with coefficients `c`; it determines `c` in `F`
+(`maassCoeffIndex_injOn`). That set is finite for the even and odd cusp newforms of weight `0` with
+trivial character and level `N ≠ 0` (`finite_maassNewformCoeffSet`), where the index is
+`maassNewformCoeffIndex`; for the other newforms its finiteness is not proved here. -/
 noncomputable def maassCoeffIndex : ℕ :=
   #{b ∈ F | maassCoeffKey b < maassCoeffKey c} + 1
 
@@ -62,11 +72,14 @@ noncomputable def maassCoeffIndex : ℕ :=
 character of Conrey label `N.a`, spectral index `m` and index `d`: `N.m` when `k = 0`, `a = 1` and
 `d = 1`, and `N.k.a.m.d` otherwise. The spectral index `m` of the eigenvalue `λ` in the set `S` of
 the eigenvalues of the newforms of level `N`, weight `k` and character `χ` is written as
-`UpperHalfPlane.maassSpectralIndexLabel S λ`, in base `26` with letters for exceptional
-eigenvalues, and the index `d` is `UpperHalfPlane.maassCoeffIndex F c` for the coefficient
-sequence `c` of the newform and the set `F` of the coefficient sequences of the newforms of level
-`N`, character `χ` and eigenvalue `λ`. The Conrey index `a` is given, Conrey labels not being
-available. -/
+`UpperHalfPlane.maassSpectralIndexLabel S λ`, in base `26` with letters for exceptional eigenvalues,
+and the index `d` is `UpperHalfPlane.maassCoeffIndex F c` for the coefficient sequence `c` of the
+normalised newform and the set `F` of those of the normalised newforms of level `N`, character `χ`
+and eigenvalue `λ`. In weight `0`, `S` is read as the spectrum of the Maass cusp newforms, with `m`
+written as `UpperHalfPlane.maassNewformSpectralIndexLabel N χ λ`, and for the trivial character the
+label of an even or odd cusp newform is `UpperHalfPlane.maassNewformLabel`. The Conrey index `a` is
+given, the Conrey labels of the nontrivial characters not being available at the pinned Mathlib and
+Tau Ceti. -/
 def maassLabel (N : ℕ) (k : ℤ) (a : ℕ) (m : String) (d : ℕ) : String :=
   if k = 0 ∧ a = 1 ∧ d = 1 then s!"{N}.{m}" else s!"{N}.{k}.{a}.{m}.{d}"
 

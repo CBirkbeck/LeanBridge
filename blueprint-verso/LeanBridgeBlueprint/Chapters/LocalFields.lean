@@ -100,7 +100,7 @@ For $`p=2`, there are seven quadratic extensions of $`\mathbb{Q}_2`.  Here we le
 Depends on: {uses "nf.discriminant_root_field"}[]
 :::
 
-:::definition "lf.eisenstein_diagram" (lean := "IsNonarchimedeanLocalField.HerbrandInvariant.eisensteinDiagram, IsNonarchimedeanLocalField.HerbrandInvariant.pointType, IsNonarchimedeanLocalField.HerbrandInvariant.band, IsNonarchimedeanLocalField.HerbrandInvariant.pointIndex, IsNonarchimedeanLocalField.HerbrandInvariant.IsCritical")
+:::definition "lf.eisenstein_diagram" (lean := "IsNonarchimedeanLocalField.HerbrandInvariant.eisensteinDiagram, IsNonarchimedeanLocalField.HerbrandInvariant.pointType, IsNonarchimedeanLocalField.HerbrandInvariant.band, IsNonarchimedeanLocalField.HerbrandInvariant.pointIndex, IsNonarchimedeanLocalField.HerbrandInvariant.IsCritical, IsNonarchimedeanLocalField.HerbrandInvariant.mongeRepresentation")
 *Eisenstein diagram.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.eisenstein_diagram))
 
 Let $`K` be a {bpref "lf.padic_field"}[$`p`-adic field] whose
@@ -351,7 +351,7 @@ For some families, not all of the fields within the family are contained within 
 Depends on: {uses "lf.family_base"}[] {uses "lf.family_polynomial"}[] {uses "lf.residue_field_degree"}[] {uses "lf.unramified_degree"}[]
 :::
 
-:::definition "lf.family_polynomial"
+:::definition "lf.family_polynomial" (lean := "IsNonarchimedeanLocalField.HerbrandInvariant.family, IsNonarchimedeanLocalField.HerbrandInvariant.absoluteFamily, IsNonarchimedeanLocalField.HerbrandInvariant.genericPolynomial, IsNonarchimedeanLocalField.HerbrandInvariant.mongeSemicanonicalPolynomials, IsNonarchimedeanLocalField.HerbrandInvariant.mongeRepresentation, IsNonarchimedeanLocalField.HerbrandInvariant.inseparabilityIndex_eq_of_isInvariantOf")
 *Families of extensions of local fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.family_polynomial))
 
 Let $`K` be a {bpref "lf.padic_field"}[$`p`-adic field] whose {bpref "lf.residue_field"}[residue field] has cardinality $`q` and

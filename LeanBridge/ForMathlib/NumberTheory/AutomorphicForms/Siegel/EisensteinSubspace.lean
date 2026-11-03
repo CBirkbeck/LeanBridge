@@ -4,16 +4,27 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelEisenste
 /-!
 # The subspace of Siegel Eisenstein series
 
-The vector-valued Siegel Eisenstein series of weight `ρ` and degree `g` attached to a vector
-`v ∈ V` is `E(v)(Z) = ∑_{(C, D)} ρ(CZ + D)⁻¹ v`, summed over the right cosets of the Siegel
-parabolic subgroup `P = {(A, B; 0, D)}` in `Sp(2g, ℤ)`. For `γ ∈ P`, `ρ(C_{γδ}Z + D_{γδ})⁻¹ v =
-ρ(C_δ Z + D_δ)⁻¹ ρ(D_γ)⁻¹ v`, so the terms only depend on the cosets when `v` is fixed by
-`ρ(GL(g, ℤ))`. The subspace `E_{j,k}(Γ₂)` of the LMFDB knowl `mf.siegel.subspace.degree.two` is
-spanned by these series for `ρ = ρ_{k,j} = det^k ⊗ Sym^j`; for scalar weight `ρ = det^k` and
-`v = 1` they are the Siegel Eisenstein series `ψ_k` of
+The vector-valued Siegel Eisenstein series of weight `ρ` and degree `g` attached to a vector `v ∈ V`
+is `E(v)(Z) = ∑_{(C, D)} ρ(CZ + D)⁻¹ v`, summed over the right cosets of the Siegel parabolic
+subgroup `P = {(A, B; 0, D)}` in `Sp(2g, ℤ)`. For `γ ∈ P`,
+`ρ(C_{γδ}Z + D_{γδ})⁻¹ v = ρ(C_δ Z + D_δ)⁻¹ ρ(D_γ)⁻¹ v`, so the terms only depend on the cosets when
+`v` is fixed by `ρ(GL(g, ℤ))`. The subspace `E_{j,k}(Γ₂)` of the LMFDB knowl
+`mf.siegel.subspace.degree.two` is spanned by these series for `ρ = ρ_{k,j} = det^k ⊗ Sym^j`; for
+scalar weight `ρ = det^k` and `v = 1` they are the Siegel Eisenstein series `ψ_k` of
 `SiegelUpperHalfSpace.siegelEisensteinSeries`, and `1` is invariant for even `k`. That the series
-converge for `k > g + 1` (to Siegel modular forms) and the decompositions of the knowl are not
-proved here. For `j > 0`, `E_{j,k}(Γ₂)` vanishes
+converge for `k > g + 1` (to Siegel modular forms) is not proved here for general `g`. In degree
+`2`, `ψ_k` converges absolutely for `k > 5` and is a Siegel modular form for even `k > 5`
+(`SiegelUpperHalfSpace.summable_siegelEisensteinTerm`,
+`SiegelUpperHalfSpace.siegelEisensteinKJ_mem_modularFormsKJ`, in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelEisensteinConvergence`), and the
+convergence of `ψ₄` is not proved here. For every `j` and every `k > 4`,
+`M_{j,k}(Γ₂) = S_{j,k}(Γ₂) ⊕ E_{j,k}(Γ₂) ⊕ KE_{j,k}(Γ₂)`, with `KE_{j,k}(Γ₂)` the space of
+Klingen–Eisenstein series (`SiegelUpperHalfSpace.modularFormsKJ_eq_sup`, in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoDecomposition`), which is not
+proved here for `k ≤ 4`. The other decompositions of the knowl,
+`M_{j,k}(Γ₂) = S_{j,k}(Γ₂) ⊕ N_{j,k}(Γ₂)` and `N_{j,k}(Γ₂) = E_{j,k}(Γ₂) ⊕ KE_{j,k}(Γ₂)` for the
+Petersson orthogonal complement `N_{j,k}(Γ₂)` of the cusp forms, rest on the Petersson theory of
+`Sp(4, ℤ)` and are not proved here. For `j > 0`, `E_{j,k}(Γ₂)` vanishes
 (`SiegelUpperHalfSpace.siegelEisensteinSubspaceKJ_eq_bot`, in
 `LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.VectorSiegelEisensteinVanishing`).
 
@@ -126,10 +137,11 @@ def siegelEisensteinSubspace : Submodule ℂ (SiegelUpperHalfSpace l → V) :=
   Submodule.span ℂ {F | ∃ v, IsGLIntInvariant ρ v ∧ IsVectorSiegelEisensteinSeries ρ v F}
 
 /-- The space `E_{j,k}(Γ₂)` of **Siegel Eisenstein series of degree `2`** (LMFDB
-`mf.siegel.subspace.degree.two`) and weight `ρ_{k,j} = det^k ⊗ Sym^j`
-(`SiegelUpperHalfSpace.rhoKJ`) on `Γ₂ = Sp(4, ℤ)`, spanned by the vector-valued Siegel Eisenstein
-series of the vectors of `Sym^j(ℂ²)` invariant under `GL(2, ℤ)`. For `j = 0` and even `k > 3` it is
-spanned by `ψ_k`, whose convergence is not proved here; for `j > 0` it vanishes
+`mf.siegel.subspace.degree.two`) and weight `ρ_{k,j} = det^k ⊗ Sym^j` (`SiegelUpperHalfSpace.rhoKJ`)
+on `Γ₂ = Sp(4, ℤ)`, spanned by the vector-valued Siegel Eisenstein series of the vectors of
+`Sym^j(ℂ²)` invariant under `GL(2, ℤ)`. For `j = 0` and even `k > 3` it is spanned by `ψ_k`: this is
+`SiegelUpperHalfSpace.siegelEisensteinSubspaceKJ_eq_span_singleton` for `k > 5`, and the convergence
+of `ψ₄` is not proved here. For `j > 0` it vanishes
 (`SiegelUpperHalfSpace.siegelEisensteinSubspaceKJ_eq_bot`). -/
 noncomputable abbrev siegelEisensteinSubspaceKJ (k : ℤ) (j : ℕ) :
     Submodule ℂ (SiegelUpperHalfSpace (Fin 2) → Sym[ℂ]^j (Fin 2 → ℂ)) :=

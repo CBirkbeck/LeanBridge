@@ -10,8 +10,10 @@ import Mathlib.Topology.Algebra.InfiniteSum.Basic
 
 For a subgroup `Γ` of `Sp(2g, ℚ)`, the translation lattice `L_Γ` is the set of rational symmetric
 `s` with `(1, s; 0, 1) ∈ Γ`, and its dual lattice `L_Γ^∨` is the set of rational symmetric `n` with
-`tr(sn) ∈ ℤ` for every `s ∈ L_Γ`. A Siegel modular form `f` on `Γ` has a Fourier expansion
-`f(τ) = ∑_{n ∈ L_Γ^∨} a(n) e^{2πi tr(nτ)}`.
+`tr(sn) ∈ ℤ` for every `s ∈ L_Γ`. A Siegel modular form `f` of trivial character on an arithmetic
+`Γ`, with values in a finite-dimensional space, has a Fourier expansion
+`f(τ) = ∑_{n ∈ L_Γ^∨} a(n) e^{2πi tr(nτ)}` (`SiegelUpperHalfSpace.exists_hasSiegelFourierExpansion`,
+in `LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierExistence`).
 
 ## Main definitions
 
@@ -90,9 +92,12 @@ variable (f a) in
 `mf.siegel.q-expansion`): `f(τ) = ∑_{n ∈ L_Γ^∨} a(n) e^{2πi tr(nτ)}` for every `τ ∈ ℋ_g`, the sum
 converging unconditionally. As in `SiegelUpperHalfSpace.HasSiegelPhi`, the sum is taken
 coordinatewise, through every linear form on `V`, which is the usual one when `V` is
-finite-dimensional. The coefficients are unique when `L_Γ` contains `N · Sym_g(ℤ)` for some
-`N ≠ 0` (`SiegelUpperHalfSpace.HasSiegelFourierExpansion.unique`); the existence of such an
-expansion for a Siegel modular form on an arithmetic `Γ` is a theorem which is not proved here. -/
+finite-dimensional. The coefficients are unique when `L_Γ` contains `N · Sym_g(ℤ)` for some `N ≠ 0`
+(`SiegelUpperHalfSpace.HasSiegelFourierExpansion.unique`). Such an expansion exists for every Siegel
+modular form of trivial character on an arithmetic `Γ`, when `V` is finite-dimensional
+(`SiegelUpperHalfSpace.exists_hasSiegelFourierExpansion`, in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierExistence`); nontrivial
+characters are not covered. -/
 def HasSiegelFourierExpansion : Prop :=
   ∀ (τ : SiegelUpperHalfSpace l) (φ : Dual ℂ V),
     HasSum (fun n ↦ fourierExp n τ * φ (a n)) (φ (f τ))

@@ -22,7 +22,7 @@ The term *Maass form* is used for automorphic forms on $`GL_{n}` (for some posit
 Instead of satisfying the  Cauchy-Riemann equations (as holomorphic functions do), these functions are eigenfunctions of the Casimir element in the universal enveloping algebra of the Lie algebra of $`GL_{n}`.
 :::
 
-:::definition "mf.maass.exceptional_eigenvalue" (lean := "UpperHalfPlane.IsExceptionalMaassEigenvalue, UpperHalfPlane.isExceptionalMaassEigenvalue_iff, UpperHalfPlane.SelbergEigenvalueConjecture, UpperHalfPlane.conj_eigenvalue_of_mem_maassSpace")
+:::definition "mf.maass.exceptional_eigenvalue" (lean := "UpperHalfPlane.IsExceptionalMaassEigenvalue, UpperHalfPlane.isExceptionalMaassEigenvalue_iff, UpperHalfPlane.SelbergEigenvalueConjecture, UpperHalfPlane.conj_eigenvalue_of_mem_maassSpace, UpperHalfPlane.zero_le_of_mem_maassSpace")
 *Exceptional eigenvalues of Maass forms.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass.exceptional_eigenvalue))
 
 Each {bpref "mf.maass.mwf.eigenvalue"}[eigenvalue] $`\lambda` of a {bpref "mf.maass.mwf"}[Maass form] can be written as $`\lambda = \frac{1}{4} + R^2`, where $`R` is the {bpref "mf.maass.mwf.spectralparameter"}[spectral parameter].
@@ -111,7 +111,7 @@ In both cases the real numbers $`a_n` are the *coefficients* of $`f` and are use
 Depends on: {uses "lfunction"}[] {uses "mf.maass.mwf"}[] {uses "mf.maass.mwf.spectralparameter"}[] {uses "mf.maass.mwf.symmetry"}[] {uses "mf.maass.mwf.weight"}[] {uses "specialfunction.k_bessel"}[]
 :::
 
-:::definition "mf.maass.mwf.dimension" (lean := "UpperHalfPlane.maassMultiplicity, UpperHalfPlane.maassNewSpace, UpperHalfPlane.maassOldSpace, UpperHalfPlane.maassSpace, UpperHalfPlane.maassPetersson, UpperHalfPlane.IsMaassNewform")
+:::definition "mf.maass.mwf.dimension" (lean := "UpperHalfPlane.maassMultiplicity, UpperHalfPlane.maassNewSpace, UpperHalfPlane.maassOldSpace, UpperHalfPlane.maassSpace, UpperHalfPlane.maassPetersson, UpperHalfPlane.IsMaassNewform, UpperHalfPlane.maassMultiplicity_lt_aleph0")
 *Multiplicity of an eigenvalue.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass.mwf.dimension))
 
 The *multiplicity* of an {bpref "mf.maass.mwf.eigenvalue"}[eigenvalue] $`\lambda` of the {bpref "mf.maass.mwf.laplacian"}[Laplace-Beltrami operator] refers to the dimension of the eigenspace $`\mathcal{M}(\Gamma,\chi,\lambda)` of {bpref "mf.maass.mwf"}[Maass newforms] on the group $`\Gamma` of {bpref "cmf.character"}[character] $`\chi` with the same Laplace eigenvalue $`\lambda`.
@@ -258,7 +258,7 @@ Depends on: {uses "specialfunction.k_bessel"}[]
 $`\Delta=y^2(\frac{d^2}{d\Re(x)^2}+\frac{d^2}{d\Im(x)^2}+\frac{d^2}{dy^2})-y\frac{d}{dy}`.
 :::
 
-:::definition "mf.maass.spectral_index"
+:::definition "mf.maass.spectral_index" (lean := "UpperHalfPlane.maassNewformSpectrum, UpperHalfPlane.maassNewformSpectralIndex, UpperHalfPlane.maassNewformSpectralIndexLabel, UpperHalfPlane.finite_maassNewformSpectrum_inter_Iic, UpperHalfPlane.zero_lt_of_mem_maassNewformSpectrum, UpperHalfPlane.maassNewformSpectralIndex_eq_of_quarter_le")
 *Spectral index of a Maass form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass.spectral_index))
 
 The {bpref "mf.maass.mwf.eigenvalue"}[eigenvalues] $`\lambda = \frac{1}{4} + R^2` (written in terms of the {bpref "mf.maass.mwf.spectralparameter"}[spectral parameter] $`R`) are discrete, real, and nonnegative. We order them, and the index of a particular eigenvalue $`\lambda` in this order is called the *spectral index*.

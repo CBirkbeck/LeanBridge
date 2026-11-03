@@ -70,11 +70,15 @@ def HasSiegelPhi : Prop :=
     Tendsto (fun t ↦ φ (f (phiPoint τ t))) atTop (𝓝 (φ (F τ)))
 
 open scoped Classical in
-/-- The **Siegel `Φ` operator** (LMFDB `mf.siegel.phi`)
-`Φ(f)(τ) = lim_{t → ∞} f(diag(τ, it))`, sending `f : ℋ_g → V` to a function on `ℋ_{g-1}`. The
-limit is taken coordinatewise, through every linear form on `V`, and `Φ(f)(τ)` is `0` where it
-does not exist. That it exists, and that `Φ` sends Siegel modular forms of degree `g` to Siegel
-modular forms of degree `g - 1`, is a theorem which is not proved here. -/
+/-- The **Siegel `Φ` operator** (LMFDB `mf.siegel.phi`) `Φ(f)(τ) = lim_{t → ∞} f(diag(τ, it))`,
+sending `f : ℋ_g → V` to a function on `ℋ_{g-1}`. The limit is taken coordinatewise, through every
+linear form on `V`, and `Φ(f)(τ)` is `0` where it does not exist. That it exists, and that `Φ` sends
+Siegel modular forms of degree `g` to Siegel modular forms of degree `g - 1`, is a theorem which is
+not proved here for general `g`. In degree `2` on `Sp(4, ℤ)`, with `ℋ₂` indexed by `Fin 2`,
+`F(diag(τ', it))` tends to `u(τ') e₁^j` for `F ∈ M_{k,j}(Sp(4, ℤ))`, where `u` is a modular form of
+weight `k + j` on `SL(2, ℤ)` (`SiegelUpperHalfSpace.siegelOperatorKJ`,
+`SiegelUpperHalfSpace.tendsto_dual_diagPoint_siegelOperatorKJ`, in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelOperatorKJ`). -/
 noncomputable def siegelPhi : SiegelUpperHalfSpace l → V :=
   fun τ ↦ if h : ∃ v : V, ∀ φ : Dual ℂ V, Tendsto (fun t ↦ φ (f (phiPoint τ t))) atTop (𝓝 (φ v))
     then h.choose else 0

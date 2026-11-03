@@ -29,9 +29,14 @@ open standard domain, for the invariant measure `dx dy / y²`; it does not depen
 fundamental domain (`integrableOn_iff_of_isFundamentalDomain`), nor does the Petersson inner
 product (`maassPetersson_eq_setIntegral`).
 
-Not proved here: that the new space is finite-dimensional and spanned by newforms (Selberg's
-spectral theory of `L²(Γ₀(N) \ ℍ)`, and the commutativity of the Hecke operators on it; their
-self-adjointness for `p ∤ N` is proved in
+For `N ≠ 0`, the Maass cusp forms with eigenvalue `λ` form a finite-dimensional space for every `λ`
+(`UpperHalfPlane.finite_maassCuspSpace`), and the new space is finite-dimensional for `λ ≥ 1/4`
+(`UpperHalfPlane.maassMultiplicity_lt_aleph0`), where all the Maass forms are cusp forms
+(`UpperHalfPlane.mem_maassCuspSpace_of_mem_maassSpace`). Not proved here: that the new space is
+finite-dimensional for `0 < λ < 1/4`, where its elements are not known to be cusp forms
+(classically, by Selberg's spectral theory of `L²(Γ₀(N) \ ℍ)`, the residual spectrum consists of the
+constants); and that it is spanned by newforms (the commutativity of the Hecke operators on it;
+their self-adjointness for `N ≠ 0`, `p ∤ N` and the trivial character is proved in
 `LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.HeckeSelfAdjoint`). The multiplicity is
 therefore defined as a cardinal, the rank of the new space, which is the LMFDB's dimension without
 assuming its finiteness.
@@ -514,16 +519,21 @@ lemma disjoint_maassOldSpace_maassNewSpace :
   Submodule.disjoint_def.mpr fun _ hF hF' ↦ eq_zero_of_maassPetersson_self_eq_zero hF'.1 <|
     hF'.2 _ hF
 
-/-- The **multiplicity** (LMFDB `mf.maass.mwf.dimension`) of an eigenvalue `λ` of the Laplacian
-for Maass forms of weight `0` on `Γ₀(N)` with character `χ`: the dimension of the knowl's
-eigenspace `M(Γ₀(N), χ, λ)` of Maass newforms with eigenvalue `λ`, which is the new space
-`maassNewSpace N χ λ` (not the full space `maassSpace N χ λ`), as a cardinal (the rank). It is
-finite, by the spectral theory of `L²(Γ₀(N) \ ℍ)`, which is not available, so that its
-`Module.finrank` would only be meaningful through that theorem; by Hecke theory (not proved here
-either) it is also the number of newforms with eigenvalue `λ` in a basis of Hecke eigenforms. It
-is expected to be `0` or `1` unless `χ` has a quadratic factor or `9 ∣ N` (the knowl's remarks).
-The knowl also lists eigenvalues coming from an Atkin–Lehner oldspace among the sources of
-multiplicity, which concerns the full space `maassSpace N χ λ` rather than its new space. -/
+/-- The **multiplicity** (LMFDB `mf.maass.mwf.dimension`) of an eigenvalue `λ` of the Laplacian for
+Maass forms of weight `0` on `Γ₀(N)` with character `χ`: the dimension of the knowl's eigenspace
+`M(Γ₀(N), χ, λ)` of Maass newforms with eigenvalue `λ`, which is the new space `maassNewSpace N χ λ`
+(not the full space `maassSpace N χ λ`), as a cardinal (the rank). It is finite for `N ≠ 0` and
+`λ ≥ 1/4` (`maassMultiplicity_lt_aleph0`), so that its `Module.finrank` is meaningful for these `λ`.
+A nonzero Maass form has a real nonnegative eigenvalue (`conj_eigenvalue_of_mem_maassSpace`,
+`zero_le_of_mem_maassSpace`), and is constant for the eigenvalue `0`
+(`apply_eq_of_mem_maassSpace_zero`). For `0 < λ < 1/4` the finiteness is not proved here: the Maass
+cusp forms have finite dimension for `N ≠ 0` and every `λ` (`finite_maassCuspSpace`), but that a
+Maass form with such an eigenvalue is a cusp form is classical (the residual spectrum of `Γ₀(N)`
+consists of the constants) and not proved here. By Hecke theory (not proved here either) the
+multiplicity is also the number of newforms with eigenvalue `λ` in a basis of Hecke eigenforms. It
+is expected to be `0` or `1` unless `χ` has a quadratic factor or `9 ∣ N` (the knowl's remarks). The
+knowl also lists eigenvalues coming from an Atkin–Lehner oldspace among the sources of multiplicity,
+which concerns the full space `maassSpace N χ λ` rather than its new space. -/
 noncomputable def maassMultiplicity : Cardinal :=
   Module.rank ℂ (maassNewSpace N χ eigenvalue)
 

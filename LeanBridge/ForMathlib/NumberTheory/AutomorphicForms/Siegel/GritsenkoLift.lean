@@ -21,14 +21,16 @@ it is the Gritsenko lift of level `1` (`maassLift_eq_gritsenkoLift`).
 
 The two lifts are defined here by these formulas, as sums of series (`tsum`). That the series
 converge absolutely on `ℋ₂`, which needs the polynomial growth of the coefficients `c(n, r)`, and
-the theorems of Gritsenko and of Maass are stated (`GritsenkoLiftTheorem`, `MaassLiftTheorem`);
-the theorem of Maass is proved in
+the theorems of Gritsenko and of Maass are stated (`GritsenkoLiftTheorem`, `MaassLiftTheorem`); the
+theorem of Maass is proved in
 `LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftCuspForm`
-(`SiegelUpperHalfSpace.maassLiftTheorem`), that of Gritsenko is not proved. The coefficient
-formula of the knowl `mf.siegel.lift.gritsenko` was checked numerically
-on `φ = φ_{10,1}^N ∈ J_{10N,N}^cusp`, `N = 1, 2, 3`, against elements of `K(N)` outside its Jacobi
-subgroup, such as `(τ, z, ω) ↦ (τ - z²/ω, z/(Nω), -1/(N²ω))`: no condition `gcd(d, N) = 1` on the
-divisors `d` is needed (with that condition the lift is not paramodular).
+(`SiegelUpperHalfSpace.maassLiftTheorem`), that of Gritsenko in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.GritsenkoLiftCuspForm`
+(`SiegelUpperHalfSpace.gritsenkoLiftTheorem`). The coefficient formula of the knowl
+`mf.siegel.lift.gritsenko` was checked numerically on `φ = φ_{10,1}^N ∈ J_{10N,N}^cusp`,
+`N = 1, 2, 3`, against elements of `K(N)` outside its Jacobi subgroup, such as
+`(τ, z, ω) ↦ (τ - z²/ω, z/(Nω), -1/(N²ω))`: no condition `gcd(d, N) = 1` on the divisors `d` is
+needed (with that condition the lift is not paramodular).
 
 ## Main definitions
 
@@ -86,17 +88,20 @@ of `φ : ℍ × ℂ → ℂ`, a function on the Siegel upper half-space `ℋ₂`
 coefficients: `Grit(φ)(Z) = ∑_{n, r, m ∈ ℤ} a(n, r, m) e^{2πi(nτ + rz + Nmω)}` for
 `Z = (τ, z; z, ω)`, where `a(n, r, m) = ∑_{d ∣ (n, r, m)} d^{k-1} c(nm/d², r/d)` for `m ≥ 1` and
 `a(n, r, m) = 0` otherwise (`gritsenkoCoeff`), and `c(n, r)` are the Fourier coefficients of `φ`
-(`jacobiCoeff`). For a Jacobi cusp form `φ ∈ J_{k,N}^cusp` the series converges absolutely and
-`Grit(φ)` is a paramodular cusp form in `S_k(K(N))`, the frequencies `Nm` of `ω` being those of the
-Fourier expansions on `K(N)` (`GritsenkoLiftTheorem`, not proved here). The `tsum` is the sum of the
-series wherever it converges absolutely, and the junk value `0` elsewhere. -/
+(`jacobiCoeff`). For `N ≥ 1` and a Jacobi cusp form `φ ∈ J_{k,N}^cusp` the series converges
+absolutely and `Grit(φ)` is a paramodular cusp form in `S_k(K(N))`, the frequencies `Nm` of `ω`
+being those of the Fourier expansions on `K(N)` (`GritsenkoLiftTheorem`, proved as
+`gritsenkoLiftTheorem` in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.GritsenkoLiftCuspForm`). The `tsum` is
+the sum of the series wherever it converges absolutely, and the junk value `0` elsewhere. -/
 noncomputable def gritsenkoLift : ℂ :=
   ∑' p : ℤ × ℤ × ℤ, gritsenkoCoeff k (jacobiCoeff φ) p.1 p.2.1 p.2.2 * liftExp N p.1 p.2.1 p.2.2 Z
 
 /-- **Gritsenko's theorem** (LMFDB `mf.siegel.lift.gritsenko`), as a statement: for `N ≥ 1` and a
 Jacobi cusp form `φ ∈ J_{k,N}^cusp`, the series of the Gritsenko lift converges absolutely on `ℋ₂`,
 and `Grit(φ)` is a paramodular cusp form of weight `k` and level `N`: `Grit(φ) ∈ S_k(K(N))`, where
-`K(N) = Γ^para(1, N)`. It is a theorem of Gritsenko, which is not proved here. -/
+`K(N) = Γ^para(1, N)`. It is proved as `gritsenkoLiftTheorem` in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.GritsenkoLiftCuspForm`. -/
 structure GritsenkoLiftTheorem : Prop where
   summable : ∀ (k : ℤ) (N : ℕ+) (φ : ℍ × ℂ → ℂ), φ ∈ jacobiCuspFormSpace k N →
     ∀ Z : SiegelUpperHalfSpace (Fin 2), Summable fun p : ℤ × ℤ × ℤ ↦

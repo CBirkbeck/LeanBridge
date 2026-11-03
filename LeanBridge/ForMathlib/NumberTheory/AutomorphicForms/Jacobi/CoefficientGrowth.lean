@@ -24,7 +24,11 @@ out with the transformation laws of `φ`:
   `N`, so `c(n, r) = 0`.
 
 The polynomial bound is the hypothesis of
-`SiegelUpperHalfSpace.maassLift_mem_scalarModularForms_of_norm_jacobiCoeff_le`.
+`SiegelUpperHalfSpace.maassLift_mem_scalarModularForms_of_norm_jacobiCoeff_le`. For every index
+`N ≥ 1`, the bound and the vanishing for `k ≤ 0` are
+`ModularForm.norm_jacobiCoeff_le_of_mem_jacobiFormSpace` and
+`ModularForm.eq_zero_of_mem_jacobiFormSpace_of_nonpos`, in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.CoefficientGrowthIndex`.
 
 ## Main definitions
 

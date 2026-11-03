@@ -741,7 +741,7 @@ form $`E_{n, n_1}(f)` of degree $`n` and weight $`k` such that the {bpref "mf.si
 operator] maps $`E_{n, n_1}(f)` to $`f`.
 :::
 
-:::definition "mf.siegel.koecher.principle" (lean := "SiegelUpperHalfSpace.KoecherPrinciple, SiegelUpperHalfSpace.koecherPrinciple, SiegelUpperHalfSpace.HasSiegelFourierExpansion, SiegelUpperHalfSpace.dualLattice, SiegelUpperHalfSpace.modularForms, SymplecticGroup.IsArithmetic")
+:::definition "mf.siegel.koecher.principle" (lean := "SiegelUpperHalfSpace.KoecherPrinciple, SiegelUpperHalfSpace.koecherPrinciple, SiegelUpperHalfSpace.HasSiegelFourierExpansion, SiegelUpperHalfSpace.dualLattice, SiegelUpperHalfSpace.modularForms, SymplecticGroup.IsArithmetic, SiegelUpperHalfSpace.exists_hasSiegelFourierExpansion")
 *Koecher principle.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.koecher.principle))
 
 Let $`f(\tau)=\sum_{n\in L_{\Gamma}^{\vee}} a(n) e^{2 \pi i \text{tr}(n\tau)}` be the {bpref "mf.siegel.q-expansion"}[q-expansion] of $`f\in M_{\rho}(\Gamma)`.
@@ -802,7 +802,7 @@ Depends on: {uses "mf.siegel"}[]
 A Siegel eigenform is a lift if its Euler factors are products of Euler factors that arise from Siegel modular forms of lower genus.
 :::
 
-:::definition "mf.siegel.lift.gritsenko" (lean := "SiegelUpperHalfSpace.gritsenkoLift, SiegelUpperHalfSpace.gritsenkoCoeff, SiegelUpperHalfSpace.GritsenkoLiftTheorem, ModularForm.jacobiCoeff, ModularForm.HasJacobiFourierExpansion.unique")
+:::definition "mf.siegel.lift.gritsenko" (lean := "SiegelUpperHalfSpace.gritsenkoLift, SiegelUpperHalfSpace.gritsenkoCoeff, SiegelUpperHalfSpace.GritsenkoLiftTheorem, ModularForm.jacobiCoeff, ModularForm.HasJacobiFourierExpansion.unique, SiegelUpperHalfSpace.gritsenkoLiftTheorem, SiegelUpperHalfSpace.gritsenkoLift_ne_zero")
 *Gritsenko lift.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.lift.gritsenko))
 
 Given a Jacobi cusp form
@@ -1047,7 +1047,7 @@ f\begin{pmatrix}\tau&0\\0&it\end{pmatrix} \quad \text{for any } \tau \in \mathfr
 Depends on: {uses "mf.siegel.degree"}[]
 :::
 
-:::definition "mf.siegel.q-expansion" (lean := "SiegelUpperHalfSpace.HasSiegelFourierExpansion, SiegelUpperHalfSpace.translationLattice, SiegelUpperHalfSpace.dualLattice, SiegelUpperHalfSpace.fourierExp, SiegelUpperHalfSpace.HasSiegelFourierExpansion.unique")
+:::definition "mf.siegel.q-expansion" (lean := "SiegelUpperHalfSpace.HasSiegelFourierExpansion, SiegelUpperHalfSpace.translationLattice, SiegelUpperHalfSpace.dualLattice, SiegelUpperHalfSpace.fourierExp, SiegelUpperHalfSpace.HasSiegelFourierExpansion.unique, SiegelUpperHalfSpace.exists_hasSiegelFourierExpansion")
 *Fourier expansion smf.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.q-expansion))
 
 Let $`f` be a {bpref "mf.siegel"}[Siegel modular form] of

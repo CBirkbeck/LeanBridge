@@ -30,14 +30,24 @@ instance for `(k, j) = (5, 7)`. For `k` odd and `j` even both spaces vanish. For
 of the series depend on the representatives of the cosets, up to a sign, which is why
 `KE_{j,k}(Γ₂)` is taken inside `M_{j,k}(Γ₂)`.
 
-Not proved here: that `M_{j,k}(Γ₂) = S_{j,k}(Γ₂) ⊕ E_{j,k}(Γ₂) ⊕ KE_{j,k}(Γ₂)`, which needs the
-Fourier expansions of Siegel modular forms (not available) to define the Siegel operator on all of
-`M_{j,k}(Γ₂)`, and, for `j = 0`, the convergence of the Siegel Eisenstein series (for `j > 0`,
-`E_{j,k}(Γ₂) = 0` by `SiegelUpperHalfSpace.siegelEisensteinSubspaceKJ_eq_bot`); that `KE_{j,k}(Γ₂)`
-is orthogonal to the cusp forms for the Petersson product (the unfolding of the integral over a
-fundamental domain); and the stability of `E_{j,k}(Γ₂)`, `KE_{j,k}(Γ₂)` and `N_{j,k}(Γ₂)` under the
-Hecke operators (for `M_{j,k}(Γ₂)` and `S_{j,k}(Γ₂)` it is
-`SiegelUpperHalfSpace.heckeOperator_mem_modularFormsKJ` and
+By `SiegelUpperHalfSpace.modularFormsKJ_eq_sup`, in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoDecomposition`,
+`M_{j,k}(Γ₂) = S_{j,k}(Γ₂) + E_{j,k}(Γ₂) + KE_{j,k}(Γ₂)` for every `j` and every `k > 4`, and the
+sum is direct by `SiegelUpperHalfSpace.disjoint_klingenEisensteinSubspaceKJ_cuspFormsKJ` and
+`SiegelUpperHalfSpace.disjoint_sup_siegelEisensteinSubspaceKJ`. The proof uses the Siegel operator
+on all of `M_{j,k}(Γ₂)` (`SiegelUpperHalfSpace.siegelOperatorKJ`), defined through the Fourier
+expansions of Siegel modular forms (`SiegelUpperHalfSpace.exists_hasSiegelFourierExpansion`), and,
+for `j = 0` and even `k`, the Siegel Eisenstein series `ψ_k`, which converges for `k > 5`
+(`SiegelUpperHalfSpace.summable_siegelEisensteinTerm`); for `j > 0`, `E_{j,k}(Γ₂) = 0` by
+`SiegelUpperHalfSpace.siegelEisensteinSubspaceKJ_eq_bot`.
+
+Not proved here: this decomposition for `k ≤ 4`; the decompositions
+`M_{j,k}(Γ₂) = S_{j,k}(Γ₂) ⊕ N_{j,k}(Γ₂)` and `N_{j,k}(Γ₂) = E_{j,k}(Γ₂) ⊕ KE_{j,k}(Γ₂)` for the
+Petersson orthogonal complement `N_{j,k}(Γ₂)` of the cusp forms, and with them the Petersson theory
+of `Sp(4, ℤ)`, in particular that `KE_{j,k}(Γ₂)` is orthogonal to the cusp forms for the Petersson
+product (the unfolding of the integral over a fundamental domain); and the stability of
+`E_{j,k}(Γ₂)`, `KE_{j,k}(Γ₂)` and `N_{j,k}(Γ₂)` under the Hecke operators (for `M_{j,k}(Γ₂)` and
+`S_{j,k}(Γ₂)` it is `SiegelUpperHalfSpace.heckeOperator_mem_modularFormsKJ` and
 `SiegelUpperHalfSpace.heckeOperator_mem_cuspFormsKJ`).
 
 ## Main definitions

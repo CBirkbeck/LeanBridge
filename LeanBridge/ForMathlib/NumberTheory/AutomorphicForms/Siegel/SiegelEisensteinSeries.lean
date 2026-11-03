@@ -5,15 +5,20 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.IbukiyamaRings
 
 The Siegel Eisenstein series of degree `g` and weight `k` is `ψ_k(Z) = ∑_{(C, D)} det(CZ + D)^{-k}`,
 summed over the bottom rows `(C, D)` of the elements of `Sp(2g, ℤ)` up to left multiplication by
-`GL(g, ℤ)`, that is over the right cosets `Pγ` of the Siegel parabolic subgroup
-`P = {(A, B; 0, D)}` of `Sp(2g, ℤ)`: left multiplication by `(A, B; 0, D) ∈ P` changes the bottom
-row `(C, D')` into `(DC, DD')`, and `D` runs over `GL(g, ℤ)`, with `A = D^{-T}` and `B = 0`. For
-`γ ∈ P`, `det(C_{γδ}Z + D_{γδ}) = det(D_γ) det(C_δ Z + D_δ)` with `det D_γ = ±1`, so for even `k`
-the terms only depend on the cosets. Siegel proved that for even `k > g + 1` the series converges
-absolutely to a Siegel modular form of weight `k` on `Sp(2g, ℤ)`; this is not proved here. It is
-the Klingen Eisenstein series of the constant `1` of degree `0` (`klingenEisensteinSeries` with
-`r = 0`), which lives on the Siegel upper half-space indexed by `Empty ⊕ l`; it is defined here
-directly on the one indexed by `l`, as the knowl defines it.
+`GL(g, ℤ)`, that is over the right cosets `Pγ` of the Siegel parabolic subgroup `P = {(A, B; 0, D)}`
+of `Sp(2g, ℤ)`: left multiplication by `(A, B; 0, D) ∈ P` changes the bottom row `(C, D')` into
+`(DC, DD')`, and `D` runs over `GL(g, ℤ)`, with `A = D^{-T}` and `B = 0`. For `γ ∈ P`,
+`det(C_{γδ}Z + D_{γδ}) = det(D_γ) det(C_δ Z + D_δ)` with `det D_γ = ±1`, so for even `k` the terms
+only depend on the cosets. Siegel proved that for even `k > g + 1` the series converges absolutely
+to a Siegel modular form of weight `k` on `Sp(2g, ℤ)`; this is not proved here for general `g`. In
+degree `2`, the series converges absolutely for `k > 5`
+(`SiegelUpperHalfSpace.summable_siegelEisensteinTerm`), and for even `k > 5` it is a Siegel modular
+form with constant term `1` (`SiegelUpperHalfSpace.siegelEisensteinKJ_mem_modularFormsKJ`,
+`SiegelUpperHalfSpace.tendsto_siegelEisensteinSeries_scalarPoint`), in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelEisensteinConvergence`; `ψ₄` is
+not covered. The series `ψ_k` is the Klingen Eisenstein series of the constant `1` of degree `0`
+(`klingenEisensteinSeries` with `r = 0`), which lives on the Siegel upper half-space indexed by
+`Empty ⊕ l`; it is defined here directly on the one indexed by `l`, as the knowl defines it.
 
 ## Main definitions
 
@@ -87,9 +92,13 @@ weight `k`: `ψ_k(Z) = ∑_{(C, D)} det(CZ + D)^{-k}`, the sum over the bottom r
 elements of `Sp(2g, ℤ)` up to left multiplication by `GL(g, ℤ)`, that is over the right cosets of
 the Siegel parabolic subgroup `{(A, B; 0, D)}`, with chosen representatives; for even `k` the terms
 do not depend on them (`siegelEisensteinTerm_mul`). The knowl takes `k` even with `k > g + 1`, where
-the series converges absolutely to a Siegel modular form of weight `k` on `Sp(2g, ℤ)`, with
-constant term `1` (Siegel); this is not proved here. The `tsum` is the sum of the series wherever it
-converges absolutely, and the junk value `0` elsewhere. -/
+the series converges absolutely to a Siegel modular form of weight `k` on `Sp(2g, ℤ)`, with constant
+term `1` (Siegel); this is not proved here for general `g`. In degree `2` and for even `k > 5` it is
+`summable_siegelEisensteinTerm`, `siegelEisensteinKJ_mem_modularFormsKJ` and
+`tendsto_siegelEisensteinSeries_scalarPoint`, in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelEisensteinConvergence`; `ψ₄` is
+not covered. The `tsum` is the sum of the series wherever it converges absolutely, and the junk
+value `0` elsewhere. -/
 noncomputable def siegelEisensteinSeries : ℂ :=
   ∑' x : SymplecticGroup.SiegelParabolicCosets l, siegelEisensteinTerm k Z x.out
 

@@ -14,7 +14,11 @@ depend on the cosets `P_{n,r} γ`. Here `ℋ_n` is indexed by `l ⊕ m` with `|l
 
 Klingen proved that for a cusp form `f` of even weight `k > n + r + 1` the series converges
 absolutely to a Siegel modular form of degree `n` with `Φ^{n-r}(E_{n,r}(f)) = f`, the property by
-which the LMFDB knowl characterises it; this is not proved here.
+which the LMFDB knowl characterises it; this is not proved here for general `n` and `r`. In degree
+`n = 2`, see the separately defined series `SiegelUpperHalfSpace.vectorKlingenEisenstein` of weight
+`ρ_{k,j}`, for `r = 1` and even `k > 4`, in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.VectorKlingenEisenstein`, and the Siegel
+Eisenstein series `SiegelUpperHalfSpace.siegelEisensteinSeries`, for `r = 0` and even `k > 5`.
 
 ## Main definitions
 
@@ -209,16 +213,17 @@ lemma klingenTerm_mul (hk : Even k) (hf : ∀ (β : symplecticGroup l ℤ) (τ :
 
 /-- The **Klingen Eisenstein series** `E_{n,r}(f)` (LMFDB `mf.siegel.klingen_eisenstein_series`) of
 `f : ℋ_r → ℂ` of weight `k`:
-`E_{n,r}(f)(Z) = ∑_{γ ∈ P_{n,r} \ Sp(2n, ℤ)} f((γZ)*) det(CZ + D)^{-k}`, the sum over the cosets
-of the Klingen parabolic subgroup `P_{n,r}`, with chosen representatives; for a modular form `f`
-of even weight the terms do not depend on them (`klingenTerm_mul`). For a cusp form `f` of degree
-`r` and even weight `k > n + r + 1` the series converges absolutely to a Siegel modular form of
-degree `n` and weight `k` with `Φ^{n-r}(E_{n,r}(f)) = f`, which is how the knowl characterises it
-(Klingen); this is not proved here. The `tsum` is the sum of the series wherever it converges
-absolutely, so in particular for those `f` and `k`, and is the junk value `0` elsewhere. The
-knowl's characterisation does not determine `E_{n,r}(f)` (adding a cusp form preserves it) and
-needs `k` even: for odd `k` and `r < n`, no Siegel modular form `F` of degree `n` has
-`Φ^{n-r} F ≠ 0`. For `r = 0` and `f = 1` this is the Siegel Eisenstein series. -/
+`E_{n,r}(f)(Z) = ∑_{γ ∈ P_{n,r} \ Sp(2n, ℤ)} f((γZ)*) det(CZ + D)^{-k}`, the sum over the cosets of
+the Klingen parabolic subgroup `P_{n,r}`, with chosen representatives; for a modular form `f` of
+even weight the terms do not depend on them (`klingenTerm_mul`). For a cusp form `f` of degree `r`
+and even weight `k > n + r + 1` the series converges absolutely to a Siegel modular form of degree
+`n` and weight `k` with `Φ^{n-r}(E_{n,r}(f)) = f`, which is how the knowl characterises it
+(Klingen); this is not proved here for general `n` and `r` (in degree `n = 2`, see
+`vectorKlingenEisenstein` for `r = 1` and `siegelEisensteinSeries` for `r = 0`). The `tsum` is the
+sum of the series wherever it converges absolutely, so in particular for those `f` and `k`, and is
+the junk value `0` elsewhere. The knowl's characterisation does not determine `E_{n,r}(f)` (adding a
+cusp form preserves it) and needs `k` even: for odd `k` and `r < n`, no Siegel modular form `F` of
+degree `n` has `Φ^{n-r} F ≠ 0`. For `r = 0` and `f = 1` this is the Siegel Eisenstein series. -/
 noncomputable def klingenEisensteinSeries : ℂ :=
   ∑' x : SymplecticGroup.KlingenCosets l m, klingenTerm Z k f x.out
 

@@ -12,8 +12,15 @@ sum of series, for the first two kinds of generators: for the translations it ho
 the exponentials being periodic, and for the swap, whose automorphy factor has determinant `-1`, it
 holds in even weight `k`, the coefficients `a(n, r, m)` being symmetric in `n` and `m`, and for all
 Jacobi forms of index `1`, as there are none of odd weight. The invariance under the Jacobi group,
-which needs the index raising operators `V_m` of Eichler and Zagier, the convergence of the series
-and the generation of `Sp(4, ℤ)` are not proved here.
+which needs the index raising operators `V_m` of Eichler and Zagier
+(`SiegelUpperHalfSpace.maassLift_smul_of_mem_siegelParabolic`,
+`SiegelUpperHalfSpace.maassLift_partialInversion_smul`,
+`SiegelUpperHalfSpace.maassFourierJacobi_eq_indexRaising`), the convergence of the series
+(`SiegelUpperHalfSpace.summable_maassLift_of_mem_jacobiFormSpace`) and the generation of `Sp(4, ℤ)`
+by the Siegel parabolic subgroup and the partial inversion `J₁`
+(`SymplecticGroup.closure_insert_partialInversion_eq_top`) are proved in other files, and the
+theorem of Maass is `SiegelUpperHalfSpace.maassLiftTheorem`, in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftCuspForm`.
 
 ## Main definitions
 

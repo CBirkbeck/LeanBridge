@@ -3296,7 +3296,8 @@
     "IsNonarchimedeanLocalField.HerbrandInvariant.pointType": "LeanBridge.ForMathlib.NumberTheory.LocalField.EisensteinDiagram",
     "IsNonarchimedeanLocalField.HerbrandInvariant.band": "LeanBridge.ForMathlib.NumberTheory.LocalField.EisensteinDiagram",
     "IsNonarchimedeanLocalField.HerbrandInvariant.pointIndex": "LeanBridge.ForMathlib.NumberTheory.LocalField.EisensteinDiagram",
-    "IsNonarchimedeanLocalField.HerbrandInvariant.IsCritical": "LeanBridge.ForMathlib.NumberTheory.LocalField.EisensteinDiagram"
+    "IsNonarchimedeanLocalField.HerbrandInvariant.IsCritical": "LeanBridge.ForMathlib.NumberTheory.LocalField.EisensteinDiagram",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.mongeRepresentation": "LeanBridge.ForMathlib.NumberTheory.LocalField.MongeRepresentationProof"
   },
   "lf.eisenstein_form": {
     "Polynomial.IsEisensteinForm": "LeanBridge.ForMathlib.RingTheory.Polynomial.EisensteinForm",
@@ -3328,6 +3329,14 @@
     "IsNonarchimedeanLocalField.extensionMass": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamily",
     "IsNonarchimedeanLocalField.absoluteExtensionMass": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamily",
     "IsNonarchimedeanLocalField.extensionMass_eq_of_algEquiv": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamily"
+  },
+  "lf.family_polynomial": {
+    "IsNonarchimedeanLocalField.HerbrandInvariant.family": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamily",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.absoluteFamily": "LeanBridge.ForMathlib.NumberTheory.LocalField.FamilyGenericPolynomial",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.genericPolynomial": "LeanBridge.ForMathlib.NumberTheory.LocalField.FamilyGenericPolynomial",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.mongeSemicanonicalPolynomials": "LeanBridge.ForMathlib.NumberTheory.LocalField.MongeReduction",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.mongeRepresentation": "LeanBridge.ForMathlib.NumberTheory.LocalField.MongeRepresentationProof",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.inseparabilityIndex_eq_of_isInvariantOf": "LeanBridge.ForMathlib.NumberTheory.LocalField.MongeInseparability"
   },
   "lf.galois_invariants": {
     "IsNonarchimedeanLocalField.wildArtinSlopes": "LeanBridge.ForMathlib.NumberTheory.LocalField.WildArtinSlopes",
@@ -3875,7 +3884,8 @@
     "UpperHalfPlane.IsExceptionalMaassEigenvalue": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane",
     "UpperHalfPlane.isExceptionalMaassEigenvalue_iff": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane",
     "UpperHalfPlane.SelbergEigenvalueConjecture": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane",
-    "UpperHalfPlane.conj_eigenvalue_of_mem_maassSpace": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.EigenvalueReal"
+    "UpperHalfPlane.conj_eigenvalue_of_mem_maassSpace": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.EigenvalueReal",
+    "UpperHalfPlane.zero_le_of_mem_maassSpace": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.KernelPair"
   },
   "mf.maass.mwf": {
     "UpperHalfPlane.IsMaassForm": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane",
@@ -3898,7 +3908,8 @@
     "UpperHalfPlane.maassOldSpace": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.Newform",
     "UpperHalfPlane.maassSpace": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.Newform",
     "UpperHalfPlane.maassPetersson": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.Newform",
-    "UpperHalfPlane.IsMaassNewform": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.Newform"
+    "UpperHalfPlane.IsMaassNewform": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.Newform",
+    "UpperHalfPlane.maassMultiplicity_lt_aleph0": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.CuspidalOfStandardEigenvalue"
   },
   "mf.maass.mwf.eigenvalue": {
     "UpperHalfPlane.IsMaassForm": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane",
@@ -3959,6 +3970,14 @@
   },
   "mf.maass.picard.laplacian": {
     "HyperbolicThreeSpace.laplacian": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.UpperHalfSpace"
+  },
+  "mf.maass.spectral_index": {
+    "UpperHalfPlane.maassNewformSpectrum": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformSpectrum",
+    "UpperHalfPlane.maassNewformSpectralIndex": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformSpectrum",
+    "UpperHalfPlane.maassNewformSpectralIndexLabel": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformSpectrum",
+    "UpperHalfPlane.finite_maassNewformSpectrum_inter_Iic": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformSpectrum",
+    "UpperHalfPlane.zero_lt_of_mem_maassNewformSpectrum": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformSpectrum",
+    "UpperHalfPlane.maassNewformSpectralIndex_eq_of_quarter_le": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformSpectrum"
   },
   "mf.multipliersystem": {
     "MonoidHom.IsMultiplierSystem": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.Basic",
@@ -4100,7 +4119,8 @@
     "SiegelUpperHalfSpace.HasSiegelFourierExpansion": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierExpansion",
     "SiegelUpperHalfSpace.dualLattice": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierExpansion",
     "SiegelUpperHalfSpace.modularForms": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ModularForm",
-    "SymplecticGroup.IsArithmetic": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.Level"
+    "SymplecticGroup.IsArithmetic": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.Level",
+    "SiegelUpperHalfSpace.exists_hasSiegelFourierExpansion": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierExistence"
   },
   "mf.siegel.level": {
     "SymplecticGroup.IsCongruenceOfLevel": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.Level",
@@ -4113,7 +4133,9 @@
     "SiegelUpperHalfSpace.gritsenkoCoeff": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.GritsenkoLift",
     "SiegelUpperHalfSpace.GritsenkoLiftTheorem": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.GritsenkoLift",
     "ModularForm.jacobiCoeff": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.FourierCoefficients",
-    "ModularForm.HasJacobiFourierExpansion.unique": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.FourierCoefficients"
+    "ModularForm.HasJacobiFourierExpansion.unique": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.FourierCoefficients",
+    "SiegelUpperHalfSpace.gritsenkoLiftTheorem": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.GritsenkoLiftCuspForm",
+    "SiegelUpperHalfSpace.gritsenkoLift_ne_zero": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.GritsenkoLiftCuspForm"
   },
   "mf.siegel.lift.maass": {
     "SiegelUpperHalfSpace.maassLift": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.GritsenkoLift",
@@ -4149,7 +4171,8 @@
     "SiegelUpperHalfSpace.translationLattice": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierExpansion",
     "SiegelUpperHalfSpace.dualLattice": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierExpansion",
     "SiegelUpperHalfSpace.fourierExp": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierExpansion",
-    "SiegelUpperHalfSpace.HasSiegelFourierExpansion.unique": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierUniqueness"
+    "SiegelUpperHalfSpace.HasSiegelFourierExpansion.unique": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierUniqueness",
+    "SiegelUpperHalfSpace.exists_hasSiegelFourierExpansion": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierExistence"
   },
   "mf.siegel.slash.op": {
     "SiegelUpperHalfSpace.gspSlash": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SimilitudeSlash",

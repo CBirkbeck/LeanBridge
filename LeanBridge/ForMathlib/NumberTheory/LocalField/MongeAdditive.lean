@@ -26,8 +26,12 @@ power of `p` dividing `r` are compared by the identity
 a single `m`, as the level is strictly increasing in `m`. By Monge's Lemma 3 and the discussion
 after it, if `π + π ^ (m + 1) θ` is a root of a monic polynomial `g'` of degree `n`, then the digits
 of `g` and `g'` below the level `N = σ + n` are the same, and their digits at `σ` differ by an
-element of Monge's image. The second statement of Proposition 2 (`S_m` has more than one monomial
-exactly at the ramification breaks) and its statement for `m = 0` are not formalised.
+element of Monge's image. The second statement of Proposition 2 is that `S_m` has more than one
+monomial exactly at the ramification breaks. Away from the breaks, `S_m` has only one monomial when
+the ramification polygon of `g` at `π` is that of a Herbrand invariant
+(`IsNonarchimedeanLocalField.HerbrandInvariant.pow_succ_dvd_coeff_mongeShift_of_ne`, in
+`LeanBridge.ForMathlib.NumberTheory.LocalField.MongeLevels`). That `S_m` has more than one monomial
+at a break, and the statement of Proposition 2 for `m = 0`, are not formalised.
 
 ## Main definitions
 

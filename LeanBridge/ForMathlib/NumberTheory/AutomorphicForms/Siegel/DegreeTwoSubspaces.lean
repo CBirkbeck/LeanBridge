@@ -6,10 +6,11 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PeterssonProdu
 
 The space `M_{k,j}(Γ)` of Siegel modular forms of degree `2` and weight `ρ_{k,j} = det^k ⊗ Sym^j`
 decomposes as `M_{k,j}(Γ) = S_{k,j}(Γ) ⊕ N_{k,j}(Γ)`, where `N_{k,j}(Γ)` is the orthogonal
-complement of the cusp forms for the Petersson inner product, which converges as soon as one of
-the forms is a cusp form. For `Γ = Sp(4, ℤ)` the LMFDB further decomposes `N_{k,j}` into the
-subspaces of Siegel Eisenstein series and Klingen–Eisenstein series. The decomposition and the
-stability of `N_{k,j}(Γ)` under the Hecke operators are theorems which are not proved here. On
+complement of the cusp forms for the Petersson inner product, which converges as soon as one of the
+forms is a cusp form. For `Γ = Sp(4, ℤ)` the LMFDB further decomposes `N_{k,j}` into the subspaces
+of Siegel Eisenstein series and Klingen–Eisenstein series. These two decompositions and the
+stability of `N_{k,j}(Γ)` under the Hecke operators are theorems which are not proved here: they
+rest on the Petersson theory of `Γ`, which is not proved here even for `Γ = Sp(4, ℤ)`. On
 `Γ = Sp(4, ℤ)`, the Hecke operators preserve `M_{k,j}(Γ)` and `S_{k,j}(Γ)`
 (`SiegelUpperHalfSpace.heckeOperator_mem_modularFormsKJ`,
 `SiegelUpperHalfSpace.heckeOperator_mem_cuspFormsKJ`, in
@@ -22,7 +23,11 @@ Klingen–Eisenstein series are `SiegelUpperHalfSpace.vectorKlingenEisenstein`, 
 `LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.VectorKlingenEisenstein`; the modular
 forms in their span form `SiegelUpperHalfSpace.klingenEisensteinSubspaceKJ`, which is isomorphic to
 the space of cusp forms of weight `k + j` on `SL(2, ℤ)` for `k > 4` and `j` even
-(`SiegelUpperHalfSpace.klingenEisensteinEquiv`).
+(`SiegelUpperHalfSpace.klingenEisensteinEquiv`). On `Γ = Sp(4, ℤ)`, for every `j` and every `k > 4`,
+`M_{k,j}(Γ)` is the direct sum of `S_{k,j}(Γ)` and these two spaces of series
+(`SiegelUpperHalfSpace.modularFormsKJ_eq_sup`, in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoDecomposition`), which does not
+identify their sum with `N_{k,j}(Γ)`.
 
 ## Main definitions
 
