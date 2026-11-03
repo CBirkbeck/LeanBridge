@@ -69,6 +69,21 @@ greatest common divisor of `n, r, m`; it is `0` for `n = r = m = 0`. -/
 noncomputable def liftDivisorSum : ℂ :=
   ∑ d ∈ ((n.gcd r : ℤ).gcd m).divisors, (d : ℂ) ^ (k - 1) * c (n * m / (d : ℤ) ^ 2, r / d)
 
+lemma sq_mul_disc_level {d : ℕ} (hd : d ∈ ((n.gcd r : ℤ).gcd m).divisors) :
+    (d : ℤ) ^ 2 * (4 * (n * m / (d : ℤ) ^ 2) * N - (r / d) ^ 2) = 4 * n * m * N - r ^ 2 := by
+  have hd0 : (d : ℤ) ≠ 0 := Nat.cast_ne_zero.mpr (Nat.pos_of_mem_divisors hd).ne'
+  have hg : (d : ℤ) ∣ ((n.gcd r : ℤ).gcd m : ℤ) :=
+    Int.natCast_dvd_natCast.mpr (Nat.dvd_of_mem_divisors hd)
+  have hg' : (d : ℤ) ∣ (n.gcd r : ℤ) := hg.trans (Int.gcd_dvd_left _ _)
+  rcases hg'.trans (Int.gcd_dvd_left _ _) with ⟨n₁, hn₁⟩
+  rcases hg'.trans (Int.gcd_dvd_right _ _) with ⟨r₁, hr₁⟩
+  rcases hg.trans (Int.gcd_dvd_right _ _) with ⟨m₁, hm₁⟩
+  rw [hn₁, hr₁, hm₁]
+  have h₁ : (d : ℤ) * n₁ * (d * m₁) / d ^ 2 = n₁ * m₁ :=
+    Int.ediv_eq_of_eq_mul_right (pow_ne_zero 2 hd0) (by ring1)
+  rw [h₁, Int.mul_ediv_cancel_left _ hd0]
+  ring1
+
 /-- The **Fourier coefficient** `a(n, r, m)` of the Gritsenko lift (LMFDB
 `mf.siegel.lift.gritsenko`) of weight `k` of a function with Fourier coefficients `c(n, r)`:
 `a(n, r, m) = ∑_{d ∣ (n, r, m)} d^{k-1} c(nm/d², r/d)` for `m ≥ 1` and `a(n, r, m) = 0` for
@@ -118,6 +133,13 @@ lemma gritsenkoCoeff_comm (hn : 0 < n) (hm : 0 < m) :
     rw [Int.gcd_assoc, Int.gcd_comm, Int.gcd_comm r]
   rw [gritsenkoCoeff, gritsenkoCoeff, ite_eq_left hm, ite_eq_left hn, liftDivisorSum,
     liftDivisorSum, h, mul_comm n]
+
+/-- The involution `(n, r, m) ↦ (m, r, n)` of `ℤ³`. -/
+def swapIndex : ℤ × ℤ × ℤ ≃ ℤ × ℤ × ℤ where
+  toFun p := (p.2.2, p.2.1, p.1)
+  invFun p := (p.2.2, p.2.1, p.1)
+  left_inv _ := rfl
+  right_inv _ := rfl
 
 /-- The **Fourier coefficient** `a(n, r, m)` of the Maass lift (LMFDB `mf.siegel.lift.maass`) of
 weight `k` of a function with Fourier coefficients `c(n, r)`: `a(0, 0, 0) = -(B_k / 2k) c(0, 0)`,

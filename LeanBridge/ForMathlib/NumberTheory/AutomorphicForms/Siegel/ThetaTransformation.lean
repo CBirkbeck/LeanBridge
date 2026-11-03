@@ -10,10 +10,11 @@ by a change of characteristic, up to an eighth root of unity and, under the inve
 root of `det(cΩ + d)`. This file proves the transformation law under the Siegel parabolic subgroup
 `{c = 0}` of `Sp(2g, ℤ)` in every degree `g`, and under the partial inversion `J₁ ∈ Sp(4, ℤ)` in
 degree 2, from Mathlib's functional equation of Jacobi's theta function `jacobiTheta₂`. The
-parabolic subgroup and `J₁` generate `Sp(4, ℤ)`, a classical fact which is not proved here. These
-are the transformation laws behind the modularity of the generators, polynomials in the ten even
-theta constants of degree 2, of the rings of Siegel modular forms of the knowls
-`mf.siegel.family.gamma0_2`, `mf.siegel.family.gamma0_4_psi_4` and `mf.siegel.family.gamma_2`.
+parabolic subgroup and `J₁` generate `Sp(4, ℤ)`
+(`SymplecticGroup.closure_insert_partialInversion_eq_top`). These are the transformation laws behind
+the modularity of the generators, polynomials in the ten even theta constants of degree 2, of the
+rings of Siegel modular forms of the knowls `mf.siegel.family.gamma0_2`,
+`mf.siegel.family.gamma0_4_psi_4` and `mf.siegel.family.gamma_2`.
 
 In degree 2 the theta series converges absolutely and the theta constants are holomorphic: the
 exponent has real part `-π xᵀ (Im Ω) x ≤ -π ε xᵀx` for real `x`, with
@@ -287,7 +288,7 @@ namespace SiegelUpperHalfSpace
 
 variable (Ω : SiegelUpperHalfSpace (Fin 2)) (μ ν : Fin 2 → ℤ)
 
-private lemma val_one_zero : Ω.val 1 0 = Ω.val 0 1 := by
+lemma val_one_zero : Ω.val 1 0 = Ω.val 0 1 := by
   rw [← transpose_apply Ω.val 0 1, Ω.transpose_val]
 
 lemma val_zero_zero_ne_zero : Ω.val 0 0 ≠ 0 := fun h ↦ by

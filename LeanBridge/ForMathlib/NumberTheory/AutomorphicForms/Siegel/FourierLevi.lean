@@ -1,4 +1,4 @@
-import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.KoecherPrinciple
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.GaloisOrbit
 
 /-!
 # Fourier coefficients of Siegel modular forms under the Levi subgroup
@@ -6,14 +6,15 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.KoecherPrincip
 The elements `(U, 0; 0, U⁻ᵀ)` of `Γ ⊆ Sp(2g, ℚ)`, with `U ∈ GL(g, ℤ)`, act on `ℋ_g` by
 `τ ↦ U τ Uᵀ` with automorphy factor `U⁻ᵀ`, so the transformation law of a Siegel modular form `f`
 and the uniqueness of Fourier expansions give `a(Uᵀ n U) = ρ(Uᵀ) a(n)` for the Fourier coefficients
-`a` of `f`. This is the computation in the proof of Koecher's principle
-(`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.KoecherPrinciple`), where it is
-private.
+`a` of `f`. This is the computation at the heart of Koecher's principle
+(`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.KoecherPrinciple`).
 
 ## Main definitions
 
+* `SymplecticGroup.levi`: the Levi embedding `U ↦ (U, 0; 0, U⁻ᵀ)` of `GL(g, R)` in `Sp(2g, R)`.
 * `SiegelUpperHalfSpace.leviRat`: the image `(U, 0; 0, U⁻ᵀ)` in `Sp(2g, ℚ)` of `U ∈ GL(g, ℤ)`.
 * `SiegelUpperHalfSpace.dualLevi`: the bijection `n ↦ Uᵀ n U` of the dual lattice `L_Γ^∨`.
+* `SiegelUpperHalfSpace.basePoint`: the point `i 1_g` of the Siegel upper half-space.
 * `SiegelUpperHalfSpace.transposeGL`: the transpose `Dᵀ` of `D ∈ GL(g, ℤ)`.
 
 ## Main results
@@ -23,6 +24,25 @@ private.
 -/
 
 open Complex Matrix Module
+
+namespace SymplecticGroup
+
+variable {l : Type*} [Fintype l] [DecidableEq l] {R : Type*} [CommRing R]
+
+variable (l R) in
+/-- The **Levi embedding** `U ↦ (U, 0; 0, U⁻ᵀ)` of `GL(g, R)` in `Sp(2g, R)`, whose image is the
+Levi subgroup of the Siegel parabolic subgroup. -/
+def levi : GL l R →* symplecticGroup l R where
+  toFun U := ⟨fromBlocks U 0 0 (U⁻¹ : GL l R).valᵀ, fromBlocks_mem_iff.mpr ⟨by simp, by simp, by
+    rw [transpose_zero, Matrix.zero_mul, sub_zero, ← transpose_mul, Units.inv_mul, transpose_one]⟩⟩
+  map_one' := Subtype.ext <| by simp
+  map_mul' U V := Subtype.ext <| by simp [fromBlocks_multiply]
+
+lemma coe_levi (U : GL l R) :
+    (levi l R U : Matrix (l ⊕ l) (l ⊕ l) R) = fromBlocks U 0 0 (U⁻¹ : GL l R).valᵀ :=
+  rfl
+
+end SymplecticGroup
 
 namespace SiegelUpperHalfSpace
 
@@ -186,7 +206,7 @@ lemma apply_dualLevi (hΓ : SymplecticGroup.IsArithmetic Γ) (hf : f ∈ modular
   rw [h₃, ← End.mul_apply, ← map_mul, inv_mul_cancel, map_one, End.one_apply]
 
 /-- The point `i 1_g` of the Siegel upper half-space. -/
-private noncomputable def basePoint : SiegelUpperHalfSpace l where
+noncomputable def basePoint : SiegelUpperHalfSpace l where
   val := I • 1
   transpose_val := by
     rw [transpose_smul, transpose_one]

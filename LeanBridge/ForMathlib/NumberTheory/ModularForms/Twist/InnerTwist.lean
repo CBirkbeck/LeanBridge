@@ -1,6 +1,5 @@
-import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisOrbit
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisActionOnNewforms
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.SelfTwist
-import TauCeti.NumberTheory.MulChar.GaloisOrbit
 
 /-!
 # Inner twists of newforms
@@ -26,10 +25,8 @@ which is not proved here. Nor is it proved here that `χ` determines the inner t
 are finitely many inner twists (`Set.ncard` is `0` on an infinite set).
 
 The LMFDB states that the inner twist count and the inner twist multiplicities are invariants of the
-Galois orbit of `f`. This is proved here under the assumption that the Galois conjugates `σ(f)` of
-`f` are newforms, the same assumption as in `HeckeRing.GL2.Newform.ncard_galoisOrbit_eq`, which
-holds by `HeckeRing.GL2.Newform.exists_isGaloisConjugateBy`, in
-`Newform/GaloisConjugateExists.lean`.
+Galois orbit of `f`. This holds as the Galois conjugates of `f` are newforms
+(`HeckeRing.GL2.Newform.exists_isGaloisConjugateBy`, in `Newform/GaloisConjugateExists.lean`).
 
 Galois orbits of Dirichlet characters are Tau Ceti's `MulChar.galoisOrbit`, the characters
 generating the same cyclic group as `χ`. They are the conjugates `σ ∘ χ` under the embeddings `σ` of
@@ -60,11 +57,8 @@ the field of values of `χ` (`MulChar.mem_galoisOrbit_iff_exists_algHom`), i.e. 
   `σ(f)` when `(χ, g)` is an inner twist of `f`.
 * `HeckeRing.GL2.Newform.IsGaloisConjugateBy.innerTwistCount_eq`,
   `HeckeRing.GL2.Newform.IsGaloisConjugateBy.innerTwistMultiplicity_eq`: the inner twist count and
-  the inner twist multiplicities are invariants of the Galois orbit, given that the Galois
-  conjugates of `f` are newforms, which holds by `HeckeRing.GL2.Newform.exists_isGaloisConjugateBy`.
+  the inner twist multiplicities are invariants of the Galois orbit.
 -/
-
-open UpperHalfPlane
 
 namespace MulChar
 
@@ -94,11 +88,9 @@ end MulChar
 
 namespace HeckeRing.GL2.Newform
 
--- `hnew` holds by `exists_isGaloisConjugateBy`, in `Newform/GaloisConjugateExists.lean`.
 variable {N N' N'' M : ℕ} [NeZero N] [NeZero N'] [NeZero N''] {k k' k'' : ℤ} {f : Newform N k}
   {χ φ : DirichletCharacter ℂ M} {g : Newform N' k'} {h : Newform N'' k''} {f₁ g₀ g₁ : Newform N k}
-  {σ : Gal(ℂ/ℚ)} {x : Σ M : ℕ+, DirichletCharacter ℂ M} (hσ : f.IsGaloisConjugateBy σ f₁)
-  (hg₀ : g₀ ∈ f.galoisOrbit) (hnew : ∀ τ : Gal(ℂ/ℚ), ∃ g : Newform N k, f.IsGaloisConjugateBy τ g)
+  {σ : Gal(ℂ/ℚ)} {x : Σ M : ℕ+, DirichletCharacter ℂ M}
 
 variable (f g) in
 /-- The Galois conjugate newforms `f` and `g` are **inner twists** (LMFDB `cmf.inner_twist`) if
@@ -117,25 +109,21 @@ Dirichlet characters have positive modulus in the LMFDB, and the modulus `M = 0`
 def HasInnerTwist : Prop :=
   M ≠ 0 ∧ χ.IsPrimitive ∧ ∃ g ∈ f.galoisOrbit, f.IsTwistAtAlmostAllPrimes χ g
 
-variable (hfg : f.IsInnerTwist g) (hf : f.HasInnerTwist χ)
-
 variable (f) in
 lemma IsInnerTwist.refl : f.IsInnerTwist f :=
   ⟨.refl f, .refl f⟩
 
-include hfg in
-lemma IsInnerTwist.symm : g.IsInnerTwist f :=
+lemma IsInnerTwist.symm (hfg : f.IsInnerTwist g) : g.IsInnerTwist f :=
   ⟨hfg.1.symm, hfg.2.symm⟩
 
-include hfg in
-lemma IsInnerTwist.trans (hgh : g.IsInnerTwist h) : f.IsInnerTwist h :=
+lemma IsInnerTwist.trans (hfg : f.IsInnerTwist g) (hgh : g.IsInnerTwist h) : f.IsInnerTwist h :=
   ⟨hfg.1.trans hgh.1, hfg.2.trans hgh.2⟩
 
 lemma HasSelfTwist.hasInnerTwist (hχ : f.HasSelfTwist χ) : f.HasInnerTwist χ :=
   ⟨hχ.1, hχ.2.1, f, f.self_mem_galoisOrbit, hχ.2.2⟩
 
-include hf in
-lemma HasInnerTwist.exists_isInnerTwist : ∃ g ∈ f.galoisOrbit, f.IsInnerTwist g :=
+lemma HasInnerTwist.exists_isInnerTwist (hf : f.HasInnerTwist χ) :
+    ∃ g ∈ f.galoisOrbit, f.IsInnerTwist g :=
   hf.2.2.elim fun g ⟨hg, hχ⟩ ↦ ⟨g, hg, hg, ⟨M, Nat.pos_of_ne_zero hf.1⟩, χ, hχ⟩
 
 variable (f) in
@@ -165,8 +153,7 @@ variable (f) in
 inner twists, including the self twists and the trivial self twist by the trivial character. That
 there are finitely many inner twists is a theorem of Ribet that is not proved here; `Set.ncard` is
 `0` on an infinite set. It is an invariant of the Galois orbit of `f`
-(`IsGaloisConjugateBy.innerTwistCount_eq`, whose hypothesis `hnew` holds by
-`exists_isGaloisConjugateBy`, in `Newform/GaloisConjugateExists.lean`). -/
+(`IsGaloisConjugateBy.innerTwistCount_eq`). -/
 noncomputable def innerTwistCount : ℕ :=
   f.innerTwists.ncard
 
@@ -189,24 +176,22 @@ variable (f χ) in
 the Galois orbit `[χ]` of the Dirichlet character `χ` (Tau Ceti's `MulChar.galoisOrbit`): the
 number of characters in `[χ]` by which `f` admits an inner twist. The LMFDB states that it does not
 depend on the embedding of `f`, i.e. on `f` in its Galois orbit, which is proved here by
-`IsGaloisConjugateBy.innerTwistMultiplicity_eq`, whose hypothesis `hnew` holds by
-`exists_isGaloisConjugateBy`, in `Newform/GaloisConjugateExists.lean`. -/
+`IsGaloisConjugateBy.innerTwistMultiplicity_eq`. -/
 noncomputable def innerTwistMultiplicity : ℕ :=
   (χ.galoisOrbit ∩ {φ | f.HasInnerTwist φ}).ncard
 
-include hf in
-lemma innerTwistMultiplicity_pos : 0 < f.innerTwistMultiplicity χ :=
+lemma innerTwistMultiplicity_pos (hf : f.HasInnerTwist χ) : 0 < f.innerTwistMultiplicity χ :=
   (Set.ncard_pos (χ.finite_galoisOrbit.inter_of_left _)).mpr ⟨χ, χ.mem_galoisOrbit_self, hf⟩
 
 lemma innerTwistMultiplicity_eq_of_mem_galoisOrbit (hφ : φ ∈ χ.galoisOrbit) :
     f.innerTwistMultiplicity φ = f.innerTwistMultiplicity χ := by
   rw [innerTwistMultiplicity, innerTwistMultiplicity, MulChar.galoisOrbit_eq_galoisOrbit_iff.mpr hφ]
 
-include hσ in
 /-- **Inner twists are Galois equivariant**: if `(χ, g)` is an inner twist of `f`, then
 `(σ ∘ χ, σ(g))` is an inner twist of `σ(f)`. -/
-lemma mk_ringHomComp_mem_innerTwists (hg : g₀.IsGaloisConjugateBy σ g₁)
-    (hx : (x, g₀) ∈ f.innerTwists) : (⟨x.1, x.2.ringHomComp σ⟩, g₁) ∈ f₁.innerTwists :=
+lemma mk_ringHomComp_mem_innerTwists (hσ : f.IsGaloisConjugateBy σ f₁)
+    (hg : g₀.IsGaloisConjugateBy σ g₁) (hx : (x, g₀) ∈ f.innerTwists) :
+    (⟨x.1, x.2.ringHomComp σ⟩, g₁) ∈ f₁.innerTwists :=
   ⟨hx.1.ringHomComp _ (RingHom.injective (σ : ℂ →+* ℂ)), hσ.isGaloisConjugate.symm.trans
     (hx.2.1.trans hg.isGaloisConjugate), hx.2.2.map hσ hg⟩
 
@@ -217,58 +202,31 @@ private lemma eq_of_mk_ringHomComp_eq {y : Σ M : ℕ+, DirichletCharacter ℂ M
   rcases Sigma.ext_iff.mp hxy with ⟨rfl, hχ⟩
   exact congrArg _ (MulChar.injective_ringHomComp (RingHom.injective _) (eq_of_heq hχ))
 
-include hg₀ hnew in
-lemma exists_isGaloisConjugateBy_of_mem_galoisOrbit (τ : Gal(ℂ/ℚ)) :
-    ∃ g₁ : Newform N k, g₀.IsGaloisConjugateBy τ g₁ := by
-  rcases hg₀ with ⟨ρ, hρ⟩
-  rcases hnew (τ * ρ) with ⟨g₁, hg₁⟩
-  exact ⟨g₁, mul_inv_cancel_right τ ρ ▸ hρ.symm.trans hg₁⟩
-
-include hσ hf hnew in
-lemma HasInnerTwist.map : f₁.HasInnerTwist (χ.ringHomComp σ) := by
+lemma HasInnerTwist.map (hσ : f.IsGaloisConjugateBy σ f₁) (hf : f.HasInnerTwist χ) :
+    f₁.HasInnerTwist (χ.ringHomComp σ) := by
   rcases hf with ⟨hM, hχ, g, hg, hfg⟩
-  rcases exists_isGaloisConjugateBy_of_mem_galoisOrbit hg hnew σ with ⟨g₁, hg₁⟩
+  rcases exists_isGaloisConjugateBy g σ with ⟨g₁, hg₁⟩
   exact ⟨hM, hχ.ringHomComp _ (RingHom.injective (σ : ℂ →+* ℂ)), g₁, hσ.isGaloisConjugate.symm.trans
     (hg.trans hg₁.isGaloisConjugate), hfg.map hσ hg₁⟩
 
-include hσ hnew in
 /-- **The inner twist multiplicity does not depend on the embedding of `f`**: it is the same for the
-Galois conjugates of `f`, provided they are newforms, which holds by `exists_isGaloisConjugateBy`,
-in `Newform/GaloisConjugateExists.lean`. -/
-lemma IsGaloisConjugateBy.innerTwistMultiplicity_eq :
+Galois conjugates of `f`. -/
+lemma IsGaloisConjugateBy.innerTwistMultiplicity_eq (hσ : f.IsGaloisConjugateBy σ f₁) :
     f₁.innerTwistMultiplicity χ = f.innerTwistMultiplicity χ :=
-  MulChar.ncard_galoisOrbit_inter_eq σ (fun _ hφ ↦ hφ.map hσ hnew) fun _ hφ ↦ hφ.map hσ.symm
-    (exists_isGaloisConjugateBy_of_mem_galoisOrbit hσ.isGaloisConjugate hnew)
+  MulChar.ncard_galoisOrbit_inter_eq σ (fun _ hφ ↦ hφ.map hσ) fun _ hφ ↦ hφ.map hσ.symm
 
-variable (σ) in
-/-- The Galois conjugate `σ(g₀)` of a newform `g₀` in the Galois orbit of `f`, a newform when the
-Galois conjugates of `f` are. -/
-private noncomputable def orbitConj : Newform N k :=
-  (exists_isGaloisConjugateBy_of_mem_galoisOrbit hg₀ hnew σ).choose
-
-variable (σ) in
-private lemma isGaloisConjugateBy_orbitConj : g₀.IsGaloisConjugateBy σ (orbitConj σ hg₀ hnew) :=
-  (exists_isGaloisConjugateBy_of_mem_galoisOrbit hg₀ hnew σ).choose_spec
-
-include hσ hnew in
 /-- **The inner twist count is an invariant of the Galois orbit**: it is the same for the Galois
-conjugates of `f`, provided they are newforms, which holds by `exists_isGaloisConjugateBy`, in
-`Newform/GaloisConjugateExists.lean`. The inner twists of `σ(f)` are the `(σ ∘ χ, σ(g))` for the
-inner twists `(χ, g)` of `f`. -/
-lemma IsGaloisConjugateBy.innerTwistCount_eq : f₁.innerTwistCount = f.innerTwistCount := by
-  refine (Set.ncard_congr (fun y (hy : y ∈ f.innerTwists) ↦
-      ((⟨y.1.1, y.1.2.ringHomComp σ⟩ : Σ M : ℕ+, DirichletCharacter ℂ M), orbitConj σ hy.2.1 hnew))
-    (fun y hy ↦ mk_ringHomComp_mem_innerTwists hσ (isGaloisConjugateBy_orbitConj σ hy.2.1 hnew) hy)
-    (fun y y' hy hy' hyy' ↦ Prod.ext (eq_of_mk_ringHomComp_eq (Prod.mk_inj.mp hyy').1)
-      ((isGaloisConjugateBy_orbitConj σ hy.2.1 hnew).symm.unique
-        ((Prod.mk_inj.mp hyy').2 ▸ (isGaloisConjugateBy_orbitConj σ hy'.2.1 hnew).symm)))
-    fun y hy ↦ ?_).symm
-  rcases exists_isGaloisConjugateBy_of_mem_galoisOrbit hy.2.1
-    (exists_isGaloisConjugateBy_of_mem_galoisOrbit hσ.isGaloisConjugate hnew) σ⁻¹ with ⟨g, hg⟩
-  have hy₀ : ((⟨y.1.1, y.1.2.ringHomComp (σ⁻¹ : Gal(ℂ/ℚ))⟩ : Σ M : ℕ+, DirichletCharacter ℂ M), g) ∈
-      f.innerTwists :=
-    mk_ringHomComp_mem_innerTwists hσ.symm hg hy
-  exact ⟨_, hy₀, Prod.ext (Sigma.ext rfl (heq_of_eq (MulChar.ringHomComp_inv_ringHomComp σ)))
-    ((isGaloisConjugateBy_orbitConj σ hy₀.2.1 hnew).unique (inv_inv σ ▸ hg.symm))⟩
+conjugates of `f`. The inner twists of `σ(f)` are the `(σ ∘ χ, σ(g))` for the inner twists `(χ, g)`
+of `f`. -/
+lemma IsGaloisConjugateBy.innerTwistCount_eq (hσ : f.IsGaloisConjugateBy σ f₁) :
+    f₁.innerTwistCount = f.innerTwistCount :=
+  (Set.ncard_congr (fun y _ ↦
+      ((⟨y.1.1, y.1.2.ringHomComp σ⟩ : Σ M : ℕ+, DirichletCharacter ℂ M), σ • y.2))
+    (fun y hy ↦ mk_ringHomComp_mem_innerTwists hσ (y.2.isGaloisConjugateBy_smul σ) hy)
+    (fun _ _ _ _ hyy' ↦ Prod.ext (eq_of_mk_ringHomComp_eq (Prod.mk_inj.mp hyy').1)
+      (MulAction.injective σ (Prod.mk_inj.mp hyy').2))
+    fun y hy ↦ ⟨_, mk_ringHomComp_mem_innerTwists hσ.symm (y.2.isGaloisConjugateBy_smul σ⁻¹) hy,
+      Prod.ext (Sigma.ext rfl (heq_of_eq (MulChar.ringHomComp_inv_ringHomComp σ)))
+        (smul_inv_smul σ y.2)⟩).symm
 
 end HeckeRing.GL2.Newform

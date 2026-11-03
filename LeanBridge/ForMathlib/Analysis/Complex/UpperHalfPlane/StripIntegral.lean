@@ -20,6 +20,8 @@ form (LMFDB `specialfunction.poincare`).
 
 ## Main results
 
+* `UpperHalfPlane.setIntegral_re_im_mem_prod`, `UpperHalfPlane.integrableOn_re_im_mem_prod_iff`: the
+  invariant integral on `{x + iy | x ∈ s, y ∈ t}` in coordinates.
 * `UpperHalfPlane.setIntegral_re_mem_Ico`, `UpperHalfPlane.integrableOn_re_mem_Ico_iff`: the
   integral over the strip in coordinates.
 * `UpperHalfPlane.integral_conj_exp_mul_eq`: the Fourier coefficient at height `y`.
@@ -32,14 +34,15 @@ open scoped NNReal ComplexConjugate
 
 namespace UpperHalfPlane
 
-variable (w n : ℕ) (a : ℕ → ℂ) (k : ℤ) (b y : ℝ) (g : ℍ → ℂ) {F : ℍ → ℂ}
+variable (w n : ℕ) (a : ℕ → ℂ) (k : ℤ) (b y : ℝ) {E : Type*} [NormedAddCommGroup E]
+  [NormedSpace ℝ E] (g : ℍ → E) {F : ℍ → ℂ} {s t : Set ℝ}
 
-lemma image_coe_re_mem_Ico : ((↑) : ℍ → ℂ) '' {z : ℍ | z.re ∈ Ico 0 b} =
-    measurableEquivRealProd ⁻¹' (Ico 0 b ×ˢ Ioi 0) := by
+lemma image_coe_re_im_mem_prod (ht : t ⊆ Ioi 0) : ((↑) : ℍ → ℂ) '' {z : ℍ | z.re ∈ s ∧ z.im ∈ t} =
+    measurableEquivRealProd ⁻¹' (s ×ˢ t) := by
   ext c
-  refine ⟨?_, fun hc ↦ ⟨⟨c, hc.2⟩, hc.1, rfl⟩⟩
+  refine ⟨?_, fun hc ↦ ⟨⟨c, ht hc.2⟩, hc, rfl⟩⟩
   rintro ⟨z, hz, rfl⟩
-  exact ⟨hz, z.im_pos⟩
+  exact hz
 
 lemma measurable_volume_density :
     Measurable fun z : ℍ ↦ ((1 / NNReal.mk z.im z.im_pos.le) ^ 2 : ℝ≥0) := by
@@ -50,31 +53,70 @@ lemma measurable_volume_density :
 lemma measurableSet_re_mem_Ico : MeasurableSet {z : ℍ | z.re ∈ Ico 0 b} :=
   measurableSet_Ico.preimage continuous_re.measurable
 
-/-- **The integral over a vertical strip in coordinates**: the integral over
-`{z ∈ ℍ | 0 ≤ Re z < b}` for the invariant measure is the Lebesgue integral over
-`[0, b) × (0, ∞)` of `y⁻² g(x + iy)`. -/
-lemma setIntegral_re_mem_Ico : ∫ z in {z : ℍ | z.re ∈ Ico 0 b}, g z =
-    ∫ p in Ico 0 b ×ˢ Ioi 0, ((p.2 ^ 2)⁻¹ : ℝ) • g (ofComplex (p.1 + p.2 * Complex.I)) := by
-  rw [volume_def, setIntegral_withDensity_eq_setIntegral_smul measurable_volume_density _
-    (measurableSet_re_mem_Ico b)]
-  have h1 : ∫ z in {z : ℍ | z.re ∈ Ico 0 b}, ((1 / NNReal.mk z.im z.im_pos.le) ^ 2 : ℝ≥0) • g z
+/-- **The integral over a product region in coordinates**: for measurable `s, t ⊆ ℝ` with
+`t ⊆ (0, ∞)`, the integral over `{z ∈ ℍ | Re z ∈ s, Im z ∈ t}` for the invariant measure is the
+Lebesgue integral over `s × t` of `y⁻² g(x + iy)`. -/
+lemma setIntegral_re_im_mem_prod (hs : MeasurableSet s) (ht : MeasurableSet t) (ht0 : t ⊆ Ioi 0) :
+    ∫ z in {z : ℍ | z.re ∈ s ∧ z.im ∈ t}, g z =
+      ∫ p in s ×ˢ t, ((p.2 ^ 2)⁻¹ : ℝ) • g (ofComplex (p.1 + p.2 * Complex.I)) := by
+  have hm : MeasurableSet {z : ℍ | z.re ∈ s ∧ z.im ∈ t} :=
+    (hs.preimage continuous_re.measurable).inter (ht.preimage continuous_im.measurable)
+  rw [volume_def, setIntegral_withDensity_eq_setIntegral_smul measurable_volume_density _ hm]
+  have h1 : ∫ z in {z : ℍ | z.re ∈ s ∧ z.im ∈ t}, ((1 / NNReal.mk z.im z.im_pos.le) ^ 2 : ℝ≥0) • g z
       ∂(Measure.comap UpperHalfPlane.coe volume) =
-        ∫ z in UpperHalfPlane.coe ⁻¹' (UpperHalfPlane.coe '' {z : ℍ | z.re ∈ Ico 0 b}),
+        ∫ z in UpperHalfPlane.coe ⁻¹' (UpperHalfPlane.coe '' {z : ℍ | z.re ∈ s ∧ z.im ∈ t}),
           ((((z : ℂ).im ^ 2)⁻¹ : ℝ) • g (ofComplex (z : ℂ)))
             ∂(Measure.comap UpperHalfPlane.coe volume) := by
     rw [preimage_image_eq _ measurableEmbedding_coe.injective]
-    refine setIntegral_congr_fun (measurableSet_re_mem_Ico b) fun z _ ↦ ?_
+    refine setIntegral_congr_fun hm fun z _ ↦ ?_
     rw [ofComplex_apply, NNReal.smul_def]
     simp
   refine h1.trans <| (measurableEmbedding_coe.setIntegral_map
     (fun c : ℂ ↦ (((c.im ^ 2)⁻¹ : ℝ) • g (ofComplex c))) _).symm.trans ?_
   rw [measurableEmbedding_coe.map_comap,
-    Measure.restrict_restrict_of_subset (image_subset_range _ _), image_coe_re_mem_Ico]
+    Measure.restrict_restrict_of_subset (image_subset_range _ _), image_coe_re_im_mem_prod ht0]
   refine Eq.trans ?_ (volume_preserving_equiv_real_prod.setIntegral_preimage_emb
     measurableEquivRealProd.measurableEmbedding _ _)
   refine setIntegral_congr_fun ?_ fun c _ ↦ ?_
-  · exact measurableEquivRealProd.measurable (measurableSet_Ico.prod measurableSet_Ioi)
+  · exact measurableEquivRealProd.measurable (hs.prod ht)
   · simp
+
+variable {g} in
+/-- **Integrability over a product region in coordinates**: for measurable `s, t ⊆ ℝ` with
+`t ⊆ (0, ∞)`, `g` is integrable on `{z ∈ ℍ | Re z ∈ s, Im z ∈ t}` for the invariant measure exactly
+when `y⁻² g(x + iy)` is Lebesgue integrable on `s × t`. -/
+lemma integrableOn_re_im_mem_prod_iff (hs : MeasurableSet s) (ht : MeasurableSet t)
+    (ht0 : t ⊆ Ioi 0) : IntegrableOn g {z : ℍ | z.re ∈ s ∧ z.im ∈ t} ↔
+      IntegrableOn (fun p : ℝ × ℝ ↦ ((p.2 ^ 2)⁻¹ : ℝ) • g (ofComplex (p.1 + p.2 * Complex.I)))
+        (s ×ˢ t) := by
+  have hm : MeasurableSet {z : ℍ | z.re ∈ s ∧ z.im ∈ t} :=
+    (hs.preimage continuous_re.measurable).inter (ht.preimage continuous_im.measurable)
+  rw [IntegrableOn, volume_def, restrict_withDensity hm,
+    integrable_withDensity_iff_integrable_smul measurable_volume_density, ← IntegrableOn]
+  have h1 : IntegrableOn (fun z : ℍ ↦ ((1 / NNReal.mk z.im z.im_pos.le) ^ 2 : ℝ≥0) • g z)
+      {z : ℍ | z.re ∈ s ∧ z.im ∈ t} (Measure.comap UpperHalfPlane.coe volume) ↔
+        IntegrableOn ((fun c : ℂ ↦ (((c.im ^ 2)⁻¹ : ℝ) • g (ofComplex c))) ∘ UpperHalfPlane.coe)
+          (UpperHalfPlane.coe ⁻¹' (UpperHalfPlane.coe '' {z : ℍ | z.re ∈ s ∧ z.im ∈ t}))
+            (Measure.comap UpperHalfPlane.coe volume) := by
+    rw [preimage_image_eq _ measurableEmbedding_coe.injective]
+    refine integrableOn_congr_fun (fun z _ ↦ ?_) hm
+    simp [NNReal.smul_def]
+  rw [h1, ← measurableEmbedding_coe.integrableOn_map_iff, measurableEmbedding_coe.map_comap,
+    IntegrableOn, Measure.restrict_restrict_of_subset (image_subset_range _ _), ← IntegrableOn,
+    image_coe_re_im_mem_prod ht0, ← volume_preserving_equiv_real_prod.integrableOn_comp_preimage
+      measurableEquivRealProd.measurableEmbedding]
+  refine integrableOn_congr_fun (fun c _ ↦ ?_) (measurableEquivRealProd.measurable (hs.prod ht))
+  simp
+
+lemma setOf_re_mem_eq : {z : ℍ | z.re ∈ s} = {z : ℍ | z.re ∈ s ∧ z.im ∈ Ioi 0} :=
+  Set.ext fun z ↦ (and_iff_left z.im_pos).symm
+
+/-- **The integral over a vertical strip in coordinates**: the integral over
+`{z ∈ ℍ | 0 ≤ Re z < b}` for the invariant measure is the Lebesgue integral over
+`[0, b) × (0, ∞)` of `y⁻² g(x + iy)`. -/
+lemma setIntegral_re_mem_Ico : ∫ z in {z : ℍ | z.re ∈ Ico 0 b}, g z =
+    ∫ p in Ico 0 b ×ˢ Ioi 0, ((p.2 ^ 2)⁻¹ : ℝ) • g (ofComplex (p.1 + p.2 * Complex.I)) :=
+  setOf_re_mem_eq ▸ setIntegral_re_im_mem_prod g measurableSet_Ico measurableSet_Ioi subset_rfl
 
 variable {g} in
 /-- **Integrability over a vertical strip in coordinates**: `g` is integrable on
@@ -82,24 +124,8 @@ variable {g} in
 integrable on `[0, b) × (0, ∞)`. -/
 lemma integrableOn_re_mem_Ico_iff : IntegrableOn g {z : ℍ | z.re ∈ Ico 0 b} ↔ IntegrableOn
     (fun p : ℝ × ℝ ↦ ((p.2 ^ 2)⁻¹ : ℝ) • g (ofComplex (p.1 + p.2 * Complex.I)))
-      (Ico 0 b ×ˢ Ioi 0) := by
-  rw [IntegrableOn, volume_def, restrict_withDensity (measurableSet_re_mem_Ico b),
-    integrable_withDensity_iff_integrable_smul measurable_volume_density, ← IntegrableOn]
-  have h1 : IntegrableOn (fun z : ℍ ↦ ((1 / NNReal.mk z.im z.im_pos.le) ^ 2 : ℝ≥0) • g z)
-      {z : ℍ | z.re ∈ Ico 0 b} (Measure.comap UpperHalfPlane.coe volume) ↔
-        IntegrableOn ((fun c : ℂ ↦ (((c.im ^ 2)⁻¹ : ℝ) • g (ofComplex c))) ∘ UpperHalfPlane.coe)
-          (UpperHalfPlane.coe ⁻¹' (UpperHalfPlane.coe '' {z : ℍ | z.re ∈ Ico 0 b}))
-            (Measure.comap UpperHalfPlane.coe volume) := by
-    rw [preimage_image_eq _ measurableEmbedding_coe.injective]
-    refine integrableOn_congr_fun (fun z _ ↦ ?_) (measurableSet_re_mem_Ico b)
-    simp [NNReal.smul_def]
-  rw [h1, ← measurableEmbedding_coe.integrableOn_map_iff, measurableEmbedding_coe.map_comap,
-    IntegrableOn, Measure.restrict_restrict_of_subset (image_subset_range _ _), ← IntegrableOn,
-    image_coe_re_mem_Ico, ← volume_preserving_equiv_real_prod.integrableOn_comp_preimage
-      measurableEquivRealProd.measurableEmbedding]
-  refine integrableOn_congr_fun (fun c _ ↦ ?_)
-    (measurableEquivRealProd.measurable (measurableSet_Ico.prod measurableSet_Ioi))
-  simp
+      (Ico 0 b ×ˢ Ioi 0) :=
+  setOf_re_mem_eq ▸ integrableOn_re_im_mem_prod_iff measurableSet_Ico measurableSet_Ioi subset_rfl
 
 lemma conj_exp_mul_exp (m : ℕ) (x : ℝ) :
     conj (exp (2 * Real.pi * Complex.I * (n / w) * (x + y * Complex.I))) *

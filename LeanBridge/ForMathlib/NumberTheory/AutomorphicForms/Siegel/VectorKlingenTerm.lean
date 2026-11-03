@@ -314,23 +314,9 @@ lemma vectorKlingenTerm_smul (β : symplecticGroup (Fin 2) ℤ) :
 
 /-- The right translation `P δ ↦ P δ β` of the cosets of the Klingen parabolic subgroup. -/
 noncomputable def klingenCosetsMul (β : symplecticGroup (Fin 2) ℤ) :
-    Equiv.Perm KlingenCosetsTwo where
-  toFun := Quotient.map' (· * β) fun a b h ↦ QuotientGroup.rightRel_apply.mpr <| by
-    have e : b * β * (a * β)⁻¹ = b * a⁻¹ := by
-      group
-    rw [e]
-    exact QuotientGroup.rightRel_apply.mp h
-  invFun := Quotient.map' (· * β⁻¹) fun a b h ↦ QuotientGroup.rightRel_apply.mpr <| by
-    have e : b * β⁻¹ * (a * β⁻¹)⁻¹ = b * a⁻¹ := by
-      group
-    rw [e]
-    exact QuotientGroup.rightRel_apply.mp h
-  left_inv x := by
-    induction x using Quotient.inductionOn with | h a => ?_
-    exact congrArg (Quotient.mk _) (mul_inv_cancel_right a β)
-  right_inv x := by
-    induction x using Quotient.inductionOn with | h a => ?_
-    exact congrArg (Quotient.mk _) (inv_mul_cancel_right a β)
+    Equiv.Perm KlingenCosetsTwo :=
+  Quotient.congr (Equiv.mulRight β) fun a b ↦ by
+    simp [QuotientGroup.rightRel_apply]
 
 lemma vectorKlingenTerm_out_mul (hk : Even k)
     (hf : ∀ (g : SL(2, ℤ)) (w : ℍ), f (g • w) = ((g 1 0 : ℂ) * w + (g 1 1 : ℂ)) ^ (k + j) * f w)

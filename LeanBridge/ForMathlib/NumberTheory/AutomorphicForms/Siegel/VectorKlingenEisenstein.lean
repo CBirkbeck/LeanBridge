@@ -289,18 +289,10 @@ lemma isHolomorphic_dual_vectorKlingenTerm (hu : MDiff u) (δ : symplecticGroup 
 private lemma continuousAt_klingenConst {Z₀ : Fin 2 → Fin 2 → ℂ}
     (hZ₀ : Z₀ ∈ symmetrizePreimage (Fin 2)) :
     ContinuousAt (fun Z : Fin 2 → Fin 2 → ℂ ↦ klingenConst j k (symmetrize Z)) Z₀ := by
-  have hE (a b : Fin 2) : Continuous fun Z : Fin 2 → Fin 2 → ℂ ↦ symmetrize Z a b := by
-    have e : (fun Z : Fin 2 → Fin 2 → ℂ ↦ symmetrize Z a b) =
-        fun Z ↦ (2⁻¹ : ℂ) * (Z a b + Z b a) := by
-      funext Z
-      rw [symmetrize, Matrix.smul_apply, Matrix.add_apply, transpose_apply, of_apply, of_apply,
-        smul_eq_mul]
-    rw [e]
+  have hy (a b : Fin 2) : Continuous fun Z : Fin 2 → Fin 2 → ℂ ↦ (symmetrize Z a b).im := by
     fun_prop
-  have hy (a b : Fin 2) : Continuous fun Z : Fin 2 → Fin 2 → ℂ ↦ (symmetrize Z a b).im :=
-    continuous_im.comp (hE a b)
-  have hx (a b : Fin 2) : Continuous fun Z : Fin 2 → Fin 2 → ℂ ↦ (symmetrize Z a b).re :=
-    continuous_re.comp (hE a b)
+  have hx (a b : Fin 2) : Continuous fun Z : Fin 2 → Fin 2 → ℂ ↦ (symmetrize Z a b).re := by
+    fun_prop
   let Z₁ : SiegelUpperHalfSpace (Fin 2) := ⟨symmetrize Z₀, transpose_symmetrize Z₀, hZ₀⟩
   have hdet : 0 < (symmetrize Z₀ 0 0).im * (symmetrize Z₀ 1 1).im -
       (symmetrize Z₀ 0 1).im * (symmetrize Z₀ 1 0).im :=
@@ -397,10 +389,6 @@ private lemma hermForm_diagPoint : hermForm ((diagPoint τ' t).val.map im)
 private lemma imLam_diagPoint : imLam (diagPoint τ' t).val =
     √(τ'.im * (t : ℝ) / (τ'.im + (t : ℝ))) := by
   simp [imLam, diagPoint]
-
-/-- The parameter `t = 1` of the points `diag(τ', it)`. -/
-private def tOne : Set.Ioi (0 : ℝ) :=
-  ⟨1, Set.mem_Ioi.mpr one_pos⟩
 
 private lemma imLam_diagPoint_le (ht : tOne ≤ t) :
     imLam (diagPoint τ' tOne).val ≤ imLam (diagPoint τ' t).val := by

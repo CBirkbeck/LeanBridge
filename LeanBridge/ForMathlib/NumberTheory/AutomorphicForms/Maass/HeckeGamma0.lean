@@ -18,7 +18,9 @@ right cosets are named by `!![1, j; 0, p]` and `σ diag(p, 1)` with `σ ∈ Γ�
   `UpperHalfPlane.IsMaassForm.contDiffOn_maassHeckeOperator`,
   `UpperHalfPlane.IsMaassForm.hyperbolicLaplacian_maassHeckeOperator_add_mul_eq_zero`: `T_p f` of a
   Maass form `f` on `Γ₀(N)` is smooth, `Γ₀(N)`-invariant and a Laplace eigenfunction with the same
-  eigenvalue. Square-integrability of `T_p f` on `Γ₀(N) \ ℍ` is not proved here.
+  eigenvalue. Its square-integrability on `Γ₀(N) \ ℍ` is
+  `UpperHalfPlane.integrableOn_maassHeckeOperator`, in
+  `LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.HeckeSquareIntegrable`.
 -/
 
 open Matrix SpecialLinearGroup CongruenceSubgroup DoubleCoset HeckeRing GL2 GLn

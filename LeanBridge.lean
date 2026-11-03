@@ -270,7 +270,6 @@ import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.SplitCartan
 import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.SutherlandGroupLabel
 import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.SutherlandLabel
 import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.SymplecticIsomorphism
-import LeanBridge.ForMathlib.LinearAlgebra.Matrix.PosDef
 import LeanBridge.ForMathlib.LinearAlgebra.Matrix.SemilinearGroup
 import LeanBridge.ForMathlib.LinearAlgebra.QuadraticForm.DicksonInvariant
 import LeanBridge.ForMathlib.LinearAlgebra.RootSystem.Crystal
@@ -325,7 +324,6 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.WhittakerSlas
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.WhittakerUnique
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.Basic
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.CoefficientGrowth
-import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.CoefficientGrowthIndex
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.FourierCoefficients
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.IndexRaising
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.WeightTwo
@@ -361,7 +359,6 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.Newform
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformAtkinLehner
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformCoefficients
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformCoefficientsReal
-import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformExpansion
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformLabel
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformSpectrum
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.PointPairKernel
@@ -642,6 +639,7 @@ import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Maximal
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.NebentypusRigidity
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.NewformSubspace
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.OldSpaceDecomposition
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.RationalHeckeAlgebra
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.RationalStructure
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.StarkUnit
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.StarkUnitConjugates

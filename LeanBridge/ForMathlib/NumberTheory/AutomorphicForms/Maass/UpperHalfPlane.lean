@@ -63,10 +63,10 @@ variable (Γ f) in
 Laplacian.
 
 Square-integrability on `Γ \ ℍ` is the integrability of `|f|²` on a fundamental domain of the image
-of `Γ` in `PGL(2, ℝ)`, which acts faithfully on `ℍ` (so that `Γ` may contain `-1`), for Mathlib's `GL(2, ℝ)`-invariant
-measure `dx dy / y²` on `ℍ`; for a `Γ`-invariant `f` it does not
-depend on the fundamental domain. The zero function satisfies the conditions for every `λ`: the
-eigenvalue of a nonzero Maass form is unique (`IsMaassForm.eigenvalue_eq`). -/
+of `Γ` in `PGL(2, ℝ)`, which acts faithfully on `ℍ` (so that `Γ` may contain `-1`), for Mathlib's
+`GL(2, ℝ)`-invariant measure `dx dy / y²` on `ℍ`; for a `Γ`-invariant `f` it does not depend on the
+fundamental domain. The zero function satisfies the conditions for every `λ`: the eigenvalue of a
+nonzero Maass form is unique (`IsMaassForm.eigenvalue_eq`). -/
 def IsMaassForm (eigenvalue : ℂ) : Prop :=
   ContDiffOn ℝ ∞ f {z | 0 < z.im} ∧
     (∃ D : Set ℍ, IsFundamentalDomain (Γ.map ProjGenLinGroup.mk) D ∧

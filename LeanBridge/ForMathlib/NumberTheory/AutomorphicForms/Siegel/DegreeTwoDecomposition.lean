@@ -103,8 +103,7 @@ lemma tendsto_dual_scalarPoint (φ : Dual ℂ V)
         (ht.atTop_mul_const hpos).const_mul_atTop two_pi_pos
     simpa using h₂.mul_const ‖φ (a n)‖
   have hb : ∀ᶠ s : Set.Ioi (0 : ℝ) in atTop, ∀ n : dualLattice (integral (Fin 2)),
-      ‖fourierExp n (scalarPoint s) * φ (a n)‖ ≤
-        ‖fourierExp n (scalarPoint ⟨1, Set.mem_Ioi.mpr one_pos⟩) * φ (a n)‖ := by
+      ‖fourierExp n (scalarPoint s) * φ (a n)‖ ≤ ‖fourierExp n (scalarPoint tOne) * φ (a n)‖ := by
     filter_upwards [ht.eventually_ge_atTop 1] with s hs n
     by_cases hc : a n = 0
     · simp [hc]

@@ -1,7 +1,5 @@
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.Gamma0Generators
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.Level
-import Mathlib.NumberTheory.Modular
-import Mathlib.RingTheory.Coprime.Lemmas
 
 /-!
 # `Sp(4, ℚ) = Sp(4, ℤ) P(ℚ)`
@@ -21,36 +19,33 @@ embedding of `SL(2, ℤ)` on the second coordinate clears the entry `(4, 2)`.
 * `SymplecticGroup.exists_mem_integral_inv_mul_mem_siegelParabolic`: `Sp(4, ℚ) = Sp(4, ℤ) P(ℚ)`.
 -/
 
-open Matrix ModularGroup
+open Matrix
 
 open scoped MatrixGroups
 
 namespace SymplecticGroup
 
-private lemma exists_SL2Z_int (a b : ℤ) : ∃ M : SL(2, ℤ), M 1 0 * a + M 1 1 * b = 0 := by
+lemma exists_SL2Z_eq_gcd (a b : ℤ) :
+    ∃ M : SL(2, ℤ), M 0 0 * a + M 0 1 * b = a.gcd b ∧ M 1 0 * a + M 1 1 * b = 0 := by
   rcases eq_or_ne (a.gcd b) 0 with h | h
-  · refine ⟨1, ?_⟩
-    rw [Int.gcd_eq_zero_iff.mp h |>.2]
-    simp
-  have hc : ![-(b / a.gcd b), a / a.gcd b] ∈ {cd : Fin 2 → ℤ | IsCoprime (cd 0) (cd 1)} :=
-    (Int.isCoprime_iff_gcd_eq_one.mpr <| Int.gcd_div_gcd_div_gcd <| Nat.pos_of_ne_zero h).symm
-      |>.neg_left
-  rcases bottom_row_surj hc with ⟨M, -, hM⟩
-  refine ⟨M, ?_⟩
-  have h0 : M 1 0 = -(b / a.gcd b) := congrFun hM 0
-  have h1 : M 1 1 = a / a.gcd b := congrFun hM 1
+  · refine ⟨1, ?_, ?_⟩ <;> simp [Int.gcd_eq_zero_iff.mp h]
+  have hg : (a.gcd b : ℤ) ≠ 0 := Int.natCast_ne_zero.mpr h
   rcases Int.gcd_dvd_left a b with ⟨a', ha'⟩
   rcases Int.gcd_dvd_right a b with ⟨b', hb'⟩
-  have hg : (a.gcd b : ℤ) ≠ 0 := Int.natCast_ne_zero.mpr h
-  have key :
-      -(a.gcd b * b' / a.gcd b) * (a.gcd b * a') + a.gcd b * a' / a.gcd b * (a.gcd b * b') = 0 := by
-    rw [Int.mul_ediv_cancel_left _ hg, Int.mul_ediv_cancel_left _ hg]
-    ring1
-  rw [← ha', ← hb'] at key
-  rwa [h0, h1]
+  have hab : (a.gcd b : ℤ) = a * a.gcdA b + b * a.gcdB b := Int.gcd_eq_gcd_ab a b
+  have hdet : a.gcdA b * a' + a.gcdB b * b' = 1 :=
+    mul_left_cancel₀ hg <| by
+      linear_combination -a.gcdA b * ha' - a.gcdB b * hb' - hab
+  refine ⟨⟨!![a.gcdA b, a.gcdB b; -b', a'], by
+    rw [det_fin_two_of]
+    linear_combination hdet⟩, ?_, ?_⟩
+  · simp only [of_apply, cons_val_zero, cons_val_one]
+    linear_combination -hab
+  · simp only [of_apply, cons_val_zero, cons_val_one]
+    linear_combination -b' * ha' + a' * hb'
 
-private lemma exists_SL2Z (x y : ℚ) : ∃ M : SL(2, ℤ), (M 1 0 : ℚ) * x + (M 1 1 : ℚ) * y = 0 := by
-  rcases exists_SL2Z_int (x.num * y.den) (y.num * x.den) with ⟨M, hM⟩
+lemma exists_SL2Z (x y : ℚ) : ∃ M : SL(2, ℤ), (M 1 0 : ℚ) * x + (M 1 1 : ℚ) * y = 0 := by
+  rcases exists_SL2Z_eq_gcd (x.num * y.den) (y.num * x.den) with ⟨M, -, hM⟩
   refine ⟨M, ?_⟩
   have h : ((M 1 0 : ℚ) * x + (M 1 1 : ℚ) * y) * (x.den * y.den) =
       ((M 1 0 * (x.num * y.den) + M 1 1 * (y.num * x.den) : ℤ) : ℚ) := by

@@ -72,11 +72,11 @@ lemma mem_maassCuspSpace_iff :
 variable (φ F) in
 /-- The average `∫_ℍ φ(cosh d(z, w)) F(w) dμ(w)` of `F` around `z` for the radial kernel `φ`. -/
 noncomputable def kernelAverage : ℂ :=
-  ∫ w : ℍ, (φ (Real.cosh (dist z w)) : ℂ) * F w
+  ∫ w : ℍ, (φ (dist z w).cosh : ℂ) * F w
 
 lemma stronglyMeasurable_kernelAverage (hφ : Continuous φ) (hF : Continuous F) :
     StronglyMeasurable (kernelAverage φ F) := by
-  have hc : Continuous fun p : ℍ × ℍ ↦ (φ (Real.cosh (dist p.1 p.2)) : ℂ) * F p.2 :=
+  have hc : Continuous fun p : ℍ × ℍ ↦ (φ (dist p.1 p.2).cosh : ℂ) * F p.2 :=
     (Complex.continuous_ofReal.comp (continuous_kernel hφ)).mul (hF.comp continuous_snd)
   exact hc.stronglyMeasurable.integral_prod_right'
 
@@ -155,7 +155,7 @@ lemma sum_sq_norm_kernelAverage_le [DecidableEq ι] (hC0 : 0 ≤ C) (hφ : Conti
 lemma kernelPair_eq_setIntegral (hF : F ∈ maassSpace N χ a) (hG : G ∈ maassSpace N χ a)
     (hφ : Continuous φ) (hφ0 : ∀ c, 3 ≤ c → φ c = 0) :
     kernelPair N φ F G = ∫ z in gammaZeroDomain N, kernelAverage φ F z * conj (G z) := by
-  rw [kernelPair, integral_prod _ (integrable_kernelPair hF hG hφ hφ0)]
+  rw [kernelPair, integral_prod _ (integrable_kernel_mul hF hG hφ hφ0)]
   refine integral_congr_ae (.of_forall fun z ↦ ?_)
   simp only [← mul_assoc]
   rw [integral_mul_const]
@@ -189,7 +189,7 @@ lemma one_div_four_le_integral_sq_kernelAverage {m : ℕ} (hF : F ∈ maassSpace
     linarith
   have hint : IntegrableOn (fun z ↦ kernelAverage (coshDistNormalBump (2 * m + 1)) F z * conj (F z))
       (gammaZeroDomain N) := by
-    refine (integrable_kernelPair hF hF hP hP0).integral_prod_left.congr (.of_forall fun z ↦ ?_)
+    refine (integrable_kernel_mul hF hF hP hP0).integral_prod_left.congr (.of_forall fun z ↦ ?_)
     simp only [← mul_assoc]
     rw [integral_mul_const]
     rfl
@@ -260,23 +260,22 @@ lemma apply_eq_of_mem_maassSpace_zero (hF : F ∈ maassSpace N χ 0) (w : ℍ) :
   simp only [abs_zero, zero_mul, zero_div, mul_zero, add_zero] at h1
   have hP : Continuous (coshDistNormalBump 1) := contDiff_coshDistNormalBump.continuous
   have hP0 : ∀ c, 3 ≤ c → coshDistNormalBump 1 c = 0 := fun _ hc ↦ coshDistNormalBump_eq_zero hc
-  have h3 : ∫ p : ℍ × ℍ, coshDistNormalBump 1 (Real.cosh (dist p.1 p.2)) * ‖F p.1 - F p.2‖ ^ 2
-      ∂gammaZeroPairMeasure N = (∫ w, coshDistNormalBump 1 (Real.cosh (dist I w))) *
+  have h3 : ∫ p : ℍ × ℍ, coshDistNormalBump 1 (dist p.1 p.2).cosh * ‖F p.1 - F p.2‖ ^ 2
+      ∂gammaZeroPairMeasure N = (∫ w, coshDistNormalBump 1 (dist I w).cosh) *
         (2 * ∫ z in gammaZeroDomain N, ‖F z‖ ^ 2) -
           2 * (kernelPair N (coshDistNormalBump 1) F F).re :=
     integral_kernel_mul_norm_sub_sq_eq hF' hP hP0
   rw [integral_coshDistNormalBump I, one_mul] at h3
-  have h4 : ∫ p : ℍ × ℍ, coshDistNormalBump 1 (Real.cosh (dist p.1 p.2)) * ‖F p.1 - F p.2‖ ^ 2
+  have h4 : ∫ p : ℍ × ℍ, coshDistNormalBump 1 (dist p.1 p.2).cosh * ‖F p.1 - F p.2‖ ^ 2
       ∂gammaZeroPairMeasure N = 0 := by
     rw [h3, le_antisymm h2 h1]
     ring1
-  have hae : (fun p : ℍ × ℍ ↦ coshDistNormalBump 1 (Real.cosh (dist p.1 p.2)) *
+  have hae : (fun p : ℍ × ℍ ↦ coshDistNormalBump 1 (dist p.1 p.2).cosh *
       ‖F p.1 - F p.2‖ ^ 2) =ᵐ[gammaZeroPairMeasure N] 0 :=
     (integral_eq_zero_iff_of_nonneg (fun p ↦ mul_nonneg (coshDistNormalBump_nonneg _)
       (by positivity)) (integrable_kernel_mul_norm_sub_sq hF' hP hP0)).mp h4
   have hFc : Continuous F := continuous_of_mem_maassSpace hF
-  let U : Set (ℍ × ℍ) := {p | coshDistNormalBump 1 (Real.cosh (dist p.1 p.2)) *
-    ‖F p.1 - F p.2‖ ^ 2 ≠ 0}
+  let U : Set (ℍ × ℍ) := {p | coshDistNormalBump 1 (dist p.1 p.2).cosh * ‖F p.1 - F p.2‖ ^ 2 ≠ 0}
   have hU : IsOpen U := isOpen_ne_fun ((continuous_kernel hP).mul
     (((hFc.comp continuous_fst).sub (hFc.comp continuous_snd)).norm.pow 2)) continuous_const
   have hnull : (volume.prod volume : Measure (ℍ × ℍ)) U = 0 := by
@@ -296,9 +295,9 @@ lemma apply_eq_of_mem_maassSpace_zero (hF : F ∈ maassSpace N χ 0) (w : ℍ) :
     · rw [← Measure.restrict_apply hU.measurableSet, ← prod_restrict_univ_left]
       exact ae_iff.mp hae
   have hempty : U = ∅ := (hU.measure_eq_zero_iff _).mp hnull
-  have hpt (x y : ℍ) (hxy : Real.cosh (dist x y) < 2) : F x = F y := by
+  have hpt (x y : ℍ) (hxy : (dist x y).cosh < 2) : F x = F y := by
     by_contra hne
-    have h7 : coshDistNormalBump 1 (Real.cosh (dist x y)) ≠ 0 := by
+    have h7 : coshDistNormalBump 1 (dist x y).cosh ≠ 0 := by
       rw [coshDistNormalBump]
       refine mul_ne_zero (inv_ne_zero integral_coshDistBump_pos.ne') ?_
       refine (smoothTransition.pos_of_pos ?_).ne'
@@ -309,9 +308,9 @@ lemma apply_eq_of_mem_maassSpace_zero (hF : F ∈ maassSpace N χ 0) (w : ℍ) :
     rw [hempty] at h6
     exact h6
   have hloc : IsLocallyConstant F := (IsLocallyConstant.iff_eventually_eq F).mpr fun x ↦ by
-    have hc : ContinuousAt (fun y ↦ Real.cosh (dist x y)) x :=
+    have hc : ContinuousAt (fun y ↦ (dist x y).cosh) x :=
       (Real.continuous_cosh.comp (continuous_const.dist continuous_id)).continuousAt
-    have hv : Real.cosh (dist x x) < 2 := by
+    have hv : (dist x x).cosh < 2 := by
       simp
     filter_upwards [hc.eventually_lt continuousAt_const hv] with y hy
     exact (hpt x y hy).symm

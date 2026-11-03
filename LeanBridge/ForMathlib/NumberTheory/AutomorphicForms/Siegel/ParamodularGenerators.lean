@@ -1,4 +1,4 @@
-import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.Gamma0Generators
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParabolicDecomposition
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularPattern
 import Mathlib.LinearAlgebra.Matrix.FixedDetMatrices
 
@@ -269,25 +269,6 @@ private lemma ColIs.rotR (h : ColIs N γ x₁ x₂ x₃ x₄) :
   rcases h with ⟨h₁, h₂, h₃, h₄⟩
   refine ⟨?_, ?_, ?_, ?_⟩ <;>
     simp [SiegelUpperHalfSpace.rotR, rotation, Matrix.mul_apply, h₁, h₂, h₃, h₄] <;> ring1
-
-private lemma exists_SL2Z_eq_gcd :
-    ∃ M : SL(2, ℤ), M 0 0 * a + M 0 1 * b = a.gcd b ∧ M 1 0 * a + M 1 1 * b = 0 := by
-  rcases eq_or_ne (a.gcd b) 0 with h | h
-  · refine ⟨1, ?_, ?_⟩ <;> simp [Int.gcd_eq_zero_iff.mp h]
-  have hg : (a.gcd b : ℤ) ≠ 0 := Int.natCast_ne_zero.mpr h
-  rcases Int.gcd_dvd_left a b with ⟨a', ha'⟩
-  rcases Int.gcd_dvd_right a b with ⟨b', hb'⟩
-  have hab : (a.gcd b : ℤ) = a * a.gcdA b + b * a.gcdB b := Int.gcd_eq_gcd_ab a b
-  have hdet : a.gcdA b * a' + a.gcdB b * b' = 1 :=
-    mul_left_cancel₀ hg <| by
-      linear_combination -a.gcdA b * ha' - a.gcdB b * hb' - hab
-  refine ⟨⟨!![a.gcdA b, a.gcdB b; -b', a'], by
-    rw [det_fin_two_of]
-    linear_combination hdet⟩, ?_, ?_⟩
-  · simp only [of_apply, cons_val_zero, cons_val_one]
-    linear_combination -hab
-  · simp only [of_apply, cons_val_zero, cons_val_one]
-    linear_combination -b' * ha' + a' * hb'
 
 private lemma exists_SL2Z_eq_gcd_right :
     ∃ M : SL(2, ℤ), M 0 0 * a + M 0 1 * b = 0 ∧ M 1 0 * a + M 1 1 * b = a.gcd b := by
@@ -596,18 +577,6 @@ variable (N) in
 lemma embedSecond_scaleSL2_mem_paramodularLevel : embedSecond (scaleSL2 N M) ∈ paramodularLevel N :=
   gen_le_paramodularLevel (embedSecondScaled_mem_gen N M)
 
-private lemma exists_SL2Z_mul_add_eq_zero (x y : ℚ) :
-    ∃ M : SL(2, ℤ), (M 1 0 : ℚ) * x + (M 1 1 : ℚ) * y = 0 := by
-  rcases exists_SL2Z_eq_gcd (x.num * y.den) (y.num * x.den) with ⟨M, -, hM⟩
-  refine ⟨M, ?_⟩
-  have h : ((M 1 0 : ℚ) * x + (M 1 1 : ℚ) * y) * (x.den * y.den) =
-      ((M 1 0 * (x.num * y.den) + M 1 1 * (y.num * x.den) : ℤ) : ℚ) := by
-    push_cast
-    rw [← Rat.mul_den_eq_num x, ← Rat.mul_den_eq_num y]
-    ring1
-  rw [hM, Int.cast_zero] at h
-  exact (mul_eq_zero.mp h).resolve_right (by positivity)
-
 variable (N γ) in
 /-- **Every `γ ∈ Sp(4, ℚ)` has a left multiple `gγ`, `g ∈ K(N)`, with a vanishing entry `(4, 2)`**:
 the embedding of `SL(2, ℤ)` by `(a, b; c, d) ↦ (a, b/N; Nc, d)` on the second coordinate lies in
@@ -616,8 +585,7 @@ combine. So a rational boundary component of `K(N)\ℋ₂` can be moved to one s
 Fourier–Jacobi expansion, without classifying the cusps of `K(N)`. -/
 lemma exists_mem_paramodularLevel_mul_apply_eq_zero :
     ∃ g ∈ paramodularLevel N, (g * γ).1 (.inr 1) (.inl 1) = 0 := by
-  rcases exists_SL2Z_mul_add_eq_zero (N * γ.1 (.inl 1) (.inl 1)) (γ.1 (.inr 1) (.inl 1)) with
-    ⟨M, hM⟩
+  rcases exists_SL2Z (N * γ.1 (.inl 1) (.inl 1)) (γ.1 (.inr 1) (.inl 1)) with ⟨M, hM⟩
   refine ⟨embedSecond (scaleSL2 N M), embedSecond_scaleSL2_mem_paramodularLevel N M, ?_⟩
   rw [embedSecond_mul_apply_inr_one]
   simp only [coe_scaleSL2, of_apply, cons_val_zero, cons_val_one]

@@ -238,24 +238,13 @@ private lemma mem_dualLattice_of_tubeFourierCoeff_ne_zero (hN : N ≠ 0)
       ring1
     exact_mod_cast h
 
-private lemma exists_intCast_eq_two_mul
-    (hΓ : ∀ i j : l, (N : ℚ) • (single i j 1 + single j i 1) ∈ translationLattice Γ)
-    (n : dualLattice Γ) (p : l × l) : ∃ z : ℤ, (z : ℚ) = 2 * N * (n : Matrix l l ℚ) p.1 p.2 := by
-  rcases n.2.2 _ (hΓ p.1 p.2) with ⟨z, hz⟩
-  refine ⟨z, ?_⟩
-  have hs : (n : Matrix l l ℚ) p.2 p.1 = (n : Matrix l l ℚ) p.1 p.2 :=
-    congrFun (congrFun n.2.1 p.1) p.2
-  rw [← hz, smul_mul, trace_smul, add_mul, trace_add, trace_single_mul, trace_single_mul, hs,
-    one_smul, smul_eq_mul]
-  ring1
-
 private lemma exists_hasSum_fourierExp (hN : N ≠ 0)
     (hΓ : ∀ i j : l, (N : ℚ) • (single i j 1 + single j i 1) ∈ translationLattice Γ)
     (hu : IsHolomorphic u) (hp : IsPeriodicOn Γ u) :
     ∃ a : dualLattice Γ → ℂ, ∀ τ, HasSum (fun n ↦ fourierExp n τ * a n) (u τ) := by
   have hN₁ : (N : ℚ) ≠ 0 := Nat.cast_ne_zero.mpr hN
   have hN₂ : (N : ℂ) ≠ 0 := Nat.cast_ne_zero.mpr hN
-  choose κ hκ using exists_intCast_eq_two_mul hΓ
+  choose κ hκ using exists_intCast_eq hΓ
   have hinj : Function.Injective κ := fun n m h ↦ Subtype.ext <| ext fun i j ↦ by
     have h₁ : (κ n (i, j) : ℚ) = 2 * N * (n : Matrix l l ℚ) i j := hκ n (i, j)
     rw [h, hκ m (i, j)] at h₁

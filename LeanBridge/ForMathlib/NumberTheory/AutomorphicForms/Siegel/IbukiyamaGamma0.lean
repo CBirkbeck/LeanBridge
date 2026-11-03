@@ -27,6 +27,8 @@ with trivial character, and doubling sends `M_k(Γ₀(2))` to `M_k(Γ₀(4))`, w
 
 ## Main definitions
 
+* `SiegelUpperHalfSpace.slashCharStabilizerOf`: the elements `γ` of a subgroup `H` of `Sp(2g, R)`
+  with `f ∣_ρ σ(γ) = χ(γ) f`, for `σ : R → ℝ`, a subgroup of `Sp(2g, R)`.
 * `SiegelUpperHalfSpace.slashCharStabilizer`: the elements `γ` of a subgroup `Γ` of `Sp(2g, ℤ)`
   with `f ∣_ρ γ = ψ(γ) f`, a subgroup of `Sp(2g, ℤ)`.
 * `SiegelUpperHalfSpace.Ibukiyama.charMap`, `SiegelUpperHalfSpace.Ibukiyama.charMapInv`: the
@@ -230,29 +232,35 @@ lemma slash_eq_smul_iff (g : symplecticGroup l ℝ) (a : ℂ) :
   · rw [← map_smul, ← h, ← End.mul_apply, ← map_mul, mul_inv_cancel, map_one, End.one_apply]
   · rw [h, map_smul, ← End.mul_apply, ← map_mul, inv_mul_cancel, map_one, End.one_apply]
 
-/-- The **stabiliser with character** of a function `f : ℋ_g → V`: the elements `γ` of a subgroup
-`Γ` of `Sp(2g, ℤ)` with `f ∣_ρ γ = ψ(γ) f`, for a character `ψ` of `Γ`. It is a subgroup, since the
-slash operator is a right action, so `f` is invariant in this sense under all of `Γ` as soon as it
-is under generators of `Γ`. -/
-def slashCharStabilizer : Subgroup (symplecticGroup l ℤ) where
-  carrier := {γ | ∃ h : γ ∈ Γ, slash ρ (map (Int.castRingHom ℝ) γ) f = (ψ ⟨γ, h⟩ : ℂ) • f}
+/-- The **stabiliser with character** of a function `f : ℋ_g → V`, for a ring homomorphism
+`σ : R → ℝ`: the elements `γ` of a subgroup `H` of `Sp(2g, R)` with `f ∣_ρ σ(γ) = χ(γ) f`, for a
+character `χ` of `H`. It is a subgroup, since the slash operator is a right action, so `f` is
+invariant in this sense under all of `H` as soon as it is under generators of `H`. -/
+def slashCharStabilizerOf {R : Type*} [CommRing R] (σ : R →+* ℝ)
+    (H : Subgroup (symplecticGroup l R)) (χ : H →* ℂˣ) : Subgroup (symplecticGroup l R) where
+  carrier := {γ | ∃ h : γ ∈ H, slash ρ (map σ γ) f = (χ ⟨γ, h⟩ : ℂ) • f}
   mul_mem' := by
     rintro a b ⟨ha, ha'⟩ ⟨hb, hb'⟩
-    refine ⟨Γ.mul_mem ha hb, ?_⟩
+    refine ⟨H.mul_mem ha hb, ?_⟩
     rw [map_mul, slash_mul, ha', slash_smul, hb', smul_smul, ← Units.val_mul, ← map_mul]
     rfl
-  one_mem' := ⟨Γ.one_mem, by
-    rw [map_one, slash_one, show (⟨1, Γ.one_mem⟩ : Γ) = 1 from rfl, map_one, Units.val_one,
+  one_mem' := ⟨H.one_mem, by
+    rw [map_one, slash_one, show (⟨1, H.one_mem⟩ : H) = 1 from rfl, map_one, Units.val_one,
       one_smul]⟩
   inv_mem' := by
     rintro a ⟨ha, ha'⟩
-    refine ⟨Γ.inv_mem ha, ?_⟩
-    have h : slash ρ (map (Int.castRingHom ℝ) a⁻¹) (slash ρ (map (Int.castRingHom ℝ) a) f) = f := by
+    refine ⟨H.inv_mem ha, ?_⟩
+    have h : slash ρ (map σ a⁻¹) (slash ρ (map σ a) f) = f := by
       rw [← slash_mul, ← map_mul, mul_inv_cancel, map_one, slash_one]
     rw [ha', slash_smul] at h
     conv_rhs => rw [← h]
-    rw [smul_smul, show (⟨a⁻¹, Γ.inv_mem ha⟩ : Γ) = ⟨a, ha⟩⁻¹ from rfl, map_inv ψ,
+    rw [smul_smul, show (⟨a⁻¹, H.inv_mem ha⟩ : H) = ⟨a, ha⟩⁻¹ from rfl, map_inv χ,
       ← Units.val_mul, inv_mul_cancel, Units.val_one, one_smul]
+
+/-- The **stabiliser with character** of a function `f : ℋ_g → V` in a subgroup `Γ` of `Sp(2g, ℤ)`:
+the elements `γ` of `Γ` with `f ∣_ρ γ = ψ(γ) f`, for a character `ψ` of `Γ`. -/
+abbrev slashCharStabilizer : Subgroup (symplecticGroup l ℤ) :=
+  slashCharStabilizerOf ρ f (Int.castRingHom ℝ) Γ ψ
 
 /-- **Invariance under generators gives a modular form**: a holomorphic `f : ℋ_g → V` with
 `f ∣_ρ γ = ψ(γ) f` for all `γ` in a subgroup `Γ` of `Sp(2g, ℤ)` is a Siegel modular form of weight

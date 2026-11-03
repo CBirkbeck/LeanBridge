@@ -22,10 +22,10 @@ the factor `e^{2πiNmz²/τ}` cancelling against the shift `ω ↦ ω - z²/τ`.
 
 The transformation of `φ ∣ V_m` in index `N` follows from that in index `1`
 (`ModularForm.indexRaising_S`), which only uses the transformation law of `φ`, through the scaling
-`φ(τ, z/√N)`, which turns the index `N` into `1`. The Fourier expansion of `φ ∣ V_m` is the
-computation of the Maass lift `N = 1` in
-`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftIndexRaising`, whose lemmas are
-private and specific to `φ ∈ J_{k,1}`.
+`φ(τ, z/√N)`, which turns the index `N` into `1`. The Fourier expansion of `φ ∣ V_m` and the law
+under `J₁` also serve the Maass lift `N = 1`, in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftFourierJacobi` and
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftIndexRaising`.
 
 ## Main definitions
 
@@ -44,6 +44,9 @@ private and specific to `φ ∈ J_{k,1}`.
 * `SiegelUpperHalfSpace.gritsenkoLift_eq_tsum_fourierJacobi`: the Fourier–Jacobi expansion of the
   lift.
 * `SiegelUpperHalfSpace.gritsenkoFourierJacobi_eq_indexRaising`: its coefficients are the `φ ∣ V_m`.
+* `SiegelUpperHalfSpace.tsum_mul_liftExp_partialInversion_smul`: `F(J₁Z) = τ^k F(Z)` for a series in
+  the exponentials of the lift, whose Fourier–Jacobi coefficients transform like Jacobi forms under
+  `(0, -1; 1, 0)`.
 * `SiegelUpperHalfSpace.gritsenkoLift_partialInversion_smul`: `F(J₁Z) = τ^k F(Z)`.
 * `SiegelUpperHalfSpace.gritsenkoLift_paramodularSwap`: `F(V_N Z) = F(Z)`.
 * `SiegelUpperHalfSpace.gritsenkoLift_paramodularTranslation_smul`: `F` is invariant under the
@@ -120,7 +123,7 @@ namespace SiegelUpperHalfSpace
 
 variable {k : ℤ} {φ : ℍ × ℂ → ℂ} {c : ℤ × ℤ → ℂ} {m a : ℕ} (x : ℍ × ℂ)
 
-private lemma sum_cosetReps_eq (hm : 0 < m) (f : ℕ × ℕ × ℕ → ℂ) :
+private lemma sum_cosetReps (hm : 0 < m) (f : ℕ × ℕ × ℕ → ℂ) :
     ∑ t ∈ cosetReps m, f t = ∑ a ∈ m.divisors, ∑ b ∈ Finset.range (m / a), f (a, b, m / a) := by
   rw [Finset.sum_finset_product (cosetReps m) m.divisors
     (fun a ↦ Finset.range (m / a) ×ˢ {m / a}) fun t ↦ ?_]
@@ -137,7 +140,7 @@ private lemma sum_cosetReps_eq (hm : 0 < m) (f : ℕ × ℕ × ℕ → ℂ) :
     · rintro ⟨⟨h1, -⟩, h2, h3⟩
       exact ⟨by rw [h3, Nat.mul_div_cancel' h1], h3 ▸ h2⟩
 
-private lemma hasSum_coset_term (hc : HasJacobiFourierExpansion φ c) (ha : a ∈ m.divisors) : HasSum
+private lemma hasSum_coset (hc : HasJacobiFourierExpansion φ c) (ha : a ∈ m.divisors) : HasSum
     (fun q : ℤ × ℤ ↦ if ((m / a : ℕ) : ℤ) ∣ q.1 then (a : ℂ) ^ (k - 1) * c q *
       cexp (2 * π * I * (q.1 * a * x.1 / (m / a : ℕ) + q.2 * a * x.2)) else 0)
       ((m : ℂ)⁻¹ * ∑ b ∈ Finset.range (m / a),
@@ -166,7 +169,7 @@ private lemma hasSum_coset_term (hc : HasJacobiFourierExpansion φ c) (ha : a �
     field_simp
   · simp
 
-private lemma hasSum_coset_term_reindex (hc : HasJacobiFourierExpansion φ c) (ha : a ∈ m.divisors) :
+private lemma hasSum_coset_reindex (hc : HasJacobiFourierExpansion φ c) (ha : a ∈ m.divisors) :
     HasSum (fun q : ℤ × ℤ ↦ if (a : ℤ) ∣ q.1 ∧ (a : ℤ) ∣ q.2 then (a : ℂ) ^ (k - 1) *
       c (q.1 / a * (m / a : ℕ), q.2 / a) * jacobiFourierExp q x else 0)
       ((m : ℂ)⁻¹ * ∑ b ∈ Finset.range (m / a),
@@ -181,7 +184,7 @@ private lemma hasSum_coset_term_reindex (hc : HasJacobiFourierExpansion φ c) (h
     (mul_right_injective₀ ha').prodMap (mul_right_injective₀ ha')
   refine (hκ.hasSum_iff fun q hq ↦ ite_eq_right fun h ↦ hq ?_).mp
     (((hι.hasSum_iff fun q hq ↦ ite_eq_right fun h ↦ hq ?_).mpr
-      (hasSum_coset_term x hc ha)).congr_fun fun p ↦ ?_)
+      (hasSum_coset x hc ha)).congr_fun fun p ↦ ?_)
   · rcases h with ⟨⟨u, hu⟩, ⟨v, hv⟩⟩
     exact ⟨(u, v), Prod.ext hu.symm hv.symm⟩
   · rcases h with ⟨u, hu⟩
@@ -227,8 +230,8 @@ Zagier, Theorem 4.2), in every weight and whatever the index of `φ`. -/
 lemma hasSum_liftDivisorSum_indexRaising (hc : HasJacobiFourierExpansion φ c) (hm : 0 < m) : HasSum
     (fun q : ℤ × ℤ ↦ liftDivisorSum k c q.1 q.2 m * jacobiFourierExp q x)
       (indexRaising k φ m x) := by
-  rw [indexRaising, sum_cosetReps_eq hm, Finset.mul_sum]
-  exact (hasSum_sum fun a ha ↦ hasSum_coset_term_reindex x hc ha).congr_fun fun q ↦
+  rw [indexRaising, sum_cosetReps hm, Finset.mul_sum]
+  exact (hasSum_sum fun a ha ↦ hasSum_coset_reindex x hc ha).congr_fun fun q ↦
     (sum_divisors_liftDivisorSum x hm q).symm
 
 variable {N : ℕ} (Z : SiegelUpperHalfSpace (Fin 2)) (q : ℤ × ℤ) (n r : ℤ) (l : ℤ)
@@ -254,21 +257,29 @@ noncomputable def gritsenkoFourierJacobi : ℂ :=
   ∑' q : ℤ × ℤ, gritsenkoCoeff k (jacobiCoeff φ) q.1 q.2 l * jacobiFourierExp q x
 
 /-- The bijection `ℤ × ℤ² ≃ ℤ³`, `(m, (n, r)) ↦ (n, r, m)`. -/
-private def fiberEquivLift : ℤ × (ℤ × ℤ) ≃ ℤ × ℤ × ℤ :=
+private def fiberEquiv : ℤ × (ℤ × ℤ) ≃ ℤ × ℤ × ℤ :=
   (Equiv.prodComm ℤ (ℤ × ℤ)).trans (Equiv.prodAssoc ℤ ℤ ℤ)
+
+variable {g : ℤ × ℤ × ℤ → ℂ}
+
+private lemma tsum_mul_liftExp_eq_tsum (hs : Summable fun p : ℤ × ℤ × ℤ ↦
+    g p * liftExp N p.1 p.2.1 p.2.2 Z) : ∑' p : ℤ × ℤ × ℤ, g p * liftExp N p.1 p.2.1 p.2.2 Z =
+    ∑' l : ℤ, (∑' q : ℤ × ℤ, g (q.1, q.2, l) * jacobiFourierExp q (toJacobiPoint Z)) *
+      cexp (2 * π * I * (N * l) * Z.val 1 1) := by
+  rw [← fiberEquiv.tsum_eq]
+  refine (fiberEquiv.summable_iff.mpr hs).tsum_prod.trans <| tsum_congr fun l ↦ ?_
+  rw [← tsum_mul_right]
+  refine tsum_congr fun q ↦ ?_
+  rw [mul_assoc, ← liftExp_eq_mul]
+  rfl
 
 /-- **The Fourier–Jacobi expansion of the Gritsenko lift**: where the series of the lift converges
 absolutely, `Grit(φ)(Z) = ∑_m φ_m(τ, z) e^{2πiNmω}` for `Z = (τ, z; z, ω)`. -/
 lemma gritsenkoLift_eq_tsum_fourierJacobi (hs : Summable fun p : ℤ × ℤ × ℤ ↦
     gritsenkoCoeff k (jacobiCoeff φ) p.1 p.2.1 p.2.2 * liftExp N p.1 p.2.1 p.2.2 Z) :
     gritsenkoLift k N φ Z = ∑' l : ℤ, gritsenkoFourierJacobi k φ (toJacobiPoint Z) l *
-      cexp (2 * π * I * (N * l) * Z.val 1 1) := by
-  rw [gritsenkoLift, ← fiberEquivLift.tsum_eq]
-  refine (fiberEquivLift.summable_iff.mpr hs).tsum_prod.trans <| tsum_congr fun l ↦ ?_
-  rw [gritsenkoFourierJacobi, ← tsum_mul_right]
-  refine tsum_congr fun q ↦ ?_
-  rw [mul_assoc, ← liftExp_eq_mul]
-  rfl
+      cexp (2 * π * I * (N * l) * Z.val 1 1) :=
+  tsum_mul_liftExp_eq_tsum Z hs
 
 lemma gritsenkoFourierJacobi_of_nonpos (hl : l ≤ 0) : gritsenkoFourierJacobi k φ x l = 0 := by
   rw [gritsenkoFourierJacobi]
@@ -295,28 +306,30 @@ private lemma toJacobiPoint_partialInversion_smul :
   · rw [ModularGroup.denom_S]
     simp [toJacobiPoint, val_partialInversion_smul]
 
-/-- **The transformation law of the Gritsenko lift under the partial inversion**
-`J₁ : (τ, z; z, ω) ↦ (-1/τ, z/τ; z/τ, ω - z²/τ)`: `F(J₁Z) = τ^k F(Z)`. In the Fourier–Jacobi
-expansion `F(Z) = ∑_m (φ ∣ V_m)(τ, z) e^{2πiNmω}`, the function `φ ∣ V_m` transforms like a Jacobi
-form of weight `k` and index `Nm` under `(0, -1; 1, 0)`, and the factor `e^{2πiNmz²/τ}` cancels
-against the shift `ω ↦ ω - z²/τ`. -/
-lemma gritsenkoLift_partialInversion_smul (hN : 0 < N) (hφ : φ ∈ jacobiCuspFormSpace k N) :
-    gritsenkoLift k N φ (map (Int.castRingHom ℝ) partialInversion • Z) = Z.val 0 0 ^ k *
-      gritsenkoLift k N φ Z := by
-  rw [gritsenkoLift_eq_tsum_fourierJacobi _ (summable_gritsenkoLift _ hN hφ),
-    gritsenkoLift_eq_tsum_fourierJacobi _ (summable_gritsenkoLift _ hN hφ), ← tsum_mul_left,
+/-- **The transformation law under the partial inversion of a series in the exponentials of the
+lift**: let `F(Z) = ∑ g(n, r, m) e^{2πi(nτ + rz + Nmω)}`, converging absolutely on `ℋ₂`, with
+`g(n, r, m) = 0` for `m < 0`. If every `φ_m(τ, z) = ∑_{n, r} g(n, r, m) e^{2πi(nτ + rz)}` transforms
+like a Jacobi form of weight `k` and index `Nm` under `(0, -1; 1, 0)`, then
+`J₁ : (τ, z; z, ω) ↦ (-1/τ, z/τ; z/τ, ω - z²/τ)` satisfies `F(J₁Z) = τ^k F(Z)`: in the expansion
+`F(Z) = ∑_m φ_m(τ, z) e^{2πiNmω}`, the factor `e^{2πiNmz²/τ}` cancels against the shift
+`ω ↦ ω - z²/τ`. -/
+lemma tsum_mul_liftExp_partialInversion_smul (hs : ∀ Z : SiegelUpperHalfSpace (Fin 2),
+    Summable fun p : ℤ × ℤ × ℤ ↦ g p * liftExp N p.1 p.2.1 p.2.2 Z)
+    (hg : ∀ l < 0, ∀ q : ℤ × ℤ, g (q.1, q.2, l) = 0) (hS : ∀ (m : ℕ) (x : ℍ × ℂ),
+      ∑' q : ℤ × ℤ, g (q.1, q.2, m) *
+          jacobiFourierExp q (S • x.1, x.2 / UpperHalfPlane.denom S x.1) =
+        jacobiFactor k (N * m) x S * ∑' q : ℤ × ℤ, g (q.1, q.2, m) * jacobiFourierExp q x) :
+    ∑' p : ℤ × ℤ × ℤ, g p * liftExp N p.1 p.2.1 p.2.2
+        (map (Int.castRingHom ℝ) partialInversion • Z) =
+      Z.val 0 0 ^ k * ∑' p : ℤ × ℤ × ℤ, g p * liftExp N p.1 p.2.1 p.2.2 Z := by
+  rw [tsum_mul_liftExp_eq_tsum _ (hs _), tsum_mul_liftExp_eq_tsum _ (hs _), ← tsum_mul_left,
     toJacobiPoint_partialInversion_smul]
   refine tsum_congr fun l ↦ ?_
-  rcases le_or_gt l 0 with hl | hl
-  · rw [gritsenkoFourierJacobi_of_nonpos _ _ hl, gritsenkoFourierJacobi_of_nonpos _ _ hl, zero_mul,
-      zero_mul, mul_zero]
-  · rcases Int.eq_ofNat_of_zero_le hl.le with ⟨m, rfl⟩
-    have hm : 0 < m := by exact_mod_cast hl
-    rw [gritsenkoFourierJacobi_eq_indexRaising _ hφ.1 hm,
-      gritsenkoFourierJacobi_eq_indexRaising _ hφ.1 hm,
-      indexRaising_S_of_index hN hφ.1.2.1 hm, jacobiFactor, ModularGroup.denom_S,
-      val_partialInversion_smul]
-    generalize indexRaising k φ m (toJacobiPoint Z) = v
+  rcases lt_or_ge l 0 with hl | hl
+  · simp [hg l hl]
+  · rcases Int.eq_ofNat_of_zero_le hl with ⟨m, rfl⟩
+    rw [hS m (toJacobiPoint Z), jacobiFactor, ModularGroup.denom_S, val_partialInversion_smul]
+    generalize ∑' q : ℤ × ℤ, g (q.1, q.2, (m : ℤ)) * jacobiFourierExp q (toJacobiPoint Z) = v
     have he : cexp (2 * π * I * (N * m) * Z.val 0 1 ^ 2 / Z.val 0 0) *
         cexp (2 * π * I * (N * m) * (Z.val 1 1 - Z.val 0 1 ^ 2 / Z.val 0 0)) =
           cexp (2 * π * I * (N * m) * Z.val 1 1) := by
@@ -326,8 +339,26 @@ lemma gritsenkoLift_partialInversion_smul (hN : 0 < N) (hφ : φ ∈ jacobiCuspF
     simp [toJacobiPoint]
     linear_combination (Z.val 0 0 ^ k * v) * he
 
-private lemma val_one_zero_eq : Z.val 1 0 = Z.val 0 1 :=
-  congrFun (congrFun Z.transpose_val 0) 1
+variable (m) in
+private lemma gritsenkoFourierJacobi_S (hN : 0 < N) (hφ : φ ∈ jacobiCuspFormSpace k N) :
+    gritsenkoFourierJacobi k φ (S • x.1, x.2 / UpperHalfPlane.denom S x.1) m =
+      jacobiFactor k (N * m) x S * gritsenkoFourierJacobi k φ x m := by
+  rcases Nat.eq_zero_or_pos m with rfl | hm
+  · rw [gritsenkoFourierJacobi_of_nonpos _ _ (by simp),
+      gritsenkoFourierJacobi_of_nonpos _ _ (by simp), mul_zero]
+  · rw [gritsenkoFourierJacobi_eq_indexRaising _ hφ.1 hm,
+      gritsenkoFourierJacobi_eq_indexRaising _ hφ.1 hm, indexRaising_S_of_index hN hφ.1.2.1 hm]
+
+/-- **The transformation law of the Gritsenko lift under the partial inversion**
+`J₁ : (τ, z; z, ω) ↦ (-1/τ, z/τ; z/τ, ω - z²/τ)`: `F(J₁Z) = τ^k F(Z)`. In the Fourier–Jacobi
+expansion `F(Z) = ∑_m (φ ∣ V_m)(τ, z) e^{2πiNmω}`, the function `φ ∣ V_m` transforms like a Jacobi
+form of weight `k` and index `Nm` under `(0, -1; 1, 0)`, and the factor `e^{2πiNmz²/τ}` cancels
+against the shift `ω ↦ ω - z²/τ`. -/
+lemma gritsenkoLift_partialInversion_smul (hN : 0 < N) (hφ : φ ∈ jacobiCuspFormSpace k N) :
+    gritsenkoLift k N φ (map (Int.castRingHom ℝ) partialInversion • Z) = Z.val 0 0 ^ k *
+      gritsenkoLift k N φ Z :=
+  tsum_mul_liftExp_partialInversion_smul Z (fun Z ↦ summable_gritsenkoLift Z hN hφ)
+    (fun _ hl _ ↦ ite_eq_right hl.not_gt) fun m x ↦ gritsenkoFourierJacobi_S m x hN hφ
 
 variable (L : ℕ+)
 
@@ -348,7 +379,7 @@ private lemma posDef_im_swap :
     · exact h₀
   have h : 0 < star ![x 1, (L : ℝ) * x 0] ⬝ᵥ Z.val.map im *ᵥ ![x 1, (L : ℝ) * x 0] :=
     (posDef_iff_dotProduct_mulVec.mp Z.posDef_im).2 hx'
-  simp only [dotProduct, mulVec, Fin.sum_univ_two, map_apply, val_one_zero_eq] at h
+  simp only [dotProduct, mulVec, Fin.sum_univ_two, map_apply, val_one_zero] at h
   simp [mulVec]
   refine pos_of_mul_pos_right ?_ hL.le
   convert h using 1
@@ -375,13 +406,6 @@ private lemma liftExp_paramodularSwap :
   field_simp
   ring1
 
-/-- The involution `(n, r, m) ↦ (m, r, n)` of `ℤ³`. -/
-private def swapIndexLift : ℤ × ℤ × ℤ ≃ ℤ × ℤ × ℤ where
-  toFun p := (p.2.2, p.2.1, p.1)
-  invFun p := (p.2.2, p.2.1, p.1)
-  left_inv _ := rfl
-  right_inv _ := rfl
-
 private lemma gritsenkoCoeff_symm (hφ : φ ∈ jacobiCuspFormSpace k N) :
     gritsenkoCoeff k (jacobiCoeff φ) n r l = gritsenkoCoeff k (jacobiCoeff φ) l r n := by
   by_cases h : 0 < n ∧ 0 < l
@@ -394,7 +418,7 @@ its Fourier coefficients are symmetric, `a(n, r, m) = a(m, r, n)`. -/
 lemma gritsenkoLift_paramodularSwap (hφ : φ ∈ jacobiCuspFormSpace k L) :
     gritsenkoLift k L φ (paramodularSwap Z L) = gritsenkoLift k L φ Z := by
   rw [gritsenkoLift, gritsenkoLift]
-  refine Eq.trans ?_ (swapIndexLift.tsum_eq _)
+  refine Eq.trans ?_ (swapIndex.tsum_eq _)
   refine tsum_congr fun p ↦ ?_
   rw [liftExp_paramodularSwap, gritsenkoCoeff_symm _ _ _ hφ]
   rfl
@@ -441,7 +465,7 @@ private lemma denom_paramodularInversion :
       !![1, 0; (L : ℂ) * Z.val 0 1, (L : ℂ) * Z.val 1 1] := by
   ext i j
   fin_cases i <;> fin_cases j <;>
-    simp [denom, paramodularInversion, embedSecond, coe_scaleSL2, Matrix.mul_apply, val_one_zero_eq,
+    simp [denom, paramodularInversion, embedSecond, coe_scaleSL2, Matrix.mul_apply, val_one_zero,
       toBlocks₂₁, toBlocks₂₂]
 
 lemma det_denom_paramodularInversion :
@@ -493,32 +517,19 @@ lemma gritsenkoLift_paramodularInversion_smul (hφ : φ ∈ jacobiCuspFormSpace 
   rfl
 
 /-- The **stabiliser** of a function `f : ℋ_g → V` in `Sp(2g, ℚ)`: the elements `γ` with
-`f ∣_ρ γ = f`. It is a subgroup, the slash operator being a right action, so `f` is invariant under
-a subgroup of `Sp(2g, ℚ)` as soon as it is invariant under generators of it. -/
-def slashStabilizerRat {ι : Type*} [Fintype ι] [DecidableEq ι] {V : Type*} [AddCommGroup V]
-    [Module ℂ V] (ρ : Representation ℂ (GL ι ℂ) V) (f : SiegelUpperHalfSpace ι → V) :
-    Subgroup (symplecticGroup ι ℚ) where
-  carrier := {γ | slash ρ (map (algebraMap ℚ ℝ) γ) f = f}
-  mul_mem' := by
-    intro γ γ' hγ hγ'
-    simp only [Set.mem_ofPred_eq] at hγ hγ' ⊢
-    rw [map_mul, slash_mul, hγ, hγ']
-  one_mem' := by
-    simp only [Set.mem_ofPred_eq, map_one, slash_one]
-  inv_mem' := by
-    intro γ hγ
-    simp only [Set.mem_ofPred_eq] at hγ ⊢
-    conv_lhs => rw [← hγ]
-    rw [← slash_mul, ← map_mul, mul_inv_cancel, map_one, slash_one]
+`f ∣_ρ γ = f`, so that `f` is invariant under a subgroup of `Sp(2g, ℚ)` as soon as it is invariant
+under generators of it. -/
+noncomputable abbrev slashStabilizerRat {ι : Type*} [Fintype ι] [DecidableEq ι] {V : Type*}
+    [AddCommGroup V] [Module ℂ V] (ρ : Representation ℂ (GL ι ℂ) V)
+    (f : SiegelUpperHalfSpace ι → V) : Subgroup (symplecticGroup ι ℚ) :=
+  slashCharStabilizerOf ρ f (algebraMap ℚ ℝ) ⊤ 1
 
 private lemma mem_slashStabilizerRat_of {F : SiegelUpperHalfSpace (Fin 2) → ℂ}
     {γ : symplecticGroup (Fin 2) ℚ} (h : ∀ Z, F (map (algebraMap ℚ ℝ) γ • Z) =
       (denom (map (algebraMap ℚ ℝ) γ) Z.val).det ^ k * F Z) :
-    γ ∈ slashStabilizerRat (TauCeti.detPowerRep ℂ 2 k) F := by
-  have hs : slash (TauCeti.detPowerRep ℂ 2 k) (map (algebraMap ℚ ℝ) γ) F = (1 : ℂ) • F :=
-    (slash_eq_smul_iff (TauCeti.detPowerRep ℂ 2 k) F (map (algebraMap ℚ ℝ) γ) 1).mpr
-      fun Z ↦ by rw [one_smul, detPowerRep_denomGL, h]
-  rwa [one_smul] at hs
+    γ ∈ slashStabilizerRat (TauCeti.detPowerRep ℂ 2 k) F :=
+  ⟨trivial, (slash_eq_smul_iff (TauCeti.detPowerRep ℂ 2 k) F (map (algebraMap ℚ ℝ) γ) _).mpr
+    fun Z ↦ by simp [h]⟩
 
 /-- **Gritsenko's theorem, without the cusp condition** (LMFDB `mf.siegel.lift.gritsenko`): the
 Gritsenko lift of a Jacobi cusp form `φ ∈ J_{k,N}^cusp`, `N ≥ 1`, is a paramodular form of weight
@@ -542,7 +553,7 @@ lemma gritsenkoLift_mem_modularForms (hφ : φ ∈ jacobiCuspFormSpace k L) :
       simp
   refine (mem_modularForms_iff_slash _ _ _ _).mpr
     ⟨isHolomorphic_gritsenkoLift L.pos hφ, fun γ ↦ ?_⟩
-  rw [MonoidHom.one_apply, Units.val_one, one_smul]
-  exact hle γ.2
+  rcases hle γ.2 with ⟨_, h⟩
+  simpa using h
 
 end SiegelUpperHalfSpace

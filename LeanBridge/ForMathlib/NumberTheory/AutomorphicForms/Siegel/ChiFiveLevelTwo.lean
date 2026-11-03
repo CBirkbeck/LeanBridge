@@ -310,7 +310,7 @@ noncomputable def chiFiveStabilizer : Subgroup (symplecticGroup (Fin 2) ℤ) :=
 
 lemma mem_chiFiveStabilizer_iff : γ ∈ chiFiveStabilizer ↔ slash (TauCeti.detPowerRep ℂ 2 5)
     (map (Int.castRingHom ℝ) γ) chi5 = chi5 := by
-  simp [chiFiveStabilizer, slashCharStabilizer]
+  simp [chiFiveStabilizer, slashCharStabilizerOf]
 
 instance : chiFiveStabilizer.Normal where
   conj_mem h hh γ := by

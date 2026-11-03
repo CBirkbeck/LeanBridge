@@ -13,8 +13,7 @@ sum of such functions, so `T_p F` is square-integrable on `Γ₀(N) \ ℍ`. With
 `Γ₀(N)`-invariance (`UpperHalfPlane.maassHeckeOperator_smul_eq`) and its eigenvalue
 (`UpperHalfPlane.hyperbolicLaplacian_maassHeckeOperator_add_mul_eq_zero`), `T_p` preserves the
 space `M(N, 1, λ)` of Maass forms of trivial character for every prime `p ∤ N`, `N ≠ 0`, and so
-the Maass forms on `Γ₀(N)` of `UpperHalfPlane.IsMaassForm`, whose square-integrability was the
-missing property of `T_p f`.
+the Maass forms on `Γ₀(N)` of `UpperHalfPlane.IsMaassForm`.
 
 ## Main results
 
@@ -107,7 +106,7 @@ lemma integrableOn_norm_sq_comp_smul (hF : F ∈ maassSpace N χ eigenvalue)
     · have hcomp : (fun z ↦ ‖F (b • z)‖ ^ 2) = (fun u ↦ ‖F u‖ ^ 2) ∘ (b • ·) := rfl
       rw [hcomp, ← Set.preimage_smul, (measurePreserving_smul b volume).integrableOn_comp_preimage
           (measurableEmbedding_const_smul b)]
-      exact integrableOn_finite_iUnion.mpr fun q ↦ integrableOn_norm_sq_smul_fdo hF _
+      exact integrableOn_finite_iUnion.mpr fun q ↦ integrableOn_norm_sq_smul_fdo _ hF
   rcases QuotientGroup.mk_out_eq_mul (conjGL (Gamma0 N) b).withCenter σ⁻¹ with ⟨k, hk⟩
   have hk' : (k : SL(2, ℤ)) ∈ conjGL (Gamma0 N) b :=
     (Subgroup.withCenter_eq_self_iff.mpr <|

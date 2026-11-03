@@ -19,10 +19,10 @@ Twists of newform orbits and their multiplicity are defined through representati
 of the orbits, and only depend on the Galois orbits of `ψ` and of `g`. The LMFDB states that the
 multiplicity does not depend on the representative `f` of `[f]` either. This rests on the Galois
 conjugates of newforms being newforms, which holds by
-`HeckeRing.GL2.Newform.exists_isGaloisConjugateBy`, in `Newform/GaloisConjugateExists.lean`, and is
-proved here under that assumption on `g`. The twist class of a newform orbit is defined through all
-of its newforms; as the Galois conjugates of newforms are newforms, it is the set of the newform
-orbits of the twist class of any one of them, an equality that is not stated here.
+`HeckeRing.GL2.Newform.exists_isGaloisConjugateBy`, in `Newform/GaloisConjugateExists.lean`. The
+twist class of a newform orbit is defined through all of its newforms; as the Galois conjugates of
+newforms are newforms, it is the set of the newform orbits of the twist class of any one of them, an
+equality that is not stated here.
 
 The LMFDB also states that the multiplicity of an inner twist is the inner twist count. That is not
 right: when `[g] = [f]`, the multiplicity is the number of inner twists of `f` by characters in
@@ -50,8 +50,7 @@ equality is strong multiplicity one across levels, which is not proved here.
   the Galois orbits of `ψ` and of `g`.
 * `HeckeRing.GL2.Newform.IsTwistBy.map`: `σ(f ⊗ ψ) = σ(f) ⊗ σ(ψ)`.
 * `HeckeRing.GL2.Newform.IsGaloisConjugateBy.twistMultiplicity_eq`: the multiplicity only depends on
-  the Galois orbit of `f`, if the Galois conjugates of `g` are newforms, which holds by
-  `HeckeRing.GL2.Newform.exists_isGaloisConjugateBy`.
+  the Galois orbit of `f`.
 * `HeckeRing.GL2.Newform.twistMultiplicity_self_le_innerTwistMultiplicity`: the multiplicity of
   `[f]` as a twist of itself by `[ψ]` is at most the inner twist multiplicity of `f` for `[ψ]`.
 -/
@@ -62,18 +61,14 @@ variable {N N' M : ℕ} [NeZero N] [NeZero N'] {k k' : ℤ}
 
 namespace Newform
 
--- `hnew` holds by `exists_isGaloisConjugateBy`, in `Newform/GaloisConjugateExists.lean`.
 variable {f f₁ : Newform N k} {ψ ψ₁ : DirichletCharacter ℂ M} {g g₁ : Newform N' k'} {σ : Gal(ℂ/ℚ)}
-  (hfg : f.IsTwistBy ψ g) (hσ : f.IsGaloisConjugateBy σ f₁)
-  (hnew : ∀ τ : Gal(ℂ/ℚ), ∃ h : Newform N' k', g.IsGaloisConjugateBy τ h)
 
 variable (f ψ g) in
 /-- The newform orbit `[g]` is a **twist** of the newform orbit `[f]` by the Galois orbit `[ψ]` of
 the primitive Dirichlet character `ψ` (LMFDB `cmf.twist`) if some newform in the Galois orbit of
 `g` is the twist `f ⊗ ψ'` of `f` by a character `ψ'` in the Galois orbit of `ψ`. This is stated for
 the representative `f` of `[f]`; it does not depend on it, by
-`isOrbitTwistBy_iff_twistMultiplicity_pos` and `IsGaloisConjugateBy.twistMultiplicity_eq`, whose
-hypothesis `hnew` holds by `exists_isGaloisConjugateBy`, in `Newform/GaloisConjugateExists.lean`. -/
+`isOrbitTwistBy_iff_twistMultiplicity_pos` and `IsGaloisConjugateBy.twistMultiplicity_eq`. -/
 def IsOrbitTwistBy : Prop :=
   ∃ ψ' ∈ ψ.galoisOrbit, ∃ h ∈ g.galoisOrbit, f.IsTwistBy ψ' h
 
@@ -82,13 +77,11 @@ variable (f ψ g) in
 Galois orbit `[ψ]` of the primitive Dirichlet character `ψ` (LMFDB `cmf.twist_multiplicity`): the
 number of characters `ψ' ∈ [ψ]` for which the twist `f ⊗ ψ'` lies in the Galois orbit of `g`. This
 is stated for the representative `f` of `[f]`; the LMFDB states that it does not depend on it, which
-is `IsGaloisConjugateBy.twistMultiplicity_eq`, whose hypothesis `hnew` holds by
-`exists_isGaloisConjugateBy`, in `Newform/GaloisConjugateExists.lean`. -/
+is `IsGaloisConjugateBy.twistMultiplicity_eq`. -/
 noncomputable def twistMultiplicity : ℕ :=
   (ψ.galoisOrbit ∩ {ψ' | ∃ h ∈ g.galoisOrbit, f.IsTwistBy ψ' h}).ncard
 
-include hfg in
-lemma IsTwistBy.isOrbitTwistBy : f.IsOrbitTwistBy ψ g :=
+lemma IsTwistBy.isOrbitTwistBy (hfg : f.IsTwistBy ψ g) : f.IsOrbitTwistBy ψ g :=
   ⟨ψ, ψ.mem_galoisOrbit_self, g, g.self_mem_galoisOrbit, hfg⟩
 
 /-- **A newform orbit is a twist of another exactly when the multiplicity is positive.** -/
@@ -107,29 +100,26 @@ lemma IsGaloisConjugate.twistMultiplicity_eq (hg : g.IsGaloisConjugate g₁) :
     f.twistMultiplicity ψ g = f.twistMultiplicity ψ g₁ := by
   rw [twistMultiplicity, twistMultiplicity, galoisOrbit_eq_iff.mpr hg]
 
-include hfg hσ in
 /-- **Twists are Galois equivariant**: if `g = f ⊗ ψ`, then `σ(g) = σ(f) ⊗ (σ ∘ ψ)`. -/
-lemma IsTwistBy.map (hg : g.IsGaloisConjugateBy σ g₁) : f₁.IsTwistBy (ψ.ringHomComp σ) g₁ :=
+lemma IsTwistBy.map (hfg : f.IsTwistBy ψ g) (hσ : f.IsGaloisConjugateBy σ f₁)
+    (hg : g.IsGaloisConjugateBy σ g₁) : f₁.IsTwistBy (ψ.ringHomComp σ) g₁ :=
   ⟨hfg.1, hfg.2.1.ringHomComp _ (RingHom.injective (σ : ℂ →+* ℂ)), fun n hn ↦ by
     rw [hg.coeff, hfg.2.2 n hn, map_mul, hσ.coeff, MulChar.ringHomComp_apply]
     rfl⟩
 
-include hσ hnew in
-private lemma exists_isTwistBy_ringHomComp (hψ : ∃ h ∈ g.galoisOrbit, f.IsTwistBy ψ h) :
+private lemma exists_isTwistBy_ringHomComp (hσ : f.IsGaloisConjugateBy σ f₁)
+    (hψ : ∃ h ∈ g.galoisOrbit, f.IsTwistBy ψ h) :
     ∃ h ∈ g.galoisOrbit, f₁.IsTwistBy (ψ.ringHomComp σ) h := by
   rcases hψ with ⟨h, hh, hfh⟩
-  rcases exists_isGaloisConjugateBy_of_mem_galoisOrbit hh hnew σ with ⟨h₁, hh₁⟩
+  rcases exists_isGaloisConjugateBy h σ with ⟨h₁, hh₁⟩
   exact ⟨h₁, hh.trans hh₁.isGaloisConjugate, hfh.map hσ hh₁⟩
 
-include hσ hnew in
 /-- **The multiplicity does not depend on the representative of `[f]`**: it is the same for the
-Galois conjugates of `f`, provided the Galois conjugates of `g` are newforms, which holds by
-`exists_isGaloisConjugateBy`, in `Newform/GaloisConjugateExists.lean`. The twists of `σ(f)` in `[g]`
-are the `σ(f ⊗ ψ') = σ(f) ⊗ σ(ψ')`. -/
-lemma IsGaloisConjugateBy.twistMultiplicity_eq :
+Galois conjugates of `f`. The twists of `σ(f)` in `[g]` are the `σ(f ⊗ ψ') = σ(f) ⊗ σ(ψ')`. -/
+lemma IsGaloisConjugateBy.twistMultiplicity_eq (hσ : f.IsGaloisConjugateBy σ f₁) :
     f₁.twistMultiplicity ψ g = f.twistMultiplicity ψ g :=
-  MulChar.ncard_galoisOrbit_inter_eq σ (fun _ ↦ exists_isTwistBy_ringHomComp hσ hnew) fun _ ↦
-    exists_isTwistBy_ringHomComp hσ.symm hnew
+  MulChar.ncard_galoisOrbit_inter_eq σ (fun _ ↦ exists_isTwistBy_ringHomComp hσ) fun _ ↦
+    exists_isTwistBy_ringHomComp hσ.symm
 
 /-- **The multiplicity of `[f]` as a twist of itself is at most the inner twist multiplicity** of
 `f` for `[ψ]`: the characters `ψ' ∈ [ψ]` with `f ⊗ ψ' ∈ [f]` are among those by which `f` admits

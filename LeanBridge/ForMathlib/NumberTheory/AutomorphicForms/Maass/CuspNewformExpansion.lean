@@ -1,6 +1,7 @@
 import LeanBridge.ForMathlib.Analysis.Complex.UpperHalfPlane.StripIntegral
 import LeanBridge.ForMathlib.Analysis.SpecialFunctions.BesselKUniqueIntegrable
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.CuspNewform
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.FourierExpansionExists
 
 /-!
 # The expansions of Maass cusp newforms
@@ -10,7 +11,7 @@ parameter `R` (`UpperHalfPlane.IsMaassCuspNewform`) has, if it is even, the cosi
 `F(x + iy) = ∑_{n ≥ 1} a(n) √y K_{iR}(2πny) cos(2πnx)` and, if it is odd, the sine expansion, with
 the coefficients `a = maassCoefficients R F` (LMFDB `mf.maass.mwf.coefficients`), with no
 hypothesis on the growth of `F`: square-integrability replaces the polynomial bounds on `F` and
-`∂F/∂y` of `UpperHalfPlane.IsMaassCuspNewform.hasMaassCosineExpansion_maassCoefficients`.
+`∂F/∂y` of `UpperHalfPlane.hasMaassCosineExpansion_maassCoefficients`.
 
 The `n`-th Fourier coefficient `a_n(y) = ∫_0^1 F(t + iy) e^{-2πint} dt` satisfies
 `|a_n(y)|² ≤ ∫_{-1/2}^{1/2} |F(t + iy)|² dt` (Cauchy–Schwarz and periodicity), and the rectangle
@@ -21,18 +22,16 @@ of the modified Bessel equation that are integrable against a power
 (`Complex.eq_div_mul_sqrt_mul_besselK_of_ode_of_integrableOn`), `a_n(y)` is a multiple of
 `√y K_{iR}(2π|n|y)` for `n ≠ 0`. With the vanishing constant term at `∞` this gives the Fourier
 expansion of every element of `M(N, χ, λ)` whose constant term at `∞` vanishes, and so the
-expansions of the cusp newforms; the coefficients `a(n) / a(1)`, `n` prime to `N`, of the cusp
-newform normalised by `a(1) = 1` are then real, given `a(1) ≠ 0`. At every level `N ≠ 0`, for an
-even or odd cusp newform, `a(1) ≠ 0` and `a(n) / a(1)` is real for every `n`, `gcd(n, N) > 1`
-included (`UpperHalfPlane.IsMaassCuspNewform.maassCoefficients_one_ne_zero_of_even`,
+expansions of the cusp newforms. At every level `N ≠ 0`, for an even or odd cusp newform,
+`a(1) ≠ 0` and the coefficient `a(n) / a(1)` of the cusp newform normalised by `a(1) = 1` is real
+for every `n`, `gcd(n, N) > 1` included
+(`UpperHalfPlane.IsMaassCuspNewform.maassCoefficients_one_ne_zero_of_even`,
 `UpperHalfPlane.IsMaassCuspNewform.conj_maassCoefficients_div_of_even` and the odd versions, in
 `LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformAtkinLehner`), by the Main Lemma
 of Atkin and Lehner for Maass forms.
 
 ## Main results
 
-* `UpperHalfPlane.integrableOn_re_im_mem_prod_iff`: integrability on `{x + iy | x ∈ s, y ∈ t}`
-  for the invariant measure in coordinates.
 * `UpperHalfPlane.integrableOn_sq_norm_fourierCoeff_div_sq`,
   `UpperHalfPlane.integrableOn_norm_fourierCoeff_div_sq`: the Fourier coefficients of an element
   of `M(N, χ, λ)` satisfy `∫_1^∞ |a_n(y)|² dy / y² < ∞` and `∫_1^∞ |a_n(y)| dy / y² < ∞`.
@@ -48,78 +47,26 @@ of Atkin and Lehner for Maass forms.
 * `UpperHalfPlane.IsMaassCuspNewform.hasMaassCosineExpansion`,
   `UpperHalfPlane.IsMaassCuspNewform.hasMaassSineExpansion`: the cosine (sine) expansion of an
   even (odd) Maass cusp newform, with the coefficients `maassCoefficients R F`.
-* `UpperHalfPlane.IsMaassCuspNewform.conj_maassCoefficients_div_of_isEven`,
-  `UpperHalfPlane.IsMaassCuspNewform.conj_maassCoefficients_div_of_isOdd`: the coefficients prime
-  to `N` of the normalised Maass cusp newform are real.
-* `UpperHalfPlane.IsMaassCuspNewform.maassCoefficients_one_ne_zero_of_isEven`,
-  `UpperHalfPlane.IsMaassCuspNewform.maassCoefficients_one_ne_zero_of_isOdd`: at level `1`,
-  `a(1) ≠ 0`, so that every coefficient of the normalised cusp newform is real.
 -/
 
-open Filter Function MeasureTheory Real Set Topology
+open Function MeasureTheory Real Set
 
-open scoped ComplexConjugate ContDiff MatrixGroups NNReal
+open scoped ContDiff
 
 namespace UpperHalfPlane
 
-variable {N : ℕ} {χ : DirichletCharacter ℂ N} {eigenvalue R : ℂ} {F : ℍ → ℂ} {f : ℂ → ℂ}
-  {s t : Set ℝ} (n : ℤ)
-
-lemma image_coe_re_im_mem_prod (ht : t ⊆ Ioi 0) : ((↑) : ℍ → ℂ) '' {z : ℍ | z.re ∈ s ∧ z.im ∈ t} =
-    Complex.measurableEquivRealProd ⁻¹' (s ×ˢ t) := by
-  ext c
-  refine ⟨?_, fun hc ↦ ⟨⟨c, ht hc.2⟩, hc, rfl⟩⟩
-  rintro ⟨z, hz, rfl⟩
-  exact hz
-
-/-- **Integrability over a product region in coordinates**: for measurable `s, t ⊆ ℝ` with
-`t ⊆ (0, ∞)`, `g` is integrable on `{z ∈ ℍ | Re z ∈ s, Im z ∈ t}` for the invariant measure
-exactly when `y⁻² g(x + iy)` is Lebesgue integrable on `s × t`. -/
-lemma integrableOn_re_im_mem_prod_iff {g : ℍ → ℝ} (hs : MeasurableSet s) (ht : MeasurableSet t)
-    (ht0 : t ⊆ Ioi 0) : IntegrableOn g {z : ℍ | z.re ∈ s ∧ z.im ∈ t} ↔
-      IntegrableOn (fun p : ℝ × ℝ ↦ (p.2 ^ 2)⁻¹ * g (ofComplex (p.1 + p.2 * Complex.I)))
-        (s ×ˢ t) := by
-  have hm : MeasurableSet {z : ℍ | z.re ∈ s ∧ z.im ∈ t} :=
-    (hs.preimage continuous_re.measurable).inter (ht.preimage continuous_im.measurable)
-  rw [IntegrableOn, volume_def, restrict_withDensity hm,
-    integrable_withDensity_iff_integrable_smul measurable_volume_density, ← IntegrableOn]
-  have h1 : IntegrableOn (fun z : ℍ ↦ ((1 / NNReal.mk z.im z.im_pos.le) ^ 2 : ℝ≥0) • g z)
-      {z : ℍ | z.re ∈ s ∧ z.im ∈ t} (Measure.comap UpperHalfPlane.coe volume) ↔
-        IntegrableOn ((fun c : ℂ ↦ (c.im ^ 2)⁻¹ * g (ofComplex c)) ∘ UpperHalfPlane.coe)
-          (UpperHalfPlane.coe ⁻¹' (UpperHalfPlane.coe '' {z : ℍ | z.re ∈ s ∧ z.im ∈ t}))
-            (Measure.comap UpperHalfPlane.coe volume) := by
-    rw [preimage_image_eq _ measurableEmbedding_coe.injective]
-    refine integrableOn_congr_fun (fun z _ ↦ ?_) hm
-    simp [NNReal.smul_def]
-  rw [h1, ← measurableEmbedding_coe.integrableOn_map_iff, measurableEmbedding_coe.map_comap,
-    IntegrableOn, Measure.restrict_restrict_of_subset (image_subset_range _ _), ← IntegrableOn,
-    image_coe_re_im_mem_prod ht0,
-    ← Complex.volume_preserving_equiv_real_prod.integrableOn_comp_preimage
-      Complex.measurableEquivRealProd.measurableEmbedding]
-  refine integrableOn_congr_fun (fun c _ ↦ ?_)
-    (Complex.measurableEquivRealProd.measurable (hs.prod ht))
-  simp
+variable {N : ℕ} {χ : DirichletCharacter ℂ N} {eigenvalue R : ℂ} {F : ℍ → ℂ} {f : ℂ → ℂ} (n : ℤ)
 
 lemma integrableOn_inv_sq_mul_norm_sq (hF : F ∈ maassSpace N χ eigenvalue) :
     IntegrableOn (fun p : ℝ × ℝ ↦ (p.2 ^ 2)⁻¹ * ‖F (ofComplex (p.1 + p.2 * Complex.I))‖ ^ 2)
       (Ioo (-(1 / 2)) (1 / 2) ×ˢ Ioi 1) := by
   refine (integrableOn_re_im_mem_prod_iff measurableSet_Ioo measurableSet_Ioi
-    (Ioi_subset_Ioi zero_le_one)).mp ((integrableOn_norm_sq_smul_fdo hF 1).mono_set ?_)
+    (Ioi_subset_Ioi zero_le_one)).mp ((integrableOn_norm_sq_smul_fdo 1 hF).mono_set ?_)
   rintro z ⟨hx, hy⟩
   refine Set.mem_smul_set.mpr ⟨z, ⟨?_, abs_lt.mpr hx⟩, one_smul _ z⟩
   rw [Complex.normSq_apply, coe_re, coe_im]
   have hy' : 1 < z.im := hy
   nlinarith [mul_self_nonneg z.re]
-
-lemma comp_add_one_of_mem_maassSpace (hF : F ∈ maassSpace N χ eigenvalue) {z : ℂ} (hz : 0 < z.im) :
-    (F ∘ ofComplex) (z + 1) = (F ∘ ofComplex) z := by
-  have h : (F ∘ ofComplex) ↑(ModularGroup.T • ofComplex z) =
-      χ (ModularGroup.T 1 1 : ℤ) * (F ∘ ofComplex) ↑(ofComplex z) :=
-    hF.2.2.1 ModularGroup.T (CongruenceSubgroup.Gamma0_mem.mpr (by simp)) (ofComplex z)
-  have h1 : χ (ModularGroup.T 1 1 : ℤ) = 1 := by
-    simp
-  rwa [h1, one_mul, modular_T_smul, coe_vadd, ofComplex_apply_of_im_pos hz, coe_mk,
-    Complex.ofReal_one, add_comm] at h
 
 lemma sq_intervalIntegral_le {h : ℝ → ℝ} (hc : Continuous h) :
     (∫ t in (0 : ℝ)..1, h t) ^ 2 ≤ ∫ t in (0 : ℝ)..1, h t ^ 2 := by
@@ -344,47 +291,5 @@ lemma IsMaassCuspNewform.hasMaassSineExpansion (hF : IsMaassCuspNewform N R F)
     (hs : IsOddMaassForm (F ∘ ofComplex)) :
     HasMaassSineExpansion (F ∘ ofComplex) R (maassCoefficients R (F ∘ ofComplex)) :=
   hF.1.hasMaassSineExpansion_of_integral_eq_zero (fun _ ↦ hF.integral_eq_zero) hs
-
-/-- **The coefficients of the normalised even Maass cusp newform are real** at the indices prime to
-the level (LMFDB `mf.maass.mwf.coefficients`): for an even Maass cusp newform `F` on `Γ₀(N)` with
-coefficients `a = maassCoefficients R F` and `a(1) ≠ 0` (which holds at every level `N ≠ 0`,
-`IsMaassCuspNewform.maassCoefficients_one_ne_zero_of_even`), the coefficient `a(m) / a(1)` of the
-cusp newform normalised by `a(1) = 1` is real for every `m` prime to `N`, with no growth hypothesis.
--/
-lemma IsMaassCuspNewform.conj_maassCoefficients_div_of_isEven (hF : IsMaassCuspNewform N R F)
-    (hs : IsEvenMaassForm (F ∘ ofComplex)) (h1 : maassCoefficients R (F ∘ ofComplex) 1 ≠ 0) {m : ℕ+}
-    (hm : (m : ℕ).Coprime N) :
-    conj (maassCoefficients R (F ∘ ofComplex) m / maassCoefficients R (F ∘ ofComplex) 1) =
-      maassCoefficients R (F ∘ ofComplex) m / maassCoefficients R (F ∘ ofComplex) 1 :=
-  hF.1.conj_coeff_div_of_hasMaassCosineExpansion (hF.hasMaassCosineExpansion hs) h1 hm
-
-/-- **The coefficients of the normalised odd Maass cusp newform are real** at the indices prime to
-the level (LMFDB `mf.maass.mwf.coefficients`): for an odd Maass cusp newform `F` on `Γ₀(N)` with
-coefficients `a = maassCoefficients R F` and `a(1) ≠ 0` (which holds at every level `N ≠ 0`,
-`IsMaassCuspNewform.maassCoefficients_one_ne_zero_of_odd`), the coefficient `a(m) / a(1)` of the
-cusp newform normalised by `a(1) = 1` is real for every `m` prime to `N`, with no growth hypothesis.
--/
-lemma IsMaassCuspNewform.conj_maassCoefficients_div_of_isOdd (hF : IsMaassCuspNewform N R F)
-    (hs : IsOddMaassForm (F ∘ ofComplex)) (h1 : maassCoefficients R (F ∘ ofComplex) 1 ≠ 0) {m : ℕ+}
-    (hm : (m : ℕ).Coprime N) :
-    conj (maassCoefficients R (F ∘ ofComplex) m / maassCoefficients R (F ∘ ofComplex) 1) =
-      maassCoefficients R (F ∘ ofComplex) m / maassCoefficients R (F ∘ ofComplex) 1 :=
-  hF.1.conj_coeff_div_of_hasMaassSineExpansion (hF.hasMaassSineExpansion hs) h1 hm
-
-/-- **An even Maass cusp newform of level `1` has `a(1) ≠ 0`**: the first coefficient of
-`a = maassCoefficients R F` of an even Maass cusp newform `F` on `SL(2, ℤ)` does not vanish, so that
-the coefficients `a(n) / a(1)` of the normalised cusp newform are real for every `n`
-(`conj_maassCoefficients_div_of_isEven`), with no growth hypothesis. -/
-lemma IsMaassCuspNewform.maassCoefficients_one_ne_zero_of_isEven (hF : IsMaassCuspNewform 1 R F)
-    (hs : IsEvenMaassForm (F ∘ ofComplex)) : maassCoefficients R (F ∘ ofComplex) 1 ≠ 0 :=
-  hF.1.coeff_one_ne_zero_of_hasMaassCosineExpansion (hF.hasMaassCosineExpansion hs)
-
-/-- **An odd Maass cusp newform of level `1` has `a(1) ≠ 0`**: the first coefficient of
-`a = maassCoefficients R F` of an odd Maass cusp newform `F` on `SL(2, ℤ)` does not vanish, so that
-the coefficients `a(n) / a(1)` of the normalised cusp newform are real for every `n`
-(`conj_maassCoefficients_div_of_isOdd`), with no growth hypothesis. -/
-lemma IsMaassCuspNewform.maassCoefficients_one_ne_zero_of_isOdd (hF : IsMaassCuspNewform 1 R F)
-    (hs : IsOddMaassForm (F ∘ ofComplex)) : maassCoefficients R (F ∘ ofComplex) 1 ≠ 0 :=
-  hF.1.coeff_one_ne_zero_of_hasMaassSineExpansion (hF.hasMaassSineExpansion hs)
 
 end UpperHalfPlane

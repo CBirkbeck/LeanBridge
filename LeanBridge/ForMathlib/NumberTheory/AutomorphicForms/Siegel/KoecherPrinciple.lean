@@ -1,4 +1,4 @@
-import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.GaloisOrbit
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierLevi
 
 /-!
 # Koecher's principle
@@ -11,14 +11,10 @@ Siegel modular forms of degree `g ≥ 2` (`SiegelUpperHalfSpace.modularForms`).
 The proof follows Koecher (and Freitag's book): the elements `(U, 0; 0, U⁻ᵀ)` of `Γ`, with `U` in
 a finite index subgroup of `GL(g, ℤ)`, act on `ℋ_g` by `τ ↦ U τ Uᵀ` with automorphy factor `U⁻ᵀ`,
 so the transformation law and the uniqueness of Fourier expansions give
-`a(Uᵀ n U) = ρ(Uᵀ) a(n)`. If `xᵀ n x < 0`, the unipotent `U = 1 + x yᵀ` with `yᵀ x = 0` (which
-exists as `g ≥ 2`) moves `n` along an orbit on which `tr((U^s)ᵀ n U^s)` decreases like `-c s²`;
-the terms of the Fourier series at `τ = i 1_g` then grow along the orbit, which contradicts their
-convergence to `0`.
-
-## Main definitions
-
-* `SymplecticGroup.levi`: the Levi embedding `U ↦ (U, 0; 0, U⁻ᵀ)` of `GL(g, R)` in `Sp(2g, R)`.
+`a(Uᵀ n U) = ρ(Uᵀ) a(n)` (`SiegelUpperHalfSpace.apply_dualLevi`). If `xᵀ n x < 0`, the unipotent
+`U = 1 + x yᵀ` with `yᵀ x = 0` (which exists as `g ≥ 2`) moves `n` along an orbit on which
+`tr((U^s)ᵀ n U^s)` decreases like `-c s²`; the terms of the Fourier series at `τ = i 1_g` then grow
+along the orbit, which contradicts their convergence to `0`.
 
 ## Main results
 
@@ -58,8 +54,8 @@ private lemma exists_int_dotProduct_mulVec_neg (hT : Tᵀ = T) (h : ¬T.PosSemid
 
 variable [DecidableEq l]
 
-private lemma exists_ne_zero_dotProduct_eq_zero (hl : 2 ≤ Fintype.card l) {x : l → ℤ}
-    (hx : x ≠ 0) : ∃ y : l → ℤ, y ≠ 0 ∧ y ⬝ᵥ x = 0 := by
+private lemma exists_ne_zero_dotProduct_eq_zero (hl : 2 ≤ Fintype.card l) {x : l → ℤ} (hx : x ≠ 0) :
+    ∃ y : l → ℤ, y ≠ 0 ∧ y ⬝ᵥ x = 0 := by
   rcases Function.ne_iff.mp hx with ⟨i, hi⟩
   rcases Fintype.exists_ne_of_one_lt_card hl i with ⟨j, hj⟩
   refine ⟨Pi.single j (x i) - Pi.single i (x j), fun h ↦ hi ?_, ?_⟩
@@ -89,208 +85,33 @@ private lemma trace_transpose_mul_mul (x y : l → ℚ) (c : ℚ) :
 
 end Matrix
 
-namespace SymplecticGroup
-
-variable {l : Type*} [Fintype l] [DecidableEq l] {R : Type*} [CommRing R]
-
-variable (l R) in
-/-- The **Levi embedding** `U ↦ (U, 0; 0, U⁻ᵀ)` of `GL(g, R)` in `Sp(2g, R)`, whose image is the
-Levi subgroup of the Siegel parabolic subgroup. -/
-def levi : GL l R →* symplecticGroup l R where
-  toFun U := ⟨fromBlocks U 0 0 (U⁻¹ : GL l R).valᵀ, fromBlocks_mem_iff.mpr ⟨by simp, by simp, by
-    rw [transpose_zero, Matrix.zero_mul, sub_zero, ← transpose_mul, Units.inv_mul, transpose_one]⟩⟩
-  map_one' := Subtype.ext <| by simp
-  map_mul' U V := Subtype.ext <| by simp [fromBlocks_multiply]
-
-lemma coe_levi (U : GL l R) :
-    (levi l R U : Matrix (l ⊕ l) (l ⊕ l) R) = fromBlocks U 0 0 (U⁻¹ : GL l R).valᵀ :=
-  rfl
-
-end SymplecticGroup
-
 namespace SiegelUpperHalfSpace
 
-variable {l : Type*} [Fintype l] [DecidableEq l] {Γ : Subgroup (symplecticGroup l ℚ)} (U : GL l ℤ)
-    {S : Type*} [CommRing S] (τ : SiegelUpperHalfSpace l) {V : Type*} [AddCommGroup V] [Module ℂ V]
+variable {l : Type*} [Fintype l] [DecidableEq l] {Γ : Subgroup (symplecticGroup l ℚ)} {U : GL l ℤ}
+    (τ : SiegelUpperHalfSpace l) {V : Type*} [AddCommGroup V] [Module ℂ V]
     (ρ : Representation ℂ (GL l ℂ) V) {f : SiegelUpperHalfSpace l → V} {a : dualLattice Γ → V}
-
-/-- The image `(U, 0; 0, U⁻ᵀ)` in `Sp(2g, ℚ)` of `U ∈ GL(g, ℤ)`. -/
-private noncomputable abbrev leviRat : symplecticGroup l ℚ :=
-  SymplecticGroup.map (Int.castRingHom ℚ) (SymplecticGroup.levi l ℤ U)
-
-/-- The point `i 1_g` of the Siegel upper half-space. -/
-private noncomputable def basePoint : SiegelUpperHalfSpace l where
-  val := I • 1
-  transpose_val := by
-    rw [transpose_smul, transpose_one]
-  posDef_im := by
-    convert PosDef.one (n := l) (R := ℝ)
-    ext i j
-    rcases eq_or_ne i j with rfl | hij <;> simp [*]
-
-private lemma map_mul_map_inv :
-    (U : Matrix l l ℤ).map (Int.cast : ℤ → S) * (U : Matrix l l ℤ)⁻¹.map Int.cast = 1 := by
-  have h : ((U : Matrix l l ℤ) * (U⁻¹ : GL l ℤ).val).map (Int.castRingHom S) = 1 := by
-    rw [Units.mul_inv, Matrix.map_one _ (map_zero _) (map_one _)]
-  rwa [Matrix.map_mul, coe_units_inv] at h
-
-private lemma map_inv_mul_map :
-    (U : Matrix l l ℤ)⁻¹.map (Int.cast : ℤ → S) * (U : Matrix l l ℤ).map Int.cast = 1 := by
-  have h : ((U⁻¹ : GL l ℤ).val * (U : Matrix l l ℤ)).map (Int.castRingHom S) = 1 := by
-    rw [Units.inv_mul, Matrix.map_one _ (map_zero _) (map_one _)]
-  rwa [Matrix.map_mul, coe_units_inv] at h
-
-private lemma coe_map_leviRat : (SymplecticGroup.map (algebraMap ℚ ℝ) (leviRat U) :
-    Matrix (l ⊕ l) (l ⊕ l) ℝ) = fromBlocks ((U : Matrix l l ℤ).map (Int.cast : ℤ → ℝ)) 0 0
-      ((U : Matrix l l ℤ)⁻¹ᵀ.map (Int.cast : ℤ → ℝ)) := by
-  rw [SymplecticGroup.coe_map_apply, SymplecticGroup.coe_map_apply, SymplecticGroup.coe_levi,
-    coe_units_inv]
-  simp [fromBlocks_map]
-
-private lemma num_levi : num (SymplecticGroup.map (algebraMap ℚ ℝ) (leviRat U)) τ.val =
-    (U : Matrix l l ℤ).map (Int.cast : ℤ → ℂ) * τ.val := by
-  rw [num, coe_map_leviRat]
-  simp [Function.comp_def]
-
-private lemma denom_levi : denom (SymplecticGroup.map (algebraMap ℚ ℝ) (leviRat U)) τ.val =
-    (U : Matrix l l ℤ)⁻¹ᵀ.map (Int.cast : ℤ → ℂ) := by
-  rw [denom, coe_map_leviRat]
-  simp [Function.comp_def]
-
-private lemma val_smul_levi : (SymplecticGroup.map (algebraMap ℚ ℝ) (leviRat U) • τ).val =
-    (U : Matrix l l ℤ).map (Int.cast : ℤ → ℂ) * τ.val * ((U : Matrix l l ℤ).map Int.cast)ᵀ := by
-  have h :
-      ((U : Matrix l l ℤ).map (Int.cast : ℤ → ℂ))ᵀ * (U : Matrix l l ℤ)⁻¹ᵀ.map Int.cast = 1 := by
-    rw [transpose_map, ← transpose_mul, map_inv_mul_map, transpose_one]
-  rw [val_smul, num_levi, denom_levi, inv_eq_left_inv h]
-
-private lemma denomGL_levi : denomGL (SymplecticGroup.map (algebraMap ℚ ℝ) (leviRat U)) τ =
-    denomGL (SymplecticGroup.map (algebraMap ℚ ℝ) (leviRat U)) basePoint :=
-  Units.ext <| by rw [coe_denomGL, coe_denomGL, denom_levi, denom_levi]
-
-private lemma coe_leviRat : (leviRat U : Matrix (l ⊕ l) (l ⊕ l) ℚ) =
-    fromBlocks ((U : Matrix l l ℤ).map (Int.cast : ℤ → ℚ)) 0 0
-      ((U : Matrix l l ℤ)⁻¹ᵀ.map (Int.cast : ℤ → ℚ)) := by
-  rw [SymplecticGroup.coe_map_apply, SymplecticGroup.coe_levi, coe_units_inv]
-  simp [fromBlocks_map]
-
-private lemma coe_leviRat_inv :
-    (((leviRat U)⁻¹ : symplecticGroup l ℚ) : Matrix (l ⊕ l) (l ⊕ l) ℚ) =
-    fromBlocks ((U : Matrix l l ℤ)⁻¹.map (Int.cast : ℤ → ℚ)) 0 0
-      ((U : Matrix l l ℤ)ᵀ.map (Int.cast : ℤ → ℚ)) := by
-  rw [← map_inv, ← map_inv, SymplecticGroup.coe_map_apply, SymplecticGroup.coe_levi, inv_inv,
-    coe_units_inv]
-  simp [fromBlocks_map]
-
-variable {U}
-
-private lemma mul_mul_transpose_mem_translationLattice (hU : leviRat U ∈ Γ) {s : Matrix l l ℚ}
-    (hs : s ∈ translationLattice Γ) : (U : Matrix l l ℤ).map (Int.cast : ℤ → ℚ) * s *
-      ((U : Matrix l l ℤ).map Int.cast)ᵀ ∈ translationLattice Γ := by
-  rcases hs with ⟨hs, γ, hγ, hγs⟩
-  refine ⟨by rw [transpose_mul, transpose_mul, transpose_transpose, hs, Matrix.mul_assoc],
-    leviRat U * γ * (leviRat U)⁻¹, Γ.mul_mem (Γ.mul_mem hU hγ) (Γ.inv_mem hU), ?_⟩
-  rw [Submonoid.coe_mul, Submonoid.coe_mul, hγs, coe_leviRat, coe_leviRat_inv]
-  simp [fromBlocks_multiply, map_mul_map_inv, transpose_map, ← transpose_mul]
-
-private lemma transpose_mul_mul_mem_dualLattice (hU : leviRat U ∈ Γ) {n : Matrix l l ℚ}
-    (hn : n ∈ dualLattice Γ) : ((U : Matrix l l ℤ).map (Int.cast : ℤ → ℚ))ᵀ * n *
-      (U : Matrix l l ℤ).map Int.cast ∈ dualLattice Γ := by
-  refine ⟨by rw [transpose_mul, transpose_mul, transpose_transpose, hn.1, Matrix.mul_assoc],
-    fun s hs ↦ ?_⟩
-  rcases hn.2 _ (mul_mul_transpose_mem_translationLattice hU hs) with ⟨z, hz⟩
-  refine ⟨z, ?_⟩
-  rw [← hz, ← Matrix.mul_assoc, ← Matrix.mul_assoc, trace_mul_comm]
-  simp only [Matrix.mul_assoc]
-
-private lemma leviRat_inv_mem (hU : leviRat U ∈ Γ) : leviRat U⁻¹ ∈ Γ := by
-  simpa [leviRat] using Γ.inv_mem hU
-
-private lemma transpose_mul_mul_map_inv (n : Matrix l l S) :
-    ((U : Matrix l l ℤ)⁻¹.map (Int.cast : ℤ → S))ᵀ *
-      (((U : Matrix l l ℤ).map Int.cast)ᵀ * n * (U : Matrix l l ℤ).map Int.cast) *
-        (U : Matrix l l ℤ)⁻¹.map Int.cast = n := by
-  have h : ((U : Matrix l l ℤ)⁻¹.map (Int.cast : ℤ → S))ᵀ *
-      (((U : Matrix l l ℤ).map Int.cast)ᵀ * n * (U : Matrix l l ℤ).map Int.cast) *
-        (U : Matrix l l ℤ)⁻¹.map Int.cast = ((U : Matrix l l ℤ).map Int.cast *
-          (U : Matrix l l ℤ)⁻¹.map Int.cast)ᵀ * n *
-            ((U : Matrix l l ℤ).map Int.cast * (U : Matrix l l ℤ)⁻¹.map Int.cast) := by
-    simp only [transpose_mul, Matrix.mul_assoc]
-  rw [h, map_mul_map_inv, transpose_one, Matrix.one_mul, Matrix.mul_one]
-
-variable (hU : leviRat U ∈ Γ) (k : ℕ) (n : dualLattice Γ) {ι : Type*} [Fintype ι] (b : Basis ι ℂ V)
+    (hU : leviRat U ∈ Γ) (k : ℕ) (n : dualLattice Γ) {ι : Type*} [Fintype ι] (b : Basis ι ℂ V)
     (D : GL l ℂ) (v : V) {x y : l → ℤ} (hxy : y ⬝ᵥ x = 0) {m : ℕ} (s : ℕ) {T : dualLattice Γ}
 
-variable (U) in
-/-- The bijection `n ↦ Uᵀ n U` of the dual lattice `L_Γ^∨`, for `U ∈ GL(g, ℤ)` with
-`(U, 0; 0, U⁻ᵀ) ∈ Γ`. -/
-private def dualConj : dualLattice Γ ≃ dualLattice Γ where
-  toFun n := ⟨_, transpose_mul_mul_mem_dualLattice hU n.2⟩
-  invFun n := ⟨_, transpose_mul_mul_mem_dualLattice (leviRat_inv_mem hU) n.2⟩
-  left_inv n := Subtype.ext <| by
-    simpa using transpose_mul_mul_map_inv (U := U) (n : Matrix l l ℚ)
-  right_inv n := Subtype.ext <| by
-    simpa using transpose_mul_mul_map_inv (U := U⁻¹) (n : Matrix l l ℚ)
-
-private lemma coe_dualConj : (dualConj U hU n : Matrix l l ℚ) =
-    ((U : Matrix l l ℤ).map (Int.cast : ℤ → ℚ))ᵀ * (n : Matrix l l ℚ) *
-      (U : Matrix l l ℤ).map Int.cast :=
-  rfl
-
-private lemma fourierExp_smul_levi :
-    fourierExp n (SymplecticGroup.map (algebraMap ℚ ℝ) (leviRat U) • τ) =
-      fourierExp (dualConj U hU n) τ := by
-  have hc : (Rat.castHom ℂ) ∘ (Int.cast : ℤ → ℚ) = (Int.cast : ℤ → ℂ) :=
-    funext fun z ↦ map_intCast (Rat.castHom ℂ) z
-  rw [fourierExp, fourierExp, val_smul_levi, coe_dualConj]
-  congr 2
-  rw [← Rat.coe_castHom, Matrix.map_mul, Matrix.map_mul, transpose_map, Matrix.map_map, hc]
-  simp only [Matrix.mul_assoc]
-  rw [trace_mul_comm ((U : Matrix l l ℤ).map (Int.cast : ℤ → ℂ))ᵀ]
-  simp only [Matrix.mul_assoc]
-
-private lemma coe_dualConj_pow :
-    (((dualConj U hU : Equiv.Perm (dualLattice Γ)) ^ k) n : Matrix l l ℚ) =
+private lemma coe_dualLevi_pow :
+    (((dualLevi U hU : Equiv.Perm (dualLattice Γ)) ^ k) n : Matrix l l ℚ) =
       (((U : Matrix l l ℤ).map (Int.cast : ℤ → ℚ)) ^ k)ᵀ * (n : Matrix l l ℚ) *
         ((U : Matrix l l ℤ).map Int.cast) ^ k := by
   induction k with
   | zero => simp
   | succ k ih =>
-    rw [pow_succ', Perm.mul_apply, coe_dualConj, ih, pow_succ, transpose_mul]
+    rw [pow_succ', Perm.mul_apply, coe_dualLevi, ih, pow_succ, transpose_mul]
     simp only [Matrix.mul_assoc]
 
-private lemma apply_dualConj (hΓ : SymplecticGroup.IsArithmetic Γ) (hf : f ∈ modularForms ρ Γ 1)
-    (ha : HasSiegelFourierExpansion Γ f a) : a (dualConj U hU n) =
-      ρ (denomGL (SymplecticGroup.map (algebraMap ℚ ℝ) (leviRat U)) basePoint)⁻¹ (a n) := by
-  have h₁ : HasSiegelFourierExpansion Γ
-      (fun τ ↦ f (SymplecticGroup.map (algebraMap ℚ ℝ) (leviRat U) • τ))
-        (fun m ↦ a ((dualConj U hU).symm m)) := fun τ φ ↦ by
-    rw [← (dualConj U hU).hasSum_iff]
-    refine (ha (SymplecticGroup.map (algebraMap ℚ ℝ) (leviRat U) • τ) φ).congr_fun fun n ↦ ?_
-    simp only [Function.comp_apply, Equiv.symm_apply_apply, fourierExp_smul_levi τ hU]
-  have h₂ : HasSiegelFourierExpansion Γ
-      (fun τ ↦ f (SymplecticGroup.map (algebraMap ℚ ℝ) (leviRat U) • τ)) (fun m ↦
-        ρ (denomGL (SymplecticGroup.map (algebraMap ℚ ℝ) (leviRat U)) basePoint) (a m)) :=
-    fun τ φ ↦ by
-      have h : f (SymplecticGroup.map (algebraMap ℚ ℝ) (leviRat U) • τ) =
-          ρ (denomGL (SymplecticGroup.map (algebraMap ℚ ℝ) (leviRat U)) τ) (f τ) := by
-        simpa using hf.2 ⟨leviRat U, hU⟩ τ
-      beta_reduce
-      rw [h, denomGL_levi U τ]
-      exact ha τ (φ ∘ₗ ρ (denomGL (SymplecticGroup.map (algebraMap ℚ ℝ) (leviRat U)) basePoint))
-  have h₃ : a n = ρ (denomGL (SymplecticGroup.map (algebraMap ℚ ℝ) (leviRat U)) basePoint)
-      (a (dualConj U hU n)) := by
-    simpa using congrFun (h₁.unique_of_isArithmetic hΓ h₂) (dualConj U hU n)
-  rw [h₃, ← End.mul_apply, ← map_mul, inv_mul_cancel, map_one, End.one_apply]
-
-private lemma apply_dualConj_pow (hΓ : SymplecticGroup.IsArithmetic Γ) (hf : f ∈ modularForms ρ Γ 1)
+private lemma apply_dualLevi_pow (hΓ : SymplecticGroup.IsArithmetic Γ) (hf : f ∈ modularForms ρ Γ 1)
     (ha : HasSiegelFourierExpansion Γ f a) :
-    a (((dualConj U hU : Equiv.Perm (dualLattice Γ)) ^ k) n) =
+    a (((dualLevi U hU : Equiv.Perm (dualLattice Γ)) ^ k) n) =
       (ρ (denomGL (SymplecticGroup.map (algebraMap ℚ ℝ) (leviRat U)) basePoint)⁻¹ ^ k) (a n) := by
   induction k with
   | zero => simp
   | succ k ih =>
-    rw [pow_succ', Perm.mul_apply, apply_dualConj ρ hU _ hΓ hf ha, ih, pow_succ', End.mul_apply]
+    rw [pow_succ', Perm.mul_apply, apply_dualLevi basePoint ρ hU _ hΓ hf ha, ih, pow_succ',
+      End.mul_apply]
 
 /-! ### Growth of the Fourier coefficients along an orbit -/
 
@@ -376,14 +197,14 @@ private lemma map_unipotent_pow_pow :
   rw [hm, one_add_pow hq, smul_smul]
 
 variable (T) in
-private lemma trace_dualConj_pow (hUm : leviRat (unipotent hxy ^ m) ∈ Γ) :
-    ((((dualConj _ hUm : Equiv.Perm (dualLattice Γ)) ^ s) T : Matrix l l ℚ).trace : ℝ) =
+private lemma trace_dualLevi_pow (hUm : leviRat (unipotent hxy ^ m) ∈ Γ) :
+    ((((dualLevi _ hUm : Equiv.Perm (dualLattice Γ)) ^ s) T : Matrix l l ℚ).trace : ℝ) =
       ((T : Matrix l l ℚ).trace : ℝ) + ((vecMulVec (fun i ↦ (y i : ℚ)) (fun i ↦ (x i : ℚ)) *
         (T : Matrix l l ℚ)).trace + ((T : Matrix l l ℚ) *
           vecMulVec (fun i ↦ (x i : ℚ)) (fun i ↦ (y i : ℚ))).trace : ℚ) * m * s +
             (((fun i ↦ (x i : ℚ)) ⬝ᵥ (T : Matrix l l ℚ) *ᵥ (fun i ↦ (x i : ℚ))) *
               ((fun i ↦ (y i : ℚ)) ⬝ᵥ (fun i ↦ (y i : ℚ))) : ℚ) * m ^ 2 * s ^ 2 := by
-  rw [coe_dualConj_pow, map_unipotent_pow_pow, trace_transpose_mul_mul]
+  rw [coe_dualLevi_pow, map_unipotent_pow_pow, trace_transpose_mul_mul]
   push_cast
   ring1
 
@@ -428,26 +249,26 @@ private lemma koecher_aux (hΓ : SymplecticGroup.IsArithmetic Γ) (hf : f ∈ mo
     (mul_pos (mul_pos_of_neg_of_neg (by linarith [pi_pos]) hqw) (pow_pos hm' 2))
     ).eventually_ge_atTop (-Real.log ‖b.equivFun (a T)‖)) |>.exists with ⟨s, hs₁, hs₂⟩
   have hle : ‖b.equivFun (a T)‖ ≤ K ^ s *
-      ‖b.equivFun (a (((dualConj _ hUm : Equiv.Perm (dualLattice Γ)) ^ s) T))‖ := by
-    rw [apply_dualConj_pow ρ hUm s T hΓ hf ha]
+      ‖b.equivFun (a (((dualLevi _ hUm : Equiv.Perm (dualLattice Γ)) ^ s) T))‖ := by
+    rw [apply_dualLevi_pow ρ hUm s T hΓ hf ha]
     exact norm_le_pow_mul_norm ρ s b D (a T)
   have hKs : K ^ s ≤ Real.exp (-2 * π *
-      ((((dualConj _ hUm : Equiv.Perm (dualLattice Γ)) ^ s) T : Matrix l l ℚ).trace : ℝ)) *
+      ((((dualLevi _ hUm : Equiv.Perm (dualLattice Γ)) ^ s) T : Matrix l l ℚ).trace : ℝ)) *
         ‖b.equivFun (a T)‖ := by
     rw [← Real.exp_log hK₀, ← Real.exp_nat_mul, ← Real.exp_log hv, ← Real.exp_add]
     refine Real.exp_le_exp.mpr ?_
-    rw [trace_dualConj_pow]
+    rw [trace_dualLevi_pow]
     linarith
-  have hmem : 1 ≤ ‖fourierExp (((dualConj _ hUm : Equiv.Perm (dualLattice Γ)) ^ s) T) basePoint‖ *
-      ‖b.equivFun (a (((dualConj _ hUm : Equiv.Perm (dualLattice Γ)) ^ s) T))‖ := by
+  have hmem : 1 ≤ ‖fourierExp (((dualLevi _ hUm : Equiv.Perm (dualLattice Γ)) ^ s) T) basePoint‖ *
+      ‖b.equivFun (a (((dualLevi _ hUm : Equiv.Perm (dualLattice Γ)) ^ s) T))‖ := by
     rw [norm_fourierExp_basePoint]
     have hpos : 0 < K ^ s := pow_pos hK₀ s
     nlinarith [Real.exp_pos (-2 * π *
-      ((((dualConj _ hUm : Equiv.Perm (dualLattice Γ)) ^ s) T : Matrix l l ℚ).trace : ℝ))]
+      ((((dualLevi _ hUm : Equiv.Perm (dualLattice Γ)) ^ s) T : Matrix l l ℚ).trace : ℝ))]
   have hBs :
-      B ≤ ((((dualConj _ hUm : Equiv.Perm (dualLattice Γ)) ^ s) T : Matrix l l ℚ).trace : ℝ) :=
+      B ≤ ((((dualLevi _ hUm : Equiv.Perm (dualLattice Γ)) ^ s) T : Matrix l l ℚ).trace : ℝ) :=
     hB ⟨_, hmem, rfl⟩
-  rw [trace_dualConj_pow] at hBs
+  rw [trace_dualLevi_pow] at hBs
   linarith
 
 variable [FiniteDimensional ℂ V] in
@@ -469,8 +290,7 @@ lemma koecherPrinciple (hΓ : SymplecticGroup.IsArithmetic Γ) : KoecherPrincipl
     rintro rfl
     simp at hx
   rcases exists_ne_zero_dotProduct_eq_zero hl hx₀ with ⟨y, hy, hxy⟩
-  have hU :
-      leviRat (unipotent hxy ^ (Γ.relIndex (SymplecticGroup.integral l)).factorial) ∈ Γ := by
+  have hU : leviRat (unipotent hxy ^ (Γ.relIndex (SymplecticGroup.integral l)).factorial) ∈ Γ := by
     simpa [leviRat] using (Subgroup.pow_mem_of_relIndex_ne_zero_of_dvd
       hΓ.1.relIndex_ne_zero ⟨SymplecticGroup.levi l ℤ (unipotent hxy), trivial, rfl⟩
         fun _ hk hle ↦ Nat.dvd_factorial hk hle).1

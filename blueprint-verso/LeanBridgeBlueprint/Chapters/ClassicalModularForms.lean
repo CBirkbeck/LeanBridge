@@ -260,7 +260,7 @@ The {bpref "cmf.coefficient_field"}[coefficient field of a modular form] is a {b
 Depends on: {uses "cmf.coefficient_field"}[] {uses "nf"}[]
 :::
 
-:::definition "cmf.dimension" (lean := "HeckeRing.GL2.Newform.dimension, HeckeRing.GL2.Newform.relativeDimension, HeckeRing.GL2.Newform.finrank_span_toCuspForm_eq_finrank, Module.finrank, HeckeRing.GL2.Newform.dimension_eq_finrank_coefficientField, HeckeRing.GL2.Newform.relativeDimension_eq_finrank, HeckeRing.GL2.Newform.dimension_eq_ncard_galoisOrbit, HeckeRing.GL2.Newform.finrank_rationalPiece")
+:::definition "cmf.dimension" (lean := "HeckeRing.GL2.Newform.dimension, HeckeRing.GL2.Newform.relativeDimension, HeckeRing.GL2.Newform.finrank_span_toCuspForm_eq_finrank, Module.finrank, HeckeRing.GL2.Newform.dimension_eq_finrank, HeckeRing.GL2.Newform.relativeDimension_eq_finrank, HeckeRing.GL2.Newform.dimension_eq_ncard_galoisOrbit, HeckeRing.GL2.Newform.finrank_rationalPiece")
 *Dimension.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.dimension))
 
 The *dimension* of a space of modular forms is its dimension as a complex vector space; for spaces of newforms $`S_k^{\rm new}(N,\chi)` this is the same as the dimension of the $`\Q`-vector space spanned by its eigenforms.
@@ -505,7 +505,7 @@ For a newform $`f \in S_k^{\textup{new}}(\Gamma_0(N))`, the sign of the {bpref "
 Depends on: {uses "cmf.analytic_rank"}[] {uses "cmf.atkin-lehner"}[] {uses "lfunction"}[] {uses "lfunction.functional_equation"}[]
 :::
 
-:::definition "cmf.galois_conjugate" (lean := "HeckeRing.GL2.Newform.IsGaloisConjugate, HeckeRing.GL2.Newform.IsGaloisConjugateBy, HeckeRing.GL2.Newform.isGaloisConjugateBy_iff_forall_pnat, HeckeRing.GL2.Newform.isGaloisConjugate_iff_exists_isEmbedding, HeckeRing.GL2.Newform.exists_isGaloisConjugateBy, HeckeRing.GL2.Newform.ncard_galoisOrbit_eq_finrank")
+:::definition "cmf.galois_conjugate" (lean := "HeckeRing.GL2.Newform.IsGaloisConjugate, HeckeRing.GL2.Newform.IsGaloisConjugateBy, HeckeRing.GL2.Newform.isGaloisConjugateBy_iff_forall_pnat, HeckeRing.GL2.Newform.isGaloisConjugate_iff_exists_isEmbedding, HeckeRing.GL2.Newform.exists_isGaloisConjugateBy, HeckeRing.GL2.Newform.ncard_galoisOrbit_eq")
 *Galois conjugate newforms.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.galois_conjugate))
 
 Two {bpref "cmf.newform"}[newforms] $`f=\sum a_nq^n` and $`g=\sum b_nq^n`  are *Galois conjugate* if there is an automorphism $`\sigma\in \Gal(\overline{\Q}/\Q)` such that $`b_n=\sigma(a_n)` for all $`n\ge 1`, in which case we write $`g=\sigma(f)`.
@@ -543,7 +543,7 @@ Composing the representation $`\rho` with the natural map $`\GL_2(\C)\to \PGL_2(
 Depends on: {uses "artin"}[] {uses "artin.conductor"}[] {uses "artin.parity"}[] {uses "cmf.newform"}[] {uses "cmf.weight"}[]
 :::
 
-:::definition "cmf.hecke_galois_orbit" (lean := "HeckeRing.GL2.NewformOrbit.traceSeq, HeckeRing.GL2.NewformOrbit.letterLabel, HeckeRing.GL2.Newform.exists_int_coeffTrace_of_newform, HeckeRing.GL2.NewformOrbit.traceSeq_injective, HeckeRing.GL2.NewformOrbit.letterLabel_eq_iff, HeckeRing.GL2.NewformOrbit.image_labelIndex")
+:::definition "cmf.hecke_galois_orbit" (lean := "HeckeRing.GL2.NewformOrbit.traceSeq, HeckeRing.GL2.NewformOrbit.letterLabel, HeckeRing.GL2.Newform.exists_int_coeffTrace, HeckeRing.GL2.NewformOrbit.traceSeq_injective, HeckeRing.GL2.NewformOrbit.letterLabel_eq_iff, HeckeRing.GL2.NewformOrbit.image_labelIndex")
 *Galois orbit label.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.hecke_galois_orbit))
 
 The {bpref "cmf.galois_orbit"}[Galois orbits] within each {bpref "cmf.newspace"}[space of newforms] $`S^{\rm new}_k(N,[\chi])` are labeled using small roman letters: $`a, b, c, \ldots, z, aa, ba, \ldots`, with orbits ordered according to the lexicographical ordering of their integer trace sequences
@@ -1182,7 +1182,7 @@ where $`E_k^{\rm new}(N,\chi)` is the span of those Eisenstein series attached t
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.conductor"}[] {uses "character.dirichlet.induce"}[] {uses "character.dirichlet.modulus"}[] {uses "cmf"}[] {uses "cmf.character"}[] {uses "cmf.cusp_form"}[] {uses "cmf.cusp_form_subspace_mathlib_def"}[] {uses "cmf.level"}[] {uses "cmf.petersson_scalar_product"}[] {uses "cmf.space"}[] {uses "cmf.weight"}[]
 :::
 
-:::definition "cmf.trace_bound" (lean := "HeckeRing.GL2.Newform.traceBound, HeckeRing.GL2.Newform.TracesDistinguishNewforms, HeckeRing.GL2.Newform.exists_tracesDistinguish, HeckeRing.GL2.Newform.tracesDistinguish_traceBound, HeckeRing.GL2.Newform.coeffTrace_one_eq_dimension, HeckeRing.GL2.Newform.traceBound_eq_one_of_dimension")
+:::definition "cmf.trace_bound" (lean := "HeckeRing.GL2.Newform.traceBound, HeckeRing.GL2.Newform.TracesDistinguishNewforms, HeckeRing.GL2.Newform.exists_tracesDistinguishNewforms, HeckeRing.GL2.Newform.tracesDistinguishNewforms_traceBound, HeckeRing.GL2.Newform.coeffTrace_one_eq_dimension, HeckeRing.GL2.Newform.traceBound_eq_one_of_dimension")
 *Trace bound.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.trace_bound))
 
 The *trace bound* for a {bpref "cmf.newspace"}[space of newforms] $`S_k^{new}(N, \chi)` is the least positive integer $`m` such that taking traces down to $`\Q` of the coefficients $`a_n` for $`n \le m` suffices to distinguish all the

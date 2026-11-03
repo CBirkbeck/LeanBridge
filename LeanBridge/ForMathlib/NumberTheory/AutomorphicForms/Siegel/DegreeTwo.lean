@@ -29,6 +29,7 @@ namespace SiegelUpperHalfSpace
 variable {V : Type*} [AddCommGroup V] [Module ℂ V] (ρ : Representation ℂ (GL (Fin 2) ℂ) V)
     {F G : SiegelUpperHalfSpace (Fin 2) → V} (k : ℤ) (j : ℕ)
     (Γ : Subgroup (Matrix.symplecticGroup (Fin 2) ℚ)) (ψ : Γ →* ℂˣ)
+    (Z : SiegelUpperHalfSpace (Fin 2))
 
 /-- The irreducible representation `ρ_{k,j} = det^k ⊗ Sym^j(St)` of `GL(2, ℂ)` on `Sym^j(ℂ²)`
 (LMFDB `mf.siegel.vector_valued_degree_two`), where `St` is the standard representation:
@@ -56,6 +57,16 @@ def diagPoint (τ' : UpperHalfPlane) (t : Set.Ioi (0 : ℝ)) : SiegelUpperHalfSp
     fin_cases i
     · exact τ'.im_pos
     · exact t.2
+
+/-- The parameter `t = 1` of the points `diag(τ', it)`. -/
+def tOne : Set.Ioi (0 : ℝ) :=
+  ⟨1, Set.mem_Ioi.mpr one_pos⟩
+
+lemma im_zero_zero_pos : 0 < (Z.val 0 0).im := by
+  simpa using Z.posDef_im.diag_pos (i := 0)
+
+lemma im_one_one_pos : 0 < (Z.val 1 1).im := by
+  simpa using Z.posDef_im.diag_pos (i := 1)
 
 variable (F) in
 /-- The **Siegel operator** `Φ(F)(τ') = lim_{t → ∞} F(diag(τ', it))` **vanishes** on

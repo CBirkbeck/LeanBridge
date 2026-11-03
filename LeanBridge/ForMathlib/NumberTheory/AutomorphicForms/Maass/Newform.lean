@@ -211,6 +211,19 @@ lemma memLp_of_mem_maassSpace (hF : F ∈ maassSpace N χ eigenvalue) :
 lemma continuous_of_mem_maassSpace (hF : F ∈ maassSpace N χ eigenvalue) : Continuous F := by
   simpa using continuous_comp_coe hF.1
 
+lemma integrableOn_norm_sq_of_mem_maassSpace (hF : F ∈ maassSpace N χ eigenvalue) :
+    IntegrableOn (fun z ↦ ‖F z‖ ^ 2) (gammaZeroDomain N) := by
+  simpa using hF.2.1
+
+lemma comp_add_one_of_mem_maassSpace (hF : F ∈ maassSpace N χ eigenvalue) (hw : 0 < w.im) :
+    (F ∘ ofComplex) (w + 1) = (F ∘ ofComplex) w := by
+  have h : (F ∘ ofComplex) ↑(T • ofComplex w) = χ (T 1 1 : ℤ) * (F ∘ ofComplex) ↑(ofComplex w) :=
+    hF.2.2.1 T (Gamma0_mem.mpr (by simp)) (ofComplex w)
+  have h1 : χ (T 1 1 : ℤ) = 1 := by
+    simp
+  rwa [h1, one_mul, modular_T_smul, coe_vadd, ofComplex_apply_of_im_pos hw, coe_mk,
+    Complex.ofReal_one, add_comm] at h
+
 variable (N F G) in
 /-- The **Petersson inner product** `⟨F, G⟩ = ∫_{Γ₀(N) \ ℍ} F(z) conj(G(z)) dx dy / y²` of two
 functions on `ℍ`, integrated over the fundamental domain `gammaZeroDomain N` of `Γ₀(N)`: linear in
@@ -244,20 +257,23 @@ lemma maassPetersson_eq_setIntegral (hF : F ∈ maassSpace N χ eigenvalue)
     smul_eq_of_mem_maassSpace hF hγ, smul_eq_of_mem_maassSpace hG hγ, map_mul]
   linear_combination F z * conj (G z) * h
 
+lemma maassPetersson_self :
+    maassPetersson N F F = ((∫ z in gammaZeroDomain N, ‖F z‖ ^ 2 : ℝ) : ℂ) := by
+  have h (z : ℍ) : F z * conj (F z) = ((‖F z‖ ^ 2 : ℝ) : ℂ) := by
+    rw [Complex.mul_conj, Complex.normSq_eq_norm_sq]
+  simp only [maassPetersson, h]
+  rw [integral_complex_ofReal]
+
 /-- **The Petersson inner product is definite** on Maass forms: `⟨F, F⟩ = 0` forces `F = 0`.
 `|F|²` vanishes almost everywhere on the fundamental domain, hence, being `Γ₀(N)`-invariant, almost
 everywhere on `ℍ`, hence everywhere, `F` being continuous. -/
 lemma eq_zero_of_maassPetersson_self_eq_zero (hF : F ∈ maassSpace N χ eigenvalue)
     (h : maassPetersson N F F = 0) : F = 0 := by
-  have hint : IntegrableOn (fun z ↦ ‖F z‖ ^ 2) (gammaZeroDomain N) := by
-    simpa using hF.2.1
-  have h0 : ∫ z in gammaZeroDomain N, ‖F z‖ ^ 2 = 0 := by
-    have h1 (z : ℍ) : F z * conj (F z) = ((‖F z‖ ^ 2 : ℝ) : ℂ) := by
-      rw [Complex.mul_conj, Complex.normSq_eq_norm_sq]
-    simp only [maassPetersson, h1] at h
-    exact_mod_cast h
+  have h0 : ∫ z in gammaZeroDomain N, ‖F z‖ ^ 2 = 0 :=
+    Complex.ofReal_eq_zero.mp (maassPetersson_self ▸ h)
   have hae : ∀ᵐ z ∂(volume.restrict (gammaZeroDomain N)), ‖F z‖ ^ 2 = 0 :=
-    (integral_eq_zero_iff_of_nonneg (fun z ↦ by positivity) hint).mp h0
+    (integral_eq_zero_iff_of_nonneg (fun z ↦ by positivity)
+      (integrableOn_norm_sq_of_mem_maassSpace hF)).mp h0
   have hopen : IsOpen {z | F z ≠ 0} :=
     isOpen_ne_fun (continuous_of_mem_maassSpace hF) continuous_const
   have hnull : volume {z | F z ≠ 0} = 0 := by
@@ -273,6 +289,12 @@ lemma eq_zero_of_maassPetersson_self_eq_zero (hF : F ∈ maassSpace N χ eigenva
   have ht : {z | F z ≠ 0} = ∅ := (hopen.measure_eq_zero_iff volume).mp hnull
   funext z
   simpa using congrArg (z ∈ ·) ht
+
+lemma integral_norm_sq_pos (hF : F ∈ maassSpace N χ eigenvalue) (hF0 : F ≠ 0) :
+    0 < ∫ z in gammaZeroDomain N, ‖F z‖ ^ 2 := by
+  refine (integral_nonneg fun z ↦ by positivity).lt_of_ne fun h ↦ hF0 <|
+    eq_zero_of_maassPetersson_self_eq_zero hF ?_
+  rw [maassPetersson_self, ← h, Complex.ofReal_zero]
 
 variable (d γ) in
 /-- The matrix `γ' = !![a, d b; c / d, d']` of `SL(2, ℤ)` for `γ = !![a, b; c, d']` with `d ∣ c`,
@@ -371,24 +393,33 @@ lemma integrableOn_sl_smul_iff {ψ : ℍ → ℝ} (k : SL(2, ℤ)) (A : Set ℍ)
   have hψ' : ψ ∘ (k⁻¹ • ·) = ψ := funext hψ
   rwa [Set.preimage_smul, inv_inv, hψ'] at h
 
-lemma integrableOn_norm_sq_smul_fdo (hF : F ∈ maassSpace M χ' eigenvalue) (σ : SL(2, ℤ)) :
+variable (σ : SL(2, ℤ))
+
+lemma exists_mem_gamma0_eq_mul_out_inv :
+    ∃ k ∈ Gamma0 N, ∃ q : SL(2, ℤ) ⧸ (Gamma0 N).withCenter, σ = k * (q.out : SL(2, ℤ))⁻¹ := by
+  rcases QuotientGroup.mk_out_eq_mul (Gamma0 N).withCenter σ⁻¹ with ⟨k, hk⟩
+  refine ⟨k, (Subgroup.withCenter_eq_self_iff.mpr <| CongruenceSubgroup.center_le_Gamma0 N).le k.2,
+    QuotientGroup.mk σ⁻¹, ?_⟩
+  rw [hk]
+  group
+
+lemma out_inv_smul_fdo_subset (q : SL(2, ℤ) ⧸ (Gamma0 N).withCenter) :
+    (q.out : SL(2, ℤ))⁻¹ • fdo ⊆ gammaZeroDomain N :=
+  Set.subset_iUnion (fun q : SL(2, ℤ) ⧸ (Gamma0 N).withCenter ↦ (q.out : SL(2, ℤ))⁻¹ • fdo) q
+
+lemma integrableOn_norm_sq_smul_fdo_of_norm_smul_eq
+    (hF : IntegrableOn (fun u ↦ ‖F u‖ ^ 2) (gammaZeroDomain N))
+    (hinv : ∀ γ ∈ Gamma0 N, ∀ u : ℍ, ‖F (γ • u)‖ = ‖F u‖) :
     IntegrableOn (fun u ↦ ‖F u‖ ^ 2) (σ • fdo) := by
-  rcases QuotientGroup.mk_out_eq_mul (Gamma0 M).withCenter σ⁻¹ with ⟨k, hk⟩
-  have hk' : (k : SL(2, ℤ)) ∈ Gamma0 M :=
-    (Subgroup.withCenter_eq_self_iff.mpr <| CongruenceSubgroup.center_le_Gamma0 M).le k.2
-  have hsub : ((QuotientGroup.mk σ⁻¹ : SL(2, ℤ) ⧸ (Gamma0 M).withCenter).out)⁻¹ • fdo ⊆
-      gammaZeroDomain M :=
-    Set.subset_iUnion (fun q : SL(2, ℤ) ⧸ (Gamma0 M).withCenter ↦ (q.out : SL(2, ℤ))⁻¹ • fdo) _
-  have hσ : σ • (fdo : Set ℍ) = (k : SL(2, ℤ)) •
-      (((QuotientGroup.mk σ⁻¹ : SL(2, ℤ) ⧸ (Gamma0 M).withCenter).out)⁻¹ • fdo) := by
-    rw [hk, smul_smul]
-    congr 1
-    group
-  rw [hσ, integrableOn_sl_smul_iff]
-  · simpa using hF.2.1.mono_set hsub
-  · intro u
-    rw [smul_eq_of_mem_maassSpace hF (inv_mem hk'), norm_mul,
-      norm_dirichletCharacter_of_mem_gamma0 χ' (inv_mem hk'), one_mul]
+  rcases exists_mem_gamma0_eq_mul_out_inv (N := N) σ with ⟨k, hk, q, rfl⟩
+  rw [mul_smul, integrableOn_sl_smul_iff k _ fun u ↦ by rw [hinv _ (inv_mem hk)]]
+  exact hF.mono_set (out_inv_smul_fdo_subset q)
+
+lemma integrableOn_norm_sq_smul_fdo (hF : F ∈ maassSpace M χ' eigenvalue) :
+    IntegrableOn (fun u ↦ ‖F u‖ ^ 2) (σ • fdo) :=
+  integrableOn_norm_sq_smul_fdo_of_norm_smul_eq σ (integrableOn_norm_sq_of_mem_maassSpace hF)
+    fun _ hγ _ ↦ by rw [smul_eq_of_mem_maassSpace hF hγ, norm_mul,
+      norm_dirichletCharacter_of_mem_gamma0 χ' hγ, one_mul]
 
 lemma scaleRep_map_mul_mapGL (hd0 : 0 < d) (hd : (d : ℤ) ∣ γ 1 0) :
     (GL2.scaleRep d).map (Rat.castHom ℝ) * mapGL ℝ γ =
@@ -450,7 +481,7 @@ lemma integrableOn_maassLevelRaise (hF : F ∈ maassSpace M χ' eigenvalue) (hd0
       norm_sq_smul_eq (fun _ hγ _ ↦ maassLevelRaise_comp_smul hF hd0 h hγ) σ z
   · rw [hcomp, ← Set.preimage_smul, (measurePreserving_smul _ volume).integrableOn_comp_preimage
       (measurableEmbedding_const_smul _)]
-    exact integrableOn_finite_iUnion.mpr fun q ↦ integrableOn_norm_sq_smul_fdo hF _
+    exact integrableOn_finite_iUnion.mpr fun q ↦ integrableOn_norm_sq_smul_fdo _ hF
 
 variable [NeZero N] in
 /-- **Oldforms are Maass forms**: for a Maass form `F` on `Γ₀(M)` with character `χ'` and

@@ -1,4 +1,3 @@
-import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.CuspNewformExpansion
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.KernelPair
 import Mathlib.NumberTheory.ModularForms.ProperlyDiscontinuous
 import TauCeti.MeasureTheory.Integral.Bochner.Basic
@@ -43,8 +42,6 @@ Write `z = σ z'` with `σ ∈ SL(2, ℤ)` and `z'` in the standard domain `𝒟
 
 * `UpperHalfPlane.norm_integral_radial_mul_le`: the bound for the integral of a radial kernel
   against a periodic function with mean `0` on a horizontal line.
-* `UpperHalfPlane.setIntegral_re_im_mem_prod`, `UpperHalfPlane.integrableOn_re_im_mem_prod_iff'`:
-  the invariant integral on a product region in coordinates.
 * `UpperHalfPlane.norm_integral_kernel_mul_le`: the bound for the average of a function with
   vanishing constant term high in the cusp.
 * `UpperHalfPlane.maassCuspidal_period`: `N` is a period of `g ∘ σ`.
@@ -57,12 +54,12 @@ Write `z = σ z'` with `σ ∈ SL(2, ℤ)` and `z'` in the standard domain `𝒟
 
 open Function TauCeti MeasureTheory CongruenceSubgroup Matrix Set Topology
 
-open scoped MatrixGroups NNReal Pointwise
+open scoped MatrixGroups Pointwise
 
 namespace UpperHalfPlane
 
 variable {N : ℕ} {χ : DirichletCharacter ℂ N} {g : ℍ → ℂ} {φ : ℝ → ℝ} {A v : ℝ} {z : ℍ} {K : Set ℍ}
-  {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E] {s t : Set ℝ} (σ : SL(2, ℤ)) (j : ℕ)
+  (σ : SL(2, ℤ)) (j : ℕ)
 
 /-- **The integral of a radial kernel against a periodic function with mean `0`**: for `φ` of class
 `C¹` vanishing on `[3, ∞)`, with `|φ'| ≤ A` on `[1, ∞)`, and `u` continuous with period `h > 0` and
@@ -164,62 +161,6 @@ lemma norm_integral_radial_mul_le {x y h : ℝ} {u : ℝ → ℂ} (hφ : ContDif
   rw [heq, hbyparts, norm_neg, ← hle]
   exact hbound
 
-/-- **The integral over a product region in coordinates**: for measurable `s, t ⊆ ℝ` with
-`t ⊆ (0, ∞)`, the integral over `{z ∈ ℍ | Re z ∈ s, Im z ∈ t}` for the invariant measure is the
-Lebesgue integral over `s × t` of `y⁻² G(x + iy)`. -/
-lemma setIntegral_re_im_mem_prod (G : ℍ → E) (hs : MeasurableSet s) (ht : MeasurableSet t)
-    (ht0 : t ⊆ Ioi 0) : ∫ z in {z : ℍ | z.re ∈ s ∧ z.im ∈ t}, G z = ∫ p in s ×ˢ t,
-      ((p.2 ^ 2)⁻¹ : ℝ) • G (ofComplex (p.1 + p.2 * Complex.I)) := by
-  have hm : MeasurableSet {z : ℍ | z.re ∈ s ∧ z.im ∈ t} :=
-    (hs.preimage continuous_re.measurable).inter (ht.preimage continuous_im.measurable)
-  rw [volume_def, setIntegral_withDensity_eq_setIntegral_smul measurable_volume_density _ hm]
-  have h1 : ∫ z in {z : ℍ | z.re ∈ s ∧ z.im ∈ t}, ((1 / NNReal.mk z.im z.im_pos.le) ^ 2 : ℝ≥0) • G z
-      ∂(Measure.comap UpperHalfPlane.coe volume) =
-        ∫ z in UpperHalfPlane.coe ⁻¹' (UpperHalfPlane.coe '' {z : ℍ | z.re ∈ s ∧ z.im ∈ t}),
-          ((((z : ℂ).im ^ 2)⁻¹ : ℝ) • G (ofComplex (z : ℂ)))
-            ∂(Measure.comap UpperHalfPlane.coe volume) := by
-    rw [preimage_image_eq _ measurableEmbedding_coe.injective]
-    refine setIntegral_congr_fun hm fun z _ ↦ ?_
-    rw [ofComplex_apply, NNReal.smul_def]
-    simp
-  refine h1.trans <| (measurableEmbedding_coe.setIntegral_map
-    (fun c : ℂ ↦ (((c.im ^ 2)⁻¹ : ℝ) • G (ofComplex c))) _).symm.trans ?_
-  rw [measurableEmbedding_coe.map_comap,
-    Measure.restrict_restrict_of_subset (image_subset_range _ _), image_coe_re_im_mem_prod ht0]
-  refine Eq.trans ?_ (Complex.volume_preserving_equiv_real_prod.setIntegral_preimage_emb
-    Complex.measurableEquivRealProd.measurableEmbedding _ _)
-  refine setIntegral_congr_fun ?_ fun c _ ↦ ?_
-  · exact Complex.measurableEquivRealProd.measurable (hs.prod ht)
-  · simp
-
-/-- **Integrability over a product region in coordinates**: for measurable `s, t ⊆ ℝ` with
-`t ⊆ (0, ∞)`, `G` is integrable on `{z ∈ ℍ | Re z ∈ s, Im z ∈ t}` for the invariant measure exactly
-when `y⁻² G(x + iy)` is Lebesgue integrable on `s × t`. This is
-`UpperHalfPlane.integrableOn_re_im_mem_prod_iff` for functions with values in a normed space. -/
-lemma integrableOn_re_im_mem_prod_iff' {G : ℍ → E} (hs : MeasurableSet s) (ht : MeasurableSet t)
-    (ht0 : t ⊆ Ioi 0) : IntegrableOn G {z : ℍ | z.re ∈ s ∧ z.im ∈ t} ↔ IntegrableOn
-      (fun p : ℝ × ℝ ↦ ((p.2 ^ 2)⁻¹ : ℝ) • G (ofComplex (p.1 + p.2 * Complex.I))) (s ×ˢ t) := by
-  have hm : MeasurableSet {z : ℍ | z.re ∈ s ∧ z.im ∈ t} :=
-    (hs.preimage continuous_re.measurable).inter (ht.preimage continuous_im.measurable)
-  rw [IntegrableOn, volume_def, restrict_withDensity hm,
-    integrable_withDensity_iff_integrable_smul measurable_volume_density, ← IntegrableOn]
-  have h1 : IntegrableOn (fun z : ℍ ↦ ((1 / NNReal.mk z.im z.im_pos.le) ^ 2 : ℝ≥0) • G z)
-      {z : ℍ | z.re ∈ s ∧ z.im ∈ t} (Measure.comap UpperHalfPlane.coe volume) ↔
-        IntegrableOn ((fun c : ℂ ↦ ((c.im ^ 2)⁻¹ : ℝ) • G (ofComplex c)) ∘ UpperHalfPlane.coe)
-          (UpperHalfPlane.coe ⁻¹' (UpperHalfPlane.coe '' {z : ℍ | z.re ∈ s ∧ z.im ∈ t}))
-            (Measure.comap UpperHalfPlane.coe volume) := by
-    rw [preimage_image_eq _ measurableEmbedding_coe.injective]
-    refine integrableOn_congr_fun (fun z _ ↦ ?_) hm
-    simp [NNReal.smul_def]
-  rw [h1, ← measurableEmbedding_coe.integrableOn_map_iff, measurableEmbedding_coe.map_comap,
-    IntegrableOn, Measure.restrict_restrict_of_subset (image_subset_range _ _), ← IntegrableOn,
-    image_coe_re_im_mem_prod ht0,
-    ← Complex.volume_preserving_equiv_real_prod.integrableOn_comp_preimage
-      Complex.measurableEquivRealProd.measurableEmbedding]
-  refine integrableOn_congr_fun (fun c _ ↦ ?_)
-    (Complex.measurableEquivRealProd.measurable (hs.prod ht))
-  simp
-
 lemma continuous_ofComplex_add_mul_I (hv : 0 < v) :
     Continuous fun t : ℝ ↦ ofComplex ((t : ℂ) + v * Complex.I) := by
   refine isEmbedding_coe.continuous_iff.mpr ?_
@@ -237,10 +178,10 @@ def maassRectangle : Set ℍ :=
 
 variable (z) in
 lemma integrable_kernel_mul_of_continuous (hφ : Continuous φ) (hφ0 : ∀ c, 3 ≤ c → φ c = 0)
-    (hg : Continuous g) : Integrable fun w : ℍ ↦ (φ (Real.cosh (dist z w)) : ℂ) * g w := by
+    (hg : Continuous g) : Integrable fun w : ℍ ↦ (φ (dist z w).cosh : ℂ) * g w := by
   refine ((Complex.continuous_ofReal.comp (continuous_kernel_right z hφ)).mul hg
     |>.integrable_of_hasCompactSupport ?_)
-  have h1 : HasCompactSupport fun w ↦ φ (Real.cosh (dist z w)) := hasCompactSupport_kernel z hφ0
+  have h1 : HasCompactSupport fun w ↦ φ (dist z w).cosh := hasCompactSupport_kernel z hφ0
   exact (h1.comp_left (g := fun x : ℝ ↦ (x : ℂ)) (by simp)).mul_right
 
 variable (N) in
@@ -273,27 +214,27 @@ lemma norm_integral_kernel_mul_le {u : ℍ → ℂ} (hN : 0 < N) (hφ : ContDiff
       u (ofComplex ((t : ℂ) + v * Complex.I)))
     (hmean : ∀ v : ℝ, 0 < v → ∫ t in (0 : ℝ)..N, u (ofComplex ((t : ℂ) + v * Complex.I)) = 0)
     (hint : ∀ j : ℕ, IntegrableOn (fun w ↦ ‖u w‖) (maassRectangle j)) (hz : 6 ≤ z.im) :
-    ‖∫ w : ℍ, (φ (Real.cosh (dist z w)) : ℂ) * u w‖ ≤
+    ‖∫ w : ℍ, (φ (dist z w).cosh : ℂ) * u w‖ ≤
       12 * A * ∑ j ∈ Finset.range N, ∫ w in maassRectangle j, ‖u w‖ := by
   have hN' : (0 : ℝ) < N := Nat.cast_pos.mpr hN
   have hy : 0 < z.im := z.im_pos
   let c : ℝ → ℝ → ℝ := fun v t ↦ ((t - z.re) ^ 2 + v ^ 2 + z.im ^ 2) / (2 * z.im * v)
   have hcosh (v t : ℝ) (hv : 0 < v) :
-      Real.cosh (dist z (ofComplex ((t : ℂ) + v * Complex.I))) = c v t := by
+      (dist z (ofComplex ((t : ℂ) + v * Complex.I))).cosh = c v t := by
     rw [cosh_dist_eq_coshDist, coshDist, coe_ofComplex_of_im_pos (by simpa using hv)]
     simp [c]
-  have hG : Integrable fun w : ℍ ↦ (φ (Real.cosh (dist z w)) : ℂ) * u w :=
+  have hG : Integrable fun w : ℍ ↦ (φ (dist z w).cosh : ℂ) * u w :=
     integrable_kernel_mul_of_continuous z hφ.continuous hφ0 hu
   have hset : {w : ℍ | w.re ∈ (univ : Set ℝ) ∧ w.im ∈ Ioi 0} = univ := by
     ext w
     simpa using w.im_pos
   have hcoord : IntegrableOn (fun p : ℝ × ℝ ↦ ((p.2 ^ 2)⁻¹ : ℝ) •
-      ((φ (Real.cosh (dist z (ofComplex (p.1 + p.2 * Complex.I)))) : ℂ) *
+      ((φ (dist z (ofComplex (p.1 + p.2 * Complex.I))).cosh : ℂ) *
         u (ofComplex (p.1 + p.2 * Complex.I)))) (univ ×ˢ Ioi 0) :=
-    (integrableOn_re_im_mem_prod_iff' MeasurableSet.univ measurableSet_Ioi subset_rfl).mp
+    (integrableOn_re_im_mem_prod_iff MeasurableSet.univ measurableSet_Ioi subset_rfl).mp
       (by rw [hset]; exact hG.integrableOn)
   rw [Measure.volume_eq_prod] at hcoord
-  have hfub : ∫ w : ℍ, (φ (Real.cosh (dist z w)) : ℂ) * u w = ∫ v in Ioi (0 : ℝ),
+  have hfub : ∫ w : ℍ, (φ (dist z w).cosh : ℂ) * u w = ∫ v in Ioi (0 : ℝ),
       ((v ^ 2)⁻¹ : ℝ) • ∫ t : ℝ, (φ (c v t) : ℂ) * u (ofComplex ((t : ℂ) + v * Complex.I)) := by
     rw [← setIntegral_univ, ← hset, setIntegral_re_im_mem_prod _ MeasurableSet.univ
       measurableSet_Ioi subset_rfl, Measure.volume_eq_prod, ← setIntegral_prod_swap]
@@ -322,7 +263,7 @@ lemma norm_integral_kernel_mul_le {u : ℍ → ℂ} (hN : 0 < N) (hφ : ContDiff
     have h : IntegrableOn
         (fun p : ℝ × ℝ ↦ ((p.2 ^ 2)⁻¹ : ℝ) • ‖u (ofComplex (p.1 + p.2 * Complex.I))‖)
         (Ioo ((j : ℝ) - 1 / 2) (j + 1 / 2) ×ˢ Ioi 1) :=
-      (integrableOn_re_im_mem_prod_iff' measurableSet_Ioo measurableSet_Ioi
+      (integrableOn_re_im_mem_prod_iff measurableSet_Ioo measurableSet_Ioi
         (Ioi_subset_Ioi zero_le_one)).mp (hint j)
     rwa [IntegrableOn, Measure.volume_eq_prod, ← Measure.prod_restrict] at h
   have hR (j : ℕ) : ∫ w in maassRectangle j, ‖u w‖ =
@@ -414,26 +355,6 @@ lemma setIntegral_sl_smul_eq {ψ : ℍ → ℝ} (k : SL(2, ℤ)) (hψ : ∀ u, �
 
 variable (τ : SL(2, ℤ))
 
-lemma exists_mem_gamma0_eq_mul_out_inv :
-    ∃ k ∈ Gamma0 N, ∃ q : SL(2, ℤ) ⧸ (Gamma0 N).withCenter, τ = k * (q.out : SL(2, ℤ))⁻¹ := by
-  rcases QuotientGroup.mk_out_eq_mul (Gamma0 N).withCenter τ⁻¹ with ⟨k, hk⟩
-  refine ⟨k, (Subgroup.withCenter_eq_self_iff.mpr <| CongruenceSubgroup.center_le_Gamma0 N).le k.2,
-    QuotientGroup.mk τ⁻¹, ?_⟩
-  rw [hk]
-  group
-
-lemma out_inv_smul_fdo_subset (q : SL(2, ℤ) ⧸ (Gamma0 N).withCenter) :
-    (q.out : SL(2, ℤ))⁻¹ • ModularGroup.fdo ⊆ gammaZeroDomain N :=
-  subset_iUnion (fun q : SL(2, ℤ) ⧸ (Gamma0 N).withCenter ↦
-    (q.out : SL(2, ℤ))⁻¹ • ModularGroup.fdo) q
-
-lemma integrableOn_norm_sq_smul_fdo_of_mem (hg : g ∈ maassCuspidalSpace N χ) :
-    IntegrableOn (fun u ↦ ‖g u‖ ^ 2) (τ • ModularGroup.fdo) := by
-  rcases exists_mem_gamma0_eq_mul_out_inv (N := N) τ with ⟨k, hk, q, rfl⟩
-  rw [mul_smul, integrableOn_sl_smul_iff k _ fun u ↦ by
-    rw [norm_smul_eq_of_mem_maassCuspidalSpace hg (inv_mem hk)]]
-  exact hg.2.2.1.mono_set (out_inv_smul_fdo_subset q)
-
 lemma setIntegral_norm_sq_smul_fdo_le (hg : g ∈ maassCuspidalSpace N χ) :
     ∫ u in τ • ModularGroup.fdo, ‖g u‖ ^ 2 ≤ ∫ u in gammaZeroDomain N, ‖g u‖ ^ 2 := by
   rcases exists_mem_gamma0_eq_mul_out_inv (N := N) τ with ⟨k, hk, q, rfl⟩
@@ -448,7 +369,8 @@ lemma integrableOn_norm_sq_comp_sl_smul (hg : g ∈ maassCuspidalSpace N χ) :
       IntegrableOn (fun u ↦ ‖g u‖ ^ 2) ((σ * τ) • ModularGroup.fdo) :=
     (measurePreserving_smul σ volume).integrableOn_comp_preimage (measurableEmbedding_const_smul σ)
   rw [Set.preimage_smul, smul_smul, inv_mul_cancel_left] at h
-  exact h.mpr (integrableOn_norm_sq_smul_fdo_of_mem _ hg)
+  exact h.mpr <| integrableOn_norm_sq_smul_fdo_of_norm_smul_eq _ hg.2.2.1
+    fun _ ↦ norm_smul_eq_of_mem_maassCuspidalSpace hg
 
 lemma setIntegral_norm_sq_comp_smul_le (hg : g ∈ maassCuspidalSpace N χ) :
     ∫ w in τ • ModularGroup.fdo, ‖g (σ • w)‖ ^ 2 ≤ ∫ u in gammaZeroDomain N, ‖g u‖ ^ 2 := by
@@ -550,12 +472,12 @@ lemma sq_setIntegral_norm_rectangle_le (hg : g ∈ maassCuspidalSpace N χ) :
 lemma sq_norm_integral_kernel_mul_comp_smul_le (hN : 0 < N) (hφ : ContDiff ℝ 1 φ)
     (hA : ∀ c, 1 ≤ c → |deriv φ c| ≤ A) (hφ0 : ∀ c, 3 ≤ c → φ c = 0)
     (hg : g ∈ maassCuspidalSpace N χ) (hz : 6 ≤ z.im) :
-    ‖∫ w : ℍ, (φ (Real.cosh (dist z w)) : ℂ) * g (σ • w)‖ ^ 2 ≤
+    ‖∫ w : ℍ, (φ (dist z w).cosh : ℂ) * g (σ • w)‖ ^ 2 ≤
       (12 * A * N) ^ 2 * (volume.real ModularGroup.fd * ∫ u in gammaZeroDomain N, ‖g u‖ ^ 2) := by
   have hA0 : 0 ≤ A := (abs_nonneg _).trans (hA 1 le_rfl)
   have hE : 0 ≤ volume.real ModularGroup.fd * ∫ u in gammaZeroDomain N, ‖g u‖ ^ 2 :=
     mul_nonneg ENNReal.toReal_nonneg (integral_nonneg fun u ↦ by positivity)
-  have h1 : ‖∫ w : ℍ, (φ (Real.cosh (dist z w)) : ℂ) * g (σ • w)‖ ≤
+  have h1 : ‖∫ w : ℍ, (φ (dist z w).cosh : ℂ) * g (σ • w)‖ ≤
       12 * A * ∑ j ∈ Finset.range N, ∫ w in maassRectangle j, ‖g (σ • w)‖ :=
     norm_integral_kernel_mul_le hN hφ hA hφ0 (hg.1.comp (continuous_sl_smul σ))
       (fun t _ hv ↦ maassCuspidal_period σ hg.2.1 t hv) (fun v hv ↦ hg.2.2.2 σ v hv)
@@ -567,12 +489,12 @@ lemma sq_norm_integral_kernel_mul_comp_smul_le (hN : 0 < N) (hφ : ContDiff ℝ 
       N * √(volume.real ModularGroup.fd * ∫ u in gammaZeroDomain N, ‖g u‖ ^ 2) := by
     refine (Finset.sum_le_card_nsmul _ _ _ fun j _ ↦ h2 j).trans (le_of_eq ?_)
     simp
-  have h4 : ‖∫ w : ℍ, (φ (Real.cosh (dist z w)) : ℂ) * g (σ • w)‖ ≤ 12 * A * N *
+  have h4 : ‖∫ w : ℍ, (φ (dist z w).cosh : ℂ) * g (σ • w)‖ ≤ 12 * A * N *
       √(volume.real ModularGroup.fd * ∫ u in gammaZeroDomain N, ‖g u‖ ^ 2) := by
     refine h1.trans ?_
     rw [mul_assoc (12 * A)]
     exact mul_le_mul_of_nonneg_left h3 (by positivity)
-  have h5 : ‖∫ w : ℍ, (φ (Real.cosh (dist z w)) : ℂ) * g (σ • w)‖ ^ 2 ≤ (12 * A * N *
+  have h5 : ‖∫ w : ℍ, (φ (dist z w).cosh : ℂ) * g (σ • w)‖ ^ 2 ≤ (12 * A * N *
       √(volume.real ModularGroup.fd * ∫ u in gammaZeroDomain N, ‖g u‖ ^ 2)) ^ 2 :=
     pow_le_pow_left₀ (norm_nonneg _) h4 2
   rwa [mul_pow, Real.sq_sqrt hE] at h5
@@ -658,35 +580,30 @@ lemma exists_setIntegral_norm_sq_le_of_isCompact (hK : IsCompact K) : ∃ M : �
     (integral_nonneg fun x ↦ by positivity))).mp h1
 
 lemma sq_norm_integral_kernel_mul_le_of_subset {B : ℝ} (hK : IsCompact K)
-    (hB : ∀ c, 1 ≤ c → |φ c| ≤ B) (hg : Continuous g)
-    (hsupp : ∀ w, φ (Real.cosh (dist z w)) ≠ 0 → w ∈ K) :
-    ‖∫ w : ℍ, (φ (Real.cosh (dist z w)) : ℂ) * g w‖ ^ 2 ≤
+    (hB : ∀ c, 1 ≤ c → |φ c| ≤ B) (hg : Continuous g) (hsupp : ∀ w, φ (dist z w).cosh ≠ 0 → w ∈ K) :
+    ‖∫ w : ℍ, (φ (dist z w).cosh : ℂ) * g w‖ ^ 2 ≤
       B ^ 2 * (volume.real K * ∫ w in K, ‖g w‖ ^ 2) := by
-  have h1 : ∫ w : ℍ, (φ (Real.cosh (dist z w)) : ℂ) * g w =
-      ∫ w in K, (φ (Real.cosh (dist z w)) : ℂ) * g w := by
+  have h1 : ∫ w : ℍ, (φ (dist z w).cosh : ℂ) * g w = ∫ w in K, (φ (dist z w).cosh : ℂ) * g w := by
     refine (setIntegral_eq_integral_of_forall_compl_eq_zero fun w hw ↦ ?_).symm
-    have h0 : φ (Real.cosh (dist z w)) = 0 := by
+    have h0 : φ (dist z w).cosh = 0 := by
       by_contra hne
       exact hw (hsupp w hne)
     simp [h0]
   have hgn : IntegrableOn (fun w ↦ ‖g w‖) K := hg.norm.continuousOn.integrableOn_compact hK
   have hgs : IntegrableOn (fun w ↦ ‖g w‖ ^ 2) K :=
     (hg.norm.pow 2).continuousOn.integrableOn_compact hK
-  have h2 : ‖∫ w in K, (φ (Real.cosh (dist z w)) : ℂ) * g w‖ ≤ ∫ w in K, B * ‖g w‖ := by
+  have h2 : ‖∫ w in K, (φ (dist z w).cosh : ℂ) * g w‖ ≤ ∫ w in K, B * ‖g w‖ := by
     refine norm_integral_le_of_norm_le (hgn.const_mul B) (.of_forall fun w ↦ ?_)
     rw [norm_mul, Complex.norm_real, Real.norm_eq_abs]
     exact mul_le_mul_of_nonneg_right (hB _ (Real.one_le_cosh _)) (norm_nonneg _)
   rw [integral_const_mul] at h2
   have h3 : (∫ w in K, ‖g w‖) ^ 2 ≤ volume.real K * ∫ w in K, ‖g w‖ ^ 2 :=
     sq_setIntegral_le_measureReal_mul_setIntegral_sq _ K hK.measure_lt_top.ne hgn hgs
-  have h4 : ‖∫ w in K, (φ (Real.cosh (dist z w)) : ℂ) * g w‖ ^ 2 ≤ (B * ∫ w in K, ‖g w‖) ^ 2 :=
+  have h4 : ‖∫ w in K, (φ (dist z w).cosh : ℂ) * g w‖ ^ 2 ≤ (B * ∫ w in K, ‖g w‖) ^ 2 :=
     pow_le_pow_left₀ (norm_nonneg _) h2 2
   rw [mul_pow] at h4
   rw [h1]
   exact h4.trans (mul_le_mul_of_nonneg_left h3 (by positivity))
-
-lemma dist_sl_smul (a b : ℍ) : dist (σ • a) (σ • b) = dist a b :=
-  dist_smul (SpecialLinearGroup.map (Int.castRingHom ℝ) σ) a b
 
 lemma dist_le_of_mem_fdo_of_im_le (hz : z ∈ ModularGroup.fdo) (hy : z.im ≤ 6) : dist I z ≤ 94 := by
   have h1 : 1 < Complex.normSq z := hz.1
@@ -698,7 +615,7 @@ lemma dist_le_of_mem_fdo_of_im_le (hz : z ∈ ModularGroup.fdo) (hy : z.im ≤ 6
   have hy1 : 1 / 2 < z.im := by
     by_contra hn
     nlinarith [not_lt.mp hn]
-  have h4 : dist I z / 2 ≤ Real.cosh (dist I z) := half_le_cosh (dist I z)
+  have h4 : dist I z / 2 ≤ (dist I z).cosh := half_le_cosh (dist I z)
   rw [cosh_dist_eq_coshDist, coshDist] at h4
   simp only [I_re, I_im, coe_re, coe_im] at h4
   have h5 : ((z.re - 0) ^ 2 + z.im ^ 2 + 1 ^ 2) / (2 * 1 * z.im) ≤ 38 := by
@@ -716,7 +633,7 @@ covering of a compact set by the translates of a fundamental domain
 (`exists_lintegral_le_mul_of_isCompact`). -/
 lemma exists_sq_norm_integral_kernel_mul_le [NeZero N] (hφ : ContDiff ℝ 1 φ)
     (hφ0 : ∀ c, 3 ≤ c → φ c = 0) : ∃ C : ℝ, 0 ≤ C ∧ ∀ g ∈ maassCuspidalSpace N χ,
-      ∀ z ∈ gammaZeroDomain N, ‖∫ w : ℍ, (φ (Real.cosh (dist z w)) : ℂ) * g w‖ ^ 2 ≤
+      ∀ z ∈ gammaZeroDomain N, ‖∫ w : ℍ, (φ (dist z w).cosh : ℂ) * g w‖ ^ 2 ≤
         C * ∫ u in gammaZeroDomain N, ‖g u‖ ^ 2 := by
   have hN : 0 < N := NeZero.pos N
   rcases (isCompact_Icc (a := (1 : ℝ)) (b := 3)).exists_bound_of_continuousOn
@@ -747,8 +664,8 @@ lemma exists_sq_norm_integral_kernel_mul_le [NeZero N] (hφ : ContDiff ℝ 1 φ)
   rcases mem_iUnion.mp hz with ⟨q, hq⟩
   rcases mem_smul_set.mp hq with ⟨z', hz', rfl⟩
   rcases le_or_gt 6 z'.im with hy | hy
-  · have h : ∫ w : ℍ, (φ (Real.cosh (dist ((q.out : SL(2, ℤ))⁻¹ • z') w)) : ℂ) * g w =
-        ∫ w : ℍ, (φ (Real.cosh (dist z' w)) : ℂ) * g ((q.out : SL(2, ℤ))⁻¹ • w) := by
+  · have h : ∫ w : ℍ, (φ (dist ((q.out : SL(2, ℤ))⁻¹ • z') w).cosh : ℂ) * g w =
+        ∫ w : ℍ, (φ (dist z' w).cosh : ℂ) * g ((q.out : SL(2, ℤ))⁻¹ • w) := by
       rw [← (measurePreserving_smul (q.out : SL(2, ℤ))⁻¹ volume).integral_comp
         (measurableEmbedding_const_smul _)]
       simp only [dist_sl_smul]
@@ -756,11 +673,11 @@ lemma exists_sq_norm_integral_kernel_mul_le [NeZero N] (hφ : ContDiff ℝ 1 φ)
     refine (sq_norm_integral_kernel_mul_comp_smul_le _ hN hφ hA hφ0 hg hy).trans ?_
     rw [← mul_assoc]
     exact mul_le_mul_of_nonneg_right (le_max_left _ _) hE
-  · have hsupp (w : ℍ) (hw : φ (Real.cosh (dist ((q.out : SL(2, ℤ))⁻¹ • z') w)) ≠ 0) : w ∈ K := by
-      have h1 : Real.cosh (dist ((q.out : SL(2, ℤ))⁻¹ • z') w) < 3 :=
+  · have hsupp (w : ℍ) (hw : φ (dist ((q.out : SL(2, ℤ))⁻¹ • z') w).cosh ≠ 0) : w ∈ K := by
+      have h1 : (dist ((q.out : SL(2, ℤ))⁻¹ • z') w).cosh < 3 :=
         not_le.mp fun h ↦ hw (hφ0 _ h)
       have h2 :
-          dist ((q.out : SL(2, ℤ))⁻¹ • z') w / 2 ≤ Real.cosh (dist ((q.out : SL(2, ℤ))⁻¹ • z') w) :=
+          dist ((q.out : SL(2, ℤ))⁻¹ • z') w / 2 ≤ (dist ((q.out : SL(2, ℤ))⁻¹ • z') w).cosh :=
         half_le_cosh _
       have h3 : dist ((q.out : SL(2, ℤ))⁻¹ • I) ((q.out : SL(2, ℤ))⁻¹ • z') ≤ 94 := by
         rw [dist_sl_smul]

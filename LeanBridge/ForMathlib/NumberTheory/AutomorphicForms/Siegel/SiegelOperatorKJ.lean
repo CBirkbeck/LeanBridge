@@ -15,15 +15,12 @@ a cusp form, the constant coefficient `a(0)` being fixed by `ρ_{k,j}(GL(2, ℤ)
 
 ## Main definitions
 
-* `SiegelUpperHalfSpace.symConstCoeff`: the linear form `ψ` on `Sym^j(ℂ²)` with `ψ(e₁^j) = 1`.
 * `SiegelUpperHalfSpace.siegelOperatorSeries`: the series of `u`.
 * `SiegelUpperHalfSpace.siegelOperatorKJ` (LMFDB `mf.siegel.phi`): the modular form `u = Φ(F)`.
 * `SiegelUpperHalfSpace.siegelOperatorCuspKJ`: the cusp form `u = Φ(F)`, if `a(0)` vanishes.
 
 ## Main results
 
-* `SiegelUpperHalfSpace.eq_smul_tprod_of_symPowerRep_eq`: the vectors fixed by `(1, 1; 0, 1)` are
-  the multiples of `e₁^j`.
 * `SiegelUpperHalfSpace.apply_eq_smul_tprod`: `a(n)` is a multiple of `e₁^j` for `n₁₁ = 0`.
 * `SiegelUpperHalfSpace.apply_zero_eq_zero`: `a(0) = 0` for `j > 0`.
 * `SiegelUpperHalfSpace.differentiableAt_tsum_phiTerm`: the series is holomorphic.
@@ -39,7 +36,7 @@ a cusp form, the constant coefficient `a(0)` being fixed by `ρ_{k,j}(GL(2, ℤ)
 
 open Matrix hiding mul_inv_rev inv_zpow inv_zpow' zpow_neg one_zpow
 
-open Complex Filter Metric Module Polynomial Real SymplecticGroup TauCeti Topology
+open Complex Filter Metric Module Real SymplecticGroup TauCeti Topology
 
 open scoped Manifold MatrixGroups ModularForm TensorProduct UpperHalfPlane
 
@@ -48,68 +45,6 @@ namespace SiegelUpperHalfSpace
 variable {k : ℤ} {j : ℕ}
 
 /-! ### The highest weight line -/
-
-private lemma symDehomogenize_tprod (m : Fin j → Fin 2 → ℂ) :
-    symDehomogenize j (⨂ₛ[ℂ] i, m i) = ∏ i, (C (m i 0) + C (m i 1) * X) := by
-  have h : symDehomogenize j (⨂ₛ[ℂ] i, m i) = ∏ i, (monomial 0 (m i 0) + monomial 1 (m i 1)) :=
-    SymmetricPower.lift_tprod _ _ m
-  rw [h]
-  simp [C_mul_X_eq_monomial]
-
-private lemma symPowerRep_tprod (g : GL (Fin 2) ℂ) (m : Fin j → Fin 2 → ℂ) :
-    symPowerRep ℂ 2 j g (⨂ₛ[ℂ] i, m i) = ⨂ₛ[ℂ] i, (g : Matrix (Fin 2) (Fin 2) ℂ) *ᵥ m i :=
-  Representation.symmetricPower_apply_tprod _ _ _ _
-
-private lemma symDehomogenize_unipotent (x : Sym[ℂ]^j (Fin 2 → ℂ)) : symDehomogenize j
-    (symPowerRep ℂ 2 j (GeneralLinearGroup.map (Int.castRingHom ℂ) (ModularGroup.T : GL (Fin 2) ℤ))
-      x) = (symDehomogenize j x).comp (X + 1) := by
-  have hx : x ∈ Submodule.span ℂ (Set.range (SymmetricPower.tprod ℂ)) := by
-    rw [SymmetricPower.span_tprod_eq_top]
-    exact Submodule.mem_top
-  induction hx using Submodule.span_induction with
-  | mem x hx =>
-    rcases hx with ⟨m, rfl⟩
-    rw [symPowerRep_tprod, symDehomogenize_tprod, symDehomogenize_tprod, prod_comp]
-    refine Finset.prod_congr rfl fun i _ ↦ ?_
-    simp
-    ring1
-  | zero => simp
-  | add x y _ _ hx hy =>
-    rw [map_add, map_add, map_add, hx, hy, add_comp]
-  | smul a x _ hx =>
-    rw [map_smul, map_smul, map_smul, hx, smul_comp]
-
-variable (j) in
-/-- The linear form `ψ` on `Sym^j(ℂ²)` with `ψ(e₁^j) = 1`, the constant term of the dehomogenisation
-`u₁ ⋯ u_j ↦ ∏ᵢ (uᵢ₀ + uᵢ₁ X)`. -/
-noncomputable def symConstCoeff : Dual ℂ (Sym[ℂ]^j (Fin 2 → ℂ)) :=
-  Polynomial.leval 0 ∘ₗ symDehomogenize j
-
-lemma symConstCoeff_tprod_single : symConstCoeff j (⨂ₛ[ℂ] _ : Fin j, Pi.single 0 1) = 1 := by
-  simp [symConstCoeff, symDehomogenize_tprod]
-
-/-- **The vectors fixed by the unipotent `(1, 1; 0, 1)` are the multiples of `e₁^j`.** -/
-lemma eq_smul_tprod_of_symPowerRep_eq {v : Sym[ℂ]^j (Fin 2 → ℂ)} (hv : symPowerRep ℂ 2 j
-    (GeneralLinearGroup.map (Int.castRingHom ℂ) (ModularGroup.T : GL (Fin 2) ℤ)) v = v) :
-    v = symConstCoeff j v • ⨂ₛ[ℂ] _ : Fin j, (Pi.single 0 1 : Fin 2 → ℂ) := by
-  have hu : (symDehomogenize j v).comp (X + 1) = symDehomogenize j v := by
-    rw [← symDehomogenize_unipotent, hv]
-  have heval (n : ℕ) : (symDehomogenize j v).eval (n : ℂ) = (symDehomogenize j v).eval 0 := by
-    induction n with
-    | zero => simp
-    | succ n ih =>
-      rw [← ih]
-      conv_rhs => rw [← hu]
-      simp
-  have hC : symDehomogenize j v = C ((symDehomogenize j v).eval 0) := by
-    refine eq_of_infinite_eval_eq _ _ ((Set.infinite_range_of_injective Nat.cast_injective).mono ?_)
-    rintro _ ⟨n, rfl⟩
-    simpa using heval n
-  refine symDehomogenize_injective ?_
-  rw [map_smul, symDehomogenize_tprod, smul_eq_C_mul]
-  simp only [Pi.single_eq_same, map_one, ne_eq, one_ne_zero, not_false_eq_true, Pi.single_eq_of_ne,
-    map_zero, zero_mul, add_zero, Finset.prod_const_one, mul_one]
-  exact hC
 
 private lemma rhoKJ_diag_tprod {w : ℂ} {g : GL (Fin 2) ℂ}
     (hg : (g : Matrix (Fin 2) (Fin 2) ℂ) = !![w, 0; 0, 1]) (hw : w ≠ 0) :
@@ -123,23 +58,6 @@ private lemma rhoKJ_diag_tprod {w : ℂ} {g : GL (Fin 2) ℂ}
   rw [rhoKJ_tprod, h₁, tprod_smul, smul_smul, Units.val_zpow_eq_zpow_val,
     GeneralLinearGroup.val_det_apply, hg, det_fin_two_of, zpow_add₀ hw]
   simp
-
-private lemma rhoKJ_eq_symPowerRep (g : SL(2, ℤ)) (v : Sym[ℂ]^j (Fin 2 → ℂ)) :
-    rhoKJ k j (GeneralLinearGroup.map (Int.castRingHom ℂ) (g : GL (Fin 2) ℤ)) v =
-      symPowerRep ℂ 2 j (GeneralLinearGroup.map (Int.castRingHom ℂ) (g : GL (Fin 2) ℤ)) v := by
-  have hdet : (GeneralLinearGroup.map (Int.castRingHom ℂ) (g : GL (Fin 2) ℤ)).det = 1 := by
-    refine Units.ext ?_
-    rw [GeneralLinearGroup.val_det_apply, Units.val_one]
-    have e : ((GeneralLinearGroup.map (Int.castRingHom ℂ) (g : GL (Fin 2) ℤ) : GL (Fin 2) ℂ) :
-        Matrix (Fin 2) (Fin 2) ℂ) = (Int.castRingHom ℂ).mapMatrix (g : Matrix (Fin 2) (Fin 2) ℤ) :=
-      rfl
-    rw [e, ← RingHom.map_det, g.det_coe, map_one]
-  have h : rhoKJ k j (GeneralLinearGroup.map (Int.castRingHom ℂ) (g : GL (Fin 2) ℤ)) v =
-      (((GeneralLinearGroup.map (Int.castRingHom ℂ) (g : GL (Fin 2) ℤ)).det ^ k : ℂˣ) : ℂ) •
-        symPowerRep ℂ 2 j (GeneralLinearGroup.map (Int.castRingHom ℂ) (g : GL (Fin 2) ℤ)) v :=
-    rfl
-  rw [hdet] at h
-  simpa using h
 
 /-! ### The Fourier coefficients of `n` with `n₁₁ = 0` -/
 
@@ -399,7 +317,7 @@ lemma siegelOperatorSeries_smul (hF : F ∈ modularFormsKJ k j (integral (Fin 2)
       UpperHalfPlane.denom_ne_zero (g : GL (Fin 2) ℝ) τ'
     simpa [UpperHalfPlane.denom] using h
   let D : GL (Fin 2) ℂ := denomGL (SymplecticGroup.map (Int.castRingHom ℝ) (embedFirst g))
-    (diagPoint τ' ⟨1, Set.mem_Ioi.mpr one_pos⟩)
+    (diagPoint τ' tOne)
   have hD : (D : Matrix (Fin 2) (Fin 2) ℂ) = !![(g 1 0 : ℂ) * τ' + (g 1 1 : ℂ), 0; 0, 1] :=
     coe_denomGL_embedFirst g τ' _
   have hdG (t : Set.Ioi (0 : ℝ)) :

@@ -6,7 +6,7 @@ import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisConjugate
 
 The coefficients `aₙ` of a newform `f` generate its coefficient field `K = ℚ(f)`, Tau Ceti's
 `TauCeti.CoefficientField f`, a number field in every weight
-(`HeckeRing.GL2.Newform.numberField_coefficientField`, in `Newform/GaloisActionOnNewforms.lean`).
+(`HeckeRing.GL2.Newform.numberField_coefficientField`, in `Newform/GaloisOrbit.lean`).
 The LMFDB `q`-expansion of the newform orbit `[f]` (LMFDB `cmf.q-expansion`) is `∑ aₙ qⁿ` with
 coefficients in `K`, forgetting the embedding `K ⊆ ℂ`, and each embedding `ι : K → ℂ` gives an
 *embedding* `ι(f) = ∑ ι(aₙ) qⁿ` of `f` (LMFDB `cmf.embedding`).

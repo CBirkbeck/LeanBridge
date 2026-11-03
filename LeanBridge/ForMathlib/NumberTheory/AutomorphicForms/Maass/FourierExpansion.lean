@@ -6,9 +6,11 @@ import Mathlib.Data.PNat.Basic
 /-!
 # Fourier expansions of Maass forms
 
-A Maass form `f` of spectral parameter `r` on a non-cocompact group has a Fourier expansion
-`f(z) = ∑_{n ∈ ℤ} a(n) √y K_{ir}(2π|n|y) e^{2πinx}` at infinity, which for even and odd forms
-becomes a cosine or sine expansion `∑_{n ≥ 1} c(n) √y K_{ir}(2πny) cos(2πnx)` or `sin(2πnx)`.
+A Maass form `f` of spectral parameter `r` on a non-cocompact group whose constant term at infinity
+vanishes, such as a cusp form, has a Fourier expansion
+`f(z) = ∑_{n ∈ ℤ} a(n) √y K_{ir}(2π|n|y) e^{2πinx}` at infinity with `a(0) = 0`, which for even and
+odd forms becomes a cosine or sine expansion `∑_{n ≥ 1} c(n) √y K_{ir}(2πny) cos(2πnx)` or
+`sin(2πnx)`.
 
 ## Main definitions
 

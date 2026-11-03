@@ -132,19 +132,37 @@ lemma HasMaassSineExpansion.maassCoefficients_eq (h : HasMaassSineExpansion f r 
     rw [maassCoefficients, dite_eq_right hc, dite_eq_left hs]
     exact hs.choose_spec.unique h
 
+lemma conj_besselK_I_mul_of_conj_sq (hr : conj (r ^ 2) = r ^ 2) (x : ℝ) :
+    conj ((Complex.I * r).besselK x) = (Complex.I * r).besselK x := by
+  have h : (conj r - r) * (conj r + r) = 0 := by
+    rw [map_pow] at hr
+    linear_combination hr
+  rcases mul_eq_zero.mp h with h1 | h1
+  · rw [Complex.conj_besselK, map_mul, Complex.conj_I, sub_eq_zero.mp h1, neg_mul,
+      Complex.besselK_neg]
+  · rw [Complex.conj_besselK, map_mul, Complex.conj_I, eq_neg_of_add_eq_zero_left h1, neg_mul_neg]
+
+lemma HasMaassCosineExpansion.conj_of_conj_sq (hr : conj (r ^ 2) = r ^ 2)
+    (h : HasMaassCosineExpansion f r c) :
+    HasMaassCosineExpansion (fun w ↦ conj (f w)) r fun n ↦ conj (c n) :=
+  fun z ↦ (Complex.hasSum_conj'.mpr (h z)).congr_fun fun n ↦ by
+    rw [map_mul, map_mul, map_mul, Complex.conj_ofReal, Complex.conj_ofReal,
+      conj_besselK_I_mul_of_conj_sq hr]
+
+lemma HasMaassSineExpansion.conj_of_conj_sq (hr : conj (r ^ 2) = r ^ 2)
+    (h : HasMaassSineExpansion f r c) :
+    HasMaassSineExpansion (fun w ↦ conj (f w)) r fun n ↦ conj (c n) :=
+  fun z ↦ (Complex.hasSum_conj'.mpr (h z)).congr_fun fun n ↦ by
+    rw [map_mul, map_mul, map_mul, Complex.conj_ofReal, Complex.conj_ofReal,
+      conj_besselK_I_mul_of_conj_sq hr]
+
 lemma HasMaassCosineExpansion.conj (h : HasMaassCosineExpansion f R c) :
-    HasMaassCosineExpansion (fun w ↦ conj (f w)) R fun n ↦ conj (c n) := by
-  intro z
-  refine (Complex.hasSum_conj'.mpr (h z)).congr_fun fun n ↦ ?_
-  rw [map_mul, map_mul, map_mul, Complex.conj_ofReal, Complex.conj_ofReal,
-    Complex.conj_besselK_I_mul]
+    HasMaassCosineExpansion (fun w ↦ conj (f w)) R fun n ↦ conj (c n) :=
+  h.conj_of_conj_sq <| by rw [map_pow, Complex.conj_ofReal]
 
 lemma HasMaassSineExpansion.conj (h : HasMaassSineExpansion f R c) :
-    HasMaassSineExpansion (fun w ↦ conj (f w)) R fun n ↦ conj (c n) := by
-  intro z
-  refine (Complex.hasSum_conj'.mpr (h z)).congr_fun fun n ↦ ?_
-  rw [map_mul, map_mul, map_mul, Complex.conj_ofReal, Complex.conj_ofReal,
-    Complex.conj_besselK_I_mul]
+    HasMaassSineExpansion (fun w ↦ conj (f w)) R fun n ↦ conj (c n) :=
+  h.conj_of_conj_sq <| by rw [map_pow, Complex.conj_ofReal]
 
 /-- **The coefficients of a cosine expansion are real exactly when the function is**: for a real
 spectral parameter `R` (for which `K_{iR}` is real), the coefficients of a cosine expansion of `f`

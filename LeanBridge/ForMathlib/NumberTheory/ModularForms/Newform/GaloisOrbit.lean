@@ -1,5 +1,6 @@
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.ComplexAutomorphismFixedField
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Embedding
-import TauCeti.NumberTheory.ModularForms.Newforms.NumberField
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisConjugateExists
 import TauCeti.NumberTheory.ModularForms.Newforms.OrthogonalBasis
 
 /-!
@@ -8,19 +9,17 @@ import TauCeti.NumberTheory.ModularForms.Newforms.OrthogonalBasis
 The Galois orbit `[f] = {σ(f)}` of a newform `f` (LMFDB `cmf.galois_orbit`) is the set of its
 Galois conjugates. Here it is the set of newforms of the level and weight of `f` that are Galois
 conjugate to `f`. Every Galois conjugate `σ(f)` is a newform of the same level and weight
-(`HeckeRing.GL2.Newform.exists_isGaloisConjugateBy`, in `Newform/GaloisConjugateExists.lean`), so
-this is the LMFDB orbit.
+(`HeckeRing.GL2.Newform.exists_isGaloisConjugateBy`), so this is the LMFDB orbit.
 
 Galois orbits of newforms are also called newform orbits, and the LMFDB calls them newforms:
 `HeckeRing.GL2.NewformOrbit N k` is the type of Galois orbits of newforms of level `N` and weight
 `k`.
 
-The LMFDB states that `[f]` has as many elements as the degree of the coefficient field `ℚ(f)`. Its
-elements are the embeddings `ι(f)` of `f`, for distinct embeddings `ι : ℚ(f) → ℂ`. This file bounds
-their number by `[ℚ(f) : ℚ]` in weight at least two, where Tau Ceti proves that `ℚ(f)` is a number
-field, with equality if every Galois conjugate of `f` is a newform. The equality holds in every
-weight, with no hypothesis: it is `HeckeRing.GL2.Newform.ncard_galoisOrbit_eq_finrank`, in
-`Newform/GaloisActionOnNewforms.lean`.
+The elements of `[f]` are the embeddings `ι(f)` of `f`, for the embeddings `ι : ℚ(f) → ℂ`, as Galois
+conjugates of `f` are newforms. There are finitely many newforms, so the coefficient field `ℚ(f)`
+has finitely many embeddings into `ℂ`, and it is a number field, in every weight: Tau Ceti proves it
+in weight at least two, through modular symbols. So `[f]` has `[ℚ(f) : ℚ]` elements, as the LMFDB
+states.
 
 ## Main definitions
 
@@ -35,15 +34,15 @@ weight, with no hypothesis: it is `HeckeRing.GL2.Newform.ncard_galoisOrbit_eq_fi
 ## Main results
 
 * `HeckeRing.GL2.Newform.finite_galoisOrbit`: Galois orbits are finite.
-* `HeckeRing.GL2.Newform.galoisOrbitEmbedding_injective`: distinct elements of the Galois orbit of
-  `f` are embeddings of `f` by distinct embeddings of its coefficient field.
-* `HeckeRing.GL2.Newform.ncard_galoisOrbit_le`: in weight at least two, the Galois orbit of `f` has
-  at most `[ℚ(f) : ℚ]` elements.
-* `HeckeRing.GL2.Newform.ncard_galoisOrbit_eq`: it has exactly `[ℚ(f) : ℚ]` elements if every Galois
-  conjugate `σ(f)` is a newform, which holds by `HeckeRing.GL2.Newform.exists_isGaloisConjugateBy`.
+* `HeckeRing.GL2.Newform.galoisOrbitEmbedding_injective`,
+  `HeckeRing.GL2.Newform.galoisOrbitEmbedding_surjective`: the elements of the Galois orbit of `f`
+  are the embeddings of `f` by the embeddings of its coefficient field, without repetition.
+* `HeckeRing.GL2.Newform.numberField_coefficientField`: the coefficient field of a newform is a
+  number field, in every weight.
+* `HeckeRing.GL2.Newform.ncard_galoisOrbit_eq`: the Galois orbit of `f` has `[ℚ(f) : ℚ]` elements.
 -/
 
-open UpperHalfPlane TauCeti
+open TauCeti
 
 namespace HeckeRing.GL2
 
@@ -51,17 +50,11 @@ variable {N : ℕ} [NeZero N] {k : ℤ} {f g : Newform N k}
 
 namespace Newform
 
--- `hf` holds by `exists_isGaloisConjugateBy`, in `Newform/GaloisConjugateExists.lean`, and the
--- results taking `hk` or `hf` hold in every weight with no hypothesis, by
--- `galoisOrbitEmbedding_bijective` and `ncard_galoisOrbit_eq_finrank`, in
--- `Newform/GaloisActionOnNewforms.lean`.
-variable (hk : 2 ≤ k) (hf : ∀ σ : Gal(ℂ/ℚ), ∃ g : Newform N k, f.IsGaloisConjugateBy σ g)
-
 variable (f) in
 /-- The **Galois orbit** `[f]` of a newform `f` (LMFDB `cmf.galois_orbit`): the set of newforms of
 the same level and weight that are Galois conjugate to `f`. Galois conjugates of `f` are newforms of
-its level and weight (`exists_isGaloisConjugateBy`, in `Newform/GaloisConjugateExists.lean`), so
-this is the LMFDB orbit `{σ(f) : σ ∈ Gal(ℚ̄/ℚ)}` (`orbit_algebraicClosure_eq_galoisOrbit`, in
+its level and weight (`exists_isGaloisConjugateBy`), so this is the LMFDB orbit
+`{σ(f) : σ ∈ Gal(ℚ̄/ℚ)}` (`orbit_algebraicClosure_eq_galoisOrbit`, in
 `Newform/GaloisActionOnNewforms.lean`). -/
 def galoisOrbit : Set (Newform N k) :=
   {g | f.IsGaloisConjugate g}
@@ -116,36 +109,35 @@ lemma galoisOrbitEmbedding_injective : Function.Injective f.galoisOrbitEmbedding
   fun g g' h ↦ Subtype.ext <| (isEmbedding_galoisOrbitEmbedding g).unique <|
     h ▸ isEmbedding_galoisOrbitEmbedding g'
 
-include hf in
+variable (f) in
+/-- **Every embedding of the coefficient field comes from a Galois conjugate**, as it extends to an
+automorphism `σ` of `ℂ`, and `σ(f)` is a newform. -/
 lemma galoisOrbitEmbedding_surjective : Function.Surjective f.galoisOrbitEmbedding := by
   intro ι
   rcases IntermediateField.exists_algEquiv_apply_eq_of_countable ι with ⟨σ, hσ⟩
-  rcases hf σ with ⟨g, hg⟩
+  rcases exists_isGaloisConjugateBy f σ with ⟨g, hg⟩
   refine ⟨⟨g, hg.isGaloisConjugate⟩, (isEmbedding_galoisOrbitEmbedding _).algHom_eq ?_⟩
   exact isEmbedding_iff.mpr fun n ↦ by rw [hg.coeff, ← coe_coeff_orbitQExpansion, hσ]
 
 variable (f) in
-include hk in
-/-- **A Galois orbit has at most `[ℚ(f) : ℚ]` elements**, in weight at least two: `ℚ(f)` is then a
-number field by Tau Ceti's `TauCeti.numberField_CoefficientField`, and the Galois orbit of `f` has
-at most as many elements as `ℚ(f)` has embeddings into `ℂ`. `ncard_galoisOrbit_eq_finrank`, in
-`Newform/GaloisActionOnNewforms.lean`, is the equality in every weight. -/
-lemma ncard_galoisOrbit_le : f.galoisOrbit.ncard ≤ Module.finrank ℚ (CoefficientField f) := by
-  have : NumberField (CoefficientField f) := numberField_CoefficientField f hk
-  rw [← AlgHom.card ℚ (CoefficientField f) ℂ, ← Nat.card_coe_set_eq, ← Nat.card_eq_fintype_card]
-  exact Nat.card_le_card_of_injective _ f.galoisOrbitEmbedding_injective
+/-- **The coefficient field of a newform is a number field**, in every weight. It has finitely many
+embeddings into `ℂ`, since each of them gives a newform of the level and weight of `f`. -/
+lemma numberField_coefficientField : NumberField (CoefficientField f) :=
+  have : Finite (CoefficientField f →ₐ[ℚ] ℂ) :=
+    Finite.of_surjective _ f.galoisOrbitEmbedding_surjective
+  { to_charZero := inferInstance
+    to_finiteDimensional := IntermediateField.finiteDimensional_of_finite_algHom }
 
-include hk hf in
-/-- **A Galois orbit has `[ℚ(f) : ℚ]` elements** in weight at least two, if every Galois conjugate
-of `f` is a newform, which holds by `exists_isGaloisConjugateBy`, in
-`Newform/GaloisConjugateExists.lean`. `ncard_galoisOrbit_eq_finrank`, in
-`Newform/GaloisActionOnNewforms.lean`, is the same equality in every weight, with neither
-hypothesis. -/
+instance : NumberField (CoefficientField f) :=
+  f.numberField_coefficientField
+
+variable (f) in
+/-- **A Galois orbit has `[ℚ(f) : ℚ]` elements**, in every weight (LMFDB `cmf.galois_orbit`,
+`cmf.galois_conjugate`). -/
 lemma ncard_galoisOrbit_eq : f.galoisOrbit.ncard = Module.finrank ℚ (CoefficientField f) := by
-  have : NumberField (CoefficientField f) := numberField_CoefficientField f hk
   rw [← AlgHom.card ℚ (CoefficientField f) ℂ, ← Nat.card_coe_set_eq, ← Nat.card_eq_fintype_card]
   exact Nat.card_eq_of_bijective _ ⟨f.galoisOrbitEmbedding_injective,
-    galoisOrbitEmbedding_surjective hf⟩
+    f.galoisOrbitEmbedding_surjective⟩
 
 end Newform
 

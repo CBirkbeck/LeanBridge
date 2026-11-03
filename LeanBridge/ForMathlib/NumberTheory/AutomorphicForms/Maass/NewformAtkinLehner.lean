@@ -1,6 +1,7 @@
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.ConstantTerm
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.EigenvalueReal
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.MainLemma
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformCoefficientsReal
 
 /-!
 # The coefficients of Maass newforms at every level
@@ -133,30 +134,6 @@ lemma conj_sq_of_mem_maassSpace (hF : F ∈ maassSpace N χ (maassEigenvalue r))
 lemma conj_maassEigenvalue_of_conj_sq (hr : conj (r ^ 2) = r ^ 2) :
     conj (maassEigenvalue r) = maassEigenvalue r := by
   simp only [maassEigenvalue, map_add, map_div₀, map_one, map_ofNat, hr]
-
-lemma conj_besselK_I_mul_of_conj_sq (hr : conj (r ^ 2) = r ^ 2) (x : ℝ) :
-    conj ((Complex.I * r).besselK x) = (Complex.I * r).besselK x := by
-  have h : (conj r - r) * (conj r + r) = 0 := by
-    rw [map_pow] at hr
-    linear_combination hr
-  rcases mul_eq_zero.mp h with h1 | h1
-  · rw [Complex.conj_besselK, map_mul, Complex.conj_I, sub_eq_zero.mp h1, neg_mul,
-      Complex.besselK_neg]
-  · rw [Complex.conj_besselK, map_mul, Complex.conj_I, eq_neg_of_add_eq_zero_left h1, neg_mul_neg]
-
-lemma HasMaassCosineExpansion.conj_of_conj_sq (hr : conj (r ^ 2) = r ^ 2)
-    (h : HasMaassCosineExpansion f r c) :
-    HasMaassCosineExpansion (fun w ↦ conj (f w)) r fun n ↦ conj (c n) :=
-  fun z ↦ (Complex.hasSum_conj'.mpr (h z)).congr_fun fun n ↦ by
-    rw [map_mul, map_mul, map_mul, Complex.conj_ofReal, Complex.conj_ofReal,
-      conj_besselK_I_mul_of_conj_sq hr]
-
-lemma HasMaassSineExpansion.conj_of_conj_sq (hr : conj (r ^ 2) = r ^ 2)
-    (h : HasMaassSineExpansion f r c) :
-    HasMaassSineExpansion (fun w ↦ conj (f w)) r fun n ↦ conj (c n) :=
-  fun z ↦ (Complex.hasSum_conj'.mpr (h z)).congr_fun fun n ↦ by
-    rw [map_mul, map_mul, map_mul, Complex.conj_ofReal, Complex.conj_ofReal,
-      conj_besselK_I_mul_of_conj_sq hr]
 
 lemma HasMaassCosineExpansion.const_mul (a : ℂ) (h : HasMaassCosineExpansion (F ∘ ofComplex) r c) :
     HasMaassCosineExpansion ((a • F) ∘ ofComplex) r fun n ↦ a * c n := by

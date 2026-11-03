@@ -32,8 +32,8 @@ variable {l : Type*} [Fintype l] (μ ν : l → ℤ) (Ω : SiegelUpperHalfSpace 
 `θ_m(Ω) = ∑_{n ∈ ℤ^g} e^{πi ((n + μ/2)ᵀ Ω (n + μ/2) + (n + μ/2)ᵀ ν)}`, that is
 `e^{2πi (½ (n + μ/2)ᵀ Ω (n + μ/2) + (n + μ/2)ᵀ ν/2)}`. The knowl's formula omits the factor `2πi`
 in the exponent, without which the series diverges; this is the standard theta constant, as in
-the knowl `mf.siegel.family.gamma_2`. The series converges absolutely, which is not proved
-here. -/
+the knowl `mf.siegel.family.gamma_2`. The series converges absolutely, which is proved in degree 2
+(`SiegelUpperHalfSpace.summable_thetaConstant_term`) and not in other degrees. -/
 noncomputable def thetaConstant : ℂ :=
   ∑' n : l → ℤ, letI x : l → ℂ := fun i ↦ n i + μ i / 2
     cexp (π * I * (x ⬝ᵥ Ω.val *ᵥ x + x ⬝ᵥ fun i ↦ (ν i : ℂ)))

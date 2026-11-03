@@ -13,11 +13,9 @@ The dimension of a newform `f` is the dimension of its newform subspace `V_f`, e
 size of its Galois orbit, and its relative dimension is the dimension of the `χ`-part of `V_f`,
 equivalently the number of Galois conjugates of `f` with the nebentypus `χ` of `f`. The LMFDB states
 that the dimension is the degree `[ℚ(f) : ℚ]` of the coefficient field, and that the relative
-dimension is `[ℚ(f) : ℚ(χ)]` (LMFDB `cmf.relative_dimension`). Both hold in every weight, with no
-hypothesis: they are `HeckeRing.GL2.Newform.dimension_eq_finrank_coefficientField`, in
-`Newform/GaloisActionOnNewforms.lean`, and `HeckeRing.GL2.Newform.relativeDimension_eq_finrank`, in
-`Newform/RationalStructure.lean`. This file has the first in weight at least two, if every Galois
-conjugate of `f` is a newform.
+dimension is `[ℚ(f) : ℚ(χ)]` (LMFDB `cmf.relative_dimension`). Both hold in every weight: the first
+is `HeckeRing.GL2.Newform.dimension_eq_finrank`, and the second is
+`HeckeRing.GL2.Newform.relativeDimension_eq_finrank`, in `Newform/RationalStructure.lean`.
 
 ## Main definitions
 
@@ -32,21 +30,17 @@ conjugate of `f` is a newform.
   dimension of `S_k^{new}(N, χ)`.
 * `HeckeRing.GL2.Newform.dimension_eq_ncard_galoisOrbit`: the dimension of `f` is the size of its
   Galois orbit.
-* `HeckeRing.GL2.Newform.dimension_le_finrank`, `HeckeRing.GL2.Newform.dimension_eq_finrank`: in
-  weight at least two, the dimension of `f` is at most the degree of its coefficient field, with
-  equality if every Galois conjugate of `f` is a newform, which holds by
-  `HeckeRing.GL2.Newform.exists_isGaloisConjugateBy`.
+* `HeckeRing.GL2.Newform.dimension_eq_finrank`: the dimension of `f` is the degree of its
+  coefficient field, in every weight.
 * `HeckeRing.GL2.Newform.relativeDimension_eq_ncard`: the relative dimension of `f` is the number of
   its Galois conjugates of nebentypus `χ`.
 -/
 
-open UpperHalfPlane TauCeti
+open TauCeti
 
 namespace HeckeRing.GL2.Newform
 
--- The results taking `hk` hold in every weight, by `dimension_eq_finrank_coefficientField`, in
--- `Newform/GaloisActionOnNewforms.lean`.
-variable {N : ℕ} [NeZero N] {k : ℤ} {f g : Newform N k} (hk : 2 ≤ k)
+variable {N : ℕ} [NeZero N] {k : ℤ} {f g : Newform N k}
 
 /-- **The eigenforms of `S_k^{new}(N, χ)` span a space of its dimension over any subfield of `ℂ`**:
 over `ℚ` (`K = ⊥`) this is the dimension of the space of newforms of nebentypus `χ`
@@ -62,8 +56,7 @@ lemma finrank_span_toCuspForm_eq_finrank (K : IntermediateField ℚ ℂ) (χ : (
 variable (f) in
 /-- The **dimension** of a newform `f` (LMFDB `cmf.dimension`): the dimension of its newform
 subspace `V_f`, equivalently the size of its Galois orbit (`dimension_eq_ncard_galoisOrbit`). It is
-the degree `[ℚ(f) : ℚ]` of the coefficient field of `f` (`dimension_eq_finrank_coefficientField`, in
-`Newform/GaloisActionOnNewforms.lean`). -/
+the degree `[ℚ(f) : ℚ]` of the coefficient field of `f` (`dimension_eq_finrank`). -/
 noncomputable def dimension : ℕ :=
   Module.finrank ℂ f.newformSubspace
 
@@ -81,22 +74,10 @@ lemma IsGaloisConjugate.dimension_eq (hfg : f.IsGaloisConjugate g) : f.dimension
   rw [dimension, dimension, hfg.newformSubspace_eq]
 
 variable (f) in
-include hk in
-/-- **The dimension of a newform is at most the degree of its coefficient field**, in weight at
-least two. `dimension_eq_finrank_coefficientField`, in `Newform/GaloisActionOnNewforms.lean`, is the
-equality in every weight. -/
-lemma dimension_le_finrank : f.dimension ≤ Module.finrank ℚ (CoefficientField f) :=
-  f.dimension_eq_ncard_galoisOrbit ▸ f.ncard_galoisOrbit_le hk
-
-include hk in
-/-- **The dimension of a newform is the degree of its coefficient field** in weight at least two, if
-every Galois conjugate of `f` is a newform, which holds by `exists_isGaloisConjugateBy`, in
-`Newform/GaloisConjugateExists.lean`. `dimension_eq_finrank_coefficientField`, in
-`Newform/GaloisActionOnNewforms.lean`, is the same equality in every weight, with neither
-hypothesis. -/
-lemma dimension_eq_finrank (hf : ∀ σ : Gal(ℂ/ℚ), ∃ g : Newform N k, f.IsGaloisConjugateBy σ g) :
-    f.dimension = Module.finrank ℚ (CoefficientField f) :=
-  f.dimension_eq_ncard_galoisOrbit ▸ ncard_galoisOrbit_eq hk hf
+/-- **The dimension of a newform is the degree of its coefficient field**, in every weight
+(LMFDB `cmf.decomposition.new.gamma0chi`, `cmf.dimension`). -/
+lemma dimension_eq_finrank : f.dimension = Module.finrank ℚ (CoefficientField f) :=
+  f.dimension_eq_ncard_galoisOrbit.trans f.ncard_galoisOrbit_eq
 
 variable (f) in
 /-- The **relative dimension** of a newform `f` of nebentypus `χ` (LMFDB `cmf.dimension`): the

@@ -19,31 +19,30 @@ So for real spectral parameter `R` (the case of the LMFDB's Maass forms, `λ > 1
 cuspidality hypothesis at `∞` of the expansion theorems is automatic: every even (odd) Maass
 newform `F` of weight `0` on `Γ₀(N)` with trivial character (`UpperHalfPlane.IsMaassNewform`, the
 LMFDB's definition `mf.maass.mwf`, without cuspidality) and real `R` has the cosine (sine)
-expansion with the coefficients `maassCoefficients R F` (LMFDB `mf.maass.mwf.coefficients`), and
-the normalised coefficients `a(m) / a(1)`, `m` prime to `N`, are real. The constant newform `1`
-of level `1` (`UpperHalfPlane.isMaassNewform_const_one`), which has no expansion, has eigenvalue
-`0` and non-real spectral parameter `R = ±i/2`.
+expansion with the coefficients `a = maassCoefficients R F` (LMFDB `mf.maass.mwf.coefficients`), and
+for `N ≠ 0`, `a(1) ≠ 0` and the normalised coefficients `a(n) / a(1)` are real for every `n`
+(`UpperHalfPlane.IsMaassNewform.maassCoefficients_one_ne_zero_of_even_ofReal`,
+`UpperHalfPlane.IsMaassNewform.conj_maassCoefficients_div_of_even_ofReal` and the odd versions, in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformAtkinLehner`). The constant
+newform `1` of level `1` (`UpperHalfPlane.isMaassNewform_const_one`), which has no expansion, has
+eigenvalue `0` and non-real spectral parameter `R = ±i/2`.
 
 ## Main results
 
 * `Complex.eq_zero_of_euler_ode_of_integrableOn`: a solution of `y² v'' + (1/4 + r²) v = 0` with
   `∫_1^∞ |v(y)|² dy / y² < ∞` vanishes, for real `r`.
+* `UpperHalfPlane.integral_comp_add_mul_I_eq_zero_of_euler`: the constant term of a `1`-periodic
+  eigenfunction with real spectral parameter vanishes, if it is square-integrable.
 * `UpperHalfPlane.integral_eq_zero_of_mem_maassSpace`: the constant term at `∞` of an element of
   `M(N, χ, 1/4 + r²)` vanishes for real `r`.
 * `UpperHalfPlane.IsMaassNewform.hasMaassCosineExpansion_ofReal`,
   `UpperHalfPlane.IsMaassNewform.hasMaassSineExpansion_ofReal`: the cosine (sine) expansion of an
   even (odd) Maass newform with real spectral parameter.
-* `UpperHalfPlane.IsMaassNewform.conj_maassCoefficients_div_of_isEven_ofReal`,
-  `UpperHalfPlane.IsMaassNewform.conj_maassCoefficients_div_of_isOdd_ofReal`: its normalised
-  coefficients prime to `N` are real.
-* `UpperHalfPlane.IsMaassNewform.maassCoefficients_one_ne_zero_of_isEven_ofReal`,
-  `UpperHalfPlane.IsMaassNewform.maassCoefficients_one_ne_zero_of_isOdd_ofReal`: at level `1`,
-  `a(1) ≠ 0`.
 -/
 
 open Filter MeasureTheory Real Set Topology
 
-open scoped ComplexConjugate
+open scoped ContDiff
 
 namespace Complex
 
@@ -253,28 +252,36 @@ end Complex
 
 namespace UpperHalfPlane
 
-variable {N : ℕ} {χ : DirichletCharacter ℂ N} {F : ℍ → ℂ} {r : ℝ}
+variable {N : ℕ} {χ : DirichletCharacter ℂ N} {F : ℍ → ℂ} {f : ℂ → ℂ} {r y : ℝ}
 
-/-- **The constant term of a square-integrable Maass form with real spectral parameter
-vanishes**: for `F` in `M(N, χ, 1/4 + r²)` (`maassSpace`) with `r` real,
-`∫_0^1 F(t + iy) dt = 0` for every `y > 0`: the constant term solves the Euler equation
-`y² a'' + (1/4 + r²) a = 0` (`fourierCoeff_ode`) and is square-integrable on `(1, ∞)` for
-`dy / y²` (`integrableOn_sq_norm_fourierCoeff_div_sq`), so it vanishes
-(`Complex.eq_zero_of_euler_ode_of_integrableOn`). -/
-lemma integral_eq_zero_of_mem_maassSpace (hF : F ∈ maassSpace N χ (maassEigenvalue r)) {y : ℝ}
-    (hy : 0 < y) : ∫ t in (0 : ℝ)..1, (F ∘ ofComplex) (t + y * Complex.I) = 0 := by
+/-- **The constant term of a `1`-periodic eigenfunction with real spectral parameter vanishes**, if
+it is square-integrable on `(1, ∞)` for `dy / y²`, as it solves the Euler equation
+`y² a'' + (1/4 + r²) a = 0` (`Complex.eq_zero_of_euler_ode_of_integrableOn`). -/
+lemma integral_comp_add_mul_I_eq_zero_of_euler (hf : ContDiffOn ℝ ∞ f {z | 0 < z.im})
+    (hper : ∀ z : ℂ, 0 < z.im → f (z + 1) = f z)
+    (hΔ : ∀ z : ℂ, 0 < z.im → hyperbolicLaplacian f z + maassEigenvalue r * f z = 0)
+    (hint : IntegrableOn (fun y : ℝ ↦ ‖∫ t in (0 : ℝ)..1, f (t + y * Complex.I)‖ ^ 2 / y ^ 2)
+      (Ioi 1)) (hy : 0 < y) : ∫ t in (0 : ℝ)..1, f (t + y * Complex.I) = 0 := by
   have he : Continuous fun t : ℝ ↦ Complex.exp (-(2 * π * Complex.I * ((0 : ℤ) : ℂ)) * t) := by
     fun_prop
   have h : ∫ t in (0 : ℝ)..1, Complex.exp (-(2 * π * Complex.I * ((0 : ℤ) : ℂ)) * t) *
-      (F ∘ ofComplex) (t + y * Complex.I) = 0 :=
+      f (t + y * Complex.I) = 0 :=
     Complex.eq_zero_of_euler_ode_of_integrableOn (r := r)
-      (fun _ ↦ hasDerivAt_integral_comp_add_mul_I hF.1 he)
-      (fun _ ↦ hasDerivAt_integral_comp_add_mul_I (contDiffOn_fderiv_apply Complex.I hF.1) he)
+      (fun _ ↦ hasDerivAt_integral_comp_add_mul_I hf he)
+      (fun _ ↦ hasDerivAt_integral_comp_add_mul_I (contDiffOn_fderiv_apply Complex.I hf) he)
       (fun x hx ↦ by
-        simpa [maassEigenvalue] using
-          fourierCoeff_ode 0 hF.1 (fun _ ↦ comp_add_one_of_mem_maassSpace hF) hF.2.2.2 hx)
-      (integrableOn_sq_norm_fourierCoeff_div_sq 0 hF) hy
+        simpa [maassEigenvalue] using fourierCoeff_ode 0 hf hper hΔ hx)
+      (by simpa using hint) hy
   simpa using h
+
+/-- **The constant term of a square-integrable Maass form with real spectral parameter
+vanishes**: for `F` in `M(N, χ, 1/4 + r²)` (`maassSpace`) with `r` real,
+`∫_0^1 F(t + iy) dt = 0` for every `y > 0`: the constant term is square-integrable on `(1, ∞)` for
+`dy / y²` (`integrableOn_sq_norm_fourierCoeff_div_sq`). -/
+lemma integral_eq_zero_of_mem_maassSpace (hF : F ∈ maassSpace N χ (maassEigenvalue r))
+    (hy : 0 < y) : ∫ t in (0 : ℝ)..1, (F ∘ ofComplex) (t + y * Complex.I) = 0 :=
+  integral_comp_add_mul_I_eq_zero_of_euler hF.1 (fun _ ↦ comp_add_one_of_mem_maassSpace hF)
+    hF.2.2.2 (by simpa using integrableOn_sq_norm_fourierCoeff_div_sq 0 hF) hy
 
 /-- **The cosine expansion of an even Maass newform with real spectral parameter** (LMFDB
 `mf.maass.mwf.coefficients`): an even Maass newform `F` of weight `0` on `Γ₀(N)` with trivial
@@ -297,49 +304,5 @@ lemma IsMaassNewform.hasMaassSineExpansion_ofReal (hF : IsMaassNewform N 1 (maas
     HasMaassSineExpansion (F ∘ ofComplex) r (maassCoefficients r (F ∘ ofComplex)) :=
   hF.hasMaassSineExpansion_of_integral_eq_zero (fun _ ↦ integral_eq_zero_of_mem_maassSpace hF.1.1)
     hs
-
-variable [NeZero N]
-
-/-- **The normalised coefficients of an even Maass newform with real spectral parameter are
-real** at the indices prime to the level (LMFDB `mf.maass.mwf.coefficients`): for an even Maass
-newform `F` on `Γ₀(N)` with eigenvalue `1/4 + r²`, `r` real, and coefficients
-`a = maassCoefficients r F` with `a(1) ≠ 0` (which holds at every level `N ≠ 0`,
-`IsMaassNewform.maassCoefficients_one_ne_zero_of_even_ofReal`), `a(m) / a(1)` is real for every `m`
-prime to `N`. -/
-lemma IsMaassNewform.conj_maassCoefficients_div_of_isEven_ofReal
-    (hF : IsMaassNewform N 1 (maassEigenvalue r) F) (hs : IsEvenMaassForm (F ∘ ofComplex))
-    (h1 : maassCoefficients r (F ∘ ofComplex) 1 ≠ 0) {m : ℕ+} (hm : (m : ℕ).Coprime N) :
-    conj (maassCoefficients r (F ∘ ofComplex) m / maassCoefficients r (F ∘ ofComplex) 1) =
-      maassCoefficients r (F ∘ ofComplex) m / maassCoefficients r (F ∘ ofComplex) 1 :=
-  hF.conj_coeff_div_of_hasMaassCosineExpansion (hF.hasMaassCosineExpansion_ofReal hs) h1 hm
-
-/-- **The normalised coefficients of an odd Maass newform with real spectral parameter are real**
-at the indices prime to the level (LMFDB `mf.maass.mwf.coefficients`): for an odd Maass newform
-`F` on `Γ₀(N)` with eigenvalue `1/4 + r²`, `r` real, and coefficients `a = maassCoefficients r F`
-with `a(1) ≠ 0` (which holds at every level `N ≠ 0`,
-`IsMaassNewform.maassCoefficients_one_ne_zero_of_odd_ofReal`), `a(m) / a(1)` is real for every `m`
-prime to `N`. -/
-lemma IsMaassNewform.conj_maassCoefficients_div_of_isOdd_ofReal
-    (hF : IsMaassNewform N 1 (maassEigenvalue r) F) (hs : IsOddMaassForm (F ∘ ofComplex))
-    (h1 : maassCoefficients r (F ∘ ofComplex) 1 ≠ 0) {m : ℕ+} (hm : (m : ℕ).Coprime N) :
-    conj (maassCoefficients r (F ∘ ofComplex) m / maassCoefficients r (F ∘ ofComplex) 1) =
-      maassCoefficients r (F ∘ ofComplex) m / maassCoefficients r (F ∘ ofComplex) 1 :=
-  hF.conj_coeff_div_of_hasMaassSineExpansion (hF.hasMaassSineExpansion_ofReal hs) h1 hm
-
-/-- **An even Maass newform of level `1` with real spectral parameter has `a(1) ≠ 0`**, so that
-all the coefficients `a(n) / a(1)` of the normalised newform are real
-(`conj_maassCoefficients_div_of_isEven_ofReal`). -/
-lemma IsMaassNewform.maassCoefficients_one_ne_zero_of_isEven_ofReal
-    (hF : IsMaassNewform 1 1 (maassEigenvalue r) F) (hs : IsEvenMaassForm (F ∘ ofComplex)) :
-    maassCoefficients r (F ∘ ofComplex) 1 ≠ 0 :=
-  hF.coeff_one_ne_zero_of_hasMaassCosineExpansion (hF.hasMaassCosineExpansion_ofReal hs)
-
-/-- **An odd Maass newform of level `1` with real spectral parameter has `a(1) ≠ 0`**, so that
-all the coefficients `a(n) / a(1)` of the normalised newform are real
-(`conj_maassCoefficients_div_of_isOdd_ofReal`). -/
-lemma IsMaassNewform.maassCoefficients_one_ne_zero_of_isOdd_ofReal
-    (hF : IsMaassNewform 1 1 (maassEigenvalue r) F) (hs : IsOddMaassForm (F ∘ ofComplex)) :
-    maassCoefficients r (F ∘ ofComplex) 1 ≠ 0 :=
-  hF.coeff_one_ne_zero_of_hasMaassSineExpansion (hF.hasMaassSineExpansion_ofReal hs)
 
 end UpperHalfPlane

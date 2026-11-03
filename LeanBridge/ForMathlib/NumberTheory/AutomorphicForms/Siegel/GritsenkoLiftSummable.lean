@@ -1,5 +1,5 @@
 import LeanBridge.ForMathlib.Analysis.Fourier.TubeFourierSeries
-import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.CoefficientGrowthIndex
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Jacobi.CoefficientGrowth
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.GritsenkoLift
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ThetaTransformation
 
@@ -17,9 +17,9 @@ and `tr(T Im Z) ≥ ε(n + Nm)` with `ε = det(Im Z) / tr(Im Z)`; by Hecke's bou
 `|a(n, r, m)| ≤ C' (1 + n + Nm)^{k + 2k}`. The same estimates make the lift holomorphic.
 
 The two general lemmas of this file, on series `∑ b(n, r, m) e^{2πi(nτ + rz + Nmω)}` with `b`
-supported on the positive semidefinite `T`, are those proved for the Maass lift `N = 1` in
-`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftHolomorphic`, where they are
-private and specific to its coefficients.
+supported on the positive semidefinite `T`, also give the convergence and the holomorphy of the
+Maass lift `N = 1`, in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftHolomorphic`.
 
 ## Main results
 
@@ -53,11 +53,10 @@ private lemma add_mul_add_nonneg {n r M a e c : ℝ} (hn : 0 ≤ n) (hM : 0 ≤ 
     mul_le_mul hr he (sq_nonneg e) (by positivity)
   nlinarith [sq_nonneg (n * a - M * c), mul_nonneg hn ha, mul_nonneg hM hc]
 
-private lemma decay_mul_add_le_of_le {n r M : ℝ} (hn : 0 ≤ n) (hM : 0 ≤ M)
-    (hr : r ^ 2 ≤ 4 * n * M) :
+private lemma decay_mul_add_le {n r M : ℝ} (hn : 0 ≤ n) (hM : 0 ≤ M) (hr : r ^ 2 ≤ 4 * n * M) :
     decay Ω * (n + M) ≤ n * (Ω.val 0 0).im + r * (Ω.val 0 1).im + M * (Ω.val 1 1).im := by
-  have ha : 0 < (Ω.val 0 0).im := by simpa using Ω.posDef_im.diag_pos
-  have hc : 0 < (Ω.val 1 1).im := by simpa using Ω.posDef_im.diag_pos
+  have ha : 0 < (Ω.val 0 0).im := im_zero_zero_pos Ω
+  have hc : 0 < (Ω.val 1 1).im := im_one_one_pos Ω
   have key : 0 ≤ n * ((Ω.val 0 0).im ^ 2 + (Ω.val 0 1).im ^ 2) +
       r * ((Ω.val 0 1).im * ((Ω.val 0 0).im + (Ω.val 1 1).im)) +
         M * ((Ω.val 0 1).im ^ 2 + (Ω.val 1 1).im ^ 2) :=
@@ -116,7 +115,7 @@ lemma summable_mul_liftExp_of_norm_le (hN : 0 < N) (hC : 0 ≤ C)
         ‖liftExp N p.1 p.2.1 p.2.2 Ω‖ ≤ rexp (-(2 * π * (decay Ω * (p.1 + N * p.2.2)))) := by
       have h : decay Ω * (p.1 + N * p.2.2) ≤
           p.1 * (Ω.val 0 0).im + p.2.1 * (Ω.val 0 1).im + (N * p.2.2) * (Ω.val 1 1).im :=
-        decay_mul_add_le_of_le Ω hn hM hr
+        decay_mul_add_le Ω hn hM hr
       rw [liftExp, Complex.norm_exp, Real.exp_le_exp]
       simp only [mul_re, mul_im, ofReal_re, ofReal_im, I_re, I_im, re_ofNat, im_ofNat, add_im,
         intCast_re, intCast_im, natCast_re, natCast_im]
@@ -152,7 +151,7 @@ lemma summable_mul_liftExp_of_norm_le (hN : 0 < N) (hC : 0 ≤ C)
 variable (N) in
 /-- The linear form `W ↦ nW₀₀ + r(W₀₁ + W₁₀)/2 + NmW₁₁` on the square matrices given by their
 entries, for `p = (n, r, m)`. -/
-private noncomputable def liftFormLevel : (Fin 2 → Fin 2 → ℂ) →L[ℂ] ℂ :=
+private noncomputable def liftForm : (Fin 2 → Fin 2 → ℂ) →L[ℂ] ℂ :=
   LinearMap.mkContinuous
     { toFun := fun W ↦ p.1 * W 0 0 + p.2.1 * ((W 0 1 + W 1 0) / 2) + N * p.2.2 * W 1 1
       map_add' := fun W W' ↦ by
@@ -174,50 +173,49 @@ private noncomputable def liftFormLevel : (Fin 2 → Fin 2 → ℂ) →L[ℂ] �
         mul_le_mul_of_nonneg_left (h 1 1)
           (mul_nonneg (Nat.cast_nonneg N) (abs_nonneg (p.2.2 : ℝ)))]
 
-private lemma liftFormLevel_apply : liftFormLevel N p W = p.1 * symmetrize W 0 0 +
-    p.2.1 * symmetrize W 0 1 + N * p.2.2 * symmetrize W 1 1 := by
-  simp only [liftFormLevel, symmetrize]
+private lemma liftForm_apply : liftForm N p W = p.1 * symmetrize W 0 0 + p.2.1 * symmetrize W 0 1 +
+    N * p.2.2 * symmetrize W 1 1 := by
+  simp only [liftForm, symmetrize]
   simp
   ring1
 
 variable (N b) in
 /-- The term `b(n, r, m) e^{2πi(nW₀₀ + r(W₀₁ + W₁₀)/2 + NmW₁₁)}`, as a function of a square matrix
 `W` given by its entries. -/
-private noncomputable def liftTermLevel : ℂ :=
-  b p * cexp (2 * π * I * liftFormLevel N p W)
+private noncomputable def liftTerm : ℂ :=
+  b p * cexp (2 * π * I * liftForm N p W)
 
-private lemma hasFDerivAt_liftTermLevel : HasFDerivAt (liftTermLevel N b p)
-    (b p • cexp (2 * π * I * liftFormLevel N p W) • (2 * π * I) • liftFormLevel N p) W :=
-  (((liftFormLevel N p).hasFDerivAt.const_mul (2 * π * I)).cexp).const_mul _
+private lemma hasFDerivAt_liftTerm : HasFDerivAt (liftTerm N b p)
+    (b p • cexp (2 * π * I * liftForm N p W) • (2 * π * I) • liftForm N p) W :=
+  (((liftForm N p).hasFDerivAt.const_mul (2 * π * I)).cexp).const_mul _
 
 variable {W₀ : Fin 2 → Fin 2 → ℂ}
 
-private lemma im_liftFormLevel_ge (hW₀ : W₀ ∈ symmetrizePreimage (Fin 2)) (hp : IsLiftSupport N p)
+private lemma im_liftForm_ge (hW₀ : W₀ ∈ symmetrizePreimage (Fin 2)) (hp : IsLiftSupport N p)
     (hW : ‖W - W₀‖ < decay ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩ / 4) :
     decay ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩ / 2 * (p.1 + N * p.2.2) ≤
-      (liftFormLevel N p W).im := by
+      (liftForm N p W).im := by
   have hn : (0 : ℝ) ≤ p.1 := hp.cast_fst
   have hM : (0 : ℝ) ≤ N * p.2.2 := hp.cast_mul
   have hr : (p.2.1 : ℝ) ^ 2 ≤ 4 * p.1 * (N * p.2.2) := hp.cast_sq
   have hrb : |(p.2.1 : ℝ)| ≤ p.1 + N * p.2.2 := abs_le_add_of_le hn hM hr
   have h1 : decay ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩ * (p.1 + N * p.2.2) ≤
-      (liftFormLevel N p W₀).im := by
-    rw [liftFormLevel_apply]
-    simpa using decay_mul_add_le_of_le ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩ hn hM hr
-  have h2 : |(liftFormLevel N p (W - W₀)).im| ≤ (|(p.1 : ℝ)| + |(p.2.1 : ℝ)| + |(N * p.2.2 : ℝ)|) *
+      (liftForm N p W₀).im := by
+    rw [liftForm_apply]
+    simpa using decay_mul_add_le ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩ hn hM hr
+  have h2 : |(liftForm N p (W - W₀)).im| ≤ (|(p.1 : ℝ)| + |(p.2.1 : ℝ)| + |(N * p.2.2 : ℝ)|) *
       (decay ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩ / 4) :=
-    (abs_im_le_norm _).trans <| ((liftFormLevel N p).le_opNorm _).trans <| mul_le_mul
+    (abs_im_le_norm _).trans <| ((liftForm N p).le_opNorm _).trans <| mul_le_mul
       (LinearMap.mkContinuous_norm_le _ (by positivity) _) hW.le (norm_nonneg _) (by positivity)
-  have h3 :
-      (liftFormLevel N p W).im = (liftFormLevel N p W₀).im + (liftFormLevel N p (W - W₀)).im := by
+  have h3 : (liftForm N p W).im = (liftForm N p W₀).im + (liftForm N p (W - W₀)).im := by
     rw [map_sub, sub_im, add_sub_cancel]
   rw [abs_of_nonneg hn, abs_of_nonneg hM] at h2
   nlinarith [abs_le.mp h2, decay_pos ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩]
 
-private lemma norm_fderiv_liftTermLevel_le (hb₀ : ∀ p, ¬IsLiftSupport N p → b p = 0)
+private lemma norm_fderiv_liftTerm_le (hb₀ : ∀ p, ¬IsLiftSupport N p → b p = 0)
     (hW₀ : W₀ ∈ symmetrizePreimage (Fin 2))
     (hW : ‖W - W₀‖ < decay ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩ / 4) :
-    ‖b p • cexp (2 * π * I * liftFormLevel N p W) • (2 * π * I) • liftFormLevel N p‖ ≤ ‖b p‖ *
+    ‖b p • cexp (2 * π * I * liftForm N p W) • (2 * π * I) • liftForm N p‖ ≤ ‖b p‖ *
       (8 / decay ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩ *
         rexp (-(π * (decay ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩ / 4) *
           (2 * (p.1 + N * p.2.2))))) := by
@@ -226,21 +224,21 @@ private lemma norm_fderiv_liftTermLevel_le (hb₀ : ∀ p, ¬IsLiftSupport N p �
     have hM : (0 : ℝ) ≤ N * p.2.2 := hp.cast_mul
     have hr : (p.2.1 : ℝ) ^ 2 ≤ 4 * p.1 * (N * p.2.2) := hp.cast_sq
     have hrb : |(p.2.1 : ℝ)| ≤ p.1 + N * p.2.2 := abs_le_add_of_le hn hM hr
-    have hexp : ‖cexp (2 * π * I * liftFormLevel N p W)‖ ≤
+    have hexp : ‖cexp (2 * π * I * liftForm N p W)‖ ≤
         rexp (-(π * (decay ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩ / 2) *
           (2 * (p.1 + N * p.2.2)))) := by
       have h : decay ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩ / 2 * (p.1 + N * p.2.2) ≤
-          (liftFormLevel N p W).im :=
-        im_liftFormLevel_ge p W hW₀ hp hW
+          (liftForm N p W).im :=
+        im_liftForm_ge p W hW₀ hp hW
       rw [Complex.norm_exp, Real.exp_le_exp]
       simp only [mul_re, mul_im, ofReal_re, ofReal_im, I_re, I_im, re_ofNat, im_ofNat]
       nlinarith [Real.pi_pos]
-    have hL : ‖(2 * π * I : ℂ) • liftFormLevel N p‖ ≤ π * (2 * (2 * (p.1 + N * p.2.2))) := by
+    have hL : ‖(2 * π * I : ℂ) • liftForm N p‖ ≤ π * (2 * (2 * (p.1 + N * p.2.2))) := by
       rw [norm_smul]
       have h2 : ‖(2 * π * I : ℂ)‖ = 2 * π := by
         simp
       rw [h2]
-      have h3 : ‖liftFormLevel N p‖ ≤ |(p.1 : ℝ)| + |(p.2.1 : ℝ)| + |(N * p.2.2 : ℝ)| :=
+      have h3 : ‖liftForm N p‖ ≤ |(p.1 : ℝ)| + |(p.2.1 : ℝ)| + |(N * p.2.2 : ℝ)| :=
         LinearMap.mkContinuous_norm_le _ (by positivity) _
       rw [abs_of_nonneg hn, abs_of_nonneg hM] at h3
       nlinarith [Real.pi_pos]
@@ -259,23 +257,23 @@ private lemma summable_norm_mul_rexp (hs : ∀ Z : SiegelUpperHalfSpace (Fin 2),
   simp [diagPoint]
   ring1
 
-private lemma hasFDerivAt_tsum_liftTermLevel (hb₀ : ∀ p, ¬IsLiftSupport N p → b p = 0)
+private lemma hasFDerivAt_tsum_liftTerm (hb₀ : ∀ p, ¬IsLiftSupport N p → b p = 0)
     (hs : ∀ Z : SiegelUpperHalfSpace (Fin 2), Summable fun p : ℤ × ℤ × ℤ ↦ b p *
       liftExp N p.1 p.2.1 p.2.2 Z) (hW₀ : W₀ ∈ symmetrizePreimage (Fin 2)) : HasFDerivAt
-    (fun W ↦ ∑' p, liftTermLevel N b p W) (∑' p, b p •
-      cexp (2 * π * I * liftFormLevel N p W₀) • (2 * π * I) • liftFormLevel N p) W₀ := by
+    (fun W ↦ ∑' p, liftTerm N b p W)
+      (∑' p, b p • cexp (2 * π * I * liftForm N p W₀) • (2 * π * I) • liftForm N p) W₀ := by
   have hε : 0 < decay ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩ := decay_pos _
   have hε4 : 0 < decay ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩ / 4 := by
     positivity
   refine hasFDerivAt_tsum_of_isPreconnected (((summable_norm_mul_rexp hs hε4).mul_left
     (8 / decay ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩)).congr fun p ↦ ?_)
-    Metric.isOpen_ball (convex_ball _ _).isPreconnected (fun p W _ ↦ hasFDerivAt_liftTermLevel p W)
-    (fun p W hW ↦ norm_fderiv_liftTermLevel_le p W hb₀ hW₀ ?_) (Metric.mem_ball_self hε4)
+    Metric.isOpen_ball (convex_ball _ _).isPreconnected (fun p W _ ↦ hasFDerivAt_liftTerm p W)
+    (fun p W hW ↦ norm_fderiv_liftTerm_le p W hb₀ hW₀ ?_) (Metric.mem_ball_self hε4)
     ((hs ⟨symmetrize W₀, transpose_symmetrize W₀, hW₀⟩).congr fun p ↦ ?_)
     (Metric.mem_ball_self hε4)
   · ring1
   · rwa [Metric.mem_ball, dist_eq_norm] at hW
-  · rw [liftTermLevel, liftFormLevel_apply, liftExp]
+  · rw [liftTerm, liftForm_apply, liftExp]
 
 /-- **A series `∑ b(n, r, m) e^{2πi(nτ + rz + Nmω)}` with coefficients supported on the positive
 semidefinite `T = (n, r/2; r/2, Nm)` is holomorphic** as soon as it converges absolutely on `ℋ₂`: on
@@ -286,28 +284,13 @@ lemma isHolomorphic_tsum_mul_liftExp (hb₀ : ∀ p, ¬IsLiftSupport N p → b p
       liftExp N p.1 p.2.1 p.2.2 Z) :
     IsHolomorphic fun Z ↦ ∑' p : ℤ × ℤ × ℤ, b p * liftExp N p.1 p.2.1 p.2.2 Z := by
   refine isHolomorphic_iff_differentiableOn.mpr <| DifferentiableOn.congr (fun W₀ hW₀ ↦
-    (hasFDerivAt_tsum_liftTermLevel hb₀ hs hW₀).differentiableAt.differentiableWithinAt)
+    (hasFDerivAt_tsum_liftTerm hb₀ hs hW₀).differentiableAt.differentiableWithinAt)
       fun W hW ↦ ?_
   rw [extend_of_mem _ hW]
   refine tsum_congr fun p ↦ ?_
-  rw [liftTermLevel, liftFormLevel_apply, liftExp]
+  rw [liftTerm, liftForm_apply, liftExp]
 
-variable {k : ℤ} {φ : ℍ × ℂ → ℂ} {n r m : ℤ} {d : ℕ}
-
-private lemma sq_mul_disc_level (hd : d ∈ ((n.gcd r : ℤ).gcd m).divisors) :
-    (d : ℤ) ^ 2 * (4 * (n * m / (d : ℤ) ^ 2) * N - (r / d) ^ 2) = 4 * n * m * N - r ^ 2 := by
-  have hd0 : (d : ℤ) ≠ 0 := Nat.cast_ne_zero.mpr (Nat.pos_of_mem_divisors hd).ne'
-  have hg : (d : ℤ) ∣ ((n.gcd r : ℤ).gcd m : ℤ) :=
-    Int.natCast_dvd_natCast.mpr (Nat.dvd_of_mem_divisors hd)
-  have hg' : (d : ℤ) ∣ (n.gcd r : ℤ) := hg.trans (Int.gcd_dvd_left _ _)
-  rcases hg'.trans (Int.gcd_dvd_left _ _) with ⟨n₁, hn₁⟩
-  rcases hg'.trans (Int.gcd_dvd_right _ _) with ⟨r₁, hr₁⟩
-  rcases hg.trans (Int.gcd_dvd_right _ _) with ⟨m₁, hm₁⟩
-  rw [hn₁, hr₁, hm₁]
-  have h₁ : (d : ℤ) * n₁ * (d * m₁) / d ^ 2 = n₁ * m₁ :=
-    Int.ediv_eq_of_eq_mul_right (pow_ne_zero 2 hd0) (by ring1)
-  rw [h₁, Int.mul_ediv_cancel_left _ hd0]
-  ring1
+variable {k : ℤ} {φ : ℍ × ℂ → ℂ} {c : ℤ × ℤ → ℂ} {n r m : ℤ} {A : ℕ}
 
 variable (n r m) in
 /-- **The coefficients of the Gritsenko lift of a Jacobi cusp form are supported on the positive
@@ -324,7 +307,7 @@ lemma gritsenkoCoeff_eq_zero (hφ : φ ∈ jacobiCuspFormSpace k N)
     have hr : r ^ 2 < 4 * n * (N * m) := by
       have h₁ : 0 < (d : ℤ) ^ 2 * (4 * (n * m / (d : ℤ) ^ 2) * N - (r / d) ^ 2) :=
         mul_pos (pow_pos (Nat.cast_pos.mpr (Nat.pos_of_mem_divisors hd)) 2) (sub_pos.mpr hlt)
-      rw [sq_mul_disc_level hd] at h₁
+      rw [sq_mul_disc_level N n r m hd] at h₁
       linarith
     refine h ⟨?_, hm, hr⟩
     by_contra hn
@@ -340,8 +323,42 @@ private lemma isLiftSupport_of_gritsenkoCoeff_ne_zero (hφ : φ ∈ jacobiCuspFo
     not_not.mp fun h ↦ hp (gritsenkoCoeff_eq_zero _ _ _ hφ h)
   exact ⟨h.1.le, h.2.1.le, h.2.2.le⟩
 
+lemma norm_liftDivisorSum_le (hk : 1 ≤ k) (hC : 0 ≤ C)
+    (hc : ∀ n r : ℤ, ‖c (n, r)‖ ≤ C * (1 + |(n : ℝ)|) ^ A) (hn : 0 ≤ n) (hm : 0 ≤ m) {X : ℝ}
+    (hg : (((n.gcd r : ℤ).gcd m : ℕ) : ℝ) ≤ X) (hX : (n + m : ℝ) ≤ X) :
+    ‖liftDivisorSum k c n r m‖ ≤ C * (1 + X) ^ ((k - 1).toNat + 1 + 2 * A) := by
+  have hn' : (0 : ℝ) ≤ n := by exact_mod_cast hn
+  have hm' : (0 : ℝ) ≤ m := by exact_mod_cast hm
+  have hX₀ : 0 ≤ X := by linarith
+  have hterm (d : ℕ) (hd : d ∈ ((n.gcd r : ℤ).gcd m).divisors) :
+      ‖(d : ℂ) ^ (k - 1) * c (n * m / (d : ℤ) ^ 2, r / d)‖ ≤
+        C * (1 + X) ^ ((k - 1).toNat + 2 * A) := by
+    have hdg : (d : ℝ) ≤ X := (Nat.cast_le.mpr (Nat.divisor_le hd)).trans hg
+    have hk' : k - 1 = ((k - 1).toNat : ℤ) := (Int.toNat_of_nonneg (by omega)).symm
+    have hdiv : |((n * m / (d : ℤ) ^ 2 : ℤ) : ℝ)| ≤ n * m := by
+      have h2 : 0 ≤ n * m / (d : ℤ) ^ 2 := Int.ediv_nonneg (mul_nonneg hn hm) (by positivity)
+      have h3 : n * m / (d : ℤ) ^ 2 ≤ n * m := Int.ediv_le_self _ (mul_nonneg hn hm)
+      rw [abs_of_nonneg (by exact_mod_cast h2)]
+      exact_mod_cast h3
+    rw [norm_mul, norm_zpow, Complex.norm_natCast, hk', zpow_natCast, pow_add, mul_comm C,
+      mul_assoc]
+    refine mul_le_mul (pow_le_pow_left₀ (by positivity) (by linarith) _) ((hc _ _).trans ?_)
+      (norm_nonneg _) (by positivity)
+    rw [pow_mul, mul_comm C]
+    refine mul_le_mul_of_nonneg_right (pow_le_pow_left₀ (by positivity) ?_ _) hC
+    nlinarith
+  refine (norm_sum_le _ _).trans ((Finset.sum_le_sum hterm).trans ?_)
+  rw [Finset.sum_const, nsmul_eq_mul]
+  have hcard : (((n.gcd r : ℤ).gcd m).divisors.card : ℝ) ≤ 1 + X :=
+    (Nat.cast_le.mpr (Nat.card_divisors_le_self _)).trans (by linarith)
+  have hpow :
+      (1 + X) ^ ((k - 1).toNat + 1 + 2 * A) = (1 + X) * (1 + X) ^ ((k - 1).toNat + 2 * A) := by
+    ring1
+  rw [hpow, mul_left_comm C]
+  exact mul_le_mul_of_nonneg_right hcard (by positivity)
+
 variable {p} in
-private lemma norm_gritsenkoCoeff_le (hN : 0 < N) (hk : 1 ≤ k) {A : ℕ} (hC : 0 ≤ C)
+private lemma norm_gritsenkoCoeff_le (hN : 0 < N) (hk : 1 ≤ k) (hC : 0 ≤ C)
     (hc : ∀ n r : ℤ, ‖jacobiCoeff φ (n, r)‖ ≤ C * (1 + |(n : ℝ)|) ^ A) (hp : IsLiftSupport N p) :
     ‖gritsenkoCoeff k (jacobiCoeff φ) p.1 p.2.1 p.2.2‖ ≤ C *
       (1 + (p.1 + N * p.2.2 : ℝ)) ^ ((k - 1).toNat + 1 + 2 * A) := by
@@ -354,43 +371,11 @@ private lemma norm_gritsenkoCoeff_le (hN : 0 < N) (hk : 1 ≤ k) {A : ℕ} (hC :
   swap
   · rw [norm_zero]
     positivity
-  rw [liftDivisorSum]
-  have hm₀' : (1 : ℝ) ≤ p.2.2 := by exact_mod_cast hm₀
   have hg : (((p.1.gcd p.2.1 : ℤ).gcd p.2.2 : ℕ) : ℤ) ≤ p.2.2 :=
     Int.le_of_dvd hm₀ (Int.gcd_dvd_right _ _)
-  have hg'' : (((p.1.gcd p.2.1 : ℤ).gcd p.2.2 : ℕ) : ℝ) ≤ p.2.2 := by
+  have hg' : (((p.1.gcd p.2.1 : ℤ).gcd p.2.2 : ℕ) : ℝ) ≤ p.2.2 := by
     exact_mod_cast hg
-  have hg' : (((p.1.gcd p.2.1 : ℤ).gcd p.2.2 : ℕ) : ℝ) ≤ p.1 + N * p.2.2 := by
-    linarith
-  have hterm (d : ℕ) (hd : d ∈ ((p.1.gcd p.2.1 : ℤ).gcd p.2.2).divisors) :
-      ‖(d : ℂ) ^ (k - 1) * jacobiCoeff φ (p.1 * p.2.2 / (d : ℤ) ^ 2, p.2.1 / d)‖ ≤
-        C * (1 + (p.1 + N * p.2.2 : ℝ)) ^ ((k - 1).toNat + 2 * A) := by
-    have hdg : (d : ℝ) ≤ p.1 + N * p.2.2 :=
-      (Nat.cast_le.mpr (Nat.divisor_le hd)).trans hg'
-    have hk' : k - 1 = ((k - 1).toNat : ℤ) := (Int.toNat_of_nonneg (by omega)).symm
-    have hdiv : |((p.1 * p.2.2 / (d : ℤ) ^ 2 : ℤ) : ℝ)| ≤ p.1 * p.2.2 := by
-      have h2 : 0 ≤ p.1 * p.2.2 / (d : ℤ) ^ 2 :=
-        Int.ediv_nonneg (mul_nonneg hp.1 hp.2.1) (by positivity)
-      have h3 : p.1 * p.2.2 / (d : ℤ) ^ 2 ≤ p.1 * p.2.2 :=
-        Int.ediv_le_self _ (mul_nonneg hp.1 hp.2.1)
-      rw [abs_of_nonneg (by exact_mod_cast h2)]
-      exact_mod_cast h3
-    rw [norm_mul, norm_zpow, Complex.norm_natCast, hk', zpow_natCast, pow_add, mul_comm C,
-      mul_assoc]
-    refine mul_le_mul (pow_le_pow_left₀ (by positivity) (by linarith) _) ((hc _ _).trans ?_)
-      (norm_nonneg _) (by positivity)
-    rw [pow_mul, mul_comm C]
-    refine mul_le_mul_of_nonneg_right (pow_le_pow_left₀ (by positivity) ?_ _) hC
-    nlinarith
-  refine (norm_sum_le _ _).trans ((Finset.sum_le_sum hterm).trans ?_)
-  rw [Finset.sum_const, nsmul_eq_mul]
-  have hcard : (((p.1.gcd p.2.1 : ℤ).gcd p.2.2).divisors.card : ℝ) ≤ 1 + (p.1 + N * p.2.2 : ℝ) :=
-    (Nat.cast_le.mpr (Nat.card_divisors_le_self _)).trans (by linarith)
-  have hpow : (1 + (p.1 + N * p.2.2 : ℝ)) ^ ((k - 1).toNat + 1 + 2 * A) =
-      (1 + (p.1 + N * p.2.2 : ℝ)) * (1 + (p.1 + N * p.2.2 : ℝ)) ^ ((k - 1).toNat + 2 * A) := by
-    ring1
-  rw [hpow, mul_left_comm C]
-  exact mul_le_mul_of_nonneg_right hcard (by positivity)
+  exact norm_liftDivisorSum_le hk hC hc hp.1 hp.2.1 (by linarith) (by linarith)
 
 variable (k n r m) in
 lemma gritsenkoCoeff_jacobiCoeff_zero :

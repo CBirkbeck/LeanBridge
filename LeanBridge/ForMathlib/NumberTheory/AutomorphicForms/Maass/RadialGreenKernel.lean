@@ -327,7 +327,7 @@ lemma radialLaplacian_radialGreen (hc : 1 / 2 < c) : radialLaplacian (radialGree
 /-- The **mass** of the bump `coshDistBump n` as a radial kernel on `ℍ`, the integral of
 `coshDistBump n (cosh d(i, w))`; it does not depend on the centre (`integral_kernel_eq`). -/
 noncomputable def bumpMass : ℝ :=
-  ∫ w, coshDistBump n (Real.cosh (dist I w))
+  ∫ w, coshDistBump n (dist I w).cosh
 
 lemma bumpMass_pos : 0 < bumpMass n :=
   integral_coshDistBump_pos
@@ -341,22 +341,22 @@ lemma radialGreen_eq_zero_of_three_le (hc : 3 ≤ c) : radialGreen n c = 0 := by
 `ℍ` for the constant function `1` and the kernel `radialGreen n` gives
 `(2n + 2) bumpMass (2n + 1) = (n + 1) bumpMass n`, with no polar coordinates. -/
 lemma bumpMass_two_mul_add_one : bumpMass (2 * n + 1) = bumpMass n / 2 := by
-  have h : ∫ w : ℍ, (radialGreen n (Real.cosh (dist I w)) : ℂ) *
+  have h : ∫ w : ℍ, (radialGreen n (dist I w).cosh : ℂ) *
       hyperbolicLaplacian (fun _ ↦ (1 : ℂ)) w = ∫ w : ℍ,
-        (radialLaplacian (radialGreen n) (Real.cosh (dist I w)) : ℂ) * (1 : ℂ) :=
+        (radialLaplacian (radialGreen n) (dist I w).cosh : ℂ) * (1 : ℂ) :=
     integral_kernel_mul_hyperbolicLaplacian I (contDiff_radialGreen n)
       (fun _ hc ↦ radialGreen_eq_zero_of_three_le n hc) contDiffOn_const
   have h0 (w : ℍ) : hyperbolicLaplacian (fun _ ↦ (1 : ℂ)) w = 0 := by
     simp [hyperbolicLaplacian]
   simp only [h0, mul_zero, integral_zero, mul_one] at h
-  have h1 (w : ℍ) : radialLaplacian (radialGreen n) (Real.cosh (dist I w)) =
-      2 * (n + 1) * coshDistBump (2 * n + 1) (Real.cosh (dist I w)) -
-        (n + 1) * coshDistBump n (Real.cosh (dist I w)) :=
-    radialLaplacian_radialGreen n (by linarith [Real.one_le_cosh (dist I w)])
+  have h1 (w : ℍ) : radialLaplacian (radialGreen n) (dist I w).cosh =
+      2 * (n + 1) * coshDistBump (2 * n + 1) (dist I w).cosh -
+        (n + 1) * coshDistBump n (dist I w).cosh :=
+    radialLaplacian_radialGreen n (by linarith [(dist I w).one_le_cosh])
   rw [integral_complex_ofReal] at h
   simp only [h1] at h
-  have h2 : ∫ w : ℍ, (2 * ((n : ℝ) + 1) * coshDistBump (2 * n + 1) (Real.cosh (dist I w)) -
-      ((n : ℝ) + 1) * coshDistBump n (Real.cosh (dist I w))) = 0 :=
+  have h2 : ∫ w : ℍ, (2 * ((n : ℝ) + 1) * coshDistBump (2 * n + 1) (dist I w).cosh -
+      ((n : ℝ) + 1) * coshDistBump n (dist I w).cosh) = 0 :=
     Complex.ofReal_eq_zero.mp h.symm
   rw [integral_sub ((integrable_kernel I contDiff_coshDistBump.continuous
     fun _ hc ↦ coshDistBump_eq_zero hc).const_mul _)

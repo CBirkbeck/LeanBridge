@@ -1,5 +1,4 @@
-import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformCoefficientsReal
-import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformExpansion
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.Newform
 
 /-!
 # Maass cusp newforms
@@ -15,15 +14,11 @@ as `γ T^N γ⁻¹ ∈ Γ(N) ≤ Γ₀(N)`, so the integral is a multiple of the
 `γ ∞`.
 
 At the cusp `∞` this gives the vanishing constant term `∫_0^1 F(t + iy) dt = 0` of the existence
-theorems of the cosine and sine expansions, which hold for Maass cusp newforms provided `F` and
-`∂F/∂y` grow at most polynomially at `∞`. These growth bounds are hypotheses here; they are
-removed in
-`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.CuspNewformExpansion`
-(`UpperHalfPlane.IsMaassCuspNewform.hasMaassCosineExpansion` and the sine version). With them, the
-coefficients `a(n) / a(1)`, `a = maassCoefficients R F`, of the cusp newform normalised by
-`a(1) = 1` are real at every index `n` prime to `N`, provided `a(1) ≠ 0`. At every level `N ≠ 0`,
-for an even or odd cusp newform and with no growth bounds, `a(1) ≠ 0` and `a(n) / a(1)` is real for
-every `n`, `gcd(n, N) > 1` included
+theorems of the cosine and sine expansions
+(`UpperHalfPlane.IsMaassCuspNewform.hasMaassCosineExpansion` and the sine version, in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.CuspNewformExpansion`). At every level
+`N ≠ 0`, for an even or odd cusp newform and `a = maassCoefficients R F`, `a(1) ≠ 0` and
+`a(n) / a(1)` is real for every `n`, `gcd(n, N) > 1` included
 (`UpperHalfPlane.IsMaassCuspNewform.maassCoefficients_one_ne_zero_of_even`,
 `UpperHalfPlane.IsMaassCuspNewform.conj_maassCoefficients_div_of_even` and the odd versions, in
 `LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformAtkinLehner`).
@@ -37,21 +32,9 @@ every `n`, `gcd(n, N) > 1` included
 
 * `UpperHalfPlane.not_isMaassCuspNewform_const_one`: the constant `1` is not a cusp newform.
 * `UpperHalfPlane.IsMaassCuspNewform.integral_eq_zero`: the constant term at `∞` vanishes.
-* `UpperHalfPlane.IsMaassCuspNewform.hasMaassCosineExpansion_maassCoefficients`,
-  `UpperHalfPlane.IsMaassCuspNewform.hasMaassSineExpansion_maassCoefficients`: an even (odd) Maass
-  cusp newform of polynomial growth has the cosine (sine) expansion with the coefficients
-  `maassCoefficients R F`.
-* `UpperHalfPlane.IsMaassCuspNewform.conj_maassCoefficients_div_of_isEvenMaassForm`,
-  `UpperHalfPlane.IsMaassCuspNewform.conj_maassCoefficients_div_of_isOddMaassForm`: the
-  coefficients prime to `N` of the normalised Maass cusp newform of polynomial growth are real.
-* `UpperHalfPlane.IsMaassCuspNewform.maassCoefficients_one_ne_zero_of_isEvenMaassForm`,
-  `UpperHalfPlane.IsMaassCuspNewform.maassCoefficients_one_ne_zero_of_isOddMaassForm`: at level
-  `1`, `a(1) ≠ 0`, so that all the coefficients of the normalised cusp newform are real.
 -/
 
-open Filter
-
-open scoped ComplexConjugate MatrixGroups
+open scoped MatrixGroups
 
 namespace UpperHalfPlane
 
@@ -67,7 +50,7 @@ def IsMaassCuspNewform : Prop :=
   IsMaassNewform N 1 (maassEigenvalue R) F ∧ ∀ γ : SL(2, ℤ), ∀ y : ℝ, 0 < y →
     ∫ t in (0 : ℝ)..N, F (γ • ofComplex (t + y * Complex.I)) = 0
 
-variable {N R F} [NeZero N] {C : ℝ} {M : ℕ}
+variable {N R F} [NeZero N]
 
 variable (N R) in
 /-- **The constant function `1` is not a Maass cusp newform**, its constant term
@@ -82,7 +65,7 @@ lemma IsMaassCuspNewform.integral_eq_zero (hF : IsMaassCuspNewform N R F) {y : �
     ∫ t in (0 : ℝ)..1, (F ∘ ofComplex) (t + y * Complex.I) = 0 := by
   have hper : Function.Periodic (fun t : ℝ ↦ (F ∘ ofComplex) (t + y * Complex.I)) 1 := fun t ↦ by
     have h : (F ∘ ofComplex) (t + y * Complex.I + 1) = (F ∘ ofComplex) (t + y * Complex.I) :=
-      hF.1.comp_add_one (by simpa using hy)
+      comp_add_one_of_mem_maassSpace hF.1.1.1 (by simpa using hy)
     simpa [add_right_comm] using h
   have hcont : Continuous fun t : ℝ ↦ (F ∘ ofComplex) (t + y * Complex.I) :=
     hF.1.1.1.1.continuousOn.comp_continuous (by fun_prop) fun t ↦ by simpa using hy
@@ -95,95 +78,5 @@ lemma IsMaassCuspNewform.integral_eq_zero (hF : IsMaassCuspNewform N R F) {y : �
   simp only [zero_add, zsmul_eq_mul, mul_one, Int.cast_natCast, Function.comp_apply] at h
   rw [h0, eq_comm, mul_eq_zero] at h
   exact h.resolve_left (Nat.cast_ne_zero.mpr (NeZero.ne N))
-
-/-- **The cosine expansion of an even Maass cusp newform** (LMFDB `mf.maass.mwf.coefficients`): an
-even Maass cusp newform `F` of weight `0` on `Γ₀(N)` with spectral parameter `R`, with `F` and
-`∂F/∂y` of polynomial growth in `y` uniformly in `x`, has the cosine expansion
-`F(x + iy) = ∑_{n ≥ 1} a(n) √y K_{iR}(2πny) cos(2πnx)` with the coefficients
-`a = maassCoefficients R F`. -/
-lemma IsMaassCuspNewform.hasMaassCosineExpansion_maassCoefficients (hF : IsMaassCuspNewform N R F)
-    (hb : ∀ᶠ y : ℝ in atTop, ∀ t : ℝ, ‖(F ∘ ofComplex) (t + y * Complex.I)‖ ≤ C * y ^ M)
-    (hb' : ∀ᶠ y : ℝ in atTop, ∀ t : ℝ,
-      ‖fderiv ℝ (F ∘ ofComplex) (t + y * Complex.I) Complex.I‖ ≤ C * y ^ M)
-    (hs : IsEvenMaassForm (F ∘ ofComplex)) :
-    HasMaassCosineExpansion (F ∘ ofComplex) R (maassCoefficients R (F ∘ ofComplex)) :=
-  hF.1.hasMaassCosineExpansion_maassCoefficients (fun _ hy ↦ hF.integral_eq_zero hy) hb hb' hs
-
-/-- **The sine expansion of an odd Maass cusp newform** (LMFDB `mf.maass.mwf.coefficients`): an
-odd Maass cusp newform `F` of weight `0` on `Γ₀(N)` with spectral parameter `R`, with `F` and
-`∂F/∂y` of polynomial growth in `y` uniformly in `x`, has the sine expansion
-`F(x + iy) = ∑_{n ≥ 1} a(n) √y K_{iR}(2πny) sin(2πnx)` with the coefficients
-`a = maassCoefficients R F`. -/
-lemma IsMaassCuspNewform.hasMaassSineExpansion_maassCoefficients (hF : IsMaassCuspNewform N R F)
-    (hb : ∀ᶠ y : ℝ in atTop, ∀ t : ℝ, ‖(F ∘ ofComplex) (t + y * Complex.I)‖ ≤ C * y ^ M)
-    (hb' : ∀ᶠ y : ℝ in atTop, ∀ t : ℝ,
-      ‖fderiv ℝ (F ∘ ofComplex) (t + y * Complex.I) Complex.I‖ ≤ C * y ^ M)
-    (hs : IsOddMaassForm (F ∘ ofComplex)) :
-    HasMaassSineExpansion (F ∘ ofComplex) R (maassCoefficients R (F ∘ ofComplex)) :=
-  hF.1.hasMaassSineExpansion_maassCoefficients (fun _ hy ↦ hF.integral_eq_zero hy) hb hb' hs
-
-/-- **The coefficients of the normalised even Maass cusp newform are real** at the indices prime
-to the level (LMFDB `mf.maass.mwf.coefficients`): for an even Maass cusp newform `F` on `Γ₀(N)`
-with `F` and `∂F/∂y` of polynomial growth and coefficients `a = maassCoefficients R F` with
-`a(1) ≠ 0` (which holds at every level `N ≠ 0`,
-`IsMaassCuspNewform.maassCoefficients_one_ne_zero_of_even`), the coefficient `a(n) / a(1)` of the
-cusp newform normalised by `a(1) = 1` is real for every `n` prime to `N`. -/
-lemma IsMaassCuspNewform.conj_maassCoefficients_div_of_isEvenMaassForm
-    (hF : IsMaassCuspNewform N R F)
-    (hb : ∀ᶠ y : ℝ in atTop, ∀ t : ℝ, ‖(F ∘ ofComplex) (t + y * Complex.I)‖ ≤ C * y ^ M)
-    (hb' : ∀ᶠ y : ℝ in atTop, ∀ t : ℝ,
-      ‖fderiv ℝ (F ∘ ofComplex) (t + y * Complex.I) Complex.I‖ ≤ C * y ^ M)
-    (hs : IsEvenMaassForm (F ∘ ofComplex)) (h1 : maassCoefficients R (F ∘ ofComplex) 1 ≠ 0) {n : ℕ+}
-    (hn : (n : ℕ).Coprime N) :
-    conj (maassCoefficients R (F ∘ ofComplex) n / maassCoefficients R (F ∘ ofComplex) 1) =
-      maassCoefficients R (F ∘ ofComplex) n / maassCoefficients R (F ∘ ofComplex) 1 :=
-  hF.1.conj_coeff_div_of_hasMaassCosineExpansion
-    (hF.hasMaassCosineExpansion_maassCoefficients hb hb' hs) h1 hn
-
-/-- **The coefficients of the normalised odd Maass cusp newform are real** at the indices prime
-to the level (LMFDB `mf.maass.mwf.coefficients`): for an odd Maass cusp newform `F` on `Γ₀(N)`
-with `F` and `∂F/∂y` of polynomial growth and coefficients `a = maassCoefficients R F` with
-`a(1) ≠ 0` (which holds at every level `N ≠ 0`,
-`IsMaassCuspNewform.maassCoefficients_one_ne_zero_of_odd`), the coefficient `a(n) / a(1)` of the
-cusp newform normalised by `a(1) = 1` is real for every `n` prime to `N`. -/
-lemma IsMaassCuspNewform.conj_maassCoefficients_div_of_isOddMaassForm
-    (hF : IsMaassCuspNewform N R F)
-    (hb : ∀ᶠ y : ℝ in atTop, ∀ t : ℝ, ‖(F ∘ ofComplex) (t + y * Complex.I)‖ ≤ C * y ^ M)
-    (hb' : ∀ᶠ y : ℝ in atTop, ∀ t : ℝ,
-      ‖fderiv ℝ (F ∘ ofComplex) (t + y * Complex.I) Complex.I‖ ≤ C * y ^ M)
-    (hs : IsOddMaassForm (F ∘ ofComplex)) (h1 : maassCoefficients R (F ∘ ofComplex) 1 ≠ 0) {n : ℕ+}
-    (hn : (n : ℕ).Coprime N) :
-    conj (maassCoefficients R (F ∘ ofComplex) n / maassCoefficients R (F ∘ ofComplex) 1) =
-      maassCoefficients R (F ∘ ofComplex) n / maassCoefficients R (F ∘ ofComplex) 1 :=
-  hF.1.conj_coeff_div_of_hasMaassSineExpansion
-    (hF.hasMaassSineExpansion_maassCoefficients hb hb' hs) h1 hn
-
-/-- **An even Maass cusp newform of level `1` has `a(1) ≠ 0`**: for an even Maass cusp newform `F`
-on `SL(2, ℤ)` with `F` and `∂F/∂y` of polynomial growth, the first coefficient of
-`a = maassCoefficients R F` does not vanish, so that the coefficients `a(n) / a(1)` of the
-normalised cusp newform are real for every `n` (`conj_maassCoefficients_div_of_isEvenMaassForm`).
--/
-lemma IsMaassCuspNewform.maassCoefficients_one_ne_zero_of_isEvenMaassForm
-    (hF : IsMaassCuspNewform 1 R F)
-    (hb : ∀ᶠ y : ℝ in atTop, ∀ t : ℝ, ‖(F ∘ ofComplex) (t + y * Complex.I)‖ ≤ C * y ^ M)
-    (hb' : ∀ᶠ y : ℝ in atTop, ∀ t : ℝ,
-      ‖fderiv ℝ (F ∘ ofComplex) (t + y * Complex.I) Complex.I‖ ≤ C * y ^ M)
-    (hs : IsEvenMaassForm (F ∘ ofComplex)) : maassCoefficients R (F ∘ ofComplex) 1 ≠ 0 :=
-  hF.1.coeff_one_ne_zero_of_hasMaassCosineExpansion
-    (hF.hasMaassCosineExpansion_maassCoefficients hb hb' hs)
-
-/-- **An odd Maass cusp newform of level `1` has `a(1) ≠ 0`**: for an odd Maass cusp newform `F`
-on `SL(2, ℤ)` with `F` and `∂F/∂y` of polynomial growth, the first coefficient of
-`a = maassCoefficients R F` does not vanish, so that the coefficients `a(n) / a(1)` of the
-normalised cusp newform are real for every `n` (`conj_maassCoefficients_div_of_isOddMaassForm`).
--/
-lemma IsMaassCuspNewform.maassCoefficients_one_ne_zero_of_isOddMaassForm
-    (hF : IsMaassCuspNewform 1 R F)
-    (hb : ∀ᶠ y : ℝ in atTop, ∀ t : ℝ, ‖(F ∘ ofComplex) (t + y * Complex.I)‖ ≤ C * y ^ M)
-    (hb' : ∀ᶠ y : ℝ in atTop, ∀ t : ℝ,
-      ‖fderiv ℝ (F ∘ ofComplex) (t + y * Complex.I) Complex.I‖ ≤ C * y ^ M)
-    (hs : IsOddMaassForm (F ∘ ofComplex)) : maassCoefficients R (F ∘ ofComplex) 1 ≠ 0 :=
-  hF.1.coeff_one_ne_zero_of_hasMaassSineExpansion
-    (hF.hasMaassSineExpansion_maassCoefficients hb hb' hs)
 
 end UpperHalfPlane

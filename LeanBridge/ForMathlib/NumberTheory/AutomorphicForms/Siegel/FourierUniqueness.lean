@@ -99,7 +99,7 @@ private lemma exp_trace_torusPoint (x : l × l → ℝ) {n : Matrix l l ℚ} (hn
   rw [← Finset.sum_add_distrib]
   exact Finset.sum_congr rfl fun b _ ↦ by ring1
 
-private lemma exists_intCast_eq
+lemma exists_intCast_eq
     (hΓ : ∀ i j : l, (N : ℚ) • (single i j 1 + single j i 1) ∈ translationLattice Γ)
     (n : dualLattice Γ) (p : l × l) : ∃ z : ℤ, (z : ℚ) = 2 * N * (n : Matrix l l ℚ) p.1 p.2 := by
   rcases n.2.2 _ (hΓ p.1 p.2) with ⟨z, hz⟩

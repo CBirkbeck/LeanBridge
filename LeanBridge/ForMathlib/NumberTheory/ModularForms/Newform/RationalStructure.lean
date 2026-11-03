@@ -1,4 +1,6 @@
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Dimension
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisActionOnNewforms
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisStability
 
 /-!
 # The rational structure of the newspace and the irreducibility of its pieces
@@ -363,20 +365,6 @@ lemma exists_mem_rationalPiece_repr_self_eq (hF : F ≤ CoefficientField f) (c :
     simp [b, hg]
   · rw [hv]
     simpa using hb (one_mem F.fixingSubgroup)
-
-variable (v g) in
-lemma repr_apply_heckeTDiamondCuspNewAlgebra (T : heckeTDiamondCuspNewAlgebra N k) :
-    (basis N k).repr ((T : Module.End ℂ (cuspFormsNew N k)) v) g =
-      Newform.heckeTDiamondCuspNewCharacter g T * (basis N k).repr v g := by
-  have h : ((basis N k).coord g).comp (T : Module.End ℂ (cuspFormsNew N k)) =
-      Newform.heckeTDiamondCuspNewCharacter g T • (basis N k).coord g := by
-    refine (basis N k).ext fun h ↦ ?_
-    rw [LinearMap.comp_apply, Newform.apply_basis_eq_heckeTDiamondCuspNewCharacter_smul, map_smul,
-      LinearMap.smul_apply, (basis N k).coord_apply, (basis N k).repr_self]
-    rcases eq_or_ne h g with rfl | hne
-    · rfl
-    · simp [hne]
-  exact LinearMap.congr_fun h v
 
 /-- **The complex span of a piece is the span of the orbit**: a piece is a form over `F` of the span
 of the orbit of `f` under the automorphisms of `ℂ` fixing `F`. -/

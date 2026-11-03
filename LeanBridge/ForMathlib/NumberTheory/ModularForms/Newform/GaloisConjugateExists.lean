@@ -1,5 +1,5 @@
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.GaloisAction.Gamma1
-import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisStability
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.RationalHeckeAlgebra
 
 /-!
 # Galois conjugates of newforms are newforms

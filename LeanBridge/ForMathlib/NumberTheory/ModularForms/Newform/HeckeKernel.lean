@@ -1,3 +1,4 @@
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.CoefficientIntegrality
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.NewformSubspace
 import Mathlib.FieldTheory.Minpoly.Field
 import Mathlib.LinearAlgebra.Eigenspace.Minpoly
@@ -46,7 +47,7 @@ conjugates of `f` of nebentypus `χ`.
   is `V_f ∩ S_k(N, χ)`.
 -/
 
-open UpperHalfPlane TauCeti CongruenceSubgroup Polynomial Module
+open UpperHalfPlane TauCeti Polynomial Module
 
 namespace HeckeRing.GL2.Newform
 
@@ -185,21 +186,19 @@ lemma newformSubspace_inf_le_map_heckeKernel : f.newformSubspace ⊓ cuspFormCha
   rintro _ ⟨g, ⟨⟨σ, hσ⟩, hχ⟩, rfl⟩
   exact ⟨g.toCuspFormCharSpace hχ, (mem_heckeKernel_iff n hχ).mpr (hσ.aeval_coeffMinpoly n), rfl⟩
 
-/-- **The Hecke kernels cut out the Galois orbit** (LMFDB `cmf.hecke_kernels`), in weight at least
-two: if the minimal polynomials of the `aₙ(f)`, `n ∈ X`, separate `f` from the newforms of
-nebentypus `χ` that are not Galois conjugate to it, the intersection of the Hecke kernels of `f`
-over `X` is the `χ`-part `V_f ∩ S_k(N, χ)` of its newform subspace, spanned by the Galois
-conjugates of `f` of nebentypus `χ`. The LMFDB asks for a set of distinguishing primes instead,
-which separates the orbits by the characteristic polynomials of the `T_p` on the `V_h`; this is not
-enough when another orbit has a different dimension but the same minimal polynomials. `hk` serves
-only to get that the `aₙ(f)` are algebraic, which holds in every weight by `isIntegral_coeff`, in
-`Newform/CoefficientIntegrality.lean`. -/
-lemma map_iInf_heckeKernel_eq_newformSubspace_inf (hk : 2 ≤ k) (hX : X.Nonempty)
+/-- **The Hecke kernels cut out the Galois orbit** (LMFDB `cmf.hecke_kernels`), in every weight: if
+the minimal polynomials of the `aₙ(f)`, `n ∈ X`, separate `f` from the newforms of nebentypus `χ`
+that are not Galois conjugate to it, the intersection of the Hecke kernels of `f` over `X` is the
+`χ`-part `V_f ∩ S_k(N, χ)` of its newform subspace, spanned by the Galois conjugates of `f` of
+nebentypus `χ`. The LMFDB asks for a set of distinguishing primes instead, which separates the
+orbits by the characteristic polynomials of the `T_p` on the `V_h`; this is not enough when another
+orbit has a different dimension but the same minimal polynomials. -/
+lemma map_iInf_heckeKernel_eq_newformSubspace_inf (hX : X.Nonempty)
     (hsep : ∀ h : Newform N k, h.χ = f.χ → (∀ n ∈ X, h.coeffMinpoly n = f.coeffMinpoly n) →
       f.IsGaloisConjugate h) : (⨅ n ∈ X, f.heckeKernel n).map (cuspFormCharSpace k f.χ).subtype =
     f.newformSubspace ⊓ cuspFormCharSpace k f.χ := by
   have hint (n : ℕ) : IsIntegral ℚ ((qExpansion 1 f.toCuspForm).coeff n) :=
-    (f.isIntegral_qExpansion_coeff hk n).tower_top
+    (f.isIntegral_coeff n).tower_top
   rw [map_iInf_heckeKernel hX, newformSubspace, span_image_toCuspForm_inf_cuspFormCharSpace]
   congr 2
   ext h

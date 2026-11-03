@@ -155,13 +155,6 @@ lemma liftExp_swapSp :
   congr 1
   ring1
 
-/-- The involution `(n, r, m) ↦ (m, r, n)` of `ℤ³`. -/
-private def swapIndex : ℤ × ℤ × ℤ ≃ ℤ × ℤ × ℤ where
-  toFun p := (p.2.2, p.2.1, p.1)
-  invFun p := (p.2.2, p.2.1, p.1)
-  left_inv _ := rfl
-  right_inv _ := rfl
-
 lemma maassLift_swapSp :
     maassLift k φ (SymplecticGroup.map (algebraMap ℚ ℝ) swapSp • Z) = maassLift k φ Z := by
   rw [maassLift, maassLift]

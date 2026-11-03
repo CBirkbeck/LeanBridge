@@ -335,7 +335,7 @@ lemma integrableOn_smul_gammaZeroDomain (hF : F ∈ maassSpace N 1 eigenvalue)
     rwa [RingHom.ext_rat (algebraMap ℚ ℝ) (Rat.castHom ℝ)] at h
   have hGL : MemLp G 2 (volume.restrict ((k * (q.out : SL(2, ℤ))⁻¹) • fdo)) :=
     (memLp_two_iff_integrable_sq_norm (continuous_of_mem_maassSpace hG).aestronglyMeasurable).mpr
-      (integrableOn_norm_sq_smul_fdo hG _)
+      (integrableOn_norm_sq_smul_fdo _ hG)
   exact hFA.integrable_mul hGL.star
 
 variable [NeZero N] in

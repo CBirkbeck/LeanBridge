@@ -161,9 +161,6 @@ private lemma det_im_eq :
   rw [det_fin_two]
   simp [h, sq]
 
-private lemma im_zero_zero_pos : 0 < (Z.val 0 0).im := by
-  simpa using Z.posDef_im.diag_pos
-
 private lemma norm_gritsenkoFourierJacobi_mul_le (hφ : φ ∈ jacobiFormSpace (K : ℤ) N)
     (hC : ∀ (τ : ℍ) (z : ℂ), jacobiNorm N φ (τ, z) * √τ.im ^ K ≤ C) (hm : 0 < m) :
     ‖gritsenkoFourierJacobi (K : ℤ) φ (toJacobiPoint Z) m *
@@ -368,12 +365,11 @@ private lemma exists_le_det_im_div (hg : g.1 (.inr 1) (.inl 1) = 0) : ∃ D₀ :
     simp
   have hB₀ : 0 < τ'.im * normSq (g.1 (.inr 1) (.inr 1) : ℂ) +
       normSq (g.1 (.inr 1) (.inl 0) * τ' + g.1 (.inr 1) (.inr 0) : ℂ) := by
-    have h : 0 < ((g • diagPoint τ' ⟨1, Set.mem_Ioi.mpr one_pos⟩).val 0 0).im :=
-      im_zero_zero_pos _
+    have h : 0 < ((g • diagPoint τ' tOne).val 0 0).im := im_zero_zero_pos _
     rw [im_smul_diagPoint_zero_zero, hJ₁, denom_apply_one_zero] at h
-    have hN : 0 < normSq (denom g (diagPoint τ' ⟨1, Set.mem_Ioi.mpr one_pos⟩).val).det :=
+    have hN : 0 < normSq (denom g (diagPoint τ' tOne).val).det :=
       normSq_pos.mpr (isUnit_det_denom g _).ne_zero
-    simpa using (div_pos_iff_of_pos_right hN).mp h
+    simpa [tOne] using (div_pos_iff_of_pos_right hN).mp h
   refine ⟨τ'.im / (τ'.im * normSq (g.1 (.inr 1) (.inr 1) : ℂ) +
     normSq (g.1 (.inr 1) (.inl 0) * τ' + g.1 (.inr 1) (.inr 0) : ℂ)), by positivity, fun s hs ↦ ?_⟩
   rw [det_im_div_im_smul_diagPoint, hJ₁, denom_apply_one_zero]
@@ -417,7 +413,7 @@ private lemma tendsto_slash_gritsenkoLift_diagPoint (hK : K ≠ 0)
       Real.tendsto_sqrt_atTop.comp <| ht.const_mul_atTop hv
   refine tendsto_zero_iff_norm_tendsto_zero.mpr <| squeeze_zero' (Eventually.of_forall fun _ ↦
     norm_nonneg _) ?_ hlim
-  filter_upwards [eventually_ge_atTop (⟨1, Set.mem_Ioi.mpr one_pos⟩ : Set.Ioi (0 : ℝ))] with s hs
+  filter_upwards [eventually_ge_atTop tOne] with s hs
   have hdet : 0 < τ'.im * s := mul_pos hv s.2
   have h : ‖slash (TauCeti.detPowerRep ℂ 2 (K : ℤ)) g (gritsenkoLift (K : ℤ) L φ)
       (diagPoint τ' s)‖ * √((diagPoint τ' s).val.map im).det ^ K ≤ A :=
@@ -561,8 +557,6 @@ lemma gritsenkoLift_ne_zero (hφ : φ ∈ jacobiCuspFormSpace k L) (h₀ : φ �
       exact hZ ▸ (summable_gritsenkoLift Z L.pos hφ).hasSum
   have hc : jacobiCoeff φ = 0 := funext fun q ↦ by
     simpa [gritsenkoCoeff_one] using congrFun hb (q.1, q.2, 1)
-  exact h₀ <| funext fun x ↦
-    (hasJacobiFourierExpansion_jacobiCoeff_of_mem_jacobiFormSpace hφ.1 x).unique <| by
-      simp [hc]
+  exact h₀ <| eq_zero_of_jacobiCoeff_eq_zero hφ.1 hc
 
 end SiegelUpperHalfSpace

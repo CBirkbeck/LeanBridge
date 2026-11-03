@@ -22,16 +22,14 @@ L-function of the cusp form `f^α`, as `f^α` is a newform
 (LeanBridge issue #38, `HeckeRing.GL2.Newform.exists_isGaloisConjugateBy`, in
 `Newform/GaloisConjugateExists.lean`). So `L(s, f^α)`, defined to be `0` when there is no
 continuation, does not take that junk value
-(`HeckeRing.GL2.Newform.exists_galoisConjLFunction_eq_L_of_hasRationalHeckeForm`, in
-`Newform/StarkUnitConjugates.lean`, whose hypothesis holds by `TauCeti.hasRationalHeckeForm`, in
-`Newform/GaloisActionOnNewforms.lean`). Likewise the sum over `Δ` is `0` if the coefficient field
-has infinite degree, which does not happen: it is a number field
-(`HeckeRing.GL2.Newform.numberField_coefficientField`, in `Newform/GaloisActionOnNewforms.lean`).
-That it is abelian is not proved here. So the values below are those of the LMFDB. Stark's
-conjecture itself is open: the Stark unit is defined as a property of a unit of the Artin field
-(`HeckeRing.GL2.Newform.IsStarkUnit`), the Artin field being that of a given Galois representation
-of `f`, as its existence is the Deligne–Serre theorem, which is not available here, and the number
-computed by the LMFDB as the complex number `exp(∑_{α ∈ Δ} L'(0, f^α))`
+(`HeckeRing.GL2.Newform.exists_galoisConjLFunction_eq_L`, in `Newform/StarkUnitConjugates.lean`).
+Likewise the sum over `Δ` is `0` if the coefficient field has infinite degree, which does not
+happen: it is a number field (`HeckeRing.GL2.Newform.numberField_coefficientField`, in
+`Newform/GaloisOrbit.lean`). That it is abelian is not proved here. So the values below are those of
+the LMFDB. Stark's conjecture itself is open: the Stark unit is defined as a property of a unit of
+the Artin field (`HeckeRing.GL2.Newform.IsStarkUnit`), the Artin field being that of a given Galois
+representation of `f`, as its existence is the Deligne–Serre theorem, which is not available here,
+and the number computed by the LMFDB as the complex number `exp(∑_{α ∈ Δ} L'(0, f^α))`
 (`HeckeRing.GL2.Newform.starkUnit`).
 
 ## Main definitions
@@ -71,18 +69,16 @@ open Classical in
 `∑ α(aₙ) n^{-s}`, unique when it exists (`LSeries.HasEntireExtension.unique`), and `0` otherwise. It
 exists, and is the L-function of `f^α`, as `f^α` is a newform (`galoisConjLFunction_eq_L`); in
 weight one the arithmetic and analytic normalisations agree. That `f^α` is always a newform is
-LeanBridge issue #38, so the junk value `0` does not occur:
-`exists_galoisConjLFunction_eq_L_of_hasRationalHeckeForm`, in `Newform/StarkUnitConjugates.lean`,
-whose hypothesis holds by `TauCeti.hasRationalHeckeForm`, in
-`Newform/GaloisActionOnNewforms.lean`. -/
+LeanBridge issue #38, so the junk value `0` does not occur: `exists_galoisConjLFunction_eq_L`, in
+`Newform/StarkUnitConjugates.lean`. -/
 noncomputable def galoisConjLFunction : ℂ → ℂ :=
   if h : LSeries.HasEntireExtension (f.galoisConjCoeff α) then h.exists_extension.choose else 0
 
 /-- The **Stark value** `exp(m ∑_{α ∈ Δ} α(b) L'(0, f^α))` (LMFDB `cmf.stark_unit`) of a newform `f`
 of weight one, for `b` in its coefficient field `E` and an integer `m`, with `Δ = Gal(E / ℚ)` and
 `L(s, f^α)` as in `galoisConjLFunction`. The sum over `Δ` is a finite sum, as `E` is a number field
-(`numberField_coefficientField`, in `Newform/GaloisActionOnNewforms.lean`); that `E` is abelian over
-`ℚ`, in weight one, is not proved here. Stark's conjecture predicts that for `b ≠ 0` and some
+(`numberField_coefficientField`, in `Newform/GaloisOrbit.lean`); that `E` is abelian over `ℚ`, in
+weight one, is not proved here. Stark's conjecture predicts that for `b ≠ 0` and some
 `m ≥ 1` it is a unit of the Artin field of `f` (`IsStarkUnit`). -/
 noncomputable def starkValue (b : CoefficientField f) (m : ℕ) : ℂ :=
   Complex.exp (m * ∑ᶠ α : CoefficientField f ≃ₐ[ℚ] CoefficientField f,

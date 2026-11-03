@@ -1,8 +1,9 @@
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierExistence
-import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierLevi
-import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftCuspForm
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.KoecherPrinciple
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParabolicDecomposition
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.VectorKlingenTerm
 import Mathlib.Algebra.Order.Star.Rat
+import Mathlib.Analysis.Normed.Group.Tannery
 
 /-!
 # The cusp condition on `Sp(4, ℤ)` from the Fourier expansion
@@ -46,6 +47,7 @@ namespace SiegelUpperHalfSpace
 
 variable {Γ : Subgroup (symplecticGroup (Fin 2) ℚ)} {V : Type*} [AddCommGroup V] [Module ℂ V]
     {F : SiegelUpperHalfSpace (Fin 2) → V} {a : dualLattice Γ → V} (τ' : ℍ) (φ : Dual ℂ V)
+    {P : symplecticGroup (Fin 2) ℝ}
 
 /-! ### Binary quadratic forms -/
 
@@ -141,9 +143,18 @@ lemma norm_fourierExp (n : dualLattice Γ) (W : SiegelUpperHalfSpace (Fin 2)) : 
   congr 1
   simp [trace, Matrix.mul_apply]
 
-/-- The parameter `t = 1` of the points `diag(τ', it)`. -/
-private def tOne : Set.Ioi (0 : ℝ) :=
-  ⟨1, Set.mem_Ioi.mpr one_pos⟩
+lemma im_smul_diagPoint (hP : P ∈ siegelParabolic (Fin 2) ℝ) (t : Set.Ioi (0 : ℝ)) (i j : Fin 2) :
+    ((P • diagPoint τ' t).val i j).im = P.1.toBlocks₁₁ i 0 * P.1.toBlocks₁₁ j 0 * τ'.im +
+      P.1.toBlocks₁₁ i 1 * P.1.toBlocks₁₁ j 1 * t := by
+  have hD : P.1.toBlocks₂₂.map ofReal * P.1.toBlocks₁₁ᵀ.map ofReal = 1 := by
+    have h : (P.1.toBlocks₂₂ * P.1.toBlocks₁₁ᵀ).map ofRealHom =
+        (1 : Matrix (Fin 2) (Fin 2) ℝ).map ofRealHom :=
+      congrArg (Matrix.map · ofRealHom) (toBlocks₂₂_mul_transpose_toBlocks₁₁ hP)
+    rwa [Matrix.map_mul, Matrix.map_one _ (map_zero _) (map_one _)] at h
+  rw [val_smul, num, denom, (hP : P.1.toBlocks₂₁ = 0), Matrix.map_zero _ ofReal_zero,
+    Matrix.zero_mul, zero_add, inv_eq_right_inv hD]
+  simp [Matrix.mul_apply, diagPoint]
+  ring1
 
 private lemma rexp_mul_le {A B : ℝ} (hB : 0 ≤ B) {t : Set.Ioi (0 : ℝ)} (ht : tOne ≤ t) :
     rexp (-(2 * π * (A + t * B))) ≤ rexp (-(2 * π * (A + (tOne : ℝ) * B))) := by
@@ -166,8 +177,8 @@ after any element of the Siegel parabolic subgroup**: if `a(n) ≠ 0` only for p
 then `F(p diag(τ', it)) → 0` as `t → ∞`, for `p = (A, B; 0, D) ∈ Sp(4, ℝ)`. The term of `n` has
 absolute value `|a(n)| e^{-2π(Im τ' Q(a₁) + t Q(a₂))}` with `Q(x) = xᵀnx` and `a₁, a₂` the columns
 of `A`, and `Q(a₂) > 0`; dominated convergence concludes. -/
-lemma tendsto_dual_smul_diagPoint_of_posDef {P : symplecticGroup (Fin 2) ℝ}
-    (hP : P ∈ siegelParabolic (Fin 2) ℝ) (ha : HasSiegelFourierExpansion Γ F a)
+lemma tendsto_dual_smul_diagPoint_of_posDef (hP : P ∈ siegelParabolic (Fin 2) ℝ)
+    (ha : HasSiegelFourierExpansion Γ F a)
     (hpd : ∀ n, a n ≠ 0 → (n : Matrix (Fin 2) (Fin 2) ℚ).PosDef) :
     Tendsto (fun t : Set.Ioi (0 : ℝ) ↦ φ (F (P • diagPoint τ' t))) atTop (𝓝 0) := by
   let Q : dualLattice Γ → Fin 2 → ℝ := fun n c ↦
@@ -215,8 +226,8 @@ variable (ρ : Representation ℂ (GL (Fin 2) ℂ) V)
 
 /-- **The Siegel operator vanishes on the slashes by the Siegel parabolic subgroup** of a function
 with a positive definite Fourier expansion. -/
-lemma siegelOperatorVanishes_slash_of_posDef {P : symplecticGroup (Fin 2) ℝ}
-    (hP : P ∈ siegelParabolic (Fin 2) ℝ) (ha : HasSiegelFourierExpansion Γ F a)
+lemma siegelOperatorVanishes_slash_of_posDef (hP : P ∈ siegelParabolic (Fin 2) ℝ)
+    (ha : HasSiegelFourierExpansion Γ F a)
     (hpd : ∀ n, a n ≠ 0 → (n : Matrix (Fin 2) (Fin 2) ℚ).PosDef) :
     SiegelOperatorVanishes (slash ρ P F) := by
   intro τ ℓ

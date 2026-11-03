@@ -1,3 +1,4 @@
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.GritsenkoLiftModularity
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftParabolic
 
 /-!
@@ -30,7 +31,7 @@ lift, and the theorem of Eichler and Zagier (Theorem 4.2) that `V_m` maps `J_{k,
   absolutely, it is holomorphic and every `φ_m` is a Jacobi form of weight `k` and index `m`.
 -/
 
-open Complex ModularForm ModularGroup Real SymplecticGroup
+open ModularForm ModularGroup SymplecticGroup
 
 open scoped UpperHalfPlane
 
@@ -50,53 +51,13 @@ where the series does not converge absolutely. -/
 noncomputable def maassFourierJacobi : ℂ :=
   ∑' q : ℤ × ℤ, maassCoeff k (jacobiCoeff φ) q.1 q.2 m * jacobiFourierExp q x
 
-/-- The point `(τ, z) ∈ ℍ × ℂ` of `Z = (τ, z; z, ω) ∈ ℋ₂`. -/
-private noncomputable def jacobiPoint : ℍ × ℂ :=
-  (UpperHalfPlane.mk (Z.val 0 0) (Z.posDef_im.diag_pos (i := 0)), Z.val 0 1)
-
-private lemma liftExp_eq_mul (q : ℤ × ℤ) : liftExp 1 q.1 q.2 m Z =
-    jacobiFourierExp q (jacobiPoint Z) * cexp (2 * π * I * m * Z.val 1 1) := by
-  rw [liftExp, jacobiFourierExp, ← Complex.exp_add]
-  congr 1
-  simp [jacobiPoint]
-  ring1
-
-/-- The bijection `ℤ × ℤ² ≃ ℤ³`, `(m, (n, r)) ↦ (n, r, m)`. -/
-private def fiberEquiv : ℤ × (ℤ × ℤ) ≃ ℤ × ℤ × ℤ :=
-  (Equiv.prodComm ℤ (ℤ × ℤ)).trans (Equiv.prodAssoc ℤ ℤ ℤ)
-
-private lemma maassLift_eq_tsum (hs : Summable fun p : ℤ × ℤ × ℤ ↦
-    maassCoeff k (jacobiCoeff φ) p.1 p.2.1 p.2.2 * liftExp 1 p.1 p.2.1 p.2.2 Z) :
-    maassLift k φ Z =
-      ∑' m : ℤ, maassFourierJacobi k φ m (jacobiPoint Z) * cexp (2 * π * I * m * Z.val 1 1) := by
-  rw [maassLift, ← fiberEquiv.tsum_eq]
-  refine (fiberEquiv.summable_iff.mpr hs).tsum_prod.trans <| tsum_congr fun m ↦ ?_
-  rw [maassFourierJacobi, ← tsum_mul_right]
-  refine tsum_congr fun q ↦ ?_
-  rw [mul_assoc, ← liftExp_eq_mul]
-  rfl
-
-private lemma jacobiPoint_partialInversion_smul :
-    jacobiPoint (map (Int.castRingHom ℝ) partialInversion • Z) =
-      (S • (jacobiPoint Z).1, (jacobiPoint Z).2 / UpperHalfPlane.denom S (jacobiPoint Z).1) := by
-  refine Prod.ext (UpperHalfPlane.ext ?_) ?_
-  · rw [UpperHalfPlane.modular_S_smul]
-    simp [jacobiPoint, val_partialInversion_smul]
-  · rw [ModularGroup.denom_S]
-    simp [jacobiPoint, val_partialInversion_smul]
-
-private lemma maassFourierJacobi_of_neg (hm : m < 0) : maassFourierJacobi k φ m x = 0 := by
-  rw [maassFourierJacobi]
-  refine (tsum_congr fun q ↦ ?_).trans tsum_zero
-  rw [maassCoeff, ite_eq_right (by omega), ite_eq_right (by omega), zero_mul]
-
 /-- **The transformation law of the Maass lift under the partial inversion**
 `J₁ : (τ, z; z, ω) ↦ (-1/τ, z/τ; z/τ, ω - z²/τ)`, `F(J₁Z) = τ^k F(Z)`, from its Fourier–Jacobi
 expansion `F(Z) = ∑_m φ_m(τ, z) e^{2πimω}`: if the series of the lift converges absolutely on
 `ℋ₂`, so that it can be summed over `m` first, and every Fourier–Jacobi coefficient `φ_m`
 transforms under `(0, -1; 1, 0)` like a Jacobi form of weight `k` and index `m`,
 `φ_m(-1/τ, z/τ) = τ^k e^{2πimz²/τ} φ_m(τ, z)`, then the factor `e^{2πimz²/τ}` cancels against the
-shift `ω ↦ ω - z²/τ`. -/
+shift `ω ↦ ω - z²/τ`. This is `tsum_mul_liftExp_partialInversion_smul` for `N = 1`. -/
 lemma maassLift_partialInversion_smul (hs : ∀ Z : SiegelUpperHalfSpace (Fin 2),
     Summable fun p : ℤ × ℤ × ℤ ↦
       maassCoeff k (jacobiCoeff φ) p.1 p.2.1 p.2.2 * liftExp 1 p.1 p.2.1 p.2.2 Z)
@@ -104,25 +65,12 @@ lemma maassLift_partialInversion_smul (hs : ∀ Z : SiegelUpperHalfSpace (Fin 2)
       maassFourierJacobi k φ m (S • x.1, x.2 / UpperHalfPlane.denom S x.1) =
         jacobiFactor k m x S * maassFourierJacobi k φ m x) :
     maassLift k φ (map (Int.castRingHom ℝ) partialInversion • Z) =
-      Z.val 0 0 ^ k * maassLift k φ Z := by
-  rw [maassLift_eq_tsum _ (hs _), maassLift_eq_tsum _ (hs Z), ← tsum_mul_left,
-    jacobiPoint_partialInversion_smul]
-  refine tsum_congr fun m ↦ ?_
-  rcases lt_or_ge m 0 with hm | hm
-  · rw [maassFourierJacobi_of_neg _ _ hm, maassFourierJacobi_of_neg _ _ hm, zero_mul, zero_mul,
-      mul_zero]
-  · rcases Int.eq_ofNat_of_zero_le hm with ⟨m, rfl⟩
-    rw [hS m (jacobiPoint Z), jacobiFactor, ModularGroup.denom_S,
-      val_partialInversion_smul]
-    generalize maassFourierJacobi k φ m (jacobiPoint Z) = c
-    have he : cexp (2 * π * I * m * Z.val 0 1 ^ 2 / Z.val 0 0) *
-        cexp (2 * π * I * m * (Z.val 1 1 - Z.val 0 1 ^ 2 / Z.val 0 0)) =
-          cexp (2 * π * I * m * Z.val 1 1) := by
-      rw [← Complex.exp_add]
-      congr 1
-      ring1
-    simp [jacobiPoint]
-    linear_combination (Z.val 0 0 ^ k * c) * he
+      Z.val 0 0 ^ k * maassLift k φ Z :=
+  tsum_mul_liftExp_partialInversion_smul Z hs
+    (fun _ hl _ ↦ (ite_eq_right fun h ↦ hl.ne h.2.2).trans (ite_eq_right fun h ↦ hl.not_ge h.2))
+    fun m x ↦ by
+      rw [one_mul]
+      exact hS m x
 
 /-- **The theorem of Maass, reduced to the index raising operators and convergence** (LMFDB
 `mf.siegel.lift.maass`): for `φ ∈ J_{k,1}`, if the series of the Maass lift converges absolutely on

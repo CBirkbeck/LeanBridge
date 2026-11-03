@@ -22,11 +22,8 @@ Proved elsewhere: the non-vanishing of `K_{iR}` somewhere on `(0, ∞)`
 `HasMaassCosineExpansion.unique` and `HasMaassSineExpansion.unique` (in
 `LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.CoefficientsUnique`) makes the
 coefficients of every expansion unique, sine expansions included without absolute convergence; the
-existence of the expansions for every Maass form with vanishing constant term and polynomial growth
-of `f` and `∂f/∂y` (`IsMaassNewform.hasMaassCosineExpansion_maassCoefficients` and its sine analogue
-in `LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformExpansion`), and with no growth
-hypothesis for every even or odd newform with vanishing constant term at `∞`, such as a cusp newform
-of level `N ≠ 0` (`IsMaassNewform.hasMaassCosineExpansion_of_integral_eq_zero`,
+existence of the expansions for every even or odd newform with vanishing constant term at `∞`, such
+as a cusp newform of level `N ≠ 0` (`IsMaassNewform.hasMaassCosineExpansion_of_integral_eq_zero`,
 `IsMaassCuspNewform.hasMaassCosineExpansion` and their sine analogues in
 `LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.CuspNewformExpansion`) or a newform with
 real `R` (`IsMaassNewform.hasMaassCosineExpansion_ofReal` and its sine analogue in

@@ -12,7 +12,7 @@ the function `f(z) = F(σ(Nz))` is `1`-periodic with eigenvalue `1/4 + r²`, so 
 solves the Euler equation `y² a'' + (1/4 + r²) a = 0` (`UpperHalfPlane.fourierCoeff_ode`), and it is
 square-integrable on `(1, ∞)` for `dy / y²`, the rectangles `(j - 1/2, j + 1/2) × (1, ∞)` lying in
 translates of the standard fundamental domain, on which `F ∘ σ` is square-integrable. So it
-vanishes (`Complex.eq_zero_of_euler_ode_of_integrableOn`).
+vanishes (`UpperHalfPlane.integral_comp_add_mul_I_eq_zero_of_euler`).
 
 Hence the spectrum of the square-integrable Maass forms and that of the Maass cusp forms
 (`UpperHalfPlane.maassCuspSpectrum`) have the same elements in `[1/4, ∞)`, and these eigenspaces are
@@ -20,8 +20,6 @@ finite-dimensional.
 
 ## Main results
 
-* `UpperHalfPlane.integral_comp_add_mul_I_eq_zero_of_euler`: the constant term of a `1`-periodic
-  eigenfunction with real spectral parameter vanishes, if it is square-integrable.
 * `UpperHalfPlane.integral_sl_smul_eq_zero_of_mem_maassSpace`: the constant term at every cusp of
   an element of `M(N, χ, 1/4 + r²)`, `r` real, vanishes.
 * `UpperHalfPlane.mem_maassCuspSpace_of_mem_maassSpace`: `M(N, χ, 1/4 + r²)` consists of cusp forms.
@@ -35,28 +33,7 @@ open scoped ContDiff MatrixGroups Pointwise
 
 namespace UpperHalfPlane
 
-variable {N : ℕ} {χ : DirichletCharacter ℂ N} {F H : ℍ → ℂ} {f : ℂ → ℂ} {r y : ℝ} {a : ℂ}
-
-/-- **The constant term of a `1`-periodic eigenfunction with real spectral parameter vanishes**, if
-it is square-integrable on `(1, ∞)` for `dy / y²`, as it solves the Euler equation. -/
-lemma integral_comp_add_mul_I_eq_zero_of_euler (hf : ContDiffOn ℝ ∞ f {z | 0 < z.im})
-    (hper : ∀ z : ℂ, 0 < z.im → f (z + 1) = f z)
-    (hΔ : ∀ z : ℂ, 0 < z.im → hyperbolicLaplacian f z + maassEigenvalue r * f z = 0)
-    (hint : IntegrableOn (fun y : ℝ ↦ ‖∫ t in (0 : ℝ)..1, f (t + y * Complex.I)‖ ^ 2 / y ^ 2)
-      (Ioi 1)) (hy : 0 < y) : ∫ t in (0 : ℝ)..1, f (t + y * Complex.I) = 0 := by
-  have he : Continuous fun t : ℝ ↦ Complex.exp (-(2 * π * Complex.I * ((0 : ℤ) : ℂ)) * t) := by
-    fun_prop
-  have h : ∫ t in (0 : ℝ)..1, Complex.exp (-(2 * π * Complex.I * ((0 : ℤ) : ℂ)) * t) *
-      f (t + y * Complex.I) = 0 :=
-    Complex.eq_zero_of_euler_ode_of_integrableOn (r := r)
-      (fun _ ↦ hasDerivAt_integral_comp_add_mul_I hf he)
-      (fun _ ↦ hasDerivAt_integral_comp_add_mul_I (contDiffOn_fderiv_apply Complex.I hf) he)
-      (fun x hx ↦ by
-        simpa [maassEigenvalue] using fourierCoeff_ode 0 hf hper hΔ hx)
-      (by simpa using hint) hy
-  simpa using h
-
-variable (σ : SL(2, ℤ))
+variable {N : ℕ} {χ : DirichletCharacter ℂ N} {F H : ℍ → ℂ} {r y : ℝ} {a : ℂ} (σ : SL(2, ℤ))
 
 lemma integrableOn_norm_sq_rectangle_of_mem_maassTileSpace (hH : H ∈ maassTileSpace a) (j : ℕ) :
     IntegrableOn (fun w ↦ ‖H w‖ ^ 2) (maassRectangle j) := by
@@ -80,7 +57,7 @@ lemma integrableOn_inv_sq_mul_integral_norm_sq (hF : F ∈ maassSpace N χ a) : 
     have h : IntegrableOn
         (fun p : ℝ × ℝ ↦ ((p.2 ^ 2)⁻¹ : ℝ) • ‖F (σ • ofComplex (p.1 + p.2 * Complex.I))‖ ^ 2)
         (Ioo ((j : ℝ) - 1 / 2) (j + 1 / 2) ×ˢ Ioi 1) :=
-      (integrableOn_re_im_mem_prod_iff' measurableSet_Ioo measurableSet_Ioi
+      (integrableOn_re_im_mem_prod_iff measurableSet_Ioo measurableSet_Ioi
         (Ioi_subset_Ioi zero_le_one)).mp (integrableOn_norm_sq_rectangle_of_mem_maassTileSpace hH j)
     rwa [IntegrableOn, Measure.volume_eq_prod, ← Measure.prod_restrict] at h
   refine (integrable_finsetSum (Finset.range N) fun j _ ↦ (hcoordj j).integral_prod_right).congr ?_

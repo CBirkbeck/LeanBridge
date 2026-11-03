@@ -12,7 +12,7 @@ coefficients gives the Hecke relation `a(pm) + a(m/p) = λ_p a(m)` for every `m 
 term only for `p ∣ m`), and `λ_p` is real (`UpperHalfPlane.IsMaassNewform.conj_heckeEigenvalue`,
 from the self-adjointness of `T_p`). By induction on `n`, the coefficients `a(n) / a(1)` of the
 newform normalised by `a(1) = 1` are real for every `n` prime to `N`, and if `a(1) = 0`, then
-`a(n) = 0` for every `n` prime to `N`; at level `1` this forces `F = 0`, so `a(1) ≠ 0`.
+`a(n) = 0` for every `n` prime to `N`.
 
 At every level `N ≠ 0`, `a(1) ≠ 0` and `a(n) / a(1)` is real for every `n`, `gcd(n, N) > 1` included
 (`UpperHalfPlane.IsMaassNewform.coeff_one_ne_zero_of_cosine`,
@@ -30,9 +30,6 @@ needed; the definition `IsMaassNewform` only asks for the `T_p`, `p ∤ N`.
 * `UpperHalfPlane.IsMaassNewform.conj_coeff_div_of_hasMaassCosineExpansion`,
   `UpperHalfPlane.IsMaassNewform.conj_coeff_div_of_hasMaassSineExpansion`: the coefficients
   `a(n) / a(1)`, `n` prime to `N`, of the normalised Maass newform are real.
-* `UpperHalfPlane.IsMaassNewform.coeff_one_ne_zero_of_hasMaassCosineExpansion`,
-  `UpperHalfPlane.IsMaassNewform.coeff_one_ne_zero_of_hasMaassSineExpansion`: a Maass newform of
-  level `1` has `a(1) ≠ 0`.
 -/
 
 open scoped ComplexConjugate
@@ -179,31 +176,5 @@ lemma IsMaassNewform.conj_coeff_div_of_hasMaassSineExpansion (hF : IsMaassNewfor
   conj_coeff_div_of_coprime hc1 (fun _ hp hpN ↦
     (hF.exists_maassHeckeOperator_eq hp hpN).imp fun _ he ↦ ⟨he.1, hc.coeff_mul_add_eq hp he.2⟩)
     hn
-
-/-- **A Maass newform of level `1` with a cosine expansion has `a(1) ≠ 0`**: otherwise the Hecke
-relations give `a(n) = 0` for every `n`, and the expansion gives `F = 0`. -/
-lemma IsMaassNewform.coeff_one_ne_zero_of_hasMaassCosineExpansion
-    (hF : IsMaassNewform 1 1 eigenvalue F) (hc : HasMaassCosineExpansion (F ∘ ofComplex) r c) :
-    c 1 ≠ 0 := by
-  intro hc1
-  have hc0 (n : ℕ+) : c n = 0 := coeff_eq_zero_of_coprime hc1 (fun _ hp hpN ↦
-    (hF.exists_maassHeckeOperator_eq hp hpN).imp fun _ he ↦ hc.coeff_mul_add_eq hp he.2)
-    (Nat.coprime_one_right _)
-  refine hF.2.1 (funext fun τ ↦ ?_)
-  have h : (F ∘ ofComplex) τ = 0 := (hc τ).unique (by simp [hc0])
-  simpa using h
-
-/-- **A Maass newform of level `1` with a sine expansion has `a(1) ≠ 0`**: otherwise the Hecke
-relations give `a(n) = 0` for every `n`, and the expansion gives `F = 0`. -/
-lemma IsMaassNewform.coeff_one_ne_zero_of_hasMaassSineExpansion
-    (hF : IsMaassNewform 1 1 eigenvalue F) (hc : HasMaassSineExpansion (F ∘ ofComplex) r c) :
-    c 1 ≠ 0 := by
-  intro hc1
-  have hc0 (n : ℕ+) : c n = 0 := coeff_eq_zero_of_coprime hc1 (fun _ hp hpN ↦
-    (hF.exists_maassHeckeOperator_eq hp hpN).imp fun _ he ↦ hc.coeff_mul_add_eq hp he.2)
-    (Nat.coprime_one_right _)
-  refine hF.2.1 (funext fun τ ↦ ?_)
-  have h : (F ∘ ofComplex) τ = 0 := (hc τ).unique (by simp [hc0])
-  simpa using h
 
 end UpperHalfPlane

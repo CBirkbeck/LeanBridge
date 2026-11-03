@@ -18,10 +18,13 @@ basis `e₀^a e₁^b` to `X^b`. The unipotent `(1, 1; 0, 1)` acts on its image b
 ## Main definitions
 
 * `SiegelUpperHalfSpace.symDehomogenize`: the linear map `Ψ : Sym^j(ℂ²) → ℂ[X]`.
+* `SiegelUpperHalfSpace.symConstCoeff`: the linear form `ψ` on `Sym^j(ℂ²)` with `ψ(e₁^j) = 1`.
 
 ## Main results
 
 * `SiegelUpperHalfSpace.symDehomogenize_injective`: `Ψ` is injective.
+* `SiegelUpperHalfSpace.eq_smul_tprod_of_symPowerRep_eq`: the vectors fixed by `(1, 1; 0, 1)` are
+  the multiples of `e₁^j`.
 * `SiegelUpperHalfSpace.eq_zero_of_isGLIntInvariant`: no nonzero vector of `Sym^j(ℂ²)`, `j > 0`, is
   fixed by `ρ_{k,j}(GL(2, ℤ))`.
 * `SiegelUpperHalfSpace.siegelEisensteinSubspaceKJ_eq_bot`: `E_{j,k}(Γ₂) = 0` for `j > 0`.
@@ -61,19 +64,21 @@ noncomputable def symDehomogenize : Sym[ℂ]^j (Fin 2 → ℂ) →ₗ[ℂ] ℂ[X
 variable {j}
 
 private lemma symDehomogenize_tprod (m : Fin j → Fin 2 → ℂ) :
-    symDehomogenize j (⨂ₛ[ℂ] i, m i) = ∏ i, dehomLinear (m i) :=
-  (SymmetricPower.lift_tprod _ _ m).trans (dehomMultilinear_apply j m)
+    symDehomogenize j (⨂ₛ[ℂ] i, m i) = ∏ i, (C (m i 0) + C (m i 1) * X) :=
+  (SymmetricPower.lift_tprod _ _ m).trans <| (dehomMultilinear_apply j m).trans <|
+    Finset.prod_congr rfl fun i _ ↦ dehomLinear_apply (m i)
 
-private lemma prod_dehomLinear_single (f : Fin j → Fin 2) :
-    ∏ i, dehomLinear (Pi.single (f i) 1) = X ^ (List.ofFn f).count 1 := by
+private lemma prod_C_add_C_mul_X_single (f : Fin j → Fin 2) : ∏ i,
+    (C ((Pi.single (f i) 1 : Fin 2 → ℂ) 0) + C ((Pi.single (f i) 1 : Fin 2 → ℂ) 1) * X) =
+      X ^ (List.ofFn f).count 1 := by
   induction j with
   | zero => simp
   | succ n ih =>
     rw [Fin.prod_univ_succ, ih, List.ofFn_succ, List.count_cons]
     rcases hf : f 0 with ⟨a, ha⟩
     interval_cases a
-    · simp [dehomLinear_apply]
-    · simp [dehomLinear_apply, pow_succ, mul_comm]
+    · simp
+    · simp [pow_succ, mul_comm]
 
 private lemma count_zero_add_count_one (m : Multiset (Fin 2)) :
     m.count 0 + m.count 1 = Multiset.card m :=
@@ -97,7 +102,7 @@ private lemma symDehomogenize_basis (s : Sym (Fin 2) j) :
   rcases Sym.ofFn_surjective s with ⟨f, rfl⟩
   rw [Basis.symmetricPower_apply, SymmetricPower.tprodOfSym_ofFn, symDehomogenize_tprod]
   simp only [Pi.basisFun_apply]
-  rw [prod_dehomLinear_single, Sym.coe_ofFn, Multiset.coe_count]
+  rw [prod_C_add_C_mul_X_single, Sym.coe_ofFn, Multiset.coe_count]
 
 /-- **`Ψ` is injective**, sending the basis `e₀^a e₁^b` to the distinct monomials `X^b`. -/
 lemma symDehomogenize_injective : Function.Injective (symDehomogenize j) := by
@@ -123,10 +128,67 @@ lemma symDehomogenize_injective : Function.Injective (symDehomogenize j) := by
   · intro hs
     simpa using hs
 
+variable (j) in
+/-- The linear form `ψ` on `Sym^j(ℂ²)` with `ψ(e₁^j) = 1`, the constant term of the dehomogenisation
+`u₁ ⋯ u_j ↦ ∏ᵢ (uᵢ₀ + uᵢ₁ X)`. -/
+noncomputable def symConstCoeff : Dual ℂ (Sym[ℂ]^j (Fin 2 → ℂ)) :=
+  Polynomial.leval 0 ∘ₗ symDehomogenize j
+
+lemma symConstCoeff_tprod_single : symConstCoeff j (⨂ₛ[ℂ] _ : Fin j, Pi.single 0 1) = 1 := by
+  simp [symConstCoeff, symDehomogenize_tprod]
+
+private lemma symPowerRep_tprod (g : GL (Fin 2) ℂ) (m : Fin j → Fin 2 → ℂ) :
+    symPowerRep ℂ 2 j g (⨂ₛ[ℂ] i, m i) = ⨂ₛ[ℂ] i, (g : Matrix (Fin 2) (Fin 2) ℂ) *ᵥ m i :=
+  Representation.symmetricPower_apply_tprod _ _ _ _
+
+private lemma symDehomogenize_unipotent (x : Sym[ℂ]^j (Fin 2 → ℂ)) : symDehomogenize j
+    (symPowerRep ℂ 2 j (GeneralLinearGroup.map (Int.castRingHom ℂ) (T : GL (Fin 2) ℤ)) x) =
+      (symDehomogenize j x).comp (X + 1) := by
+  have hx : x ∈ Submodule.span ℂ (Set.range (SymmetricPower.tprod ℂ)) := by
+    rw [SymmetricPower.span_tprod_eq_top]
+    exact Submodule.mem_top
+  induction hx using Submodule.span_induction with
+  | mem x hx =>
+    rcases hx with ⟨m, rfl⟩
+    rw [symPowerRep_tprod, symDehomogenize_tprod, symDehomogenize_tprod, prod_comp]
+    refine Finset.prod_congr rfl fun i _ ↦ ?_
+    simp [mulVec]
+    ring1
+  | zero => simp
+  | add x y _ _ hx hy =>
+    rw [map_add, map_add, map_add, hx, hy, add_comp]
+  | smul a x _ hx =>
+    rw [map_smul, map_smul, map_smul, hx, smul_comp]
+
 variable (k : ℤ) {v : Sym[ℂ]^j (Fin 2 → ℂ)}
 
-private lemma symPowerRep_eq_of_mem (hv : IsGLIntInvariant (rhoKJ k j) v) (g : SL(2, ℤ)) :
-    symPowerRep ℂ 2 j (GeneralLinearGroup.map (Int.castRingHom ℂ) (g : GL (Fin 2) ℤ)) v = v := by
+/-- **The vectors fixed by the unipotent `(1, 1; 0, 1)` are the multiples of `e₁^j`.** -/
+lemma eq_smul_tprod_of_symPowerRep_eq
+    (hv : symPowerRep ℂ 2 j (GeneralLinearGroup.map (Int.castRingHom ℂ) (T : GL (Fin 2) ℤ)) v = v) :
+    v = symConstCoeff j v • ⨂ₛ[ℂ] _ : Fin j, (Pi.single 0 1 : Fin 2 → ℂ) := by
+  have hu : (symDehomogenize j v).comp (X + 1) = symDehomogenize j v := by
+    rw [← symDehomogenize_unipotent, hv]
+  have heval (n : ℕ) : (symDehomogenize j v).eval (n : ℂ) = (symDehomogenize j v).eval 0 := by
+    induction n with
+    | zero => simp
+    | succ n ih =>
+      rw [← ih]
+      conv_rhs => rw [← hu]
+      simp
+  have hC : symDehomogenize j v = C ((symDehomogenize j v).eval 0) := by
+    refine eq_of_infinite_eval_eq _ _ ((Set.infinite_range_of_injective Nat.cast_injective).mono ?_)
+    rintro _ ⟨n, rfl⟩
+    simpa using heval n
+  refine symDehomogenize_injective ?_
+  rw [map_smul, symDehomogenize_tprod, smul_eq_C_mul]
+  simp only [Pi.single_eq_same, map_one, ne_eq, one_ne_zero, not_false_eq_true, Pi.single_eq_of_ne,
+    map_zero, zero_mul, add_zero, Finset.prod_const_one, mul_one]
+  exact hC
+
+variable (v) in
+lemma rhoKJ_eq_symPowerRep (g : SL(2, ℤ)) :
+    rhoKJ k j (GeneralLinearGroup.map (Int.castRingHom ℂ) (g : GL (Fin 2) ℤ)) v =
+      symPowerRep ℂ 2 j (GeneralLinearGroup.map (Int.castRingHom ℂ) (g : GL (Fin 2) ℤ)) v := by
   have hdet : (GeneralLinearGroup.map (Int.castRingHom ℂ) (g : GL (Fin 2) ℤ)).det = 1 := by
     refine Units.ext ?_
     rw [GeneralLinearGroup.val_det_apply, Units.val_one]
@@ -138,62 +200,19 @@ private lemma symPowerRep_eq_of_mem (hv : IsGLIntInvariant (rhoKJ k j) v) (g : S
       (((GeneralLinearGroup.map (Int.castRingHom ℂ) (g : GL (Fin 2) ℤ)).det ^ k : ℂˣ) : ℂ) •
         symPowerRep ℂ 2 j (GeneralLinearGroup.map (Int.castRingHom ℂ) (g : GL (Fin 2) ℤ)) v :=
     rfl
-  rw [hdet, one_zpow, Units.val_one, one_smul] at h
-  exact h.symm.trans (hv g)
+  rw [hdet] at h
+  simpa using h
 
-private lemma symPowerRep_tprod (g : GL (Fin 2) ℂ) (m : Fin j → Fin 2 → ℂ) :
-    symPowerRep ℂ 2 j g (⨂ₛ[ℂ] i, m i) = ⨂ₛ[ℂ] i, (g : Matrix (Fin 2) (Fin 2) ℂ) *ᵥ m i :=
-  Representation.symmetricPower_apply_tprod _ _ _ _
-
-private lemma symDehomogenize_unipotent (x : Sym[ℂ]^j (Fin 2 → ℂ)) :
-    symDehomogenize j (symPowerRep ℂ 2 j
-      (GeneralLinearGroup.map (Int.castRingHom ℂ) (T : GL (Fin 2) ℤ)) x) =
-        (symDehomogenize j x).comp (X + 1) := by
-  have hx : x ∈ Submodule.span ℂ (Set.range (SymmetricPower.tprod ℂ)) := by
-    rw [SymmetricPower.span_tprod_eq_top]
-    exact Submodule.mem_top
-  induction hx using Submodule.span_induction with
-  | mem x hx =>
-    rcases hx with ⟨m, rfl⟩
-    rw [symPowerRep_tprod, symDehomogenize_tprod, symDehomogenize_tprod, prod_comp]
-    refine Finset.prod_congr rfl fun i _ ↦ ?_
-    simp [dehomLinear_apply, mulVec]
-    ring1
-  | zero => simp
-  | add x y _ _ hx hy =>
-    rw [map_add, map_add, map_add, hx, hy, add_comp]
-  | smul a x _ hx =>
-    rw [map_smul, map_smul, map_smul, hx, smul_comp]
-
-private lemma symDehomogenize_eq_C (hv : IsGLIntInvariant (rhoKJ k j) v) :
-    symDehomogenize j v = C ((symDehomogenize j v).eval 0) := by
-  have hu : (symDehomogenize j v).comp (X + 1) = symDehomogenize j v := by
-    rw [← symDehomogenize_unipotent, symPowerRep_eq_of_mem k hv T]
-  have heval (n : ℕ) : (symDehomogenize j v).eval (n : ℂ) = (symDehomogenize j v).eval 0 := by
-    induction n with
-    | zero => simp
-    | succ n ih =>
-      rw [← ih]
-      conv_rhs => rw [← hu]
-      simp
-  refine eq_of_infinite_eval_eq _ _ ((Set.infinite_range_of_injective
-    (Nat.cast_injective (R := ℂ))).mono ?_)
-  rintro _ ⟨n, rfl⟩
-  simpa using heval n
+private lemma symPowerRep_eq_of_mem (hv : IsGLIntInvariant (rhoKJ k j) v) (g : SL(2, ℤ)) :
+    symPowerRep ℂ 2 j (GeneralLinearGroup.map (Int.castRingHom ℂ) (g : GL (Fin 2) ℤ)) v = v :=
+  (rhoKJ_eq_symPowerRep k v g).symm.trans (hv g)
 
 /-- **No nonzero vector of `Sym^j(ℂ²)`, `j > 0`, is fixed by `ρ_{k,j}(GL(2, ℤ))`**: `(1, 1; 0, 1)`
 forces `v = c e₀^j`, and `(0, -1; 1, 0)` sends it to `c e₁^j`. -/
 lemma eq_zero_of_isGLIntInvariant (hj : j ≠ 0) (hv : IsGLIntInvariant (rhoKJ k j) v) : v = 0 := by
-  have hC : symDehomogenize j v = C ((symDehomogenize j v).eval 0) :=
-    symDehomogenize_eq_C k hv
-  generalize (symDehomogenize j v).eval 0 = c at hC
-  have h₀ : ∏ _ : Fin j, dehomLinear (Pi.single 0 1) = 1 := by
-    simp [dehomLinear_apply]
-  have h₁ : ∏ _ : Fin j, dehomLinear (Pi.single 1 1) = X ^ j := by
-    simp [dehomLinear_apply]
-  have hv₀ : v = c • ⨂ₛ[ℂ] _ : Fin j, (Pi.single 0 1 : Fin 2 → ℂ) := by
-    refine symDehomogenize_injective ?_
-    rw [map_smul, symDehomogenize_tprod, hC, h₀, smul_eq_C_mul, mul_one]
+  have hv₀ : v = symConstCoeff j v • ⨂ₛ[ℂ] _ : Fin j, (Pi.single 0 1 : Fin 2 → ℂ) :=
+    eq_smul_tprod_of_symPowerRep_eq (symPowerRep_eq_of_mem k hv T)
+  generalize symConstCoeff j v = c at hv₀
   have hw :
       symPowerRep ℂ 2 j (GeneralLinearGroup.map (Int.castRingHom ℂ) (S : GL (Fin 2) ℤ)) v = v :=
     symPowerRep_eq_of_mem k hv S
@@ -205,7 +224,11 @@ lemma eq_zero_of_isGLIntInvariant (hj : j ≠ 0) (hv : IsGLIntInvariant (rhoKJ k
   have h₂ : symDehomogenize j (c • ⨂ₛ[ℂ] _ : Fin j, (Pi.single 1 1 : Fin 2 → ℂ)) =
       symDehomogenize j (c • ⨂ₛ[ℂ] _ : Fin j, (Pi.single 0 1 : Fin 2 → ℂ)) :=
     congrArg _ hw
-  rw [map_smul, map_smul, symDehomogenize_tprod, symDehomogenize_tprod, h₀, h₁] at h₂
+  have h₀ : symDehomogenize j (⨂ₛ[ℂ] _ : Fin j, (Pi.single 0 1 : Fin 2 → ℂ)) = 1 := by
+    simp [symDehomogenize_tprod]
+  have h₁ : symDehomogenize j (⨂ₛ[ℂ] _ : Fin j, (Pi.single 1 1 : Fin 2 → ℂ)) = X ^ j := by
+    simp [symDehomogenize_tprod]
+  rw [map_smul, map_smul, h₀, h₁] at h₂
   have h₃ : c = 0 := by
     have e₂ : coeff (c • X ^ j : ℂ[X]) j = coeff (c • (1 : ℂ[X])) j :=
       congrArg (fun p ↦ coeff p j) h₂

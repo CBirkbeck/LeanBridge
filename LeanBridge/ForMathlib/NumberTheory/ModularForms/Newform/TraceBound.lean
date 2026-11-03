@@ -13,9 +13,8 @@ of a newform being the degree of its coefficient field).
 
 Some `m` distinguishes the Galois orbits, by the linear independence of the trace forms, whose
 coefficients are these traces as every Galois conjugate of a newform is a newform. This is
-`HeckeRing.GL2.Newform.exists_tracesDistinguish`, in `Newform/GaloisOrbitInvariants.lean`, so the
-trace bound, which is `0` if no `m` works, is positive
-(`HeckeRing.GL2.Newform.traceBound_pos_of_newform`).
+`HeckeRing.GL2.Newform.exists_tracesDistinguishNewforms`, in `Newform/TraceBoundExists.lean`, so the
+trace bound, which is `0` if no `m` works, is positive (`HeckeRing.GL2.Newform.traceBound_pos`).
 
 ## Main definitions
 
@@ -34,7 +33,7 @@ trace bound, which is `0` if no `m` works, is positive
   the space have coefficient fields of distinct degrees.
 -/
 
-open UpperHalfPlane TauCeti
+open TauCeti
 
 namespace HeckeRing.GL2.Newform
 
@@ -73,22 +72,12 @@ variable (N k χ) in
 /-- The **trace bound** of the space of newforms `S_k^{new}(N, χ)` (LMFDB `cmf.trace_bound`): the
 least `m ≥ 1` such that the traces `Tr_{ℚ(f)/ℚ}(aₙ)` for `1 ≤ n ≤ m` distinguish the Galois orbits
 of the newforms of nebentypus `χ`. It is `0` if there is no such `m`, which does not happen
-(`traceBound_pos_of_newform`, in `Newform/GaloisOrbitInvariants.lean`). -/
+(`traceBound_pos`, in `Newform/TraceBoundExists.lean`). -/
 noncomputable def traceBound : ℕ :=
   sInf {m | 0 < m ∧ TracesDistinguishNewforms N k χ m}
 
-variable (hne : {m | 0 < m ∧ TracesDistinguishNewforms N k χ m}.Nonempty)
-
 lemma traceBound_le (hm : 0 < m) (h : TracesDistinguishNewforms N k χ m) : traceBound N k χ ≤ m :=
   Nat.sInf_le ⟨hm, h⟩
-
-include hne in
-lemma traceBound_pos : 0 < traceBound N k χ :=
-  (Nat.sInf_mem hne).1
-
-include hne in
-lemma tracesDistinguishNewforms_traceBound : TracesDistinguishNewforms N k χ (traceBound N k χ) :=
-  (Nat.sInf_mem hne).2
 
 /-- **The trace bound is `1` when the degrees of the coefficient fields distinguish the Galois
 orbits** of the newforms of nebentypus `χ`, the trace of `a₁` being the degree. -/
@@ -98,6 +87,6 @@ lemma traceBound_eq_one (h : ∀ f g : Newform N k, f.χ = χ → g.χ = χ →
   have h₁ : TracesDistinguishNewforms N k χ 1 :=
     fun f g hf hg hfg ↦ h f g hf hg <| by
       exact_mod_cast (f.coeffTrace_one.symm.trans (hfg 1 ⟨le_rfl, le_rfl⟩)).trans g.coeffTrace_one
-  exact le_antisymm (traceBound_le one_pos h₁) (traceBound_pos ⟨1, one_pos, h₁⟩)
+  exact IsLeast.csInf_eq ⟨⟨one_pos, h₁⟩, fun _ hm ↦ hm.1⟩
 
 end HeckeRing.GL2.Newform

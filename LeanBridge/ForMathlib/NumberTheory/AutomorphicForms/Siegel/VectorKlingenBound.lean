@@ -177,12 +177,6 @@ noncomputable def imK (W : Matrix (Fin 2) (Fin 2) ℂ) : ℝ :=
     ((|(W 0 0).im| + |(W 0 1).im| + |(W 1 1).im|) /
       ((W 0 0).im * (W 1 1).im - (W 0 1).im * (W 1 0).im))
 
-lemma im_zero_zero_pos : 0 < (Z.val 0 0).im := by
-  simpa using Z.posDef_im.diag_pos (i := 0)
-
-lemma im_one_one_pos : 0 < (Z.val 1 1).im := by
-  simpa using Z.posDef_im.diag_pos (i := 1)
-
 lemma det_im_pos : 0 < (Z.val 0 0).im * (Z.val 1 1).im - (Z.val 0 1).im * (Z.val 1 0).im := by
   simpa [det_fin_two] using Z.posDef_im.det_pos
 

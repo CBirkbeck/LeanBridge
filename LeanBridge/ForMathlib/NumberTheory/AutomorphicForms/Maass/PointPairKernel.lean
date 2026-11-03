@@ -62,7 +62,7 @@ variable (w) in
 noncomputable def coshDist : ℝ :=
   ((w.re - z.re) ^ 2 + w.im ^ 2 + z.im ^ 2) / (2 * z.im * w.im)
 
-lemma cosh_dist_eq_coshDist (τ : ℍ) : Real.cosh (dist z τ) = coshDist z τ := by
+lemma cosh_dist_eq_coshDist (τ : ℍ) : (dist z τ).cosh = coshDist z τ := by
   rw [cosh_dist', coshDist, coe_re, coe_im]
   congr 1
   ring1
@@ -199,16 +199,16 @@ on `[C, ∞)`, it is smooth with compact support in `ℍ`. -/
 noncomputable def coshDistKernel : ℝ :=
   if 0 < w.im then φ (coshDist z w) else 0
 
-lemma coshDistKernel_coe (τ : ℍ) : coshDistKernel z φ τ = φ (Real.cosh (dist z τ)) := by
+lemma coshDistKernel_coe (τ : ℍ) : coshDistKernel z φ τ = φ (dist z τ).cosh := by
   have hw : 0 < (τ : ℂ).im := τ.im_pos
   rw [coshDistKernel, ite_eq_left hw, cosh_dist_eq_coshDist]
 
-lemma half_le_cosh (d : ℝ) : d / 2 ≤ Real.cosh d := by
+lemma half_le_cosh (d : ℝ) : d / 2 ≤ d.cosh := by
   rw [Real.cosh_eq]
   linarith [Real.add_one_le_exp d, Real.exp_pos (-d)]
 
 lemma comp_cosh_dist_eq_zero (hφ0 : ∀ c, C ≤ c → φ c = 0) {τ : ℍ}
-    (hτ : τ ∉ closedBall z (2 * |C|)) : φ (Real.cosh (dist z τ)) = 0 := by
+    (hτ : τ ∉ closedBall z (2 * |C|)) : φ (dist z τ).cosh = 0 := by
   refine hφ0 _ ?_
   have h : 2 * |C| < dist z τ := by
     rw [mem_closedBall, not_le, dist_comm] at hτ
@@ -226,7 +226,7 @@ lemma coshDistKernel_eq_zero (hφ0 : ∀ c, C ≤ c → φ c = 0)
     (hw : w ∉ ((↑) : ℍ → ℂ) '' closedBall z (2 * |C|)) : coshDistKernel z φ w = 0 := by
   by_cases him : 0 < w.im
   · have h : (⟨w, him⟩ : ℍ) ∉ closedBall z (2 * |C|) := fun h ↦ hw ⟨_, h, rfl⟩
-    have h1 : coshDistKernel z φ (⟨w, him⟩ : ℍ) = φ (Real.cosh (dist z ⟨w, him⟩)) :=
+    have h1 : coshDistKernel z φ (⟨w, him⟩ : ℍ) = φ (dist z ⟨w, him⟩).cosh :=
       coshDistKernel_coe z ⟨w, him⟩
     rw [comp_cosh_dist_eq_zero z hφ0 h] at h1
     exact h1
@@ -266,8 +266,8 @@ lemma contDiff_coshDistKernel (hφ : ContDiff ℝ ∞ φ) (hφ0 : ∀ c, C ≤ c
 `ℍ`, `∫_ℍ φ(cosh d(z, w)) Δf(w) dμ(w) = ∫_ℍ (radialLaplacian φ)(cosh d(z, w)) f(w) dμ(w)`. -/
 lemma integral_kernel_mul_hyperbolicLaplacian (hφ : ContDiff ℝ ∞ φ) (hφ0 : ∀ c, C ≤ c → φ c = 0)
     (hf : ContDiffOn ℝ ∞ f {w | 0 < w.im}) :
-    ∫ w : ℍ, (φ (Real.cosh (dist z w)) : ℂ) * hyperbolicLaplacian f w =
-      ∫ w : ℍ, (radialLaplacian φ (Real.cosh (dist z w)) : ℂ) * f w := by
+    ∫ w : ℍ, (φ (dist z w).cosh : ℂ) * hyperbolicLaplacian f w =
+      ∫ w : ℍ, (radialLaplacian φ (dist z w).cosh : ℂ) * f w := by
   have h : ∫ w : ℍ, (coshDistKernel z φ w : ℂ) * hyperbolicLaplacian f w =
       ∫ w : ℍ, hyperbolicLaplacian (fun c ↦ (coshDistKernel z φ c : ℂ)) w * f w :=
     integral_mul_hyperbolicLaplacian_eq (contDiff_coshDistKernel z hφ hφ0)

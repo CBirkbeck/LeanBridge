@@ -73,7 +73,7 @@ noncomputable def thetaFourthStabilizer : Subgroup (symplecticGroup (Fin 2) ℤ)
 lemma mem_thetaFourthStabilizer_iff : γ ∈ thetaFourthStabilizer ↔ ∀ μ ν : Fin 2 → ℤ,
     slash (TauCeti.detPowerRep ℂ 2 2) (map (Int.castRingHom ℝ) γ) (thetaConstant μ ν ^ 4) =
       thetaConstant μ ν ^ 4 := by
-  simp [thetaFourthStabilizer, slashCharStabilizer]
+  simp [thetaFourthStabilizer, slashCharStabilizerOf]
 
 lemma slash_thetaConstant_pow_four_of_mem_siegelParabolic (hp : p ∈ siegelParabolic (Fin 2) ℤ) :
     letI S : Matrix (Fin 2) (Fin 2) ℤ := p.1.toBlocks₁₂ * p.1.toBlocks₁₁ᵀ
