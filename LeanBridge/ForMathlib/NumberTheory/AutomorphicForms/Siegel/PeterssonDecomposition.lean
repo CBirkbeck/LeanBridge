@@ -53,8 +53,8 @@ variable {l : Type*} [Fintype l] [DecidableEq l] (Γ : Subgroup (Matrix.symplect
 (`SiegelUpperHalfSpace.fundamentalDomain`), and the Petersson product `⟨f, f⟩` of `f ∈ S` with
 itself vanishes only for `f = 0`. For the cusp forms `S = S_ρ(Γ)` on an arithmetic subgroup `Γ`
 and a positive definite admissible Hermitian form `b`, this is a theorem (the integral converges
-absolutely for cusp forms, and the integrand of `⟨f, f⟩` is nonnegative and continuous), which is
-not proved here. -/
+absolutely for cusp forms, and the integrand of `⟨f, f⟩` is nonnegative and continuous), proved for
+`Γ = Sp(4, ℤ)` (`SiegelUpperHalfSpace.isPeterssonDefinite_cuspForms`) and not here for other `Γ`. -/
 structure IsPeterssonDefinite : Prop where
   integrableOn (f g : SiegelUpperHalfSpace l → V) : f ∈ S → g ∈ S →
     IntegrableOn (peterssonIntegrand ρ b f g) (fundamentalDomain Γ) (invariantMeasure l)

@@ -10,7 +10,8 @@ stability of `M_{j,k}(Γ₂)` and of `S_{j,k}(Γ₂)`. An element `α` of the mo
 `GSp(4, ℚ)⁺ ∩ M₄(ℤ)` of Hecke operators has multiplier a positive integer `r`, and
 `α = diag(r, r, 1, 1) γ` with `γ ∈ Sp(4, ℚ)`, so the slash operator of `α` is the composite of those
 of `diag(r, r, 1, 1)` and of `γ`, which preserve cusp forms. The stability of `N_{j,k}(Γ₂)`, which
-needs the adjoints of the Hecke operators for the Petersson product, is not proved here.
+needs the adjoints of the Hecke operators for the Petersson product, is
+`SiegelUpperHalfSpace.heckeOperator_mem_cuspFormsOrthogonalKJ`.
 
 ## Main results
 

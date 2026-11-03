@@ -10,9 +10,11 @@ integrand vanishes almost everywhere on `𝔉`, hence on `ℋ_g` by its invarian
 vanishes almost everywhere, and everywhere, being holomorphic. In scalar weight `k` with
 `b(v, w) = v w̄`, `b(ρ(Y) v, v) = det(Y)^k |v|²`. So the decomposition
 `S_k(K(N)) = S_k^old(K(N)) ⊕ S_k^new(K(N))` of the paramodular cusp forms of scalar weight (LMFDB
-`mf.siegel.newspace`, `mf.siegel.newform`) holds as soon as `S_k(K(N))` is finite-dimensional,
-`K(N)` has a fundamental domain and the Petersson integrals of cusp forms converge, three theorems
-which are not proved here.
+`mf.siegel.newspace`, `mf.siegel.newform`) holds as soon as `S_k(K(N))` is finite-dimensional and
+the Petersson integrals of cusp forms converge, two theorems which are not proved here; `K(N)` has a
+fundamental domain (`SiegelUpperHalfSpace.exists_isFundamentalDomain`). For `Sp(4, ℤ)` these are
+`SiegelUpperHalfSpace.finiteDimensional_cuspFormsKJ` and
+`SiegelUpperHalfSpace.isPeterssonDefinite_cuspForms`.
 
 ## Main results
 
@@ -124,8 +126,9 @@ for `f = 0`, provided `Γ` has a fundamental domain and `b(ρ(Im τ) v, v) > 0` 
 positive definite admissible `b` (for scalar weight, `flip_innerₛₗ_detPowerRep_pos`). Indeed the
 integrand `b(ρ(Im τ) f(τ), f(τ))` is then nonnegative, so it vanishes almost everywhere on the
 fundamental domain, hence almost everywhere by its invariance under `Γ`, and so does `f`, which is
-holomorphic, hence vanishes. The convergence of the integrals and the existence of a fundamental
-domain are theorems for the cusp forms on an arithmetic `Γ`, which are not proved here. -/
+holomorphic, hence vanishes. A fundamental domain exists for an arithmetic `Γ`
+(`SiegelUpperHalfSpace.exists_isFundamentalDomain`). The convergence of the integrals is proved for
+`Sp(4, ℤ)` (`SiegelUpperHalfSpace.isPeterssonDefinite_cuspForms`), and not here for other `Γ`. -/
 lemma IsPeterssonDefinite.of_integrableOn (hpos : ∀ τ (v : V), v ≠ 0 → 0 < b (ρ (imGL τ) v) v)
     (hF : ∃ F, IsFundamentalDomain (transformationGroup Γ) F (invariantMeasure l))
     (hS : S ≤ modularForms ρ Γ 1)
@@ -179,8 +182,9 @@ lemma flip_innerₛₗ_detPowerRep_pos (τ : SiegelUpperHalfSpace (Fin n)) {v : 
 variable {k} {N : ℕ+}
 
 /-- **The Petersson product of paramodular cusp forms of scalar weight is definite**: for
-`b(v, w) = v w̄`, `⟨F, F⟩ = 0` only for `F = 0` in `S_k(K(N))`, provided `K(N)` has a fundamental
-domain and the Petersson integrals of cusp forms converge, theorems which are not proved here. -/
+`b(v, w) = v w̄`, `⟨F, F⟩ = 0` only for `F = 0` in `S_k(K(N))`, provided the Petersson integrals of
+cusp forms converge, which is not proved here (`K(N)` has a fundamental domain by
+`SiegelUpperHalfSpace.exists_isFundamentalDomain`). -/
 lemma isPeterssonDefinite_paramodularCuspForms_detPowerRep
     (hF : ∃ F, IsFundamentalDomain (transformationGroup (paramodularLevel N)) F
       (invariantMeasure (Fin 2)))
@@ -195,8 +199,8 @@ lemma isPeterssonDefinite_paramodularCuspForms_detPowerRep
 
 /-- **No nonzero paramodular cusp form of scalar weight is both old and new** (LMFDB
 `mf.siegel.newspace`, `mf.siegel.newform`): `S_k^old(K(N)) ∩ S_k^new(K(N)) = 0` for the Petersson
-inner product, provided `K(N)` has a fundamental domain and the Petersson integrals of cusp forms
-converge, theorems which are not proved here. -/
+inner product, provided the Petersson integrals of cusp forms converge, which is not proved here
+(`K(N)` has a fundamental domain by `SiegelUpperHalfSpace.exists_isFundamentalDomain`). -/
 lemma disjoint_paramodularOldSubspace_paramodularNewSubspace_detPowerRep
     (hF : ∃ F, IsFundamentalDomain (transformationGroup (paramodularLevel N)) F
       (invariantMeasure (Fin 2)))
@@ -211,8 +215,9 @@ lemma disjoint_paramodularOldSubspace_paramodularNewSubspace_detPowerRep
 
 /-- **The paramodular cusp forms of scalar weight are the direct sum of the old and new forms**
 (LMFDB `mf.siegel.newspace`, `mf.siegel.newform`): `S_k(K(N)) = S_k^old(K(N)) ⊕ S_k^new(K(N))` for
-the Petersson inner product, provided `S_k(K(N))` is finite-dimensional, `K(N)` has a fundamental
-domain and the Petersson integrals of cusp forms converge, theorems which are not proved here. -/
+the Petersson inner product, provided `S_k(K(N))` is finite-dimensional and the Petersson integrals
+of cusp forms converge, which is not proved here (`K(N)` has a fundamental domain by
+`SiegelUpperHalfSpace.exists_isFundamentalDomain`). -/
 lemma paramodularOldSubspace_sup_paramodularNewSubspace_detPowerRep
     [FiniteDimensional ℂ (paramodularCuspForms (TauCeti.detPowerRep ℂ 2 k) N)]
     (hF : ∃ F, IsFundamentalDomain (transformationGroup (paramodularLevel N)) F

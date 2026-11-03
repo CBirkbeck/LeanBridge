@@ -21,8 +21,9 @@ The group `Γ` acts on `ℋ_g` through its image in the permutations of `ℋ_g`,
 trivially: fundamental domains are those of this image. The LMFDB has no knowl for the Petersson
 inner product of Siegel modular forms; it uses it to define new subspaces and the orthogonal
 complement of the cusp forms. No normalisation by the volume of `Γ \ ℋ_g` is made, which does not
-affect orthogonality. The integral converges when one of `f`, `g` is a cusp form, which is not
-proved here.
+affect orthogonality. The integral converges when one of `f`, `g` is a cusp form: for `Sp(4, ℤ)`
+this is `SiegelUpperHalfSpace.integrableOn_peterssonIntegrand`, and it is not proved here for other
+groups.
 
 ## Main definitions
 
@@ -149,7 +150,7 @@ open scoped Classical in
 /-- A **fundamental domain** of `Γ` for its action on the Siegel upper half-space through
 `SiegelUpperHalfSpace.transformationGroup`, measurable up to null sets with respect to the
 invariant measure: a chosen one, or `∅` if there is none. For arithmetic `Γ` a fundamental domain
-exists (Siegel), which is not proved here. -/
+exists, and this is one (`SiegelUpperHalfSpace.isFundamentalDomain_fundamentalDomain`). -/
 noncomputable def fundamentalDomain : Set (SiegelUpperHalfSpace l) :=
   if h : ∃ F, IsFundamentalDomain (transformationGroup Γ) F (invariantMeasure l) then h.choose
   else ∅
@@ -162,7 +163,8 @@ fundamental domain `𝔉` of `Γ` (`SiegelUpperHalfSpace.fundamentalDomain`). Fo
 of weight `ρ` with a unitary character, and `b` admissible, it is the integral over any fundamental
 domain (`SiegelUpperHalfSpace.peterssonProduct_eq_setIntegral`). It is linear in `f` and
 conjugate-linear in `g` where the integrals converge, which they do when `f` or `g` is a cusp form
-(not proved here); elsewhere it takes the value of the Bochner integral. -/
+on `Sp(4, ℤ)` (`SiegelUpperHalfSpace.integrableOn_peterssonIntegrand`; not proved here for other
+groups); elsewhere it takes the value of the Bochner integral. -/
 noncomputable def peterssonProduct : ℂ :=
   ∫ τ in fundamentalDomain Γ, peterssonIntegrand ρ b f g τ ∂invariantMeasure l
 
@@ -217,8 +219,9 @@ variable (ρ b)
 
 /-- The function `f` is **Petersson orthogonal** to `g` on `Γ`: the Petersson integrand is
 integrable over the chosen fundamental domain and the Petersson inner product `⟨f, g⟩` vanishes.
-For cusp forms the integral converges absolutely, which is not proved here, so this is
-orthogonality for the Petersson inner product. -/
+For cusp forms on `Sp(4, ℤ)` the integral converges absolutely
+(`SiegelUpperHalfSpace.integrableOn_peterssonIntegrand`), so this is orthogonality for the Petersson
+inner product. -/
 def IsPeterssonOrthogonal : Prop :=
   IntegrableOn (peterssonIntegrand ρ b f g) (fundamentalDomain Γ) (invariantMeasure l) ∧
     peterssonProduct Γ ρ b f g = 0

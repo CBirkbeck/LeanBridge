@@ -8,9 +8,11 @@ The space `M_{k,j}(Γ)` of Siegel modular forms of degree `2` and weight `ρ_{k,
 decomposes as `M_{k,j}(Γ) = S_{k,j}(Γ) ⊕ N_{k,j}(Γ)`, where `N_{k,j}(Γ)` is the orthogonal
 complement of the cusp forms for the Petersson inner product, which converges as soon as one of the
 forms is a cusp form. For `Γ = Sp(4, ℤ)` the LMFDB further decomposes `N_{k,j}` into the subspaces
-of Siegel Eisenstein series and Klingen–Eisenstein series. These two decompositions and the
-stability of `N_{k,j}(Γ)` under the Hecke operators are theorems which are not proved here: they
-rest on the Petersson theory of `Γ`, which is not proved here even for `Γ = Sp(4, ℤ)`. On
+of Siegel Eisenstein series and Klingen–Eisenstein series. For `Γ = Sp(4, ℤ)`, the first
+decomposition and the stability of `N_{k,j}(Γ)` hold in every weight
+(`SiegelUpperHalfSpace.modularFormsKJ_eq_cuspFormsKJ_sup_cuspFormsOrthogonalKJ`,
+`SiegelUpperHalfSpace.heckeOperator_mem_cuspFormsOrthogonalKJ`) and the second for `k > 4`
+(`SiegelUpperHalfSpace.cuspFormsOrthogonalKJ_eq_sup`). For other `Γ` they are not proved here. On
 `Γ = Sp(4, ℤ)`, the Hecke operators preserve `M_{k,j}(Γ)` and `S_{k,j}(Γ)`
 (`SiegelUpperHalfSpace.heckeOperator_mem_modularFormsKJ`,
 `SiegelUpperHalfSpace.heckeOperator_mem_cuspFormsKJ`, in

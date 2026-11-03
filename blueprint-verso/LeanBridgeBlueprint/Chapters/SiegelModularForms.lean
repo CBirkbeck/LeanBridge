@@ -135,7 +135,7 @@ where $`|` is the {bpref "mf.siegel.slash.op"}[slash operator].
 Depends on: {uses "mf.siegel"}[] {uses "mf.siegel.character"}[] {uses "mf.siegel.slash.op"}[]
 :::
 
-:::definition "mf.siegel.cusp_form_degree2" (lean := "SiegelUpperHalfSpace.cuspFormsKJ, SiegelUpperHalfSpace.IsCuspForm, SiegelUpperHalfSpace.SiegelOperatorVanishes, SiegelUpperHalfSpace.rhoKJ, SiegelUpperHalfSpace.slash")
+:::definition "mf.siegel.cusp_form_degree2" (lean := "SiegelUpperHalfSpace.cuspFormsKJ, SiegelUpperHalfSpace.IsCuspForm, SiegelUpperHalfSpace.SiegelOperatorVanishes, SiegelUpperHalfSpace.rhoKJ, SiegelUpperHalfSpace.slash, SiegelUpperHalfSpace.finiteDimensional_cuspFormsKJ, SiegelUpperHalfSpace.isPeterssonDefinite_cuspForms")
 *Siegel cusp form of degree 2.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.cusp_form_degree2))
 
 Let $`f` be a {bpref "mf.siegel.vector_valued_degree_two"}[vector-valued Siegel modular form] on
@@ -175,7 +175,7 @@ The *relative dimension* of $`S_{k,j}^{\rm new}(K(N),\chi)`  is its dimension as
 Depends on: {uses "mf.siegel.newform"}[]
 :::
 
-:::definition "mf.siegel.eisenstein_series" (lean := "SiegelUpperHalfSpace.siegelEisensteinSeries, SiegelUpperHalfSpace.siegelEisensteinTerm, SiegelUpperHalfSpace.siegelEisensteinTerm_mul, SymplecticGroup.SiegelParabolicCosets")
+:::definition "mf.siegel.eisenstein_series" (lean := "SiegelUpperHalfSpace.siegelEisensteinSeries, SiegelUpperHalfSpace.siegelEisensteinTerm, SiegelUpperHalfSpace.siegelEisensteinTerm_mul, SymplecticGroup.SiegelParabolicCosets, SiegelUpperHalfSpace.exists_heckeOperator_siegelEisensteinKJ, SiegelUpperHalfSpace.isPeterssonOrthogonal_siegelEisensteinKJ")
 *Siegel Eisenstein series.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.eisenstein_series))
 
 The (Siegel) Eisenstein series in degree $`n`
@@ -681,7 +681,7 @@ does not act freely on $`\mathcal{H}_g`.
 Depends on: {uses "group.sp2gr"}[]
 :::
 
-:::definition "mf.siegel.hecke_operator" (lean := "SiegelUpperHalfSpace.siegelHeckeRingOf, SiegelUpperHalfSpace.localSiegelHeckeRingOf, SiegelUpperHalfSpace.heckeTSqOf, SiegelUpperHalfSpace.heckeOperator, SiegelUpperHalfSpace.IsHeckeEigenform")
+:::definition "mf.siegel.hecke_operator" (lean := "SiegelUpperHalfSpace.siegelHeckeRingOf, SiegelUpperHalfSpace.localSiegelHeckeRingOf, SiegelUpperHalfSpace.heckeTSqOf, SiegelUpperHalfSpace.heckeOperator, SiegelUpperHalfSpace.IsHeckeEigenform, SiegelUpperHalfSpace.peterssonProduct_heckeOperator, SiegelUpperHalfSpace.heckeAdjointCoset_heckeT, SiegelUpperHalfSpace.peterssonProduct_heckeT")
 *Hecke operators.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.hecke_operator))
 
 For a positive integer $`g`, let
@@ -732,7 +732,7 @@ A *Hecke eigenform* is a form in $`M_{\rho}(\Gamma)` which is a simultaneous eig
 Depends on: {uses "mf.siegel"}[] {uses "repn.highest.weight"}[]
 :::
 
-:::definition "mf.siegel.klingen_eisenstein_series" (lean := "SiegelUpperHalfSpace.klingenEisensteinSeries, SymplecticGroup.klingenParabolic, SiegelUpperHalfSpace.klingenTerm, SiegelUpperHalfSpace.klingenTerm_mul, SiegelUpperHalfSpace.upperLeft_smul")
+:::definition "mf.siegel.klingen_eisenstein_series" (lean := "SiegelUpperHalfSpace.klingenEisensteinSeries, SymplecticGroup.klingenParabolic, SiegelUpperHalfSpace.klingenTerm, SiegelUpperHalfSpace.klingenTerm_mul, SiegelUpperHalfSpace.upperLeft_smul, SiegelUpperHalfSpace.isPeterssonOrthogonal_vectorKlingenEisenstein")
 *Siegel Klingen-Eisenstein series.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.klingen_eisenstein_series))
 
 Given a modular form $`f` of degree $`n_1 \le n` and  weight $`k > n + n_1 + 1` the

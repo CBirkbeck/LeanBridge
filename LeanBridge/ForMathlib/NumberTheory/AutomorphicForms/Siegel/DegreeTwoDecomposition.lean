@@ -18,8 +18,13 @@ coefficients of cusp forms and of Klingen–Eisenstein series vanish.
 The knowl's definition of `N_{j,k}(Γ₂)` as the Petersson orthogonal complement of the cusp forms,
 the decomposition `M_{j,k}(Γ₂) = S_{j,k}(Γ₂) ⊕ N_{j,k}(Γ₂)`,
 `N_{j,k}(Γ₂) = E_{j,k}(Γ₂) ⊕ KE_{j,k}(Γ₂)` and the Hecke stability of `N_{j,k}(Γ₂)`, `E_{j,k}(Γ₂)`
-and `KE_{j,k}(Γ₂)` rest on the Petersson theory of `Sp(4, ℤ)` (a fundamental domain, convergence,
-finite dimensions, unfolding, adjoints of Hecke operators), which is not proved here.
+and `KE_{j,k}(Γ₂)` are `SiegelUpperHalfSpace.cuspFormsOrthogonalKJ`,
+`SiegelUpperHalfSpace.modularFormsKJ_eq_cuspFormsKJ_sup_cuspFormsOrthogonalKJ`,
+`SiegelUpperHalfSpace.cuspFormsOrthogonalKJ_eq_sup`,
+`SiegelUpperHalfSpace.heckeOperator_mem_cuspFormsOrthogonalKJ`,
+`SiegelUpperHalfSpace.heckeOperator_mem_siegelEisensteinSubspaceKJ` and
+`SiegelUpperHalfSpace.heckeOperator_mem_klingenEisensteinSubspaceKJ`, the second decomposition and
+the stability of `E_{j,k}(Γ₂)` and `KE_{j,k}(Γ₂)` for `k > 4`.
 
 ## Main results
 

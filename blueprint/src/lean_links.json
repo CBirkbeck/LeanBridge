@@ -4114,7 +4114,9 @@
     "SiegelUpperHalfSpace.IsCuspForm": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwo",
     "SiegelUpperHalfSpace.SiegelOperatorVanishes": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwo",
     "SiegelUpperHalfSpace.rhoKJ": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwo",
-    "SiegelUpperHalfSpace.slash": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ModularForm"
+    "SiegelUpperHalfSpace.slash": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ModularForm",
+    "SiegelUpperHalfSpace.finiteDimensional_cuspFormsKJ": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CuspFormsFiniteDimensional",
+    "SiegelUpperHalfSpace.isPeterssonDefinite_cuspForms": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PeterssonConvergence"
   },
   "mf.siegel.degree": {
     "SiegelUpperHalfSpace": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.UpperHalfSpace",
@@ -4124,7 +4126,9 @@
     "SiegelUpperHalfSpace.siegelEisensteinSeries": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelEisensteinSeries",
     "SiegelUpperHalfSpace.siegelEisensteinTerm": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelEisensteinSeries",
     "SiegelUpperHalfSpace.siegelEisensteinTerm_mul": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelEisensteinSeries",
-    "SymplecticGroup.SiegelParabolicCosets": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelEisensteinSeries"
+    "SymplecticGroup.SiegelParabolicCosets": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelEisensteinSeries",
+    "SiegelUpperHalfSpace.exists_heckeOperator_siegelEisensteinKJ": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelEisensteinHecke",
+    "SiegelUpperHalfSpace.isPeterssonOrthogonal_siegelEisensteinKJ": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PeterssonSiegelEisenstein"
   },
   "mf.siegel.family": {
     "SymplecticGroup.Gamma": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CongruenceSubgroups",
@@ -4186,14 +4190,18 @@
     "SiegelUpperHalfSpace.localSiegelHeckeRingOf": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.HeckeRing",
     "SiegelUpperHalfSpace.heckeTSqOf": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.HeckeRing",
     "SiegelUpperHalfSpace.heckeOperator": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.HeckeOperator",
-    "SiegelUpperHalfSpace.IsHeckeEigenform": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.HeckeOperator"
+    "SiegelUpperHalfSpace.IsHeckeEigenform": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.HeckeOperator",
+    "SiegelUpperHalfSpace.peterssonProduct_heckeOperator": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PeterssonHecke",
+    "SiegelUpperHalfSpace.heckeAdjointCoset_heckeT": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PeterssonHecke",
+    "SiegelUpperHalfSpace.peterssonProduct_heckeT": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PeterssonHecke"
   },
   "mf.siegel.klingen_eisenstein_series": {
     "SiegelUpperHalfSpace.klingenEisensteinSeries": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.KlingenEisenstein",
     "SymplecticGroup.klingenParabolic": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.KlingenEisenstein",
     "SiegelUpperHalfSpace.klingenTerm": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.KlingenEisenstein",
     "SiegelUpperHalfSpace.klingenTerm_mul": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.KlingenEisenstein",
-    "SiegelUpperHalfSpace.upperLeft_smul": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.KlingenEisenstein"
+    "SiegelUpperHalfSpace.upperLeft_smul": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.KlingenEisenstein",
+    "SiegelUpperHalfSpace.isPeterssonOrthogonal_vectorKlingenEisenstein": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PeterssonKlingen"
   },
   "mf.siegel.koecher.principle": {
     "SiegelUpperHalfSpace.KoecherPrinciple": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierExpansion",

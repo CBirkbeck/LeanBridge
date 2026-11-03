@@ -23,9 +23,10 @@ Klingen–Eisenstein series (`SiegelUpperHalfSpace.modularFormsKJ_eq_sup`, in
 `LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoDecomposition`), which is not
 proved here for `k ≤ 4`. The other decompositions of the knowl,
 `M_{j,k}(Γ₂) = S_{j,k}(Γ₂) ⊕ N_{j,k}(Γ₂)` and `N_{j,k}(Γ₂) = E_{j,k}(Γ₂) ⊕ KE_{j,k}(Γ₂)` for the
-Petersson orthogonal complement `N_{j,k}(Γ₂)` of the cusp forms, rest on the Petersson theory of
-`Sp(4, ℤ)` and are not proved here. For `j > 0`, `E_{j,k}(Γ₂)` vanishes
-(`SiegelUpperHalfSpace.siegelEisensteinSubspaceKJ_eq_bot`, in
+Petersson orthogonal complement `N_{j,k}(Γ₂)` of the cusp forms, are
+`SiegelUpperHalfSpace.modularFormsKJ_eq_cuspFormsKJ_sup_cuspFormsOrthogonalKJ`, in every weight,
+and `SiegelUpperHalfSpace.cuspFormsOrthogonalKJ_eq_sup`, for `k > 4`. For `j > 0`, `E_{j,k}(Γ₂)`
+vanishes (`SiegelUpperHalfSpace.siegelEisensteinSubspaceKJ_eq_bot`, in
 `LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.VectorSiegelEisensteinVanishing`).
 
 ## Main definitions

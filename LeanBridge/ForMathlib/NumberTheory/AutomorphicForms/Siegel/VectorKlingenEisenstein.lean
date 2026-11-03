@@ -41,14 +41,17 @@ for `j = 0` and even `k`, the Siegel Eisenstein series `ψ_k`, which converges f
 (`SiegelUpperHalfSpace.summable_siegelEisensteinTerm`); for `j > 0`, `E_{j,k}(Γ₂) = 0` by
 `SiegelUpperHalfSpace.siegelEisensteinSubspaceKJ_eq_bot`.
 
-Not proved here: this decomposition for `k ≤ 4`; the decompositions
-`M_{j,k}(Γ₂) = S_{j,k}(Γ₂) ⊕ N_{j,k}(Γ₂)` and `N_{j,k}(Γ₂) = E_{j,k}(Γ₂) ⊕ KE_{j,k}(Γ₂)` for the
-Petersson orthogonal complement `N_{j,k}(Γ₂)` of the cusp forms, and with them the Petersson theory
-of `Sp(4, ℤ)`, in particular that `KE_{j,k}(Γ₂)` is orthogonal to the cusp forms for the Petersson
-product (the unfolding of the integral over a fundamental domain); and the stability of
-`E_{j,k}(Γ₂)`, `KE_{j,k}(Γ₂)` and `N_{j,k}(Γ₂)` under the Hecke operators (for `M_{j,k}(Γ₂)` and
+Not proved here: this decomposition for `k ≤ 4`. The decompositions
+`M_{j,k}(Γ₂) = S_{j,k}(Γ₂) ⊕ N_{j,k}(Γ₂)` and, for `k > 4`,
+`N_{j,k}(Γ₂) = E_{j,k}(Γ₂) ⊕ KE_{j,k}(Γ₂)`, the orthogonality of `KE_{j,k}(Γ₂)` to the cusp forms
+and the stability under the Hecke operators are
+`SiegelUpperHalfSpace.modularFormsKJ_eq_cuspFormsKJ_sup_cuspFormsOrthogonalKJ`,
+`SiegelUpperHalfSpace.cuspFormsOrthogonalKJ_eq_sup`,
+`SiegelUpperHalfSpace.isPeterssonOrthogonal_vectorKlingenEisenstein`,
+`SiegelUpperHalfSpace.heckeOperator_mem_cuspFormsOrthogonalKJ` and
+`SiegelUpperHalfSpace.heckeOperator_mem_klingenEisensteinSubspaceKJ`; for `M_{j,k}(Γ₂)` and
 `S_{j,k}(Γ₂)` it is `SiegelUpperHalfSpace.heckeOperator_mem_modularFormsKJ` and
-`SiegelUpperHalfSpace.heckeOperator_mem_cuspFormsKJ`).
+`SiegelUpperHalfSpace.heckeOperator_mem_cuspFormsKJ`.
 
 ## Main definitions
 
