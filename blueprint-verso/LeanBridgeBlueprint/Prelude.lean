@@ -427,9 +427,12 @@ import LeanBridge.ForMathlib.NumberTheory.NumberField.WeilPolynomial.RealOrder
 import LeanBridge.ForMathlib.NumberTheory.NumberField.WeilPolynomial.SingularPrime
 import LeanBridge.ForMathlib.NumberTheory.NumberField.WeilPolynomial.WeakEquivalence
 import LeanBridge.ForMathlib.NumberTheory.Padics.ClusterPicture
+import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.AmbientHighestWeight
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.Basic
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.Generators
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.HodgeCircle
+import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.IrreducibleMomentMatrix
+import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.OrthogonalClassification
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.Rational
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.BigDoubleCoset
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.Coarse

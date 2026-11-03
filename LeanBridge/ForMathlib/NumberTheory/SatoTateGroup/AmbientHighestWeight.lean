@@ -20,13 +20,15 @@ the character: the trivial character and the determinant have the same one. The 
 what it means there and the LMFDB has no data: its table `gps_st` has no moment matrix in even
 weight. We follow Weyl's labelling of the irreducible representations of `O(d)` (Weyl, *The
 Classical Groups*, Chapter V; Fulton and Harris, *Representation Theory*, §19.5) by the partitions
-`λ` with `λ'₁ + λ'₂ ≤ d`: classically, the character `χ_λ` occurs in `∏ᵢ e_{λ'ᵢ}`, and every
-monomial in `e₁, …, e_d` in which it occurs is that of a partition lexicographically at least `λ`.
-So we take the monomial of `χ` to be the monomial `e₁^{c₁} ⋯ e_d^{c_d}` containing `χ` with the
-least partition (`SatoTateGroup.HasOrthogonalMonomial`). Neither the comparison with Weyl's
-labelling nor the fact that distinct characters of `O(d)` have distinct monomials is proved here, so
-in even weight the order `SatoTateGroup.IsBeforeInMomentMatrix` is only known to be a total
-preorder.
+`λ` with `λ'₁ + λ'₂ ≤ d`: the character `χ_λ` occurs in `∏ᵢ e_{λ'ᵢ}`, and every monomial in
+`e₁, …, e_d` in which it occurs is that of a partition lexicographically at least `λ`. So we take
+the monomial of `χ` to be the monomial `e₁^{c₁} ⋯ e_d^{c_d}` containing `χ` with the least partition
+(`SatoTateGroup.HasOrthogonalMonomial`). This is a convention of the formalisation, which the
+knowl's words do not force. That it is Weyl's labelling, and a bijection onto those partitions, is
+`SatoTateGroup.hasOrthogonalMonomial_iff_exists_traceless` and
+`SatoTateGroup.orthogonalMonomialEquiv`, so in even weight the order
+`SatoTateGroup.IsBeforeInMomentMatrix` is a linear order
+(`SatoTateGroup.isLinearOrder_isBeforeInMomentMatrix_of_even`).
 
 ## Main definitions
 
@@ -264,8 +266,8 @@ def OccursInMonomial (c : Fin d → ℕ) : Prop :=
 /-- **Weyl's monomial** of an irreducible character `χ` of `O(d)` (Weyl, *The Classical Groups*,
 Chapter V; LMFDB `st_group.moment_matrix`, which has no data in this case): `χ` occurs in the
 monomial `e₁^{c₁} ⋯ e_d^{c_d}`, and every other monomial in which `χ` occurs has a lexicographically
-larger partition. Classically this partition is the one labelling `χ` in Weyl's classification; this
-is not proved here. -/
+larger partition. This partition is the one labelling `χ` in Weyl's classification
+(`SatoTateGroup.hasOrthogonalMonomial_iff_exists_traceless`). -/
 def HasOrthogonalMonomial (c : Fin d → ℕ) : Prop :=
   OccursInMonomial χ c ∧ ∀ c', OccursInMonomial χ c' →
     toLex (highestWeight c) ≤ toLex (highestWeight c')
@@ -280,10 +282,8 @@ end Monomial
 
 /-- The **order of the irreducible characters** of the ambient group in the moment matrix of a
 Sato–Tate group (LMFDB `st_group.moment_matrix`): by the monomial of their highest weights
-(`HasSymplecticMonomial`, `HasOrthogonalMonomial`), in the order `IsBeforeInDisplayOrder`. In odd
-weight this is a linear order. In even weight it is a total preorder, and it is a linear order
-exactly when distinct characters of `O(d)` have distinct Weyl's monomials, which is classical but
-not proved here. -/
+(`HasSymplecticMonomial`, `HasOrthogonalMonomial`), in the order `IsBeforeInDisplayOrder`. This is a
+linear order in all weights (`SatoTateGroup.IsBeforeInMomentMatrix.isLinearOrder`). -/
 def IsBeforeInMomentMatrix (G : SatoTateGroup)
     (χ χ' : IrrepClass ℂ (ambientGroup G.weight G.degree)) : Prop :=
   (∀ (hw : Odd G.weight) (hd : G.degree = G.degree / 2 + G.degree / 2)

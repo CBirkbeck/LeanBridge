@@ -9,8 +9,9 @@ Every irreducible character of the ambient group `O(d)` of a Sato–Tate group o
 in a monomial in the elementary symmetric functions of the eigenvalues, and so it has a Weyl's
 monomial (`SatoTateGroup.HasOrthogonalMonomial`), a unique one. So in even weight the order of the
 rows and columns of the moment matrix is a total preorder. It is a linear order exactly when Weyl's
-monomial is injective on the irreducible characters of `O(d)`. This is classical, the monomial being
-the partition labelling the character in Weyl's classification, but it is not proved here.
+monomial is injective on the irreducible characters of `O(d)`, which is
+`SatoTateGroup.injective_orthogonalMonomial`, the monomial being the partition labelling the
+character in Weyl's classification.
 
 ## Main definitions
 
@@ -122,8 +123,8 @@ lemma total_isBeforeInMomentMatrix (hw : Even G.weight) : Std.Total G.IsBeforeIn
   infer_instance
 
 /-- **In even weight, the order of the rows and columns of the moment matrix is antisymmetric if and
-only if Weyl's monomial is injective on the irreducible characters of `O(d)`**, a classical fact
-that is not proved here. -/
+only if Weyl's monomial is injective on the irreducible characters of `O(d)`**, which holds
+(`SatoTateGroup.injective_orthogonalMonomial`). -/
 lemma antisymm_isBeforeInMomentMatrix_iff : Std.Antisymm G.IsBeforeInMomentMatrix ↔
     Function.Injective fun χ : IrrepClass ℂ (ambientGroup G.weight G.degree) ↦
       orthogonalMonomial χ hG := by

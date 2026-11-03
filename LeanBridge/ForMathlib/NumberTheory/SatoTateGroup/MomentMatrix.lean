@@ -33,9 +33,8 @@ weights is `SatoTateGroup.momentMatrix`, and in odd weight it is the one of this
 `O(d)`, whose irreducible characters are given by Tau Ceti's unitary dual
 (`SatoTateGroup.ambientCharacter`). The order `SatoTateGroup.IsBeforeInMomentMatrix` of the rows and
 columns is then the order of Weyl's monomials (`SatoTateGroup.isBeforeInMomentMatrix_iff_of_even`),
-a total preorder, and it is a linear order exactly when Weyl's monomial
-`SatoTateGroup.orthogonalMonomial` is injective on the irreducible characters of `O(d)`
-(`SatoTateGroup.antisymm_isBeforeInMomentMatrix_iff`), which is classical and not proved here.
+a linear order, since Weyl's monomial `SatoTateGroup.orthogonalMonomial` is injective on the
+irreducible characters of `O(d)` (`SatoTateGroup.isLinearOrder_isBeforeInMomentMatrix_of_even`).
 
 ## Main definitions
 

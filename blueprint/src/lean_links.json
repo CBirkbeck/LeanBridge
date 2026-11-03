@@ -5224,6 +5224,14 @@
     "Subgroup.connectedComponentOfOne": "Mathlib.Topology.Algebra.Group.Subgroup",
     "Subgroup.normal_connectedComponentOfOne": "TauCeti.Topology.Algebra.Group.Connected"
   },
+  "st_group.moment_matrix": {
+    "SatoTateGroup.momentMatrix": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.IrreducibleMomentMatrix",
+    "SatoTateGroup.momentDiagonal": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.IrreducibleMomentMatrix",
+    "SatoTateGroup.IsBeforeInMomentMatrix": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.AmbientHighestWeight",
+    "SatoTateGroup.IsBeforeInMomentMatrix.isLinearOrder": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.OrthogonalClassification",
+    "SatoTateGroup.hasOrthogonalMonomial_iff_exists_traceless": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.OrthogonalClassification",
+    "SatoTateGroup.orthogonalMonomialEquiv": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.OrthogonalClassification"
+  },
   "st_group.moment_simplex": {
     "SatoTateGroup.momentSimplexRow": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.Basic",
     "SatoTateGroup.mixedMoment": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.Basic",

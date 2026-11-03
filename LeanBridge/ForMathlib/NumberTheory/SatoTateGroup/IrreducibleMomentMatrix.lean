@@ -154,9 +154,9 @@ lemma diag_momentMatrix : G.momentMatrix.diag = G.momentDiagonal :=
   funext fun _ ↦ congrArg G.expectation (sq _).symm
 
 /-- The LMFDB's order on the exponent vectors `c` of the monomials `∏ₖ e_{k + 1} ^ c k` in the
-elementary symmetric functions, which are the highest weights of the irreducible characters: by the
-degree `∑ₖ c k`, and then by decreasing lexicographic order. The relation is reflexive: `c` comes
-before `c'` or is `c'`. -/
+elementary symmetric functions, which label the irreducible characters (`HasSymplecticMonomial`,
+`HasOrthogonalMonomial`): by the degree `∑ₖ c k`, and then by decreasing lexicographic order. The
+relation is reflexive: `c` comes before `c'` or is `c'`. -/
 def IsBeforeInDisplayOrder {n : ℕ} (c c' : Fin n → ℕ) : Prop :=
   ∑ k, c k < ∑ k, c' k ∨ ∑ k, c k = ∑ k, c' k ∧ toLex c' ≤ toLex c
 

@@ -735,7 +735,16 @@ import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.KoikeTeradaCharacter
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.KoikeTeradaMonomial
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.Label
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.MomentMatrix
+import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.OrthogonalClassification
+import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.OrthogonalColumns
+import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.OrthogonalCommutant
+import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.OrthogonalIntertwiner
+import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.OrthogonalInvariants
+import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.OrthogonalIsotypic
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.OrthogonalMonomial
+import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.OrthogonalTraceless
+import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.OrthogonalWeyl
+import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.OrthogonalYoung
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.Rational
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.SpBridge
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.SpCartan
