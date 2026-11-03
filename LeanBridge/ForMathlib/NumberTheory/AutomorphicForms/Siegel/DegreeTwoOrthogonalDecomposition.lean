@@ -19,9 +19,13 @@ degree two and the associated Andrianov L-functions*, Manuscripta Math. 44 (1983
 §1): the Petersson product is his (1.3), `KE_{j,k}(Γ₂)` the span of his series (1.4), and he takes
 `k > 4` for the isomorphism with the cusp forms of `SL(2, ℤ)`.
 
-For `k ≤ 4` the second decomposition is not proved here, and `KE_{j,k}(Γ₂)` has no meaning there, as
-the series do not converge. What is proved in every weight is that the Siegel operator is injective
-on `N_{j,k}(Γ₂)`, and that `N_{j,k}(Γ₂) = 0` for odd `k`.
+For `k ≤ 4` the second decomposition is not proved here, except at `(j, k) = (0, 4)`, where
+`N_{0,4}(Γ₂) = E_{0,4}(Γ₂) = ℂ ψ₄` and `KE_{0,4}(Γ₂) = 0`
+(`SiegelUpperHalfSpace.cuspFormsOrthogonalKJ_eq_sup_of_range`, in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoWeightFour`); it fails at
+`(8, 4)` and at `(0, 0)`, and the series spanning `KE_{j,k}(Γ₂)` do not converge for `k ≤ 4`. What
+is proved in every weight is that the Siegel operator is injective on `N_{j,k}(Γ₂)`, and that
+`N_{j,k}(Γ₂) = 0` for odd `k`.
 
 ## Main results
 
@@ -91,12 +95,11 @@ lemma siegelEisensteinSubspaceKJ_le_cuspFormsOrthogonalKJ (hadm : IsAdmissibleFo
     siegelEisensteinSubspaceKJ k j ≤ cuspFormsOrthogonalKJ (integral (Fin 2)) k j c := by
   rcases eq_or_ne j 0 with rfl | hj
   · rcases Int.even_or_odd k with hk' | hk'
-    · have hk₅ : 5 < k := by
-        rcases hk' with ⟨m, rfl⟩
-        omega
-      rw [siegelEisensteinSubspaceKJ_eq_span_singleton hk₅ hk', Submodule.span_singleton_le_iff_mem]
-      exact ⟨siegelEisensteinKJ_mem_modularFormsKJ hk₅ hk',
-        fun G hG ↦ isPeterssonOrthogonal_siegelEisensteinKJ hadm hk₅ hk' hG⟩
+    · have hk₃ : 3 < k := by
+        linarith
+      rw [siegelEisensteinSubspaceKJ_eq_span_singleton hk₃ hk', Submodule.span_singleton_le_iff_mem]
+      exact ⟨siegelEisensteinKJ_mem_modularFormsKJ hk₃ hk',
+        fun G hG ↦ isPeterssonOrthogonal_siegelEisensteinKJ hadm hk₃ hk' hG⟩
     · intro F hF
       have h₁ : F ∈ cuspFormsKJ k 0 (integral (Fin 2)) := by
         rw [← modularFormsKJ_eq_cuspFormsKJ_of_odd hk']

@@ -56,15 +56,14 @@ lemma heckeOperator_mem_siegelEisensteinSubspaceKJ (hk : 4 < k)
     exact zero_mem _
   rcases eq_or_ne j 0 with rfl | hj
   · rcases Int.even_or_odd k with hk' | hk'
-    · have hk₅ : 5 < k := by
-        rcases hk' with ⟨m, rfl⟩
-        omega
-      rw [siegelEisensteinSubspaceKJ_eq_span_singleton hk₅ hk'] at hF ⊢
+    · have hk₃ : 3 < k := by
+        linarith
+      rw [siegelEisensteinSubspaceKJ_eq_span_singleton hk₃ hk'] at hF ⊢
       rcases Submodule.mem_span_singleton.mp hF with ⟨c, hc⟩
       have hψ : siegelEisensteinKJ k ∈ slashInvariants (rhoKJ k 0) :=
         ((mem_modularForms_iff_slashInvariants _ _).mp
-          (siegelEisensteinKJ_mem_modularFormsKJ hk₅ hk')).2
-      rcases exists_heckeOperator_siegelEisensteinKJ hk₅ hk' D with ⟨C, hC⟩
+          (siegelEisensteinKJ_mem_modularFormsKJ hk₃ hk')).2
+      rcases exists_heckeOperator_siegelEisensteinKJ hk₃ hk' D with ⟨C, hC⟩
       have e : F = c • ⟨_, hψ⟩ := Subtype.ext hc.symm
       rw [e, map_smul, Submodule.coe_smul, hC _ rfl]
       exact Submodule.smul_mem _ _ (Submodule.smul_mem _ _ (Submodule.mem_span_singleton_self _))
@@ -110,10 +109,9 @@ lemma heckeOperator_mem_klingenEisensteinSubspaceKJ (hk : 4 < k)
     exact hκ
   rcases eq_or_ne j 0 with rfl | hj
   · rcases Int.even_or_odd k with hk' | hk'
-    · have hk₅ : 5 < k := by
-        rcases hk' with ⟨m, rfl⟩
-        omega
-      rw [siegelEisensteinSubspaceKJ_eq_span_singleton hk₅ hk'] at he
+    · have hk₃ : 3 < k := by
+        linarith
+      rw [siegelEisensteinSubspaceKJ_eq_span_singleton hk₃ hk'] at he
       rcases Submodule.mem_span_singleton.mp he with ⟨c, rfl⟩
       have hF₁ : (F : SiegelUpperHalfSpace (Fin 2) → Sym[ℂ]^0 (Fin 2 → ℂ)) ∈
           modularFormsKJ k 0 (integral (Fin 2)) :=
@@ -128,7 +126,7 @@ lemma heckeOperator_mem_klingenEisensteinSubspaceKJ (hk : 4 < k)
           exact symConstCoeff_apply_zero_vectorKlingenEisenstein hk hk' f ha
         rw [eq_smul_tprod_of_symPowerRep_eq (symPowerRep_zero _ (a 0)), h₁, zero_smul]
       have hψ : siegelEisensteinKJ k ∈ modularFormsKJ k 0 (integral (Fin 2)) :=
-        siegelEisensteinKJ_mem_modularFormsKJ hk₅ hk'
+        siegelEisensteinKJ_mem_modularFormsKJ hk₃ hk'
       rcases exists_hasSiegelFourierExpansion (rhoKJ k 0) (isArithmetic_integral (Fin 2)) hψ with
         ⟨bψ, hbψ⟩
       have hκ₁ : κ ∈ modularFormsKJ k 0 (integral (Fin 2)) :=
@@ -146,7 +144,7 @@ lemma heckeOperator_mem_klingenEisensteinSubspaceKJ (hk : 4 < k)
         rw [klingenEisensteinSubspaceKJ_eq_range hk Even.zero] at hκ
         rcases hκ with ⟨f, rfl⟩
         exact symConstCoeff_apply_zero_vectorKlingenEisenstein hk hk' f hbκ
-      rw [symConstCoeff_apply_zero_siegelEisensteinKJ hk₅ hk' hbψ] at h₂
+      rw [symConstCoeff_apply_zero_siegelEisensteinKJ hk₃ hk' hbψ] at h₂
       rw [hκ₀] at h₃
       have h₅ : Tendsto (fun t : Set.Ioi (0 : ℝ) ↦
           c * symConstCoeff 0 (siegelEisensteinKJ k (scalarPoint t)) +

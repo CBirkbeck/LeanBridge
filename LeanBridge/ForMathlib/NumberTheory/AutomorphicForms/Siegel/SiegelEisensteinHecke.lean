@@ -5,7 +5,7 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PeterssonSiege
 /-!
 # The Siegel Eisenstein series are Hecke eigenforms
 
-The Siegel Eisenstein series `ψ_k`, for even `k > 5`, is the series over `P(ℤ) \ Sp(4, ℤ)` of the
+The Siegel Eisenstein series `ψ_k`, for even `k > 3`, is the series over `P(ℤ) \ Sp(4, ℤ)` of the
 constant function, with `P` the Siegel parabolic subgroup. The Hecke monoid lies in the group
 `GSp(4, ℚ)⁺`, which is the product `U Sp(4, ℤ)` of its upper triangular subgroup `U` and `Sp(4, ℤ)`,
 and `q = (A, B; 0, D)` in `U` acts on the constant function by the factor `r(q)^e det(D)^{-k}`. So a
@@ -381,7 +381,7 @@ private lemma gspSlash_toMon_jSp_siegelSeed (Z : SiegelUpperHalfSpace (Fin 2)) :
   rw [toMon_jSp, gspSlash_ofSp, map_algebraMap_map_intCast]
   rfl
 
-private lemma hasSum_gspSlash_jSp_mul (hk : 5 < k) (β : gspPlus (Fin 2))
+private lemma hasSum_gspSlash_jSp_mul (hk : 3 < k) (β : gspPlus (Fin 2))
     (φ : Dual ℂ (Sym[ℂ]^0 (Fin 2 → ℂ))) (Z : SiegelUpperHalfSpace (Fin 2)) :
     HasSum (fun x : SiegelParabolicCosets (Fin 2) ↦
       φ (gspSlash (rhoKJ k 0) (toMon (jSp x.out) * β) siegelSeed Z))
@@ -397,11 +397,11 @@ private lemma hasSum_gspSlash_jSp_mul (hk : 5 < k) (β : gspPlus (Fin 2))
   exact isVectorSiegelEisensteinSeries_siegelEisensteinKJ hk (gspSmul β Z)
     (φ ∘ₗ (((multiplier β : ℂ) ^ slashExponent (rhoKJ k 0)) • rhoKJ k 0 (gspDenomGL β Z)⁻¹))
 
-/-- **The Siegel Eisenstein series `ψ_k` is an eigenform of the Hecke operators**, for even `k > 5`:
+/-- **The Siegel Eisenstein series `ψ_k` is an eigenform of the Hecke operators**, for even `k > 3`:
 `T_D ψ_k = C ψ_k` for a constant `C`, as `ψ_k` is the series over `P(ℤ) \ Sp(4, ℤ)` of the constant
 function, on which the upper triangular `q = (A, B; 0, D)` acts by the factor
 `r(q)^e det(D)^{-k}`. -/
-lemma exists_heckeOperator_siegelEisensteinKJ (hk : 5 < k) (hk' : Even k)
+lemma exists_heckeOperator_siegelEisensteinKJ (hk : 3 < k) (hk' : Even k)
     (D : HeckeCoset (heckeMonoid (Fin 2)) (heckeGamma (Fin 2)) (heckeGamma (Fin 2))) : ∃ C : ℂ,
       ∀ F : slashInvariants (rhoKJ k 0), (F : SiegelUpperHalfSpace (Fin 2) → Sym[ℂ]^0 (Fin 2 → ℂ)) =
         siegelEisensteinKJ k →

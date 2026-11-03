@@ -15,7 +15,7 @@ file := "Siegel-modular-forms"
 
 This section lists the LMFDB definitions in the subcategory `mf.siegel`. Each definition links back to its LMFDB knowl. `paramodulargroup.sp2gr`, `repn.highest.weight` and `repn.irrep.gl` also belong here, although their ids put them in another LMFDB category.
 
-:::definition "mf.siegel" (lean := "SiegelUpperHalfSpace.modularForms, SiegelUpperHalfSpace.scalarModularForms, SiegelUpperHalfSpace.mem_scalarModularForms_iff, SymplecticGroup.IsArithmetic, SiegelUpperHalfSpace.IsHolomorphic")
+:::definition "mf.siegel" (lean := "SiegelUpperHalfSpace.modularForms, SiegelUpperHalfSpace.scalarModularForms, SiegelUpperHalfSpace.mem_scalarModularForms_iff, SymplecticGroup.IsArithmetic, SiegelUpperHalfSpace.IsHolomorphic, SiegelUpperHalfSpace.finiteDimensional_modularFormsKJ_of_isArithmetic")
 *Siegel modular form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel))
 
 Let $`g\ge 2` be an integer, let
@@ -135,7 +135,7 @@ where $`|` is the {bpref "mf.siegel.slash.op"}[slash operator].
 Depends on: {uses "mf.siegel"}[] {uses "mf.siegel.character"}[] {uses "mf.siegel.slash.op"}[]
 :::
 
-:::definition "mf.siegel.cusp_form_degree2" (lean := "SiegelUpperHalfSpace.cuspFormsKJ, SiegelUpperHalfSpace.IsCuspForm, SiegelUpperHalfSpace.SiegelOperatorVanishes, SiegelUpperHalfSpace.rhoKJ, SiegelUpperHalfSpace.slash, SiegelUpperHalfSpace.finiteDimensional_cuspFormsKJ, SiegelUpperHalfSpace.isPeterssonDefinite_cuspForms")
+:::definition "mf.siegel.cusp_form_degree2" (lean := "SiegelUpperHalfSpace.cuspFormsKJ, SiegelUpperHalfSpace.IsCuspForm, SiegelUpperHalfSpace.SiegelOperatorVanishes, SiegelUpperHalfSpace.rhoKJ, SiegelUpperHalfSpace.slash, SiegelUpperHalfSpace.finiteDimensional_cuspFormsKJ, SiegelUpperHalfSpace.isPeterssonDefinite_cuspForms, SiegelUpperHalfSpace.finiteDimensional_cuspFormsKJ_of_isArithmetic")
 *Siegel cusp form of degree 2.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.cusp_form_degree2))
 
 Let $`f` be a {bpref "mf.siegel.vector_valued_degree_two"}[vector-valued Siegel modular form] on
@@ -175,7 +175,7 @@ The *relative dimension* of $`S_{k,j}^{\rm new}(K(N),\chi)`  is its dimension as
 Depends on: {uses "mf.siegel.newform"}[]
 :::
 
-:::definition "mf.siegel.eisenstein_series" (lean := "SiegelUpperHalfSpace.siegelEisensteinSeries, SiegelUpperHalfSpace.siegelEisensteinTerm, SiegelUpperHalfSpace.siegelEisensteinTerm_mul, SymplecticGroup.SiegelParabolicCosets, SiegelUpperHalfSpace.exists_heckeOperator_siegelEisensteinKJ, SiegelUpperHalfSpace.isPeterssonOrthogonal_siegelEisensteinKJ")
+:::definition "mf.siegel.eisenstein_series" (lean := "SiegelUpperHalfSpace.siegelEisensteinSeries, SiegelUpperHalfSpace.siegelEisensteinTerm, SiegelUpperHalfSpace.siegelEisensteinTerm_mul, SymplecticGroup.SiegelParabolicCosets, SiegelUpperHalfSpace.exists_heckeOperator_siegelEisensteinKJ, SiegelUpperHalfSpace.isPeterssonOrthogonal_siegelEisensteinKJ, SiegelUpperHalfSpace.siegelEisensteinKJ_mem_modularFormsKJ, SiegelUpperHalfSpace.siegelEisensteinKJ_ne_zero")
 *Siegel Eisenstein series.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.eisenstein_series))
 
 The (Siegel) Eisenstein series in degree $`n`
@@ -1089,7 +1089,7 @@ $`\lambda_1\geqslant \lambda_2\geqslant\ldots\geqslant \lambda_g`.
 Depends on: {uses "repn.highest.weight"}[]
 :::
 
-:::definition "mf.siegel.subspace.degree.two"
+:::definition "mf.siegel.subspace.degree.two" (lean := "SiegelUpperHalfSpace.cuspFormsOrthogonalKJ, SiegelUpperHalfSpace.modularFormsKJ_eq_cuspFormsKJ_sup_cuspFormsOrthogonalKJ, SiegelUpperHalfSpace.cuspFormsOrthogonalKJ_eq_sup_of_range, SiegelUpperHalfSpace.heckeOperator_mem_cuspFormsOrthogonalKJ, SiegelUpperHalfSpace.heckeOperator_mem_siegelEisensteinSubspaceKJ_of_range, SiegelUpperHalfSpace.heckeOperator_mem_klingenEisensteinSubspaceKJ_of_range")
 *Subspaces of degree 2 Siegel modular forms.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.subspace.degree.two))
 
 The space {bpref "mf.siegel.vector_valued_degree_two"}[vector-valued Siegel modular forms] $`M_{j,k}(\Gamma_2)` can be decomposed as

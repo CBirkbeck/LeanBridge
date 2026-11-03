@@ -20,8 +20,11 @@ and Schmidt 2006, §4: `levelRaisingThetaPrime` is their `θ_p` (10), `levelRais
 complement of the old subspace for the Petersson inner product, and the newforms are the Hecke
 eigenforms in it. The LMFDB uses weights `ρ = ρ_{k,j} = det^k ⊗ Sym^j`
 (`SiegelUpperHalfSpace.rhoKJ`) and trivial character for paramodular forms; the spaces are defined
-here for any weight `ρ` and trivial character. That `S_ρ(K(N)) = S_ρ^old(K(N)) ⊕ S_ρ^new(K(N))` and
-that the newforms form a basis of the new subspace are theorems which are not proved here.
+here for any weight `ρ` and trivial character. That `S_ρ(K(N)) = S_ρ^old(K(N)) ⊕ S_ρ^new(K(N))` is
+proved for the weights `ρ_{k,j}` and the scalar weights
+(`SiegelUpperHalfSpace.paramodularOldSubspace_sup_paramodularNewSubspace_rhoKJ`,
+`SiegelUpperHalfSpace.paramodularOldSubspace_sup_paramodularNewSubspace_scalar`); that the newforms
+form a basis of the new subspace is a theorem which is not proved here.
 
 ## Main definitions
 

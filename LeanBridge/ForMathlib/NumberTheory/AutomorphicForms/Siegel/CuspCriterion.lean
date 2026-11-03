@@ -115,7 +115,7 @@ private lemma exists_isCoprime_mul_eq {p q : ℚ} (h : ¬(p = 0 ∧ q = 0)) :
     field_simp
     linear_combination e
 
-private lemma exists_isCoprime_quad_eq_zero (hd : n 0 0 * n 1 1 = n 0 1 * n 0 1) :
+lemma exists_isCoprime_quad_eq_zero (hd : n 0 0 * n 1 1 = n 0 1 * n 0 1) :
     ∃ x y : ℤ, IsCoprime x y ∧ n 0 0 * x ^ 2 + 2 * n 0 1 * x * y + n 1 1 * y ^ 2 = 0 := by
   by_cases h : n 0 1 = 0 ∧ -n 0 0 = 0
   · refine ⟨1, 0, isCoprime_one_left, ?_⟩
@@ -163,7 +163,7 @@ lemma im_smul_diagPoint (hP : P ∈ siegelParabolic (Fin 2) ℝ) (t : Set.Ioi (0
   simp [diagPoint]
   ring1
 
-private lemma rexp_mul_le {A B : ℝ} (hB : 0 ≤ B) {t : Set.Ioi (0 : ℝ)} (ht : tOne ≤ t) :
+lemma rexp_mul_le {A B : ℝ} (hB : 0 ≤ B) {t : Set.Ioi (0 : ℝ)} (ht : tOne ≤ t) :
     rexp (-(2 * π * (A + t * B))) ≤ rexp (-(2 * π * (A + (tOne : ℝ) * B))) := by
   have h₁ : (1 : ℝ) ≤ t := ht
   have e : ((tOne : Set.Ioi (0 : ℝ)) : ℝ) = 1 :=
@@ -172,7 +172,7 @@ private lemma rexp_mul_le {A B : ℝ} (hB : 0 ≤ B) {t : Set.Ioi (0 : ℝ)} (ht
   rw [e]
   nlinarith [mul_nonneg (sub_nonneg.mpr h₁) hB, Real.pi_pos]
 
-private lemma tendsto_rexp_mul {A B : ℝ} (hB : 0 < B) :
+lemma tendsto_rexp_mul {A B : ℝ} (hB : 0 < B) :
     Tendsto (fun t : Set.Ioi (0 : ℝ) ↦ rexp (-(2 * π * (A + t * B)))) atTop (𝓝 0) := by
   have ht : Tendsto (fun t : Set.Ioi (0 : ℝ) ↦ (t : ℝ)) atTop atTop :=
     tendsto_Ioi_atTop.mp tendsto_id

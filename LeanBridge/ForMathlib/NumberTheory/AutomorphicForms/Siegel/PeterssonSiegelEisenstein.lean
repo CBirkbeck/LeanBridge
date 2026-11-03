@@ -3,7 +3,7 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelParaboli
 /-!
 # The Siegel Eisenstein series are orthogonal to the cusp forms
 
-The Siegel Eisenstein series `ψ_k`, for even `k > 5`, is the series `∑_{δ ∈ P \ Sp(4, ℤ)} f₀ ∣ δ` of
+The Siegel Eisenstein series `ψ_k`, for even `k > 3`, is the series `∑_{δ ∈ P \ Sp(4, ℤ)} f₀ ∣ δ` of
 the constant function `f₀`, with `P` the Siegel parabolic subgroup. The series of absolute values is
 bounded on the Siegel set, since the constant `siegelK` of the Plücker comparison is. So `⟨ψ_k, G⟩`
 unfolds to the integral of `b(ρ(Y) f₀, G(Z))` over a fundamental domain of `P`, for a cusp form `G`.
@@ -92,7 +92,7 @@ private lemma continuous_dual_siegelSeed (φ : Dual ℂ (Sym[ℂ]^0 (Fin 2 → �
   unfold siegelSeed
   exact continuous_const
 
-private lemma lintegral_tsum_siegelSeed_lt_top (hadm : IsAdmissibleForm (rhoKJ k 0) c) (hk : 5 < k)
+private lemma lintegral_tsum_siegelSeed_lt_top (hadm : IsAdmissibleForm (rhoKJ k 0) c) (hk : 3 < k)
     (hG : G ∈ cuspFormsKJ k 0 (integral (Fin 2))) : ∫⁻ τ in siegelSet,
       ∑' x : SiegelParabolicCosets (Fin 2),
         ‖peterssonIntegrand (rhoKJ k 0) c siegelSeed G (integralTransformation x.out • τ)‖ₑ
@@ -142,9 +142,9 @@ private lemma lintegral_tsum_siegelSeed_lt_top (hadm : IsAdmissibleForm (rhoKJ k
   ring1
 
 /-- **The Siegel Eisenstein series are orthogonal to the cusp forms** (LMFDB
-`mf.siegel.subspace.degree.two`): `⟨ψ_k, G⟩ = 0` for even `k > 5`, a cusp form
+`mf.siegel.subspace.degree.two`): `⟨ψ_k, G⟩ = 0` for even `k > 3`, a cusp form
 `G ∈ S_{k,0}(Sp(4, ℤ))` and an admissible form `c`. -/
-lemma isPeterssonOrthogonal_siegelEisensteinKJ (hadm : IsAdmissibleForm (rhoKJ k 0) c) (hk : 5 < k)
+lemma isPeterssonOrthogonal_siegelEisensteinKJ (hadm : IsAdmissibleForm (rhoKJ k 0) c) (hk : 3 < k)
     (hk' : Even k) (hG : G ∈ cuspFormsKJ k 0 (integral (Fin 2))) :
     IsPeterssonOrthogonal (integral (Fin 2)) (rhoKJ k 0) c (siegelEisensteinKJ k) G := by
   have hb : IsModerateForm (rhoKJ k 0) c := isModerateForm_rhoKJ k c

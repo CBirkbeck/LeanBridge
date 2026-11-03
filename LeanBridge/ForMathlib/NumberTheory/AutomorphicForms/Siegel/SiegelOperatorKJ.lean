@@ -223,7 +223,7 @@ lemma tendsto_tsum_phiTerm_atImInfty (hs : ∀ τ, Summable fun n ↦ fourierExp
 
 variable (g : SL(2, ℤ)) (τ' : ℍ)
 
-private lemma smul_diagPoint_embedFirst (t : Set.Ioi (0 : ℝ)) :
+lemma smul_diagPoint_embedFirst (t : Set.Ioi (0 : ℝ)) :
     SymplecticGroup.map (Int.castRingHom ℝ) (embedFirst g) • diagPoint τ' t =
       diagPoint (g • τ') t := by
   have hw : (g 1 0 : ℂ) * τ' + (g 1 1 : ℂ) ≠ 0 := by
@@ -258,7 +258,7 @@ private lemma smul_diagPoint_embedFirst (t : Set.Ioi (0 : ℝ)) :
   ext a c
   fin_cases a <;> fin_cases c <;> simp [div_eq_mul_inv]
 
-private lemma coe_denomGL_embedFirst (t : Set.Ioi (0 : ℝ)) :
+lemma coe_denomGL_embedFirst (t : Set.Ioi (0 : ℝ)) :
     (denomGL (SymplecticGroup.map (Int.castRingHom ℝ) (embedFirst g)) (diagPoint τ' t) :
       Matrix (Fin 2) (Fin 2) ℂ) = !![(g 1 0 : ℂ) * τ' + (g 1 1 : ℂ), 0; 0, 1] := by
   ext a c

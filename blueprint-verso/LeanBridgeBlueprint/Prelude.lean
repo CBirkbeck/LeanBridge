@@ -241,12 +241,17 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformCoeffici
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformSpectrum
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.Weight
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ArithmeticFiniteDimensional
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ArithmeticSiegelOperator
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CoefficientField
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CongruenceSubgroups
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CuspForm
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CuspFormsFiniteDimensional
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeOneGrowth
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwo
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoOrthogonalDecomposition
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoSubspaces
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoWeightFour
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierExistence
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierExpansion
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierUniqueness
@@ -275,6 +280,7 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PeterssonSiege
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PhiOperator
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SatohBracket
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ScalarValued
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelEisensteinConvergence
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelEisensteinHecke
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelEisensteinSeries
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SimilitudeSlash

@@ -12,11 +12,14 @@ complement `W^⊥` in `S`: `W ∩ W^⊥ = 0` since a form orthogonal to itself v
 (LMFDB `mf.siegel.newspace`, `mf.siegel.newform`).
 
 For the paramodular cusp forms `S_ρ(K(N))`, with a positive definite admissible Hermitian form `b`
-on `V`, the hypotheses are theorems which are not proved here: `S_ρ(K(N))` is finite-dimensional,
-the Petersson integral of two cusp forms converges absolutely, and `⟨F, F⟩ > 0` for a nonzero cusp
-form `F`, its integrand `b(ρ(Im τ) F(τ), F(τ))` being nonnegative and continuous. They enter as
-the hypotheses `FiniteDimensional ℂ (paramodularCuspForms ρ N)` and
-`SiegelUpperHalfSpace.IsPeterssonDefinite`.
+on `V`, the hypotheses are theorems: `S_ρ(K(N))` is finite-dimensional, the Petersson integral of
+two cusp forms converges absolutely, and `⟨F, F⟩ > 0` for a nonzero cusp form `F`, its integrand
+`b(ρ(Im τ) F(τ), F(τ))` being nonnegative and continuous. They enter here as the hypotheses
+`FiniteDimensional ℂ (paramodularCuspForms ρ N)` and `SiegelUpperHalfSpace.IsPeterssonDefinite`.
+They are proved for the weights `ρ_{k,j}` and the scalar weights, which gives the decomposition
+with no hypothesis (`SiegelUpperHalfSpace.paramodularOldSubspace_sup_paramodularNewSubspace_rhoKJ`,
+`SiegelUpperHalfSpace.paramodularOldSubspace_sup_paramodularNewSubspace_scalar`, in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularDecomposition`).
 
 ## Main definitions
 
@@ -54,7 +57,8 @@ variable {l : Type*} [Fintype l] [DecidableEq l] (Γ : Subgroup (Matrix.symplect
 itself vanishes only for `f = 0`. For the cusp forms `S = S_ρ(Γ)` on an arithmetic subgroup `Γ`
 and a positive definite admissible Hermitian form `b`, this is a theorem (the integral converges
 absolutely for cusp forms, and the integrand of `⟨f, f⟩` is nonnegative and continuous), proved for
-`Γ = Sp(4, ℤ)` (`SiegelUpperHalfSpace.isPeterssonDefinite_cuspForms`) and not here for other `Γ`. -/
+a moderate `b` when the slash operators preserve holomorphy
+(`SiegelUpperHalfSpace.isPeterssonDefinite_cuspForms_of_isArithmetic`). -/
 structure IsPeterssonDefinite : Prop where
   integrableOn (f g : SiegelUpperHalfSpace l → V) : f ∈ S → g ∈ S →
     IntegrableOn (peterssonIntegrand ρ b f g) (fundamentalDomain Γ) (invariantMeasure l)
@@ -145,8 +149,9 @@ variable {V : Type*} [AddCommGroup V] [Module ℂ V] {ρ : Representation ℂ (G
 
 /-- **No nonzero paramodular cusp form is both old and new** (LMFDB `mf.siegel.newspace`,
 `mf.siegel.newform`): `S_ρ^old(K(N)) ∩ S_ρ^new(K(N)) = 0`, when the Petersson product of
-`S_ρ(K(N))` is definite (`SiegelUpperHalfSpace.IsPeterssonDefinite`, a theorem for a positive
-definite admissible `b` which is not proved here). -/
+`S_ρ(K(N))` is definite (`SiegelUpperHalfSpace.IsPeterssonDefinite`, a theorem for a moderate
+positive definite admissible `b` when the slash operators preserve holomorphy,
+`SiegelUpperHalfSpace.isPeterssonDefinite_cuspForms_of_isArithmetic`). -/
 lemma disjoint_paramodularOldSubspace_paramodularNewSubspace
     (h : IsPeterssonDefinite (paramodularLevel N) ρ b (paramodularCuspForms ρ N)) :
     Disjoint (paramodularOldSubspace ρ N) (paramodularNewSubspace ρ N b) :=
@@ -156,8 +161,10 @@ lemma disjoint_paramodularOldSubspace_paramodularNewSubspace
 `mf.siegel.newspace`, `mf.siegel.newform`): `S_ρ(K(N)) = S_ρ^old(K(N)) + S_ρ^new(K(N))`, the sum
 being direct (`disjoint_paramodularOldSubspace_paramodularNewSubspace`), when `S_ρ(K(N))` is
 finite-dimensional and its Petersson product is definite
-(`SiegelUpperHalfSpace.IsPeterssonDefinite`), theorems for a positive definite admissible `b` which
-are not proved here. -/
+(`SiegelUpperHalfSpace.IsPeterssonDefinite`), theorems for a positive definite admissible `b` in the
+weights `ρ_{k,j}` and in scalar weight
+(`SiegelUpperHalfSpace.paramodularOldSubspace_sup_paramodularNewSubspace_rhoKJ`,
+`SiegelUpperHalfSpace.paramodularOldSubspace_sup_paramodularNewSubspace_scalar`). -/
 lemma paramodularOldSubspace_sup_paramodularNewSubspace
     [FiniteDimensional ℂ (paramodularCuspForms ρ N)]
     (h : IsPeterssonDefinite (paramodularLevel N) ρ b (paramodularCuspForms ρ N)) :

@@ -392,6 +392,10 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.SpectralIndex
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.TrivialCharacter
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.Weight
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ArithmeticCuspDecay
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ArithmeticFiniteDimensional
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ArithmeticPetersson
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ArithmeticSiegelOperator
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ChiFiveLevelTwo
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ChiFiveTransformation
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CoefficientField
@@ -406,6 +410,7 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoDecom
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoHeckeStability
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoOrthogonalDecomposition
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoSubspaces
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoWeightFour
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.EisensteinSubspace
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierExistence
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierExpansion
@@ -436,6 +441,7 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.KoecherPrincip
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.Label
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LatticeThetaSeries
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.Level
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LevelTwoEisenstein
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LevelTwoIsotypic
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LevelTwoOddCharacteristics
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LevelTwoParabolic
@@ -456,6 +462,7 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ModularForm
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParabolicDecomposition
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularArithmetic
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularAtkinLehner
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularDecomposition
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularGenerators
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularLevelRaising
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularLevelRaisingCuspForms
@@ -479,6 +486,7 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PeterssonRhoKJ
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PeterssonSiegelEisenstein
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PeterssonUnfolding
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PhiOperator
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PluckerQuadricSum
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ProperDiscontinuity
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.QuotientSlashRepresentation
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.RiemannThetaRelation

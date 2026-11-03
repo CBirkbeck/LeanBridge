@@ -13,20 +13,23 @@ subgroup `P = {(A, B; 0, D)}` in `Sp(2g, ℤ)`. For `γ ∈ P`,
 scalar weight `ρ = det^k` and `v = 1` they are the Siegel Eisenstein series `ψ_k` of
 `SiegelUpperHalfSpace.siegelEisensteinSeries`, and `1` is invariant for even `k`. That the series
 converge for `k > g + 1` (to Siegel modular forms) is not proved here for general `g`. In degree
-`2`, `ψ_k` converges absolutely for `k > 5` and is a Siegel modular form for even `k > 5`
+`2`, `ψ_k` converges absolutely for `k > 3` and is a Siegel modular form for even `k > 3`
 (`SiegelUpperHalfSpace.summable_siegelEisensteinTerm`,
 `SiegelUpperHalfSpace.siegelEisensteinKJ_mem_modularFormsKJ`, in
-`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelEisensteinConvergence`), and the
-convergence of `ψ₄` is not proved here. For every `j` and every `k > 4`,
-`M_{j,k}(Γ₂) = S_{j,k}(Γ₂) ⊕ E_{j,k}(Γ₂) ⊕ KE_{j,k}(Γ₂)`, with `KE_{j,k}(Γ₂)` the space of
-Klingen–Eisenstein series (`SiegelUpperHalfSpace.modularFormsKJ_eq_sup`, in
-`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoDecomposition`), which is not
-proved here for `k ≤ 4`. The other decompositions of the knowl,
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelEisensteinConvergence`). For
+every `j` and every `k > 4`, `M_{j,k}(Γ₂) = S_{j,k}(Γ₂) ⊕ E_{j,k}(Γ₂) ⊕ KE_{j,k}(Γ₂)`, with
+`KE_{j,k}(Γ₂)` the space of Klingen–Eisenstein series (`SiegelUpperHalfSpace.modularFormsKJ_eq_sup`,
+in `LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoDecomposition`), and also
+at `(j, k) = (0, 4)`, where `KE_{0,4}(Γ₂) = 0`
+(`SiegelUpperHalfSpace.modularFormsKJ_four_eq_sup`, in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoWeightFour`); this is not
+proved here for the other `k ≤ 4`. The other decompositions of the knowl,
 `M_{j,k}(Γ₂) = S_{j,k}(Γ₂) ⊕ N_{j,k}(Γ₂)` and `N_{j,k}(Γ₂) = E_{j,k}(Γ₂) ⊕ KE_{j,k}(Γ₂)` for the
 Petersson orthogonal complement `N_{j,k}(Γ₂)` of the cusp forms, are
 `SiegelUpperHalfSpace.modularFormsKJ_eq_cuspFormsKJ_sup_cuspFormsOrthogonalKJ`, in every weight,
-and `SiegelUpperHalfSpace.cuspFormsOrthogonalKJ_eq_sup`, for `k > 4`. For `j > 0`, `E_{j,k}(Γ₂)`
-vanishes (`SiegelUpperHalfSpace.siegelEisensteinSubspaceKJ_eq_bot`, in
+and `SiegelUpperHalfSpace.cuspFormsOrthogonalKJ_eq_sup_of_range`, for `k > 4` and for
+`(j, k) = (0, 4)`. For `j > 0`, `E_{j,k}(Γ₂)` vanishes
+(`SiegelUpperHalfSpace.siegelEisensteinSubspaceKJ_eq_bot`, in
 `LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.VectorSiegelEisensteinVanishing`).
 
 ## Main definitions
@@ -140,9 +143,8 @@ def siegelEisensteinSubspace : Submodule ℂ (SiegelUpperHalfSpace l → V) :=
 /-- The space `E_{j,k}(Γ₂)` of **Siegel Eisenstein series of degree `2`** (LMFDB
 `mf.siegel.subspace.degree.two`) and weight `ρ_{k,j} = det^k ⊗ Sym^j` (`SiegelUpperHalfSpace.rhoKJ`)
 on `Γ₂ = Sp(4, ℤ)`, spanned by the vector-valued Siegel Eisenstein series of the vectors of
-`Sym^j(ℂ²)` invariant under `GL(2, ℤ)`. For `j = 0` and even `k > 3` it is spanned by `ψ_k`: this is
-`SiegelUpperHalfSpace.siegelEisensteinSubspaceKJ_eq_span_singleton` for `k > 5`, and the convergence
-of `ψ₄` is not proved here. For `j > 0` it vanishes
+`Sym^j(ℂ²)` invariant under `GL(2, ℤ)`. For `j = 0` and even `k > 3` it is spanned by `ψ_k`
+(`SiegelUpperHalfSpace.siegelEisensteinSubspaceKJ_eq_span_singleton`). For `j > 0` it vanishes
 (`SiegelUpperHalfSpace.siegelEisensteinSubspaceKJ_eq_bot`). -/
 noncomputable abbrev siegelEisensteinSubspaceKJ (k : ℤ) (j : ℕ) :
     Submodule ℂ (SiegelUpperHalfSpace (Fin 2) → Sym[ℂ]^j (Fin 2 → ℂ)) :=

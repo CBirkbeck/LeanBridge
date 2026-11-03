@@ -37,19 +37,20 @@ sum is direct by `SiegelUpperHalfSpace.disjoint_klingenEisensteinSubspaceKJ_cusp
 `SiegelUpperHalfSpace.disjoint_sup_siegelEisensteinSubspaceKJ`. The proof uses the Siegel operator
 on all of `M_{j,k}(Γ₂)` (`SiegelUpperHalfSpace.siegelOperatorKJ`), defined through the Fourier
 expansions of Siegel modular forms (`SiegelUpperHalfSpace.exists_hasSiegelFourierExpansion`), and,
-for `j = 0` and even `k`, the Siegel Eisenstein series `ψ_k`, which converges for `k > 5`
+for `j = 0` and even `k`, the Siegel Eisenstein series `ψ_k`, which converges for `k > 3`
 (`SiegelUpperHalfSpace.summable_siegelEisensteinTerm`); for `j > 0`, `E_{j,k}(Γ₂) = 0` by
 `SiegelUpperHalfSpace.siegelEisensteinSubspaceKJ_eq_bot`.
 
-Not proved here: this decomposition for `k ≤ 4`. The decompositions
-`M_{j,k}(Γ₂) = S_{j,k}(Γ₂) ⊕ N_{j,k}(Γ₂)` and, for `k > 4`,
+Not proved here: this decomposition for `k ≤ 4`, except at `(j, k) = (0, 4)`, where
+`KE_{0,4}(Γ₂) = 0` (`SiegelUpperHalfSpace.modularFormsKJ_four_eq_sup`); it fails at `(8, 4)`. The
+decompositions `M_{j,k}(Γ₂) = S_{j,k}(Γ₂) ⊕ N_{j,k}(Γ₂)` and, for `k > 4` and for `(j, k) = (0, 4)`,
 `N_{j,k}(Γ₂) = E_{j,k}(Γ₂) ⊕ KE_{j,k}(Γ₂)`, the orthogonality of `KE_{j,k}(Γ₂)` to the cusp forms
 and the stability under the Hecke operators are
 `SiegelUpperHalfSpace.modularFormsKJ_eq_cuspFormsKJ_sup_cuspFormsOrthogonalKJ`,
-`SiegelUpperHalfSpace.cuspFormsOrthogonalKJ_eq_sup`,
+`SiegelUpperHalfSpace.cuspFormsOrthogonalKJ_eq_sup_of_range`,
 `SiegelUpperHalfSpace.isPeterssonOrthogonal_vectorKlingenEisenstein`,
 `SiegelUpperHalfSpace.heckeOperator_mem_cuspFormsOrthogonalKJ` and
-`SiegelUpperHalfSpace.heckeOperator_mem_klingenEisensteinSubspaceKJ`; for `M_{j,k}(Γ₂)` and
+`SiegelUpperHalfSpace.heckeOperator_mem_klingenEisensteinSubspaceKJ_of_range`; for `M_{j,k}(Γ₂)` and
 `S_{j,k}(Γ₂)` it is `SiegelUpperHalfSpace.heckeOperator_mem_modularFormsKJ` and
 `SiegelUpperHalfSpace.heckeOperator_mem_cuspFormsKJ`.
 

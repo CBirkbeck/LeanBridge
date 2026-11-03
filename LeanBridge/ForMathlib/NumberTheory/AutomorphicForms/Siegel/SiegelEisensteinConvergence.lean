@@ -1,3 +1,4 @@
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PluckerQuadricSum
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.VectorKlingenEisenstein
 
 /-!
@@ -5,9 +6,8 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.VectorKlingenE
 
 The Siegel Eisenstein series `ψ_k(Z) = ∑_{(C, D)} det(CZ + D)^{-k}` of degree `2`
 (`SiegelUpperHalfSpace.siegelEisensteinSeries`, LMFDB `mf.siegel.eisenstein_series`) converges
-absolutely for `k > 5`, so for all even `k > 4`, and it is a Siegel modular form of weight `k` on
-`Sp(4, ℤ)`, with constant term `1`, for even `k`. The knowl's bound `k > 3` needs a count of the
-points of a quadric, which is not done here.
+absolutely for `k > 3`, the bound of the knowl, and it is a Siegel modular form of weight `k` on
+`Sp(4, ℤ)`, with constant term `1`, for even `k`.
 
 The bottom row `(C, D)` has the Plücker vector `p = (det C, c₁ ∧ d₂, c₂ ∧ d₂, c₂ ∧ d₁, det D) ∈ ℤ⁵`,
 the remaining minor being `c₁ ∧ d₁ = -c₂ ∧ d₂`, as `C Dᵀ` is symmetric. The determinant is linear
@@ -17,7 +17,8 @@ in `p`: `det(CZ + D) = p₀ det Z + p₁ z₀₀ + 2 p₂ z₀₁ - p₃ z₁₁
 of `p`, which gives `‖p‖ ≤ K(Z) |det(CZ + D)|`, with `K` continuous. The Plücker vector determines
 the coset `P (C, D)`: for `(C', D')` with the same vector, `det(C'Z + D') = det(CZ + D)` for all
 `Z`, so the bottom row `(E, F)` of the quotient has `det(EZ + F) = 1` for all `Z`, which forces
-`E = 0`. So the series is dominated by the lattice sum `∑_{p ∈ ℤ⁵} ‖p‖^{-k}`, locally uniformly in
+`E = 0`. So the series is dominated by the sum of `‖p‖^{-k}` over the quadric
+`p₀ p₄ + p₂² + p₁ p₃ = 0` (`SiegelUpperHalfSpace.summable_norm_zpow_quadric`), locally uniformly in
 `Z`.
 
 ## Main definitions
@@ -34,7 +35,7 @@ the coset `P (C, D)`: for `(C', D')` with the same vector, `det(C'Z + D') = det(
 * `SiegelUpperHalfSpace.det_denom_eq_siegelPlucker`: `det(CZ + D)` in terms of the Plücker vector.
 * `SiegelUpperHalfSpace.norm_siegelPlucker_le`: `‖p(C, D)‖ ≤ K(Z) |det(CZ + D)|`.
 * `SiegelUpperHalfSpace.siegelPlucker_out_injective`: the Plücker vector determines the coset.
-* `SiegelUpperHalfSpace.summable_siegelEisensteinTerm`: the series converges for `k > 5`.
+* `SiegelUpperHalfSpace.summable_siegelEisensteinTerm`: the series converges for `k > 3`.
 * `SiegelUpperHalfSpace.siegelEisensteinSeries_smul`: the transformation law of `ψ_k`.
 * `SiegelUpperHalfSpace.isHolomorphic_siegelEisensteinSeries`: `ψ_k` is holomorphic.
 * `SiegelUpperHalfSpace.siegelEisensteinKJ_mem_modularFormsKJ`: `ψ_k` is a Siegel modular form.
@@ -575,16 +576,13 @@ lemma siegelPlucker_out_injective :
 
 variable {k : ℤ} (β : symplecticGroup (Fin 2) ℤ)
 
-lemma summable_norm_siegelPlucker_zpow (hk : 5 < k) :
+lemma summable_norm_siegelPlucker_zpow (hk : 3 < k) :
     Summable fun x : SiegelParabolicCosets (Fin 2) ↦ ‖siegelPlucker x.out‖ ^ (-k) := by
-  have h₁ : Summable fun x : Fin 5 → ℤ ↦ ‖x‖ ^ (((-k : ℤ) : ℝ)) :=
-    summable_norm_rpow_int (by
-      have hk' : (5 : ℝ) < k := by
-        exact_mod_cast hk
-      simpa using hk')
-  have h₂ : Summable fun x : Fin 5 → ℤ ↦ ‖x‖ ^ (-k) :=
-    h₁.congr fun x ↦ Real.rpow_intCast _ _
-  exact h₂.comp_injective siegelPlucker_out_injective
+  have hQ (γ : symplecticGroup (Fin 2) ℤ) : siegelPlucker γ 0 * siegelPlucker γ 4 +
+      siegelPlucker γ 2 ^ 2 + siegelPlucker γ 1 * siegelPlucker γ 3 = 0 := by
+    exact_mod_cast siegelPlucker_quadric γ
+  exact summable_norm_zpow_quadric hk siegelPlucker_out_injective
+    (fun x ↦ siegelPlucker_ne_zero x.out) fun x ↦ hQ x.out
 
 lemma norm_siegelEisensteinTerm_le (hk : 0 < k) :
     ‖siegelEisensteinTerm k Z δ‖ ≤ siegelK Z.val ^ k * ‖siegelPlucker δ‖ ^ (-k) := by
@@ -600,9 +598,9 @@ lemma norm_siegelEisensteinTerm_le (hk : 0 < k) :
     le_div_iff₀ (zpow_pos hv k), inv_mul_le_iff₀ (zpow_pos hd k), mul_comm]
   exact h₁
 
-/-- **The Siegel Eisenstein series of degree `2` converges absolutely** for `k > 5`, by comparison
-with the lattice sum `∑_{p ∈ ℤ⁵} ‖p‖^{-k}`. -/
-lemma summable_siegelEisensteinTerm (hk : 5 < k) :
+/-- **The Siegel Eisenstein series of degree `2` converges absolutely** for `k > 3`, by comparison
+with the sum of `‖p‖^{-k}` over the quadric of Plücker vectors. -/
+lemma summable_siegelEisensteinTerm (hk : 3 < k) :
     Summable fun x : SiegelParabolicCosets (Fin 2) ↦ siegelEisensteinTerm k Z x.out :=
   ((summable_norm_siegelPlucker_zpow hk).mul_left (siegelK Z.val ^ k)).of_norm_bounded fun x ↦
     norm_siegelEisensteinTerm_le x.out Z (by linarith)
@@ -662,9 +660,9 @@ private lemma continuousAt_siegelK {Z₀ : Fin 2 → Fin 2 → ℂ}
     ((hy 0 0).mul (hy 1 1)).sub ((hy 0 1).pow 2)
   exact c₁.continuousAt.mul (continuousAt_const.add (c₂.continuousAt.div c₃.continuousAt hdet))
 
-/-- **The Siegel Eisenstein series `ψ_k` of degree `2` is holomorphic** for `k > 5`: around each
+/-- **The Siegel Eisenstein series `ψ_k` of degree `2` is holomorphic** for `k > 3`: around each
 point the terms are bounded by a summable family, locally uniformly. -/
-lemma isHolomorphic_siegelEisensteinSeries (hk : 5 < k) :
+lemma isHolomorphic_siegelEisensteinSeries (hk : 3 < k) :
     IsHolomorphic fun Z : SiegelUpperHalfSpace (Fin 2) ↦ siegelEisensteinSeries k Z := by
   rw [isHolomorphic_iff_differentiableOn]
   intro Z₀ hZ₀
@@ -731,7 +729,7 @@ private lemma slash_siegelEisensteinKJ (hk' : Even k) :
     siegelEisensteinSeries_smul W β hk', siegelEisensteinKJ, smul_smul, zpow_neg,
     inv_mul_cancel_left₀ (zpow_ne_zero _ h₀)]
 
-private lemma isHolomorphic_siegelEisensteinKJ (hk : 5 < k) :
+private lemma isHolomorphic_siegelEisensteinKJ (hk : 3 < k) :
     IsHolomorphic (siegelEisensteinKJ k) := by
   intro φ
   refine ((isHolomorphic_iff_differentiableOn.mp
@@ -741,8 +739,8 @@ private lemma isHolomorphic_siegelEisensteinKJ (hk : 5 < k) :
   simp [siegelEisensteinKJ]
 
 /-- **The Siegel Eisenstein series `ψ_k` of degree `2` is a Siegel modular form** of weight `k` on
-`Sp(4, ℤ)`, for even `k > 5`. -/
-lemma siegelEisensteinKJ_mem_modularFormsKJ (hk : 5 < k) (hk' : Even k) :
+`Sp(4, ℤ)`, for even `k > 3`. -/
+lemma siegelEisensteinKJ_mem_modularFormsKJ (hk : 3 < k) (hk' : Even k) :
     siegelEisensteinKJ k ∈ modularFormsKJ k 0 (integral (Fin 2)) :=
   mem_modularFormsKJ_of_slash_eq k (isHolomorphic_siegelEisensteinKJ hk)
     fun β _ ↦ slash_siegelEisensteinKJ β hk'
@@ -765,8 +763,8 @@ private lemma isGLIntInvariant_tprod (hk' : Even k) :
   rcases Int.isUnit_iff.mp hD with h | h <;> simp [h, hk'.neg_one_zpow]
 
 /-- **`ψ_k` is the vector-valued Siegel Eisenstein series of the generator of `Sym⁰(ℂ²)`**, for
-`k > 5`, so it lies in the space `E_{k,0}(Sp(4, ℤ))` for even `k`. -/
-lemma isVectorSiegelEisensteinSeries_siegelEisensteinKJ (hk : 5 < k) :
+`k > 3`, so it lies in the space `E_{k,0}(Sp(4, ℤ))` for even `k`. -/
+lemma isVectorSiegelEisensteinSeries_siegelEisensteinKJ (hk : 3 < k) :
     IsVectorSiegelEisensteinSeries (rhoKJ k 0) (⨂ₛ[ℂ] _ : Fin 0, Pi.single 0 1)
       (siegelEisensteinKJ k) := by
   intro Z φ
@@ -782,7 +780,7 @@ lemma isVectorSiegelEisensteinSeries_siegelEisensteinKJ (hk : 5 < k) :
   rw [vectorSiegelEisensteinTerm, rhoKJ_denomGL_inv_apply, symPowerRep_zero, map_smul, smul_eq_mul,
     siegelEisensteinTerm]
 
-lemma siegelEisensteinKJ_mem_siegelEisensteinSubspaceKJ (hk : 5 < k) (hk' : Even k) :
+lemma siegelEisensteinKJ_mem_siegelEisensteinSubspaceKJ (hk : 3 < k) (hk' : Even k) :
     siegelEisensteinKJ k ∈ siegelEisensteinSubspaceKJ k 0 :=
   Submodule.subset_span ⟨_, isGLIntInvariant_tprod hk',
     isVectorSiegelEisensteinSeries_siegelEisensteinKJ hk⟩
@@ -892,9 +890,9 @@ private lemma tendsto_siegelEisensteinTerm_scalarPoint (hk : 0 < k)
     (le_norm_det_scalarPoint x.out hs hne))
 
 /-- **The constant term of the Siegel Eisenstein series**: `ψ_k(diag(is, is)) → 1` as `s → ∞`, for
-even `k > 5`: the term of the trivial coset is `1`, and the others tend to `0`, as
+even `k > 3`: the term of the trivial coset is `1`, and the others tend to `0`, as
 `|det(C(is) + D)| ≥ s` for `C ≠ 0`, dominated by `16^k ‖p(C, D)‖^{-k}`. -/
-lemma tendsto_siegelEisensteinSeries_scalarPoint (hk : 5 < k) (hk' : Even k) :
+lemma tendsto_siegelEisensteinSeries_scalarPoint (hk : 3 < k) (hk' : Even k) :
     Tendsto (fun s : Set.Ioi (0 : ℝ) ↦ siegelEisensteinSeries k (scalarPoint s)) atTop (𝓝 1) := by
   classical
   have hk₀ : 0 < k := by

@@ -6,7 +6,10 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelOperator
 
 The space `M_{j,k}(Γ₂)` of Siegel modular forms of degree `2` and weight `ρ_{k,j} = det^k ⊗ Sym^j`
 on `Γ₂ = Sp(4, ℤ)` is the direct sum of the cusp forms, the Siegel Eisenstein series and the
-Klingen–Eisenstein series, for `k > 4` (LMFDB `mf.siegel.subspace.degree.two`).
+Klingen–Eisenstein series, for `k > 4` (LMFDB `mf.siegel.subspace.degree.two`). At
+`(j, k) = (0, 4)` it is the direct sum of the cusp forms and `ℂ ψ₄`, there being no
+Klingen–Eisenstein series (`SiegelUpperHalfSpace.modularFormsKJ_four_eq_sup`, in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoWeightFour`).
 
 For `k` odd, `M_{j,k}(Γ₂) = S_{j,k}(Γ₂)`: the Siegel operator takes values in the modular forms of
 odd weight `k + j` on `SL(2, ℤ)` for `j` even, and `M_{j,k}(Γ₂) = 0` for `j` odd. For `k` even and
@@ -24,7 +27,10 @@ and `KE_{j,k}(Γ₂)` are `SiegelUpperHalfSpace.cuspFormsOrthogonalKJ`,
 `SiegelUpperHalfSpace.heckeOperator_mem_cuspFormsOrthogonalKJ`,
 `SiegelUpperHalfSpace.heckeOperator_mem_siegelEisensteinSubspaceKJ` and
 `SiegelUpperHalfSpace.heckeOperator_mem_klingenEisensteinSubspaceKJ`, the second decomposition and
-the stability of `E_{j,k}(Γ₂)` and `KE_{j,k}(Γ₂)` for `k > 4`.
+the stability of `E_{j,k}(Γ₂)` and `KE_{j,k}(Γ₂)` for `k > 4`; for `k > 4` and for
+`(j, k) = (0, 4)` they are `SiegelUpperHalfSpace.cuspFormsOrthogonalKJ_eq_sup_of_range`,
+`SiegelUpperHalfSpace.heckeOperator_mem_siegelEisensteinSubspaceKJ_of_range` and
+`SiegelUpperHalfSpace.heckeOperator_mem_klingenEisensteinSubspaceKJ_of_range`.
 
 ## Main results
 
@@ -122,8 +128,8 @@ private lemma symConstCoeff_siegelEisensteinKJ (Z : SiegelUpperHalfSpace (Fin 2)
     symConstCoeff 0 (siegelEisensteinKJ k Z) = siegelEisensteinSeries k Z := by
   rw [siegelEisensteinKJ, map_smul, symConstCoeff_tprod_single, smul_eq_mul, mul_one]
 
-/-- **The constant Fourier coefficient of `ψ_k` is `1`**, for even `k > 5`. -/
-lemma symConstCoeff_apply_zero_siegelEisensteinKJ (hk : 5 < k) (hk' : Even k)
+/-- **The constant Fourier coefficient of `ψ_k` is `1`**, for even `k > 3`. -/
+lemma symConstCoeff_apply_zero_siegelEisensteinKJ (hk : 3 < k) (hk' : Even k)
     {c : dualLattice (integral (Fin 2)) → Sym[ℂ]^0 (Fin 2 → ℂ)}
     (hc : HasSiegelFourierExpansion (integral (Fin 2)) (siegelEisensteinKJ k) c) :
     symConstCoeff 0 (c 0) = 1 := by
@@ -132,12 +138,14 @@ lemma symConstCoeff_apply_zero_siegelEisensteinKJ (hk : 5 < k) (hk' : Even k)
   simp only [symConstCoeff_siegelEisensteinKJ]
   exact tendsto_siegelEisensteinSeries_scalarPoint hk hk'
 
-private lemma mem_sup_of_zero (hk : 5 < k) (hk' : Even k)
+private lemma mem_sup_of_zero (hk : 4 < k) (hk' : Even k)
     {H : SiegelUpperHalfSpace (Fin 2) → Sym[ℂ]^0 (Fin 2 → ℂ)}
     (hH : H ∈ modularFormsKJ k 0 (integral (Fin 2))) : H ∈ cuspFormsKJ k 0 (integral (Fin 2)) ⊔
     siegelEisensteinSubspaceKJ k 0 ⊔ klingenEisensteinSubspaceKJ k 0 := by
+  have hk₃ : 3 < k := by
+    linarith
   have hψ : siegelEisensteinKJ k ∈ modularFormsKJ k 0 (integral (Fin 2)) :=
-    siegelEisensteinKJ_mem_modularFormsKJ hk hk'
+    siegelEisensteinKJ_mem_modularFormsKJ hk₃ hk'
   rcases exists_hasSiegelFourierExpansion (rhoKJ k 0) (isArithmetic_integral (Fin 2)) hH with
     ⟨b, hb⟩
   rcases exists_hasSiegelFourierExpansion (rhoKJ k 0) (isArithmetic_integral (Fin 2)) hψ with
@@ -155,18 +163,16 @@ private lemma mem_sup_of_zero (hk : 5 < k) (hk' : Even k)
     simp
     ring1
   have h₀ : symConstCoeff 0 ((b - c₀ • c) 0) = 0 := by
-    simp [symConstCoeff_apply_zero_siegelEisensteinKJ hk hk' hc, hc₀]
-  have hk₄ : 4 < k := by
-    linarith
+    simp [symConstCoeff_apply_zero_siegelEisensteinKJ hk₃ hk' hc, hc₀]
   have hS : (H - c₀ • siegelEisensteinKJ k) -
       vectorKlingenEisenstein k 0 (siegelOperatorCuspKJ hG hbG h₀) ∈
         cuspFormsKJ k 0 (integral (Fin 2)) :=
-    sub_vectorKlingenEisenstein_mem_cuspFormsKJ hk₄ hk' hG hbG h₀
+    sub_vectorKlingenEisenstein_mem_cuspFormsKJ hk hk' hG hbG h₀
   have hKE : vectorKlingenEisenstein k 0 (siegelOperatorCuspKJ hG hbG h₀) ∈
       klingenEisensteinSubspaceKJ k 0 :=
-    vectorKlingenEisenstein_mem_klingenEisensteinSubspaceKJ hk₄ hk' _
+    vectorKlingenEisenstein_mem_klingenEisensteinSubspaceKJ hk hk' _
   have hE : c₀ • siegelEisensteinKJ k ∈ siegelEisensteinSubspaceKJ k 0 :=
-    Submodule.smul_mem _ _ (siegelEisensteinKJ_mem_siegelEisensteinSubspaceKJ hk hk')
+    Submodule.smul_mem _ _ (siegelEisensteinKJ_mem_siegelEisensteinSubspaceKJ hk₃ hk')
   refine Submodule.mem_sup.mpr ⟨_, Submodule.mem_sup.mpr ⟨_, hS, _, hE, rfl⟩, _, hKE, ?_⟩
   abel
 
@@ -179,9 +185,7 @@ lemma modularFormsKJ_le_sup (hk : 4 < k) : modularFormsKJ k j (integral (Fin 2))
   intro F hF
   rcases Int.even_or_odd k with hk' | hk'
   · rcases eq_or_ne j 0 with rfl | hj
-    · refine mem_sup_of_zero ?_ hk' hF
-      rcases hk' with ⟨m, rfl⟩
-      omega
+    · exact mem_sup_of_zero hk hk' hF
     · rcases exists_hasSiegelFourierExpansion (rhoKJ k j) (isArithmetic_integral (Fin 2)) hF with
         ⟨b, hb⟩
       have h₀ : symConstCoeff j (b 0) = 0 := by
@@ -197,7 +201,7 @@ lemma modularFormsKJ_le_sup (hk : 4 < k) : modularFormsKJ k j (integral (Fin 2))
   · refine Submodule.mem_sup_left (Submodule.mem_sup_left ?_)
     rwa [← modularFormsKJ_eq_cuspFormsKJ_of_odd hk']
 
-private lemma eq_smul_siegelEisensteinKJ (hk : 5 < k) {v : Sym[ℂ]^0 (Fin 2 → ℂ)}
+private lemma eq_smul_siegelEisensteinKJ (hk : 3 < k) {v : Sym[ℂ]^0 (Fin 2 → ℂ)}
     {H : SiegelUpperHalfSpace (Fin 2) → Sym[ℂ]^0 (Fin 2 → ℂ)}
     (hH : IsVectorSiegelEisensteinSeries (rhoKJ k 0) v H) :
     H = symConstCoeff 0 v • siegelEisensteinKJ k := by
@@ -253,11 +257,10 @@ lemma siegelEisensteinSubspaceKJ_le_modularFormsKJ (hk : 4 < k) :
   · refine Submodule.span_le.mpr ?_
     rintro G ⟨v, hv, hG⟩
     rcases Int.even_or_odd k with hk' | hk'
-    · have hk₅ : 5 < k := by
-        rcases hk' with ⟨m, rfl⟩
-        omega
-      rw [eq_smul_siegelEisensteinKJ hk₅ hG]
-      exact Submodule.smul_mem _ _ (siegelEisensteinKJ_mem_modularFormsKJ hk₅ hk')
+    · have hk₃ : 3 < k := by
+        linarith
+      rw [eq_smul_siegelEisensteinKJ hk₃ hG]
+      exact Submodule.smul_mem _ _ (siegelEisensteinKJ_mem_modularFormsKJ hk₃ hk')
     · rw [eq_zero_of_isGLIntInvariant_of_odd hk' hv] at hG
       have hG₀ : G = 0 := by
         refine hG.unique fun Z φ ↦ ?_
@@ -279,9 +282,9 @@ lemma modularFormsKJ_eq_sup (hk : 4 < k) : modularFormsKJ k j (integral (Fin 2))
     (siegelEisensteinSubspaceKJ_le_modularFormsKJ k j hk))
       (klingenEisensteinSubspaceKJ_le_modularFormsKJ k j))
 
-/-- **The space `E_{0,k}(Γ₂)` is the line of `ψ_k`**, for even `k > 5` (LMFDB
+/-- **The space `E_{0,k}(Γ₂)` is the line of `ψ_k`**, for even `k > 3` (LMFDB
 `mf.siegel.subspace.degree.two`). -/
-lemma siegelEisensteinSubspaceKJ_eq_span_singleton (hk : 5 < k) (hk' : Even k) :
+lemma siegelEisensteinSubspaceKJ_eq_span_singleton (hk : 3 < k) (hk' : Even k) :
     siegelEisensteinSubspaceKJ k 0 = Submodule.span ℂ {siegelEisensteinKJ k} := by
   refine le_antisymm (Submodule.span_le.mpr ?_) (Submodule.span_le.mpr ?_)
   · rintro G ⟨v, -, hG⟩
@@ -325,16 +328,15 @@ lemma disjoint_sup_siegelEisensteinSubspaceKJ (hk : 4 < k) : Disjoint
       (siegelEisensteinSubspaceKJ k j) := by
   rcases eq_or_ne j 0 with rfl | hj
   · rcases Int.even_or_odd k with hk' | hk'
-    · have hk₅ : 5 < k := by
-        rcases hk' with ⟨m, rfl⟩
-        omega
-      rw [siegelEisensteinSubspaceKJ_eq_span_singleton hk₅ hk',
+    · have hk₃ : 3 < k := by
+        linarith
+      rw [siegelEisensteinSubspaceKJ_eq_span_singleton hk₃ hk',
         klingenEisensteinSubspaceKJ_eq_range hk (by simp), Submodule.disjoint_def]
       intro x hx hx'
       rcases Submodule.mem_span_singleton.mp hx' with ⟨c, rfl⟩
       rcases Submodule.mem_sup.mp hx with ⟨s, hs, _, ⟨f, rfl⟩, hsum⟩
       have hψ : siegelEisensteinKJ k ∈ modularFormsKJ k 0 (integral (Fin 2)) :=
-        siegelEisensteinKJ_mem_modularFormsKJ hk₅ hk'
+        siegelEisensteinKJ_mem_modularFormsKJ hk₃ hk'
       have hκ : vectorKlingenEisenstein k 0 f ∈ modularFormsKJ k 0 (integral (Fin 2)) :=
         vectorKlingenEisenstein_mem_modularFormsKJ f hk hk'
       rcases exists_hasSiegelFourierExpansion (rhoKJ k 0) (isArithmetic_integral (Fin 2)) hψ with
@@ -354,7 +356,7 @@ lemma disjoint_sup_siegelEisensteinSubspaceKJ (hk : 4 < k) : Disjoint
       simp only [Pi.add_apply, Pi.smul_apply, map_smul, smul_eq_mul,
         apply_zero_eq_zero_of_mem_cuspFormsKJ hs hbs, zero_add,
         symConstCoeff_apply_zero_vectorKlingenEisenstein hk hk' f hbκ,
-        symConstCoeff_apply_zero_siegelEisensteinKJ hk₅ hk' hbψ, mul_one] at h₃
+        symConstCoeff_apply_zero_siegelEisensteinKJ hk₃ hk' hbψ, mul_one] at h₃
       rw [← h₃, zero_smul]
     · have hE : siegelEisensteinSubspaceKJ k 0 = ⊥ := by
         rw [siegelEisensteinSubspaceKJ, siegelEisensteinSubspace, Submodule.span_eq_bot]

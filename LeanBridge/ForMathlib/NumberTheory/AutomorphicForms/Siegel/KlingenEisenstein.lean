@@ -18,7 +18,7 @@ which the LMFDB knowl characterises it; this is not proved here for general `n` 
 `n = 2`, see the separately defined series `SiegelUpperHalfSpace.vectorKlingenEisenstein` of weight
 `ρ_{k,j}`, for `r = 1` and even `k > 4`, in
 `LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.VectorKlingenEisenstein`, and the Siegel
-Eisenstein series `SiegelUpperHalfSpace.siegelEisensteinSeries`, for `r = 0` and even `k > 5`.
+Eisenstein series `SiegelUpperHalfSpace.siegelEisensteinSeries`, for `r = 0` and even `k > 3`.
 
 ## Main definitions
 

@@ -14,19 +14,21 @@ the symmetric group exactly once, and the multiplicity of `s[λ]` in a represent
 `dim Hom_{S₆}(s[λ], V)`, the number of copies of `s[λ]` in `V` when `V` is finite-dimensional
 (Schur's lemma, `ℂ[S₆]` being semisimple).
 
-Deviations from the knowl. That `M_{k,j}(Γ[2])` is finite-dimensional is not proved here; the
-multiplicities are `Module.finrank`s, so they are the knowl's numbers as soon as the intertwiner
-spaces are finite-dimensional, which holds when `M_{k,j}(Γ[2])` is. The Eisenstein space
-`E_{k,j}(Γ[2])` is not defined in LeanBridge; its multiplicities are taken in the quotient
-`M_{k,j}(Γ[2]) / S_{k,j}(Γ[2])`, which is `E_{k,j}(Γ[2])` by the knowl's splitting
-`M_{k,j}(Γ[2]) = S_{k,j}(Γ[2]) ⊕ E_{k,j}(Γ[2])` (not proved here). The labels `s[λ]` do not
-depend on the numbering of the six odd theta characteristics (an inner automorphism of `S₆`), but
-they depend on the action on the odd characteristics among the two classes of isomorphisms
-`Sp(4, ℤ/2ℤ) ≅ S₆`, which differ by the outer automorphism of `S₆`; the one used has not been
-checked formally against the knowl's `M₂(Γ[2]) = s[2³]`, which needs `dim M₂(Γ[2]) = 5` (Igusa).
-By hand it agrees: the translation `Ω ↦ Ω + diag(1, 0)` is a transvection, hence a transposition,
-and has trace `-1` on the span of `x₁, …, x₅`, the value on a transposition of the character of
-`s[2³]` and of no other irreducible representation of dimension 5.
+Deviations from the knowl. The multiplicities are `Module.finrank`s, so they are the knowl's numbers
+as soon as the intertwiner spaces are finite-dimensional, which holds since `M_{k,j}(Γ[2])` is
+(`SiegelUpperHalfSpace.finiteDimensional_modularFormsKJ_principal`). The Eisenstein space
+`E_{k,j}(Γ[2])` is the Petersson complement of the cusp forms
+(`SiegelUpperHalfSpace.levelTwoEisenstein`), with `M_{k,j}(Γ[2]) = S_{k,j}(Γ[2]) ⊕ E_{k,j}(Γ[2])`
+(`SiegelUpperHalfSpace.modularFormsKJ_principal_eq_sup`), but its stability under `S₆` is not
+proved here; so its multiplicities are taken in the quotient `M_{k,j}(Γ[2]) / S_{k,j}(Γ[2])`,
+which is isomorphic to `E_{k,j}(Γ[2])` as a vector space. The labels `s[λ]` do not depend on the
+numbering of the six odd theta characteristics (an inner automorphism of `S₆`), but they depend on
+the action on the odd characteristics among the two classes of isomorphisms `Sp(4, ℤ/2ℤ) ≅ S₆`,
+which differ by the outer automorphism of `S₆`; the one used has not been checked formally against
+the knowl's `M₂(Γ[2]) = s[2³]`, which needs `dim M₂(Γ[2]) = 5` (Igusa). By hand it agrees: the
+translation `Ω ↦ Ω + diag(1, 0)` is a transvection, hence a transposition, and has trace `-1` on
+the span of `x₁, …, x₅`, the value on a transposition of the character of `s[2³]` and of no other
+irreducible representation of dimension 5.
 
 ## Main definitions
 
@@ -81,8 +83,10 @@ noncomputable def levelTwoCuspMultiplicity : ℕ :=
 
 /-- The **multiplicity `n_{s[λ]}` of the irreducible representation `s[λ]` of `S₆` in the
 Eisenstein part** (LMFDB `mf.siegel.family.gamma_2`), taken in the quotient
-`M_{k,j}(Γ[2]) / S_{k,j}(Γ[2])`, which is the knowl's `E_{k,j}(Γ[2])` by its splitting
-`M_{k,j}(Γ[2]) = S_{k,j}(Γ[2]) ⊕ E_{k,j}(Γ[2])` (not proved here). -/
+`M_{k,j}(Γ[2]) / S_{k,j}(Γ[2])`, which is isomorphic to the knowl's `E_{k,j}(Γ[2])` as a vector
+space by its splitting `M_{k,j}(Γ[2]) = S_{k,j}(Γ[2]) ⊕ E_{k,j}(Γ[2])`
+(`SiegelUpperHalfSpace.modularFormsKJ_principal_eq_sup`); the stability of `E_{k,j}(Γ[2])` under
+`S₆` is not proved here. -/
 noncomputable def levelTwoEisensteinMultiplicity : ℕ :=
   finrank ℂ (Representation.IntertwiningMap (TauCeti.spechtModuleℂ μ).ρ
     (Subrepresentation.quotient (W := modularFormsKJ k j IgusaLevelTwo.principal)

@@ -106,13 +106,13 @@ private lemma continuous_symPowerRep_imGL (ψ : Dual ℂ (Sym[ℂ]^j (Fin 2 → 
   rw [Function.comp_apply, Representation.symmetricPower_apply, TauCeti.stdRep_apply]
   rfl
 
-private lemma continuous_det_zpow :
+lemma continuous_det_im_zpow :
     Continuous fun τ : SiegelUpperHalfSpace (Fin 2) ↦ (τ.val.map im).det ^ k := by
   have h : Continuous fun τ : SiegelUpperHalfSpace (Fin 2) ↦ (τ.val.map im).det :=
     Continuous.matrix_det (continuous_matrix fun a c ↦ continuous_im_apply a c)
   exact h.zpow₀ k fun τ ↦ Or.inl τ.posDef_im.det_pos.ne'
 
-private lemma norm_det_zpow_le {τ : SiegelUpperHalfSpace (Fin 2)} (hτ : τ ∈ siegelSet) :
+lemma det_im_zpow_le {τ : SiegelUpperHalfSpace (Fin 2)} (hτ : τ ∈ siegelSet) :
     (τ.val.map im).det ^ k ≤ ((25 : ℝ) / 12) ^ k.natAbs *
       (1 + (τ.val 0 0).im + (τ.val 1 1).im) ^ (2 * k.natAbs) := by
   have hτs : τ.val 1 0 = τ.val 0 1 := congrFun (congrFun τ.transpose_val 0) 1
@@ -154,7 +154,7 @@ lemma isModerateForm_rhoKJ : IsModerateForm (rhoKJ k j) c where
       rw [rhoKJ_apply, val_det_imGL_zpow, map_smul, LinearMap.smul_apply, smul_eq_mul]
       rfl
     rw [e]
-    exact (continuous_ofReal.comp (continuous_det_zpow k)).mul (continuous_symPowerRep_imGL _ v)
+    exact (continuous_ofReal.comp (continuous_det_im_zpow k)).mul (continuous_symPowerRep_imGL _ v)
   exists_bound := by
     refine ⟨2 * k.natAbs + j, fun v w ↦ ?_⟩
     rcases exists_norm_dual_symPowerRep_le (c.flip w) v with ⟨C, hC⟩
@@ -179,7 +179,7 @@ lemma isModerateForm_rhoKJ : IsModerateForm (rhoKJ k j) c where
       hC (imGL τ) _ hentries
     have h₅ : (τ.val.map im).det ^ k ≤ ((25 : ℝ) / 12) ^ k.natAbs *
         (1 + (τ.val 0 0).im + (τ.val 1 1).im) ^ (2 * k.natAbs) :=
-      norm_det_zpow_le k hτ
+      det_im_zpow_le k hτ
     have hD : 0 ≤ (τ.val.map im).det ^ k := zpow_nonneg τ.posDef_im.det_pos.le k
     rw [rhoKJ_apply, val_det_imGL_zpow, map_smul, LinearMap.smul_apply, smul_eq_mul, norm_mul,
       Complex.norm_real, Real.norm_of_nonneg hD]
@@ -241,7 +241,7 @@ lemma symCoord_symPowerRep (A : GL (Fin 2) ℂ) (r : Fin j → Fin 2) (u : Sym[�
     tensorCoord_map]
   rfl
 
-private lemma exists_symCoord_ne_zero {u : Sym[ℂ]^j (Fin 2 → ℂ)} (hu : u ≠ 0) :
+lemma exists_symCoord_ne_zero {u : Sym[ℂ]^j (Fin 2 → ℂ)} (hu : u ≠ 0) :
     ∃ r, symCoord r u ≠ 0 := by
   by_contra hall
   push Not at hall

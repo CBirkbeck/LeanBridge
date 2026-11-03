@@ -12,9 +12,12 @@ vanishes almost everywhere, and everywhere, being holomorphic. In scalar weight 
 `b(v, w) = v w̄`, `b(ρ(Y) v, v) = det(Y)^k |v|²`. So the decomposition
 `S_k(K(N)) = S_k^old(K(N)) ⊕ S_k^new(K(N))` of the paramodular cusp forms of scalar weight (LMFDB
 `mf.siegel.newspace`, `mf.siegel.newform`) holds as soon as `S_k(K(N))` is finite-dimensional and
-the Petersson integrals of cusp forms converge, two theorems which are not proved here. For
-`Sp(4, ℤ)` these are `SiegelUpperHalfSpace.finiteDimensional_cuspFormsKJ` and
-`SiegelUpperHalfSpace.isPeterssonDefinite_cuspForms`.
+the Petersson integrals of cusp forms converge, two theorems for every arithmetic subgroup
+(`SiegelUpperHalfSpace.finiteDimensional_cuspForms_detPowerRep`,
+`SiegelUpperHalfSpace.integrableOn_peterssonIntegrand_of_isArithmetic`), which give the
+decomposition with no hypothesis
+(`SiegelUpperHalfSpace.paramodularOldSubspace_sup_paramodularNewSubspace_scalar`, in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularDecomposition`).
 
 ## Main results
 
@@ -123,8 +126,8 @@ positive definite admissible `b` (for scalar weight, `flip_innerₛₗ_detPowerR
 integrand `b(ρ(Im τ) f(τ), f(τ))` is then nonnegative, so it vanishes almost everywhere on the
 fundamental domain, hence almost everywhere by its invariance under `Γ`, and so does `f`, which is
 holomorphic, hence vanishes. A fundamental domain exists for an arithmetic `Γ`
-(`SiegelUpperHalfSpace.exists_isFundamentalDomain`). The convergence of the integrals is proved for
-`Sp(4, ℤ)` (`SiegelUpperHalfSpace.isPeterssonDefinite_cuspForms`), and not here for other `Γ`. -/
+(`SiegelUpperHalfSpace.exists_isFundamentalDomain`). The integrals converge for the cusp forms on an
+arithmetic `Γ` (`SiegelUpperHalfSpace.integrableOn_peterssonIntegrand_of_isArithmetic`). -/
 lemma IsPeterssonDefinite.of_integrableOn (hpos : ∀ τ (v : V), v ≠ 0 → 0 < b (ρ (imGL τ) v) v)
     (hF : ∃ F, IsFundamentalDomain (transformationGroup Γ) F (invariantMeasure l))
     (hS : S ≤ modularForms ρ Γ 1)
@@ -179,7 +182,8 @@ variable {k} {N : ℕ+}
 
 /-- **The Petersson product of paramodular cusp forms of scalar weight is definite**: for
 `b(v, w) = v w̄`, `⟨F, F⟩ = 0` only for `F = 0` in `S_k(K(N))`, provided the Petersson integrals of
-cusp forms converge, which is not proved here. -/
+cusp forms converge, as they do
+(`SiegelUpperHalfSpace.integrableOn_peterssonIntegrand_of_isArithmetic`). -/
 lemma isPeterssonDefinite_paramodularCuspForms_detPowerRep
     (hint : ∀ f g, f ∈ paramodularCuspForms (TauCeti.detPowerRep ℂ 2 k) N →
       g ∈ paramodularCuspForms (TauCeti.detPowerRep ℂ 2 k) N →
@@ -193,7 +197,9 @@ lemma isPeterssonDefinite_paramodularCuspForms_detPowerRep
 
 /-- **No nonzero paramodular cusp form of scalar weight is both old and new** (LMFDB
 `mf.siegel.newspace`, `mf.siegel.newform`): `S_k^old(K(N)) ∩ S_k^new(K(N)) = 0` for the Petersson
-inner product, provided the Petersson integrals of cusp forms converge, which is not proved here. -/
+inner product, provided the Petersson integrals of cusp forms converge, as they do; the
+unconditional statement is
+`SiegelUpperHalfSpace.disjoint_paramodularOldSubspace_paramodularNewSubspace_scalar`. -/
 lemma disjoint_paramodularOldSubspace_paramodularNewSubspace_detPowerRep
     (hint : ∀ f g, f ∈ paramodularCuspForms (TauCeti.detPowerRep ℂ 2 k) N →
       g ∈ paramodularCuspForms (TauCeti.detPowerRep ℂ 2 k) N →
@@ -207,7 +213,8 @@ lemma disjoint_paramodularOldSubspace_paramodularNewSubspace_detPowerRep
 /-- **The paramodular cusp forms of scalar weight are the direct sum of the old and new forms**
 (LMFDB `mf.siegel.newspace`, `mf.siegel.newform`): `S_k(K(N)) = S_k^old(K(N)) ⊕ S_k^new(K(N))` for
 the Petersson inner product, provided `S_k(K(N))` is finite-dimensional and the Petersson integrals
-of cusp forms converge, which is not proved here. -/
+of cusp forms converge, as they do; the unconditional statement is
+`SiegelUpperHalfSpace.paramodularOldSubspace_sup_paramodularNewSubspace_scalar`. -/
 lemma paramodularOldSubspace_sup_paramodularNewSubspace_detPowerRep
     [FiniteDimensional ℂ (paramodularCuspForms (TauCeti.detPowerRep ℂ 2 k) N)]
     (hint : ∀ f g, f ∈ paramodularCuspForms (TauCeti.detPowerRep ℂ 2 k) N →

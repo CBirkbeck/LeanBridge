@@ -18,7 +18,9 @@ principal congruence subgroup `Γ[2]` is normal in `Sp(4, ℤ)`, so `Sp(4, ℤ)/
 `M_{k,j}(Γ[2])` by `f ↦ f ∣_{k,j} g⁻¹`, with `S_{k,j}(Γ[2])` a subrepresentation; and `Γ₁[2]` is
 normal in `Γ₀[2]`, so `Γ₀[2]/Γ₁[2] ≅ S₃` acts on `M_{k,j}(Γ₁[2])`. The isotypic multiplicities
 are defined in `LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LevelTwoIsotypic`; the
-Eisenstein subspaces `E_{k,j}(Γ[2])` are not formalised.
+Eisenstein subspace `E_{k,j}(Γ[2])` is `SiegelUpperHalfSpace.levelTwoEisenstein`, in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LevelTwoEisenstein`, whose stability
+under `S₆` is not proved here.
 
 ## Main definitions
 

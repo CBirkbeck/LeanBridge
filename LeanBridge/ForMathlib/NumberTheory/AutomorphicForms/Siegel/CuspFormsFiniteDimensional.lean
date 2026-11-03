@@ -17,6 +17,12 @@ needed: the coefficient of each frequency is bounded by the supremum of the seri
 This is the finiteness behind the decomposition `M_{j,k}(Γ₂) = S_{j,k}(Γ₂) ⊕ N_{j,k}(Γ₂)` of LMFDB
 `mf.siegel.subspace.degree.two`.
 
+## Main definitions
+
+* `SiegelUpperHalfSpace.shiftedPoint`: the point `Z₀ + (x - i / 5) 1`.
+* `SiegelUpperHalfSpace.symNormSq`: the squared norm on `Sym^j(ℂ²)`.
+* `SiegelUpperHalfSpace.normFn`: the invariant function `c(ρ(Y) F(Z), F(Z))`.
+
 ## Main results
 
 * `SiegelUpperHalfSpace.norm_tsum_mul_pow_le`: a Fourier series with large frequencies is small
@@ -182,7 +188,7 @@ private lemma sub_mul_sub_sub_sq_pos (hZ₀ : Z₀ ∈ siegelSet) :
 variable (hZ₀ : Z₀ ∈ siegelSet) (x : ℝ)
 
 /-- The point `Z₀ + (x - i / 5) 1` of `ℋ₂`, for `Z₀` in the Siegel set. -/
-private noncomputable def shiftedPoint : SiegelUpperHalfSpace (Fin 2) where
+noncomputable def shiftedPoint : SiegelUpperHalfSpace (Fin 2) where
   val := Z₀.val + (((x : ℂ) - I / 5)) • 1
   transpose_val := by
     rw [transpose_add, Z₀.transpose_val, transpose_smul, transpose_one]
@@ -331,18 +337,18 @@ private lemma norm_det_mul_inv_sq_le_four (hM : imGL Z₀ = star M * M)
 variable {k : ℤ} {j : ℕ} (u : Sym[ℂ]^j (Fin 2 → ℂ))
 
 /-- The squared norm `c(u, u)` of `u ∈ Sym^j(ℂ²)`, for the form `symHermitianForm`. -/
-private noncomputable def symNormSq : ℝ :=
+noncomputable def symNormSq : ℝ :=
   ∑ r, ‖symCoord r u‖ ^ 2
 
-private lemma symHermitianForm_self : symHermitianForm j u u = (symNormSq u : ℂ) := by
+lemma symHermitianForm_self : symHermitianForm j u u = (symNormSq u : ℂ) := by
   rw [symHermitianForm_apply, symNormSq]
   push_cast
   exact Finset.sum_congr rfl fun r _ ↦ Complex.mul_conj' _
 
-private lemma symNormSq_nonneg : 0 ≤ symNormSq u :=
+lemma symNormSq_nonneg : 0 ≤ symNormSq u :=
   Finset.sum_nonneg fun _ _ ↦ sq_nonneg _
 
-private lemma norm_symCoord_sq_le (r : Fin j → Fin 2) : ‖symCoord r u‖ ^ 2 ≤ symNormSq u :=
+lemma norm_symCoord_sq_le (r : Fin j → Fin 2) : ‖symCoord r u‖ ^ 2 ≤ symNormSq u :=
   Finset.single_le_sum (f := fun s ↦ ‖symCoord s u‖ ^ 2) (fun _ _ ↦ sq_nonneg _) (Finset.mem_univ r)
 
 private lemma symNormSq_smul (s : ℂ) : symNormSq (s • u) = ‖s‖ ^ 2 * symNormSq u := by
@@ -385,7 +391,7 @@ private lemma symNormSq_symPowerRep_le {A : GL (Fin 2) ℂ}
   rw [symNormSq, e, mul_assoc]
   simpa using h₄
 
-private lemma symNormSq_rhoKJ_le_shift (hM : imGL Z₀ = star M * M)
+lemma symNormSq_rhoKJ_le_shift (hM : imGL Z₀ = star M * M)
     (hL : imGL (shiftedPoint hZ₀ x) = star L * L) :
     symNormSq (rhoKJ k j M u) ≤ max (4 ^ k) 1 * 16 ^ j * symNormSq (rhoKJ k j L u) := by
   have e : rhoKJ k j M u = rhoKJ k j (M * L⁻¹) (rhoKJ k j L u) := by
@@ -520,11 +526,12 @@ variable {F : SiegelUpperHalfSpace (Fin 2) → Sym[ℂ]^j (Fin 2 → ℂ)}
     {a : dualLattice (integral (Fin 2)) → Sym[ℂ]^j (Fin 2 → ℂ)}
 
 variable (k F) in
-/-- The invariant function `c(ρ(Y) F(Z), F(Z))`. -/
-private noncomputable def normFn (Z : SiegelUpperHalfSpace (Fin 2)) : ℝ :=
+/-- The invariant function `c(ρ_{k,j}(Y) F(Z), F(Z))` of `F : ℋ₂ → Sym^j(ℂ²)`, for `Y = Im Z` and
+the form `c = symHermitianForm`: the real part of the Petersson integrand of `F` against itself. -/
+noncomputable def normFn (Z : SiegelUpperHalfSpace (Fin 2)) : ℝ :=
   (peterssonIntegrand (rhoKJ k j) (symHermitianForm j) F F Z).re
 
-private lemma normFn_eq {Z : SiegelUpperHalfSpace (Fin 2)} (hM : imGL Z = star M * M) :
+lemma normFn_eq {Z : SiegelUpperHalfSpace (Fin 2)} (hM : imGL Z = star M * M) :
     normFn k F Z = symNormSq (rhoKJ k j M (F Z)) := by
   have h : peterssonIntegrand (rhoKJ k j) (symHermitianForm j) F F Z =
       (symNormSq (rhoKJ k j M (F Z)) : ℂ) := by
@@ -535,7 +542,7 @@ private lemma normFn_eq {Z : SiegelUpperHalfSpace (Fin 2)} (hM : imGL Z = star M
     rw [peterssonIntegrand_apply, hM, map_mul, End.mul_apply, h₁, symHermitianForm_self]
   rw [normFn, h, ofReal_re]
 
-private lemma normFn_nonneg (Z : SiegelUpperHalfSpace (Fin 2)) : 0 ≤ normFn k F Z := by
+lemma normFn_nonneg (Z : SiegelUpperHalfSpace (Fin 2)) : 0 ≤ normFn k F Z := by
   rcases exists_star_mul_eq_imGL Z with ⟨M, hM⟩
   rw [normFn_eq hM]
   exact symNormSq_nonneg _
@@ -574,7 +581,7 @@ private lemma bddAbove_range_normFn (hF : F ∈ cuspForms (rhoKJ k j) (integral 
   rw [← normFn_smul hF.1 γ]
   exact hΛ _ hγ
 
-private lemma imGL_shiftedPoint : imGL (shiftedPoint hZ₀ x) = imGL (shiftedPoint hZ₀ 0) :=
+lemma imGL_shiftedPoint : imGL (shiftedPoint hZ₀ x) = imGL (shiftedPoint hZ₀ 0) :=
   Units.ext <| by
     rw [coe_imGL, coe_imGL]
     ext i i'

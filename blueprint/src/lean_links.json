@@ -4109,7 +4109,8 @@
     "SiegelUpperHalfSpace.scalarModularForms": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ScalarValued",
     "SiegelUpperHalfSpace.mem_scalarModularForms_iff": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ScalarValued",
     "SymplecticGroup.IsArithmetic": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.Level",
-    "SiegelUpperHalfSpace.IsHolomorphic": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.UpperHalfSpace"
+    "SiegelUpperHalfSpace.IsHolomorphic": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.UpperHalfSpace",
+    "SiegelUpperHalfSpace.finiteDimensional_modularFormsKJ_of_isArithmetic": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ArithmeticSiegelOperator"
   },
   "mf.siegel.character": {
     "SiegelUpperHalfSpace.modularForms": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ModularForm",
@@ -4146,7 +4147,8 @@
     "SiegelUpperHalfSpace.rhoKJ": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwo",
     "SiegelUpperHalfSpace.slash": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ModularForm",
     "SiegelUpperHalfSpace.finiteDimensional_cuspFormsKJ": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CuspFormsFiniteDimensional",
-    "SiegelUpperHalfSpace.isPeterssonDefinite_cuspForms": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PeterssonConvergence"
+    "SiegelUpperHalfSpace.isPeterssonDefinite_cuspForms": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PeterssonConvergence",
+    "SiegelUpperHalfSpace.finiteDimensional_cuspFormsKJ_of_isArithmetic": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ArithmeticFiniteDimensional"
   },
   "mf.siegel.degree": {
     "SiegelUpperHalfSpace": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.UpperHalfSpace",
@@ -4158,7 +4160,9 @@
     "SiegelUpperHalfSpace.siegelEisensteinTerm_mul": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelEisensteinSeries",
     "SymplecticGroup.SiegelParabolicCosets": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelEisensteinSeries",
     "SiegelUpperHalfSpace.exists_heckeOperator_siegelEisensteinKJ": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelEisensteinHecke",
-    "SiegelUpperHalfSpace.isPeterssonOrthogonal_siegelEisensteinKJ": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PeterssonSiegelEisenstein"
+    "SiegelUpperHalfSpace.isPeterssonOrthogonal_siegelEisensteinKJ": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PeterssonSiegelEisenstein",
+    "SiegelUpperHalfSpace.siegelEisensteinKJ_mem_modularFormsKJ": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelEisensteinConvergence",
+    "SiegelUpperHalfSpace.siegelEisensteinKJ_ne_zero": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoWeightFour"
   },
   "mf.siegel.family": {
     "SymplecticGroup.Gamma": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CongruenceSubgroups",
@@ -4300,6 +4304,14 @@
     "SiegelUpperHalfSpace.multiplier": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SimilitudeSlash",
     "SiegelUpperHalfSpace.gspSmul_val": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SimilitudeSlash",
     "SiegelUpperHalfSpace.gspSlash_ofSp": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SimilitudeSlash"
+  },
+  "mf.siegel.subspace.degree.two": {
+    "SiegelUpperHalfSpace.cuspFormsOrthogonalKJ": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoSubspaces",
+    "SiegelUpperHalfSpace.modularFormsKJ_eq_cuspFormsKJ_sup_cuspFormsOrthogonalKJ": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoOrthogonalDecomposition",
+    "SiegelUpperHalfSpace.cuspFormsOrthogonalKJ_eq_sup_of_range": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoWeightFour",
+    "SiegelUpperHalfSpace.heckeOperator_mem_cuspFormsOrthogonalKJ": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PeterssonHecke",
+    "SiegelUpperHalfSpace.heckeOperator_mem_siegelEisensteinSubspaceKJ_of_range": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoWeightFour",
+    "SiegelUpperHalfSpace.heckeOperator_mem_klingenEisensteinSubspaceKJ_of_range": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoWeightFour"
   },
   "mf.siegel.theta_constant": {
     "SiegelUpperHalfSpace.thetaConstant": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ThetaConstant",
