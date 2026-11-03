@@ -16,10 +16,10 @@ the sense of the LMFDB (`aₙ(f) = χ(n) aₙ(f)` for all `n` coprime to the lev
 `a_{p²} = a_p² - ε(p) p^{k - 1}`, so `χ(p)² = 1` at almost all primes, hence everywhere by
 Dirichlet's theorem on primes in arithmetic progressions. A self twist in the sense of
 `HeckeRing.GL2.Newform.HasSelfTwist`, through `a_p(f) = χ(p) a_p(f)` at almost all primes, is the
-twist `f ⊗ χ = f` by strong multiplicity one across levels, which is not proved here:
-`HeckeRing.GL2.Newform.HasSelfTwist.isQuadratic` and
-`HeckeRing.GL2.Newform.HasSelfTwist.exists_kroneckerChar` take it as an explicit hypothesis on `f`.
-Their conclusions hold with no hypothesis on `f`, by nebentypus rigidity instead:
+twist `f ⊗ χ = f` (`HeckeRing.GL2.Newform.IsTwistAtAlmostAllPrimes.isTwistBy`, in
+`LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.AlmostAllPrimes`). That a self twist
+character is quadratic, and is the Kronecker character of a quadratic field if it is nontrivial, is
+proved with no hypothesis on `f`, by nebentypus rigidity:
 `HeckeRing.GL2.Newform.HasSelfTwist.isQuadratic_character` and
 `HeckeRing.GL2.Newform.HasSelfTwist.exists_kroneckerChar_of_ne_one`, in
 `LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.SelfTwistQuadratic`.
@@ -44,20 +44,11 @@ discriminant `D`, by which the LMFDB identifies the self twist field, is unique,
 * `DirichletCharacter.quadraticDiscr_eq`: `quadraticDiscr` is the unique fundamental discriminant
   `D` with `χ = (D/·)`.
 * `HeckeRing.GL2.Newform.IsTwistBy.isQuadratic`: if `f ⊗ χ = f`, then `χ` is quadratic.
-* `HeckeRing.GL2.Newform.HasSelfTwist.isQuadratic`: a self twist character is quadratic, if strong
-  multiplicity one holds for `f`; the version with no hypothesis on `f` is
-  `HeckeRing.GL2.Newform.HasSelfTwist.isQuadratic_character`, in
-  `LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.SelfTwistQuadratic`.
 * `HeckeRing.GL2.Newform.HasSelfTwist.hasCMBy_or_hasRMBy`: a self twist by the Kronecker character
   of a quadratic field gives complex or real multiplication by that field.
 * `HeckeRing.GL2.Newform.IsTwistBy.exists_kroneckerChar`: if `f ⊗ χ = f` for a nontrivial `χ`,
   then `χ` is the Kronecker character of a quadratic field, by which `f` has complex or real
   multiplication.
-* `HeckeRing.GL2.Newform.HasSelfTwist.exists_kroneckerChar`: a nontrivial self twist character is
-  the Kronecker character of a quadratic field, by which `f` has complex or real multiplication, if
-  strong multiplicity one holds for `f`; the version with no hypothesis on `f` is
-  `HeckeRing.GL2.Newform.HasSelfTwist.exists_kroneckerChar_of_ne_one`, in
-  `LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.SelfTwistQuadratic`.
 -/
 
 open UpperHalfPlane
@@ -150,23 +141,6 @@ lemma IsTwistBy.isQuadratic (hf : f.IsTwistBy χ f) : χ.IsQuadratic := by
   rw [MulChar.one_apply_coe, MulChar.pow_apply' _ two_ne_zero, ← hpu]
   exact hf.apply_sq_eq_one hp (Nat.coprime_of_lt_prime (mul_ne_zero (NeZero.ne N) hf.1) hpNM hp)
 
-/-- **A self twist character is quadratic**, if **strong multiplicity one** holds for `f`: here
-the hypothesis `hsmo` that every newform of weight `k`, of any level, whose coefficients `a_p` agree
-with those of `f` at almost all primes `p` has the `q`-expansion of `f`. The twist `f ⊗ χ` then has
-the `q`-expansion of `f`, and `IsTwistBy.isQuadratic` applies. The version with no hypothesis on `f`
-is `HasSelfTwist.isQuadratic_character`, in
-`LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.SelfTwistQuadratic`. -/
-lemma HasSelfTwist.isQuadratic (hf : f.HasSelfTwist χ) (hsmo : ∀ (N' : ℕ+) (g : Newform N' k),
-    (∀ᶠ p in Filter.cofinite, p.Prime → (qExpansion 1 g.toCuspForm).coeff p =
-      (qExpansion 1 f.toCuspForm).coeff p) →
-      qExpansion 1 g.toCuspForm = qExpansion 1 f.toCuspForm) : χ.IsQuadratic := by
-  have : NeZero M := ⟨hf.1⟩
-  rcases f.exists_isTwistBy hf.2.1 with ⟨N', g, -, hg⟩
-  have hfg : qExpansion 1 g.toCuspForm = qExpansion 1 f.toCuspForm := hsmo N' g <| by
-    filter_upwards [hg.isTwistAtAlmostAllPrimes, hf.2.2] with p hgp hfp hp
-    rw [hgp hp, ← hfp hp]
-  exact IsTwistBy.isQuadratic ⟨hf.1, hf.2.1, fun n hn ↦ hfg ▸ hg.2.2 n hn⟩
-
 /-- **A self twist by the Kronecker character of a quadratic field gives complex or real
 multiplication by that field**: for a fundamental discriminant `D ≠ 1`, a self twist by `(D/·)`
 means complex multiplication by `ℚ(√D)` if `D < 0` and real multiplication if `D > 1`. -/
@@ -201,20 +175,5 @@ lemma IsTwistBy.exists_kroneckerChar (hf : f.IsTwistBy χ f) (hχ : χ ≠ 1) :
       (f.HasCMBy D ∨ f.HasRMBy D) :=
   HasSelfTwist.exists_kroneckerChar_of_isQuadratic ⟨hf.1, hf.2.1, hf.isTwistAtAlmostAllPrimes⟩
     hf.isQuadratic hχ
-
-/-- **A nontrivial self twist character is the Kronecker character of a quadratic field**, by which
-`f` has complex or real multiplication (LMFDB `cmf.self_twist_field`), if **strong multiplicity
-one** holds for `f` (the hypothesis `hsmo` of `HasSelfTwist.isQuadratic`). The version with no
-hypothesis on `f` is `HasSelfTwist.exists_kroneckerChar_of_ne_one`, in
-`LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.SelfTwistQuadratic`. -/
-lemma HasSelfTwist.exists_kroneckerChar (hf : f.HasSelfTwist χ) (hχ : χ ≠ 1)
-    (hsmo : ∀ (N' : ℕ+) (g : Newform N' k), (∀ᶠ p in Filter.cofinite, p.Prime →
-      (qExpansion 1 g.toCuspForm).coeff p = (qExpansion 1 f.toCuspForm).coeff p) →
-      qExpansion 1 g.toCuspForm = qExpansion 1 f.toCuspForm) :
-    ∃ (D : ℤ) (hD : D.IsFundamentalDiscr),
-      (⟨⟨M, Nat.pos_of_ne_zero hf.1⟩, χ⟩ : Σ M : ℕ+, DirichletCharacter ℂ M) =
-        ⟨⟨D.natAbs, Int.natAbs_pos.mpr hD.ne_zero⟩, hD.kroneckerChar⟩ ∧
-      (f.HasCMBy D ∨ f.HasRMBy D) :=
-  hf.exists_kroneckerChar_of_isQuadratic (hf.isQuadratic hsmo) hχ
 
 end HeckeRing.GL2.Newform

@@ -21,10 +21,13 @@ Twist equivalence is defined through the condition `a_p(g) = ψ(p) a_p(f)` at al
 many primes `p`, the form in which the LMFDB states self twists and inner twists, for which it is
 an equivalence relation without further theory. By strong multiplicity one, `g` satisfies this
 condition for a character `ψ` of positive modulus exactly when `g = f ⊗ ψ'` for the primitive
-character `ψ'` inducing `ψ`, so this is the LMFDB relation, but only the direction from
-`g = f ⊗ ψ'` is proved here. The relations are stated between newforms of any levels and weights.
-Twist equivalent newforms have the same weight, a theorem that is not proved here, and twist
-classes are taken among the newforms of a given weight.
+character `ψ'` inducing `ψ`, so this is the LMFDB relation. The direction from `g = f ⊗ ψ'` is
+proved here. The converse is proved for `g` of the level and weight of `f`
+(`HeckeRing.GL2.Newform.IsTwistAtAlmostAllPrimes.isTwistBy`, in
+`LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.AlmostAllPrimes`); for `g` of another level
+it is strong multiplicity one across levels, which is not proved here. The relations are stated
+between newforms of any levels and weights. Twist equivalent newforms have the same weight, a
+theorem that is not proved here, and twist classes are taken among the newforms of a given weight.
 
 ## Main definitions
 
@@ -53,14 +56,16 @@ namespace HeckeRing.GL2.Newform
 
 variable {N N' N'' M M' L m n p r : ℕ} [NeZero N] [NeZero N'] [NeZero N''] {k k' k'' : ℤ}
   {f : Newform N k} {ψ : DirichletCharacter ℂ M} {ψ' : DirichletCharacter ℂ M'} {g : Newform N' k'}
-  {h : Newform N'' k''} {x : Σ L : ℕ+, Newform L k} (hp : p.Prime) (hNL : N ∣ L) (hN'L : N' ∣ L)
+  {h : Newform N'' k''} {x : Σ L : ℕ+, Newform L k}
 
 variable (f ψ g) in
 /-- The newform `g` is **a twist of `f` by `ψ` at almost all primes** if `a_p(g) = ψ(p) a_p(f)`
 for all but finitely many primes `p`. This is the condition through which the LMFDB defines self
 twists and inner twists (`cmf.self_twist`, `cmf.inner_twist`). For a primitive `ψ` of positive
-modulus it holds exactly when `g` is the twist `f ⊗ ψ` (`IsTwistBy`), by strong multiplicity one,
-but only the direction `IsTwistBy.isTwistAtAlmostAllPrimes` is proved here. -/
+modulus it holds exactly when `g` is the twist `f ⊗ ψ` (`IsTwistBy`), by strong multiplicity one.
+One direction is `IsTwistBy.isTwistAtAlmostAllPrimes`. The converse is
+`IsTwistAtAlmostAllPrimes.isTwistBy`, in `Twist/AlmostAllPrimes.lean`, for `g` of the level and
+weight of `f`; for `g` of another level it is not proved here. -/
 def IsTwistAtAlmostAllPrimes : Prop :=
   ∀ᶠ p in Filter.cofinite, p.Prime → (qExpansion 1 g.toCuspForm).coeff p = ψ p *
     (qExpansion 1 f.toCuspForm).coeff p
@@ -82,16 +87,18 @@ variable (f g) in
 by a Dirichlet character `ψ` of positive modulus, in the sense that `a_p(g) = ψ(p) a_p(f)` for all
 but finitely many primes `p`. The character can be taken primitive
 (`isTwistEquivalent_iff_exists_isPrimitive`), and then by strong multiplicity one this holds
-exactly when `g` is the twist `f ⊗ ψ` (`IsTwistBy`), which is the LMFDB definition; only the
-direction `IsTwistBy.isTwistEquivalent` is proved here. -/
+exactly when `g` is the twist `f ⊗ ψ` (`IsTwistBy`), which is the LMFDB definition. One direction
+is `IsTwistBy.isTwistEquivalent`. The converse is `IsTwistAtAlmostAllPrimes.isTwistBy`, in
+`Twist/AlmostAllPrimes.lean`, for `g` of the level and weight of `f`; for `g` of another level it
+is not proved here. -/
 def IsTwistEquivalent : Prop :=
   ∃ (M : ℕ+) (ψ : DirichletCharacter ℂ M), f.IsTwistAtAlmostAllPrimes ψ g
 
 variable (hψ : f.IsTwistAtAlmostAllPrimes ψ g) (hg : f.IsTwistBy ψ g) (hfg : f.IsTwistEquivalent g)
 
-private lemma eventually_not_dvd (hm : m ≠ 0) : ∀ᶠ q in Filter.cofinite, ¬q ∣ m :=
-  Nat.cofinite_eq_atTop ▸ (Filter.eventually_gt_atTop m).mono fun _ ↦ Nat.not_dvd_of_pos_of_lt
-    (Nat.pos_of_ne_zero hm)
+lemma eventually_prime_coprime (hm : m ≠ 0) : ∀ᶠ p : ℕ in Filter.cofinite, p.Prime → p.Coprime m :=
+  (Nat.cofinite_eq_atTop ▸ Filter.eventually_gt_atTop m).mono fun _ hmp hp ↦
+    Nat.coprime_of_lt_prime hm hmp hp
 
 variable (f) in
 lemma isTwistBy_one : f.IsTwistBy (1 : DirichletCharacter ℂ 1) f :=
@@ -102,8 +109,8 @@ include hg in
 /-- **The twist `f ⊗ ψ` is a twist of `f` by `ψ` at almost all primes**: `a_p(g) = ψ(p) a_p(f)` at
 every prime `p` not dividing `N M`. -/
 lemma IsTwistBy.isTwistAtAlmostAllPrimes : f.IsTwistAtAlmostAllPrimes ψ g :=
-  (eventually_not_dvd (mul_ne_zero (NeZero.ne N) hg.1)).mono fun p hpNM hp ↦ hg.2.2 p
-    (hp.coprime_iff_not_dvd.mpr hpNM)
+  (eventually_prime_coprime (mul_ne_zero (NeZero.ne N) hg.1)).mono fun p hpNM hp ↦
+    hg.2.2 p (hpNM hp)
 
 variable (f) in
 lemma isTwistAtAlmostAllPrimes_one : f.IsTwistAtAlmostAllPrimes (1 : DirichletCharacter ℂ 1) f :=
@@ -134,33 +141,32 @@ private lemma qExpansion_coeff_mul_of_coprime (hm : 0 < m) (hn : 0 < n) (hmn : m
   f.toEigenformAwayFromLevel.qExpansion_coeff_mul f.isNorm (m := ⟨m, hm⟩) (n := ⟨n, hn⟩) hmn hmN hnN
 
 variable (f) in
-include hp in
-private lemma qExpansion_coeff_prime_pow_add_two (hpN : p.Coprime N) : (qExpansion 1
-    f.toCuspForm).coeff (p ^ (r + 2)) = (qExpansion 1 f.toCuspForm).coeff p * (qExpansion 1
-    f.toCuspForm).coeff (p ^ (r + 1)) - f.dirichletLift p * (p : ℂ) ^ (k - 1) * (qExpansion 1
-    f.toCuspForm).coeff (p ^ r) := by
+private lemma qExpansion_coeff_prime_pow_add_two (hp : p.Prime) (hpN : p.Coprime N) :
+    (qExpansion 1 f.toCuspForm).coeff (p ^ (r + 2)) =
+      (qExpansion 1 f.toCuspForm).coeff p * (qExpansion 1 f.toCuspForm).coeff (p ^ (r + 1)) -
+        f.dirichletLift p * (p : ℂ) ^ (k - 1) * (qExpansion 1 f.toCuspForm).coeff (p ^ r) := by
   rw [f.dirichletLift_apply_of_coprime hpN]
   exact f.toEigenformAwayFromLevel.qExpansion_coeff_prime_pow_add_two f.isNorm (p := ⟨p, hp.pos⟩) hp
     hpN r
 
-include hp hNL hN'L in
-private lemma qExpansion_coeff_prime_pow_eq (hpL : p.Coprime L)
-    (hχ : g.dirichletLift p * (p : ℂ) ^ (k' - 1) = ψ p ^ 2 * f.dirichletLift p * (p : ℂ) ^ (k - 1))
+lemma qExpansion_coeff_prime_pow_eq_apply_pow_mul (hp : p.Prime) (hpN : p.Coprime N)
+    (hpN' : p.Coprime N') (hχ : g.dirichletLift p * (p : ℂ) ^ (k' - 1) =
+    ψ p ^ 2 * f.dirichletLift p * (p : ℂ) ^ (k - 1))
     (ha : (qExpansion 1 g.toCuspForm).coeff p = ψ p * (qExpansion 1 f.toCuspForm).coeff p) :
-    (qExpansion 1 g.toCuspForm).coeff (p ^ r) = ψ p ^ r * (qExpansion 1 f.toCuspForm).coeff (p ^
-    r) := by
+    (qExpansion 1 g.toCuspForm).coeff (p ^ r) =
+      ψ p ^ r * (qExpansion 1 f.toCuspForm).coeff (p ^ r) := by
   induction r using Nat.twoStepInduction with
   | zero => simp
   | one => simpa using ha
   | more r ih₀ ih₁ =>
-    rw [g.qExpansion_coeff_prime_pow_add_two hp (hpL.coprime_dvd_right hN'L),
-      f.qExpansion_coeff_prime_pow_add_two hp (hpL.coprime_dvd_right hNL), ih₀, ih₁, ha, hχ]
+    rw [g.qExpansion_coeff_prime_pow_add_two hp hpN', f.qExpansion_coeff_prime_pow_add_two hp hpN,
+      ih₀, ih₁, ha, hχ]
     ring1
 
-include hNL hN'L in
-private lemma qExpansion_coeff_eq_of_forall_prime (hχ : ∀ p : ℕ, p.Coprime L → g.dirichletLift p *
-    (p : ℂ) ^ (k' - 1) = ψ p ^ 2 * f.dirichletLift p * (p : ℂ) ^ (k - 1)) (ha : ∀ p : ℕ, p.Prime →
-    p.Coprime L → (qExpansion 1 g.toCuspForm).coeff p = ψ p * (qExpansion 1 f.toCuspForm).coeff p)
+lemma qExpansion_coeff_eq_apply_mul_of_forall_prime (hNL : N ∣ L) (hN'L : N' ∣ L) (hχ : ∀ p : ℕ,
+    p.Prime → p.Coprime L → g.dirichletLift p * (p : ℂ) ^ (k' - 1) =
+    ψ p ^ 2 * f.dirichletLift p * (p : ℂ) ^ (k - 1)) (ha : ∀ p : ℕ, p.Prime → p.Coprime L →
+    (qExpansion 1 g.toCuspForm).coeff p = ψ p * (qExpansion 1 f.toCuspForm).coeff p)
     (hn : n.Coprime L) :
     (qExpansion 1 g.toCuspForm).coeff n = ψ n * (qExpansion 1 f.toCuspForm).coeff n := by
   induction n using Nat.recOnPrimePow with
@@ -178,7 +184,8 @@ private lemma qExpansion_coeff_eq_of_forall_prime (hχ : ∀ p : ℕ, p.Coprime 
         ((hpL.pow_left r).coprime_dvd_right hN'L) (haL.coprime_dvd_right hN'L),
       f.qExpansion_coeff_mul_of_coprime (pow_pos hp.pos r) ha0 hpa'
         ((hpL.pow_left r).coprime_dvd_right hNL) (haL.coprime_dvd_right hNL),
-      qExpansion_coeff_prime_pow_eq hp hNL hN'L hpL (hχ p hpL) (ha p hp hpL), ih haL, Nat.cast_mul,
+      qExpansion_coeff_prime_pow_eq_apply_pow_mul hp (hpL.coprime_dvd_right hNL)
+        (hpL.coprime_dvd_right hN'L) (hχ p hp hpL) (ha p hp hpL), ih haL, Nat.cast_mul,
       Nat.cast_pow, map_mul, map_pow]
     ring1
 
@@ -186,24 +193,24 @@ variable [NeZero M]
 
 include hψ in
 lemma IsTwistAtAlmostAllPrimes.symm : g.IsTwistAtAlmostAllPrimes ψ⁻¹ f := by
-  filter_upwards [hψ, eventually_not_dvd (NeZero.ne M)] with p hψp hpM hp
+  filter_upwards [hψ, eventually_prime_coprime (NeZero.ne M)] with p hψp hpM hp
   rw [hψp hp, ← mul_assoc, ← MulChar.mul_apply, MulChar.inv_mul, MulChar.one_apply <|
-    (ZMod.isUnit_iff_coprime p M).mpr <| hp.coprime_iff_not_dvd.mpr hpM, one_mul]
+    (ZMod.isUnit_iff_coprime p M).mpr <| hpM hp, one_mul]
 
 include hψ in
 lemma IsTwistAtAlmostAllPrimes.trans [NeZero M'] (hgh : g.IsTwistAtAlmostAllPrimes ψ' h) :
     f.IsTwistAtAlmostAllPrimes (ψ.mul ψ') h := by
-  filter_upwards [hψ, hgh, eventually_not_dvd (Nat.lcm_ne_zero (NeZero.ne M) (NeZero.ne M'))]
+  filter_upwards [hψ, hgh, eventually_prime_coprime (Nat.lcm_ne_zero (NeZero.ne M) (NeZero.ne M'))]
     with p hψp hghp hpM hp
-  rw [hghp hp, hψp hp, mul_apply_natCast (hp.coprime_iff_not_dvd.mpr hpM)]
+  rw [hghp hp, hψp hp, mul_apply_natCast (hpM hp)]
   ring1
 
 include hψ in
 lemma IsTwistAtAlmostAllPrimes.primitiveCharacter :
     f.IsTwistAtAlmostAllPrimes ψ.primitiveCharacter g := by
-  filter_upwards [hψ, eventually_not_dvd (NeZero.ne M)] with p hψp hpM hp
+  filter_upwards [hψ, eventually_prime_coprime (NeZero.ne M)] with p hψp hpM hp
   have hpc : ψ.primitiveCharacter (p : ℤ) = ψ (p : ℤ) :=
-    ψ.primitiveCharacter_apply_of_isCoprime (hp.coprime_iff_not_dvd.mpr hpM).isCoprime
+    ψ.primitiveCharacter_apply_of_isCoprime (hpM hp).isCoprime
   simp only [Int.cast_natCast] at hpc
   rw [hψp hp, hpc]
 
@@ -222,8 +229,8 @@ lemma exists_isTwistBy (hprim : ψ.IsPrimitive) :
     ⟨mul_ne_zero (NeZero.ne M) (Nat.lcm_ne_zero (NeZero.ne N) (NeZero.ne M))⟩
   rcases f.exists_newform_qExpansion_coeff_prime_eq_twist ψ hNM hMM with ⟨R, _, hR, g, hχ, ha⟩
   refine ⟨⟨R, NeZero.pos R⟩, g, hR, NeZero.ne M, hprim, fun n hn ↦ ?_⟩
-  refine (qExpansion_coeff_eq_of_forall_prime (dvd_of_mul_right_dvd hNM) hR (fun p hpL ↦ ?_) ha
-    ((hn.coprime_dvd_right (dvd_mul_left M N)).mul_right
+  refine (qExpansion_coeff_eq_apply_mul_of_forall_prime (dvd_of_mul_right_dvd hNM) hR
+    (fun p _ hpL ↦ ?_) ha ((hn.coprime_dvd_right (dvd_mul_left M N)).mul_right
       (hn.coprime_dvd_right (N.lcm_dvd_mul M))) :)
   rw [g.dirichletLift_apply_of_coprime (hpL.coprime_dvd_right hR),
     f.dirichletLift_apply_of_coprime (hpL.coprime_dvd_right (dvd_of_mul_right_dvd hNM))]

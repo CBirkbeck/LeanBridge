@@ -20,9 +20,12 @@ have the same level and weight, which is not proved here, and the Galois conjuga
 taken in its Galois orbit, among the newforms of its level and weight. An inner twist of `f` is
 recorded here as the pair `(χ, g)` of the primitive character `χ` and the Galois conjugate `g` of
 `f`, rather than as the pair `(χ, σ)`. The newform `g` corresponds to `σ` through the embedding of
-the coefficient field of `f` that it defines, and the two descriptions agree by Ribet's theorem,
-which is not proved here. Nor is it proved here that `χ` determines the inner twist, or that there
-are finitely many inner twists (`Set.ncard` is `0` on an infinite set).
+the coefficient field of `f` that it defines, and the two descriptions agree by Ribet's theorem
+(`HeckeRing.GL2.Newform.mk_mem_innerTwists_iff_exists_mem_innerTwistGroup`, in
+`LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.InnerTwistAutGroup`). That file also proves
+that `χ` determines the inner twist (`HeckeRing.GL2.Newform.eq_of_mk_mem_innerTwists`) and that
+there are finitely many inner twists (`HeckeRing.GL2.Newform.finite_innerTwists`), so that
+`Set.ncard` counts them.
 
 The LMFDB states that the inner twist count and the inner twist multiplicities are invariants of the
 Galois orbit of `f`. This holds as the Galois conjugates of `f` are newforms
@@ -131,7 +134,8 @@ variable (f) in
 a primitive Dirichlet character `χ`, of positive modulus, and a newform `g` in the Galois orbit of
 `f` with `a_p(g) = χ(p) a_p(f)` for all but finitely many primes `p`. The LMFDB records the inner
 twist as the pair `(χ, σ)` with `g = σ(f)` for an automorphism `σ` of the coefficient field of `f`,
-which exists by a theorem of Ribet that is not proved here; `g` and `σ` determine each other. -/
+which exists by a theorem of Ribet (`mk_mem_innerTwists_iff_exists_mem_innerTwistGroup`, in
+`Twist/InnerTwistAutGroup.lean`); `g` and `σ` determine each other. -/
 def innerTwists : Set ((Σ M : ℕ+, DirichletCharacter ℂ M) × Newform N k) :=
   {x | x.1.2.IsPrimitive ∧ x.2 ∈ f.galoisOrbit ∧ f.IsTwistAtAlmostAllPrimes x.1.2 x.2}
 
@@ -150,9 +154,10 @@ lemma one_mem_innerTwists : (⟨1, 1⟩, f) ∈ f.innerTwists :=
 
 variable (f) in
 /-- The **inner twist count** of the newform `f` (LMFDB `cmf.inner_twist_count`): the number of its
-inner twists, including the self twists and the trivial self twist by the trivial character. That
-there are finitely many inner twists is a theorem of Ribet that is not proved here; `Set.ncard` is
-`0` on an infinite set. It is an invariant of the Galois orbit of `f`
+inner twists, including the self twists and the trivial self twist by the trivial character. There
+are finitely many inner twists (`finite_innerTwists`, in `Twist/InnerTwistAutGroup.lean`), so that
+`Set.ncard` counts them, and the count is the order of the group of inner twists
+(`innerTwistCount_eq_natCard`). It is an invariant of the Galois orbit of `f`
 (`IsGaloisConjugateBy.innerTwistCount_eq`). -/
 noncomputable def innerTwistCount : ℕ :=
   f.innerTwists.ncard
@@ -162,9 +167,6 @@ variable (f) in
 twists other than the self twist by the trivial character. -/
 noncomputable def nontrivialInnerTwists : Set ((Σ M : ℕ+, DirichletCharacter ℂ M) × Newform N k) :=
   f.innerTwists \ {(⟨1, 1⟩, f)}
-
-lemma innerTwistCount_pos (hfin : f.innerTwists.Finite) : 0 < f.innerTwistCount :=
-  (Set.ncard_pos hfin).mpr ⟨_, f.one_mem_innerTwists⟩
 
 variable (f) in
 /-- **The number of nontrivial inner twists** is one less than the inner twist count. -/

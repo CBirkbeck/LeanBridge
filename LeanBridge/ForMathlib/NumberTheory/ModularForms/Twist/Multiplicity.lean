@@ -31,7 +31,9 @@ twist count is the sum of these over the Galois orbits `[ψ]`. A newform with co
 and no other nontrivial inner twist has inner twist count `2`, but multiplicity `1` as a twist of
 itself by the Galois orbit of the trivial character, or of its Kronecker character. It is proved
 here that the multiplicity of `[f]` as a twist of itself is at most the inner twist multiplicity;
-equality is strong multiplicity one across levels, which is not proved here.
+equality is `HeckeRing.GL2.Newform.twistMultiplicity_self_eq_innerTwistMultiplicity`, in
+`LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.AlmostAllPrimes`, which does not use strong
+multiplicity one across levels.
 
 ## Main definitions
 
@@ -124,8 +126,8 @@ lemma IsGaloisConjugateBy.twistMultiplicity_eq (hσ : f.IsGaloisConjugateBy σ f
 /-- **The multiplicity of `[f]` as a twist of itself is at most the inner twist multiplicity** of
 `f` for `[ψ]`: the characters `ψ' ∈ [ψ]` with `f ⊗ ψ' ∈ [f]` are among those by which `f` admits
 an inner twist. The LMFDB states that the multiplicity of an inner twist is the inner twist count,
-which is not right: it is the inner twist multiplicity, the converse inequality being strong
-multiplicity one across levels, which is not proved here. -/
+which is not right: it is the inner twist multiplicity, the converse inequality being
+`twistMultiplicity_self_eq_innerTwistMultiplicity`, in `Twist/AlmostAllPrimes.lean`. -/
 lemma twistMultiplicity_self_le_innerTwistMultiplicity :
     f.twistMultiplicity ψ f ≤ f.innerTwistMultiplicity ψ :=
   Set.ncard_le_ncard (Set.inter_subset_inter_right _ fun _ ⟨h, hh, hfh⟩ ↦ ⟨hfh.1, hfh.2.1, h, hh,

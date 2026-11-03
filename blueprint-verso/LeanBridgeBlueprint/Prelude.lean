@@ -381,8 +381,10 @@ import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.TraceBound
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.TraceBoundExists
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.TraceForm
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.SatoTate.GaloisRepresentation
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.AlmostAllPrimes
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.Basic
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.InnerTwist
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.InnerTwistAutGroup
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.Minimal
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.Multiplicity
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.SelfTwist

@@ -24,10 +24,18 @@ characters. The Galois conjugate `σ(f)` is a newform `g`
 the inner twist pair `(χ, σ)` is the inner twist `(χ, g)` of `HeckeRing.GL2.Newform.innerTwists`;
 every inner twist arises in this way.
 
-The group of the LMFDB is the image of this group under `(χ, σ) ↦ (χ, σ|_K)`. That `σ` maps `K`
-onto itself and that `χ` takes values in `K`, so that the law descends to the pairs
-`(χ, σ|_K)`, that the image in `Aut_ℚ(K)` is abelian, that `χ` determines `σ|_K`, and that there
-are finitely many inner twists, are theorems of Ribet that are not proved here.
+The group of the LMFDB is the image of this group under `(χ, σ) ↦ (χ, σ|_K)`, which is
+`HeckeRing.GL2.Newform.innerTwistGroup`, in
+`LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.InnerTwistAutGroup`. That `σ` maps `K` onto
+itself and that `χ` takes values in `K`, so that the law descends to the pairs `(χ, σ|_K)`, are
+`HeckeRing.GL2.Newform.map_coefficientField_eq` and
+`HeckeRing.GL2.Newform.apply_mem_coefficientField`, in
+`LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.InnerTwistRibet`. That the image in
+`Aut_ℚ(K)` is abelian, that `χ` determines `σ|_K`, and that there are finitely many inner twists are
+`HeckeRing.GL2.Newform.isMulCommutative_range_innerTwistGroupToAut`,
+`HeckeRing.GL2.Newform.innerTwistGroup_fst_injective` and
+`HeckeRing.GL2.Newform.finite_innerTwists`, in
+`LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.InnerTwistAutGroup`.
 
 ## Main definitions
 
@@ -35,7 +43,8 @@ are finitely many inner twists, are theorems of Ribet that are not proved here.
   (LMFDB `cmf.inner_twist_group`).
 * `HeckeRing.GL2.Newform.innerTwistMul`, `HeckeRing.GL2.Newform.innerTwistOne`,
   `HeckeRing.GL2.Newform.innerTwistInv`: the group law of the LMFDB, its identity and inverses.
-* The instance `Group f.innerTwistPairs`: the group of inner twists (LMFDB `cmf.inner_twist_group`).
+* The instance `Group f.innerTwistPairs`: the group of inner twist pairs, which maps onto the group
+  of inner twists of the LMFDB (LMFDB `cmf.inner_twist_group`).
 * `HeckeRing.GL2.Newform.innerTwistPairsToGal`: the projection `(χ, σ) ↦ σ`.
 
 ## Main results
@@ -117,11 +126,6 @@ lemma innerTwistInv_apply : (innerTwistInv x).1.2 p = (x.2⁻¹ (x.1.2 p))⁻¹ 
 lemma innerTwistInv_snd : (innerTwistInv x).2 = x.2⁻¹ :=
   rfl
 
-private lemma eventually_coprime {n : ℕ} (hn : n ≠ 0) :
-    ∀ᶠ p : ℕ in Filter.cofinite, p.Prime → p.Coprime n :=
-  (Nat.cofinite_eq_atTop ▸ Filter.eventually_gt_atTop n).mono fun _ hnp hp ↦
-    Nat.coprime_of_lt_prime hn hnp hp
-
 private lemma apply_ne_zero (hp : p.Coprime χ.1) : χ.2 p ≠ 0 :=
   (((ZMod.isUnit_iff_coprime p χ.1).mpr hp).map χ.2).ne_zero
 
@@ -144,8 +148,8 @@ lemma innerTwistOne_mem : innerTwistOne ∈ f.innerTwistPairs :=
 lemma innerTwistMul_mem (hx : x ∈ f.innerTwistPairs) (hy : y ∈ f.innerTwistPairs) :
     innerTwistMul x y ∈ f.innerTwistPairs := by
   refine ⟨primitive_mul_isPrimitive _ _, ?_⟩
-  filter_upwards [hx.2, hy.2, eventually_coprime (mul_ne_zero x.1.1.ne_zero y.1.1.ne_zero)] with
-    p hxp hyp hpxy hp
+  filter_upwards [hx.2, hy.2, eventually_prime_coprime (mul_ne_zero x.1.1.ne_zero y.1.1.ne_zero)]
+    with p hxp hyp hpxy hp
   rw [innerTwistMul_apply (hpxy hp), innerTwistMul_snd, AlgEquiv.mul_apply, hyp hp, map_mul,
     hxp hp]
   ring1
@@ -154,7 +158,7 @@ lemma innerTwistMul_mem (hx : x ∈ f.innerTwistPairs) (hy : y ∈ f.innerTwistP
 `σ⁻¹(a_p) = σ⁻¹(χ(p))⁻¹ a_p`. -/
 lemma innerTwistInv_mem (hx : x ∈ f.innerTwistPairs) : innerTwistInv x ∈ f.innerTwistPairs := by
   refine ⟨(conductor_inv _).trans (hx.1.ringHomComp _ (RingHom.injective _)), ?_⟩
-  filter_upwards [hx.2, eventually_coprime x.1.1.ne_zero] with p hxp hpx hp
+  filter_upwards [hx.2, eventually_prime_coprime x.1.1.ne_zero] with p hxp hpx hp
   have h : x.2⁻¹ (x.1.2 p) * x.2⁻¹ ((qExpansion 1 f.toCuspForm).coeff p) =
       (qExpansion 1 f.toCuspForm).coeff p := by
     rw [← map_mul, ← hxp hp, ← AlgEquiv.mul_apply, inv_mul_cancel, AlgEquiv.one_apply]
@@ -167,31 +171,32 @@ lemma innerTwistMul_assoc :
     innerTwistMul (innerTwistMul x y) z = innerTwistMul x (innerTwistMul y z) := by
   refine Prod.ext (eq_of_isPrimitive_of_eventually_eq (primitive_mul_isPrimitive _ _)
     (primitive_mul_isPrimitive _ _) ?_) (mul_assoc x.2 y.2 z.2)
-  filter_upwards [eventually_coprime (mul_ne_zero (innerTwistMul x y).1.1.ne_zero z.1.1.ne_zero),
-    eventually_coprime (mul_ne_zero x.1.1.ne_zero y.1.1.ne_zero),
-    eventually_coprime (mul_ne_zero x.1.1.ne_zero (innerTwistMul y z).1.1.ne_zero),
-    eventually_coprime (mul_ne_zero y.1.1.ne_zero z.1.1.ne_zero)] with p h₁ h₂ h₃ h₄ hp
+  filter_upwards [eventually_prime_coprime
+      (mul_ne_zero (innerTwistMul x y).1.1.ne_zero z.1.1.ne_zero),
+    eventually_prime_coprime (mul_ne_zero x.1.1.ne_zero y.1.1.ne_zero),
+    eventually_prime_coprime (mul_ne_zero x.1.1.ne_zero (innerTwistMul y z).1.1.ne_zero),
+    eventually_prime_coprime (mul_ne_zero y.1.1.ne_zero z.1.1.ne_zero)] with p h₁ h₂ h₃ h₄ hp
   rw [innerTwistMul_apply (h₁ hp), innerTwistMul_apply (h₂ hp), innerTwistMul_apply (h₃ hp),
     innerTwistMul_apply (h₄ hp), innerTwistMul_snd, AlgEquiv.mul_apply, map_mul, mul_assoc]
 
 lemma innerTwistOne_innerTwistMul (hx : x.1.2.IsPrimitive) : innerTwistMul innerTwistOne x = x := by
   refine Prod.ext (eq_of_isPrimitive_of_eventually_eq (primitive_mul_isPrimitive _ _) hx ?_)
     (one_mul x.2)
-  filter_upwards [eventually_coprime x.1.1.ne_zero] with p hpx hp
+  filter_upwards [eventually_prime_coprime x.1.1.ne_zero] with p hpx hp
   rw [innerTwistMul_apply (by simpa [innerTwistOne] using hpx hp), innerTwistOne_apply, one_mul]
   rfl
 
 lemma innerTwistMul_innerTwistOne (hx : x.1.2.IsPrimitive) : innerTwistMul x innerTwistOne = x := by
   refine Prod.ext (eq_of_isPrimitive_of_eventually_eq (primitive_mul_isPrimitive _ _) hx ?_)
     (mul_one x.2)
-  filter_upwards [eventually_coprime x.1.1.ne_zero] with p hpx hp
+  filter_upwards [eventually_prime_coprime x.1.1.ne_zero] with p hpx hp
   rw [innerTwistMul_apply (by simpa [innerTwistOne] using hpx hp), innerTwistOne_apply, map_one,
     mul_one]
 
 lemma innerTwistInv_innerTwistMul : innerTwistMul (innerTwistInv x) x = innerTwistOne := by
   refine Prod.ext (eq_of_isPrimitive_of_eventually_eq (primitive_mul_isPrimitive _ _)
     isPrimitive_one_level_one ?_) (inv_mul_cancel x.2)
-  filter_upwards [eventually_coprime (mul_ne_zero x.1.1.ne_zero x.1.1.ne_zero)] with p hpx hp
+  filter_upwards [eventually_prime_coprime (mul_ne_zero x.1.1.ne_zero x.1.1.ne_zero)] with p hpx hp
   rw [innerTwistMul_apply (x := innerTwistInv x) (hpx hp), innerTwistInv_apply, innerTwistInv_snd,
     inv_mul_cancel₀ ((map_ne_zero _).mpr (apply_ne_zero (hpx hp).coprime_mul_left_right)),
     innerTwistOne_apply]
@@ -206,7 +211,7 @@ noncomputable instance : Group f.innerTwistPairs where
   inv_mul_cancel _ := Subtype.ext innerTwistInv_innerTwistMul
 
 variable (f) in
-/-- The **projection** `(χ, σ) ↦ σ` of the group of inner twists of `f` to `Gal(ℂ/ℚ)` (LMFDB
+/-- The **projection** `(χ, σ) ↦ σ` of the group of inner twist pairs of `f` to `Gal(ℂ/ℚ)` (LMFDB
 `cmf.inner_twist_group`), a homomorphism. The LMFDB projects to `Aut_ℚ(K)`, through the
 restriction of `σ` to the coefficient field `K` of `f`. -/
 def innerTwistPairsToGal : f.innerTwistPairs →* Gal(ℂ/ℚ) where

@@ -22,7 +22,10 @@ with complex values.
 
 A self twist character is quadratic, with no hypothesis on `f` and with no Galois representations
 (`HeckeRing.GL2.Newform.HasSelfTwist.isQuadratic_character`, in
-`LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.SelfTwistQuadratic`). That only newforms of
+`LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.SelfTwistQuadratic`), and `a_p(f) = 0` at
+every prime `p` not dividing the level with `χ(p) = -1`
+(`HeckeRing.GL2.Newform.HasSelfTwist.coeff_eq_zero_of_apply_eq_neg_one`, in
+`LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.AlmostAllPrimes`). That only newforms of
 weight one can have real multiplication, and that a newform has several nontrivial self twists
 exactly when it has weight one and projective image `C₂ × C₂`, are theorems resting on Galois
 representations, which are not proved here.

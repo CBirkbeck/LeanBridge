@@ -1053,12 +1053,25 @@
     "HeckeRing.GL2.Newform.HasInnerTwist": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.InnerTwist",
     "HeckeRing.GL2.Newform.innerTwists": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.InnerTwist",
     "HeckeRing.GL2.Newform.mk_self_mem_innerTwists_iff": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.InnerTwist",
-    "HeckeRing.GL2.Newform.mk_ringHomComp_mem_innerTwists": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.InnerTwist"
+    "HeckeRing.GL2.Newform.mk_ringHomComp_mem_innerTwists": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.InnerTwist",
+    "HeckeRing.GL2.Newform.mk_mem_innerTwists_iff_exists_mem_innerTwistGroup": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.InnerTwistAutGroup",
+    "HeckeRing.GL2.Newform.eq_of_mk_mem_innerTwists": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.InnerTwistAutGroup"
   },
   "cmf.inner_twist_count": {
     "HeckeRing.GL2.Newform.innerTwistCount": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.InnerTwist",
     "HeckeRing.GL2.Newform.innerTwists": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.InnerTwist",
-    "HeckeRing.GL2.Newform.IsGaloisConjugateBy.innerTwistCount_eq": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.InnerTwist"
+    "HeckeRing.GL2.Newform.IsGaloisConjugateBy.innerTwistCount_eq": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.InnerTwist",
+    "HeckeRing.GL2.Newform.innerTwistCount_eq_natCard": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.InnerTwistAutGroup",
+    "HeckeRing.GL2.Newform.finite_innerTwists": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.InnerTwistAutGroup",
+    "HeckeRing.GL2.Newform.innerTwistGroup": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.InnerTwistAutGroup"
+  },
+  "cmf.inner_twist_group": {
+    "HeckeRing.GL2.Newform.innerTwistGroup": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.InnerTwistAutGroup",
+    "HeckeRing.GL2.Newform.innerTwistGroup_mul_fst": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.InnerTwistAutGroup",
+    "HeckeRing.GL2.Newform.innerTwistGroupToAut": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.InnerTwistAutGroup",
+    "HeckeRing.GL2.Newform.mem_ker_innerTwistGroupToAut_iff": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.InnerTwistAutGroup",
+    "HeckeRing.GL2.Newform.isMulCommutative_range_innerTwistGroupToAut": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.InnerTwistAutGroup",
+    "HeckeRing.GL2.Newform.innerTwistGroup_fst_injective": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.InnerTwistAutGroup"
   },
   "cmf.inner_twist_multiplicity": {
     "HeckeRing.GL2.Newform.innerTwistMultiplicity": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.InnerTwist",
@@ -1191,7 +1204,8 @@
     "HeckeRing.GL2.Newform.IsTwistAtAlmostAllPrimes": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.Basic",
     "Int.IsFundamentalDiscr.kroneckerChar": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.SelfTwist",
     "HeckeRing.GL2.Newform.HasCMBy": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.SelfTwist",
-    "HeckeRing.GL2.Newform.HasRMBy": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.SelfTwist"
+    "HeckeRing.GL2.Newform.HasRMBy": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.SelfTwist",
+    "HeckeRing.GL2.Newform.HasSelfTwist.coeff_eq_zero_of_apply_eq_neg_one": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.AlmostAllPrimes"
   },
   "cmf.self_twist_field": {
     "HeckeRing.GL2.Newform.comp_unitsMap_eq_of_eventually_coeff_eq": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.NebentypusRigidity",
@@ -1255,8 +1269,8 @@
     "HeckeRing.GL2.Newform.twistMultiplicity": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.Multiplicity",
     "HeckeRing.GL2.Newform.IsGaloisConjugateBy.twistMultiplicity_eq": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.Multiplicity",
     "HeckeRing.GL2.Newform.IsGaloisConjugate.twistMultiplicity_eq": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.Multiplicity",
-    "HeckeRing.GL2.Newform.twistMultiplicity_self_le_innerTwistMultiplicity": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.Multiplicity",
-    "MulChar.galoisOrbit": "TauCeti.NumberTheory.MulChar.GaloisOrbit"
+    "MulChar.galoisOrbit": "TauCeti.NumberTheory.MulChar.GaloisOrbit",
+    "HeckeRing.GL2.Newform.twistMultiplicity_self_eq_innerTwistMultiplicity": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.AlmostAllPrimes"
   },
   "cmf.weight": {
     "ModularForm.HasWeight": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.Weight",

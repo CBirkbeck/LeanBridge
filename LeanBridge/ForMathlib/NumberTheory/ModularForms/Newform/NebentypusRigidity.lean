@@ -31,6 +31,11 @@ primes, and let `F`, `G` be the parts of `f`, `g` with coefficients prime to `P`
    `RankinSelberg.tendsto_sub_one_mul_integral_stripFun_petersson`, while that of `F` against `F`
    has one by `RankinSelberg.exists_le_sub_one_mul_re_integral_stripFun_petersson`.
 
+## Main definitions
+
+* `HeckeRing.GL2.Newform.coprimeFilter`: a newform with its coefficients at the indices not prime
+  to a multiple `P` of its level removed.
+
 ## Main results
 
 * `HeckeRing.GL2.Newform.comp_unitsMap_eq_of_eventually_coeff_eq`: nebentypus rigidity.
@@ -293,14 +298,14 @@ variable [NeZero P] (hNP : N ∣ P) (hN'P : N' ∣ P)
 variable (f) in
 /-- The cusp form of level `P²` obtained from a newform `f` of level `N ∣ P` by removing the
 coefficients at the indices not prime to `P`: the twist of `f` by the principal character. -/
-private noncomputable def coprimeFilter : CuspForm ((Gamma1 (P * P)).map (mapGL ℝ)) k :=
+noncomputable def coprimeFilter : CuspForm ((Gamma1 (P * P)).map (mapGL ℝ)) k :=
   CuspForm.twist (⇑(1 : DirichletCharacter ℂ P)) (mul_dvd_mul_right hNP P) dvd_rfl f.toCuspForm
 
 variable (f n) in
-private lemma coeff_coprimeFilter :
-    (qExpansion 1 (f.coprimeFilter hNP)).coeff n = if n.Coprime P then coeff f n else 0 := by
-  have h :
-      (qExpansion 1 (f.coprimeFilter hNP)).coeff n = (1 : DirichletCharacter ℂ P) n * coeff f n :=
+lemma qExpansion_coeff_coprimeFilter : (qExpansion 1 (f.coprimeFilter hNP)).coeff n =
+    if n.Coprime P then (qExpansion 1 f.toCuspForm).coeff n else 0 := by
+  have h : (qExpansion 1 (f.coprimeFilter hNP)).coeff n =
+      (1 : DirichletCharacter ℂ P) n * (qExpansion 1 f.toCuspForm).coeff n :=
     CuspForm.qExpansion_twist_coeff _ _ _ _ n
   rw [h]
   split_ifs with hn
@@ -308,7 +313,12 @@ private lemma coeff_coprimeFilter :
   · rw [MulChar.map_nonunit _ fun h ↦ hn ((ZMod.isUnit_iff_coprime n P).mp h), zero_mul]
 
 variable (f) in
-private lemma coprimeFilter_mem_cuspFormCharSpace :
+private lemma coeff_coprimeFilter_of_coprime (hn : n.Coprime P) :
+    (qExpansion 1 (f.coprimeFilter hNP)).coeff n = coeff f n :=
+  (qExpansion_coeff_coprimeFilter f n hNP).trans (ite_eq_left hn)
+
+variable (f) in
+lemma coprimeFilter_mem_cuspFormCharSpace :
     f.coprimeFilter hNP ∈ cuspFormCharSpace k (f.χ.comp (ZMod.unitsMap (hNP.mul_right P))) := by
   have h : f.coprimeFilter hNP ∈ cuspFormCharSpace k (f.χ.comp (ZMod.unitsMap
       (dvd_of_mul_right_dvd (mul_dvd_mul_right hNP P))) *
@@ -330,7 +340,7 @@ private lemma coprimeFilter_ne_zero : f.coprimeFilter hNP ≠ 0 := by
   intro h0
   have h1 :
       (qExpansion 1 (f.coprimeFilter hNP)).coeff 1 = if Nat.Coprime 1 P then coeff f 1 else 0 :=
-    coeff_coprimeFilter f 1 hNP
+    qExpansion_coeff_coprimeFilter f 1 hNP
   rw [ite_eq_left (Nat.coprime_one_left P), h0] at h1
   simp only [FunLike.coe_zero, qExpansion_zero] at h1
   exact zero_ne_one <| h1.trans f.isNorm
@@ -344,8 +354,8 @@ private lemma norm_sq_coeff_coprimeFilter_mul_sq
         (t : ℝ) ^ (-(2 * σ)) := by
   have hmP : m.Coprime P := coprime_of_mem_splitSet hm
   have htP : t.Coprime P := coprime_of_mem_inertSet ht
-  rw [coeff_coprimeFilter, coeff_coprimeFilter, ite_eq_left (hmP.mul_left (htP.pow_left 2)),
-    ite_eq_left hmP,
+  rw [coeff_coprimeFilter_of_coprime f hNP (hmP.mul_left (htP.pow_left 2)),
+    coeff_coprimeFilter_of_coprime f hNP hmP,
     coeff_mul f hm.1 (pow_ne_zero _ ht.1) ((coprime_of_mem_of_mem hm ht).pow_right 2)
       (hmP.coprime_dvd_right hNP) ((htP.pow_left 2).coprime_dvd_right hNP), norm_mul,
     norm_coeff_sq hNP hvan ht, mellinKernel_mul_sq _ hm.1 ht.1, ← zpow_sq_mul_rpow σ ht.1]
@@ -367,8 +377,8 @@ private lemma coeff_coprimeFilter_mul_conj_mul_sq
     rw [Complex.mul_conj, Complex.normSq_eq_norm_sq]
     push_cast
     rfl
-  rw [coeff_coprimeFilter, coeff_coprimeFilter, coeff_coprimeFilter, ite_eq_left hmt,
-    ite_eq_left hmt, ite_eq_left hmP,
+  rw [coeff_coprimeFilter_of_coprime f hNP hmt, coeff_coprimeFilter_of_coprime g hN'P hmt,
+    coeff_coprimeFilter_of_coprime f hNP hmP,
     coeff_mul f hm.1 (pow_ne_zero _ ht.1) ((coprime_of_mem_of_mem hm ht).pow_right 2)
       (hmP.coprime_dvd_right hNP) ((htP.pow_left 2).coprime_dvd_right hNP),
     coeff_mul g hm.1 (pow_ne_zero _ ht.1) ((coprime_of_mem_of_mem hm ht).pow_right 2)
@@ -410,7 +420,7 @@ private lemma mul_re_integral_le_norm_integral
   have hzero : ∀ n : ℕ, (∀ m ∈ splitSet P f g, ∀ t ∈ inertSet P f g, n ≠ m * t ^ 2) →
       (qExpansion 1 (f.coprimeFilter hNP)).coeff n = 0 := by
     intro n hn
-    rw [coeff_coprimeFilter]
+    rw [qExpansion_coeff_coprimeFilter]
     split_ifs with hnP
     · by_contra ha
       rcases eq_or_ne n 0 with rfl | hn0

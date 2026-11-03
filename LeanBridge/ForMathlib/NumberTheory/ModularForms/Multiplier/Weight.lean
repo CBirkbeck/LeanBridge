@@ -1,3 +1,4 @@
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.LowerUnipotent
 import Mathlib.NumberTheory.DirichletCharacter.Basic
 import Mathlib.NumberTheory.LegendreSymbol.JacobiSymbol
 import TauCeti.NumberTheory.ModularForms.DiamondOperators
@@ -80,10 +81,6 @@ reads `f = ± i χ(-1) f`). By `HasWeight.unique`, the weight of a nonzero `f` i
 def HasWeight : Prop :=
   ∃ m : ℤ, (m : ℚ) = 2 * w ∧ (Odd m → 4 ∣ N) ∧
     ∀ γ ∈ Gamma0 N, ∀ z, f (γ • z) = χ (γ 1 1) * weightFactor m γ z * f z
-
-/-- The lower unipotent matrix `(1, 0; c, 1)` of `SL(2, ℤ)`. -/
-private def lowerUnipotent : SL(2, ℤ) :=
-  ⟨!![1, 0; c, 1], by simp⟩
 
 private lemma norm_weightFactor_lowerUnipotent :
     ‖weightFactor n (lowerUnipotent c) z‖ = ‖(c : ℂ) * z + 1‖ ^ ((n : ℝ) / 2) := by

@@ -610,7 +610,7 @@ The *Hecke characteristic polynomial* of a {bpref "cmf.newform"}[newform] $`f` a
 Depends on: {uses "cmf.hecke_operator"}[] {uses "cmf.newform"}[] {uses "cmf.newform_subspace"}[]
 :::
 
-:::definition "cmf.inner_twist" (lean := "HeckeRing.GL2.Newform.IsInnerTwist, HeckeRing.GL2.Newform.HasInnerTwist, HeckeRing.GL2.Newform.innerTwists, HeckeRing.GL2.Newform.mk_self_mem_innerTwists_iff, HeckeRing.GL2.Newform.mk_ringHomComp_mem_innerTwists")
+:::definition "cmf.inner_twist" (lean := "HeckeRing.GL2.Newform.IsInnerTwist, HeckeRing.GL2.Newform.HasInnerTwist, HeckeRing.GL2.Newform.innerTwists, HeckeRing.GL2.Newform.mk_self_mem_innerTwists_iff, HeckeRing.GL2.Newform.mk_ringHomComp_mem_innerTwists, HeckeRing.GL2.Newform.mk_mem_innerTwists_iff_exists_mem_innerTwistGroup, HeckeRing.GL2.Newform.eq_of_mk_mem_innerTwists")
 *Inner twist.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.inner_twist))
 
 {bpref "cmf.galois_conjugate"}[Galois conjugate] {bpref "cmf.newform"}[newforms] $`f` and $`g` are *inner twists* if there is a {bpref "character.dirichlet"}[Dirichlet character] $`\chi` such that
@@ -628,7 +628,7 @@ The home page of each newform in the LMFDB includes a list of inner twists, in w
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.galois_orbit"}[] {uses "character.dirichlet.primitive"}[] {uses "cmf.cm_form"}[] {uses "cmf.coefficient_field"}[] {uses "cmf.galois_conjugate"}[] {uses "cmf.galois_orbit"}[] {uses "cmf.newform"}[] {uses "cmf.rm_form"}[] {uses "cmf.self_twist"}[]
 :::
 
-:::definition "cmf.inner_twist_count" (lean := "HeckeRing.GL2.Newform.innerTwistCount, HeckeRing.GL2.Newform.innerTwists, HeckeRing.GL2.Newform.IsGaloisConjugateBy.innerTwistCount_eq")
+:::definition "cmf.inner_twist_count" (lean := "HeckeRing.GL2.Newform.innerTwistCount, HeckeRing.GL2.Newform.innerTwists, HeckeRing.GL2.Newform.IsGaloisConjugateBy.innerTwistCount_eq, HeckeRing.GL2.Newform.innerTwistCount_eq_natCard, HeckeRing.GL2.Newform.finite_innerTwists, HeckeRing.GL2.Newform.innerTwistGroup")
 *Inner twist count.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.inner_twist_count))
 
 The *inner twist count* of a {bpref "cmf.newform"}[newform] $`f` is the number of distinct {bpref "cmf.inner_twist"}[inner twists] of $`f`.
@@ -646,7 +646,7 @@ Inner twist data is available only for newforms for which exact eigenvalue data 
 Depends on: {uses "character.dirichlet"}[] {uses "cmf.coefficient_field"}[] {uses "cmf.dimension"}[] {uses "cmf.inner_twist"}[] {uses "cmf.newform"}[] {uses "cmf.self_twist"}[] {uses "cmf.weight"}[]
 :::
 
-:::definition "cmf.inner_twist_group"
+:::definition "cmf.inner_twist_group" (lean := "HeckeRing.GL2.Newform.innerTwistGroup, HeckeRing.GL2.Newform.innerTwistGroup_mul_fst, HeckeRing.GL2.Newform.innerTwistGroupToAut, HeckeRing.GL2.Newform.mem_ker_innerTwistGroupToAut_iff, HeckeRing.GL2.Newform.isMulCommutative_range_innerTwistGroupToAut, HeckeRing.GL2.Newform.innerTwistGroup_fst_injective")
 *Inner twist group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.inner_twist_group))
 
 For a given {bpref "cmf.newform"}[newform] $`f`, the set of pairs $`(\chi,\sigma)` giving rise to an {bpref "cmf.inner_twist"}[inner twist] of $`f` form a group $`G`; here $`\chi` is a {bpref "character.dirichlet.primitive"}[primitive] {bpref "character.dirichlet"}[Dirichlet character] and $`\sigma`, is a $`\Q`-automorphism of the {bpref "cmf.coefficient_field"}[coefficient field] $`K` of $`f`.
@@ -1010,7 +1010,7 @@ The Sato-Tate conjecture for classical modular forms has been proved .
 Depends on: {uses "cmf.cm_form"}[] {uses "cmf.newform"}[] {uses "cmf.weight"}[]
 :::
 
-:::definition "cmf.self_twist" (lean := "HeckeRing.GL2.Newform.HasSelfTwist, HeckeRing.GL2.Newform.IsTwistAtAlmostAllPrimes, Int.IsFundamentalDiscr.kroneckerChar, HeckeRing.GL2.Newform.HasCMBy, HeckeRing.GL2.Newform.HasRMBy")
+:::definition "cmf.self_twist" (lean := "HeckeRing.GL2.Newform.HasSelfTwist, HeckeRing.GL2.Newform.IsTwistAtAlmostAllPrimes, Int.IsFundamentalDiscr.kroneckerChar, HeckeRing.GL2.Newform.HasCMBy, HeckeRing.GL2.Newform.HasRMBy, HeckeRing.GL2.Newform.HasSelfTwist.coeff_eq_zero_of_apply_eq_neg_one")
 *Self-twist.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.self_twist))
 
 A {bpref "cmf.newform"}[newform] $`f` admits a *self-twist* by a {bpref "character.dirichlet.primitive"}[primitive]
@@ -1242,7 +1242,7 @@ These conventions also apply to {bpref "cmf.galois_orbit"}[newform orbits].
 Depends on: {uses "character.dirichlet.minimal"}[] {uses "cmf.character"}[] {uses "cmf.galois_orbit"}[] {uses "cmf.label"}[] {uses "cmf.level"}[] {uses "cmf.newform"}[] {uses "cmf.twist"}[]
 :::
 
-:::definition "cmf.twist_multiplicity" (lean := "HeckeRing.GL2.Newform.twistMultiplicity, HeckeRing.GL2.Newform.IsGaloisConjugateBy.twistMultiplicity_eq, HeckeRing.GL2.Newform.IsGaloisConjugate.twistMultiplicity_eq, HeckeRing.GL2.Newform.twistMultiplicity_self_le_innerTwistMultiplicity, MulChar.galoisOrbit")
+:::definition "cmf.twist_multiplicity" (lean := "HeckeRing.GL2.Newform.twistMultiplicity, HeckeRing.GL2.Newform.IsGaloisConjugateBy.twistMultiplicity_eq, HeckeRing.GL2.Newform.IsGaloisConjugate.twistMultiplicity_eq, MulChar.galoisOrbit, HeckeRing.GL2.Newform.twistMultiplicity_self_eq_innerTwistMultiplicity")
 *Twist multiplicity.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.twist_multiplicity))
 
 The *multiplicity* of a {bpref "cmf.galois_orbit"}[newform orbit] $`[g]` as a {bpref "cmf.twist"}[twist] of a newform orbit $`[f]` by a {bpref "character.dirichlet.primitive"}[primitive] {bpref "character.dirichlet.galois_orbit"}[character orbit] $`[\psi]` is the number of distinct $`\psi\in[\psi]` for which $`f\otimes\psi\in[g]`.  This number is the same for every $`f\in [f]` and depends only on the Galois orbits $`[g]`, $`[f]`, and $`[\psi]`.
