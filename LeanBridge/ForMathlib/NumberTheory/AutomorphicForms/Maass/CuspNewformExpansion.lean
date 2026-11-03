@@ -22,9 +22,12 @@ of the modified Bessel equation that are integrable against a power
 `√y K_{iR}(2π|n|y)` for `n ≠ 0`. With the vanishing constant term at `∞` this gives the Fourier
 expansion of every element of `M(N, χ, λ)` whose constant term at `∞` vanishes, and so the
 expansions of the cusp newforms; the coefficients `a(n) / a(1)`, `n` prime to `N`, of the cusp
-newform normalised by `a(1) = 1` are then real, given `a(1) ≠ 0`, which holds at level `1`.
-Not proved: `a(1) ≠ 0` at levels `N > 1` and the reality of `a(n)` for `gcd(n, N) > 1`, which
-need the Atkin–Lehner theory of the new space.
+newform normalised by `a(1) = 1` are then real, given `a(1) ≠ 0`. At every level `N ≠ 0`, for an
+even or odd cusp newform, `a(1) ≠ 0` and `a(n) / a(1)` is real for every `n`, `gcd(n, N) > 1`
+included (`UpperHalfPlane.IsMaassCuspNewform.maassCoefficients_one_ne_zero_of_even`,
+`UpperHalfPlane.IsMaassCuspNewform.conj_maassCoefficients_div_of_even` and the odd versions, in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformAtkinLehner`), by the Main Lemma
+of Atkin and Lehner for Maass forms.
 
 ## Main results
 
@@ -342,11 +345,12 @@ lemma IsMaassCuspNewform.hasMaassSineExpansion (hF : IsMaassCuspNewform N R F)
     HasMaassSineExpansion (F ∘ ofComplex) R (maassCoefficients R (F ∘ ofComplex)) :=
   hF.1.hasMaassSineExpansion_of_integral_eq_zero (fun _ ↦ hF.integral_eq_zero) hs
 
-/-- **The coefficients of the normalised even Maass cusp newform are real** at the indices prime
-to the level (LMFDB `mf.maass.mwf.coefficients`): for an even Maass cusp newform `F` on `Γ₀(N)`
-with coefficients `a = maassCoefficients R F` and `a(1) ≠ 0` (which holds at level `1`), the
-coefficient `a(m) / a(1)` of the cusp newform normalised by `a(1) = 1` is real for every `m` prime
-to `N`, with no growth hypothesis. -/
+/-- **The coefficients of the normalised even Maass cusp newform are real** at the indices prime to
+the level (LMFDB `mf.maass.mwf.coefficients`): for an even Maass cusp newform `F` on `Γ₀(N)` with
+coefficients `a = maassCoefficients R F` and `a(1) ≠ 0` (which holds at every level `N ≠ 0`,
+`IsMaassCuspNewform.maassCoefficients_one_ne_zero_of_even`), the coefficient `a(m) / a(1)` of the
+cusp newform normalised by `a(1) = 1` is real for every `m` prime to `N`, with no growth hypothesis.
+-/
 lemma IsMaassCuspNewform.conj_maassCoefficients_div_of_isEven (hF : IsMaassCuspNewform N R F)
     (hs : IsEvenMaassForm (F ∘ ofComplex)) (h1 : maassCoefficients R (F ∘ ofComplex) 1 ≠ 0) {m : ℕ+}
     (hm : (m : ℕ).Coprime N) :
@@ -356,9 +360,10 @@ lemma IsMaassCuspNewform.conj_maassCoefficients_div_of_isEven (hF : IsMaassCuspN
 
 /-- **The coefficients of the normalised odd Maass cusp newform are real** at the indices prime to
 the level (LMFDB `mf.maass.mwf.coefficients`): for an odd Maass cusp newform `F` on `Γ₀(N)` with
-coefficients `a = maassCoefficients R F` and `a(1) ≠ 0` (which holds at level `1`), the
-coefficient `a(m) / a(1)` of the cusp newform normalised by `a(1) = 1` is real for every `m` prime
-to `N`, with no growth hypothesis. -/
+coefficients `a = maassCoefficients R F` and `a(1) ≠ 0` (which holds at every level `N ≠ 0`,
+`IsMaassCuspNewform.maassCoefficients_one_ne_zero_of_odd`), the coefficient `a(m) / a(1)` of the
+cusp newform normalised by `a(1) = 1` is real for every `m` prime to `N`, with no growth hypothesis.
+-/
 lemma IsMaassCuspNewform.conj_maassCoefficients_div_of_isOdd (hF : IsMaassCuspNewform N R F)
     (hs : IsOddMaassForm (F ∘ ofComplex)) (h1 : maassCoefficients R (F ∘ ofComplex) 1 ≠ 0) {m : ℕ+}
     (hm : (m : ℕ).Coprime N) :

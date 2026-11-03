@@ -729,7 +729,7 @@ Depends on: {uses "gg.galois_group"}[] {uses "gg.label"}[] {uses "group.small_gr
 For a local field $`K` which is a finite extension of $`\Q_p` for some prime $`p`, *intermediate fields* $`F` are fields with $`\Q_p\subsetneqq F \subsetneqq K`.
 :::
 
-:::definition "lf.jump_set"
+:::definition "lf.jump_set" (lean := "IsNonarchimedeanLocalField.jumpSet, IsNonarchimedeanLocalField.isPaganoJumpSet_iff, IsNonarchimedeanLocalField.IsPaganoJumpSet, IsNonarchimedeanLocalField.IsReducedMikiFactorisation, IsNonarchimedeanLocalField.exists_isReducedMikiFactorisation, IsNonarchimedeanLocalField.jumpSequence_eq_of_isReducedMikiFactorisation")
 *Jump set.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.jump_set))
 
 Let $`K` be a {bpref "lf.padic_field"}[$`p`-adic field] which contains

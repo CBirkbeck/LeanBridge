@@ -5,11 +5,11 @@ import Mathlib.NumberTheory.LSeries.Basic
 /-!
 # The coefficients of a Maass newform
 
-A Maass newform `f` of weight `0` on `Γ₀(N)` (`UpperHalfPlane.IsMaassNewform` with the trivial
-character) with spectral parameter `R` has, if it is even, a cosine expansion
-`f(x + iy) = ∑_{n ≥ 1} a(n) √y K_{iR}(2πny) cos(2πnx)` and, if it is odd, a sine expansion
-`f(x + iy) = ∑_{n ≥ 1} a(n) √y K_{iR}(2πny) sin(2πnx)`; the `a(n)` are its coefficients (LMFDB
-`mf.maass.mwf.coefficients`), real numbers, and define its `L`-function `L(f, s) = ∑ a(n) n^{-s}`.
+The LMFDB (`mf.maass.mwf.coefficients`) states that a Maass newform `f` of weight `0` on `Γ₀(N)`
+(`UpperHalfPlane.IsMaassNewform` with the trivial character) with spectral parameter `R` has, if it
+is even, a cosine expansion `f(x + iy) = ∑_{n ≥ 1} a(n) √y K_{iR}(2πny) cos(2πnx)` and, if it is
+odd, a sine expansion `f(x + iy) = ∑_{n ≥ 1} a(n) √y K_{iR}(2πny) sin(2πnx)`; the `a(n)` are its
+coefficients, real numbers, and define its `L`-function `L(f, s) = ∑ a(n) n^{-s}`.
 
 The coefficients are defined here from the expansion, when there is one, and they are unique:
 two cosine expansions of `f`, or two absolutely convergent sine expansions, have the same
@@ -21,17 +21,26 @@ Proved elsewhere: the non-vanishing of `K_{iR}` somewhere on `(0, ∞)`
 `LeanBridge.ForMathlib.Analysis.SpecialFunctions.BesselKNonvanishing`), which with
 `HasMaassCosineExpansion.unique` and `HasMaassSineExpansion.unique` (in
 `LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.CoefficientsUnique`) makes the
-coefficients of every expansion unique, sine expansions included without absolute convergence; and
-the existence of the expansions for every Maass form with vanishing constant term and polynomial
-growth of `f` and `∂f/∂y` (`IsMaassNewform.hasMaassCosineExpansion_maassCoefficients` and its sine
-analogue in `LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformExpansion`). Not
-proved: that a newform has these cusp-form properties (`IsMaassNewform` asks only for
-square-integrability, and the constant `1` satisfies it without having an expansion), and the
-reality of the `a(n)` of a newform normalised by `a(1) = 1` beyond the coefficients prime to the
-level (proved for cusp newforms, with `a(1) ≠ 0` at level `1`, in
-`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.CuspNewform`, from the
-self-adjointness of the Hecke operators in
-`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.HeckeSelfAdjoint`).
+coefficients of every expansion unique, sine expansions included without absolute convergence; the
+existence of the expansions for every Maass form with vanishing constant term and polynomial growth
+of `f` and `∂f/∂y` (`IsMaassNewform.hasMaassCosineExpansion_maassCoefficients` and its sine analogue
+in `LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformExpansion`), and with no growth
+hypothesis for every even or odd newform with vanishing constant term at `∞`, such as a cusp newform
+of level `N ≠ 0` (`IsMaassNewform.hasMaassCosineExpansion_of_integral_eq_zero`,
+`IsMaassCuspNewform.hasMaassCosineExpansion` and their sine analogues in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.CuspNewformExpansion`) or a newform with
+real `R` (`IsMaassNewform.hasMaassCosineExpansion_ofReal` and its sine analogue in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.ConstantTerm`); and, for a newform with
+such an expansion at a level `N ≠ 0`, that `a(1) ≠ 0` and that the coefficient `a(n) / a(1)` of the
+newform normalised by `a(1) = 1` is real for every `n`, `gcd(n, N) > 1` included
+(`IsMaassNewform.coeff_one_ne_zero_of_cosine`, `IsMaassNewform.conj_coeff_div_of_cosine` and their
+sine analogues in `LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformAtkinLehner`,
+from the Main Lemma of Atkin and Lehner and the self-adjointness of the Hecke operators in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.HeckeSelfAdjoint`). Not proved: that a
+newform whose constant term at `∞` does not vanish is a constant of level `1`, which is classical
+(the residual spectrum of `Γ₀(N)` consists of the constants). `IsMaassNewform` asks only for
+square-integrability, and the constant `1` of level `1` satisfies it without having an expansion
+(`not_hasMaassCosineExpansion_const_one`).
 
 ## Main definitions
 
@@ -59,18 +68,22 @@ open scoped Classical in
 /-- The **coefficients** `a(n)`, `n ≥ 1` (LMFDB `mf.maass.mwf.coefficients`), of a function `f` on
 the upper half-plane, given on `ℂ`, with spectral parameter `R`: those of its cosine expansion
 `f(x + iy) = ∑ a(n) √y K_{iR}(2πny) cos(2πnx)` (`HasMaassCosineExpansion`) if it has one, as an even
-Maass newform does, and otherwise those of its sine expansion
+Maass cusp newform does, and otherwise those of its sine expansion
 `f(x + iy) = ∑ a(n) √y K_{iR}(2πny) sin(2πnx)` (`HasMaassSineExpansion`) if it has one, as an odd
-newform does; `0` if it has neither. A nonzero function cannot have both, being then even and odd
-in `x`. The coefficients of an expansion are unique
+Maass cusp newform does; `0` if it has neither. A nonzero function cannot have both, being then even
+and odd in `x`. The coefficients of an expansion are unique
 (`maassCoefficients_eq_of_hasMaassCosineExpansion`, `maassCoefficients_eq_of_hasMaassSineExpansion`)
 provided `K_{iR}` does not vanish identically on `(0, ∞)`, and do not depend on the sign of `R`
-(`maassCoefficients_neg`). For a Maass newform `f`
-of weight `0` on `Γ₀(N)` with eigenvalue `1/4 + R²` (`IsMaassNewform`), the LMFDB's coefficients
-are those of the newform normalised by `a(1) = 1`, which are real; the existence of the expansion
-is proved in `LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformExpansion` for
-newforms with vanishing constant term and polynomial growth, and the reality for the coefficients
-prime to the level in `LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.CuspNewform`. -/
+(`maassCoefficients_neg`). For a Maass newform `f` of weight `0` on `Γ₀(N)`, `N ≠ 0`, with
+eigenvalue `1/4 + R²` (`IsMaassNewform`), the LMFDB's coefficients are those of the newform
+normalised by `a(1) = 1` (`maassNormalisedNewform`), which are real. The expansion exists if `f` is
+an even or odd cusp newform (`IsMaassCuspNewform.hasMaassCosineExpansion`,
+`IsMaassCuspNewform.hasMaassSineExpansion`) or an even or odd newform with real `R`
+(`IsMaassNewform.hasMaassCosineExpansion_ofReal`, `IsMaassNewform.hasMaassSineExpansion_ofReal`);
+given an expansion, `a(1) ≠ 0` and `a(n) / a(1)` is real for every `n`
+(`IsMaassNewform.coeff_one_ne_zero_of_cosine`, `IsMaassNewform.conj_coeff_div_of_cosine` and the
+sine versions). The constant `1` of level `1` is a newform with no expansion
+(`not_hasMaassCosineExpansion_const_one`, `not_hasMaassSineExpansion_const_one`). -/
 noncomputable def maassCoefficients : ℕ+ → ℂ :=
   if h : ∃ c, HasMaassCosineExpansion f r c then h.choose
   else if h' : ∃ c, HasMaassSineExpansion f r c then h'.choose else 0

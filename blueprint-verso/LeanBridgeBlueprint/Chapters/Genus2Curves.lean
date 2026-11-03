@@ -622,7 +622,7 @@ The *regulator* of a {bpref "g2c.g2curve"}[genus 2 curve] is the {bpref "ag.regu
 Depends on: {uses "ag.regulator"}[] {uses "g2c.g2curve"}[]
 :::
 
-:::definition "g2c.semistable_reduction"
+:::definition "g2c.semistable_reduction" (lean := "AlgebraicGeometry.Scheme.HasSemistableReduction, AlgebraicGeometry.Scheme.IsSemistableOver, AlgebraicGeometry.Scheme.componentGenus, AlgebraicGeometry.Scheme.componentNormalization, AlgebraicGeometry.Scheme.componentSingularPointCount, TauCeti.Model.geometricSpecialFiber")
 *Semistable reduction.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.semistable_reduction))
 
 A curve $`C` over a local field $`K` is said to have _semistable reduction_ if there exists a model over $`\mathcal{O}_K`, such that the special fibre is semistable, i.e., the special fibre is a geometrically reduced curve with at most nodal singularities, and each component of geometric genus 0 has at least 2 singular points, counted with multiplicity.

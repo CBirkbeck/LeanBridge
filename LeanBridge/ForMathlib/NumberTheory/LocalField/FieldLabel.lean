@@ -33,8 +33,11 @@ database (`j` sorts the defining polynomials that the database chose, and `num` 
 unspecified ordering), and so is the code `i`, which also depends on chosen representatives of the
 classes of residual polynomials. The letters `ℓ` (or `A`) sort the families with the same basic
 data by their number of wild segments, the lengths of these segments in the ramification polygon,
-and their rams, in an encoding by letters that the knowls do not specify; ramification polygons are
-not formalised. The label `s` of the base field of a relative family ends in the index `n`.
+and their rams, in an encoding by letters that the knowls do not specify; the segments of
+ramification polygons are not formalised, as
+`LeanBridge.ForMathlib.NumberTheory.LocalField.RamificationPolygon` only computes the minima
+`min_r ((x + 1) r + v_L(c_r))`. The label `s` of the base field of a relative family ends in the
+index `n`.
 
 ## Main definitions
 

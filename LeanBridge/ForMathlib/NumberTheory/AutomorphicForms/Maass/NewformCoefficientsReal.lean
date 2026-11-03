@@ -14,11 +14,13 @@ from the self-adjointness of `T_p`). By induction on `n`, the coefficients `a(n)
 newform normalised by `a(1) = 1` are real for every `n` prime to `N`, and if `a(1) = 0`, then
 `a(n) = 0` for every `n` prime to `N`; at level `1` this forces `F = 0`, so `a(1) ≠ 0`.
 
-Not reached: `a(1) ≠ 0` at the levels `N > 1`, and the reality of the `a(n)` with
-`gcd(n, N) > 1`. Both need the Atkin–Lehner theory of the new space and of the operators `U_p`,
-`p ∣ N` (of which a newform is an eigenfunction, with real eigenvalues `0` or `±p^{-1/2}` for
-trivial character), which is not available; the definition `IsMaassNewform` only asks for the
-`T_p`, `p ∤ N`.
+At every level `N ≠ 0`, `a(1) ≠ 0` and `a(n) / a(1)` is real for every `n`, `gcd(n, N) > 1` included
+(`UpperHalfPlane.IsMaassNewform.coeff_one_ne_zero_of_cosine`,
+`UpperHalfPlane.IsMaassNewform.conj_coeff_div_of_cosine` and the sine versions, in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformAtkinLehner`), by the Main Lemma
+of Atkin and Lehner for Maass forms. That a newform is an eigenfunction of the operators `U_p`,
+`p ∣ N`, with real eigenvalues `0` or `±p^{-1/2}` for trivial character, is not proved and not
+needed; the definition `IsMaassNewform` only asks for the `T_p`, `p ∤ N`.
 
 ## Main results
 

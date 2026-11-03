@@ -20,10 +20,12 @@ character of the quadratic field `ℚ(√D)` of discriminant `D` is the primitiv
 `(D/·)` modulo `|D|`, Tau Ceti's `TauCeti.Multiquadratic.fundamentalDiscriminantChar`, taken here
 with complex values.
 
-That a nontrivial self twist is quadratic, that only newforms of weight one can have real
-multiplication, and that a newform has several nontrivial self twists exactly when it has weight
-one and projective image `C₂ × C₂`, are theorems resting on Galois representations, which are not
-proved here.
+A self twist character is quadratic, with no hypothesis on `f` and with no Galois representations
+(`HeckeRing.GL2.Newform.HasSelfTwist.isQuadratic_character`, in
+`LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.SelfTwistQuadratic`). That only newforms of
+weight one can have real multiplication, and that a newform has several nontrivial self twists
+exactly when it has weight one and projective image `C₂ × C₂`, are theorems resting on Galois
+representations, which are not proved here.
 
 ## Main definitions
 

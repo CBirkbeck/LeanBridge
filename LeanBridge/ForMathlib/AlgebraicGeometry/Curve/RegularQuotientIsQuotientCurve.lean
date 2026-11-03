@@ -23,9 +23,12 @@ of its automorphisms. As two quotient curves of `X` by `H` are uniquely isomorph
 onto any quotient curve of `X` is surjective and its fibres are the `H`-orbits, so that the
 quotient curve is obtained from `X` by identifying the points of each `H`-orbit, as in the knowl.
 
-The quotient of an algebraic curve that is not regular or not proper is not constructed: it would
-need an `H`-stable affine open cover, that is every `H`-orbit in an affine open, and the gluing of
-the invariant quotients of its members.
+The quotient of an algebraic curve that is not regular or not proper is constructed in
+`LeanBridge.ForMathlib.AlgebraicGeometry.Curve.QuotientExistence`
+(`AlgebraicGeometry.Scheme.exists_isQuotientCurve`), from an `H`-stable affine open cover, which
+exists since every finite set of closed points lies in an affine open
+(`AlgebraicGeometry.Scheme.exists_isAffineOpen_forall_mem`), and the gluing of the invariant
+quotients of its members.
 
 ## Main definitions
 

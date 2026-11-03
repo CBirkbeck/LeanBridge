@@ -22,7 +22,7 @@ The term *Maass form* is used for automorphic forms on $`GL_{n}` (for some posit
 Instead of satisfying the  Cauchy-Riemann equations (as holomorphic functions do), these functions are eigenfunctions of the Casimir element in the universal enveloping algebra of the Lie algebra of $`GL_{n}`.
 :::
 
-:::definition "mf.maass.exceptional_eigenvalue" (lean := "UpperHalfPlane.IsExceptionalMaassEigenvalue, UpperHalfPlane.isExceptionalMaassEigenvalue_iff, UpperHalfPlane.SelbergEigenvalueConjecture")
+:::definition "mf.maass.exceptional_eigenvalue" (lean := "UpperHalfPlane.IsExceptionalMaassEigenvalue, UpperHalfPlane.isExceptionalMaassEigenvalue_iff, UpperHalfPlane.SelbergEigenvalueConjecture, UpperHalfPlane.conj_eigenvalue_of_mem_maassSpace")
 *Exceptional eigenvalues of Maass forms.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass.exceptional_eigenvalue))
 
 Each {bpref "mf.maass.mwf.eigenvalue"}[eigenvalue] $`\lambda` of a {bpref "mf.maass.mwf"}[Maass form] can be written as $`\lambda = \frac{1}{4} + R^2`, where $`R` is the {bpref "mf.maass.mwf.spectralparameter"}[spectral parameter].
@@ -93,7 +93,7 @@ This convention is usually used in the context of Harmonic weak Maass forms.
 Depends on: {uses "mf.maass.mwf.laplacian"}[] {uses "mf.multipliersystem"}[] {uses "mf.slash_action"}[]
 :::
 
-:::definition "mf.maass.mwf.coefficients"
+:::definition "mf.maass.mwf.coefficients" (lean := "UpperHalfPlane.maassCoefficients, UpperHalfPlane.maassLFunction, UpperHalfPlane.maassNormalisedNewform, UpperHalfPlane.IsMaassCuspNewform.hasMaassCosineExpansion, UpperHalfPlane.HasMaassCosineExpansion.maassCoefficients_eq, UpperHalfPlane.IsMaassCuspNewform.conj_maassCoefficients_normalisedNewform_of_even")
 *Maass form coefficients.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass.mwf.coefficients))
 
 Let $`f` be a {bpref "mf.maass.mwf"}[Maass newform] of {bpref "mf.maass.mwf.weight"}[weight] 0 on $`\Gamma_0(N)` with {bpref "mf.maass.mwf.spectralparameter"}[spectral parameter] $`R`.  If $`f` has even {bpref "mf.maass.mwf.symmetry"}[symmetry] then as a function on the complex upper half plane it can be uniquely expressed in the form
@@ -129,7 +129,7 @@ The above three cases are proven and the generalization of 3. to other square fa
 Depends on: {uses "cmf.character"}[] {uses "mf.maass.mwf"}[] {uses "mf.maass.mwf.eigenvalue"}[] {uses "mf.maass.mwf.laplacian"}[]
 :::
 
-:::definition "mf.maass.mwf.eigenvalue" (lean := "UpperHalfPlane.IsMaassForm, UpperHalfPlane.maassEigenvalue, UpperHalfPlane.IsMaassForm.eigenvalue_eq, UpperHalfPlane.hyperbolicLaplacian")
+:::definition "mf.maass.mwf.eigenvalue" (lean := "UpperHalfPlane.IsMaassForm, UpperHalfPlane.maassEigenvalue, UpperHalfPlane.IsMaassForm.eigenvalue_eq, UpperHalfPlane.hyperbolicLaplacian, UpperHalfPlane.conj_eigenvalue_of_mem_maassSpace")
 *The eigenvalue of a Maass form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass.mwf.eigenvalue))
 
 The *eigenvalue* $`\lambda` of a {bpref "mf.maass.mwf"}[Maass newform] on GL(2) refers to the eigenvalue of the eigenspace of the {bpref "mf.maass.mwf.laplacian"}[Laplace-Baltrami operator] in which it lies.

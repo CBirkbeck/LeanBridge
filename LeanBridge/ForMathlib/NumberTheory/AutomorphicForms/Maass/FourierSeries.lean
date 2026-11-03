@@ -11,8 +11,13 @@ Fourier expansion `f(x + iy) = ∑_{n ∈ ℤ} a_n(y) e^{2πinx}`, with
 is the first step of the Fourier expansion of a Maass form (LMFDB `mf.maass.mwf.fourierexpansion`,
 `mf.maass.mwf.coefficients`), whose coefficients `a_n(y)` are then multiples of
 `√y K_{iR}(2π|n|y)` (`Complex.eq_div_mul_sqrt_mul_besselK_of_ode`) once they are known to satisfy
-the differential equation coming from `Δf = -λf` and to grow at most polynomially; those two steps
-are not proved here.
+the differential equation coming from `Δf = -λf` and to grow at most polynomially. The differential
+equation is `UpperHalfPlane.fourierCoeff_ode`, in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.FourierCoefficientODE`, and the growth
+bound is replaced by an integrability condition implied by square-integrability on `Γ₀(N) \ ℍ`
+(`UpperHalfPlane.fourierCoeff_eq_div_mul_sqrt_mul_besselK_of_integrableOn`,
+`UpperHalfPlane.integrableOn_norm_fourierCoeff_div_sq`) in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.CuspNewformExpansion`.
 
 ## Main results
 

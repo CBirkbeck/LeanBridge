@@ -169,6 +169,14 @@
     "IrreducibleSpace": "Mathlib.Topology.Irreducible",
     "AlgebraicGeometry.GeometricallyIrreducible": "Mathlib.AlgebraicGeometry.Geometrically.Irreducible"
   },
+  "ag.kodaira_dimension": {
+    "AlgebraicGeometry.Scheme.kodairaDimensionOfPluricanonicalMaps": "LeanBridge.ForMathlib.AlgebraicGeometry.Variety.PluricanonicalRationalMap",
+    "AlgebraicGeometry.Scheme.kodairaDimensionOfPluricanonicalMaps_eq_bot_iff": "LeanBridge.ForMathlib.AlgebraicGeometry.Variety.PluricanonicalRationalMap",
+    "AlgebraicGeometry.Scheme.pluricanonicalRationalMap": "LeanBridge.ForMathlib.AlgebraicGeometry.Variety.PluricanonicalRationalMap",
+    "AlgebraicGeometry.Scheme.pluricanonicalImage": "LeanBridge.ForMathlib.AlgebraicGeometry.Variety.PluricanonicalRationalMap",
+    "AlgebraicGeometry.Scheme.plurigenus": "LeanBridge.ForMathlib.AlgebraicGeometry.HilbertModularSurface.KodairaDimension",
+    "AlgebraicGeometry.Scheme.isInvertible_canonicalSheaf_of_smooth": "LeanBridge.ForMathlib.AlgebraicGeometry.Variety.PluricanonicalRationalMap"
+  },
   "ag.minimal_field": {
     "AlgebraicGeometry.Scheme.fieldsOfDefinition": "LeanBridge.ForMathlib.AlgebraicGeometry.Variety.FieldOfDefinition",
     "AlgebraicGeometry.Scheme.IsMinimalFieldOfDefinition": "LeanBridge.ForMathlib.AlgebraicGeometry.Variety.FieldOfDefinition",
@@ -188,6 +196,14 @@
     "AlgebraicGeometry.Scheme.IsBaseChangeFromSubfield": "LeanBridge.ForMathlib.AlgebraicGeometry.Variety.FieldOfDefinition",
     "AlgebraicGeometry.Scheme.isBaseChangeFromSubfield_iff": "LeanBridge.ForMathlib.AlgebraicGeometry.Variety.FieldOfDefinition",
     "AlgebraicGeometry.Scheme.IsMinimalFieldOfDefinition": "LeanBridge.ForMathlib.AlgebraicGeometry.Variety.FieldOfDefinition"
+  },
+  "ag.quotient_curve": {
+    "AlgebraicGeometry.Scheme.IsQuotientCurve": "LeanBridge.ForMathlib.AlgebraicGeometry.Curve.Quotient",
+    "AlgebraicGeometry.Scheme.exists_isQuotientCurve": "LeanBridge.ForMathlib.AlgebraicGeometry.Curve.QuotientExistence",
+    "AlgebraicGeometry.Scheme.IsQuotientCurve.surjective_left": "LeanBridge.ForMathlib.AlgebraicGeometry.Curve.QuotientExistence",
+    "AlgebraicGeometry.Scheme.IsQuotientCurve.left_apply_eq_iff": "LeanBridge.ForMathlib.AlgebraicGeometry.Curve.QuotientExistence",
+    "AlgebraicGeometry.Scheme.StableAffineOpen.TwoChartCover.quotient": "LeanBridge.ForMathlib.AlgebraicGeometry.Curve.TwoChartQuotient",
+    "AlgebraicGeometry.Scheme.exists_isAffineOpen_forall_mem": "LeanBridge.ForMathlib.AlgebraicGeometry.Curve.FiniteSetAffineOpen"
   },
   "ag.real_endomorphism_algebra": {
     "TauCeti.AlgebraicGeometry.AbelianVariety.End": "TauCeti.AlgebraicGeometry.AbelianVariety.End.Basic"
@@ -1122,6 +1138,14 @@
     "HeckeRing.GL2.Newform.HasCMBy": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.SelfTwist",
     "HeckeRing.GL2.Newform.HasRMBy": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.SelfTwist"
   },
+  "cmf.self_twist_field": {
+    "HeckeRing.GL2.Newform.comp_unitsMap_eq_of_eventually_coeff_eq": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.NebentypusRigidity",
+    "HeckeRing.GL2.Newform.HasSelfTwist.isQuadratic_character": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.SelfTwistQuadratic",
+    "HeckeRing.GL2.Newform.HasSelfTwist.exists_kroneckerChar_of_ne_one": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.SelfTwistQuadratic",
+    "HeckeRing.GL2.Newform.eq_one_or_exists_kroneckerChar_of_mk_self_mem_innerTwists": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.SelfTwistQuadratic",
+    "HeckeRing.GL2.Newform.HasSelfTwist.discr": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.SelfTwistQuadratic",
+    "HeckeRing.GL2.Newform.HasSelfTwist.hasCMBy_or_hasRMBy_discr": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.SelfTwistQuadratic"
+  },
   "cmf.selfdual": {
     "CuspForm.conj": "TauCeti.NumberTheory.ModularForms.Conjugate",
     "HeckeRing.GL2.Newform.IsSelfDual": "TauCeti.NumberTheory.ModularForms.Newforms.SelfDual"
@@ -1800,6 +1824,14 @@
   "g2c.num_rat_wpts": {
     "TauCeti.Place.weierstrassWeight": "TauCeti.FieldTheory.FunctionField.Consequences.WeierstrassGaps",
     "TauCeti.branchPlaces": "TauCeti.FieldTheory.FunctionField.Hyperelliptic.BranchPlaces"
+  },
+  "g2c.semistable_reduction": {
+    "AlgebraicGeometry.Scheme.HasSemistableReduction": "LeanBridge.ForMathlib.AlgebraicGeometry.Curve.SemistableReduction",
+    "AlgebraicGeometry.Scheme.IsSemistableOver": "LeanBridge.ForMathlib.AlgebraicGeometry.Curve.SemistableReduction",
+    "AlgebraicGeometry.Scheme.componentGenus": "LeanBridge.ForMathlib.AlgebraicGeometry.Curve.SemistableReduction",
+    "AlgebraicGeometry.Scheme.componentNormalization": "LeanBridge.ForMathlib.AlgebraicGeometry.Curve.SemistableReduction",
+    "AlgebraicGeometry.Scheme.componentSingularPointCount": "LeanBridge.ForMathlib.AlgebraicGeometry.Curve.SemistableReduction",
+    "TauCeti.Model.geometricSpecialFiber": "LeanBridge.ForMathlib.AlgebraicGeometry.Curve.SemistableReduction"
   },
   "g2c.simple_equation": {
     "HyperellipticEquation.simplifiedPolynomial": "LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.Equation",
@@ -3340,6 +3372,14 @@
   "lf.intermediate_fields": {
     "IntermediateField": "Mathlib.FieldTheory.IntermediateField.Basic"
   },
+  "lf.jump_set": {
+    "IsNonarchimedeanLocalField.jumpSet": "LeanBridge.ForMathlib.NumberTheory.LocalField.MikiFactorisation",
+    "IsNonarchimedeanLocalField.isPaganoJumpSet_iff": "LeanBridge.ForMathlib.NumberTheory.LocalField.MikiFactorisation",
+    "IsNonarchimedeanLocalField.IsPaganoJumpSet": "LeanBridge.ForMathlib.NumberTheory.LocalField.MikiFactorisation",
+    "IsNonarchimedeanLocalField.IsReducedMikiFactorisation": "LeanBridge.ForMathlib.NumberTheory.LocalField.MikiFactorisation",
+    "IsNonarchimedeanLocalField.exists_isReducedMikiFactorisation": "LeanBridge.ForMathlib.NumberTheory.LocalField.MikiFactorisation",
+    "IsNonarchimedeanLocalField.jumpSequence_eq_of_isReducedMikiFactorisation": "LeanBridge.ForMathlib.NumberTheory.LocalField.MikiFactorisation"
+  },
   "lf.local_height_function": {
     "IsNonarchimedeanLocalField.localHeight": "LeanBridge.ForMathlib.NumberTheory.LocalField.LocalHeight",
     "IsNonarchimedeanLocalField.localHeight_eq": "LeanBridge.ForMathlib.NumberTheory.LocalField.LocalHeight",
@@ -3826,7 +3866,8 @@
   "mf.maass.exceptional_eigenvalue": {
     "UpperHalfPlane.IsExceptionalMaassEigenvalue": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane",
     "UpperHalfPlane.isExceptionalMaassEigenvalue_iff": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane",
-    "UpperHalfPlane.SelbergEigenvalueConjecture": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane"
+    "UpperHalfPlane.SelbergEigenvalueConjecture": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane",
+    "UpperHalfPlane.conj_eigenvalue_of_mem_maassSpace": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.EigenvalueReal"
   },
   "mf.maass.mwf": {
     "UpperHalfPlane.IsMaassForm": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane",
@@ -3834,6 +3875,14 @@
     "UpperHalfPlane.maassSlash": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.Weight",
     "UpperHalfPlane.maassLaplacian": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.Weight",
     "UpperHalfPlane.isMaassFormOfWeight_zero_iff": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.Weight"
+  },
+  "mf.maass.mwf.coefficients": {
+    "UpperHalfPlane.maassCoefficients": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformCoefficients",
+    "UpperHalfPlane.maassLFunction": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformCoefficients",
+    "UpperHalfPlane.maassNormalisedNewform": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformAtkinLehner",
+    "UpperHalfPlane.IsMaassCuspNewform.hasMaassCosineExpansion": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.CuspNewformExpansion",
+    "UpperHalfPlane.HasMaassCosineExpansion.maassCoefficients_eq": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.CoefficientsUnique",
+    "UpperHalfPlane.IsMaassCuspNewform.conj_maassCoefficients_normalisedNewform_of_even": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformAtkinLehner"
   },
   "mf.maass.mwf.dimension": {
     "UpperHalfPlane.maassMultiplicity": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.Newform",
@@ -3847,7 +3896,8 @@
     "UpperHalfPlane.IsMaassForm": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane",
     "UpperHalfPlane.maassEigenvalue": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane",
     "UpperHalfPlane.IsMaassForm.eigenvalue_eq": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane",
-    "UpperHalfPlane.hyperbolicLaplacian": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane"
+    "UpperHalfPlane.hyperbolicLaplacian": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane",
+    "UpperHalfPlane.conj_eigenvalue_of_mem_maassSpace": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.EigenvalueReal"
   },
   "mf.maass.mwf.fourierexpansion": {
     "UpperHalfPlane.HasMaassFourierExpansion": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.FourierExpansion",

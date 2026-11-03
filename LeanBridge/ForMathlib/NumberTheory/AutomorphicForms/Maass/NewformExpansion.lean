@@ -15,10 +15,10 @@ square-integrability alone, and in
 `mf.maass.mwf.coefficients`), and if it is odd, the sine expansion with these coefficients. The
 coefficients are unique (`UpperHalfPlane.HasMaassCosineExpansion.unique`,
 `UpperHalfPlane.HasMaassSineExpansion.unique`), so they are a function of `F`. For cusp newforms
-(`UpperHalfPlane.IsMaassCuspNewform`, which removes the constant-term hypothesis) the normalised
-coefficients `a(n) / a(1)` are real for `n` prime to `N`, and `a(1) ≠ 0` at level `1`
-(`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.CuspNewform`); `a(1) ≠ 0` at higher
-level and the reality of the other coefficients are not proved.
+(`UpperHalfPlane.IsMaassCuspNewform`, which removes the constant-term hypothesis) and for newforms
+with real `R`, if `F` is even or odd and `N ≠ 0`, then `a(1) ≠ 0` and `a(n) / a(1)` is real for
+every `n`, `gcd(n, N) > 1` included
+(`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformAtkinLehner`).
 
 ## Main results
 

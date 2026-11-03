@@ -1030,7 +1030,7 @@ It is possible for a modular form to have multiple non-trivial self twists; this
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.order"}[] {uses "character.dirichlet.primitive"}[] {uses "cmf.level"}[] {uses "cmf.newform"}[] {uses "cmf.projective_image"}[] {uses "cmf.weight"}[] {uses "nf.discriminant"}[]
 :::
 
-:::definition "cmf.self_twist_field"
+:::definition "cmf.self_twist_field" (lean := "HeckeRing.GL2.Newform.comp_unitsMap_eq_of_eventually_coeff_eq, HeckeRing.GL2.Newform.HasSelfTwist.isQuadratic_character, HeckeRing.GL2.Newform.HasSelfTwist.exists_kroneckerChar_of_ne_one, HeckeRing.GL2.Newform.eq_one_or_exists_kroneckerChar_of_mk_self_mem_innerTwists, HeckeRing.GL2.Newform.HasSelfTwist.discr, HeckeRing.GL2.Newform.HasSelfTwist.hasCMBy_or_hasRMBy_discr")
 *Self twist field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.self_twist_field))
 
 {bpref "cmf.inner_twist"}[Inner twists] that are {bpref "cmf.self_twist"}[self-twists] arise either from the {bpref "character.dirichlet.principal"}[trivial character], or from the {bpref "character.dirichlet.kronecker_symbol"}[Kronecker character] of a quadratic field $`K`.

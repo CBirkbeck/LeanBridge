@@ -374,7 +374,7 @@ The Torelli theorem states that if $`X` and $`Y` are curves whose Jacobians are 
 Depends on: {uses "ag.abelian_variety"}[]
 :::
 
-:::definition "ag.kodaira_dimension"
+:::definition "ag.kodaira_dimension" (lean := "AlgebraicGeometry.Scheme.kodairaDimensionOfPluricanonicalMaps, AlgebraicGeometry.Scheme.kodairaDimensionOfPluricanonicalMaps_eq_bot_iff, AlgebraicGeometry.Scheme.pluricanonicalRationalMap, AlgebraicGeometry.Scheme.pluricanonicalImage, AlgebraicGeometry.Scheme.plurigenus, AlgebraicGeometry.Scheme.isInvertible_canonicalSheaf_of_smooth")
 *Kodaira dimension.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.kodaira_dimension))
 
 Let $`X` be a nonsingular complex algebraic variety with canonical divisor $`K`. For each $`d \in \mathbb{Z}_{\geq 0}`, the $`d^\text{th}` plurigenus of $`X` is $`P_d \colonequals \dim H^0(X, K^{\otimes d})`. The global sections of $`K^{\otimes d}` define a rational map
@@ -488,7 +488,7 @@ $$`\mathbb{P}^n(K) = \{(x_0:\dots:x_n)\mid x_0,\dots,x_n\in K,\ \text{not all ze
 Depends on: {uses "ring.field"}[]
 :::
 
-:::definition "ag.quotient_curve"
+:::definition "ag.quotient_curve" (lean := "AlgebraicGeometry.Scheme.IsQuotientCurve, AlgebraicGeometry.Scheme.exists_isQuotientCurve, AlgebraicGeometry.Scheme.IsQuotientCurve.surjective_left, AlgebraicGeometry.Scheme.IsQuotientCurve.left_apply_eq_iff, AlgebraicGeometry.Scheme.StableAffineOpen.TwoChartCover.quotient, AlgebraicGeometry.Scheme.exists_isAffineOpen_forall_mem")
 *Quotient curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.quotient_curve))
 
 Let $`X` be an {bpref "ag.curve"}[algebraic curve] and let $`H` be a finite subgroup of its {bpref "g2c.aut_grp"}[automorphism group].

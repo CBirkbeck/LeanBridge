@@ -16,10 +16,12 @@ fraction field `K`: `C` has **nodal reduction** if it has a proper model over `R
 one, with relative singular subscheme unramified over `R`), so that its special fibre is a
 geometrically reduced curve with at most nodal singularities. This is the Stacks Project's notion
 of semistable reduction. The condition on the components of geometric genus zero of the special
-fibre is not formalised, as the irreducible components of geometric fibres, with their
-normalisations and the singular points on them, are not available. For a curve of genus at least
-one, nodal reduction is equivalent to semistable reduction in the LMFDB's sense, by contracting the
-rational tails of the special fibre of a nodal model; this is not proved here either.
+fibre, with the irreducible components of geometric fibres, their normalisations and the singular
+points on them, is formalised in `LeanBridge.ForMathlib.AlgebraicGeometry.Curve.SemistableReduction`
+(`AlgebraicGeometry.Scheme.IsSemistableOver`, `AlgebraicGeometry.Scheme.HasSemistableReduction`).
+For a curve of genus at least one, nodal reduction is equivalent to semistable reduction in the
+LMFDB's sense, by contracting the rational tails of the special fibre of a nodal model; this is not
+proved.
 
 ## Main definitions
 

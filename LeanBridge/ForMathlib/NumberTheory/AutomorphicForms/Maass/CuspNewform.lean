@@ -21,8 +21,12 @@ removed in
 `LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.CuspNewformExpansion`
 (`UpperHalfPlane.IsMaassCuspNewform.hasMaassCosineExpansion` and the sine version). With them, the
 coefficients `a(n) / a(1)`, `a = maassCoefficients R F`, of the cusp newform normalised by
-`a(1) = 1` are real at every index `n` prime to `N`, provided `a(1) ≠ 0`, which holds at level `1`
-(`UpperHalfPlane.IsMaassNewform.coeff_one_ne_zero_of_hasMaassCosineExpansion`).
+`a(1) = 1` are real at every index `n` prime to `N`, provided `a(1) ≠ 0`. At every level `N ≠ 0`,
+for an even or odd cusp newform and with no growth bounds, `a(1) ≠ 0` and `a(n) / a(1)` is real for
+every `n`, `gcd(n, N) > 1` included
+(`UpperHalfPlane.IsMaassCuspNewform.maassCoefficients_one_ne_zero_of_even`,
+`UpperHalfPlane.IsMaassCuspNewform.conj_maassCoefficients_div_of_even` and the odd versions, in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformAtkinLehner`).
 
 ## Main definitions
 
@@ -121,8 +125,9 @@ lemma IsMaassCuspNewform.hasMaassSineExpansion_maassCoefficients (hF : IsMaassCu
 /-- **The coefficients of the normalised even Maass cusp newform are real** at the indices prime
 to the level (LMFDB `mf.maass.mwf.coefficients`): for an even Maass cusp newform `F` on `Γ₀(N)`
 with `F` and `∂F/∂y` of polynomial growth and coefficients `a = maassCoefficients R F` with
-`a(1) ≠ 0` (which holds at level `1`), the coefficient `a(n) / a(1)` of the cusp newform
-normalised by `a(1) = 1` is real for every `n` prime to `N`. -/
+`a(1) ≠ 0` (which holds at every level `N ≠ 0`,
+`IsMaassCuspNewform.maassCoefficients_one_ne_zero_of_even`), the coefficient `a(n) / a(1)` of the
+cusp newform normalised by `a(1) = 1` is real for every `n` prime to `N`. -/
 lemma IsMaassCuspNewform.conj_maassCoefficients_div_of_isEvenMaassForm
     (hF : IsMaassCuspNewform N R F)
     (hb : ∀ᶠ y : ℝ in atTop, ∀ t : ℝ, ‖(F ∘ ofComplex) (t + y * Complex.I)‖ ≤ C * y ^ M)
@@ -138,8 +143,9 @@ lemma IsMaassCuspNewform.conj_maassCoefficients_div_of_isEvenMaassForm
 /-- **The coefficients of the normalised odd Maass cusp newform are real** at the indices prime
 to the level (LMFDB `mf.maass.mwf.coefficients`): for an odd Maass cusp newform `F` on `Γ₀(N)`
 with `F` and `∂F/∂y` of polynomial growth and coefficients `a = maassCoefficients R F` with
-`a(1) ≠ 0` (which holds at level `1`), the coefficient `a(n) / a(1)` of the cusp newform
-normalised by `a(1) = 1` is real for every `n` prime to `N`. -/
+`a(1) ≠ 0` (which holds at every level `N ≠ 0`,
+`IsMaassCuspNewform.maassCoefficients_one_ne_zero_of_odd`), the coefficient `a(n) / a(1)` of the
+cusp newform normalised by `a(1) = 1` is real for every `n` prime to `N`. -/
 lemma IsMaassCuspNewform.conj_maassCoefficients_div_of_isOddMaassForm
     (hF : IsMaassCuspNewform N R F)
     (hb : ∀ᶠ y : ℝ in atTop, ∀ t : ℝ, ‖(F ∘ ofComplex) (t + y * Complex.I)‖ ≤ C * y ^ M)

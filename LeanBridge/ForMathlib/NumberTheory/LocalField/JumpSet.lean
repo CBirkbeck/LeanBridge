@@ -8,15 +8,27 @@ Let `K` be a `p`-adic field containing a primitive `p`-th root of unity `ζ_p`, 
 absolute ramification index and `r = v_p(e)`. Miki showed that
 `ζ_p = α₀^{p^r} α₁^{p^{r-1}} ⋯ α_{r-1}^p α_r` with each `αᵢ` either `1` or a principal unit with
 `uᵢ = v_K(αᵢ - 1)` satisfying `uᵢ < pe/(p - 1)` and `p ∤ uᵢ`, or `uᵢ = pe/(p - 1)` and `αᵢ` not a
-`p`-th power. The jump set of `K` (LMFDB `lf.jump_set`) is the sequence `[u₀, …, u_r]`, the
-undefined `uᵢ` (those with `αᵢ = 1`) being filled in by `u_{i+1} = ρ(uᵢ)`, `ρ(x) = min(px, x + e)`;
-Pagano showed that it does not depend on the factorisation, and that it determines the principal
-units of `K` as a filtered `ℤ_p`-module.
+`p`-th power. The jump set of `K` (LMFDB `lf.jump_set`) is the sequence `[u₀, …, u_r]` of such a
+factorisation with `ρ(uᵢ) ≤ u_{i+1}` for `i < r`, condition (C.1) of Pagano (*Jump sets in local
+fields*, §1.2), the undefined `uᵢ` (those with `αᵢ = 1`) being filled in by `u_{i+1} = ρ(uᵢ)`,
+`ρ(x) = min(px, x + e)`. With this condition it does not depend on the factorisation (Miki's Lemma
+17, as quoted by Pagano, §1.4), and by Pagano's Theorem 1.5, which is not proved here, it determines
+the principal units of `K` as a filtered `ℤ_p`-module, together with `p` and the residue field
+degree of `K`.
 
-Neither Miki's existence theorem nor Pagano's independence theorem is formalised, so the jump set is
-defined as a relation: `u` is a jump set of `K` if it is the sequence of some such factorisation of
-some primitive `p`-th root of unity. By the two theorems, exactly one `u` is, when `ζ_p ∈ K`; when
-`ζ_p ∉ K` none is, as the jump set is then not defined.
+The relation `IsNonarchimedeanLocalField.IsJumpSet` of this file follows the knowl and omits
+condition (C.1): `u` satisfies it if it is the sequence of some factorisation as above, with or
+without (C.1), of some primitive `p`-th root of unity. So it is not a function of `K`: for
+`K = ℚ₂[x]/(x⁴ + 2x³ + 2x² + 2)` both `[1, 2, 7]` and `[1, 5, 7]` satisfy it, the second violating
+(C.1), an example checked by hand and not formalised. The jump set as a function of `K` is
+`IsNonarchimedeanLocalField.jumpSet`, in
+`LeanBridge.ForMathlib.NumberTheory.LocalField.MikiFactorisation`, defined through the
+factorisations with (C.1). That file proves Miki's existence theorem
+(`IsNonarchimedeanLocalField.exists_isReducedMikiFactorisation`) and the independence of the
+factorisation and of the root of unity
+(`IsNonarchimedeanLocalField.jumpSequence_eq_of_isReducedMikiFactorisation`). When `ζ_p ∈ K`, the
+jump set satisfies the relation (`IsNonarchimedeanLocalField.IsPaganoJumpSet.isJumpSet`); when
+`ζ_p ∉ K` no `u` does, as the jump set is then not defined.
 
 The knowl writes the conditions on `αᵢ` with `v_K(αᵢ)`, which is `0` for the principal units `αᵢ`;
 they are conditions on `v_K(αᵢ - 1)`, the `uᵢ` of the jump set. It also writes the sequence as
@@ -30,7 +42,8 @@ they are conditions on `v_K(αᵢ - 1)`, the `uᵢ` of the jump set. It also wri
   (LMFDB `lf.jump_set`): Miki's factorisations of `ζ_p`.
 * `IsNonarchimedeanLocalField.jumpSequence` (LMFDB `lf.jump_set`): the extended jump set of a
   factorisation.
-* `IsNonarchimedeanLocalField.IsJumpSet` (LMFDB `lf.jump_set`): `u` is the jump set of `K`.
+* `IsNonarchimedeanLocalField.IsJumpSet` (LMFDB `lf.jump_set`): `u` is the extended jump sequence of
+  a Miki factorisation of a primitive `p`-th root of unity of `K`.
 
 ## Main results
 
@@ -72,8 +85,9 @@ def IsMikiFactor : Prop :=
 
 /-- A **Miki factorisation** (LMFDB `lf.jump_set`) of `ζ ∈ K`, for a `p`-adic field `K` with
 `r = v_p(e)`, `e` the absolute ramification index of `K`: Miki factors `α₀, …, α_r` with
-`ζ = α₀^{p^r} α₁^{p^{r-1}} ⋯ α_r`. Miki showed that every primitive `p`-th root of unity of `K` has
-one (not formalised). -/
+`ζ = α₀^{p^r} α₁^{p^{r-1}} ⋯ α_r`. Every primitive `p`-th root of unity of `K` has one, even one
+satisfying condition (C.1) of Pagano (`exists_isReducedMikiFactorisation`, Miki's existence theorem,
+in `LeanBridge.ForMathlib.NumberTheory.LocalField.MikiFactorisation`). -/
 def IsMikiFactorisation (ζ : K) : Prop :=
   ζ = ∏ i ∈ range (padicValNat p (absoluteRamificationIndex K p) + 1),
       α i ^ p ^ (padicValNat p (absoluteRamificationIndex K p) - i) ∧
@@ -88,11 +102,16 @@ noncomputable def jumpSequence : ℕ → ℤ
   | i + 1 => if α (i + 1) = 1 then jumpRho K p (jumpSequence i) else unitDepth (α (i + 1))
 
 variable (K) in
-/-- `u` is the **jump set** (LMFDB `lf.jump_set`) of a `p`-adic field `K` containing a primitive
-`p`-th root of unity: the extended jump sequence `[u₀, …, u_r]`, `r = v_p(e)`, of a Miki
-factorisation of a primitive `p`-th root of unity of `K`. By Miki's theorem a jump set exists, and
-by Pagano's theorem it is unique (neither is formalised); without a primitive `p`-th root of unity
-there is none (`not_isJumpSet_of_forall_not_isPrimitiveRoot`). -/
+/-- `u` is the **extended jump sequence of a Miki factorisation** (LMFDB `lf.jump_set`, the relation
+the knowl writes) of a primitive `p`-th root of unity of a `p`-adic field `K`: `[u₀, …, u_r]`,
+`r = v_p(e)`. This relation omits condition (C.1) of Pagano, `ρ(uᵢ) ≤ u_{i+1}`, so that several `u`
+can satisfy it for one `K`, as `[1, 2, 7]` and `[1, 5, 7]` do for `K = ℚ₂[x]/(x⁴ + 2x³ + 2x² + 2)`
+(checked by hand, not formalised). When `K` contains a primitive `p`-th root of unity, the jump set
+of `K` is `jumpSet`, in `LeanBridge.ForMathlib.NumberTheory.LocalField.MikiFactorisation`: the
+unique `u` coming from a factorisation with (C.1) (`isPaganoJumpSet_iff`), which exists by Miki's
+theorem (`exists_isReducedMikiFactorisation`) and satisfies this relation
+(`IsPaganoJumpSet.isJumpSet`). Without a primitive `p`-th root of unity no `u` satisfies it
+(`not_isJumpSet_of_forall_not_isPrimitiveRoot`). -/
 def IsJumpSet : Prop :=
   ∃ ζ : K, IsPrimitiveRoot ζ p ∧ ∃ β : ℕ → K, IsMikiFactorisation p β ζ ∧
     (List.range (padicValNat p (absoluteRamificationIndex K p) + 1)).map (jumpSequence p β) = u

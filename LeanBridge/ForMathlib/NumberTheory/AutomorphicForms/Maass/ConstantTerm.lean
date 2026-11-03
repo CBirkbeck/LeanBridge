@@ -303,8 +303,9 @@ variable [NeZero N]
 /-- **The normalised coefficients of an even Maass newform with real spectral parameter are
 real** at the indices prime to the level (LMFDB `mf.maass.mwf.coefficients`): for an even Maass
 newform `F` on `Γ₀(N)` with eigenvalue `1/4 + r²`, `r` real, and coefficients
-`a = maassCoefficients r F` with `a(1) ≠ 0` (which holds at level `1`), `a(m) / a(1)` is real for
-every `m` prime to `N`. -/
+`a = maassCoefficients r F` with `a(1) ≠ 0` (which holds at every level `N ≠ 0`,
+`IsMaassNewform.maassCoefficients_one_ne_zero_of_even_ofReal`), `a(m) / a(1)` is real for every `m`
+prime to `N`. -/
 lemma IsMaassNewform.conj_maassCoefficients_div_of_isEven_ofReal
     (hF : IsMaassNewform N 1 (maassEigenvalue r) F) (hs : IsEvenMaassForm (F ∘ ofComplex))
     (h1 : maassCoefficients r (F ∘ ofComplex) 1 ≠ 0) {m : ℕ+} (hm : (m : ℕ).Coprime N) :
@@ -315,7 +316,9 @@ lemma IsMaassNewform.conj_maassCoefficients_div_of_isEven_ofReal
 /-- **The normalised coefficients of an odd Maass newform with real spectral parameter are real**
 at the indices prime to the level (LMFDB `mf.maass.mwf.coefficients`): for an odd Maass newform
 `F` on `Γ₀(N)` with eigenvalue `1/4 + r²`, `r` real, and coefficients `a = maassCoefficients r F`
-with `a(1) ≠ 0` (which holds at level `1`), `a(m) / a(1)` is real for every `m` prime to `N`. -/
+with `a(1) ≠ 0` (which holds at every level `N ≠ 0`,
+`IsMaassNewform.maassCoefficients_one_ne_zero_of_odd_ofReal`), `a(m) / a(1)` is real for every `m`
+prime to `N`. -/
 lemma IsMaassNewform.conj_maassCoefficients_div_of_isOdd_ofReal
     (hF : IsMaassNewform N 1 (maassEigenvalue r) F) (hs : IsOddMaassForm (F ∘ ofComplex))
     (h1 : maassCoefficients r (F ∘ ofComplex) 1 ≠ 0) {m : ℕ+} (hm : (m : ℕ).Coprime N) :

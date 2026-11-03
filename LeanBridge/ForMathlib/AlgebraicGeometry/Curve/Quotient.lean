@@ -12,11 +12,16 @@ morphism from `X` invariant under `H` factors uniquely through it. This universa
 characterizes the quotient curve up to unique isomorphism, and it is how the quotient curve is
 defined here.
 
-For a regular proper curve `X`, the quotient curve `X / H` exists, and its projection is surjective
-with the `H`-orbits as fibres: `LeanBridge.ForMathlib.AlgebraicGeometry.Curve.RegularQuotientIsQuotientCurve`.
-The existence of `X / H` for other curves, by gluing the invariant quotients `Spec Aᴴ` of an
-`H`-stable affine cover of `X` (Tau Ceti's `TauCeti.AffineInvariantQuotient.quotient` for one affine
-chart), is not formalised.
+Every algebraic curve `X`, proper or not, regular or not, has a quotient curve `X / H` by every
+finite subgroup `H` of its automorphism group (`AlgebraicGeometry.Scheme.exists_isQuotientCurve`),
+and the projection onto a quotient curve is surjective
+(`AlgebraicGeometry.Scheme.IsQuotientCurve.surjective_left`) with the `H`-orbits as fibres
+(`AlgebraicGeometry.Scheme.IsQuotientCurve.left_apply_eq_iff`):
+`LeanBridge.ForMathlib.AlgebraicGeometry.Curve.QuotientExistence`, by gluing the invariant quotients
+`Spec Aᴴ` of an `H`-stable affine cover of `X` (Tau Ceti's
+`TauCeti.AffineInvariantQuotient.quotient` for one affine chart). For a regular proper curve `X`,
+the quotient curve is also constructed through its function field:
+`LeanBridge.ForMathlib.AlgebraicGeometry.Curve.RegularQuotientIsQuotientCurve`.
 
 ## Main definitions
 

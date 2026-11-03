@@ -36,8 +36,10 @@ half of the universal property of the quotient among all schemes over `k` by whi
 Geometric irreducibility of `X / H` is proved here. The existence half of the universal property
 and the geometric reducedness of `X / H`, hence `AlgebraicGeometry.Scheme.IsQuotientCurve` for this
 construction, are proved in `LeanBridge.ForMathlib.AlgebraicGeometry.Curve.RegularQuotientUniversal`
-and `LeanBridge.ForMathlib.AlgebraicGeometry.Curve.RegularQuotientIsQuotientCurve`. The quotient of a
-curve that is not proper or not regular is not formalised.
+and `LeanBridge.ForMathlib.AlgebraicGeometry.Curve.RegularQuotientIsQuotientCurve`. The quotient of
+an algebraic curve that is not proper or not regular is constructed by another method in
+`LeanBridge.ForMathlib.AlgebraicGeometry.Curve.QuotientExistence`
+(`AlgebraicGeometry.Scheme.exists_isQuotientCurve`).
 
 ## Main definitions
 
