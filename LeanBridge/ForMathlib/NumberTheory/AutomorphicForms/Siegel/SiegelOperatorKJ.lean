@@ -38,6 +38,8 @@ open Matrix hiding mul_inv_rev inv_zpow inv_zpow' zpow_neg one_zpow
 
 open Complex Filter Metric Module Real SymplecticGroup TauCeti Topology
 
+open GeneralLinearGroup (transposeGL)
+
 open scoped Manifold MatrixGroups ModularForm TensorProduct UpperHalfPlane
 
 namespace SiegelUpperHalfSpace

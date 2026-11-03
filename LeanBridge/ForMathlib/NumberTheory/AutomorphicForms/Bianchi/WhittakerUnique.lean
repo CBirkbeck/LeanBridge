@@ -74,17 +74,6 @@ private lemma contDiffOn_whittakerRadial (hμ : μ ≠ 0) :
     ((contDiffOn_besselK _).of_le (by norm_cast)).comp (by fun_prop) fun s hs ↦ mul_pos hα hs
   exact contDiff_ofReal.contDiffOn.mul (contDiffOn_const.mul hK)
 
-private lemma norm_besselK_le_of_le (ν : ℂ) {x₀ x : ℝ} (hx₀ : 0 < x₀) (hx : x₀ ≤ x) :
-    ‖besselK ν x‖ ≤ 2⁻¹ * ∫ t in Ioi 0, ‖besselKIntegrand ν x₀ t‖ := by
-  have h : ‖∫ t in Ioi 0, besselKIntegrand ν x t‖ ≤ ∫ t in Ioi 0, ‖besselKIntegrand ν x₀ t‖ := by
-    refine norm_integral_le_of_norm_le (integrableOn_besselKIntegrand ν hx₀).norm ?_
-    refine (ae_restrict_iff' measurableSet_Ioi).mpr (.of_forall fun t (ht : 0 < t) ↦ ?_)
-    rw [norm_besselKIntegrand ν ht, norm_besselKIntegrand ν ht]
-    have hs : 0 < t + t⁻¹ := by positivity
-    exact mul_le_mul_of_nonneg_left (Real.exp_le_exp.mpr (by nlinarith)) (Real.rpow_nonneg ht.le _)
-  rw [besselK, norm_mul, norm_inv, RCLike.norm_ofNat]
-  exact mul_le_mul_of_nonneg_left h (by norm_num)
-
 /-- **The Fourier–Bessel vector is of moderate growth**: for `μ ≠ 0` and `y ≥ 1`,
 `‖y W_k(u, 4π|μ|y)‖ ≤ C y`, where `C = ∑_j ½ ∫₀^∞ |t^{j - k/2 - 1} e^{-2π|μ|(t + 1/t)}| dt`. So the
 radial part of the Fourier–Bessel function `bianchiWhittakerFunction` satisfies the growth
@@ -103,8 +92,10 @@ lemma norm_smul_bianchiWhittakerVector_le (hμ : μ ≠ 0) {y : ℝ} (hy : 1 ≤
   simp only [bianchiWhittakerVector]
   rw [norm_mul, norm_zpow, norm_mul, Complex.norm_I, one_mul, norm_div_norm_eq_one hμ, one_zpow,
     one_mul]
-  exact (norm_besselK_le_of_le _ hα (le_mul_of_one_le_right hα.le hy)).trans
-    (Finset.single_le_sum (fun i _ ↦ hc i) (Finset.mem_univ j))
+  have hle : 4 * π * ‖μ‖ ≤ 4 * π * ‖μ‖ * y := le_mul_of_one_le_right hα.le hy
+  exact ((norm_besselK_le_of_le _ hα hle).trans (mul_le_of_le_one_left (hc j)
+    (Real.exp_le_one_iff.mpr (neg_nonpos.mpr (sub_nonneg.mpr hle))))).trans
+      (Finset.single_le_sum (fun i _ ↦ hc i) (Finset.mem_univ j))
 
 private lemma exists_bound_of_growth (hφ : ContinuousOn φ (Ioi 0))
     (hC : ∀ y, 1 ≤ y → ‖φ y‖ ≤ C * y ^ n) (hα : 0 < α) :
@@ -151,8 +142,8 @@ private noncomputable def radialQuot'' (t : ℝ) : ℂ :=
 private lemma hasDerivAt_radialQuot (hR : ContDiffOn ℝ 2 R₀ (Ioi 0)) (ht : 0 < t) :
     HasDerivAt (radialQuot k R₀) (radialQuot' k R₀ t) t := by
   have ht' : (t : ℂ) ≠ 0 := ofReal_ne_zero.mpr ht.ne'
-  refine ((((hR.contDiffAt (Ioi_mem_nhds ht)).differentiableAt two_ne_zero).hasDerivAt).div
-    (hasDerivAt_ofReal_pow k) (pow_ne_zero _ ht')).congr_deriv ?_
+  refine ((hasDerivAt_of_contDiffOn_Ioi hR ht).div (hasDerivAt_ofReal_pow k)
+    (pow_ne_zero _ ht')).congr_deriv ?_
   simp only [radialQuot']
   push_cast
   field_simp
@@ -161,14 +152,9 @@ private lemma hasDerivAt_radialQuot (hR : ContDiffOn ℝ 2 R₀ (Ioi 0)) (ht : 0
 private lemma hasDerivAt_radialQuot' (hR : ContDiffOn ℝ 2 R₀ (Ioi 0)) (ht : 0 < t) :
     HasDerivAt (radialQuot' k R₀) (radialQuot'' k R₀ t) t := by
   have ht' : (t : ℂ) ≠ 0 := ofReal_ne_zero.mpr ht.ne'
-  have h₁ : HasDerivAt R₀ (deriv R₀ t) t :=
-    ((hR.contDiffAt (Ioi_mem_nhds ht)).differentiableAt two_ne_zero).hasDerivAt
-  have h₂ : HasDerivAt (deriv R₀) (deriv (deriv R₀) t) t :=
-    (((hR.deriv_of_isOpen isOpen_Ioi (m := 1) le_rfl).contDiffAt (Ioi_mem_nhds ht)).differentiableAt
-      one_ne_zero).hasDerivAt
-  refine ((h₂.div (hasDerivAt_ofReal_pow k) (pow_ne_zero _ ht')).sub
-    ((h₁.const_mul ((k : ℂ) + 1)).div (hasDerivAt_ofReal_pow (k + 1))
-      (pow_ne_zero _ ht'))).congr_deriv ?_
+  refine (((hasDerivAt_deriv_of_contDiffOn_Ioi hR ht).div (hasDerivAt_ofReal_pow k)
+    (pow_ne_zero _ ht')).sub (((hasDerivAt_of_contDiffOn_Ioi hR ht).const_mul ((k : ℂ) + 1)).div
+      (hasDerivAt_ofReal_pow (k + 1)) (pow_ne_zero _ ht'))).congr_deriv ?_
   simp only [radialQuot'']
   push_cast
   field_simp

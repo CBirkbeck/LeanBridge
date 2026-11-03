@@ -103,7 +103,7 @@ lemma siegelEisensteinSubspaceKJ_le_cuspFormsOrthogonalKJ (hadm : IsAdmissibleFo
     · intro F hF
       have h₁ : F ∈ cuspFormsKJ k 0 (integral (Fin 2)) := by
         rw [← modularFormsKJ_eq_cuspFormsKJ_of_odd hk']
-        exact siegelEisensteinSubspaceKJ_le_modularFormsKJ k 0 hk hF
+        exact siegelEisensteinSubspaceKJ_le_modularFormsKJ k 0 (by linarith) hF
       rw [Submodule.disjoint_def.mp (disjoint_sup_siegelEisensteinSubspaceKJ k 0 hk) F
         (Submodule.mem_sup_left h₁) hF]
       exact zero_mem _

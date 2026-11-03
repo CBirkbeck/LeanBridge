@@ -14,6 +14,7 @@ kind) is `K_ν(x) = ½ ∫₀^∞ t^(ν - 1) e^(-(x/2)(t + 1/t)) dt`.
 
 * `Complex.integrableOn_besselKIntegrand`: the defining integral converges for every `ν ∈ ℂ` and
   `x > 0`.
+* `Complex.norm_besselK_le_of_le`: the exponential decay of `K_ν`.
 * `Complex.besselK_neg`: `K_{-ν}(x) = K_ν(x)`.
 * `Complex.conj_besselK_I_mul`: `K_{ir}(x)` is real for real `r`, as in the Fourier expansions of
   Maass forms.
@@ -76,6 +77,31 @@ lemma integrableOn_besselKIntegrand (hx : 0 < x) : IntegrableOn (besselKIntegran
   have ht : t ≠ 0 := (mem_Ioi.mp ht).ne'
   refine (continuousAt_ofReal_cpow_const t (ν - 1) (Or.inr ht)).mul ?_
   fun_prop (disch := assumption)
+
+variable {x} in
+/-- **The exponential decay of `K_ν`**: for `0 < x₀ ≤ x`,
+`|K_ν(x)| ≤ e^{-(x - x₀)} · ½ ∫₀^∞ |t^(ν - 1) e^(-x₀(t + 1/t)/2)| dt`, as `t + 1/t ≥ 2`. -/
+lemma norm_besselK_le_of_le {x₀ : ℝ} (hx₀ : 0 < x₀) (hx : x₀ ≤ x) :
+    ‖besselK ν x‖ ≤ rexp (-(x - x₀)) * (2⁻¹ * ∫ t in Ioi 0, ‖besselKIntegrand ν x₀ t‖) := by
+  have hint : Integrable (fun t ↦ ‖besselKIntegrand ν x₀ t‖) (volume.restrict (Ioi 0)) :=
+    (integrableOn_besselKIntegrand ν hx₀).norm
+  have h : ‖∫ t in Ioi 0, besselKIntegrand ν x t‖ ≤
+      ∫ t in Ioi 0, rexp (-(x - x₀)) * ‖besselKIntegrand ν x₀ t‖ := by
+    refine norm_integral_le_of_norm_le (hint.const_mul _) ?_
+    refine (ae_restrict_iff' measurableSet_Ioi).mpr (.of_forall fun t (ht : 0 < t) ↦ ?_)
+    rw [norm_besselKIntegrand ν ht, norm_besselKIntegrand ν ht, ← mul_assoc,
+      mul_comm (rexp _), mul_assoc, ← Real.exp_add]
+    refine mul_le_mul_of_nonneg_left (exp_le_exp.mpr ?_) (rpow_nonneg ht.le _)
+    have h2 : 2 ≤ t + t⁻¹ := by
+      have e : t + t⁻¹ - 2 = (t - 1) ^ 2 / t := by
+        field_simp
+        ring1
+      have hq : 0 ≤ (t - 1) ^ 2 / t := div_nonneg (sq_nonneg _) ht.le
+      linarith
+    nlinarith
+  rw [besselK, norm_mul, integral_const_mul] at *
+  simp only [norm_inv, RCLike.norm_ofNat] at *
+  nlinarith [norm_nonneg (∫ t in Ioi 0, besselKIntegrand ν x t), exp_pos (-(x - x₀))]
 
 /-- **`K_{-ν}(x) = K_ν(x)`**, by the substitution `t ↦ 1/t` in the defining integral. -/
 lemma besselK_neg : besselK (-ν) x = besselK ν x := by

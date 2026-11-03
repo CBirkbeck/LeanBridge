@@ -46,11 +46,11 @@ open WhittakerCasimir
 
 variable {f₂ : SL(2, ℂ) → ℂ} (w₁ w₂ μ : ℂ) (k : ℕ) {ρ : ℝ → ℂ} {s : ℝ}
 
-private lemma hasDerivAt_of_contDiffOn_Ioi (hρ : ContDiffOn ℝ 2 ρ (Set.Ioi 0)) (hs : 0 < s) :
+lemma hasDerivAt_of_contDiffOn_Ioi (hρ : ContDiffOn ℝ 2 ρ (Set.Ioi 0)) (hs : 0 < s) :
     HasDerivAt ρ (deriv ρ s) s :=
   ((hρ.contDiffAt (Ioi_mem_nhds hs)).differentiableAt two_ne_zero).hasDerivAt
 
-private lemma hasDerivAt_deriv_of_contDiffOn_Ioi (hρ : ContDiffOn ℝ 2 ρ (Set.Ioi 0)) (hs : 0 < s) :
+lemma hasDerivAt_deriv_of_contDiffOn_Ioi (hρ : ContDiffOn ℝ 2 ρ (Set.Ioi 0)) (hs : 0 < s) :
     HasDerivAt (deriv ρ) (deriv (deriv ρ) s) s :=
   (((hρ.deriv_of_isOpen isOpen_Ioi (m := 1) le_rfl).contDiffAt (Ioi_mem_nhds hs)).differentiableAt
     one_ne_zero).hasDerivAt

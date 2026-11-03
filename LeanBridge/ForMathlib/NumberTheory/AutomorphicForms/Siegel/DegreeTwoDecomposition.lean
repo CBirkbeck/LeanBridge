@@ -124,7 +124,7 @@ private lemma eq_smul_tprod_zero (v : Sym[ℂ]^0 (Fin 2 → ℂ)) :
     v = symConstCoeff 0 v • ⨂ₛ[ℂ] _ : Fin 0, (Pi.single 0 1 : Fin 2 → ℂ) :=
   eq_smul_tprod_of_symPowerRep_eq (symPowerRep_zero _ v)
 
-private lemma symConstCoeff_siegelEisensteinKJ (Z : SiegelUpperHalfSpace (Fin 2)) :
+lemma symConstCoeff_siegelEisensteinKJ (Z : SiegelUpperHalfSpace (Fin 2)) :
     symConstCoeff 0 (siegelEisensteinKJ k Z) = siegelEisensteinSeries k Z := by
   rw [siegelEisensteinKJ, map_smul, symConstCoeff_tprod_single, smul_eq_mul, mul_one]
 
@@ -250,17 +250,15 @@ private lemma eq_zero_of_isGLIntInvariant_of_odd (hk : Odd k) {v : Sym[ℂ]^0 (F
   simpa using h₂
 
 variable (k j) in
-/-- **The Siegel Eisenstein series are modular forms**, for `k > 4`. -/
-lemma siegelEisensteinSubspaceKJ_le_modularFormsKJ (hk : 4 < k) :
+/-- **The Siegel Eisenstein series are modular forms**, for `k > 3`. -/
+lemma siegelEisensteinSubspaceKJ_le_modularFormsKJ (hk : 3 < k) :
     siegelEisensteinSubspaceKJ k j ≤ modularFormsKJ k j (integral (Fin 2)) := by
   rcases eq_or_ne j 0 with rfl | hj
   · refine Submodule.span_le.mpr ?_
     rintro G ⟨v, hv, hG⟩
     rcases Int.even_or_odd k with hk' | hk'
-    · have hk₃ : 3 < k := by
-        linarith
-      rw [eq_smul_siegelEisensteinKJ hk₃ hG]
-      exact Submodule.smul_mem _ _ (siegelEisensteinKJ_mem_modularFormsKJ hk₃ hk')
+    · rw [eq_smul_siegelEisensteinKJ hk hG]
+      exact Submodule.smul_mem _ _ (siegelEisensteinKJ_mem_modularFormsKJ hk hk')
     · rw [eq_zero_of_isGLIntInvariant_of_odd hk' hv] at hG
       have hG₀ : G = 0 := by
         refine hG.unique fun Z φ ↦ ?_
@@ -279,7 +277,7 @@ lemma modularFormsKJ_eq_sup (hk : 4 < k) : modularFormsKJ k j (integral (Fin 2))
     cuspFormsKJ k j (integral (Fin 2)) ⊔ siegelEisensteinSubspaceKJ k j ⊔
       klingenEisensteinSubspaceKJ k j :=
   le_antisymm (modularFormsKJ_le_sup k j hk) (sup_le (sup_le (cuspForms_le_modularForms _ _ _)
-    (siegelEisensteinSubspaceKJ_le_modularFormsKJ k j hk))
+    (siegelEisensteinSubspaceKJ_le_modularFormsKJ k j (by linarith)))
       (klingenEisensteinSubspaceKJ_le_modularFormsKJ k j))
 
 /-- **The space `E_{0,k}(Γ₂)` is the line of `ψ_k`**, for even `k > 3` (LMFDB

@@ -105,16 +105,8 @@ lemma eigenvalue_mul_coeff_eq_of_le (hK : finrank ℚ K = 2) (hk : k ≠ 0)
       (generator_ne_zero 𝔭.2.2)))
   have hfac : (Ideal.absNorm 𝔭.1 : ℝ) ^ (((k : ℝ) - 2) / 4) * (Ideal.absNorm 𝔭.1 : ℝ) *
       (‖σ ((IsPrincipal.generator 𝔭.1 : 𝓞 K) : K)‖ ^ (k / 2 + 1))⁻¹ = 1 := by
-    rcases N.even hK with ⟨m, hm⟩
-    have e : ((2 : ℕ) : ℝ) * (((k : ℝ) - 2) / 4) + ((2 : ℕ) : ℝ) + -((k / 2 + 1 : ℕ) : ℝ) = 0 := by
-      have e₁ : k / 2 = m := by
-        omega
-      rw [e₁, hm]
-      push_cast
-      ring1
-    rw [← sq_norm_generator σ hK 𝔭.1, ← Real.rpow_natCast _ 2, ← Real.rpow_mul ht.le,
-      ← Real.rpow_natCast _ (k / 2 + 1), ← Real.rpow_neg ht.le, ← Real.rpow_add ht,
-      ← Real.rpow_add ht, e, Real.rpow_zero]
+    rw [← sq_norm_generator σ hK 𝔭.1]
+    exact sq_rpow_mul_sq_mul_inv_pow_eq_one (N.even hK) ht
   simp only [Pi.smul_apply, smul_eq_mul, bianchiCoeffHecke, zero_mul, add_zero] at h₃
   have hfac' : (((Ideal.absNorm 𝔭.1 : ℝ) ^ (((k : ℝ) - 2) / 4) : ℝ) : ℂ) * (Ideal.absNorm 𝔭.1 : ℂ) *
       ((‖σ ((IsPrincipal.generator 𝔭.1 : 𝓞 K) : K)‖ ^ (k / 2 + 1))⁻¹ : ℝ) = 1 := by

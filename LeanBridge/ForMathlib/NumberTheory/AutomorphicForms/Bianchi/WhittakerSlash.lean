@@ -44,21 +44,21 @@ private lemma symPowMatrix_diag (a b : ℂ) : symPowMatrix k !![a, 0; 0, b] =
   simp only [monomialVector, mulVec_diagonal, of_apply, cons_val_zero, cons_val_one, zero_mul]
   ring1
 
-private lemma mul_apply_one_one_eq_one (hg : g 1 0 = 0) : g 0 0 * g 1 1 = 1 := by
+lemma mul_apply_one_one_eq_one_of_apply_one_zero (hg : g 1 0 = 0) : g 0 0 * g 1 1 = 1 := by
   have h : (g : Matrix (Fin 2) (Fin 2) ℂ).det = 1 := g.det_coe
   rw [det_fin_two, hg] at h
   simpa using h
 
-private lemma inv_automorphyFactor_of_apply_one_zero (hg : g 1 0 = 0) :
+lemma inv_automorphyFactor_eq_of_apply_one_zero (hg : g 1 0 = 0) :
     (automorphyFactor g p)⁻¹ = !![g 0 0, 0; 0, conj (g 0 0)] := by
   rw [automorphyFactor_of_apply_one_zero g p hg]
   refine inv_eq_left_inv ?_
   ext i j
-  fin_cases i <;> fin_cases j <;> simp [mul_apply_one_one_eq_one hg, ← map_mul]
+  fin_cases i <;> fin_cases j <;> simp [mul_apply_one_one_eq_one_of_apply_one_zero hg, ← map_mul]
 
-private lemma moebius_of_apply_one_zero (hg : g 1 0 = 0) :
-    moebius g p =(g 0 0 ^ 2 * p.1 + g 0 0 * g 0 1, ‖g 0 0‖ ^ 2 * p.2) := by
-  have h₁ : g 0 0 * g 1 1 = 1 := mul_apply_one_one_eq_one hg
+lemma moebius_eq_of_apply_one_zero (hg : g 1 0 = 0) :
+    moebius g p = (g 0 0 ^ 2 * p.1 + g 0 0 * g 0 1, ‖g 0 0‖ ^ 2 * p.2) := by
+  have h₁ : g 0 0 * g 1 1 = 1 := mul_apply_one_one_eq_one_of_apply_one_zero hg
   have ha : g 0 0 ≠ 0 := left_ne_zero_of_mul_eq_one h₁
   simp only [moebius, moebiusDenom, hg, zero_mul, zero_add, map_zero, mul_zero, add_zero,
     eq_inv_of_mul_eq_one_right h₁]
@@ -97,11 +97,12 @@ lemma bianchiSlash_bianchiWhittakerFunction (hk : Even k) (hμ : μ ≠ 0) (hg :
         cexp (2 * π * I * (μ * (g 0 0 * g 0 1) + conj (μ * (g 0 0 * g 0 1))))) •
           bianchiWhittakerFunction (μ * g 0 0 ^ 2) k := by
   rcases hk with ⟨n, rfl⟩
-  have ha : g 0 0 ≠ 0 := left_ne_zero_of_mul_eq_one (mul_apply_one_one_eq_one hg)
+  have ha : g 0 0 ≠ 0 := left_ne_zero_of_mul_eq_one (mul_apply_one_one_eq_one_of_apply_one_zero hg)
   funext z
   ext j
-  rw [bianchiSlash, inv_automorphyFactor_of_apply_one_zero hg, symPowMatrix_diag, mulVec_diagonal]
-  simp only [bianchiWhittakerFunction, coords_smul, moebius_of_apply_one_zero hg, Pi.smul_apply,
+  rw [bianchiSlash, inv_automorphyFactor_eq_of_apply_one_zero hg, symPowMatrix_diag,
+    mulVec_diagonal]
+  simp only [bianchiWhittakerFunction, coords_smul, moebius_eq_of_apply_one_zero hg, Pi.smul_apply,
     bianchiWhittakerVector]
   have hn : (n + n) / 2 = n := by
     omega

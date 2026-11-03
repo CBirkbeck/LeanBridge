@@ -194,12 +194,6 @@ lemma sum_out_eq_zero_of_ne_one {ψ : 𝓞 K → ℂ} (hadd : ∀ a b, ψ (a + b
     linear_combination h₂
   exact (mul_eq_zero.mp h₃).resolve_right (sub_ne_zero.mpr hz₀)
 
-lemma cexp_two_pi_mul_eq_one (hK : finrank ℚ K = 2) (hx : (σ x).im ≠ 0) (hδ : δ ^ 2 = discr K)
-    (z : 𝓞 K) : cexp (2 * π * I * (σ z / δ + conj (σ z / δ))) = 1 := by
-  rcases exists_intCast_eq_of_sq_eq_discr σ hK hx hδ z with ⟨n, hn⟩
-  rw [hn]
-  exact Complex.exp_eq_one_iff.mpr ⟨n, by ring1⟩
-
 open scoped Classical in
 /-- **The sum of an additive character of `𝒪_K / (q)`**: for a quadratic field `K` embedded in `ℂ`
 by `σ` with `σ(K) ⊄ ℝ` and `δ² = Δ`, the sum `∑_{j mod q} ψ(αj / (qδ))`, for

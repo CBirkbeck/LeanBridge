@@ -1,3 +1,4 @@
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.GL2.Cartan
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.GaloisOrbit
 
 /-!
@@ -15,15 +16,17 @@ and the uniqueness of Fourier expansions give `a(Uᵀ n U) = ρ(Uᵀ) a(n)` for 
 * `SiegelUpperHalfSpace.leviRat`: the image `(U, 0; 0, U⁻ᵀ)` in `Sp(2g, ℚ)` of `U ∈ GL(g, ℤ)`.
 * `SiegelUpperHalfSpace.dualLevi`: the bijection `n ↦ Uᵀ n U` of the dual lattice `L_Γ^∨`.
 * `SiegelUpperHalfSpace.basePoint`: the point `i 1_g` of the Siegel upper half-space.
-* `SiegelUpperHalfSpace.transposeGL`: the transpose `Dᵀ` of `D ∈ GL(g, ℤ)`.
 
 ## Main results
 
 * `SiegelUpperHalfSpace.apply_dualLevi`: `a(Uᵀ n U) = ρ(Uᵀ) a(n)`.
-* `SiegelUpperHalfSpace.apply_dualLevi_transposeGL`: `a(D n Dᵀ) = ρ(D) a(n)`.
+* `SiegelUpperHalfSpace.apply_dualLevi_transposeGL`: `a(D n Dᵀ) = ρ(D) a(n)`, for the transpose
+  `D = Uᵀ` (`Matrix.GeneralLinearGroup.transposeGL`).
 -/
 
 open Complex Matrix Module
+
+open GeneralLinearGroup (transposeGL)
 
 namespace SymplecticGroup
 
@@ -214,13 +217,6 @@ noncomputable def basePoint : SiegelUpperHalfSpace l where
     convert PosDef.one (n := l) (R := ℝ)
     ext i j
     rcases eq_or_ne i j with rfl | hij <;> simp [*]
-
-/-- The transpose `Dᵀ` of `D ∈ GL(g, ℤ)`. -/
-def transposeGL (D : GL l ℤ) : GL l ℤ where
-  val := D.valᵀ
-  inv := (D⁻¹).valᵀ
-  val_inv := by rw [← transpose_mul, Units.inv_mul, transpose_one]
-  inv_val := by rw [← transpose_mul, Units.mul_inv, transpose_one]
 
 /-- **The Fourier coefficients under the Levi subgroup, in terms of `D = Uᵀ`**: for `U = Dᵀ` with
 `(U, 0; 0, U⁻ᵀ) ∈ Γ`, one has `a(D n Dᵀ) = ρ(D) a(n)`. -/

@@ -250,26 +250,6 @@ lemma le_span_mul_mul_of_prime {𝔐 : Ideal (𝓞 K)} {δ₀ : 𝓞 K} (h𝔭 :
   · rcases h₄ with ⟨e', rfl⟩
     exact Ideal.mem_span_singleton.mpr ⟨e', by ring1⟩
 
-lemma hasSum_extend_mul_smul {V : Type*} [AddCommMonoid V] [TopologicalSpace V] [Module ℂ V]
-    (hq : q ≠ 0) (a : ℂ) (f : 𝓞 K → V) {v : V}
-    (h : HasSum (fun α : {α : 𝓞 K // α ≠ 0} ↦ (a * c α) • f (q * α)) v) :
-    HasSum (fun β : {β : 𝓞 K // β ≠ 0} ↦ (a * Function.extend (q * ·) c 0 β) • f β) v := by
-  have hinj : Function.Injective fun α : {α : 𝓞 K // α ≠ 0} ↦
-      (⟨q * α, mul_ne_zero hq α.2⟩ : {β : 𝓞 K // β ≠ 0}) :=
-    fun α α' h ↦ Subtype.ext <| mul_right_injective₀ hq <| congrArg Subtype.val h
-  refine (hinj.hasSum_iff fun β hβ ↦ ?_).mp (h.congr_fun fun α ↦ ?_)
-  · rw [extend_mul_of_not_dvd fun ⟨α, hα⟩ ↦ hβ ⟨⟨α, fun h₀ ↦ β.2 (by rw [hα, h₀, mul_zero])⟩,
-      Subtype.ext hα.symm⟩, mul_zero, zero_smul]
-  · rw [Function.comp_apply, extend_mul_apply hq]
-
-lemma norm_inv_cpow_mul_pow_eq (hk : Even k) {w : ℂ} (hw : w ≠ 0) :
-    ‖(w ^ (2⁻¹ : ℂ))⁻¹ * w‖ ^ (k + 2) = ‖w‖ ^ (k / 2 + 1) := by
-  have hs : (w ^ (2⁻¹ : ℂ)) ^ 2 = w := cpow_ofNat_inv_pow _ 2
-  have e : ‖(w ^ (2⁻¹ : ℂ))⁻¹ * w‖ ^ 2 = ‖w‖ := by
-    rw [← norm_pow, mul_pow, inv_pow, hs, sq w, inv_mul_cancel_left₀ hw]
-  rcases hk with ⟨m, rfl⟩
-  rw [(by omega : m + m + 2 = 2 * (m + 1)), (by omega : (m + m) / 2 = m), pow_mul, e]
-
 variable [NumberField K]
 
 lemma natCast_card_residue :
@@ -310,43 +290,10 @@ coefficients `c`, then `F ∣ (d, 0; 0, 1)` has the coefficients `|d|^{k/2+1} c(
 lemma HasBianchiWhittakerExpansion.bianchiLevelRaise (hk : Even k) (hδ : ‖δ‖ = √|(discr K : ℝ)|)
     (h : HasBianchiWhittakerExpansion σ δ k (extend F) c) :
     HasBianchiWhittakerExpansion σ δ k (extend (bianchiLevelRaise σ k d F))
-      (bianchiCoeffHecke σ k d 0 1 c) := by
-  refine hasBianchiWhittakerExpansion_of_forall hδ fun z ↦ ?_
-  have hd₀ : (d : 𝓞 K) ≠ 0 := nonZeroDivisors.ne_zero d.2
-  have hu : σ ((d : 𝓞 K) : K) ≠ 0 :=
-    (map_ne_zero σ).mpr (RingOfIntegers.coe_ne_zero_iff.mpr hd₀)
-  have hs : (σ (bianchiUnit d) ^ (2⁻¹ : ℂ)) ^ 2 = σ (bianchiUnit d) := cpow_ofNat_inv_pow _ 2
-  have hmat : (slRepresentative σ (heckeLower (bianchiUnit d)) : Matrix (Fin 2) (Fin 2) ℂ) =
-      !![(σ (bianchiUnit d) ^ (2⁻¹ : ℂ))⁻¹ * σ (bianchiUnit d), 0;
-        0, (σ (bianchiUnit d) ^ (2⁻¹ : ℂ))⁻¹] := coe_slRepresentative_heckeLower (bianchiUnit d)
-  have hg : (slRepresentative σ (heckeLower (bianchiUnit d)) : Matrix (Fin 2) (Fin 2) ℂ) 1 0 = 0 :=
-      by
-    rw [hmat]
-    rfl
-  have h₀₀ : (slRepresentative σ (heckeLower (bianchiUnit d)) : Matrix (Fin 2) (Fin 2) ℂ) 0 0 =
-      (σ (bianchiUnit d) ^ (2⁻¹ : ℂ))⁻¹ * σ (bianchiUnit d) := by
-    rw [hmat]
-    rfl
-  have h₀₁ : (slRepresentative σ (heckeLower (bianchiUnit d)) : Matrix (Fin 2) (Fin 2) ℂ) 0 1 = 0 :=
-      by
-    rw [hmat]
-    rfl
-  refine (hasSum_extend_mul_smul (c := c) hd₀ ((‖σ ((d : 𝓞 K) : K)‖ ^ (k / 2 + 1) : ℝ) : ℂ)
-    (fun γ ↦ bianchiWhittakerFunction (σ γ / δ) k z)
-      ((h.hasSum_bianchiSlash hk hδ hg z).congr_fun fun α ↦ ?_)).congr_fun fun β ↦ ?_
-  · have e₁ : σ (α.1 : K) / δ * ((σ (bianchiUnit d) ^ (2⁻¹ : ℂ))⁻¹ * σ (bianchiUnit d)) ^ 2 =
-        σ ((d * α.1 : 𝓞 K) : K) / δ := by
-      rw [mul_pow, inv_pow, hs, coe_bianchiUnit]
-      push_cast
-      rw [map_mul]
-      field_simp
-    have e₂ : ‖(σ (bianchiUnit d) ^ (2⁻¹ : ℂ))⁻¹ * σ (bianchiUnit d)‖ ^ (k + 2) =
-        ‖σ ((d : 𝓞 K) : K)‖ ^ (k / 2 + 1) := by
-      rw [norm_inv_cpow_mul_pow_eq hk ((map_ne_zero σ).mpr (bianchiUnit d).ne_zero),
-        coe_bianchiUnit]
-    simp only [h₀₀, h₀₁, mul_zero, map_zero, add_zero, exp_zero, mul_one]
-    rw [e₁, e₂, mul_comm]
-  · simp only [bianchiCoeffHecke, zero_mul, one_mul, zero_add]
+      (bianchiCoeffHecke σ k d 0 1 c) :=
+  hasBianchiWhittakerExpansion_of_forall hδ fun z ↦
+    (h.hasSum_bianchiSlash_heckeLower hk hδ rfl z).congr_fun fun β ↦ by
+      simp only [bianchiCoeffHecke, coe_bianchiUnit, zero_mul, one_mul, zero_add]
 
 open scoped Classical in
 /-- **The Fourier–Bessel coefficients of `U_d F`**, in terms of those of `F`. -/

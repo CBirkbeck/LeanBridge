@@ -201,18 +201,6 @@ instance : Countable (𝓞 K) :=
 instance : Countable (bianchiScaledLattice σ t) :=
   (Set.countable_range _).to_subtype
 
-lemma map_mem_span_integralLatticeBasis {x : K} (hK : finrank ℚ K = 2) (hx : (σ x).im ≠ 0)
-    (a : 𝓞 K) : σ a ∈ Submodule.span ℤ (range (integralLatticeBasis σ hK hx)) := by
-  have h : σ a = ∑ i, (RingOfIntegers.basis K).repr a i • σ (RingOfIntegers.basis K i) := by
-    have h' : σ ((∑ i, (RingOfIntegers.basis K).repr a i • RingOfIntegers.basis K i : 𝓞 K) : K) =
-        σ a := by
-      rw [(RingOfIntegers.basis K).sum_repr a]
-    rw [← h']
-    simp
-  rw [h]
-  exact Submodule.sum_mem _ fun i _ ↦ Submodule.smul_mem _ _
-    (Submodule.subset_span ⟨i, integralLatticeBasis_apply hK hx i⟩)
-
 lemma toAddSubgroup_span_integralLatticeBasis {x : K} (hK : finrank ℚ K = 2) (hx : (σ x).im ≠ 0) :
     (Submodule.span ℤ (range (integralLatticeBasis σ hK hx))).toAddSubgroup =
       bianchiScaledLattice σ 1 := by

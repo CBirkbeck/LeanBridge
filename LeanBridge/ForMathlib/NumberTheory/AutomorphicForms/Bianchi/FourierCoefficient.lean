@@ -368,12 +368,10 @@ private lemma extend_translationAverage {p : ℂ × ℝ} (hp : 0 < p.2) :
   rw [extend, dite_eq_left hp]
   rfl
 
-private lemma continuous_extend_add
-    (hF : ∀ z : HyperbolicThreeSpace, AnalyticAt ℝ (extend F) z.coords) {p : ℂ × ℝ} (hp : 0 < p.2) :
-    Continuous fun t : ℂ ↦ extend F (p.1 + t, p.2) :=
-  continuous_iff_continuousAt.2 fun t ↦
-    (hF (.mk (WithLp.toLp 2 (p.1 + t, p.2)) hp)).continuousAt.comp
-      (f := fun t : ℂ ↦ (p.1 + t, p.2)) (by fun_prop)
+lemma continuous_extend_mk (hF : ∀ z : HyperbolicThreeSpace, AnalyticAt ℝ (extend F) z.coords)
+    (hy : 0 < y) : Continuous fun x : ℂ ↦ extend F (x, y) :=
+  continuous_iff_continuousAt.mpr fun t ↦
+    (hF (.mk (WithLp.toLp 2 (t, y)) hy)).continuousAt.comp (f := fun x : ℂ ↦ (x, y)) (by fun_prop)
 
 lemma bianchiLift_translationAverage
     (hF : ∀ z : HyperbolicThreeSpace, AnalyticAt ℝ (extend F) z.coords) (hP : IsBounded P)
@@ -385,8 +383,9 @@ lemma bianchiLift_translationAverage
     LinearMap.toContinuousLinearMap (symPowMatrix k (automorphyFactor g (0, 1))⁻¹).mulVecLin
   have hL (v : Fin (k + 1) → ℂ) : L v = symPowMatrix k (automorphyFactor g (0, 1))⁻¹ *ᵥ v :=
     rfl
-  rw [bianchiLift_apply, extend_translationAverage hpos, ← hL,
-    ← L.integral_comp_comm (integrableOn_smul_of_continuous hP hω (continuous_extend_add hF hpos))]
+  rw [bianchiLift_apply, extend_translationAverage hpos, ← hL, ← L.integral_comp_comm
+    (integrableOn_smul_of_continuous hP hω ((continuous_extend_mk hF hpos).comp'
+      (continuous_const_add _)))]
   simp only [unipotentAverage, hL, mulVec_smul, bianchiLift_apply, automorphyFactor_sl2Exp_one_mul,
     moebius_sl2Exp_one_mul]
 
@@ -405,7 +404,7 @@ lemma IsBianchiHarmonic.translationAverage
 
 variable (Λ : AddSubgroup ℂ) [Countable Λ]
 
-private lemma setIntegral_add_left_eq (hP : IsAddFundamentalDomain Λ P) {f : ℂ → V}
+lemma setIntegral_add_left_eq (hP : IsAddFundamentalDomain Λ P) {f : ℂ → V}
     (hf : ∀ l ∈ Λ, ∀ s, f (l + s) = f s) (x : ℂ) : ∫ t in P, f (x + t) = ∫ s in P, f s := by
   have hx : (fun t ↦ x + t) '' P = x +ᵥ P :=
     rfl
@@ -465,30 +464,32 @@ lemma isBianchiHarmonic_bianchiFourierMode_bianchiFourierCoeff
   rw [bianchiFourierMode_bianchiFourierCoeff Λ hP hF hμ]
   exact h.translationAverage hFa hPb (by fun_prop)
 
+lemma norm_bianchiFourierCoeff_le_of_forall (hPb : IsBounded P) {A : ℝ}
+    (hA : ∀ w : ℂ, ‖extend F (w, y)‖ ≤ A) : ‖bianchiFourierCoeff P μ F y‖ ≤ A := by
+  have hA₀ : 0 ≤ A := (norm_nonneg _).trans (hA 0)
+  have hI : ‖∫ w in P, cexp (-(2 * π * I * (μ * w + conj (μ * w)))) • extend F (w, y)‖ ≤
+      A * volume.real P :=
+    norm_setIntegral_le_of_norm_le_const hPb.measure_lt_top fun w _ ↦ by
+      have hre : (-(2 * π * I * (μ * w + conj (μ * w)))).re = 0 := by
+        rw [add_conj]
+        simp
+      rw [norm_smul, norm_exp, hre, Real.exp_zero, one_mul]
+      exact hA w
+  rw [bianchiFourierCoeff, norm_smul, norm_inv, norm_real, Real.norm_of_nonneg measureReal_nonneg]
+  rcases measureReal_nonneg.eq_or_lt with h₀ | h₀
+  · rw [← h₀]
+    simpa using hA₀
+  · rw [inv_mul_le_iff₀ h₀]
+    linarith
+
 /-- **The Fourier coefficients have moderate growth**: if `‖F(x, y)‖ ≤ C yⁿ` for `y ≥ 1`, then
 `‖φ_μ(y)‖ ≤ C yⁿ` for `y ≥ 1`, over a bounded `P`. -/
 lemma norm_bianchiFourierCoeff_le (hPb : IsBounded P) {C : ℝ} {n : ℕ}
     (hC : ∀ z : HyperbolicThreeSpace, 1 ≤ z.height → ‖F z‖ ≤ C * z.height ^ n) (hy : 1 ≤ y) :
-    ‖bianchiFourierCoeff P μ F y‖ ≤ C * y ^ n := by
-  have hy₀ : 0 < y := zero_lt_one.trans_le hy
-  have hb (x : ℂ) : ‖extend F (x, y)‖ ≤ C * y ^ n := by
-    rw [extend, dite_eq_left hy₀]
+    ‖bianchiFourierCoeff P μ F y‖ ≤ C * y ^ n :=
+  norm_bianchiFourierCoeff_le_of_forall hPb fun x ↦ by
+    rw [extend, dite_eq_left (zero_lt_one.trans_le hy)]
     exact hC _ hy
-  have hC₀ : 0 ≤ C * y ^ n := (norm_nonneg _).trans (hb 0)
-  have hI : ‖∫ x in P, cexp (-(2 * π * I * (μ * x + conj (μ * x)))) • extend F (x, y)‖ ≤
-      C * y ^ n * volume.real P :=
-    norm_setIntegral_le_of_norm_le_const hPb.measure_lt_top fun x _ ↦ by
-      have hre : (-(2 * π * I * (μ * x + conj (μ * x)))).re = 0 := by
-        rw [add_conj]
-        simp
-      rw [norm_smul, norm_exp, hre, Real.exp_zero, one_mul]
-      exact hb x
-  rw [bianchiFourierCoeff, norm_smul, norm_inv, norm_real, Real.norm_of_nonneg measureReal_nonneg]
-  rcases measureReal_nonneg.eq_or_lt with h₀ | h₀
-  · rw [← h₀]
-    simpa using hC₀
-  · rw [inv_mul_le_iff₀ h₀]
-    linarith
 
 private lemma hasDerivAt_setIntegral {f : ℂ × ℝ → V} (hf : ContDiffOn ℝ 1 f (univ ×ˢ Ioi 0))
     (hP : IsBounded P) (hy : 0 < y) :
@@ -826,15 +827,11 @@ lemma exists_intCast_eq_of_sq_eq_discr (hK : finrank ℚ K = 2) (hx : (σ x).im 
     rw [map_div₀, h, map_neg, hconj, neg_neg, div_neg, neg_add_eq_sub, ← sub_div, ← neg_sub, key,
       Int.cast_neg, neg_div, mul_div_cancel_right₀ _ hD₀]
 
-private lemma cexp_eq_one_of_sq_eq_discr (hK : finrank ℚ K = 2) (hx : (σ x).im ≠ 0)
-    (hδ : δ ^ 2 = discr K) (α a : 𝓞 K) :
-    cexp (2 * π * I * (σ α / δ * σ a + conj (σ α / δ * σ a))) = 1 := by
-  rcases exists_intCast_eq_of_sq_eq_discr σ hK hx hδ (α * a) with ⟨n, hn⟩
-  have e : σ α / δ * σ a = σ (α * a : 𝓞 K) / δ := by
-    push_cast
-    rw [map_mul]
-    ring1
-  rw [e, hn, mul_comm, exp_int_mul_two_pi_mul_I]
+variable {σ} in
+lemma cexp_two_pi_mul_eq_one (hK : finrank ℚ K = 2) (hx : (σ x).im ≠ 0) (hδ : δ ^ 2 = discr K)
+    (z : 𝓞 K) : cexp (2 * π * I * (σ z / δ + conj (σ z / δ))) = 1 := by
+  rcases exists_intCast_eq_of_sq_eq_discr σ hK hx hδ z with ⟨n, hn⟩
+  rw [hn, mul_comm, exp_int_mul_two_pi_mul_I]
 
 private lemma eq_zero_of_add_conj_eq_zero {u v z : ℂ} (hD : u * conj v - v * conj u ≠ 0)
     (hu : z * u + conj (z * u) = 0) (hv : z * v + conj (z * v) = 0) : z = 0 := by
@@ -952,18 +949,18 @@ private lemma cexp_eq_one_of_mem_span (hK : finrank ℚ K = 2) (hx : (σ x).im �
   have hgen (l : ℂ) (hl : l ∈ range (integralLatticeBasis σ hK hx)) :
       cexp (2 * π * I * (σ α / δ * l + conj (σ α / δ * l))) = 1 := by
     rcases hl with ⟨i, rfl⟩
-    rw [integralLatticeBasis_apply]
-    exact cexp_eq_one_of_sq_eq_discr σ hK hx hδ α (RingOfIntegers.basis K i)
+    rw [integralLatticeBasis_apply, div_mul_eq_mul_div, ← map_mul σ]
+    exact cexp_two_pi_mul_eq_one hK hx hδ (α * RingOfIntegers.basis K i)
   refine cexp_eq_one_of_mem_closure hgen ?_
   rw [← Submodule.span_int_eq_addSubgroupClosure]
   exact hl
 
-private lemma mem_span_integralLatticeBasis (hK : finrank ℚ K = 2) (hx : (σ x).im ≠ 0) (z : 𝓞 K) :
-    σ z ∈ Submodule.span ℤ (range (integralLatticeBasis σ hK hx)) := by
-  have h : σ z = ∑ i, (RingOfIntegers.basis K).repr z i • σ (RingOfIntegers.basis K i) := by
-    have h' : σ ((∑ i, (RingOfIntegers.basis K).repr z i • RingOfIntegers.basis K i : 𝓞 K) : K) =
-        σ z := by
-      rw [(RingOfIntegers.basis K).sum_repr z]
+lemma map_mem_span_integralLatticeBasis (hK : finrank ℚ K = 2) (hx : (σ x).im ≠ 0) (a : 𝓞 K) :
+    σ a ∈ Submodule.span ℤ (range (integralLatticeBasis σ hK hx)) := by
+  have h : σ a = ∑ i, (RingOfIntegers.basis K).repr a i • σ (RingOfIntegers.basis K i) := by
+    have h' : σ ((∑ i, (RingOfIntegers.basis K).repr a i • RingOfIntegers.basis K i : 𝓞 K) : K) =
+        σ a := by
+      rw [(RingOfIntegers.basis K).sum_repr a]
     rw [← h']
     simp
   rw [h]
@@ -982,7 +979,7 @@ private noncomputable def dualEquiv (hK : finrank ℚ K = 2) (hx : (σ x).im ≠
     ⟨fun α β h ↦ Subtype.ext <| RingOfIntegers.coe_injective <| σ.injective <|
       (div_left_inj' hδ₀).mp (congrArg Subtype.val h), fun ν ↦ by
       have hν (z : 𝓞 K) : ∃ n : ℤ, ν.1 * σ z + conj (ν.1 * σ z) = n := by
-        rcases exp_eq_one_iff.mp (ν.2.2 _ (mem_span_integralLatticeBasis hK hx z)) with ⟨n, hn⟩
+        rcases exp_eq_one_iff.mp (ν.2.2 _ (map_mem_span_integralLatticeBasis hK hx z)) with ⟨n, hn⟩
         refine ⟨n, mul_left_cancel₀ two_pi_I_ne_zero ?_⟩
         rw [hn]
         ring1
@@ -1028,7 +1025,17 @@ private lemma cuspTranslations_le_span (hK : finrank ℚ K = 2) (hx : (σ x).im 
   have ha : a = algebraMap (𝓞 K) K ((γ : Matrix (Fin 2) (Fin 2) (𝓞 K)) 0 1) := by
     simpa using (congrFun (congrFun he 0) 1).symm
   rw [ha]
-  exact mem_span_integralLatticeBasis hK hx _
+  exact map_mem_span_integralLatticeBasis hK hx _
+
+lemma hasSum_subtype_ne_zero {M : Type*} [AddCommMonoid M] [TopologicalSpace M] {p : ℂ → Prop}
+    {m : ℂ → M} {v : M} (h₀ : m 0 = 0) (h : HasSum (fun ν : {ν // p ν} ↦ m ν) v) :
+    HasSum (fun ν : {ν // ν ≠ 0 ∧ p ν} ↦ m ν) v := by
+  refine ((Function.Injective.hasSum_iff (f := fun ν : {ν // p ν} ↦ m ν)
+    (g := fun ν : {ν // ν ≠ 0 ∧ p ν} ↦ ⟨ν, ν.2.2⟩)
+      fun _ _ h ↦ Subtype.ext (congrArg (fun ν : {ν // p ν} ↦ ν.1) h)) fun ν hν ↦ ?_).mpr h
+  by_cases hν₀ : ν.1 = 0
+  · simp [hν₀, h₀]
+  · exact absurd ⟨⟨ν.1, hν₀, ν.2⟩, rfl⟩ hν
 
 /-- **The Fourier–Bessel expansion of a Bianchi cusp form over a quadratic field** (LMFDB
 `mf.bianchi.spaces`, `mf.bianchi.newform`): under the hypotheses of
@@ -1063,18 +1070,6 @@ lemma IsBianchiModularForm.hasBianchiWhittakerExpansion_of_isBianchiCuspidal
     (bianchiFourierCoeff (ZSpan.fundamentalDomain (integralLatticeBasis σ hK hx)) ν F) z
   have h₀ : m 0 = 0 := by
     simp only [m, bianchiFourierMode, hc.bianchiFourierCoeff_zero hP (coords_snd_pos z), smul_zero]
-  let S : Set ℂ := {ν | ∀ l ∈ Submodule.span ℤ (range (integralLatticeBasis σ hK hx)),
-    cexp (2 * π * I * (ν * l + conj (ν * l))) = 1}
-  let T : Set ℂ := {ν | ν ≠ 0 ∧ ν ∈ S}
-  have hind : T.indicator m = S.indicator m := by
-    funext ν
-    by_cases hS : ν ∈ S
-    · by_cases hν : ν = 0
-      · rw [Set.indicator_of_notMem (fun h : ν ∈ T ↦ h.1 hν), Set.indicator_of_mem hS, hν, h₀]
-      · rw [Set.indicator_of_mem (⟨hν, hS⟩ : ν ∈ T), Set.indicator_of_mem hS]
-    · rw [Set.indicator_of_notMem (fun h : ν ∈ T ↦ hS h.2), Set.indicator_of_notMem hS]
-  have hS : HasSum (m ∘ ((↑) : S → ℂ)) (F z) :=
-    hsum z
-  exact hasSum_subtype_iff_indicator.mpr (hind ▸ hasSum_subtype_iff_indicator.mp hS)
+  exact hasSum_subtype_ne_zero (m := m) h₀ (hsum z)
 
 end HyperbolicThreeSpace

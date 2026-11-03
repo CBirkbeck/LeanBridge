@@ -28,8 +28,15 @@ open Complex Filter Set
 
 open scoped ComplexConjugate Topology
 
-lemma Complex.conj_natCast_cpow_conj (n : ℕ) (s : ℂ) : conj ((n : ℂ) ^ conj s) = (n : ℂ) ^ s := by
-  rw [cpow_conj _ _ (by simpa using Real.pi_ne_zero.symm), conj_conj, conj_natCast]
+lemma Complex.conj_ofReal_cpow_conj {r : ℝ} (hr : 0 ≤ r) (w : ℂ) :
+    conj ((r : ℂ) ^ conj w) = (r : ℂ) ^ w := by
+  have harg : (r : ℂ).arg ≠ Real.pi := by
+    rw [arg_ofReal_of_nonneg hr]
+    exact Real.pi_ne_zero.symm
+  rw [cpow_conj _ _ harg, conj_conj, conj_ofReal]
+
+lemma Complex.conj_natCast_cpow_conj (n : ℕ) (s : ℂ) : conj ((n : ℂ) ^ conj s) = (n : ℂ) ^ s :=
+  ofReal_natCast n ▸ conj_ofReal_cpow_conj n.cast_nonneg s
 
 namespace AnalyticLFunction
 

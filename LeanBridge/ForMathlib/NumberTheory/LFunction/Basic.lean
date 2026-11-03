@@ -72,6 +72,12 @@ structure AnalyticLFunction.SelbergData where
   exists_two_mul_re_eq_of_mem_ν : ∀ x ∈ ν, ∃ k : ℕ, 0 < k ∧ 2 * x.re = k
   im_sum_add_two_mul_sum : (μ.sum + 2 * ν.sum).im = 0
 
+lemma Complex.Gammaℂ_ne_zero_of_re_pos {s : ℂ} (hs : 0 < s.re) : Gammaℂ s ≠ 0 := by
+  have h2π : (2 * Real.pi : ℂ) ≠ 0 := mul_ne_zero two_ne_zero (ofReal_ne_zero.mpr Real.pi_ne_zero)
+  rw [Gammaℂ_def]
+  exact mul_ne_zero (mul_ne_zero two_ne_zero (cpow_ne_zero_iff.mpr (Or.inl h2π)))
+    (Gamma_ne_zero_of_re_pos hs)
+
 namespace AnalyticLFunction.SelbergData
 
 variable (D : SelbergData) {s : ℂ}
@@ -95,14 +101,9 @@ lemma gammaFactor_ne_zero (hs : 0 < s.re) : D.gammaFactor s ≠ 0 := by
     rcases D.re_eq_zero_or_one_of_mem_μ x hx with h | h <;> simp [h, hs, add_pos]
   · rcases Multiset.mem_map.mp h with ⟨x, hx, h⟩
     rcases D.exists_two_mul_re_eq_of_mem_ν x hx with ⟨k, hk, hx⟩
-    have hre : 0 < (s + x).re := by
-      rw [add_re]
-      linarith [(Nat.cast_pos.mpr hk : (0 : ℝ) < k)]
-    have hre₁ : 0 < (s + x + 1).re := by
-      rw [add_re, one_re]
-      linarith
-    rw [← Gammaℝ_mul_Gammaℝ_add_one] at h
-    exact mul_ne_zero (Gammaℝ_ne_zero_of_re_pos hre) (Gammaℝ_ne_zero_of_re_pos hre₁) h
+    refine Gammaℂ_ne_zero_of_re_pos ?_ h
+    rw [add_re]
+    linarith [(Nat.cast_pos.mpr hk : (0 : ℝ) < k)]
 
 end AnalyticLFunction.SelbergData
 

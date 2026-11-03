@@ -49,22 +49,7 @@ open scoped ComplexConjugate Real
 
 namespace HyperbolicThreeSpace.BianchiNewformOfWeight
 
-variable {z s : ℂ}
-
-lemma conj_ofReal_cpow_conj {r : ℝ} (hr : 0 ≤ r) (w : ℂ) :
-    conj ((r : ℂ) ^ conj w) = (r : ℂ) ^ w := by
-  have harg : (r : ℂ).arg ≠ π := by
-    rw [arg_ofReal_of_nonneg hr]
-    exact Real.pi_ne_zero.symm
-  rw [cpow_conj _ _ harg, conj_conj, conj_ofReal]
-
-lemma Gammaℂ_ne_zero_of_re_pos (hz : 0 < z.re) : Gammaℂ z ≠ 0 := by
-  have h2π : (2 * π : ℂ) ≠ 0 := mul_ne_zero two_ne_zero (ofReal_ne_zero.mpr Real.pi_ne_zero)
-  rw [Gammaℂ_def]
-  exact mul_ne_zero (mul_ne_zero two_ne_zero (cpow_ne_zero_iff.mpr (Or.inl h2π)))
-    (Gamma_ne_zero_of_re_pos hz)
-
-variable {k : ℕ}
+variable {z s : ℂ} {k : ℕ}
 
 lemma natCast_half (hk' : Even k) : ((k / 2 : ℕ) : ℝ) = (k : ℝ) / 2 := by
   rcases hk' with ⟨m, rfl⟩

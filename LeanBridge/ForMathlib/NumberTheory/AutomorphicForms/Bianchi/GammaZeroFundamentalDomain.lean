@@ -32,8 +32,6 @@ and the volume is invariant, a function of the old space which is orthogonal to 
   point of a compact set to a compact set.
 * `HyperbolicThreeSpace.hyperbolicVolume_setOf_smul_eq_self`: the fixed points of `g ≠ ±1` form a
   null set.
-* `HyperbolicThreeSpace.norm_sq_apply_eq_abs_norm`: `|σ(x)|² = |N(x)|` for an imaginary quadratic
-  field.
 * `HyperbolicThreeSpace.finite_setOf_norm_apply_le`: there are finitely many integers of bounded
   absolute value.
 * `HyperbolicThreeSpace.norm_unit_eq_one`: the units have absolute value `1`.
@@ -268,27 +266,6 @@ lemma exists_mem_gamma0GL_of_mem_bianchiPSLGroup {γ' : PSL(2, ℂ)}
 
 variable [NumberField K]
 
-lemma subsingleton_infinitePlace (hK : finrank ℚ K = 2) : Subsingleton (InfinitePlace K) := by
-  have hcard : Fintype.card (InfinitePlace K) = 1 := by
-    have h : InfinitePlace.nrRealPlaces K + 2 * InfinitePlace.nrComplexPlaces K = finrank ℚ K :=
-      InfinitePlace.card_add_two_mul_card_eq_rank K
-    rw [nrRealPlaces_eq_zero_iff.mpr inferInstance, hK] at h
-    rw [InfinitePlace.card_eq_nrRealPlaces_add_nrComplexPlaces,
-      nrRealPlaces_eq_zero_iff.mpr inferInstance]
-    omega
-  exact Fintype.card_le_one_iff_subsingleton.mp hcard.le
-
-/-- **The absolute value and the norm**: for an imaginary quadratic field `K` embedded in `ℂ` by
-`σ`, `|σ(x)|² = |N(x)|` for `x ∈ K`. -/
-lemma norm_sq_apply_eq_abs_norm (hK : finrank ℚ K = 2) (x : K) :
-    ‖σ x‖ ^ 2 = ((|Algebra.norm ℚ x| : ℚ) : ℝ) := by
-  have : Subsingleton (InfinitePlace K) := subsingleton_infinitePlace hK
-  have h₁ : ∏ w : InfinitePlace K, w x ^ w.mult = ((|Algebra.norm ℚ x| : ℚ) : ℝ) :=
-    InfinitePlace.prod_eq_abs_norm x
-  rw [Fintype.prod_eq_single (InfinitePlace.mk σ) fun w hw ↦ absurd (Subsingleton.elim w _) hw,
-    IsTotallyComplex.mult_eq, InfinitePlace.apply] at h₁
-  exact h₁
-
 /-- **There are finitely many integers of bounded absolute value** in an imaginary quadratic
 field. -/
 lemma finite_setOf_norm_apply_le (hK : finrank ℚ K = 2) (C : ℝ) : {a : 𝓞 K | ‖σ a‖ ≤ C}.Finite := by
@@ -309,14 +286,14 @@ lemma norm_unit_eq_one (hK : finrank ℚ K = 2) (u : (𝓞 K)ˣ) : ‖σ (u : �
   have h₁ : |Algebra.norm ℚ ((u : 𝓞 K) : K)| = 1 :=
     isUnit_iff_norm.mp u.isUnit
   have h₂ : ‖σ ((u : 𝓞 K) : K)‖ ^ 2 = ((|Algebra.norm ℚ ((u : 𝓞 K) : K)| : ℚ) : ℝ) :=
-    norm_sq_apply_eq_abs_norm hK _
+    norm_sq_apply_eq_abs_norm _ hK
   rw [h₁, Rat.cast_one] at h₂
   exact (pow_eq_one_iff_of_nonneg (norm_nonneg _) two_ne_zero).mp h₂
 
 /-- **A nonzero integer has absolute value at least `1`**, for an imaginary quadratic field `K`. -/
 lemma one_le_norm_apply (hK : finrank ℚ K = 2) {a : 𝓞 K} (ha : a ≠ 0) : 1 ≤ ‖σ a‖ := by
   have h₂ : ‖σ (a : K)‖ ^ 2 = ((|Algebra.norm ℚ (a : K)| : ℚ) : ℝ) :=
-    norm_sq_apply_eq_abs_norm hK _
+    norm_sq_apply_eq_abs_norm _ hK
   have h₁ : (1 : ℝ) ≤ ((|Algebra.norm ℚ (a : K)| : ℚ) : ℝ) := by
     rw [← Algebra.coe_norm_int a]
     have hn : Algebra.norm ℤ a ≠ 0 := Algebra.norm_ne_zero_iff.mpr ha
@@ -329,12 +306,6 @@ lemma finite_units (τ : K →+* ℂ) (hK : finrank ℚ K = 2) : Finite (𝓞 K)
   have : Finite {a : 𝓞 K | ‖τ (a : K)‖ ≤ 1} := (finite_setOf_norm_apply_le hK 1).to_subtype
   Finite.of_injective (fun u : (𝓞 K)ˣ ↦ (⟨u, (norm_unit_eq_one hK u).le⟩ :
     {a : 𝓞 K | ‖τ (a : K)‖ ≤ 1})) fun _ _ h ↦ Units.ext (congrArg Subtype.val h)
-
-variable (σ) in
-lemma sq_norm_apply_eq_absNorm (hK : finrank ℚ K = 2) (a : 𝓞 K) :
-    ‖σ (a : K)‖ ^ 2 = Ideal.absNorm (Ideal.span {a}) := by
-  rw [norm_sq_apply_eq_abs_norm hK, ← Algebra.coe_norm_int, Ideal.absNorm_span_singleton]
-  simp
 
 lemma countable_bianchiPSLGroup : Countable (bianchiPSLGroup σ (bianchiGammaZero 𝔑)) := by
   refine ((countable_range (glToPSL σ)).mono ?_).to_subtype

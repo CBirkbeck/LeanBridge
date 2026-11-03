@@ -922,7 +922,7 @@ lemma tsum_coeff_mul_norm_cpow_eq (hK : finrank ℚ K = 2) (hk : k ≠ 0) {s : �
 lemma coeff_eq_one_of_norm_eq_one (hK : finrank ℚ K = 2) {α : 𝓞 K} (hα : ‖σ (α : K)‖ = 1) :
     N.coeff α = 1 := by
   have h₁ : ‖σ (α : K)‖ ^ 2 = ((|Algebra.norm ℚ (α : K)| : ℚ) : ℝ) :=
-    norm_sq_apply_eq_abs_norm hK _
+    norm_sq_apply_eq_abs_norm _ hK
   rw [hα, one_pow] at h₁
   have h₂ : |Algebra.norm ℚ (α : K)| = 1 := by
     exact_mod_cast h₁.symm

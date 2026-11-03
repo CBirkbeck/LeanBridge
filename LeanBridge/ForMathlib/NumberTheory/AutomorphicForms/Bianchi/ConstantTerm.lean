@@ -62,20 +62,16 @@ lemma eq_zero_of_mul_eq_mul {f f' : ℝ → ℂ} {c : ℂ} (hf : ∀ y, 0 < y �
 lemma eq_zero_of_euler {R : ℝ → ℂ} {s₁ s₂ : ℂ} (hR : ContDiffOn ℝ 2 R (Ioi 0))
     (h : ∀ y : ℝ, 0 < y → (y : ℂ) ^ 2 * deriv (deriv R) y - (s₁ + s₂ - 1) * y * deriv R y +
       s₁ * s₂ * R y = 0) (h₀ : R 1 = 0) (h₁ : deriv R 1 = 0) {y : ℝ} (hy : 0 < y) : R y = 0 := by
-  have hd {y : ℝ} (hy : 0 < y) : HasDerivAt R (deriv R y) y :=
-    ((hR.contDiffAt (Ioi_mem_nhds hy)).differentiableAt two_ne_zero).hasDerivAt
-  have hd' {y : ℝ} (hy : 0 < y) : HasDerivAt (deriv R) (deriv (deriv R) y) y :=
-    (((hR.deriv_of_isOpen isOpen_Ioi (m := 1) le_rfl).contDiffAt
-      (Ioi_mem_nhds hy)).differentiableAt one_ne_zero).hasDerivAt
   have hS (y : ℝ) (hy : 0 < y) : (y : ℂ) * deriv R y - s₁ * R y = 0 := by
     refine eq_zero_of_mul_eq_mul (f := fun y : ℝ ↦ (y : ℂ) * deriv R y - s₁ * R y)
       (f' := fun y ↦ deriv R y + y * deriv (deriv R) y - s₁ * deriv R y) (c := s₂)
       (fun y hy ↦ ?_) (fun y hy ↦ ?_) ?_ hy
     · have h₂ : HasDerivAt (fun y : ℝ ↦ (y : ℂ)) 1 y := (hasDerivAt_id y).ofReal_comp
-      simpa only [one_mul] using (h₂.fun_mul (hd' hy)).fun_sub ((hd hy).const_mul s₁)
+      simpa only [one_mul] using (h₂.fun_mul (hasDerivAt_deriv_of_contDiffOn_Ioi hR hy)).fun_sub
+        ((hasDerivAt_of_contDiffOn_Ioi hR hy).const_mul s₁)
     · linear_combination h y hy
     · simp [h₀, h₁]
-  exact eq_zero_of_mul_eq_mul (c := s₁) (fun y hy ↦ hd hy)
+  exact eq_zero_of_mul_eq_mul (c := s₁) (fun _ ↦ hasDerivAt_of_contDiffOn_Ioi hR)
     (fun y hy ↦ by linear_combination hS y hy) h₀ hy
 
 variable {K : Type*} [Field K] {σ : K →+* ℂ} {k : ℕ} {N : (𝓞 K)⁰}

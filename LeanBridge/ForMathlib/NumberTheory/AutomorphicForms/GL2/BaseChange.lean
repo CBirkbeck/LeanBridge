@@ -28,7 +28,6 @@ every prime this needs strong multiplicity one, which is not proved here.
 
 ## Main results
 
-* `Polynomial.rootPowers_mul`: `h^{(r)}` of `(1 - αT)(1 - βT)` is `(1 - α^r T)(1 - β^r T)`.
 * `AdelicGL2.isBaseChangeOf_arithmetic_iff`: the base change relation in the arithmetic
   normalisation of any weight is the same as in the analytic one.
 * `AdelicGL2.IsBaseChangeOf.eventually_heckeEigenvalue_smul_eq` (LMFDB `mf.base_change`): the
@@ -45,46 +44,6 @@ open Filter IsDedekindDomain HeightOneSpectrum Matrix NumberField Polynomial Tau
 open scoped AdeleRing MatrixGroups Classical Pointwise
 
 namespace Polynomial
-
-/-- **`h^{(r)}` of a product of linear factors**: for `α, β ≠ 0`, the polynomial `h^{(r)}` of
-`h = (1 - αT)(1 - βT)` is `(1 - α^r T)(1 - β^r T)`. -/
-lemma rootPowers_mul (α β : ℂ) (hα : α ≠ 0) (hβ : β ≠ 0) (r : ℕ) :
-    ((1 - C α * X) * (1 - C β * X) : ℂ[X]).rootPowers r =
-      (1 - C (α ^ r) * X) * (1 - C (β ^ r) * X) := by
-  have hf (a : ℂ) (ha : a ≠ 0) : (1 - C a * X : ℂ[X]) = C (-a) * (X - C a⁻¹) := by
-    rw [mul_sub, ← C_mul, neg_mul, mul_inv_cancel₀ ha]
-    simp [sub_eq_add_neg, add_comm]
-  have hn (a : ℂ) (ha : a ≠ 0) : (1 - C a * X : ℂ[X]) ≠ 0 := by
-    rw [hf a ha]
-    exact mul_ne_zero (C_ne_zero.mpr (neg_ne_zero.mpr ha)) (X_sub_C_ne_zero _)
-  have hr : ((1 - C α * X) * (1 - C β * X) : ℂ[X]).roots = {α⁻¹, β⁻¹} := by
-    rw [roots_mul (mul_ne_zero (hn α hα) (hn β hβ)), hf α hα, hf β hβ,
-      roots_C_mul _ (neg_ne_zero.mpr hα), roots_C_mul _ (neg_ne_zero.mpr hβ), roots_X_sub_C,
-      roots_X_sub_C]
-    rfl
-  have hc : ((1 - C α * X) * (1 - C β * X) : ℂ[X]).coeff 0 = 1 := by
-    simp
-  rw [rootPowers, hr, hc]
-  simp
-
-lemma exists_eq_mul_of_quadratic (a b : ℂ) (hb : b ≠ 0) : ∃ α β : ℂ, α ≠ 0 ∧ β ≠ 0 ∧
-    (1 - C a * X + C b * X ^ 2 : ℂ[X]) = (1 - C α * X) * (1 - C β * X) := by
-  have he : (X ^ 2 - C a * X + C b : ℂ[X]) = X ^ 2 + (C (-a) * X + C b) := by
-    simp only [map_neg]
-    ring1
-  have hdeg : (X ^ 2 - C a * X + C b : ℂ[X]).degree ≠ 0 := by
-    rw [he, degree_add_eq_left_of_degree_lt]
-    · simp
-    · rw [degree_X_pow]
-      exact (degree_linear_le).trans_lt (by decide)
-  rcases IsAlgClosed.exists_root _ hdeg with ⟨α, hα⟩
-  have hα' : α ^ 2 - a * α + b = 0 := by
-    simpa using hα
-  have hb' : α * (a - α) = b := by
-    linear_combination -hα'
-  refine ⟨α, a - α, left_ne_zero_of_mul (hb' ▸ hb), right_ne_zero_of_mul (hb' ▸ hb), ?_⟩
-  rw [← hb', C_mul, C_sub]
-  ring1
 
 variable (c : ℂ)
 

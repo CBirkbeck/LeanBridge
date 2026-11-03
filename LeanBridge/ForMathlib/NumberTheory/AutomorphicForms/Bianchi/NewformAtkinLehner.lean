@@ -76,12 +76,6 @@ namespace HyperbolicThreeSpace
 variable {K : Type*} [Field K] {σ : K →+* ℂ} {δ : ℂ} {x : K} {k : ℕ} {c c' : 𝓞 K → ℂ}
   {F G : HyperbolicThreeSpace → Fin (k + 1) → ℂ} {𝔑 : Ideal (𝓞 K)} {α : 𝓞 K}
 
-lemma coe_slRepresentative_heckeLower (ϖ : Kˣ) :
-    (slRepresentative σ (heckeLower ϖ) : Matrix (Fin 2) (Fin 2) ℂ) =
-      !![(σ ϖ ^ (2⁻¹ : ℂ))⁻¹ * σ ϖ, 0; 0, (σ ϖ ^ (2⁻¹ : ℂ))⁻¹] := by
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [slRepresentative, heckeLower, det_fin_two]
-
 lemma span_sup_eq_top_of_mul {p β : 𝓞 K} (h : Ideal.span {p * β} ⊔ 𝔑 = ⊤) :
     Ideal.span {β} ⊔ 𝔑 = ⊤ :=
   top_le_iff.mp <| h ▸ sup_le_sup_right

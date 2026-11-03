@@ -32,6 +32,7 @@ factor, it maps `∏ᵢ (1 - αᵢ T)` to `∏ᵢ (1 - αᵢ^r T)`.
 
 ## Main results
 
+* `Polynomial.rootPowers_mul`: `h^{(r)}` of `(1 - αT)(1 - βT)` is `(1 - α^r T)(1 - β^r T)`.
 * `Polynomial.rootPowers_two_of_quadratic`: for a quadratic Euler factor
   `h = 1 - aT + bT² = (1 - αT)(1 - βT)`, `h^{(2)} = 1 - (a² - 2b) T + b² T²`, the formula
   `α² + β² = a² - 2αβ` of the inert primes in LMFDB `mf.bianchi.base_change`.
@@ -49,34 +50,64 @@ Euler factor `h = ∏ᵢ (1 - αᵢ T)`, as the base change of Euler factors req
 noncomputable def rootPowers (r : ℕ) (h : ℂ[X]) : ℂ[X] :=
   C (h.coeff 0) * (h.roots.map fun ρ ↦ 1 - C (ρ ^ r)⁻¹ * X).prod
 
+/-- **`h^{(r)}` of a product of linear factors**: for `α, β ≠ 0`, the polynomial `h^{(r)}` of
+`h = (1 - αT)(1 - βT)` is `(1 - α^r T)(1 - β^r T)`. -/
+lemma rootPowers_mul (α β : ℂ) (hα : α ≠ 0) (hβ : β ≠ 0) (r : ℕ) :
+    ((1 - C α * X) * (1 - C β * X) : ℂ[X]).rootPowers r =
+      (1 - C (α ^ r) * X) * (1 - C (β ^ r) * X) := by
+  have hf (a : ℂ) (ha : a ≠ 0) : (1 - C a * X : ℂ[X]) = C (-a) * (X - C a⁻¹) := by
+    rw [mul_sub, ← C_mul, neg_mul, mul_inv_cancel₀ ha]
+    simp [sub_eq_add_neg, add_comm]
+  have hn (a : ℂ) (ha : a ≠ 0) : (1 - C a * X : ℂ[X]) ≠ 0 := by
+    rw [hf a ha]
+    exact mul_ne_zero (C_ne_zero.mpr (neg_ne_zero.mpr ha)) (X_sub_C_ne_zero _)
+  have hr : ((1 - C α * X) * (1 - C β * X) : ℂ[X]).roots = {α⁻¹, β⁻¹} := by
+    rw [roots_mul (mul_ne_zero (hn α hα) (hn β hβ)), hf α hα, hf β hβ,
+      roots_C_mul _ (neg_ne_zero.mpr hα), roots_C_mul _ (neg_ne_zero.mpr hβ), roots_X_sub_C,
+      roots_X_sub_C]
+    rfl
+  have hc : ((1 - C α * X) * (1 - C β * X) : ℂ[X]).coeff 0 = 1 := by
+    simp
+  rw [rootPowers, hr, hc]
+  simp
+
+lemma exists_eq_mul_of_quadratic (a b : ℂ) (hb : b ≠ 0) : ∃ α β : ℂ, α ≠ 0 ∧ β ≠ 0 ∧
+    (1 - C a * X + C b * X ^ 2 : ℂ[X]) = (1 - C α * X) * (1 - C β * X) := by
+  have he : (X ^ 2 - C a * X + C b : ℂ[X]) = X ^ 2 + (C (-a) * X + C b) := by
+    simp only [map_neg]
+    ring1
+  have hdeg : (X ^ 2 - C a * X + C b : ℂ[X]).degree ≠ 0 := by
+    rw [he, degree_add_eq_left_of_degree_lt]
+    · simp
+    · rw [degree_X_pow]
+      exact (degree_linear_le).trans_lt (by decide)
+  rcases IsAlgClosed.exists_root _ hdeg with ⟨α, hα⟩
+  have hα' : α ^ 2 - a * α + b = 0 := by
+    simpa using hα
+  have hb' : α * (a - α) = b := by
+    linear_combination -hα'
+  refine ⟨α, a - α, left_ne_zero_of_mul (hb' ▸ hb), right_ne_zero_of_mul (hb' ▸ hb), ?_⟩
+  rw [← hb', C_mul, C_sub]
+  ring1
+
 /-- **`h^{(2)}` of a quadratic Euler factor**: for `h = 1 - aT + bT² = (1 - αT)(1 - βT)` with
 `b ≠ 0`, `h^{(2)} = (1 - α²T)(1 - β²T) = 1 - (a² - 2b) T + b² T²`. -/
 lemma rootPowers_two_of_quadratic (a b : ℂ) (hb : b ≠ 0) :
     rootPowers 2 (1 - C a * X + C b * X ^ 2) = 1 - C (a ^ 2 - 2 * b) * X + C (b ^ 2) * X ^ 2 := by
-  have hh : (1 - C a * X + C b * X ^ 2 : ℂ[X]) = C b * X ^ 2 + C (-a) * X + C 1 := by
-    simp only [map_neg, map_one]
+  rcases exists_eq_mul_of_quadratic a b hb with ⟨α, β, hα, hβ, he⟩
+  have hm : ((1 - C α * X) * (1 - C β * X) : ℂ[X]) = 1 - C (α + β) * X + C (α * β) * X ^ 2 := by
+    simp only [map_add, map_mul]
     ring1
-  have hdeg : (C b * X ^ 2 + C (-a) * X + C 1 : ℂ[X]).natDegree = 2 := natDegree_quadratic hb
-  rcases Multiset.card_eq_two.mp (IsAlgClosed.card_roots_eq_natDegree.trans hdeg) with
-    ⟨ρ₁, ρ₂, hρ⟩
-  have h₀ : 1 = b * ρ₁ * ρ₂ := eq_mul_mul_of_roots_quadratic_eq_pair hρ
-  have h₁ : -a = -b * (ρ₁ + ρ₂) := eq_neg_mul_add_of_roots_quadratic_eq_pair hρ
-  have hρ₁ : ρ₁ ≠ 0 := fun h ↦ by simp [h] at h₀
-  have hρ₂ : ρ₂ ≠ 0 := fun h ↦ by simp [h] at h₀
-  have hb' : b = (ρ₁ * ρ₂)⁻¹ := eq_inv_of_mul_eq_one_left (by linear_combination -h₀)
-  have ha : a = b * (ρ₁ + ρ₂) := by linear_combination -h₁
-  have hs : (ρ₁ ^ 2)⁻¹ + (ρ₂ ^ 2)⁻¹ = a ^ 2 - 2 * b := by
-    rw [ha, hb']
-    field_simp
-    ring1
-  have hp : (ρ₁ ^ 2)⁻¹ * (ρ₂ ^ 2)⁻¹ = b ^ 2 := by
-    rw [hb']
-    field_simp
-  have hc : (C b * X ^ 2 + C (-a) * X + C 1 : ℂ[X]).coeff 0 = 1 := by
-    simp
-  rw [hh, rootPowers, hc, hρ, ← hs, ← hp]
-  simp only [Multiset.insert_eq_cons, Multiset.map_cons, Multiset.prod_cons,
-    Multiset.map_singleton, Multiset.prod_singleton, map_one, map_add, map_mul]
+  have ha : a = α + β := by
+    simpa only [coeff_add, coeff_sub, coeff_one, coeff_C_mul_X, coeff_C_mul_X_pow, one_ne_zero,
+      OfNat.one_ne_ofNat, ↓reduceIte, zero_sub, add_zero, neg_inj]
+      using congrArg (coeff · 1) (he.trans hm)
+  have hb' : b = α * β := by
+    simpa only [coeff_add, coeff_sub, coeff_one, coeff_C_mul_X, coeff_C_mul_X_pow,
+      OfNat.ofNat_ne_zero, OfNat.ofNat_ne_one, ↓reduceIte, sub_zero, zero_add]
+      using congrArg (coeff · 2) (he.trans hm)
+  rw [he, rootPowers_mul α β hα hβ, ha, hb']
+  simp only [map_sub, map_mul, map_pow, map_add, map_ofNat]
   ring1
 
 end Polynomial

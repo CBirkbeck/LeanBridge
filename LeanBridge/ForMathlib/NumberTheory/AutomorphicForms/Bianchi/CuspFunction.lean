@@ -130,45 +130,11 @@ lemma mem_bianchiSlashInvariants_iff (hk : Even k) {Γ : Subgroup (GL (Fin 2) K)
   ⟨fun hF γ hγ ↦ hF γ hγ _ (isSLRepresentative_slRepresentative γ), fun hF γ hγ _ hM ↦
     (bianchiGLSlash_eq hk hM).symm.trans (hF γ hγ)⟩
 
-lemma mul_apply_one_one_eq_one_of_apply_one_zero (hM : M 1 0 = 0) : M 0 0 * M 1 1 = 1 := by
-  have h : (M : Matrix (Fin 2) (Fin 2) ℂ).det = 1 := M.det_coe
-  rw [det_fin_two, hM] at h
-  simpa using h
-
-lemma inv_automorphyFactor_eq_of_apply_one_zero (hM : M 1 0 = 0) :
-    (automorphyFactor M p)⁻¹ = !![M 0 0, 0; 0, conj (M 0 0)] := by
-  rw [automorphyFactor_of_apply_one_zero M p hM]
-  refine inv_eq_left_inv ?_
-  ext i j
-  fin_cases i <;> fin_cases j <;>
-    simp [mul_apply_one_one_eq_one_of_apply_one_zero hM, ← map_mul]
-
-lemma moebius_eq_of_apply_one_zero (hM : M 1 0 = 0) :
-    moebius M p = (M 0 0 ^ 2 * p.1 + M 0 0 * M 0 1, ‖M 0 0‖ ^ 2 * p.2) := by
-  have h₁ : M 0 0 * M 1 1 = 1 := mul_apply_one_one_eq_one_of_apply_one_zero hM
-  have ha : M 0 0 ≠ 0 := left_ne_zero_of_mul_eq_one h₁
-  simp only [moebius, moebiusDenom, hM, zero_mul, zero_add, map_zero, mul_zero, add_zero,
-    eq_inv_of_mul_eq_one_right h₁]
-  ext
-  · simp only
-    rw [normSq_inv, map_inv₀]
-    field_simp
-    rw [one_div, ← inv_def, div_inv_eq_mul, mul_comm]
-  · simp only
-    rw [normSq_inv, normSq_eq_norm_sq]
-    field_simp
-
 lemma extend_bianchiSlash_of_apply_one_zero (hM : M 1 0 = 0) (hp : 0 < p.2) :
     extend (bianchiSlash k M F) p = symPowMatrix k !![M 0 0, 0; 0, conj (M 0 0)] *ᵥ
       extend F (M 0 0 ^ 2 * p.1 + M 0 0 * M 0 1, ‖M 0 0‖ ^ 2 * p.2) := by
   rw [extend_bianchiSlash_of_pos M hp, inv_automorphyFactor_eq_of_apply_one_zero hM,
     moebius_eq_of_apply_one_zero hM]
-
-variable (σ) in
-lemma coe_slRepresentative_heckeUpper : (slRepresentative σ (heckeUpper u b) : SL(2, ℂ)) =
-    !![(σ u ^ (2⁻¹ : ℂ))⁻¹, (σ u ^ (2⁻¹ : ℂ))⁻¹ * σ b; 0, (σ u ^ (2⁻¹ : ℂ))⁻¹ * σ u] := by
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [slRepresentative, heckeUpper, det_fin_two]
 
 variable (σ) in
 /-- **The slash operator of `(1, b; 0, u)`**: an affine change of variables `x ↦ τ(x + b)`,
@@ -216,11 +182,6 @@ structure IsBianchiCuspFunction : Prop where
       bianchiCuspSection σ k F g (l + x) y = bianchiCuspSection σ k F g x y) ∧
     ∀ (y : ℝ) (P : Set ℂ), 0 < y → IsAddFundamentalDomain (bianchiScaledLattice σ t) P volume →
       ∫ x in P, bianchiCuspSection σ k F g x y = 0
-
-lemma continuous_extend_mk (hF : ∀ z : HyperbolicThreeSpace, AnalyticAt ℝ (extend F) z.coords)
-    (hy : 0 < y) : Continuous fun x : ℂ ↦ extend F (x, y) :=
-  continuous_iff_continuousAt.mpr fun t ↦
-    (hF (.mk (WithLp.toLp 2 (t, y)) hy)).continuousAt.comp (f := fun x : ℂ ↦ (x, y)) (by fun_prop)
 
 lemma IsBianchiCuspFunction.continuous_bianchiCuspSection (hF : IsBianchiCuspFunction σ k F)
     (hy : 0 < y) : Continuous fun x ↦ bianchiCuspSection σ k F g x y :=

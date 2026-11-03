@@ -42,10 +42,6 @@ namespace SiegelUpperHalfSpace
 
 variable {k : ℤ} {j : ℕ}
 
-private lemma symConstCoeff_siegelEisensteinKJ (Z : SiegelUpperHalfSpace (Fin 2)) :
-    symConstCoeff 0 (siegelEisensteinKJ k Z) = siegelEisensteinSeries k Z := by
-  rw [siegelEisensteinKJ, map_smul, symConstCoeff_tprod_single, smul_eq_mul, mul_one]
-
 /-- **The Siegel Eisenstein series `ψ_k` is nonzero** for even `k > 3`: its constant term is `1`. -/
 lemma siegelEisensteinKJ_ne_zero (hk : 3 < k) (hk' : Even k) : siegelEisensteinKJ k ≠ 0 := by
   intro h

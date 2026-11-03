@@ -23,7 +23,6 @@ exponential decay of the `K`-Bessel functions bounds `y^k ⟨H, H⟩_k` in terms
 
 ## Main results
 
-* `Complex.norm_besselK_le_of_le`: the exponential decay of `K_ν`.
 * `Complex.exp_le_norm_besselK`: the lower bound of `K_r`, `r ≥ 1`.
 * `HyperbolicThreeSpace.summable_exp_neg_mul_norm`: the series `∑_{α ≠ 0} e^{-b|σ(α)|}` converges.
 * `HyperbolicThreeSpace.IsBianchiCuspFunction.hasBianchiWhittakerExpansion`: the Fourier–Bessel
@@ -40,31 +39,7 @@ open MeasureTheory Set Real
 
 namespace Complex
 
-variable (ν : ℂ) {x x₀ : ℝ}
-
-/-- **The exponential decay of `K_ν`**: for `0 < x₀ ≤ x`,
-`|K_ν(x)| ≤ e^{-(x - x₀)} · ½ ∫₀^∞ |t^(ν - 1) e^(-x₀(t + 1/t)/2)| dt`, as `t + 1/t ≥ 2`. -/
-lemma norm_besselK_le_of_le (hx₀ : 0 < x₀) (hx : x₀ ≤ x) :
-    ‖besselK ν x‖ ≤ rexp (-(x - x₀)) * (2⁻¹ * ∫ t in Ioi 0, ‖besselKIntegrand ν x₀ t‖) := by
-  have hint : Integrable (fun t ↦ ‖besselKIntegrand ν x₀ t‖) (volume.restrict (Ioi 0)) :=
-    (integrableOn_besselKIntegrand ν hx₀).norm
-  have h : ‖∫ t in Ioi 0, besselKIntegrand ν x t‖ ≤
-      ∫ t in Ioi 0, rexp (-(x - x₀)) * ‖besselKIntegrand ν x₀ t‖ := by
-    refine norm_integral_le_of_norm_le (hint.const_mul _) ?_
-    refine (ae_restrict_iff' measurableSet_Ioi).mpr (.of_forall fun t (ht : 0 < t) ↦ ?_)
-    rw [norm_besselKIntegrand ν ht, norm_besselKIntegrand ν ht, ← mul_assoc,
-      mul_comm (rexp _), mul_assoc, ← Real.exp_add]
-    refine mul_le_mul_of_nonneg_left (exp_le_exp.mpr ?_) (rpow_nonneg ht.le _)
-    have h2 : 2 ≤ t + t⁻¹ := by
-      have e : t + t⁻¹ - 2 = (t - 1) ^ 2 / t := by
-        field_simp
-        ring1
-      have hq : 0 ≤ (t - 1) ^ 2 / t := div_nonneg (sq_nonneg _) ht.le
-      linarith
-    nlinarith
-  rw [besselK, norm_mul, integral_const_mul] at *
-  simp only [norm_inv, RCLike.norm_ofNat] at *
-  nlinarith [norm_nonneg (∫ t in Ioi 0, besselKIntegrand ν x t), exp_pos (-(x - x₀))]
+variable {x : ℝ}
 
 /-- **The lower bound of `K_r`**: for `r ≥ 1` and `x > 0`, `|K_r(x)| ≥ e^{-5x/4} / 2`, by the
 integrand of `K_r(x)` on `[1, 2]`, where `t^{r-1} ≥ 1` and `t + 1/t ≤ 5/2`. -/
@@ -205,24 +180,6 @@ lemma extend_add_eq_of_glSlash_glUpper_eq (hper : ∀ a : 𝓞 K, glSlash σ k (
   rw [hper] at h
   rw [one_mul, add_comm (σ a) w]
   exact h.symm
-
-lemma norm_bianchiFourierCoeff_le_of_forall {P : Set ℂ} (hPb : Bornology.IsBounded P) {y A : ℝ}
-    (hA : ∀ w : ℂ, ‖extend H (w, y)‖ ≤ A) : ‖bianchiFourierCoeff P μ H y‖ ≤ A := by
-  have hA₀ : 0 ≤ A := (norm_nonneg _).trans (hA 0)
-  have hI : ‖∫ w in P, cexp (-(2 * π * I * (μ * w + conj (μ * w)))) • extend H (w, y)‖ ≤
-      A * volume.real P :=
-    norm_setIntegral_le_of_norm_le_const hPb.measure_lt_top fun w _ ↦ by
-      have hre : (-(2 * π * I * (μ * w + conj (μ * w)))).re = 0 := by
-        rw [add_conj]
-        simp
-      rw [norm_smul, Complex.norm_exp, hre, Real.exp_zero, one_mul]
-      exact hA w
-  rw [bianchiFourierCoeff, norm_smul, norm_inv, norm_real, Real.norm_of_nonneg measureReal_nonneg]
-  rcases measureReal_nonneg.eq_or_lt with h₀ | h₀
-  · rw [← h₀]
-    simpa using hA₀
-  · rw [inv_mul_le_iff₀ h₀]
-    linarith
 
 lemma bianchiNormSq_le_of_even (hk : Even k) (z : HyperbolicThreeSpace) :
     bianchiNormSq H z ≤ 2 ^ k * (z.height ^ (k / 2) * ‖H z‖) ^ 2 := by
@@ -476,19 +433,8 @@ lemma IsBianchiCuspFunction.hasBianchiWhittakerExpansion (hK : finrank ℚ K = 2
         z.coords.2 = 0 := by
       simp [bianchiFourierCoeff, hH.setIntegral_extend_eq_zero hK hper (coords_snd_pos z) hP]
     simp only [m, bianchiFourierMode, h₁, smul_zero]
-  let S : Set ℂ := {ν | ∀ l ∈ Submodule.span ℤ (range (integralLatticeBasis σ hK hx)),
-    cexp (2 * π * I * (ν * l + conj (ν * l))) = 1}
-  let T : Set ℂ := {ν | ν ≠ 0 ∧ ν ∈ S}
-  have hind : T.indicator m = S.indicator m := by
-    funext ν
-    by_cases hS : ν ∈ S
-    · by_cases hν : ν = 0
-      · rw [Set.indicator_of_notMem (fun h : ν ∈ T ↦ h.1 hν), Set.indicator_of_mem hS, hν, h₀]
-      · rw [Set.indicator_of_mem (⟨hν, hS⟩ : ν ∈ T), Set.indicator_of_mem hS]
-    · rw [Set.indicator_of_notMem (fun h : ν ∈ T ↦ hS h.2), Set.indicator_of_notMem hS]
-  have hS : HasSum (m ∘ ((↑) : S → ℂ)) (H z) :=
-    hF.hasSum_bianchiFourierMode hK hx z exists_mem_glUnipotents
-  exact hasSum_subtype_iff_indicator.mpr (hind ▸ hasSum_subtype_iff_indicator.mp hS)
+  exact hasSum_subtype_ne_zero (m := m) h₀
+    (hF.hasSum_bianchiFourierMode hK hx z exists_mem_glUnipotents)
 
 lemma IsBianchiCuspFunction.norm_bianchiFourierCoeff_apply_zero (hK : finrank ℚ K = 2)
     (hx : (σ x).im ≠ 0) (hk' : Even k) (hk : k ≠ 0) (hδ : δ ^ 2 = discr K)

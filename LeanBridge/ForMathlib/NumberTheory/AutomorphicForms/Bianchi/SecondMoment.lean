@@ -77,15 +77,8 @@ lemma setIntegral_bianchiCharacter_eq_zero (hP : IsAddFundamentalDomain Λ P) {�
       rw [e₁, map_inv₀, map_ofNat]
       ring1
     rw [bianchiCharacter, e₂, Complex.exp_pi_mul_I]
-  have h₁ : ∫ s in P, bianchiCharacter θ ((4 * θ)⁻¹ + s) = ∫ s in P, bianchiCharacter θ s := by
-    have hx : (fun s ↦ (4 * θ)⁻¹ + s) '' P = (4 * θ)⁻¹ +ᵥ P :=
-      rfl
-    rw [← (measurePreserving_add_left volume (4 * θ)⁻¹).setIntegral_image_emb
-      (MeasurableEquiv.addLeft (4 * θ)⁻¹).measurableEmbedding (bianchiCharacter θ) P, hx]
-    refine (hP.vadd_of_comm _).setIntegral_eq hP fun l s ↦ ?_
-    have e : l +ᵥ s = (l : ℂ) + s :=
-      rfl
-    rw [e, bianchiCharacter_add, hdual l l.2, one_mul]
+  have h₁ : ∫ s in P, bianchiCharacter θ ((4 * θ)⁻¹ + s) = ∫ s in P, bianchiCharacter θ s :=
+    setIntegral_add_left_eq Λ hP (fun l hl s ↦ by rw [bianchiCharacter_add, hdual l hl, one_mul]) _
   simp only [bianchiCharacter_add, ht, neg_mul, one_mul] at h₁
   rw [integral_neg] at h₁
   linear_combination (-1 / 2 : ℂ) * h₁

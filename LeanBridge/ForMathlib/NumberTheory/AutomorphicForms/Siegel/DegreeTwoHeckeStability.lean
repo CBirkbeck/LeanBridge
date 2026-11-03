@@ -37,7 +37,7 @@ private lemma eq_zero_of_mem_siegelEisensteinSubspaceKJ_of_odd (hk : 4 < k) (hk'
     (hH : H ∈ siegelEisensteinSubspaceKJ k j) : H = 0 := by
   have h₁ : H ∈ cuspFormsKJ k j (integral (Fin 2)) := by
     rw [← modularFormsKJ_eq_cuspFormsKJ_of_odd hk']
-    exact siegelEisensteinSubspaceKJ_le_modularFormsKJ k j hk hH
+    exact siegelEisensteinSubspaceKJ_le_modularFormsKJ k j (by linarith) hH
   exact Submodule.disjoint_def.mp (disjoint_sup_siegelEisensteinSubspaceKJ k j hk) H
     (Submodule.mem_sup_left h₁) hH
 

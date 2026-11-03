@@ -51,6 +51,8 @@ prime `𝔭 ∤ 𝔑`, in every weight, the statement of LMFDB `mf.bianchi.newfo
 * `HyperbolicThreeSpace.HasBianchiWhittakerExpansion.mul_coeff_eq_of_bianchiHeckeTPrime`: the Hecke
   relation for an eigenform of `T_𝔭`.
 * `HyperbolicThreeSpace.IsBianchiSlashInvariant.eq_zero_of_odd`: forms of odd weight vanish.
+* `HyperbolicThreeSpace.norm_sq_apply_eq_abs_norm`: `|σ(x)|² = |N(x)|` for an imaginary quadratic
+  field.
 * `HyperbolicThreeSpace.BianchiNewformOfWeight.even`: newforms have even weight.
 * `HyperbolicThreeSpace.BianchiNewformOfWeight.eigenvalue_mul_coeff_eq`: the Hecke recursion
   `a_𝔭 c(α) = c(ϖα) + N(𝔭)^{k/2} c(α / ϖ)` of a newform.
@@ -69,14 +71,14 @@ namespace HyperbolicThreeSpace
 variable {K : Type*} [Field K] {σ : K →+* ℂ} {ϖ : Kˣ} {k : ℕ} {w : ℂ} {c : 𝓞 K → ℂ} {p α : 𝓞 K}
   {Γ : Subgroup (GL (Fin 2) (𝓞 K))} {F : HyperbolicThreeSpace → Fin (k + 1) → ℂ}
 
-variable (b : K) in
-private lemma slRepresentative_heckeUpper :
-    (slRepresentative σ (heckeUpper ϖ b) : Matrix (Fin 2) (Fin 2) ℂ) =
-      !![(σ ϖ ^ (2⁻¹ : ℂ))⁻¹, (σ ϖ ^ (2⁻¹ : ℂ))⁻¹ * σ b; 0, (σ ϖ ^ (2⁻¹ : ℂ))⁻¹ * σ ϖ] := by
+variable (σ ϖ) in
+lemma coe_slRepresentative_heckeUpper (b : K) : (slRepresentative σ (heckeUpper ϖ b) : SL(2, ℂ)) =
+    !![(σ ϖ ^ (2⁻¹ : ℂ))⁻¹, (σ ϖ ^ (2⁻¹ : ℂ))⁻¹ * σ b; 0, (σ ϖ ^ (2⁻¹ : ℂ))⁻¹ * σ ϖ] := by
   ext i j
   fin_cases i <;> fin_cases j <;> simp [slRepresentative, heckeUpper, det_fin_two]
 
-private lemma slRepresentative_heckeLower :
+variable (ϖ) in
+lemma coe_slRepresentative_heckeLower :
     (slRepresentative σ (heckeLower ϖ) : Matrix (Fin 2) (Fin 2) ℂ) =
       !![(σ ϖ ^ (2⁻¹ : ℂ))⁻¹ * σ ϖ, 0; 0, (σ ϖ ^ (2⁻¹ : ℂ))⁻¹] := by
   ext i j
@@ -88,16 +90,25 @@ private lemma norm_inv_pow_eq (hk : Even k) :
   rw [norm_inv, inv_pow, (by omega : n + n + 2 = 2 * (n + 1)), (by omega : (n + n) / 2 = n),
     pow_mul, ← norm_pow (w ^ (2⁻¹ : ℂ)), cpow_ofNat_inv_pow]
 
-private lemma norm_inv_mul_pow_eq (hk : Even k) (hw : w ≠ 0) :
+lemma norm_inv_cpow_mul_pow_eq (hk : Even k) (hw : w ≠ 0) :
     ‖(w ^ (2⁻¹ : ℂ))⁻¹ * w‖ ^ (k + 2) = ‖w‖ ^ (k / 2 + 1) := by
-  have hs : (w ^ (2⁻¹ : ℂ)) ^ 2 = w := cpow_ofNat_inv_pow w 2
-  have e : (w ^ (2⁻¹ : ℂ))⁻¹ * w = w ^ (2⁻¹ : ℂ) := by
-    rw [inv_mul_eq_iff_eq_mul₀ fun h ↦ hw (by rw [← hs, h, zero_pow two_ne_zero]), ← sq, hs]
-  rcases hk with ⟨n, rfl⟩
-  rw [e, (by omega : n + n + 2 = 2 * (n + 1)), (by omega : (n + n) / 2 = n), pow_mul,
-    ← norm_pow, hs]
+  have hs : (w ^ (2⁻¹ : ℂ)) ^ 2 = w := cpow_ofNat_inv_pow _ 2
+  have e : ‖(w ^ (2⁻¹ : ℂ))⁻¹ * w‖ ^ 2 = ‖w‖ := by
+    rw [← norm_pow, mul_pow, inv_pow, hs, sq w, inv_mul_cancel_left₀ hw]
+  rcases hk with ⟨m, rfl⟩
+  rw [(by omega : m + m + 2 = 2 * (m + 1)), (by omega : (m + m) / 2 = m), pow_mul, e]
 
-private lemma hasSum_extend_mul_smul {V : Type*} [AddCommMonoid V] [TopologicalSpace V] [Module ℂ V]
+lemma sq_rpow_mul_sq_mul_inv_pow_eq_one (hk : Even k) {t : ℝ} (ht : 0 < t) :
+    (t ^ 2) ^ (((k : ℝ) - 2) / 4) * t ^ 2 * (t ^ (k / 2 + 1))⁻¹ = 1 := by
+  have e : ((2 : ℕ) : ℝ) * (((k : ℝ) - 2) / 4) + ((2 : ℕ) : ℝ) + -((k / 2 + 1 : ℕ) : ℝ) = 0 := by
+    rcases hk with ⟨m, rfl⟩
+    rw [(by omega : (m + m) / 2 = m)]
+    push_cast
+    ring1
+  rw [← Real.rpow_natCast _ 2, ← Real.rpow_mul ht.le, ← Real.rpow_natCast _ (k / 2 + 1),
+    ← Real.rpow_neg ht.le, ← Real.rpow_add ht, ← Real.rpow_add ht, e, Real.rpow_zero]
+
+lemma hasSum_extend_mul_smul {V : Type*} [AddCommMonoid V] [TopologicalSpace V] [Module ℂ V]
     {q : 𝓞 K} (hq : q ≠ 0) (a : ℂ) (G : 𝓞 K → V) {v : V}
     (h : HasSum (fun α : {α : 𝓞 K // α ≠ 0} ↦ (a * c α) • G (q * α)) v) :
     HasSum (fun β : {β : 𝓞 K // β ≠ 0} ↦ (a * Function.extend (q * ·) c 0 β) • G β) v := by
@@ -108,16 +119,6 @@ private lemma hasSum_extend_mul_smul {V : Type*} [AddCommMonoid V] [TopologicalS
   · rw [Function.extend_apply' _ _ _ fun ⟨α, hα⟩ ↦ hβ ⟨⟨α, fun h₀ ↦ β.2 (by rw [← hα, h₀,
       mul_zero])⟩, Subtype.ext hα⟩, Pi.zero_apply, mul_zero, zero_smul]
   · rw [Function.comp_apply, (mul_right_injective₀ hq).extend_apply]
-
-private lemma extend_mul_mul_apply (hp : p ≠ 0) :
-    Function.extend (p * p * ·) c 0 (p * α) = Function.extend (p * ·) c 0 α := by
-  by_cases h : ∃ α', p * α' = α
-  · rcases h with ⟨α', rfl⟩
-    rw [← mul_assoc, (mul_right_injective₀ (mul_ne_zero hp hp)).extend_apply,
-      (mul_right_injective₀ hp).extend_apply]
-  · have h' : ¬∃ α', p * p * α' = p * α := fun ⟨α', hα'⟩ ↦
-      h ⟨α', mul_left_cancel₀ hp (by rw [← mul_assoc, hα'])⟩
-    simp only [Function.extend_apply' _ _ _ h, Function.extend_apply' _ _ _ h', Pi.zero_apply]
 
 /-- **Bianchi modular forms of odd weight vanish** (LMFDB `mf.bianchi.weight`): the matrix
 `-1 ∈ SL(2, ℂ)` represents `1 ∈ Γ` and acts on `ℂ^{k+1}` by `(-1)^k`, so a function invariant under
@@ -130,6 +131,37 @@ lemma IsBianchiSlashInvariant.eq_zero_of_odd (hF : IsBianchiSlashInvariant σ Γ
   exact h.resolve_left two_ne_zero
 
 variable [NumberField K] {δ : ℂ} {x : K} {ι : Type*} [Fintype ι] {a : ℂ}
+
+lemma HasBianchiWhittakerExpansion.hasSum_bianchiSlash_heckeLower (hk : Even k)
+    (hδ : ‖δ‖ = √|(discr K : ℝ)|) (hc : HasBianchiWhittakerExpansion σ δ k (extend F) c)
+    (hϖ : algebraMap (𝓞 K) K p = ϖ) (z : HyperbolicThreeSpace) :
+    HasSum (fun γ : {γ : 𝓞 K // γ ≠ 0} ↦ (((‖σ ϖ‖ ^ (k / 2 + 1) : ℝ) : ℂ) *
+      Function.extend (p * ·) c 0 γ) • bianchiWhittakerFunction (σ γ.1 / δ) k z)
+        (bianchiSlash k (slRepresentative σ (heckeLower ϖ)) F z) := by
+  have hp : p ≠ 0 := by
+    rintro rfl
+    exact ϖ.ne_zero (by rw [← hϖ, map_zero])
+  have hσp : σ (p : K) = σ ϖ := congrArg σ hϖ
+  have hs : (σ ϖ ^ (2⁻¹ : ℂ)) ^ 2 = σ ϖ := cpow_ofNat_inv_pow _ 2
+  have hg : (slRepresentative σ (heckeLower ϖ) : Matrix (Fin 2) (Fin 2) ℂ) 1 0 = 0 := by
+    rw [coe_slRepresentative_heckeLower]
+    rfl
+  have h₀₀ : (slRepresentative σ (heckeLower ϖ) : Matrix (Fin 2) (Fin 2) ℂ) 0 0 =
+      (σ ϖ ^ (2⁻¹ : ℂ))⁻¹ * σ ϖ := by
+    rw [coe_slRepresentative_heckeLower]
+    rfl
+  have h₀₁ : (slRepresentative σ (heckeLower ϖ) : Matrix (Fin 2) (Fin 2) ℂ) 0 1 = 0 := by
+    rw [coe_slRepresentative_heckeLower]
+    rfl
+  refine hasSum_extend_mul_smul hp _ (fun γ ↦ bianchiWhittakerFunction (σ γ / δ) k z)
+    ((hc.hasSum_bianchiSlash hk hδ hg z).congr_fun fun γ ↦ ?_)
+  have e : σ (γ.1 : K) / δ * ((σ ϖ ^ (2⁻¹ : ℂ))⁻¹ * σ ϖ) ^ 2 = σ ((p * γ.1 : 𝓞 K) : K) / δ := by
+    rw [mul_pow, inv_pow, hs]
+    push_cast
+    rw [map_mul, hσp]
+    field_simp
+  simp only [h₀₀, h₀₁, mul_zero, map_zero, add_zero, exp_zero, mul_one]
+  rw [norm_inv_cpow_mul_pow_eq hk ((map_ne_zero σ).mpr ϖ.ne_zero), e, mul_comm]
 
 /-- **The Hecke relation for Fourier–Bessel coefficients** (LMFDB `mf.bianchi.newform`): for a
 quadratic field `K` embedded in `ℂ` by `σ` with `σ(K) ⊄ ℝ`, `δ² = Δ`, even `k`, `F` with the
@@ -151,23 +183,26 @@ lemma HasBianchiWhittakerExpansion.mul_coeff_eq_of_sum_bianchiSlash_eq (hK : fin
     rintro rfl
     exact ϖ.ne_zero (by rw [← hϖ, map_zero])
   have hσp : σ (p : K) = σ ϖ := congrArg σ hϖ
-  have hσϖ : σ (ϖ : K) ≠ 0 := (map_ne_zero σ).mpr ϖ.ne_zero
   have hs : (σ ϖ ^ (2⁻¹ : ℂ)) ^ 2 = σ ϖ := cpow_ofNat_inv_pow _ 2
+  have he (γ : 𝓞 K) : σ ((p * γ : 𝓞 K) : K) / (δ * σ p) = σ γ / δ := by
+    push_cast
+    rw [map_mul, hσp]
+    field_simp
   have hU (b : 𝓞 K) (z : HyperbolicThreeSpace) : HasSum (fun γ : {γ : 𝓞 K // γ ≠ 0} ↦
       (c γ * ((((‖σ ϖ‖ ^ (k / 2 + 1))⁻¹ : ℝ) : ℂ) *
         cexp (2 * π * I * (σ γ.1 / δ * (σ b / σ ϖ) + conj (σ γ.1 / δ * (σ b / σ ϖ)))))) •
           bianchiWhittakerFunction (σ γ.1 / (δ * σ p)) k z)
       (bianchiSlash k (slRepresentative σ (heckeUpper ϖ b)) F z) := by
     have hg : (slRepresentative σ (heckeUpper ϖ b) : Matrix (Fin 2) (Fin 2) ℂ) 1 0 = 0 := by
-      rw [slRepresentative_heckeUpper]
+      rw [coe_slRepresentative_heckeUpper]
       rfl
     have h₀₀ : (slRepresentative σ (heckeUpper ϖ b) : Matrix (Fin 2) (Fin 2) ℂ) 0 0 =
         (σ ϖ ^ (2⁻¹ : ℂ))⁻¹ := by
-      rw [slRepresentative_heckeUpper]
+      rw [coe_slRepresentative_heckeUpper]
       rfl
     have h₀₁ : (slRepresentative σ (heckeUpper ϖ b) : Matrix (Fin 2) (Fin 2) ℂ) 0 1 =
         (σ ϖ ^ (2⁻¹ : ℂ))⁻¹ * σ b := by
-      rw [slRepresentative_heckeUpper]
+      rw [coe_slRepresentative_heckeUpper]
       rfl
     have e₁ : (σ ϖ ^ (2⁻¹ : ℂ))⁻¹ * ((σ ϖ ^ (2⁻¹ : ℂ))⁻¹ * σ b) = σ b / σ ϖ := by
       rw [← mul_assoc, ← mul_inv, ← sq, hs, inv_mul_eq_div]
@@ -176,30 +211,13 @@ lemma HasBianchiWhittakerExpansion.mul_coeff_eq_of_sum_bianchiSlash_eq (hK : fin
       rw [inv_pow, hs, hσp, ← div_eq_mul_inv, div_div]
     rw [h₀₀, h₀₁, e₁, e₂, norm_inv_pow_eq hk]
   have hL (z : HyperbolicThreeSpace) : HasSum (fun γ : {γ : 𝓞 K // γ ≠ 0} ↦
-      (((‖σ ϖ‖ ^ (k / 2 + 1) : ℝ) : ℂ) * Function.extend (p * p * ·) c 0 γ) •
-        bianchiWhittakerFunction (σ γ.1 / (δ * σ p)) k z)
+      (((‖σ ϖ‖ ^ (k / 2 + 1) : ℝ) : ℂ) *
+        Function.extend (p * ·) (Function.extend (p * ·) c 0) 0 γ) •
+          bianchiWhittakerFunction (σ γ.1 / (δ * σ p)) k z)
       (bianchiSlash k (slRepresentative σ (heckeLower ϖ)) F z) := by
-    have hg : (slRepresentative σ (heckeLower ϖ) : Matrix (Fin 2) (Fin 2) ℂ) 1 0 = 0 := by
-      rw [slRepresentative_heckeLower]
-      rfl
-    have h₀₀ : (slRepresentative σ (heckeLower ϖ) : Matrix (Fin 2) (Fin 2) ℂ) 0 0 =
-        (σ ϖ ^ (2⁻¹ : ℂ))⁻¹ * σ ϖ := by
-      rw [slRepresentative_heckeLower]
-      rfl
-    have h₀₁ : (slRepresentative σ (heckeLower ϖ) : Matrix (Fin 2) (Fin 2) ℂ) 0 1 = 0 := by
-      rw [slRepresentative_heckeLower]
-      rfl
-    refine hasSum_extend_mul_smul (mul_ne_zero hp hp) _
-      (fun γ ↦ bianchiWhittakerFunction (σ γ / (δ * σ p)) k z)
-        ((hc.hasSum_bianchiSlash hk hδ' hg z).congr_fun fun γ ↦ ?_)
-    have e : σ (γ.1 : K) / δ * ((σ ϖ ^ (2⁻¹ : ℂ))⁻¹ * σ ϖ) ^ 2 =
-        σ ((p * p * γ.1 : 𝓞 K) : K) / (δ * σ p) := by
-      rw [mul_pow, inv_pow, hs]
-      push_cast
-      rw [map_mul, map_mul, hσp]
-      field_simp
-    simp only [h₀₀, h₀₁, mul_zero, map_zero, add_zero, exp_zero, mul_one]
-    rw [norm_inv_mul_pow_eq hk hσϖ, e, mul_comm]
+    refine hasSum_extend_mul_smul hp _ (fun γ ↦ bianchiWhittakerFunction (σ γ / (δ * σ p)) k z)
+      ((hc.hasSum_bianchiSlash_heckeLower hk hδ' hϖ z).congr_fun fun γ ↦ ?_)
+    simp only [he]
   have hE (z : HyperbolicThreeSpace) : HasSum (fun γ : {γ : 𝓞 K // γ ≠ 0} ↦
       (a * Function.extend (p * ·) c 0 γ) • bianchiWhittakerFunction (σ γ.1 / (δ * σ p)) k z)
       (a • F z) := by
@@ -208,15 +226,11 @@ lemma HasBianchiWhittakerExpansion.mul_coeff_eq_of_sum_bianchiSlash_eq (hK : fin
       simpa only [extend_coords] using (hc z.coords (coords_snd_pos z)).const_smul a
     refine hasSum_extend_mul_smul hp a (fun γ ↦ bianchiWhittakerFunction (σ γ / (δ * σ p)) k z)
       (h.congr_fun fun γ ↦ ?_)
-    have e : σ ((p * γ.1 : 𝓞 K) : K) / (δ * σ p) = σ γ.1 / δ := by
-      push_cast
-      rw [map_mul, hσp]
-      field_simp
-    simp only [e]
+    simp only [he]
     rw [bianchiWhittakerTerm_coords k σ δ c γ hδ', smul_smul]
   let d : 𝓞 K → ℂ := fun γ ↦ (∑ i, c γ * ((((‖σ ϖ‖ ^ (k / 2 + 1))⁻¹ : ℝ) : ℂ) *
     cexp (2 * π * I * (σ γ / δ * (σ (β i) / σ ϖ) + conj (σ γ / δ * (σ (β i) / σ ϖ)))))) +
-      ((‖σ ϖ‖ ^ (k / 2 + 1) : ℝ) : ℂ) * Function.extend (p * p * ·) c 0 γ -
+      ((‖σ ϖ‖ ^ (k / 2 + 1) : ℝ) : ℂ) * Function.extend (p * ·) (Function.extend (p * ·) c 0) 0 γ -
         a * Function.extend (p * ·) c 0 γ
   have hsum (z : HyperbolicThreeSpace) : HasSum (fun γ : {γ : 𝓞 K // γ ≠ 0} ↦
       d γ • bianchiWhittakerFunction (σ γ.1 / (δ * σ p)) k z) 0 := by
@@ -233,9 +247,9 @@ lemma HasBianchiWhittakerExpansion.mul_coeff_eq_of_sum_bianchiSlash_eq (hK : fin
       push_cast
       rw [map_mul, map_mul, hσp]
       field_simp
-    rcases exists_intCast_eq_of_sq_eq_discr σ hK hx hδ (α * b) with ⟨n, hn⟩
-    rw [e, hn, mul_comm, exp_int_mul_two_pi_mul_I]
-  simp only [d, hψ, Finset.sum_const, Finset.card_univ, extend_mul_mul_apply hp,
+    rw [e]
+    exact cexp_two_pi_mul_eq_one hK hx hδ (α * b)
+  simp only [d, hψ, Finset.sum_const, Finset.card_univ,
     (mul_right_injective₀ hp).extend_apply] at h₀
   linear_combination -h₀
 
@@ -255,13 +269,7 @@ lemma HasBianchiWhittakerExpansion.mul_coeff_one_eq_of_sum_bianchiSlash_eq (hK :
 
 variable [IsTotallyComplex K] {𝔑 : Ideal (𝓞 K)}
 
-section
-
-variable {𝔭 : Ideal (𝓞 K)}
-
-private lemma absNorm_eq_norm_sq (hK : finrank ℚ K = 2)
-    (hϖ𝔭 : FractionalIdeal.spanSingleton (𝓞 K)⁰ (ϖ : K) = (𝔭 : FractionalIdeal (𝓞 K)⁰ K)) :
-    (Ideal.absNorm 𝔭 : ℝ) = ‖σ ϖ‖ ^ 2 := by
+lemma subsingleton_infinitePlace (hK : finrank ℚ K = 2) : Subsingleton (InfinitePlace K) := by
   have hcard : Fintype.card (InfinitePlace K) = 1 := by
     have h : InfinitePlace.nrRealPlaces K + 2 * InfinitePlace.nrComplexPlaces K = finrank ℚ K :=
       InfinitePlace.card_add_two_mul_card_eq_rank K
@@ -269,14 +277,29 @@ private lemma absNorm_eq_norm_sq (hK : finrank ℚ K = 2)
     rw [InfinitePlace.card_eq_nrRealPlaces_add_nrComplexPlaces,
       nrRealPlaces_eq_zero_iff.mpr inferInstance]
     omega
-  have : Subsingleton (InfinitePlace K) := Fintype.card_le_one_iff_subsingleton.mp hcard.le
-  have h' : |Algebra.norm ℚ (ϖ : K)| = Ideal.absNorm 𝔭 := by
-    rw [← FractionalIdeal.absNorm_span_singleton (𝓞 K), hϖ𝔭, FractionalIdeal.coeIdeal_absNorm]
-  have h₁ : ((Ideal.absNorm 𝔭 : ℚ) : ℝ) = ∏ w : InfinitePlace K, w ϖ ^ w.mult := by
-    rw [InfinitePlace.prod_eq_abs_norm, ← h', Rat.cast_abs]
+  exact Fintype.card_le_one_iff_subsingleton.mp hcard.le
+
+variable (x) in
+/-- **The absolute value and the norm**: for an imaginary quadratic field `K` embedded in `ℂ` by
+`σ`, `|σ(x)|² = |N(x)|` for `x ∈ K`. -/
+lemma norm_sq_apply_eq_abs_norm (hK : finrank ℚ K = 2) :
+    ‖σ x‖ ^ 2 = ((|Algebra.norm ℚ x| : ℚ) : ℝ) := by
+  have : Subsingleton (InfinitePlace K) := subsingleton_infinitePlace hK
+  have h₁ : ∏ w : InfinitePlace K, w x ^ w.mult = ((|Algebra.norm ℚ x| : ℚ) : ℝ) :=
+    InfinitePlace.prod_eq_abs_norm x
   rw [Fintype.prod_eq_single (InfinitePlace.mk σ) fun w hw ↦ absurd (Subsingleton.elim w _) hw,
-    IsTotallyComplex.mult_eq, InfinitePlace.apply, Rat.cast_natCast] at h₁
+    IsTotallyComplex.mult_eq, InfinitePlace.apply] at h₁
   exact h₁
+
+variable (σ) in
+lemma sq_norm_apply_eq_absNorm (hK : finrank ℚ K = 2) (a : 𝓞 K) :
+    ‖σ (a : K)‖ ^ 2 = Ideal.absNorm (Ideal.span {a}) := by
+  rw [norm_sq_apply_eq_abs_norm _ hK, ← Algebra.coe_norm_int, Ideal.absNorm_span_singleton]
+  simp
+
+section
+
+variable {𝔭 : Ideal (𝓞 K)}
 
 variable (σ) [IsPrincipalIdealRing (𝓞 K)] [NeZero 𝔑]
 
@@ -357,8 +380,9 @@ lemma BianchiNewformOfWeight.eigenvalue_mul_coeff_eq (hK : finrank ℚ K = 2) (h
     Nat.finite_of_card_ne_zero (hcard ▸ hN₀)
   let _ : Fintype (HeckeTranslations (bianchiIdealGenerator 𝔭.1 𝔭.2.2) 1) :=
     Fintype.ofFinite _
-  have hN : (Ideal.absNorm 𝔭.1 : ℝ) = ‖σ (bianchiIdealGenerator 𝔭.1 𝔭.2.2)‖ ^ 2 :=
-    absNorm_eq_norm_sq hK (spanSingleton_bianchiIdealGenerator 𝔭.1 𝔭.2.2)
+  have hN : (Ideal.absNorm 𝔭.1 : ℝ) = ‖σ (bianchiIdealGenerator 𝔭.1 𝔭.2.2)‖ ^ 2 := by
+    rw [bianchiIdealGenerator, Units.val_mk0, ← RingOfIntegers.coe_eq_algebraMap,
+      sq_norm_apply_eq_absNorm σ hK, Ideal.span_singleton_generator]
   have ht : 0 < ‖σ (bianchiIdealGenerator 𝔭.1 𝔭.2.2)‖ :=
     norm_pos_iff.mpr ((map_ne_zero σ).mpr (bianchiIdealGenerator 𝔭.1 𝔭.2.2).ne_zero)
   have hN' : (((Ideal.absNorm 𝔭.1 : ℝ) ^ (((k : ℝ) - 2) / 4) : ℝ) : ℂ) ≠ 0 :=
@@ -381,13 +405,8 @@ lemma BianchiNewformOfWeight.eigenvalue_mul_coeff_eq (hK : finrank ℚ K = 2) (h
   have hfac₁ : (Ideal.absNorm 𝔭.1 : ℝ) ^ ((((n + n : ℕ) : ℝ) - 2) / 4) *
       (Ideal.absNorm 𝔭.1 : ℝ) * (‖σ (bianchiIdealGenerator 𝔭.1 𝔭.2.2)‖ ^ ((n + n) / 2 + 1))⁻¹ =
         1 := by
-    have e : ((2 : ℕ) : ℝ) * ((((n + n : ℕ) : ℝ) - 2) / 4) + ((2 : ℕ) : ℝ) +
-        -((n + 1 : ℕ) : ℝ) = 0 := by
-      push_cast
-      ring1
-    rw [hN, (by omega : (n + n) / 2 + 1 = n + 1), ← Real.rpow_natCast _ 2,
-      ← Real.rpow_mul ht.le, ← Real.rpow_natCast _ (n + 1), ← Real.rpow_neg ht.le,
-      ← Real.rpow_add ht, ← Real.rpow_add ht, e, Real.rpow_zero]
+    rw [hN]
+    exact sq_rpow_mul_sq_mul_inv_pow_eq_one ⟨n, rfl⟩ ht
   have hfac₂ : (Ideal.absNorm 𝔭.1 : ℝ) ^ ((((n + n : ℕ) : ℝ) - 2) / 4) *
       ‖σ (bianchiIdealGenerator 𝔭.1 𝔭.2.2)‖ ^ ((n + n) / 2 + 1) =
         (Ideal.absNorm 𝔭.1 : ℝ) ^ ((n + n) / 2) := by
