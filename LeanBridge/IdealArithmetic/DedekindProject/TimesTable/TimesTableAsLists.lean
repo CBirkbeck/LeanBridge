@@ -181,7 +181,7 @@ lemma table_sum_smul {S : Type*} {m : ℕ} [NonUnitalNonAssocSemiring S] [Module
     ext k
     rw [hc]
     simp only [Nat.succ_eq_add_one, Finsupp.coe_equivFunOnFinite_symm, Finset.sum_apply]
-    exact Eq.symm (Finsupp.finset_sum_apply Finset.univ
+    exact Eq.symm (Finsupp.finsetSum_apply Finset.univ
       (fun i ↦ c i • Finsupp.equivFunOnFinite.symm (a i)) k)
     exact LinearEquiv.injective B.repr
 

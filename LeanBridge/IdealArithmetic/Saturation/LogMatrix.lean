@@ -230,7 +230,7 @@ lemma exponent_vec_eq_zero_of_full_rank_matrix {S ι τ : Type*} {p : ℕ} [Fact
     by_contra hc
     rw [LinearIndependent.rank_matrix ?_] at hle
     contradiction
-    rw [linearIndependent_fin_succ]
+    rw [linearIndependent_finSucc]
     simp only [Nat.reduceAdd, Fin.tail_def, linearIndependent_empty_type, range_empty,
       Submodule.span_empty, Fin.isValue, Submodule.mem_bot, true_and]
     obtain ⟨j, hj⟩ := Function.ne_iff.mp hc

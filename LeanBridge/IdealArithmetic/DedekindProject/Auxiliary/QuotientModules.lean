@@ -253,7 +253,7 @@ lemma Submodule.prime_dvd_index [Module.Free R M]
     (B : Basis ι R M) (b : Basis ι R N) (hdvd : π ∣ Submodule.indexPID N) :
       ∃ m : M, m ∉ N ∧ π • m ∈ N := by
   rw [Associated.dvd_iff_dvd_right (prod_moduleSmithCoeffs_associated_index N B b),
-    Prime.dvd_finset_prod_iff hp] at hdvd
+    Prime.dvd_finsetProd_iff hp] at hdvd
   obtain ⟨i, _, ⟨t , ht⟩⟩  := hdvd
   use (t • smithBasisModule N B b i)
   constructor

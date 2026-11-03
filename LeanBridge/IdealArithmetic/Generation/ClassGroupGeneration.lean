@@ -365,8 +365,8 @@ lemma subgroup_closure_eq_classGroup_of_bound {m n r : Type} {D : ℝ} {b : ℕ}
     simp only [Matrix.map_apply, eq_natCast, zpow_natCast]
     simp_rw [← map_pow, ← map_prod, ClassGroup.mk0_eq_mk0_iff]
     convert hgmul i
-    · simp only [SubmonoidClass.coe_finset_prod, SubmonoidClass.coe_pow, hg']
-    · simp only [SubmonoidClass.coe_finset_prod, SubmonoidClass.coe_pow, hx']
+    · simp only [SubmonoidClass.coe_finsetProd, SubmonoidClass.coe_pow, hg']
+    · simp only [SubmonoidClass.coe_finsetProd, SubmonoidClass.coe_pow, hx']
   · rw [← htop]
     simp only [Subgroup.mem_top, implies_true]
 

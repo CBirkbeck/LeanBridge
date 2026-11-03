@@ -679,7 +679,7 @@ lemma basis_radical_of_linear_independent_ker_im_in_repr [IsTorsionFree ℤ O]
     simp_rw [← zsmul_eq_zmod_smul, ← Submodule.mkQ_apply]
     rw [← map_sum, ← map_sum, ← map_add]
     congr
-    simp only [zsmul_eq_mul, AddSubmonoidClass.coe_finset_sum,
+    simp only [zsmul_eq_mul, AddSubmonoidClass.coe_finsetSum,
       Submodule.coe_smul_of_tower]
     simp
   have aux4 : Finset.univ.sum (λ i => (↑(s i  : ZMod p) • (⟨b i, aux1 i ⟩ mod p ))) +

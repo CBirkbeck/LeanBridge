@@ -296,7 +296,7 @@ variable {ι : Type _ } [Fintype ι]
   intros x hx
   have := Basis.sum_repr bk (⟨x,hx⟩: overRing α hm)
   rw [Subtype.ext_iff] at this
-  simp only [AddSubmonoidClass.coe_finset_sum, SetLike.val_smul] at this
+  simp only [AddSubmonoidClass.coe_finsetSum, SetLike.val_smul] at this
   rw [← this, Finset.smul_sum]
   refine O.sum_mem ?_
   · intro i _

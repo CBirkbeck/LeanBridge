@@ -354,7 +354,7 @@ lemma hmul_lists_aux (a1 : Fin m → ℤ ) (a2 : Fin n → ℤ  )
       rw [h]
       simp only [zsmul_eq_mul, Int.cast_mul, Pi.intCast_def, Int.cast_id, Int.cast_natCast, Pi.natCast_def,
       Finset.sum_apply, Pi.mul_apply, Finset.univ_eq_empty, Finset.sum_empty,
-      Finsupp.finset_sum_apply, Finsupp.coe_smul, Pi.smul_apply,
+      Finsupp.finsetSum_apply, Finsupp.coe_smul, Pi.smul_apply,
       Finsupp.coe_equivFunOnFinite_symm, smul_eq_mul, zero_add]
   · cases n
     · rw [← (List.sum_ofFn' (Nat.succ_ne_zero _) (fun l => (a1 l) • b1 l))] at h
@@ -363,7 +363,7 @@ lemma hmul_lists_aux (a1 : Fin m → ℤ ) (a2 : Fin n → ℤ  )
       rw [h]
       simp only [zsmul_eq_mul, Pi.intCast_def, Int.cast_id,
       Finsupp.coe_equivFunOnFinite_symm, Finset.sum_apply, Pi.mul_apply,
-      Finsupp.coe_finset_sum, Finsupp.coe_smul, Nat.succ_eq_add_one,
+      Finsupp.coe_finsetSum, Finsupp.coe_smul, Nat.succ_eq_add_one,
       Finset.univ_eq_empty, Finset.sum_empty, add_zero]
     · rw [← (List.sum_ofFn' (Nat.succ_ne_zero _) (fun l => (a2 l * ↑p) • b2 l))] at h
       rw [← (List.sum_ofFn' (Nat.succ_ne_zero _) (fun l => (a1 l) • b1 l))] at h
@@ -372,7 +372,7 @@ lemma hmul_lists_aux (a1 : Fin m → ℤ ) (a2 : Fin n → ℤ  )
       rw [h]
       simp only [zsmul_eq_mul, Pi.intCast_def, Int.cast_id, Int.cast_mul, Int.cast_natCast, Pi.natCast_def,
       Finsupp.coe_equivFunOnFinite_symm, Pi.add_apply, Finset.sum_apply, Pi.mul_apply,
-      Finsupp.coe_add, Finsupp.coe_finset_sum, Finsupp.coe_smul]
+      Finsupp.coe_add, Finsupp.coe_finsetSum, Finsupp.coe_smul]
   exact LinearEquiv.injective B.repr
 
 lemma hmul_lists_aux_length (a1 : Fin m → ℤ ) (a2 : Fin n → ℤ  )

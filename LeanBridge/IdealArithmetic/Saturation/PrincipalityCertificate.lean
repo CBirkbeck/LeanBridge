@@ -51,7 +51,7 @@ lemma orderOf_of_IsOrderOf {G : Type*} [Monoid G] {x : G} {n : ℕ} (h : IsOrder
     apply Nat.pow_pos
     exact Nat.Prime.pos (h.hP i)
   · intro p hp hpdvd
-    rw [← h.hm, Prime.dvd_finset_prod_iff (Nat.prime_iff.mp hp)] at hpdvd
+    rw [← h.hm, Prime.dvd_finsetProd_iff (Nat.prime_iff.mp hp)] at hpdvd
     choose a hau hadvd using hpdvd
     rw [Nat.prime_eq_prime_of_dvd_pow hp (h.hP a) hadvd]
     exact h.hnid a
