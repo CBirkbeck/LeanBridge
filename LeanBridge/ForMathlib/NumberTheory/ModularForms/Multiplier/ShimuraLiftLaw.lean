@@ -1,5 +1,6 @@
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ShimuraCoeffBound
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ShimuraDilate
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ShimuraHecke
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ShimuraPetersson
 
 /-!
@@ -23,57 +24,11 @@ generate `Γ₀(N / 2)` with the translations, under which `F_t` is invariant.
 * `ModularForm.expSum_shimuraCoeff_smul_of_mem`: the law of `F_t` on `Γ₀(N / 2)`.
 -/
 
-open Complex CongruenceSubgroup Function Matrix SpecialLinearGroup ModularGroup LSeries
+open Complex CongruenceSubgroup Function Matrix SpecialLinearGroup ModularGroup
 
-open scoped Real MatrixGroups Manifold NumberTheorySymbols «notation»
+open scoped Real MatrixGroups Manifold NumberTheorySymbols
 
 open UpperHalfPlane hiding I I_re I_im
-
-namespace LSeries
-
-variable {t n : ℕ} {e f : ℕ → ℂ}
-
-lemma convolution_ite_dvd_of_pos (ht : 0 < t) :
-    (e ⍟ fun m ↦ if t ∣ m then f (m / t) else 0) n = if t ∣ n then (e ⍟ f) (n / t) else 0 := by
-  rcases eq_or_ne n 0 with rfl | hn
-  · simp
-  simp only [convolution_def]
-  split_ifs with hd
-  · rcases hd with ⟨q, rfl⟩
-    have hq : q ≠ 0 := right_ne_zero_of_mul hn
-    rw [Nat.mul_div_cancel_left _ ht]
-    have hinj :
-        Set.InjOn (fun x : ℕ × ℕ ↦ (x.1, t * x.2)) (q.divisorsAntidiagonal : Set (ℕ × ℕ)) := by
-      rintro ⟨x₁, x₂⟩ - ⟨y₁, y₂⟩ - h
-      simp only [Prod.mk_inj] at h
-      simp [Nat.eq_of_mul_eq_mul_left ht h.2, h.1]
-    have hsub : Finset.image (fun x : ℕ × ℕ ↦ (x.1, t * x.2)) q.divisorsAntidiagonal ⊆
-        (t * q).divisorsAntidiagonal := by
-      intro y hy
-      rcases Finset.mem_image.mp hy with ⟨x, hx, rfl⟩
-      rcases Nat.mem_divisorsAntidiagonal.mp hx with ⟨h1, -⟩
-      refine Nat.mem_divisorsAntidiagonal.mpr ⟨?_, hn⟩
-      rw [← h1]
-      ring1
-    rw [← Finset.sum_subset hsub, Finset.sum_image hinj]
-    · refine Finset.sum_congr rfl fun x _ ↦ ?_
-      simp [Nat.mul_div_cancel_left _ ht]
-    · intro y hy hy'
-      rcases Nat.mem_divisorsAntidiagonal.mp hy with ⟨h1, -⟩
-      have hnd : ¬t ∣ y.2 := by
-        rintro ⟨r, hr⟩
-        refine hy' (Finset.mem_image.mpr ⟨(y.1, r), Nat.mem_divisorsAntidiagonal.mpr ⟨?_, hq⟩, ?_⟩)
-        · refine Nat.eq_of_mul_eq_mul_left ht ?_
-          rw [← h1, hr]
-          ring1
-        · exact Prod.ext rfl hr.symm
-      simp [hnd]
-  · refine Finset.sum_eq_zero fun x hx ↦ ?_
-    rcases Nat.mem_divisorsAntidiagonal.mp hx with ⟨h1, -⟩
-    have hnd : ¬t ∣ x.2 := fun h ↦ hd (h1 ▸ h.mul_left _)
-    simp [hnd]
-
-end LSeries
 
 namespace ModularForm
 

@@ -44,7 +44,7 @@ square roots combine to `√a⁻¹ (4 c z + d) ^ (1/2)`, and
 
 open Complex CongruenceSubgroup Filter
 
-open scoped Real MatrixGroups NumberTheorySymbols Manifold
+open scoped Real MatrixGroups NumberTheorySymbols Manifold ComplexConjugate
 
 open UpperHalfPlane hiding I I_re I_im
 
@@ -498,13 +498,39 @@ private lemma jacobiTheta_two_mul_add_intCast (n : ℤ) :
 variable {γ : SL(2, ℤ)} (z : ℍ)
 
 variable (γ) in
-private lemma det_eq_one : γ 0 0 * γ 1 1 - γ 0 1 * γ 1 0 = 1 := by
-  have h1 : (γ : Matrix (Fin 2) (Fin 2) ℤ).det = 1 := γ.det_coe
-  rwa [Matrix.det_fin_two] at h1
-
-private lemma coe_smul_eq :
+lemma coe_smul_eq_div :
     ((γ • z : ℍ) : ℂ) = ((γ 0 0 : ℂ) * z + γ 0 1) / ((γ 1 0 : ℂ) * z + γ 1 1) := by
   simpa only [eq_intCast, ofReal_intCast] using UpperHalfPlane.coe_specialLinearGroup_apply γ z
+
+variable (γ) in
+lemma denomZ_ne_zero : (γ 1 0 : ℂ) * (z : ℂ) + γ 1 1 ≠ 0 := by
+  rw [← ModularGroup.denom_apply]
+  exact denom_ne_zero γ z
+
+variable (γ) in
+lemma denomZ_conj_ne_zero : (γ 1 0 : ℂ) * conj (z : ℂ) + γ 1 1 ≠ 0 := by
+  intro h
+  have h1 : conj ((γ 1 0 : ℂ) * conj (z : ℂ) + γ 1 1) = conj 0 := congrArg conj h
+  simp only [map_add, map_mul, conj_conj, map_intCast, map_zero] at h1
+  exact denomZ_ne_zero γ z h1
+
+variable (γ) in
+lemma conj_coe_smul : conj ((γ • z : ℍ) : ℂ) =
+    ((γ 0 0 : ℂ) * conj (z : ℂ) + γ 0 1) / ((γ 1 0 : ℂ) * conj (z : ℂ) + γ 1 1) := by
+  rw [coe_smul_eq_div]
+  simp only [map_div₀, map_add, map_mul, map_intCast]
+
+variable (γ) in
+lemma coe_im_smul : (((γ • z : ℍ).im : ℝ) : ℂ) =
+    (z.im : ℂ) / (((γ 1 0 : ℂ) * z + γ 1 1) * ((γ 1 0 : ℂ) * conj (z : ℂ) + γ 1 1)) := by
+  have h1 : (γ • z : ℍ).im = z.im / normSq (denom γ z) := ModularGroup.im_smul_eq_div_normSq γ z
+  have h2 : ((normSq (denom γ z) : ℝ) : ℂ) =
+      ((γ 1 0 : ℂ) * z + γ 1 1) * ((γ 1 0 : ℂ) * conj (z : ℂ) + γ 1 1) := by
+    rw [← Complex.mul_conj, ModularGroup.denom_apply]
+    simp only [map_add, map_mul, map_intCast]
+  rw [h1]
+  push_cast
+  rw [h2]
 
 private lemma jacobiTheta_smul_of_pos (hγ : γ ∈ Gamma0 4) (hc : 0 < γ 1 0) :
     jacobiTheta (2 * ((γ • z : ℍ) : ℂ)) = thetaFactor γ z * jacobiTheta (2 * z) := by
@@ -513,7 +539,7 @@ private lemma jacobiTheta_smul_of_pos (hγ : γ ∈ Gamma0 4) (hc : 0 < γ 1 0) 
     rw [hc4]
     rfl
   have hc0 : 0 < c := by omega
-  have hdet : γ 0 0 * γ 1 1 - γ 0 1 * γ 1 0 = 1 := det_eq_one γ
+  have hdet : γ 0 0 * γ 1 1 - γ 0 1 * γ 1 0 = 1 := γ.fin_two_mul_sub_mul_eq_one
   have hapos : 0 < γ 0 0 + (|γ 0 0| + 1) * γ 1 0 := by
     have h1 : 1 ≤ γ 1 0 := hc
     have h2 : -|γ 0 0| ≤ γ 0 0 := neg_abs_le (γ 0 0)
@@ -531,7 +557,7 @@ private lemma jacobiTheta_smul_of_pos (hγ : γ ∈ Gamma0 4) (hc : 0 < γ 1 0) 
   have hs0 : (Real.sqrt a : ℂ) ≠ 0 :=
     ofReal_ne_zero.mpr (Real.sqrt_pos.mpr (Nat.cast_pos.mpr (NeZero.pos a))).ne'
   have hsm : ((γ • z : ℍ) : ℂ) = ((γ 0 0 : ℂ) * z + γ 0 1) / (4 * c * z + γ 1 1) := by
-    rw [coe_smul_eq, hc4']
+    rw [coe_smul_eq_div, hc4']
     push_cast
     rfl
   have hden : denom γ z = 4 * c * z + γ 1 1 := by
@@ -569,7 +595,7 @@ private lemma cpow_half_neg (hw : w.im < 0) : (-w) ^ (1 / 2 : ℂ) = I * w ^ (1 
   rw [e, exp_pi_div_two_mul_I]
 
 private lemma odd_of_det_right (hγ : γ 1 0 = 0 ∨ γ ∈ Gamma0 4) : Odd (γ 1 1) := by
-  have hdet : γ 0 0 * γ 1 1 - γ 0 1 * γ 1 0 = 1 := det_eq_one γ
+  have hdet : γ 0 0 * γ 1 1 - γ 0 1 * γ 1 0 = 1 := γ.fin_two_mul_sub_mul_eq_one
   rcases Int.even_or_odd (γ 1 1) with ⟨t, ht⟩ | h
   · rcases hγ with h0 | hγ
     · rw [h0, ht] at hdet
@@ -644,7 +670,7 @@ private lemma thetaFactor_neg_of_neg (hc : γ 1 0 < 0) (hd : Odd (γ 1 1)) :
   ring1
 
 private lemma thetaFactor_eq_one_of_eq_zero (hc : γ 1 0 = 0) : thetaFactor γ z = 1 := by
-  have hdet : γ 0 0 * γ 1 1 - γ 0 1 * γ 1 0 = 1 := det_eq_one γ
+  have hdet : γ 0 0 * γ 1 1 - γ 0 1 * γ 1 0 = 1 := γ.fin_two_mul_sub_mul_eq_one
   rw [hc, mul_zero, sub_zero] at hdet
   rcases Int.mul_eq_one_iff_eq_one_or_neg_one.mp hdet with ⟨-, h1⟩ | ⟨-, h1⟩
   · rw [thetaFactor, ModularGroup.denom_apply, hc, h1]
@@ -657,10 +683,10 @@ private lemma thetaFactor_eq_one_of_eq_zero (hc : γ 1 0 = 0) : thetaFactor γ z
 
 private lemma jacobiTheta_smul_of_eq_zero (hc : γ 1 0 = 0) :
     jacobiTheta (2 * ((γ • z : ℍ) : ℂ)) = thetaFactor γ z * jacobiTheta (2 * z) := by
-  have hdet : γ 0 0 * γ 1 1 - γ 0 1 * γ 1 0 = 1 := det_eq_one γ
+  have hdet : γ 0 0 * γ 1 1 - γ 0 1 * γ 1 0 = 1 := γ.fin_two_mul_sub_mul_eq_one
   rw [hc, mul_zero, sub_zero] at hdet
   have hsm : ((γ • z : ℍ) : ℂ) = ((γ 0 0 : ℂ) * z + γ 0 1) / (0 * z + γ 1 1) := by
-    rw [coe_smul_eq, hc, Int.cast_zero]
+    rw [coe_smul_eq_div, hc, Int.cast_zero]
   rw [thetaFactor_eq_one_of_eq_zero z hc, one_mul]
   rcases Int.mul_eq_one_iff_eq_one_or_neg_one.mp hdet with ⟨h0, h1⟩ | ⟨h0, h1⟩
   · have e : ((γ • z : ℍ) : ℂ) = z + ((γ 0 1 : ℤ) : ℂ) := by
@@ -750,7 +776,7 @@ private lemma isBoundedAtImInfty_slash_thetaSeries_of_pos (hc : 0 < γ 1 0) :
   have hC0 : NeZero C := ⟨fun h ↦ by rw [h] at hC; simp at hC; omega⟩
   have hCr : (0 : ℝ) < C := Nat.cast_pos.mpr (NeZero.pos C)
   have hCc : (C : ℂ) ≠ 0 := Nat.cast_ne_zero.mpr (NeZero.ne C)
-  have hdet : γ 0 0 * γ 1 1 - γ 0 1 * γ 1 0 = 1 := det_eq_one γ
+  have hdet : γ 0 0 * γ 1 1 - γ 0 1 * γ 1 0 = 1 := γ.fin_two_mul_sub_mul_eq_one
   rw [hC] at hdet
   have hdetc : (γ 0 0 : ℂ) * γ 1 1 - γ 0 1 * C = 1 := by exact_mod_cast hdet
   refine isBoundedAtImInfty_iff.mpr ⟨((2 * (C : ℝ)) ^ (1 / 2 : ℝ))⁻¹ *
@@ -761,7 +787,7 @@ private lemma isBoundedAtImInfty_slash_thetaSeries_of_pos (hc : 0 < γ 1 0) :
     rfl
   have hD : ((C : ℂ) * z + γ 1 1) ≠ 0 := hden ▸ denom_ne_zero γ z
   have hsm : ((γ • z : ℍ) : ℂ) = ((γ 0 0 : ℂ) * z + γ 0 1) / (C * z + γ 1 1) := by
-    rw [coe_smul_eq, hC]
+    rw [coe_smul_eq_div, hC]
     push_cast
     rfl
   have hy0 : 0 < (z : ℂ).im := z.im_pos
@@ -879,7 +905,7 @@ lemma isBoundedAtImInfty_slash_thetaSeries :
   · have h1 : halfIntegralWeightSlash 1 γ thetaSeries = thetaSeries := by
       ext z
       have h2 : ‖denom γ z‖ = 1 := by
-        have hdet : γ 0 0 * γ 1 1 - γ 0 1 * γ 1 0 = 1 := det_eq_one γ
+        have hdet : γ 0 0 * γ 1 1 - γ 0 1 * γ 1 0 = 1 := γ.fin_two_mul_sub_mul_eq_one
         rw [hc, mul_zero, sub_zero] at hdet
         rw [ModularGroup.denom_apply, hc]
         rcases Int.mul_eq_one_iff_eq_one_or_neg_one.mp hdet with ⟨-, h3⟩ | ⟨-, h3⟩ <;> simp [h3]

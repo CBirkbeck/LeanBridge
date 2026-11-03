@@ -26,48 +26,13 @@ holds for all `z`; the nonvanishing of `θ`, which is not proved at the pins, is
 
 open Complex CongruenceSubgroup Filter ModularGroup Matrix SpecialLinearGroup Topology
 
-open scoped Real MatrixGroups Manifold ComplexConjugate
+open scoped Real MatrixGroups Manifold
 
 open UpperHalfPlane hiding I I_re I_im
 
 namespace ModularForm
 
 variable {γ γ₁ γ₂ : SL(2, ℤ)} (z : ℍ) (ξ : ℂ)
-
-variable (γ) in
-lemma coe_smul_eq_div :
-    ((γ • z : ℍ) : ℂ) = ((γ 0 0 : ℂ) * z + γ 0 1) / ((γ 1 0 : ℂ) * z + γ 1 1) := by
-  simpa only [eq_intCast, ofReal_intCast] using UpperHalfPlane.coe_specialLinearGroup_apply γ z
-
-variable (γ) in
-lemma denomZ_ne_zero : (γ 1 0 : ℂ) * (z : ℂ) + γ 1 1 ≠ 0 := by
-  rw [← ModularGroup.denom_apply]
-  exact denom_ne_zero γ z
-
-variable (γ) in
-lemma denomZ_conj_ne_zero : (γ 1 0 : ℂ) * conj (z : ℂ) + γ 1 1 ≠ 0 := by
-  intro h
-  have h1 : conj ((γ 1 0 : ℂ) * conj (z : ℂ) + γ 1 1) = conj 0 := congrArg conj h
-  simp only [map_add, map_mul, conj_conj, map_intCast, map_zero] at h1
-  exact denomZ_ne_zero γ z h1
-
-variable (γ) in
-lemma conj_coe_smul : conj ((γ • z : ℍ) : ℂ) =
-    ((γ 0 0 : ℂ) * conj (z : ℂ) + γ 0 1) / ((γ 1 0 : ℂ) * conj (z : ℂ) + γ 1 1) := by
-  rw [coe_smul_eq_div]
-  simp only [map_div₀, map_add, map_mul, map_intCast]
-
-variable (γ) in
-lemma coe_im_smul : (((γ • z : ℍ).im : ℝ) : ℂ) =
-    (z.im : ℂ) / (((γ 1 0 : ℂ) * z + γ 1 1) * ((γ 1 0 : ℂ) * conj (z : ℂ) + γ 1 1)) := by
-  have h1 : (γ • z : ℍ).im = z.im / normSq (denom γ z) := ModularGroup.im_smul_eq_div_normSq γ z
-  have h2 : ((normSq (denom γ z) : ℝ) : ℂ) =
-      ((γ 1 0 : ℂ) * z + γ 1 1) * ((γ 1 0 : ℂ) * conj (z : ℂ) + γ 1 1) := by
-    rw [← Complex.mul_conj, ModularGroup.denom_apply]
-    simp only [map_add, map_mul, map_intCast]
-  rw [h1]
-  push_cast
-  rw [h2]
 
 private lemma mul_apply_int_one_zero :
     (γ₁ * γ₂ : SL(2, ℤ)) 1 0 = γ₁ 1 0 * γ₂ 0 0 + γ₁ 1 1 * γ₂ 1 0 := by

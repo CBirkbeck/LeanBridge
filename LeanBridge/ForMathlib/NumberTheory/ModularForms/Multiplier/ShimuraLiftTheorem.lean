@@ -1,4 +1,3 @@
-import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ShimuraHecke
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ShimuraLiftLaw
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ThetaDiscriminant
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.WeilConverse.Basic
@@ -45,8 +44,6 @@ Shimura's Hecke operator `T_{p²}` on `S_{k/2}(N, χ)` itself is not defined her
 * `ModularForm.isShimuraLift_shimuraLift`: `Sh_t(g)` is a Shimura lift of `g`.
 * `ModularForm.shimuraLift_mem_modFormCharSpace`: `Sh_t(g)` has character `χ²`.
 * `ModularForm.shimuraLift_eq_heckeTNat`: **the Hecke linearity of `Sh_t`**.
-* `ModularForm.isZeroAtImInfty_slash_of_norm_le`: a bound `(Im z) ^ (-s)` with `k / 2 < s < k` gives
-  the vanishing at the cusps in weight `k`.
 * `ModularForm.isZeroAtImInfty_shimuraLiftFun_slash`: for `k ≥ 5`, `Sh_t(g)` vanishes at the cusps.
 * `ModularForm.shimuraLiftCusp_mem_cuspFormCharSpace`: for `k ≥ 5`, `Sh_t(g)` lies in
   `S_{k-1}(N / 2, χ²)`.
@@ -64,7 +61,7 @@ Shimura's Hecke operator `T_{p²}` on `S_{k/2}(N, χ)` itself is not defined her
   49–117.
 -/
 
-open Complex CongruenceSubgroup Filter Matrix SpecialLinearGroup ModularGroup HeckeRing GL2
+open Complex CongruenceSubgroup Matrix SpecialLinearGroup HeckeRing GL2
 
 open scoped Real MatrixGroups Manifold ModularForm NumberTheorySymbols Nat
 
@@ -289,135 +286,6 @@ lemma shimuraLift_eq_heckeTNat (h4 : 4 ∣ N) (hl : l ≠ 0) (ht : 0 < t) (hsq :
   · rw [Nat.cast_pow]
   · rw [mul_zero]
 
-private lemma normSq_denom_eq (γ : SL(2, ℤ)) (z : ℍ) :
-    normSq (denom γ z) = ((γ 1 0 : ℝ) * z.re + γ 1 1) ^ 2 + ((γ 1 0 : ℝ) * z.im) ^ 2 := by
-  rw [ModularGroup.denom_apply, Complex.normSq_apply]
-  simp [sq]
-
-private lemma normSq_denom_le (γ : SL(2, ℤ)) {z : ℍ} {M : ℝ} (hy : 1 ≤ z.im) (hx : |z.re| ≤ M) :
-    normSq (denom γ z) ≤
-      ((|(γ 1 0 : ℝ)| * M + |(γ 1 1 : ℝ)|) ^ 2 + (γ 1 0 : ℝ) ^ 2) * z.im ^ 2 := by
-  have h1 : |(γ 1 0 : ℝ) * z.re + γ 1 1| ≤ |(γ 1 0 : ℝ)| * M + |(γ 1 1 : ℝ)| := by
-    refine (abs_add_le _ _).trans (add_le_add_left ?_ _)
-    rw [abs_mul]
-    exact mul_le_mul_of_nonneg_left hx (abs_nonneg _)
-  have h2 : ((γ 1 0 : ℝ) * z.re + γ 1 1) ^ 2 ≤ (|(γ 1 0 : ℝ)| * M + |(γ 1 1 : ℝ)|) ^ 2 := by
-    rw [← sq_abs]
-    exact pow_le_pow_left₀ (abs_nonneg _) h1 2
-  have h3 : (1 : ℝ) ≤ z.im ^ 2 := one_le_pow₀ hy
-  rw [normSq_denom_eq]
-  nlinarith [mul_le_mul_of_nonneg_left h3 (sq_nonneg (|(γ 1 0 : ℝ)| * M + |(γ 1 1 : ℝ)|))]
-
-private lemma slash_T_zpow_eq {M : ℕ} {χ' : DirichletCharacter ℂ M} {k : ℤ}
-    (hlaw : ∀ γ ∈ Gamma0 M, f ∣[k] γ = χ' (γ 1 1 : ℤ) • f) (γ : SL(2, ℤ)) (j : ℤ) (z : ℍ) :
-    (f ∣[k] γ) ((T ^ ((M : ℤ) * j)) • z) = (f ∣[k] γ) z := by
-  have e : ((T ^ ((M : ℤ) * j) : SL(2, ℤ)) : Matrix (Fin 2) (Fin 2) ℤ) = !![1, (M : ℤ) * j; 0, 1] :=
-    coe_T_zpow _
-  have h00 : (T ^ ((M : ℤ) * j) : SL(2, ℤ)) 0 0 = 1 := congrFun (congrFun e 0) 0
-  have h01 : (T ^ ((M : ℤ) * j) : SL(2, ℤ)) 0 1 = (M : ℤ) * j := congrFun (congrFun e 0) 1
-  have h10 : (T ^ ((M : ℤ) * j) : SL(2, ℤ)) 1 0 = 0 := congrFun (congrFun e 1) 0
-  have h11 : (T ^ ((M : ℤ) * j) : SL(2, ℤ)) 1 1 = 1 := congrFun (congrFun e 1) 1
-  have hTM : (T ^ ((M : ℤ) * j) : SL(2, ℤ)) ∈ CongruenceSubgroup.Gamma M := by
-    refine Gamma_mem.mpr ⟨?_, ?_, ?_, ?_⟩
-    · rw [h00, Int.cast_one]
-    · rw [h01]
-      push_cast
-      rw [ZMod.natCast_self, zero_mul]
-    · rw [h10, Int.cast_zero]
-    · rw [h11, Int.cast_one]
-  have hδ : γ * T ^ ((M : ℤ) * j) * γ⁻¹ ∈ CongruenceSubgroup.Gamma M :=
-    (Gamma_normal M).conj_mem _ hTM γ
-  have hδ₀ : γ * T ^ ((M : ℤ) * j) * γ⁻¹ ∈ Gamma0 M := by
-    rw [Gamma0_mem]
-    exact (Gamma_mem.mp hδ).2.2.1
-  have hδ₁ : f ∣[k] (γ * T ^ ((M : ℤ) * j) * γ⁻¹) = f := by
-    rw [hlaw _ hδ₀, (Gamma_mem.mp hδ).2.2.2]
-    simp
-  have h1 : γ * T ^ ((M : ℤ) * j) = (γ * T ^ ((M : ℤ) * j) * γ⁻¹) * γ := by
-    group
-  have h2 : (f ∣[k] γ) ∣[k] (T ^ ((M : ℤ) * j) : SL(2, ℤ)) = f ∣[k] γ := by
-    rw [← SlashAction.slash_mul, h1, SlashAction.slash_mul, hδ₁]
-  have h3 : ((f ∣[k] γ) ∣[k] (T ^ ((M : ℤ) * j) : SL(2, ℤ))) z = (f ∣[k] γ) z := congrFun h2 z
-  rw [SL_slash_apply, ModularGroup.denom_apply, h10, h11] at h3
-  simpa using h3
-
-/-- **The bound `(Im z) ^ (-s)` gives the vanishing at the cusps** for `k / 2 < s < k`: if `f` has
-the nebentypus law of a character on `Γ₀(M)` in weight `k`, and `|f(z)| ≤ K (Im z) ^ (-s)` on `ℍ`,
-then `f ∣[k] γ` vanishes at `i∞` for every `γ ∈ SL(2, ℤ)`, since `f ∣[k] γ` is periodic and
-`|f ∣[k] γ (z)| ≤ K y ^ (-s) |c z + d| ^ (2 s - k)` is `O(y ^ (s - k))` on a vertical strip. -/
-lemma isZeroAtImInfty_slash_of_norm_le {M : ℕ} [NeZero M] {χ' : DirichletCharacter ℂ M} {k : ℤ}
-    {K s : ℝ} (hlaw : ∀ γ ∈ Gamma0 M, f ∣[k] γ = χ' (γ 1 1 : ℤ) • f) (hK0 : 0 ≤ K)
-    (hbd : ∀ z : ℍ, ‖f z‖ ≤ K * z.im ^ (-s)) (h1 : (k : ℝ) / 2 < s) (h2 : s < k) (γ : SL(2, ℤ)) :
-    IsZeroAtImInfty (f ∣[k] γ) := by
-  have hM : (0 : ℝ) < M := Nat.cast_pos.mpr (NeZero.pos M)
-  have hs : 0 < s - (k : ℝ) / 2 := by linarith
-  have hd : 0 < (k : ℝ) - s := by linarith
-  have hC : 0 ≤ (|(γ 1 0 : ℝ)| * M + |(γ 1 1 : ℝ)|) ^ 2 + (γ 1 0 : ℝ) ^ 2 := by positivity
-  have hlim : Tendsto (fun z : ℍ ↦ K * ((|(γ 1 0 : ℝ)| * M + |(γ 1 1 : ℝ)|) ^ 2 + (γ 1 0 : ℝ) ^ 2) ^
-      (s - (k : ℝ) / 2) * z.im ^ (-((k : ℝ) - s))) atImInfty (nhds 0) := by
-    rw [← mul_zero (K * ((|(γ 1 0 : ℝ)| * M + |(γ 1 1 : ℝ)|) ^ 2 + (γ 1 0 : ℝ) ^ 2) ^
-      (s - (k : ℝ) / 2))]
-    exact ((tendsto_rpow_neg_atTop hd).comp (tendsto_comap (f := UpperHalfPlane.im))).const_mul _
-  refine squeeze_zero_norm' ?_ hlim
-  have hev : ∀ᶠ z : ℍ in atImInfty, 1 ≤ z.im := tendsto_comap.eventually_ge_atTop 1
-  filter_upwards [hev] with z hy
-  have hfl : (⌊z.re / M⌋ : ℝ) ≤ z.re / M := Int.floor_le _
-  have hlt : z.re / M < ⌊z.re / M⌋ + 1 := Int.lt_floor_add_one _
-  have hre : z.re = z.re / M * M := by field_simp
-  let z₀ : ℍ := (T ^ ((M : ℤ) * (-⌊z.re / M⌋))) • z
-  have hz₀ : (z₀ : ℂ) = (z : ℂ) + (((M : ℤ) * (-⌊z.re / M⌋) : ℤ) : ℂ) := coe_T_zpow_smul_eq z
-  have him : z₀.im = z.im := by
-    rw [← UpperHalfPlane.coe_im, hz₀]
-    simp
-  have hre₀ : z₀.re = z.re - M * ⌊z.re / M⌋ := by
-    rw [← UpperHalfPlane.coe_re, hz₀]
-    simp
-    ring1
-  have hx : |z₀.re| ≤ M := by
-    rw [abs_le, hre₀]
-    constructor <;> nlinarith
-  have hy₀ : 1 ≤ z₀.im := by rwa [him]
-  have hpos : 0 < normSq (denom γ z₀) := normSq_pos.mpr (denom_ne_zero γ z₀)
-  have hy0 : 0 < z₀.im := z₀.im_pos
-  have hnorm : ‖denom γ z₀‖ ^ (-k) = normSq (denom γ z₀) ^ (-((k : ℝ) / 2)) := by
-    have hn : 0 < ‖denom γ z₀‖ := norm_pos_iff.mpr (denom_ne_zero γ z₀)
-    rw [Complex.normSq_eq_norm_sq, ← Real.rpow_natCast, ← Real.rpow_mul hn.le, ← Real.rpow_intCast]
-    congr 1
-    push_cast
-    ring1
-  have hfz : ‖f (γ • z₀)‖ ≤ K * (γ • z₀).im ^ (-s) := hbd (γ • z₀)
-  rw [ModularGroup.im_smul_eq_div_normSq, Real.div_rpow hy0.le hpos.le, Real.rpow_neg hpos.le,
-    div_inv_eq_mul] at hfz
-  have hmono : normSq (denom γ z₀) ^ (s - (k : ℝ) / 2) ≤
-      ((|(γ 1 0 : ℝ)| * M + |(γ 1 1 : ℝ)|) ^ 2 + (γ 1 0 : ℝ) ^ 2) ^ (s - (k : ℝ) / 2) *
-        (z₀.im ^ 2) ^ (s - (k : ℝ) / 2) := by
-    rw [← Real.mul_rpow hC (by positivity)]
-    exact Real.rpow_le_rpow hpos.le (normSq_denom_le γ hy₀ hx) hs.le
-  have hz : (f ∣[k] γ) z = (f ∣[k] γ) z₀ := (slash_T_zpow_eq hlaw γ (-⌊z.re / M⌋) z).symm
-  have hD : 0 < normSq (denom γ z₀) ^ (-((k : ℝ) / 2)) := Real.rpow_pos_of_pos hpos _
-  have e1 : normSq (denom γ z₀) ^ s * normSq (denom γ z₀) ^ (-((k : ℝ) / 2)) =
-      normSq (denom γ z₀) ^ (s - (k : ℝ) / 2) := by
-    rw [← Real.rpow_add hpos, sub_eq_add_neg]
-  have e2 : (z₀.im ^ 2) ^ (s - (k : ℝ) / 2) * z₀.im ^ (-s) = z₀.im ^ (-((k : ℝ) - s)) := by
-    rw [← Real.rpow_natCast z₀.im 2, ← Real.rpow_mul hy0.le, ← Real.rpow_add hy0]
-    congr 1
-    push_cast
-    ring1
-  have h5 : K * z₀.im ^ (-s) * normSq (denom γ z₀) ^ (s - (k : ℝ) / 2) ≤
-      K * z₀.im ^ (-s) * (((|(γ 1 0 : ℝ)| * M + |(γ 1 1 : ℝ)|) ^ 2 + (γ 1 0 : ℝ) ^ 2) ^
-        (s - (k : ℝ) / 2) * (z₀.im ^ 2) ^ (s - (k : ℝ) / 2)) :=
-    mul_le_mul_of_nonneg_left hmono (by positivity)
-  rw [hz, SL_slash_apply, norm_mul, norm_zpow, hnorm, ← him]
-  refine (mul_le_mul_of_nonneg_right hfz hD.le).trans ?_
-  have e3 : K * (z₀.im ^ (-s) * normSq (denom γ z₀) ^ s) * normSq (denom γ z₀) ^ (-((k : ℝ) / 2)) =
-      K * z₀.im ^ (-s) * normSq (denom γ z₀) ^ (s - (k : ℝ) / 2) := by
-    rw [← e1]
-    ring1
-  rw [e3]
-  refine h5.trans_eq ?_
-  rw [← e2]
-  ring1
-
 private lemma exists_norm_shimuraLiftFun_le (hf : f ∈ halfIntegralWeightCuspSpace χ (2 * l + 1))
     (h4 : 4 ∣ N) (ht : 0 < t) : ∃ K : ℝ, 0 ≤ K ∧ ∀ z : ℍ,
       ‖shimuraLiftFun l t χ f z‖ ≤ K * z.im ^ (-((l : ℝ) + 1 / 2 + 1 + 1 / 4)) := by
@@ -432,8 +300,8 @@ lemma isZeroAtImInfty_shimuraLiftFun_slash (hf : f ∈ halfIntegralWeightCuspSpa
   have hN2 : NeZero (N / 2) := neZero_div_two h4
   have hl' : (2 : ℝ) ≤ l := by exact_mod_cast hl
   rcases exists_norm_shimuraLiftFun_le hf h4 ht with ⟨K, hK0, hK⟩
-  refine isZeroAtImInfty_slash_of_norm_le (χ' := shimuraLiftCharacter χ h4)
-    (fun _ hγ ↦ shimuraLiftFun_slash hf h4 (by omega) ht hsq hγ) hK0 hK ?_ ?_ γ
+  refine isZeroAtImInfty_slash_of_norm_le γ
+    (fun _ hγ ↦ shimuraLiftFun_slash hf h4 (by omega) ht hsq hγ) hK0 hK ?_ ?_
   · push_cast
     linarith
   · push_cast

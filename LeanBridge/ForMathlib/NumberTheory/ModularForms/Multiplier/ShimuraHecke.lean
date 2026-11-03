@@ -19,7 +19,7 @@ modularity of `g`, only that `e` is completely multiplicative.
 
 * `LSeries.convolution_mul_prime_of_dvd_eq_zero`: `(e * f)(p n) = e(p) (e * f)(n)` when `f` vanishes
   on the multiples of `p`.
-* `LSeries.convolution_ite_dvd`: `(e * V f)(n) = (e * f)(n / p)`, where `V f(m) = f(m / p)`.
+* `LSeries.convolution_ite_dvd_of_pos`: `(e * V f)(n) = (e * f)(n / t)`, where `V f(m) = f(m / t)`.
 * `LSeries.convolution_hecke`: the action of `T_{p²}` on a Dirichlet convolution.
 * `ModularForm.halfIntegralHeckeCoeff_mul_sq`: the coefficients `a'(t m²)` of `T_{p²}` on `a`.
 * `ModularForm.shimuraCoeff_halfIntegralHeckeCoeff`: **the Hecke equivariance of `Sh_t`**.
@@ -33,7 +33,7 @@ open jacobiSym (legendreSym.to_jacobiSym)
 
 namespace LSeries
 
-variable {e f : ℕ → ℂ} {p n : ℕ}
+variable {e f : ℕ → ℂ} {p t n : ℕ}
 
 /-- **The convolution with a function vanishing on the multiples of `p`**: if `f` vanishes on the
 multiples of the prime `p` and `e(p d) = e(p) e(d)`, then `(e * f)(p n) = e(p) (e * f)(n)`. -/
@@ -71,22 +71,24 @@ lemma convolution_mul_prime_of_dvd_eq_zero (hp : p.Prime) (he : ∀ d, d ≠ 0 �
       · exact Prod.ext hq.symm rfl
     · rw [hf _ h3, mul_zero]
 
-/-- **The convolution with the shift by `p`**: `(e * V f)(n) = (e * f)(n / p)` if `p ∣ n` and `0`
-otherwise, where `V f(m) = f(m / p)` if `p ∣ m` and `0` otherwise. -/
-lemma convolution_ite_dvd (hp : p.Prime) (hn : n ≠ 0) :
-    (e ⍟ fun m ↦ if p ∣ m then f (m / p) else 0) n = if p ∣ n then (e ⍟ f) (n / p) else 0 := by
+/-- **The convolution with the shift by `t`**: for `t > 0`, `(e * V f)(n) = (e * f)(n / t)` if
+`t ∣ n` and `0` otherwise, where `V f(m) = f(m / t)` if `t ∣ m` and `0` otherwise. -/
+lemma convolution_ite_dvd_of_pos (ht : 0 < t) :
+    (e ⍟ fun m ↦ if t ∣ m then f (m / t) else 0) n = if t ∣ n then (e ⍟ f) (n / t) else 0 := by
+  rcases eq_or_ne n 0 with rfl | hn
+  · simp
   simp only [convolution_def]
   split_ifs with hd
   · rcases hd with ⟨q, rfl⟩
     have hq : q ≠ 0 := right_ne_zero_of_mul hn
-    rw [Nat.mul_div_cancel_left _ hp.pos]
+    rw [Nat.mul_div_cancel_left _ ht]
     have hinj :
-        Set.InjOn (fun x : ℕ × ℕ ↦ (x.1, p * x.2)) (q.divisorsAntidiagonal : Set (ℕ × ℕ)) := by
+        Set.InjOn (fun x : ℕ × ℕ ↦ (x.1, t * x.2)) (q.divisorsAntidiagonal : Set (ℕ × ℕ)) := by
       rintro ⟨x₁, x₂⟩ - ⟨y₁, y₂⟩ - h
       simp only [Prod.mk_inj] at h
-      simp [Nat.eq_of_mul_eq_mul_left hp.pos h.2, h.1]
-    have hsub : image (fun x : ℕ × ℕ ↦ (x.1, p * x.2)) q.divisorsAntidiagonal ⊆
-        (p * q).divisorsAntidiagonal := by
+      simp [Nat.eq_of_mul_eq_mul_left ht h.2, h.1]
+    have hsub : image (fun x : ℕ × ℕ ↦ (x.1, t * x.2)) q.divisorsAntidiagonal ⊆
+        (t * q).divisorsAntidiagonal := by
       intro y hy
       rcases mem_image.mp hy with ⟨x, hx, rfl⟩
       rcases Nat.mem_divisorsAntidiagonal.mp hx with ⟨h1, -⟩
@@ -95,20 +97,20 @@ lemma convolution_ite_dvd (hp : p.Prime) (hn : n ≠ 0) :
       ring1
     rw [← sum_subset hsub, sum_image hinj]
     · refine sum_congr rfl fun x _ ↦ ?_
-      simp [Nat.mul_div_cancel_left _ hp.pos]
+      simp [Nat.mul_div_cancel_left _ ht]
     · intro y hy hy'
       rcases Nat.mem_divisorsAntidiagonal.mp hy with ⟨h1, -⟩
-      have hnd : ¬p ∣ y.2 := by
+      have hnd : ¬t ∣ y.2 := by
         rintro ⟨r, hr⟩
         refine hy' (mem_image.mpr ⟨(y.1, r), Nat.mem_divisorsAntidiagonal.mpr ⟨?_, hq⟩, ?_⟩)
-        · refine Nat.eq_of_mul_eq_mul_left hp.pos ?_
+        · refine Nat.eq_of_mul_eq_mul_left ht ?_
           rw [← h1, hr]
           ring1
         · exact Prod.ext rfl hr.symm
       simp [hnd]
   · refine sum_eq_zero fun x hx ↦ ?_
     rcases Nat.mem_divisorsAntidiagonal.mp hx with ⟨h1, -⟩
-    have hnd : ¬p ∣ x.2 := fun h ↦ hd (h1 ▸ h.mul_left _)
+    have hnd : ¬t ∣ x.2 := fun h ↦ hd (h1 ▸ h.mul_left _)
     simp [hnd]
 
 /-- **The action of `T_{p²}` on a Dirichlet convolution.** If `e(p d) = e(p) e(d)`, then for the
@@ -118,7 +120,6 @@ lemma convolution_hecke (hp : p.Prime) (he : ∀ d, d ≠ 0 → e (p * d) = e p 
     (hn : n ≠ 0) : (e ⍟ fun m ↦ f (p * m) + e p * (if p ∣ m then 0 else f m) +
       c * if p ∣ m then f (m / p) else 0) n = (e ⍟ f) (p * n) +
         c * if p ∣ n then (e ⍟ f) (n / p) else 0 := by
-  have hpn : p * n ≠ 0 := mul_ne_zero hp.ne_zero hn
   have hsplit : (e ⍟ f) (p * n) = (e ⍟ fun m ↦ if p ∣ m then 0 else f m) (p * n) +
       (e ⍟ fun m ↦ if p ∣ m then f m else 0) (p * n) := by
     simp only [convolution_def]
@@ -131,13 +132,13 @@ lemma convolution_hecke (hp : p.Prime) (he : ∀ d, d ≠ 0 → e (p * d) = e p 
     · rw [Nat.mul_div_cancel' hm]
     · rfl
   have h1 : (e ⍟ fun m ↦ if p ∣ m then f m else 0) (p * n) = (e ⍟ fun m ↦ f (p * m)) n := by
-    rw [hV, convolution_ite_dvd (f := fun m ↦ f (p * m)) hp hpn]
+    rw [hV, convolution_ite_dvd_of_pos (f := fun m ↦ f (p * m)) hp.pos]
     simp [Nat.mul_div_cancel_left _ hp.pos]
   have h2 : (e ⍟ fun m ↦ if p ∣ m then 0 else f m) (p * n) =
       e p * (e ⍟ fun m ↦ if p ∣ m then 0 else f m) n :=
     convolution_mul_prime_of_dvd_eq_zero hp he (fun m hm ↦ by simp [hm]) hn
   have h3 : (e ⍟ fun m ↦ if p ∣ m then f (m / p) else 0) n = if p ∣ n then (e ⍟ f) (n / p) else 0 :=
-    convolution_ite_dvd hp hn
+    convolution_ite_dvd_of_pos hp.pos
   rw [hsplit, h1, h2, ← h3]
   simp only [convolution_def, mul_sum, ← sum_add_distrib]
   refine sum_congr rfl fun x _ ↦ ?_
