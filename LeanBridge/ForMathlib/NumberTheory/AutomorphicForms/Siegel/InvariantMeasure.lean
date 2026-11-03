@@ -24,7 +24,8 @@ hence of real Jacobian `|det(cτ + d)|^{-2g-2}`, while `det Im(γτ) = det(Y) |d
 * `SiegelUpperHalfSpace.toCoords`: the coordinates of a point of `ℋ_g`,
   `SiegelUpperHalfSpace.coordSet` the open set they range over, and
   `SiegelUpperHalfSpace.ofCoords` the point with given coordinates.
-* The instance `MeasurableSpace (SiegelUpperHalfSpace l)`, transported from the coordinates.
+* The instances `MeasurableSpace (SiegelUpperHalfSpace l)` and
+  `TopologicalSpace (SiegelUpperHalfSpace l)`, transported from the coordinates.
 * `SiegelUpperHalfSpace.moebiusCoords`: the action of `γ ∈ Sp(2g, ℝ)` in coordinates.
 * `SiegelUpperHalfSpace.coordDensity`: the density `det(Y)^{-g-1}` in coordinates.
 * `SiegelUpperHalfSpace.invariantMeasure`: the measure `det(Y)^{-g-1} dX dY`.
@@ -82,6 +83,9 @@ lemma range_toCoords : range toCoords = coordSet l :=
 noncomputable instance : MeasurableSpace (SiegelUpperHalfSpace l) :=
   MeasurableSpace.comap toCoords inferInstance
 
+noncomputable instance : TopologicalSpace (SiegelUpperHalfSpace l) :=
+  .induced toCoords inferInstance
+
 private lemma sub_conjTranspose_eq_smul {M : Matrix l l ℂ} (hM : Mᵀ = M) :
     M - Mᴴ = (2 * I) • (M.map im).map ofReal := by
   ext i j
@@ -126,6 +130,10 @@ variable (l) in
 half-space, with `g = |l|`. -/
 noncomputable def coordDensity : (Sym2 l → ℂ) → ℝ≥0∞ :=
   fun h ↦ ENNReal.ofReal (((ofSymCoords h).map im).det ^ (Fintype.card l + 1))⁻¹
+
+lemma measurable_coordDensity : Measurable (coordDensity l) := by
+  unfold coordDensity
+  fun_prop
 
 variable (l) in
 /-- The **invariant measure** `det(Y)^{-g-1} dX dY` on the Siegel upper half-space `ℋ_g`,

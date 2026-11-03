@@ -1,5 +1,6 @@
 import Mathlib.Analysis.Fourier.AddCircle
 import Mathlib.Analysis.PSeries
+import Mathlib.Analysis.SpecialFunctions.Integrals.Basic
 
 /-!
 # Fourier series of periodic `C²` functions
@@ -21,6 +22,19 @@ half-plane invariant under `z ↦ z + 1`, the first step towards the Fourier exp
 open Complex Function MeasureTheory Real Set
 
 variable {T M : ℝ} [hT : Fact (0 < T)] {g g' g'' : ℝ → ℂ} {n : ℤ}
+
+variable (n) in
+lemma intervalIntegral_exp_two_pi_I_mul :
+    ∫ x in (0 : ℝ)..1, cexp (2 * π * I * n * x) = if n = 0 then 1 else 0 := by
+  split_ifs with hn
+  · simp [hn]
+  · have hc : 2 * π * I * n ≠ 0 := by
+      simp [hn, Real.pi_ne_zero]
+    rw [integral_exp_mul_complex hc]
+    have h1 : cexp (2 * π * I * n) = 1 := by
+      rw [Complex.exp_eq_one_iff]
+      exact ⟨n, by ring1⟩
+    simp [h1]
 
 variable (g n) in
 lemma fourierCoeffOn_eq_integral_exp : fourierCoeffOn (lt_add_of_pos_right 0 one_pos) g n =

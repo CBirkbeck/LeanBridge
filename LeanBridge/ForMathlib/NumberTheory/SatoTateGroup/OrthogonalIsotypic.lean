@@ -12,9 +12,6 @@ lie in one column, and otherwise if the antisymmetriser of the other slots kills
 
 ## Main definitions
 
-* `SatoTateGroup.isotypicMatrix`: the isotypic projector of an irreducible character on a tensor
-  power, as a matrix.
-* `SatoTateGroup.ambientProjector`: the same projector in Tau Ceti's character theory.
 * `SatoTateGroup.cupEquiv`: the tuples of indices, by their values at two slots and on the others.
 * `SatoTateGroup.cupMap`: the cup at two slots of a tensor of the other slots.
 
@@ -42,88 +39,7 @@ section Isotypic
 
 variable {w d : ℕ} {P : Type u} [Fintype P] (χ χ' : IrrepClass ℂ (ambientGroup w d))
 
-/-- The **isotypic projector** of an irreducible character `χ` of the ambient group on a tensor
-power of the standard representation, as a matrix: `dim χ ∫ conj (χ g) g^{⊗P} dg`. -/
-noncomputable def isotypicMatrix : Matrix (P → Fin d) (P → Fin d) ℂ :=
-  of fun a b ↦ (χ.model.dim : ℂ) * ∫ g : ambientGroup w d,
-    tensorRep (P := P) (g : Matrix (Fin d) (Fin d) ℂ) a b * conj (ambientCharacter w d χ g)
-      ∂haarProb (ambientGroup w d)
-
-lemma continuous_tensorRep_mul_conj (a b : P → Fin d) : Continuous fun g : ambientGroup w d ↦
-    tensorRep (P := P) (g : Matrix (Fin d) (Fin d) ℂ) a b * conj (ambientCharacter w d χ g) :=
-  (continuous_ambient_tensorRep_apply a b).mul
-    (Complex.continuous_conj.comp (ambientCharacter w d χ).continuous)
-
 variable [DecidableEq P]
-
-lemma continuous_tensorRep_mulVec (f : (P → Fin d) → ℂ) (a : P → Fin d) :
-    Continuous fun g : ambientGroup w d ↦ (tensorRep (g : Matrix (Fin d) (Fin d) ℂ) *ᵥ f) a :=
-  continuous_finsetSum _ fun b _ ↦ (continuous_ambient_tensorRep_apply a b).mul continuous_const
-
-lemma isotypicMatrix_mulVec_apply (f : (P → Fin d) → ℂ) (a : P → Fin d) :
-    (isotypicMatrix χ *ᵥ f) a = (χ.model.dim : ℂ) * ∫ g : ambientGroup w d,
-      (tensorRep (g : Matrix (Fin d) (Fin d) ℂ) *ᵥ f) a * conj (ambientCharacter w d χ g)
-        ∂haarProb (ambientGroup w d) := by
-  have h₁ (g : ambientGroup w d) : (tensorRep (g : Matrix (Fin d) (Fin d) ℂ) *ᵥ f) a *
-      conj (ambientCharacter w d χ g) = ∑ b, (tensorRep (P := P) (g : Matrix (Fin d) (Fin d) ℂ) a b
-        * conj (ambientCharacter w d χ g)) * f b := by
-    simp only [mulVec, dotProduct, Finset.sum_mul]
-    exact Finset.sum_congr rfl fun b _ ↦ by ring1
-  have hint (b : P → Fin d) : Integrable (fun g : ambientGroup w d ↦
-      (tensorRep (P := P) (g : Matrix (Fin d) (Fin d) ℂ) a b *
-        conj (ambientCharacter w d χ g)) * f b) (haarProb (ambientGroup w d)) :=
-    ((continuous_tensorRep_mul_conj χ a b).mul continuous_const).integrable_of_hasCompactSupport
-      (HasCompactSupport.of_compactSpace _)
-  simp only [h₁]
-  rw [integral_finsetSum _ fun b _ ↦ hint b, Finset.mul_sum]
-  refine Finset.sum_congr rfl fun b _ ↦ ?_
-  rw [integral_mul_const, ← mul_assoc]
-  rfl
-
-/-- The projector of Tau Ceti's character theory. -/
-noncomputable abbrev ambientProjector : ContIntertwiningMap
-    (ambientTensorRep (w := w) (d := d) (P := P)) (ambientTensorRep (w := w) (d := d) (P := P)) :=
-  ContRepresentation.isotypicProjector (ambientTensorRep (w := w) (d := d) (P := P))
-    continuous_ambientTensorRep χ.model.rep χ.model.continuous_rep
-
-lemma ambientProjector_apply_ofLp (v : EuclideanSpace ℂ (P → Fin d)) :
-    (ambientProjector χ v).ofLp = isotypicMatrix χ *ᵥ v.ofLp := by
-  funext a
-  rw [isotypicMatrix_mulVec_apply]
-  have h₁ : ambientProjector χ v = ∫ g, ContRepresentation.isotypicKernel
-      χ.model.rep χ.model.continuous_rep g • ambientTensorRep g v ∂haarProb (ambientGroup w d) :=
-    ContRepresentation.isotypicProjector_apply _ _ _ _ v
-  have hint : Integrable (fun g ↦ ContRepresentation.isotypicKernel
-      χ.model.rep χ.model.continuous_rep g • ambientTensorRep g v)
-        (haarProb (ambientGroup w d)) := by
-    refine Continuous.integrable_of_hasCompactSupport ?_ (HasCompactSupport.of_compactSpace _)
-    exact (ContRepresentation.isotypicKernel χ.model.rep χ.model.continuous_rep).continuous.smul
-      (continuous_ambientTensorRep.clm_apply continuous_const)
-  have h₂ : ∫ g, (EuclideanSpace.proj (𝕜 := ℂ) a) (ContRepresentation.isotypicKernel
-      χ.model.rep χ.model.continuous_rep g • ambientTensorRep g v)
-        ∂haarProb (ambientGroup w d) = (EuclideanSpace.proj (𝕜 := ℂ) a)
-          (∫ g, ContRepresentation.isotypicKernel χ.model.rep χ.model.continuous_rep g •
-            ambientTensorRep g v ∂haarProb (ambientGroup w d)) :=
-    (EuclideanSpace.proj (𝕜 := ℂ) a).integral_comp_comm hint
-  rw [← h₁] at h₂
-  have h₃ :
-      (ambientProjector χ v).ofLp a = (EuclideanSpace.proj (𝕜 := ℂ) a) (ambientProjector χ v) :=
-    rfl
-  rw [h₃, ← h₂, ← integral_const_mul]
-  refine integral_congr_ae (Eventually.of_forall fun g ↦ ?_)
-  have h₄ : (EuclideanSpace.proj (𝕜 := ℂ) a) (ContRepresentation.isotypicKernel
-      χ.model.rep χ.model.continuous_rep g • ambientTensorRep g v) =
-        ContRepresentation.isotypicKernel χ.model.rep χ.model.continuous_rep g *
-          (tensorRep (g : Matrix (Fin d) (Fin d) ℂ) *ᵥ v.ofLp) a :=
-    rfl
-  have h₅ : star (ContRepresentation.character χ.model.rep χ.model.continuous_rep g) =
-      conj (ambientCharacter w d χ g) :=
-    rfl
-  have h₆ : finrank ℂ (EuclideanSpace ℂ (Fin χ.model.dim)) = χ.model.dim := by
-    simp
-  beta_reduce
-  rw [h₄, ContRepresentation.isotypicKernel_apply, h₅, h₆]
-  ring1
 
 lemma isotypicMatrix_mul_self : (isotypicMatrix χ : Matrix (P → Fin d) (P → Fin d) ℂ) *
     isotypicMatrix χ = isotypicMatrix χ := by

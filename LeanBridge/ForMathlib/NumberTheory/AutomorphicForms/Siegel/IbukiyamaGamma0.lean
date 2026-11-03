@@ -64,6 +64,8 @@ with trivial character, and doubling sends `M_k(Γ₀(2))` to `M_k(Γ₀(4))`, w
 
 open Complex Matrix Module Real SymplecticGroup
 
+open SpecialLinearGroup (lowerUnipotent)
+
 open scoped MatrixGroups
 
 namespace SiegelUpperHalfSpace

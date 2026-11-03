@@ -38,10 +38,6 @@ namespace SiegelUpperHalfSpace
 
 variable {j : ℕ} (φ : Dual ℂ (Sym[ℂ]^j (Fin 2 → ℂ))) (v : Sym[ℂ]^j (Fin 2 → ℂ))
 
-private lemma symPowerRep_tprod (A : GL (Fin 2) ℂ) (m : Fin j → Fin 2 → ℂ) :
-    TauCeti.symPowerRep ℂ 2 j A (⨂ₛ[ℂ] i, m i) = ⨂ₛ[ℂ] i, (A : Matrix (Fin 2) (Fin 2) ℂ) *ᵥ m i :=
-  Representation.symmetricPower_apply_tprod _ _ _ _
-
 private lemma norm_mulVec_apply_le {A : Matrix (Fin 2) (Fin 2) ℂ} {M : ℝ} (hA : ∀ a c, ‖A a c‖ ≤ M)
     (u : Fin 2 → ℂ) (a : Fin 2) : ‖(A *ᵥ u) a‖ ≤ 2 * M * ‖u‖ := by
   rw [mulVec, dotProduct, Fin.sum_univ_two]
@@ -306,11 +302,7 @@ private lemma symHermitianForm_symPowerRep (A : GL (Fin 2) ℂ) (u w : Sym[ℂ]^
 /-- **The form `symHermitianForm` is admissible for `ρ_{k,j}`**: `c(ρ(A) v, w) = c(v, ρ(Aᴴ) w)`. -/
 lemma isAdmissibleForm_symHermitianForm : IsAdmissibleForm (rhoKJ k j) (symHermitianForm j) := by
   intro A u w
-  have hdet : ((GeneralLinearGroup.det (star A) ^ k : ℂˣ) : ℂ) =
-      conj ((GeneralLinearGroup.det A ^ k : ℂˣ) : ℂ) := by
-    rw [Units.val_zpow_eq_zpow_val, Units.val_zpow_eq_zpow_val, map_zpow₀]
-    simp [star_eq_conjTranspose]
-  rw [rhoKJ_apply, rhoKJ_apply, map_smul, LinearMap.smul_apply, LinearMap.map_smulₛₗ, hdet,
-    Complex.conj_conj, symHermitianForm_symPowerRep]
+  rw [rhoKJ_apply, rhoKJ_apply, map_smul, LinearMap.smul_apply, LinearMap.map_smulₛₗ,
+    coe_det_star_zpow, Complex.conj_conj, symHermitianForm_symPowerRep]
 
 end SiegelUpperHalfSpace

@@ -1,5 +1,6 @@
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.HeckeSelfAdjoint
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.LaplacianMoebius
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.LowerUnipotent
 
 /-!
 # Level-changing operators on Maass forms
@@ -27,7 +28,6 @@ and `c = 1 - q⁻²`.
 ## Main definitions
 
 * `UpperHalfPlane.IsRightCosetTransversal`: systems of representatives of right cosets.
-* `UpperHalfPlane.slLowerUnipotent`: the matrix `!![1, 0; x, 1]`.
 * `UpperHalfPlane.gammaZeroUpper`: the subgroup `Γ₀(M) ∩ Γ⁰(q)`.
 * `UpperHalfPlane.maassLevelLower`: the function `w ↦ F(w / q)`.
 * `UpperHalfPlane.maassUpOperator`: the operator `U_q`.
@@ -40,7 +40,7 @@ and `c = 1 - q⁻²`.
 ## Main results
 
 * `UpperHalfPlane.sum_comp_mem_maassSpace`: the trace along a coset transversal is a Maass form.
-* `UpperHalfPlane.isRightCosetTransversal_slLowerUnipotent`,
+* `UpperHalfPlane.isRightCosetTransversal_lowerUnipotent`,
   `UpperHalfPlane.isRightCosetTransversal_T_zpow`, `UpperHalfPlane.isRightCosetTransversal_option`:
   the coset representatives.
 * `UpperHalfPlane.maassLevelLower_smul`: `w ↦ F(w / q)` is invariant under `Γ₀(M) ∩ Γ⁰(q)`.
@@ -115,24 +115,19 @@ lemma sum_comp_mem_maassSpace [Fintype ι] (hr : IsRightCosetTransversal Γ' (Ga
   exact Submodule.sum_mem _ fun i _ ↦ hmem (r i)
 
 variable (x) in
-/-- The **lower unipotent matrix** `!![1, 0; x, 1]` of `SL(2, ℤ)`. -/
-def slLowerUnipotent : SL(2, ℤ) :=
-  ⟨!![1, 0; x, 1], by simp⟩
-
-variable (x) in
-lemma slLowerUnipotent_apply_zero_zero : slLowerUnipotent x 0 0 = 1 :=
+lemma lowerUnipotent_apply_zero_zero : lowerUnipotent x 0 0 = 1 :=
   rfl
 
 variable (x) in
-lemma slLowerUnipotent_apply_zero_one : slLowerUnipotent x 0 1 = 0 :=
+lemma lowerUnipotent_apply_zero_one : lowerUnipotent x 0 1 = 0 :=
   rfl
 
 variable (x) in
-lemma slLowerUnipotent_apply_one_zero : slLowerUnipotent x 1 0 = x :=
+lemma lowerUnipotent_apply_one_zero : lowerUnipotent x 1 0 = x :=
   rfl
 
 variable (x) in
-lemma slLowerUnipotent_apply_one_one : slLowerUnipotent x 1 1 = 1 :=
+lemma lowerUnipotent_apply_one_one : lowerUnipotent x 1 1 = 1 :=
   rfl
 
 variable (M q) in
@@ -178,19 +173,19 @@ lemma T_zpow_mul_apply_one_zero : (T ^ j * g) 1 0 = g 1 0 := by
   simp
 
 variable (x g) in
-lemma slLowerUnipotent_mul_apply_zero_one : (slLowerUnipotent x * g) 0 1 = g 0 1 := by
-  simp [Matrix.mul_apply, slLowerUnipotent_apply_zero_zero, slLowerUnipotent_apply_zero_one]
+lemma lowerUnipotent_mul_apply_zero_one : (lowerUnipotent x * g) 0 1 = g 0 1 := by
+  simp [Matrix.mul_apply, lowerUnipotent_apply_zero_zero, lowerUnipotent_apply_zero_one]
 
 variable (x g) in
-lemma slLowerUnipotent_mul_apply_one_one : (slLowerUnipotent x * g) 1 1 = x * g 0 1 + g 1 1 := by
-  simp [Matrix.mul_apply, slLowerUnipotent_apply_one_zero, slLowerUnipotent_apply_one_one]
+lemma lowerUnipotent_mul_apply_one_one : (lowerUnipotent x * g) 1 1 = x * g 0 1 + g 1 1 := by
+  simp [Matrix.mul_apply, lowerUnipotent_apply_one_zero, lowerUnipotent_apply_one_one]
 
 variable (x g) in
-lemma slLowerUnipotent_mul_apply_one_zero : (slLowerUnipotent x * g) 1 0 = x * g 0 0 + g 1 0 := by
-  simp [Matrix.mul_apply, slLowerUnipotent_apply_one_zero, slLowerUnipotent_apply_one_one]
+lemma lowerUnipotent_mul_apply_one_zero : (lowerUnipotent x * g) 1 0 = x * g 0 0 + g 1 0 := by
+  simp [Matrix.mul_apply, lowerUnipotent_apply_one_zero, lowerUnipotent_apply_one_one]
 
-lemma slLowerUnipotent_mem_gamma0_iff : slLowerUnipotent x ∈ Gamma0 N ↔ (N : ℤ) ∣ x := by
-  rw [Gamma0_mem, ZMod.intCast_zmod_eq_zero_iff_dvd, slLowerUnipotent_apply_one_zero]
+lemma lowerUnipotent_mem_gamma0_iff : lowerUnipotent x ∈ Gamma0 N ↔ (N : ℤ) ∣ x := by
+  rw [Gamma0_mem, ZMod.intCast_zmod_eq_zero_iff_dvd, lowerUnipotent_apply_one_zero]
 
 variable [NeZero q] in
 lemma sum_range_eq_sum_zmod {E : Type*} [AddCommMonoid E] (f : ℕ → E) :
@@ -312,19 +307,19 @@ lemma maassPeriodAverage_eq (hq : q ≠ 0) (z : ℍ) :
 variable (N q H) in
 /-- The normalised trace `(Tr H)(z) = q⁻¹ ∑_{i < q} H(!![1, 0; N i, 1] z)` of a function `H` on
 `ℍ`, from `Γ₀(Nq)` to `Γ₀(N)` for a prime `q ∣ N`: the matrices represent the right cosets of
-`Γ₀(Nq)` in `Γ₀(N)` (`isRightCosetTransversal_slLowerUnipotent`). -/
+`Γ₀(Nq)` in `Γ₀(N)` (`isRightCosetTransversal_lowerUnipotent`). -/
 noncomputable def maassLevelTrace : ℍ → ℂ :=
-  fun z ↦ (q : ℂ)⁻¹ * ∑ i ∈ Finset.range q, H (slLowerUnipotent (N * i) • z)
+  fun z ↦ (q : ℂ)⁻¹ * ∑ i ∈ Finset.range q, H (lowerUnipotent (N * i) • z)
 
-lemma ofComplex_mul_slLowerUnipotent_smul (hd : 0 < d) (z : ℍ) :
-    ofComplex ((d : ℂ) * ((slLowerUnipotent (d * x) • z : ℍ) : ℂ)) =
-      slLowerUnipotent x • ofComplex ((d : ℂ) * z) := by
-  have hd' : (d : ℤ) ∣ slLowerUnipotent (d * x) 1 0 := dvd_mul_right _ _
-  have hscale : gammaZeroScale d (slLowerUnipotent (d * x)) hd' = slLowerUnipotent x := by
+lemma ofComplex_mul_lowerUnipotent_smul (hd : 0 < d) (z : ℍ) :
+    ofComplex ((d : ℂ) * ((lowerUnipotent (d * x) • z : ℍ) : ℂ)) =
+      lowerUnipotent x • ofComplex ((d : ℂ) * z) := by
+  have hd' : (d : ℤ) ∣ lowerUnipotent (d * x) 1 0 := dvd_mul_right _ _
+  have hscale : gammaZeroScale d (lowerUnipotent (d * x)) hd' = lowerUnipotent x := by
     ext i j
     fin_cases i <;> fin_cases j
     · rfl
-    · simp [gammaZeroScale, slLowerUnipotent]
+    · simp [gammaZeroScale, lowerUnipotent]
     · exact Int.mul_ediv_cancel_left _ (Int.natCast_ne_zero.mpr hd.ne')
     · rfl
   rw [← coe_gammaZeroScale_smul hd' hd, hscale, ofComplex_apply]
@@ -342,12 +337,12 @@ lemma maassLevelTrace_maassLevelRaise (hd : 0 < d) :
   have h : ((d * M : ℕ) : ℤ) * i = d * (M * i) := by
     push_cast
     ring1
-  rw [h, ofComplex_mul_slLowerUnipotent_smul hd]
+  rw [h, ofComplex_mul_lowerUnipotent_smul hd]
 
 lemma maassLevelTrace_maassPeriodAverage (hq : q ≠ 0) (z : ℍ) :
     maassLevelTrace (q * M) q (maassPeriodAverage q F) z = (q : ℂ)⁻¹ * ((q : ℂ)⁻¹ *
       ∑ i ∈ Finset.range q,
-        maassUpOperator q F (slLowerUnipotent (M * i) • ofComplex ((q : ℂ) * z))) := by
+        maassUpOperator q F (lowerUnipotent (M * i) • ofComplex ((q : ℂ) * z))) := by
   rw [maassLevelTrace]
   congr 1
   rw [Finset.mul_sum]
@@ -356,7 +351,7 @@ lemma maassLevelTrace_maassPeriodAverage (hq : q ≠ 0) (z : ℍ) :
     push_cast
     ring1
   rw [maassPeriodAverage_eq hq, maassLevelRaise, h,
-    ofComplex_mul_slLowerUnipotent_smul (Nat.pos_of_ne_zero hq)]
+    ofComplex_mul_lowerUnipotent_smul (Nat.pos_of_ne_zero hq)]
 
 variable (M q F) in
 /-- The trace of `w ↦ F(w / q)` from `Γ₀(M) ∩ Γ⁰(q)` to `Γ₀(M)` for a prime `q ∤ M`, along the
@@ -364,7 +359,7 @@ representatives `1` and `T !![1, 0; M i, 1]`, `i` modulo `q`, of
 `isRightCosetTransversal_option`. -/
 noncomputable def maassLowerTrace [NeZero q] : ℍ → ℂ :=
   fun w ↦ ∑ p : Option (ZMod q), maassLevelLower q F
-    ((p.elim 1 fun i ↦ T ^ (1 : ℤ) * slLowerUnipotent (M * i.val) : SL(2, ℤ)) • w)
+    ((p.elim 1 fun i ↦ T ^ (1 : ℤ) * lowerUnipotent (M * i.val) : SL(2, ℤ)) • w)
 
 variable (M q) in
 /-- The constant `c` of the key identity `F - Tr (E_q F) = c (F - Z(q ·))`
@@ -384,17 +379,17 @@ variable [hq : Fact q.Prime]
 
 /-- **The lower unipotent matrices `!![1, 0; M i, 1]`, `i` modulo `q`, represent the right cosets
 of `Γ₀(Mq)` in `Γ₀(M)`** for a prime `q ∣ M ≠ 0`. -/
-lemma isRightCosetTransversal_slLowerUnipotent (hqM : q ∣ M) (hM : M ≠ 0) :
+lemma isRightCosetTransversal_lowerUnipotent (hqM : q ∣ M) (hM : M ≠ 0) :
     IsRightCosetTransversal (Gamma0 (M * q)) (Gamma0 M)
-      fun i : ZMod q ↦ slLowerUnipotent (M * i.val) := by
-  refine ⟨fun i ↦ slLowerUnipotent_mem_gamma0_iff.mpr (dvd_mul_right _ _), fun γ hγ ↦ ?_⟩
+      fun i : ZMod q ↦ lowerUnipotent (M * i.val) := by
+  refine ⟨fun i ↦ lowerUnipotent_mem_gamma0_iff.mpr (dvd_mul_right _ _), fun γ hγ ↦ ?_⟩
   rcases (ZMod.intCast_zmod_eq_zero_iff_dvd _ _).mp hγ with ⟨c, hc⟩
   have hM' : (M : ℤ) ≠ 0 := by
     exact_mod_cast hM
-  have key (i : ZMod q) : slLowerUnipotent (M * i.val) * γ⁻¹ ∈ Gamma0 (M * q) ↔
+  have key (i : ZMod q) : lowerUnipotent (M * i.val) * γ⁻¹ ∈ Gamma0 (M * q) ↔
       i * ((γ 1 1 : ℤ) : ZMod q) = c := by
-    have h : (slLowerUnipotent (M * i.val) * γ⁻¹) 1 0 = M * (i.val * γ 1 1 - c) := by
-      rw [slLowerUnipotent_mul_apply_one_zero, inv_apply_zero_zero, inv_apply_one_zero, hc]
+    have h : (lowerUnipotent (M * i.val) * γ⁻¹) 1 0 = M * (i.val * γ 1 1 - c) := by
+      rw [lowerUnipotent_mul_apply_one_zero, inv_apply_zero_zero, inv_apply_one_zero, hc]
       ring1
     rw [Gamma0_mem, ZMod.intCast_zmod_eq_zero_iff_dvd, h, Nat.cast_mul, mul_dvd_mul_iff_left hM',
       ← ZMod.intCast_zmod_eq_zero_iff_dvd]
@@ -432,12 +427,12 @@ lemma isRightCosetTransversal_T_zpow (hqM : q ∣ M) :
 cosets of `Γ₀(M) ∩ Γ⁰(q)` in `Γ₀(M)`**, for every `j` prime to `q`. -/
 lemma isRightCosetTransversal_option (hqM : ¬q ∣ M) (hj : (j : ZMod q) ≠ 0) :
     IsRightCosetTransversal (gammaZeroUpper M q) (Gamma0 M) fun p : Option (ZMod q) ↦
-      p.elim 1 fun i ↦ T ^ j * slLowerUnipotent (M * i.val) := by
+      p.elim 1 fun i ↦ T ^ j * lowerUnipotent (M * i.val) := by
   have hM0 : (M : ZMod q) ≠ 0 := fun h ↦ hqM ((ZMod.natCast_eq_zero_iff _ _).mp h)
   refine ⟨fun p ↦ ?_, fun γ hγ ↦ ?_⟩
   · rcases p with _ | i
     · exact one_mem _
-    · refine mul_mem ?_ (slLowerUnipotent_mem_gamma0_iff.mpr (dvd_mul_right _ _))
+    · refine mul_mem ?_ (lowerUnipotent_mem_gamma0_iff.mpr (dvd_mul_right _ _))
       rw [Gamma0_mem, ZMod.intCast_zmod_eq_zero_iff_dvd]
       simp [coe_T_zpow]
   · have hM : (M : ℤ) ∣ γ 1 0 := (ZMod.intCast_zmod_eq_zero_iff_dvd _ _).mp hγ
@@ -445,11 +440,11 @@ lemma isRightCosetTransversal_option (hqM : ¬q ∣ M) (hj : (j : ZMod q) ≠ 0)
       rw [one_mul, mem_gammaZeroUpper_iff, inv_apply_one_zero, inv_apply_zero_one, dvd_neg, dvd_neg,
         ZMod.intCast_zmod_eq_zero_iff_dvd]
       exact and_iff_right hM
-    have key (i : ZMod q) : T ^ j * slLowerUnipotent (M * i.val) * γ⁻¹ ∈ gammaZeroUpper M q ↔
+    have key (i : ZMod q) : T ^ j * lowerUnipotent (M * i.val) * γ⁻¹ ∈ gammaZeroUpper M q ↔
         (j : ZMod q) * (γ 0 0 : ℤ) = (γ 0 1 : ℤ) * (1 + j * M * i) := by
       rw [mem_gammaZeroUpper_iff, mul_assoc, T_zpow_mul_apply_one_zero, T_zpow_mul_apply_zero_one,
-        slLowerUnipotent_mul_apply_one_zero, slLowerUnipotent_mul_apply_zero_one,
-        slLowerUnipotent_mul_apply_one_one, inv_apply_zero_zero, inv_apply_one_zero,
+        lowerUnipotent_mul_apply_one_zero, lowerUnipotent_mul_apply_zero_one,
+        lowerUnipotent_mul_apply_one_one, inv_apply_zero_zero, inv_apply_one_zero,
         inv_apply_zero_one, inv_apply_one_one, ← ZMod.intCast_zmod_eq_zero_iff_dvd _ q]
       push_cast
       rw [ZMod.natCast_zmod_val, and_iff_right
@@ -480,43 +475,43 @@ lemma maassUpOperator_eq_sum_zmod (w : ℍ) :
   sum_range_eq_sum_zmod _
 
 lemma maassLevelTrace_eq_sum_zmod (z : ℍ) :
-    maassLevelTrace M q H z = (q : ℂ)⁻¹ * ∑ i : ZMod q, H (slLowerUnipotent (M * i.val) • z) := by
-  rw [maassLevelTrace, sum_range_eq_sum_zmod fun i : ℕ ↦ H (slLowerUnipotent (M * i) • z)]
+    maassLevelTrace M q H z = (q : ℂ)⁻¹ * ∑ i : ZMod q, H (lowerUnipotent (M * i.val) • z) := by
+  rw [maassLevelTrace, sum_range_eq_sum_zmod fun i : ℕ ↦ H (lowerUnipotent (M * i) • z)]
 
 lemma maassLevelTrace_eq_self (hF : F ∈ maassSpace M 1 eigenvalue) : maassLevelTrace M q F = F := by
   funext z
   have hq' : (q : ℂ) ≠ 0 := Nat.cast_ne_zero.mpr hq.out.ne_zero
-  have h (i : ℕ) : F (slLowerUnipotent (M * i) • z) = F z := smul_eq_of_mem_maassSpace_one hF <|
-    slLowerUnipotent_mem_gamma0_iff.mpr (dvd_mul_right _ _)
+  have h (i : ℕ) : F (lowerUnipotent (M * i) • z) = F z := smul_eq_of_mem_maassSpace_one hF <|
+    lowerUnipotent_mem_gamma0_iff.mpr (dvd_mul_right _ _)
   simp only [maassLevelTrace, h, Finset.sum_const, Finset.card_range, nsmul_eq_mul]
   field_simp
 
 lemma sum_maassLevelLower_T_zpow (hqM : ¬q ∣ M) (hj : (j : ZMod q) ≠ 0)
     (hF : ∀ γ ∈ Gamma0 (q * M), ∀ τ : ℍ, F (γ • τ) = F τ) (w : ℍ) :
-    ∑ i ∈ Finset.range q, maassLevelLower q F (T ^ j • slLowerUnipotent (M * i) • w) =
+    ∑ i ∈ Finset.range q, maassLevelLower q F (T ^ j • lowerUnipotent (M * i) • w) =
       maassLowerTrace M q F w - maassLevelLower q F w := by
   have h : ∑ p : Option (ZMod q), maassLevelLower q F
-      ((p.elim 1 fun i ↦ T ^ j * slLowerUnipotent (M * i.val) : SL(2, ℤ)) • w) =
+      ((p.elim 1 fun i ↦ T ^ j * lowerUnipotent (M * i.val) : SL(2, ℤ)) • w) =
         maassLowerTrace M q F w :=
     (isRightCosetTransversal_option (j := j) hqM hj).sum_eq
       (isRightCosetTransversal_option (j := 1) hqM (by simp))
       (fun δ hδ τ ↦ maassLevelLower_smul hq.out.ne_zero hF hδ τ) w
   rw [← h, Fintype.sum_option, sum_range_eq_sum_zmod
-    fun i : ℕ ↦ maassLevelLower q F (T ^ j • slLowerUnipotent (M * i) • w)]
+    fun i : ℕ ↦ maassLevelLower q F (T ^ j • lowerUnipotent (M * i) • w)]
   simp [mul_smul]
 
 lemma sum_maassUpOperator_of_not_dvd (hqM : ¬q ∣ M)
     (hF : ∀ γ ∈ Gamma0 (q * M), ∀ τ : ℍ, F (γ • τ) = F τ) (w : ℍ) :
-    ∑ i ∈ Finset.range q, maassUpOperator q F (slLowerUnipotent (M * i) • w) =
-      maassLevelLower q F w + ((q : ℂ) - 1) * maassLowerTrace M q F w := by
-  have h0 (i : ℕ) : maassLevelLower q F (slLowerUnipotent (M * i) • w) = maassLevelLower q F w :=
+    ∑ i ∈ Finset.range q, maassUpOperator q F (lowerUnipotent (M * i) • w) = maassLevelLower q F w +
+      ((q : ℂ) - 1) * maassLowerTrace M q F w := by
+  have h0 (i : ℕ) : maassLevelLower q F (lowerUnipotent (M * i) • w) = maassLevelLower q F w :=
     maassLevelLower_smul hq.out.ne_zero hF
       ⟨(dvd_mul_right _ _ : (M : ℤ) ∣ M * i), (dvd_zero _ : (q : ℤ) ∣ 0)⟩ w
   simp only [maassUpOperator]
   rw [Finset.sum_comm]
   rcases Nat.exists_eq_succ_of_ne_zero hq.out.ne_zero with ⟨n, hn⟩
   have hsum : ∑ j ∈ Finset.range q, ∑ i ∈ Finset.range q,
-      maassLevelLower q F (T ^ (j : ℤ) • slLowerUnipotent (M * i) • w) =
+      maassLevelLower q F (T ^ (j : ℤ) • lowerUnipotent (M * i) • w) =
       ∑ j ∈ Finset.range n, (maassLowerTrace M q F w - maassLevelLower q F w) +
         (q : ℂ) * maassLevelLower q F w := by
     conv_lhs => rw [hn, Finset.sum_range_succ', ← hn]
@@ -594,12 +589,11 @@ lemma maassPeriodAverage_mem_maassSpace (hqM : q ∣ M) (hF : F ∈ maassSpace M
 lemma maassLevelTrace_mem_maassSpace (hqM : q ∣ M) (hH : H ∈ maassSpace (M * q) 1 eigenvalue) :
     maassLevelTrace M q H ∈ maassSpace M 1 eigenvalue := by
   have : NeZero (M * q) := ⟨mul_ne_zero (NeZero.ne M) hq.out.ne_zero⟩
-  have h :
-      (fun τ ↦ ∑ i : ZMod q, H (slLowerUnipotent (M * i.val) • τ)) ∈ maassSpace M 1 eigenvalue :=
-    sum_comp_mem_maassSpace (isRightCosetTransversal_slLowerUnipotent hqM (NeZero.ne M))
+  have h : (fun τ ↦ ∑ i : ZMod q, H (lowerUnipotent (M * i.val) • τ)) ∈ maassSpace M 1 eigenvalue :=
+    sum_comp_mem_maassSpace (isRightCosetTransversal_lowerUnipotent hqM (NeZero.ne M))
       (fun δ hδ τ ↦ smul_eq_of_mem_maassSpace_one hH hδ) (comp_sl_smul_mem_maassTileSpace hH)
   have h0 : maassLevelTrace M q H =
-      (q : ℂ)⁻¹ • fun τ ↦ ∑ i : ZMod q, H (slLowerUnipotent (M * i.val) • τ) :=
+      (q : ℂ)⁻¹ • fun τ ↦ ∑ i : ZMod q, H (lowerUnipotent (M * i.val) • τ) :=
     funext maassLevelTrace_eq_sum_zmod
   rw [h0]
   exact Submodule.smul_mem _ _ h
@@ -612,9 +606,9 @@ lemma maassLevelTrace_maassPeriodAverage_of_dvd (hqM : q ∣ M)
   have hq' : (q : ℂ) ≠ 0 := Nat.cast_ne_zero.mpr hq.out.ne_zero
   have hU : maassUpOperator q F ∈ maassSpace M 1 eigenvalue :=
     maassUpOperator_mem_maassSpace hqM hF
-  have h (i : ℕ) : maassUpOperator q F (slLowerUnipotent (M * i) • ofComplex ((q : ℂ) * z)) =
+  have h (i : ℕ) : maassUpOperator q F (lowerUnipotent (M * i) • ofComplex ((q : ℂ) * z)) =
       maassUpOperator q F (ofComplex ((q : ℂ) * z)) := smul_eq_of_mem_maassSpace_one hU <|
-    slLowerUnipotent_mem_gamma0_iff.mpr (dvd_mul_right _ _)
+    lowerUnipotent_mem_gamma0_iff.mpr (dvd_mul_right _ _)
   rw [maassLevelTrace_maassPeriodAverage hq.out.ne_zero]
   simp only [h, Finset.sum_const, Finset.card_range, nsmul_eq_mul, maassLevelRaise, Pi.smul_apply,
     smul_eq_mul]

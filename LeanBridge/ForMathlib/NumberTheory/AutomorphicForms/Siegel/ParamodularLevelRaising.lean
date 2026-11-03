@@ -169,13 +169,7 @@ noncomputable def doubleCosetOperator :
     refine Fintype.sum_equiv (toPerm (⟨γ, hγ⟩ : Γ₂)⁻¹) _ _ fun v ↦ ?_
     rw [← heckeMonoidSlash_mul]
     refine doubleCosetSlash_eq_of_mul_inv_mem ρ f.2 ?_
-    rcases exists_mem_out_mul_inv_eq_mul_rightCosetRep D (mul_mem (inv_mem hγ) v.out.2) with
-      ⟨γ₁, hγ₁, hsplit⟩
-    have hmk : (QuotientGroup.mk ⟨γ⁻¹ * (v.out : GL _ ℚ), mul_mem (inv_mem hγ) v.out.2⟩ :
-        DecompQuotient Γ₂ Γ₁ (D.out : GL _ ℚ)⁻¹) = (⟨γ, hγ⟩ : Γ₂)⁻¹ • v :=
-      Quotient.mk_smul_out _ (⟨γ, hγ⟩ : Γ₂)⁻¹ v
-    have hprod : rightCosetRep D v * γ = γ₁ * rightCosetRep D ((⟨γ, hγ⟩ : Γ₂)⁻¹ • v) := by
-      simpa only [hmk, mul_inv_rev, inv_inv, ← mul_assoc, rightCosetRep_def] using hsplit
+    rcases exists_mem_rightCosetRep_mul_eq_mul_rightCosetRep D v hγ with ⟨γ₁, hγ₁, hprod⟩
     simpa [doubleCosetRep, hprod] using inv_mem hγ₁⟩
   map_add' f g := Subtype.ext <| by
     simp [Finset.sum_add_distrib]

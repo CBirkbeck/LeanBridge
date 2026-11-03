@@ -47,6 +47,8 @@ decomposition of `⊕_k M_{2k}(Γ₀(4), ψ₄)`; the cusp condition at the stan
 
 open Complex Matrix Real SymplecticGroup
 
+open SpecialLinearGroup (lowerUnipotent)
+
 namespace SymplecticGroup
 
 variable {p q : symplecticGroup (Fin 2) ℤ} {H : Subgroup (symplecticGroup (Fin 2) ℤ)}

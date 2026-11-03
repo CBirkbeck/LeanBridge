@@ -28,6 +28,8 @@ these laws make `χ₅` a modular form of weight 5 on `Γ[2]` (the field `chi5_m
 
 open Complex Matrix Real SymplecticGroup
 
+open SpecialLinearGroup (lowerUnipotent)
+
 namespace SiegelUpperHalfSpace.Ibukiyama
 
 variable (Ω : SiegelUpperHalfSpace (Fin 2)) (k : ℤ)

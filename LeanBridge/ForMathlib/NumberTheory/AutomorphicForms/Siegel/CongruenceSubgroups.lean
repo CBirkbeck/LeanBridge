@@ -1,6 +1,7 @@
 import Mathlib.Data.ZMod.Basic
 import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 import Mathlib.LinearAlgebra.SymplecticGroup
+import TauCeti.LinearAlgebra.SymplecticGroup
 
 /-!
 # Congruence and paramodular subgroups of the symplectic group
@@ -13,6 +14,7 @@ defined with `J = (0, -1; 1, 0)`, the negative of the LMFDB's `J`, which gives t
 ## Main definitions
 
 * `SymplecticGroup.map`: the homomorphism `Sp(2g, R) → Sp(2g, S)` induced by a ring homomorphism.
+* `SymplecticGroup.symTranslation`: the translation `(1, s; 0, 1)` by a symmetric matrix.
 * `SymplecticGroup.Gamma` (LMFDB `group.sp2gr.ppal.congruence`, `mf.siegel.family`).
 * `SymplecticGroup.siegelParabolic`: the Siegel parabolic subgroup `{c = 0}` of `Sp(2g, R)`.
 * `SymplecticGroup.Gamma0` (LMFDB `group.sp2gr.gamma0`, `mf.siegel.family`).
@@ -43,6 +45,14 @@ def map : symplecticGroup l R →* symplecticGroup l S where
 @[simp]
 lemma coe_map_apply (B : symplecticGroup l R) :
     (map f B : Matrix (l ⊕ l) (l ⊕ l) S) = (B : Matrix (l ⊕ l) (l ⊕ l) R).map f :=
+  rfl
+
+/-- The **translation** `(1, s; 0, 1)` of `Sp(2g, R)` by a symmetric matrix `s`. -/
+def symTranslation (s : Matrix l l R) (hs : sᵀ = s) : symplecticGroup l R :=
+  ⟨fromBlocks 1 s 0 1, fromBlocks_upper_mem hs⟩
+
+lemma coe_symTranslation (s : Matrix l l R) (hs : sᵀ = s) :
+    (symTranslation s hs : Matrix (l ⊕ l) (l ⊕ l) R) = fromBlocks 1 s 0 1 :=
   rfl
 
 variable (l) in

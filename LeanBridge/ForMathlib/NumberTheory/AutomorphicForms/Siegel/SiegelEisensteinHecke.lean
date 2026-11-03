@@ -416,16 +416,7 @@ lemma exists_heckeOperator_siegelEisensteinKJ (hk : 5 < k) (hk' : Even k)
     have hγ : spToGL (Fin 2) a ∈ heckeGamma (Fin 2) := ⟨a, trivial, rfl⟩
     have h (v : DecompQuotient (heckeGamma (Fin 2)) (heckeGamma (Fin 2)) (D.out : GL₄)⁻¹) :
         ∃ b, W v * jSp a = jSp b * W ((⟨_, hγ⟩ : heckeGamma (Fin 2))⁻¹ • v) := by
-      rcases exists_mem_out_mul_inv_eq_mul_rightCosetRep D (mul_mem (inv_mem hγ) v.out.2) with
-        ⟨γ₁, hγ₁, hsplit⟩
-      have hmk : (QuotientGroup.mk ⟨(spToGL (Fin 2) a)⁻¹ * (v.out : GL₄),
-          mul_mem (inv_mem hγ) v.out.2⟩ : DecompQuotient (heckeGamma (Fin 2)) (heckeGamma (Fin 2))
-            (D.out : GL₄)⁻¹) = (⟨_, hγ⟩ : heckeGamma (Fin 2))⁻¹ • v :=
-        Quotient.mk_smul_out _ (⟨_, hγ⟩ : heckeGamma (Fin 2))⁻¹ v
-      have hprod : rightCosetRep D v * spToGL (Fin 2) a =
-          γ₁ * rightCosetRep D ((⟨_, hγ⟩ : heckeGamma (Fin 2))⁻¹ • v) := by
-        simpa only [hmk, mul_inv_rev, inv_inv, ← mul_assoc, rightCosetRep_def] using hsplit
-      rcases hγ₁ with ⟨b, -, rfl⟩
+      rcases exists_mem_rightCosetRep_mul_eq_mul_rightCosetRep D v hγ with ⟨_, ⟨b, -, rfl⟩, hprod⟩
       exact ⟨b, Subtype.ext hprod⟩
     choose b hb using h
     exact ⟨toPerm (⟨_, hγ⟩ : heckeGamma (Fin 2))⁻¹, b, hb⟩

@@ -143,9 +143,9 @@ lemma norm_fourierExp (n : dualLattice Γ) (W : SiegelUpperHalfSpace (Fin 2)) : 
   congr 1
   simp [trace, Matrix.mul_apply]
 
-lemma im_smul_diagPoint (hP : P ∈ siegelParabolic (Fin 2) ℝ) (t : Set.Ioi (0 : ℝ)) (i j : Fin 2) :
-    ((P • diagPoint τ' t).val i j).im = P.1.toBlocks₁₁ i 0 * P.1.toBlocks₁₁ j 0 * τ'.im +
-      P.1.toBlocks₁₁ i 1 * P.1.toBlocks₁₁ j 1 * t := by
+lemma im_smul_of_mem_siegelParabolic (hP : P ∈ siegelParabolic (Fin 2) ℝ)
+    (Z : SiegelUpperHalfSpace (Fin 2)) (i j : Fin 2) :
+    ((P • Z).val i j).im = ∑ k, ∑ l, P.1.toBlocks₁₁ i k * (Z.val k l).im * P.1.toBlocks₁₁ j l := by
   have hD : P.1.toBlocks₂₂.map ofReal * P.1.toBlocks₁₁ᵀ.map ofReal = 1 := by
     have h : (P.1.toBlocks₂₂ * P.1.toBlocks₁₁ᵀ).map ofRealHom =
         (1 : Matrix (Fin 2) (Fin 2) ℝ).map ofRealHom :=
@@ -153,7 +153,14 @@ lemma im_smul_diagPoint (hP : P ∈ siegelParabolic (Fin 2) ℝ) (t : Set.Ioi (0
     rwa [Matrix.map_mul, Matrix.map_one _ (map_zero _) (map_one _)] at h
   rw [val_smul, num, denom, (hP : P.1.toBlocks₂₁ = 0), Matrix.map_zero _ ofReal_zero,
     Matrix.zero_mul, zero_add, inv_eq_right_inv hD]
-  simp [Matrix.mul_apply, diagPoint]
+  simp [Matrix.mul_apply]
+  ring1
+
+lemma im_smul_diagPoint (hP : P ∈ siegelParabolic (Fin 2) ℝ) (t : Set.Ioi (0 : ℝ)) (i j : Fin 2) :
+    ((P • diagPoint τ' t).val i j).im = P.1.toBlocks₁₁ i 0 * P.1.toBlocks₁₁ j 0 * τ'.im +
+      P.1.toBlocks₁₁ i 1 * P.1.toBlocks₁₁ j 1 * t := by
+  rw [im_smul_of_mem_siegelParabolic hP]
+  simp [diagPoint]
   ring1
 
 private lemma rexp_mul_le {A B : ℝ} (hB : 0 ≤ B) {t : Set.Ioi (0 : ℝ)} (ht : tOne ≤ t) :
@@ -239,7 +246,7 @@ lemma siegelOperatorVanishes_slash_of_posDef (hP : P ∈ siegelParabolic (Fin 2)
     hpd).congr fun t ↦ ?_
   simp only [slash_apply, hd, LinearMap.comp_apply]
 
-private lemma map_mem_siegelParabolic {p : symplecticGroup (Fin 2) ℚ}
+lemma map_mem_siegelParabolic {p : symplecticGroup (Fin 2) ℚ}
     (hp : p ∈ siegelParabolic (Fin 2) ℚ) : map (algebraMap ℚ ℝ) p ∈ siegelParabolic (Fin 2) ℝ := by
   ext i j
   have h : (p : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) ℚ) (.inr i) (.inl j) = 0 :=

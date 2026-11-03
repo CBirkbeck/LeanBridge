@@ -57,6 +57,8 @@ proved.
 
 open Complex Matrix Real SymplecticGroup
 
+open SpecialLinearGroup (lowerUnipotent)
+
 namespace SiegelUpperHalfSpace.IgusaLevelTwo
 
 variable (μ ν : Fin 2 → ℤ) {μ' ν' : Fin 2 → ℤ} (k : ℤ) (τ : SiegelUpperHalfSpace (Fin 2))

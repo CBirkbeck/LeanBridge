@@ -176,15 +176,14 @@ lemma transpose_translationMatrix : (translationMatrix a b d)ᵀ = translationMa
 /-- The translation `(1, S; 0, 1)` of `Sp(4, ℤ)` by the integral symmetric matrix
 `S = (a, b; b, d)`, acting on `ℋ₂` by `Z ↦ Z + S`. -/
 def translationSp : symplecticGroup (Fin 2) ℚ :=
-  ⟨fromBlocks 1 (translationMatrix a b d) 0 1, by
-    rw [SymplecticGroup.mem_iff', fromBlocks_transpose, transpose_translationMatrix]
-    simp [J, fromBlocks_multiply]⟩
+  SymplecticGroup.symTranslation (translationMatrix a b d) (transpose_translationMatrix a b d)
 
 lemma val_translationSp_smul :
     (SymplecticGroup.map (algebraMap ℚ ℝ) (translationSp a b d) • Z).val =
       Z.val + (translationMatrix a b d).map (↑) := by
   rw [val_smul]
-  simp [num, denom, translationSp, fromBlocks_map, Function.comp_def]
+  simp [num, denom, translationSp, SymplecticGroup.symTranslation, fromBlocks_map,
+    Function.comp_def]
 
 lemma liftExp_translationSp :
     liftExp 1 n r m (SymplecticGroup.map (algebraMap ℚ ℝ) (translationSp a b d) • Z) =
@@ -200,7 +199,7 @@ lemma liftExp_translationSp :
 
 lemma denom_translationSp :
     denom (SymplecticGroup.map (algebraMap ℚ ℝ) (translationSp a b d)) M = 1 := by
-  simp [denom, translationSp, fromBlocks_map]
+  simp [denom, translationSp, SymplecticGroup.symTranslation, fromBlocks_map]
 
 lemma det_denom_swapSp : (denom (SymplecticGroup.map (algebraMap ℚ ℝ) swapSp) M).det = -1 := by
   rw [denom_swapSp]

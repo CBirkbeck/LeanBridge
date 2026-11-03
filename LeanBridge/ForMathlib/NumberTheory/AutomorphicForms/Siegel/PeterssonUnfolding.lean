@@ -1,4 +1,4 @@
-import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.HeckeFourier
+import LeanBridge.ForMathlib.Analysis.Fourier.PeriodicFourierSeries
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PeterssonRhoKJ
 import TauCeti.Data.Matrix.Countable
 
@@ -202,7 +202,7 @@ lemma integral_cexp_int_eq_zero {m : ℤ} (hm : m ≠ 0) :
     ∫ u in Icc (0 : ℝ) 1, cexp (2 * π * I * ((m : ℂ) * u)) = 0 := by
   simp only [← mul_assoc]
   rw [integral_Icc_eq_integral_Ioc, ← intervalIntegral.integral_of_le zero_le_one,
-    UpperHalfPlane.intervalIntegral_exp_two_pi_I_mul, ite_eq_right hm]
+    intervalIntegral_exp_two_pi_I_mul, ite_eq_right hm]
 
 variable {G : SiegelUpperHalfSpace (Fin 2) → V}
 

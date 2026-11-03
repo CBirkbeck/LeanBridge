@@ -46,6 +46,8 @@ behaviour of the theta constants at the boundary.
 
 open Complex Matrix Real SymplecticGroup
 
+open SpecialLinearGroup (lowerUnipotent)
+
 namespace SiegelUpperHalfSpace.Ibukiyama
 
 variable (Ω : SiegelUpperHalfSpace (Fin 2)) {p γ : symplecticGroup (Fin 2) ℤ}

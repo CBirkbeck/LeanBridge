@@ -21,8 +21,8 @@ arithmetic subgroup is a finite union of translates of a subgroup of `Sp(2g, ℤ
 
 ## Main results
 
-* The instances `TopologicalSpace`, `T2Space`, `SecondCountableTopology`, `LocallyCompactSpace` and
-  `BorelSpace` of `SiegelUpperHalfSpace l`.
+* The instances `T2Space`, `SecondCountableTopology`, `LocallyCompactSpace` and `BorelSpace` of
+  `SiegelUpperHalfSpace l`.
 * `SiegelUpperHalfSpace.isOpenEmbedding_toCoords`: the coordinates are an open embedding.
 * `SiegelUpperHalfSpace.continuous_val`: the matrix of a point depends continuously on the point.
 * The instance `ContinuousConstSMul (symplecticGroup l ℝ) (SiegelUpperHalfSpace l)`.
@@ -41,9 +41,6 @@ open scoped ComplexOrder
 namespace SiegelUpperHalfSpace
 
 variable {l : Type*}
-
-noncomputable instance : TopologicalSpace (SiegelUpperHalfSpace l) :=
-  .induced toCoords inferInstance
 
 lemma continuous_toCoords : Continuous (toCoords (l := l)) :=
   continuous_induced_dom

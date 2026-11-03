@@ -72,6 +72,18 @@ lemma gspDenomGL_mul : gspDenomGL (α * β) τ = gspDenomGL α (gspSmul β τ) *
     Real.sqrt_mul (Rat.cast_nonneg.mpr (multiplier_pos α).le), ofReal_mul, gspSmul,
     Matrix.smul_mul, Matrix.mul_smul, smul_smul, mul_comm]
 
+lemma exists_mem_rightCosetRep_mul_eq_mul_rightCosetRep {G : Type*} [Group G] {Δ : Submonoid G}
+    {Γ₁ Γ₂ : Subgroup G} (D : HeckeCoset Δ Γ₁ Γ₂) (v : DecompQuotient Γ₂ Γ₁ (D.out : G)⁻¹) {γ : G}
+    (hγ : γ ∈ Γ₂) :
+    ∃ γ₁ ∈ Γ₁, rightCosetRep D v * γ = γ₁ * rightCosetRep D ((⟨γ, hγ⟩ : Γ₂)⁻¹ • v) := by
+  rcases exists_mem_out_mul_inv_eq_mul_rightCosetRep D (mul_mem (inv_mem hγ) v.out.2) with
+    ⟨γ₁, hγ₁, hsplit⟩
+  have hmk : (QuotientGroup.mk ⟨γ⁻¹ * (v.out : G), mul_mem (inv_mem hγ) v.out.2⟩ :
+      DecompQuotient Γ₂ Γ₁ (D.out : G)⁻¹) = (⟨γ, hγ⟩ : Γ₂)⁻¹ • v :=
+    Quotient.mk_smul_out _ (⟨γ, hγ⟩ : Γ₂)⁻¹ v
+  refine ⟨γ₁, hγ₁, ?_⟩
+  simpa only [hmk, mul_inv_rev, inv_inv, ← mul_assoc, rightCosetRep_def] using hsplit
+
 variable {n : ℕ} [NeZero n] {V : Type*} [AddCommGroup V] [Module ℂ V]
     (ρ : Representation ℂ (GL (Fin n) ℂ) V) (f : SiegelUpperHalfSpace (Fin n) → V)
 
@@ -187,13 +199,7 @@ noncomputable def heckeOperator : End ℂ (slashInvariantsOf ρ Δ Γ) where
     refine Fintype.sum_equiv (toPerm (⟨γ, hγ⟩ : Γ)⁻¹) _ _ fun v ↦ ?_
     rw [← heckeMonoidSlash_mul]
     refine heckeMonoidSlash_eq_of_mul_inv_mem f.2 ?_
-    rcases exists_mem_out_mul_inv_eq_mul_rightCosetRep D (mul_mem (inv_mem hγ) v.out.2) with
-      ⟨γ₁, hγ₁, hsplit⟩
-    have hmk : (QuotientGroup.mk ⟨γ⁻¹ * (v.out : GL _ ℚ), mul_mem (inv_mem hγ) v.out.2⟩ :
-        DecompQuotient Γ Γ (D.out : GL _ ℚ)⁻¹) = (⟨γ, hγ⟩ : Γ)⁻¹ • v :=
-      Quotient.mk_smul_out _ (⟨γ, hγ⟩ : Γ)⁻¹ v
-    have hprod : rightCosetRep D v * γ = γ₁ * rightCosetRep D ((⟨γ, hγ⟩ : Γ)⁻¹ • v) := by
-      simpa only [hmk, mul_inv_rev, inv_inv, ← mul_assoc, rightCosetRep_def] using hsplit
+    rcases exists_mem_rightCosetRep_mul_eq_mul_rightCosetRep D v hγ with ⟨γ₁, hγ₁, hprod⟩
     simpa [heckeRep, hprod, mul_assoc] using inv_mem hγ₁⟩
   map_add' f g := Subtype.ext <| by
     simp [Finset.sum_add_distrib]

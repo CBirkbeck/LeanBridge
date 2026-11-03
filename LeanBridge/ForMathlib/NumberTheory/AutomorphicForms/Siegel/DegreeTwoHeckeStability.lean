@@ -72,22 +72,6 @@ lemma heckeOperator_mem_siegelEisensteinSubspaceKJ (hk : 4 < k)
   · rw [siegelEisensteinSubspaceKJ_eq_bot k hj, Submodule.mem_bot] at hF
     exact hzero hF
 
-private lemma symConstCoeff_apply_zero_klingenEisensteinSubspaceKJ (hk : 4 < k) (hk' : Even k)
-    (hj : Even j) {H : SiegelUpperHalfSpace (Fin 2) → Sym[ℂ]^j (Fin 2 → ℂ)}
-    (hH : H ∈ klingenEisensteinSubspaceKJ k j)
-    {b : dualLattice (integral (Fin 2)) → Sym[ℂ]^j (Fin 2 → ℂ)}
-    (hb : HasSiegelFourierExpansion (integral (Fin 2)) H b) : symConstCoeff j (b 0) = 0 := by
-  have hH₁ : H ∈ modularFormsKJ k j (integral (Fin 2)) :=
-    klingenEisensteinSubspaceKJ_le_modularFormsKJ k j hH
-  rw [klingenEisensteinSubspaceKJ_eq_range hk hj] at hH
-  rcases hH with ⟨f, rfl⟩
-  refine symConstCoeff_apply_zero_eq_zero hH₁ hb f fun τ' ↦ ?_
-  have h₃ : siegelOperatorSeries b τ' * symConstCoeff j (⨂ₛ[ℂ] _ : Fin j, Pi.single 0 1) =
-      f τ' * symConstCoeff j (⨂ₛ[ℂ] _ : Fin j, Pi.single 0 1) :=
-    tendsto_nhds_unique (tendsto_dual_diagPoint_siegelOperatorSeries τ' hH₁ hb (symConstCoeff j))
-      (tendsto_dual_vectorKlingenEisenstein_diagPoint f (symConstCoeff j) τ' hk hk')
-  rwa [symConstCoeff_tprod_single, mul_one, mul_one] at h₃
-
 private lemma tendsto_dual_heckeOperator_scalarPoint
     (hF : (F : SiegelUpperHalfSpace (Fin 2) → Sym[ℂ]^j (Fin 2 → ℂ)) ∈
       modularFormsKJ k j (integral (Fin 2)))
@@ -137,8 +121,11 @@ lemma heckeOperator_mem_klingenEisensteinSubspaceKJ (hk : 4 < k)
       rcases exists_hasSiegelFourierExpansion (rhoKJ k 0) (isArithmetic_integral (Fin 2)) hF₁ with
         ⟨a, ha⟩
       have ha₀ : a 0 = 0 := by
-        have h₁ : symConstCoeff 0 (a 0) = 0 :=
-          symConstCoeff_apply_zero_klingenEisensteinSubspaceKJ hk hk' Even.zero hF ha
+        have h₁ : symConstCoeff 0 (a 0) = 0 := by
+          rw [klingenEisensteinSubspaceKJ_eq_range hk Even.zero] at hF
+          rcases hF with ⟨f, hf⟩
+          rw [← hf] at ha
+          exact symConstCoeff_apply_zero_vectorKlingenEisenstein hk hk' f ha
         rw [eq_smul_tprod_of_symPowerRep_eq (symPowerRep_zero _ (a 0)), h₁, zero_smul]
       have hψ : siegelEisensteinKJ k ∈ modularFormsKJ k 0 (integral (Fin 2)) :=
         siegelEisensteinKJ_mem_modularFormsKJ hk₅ hk'
@@ -155,8 +142,12 @@ lemma heckeOperator_mem_klingenEisensteinSubspaceKJ (hk : 4 < k)
       have h₃ : Tendsto (fun t : Set.Ioi (0 : ℝ) ↦ symConstCoeff 0 (κ (scalarPoint t))) atTop
           (𝓝 (symConstCoeff 0 (bκ 0))) :=
         tendsto_dual_scalarPoint (symConstCoeff 0) hbκ (posSemidef_of_apply_ne_zero hκ₁ hbκ)
+      have hκ₀ : symConstCoeff 0 (bκ 0) = 0 := by
+        rw [klingenEisensteinSubspaceKJ_eq_range hk Even.zero] at hκ
+        rcases hκ with ⟨f, rfl⟩
+        exact symConstCoeff_apply_zero_vectorKlingenEisenstein hk hk' f hbκ
       rw [symConstCoeff_apply_zero_siegelEisensteinKJ hk₅ hk' hbψ] at h₂
-      rw [symConstCoeff_apply_zero_klingenEisensteinSubspaceKJ hk hk' Even.zero hκ hbκ] at h₃
+      rw [hκ₀] at h₃
       have h₅ : Tendsto (fun t : Set.Ioi (0 : ℝ) ↦
           c * symConstCoeff 0 (siegelEisensteinKJ k (scalarPoint t)) +
             symConstCoeff 0 (κ (scalarPoint t))) atTop (𝓝 0) := by

@@ -2,7 +2,6 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierLevi
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelEisensteinConvergence
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelFundamentalDomain
 import Mathlib.NumberTheory.Modular
-import TauCeti.LinearAlgebra.SymplecticGroup
 
 /-!
 # Siegel's reduction theory in degree 2
@@ -22,7 +21,6 @@ partial inversion, for which `det(CZ + D) = z₀₀`, gives `|z₀₀| ≥ 1`, s
 
 ## Main definitions
 
-* `SymplecticGroup.symTranslation`: the translation `(1, S; 0, 1)` by a symmetric matrix.
 * `SiegelUpperHalfSpace.siegelSet`: the Siegel set of `ℋ₂`.
 
 ## Main results
@@ -40,20 +38,6 @@ partial inversion, for which `det(CZ + D) = z₀₀`, gives `|z₀₀| ≥ 1`, s
 open Complex Matrix SymplecticGroup
 
 open scoped MatrixGroups UpperHalfPlane
-
-namespace SymplecticGroup
-
-variable {l : Type*} [Fintype l] [DecidableEq l] {R : Type*} [CommRing R]
-
-/-- The **translation** `(1, S; 0, 1)` of `Sp(2g, R)` by a symmetric matrix `S`. -/
-def symTranslation (S : Matrix l l R) (hS : Sᵀ = S) : symplecticGroup l R :=
-  ⟨fromBlocks 1 S 0 1, fromBlocks_upper_mem hS⟩
-
-lemma coe_symTranslation (S : Matrix l l R) (hS : Sᵀ = S) :
-    (symTranslation S hS : Matrix (l ⊕ l) (l ⊕ l) R) = fromBlocks 1 S 0 1 :=
-  rfl
-
-end SymplecticGroup
 
 namespace SiegelUpperHalfSpace
 
@@ -79,17 +63,9 @@ lemma map_symTranslation {S : Matrix l l ℤ} (hS : Sᵀ = S) :
 
 variable (U : GL l ℤ)
 
-private lemma coe_map_levi :
-    (SymplecticGroup.map (Int.castRingHom ℝ) (levi l ℤ U) : Matrix (l ⊕ l) (l ⊕ l) ℝ) =
-      fromBlocks ((U : Matrix l l ℤ).map (Int.cast : ℤ → ℝ)) 0 0
-        (((U⁻¹ : GL l ℤ) : Matrix l l ℤ)ᵀ.map (Int.cast : ℤ → ℝ)) := by
-  rw [SymplecticGroup.coe_map_apply, coe_levi, fromBlocks_map]
-  simp
-
 lemma denom_map_levi : denom (SymplecticGroup.map (Int.castRingHom ℝ) (levi l ℤ U)) τ.val =
     ((U⁻¹ : GL l ℤ) : Matrix l l ℤ)ᵀ.map (Int.cast : ℤ → ℂ) := by
-  rw [denom, coe_map_levi]
-  simp [Function.comp_def]
+  rw [← map_algebraMap_map_intCast, denom_leviRat, coe_units_inv]
 
 /-- **`(U, 0; 0, U⁻ᵀ)` acts by `Z ↦ U Z Uᵀ`.** -/
 lemma val_smul_levi : (SymplecticGroup.map (Int.castRingHom ℝ) (levi l ℤ U) • τ).val =

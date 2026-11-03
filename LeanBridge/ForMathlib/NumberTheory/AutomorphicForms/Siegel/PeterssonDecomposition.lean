@@ -74,31 +74,31 @@ lemma peterssonIntegrand_smul_right (c : ℂ) :
 
 variable {Γ S} {W : Submodule ℂ (SiegelUpperHalfSpace l → V)}
 
-variable {f g} in
-/-- The linear form `f ↦ ⟨f, g⟩` on `S`, for `g ∈ S`. -/
-private noncomputable def peterssonLeft (h : IsPeterssonDefinite Γ ρ b S) (hg : g ∈ S) :
-    S →ₗ[ℂ] ℂ where
+variable {g} in
+/-- The linear form `f ↦ ⟨f, g⟩` on `W`, for `g` with integrable Petersson integrands against
+`W`. -/
+noncomputable def peterssonLeft (hg : ∀ f ∈ W, IntegrableOn (peterssonIntegrand ρ b f g)
+    (fundamentalDomain Γ) (invariantMeasure l)) : W →ₗ[ℂ] ℂ where
   toFun f := peterssonProduct Γ ρ b f g
   map_add' f f' := by
     rw [Submodule.coe_add, peterssonProduct, peterssonIntegrand_add_left]
     simp only [Pi.add_apply]
-    rw [integral_add (h.integrableOn f g f.2 hg) (h.integrableOn f' g f'.2 hg), ← peterssonProduct,
-      ← peterssonProduct]
+    rw [integral_add (hg f f.2) (hg f' f'.2), ← peterssonProduct, ← peterssonProduct]
   map_smul' c f := by
     rw [Submodule.coe_smul, peterssonProduct, peterssonIntegrand_smul_left]
     simp only [Pi.smul_apply]
     rw [integral_smul, ← peterssonProduct, RingHom.id_apply]
 
 variable {f} in
-/-- The conjugate-linear form `g ↦ ⟨f, g⟩` on `W ⊆ S`, for `f ∈ S`. -/
-private noncomputable def peterssonRight (h : IsPeterssonDefinite Γ ρ b S) (hW : W ≤ S)
-    (hf : f ∈ S) : W →ₗ⋆[ℂ] ℂ where
+/-- The conjugate-linear form `g ↦ ⟨f, g⟩` on `W`, for `f` with integrable Petersson integrands
+against `W`. -/
+noncomputable def peterssonRight (hf : ∀ g ∈ W, IntegrableOn (peterssonIntegrand ρ b f g)
+    (fundamentalDomain Γ) (invariantMeasure l)) : W →ₗ⋆[ℂ] ℂ where
   toFun g := peterssonProduct Γ ρ b f g
   map_add' g g' := by
     rw [Submodule.coe_add, peterssonProduct, peterssonIntegrand_add_right]
     simp only [Pi.add_apply]
-    rw [integral_add (h.integrableOn f g hf (hW g.2)) (h.integrableOn f g' hf (hW g'.2)),
-      ← peterssonProduct, ← peterssonProduct]
+    rw [integral_add (hf g g.2) (hf g' g'.2), ← peterssonProduct, ← peterssonProduct]
   map_smul' c g := by
     rw [Submodule.coe_smul, peterssonProduct, peterssonIntegrand_smul_right]
     simp only [Pi.smul_apply]
@@ -121,10 +121,10 @@ lemma sup_peterssonOrthogonal [FiniteDimensional ℂ S] (h : IsPeterssonDefinite
   have : FiniteDimensional ℂ (peterssonOrthogonal Γ ρ b S W) := Submodule.finiteDimensional_of_le hP
   let w : Module.Basis (Fin (Module.finrank ℂ W)) ℂ W := Module.finBasis ℂ W
   let φ : S →ₗ[ℂ] Fin (Module.finrank ℂ W) → ℂ :=
-    LinearMap.pi fun i ↦ peterssonLeft h (hW (w i).2)
+    LinearMap.pi fun i ↦ peterssonLeft fun f hf ↦ h.integrableOn f _ hf (hW (w i).2)
   have hker : (LinearMap.ker φ).map S.subtype ≤ peterssonOrthogonal Γ ρ b S W := by
     rintro _ ⟨f, hf, rfl⟩
-    have h0 : peterssonRight h hW f.2 = 0 :=
+    have h0 : peterssonRight (fun g hg ↦ h.integrableOn f g f.2 (hW hg)) = 0 :=
       w.ext fun i ↦ congrFun hf i
     exact ⟨f.2, fun g hg ↦ ⟨h.integrableOn f g f.2 (hW hg),
       LinearMap.congr_fun h0 ⟨g, hg⟩⟩⟩

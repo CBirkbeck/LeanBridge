@@ -64,27 +64,6 @@ variable {V : Type*} [AddCommGroup V] [Module ℂ V] {ρ : Representation ℂ (G
 
 section Decay
 
-private lemma im_smul_of_mem_siegelParabolic {P : symplecticGroup (Fin 2) ℝ}
-    (hP : P ∈ siegelParabolic (Fin 2) ℝ) (Z : SiegelUpperHalfSpace (Fin 2)) (i j : Fin 2) :
-    ((P • Z).val i j).im = ∑ k, ∑ l, P.1.toBlocks₁₁ i k * (Z.val k l).im * P.1.toBlocks₁₁ j l := by
-  have hD : P.1.toBlocks₂₂.map ofReal * P.1.toBlocks₁₁ᵀ.map ofReal = 1 := by
-    have h : (P.1.toBlocks₂₂ * P.1.toBlocks₁₁ᵀ).map ofRealHom =
-        (1 : Matrix (Fin 2) (Fin 2) ℝ).map ofRealHom :=
-      congrArg (Matrix.map · ofRealHom) (toBlocks₂₂_mul_transpose_toBlocks₁₁ hP)
-    rwa [Matrix.map_mul, Matrix.map_one _ (map_zero _) (map_one _)] at h
-  rw [val_smul, num, denom, (hP : P.1.toBlocks₂₁ = 0), Matrix.map_zero _ ofReal_zero,
-    Matrix.zero_mul, zero_add, inv_eq_right_inv hD]
-  simp [Matrix.mul_apply]
-  ring1
-
-private lemma map_mem_siegelParabolic {p : symplecticGroup (Fin 2) ℚ}
-    (hp : p ∈ siegelParabolic (Fin 2) ℚ) :
-    SymplecticGroup.map (algebraMap ℚ ℝ) p ∈ siegelParabolic (Fin 2) ℝ := by
-  ext i j
-  have h : (p : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) ℚ) (.inr i) (.inl j) = 0 :=
-    congrFun (congrFun hp i) j
-  simp [toBlocks₂₁, h]
-
 variable {G : SiegelUpperHalfSpace (Fin 2) → V}
 
 private lemma exists_heckeMonoidSlash_eq (x : heckeMonoid (Fin 2)) :
@@ -376,10 +355,6 @@ private lemma mem_conjStab_iff_mem {h : transformationGroup (integral (Fin 2))} 
     MulAction.toPerm δ * h.1 * (MulAction.toPerm δ)⁻¹ ∈ transformationGroup (integral (Fin 2)) :=
   Iff.rfl
 
-/-- The negative of an element of `Sp(4, ℤ)`. -/
-private def negSp : symplecticGroup (Fin 2) ℤ :=
-  ⟨-g.1, SymplecticGroup.neg_mem g.2⟩
-
 private lemma coe_eq_smul_of_toSp_eq {A B : gspPlus (Fin 2)} (hm : multiplier A = multiplier B)
     {ε : ℚ}
     (h : (toSp A : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) ℝ) = (ε : ℝ) • (toSp B : Matrix _ _ ℝ)) :
@@ -453,16 +428,16 @@ private lemma mem_conjStab_iff : integralTransformation g ∈ conjStab (toSp (su
             ((ofSp (SymplecticGroup.map (Int.castRingHom ℚ) g₁) * y : gspPlus (Fin 2)) :
               Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) ℚ) :=
         coe_eq_smul_of_toSp_eq hmA (by simpa using h₄)
-      refine ⟨negSp g₁, trivial, ?_⟩
+      refine ⟨negOneSp * g₁, trivial, ?_⟩
       rw [eq_mul_inv_iff_mul_eq]
       refine Units.ext ?_
       rw [neg_one_smul, Submonoid.coe_mul, Submonoid.coe_mul, hy] at h₅
-      have e : ((spToGL (Fin 2) (negSp g₁) : GL (Fin 2 ⊕ Fin 2) ℚ) :
+      have e : ((spToGL (Fin 2) (negOneSp * g₁) : GL (Fin 2 ⊕ Fin 2) ℚ) :
           Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) ℚ) =
             -((ofSp (SymplecticGroup.map (Int.castRingHom ℚ) g₁) : gspPlus (Fin 2)) :
-              Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) ℚ) := by
-        ext a c
-        simp [negSp, spToGL, ofSp]
+              Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) ℚ) :=
+        (congrArg (Int.castRingHom ℚ).mapMatrix
+          (neg_one_mul (g₁ : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) ℤ))).trans (map_neg _ _)
       rw [Units.val_mul, Units.val_mul, e, Matrix.neg_mul]
       exact h₅.symm
   · rintro ⟨g₁, -, hg₁⟩

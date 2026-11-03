@@ -98,10 +98,6 @@ private lemma integrable_stripBound {c : ℝ} (hc : 0 < c) : Integrable (stripBo
 
 variable {c : ℝ}
 
-private lemma measurable_coordDensity₂ : Measurable (coordDensity (Fin 2)) := by
-  unfold coordDensity
-  fun_prop
-
 lemma toCoords_apply (τ : SiegelUpperHalfSpace (Fin 2)) (i j : Fin 2) :
     τ.toCoords s(i, j) = τ.val i j :=
   congrFun (congrFun (ofSymCoords_toCoords τ) i) j
@@ -163,7 +159,7 @@ lemma lintegral_siegelSet_lt_top (hc : 0 < c) : ∫⁻ τ in siegelSet,
   have hprod :
       Integrable fun h : Sym2 (Fin 2) → ℂ ↦ (25 / 12 : ℝ) ^ 3 * ∏ s, stripBound (c / 3) (h s) :=
     (Integrable.fintype_prod fun _ ↦ integrable_stripBound (by positivity)).const_mul _
-  rw [h₁, setLIntegral_withDensity_eq_setLIntegral_mul volume measurable_coordDensity₂ hg hA]
+  rw [h₁, setLIntegral_withDensity_eq_setLIntegral_mul volume measurable_coordDensity hg hA]
   refine lt_of_le_of_lt ((setLIntegral_mono' hA ?_).trans (setLIntegral_le_lintegral _ _))
     hprod.lintegral_lt_top
   rintro _ ⟨τ, hτ, rfl⟩

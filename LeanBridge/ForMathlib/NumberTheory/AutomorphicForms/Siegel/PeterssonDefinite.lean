@@ -1,4 +1,5 @@
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PeterssonDecomposition
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelFundamentalDomain
 
 /-!
 # The Petersson product is definite
@@ -11,9 +12,8 @@ vanishes almost everywhere, and everywhere, being holomorphic. In scalar weight 
 `b(v, w) = v w̄`, `b(ρ(Y) v, v) = det(Y)^k |v|²`. So the decomposition
 `S_k(K(N)) = S_k^old(K(N)) ⊕ S_k^new(K(N))` of the paramodular cusp forms of scalar weight (LMFDB
 `mf.siegel.newspace`, `mf.siegel.newform`) holds as soon as `S_k(K(N))` is finite-dimensional and
-the Petersson integrals of cusp forms converge, two theorems which are not proved here; `K(N)` has a
-fundamental domain (`SiegelUpperHalfSpace.exists_isFundamentalDomain`). For `Sp(4, ℤ)` these are
-`SiegelUpperHalfSpace.finiteDimensional_cuspFormsKJ` and
+the Petersson integrals of cusp forms converge, two theorems which are not proved here. For
+`Sp(4, ℤ)` these are `SiegelUpperHalfSpace.finiteDimensional_cuspFormsKJ` and
 `SiegelUpperHalfSpace.isPeterssonDefinite_cuspForms`.
 
 ## Main results
@@ -65,10 +65,6 @@ private lemma coordDensity_ne_zero {x : Sym2 l → ℂ} (hx : x ∈ coordSet l) 
     coordDensity l x ≠ 0 := by
   rw [coordDensity, Ne, ENNReal.ofReal_eq_zero, not_le]
   exact inv_pos.mpr <| pow_pos (PosDef.det_pos hx) _
-
-private lemma measurable_coordDensity : Measurable (coordDensity l) := by
-  unfold coordDensity
-  fun_prop
 
 /-- **A holomorphic function on `ℋ_g` vanishing almost everywhere vanishes**, for the invariant
 measure: in the coordinates `τ_ij`, `i ≤ j`, the set where a coordinate `φ ∘ f` does not vanish is
@@ -183,27 +179,22 @@ variable {k} {N : ℕ+}
 
 /-- **The Petersson product of paramodular cusp forms of scalar weight is definite**: for
 `b(v, w) = v w̄`, `⟨F, F⟩ = 0` only for `F = 0` in `S_k(K(N))`, provided the Petersson integrals of
-cusp forms converge, which is not proved here (`K(N)` has a fundamental domain by
-`SiegelUpperHalfSpace.exists_isFundamentalDomain`). -/
+cusp forms converge, which is not proved here. -/
 lemma isPeterssonDefinite_paramodularCuspForms_detPowerRep
-    (hF : ∃ F, IsFundamentalDomain (transformationGroup (paramodularLevel N)) F
-      (invariantMeasure (Fin 2)))
     (hint : ∀ f g, f ∈ paramodularCuspForms (TauCeti.detPowerRep ℂ 2 k) N →
       g ∈ paramodularCuspForms (TauCeti.detPowerRep ℂ 2 k) N →
         IntegrableOn (peterssonIntegrand (TauCeti.detPowerRep ℂ 2 k) (innerₛₗ ℂ).flip f g)
           (fundamentalDomain (paramodularLevel N)) (invariantMeasure (Fin 2))) :
     IsPeterssonDefinite (paramodularLevel N) (TauCeti.detPowerRep ℂ 2 k) (innerₛₗ ℂ).flip
       (paramodularCuspForms (TauCeti.detPowerRep ℂ 2 k) N) :=
-  IsPeterssonDefinite.of_integrableOn (fun τ _ hv ↦ flip_innerₛₗ_detPowerRep_pos k τ hv) hF
+  IsPeterssonDefinite.of_integrableOn (fun τ _ hv ↦ flip_innerₛₗ_detPowerRep_pos k τ hv)
+    (exists_isFundamentalDomain (SymplecticGroup.isArithmetic_paramodular _))
     (cuspForms_le_modularForms _ _ 1) hint
 
 /-- **No nonzero paramodular cusp form of scalar weight is both old and new** (LMFDB
 `mf.siegel.newspace`, `mf.siegel.newform`): `S_k^old(K(N)) ∩ S_k^new(K(N)) = 0` for the Petersson
-inner product, provided the Petersson integrals of cusp forms converge, which is not proved here
-(`K(N)` has a fundamental domain by `SiegelUpperHalfSpace.exists_isFundamentalDomain`). -/
+inner product, provided the Petersson integrals of cusp forms converge, which is not proved here. -/
 lemma disjoint_paramodularOldSubspace_paramodularNewSubspace_detPowerRep
-    (hF : ∃ F, IsFundamentalDomain (transformationGroup (paramodularLevel N)) F
-      (invariantMeasure (Fin 2)))
     (hint : ∀ f g, f ∈ paramodularCuspForms (TauCeti.detPowerRep ℂ 2 k) N →
       g ∈ paramodularCuspForms (TauCeti.detPowerRep ℂ 2 k) N →
         IntegrableOn (peterssonIntegrand (TauCeti.detPowerRep ℂ 2 k) (innerₛₗ ℂ).flip f g)
@@ -211,17 +202,14 @@ lemma disjoint_paramodularOldSubspace_paramodularNewSubspace_detPowerRep
     Disjoint (paramodularOldSubspace (TauCeti.detPowerRep ℂ 2 k) N)
       (paramodularNewSubspace (TauCeti.detPowerRep ℂ 2 k) N (innerₛₗ ℂ).flip) :=
   disjoint_paramodularOldSubspace_paramodularNewSubspace <|
-    isPeterssonDefinite_paramodularCuspForms_detPowerRep hF hint
+    isPeterssonDefinite_paramodularCuspForms_detPowerRep hint
 
 /-- **The paramodular cusp forms of scalar weight are the direct sum of the old and new forms**
 (LMFDB `mf.siegel.newspace`, `mf.siegel.newform`): `S_k(K(N)) = S_k^old(K(N)) ⊕ S_k^new(K(N))` for
 the Petersson inner product, provided `S_k(K(N))` is finite-dimensional and the Petersson integrals
-of cusp forms converge, which is not proved here (`K(N)` has a fundamental domain by
-`SiegelUpperHalfSpace.exists_isFundamentalDomain`). -/
+of cusp forms converge, which is not proved here. -/
 lemma paramodularOldSubspace_sup_paramodularNewSubspace_detPowerRep
     [FiniteDimensional ℂ (paramodularCuspForms (TauCeti.detPowerRep ℂ 2 k) N)]
-    (hF : ∃ F, IsFundamentalDomain (transformationGroup (paramodularLevel N)) F
-      (invariantMeasure (Fin 2)))
     (hint : ∀ f g, f ∈ paramodularCuspForms (TauCeti.detPowerRep ℂ 2 k) N →
       g ∈ paramodularCuspForms (TauCeti.detPowerRep ℂ 2 k) N →
         IntegrableOn (peterssonIntegrand (TauCeti.detPowerRep ℂ 2 k) (innerₛₗ ℂ).flip f g)
@@ -230,6 +218,6 @@ lemma paramodularOldSubspace_sup_paramodularNewSubspace_detPowerRep
       paramodularNewSubspace (TauCeti.detPowerRep ℂ 2 k) N (innerₛₗ ℂ).flip =
         paramodularCuspForms (TauCeti.detPowerRep ℂ 2 k) N :=
   paramodularOldSubspace_sup_paramodularNewSubspace <|
-    isPeterssonDefinite_paramodularCuspForms_detPowerRep hF hint
+    isPeterssonDefinite_paramodularCuspForms_detPowerRep hint
 
 end SiegelUpperHalfSpace

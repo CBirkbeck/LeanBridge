@@ -137,10 +137,6 @@ noncomputable def symConstCoeff : Dual ℂ (Sym[ℂ]^j (Fin 2 → ℂ)) :=
 lemma symConstCoeff_tprod_single : symConstCoeff j (⨂ₛ[ℂ] _ : Fin j, Pi.single 0 1) = 1 := by
   simp [symConstCoeff, symDehomogenize_tprod]
 
-private lemma symPowerRep_tprod (g : GL (Fin 2) ℂ) (m : Fin j → Fin 2 → ℂ) :
-    symPowerRep ℂ 2 j g (⨂ₛ[ℂ] i, m i) = ⨂ₛ[ℂ] i, (g : Matrix (Fin 2) (Fin 2) ℂ) *ᵥ m i :=
-  Representation.symmetricPower_apply_tprod _ _ _ _
-
 private lemma symDehomogenize_unipotent (x : Sym[ℂ]^j (Fin 2 → ℂ)) : symDehomogenize j
     (symPowerRep ℂ 2 j (GeneralLinearGroup.map (Int.castRingHom ℂ) (T : GL (Fin 2) ℤ)) x) =
       (symDehomogenize j x).comp (X + 1) := by

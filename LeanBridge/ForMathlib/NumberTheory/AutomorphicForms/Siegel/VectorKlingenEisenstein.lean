@@ -618,7 +618,7 @@ lemma vectorKlingenEisensteinLinear_injective (hk : 4 < k) (hj : Even j) :
   · rw [cuspForm_eq_zero_of_odd f hk' hj, cuspForm_eq_zero_of_odd g hk' hj]
 
 /-- The element `-1` of `Sp(4, ℤ)`. -/
-private def negOneSp : symplecticGroup (Fin 2) ℤ :=
+def negOneSp : symplecticGroup (Fin 2) ℤ :=
   ⟨-1, by rw [SymplecticGroup.mem_iff']; simp⟩
 
 private lemma denom_negOneSp (W : SiegelUpperHalfSpace (Fin 2)) :

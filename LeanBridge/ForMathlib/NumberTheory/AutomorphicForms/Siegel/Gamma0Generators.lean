@@ -1,4 +1,5 @@
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ThetaTransformation
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.LowerUnipotent
 import Mathlib.Data.Nat.Prime.Int
 import Mathlib.NumberTheory.ModularForms.CongruenceSubgroups
 
@@ -31,8 +32,7 @@ coordinate reduces to `P(ℤ)`.
   `SL(2, R) → Sp(4, R)` on the two coordinates.
 * `SymplecticGroup.rotation`: the element `(U, 0; 0, U⁻ᵀ)` of `P(R)` for `U ∈ SL(2, R)`.
 * `SymplecticGroup.coordSwap`: the element of `P(R)` exchanging the two coordinates.
-* `SymplecticGroup.upperUnipotent`, `SymplecticGroup.lowerUnipotent`: the elements `(1, b; 0, 1)`
-  and `(1, 0; c, 1)` of `SL(2, ℤ)`.
+* `SymplecticGroup.upperUnipotent`: the element `(1, b; 0, 1)` of `SL(2, ℤ)`.
 
 ## Main results
 
@@ -43,6 +43,8 @@ coordinate reduces to `P(ℤ)`.
 -/
 
 open Matrix ModularGroup
+
+open SpecialLinearGroup (lowerUnipotent lowerUnipotent_add)
 
 open scoped MatrixGroups
 
@@ -198,17 +200,6 @@ end
 /-- The element `(1, b; 0, 1)` of `SL(2, ℤ)`. -/
 def upperUnipotent (b : ℤ) : SL(2, ℤ) :=
   ⟨!![1, b; 0, 1], by simp⟩
-
-/-- The element `(1, 0; c, 1)` of `SL(2, ℤ)`. -/
-def lowerUnipotent (c : ℤ) : SL(2, ℤ) :=
-  ⟨!![1, 0; c, 1], by simp⟩
-
-lemma lowerUnipotent_add (c c' : ℤ) :
-    lowerUnipotent (c + c') = lowerUnipotent c * lowerUnipotent c' :=
-  Subtype.ext <| by
-    ext i j
-    rw [SpecialLinearGroup.coe_mul]
-    fin_cases i <;> fin_cases j <;> simp [lowerUnipotent]
 
 lemma S_mul_lowerUnipotent (c : ℤ) : S * lowerUnipotent c = upperUnipotent (-c) * S :=
   Subtype.ext <| by

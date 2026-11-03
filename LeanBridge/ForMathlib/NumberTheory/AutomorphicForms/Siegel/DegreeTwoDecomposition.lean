@@ -1,4 +1,4 @@
-import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelEisensteinConvergence
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PeterssonConvergence
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelOperatorKJ
 
 /-!
@@ -56,80 +56,14 @@ variable {k : ℤ} {j : ℕ} {V : Type*} [AddCommGroup V] [Module ℂ V]
     {G : SiegelUpperHalfSpace (Fin 2) → V} {a : dualLattice (integral (Fin 2)) → V}
 
 /-- **The constant term of a form with a positive semidefinite Fourier expansion**:
-`φ(G(diag(is, is))) → φ(a(0))` as `s → ∞`, by dominated convergence. -/
+`φ(G(diag(is, is))) → φ(a(0))` as `s → ∞`, the case `T = id` of
+`SiegelUpperHalfSpace.tendsto_dual_comp_scalarPoint`. -/
 lemma tendsto_dual_scalarPoint (φ : Dual ℂ V)
     (ha : HasSiegelFourierExpansion (integral (Fin 2)) G a)
     (hpsd : ∀ n, a n ≠ 0 → (n : Matrix (Fin 2) (Fin 2) ℚ).PosSemidef) :
-    Tendsto (fun s : Set.Ioi (0 : ℝ) ↦ φ (G (scalarPoint s))) atTop (𝓝 (φ (a 0))) := by
-  classical
-  have ht : Tendsto (fun t : Set.Ioi (0 : ℝ) ↦ (t : ℝ)) atTop atTop :=
-    tendsto_Ioi_atTop.mp tendsto_id
-  have hnorm (n : dualLattice (integral (Fin 2))) (s : Set.Ioi (0 : ℝ)) :
-      ‖fourierExp n (scalarPoint s)‖ = rexp (-(2 * π * ((s : ℝ) *
-        (((n : Matrix (Fin 2) (Fin 2) ℚ) 0 0 : ℝ) +
-          ((n : Matrix (Fin 2) (Fin 2) ℚ) 1 1 : ℝ))))) := by
-    rw [norm_fourierExp]
-    congr 1
-    simp [scalarPoint, diagPoint]
-    ring1
-  have hlim (n : dualLattice (integral (Fin 2))) : Tendsto (fun s : Set.Ioi (0 : ℝ) ↦
-      fourierExp n (scalarPoint s) * φ (a n)) atTop (𝓝 (if n = 0 then φ (a 0) else 0)) := by
-    split_ifs with hn₀
-    · subst hn₀
-      simp [fourierExp]
-    by_cases hc : a n = 0
-    · simp [hc]
-    have h₁ : (n : Matrix (Fin 2) (Fin 2) ℚ).PosSemidef := hpsd n hc
-    have h₀₀ : (0 : ℝ) ≤ ((n : Matrix (Fin 2) (Fin 2) ℚ) 0 0 : ℝ) := by
-      exact_mod_cast h₁.diag_nonneg
-    have h₁₁ : (0 : ℝ) ≤ ((n : Matrix (Fin 2) (Fin 2) ℚ) 1 1 : ℝ) := by
-      exact_mod_cast h₁.diag_nonneg
-    have hpos : 0 < ((n : Matrix (Fin 2) (Fin 2) ℚ) 0 0 : ℝ) +
-        ((n : Matrix (Fin 2) (Fin 2) ℚ) 1 1 : ℝ) := by
-      refine lt_of_le_of_ne (add_nonneg h₀₀ h₁₁) fun h ↦ hn₀ ?_
-      rcases (add_eq_zero_iff_of_nonneg h₀₀ h₁₁).mp h.symm with ⟨h₂, h₃⟩
-      have e₀ : (n : Matrix (Fin 2) (Fin 2) ℚ) 0 0 = 0 := by
-        exact_mod_cast h₂
-      have e₁ : (n : Matrix (Fin 2) (Fin 2) ℚ) 1 1 = 0 := by
-        exact_mod_cast h₃
-      have e₂ : (n : Matrix (Fin 2) (Fin 2) ℚ) 0 1 = 0 := apply_zero_one_eq_zero h₁ e₁
-      have e₃ : (n : Matrix (Fin 2) (Fin 2) ℚ) 1 0 = 0 := by
-        rw [← e₂]
-        exact congrFun (congrFun n.2.1 0) 1
-      refine Subtype.ext ?_
-      ext x y
-      fin_cases x <;> fin_cases y <;> simp [e₀, e₁, e₂, e₃]
-    refine tendsto_zero_iff_norm_tendsto_zero.mpr ?_
-    simp only [norm_mul, hnorm]
-    have h₂ : Tendsto (fun s : Set.Ioi (0 : ℝ) ↦ rexp (-(2 * π * ((s : ℝ) *
-        (((n : Matrix (Fin 2) (Fin 2) ℚ) 0 0 : ℝ) + ((n : Matrix (Fin 2) (Fin 2) ℚ) 1 1 : ℝ))))))
-        atTop (𝓝 0) :=
-      Real.tendsto_exp_atBot.comp <| tendsto_neg_atTop_atBot.comp <|
-        (ht.atTop_mul_const hpos).const_mul_atTop two_pi_pos
-    simpa using h₂.mul_const ‖φ (a n)‖
-  have hb : ∀ᶠ s : Set.Ioi (0 : ℝ) in atTop, ∀ n : dualLattice (integral (Fin 2)),
-      ‖fourierExp n (scalarPoint s) * φ (a n)‖ ≤ ‖fourierExp n (scalarPoint tOne) * φ (a n)‖ := by
-    filter_upwards [ht.eventually_ge_atTop 1] with s hs n
-    by_cases hc : a n = 0
-    · simp [hc]
-    have h₁ : (n : Matrix (Fin 2) (Fin 2) ℚ).PosSemidef := hpsd n hc
-    have h₀₀ : (0 : ℝ) ≤ ((n : Matrix (Fin 2) (Fin 2) ℚ) 0 0 : ℝ) := by
-      exact_mod_cast h₁.diag_nonneg
-    have h₁₁ : (0 : ℝ) ≤ ((n : Matrix (Fin 2) (Fin 2) ℚ) 1 1 : ℝ) := by
-      exact_mod_cast h₁.diag_nonneg
-    rw [norm_mul, norm_mul, hnorm, hnorm]
-    refine mul_le_mul_of_nonneg_right (Real.exp_le_exp.mpr ?_) (norm_nonneg _)
-    have h₃ : (1 : ℝ) * (((n : Matrix (Fin 2) (Fin 2) ℚ) 0 0 : ℝ) +
-        ((n : Matrix (Fin 2) (Fin 2) ℚ) 1 1 : ℝ)) ≤
-          (s : ℝ) * (((n : Matrix (Fin 2) (Fin 2) ℚ) 0 0 : ℝ) +
-            ((n : Matrix (Fin 2) (Fin 2) ℚ) 1 1 : ℝ)) :=
-      mul_le_mul_of_nonneg_right hs (add_nonneg h₀₀ h₁₁)
-    exact neg_le_neg (mul_le_mul_of_nonneg_left h₃ two_pi_pos.le)
-  have key : Tendsto (fun s : Set.Ioi (0 : ℝ) ↦ ∑' n, fourierExp n (scalarPoint s) * φ (a n)) atTop
-      (𝓝 (∑' n : dualLattice (integral (Fin 2)), if n = 0 then φ (a 0) else 0)) :=
-    tendsto_tsum_of_dominated_convergence (ha _ φ).summable.norm hlim hb
-  rw [tsum_ite_eq] at key
-  exact key.congr fun s ↦ (ha _ φ).tsum_eq
+    Tendsto (fun s : Set.Ioi (0 : ℝ) ↦ φ (G (scalarPoint s))) atTop (𝓝 (φ (a 0))) :=
+  tendsto_dual_comp_scalarPoint ha hpsd (A := 1) (by simp) one_pos (T := id)
+    (fun Z i j ↦ by fin_cases i <;> fin_cases j <;> simp [Matrix.one_apply]) φ
 
 variable {F : SiegelUpperHalfSpace (Fin 2) → Sym[ℂ]^j (Fin 2 → ℂ)}
     {b : dualLattice (integral (Fin 2)) → Sym[ℂ]^j (Fin 2 → ℂ)}
@@ -369,7 +303,7 @@ private lemma apply_zero_eq_zero_of_mem_cuspFormsKJ (hF : F ∈ cuspFormsKJ k j 
     (posDef_iff_dotProduct_mulVec.mp h₂).2 (by simp)
   simp at h₃
 
-private lemma symConstCoeff_apply_zero_vectorKlingenEisenstein (hk : 4 < k) (hk' : Even k)
+lemma symConstCoeff_apply_zero_vectorKlingenEisenstein (hk : 4 < k) (hk' : Even k)
     (f : CuspForm 𝒮ℒ (k + j))
     (hb : HasSiegelFourierExpansion (integral (Fin 2)) (vectorKlingenEisenstein k j f) b) :
     symConstCoeff j (b 0) = 0 := by

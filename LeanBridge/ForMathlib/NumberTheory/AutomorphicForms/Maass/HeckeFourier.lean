@@ -1,3 +1,4 @@
+import LeanBridge.ForMathlib.Analysis.Fourier.PeriodicFourierSeries
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.FourierExpansion
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.Hecke
 
@@ -148,18 +149,6 @@ lemma hasMaassFourierExpansion_maassHeckeOperator (hp : p ≠ 0)
     · field_simp
       ring1
   · rfl
-
-lemma intervalIntegral_exp_two_pi_I_mul (k : ℤ) :
-    ∫ x in (0 : ℝ)..1, Complex.exp (2 * π * Complex.I * k * x) = if k = 0 then 1 else 0 := by
-  split_ifs with hk
-  · simp [hk]
-  · have hc : 2 * π * Complex.I * k ≠ 0 := by
-      simp [hk, Real.pi_ne_zero]
-    rw [integral_exp_mul_complex hc]
-    have h1 : Complex.exp (2 * π * Complex.I * k) = 1 := by
-      rw [Complex.exp_eq_one_iff]
-      exact ⟨k, by ring1⟩
-    simp [h1]
 
 lemma eq_zero_of_forall_hasSum_mul_exp {d : ℤ → ℂ}
     (h : ∀ x : ℝ, HasSum (fun n ↦ d n * Complex.exp (2 * π * Complex.I * n * x)) 0) (m : ℤ) :

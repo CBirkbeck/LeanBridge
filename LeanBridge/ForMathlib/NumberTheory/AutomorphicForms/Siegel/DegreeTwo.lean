@@ -40,6 +40,12 @@ noncomputable def rhoKJ : Representation ℂ (GL (Fin 2) ℂ) (Sym[ℂ]^j (Fin 2
   map_mul' g h := by
     simp only [map_mul, mul_zpow, Units.val_mul, smul_mul_smul_comm]
 
+variable {j} in
+lemma symPowerRep_tprod (g : GL (Fin 2) ℂ) (m : Fin j → Fin 2 → ℂ) :
+    TauCeti.symPowerRep ℂ 2 j g (⨂ₛ[ℂ] i, m i) =
+      ⨂ₛ[ℂ] i, (g : Matrix (Fin 2) (Fin 2) ℂ).mulVec (m i) :=
+  Representation.symmetricPower_apply_tprod _ _ _ _
+
 /-- The point `diag(τ', it)` of the Siegel upper half-space of degree 2, for `τ'` in the upper
 half-plane and `t > 0`. -/
 def diagPoint (τ' : UpperHalfPlane) (t : Set.Ioi (0 : ℝ)) : SiegelUpperHalfSpace (Fin 2) where

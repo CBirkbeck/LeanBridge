@@ -13,6 +13,12 @@ group. So an irreducible character is not orthogonal to all the monomials in the
 which are the matrix coefficients of the tensor powers of the standard representation. The isotypic
 projector of a tensor power is then nonzero, so that its trace does not vanish.
 
+## Main definitions
+
+* `SatoTateGroup.isotypicMatrix`: the isotypic projector of an irreducible character on a tensor
+  power, as a matrix.
+* `SatoTateGroup.ambientProjector`: the same projector in Tau Ceti's character theory.
+
 ## Main results
 
 * `SatoTateGroup.integral_trace_pow_mul_conj_ne_zero`: an irreducible character occurring in a
@@ -179,6 +185,20 @@ lemma continuous_ambient_tensorRep_apply (a b : P → Fin d) :
     Continuous fun h : ambientGroup w d ↦ tensorRep (P := P) (h : Matrix (Fin d) (Fin d) ℂ) a b :=
   continuous_finsetProd _ fun _ _ ↦ (ambientEntry _ _).continuous
 
+/-- The **isotypic projector** of an irreducible character `χ` of the ambient group on a tensor
+power of the standard representation, as a matrix: `dim χ ∫ conj (χ g) g^{⊗P} dg`. -/
+noncomputable def isotypicMatrix (χ : IrrepClass ℂ (ambientGroup w d)) :
+    Matrix (P → Fin d) (P → Fin d) ℂ :=
+  of fun a b ↦ (χ.model.dim : ℂ) * ∫ g : ambientGroup w d,
+    tensorRep (P := P) (g : Matrix (Fin d) (Fin d) ℂ) a b * conj (ambientCharacter w d χ g)
+      ∂haarProb (ambientGroup w d)
+
+lemma continuous_tensorRep_mul_conj (χ : IrrepClass ℂ (ambientGroup w d)) (a b : P → Fin d) :
+    Continuous fun g : ambientGroup w d ↦ tensorRep (P := P) (g : Matrix (Fin d) (Fin d) ℂ) a b *
+      conj (ambientCharacter w d χ g) :=
+  (continuous_ambient_tensorRep_apply a b).mul
+    (Complex.continuous_conj.comp (ambientCharacter w d χ).continuous)
+
 variable [DecidableEq P]
 
 lemma trace_tensorRep {I : Type*} [Fintype I] (A : Matrix I I ℂ) :
@@ -223,80 +243,106 @@ lemma isUnitary_ambientTensorRep :
   · rw [star_eq_conjTranspose, conjTranspose_tensorRep, ← tensorRep_mul, h₁, tensorRep_one]
   · rw [star_eq_conjTranspose, conjTranspose_tensorRep, ← tensorRep_mul, h₂, tensorRep_one]
 
+lemma continuous_tensorRep_mulVec (f : (P → Fin d) → ℂ) (a : P → Fin d) :
+    Continuous fun g : ambientGroup w d ↦ (tensorRep (g : Matrix (Fin d) (Fin d) ℂ) *ᵥ f) a :=
+  continuous_finsetSum _ fun b _ ↦ (continuous_ambient_tensorRep_apply a b).mul continuous_const
+
+lemma isotypicMatrix_mulVec_apply (χ : IrrepClass ℂ (ambientGroup w d)) (f : (P → Fin d) → ℂ)
+    (a : P → Fin d) : (isotypicMatrix χ *ᵥ f) a = (χ.model.dim : ℂ) * ∫ g : ambientGroup w d,
+      (tensorRep (g : Matrix (Fin d) (Fin d) ℂ) *ᵥ f) a * conj (ambientCharacter w d χ g)
+        ∂haarProb (ambientGroup w d) := by
+  have h₁ (g : ambientGroup w d) : (tensorRep (g : Matrix (Fin d) (Fin d) ℂ) *ᵥ f) a *
+      conj (ambientCharacter w d χ g) = ∑ b, (tensorRep (P := P) (g : Matrix (Fin d) (Fin d) ℂ) a b
+        * conj (ambientCharacter w d χ g)) * f b := by
+    simp only [mulVec, dotProduct, Finset.sum_mul]
+    exact Finset.sum_congr rfl fun b _ ↦ by ring1
+  have hint (b : P → Fin d) : Integrable (fun g : ambientGroup w d ↦
+      (tensorRep (P := P) (g : Matrix (Fin d) (Fin d) ℂ) a b *
+        conj (ambientCharacter w d χ g)) * f b) (haarProb (ambientGroup w d)) :=
+    ((continuous_tensorRep_mul_conj χ a b).mul continuous_const).integrable_of_hasCompactSupport
+      (HasCompactSupport.of_compactSpace _)
+  simp only [h₁]
+  rw [integral_finsetSum _ fun b _ ↦ hint b, Finset.mul_sum]
+  refine Finset.sum_congr rfl fun b _ ↦ ?_
+  rw [integral_mul_const, ← mul_assoc]
+  rfl
+
+/-- The projector of Tau Ceti's character theory. -/
+noncomputable abbrev ambientProjector (χ : IrrepClass ℂ (ambientGroup w d)) : ContIntertwiningMap
+    (ambientTensorRep (w := w) (d := d) (P := P)) (ambientTensorRep (w := w) (d := d) (P := P)) :=
+  ContRepresentation.isotypicProjector (ambientTensorRep (w := w) (d := d) (P := P))
+    continuous_ambientTensorRep χ.model.rep χ.model.continuous_rep
+
+lemma ambientProjector_apply_ofLp (χ : IrrepClass ℂ (ambientGroup w d))
+    (v : EuclideanSpace ℂ (P → Fin d)) :
+    (ambientProjector χ v).ofLp = isotypicMatrix χ *ᵥ v.ofLp := by
+  funext a
+  rw [isotypicMatrix_mulVec_apply]
+  have h₁ : ambientProjector χ v = ∫ g, ContRepresentation.isotypicKernel
+      χ.model.rep χ.model.continuous_rep g • ambientTensorRep g v ∂haarProb (ambientGroup w d) :=
+    ContRepresentation.isotypicProjector_apply _ _ _ _ v
+  have hint : Integrable (fun g ↦ ContRepresentation.isotypicKernel
+      χ.model.rep χ.model.continuous_rep g • ambientTensorRep g v)
+        (haarProb (ambientGroup w d)) := by
+    refine Continuous.integrable_of_hasCompactSupport ?_ (HasCompactSupport.of_compactSpace _)
+    exact (ContRepresentation.isotypicKernel χ.model.rep χ.model.continuous_rep).continuous.smul
+      (continuous_ambientTensorRep.clm_apply continuous_const)
+  have h₂ : ∫ g, (EuclideanSpace.proj (𝕜 := ℂ) a) (ContRepresentation.isotypicKernel
+      χ.model.rep χ.model.continuous_rep g • ambientTensorRep g v)
+        ∂haarProb (ambientGroup w d) = (EuclideanSpace.proj (𝕜 := ℂ) a)
+          (∫ g, ContRepresentation.isotypicKernel χ.model.rep χ.model.continuous_rep g •
+            ambientTensorRep g v ∂haarProb (ambientGroup w d)) :=
+    (EuclideanSpace.proj (𝕜 := ℂ) a).integral_comp_comm hint
+  rw [← h₁] at h₂
+  have h₃ :
+      (ambientProjector χ v).ofLp a = (EuclideanSpace.proj (𝕜 := ℂ) a) (ambientProjector χ v) :=
+    rfl
+  rw [h₃, ← h₂, ← integral_const_mul]
+  refine integral_congr_ae (Eventually.of_forall fun g ↦ ?_)
+  have h₄ : (EuclideanSpace.proj (𝕜 := ℂ) a) (ContRepresentation.isotypicKernel
+      χ.model.rep χ.model.continuous_rep g • ambientTensorRep g v) =
+        ContRepresentation.isotypicKernel χ.model.rep χ.model.continuous_rep g *
+          (tensorRep (g : Matrix (Fin d) (Fin d) ℂ) *ᵥ v.ofLp) a :=
+    rfl
+  have h₅ : star (ContRepresentation.character χ.model.rep χ.model.continuous_rep g) =
+      conj (ambientCharacter w d χ g) :=
+    rfl
+  have h₆ : Module.finrank ℂ (EuclideanSpace ℂ (Fin χ.model.dim)) = χ.model.dim := by
+    simp
+  beta_reduce
+  rw [h₄, ContRepresentation.isotypicKernel_apply, h₅, h₆]
+  ring1
+
 /-- **An irreducible character of the ambient group occurs in the tensor power.** -/
 lemma integral_trace_pow_mul_conj_ne_zero (χ : IrrepClass ℂ (ambientGroup w d)) {a b : P → Fin d}
     (h : ∫ h, tensorRep (P := P) (h : Matrix (Fin d) (Fin d) ℂ) a b *
       conj (ambientCharacter w d χ h) ∂haarProb (ambientGroup w d) ≠ 0) : ∫ h,
     (h : Matrix (Fin d) (Fin d) ℂ).trace ^ Fintype.card P *
       conj (ambientCharacter w d χ h) ∂haarProb (ambientGroup w d) ≠ 0 := by
-  let ρ : ContRepresentation ℂ (ambientGroup w d) (EuclideanSpace ℂ (P → Fin d)) :=
-    ambientTensorRep
-  have hρ : Continuous ρ := continuous_ambientTensorRep
-  let Q : ContIntertwiningMap ρ ρ :=
-    ContRepresentation.isotypicProjector ρ hρ χ.model.rep χ.model.continuous_rep
-  have hd₀ : (Module.finrank ℂ (EuclideanSpace ℂ (Fin χ.model.dim)) : ℂ) ≠ 0 :=
-    χ.model.isIrreducible.natCast_finrank_ne_zero
-  have hcont (a' b' : P → Fin d) : Continuous fun g : ambientGroup w d ↦ tensorRep (P := P)
-      (g : Matrix (Fin d) (Fin d) ℂ) a' b' * conj (ambientCharacter w d χ g) :=
-    (continuous_ambient_tensorRep_apply a' b').mul
-      (Complex.continuous_conj.comp (ambientCharacter w d χ).continuous)
-  have hentry (b' a' : P → Fin d) : (Q (EuclideanSpace.single b' 1)) a' =
-      (Module.finrank ℂ (EuclideanSpace ℂ (Fin χ.model.dim)) : ℂ) * ∫ g, tensorRep (P := P)
-        (g : Matrix (Fin d) (Fin d) ℂ) a' b' * conj (ambientCharacter w d χ g)
-          ∂haarProb (ambientGroup w d) := by
-    have h₁ : Q (EuclideanSpace.single b' 1) = ∫ g, ContRepresentation.isotypicKernel
-        χ.model.rep χ.model.continuous_rep g • ρ g (EuclideanSpace.single b' 1)
-          ∂haarProb (ambientGroup w d) :=
-      ContRepresentation.isotypicProjector_apply ρ hρ _ _ _
-    have hint : Integrable (fun g ↦ ContRepresentation.isotypicKernel
-        χ.model.rep χ.model.continuous_rep g • ρ g (EuclideanSpace.single b' 1))
-          (haarProb (ambientGroup w d)) := by
-      refine Continuous.integrable_of_hasCompactSupport ?_ (HasCompactSupport.of_compactSpace _)
-      exact (ContRepresentation.isotypicKernel χ.model.rep χ.model.continuous_rep).continuous.smul
-        (hρ.clm_apply continuous_const)
-    have h₂ : ∫ g, (EuclideanSpace.proj (𝕜 := ℂ) a') (ContRepresentation.isotypicKernel
-        χ.model.rep χ.model.continuous_rep g • ρ g (EuclideanSpace.single b' 1))
-          ∂haarProb (ambientGroup w d) = (EuclideanSpace.proj (𝕜 := ℂ) a')
-            (∫ g, ContRepresentation.isotypicKernel χ.model.rep χ.model.continuous_rep g •
-              ρ g (EuclideanSpace.single b' 1) ∂haarProb (ambientGroup w d)) :=
-      (EuclideanSpace.proj (𝕜 := ℂ) a').integral_comp_comm hint
-    rw [← h₁] at h₂
-    rw [← integral_const_mul]
-    refine Eq.trans h₂.symm (integral_congr_ae (Eventually.of_forall fun g ↦ ?_))
-    have h₃ : ρ g (EuclideanSpace.single b' 1) a' =
-        tensorRep (P := P) (g : Matrix (Fin d) (Fin d) ℂ) a' b' := by
-      refine (ambientTensorRep_apply g _ a').trans ?_
-      rw [PiLp.ofLp_single, mulVec_single_one]
-      rfl
-    have h₄ : (EuclideanSpace.proj (𝕜 := ℂ) a') (ContRepresentation.isotypicKernel
-        χ.model.rep χ.model.continuous_rep g • ρ g (EuclideanSpace.single b' 1)) =
-          ContRepresentation.isotypicKernel χ.model.rep χ.model.continuous_rep g *
-            ρ g (EuclideanSpace.single b' 1) a' :=
-      rfl
-    have h₅ : star (ContRepresentation.character χ.model.rep χ.model.continuous_rep g) =
-        conj (ambientCharacter w d χ g) :=
-      rfl
-    beta_reduce
-    rw [h₄, h₃, ContRepresentation.isotypicKernel_apply, h₅]
-    ring1
+  have hd₀ : (χ.model.dim : ℂ) ≠ 0 := by
+    simpa using χ.model.isIrreducible.natCast_finrank_ne_zero
+  have hentry (b' a' : P → Fin d) :
+      ambientProjector χ (EuclideanSpace.single b' 1) a' = isotypicMatrix χ a' b' := by
+    refine (congrFun (ambientProjector_apply_ofLp χ _) a').trans ?_
+    rw [PiLp.ofLp_single, mulVec_single_one]
+    rfl
   let f : EuclideanSpace ℂ (P → Fin d) →ₗ[ℂ] EuclideanSpace ℂ (P → Fin d) :=
-    (Q.toContinuousLinearMap : _ →L[ℂ] _).toLinearMap
+    ((ambientProjector χ).toContinuousLinearMap : _ →L[ℂ] _).toLinearMap
   have hf : IsIdempotentElem f := by
     refine LinearMap.ext fun v ↦ ?_
-    exact congrArg (fun R : ContIntertwiningMap ρ ρ ↦ R v)
-      (ContRepresentation.isotypicProjector_idempotent ρ hρ isUnitary_ambientTensorRep _ _
-        χ.model.isIrreducible)
+    exact congrArg (fun R : ContIntertwiningMap ambientTensorRep ambientTensorRep ↦ R v)
+      (ContRepresentation.isotypicProjector_idempotent _ continuous_ambientTensorRep
+        isUnitary_ambientTensorRep _ _ χ.model.isIrreducible)
   have hne : f ≠ 0 := by
     intro h₀
-    have h₂ : Q (EuclideanSpace.single b 1) = 0 := LinearMap.congr_fun h₀ _
+    have h₂ : ambientProjector χ (EuclideanSpace.single b 1) = 0 := LinearMap.congr_fun h₀ _
     exact mul_ne_zero hd₀ h ((hentry b a).symm.trans (congrArg (fun x ↦ x.ofLp a) h₂))
   refine fun h₀ ↦ hne (IsIdempotentElem.eq_zero_of_trace_eq_zero hf ?_)
   rw [LinearMap.trace_eq_sum_inner f (EuclideanSpace.basisFun (P → Fin d) ℂ)]
   have h₁ (a' : P → Fin d) : ⟪EuclideanSpace.basisFun (P → Fin d) ℂ a',
-      f (EuclideanSpace.basisFun (P → Fin d) ℂ a')⟫_ℂ =
-        (Module.finrank ℂ (EuclideanSpace ℂ (Fin χ.model.dim)) : ℂ) * ∫ g, tensorRep (P := P)
-          (g : Matrix (Fin d) (Fin d) ℂ) a' a' * conj (ambientCharacter w d χ g)
-            ∂haarProb (ambientGroup w d) := by
+      f (EuclideanSpace.basisFun (P → Fin d) ℂ a')⟫_ℂ = (χ.model.dim : ℂ) * ∫ g, tensorRep (P := P)
+        (g : Matrix (Fin d) (Fin d) ℂ) a' a' * conj (ambientCharacter w d χ g)
+          ∂haarProb (ambientGroup w d) := by
     rw [EuclideanSpace.basisFun_apply, EuclideanSpace.inner_single_left, map_one, one_mul]
     exact hentry a' a'
   have h₂ (g : ambientGroup w d) : ∑ a', tensorRep (P := P)
@@ -307,7 +353,8 @@ lemma integral_trace_pow_mul_conj_ne_zero (χ : IrrepClass ℂ (ambientGroup w d
     rfl
   simp only [h₁]
   rw [← Finset.mul_sum, ← integral_finsetSum _ fun a' _ ↦
-    (hcont a' a').integrable_of_hasCompactSupport (HasCompactSupport.of_compactSpace _)]
+    (continuous_tensorRep_mul_conj χ a' a').integrable_of_hasCompactSupport
+      (HasCompactSupport.of_compactSpace _)]
   simp only [h₂, h₀, mul_zero]
 
 /-- **Every irreducible character of the ambient group occurs in a power of the trace of the

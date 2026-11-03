@@ -674,14 +674,11 @@ private lemma dual_apply_one_zero :
   congrFun (congrFun n.2.1 0) 1
 
 private lemma exists_intCast_eq_two_mul : ∃ w : ℤ, 2 * (n : Matrix (Fin 2) (Fin 2) ℚ) 0 1 = w := by
-  rcases n.2.2 _ (vecMulVec_mem_translationLattice ![1, 1]) with ⟨z, hz⟩
-  rcases exists_intCast_eq_apply n 0 with ⟨z₀, hz₀⟩
-  rcases exists_intCast_eq_apply n 1 with ⟨z₁, hz₁⟩
-  refine ⟨z - z₀ - z₁, ?_⟩
-  push_cast
-  rw [← hz, ← hz₀, ← hz₁]
-  simp [trace, Matrix.mul_apply, dual_apply_one_zero n]
-  ring1
+  have h (i j : Fin 2) :
+      ((1 : ℕ) : ℚ) • (single i j 1 + single j i 1) ∈ translationLattice (integral (Fin 2)) := by
+    simpa using smul_mem_translationLattice_of_isArithmetic i j (isArithmetic_integral (Fin 2))
+  rcases exists_intCast_eq h n (0, 1) with ⟨w, hw⟩
+  exact ⟨w, by simpa using hw.symm⟩
 
 private lemma dualCoords_injective : Function.Injective dualCoords := by
   intro n n' h

@@ -63,9 +63,7 @@ private lemma map_single_add_single :
 
 /-- The translation `(1, s; 0, 1)` of `Sp(2g, ℤ)` by the symmetric matrix `s = E_ij + E_ji`. -/
 private def translation : symplecticGroup l ℤ :=
-  ⟨fromBlocks 1 (single i j 1 + single j i 1) 0 1, by
-    rw [SymplecticGroup.mem_iff', fromBlocks_transpose, transpose_single_add_single]
-    simp [J, fromBlocks_multiply]⟩
+  SymplecticGroup.symTranslation (single i j 1 + single j i 1) (transpose_single_add_single i j)
 
 private lemma coe_map_translation_pow (m : ℕ) :
     (SymplecticGroup.map (Int.castRingHom ℚ) (translation i j) ^ m).val =
@@ -73,8 +71,9 @@ private lemma coe_map_translation_pow (m : ℕ) :
   induction m with
   | zero => simp
   | succ m ih =>
-    rw [pow_succ, Submonoid.coe_mul, ih, SymplecticGroup.coe_map_apply, translation, fromBlocks_map,
-      map_single_add_single, fromBlocks_multiply]
+    rw [pow_succ, Submonoid.coe_mul, ih, SymplecticGroup.coe_map_apply, translation,
+      SymplecticGroup.coe_symTranslation, fromBlocks_map, map_single_add_single,
+      fromBlocks_multiply]
     simp [add_smul]
     abel
 

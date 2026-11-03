@@ -265,15 +265,16 @@ private lemma flip_innerₛₗ_apply (v w : ℂ) : (innerₛₗ ℂ).flip v w = 
 
 variable {n : ℕ} (k : ℤ)
 
+lemma coe_det_star_zpow (A : GL (Fin n) ℂ) : ((GeneralLinearGroup.det (star A) ^ k : ℂˣ) : ℂ) =
+    conj ((GeneralLinearGroup.det A ^ k : ℂˣ) : ℂ) := by
+  rw [Units.val_zpow_eq_zpow_val, Units.val_zpow_eq_zpow_val, map_zpow₀]
+  simp [star_eq_conjTranspose]
+
 lemma isAdmissibleForm_detPowerRep :
     IsAdmissibleForm (TauCeti.detPowerRep ℂ n k) (innerₛₗ ℂ).flip := by
   intro A v w
-  have hdet : ((GeneralLinearGroup.det (star A) ^ k : ℂˣ) : ℂ) =
-      conj ((GeneralLinearGroup.det A ^ k : ℂˣ) : ℂ) := by
-    rw [Units.val_zpow_eq_zpow_val, Units.val_zpow_eq_zpow_val, map_zpow₀]
-    simp [star_eq_conjTranspose]
   rw [TauCeti.detPowerRep_apply, TauCeti.detPowerRep_apply, flip_innerₛₗ_apply,
-    flip_innerₛₗ_apply, map_mul, hdet, conj_conj]
+    flip_innerₛₗ_apply, map_mul, coe_det_star_zpow, conj_conj]
   ring1
 
 variable (Z : SiegelUpperHalfSpace (Fin n)) (F G : SiegelUpperHalfSpace (Fin n) → ℂ)

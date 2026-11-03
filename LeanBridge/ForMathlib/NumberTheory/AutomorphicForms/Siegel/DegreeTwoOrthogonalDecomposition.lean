@@ -119,35 +119,6 @@ variable {l V : Type*} [Fintype l] [DecidableEq l] [AddCommGroup V] [Module ℂ 
     {Γ : Subgroup (symplecticGroup l ℚ)} {ρ : Representation ℂ (GL l ℂ) V}
     {b : V →ₗ[ℂ] V →ₗ⋆[ℂ] ℂ} {W : Submodule ℂ (SiegelUpperHalfSpace l → V)}
 
-/-- The conjugate-linear form `G ↦ ⟨f, G⟩` on `W`, for `f` with integrable Petersson integrands. -/
-private noncomputable def peterssonRightForm {f : SiegelUpperHalfSpace l → V}
-    (hf : ∀ g ∈ W, IntegrableOn (peterssonIntegrand ρ b f g) (fundamentalDomain Γ)
-      (invariantMeasure l)) : W →ₗ⋆[ℂ] ℂ where
-  toFun G := peterssonProduct Γ ρ b f G
-  map_add' G G' := by
-    rw [Submodule.coe_add, peterssonProduct, peterssonIntegrand_add_right]
-    simp only [Pi.add_apply]
-    rw [integral_add (hf _ G.2) (hf _ G'.2), ← peterssonProduct, ← peterssonProduct]
-  map_smul' a G := by
-    rw [Submodule.coe_smul, peterssonProduct, peterssonIntegrand_smul_right]
-    simp only [Pi.smul_apply]
-    rw [integral_smul, ← peterssonProduct]
-
-/-- The linear form `g ↦ ⟨g, G⟩` on `W`, for `G ∈ W`, when the Petersson product of `W` is
-definite. -/
-private noncomputable def peterssonLeftForm (h : IsPeterssonDefinite Γ ρ b W)
-    {G : SiegelUpperHalfSpace l → V} (hG : G ∈ W) : W →ₗ[ℂ] ℂ where
-  toFun g := peterssonProduct Γ ρ b g G
-  map_add' g g' := by
-    rw [Submodule.coe_add, peterssonProduct, peterssonIntegrand_add_left]
-    simp only [Pi.add_apply]
-    rw [integral_add (h.integrableOn _ _ g.2 hG) (h.integrableOn _ _ g'.2 hG), ← peterssonProduct,
-      ← peterssonProduct]
-  map_smul' a g := by
-    rw [Submodule.coe_smul, peterssonProduct, peterssonIntegrand_smul_left]
-    simp only [Pi.smul_apply]
-    rw [integral_smul, ← peterssonProduct, RingHom.id_apply]
-
 /-- **The orthogonal projection onto a finite-dimensional space with a definite Petersson product**:
 for `F` with integrable Petersson integrands against `W`, there is `g ∈ W` with `⟨F, G⟩ = ⟨g, G⟩`
 for all `G ∈ W`: the linear map `g ↦ (⟨g, w_i⟩)_i`, for a basis `(w_i)` of `W`, is injective, hence
@@ -159,16 +130,16 @@ lemma exists_mem_forall_peterssonProduct_eq [FiniteDimensional ℂ W]
     ∃ g ∈ W, ∀ G ∈ W, peterssonProduct Γ ρ b F G = peterssonProduct Γ ρ b g G := by
   let w : Basis (Fin (finrank ℂ W)) ℂ W := finBasis ℂ W
   let Φ : W →ₗ[ℂ] Fin (finrank ℂ W) → ℂ :=
-    LinearMap.pi fun i ↦ peterssonLeftForm h (w i).2
+    LinearMap.pi fun i ↦ peterssonLeft fun f hf ↦ h.integrableOn f _ hf (w i).2
   have hinj : Function.Injective Φ := (injective_iff_map_eq_zero _).mpr fun g hg ↦ by
-    have h₀ : peterssonRightForm (fun G hG ↦ h.integrableOn g G g.2 hG) = 0 :=
+    have h₀ : peterssonRight (fun G hG ↦ h.integrableOn g G g.2 hG) = 0 :=
       w.ext fun i ↦ congrFun hg i
     exact Subtype.ext <| h.eq_zero g g.2 (LinearMap.congr_fun h₀ g)
   have hsurj : Function.Surjective Φ :=
     (LinearMap.injective_iff_surjective_of_finrank_eq_finrank (finrank_fin_fun ℂ).symm).mp hinj
-  rcases hsurj fun i ↦ peterssonRightForm hF (w i) with ⟨g, hg⟩
+  rcases hsurj fun i ↦ peterssonRight hF (w i) with ⟨g, hg⟩
   refine ⟨g, g.2, fun G hG ↦ ?_⟩
-  have h₀ : peterssonRightForm hF = peterssonRightForm (fun G hG ↦ h.integrableOn g G g.2 hG) :=
+  have h₀ : peterssonRight hF = peterssonRight (fun G hG ↦ h.integrableOn g G g.2 hG) :=
     w.ext fun i ↦ (congrFun hg i).symm
   exact LinearMap.congr_fun h₀ ⟨G, hG⟩
 

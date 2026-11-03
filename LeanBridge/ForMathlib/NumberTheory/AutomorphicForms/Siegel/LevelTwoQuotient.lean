@@ -64,11 +64,7 @@ variable {R : Type*} [CommRing R] {g h : symplecticGroup (Fin 2) R}
 
 /-- The element `(1, 0; N, 1)` of `Sp(4, R)` for a symmetric `N`. -/
 private def lowerSym (N : Matrix (Fin 2) (Fin 2) R) (hN : Nᵀ = N) : symplecticGroup (Fin 2) R :=
-  ⟨fromBlocks 1 0 N 1, fromBlocks_mem_iff.mpr ⟨by simp [hN], by simp, by simp⟩⟩
-
-/-- The element `(1, S; 0, 1)` of `Sp(4, R)` for a symmetric `S`. -/
-private def upperSym (S : Matrix (Fin 2) (Fin 2) R) (hS : Sᵀ = S) : symplecticGroup (Fin 2) R :=
-  ⟨fromBlocks 1 S 0 1, fromBlocks_mem_iff.mpr ⟨by simp, by simp [hS], by simp⟩⟩
+  ⟨fromBlocks 1 0 N 1, fromBlocks_lower_mem hN⟩
 
 /-- The integral lift with entries in `{0, 1}` of a matrix over `ℤ/2ℤ`. -/
 private def liftMat : Matrix (Fin 2) (Fin 2) ℤ :=
@@ -89,11 +85,11 @@ private lemma lowerSym_mem_range {N : Matrix (Fin 2) (Fin 2) (ZMod 2)} (hN : N�
     rw [coe_map_apply, lowerSym, lowerSym, fromBlocks_map, map_liftMat,
       Matrix.map_one _ (map_zero _) (map_one _), Matrix.map_zero _ (map_zero _)]⟩
 
-private lemma upperSym_mem_range {S : Matrix (Fin 2) (Fin 2) (ZMod 2)} (hS : Sᵀ = S) :
-    upperSym S hS ∈ (map (Int.castRingHom (ZMod 2)) :
+private lemma symTranslation_mem_range {S : Matrix (Fin 2) (Fin 2) (ZMod 2)} (hS : Sᵀ = S) :
+    symTranslation S hS ∈ (map (Int.castRingHom (ZMod 2)) :
       symplecticGroup (Fin 2) ℤ →* symplecticGroup (Fin 2) (ZMod 2)).range :=
-  ⟨upperSym (liftMat S) (transpose_liftMat hS), Subtype.ext <| by
-    rw [coe_map_apply, upperSym, upperSym, fromBlocks_map, map_liftMat,
+  ⟨symTranslation (liftMat S) (transpose_liftMat hS), Subtype.ext <| by
+    rw [coe_map_apply, coe_symTranslation, coe_symTranslation, fromBlocks_map, map_liftMat,
       Matrix.map_one _ (map_zero _) (map_one _), Matrix.map_zero _ (map_zero _)]⟩
 
 /-- Lifts to `SL(2, ℤ)` of the six elements of `GL(2, ℤ/2ℤ)`. -/
@@ -141,12 +137,12 @@ private lemma mem_range_of_toBlocks₂₁_eq_zero {p : symplecticGroup (Fin 2) (
     rw [transpose_mul, transpose_transpose,
       (fromBlocks_mem_iff.mp (fromBlocks_mem_of_mem_siegelParabolic hp)).2.1]
   have e : map (Int.castRingHom (ZMod 2)) (rotation (slLiftSL i)) *
-      upperSym (p.1.toBlocks₂₂ᵀ * p.1.toBlocks₁₂) hS = p := Subtype.ext <| by
-    rw [Submonoid.coe_mul, hr, upperSym, fromBlocks_multiply, hDE, ← Matrix.mul_assoc,
+      symTranslation (p.1.toBlocks₂₂ᵀ * p.1.toBlocks₁₂) hS = p := Subtype.ext <| by
+    rw [Submonoid.coe_mul, hr, coe_symTranslation, fromBlocks_multiply, hDE, ← Matrix.mul_assoc,
       toBlocks₁₁_mul_transpose_toBlocks₂₂ hp]
     conv_rhs => rw [eq_fromBlocks_of_mem_siegelParabolic hp]
     simp
-  exact e ▸ mul_mem ⟨_, rfl⟩ (upperSym_mem_range hS)
+  exact e ▸ mul_mem ⟨_, rfl⟩ (symTranslation_mem_range hS)
 
 /-- The blocks `(a, b), (c, d)` modulo 2 of `1`, of the partial inversions `J₁` and `J₂`, and of
 `J = J₁J₂`. -/
