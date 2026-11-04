@@ -162,7 +162,7 @@ A quadratic twist-minimal elliptic curve $`E` may admit multiple non-isomorphic 
 Depends on: {uses "ec"}[] {uses "ec.q.minimal_twist"}[] {uses "modcurve"}[] {uses "modcurve.level_structure"}[]
 :::
 
-:::definition "modcurve.elliptic_points" (lean := "Matrix.GeneralLinearGroup.ellipticPoints, Matrix.GeneralLinearGroup.modularGammaPSL, Matrix.GeneralLinearGroup.ellipticPoints_eq_ellipticOrbits, Subgroup.ellipticOrbits, Matrix.GeneralLinearGroup.modularGamma")
+:::definition "modcurve.elliptic_points"
 *Elliptic points.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.elliptic_points))
 
 An *elliptic point* on the {bpref "modcurve"}[modular curve] $`X_H` is a point whose stabilizer under the action of the {bpref "cmf.congruence_subgroup"}[congruence subgroup] $`\Gamma_H` is finite and nontrivial.

@@ -165,7 +165,7 @@ An *Eichler {bpref "shimcurve.order"}[order]* $`O` inside a {bpref "shimcurve.qu
 Depends on: {uses "shimcurve.disco"}[] {uses "shimcurve.order"}[] {uses "shimcurve.quaternion_algebra"}[]
 :::
 
-:::definition "shimcurve.elliptic_points" (lean := "Subalgebra.shimuraCurveOrbitsEllipticPoints, Subalgebra.shimuraDoubleCosetStabilizer, Subalgebra.natCard_shimuraDoubleCosetStabilizer_mem, Subalgebra.shimuraCurvePointsEquivOrbits, Subalgebra.shimuraCurvePointsEquivOrbits_mem_iff, Subalgebra.tensorZHatEquivFiniteAdelicAlgebra")
+:::definition "shimcurve.elliptic_points"
 *Elliptic point on a Shimura curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.elliptic_points))
 
 An *elliptic point* of a {bpref "shimcurve"}[Shimura curve] $`X_H` is a point with a nontrivial stabilizer group (that can be of order $`2, 3, 4`, or $`6`).

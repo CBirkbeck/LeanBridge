@@ -135,7 +135,7 @@ It is related to the Discriminant modular form via the formula
 $$`\Delta(z)=\eta^{24}(z).`
 :::
 
-:::definition "mf.half_integral_weight.shimura_decomposition" (lean := "ModularForm.ShimuraDecomposition, ModularForm.shimuraEigenspace, ModularForm.shimuraComplement, ModularForm.shimuraThetaSpace, ModularForm.halfIntegralHeckeCoeff")
+:::definition "mf.half_integral_weight.shimura_decomposition"
 *Shimura decomposition.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.half_integral_weight.shimura_decomposition))
 
 Let $`k` be an odd integer. Let $`S_0(N, \chi)` denote the subspace of $`S_{3/2}(N, \chi)` spanned by theta series if $`k=3`, and let $`S_0(N, \chi)=0` if $`k>3`. Let $`S_0'(N, \chi)` denote the orthogonal complement of $`S_0(N, \chi)` in $`S_{3/2}(N, \chi)`. Then

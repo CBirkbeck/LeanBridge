@@ -132,7 +132,7 @@ Two abelian varieties are *isogenous* if there is an isogeny between them. This 
 Depends on: {uses "ag.abelian_variety"}[]
 :::
 
-:::definition "av.isogeny_class" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogenous, TauCeti.AlgebraicGeometry.AbelianVariety.isIsogenous_congr, CategoryTheory.isIsomorphicSetoid")
+:::definition "av.isogeny_class"
 *Isogeny class of an abelian variety.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.isogeny_class))
 
 The *isogeny class* of an {bpref "ag.abelian_variety"}[abelian variety] $`A` over a field $`K` is the set of isomorphism classes of abelian varieties over $`K` that are {bpref "av.isogeny"}[isogenous] to $`A` (over $`K`).

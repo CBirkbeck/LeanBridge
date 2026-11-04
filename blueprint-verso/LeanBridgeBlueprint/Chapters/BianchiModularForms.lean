@@ -42,7 +42,7 @@ Condition 2, harmonicity, is the analogue of the usual condition of being holomo
 Depends on: {uses "mf.bianchi.bianchigroup"}[] {uses "mf.bianchi.hyperbolic3space"}[] {uses "nf"}[] {uses "nf.class_number"}[] {uses "nf.ring_of_integers"}[]
 :::
 
-:::definition "mf.bianchi.anr" (lean := "HyperbolicThreeSpace.BianchiNewformOfWeight.IsAnalyticRank, HyperbolicThreeSpace.BianchiNewformOfWeight.lCoeff, HyperbolicThreeSpace.BianchiNewformOfWeight.IsAnalyticRank.eq, HyperbolicThreeSpace.BianchiNewformOfWeight.exists_isAnalyticRank, HyperbolicThreeSpace.BianchiNewformOfWeight.analyticLFunction, HyperbolicThreeSpace.BianchiNewformOfWeight.neg_one_pow_mul_eq_neg_one_pow")
+:::definition "mf.bianchi.anr"
 *Analytic rank of a Bianchi newform.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.bianchi.anr))
 
 Let $`F` be a {bpref "mf.bianchi.newform"}[Bianchi newform] over the imaginary quadratic field $`K`.   The *analytic rank* of $`F` is the order of vanishing of the L-function attached to $`F` at the centre of its critical strip.  The parity of the analytic rank is determined by the {bpref "mf.bianchi.sign"}[sign] of $`F`.
@@ -101,7 +101,7 @@ identified with the group of orientation-preserving isometries of the
 Depends on: {uses "mf.bianchi.hyperbolic3space"}[]
 :::
 
-:::definition "mf.bianchi.cm" (lean := "HyperbolicThreeSpace.IsBianchiHeckeEigenform.HasCMBy, HyperbolicThreeSpace.IsBianchiHeckeEigenform.HasCM, HyperbolicThreeSpace.IsBianchiHeckeEigenform.HasCMBy.eigenvalue_eq_zero, HyperbolicThreeSpace.BianchiNewformOfWeight.HasCMBy, HyperbolicThreeSpace.BianchiNewformOfWeight.HasCM, TauCeti.GlobalNumberFields.IsIdealHeckeCharacter")
+:::definition "mf.bianchi.cm"
 *CM Bianchi newforms.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.bianchi.cm))
 
 A {bpref "mf.bianchi.newform"}[Bianchi newform] $`F` of {bpref "mf.bianchi.level"}[level] $`\mathcal{N}` over an imaginary quadratic field $`K` is said to have *Complex Multiplication* or *CM* if it is equal to its own twist by a non-trivial Hecke character $`\chi`.  Such a character $`\chi` is necessarily quadratic.  The CM property is characterised in terms of the Hecke eigenvalues $`a_{\frak{p}}`of $`F` by the property that
@@ -223,7 +223,7 @@ For each prime $`\frak{p}` of $`K` not dividing the level $`\mathcal{N}`, the ei
 Depends on: {uses "mf.bianchi"}[] {uses "mf.bianchi.hecke_algebra"}[] {uses "mf.bianchi.level"}[] {uses "mf.bianchi.spaces"}[] {uses "mf.bianchi.weight"}[]
 :::
 
-:::definition "mf.bianchi.sign" (lean := "HyperbolicThreeSpace.bianchiFricke, HyperbolicThreeSpace.BianchiNewformOfWeight.HasSign, HyperbolicThreeSpace.BianchiNewformOfWeight.exists_bianchiFricke_eq_smul, HyperbolicThreeSpace.BianchiNewformOfWeight.analyticLFunction, HyperbolicThreeSpace.BianchiNewformOfWeight.neg_one_pow_mul_eq_neg_one_pow, HyperbolicThreeSpace.BianchiNewformOfWeight.eq_neg_one_pow_of_weight_two")
+:::definition "mf.bianchi.sign"
 *Sign of a Bianchi newform.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.bianchi.sign))
 
 Let $`F` be a {bpref "mf.bianchi.newform"}[Bianchi newform] of {bpref "mf.bianchi.level"}[level] $`\mathcal{N}`.  When $`\mathcal{N}=(N)` is principal, $`F` is an eigenform for the *Fricke involution* $`W_N` defined by the matrix $`\left(\begin{matrix}0&-1\\N&0\end{matrix}\right)`.
