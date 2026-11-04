@@ -1,4 +1,5 @@
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoElementaryDivisors
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ScalarSimilitude
 import TauCeti.NumberTheory.HeckeRing.Associativity
 import TauCeti.NumberTheory.HeckeRing.Normalizer
 
@@ -138,11 +139,14 @@ lemma heckeCosetDiag_zero : heckeCosetDiag p 0 0 0 = 1 := by
 lemma coe_symplecticDiag_one_zero_zero : ((symplecticDiag p 1 0 0 : GL₄) : M₄) = (p : ℚ) • 1 := by
   rw [coe_symplecticDiag_zero_zero, pow_one]
 
+variable (p) in
+lemma symplecticDiag_one_zero_zero :
+    (symplecticDiag p 1 0 0 : GL₄) = scalarGL ⟨p, (Fact.out : p.Prime).pos⟩ :=
+  Units.ext <| coe_symplecticDiag_one_zero_zero.trans (coe_scalarGL ⟨p, _⟩).symm
+
 lemma symplecticDiag_one_zero_zero_mul (g : GL₄) :
-    (symplecticDiag p 1 0 0 : GL₄) * g = g * symplecticDiag p 1 0 0 := by
-  refine Units.ext ?_
-  rw [Units.val_mul, Units.val_mul, coe_symplecticDiag_one_zero_zero, Matrix.smul_mul,
-    Matrix.mul_smul, Matrix.one_mul, Matrix.mul_one]
+    (symplecticDiag p 1 0 0 : GL₄) * g = g * symplecticDiag p 1 0 0 :=
+  symplecticDiag_one_zero_zero p ▸ scalarGL_mul_comm _ g
 
 lemma single_heckeCosetDiag_one_mul :
     single ℂ (heckeCosetDiag p 1 0 0) 1 * single ℂ (heckeCosetDiag p a s t) 1 =

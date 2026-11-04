@@ -115,9 +115,6 @@ instance {Γ₁ Γ₂ : Subgroup (symplecticGroup l ℚ)} [hΓ₁ : Fact (Symple
     rw [(commensurable_heckeGammaOf hΓ₂.out).eq]
     exact gspPlusGL_le_commensurator
 
-instance : Fact (gspPlusGL l ≤ gspPlusGL l) :=
-  ⟨le_rfl⟩
-
 instance (d : l → ℕ+) : Fact (SymplecticGroup.IsArithmetic (SymplecticGroup.paramodular d)) :=
   ⟨SymplecticGroup.isArithmetic_paramodular d⟩
 

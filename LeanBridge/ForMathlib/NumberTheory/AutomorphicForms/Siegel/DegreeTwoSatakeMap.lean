@@ -19,8 +19,9 @@ values on two of the three generators of the local Hecke algebra
   `0 ≤ c < p`, `X = (t/p, 0; 0, 0)`; and `(p, p)`, `X = T/p` (Andrianov, *Quadratic forms and Hecke
   operators*, §3.3, in degree `2`). Integrality of the normal form forces this list.
 
-The values agree with the coset enumeration of the ZV2 review and with the eigenvalues of `χ₁₀`
-and of the Siegel Eisenstein series computed from Fourier coefficients.
+The values were checked numerically against an independent enumeration of the cosets and against
+the eigenvalues of `χ₁₀` and of the Siegel Eisenstein series computed from their Fourier
+coefficients.
 
 ## Main definitions
 

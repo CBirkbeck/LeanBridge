@@ -1,5 +1,4 @@
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoSatakeMapT1
-import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularRobertsSchmidt
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelLift
 
 /-!
@@ -201,13 +200,11 @@ lemma eq_zero_of_gspSlash_eq_zero {β : gspPlus (Fin 2)} (hβ : ∀ τ, gspSmul 
 
 lemma submonoidToGSpPlus_symplecticDiag : submonoidToGSpPlus (symplecticDiag p 1 0 0) =
     submonoidToGSpPlus (scalarGSp ⟨p, (Fact.out : p.Prime).pos⟩) :=
-  Subtype.ext (coe_symplecticDiag_one_zero_zero.trans
-    (coe_scalarGL ⟨p, (Fact.out : p.Prime).pos⟩).symm)
+  Subtype.ext <| congrArg Units.val (symplecticDiag_one_zero_zero p)
 
 lemma gspSmul_symplecticDiag (τ : SiegelUpperHalfSpace (Fin 2)) :
-    gspSmul (submonoidToGSpPlus (symplecticDiag p 1 0 0)) τ = τ := by
-  rw [submonoidToGSpPlus_symplecticDiag]
-  exact gspSmul_scalarGSp _ τ
+    gspSmul (submonoidToGSpPlus (symplecticDiag p 1 0 0)) τ = τ :=
+  (congrArg (gspSmul · τ) submonoidToGSpPlus_symplecticDiag).trans (gspSmul_scalarGSp _ τ)
 
 lemma IsHeckeEigenform.eigenvalue_T₀_ne_zero {F : slashInvariantsOf ρ (heckeMonoidAt (Fin 2) p) Γ₂}
     (hF : IsHeckeEigenform ρ F) : hF.eigenvalue (heckeCosetDiag p 1 0 0) ≠ 0 := by

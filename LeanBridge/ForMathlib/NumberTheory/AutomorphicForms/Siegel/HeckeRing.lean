@@ -324,6 +324,9 @@ def gspPlusGroup : Subgroup (GL (l ⊕ l) ℚ) where
   inv_mem' {x} := fun ⟨r, hr, h⟩ ↦
     ⟨r⁻¹, inv_pos.mpr hr, transpose_mul_J_mul_of_mul_eq_one hr.ne' h (Units.mul_inv x)⟩
 
+instance : Fact (gspPlusGL l ≤ gspPlusGL l) :=
+  ⟨le_rfl⟩
+
 lemma heckeMonoid_le_gspPlusGL : heckeMonoid l ≤ gspPlusGL l :=
   fun _ hx ↦ hx.1
 

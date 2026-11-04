@@ -34,8 +34,7 @@ elements `Ξ(U)`, `Ξ(U')` of levels `N = q M` and `Np`, sends the double coset
 ## Main definitions
 
 * `SiegelUpperHalfSpace.rsSlash`: the slash operator of Roberts and Schmidt.
-* `SiegelUpperHalfSpace.scalarGSp`, `SiegelUpperHalfSpace.scalarInvGSp`: scalar matrices in
-  `GSp(4, ℚ)⁺`.
+* `SiegelUpperHalfSpace.scalarInvGSp`: the scalar matrices `s⁻¹` in `GSp(4, ℚ)⁺`.
 * `SiegelUpperHalfSpace.rsThetaDiag`: the similitude `diag(1, 1, p⁻¹, p⁻¹)`.
 * `SiegelUpperHalfSpace.rsTheta`, `SiegelUpperHalfSpace.rsEta`, `SiegelUpperHalfSpace.rsThetaPrime`:
   the operators `θ_p`, `η_p`, `θ'_p` of Roberts and Schmidt.
@@ -137,10 +136,6 @@ end Coset
 
 variable (k : ℤ)
 
-lemma slashExponent_detPowerRep : slashExponent (TauCeti.detPowerRep ℂ 2 k) = 2 * k - 3 := by
-  rw [slashExponent, Representation.highestWeight_detPowerRep]
-  simp
-
 /-- The **slash operator of Roberts and Schmidt** (*On modular forms for the paramodular group*, §2)
 of weight `k` by `g = (A, B; C, D) ∈ GSp(4, ℚ)⁺`, of multiplier `λ(g)`:
 `(F ∣_k g)(Z) = λ(g)^k det(CZ + D)^(-k) F(g⟨Z⟩)`, normalised so that scalar matrices act
@@ -197,11 +192,6 @@ lemma rsSlash_of_multiplier_eq_one (h₁ : multiplier (submonoidToGSpPlus g) = 1
 
 variable (s : ℕ+)
 
-lemma transpose_scalarGL_mul_J_mul : (scalarGL s : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) ℚ)ᵀ *
-    J (Fin 2) ℚ * scalarGL s = (s : ℚ) ^ 2 • J (Fin 2) ℚ := by
-  rw [coe_scalarGL, transpose_smul, transpose_one, Matrix.smul_mul, Matrix.one_mul, Matrix.mul_smul,
-    Matrix.mul_one, smul_smul, sq]
-
 lemma coe_scalarGL_inv :
     (((scalarGL s)⁻¹ : GL (Fin 2 ⊕ Fin 2) ℚ) : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) ℚ) =
       (s : ℚ)⁻¹ • 1 :=
@@ -215,16 +205,9 @@ lemma transpose_scalarGL_inv_mul_J_mul :
   rw [coe_scalarGL_inv, transpose_smul, transpose_one, Matrix.smul_mul, Matrix.one_mul,
     Matrix.mul_smul, Matrix.mul_one, smul_smul, sq]
 
-/-- The scalar matrix `s` in `GSp(4, ℚ)⁺`, of multiplier `s²`. -/
-def scalarGSp : gspPlusGL (Fin 2) :=
-  ⟨scalarGL s, (s : ℚ) ^ 2, by positivity, transpose_scalarGL_mul_J_mul s⟩
-
 /-- The scalar matrix `s⁻¹` in `GSp(4, ℚ)⁺`, of multiplier `s⁻²`. -/
 def scalarInvGSp : gspPlusGL (Fin 2) :=
   ⟨(scalarGL s)⁻¹, (s : ℚ)⁻¹ ^ 2, by positivity, transpose_scalarGL_inv_mul_J_mul s⟩
-
-lemma multiplier_scalarGSp : multiplier (submonoidToGSpPlus (scalarGSp s)) = (s : ℚ) ^ 2 :=
-  multiplier_eq _ (transpose_scalarGL_mul_J_mul s)
 
 lemma multiplier_scalarInvGSp : multiplier (submonoidToGSpPlus (scalarInvGSp s)) = (s : ℚ)⁻¹ ^ 2 :=
   multiplier_eq _ (transpose_scalarGL_inv_mul_J_mul s)
@@ -237,40 +220,11 @@ lemma scalarGSp_one : scalarGSp 1 = 1 :=
     rw [Submonoid.coe_one, Units.val_one]
     exact (coe_scalarGL 1).trans (by simp)
 
-lemma gspDenom_scalarGSp (τ : SiegelUpperHalfSpace (Fin 2)) :
-    gspDenom (submonoidToGSpPlus (scalarGSp s)) τ = (s : ℂ) • 1 := by
-  ext i j
-  fin_cases i <;> fin_cases j <;>
-    simp [gspDenom, submonoidToGSpPlus, scalarGSp, coe_scalarGL, toBlocks₂₁, toBlocks₂₂,
-      Matrix.mul_apply]
-
-lemma gspSmul_scalarGSp (τ : SiegelUpperHalfSpace (Fin 2)) :
-    gspSmul (submonoidToGSpPlus (scalarGSp s)) τ = τ := by
-  have hs : (s : ℂ) ≠ 0 := Nat.cast_ne_zero.mpr s.ne_zero
-  have hinv : ((s : ℂ) • (1 : Matrix (Fin 2) (Fin 2) ℂ))⁻¹ = (s : ℂ)⁻¹ • 1 :=
-    inv_eq_left_inv <| by
-      rw [smul_mul_smul_comm, Matrix.one_mul, inv_mul_cancel₀ hs, one_smul]
-  have hnum : gspNum (submonoidToGSpPlus (scalarGSp s)) τ = (s : ℂ) • τ.val := by
-    ext i j
-    fin_cases i <;> fin_cases j <;>
-      simp [gspNum, submonoidToGSpPlus, scalarGSp, coe_scalarGL, toBlocks₁₁, toBlocks₁₂,
-        Matrix.mul_apply]
-  refine SiegelUpperHalfSpace.ext ?_
-  rw [gspSmul_val, gspDenom_scalarGSp, hnum, hinv, smul_mul_smul_comm, Matrix.mul_one,
-    mul_inv_cancel₀ hs, one_smul]
-
 /-- **Scalar matrices act trivially** for the slash operator of Roberts and Schmidt. -/
 lemma rsSlash_scalarGSp : rsSlash k (scalarGSp s) F = F := by
-  have hs : (s : ℂ) ≠ 0 := Nat.cast_ne_zero.mpr s.ne_zero
-  ext τ
-  have hdet : ((s : ℂ) • (1 : Matrix (Fin 2) (Fin 2) ℂ)).det = (s : ℂ) ^ 2 := by
-    rw [det_smul, det_one, mul_one, Fintype.card_fin]
-  have hk : (((s : ℂ)) ^ 2) ^ k * ((s : ℂ) ^ 2) ^ (-k) = 1 := by
-    rw [← zpow_add₀ (pow_ne_zero 2 hs), add_neg_cancel, zpow_zero]
-  simp only [rsSlash, LinearMap.coe_mk, AddHom.coe_mk, multiplier_scalarGSp, gspDenom_scalarGSp,
-    gspSmul_scalarGSp, hdet]
-  push_cast
-  rw [hk, one_mul]
+  rw [rsSlash_eq_zpow_smul, heckeMonoidSlash_scalarGSp, multiplier_scalarGSp, smul_smul,
+    Rat.cast_pow, Rat.cast_natCast, ← zpow_add₀ (pow_ne_zero 2 (Nat.cast_ne_zero.mpr s.ne_zero)),
+    sub_add_sub_cancel', sub_self, zpow_zero, one_smul]
 
 lemma rsSlash_one : rsSlash k 1 F = F := by
   rw [← scalarGSp_one, rsSlash_scalarGSp]

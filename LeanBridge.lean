@@ -526,6 +526,7 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SatakeIwasawa
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SatakeParameters
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SatakeSpherical
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SatohBracket
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ScalarSimilitude
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ScalarValued
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelEisensteinConvergence
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelEisensteinHecke

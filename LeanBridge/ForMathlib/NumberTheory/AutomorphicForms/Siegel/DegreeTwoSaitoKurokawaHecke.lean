@@ -46,33 +46,9 @@ variable {p : ℕ} [Fact p.Prime]
 lemma heckeOperator_T₀_detPowerRep (κ : ℤ)
     (F : slashInvariantsOf (TauCeti.detPowerRep ℂ 2 κ) (heckeMonoidAt (Fin 2) p) Γ₂) :
     heckeOperator (TauCeti.detPowerRep ℂ 2 κ) (heckeCosetDiag p 1 0 0) F =
-      ((p : ℂ) ^ 2) ^ (κ - 3) • F := by
-  have hp : (p : ℂ) ≠ 0 := Nat.cast_ne_zero.mpr (Fact.out : p.Prime).ne_zero
-  have e : heckeMonoidSlash (TauCeti.detPowerRep ℂ 2 κ) (symplecticDiag p 1 0 0)
-      (F : SiegelUpperHalfSpace (Fin 2) → ℂ) = heckeMonoidSlash (TauCeti.detPowerRep ℂ 2 κ)
-        (scalarGSp ⟨p, (Fact.out : p.Prime).pos⟩) (F : SiegelUpperHalfSpace (Fin 2) → ℂ) :=
-    congrArg (fun β ↦ gspSlash (TauCeti.detPowerRep ℂ 2 κ) β (F : SiegelUpperHalfSpace (Fin 2) → ℂ))
-      submonoidToGSpPlus_symplecticDiag
-  have h : (F : SiegelUpperHalfSpace (Fin 2) → ℂ) =
-      ((multiplier (submonoidToGSpPlus (scalarGSp ⟨p, (Fact.out : p.Prime).pos⟩)) : ℂ) ^ (3 - κ)) •
-        heckeMonoidSlash (TauCeti.detPowerRep ℂ 2 κ) (scalarGSp ⟨p, (Fact.out : p.Prime).pos⟩)
-          (F : SiegelUpperHalfSpace (Fin 2) → ℂ) :=
-    (rsSlash_scalarGSp κ (F : SiegelUpperHalfSpace (Fin 2) → ℂ)
-      ⟨p, (Fact.out : p.Prime).pos⟩).symm.trans (rsSlash_eq_zpow_smul κ _ _)
-  have hm : multiplier (submonoidToGSpPlus (scalarGSp ⟨p, (Fact.out : p.Prime).pos⟩)) =
-      (p : ℚ) ^ 2 :=
-    multiplier_scalarGSp _
-  rw [hm] at h
-  push_cast at h
-  have h' : ((p : ℂ) ^ 2) ^ (κ - 3) • (F : SiegelUpperHalfSpace (Fin 2) → ℂ) =
-      ((p : ℂ) ^ 2) ^ (κ - 3) • (((p : ℂ) ^ 2) ^ (3 - κ) •
-        heckeMonoidSlash (TauCeti.detPowerRep ℂ 2 κ) (scalarGSp ⟨p, (Fact.out : p.Prime).pos⟩)
-          (F : SiegelUpperHalfSpace (Fin 2) → ℂ)) :=
-    congrArg _ h
-  rw [smul_smul, ← zpow_add₀ (pow_ne_zero 2 hp), sub_add_sub_cancel', sub_self, zpow_zero,
-    one_smul] at h'
-  refine Subtype.ext ?_
-  rw [Submodule.coe_smul, heckeOperator_T₀, e, h']
+      ((p : ℂ) ^ 2) ^ (κ - 3) • F :=
+  Subtype.ext <| (heckeOperator_T₀ F).trans <| (congrArg (gspSlash (TauCeti.detPowerRep ℂ 2 κ) · F)
+    submonoidToGSpPlus_symplecticDiag).trans (heckeMonoidSlash_scalarGSp κ _ F)
 
 lemma IsSaitoKurokawaLift.mem_slashInvariants {k : ℤ} {f : Newform 1 (2 * k)}
     {F : SiegelUpperHalfSpace (Fin 2) → ℂ} (hF : IsSaitoKurokawaLift k f F) :

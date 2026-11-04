@@ -1,6 +1,6 @@
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularLevelRaisingThetaPrime
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularPattern
-import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Basic
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ScalarSimilitude
 
 /-!
 # The Atkin–Lehner elements of the paramodular group
@@ -25,7 +25,6 @@ element of `K(N)`, for the classical Atkin–Lehner matrices `U` of level `N`, `
 
 * `SiegelUpperHalfSpace.xiMatrix`: the embedding `Ξ : M₂(R) → M₄(R)`.
 * `SiegelUpperHalfSpace.xiSp`: the element `Ξ(T)` of `Sp(4, ℚ)` for `T ∈ SL(2, ℤ)`.
-* `SiegelUpperHalfSpace.scalarGL`: scalar matrices in `GL(4, ℚ)`.
 * `SiegelUpperHalfSpace.AtkinLehnerParam`: the parameters of the matrices
   `U = (q² a, M b; q M c, q d)` of determinant `q`.
 * `SiegelUpperHalfSpace.AtkinLehnerParam.matrix`, `SiegelUpperHalfSpace.AtkinLehnerParam.matrixInv`:
@@ -139,18 +138,6 @@ lemma mul_mul_mem_symplecticGroup {U V X : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ F
     simp only [transpose_mul, Matrix.mul_assoc]
   rw [SymplecticGroup.mem_iff', h₄, hU, Matrix.mul_smul, Matrix.smul_mul, Matrix.mul_smul,
     Matrix.smul_mul, SymplecticGroup.mem_iff'.mp hX, h₁, smul_smul, mul_inv_cancel₀ hr, one_smul]
-
-/-- The scalar matrix `s` in `GL(4, ℚ)`, for a positive integer `s`. -/
-def scalarGL (s : ℕ+) : GL (Fin 2 ⊕ Fin 2) ℚ :=
-  GeneralLinearGroup.scalar _ (Units.mk0 (s : ℚ) (Nat.cast_ne_zero.mpr s.ne_zero))
-
-lemma coe_scalarGL (s : ℕ+) :
-    (scalarGL s : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) ℚ) = (s : ℚ) • 1 :=
-  (scalar_apply _).trans (smul_one_eq_diagonal _).symm
-
-lemma scalarGL_mul_comm (s : ℕ+) (g : GL (Fin 2 ⊕ Fin 2) ℚ) : scalarGL s * g = g * scalarGL s :=
-  (Subgroup.mem_center_iff.mp
-    (GeneralLinearGroup.mem_center_iff_val_mem_range_scalar.mpr ⟨_, rfl⟩) g).symm
 
 lemma val_spRatToGL (γ : symplecticGroup (Fin 2) ℚ) :
     (spRatToGL (Fin 2) γ : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) ℚ) = γ :=
