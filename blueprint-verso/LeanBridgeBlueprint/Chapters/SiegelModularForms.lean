@@ -932,7 +932,7 @@ $`L`-function that is a product of $`L`-functions related to those of $`f` and $
 </p>
 :::
 
-:::definition "mf.siegel.lift.miyawaki2"
+:::definition "mf.siegel.lift.miyawaki2" (lean := "SiegelUpperHalfSpace.IsMiyawakiLiftTypeII, SiegelUpperHalfSpace.isSiegelCuspForm_comp_reindex_iff, SiegelUpperHalfSpace.IsMiyawakiLiftTypeII.standardEulerFactor_eq, SiegelUpperHalfSpace.IsMiyawakiLiftTypeII.spinorEulerFactor_eq, HeckeRing.GL2.Newform.standardEulerFactor_miyawaki2, HeckeRing.GL2.Newform.spinorEulerFactor_miyawaki2")
 *Miyawaki lift of type II.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.lift.miyawaki2))
 
 <b>Miyawaki Lift, Type II (conjectural):</b>  Let $`k` be an even weight.

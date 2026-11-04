@@ -246,6 +246,7 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ArithmeticSieg
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CoefficientField
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CongruenceSubgroups
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CuspForm
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CuspFormReindex
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CuspFormsFiniteDimensional
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeOneGrowth
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwo

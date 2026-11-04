@@ -426,6 +426,7 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CoefficientFie
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CongruenceSubgroups
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CuspCriterion
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CuspForm
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CuspFormReindex
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CuspFormsFiniteDimensional
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DefiningPolynomial
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeOneGrowth
@@ -559,6 +560,7 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SymmetricCongr
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ThetaConstant
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ThetaTransformation
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.UpperHalfSpace
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.UpperHalfSpaceReindex
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.VectorHeckeStability
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.VectorKlingenBound
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.VectorKlingenEisenstein

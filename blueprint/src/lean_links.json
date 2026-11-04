@@ -4279,6 +4279,14 @@
     "SiegelUpperHalfSpace.maassLiftLinearMap": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftCuspForm",
     "SiegelUpperHalfSpace.isCuspForm_maassLift": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftCuspForm"
   },
+  "mf.siegel.lift.miyawaki2": {
+    "SiegelUpperHalfSpace.IsMiyawakiLiftTypeII": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelLift",
+    "SiegelUpperHalfSpace.isSiegelCuspForm_comp_reindex_iff": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CuspFormReindex",
+    "SiegelUpperHalfSpace.IsMiyawakiLiftTypeII.standardEulerFactor_eq": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SatakeEigenform",
+    "SiegelUpperHalfSpace.IsMiyawakiLiftTypeII.spinorEulerFactor_eq": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SatakeEigenform",
+    "HeckeRing.GL2.Newform.standardEulerFactor_miyawaki2": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelLift",
+    "HeckeRing.GL2.Newform.spinorEulerFactor_miyawaki2": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelLift"
+  },
   "mf.siegel.newform.paramodular": {
     "SiegelUpperHalfSpace.IsNewParamodularEigenform": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularNewEigenform",
     "SiegelUpperHalfSpace.IsNotLevelRaised": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParamodularNewEigenform",

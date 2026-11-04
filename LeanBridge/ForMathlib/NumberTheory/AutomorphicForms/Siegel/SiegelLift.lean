@@ -1,3 +1,4 @@
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CuspFormReindex
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MiyawakiLift
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SaitoKurokawaLift
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SatakeParameters
@@ -306,22 +307,31 @@ lemma saitoKurokawaSpinTheorem_of_isSatakeParameter
 
 /-- `F` is a **Miyawaki lift of type II** (LMFDB `mf.siegel.lift.miyawaki2`, a conjectural lift) of
 normalised Hecke eigenforms `f ∈ S_{2k-2}(SL(2, ℤ))` and `g ∈ S_{k-2}(SL(2, ℤ))`, `k` even: `F` is a
-Siegel cusp form of weight `k` on `Sp(6, ℤ)` (a modular form whose Fourier coefficients vanish off
-the positive definite matrices, the cusp forms of level `1`) and, at every prime `p`, a Hecke
-eigenform with Satake parameters whose standard and spinor Euler factors are
+Siegel cusp form of weight `k` on `Sp(6, ℤ)` and, at every prime `p`, a Hecke eigenform with Satake
+parameters whose standard and spinor Euler factors are
 `Q_p^st(F, X) = Q_p(f, p^{1-k} X) Q_p(f, p^{2-k} X) Q_p^st(g, X)` and
 `Q_p^spin(F, X) = Q_p(g, p^{k-1} X) Q_p(g, p^{k-2} X) Q_p(f ⊗ g, X)`, the Euler factors of
 `L^st(F, s) = L(f, s + k - 1) L(f, s + k - 2) L^st(g, s)` and
 `L^spin(F, s) = L(g, s - k + 1) L(g, s - k + 2) L(f ⊗ g, s)`. Both are the Euler factors of the one
 point `(δ₋ p^{k-1}; γ₊ p^{1-k}, γ₋ p^{1-k}, δ₊/δ₋)`
 (`HeckeRing.GL2.Newform.standardEulerFactor_miyawaki2`,
-`HeckeRing.GL2.Newform.spinorEulerFactor_miyawaki2`). -/
+`HeckeRing.GL2.Newform.spinorEulerFactor_miyawaki2`).
+
+That `F` is a cusp form is the knowl's `mf.siegel.cusp_form`: a modular form of weight `k` on
+`Sp(6, ℤ)` with `Φ(F ∣_k γ) = 0` for every `γ ∈ Sp(6, ℚ)`, through
+`SiegelUpperHalfSpace.IsSiegelCuspForm`. That notion lives on `ℋ_3` indexed by `Fin 2 ⊕ Unit`, so
+`F` and its weight `det^k` are transported along `SiegelUpperHalfSpace.finSumUnitEquiv`, which
+puts the limit of the Siegel `Φ` operator in the last diagonal entry: the clause says that
+`(F ∣_k γ)(diag(τ, it))` tends to `0` as `t → ∞` for every `γ ∈ Sp(6, ℚ)` and `τ ∈ ℋ_2`
+(`SiegelUpperHalfSpace.isSiegelCuspForm_comp_reindex_iff`,
+`SiegelUpperHalfSpace.val_reindex_finSumUnitEquiv_phiPoint`). Any other identification of `Fin 3`
+with `Fin 2 ⊕ Unit` gives the same condition
+(`SiegelUpperHalfSpace.isSiegelCuspForm_comp_reindex_congr`). -/
 def IsMiyawakiLiftTypeII {k : ℤ} (f : Newform 1 (2 * k - 2)) (g : Newform 1 (k - 2))
     (F : SiegelUpperHalfSpace (Fin 3) → ℂ) : Prop :=
   Even k ∧ F ∈ scalarModularForms k (SymplecticGroup.integral (Fin 3)) ∧
-    (∃ a : dualLattice (SymplecticGroup.integral (Fin 3)) → ℂ,
-      HasSiegelFourierExpansion (SymplecticGroup.integral (Fin 3)) F a ∧
-        ∀ T, a T ≠ 0 → (T : Matrix (Fin 3) (Fin 3) ℚ).PosDef) ∧
+    IsSiegelCuspForm ((TauCeti.detPowerRep ℂ 3 k).comp
+        ((finSumUnitEquiv 2).reindexGL ℂ).toMonoidHom) (F ∘ reindex (finSumUnitEquiv 2)) ∧
       ∀ (p : ℕ) [Fact p.Prime], ∃ (α₀ : ℂˣ) (α : Fin 3 → ℂˣ),
         IsSatakeParameter p (TauCeti.detPowerRep ℂ 3 k) F α₀ α ∧
           standardEulerFactor (fun i ↦ (α i : ℂ)) = f.miyawaki2StandardEulerFactor g p ∧
