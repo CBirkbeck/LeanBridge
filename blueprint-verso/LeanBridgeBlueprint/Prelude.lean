@@ -278,11 +278,14 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PeterssonHecke
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PeterssonKlingen
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PeterssonSiegelEisenstein
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PhiOperator
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SatakeEigenform
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SatakeTheorem
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SatohBracket
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ScalarValued
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelEisensteinConvergence
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelEisensteinHecke
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelEisensteinSeries
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelLift
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SimilitudeSlash
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ThetaConstant
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.UpperHalfSpace

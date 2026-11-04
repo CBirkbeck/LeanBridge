@@ -4254,6 +4254,14 @@
     "SymplecticGroup.IsCongruenceOfLevel.mul": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.Level",
     "SiegelUpperHalfSpace.modularForms": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ModularForm"
   },
+  "mf.siegel.lift": {
+    "SiegelUpperHalfSpace.SiegelEigenform.IsLift": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelLift",
+    "SiegelUpperHalfSpace.satakeParametersExist": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SatakeEigenform",
+    "SiegelUpperHalfSpace.eulerFactorsWellDefined": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SatakeEigenform",
+    "SiegelUpperHalfSpace.SiegelEigenform.IsEulerFactor": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelLift",
+    "SiegelUpperHalfSpace.satakeInvariantsHom_bijective": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SatakeTheorem",
+    "SiegelUpperHalfSpace.exists_satakeMap_eq_of_ne_zero": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SatakeTheorem"
+  },
   "mf.siegel.lift.gritsenko": {
     "SiegelUpperHalfSpace.gritsenkoLift": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.GritsenkoLift",
     "SiegelUpperHalfSpace.gritsenkoCoeff": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.GritsenkoLift",

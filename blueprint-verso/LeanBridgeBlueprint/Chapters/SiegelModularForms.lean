@@ -796,7 +796,7 @@ and the principal congruence subgroups
 Depends on: {uses "mf.siegel"}[]
 :::
 
-:::definition "mf.siegel.lift"
+:::definition "mf.siegel.lift" (lean := "SiegelUpperHalfSpace.SiegelEigenform.IsLift, SiegelUpperHalfSpace.satakeParametersExist, SiegelUpperHalfSpace.eulerFactorsWellDefined, SiegelUpperHalfSpace.SiegelEigenform.IsEulerFactor, SiegelUpperHalfSpace.satakeInvariantsHom_bijective, SiegelUpperHalfSpace.exists_satakeMap_eq_of_ne_zero")
 *Lift Siegel modular form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.lift))
 
 A Siegel eigenform is a lift if its Euler factors are products of Euler factors that arise from Siegel modular forms of lower genus.
