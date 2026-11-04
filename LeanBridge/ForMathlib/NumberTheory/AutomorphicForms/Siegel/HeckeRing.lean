@@ -316,11 +316,22 @@ variable (l) in
 def gspPlusGL : Submonoid (GL (l ⊕ l) ℚ) :=
   (gspPlus l).comap (Units.coeHom _)
 
+variable (l) in
+/-- The group `GSp(2g, ℚ)⁺` of symplectic similitudes with positive multiplier, as a subgroup of
+`GL(2g, ℚ)`: the inverse of a similitude of multiplier `r` is a similitude of multiplier `r⁻¹`. -/
+def gspPlusGroup : Subgroup (GL (l ⊕ l) ℚ) where
+  toSubmonoid := gspPlusGL l
+  inv_mem' {x} := fun ⟨r, hr, h⟩ ↦
+    ⟨r⁻¹, inv_pos.mpr hr, transpose_mul_J_mul_of_mul_eq_one hr.ne' h (Units.mul_inv x)⟩
+
 lemma heckeMonoid_le_gspPlusGL : heckeMonoid l ≤ gspPlusGL l :=
   fun _ hx ↦ hx.1
 
 instance : Fact (heckeMonoid l ≤ gspPlusGL l) :=
   ⟨heckeMonoid_le_gspPlusGL⟩
+
+instance (p : ℕ) : Fact (heckeMonoidAt l p ≤ gspPlusGL l) :=
+  ⟨(heckeMonoidAt_le_heckeMonoid p).trans heckeMonoid_le_gspPlusGL⟩
 
 variable (l) in
 /-- The embedding `Sp(2g, ℚ) → GL(2g, ℚ)`. -/

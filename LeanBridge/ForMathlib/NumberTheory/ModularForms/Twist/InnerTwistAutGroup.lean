@@ -1,6 +1,6 @@
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Delta
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.InnerTwistRibet
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.SelfTwistConductor
-import TauCeti.NumberTheory.ModularForms.LevelOne.DiscriminantEigenform
 
 /-!
 # The group of inner twists of a newform
@@ -408,14 +408,6 @@ lemma not_forall_innerTwistGroup_mul_fst_eq_primitive_mul (hf : f.χ ^ 2 ≠ 1) 
   rw [hconj] at hsq
   simpa [sq] using hsq
 
-/-- The newform `Δ` of level one and weight twelve. -/
-private noncomputable def discriminantNewform : Newform 1 12 where
-  toEigenformAwayFromLevel := discriminantEigenform.toEigenformAwayFromLevel
-  isNew := by
-    rw [cuspFormsNew_one]
-    exact Submodule.mem_top
-  isNorm := ModularForm.discriminant_qExpansion_coeff_one
-
 /-- **There is a newform whose nebentypus is not quadratic**: a primitive associate of the twist of
 `Δ` by a cubic character modulo `7`, of nebentypus the square of that character at level `49`. -/
 lemma exists_newform_χ_sq_ne_one : ∃ (R : ℕ) (_ : NeZero R) (g : Newform R 12), g.χ ^ 2 ≠ 1 := by
@@ -424,13 +416,13 @@ lemma exists_newform_χ_sq_ne_one : ∃ (R : ℕ) (_ : NeZero R) (g : Newform R 
     (Complex.isPrimitiveRoot_exp 3 (by norm_num)) with ⟨ψ, hψ⟩
   have hNL : 1 * 7 ∣ 7 * 7 := ⟨7, by norm_num⟩
   have hML : 7 * 7 ∣ 7 * 7 := dvd_rfl
-  rcases discriminantNewform.exists_newform_qExpansion_coeff_prime_eq_twist (M := 7) ψ hNL hML with
+  rcases deltaNewform.exists_newform_qExpansion_coeff_prime_eq_twist (M := 7) ψ hNL hML with
     ⟨R, _, hR, g, hχ, -⟩
   refine ⟨R, inferInstance, g, fun hg ↦ ?_⟩
   have h4 : ψ ^ 4 = 1 := by
     refine MulChar.ext fun u ↦ ?_
     rcases ZMod.unitsMap_surjective (dvd_of_mul_left_dvd hML) u with ⟨w, rfl⟩
-    have h₁ : discriminantNewform.χ (ZMod.unitsMap (dvd_of_mul_right_dvd hNL) w) = 1 := by
+    have h₁ : deltaNewform.χ (ZMod.unitsMap (dvd_of_mul_right_dvd hNL) w) = 1 := by
       rw [Subsingleton.elim (ZMod.unitsMap (dvd_of_mul_right_dvd hNL) w) 1, map_one]
     have h₂ : g.χ (ZMod.unitsMap hR w) ^ 2 = 1 := DFunLike.congr_fun hg (ZMod.unitsMap hR w)
     have h₃ :

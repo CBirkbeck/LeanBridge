@@ -1,6 +1,7 @@
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoDecomposition
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PeterssonHecke
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PeterssonSiegelEisenstein
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SatakeIwasawa
 
 /-!
 # The Siegel Eisenstein series are Hecke eigenforms
@@ -183,29 +184,9 @@ lemma exists_sum_hasSum_eq_mul (hU : ∀ a, j a ∈ U ↔ a ∈ H) (hG : ∀ y :
   simp only [← Finset.sum_mul, h₂] at h₃
   exact h₃.unique (hS₀.mul_left _)
 
-/-! ### `GSp(4, ℚ)⁺` as a group, and its upper triangular subgroup -/
+/-! ### The upper triangular subgroup of `GSp(4, ℚ)⁺` -/
 
-/-- `GSp(4, ℚ)⁺` as a subgroup of `GL(4, ℚ)`. -/
-private def gspGroup : Subgroup GL₄ where
-  toSubmonoid := gspPlusGL (Fin 2)
-  inv_mem' {x} hx := by
-    rcases hx with ⟨r, hr, h⟩
-    refine ⟨r⁻¹, inv_pos.mpr hr, ?_⟩
-    have e₁ : ((x⁻¹ : GL₄) : M₄)ᵀ * (x : M₄)ᵀ = 1 := by
-      rw [← transpose_mul, Units.mul_inv, transpose_one]
-    have e₂ : (x : M₄) * ((x⁻¹ : GL₄) : M₄) = 1 :=
-      Units.mul_inv x
-    have h₁ :
-        ((x⁻¹ : GL₄) : M₄)ᵀ * ((x : M₄)ᵀ * J (Fin 2) ℚ * x) * ((x⁻¹ : GL₄) : M₄) = J (Fin 2) ℚ := by
-      have e₃ : ((x⁻¹ : GL₄) : M₄)ᵀ * ((x : M₄)ᵀ * J (Fin 2) ℚ * x) * ((x⁻¹ : GL₄) : M₄) =
-          (((x⁻¹ : GL₄) : M₄)ᵀ * (x : M₄)ᵀ) * J (Fin 2) ℚ * ((x : M₄) * ((x⁻¹ : GL₄) : M₄)) := by
-        simp only [Matrix.mul_assoc]
-      rw [e₃, e₁, e₂, Matrix.one_mul, Matrix.mul_one]
-    have h' : (x : M₄)ᵀ * J (Fin 2) ℚ * x = r • J (Fin 2) ℚ := h
-    rw [h', Matrix.mul_smul, Matrix.smul_mul] at h₁
-    exact (eq_inv_smul_iff₀ hr.ne').mpr h₁
-
-variable {k : ℤ} (y y' : gspGroup) (a : symplecticGroup (Fin 2) ℤ)
+variable {k : ℤ} (y y' : gspPlusGroup (Fin 2)) (a : symplecticGroup (Fin 2) ℤ)
 
 /-- The element of the monoid `GSp(4, ℚ)⁺` of matrices given by an element of the group. -/
 private def toMon : gspPlus (Fin 2) :=
@@ -214,18 +195,8 @@ private def toMon : gspPlus (Fin 2) :=
 private lemma toMon_mul : toMon (y * y') = toMon y * toMon y' :=
   rfl
 
-private lemma toBlocks₂₁_mul (X Y : M₄) :
-    (X * Y).toBlocks₂₁ = X.toBlocks₂₁ * Y.toBlocks₁₁ + X.toBlocks₂₂ * Y.toBlocks₂₁ := by
-  ext i j
-  simp [toBlocks₂₁, toBlocks₁₁, toBlocks₂₂, Matrix.mul_apply]
-
-private lemma toBlocks₂₂_mul (X Y : M₄) :
-    (X * Y).toBlocks₂₂ = X.toBlocks₂₁ * Y.toBlocks₁₂ + X.toBlocks₂₂ * Y.toBlocks₂₂ := by
-  ext i j
-  simp [toBlocks₂₁, toBlocks₁₂, toBlocks₂₂, Matrix.mul_apply]
-
 /-- The subgroup of the upper triangular elements `(A, B; 0, D)` of `GSp(4, ℚ)⁺`. -/
-private def gspUpper : Subgroup gspGroup where
+private def gspUpper : Subgroup (gspPlusGroup (Fin 2)) where
   carrier := {y | ((y : GL₄) : M₄).toBlocks₂₁ = 0}
   mul_mem' {y y'} hy hy' := by
     have h₁ : ((y : GL₄) : M₄).toBlocks₂₁ = 0 := hy
@@ -257,8 +228,8 @@ private def gspUpper : Subgroup gspGroup where
     exact hunit.mul_left_eq_zero.mp h₂.symm
 
 /-- The homomorphism from `Sp(4, ℤ)` to `GSp(4, ℚ)⁺`. -/
-private def jSp : symplecticGroup (Fin 2) ℤ →* gspGroup :=
-  (spToGL (Fin 2)).codRestrict gspGroup fun a ↦
+private def jSp : symplecticGroup (Fin 2) ℤ →* gspPlusGroup (Fin 2) :=
+  (spToGL (Fin 2)).codRestrict (gspPlusGroup (Fin 2)) fun a ↦
     heckeMonoid_le_gspPlusGL (heckeGamma_le_heckeMonoid ⟨a, trivial, rfl⟩)
 
 private lemma toMon_jSp : toMon (jSp a) = ofSp (SymplecticGroup.map (Int.castRingHom ℚ) a) :=
@@ -281,37 +252,8 @@ private lemma jSp_mem_gspUpper_iff : jSp a ∈ gspUpper ↔ a ∈ siegelParaboli
     simp [toBlocks₂₁, coe_jSp_apply, h₁]
 
 private lemma exists_gspUpper_mul : ∃ q ∈ gspUpper, ∃ a, y = q * jSp a := by
-  generalize hr : multiplier (toMon y) = r
-  have hr₀ : 0 < r := hr ▸ multiplier_pos _
-  have hy : ((y : GL₄) : M₄)ᵀ * J (Fin 2) ℚ * ((y : GL₄) : M₄) = r • J (Fin 2) ℚ :=
-    hr ▸ transpose_mul_J_mul (toMon y)
-  generalize hΘ : (fromBlocks (r⁻¹ • 1) 0 0 1 : M₄) = Θ
-  have hΘJ : Θᵀ * (J (Fin 2) ℚ * Θ) = r⁻¹ • J (Fin 2) ℚ := by
-    rw [← hΘ]
-    simp [J, fromBlocks_transpose, fromBlocks_multiply, fromBlocks_smul]
-  have hM : Θ * ((y : GL₄) : M₄) ∈ symplecticGroup (Fin 2) ℚ := by
-    rw [SymplecticGroup.mem_iff', transpose_mul]
-    have e : ((y : GL₄) : M₄)ᵀ * Θᵀ * J (Fin 2) ℚ * (Θ * ((y : GL₄) : M₄)) =
-        ((y : GL₄) : M₄)ᵀ * (Θᵀ * (J (Fin 2) ℚ * Θ)) * ((y : GL₄) : M₄) := by
-      simp only [Matrix.mul_assoc]
-    rw [e, hΘJ, Matrix.mul_smul, Matrix.smul_mul, hy, smul_smul, inv_mul_cancel₀ hr₀.ne', one_smul]
-  rcases exists_mem_integral_inv_mul_mem_siegelParabolic
-    (⟨_, hM⟩ : symplecticGroup (Fin 2) ℚ)⁻¹ with ⟨g, hg, hp⟩
-  rcases hg with ⟨a₀, -, rfl⟩
-  have hp' : ((SymplecticGroup.map (Int.castRingHom ℚ) a₀)⁻¹ *
-      (⟨_, hM⟩ : symplecticGroup (Fin 2) ℚ)⁻¹)⁻¹ ∈ siegelParabolic (Fin 2) ℚ :=
-    inv_mem hp
-  rw [mul_inv_rev, inv_inv, inv_inv] at hp'
-  refine ⟨y * jSp a₀, ?_, a₀⁻¹, by simp⟩
-  have h₁ : (Θ * ((y : GL₄) : M₄) * ((jSp a₀ : GL₄) : M₄)).toBlocks₂₁ = 0 :=
-    hp'
-  rw [Matrix.mul_assoc, toBlocks₂₁_mul] at h₁
-  have h₂ : Θ.toBlocks₂₁ = 0 := by
-    rw [← hΘ, toBlocks_fromBlocks₂₁]
-  have h₃ : Θ.toBlocks₂₂ = 1 := by
-    rw [← hΘ, toBlocks_fromBlocks₂₂]
-  rw [h₂, h₃, Matrix.zero_mul, zero_add, Matrix.one_mul] at h₁
-  exact h₁
+  rcases exists_mem_heckeGamma_mul_mem_siegelBorel (y⁻¹).2 with ⟨_, ⟨a, -, rfl⟩, hb⟩
+  exact ⟨(jSp a * y⁻¹)⁻¹, (inv_mem hb).2.1, a, by simp⟩
 
 variable (k) in
 /-- The factor `r(q)^e det(D)^{-k}` by which `q = (A, B; 0, D)` acts on the constant function of
@@ -407,7 +349,8 @@ lemma exists_heckeOperator_siegelEisensteinKJ (hk : 3 < k) (hk' : Even k)
         siegelEisensteinKJ k →
         (heckeOperator (rhoKJ k 0) D F : SiegelUpperHalfSpace (Fin 2) → Sym[ℂ]^0 (Fin 2 → ℂ)) =
           C • siegelEisensteinKJ k := by
-  let W (v : DecompQuotient (heckeGamma (Fin 2)) (heckeGamma (Fin 2)) (D.out : GL₄)⁻¹) : gspGroup :=
+  let W (v : DecompQuotient (heckeGamma (Fin 2)) (heckeGamma (Fin 2)) (D.out : GL₄)⁻¹) :
+      gspPlusGroup (Fin 2) :=
     ⟨heckeRep D v, heckeMonoid_le_gspPlusGL (heckeRep D v).2⟩
   have hW (a : symplecticGroup (Fin 2) ℤ) :
       ∃ (σ : Equiv.Perm (DecompQuotient (heckeGamma (Fin 2)) (heckeGamma (Fin 2)) (D.out : GL₄)⁻¹))

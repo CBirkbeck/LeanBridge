@@ -1,8 +1,8 @@
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.GL2.ClassicalLiftCentral
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.GL2.ClassicalLiftCuspidal
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.GL2.Hecke
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Delta
 import TauCeti.NumberTheory.ModularForms.HeckeSlash.Operators
-import TauCeti.NumberTheory.ModularForms.LevelOne.DiscriminantEigenform
 import TauCeti.NumberTheory.ModularForms.Newforms.Coefficient
 import TauCeti.NumberTheory.ModularForms.Newforms.RingEigenvalue
 
@@ -26,8 +26,8 @@ normalisation of `Φ_f` against Mathlib's slash operator.
 For a newform `f`, normalised by `a₁ = 1`, `T_p f = a_p f`, so `φ_f` is a Hecke eigenform of level
 `N` with eigenvalue `a_v = p ^ (1 - k / 2) a_p` at `p ∤ N`, and its Euler factor in the arithmetic
 normalisation of weight `k - 1` is the LMFDB's `1 - a_p T + χ(p) p ^ (k - 1) T²`. The newform `Δ`
-of level one and weight twelve gives a concrete nonzero cuspidal Hecke eigenform on `GL₂(𝔸_ℚ)`, its
-cuspidality coming from `AdelicGL2.isCuspidal_adelicLift`.
+of level one and weight twelve (`HeckeRing.GL2.deltaNewform`) gives a concrete nonzero cuspidal
+Hecke eigenform on `GL₂(𝔸_ℚ)`, its cuspidality coming from `AdelicGL2.isCuspidal_adelicLift`.
 
 ## Main definitions
 
@@ -35,7 +35,6 @@ cuspidality coming from `AdelicGL2.isCuspidal_adelicLift`.
 * `AdelicGL2.negResidueRep`: the representatives `-b`, `0 ≤ b < p`, of the residue field of `ℚ_p`.
 * `AdelicGL2.normalizedSlashAddHom`: `F ↦ Φ_F(h)` as an additive map.
 * `AdelicGL2.heckeUpperMat`, `AdelicGL2.heckeLowerMat`: the matrices `δ_b` and `δ` of `GL₂(ℚ)`.
-* `AdelicGL2.deltaNewform`: the newform `Δ`.
 
 ## Main results
 
@@ -636,14 +635,6 @@ lemma arithmeticEulerFactor_adelicLift (hv : ¬Ideal.span {(N : 𝓞 ℚ)} ≤ v
     characterAt_ofDirichletCharacter _ hv]
   simp only [sub_comp, add_comp, one_comp, mul_comp, C_comp, X_comp, X_pow_comp, mul_pow, ← C_pow,
     ← mul_assoc, ← C_mul, h₁, h₂]
-
-/-- The **newform `Δ`** of level one and weight twelve, from Tau Ceti's `discriminantEigenform`. -/
-noncomputable def deltaNewform : Newform 1 12 where
-  toEigenformAwayFromLevel := discriminantEigenform.toEigenformAwayFromLevel
-  isNew := by
-    rw [cuspFormsNew_one]
-    exact Submodule.mem_top
-  isNorm := ModularForm.discriminant_qExpansion_coeff_one
 
 /-- **The adelic lift of `Δ` is a Hecke eigenform** of level one: a concrete nonzero automorphic
 form on `GL₂(𝔸_ℚ)` with Hecke eigenvalue `p ^ (-5) τ(p)` at every prime `p`. -/

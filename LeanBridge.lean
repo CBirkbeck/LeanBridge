@@ -157,6 +157,7 @@ import LeanBridge.ForMathlib.Analysis.SpecialFunctions.BesselKUnique
 import LeanBridge.ForMathlib.Analysis.SpecialFunctions.BesselKUniqueComplex
 import LeanBridge.ForMathlib.Analysis.SpecialFunctions.BesselKUniqueIntegrable
 import LeanBridge.ForMathlib.Analysis.SpecialFunctions.ExpAddInvIntegral
+import LeanBridge.ForMathlib.Data.Matrix.Block
 import LeanBridge.ForMathlib.FieldTheory.AlgebraGaloisClosure
 import LeanBridge.ForMathlib.FieldTheory.Finite.ConwayPolynomial
 import LeanBridge.ForMathlib.FieldTheory.FunctionField.AutomorphismSignature
@@ -713,6 +714,7 @@ import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.CoefficientRing
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.ComplexAutomorphism
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.ComplexAutomorphismFixedField
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.CrossLevelMultiplicityOne
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Delta
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Dimension
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.DistinguishingPrimes
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.DistinguishingPrimesSingleton

@@ -289,9 +289,6 @@ lemma satakeMap_single (D : HeckeCoset (heckeMonoidAt (Fin n) p) (heckeGamma (Fi
           (satakeValuation p)) (DoubleCoset.rightCosetRep D w) :=
   HeckeCoset.sphericalMap_single _ ℂ _ _ D c
 
-instance : Fact (heckeMonoidAt (Fin n) p ≤ gspPlusGL (Fin n)) :=
-  ⟨(heckeMonoidAt_le_heckeMonoid p).trans heckeMonoid_le_gspPlusGL⟩
-
 /-! ### Satake parameters -/
 
 /-- `α = (α₀; α_0, …, α_{g-1})` is a **Satake parameter** (LMFDB `mf.siegel.lift`, through the

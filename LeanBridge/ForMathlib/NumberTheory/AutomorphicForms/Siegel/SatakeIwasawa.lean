@@ -1,3 +1,4 @@
+import LeanBridge.ForMathlib.Data.Matrix.Block
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.HeckeRing
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParabolicDecomposition
 import TauCeti.LinearAlgebra.Matrix.Triangular
@@ -346,33 +347,7 @@ end Columns
 
 /-! ### The Borel subgroup -/
 
-variable (X Y : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) ℚ) {x : GL (Fin n ⊕ Fin n) ℚ}
-
-private lemma toBlocks₂₁_mul :
-    (X * Y).toBlocks₂₁ = X.toBlocks₂₁ * Y.toBlocks₁₁ + X.toBlocks₂₂ * Y.toBlocks₂₁ := by
-  ext i k
-  simp [toBlocks₂₁, toBlocks₁₁, toBlocks₂₂, mul_apply]
-
-private lemma toBlocks₁₁_mul :
-    (X * Y).toBlocks₁₁ = X.toBlocks₁₁ * Y.toBlocks₁₁ + X.toBlocks₁₂ * Y.toBlocks₂₁ := by
-  ext i k
-  simp [toBlocks₁₁, toBlocks₁₂, toBlocks₂₁, mul_apply]
-
-private lemma inv_mem_gspPlusGL (hx : x ∈ gspPlusGL (Fin n)) : x⁻¹ ∈ gspPlusGL (Fin n) := by
-  rcases hx with ⟨r, hr, h⟩
-  refine ⟨r⁻¹, inv_pos.mpr hr, (eq_inv_smul_iff₀ hr.ne').mpr ?_⟩
-  have e : ((x⁻¹ : GL (Fin n ⊕ Fin n) ℚ) : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) ℚ)ᵀ *
-      ((x : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) ℚ)ᵀ * J (Fin n) ℚ * x) *
-        ((x⁻¹ : GL (Fin n ⊕ Fin n) ℚ) : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) ℚ) =
-      ((x : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) ℚ) *
-          ((x⁻¹ : GL (Fin n ⊕ Fin n) ℚ) : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) ℚ))ᵀ *
-        J (Fin n) ℚ * ((x : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) ℚ) *
-          ((x⁻¹ : GL (Fin n ⊕ Fin n) ℚ) : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) ℚ)) := by
-    simp only [transpose_mul, Matrix.mul_assoc]
-  have h' : (x : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) ℚ)ᵀ * J (Fin n) ℚ * x = r • J (Fin n) ℚ := h
-  rw [Units.mul_inv x, transpose_one, Matrix.one_mul, Matrix.mul_one, h', Matrix.mul_smul,
-    Matrix.smul_mul] at e
-  exact e
+variable {x : GL (Fin n ⊕ Fin n) ℚ}
 
 variable (n) in
 /-- The **Borel subgroup** `B` of `GSp(2g, ℚ)⁺` (Andrianov, §3.3.3, with the opposite Borel): the
@@ -409,7 +384,7 @@ def siegelBorel : Subgroup (GL (Fin n ⊕ Fin n) ℚ) where
         toBlocks_fromBlocks₁₁] using congrArg toBlocks₁₁ h₁
     have : Invertible (x : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) ℚ).toBlocks₁₁ :=
       invertibleOfLeftInverse _ _ h₁₁
-    refine ⟨inv_mem_gspPlusGL hx.1, ?_, ?_⟩
+    refine ⟨(gspPlusGroup (Fin n)).inv_mem hx.1, ?_, ?_⟩
     · rw [← Matrix.mul_one (toBlocks₂₁ _), ← mul_invOf_self
         (x : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) ℚ).toBlocks₁₁, ← Matrix.mul_assoc, h₂₁,
         Matrix.zero_mul]
