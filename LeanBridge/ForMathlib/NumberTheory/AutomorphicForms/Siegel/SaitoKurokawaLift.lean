@@ -38,8 +38,9 @@ divisors `d` being needed (`(D/2) ≠ 0` for odd `D`): for instance
 `c(12) - 2⁸ c(3) = -272 - 256 = -528 = c(3) a_2(f)` (`D = -3`), `c(16) = 1056 = c(4) a_2(f)`
 (`D = -4`) and `c(28) + 2⁸ c(7) = 12544 - 4096 = 8448 = c(7) a_2(f)` (`D = -7`).
 
-The theorems of Kohnen and Eichler–Zagier and the identity of spin `L`-functions
-(`SiegelUpperHalfSpace.SaitoKurokawaSpinTheorem`) are not proved here. The modularity of the Maass
+The identity of spin `L`-functions holds for every Saito–Kurokawa lift
+(`SiegelUpperHalfSpace.saitoKurokawaSpinTheorem`). The theorems of Kohnen and Eichler–Zagier are not
+proved here, so neither is the existence of a lift of each newform. The modularity of the Maass
 lift, `SiegelUpperHalfSpace.MaassLiftTheorem`, is proved (`SiegelUpperHalfSpace.maassLiftTheorem`).
 The Euler factors of a Siegel eigenform of degree `2`, which define its spin `L`-function, exist and
 are unique (`SiegelUpperHalfSpace.SiegelEigenform.exists_isSatakeParameter`,

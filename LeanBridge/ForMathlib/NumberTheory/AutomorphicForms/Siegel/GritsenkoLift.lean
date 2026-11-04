@@ -163,8 +163,9 @@ on the Siegel upper half-space `ℋ₂` defined by its Fourier coefficients:
 (`MaassLiftTheorem`, proved as `maassLiftTheorem` in
 `LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftCuspForm`, where the lift is
 also the linear map `maassLiftLinearMap`): this is the map `V : J_{k,1} → M_k(Sp(4, ℤ))` of
-Eichler and Zagier, whose image is the Maass space, spanned by the Saito–Kurokawa lifts. The knowl
-gives no formula; this is that of Eichler and Zagier. The `tsum` is the sum of the series wherever
+Eichler and Zagier, whose image is the Maass space; that the lifts of Jacobi cusp forms are spanned
+by the Saito–Kurokawa lifts is `SiegelUpperHalfSpace.SaitoKurokawaSpanTheorem`, not proved here.
+The knowl gives no formula; this is that of Eichler and Zagier. The `tsum` is the sum of the series wherever
 it converges absolutely, and the junk value `0` elsewhere. -/
 noncomputable def maassLift : ℂ :=
   ∑' p : ℤ × ℤ × ℤ, maassCoeff k (jacobiCoeff φ) p.1 p.2.1 p.2.2 * liftExp 1 p.1 p.2.1 p.2.2 Z

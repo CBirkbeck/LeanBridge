@@ -419,6 +419,7 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ArithmeticCusp
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ArithmeticFiniteDimensional
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ArithmeticPetersson
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ArithmeticSiegelOperator
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.BinaryQuadraticFormLines
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ChiFiveLevelTwo
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ChiFiveTransformation
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CoefficientField
@@ -430,10 +431,13 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DefiningPolyno
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeOneGrowth
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwo
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoBorelNormalForm
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoBorelSlash
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoDecomposition
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoElementaryDivisors
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoHeckeGenerators
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoHeckeStability
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoHeckeT1Fourier
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoHeckeTpFourier
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoOrthogonalDecomposition
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoSaitoKurokawaHecke
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoSatakeMap
@@ -482,6 +486,7 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.LevelTwoVector
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftCuspForm
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftEisenstein
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftFourierJacobi
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftHeckeCoeff
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftHolomorphic
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftIndexRaising
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftInvariance
@@ -520,6 +525,8 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.PluckerQuadric
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ProperDiscontinuity
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.QuotientSlashRepresentation
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.RiemannThetaRelation
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SaitoKurokawaEigenvalues
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SaitoKurokawaJacobiHecke
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SaitoKurokawaLift
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SatakeHeckeProduct
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SatakeIwasawa

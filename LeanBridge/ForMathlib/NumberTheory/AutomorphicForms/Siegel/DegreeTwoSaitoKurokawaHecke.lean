@@ -21,8 +21,10 @@ The last holds for every `Γ`-invariant function of weight `k + 1`: the Hecke op
 `T_0(p²)` is the slash operator of `p 1₄`, which is `p^{2κ-6}` in weight `κ`
 (`SiegelUpperHalfSpace.heckeOperator_T₀_detPowerRep`), and a Saito–Kurokawa lift is
 `Γ`-invariant of weight `k + 1` by the theorem of Maass. The first two, the Hecke equivariance of
-the Maass lift read on Fourier coefficients, and the nonvanishing of the lift are not proved here;
-the theorem below reduces `SiegelUpperHalfSpace.SaitoKurokawaSpinTheorem` to them. For `χ₁₀`, the
+the Maass lift read on Fourier coefficients, and the nonvanishing of the lift are
+`SiegelUpperHalfSpace.heckeOperator_Tp_maassLift`, `SiegelUpperHalfSpace.heckeOperator_T₁_maassLift`
+and `SiegelUpperHalfSpace.maassLift_ne_zero`; with the theorem below they give
+`SiegelUpperHalfSpace.saitoKurokawaSpinTheorem`. For `χ₁₀`, the
 lift of the newform `Δ E₆` of `S_18` (`a_2 = -528`, `a_3 = -4284`), both agree with the eigenvalues
 computed from its Fourier coefficients at `p = 2, 3`: `λ(T(2)) = 240`, `λ(T(3)) = 21960`,
 `λ(T_1(4)) = -153600`, `λ(T_1(9)) = 787320`.
@@ -63,7 +65,8 @@ lemma IsSaitoKurokawaLift.mem_slashInvariants {k : ℤ} {f : Newform 1 (2 * k)}
 `k + 1` with `F ∣ T(p) = (a_p(f) + p^{k-1} + p^k) F` and
 `F ∣ T_1(p²) = ((p + 1) p^{k-2} a_p(f) + p^{2k-2} - p^{2k-4}) F`. The membership asked for holds by
 the theorem of Maass (`SiegelUpperHalfSpace.IsSaitoKurokawaLift.mem_slashInvariants`); the
-nonvanishing and the two eigenvalue identities are not proved. -/
+nonvanishing and the two eigenvalue identities are proved in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SaitoKurokawaEigenvalues`. -/
 lemma saitoKurokawaSpinTheorem_of_heckeOperator
     (h : ∀ (k : ℤ) (f : Newform 1 (2 * k)) (F : SiegelUpperHalfSpace (Fin 2) → ℂ),
       IsSaitoKurokawaLift k f F → ∀ (p : ℕ) [Fact p.Prime],

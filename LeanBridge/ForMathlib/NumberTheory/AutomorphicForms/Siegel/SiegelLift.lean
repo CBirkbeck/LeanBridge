@@ -25,12 +25,11 @@ Satake's theorem, that the Satake parameters of an eigenform exist and are uniqu
 group, is not proved in any degree. Its two consequences stated here,
 `SiegelUpperHalfSpace.SatakeParametersExist` and `SiegelUpperHalfSpace.EulerFactorsWellDefined`, are
 proved in degree `2` (`SiegelUpperHalfSpace.SiegelEigenform.exists_isSatakeParameter`,
-`SiegelUpperHalfSpace.SiegelEigenform.eq_of_isEulerFactor`) and not in the other degrees. Not proved
-either: the Hecke equivariance of the Saito–Kurokawa lift
-(`SiegelUpperHalfSpace.SaitoKurokawaSpinTheorem`), which
-`SiegelUpperHalfSpace.saitoKurokawaSpinTheorem_of_heckeOperator` reduces to the nonvanishing of the
-lift and its eigenvalues under `T(p)` and `T_1(p²)`; and the existence of the Miyawaki lifts of type
-II, a conjecture.
+`SiegelUpperHalfSpace.SiegelEigenform.eq_of_isEulerFactor`) and not in the other degrees. The Hecke
+equivariance of the Saito–Kurokawa lift, `SiegelUpperHalfSpace.SaitoKurokawaSpinTheorem`, is proved
+(`SiegelUpperHalfSpace.saitoKurokawaSpinTheorem`). Not proved: the existence of a Saito–Kurokawa
+lift of each newform (Kohnen's theorem), and the existence of the Miyawaki lifts of type II, a
+conjecture.
 
 ## Main definitions
 
@@ -271,8 +270,9 @@ Satake parameters whose spinor Euler factor is `Q_p(f, X)(1 - p^{k-1} X)(1 - p^k
 (`HeckeRing.GL2.Newform.eval_spinorEulerFactor_saitoKurokawa`). It amounts to the Satake parameters
 `(p^{k-1}; γ₊ p^{1-k}, γ₋ p^{1-k})` of `F`, `γ_±` being those of `f`
 (`HeckeRing.GL2.Newform.spinorEulerFactor_saitoKurokawa`), that is, to the Hecke equivariance of the
-Saito–Kurokawa lift (Eichler and Zagier, §6, Theorem 6.3, and Kohnen's correspondence); it is not
-proved here. `SiegelUpperHalfSpace.saitoKurokawaSpinTheorem_of_heckeOperator` reduces it to the
+Saito–Kurokawa lift (Eichler and Zagier, §6, Theorem 6.3). It is proved as
+`SiegelUpperHalfSpace.saitoKurokawaSpinTheorem`, through
+`SiegelUpperHalfSpace.saitoKurokawaSpinTheorem_of_heckeOperator`, which reduces it to the
 nonvanishing of the lifts and to their eigenvalues under `T(p)` and `T_1(p²)`. -/
 def SaitoKurokawaSpinTheorem : Prop :=
   ∀ (k : ℤ) (f : Newform 1 (2 * k)) (F : SiegelUpperHalfSpace (Fin 2) → ℂ),
