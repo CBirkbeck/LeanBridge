@@ -20,6 +20,9 @@ operators*, Lemma 3.3.1 and §3.3.3, with the opposite Borel subgroup).
 
 ## Main definitions
 
+* `SiegelUpperHalfSpace.pairEquiv`: `Fin n` as two indices together with the others.
+* `SiegelUpperHalfSpace.diagSL`: the integral symplectic matrix acting by an element of `SL(2, ℤ)`
+  on each coordinate pair `(e_c, f_c)`.
 * `SiegelUpperHalfSpace.siegelBorel`: the Borel subgroup `B` of `GSp(2g, ℚ)⁺`.
 * `SiegelUpperHalfSpace.borelDiag`: the diagonal entries of the upper left block of `b ∈ B`.
 
@@ -43,8 +46,8 @@ section Pair
 
 variable {j i c : Fin n} (hji : j ≠ i) (M : SL(2, ℤ)) (b : Fin n → ℚ)
 
-/-- `Fin n` as the pair of indices `j, i` together with the other indices. -/
-private def pairEquiv : Fin 2 ⊕ {c : Fin n // c ≠ j ∧ c ≠ i} ≃ Fin n where
+/-- **`Fin n` as the pair of indices `j, i` together with the other indices**. -/
+def pairEquiv : Fin 2 ⊕ {c : Fin n // c ≠ j ∧ c ≠ i} ≃ Fin n where
   toFun := Sum.elim ![j, i] Subtype.val
   invFun c := if hj : c = j then .inl 0 else if hi : c = i then .inl 1 else .inr ⟨c, hj, hi⟩
   left_inv := by
@@ -62,13 +65,13 @@ private def pairEmbed : SL(n, ℤ) :=
   ⟨reindex (pairEquiv hji) (pairEquiv hji) (fromBlocks (M : Matrix (Fin 2) (Fin 2) ℤ) 0 0 1), by
     rw [det_reindex_self, det_fromBlocks_zero₂₁, det_one, mul_one, M.2]⟩
 
-private lemma pairEquiv_symm_left : (pairEquiv hji).symm j = .inl 0 := by
+lemma pairEquiv_symm_left : (pairEquiv hji).symm j = .inl 0 := by
   simp [pairEquiv]
 
-private lemma pairEquiv_symm_right : (pairEquiv hji).symm i = .inl 1 := by
+lemma pairEquiv_symm_right : (pairEquiv hji).symm i = .inl 1 := by
   simp [pairEquiv, hji.symm]
 
-private lemma pairEquiv_symm_other (hcj : c ≠ j) (hci : c ≠ i) :
+lemma pairEquiv_symm_other (hcj : c ≠ j) (hci : c ≠ i) :
     (pairEquiv hji).symm c = .inr ⟨c, hcj, hci⟩ := by
   simp [pairEquiv, hcj, hci]
 
@@ -152,15 +155,15 @@ private lemma exists_SL_fix_mulVec_eq_zero (j : Fin n) : ∃ U : SL(n, ℤ),
 
 variable (N : Fin n → SL(2, ℤ))
 
-/-- The integral symplectic matrix acting by `N c ∈ SL(2, ℤ)` on each coordinate pair
-`(e_c, f_c)`. -/
-private def diagSL : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) ℤ :=
+/-- The integral symplectic matrix **acting by `N c ∈ SL(2, ℤ)` on each coordinate pair
+`(e_c, f_c)`**. -/
+def diagSL : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) ℤ :=
   fromBlocks (diagonal fun c ↦ (N c : Matrix (Fin 2) (Fin 2) ℤ) 0 0)
     (diagonal fun c ↦ (N c : Matrix (Fin 2) (Fin 2) ℤ) 0 1)
     (diagonal fun c ↦ (N c : Matrix (Fin 2) (Fin 2) ℤ) 1 0)
     (diagonal fun c ↦ (N c : Matrix (Fin 2) (Fin 2) ℤ) 1 1)
 
-private lemma diagSL_mem : diagSL N ∈ symplecticGroup (Fin n) ℤ := by
+lemma diagSL_mem : diagSL N ∈ symplecticGroup (Fin n) ℤ := by
   refine SymplecticGroup.fromBlocks_mem_iff.mpr ⟨?_, ?_, ?_⟩
   on_goal 3 =>
     rw [diagonal_transpose, diagonal_transpose, diagonal_mul_diagonal, diagonal_mul_diagonal,

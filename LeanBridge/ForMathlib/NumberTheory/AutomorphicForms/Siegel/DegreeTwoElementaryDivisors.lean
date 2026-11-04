@@ -1,6 +1,4 @@
-import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.HeckeRing
-import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.ParabolicDecomposition
-import TauCeti.LinearAlgebra.Matrix.SmithNormalForm
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SatakeElementaryDivisors
 
 /-!
 # Symplectic elementary divisors in degree 2
@@ -15,14 +13,12 @@ Hecke algebra of `Sp(4, ℤ)` at `p`: `T(p) = T(0, 0, 1)`, `T_1(p²) = T(0, 1, 0
 `T_i(p²) = Γ diag(1_i, p 1_{2-i}, p² 1_i, p 1_{2-i}) Γ` of LMFDB `mf.siegel.hecke_operator`
 (`SiegelUpperHalfSpace.heckeTi`); Andrianov indexes the other way and writes the scalar `T_2(p²)`.
 
-Existence. If `p` divides every entry of `x`, then `x = p x'` with `x' ∈ S_p`, and induction on the
-multiplier applies. Otherwise a column of `x` with an entry prime to `p` is a primitive vector: a
-common divisor of its entries divides the multiplier `p^δ`, as `J⁻¹ xᵀ J x = p^δ`. `Sp(4, ℤ)` acts
-transitively on the primitive vectors (two embedded `SL(2, ℤ)` and a rotation `(U, 0; 0, U⁻ᵀ)`),
-so `γ x γ'` has first column `e_0`. A rotation and a translation `(1, S; 0, 1)` clear the first
-row, the symplectic relations clear the row and column of `f_0`, and the remaining block on
-`(e_1, f_1)` has determinant `p^δ`, so the Smith normal form in `SL(2, ℤ)` (Tau Ceti's
-`Matrix.exists_smith_normal_form_of_det_pos`) finishes.
+Existence is the case `g = 2` of the symplectic elementary divisor theorem
+(`SiegelUpperHalfSpace.exists_eq_elementaryCoset`): the double coset
+`Γ diag(p^{a_0}, p^{a_1}, p^{δ-a_0}, p^{δ-a_1}) Γ` with `a_0 ≤ a_1` and `2 a_1 ≤ δ` is
+`T(a_0, a_1 - a_0, δ - 2 a_1)`. So is the transitivity of `Sp(4, ℤ)` on the primitive vectors of
+`ℤ⁴`, the case `k = 0` of `SiegelUpperHalfSpace.exists_mem_lowFix_mulVec_eq_single`, where
+`Γ_0 = Sp(4, ℤ)`.
 
 Uniqueness. The determinant `p^{4a+4s+2t}`, the largest power `p^a` of `p` dividing every entry
 and the largest power `p^{2a+s}` dividing every `2 × 2` minor are invariants of the double coset.
@@ -47,9 +43,7 @@ of products of `2 × 2` minors of the factors (the Cauchy–Binet formula for `2
 * `SiegelUpperHalfSpace.heckeCosetDiag_injective`: the exponents `(a, s, t)` are unique.
 -/
 
-open Matrix SymplecticGroup
-
-open scoped MatrixGroups
+open Matrix
 
 namespace SiegelUpperHalfSpace
 
@@ -58,18 +52,6 @@ local notation "Mℤ" => Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) ℤ
 local notation "Γ₂" => heckeGamma (Fin 2)
 
 /-! ### Integral symplectic matrices of degree `2` -/
-
-/-- The integral matrix acting by `A` on the coordinates `(e_0, f_0)` and by `B` on `(e_1, f_1)`. -/
-def pairDiag (A B : Matrix (Fin 2) (Fin 2) ℤ) : Mℤ :=
-  fromBlocks !![A 0 0, 0; 0, B 0 0] !![A 0 1, 0; 0, B 0 1] !![A 1 0, 0; 0, B 1 0]
-    !![A 1 1, 0; 0, B 1 1]
-
-lemma pairDiag_mul (A B A' B' : Matrix (Fin 2) (Fin 2) ℤ) :
-    pairDiag A B * pairDiag A' B' = pairDiag (A * A') (B * B') := by
-  ext (i | i) (j | j) <;> fin_cases i <;> fin_cases j <;> simp [pairDiag, Matrix.mul_apply]
-
-lemma coe_embedSecond (M : SL(2, ℤ)) : (embedSecond M : Mℤ) = pairDiag 1 M := by
-  ext (i | i) (j | j) <;> fin_cases i <;> fin_cases j <;> simp [pairDiag, embedSecond]
 
 lemma transpose_mul_J_mul_apply_eq_sum {R : Type*} [CommRing R]
     {M : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) R} (a b : Fin 2 ⊕ Fin 2) :
@@ -82,131 +64,16 @@ variable {c : Fin 2 ⊕ Fin 2 → ℤ} {r : ℤ} {M : Mℤ}
 
 lemma transpose_mul_J_mul_mul_mul {γ γ' : Mℤ} (hγ : γ ∈ symplecticGroup (Fin 2) ℤ)
     (hγ' : γ' ∈ symplecticGroup (Fin 2) ℤ) (hM : Mᵀ * J (Fin 2) ℤ * M = r • J (Fin 2) ℤ) :
-    (γ * M * γ')ᵀ * J (Fin 2) ℤ * (γ * M * γ') = r • J (Fin 2) ℤ := by
-  have e : (γ * M * γ')ᵀ * J (Fin 2) ℤ * (γ * M * γ') =
-      γ'ᵀ * (Mᵀ * (γᵀ * J (Fin 2) ℤ * γ) * M) * γ' := by
-    simp only [transpose_mul, Matrix.mul_assoc]
-  rw [e, SymplecticGroup.mem_iff'.mp hγ, hM, Matrix.mul_smul, Matrix.smul_mul,
-    SymplecticGroup.mem_iff'.mp hγ']
+    (γ * M * γ')ᵀ * J (Fin 2) ℤ * (γ * M * γ') = r • J (Fin 2) ℤ :=
+  transpose_mul_J_mul_eq_of_mem hγ hγ' hM
 
 /-- **`Sp(4, ℤ)` acts transitively on the primitive vectors**: a vector of `ℤ⁴` whose entries have
 no common non-unit divisor is `γ⁻¹ e_0` for some `γ ∈ Sp(4, ℤ)`. -/
 lemma exists_mem_mulVec_eq_single (hc : ∀ d : ℤ, (∀ i, d ∣ c i) → IsUnit d) :
     ∃ γ ∈ symplecticGroup (Fin 2) ℤ, γ *ᵥ c = Pi.single (.inl 0) 1 := by
-  rcases exists_SL2Z_eq_gcd (c (.inl 0)) (c (.inr 0)) with ⟨M₀, h₀, h₀'⟩
-  rcases exists_SL2Z_eq_gcd (c (.inl 1)) (c (.inr 1)) with ⟨M₁, h₁, h₁'⟩
-  rcases exists_SL2Z_eq_gcd ((c (.inl 0)).gcd (c (.inr 0))) ((c (.inl 1)).gcd (c (.inr 1))) with
-    ⟨U, hU, hU'⟩
-  have hg : ((c (.inl 0)).gcd (c (.inr 0))).gcd ((c (.inl 1)).gcd (c (.inr 1))) = 1 := by
-    have hd (i : Fin 2 ⊕ Fin 2) :
-        ((((c (.inl 0)).gcd (c (.inr 0))).gcd ((c (.inl 1)).gcd (c (.inr 1))) : ℕ) : ℤ) ∣ c i := by
-      rcases i with i | i <;> fin_cases i
-      · exact (Int.natCast_dvd_natCast.mpr (Nat.gcd_dvd_left _ _)).trans (Int.gcd_dvd_left _ _)
-      · exact (Int.natCast_dvd_natCast.mpr (Nat.gcd_dvd_right _ _)).trans (Int.gcd_dvd_left _ _)
-      · exact (Int.natCast_dvd_natCast.mpr (Nat.gcd_dvd_left _ _)).trans (Int.gcd_dvd_right _ _)
-      · exact (Int.natCast_dvd_natCast.mpr (Nat.gcd_dvd_right _ _)).trans (Int.gcd_dvd_right _ _)
-    rcases Int.isUnit_iff.mp (hc _ hd) with h | h
-    · exact_mod_cast h
-    · omega
-  have e₁ : (embedFirst M₀ : Mℤ) *ᵥ c =
-      Sum.elim ![((c (.inl 0)).gcd (c (.inr 0)) : ℤ), c (.inl 1)] ![0, c (.inr 1)] := by
-    ext (i | i) <;> fin_cases i <;> simp [embedFirst, mulVec, dotProduct, h₀, h₀']
-  have e₂ : (embedSecond M₁ : Mℤ) *ᵥ
-      Sum.elim ![((c (.inl 0)).gcd (c (.inr 0)) : ℤ), c (.inl 1)] ![0, c (.inr 1)] =
-        Sum.elim ![((c (.inl 0)).gcd (c (.inr 0)) : ℤ), ((c (.inl 1)).gcd (c (.inr 1)) : ℤ)]
-          ![0, 0] := by
-    ext (i | i) <;> fin_cases i <;> simp [embedSecond, mulVec, dotProduct, h₁, h₁']
-  have e₃ : (rotation U : Mℤ) *ᵥ
-      Sum.elim ![((c (.inl 0)).gcd (c (.inr 0)) : ℤ), ((c (.inl 1)).gcd (c (.inr 1)) : ℤ)]
-        ![0, 0] = Pi.single (.inl 0) 1 := by
-    ext (i | i) <;> fin_cases i <;> simp [rotation, mulVec, dotProduct, hU, hU', hg]
-  refine ⟨_, mul_mem (mul_mem (rotation U).2 (embedSecond M₁).2) (embedFirst M₀).2, ?_⟩
-  rw [← mulVec_mulVec, ← mulVec_mulVec, e₁, e₂, e₃]
-
-lemma dvd_of_dvd_col (hM : Mᵀ * J (Fin 2) ℤ * M = r • J (Fin 2) ℤ) {j : Fin 2 ⊕ Fin 2} {d : ℤ}
-    (hd : ∀ i, d ∣ M i j) : d ∣ r := by
-  have h' : Mᵀ * (J (Fin 2) ℤ * M) = r • J (Fin 2) ℤ := by
-    rw [← Matrix.mul_assoc, hM]
-  have hN : -(J (Fin 2) ℤ * Mᵀ * J (Fin 2) ℤ) * M = r • 1 := by
-    rw [neg_mul, Matrix.mul_assoc, Matrix.mul_assoc, h', Matrix.mul_smul, J_squared, smul_neg,
-      neg_neg]
-  have h : (-(J (Fin 2) ℤ * Mᵀ * J (Fin 2) ℤ) * M) j j = r := by
-    rw [hN, Matrix.smul_apply, one_apply_eq, smul_eq_mul, mul_one]
-  rw [← h, mul_apply]
-  exact Finset.dvd_sum fun k _ ↦ (hd k).mul_left _
-
-lemma exists_mul_row_eq (hcol : ∀ i, M i (.inl 0) = if i = .inl 0 then 1 else 0) :
-    ∃ γ ∈ symplecticGroup (Fin 2) ℤ, (∀ i, (M * γ) i (.inl 0) = if i = .inl 0 then 1 else 0) ∧
-      ∀ j, (M * γ) (.inl 0) j = if j = .inl 0 then 1 else 0 := by
-  let U : SL(2, ℤ) := ⟨!![1, -M (.inl 0) (.inl 1); 0, 1], by simp⟩
-  let S : Matrix (Fin 2) (Fin 2) ℤ :=
-    !![-(M (.inl 0) (.inr 0) + M (.inl 0) (.inr 1) * M (.inl 0) (.inl 1)), -M (.inl 0) (.inr 1);
-      -M (.inl 0) (.inr 1), 0]
-  have hS : fromBlocks 1 S 0 1 ∈ symplecticGroup (Fin 2) ℤ := by
-    refine fromBlocks_mem_iff.mpr ⟨by simp, ?_, by simp⟩
-    ext i j
-    fin_cases i <;> fin_cases j <;> simp [S]
-  refine ⟨(rotation U : Mℤ) * fromBlocks 1 S 0 1, mul_mem (rotation U).2 hS, fun i ↦ ?_, fun j ↦ ?_⟩
-  · simp [U, rotation, Matrix.mul_apply, hcol]
-  · rcases j with j | j <;> fin_cases j <;> simp [U, S, rotation, Matrix.mul_apply, hcol]
-
-lemma eq_pairDiag (hr : r ≠ 0) (hM : Mᵀ * J (Fin 2) ℤ * M = r • J (Fin 2) ℤ)
-    (hcol : ∀ i, M i (.inl 0) = if i = .inl 0 then 1 else 0)
-    (hrow : ∀ j, M (.inl 0) j = if j = .inl 0 then 1 else 0) :
-    M = pairDiag !![1, 0; 0, r] !![M (.inl 1) (.inl 1), M (.inl 1) (.inr 1);
-      M (.inr 1) (.inl 1), M (.inr 1) (.inr 1)] := by
-  have hJ (a b : Fin 2 ⊕ Fin 2) : ∑ c, (M (.inr c) a * M (.inl c) b - M (.inl c) a * M (.inr c) b) =
-      (r • J (Fin 2) ℤ) a b := by
-    rw [← transpose_mul_J_mul_apply_eq_sum, hM]
-  have h₁ : ∑ c, (M (.inr c) (.inl 0) * M (.inl c) (.inl 1) -
-      M (.inl c) (.inl 0) * M (.inr c) (.inl 1)) = (r • J (Fin 2) ℤ) (.inl 0) (.inl 1) :=
-    hJ (.inl 0) (.inl 1)
-  have h₂ : ∑ c, (M (.inr c) (.inl 0) * M (.inl c) (.inr 0) -
-      M (.inl c) (.inl 0) * M (.inr c) (.inr 0)) = (r • J (Fin 2) ℤ) (.inl 0) (.inr 0) :=
-    hJ (.inl 0) (.inr 0)
-  have h₃ : ∑ c, (M (.inr c) (.inl 0) * M (.inl c) (.inr 1) -
-      M (.inl c) (.inl 0) * M (.inr c) (.inr 1)) = (r • J (Fin 2) ℤ) (.inl 0) (.inr 1) :=
-    hJ (.inl 0) (.inr 1)
-  simp [hcol, J] at h₁ h₂ h₃
-  have h₄ : ∑ c, (M (.inr c) (.inl 1) * M (.inl c) (.inr 0) -
-      M (.inl c) (.inl 1) * M (.inr c) (.inr 0)) = (r • J (Fin 2) ℤ) (.inl 1) (.inr 0) :=
-    hJ (.inl 1) (.inr 0)
-  have h₅ : ∑ c, (M (.inr c) (.inr 1) * M (.inl c) (.inr 0) -
-      M (.inl c) (.inr 1) * M (.inr c) (.inr 0)) = (r • J (Fin 2) ℤ) (.inr 1) (.inr 0) :=
-    hJ (.inr 1) (.inr 0)
-  have h₆ : ∑ c, (M (.inr c) (.inl 1) * M (.inl c) (.inr 1) -
-      M (.inl c) (.inl 1) * M (.inr c) (.inr 1)) = (r • J (Fin 2) ℤ) (.inl 1) (.inr 1) :=
-    hJ (.inl 1) (.inr 1)
-  simp [hrow, J] at h₄ h₅ h₆
-  have hx' : r * M (.inl 1) (.inr 0) = 0 := by
-    linear_combination M (.inl 1) (.inl 1) * h₅ - M (.inl 1) (.inr 1) * h₄ +
-      M (.inl 1) (.inr 0) * h₆
-  have hy' : r * M (.inr 1) (.inr 0) = 0 := by
-    linear_combination M (.inr 1) (.inl 1) * h₅ - M (.inr 1) (.inr 1) * h₄ +
-      M (.inr 1) (.inr 0) * h₆
-  have hx : M (.inl 1) (.inr 0) = 0 := (mul_eq_zero.mp hx').resolve_left hr
-  have hy : M (.inr 1) (.inr 0) = 0 := (mul_eq_zero.mp hy').resolve_left hr
-  ext (i | i) (j | j) <;> fin_cases i <;> fin_cases j <;>
-    simp [pairDiag, hcol, hrow, h₁, h₂, h₃, hx, hy]
-
-lemma det_pairBlock (hM : Mᵀ * J (Fin 2) ℤ * M = r • J (Fin 2) ℤ)
-    (hcol : ∀ i, M i (.inl 0) = if i = .inl 0 then 1 else 0)
-    (hrow : ∀ j, M (.inl 0) j = if j = .inl 0 then 1 else 0) :
-    !![M (.inl 1) (.inl 1), M (.inl 1) (.inr 1); M (.inr 1) (.inl 1), M (.inr 1) (.inr 1)].det =
-      r := by
-  have hJ (a b : Fin 2 ⊕ Fin 2) : ∑ c, (M (.inr c) a * M (.inl c) b - M (.inl c) a * M (.inr c) b) =
-      (r • J (Fin 2) ℤ) a b := by
-    rw [← transpose_mul_J_mul_apply_eq_sum, hM]
-  have h₃ : ∑ c, (M (.inr c) (.inl 0) * M (.inl c) (.inr 1) -
-      M (.inl c) (.inl 0) * M (.inr c) (.inr 1)) = (r • J (Fin 2) ℤ) (.inl 0) (.inr 1) :=
-    hJ (.inl 0) (.inr 1)
-  simp [hcol, J] at h₃
-  have h₆ : ∑ c, (M (.inr c) (.inl 1) * M (.inl c) (.inr 1) -
-      M (.inl c) (.inl 1) * M (.inr c) (.inr 1)) = (r • J (Fin 2) ℤ) (.inl 1) (.inr 1) :=
-    hJ (.inl 1) (.inr 1)
-  simp [hrow, J, h₃] at h₆
-  rw [det_fin_two_of]
-  linear_combination -h₆
+  rcases exists_mem_lowFix_mulVec_eq_single zero_lt_two (fun _ h ↦ absurd h (Nat.not_lt_zero _))
+    hc with ⟨γ, -, h⟩
+  exact ⟨γ, γ.2, h⟩
 
 /-! ### Integral matrices and double cosets -/
 
@@ -224,37 +91,14 @@ lemma diagExp_mul_diagExp (a s t : ℕ) (j : Fin 2) :
 
 lemma exists_intMatrix (g : heckeMonoidAt (Fin 2) p) : ∃ M : Mℤ, ∃ k : ℕ,
     (Int.castRingHom ℚ).mapMatrix M = (g : GL (Fin 2 ⊕ Fin 2) ℚ) ∧
-      Mᵀ * J (Fin 2) ℤ * M = ((p : ℤ) ^ k) • J (Fin 2) ℤ := by
-  rcases g.2 with ⟨⟨-, M, hM⟩, k, hk⟩
-  have hM' : (Int.castRingHom ℚ).mapMatrix M = (g : GL (Fin 2 ⊕ Fin 2) ℚ) := hM
-  refine ⟨M, k, hM', Matrix.map_injective (Int.cast_injective (α := ℚ)) ?_⟩
-  have h (N : Mℤ) : N.map (↑) = (Int.castRingHom ℚ).mapMatrix N :=
-    rfl
-  have hJ : (((p : ℤ) ^ k) • J (Fin 2) ℤ).map (↑) = ((p : ℚ) ^ k) • J (Fin 2) ℚ := by
-    rw [← map_J (Fin 2) (Int.castRingHom ℚ)]
-    ext i j
-    simp only [map_apply, Matrix.smul_apply, smul_eq_mul, Int.cast_mul, Int.cast_pow,
-      Int.cast_natCast, eq_intCast]
-  have hT : (Int.castRingHom ℚ).mapMatrix Mᵀ = ((g : GL (Fin 2 ⊕ Fin 2) ℚ) :
-      Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) ℚ)ᵀ := by
-    rw [← hM', RingHom.mapMatrix_apply, RingHom.mapMatrix_apply, transpose_map]
-  have hJ' : (Int.castRingHom ℚ).mapMatrix (J (Fin 2) ℤ) = J (Fin 2) ℚ := by
-    rw [RingHom.mapMatrix_apply, map_J]
-  dsimp only
-  rw [hJ, h, map_mul, map_mul, hM', hT, hJ', hk]
+      Mᵀ * J (Fin 2) ℤ * M = ((p : ℤ) ^ k) • J (Fin 2) ℤ :=
+  exists_intMatrix_of_mem g
 
 lemma mem_doubleCoset_of_mul_mul_eq {M N γ γ' : Mℤ} (hx : (Int.castRingHom ℚ).mapMatrix M = x)
     (hy : (Int.castRingHom ℚ).mapMatrix N = y) (hγ : γ ∈ symplecticGroup (Fin 2) ℤ)
     (hγ' : γ' ∈ symplecticGroup (Fin 2) ℤ) (h : γ * M * γ' = N) :
-    x ∈ DoubleCoset.doubleCoset y (Γ₂ : Set (GL (Fin 2 ⊕ Fin 2) ℚ)) Γ₂ := by
-  have e : y = spToGL (Fin 2) ⟨γ, hγ⟩ * x * spToGL (Fin 2) ⟨γ', hγ'⟩ :=
-    Units.ext <| by
-      rw [← hy, ← h, map_mul, map_mul, hx]
-      rfl
-  refine DoubleCoset.mem_doubleCoset.mpr ⟨(spToGL (Fin 2) ⟨γ, hγ⟩)⁻¹,
-    inv_mem ⟨_, trivial, rfl⟩, (spToGL (Fin 2) ⟨γ', hγ'⟩)⁻¹, inv_mem ⟨_, trivial, rfl⟩, ?_⟩
-  rw [e]
-  group
+    x ∈ DoubleCoset.doubleCoset y (Γ₂ : Set (GL (Fin 2 ⊕ Fin 2) ℚ)) Γ₂ :=
+  mem_doubleCoset_of_intMatrix hx hy hγ hγ' h
 
 lemma det_eq_one_of_mem (hx : x ∈ Γ₂) :
     (x : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) ℚ).det = 1 := by
@@ -346,104 +190,14 @@ lemma exists_mul_mul_eq_diagonal (δ : ℕ) (M : Mℤ)
     (hM : Mᵀ * J (Fin 2) ℤ * M = ((p : ℤ) ^ δ) • J (Fin 2) ℤ) :
     ∃ a s t : ℕ, 2 * a + 2 * s + t = δ ∧ ∃ γ ∈ symplecticGroup (Fin 2) ℤ,
       ∃ γ' ∈ symplecticGroup (Fin 2) ℤ, γ * M * γ' = diagonal fun i ↦ (diagExp p a s t i : ℤ) := by
-  have hp : p.Prime := Fact.out
-  induction δ using Nat.strong_induction_on generalizing M with
-  | _ δ ih =>
-    by_cases hdvd : ∀ i j, (p : ℤ) ∣ M i j
-    · choose N hN using hdvd
-      have hMN : M = (p : ℤ) • Matrix.of N := by
-        ext i k
-        rw [hN i k, Matrix.smul_apply, of_apply, smul_eq_mul]
-      have hp₂ : ((p : ℤ) ^ 2) • ((Matrix.of N)ᵀ * J (Fin 2) ℤ * Matrix.of N) =
-          (p : ℤ) ^ δ • J (Fin 2) ℤ := by
-        rw [← hM, hMN]
-        simp only [transpose_smul, Matrix.smul_mul, Matrix.mul_smul, smul_smul, sq]
-      have h2 : 2 ≤ δ := by
-        have hJ : J (Fin 2) ℤ (.inl 0) (.inr 0) = -1 := by
-          simp [J]
-        have h' : ((p : ℤ) ^ 2 • ((Matrix.of N)ᵀ * J (Fin 2) ℤ * Matrix.of N)) (.inl 0) (.inr 0) =
-            ((p : ℤ) ^ δ • J (Fin 2) ℤ) (.inl 0) (.inr 0) :=
-          congrFun (congrFun hp₂ (.inl 0)) (.inr 0)
-        simp only [Matrix.smul_apply, hJ] at h'
-        have hd : (p : ℤ) ^ 2 ∣ (p : ℤ) ^ δ :=
-          Dvd.intro (-((Matrix.of N)ᵀ * J (Fin 2) ℤ * Matrix.of N) (.inl 0) (.inr 0))
-            (by linear_combination -h')
-        exact (Nat.pow_dvd_pow_iff_le_right hp.one_lt).mp (Int.natCast_dvd_natCast.mp (by
-          push_cast
-          exact hd))
-      have hN' : (Matrix.of N)ᵀ * J (Fin 2) ℤ * Matrix.of N = (p : ℤ) ^ (δ - 2) • J (Fin 2) ℤ := by
-        have hp2 : (p : ℤ) ^ 2 ≠ 0 := pow_ne_zero 2 (Nat.cast_ne_zero.mpr hp.ne_zero)
-        refine smul_right_injective _ hp2 ?_
-        simp only [hp₂, smul_smul, ← pow_add, Nat.add_sub_cancel' h2]
-      rcases ih (δ - 2) (by omega) _ hN' with ⟨a, s, t, hδ, γ, hγ, γ', hγ', h⟩
-      refine ⟨a + 1, s, t, by omega, γ, hγ, γ', hγ', ?_⟩
-      rw [hMN, Matrix.mul_smul, Matrix.smul_mul, h]
-      ext i k
-      rcases eq_or_ne i k with rfl | hik
-      · rcases i with i | i <;> fin_cases i <;> simp [diagExp] <;> ring1
-      · simp [hik]
-    · rcases not_forall.mp hdvd with ⟨i₀, hi₀⟩
-      rcases not_forall.mp hi₀ with ⟨j, hij⟩
-      have hprim : ∀ d : ℤ, (∀ i, d ∣ M.col j i) → IsUnit d := fun d hd ↦
-        ((((Nat.prime_iff_prime_int.mp hp).irreducible.coprime_iff_not_dvd).mpr hij).pow_left
-          (m := δ)).isUnit_of_dvd' (dvd_of_dvd_col hM hd) (hd i₀)
-      rcases exists_mem_mulVec_eq_single hprim with ⟨γ₁, hγ₁, h₁⟩
-      rcases exists_mem_mulVec_eq_single (c := Pi.single j 1) fun d hd ↦
-        isUnit_of_dvd_one (by simpa using hd j) with ⟨γ₂, hγ₂, h₂⟩
-      have hγ₂i : γ₂⁻¹ ∈ symplecticGroup (Fin 2) ℤ :=
-        SymplecticGroup.coe_inv' (⟨γ₂, hγ₂⟩ : symplecticGroup (Fin 2) ℤ) ▸ (⟨γ₂, hγ₂⟩⁻¹ :
-          symplecticGroup (Fin 2) ℤ).2
-      have he : γ₂⁻¹ *ᵥ Pi.single (.inl 0) 1 = Pi.single j 1 := by
-        rw [← h₂, mulVec_mulVec, nonsing_inv_mul _ (symplectic_det hγ₂), one_mulVec]
-      have h : (γ₁ * M * γ₂⁻¹) *ᵥ Pi.single (.inl 0) 1 = Pi.single (.inl 0) 1 := by
-        rw [← mulVec_mulVec, he, ← mulVec_mulVec, mulVec_single_one, h₁]
-      have hcol (i : Fin 2 ⊕ Fin 2) :
-          (γ₁ * M * γ₂⁻¹) i (.inl 0) = if i = .inl 0 then 1 else 0 := by
-        have hi : ((γ₁ * M * γ₂⁻¹) *ᵥ Pi.single (.inl 0) 1) i =
-            (Pi.single (.inl 0) 1 : Fin 2 ⊕ Fin 2 → ℤ) i :=
-          congrFun h i
-        rw [mulVec_single_one] at hi
-        simpa [Pi.single_apply] using hi
-      have hp₀ : (p : ℤ) ^ δ ≠ 0 := pow_ne_zero δ (Nat.cast_ne_zero.mpr hp.ne_zero)
-      have hM₁ : (γ₁ * M * γ₂⁻¹)ᵀ * J (Fin 2) ℤ * (γ₁ * M * γ₂⁻¹) = (p : ℤ) ^ δ • J (Fin 2) ℤ :=
-        transpose_mul_J_mul_mul_mul hγ₁ hγ₂i hM
-      rcases exists_mul_row_eq hcol with ⟨γ₃, hγ₃, hcol₃, hrow₃⟩
-      have hM₂ : (γ₁ * M * γ₂⁻¹ * γ₃)ᵀ * J (Fin 2) ℤ * (γ₁ * M * γ₂⁻¹ * γ₃) =
-          (p : ℤ) ^ δ • J (Fin 2) ℤ := by
-        simpa only [Matrix.one_mul] using transpose_mul_J_mul_mul_mul (one_mem _) hγ₃ hM₁
-      have hdet : !![(γ₁ * M * γ₂⁻¹ * γ₃) (.inl 1) (.inl 1), (γ₁ * M * γ₂⁻¹ * γ₃) (.inl 1) (.inr 1);
-          (γ₁ * M * γ₂⁻¹ * γ₃) (.inr 1) (.inl 1), (γ₁ * M * γ₂⁻¹ * γ₃) (.inr 1) (.inr 1)].det =
-            (p : ℤ) ^ δ :=
-        det_pairBlock hM₂ hcol₃ hrow₃
-      rcases exists_smith_normal_form_of_det_pos _ (hdet ▸ pow_pos (Int.natCast_pos.mpr hp.pos) δ)
-        with ⟨L, R, d, hd, hdd, hLR⟩
-      have hprod : d 0 * d 1 = (p : ℤ) ^ δ := by
-        rw [← Fin.prod_univ_two, ← det_diagonal, ← hLR, det_mul, det_mul, L.2, R.2, one_mul,
-          mul_one, hdet]
-      rcases (Nat.dvd_prime_pow hp).mp (Int.natAbs_dvd_natAbs.mpr (Dvd.intro _ hprod)) with
-        ⟨s, hsδ, hs⟩
-      have h₀ : d 0 = (p : ℤ) ^ s := by
-        rw [← Int.natAbs_of_nonneg (hd 0).le, hs, Nat.cast_pow]
-      have h₁' : d 1 = (p : ℤ) ^ (δ - s) := by
-        refine mul_left_cancel₀ (pow_ne_zero s (Nat.cast_ne_zero.mpr hp.ne_zero)) ?_
-        rw [← pow_add, Nat.add_sub_cancel' hsδ, ← hprod, h₀]
-      have hst : s ≤ δ - s := by
-        have h' : d 0 ∣ d 1 := hdd (Fin.zero_le 1)
-        rw [h₀, h₁'] at h'
-        exact (Nat.pow_dvd_pow_iff_le_right hp.one_lt).mp
-          (by exact_mod_cast Int.natAbs_dvd_natAbs.mpr h')
-      refine ⟨0, s, δ - 2 * s, by omega, pairDiag 1 L * γ₁, ?_, γ₂⁻¹ * γ₃ * pairDiag 1 R, ?_, ?_⟩
-      · exact mul_mem (coe_embedSecond L ▸ (embedSecond L).2) hγ₁
-      · exact mul_mem (mul_mem hγ₂i hγ₃) (coe_embedSecond R ▸ (embedSecond R).2)
-      · have e : pairDiag 1 L * γ₁ * M * (γ₂⁻¹ * γ₃ * pairDiag 1 R) =
-            pairDiag 1 L * (γ₁ * M * γ₂⁻¹ * γ₃) * pairDiag 1 R := by
-          simp only [Matrix.mul_assoc]
-        rw [e, eq_pairDiag hp₀ hM₂ hcol₃ hrow₃, pairDiag_mul, pairDiag_mul, hLR, Matrix.one_mul,
-          Matrix.mul_one]
-        have e₁ : 2 * s + (δ - 2 * s) = δ := by omega
-        have e₂ : s + (δ - 2 * s) = δ - s := by omega
-        ext (i | i) (k | k) <;> fin_cases i <;> fin_cases k <;>
-          simp [pairDiag, diagExp, h₀, h₁', e₁, e₂]
+  rcases exists_mul_mul_eq_diagonal_of_mul_J hM with ⟨b, hb, h2b, γ, hγ, γ', hγ', h⟩
+  have h₀ : b 0 ≤ b 1 := hb (Fin.zero_le 1)
+  have h₁ : 2 * b 1 ≤ δ := h2b 1
+  have e : elementaryEntries p δ b = diagExp p (b 0) (b 1 - b 0) (δ - 2 * b 1) := by
+    funext i
+    rcases i with i | i <;> fin_cases i <;> simp [elementaryEntries] <;> congr 1 <;> omega
+  refine ⟨b 0, b 1 - b 0, δ - 2 * b 1, by omega, γ, hγ, γ', hγ', ?_⟩
+  rw [h, e]
 
 variable (p) in
 /-- The element `diag(p^a, p^{a+s}, p^{a+2s+t}, p^{a+s+t})` of the semigroup `S_p` of the local

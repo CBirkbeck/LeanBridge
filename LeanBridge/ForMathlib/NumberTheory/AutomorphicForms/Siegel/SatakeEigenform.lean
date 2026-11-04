@@ -11,14 +11,14 @@ half-space and is invertible
 theorem (`SiegelUpperHalfSpace.exists_satakeMap_eq_of_ne_zero`) `λ_F` is a Satake map `ω_α`, and
 `α` is a Satake parameter of `F`
 (`SiegelUpperHalfSpace.IsHeckeEigenform.exists_satakeParameter`): every Siegel eigenform has Satake
-parameters at every prime, the committed statement `SiegelUpperHalfSpace.SatakeParametersExist`
+parameters at every prime, the statement `SiegelUpperHalfSpace.SatakeParametersExist`
 (`SiegelUpperHalfSpace.satakeParametersExist`).
 
 At two Satake parameters `α, β` of one eigenform the Satake maps agree, so the evaluations at `α`
 and `β` agree on the image of the universal Satake map, the Weyl-invariant Laurent polynomials of
 the cone. The coefficients of the universal spinor Euler factor and those of the universal standard
 Euler factor times `t^g`, `t = x₀² ∏_i x_i`, are such polynomials, and `t` is a unit; so the spinor
-and the standard Euler factors at `α` and `β` are equal: the committed statement
+and the standard Euler factors at `α` and `β` are equal: the statement
 `SiegelUpperHalfSpace.EulerFactorsWellDefined` (`SiegelUpperHalfSpace.eulerFactorsWellDefined`).
 In particular a Miyawaki lift of type II (`SiegelUpperHalfSpace.IsMiyawakiLiftTypeII`) has the
 knowl's standard and spinor Euler factors at every Satake parameter, not only at one.
@@ -189,7 +189,7 @@ lemma SiegelEigenform.exists_satakeParameter (G : SiegelEigenform) :
           (congrArg Subtype.val (G.isHeckeEigenform.heckeOperator_eq _)))⟩⟩
   exact hG.exists_satakeParameter p
 
-/-- **Satake parameters exist in every degree** (LMFDB `mf.siegel.lift`): the committed statement
+/-- **Satake parameters exist in every degree** (LMFDB `mf.siegel.lift`): the statement
 `SiegelUpperHalfSpace.SatakeParametersExist`, by Satake's theorem. -/
 lemma satakeParametersExist : SatakeParametersExist :=
   fun G q _ ↦ G.exists_satakeParameter q
@@ -269,7 +269,7 @@ lemma SiegelEigenform.isEulerFactor_unique (G : SiegelEigenform) (t : EulerFacto
   · exact standardEulerFactor_eq_of_satakeMap_eq h
 
 /-- **The Euler factors of a Siegel eigenform are well defined in every degree** (LMFDB
-`mf.siegel.lift`): the committed statement `SiegelUpperHalfSpace.EulerFactorsWellDefined`. -/
+`mf.siegel.lift`): the statement `SiegelUpperHalfSpace.EulerFactorsWellDefined`. -/
 lemma eulerFactorsWellDefined : EulerFactorsWellDefined :=
   fun G t _ _ _ _ hQ hQ' ↦ G.isEulerFactor_unique t hQ hQ'
 

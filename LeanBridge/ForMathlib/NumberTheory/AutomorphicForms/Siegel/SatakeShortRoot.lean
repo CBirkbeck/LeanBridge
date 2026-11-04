@@ -145,63 +145,39 @@ section Pair
 
 variable {k k' : Fin n} (hkk' : k ≠ k') {R : Type*} [CommRing R]
 
-/-- **`Fin n` as the two coordinates `k, k'` together with the others** (LMFDB `mf.siegel.lift`,
-through the Weyl invariance of the Satake map). -/
-def twoEquiv : Fin 2 ⊕ {c : Fin n // c ≠ k ∧ c ≠ k'} ≃ Fin n where
-  toFun := Sum.elim ![k, k'] Subtype.val
-  invFun c := if hk : c = k then .inl 0 else if hk' : c = k' then .inl 1 else .inr ⟨c, hk, hk'⟩
-  left_inv := by
-    rintro (a | ⟨c, hck, hck'⟩)
-    · fin_cases a <;> simp [hkk'.symm]
-    · simp [hck, hck']
-  right_inv c := by
-    by_cases hk : c = k
-    · simp [hk]
-    · by_cases hk' : c = k' <;> simp [hk, hk', hkk'.symm]
-
 /-- The **matrix acting by `h` on the coordinates `(k, k')`** and by the identity on the others
 (LMFDB `mf.siegel.lift`, through the Weyl invariance of the Satake map). -/
 def pairBlock (h : Matrix (Fin 2) (Fin 2) R) : Matrix (Fin n) (Fin n) R :=
-  reindex (twoEquiv hkk') (twoEquiv hkk') (fromBlocks h 0 0 1)
-
-lemma twoEquiv_symm_left : (twoEquiv hkk').symm k = .inl 0 := by
-  simp [twoEquiv]
-
-lemma twoEquiv_symm_right : (twoEquiv hkk').symm k' = .inl 1 := by
-  simp [twoEquiv, hkk'.symm]
-
-lemma twoEquiv_symm_other {c : Fin n} (hck : c ≠ k) (hck' : c ≠ k') :
-    (twoEquiv hkk').symm c = .inr ⟨c, hck, hck'⟩ := by
-  simp [twoEquiv, hck, hck']
+  reindex (pairEquiv hkk') (pairEquiv hkk') (fromBlocks h 0 0 1)
 
 variable (h h' : Matrix (Fin 2) (Fin 2) R)
 
-lemma pairBlock_apply_twoEquiv (i j : Fin 2) :
+lemma pairBlock_apply_pairEquiv (i j : Fin 2) :
     pairBlock hkk' h (![k, k'] i) (![k, k'] j) = h i j := by
   fin_cases i <;> fin_cases j <;>
-    simp [pairBlock, twoEquiv_symm_left, twoEquiv_symm_right]
+    simp [pairBlock, pairEquiv_symm_left, pairEquiv_symm_right]
 
 lemma pairBlock_apply_of_ne_left {a : Fin n} (hak : a ≠ k) (hak' : a ≠ k') (b : Fin n) :
     pairBlock hkk' h a b = if a = b then 1 else 0 := by
-  rw [pairBlock, reindex_apply, submatrix_apply, twoEquiv_symm_other hkk' hak hak']
+  rw [pairBlock, reindex_apply, submatrix_apply, pairEquiv_symm_other hkk' hak hak']
   by_cases hbk : b = k
-  · rw [hbk, twoEquiv_symm_left]
+  · rw [hbk, pairEquiv_symm_left]
     simp [hak]
   · by_cases hbk' : b = k'
-    · rw [hbk', twoEquiv_symm_right]
+    · rw [hbk', pairEquiv_symm_right]
       simp [hak']
-    · simp [twoEquiv_symm_other hkk' hbk hbk', one_apply]
+    · simp [pairEquiv_symm_other hkk' hbk hbk', one_apply]
 
 lemma pairBlock_apply_of_ne_right {b : Fin n} (hbk : b ≠ k) (hbk' : b ≠ k') (a : Fin n) :
     pairBlock hkk' h a b = if a = b then 1 else 0 := by
-  rw [pairBlock, reindex_apply, submatrix_apply, twoEquiv_symm_other hkk' hbk hbk']
+  rw [pairBlock, reindex_apply, submatrix_apply, pairEquiv_symm_other hkk' hbk hbk']
   by_cases hak : a = k
-  · rw [hak, twoEquiv_symm_left]
+  · rw [hak, pairEquiv_symm_left]
     simp [Ne.symm hbk]
   · by_cases hak' : a = k'
-    · rw [hak', twoEquiv_symm_right]
+    · rw [hak', pairEquiv_symm_right]
       simp [Ne.symm hbk']
-    · simp [twoEquiv_symm_other hkk' hak hak', one_apply]
+    · simp [pairEquiv_symm_other hkk' hak hak', one_apply]
 
 lemma pairBlock_mul : pairBlock hkk' (h * h') = pairBlock hkk' h * pairBlock hkk' h' := by
   rw [pairBlock, pairBlock, pairBlock, reindex_apply, reindex_apply, reindex_apply,
@@ -360,8 +336,7 @@ lemma shortBlock_shortEmbed (hkk' : k ≠ k') (u : SL(2, ℤ)) :
         (u : Matrix (Fin 2) (Fin 2) ℤ).map (Int.castRingHom ℚ) := by
   ext i j
   rw [shortBlock, Matrix.of_apply, coe_shortEmbed, map_apply, fromBlocks_apply₁₁,
-    pairBlock_apply_twoEquiv,
-    map_apply]
+    pairBlock_apply_pairEquiv, map_apply]
 
 lemma shortBlock_one (hkk' : k ≠ k') : shortBlock k k' 1 = 1 := by
   ext i j

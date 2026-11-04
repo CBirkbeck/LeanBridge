@@ -33,7 +33,6 @@ the row `e_k`, the divisions by `p^{a_k}` being exact, and the symplectic relati
 * `SiegelUpperHalfSpace.sympAdj`: the symplectic adjoint `M♯ = -J Mᵀ J`.
 * `SiegelUpperHalfSpace.plane`: the index of the coordinate plane of a coordinate.
 * `SiegelUpperHalfSpace.lowFix`: the subgroup `Γ_k` of `Sp(2g, ℤ)`.
-* `SiegelUpperHalfSpace.planeMat`: `SL(2, ℤ)` acting on every coordinate plane.
 * `SiegelUpperHalfSpace.IsSplit`: the coordinate planes `< k` are split off.
 * `SiegelUpperHalfSpace.elementaryEntries`, `SiegelUpperHalfSpace.elementaryDiag`,
   `SiegelUpperHalfSpace.elementaryCoset`: the entries, the diagonal matrix and the double coset of
@@ -288,36 +287,19 @@ lemma transpose_mul_J_mul_eq_of_mem {γ γ' : Matrix (Fin n ⊕ Fin n) (Fin n �
 
 /-! ### `Γ_k` acts transitively on the primitive vectors of the coordinates `≥ k` -/
 
-/-- The integral symplectic matrix **acting by `V c ∈ SL(2, ℤ)` on every coordinate plane
-`(e_c, f_c)`** (LMFDB `mf.siegel.lift`, through the symplectic elementary divisors). -/
-def planeMat (V : Fin n → SL(2, ℤ)) : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) ℤ :=
-  fromBlocks (diagonal fun c ↦ V c 0 0) (diagonal fun c ↦ V c 0 1) (diagonal fun c ↦ V c 1 0)
-    (diagonal fun c ↦ V c 1 1)
-
 variable (V : Fin n → SL(2, ℤ))
 
-lemma planeMat_mem : planeMat V ∈ symplecticGroup (Fin n) ℤ := by
-  refine SymplecticGroup.fromBlocks_mem_iff.mpr ⟨?_, ?_, ?_⟩
-  on_goal 3 =>
-    rw [diagonal_transpose, diagonal_transpose, diagonal_mul_diagonal, diagonal_mul_diagonal,
-      diagonal_sub, ← diagonal_one]
-    exact congrArg diagonal <| funext fun c ↦ by
-      have h : (V c : Matrix (Fin 2) (Fin 2) ℤ).det = 1 := (V c).2
-      rw [det_fin_two] at h
-      linear_combination h
-  all_goals simp only [diagonal_transpose, diagonal_mul_diagonal, mul_comm]
+lemma diagSL_mulVec_inl (w : Fin n ⊕ Fin n → ℤ) (c : Fin n) :
+    (diagSL V *ᵥ w) (.inl c) = V c 0 0 * w (.inl c) + V c 0 1 * w (.inr c) := by
+  simp [diagSL, fromBlocks_mulVec, mulVec_diagonal]
 
-lemma planeMat_mulVec_inl (w : Fin n ⊕ Fin n → ℤ) (c : Fin n) :
-    (planeMat V *ᵥ w) (.inl c) = V c 0 0 * w (.inl c) + V c 0 1 * w (.inr c) := by
-  simp [planeMat, fromBlocks_mulVec, mulVec_diagonal]
-
-lemma planeMat_mulVec_inr (w : Fin n ⊕ Fin n → ℤ) (c : Fin n) :
-    (planeMat V *ᵥ w) (.inr c) = V c 1 0 * w (.inl c) + V c 1 1 * w (.inr c) := by
-  simp [planeMat, fromBlocks_mulVec, mulVec_diagonal]
+lemma diagSL_mulVec_inr (w : Fin n ⊕ Fin n → ℤ) (c : Fin n) :
+    (diagSL V *ᵥ w) (.inr c) = V c 1 0 * w (.inl c) + V c 1 1 * w (.inr c) := by
+  simp [diagSL, fromBlocks_mulVec, mulVec_diagonal]
 
 variable {V} in
-lemma planeMat_mem_lowFix (hV : ∀ c : Fin n, (c : ℕ) < k → V c = 1) :
-    (⟨planeMat V, planeMat_mem V⟩ : symplecticGroup (Fin n) ℤ) ∈ lowFix n k := by
+lemma diagSL_mem_lowFix (hV : ∀ c : Fin n, (c : ℕ) < k → V c = 1) :
+    (⟨diagSL V, diagSL_mem V⟩ : symplecticGroup (Fin n) ℤ) ∈ lowFix n k := by
   refine mem_lowFix_of_fromBlocks rfl ?_ ?_ ?_ ?_ <;> intro i j hij <;>
     rcases eq_or_ne i j with rfl | hne
   · simp [hV i (hij.elim id id)]
@@ -380,9 +362,9 @@ lemma exists_mem_lowFix_mulVec_eq_of_inr (hk : k < n) (t : ℕ) (w : Fin n ⊕ F
             rw [pairBlock_apply_of_ne_right hne _ hl.1 hl.2, ite_eq_right (Ne.symm hl.2),
               zero_mul]]
           have h₁₀ : pairBlock hne (U : Matrix (Fin 2) (Fin 2) ℤ) ⟨t, htn⟩ ⟨k, hk⟩ = U 1 0 :=
-            pairBlock_apply_twoEquiv hne _ 1 0
+            pairBlock_apply_pairEquiv hne _ 1 0
           have h₁₁ : pairBlock hne (U : Matrix (Fin 2) (Fin 2) ℤ) ⟨t, htn⟩ ⟨t, htn⟩ = U 1 1 :=
-            pairBlock_apply_twoEquiv hne _ 1 1
+            pairBlock_apply_pairEquiv hne _ 1 1
           rw [h₁₀, h₁₁, hU]
         have e₄ (c : Fin n) (hc : (c : ℕ) < k ∨ t ≤ c) :
             ((shortEmbedSp hne U : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) ℤ) *ᵥ w) (.inl c) =
@@ -419,48 +401,48 @@ lemma exists_mem_lowFix_mulVec_eq_single (hk : k < n) {w : Fin n ⊕ Fin n → �
   choose M hM using fun c : Fin n ↦ SymplecticGroup.exists_SL2Z_eq_gcd (w (.inl c)) (w (.inr c))
   let S : Fin n → SL(2, ℤ) := fun c ↦ if (c : ℕ) < k then 1 else M c
   have hS (c : Fin n) (hc : (c : ℕ) < k) : S c = 1 := ite_eq_left hc
-  have h₁ (c : Fin n) : (planeMat S *ᵥ w) (.inr c) = 0 := by
-    rw [planeMat_mulVec_inr]
+  have h₁ (c : Fin n) : (diagSL S *ᵥ w) (.inr c) = 0 := by
+    rw [diagSL_mulVec_inr]
     by_cases hc : (c : ℕ) < k
     · rw [hS c hc, hw (.inl c) hc, hw (.inr c) hc]
       simp
     · have hSc : S c = M c := ite_eq_right hc
       rw [hSc]
       exact (hM c).2
-  have h₂ (c : Fin n) (hc : (c : ℕ) < k) : (planeMat S *ᵥ w) (.inl c) = 0 := by
-    rw [planeMat_mulVec_inl, hw (.inl c) hc, hw (.inr c) hc]
+  have h₂ (c : Fin n) (hc : (c : ℕ) < k) : (diagSL S *ᵥ w) (.inl c) = 0 := by
+    rw [diagSL_mulVec_inl, hw (.inl c) hc, hw (.inr c) hc]
     simp
   rcases exists_mem_lowFix_mulVec_eq_of_inr hk n _ h₁
     fun c hc ↦ h₂ c (hc.resolve_right (not_le.mpr c.2)) with ⟨g, hg, c₀, hc₀⟩
   have hdvd (m : Fin n ⊕ Fin n) : c₀ ∣ w m := by
-    have e : w = (((g * ⟨planeMat S, planeMat_mem S⟩)⁻¹ : symplecticGroup (Fin n) ℤ) :
+    have e : w = (((g * ⟨diagSL S, diagSL_mem S⟩)⁻¹ : symplecticGroup (Fin n) ℤ) :
         Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) ℤ) *ᵥ Pi.single (.inl ⟨k, hk⟩) c₀ := by
       rw [← hc₀, mulVec_mulVec, mulVec_mulVec, ← Submonoid.coe_mul,
-        ← Submonoid.coe_mul (symplecticGroup (Fin n) ℤ) _ ⟨planeMat S, planeMat_mem S⟩, mul_assoc,
+        ← Submonoid.coe_mul (symplecticGroup (Fin n) ℤ) _ ⟨diagSL S, diagSL_mem S⟩, mul_assoc,
         inv_mul_cancel, Submonoid.coe_one, one_mulVec]
     rw [e]
-    simp [mulVec]
+    simp
   rcases Int.isUnit_iff.mp (hp c₀ hdvd) with rfl | rfl
-  · exact ⟨g * ⟨planeMat S, planeMat_mem S⟩, mul_mem hg (planeMat_mem_lowFix hS), by
+  · exact ⟨g * ⟨diagSL S, diagSL_mem S⟩, mul_mem hg (diagSL_mem_lowFix hS), by
       rw [Submonoid.coe_mul, ← mulVec_mulVec, hc₀]⟩
   · let S' : Fin n → SL(2, ℤ) := Function.update 1 ⟨k, hk⟩ (-1)
     have hS' (c : Fin n) (hc : (c : ℕ) < k) : S' c = 1 :=
       Function.update_of_ne (Fin.ne_of_val_ne hc.ne) _ _
-    refine ⟨⟨planeMat S', planeMat_mem S'⟩ * (g * ⟨planeMat S, planeMat_mem S⟩),
-      mul_mem (planeMat_mem_lowFix hS') (mul_mem hg (planeMat_mem_lowFix hS)), ?_⟩
+    refine ⟨⟨diagSL S', diagSL_mem S'⟩ * (g * ⟨diagSL S, diagSL_mem S⟩),
+      mul_mem (diagSL_mem_lowFix hS') (mul_mem hg (diagSL_mem_lowFix hS)), ?_⟩
     rw [Submonoid.coe_mul, ← mulVec_mulVec, Submonoid.coe_mul, ← mulVec_mulVec, hc₀]
     funext m
     rcases m with c | c
-    · rw [planeMat_mulVec_inl]
+    · rw [diagSL_mulVec_inl]
       by_cases hc : c = ⟨k, hk⟩
       · subst hc
         simp [S']
-      · simp [S', hc]
-    · rw [planeMat_mulVec_inr]
+      · simp [hc]
+    · rw [diagSL_mulVec_inr]
       by_cases hc : c = ⟨k, hk⟩
       · subst hc
         simp [S']
-      · simp [S', hc]
+      · simp [hc]
 
 /-! ### Splitting off the coordinate planes one at a time -/
 
@@ -584,13 +566,13 @@ lemma IsSplit.exists_pivot (hs : IsSplit p δ k a N) (hN : sympAdj N * N = ((p :
   have e₂ : N *ᵥ Pi.single v₀ 1 = (p : ℤ) ^ e • w := by
     funext m
     rw [Pi.smul_apply, smul_eq_mul, ← hw]
-    simp [mulVec]
+    simp
   have e₃ : (((g : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) ℤ) * N *
       ((h⁻¹ : symplecticGroup (Fin n) ℤ) : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) ℤ)) *ᵥ
         Pi.single (.inl ⟨k, hk⟩) 1) m = ((g : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) ℤ) * N *
           ((h⁻¹ : symplecticGroup (Fin n) ℤ) : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) ℤ)) m
             (.inl ⟨k, hk⟩) := by
-    simp [mulVec]
+    simp
   rw [← e₃, ← mulVec_mulVec, ← mulVec_mulVec, e₁, e₂, mulVec_smul, hgw, ← Pi.single_smul,
     smul_eq_mul, mul_one]
 
@@ -660,7 +642,7 @@ lemma IsSplit.exists_row (hs : IsSplit p δ k a N) (hk : k < n) {e : ℕ}
     if i = ⟨k, hk⟩ then d j else if j = ⟨k, hk⟩ then d i else 0
   have hB : Bᵀ = B := by
     ext i j
-    simp only [B, transpose_apply, of_apply]
+    simp only [B]
     by_cases hi : i = ⟨k, hk⟩ <;> by_cases hj : j = ⟨k, hk⟩ <;> simp [hi, hj]
   let T : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) ℤ := fromBlocks 1 B 0 1
   have hT : T ∈ symplecticGroup (Fin n) ℤ :=
@@ -668,7 +650,7 @@ lemma IsSplit.exists_row (hs : IsSplit p δ k a N) (hk : k < n) {e : ℕ}
   have hTk : (⟨T, hT⟩ : symplecticGroup (Fin n) ℤ) ∈ lowFix n k := by
     refine mem_lowFix_of_fromBlocks rfl (fun _ _ _ ↦ rfl) (fun i j hij ↦ ?_) (fun _ _ _ ↦ rfl)
       fun _ _ _ ↦ rfl
-    simp only [B, of_apply, d]
+    simp only [B, d]
     rcases hij with hi | hj
     · have hik : i ≠ ⟨k, hk⟩ := fun h ↦ by
         rw [h] at hi
@@ -693,7 +675,7 @@ lemma IsSplit.exists_row (hs : IsSplit p δ k a N) (hk : k < n) {e : ℕ}
     by_cases hj : k ≤ (j : ℕ)
     · simp only [d, hj, ite_true]
       rw [mul_neg, Int.mul_ediv_cancel' (hdvd₁ (.inl ⟨k, hk⟩) (.inr j) le_rfl hj), neg_add_cancel]
-    · simp only [d, hj, ite_false, mul_zero, zero_add]
+    · simp only [d, hj, ite_false, mul_zero]
       rw [hs₁.col_inr j (not_le.mp hj) (.inl ⟨k, hk⟩)]
       simp
   refine ⟨⟨L * T, mul_mem hL hT⟩, mul_mem hLk hTk, fun m ↦ (h₂ m _).trans ((h₁k m).trans

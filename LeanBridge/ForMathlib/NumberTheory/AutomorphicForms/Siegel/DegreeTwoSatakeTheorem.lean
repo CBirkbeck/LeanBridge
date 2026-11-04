@@ -1,5 +1,5 @@
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoSatakeMapT1
-import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SiegelLift
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SatakeEigenform
 
 /-!
 # Satake's theorem for `Sp(4, ℤ)`
@@ -12,19 +12,22 @@ The local Hecke algebra `𝓗_p` of `Γ = Sp(4, ℤ)` at a prime `p` is generate
 `e₂ = p ω(T_1(p²)) + (1 + p⁻²) m`, the numbers `α₀, α₀α_0, α₀α_1, α₀α_0α_1` are the roots of
 `X⁴ - e₁ X³ + e₂ X² - m e₁ X + m²`, which come in pairs `β, m/β`.
 
-* Existence: a `ℂ`-linear character `λ` of `𝓗_p` with `λ(T_0(p²)) ≠ 0` is a Satake map, the
-  pairs `β + m/β` being the roots of `Y² - e₁ Y + e₂ - 2m` (two quadratic equations over `ℂ`). The
+* Existence: a `ℂ`-linear character `λ` of `𝓗_p` with `λ(T_0(p²)) ≠ 0` is a Satake map, and the
   eigencharacter of a Hecke eigenform does not vanish at the scalar `T_0(p²)`, whose Hecke operator
-  is the invertible slash operator of `p 1₄`. So every Siegel eigenform of degree `2` has Satake
-  parameters at every prime: `SiegelUpperHalfSpace.SatakeParametersExist` in degree `2`.
+  is the invertible slash operator of `p 1₄`: the case `g = 2` of
+  `SiegelUpperHalfSpace.exists_satakeMap_eq_of_ne_zero` and
+  `SiegelUpperHalfSpace.IsHeckeEigenform.eigenvalue_elementaryCoset_two_ne_zero`. So every Siegel
+  eigenform of degree `2` has Satake parameters at every prime:
+  `SiegelUpperHalfSpace.SatakeParametersExist` in degree `2`.
 * Uniqueness: the Satake maps at two Satake parameters of one eigenform agree, and the spinor and
   standard Euler factors are functions of the Satake map, through `e₁, e₂, m`. So the Euler factors
   of a Siegel eigenform of degree `2` are well defined:
   `SiegelUpperHalfSpace.EulerFactorsWellDefined` in degree `2`.
 
-Not proved here: the rest of Satake's theorem in degree `2`, that `ω` is injective with image the
-`W₂`-invariants, and that the Satake parameters of an eigenform form one orbit of the Weyl group
-`W₂`; only its two consequences above, which the Euler factors need, are.
+The rest of Satake's theorem in degree `2`, that the universal Satake map is a ring isomorphism onto
+the Weyl-invariant Laurent polynomials of the cone, is the case `g = 2` of
+`SiegelUpperHalfSpace.satakeInvariantsHom_bijective`; that the Satake parameters of an eigenform
+form one orbit of the Weyl group `W₂` is not proved.
 
 ## Main results
 
@@ -43,11 +46,7 @@ Not proved here: the rest of Satake's theorem in degree `2`, that `ω` is inject
   eigenform of degree `2` are unique.
 -/
 
-open Matrix hiding mul_inv_rev
-
-open DoubleCoset Module Polynomial
-
-open scoped Pointwise
+open Module Polynomial
 
 open HeckeCosetModule (single)
 
@@ -63,13 +62,8 @@ variable {p : ℕ}
 
 lemma map_smul_of_single {f : localSiegelHeckeRing (Fin 2) p →+* ℂ}
     (hf : ∀ D (c : ℂ), f (single ℂ D c) = c * f (single ℂ D 1)) (c : ℂ)
-    (x : localSiegelHeckeRing (Fin 2) p) : f (c • x) = c * f x := by
-  induction x using HeckeCosetModule.induction_linear with
-  | h0 => rw [smul_zero, map_zero, mul_zero]
-  | hadd x y hx hy => rw [smul_add, map_add, map_add, hx, hy, mul_add]
-  | hsingle D b =>
-    rw [hf D b, ← mul_assoc, ← hf D (c * b), ← HeckeCosetModule.smul_single_one ℂ D (c * b),
-      ← smul_smul, HeckeCosetModule.smul_single_one]
+    (x : localSiegelHeckeRing (Fin 2) p) : f (c • x) = c * f x :=
+  map_smul_of_map_single p hf c x
 
 /-! ### Local and global Hecke operators -/
 
@@ -81,122 +75,46 @@ lemma heckeOperator_heckeMonoidAt {F : SiegelUpperHalfSpace (Fin 2) → V}
     (hF : F ∈ slashInvariants ρ) (D : HeckeCoset (heckeMonoidAt (Fin 2) p) Γ₂ Γ₂) :
     (heckeOperator ρ D ⟨F, fun γ hγ ↦ hF γ hγ⟩ : SiegelUpperHalfSpace (Fin 2) → V) =
       heckeOperator ρ (HeckeCoset.mk Γ₂ Γ₂
-        ⟨(D.out : GL₄), heckeMonoidAt_le_heckeMonoid p D.out.2⟩) ⟨F, hF⟩ := by
-  have hmem : ((HeckeCoset.mk Γ₂ Γ₂ (⟨(D.out : GL₄), heckeMonoidAt_le_heckeMonoid p D.out.2⟩ :
-      heckeMonoid (Fin 2))).rep : GL₄) ∈ doubleCoset ((⟨(D.out : GL₄),
-        heckeMonoidAt_le_heckeMonoid p D.out.2⟩ : heckeMonoid (Fin 2)) : GL₄) (Γ₂ : Set GL₄) Γ₂ :=
-    HeckeCoset.toSet_mk (H₁ := Γ₂) (H₂ := Γ₂)
-      (⟨(D.out : GL₄), heckeMonoidAt_le_heckeMonoid p D.out.2⟩ : heckeMonoid (Fin 2)) ▸
-        HeckeCoset.rep_mem _
-  rw [heckeOperator_eq_sum ρ _ (fun v ↦ (⟨rightCosetRep D v,
-    heckeMonoidAt_le_heckeMonoid p (heckeRep D v).2⟩ : heckeMonoid (Fin 2)))
-    ((doubleCoset_eq_of_mem hmem).trans (doubleCoset_eq_iUnion_rightCosetRep D))
-    (op_rightCosetRep_smul_injective D) ⟨F, hF⟩]
-  rfl
+        ⟨(D.out : GL₄), heckeMonoidAt_le_heckeMonoid p D.out.2⟩) ⟨F, hF⟩ :=
+  heckeOperator_heckeMonoidAt_eq p hF D
 
 variable [Fact p.Prime]
+
+variable (p) in
+lemma symplecticDiag_one_zero_zero_eq_elementaryDiag :
+    symplecticDiag p 1 0 0 = elementaryDiag p 2 (fun _ ↦ 1) one_le_two_fun :=
+  Subtype.ext <| Units.ext <| coe_symplecticDiag_one_zero_zero.trans (coe_elementaryDiag_two p).symm
+
+variable (p) in
+lemma heckeCosetDiag_one_zero_zero_eq_elementaryCoset :
+    heckeCosetDiag p 1 0 0 = elementaryCoset p 2 (fun _ ↦ 1) one_le_two_fun :=
+  congrArg (HeckeCoset.mk _ _) (symplecticDiag_one_zero_zero_eq_elementaryDiag p)
 
 lemma satakeMap_single_eq_mul (α₀ : ℂˣ) (α : Fin 2 → ℂˣ)
     (D : HeckeCoset (heckeMonoidAt (Fin 2) p) Γ₂ Γ₂) (c : ℂ) :
     satakeMap p α₀ α (single ℂ D c) = c * satakeMap p α₀ α (single ℂ D 1) := by
   rw [satakeMap_single, satakeMap_single, one_smul, smul_eq_mul]
 
-lemma exists_add_div_add_div {u e m : ℂ} (hm : m ≠ 0) : ∃ b g : ℂ, b ≠ 0 ∧ g ≠ 0 ∧
-    b + m / b + (g + m / g) = u ∧ (b + m / b) * (g + m / g) = e := by
-  rcases exists_quadratic_eq_zero one_ne_zero (IsAlgClosed.isSquare (discrim 1 (-u) e)) with
-    ⟨y, hy⟩
-  rcases exists_quadratic_eq_zero one_ne_zero (IsAlgClosed.isSquare (discrim 1 (-y) m)) with
-    ⟨b, hb⟩
-  rcases exists_quadratic_eq_zero one_ne_zero (IsAlgClosed.isSquare (discrim 1 (-(u - y)) m)) with
-    ⟨g, hg⟩
-  have hb₀ : b ≠ 0 := fun h ↦ hm (by rw [h] at hb; linear_combination hb)
-  have hg₀ : g ≠ 0 := fun h ↦ hm (by rw [h] at hg; linear_combination hg)
-  have hb' : b + m / b = y := by
-    field_simp
-    linear_combination hb
-  have hg' : g + m / g = u - y := by
-    field_simp
-    linear_combination hg
-  refine ⟨b, g, hb₀, hg₀, ?_, ?_⟩
-  · rw [hb', hg']
-    ring1
-  · rw [hb', hg']
-    linear_combination (-1 : ℂ) * hy
-
-variable (p) in
-lemma exists_satakeParams {u v w : ℂ} (hw : w ≠ 0) : ∃ (α₀ : ℂˣ) (α : Fin 2 → ℂˣ),
-    (α₀ : ℂ) * (1 + α 0) * (1 + α 1) = u ∧ (α₀ : ℂ) ^ 2 * (p : ℂ)⁻¹ *
-      ((α 0 + α 1) * (1 + α 0 * α 1) + (1 - ((p : ℂ) ^ 2)⁻¹) * α 0 * α 1) = v ∧
-        (α₀ : ℂ) ^ 2 * ((α 0 : ℂ) * ((p : ℂ) ^ 2)⁻¹) * ((α 1 : ℂ) * (p : ℂ)⁻¹) = w := by
-  have hp : (p : ℂ) ≠ 0 := Nat.cast_ne_zero.mpr (Fact.out : p.Prime).ne_zero
-  have hm : (p : ℂ) ^ 3 * w ≠ 0 := mul_ne_zero (pow_ne_zero 3 hp) hw
-  rcases exists_add_div_add_div (u := u)
-    (e := p * v + (1 + ((p : ℂ) ^ 2)⁻¹) * ((p : ℂ) ^ 3 * w) - 2 * ((p : ℂ) ^ 3 * w)) hm with
-    ⟨b, g, hb, hg, h₁, h₂⟩
-  refine ⟨Units.mk0 b hb, ![Units.mk0 (g / b) (div_ne_zero hg hb),
-    Units.mk0 ((p : ℂ) ^ 3 * w / (b * g)) (div_ne_zero hm (mul_ne_zero hb hg))], ?_, ?_, ?_⟩
-  · simp only [Units.val_mk0, Matrix.cons_val_zero, Matrix.cons_val_one]
-    rw [← h₁]
-    field_simp
-    ring1
-  · simp only [Units.val_mk0, Matrix.cons_val_zero, Matrix.cons_val_one]
-    have i : b ^ 2 * ((g / b + (p : ℂ) ^ 3 * w / (b * g)) *
-        (1 + g / b * ((p : ℂ) ^ 3 * w / (b * g))) +
-          (1 - ((p : ℂ) ^ 2)⁻¹) * (g / b) * ((p : ℂ) ^ 3 * w / (b * g))) =
-        (b + (p : ℂ) ^ 3 * w / b) * (g + (p : ℂ) ^ 3 * w / g) +
-          (1 - ((p : ℂ) ^ 2)⁻¹) * ((p : ℂ) ^ 3 * w) := by
-      field_simp
-    rw [mul_right_comm, i, h₂]
-    field_simp
-    ring1
-  · simp only [Units.val_mk0, Matrix.cons_val_zero, Matrix.cons_val_one]
-    field_simp
-
 /-- **Satake's theorem in degree `2`, existence**: a `ℂ`-linear character `λ` of the local Hecke
 algebra `𝓗_p` of `Sp(4, ℤ)` with `λ(T_0(p²)) ≠ 0` is a Satake map `ω_α`. -/
 lemma exists_satakeMap_eq {f : localSiegelHeckeRing (Fin 2) p →+* ℂ}
     (hf : ∀ D (c : ℂ), f (single ℂ D c) = c * f (single ℂ D 1))
     (h₀ : f (single ℂ (heckeCosetDiag p 1 0 0) 1) ≠ 0) :
-    ∃ (α₀ : ℂˣ) (α : Fin 2 → ℂˣ), satakeMap p α₀ α = f := by
-  rcases exists_satakeParams p (u := f (single ℂ (heckeCosetDiag p 0 0 1) 1))
-    (v := f (single ℂ (heckeCosetDiag p 0 1 0) 1)) h₀ with ⟨α₀, α, h₁, h₂, h₃⟩
-  exact ⟨α₀, α, ringHom_ext_of_heckeGenerators (map_smul_of_single (satakeMap_single_eq_mul α₀ α))
-    (map_smul_of_single hf) (by rw [satakeMap_Tp, h₁]) (by rw [satakeMap_T₁, h₂])
-    (by rw [satakeMap_T₀, h₃])⟩
+    ∃ (α₀ : ℂˣ) (α : Fin 2 → ℂˣ), satakeMap p α₀ α = f :=
+  exists_satakeMap_eq_of_ne_zero p hf (heckeCosetDiag_one_zero_zero_eq_elementaryCoset p ▸ h₀)
 
 /-! ### The Hecke operator `T_0(p²)` -/
 
 lemma heckeOperator_T₀ (F : slashInvariantsOf ρ (heckeMonoidAt (Fin 2) p) Γ₂) :
     (heckeOperator ρ (heckeCosetDiag p 1 0 0) F : SiegelUpperHalfSpace (Fin 2) → V) =
       heckeMonoidSlash ρ (symplecticDiag p 1 0 0) F := by
-  have hcover : doubleCoset ((heckeCosetDiag p 1 0 0).rep : GL₄) (Γ₂ : Set GL₄) Γ₂ =
-      ⋃ _ : Unit, MulOpposite.op ((symplecticDiag p 1 0 0 : heckeMonoidAt (Fin 2) p) : GL₄) •
-        (Γ₂ : Set GL₄) := by
-    rw [Set.iUnion_const, doubleCoset_eq_of_mem (rep_mem_doubleCoset_symplecticDiag (p := p) 1 0 0)]
-    ext x
-    rw [mem_rightCoset_iff]
-    constructor
-    · intro hx
-      rcases mem_doubleCoset.mp hx with ⟨γ, hγ, γ', hγ', rfl⟩
-      rw [mul_assoc γ, symplecticDiag_one_zero_zero_mul γ', ← mul_assoc, mul_inv_cancel_right]
-      exact mul_mem hγ hγ'
-    · intro hx
-      exact mem_doubleCoset.mpr ⟨x * (symplecticDiag p 1 0 0 : GL₄)⁻¹, hx, 1, one_mem _,
-        by group⟩
-  rw [heckeOperator_eq_sum ρ _ (fun _ : Unit ↦ symplecticDiag p 1 0 0) hcover
-    (Function.injective_of_subsingleton _) F, Fintype.sum_unique]
+  rw [heckeCosetDiag_one_zero_zero_eq_elementaryCoset,
+    symplecticDiag_one_zero_zero_eq_elementaryDiag]
+  exact heckeOperator_elementaryCoset_two p F
 
 lemma eq_zero_of_gspSlash_eq_zero {β : gspPlus (Fin 2)} (hβ : ∀ τ, gspSmul β τ = τ)
-    {f : SiegelUpperHalfSpace (Fin 2) → V} (h : gspSlash ρ β f = 0) : f = 0 := by
-  funext τ
-  have h' : ((multiplier β : ℂ) ^ slashExponent ρ) • ρ (gspDenomGL β τ)⁻¹ (f (gspSmul β τ)) = 0 :=
-    congrFun h τ
-  rw [hβ] at h'
-  rcases smul_eq_zero.mp h' with h₁ | h₁
-  · exact absurd h₁ (zpow_ne_zero _ (Rat.cast_ne_zero.mpr (multiplier_pos β).ne'))
-  · have h₂ : ρ (gspDenomGL β τ) (ρ (gspDenomGL β τ)⁻¹ (f τ)) = f τ := by
-      rw [← End.mul_apply, ← map_mul, mul_inv_cancel, map_one, End.one_apply]
-    rw [← h₂, h₁, map_zero, Pi.zero_apply]
+    {f : SiegelUpperHalfSpace (Fin 2) → V} (h : gspSlash ρ β f = 0) : f = 0 :=
+  eq_zero_of_gspSlash_eq_zero_of_smul_eq hβ h
 
 lemma submonoidToGSpPlus_symplecticDiag : submonoidToGSpPlus (symplecticDiag p 1 0 0) =
     submonoidToGSpPlus (scalarGSp ⟨p, (Fact.out : p.Prime).pos⟩) :=
@@ -207,12 +125,8 @@ lemma gspSmul_symplecticDiag (τ : SiegelUpperHalfSpace (Fin 2)) :
   (congrArg (gspSmul · τ) submonoidToGSpPlus_symplecticDiag).trans (gspSmul_scalarGSp _ τ)
 
 lemma IsHeckeEigenform.eigenvalue_T₀_ne_zero {F : slashInvariantsOf ρ (heckeMonoidAt (Fin 2) p) Γ₂}
-    (hF : IsHeckeEigenform ρ F) : hF.eigenvalue (heckeCosetDiag p 1 0 0) ≠ 0 := by
-  intro h
-  have h₁ : heckeMonoidSlash ρ (symplecticDiag p 1 0 0) (F : SiegelUpperHalfSpace (Fin 2) → V) =
-      0 := by
-    rw [← heckeOperator_T₀ F, hF.heckeOperator_eq, h, zero_smul, Submodule.coe_zero]
-  exact hF.2.1 (Subtype.ext (eq_zero_of_gspSlash_eq_zero gspSmul_symplecticDiag h₁))
+    (hF : IsHeckeEigenform ρ F) : hF.eigenvalue (heckeCosetDiag p 1 0 0) ≠ 0 :=
+  heckeCosetDiag_one_zero_zero_eq_elementaryCoset p ▸ hF.eigenvalue_elementaryCoset_two_ne_zero p
 
 /-! ### Existence of Satake parameters -/
 
@@ -221,11 +135,8 @@ lemma IsHeckeEigenform.eigenvalue_T₀_ne_zero {F : slashInvariantsOf ρ (heckeM
 lemma IsHeckeEigenform.exists_isSatakeParameter
     {F : slashInvariantsOf ρ (heckeMonoidAt (Fin 2) p) Γ₂} (hF : IsHeckeEigenform ρ F) :
     ∃ (α₀ : ℂˣ) (α : Fin 2 → ℂˣ),
-      IsSatakeParameter p ρ (F : SiegelUpperHalfSpace (Fin 2) → V) α₀ α := by
-  rcases exists_satakeMap_eq (f := hF.eigencharacter)
-    (fun D c ↦ by rw [hF.eigencharacter_single, hF.eigencharacter_single, one_mul])
-    (by rw [hF.eigencharacter_single, one_mul]; exact hF.eigenvalue_T₀_ne_zero) with ⟨α₀, α, h⟩
-  exact ⟨α₀, α, (isSatakeParameter_iff p ρ hF).mpr h.symm⟩
+      IsSatakeParameter p ρ (F : SiegelUpperHalfSpace (Fin 2) → V) α₀ α :=
+  hF.exists_satakeParameter p
 
 /-- **Satake parameters from the generators**: a nonzero `Γ`-invariant function that is an
 eigenvector of `T(p)`, `T_1(p²)` and `T_0(p²)` with the eigenvalues `ω_α(T(p))`, `ω_α(T_1(p²))`,
@@ -289,14 +200,8 @@ lemma SiegelEigenform.exists_isSatakeParameter (G : SiegelEigenform) (hG : G.deg
 
 lemma IsSatakeParameter.satakeMap_eq {f : SiegelUpperHalfSpace (Fin 2) → V} {α₀ β₀ : ℂˣ}
     {α β : Fin 2 → ℂˣ} (hα : IsSatakeParameter p ρ f α₀ α) (hβ : IsSatakeParameter p ρ f β₀ β) :
-    satakeMap p α₀ α = satakeMap p β₀ β := by
-  rcases hα with ⟨hf, hf₀, hα⟩
-  rcases hβ with ⟨_, -, hβ⟩
-  have e (D : HeckeCoset (heckeMonoidAt (Fin 2) p) Γ₂ Γ₂) :
-      satakeMap p α₀ α (single ℂ D 1) = satakeMap p β₀ β (single ℂ D 1) :=
-    smul_left_injective ℂ hf₀ ((hα D).symm.trans (hβ D))
-  exact ringHom_ext_of_heckeGenerators (map_smul_of_single (satakeMap_single_eq_mul α₀ α))
-    (map_smul_of_single (satakeMap_single_eq_mul β₀ β)) (e _) (e _) (e _)
+    satakeMap p α₀ α = satakeMap p β₀ β :=
+  hα.satakeMap_eq_satakeMap p hβ
 
 variable (α₀ : ℂˣ) (α : Fin 2 → ℂˣ)
 

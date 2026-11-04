@@ -914,6 +914,7 @@ import LeanBridge.ForMathlib.RepresentationTheory.RationalCharacterTable
 import LeanBridge.ForMathlib.RepresentationTheory.SchurIndex
 import LeanBridge.ForMathlib.RepresentationTheory.SpechtDegreesSix
 import LeanBridge.ForMathlib.RingTheory.FractionalIdeal.LocallyPrincipal
+import LeanBridge.ForMathlib.RingTheory.Ideal.GoingUp
 import LeanBridge.ForMathlib.RingTheory.Polynomial.EisensteinForm
 /- LMFDB elliptic-curve knowls formalized in Tau Ceti, which LeanBridge uses instead of its own
 copies:

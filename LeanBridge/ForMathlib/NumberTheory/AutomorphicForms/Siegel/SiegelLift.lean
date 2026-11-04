@@ -21,15 +21,19 @@ spinor Euler factor is `Q_p(f, X)(1 - p^{k-1} X)(1 - p^k X)`: so `L(s, F) = L(s,
 Satake parameters `γ_±` and `δ_±`, has the standard and spinor Euler factors of the knowl, which are
 those of the one point `(δ₋ p^{k-1}; γ₊ p^{1-k}, γ₋ p^{1-k}, δ₊/δ₋)`.
 
-Satake's theorem, that the Satake parameters of an eigenform exist and are unique up to the Weyl
-group, is not proved in any degree. Its two consequences stated here,
-`SiegelUpperHalfSpace.SatakeParametersExist` and `SiegelUpperHalfSpace.EulerFactorsWellDefined`, are
-proved in degree `2` (`SiegelUpperHalfSpace.SiegelEigenform.exists_isSatakeParameter`,
-`SiegelUpperHalfSpace.SiegelEigenform.eq_of_isEulerFactor`) and not in the other degrees. The Hecke
-equivariance of the Saito–Kurokawa lift, `SiegelUpperHalfSpace.SaitoKurokawaSpinTheorem`, is proved
-(`SiegelUpperHalfSpace.saitoKurokawaSpinTheorem`). Not proved: the existence of a Saito–Kurokawa
-lift of each newform (Kohnen's theorem), and the existence of the Miyawaki lifts of type II, a
-conjecture.
+Satake's theorem, the isomorphism of the local Hecke algebra at `p` onto the Weyl-invariant Laurent
+polynomials of the cone, is `SiegelUpperHalfSpace.satakeInvariantsHom_bijective`, in every degree.
+Its two consequences stated here, `SiegelUpperHalfSpace.SatakeParametersExist` and
+`SiegelUpperHalfSpace.EulerFactorsWellDefined`, are proved in every degree
+(`SiegelUpperHalfSpace.satakeParametersExist`, `SiegelUpperHalfSpace.eulerFactorsWellDefined`): the
+Euler factors of a Siegel eigenform exist and are unique. The Hecke equivariance of the
+Saito–Kurokawa lift, `SiegelUpperHalfSpace.SaitoKurokawaSpinTheorem`, is proved
+(`SiegelUpperHalfSpace.saitoKurokawaSpinTheorem`). Not proved: that the Satake parameters of an
+eigenform form a single orbit of the Weyl group, the existence of a Saito–Kurokawa lift of each
+newform (Kohnen's theorem), and the existence of the Miyawaki lifts of type II, a conjecture. No
+eigenform of degree `≥ 3` and no Saito–Kurokawa lift is shown to be a lift in the sense of
+`SiegelUpperHalfSpace.SiegelEigenform.IsLift`; the constant of degree `2` is
+(`SiegelUpperHalfSpace.SiegelEigenform.isLift_const_two`).
 
 ## Main definitions
 
@@ -44,7 +48,7 @@ conjecture.
 * `SiegelUpperHalfSpace.SiegelEigenform.IsEulerFactor`: an Euler factor of a Siegel eigenform.
 * `SiegelUpperHalfSpace.SiegelEigenform.IsLift`: a lift.
 * `SiegelUpperHalfSpace.SatakeParametersExist`, `SiegelUpperHalfSpace.EulerFactorsWellDefined`:
-  Satake's theorem, as statements.
+  two consequences of Satake's theorem, as statements.
 
 ## Main theorems
 
@@ -361,11 +365,10 @@ attribute [instance] SiegelEigenform.neZero SiegelEigenform.addCommGroup SiegelE
 variable (F : SiegelEigenform) (t : EulerFactorKind) (p : ℕ) [Fact p.Prime]
 
 /-- `Q` is an **Euler factor of kind `t`** of the Siegel eigenform `F` at `p` (LMFDB
-`mf.siegel.lift`): the Euler factor of kind `t` of a Satake parameter of `F` at `p`. By Satake's
-theorem the Satake parameters form one orbit of the Weyl group of signed permutations, on which the
-Euler factors are constant, so that `Q` is unique (`SiegelUpperHalfSpace.EulerFactorsWellDefined`).
-In degree `2` the uniqueness is `SiegelUpperHalfSpace.SiegelEigenform.eq_of_isEulerFactor`, the
-Euler factors being functions of the Satake map; in the other degrees it is not proved. -/
+`mf.siegel.lift`): the Euler factor of kind `t` of a Satake parameter of `F` at `p`. It exists and
+is unique in every degree (`SiegelUpperHalfSpace.satakeParametersExist`,
+`SiegelUpperHalfSpace.SiegelEigenform.isEulerFactor_unique`): the Satake maps at two Satake
+parameters of `F` agree, and the Euler factors are functions of the Satake map. -/
 def SiegelEigenform.IsEulerFactor (Q : ℂ[X]) : Prop :=
   ∃ α₀ α, IsSatakeParameter p F.ρ (F.form : SiegelUpperHalfSpace (Fin F.degree) → F.V) α₀ α ∧
     t.eulerFactor (α₀ : ℂ) (fun i ↦ (α i : ℂ)) = Q
@@ -390,23 +393,24 @@ def SiegelEigenform.IsLift : Prop :=
 
 /-- **The existence of Satake parameters** (Satake; Andrianov, *Quadratic forms and Hecke
 operators*, Theorem 3.3.30), as a statement: every Siegel eigenform has Satake parameters at every
-prime `p`, so that it has Euler factors of both kinds. It follows from the isomorphism of the
-Satake map onto the invariants of the Weyl group `W_g` of signed permutations in the Laurent
-polynomials, which is not proved here. In degree `2` it is
-`SiegelUpperHalfSpace.SiegelEigenform.exists_isSatakeParameter`, from generators of the local Hecke
-algebra; in the other degrees it is not proved. -/
+prime `p`, so that it has Euler factors of both kinds. It follows from Satake's isomorphism of the
+local Hecke algebra onto the Weyl-invariant Laurent polynomials of the cone
+(`SiegelUpperHalfSpace.satakeInvariantsHom_bijective`), by which a character not vanishing at
+`T_0(p²)` is a Satake map (`SiegelUpperHalfSpace.exists_satakeMap_eq_of_ne_zero`); it is proved in
+every degree (`SiegelUpperHalfSpace.satakeParametersExist`). -/
 def SatakeParametersExist : Prop :=
   ∀ (G : SiegelEigenform) (q : ℕ) [Fact q.Prime], ∃ α₀ α,
     IsSatakeParameter q G.ρ (G.form : SiegelUpperHalfSpace (Fin G.degree) → G.V) α₀ α
 
 /-- **The Euler factors of a Siegel eigenform are well defined**, as a statement: the Euler factors
-of each kind of the Satake parameters of a Siegel eigenform at `p` are all equal. It follows from
-Satake's theorem, by which the Satake parameters form one orbit of the Weyl group `W_g` of signed
-permutations, and from the invariance of the Euler factors under `W_g`, generated by the
-permutations of `α_0, …, α_{g-1}` and by `(α₀; α) ↦ (α₀ α_j; …, α_j⁻¹, …)` (proved for both
-Euler factors); the first is not proved here. In degree `2` it is
-`SiegelUpperHalfSpace.SiegelEigenform.eq_of_isEulerFactor`, the Euler factors being functions of the
-Satake map; in the other degrees it is not proved. -/
+of each kind of the Satake parameters of a Siegel eigenform at `p` are all equal. It is proved in
+every degree (`SiegelUpperHalfSpace.eulerFactorsWellDefined`): the Satake maps at two Satake
+parameters agree, and the coefficients of the spinor Euler factor, and those of the standard one
+times a power of the unit `x₀² ∏ x_i`, are Weyl-invariant Laurent polynomials of the cone, hence in
+the image of the universal Satake map (`SiegelUpperHalfSpace.spinorEulerFactor_eq_of_satakeMap_eq`,
+`SiegelUpperHalfSpace.standardEulerFactor_eq_of_satakeMap_eq`). That the Satake parameters form one
+orbit of the Weyl group `W_g` of signed permutations, under which both Euler factors are invariant,
+is not proved. -/
 def EulerFactorsWellDefined : Prop :=
   ∀ (G : SiegelEigenform) (u : EulerFactorKind) (q : ℕ) [Fact q.Prime] (Q Q' : ℂ[X]),
     G.IsEulerFactor u q Q → G.IsEulerFactor u q Q' → Q = Q'
