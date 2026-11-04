@@ -353,6 +353,13 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.GL2.AutomorphicFormSp
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.GL2.BaseChange
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.GL2.Cartan
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.GL2.CharacterForm
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.GL2.ClassicalLift
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.GL2.ClassicalLiftBaseChange
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.GL2.ClassicalLiftCasimir
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.GL2.ClassicalLiftCentral
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.GL2.ClassicalLiftCuspidal
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.GL2.ClassicalLiftHecke
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.GL2.ClassicalLiftSelfTwist
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.GL2.ComplexMultiplication
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.GL2.Hecke
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.GL2.Level

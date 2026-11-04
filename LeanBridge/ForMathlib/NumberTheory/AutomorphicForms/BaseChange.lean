@@ -14,15 +14,13 @@ form `g` on `GL(2)` over `K` is a **base change** of `f` (LMFDB `mf.base_change`
 `L_𝔮(g, T) = L_𝔭^{(r)}(f, T)` for all but finitely many primes `𝔮` of `K`, where `𝔮` lies over
 `𝔭 ∤ 𝔑` and `r` is the residue degree of `𝔮` over `𝔭`.
 
-Modular forms on `GL(2)` over an arbitrary number field are not formalised: what is missing is
-the general notion (automorphic forms on `GL₂(𝔸_F)`, or tuples of functions on
-`ℍ^{r₁} × ℋ₃^{r₂}` indexed by the class group) with Hecke operators `T_𝔭` at every `𝔭 ∤ 𝔑` and a
-central character, which give `L_𝔭(f, T) = 1 - a_𝔭 T + χ(𝔭) N(𝔭)^{k-1} T²`; only classical
-newforms (`F = ℚ`), Hilbert modular forms (`F` totally real) and Bianchi modular forms (`F`
-imaginary quadratic of class number `1`) exist. The base change relation is therefore formalised
-on the families of good Euler factors, through which the LMFDB defines it, and `h^{(r)}` is
-formalised for every polynomial: normalised to keep the constant term, which is `1` for an Euler
-factor, it maps `∏ᵢ (1 - αᵢ T)` to `∏ᵢ (1 - αᵢ^r T)`.
+The base change relation is formalised here on families of good Euler factors, through which the
+LMFDB defines it, so that it applies to every family of `GL(2)` forms in LeanBridge: classical
+newforms (`F = ℚ`), Hilbert modular forms (`F` totally real), Bianchi modular forms (`F` imaginary
+quadratic of class number `1`), and automorphic forms on `GL₂(𝔸_F)` over any number field, for
+which it is `AdelicGL2.IsBaseChangeOf`. The polynomial `h^{(r)}` is formalised for every
+polynomial: normalised to keep the constant term, which is `1` for an Euler factor, it maps
+`∏ᵢ (1 - αᵢ T)` to `∏ᵢ (1 - αᵢ^r T)`.
 
 ## Main definitions
 
@@ -120,8 +118,8 @@ variable {F K : Type*} [Field F] [Field K] [Algebra F K]
 (LMFDB `mf.base_change`) of a modular form `f` on `GL(2)` over `F ⊆ K` of level `𝔑`, with good
 Euler factors `Lf 𝔭` at the primes `𝔭 ∤ 𝔑`: `L_𝔮(g, T) = L_𝔭^{(r)}(f, T)` for all but finitely
 many primes `𝔮` of `K`, where `𝔮` lies over `𝔭 ∤ 𝔑` and `r` is the residue degree of `𝔮` over `𝔭`.
-Modular forms on `GL(2)` over arbitrary number fields are not formalised, so the relation is
-stated on the families of good Euler factors through which the LMFDB defines it. -/
+The relation is stated on the families of good Euler factors through which the LMFDB defines it;
+for automorphic forms on `GL₂(𝔸_F)` it is `AdelicGL2.IsBaseChangeOf`. -/
 def IsBaseChangeOfEulerFactors (𝔑 : Ideal (𝓞 F)) (Lf : Ideal (𝓞 F) → ℂ[X])
     (Lg : Ideal (𝓞 K) → ℂ[X]) : Prop :=
   ∀ᶠ 𝔮 in Filter.cofinite, 𝔮.IsPrime → 𝔮 ≠ ⊥ → ¬𝔑 ≤ 𝔮.comap (algebraMap (𝓞 F) (𝓞 K)) →

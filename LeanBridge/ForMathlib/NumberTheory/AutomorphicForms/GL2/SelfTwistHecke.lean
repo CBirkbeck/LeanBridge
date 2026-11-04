@@ -438,6 +438,6 @@ lemma IsSelfTwist.heckeEigenvalue_eq_zero (h : IsHeckeEigenform ω 𝔑 φ) (hχ
 good primes (LMFDB `mf.cm`). -/
 lemma HasCMBy.hasCMEigenvalues (h : IsHeckeEigenform ω 𝔑 φ) (hχ : HasCMBy χ φ) :
     HasCMEigenvalues χ 𝔑 φ :=
-  ⟨hχ.1, fun _ hv _ ↦ hχ.2.heckeEigenvalue_eq h hv⟩
+  ⟨hχ.1, fun _ hv _ ↦ hχ.2.1.heckeEigenvalue_eq h hv⟩
 
 end AdelicGL2

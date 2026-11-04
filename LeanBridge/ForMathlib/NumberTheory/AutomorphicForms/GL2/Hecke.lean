@@ -18,10 +18,10 @@ A **Hecke eigenform** of level `𝔑` is a nonzero automorphic form which, at ev
 
 The LMFDB's Euler factors are in the arithmetic normalisation of a motivic weight `w`,
 `1 - N(v)^{(w-1)/2} a_v T + ω(ϖ) N(v)^w T²`, the analytic one evaluated at `N(v)^{w/2} T`
-(`AdelicGL2.arithmeticEulerFactor`). For a classical newform `f` of weight `k` with `w = k - 1`, it
-should be the factor `1 - a_p(f) T + χ(p) p^{k-1} T²`, with `a_p = p^{k/2-1} a_v`; this was
-computed by hand and is not proved here, since the adelic lift of a newform is not formalised. The
-base change relation does not depend on `w` (`AdelicGL2.isBaseChangeOf_arithmetic_iff`).
+(`AdelicGL2.arithmeticEulerFactor`). For the adelic lift of a classical newform `f` of weight `k`,
+with `w = k - 1`, it is the factor `1 - a_p(f) T + χ(p) p^{k-1} T²`, with `a_p = p^{k/2-1} a_v`
+(`AdelicGL2.arithmeticEulerFactor_adelicLift`). The base change relation does not depend on `w`
+(`AdelicGL2.isBaseChangeOf_arithmetic_iff`).
 
 The residue field `𝒪_F / v` is given a `Fintype` instance, scoped to `AdelicGL2`, for the sums
 over its elements.

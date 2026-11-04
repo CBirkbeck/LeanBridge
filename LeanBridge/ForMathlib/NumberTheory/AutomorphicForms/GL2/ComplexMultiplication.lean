@@ -118,13 +118,15 @@ def IsSelfTwist : Prop :=
 
 variable (χ φ) in
 /-- A function `φ` on `GL₂(𝔸_F)` has **complex multiplication by `χ`** (LMFDB `mf.cm`): `χ` is a
-nontrivial Hecke character and `φ` is equal to its twist by `χ`. -/
+nontrivial Hecke character and `φ` is a nonzero function equal to its twist by `χ`. The zero
+function, which is equal to all its twists, is excluded, as the knowl is about modular forms with
+Hecke eigenvalues. -/
 def HasCMBy : Prop :=
-  χ ≠ 1 ∧ IsSelfTwist χ φ
+  χ ≠ 1 ∧ IsSelfTwist χ φ ∧ φ ≠ 0
 
 variable (φ) in
 /-- A function `φ` on `GL₂(𝔸_F)` has **complex multiplication**, or **CM** (LMFDB `mf.cm`), if it
-is equal to its twist by a nontrivial Hecke character of `F`. -/
+is nonzero and equal to its twist by a nontrivial Hecke character of `F`. -/
 def HasCM : Prop :=
   ∃ χ : HeckeCharacter F, HasCMBy χ φ
 
@@ -309,7 +311,7 @@ lemma one_add_charDet_ne_zero : (fun _ ↦ 1) + charDet χ ≠ 0 := fun h ↦ by
 (LMFDB `mf.cm`). -/
 lemma hasCMBy_one_add_charDet (h₁ : χ ≠ 1) (h₂ : χ ^ 2 = 1) :
     HasCMBy χ ((fun _ ↦ 1) + charDet χ) :=
-  ⟨h₁, IsSelfTwist.of_twist_eq <| twist_one_add_charDet h₂⟩
+  ⟨h₁, IsSelfTwist.of_twist_eq <| twist_one_add_charDet h₂, one_add_charDet_ne_zero⟩
 
 /-- The nontrivial quadratic Hecke character of `ℚ` of conductor `4`: the Dirichlet character `χ₄`,
 which is the character of `ℚ(i)`, through Tau Ceti's `HeckeCharacter.ofDirichletCharacter`. -/
