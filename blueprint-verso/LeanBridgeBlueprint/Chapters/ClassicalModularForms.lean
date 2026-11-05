@@ -515,7 +515,7 @@ The set $`\{\sigma(f):\sigma\in\Gal(\overline{\Q}/\Q)\}` of all Galois conjugate
 Depends on: {uses "cmf.newform"}[] {uses "nf.degree"}[]
 :::
 
-:::definition "cmf.galois_orbit" (lean := "HeckeRing.GL2.Newform.galoisOrbit, HeckeRing.GL2.NewformOrbit, HeckeRing.GL2.Newform.galoisOrbitRel, HeckeRing.GL2.Newform.finite_galoisOrbit, HeckeRing.GL2.Newform.galoisOrbitBasis, HeckeRing.GL2.Newform.orbit_algebraicClosure_eq_galoisOrbit, HeckeRing.GL2.Newform.orbit_eq_galoisOrbit")
+:::definition "cmf.galois_orbit"
 *Galois orbit of a newform.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.galois_orbit))
 
 The *Galois orbit* of a {bpref "cmf.newform"}[newform] $`f\in S_k^{\rm new}(N,\chi)` is the finite set
@@ -585,7 +585,7 @@ The {bpref "cmf.newspace"}[newspace] $`S_k^{\rm new}(N,\chi)\subseteq S_k(N,\chi
 Depends on: {uses "character.dirichlet"}[] {uses "cmf"}[] {uses "cmf.cusp_form"}[] {uses "cmf.level"}[] {uses "cmf.petersson_scalar_product"}[] {uses "cmf.weight"}[]
 :::
 
-:::definition "cmf.hecke_orbit" (lean := "HeckeRing.GL2.heckeRingHomCuspCharSpace, HeckeRing.GL2.heckeTCuspNat")
+:::definition "cmf.hecke_orbit"
 *Hecke orbit.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.hecke_orbit))
 
 The *Hecke orbit* of a {bpref "cmf.cusp_form"}[cusp form] $`f` in $`S_k(N,\chi)` is defined as the

@@ -997,15 +997,6 @@
     "HeckeRing.GL2.Newform.exists_isGaloisConjugateBy": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisConjugateExists",
     "HeckeRing.GL2.Newform.ncard_galoisOrbit_eq": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisOrbit"
   },
-  "cmf.galois_orbit": {
-    "HeckeRing.GL2.Newform.galoisOrbit": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisOrbit",
-    "HeckeRing.GL2.NewformOrbit": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisOrbit",
-    "HeckeRing.GL2.Newform.galoisOrbitRel": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisOrbit",
-    "HeckeRing.GL2.Newform.finite_galoisOrbit": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisOrbit",
-    "HeckeRing.GL2.Newform.galoisOrbitBasis": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.NewformSubspace",
-    "HeckeRing.GL2.Newform.orbit_algebraicClosure_eq_galoisOrbit": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisActionOnNewforms",
-    "HeckeRing.GL2.Newform.orbit_eq_galoisOrbit": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisActionOnNewforms"
-  },
   "cmf.hecke_galois_orbit": {
     "HeckeRing.GL2.NewformOrbit.traceSeq": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisOrbitLabel",
     "HeckeRing.GL2.NewformOrbit.letterLabel": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisOrbitLabel",
@@ -1025,10 +1016,6 @@
     "HeckeRing.GL2.heckeRingHomCharSpace": "TauCeti.NumberTheory.ModularForms.HeckeSlash.Nebentypus.Action",
     "HeckeRing.GL2.heckeTCompositeGamma0": "TauCeti.NumberTheory.HeckeRing.GL2.Gamma0.Diagonal.Composite",
     "HeckeRing.GL2.heckeTNat": "TauCeti.NumberTheory.ModularForms.HeckeSlash.Operators"
-  },
-  "cmf.hecke_orbit": {
-    "HeckeRing.GL2.heckeRingHomCuspCharSpace": "TauCeti.NumberTheory.ModularForms.HeckeSlash.Nebentypus.Action",
-    "HeckeRing.GL2.heckeTCuspNat": "TauCeti.NumberTheory.ModularForms.HeckeSlash.Operators"
   },
   "cmf.hecke_ring_generators": {
     "HeckeRing.GL2.Newform.coefficientRingGeneratorBound": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.CoefficientRing",
