@@ -15,7 +15,7 @@ file := "Sato-Tate-groups"
 
 This section lists the LMFDB definitions in the category `st_group`. Each definition links back to its LMFDB knowl.
 
-:::definition "st_group.ambient" (lean := "SatoTateGroup.ambient, SatoTateGroup.ambientGroup, Matrix.satoTateForm, Matrix.reindex_J_eq_satoTateForm, SatoTateGroup.mem_ambientGroup_iff_of_even")
+:::definition "st_group.ambient"
 *Ambient group of a Sato-Tate group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.ambient))
 
 A {bpref "st_group.definition"}[Sato-Tate group] of {bpref "st_group.weight"}[weight] $`w` and {bpref "st_group.degree"}[degree] $`d` is a subgroup of either:
@@ -31,7 +31,7 @@ In either case, the group $`\mathrm{USp}(d)` or $`\mathrm{O}(d)` is called the *
 Depends on: {uses "st_group.definition"}[] {uses "st_group.degree"}[] {uses "st_group.weight"}[]
 :::
 
-:::definition "st_group.component_group" (lean := "Subgroup.connectedComponentOfOne, Subgroup.normal_connectedComponentOfOne, QuotientGroup.totallyDisconnectedSpace_connectedComponentOfOne")
+:::definition "st_group.component_group"
 *Component group of a Sato-Tate group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.component_group))
 
 The *component group* of a {bpref "st_group.definition"}[Sato-Tate group] $`G` is the quotient $`G/G^0` of $`G` by its {bpref "st_group.identity_component"}[identity component] $`G^0`, which is a normal subgroup of finite index.
@@ -51,7 +51,7 @@ Component groups are named according to their isomorphism type.  This does not d
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.base_change"}[] {uses "ag.dimension"}[] {uses "group.alternating"}[] {uses "group.cyclic"}[] {uses "group.dihedral"}[] {uses "group.symmetric"}[] {uses "nf"}[] {uses "nf.galois_group"}[] {uses "st_group.definition"}[] {uses "st_group.identity_component"}[]
 :::
 
-:::definition "st_group.components" (lean := "Subgroup.connectedComponentOfOne, connectedComponent, smul_connectedComponent, Subgroup.normal_connectedComponentOfOne, ConnectedComponents")
+:::definition "st_group.components"
 *Components of a Sato-Tate group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.components))
 
 As a compact Lie group, a {bpref "st_group.definition"}[Sato-Tate group] $`G` need not be {bpref "st_group.connected"}[connected], but it necessarily consists of a finite set of components, each of which is a coset of the {bpref "st_group.identity_component"}[identity component] $`G^0`, a normal subgroup.  The number of components is equal to the cardinality of the {bpref "st_group.component_group"}[component group] $`G/G^0`.
@@ -82,7 +82,7 @@ This is known for all elliptic curves over {bpref "nf.totally_real"}[totally rea
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.dimension"}[] {uses "artin"}[] {uses "ec"}[] {uses "group.haar_measure"}[] {uses "nf.cm_field"}[] {uses "nf.totally_real"}[] {uses "st_group.usp"}[]
 :::
 
-:::definition "st_group.degree" (lean := "SatoTateGroup, SatoTateGroup.degree, SatoTateGroup.natDegree_charpoly")
+:::definition "st_group.degree"
 *Degree of a Sato-Tate group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.degree))
 
 The *degree* $`d` of a {bpref "st_group.definition"}[Sato-Tate group] is the degree of the characteristic polynomials of its elements, equivalently, the {bpref "ag.dimension"}[dimension] of the $`d\times d` matrices it contains.
@@ -92,7 +92,7 @@ For an {bpref "ag.abelian_variety"}[abelian variety] $`A` over a {bpref "nf"}[nu
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.dimension"}[] {uses "ag.jacobian"}[] {uses "nf"}[] {uses "st_group.definition"}[]
 :::
 
-:::definition "st_group.first_a2_moment" (lean := "SatoTateGroup.firstA2Moment, SatoTateGroup.charpolyCoeff")
+:::definition "st_group.first_a2_moment"
 *First $`a_2` moment.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.first_a2_moment))
 
 The *first $`a_2` moment* of a {bpref "st_group.definition"}[Sato-Tate group] $`G` is the expected value of the quadratic coefficient of the characteristic polynomial of a random element of $`G` (under its {bpref "group.haar_measure"}[Haar measure]).
@@ -102,7 +102,7 @@ When $`G` is the Sato-Tate group of an {bpref "ag.abelian_variety"}[abelian vari
 Depends on: {uses "ag.abelian_variety"}[] {uses "group.haar_measure"}[] {uses "st_group.definition"}[]
 :::
 
-:::definition "st_group.fourth_trace_moment" (lean := "SatoTateGroup.fourthTraceMoment, SatoTateGroup.traceMoment")
+:::definition "st_group.fourth_trace_moment"
 *Fourth trace moment.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.fourth_trace_moment))
 
 The *fourth trace moment* of a {bpref "st_group.definition"}[Sato-Tate group] $`G` is the expected value of the fourth power of the trace of a random element of $`G` (under the {bpref "group.haar_measure"}[Haar measure]).
@@ -112,7 +112,7 @@ By a result known as "Larsen's alternative" , if the fourth trace moment is less
 Depends on: {uses "group.haar_measure"}[] {uses "st_group.definition"}[] {uses "st_group.weight"}[]
 :::
 
-:::definition "st_group.generators" (lean := "SatoTateGroup.IsGeneratingSet, SatoTateGroup.isGeneratingSet_iff_closure_image_eq_top, SatoTateGroup.IsGeneratingSet.exists_mem_closure_mk_eq, SatoTateGroup.IsGeneratingSet.closure_eq_top, Subgroup.connectedComponentOfOne")
+:::definition "st_group.generators"
 *Generators of a Sato-Tate group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.generators))
 
 The generators of a {bpref "st_group.definition"}[Sato-Tate group] $`G` are a set $`S` of matrices $`g` that together with the identity component $`G^0` generate $`G`.
@@ -122,7 +122,7 @@ The group $`\langle S\rangle` generated by $`S` necessarily contains representat
 Depends on: {uses "st_group.component_group"}[] {uses "st_group.definition"}[] {uses "st_group.weight"}[]
 :::
 
-:::definition "st_group.hodge_circle" (lean := "SatoTateGroup.IsHodgeCircle, SatoTateGroup.HasHodgeEigenvalues")
+:::definition "st_group.hodge_circle"
 *Hodge circle.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.hodge_circle))
 
 For a {bpref "st_group.definition"}[Sato-Tate group] $`G` of {bpref "st_group.degree"}[degree] $`d` and {bpref "st_group.weight"}[weight] $`w` a *Hodge circle* is a continuous homomorphism
@@ -140,7 +140,7 @@ When $`G` is the Sato-Tate group of a motive $`X` of weight $`w`, the $`h^{p,q}`
 Depends on: {uses "st_group.definition"}[] {uses "st_group.degree"}[] {uses "st_group.weight"}[]
 :::
 
-:::definition "st_group.identity_component" (lean := "Subgroup.connectedComponentOfOne, Subgroup.normal_connectedComponentOfOne")
+:::definition "st_group.identity_component"
 *Identity component of a Sato-Tate group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.identity_component))
 
 The *identity component* of a {bpref "st_group.definition"}[Sato-Tate group] $`G` is the connected component $`G^0` of the identity element.  As a compact Lie group, the identity component $`G^0` is a normal subgroup of finite index.  The quotient $`G/G^0` is the {bpref "st_group.component_group"}[component group] of $`G`.
@@ -148,7 +148,7 @@ The *identity component* of a {bpref "st_group.definition"}[Sato-Tate group] $`G
 Depends on: {uses "st_group.definition"}[]
 :::
 
-:::definition "st_group.index" (lean := "Subgroup.index, Subgroup.connectedComponentOfOne, Subgroup.normal_connectedComponentOfOne")
+:::definition "st_group.index"
 *Index of the identity component.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.index))
 
 The identity component $`G^0` of a compact Lie group $`G` is a normal subgroup of finite index; this index is equal to the cardinality of the {bpref "st_group.component_group"}[component group] $`G/G^0`.
@@ -188,7 +188,7 @@ In the symplectic case the irreducible characters of $`\mathrm{USp}(2g)` can be 
 Depends on: {uses "st_group.ambient"}[] {uses "st_group.definition"}[] {uses "st_group.moment_simplex"}[]
 :::
 
-:::definition "st_group.moment_simplex" (lean := "SatoTateGroup.momentSimplexRow, SatoTateGroup.mixedMoment, SatoTateGroup.weightedDegree")
+:::definition "st_group.moment_simplex"
 *Moment simplex.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.moment_simplex))
 
 For a {bpref "st_group.definition"}[Sato-Tate group] $`G` of odd {bpref "st_group.weight"}[weight] and {bpref "st_group.degree"}[degree] $`2g` with $`g>1` it is natural to organize the mixed moments
@@ -202,7 +202,7 @@ The *moment simplex* of a Sato-Tate group is the triangular table of nonzero mix
 Depends on: {uses "st_group.definition"}[] {uses "st_group.degree"}[] {uses "st_group.weight"}[]
 :::
 
-:::definition "st_group.moments" (lean := "SatoTateGroup.moment, SatoTateGroup.charpolyCoeff, SatoTateGroup.esymmEigen, SatoTateGroup.powerSum, SatoTateGroup.moment_zero")
+:::definition "st_group.moments"
 *Moment statistics.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.moments))
 
 *Moment statistics* refers to moments of random variables associated to a {bpref "st_group.definition"}[Sato-Tate group] $`G`, where the distribution of the random variable is defined using the pushforward of the Haar measure of $`G`.
@@ -214,7 +214,7 @@ The *moment sequence* of $`a_i` (or any random variable) is the integer sequence
 Depends on: {uses "st_group.definition"}[]
 :::
 
-:::definition "st_group.probabilities" (lean := "SatoTateGroup.probability")
+:::definition "st_group.probabilities"
 *Event probabilities.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.probabilities))
 
 If $`a_i:=a_i(g)` denotes the $`i`th coefficient of the characteristic polynomial $`\sum a_ix^i` of a random matrix $`g` in a {bpref "st_group.definition"}[Sato-Tate group] $`G` with {bpref "group.haar_measure"}[Haar measure] $`\mu`, then
@@ -228,7 +228,7 @@ Note that while $`\mathrm{Pr}[a_i=n]=0` implies that $`\{g\in G:a_i(g) = n\}` ha
 Depends on: {uses "group.haar_measure"}[] {uses "st_group.definition"}[]
 :::
 
-:::definition "st_group.rational" (lean := "SatoTateGroup.IsRational, SatoTateGroup.IsRationalSubgroup, TauCeti.rationalWeylRep")
+:::definition "st_group.rational"
 *Rational Sato-Tate group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.rational))
 
 A {bpref "st_group.definition"}[Sato-Tate group] $`G` of {bpref "st_group.degree"}[degree] $`d` is said to be *rational* if for every irreducible character $`\chi` of $`\GL_d(\C)` and every component $`H` of $`G` we have
@@ -252,7 +252,7 @@ The *real dimension* of a {bpref "st_group.definition"}[Sato-Tate group] is its 
 Depends on: {uses "st_group.definition"}[]
 :::
 
-:::definition "st_group.second_trace_moment" (lean := "SatoTateGroup.secondTraceMoment, SatoTateGroup.traceMoment")
+:::definition "st_group.second_trace_moment"
 *Second trace moment.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.second_trace_moment))
 
 The *second trace moment* of a {bpref "st_group.definition"}[Sato-Tate group] $`G` is the expected value of the square of the trace of a random element of $`G` (under its {bpref "group.haar_measure"}[Haar measure]).
@@ -262,7 +262,7 @@ When $`G` is the Sato-Tate group of an abelian variety, this is equal to the dim
 Depends on: {uses "ag.endomorphism_algebra"}[] {uses "group.haar_measure"}[] {uses "st_group.definition"}[]
 :::
 
-:::definition "st_group.subgroups" (lean := "IsCoatom, Subgroup.FiniteIndex")
+:::definition "st_group.subgroups"
 *Maximal subgroups.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.subgroups))
 
 For a {bpref "st_group.definition"}[Sato-Tate group] $`G`, its *maximal subgroups* are the proper subgroups $`H` of $`G` of finite index that are not contained in any other proper subgroup of $`G`; such groups necessarily have the same {bpref "st_group.identity_component"}[identity component] $`H^0=G^0` as $`G`.
@@ -270,7 +270,7 @@ For a {bpref "st_group.definition"}[Sato-Tate group] $`G`, its *maximal subgroup
 Depends on: {uses "st_group.definition"}[] {uses "st_group.identity_component"}[]
 :::
 
-:::definition "st_group.supgroups" (lean := "SatoTateGroup.IsMinimalSupergroup, SatoTateGroup.IsMinimalRationalSupergroup, SatoTateGroup.IsMaximal, SatoTateGroup.IsFiniteIndexSupergroup")
+:::definition "st_group.supgroups"
 *Minimal supergroups.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.supgroups))
 
 The *minimal supergroups* of a {bpref "st_group.definition"}[Sato-Tate group] $`G` are the groups $`H` that properly contain $`G` with finite index and do not properly contain any other proper supergroup of $`G`; they necessarily have the same {bpref "st_group.identity_component"}[identity component] $`H^0=G^0` as $`G`.
@@ -300,7 +300,7 @@ $$`\Omega = \begin{bmatrix} 0 & I_n\\ -I_n & 0\end{bmatrix},`
 where $`I_n` denotes the $`n\times n` identity matrix.
 :::
 
-:::definition "st_group.trace_moments" (lean := "SatoTateGroup.traceMoment, SatoTateGroup.trace, SatoTateGroup.charpolyCoeff_one")
+:::definition "st_group.trace_moments"
 *Trace moments of a Sato-Tate group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.trace_moments))
 
 The trace $`t` of a random element of a {bpref "st_group.definition"}[Sato-Tate group] $`G` can be viewed as a random variable whose distribution is given by the pushforward of the Haar measure on $`G` under the trace map.
@@ -312,7 +312,7 @@ For Sato-Tate groups of odd {bpref "st_group.weight"}[weight] we have $`t=-a_1` 
 Depends on: {uses "st_group.definition"}[] {uses "st_group.weight"}[]
 :::
 
-:::definition "st_group.trace_zero_density" (lean := "SatoTateGroup.traceZeroDensity")
+:::definition "st_group.trace_zero_density"
 *Trace zero density of a Sato-Tate group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.trace_zero_density))
 
 The *trace zero density* of a {bpref "st_group.definition"}[Sato-Tate group] is the probability that a randomly sampled element (chosen according to the {bpref "group.haar_measure"}[Haar measure]) has trace zero.

@@ -11,7 +11,7 @@ open Informal
 
 This section lists the LMFDB definitions in the category `g2c`. Each definition links back to its LMFDB knowl.
 
-:::definition "g2c.abs_discriminant" (lean := "HyperellipticEquation.discriminant, HyperellipticEquation.IsMinimal, HyperellipticEquation.IsMinimal.abs_discriminant_eq")
+:::definition "g2c.abs_discriminant"
 *Absolute discriminant.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.abs_discriminant))
 
 The *absolute discriminant* of a {bpref "g2c.g2curve"}[genus 2 curve] over $`\Q` is the absolute value of its {bpref "g2c.discriminant"}[discriminant].
@@ -19,7 +19,7 @@ The *absolute discriminant* of a {bpref "g2c.g2curve"}[genus 2 curve] over $`\Q`
 Depends on: {uses "g2c.discriminant"}[] {uses "g2c.g2curve"}[]
 :::
 
-:::definition "g2c.all_rational_points" (lean := "HyperellipticEquation.RationalPoint, HyperellipticEquation.IsWeightedSolution, HyperellipticEquation.weightedScale, AlgebraicGeometry.Scheme.PointOver")
+:::definition "g2c.all_rational_points"
 *Rational points.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.all_rational_points))
 
 For a curve $`X` of {bpref "ag.curve.genus"}[genus] $`g\ge 2` over $`\Q` (or any number fields) the set of *rational points* $`X(\Q)` is finite, by a theorem of Faltings. At present no algorithm is known that explicitly computes a provably complete list of the points in $`X(\Q)`, for any given curve $`X`, but in specific cases, including when the rank of the {bpref "ag.jacobian"}[Jacobian] of $`X` is less than $`g`, this can often be accomplished.
@@ -67,7 +67,7 @@ The Birch and Swinnerton-Dyer for abelian varieties implies that the analytic ra
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.mordell_weil"}[] {uses "ag.regulator"}[] {uses "g2c.analytic_rank"}[] {uses "g2c.mordell_weil_rank"}[] {uses "g2c.real_period"}[] {uses "g2c.tamagawa"}[] {uses "ag.tate_shafarevich"}[] {uses "g2c.torsion"}[] {uses "lfunction"}[] {uses "lfunction.leading_coeff"}[]
 :::
 
-:::definition "g2c.aut_grp" (lean := "HyperellipticEquation.hyperellipticInvolution, HyperellipticEquation.orderOf_hyperellipticInvolution, GenusTwoCurve.nontrivial_algEquiv, GenusTwoCurve.orderOf_hyperellipticInvolution, CategoryTheory.Aut")
+:::definition "g2c.aut_grp"
 *Automorphism group of an algebraic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.aut_grp))
 
 An *automorphism* of an {bpref "ag.curve"}[algebraic curve] is an isomorphism from the curve to itself.  The set of automorphisms of a curve $`X` form a group $`\mathrm{Aut}(X)` under composition; this is the *automorphism group* of the curve.
@@ -131,7 +131,7 @@ The valuation of $`N` at a prime $`p` satisfies the following bounds.
 Depends on: {uses "ag.bad_prime"}[] {uses "ag.jacobian"}[] {uses "g2c.discriminant"}[] {uses "g2c.g2curve"}[]
 :::
 
-:::definition "g2c.decomposition" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny, TauCeti.AlgebraicGeometry.AbelianVariety.baseChange, TauCeti.AlgebraicGeometry.AbelianVariety.dim, TauCeti.AlgebraicGeometry.AbelianVariety.prod")
+:::definition "g2c.decomposition"
 *Decomposition of the Jacobian of a genus 2 curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.decomposition))
 
 An {bpref "ag.abelian_variety"}[abelian variety] $`A` defined over a field $`K` is said to *split* or *decompose* (over $`K`) if it is {bpref "av.isogeny"}[isogenous] to a product of abelian varieties $`B_1\times B_2` of lower positive dimension; the abelian varieties $`B_1` and $`B_2` are also defined over $`K`, as is the isogeny from $`A` to $`B_1\times B_2`.  An abelian variety that does not decompose is said to be {bpref "ag.simple"}[simple].  A simple abelian variety may decompose over a finite extension $`L/K` (meaning that its base change to $`L` decomposes), unless it is {bpref "ag.geom_simple"}[geometrically simple].
@@ -141,7 +141,7 @@ When $`A` is the Jacobian of a genus 2 curve, the abelian varieties $`B_1` and $
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.geom_simple"}[] {uses "av.isogeny"}[] {uses "ag.simple"}[] {uses "ec"}[]
 :::
 
-:::definition "g2c.discriminant" (lean := "HyperellipticEquation.discriminant, GenusTwoCurve.minimalDiscriminant, GenusTwoCurve.minimalDiscriminant_eq, GenusTwoCurve.exists_isMinimalEquation, HyperellipticEquation.IsMinimal.discriminant_eq, HyperellipticEquation.nonempty_algEquiv_iff_exists_changeOfVariables")
+:::definition "g2c.discriminant"
 *Discriminant of a genus 2 curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.discriminant))
 
 The discriminant $`\Delta` of a Weierstrass equation $`y^2+h(x)y=f(x)` can be computed as
@@ -156,7 +156,7 @@ where $`\text{lc}(f)` denotes the leading coefficient of $`f` and $`\text{disc}(
 The *discriminant* of a genus 2 curve over $`\Q` is the discriminant of a {bpref "g2c.minimal_equation"}[minimal equation] for the curve; it is an invariant of the curve that does not depend on the choice of minimal equation.
 :::
 
-:::definition "g2c.end_alg" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.End, TauCeti.AlgebraicGeometry.AbelianVariety.dim")
+:::definition "g2c.end_alg"
 *Endomorphism algebra.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.end_alg))
 
 The *endomorphism algebra* of an {bpref "ag.abelian_surface"}[abelian surface] $`A` over a {bpref "ring.field"}[field] $`K` is the $`\Q`-algebra $`\End(A) \otimes \Q`.  This is a special case of the {bpref "ag.endomorphism_algebra"}[endomorphism algebra] of an {bpref "ag.abelian_variety"}[abelian variety].
@@ -174,7 +174,7 @@ The first three cases occur when $`A` is {bpref "ag.simple"}[simple], while the 
 Depends on: {uses "ag.abelian_surface"}[] {uses "ag.abelian_variety"}[] {uses "ag.endomorphism_algebra"}[] {uses "ag.simple"}[] {uses "av.isogeny"}[] {uses "ec"}[] {uses "ring.field"}[]
 :::
 
-:::definition "g2c.g2_invariants" (lean := "Polynomial.g2Invariants, HyperellipticEquation.g2Invariants")
+:::definition "g2c.g2_invariants"
 *G2-invariants of a genus 2 curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.g2_invariants))
 
 The *G2-invariants* of a {bpref "g2c.g2curve"}[genus 2 curve] are absolute invariants associated to the {bpref "g2c.geom_iso_class"}[geometric isomorphism class] of the curve.  They are denoted $`g_1,g_2,g_3`.
@@ -196,7 +196,7 @@ $$`(g_1,g_2,g_3) = (0,\,0,\,J_6^5 / J_{10}^3).\qquad\qquad\quad`
 Depends on: {uses "g2c.g2curve"}[] {uses "g2c.geom_iso_class"}[] {uses "g2c.igusa_invariants"}[]
 :::
 
-:::definition "g2c.g2curve" (lean := "GenusTwoCurve, HyperellipticEquation, HyperellipticEquation.FunctionField, GenusTwoCurve.genus_functionField, GenusTwoCurve.isHyperellipticFunctionField")
+:::definition "g2c.g2curve"
 *Genus 2 curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.g2curve))
 
 Every (smooth, projective, geometrically integral) curve of genus 2 can be defined by a *Weierstrass equation* of the form
@@ -274,7 +274,7 @@ If $`X` is a curve over a field $`k`, its geometric automorphism group is denote
 Depends on: {uses "ag.base_change"}[] {uses "g2c.aut_grp"}[]
 :::
 
-:::definition "g2c.geom_end_alg" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.End, TauCeti.AlgebraicGeometry.AbelianVariety.End.baseChange, TauCeti.AlgebraicGeometry.AbelianVariety.baseChange")
+:::definition "g2c.geom_end_alg"
 *Geometric endomorphism algebra.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.geom_end_alg))
 
 The *geometric endomorphism algebra* of an {bpref "ag.abelian_surface"}[abelian surface] $`A` over a {bpref "ring.field"}[field] $`K` is the $`\Q`-algebra $`\End(A_{\overline{K}}) \otimes \Q`, the endomorphism algebra of the base change $`A_{\overline{K}}` of $`A` to an algebraic closure $`\overline{K}` of $`K`.  This is a special case of the {bpref "ag.geom_endomorphism_algebra"}[geometric endomorphism algebra] of an {bpref "ag.abelian_variety"}[abelian variety].
@@ -304,7 +304,7 @@ The *geometric isomorphism class* of a {bpref "ag.curve"}[curve] $`C` {bpref "ag
 Depends on: {uses "ag.base_change"}[] {uses "ag.base_field"}[] {uses "ag.curve"}[]
 :::
 
-:::definition "g2c.gl2type" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.IsSimpleGL2Type, TauCeti.AlgebraicGeometry.AbelianVariety.IsGL2Type, TauCeti.AlgebraicGeometry.AbelianVariety.IsCurveGL2Type")
+:::definition "g2c.gl2type"
 *$`\GL_2`-type.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.gl2type))
 
 A {bpref "ag.simple"}[simple] {bpref "ag.abelian_variety"}[abelian variety] $`A` over a field $`K` is said to be of *$`\textbf{GL}_2`-type* if its {bpref "ag.endomorphism_algebra"}[endomorphism algebra] $`\mathrm{End}(A)\otimes\Q` is commutative and has dimension (as a $`\Q`-vector space) equal to the dimension of $`A` (as an abelian variety).  More generally, an abelian variety is said to be of *$`\textbf{GL}_2`-type* if it is isogenous (over the ground field) to a product of pairwise non-isogenous simple abelian varieties of $`\textrm{GL}_2`-type.
@@ -324,7 +324,7 @@ For an {bpref "ag.abelian_variety"}[abelian variety] $`A` over $`\Q`, the local 
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.good_reduction"}[] {uses "lfunction"}[] {uses "lfunction.euler_product"}[]
 :::
 
-:::definition "g2c.good_reduction" (lean := "TauCeti.Model")
+:::definition "g2c.good_reduction"
 *Primes of good reduction.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.good_reduction))
 
 A {bpref "ag.variety"}[variety] $`X` over $`\mathbb{Q}` is said to have *good reduction* at a prime $`p` if it has an integral model whose reduction modulo $`p` defines a smooth variety of the same dimension; otherwise, $`p` is said to be a prime of *bad reduction*.
@@ -336,7 +336,7 @@ For all of the genus 2 curves currently in the LMFDB, every prime of good reduct
 Depends on: {uses "ag.jacobian"}[] {uses "ag.variety"}[]
 :::
 
-:::definition "g2c.has_square_sha" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.HasSquareSha, TauCeti.AlgebraicGeometry.AbelianVariety.tateShafarevichGroup, TauCeti.AlgebraicGeometry.AbelianVariety.mem_tateShafarevichGroup_iff, TauCeti.AlgebraicGeometry.AbelianVariety.pointRes, TauCeti.AlgebraicGeometry.AbelianVariety.IsJacobian")
+:::definition "g2c.has_square_sha"
 *Has square $`\Sha`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.has_square_sha))
 
 The {bpref "group.order"}[order] of the {bpref "ag.tate_shafarevich"}[Tate-Shafarevich group] of the {bpref "ag.jacobian"}[Jacobian] of a curve is either a square, or twice a square, assuming it is finite; this is a theorem of Poonen and Stoll .
@@ -356,7 +356,7 @@ The Hasse-Weil conjecture is implied by modularity and is thus known to hold, fo
 Depends on: {uses "ag.abelian_variety"}[] {uses "ec"}[] {uses "g2c.gl2type"}[] {uses "lfunction"}[] {uses "lfunction.critical_strip"}[] {uses "lfunction.functional_equation"}[] {uses "lfunction.selberg_class"}[] {uses "nf"}[]
 :::
 
-:::definition "g2c.igusa_clebsch_invariants" (lean := "Polynomial.igusaClebsch, HyperellipticEquation.igusaClebsch, Polynomial.sexticOrbitSum, Polynomial.sexticOrbitSum_comp, Polynomial.normalizeWeighted")
+:::definition "g2c.igusa_clebsch_invariants"
 *Igusa-Clebsch invariants of a genus 2 curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.igusa_clebsch_invariants))
 
 The *Igusa-Clebsch invariants* of a {bpref "g2c.g2curve"}[genus 2 curve] are weighted projective invariants associated to the {bpref "g2c.geom_iso_class"}[geometric isomorphism class] of the curve.  They are denoted $`I_2, I_4, I_6, I_{10}`, where the subscript indicates the weight.
@@ -377,7 +377,7 @@ Here each sum and product runs over the distinct expressions obtained by applyin
 Depends on: {uses "g2c.g2curve"}[] {uses "g2c.geom_iso_class"}[]
 :::
 
-:::definition "g2c.igusa_invariants" (lean := "Polynomial.igusa, HyperellipticEquation.igusa, Polynomial.normalizeWeighted")
+:::definition "g2c.igusa_invariants"
 *Igusa invariants of a genus 2 curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.igusa_invariants))
 
 The *Igusa invariants* of a {bpref "g2c.g2curve"}[genus 2 curve] are weighted projective invariants associated to the {bpref "g2c.geom_iso_class"}[geometric isomorphism class] of the curve.  They are denoted $`J_2, J_4, J_6, J_8, J_{10}`, where the subscript indicates the weight.
@@ -401,7 +401,7 @@ These invariants will be integral whenever $`f` is integral. The invariant $`J_8
 Depends on: {uses "g2c.g2curve"}[] {uses "g2c.geom_iso_class"}[] {uses "g2c.igusa_clebsch_invariants"}[]
 :::
 
-:::definition "g2c.isogeny_class" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety, TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny")
+:::definition "g2c.isogeny_class"
 *Isogeny class of an abelian variety.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.isogeny_class))
 
 The *isogeny class* (over a field $`K`) of an {bpref "ag.abelian_variety"}[abelian variety] $`A` over a field $`K` is the set of isomorphism classes of abelian varieties over $`K` that are {bpref "av.isogeny"}[isogenous] to $`A` (over $`K`).
@@ -413,7 +413,7 @@ Isogeny class information listed on LMFDB pages for curves refer to the isogeny 
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.jacobian"}[] {uses "av.isogeny"}[]
 :::
 
-:::definition "g2c.jac_end_lattice" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.endomorphismLattice, TauCeti.AlgebraicGeometry.AbelianVariety.endRange, TauCeti.AlgebraicGeometry.AbelianVariety.endomorphismField, TauCeti.AlgebraicGeometry.AbelianVariety.End.baseChangeTower_baseChange, TauCeti.AlgebraicGeometry.AbelianVariety.range_baseChange_le_endRange")
+:::definition "g2c.jac_end_lattice"
 *Endomorphism lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.jac_end_lattice))
 
 Let $`A` be an {bpref "ag.abelian_variety"}[abelian variety] over a field $`F`.  Given a field extension $`F' \supseteq F`, there is a natural inclusion of {bpref "ag.endomorphism_ring"}[endomorphism rings] $`\End(A)\subseteq\mathrm{End}(A_{F'})`, where $`A_{F'}` denotes the base change of $`A` to $`F'`.
@@ -505,7 +505,7 @@ For other primes, the correctness of the computed root numbers is contingent on 
 Depends on: {uses "ec.local_root_number"}[] {uses "g2c.tame_reduction"}[]
 :::
 
-:::definition "g2c.locally_solvable" (lean := "AlgebraicGeometry.Scheme.IsLocallySolvable, AlgebraicGeometry.Scheme.PointOver, AlgebraicGeometry.Scheme.isLocallySolvable_of_nonempty, AlgebraicGeometry.Scheme.HasPointIn")
+:::definition "g2c.locally_solvable"
 *Locally solvable.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.locally_solvable))
 
 A {bpref "ag.curve"}[curve] defined over the rational numbers is said to be *locally solvable* if the equation(s) defining the curve have a solution over $`\R` and over {bpref "lf.qp"}[$`\Q_p`] for every prime $`p`.  For curves over {bpref "nf"}[number fields] we require solutions over every completion of the number field.
@@ -527,7 +527,7 @@ For *generic* curves the {bpref "ag.geom_endomorphism_ring"}[geometric endomorph
 Depends on: {uses "ag.geom_endomorphism_ring"}[] {uses "ag.jacobian"}[]
 :::
 
-:::definition "g2c.minimal_equation" (lean := "HyperellipticEquation.IsMinimal, HyperellipticEquation, HyperellipticEquation.discriminant, HyperellipticEquation.weightedEquation, HyperellipticEquation.simplifiedPolynomial")
+:::definition "g2c.minimal_equation"
 *Minimal equation of a hyperelliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.minimal_equation))
 
 Every ({bpref "ag.curve.smooth"}[smooth], projective, geometrically integral) {bpref "ag.hyperelliptic_curve"}[hyperelliptic curve] $`X` over $`\Q` of {bpref "ag.curve.genus"}[genus] $`g` can be defined by an integral Weierstrass equation
@@ -543,7 +543,7 @@ One can always transform the minimal equation into a {bpref "g2c.simple_equation
 Depends on: {uses "ag.curve.genus"}[] {uses "ag.curve.smooth"}[] {uses "ag.hyperelliptic_curve"}[] {uses "g2c.discriminant"}[] {uses "g2c.good_reduction"}[]
 :::
 
-:::definition "g2c.mordell_weil_rank" (lean := "Module.finrank, TauCeti.AlgebraicGeometry.AbelianVariety, TauCeti.AlgebraicGeometry.AbelianVariety.isCommMonObj, CategoryTheory.Hom.commGroup")
+:::definition "g2c.mordell_weil_rank"
 *Mordell-Weil rank.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.mordell_weil_rank))
 
 The Mordell-Weil theorem states that the set of rational points on an {bpref "ag.abelian_variety"}[abelian variety] over a number field forms a finitely generated abelian group, hence isomorphic to a group of the form $`T \oplus \Z^r`, where $`T` is a finite torsion group.  The integer $`r\ge 0` is the *Mordell-Weil rank* of the abelian variety.
@@ -577,7 +577,7 @@ The *order* of a {bpref "g2c.mw_generator"}[generator] of the {bpref "ag.mordell
 Depends on: {uses "ag.mordell_weil"}[] {uses "g2c.mw_generator"}[]
 :::
 
-:::definition "g2c.num_rat_wpts" (lean := "TauCeti.Place.weierstrassWeight, TauCeti.branchPlaces")
+:::definition "g2c.num_rat_wpts"
 *Weierstrass points of a hyperelliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.num_rat_wpts))
 
 Every {bpref "ag.hyperelliptic_curve"}[hyperelliptic curve] is a
@@ -622,7 +622,7 @@ The *regulator* of a {bpref "g2c.g2curve"}[genus 2 curve] is the {bpref "ag.regu
 Depends on: {uses "ag.regulator"}[] {uses "g2c.g2curve"}[]
 :::
 
-:::definition "g2c.semistable_reduction" (lean := "AlgebraicGeometry.Scheme.HasSemistableReduction, AlgebraicGeometry.Scheme.IsSemistableOver, AlgebraicGeometry.Scheme.componentGenus, AlgebraicGeometry.Scheme.componentNormalization, AlgebraicGeometry.Scheme.componentSingularPointCount, TauCeti.Model.geometricSpecialFiber")
+:::definition "g2c.semistable_reduction"
 *Semistable reduction.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.semistable_reduction))
 
 A curve $`C` over a local field $`K` is said to have _semistable reduction_ if there exists a model over $`\mathcal{O}_K`, such that the special fibre is semistable, i.e., the special fibre is a geometrically reduced curve with at most nodal singularities, and each component of geometric genus 0 has at least 2 singular points, counted with multiplicity.
@@ -709,7 +709,7 @@ For primes $`p > 2g + 1`, any curve of genus $`g` has tame reduction at $`p`.
 Depends on: {uses "g2c.semistable_reduction"}[] {uses "lf.tame_degree"}[]
 :::
 
-:::definition "g2c.torsion" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety, TauCeti.GroupScheme.torsion")
+:::definition "g2c.torsion"
 *Torsion subgroup.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.torsion))
 
 The *torsion subgroup* of an {bpref "ag.abelian_variety"}[abelian variety] over a {bpref "nf"}[number field]  is the subgroup of elements of finite order; it is a finite group that is isomorphic to the direct sum of at most $`2g` cyclic groups, where $`g` is the dimension of the abelian variety.
@@ -719,7 +719,7 @@ The structure of the torsion subgroup can be compactly described by listing its 
 Depends on: {uses "ag.abelian_variety"}[] {uses "nf"}[]
 :::
 
-:::definition "g2c.torsion_order" (lean := "AddCommGroup.torsion, CommGroup.torsion, Nat.card, Nat.primeFactors")
+:::definition "g2c.torsion_order"
 *Torsion order.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.torsion_order))
 
 The *torsion order* of a finitely-generated abelian group such as the Mordell-Weil group of the {bpref "ag.jacobian"}[Jacobian] of a curve over a {bpref "nf"}[number field] is the cardinality of its {bpref "g2c.torsion"}[torsion subgroup]. The *torsion primes* are the primes that divide the torsion order, equivalently, the primes $`\ell` for which the Jacobian has a rational point of order $`\ell`.
@@ -727,7 +727,7 @@ The *torsion order* of a finitely-generated abelian group such as the Mordell-We
 Depends on: {uses "ag.jacobian"}[] {uses "g2c.torsion"}[] {uses "nf"}[]
 :::
 
-:::definition "g2c.two_selmer_rank" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.twoSelmerRank, TauCeti.AlgebraicGeometry.AbelianVariety.numberFieldSelmerGroup, TauCeti.AlgebraicGeometry.AbelianVariety.mem_numberFieldSelmerGroup_iff, TauCeti.AlgebraicGeometry.AbelianVariety.kummerCondition, TauCeti.AlgebraicGeometry.AbelianVariety.TorsionCoeff")
+:::definition "g2c.two_selmer_rank"
 *2-Selmer rank.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.two_selmer_rank))
 
 The *2-Selmer rank* of an {bpref "ag.abelian_variety"}[abelian variety] is the rank of its {bpref "ag.selmer_group"}[2-Selmer group].
@@ -737,7 +737,7 @@ The difference between the 2-Selmer rank and the 2-rank of the {bpref "g2c.torsi
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.mordell_weil"}[] {uses "ag.selmer_group"}[] {uses "ag.tate_shafarevich"}[] {uses "g2c.torsion"}[]
 :::
 
-:::definition "g2c.two_torsion_field" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.torsionField, TauCeti.AlgebraicGeometry.AbelianVariety.torsionField_le_iff, TauCeti.AlgebraicGeometry.AbelianVariety.isGalois_torsionField, TauCeti.AlgebraicGeometry.AbelianVariety.finiteDimensional_torsionField, TauCeti.AlgebraicGeometry.AbelianVariety.torsionRep")
+:::definition "g2c.two_torsion_field"
 *2-torsion field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.two_torsion_field))
 
 The *2-torsion field* of an {bpref "ag.abelian_variety"}[abelian variety] is the minimal field extension over which the 2-torsion subgroup of its {bpref "ag.mordell_weil"}[Mordell-Weil group] is rational; it is a Galois extension of the field over which the abelian variety is defined.

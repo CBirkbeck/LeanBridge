@@ -28,7 +28,7 @@ The adelic Hilbert modular surface may be geometrically reducible, and its compo
 Depends on: {uses "av.polarization"}[] {uses "av.princ_polarizable"}[] {uses "nf.narrow_class_group"}[]
 :::
 
-:::definition "hmsurface.congruence_subgroup" (lean := "HilbertModularGroup.principalCongruenceSubgroup, HilbertModularGroup.IsCongruenceSubgroup, HilbertModularGroup.IsLevel, HilbertModularGroup.level, HilbertModularGroup.glPlus")
+:::definition "hmsurface.congruence_subgroup"
 *Congruence Subgroup.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/hmsurface.congruence_subgroup))
 
 Let $`F` be a real quadratic field with ring of integers $`\Z_F`. Let
@@ -56,7 +56,7 @@ $$`\operatorname{tr}(\alpha_i)^2 - 4\det(\alpha_i) < 0.`
 If $`F` is a real quadratic field, an element $`\alpha \in \GL_2^+(F)` is called *elliptic* if the above condition holds for each real embedding of $`F`. An *elliptic point* is the (necessarily unique) fixed point in $`\frak{h}^2` of an elliptic element.
 :::
 
-:::definition "hmsurface.euler_number" (lean := "AlgebraicGeometry.Scheme.topologicalEulerNumber, AlgebraicGeometry.Scheme.bettiNumber, AlgebraicGeometry.Scheme.ComplexPoint, AlgebraicGeometry.Scheme.ComplexPoint.continuous_eval, TopCat.singularCohomology")
+:::definition "hmsurface.euler_number"
 *Topological Euler number.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/hmsurface.euler_number))
 
 The *(topological) Euler number* of a smooth projective variety $`X` over a field of characteristic zero is the quantity
@@ -78,7 +78,7 @@ The quotient $`\overline{Y}(\Gamma)(\C) := \Gamma \backslash \mathfrak{h}^2` is 
 Depends on: {uses "hmsurface.congruence_subgroup"}[] {uses "mf.upper_half_plane"}[]
 :::
 
-:::definition "hmsurface.hodge_numbers" (lean := "AlgebraicGeometry.Scheme.relativeDifferentials, SheafOfModules.exteriorPower, TauCeti.AlgebraicGeometry.Scheme.Modules.Cohomology")
+:::definition "hmsurface.hodge_numbers"
 *Hodge numbers.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/hmsurface.hodge_numbers))
 
 The *Hodge numbers* $`h^{p,q}` of a smooth projective variety $`X` over $`\mathbb{C}` are the dimensions of the complex vector spaces $`H^{p,q}(X) := H^q(X,\Omega^p)` appearing in the Hodge decomposition of the cohomology group $`H^n(X,\mathbb{C}) \cong \bigoplus_{p+q=n} H^{p,q}(X)`.
@@ -90,7 +90,7 @@ The *Hodge numbers* $`h^{p,q}` of a smooth projective variety $`X` over $`\mathb
 The self-intersection of the canonical divisor $`K` of the Hilbert modular surface. Note that this is also the first Chern number $`c_1^2`.
 :::
 
-:::definition "hmsurface.kodaira_dimension" (lean := "AlgebraicGeometry.Scheme.kodairaDimension, AlgebraicGeometry.Scheme.PlurigenusIsBigO, AlgebraicGeometry.Scheme.plurigenus, AlgebraicGeometry.Scheme.canonicalSheaf, AlgebraicGeometry.Scheme.kodairaDimension_eq_of_tendsto")
+:::definition "hmsurface.kodaira_dimension"
 *Kodaira dimension.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/hmsurface.kodaira_dimension))
 
 The *Kodaira dimension* of a projective variety $`X` with canonical bundle $`K`
@@ -124,7 +124,7 @@ The value for 't' can be either 'sl-0' or 'gl-0' to indicate the {bpref "hmsurfa
 Depends on: {uses "hmsurface.component_ideal"}[] {uses "hmsurface.congruence_subgroup"}[] {uses "hmsurface.hmsurface"}[] {uses "hmsurface.level"}[] {uses "nf.ideal_labels"}[] {uses "nf.label"}[]
 :::
 
-:::definition "hmsurface.level" (lean := "HilbertModularGroup.gammaZero, HilbertModularGroup.isCongruenceSubgroup_gammaZero, HilbertModularGroup.principalCongruenceSubgroup_le_gammaZero, HilbertModularGroup.gammaZeroLattice")
+:::definition "hmsurface.level"
 *Definition of the level.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/hmsurface.level))
 
 The *level* is a nonzero ideal $`\mathfrak{N}` which determines the {bpref "hmsurface.congruence_subgroup"}[congruence subgroup] $`\Gamma_0(\mathfrak{N})_{\mathfrak{b}}`. In the LMFDB, such an ideal $`\mathfrak{N}` is identified by a {bpref "nf.ideal.label.hmf"}[label].

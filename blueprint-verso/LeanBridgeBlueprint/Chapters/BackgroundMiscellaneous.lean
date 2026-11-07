@@ -15,7 +15,7 @@ file := "Background-miscellaneous"
 
 This section lists the LMFDB definitions in the category `crystals`. Each definition links back to its LMFDB knowl.
 
-:::definition "crystals.crystal" (lean := "RootPairing.Base.Crystal, RootPairing.Base.Crystal.IsSeminormal")
+:::definition "crystals.crystal"
 *Crystal.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/crystals.crystal))
 
 A *($`U_q(\mathfrak{g})`-)crystal* is a nonempty set $`B` together with maps
@@ -30,7 +30,7 @@ Here $`\mathfrak{g}` is a Lie or Kac-Moody algebra of a particular type with ind
 The map $`\mathrm{wt}` is called the weight function which maps a crystal element to a weight in the weight lattice $`P`. The maps $`e_i` and $`f_i` are called Kashiwara raising and lowering operators.
 :::
 
-:::definition "crystals.highest_weight" (lean := "RootPairing.Base.Crystal.IsHighestWeight, RootPairing.Base.Crystal.IsHighestWeightCrystal, RootPairing.Base.Crystal.IsHighestWeightCrystal.wt_eq")
+:::definition "crystals.highest_weight"
 *Highest weight crystals.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/crystals.highest_weight))
 
 Highest weight crystals are {bpref "crystals.crystal"}[Crystal] which have a highest weight element. A highest weight element $`b` is annihilated by all Kashiwara raising operators:

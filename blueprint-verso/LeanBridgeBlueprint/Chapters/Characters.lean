@@ -109,7 +109,7 @@ The *Conrey index* (or *index*) of a {bpref "character.dirichlet"}[Dirichlet cha
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.modulus"}[]
 :::
 
-:::definition "character.dirichlet.conrey.orbit_label" (lean := "DirichletCharacter.galoisOrbitLabel, DirichletCharacter.galoisOrbitIndex, DirichletCharacter.galoisOrbitTraceVector, DirichletCharacter.letterCode")
+:::definition "character.dirichlet.conrey.orbit_label"
 *Labels for Galois orbits of Dirichlet Characters.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.conrey.orbit_label))
 
 A {bpref "character.dirichlet.galois_orbit"}[Galois orbit] of {bpref "character.dirichlet"}[Dirichlet characters] is labelled as $`\texttt{q.A}`, where $`\texttt{q}` is the modulus of the characters in the orbit, and $`\texttt{A}` is a lower-case letter which corresponds to the lexicographic ordering of the Galois-invariant vector $`\left( \textup{Order}(\chi), \mathrm{Tr}(\chi(2)), \cdots, \mathrm{Tr}(\chi(\texttt{q} - 1) \right)`, for $`\chi` any Dirichlet character in the orbit. See Section 3.3 of  for more details.
@@ -155,7 +155,7 @@ for all primes $`p<10^{12}` except two cases:
 - for $`p=6692367337`, the Conrey generator is $`7` instead of $`5`.
 :::
 
-:::definition "character.dirichlet.degree" (lean := "Module.finrank, IntermediateField.adjoin, TauCeti.CharacterField")
+:::definition "character.dirichlet.degree"
 *Degree of a Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.degree))
 
 The *degree* of a Dirichlet character $`\chi` is the {bpref "nf.degree"}[degree] of its {bpref "character.dirichlet.value_field"}[field of values] $`\Q(\chi(\Z))`.
@@ -165,7 +165,7 @@ If $`\chi` has {bpref "character.dirichlet.order"}[order] $`n` then its degree i
 Depends on: {uses "character.dirichlet.order"}[] {uses "character.dirichlet.value_field"}[] {uses "nf.degree"}[]
 :::
 
-:::definition "character.dirichlet.field_cut_out" (lean := "IsCyclotomicExtension.Rat.intermediateFieldEquivSubgroupChar, IsCyclotomicExtension.Rat.galEquivZMod, IntermediateField.fixedField, IsCyclotomicExtension.Rat.card_intermediateFieldEquivSubgroupChar")
+:::definition "character.dirichlet.field_cut_out"
 *Fixed field of a Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.field_cut_out))
 
 Let $`\chi:\mathbb{Z}\to \mathbb{C}` be a {bpref "character.dirichlet"}[Dirichlet character with modulus $`q`]. The *fixed field* of $`\chi` is $`\mathbb{Q}(\zeta_q)^{\ker(\chi)}`. By definition, this is the subfield of elements fixed
@@ -177,7 +177,7 @@ By the Galois correspondence, the fixed field $`\mathbb{Q}(\zeta_q)^{\ker(\chi)}
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.order"}[]
 :::
 
-:::definition "character.dirichlet.galois_orbit" (lean := "MulChar.galoisOrbit")
+:::definition "character.dirichlet.galois_orbit"
 *Galois orbit of a Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.galois_orbit))
 
 The *Galois orbit* of a {bpref "character.dirichlet"}[Dirichlet character] $`\chi` of {bpref "character.dirichlet.modulus"}[modulus] $`q` and {bpref "character.dirichlet.order"}[order] $`n` is the set $`[\chi]:=\{\sigma(\chi): \sigma\in \Gal(\Q(\zeta_n)/\Q)\}`, where $`\sigma(\chi)` denotes the Dirichlet character of modulus $`q` defined by  $`k \mapsto \sigma(\chi(k))`.  The map $`\chi\to \sigma(\chi)` defines a faithful action of the {bpref "nf.galois_group"}[Galois group] $`\Gal(\Q(\zeta_n)/\Q)` on the set of Dirichlet characters of modulus $`q` and order $`n`, each of which has $`\Q(\zeta_n)` as its {bpref "character.dirichlet.value_field"}[field of values].
@@ -185,7 +185,7 @@ The *Galois orbit* of a {bpref "character.dirichlet"}[Dirichlet character] $`\ch
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.modulus"}[] {uses "character.dirichlet.order"}[] {uses "character.dirichlet.value_field"}[] {uses "nf.galois_group"}[]
 :::
 
-:::definition "character.dirichlet.galois_orbit_index" (lean := "DirichletCharacter.galoisOrbitIndex, DirichletCharacter.galoisOrbitTraceVector, DirichletCharacter.galoisOrbitIndex_eq_iff, DirichletCharacter.galoisOrbitTraceVector_eq_iff, DirichletCharacter.galoisOrbitIndex_one")
+:::definition "character.dirichlet.galois_orbit_index"
 *Orbit index of a Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.galois_orbit_index))
 
 The {bpref "character.dirichlet.galois_orbit"}[Galois orbits] of {bpref "character.dirichlet"}[Dirichlet characters] of {bpref "character.dirichlet.modulus"}[modulus] $`q` are ordered as follows.
@@ -249,7 +249,7 @@ The set of {bpref "character.dirichlet"}[Dirichlet characters] $`\chi\colon\Z\to
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.modulus"}[]
 :::
 
-:::definition "character.dirichlet.group.structure" (lean := "DirichletCharacter.groupStructure, DirichletCharacter.groupStructure_eq_iff, DirichletCharacter.groupStructure_eq, AddCommGroup.smithAbelianInvariants")
+:::definition "character.dirichlet.group.structure"
 *Structure of a Dirichlet group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.group.structure))
 
 The *structure* of a {bpref "character.dirichlet.group"}[Dirichlet character group] of Dirichlet characters of {bpref "character.dirichlet.modulus"}[modulus] $`q` refers to its isomorphism type as a finite abelian group, which can be uniquely expressed as a product of cyclic groups $`C_{n_1}\times C_{n_2}\cdots\times C_{n_r}` with $`n_1|n_2|\cdots |n_r`.  This is the same as the structure of the group $`(\Z/q\Z)^\times`.
@@ -362,7 +362,7 @@ In particular, for a fixed odd prime $`p`, $`x \mapsto \left(\frac{x}{p}\right)`
 Depends on: {uses "character.dirichlet"}[]
 :::
 
-:::definition "character.dirichlet.minimal" (lean := "DirichletCharacter.IsMinimal, DirichletCharacter.IsMinimalOfPrimePowerModulus, DirichletCharacter.primePowerPart, DirichletCharacter.IsPrimitive.isMinimalOfPrimePowerModulus, DirichletCharacter.isMinimalOfPrimePowerModulus_one_iff")
+:::definition "character.dirichlet.minimal"
 *Minimal Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.minimal))
 
 A {bpref "character.dirichlet"}[Dirichlet character] $`\chi` of prime power {bpref "character.dirichlet.modulus"}[modulus] $`N` is *minimal* if the following conditions both hold:
@@ -378,7 +378,7 @@ For a composite modulus $`N` with prime power factorization $`N=p_1^{e_1}\cdots 
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.conductor"}[] {uses "character.dirichlet.modulus"}[] {uses "character.dirichlet.order"}[] {uses "character.dirichlet.primitive"}[] {uses "character.dirichlet.principal"}[]
 :::
 
-:::definition "character.dirichlet.modulus" (lean := "DirichletCharacter, MulChar, DirichletCharacter.apply_eq_zero_iff, MulChar.apply_mem_rootsOfUnity")
+:::definition "character.dirichlet.modulus"
 *Modulus of a Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.modulus))
 
 A *Dirichlet character* is a function $`\chi: \mathbb{Z}\to \mathbb{C}` together with a positive integer $`q`, called the *modulus* of the character, such that $`\chi` is completely multiplicative, i.e. $`\chi(mn)=\chi(m)\chi(n)` for all integers $`m` and $`n`, and $`\chi` is periodic modulo $`q`, i.e. $`\chi(n+q)=\chi(n)` for all $`n`. If $`(n,q)>1` then $`\chi(n)=0`, whereas if $`(n,q)=1`, then $`\chi(n)` is a root of unity.
@@ -445,7 +445,7 @@ The *field of values* of a Dirichlet character $`\chi\colon\Z\to\C` is the field
 Depends on: {uses "character.dirichlet.order"}[]
 :::
 
-:::definition "character.hecke" (lean := "TauCeti.GlobalNumberFields.IsIdealHeckeCharacter, TauCeti.GlobalNumberFields.isIdealHeckeCharacter_iff, TauCeti.GlobalNumberFields.IsIdealHeckeCharacter.heckeCharacter, TauCeti.GlobalNumberFields.IsIdealHeckeCharacter.idealCharacter_comp_heckeCharacter, TauCeti.GlobalNumberFields.HeckeCharacter.isIdealHeckeCharacter_idealCharacter, TauCeti.GlobalNumberFields.HeckeCharacter")
+:::definition "character.hecke"
 *Hecke character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.hecke))
 
 Let $`K` be a {bpref "nf"}[number field] with {bpref "nf.ring_of_integers"}[ring of integers] $`\Z_K` and let $`\mathfrak{m}` be an integral {bpref "ring.ideal"}[ideal] of $`\Z_K`. Let $`I(\mathfrak{m})` be the group of {bpref "ring.fractional_ideal"}[fractional ideals] of $`\Z_K` coprime to $`\mathfrak{m}`. A *Hecke character* modulo $`\mathfrak{m}` is a group homomorphism $`\chi:I(\mathfrak{m})\to\mathbb{C}^\times` with the property there exists another group homomorphism $`\chi_{\infty}:K^\times/\mathbb{Q}^\times\to\mathbb{C}^\times` such that

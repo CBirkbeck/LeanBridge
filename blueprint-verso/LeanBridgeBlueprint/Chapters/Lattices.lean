@@ -11,7 +11,7 @@ open Informal
 
 This section lists the LMFDB definitions in the category `lattice`. Each definition links back to its LMFDB knowl.
 
-:::definition "lattice.additively_indecomposable" (lean := "TauCeti.IntegralLattice.IsAdditivelyIndecomposable, TauCeti.IntegralLattice.IsAdditivelyIndecomposable.isOrthogonallyIndecomposable, TauCeti.IntegralLattice.IsOrthogonallyIndecomposable")
+:::definition "lattice.additively_indecomposable"
 *Additively indecomposable lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.additively_indecomposable))
 
 A {bpref "lattice.positive_definite"}[positive definite] {bpref "lattice.definition"}[integral lattice] $`L` is *additively indecomposable* if it cannot be written as a sum of two nonzero {bpref "lattice.nondegenerate"}[positive semi-definite] integral lattices.
@@ -23,13 +23,13 @@ The only additively indecomposable integral lattices of {bpref "lattice.dimensio
 Depends on: {uses "lattice.definition"}[] {uses "lattice.dimension"}[] {uses "lattice.nondegenerate"}[] {uses "lattice.orthogonal_decomposition"}[] {uses "lattice.positive_definite"}[] {uses "lattice.unimodular"}[]
 :::
 
-:::definition "lattice.algebraic" (lean := "TauCeti.IntegralLattice.IsAlgebraic, NumberField.minkowskiForm, NumberField.minkowskiForm_eq_sum, TauCeti.IntegralLattice.IsAlgebraic.isPosDef, TauCeti.IntegralLattice.isAlgebraic_unitLattice_unit")
+:::definition "lattice.algebraic"
 *Algebraic lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.algebraic))
 
 A lattice is called *algebraic* if it can be realized as a free $`\mathbb{Z}`-module in an algebraic number field.
 :::
 
-:::definition "lattice.arithmetic" (lean := "ZLattice.IsArithmetic, ZLattice.IsArithmetic.smul")
+:::definition "lattice.arithmetic"
 *Arithmetic lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.arithmetic))
 
 A lattice is called *arithmetic* if it is {bpref "lattice.similarity"}[similar] to an {bpref "lattice.definition"}[integral lattice].
@@ -37,7 +37,7 @@ A lattice is called *arithmetic* if it is {bpref "lattice.similarity"}[similar] 
 Depends on: {uses "lattice.definition"}[] {uses "lattice.similarity"}[]
 :::
 
-:::definition "lattice.automorphism_group" (lean := "TauCeti.BilinForm.isometryGroup, TauCeti.IntegralLattice.Isometry, TauCeti.IntegralLattice.specialOrthogonalGroup")
+:::definition "lattice.automorphism_group"
 *Automorphism group of an integral lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.automorphism_group))
 
 The *automorphism group* of an {bpref "lattice.definition"}[integral lattice] $`L` is the group of {bpref "lattice.isometry"}[isometries] from $`L` to itself. For a {bpref "lattice.positive_definite"}[positive definite] lattice, this is a finite group.
@@ -63,7 +63,7 @@ For a complete description of the Conway symbol, see Conway-Sloane, Chapter 15.
 Depends on: {uses "lattice.definition"}[] {uses "lattice.genus"}[] {uses "lattice.signature"}[]
 :::
 
-:::definition "lattice.covering_radius" (lean := "ZLattice.inhomogeneousMinimum, ZLattice.coveringRadius, ZLattice.coveringRadius_eq")
+:::definition "lattice.covering_radius"
 *Covering radius.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.covering_radius))
 
 *Covering radius* (also known as *inhomogeneous minimum*) of a convex $`\boldsymbol 0`-symmetric set $`K` in $`\mathbb{R}^n` with respect to a full-rank lattice $`L \subset \mathbb{R}^n` is $`\mu = \min \{ t > 0 : \bigcup_{\boldsymbol x \in L} (\boldsymbol x + tK) = \mathbb{R}^n \}`. Covering radius satisfies Jarnik's inequality:
@@ -75,7 +75,7 @@ where $`\lambda_1,\dots,\lambda_n` are the {bpref "lattice.successive_minima"}[s
 Depends on: {uses "lattice.successive_minima"}[]
 :::
 
-:::definition "lattice.definition" (lean := "TauCeti.IntegralLattice")
+:::definition "lattice.definition"
 *Integral Lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.definition))
 
 Let $`V` be an $`n`-dimensional vector space over a topological field $`F` (with $`\text{char}(F) \neq 2`) equipped with a nonsingular symmetric bilinear map $`B:V\times V\rightarrow F` and associated quadratic map $`Q(v):=B(v,v).`  The pair $`(V,Q)` is a *quadratic space*.  Fixing a basis, $`\{v_1,...,v_n\}` for $`V`, the space $`(V,Q)` has an associated quadratic form, that is, a homogeneous degree 2 polynomial, given by
@@ -93,7 +93,7 @@ Currently, all the lattices in the database are {bpref "lattice.nondegenerate"}[
 Depends on: {uses "lattice.gram"}[]
 :::
 
-:::definition "lattice.density" (lean := "TauCeti.IntegralLattice.density, TauCeti.IntegralLattice.centerDensity, TauCeti.IntegralLattice.latticePackingDensity, TauCeti.IntegralLattice.IsDensestLattice, EuclideanSpace.spherePackingDensity")
+:::definition "lattice.density"
 *Density of an integral lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.density))
 
 The density of a {bpref "lattice.positive_definite"}[positive definite] {bpref "lattice.definition"}[integral lattice] $`L` of {bpref "lattice.dimension"}[rank] $`n` is the density of the lattice-centered sphere packing in $`\mathbb{R}^n`.
@@ -133,7 +133,7 @@ The *rank* of an {bpref "lattice.definition"}[integral lattice] is the rank of i
 Depends on: {uses "lattice.definition"}[]
 :::
 
-:::definition "lattice.discriminant" (lean := "TauCeti.IntegralLattice.determinant, TauCeti.IntegralLattice.wittDiscriminant, TauCeti.IntegralLattice.geometricDiscriminant, TauCeti.IntegralLattice.halfDiscriminant, TauCeti.IntegralLattice.twoAdicUnitDiscriminant")
+:::definition "lattice.discriminant"
 *Discriminant of an integral lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.discriminant))
 
 For an {bpref "lattice.definition"}[integral lattice] $`L`, the *discriminant* $`D` of $`L` is defined as the determinant of the {bpref "lattice.gram"}[Gram matrix] associated to any basis of $`L`.
@@ -155,7 +155,7 @@ There are several different conventions for the term "discriminant" in the liter
 Depends on: {uses "lattice.definition"}[] {uses "lattice.dimension"}[] {uses "lattice.gram"}[] {uses "lattice.hyperbolic_plane"}[] {uses "lattice.postive_definite"}[] {uses "lattice.quadratic_form"}[]
 :::
 
-:::definition "lattice.discriminant_group" (lean := "TauCeti.IntegralLattice.DiscriminantGroup, TauCeti.IntegralLattice.discriminantPairing, TauCeti.IntegralLattice.torsionQuadraticForm, TauCeti.IntegralLattice.IsDiscriminantGramMatrix, TauCeti.IntegralLattice.isDiscriminantGramMatrix_form")
+:::definition "lattice.discriminant_group"
 *Discriminant group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.discriminant_group))
 
 For an {bpref "lattice.definition"}[integral lattice] $`L` with associated bilinear form $`B`, the *discriminant group* is the finite {bpref "group.abelian"}[abelian group] $`L^\vee / L`, where $`L^\vee` is the {bpref "lattice.dual"}[dual lattice] of $`L`.
@@ -177,7 +177,7 @@ The isometry class of the pair $`(L^\vee/L, Q_L)` as a finite abelian group equi
 Depends on: {uses "group.abelian"}[] {uses "lattice.definition"}[] {uses "lattice.dual"}[] {uses "lattice.genus"}[] {uses "lattice.parity"}[] {uses "lattice.signature"}[]
 :::
 
-:::definition "lattice.dual" (lean := "TauCeti.IntegralLattice.dualCarrier, TauCeti.IntegralLattice.rescaledDual, TauCeti.IntegralLattice.dualScale, TauCeti.IntegralLattice.scaleIdeal_rescaledDual, TauCeti.IntegralLattice.eq_rescaledDual")
+:::definition "lattice.dual"
 *Dual lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.dual))
 
 For an {bpref "lattice.definition"}[integral lattice], $`L`, its *dual* is the set $`L^\#=\{\vec{v}\in \Q L:B(\vec{v},L)\subseteq \mathbb{Z}\}`. There is a unique rescaling of the bilinear map $`B` for which $`L^\#` is a {bpref "lattice.primitive"}[primitive] integral lattice; we will refer to the resulting integral lattice as the *rescaled dual* of $`L`.
@@ -197,7 +197,7 @@ for all $`i, j`.  Equivalently, if $`B` denotes the matrix whose rows are $`v_i`
 Depends on: {uses "lattice.definition"}[] {uses "lattice.dimension"}[] {uses "lattice.gram"}[] {uses "lattice.positive_definite"}[]
 :::
 
-:::definition "lattice.eutactic" (lean := "ZLattice.minimalVectors, ZLattice.IsEutactic, ZLattice.IsStronglyEutactic, ZLattice.IsStronglyEutactic.isEutactic, ZLattice.IsEutactic.span_minimalVectors")
+:::definition "lattice.eutactic"
 *Eutactic lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.eutactic))
 
 A lattice $`L` in $`\mathbb{R}^n` is called *eutactic* if there exist positive real numbers $`c_1,\dots,c_m` such that for every $`v \in \mathbb{R}^n`, the inner product
@@ -209,7 +209,7 @@ where the sum is over all the {bpref "lattice.minimal_vector"}[minimal vectors] 
 Depends on: {uses "lattice.arithmetic"}[] {uses "lattice.minimal_vector"}[] {uses "lattice.similarity"}[] {uses "lattice.well_rounded"}[]
 :::
 
-:::definition "lattice.even_sublattice" (lean := "TauCeti.IntegralLattice.evenSublattice, TauCeti.IntegralLattice.evenSubmodule")
+:::definition "lattice.even_sublattice"
 *Even sublattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.even_sublattice))
 
 The *even sublattice* of an {bpref "lattice.definition"}[integral lattice] $`L` is the sublattice of $`L` spanned by vectors of even length.
@@ -221,7 +221,7 @@ In general, the even sublattice $`L_0` of an integral lattice $`L` has index at 
 Depends on: {uses "lattice.definition"}[] {uses "lattice.parity"}[]
 :::
 
-:::definition "lattice.extreme" (lean := "ZLattice.packingDensity, ZLattice.IsExtreme")
+:::definition "lattice.extreme"
 *Extreme lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.extreme))
 
 A lattice $`L` in $`\mathbb{R}^n` is called *extreme* if it is a local maximum of the {bpref "lattice.density"}[packing density] function in $`\mathbb{R}^n`. A theorem of Voronoi asserts that a lattice is extreme if and only if it is {bpref "lattice.perfect"}[perfect] and {bpref "lattice.eutactic"}[eutactic].
@@ -229,7 +229,7 @@ A lattice $`L` in $`\mathbb{R}^n` is called *extreme* if it is a local maximum o
 Depends on: {uses "lattice.density"}[] {uses "lattice.eutactic"}[] {uses "lattice.perfect"}[]
 :::
 
-:::definition "lattice.festi_veniani_index" (lean := "TauCeti.IntegralLattice.discriminantGroupAction, TauCeti.IntegralLattice.festiVenianiIndex, TauCeti.IntegralLattice.festiVenianiIndex_ne_zero, TauCeti.IntegralLattice.Isometry.discriminantGroupEquiv")
+:::definition "lattice.festi_veniani_index"
 *Festi-Veniani index of a lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.festi_veniani_index))
 
 For an {bpref "lattice.definition"}[integral lattice] $`L`, the *Festi--Veniani index* of $`L` is the index of the {bpref "lattice.automorphism_group"}[automorphism group] of $`L` in the automorphism group of the {bpref "lattice.discriminant_group"}[discriminant group] $`L^\vee/L`.
@@ -237,7 +237,7 @@ For an {bpref "lattice.definition"}[integral lattice] $`L`, the *Festi--Veniani 
 Depends on: {uses "lattice.automorphism_group"}[] {uses "lattice.definition"}[] {uses "lattice.discriminant_group"}[]
 :::
 
-:::definition "lattice.genus" (lean := "TauCeti.IntegralLattice.SameGenus, TauCeti.IntegralLattice.localIntegralForm")
+:::definition "lattice.genus"
 *Genus of an integral lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.genus))
 
 For an {bpref "lattice.definition"}[integral lattice], $`L` with underlying quadratic space $`V`, the *genus* of $`L` is the set of all lattices $`M` on $`V`, such that $`M_p\cong L_p` for all primes $`p`.
@@ -245,7 +245,7 @@ For an {bpref "lattice.definition"}[integral lattice], $`L` with underlying quad
 Depends on: {uses "lattice.definition"}[]
 :::
 
-:::definition "lattice.genus_label" (lean := "TauCeti.IntegralLattice.lmfdbGenusLabel, TauCeti.IntegralLattice.GenusLabelData.lmfdbLabel, TauCeti.IntegralLattice.GenusLabelData.lmfdbRankCode, TauCeti.IntegralLattice.GenusLabelData.labelBits, TauCeti.IntegralLattice.SameGenus.lmfdbGenusLabel_eq, TauCeti.IntegralLattice.lmfdbGenusLabel_eq_canonicalGenusLabel_iff")
+:::definition "lattice.genus_label"
 *Label of a genus of lattices.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.genus_label))
 
 Label is in the format $`r.s.d.j_1.j_2....j_k.x`, where
@@ -261,7 +261,7 @@ Label is in the format $`r.s.d.j_1.j_2....j_k.x`, where
 - The last component of the label, $`x`, is a hexadecimal string whose bits represent the local data. Let $`n_2` be the number of non-zero blocks in the Jordan decomposition at $`2`. The least $`n_2` bits specify the types (I or II) of the non-zero blocks at $`2`. From these, once can deduce the compartments and trains in the local symbol at $`2`, let $`c, t` be their numbers. The next $`3c` bits represent the oddities of the compartments, with every $`3` bits giving an oddity mod $`8`. The next $`t` bits represent the signs of the trains. Finally, for every other prime $`p` dividing $`d`, in increasing order, if there are $`n_p` non-zero blocks in the Jordan decomposition at $`p`, we add $`n_p` bits representing the signs of these blocks.
 :::
 
-:::definition "lattice.gram" (lean := "TauCeti.IntegralLattice.IsMinkowskiReduced, TauCeti.IntegralLattice.gramMatrix")
+:::definition "lattice.gram"
 *Gram matrix.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.gram))
 
 Fixing a basis $`\{v_1,...,v_n\}` for a space $`V`, the *Gram matrix* is the $`n\times n` symmetric matrix given by $`[B(v_i,v_j)]`.  Similarly, if we fix a basis $`\{w_1,...,w_n\}` for a lattice $`L`, then it is also a basis for $`V`, and the Gram matrix for $`L` is given by $`[B(w_i,w_j)]`.
@@ -287,7 +287,7 @@ where $`v_j^*` runs through all vectors with which $`v_1,...v_{j-1}` can be exte
 \{% endif %\}
 :::
 
-:::definition "lattice.group_order" (lean := "TauCeti.IntegralLattice.Isometry")
+:::definition "lattice.group_order"
 *Group order of an integral lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.group_order))
 
 The *group order* of an {bpref "lattice.definition"}[integral lattice] is the size of its {bpref "lattice.automorphism_group"}[automorphism group].
@@ -295,7 +295,7 @@ The *group order* of an {bpref "lattice.definition"}[integral lattice] is the si
 Depends on: {uses "lattice.automorphism_group"}[] {uses "lattice.definition"}[]
 :::
 
-:::definition "lattice.hermite_number" (lean := "TauCeti.IntegralLattice.discriminant, TauCeti.IntegralLattice.minimum")
+:::definition "lattice.hermite_number"
 *Hermite number.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.hermite_number))
 
 The *Hermite number* of a {bpref "lattice.positive_definite"}[positive definite] {bpref "lattice.definition"}[integral lattice] $`L`, with absolute {bpref "lattice.determinant"}[determinant] $`d`, is given by
@@ -307,7 +307,7 @@ where $`n` is the {bpref "lattice.dimension"}[rank] of $`L`, and $`m(L)` denotes
 Depends on: {uses "lattice.definition"}[] {uses "lattice.determinant"}[] {uses "lattice.dimension"}[] {uses "lattice.minimal_vector"}[] {uses "lattice.positive_definite"}[]
 :::
 
-:::definition "lattice.hyperbolic_plane" (lean := "TauCeti.IntegralLattice.hyperbolicPlane")
+:::definition "lattice.hyperbolic_plane"
 *Hyperbolic plane.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.hyperbolic_plane))
 
 The *hyperbolic plane* $`U` is the {bpref "lattice.definition"}[integral lattice] with {bpref "lattice.gram"}[Gram matrix]
@@ -319,7 +319,7 @@ Over a {bpref "ring.field"}[field] with {bpref "ring.characteristic"}[characteri
 Depends on: {uses "lattice.definition"}[] {uses "lattice.gram"}[] {uses "lattice.isometry"}[] {uses "lattice.nondegenerate"}[] {uses "lattice.parity"}[] {uses "lattice.signature"}[] {uses "lattice.unimodular"}[] {uses "ring.characteristic"}[] {uses "ring.field"}[]
 :::
 
-:::definition "lattice.isometry" (lean := "TauCeti.IntegralLattice.Isometry, QuadraticMap.IsometryEquiv, QuadraticMap.Equivalent, TauCeti.IntegralLattice.Isometry.ofGramMatrixEq")
+:::definition "lattice.isometry"
 *Isometries between integral lattices.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.isometry))
 
 Two {bpref "lattice.definition"}[integral lattices], $`L` and $`L'`, are *isometric* if there exists a map $`\sigma:L\rightarrow L'` such that $`Q(\vec{v})=Q(\sigma(\vec{v}))` for all $`\vec{v}\in L`. If this is the case, we say $`L\cong L'`. The set of all lattices $`M` such that $`M\cong L` is called the *isometry class* (or simply the *class*) of $`L`.
@@ -329,7 +329,7 @@ If $`L` and $`L'` have associated {bpref "lattice.gram"}[Gram matrices] $`G` and
 Depends on: {uses "lattice.definition"}[] {uses "lattice.gram"}[]
 :::
 
-:::definition "lattice.kissing" (lean := "TauCeti.IntegralLattice.kissingNumber, TauCeti.IntegralLattice.latticeKissingNumber, TauCeti.IntegralLattice.IsKissingOptimal, EuclideanSpace.kissingNumber, TauCeti.IntegralLattice.kissingNumber_le_euclideanSpace_kissingNumber")
+:::definition "lattice.kissing"
 *Kissing number.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.kissing))
 
 The *kissing number* of a lattice, $`L`, is the number of vectors of {bpref "lattice.minimal_vector"}[minimal length].  The vectors in the list of {bpref "lattice.minimal_vector"}[minimal length] vectors are normalized, so the kissing number will always be twice as large as the number of vectors in this list.
@@ -351,7 +351,7 @@ where N is a counter enumerating lattices for which the first four parameters ar
 Depends on: {uses "lattice.class_number"}[] {uses "lattice.determinant"}[] {uses "lattice.dimension"}[] {uses "lattice.level"}[]
 :::
 
-:::definition "lattice.level" (lean := "TauCeti.IntegralLattice.level")
+:::definition "lattice.level"
 *Level of an integral lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.level))
 
 For an {bpref "lattice.definition"}[integral lattice], $`L`, the *level* is the smallest integer, $`N`, such that $`N\cdot B(\vec{v},\vec{v})\in 2\mathbb{Z}` for all $`\vec{v}` in the {bpref "lattice.dual"}[dual] of $`L`.
@@ -373,7 +373,7 @@ where the sum runs over all isometry classes of lattices $`\Lambda` in the same 
 Depends on: {uses "lattice.automorphism_group"}[] {uses "lattice.definition"}[] {uses "lattice.genus"}[]
 :::
 
-:::definition "lattice.minimal_vector" (lean := "TauCeti.IntegralLattice.minimum, TauCeti.IntegralLattice.vectorsOfNorm")
+:::definition "lattice.minimal_vector"
 *Minimum.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.minimal_vector))
 
 For an {bpref "lattice.definition"}[integral lattice], $`L`, the *minimum*, denoted $`m(L)`, is the length of the shortest non-zero vector in $`L`.  A *minimal vector* in $`L` is a vector $`\vec{v}` such that $`Q(\vec{v})=m(L)`.
@@ -381,7 +381,7 @@ For an {bpref "lattice.definition"}[integral lattice], $`L`, the *minimum*, deno
 Depends on: {uses "lattice.definition"}[]
 :::
 
-:::definition "lattice.minimum" (lean := "TauCeti.IntegralLattice.minimum, TauCeti.IntegralLattice.vectorsOfNorm")
+:::definition "lattice.minimum"
 *Minimum.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.minimum))
 
 For an {bpref "lattice.definition"}[integral lattice], $`L`, the *minimum*, denoted $`m(L)`, is the length of the shortest non-zero vector in $`L`.  A *minimal vector* in $`L` is a vector $`\vec{v}` such that $`Q(\vec{v})=m(L)`.
@@ -389,7 +389,7 @@ For an {bpref "lattice.definition"}[integral lattice], $`L`, the *minimum*, deno
 Depends on: {uses "lattice.definition"}[]
 :::
 
-:::definition "lattice.nondegenerate" (lean := "TauCeti.IntegralLattice.IsNondegenerate, LinearMap.BilinForm.Nondegenerate, TauCeti.IntegralLattice.signature, TauCeti.IntegralLattice.IsPosSemidef")
+:::definition "lattice.nondegenerate"
 *Nondegenerate lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.nondegenerate))
 
 An {bpref "lattice.definition"}[integral lattice] $`L` with bilinear form $`B` is *nondegenerate* if
@@ -427,7 +427,7 @@ For an {bpref "lattice.definition"}[integral lattice] $`L`, the {bpref "lattice.
 Depends on: {uses "lattice.definition"}[] {uses "lattice.minimal_vector"}[]
 :::
 
-:::definition "lattice.orthogonal_decomposition" (lean := "TauCeti.IntegralLattice.IsOrthogonalDecomposition, TauCeti.IntegralLattice.IsOrthogonallyIndecomposable, TauCeti.IntegralLattice.isOrthogonallyIndecomposable_iff, TauCeti.IntegralLattice.orthogonalSumIsometryOfIsCompl")
+:::definition "lattice.orthogonal_decomposition"
 *Orthogonal decomposition of a lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.orthogonal_decomposition))
 
 Let $`L` be an integral lattice, with bilinear form $`B : L \times L \to \Z`. An *orthogonal decomposition* of $`L` is a direct sum decomposition
@@ -453,7 +453,7 @@ If an {bpref "lattice.definition"}[integral lattice] $`L` has {bpref "lattice.gr
 Depends on: {uses "lattice.definition"}[] {uses "lattice.gram"}[]
 :::
 
-:::definition "lattice.perfect" (lean := "ZLattice.IsPerfect, ZLattice.IsPerfect.span_minimalVectors, ZLattice.minimalVectors")
+:::definition "lattice.perfect"
 *Perfect lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.perfect))
 
 A lattice $`L` in $`\mathbb{R}^n` is called *perfect* if the space of $`n \times n` real symmetric matrices is spanned by the set of $`n \times n` symmetric matrices
@@ -514,7 +514,7 @@ $`\gcd(\{g_{ij}:1\leq i\leq n,i\leq j\leq n\})=1`.
 Depends on: {uses "lattice.definition"}[] {uses "lattice.gram"}[]
 :::
 
-:::definition "lattice.quadratic_form" (lean := "TauCeti.IntegralLattice.norm, TauCeti.IntegralLattice.integralNorm, TauCeti.IntegralLattice.IsUniversal, TauCeti.IntegralLattice.IsEvenUniversal, TauCeti.IntegralLattice.isUniversal_iff_range_eq_Ici")
+:::definition "lattice.quadratic_form"
 *Quadratic form of a lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.quadratic_form))
 
 Given an {bpref "lattice.definition"}[integral lattice] $`L` with {bpref "lattice.gram"}[Gram matrix] $`G`, the *quadratic form* of $`L` is the function on $`L \otimes \mathbb{Q}` defined by
@@ -526,7 +526,7 @@ We will refer to the value $`Q(v)` as the *norm* of $`v`.  By construction, $`Q(
 Depends on: {uses "lattice.definition"}[] {uses "lattice.gram"}[] {uses "lattice.parity"}[]
 :::
 
-:::definition "lattice.root_lattice" (lean := "RootPairing, RootPairing.IsRootSystem, RootPairing.IsCrystallographic, RootPairing.IsReduced, RootPairing.rootSpan, RootPairing.weylGroup")
+:::definition "lattice.root_lattice"
 *Root lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.root_lattice))
 
 A *root system* is a finite set $`\Phi` of nonzero vectors (called *roots*) in a Euclidean space $`E` satisfying the following conditions.
@@ -558,7 +558,7 @@ For any root system, the reflections in the hyperplanes orthogonal to the roots 
 Depends on: {uses "lattice.automorphism_group"}[]
 :::
 
-:::definition "lattice.root_sublattice" (lean := "TauCeti.IntegralLattice.rootSubmodule, TauCeti.IntegralLattice.IsRootLattice, TauCeti.IntegralLattice.IsPosDef.rootSubmodule_eq_span, TauCeti.IntegralLattice.isRootLattice_typeARootLattice, TauCeti.IntegralLattice.restrict")
+:::definition "lattice.root_sublattice"
 *Root sublattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.root_sublattice))
 
 The *root sublattice* of a {bpref "lattice.positive_definite"}[positive definite] {bpref "lattice.definition"}[integral lattice] $`L` is the sublattice of $`L` spanned by vectors of length at most equal to 2.
@@ -568,7 +568,7 @@ A positive definite integral lattice $`L` is called a *root lattice* if it is eq
 Depends on: {uses "lattice.definition"}[] {uses "lattice.positive_definite"}[]
 :::
 
-:::definition "lattice.signature" (lean := "sigPos, sigNeg, TauCeti.IntegralLattice.signature, TauCeti.IntegralLattice.IsNegDef, TauCeti.IntegralLattice.IsIndefinite")
+:::definition "lattice.signature"
 *Signature of an integral lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.signature))
 
 For a {bpref "lattice.nondegenerate"}[nondegenerate] {bpref "lattice.definition"}[integral lattice] $`L`, the *signature* of $`L` is a pair $`(n_+, n_-)`, where $`n_+` (resp. $`n_-`) is the number of positive (resp. negative) eigenvalues of a {bpref "lattice.gram"}[Gram matrix] for $`L`.  Note that the {bpref "lattice.nondegenerate"}[signature] of a degenerate lattice has an extra component $`n_0` for the number of $`0` eigenvalues.  The signature classifies lattices up to isometry over the real numbers.
@@ -578,7 +578,7 @@ If $`L` has signature $`(n,0)` we say it is {bpref "lattice.positive_definite"}[
 Depends on: {uses "lattice.definition"}[] {uses "lattice.gram"}[] {uses "lattice.nondegenerate"}[] {uses "lattice.positive_definite"}[]
 :::
 
-:::definition "lattice.similarity" (lean := "TauCeti.IntegralLattice.IsSimilar, TauCeti.IntegralLattice.IsSimilar.symm, TauCeti.IntegralLattice.IsSimilar.trans, TauCeti.IntegralLattice.Isometry.isSimilar")
+:::definition "lattice.similarity"
 *Similarity of lattices.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.similarity))
 
 Lattices $`L` and $`M` are called *similar* if there exists a real constant $`\alpha` so that $`L` is {bpref "lattice.isometry"}[isometric] to $`\alpha M`. Key properties of lattices, such as {bpref "lattice.well_rounded"}[well-roundedness], {bpref "lattice.eutactic"}[eutaxy], {bpref "lattice.perfect"}[perfection], {bpref "lattice.density"}[packing density] are preserved on similarity classes.  Each similarity class that contains an integer lattice contains a unique {bpref "lattice.primitive"}[primitive] integer lattice.
@@ -586,7 +586,7 @@ Lattices $`L` and $`M` are called *similar* if there exists a real constant $`\a
 Depends on: {uses "lattice.density"}[] {uses "lattice.isometry"}[] {uses "lattice.primitive"}[] {uses "lattice.well_rounded"}[]
 :::
 
-:::definition "lattice.spherical_design" (lean := "EuclideanSpace.IsSphericalDesign, ZLattice.IsSphericalDesign, ZLattice.IsStronglyPerfect, EuclideanSpace.IsSphericalDesign.mono")
+:::definition "lattice.spherical_design"
 *Spherical design lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.spherical_design))
 
 A collection of $`m \geq 1` points $`\{ v_1,\dots,v_m \}` on a sphere $`S_n(r)` of radius $`r >0` in $`\mathbb{R}^n` centered at the origin is a called a *spherical $`t`-design* if for every polynomial $`f(x) = f(x_1,\dots,x_n)` in $`n` variables with real coefficients of degree no bigger than $`t`, $`t \geq 1`,
@@ -630,7 +630,7 @@ $$`\frac{2^n \text{det}(L)}{n! \text{Vol}(K)} \leq \lambda_1 \cdots \lambda_n \l
 by Minkowski's Successive Minima Theorem. Successive minima of $`L` are the successive minima of the unit ball with respect to $`L`.
 :::
 
-:::definition "lattice.tensor_decomposition" (lean := "TauCeti.IntegralLattice.tensorProduct, TauCeti.IntegralLattice.IsTensorDecomposable, TauCeti.IntegralLattice.IsTensorIndecomposable, TauCeti.IntegralLattice.TensorDecomposition, TauCeti.IntegralLattice.determinant_tensorProduct")
+:::definition "lattice.tensor_decomposition"
 *Tensor decomposition of a lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.tensor_decomposition))
 
 Given {bpref "lattice.definition"}[integral lattices] $`L_1` and $`L_2`, we define the *tensor product* of $`L_1` and $`L_2` as the lattice $`L = L_1 \otimes_{\Z} L_2`, where the associated bilinear form is defined as
@@ -664,7 +664,7 @@ which allows a more direct recovery of the number of vectors of each possible no
 Depends on: {uses "cmf"}[] {uses "cmf.level"}[] {uses "cmf.weight"}[] {uses "lattice.definition"}[] {uses "lattice.dimension"}[] {uses "lattice.level"}[] {uses "lattice.quadratic_form"}[]
 :::
 
-:::definition "lattice.unimodular" (lean := "TauCeti.IntegralLattice.IsUnimodular")
+:::definition "lattice.unimodular"
 *Unimodular lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.unimodular))
 
 An {bpref "lattice.definition"}[integral lattice] is *unimodular* if its {bpref "lattice.determinant"}[determinant] is equal to 1.
@@ -672,7 +672,7 @@ An {bpref "lattice.definition"}[integral lattice] is *unimodular* if its {bpref 
 Depends on: {uses "lattice.definition"}[] {uses "lattice.determinant"}[]
 :::
 
-:::definition "lattice.well_rounded" (lean := "TauCeti.IntegralLattice.IsWellRounded, TauCeti.IntegralLattice.IsGeneratedByMinimalVectors, TauCeti.IntegralLattice.IsStronglyWellRounded, TauCeti.IntegralLattice.minimalVectors, TauCeti.IntegralLattice.minimalVectorSubmodule")
+:::definition "lattice.well_rounded"
 *Well-rounded lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.well_rounded))
 
 A lattice $`L` is called *well-rounded* if its set of {bpref "lattice.minimal_vector"}[minimal vectors] $`S(L)` spans a sublattice $`M` of finite index, and $`L` is said to be *generated by minimal vectors* if $`M = L`. The lattice $`L` is *strongly well-rounded* if the set $`S(L)` contains a basis for $`L`. Being generated by minimal vectors is a strictly stronger condition than well-rounded for lattices of rank $`\geq 5`, and a strictly weaker condition than strongly well-rounded for lattices of rank $`\geq 10`.

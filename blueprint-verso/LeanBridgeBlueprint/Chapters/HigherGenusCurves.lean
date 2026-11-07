@@ -11,7 +11,7 @@ open Informal
 
 This section lists the LMFDB definitions in the category `curve`. Each definition links back to its LMFDB knowl.
 
-:::definition "curve.highergenus.aut.braid_equivalence" (lean := "Hurwitz.braidOperation, Hurwitz.braidOperationGroup, Hurwitz.braidEquivalence, Hurwitz.braidMove")
+:::definition "curve.highergenus.aut.braid_equivalence"
 *Braid Equivalence.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/curve.highergenus.aut.braid_equivalence))
 
 Given a group $`G`, the *braid operations* on an $`n`-tuples of elements in $`G` are the maps
@@ -25,7 +25,7 @@ Two generating vectors from the same refined passport are considered  *braid equ
 Depends on: {uses "curve.highergenus.aut.generatingvector"}[] {uses "curve.highergenus.aut.refinedpassport"}[]
 :::
 
-:::definition "curve.highergenus.aut.branchpoints" (lean := "MulAction.branchPoints, MulAction.mk_mem_branchPoints_iff, MulAction.finite_branchPoints, MulAction.finite_branchPoints_of_subgroup, TauCeti.Diff")
+:::definition "curve.highergenus.aut.branchpoints"
 *Branch Points.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/curve.highergenus.aut.branchpoints))
 
 If $`G` is a finite group of automorphisms acting on a {bpref "ag.riemann_surface"}[Riemann surface] $`X`, and $`\phi\colon X\to X/G` is the natural projection to the quotient $`X/G` (the compact Riemann surface whose points are the $`G`-orbits of $`X`), then all but finitely many fibers of the map $`\phi` have cardinality $`d:=|G|`.
@@ -61,7 +61,7 @@ Here $`[24,3]` is the {bpref "group.small_group_label"}[group identifier] for th
 Depends on: {uses "group.small_group_label"}[]
 :::
 
-:::definition "curve.highergenus.aut.dimension" (lean := "MulAction.signatureDimension, MulAction.signatureDimension_signature, MulAction.signature")
+:::definition "curve.highergenus.aut.dimension"
 *Dimension of a family of curves.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/curve.highergenus.aut.dimension))
 
 Given a group of automorphisms $`G` acting on a curve $`X/\C` of genus $`g`, with {bpref "curve.highergenus.aut.signature"}[signature] $`[g_0;m_1, \ldots, m_r]`, the *dimension* of the family of curves with this signature is $`3g_0+r-3`, where $`r` is the number of {bpref "curve.highergenus.aut.branchpoints"}[branch points] of the map $`X \to X/G` and $`g_0` is the {bpref "curve.highergenus.aut.quotientgenus"}[quotient genus].
@@ -77,7 +77,7 @@ A group of automorphisms $`G` acting on a curve $`X` is necessarily a subgroup o
 Depends on: {uses "g2c.aut_grp"}[]
 :::
 
-:::definition "curve.highergenus.aut.generatingvector" (lean := "MulAction.IsGeneratingVector")
+:::definition "curve.highergenus.aut.generatingvector"
 *Generating Vector.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/curve.highergenus.aut.generatingvector))
 
 The *generating vector* of a group of automorphisms $`G` acting on a compact {bpref "ag.riemann_surface"}[Riemann surface] $`X` is a list of generators for the {bpref "curve.highergenus.aut.monodromy"}[monodromy group] of $`G` obtained by taking the image of the {bpref "curve.highergenus.aut.generators"}[standard generators] for $`\pi_1(Y-B,y_0)` under the image of the map $`\rho\colon \pi_1(Y-B,y_0)\to S_d` used to define the monodromy group, where $`B` is the set of {bpref "curve.highergenus.aut.branchpoints"}[branch points] of the projection $`\phi\colon X\to Y=X/G`, and $`y_0` is any point on $`Y` that is not in $`B`.
@@ -85,7 +85,7 @@ The *generating vector* of a group of automorphisms $`G` acting on a compact {bp
 Depends on: {uses "ag.riemann_surface"}[] {uses "curve.highergenus.aut.branchpoints"}[] {uses "curve.highergenus.aut.generators"}[] {uses "curve.highergenus.aut.monodromy"}[]
 :::
 
-:::definition "curve.highergenus.aut.generators" (lean := "TauCeti.RiemannSurface.IsStandardGeneratingSystem, TauCeti.RiemannSurface.IsStandardGenerator, TauCeti.RiemannSurface.IsolatingDisc, TauCeti.RiemannSurface.IsolatingDisc.loop, TauCeti.RiemannSurface.exists_isStandardGenerator")
+:::definition "curve.highergenus.aut.generators"
 *Standard generators.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/curve.highergenus.aut.generators))
 
 Let $`Y` be a compact {bpref "ag.riemann_surface"}[Riemann surface] of genus $`0`, let $`B` be a finite set of points in $`Y`, and let $`y_0` be a point in $`Y` that is not in $`B`.
@@ -97,7 +97,7 @@ $`B`.  This construction associates a generator to each element of $`B` (there w
 Depends on: {uses "ag.riemann_surface"}[]
 :::
 
-:::definition "curve.highergenus.aut.group_action" (lean := "TauCeti.Diff")
+:::definition "curve.highergenus.aut.group_action"
 *A group acting on a compact Riemann Surface.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/curve.highergenus.aut.group_action))
 
 A *group $`G` acts on a compact Riemann surface $`X`* if there is an injective homomorphism from $`G` to the {bpref "g2c.aut_grp"}[group of automorphisms] of $`X`, i.e. a homomorphism $`\phi: G \hookrightarrow \mathrm{Aut}(X)`.
@@ -120,7 +120,7 @@ For further details see [the source of the automorphisms of curves data](http://
 Depends on: {uses "ag.endomorphism_ring"}[] {uses "av.isogeny"}[] {uses "ag.jacobian"}[] {uses "g2c.aut_grp"}[]
 :::
 
-:::definition "curve.highergenus.aut.monodromy" (lean := "MulAction.monodromyGroup, MulAction.unbranchedProjection, MulAction.isCoveringMap_unbranchedProjection, MulAction.card_fiber_unbranchedProjection, MulAction.branchPoints")
+:::definition "curve.highergenus.aut.monodromy"
 *Monodromy Group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/curve.highergenus.aut.monodromy))
 
 Let $`G` be a group of automorphisms acting on a compact {bpref "ag.riemann_surface"}[Riemann surface] $`X` of genus $`g\ge 2`, let $`\phi` be the natural projection from $`X` to the quotient $`Y:=X/G`, let $`\mathcal B=\{y_1,\ldots,y_r\}` be the {bpref "curve.highergenus.aut.branchpoints"}[branch points] of $`\phi`, and let us fix a base point $`y_0 \in Y-\mathcal{B}`. The fiber $`\phi^{-1}(y_0)` consists of $`d:=|G|` points, say
@@ -143,7 +143,7 @@ For a group of automorphisms $`G` acting on a curve $`X`, the {bpref "ag.curve.g
 Depends on: {uses "ag.curve.genus"}[]
 :::
 
-:::definition "curve.highergenus.aut.refinedpassport" (lean := "RefinedPassport, RefinedPassport.ofGeneratingVector, RefinedPassport.ofGeneratingVector_eq_ofGeneratingVector_iff")
+:::definition "curve.highergenus.aut.refinedpassport"
 *Refined passport.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/curve.highergenus.aut.refinedpassport))
 
 Let $`G` be a group of automorphisms acting on a compact {bpref "ag.riemann_surface"}[Riemann surface] $`X` of genus $`g`,  let  $`(s_1, \ldots, s_n)` be a {bpref "curve.highergenus.aut.generatingvector"}[generating vector] for the action of $`G` on $`X`, and let $`\mathcal{C}=(C_1, \ldots, C_n)` be the corresponding vector of conjugacy classes of $`G`.
@@ -153,7 +153,7 @@ The tuple $`(g,G,\mathcal{C})` is called a *refined passport* (some authors say 
 Depends on: {uses "ag.riemann_surface"}[] {uses "curve.highergenus.aut.generatingvector"}[]
 :::
 
-:::definition "curve.highergenus.aut.signature" (lean := "Subgroup.signature, Subgroup.signaturePeriods, Subgroup.mem_branchPlaces_iff, Subgroup.natCard_stabilizer_eq_ramificationIdxIn, TauCeti.AlgebraicGeometry.RegularProperCurveCat.signature, TauCeti.AlgebraicGeometry.RegularProperCurveCat.genus_quotient")
+:::definition "curve.highergenus.aut.signature"
 *Signature of a group action on a curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/curve.highergenus.aut.signature))
 
 Let $`G` be a group of automorphisms acting on a curve $`X/\C` of genus at least $`2`, let $`g_0` be the {bpref "curve.highergenus.aut.quotientgenus"}[genus of the quotient] $`Y:=X/G`, and let $`B` be the set of {bpref "curve.highergenus.aut.branchpoints"}[branch points] of the projection $`\phi\colon X\to Y`. For each {bpref "curve.highergenus.aut.generators"}[standard generator] for $`\pi_1(Y-B,y_0)` corresponding to the elements of $`B=\{y_1,\ldots,y_r\}` and a fixed pre-image of $`y_0`, there is a lift of that loop to a path in $`X - \phi^{-1}(B)` starting at the particular pre-image of $`y_0`. The lifted path ends at some (possibly different) pre-image of $`y_0`. Varying the particular pre-images of $`y_0` and then recording the end point corresponding to that starting point induces a permutation on those pre-images.
@@ -165,7 +165,7 @@ The sequence of integers $`[g_0; m_1, \ldots, m_r]` is the *signature* of the gr
 Depends on: {uses "curve.highergenus.aut.branchpoints"}[] {uses "curve.highergenus.aut.generators"}[] {uses "curve.highergenus.aut.quotientgenus"}[]
 :::
 
-:::definition "curve.highergenus.aut.topological_equivalence" (lean := "Homeomorph.TopologicallyEquivalent, Homeomorph.IsOrientationPreserving, Homeomorph.topologicallyEquivalent_refl")
+:::definition "curve.highergenus.aut.topological_equivalence"
 *Topological Equivalence.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/curve.highergenus.aut.topological_equivalence))
 
 Given a group $`G` {bpref "curve.highergenus.aut.group_action"}[acting] on a compact Riemann surface $`X` by the maps $`\phi_1: G \hookrightarrow \mathrm{Aut}(X)` and $`\phi_2: G \hookrightarrow \mathrm{Aut}(X)`, then $`\phi_1` and $`\phi_2` are *topologically equivalent* if there is an automorphism $`\omega` of $`G` and an orientation preserving homeomorphism $`h: X \to X` so that
@@ -179,7 +179,7 @@ $$`\begin{matrix}\Gamma & \xrightarrow{\mathit{\eta_1}}& G \\ \Big\downarrow h &
 Depends on: {uses "curve.highergenus.aut.group_action"}[] {uses "group.fuchsian"}[]
 :::
 
-:::definition "curve.highergenus.hurwitz_bound" (lean := "TauCeti.card_algEquiv_le_eighty_four_mul_genus_sub_one_of_charZero, TauCeti.finite_algEquiv_of_two_le_genus, TauCeti.natCard_le_eighty_four_mul_genus_sub_one_of_charZero")
+:::definition "curve.highergenus.hurwitz_bound"
 *Hurwitz bound.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/curve.highergenus.hurwitz_bound))
 
 For any integer $`g > 1`, the automorphism group of any curve of genus $`g` over $`\C` has order at most $`84(g-1)`. This is not best possible for every $`g`, but there do exist infinitely many $`g` for which the bound is achieved; examples include  ($`g=3`) and the  ($`g=7`). See also [Wikipedia](https://en.wikipedia.org/wiki/Hurwitz%27s_automorphisms_theorem).

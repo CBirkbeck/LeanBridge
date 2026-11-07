@@ -11,7 +11,7 @@ open Informal
 
 This section lists the LMFDB definitions in the category `ag`. Each definition links back to its LMFDB knowl.
 
-:::definition "ag.abelian_surface" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety, TauCeti.AlgebraicGeometry.AbelianVariety.dim, TauCeti.AlgebraicGeometry.AbelianVariety.prod")
+:::definition "ag.abelian_surface"
 *Abelian surface.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.abelian_surface))
 
 An *abelian surface* is an {bpref "ag.abelian_variety"}[abelian variety] of {bpref "ag.dimension"}[dimension] 2.
@@ -21,7 +21,7 @@ Examples are given by the product of two {bpref "ec"}[elliptic curves], or the {
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.curve.genus"}[] {uses "ag.dimension"}[] {uses "ag.jacobian"}[] {uses "ec"}[]
 :::
 
-:::definition "ag.abelian_variety" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety")
+:::definition "ag.abelian_variety"
 *Abelian variety.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.abelian_variety))
 
 An *abelian variety* defined over the field $`K` is a smooth connected projective {bpref "ag.variety"}[variety] equipped with the structure of an algebraic group. The group law is automatically commutative.
@@ -61,7 +61,7 @@ The set of automorphisms of an {bpref "ag.variety"}[algebraic variety] $`X` form
 Depends on: {uses "ag.variety"}[]
 :::
 
-:::definition "ag.bad_prime" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.badPrimes, TauCeti.AlgebraicGeometry.AbelianVariety.HasGoodReductionAt, AlgebraicGeometry.Scheme.HasGoodReductionAt, TauCeti.AlgebraicGeometry.AbelianVariety")
+:::definition "ag.bad_prime"
 *Prime of bad reduction.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.bad_prime))
 
 For an abelian variety $`A` of dimension $`g` over a number field $`K`, a *prime of bad reduction* (for $`A`) is a prime $`\mathfrak{p}` of $`K` for which the reduction of $`A` modulo $`\mathfrak{p}` is not an abelian variety of dimension $`g` over the residue field at $`\mathfrak{p}`.  The number of primes of bad reduction is always finite; these are precisely the primes that divide the {bpref "ag.conductor"}[conductor] of $`A`.
@@ -87,7 +87,7 @@ The *base field*, of an {bpref "ag.abelian_variety"}[algebraic variety] is the f
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.minimal_field"}[]
 :::
 
-:::definition "ag.bielliptic_curve" (lean := "AlgebraicGeometry.Scheme.IsBiellipticCurveOver, AlgebraicGeometry.Scheme.IsBiellipticInvolution, TauCeti.IsBiellipticFunctionField, TauCeti.IsBiellipticInvolution, TauCeti.IsEllipticFunctionField")
+:::definition "ag.bielliptic_curve"
 *Bielliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.bielliptic_curve))
 
 A smooth projective {bpref "ag.curve"}[algebraic curve] $`X` defined over a field $`k` of {bpref "ag.curve.genus"}[genus] $`g\ge 2` is a *bielliptic curve* if and only if it satisfies one of the following conditions:
@@ -128,7 +128,7 @@ defined by $`\langle P,Q\rangle = \frac{1}{2}(\hat{h}(P+Q)-\hat{h}(P)-\hat{h}(Q)
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.mordell_weil"}[] {uses "av.princ_polarizable"}[] {uses "av.theta_divisor"}[] {uses "nf"}[] {uses "nf.weil_height"}[]
 :::
 
-:::definition "ag.canonical_model" (lean := "AlgebraicGeometry.Scheme.canonicalMap, AlgebraicGeometry.Scheme.canonicalModel, AlgebraicGeometry.Scheme.linearSystemMap, TauCeti.canonicalDivisor, AlgebraicGeometry.Scheme.eq_linearSystemMap_iff")
+:::definition "ag.canonical_model"
 *Canonical model.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.canonical_model))
 
 The *canonical map* of a curve $`C` of {bpref "ag.curve.genus"}[genus] $`g` is the map to $`\mathbb{P}^{g-1}` defined by the canonical class.  For {bpref "ag.hyperelliptic_curve"}[non-hyperelliptic] curves of genus larger than 1, this map is an embedding, and its image is a normal curve called the *canonical model* of $`C`.
@@ -136,7 +136,7 @@ The *canonical map* of a curve $`C` of {bpref "ag.curve.genus"}[genus] $`g` is t
 Depends on: {uses "ag.curve.genus"}[] {uses "ag.hyperelliptic_curve"}[]
 :::
 
-:::definition "ag.cluster_picture" (lean := "Polynomial.IsPadicCluster, Polynomial.padicClusterSize, Polynomial.padicClusterDepth, Polynomial.padicClusterRelDepth, Polynomial.isPadicCluster_rootSet")
+:::definition "ag.cluster_picture"
 *Cluster picture.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.cluster_picture))
 
 Let $`H` be an {bpref "ec"}[elliptic] or {bpref "ag.hyperelliptic_curve"}[hyperelliptic curve] over $`\Q` given by an equation $`y^2 = f(x)`, and let $`p` be an odd prime number. Then the *cluster picture* of $`H` at $`p` associated to this particular equation for $`H`, is a graphical representation of the $`p`-adic distances between the roots of $`f`.
@@ -150,7 +150,7 @@ More information about cluster pictures can be found in _A user's guide to the l
 Depends on: {uses "ag.hyperelliptic_curve"}[] {uses "ec"}[]
 :::
 
-:::definition "ag.cohen_macaulay_type" (lean := "Subalgebra.cohenMacaulayType, Subalgebra.cohenMacaulayTypeAt, Subalgebra.traceDual, TauCeti.GlobalNumberFields.NumberFieldOrder.cohenMacaulayType_eq_one_iff_isGorenstein, TauCeti.GlobalNumberFields.NumberFieldOrder.cohenMacaulayType_eq_one_iff_forall_isUnit")
+:::definition "ag.cohen_macaulay_type"
 *Cohen-Macaulay type.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.cohen_macaulay_type))
 
 The *Cohen-Macaulay* type of an order $`R`, is the minimal number of generators (as an $`R`-module) of a canonical module of $`R`.
@@ -158,7 +158,7 @@ Note that the trace dual ideal $`R^t =\{ a : \mathrm{Tr}(aR) \subseteq \mathbb{Z
 $`\max \{ \dim_{R/\mathfrak{l}} \frac{R^t}{\mathfrak{l}R^t} \}_{\mathfrak{l}}`, where $`\mathfrak{l}` runs over the maximal ideals of $`R`. The order is called Gorenstein if the Cohen-Macaulay type equals $`1`. This is the case precisely when every fractional $`R`-ideal $`I` with $`(I:I)` is invertible.
 :::
 
-:::definition "ag.complex_multiplication" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.HasComplexMultiplication, TauCeti.AlgebraicGeometry.AbelianVariety.EndAlgebra, TauCeti.AlgebraicGeometry.AbelianVariety.hasComplexMultiplication_congr, TauCeti.AlgebraicGeometry.AbelianVariety.End, NumberField.IsCMField")
+:::definition "ag.complex_multiplication"
 *Complex multiplication.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.complex_multiplication))
 
 A {bpref "ag.geom_simple"}[simple] {bpref "ag.abelian_variety"}[abelian variety] of {bpref "ag.dimension"}[dimension] $`g` is said to have *complex multiplication* (CM) if its
@@ -187,7 +187,7 @@ An *algebraic curve* is an {bpref "ag.variety"}[algebraic variety] of dimension 
 Depends on: {uses "ag.variety"}[]
 :::
 
-:::definition "ag.curve.genus" (lean := "AlgebraicGeometry.Scheme.IsCurveOver, AlgebraicGeometry.Scheme.genus, TauCeti.genus")
+:::definition "ag.curve.genus"
 *Genus of a smooth curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.curve.genus))
 
 The *genus* of a smooth projective geometrically integral curve $`C` defined over a field $`k` is the dimension of the $`k`-vector space of regular differentials $`H^0(C, \omega_C)`.  When $`k=\C` this coincides with the topological genus of the corresponding {bpref "ag.riemann_surface"}[Riemann surface].
@@ -197,7 +197,7 @@ The quantity defined above is sometimes also called the *algebraic genus* or the
 Depends on: {uses "ag.riemann_surface"}[]
 :::
 
-:::definition "ag.curve.smooth" (lean := "AlgebraicGeometry.Smooth, AlgebraicGeometry.Scheme.Hom.smoothLocus_eq_top_iff")
+:::definition "ag.curve.smooth"
 *Smoothness of an algebraic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.curve.smooth))
 
 Let $`C` be an {bpref "ag.curve"}[algebraic curve] over a perfect field $`k`. Then $`C` is called *smooth* if the extension of $`C` to the algebraic closure of $`k` is {bpref "ag.singular_point"}[non-singular] at all of its points.
@@ -205,7 +205,7 @@ Let $`C` be an {bpref "ag.curve"}[algebraic curve] over a perfect field $`k`. Th
 Depends on: {uses "ag.curve"}[] {uses "ag.singular_point"}[]
 :::
 
-:::definition "ag.cyclic_trigonal" (lean := "AlgebraicGeometry.Scheme.IsCyclicTrigonalCurveOver, TauCeti.IsCyclicTrigonalFunctionField, TauCeti.IsTrigonalAutomorphism, TauCeti.isCyclicTrigonalFunctionField_iff_exists_isTrigonalAutomorphism")
+:::definition "ag.cyclic_trigonal"
 *Cyclic trigonal curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.cyclic_trigonal))
 
 An {bpref "ag.curve"}[algebraic curve] $`X` is a *cyclic trigonal curve* if there is an order $`3` subgroup $`H` of its {bpref "g2c.aut_grp"}[automorphism group] such that the {bpref "ag.quotient_curve"}[quotient curve] $`X/H` is isomorphic to $`\mathbb{P}^1`.
@@ -245,7 +245,7 @@ For endomorphisms defined over an extension of $`k`, we instead speak about the 
 Depends on: {uses "ag.abelian_variety"}[]
 :::
 
-:::definition "ag.fq.point_counts" (lean := "AlgebraicGeometry.Scheme.PointOver, Nat.card, GaloisField")
+:::definition "ag.fq.point_counts"
 *Point counts of a variety.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.fq.point_counts))
 
 If $`X` is a {bpref "ag.variety"}[variety] {bpref "ag.base_field"}[defined] over a finite field $`\mathbb{F}_q`, one can show that it will have finitely many points that are defined over that field. Upon extending the base field to $`\mathbb{F}_{q^2}`, $`\mathbb{F}_{q^3}`, $`\mathbb{F}_{q^4}`, etc. the number of points of $`X` defined over those fields remains finite, as long as we consider only field extensions of finite degree over $`\mathbb{F}_q`.
@@ -253,7 +253,7 @@ If $`X` is a {bpref "ag.variety"}[variety] {bpref "ag.base_field"}[defined] over
 Depends on: {uses "ag.base_field"}[] {uses "ag.variety"}[]
 :::
 
-:::definition "ag.geom_component" (lean := "irreducibleComponents, AlgebraicGeometry.Scheme.geometricBaseChange")
+:::definition "ag.geom_component"
 *Geometric component.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.geom_component))
 
 A *geometric component* of a smooth scheme $`X` of finite type over a field $`k` is an irreducible component of the base change $`X_{\overline{k}}`.  (Because $`X_{\overline{k}}` is smooth, irreducible components are the same as connected components.)
@@ -279,7 +279,7 @@ For an abelian variety $`A` over a field $`F`, the *geometric endomorphism ring*
 Depends on: {uses "ag.endomorphism_ring"}[]
 :::
 
-:::definition "ag.geom_simple" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.IsGeometricallySimple, TauCeti.AlgebraicGeometry.AbelianVariety.isGeometricallySimple_congr, TauCeti.AlgebraicGeometry.AbelianVariety.IsSimple, TauCeti.AlgebraicGeometry.AbelianVariety.baseChange")
+:::definition "ag.geom_simple"
 *Geometrically simple.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.geom_simple))
 
 An {bpref "ag.abelian_variety"}[abelian variety] over a field $`k` is *geometrically (or absolutely) simple* if it is {bpref "ag.simple"}[simple] when viewed as a variety over $`\bar k`.
@@ -287,7 +287,7 @@ An {bpref "ag.abelian_variety"}[abelian variety] over a field $`k` is *geometric
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.simple"}[]
 :::
 
-:::definition "ag.gonality" (lean := "TauCeti.gonality, AlgebraicGeometry.Scheme.gonality, TauCeti.IsFunctionField.exists_finrank_eq_gonality, TauCeti.IsFunctionField.gonality_pos")
+:::definition "ag.gonality"
 *Gonality of a curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.gonality))
 
 The *gonality* (or *$`k`-gonality*) of an integral {bpref "ag.curve"}[algebraic curve] $`X` over a field $`k` is the minimal degree of a dominant $`k`-morphism $`X \to \mathbb{P}^1_k`.  Equivalently, it is the minimum of $`[k(X):k(t)]` as $`t` ranges over (transcendental) elements of the function field $`k(X)` of $`X`.
@@ -297,7 +297,7 @@ The base extension of any dominant morphism $`X \to \mathbb{P}^1_k`  is a domina
 Depends on: {uses "ag.curve"}[]
 :::
 
-:::definition "ag.gonality_geom" (lean := "AlgebraicGeometry.Scheme.geometricGonality, AlgebraicGeometry.Scheme.IsHyperellipticCurveOver.geometricGonality_le_two, AlgebraicGeometry.Scheme.geometricBaseChange, TauCeti.gonality")
+:::definition "ag.gonality_geom"
 *Geometric gonality.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.gonality_geom))
 
 Let $`X` be a geometrically integral {bpref "ag.curve"}[algebraic curve] over a field $`k`.
@@ -308,7 +308,7 @@ The *geometric gonality* (or *$`\overline{k}`-gonality*) of $`X` is the {bpref "
 Depends on: {uses "ag.curve"}[] {uses "ag.gonality"}[]
 :::
 
-:::definition "ag.good_reduction" (lean := "AlgebraicGeometry.Scheme.HasGoodReductionAt, AlgebraicGeometry.Scheme.badReductionPrimes, TauCeti.Model, TauCeti.Model.IsProper, AlgebraicGeometry.Smooth")
+:::definition "ag.good_reduction"
 *Good and bad reduction.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.good_reduction))
 
 A smooth proper {bpref "ag.variety"}[variety] $`X` over a {bpref "nf"}[number field] $`K` is said to have *good reduction* at a {bpref "nf.prime"}[prime] $`\mathfrak{p}` if it has a model over $`\mathcal{O}_{K, \mathfrak{p}}` whose reduction modulo $`\mathfrak{p}` is a smooth variety over the residue field; more precisely, $`X` has good reduction if it is the generic fiber of a smooth proper scheme over $`\mathcal{O}_{K, \mathfrak{p}}`.  Otherwise, $`\mathfrak{p}` is said to be a prime of *bad reduction*.
@@ -330,7 +330,7 @@ The *holomorphic Euler characteristic* of a projective scheme $`X` is the altern
 See also the {bpref "ag.arithmetic_genus"}[arithmetic genus].
 :::
 
-:::definition "ag.hyperelliptic_curve" (lean := "AlgebraicGeometry.Scheme.IsHyperellipticCurveOver, AlgebraicGeometry.Scheme.isHyperellipticCurveOver_iff, HyperellipticEquation, HyperellipticEquation.FunctionField, HyperellipticEquation.isHyperellipticFunctionField, MvPolynomial.IsHomogeneous")
+:::definition "ag.hyperelliptic_curve"
 *Hyperelliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.hyperelliptic_curve))
 
 A *hyperelliptic curve* $`X` over a field $`k` is a smooth projective  {bpref "ag.curve"}[algebraic curve] of {bpref "ag.curve.genus"}[genus] $`g\ge 2` that admits a 2-to-1 map $`X\to \mathbb{P}^1` defined over the algebraic closure $`\bar k`.
@@ -374,7 +374,7 @@ The Torelli theorem states that if $`X` and $`Y` are curves whose Jacobians are 
 Depends on: {uses "ag.abelian_variety"}[]
 :::
 
-:::definition "ag.kodaira_dimension" (lean := "AlgebraicGeometry.Scheme.kodairaDimensionOfPluricanonicalMaps, AlgebraicGeometry.Scheme.kodairaDimensionOfPluricanonicalMaps_eq_bot_iff, AlgebraicGeometry.Scheme.pluricanonicalRationalMap, AlgebraicGeometry.Scheme.pluricanonicalImage, AlgebraicGeometry.Scheme.plurigenus, AlgebraicGeometry.Scheme.isInvertible_canonicalSheaf_of_smooth")
+:::definition "ag.kodaira_dimension"
 *Kodaira dimension.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.kodaira_dimension))
 
 Let $`X` be a nonsingular complex algebraic variety with canonical divisor $`K`. For each $`d \in \mathbb{Z}_{\geq 0}`, the $`d^\text{th}` plurigenus of $`X` is $`P_d \colonequals \dim H^0(X, K^{\otimes d})`. The global sections of $`K^{\otimes d}` define a rational map
@@ -388,7 +388,7 @@ $$`\kappa(X) \colonequals \sup_d \, \dim(\varphi_d(X))`
 otherwise.
 :::
 
-:::definition "ag.minimal_field" (lean := "AlgebraicGeometry.Scheme.fieldsOfDefinition, AlgebraicGeometry.Scheme.IsMinimalFieldOfDefinition, AlgebraicGeometry.Scheme.top_mem_fieldsOfDefinition, AlgebraicGeometry.Scheme.isUpperSet_fieldsOfDefinition, AlgebraicGeometry.Scheme.mem_fieldsOfDefinition_pullback")
+:::definition "ag.minimal_field"
 *Minimal field of definition.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.minimal_field))
 
 Let $`V/k` be an {bpref "ag.variety"}[algebraic variety] defined over a {bpref "ring.field"}[field] $`k` and let $`S` be the set of subfields $`k_0\subseteq k`  for which there exists an algebraic variety $`V_0/k_0` whose {bpref "ag.base_change"}[base change] to $`k` is isomorphic to $`V`.
@@ -434,7 +434,7 @@ Let $`N \ge 1`. The curve $`X_{\text{ns}}^{+}(N)` is the {bpref "modcurve"}[modu
 Depends on: {uses "gl2.nonsplit_cartan"}[] {uses "modcurve"}[]
 :::
 
-:::definition "ag.mordell_weil" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety")
+:::definition "ag.mordell_weil"
 *Mordell-Weil group of an abelian variety.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.mordell_weil))
 
 The *Mordell-Weil group* of an {bpref "ag.abelian_variety"}[abelian variety] $`A` over a {bpref "nf"}[number field] $`K` is its group of $`K`-rational points $`A(K)`.
@@ -543,7 +543,7 @@ This is a generalisation of the {bpref "ec.regulator"}[regulator of an elliptic 
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.canonical_height"}[] {uses "ag.mordell_weil"}[] {uses "ec.regulator"}[] {uses "nf"}[]
 :::
 
-:::definition "ag.riemann_surface" (lean := "IsManifold, ChartedSpace, ConnectedSpace, T2Space")
+:::definition "ag.riemann_surface"
 *Riemann surface.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.riemann_surface))
 
 A *Riemann surface* is a connected complex manifold of dimension one.  Compact Riemann surfaces can be identified with smooth projective curves over $`\C`.
@@ -559,7 +559,7 @@ For an elliptic curve $`E` over a number field $`K`, the Sato-Tate group equals 
 For an abelian surface $`A` over a number field $`K`, there are 52 possible Sato-Tate groups as classified by Fité-Kedlaya-Rotger-Sutherland ; of these, 34 can occur for $`K = \mathbb{Q}`. The typical case $`\mathrm{USp}(4)` occurs when $`\mathrm{End}(A_{\overline{K}}) = \mathbb{Z}`.
 :::
 
-:::definition "ag.selmer_group" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.numberFieldSelmerGroup, TauCeti.AlgebraicGeometry.AbelianVariety.mem_numberFieldSelmerGroup_iff, TauCeti.AlgebraicGeometry.AbelianVariety.kummerCondition, TauCeti.AlgebraicGeometry.AbelianVariety.torsionRes, TauCeti.AlgebraicGeometry.AbelianVariety.TorsionCoeff")
+:::definition "ag.selmer_group"
 *Selmer group of an abelian variety.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.selmer_group))
 
 Let $`A` be an {bpref "ag.abelian_variety"}[abelian variety] over a {bpref "nf"}[number field] $`K`.
@@ -575,7 +575,7 @@ Any Selmer group is finite and effectively computable. In fact, all known techni
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.mordell_weil"}[] {uses "av.isogeny"}[] {uses "group.galois.absolute"}[] {uses "nf"}[] {uses "nf.absolute_value"}[] {uses "nf.place"}[]
 :::
 
-:::definition "ag.shimura_variety" (lean := "IsHermitianSymmetricDomain, biholomorphismGroup, Subgroup.IsDefinedOverRat, IsArithmeticSubgroup, IsConnectedShimuraVarietyGroup, ConnectedShimuraVariety")
+:::definition "ag.shimura_variety"
 *Shimura variety.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.shimura_variety))
 
 There are a number of different ways to define a Shimura variety.
@@ -585,7 +585,7 @@ One definition starts with connected complex manifolds such that for every point
 Then, *(connected) Shimura varieties* are quotients of Hermitian symmetric domains by torsion-free subgroups of the group of automorphisms of the domain.
 :::
 
-:::definition "ag.simple" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.IsSimple, TauCeti.AlgebraicGeometry.AbelianVariety.isSimple_congr, TauCeti.AlgebraicGeometry.AbelianVariety.not_isSimple_trivial, TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogenous, TauCeti.AlgebraicGeometry.AbelianVariety.prod")
+:::definition "ag.simple"
 *Simple.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.simple))
 
 An {bpref "ag.abelian_variety"}[abelian variety] is *simple* if it is nonzero and not isogenous to a product of abelian varieties of lower dimension.
@@ -593,13 +593,13 @@ An {bpref "ag.abelian_variety"}[abelian variety] is *simple* if it is nonzero an
 Depends on: {uses "ag.abelian_variety"}[]
 :::
 
-:::definition "ag.singular_point" (lean := "AlgebraicGeometry.Scheme.Hom.smoothLocus, Algebra.smoothLocus, Algebra.smoothLocus_eq_compl_support_inter")
+:::definition "ag.singular_point"
 *Non-singular point (definition).* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.singular_point))
 
 Let $`V` be a variety over a perfect field $`F`. A point $`P` of $`V` is *non-singular* if the module of differentials of $`V` is locally free at $`P`.  According to the Jacobian criterion, if $`V` is defined in a neighborhood of $`P` by affine polynomial equations $`f_1(X_1, \ldots, X_n) = \ldots =f_r(X_1, \ldots, X_n)=0`, then $`V` is non-singular at $`P` if the Jacobian matrix $`\left( \frac{\partial f_i}{\partial X_j} \right)_{ij}` has the same rank as the codimension of $`V` in $`\mathbb{A}^n`.
 :::
 
-:::definition "ag.splitting_field" (lean := "TauCeti.torusSplittingField, TauCeti.IsTorusSplittingField, TauCeti.IsTorusSplitOver, TauCeti.IsTorusSplittingField.torusSplittingField_eq, TauCeti.torusCommHopfAlgProperty")
+:::definition "ag.splitting_field"
 *Splitting field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.splitting_field))
 
 The *splitting field* of an algebraic torus $`T` is the minimal {bpref "nf.is_galois"}[Galois] extension of its {bpref "ag.base_field"}[base field] over which $`T` becomes isomorphic to a power of the multiplicative group $`\mathbb{G}_m`.
@@ -607,7 +607,7 @@ The *splitting field* of an algebraic torus $`T` is the minimal {bpref "nf.is_ga
 Depends on: {uses "ag.base_field"}[] {uses "nf.is_galois"}[]
 :::
 
-:::definition "ag.tate_shafarevich" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.tateShafarevichGroup, TauCeti.AlgebraicGeometry.AbelianVariety.mem_tateShafarevichGroup_iff, TauCeti.AlgebraicGeometry.AbelianVariety.pointRes")
+:::definition "ag.tate_shafarevich"
 *Tate-Shafarevich group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.tate_shafarevich))
 
 The *Tate-Shafarevich group* of an {bpref "ag.abelian_variety"}[abelian variety] $`A` over a {bpref "nf"}[number field] $`K` is
@@ -624,7 +624,7 @@ It is a {bpref "group.torsion"}[torsion abelian group] that is conjectured to be
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.torsor"}[] {uses "g2c.locally_solvable"}[] {uses "group.galois.absolute"}[] {uses "group.torsion"}[] {uses "nf"}[] {uses "nf.absolute_value"}[] {uses "nf.place"}[]
 :::
 
-:::definition "ag.torsor" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.IsPrincipalHomogeneousSpace, TauCeti.AlgebraicGeometry.AbelianVariety.orbitMap, TauCeti.AlgebraicGeometry.AbelianVariety.sepClosureOver")
+:::definition "ag.torsor"
 *Principal homogeneous space.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.torsor))
 
 A *principal homogeneous space* (or *torsor*) of an {bpref "ag.abelian_variety"}[abelian variety] $`A` over a field $`k` is a {bpref "ag.variety"}[variety] $`X` equipped with an $`A`-action such that ($`X_{\overline{k}}` with the induced $`A_{\overline{k}}`-action) is isomorphic to ($`A_{\overline{k}}` with  $`A_{\overline{k}}`-action given by translation).

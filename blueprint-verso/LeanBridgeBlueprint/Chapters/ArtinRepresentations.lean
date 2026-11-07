@@ -22,7 +22,7 @@ finite-dimensional $`\C`-vector space $`V`.  Here continuity means that $`\rho` 
 Depends on: {uses "group.galois.absolute"}[] {uses "nf.galois_group"}[]
 :::
 
-:::definition "artin.conductor" (lean := "Representation.artinConductor, Representation.artinConductorExponent, Representation.artinConductorExponentAt, Representation.artinConductorExponent_eq, Ideal.ramificationGroup")
+:::definition "artin.conductor"
 *Conductor of an Artin representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/artin.conductor))
 
 The *conductor* of an {bpref "artin"}[Artin representation] is a positive integer that measures its ramification.  It can be expressed as a product of local conductors.
@@ -86,7 +86,7 @@ It is $`0`, $`1`, or $`-1` depending on whether the {bpref "group.representation
 Depends on: {uses "group"}[] {uses "group.representation.character"}[] {uses "group.representation.type"}[]
 :::
 
-:::definition "artin.galois_orbit" (lean := "Representation.IsGaloisConjugate, Representation.galoisOrbit, Representation.IsGaloisConjugate.symm, Representation.IsGaloisConjugate.trans, Representation.IsGaloisConjugate.isArtin")
+:::definition "artin.galois_orbit"
 *Galois orbit of an Artin representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/artin.galois_orbit))
 
 The {bpref "group.galois.absolute"}[absolute Galois group] $`\Gal(\overline{\Q}/\Q)` acts on the set of {bpref "artin"}[Artin representations] for an extension by pre-composition, so we consider two representations to be Galois conjugate if they differ by such an automorphism.  The action, for a given representation, in fact factors through a finite degree abelian extension.
@@ -124,7 +124,7 @@ The conductor is given in factored form with the following encoding.  Underscore
 Depends on: {uses "artin"}[] {uses "artin.conductor"}[] {uses "artin.dimension"}[] {uses "artin.galois_orbit"}[] {uses "artin.permutation_container"}[] {uses "gg.tnumber"}[]
 :::
 
-:::definition "artin.lfunction" (lean := "Representation.IsArtin.lFunction, Representation.IsArtin.multipliable_lFunction, Representation.artinLFunction, Representation.frobeniusInertiaInvariants, Representation.apply_eq_frobeniusInertiaInvariants, Representation.artinEulerPolynomial_eq")
+:::definition "artin.lfunction"
 *Artin L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/artin.lfunction))
 
 The {bpref "lfunction"}[L-function] associated to an
@@ -187,7 +187,7 @@ The image of $`\rho` is the *projective image* of the Artin representation.
 Depends on: {uses "artin"}[]
 :::
 
-:::definition "artin.projective_image_type" (lean := "HeckeRing.GL2.Newform.GaloisRep.ProjectiveImageType, HeckeRing.GL2.Newform.GaloisRep.ProjectiveImageType.IsTypeOf, Matrix.ProjGenLinGroup")
+:::definition "artin.projective_image_type"
 *Projective image type.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/artin.projective_image_type))
 
 The {bpref "artin.projective_image"}[projective image] of an {bpref "artin"}[Artin representation] is a finite {bpref "group.subgroup"}[subgroup] of $`\PGL_n(\C)`.  Possible subgroups have been classified for small $`n`.  The case which has garnered the most interest is when $`n=2`, in which case the image is isomorphic to either $`A_4`, $`S_4`, $`A_5`, or $`D_n` for some $`n\geq 2` (where $`D_2` is the Klein group).
@@ -203,7 +203,7 @@ An *projective stem field* is a {bpref "nf.stem_field"}[stem field] for the {bpr
 Depends on: {uses "artin"}[] {uses "artin.projective_field"}[] {uses "nf.stem_field"}[]
 :::
 
-:::definition "artin.ramified_primes" (lean := "Algebra.IsUnramifiedIn, Representation.artinField, Algebra.isUnramifiedIn_iff_forall_ramificationIdx_eq_one")
+:::definition "artin.ramified_primes"
 *Ramified prime of an Artin representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/artin.ramified_primes))
 
 If $`\rho:\Gal(\overline{\Q}/\Q)\to\GL_n(\C)` is an {bpref "artin"}[Artin representation] with {bpref "artin.number_field"}[Artin field] $`K`, then a prime $`p` is *ramified* if it is {bpref "nf.ramified_primes"}[ramified] in $`K/\Q`.
@@ -240,7 +240,7 @@ For an {bpref "artin"}[Artin Representation], complex conjugation gives a well-d
 Depends on: {uses "artin"}[]
 :::
 
-:::definition "artin.unramified_primes" (lean := "Algebra.IsUnramifiedIn, Representation.artinField, Algebra.isUnramifiedIn_iff_forall_ramificationIdx_eq_one")
+:::definition "artin.unramified_primes"
 *Unramified prime of an Artin representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/artin.unramified_primes))
 
 If $`\rho:\Gal(\overline{\Q}/\Q)\to\GL_n(\C)` is an {bpref "artin"}[Artin representation], a prime $`p` is *unramified* if it is not {bpref "artin.ramified_primes"}[ramified].

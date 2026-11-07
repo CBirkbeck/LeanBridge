@@ -27,7 +27,7 @@ If the ring $`R` is not mentioned, then it is either $`\Q` or $`\C`, depending o
 Depends on: {uses "cmf.hecke_operator"}[] {uses "mf"}[]
 :::
 
-:::definition "mf" (lean := "ModularForm.multiplierSpace, ModularForm.mem_multiplierSpace_one_iff, ModularForm")
+:::definition "mf"
 *Modular form (general).* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf))
 
 The term *modular form* is used to describe several types
@@ -80,7 +80,7 @@ for all good primes $`\frak{p} \nmid \frak{N}`.  Such a character $`\chi` is nec
 Depends on: {uses "character.hecke"}[] {uses "mf"}[] {uses "nf"}[]
 :::
 
-:::definition "mf.ellitpic.self_twist" (lean := "HeckeRing.GL2.Newform.HasSelfTwist, HeckeRing.GL2.Newform.HasCMBy, HeckeRing.GL2.Newform.HasRMBy")
+:::definition "mf.ellitpic.self_twist"
 *Self twist of a modular form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.ellitpic.self_twist))
 
 A {bpref "cmf.newform"}[newform] $`f=\sum a_n q^n` admits a *self twist* by a nontrivial {bpref "character.dirichlet.primitive"}[primitive] {bpref "character.dirichlet"}[Dirichlet character] $`\chi` if we have $`a_p=\chi(p)a_p` for all but finitely many primes $`p`.
@@ -95,7 +95,7 @@ It is possible for a modular form to have more than one self twist; this occurs 
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.order"}[] {uses "character.dirichlet.primitive"}[] {uses "cmf.level"}[] {uses "cmf.newform"}[] {uses "cmf.projective_image"}[] {uses "cmf.rm_form"}[] {uses "cmf.weight"}[] {uses "nf.discriminant"}[]
 :::
 
-:::definition "mf.growth_condition" (lean := "UpperHalfPlane.IsBoundedAtImInfty, UpperHalfPlane.atImInfty, OnePoint.IsBoundedAt, ModularForm.bdd_at_cusps'")
+:::definition "mf.growth_condition"
 *Growth condition for a modular form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.growth_condition))
 
 A {bpref "mf"}[modular form] $`f` satisfies a growth condition which restricts the growth of $`f` as $`y\rightarrow \infty` in complex variables $`z=x+iy`.
@@ -103,7 +103,7 @@ A {bpref "mf"}[modular form] $`f` satisfies a growth condition which restricts t
 Depends on: {uses "mf"}[]
 :::
 
-:::definition "mf.half_integral_weight" (lean := "ModularForm.halfIntegralWeightSpace, ModularForm.halfIntegralWeightCuspSpace, ModularForm.hasWeight_of_mem_halfIntegralWeightSpace, ModularForm.thetaFactor, ModularForm.thetaSeries_smul, ModularForm.thetaSeries_mem_halfIntegralWeightSpace, ModularForm.thetaSeries_mul_discriminant_mem_halfIntegralWeightCuspSpace, ModularForm.thetaSeries_mul_discriminant_ne_zero")
+:::definition "mf.half_integral_weight"
 *Half-integral weight modular forms.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.half_integral_weight))
 
 Let $`k` be an odd integer, and let $`N` a positive integer divisible by $`4`. Let $`\chi` be a {bpref "character.dirichlet"}[character] modulo $`N`. A *modular form of half-integral {bpref "cmf.weight"}[weight]* $`k/2` , {bpref "cmf.level"}[level] $`N` and character $`\chi` is an holomorphic function defined on the upper half plane $`\mathcal{H}`, satisfying the transformation formula
@@ -147,7 +147,7 @@ where $`F` runs over all newforms of weight $`k-1`, level dividing $`N/2` and ch
 $$`S_{k/2}(N, \chi, F) =\{ g \in S_0'(N, \chi): T_{p^2} g = \lambda_p(F) g \quad \forall\, p\nmid N\}.`
 :::
 
-:::definition "mf.half_integral_weight.theta" (lean := "jacobiTheta, ModularForm.thetaSeries, ModularForm.thetaSeries_eq, ModularForm.thetaSeries_mem_halfIntegralWeightSpace")
+:::definition "mf.half_integral_weight.theta"
 *Theta function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.half_integral_weight.theta))
 
 The (classical) *theta function* $`\theta(z)` is a holomorphic modular form of {bpref "mf.half_integral_weight"}[half-integral weight] $`1/2` and {bpref "cmf.level"}[level] 4, defined by the formula
@@ -167,7 +167,7 @@ $$`\theta(z)=\frac{\eta^5(z)}{\eta^2(z/2)\eta^2(2z)}=\frac{\eta^2((z+1)/2)}{\eta
 Depends on: {uses "cmf.level"}[] {uses "mf.half_integral_weight.dedekind_eta"}[]
 :::
 
-:::definition "mf.jacobi" (lean := "ModularForm.jacobiFormSpace, ModularForm.jacobiCuspFormSpace, ModularForm.HasJacobiFourierExpansion, ModularForm.jacobiFactor, ModularForm.apply_add_mul_add_of_mem_jacobiFormSpace")
+:::definition "mf.jacobi"
 *Jacobi forms.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.jacobi))
 
 A Jacobi form (of full level) of weight $`k` and index $`N`
@@ -201,7 +201,7 @@ $`J_{k,N}^{\text{cusp}}`.
 A *multiplier system* of weight $`k\in\mathbb{Z}` for a group $`G` is a group homomorphism from $`G` to the group $`S^1` of complex numbers of modulus $`1`, with the added condition that, if $`-I\in G`, then $`v(-I)=(-1)^k`.
 :::
 
-:::definition "mf.quasi_modular" (lean := "ModularForm.IsQuasiModularForm, ModularForm.HasQuasiModularDepth, ModularForm.quasiModularPolynomial, ModularForm.isQuasiModularForm_E2")
+:::definition "mf.quasi_modular"
 *Quasi-modular form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.quasi_modular))
 
 A *quasi-modular form* of {bpref "cmf.weight"}[weight] $`k` and {bpref "mf.multipliersystem"}[multiplier system] $`v` for a {bpref "group.fuchsian"}[fuchsian group] $`G` is a function $`f` from {bpref "mf.upper_half_plane"}[$`\mathfrak{H}`] to $`\mathbb{C}` which is
@@ -246,7 +246,7 @@ $$`f|_k\gamma(z)=v(\gamma)f(z).`
 Depends on: {uses "mf"}[] {uses "mf.multipliersystem"}[] {uses "mf.upper_half_plane"}[]
 :::
 
-:::definition "mf.transformation_property" (lean := "ModularForm.multiplierSpace, SlashInvariantForm, ModularForm.slash_action_eq'_iff, ModularForm.slash_def")
+:::definition "mf.transformation_property"
 *Transformation property for modular forms.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.transformation_property))
 
 A {bpref "mf"}[modular form] $`f` satisfies a transformation property for a group $`\Gamma`, which relates the value of $`f` at a point in its domain with the value of $`f` at the point transformed under the action of $`\Gamma` on the domain.
@@ -260,7 +260,7 @@ for all $`z\in\mathcal{H}`, $`\gamma=\left(\begin{array}{ll}a&b\\c&d\end{array}\
 Depends on: {uses "group.sl2z"}[] {uses "mf"}[] {uses "mf.multipliersystem"}[] {uses "mf.upper_half_plane"}[]
 :::
 
-:::definition "mf.upper_half_plane" (lean := "UpperHalfPlane.Completed, UpperHalfPlane.Completed.hasBasis_nhds_ratCast, UpperHalfPlane.Completed.hasBasis_nhds_infty, UpperHalfPlane.Completed.smul_cusp, UpperHalfPlane")
+:::definition "mf.upper_half_plane"
 *Upper half-plane.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.upper_half_plane))
 
 The *upper half-plane* $`\mathcal{H}` is the set of complex numbers whose imaginary part is positive, endowed with the topology induced from $`\C`.

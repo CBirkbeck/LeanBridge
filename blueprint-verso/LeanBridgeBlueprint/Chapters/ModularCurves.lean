@@ -27,7 +27,7 @@ The curve $`X_H` can alternatively be constructed as the coarse moduli space of 
 Depends on: {uses "ag.curve.smooth"}[] {uses "ag.quotient_curve"}[] {uses "cmf.congruence_subgroup"}[] {uses "ec"}[] {uses "ec.galois_rep"}[] {uses "gl2.level"}[] {uses "gl2.open"}[] {uses "mf.upper_half_plane"}[] {uses "modcurve.cusps"}[] {uses "modcurve.level_structure"}[] {uses "modcurve.xn"}[]
 :::
 
-:::definition "modcurve.agreeable" (lean := "Matrix.GeneralLinearGroup.IsAgreeable, Matrix.GeneralLinearGroup.agreeableClosure, Matrix.GeneralLinearGroup.AgreeableQuotient, Matrix.GeneralLinearGroup.adelicScalars, Matrix.GeneralLinearGroup.adelicSL")
+:::definition "modcurve.agreeable"
 *Agreeable.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.agreeable))
 
 An {bpref "gl2.open"}[open subgroup] $`H\le \GL_2(\widehat{\Z})` (and the corresponding {bpref "modcurve"}[modular curve] $`X_H`) is *agreeable* (as defined by Zywina in Section 1.4 of ) if the following hold:
@@ -45,7 +45,7 @@ The agreeable closure $`\widetilde H` contains $`H` as a {bpref "group.subgroup.
 Depends on: {uses "gl2.open"}[] {uses "group.commutator_subgroup"}[] {uses "group.subgroup.normal"}[] {uses "modcurve"}[] {uses "modcurve.level"}[]
 :::
 
-:::definition "modcurve.canonical_field" (lean := "Matrix.GeneralLinearGroup.canonicalField, Matrix.GeneralLinearGroup.canonicalFieldOfLevel, Matrix.GeneralLinearGroup.detReduction")
+:::definition "modcurve.canonical_field"
 *Canonical field of definition of a modular curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.canonical_field))
 
 Let $`X_H` be the {bpref "modcurve"}[modular curve] over $`\mathbb{Q}` associated to an open subgroup $`H \le \operatorname{GL}_2(\widehat{\mathbb{Z}})`.  Let $`\pi_0((X_H)_{\overline{\Q}})` be the set of {bpref "ag.geom_component"}[geometric components].  Since $`X_H` is integral, the action of $`\Gal_{\Q}` on $`\pi_0((X_H)_{\overline{\Q}})` is transitive.  Let $`C` be one of the geometric components.  The *canonical field of definition* of $`C` is the subfield $`K` of $`\overline{\mathbb{Q}}` fixed by the stabilizer $`\operatorname{Stab}_{\Gal_{\Q}}(C)`.
@@ -91,7 +91,7 @@ The curve $`(X_H)_{\Q}` is integral.  It is geometrically integral if and only i
 Depends on: {uses "ag.geom_component"}[] {uses "modcurve"}[] {uses "modcurve.xn"}[]
 :::
 
-:::definition "modcurve.contains_negative_one" (lean := "Subgroup.adjoinNegOne_eq_self_iff, Subgroup.adjoinNegOne")
+:::definition "modcurve.contains_negative_one"
 *Contains $`-I`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.contains_negative_one))
 
 A {bpref "modcurve"}[modular curve] $`X_H` with $`-I\in H\in \GL_2(\widehat{\Z})` has the property that if an {bpref "ec"}[elliptic curve] $`E` over a number field $`K` has $`j`-invariant $`j(E)\ne 0,1728` in the image of $`j\colon X_H\to X(1)`, then the mod-$`N` Galois image of every {bpref "av.twist"}[twist] of $`E` is conjugate to a subgroup of the projection of $`H` to $`\GL_2(\Z/N\Z)`. Modular curves $`X_H` with $`-I\not\in H` do not enjoy this property.
@@ -99,7 +99,7 @@ A {bpref "modcurve"}[modular curve] $`X_H` with $`-I\in H\in \GL_2(\widehat{\Z})
 Depends on: {uses "av.twist"}[] {uses "ec"}[] {uses "modcurve"}[]
 :::
 
-:::definition "modcurve.cusp_orbits" (lean := "Matrix.GeneralLinearGroup.CuspOrbit, Matrix.GeneralLinearGroup.cuspOrbitSize, Matrix.GeneralLinearGroup.numCuspOrbitsOfSize, Matrix.GeneralLinearGroup.cuspGaloisRel, Matrix.GeneralLinearGroup.adelicCyclotomicCharacter")
+:::definition "modcurve.cusp_orbits"
 *Cusp orbits.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.cusp_orbits))
 
 For an {bpref "gl2.open"}[open subgroup] $`H` of $`\GL_2(\widehat{\Z})` with $`\det(H) =\widehat{\Z}^\times`, the *cusps* of $`H` are the double cosets $`\pm H  \backslash \GL_2(\widehat{\Z}) /\langle\delta\rangle`, where $`\delta := \begin{bmatrix}1&1\\0&1\end{bmatrix}`.  These correspond to the {bpref "modcurve.cusps"}[cusps]  of the {bpref "modcurve"}[modular curve] $`X_H`.
@@ -113,7 +113,7 @@ The sizes of the Galois orbits of the cusps of $`H` form a multiset of integers 
 Depends on: {uses "gl2.open"}[] {uses "modcurve"}[] {uses "modcurve.cusps"}[]
 :::
 
-:::definition "modcurve.cusp_widths" (lean := "Matrix.GeneralLinearGroup.adelicCusps, Matrix.GeneralLinearGroup.adelicCuspWidth, Subgroup.adjoinNegOne, DoubleCoset.Quotient")
+:::definition "modcurve.cusp_widths"
 *Cusp widths.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.cusp_widths))
 
 For an open subgroup $`H` of $`\GL_2(\widehat{\Z})` with $`\det(H) =\widehat{\Z}^\times`, the *cusps* of $`H` are the double cosets $`\pm H  \backslash \GL_2(\widehat{\Z}) /\langle \delta\rangle`, where $`\delta := \begin{bmatrix}1&1\\0&1\end{bmatrix}`.  These correspond to the {bpref "modcurve.cusps"}[cusps]  of the modular curve $`X_H`.
@@ -200,7 +200,7 @@ Concretely, in the case that $`H` and $`H'` have coprime {bpref "gl2.level"}[lev
 Depends on: {uses "gl2.level"}[] {uses "modcurve"}[]
 :::
 
-:::definition "modcurve.gassmann_class" (lean := "Matrix.GeneralLinearGroup.gassmannClass, Matrix.GeneralLinearGroup.IsAdelicGassmannEquivalent, Subgroup.IsGassmannEquivalent, Subgroup.isGassmannEquivalent_equivalence")
+:::definition "modcurve.gassmann_class"
 *Gassmann class.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.gassmann_class))
 
 For an {bpref "gl2.open"}[open subgroup] $`H \leq \GL_2(\widehat{\Z})`, the *Gassmann class* of $`H` is the set of open subgroups of $`\GL_2(\widehat{\Z})` that are {bpref "group.gassmann_equivalence"}[Gassmann equivalent] to $`H`.
@@ -236,7 +236,7 @@ The *$`K`-gonality* $`\gamma` of a {bpref "modcurve"}[modular curve] $`X_H` is t
 Depends on: {uses "ag.geom_component"}[] {uses "ag.gonality"}[] {uses "modcurve"}[] {uses "modcurve.canonical_field"}[]
 :::
 
-:::definition "modcurve.index" (lean := "Subgroup.index")
+:::definition "modcurve.index"
 *Index of a modular curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.index))
 
 The *index* of a {bpref "modcurve"}[modular curve] $`X_H` is the {bpref "gl2.index"}[index] of the {bpref "gl2.open"}[open subgroup] $`H\leq \GL_2(\widehat{\Z})`.  The degree of the canonical morphism $`j \colon X_H\to X(1)\simeq \mathbb{P}^1` equals the index when $`-1 \in H`, and equals half the index if $`-1 \notin H`.
@@ -296,7 +296,7 @@ The *level* of a {bpref "modcurve"}[modular curve] $`X_H` is the {bpref "gl2.lev
 Depends on: {uses "gl2.level"}[] {uses "gl2.open"}[] {uses "modcurve"}[]
 :::
 
-:::definition "modcurve.level_structure" (lean := "WeierstrassCurve.levelStructure, WeierstrassCurve.IsRationalLevelStructure, WeierstrassCurve.cyclicIsogenyFieldDegree, WeierstrassCurve.cyclicTorsionFieldDegree, WeierstrassCurve.torsionFieldDegree")
+:::definition "modcurve.level_structure"
 *Level structure of a modular curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.level_structure))
 
 Let $`H` be an {bpref "gl2.open"}[open subgroup] of $`\GL_2(\widehat{\Z})` of {bpref "gl2.level"}[level] $`N`, let $`\pi_N\colon \GL_2(\widehat{\Z})\to \GL_2(\Z/N\Z)` be the natural projection, and let $`E` be an {bpref "ec"}[elliptic curve] over a {bpref "nf"}[number field] $`K`.
@@ -321,7 +321,7 @@ Invariants of a rational $`H`-level structure include:
 Depends on: {uses "ec"}[] {uses "ec.base_change"}[] {uses "ec.galois_rep"}[] {uses "gl2.level"}[] {uses "gl2.open"}[] {uses "nf"}[]
 :::
 
-:::definition "modcurve.local_obstruction" (lean := "AlgebraicGeometry.Scheme.HasLocalObstruction, AlgebraicGeometry.Scheme.HasPointIn, AlgebraicGeometry.Scheme.not_hasLocalObstruction")
+:::definition "modcurve.local_obstruction"
 *Local obstruction.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.local_obstruction))
 
 A {bpref "modcurve"}[modular curve] $`X/\Q` has a *local obstruction* (to rational points) if it has no real points, or if it has no $`\Q_p`-points for some prime $`p`.
@@ -415,13 +415,13 @@ Depends on: {uses "ec.galois_rep_modell_image"}[]
 The degree of a point $`x` on a modular curve $`X` is the degree $`[\mathbb{Q}(x): \mathbb{Q}]`.
 :::
 
-:::definition "modcurve.point_residue_field" (lean := "AlgebraicGeometry.Scheme.residueField")
+:::definition "modcurve.point_residue_field"
 *Residue field of a point on a modular curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.point_residue_field))
 
 The *residue field* of a point $`x` on a modular curve $`X` defined over a field $`K` is the field $`K(x)`.
 :::
 
-:::definition "modcurve.psl2index" (lean := "Matrix.GeneralLinearGroup.psl2Index, Matrix.GeneralLinearGroup.modularGamma, Matrix.GeneralLinearGroup.modularGamma_adjoinNegOne, Matrix.GeneralLinearGroup.sl2zToAdelic")
+:::definition "modcurve.psl2index"
 *$`\PSL_2`-index.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.psl2index))
 
 The *$`\PSL_2`-index* of a {bpref "modcurve"}[modular curve] $`X_H` is the index of $`\Gamma_H := \pm H\cap \SL_2(\Z)` in $`\PSL_2(\Z)`; this index is also the degree of the map $`j : \Gamma_H \backslash \overline{\mathfrak{h}} \to X(1)`, where $`\overline{\mathfrak{h}}` is the completed {bpref "mf.upper_half_plane"}[upper half-plane]. This is equal to the {bpref "modcurve.index"}[index] of the modular curve when $`-1 \in H`, and equals half the index if $`-1 \notin H`.
@@ -429,7 +429,7 @@ The *$`\PSL_2`-index* of a {bpref "modcurve"}[modular curve] $`X_H` is the index
 Depends on: {uses "mf.upper_half_plane"}[] {uses "modcurve"}[] {uses "modcurve.index"}[]
 :::
 
-:::definition "modcurve.quadratic_refinements" (lean := "Subgroup.adjoinNegOne, Subgroup.relIndex_adjoinNegOne_eq_two")
+:::definition "modcurve.quadratic_refinements"
 *Index 2 refinements.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.quadratic_refinements))
 
 An *index 2 refinement* of a {bpref "modcurve"}[modular curve] $`X_H` is a {bpref "modcurve.modular_cover"}[modular cover] $`X_{H'} \to X_H` such that $`H' < H` and $`H=\{\pm 1\}H'`, so $`(H:H')=2`.  We also refer to $`H'` as an *index 2 refinement* of $`H`.  In particular, if $`-1 \not \in H` then there are no index 2 refinements.
@@ -459,7 +459,7 @@ The rational points on a {bpref "modcurve"}[modular curve] $`X_H` may be divided
 Depends on: {uses "ag.jacobian"}[] {uses "ec"}[] {uses "modcurve"}[] {uses "modcurve.cm_discriminants"}[] {uses "modcurve.cusps"}[] {uses "modcurve.genus"}[]
 :::
 
-:::definition "modcurve.relative_index" (lean := "Subgroup.relIndex")
+:::definition "modcurve.relative_index"
 *Index of a modular map.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.relative_index))
 
 Given a map $`f : X_H \to X_G` of {bpref "modcurve"}[modular curves] induced by an inclusion of {bpref "gl2.open"}[open subgroups] $`H \le G \le \GL_2(\hat{\Z})`, the *relative index* of $`f` is the {bpref "gl2.index"}[index] $`[G : H]`.  The degree of $`f` is half the index of $`f` if $`-1 \in G` and $`-1 \not\in H`, and equal to the index otherwise.
@@ -467,7 +467,7 @@ Given a map $`f : X_H \to X_G` of {bpref "modcurve"}[modular curves] induced by 
 Depends on: {uses "gl2.index"}[] {uses "gl2.open"}[] {uses "modcurve"}[]
 :::
 
-:::definition "modcurve.simple" (lean := "AlgebraicGeometry.Scheme.HasSimpleJacobian, AlgebraicGeometry.Scheme.hasSimpleJacobian_iff, TauCeti.AlgebraicGeometry.AbelianVariety.IsJacobian, TauCeti.AlgebraicGeometry.AbelianVariety.IsSimple")
+:::definition "modcurve.simple"
 *Simple modular curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.simple))
 
 A {bpref "modcurve"}[modular curve] $`X_H` is *simple* if its {bpref "ag.jacobian"}[Jacobian] is a {bpref "av.simple"}[simple] {bpref "ag.abelian_variety"}[abelian variety].
@@ -475,7 +475,7 @@ A {bpref "modcurve"}[modular curve] $`X_H` is *simple* if its {bpref "ag.jacobia
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.jacobian"}[] {uses "av.simple"}[] {uses "modcurve"}[]
 :::
 
-:::definition "modcurve.sl2level" (lean := "Matrix.GeneralLinearGroup.sl2Level, Matrix.GeneralLinearGroup.modularGamma, Matrix.GeneralLinearGroup.Gamma_adelicLevel_le_modularGamma, Matrix.GeneralLinearGroup.sl2Level_le_adelicLevel, Matrix.GeneralLinearGroup.Gamma_sl2Level_le")
+:::definition "modcurve.sl2level"
 *$`\SL_2`-level.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.sl2level))
 
 The *$`\SL_2`-level* of a {bpref "modcurve"}[modular curve] $`X_H` is the {bpref "cmf.congruence_subgroup"}[level of the congruence subgroup] $`\Gamma_H:=H\cap\SL_2(\Z)`.  The $`\SL_2`-level divides but need not equal the {bpref "gl2.level"}[level] of $`H`.

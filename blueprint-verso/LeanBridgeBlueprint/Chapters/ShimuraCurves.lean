@@ -11,13 +11,13 @@ open Informal
 
 This section lists the LMFDB definitions in the category `shimcurve`. Each definition links back to its LMFDB knowl. `sh.disc` and `sh.level` also belong here, although their ids put them in another LMFDB category.
 
-:::definition "sh.disc" (lean := "QuaternionAlgebra.discriminant, QuaternionAlgebra.IsRamifiedAt")
+:::definition "sh.disc"
 *Discriminant of a Shimura curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/sh.disc))
 
 The discriminant of a Shimura curve is the discriminant of the associated quaternion algebra.
 :::
 
-:::definition "sh.level" (lean := "Subalgebra.IsEichlerOrderOfLevel, Subalgebra.IsEichlerOrder")
+:::definition "sh.level"
 *Level of a Shimura curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/sh.level))
 
 The level of a Shimura curve is the level of the associated Eichler order.
@@ -124,7 +124,7 @@ When $`X_H` has {bpref "modcurve.genus"}[genus] zero, $`J_H` is the trivial abel
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.dimension"}[] {uses "ag.jacobian"}[] {uses "av.decomposition"}[] {uses "av.isogeny"}[] {uses "av.simple"}[] {uses "cmf.galois_orbit"}[] {uses "cmf.label"}[] {uses "cmf.newform"}[] {uses "cmf.weight"}[] {uses "modcurve.genus"}[] {uses "shimcurve"}[]
 :::
 
-:::definition "shimcurve.discb" (lean := "QuaternionAlgebra.discriminant, QuaternionAlgebra.IsRamifiedAt, QuaternionAlgebra.IsSplitAt")
+:::definition "shimcurve.discb"
 *Discriminant of a quaternion algebra.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.discb))
 
 Let $`B` be a {bpref "shimcurve.quaternion_algebra"}[quaternion algebra] over $`\Q`. We say that $`B` is *ramified* at a
@@ -136,7 +136,7 @@ The *discriminant* $`\operatorname{disc}(B)` of $`B` is the product of primes $`
 Depends on: {uses "shimcurve.quaternion_algebra"}[]
 :::
 
-:::definition "shimcurve.disco" (lean := "Subalgebra.quaternionDisc, Subalgebra.quaternionDiscrd, Subalgebra.quaternionDiscOfBasis, QuaternionAlgebra.reducedTrace, QuaternionAlgebra.reducedTrace_quaternionAlgebra")
+:::definition "shimcurve.disco"
 *Discriminant of a quaternion order.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.disco))
 
 Let $`B` be a {bpref "shimcurve.quaternion_algebra"}[quaternion algebra] over $`\Q`, and let $`O\subset B` be an
@@ -157,7 +157,7 @@ $$`\operatorname{discrd}(O)^2 = \operatorname{disc}(O).`
 Depends on: {uses "shimcurve.order"}[] {uses "shimcurve.quaternion_algebra"}[]
 :::
 
-:::definition "shimcurve.eichler" (lean := "Subalgebra.IsEichlerOrder, Subalgebra.IsEichlerOrderOfLevel, Subalgebra.IsMaximalQuaternionOrder, Subalgebra.IsQuaternionOrder")
+:::definition "shimcurve.eichler"
 *Eichler Orders.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.eichler))
 
 An *Eichler {bpref "shimcurve.order"}[order]* $`O` inside a {bpref "shimcurve.quaternion_algebra"}[quaternion algebra] $`B` is the intersection of two (not necessarily distinct) maximal orders. Over $`\Q`, the {bpref "shimcurve.disco"}[reduced discriminant] of an Eichler order $`O` is of the form $`\mathrm{disc}(O)=D\cdot M` with $`\gcd(D,M)=1`, in which case we say $`O` is *Eichler of level $`M`*.
@@ -173,7 +173,7 @@ An *elliptic point* of a {bpref "shimcurve"}[Shimura curve] $`X_H` is a point wi
 Depends on: {uses "shimcurve"}[]
 :::
 
-:::definition "shimcurve.enhanced_group" (lean := "Subalgebra.EnhancedGroup, Subalgebra.completedUnits, Subalgebra.completedUnitsAction")
+:::definition "shimcurve.enhanced_group"
 *Enhanced group associated to a polarized quaternion order.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.enhanced_group))
 
 Let $`(O,\mu)` be a {bpref "shimcurve.polarized_order"}[polarized quaternion order].
@@ -221,7 +221,7 @@ The *$`K`-gonality* $`\gamma` of a {bpref "shimcurve"}[Shimura curve] $`X_H` is 
 Depends on: {uses "ag.geom_component"}[] {uses "ag.gonality"}[] {uses "shimcurve"}[]
 :::
 
-:::definition "shimcurve.index" (lean := "Subgroup.index, Subalgebra.EnhancedGroup")
+:::definition "shimcurve.index"
 *Index of a Shimura curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.index))
 
 The *index* of a {bpref "shimcurve"}[Shimura curve]
@@ -265,7 +265,7 @@ compact subgroup of the {bpref "shimcurve.enhanced_group"}[enhanced semidirect p
 Depends on: {uses "shimcurve"}[] {uses "shimcurve.discb"}[] {uses "shimcurve.disco"}[] {uses "shimcurve.enhanced_group"}[] {uses "shimcurve.genus"}[] {uses "shimcurve.index"}[] {uses "shimcurve.level"}[] {uses "shimcurve.nrdmu"}[] {uses "shimcurve.polarized_order"}[] {uses "shimcurve.quaternion_algebra"}[]
 :::
 
-:::definition "shimcurve.level" (lean := "Subalgebra.enhancedGroupLevel, Subalgebra.enhancedGroupKernel, Subalgebra.enhancedGroupKernel_le_of_level_pos")
+:::definition "shimcurve.level"
 *Level of a Shimura curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.level))
 
 Let $`(O,\mu)` be a {bpref "shimcurve.polarized_order"}[polarized quaternion order], and let
@@ -283,7 +283,7 @@ $`H`.
 Depends on: {uses "shimcurve.enhanced_group"}[] {uses "shimcurve.polarized_order"}[]
 :::
 
-:::definition "shimcurve.local_obstruction" (lean := "AlgebraicGeometry.Scheme.HasLocalObstruction")
+:::definition "shimcurve.local_obstruction"
 *Local obstruction.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.local_obstruction))
 
 A {bpref "shimcurve"}[Shimura curve] $`X_H/\Q` has a *local obstruction* (to rational points) if it has no real points, or if it has no $`\Q_p`-points for some prime $`p`.
@@ -293,7 +293,7 @@ When $`X` has {bpref "shimcurve.genus"}[genus] $`0` the absence of local obstruc
 Depends on: {uses "shimcurve"}[] {uses "shimcurve.genus"}[]
 :::
 
-:::definition "shimcurve.nrdmu" (lean := "PolarizedQuaternionOrder.degree, QuaternionAlgebra.reducedNorm, QuaternionAlgebra.reducedNorm_quaternionAlgebra")
+:::definition "shimcurve.nrdmu"
 *Polarization degree of a polarized order.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.nrdmu))
 
 Let $`(O,\mu)` be a {bpref "shimcurve.polarized_order"}[polarized quaternion order]. The *polarization degree*
@@ -305,7 +305,7 @@ and $`\operatorname{discrd}(O)` is the {bpref "shimcurve.disco"}[reduced discrim
 Depends on: {uses "shimcurve.disco"}[] {uses "shimcurve.polarized_order"}[]
 :::
 
-:::definition "shimcurve.order" (lean := "Subalgebra, Subalgebra.toSubmodule, Submodule.IsLattice")
+:::definition "shimcurve.order"
 *Quaternion order.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.order))
 
 Let $`B` be a {bpref "shimcurve.quaternion_algebra"}[quaternion algebra] over $`\Q`. An *order* $`O\subset B` is a
@@ -320,7 +320,7 @@ algebra; however, the number of $`B^\times`-conjugacy classes is finite (and in 
 Depends on: {uses "nf.order"}[] {uses "shimcurve.quaternion_algebra"}[]
 :::
 
-:::definition "shimcurve.polarized_order" (lean := "PolarizedQuaternionOrder, Subalgebra.IsPolarization, QuaternionAlgebra.IsIndefinite, QuaternionAlgebra.IsDivision")
+:::definition "shimcurve.polarized_order"
 *Polarized quaternion order.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.polarized_order))
 
 Let $`O` be an {bpref "shimcurve.order"}[order] in an indefinite
@@ -371,7 +371,7 @@ The {bpref "ec.bsdconjecture"}[Birch and Swinnerton-Dyer] conjecture for modular
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.jacobian"}[] {uses "ag.mordell_weil"}[] {uses "av.decomposition"}[] {uses "av.simple"}[] {uses "cmf.analytic_rank"}[] {uses "cmf.galois_orbit"}[] {uses "cmf.newform"}[] {uses "ec.bsdconjecture"}[] {uses "lfunction"}[] {uses "lfunction.central_point"}[] {uses "shimcurve"}[]
 :::
 
-:::definition "shimcurve.simple" (lean := "AlgebraicGeometry.Scheme.HasSimpleJacobian")
+:::definition "shimcurve.simple"
 *Simple Shimura curves.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.simple))
 
 A {bpref "shimcurve"}[Shimura curve] $`X_H` is *simple* if its {bpref "ag.jacobian"}[Jacobian] is a {bpref "av.simple"}[simple] {bpref "ag.abelian_variety"}[abelian variety].

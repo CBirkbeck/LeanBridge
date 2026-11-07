@@ -15,7 +15,7 @@ file := "Mod-l-Galois"
 
 This section lists the LMFDB definitions in the category `modlgal`. Each definition links back to its LMFDB knowl.
 
-:::definition "modlgal" (lean := "MonoidHom.IsModEllGaloisRep, MonoidHom.splittingField, MonoidHom.galoisFactor, Field.absoluteGaloisGroup")
+:::definition "modlgal"
 *Mod-$`l` Galois representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modlgal))
 
 A *mod-$`\ell` Galois representation* is a representation of the {bpref "group.galois.absolute"}[abolute Galois group] $`\Gal_K` of a {bpref "nf"}[number field] $`K` with values in the $`\F_{\ell}`-points of an algebraic group.
@@ -57,7 +57,7 @@ The *characteristic* of a {bpref "modlgal"}[mod-$`\ell` Galois representation] i
 Depends on: {uses "modlgal"}[] {uses "modlgal.codomain"}[] {uses "ring"}[]
 :::
 
-:::definition "modlgal.codomain" (lean := "Matrix.GeneralLinearGroup")
+:::definition "modlgal.codomain"
 *Codomain.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modlgal.codomain))
 
 The *codomain* of a {bpref "modlgal"}[mod-$`\ell` Galois representation] $`\rho:\Gal_K \to G(\F_{\ell})`, with values in the $`\F_{\ell}`-points of an algebraic group $`G`, is the finite group $`G(\F_{\ell})`.
@@ -65,7 +65,7 @@ The *codomain* of a {bpref "modlgal"}[mod-$`\ell` Galois representation] $`\rho:
 Depends on: {uses "modlgal"}[]
 :::
 
-:::definition "modlgal.conductor" (lean := "Representation.modEllConductor, Representation.conductorExponent, Representation.conductorExponentAt, Representation.conductorExponent_eq, Representation.conductorExponent_eq_zero")
+:::definition "modlgal.conductor"
 *Conductor.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modlgal.conductor))
 
 The *conductor* of an {bpref "modlgal"}[mod-$`\ell` Galois representation] is a positive integer coprime to $`\ell` that measures ramification.  It can be expressed as a product of local conductors.
@@ -95,7 +95,7 @@ For a {bpref "modlgal"}[mod-$`\ell` Galois representation], its determinant is {
 Depends on: {uses "modlgal"}[] {uses "modlgal.surjective"}[]
 :::
 
-:::definition "modlgal.determinant" (lean := "Matrix.GeneralLinearGroup.det")
+:::definition "modlgal.determinant"
 *Determinant character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modlgal.determinant))
 
 To each {bpref "modlgal"}[mod-$`\ell` Galois representation] $`\rho:\Gal_K \to G(\F_{\ell})`, with values in the $`\F_{\ell}`-points of an algebraic group $`G`, is associated a *determinant character* $`\det\rho:\Gal_K \to \F_{\ell}^*`, defined by composing $`\rho` with the determinant map $`G(\F_{\ell}) \to \F_{\ell}^*`.
@@ -123,7 +123,7 @@ $`1`-dimensional {bpref "modlgal"}[mod-$`\ell` Galois representations] are also 
 Depends on: {uses "modlgal"}[]
 :::
 
-:::definition "modlgal.dual_pair_of_algebras" (lean := "LinearMap.IsDualPairOfAlgebras, LinearMap.leftComul, LinearMap.rightComul, LinearMap.tensorPairing, LinearMap.tensorPairing_leftComul")
+:::definition "modlgal.dual_pair_of_algebras"
 *Dual pair of algebras.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modlgal.dual_pair_of_algebras))
 
 Let $`R` be a ring. A dual pair of algebras over $`R` is a triple $`(A, B, \phi)`, where $`A` and $`B` are finite locally free $`R`-algebras and where $`\phi: A \times B \to R` is a perfect $`R`-bilinear map such that the following identities hold for all $`a, a' \in A` and $`b, b' \in B`:
@@ -156,7 +156,7 @@ Note that {bpref "modlgal.ramified"}[unramified] primes $`\frak{p}` of $`K` are,
 Depends on: {uses "modlgal"}[] {uses "modlgal.determinant"}[] {uses "modlgal.ramified"}[] {uses "modlgal.splitting_field"}[] {uses "nf.prime"}[]
 :::
 
-:::definition "modlgal.frobenius_matrix" (lean := "MonoidHom.IsFrobeniusMatrix, MonoidHom.frobeniusClass, MonoidHom.galoisFactor_restrictNormalHom")
+:::definition "modlgal.frobenius_matrix"
 *Frobenius matrix.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modlgal.frobenius_matrix))
 
 A *Frobenius matrix* for a {bpref "modlgal"}[mod-$`\ell` Galois representation]  is an element of the conjugacy class of the image of the absolute Frobenius element associated to a particular prime.
@@ -164,7 +164,7 @@ A *Frobenius matrix* for a {bpref "modlgal"}[mod-$`\ell` Galois representation] 
 Depends on: {uses "modlgal"}[]
 :::
 
-:::definition "modlgal.frobenius_order" (lean := "MonoidHom.frobeniusOrder, MonoidHom.frobeniusOrder_eq, MonoidHom.frobeniusClass")
+:::definition "modlgal.frobenius_order"
 *Frobenius order.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modlgal.frobenius_order))
 
 Let $`\rho:\Gal_K\to G(\F_{\ell})` be a {bpref "modlgal"}[mod-$`\ell` Galois representation].   The *Frobenius order* of a {bpref "nf.prime"}[prime] $`\frak{p}` of $`K` at which $`\rho` is {bpref "modlgal.ramified"}[unramified] is the {bpref "group.order"}[order] of $`\rho(\text{Frob}_{\frak{p}})` as an element of the finite group $`G(\F_{\ell})`.
@@ -192,7 +192,7 @@ Note that {bpref "modlgal.ramified"}[unramified] primes $`\frak{p}` of $`K` are,
 Depends on: {uses "modlgal"}[] {uses "modlgal.ramified"}[] {uses "modlgal.splitting_field"}[] {uses "nf.prime"}[]
 :::
 
-:::definition "modlgal.generating_primes" (lean := "MonoidHom.IsGeneratingPrimes, MonoidHom.generatingPrimes, MonoidHom.isGeneratingPrimes_generatingPrimes, MonoidHom.IsGeneratingPrimes.eq, MonoidHom.frobeniusImage")
+:::definition "modlgal.generating_primes"
 *Generating Frobenius classes.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modlgal.generating_primes))
 
 The {bpref "modlgal.image"}[image] of a {bpref "modlgal"}[mod-$`\ell` Galois representation] $`\rho` is generated by the images under $`\rho` of the Frobenius conjugacy classes associated to a finite set of {bpref "modlgal.ramified"}[unramified] primes of the base field.  We may canonicalize this set by choosing the minimal sequence of increasing unramified primes $`p_1,\ldots,p_n` such that the cardinalities of the subgroups generated by the images of Frobenius conjugacy classes
@@ -272,7 +272,7 @@ of a {bpref "modlgal"}[mod-$`\ell` Galois representation].
 Depends on: {uses "modlgal"}[] {uses "modlgal.projective_representation"}[] {uses "modlgal.splitting_field"}[] {uses "nf.minimal_sibling"}[]
 :::
 
-:::definition "modlgal.projective_representation" (lean := "Matrix.ProjGenLinGroup, Matrix.ProjGenLinGroup.mk, Matrix.GeneralLinearGroup.center_eq_range_scalar")
+:::definition "modlgal.projective_representation"
 *Projective representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modlgal.projective_representation))
 
 To each {bpref "modlgal"}[mod-$`\ell` Galois representation] $`\rho:\Gal_K \to G(\F_{\ell})`, with values in the $`\F_{\ell}`-points of an algebraic group $`G`, is associated a *projective representation* $`\mathbb{P}\rho:\Gal_K \to G(\F_{\ell})/\F_{\ell}^*`, defined by composing $`\rho` with the projection $`G(\F_{\ell}) \to G(\F_{\ell})/\F_{\ell}^*`.
@@ -282,7 +282,7 @@ In case $`\ell=2`, the projective representation is the same as the original rep
 Depends on: {uses "modlgal"}[]
 :::
 
-:::definition "modlgal.ramified" (lean := "Algebra.IsUnramifiedIn, IntermediateField.fixedField, MonoidHom.ker, Ideal.inertia")
+:::definition "modlgal.ramified"
 *Ramified primes of a mod-$`l` Galois representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modlgal.ramified))
 
 If $`\rho\colon\Gal_K\to G(\F_{\ell})` is an {bpref "modlgal"}[mod-$`\ell` Galois representation] with {bpref "modlgal.splitting_field"}[splitting field] $`L`,   then a {bpref "nf.prime"}[prime] $`\frak{p}\nmid\ell` of $`K` is *ramified* if it is {bpref "nf.ramified_primes"}[ramified] in $`L/K`.
@@ -319,7 +319,7 @@ A {bpref "modlgal"}[mod-$`\ell` Galois representation] $`\rho: \Gal_K\to G(\F_{\
 Depends on: {uses "modlgal"}[] {uses "modlgal.codomain"}[] {uses "modlgal.image"}[]
 :::
 
-:::definition "modlgal.top_slope" (lean := "MonoidHom.topArtinSlope, NumberField.topArtinSlopeAt, NumberField.topArtinSlopeAt_eq, NumberField.galoisClosure_quotient_eq, IsNonarchimedeanLocalField.topArtinSlope")
+:::definition "modlgal.top_slope"
 *Top slope.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modlgal.top_slope))
 
 Given a {bpref "modlgal"}[mod-$`\ell` Galois representation] $`\rho`, let $`K` be its  {bpref "modlgal.splitting_field"}[splitting field].  Then the {bpref "nf.local_algebra"}[local $`\ell`-adic algebra] $`K\otimes\mathbb{\Q}_{\ell}` is isomorphic to a product of {bpref "lf"}[$`\ell`-adic fields].  The *top Artin slope* of the representation is the largest {bpref "lf.slopes"}[Artin slope] among these fields, which equals the {bpref "lf.top_slope"}[top Artin slope] for their compositum.

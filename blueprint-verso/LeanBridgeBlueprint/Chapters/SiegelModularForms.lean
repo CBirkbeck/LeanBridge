@@ -15,7 +15,7 @@ file := "Siegel-modular-forms"
 
 This section lists the LMFDB definitions in the subcategory `mf.siegel`. Each definition links back to its LMFDB knowl. `paramodulargroup.sp2gr`, `repn.highest.weight` and `repn.irrep.gl` also belong here, although their ids put them in another LMFDB category.
 
-:::definition "mf.siegel" (lean := "SiegelUpperHalfSpace.modularForms, SiegelUpperHalfSpace.scalarModularForms, SiegelUpperHalfSpace.mem_scalarModularForms_iff, SymplecticGroup.IsArithmetic, SiegelUpperHalfSpace.IsHolomorphic, SiegelUpperHalfSpace.finiteDimensional_modularFormsKJ_of_isArithmetic")
+:::definition "mf.siegel"
 *Siegel modular form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel))
 
 Let $`g\ge 2` be an integer, let
@@ -81,7 +81,7 @@ These fall into six classes of (packets of ) representations:
 Depends on: {uses "mf.siegel.degree"}[] {uses "mf.siegel.newform"}[]
 :::
 
-:::definition "mf.siegel.character" (lean := "SiegelUpperHalfSpace.modularForms, SiegelUpperHalfSpace.mem_modularForms_iff_slash, SiegelUpperHalfSpace.slash, SiegelUpperHalfSpace.IsHolomorphic, SiegelUpperHalfSpace")
+:::definition "mf.siegel.character"
 *Siegel modular form with character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.character))
 
 Let $`g\ge 2` be an integer, let
@@ -119,7 +119,7 @@ It is also known as the *Hecke ring*, since the $`a_n` generate the same ring as
 Depends on: {uses "mf.siegel.coefficient_field"}[] {uses "mf.siegel.newform"}[]
 :::
 
-:::definition "mf.siegel.cusp_form" (lean := "SiegelUpperHalfSpace.IsSiegelCuspForm, SiegelUpperHalfSpace.siegelCuspForms, SiegelUpperHalfSpace.IsSiegelCuspForm.siegelPhi_slash, SiegelUpperHalfSpace.siegelPhi, SiegelUpperHalfSpace.slash, SiegelUpperHalfSpace.modularForms")
+:::definition "mf.siegel.cusp_form"
 *Siegel cusp form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.cusp_form))
 
 A {bpref "mf.siegel"}[Siegel modular form]
@@ -135,7 +135,7 @@ where $`|` is the {bpref "mf.siegel.slash.op"}[slash operator].
 Depends on: {uses "mf.siegel"}[] {uses "mf.siegel.character"}[] {uses "mf.siegel.slash.op"}[]
 :::
 
-:::definition "mf.siegel.cusp_form_degree2" (lean := "SiegelUpperHalfSpace.cuspFormsKJ, SiegelUpperHalfSpace.IsCuspForm, SiegelUpperHalfSpace.SiegelOperatorVanishes, SiegelUpperHalfSpace.rhoKJ, SiegelUpperHalfSpace.slash, SiegelUpperHalfSpace.finiteDimensional_cuspFormsKJ, SiegelUpperHalfSpace.isPeterssonDefinite_cuspForms, SiegelUpperHalfSpace.finiteDimensional_cuspFormsKJ_of_isArithmetic")
+:::definition "mf.siegel.cusp_form_degree2"
 *Siegel cusp form of degree 2.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.cusp_form_degree2))
 
 Let $`f` be a {bpref "mf.siegel.vector_valued_degree_two"}[vector-valued Siegel modular form] on
@@ -175,7 +175,7 @@ The *relative dimension* of $`S_{k,j}^{\rm new}(K(N),\chi)`  is its dimension as
 Depends on: {uses "mf.siegel.newform"}[]
 :::
 
-:::definition "mf.siegel.eisenstein_series" (lean := "SiegelUpperHalfSpace.siegelEisensteinSeries, SiegelUpperHalfSpace.siegelEisensteinTerm, SiegelUpperHalfSpace.siegelEisensteinTerm_mul, SymplecticGroup.SiegelParabolicCosets, SiegelUpperHalfSpace.exists_heckeOperator_siegelEisensteinKJ, SiegelUpperHalfSpace.isPeterssonOrthogonal_siegelEisensteinKJ, SiegelUpperHalfSpace.siegelEisensteinKJ_mem_modularFormsKJ, SiegelUpperHalfSpace.siegelEisensteinKJ_ne_zero")
+:::definition "mf.siegel.eisenstein_series"
 *Siegel Eisenstein series.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.eisenstein_series))
 
 The (Siegel) Eisenstein series in degree $`n`
@@ -642,7 +642,7 @@ Dimension tables are taken from Tsushima .
 Depends on: {uses "group.sp2gr"}[] {uses "mf.siegel.degree"}[] {uses "mf.siegel.vector_valued"}[]
 :::
 
-:::definition "mf.siegel.galois_orbit" (lean := "SiegelUpperHalfSpace.galoisOrbit, SiegelUpperHalfSpace.IsGaloisConjugate, SiegelUpperHalfSpace.IsGaloisConjugateBy, SiegelUpperHalfSpace.galoisOrbit_eq_iff, SiegelUpperHalfSpace.disjoint_galoisOrbit")
+:::definition "mf.siegel.galois_orbit"
 *Galois orbit.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.galois_orbit))
 
 {bpref "mf.siegel.hecke_operator"}[Hecke operators]
@@ -651,7 +651,7 @@ The Hecke eigenforms break into Galois orbits which are conjugate
 over $`\Bbb Q`.
 :::
 
-:::definition "mf.siegel.halfspace" (lean := "SiegelUpperHalfSpace, SiegelUpperHalfSpace.val_smul, SiegelUpperHalfSpace.num, SiegelUpperHalfSpace.denom")
+:::definition "mf.siegel.halfspace"
 *Siegel upper half-space.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.halfspace))
 
 The Siegel upper half-space of degree $`g` is denoted by $`\mathcal{H}_g` and defined as
@@ -681,7 +681,7 @@ does not act freely on $`\mathcal{H}_g`.
 Depends on: {uses "group.sp2gr"}[]
 :::
 
-:::definition "mf.siegel.hecke_operator" (lean := "SiegelUpperHalfSpace.siegelHeckeRingOf, SiegelUpperHalfSpace.localSiegelHeckeRingOf, SiegelUpperHalfSpace.heckeTSqOf, SiegelUpperHalfSpace.heckeOperator, SiegelUpperHalfSpace.IsHeckeEigenform, SiegelUpperHalfSpace.peterssonProduct_heckeOperator, SiegelUpperHalfSpace.heckeAdjointCoset_heckeT, SiegelUpperHalfSpace.peterssonProduct_heckeT")
+:::definition "mf.siegel.hecke_operator"
 *Hecke operators.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.hecke_operator))
 
 For a positive integer $`g`, let
@@ -732,7 +732,7 @@ A *Hecke eigenform* is a form in $`M_{\rho}(\Gamma)` which is a simultaneous eig
 Depends on: {uses "mf.siegel"}[] {uses "repn.highest.weight"}[]
 :::
 
-:::definition "mf.siegel.klingen_eisenstein_series" (lean := "SiegelUpperHalfSpace.klingenEisensteinSeries, SymplecticGroup.klingenParabolic, SiegelUpperHalfSpace.klingenTerm, SiegelUpperHalfSpace.klingenTerm_mul, SiegelUpperHalfSpace.upperLeft_smul, SiegelUpperHalfSpace.isPeterssonOrthogonal_vectorKlingenEisenstein")
+:::definition "mf.siegel.klingen_eisenstein_series"
 *Siegel Klingen-Eisenstein series.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.klingen_eisenstein_series))
 
 Given a modular form $`f` of degree $`n_1 \le n` and  weight $`k > n + n_1 + 1` the
@@ -777,7 +777,7 @@ For each embedding of the {bpref "mf.siegel.coefficient_field"}[coefficient fiel
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.galois_orbit"}[] {uses "character.dirichlet.galois_orbit_label"}[] {uses "mf.siegel.coefficient_field"}[] {uses "mf.siegel.degree"}[] {uses "mf.siegel.family"}[] {uses "mf.siegel.level"}[] {uses "mf.siegel.newform"}[] {uses "mf.siegel.weight"}[]
 :::
 
-:::definition "mf.siegel.level" (lean := "SymplecticGroup.IsCongruenceOfLevel, SymplecticGroup.isCongruenceOfLevel_Gamma0, SymplecticGroup.IsCongruenceOfLevel.mul, SiegelUpperHalfSpace.modularForms")
+:::definition "mf.siegel.level"
 *Level of a Siegel modular form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.level))
 
 A {bpref "mf.siegel"}[Siegel modular form] on a discrete subgroup $`\Gamma` of $`\Sp(2g,\Q)`  is said to be of *level* $`N` if $`\Gamma` is a
@@ -802,7 +802,7 @@ Depends on: {uses "mf.siegel"}[]
 A Siegel eigenform is a lift if its Euler factors are products of Euler factors that arise from Siegel modular forms of lower genus.
 :::
 
-:::definition "mf.siegel.lift.gritsenko" (lean := "SiegelUpperHalfSpace.gritsenkoLift, SiegelUpperHalfSpace.gritsenkoCoeff, SiegelUpperHalfSpace.GritsenkoLiftTheorem, ModularForm.jacobiCoeff, ModularForm.HasJacobiFourierExpansion.unique, SiegelUpperHalfSpace.gritsenkoLiftTheorem, SiegelUpperHalfSpace.gritsenkoLift_ne_zero")
+:::definition "mf.siegel.lift.gritsenko"
 *Gritsenko lift.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.lift.gritsenko))
 
 Given a Jacobi cusp form
@@ -846,7 +846,7 @@ where $`\zeta` is the {bpref "lfunction.riemann"}[Riemann zeta function].
 Depends on: {uses "cmf"}[] {uses "group.sp2gr"}[] {uses "lfunction.riemann"}[] {uses "mf.siegel"}[] {uses "mf.siegel.lift.saito_kurokawa"}[]
 :::
 
-:::definition "mf.siegel.lift.maass" (lean := "SiegelUpperHalfSpace.maassLift, SiegelUpperHalfSpace.maassCoeff, SiegelUpperHalfSpace.MaassLiftTheorem, SiegelUpperHalfSpace.maassLiftTheorem, SiegelUpperHalfSpace.maassLiftLinearMap, SiegelUpperHalfSpace.isCuspForm_maassLift")
+:::definition "mf.siegel.lift.maass"
 *Maass lift from Jacobi form to Siegel modular form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.lift.maass))
 
 A Maass lift is a lift from {bpref "mf.jacobi"}[Jacobi forms] to {bpref "mf.siegel"}[Siegel modular forms] of degree 2 with respect to the {bpref "group.sp2gr"}[Siegel modular group].
@@ -1036,7 +1036,7 @@ The *new subspace* $`S_{k,j}^{\rm new}(K(N),\chi)` is the orthogonal complement 
 Depends on: {uses "mf.siegel.character"}[] {uses "mf.siegel.level"}[] {uses "mf.siegel.newform"}[] {uses "mf.siegel.weight_k_j"}[]
 :::
 
-:::definition "mf.siegel.phi" (lean := "SiegelUpperHalfSpace.siegelPhi, SiegelUpperHalfSpace.HasSiegelPhi, SiegelUpperHalfSpace.phiPoint, SiegelUpperHalfSpace.siegelPhi_eq, SiegelUpperHalfSpace.HasSiegelPhi.add")
+:::definition "mf.siegel.phi"
 *Siegel $`\Phi` operator.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.phi))
 
 The *Siegel $`\Phi` operator* is a linear map that sends {bpref "mf.siegel.degree"}[degree] $`g` Siegel modular forms to degree $`g-1` ones; it is defined by
@@ -1047,7 +1047,7 @@ f\begin{pmatrix}\tau&0\\0&it\end{pmatrix} \quad \text{for any } \tau \in \mathfr
 Depends on: {uses "mf.siegel.degree"}[]
 :::
 
-:::definition "mf.siegel.q-expansion" (lean := "SiegelUpperHalfSpace.HasSiegelFourierExpansion, SiegelUpperHalfSpace.translationLattice, SiegelUpperHalfSpace.dualLattice, SiegelUpperHalfSpace.fourierExp, SiegelUpperHalfSpace.HasSiegelFourierExpansion.unique, SiegelUpperHalfSpace.exists_hasSiegelFourierExpansion")
+:::definition "mf.siegel.q-expansion"
 *Fourier expansion smf.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.q-expansion))
 
 Let $`f` be a {bpref "mf.siegel"}[Siegel modular form] of
@@ -1116,7 +1116,7 @@ to the space of cusp forms of weight $`k+j` on $`\SL(2,\Z)`.
 Depends on: {uses "mf.siegel.cusp_form_degree2"}[] {uses "mf.siegel.eisenstein_series"}[] {uses "mf.siegel.hecke_operator"}[] {uses "mf.siegel.klingen_eisenstein_series"}[] {uses "mf.siegel.vector_valued_degree_two"}[]
 :::
 
-:::definition "mf.siegel.theta_constant" (lean := "SiegelUpperHalfSpace.thetaConstant, SiegelUpperHalfSpace.thetaConstant_zero_zero")
+:::definition "mf.siegel.theta_constant"
 *Theta constant.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.theta_constant))
 
 Given a degree $`g` and a vector
@@ -1136,7 +1136,7 @@ to some subgroup of the integral
 with some character.
 :::
 
-:::definition "mf.siegel.theta_series" (lean := "SiegelUpperHalfSpace.latticeTheta, SiegelUpperHalfSpace.IsPluriharmonic, SiegelUpperHalfSpace.IbukiyamaThree.isPluriharmonic_P")
+:::definition "mf.siegel.theta_series"
 *Siegel theta series and theta series with pluriharmonics.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.theta_series))
 
 Given a positive definite quadratic $`m\times m`
@@ -1175,7 +1175,7 @@ with respect to the subgroup $`\Gamma_0(\ell)`.
 When $`m` is not a multiple of $`4`, one gets a Siegel modular form with a character.
 :::
 
-:::definition "mf.siegel.vector_valued" (lean := "SiegelUpperHalfSpace.modularForms, SiegelUpperHalfSpace.HasModerateGrowth, SiegelUpperHalfSpace.modularFormsDegreeOne, SiegelUpperHalfSpace.rhoKJ, SiegelUpperHalfSpace.modularFormsKJ")
+:::definition "mf.siegel.vector_valued"
 *Vector-valued Siegel modular forms.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.vector_valued))
 
 Let $`\rho: \GL_g(\mathbb{C})\to \GL(V),` where $`V` is a finite-dimensional complex vector space, be an irreducible representation.  A (vector valued) Siegel modular form of degree $`g`, weight $`\rho`, with respect to a subgroup
@@ -1188,7 +1188,7 @@ $$`|F(x+iy)|\ll y^\epsilon\quad\text{for }y\geq 1.`
 Consider the case $`g=2`.  Let $`std` denote the standard representation of $`\GL_2(\C)`, i.e. $`std` is the identity map from $`\GL_2(\C)` to $`\GL(\C^2)`.  To any pair of integers $`(k,j)` one associates the representation $`\rho_{k,j}:=Sym^{j}(std)\otimes\det(std)^{k}` of $`\GL_2(\C)`.  This enumerates all the irreducible representations of $`\GL_2(\C)`.
 :::
 
-:::definition "mf.siegel.vector_valued_degree_two" (lean := "SiegelUpperHalfSpace.rhoKJ, SiegelUpperHalfSpace.modularFormsKJ")
+:::definition "mf.siegel.vector_valued_degree_two"
 *Vector-valued Siegel modular forms of degree 2.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.vector_valued_degree_two))
 
 The {bpref "repn.irrep.gl"}[irreducible representations] of $`\GL(2,\C)`
@@ -1201,7 +1201,7 @@ of weight $`\rho_{k,j}` on any arithmetic subsgroup $`\Gamma` of $`\GSp(4,\Q)` w
 Depends on: {uses "mf.siegel"}[] {uses "repn.irrep.gl"}[]
 :::
 
-:::definition "mf.siegel.weight" (lean := "SiegelUpperHalfSpace.modularForms, SiegelUpperHalfSpace.rhoKJ, SiegelUpperHalfSpace.modularFormsKJ, Representation.highestWeight")
+:::definition "mf.siegel.weight"
 *Weight of a Siegel modular form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.weight))
 
 The *weight* of a {bpref "mf.siegel"}[Siegel modular form] $`f` of {bpref "mf.siegel.degree"}[degree] $`g` is the
@@ -1248,7 +1248,7 @@ In degree $`2`,
 Depends on: {uses "group.paramodular"}[]
 :::
 
-:::definition "repn.highest.weight" (lean := "Representation.highestWeight, Representation.IsGLHighestWeightVector, Representation.existsUnique_isGLHighestWeightVector, Representation.IsGLHighestWeightVector.eq_highestWeight, Representation.IsGLHighestWeightVector.mem_span_singleton, Representation.antitone_highestWeight")
+:::definition "repn.highest.weight"
 *Highest weight of an irreducible representation of $`\GL(g,\C)`..* ([LMFDB](https://beta.lmfdb.org/knowledge/show/repn.highest.weight))
 
 Let $`\rho\colon \GL(g,\C)\to \GL(V)` be a finite-dimensional irreducible representation  Then there exists a unique $`1`-dimensional subspace $`\langle v_0 \rangle` of $`V`
@@ -1260,7 +1260,7 @@ For example the $`1`-dimensional representation of $`\GL(g,\C)` given by the det
 has highest weight $`(1,0,\ldots,0)`.
 :::
 
-:::definition "repn.irrep.gl" (lean := "Representation.existsUnique_nonempty_equiv_rationalWeylRep, Representation.nonempty_equiv_rationalWeylRep_iff_eq_highestWeight, TauCeti.rationalWeylRep, TauCeti.isIrreducible_rationalWeylRep, TauCeti.isRationalRep_rationalWeylRep, TauCeti.nonempty_equiv_rationalWeylRep_iff")
+:::definition "repn.irrep.gl"
 *Irreducible representations of $`\GL(g,\C)`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/repn.irrep.gl))
 
 The irreducible finite-dimensional representations of $`\GL(g,\C)` correspond bijectively to the $`g`-tuples of integers $`(\lambda_1,\ldots,\lambda_g)` with

@@ -15,14 +15,14 @@ file := "Maass-forms"
 
 This section lists the LMFDB definitions in the subcategory `mf.maass`. Each definition links back to its LMFDB knowl. `specialfunction.k_bessel` also belongs here, although its id puts it in another LMFDB category.
 
-:::definition "mf.maass" (lean := "Matrix.GeneralLinearGroup.IsKFiniteMaassForm, Matrix.GeneralLinearGroup.IsAutomorphicForm, Matrix.GeneralLinearGroup.IsCasimirEigenfunction, Matrix.GeneralLinearGroup.IsCenterFinite, Matrix.GeneralLinearGroup.IsOrthogonalFinite, Matrix.GeneralLinearGroup.casimirOperator")
+:::definition "mf.maass"
 *Maass forms on GL(n).* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass))
 
 The term *Maass form* is used for automorphic forms on $`GL_{n}` (for some positive integer n), which are not holomorphic.
 Instead of satisfying the  Cauchy-Riemann equations (as holomorphic functions do), these functions are eigenfunctions of the Casimir element in the universal enveloping algebra of the Lie algebra of $`GL_{n}`.
 :::
 
-:::definition "mf.maass.exceptional_eigenvalue" (lean := "UpperHalfPlane.IsExceptionalMaassEigenvalue, UpperHalfPlane.isExceptionalMaassEigenvalue_iff, UpperHalfPlane.SelbergEigenvalueConjecture, UpperHalfPlane.conj_eigenvalue_of_mem_maassSpace, UpperHalfPlane.zero_le_of_mem_maassSpace")
+:::definition "mf.maass.exceptional_eigenvalue"
 *Exceptional eigenvalues of Maass forms.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass.exceptional_eigenvalue))
 
 Each {bpref "mf.maass.mwf.eigenvalue"}[eigenvalue] $`\lambda` of a {bpref "mf.maass.mwf"}[Maass form] can be written as $`\lambda = \frac{1}{4} + R^2`, where $`R` is the {bpref "mf.maass.mwf.spectralparameter"}[spectral parameter].
@@ -57,7 +57,7 @@ For squarefree level, it is conjectured that there is only one Maass form per ei
 Depends on: {uses "character.dirichlet"}[] {uses "mf.maass.mwf"}[] {uses "mf.maass.mwf.eigenvalue"}[] {uses "mf.maass.mwf.level"}[] {uses "mf.maass.mwf.weight"}[] {uses "mf.maass.spectral_index"}[]
 :::
 
-:::definition "mf.maass.mwf" (lean := "UpperHalfPlane.IsMaassForm, UpperHalfPlane.IsMaassFormOfWeight, UpperHalfPlane.maassSlash, UpperHalfPlane.maassLaplacian, UpperHalfPlane.isMaassFormOfWeight_zero_iff")
+:::definition "mf.maass.mwf"
 *Maass form on GL2(R) with trivial character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass.mwf))
 
 Maass forms
@@ -111,7 +111,7 @@ In both cases the real numbers $`a_n` are the *coefficients* of $`f` and are use
 Depends on: {uses "lfunction"}[] {uses "mf.maass.mwf"}[] {uses "mf.maass.mwf.spectralparameter"}[] {uses "mf.maass.mwf.symmetry"}[] {uses "mf.maass.mwf.weight"}[] {uses "specialfunction.k_bessel"}[]
 :::
 
-:::definition "mf.maass.mwf.dimension" (lean := "UpperHalfPlane.maassMultiplicity, UpperHalfPlane.maassNewSpace, UpperHalfPlane.maassOldSpace, UpperHalfPlane.maassSpace, UpperHalfPlane.maassPetersson, UpperHalfPlane.IsMaassNewform, UpperHalfPlane.maassMultiplicity_lt_aleph0")
+:::definition "mf.maass.mwf.dimension"
 *Multiplicity of an eigenvalue.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass.mwf.dimension))
 
 The *multiplicity* of an {bpref "mf.maass.mwf.eigenvalue"}[eigenvalue] $`\lambda` of the {bpref "mf.maass.mwf.laplacian"}[Laplace-Beltrami operator] refers to the dimension of the eigenspace $`\mathcal{M}(\Gamma,\chi,\lambda)` of {bpref "mf.maass.mwf"}[Maass newforms] on the group $`\Gamma` of {bpref "cmf.character"}[character] $`\chi` with the same Laplace eigenvalue $`\lambda`.
@@ -139,7 +139,7 @@ This eigenvalue is a real number that is typically written in the form $`\lambda
 Depends on: {uses "mf.maass.mwf"}[] {uses "mf.maass.mwf.laplacian"}[] {uses "mf.maass.mwf.spectralparameter"}[]
 :::
 
-:::definition "mf.maass.mwf.fourierexpansion" (lean := "UpperHalfPlane.HasMaassFourierExpansion, UpperHalfPlane.HasMaassCosineExpansion, UpperHalfPlane.HasMaassSineExpansion, UpperHalfPlane.maassHeckeOperator, UpperHalfPlane.IsMaassHeckeEigenform.coeff_prime_eq")
+:::definition "mf.maass.mwf.fourierexpansion"
 *Fourier expansion of Maass form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass.mwf.fourierexpansion))
 
 The *Fourier expansion* (at infinity) of a {bpref "mf.maass.mwf"}[Maass form] of a non-cocompact subgroup of PSL$`(2,\R)` reads
@@ -161,7 +161,7 @@ For a prime $`p` the coefficient $`c(p)` equals the corresponding Hecke eigenval
 Depends on: {uses "mf.maass.mwf"}[] {uses "mf.maass.mwf.symmetry"}[] {uses "specialfunction.k_bessel"}[]
 :::
 
-:::definition "mf.maass.mwf.laplacian" (lean := "UpperHalfPlane.hyperbolicLaplacian")
+:::definition "mf.maass.mwf.laplacian"
 *Laplace-Beltrami operator (hyperbolic).* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass.mwf.laplacian))
 
 The *Laplace-Beltrami operator* on the {bpref "mf.upper_half_plane"}[hyperbolic upper half-plane] is given by
@@ -181,7 +181,7 @@ A {bpref "mf.maass.mwf"}[Maass form] $`f` is said to have *level* $`N` if $`f` i
 Depends on: {uses "mf.maass.mwf"}[]
 :::
 
-:::definition "mf.maass.mwf.spectralparameter" (lean := "UpperHalfPlane.HasMaassSpectralParameter, UpperHalfPlane.HasMaassSpectralParameter.eq_or_eq_neg")
+:::definition "mf.maass.mwf.spectralparameter"
 *The spectral parameter of a Maass waveform.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass.mwf.spectralparameter))
 
 If $`f` is a {bpref "mf.maass.mwf"}[Maass form] with {bpref "mf.maass.mwf.laplacian"}[Laplace] eigenvalue $`\lambda = \frac{1}{4}+R^{2}`, the number $`R` is said to be the *spectral parameter* of $`f`.
@@ -189,7 +189,7 @@ If $`f` is a {bpref "mf.maass.mwf"}[Maass form] with {bpref "mf.maass.mwf.laplac
 Depends on: {uses "mf.maass.mwf"}[] {uses "mf.maass.mwf.laplacian"}[]
 :::
 
-:::definition "mf.maass.mwf.symmetry" (lean := "UpperHalfPlane.maassReflection, UpperHalfPlane.coe_maassReflection_smul, UpperHalfPlane.IsEvenMaassForm, UpperHalfPlane.IsOddMaassForm")
+:::definition "mf.maass.mwf.symmetry"
 *The symmetry of a Maass form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass.mwf.symmetry))
 
 The {bpref "group.sl2z"}[modular group] and its congruence subgroups has an outer automorphism of order two, which is given by the reflection in the imaginary axis: $`z=x+iy \mapsto -\bar{z}=-x+iy`.
@@ -221,7 +221,7 @@ $$`f\in C^\infty(\mathcal{H}),\quad f\in L^2(\Gamma\backslash{\mathcal H}),\quad
 Depends on: {uses "mf.maass.mwf.laplacian"}[] {uses "mf.maass.mwf.weight"}[]
 :::
 
-:::definition "mf.maass.picard" (lean := "HyperbolicThreeSpace.IsPicardMaassForm, HyperbolicThreeSpace.PicardGroup, HyperbolicThreeSpace.laplacian, HyperbolicThreeSpace.moebius, HyperbolicThreeSpace.hyperbolicVolume")
+:::definition "mf.maass.picard"
 *Maass forms on PSL(2,Z\[i\]).* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass.picard))
 
 A *Maass form* is a smooth, square-integrable, automorphic eigenfunction of the Laplacian,
@@ -232,7 +232,7 @@ Maass forms on PSL$`(2,{\mathbb{Z}}[i])` live in the upper half-space $`{\mathca
 The *Picard group* $`\Gamma=`PSL$`(2,{\mathbb{Z}}[i])` is a discrete, cofinite, but non-cocompact subgroup of the group of isometries PSL$`(2,{\mathbb{C}})` ,where the isometries are given by linear fractional transformations $`z\to(az+b)(cz+d)^{-1}` with $`a,b,c,d\in {\mathbb{C}}`, $`ad-bc\not=0`.
 :::
 
-:::definition "mf.maass.picard.eigenvalue" (lean := "HyperbolicThreeSpace.picardTrueEigenvalue, HyperbolicThreeSpace.HasPicardSpectralParameter, HyperbolicThreeSpace.IsPicardMaassForm.eigenvalue_eq, HyperbolicThreeSpace.HasPicardSpectralParameter.eq_or_eq_neg, HyperbolicThreeSpace.IsPicardMaassForm")
+:::definition "mf.maass.picard.eigenvalue"
 *Spectral parameter of Maass forms on PSL(2,Z\[i\]).* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass.picard.eigenvalue))
 
 Each {bpref "mf.maass.picard"}[Maass form] is associated to an *eigenvalue* via the eigenvalue equation $`(\Delta+\lambda)f(z)=0` where $`\Delta` is the {bpref "mf.maass.picard.laplacian"}[Laplacian].  It is convenient to introduce the *spectral parameter* $`r` which is also called the eigenvalue.  Only if one speaks about the *true eigenvalue* one refers to $`\lambda`, since by convention *eigenvalue* refers to $`r`.  In {bpref "mf.bianchi.hyperbolic3space"}[hyperbolic 3-space], the eigenvalue is connected to the true eigenvalue via $`\lambda=r^2+1`.
@@ -240,7 +240,7 @@ Each {bpref "mf.maass.picard"}[Maass form] is associated to an *eigenvalue* via 
 Depends on: {uses "mf.bianchi.hyperbolic3space"}[] {uses "mf.maass.picard"}[]
 :::
 
-:::definition "mf.maass.picard.fourierexpansion" (lean := "HyperbolicThreeSpace.picardFourierTerm, HyperbolicThreeSpace.HasPicardFourierExpansion, Complex.besselK")
+:::definition "mf.maass.picard.fourierexpansion"
 *Fourier expansion of a Maass form on PSL(2,Z\[i\]).* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass.picard.fourierexpansion))
 
 The *Fourier expansion* of a Maass forrm on PSL$`(2,\Z[i])` reads

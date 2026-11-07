@@ -24,7 +24,7 @@ The set of automorphisms of an {bpref "ag.variety"}[algebraic variety] $`X` form
 Depends on: {uses "ag.variety"}[]
 :::
 
-:::definition "av.decomposition" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogenyDecomposition, TauCeti.AlgebraicGeometry.AbelianVariety.listProd, TauCeti.AlgebraicGeometry.AbelianVariety.isIsogenyDecomposition_trivial_nil, TauCeti.AlgebraicGeometry.AbelianVariety.IsSimple, TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogenous")
+:::definition "av.decomposition"
 *Decomposition into isogeny factors.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.decomposition))
 
 Any abelian variety $`A` is isogenous to a product of {bpref "av.simple"}[simple] abelian varieties $`B_i`, called the *isogeny factors* of $`A`:
@@ -37,7 +37,7 @@ Note that two elements of this product might be isogenous; in other words, eleme
 Depends on: {uses "av.simple"}[]
 :::
 
-:::definition "av.deligne_module" (lean := "Module.End.IsDeligneModule, Module.End.IsDeligneModule.exists_mul_eq_natCast, Polynomial.frobeniusOrder, Polynomial.IsWeilPolynomial, LinearMap.charpoly")
+:::definition "av.deligne_module"
 *Deligne module.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.deligne_module))
 
 A *Deligne module* is a finitely generated free $`\mathbb{Z}`-module $`M` together with a $`\mathbb{Z}`-linear endomorphism $`F` inducing an action of the Frobenius order $`\mathbb{Z}[F,V]` of some isogeny class determined by a Weil polynomial $`h(x)` such that the action of $`F` on $`M` has characteristic polynomial $`h(x)`.
@@ -46,7 +46,7 @@ The whole category of ordinary abelian variety over any finite field $`\mathbb{F
 The same holds for the category of abelian varieties over a prime finite field $`\mathbb{F}_p` whose characteristic polynomials don't have real roots, thanks to a result by Centeleghe-Stix .
 :::
 
-:::definition "av.endomorphism_field" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.endomorphismField, TauCeti.AlgebraicGeometry.AbelianVariety.endRange, TauCeti.AlgebraicGeometry.AbelianVariety.End.baseChangeTower, TauCeti.AlgebraicGeometry.AbelianVariety.endomorphismField_le, TauCeti.AlgebraicGeometry.AbelianVariety.baseChange")
+:::definition "av.endomorphism_field"
 *Endomorphism field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.endomorphism_field))
 
 The *endomorphism field* of an {bpref "ag.abelian_variety"}[abelian variety] $`A` over a field $`k` is the minimal extension $`L \supset k` in $`\overline{k}` such that $`\End A_L = \End A_{\overline{k}}`.  It is a finite Galois extension of $`k`.
@@ -54,7 +54,7 @@ The *endomorphism field* of an {bpref "ag.abelian_variety"}[abelian variety] $`A
 Depends on: {uses "ag.abelian_variety"}[]
 :::
 
-:::definition "av.endomorphism_ring_conductor" (lean := "Subalgebra.relativeConductor, integralClosure, TauCeti.GlobalNumberFields.NumberFieldOrder.conductor")
+:::definition "av.endomorphism_ring_conductor"
 *Conductor.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.endomorphism_ring_conductor))
 
 The conductor $`\mathfrak{f}_R` of an order $`R` is the colon ideal $`(R:\mathcal{O})`, where $`\mathcal{O}` is the maximal order. Recall that a maximal ideal $`\mathfrak{m}` of $`R` is non-invertible if and only if $`\mathfrak{f}_R\subseteq \mathfrak{m}`.
@@ -90,7 +90,7 @@ $$`\rho_{A}: \Gal(\overline{K}/K) \to \GSp_{2g}(\hat{\Z}).`
 Depends on: {uses "av.tate_module"}[] {uses "group.galois.absolute"}[]
 :::
 
-:::definition "av.geometrically_simple" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.IsGeometricallySimple, TauCeti.AlgebraicGeometry.AbelianVariety.IsSimple, TauCeti.AlgebraicGeometry.AbelianVariety.isGeometricallySimple_congr")
+:::definition "av.geometrically_simple"
 *Geometrically simple.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.geometrically_simple))
 
 An {bpref "ag.abelian_variety"}[abelian variety] is *geometrically simple* if its {bpref "ag.base_change"}[base change] to an algebraic closure of the ground field is {bpref "av.simple"}[simple].
@@ -98,7 +98,7 @@ An {bpref "ag.abelian_variety"}[abelian variety] is *geometrically simple* if it
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.base_change"}[] {uses "av.simple"}[]
 :::
 
-:::definition "av.geometrically_squarefree" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.IsGeometricallySquarefree, TauCeti.AlgebraicGeometry.AbelianVariety.isGeometricallySquarefree_congr, TauCeti.AlgebraicGeometry.AbelianVariety.IsSquarefree, TauCeti.AlgebraicGeometry.AbelianVariety.baseChange")
+:::definition "av.geometrically_squarefree"
 *Geometrically squarefree abelian variety.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.geometrically_squarefree))
 
 An {bpref "ag.abelian_variety"}[abelian variety] is *geometrically squarefree* if its {bpref "ag.base_change"}[base change] to an algebraic closure of the ground field is {bpref "av.squarefree"}[squarefree].
@@ -194,7 +194,7 @@ A *semiabelian variety* is a commutative group variety which is an extension of 
 Depends on: {uses "ag.abelian_variety"}[]
 :::
 
-:::definition "av.simple" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.IsSimple, TauCeti.AlgebraicGeometry.AbelianVariety.isSimple_congr, TauCeti.AlgebraicGeometry.AbelianVariety.not_isSimple_trivial, TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogenous, TauCeti.AlgebraicGeometry.AbelianVariety.prod")
+:::definition "av.simple"
 *Simple abelian variety.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.simple))
 
 An {bpref "ag.abelian_variety"}[abelian variety] is *simple* if it is nonzero and not {bpref "av.decomposition"}[isogenous] to a product of abelian varieties of lower dimension.
@@ -202,7 +202,7 @@ An {bpref "ag.abelian_variety"}[abelian variety] is *simple* if it is nonzero an
 Depends on: {uses "ag.abelian_variety"}[]
 :::
 
-:::definition "av.squarefree" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.IsSquarefree, TauCeti.AlgebraicGeometry.AbelianVariety.isSquarefree_congr, TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogenyDecomposition")
+:::definition "av.squarefree"
 *Squarefree abelian variety.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.squarefree))
 
 An {bpref "ag.abelian_variety"}[abelian variety] is *squarefree* if, in its {bpref "av.decomposition"}[isogeny decomposition], no simple factor occurs up to isogeny with exponent larger than 1.
@@ -210,7 +210,7 @@ An {bpref "ag.abelian_variety"}[abelian variety] is *squarefree* if, in its {bpr
 Depends on: {uses "ag.abelian_variety"}[] {uses "av.decomposition"}[]
 :::
 
-:::definition "av.tate_module" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety, TauCeti.GroupScheme.torsion, TauCeti.TateModule, WeierstrassCurve.tateModuleGaloisRepresentation")
+:::definition "av.tate_module"
 *Tate module of an abelian variety.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.tate_module))
 
 Let $`p \in \mathbb{Z}_{\geq 0}` be a prime and $`A` an abelian variety of dimension $`g` defined over a field $`K`. The *$`p`-adic Tate module* of $`A` is the inverse limit
@@ -245,7 +245,7 @@ A *twist* of an {bpref "ag.abelian_variety"}[abelian variety] $`A` is an abelian
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.base_change"}[]
 :::
 
-:::definition "av.weak_equivalence_class" (lean := "FractionalIdeal.WeaklyEquivalent, FractionalIdeal.weakEquivalenceSetoid, FractionalIdeal.weaklyEquivalent_of_linearEquiv, LocalizedModule, Localization.AtPrime")
+:::definition "av.weak_equivalence_class"
 *weak equivalence.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.weak_equivalence_class))
 
 Let $`R` be an order in an étale $`\mathbf{Q}`-algebra. Two fractional $`R`-ideals $`I` and $`J` are *weakly equivalent* if $`I_{\mathfrak{p}}\simeq J_{\mathfrak{p}}` as $`R_{\mathfrak{p}}`-modules for every maximal ideal $`\mathfrak{p}` of $`R`. If $`I` and $`J` are weakly equivalent then $`(I:I)=(J:J)`. Such ideals are also said to be locally isomorphic or in the same genus.

@@ -11,7 +11,7 @@ open Informal
 
 This section lists the LMFDB definitions in the category `lf`. Each definition links back to its LMFDB knowl.
 
-:::definition "lf" (lean := "IsNonarchimedeanLocalField, TauCeti.FinitePadicExtension")
+:::definition "lf"
 *$`p`-adic field (local number field).* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf))
 
 {bpref "lf.local_field"}[]
@@ -40,7 +40,7 @@ Note, a finite extension is {bpref "nf.is_galois"}[Galois] if and only if $`|\te
 Depends on: {uses "nf.is_galois"}[] {uses "ring.field"}[]
 :::
 
-:::definition "lf.defining_polynomial" (lean := "IsAdjoinRoot, IsAdjoinRootMonic, minpoly, IntermediateField.adjoinRootEquivAdjoin")
+:::definition "lf.defining_polynomial"
 *Defining polynomial of a local field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.defining_polynomial))
 
 The *defining polynomial* of a {bpref "lf.padic_field"}[$`p`-adic field] $`K` is an irreducible polynomial $`f(x)\in\mathbb{Q}_p[x]` such that $`K\cong \mathbb{Q}_p(a)`, where $`a` is a root of $`f(x)`.
@@ -68,7 +68,7 @@ of $`L/K` is the degree of $`L/\Q_p`.
 Depends on: {uses "lf.padic_field"}[]
 :::
 
-:::definition "lf.discriminant_exponent" (lean := "TauCeti.differentExponent, TauCeti.discriminantExponent, TauCeti.discriminantIdeal")
+:::definition "lf.discriminant_exponent"
 *Discriminant exponent of a local field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.discriminant_exponent))
 
 Let $`L/K` be a finite extension of {bpref "lf.padic_field"}[$`p`-adic fields], with {bpref "lf.ring_of_integers"}[rings of integers] $`\mathcal{O}_L` and $`\mathcal{O}_K` and {bpref "lf.ramification_index"}[uniformizers] $`\pi_L` and $`\pi_K`.  The *discriminant* of $`L/K` is the square of the determinant of the matrix
@@ -88,7 +88,7 @@ The *base discriminant exponent* $`c_0` of $`L/K` is the discriminant exponent o
 Depends on: {uses "lf.padic_field"}[] {uses "lf.ramification_index"}[] {uses "lf.ring_of_integers"}[]
 :::
 
-:::definition "lf.discriminant_root_field" (lean := "TauCeti.discrField, TauCeti.evenAutSubgroup, TauCeti.fixedField_evenAutSubgroup, Polynomial.discr")
+:::definition "lf.discriminant_root_field"
 *Discriminant root field of a local field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.discriminant_root_field))
 
 {bpref "nf.discriminant_root_field"}[]
@@ -100,7 +100,7 @@ For $`p=2`, there are seven quadratic extensions of $`\mathbb{Q}_2`.  Here we le
 Depends on: {uses "nf.discriminant_root_field"}[]
 :::
 
-:::definition "lf.eisenstein_diagram" (lean := "IsNonarchimedeanLocalField.HerbrandInvariant.eisensteinDiagram, IsNonarchimedeanLocalField.HerbrandInvariant.pointType, IsNonarchimedeanLocalField.HerbrandInvariant.band, IsNonarchimedeanLocalField.HerbrandInvariant.pointIndex, IsNonarchimedeanLocalField.HerbrandInvariant.IsCritical, IsNonarchimedeanLocalField.HerbrandInvariant.mongeRepresentation")
+:::definition "lf.eisenstein_diagram"
 *Eisenstein diagram.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.eisenstein_diagram))
 
 Let $`K` be a {bpref "lf.padic_field"}[$`p`-adic field] whose
@@ -210,7 +210,7 @@ The {bpref "lf.rams"}[ram] $`r_k` is printed to the immediate right of the upper
 Depends on: {uses "lf.family_ambiguity"}[] {uses "lf.family_mass"}[] {uses "lf.herbrand_invariant"}[] {uses "lf.means"}[] {uses "lf.padic_field"}[] {uses "lf.ramification_index"}[] {uses "lf.rams"}[] {uses "lf.residue_field"}[] {uses "lf.residue_field_degree"}[] {uses "lf.slopes"}[]
 :::
 
-:::definition "lf.eisenstein_form" (lean := "Polynomial.IsEisensteinForm, Polynomial.IsEisensteinAt.isEisensteinForm")
+:::definition "lf.eisenstein_form"
 *Eisenstein form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.eisenstein_form))
 
 Let $`K` be a {bpref "lf.padic_field"}[$`p`-adic field], $`\mathcal{O}_K` its {bpref "lf.ring_of_integers"}[ring of integers], and $`\pi` a {bpref "lf.ramification_index"}[uniformizer] for $`\mathcal{O}_K`.
@@ -236,7 +236,7 @@ Note,
 Depends on: {uses "lf.eisenstein_polynomial"}[] {uses "lf.padic_field"}[] {uses "lf.ramification_index"}[] {uses "lf.ring_of_integers"}[]
 :::
 
-:::definition "lf.eisenstein_polynomial" (lean := "Polynomial.IsEisensteinAt, Polynomial.IsEisensteinAt.irreducible, TauCeti.isTotallyRamified_iff_exists_eisenstein_generator")
+:::definition "lf.eisenstein_polynomial"
 *Eisenstein polynomial.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.eisenstein_polynomial))
 
 Let $`D` be an integral domain and $`P` a prime ideal in $`D`.  A polynomial $`a_n x^n + \cdots + a_0\in D[x]` is *Eisenstein* (with respect to $`P`) if
@@ -254,7 +254,7 @@ If $`K` is a finite extension of $`\Q_p` with ring of integers $`\mathcal{O}_K`,
 Depends on: {uses "lf.ramification_index"}[] {uses "ring.field_of_fractions"}[]
 :::
 
-:::definition "lf.family_ambiguity" (lean := "IsNonarchimedeanLocalField.HerbrandInvariant.ambiguity, IsNonarchimedeanLocalField.HerbrandInvariant")
+:::definition "lf.family_ambiguity"
 *Ambiguity of a family.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.family_ambiguity))
 
 Let $`K` be be a {bpref "lf.padic_field"}[$`p`-adic field]
@@ -286,7 +286,7 @@ is called the *base field* of the family.
 Depends on: {uses "lf.family_polynomial"}[] {uses "lf.padic_field"}[]
 :::
 
-:::definition "lf.family_field_count" (lean := "IsNonarchimedeanLocalField.HerbrandInvariant.fieldCount, IsNonarchimedeanLocalField.HerbrandInvariant.family, IsNonarchimedeanLocalField.HerbrandInvariant.IsInvariantOf, IsNonarchimedeanLocalField.visibleSwanSlopes")
+:::definition "lf.family_field_count"
 *Field count.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.family_field_count))
 
 Let $`I/K` be a {bpref "lf.family_polynomial"}[family] of
@@ -330,7 +330,7 @@ $`p.f.e.c\ell`, where $`f,e,c,\ell` are defined as above, with $`K=\Q_p`.
 Depends on: {uses "lf.discriminant_exponent"}[] {uses "lf.family_polynomial"}[] {uses "lf.field_label"}[] {uses "lf.ramification_index"}[] {uses "lf.rams"}[] {uses "lf.residue_field_degree"}[] {uses "lf.wild_segments"}[]
 :::
 
-:::definition "lf.family_mass" (lean := "IsNonarchimedeanLocalField.HerbrandInvariant.mass, IsNonarchimedeanLocalField.HerbrandInvariant.absoluteMass, IsNonarchimedeanLocalField.extensionMass, IsNonarchimedeanLocalField.absoluteExtensionMass, IsNonarchimedeanLocalField.extensionMass_eq_of_algEquiv")
+:::definition "lf.family_mass"
 *Mass of a family.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.family_mass))
 
 Let $`I/K` be a {bpref "lf.family_polynomial"}[family] of extensions of
@@ -351,7 +351,7 @@ For some families, not all of the fields within the family are contained within 
 Depends on: {uses "lf.family_base"}[] {uses "lf.family_polynomial"}[] {uses "lf.residue_field_degree"}[] {uses "lf.unramified_degree"}[]
 :::
 
-:::definition "lf.family_polynomial" (lean := "IsNonarchimedeanLocalField.HerbrandInvariant.family, IsNonarchimedeanLocalField.HerbrandInvariant.absoluteFamily, IsNonarchimedeanLocalField.HerbrandInvariant.genericPolynomial, IsNonarchimedeanLocalField.HerbrandInvariant.mongeSemicanonicalPolynomials, IsNonarchimedeanLocalField.HerbrandInvariant.mongeRepresentation, IsNonarchimedeanLocalField.HerbrandInvariant.inseparabilityIndex_eq_of_isInvariantOf")
+:::definition "lf.family_polynomial"
 *Families of extensions of local fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.family_polynomial))
 
 Let $`K` be a {bpref "lf.padic_field"}[$`p`-adic field] whose {bpref "lf.residue_field"}[residue field] has cardinality $`q` and
@@ -470,7 +470,7 @@ family with label $`p.f.e.c\ell`.
 Depends on: {uses "lf.discriminant_exponent"}[] {uses "lf.family_polynomial"}[] {uses "lf.padic_field"}[] {uses "lf.ramification_index"}[] {uses "lf.residue_field"}[] {uses "lf.residue_field_degree"}[] {uses "lf.subfamily"}[]
 :::
 
-:::definition "lf.galois_invariants" (lean := "IsNonarchimedeanLocalField.wildArtinSlopes, IsNonarchimedeanLocalField.swanSlopes, IsNonarchimedeanLocalField.galoisTameDegree, IsNonarchimedeanLocalField.galoisUnramifiedDegree, IsNonarchimedeanLocalField.upperRamificationGroup_eq_of_mem_Ioc")
+:::definition "lf.galois_invariants"
 *Galois invariants of a local field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.galois_invariants))
 
 Let $`K^{gal}` be the Galois closure of a {bpref "lf.padic_field"}[$`p`-adic field] $`K`. The first Galois invariant of $`K` is the {bpref "nf.galois_group"}[Galois group] $`G=\Gal(K^{gal}/\mathbb{Q}_p)`.  Most of the remaining invariants relate to the filtration on $`G` by higher ramification groups.
@@ -496,7 +496,7 @@ Let $`G^i` be the $`i`th higher ramification group in upper numbering from Serre
 Depends on: {uses "lf.padic_field"}[] {uses "nf.galois_group"}[] {uses "nf.root_discriminant"}[]
 :::
 
-:::definition "lf.galois_mean_slope" (lean := "TauCeti.FinitePadicExtension, TauCeti.discriminantExponent")
+:::definition "lf.galois_mean_slope"
 *Galois mean slope.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.galois_mean_slope))
 
 Let $`K` be a finite {bpref "nf.is_galois"}[Galois] extension of $`\Q_p` for some prime $`p`.  Its *Galois mean slope* is the nonnegative rational number
@@ -508,7 +508,7 @@ The Galois mean slope can be computed as a weighted average of the {bpref "lf.sl
 Depends on: {uses "lf.discriminant_exponent"}[] {uses "lf.slopes"}[] {uses "lf.tame_degree"}[] {uses "nf.is_galois"}[]
 :::
 
-:::definition "lf.galois_splitting_model" (lean := "Polynomial.IsGaloisSplittingModel, Polynomial.Gal.restrictMap, Polynomial.Gal.nonempty_mulEquiv_iff_bijective_restrictMap, Polynomial.IsGaloisSplittingModel.finrank_eq")
+:::definition "lf.galois_splitting_model"
 *Galois splitting model of a local field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.galois_splitting_model))
 
 Let $`K` be a finite extension of $`\Q_p`.
@@ -541,7 +541,7 @@ of $`L/K` which correspond to the segments of the
 Depends on: {uses "lf.discriminant_exponent"}[] {uses "lf.indices_of_inseparability"}[] {uses "lf.means"}[] {uses "lf.padic_field"}[] {uses "lf.ramification_index"}[] {uses "lf.ramification_polygon"}[] {uses "lf.residue_field_degree"}[]
 :::
 
-:::definition "lf.herbrand_function" (lean := "IsNonarchimedeanLocalField.HerbrandInvariant.herbrandFunction, IsNonarchimedeanLocalField.HerbrandInvariant.swanSlope, IsNonarchimedeanLocalField.HerbrandInvariant.herbrandFunction_of_mem_Icc, IsNonarchimedeanLocalField.HerbrandInvariant.herbrandFunction_of_le")
+:::definition "lf.herbrand_function"
 *Herbrand function of a family.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.herbrand_function))
 
 Let $`I/K` be a {bpref "lf.family_polynomial"}[family] of extensions of
@@ -570,7 +570,7 @@ the extensions $`L/K` in $`I/K`.
 Depends on: {uses "lf.family_polynomial"}[] {uses "lf.indices_of_inseparability"}[] {uses "lf.means"}[] {uses "lf.padic_field"}[] {uses "lf.rams"}[] {uses "lf.slopes"}[]
 :::
 
-:::definition "lf.herbrand_invariant" (lean := "IsNonarchimedeanLocalField.HerbrandInvariant, IsNonarchimedeanLocalField.herbrandInvariantOfTower, IsNonarchimedeanLocalField.visibleHerbrandInvariant, IsNonarchimedeanLocalField.HerbrandInvariant.IsGeometricRam, IsNonarchimedeanLocalField.HerbrandInvariant.IsArithmeticRam, IsNonarchimedeanLocalField.HerbrandInvariant.IsCompatibleWith")
+:::definition "lf.herbrand_invariant"
 *Herbrand invariant.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.herbrand_invariant))
 
 A *Herbrand invariant* $`I` is the collection of ramification
@@ -648,7 +648,7 @@ The *Galois Artin slopes* and *hidden Artin slopes* are defined analogously.  In
 Depends on: {uses "lf.padic_field"}[] {uses "lf.slopes"}[] {uses "nf.galois_closure"}[]
 :::
 
-:::definition "lf.indices_of_inseparability" (lean := "IsNonarchimedeanLocalField.inseparabilityIndex, IsNonarchimedeanLocalField.inseparabilityIndexOf, IsNonarchimedeanLocalField.addValuation")
+:::definition "lf.indices_of_inseparability"
 *Indices of inseparability.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.indices_of_inseparability))
 
 Let $`L/K` be a finite extension of {bpref "lf.padic_field"}[$`p`-adic fields] and let
@@ -729,7 +729,7 @@ Depends on: {uses "gg.galois_group"}[] {uses "gg.label"}[] {uses "group.small_gr
 For a local field $`K` which is a finite extension of $`\Q_p` for some prime $`p`, *intermediate fields* $`F` are fields with $`\Q_p\subsetneqq F \subsetneqq K`.
 :::
 
-:::definition "lf.jump_set" (lean := "IsNonarchimedeanLocalField.jumpSet, IsNonarchimedeanLocalField.isPaganoJumpSet_iff, IsNonarchimedeanLocalField.IsPaganoJumpSet, IsNonarchimedeanLocalField.IsReducedMikiFactorisation, IsNonarchimedeanLocalField.exists_isReducedMikiFactorisation, IsNonarchimedeanLocalField.jumpSequence_eq_of_isReducedMikiFactorisation")
+:::definition "lf.jump_set"
 *Jump set.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.jump_set))
 
 Let $`K` be a {bpref "lf.padic_field"}[$`p`-adic field] which contains
@@ -782,7 +782,7 @@ A *nonarchimedean local field* is a local field whose absolute value is {bpref "
 Depends on: {uses "nf.absolute_value"}[] {uses "ring.characteristic"}[] {uses "ring.field"}[]
 :::
 
-:::definition "lf.local_height_function" (lean := "IsNonarchimedeanLocalField.localHeight, IsNonarchimedeanLocalField.localHeight_eq, Group.IsWeightFunction.apply_eq_of_zpowers_eq")
+:::definition "lf.local_height_function"
 *Local height function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.local_height_function))
 
 Let $`G` be a finite group and $`w` a {bpref "group.weight_function"}[weight function] on $`G`.
@@ -800,7 +800,7 @@ associated to $`w`.
 Depends on: {uses "group.galois.absolute"}[] {uses "group.weight_function"}[] {uses "lf.inertia_group"}[] {uses "lf.ramification_index"}[]
 :::
 
-:::definition "lf.log" (lean := "IsNonarchimedeanLocalField.iwasawaLog, IsNonarchimedeanLocalField.iwasawaLog_of_mem_unitFiltration, IsNonarchimedeanLocalField.iwasawaLog_primeUnit, IsNonarchimedeanLocalField.iwasawaLog_eq_zero_of_pow_eq_one, IsNonarchimedeanLocalField.iwasawaLog_eq_of_pow_eq")
+:::definition "lf.log"
 *$`p`-adic logarithm.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.log))
 
 Let $`K` be a finite extension of $`\Q_p` for some prime $`p`, and
@@ -918,7 +918,7 @@ Thus the family $`I/K` is partitioned into packets.
 Depends on: {uses "group.permutation_representation"}[] {uses "lf.family_polynomial"}[] {uses "lf.hidden_slopes"}[] {uses "lf.padic_field"}[] {uses "lf.ramification_index"}[] {uses "lf.residual_polynomials"}[] {uses "lf.residue_field_degree"}[] {uses "nf.galois_closure"}[]
 :::
 
-:::definition "lf.padic_field" (lean := "TauCeti.FinitePadicExtension, Padic, FiniteDimensional")
+:::definition "lf.padic_field"
 *$`p`-adic field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.padic_field))
 
 A *$`p`-adic field* (or *local number field*) is a finite extension of
@@ -990,7 +990,7 @@ of any $`L/K\in I/K`.  The slopes of the segments of $`P` are the
 Depends on: {uses "lf.eisenstein_polynomial"}[] {uses "lf.newton_polygon"}[] {uses "lf.padic_field"}[] {uses "lf.ramification_index"}[] {uses "lf.rams"}[] {uses "lf.unramified_subfield"}[]
 :::
 
-:::definition "lf.rams" (lean := "IsNonarchimedeanLocalField.ramsOfSubgroup, IsNonarchimedeanLocalField.visibleRams, IsNonarchimedeanLocalField.swanSlopesOfSubgroup_eq_map_herbrandOfTower, IsNonarchimedeanLocalField.ramsOfSubgroup_range_restrictScalarsHom_of_isGalois, IsNonarchimedeanLocalField.HerbrandInvariant.smallRam, IsNonarchimedeanLocalField.HerbrandInvariant.tinyRam")
+:::definition "lf.rams"
 *Rams.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.rams))
 
 Let $`L/K` be an extension of {bpref "lf.padic_field"}[$`p`-adic fields]
@@ -1145,7 +1145,7 @@ the form $`(p^f-1)\cdot p^r`, where $`f` is the
 Depends on: {uses "lf.residue_field_degree"}[]
 :::
 
-:::definition "lf.slope_content" (lean := "IsNonarchimedeanLocalField.artinSlopeContent, IsNonarchimedeanLocalField.wildArtinSlopes, IsNonarchimedeanLocalField.swanSlopes, IsNonarchimedeanLocalField.upperRamificationGroup_eq_of_mem_Ioc")
+:::definition "lf.slope_content"
 *Slope content of an extension of $`p`-adic fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.slope_content))
 
 Let $`L/K` be an extension of {bpref "lf.padic_field"}[$`p`-adic fields].
@@ -1216,7 +1216,7 @@ of all $`L/K\in I/K` whose list of residual polynomials is in $`\mathcal{A}`.
 Depends on: {uses "lf.family_polynomial"}[] {uses "lf.padic_field"}[] {uses "lf.residual_polynomials"}[]
 :::
 
-:::definition "lf.swan_slopes" (lean := "IsNonarchimedeanLocalField.swanSlopesOfSubgroup, IsNonarchimedeanLocalField.relIndex_upperRamificationGroup_eq_pow_countP, IsNonarchimedeanLocalField.swanSlopesOfSubgroup_comap_restrictNormalHom, IsNonarchimedeanLocalField.swanSlopesOfSubgroup_range_restrictScalarsHom_of_isGalois, IsNonarchimedeanLocalField.visibleSwanSlopes, IsNonarchimedeanLocalField.visibleSwanSlopes_eq_swanSlopesOfSubgroup")
+:::definition "lf.swan_slopes"
 *Swan slopes.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.swan_slopes))
 
 Let $`L/K` be an extension of {bpref "lf.padic_field"}[$`p`-adic fields].
@@ -1248,7 +1248,7 @@ of $`L/K`.
 Depends on: {uses "lf.padic_field"}[] {uses "lf.unramified_subfield"}[] {uses "nf.galois_closure"}[]
 :::
 
-:::definition "lf.top_slope" (lean := "IsNonarchimedeanLocalField.topArtinSlopeOfIsGalois, IsNonarchimedeanLocalField.topArtinSlope, IsNonarchimedeanLocalField.upperRamificationGroup_eq_bot_iff, IsNonarchimedeanLocalField.topArtinSlopeOfIsGalois_of_subsingleton, TauCeti.LocalFieldsRamification.upperRamificationGroup")
+:::definition "lf.top_slope"
 *Top Artin slope for an extension of local fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.top_slope))
 
 Let $`L/K` be an extension of {bpref "lf.padic_field"}[$`p`-adic fields]
