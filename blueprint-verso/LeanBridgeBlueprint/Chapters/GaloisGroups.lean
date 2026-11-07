@@ -69,7 +69,7 @@ If $`F/K` is realized as the extension $`F = K[x]/(f(x))` for some polynomial $`
 Depends on: {uses "gg.galois_group"}[] {uses "group.centralizer"}[] {uses "lf.automorphism_group"}[]
 :::
 
-:::definition "gg.galois_group"
+:::definition "gg.galois_group" (lean := "Polynomial.Gal, Polynomial.Gal.galActionHom_injective, Polynomial.card_rootSet_eq_natDegree, Polynomial.Gal.galAction_isPretransitive, Equiv.map_permCongrHom_eq_map_conj, Subgroup.exists_galActionHom_range_eq_fin")
 *Galois group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gg.galois_group))
 
 The *Galois group* of an irreducible separable polynomial of degree $`n` can be embedded in $`S_n` through its action on the roots of the polynomial, with the image being well-defined up to labeling of the roots.  Different labelings lead to conjugate subgroups.  The subgroup acts transitively on $`\{1,\ldots,n\}`.  Conversely, for every transitive subgroup $`G` of $`S_n` with $`n\in\mathbb{Z}^+`, there is a field $`K` such that $`G` is the Galois group of some polynomial over $`K`.
@@ -122,7 +122,7 @@ If $`G` is a finite group, an *integral representation* of $`G` is a homomorphis
 The representation $`\rho` is *indecomposable* if it is not equivalent to the direct sum of integral representations.
 :::
 
-:::definition "gg.invariants"
+:::definition "gg.invariants" (lean := "Nat.card, isCyclic_iff_exists_zpowers_eq_top, isMulCommutative_iff, Group.IsSolvable, Group.isSolvable_iff_exists_subnormalSeries, TauCeti.characterTable")
 *Group invariants.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gg.invariants))
 
 The *order* of $`G` is its number of elements.

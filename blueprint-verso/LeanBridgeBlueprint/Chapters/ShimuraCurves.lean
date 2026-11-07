@@ -320,7 +320,7 @@ algebra; however, the number of $`B^\times`-conjugacy classes is finite (and in 
 Depends on: {uses "nf.order"}[] {uses "shimcurve.quaternion_algebra"}[]
 :::
 
-:::definition "shimcurve.polarized_order"
+:::definition "shimcurve.polarized_order" (lean := "PolarizedQuaternionOrder, Subalgebra.IsPolarization, QuaternionAlgebra.IsDivision, QuaternionAlgebra.IsIndefinite, QuaternionAlgebra.isIndefinite_iff_nonempty_algEquiv_matrix, PolarizedQuaternionOrder.nonempty_algEquiv_matrix")
 *Polarized quaternion order.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.polarized_order))
 
 Let $`O` be an {bpref "shimcurve.order"}[order] in an indefinite

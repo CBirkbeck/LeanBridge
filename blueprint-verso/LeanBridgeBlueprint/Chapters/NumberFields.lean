@@ -51,7 +51,7 @@ Absolute values that satisfy the stronger condition $`|x+y|\le \max(|x|,|y|)` ar
 Absolute values $`|\ |_1` and $`|\ |_2` are *equivalent* if there exists a positive real number $`c` such that $`|x|_1 = |x|_2^c` for all $`x\in k`; this defines an equivalence relation on the set of absolute values of $`k`.
 :::
 
-:::definition "nf.algebraic_closure"
+:::definition "nf.algebraic_closure" (lean := "IsAlgClosure, AlgebraicClosure, isAlgClosure_iff_forall_isAlgClosed_eq_top, IsAlgClosure.equiv, nontrivial_algEquiv_of_not_isSepClosed, NumberField.ringEquivAlgebraicClosure")
 *Algebraic closure of a field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.algebraic_closure))
 
 An algebraic closure of a field $`K` is a minimal algebraically closed field extension of $`K`.  It is unique up to (non-canonical) isomorphism. It is usually denoted $`\overline{K}`.
@@ -115,7 +115,7 @@ If a {bpref "nf"}[number field] $`K` is {bpref "nf.abelian"}[abelian], then $`K\
 Depends on: {uses "nf"}[] {uses "nf.abelian"}[]
 :::
 
-:::definition "nf.defining_polynomial"
+:::definition "nf.defining_polynomial" (lean := "IsAdjoinRoot, AdjoinRoot, IntermediateField.adjoinRootEquivAdjoin, IsAdjoinRoot.nonempty_iff, IsAdjoinRoot.primitive_element_of_aeval_eq_zero")
 *Defining Polynomial of a Number Field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.defining_polynomial))
 
 A *defining polynomial* of a {bpref "nf"}[number field] $`K` is an irreducible polynomial $`f\in\Q[x]` such that $`K\cong \mathbb{Q}(a)`, where $`a` is a root of $`f(x)`. Equivalently, it is a polynomial $`f\in \Q[x]` such that $`K \cong \Q[x]/(f)`.
@@ -186,7 +186,7 @@ If $`K/F` is a finite algebraic extension, it can be defined by a polynomial $`f
 If $`n=[K:F]`, then the Galois group $`G` for $`K/F` is a subgroup of $`S_n`, well-defined up to conjugation.  The discriminant root field can alternatively be described as the fixed field of $`G\cap A_n`.
 :::
 
-:::definition "nf.embedding"
+:::definition "nf.embedding" (lean := "RingHom, NumberField.Embeddings.card, NumberField.ComplexEmbedding.isReal_iff_range_subset, NumberField.ComplexEmbedding.ne_and_mk_eq_iff_eq_conjugate, NumberField.ComplexEmbedding.equivRootSet, NumberField.ComplexEmbedding.isReal_iff_apply_mem_range")
 *Embedding of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.embedding))
 
 An *embedding* of a {bpref "nf"}[number field] $`K` is a field homomorphism $`K\to \C`.  A number field of {bpref "nf.degree"}[degree] $`n` has $`n` distinct embeddings, which may be distinguished as {bpref "nf.real_embedding"}[real] or {bpref "nf.complex_embedding"}[complex] depending on whether the image of the embedding is contained in $`\R` or not.
@@ -486,7 +486,7 @@ A {bpref "nf"}[number field] $`K` is *monogenic* if its {bpref "nf.ring_of_integ
 Depends on: {uses "nf"}[] {uses "nf.ring_of_integers"}[]
 :::
 
-:::definition "nf.monomial_order"
+:::definition "nf.monomial_order" (lean := "TauCeti.GlobalNumberFields.NumberFieldOrder, TauCeti.GlobalNumberFields.NumberFieldOrder.IsMonomial, TauCeti.GlobalNumberFields.NumberFieldOrder.isIntegral_of_toSubalgebra_eq_adjoin, TauCeti.GlobalNumberFields.NumberFieldOrder.primitive_element_of_toSubalgebra_eq_adjoin, TauCeti.GlobalNumberFields.NumberFieldOrder.isMonomial_iff")
 *Monomial order.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.monomial_order))
 
 A *monomial order* in a {bpref "nf"}[number field] $`K` is an {bpref "nf.order"}[order] of the form $`\Z[\alpha]`, where $`\alpha` is an element of $`K`. The element $`\alpha` is necessarily both an {bpref "nf.ring_of_integers"}[algebraic integer] and a {bpref "nf.primitive_element"}[primitive element] for $`K`.
@@ -741,7 +741,7 @@ The *ring of integers* of a {bpref "nf"}[number field] $`K` is the {bpref "ring.
 Depends on: {uses "nf"}[] {uses "ring.integral"}[]
 :::
 
-:::definition "nf.root_discriminant"
+:::definition "nf.root_discriminant" (lean := "NumberField.rootDiscr, NumberField.rootDiscr_def, NumberField.discr, NumberField.abs_discr_eq_pow_of_ramificationIdx_eq_one, NumberField.rootDiscr_eq_of_ramificationIdx_eq_one")
 *Root discriminant of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.root_discriminant))
 
 If $`K` is a {bpref "nf"}[number field] of {bpref "nf.degree"}[degree] $`n` and {bpref "nf.discriminant"}[discriminant] $`D`, then the *root discriminant* of $`K` is
@@ -801,7 +801,7 @@ A common situation is when $`A` is a field but $`B` is not.  Then the nature of 
 Depends on: {uses "nf.separable_algebra"}[]
 :::
 
-:::definition "nf.sibling"
+:::definition "nf.sibling" (lean := "Algebra.IsSibling, Algebra.galoisClosure, Algebra.isSibling_iff, Algebra.isNormalClosure_galoisClosure, Algebra.galoisClosure_eq_iSup_normalClosure, Algebra.Etale.iff_exists_algEquiv_prod")
 *Sibling fields and algebras.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.sibling))
 
 Two finite {bpref "nf.separable"}[separable extension fields] $`K_1` and $`K_2` of a ground field $`F` are called *siblings* if they are not isomorphic, but have isomorphic {bpref "nf.galois_closure"}[Galois closures].
@@ -863,7 +863,7 @@ An element $`\alpha` in a {bpref "nf"}[number field] $`K` is *totally positive* 
 Depends on: {uses "nf"}[]
 :::
 
-:::definition "nf.totally_real"
+:::definition "nf.totally_real" (lean := "NumberField.IsTotallyReal, Field.exists_primitive_element, minpoly.irreducible, NumberField.isTotallyReal_iff_rootSet_minpoly_subset, NumberField.isTotallyReal_iff_forall_range_subset")
 *Totally real.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.totally_real))
 
 A {bpref "nf"}[global number field] $`K` is always of the form $`K=\Q(\alpha)` where $`\alpha` has monic irreducible polynomial $`f(x)\in\Q[x]`.  The field is *totally real* if all of the roots of $`f(x)` in $`\C` lie in the real numbers $`\R`.
@@ -884,7 +884,7 @@ The unit group of $`K` has as invariants the {bpref "nf.rank"}[rank]
 Depends on: {uses "nf"}[] {uses "nf.ring_of_integers"}[]
 :::
 
-:::definition "nf.unit_signature_rank"
+:::definition "nf.unit_signature_rank" (lean := "NumberField.elementSignature, NumberField.unitSignatureRank, NumberField.unitSignatureRank_eq_finrank, NumberField.unitSignatureRank_pos, NumberField.unitSignatureRank_le, NumberField.unitSignatureRank_eq_ite")
 *Unit signature rank of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.unit_signature_rank))
 
 Let $`K` be a {bpref "nf"}[number field] with at least one {bpref "nf.real_embedding"}[real embedding], and let $`\sigma_1, \dots, \sigma_{r_1} : K \to \R` be the $`r_1` real embeddings of $`K`.  The *signature* of a nonzero element $`\alpha \in K` is the $`r_1`-tuple of signs of $`\sigma(\alpha)` over all real embeddings $`\sigma` of $`K`, viewed as lying in the additive group $`\F_2`. I.e. the signature is the vector $`(\text{sign}(\sigma_1(\alpha)), \dots, \text{sign}(\sigma_{r_1}(\alpha))) \in \F_2^{r_1}`, where $`\text{sign}(x) = 0` if $`x` is positive, otherwise $`\text{sign}(x) = 1` if $`x` is negative.

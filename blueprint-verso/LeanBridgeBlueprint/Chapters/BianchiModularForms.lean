@@ -197,7 +197,7 @@ For example, the Bianchi newform with label _2.0.4.1-61650.6-a_ has base field $
 Depends on: {uses "nf.ideal_labels"}[] {uses "nf.label"}[]
 :::
 
-:::definition "mf.bianchi.level"
+:::definition "mf.bianchi.level" (lean := "Ideal.gamma0GL, Ideal.gamma0SL, Ideal.absNorm, NumberField.lmfdbIdealLabel, HyperbolicThreeSpace.discreteTopology_bianchiPSLGroup, HyperbolicThreeSpace.bianchiModularForms_gamma0GL_le")
 *Level of a Bianchi modular form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.bianchi.level))
 
 The <b>level</b> of a {bpref "mf.bianchi"}[Bianchi modular form] $`F` is the discrete subgroup $`\Gamma` of $`\PSL(2,\C)` such that $`F|_k\gamma = F` for every $`\gamma \in \Gamma`, where $`k` is the {bpref "mf.bianchi.weight"}[weight] of $`F`.

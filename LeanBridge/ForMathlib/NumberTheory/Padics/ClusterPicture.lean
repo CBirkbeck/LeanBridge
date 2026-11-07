@@ -17,9 +17,11 @@ drawn with their relative depths, and with the depth of the top cluster of all t
 The cluster picture depends on the model `y² = f(x)`, so it is attached here to the polynomial
 `f ∈ ℚ[X]`. The definitions make sense for any prime `p`; the LMFDB takes `p` odd. The depth is
 meaningful for clusters of at least two roots: a single root has infinite depth, and is drawn
-without one, whereas the formula below gives it depth `0`. The relative depth of the top cluster is
-its depth, as the intersection of the empty family of larger clusters is everything. That the
-clusters form a tree under inclusion (two clusters are disjoint or nested) is not formalised.
+without one, whereas the formula below gives it depth `0`; the extended-real depths
+`Polynomial.padicClusterValDepth` and `Polynomial.padicClusterRelValDepth` give it the depth `∞`.
+The relative depth of the top cluster is its depth, as the intersection of the empty family of
+larger clusters is everything. The clusters form a tree under inclusion: two clusters are nested
+or disjoint (proved in `LeanBridge.ForMathlib.NumberTheory.Padics.ClusterPictureTree`).
 
 ## Main definitions
 
@@ -57,7 +59,9 @@ noncomputable def padicClusterDepth : ℝ :=
   -Real.logb p (Metric.diam s)
 
 /-- The smallest cluster of `f` strictly containing a set `s` of roots: the intersection of the
-clusters strictly containing `s`, which form a chain. -/
+clusters strictly containing `s`. For a cluster other than the top cluster these form a nonempty
+finite chain, so the intersection is a cluster
+(`Polynomial.IsPadicCluster.isPadicCluster_padicClusterParent`). -/
 def padicClusterParent : Set (PadicAlgCl p) :=
   ⋂₀ {t | f.IsPadicCluster p t ∧ s ⊂ t}
 

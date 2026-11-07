@@ -87,8 +87,10 @@ lemma Parameters.bezoutDeterminant_eq : P.bezoutDeterminant =
 
 /-- The **Bézout module** of a hypergeometric family (LMFDB `hgm.bezout_module`): the `ℤ`-module
 `ℤ^d / B ℤ^d` with relations matrix the Bézout matrix `B`, where `d` is the degree. The knowl
-calls it finite; that the Bézout determinant is nonzero, as `Φ_A` and `Φ_B` are coprime, is not
-proved here. -/
+calls it finite: the Bézout determinant is nonzero, as `Φ_A` and `Φ_B` are coprime
+(`Hypergeometric.Parameters.bezoutDeterminant_ne_zero`), and the module has order `|det B|`
+(`Hypergeometric.Parameters.card_bezoutModule`), both in
+`LeanBridge.ForMathlib.NumberTheory.Hypergeometric.BezoutModuleFinite`. -/
 abbrev Parameters.BezoutModule : Type :=
   (Fin d → ℤ) ⧸ LinearMap.range P.bezoutMatrix.mulVecLin
 

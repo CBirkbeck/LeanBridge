@@ -1047,7 +1047,7 @@ f\begin{pmatrix}\tau&0\\0&it\end{pmatrix} \quad \text{for any } \tau \in \mathfr
 Depends on: {uses "mf.siegel.degree"}[]
 :::
 
-:::definition "mf.siegel.q-expansion"
+:::definition "mf.siegel.q-expansion" (lean := "SiegelUpperHalfSpace.translationLattice, SiegelUpperHalfSpace.integralSymmetricMatrices, SiegelUpperHalfSpace.commensurable_translationLattice_integralSymmetricMatrices, SiegelUpperHalfSpace.dualLattice, SiegelUpperHalfSpace.HasSiegelFourierExpansion, SiegelUpperHalfSpace.exists_hasSiegelFourierExpansion")
 *Fourier expansion smf.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.q-expansion))
 
 Let $`f` be a {bpref "mf.siegel"}[Siegel modular form] of

@@ -136,7 +136,7 @@ The *canonical map* of a curve $`C` of {bpref "ag.curve.genus"}[genus] $`g` is t
 Depends on: {uses "ag.curve.genus"}[] {uses "ag.hyperelliptic_curve"}[]
 :::
 
-:::definition "ag.cluster_picture"
+:::definition "ag.cluster_picture" (lean := "Polynomial.IsPadicCluster, Polynomial.padicClusterSize, Polynomial.padicClusterValDepth, Polynomial.padicClusterRelValDepth, Polynomial.IsPadicCluster.subset_or_subset_or_disjoint, Polynomial.IsPadicCluster.isPadicCluster_padicClusterParent")
 *Cluster picture.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.cluster_picture))
 
 Let $`H` be an {bpref "ec"}[elliptic] or {bpref "ag.hyperelliptic_curve"}[hyperelliptic curve] over $`\Q` given by an equation $`y^2 = f(x)`, and let $`p` be an odd prime number. Then the *cluster picture* of $`H` at $`p` associated to this particular equation for $`H`, is a graphical representation of the $`p`-adic distances between the roots of $`f`.

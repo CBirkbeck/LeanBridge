@@ -164,7 +164,7 @@ This coincides with the genus of the Riemann surface $`\mathcal H^*/\Gamma`, whe
 Depends on: {uses "ag.geom_component"}[] {uses "gl2.open"}[] {uses "mf.upper_half_plane"}[] {uses "modcurve"}[]
 :::
 
-:::definition "gl2.index"
+:::definition "gl2.index" (lean := "Subgroup.index, Subgroup.quotient_finite_of_isOpen, Subgroup.index_ne_zero_of_finite, Subgroup.relIndex_map_of_inf_comap_map_eq, Matrix.GeneralLinearGroup.relIndex_map_padicReduction_padicLevel, Matrix.GeneralLinearGroup.relIndex_map_adelicReduction_adelicLevel")
 *Index of an open subgroup.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gl2.index))
 
 The *index* of an {bpref "gl2.open"}[open subgroup] $`H` of a {bpref "gl2.profinite"}[profinite group] $`G` is the positive integer $`[G:H]`.

@@ -92,7 +92,7 @@ The action is *transitive* if for all $`a,b\in A`, there exists $`g\in G` such t
 Depends on: {uses "alg.binary_operation.identity"}[] {uses "group"}[]
 :::
 
-:::definition "group.affine_general_linear"
+:::definition "group.affine_general_linear" (lean := "Matrix.GeneralLinearGroup.mulVecMulAut, Matrix.AffineGeneralLinearGroup, Matrix.AffineGeneralLinearGroup.mulEquivAffineEquiv, Matrix.AffineGeneralLinearGroup.mulEquivAffineEquiv_apply, AffineEquiv.group, GaloisField")
 *Affine general linear group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.affine_general_linear))
 
 The {bpref "group.general_linear"}[general linear group] $`\GL(n,q)` acts on the vector space $`\F_q^n` by matrix multiplication. The affine general linear group is the group $`\AGL(n,q) = \F_q^n \rtimes \GL(n,q)`. It is the group of all invertible affine transformations of $`\F_q^n`.
@@ -163,7 +163,7 @@ For {bpref "group.cyclic"}[cyclic] groups, the size of their automorphism group 
 Depends on: {uses "group"}[] {uses "group.automorphism"}[] {uses "group.cyclic"}[]
 :::
 
-:::definition "group.autjugacy_class"
+:::definition "group.autjugacy_class" (lean := "MulAction.orbit, MulAut, MulAut.orbit_eq_iUnion_carrier, MulAut.pairwiseDisjoint_carrier_orbit, MulAut.natCard_carrier_of_mem_orbit, MulAut.orderOf_of_mem_carrier_of_mem_orbit")
 *Autjugacy class.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.autjugacy_class))
 
 If $`G` is a group and $`x \in G`, the *autjugacy class* of $`x` is the orbit of $`x` under the action of the {bpref "group.automorphism"}[automorphism group], namely $`\{\varphi(x) : \varphi \in \operatorname{Aut}(G)\}`.  Any autjugacy class is a disjoint union of {bpref "group.conjugacy_class"}[conjugacy classes], each of the same size and {bpref "group.element_order"}[order].
@@ -308,7 +308,7 @@ The *complex character table* of a finite {bpref "group"}[group] $`G` is a squar
 Depends on: {uses "group"}[] {uses "group.label_complex_group_char"}[] {uses "group.label_conjugacy_class"}[] {uses "group.representation.character"}[]
 :::
 
-:::definition "group.conjugacy_class" (lean := "conjugatesOf, ConjClasses, ConjClasses.carrier, IsConj")
+:::definition "group.conjugacy_class" (lean := "conjugatesOf, ConjClasses, ConjClasses.carrier, IsConj, SemiconjBy.orderOf_eq")
 *Conjugacy class.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.conjugacy_class))
 
 If $`G` is a {bpref "group"}[group] and $`x\in G`, the *conjugacy class* of $`x` is the set $`\{gxg^{-1}\mid g\in G\}`.  These sets partition $`G`, and the set of conjugacy classes is denoted by $`\mathrm{conj}(G)`.
@@ -390,7 +390,7 @@ A {bpref "group"}[group] $`G` is *cyclic* if it can be {bpref "group.generators"
 Depends on: {uses "group"}[] {uses "group.generators"}[]
 :::
 
-:::definition "group.derived_series"
+:::definition "group.derived_series" (lean := "derivedSeries, derivedLength, derivedSeries_succ_derivedLength, derivedSeries_succ_lt_of_lt_derivedLength, Group.isSolvable_iff_derivedSeries_derivedLength_eq_bot, Group.exists_subnormalSeries_iff_derivedSeries_derivedLength_eq_bot")
 *Derived series of a group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.derived_series))
 
 The *derived series* of a finite {bpref "group"}[group] $`G` is the chain of subgroups
@@ -562,7 +562,7 @@ $$`\begin{pmatrix}a&b\\c&d \end{pmatrix}(z)
 Depends on: {uses "mf.upper_half_plane"}[]
 :::
 
-:::definition "group.fuchsian.cusps"
+:::definition "group.fuchsian.cusps" (lean := "Subgroup.CuspClasses, Subgroup.mk_eq_mk_iff_cusp, Matrix.SpecialLinearGroup.mapGL_smul_coe, Matrix.SpecialLinearGroup.mapGL_smul_infty")
 *Cusps of a subgroup of the modular group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.fuchsian.cusps))
 
 The *cusps* of a subgroup $`\Gamma` of the {bpref "group.sl2z"}[modular group] are equivalence classes of points in $`\mathbb{Q}\cup\infty` under the action of $`\Gamma` by {bpref "group.fuchsian.action"}[linear fractional transformation], where for
@@ -622,7 +622,7 @@ Gassmann equivalent subgroups of {bpref "gg.galois_group"}[Galois groups] of num
 Depends on: {uses "gg.galois_group"}[] {uses "group"}[] {uses "group.conjugacy_class"}[] {uses "group.subgroup"}[] {uses "nf.arithmetically_equivalent"}[]
 :::
 
-:::definition "group.general_linear"
+:::definition "group.general_linear" (lean := "Matrix.GeneralLinearGroup, GaloisField, Matrix.card_GL_field, Matrix.GeneralLinearGroup.mulEquivMulAut, Matrix.ProjGenLinGroup, Matrix.GeneralLinearGroup.center_eq_range_scalar")
 *General linear group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.general_linear))
 
 The *general linear group* $`\GL(n,q)` is the group of $`n \times n` invertible matrices with entries in the {bpref "ring.field"}[field] $`\F_q` (the finite field with $`q` elements). It has order $`\prod_{k=0}^{n-1} (q^n - q^k)`.
@@ -875,7 +875,7 @@ The smallest positive integer $`d` such that the group $`G` admits a {bpref "gro
 Depends on: {uses "group.representation.faithful"}[] {uses "group.representation.irrep"}[]
 :::
 
-:::definition "group.min_complex_rep_deg"
+:::definition "group.min_complex_rep_deg" (lean := "minFaithfulDegree, isLeast_minFaithfulDegree, minFaithfulDegree_eq_linearDegree, minFaithfulDegree_eq_one, minFaithfulDegree_eq_max_linearDegree_one, linearDegree")
 *Minimal degree of a complex representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.min_complex_rep_deg))
 
 The smallest positive integer $`d` such that the group $`G` admits a {bpref "group.representation.faithful"}[faithful] complex representation of degree $`d`.
@@ -903,7 +903,7 @@ The smallest positive integer $`d` such that the group $`G` admits a {bpref "gro
 Depends on: {uses "group.representation.faithful"}[] {uses "group.representation.irrep"}[]
 :::
 
-:::definition "group.min_rational_rep_deg"
+:::definition "group.min_rational_rep_deg" (lean := "minFaithfulDegree, isLeast_minFaithfulDegree, minFaithfulDegree_eq_linearDegree, minFaithfulDegree_eq_one, minFaithfulDegree_eq_max_linearDegree_one, linearDegree")
 *Minimal degree of a rational representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.min_rational_rep_deg))
 
 The smallest positive integer $`d` such that the group $`G` admits a {bpref "group.representation.faithful"}[faithful] rational representation of degree $`d`.
@@ -1079,7 +1079,7 @@ If $`H \subseteq G` is a {bpref "group.subgroup"}[subgroup], an *over-subgroup* 
 Depends on: {uses "group.subgroup"}[]
 :::
 
-:::definition "group.paramodular"
+:::definition "group.paramodular" (lean := "SiegelUpperHalfSpace.paramodularLevel, SiegelUpperHalfSpace.mem_heckeGammaOf_paramodularLevel_iff, SymplecticGroup.paramodularLattice, SiegelUpperHalfSpace.paramodularLevel_eq_stabilizer, SiegelUpperHalfSpace.mem_paramodularLevel_iff_isParamodularWeakShape, SiegelUpperHalfSpace.isParamodularShape_of_isParamodularWeakShape")
 *Paramodular group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.paramodular))
 
 The paramodular group $`K(N)` of level $`N` is defined as
@@ -1363,7 +1363,7 @@ $$`F(\chi)=F\left(\chi(g) :  g \in G\right).`
 The *Schur index* of $`\chi` is the minimum of all indices $`[E:F(\chi)]` where E varies over all field $`F(\chi) \subseteq E \subseteq K` so that there is an $`EG`-module $`W` with $`V\cong K \otimes_E W`.
 :::
 
-:::definition "group.representation.type"
+:::definition "group.representation.type" (lean := "Representation.IsRealizableOverReal, Representation.IsComplexType, Representation.IsQuaternionicType, Representation.frobeniusSchurIndicator_eq_one_iff_isRealizableOverReal, Representation.frobeniusSchurIndicator_eq_zero_iff_isComplexType, Representation.frobeniusSchurIndicator_eq_neg_one_iff_isQuaternionicType")
 *Type of a complex group representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.representation.type))
 
 Let $`\rho:G\to\GL_n(\C)` be an irreducible complex {bpref "group"}[group] representation.  Then $`\rho` is one of three *types*:
@@ -1522,7 +1522,7 @@ If $`G` is a finite {bpref "group.solvable"}[solvable] group, then $`\mathrm{soc
 Depends on: {uses "group"}[] {uses "group.cyclic"}[] {uses "group.order"}[] {uses "group.solvable"}[] {uses "group.subgroup"}[] {uses "group.subgroup.normal"}[]
 :::
 
-:::definition "group.solvable"
+:::definition "group.solvable" (lean := "Group.IsSolvable, Group.isSolvable_iff_exists_subnormalSeries, Subgroup.SubnormalSeries, Subgroup.SubnormalSeries.factor, IsMulCommutative")
 *Solvable group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.solvable))
 
 A {bpref "group"}[group] $`G` is *solvable* if there exists a chain of subgroups
@@ -1557,7 +1557,7 @@ The *integral symplectic group* $`\Gamma_g=\Sp(2g,\Z)`, also called the Siegel m
 is defined as  $`\Gamma_g=\Sp(2g,\R)\cap{\rm M}(2g,\Z)`. Clearly $`\Gamma_1=\SL(2,\Z)`.
 :::
 
-:::definition "group.sp2gr.gamma0"
+:::definition "group.sp2gr.gamma0" (lean := "SymplecticGroup.Gamma0, SymplecticGroup.mem_Gamma0_iff, SymplecticGroup.toSL, SymplecticGroup.Gamma0_fin_one, SymplecticGroup.map_toSL_Gamma0")
 *Subgroup $`\Gamma_0(N)` of $`\Sp(2g,\Z)`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.sp2gr.gamma0))
 
 The group $`\Gamma_0(N)` in degree $`g` is the subgroup of the integral
@@ -1603,7 +1603,7 @@ $`\SL(2,\Z)`.
 Depends on: {uses "group.sl2z.subgroup.gamma1n"}[] {uses "group.sp2gr"}[]
 :::
 
-:::definition "group.sp2gr.ppal.congruence"
+:::definition "group.sp2gr.ppal.congruence" (lean := "SymplecticGroup.Gamma, SymplecticGroup.mem_Gamma_iff, SymplecticGroup.toSL, SymplecticGroup.Gamma_fin_one, SymplecticGroup.map_toSL_Gamma")
 *Subgroup $`\Gamma(N)` of $`\Sp(2g,\Z)`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.sp2gr.ppal.congruence))
 
 The principal congruence subgroup of level $`N`, $`\Gamma(N)`,
@@ -1739,7 +1739,7 @@ A *stem group* is a {bpref "group"}[group] $`G` whose {bpref "group.center"}[cen
 Depends on: {uses "group"}[] {uses "group.center"}[] {uses "group.commutator_subgroup"}[] {uses "group.isoclinism"}[]
 :::
 
-:::definition "group.subgroup" (lean := "Subgroup")
+:::definition "group.subgroup" (lean := "Subgroup, Set.IsGroupForInducedMul, Set.isGroupForInducedMul_iff, Set.isGroupForInducedMul_iff_exists_subgroup, Set.isGroupForInducedMul_coe")
 *Subgroup of a group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.subgroup))
 
 If $`G` is a {bpref "group"}[group], a subset $`H\subseteq G` is a *subgroup* of $`G` if the {bpref "alg.binary_operation"}[binary operation] of $`G` restricts to a {bpref "alg.binary_operation"}[binary operation] on $`H`, and $`H` is a group for this induced operation.
@@ -1763,7 +1763,7 @@ $$`C_G(H) = \{ g\in G\mid gh=hg \text{ for all } h\in H\}.`
 Depends on: {uses "group"}[] {uses "group.subgroup"}[]
 :::
 
-:::definition "group.subgroup.complement"
+:::definition "group.subgroup.complement" (lean := "Subgroup.IsComplement', Subgroup.isComplement'_iff_card_inf_eq_one_and_mul_eq_univ, Subgroup.isComplement'_iff_exists_splitting, Subgroup.exists_isComplement'_iff_nonempty_splitting, Subgroup.IsComplement'.QuotientMulEquiv, SemidirectProduct.mulEquivSubgroup")
 *Complement.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.subgroup.complement))
 
 If $`H \trianglelefteq G` is a {bpref "group.subgroup.normal"}[normal] {bpref "group.subgroup"}[subgroup], a *complement* of $`H` is a subgroup $`K \subseteq G` with $`\lvert H \cap K \rvert = 1` and $`HK=G` where
@@ -1917,7 +1917,7 @@ The elements of finite order in an {bpref "group.abelian"}[abelian] group $`A` f
 Depends on: {uses "group"}[] {uses "group.abelian"}[]
 :::
 
-:::definition "group.transitive_degree"
+:::definition "group.transitive_degree" (lean := "Group.minTransitiveDegree, Group.exists_injective_isTransitive_minTransitiveDegree, Group.minTransitiveDegree_le, Group.isLeast_pretransitive_minTransitiveDegree, Group.isLeast_index_minTransitiveDegree, Group.minTransitiveDegree_congr")
 *Transitive degree.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.transitive_degree))
 
 Given a finite {bpref "group"}[group] $`G`, we call the minimal degree of a faithful transitive {bpref "group.permutation_representation"}[permutation representation] of $`G` the *minimal transitive degree* of $`G`.

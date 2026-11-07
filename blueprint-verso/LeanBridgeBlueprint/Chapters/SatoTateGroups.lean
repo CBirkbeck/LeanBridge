@@ -148,7 +148,7 @@ The *identity component* of a {bpref "st_group.definition"}[Sato-Tate group] $`G
 Depends on: {uses "st_group.definition"}[]
 :::
 
-:::definition "st_group.index"
+:::definition "st_group.index" (lean := "LieGroup.finiteIndex_connectedComponentOfOne, Subgroup.isOpen_connectedComponentOfOne, Subgroup.connectedComponentOfOne, Subgroup.normal_connectedComponentOfOne, Subgroup.index_eq_card")
 *Index of the identity component.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.index))
 
 The identity component $`G^0` of a compact Lie group $`G` is a normal subgroup of finite index; this index is equal to the cardinality of the {bpref "st_group.component_group"}[component group] $`G/G^0`.

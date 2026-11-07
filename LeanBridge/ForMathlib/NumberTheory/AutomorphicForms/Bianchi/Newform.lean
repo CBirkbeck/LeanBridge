@@ -124,8 +124,10 @@ lemma symPowInner_smul_left (c : ℂ) : symPowInner k (c • v) w = c * symPowIn
 `mf.bianchi.spaces`) of the level `Γ ≤ GL₂(K)` in weight `k`:
 `∫_{Γ \ ℋ₃} y^k ⟨F(z), G(z)⟩_k dμ = 0`, the integrand being integrable, on every fundamental domain
 of the image `Γ̄` of `Γ` in `PSL(2, ℂ)` for the hyperbolic volume `dμ = dx₁ dx₂ dy / y³`. For an
-imaginary quadratic `K` and a congruence subgroup `Γ`, `Γ̄` is discrete, so that fundamental domains
-exist and the condition is not vacuous; for cusp forms the integrand is integrable and
+imaginary quadratic `K` and a congruence subgroup `Γ`, `Γ̄` is discrete, as for every subgroup of
+`GL₂(𝒪_K)` (`discreteTopology_bianchiPSLGroup`, in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.LevelDiscrete`), so that fundamental
+domains exist and the condition is not vacuous; for cusp forms the integrand is integrable and
 `Γ`-invariant, so that the integral does not depend on the fundamental domain. These facts are
 proved for `Γ₀(𝔑)` over `K` of class number `1` (`exists_isFundamentalDomain_bianchiPSLGroup`,
 `integrableOn_bianchiPairing`, `bianchiPetersson_eq`). -/

@@ -21,7 +21,7 @@ The most commonly used model for elliptic curves is a {bpref "ec.weierstrass_coe
 Depends on: {uses "ag.curve"}[] {uses "ag.curve.genus"}[] {uses "ag.curve.smooth"}[]
 :::
 
-:::definition "ec.additive_reduction" (lean := "WeierstrassCurve.HasAdditiveReduction")
+:::definition "ec.additive_reduction" (lean := "WeierstrassCurve.HasAdditiveReduction, WeierstrassCurve.reduction, WeierstrassCurve.HasCusp, WeierstrassCurve.Affine.IsTangentSlope, WeierstrassCurve.hasAdditiveReduction_iff_hasCusp, WeierstrassCurve.hasCusp_iff")
 *Additive reduction.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.additive_reduction))
 
 An {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K` is said to have *additive reduction* at a prime $`\mathfrak{p}` of $`K` if the reduction of $`E` modulo $`\mathfrak{p}` has a cuspidal singularity.
@@ -73,7 +73,7 @@ A curve has bad reduction at $`\mathfrak{p}` if and only if $`\mathfrak{p}` divi
 Depends on: {uses "ec"}[] {uses "ec.additive_reduction"}[] {uses "ec.discriminant"}[] {uses "ec.nonsplit_multiplicative_reduction"}[] {uses "ec.split_multiplicative_reduction"}[] {uses "nf"}[] {uses "nf.prime"}[]
 :::
 
-:::definition "ec.base_change" (lean := "WeierstrassCurve.baseChange")
+:::definition "ec.base_change" (lean := "WeierstrassCurve.baseChange, WeierstrassCurve.IsBaseChangeCurve, WeierstrassCurve.isBaseChangeCurve_baseChange, WeierstrassCurve.not_exists_baseChange_eq_translate_x_cube_add_one, WeierstrassCurve.IsBaseChangeCurve.j_mem_range, WeierstrassCurve.not_isBaseChangeCurve_x_cube_add_one_add_sqrt_two")
 *Base change.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.base_change))
 
 If $`E` is an elliptic curve defined over a field $`K`, and $`L` is an extension field of $`K`, then the same equation defining $`E` as an elliptic curve over $`K` also defines a curve over $`L` called the *base change* of $`E` from $`K` to $`L`.   Any curve defined over $`L` which is isomorphic to $`E` over $`L` is called a base-change curve from $`K` to $`L`.  A sufficient but not necessary condition for a curve to be a base change is that the coefficients of its Weierstrass equation lie in $`K`.
@@ -794,7 +794,7 @@ For $`K=\Q`, the image of a maximal $`\bar\rho_{E,\ell}` is $`\GL_2(\F_{\ell})`,
 Depends on: {uses "ec"}[] {uses "ec.complex_multiplication"}[] {uses "ec.galois_rep"}[] {uses "ec.geom_endomorphism_ring"}[] {uses "gl2.borel"}[] {uses "gl2.normalizer_nonsplit_cartan"}[] {uses "gl2.normalizer_split_cartan"}[] {uses "nf"}[]
 :::
 
-:::definition "ec.minimal_discriminant"
+:::definition "ec.minimal_discriminant" (lean := "WeierstrassCurve.minimalDiscriminantIdeal, WeierstrassCurve.minimalDiscriminantIdeal_def, WeierstrassCurve.minimalDiscriminantIdeal_smul, WeierstrassCurve.minimalDiscriminantIdeal_eq_span_of_isGlobalMinimal, WeierstrassCurve.span_Δ_eq_minimalDiscriminantIdeal_mul_weierstrassDefectIdeal_pow_twelve, WeierstrassCurve.exists_spanSingleton_Δ_eq")
 *Minimal discriminant.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.minimal_discriminant))
 
 The *minimal discriminant* (or minimal discriminant ideal) of an {bpref "ec"}[elliptic curve] $`E` over a {bpref "nf"}[number field] $`K` is the ideal $`\mathfrak{D}_{min}` of the {bpref "nf.ring_of_integers"}[ring of integers] of $`K` given by
@@ -842,7 +842,7 @@ When $`E` has {bpref "ec.good_supersingular_reduction"}[supersingular reduction]
 Depends on: {uses "ec.good_ordinary_reduction"}[] {uses "ec.good_supersingular_reduction"}[] {uses "ec.multiplicative_reduction"}[]
 :::
 
-:::definition "ec.multiplicative_reduction" (lean := "WeierstrassCurve.HasMultiplicativeReduction")
+:::definition "ec.multiplicative_reduction" (lean := "WeierstrassCurve.HasMultiplicativeReduction, WeierstrassCurve.HasNode, WeierstrassCurve.Affine.IsTangentSlope, WeierstrassCurve.hasMultiplicativeReduction_iff_hasNode, WeierstrassCurve.hasNode_iff, WeierstrassCurve.hasMultiplicativeReduction_iff_or")
 *Multiplicative reduction.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.multiplicative_reduction))
 
 An {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K` is said to have *multiplicative reduction* at a prime $`\mathfrak p` of $`K` if the reduction of $`E` modulo $`\mathfrak p` has a nodal singularity.
@@ -862,7 +862,7 @@ The generators consist of $`r` *non-torsion generators*, where $`r` is the {bpre
 Depends on: {uses "ec"}[] {uses "ec.mordell_weil_group"}[] {uses "ec.rank"}[] {uses "ec.torsion_subgroup"}[] {uses "group.abelian"}[] {uses "nf"}[]
 :::
 
-:::definition "ec.nonsplit_multiplicative_reduction"
+:::definition "ec.nonsplit_multiplicative_reduction" (lean := "WeierstrassCurve.IsNonsplitMultiplicativeReduction, WeierstrassCurve.HasNonsplitNode, WeierstrassCurve.Affine.IsTangentSlope, WeierstrassCurve.isNonsplitMultiplicativeReduction_iff_hasNonsplitNode, WeierstrassCurve.HasNonsplitNode.hasNode, WeierstrassCurve.hasNonsplitNode_iff")
 *Non-split multiplicative reduction.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.nonsplit_multiplicative_reduction))
 
 An {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K` is said to have *non-split multiplicative reduction* at a prime $`\mathfrak{p}` of $`K` if the reduction of $`E` modulo $`\mathfrak{p}` has a nodal singularity with tangent slopes _not_ defined over the residue field at $`\mathfrak{p}`.
@@ -1382,7 +1382,7 @@ Special cases are when $`E(K)` has rank $`0`, in which case $`E(K)/E(K)_{tor}=0`
 Depends on: {uses "ec"}[] {uses "ec.canonical_height"}[] {uses "ec.mordell_weil_group"}[] {uses "nf"}[]
 :::
 
-:::definition "ec.q.semistable"
+:::definition "ec.q.semistable" (lean := "WeierstrassCurve.IsSemistable, WeierstrassCurve.isSemistable_iff_forall_hasMultiplicativeReduction, WeierstrassCurve.isSemistable_iff_forall_hasNode, WeierstrassCurve.IsBadReduction, WeierstrassCurve.HasNode, WeierstrassCurve.hasMultiplicativeReduction_iff_hasNode")
 *Semistable elliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.semistable))
 
 An {bpref "ec"}[elliptic curve] is *semistable* if it has {bpref "ec.reduction_type"}[multiplicative reduction] at every {bpref "ec.bad_reduction"}[bad prime].
@@ -1536,7 +1536,7 @@ $`E` has *additive reduction* at $`\mathfrak p` if $`\tilde E` has a cuspidal si
 Depends on: {uses "ec"}[] {uses "ec.bad_reduction"}[] {uses "ec.good_reduction"}[] {uses "nf"}[] {uses "nf.ring_of_integers"}[]
 :::
 
-:::definition "ec.regulator"
+:::definition "ec.regulator" (lean := "WeierstrassCurve.Affine.normalizedRegulator, WeierstrassCurve.Affine.neronTatePairing, WeierstrassCurve.Affine.normalizedRegulator_eq_abs_det, WeierstrassCurve.Affine.normalizedRegulator_eq_canonicalHeight_div, WeierstrassCurve.Affine.regulator_eq_pow_mul_normalizedRegulator, WeierstrassCurve.Affine.Point.canonicalHeight_mapAlong_div_finrank")
 *Regulator of an elliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.regulator))
 
 The *regulator* of an {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K`, denoted $`\operatorname{Reg}(E/K)`, is the volume of $`E(K)/E(K)_{tor}` with respect to the *height pairing* $`\langle -,-\rangle` associated to the {bpref "ec.canonical_height"}[canonical height] $`\hat{h}`, i.e. $`\langle P,Q\rangle = \frac{1}{2}(\hat{h}(P+Q)-\hat{h}(P)-\hat{h}(Q))`.
@@ -1588,7 +1588,7 @@ An {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $
 Depends on: {uses "ec"}[] {uses "ec.discriminant"}[] {uses "ec.local_minimal_model"}[] {uses "ec.minimal_discriminant"}[] {uses "nf"}[] {uses "nf.class_number"}[]
 :::
 
-:::definition "ec.semistable"
+:::definition "ec.semistable" (lean := "WeierstrassCurve.IsSemistable, WeierstrassCurve.isSemistable_iff_forall_hasMultiplicativeReduction, WeierstrassCurve.isSemistable_iff_forall_hasNode, WeierstrassCurve.IsBadReduction, WeierstrassCurve.HasNode, WeierstrassCurve.hasMultiplicativeReduction_iff_hasNode")
 *Semistable elliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.semistable))
 
 An {bpref "ec"}[elliptic curve] is *semistable* if it has {bpref "ec.reduction_type"}[multiplicative reduction] at every {bpref "ec.bad_reduction"}[bad prime].
@@ -1616,7 +1616,7 @@ The special value appears in the {bpref "ec.bsdconjecture"}[Birch and Swinnerton
 Depends on: {uses "ec"}[] {uses "ec.bsdconjecture"}[] {uses "lfunction"}[] {uses "lfunction.leading_coeff"}[] {uses "lfunction.normalization"}[] {uses "nf"}[]
 :::
 
-:::definition "ec.split_multiplicative_reduction" (lean := "WeierstrassCurve.HasSplitMultiplicativeReduction")
+:::definition "ec.split_multiplicative_reduction" (lean := "WeierstrassCurve.HasSplitMultiplicativeReduction, WeierstrassCurve.HasSplitNode, WeierstrassCurve.Affine.IsTangentSlope, WeierstrassCurve.hasSplitMultiplicativeReduction_iff_hasSplitNode, WeierstrassCurve.HasSplitNode.hasNode, WeierstrassCurve.Affine.nodePolynomial_eq_of_isSingular")
 *Split multiplicative reduction.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.split_multiplicative_reduction))
 
 An {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K` is said to have *split multiplicative reduction*  at a prime $`\mathfrak{p}` of $`K` if the reduction of $`E` modulo $`\mathfrak{p}` has a nodal singularity with both tangent slopes defined over the residue field at $`\mathfrak{p}`.

@@ -29,7 +29,7 @@ Depends on: {uses "lattice.definition"}[] {uses "lattice.dimension"}[] {uses "la
 A lattice is called *algebraic* if it can be realized as a free $`\mathbb{Z}`-module in an algebraic number field.
 :::
 
-:::definition "lattice.arithmetic"
+:::definition "lattice.arithmetic" (lean := "LinearMap.BilinForm.IsArithmeticLattice, LinearMap.BilinForm.IsIntegralLattice, LinearMap.BilinForm.IsSimilarLattice, LinearMap.BilinForm.isArithmeticLattice_iff, LinearMap.BilinForm.IsSimilarLattice.isArithmeticLattice, LinearMap.BilinForm.isArithmeticLattice_of_apply_self_eq")
 *Arithmetic lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.arithmetic))
 
 A lattice is called *arithmetic* if it is {bpref "lattice.similarity"}[similar] to an {bpref "lattice.definition"}[integral lattice].
