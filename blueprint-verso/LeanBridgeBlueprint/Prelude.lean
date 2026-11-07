@@ -15,6 +15,7 @@ import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.FiniteSetAffineOpen
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.Hyperelliptic
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.Quotient
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.QuotientExistence
+import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.QuotientSignature
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.TwoChartQuotient
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Arithmetic.LocalData
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Arithmetic.Tamagawa
@@ -190,7 +191,9 @@ import Mathlib.Analysis.Complex.UpperHalfPlane.MoebiusAction
 import Mathlib.Analysis.InnerProductSpace.GramMatrix
 import Mathlib.Analysis.Meromorphic.TrailingCoefficient
 import Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar
+import Mathlib.Analysis.SpecialFunctions.Gamma.Basic
 import Mathlib.Analysis.SpecialFunctions.Gamma.Deligne
+import Mathlib.Analysis.SpecialFunctions.Gamma.Deriv
 import Mathlib.Basic.Complex.Basic
 import Mathlib.CategoryTheory.Comma.Over.Basic
 import Mathlib.CategoryTheory.Comma.Over.Pullback
@@ -358,7 +361,9 @@ import TauCeti.AlgebraicGeometry.Curves.Basic
 import TauCeti.AlgebraicGeometry.EllipticCurve.Affine.Point.NonsingularReduction
 import TauCeti.AlgebraicGeometry.EllipticCurve.CanonicalHeight.Basic
 import TauCeti.AlgebraicGeometry.EllipticCurve.Isogeny.Basic
+import TauCeti.AlgebraicGeometry.EllipticCurve.Isogeny.Degree
 import TauCeti.AlgebraicGeometry.EllipticCurve.Isogeny.Hom.Basic
+import TauCeti.AlgebraicGeometry.EllipticCurve.Isogeny.VariableChange
 import TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.Class
 import TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.DiscriminantIdeal
 import TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.LocalDiscriminant
@@ -368,6 +373,7 @@ import TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.Reduced
 import TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.Valuation
 import TauCeti.AlgebraicGeometry.EllipticCurve.MordellWeil.FinitelyGenerated
 import TauCeti.AlgebraicGeometry.EllipticCurve.MordellWeil.PointModTorsion.Basic
+import TauCeti.AlgebraicGeometry.EllipticCurve.MordellWeil.PointModTorsion.Isogeny
 import TauCeti.AlgebraicGeometry.EllipticCurve.MordellWeil.Regulator.Basic
 import TauCeti.AlgebraicGeometry.EllipticCurve.Supersingular
 import TauCeti.AlgebraicGeometry.EllipticCurve.TateModule.Galois
@@ -380,6 +386,7 @@ import TauCeti.FieldTheory.GaloisGroups.Blocks
 import TauCeti.FieldTheory.GaloisGroups.NormalClosure
 import TauCeti.FieldTheory.GaloisGroups.Parity
 import TauCeti.Geometry.Diffeomorphism.Group
+import TauCeti.Geometry.Lie.Subgroup.Embedded
 import TauCeti.GroupTheory.Perm.OrbitCount.Basic
 import TauCeti.GroupTheory.Perm.SwapFactors
 import TauCeti.GroupTheory.Perm.WreathProduct.Basic
@@ -420,6 +427,7 @@ import TauCeti.NumberTheory.NumberField.Global.Orders.Discriminant
 import TauCeti.NumberTheory.NumberField.Global.Orders.Picard
 import TauCeti.NumberTheory.NumberField.Index.Basic
 import TauCeti.NumberTheory.NumberField.Index.CommonIndexDivisor
+import TauCeti.NumberTheory.NumberField.Index.Discriminant
 import TauCeti.NumberTheory.NumberField.Monogenic
 import TauCeti.NumberTheory.NumberField.NarrowClassGroup.Basic
 import TauCeti.NumberTheory.NumberField.RamifiedPrimes
@@ -430,7 +438,9 @@ import TauCeti.RepresentationTheory.CharacterTable.FieldOfValues
 import TauCeti.RepresentationTheory.CharacterTable.FrobeniusSchur.Basic
 import TauCeti.RepresentationTheory.CharacterTable.Table
 import TauCeti.RingTheory.KrullSchmidt.Indecomposable
+import TauCeti.RingTheory.Polynomial.Resultant.Discriminant
 import TauCeti.Topology.Algebra.Group.Connected
+import TauCeti.Topology.Algebra.UnitaryGroup
 
 open Verso Verso.Genre Verso.Genre.Manual Informal
 

@@ -451,7 +451,7 @@ Conversely, if a group $`G` has normal subgroups $`H` and $`K` such that $`H\cap
 Depends on: {uses "group"}[] {uses "group.subgroup.normal"}[]
 :::
 
-:::definition "group.division" (lean := "IsRationallyConj, IsRationallyConj.equivalence, IsRationallyConj.setoid, RatConjClasses, IsConj.isRationallyConj")
+:::definition "group.division" (lean := "IsRationallyConj, IsRationallyConj.equivalence, IsRationallyConj.setoid, RatConjClasses, IsConj.isRationallyConj, FDRep.IsRationalCharacter.character_eq_of_isRationallyConj")
 *Divisions of a group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.division))
 
 A *division* (or *rational conjugacy classes*) of a finite {bpref "group"}[group] $`G` is an equivalence class under the following relation: $`x \sim y` if there exist $`g \in G` and $`n \in \Z` relatively prime to the {bpref "group.element_order"}[order] of $`x` with $`y = g^{-1} x^n g`.  It is a coarsening of conjugacy: any division is a union of {bpref "group.conjugacy_class"}[conjugacy classes].

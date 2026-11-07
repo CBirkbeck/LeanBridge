@@ -244,7 +244,7 @@ this means that the polynomials $`L_{\mathfrak p}(T)` have integer coefficients,
 Depends on: {uses "lfunction.arithmetic"}[] {uses "lfunction.rational"}[] {uses "st_group.definition"}[] {uses "st_group.degree"}[]
 :::
 
-:::definition "st_group.real_dimension" (lean := "SatoTateGroup.realDimension")
+:::definition "st_group.real_dimension" (lean := "SatoTateGroup.realDimension, TauCeti.Lie.nonempty_embeddedLieSubgroupData_lieSubalgebraOfSubgroup_of_isClosed")
 *Real dimension of a Sato-Tate group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.real_dimension))
 
 The *real dimension* of a {bpref "st_group.definition"}[Sato-Tate group] is its dimension as a real Lie group.
@@ -322,7 +322,7 @@ On each component of a Sato-Tate group, the trace is either constant and equal t
 Depends on: {uses "group.haar_measure"}[] {uses "st_group.definition"}[]
 :::
 
-:::definition "st_group.usp" (lean := "Matrix.unitaryGroup, Matrix.symplecticGroup, SymplecticGroup.mem_iff', Matrix.J")
+:::definition "st_group.usp" (lean := "Matrix.unitaryGroup, Matrix.symplecticGroup, SymplecticGroup.mem_iff', Matrix.J, TauCeti.Matrix.isCompact_unitaryGroup, TauCeti.Lie.isEmbeddedLieSubgroup_of_isClosed")
 *Unitary symplectic group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.usp))
 
 For a positive even integer $`d` the *unitary symplectic group* $`\mathrm{USp}(d)` is

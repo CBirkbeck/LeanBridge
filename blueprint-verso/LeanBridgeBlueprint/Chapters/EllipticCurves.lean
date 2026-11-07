@@ -618,7 +618,7 @@ In the LMFDB, the rows and columns of the matrices are ordered by the final entr
 Depends on: {uses "ec"}[] {uses "ec.isogeny_class"}[]
 :::
 
-:::definition "ec.isomorphism" (lean := "WeierstrassCurve.VariableChange")
+:::definition "ec.isomorphism" (lean := "WeierstrassCurve.VariableChange, TauCeti.Isogeny.degree_eq_one_of_comp_eq_id, TauCeti.Isogeny.exists_variableChangeIsogeny_eq_of_degree_eq_one, TauCeti.Isogeny.variableChangeIsogeny_inj")
 *Isomorphism of elliptic curves.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.isomorphism))
 
 An *isomorphism* between two {bpref "ec"}[elliptic curves] $`E`, $`E'` defined over a field $`K` is an {bpref "ec.isogeny"}[isogeny] $`f:E\to E'` such that there exist an {bpref "ec.isogeny"}[isogeny] $`g:E'\to E` with the compositions $`g\circ f` and $`f\circ g` being the identity maps.  Equivalently, an isomorphism $`E\to E'` is an isogeny of degree $`1`.
@@ -1492,7 +1492,7 @@ Elliptic curves with {bpref "ec.complex_multiplication"}[CM] are all $`\mathbb{Q
 Depends on: {uses "ec"}[] {uses "ec.base_change"}[] {uses "ec.complex_multiplication"}[] {uses "ec.isogeny"}[] {uses "nf"}[]
 :::
 
-:::definition "ec.rank" (lean := "CommGroup.freeRank")
+:::definition "ec.rank" (lean := "CommGroup.freeRank, TauCeti.Isogeny.Hom.finrank_pointModTorsion_eq, WeierstrassCurve.Affine.fg_point_of_numberField")
 *Rank of an elliptic curve over a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.rank))
 
 The rank of an {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K` is the *rank* of its {bpref "ec.mordell_weil_group"}[Mordell-Weil group] $`E(K)`.

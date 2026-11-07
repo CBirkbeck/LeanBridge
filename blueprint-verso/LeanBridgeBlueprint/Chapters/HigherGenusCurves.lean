@@ -135,7 +135,7 @@ The image of $`\rho` is the *(geometric) monodromy group* of $`G`; it is a trans
 Depends on: {uses "ag.riemann_surface"}[] {uses "curve.highergenus.aut.branchpoints"}[]
 :::
 
-:::definition "curve.highergenus.aut.quotientgenus" (lean := "TauCeti.genus")
+:::definition "curve.highergenus.aut.quotientgenus" (lean := "TauCeti.genus, TauCeti.AlgebraicGeometry.RegularProperCurveCat.genus_quotient")
 *Quotient genus.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/curve.highergenus.aut.quotientgenus))
 
 For a group of automorphisms $`G` acting on a curve $`X`, the {bpref "ag.curve.genus"}[genus] of the quotient curve $`X/G` is the *quotient genus* of $`G`.

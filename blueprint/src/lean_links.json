@@ -538,7 +538,8 @@
     "TauCeti.Diff": "TauCeti.Geometry.Diffeomorphism.Group"
   },
   "curve.highergenus.aut.quotientgenus": {
-    "TauCeti.genus": "TauCeti.FieldTheory.FunctionField.RiemannRoch.Genus"
+    "TauCeti.genus": "TauCeti.FieldTheory.FunctionField.RiemannRoch.Genus",
+    "TauCeti.AlgebraicGeometry.RegularProperCurveCat.genus_quotient": "LeanBridge.ForMathlib.AlgebraicGeometry.Curve.QuotientSignature"
   },
   "ec.congruent_number": {
     "Rat.IsCongruentNumber": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.CongruentNumber.Basic",
@@ -579,6 +580,11 @@
     "WeierstrassCurve.HasGoodSupersingularReduction": "TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.OrdinaryReduction",
     "WeierstrassCurve.IsSupersingular": "TauCeti.AlgebraicGeometry.EllipticCurve.Supersingular"
   },
+  "ec.isomorphism": {
+    "TauCeti.Isogeny.degree_eq_one_of_comp_eq_id": "TauCeti.AlgebraicGeometry.EllipticCurve.Isogeny.Degree",
+    "TauCeti.Isogeny.exists_variableChangeIsogeny_eq_of_degree_eq_one": "TauCeti.AlgebraicGeometry.EllipticCurve.Isogeny.VariableChange",
+    "TauCeti.Isogeny.variableChangeIsogeny_inj": "TauCeti.AlgebraicGeometry.EllipticCurve.Isogeny.VariableChange"
+  },
   "ec.j_invariant_denominator_valuation": {
     "WeierstrassCurve.LocalData.jDenominatorValuation": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Arithmetic.LocalData",
     "WeierstrassCurve.localData": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Arithmetic.LocalData",
@@ -615,6 +621,10 @@
     "WeierstrassCurve.Affine.Point.naiveHeight_eq_logHeight₁": "Mathlib.NumberTheory.Height.EllipticCurve",
     "Height.logHeight₁": "Mathlib.NumberTheory.Height.Basic",
     "Rat.mulHeight₁_eq_max": "Mathlib.NumberTheory.Height.NumberField"
+  },
+  "ec.rank": {
+    "TauCeti.Isogeny.Hom.finrank_pointModTorsion_eq": "TauCeti.AlgebraicGeometry.EllipticCurve.MordellWeil.PointModTorsion.Isogeny",
+    "WeierstrassCurve.Affine.fg_point_of_numberField": "TauCeti.AlgebraicGeometry.EllipticCurve.MordellWeil.FinitelyGenerated"
   },
   "field.finite.conway_polynomial": {
     "FiniteField.conwayPolynomial": "LeanBridge.ForMathlib.FieldTheory.Finite.ConwayPolynomial",
@@ -805,7 +815,8 @@
     "IsRationallyConj.equivalence": "LeanBridge.ForMathlib.GroupTheory.RationalConjugacy",
     "IsRationallyConj.setoid": "LeanBridge.ForMathlib.GroupTheory.RationalConjugacy",
     "RatConjClasses": "LeanBridge.ForMathlib.GroupTheory.RationalConjugacy",
-    "IsConj.isRationallyConj": "LeanBridge.ForMathlib.GroupTheory.RationalConjugacy"
+    "IsConj.isRationallyConj": "LeanBridge.ForMathlib.GroupTheory.RationalConjugacy",
+    "FDRep.IsRationalCharacter.character_eq_of_isRationallyConj": "LeanBridge.ForMathlib.RepresentationTheory.RationalCharacterBasis"
   },
   "group.division_maximal": {
     "RatConjClasses.IsMaximal": "LeanBridge.ForMathlib.GroupTheory.RationalConjugacy",
@@ -1637,7 +1648,10 @@
     "Algebra.Etale.iff_exists_algEquiv_prod": "Mathlib.RingTheory.Etale.Field"
   },
   "nf.max_p": {
-    "NumberField.ramifiedPrimes": "TauCeti.NumberTheory.NumberField.RamifiedPrimes"
+    "NumberField.ramifiedPrimes": "TauCeti.NumberTheory.NumberField.RamifiedPrimes",
+    "NumberField.finite_ramifiedPrimes": "TauCeti.NumberTheory.NumberField.RamifiedPrimes",
+    "NumberField.ramifiedPrimes_rat": "TauCeti.NumberTheory.NumberField.RamifiedPrimes",
+    "NumberField.ramifiedPrimes_nonempty": "TauCeti.NumberTheory.NumberField.RamifiedPrimes"
   },
   "nf.maximal_cm_subfield": {
     "NumberField.maximalCMSubfield": "LeanBridge.ForMathlib.NumberTheory.NumberField.MaximalCMSubfield",
@@ -1680,6 +1694,10 @@
     "NumberField.IsDefiningPolynomial": "LeanBridge.ForMathlib.NumberTheory.NumberField.Polredabs",
     "NumberField.exists_isPolredabs": "LeanBridge.ForMathlib.NumberTheory.NumberField.Polredabs",
     "NumberField.IsPolredabs.eq": "LeanBridge.ForMathlib.NumberTheory.NumberField.Polredabs"
+  },
+  "nf.poly_discriminant": {
+    "Polynomial.Monic.discr_eq_prod_roots_sub_sq": "TauCeti.RingTheory.Polynomial.Resultant.Discriminant",
+    "TauCeti.NumberField.IntegralPrimitiveElement.discr_minpoly_eq_index_sq_mul_discr": "TauCeti.NumberTheory.NumberField.Index.Discriminant"
   },
   "nf.prime": {
     "IsDedekindDomain.HeightOneSpectrum": "Mathlib.RingTheory.DedekindDomain.Ideal.Lemmas",
@@ -1855,6 +1873,12 @@
     "TauCeti.Algebra.IsSplittingField": "TauCeti.Algebra.CentralSimple.Splitting",
     "TauCeti.QuaternionAlgebra.nonempty_algEquiv_matrix_tfae": "TauCeti.Algebra.Quaternion.SplittingCriterion"
   },
+  "specialfunction.gamma": {
+    "Complex.Gamma_eq_integral": "Mathlib.Analysis.SpecialFunctions.Gamma.Basic",
+    "Complex.Gamma_add_one": "Mathlib.Analysis.SpecialFunctions.Gamma.Basic",
+    "Complex.differentiableAt_Gamma": "Mathlib.Analysis.SpecialFunctions.Gamma.Deriv",
+    "Complex.not_continuousAt_Gamma_neg_nat": "Mathlib.Analysis.SpecialFunctions.Gamma.Deriv"
+  },
   "specialfunction.k_bessel": {
     "Complex.besselK": "LeanBridge.ForMathlib.Analysis.SpecialFunctions.BesselK",
     "Complex.besselKIntegrand": "LeanBridge.ForMathlib.Analysis.SpecialFunctions.BesselK",
@@ -1867,7 +1891,8 @@
     "Subgroup.connectedComponentOfOne_eq_top": "TauCeti.Topology.Algebra.Group.Connected"
   },
   "st_group.real_dimension": {
-    "SatoTateGroup.realDimension": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.Basic"
+    "SatoTateGroup.realDimension": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.Basic",
+    "TauCeti.Lie.nonempty_embeddedLieSubgroupData_lieSubalgebraOfSubgroup_of_isClosed": "TauCeti.Geometry.Lie.Subgroup.Embedded"
   },
   "st_group.symplectic_form": {
     "LinearMap.BilinForm.IsAlt": "Mathlib.LinearAlgebra.BilinearForm.Properties",
@@ -1878,6 +1903,8 @@
     "Matrix.unitaryGroup": "Mathlib.LinearAlgebra.UnitaryGroup",
     "Matrix.symplecticGroup": "Mathlib.LinearAlgebra.SymplecticGroup",
     "SymplecticGroup.mem_iff'": "Mathlib.LinearAlgebra.SymplecticGroup",
-    "Matrix.J": "Mathlib.LinearAlgebra.SymplecticGroup"
+    "Matrix.J": "Mathlib.LinearAlgebra.SymplecticGroup",
+    "TauCeti.Matrix.isCompact_unitaryGroup": "TauCeti.Topology.Algebra.UnitaryGroup",
+    "TauCeti.Lie.isEmbeddedLieSubgroup_of_isClosed": "TauCeti.Geometry.Lie.Subgroup.Embedded"
   }
 }

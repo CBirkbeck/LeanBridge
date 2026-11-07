@@ -436,7 +436,7 @@ Given a global {bpref "nf"}[number field] $`K` and a prime $`p`, the *local alge
 Depends on: {uses "nf"}[] {uses "nf.separable_algebra"}[]
 :::
 
-:::definition "nf.max_p" (lean := "NumberField.ramifiedPrimes")
+:::definition "nf.max_p" (lean := "NumberField.ramifiedPrimes, NumberField.finite_ramifiedPrimes, NumberField.ramifiedPrimes_rat, NumberField.ramifiedPrimes_nonempty")
 *Maximum ramified prime.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.max_p))
 
 If $`K` is a {bpref "nf"}[number field], the *maximum ramified prime* is simply the largest prime {bpref "nf.ramified_primes"}[ramified] in $`K`.  By convention, we take this to be $`0` for $`\Q`, the unique unramified extension of $`\Q`.
@@ -608,7 +608,7 @@ The pari/gp function <code>polredabs()</code> computes reduced defining polynomi
 Depends on: {uses "nf"}[] {uses "nf.poly_discriminant"}[]
 :::
 
-:::definition "nf.poly_discriminant" (lean := "Polynomial.discr")
+:::definition "nf.poly_discriminant" (lean := "Polynomial.discr, Polynomial.Monic.discr_eq_prod_roots_sub_sq, TauCeti.NumberField.IntegralPrimitiveElement.discr_minpoly_eq_index_sq_mul_discr")
 *Discriminant of polynomial.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.poly_discriminant))
 
 The *discriminant* of a monic polynomial $`f(x) = \prod_{i=1}^d (x - \alpha_i)` is the quantity

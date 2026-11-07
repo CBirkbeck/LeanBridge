@@ -664,7 +664,7 @@ The multiset of zeros of $`Z(t)` matches that of $`L(1/2+it)` and $`Z(t)` change
 Depends on: {uses "lfunction.critical_line"}[] {uses "lfunction.functional_equation"}[]
 :::
 
-:::definition "specialfunction.gamma" (lean := "Complex.Gamma")
+:::definition "specialfunction.gamma" (lean := "Complex.Gamma, Complex.Gamma_eq_integral, Complex.Gamma_add_one, Complex.differentiableAt_Gamma, Complex.not_continuousAt_Gamma_neg_nat")
 *Euler gamma function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/specialfunction.gamma))
 
 The *(Euler) gamma function $`\Gamma(z)`* is defined by the integral
