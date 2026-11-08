@@ -71,10 +71,6 @@ lemma minimalLevel_eq (hN : 0 < N) (h : IsCongruenceOfLevel N Γ)
   le_antisymm (minimalLevel_le hN h) <| Nat.le_of_dvd (minimalLevel_pos ⟨N, hN, h⟩) <|
     hmin _ (isCongruenceOfLevel_minimalLevel ⟨N, hN, h⟩)
 
-lemma map_intCastRingHom_injective :
-    Function.Injective (map (l := l) (Int.castRingHom ℚ)) := fun _ _ h ↦
-  Subtype.ext <| Matrix.map_injective Int.cast_injective <| congrArg Subtype.val h
-
 variable (M) in
 /-- The unipotent element `(1, 0; M e, 1)` of `Sp(2g, ℤ)`, `e` the diagonal matrix unit at `i`. -/
 def lowerUnipotentSingle (i : l) : symplecticGroup l ℤ :=
@@ -95,7 +91,7 @@ lemma upperUnipotentSingle_mem_Gamma (i : l) : upperUnipotentSingle M i ∈ Gamm
 
 lemma mem_of_isCongruenceOfLevel {Δ : Subgroup (symplecticGroup l ℤ)} {A : symplecticGroup l ℤ}
     (h : IsCongruenceOfLevel M (Δ.map (map (Int.castRingHom ℚ)))) (hA : A ∈ Gamma l M) : A ∈ Δ :=
-  (Subgroup.mem_map_iff_mem map_intCastRingHom_injective).mp <| h <| Subgroup.mem_map_of_mem _ hA
+  (Subgroup.mem_map_iff_mem map_intCast_injective).mp <| h <| Subgroup.mem_map_of_mem _ hA
 
 /-- **The principal congruence subgroup `Γ(N)` has minimal level `N`** (LMFDB `mf.siegel.level`),
 in every degree `g ≥ 1`. -/

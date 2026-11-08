@@ -2,6 +2,7 @@ import Mathlib.NumberTheory.NumberField.CMField
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.CoefficientFieldAlmostAllPrimes
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisOrbit
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.LFunctionSign
+import LeanBridge.ForMathlib.NumberTheory.NumberField.MaximalCMSubfield
 import TauCeti.NumberTheory.ModularForms.Newforms.PeterssonAdjoint
 import TauCeti.NumberTheory.ModularForms.Newforms.SelfDual
 
@@ -27,7 +28,8 @@ of `ℂ` agreeing on almost all `a_p` agree on every coefficient
 preserves `K`, and every embedding `φ : K → ℂ`, which extends to an automorphism of `ℂ`, satisfies
 `conj ∘ φ = φ ∘ c` for the restriction `c` of complex conjugation to `K`. If `f` is self dual, then
 `c = 1` and every embedding is real; otherwise `c ≠ 1`, every embedding is complex, and `K` is a
-quadratic extension of the fixed field of `c`, which is totally real: `K` is a CM field.
+quadratic extension of the fixed field of `c`, which is totally real: `K` is a CM field
+(`NumberField.IsCMField.of_forall_isConj_of_ne_one`).
 
 ## Main definitions
 
@@ -48,8 +50,6 @@ quadratic extension of the fixed field of `c`, which is totally real: `K` is a C
   is self dual exactly when its L-function is self dual.
 * `HeckeRing.GL2.Newform.apply_conj_of_mem_coefficientField`: complex conjugation commutes on the
   coefficient field with every automorphism of `ℂ`.
-* `NumberField.IsCMField.of_forall_isConj_of_ne_one`: a number field with a nontrivial automorphism
-  that is complex conjugation under every embedding is a CM field.
 * `HeckeRing.GL2.Newform.isTotallyReal_coefficientField_iff` (LMFDB `cmf.selfdual`): the
   coefficient field of a newform is totally real exactly when the newform is self dual.
 * `HeckeRing.GL2.Newform.isCMField_coefficientField_iff` (LMFDB `cmf.selfdual`, `cmf.dualform`):
@@ -113,38 +113,6 @@ lemma isSelfDual_iff_forall_conj_div_cpow : f.IsSelfDual ↔ ∀ n : ℕ,
   forall_congr' fun n ↦ (f.conj_div_cpow_eq_iff n).symm
 
 end CuspForm
-
-namespace NumberField.IsCMField
-
-variable {K : Type*} [Field K] [NumberField K] {σ : K ≃ₐ[ℚ] K}
-
-/-- **A number field with a nontrivial automorphism that is complex conjugation under every complex
-embedding is a CM field**: it is totally complex, and a quadratic extension of the fixed field of
-the automorphism, which is totally real. Mathlib's `NumberField.IsCMField.of_forall_isConj` assumes
-in addition that the field is Galois over `ℚ`. -/
-lemma of_forall_isConj_of_ne_one (hσ : ∀ φ : K →+* ℂ, IsConj φ σ) (hσ₁ : σ ≠ 1) :
-    IsCMField K := by
-  have : IsTotallyComplex K := ⟨fun w ↦ by
-    rw [← w.mk_embedding, InfinitePlace.isComplex_mk_iff]
-    exact (isConj_ne_one_iff (hσ _)).mp hσ₁⟩
-  have hcard : Nat.card (Subgroup.zpowers σ) = 2 := by
-    rw [Nat.card_zpowers]
-    exact orderOf_isConj_two_of_ne_one (hσ (Classical.arbitrary _)) hσ₁
-  have : Finite (Subgroup.zpowers σ) := Nat.finite_of_card_ne_zero (by omega)
-  let _ : Fintype (Subgroup.zpowers σ) := Fintype.ofFinite _
-  let F : Subfield K := FixedPoints.subfield (Subgroup.zpowers σ) K
-  have : IsTotallyReal F := ⟨fun w ↦ by
-    rcases w.comap_surjective (K := K) with ⟨W, rfl⟩
-    dsimp only
-    rw [← W.mk_embedding, InfinitePlace.comap_mk, InfinitePlace.isReal_mk_iff]
-    refine RingHom.ext fun x ↦ ?_
-    rw [conjugate_coe_eq, RingHom.comp_apply, starRingEnd_apply, ← (hσ W.embedding).eq]
-    exact congrArg W.embedding (x.2 ⟨σ, Subgroup.mem_zpowers σ⟩)⟩
-  have : Algebra.IsQuadraticExtension F K := ⟨by
-    rw [FixedPoints.finrank_eq_card, Fintype.card_eq_nat_card, hcard]⟩
-  exact IsCMField.ofCMExtension F K
-
-end NumberField.IsCMField
 
 namespace HeckeRing.GL2.Newform
 

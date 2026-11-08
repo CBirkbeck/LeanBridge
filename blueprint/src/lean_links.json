@@ -2211,8 +2211,8 @@
   "modlgal.frobenius_charpoly": {
     "MonoidHom.frobeniusCharpolyIn": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding",
     "MonoidHom.frobeniusCharpolyIn_eq": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding",
-    "MonoidHom.frobeniusConjClass": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.AlgebraicGroup",
-    "MonoidHom.kerSplittingField": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.AlgebraicGroup",
+    "MonoidHom.frobeniusConjClass": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Frobenius",
+    "MonoidHom.kerSplittingField": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Frobenius",
     "MonoidHom.frobeniusCharpolyIn_eq_frobeniusCharpoly": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding",
     "AlgebraicGeometry.rationalPointsToGL": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.GeneralLinearPoints"
   },
@@ -2220,15 +2220,15 @@
     "MonoidHom.frobeniusDetIn": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding",
     "MonoidHom.frobeniusDetIn_eq": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding",
     "MonoidHom.frobeniusDetIn_eq_detCharacter": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding",
-    "MonoidHom.frobeniusConjClass": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.AlgebraicGroup",
+    "MonoidHom.frobeniusConjClass": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Frobenius",
     "MonoidHom.frobeniusDetIn_eq_frobeniusDet": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding",
     "AlgebraicGeometry.rationalPointsToGL": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.GeneralLinearPoints"
   },
   "modlgal.frobenius_order": {
-    "MonoidHom.frobeniusElementOrder": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.AlgebraicGroup",
-    "MonoidHom.frobeniusElementOrder_eq": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.AlgebraicGroup",
-    "MonoidHom.frobeniusConjClass": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.AlgebraicGroup",
-    "MonoidHom.kerSplittingField": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.AlgebraicGroup",
+    "MonoidHom.frobeniusElementOrder": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Frobenius",
+    "MonoidHom.frobeniusElementOrder_eq": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Frobenius",
+    "MonoidHom.frobeniusConjClass": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Frobenius",
+    "MonoidHom.kerSplittingField": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Frobenius",
     "MonoidHom.IsModEllGaloisRepIn.frobeniusElementOrder_pos": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.AlgebraicGroup",
     "MonoidHom.IsModEllGaloisRepIn.finite_points": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.AlgebraicGroup"
   },
@@ -2240,8 +2240,8 @@
   "modlgal.frobenius_trace": {
     "MonoidHom.frobeniusTraceIn": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding",
     "MonoidHom.frobeniusTraceIn_eq": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding",
-    "MonoidHom.frobeniusConjClass": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.AlgebraicGroup",
-    "MonoidHom.kerSplittingField": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.AlgebraicGroup",
+    "MonoidHom.frobeniusConjClass": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Frobenius",
+    "MonoidHom.kerSplittingField": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Frobenius",
     "MonoidHom.frobeniusTraceIn_eq_frobeniusTrace": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding",
     "AlgebraicGeometry.rationalPointsToGL": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.GeneralLinearPoints"
   },

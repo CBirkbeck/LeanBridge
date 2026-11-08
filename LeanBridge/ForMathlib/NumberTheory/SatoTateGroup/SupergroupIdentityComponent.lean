@@ -36,23 +36,27 @@ lemma coe_map_subtype_connectedComponentOfOne :
     ((connectedComponentOfOne L).map L.subtype : Set X) = connectedComponentIn L 1 :=
   (connectedComponentIn_eq_image L.one_mem).symm
 
+lemma map_connectedComponentOfOne_eq_of_le_subgroupOf (hKL : K ≤ L)
+    (h : connectedComponentOfOne L ≤ K.subgroupOf L) :
+    (connectedComponentOfOne L).map L.subtype = (connectedComponentOfOne K).map K.subtype := by
+  have hle : connectedComponentIn (L : Set X) 1 ⊆ K := by
+    rw [← coe_map_subtype_connectedComponentOfOne]
+    rintro _ ⟨x, hx, rfl⟩
+    exact h hx
+  refine SetLike.coe_injective ?_
+  rw [coe_map_subtype_connectedComponentOfOne, coe_map_subtype_connectedComponentOfOne]
+  exact subset_antisymm (isPreconnected_connectedComponentIn.subset_connectedComponentIn
+    (mem_connectedComponentIn L.one_mem) hle) (connectedComponentIn_mono 1 hKL)
+
 /-- **A closed subgroup `K` of finite index in a subgroup `L` of a topological group has the same
 identity component as `L`**: `K` is open in `L`, so it contains the identity component of `L`, a
 connected subset through `1`. -/
 lemma map_connectedComponentOfOne_eq_of_le (hKL : K ≤ L) (hK : IsClosed (K : Set X))
     (hKL' : K.relIndex L ≠ 0) :
-    (connectedComponentOfOne L).map L.subtype = (connectedComponentOfOne K).map K.subtype := by
+    (connectedComponentOfOne L).map L.subtype = (connectedComponentOfOne K).map K.subtype :=
   have : (K.subgroupOf L).FiniteIndex := ⟨hKL'⟩
-  have hK' : IsOpen ((K.subgroupOf L : Subgroup L) : Set L) :=
+  map_connectedComponentOfOne_eq_of_le_subgroupOf hKL <| connectedComponentOfOne_le_of_isOpen <|
     (K.subgroupOf L).isOpen_of_isClosed_of_finiteIndex (hK.preimage continuous_subtype_val)
-  have hle : connectedComponentIn (L : Set X) 1 ⊆ K := by
-    rw [← coe_map_subtype_connectedComponentOfOne]
-    rintro _ ⟨x, hx, rfl⟩
-    exact connectedComponentOfOne_le_of_isOpen hK' hx
-  refine SetLike.coe_injective ?_
-  rw [coe_map_subtype_connectedComponentOfOne, coe_map_subtype_connectedComponentOfOne]
-  exact subset_antisymm (isPreconnected_connectedComponentIn.subset_connectedComponentIn
-    (mem_connectedComponentIn L.one_mem) hle) (connectedComponentIn_mono 1 hKL)
 
 end Subgroup
 

@@ -34,7 +34,7 @@ LeanBridge, so these statements have no concrete instance with a nontrivial `ψ`
   the classical self twist.
 -/
 
-open IsDedekindDomain HeightOneSpectrum NumberField Rat UpperHalfPlane TauCeti GlobalNumberFields
+open IsDedekindDomain NumberField Rat HeightOneSpectrum UpperHalfPlane TauCeti GlobalNumberFields
   HeckeRing GL2
 
 open scoped AdeleRing Classical

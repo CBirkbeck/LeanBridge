@@ -47,6 +47,11 @@ lemma coe_map_apply (B : symplecticGroup l R) :
     (map f B : Matrix (l ⊕ l) (l ⊕ l) S) = (B : Matrix (l ⊕ l) (l ⊕ l) R).map f :=
   rfl
 
+variable [CharZero S] in
+lemma map_intCast_injective :
+    Function.Injective (map (Int.castRingHom S) : symplecticGroup l ℤ →* symplecticGroup l S) :=
+  fun _ _ h ↦ Subtype.ext <| Matrix.map_injective Int.cast_injective <| congrArg Subtype.val h
+
 /-- The **translation** `(1, s; 0, 1)` of `Sp(2g, R)` by a symmetric matrix `s`. -/
 def symTranslation (s : Matrix l l R) (hs : sᵀ = s) : symplecticGroup l R :=
   ⟨fromBlocks 1 s 0 1, fromBlocks_upper_mem hs⟩

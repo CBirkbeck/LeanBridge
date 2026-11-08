@@ -2,6 +2,7 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.GL2.ClassicalLiftCent
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.GL2.ClassicalLiftCuspidal
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.GL2.Hecke
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Delta
+import LeanBridge.ForMathlib.NumberTheory.Padics.HeightOneSpectrum
 import TauCeti.NumberTheory.ModularForms.HeckeSlash.Operators
 import TauCeti.NumberTheory.ModularForms.Newforms.Coefficient
 import TauCeti.NumberTheory.ModularForms.Newforms.RingEigenvalue
@@ -51,7 +52,7 @@ Hecke eigenform on `GL₂(𝔸_ℚ)`, its cuspidality coming from `AdelicGL2.isC
 
 open Matrix hiding mul_inv_rev one_zpow zpow_mul zpow_neg zpow_neg_one
 
-open IsDedekindDomain HeightOneSpectrum NumberField Polynomial Rat UpperHalfPlane TauCeti
+open IsDedekindDomain NumberField Polynomial Rat HeightOneSpectrum UpperHalfPlane TauCeti
   GlobalNumberFields ValuationSubring WithZero HeckeRing GL2
 
 open FiniteAdeleRing (integralAdeles mem_integralAdeles)
@@ -83,10 +84,6 @@ end Valuation
 section Place
 
 variable (v : HeightOneSpectrum (𝓞 ℚ))
-
-lemma prime_absNorm_asIdeal : (Ideal.absNorm v.asIdeal).Prime := by
-  rw [HeightOneSpectrum.absNorm_asIdeal]
-  exact HeightOneSpectrum.prime_natGenerator v
 
 lemma algebraMap_finiteAdeleRing_apply (q : ℚ) :
     (algebraMap ℚ 𝔸ᶠ[ℚ] q) v = (q : v.adicCompletion ℚ) :=

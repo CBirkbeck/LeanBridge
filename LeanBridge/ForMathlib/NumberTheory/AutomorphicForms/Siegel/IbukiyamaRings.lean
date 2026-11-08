@@ -74,10 +74,6 @@ noncomputable def siegelParabolicDet : siegelParabolic l R →* Rˣ where
       eq_fromBlocks_of_mem_siegelParabolic γ'.2, fromBlocks_multiply]
     simp
 
-lemma map_intCast_injective {S : Type*} [CommRing S] [CharZero S] :
-    Function.Injective (map (Int.castRingHom S) : symplecticGroup l ℤ →* symplecticGroup l S) :=
-  fun _ _ h ↦ Subtype.ext <| Matrix.map_injective Int.cast_injective <| congrArg Subtype.val h
-
 variable (l) in
 /-- The character `ψ₄(γ) = (-4 / det D)` of `Γ₀(4)` (LMFDB `mf.siegel.family.gamma0_4_psi_4`): the
 nontrivial Dirichlet character `χ₋₄` modulo `4` applied to `det D`, for

@@ -184,6 +184,7 @@ import LeanBridge.ForMathlib.NumberTheory.LocalField.WildArtinSlopes
 import LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.AlgebraicGroup
 import LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Determinant
 import LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding
+import LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Frobenius
 import LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.GeneralLinearPoints
 import LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Ramification
 import LeanBridge.ForMathlib.NumberTheory.ModularCurve.CongruenceSubgroupOfOpen

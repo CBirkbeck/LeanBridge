@@ -1,6 +1,7 @@
 import Mathlib.AlgebraicGeometry.EllipticCurve.LFunction
 import Mathlib.RingTheory.Ideal.Quotient.HasFiniteQuotients.Norm
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Reduction
+import LeanBridge.ForMathlib.NumberTheory.Padics.HeightOneSpectrum
 import TauCeti.AlgebraicGeometry.EllipticCurve.LocalPolynomial
 import TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.OrdinaryReduction
 import TauCeti.AlgebraicGeometry.EllipticCurve.TateAlgorithm.Reduction.Curve
@@ -148,13 +149,6 @@ lemma card_residueField_adicCompletionIntegers :
   (Nat.card_congr (v.residueFieldEquivAdicCompletionIntegers (K := K)).toEquiv).symm
 
 end IsDedekindDomain.HeightOneSpectrum
-
-namespace Rat.HeightOneSpectrum
-
-lemma prime_absNorm_asIdeal (v : HeightOneSpectrum (𝓞 ℚ)) : (Ideal.absNorm v.asIdeal).Prime :=
-  absNorm_asIdeal v ▸ prime_natGenerator v
-
-end Rat.HeightOneSpectrum
 
 namespace WeierstrassCurve
 

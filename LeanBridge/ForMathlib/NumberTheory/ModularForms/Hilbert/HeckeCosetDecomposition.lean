@@ -42,11 +42,8 @@ open scoped nonZeroDivisors
 
 namespace HilbertModularGroup
 
-variable {F : Type*} [Field F] {M : Submodule (𝓞 F) F} {A : Matrix (Fin 2) (Fin 2) F} {x y : F}
+variable {F : Type*} [Field F] {M : Submodule (𝓞 F) F} {A : Matrix (Fin 2) (Fin 2) F}
   {v : Fin 2 → F} {𝔑 : Ideal (𝓞 F)} {𝔟 : FractionalIdeal (𝓞 F)⁰ F} {g : GL (Fin 2) F}
-
-lemma mul_mem_of_mem_one (hx : x ∈ (1 : Submodule (𝓞 F) F)) (hy : y ∈ M) : x * y ∈ M := by
-  simpa using Submodule.mul_mem_mul hx hy
 
 lemma mulVec_mem_pi (h₀₀ : A 0 0 ∈ (1 : Submodule (𝓞 F) F))
     (h₀₁ : ∀ y ∈ M, A 0 1 * y ∈ (1 : Submodule (𝓞 F) F)) (h₁₀ : A 1 0 ∈ M)
@@ -57,8 +54,8 @@ lemma mulVec_mem_pi (h₀₀ : A 0 0 ∈ (1 : Submodule (𝓞 F) F))
   rintro i -
   fin_cases i
   · simpa [mulVec] using add_mem (mul_mem_one h₀₀ h₀) (h₀₁ _ h₁)
-  · simpa [mulVec] using
-      add_mem (mul_comm (v 0) _ ▸ mul_mem_of_mem_one h₀ h₁₀) (mul_mem_of_mem_one h₁₁ h₁)
+  · simpa [mulVec] using add_mem (mul_mem_of_mem_of_mem_one h₁₀ h₀)
+      (mul_comm (v 1) _ ▸ mul_mem_of_mem_of_mem_one h₁ h₁₁)
 
 lemma val_inv_eq : (g⁻¹).val = g.det.val⁻¹ • !![g.val 1 1, -g.val 0 1; -g.val 1 0, g.val 0 0] := by
   rw [coe_units_inv, inv_def, adjugate_fin_two, Ring.inverse_eq_inv',
@@ -75,7 +72,7 @@ lemma mem_pi_iff_mulVec_mem (h₀₀ : g.val 0 0 ∈ (1 : Submodule (𝓞 F) F))
   refine mulVec_mem_pi ?_ (fun y hy ↦ ?_) ?_ ?_ h
   · simpa using mul_mem_one hdet h₁₁
   · simpa [mul_assoc] using neg_mem (mul_mem_one hdet (h₀₁ y hy))
-  · simpa using neg_mem (mul_mem_of_mem_one hdet h₁₀)
+  · simpa [mul_comm] using mul_mem_of_mem_of_mem_one h₁₀ hdet
   · simpa using mul_mem_one hdet h₀₀
 
 lemma mem_gammaZero_of_apply_mem (h₀₀ : g.val 0 0 ∈ (1 : Submodule (𝓞 F) F))
@@ -266,12 +263,12 @@ lemma exists_mk_heckeCosetRep_eq
       rcases Submodule.mem_sup.mp ((Ideal.eq_top_iff_one _).mp h𝔭𝔑) with ⟨p, hp, n, hn, hpn⟩
       have hpn' : algebraMap (𝓞 F) F p + algebraMap (𝓞 F) F n = 1 := by
         rw [← map_add, hpn, map_one]
-      have h : (π : F)⁻¹ * α.val 1 0 = (π : F)⁻¹ * algebraMap (𝓞 F) F p * α.val 1 0 +
+      have h : (π : F)⁻¹ * α.val 1 0 = α.val 1 0 * ((π : F)⁻¹ * algebraMap (𝓞 F) F p) +
           n • ((π : F)⁻¹ * α.val 1 0) := by
         rw [Algebra.smul_def]
         linear_combination (-((π : F)⁻¹ * α.val 1 0)) * hpn'
       rw [h]
-      exact add_mem (mul_mem_of_mem_one ((inv_mul_algebraMap_mem_one_iff hπ𝔭 p).mpr hp) hc)
+      exact add_mem (mul_mem_of_mem_of_mem_one hc ((inv_mul_algebraMap_mem_one_iff hπ𝔭 p).mpr hp))
         (Submodule.smul_mem_smul hn hc')
     · rcases exists_inv_mul_one_sub_mul_mem hπ𝔭 h𝔭 ha ha' with ⟨a', ha'1, hP⟩
       refine hupper (a' * α.val 0 1) (mem_translationLattice_of_forall fun y hy ↦

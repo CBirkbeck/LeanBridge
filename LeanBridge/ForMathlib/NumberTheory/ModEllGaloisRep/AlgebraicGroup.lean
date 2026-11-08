@@ -1,7 +1,7 @@
 import Mathlib.AlgebraicGeometry.Morphisms.FiniteType
 import Mathlib.AlgebraicGeometry.Morphisms.QuasiCompact
 import TauCeti.Algebra.AlgebraicGroup.GeneralLinear.Scheme
-import TauCeti.AlgebraicGeometry.RationalPoint.Affine
+import LeanBridge.ForMathlib.AlgebraicGeometry.Scheme.FiniteFieldPoints
 import LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Frobenius
 
 /-!
@@ -17,19 +17,20 @@ which form a group (Mathlib's `CategoryTheory.Hom.group`). This is the most gene
 definitions: it contains the affine (linear) algebraic groups, as Tau Ceti's group schemes of
 finite-type Hopf algebras, and the smooth ones, so it restricts no LMFDB codomain.
 
-The codomain `G(𝔽_ℓ)` is a finite group (LMFDB `modlgal.codomain`): a scheme of finite type over a
-finite field `k` has finitely many `k`-points
-(`AlgebraicGeometry.finite_points_of_finiteType`), since every `k`-point factors through one of
-finitely many affine opens `Spec A`, `A` a finitely generated `k`-algebra, where it is a
-`k`-algebra map `A → k` (Tau Ceti's `AlgebraicGeometry.Scheme.Hom.pointsEquivAlgHom`); the file
-adds the instance `Finite (A →ₐ[R] B)` for `A` of finite type over `R` and `B` finite. Continuity
-for the discrete topology on `G(𝔽_ℓ)` means that the kernel of `ρ` is open.
+The codomain `G(𝔽_ℓ)` is a finite group (LMFDB `modlgal.codomain`): a scheme `X` of finite type
+over a finite field `k` has finitely many `k`-points
+(`AlgebraicGeometry.finite_points_of_finiteType`), the case `L = k` of LeanBridge's
+`AlgebraicGeometry.Scheme.finite_pointOver`, by which `X` has finitely many points over every finite
+extension `L` of `k`. Continuity for the discrete topology on `G(𝔽_ℓ)` means that the kernel of `ρ`
+is open.
 
 The Frobenius class and the Frobenius order (LMFDB `modlgal.frobenius_order`) make sense for a
-homomorphism with open kernel into any group, and are defined here in that generality, as in
-`LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Frobenius` for `GL_n(𝔽_ℓ)`. The general linear
-group `GL_n` over `𝔽_ℓ` is Tau Ceti's group scheme `TauCeti.GeneralLinear.groupScheme`, an
-algebraic group in this sense (`MonoidHom.isModEllGaloisRepIn_one`), whose `𝔽_ℓ`-points form the
+homomorphism with open kernel into any group, and are defined in that generality in
+`LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Frobenius` (`MonoidHom.frobeniusConjClass` and
+`MonoidHom.frobeniusElementOrder`). The trivial representation into the `𝔽_ℓ`-points of any
+algebraic group is a mod-`ℓ` Galois representation (`MonoidHom.isModEllGaloisRepIn_one`). The
+general linear group `GL_n` over `𝔽_ℓ` is Tau Ceti's group scheme
+`TauCeti.GeneralLinear.groupScheme`, an algebraic group in this sense, whose `𝔽_ℓ`-points form the
 group `GL_n(𝔽_ℓ)` (`AlgebraicGeometry.rationalPointsGLMulEquiv`, through Tau Ceti's
 `TauCeti.GeneralLinear.schemePointsMulEquiv` for the object `Spec 𝔽_ℓ` of `Over (Spec 𝔽_ℓ)`,
 isomorphic to the terminal one).
@@ -40,12 +41,6 @@ isomorphic to the terminal one).
   of a group scheme over `k`.
 * `MonoidHom.IsModEllGaloisRepIn` (LMFDB `modlgal`): mod-`ℓ` Galois representations into the
   `𝔽_ℓ`-points of an algebraic group over `𝔽_ℓ`.
-* `MonoidHom.kerSplittingField`: the fixed field of the open kernel of a representation, a finite
-  Galois extension of `K`.
-* `MonoidHom.kerGaloisFactor`: the homomorphism from its Galois group through which `ρ` factors.
-* `MonoidHom.frobeniusConjClass`: the conjugacy class of the images of the Frobenius elements at an
-  unramified prime.
-* `MonoidHom.frobeniusElementOrder` (LMFDB `modlgal.frobenius_order`): the Frobenius order.
 
 ## Main results
 
@@ -53,25 +48,17 @@ isomorphic to the terminal one).
   has finitely many `k`-points.
 * `MonoidHom.IsModEllGaloisRepIn.finite_points` (LMFDB `modlgal.codomain`): the codomain `G(𝔽_ℓ)`
   of a mod-`ℓ` Galois representation is a finite group.
-* `MonoidHom.frobeniusElementOrder_eq` (LMFDB `modlgal.frobenius_order`): the Frobenius order is the
-  order of any element of the Frobenius class.
 * `MonoidHom.IsModEllGaloisRepIn.frobeniusElementOrder_pos` (LMFDB `modlgal.frobenius_order`): the
   Frobenius order is positive, as an order in the finite group `G(𝔽_ℓ)`.
 * `MonoidHom.isModEllGaloisRepIn_one` (LMFDB `modlgal`): the trivial representation into the
-  `𝔽_ℓ`-points of the algebraic group `GL_n` is a mod-`ℓ` Galois representation.
+  `𝔽_ℓ`-points of an algebraic group, such as `GL_n`, is a mod-`ℓ` Galois representation.
 -/
 
-open CategoryTheory AlgebraicGeometry MonoidalCategory IntermediateField NumberField
+open CategoryTheory AlgebraicGeometry MonoidalCategory NumberField
 
 open scoped MonObj
 
 universe u
-
-instance {R A B : Type*} [CommSemiring R] [Semiring A] [Algebra R A] [Algebra.FiniteType R A]
-    [Semiring B] [Algebra R B] [Finite B] : Finite (A →ₐ[R] B) := by
-  rcases ‹Algebra.FiniteType R A›.out with ⟨s, hs⟩
-  exact Finite.of_injective (fun φ : A →ₐ[R] B ↦ fun x : s ↦ φ x) fun φ ψ h ↦
-    AlgHom.ext_of_adjoin_eq_top hs fun x hx ↦ congrFun h ⟨x, hx⟩
 
 namespace AlgebraicGeometry
 
@@ -87,87 +74,20 @@ noncomputable instance {R : Type u} [CommRing R] (G : Grp (Over (Spec (.of R))))
 
 variable {k : Type u} [Field k] [Finite k]
 
-lemma finite_points_of_isAffine {Y : Scheme.{u}} [IsAffine Y] (g : Y ⟶ Spec (.of k))
-    [LocallyOfFiniteType g] : Finite (𝟙_ (Over (Spec (.of k))) ⟶ Over.mk g) := by
-  let _ : Algebra k Γ(Y, ⊤) := ((Scheme.ΓSpecIso (.of k)).inv ≫ g.appTop).hom.toAlgebra
-  have hg : g.appTop.hom.FiniteType :=
-    (HasRingHomProperty.iff_of_isAffine (P := @LocallyOfFiniteType)).mp inferInstance
-  have : Algebra.FiniteType k Γ(Y, ⊤) := hg.comp <| .of_surjective _
-    (Scheme.ΓSpecIso (.of k)).commRingCatIsoToRingEquiv.symm.surjective
-  exact Finite.of_equiv _ (g.pointsEquivAlgHom rfl).symm
-
-/-- **A scheme of finite type over a finite field `k` has finitely many `k`-points**: every point
-factors through one of finitely many affine opens `Spec A`, where it is a `k`-algebra map `A → k`
-for a finitely generated `k`-algebra `A`. -/
+/-- **A scheme of finite type over a finite field `k` has finitely many `k`-points**: the case
+`L = k` of `AlgebraicGeometry.Scheme.finite_pointOver`, a `k`-point being a morphism `Spec k ⟶ X`
+over `Spec k`. -/
 lemma finite_points_of_finiteType (X : Over (Spec (.of k))) [QuasiCompact X.hom]
-    [LocallyOfFiniteType X.hom] : Finite (𝟙_ (Over (Spec (.of k))) ⟶ X) := by
-  have : CompactSpace X.left := QuasiCompact.compactSpace_of_compactSpace X.hom
-  let 𝒰 : X.left.OpenCover := X.left.affineCover.finiteSubcover
-  have hfin (i : 𝒰.I₀) : Finite (𝟙_ (Over (Spec (.of k))) ⟶ Over.mk (𝒰.f i ≫ X.hom)) :=
-    have : IsAffine (𝒰.X i) := Scheme.isAffine_affineCover _ _
-    finite_points_of_isAffine _
-  refine Finite.of_surjective (fun p : Σ i, (𝟙_ (Over (Spec (.of k))) ⟶ Over.mk (𝒰.f i ≫ X.hom)) ↦
-    p.2 ≫ Over.homMk (𝒰.f p.1)) fun s ↦ ?_
-  have : Unique (𝟙_ (Over (Spec (.of k)))).left := inferInstanceAs (Unique (PrimeSpectrum k))
-  let i : 𝒰.I₀ := 𝒰.idx (s.left default)
-  have H : Set.range s.left ⊆ Set.range (𝒰.f i) := by
-    rintro _ ⟨z, rfl⟩
-    rw [Subsingleton.elim z default]
-    exact 𝒰.covers _
-  refine ⟨⟨i, Over.homMk (IsOpenImmersion.lift (𝒰.f i) s.left H) ?_⟩, ?_⟩
-  · simp
-  · ext1
-    simp
+    [LocallyOfFiniteType X.hom] : Finite (𝟙_ (Over (Spec (.of k))) ⟶ X) :=
+  have : QuasiCompact (X.left ↘ Spec (.of k)) := ‹QuasiCompact X.hom›
+  have : LocallyOfFiniteType (X.left ↘ Spec (.of k)) := ‹LocallyOfFiniteType X.hom›
+  have : Finite (X.left.PointOver k k) := X.left.finite_pointOver k
+  Finite.of_injective (β := X.left.PointOver k k) (fun s ↦ ⟨s.left, by simp⟩) fun _ _ h ↦
+    Over.OverMorphism.ext (congrArg Subtype.val h)
 
 end AlgebraicGeometry
 
 namespace MonoidHom
-
-section Frobenius
-
-variable {K : Type*} [Field K] [NumberField K] {H : Type*} [Group H]
-  {ρ : Gal(AlgebraicClosure K/K) →* H} (hρ : IsOpen (ρ.ker : Set Gal(AlgebraicClosure K/K)))
-
-variable (ρ) in
-/-- The **splitting field** of a homomorphism `ρ : Gal(K̄/K) → H` with open kernel (LMFDB
-`modlgal.splitting_field`): the fixed field of its kernel, a finite Galois extension of `K`. -/
-noncomputable def kerSplittingField : FiniteGaloisIntermediateField K (AlgebraicClosure K) where
-  toIntermediateField := fixedField ρ.ker
-  finiteDimensional := ρ.finiteDimensional_fixedField_ker hρ
-  isGalois := ρ.isGalois_fixedField_ker hρ
-
-/-- The homomorphism `Gal(L/K) → H` through which a homomorphism `ρ : Gal(K̄/K) → H` with open
-kernel factors, `L` being its splitting field. -/
-noncomputable def kerGaloisFactor : Gal(kerSplittingField ρ hρ/K) →* H :=
-  (QuotientGroup.kerLift ρ).comp
-    (InfiniteGalois.normalAutEquivQuotient ⟨ρ.ker, ρ.ker.isClosed_of_isOpen hρ⟩).symm.toMonoidHom
-
-variable (𝔭 : Ideal (𝓞 K)) [𝔭.IsMaximal] (hur : ∀ (Q : Ideal (𝓞 (kerSplittingField ρ hρ)))
-  [Q.IsPrime] [Q.LiesOver 𝔭], Algebra.IsUnramifiedAt (𝓞 K) Q)
-
-/-- The **Frobenius class** of a homomorphism `ρ : Gal(K̄/K) → H` with open kernel at a prime `𝔭`
-of `K` unramified in its splitting field `L`: the image under `ρ` of the conjugacy class of the
-Frobenius elements of `Gal(L/K)` at the primes above `𝔭`, Tau Ceti's `NumberField.artinSymbol`. -/
-noncomputable def frobeniusConjClass : ConjClasses H :=
-  (artinSymbol 𝔭 hur).map (kerGaloisFactor hρ)
-
-/-- The **Frobenius order** (LMFDB `modlgal.frobenius_order`) of a homomorphism `ρ : Gal(K̄/K) → H`
-with open kernel at a prime `𝔭` of `K` at which `ρ` is unramified: the order of `ρ(Frob_𝔭)` in `H`,
-which does not depend on the choice of `Frob_𝔭` in its conjugacy class
-(`MonoidHom.frobeniusElementOrder_eq`). -/
-noncomputable def frobeniusElementOrder : ℕ :=
-  Quotient.lift (s := IsConj.setoid _) (fun A : H ↦ orderOf A)
-    (fun _ _ h ↦ by
-      rcases isConj_iff.mp h with ⟨c, rfl⟩
-      exact ((MulAut.conj c).orderOf_eq _).symm) (frobeniusConjClass hρ 𝔭 hur)
-
-/-- **The Frobenius order is the order of any element of the Frobenius class.** -/
-lemma frobeniusElementOrder_eq {A : H} (hA : ConjClasses.mk A = frobeniusConjClass hρ 𝔭 hur) :
-    frobeniusElementOrder hρ 𝔭 hur = orderOf A := by
-  rw [frobeniusElementOrder, ← hA]
-  rfl
-
-end Frobenius
 
 variable {K : Type*} [Field K] {ℓ : ℕ} {G : Grp (Over (Spec (.of (ZMod ℓ))))}
 
@@ -213,16 +133,17 @@ lemma frobeniusElementOrder_pos (hρ : ρ.IsModEllGaloisRepIn) (𝔭 : Ideal (�
 
 end IsModEllGaloisRepIn
 
-open TauCeti in
-/-- **The trivial representation into the `𝔽_ℓ`-points of `GL_n` is a mod-`ℓ` Galois
-representation**: the general linear group scheme over `𝔽_ℓ` (Tau Ceti's
-`TauCeti.GeneralLinear.groupScheme`), affine and of finite type, is an algebraic group, so that the
-hypotheses of `MonoidHom.IsModEllGaloisRepIn` are satisfied by a concrete representation. -/
-lemma isModEllGaloisRepIn_one (hℓ : ℓ.Prime) (n : ℕ) : (1 : Gal(AlgebraicClosure K/K) →*
-    rationalPoints (GeneralLinear.groupScheme (ZMod ℓ) n)).IsModEllGaloisRepIn where
+/-- **The trivial representation into the `𝔽_ℓ`-points of an algebraic group is a mod-`ℓ` Galois
+representation**, for `ℓ` prime and `G` of finite type over `𝔽_ℓ`, such as Tau Ceti's general
+linear group scheme `GL_n` (`TauCeti.GeneralLinear.groupScheme`), affine and of finite type, its
+special linear group scheme `SL_n` and the diagonal torus of `GL_n`: the hypotheses of
+`MonoidHom.IsModEllGaloisRepIn` are satisfied by a concrete representation for every algebraic
+group. -/
+lemma isModEllGaloisRepIn_one (hℓ : ℓ.Prime) [LocallyOfFiniteType G.X.hom] [QuasiCompact G.X.hom] :
+    (1 : Gal(AlgebraicClosure K/K) →* rationalPoints G).IsModEllGaloisRepIn where
   prime := hℓ
-  locallyOfFiniteType := inferInstance
-  quasiCompact := inferInstance
+  locallyOfFiniteType := ‹_›
+  quasiCompact := ‹_›
   isOpen_ker := by
     rw [ker_one, Subgroup.coe_top]
     exact isOpen_univ

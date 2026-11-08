@@ -24,7 +24,7 @@ when its Euler factor at almost every `𝔮` is `1 - s_r T + (χ(p) p ^ (k - 1))
   almost all primes.
 -/
 
-open Filter IsDedekindDomain HeightOneSpectrum NumberField Polynomial TauCeti GlobalNumberFields
+open Filter IsDedekindDomain NumberField Polynomial Rat HeightOneSpectrum TauCeti GlobalNumberFields
   HeckeRing GL2
 
 open scoped AdeleRing Classical

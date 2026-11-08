@@ -41,7 +41,8 @@ The examples are `GL_n` itself, with the identity, for which these are the notio
 `GL_n(𝔽_ℓ)`; Tau Ceti's special linear group scheme `SL_n`, a proper closed subgroup whose
 determinant characters are trivial, so that its determinant index is `ℓ - 1`; and Tau Ceti's
 diagonal split torus of `GL_n`, a proper closed subgroup that contains the scalars. The trivial
-representation into the `𝔽_ℓ`-points of any algebraic group is a mod-`ℓ` Galois representation.
+representation into the `𝔽_ℓ`-points of any algebraic group is a mod-`ℓ` Galois representation
+(`MonoidHom.isModEllGaloisRepIn_one`).
 
 ## Main definitions
 
@@ -98,8 +99,6 @@ representation into the `𝔽_ℓ`-points of any algebraic group is a mod-`ℓ` 
 * `MonoidHom.quotientScalarPointsMulEquiv_comp_projectiveRepresentationIn_two`
   (LMFDB `modlgal.projective_representation`): for `ℓ = 2` the projective representation is the
   representation itself.
-* `MonoidHom.isModEllGaloisRepIn_one_of_locallyOfFiniteType`: the trivial representation into the
-  `𝔽_ℓ`-points of an algebraic group is a mod-`ℓ` Galois representation.
 * `MonoidHom.detCharacter_mapGL_specialLinear` and `MonoidHom.detIndex_mapGL_specialLinear`: the
   determinant character of a representation into `SL_n(𝔽_ℓ)` is trivial, and its determinant index
   is `ℓ - 1`.
@@ -293,20 +292,6 @@ lemma detIndex_mapGL :
     (ρ.mapGL ι).detIndex = (ρ.range.map (det.comp (rationalPointsToGL ι))).index := by
   rw [detIndex, detCharacter, mapGL, ← comp_assoc, range_comp]
 
-/-- **The trivial representation into the `𝔽_ℓ`-points of an algebraic group is a mod-`ℓ` Galois
-representation**, for `ℓ` prime and `G` of finite type over `𝔽_ℓ`, such as Tau Ceti's `GL_n`,
-`SL_n` and diagonal torus of `GL_n`: the hypotheses of `MonoidHom.IsModEllGaloisRepIn` hold for
-every algebraic group. -/
-lemma isModEllGaloisRepIn_one_of_locallyOfFiniteType (hℓ : ℓ.Prime) [LocallyOfFiniteType G.X.hom]
-    [QuasiCompact G.X.hom] :
-    (1 : Gal(AlgebraicClosure K/K) →* rationalPoints G).IsModEllGaloisRepIn where
-  prime := hℓ
-  locallyOfFiniteType := ‹_›
-  quasiCompact := ‹_›
-  isOpen_ker := by
-    rw [ker_one, Subgroup.coe_top]
-    exact isOpen_univ
-
 variable (ρₛ : Gal(AlgebraicClosure K/K) →* rationalPoints (SpecialLinear.groupScheme (ZMod ℓ) n))
 
 /-- **The determinant character of a representation into `SL_n(𝔽_ℓ)` is trivial**, for Tau Ceti's
@@ -387,13 +372,6 @@ lemma frobeniusDetIn_eq (hA : ConjClasses.mk A = frobeniusConjClass hρ 𝔭 hur
   rw [frobeniusDetIn, ← hA]
   rfl
 
-lemma kerGaloisFactor_restrictNormalHom {H : Type*} [Group H] {φ : Gal(AlgebraicClosure K/K) →* H}
-    (hφ : IsOpen (φ.ker : Set Gal(AlgebraicClosure K/K))) (σ : Gal(AlgebraicClosure K/K)) :
-    kerGaloisFactor hφ (AlgEquiv.restrictNormalHom (kerSplittingField φ hφ) σ) = φ σ :=
-  (congrArg (QuotientGroup.kerLift φ) <| (MulEquiv.symm_apply_eq _).mpr
-    (InfiniteGalois.normalAutEquivQuotient_apply ⟨φ.ker, φ.ker.isClosed_of_isOpen hφ⟩ σ).symm).trans
-    (QuotientGroup.kerLift_mk φ σ)
-
 /-- **The Frobenius determinant is the value of the determinant character at a Frobenius element**
 (LMFDB `modlgal.frobenius_determinant`): at any `σ ∈ Gal(K̄/K)` whose restriction to the splitting
 field of `ρ` lies in the conjugacy class of the Frobenius elements at the primes above `𝔭`, Tau
@@ -430,7 +408,7 @@ lemma frobeniusClass_mapGL (hι : Function.Injective (rationalPointsToGL ι)) :
       simp [AlgEquiv.restrictNormalHom_apply]
   rcases ConjClasses.exists_rep (artinSymbol 𝔭 hur) with ⟨τ, hτ⟩
   rcases AlgEquiv.restrictNormalHom_surjective (AlgebraicClosure K) τ with ⟨σ, rfl⟩
-  rw [frobeniusClass, frobeniusConjClass,
+  rw [frobeniusClass, frobeniusConjClass, frobeniusConjClass,
     artinSymbol_eq_map_autCongr 𝔭 (IntermediateField.equivOfEq hL) hur hur', ← hτ]
   exact congrArg ConjClasses.mk <| (congrArg (galoisFactor hρ') (he σ)).trans <|
     (galoisFactor_restrictNormalHom hρ' σ).trans <|

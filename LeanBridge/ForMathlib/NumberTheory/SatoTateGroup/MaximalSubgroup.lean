@@ -30,24 +30,6 @@ open Matrix
 
 open Subgroup (connectedComponentOfOne)
 
-namespace Subgroup
-
-variable {X : Type*} [Group X] [TopologicalSpace X] [IsTopologicalGroup X] {K L : Subgroup X}
-
-lemma map_connectedComponentOfOne_eq_of_le_subgroupOf (hKL : K ≤ L)
-    (h : connectedComponentOfOne L ≤ K.subgroupOf L) :
-    (connectedComponentOfOne L).map L.subtype = (connectedComponentOfOne K).map K.subtype := by
-  have hle : connectedComponentIn (L : Set X) 1 ⊆ K := by
-    rw [← coe_map_subtype_connectedComponentOfOne]
-    rintro _ ⟨x, hx, rfl⟩
-    exact h hx
-  refine SetLike.coe_injective ?_
-  rw [coe_map_subtype_connectedComponentOfOne, coe_map_subtype_connectedComponentOfOne]
-  exact subset_antisymm (isPreconnected_connectedComponentIn.subset_connectedComponentIn
-    (mem_connectedComponentIn L.one_mem) hle) (connectedComponentIn_mono 1 hKL)
-
-end Subgroup
-
 namespace SatoTateGroup
 
 variable {G : SatoTateGroup} {H : Subgroup (unitaryGroup (Fin G.degree) ℂ)}

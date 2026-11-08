@@ -47,6 +47,7 @@ The definitions make sense for any field `F`, `𝒪_F` being the integral closur
 -/
 
 open Matrix NumberField
+
 open scoped nonZeroDivisors
 
 namespace HilbertModularGroup
@@ -60,6 +61,10 @@ noncomputable def lattice : Submodule (𝓞 F) (Fin 2 → F) :=
 
 lemma mem_lattice : v ∈ lattice 𝔟 ↔ v 0 ∈ (1 : Submodule (𝓞 F) F) ∧ v 1 ∈ 𝔟 := by
   simp [lattice]
+
+lemma mul_mem_of_mem_of_mem_one {N : Submodule (𝓞 F) F} {c a : F} (hc : c ∈ N)
+    (ha : a ∈ (1 : Submodule (𝓞 F) F)) : c * a ∈ N :=
+  (mul_one N).le (Submodule.mul_mem_mul hc ha)
 
 /-- The group `GL(𝒪_F ⊕ 𝔟)` of automorphisms of the `𝒪_F`-module `𝒪_F ⊕ 𝔟`: the stabilizer of the
 lattice `𝒪_F ⊕ 𝔟` in `GL₂(F)`, acting on column vectors. -/

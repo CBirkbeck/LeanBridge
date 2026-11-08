@@ -61,22 +61,14 @@ open scoped TensorProduct AdicCompletionExtension IntermediateField
 
 namespace PadicInt
 
-variable {p : ℕ} [Fact p.Prime] (x : ℤ_[p]) {y : ℤ_[p]}
+variable {p : ℕ} [Fact p.Prime] {x y : ℤ_[p]}
 
-lemma appr_succ_eq_add_digit (n : ℕ) : x.appr (n + 1) = x.appr n + p ^ n * x.digit n := by
-  rcases x.dvd_appr_sub_appr n (n + 1) n.le_succ with ⟨c, hc⟩
-  rw [digit, Nat.eq_add_of_sub_eq (x.appr_mono n.le_succ) hc,
-    Nat.mul_add_div (pow_pos (Fact.out : p.Prime).pos n), Nat.div_eq_of_lt (x.appr_lt n), add_zero,
-    add_comm]
-
-variable {x} in
 lemma appr_eq_of_forall_digit_eq (h : ∀ n, x.digit n = y.digit n) (n : ℕ) :
     x.appr n = y.appr n := by
   induction n with
   | zero => rfl
-  | succ n ih => rw [appr_succ_eq_add_digit, appr_succ_eq_add_digit, ih, h]
+  | succ n ih => rw [appr_succ, appr_succ, ih, h]
 
-variable {x} in
 /-- **A `p`-adic integer is determined by its digits.** -/
 lemma eq_of_forall_digit_eq (h : ∀ n, x.digit n = y.digit n) : x = y :=
   ext_of_toZModPow.mp fun n ↦

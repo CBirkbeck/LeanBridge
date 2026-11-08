@@ -35,7 +35,7 @@ open scoped nonZeroDivisors
 namespace HilbertModularGroup
 
 variable {F : Type*} [Field F] (𝔟 : FractionalIdeal (𝓞 F)⁰ F) (G : Subgroup (GL (Fin 2) F))
-  {𝔐 𝔑 : Ideal (𝓞 F)} {N : Submodule (𝓞 F) F} {c x : F}
+  {𝔐 𝔑 : Ideal (𝓞 F)} {c : F}
 
 /-- The **lower unipotent matrix** `(1, 0; c, 1)` of `GL₂(F)`, with inverse `(1, 0; -c, 1)`. -/
 def lowerUnipotent (c : F) : GL (Fin 2) F :=
@@ -45,9 +45,6 @@ lemma lowerUnipotent_mulVec (c : F) (v : Fin 2 → F) :
     (lowerUnipotent c).val *ᵥ v = ![v 0, c * v 0 + v 1] := by
   ext i
   fin_cases i <;> simp [lowerUnipotent, dotProduct]
-
-lemma mul_mem_of_mem_of_mem_one (hc : c ∈ N) (hx : x ∈ (1 : Submodule (𝓞 F) F)) : c * x ∈ N :=
-  (mul_one N).le (Submodule.mul_mem_mul hc hx)
 
 lemma lowerUnipotent_mem_gl (hc : c ∈ (𝔟 : Submodule (𝓞 F) F)) : lowerUnipotent c ∈ gl 𝔟 := by
   intro v

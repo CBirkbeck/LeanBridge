@@ -20,6 +20,8 @@ subfield, it is the maximal real subfield of `K`.
 
 * `NumberField.IsCMField.le_maximalCMSubfield`: every CM subfield of `K` lies in the maximal CM
   subfield.
+* `NumberField.IsCMField.of_forall_isConj_of_ne_one`: a number field with a nontrivial automorphism
+  that is complex conjugation under every complex embedding is a CM field.
 * `NumberField.isCMField_maximalCMSubfield`: the maximal CM subfield is CM when it is totally
   complex.
 * `NumberField.isCMField_maximalCMSubfield_iff`: the maximal CM subfield is CM exactly when `K` has
@@ -113,27 +115,39 @@ lemma isConj_conjMaximalCMSubfield (ψ : maximalCMSubfield K →+* ℂ) :
     ← lift_algebraMap_apply K ψ]
   exact (apply_conjMaximalCMSubfield _ y).symm
 
+/-- **A number field with a nontrivial automorphism that is complex conjugation under every complex
+embedding is a CM field**: it is totally complex, and a quadratic extension of the fixed field of
+the automorphism, which is totally real. Mathlib's `NumberField.IsCMField.of_forall_isConj` assumes
+in addition that the field is Galois over `ℚ`. -/
+lemma IsCMField.of_forall_isConj_of_ne_one {σ : K ≃ₐ[ℚ] K} (hσ : ∀ φ : K →+* ℂ, IsConj φ σ)
+    (hσ₁ : σ ≠ 1) : IsCMField K := by
+  have : IsTotallyComplex K := ⟨fun w ↦ by
+    rw [← w.mk_embedding, InfinitePlace.isComplex_mk_iff]
+    exact (isConj_ne_one_iff (hσ _)).mp hσ₁⟩
+  have hcard : Nat.card (Subgroup.zpowers σ) = 2 := by
+    rw [Nat.card_zpowers]
+    exact orderOf_isConj_two_of_ne_one (hσ (Classical.arbitrary _)) hσ₁
+  have : Finite (Subgroup.zpowers σ) := Nat.finite_of_card_ne_zero (by omega)
+  let _ : Fintype (Subgroup.zpowers σ) := Fintype.ofFinite _
+  let F : Subfield K := FixedPoints.subfield (Subgroup.zpowers σ) K
+  have : IsTotallyReal F := ⟨fun w ↦ by
+    rcases w.comap_surjective (K := K) with ⟨W, rfl⟩
+    dsimp only
+    rw [← W.mk_embedding, InfinitePlace.comap_mk, InfinitePlace.isReal_mk_iff]
+    refine RingHom.ext fun x ↦ ?_
+    rw [conjugate_coe_eq, RingHom.comp_apply, starRingEnd_apply, ← (hσ W.embedding).eq]
+    exact congrArg W.embedding (x.2 ⟨σ, Subgroup.mem_zpowers σ⟩)⟩
+  have : Algebra.IsQuadraticExtension F K := ⟨by
+    rw [FixedPoints.finrank_eq_card, Fintype.card_eq_nat_card, hcard]⟩
+  exact IsCMField.ofCMExtension F K
+
 /-- The maximal CM subfield is CM when it is totally complex: complex conjugation is then an
 automorphism of order `2`, whose fixed field is totally real. -/
 lemma isCMField_maximalCMSubfield [IsTotallyComplex (maximalCMSubfield K)] :
-    IsCMField (maximalCMSubfield K) := by
-  let ψ : maximalCMSubfield K →+* ℂ := Classical.choice inferInstance
-  have hσ : orderOf (conjMaximalCMSubfield K) = 2 :=
-    orderOf_isConj_two_of_ne_one (isConj_conjMaximalCMSubfield ψ)
-      ((isConj_ne_one_iff (isConj_conjMaximalCMSubfield ψ)).mpr
-        (IsTotallyComplex.complexEmbedding_not_isReal ψ))
-  let F : IntermediateField ℚ (maximalCMSubfield K) :=
-    IntermediateField.fixedField (Subgroup.zpowers (conjMaximalCMSubfield K))
-  have : IsTotallyReal F := ⟨fun w ↦ by
-    have : Algebra.IsAlgebraic F (maximalCMSubfield K) := .tower_top (K := ℚ) _
-    rw [InfinitePlace.isReal_iff, ComplexEmbedding.isReal_iff]
-    ext y
-    rw [conjugate_coe_eq, ← lift_algebraMap_apply (maximalCMSubfield K) w.embedding y,
-      starRingEnd_apply, ← (isConj_conjMaximalCMSubfield _).eq]
-    exact congrArg _ ((IntermediateField.mem_fixedField_iff _ _).mp y.2 _ (Subgroup.mem_zpowers _))⟩
-  have : Algebra.IsQuadraticExtension F (maximalCMSubfield K) :=
-    ⟨by rw [IntermediateField.finrank_fixedField_eq_card, Nat.card_zpowers, hσ]⟩
-  exact IsCMField.ofCMExtension F (maximalCMSubfield K)
+    IsCMField (maximalCMSubfield K) :=
+  IsCMField.of_forall_isConj_of_ne_one isConj_conjMaximalCMSubfield <|
+    (isConj_ne_one_iff (isConj_conjMaximalCMSubfield (Classical.arbitrary _))).mpr
+      (IsTotallyComplex.complexEmbedding_not_isReal _)
 
 /-- The maximal CM subfield of `K` is CM exactly when `K` has a CM subfield. -/
 lemma isCMField_maximalCMSubfield_iff :
