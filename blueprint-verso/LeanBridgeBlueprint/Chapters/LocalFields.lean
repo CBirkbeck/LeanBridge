@@ -88,7 +88,7 @@ The *base discriminant exponent* $`c_0` of $`L/K` is the discriminant exponent o
 Depends on: {uses "lf.padic_field"}[] {uses "lf.ramification_index"}[] {uses "lf.ring_of_integers"}[]
 :::
 
-:::definition "lf.discriminant_root_field"
+:::definition "lf.discriminant_root_field" (lean := "TauCeti.discrField, Polynomial.discrField_eq_discrField, Padic.setOf_finrank_eq_two_eq_range_of_ne_two, Padic.adjoin_eq_unramifiedExtension_of_ne_two, Padic.setOf_finrank_eq_two_eq_range_padicTwo, Padic.adjoin_eq_unramifiedExtension_padicTwo")
 *Discriminant root field of a local field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.discriminant_root_field))
 
 {bpref "nf.discriminant_root_field"}[]

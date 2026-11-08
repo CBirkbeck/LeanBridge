@@ -120,7 +120,7 @@ For further details see [the source of the automorphisms of curves data](http://
 Depends on: {uses "ag.endomorphism_ring"}[] {uses "av.isogeny"}[] {uses "ag.jacobian"}[] {uses "g2c.aut_grp"}[]
 :::
 
-:::definition "curve.highergenus.aut.monodromy"
+:::definition "curve.highergenus.aut.monodromy" (lean := "MulAction.monodromyGroup, MulAction.isCoveringMap_unbranchedProjection, MulAction.card_fiber_unbranchedProjection, MulAction.isPretransitive_monodromyGroup_of_mdifferentiable, MulAction.monodromyGroup_eq_map_permCongrHom, MulAction.exists_monodromyGroup_eq_map_permCongrHom")
 *Monodromy Group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/curve.highergenus.aut.monodromy))
 
 Let $`G` be a group of automorphisms acting on a compact {bpref "ag.riemann_surface"}[Riemann surface] $`X` of genus $`g\ge 2`, let $`\phi` be the natural projection from $`X` to the quotient $`Y:=X/G`, let $`\mathcal B=\{y_1,\ldots,y_r\}` be the {bpref "curve.highergenus.aut.branchpoints"}[branch points] of $`\phi`, and let us fix a base point $`y_0 \in Y-\mathcal{B}`. The fiber $`\phi^{-1}(y_0)` consists of $`d:=|G|` points, say

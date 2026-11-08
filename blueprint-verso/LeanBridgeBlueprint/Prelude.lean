@@ -20,6 +20,8 @@ import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.CyclicTrigonalQuotient
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.FiniteSetAffineOpen
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.Hyperelliptic
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.LocallySolvable
+import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.Monodromy
+import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.MonodromyRiemannSurface
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.Quotient
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.QuotientExistence
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.QuotientSignature
@@ -61,6 +63,7 @@ import LeanBridge.ForMathlib.AlgebraicGeometry.Variety.Projective
 import LeanBridge.ForMathlib.Analysis.AbsoluteValue.Archimedean
 import LeanBridge.ForMathlib.Analysis.Complex.UpperHalfPlane.Completed
 import LeanBridge.ForMathlib.Analysis.SpecialFunctions.BesselK
+import LeanBridge.ForMathlib.FieldTheory.DiscriminantRootField
 import LeanBridge.ForMathlib.FieldTheory.Finite.ConwayPolynomial
 import LeanBridge.ForMathlib.FieldTheory.Galois.StemFieldAutomorphisms
 import LeanBridge.ForMathlib.FieldTheory.Galois.TransitiveGaloisGroup
@@ -175,6 +178,7 @@ import LeanBridge.ForMathlib.NumberTheory.LocalField.EisensteinFormGenerator
 import LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamily
 import LeanBridge.ForMathlib.NumberTheory.LocalField.PadicDefiningPolynomial
 import LeanBridge.ForMathlib.NumberTheory.LocalField.PadicField
+import LeanBridge.ForMathlib.NumberTheory.LocalField.PadicQuadraticExtensions
 import LeanBridge.ForMathlib.NumberTheory.LocalField.TameUnramifiedDegree
 import LeanBridge.ForMathlib.NumberTheory.LocalField.WildArtinSlopes
 import LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.AlgebraicGroup
@@ -535,6 +539,7 @@ import TauCeti.AlgebraicGeometry.EllipticCurve.MordellWeil.FinitelyGenerated
 import TauCeti.AlgebraicGeometry.EllipticCurve.MordellWeil.PointModTorsion.Basic
 import TauCeti.AlgebraicGeometry.EllipticCurve.MordellWeil.PointModTorsion.Isogeny
 import TauCeti.AlgebraicGeometry.EllipticCurve.MordellWeil.Regulator.Basic
+import TauCeti.AlgebraicGeometry.EllipticCurve.Scheme.OfWeierstrass
 import TauCeti.AlgebraicGeometry.EllipticCurve.Supersingular
 import TauCeti.AlgebraicGeometry.EllipticCurve.TateAlgorithm.Reduction.Conductor
 import TauCeti.AlgebraicGeometry.EllipticCurve.TateAlgorithm.Reduction.Curve
@@ -545,6 +550,7 @@ import TauCeti.Combinatorics.PermutationTriple.IsoClass
 import TauCeti.Combinatorics.PermutationTriple.Passport.Basic
 import TauCeti.FieldTheory.FunctionField.RiemannRoch.Genus
 import TauCeti.FieldTheory.GaloisGroups.Blocks
+import TauCeti.FieldTheory.GaloisGroups.Discriminant.Field
 import TauCeti.FieldTheory.GaloisGroups.NormalClosure
 import TauCeti.FieldTheory.GaloisGroups.Parity
 import TauCeti.Geometry.Diffeomorphism.Group

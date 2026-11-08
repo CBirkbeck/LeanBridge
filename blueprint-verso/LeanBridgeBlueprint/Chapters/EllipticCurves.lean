@@ -319,7 +319,7 @@ Where possible the labelling of isogeny classes matches that of associated cusp 
 Depends on: {uses "ec.complex_multiplication"}[] {uses "ec.conductor_label"}[] {uses "ec.isogeny_class"}[] {uses "mf.bianchi.newform"}[] {uses "mf.hilbert"}[] {uses "nf.ideal_labels"}[]
 :::
 
-:::definition "ec.discriminant" (lean := "WeierstrassCurve.Δ, WeierstrassCurve.Δ_ne_zero_iff_freeLocus_baseChange_eq_univ, WeierstrassCurve.Δ_ne_zero_iff_forall_equation_mem_freeLocus_baseChange, WeierstrassCurve.Affine.mem_freeLocus_iff, Module.freeLocus, WeierstrassCurve.IsElliptic")
+:::definition "ec.discriminant" (lean := "WeierstrassCurve.Δ, WeierstrassCurve.Δ_ne_zero_iff_freeLocus_baseChange_eq_univ, WeierstrassCurve.Δ_ne_zero_iff_forall_equation_mem_freeLocus_baseChange, WeierstrassCurve.Affine.mem_freeLocus_iff, Module.freeLocus, WeierstrassCurve.IsElliptic, WeierstrassCurve.toEllipticCurveGeom")
 *Discriminant of a Weierstrass equation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.discriminant))
 
 The *discriminant* $`\Delta` of a {bpref "ec.weierstrass_coeffs"}[Weierstrass equation] over a {bpref "ring.field"}[field] $`K` is an element of $`K` defined in terms of the {bpref "ec.q.minimal_weierstrass_equation"}[Weierstrass coefficients].

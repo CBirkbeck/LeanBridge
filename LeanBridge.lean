@@ -39,7 +39,6 @@ import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.Bielliptic
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.BranchPoints
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.CanonicalModel
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.CohenMacaulayType
-import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.CyclicTrigonal
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.CyclicTrigonalProjectiveLine
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.CyclicTrigonalQuotient
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.DifferentialRepresentation

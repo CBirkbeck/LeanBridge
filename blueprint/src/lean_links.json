@@ -683,6 +683,14 @@
   "curve.highergenus.aut.full": {
     "TauCeti.Diff": "TauCeti.Geometry.Diffeomorphism.Group"
   },
+  "curve.highergenus.aut.monodromy": {
+    "MulAction.monodromyGroup": "LeanBridge.ForMathlib.AlgebraicGeometry.Curve.Monodromy",
+    "MulAction.isCoveringMap_unbranchedProjection": "LeanBridge.ForMathlib.AlgebraicGeometry.Curve.Monodromy",
+    "MulAction.card_fiber_unbranchedProjection": "LeanBridge.ForMathlib.AlgebraicGeometry.Curve.Monodromy",
+    "MulAction.isPretransitive_monodromyGroup_of_mdifferentiable": "LeanBridge.ForMathlib.AlgebraicGeometry.Curve.MonodromyRiemannSurface",
+    "MulAction.monodromyGroup_eq_map_permCongrHom": "LeanBridge.ForMathlib.AlgebraicGeometry.Curve.MonodromyRiemannSurface",
+    "MulAction.exists_monodromyGroup_eq_map_permCongrHom": "LeanBridge.ForMathlib.AlgebraicGeometry.Curve.MonodromyRiemannSurface"
+  },
   "curve.highergenus.aut.quotientgenus": {
     "TauCeti.genus": "TauCeti.FieldTheory.FunctionField.RiemannRoch.Genus",
     "TauCeti.AlgebraicGeometry.RegularProperCurveCat.genus_quotient": "LeanBridge.ForMathlib.AlgebraicGeometry.Curve.QuotientSignature"
@@ -723,7 +731,8 @@
     "WeierstrassCurve.Δ_ne_zero_iff_forall_equation_mem_freeLocus_baseChange": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.JacobianCriterion",
     "WeierstrassCurve.Affine.mem_freeLocus_iff": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.JacobianCriterion",
     "Module.freeLocus": "Mathlib.RingTheory.Spectrum.Prime.FreeLocus",
-    "WeierstrassCurve.IsElliptic": "Mathlib.AlgebraicGeometry.EllipticCurve.Weierstrass"
+    "WeierstrassCurve.IsElliptic": "Mathlib.AlgebraicGeometry.EllipticCurve.Weierstrass",
+    "WeierstrassCurve.toEllipticCurveGeom": "TauCeti.AlgebraicGeometry.EllipticCurve.Scheme.OfWeierstrass"
   },
   "ec.discriminant_norm": {
     "Ideal.absNorm": "Mathlib.RingTheory.Ideal.Norm.AbsNorm",
@@ -1821,6 +1830,14 @@
     "IsNonarchimedeanLocalField.associated_discr": "LeanBridge.ForMathlib.NumberTheory.LocalField.DiscriminantBasis",
     "IsNonarchimedeanLocalField.exists_discr_eq_sq_mul_discr": "LeanBridge.ForMathlib.NumberTheory.LocalField.DiscriminantBasis",
     "IsNonarchimedeanLocalField.padicDiscriminantExponent": "LeanBridge.ForMathlib.NumberTheory.LocalField.DiscriminantBasis"
+  },
+  "lf.discriminant_root_field": {
+    "TauCeti.discrField": "TauCeti.FieldTheory.GaloisGroups.Discriminant.Field",
+    "Polynomial.discrField_eq_discrField": "LeanBridge.ForMathlib.FieldTheory.DiscriminantRootField",
+    "Padic.setOf_finrank_eq_two_eq_range_of_ne_two": "LeanBridge.ForMathlib.NumberTheory.LocalField.PadicQuadraticExtensions",
+    "Padic.adjoin_eq_unramifiedExtension_of_ne_two": "LeanBridge.ForMathlib.NumberTheory.LocalField.PadicQuadraticExtensions",
+    "Padic.setOf_finrank_eq_two_eq_range_padicTwo": "LeanBridge.ForMathlib.NumberTheory.LocalField.PadicQuadraticExtensions",
+    "Padic.adjoin_eq_unramifiedExtension_padicTwo": "LeanBridge.ForMathlib.NumberTheory.LocalField.PadicQuadraticExtensions"
   },
   "lf.family_base": {
     "IsNonarchimedeanLocalField.ExtensionFamily": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamily",
