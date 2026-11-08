@@ -30,6 +30,7 @@ import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.MinimalDiscriminant
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.NodeCusp
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Reduction
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.SemistableNodal
+import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.ShortModelReduction
 import LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.Equation
 import LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.FunctionField
 import LeanBridge.ForMathlib.AlgebraicGeometry.HilbertModularSurface.CongruenceSubgroup
@@ -58,6 +59,7 @@ import LeanBridge.ForMathlib.GroupTheory.FiniteAbelian.AbelianInvariants
 import LeanBridge.ForMathlib.GroupTheory.FiniteAbelian.PrimaryDecomposition
 import LeanBridge.ForMathlib.GroupTheory.FiniteAbelian.ProdZPowers
 import LeanBridge.ForMathlib.GroupTheory.GroupExtension.Complement
+import LeanBridge.ForMathlib.GroupTheory.InternalDirectProduct
 import LeanBridge.ForMathlib.GroupTheory.OrderStatistics
 import LeanBridge.ForMathlib.GroupTheory.OuterAutomorphism
 import LeanBridge.ForMathlib.GroupTheory.Perm.Elusive
@@ -129,7 +131,6 @@ import LeanBridge.ForMathlib.NumberTheory.LFunction.SelbergClass
 import LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamily
 import LeanBridge.ForMathlib.NumberTheory.LocalField.TameUnramifiedDegree
 import LeanBridge.ForMathlib.NumberTheory.LocalField.WildArtinSlopes
-import LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Frobenius
 import LeanBridge.ForMathlib.NumberTheory.ModularCurve.Entanglement
 import LeanBridge.ForMathlib.NumberTheory.ModularCurve.FundamentalDomain
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Analytic.AnalyticConductor
@@ -228,12 +229,14 @@ import Mathlib.Algebra.GroupWithZero.NonZeroDivisors
 import Mathlib.Algebra.Lie.Classical
 import Mathlib.Algebra.Module.LocalizedModule.Basic
 import Mathlib.Algebra.MonoidAlgebra.Defs
+import Mathlib.Algebra.Notation.Prod
 import Mathlib.Algebra.Quaternion
 import Mathlib.Algebra.QuaternionBasis
 import Mathlib.Algebra.Ring.Defs
 import Mathlib.Algebra.Ring.Hom.Defs
 import Mathlib.Algebra.Star.Basic
 import Mathlib.AlgebraicGeometry.AffineSpace
+import Mathlib.AlgebraicGeometry.EllipticCurve.NormalForms
 import Mathlib.AlgebraicGeometry.EllipticCurve.Reduction
 import Mathlib.AlgebraicGeometry.EllipticCurve.Weierstrass
 import Mathlib.AlgebraicGeometry.Geometrically.Irreducible
@@ -255,6 +258,7 @@ import Mathlib.Combinatorics.Derangements.Basic
 import Mathlib.Combinatorics.SimpleGraph.Hasse
 import Mathlib.Data.Nat.PrimeFin
 import Mathlib.Data.Nat.Totient
+import Mathlib.Data.Prod.Basic
 import Mathlib.Data.ZMod.Basic
 import Mathlib.Data.ZMod.Defs
 import Mathlib.Data.ZMod.QuotientGroup
@@ -435,6 +439,7 @@ import TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.PotentialGoodReducti
 import TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.Reduced
 import TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.Semistable
 import TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.Valuation
+import TauCeti.AlgebraicGeometry.EllipticCurve.MinimalPairModel
 import TauCeti.AlgebraicGeometry.EllipticCurve.MordellWeil.FinitelyGenerated
 import TauCeti.AlgebraicGeometry.EllipticCurve.MordellWeil.PointModTorsion.Basic
 import TauCeti.AlgebraicGeometry.EllipticCurve.MordellWeil.PointModTorsion.Isogeny
@@ -486,7 +491,6 @@ import TauCeti.NumberTheory.ModularForms.Newforms.Newform
 import TauCeti.NumberTheory.ModularForms.Newforms.NumberField
 import TauCeti.NumberTheory.ModularForms.Newforms.OrthogonalBasis
 import TauCeti.NumberTheory.MulChar.GaloisOrbit
-import TauCeti.NumberTheory.NumberField.ArtinSymbol
 import TauCeti.NumberTheory.NumberField.Global.Orders.Basic
 import TauCeti.NumberTheory.NumberField.Global.Orders.Conductor
 import TauCeti.NumberTheory.NumberField.Global.Orders.Discriminant

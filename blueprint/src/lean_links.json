@@ -744,6 +744,14 @@
     "WeierstrassCurve.HasNode": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.NodeCusp",
     "WeierstrassCurve.hasMultiplicativeReduction_iff_hasNode": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.NodeCusp"
   },
+  "ec.simple_equation": {
+    "WeierstrassCurve.IsShortNF": "Mathlib.AlgebraicGeometry.EllipticCurve.NormalForms",
+    "WeierstrassCurve.toShortNF": "Mathlib.AlgebraicGeometry.EllipticCurve.NormalForms",
+    "WeierstrassCurve.exists_minimalPairModel": "TauCeti.AlgebraicGeometry.EllipticCurve.MinimalPairModel",
+    "WeierstrassCurve.HasBadReductionAt": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.ShortModelReduction",
+    "WeierstrassCurve.hasBadReductionAt_two_of_isShortNF": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.ShortModelReduction",
+    "WeierstrassCurve.hasBadReductionAt_three_minimalPairModel_curve11a2": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.ShortModelReduction"
+  },
   "ec.split_multiplicative_reduction": {
     "WeierstrassCurve.HasSplitMultiplicativeReduction": "Mathlib.AlgebraicGeometry.EllipticCurve.Reduction",
     "WeierstrassCurve.HasSplitNode": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.NodeCusp",
@@ -984,6 +992,13 @@
     "derivedSeries_succ_lt_of_lt_derivedLength": "LeanBridge.ForMathlib.GroupTheory.SolvableSeries",
     "Group.isSolvable_iff_derivedSeries_derivedLength_eq_bot": "LeanBridge.ForMathlib.GroupTheory.SolvableSeries",
     "Group.exists_subnormalSeries_iff_derivedSeries_derivedLength_eq_bot": "LeanBridge.ForMathlib.GroupTheory.SolvableSeries"
+  },
+  "group.direct_product": {
+    "Prod.mk_mul_mk": "Mathlib.Algebra.Notation.Prod",
+    "MonoidHom.isDirectFactors_range_inl_range_inr": "LeanBridge.ForMathlib.GroupTheory.InternalDirectProduct",
+    "Prod.mk_left_injective": "Mathlib.Data.Prod.Basic",
+    "Subgroup.IsDirectFactors": "LeanBridge.ForMathlib.GroupTheory.InternalDirectProduct",
+    "Subgroup.IsDirectFactors.mulEquiv": "LeanBridge.ForMathlib.GroupTheory.InternalDirectProduct"
   },
   "group.division": {
     "IsRationallyConj": "LeanBridge.ForMathlib.GroupTheory.RationalConjugacy",
@@ -1790,39 +1805,13 @@
     "CharP": "Mathlib.Algebra.CharP.Defs",
     "ZMod.charP": "Mathlib.Data.ZMod.Basic"
   },
-  "modlgal.det_surjective": {
-    "Matrix.GeneralLinearGroup.det": "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs",
-    "MonoidHom.range_eq_top": "Mathlib.Algebra.Group.Subgroup.Ker",
-    "MonoidHom.range": "Mathlib.Algebra.Group.Subgroup.Ker"
-  },
-  "modlgal.determinant_index": {
-    "Subgroup.index": "Mathlib.GroupTheory.Index",
-    "MonoidHom.range": "Mathlib.Algebra.Group.Subgroup.Ker",
-    "Matrix.GeneralLinearGroup.det": "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs"
-  },
   "modlgal.dimension": {
     "Module.finrank": "Mathlib.LinearAlgebra.Dimension.Finrank"
-  },
-  "modlgal.frobenius_charpoly": {
-    "MonoidHom.frobeniusCharpoly": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Frobenius",
-    "MonoidHom.frobeniusCharpoly_eq": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Frobenius",
-    "MonoidHom.frobeniusClass": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Frobenius",
-    "NumberField.artinSymbol": "TauCeti.NumberTheory.NumberField.ArtinSymbol"
-  },
-  "modlgal.frobenius_determinant": {
-    "MonoidHom.frobeniusDet": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Frobenius",
-    "MonoidHom.frobeniusDet_eq": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Frobenius",
-    "MonoidHom.frobeniusClass": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Frobenius"
   },
   "modlgal.frobenius_prime": {
     "Algebra.IsUnramifiedIn": "Mathlib.RingTheory.Unramified.Locus",
     "IntermediateField.fixedField": "Mathlib.FieldTheory.Galois.Basic",
     "MonoidHom.ker": "Mathlib.Algebra.Group.Subgroup.Ker"
-  },
-  "modlgal.frobenius_trace": {
-    "MonoidHom.frobeniusTrace": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Frobenius",
-    "MonoidHom.frobeniusTrace_eq": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Frobenius",
-    "MonoidHom.frobeniusClass": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Frobenius"
   },
   "modlgal.image": {
     "MonoidHom.range": "Mathlib.Algebra.Group.Subgroup.Ker"

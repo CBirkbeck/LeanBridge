@@ -1596,7 +1596,7 @@ An {bpref "ec"}[elliptic curve] is *semistable* if it has {bpref "ec.reduction_t
 Depends on: {uses "ec"}[] {uses "ec.bad_reduction"}[] {uses "ec.reduction_type"}[]
 :::
 
-:::definition "ec.simple_equation" (lean := "WeierstrassCurve.IsShortNF")
+:::definition "ec.simple_equation" (lean := "WeierstrassCurve.IsShortNF, WeierstrassCurve.toShortNF, WeierstrassCurve.exists_minimalPairModel, WeierstrassCurve.HasBadReductionAt, WeierstrassCurve.hasBadReductionAt_two_of_isShortNF, WeierstrassCurve.hasBadReductionAt_three_minimalPairModel_curve11a2")
 *Simplified equation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.simple_equation))
 
 Every {bpref "ec"}[elliptic curve] over a {bpref "ring.field"}[field] $`k` whose {bpref "ring.characteristic"}[characteristic] is not 2 or 3 has a *simplified equation* (or *short Weierstrass model*) of the form $`y^2 = x^3 + Ax + B`.  When $`k=\mathbb{Q}` is the field of rational numbers, one can choose $`A` and $`B` to be integers.

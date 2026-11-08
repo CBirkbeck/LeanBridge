@@ -429,7 +429,7 @@ It is the split extension $`C_n\rtimes C_2` with $`C_2` acting by $`-1`. The non
 Depends on: {uses "group.dicyclic"}[] {uses "group.order"}[]
 :::
 
-:::definition "group.direct_product"
+:::definition "group.direct_product" (lean := "Prod.mk_mul_mk, MonoidHom.isDirectFactors_range_inl_range_inr, Prod.mk_left_injective, Subgroup.IsDirectFactors, Subgroup.IsDirectFactors.mulEquiv")
 *Direct product of groups.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.direct_product))
 
 Given two groups $`G_1` and $`G_2` with operations $`*_1` and $`*_2`, the *direct product* of sets $`G_1\times G_2` is a {bpref "group"}[group] under the operation
