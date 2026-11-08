@@ -57,7 +57,7 @@ The *characteristic* of a {bpref "modlgal"}[mod-$`\ell` Galois representation] i
 Depends on: {uses "modlgal"}[] {uses "modlgal.codomain"}[] {uses "ring"}[]
 :::
 
-:::definition "modlgal.codomain"
+:::definition "modlgal.codomain" (lean := "AlgebraicGeometry.rationalPoints, MonoidHom.IsModEllGaloisRepIn, MonoidHom.IsModEllGaloisRepIn.finite_points, AlgebraicGeometry.finite_points_of_finiteType")
 *Codomain.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modlgal.codomain))
 
 The *codomain* of a {bpref "modlgal"}[mod-$`\ell` Galois representation] $`\rho:\Gal_K \to G(\F_{\ell})`, with values in the $`\F_{\ell}`-points of an algebraic group $`G`, is the finite group $`G(\F_{\ell})`.
@@ -164,7 +164,7 @@ A *Frobenius matrix* for a {bpref "modlgal"}[mod-$`\ell` Galois representation] 
 Depends on: {uses "modlgal"}[]
 :::
 
-:::definition "modlgal.frobenius_order"
+:::definition "modlgal.frobenius_order" (lean := "MonoidHom.frobeniusElementOrder, MonoidHom.frobeniusElementOrder_eq, MonoidHom.frobeniusConjClass, MonoidHom.kerSplittingField, MonoidHom.IsModEllGaloisRepIn.frobeniusElementOrder_pos, MonoidHom.IsModEllGaloisRepIn.finite_points")
 *Frobenius order.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modlgal.frobenius_order))
 
 Let $`\rho:\Gal_K\to G(\F_{\ell})` be a {bpref "modlgal"}[mod-$`\ell` Galois representation].   The *Frobenius order* of a {bpref "nf.prime"}[prime] $`\frak{p}` of $`K` at which $`\rho` is {bpref "modlgal.ramified"}[unramified] is the {bpref "group.order"}[order] of $`\rho(\text{Frob}_{\frak{p}})` as an element of the finite group $`G(\F_{\ell})`.
@@ -282,7 +282,7 @@ In case $`\ell=2`, the projective representation is the same as the original rep
 Depends on: {uses "modlgal"}[]
 :::
 
-:::definition "modlgal.ramified"
+:::definition "modlgal.ramified" (lean := "Algebra.IsUnramifiedIn, IntermediateField.fixedField, Ideal.inertia, MonoidHom.isUnramifiedIn_fixedField_ker_iff_forall, MonoidHom.not_isUnramifiedIn_fixedField_ker_iff_exists, MonoidHom.not_isUnramifiedIn_fixedField_ker_iff_forall")
 *Ramified primes of a mod-$`l` Galois representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modlgal.ramified))
 
 If $`\rho\colon\Gal_K\to G(\F_{\ell})` is an {bpref "modlgal"}[mod-$`\ell` Galois representation] with {bpref "modlgal.splitting_field"}[splitting field] $`L`,   then a {bpref "nf.prime"}[prime] $`\frak{p}\nmid\ell` of $`K` is *ramified* if it is {bpref "nf.ramified_primes"}[ramified] in $`L/K`.

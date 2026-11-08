@@ -54,7 +54,7 @@ The *endomorphism field* of an {bpref "ag.abelian_variety"}[abelian variety] $`A
 Depends on: {uses "ag.abelian_variety"}[]
 :::
 
-:::definition "av.endomorphism_ring_conductor"
+:::definition "av.endomorphism_ring_conductor" (lean := "Subalgebra.relativeConductor, integralClosure, Subalgebra.not_isUnit_iff_relativeConductor_le, Subalgebra.not_isUnit_of_relativeConductor_le, Subalgebra.isUnit_of_not_relativeConductor_le, TauCeti.GlobalNumberFields.NumberFieldOrder.conductor")
 *Conductor.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.endomorphism_ring_conductor))
 
 The conductor $`\mathfrak{f}_R` of an order $`R` is the colon ideal $`(R:\mathcal{O})`, where $`\mathcal{O}` is the maximal order. Recall that a maximal ideal $`\mathfrak{m}` of $`R` is non-invertible if and only if $`\mathfrak{f}_R\subseteq \mathfrak{m}`.
@@ -245,7 +245,7 @@ A *twist* of an {bpref "ag.abelian_variety"}[abelian variety] $`A` is an abelian
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.base_change"}[]
 :::
 
-:::definition "av.weak_equivalence_class"
+:::definition "av.weak_equivalence_class" (lean := "FractionalIdeal.WeaklyEquivalent, FractionalIdeal.weakEquivalenceSetoid, FractionalIdeal.weaklyEquivalent_of_linearEquiv, FractionalIdeal.WeaklyEquivalent.div_self_eq, LocalizedModule, Localization.AtPrime")
 *weak equivalence.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.weak_equivalence_class))
 
 Let $`R` be an order in an étale $`\mathbf{Q}`-algebra. Two fractional $`R`-ideals $`I` and $`J` are *weakly equivalent* if $`I_{\mathfrak{p}}\simeq J_{\mathfrak{p}}` as $`R_{\mathfrak{p}}`-modules for every maximal ideal $`\mathfrak{p}` of $`R`. If $`I` and $`J` are weakly equivalent then $`(I:I)=(J:J)`. Such ideals are also said to be locally isomorphic or in the same genus.

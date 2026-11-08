@@ -203,7 +203,7 @@ An *projective stem field* is a {bpref "nf.stem_field"}[stem field] for the {bpr
 Depends on: {uses "artin"}[] {uses "artin.projective_field"}[] {uses "nf.stem_field"}[]
 :::
 
-:::definition "artin.ramified_primes"
+:::definition "artin.ramified_primes" (lean := "Algebra.IsUnramifiedIn, Representation.artinField, Algebra.isUnramifiedIn_iff_forall_ramificationIdx_eq_one, Ideal.map_inertia_restrictNormalHom, Representation.IsArtin.not_isUnramifiedIn_artinField_iff_exists, Representation.IsArtin.not_isUnramifiedIn_artinField_iff_forall")
 *Ramified prime of an Artin representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/artin.ramified_primes))
 
 If $`\rho:\Gal(\overline{\Q}/\Q)\to\GL_n(\C)` is an {bpref "artin"}[Artin representation] with {bpref "artin.number_field"}[Artin field] $`K`, then a prime $`p` is *ramified* if it is {bpref "nf.ramified_primes"}[ramified] in $`K/\Q`.
@@ -240,7 +240,7 @@ For an {bpref "artin"}[Artin Representation], complex conjugation gives a well-d
 Depends on: {uses "artin"}[]
 :::
 
-:::definition "artin.unramified_primes"
+:::definition "artin.unramified_primes" (lean := "Algebra.IsUnramifiedIn, Representation.artinField, Representation.IsArtin.isUnramifiedIn_artinField_iff_forall_comap, Representation.IsArtin.isUnramifiedIn_artinField_iff_exists_comap, Representation.IsArtin.isUnramifiedIn_artinField_iff_forall, Representation.IsArtin.isUnramifiedIn_artinField_iff_exists")
 *Unramified prime of an Artin representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/artin.unramified_primes))
 
 If $`\rho:\Gal(\overline{\Q}/\Q)\to\GL_n(\C)` is an {bpref "artin"}[Artin representation], a prime $`p` is *unramified* if it is not {bpref "artin.ramified_primes"}[ramified].

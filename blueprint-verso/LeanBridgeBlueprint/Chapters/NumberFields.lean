@@ -909,7 +909,7 @@ The unramified primes of $`K` are the primes which do not divide the {bpref "nf.
 Depends on: {uses "nf"}[] {uses "nf.discriminant"}[]
 :::
 
-:::definition "nf.valuation_equivalence"
+:::definition "nf.valuation_equivalence" (lean := "AddValuation.exists_rpowAbs_eq_rpow_iff_isEquiv, AddValuation.isEquiv_iff_le_iff_le, AddValuation.isEquiv_iff_exists_eq_mul, AddValuation.rpowAbs, AddValuation.IsEquiv, Valuation.IsEquiv")
 *Two notions of equivalence for valuations.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.valuation_equivalence))
 
 Let $`v_1` and $`v_2` are valuations of a ring $`R`, $`p \in \mathbb{R}_{>1}`, and we set $`\lvert x \rvert_1 = p^{-v_1(x)}` and $`\lvert x \rvert_2 = p^{-v_2(x)}`, the following are equivalent:

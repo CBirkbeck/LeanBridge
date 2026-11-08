@@ -651,7 +651,7 @@ The Hecke eigenforms break into Galois orbits which are conjugate
 over $`\Bbb Q`.
 :::
 
-:::definition "mf.siegel.halfspace"
+:::definition "mf.siegel.halfspace" (lean := "SiegelUpperHalfSpace, SiegelUpperHalfSpace.val_smul, SiegelUpperHalfSpace.properlyDiscontinuousSMul_of_discreteTopology, SiegelUpperHalfSpace.not_free_integral, SiegelUpperHalfSpace.negOne_smul, SymplecticGroup.integral")
 *Siegel upper half-space.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.halfspace))
 
 The Siegel upper half-space of degree $`g` is denoted by $`\mathcal{H}_g` and defined as
@@ -777,7 +777,7 @@ For each embedding of the {bpref "mf.siegel.coefficient_field"}[coefficient fiel
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.galois_orbit"}[] {uses "character.dirichlet.galois_orbit_label"}[] {uses "mf.siegel.coefficient_field"}[] {uses "mf.siegel.degree"}[] {uses "mf.siegel.family"}[] {uses "mf.siegel.level"}[] {uses "mf.siegel.newform"}[] {uses "mf.siegel.weight"}[]
 :::
 
-:::definition "mf.siegel.level"
+:::definition "mf.siegel.level" (lean := "SymplecticGroup.IsCongruenceOfLevel, SiegelUpperHalfSpace.modularForms, SymplecticGroup.minimalLevel, SymplecticGroup.minimalLevel_Gamma, SymplecticGroup.minimalLevel_Gamma0, SiegelUpperHalfSpace.minimalLevel_paramodularLevel")
 *Level of a Siegel modular form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.level))
 
 A {bpref "mf.siegel"}[Siegel modular form] on a discrete subgroup $`\Gamma` of $`\Sp(2g,\Q)`  is said to be of *level* $`N` if $`\Gamma` is a

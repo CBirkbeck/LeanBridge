@@ -156,7 +156,7 @@ Moreover, $`A` is isogenous to an abelian subvariety of $`B` if and only $`P_A(t
 Depends on: {uses "ag.abelian_variety"}[] {uses "av.fq.weil_polynomial"}[] {uses "nf.weil_polynomial"}[]
 :::
 
-:::definition "av.fq.index_of_order"
+:::definition "av.fq.index_of_order" (lean := "Subalgebra.maximalOrderIndex, Subalgebra.maximalOrderIndex_pos, Subalgebra.isLattice_integralClosure, Submodule.IsLattice, integralClosure, AddSubgroup.relIndex")
 *Index of an order.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.fq.index_of_order))
 
 Let $`R` be an {bpref "av.fq.order"}[order] in an étale algebra $`K` with maximal order $`\mathcal{O}_K`.

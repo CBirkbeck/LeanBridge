@@ -216,7 +216,7 @@ In future it is planned to move to using the {bpref "nf.ideal_labels"}[standard 
 Depends on: {uses "ec.conductor"}[] {uses "nf"}[] {uses "nf.ideal_labels"}[]
 :::
 
-:::definition "ec.conductor_valuation"
+:::definition "ec.conductor_valuation" (lean := "WeierstrassCurve.algorithmicOggExponent, WeierstrassCurve.count_algorithmicConductor, WeierstrassCurve.algorithmicOggExponent_eq_zero_iff, WeierstrassCurve.algorithmicOggExponent_eq_one_iff, WeierstrassCurve.algorithmicOggExponent_eq_two, WeierstrassCurve.count_algorithmicConductor_eq_two")
 *Conductor valuation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.conductor_valuation))
 
 The valuation of the {bpref "ec.conductor"}[conductor] at a prime.
@@ -926,7 +926,7 @@ where $`\mathfrak{d}` is the {bpref "ec.minimal_discriminant"}[minimal discrimin
 Depends on: {uses "ec"}[] {uses "ec.base_change"}[] {uses "ec.discriminant"}[] {uses "ec.global_minimal_model"}[] {uses "ec.minimal_discriminant"}[] {uses "ec.q.period_lattice"}[] {uses "ec.weierstrass_coeffs"}[] {uses "nf"}[] {uses "nf.embedding"}[] {uses "nf.place"}[]
 :::
 
-:::definition "ec.potential_good_reduction"
+:::definition "ec.potential_good_reduction" (lean := "WeierstrassCurve.HasPotentialEverywhereGoodReduction, WeierstrassCurve.HasEverywhereGoodReduction, WeierstrassCurve.hasPotentialEverywhereGoodReduction_iff_isInteger_j, WeierstrassCurve.hasPotentialEverywhereGoodReduction_of_isInteger_j, WeierstrassCurve.HasPotentialEverywhereGoodReduction.isInteger_j, WeierstrassCurve.hasPotentialEverywhereGoodReduction_x_cube_sub_x")
 *Potential good reduction.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.potential_good_reduction))
 
 An {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K` is said to have *potential good reduction* if $`E` has {bpref "ec.good_reduction"}[everywhere good reduction] over a finite extension of $`K`.
@@ -1349,7 +1349,7 @@ When an elliptic curve is defined by means of a {bpref "ec.weierstrass_coeffs"}[
 Depends on: {uses "ec.q.minimal_weierstrass_equation"}[] {uses "ec.weierstrass_coeffs"}[] {uses "ec.weierstrass_isomorphism"}[]
 :::
 
-:::definition "ec.q.reduction_type"
+:::definition "ec.q.reduction_type" (lean := "WeierstrassCurve.LFunction_apply_absNorm_eq_frobeniusTrace, WeierstrassCurve.LFunction_apply_absNorm_eq_one, WeierstrassCurve.LFunction_apply_absNorm_eq_neg_one, WeierstrassCurve.LFunction_apply_absNorm_eq_zero, WeierstrassCurve.hasGoodSupersingularReduction_iff_dvd_LFunction_apply, WeierstrassCurve.ReductionType")
 *Reduction type of an elliptic curve over $`\mathbb Q`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.reduction_type))
 
 The *reduction type* of an elliptic curve $`E` defined over $`\mathbb{Q}` at a prime $`p`
@@ -1508,7 +1508,7 @@ Rank is an {bpref "ec.isogeny"}[isogeny] invariant: all curves in an {bpref "ec.
 Depends on: {uses "ec"}[] {uses "ec.isogeny"}[] {uses "ec.isogeny_class"}[] {uses "ec.mordell_weil_group"}[] {uses "ec.mordell_weil_theorem"}[] {uses "ec.torsion_subgroup"}[] {uses "nf"}[]
 :::
 
-:::definition "ec.reduction"
+:::definition "ec.reduction" (lean := "WeierstrassCurve.IsSemistable, WeierstrassCurve.isSemistable_iff_forall_hasMultiplicativeReduction, WeierstrassCurve.HasPotentialEverywhereGoodReduction, WeierstrassCurve.hasPotentialEverywhereGoodReduction_iff_isInteger_j, WeierstrassCurve.HasEverywhereGoodReduction, WeierstrassCurve.IsSemistable.hasEverywhereGoodReduction")
 *Reduction of an elliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.reduction))
 
 An {bpref "ec"}[elliptic curve] $`E` over a number field $`K` is *{bpref "ec.semistable"}[semistable]* if it has {bpref "ec.reduction_type"}[multiplicative reduction] at every {bpref "ec.bad_reduction"}[bad prime], and has *{bpref "ec.potential_good_reduction"}[potential good reduction]* if its {bpref "ec.j_invariant"}[$`j`-invariant] is {bpref "nf.integral"}[integral].

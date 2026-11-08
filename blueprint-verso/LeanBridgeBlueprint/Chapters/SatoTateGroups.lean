@@ -51,7 +51,7 @@ Component groups are named according to their isomorphism type.  This does not d
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.base_change"}[] {uses "ag.dimension"}[] {uses "group.alternating"}[] {uses "group.cyclic"}[] {uses "group.dihedral"}[] {uses "group.symmetric"}[] {uses "nf"}[] {uses "nf.galois_group"}[] {uses "st_group.definition"}[] {uses "st_group.identity_component"}[]
 :::
 
-:::definition "st_group.components"
+:::definition "st_group.components" (lean := "SatoTateGroup.finite_connectedComponents, SatoTateGroup.card_connectedComponents, connectedComponent_eq_smul, Subgroup.normal_connectedComponentOfOne, WeierstrassCurve.not_connectedSpace_satoTateNU1, SatoTateGroup.isEmbeddedLieSubgroup")
 *Components of a Sato-Tate group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.components))
 
 As a compact Lie group, a {bpref "st_group.definition"}[Sato-Tate group] $`G` need not be {bpref "st_group.connected"}[connected], but it necessarily consists of a finite set of components, each of which is a coset of the {bpref "st_group.identity_component"}[identity component] $`G^0`, a normal subgroup.  The number of components is equal to the cardinality of the {bpref "st_group.component_group"}[component group] $`G/G^0`.
@@ -140,7 +140,7 @@ When $`G` is the Sato-Tate group of a motive $`X` of weight $`w`, the $`h^{p,q}`
 Depends on: {uses "st_group.definition"}[] {uses "st_group.degree"}[] {uses "st_group.weight"}[]
 :::
 
-:::definition "st_group.identity_component"
+:::definition "st_group.identity_component" (lean := "Subgroup.connectedComponentOfOne, SatoTateGroup.identityComponent, Subgroup.normal_connectedComponentOfOne, SatoTateGroup.finiteIndex_connectedComponentOfOne, SatoTateGroup.isEmbeddedLieSubgroup, SatoTateGroup.componentGroup")
 *Identity component of a Sato-Tate group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.identity_component))
 
 The *identity component* of a {bpref "st_group.definition"}[Sato-Tate group] $`G` is the connected component $`G^0` of the identity element.  As a compact Lie group, the identity component $`G^0` is a normal subgroup of finite index.  The quotient $`G/G^0` is the {bpref "st_group.component_group"}[component group] of $`G`.
@@ -262,7 +262,7 @@ When $`G` is the Sato-Tate group of an abelian variety, this is equal to the dim
 Depends on: {uses "ag.endomorphism_algebra"}[] {uses "group.haar_measure"}[] {uses "st_group.definition"}[]
 :::
 
-:::definition "st_group.subgroups"
+:::definition "st_group.subgroups" (lean := "SatoTateGroup.IsMaximalSubgroup, SatoTateGroup.IsMaximalSubgroup.map_connectedComponentOfOne_eq, SatoTateGroup.map_connectedComponentOfOne_eq_of_relIndex_ne_zero, SatoTateGroup.connectedComponentOfOne_le_of_finiteIndex, SatoTateGroup.identityComponent, WeierstrassCurve.isMaximalSubgroup_satoTateTorus")
 *Maximal subgroups.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.subgroups))
 
 For a {bpref "st_group.definition"}[Sato-Tate group] $`G`, its *maximal subgroups* are the proper subgroups $`H` of $`G` of finite index that are not contained in any other proper subgroup of $`G`; such groups necessarily have the same {bpref "st_group.identity_component"}[identity component] $`H^0=G^0` as $`G`.

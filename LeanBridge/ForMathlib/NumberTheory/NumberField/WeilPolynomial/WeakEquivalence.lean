@@ -12,7 +12,8 @@ LMFDB uses this for the fractional ideals of the orders `R` of the étale algebr
 isogeny class of abelian varieties over `𝔽_q` (LMFDB `av.fq.endomorphism_ring_notation`); weak
 equivalence classes are also called local isomorphism classes, or genera. The LMFDB's remark that
 weakly equivalent fractional ideals of such an order have the same multiplier ring,
-`(I : I) = (J : J)`, is not formalised here.
+`(I : I) = (J : J)`, is proved in
+`LeanBridge.ForMathlib.NumberTheory.NumberField.WeilPolynomial.MultiplierRing`.
 
 ## Main definitions
 

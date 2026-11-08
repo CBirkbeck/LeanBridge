@@ -17,7 +17,7 @@ This chapter lists the LMFDB definitions in the category `lfunction`. Each defin
 An *arithmetic function* is a complex-valued function whose domain is the positive integers.
 :::
 
-:::definition "af.bernoulli_numbers" (lean := "bernoulli")
+:::definition "af.bernoulli_numbers" (lean := "bernoulli, bernoulliPowerSeries, bernoulliPowerSeries_mul_exp_sub_one, bernoulliSeries, radius_bernoulliSeries")
 *Bernoulli numbers.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/af.bernoulli_numbers))
 
 The *Bernoulli numbers* are the rational numbers $`B_n` that appear as coefficients of the formal power series

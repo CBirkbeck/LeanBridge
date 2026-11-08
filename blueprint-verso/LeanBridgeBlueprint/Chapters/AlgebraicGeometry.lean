@@ -245,7 +245,7 @@ For endomorphisms defined over an extension of $`k`, we instead speak about the 
 Depends on: {uses "ag.abelian_variety"}[]
 :::
 
-:::definition "ag.fq.point_counts"
+:::definition "ag.fq.point_counts" (lean := "AlgebraicGeometry.Scheme.PointOver, AlgebraicGeometry.Scheme.finite_pointOver, AlgebraicGeometry.Scheme.finite_hom_spec_of_finiteType")
 *Point counts of a variety.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.fq.point_counts))
 
 If $`X` is a {bpref "ag.variety"}[variety] {bpref "ag.base_field"}[defined] over a finite field $`\mathbb{F}_q`, one can show that it will have finitely many points that are defined over that field. Upon extending the base field to $`\mathbb{F}_{q^2}`, $`\mathbb{F}_{q^3}`, $`\mathbb{F}_{q^4}`, etc. the number of points of $`X` defined over those fields remains finite, as long as we consider only field extensions of finite degree over $`\mathbb{F}_q`.
@@ -253,7 +253,7 @@ If $`X` is a {bpref "ag.variety"}[variety] {bpref "ag.base_field"}[defined] over
 Depends on: {uses "ag.base_field"}[] {uses "ag.variety"}[]
 :::
 
-:::definition "ag.geom_component"
+:::definition "ag.geom_component" (lean := "AlgebraicGeometry.Scheme.geometricComponents, AlgebraicGeometry.Scheme.geometricComponents_eq_range_connectedComponent, AlgebraicGeometry.Scheme.finite_geometricComponents, AlgebraicGeometry.Scheme.geometricGaloisPerm, AlgebraicGeometry.Scheme.irreducibleComponents_eq_range_connectedComponent, AlgebraicGeometry.Scheme.geometricBaseChangeScheme")
 *Geometric component.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.geom_component))
 
 A *geometric component* of a smooth scheme $`X` of finite type over a field $`k` is an irreducible component of the base change $`X_{\overline{k}}`.  (Because $`X_{\overline{k}}` is smooth, irreducible components are the same as connected components.)

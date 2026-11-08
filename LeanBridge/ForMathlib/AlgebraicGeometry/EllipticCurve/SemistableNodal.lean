@@ -24,7 +24,8 @@ integral `j`-invariant has good reduction everywhere
 (`WeierstrassCurve.IsSemistable.hasGoodReduction_of_isInteger_j`): at a prime of bad reduction a
 semistable curve has multiplicative reduction, where `j` has a pole. The potential good reduction
 of LMFDB `ec.potential_good_reduction`, everywhere good reduction over one finite extension of `F`,
-is not formalised, and neither is its equivalence with the integrality of `j`.
+and its equivalence with the integrality of `j` are formalised in
+`LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.PotentialGoodReduction`.
 
 ## Main results
 

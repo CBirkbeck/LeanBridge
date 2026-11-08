@@ -124,7 +124,7 @@ The value for 't' can be either 'sl-0' or 'gl-0' to indicate the {bpref "hmsurfa
 Depends on: {uses "hmsurface.component_ideal"}[] {uses "hmsurface.congruence_subgroup"}[] {uses "hmsurface.hmsurface"}[] {uses "hmsurface.level"}[] {uses "nf.ideal_labels"}[] {uses "nf.label"}[]
 :::
 
-:::definition "hmsurface.level"
+:::definition "hmsurface.level" (lean := "HilbertModularGroup.gammaZero, HilbertModularGroup.isLevel_gammaZero, HilbertModularGroup.level_gammaZero, Ideal.IsHMFLabel, Ideal.exists_isHMFLabel, Ideal.IsHMFLabel.eq")
 *Definition of the level.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/hmsurface.level))
 
 The *level* is a nonzero ideal $`\mathfrak{N}` which determines the {bpref "hmsurface.congruence_subgroup"}[congruence subgroup] $`\Gamma_0(\mathfrak{N})_{\mathfrak{b}}`. In the LMFDB, such an ideal $`\mathfrak{N}` is identified by a {bpref "nf.ideal.label.hmf"}[label].

@@ -68,7 +68,7 @@ of $`L/K` is the degree of $`L/\Q_p`.
 Depends on: {uses "lf.padic_field"}[]
 :::
 
-:::definition "lf.discriminant_exponent"
+:::definition "lf.discriminant_exponent" (lean := "TauCeti.discriminantExponent, IsNonarchimedeanLocalField.algebraMap_discr_eq_det_sq, Algebra.discr_eq_det_sq_mul_discr, IsNonarchimedeanLocalField.associated_discr, IsNonarchimedeanLocalField.exists_discr_eq_sq_mul_discr, IsNonarchimedeanLocalField.padicDiscriminantExponent")
 *Discriminant exponent of a local field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.discriminant_exponent))
 
 Let $`L/K` be a finite extension of {bpref "lf.padic_field"}[$`p`-adic fields], with {bpref "lf.ring_of_integers"}[rings of integers] $`\mathcal{O}_L` and $`\mathcal{O}_K` and {bpref "lf.ramification_index"}[uniformizers] $`\pi_L` and $`\pi_K`.  The *discriminant* of $`L/K` is the square of the determinant of the matrix
@@ -918,7 +918,7 @@ Thus the family $`I/K` is partitioned into packets.
 Depends on: {uses "group.permutation_representation"}[] {uses "lf.family_polynomial"}[] {uses "lf.hidden_slopes"}[] {uses "lf.padic_field"}[] {uses "lf.ramification_index"}[] {uses "lf.residual_polynomials"}[] {uses "lf.residue_field_degree"}[] {uses "nf.galois_closure"}[]
 :::
 
-:::definition "lf.padic_field"
+:::definition "lf.padic_field" (lean := "Padic, TauCeti.FinitePadicExtension, TauCeti.finiteExtension_isNonarchimedeanLocalField, TauCeti.FinitePadicExtension.charZero, IsNonarchimedeanLocalField.finitePadicExtension, IsNonarchimedeanLocalField.nonempty_finitePadicExtension_ringChar")
 *$`p`-adic field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.padic_field))
 
 A *$`p`-adic field* (or *local number field*) is a finite extension of

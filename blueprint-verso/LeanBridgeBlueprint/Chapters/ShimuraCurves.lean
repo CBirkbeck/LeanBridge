@@ -124,7 +124,7 @@ When $`X_H` has {bpref "modcurve.genus"}[genus] zero, $`J_H` is the trivial abel
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.dimension"}[] {uses "ag.jacobian"}[] {uses "av.decomposition"}[] {uses "av.isogeny"}[] {uses "av.simple"}[] {uses "cmf.galois_orbit"}[] {uses "cmf.label"}[] {uses "cmf.newform"}[] {uses "cmf.weight"}[] {uses "modcurve.genus"}[] {uses "shimcurve"}[]
 :::
 
-:::definition "shimcurve.discb"
+:::definition "shimcurve.discb" (lean := "QuaternionAlgebra.IsRamifiedAt, QuaternionAlgebra.IsSplitAt, QuaternionAlgebra.discriminant, QuaternionAlgebra.finite_setOf_isRamifiedAt, QuaternionAlgebra.discriminant_eq_prod")
 *Discriminant of a quaternion algebra.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.discb))
 
 Let $`B` be a {bpref "shimcurve.quaternion_algebra"}[quaternion algebra] over $`\Q`. We say that $`B` is *ramified* at a
@@ -136,7 +136,7 @@ The *discriminant* $`\operatorname{disc}(B)` of $`B` is the product of primes $`
 Depends on: {uses "shimcurve.quaternion_algebra"}[]
 :::
 
-:::definition "shimcurve.disco"
+:::definition "shimcurve.disco" (lean := "Subalgebra.quaternionDisc, Subalgebra.quaternionDiscrd, Subalgebra.quaternionDisc_eq_quaternionDiscOfBasis, Subalgebra.exists_quaternionDiscrd_eq_natCast, Subalgebra.quaternionDiscrd_pos, Subalgebra.quaternionDiscrd_sq")
 *Discriminant of a quaternion order.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.disco))
 
 Let $`B` be a {bpref "shimcurve.quaternion_algebra"}[quaternion algebra] over $`\Q`, and let $`O\subset B` be an
@@ -173,7 +173,7 @@ An *elliptic point* of a {bpref "shimcurve"}[Shimura curve] $`X_H` is a point wi
 Depends on: {uses "shimcurve"}[]
 :::
 
-:::definition "shimcurve.enhanced_group"
+:::definition "shimcurve.enhanced_group" (lean := "Subalgebra.completedUnits, Subalgebra.completedUnitsTopology, Subalgebra.completedUnitsProfinite, Subalgebra.compactSpace_completedUnits, Subalgebra.completedUnitsAction, Subalgebra.EnhancedGroup")
 *Enhanced group associated to a polarized quaternion order.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.enhanced_group))
 
 Let $`(O,\mu)` be a {bpref "shimcurve.polarized_order"}[polarized quaternion order].

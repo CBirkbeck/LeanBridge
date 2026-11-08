@@ -18,8 +18,9 @@ the enhanced group. The level of `H` is the least `N > 0` such that `H` contains
 
 As in `LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.Coarse`, `B` is any `ℚ`-algebra, `O` any
 subring and `μ` any element. The profinite topology of `Ô^×` (the subspace topology of the product
-of the discrete groups `(O/NO)^×`) and of the enhanced group is not introduced: the index and the
-level are purely group-theoretic.
+of the discrete groups `(O/NO)^×`) is `Subalgebra.completedUnitsTopology`, in
+`LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.CompletedUnitsProfinite`; it is not used here, as
+the index and the level are purely group-theoretic, and the enhanced group is given no topology.
 
 ## Main definitions
 

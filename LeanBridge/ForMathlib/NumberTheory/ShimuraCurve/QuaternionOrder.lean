@@ -25,10 +25,13 @@ polarization of an order `O` in an indefinite division quaternion algebra is a u
 The algebra `B` is any `ℚ`-algebra here, and is a quaternion algebra in the intended applications;
 the reduced trace and norm are given by the formulas above, which agree with Mathlib's
 presentation (`QuaternionAlgebra.reducedTrace_quaternionAlgebra` and
-`QuaternionAlgebra.reducedNorm_quaternionAlgebra`). The following facts, which make the
-definitions meaningful, are not proved: that the discriminant of `B` is a finite product, that the
-discriminant of an order does not depend on the basis and is a perfect square, and that the
-quotient `nrd(μ) / discrd(O)` is an integer.
+`QuaternionAlgebra.reducedNorm_quaternionAlgebra`). The facts that make the discriminants
+meaningful are proved for quaternion algebras over `ℚ` in
+`LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.QuaternionRamification` and
+`LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.QuaternionOrderDiscriminant`: the ramified primes
+are finitely many, and the discriminant of an order does not depend on the basis and is the square
+of the positive integer `discrd(O)`. That the quotient `nrd(μ) / discrd(O)` is an integer is not
+proved.
 
 ## Main definitions
 
@@ -82,8 +85,9 @@ def IsSplitAt : Prop :=
 
 open scoped Classical in
 /-- The **discriminant** `disc(B)` of a quaternion algebra `B` over `ℚ` (LMFDB `shimcurve.discb`):
-the product of the primes at which `B` is ramified. There are finitely many of them (this is not
-proved here), and the product is `1` if there were infinitely many. -/
+the product of the primes at which `B` is ramified. There are finitely many of them
+(`QuaternionAlgebra.finite_setOf_isRamifiedAt`), so that this is their finite product
+(`QuaternionAlgebra.discriminant_eq_prod`). -/
 noncomputable def discriminant : ℕ :=
   ∏ᶠ p : Nat.Primes, if IsRamifiedAt B p then (p : ℕ) else 1
 
@@ -130,16 +134,19 @@ noncomputable def quaternionDiscOfBasis (x : Module.Basis (Fin 4) ℤ O) : ℚ :
 open scoped Classical in
 /-- The **discriminant** `disc(O) = |det (trd(x_i x_j))_{i,j}|` of an order `O` of a quaternion
 algebra over `ℚ` (LMFDB `shimcurve.disco`), for a `ℤ`-basis `x₁, …, x₄` of `O`, chosen here, and
-`0` when `O` has no basis of four elements. It does not depend on the basis, since a change of basis
-multiplies the determinant by the square `±1` of the determinant of an integral matrix with integral
-inverse (this is not proved here). -/
+`0` when `O` has no basis of four elements, which does not happen for an order
+(`Subalgebra.nonempty_basis_of_isQuaternionOrder`). It does not depend on the basis
+(`Subalgebra.quaternionDisc_eq_quaternionDiscOfBasis`), since a change of basis multiplies the
+determinant by the square `1` of the determinant `±1` of an integral matrix with integral
+inverse. -/
 noncomputable def quaternionDisc : ℚ :=
   if h : Nonempty (Module.Basis (Fin 4) ℤ O) then O.quaternionDiscOfBasis h.some else 0
 
 /-- The **reduced discriminant** `discrd(O)` of an order `O` of a quaternion algebra over `ℚ` (LMFDB
 `shimcurve.disco`): the positive integer whose square is `disc(O)`, here the rational square root
-`Rat.sqrt`, which is that integer since `disc(O)` is the square of an integer (this is not proved
-here). -/
+`Rat.sqrt`, which is that integer since `disc(O)` is the square of a nonzero integer
+(`Subalgebra.exists_quaternionDiscrd_eq_natCast`, `Subalgebra.quaternionDiscrd_pos`,
+`Subalgebra.quaternionDiscrd_sq`). -/
 noncomputable def quaternionDiscrd : ℚ :=
   Rat.sqrt O.quaternionDisc
 

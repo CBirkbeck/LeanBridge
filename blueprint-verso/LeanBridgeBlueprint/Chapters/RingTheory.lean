@@ -130,7 +130,7 @@ If $`R=\Z/p^e\Z`, again there are two possibilities for $`A`: the split algebra 
 If $`R=\Z/N\Z` for some $`N \ge 1`, then $`A` can be split or nonsplit independently at each prime dividing $`N`.
 :::
 
-:::definition "gl2.exceptional"
+:::definition "gl2.exceptional" (lean := "Matrix.GeneralLinearGroup.IsExceptionalSubgroup, Matrix.GeneralLinearGroup.HasExceptionalType, Matrix.GeneralLinearGroup.projectiveImage, Matrix.GeneralLinearGroup.IsExceptionalSubgroup.exists_hasExceptionalType, Matrix.GeneralLinearGroup.HasExceptionalType.eq, Matrix.GeneralLinearGroup.IsExceptionalSubgroup.exists_cls_eq")
 *Exceptional subgroup.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gl2.exceptional))
 
 An *exceptional subgroup* of $`\GL_2(\F_p)` does not contain $`\SL_2(\F_p)` and is not contained in a {bpref "gl2.borel"}[Borel subgroup] or in the {bpref "gl2.normalizer_cartan"}[normalizer of a Cartan subgroup].
@@ -282,7 +282,7 @@ where $`a` and $`b` are minimally chosen positive integers and $`r` is the least
 Depends on: {uses "gl2.split_cartan"}[]
 :::
 
-:::definition "gl2.open" (lean := "OpenSubgroup")
+:::definition "gl2.open" (lean := "OpenSubgroup, OpenSubgroup.finiteIndex_toSubgroup, ProfiniteGrp.exists_comap_map_mk_eq, ProfiniteGrp.exists_finiteIndex_not_isOpen, Matrix.GeneralLinearGroup.adelicLevel, Matrix.GeneralLinearGroup.inf_comap_map_adelicReduction_adelicLevel")
 *Open subgroup.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gl2.open))
 
 An *open subgroup* $`H` of a {bpref "gl2.profinite"}[profinite group] $`G` is a subgroup that is open in the topology of $`G`, which implies that it is equal to the inverse image of its projection to a a finite quotient of $`G`.
@@ -294,7 +294,7 @@ When the profinite group $`G` is a matrix group over a ring $`R` that is equippe
 Depends on: {uses "gl2.profinite"}[]
 :::
 
-:::definition "gl2.profinite" (lean := "ProfiniteGrp")
+:::definition "gl2.profinite" (lean := "ProfiniteGrp, ProfiniteGrp.isoLimittoFiniteQuotientFunctor, Matrix.GeneralLinearGroup.gl2ZModLimit, Matrix.GeneralLinearGroup.gl2ZModLimitProfiniteGrp, Matrix.GeneralLinearGroup.gl2ZHatContinuousMulEquiv, TauCeti.zHat.existsUnique_forall_toZMod_eq")
 *Profinite group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gl2.profinite))
 
 A *profinite group* is a compact totally disconnected topological group.  Equivalently, it is the inverse limit of a system of finite groups equipped with the discrete topology.
@@ -306,7 +306,7 @@ $$`\lim_{\overset{\longleftarrow}{n}} \GL_2(\Z/n\Z) \simeq \GL_2(\widehat{\Z})`
 is a profinite group which is isomorphic to the group of invertible $`2\times 2` matrices over the topological ring $`\widehat{\Z}`, which is the inverse limit of the finite rings $`\Z/n\Z` equipped with the discrete topology.
 :::
 
-:::definition "gl2.split_cartan"
+:::definition "gl2.split_cartan" (lean := "Matrix.GeneralLinearGroup.IsSplitCartanSubgroup, Matrix.GeneralLinearGroup.isSplitCartanSubgroup_iff, TauCeti.diagonalTorus, Matrix.GeneralLinearGroup.diagonalTorusMulEquivProd, Matrix.GeneralLinearGroup.isSplitCartanSubgroup_diagonalTorus, Matrix.GeneralLinearGroup.labelCsAB")
 *Split Cartan subgroup.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gl2.split_cartan))
 
 A *split Cartan subgroup* of $`\GL_2(\F_p)` is a {bpref "gl2.cartan"}[Cartan subgroup] that is diagonalizable over $`\F_p`.  Every split Cartan subgroup is conjugate to the subgroup of diagonal matrices, which is isomorphic to $`\F_p^\times\times\F_p^\times`.

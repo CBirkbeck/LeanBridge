@@ -475,7 +475,7 @@ A {bpref "modcurve"}[modular curve] $`X_H` is *simple* if its {bpref "ag.jacobia
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.jacobian"}[] {uses "av.simple"}[] {uses "modcurve"}[]
 :::
 
-:::definition "modcurve.sl2level"
+:::definition "modcurve.sl2level" (lean := "Matrix.GeneralLinearGroup.sl2Level, Matrix.GeneralLinearGroup.modularGamma, Matrix.GeneralLinearGroup.Gamma_sl2Level_le, Matrix.GeneralLinearGroup.adelicLevel, Matrix.GeneralLinearGroup.sl2Level_dvd_adelicLevel, Matrix.GeneralLinearGroup.exists_sl2Level_ne_adelicLevel")
 *$`\SL_2`-level.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.sl2level))
 
 The *$`\SL_2`-level* of a {bpref "modcurve"}[modular curve] $`X_H` is the {bpref "cmf.congruence_subgroup"}[level of the congruence subgroup] $`\Gamma_H:=H\cap\SL_2(\Z)`.  The $`\SL_2`-level divides but need not equal the {bpref "gl2.level"}[level] of $`H`.

@@ -1,3 +1,4 @@
+import LeanBridge.ForMathlib.NumberTheory.Padics.Expansion
 import Mathlib.NumberTheory.Padics.HeightOneSpectrum
 import Mathlib.NumberTheory.Padics.RingHoms
 import Mathlib.RingTheory.Polynomial.GaussLemma
@@ -20,11 +21,11 @@ their vectors of `p`-adic digits `(a_{0,0}, a_{1,0}, …, a_{d,0}, a_{0,1}, …)
 slowest, the constant term first) are also those of the authors' code (`psort.py` in
 github.com/JohnCremona/Sorting). This file defines that order and proves that it is total:
 distinct primes above `p` have distinct `p`-adic factors, by the semi-local decomposition
-`ℚ_p ⊗ K ≅ ∏_{𝔭 ∣ p} K_𝔭` of Tau Ceti, and a `p`-adic integer is determined by its digits.
+`ℚ_p ⊗ K ≅ ∏_{𝔭 ∣ p} K_𝔭` of Tau Ceti, and a `p`-adic integer is determined by its digits
+(`PadicInt.digit`, from `Padics/Expansion.lean`).
 
 ## Main definitions
 
-* `PadicInt.digit`: the digits of the `p`-adic expansion of a `p`-adic integer.
 * `Padic.intDigit`: the digits of an element of `ℚ_[p]` that is a `p`-adic integer.
 * `Polynomial.padicDigits` (LMFDB `nf.ideal_labels`): the digit vector of a polynomial over
   `ℚ_[p]` with `p`-adic integer coefficients.
@@ -61,12 +62,6 @@ open scoped TensorProduct AdicCompletionExtension IntermediateField
 namespace PadicInt
 
 variable {p : ℕ} [Fact p.Prime] (x : ℤ_[p]) {y : ℤ_[p]}
-
-/-- The **`n`-th digit** `aₙ ∈ [0, p - 1]` of the `p`-adic expansion `x = ∑ aₙ pⁿ` of a `p`-adic
-integer (Cremona–Page–Sutherland, arXiv:2005.09491, §2.2): `appr x (n + 1) = a₀ + ⋯ + aₙ pⁿ` is the
-residue of `x` modulo `pⁿ⁺¹` in `[0, pⁿ⁺¹)`, and `aₙ` its quotient by `pⁿ`. -/
-noncomputable def digit (n : ℕ) : ℕ :=
-  x.appr (n + 1) / p ^ n
 
 lemma appr_succ_eq_add_digit (n : ℕ) : x.appr (n + 1) = x.appr n + p ^ n * x.digit n := by
   rcases x.dvd_appr_sub_appr n (n + 1) n.le_succ with ⟨c, hc⟩

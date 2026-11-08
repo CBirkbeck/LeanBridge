@@ -63,7 +63,8 @@ of a subring `S` of a commutative ring `K`, relative to a subring `R`: the numbe
 equivalence classes (`FractionalIdeal.WeakEquivalenceClass`) of fractional `R`-ideals `I` of `K`
 whose multiplier ring `(I : I) = {x ∈ K | xI ⊆ I}` is `S`. The LMFDB's `R` is the Frobenius order
 `ℤ[F, V]` of an isogeny class over `𝔽_q` and `S` one of its overorders in `K = ℚ[F]`; weakly
-equivalent fractional ideals have the same multiplier ring (not formalised here), so these classes
+equivalent fractional ideals have the same multiplier ring
+(`FractionalIdeal.WeaklyEquivalent.div_self_eq`), so these classes
 are those of the ideals with multiplier ring `S`. For two such ideals `I` and `J`, weak equivalence
 as fractional `R`-ideals and as fractional `S`-ideals (LMFDB `av.fq.weak_equivalence_class`) are
 the same condition, `1 ∈ (I : J)(J : I)` (Dade, Taussky and Zassenhaus; not formalised here). The

@@ -75,7 +75,7 @@ where $`\lambda_1,\dots,\lambda_n` are the {bpref "lattice.successive_minima"}[s
 Depends on: {uses "lattice.successive_minima"}[]
 :::
 
-:::definition "lattice.definition"
+:::definition "lattice.definition" (lean := "LinearMap.BilinForm.IsQuadraticSpace, LinearMap.BilinForm.gramPolynomial, Submodule.IsDiscreteLattice, LinearMap.BilinForm.IsIntegralLattice, LinearMap.BilinForm.ratModelIsometry, TauCeti.IntegralLattice.realisationIsometry")
 *Integral Lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.definition))
 
 Let $`V` be an $`n`-dimensional vector space over a topological field $`F` (with $`\text{char}(F) \neq 2`) equipped with a nonsingular symmetric bilinear map $`B:V\times V\rightarrow F` and associated quadratic map $`Q(v):=B(v,v).`  The pair $`(V,Q)` is a *quadratic space*.  Fixing a basis, $`\{v_1,...,v_n\}` for $`V`, the space $`(V,Q)` has an associated quadratic form, that is, a homogeneous degree 2 polynomial, given by
@@ -237,7 +237,7 @@ For an {bpref "lattice.definition"}[integral lattice] $`L`, the *Festi--Veniani 
 Depends on: {uses "lattice.automorphism_group"}[] {uses "lattice.definition"}[] {uses "lattice.discriminant_group"}[]
 :::
 
-:::definition "lattice.genus"
+:::definition "lattice.genus" (lean := "LinearMap.BilinForm.genus, LinearMap.BilinForm.integralForm, Submodule.IsDiscreteLattice, LinearMap.BilinForm.equivalent_localIntegralForm_ratModel_of_mem_genus, TauCeti.IntegralLattice.SameGenus, TauCeti.IntegralLattice.localIntegralForm")
 *Genus of an integral lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.genus))
 
 For an {bpref "lattice.definition"}[integral lattice], $`L` with underlying quadratic space $`V`, the *genus* of $`L` is the set of all lattices $`M` on $`V`, such that $`M_p\cong L_p` for all primes $`p`.
@@ -389,7 +389,7 @@ For an {bpref "lattice.definition"}[integral lattice], $`L`, the *minimum*, deno
 Depends on: {uses "lattice.definition"}[]
 :::
 
-:::definition "lattice.nondegenerate"
+:::definition "lattice.nondegenerate" (lean := "TauCeti.IntegralLattice.IsNondegenerate, TauCeti.IntegralLattice.isNondegenerate_iff_forall_form_eq_zero, TauCeti.IntegralLattice.signature, TauCeti.IntegralLattice.sigNull_eq_ncard_eigenvalues_eq_zero, TauCeti.IntegralLattice.isDegenerate_iff_sigNull_pos, TauCeti.IntegralLattice.isPosSemidef_iff_sigNeg_eq_zero")
 *Nondegenerate lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.nondegenerate))
 
 An {bpref "lattice.definition"}[integral lattice] $`L` with bilinear form $`B` is *nondegenerate* if
@@ -568,7 +568,7 @@ A positive definite integral lattice $`L` is called a *root lattice* if it is eq
 Depends on: {uses "lattice.definition"}[] {uses "lattice.positive_definite"}[]
 :::
 
-:::definition "lattice.signature"
+:::definition "lattice.signature" (lean := "TauCeti.IntegralLattice.signature, TauCeti.IntegralLattice.sigPos_eq_ncard_eigenvalues_pos, TauCeti.IntegralLattice.sigNeg_eq_ncard_eigenvalues_neg, TauCeti.IntegralLattice.equivalent_atRealPlace_iff, TauCeti.IntegralLattice.isNegDef_iff_signature_eq, TauCeti.IntegralLattice.isIndefinite_iff_signature_ne")
 *Signature of an integral lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.signature))
 
 For a {bpref "lattice.nondegenerate"}[nondegenerate] {bpref "lattice.definition"}[integral lattice] $`L`, the *signature* of $`L` is a pair $`(n_+, n_-)`, where $`n_+` (resp. $`n_-`) is the number of positive (resp. negative) eigenvalues of a {bpref "lattice.gram"}[Gram matrix] for $`L`.  Note that the {bpref "lattice.nondegenerate"}[signature] of a degenerate lattice has an extra component $`n_0` for the number of $`0` eigenvalues.  The signature classifies lattices up to isometry over the real numbers.

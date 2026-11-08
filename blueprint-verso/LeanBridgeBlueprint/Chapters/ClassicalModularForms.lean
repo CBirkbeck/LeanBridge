@@ -302,7 +302,7 @@ is strictly increasing.  The length of the sequence $`p_1,\ldots p_n` is always 
 Depends on: {uses "cmf.galois_orbit"}[] {uses "cmf.hecke_operator"}[] {uses "cmf.newform"}[] {uses "cmf.newspace"}[]
 :::
 
-:::definition "cmf.dualform"
+:::definition "cmf.dualform" (lean := "CuspForm.conj, CuspForm.qExpansion_conj, CuspForm.coeff_conj_div_cpow, HeckeRing.GL2.Newform.analyticCoeff_conj, HeckeRing.GL2.Newform.isCMField_coefficientField_iff, HeckeRing.GL2.Newform.numberField_coefficientField")
 *Dual cuspform.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.dualform))
 
 The *dual* of a {bpref "cmf.cusp_form"}[cuspidal modular form] $`f` is the form whose coefficients $`a_n` in its {bpref "cmf.q-expansion"}[$`q`-expansion] are the complex conjugates of those of $`f`.  The {bpref "cmf.lfunction"}[L-function] of the dual form is the {bpref "lfunction.dual"}[dual] of the L-function of $`f`.
@@ -1040,7 +1040,7 @@ When $`K` is an imaginary quadratic field the {bpref "cmf.newform"}[newform] is 
 Depends on: {uses "character.dirichlet.kronecker_symbol"}[] {uses "character.dirichlet.principal"}[] {uses "cmf.cm_form"}[] {uses "cmf.inner_twist"}[] {uses "cmf.newform"}[] {uses "cmf.rm_form"}[] {uses "cmf.self_twist"}[]
 :::
 
-:::definition "cmf.selfdual"
+:::definition "cmf.selfdual" (lean := "CuspForm.IsSelfDual, CuspForm.isSelfDual_iff_forall_conj_div_cpow, HeckeRing.GL2.Newform.IsSelfDual, HeckeRing.GL2.Newform.isTotallyReal_coefficientField_iff, HeckeRing.GL2.Newform.isCMField_coefficientField_iff, HeckeRing.GL2.Newform.numberField_coefficientField")
 *Self dual modular form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.selfdual))
 
 A {bpref "cmf.cusp_form"}[cuspidal modular form] $`f` is said to be *self dual* if the coefficients $`a_n` that appear in its {bpref "cmf.q-expansion"}[$`q`-expansion] are real numbers; equivalently, the {bpref "cmf.lfunction"}[L-function] of the modular form is {bpref "lfunction.self-dual"}[self dual].
