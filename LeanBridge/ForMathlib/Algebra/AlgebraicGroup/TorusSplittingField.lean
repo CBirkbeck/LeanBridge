@@ -15,8 +15,11 @@ torus, `TauCeti.splitTorusCommHopfAlgProperty`.
 Extensions are taken inside an algebraic closure `k̄` of `k`, so that the splitting field is a
 well-defined intermediate field of `k̄ / k`. It is defined as the infimum of the Galois extensions
 of `k` inside `k̄` that split `T`, and `TauCeti.IsTorusSplittingField` says that a given field is
-the least of them. That this infimum splits `T` (it is the fixed field of the kernel of the Galois
-action on the character lattice of `T`, a finite Galois extension) is not formalised.
+the least of them. For a torus the infimum is the least one, the normal closure of the field of
+definition of the characters of `T`, a finite Galois extension of `k`
+(`TauCeti.isTorusSplittingField_torusSplittingField` and
+`TauCeti.torusSplittingField_eq_normalClosure`, in
+`LeanBridge.ForMathlib.Algebra.AlgebraicGroup.TorusSplittingFieldExistence`).
 
 ## Main definitions
 
@@ -53,10 +56,11 @@ def IsTorusSplittingField (E : IntermediateField k (AlgebraicClosure k)) : Prop 
 Hopf algebra `H`: the minimal Galois extension of `k` inside the algebraic closure `k̄` over which
 `T` becomes isomorphic to a power of `𝔾ₘ`, defined as the infimum of all such extensions.
 
-For a torus, these extensions are exactly the Galois extensions containing the fixed field of the
-kernel of the Galois action on the character lattice, so the infimum is that field (not proved here,
-see `TauCeti.IsTorusSplittingField.torusSplittingField_eq`). When `H` is not the coordinate ring of
-a torus, nothing splits it and the value is the junk value `k̄`. -/
+For a torus, these extensions are exactly the Galois extensions containing the field of definition
+of the characters of `T`, and the infimum is its normal closure, a finite Galois extension of `k`
+that splits `T` (`TauCeti.torusSplittingField_eq_normalClosure`,
+`TauCeti.isTorusSplittingField_torusSplittingField`). When `H` is not the coordinate ring of a
+torus, nothing splits it and the value is the junk value `k̄`. -/
 noncomputable def torusSplittingField : IntermediateField k (AlgebraicClosure k) :=
   sInf {E : IntermediateField k (AlgebraicClosure k) | IsGalois k E ∧ IsTorusSplitOver H E}
 

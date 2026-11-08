@@ -7,9 +7,10 @@ import TauCeti.NumberTheory.NumberField.FiniteGaloisIntermediateField
 # Mod-`ℓ` Galois representations and their Frobenius invariants
 
 A mod-`ℓ` Galois representation of a number field `K` is a continuous homomorphism
-`ρ : Gal(K̄/K) → G(𝔽_ℓ)` to the `𝔽_ℓ`-points of an algebraic group `G`. The LMFDB's
-representations take values in `GL_n(𝔽_ℓ)`, and we take `G = GL_n` (a representation into the
-`𝔽_ℓ`-points of a closed subgroup of `GL_n` is one into `GL_n` with image in that subgroup).
+`ρ : Gal(K̄/K) → G(𝔽_ℓ)` to the `𝔽_ℓ`-points of an algebraic group `G`. This file takes
+`G = GL_n`, as the LMFDB's data do; for an algebraic group `G` with an embedding `ι : G ⟶ GL_n`,
+the invariants of `ρ` are those of `ι ∘ ρ` (`MonoidHom.mapGL`, `MonoidHom.frobeniusCharpolyIn`,
+`MonoidHom.frobeniusTraceIn` and `MonoidHom.frobeniusDetIn`).
 Continuity for the discrete topology on the finite group `GL_n(𝔽_ℓ)` means that the kernel of `ρ`
 is open, so that `ρ` factors through the Galois group `Gal(L/K)` of the splitting field `L` of
 `ρ`, the fixed field of its kernel, a finite Galois extension of `K` (LeanBridge's
@@ -52,8 +53,10 @@ variable {K : Type*} [Field K] [NumberField K] {n ℓ : ℕ}
 /-- A homomorphism `ρ : Gal(K̄/K) → GL_n(𝔽_ℓ)` from the absolute Galois group of a number field `K`
 (Mathlib's `Field.absoluteGaloisGroup K`) is a **mod-`ℓ` Galois representation** (LMFDB `modlgal`)
 if `ℓ` is prime and `ρ` is continuous for the discrete topology on `GL_n(𝔽_ℓ)`, that is, its kernel
-is open in the Krull topology. The LMFDB allows values in the `𝔽_ℓ`-points of any algebraic group;
-its data, and the representations here, take values in `GL_n(𝔽_ℓ)`. -/
+is open in the Krull topology. This is the case `G = GL_n` of `MonoidHom.IsModEllGaloisRepIn`,
+which allows values in the `𝔽_ℓ`-points of any algebraic group `G`; through an embedding
+`ι : G ⟶ GL_n`, such a representation gives one into `GL_n(𝔽_ℓ)`
+(`MonoidHom.IsModEllGaloisRepIn.isModEllGaloisRep_mapGL`). -/
 structure IsModEllGaloisRep : Prop where
   /-- The characteristic `ℓ` is prime. -/
   prime : ℓ.Prime
@@ -88,8 +91,8 @@ variable (𝔭 : Ideal (𝓞 K)) [𝔭.IsMaximal] (hur : ∀ (Q : Ideal (𝓞 (s
   [Q.LiesOver 𝔭], Algebra.IsUnramifiedAt (𝓞 K) Q)
 
 /-- The **conjugacy class of the Frobenius matrices** (LMFDB `modlgal.frobenius_matrix`) of a
-mod-`ℓ` Galois representation `ρ` at a prime `𝔭` of `K` at which `ρ` is unramified, that is, which is
-unramified in the splitting field `L` of `ρ`: the image under `ρ` of the conjugacy class of the
+mod-`ℓ` Galois representation `ρ` at a prime `𝔭` of `K` at which `ρ` is unramified, that is, which
+is unramified in the splitting field `L` of `ρ`: the image under `ρ` of the conjugacy class of the
 Frobenius elements of `Gal(L/K)` at the primes above `𝔭`, Tau Ceti's `NumberField.artinSymbol`. -/
 noncomputable def frobeniusClass : ConjClasses (GL (Fin n) (ZMod ℓ)) :=
   (artinSymbol 𝔭 hur).map (galoisFactor hρ)

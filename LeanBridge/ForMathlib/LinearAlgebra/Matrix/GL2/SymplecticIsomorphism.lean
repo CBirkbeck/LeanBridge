@@ -10,8 +10,14 @@ of characteristic not dividing `N` in the LMFDB), a `ℤ/Nℤ`-module when writt
 symplectic structure when it comes with an isomorphism `α : ⋀²M ≃ μ_N`, equivalently with the
 nondegenerate alternating pairing `(x, y) ↦ α (x ∧ y)`; for example `E[N]` with the Weil pairing.
 An isomorphism `f : M ≃ M'` is symplectic if the isomorphism `⋀²f` it induces becomes the identity
-of `μ_N` through `α` and `α'`, that is, if it preserves the pairings. The variants for Galois
-modules and finite étale group schemes are not formalised.
+of `μ_N` through `α` and `α'`, that is, if it preserves the pairings. The correspondence between
+the isomorphisms `α` and the nondegenerate alternating pairings
+(`rootsOfUnity.exteriorSquareEquivPairing`), the examples `E[N]`
+(`WeierstrassCurve.weilPairingExteriorEquiv`) and `ℤ/Nℤ × μ_N` (`rootsOfUnity.detSymplecticEquiv`),
+and the variant for Galois modules (`LinearEquiv.IsGaloisSymplectic`) are in
+`LinearAlgebra/Matrix/GL2/SymplecticPairing.lean` and
+`AlgebraicGeometry/EllipticCurve/WeilPairingSymplectic.lean`; the variant for finite étale group
+schemes is not formalised.
 
 ## Main definitions
 

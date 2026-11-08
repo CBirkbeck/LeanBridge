@@ -35,7 +35,7 @@ The *absolute discriminant* of a {bpref "nf"}[number field] is the absolute valu
 Depends on: {uses "nf"}[] {uses "nf.discriminant"}[]
 :::
 
-:::definition "nf.absolute_value" (lean := "Archimedean")
+:::definition "nf.absolute_value" (lean := "Archimedean, AbsoluteValue, IsNonarchimedean, AbsoluteValue.charZero_of_not_isNonarchimedean, AbsoluteValue.isNonarchimedean_trivial, AbsoluteValue.isEquiv_iff_exists_eq_rpow, AbsoluteValue.equivalence_exists_eq_rpow")
 *Absolute value of a field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.absolute_value))
 
 An *absolute value* of a field $`k` is a function $`|\ |:k\to \R_{\ge 0}` that satisfies:

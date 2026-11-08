@@ -40,7 +40,7 @@ Note, a finite extension is {bpref "nf.is_galois"}[Galois] if and only if $`|\te
 Depends on: {uses "nf.is_galois"}[] {uses "ring.field"}[]
 :::
 
-:::definition "lf.defining_polynomial"
+:::definition "lf.defining_polynomial" (lean := "IsAdjoinRoot, IsAdjoinRoot.nonempty_iff, Padic.exists_monic_nonempty_isAdjoinRoot_padicInt, Padic.exists_monic_nonempty_isAdjoinRoot, IsNonarchimedeanLocalField.exists_adjoin_eq_top_isEisensteinForm_minpoly, FiniteField.conwayPolynomial")
 *Defining polynomial of a local field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.defining_polynomial))
 
 The *defining polynomial* of a {bpref "lf.padic_field"}[$`p`-adic field] $`K` is an irreducible polynomial $`f(x)\in\mathbb{Q}_p[x]` such that $`K\cong \mathbb{Q}_p(a)`, where $`a` is a root of $`f(x)`.

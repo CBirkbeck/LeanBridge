@@ -87,7 +87,7 @@ Note that if $`p` is {bpref "artin.unramified_primes"}[unramified] in $`K`, then
 Depends on: {uses "artin.unramified_primes"}[] {uses "gg.galois_group"}[] {uses "lf.inertia_group"}[] {uses "lf.padic_field"}[] {uses "lf.wild_inertia_group"}[] {uses "modlgal"}[] {uses "nf.is_galois"}[] {uses "nf.prime"}[]
 :::
 
-:::definition "modlgal.det_surjective"
+:::definition "modlgal.det_surjective" (lean := "MonoidHom.IsDetSurjective, MonoidHom.isDetSurjective_iff, MonoidHom.isDetSurjective_iff_detIndex_eq_one, MonoidHom.mapGL, MonoidHom.detCharacterGL, AlgebraicGeometry.rationalPointsToGL")
 *Determinant is surjective.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modlgal.det_surjective))
 
 For a {bpref "modlgal"}[mod-$`\ell` Galois representation], its determinant is {bpref "modlgal.surjective"}[surjective] is the image of its determinant map is $`\GL_1(\F_{\ell})`.
@@ -95,7 +95,7 @@ For a {bpref "modlgal"}[mod-$`\ell` Galois representation], its determinant is {
 Depends on: {uses "modlgal"}[] {uses "modlgal.surjective"}[]
 :::
 
-:::definition "modlgal.determinant"
+:::definition "modlgal.determinant" (lean := "MonoidHom.mapGL, MonoidHom.detCharacter, MonoidHom.detCharacterGL, MonoidHom.IsModEllGaloisRepIn.isModEllGaloisRepIn_detCharacterGL, MonoidHom.symm_comp_detCharacterGL_mapGL, AlgebraicGeometry.rationalPointsToGL")
 *Determinant character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modlgal.determinant))
 
 To each {bpref "modlgal"}[mod-$`\ell` Galois representation] $`\rho:\Gal_K \to G(\F_{\ell})`, with values in the $`\F_{\ell}`-points of an algebraic group $`G`, is associated a *determinant character* $`\det\rho:\Gal_K \to \F_{\ell}^*`, defined by composing $`\rho` with the determinant map $`G(\F_{\ell}) \to \F_{\ell}^*`.
@@ -105,7 +105,7 @@ The determinant character is a $`1`-dimensional {bpref "modlgal"}[mod-$`\ell` Ga
 Depends on: {uses "modlgal"}[] {uses "modlgal.dimension"}[]
 :::
 
-:::definition "modlgal.determinant_index"
+:::definition "modlgal.determinant_index" (lean := "MonoidHom.detIndex, MonoidHom.detIndex_mapGL, MonoidHom.mapGL, MonoidHom.detCharacter, AlgebraicGeometry.rationalPointsToGL, MonoidHom.detIndex_mapGL_specialLinear")
 *Determinant index.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modlgal.determinant_index))
 
 Given a {bpref "modlgal"}[mod-$`\ell` Galois representation] $`\rho:\Gal_K\to G(\F_{\ell})`, the *determinant index* is the index of $`\det(\rho(\Gal_K))` in $`\F_{\ell}^\times`.
@@ -136,7 +136,7 @@ Let $`R` be a ring. A dual pair of algebras over $`R` is a triple $`(A, B, \phi)
 Dual pairs of algebras and group schemes are related via an (anti)-equivalence of categories. Therefore, all information about a group scheme is encoded in the corresponding dual pair of algebras: see the article  for further details, as well as the associated [SageMath package](https://dual-pairs.readthedocs.io/en/latest/).
 :::
 
-:::definition "modlgal.frobenius_charpoly"
+:::definition "modlgal.frobenius_charpoly" (lean := "MonoidHom.frobeniusCharpolyIn, MonoidHom.frobeniusCharpolyIn_eq, MonoidHom.frobeniusConjClass, MonoidHom.kerSplittingField, MonoidHom.frobeniusCharpolyIn_eq_frobeniusCharpoly, AlgebraicGeometry.rationalPointsToGL")
 *Characteristic polynomial of Frobenius.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modlgal.frobenius_charpoly))
 
 Let $`\rho:\Gal_K\to G(\F_{\ell})` be a {bpref "modlgal"}[mod-$`\ell` Galois representation].   The *characteristic polynomial of Frobenius* of a {bpref "nf.prime"}[prime] $`\frak{p}` of $`K` at which $`\rho` is {bpref "modlgal.ramified"}[unramified] is the characteristic polynomial of $`\rho(\text{Frob}_{\frak{p}})`.
@@ -146,7 +146,7 @@ Note that {bpref "modlgal.ramified"}[unramified] primes $`\frak{p}` of $`K` are,
 Depends on: {uses "modlgal"}[] {uses "modlgal.ramified"}[] {uses "modlgal.splitting_field"}[] {uses "nf.prime"}[]
 :::
 
-:::definition "modlgal.frobenius_determinant"
+:::definition "modlgal.frobenius_determinant" (lean := "MonoidHom.frobeniusDetIn, MonoidHom.frobeniusDetIn_eq, MonoidHom.frobeniusDetIn_eq_detCharacter, MonoidHom.frobeniusConjClass, MonoidHom.frobeniusDetIn_eq_frobeniusDet, AlgebraicGeometry.rationalPointsToGL")
 *Frobenius determinant.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modlgal.frobenius_determinant))
 
 Let $`\rho:\Gal_K\to G(\F_{\ell})` be a {bpref "modlgal"}[mod-$`\ell` Galois representation].   The *Frobenius determinant* of a {bpref "nf.prime"}[prime] $`\frak{p}` of $`K` at which $`\rho` is {bpref "modlgal.ramified"}[unramified] is the determinant of $`\rho(\text{Frob}_{\frak{p}})`.  This is the same as the value of the {bpref "modlgal.determinant"}[determinant character] at $`\text{Frob}_{\frak{p}}`.
@@ -182,7 +182,7 @@ A *Frobenius prime* or *good prime* for a {bpref "modlgal"}[mod-$`\ell` Galois r
 Depends on: {uses "modlgal"}[] {uses "modlgal.ramified"}[] {uses "modlgal.splitting_field"}[] {uses "nf.prime"}[]
 :::
 
-:::definition "modlgal.frobenius_trace"
+:::definition "modlgal.frobenius_trace" (lean := "MonoidHom.frobeniusTraceIn, MonoidHom.frobeniusTraceIn_eq, MonoidHom.frobeniusConjClass, MonoidHom.kerSplittingField, MonoidHom.frobeniusTraceIn_eq_frobeniusTrace, AlgebraicGeometry.rationalPointsToGL")
 *Frobenius trace.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modlgal.frobenius_trace))
 
 Let $`\rho:\Gal_K\to G(\F_{\ell})` be a {bpref "modlgal"}[mod-$`\ell` Galois representation].   The *Frobenius trace* of a {bpref "nf.prime"}[prime] $`\frak{p}` of $`K` at which $`\rho` is {bpref "modlgal.ramified"}[unramified] is the trace of $`\rho(\text{Frob}_{\frak{p}})`.
@@ -272,7 +272,7 @@ of a {bpref "modlgal"}[mod-$`\ell` Galois representation].
 Depends on: {uses "modlgal"}[] {uses "modlgal.projective_representation"}[] {uses "modlgal.splitting_field"}[] {uses "nf.minimal_sibling"}[]
 :::
 
-:::definition "modlgal.projective_representation"
+:::definition "modlgal.projective_representation" (lean := "MonoidHom.projectiveRepresentationIn, AlgebraicGeometry.scalarPoints, AlgebraicGeometry.scalarPointsMulEquivUnits, AlgebraicGeometry.quotientScalarPointsMulEquiv, MonoidHom.quotientScalarPointsMulEquiv_comp_projectiveRepresentationIn_two, MonoidHom.projectivePointsToPGL_comp_projectiveRepresentationIn")
 *Projective representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modlgal.projective_representation))
 
 To each {bpref "modlgal"}[mod-$`\ell` Galois representation] $`\rho:\Gal_K \to G(\F_{\ell})`, with values in the $`\F_{\ell}`-points of an algebraic group $`G`, is associated a *projective representation* $`\mathbb{P}\rho:\Gal_K \to G(\F_{\ell})/\F_{\ell}^*`, defined by composing $`\rho` with the projection $`G(\F_{\ell}) \to G(\F_{\ell})/\F_{\ell}^*`.

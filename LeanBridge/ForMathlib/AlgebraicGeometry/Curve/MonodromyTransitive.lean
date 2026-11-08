@@ -10,11 +10,12 @@ acts transitively on the fibre `φ⁻¹(y₀)`: for points `e`, `e'` of the fibr
 in `X - φ⁻¹(B)` projects to a loop at `y₀` whose monodromy sends `e` to `e'` (Mathlib's
 `IsCoveringMap.monodromy_eq_of_map_eq`).
 
-For a compact connected Riemann surface `X` and a group of holomorphic automorphisms, `B` is finite
-and `X - φ⁻¹(B)` is path-connected, a connected surface minus finitely many points; neither fact is
-formalised, LeanBridge's monodromy group being defined for any continuous action on a locally
-compact Hausdorff space, where the path-connectedness can fail. So transitivity is proved here under
-that hypothesis. The independence of the base point, up to conjugation, is not formalised.
+LeanBridge's monodromy group is defined for any continuous action on a locally compact Hausdorff
+space, where the path-connectedness can fail, so transitivity is proved here under that hypothesis.
+For a compact connected Riemann surface `X` and a finite group of holomorphic automorphisms, `B` is
+finite and `X - φ⁻¹(B)` is path-connected, a connected surface minus finitely many points, and the
+monodromy group is moreover independent of the base point up to conjugation:
+`LeanBridge.ForMathlib.AlgebraicGeometry.Curve.MonodromyRiemannSurface`.
 
 ## Main results
 

@@ -319,7 +319,7 @@ Where possible the labelling of isogeny classes matches that of associated cusp 
 Depends on: {uses "ec.complex_multiplication"}[] {uses "ec.conductor_label"}[] {uses "ec.isogeny_class"}[] {uses "mf.bianchi.newform"}[] {uses "mf.hilbert"}[] {uses "nf.ideal_labels"}[]
 :::
 
-:::definition "ec.discriminant" (lean := "WeierstrassCurve.Δ")
+:::definition "ec.discriminant" (lean := "WeierstrassCurve.Δ, WeierstrassCurve.Δ_ne_zero_iff_freeLocus_baseChange_eq_univ, WeierstrassCurve.Δ_ne_zero_iff_forall_equation_mem_freeLocus_baseChange, WeierstrassCurve.Affine.mem_freeLocus_iff, Module.freeLocus, WeierstrassCurve.IsElliptic")
 *Discriminant of a Weierstrass equation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.discriminant))
 
 The *discriminant* $`\Delta` of a {bpref "ec.weierstrass_coeffs"}[Weierstrass equation] over a {bpref "ring.field"}[field] $`K` is an element of $`K` defined in terms of the {bpref "ec.q.minimal_weierstrass_equation"}[Weierstrass coefficients].
@@ -464,7 +464,7 @@ When $`\bar\rho_{E,\ell}` does not contain $`\SL(2,\F_{\ell})`  the possibilitie
 Depends on: {uses "ec"}[] {uses "ec.galois_rep"}[] {uses "gl2.borel"}[] {uses "gl2.exceptional"}[] {uses "gl2.nonsplit_cartan"}[] {uses "gl2.normalizer_nonsplit_cartan"}[] {uses "gl2.normalizer_split_cartan"}[] {uses "gl2.split_cartan"}[] {uses "nf"}[]
 :::
 
-:::definition "ec.geom_endomorphism_ring"
+:::definition "ec.geom_endomorphism_ring" (lean := "WeierstrassCurve.GeometricEndAlgClosure, WeierstrassCurve.geometricEndAlgClosureEquiv, WeierstrassCurve.baseChangeEndEquiv, WeierstrassCurve.baseChangeEndHom_injective, WeierstrassCurve.geometricEndEquivAlgClosure, TauCeti.Isogeny.Hom")
 *Geometric endomorphism ring.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.geom_endomorphism_ring))
 
 The *geometric endomorphism ring* of an elliptic curve $`E` over a field $`K` is $`\End(E_{\overline{K}})`, the {bpref "ec.endomorphism_ring"}[endomorphism ring] of the base change of $`E` to an algebraic closure $`\overline{K}` of $`K`.

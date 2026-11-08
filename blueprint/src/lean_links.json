@@ -51,6 +51,14 @@
     "AlgebraicGeometry.Scheme.IsVarietyOver": "LeanBridge.ForMathlib.AlgebraicGeometry.Variety.Basic",
     "AlgebraicGeometry.Scheme.IsCurveOver": "TauCeti.AlgebraicGeometry.Curves.Basic"
   },
+  "ag.cyclic_trigonal": {
+    "AlgebraicGeometry.Scheme.IsCyclicTrigonalCurve": "LeanBridge.ForMathlib.AlgebraicGeometry.Curve.CyclicTrigonalQuotient",
+    "AlgebraicGeometry.Scheme.IsTrigonalAutomorphism": "LeanBridge.ForMathlib.AlgebraicGeometry.Curve.CyclicTrigonalQuotient",
+    "AlgebraicGeometry.Scheme.IsCyclicTrigonalSubgroup": "LeanBridge.ForMathlib.AlgebraicGeometry.Curve.CyclicTrigonalQuotient",
+    "AlgebraicGeometry.Scheme.isCyclicTrigonalSubgroup_iff_forall": "LeanBridge.ForMathlib.AlgebraicGeometry.Curve.CyclicTrigonalQuotient",
+    "AlgebraicGeometry.Scheme.isCyclicTrigonalCurve_iff_exists_isTrigonalAutomorphism": "LeanBridge.ForMathlib.AlgebraicGeometry.Curve.CyclicTrigonalQuotient",
+    "AlgebraicGeometry.Scheme.isCyclicTrigonalCurve_projectiveLineOver": "LeanBridge.ForMathlib.AlgebraicGeometry.Curve.CyclicTrigonalProjectiveLine"
+  },
   "ag.dimension": {
     "topologicalKrullDim": "Mathlib.Topology.KrullDimension",
     "TopologicalSpace.IrreducibleCloseds": "Mathlib.Topology.Sets.Closeds"
@@ -121,6 +129,14 @@
     "TauCeti.AlgebraicGeometry.AbelianVariety.HasNontrivialRealMultiplication": "LeanBridge.ForMathlib.AlgebraicGeometry.AbelianVariety.RealMultiplication",
     "TauCeti.AlgebraicGeometry.AbelianVariety.hasRealMultiplication_congr": "LeanBridge.ForMathlib.AlgebraicGeometry.AbelianVariety.RealMultiplication",
     "TauCeti.AlgebraicGeometry.AbelianVariety.EndAlgebra": "LeanBridge.ForMathlib.AlgebraicGeometry.AbelianVariety.ComplexMultiplication"
+  },
+  "ag.splitting_field": {
+    "TauCeti.torusSplittingField": "LeanBridge.ForMathlib.Algebra.AlgebraicGroup.TorusSplittingField",
+    "TauCeti.IsTorusSplittingField": "LeanBridge.ForMathlib.Algebra.AlgebraicGroup.TorusSplittingField",
+    "TauCeti.IsTorusSplitOver": "LeanBridge.ForMathlib.Algebra.AlgebraicGroup.TorusSplittingField",
+    "TauCeti.torusCommHopfAlgProperty": "TauCeti.Algebra.AlgebraicGroup.Torus.Basic",
+    "TauCeti.isTorusSplittingField_torusSplittingField": "LeanBridge.ForMathlib.Algebra.AlgebraicGroup.TorusSplittingFieldExistence",
+    "TauCeti.torusSplittingField_eq_normalClosure": "LeanBridge.ForMathlib.Algebra.AlgebraicGroup.TorusSplittingFieldExistence"
   },
   "ag.variety": {
     "MvPolynomial.IsAffineAlgebraicSet": "LeanBridge.ForMathlib.AlgebraicGeometry.Variety.Affine",
@@ -701,6 +717,14 @@
     "Rat.isCongruentNumber_six": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.CongruentNumber.Basic",
     "Rat.isCongruentNumber_five": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.CongruentNumber.Basic"
   },
+  "ec.discriminant": {
+    "WeierstrassCurve.Δ": "Mathlib.AlgebraicGeometry.EllipticCurve.Weierstrass",
+    "WeierstrassCurve.Δ_ne_zero_iff_freeLocus_baseChange_eq_univ": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.JacobianCriterion",
+    "WeierstrassCurve.Δ_ne_zero_iff_forall_equation_mem_freeLocus_baseChange": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.JacobianCriterion",
+    "WeierstrassCurve.Affine.mem_freeLocus_iff": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.JacobianCriterion",
+    "Module.freeLocus": "Mathlib.RingTheory.Spectrum.Prime.FreeLocus",
+    "WeierstrassCurve.IsElliptic": "Mathlib.AlgebraicGeometry.EllipticCurve.Weierstrass"
+  },
   "ec.discriminant_norm": {
     "Ideal.absNorm": "Mathlib.RingTheory.Ideal.Norm.AbsNorm",
     "WeierstrassCurve.minimalDiscriminantIdeal": "TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.DiscriminantIdeal",
@@ -725,6 +749,14 @@
     "Matrix.GeneralLinearGroup.sutherlandLabel_eq_sutherlandLabel_iff": "LeanBridge.ForMathlib.GroupTheory.SpecificGroups.GL2LabelClassification",
     "WeierstrassCurve.modGaloisImageLabel": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.GaloisRep.ModEllImageCanonicalLabel",
     "WeierstrassCurve.modGaloisImageLabel_cls_eq_S4": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.GaloisRep.ModEllImageCanonicalLabel"
+  },
+  "ec.geom_endomorphism_ring": {
+    "WeierstrassCurve.GeometricEndAlgClosure": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.GeometricEndomorphismRing",
+    "WeierstrassCurve.geometricEndAlgClosureEquiv": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.GeometricEndomorphismRing",
+    "WeierstrassCurve.baseChangeEndEquiv": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.GeometricEndomorphismRing",
+    "WeierstrassCurve.baseChangeEndHom_injective": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.GeometricEndomorphismRing",
+    "WeierstrassCurve.geometricEndEquivAlgClosure": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.GeometricEndomorphismRing",
+    "TauCeti.Isogeny.Hom": "TauCeti.AlgebraicGeometry.EllipticCurve.Isogeny.Hom.Basic"
   },
   "ec.good_ordinary_reduction": {
     "WeierstrassCurve.HasGoodOrdinaryReduction": "TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.OrdinaryReduction",
@@ -1770,6 +1802,14 @@
     "IsGalois.card_aut_eq_finrank": "Mathlib.FieldTheory.Galois.Basic",
     "IsGalois.of_card_aut_eq_finrank": "Mathlib.FieldTheory.Galois.Basic"
   },
+  "lf.defining_polynomial": {
+    "IsAdjoinRoot": "Mathlib.RingTheory.IsAdjoinRoot",
+    "IsAdjoinRoot.nonempty_iff": "LeanBridge.ForMathlib.RingTheory.IsAdjoinRootPrimitive",
+    "Padic.exists_monic_nonempty_isAdjoinRoot_padicInt": "LeanBridge.ForMathlib.NumberTheory.LocalField.PadicDefiningPolynomial",
+    "Padic.exists_monic_nonempty_isAdjoinRoot": "LeanBridge.ForMathlib.NumberTheory.LocalField.PadicDefiningPolynomial",
+    "IsNonarchimedeanLocalField.exists_adjoin_eq_top_isEisensteinForm_minpoly": "LeanBridge.ForMathlib.NumberTheory.LocalField.EisensteinFormGenerator",
+    "FiniteField.conwayPolynomial": "LeanBridge.ForMathlib.FieldTheory.Finite.ConwayPolynomial"
+  },
   "lf.degree": {
     "Module.finrank": "Mathlib.LinearAlgebra.Dimension.Finrank",
     "TauCeti.FinitePadicExtension": "TauCeti.NumberTheory.LocalField.AbsoluteRamificationIndex"
@@ -2124,8 +2164,48 @@
     "MonoidHom.IsModEllGaloisRepIn.finite_points": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.AlgebraicGroup",
     "AlgebraicGeometry.finite_points_of_finiteType": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.AlgebraicGroup"
   },
+  "modlgal.det_surjective": {
+    "MonoidHom.IsDetSurjective": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding",
+    "MonoidHom.isDetSurjective_iff": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding",
+    "MonoidHom.isDetSurjective_iff_detIndex_eq_one": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding",
+    "MonoidHom.mapGL": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding",
+    "MonoidHom.detCharacterGL": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Determinant",
+    "AlgebraicGeometry.rationalPointsToGL": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.GeneralLinearPoints"
+  },
+  "modlgal.determinant": {
+    "MonoidHom.mapGL": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding",
+    "MonoidHom.detCharacter": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Determinant",
+    "MonoidHom.detCharacterGL": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Determinant",
+    "MonoidHom.IsModEllGaloisRepIn.isModEllGaloisRepIn_detCharacterGL": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding",
+    "MonoidHom.symm_comp_detCharacterGL_mapGL": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding",
+    "AlgebraicGeometry.rationalPointsToGL": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.GeneralLinearPoints"
+  },
+  "modlgal.determinant_index": {
+    "MonoidHom.detIndex": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding",
+    "MonoidHom.detIndex_mapGL": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding",
+    "MonoidHom.mapGL": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding",
+    "MonoidHom.detCharacter": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Determinant",
+    "AlgebraicGeometry.rationalPointsToGL": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.GeneralLinearPoints",
+    "MonoidHom.detIndex_mapGL_specialLinear": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding"
+  },
   "modlgal.dimension": {
     "Module.finrank": "Mathlib.LinearAlgebra.Dimension.Finrank"
+  },
+  "modlgal.frobenius_charpoly": {
+    "MonoidHom.frobeniusCharpolyIn": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding",
+    "MonoidHom.frobeniusCharpolyIn_eq": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding",
+    "MonoidHom.frobeniusConjClass": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.AlgebraicGroup",
+    "MonoidHom.kerSplittingField": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.AlgebraicGroup",
+    "MonoidHom.frobeniusCharpolyIn_eq_frobeniusCharpoly": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding",
+    "AlgebraicGeometry.rationalPointsToGL": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.GeneralLinearPoints"
+  },
+  "modlgal.frobenius_determinant": {
+    "MonoidHom.frobeniusDetIn": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding",
+    "MonoidHom.frobeniusDetIn_eq": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding",
+    "MonoidHom.frobeniusDetIn_eq_detCharacter": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding",
+    "MonoidHom.frobeniusConjClass": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.AlgebraicGroup",
+    "MonoidHom.frobeniusDetIn_eq_frobeniusDet": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding",
+    "AlgebraicGeometry.rationalPointsToGL": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.GeneralLinearPoints"
   },
   "modlgal.frobenius_order": {
     "MonoidHom.frobeniusElementOrder": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.AlgebraicGroup",
@@ -2139,6 +2219,14 @@
     "Algebra.IsUnramifiedIn": "Mathlib.RingTheory.Unramified.Locus",
     "IntermediateField.fixedField": "Mathlib.FieldTheory.Galois.Basic",
     "MonoidHom.ker": "Mathlib.Algebra.Group.Subgroup.Ker"
+  },
+  "modlgal.frobenius_trace": {
+    "MonoidHom.frobeniusTraceIn": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding",
+    "MonoidHom.frobeniusTraceIn_eq": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding",
+    "MonoidHom.frobeniusConjClass": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.AlgebraicGroup",
+    "MonoidHom.kerSplittingField": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.AlgebraicGroup",
+    "MonoidHom.frobeniusTraceIn_eq_frobeniusTrace": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding",
+    "AlgebraicGeometry.rationalPointsToGL": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.GeneralLinearPoints"
   },
   "modlgal.image": {
     "MonoidHom.range": "Mathlib.Algebra.Group.Subgroup.Ker"
@@ -2155,6 +2243,14 @@
   "modlgal.image_order": {
     "Nat.card": "Mathlib.SetTheory.Cardinal.Finite",
     "MonoidHom.range": "Mathlib.Algebra.Group.Subgroup.Ker"
+  },
+  "modlgal.projective_representation": {
+    "MonoidHom.projectiveRepresentationIn": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding",
+    "AlgebraicGeometry.scalarPoints": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding",
+    "AlgebraicGeometry.scalarPointsMulEquivUnits": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding",
+    "AlgebraicGeometry.quotientScalarPointsMulEquiv": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding",
+    "MonoidHom.quotientScalarPointsMulEquiv_comp_projectiveRepresentationIn_two": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding",
+    "MonoidHom.projectivePointsToPGL_comp_projectiveRepresentationIn": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding"
   },
   "modlgal.ramified": {
     "Algebra.IsUnramifiedIn": "Mathlib.RingTheory.Unramified.Locus",
@@ -2180,6 +2276,14 @@
   },
   "nf.abelian": {
     "IsAbelianGalois": "Mathlib.FieldTheory.Galois.Abelian"
+  },
+  "nf.absolute_value": {
+    "AbsoluteValue": "Mathlib.Algebra.Order.AbsoluteValue.Basic",
+    "IsNonarchimedean": "Mathlib.Algebra.Order.Ring.Basic",
+    "AbsoluteValue.charZero_of_not_isNonarchimedean": "LeanBridge.ForMathlib.Analysis.AbsoluteValue.Archimedean",
+    "AbsoluteValue.isNonarchimedean_trivial": "LeanBridge.ForMathlib.Analysis.AbsoluteValue.Archimedean",
+    "AbsoluteValue.isEquiv_iff_exists_eq_rpow": "LeanBridge.ForMathlib.Analysis.AbsoluteValue.Archimedean",
+    "AbsoluteValue.equivalence_exists_eq_rpow": "LeanBridge.ForMathlib.Analysis.AbsoluteValue.Archimedean"
   },
   "nf.algebraic_closure": {
     "IsAlgClosure": "Mathlib.FieldTheory.IsAlgClosed.Basic",

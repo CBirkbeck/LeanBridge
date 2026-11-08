@@ -205,7 +205,7 @@ Let $`C` be an {bpref "ag.curve"}[algebraic curve] over a perfect field $`k`. Th
 Depends on: {uses "ag.curve"}[] {uses "ag.singular_point"}[]
 :::
 
-:::definition "ag.cyclic_trigonal"
+:::definition "ag.cyclic_trigonal" (lean := "AlgebraicGeometry.Scheme.IsCyclicTrigonalCurve, AlgebraicGeometry.Scheme.IsTrigonalAutomorphism, AlgebraicGeometry.Scheme.IsCyclicTrigonalSubgroup, AlgebraicGeometry.Scheme.isCyclicTrigonalSubgroup_iff_forall, AlgebraicGeometry.Scheme.isCyclicTrigonalCurve_iff_exists_isTrigonalAutomorphism, AlgebraicGeometry.Scheme.isCyclicTrigonalCurve_projectiveLineOver")
 *Cyclic trigonal curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.cyclic_trigonal))
 
 An {bpref "ag.curve"}[algebraic curve] $`X` is a *cyclic trigonal curve* if there is an order $`3` subgroup $`H` of its {bpref "g2c.aut_grp"}[automorphism group] such that the {bpref "ag.quotient_curve"}[quotient curve] $`X/H` is isomorphic to $`\mathbb{P}^1`.
@@ -599,7 +599,7 @@ Depends on: {uses "ag.abelian_variety"}[]
 Let $`V` be a variety over a perfect field $`F`. A point $`P` of $`V` is *non-singular* if the module of differentials of $`V` is locally free at $`P`.  According to the Jacobian criterion, if $`V` is defined in a neighborhood of $`P` by affine polynomial equations $`f_1(X_1, \ldots, X_n) = \ldots =f_r(X_1, \ldots, X_n)=0`, then $`V` is non-singular at $`P` if the Jacobian matrix $`\left( \frac{\partial f_i}{\partial X_j} \right)_{ij}` has the same rank as the codimension of $`V` in $`\mathbb{A}^n`.
 :::
 
-:::definition "ag.splitting_field"
+:::definition "ag.splitting_field" (lean := "TauCeti.torusSplittingField, TauCeti.IsTorusSplittingField, TauCeti.IsTorusSplitOver, TauCeti.torusCommHopfAlgProperty, TauCeti.isTorusSplittingField_torusSplittingField, TauCeti.torusSplittingField_eq_normalClosure")
 *Splitting field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.splitting_field))
 
 The *splitting field* of an algebraic torus $`T` is the minimal {bpref "nf.is_galois"}[Galois] extension of its {bpref "ag.base_field"}[base field] over which $`T` becomes isomorphic to a power of the multiplicative group $`\mathbb{G}_m`.

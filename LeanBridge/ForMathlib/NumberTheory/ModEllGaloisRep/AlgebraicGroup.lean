@@ -29,9 +29,10 @@ The Frobenius class and the Frobenius order (LMFDB `modlgal.frobenius_order`) ma
 homomorphism with open kernel into any group, and are defined here in that generality, as in
 `LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Frobenius` for `GL_n(𝔽_ℓ)`. The general linear
 group `GL_n` over `𝔽_ℓ` is Tau Ceti's group scheme `TauCeti.GeneralLinear.groupScheme`, an
-algebraic group in this sense (`MonoidHom.isModEllGaloisRepIn_one`), whose points over `Spec 𝔽_ℓ`
-Tau Ceti identifies with `GL_n(𝔽_ℓ)` (`TauCeti.GeneralLinear.schemePointsMulEquiv`, for the object
-`Spec 𝔽_ℓ` of `Over (Spec 𝔽_ℓ)`, isomorphic to the terminal one).
+algebraic group in this sense (`MonoidHom.isModEllGaloisRepIn_one`), whose `𝔽_ℓ`-points form the
+group `GL_n(𝔽_ℓ)` (`AlgebraicGeometry.rationalPointsGLMulEquiv`, through Tau Ceti's
+`TauCeti.GeneralLinear.schemePointsMulEquiv` for the object `Spec 𝔽_ℓ` of `Over (Spec 𝔽_ℓ)`,
+isomorphic to the terminal one).
 
 ## Main definitions
 

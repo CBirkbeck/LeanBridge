@@ -10,7 +10,9 @@ composite `ℙρ : Gal(K̄/K) → PGL_n(𝔽_ℓ)` with the projection to Mathli
 (Mathlib's `Matrix.GeneralLinearGroup.center_eq_range_scalar`). Over a ring with only one unit, such
 as `𝔽₂`, there are no non-trivial scalars, so the projection `GL_n → PGL_n` is an isomorphism, and
 for `ℓ = 2` the projective representation is the representation itself. As for
-`MonoidHom.IsModEllGaloisRep`, the representations take values in `GL_n(𝔽_ℓ)`.
+`MonoidHom.IsModEllGaloisRep`, the representations take values in `GL_n(𝔽_ℓ)`; for an algebraic
+group `G` with an embedding `ι : G ⟶ GL_n`, the projective representation with values in `G(𝔽_ℓ)`
+modulo its scalars is `MonoidHom.projectiveRepresentationIn`.
 
 ## Main definitions
 

@@ -1,6 +1,7 @@
 import LeanBridge.Example
 import LeanBridge.Galois
 import LeanBridge.ForMathlib.Algebra.AlgebraicGroup.TorusSplittingField
+import LeanBridge.ForMathlib.Algebra.AlgebraicGroup.TorusSplittingFieldExistence
 import LeanBridge.ForMathlib.Algebra.EuclideanDomain.NatEuclidean
 import LeanBridge.ForMathlib.Algebra.Group.Subgroup.InducedOperation
 import LeanBridge.ForMathlib.Algebra.Module.ZLattice.Arithmetic
@@ -39,6 +40,8 @@ import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.BranchPoints
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.CanonicalModel
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.CohenMacaulayType
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.CyclicTrigonal
+import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.CyclicTrigonalProjectiveLine
+import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.CyclicTrigonalQuotient
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.DifferentialRepresentation
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.FamilyDimension
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.FiniteSetAffineOpen
@@ -48,8 +51,10 @@ import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.Hyperelliptic
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.IsolatedPoint
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.LocallySolvable
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.Monodromy
+import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.MonodromyRiemannSurface
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.MonodromyTransitive
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.NodalReduction
+import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.ProjectiveLineCurve
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.Quotient
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.QuotientExistence
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.QuotientSignature
@@ -100,6 +105,7 @@ import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.GaloisRep.ModEllIma
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.GaloisRep.SerreInvariants
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.GammaZeroOneModuli
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.GammaZeroOneStructure
+import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.GeometricEndomorphismRing
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.IntrinsicTorsion.Basic
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Isogeny.Basic
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Isogeny.Class
@@ -109,6 +115,7 @@ import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Isogeny.CyclicExist
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Isogeny.Graph
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Isogeny.Matrix
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Isogeny.QCurve
+import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.JacobianCriterion
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.LFunctionCoefficient
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Label.LMFDB
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Label.NumberField
@@ -126,6 +133,7 @@ import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.SplitCartanStructur
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Twist.Basic
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Twist.MinimalTwist
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Twist.QuarticSextic
+import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.WeilPairingSymplectic
 import LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.Automorphism
 import LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.ChangeOfVariables
 import LeanBridge.ForMathlib.AlgebraicGeometry.GenusTwo.Curve
@@ -165,6 +173,7 @@ import LeanBridge.ForMathlib.AlgebraicGeometry.Variety.PluricanonicalMap
 import LeanBridge.ForMathlib.AlgebraicGeometry.Variety.PluricanonicalRationalMap
 import LeanBridge.ForMathlib.AlgebraicGeometry.Variety.Projective
 import LeanBridge.ForMathlib.AlgebraicTopology.TopologicalGenus
+import LeanBridge.ForMathlib.Analysis.AbsoluteValue.Archimedean
 import LeanBridge.ForMathlib.Analysis.Complex.UpperHalfPlane.Completed
 import LeanBridge.ForMathlib.Analysis.Complex.UpperHalfPlane.StripIntegral
 import LeanBridge.ForMathlib.Analysis.Fourier.LatticeFourierSeries
@@ -325,6 +334,7 @@ import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.SplitCartanConjugacy
 import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.SutherlandGroupLabel
 import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.SutherlandLabel
 import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.SymplecticIsomorphism
+import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.SymplecticPairing
 import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GeneralLinearGroup.MulAut
 import LeanBridge.ForMathlib.LinearAlgebra.Matrix.InertiaEigenvalues
 import LeanBridge.ForMathlib.LinearAlgebra.Matrix.Pfaffian
@@ -710,19 +720,24 @@ import LeanBridge.ForMathlib.NumberTheory.LocalField.MongeReduction
 import LeanBridge.ForMathlib.NumberTheory.LocalField.MongeReductionLoop
 import LeanBridge.ForMathlib.NumberTheory.LocalField.MongeRepresentationProof
 import LeanBridge.ForMathlib.NumberTheory.LocalField.MongeUnramifiedBase
+import LeanBridge.ForMathlib.NumberTheory.LocalField.PadicDefiningPolynomial
 import LeanBridge.ForMathlib.NumberTheory.LocalField.PadicField
+import LeanBridge.ForMathlib.NumberTheory.LocalField.PadicQuadraticExtensions
 import LeanBridge.ForMathlib.NumberTheory.LocalField.RamificationPolygon
 import LeanBridge.ForMathlib.NumberTheory.LocalField.SlopeContentDegree
 import LeanBridge.ForMathlib.NumberTheory.LocalField.TameUnramifiedDegree
 import LeanBridge.ForMathlib.NumberTheory.LocalField.TateLocalConstant
 import LeanBridge.ForMathlib.NumberTheory.LocalField.TopArtinSlope
 import LeanBridge.ForMathlib.NumberTheory.LocalField.TopArtinSlopeContent
+import LeanBridge.ForMathlib.NumberTheory.LocalField.TopArtinSlopeRamification
 import LeanBridge.ForMathlib.NumberTheory.LocalField.WildArtinSlopes
 import LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.AlgebraicGroup
 import LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Conductor
 import LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Determinant
 import LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.DualPairOfAlgebras
+import LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding
 import LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Frobenius
+import LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.GeneralLinearPoints
 import LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.GeneratingPrimes
 import LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Label
 import LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.LocalAlgebraDecomposition

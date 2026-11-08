@@ -4,6 +4,8 @@ import VersoBlueprint
 import Mathlib
 import Init.Core
 import Init.Prelude
+import LeanBridge.ForMathlib.Algebra.AlgebraicGroup.TorusSplittingField
+import LeanBridge.ForMathlib.Algebra.AlgebraicGroup.TorusSplittingFieldExistence
 import LeanBridge.ForMathlib.Algebra.EuclideanDomain.NatEuclidean
 import LeanBridge.ForMathlib.Algebra.Group.Subgroup.InducedOperation
 import LeanBridge.ForMathlib.Algebra.Module.ZLattice.ArithmeticBilinear
@@ -13,6 +15,8 @@ import LeanBridge.ForMathlib.AlgebraicGeometry.AbelianVariety.FiniteField.Ordina
 import LeanBridge.ForMathlib.AlgebraicGeometry.AbelianVariety.FiniteField.PRank
 import LeanBridge.ForMathlib.AlgebraicGeometry.AbelianVariety.RealMultiplication
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.Basic
+import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.CyclicTrigonalProjectiveLine
+import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.CyclicTrigonalQuotient
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.FiniteSetAffineOpen
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.Hyperelliptic
 import LeanBridge.ForMathlib.AlgebraicGeometry.Curve.LocallySolvable
@@ -27,9 +31,11 @@ import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Arithmetic.Tamagawa
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.BaseChangeCurve
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.CongruentNumber.Basic
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.GaloisRep.ModEllImageCanonicalLabel
+import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.GeometricEndomorphismRing
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Isogeny.ClassDegree
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Isogeny.CyclicExists
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Isogeny.Matrix
+import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.JacobianCriterion
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.LFunctionCoefficient
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.MinimalDiscriminantModel
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.NodeCusp
@@ -52,6 +58,7 @@ import LeanBridge.ForMathlib.AlgebraicGeometry.Variety.Basic
 import LeanBridge.ForMathlib.AlgebraicGeometry.Variety.FieldOfDefinition
 import LeanBridge.ForMathlib.AlgebraicGeometry.Variety.GoodReduction
 import LeanBridge.ForMathlib.AlgebraicGeometry.Variety.Projective
+import LeanBridge.ForMathlib.Analysis.AbsoluteValue.Archimedean
 import LeanBridge.ForMathlib.Analysis.Complex.UpperHalfPlane.Completed
 import LeanBridge.ForMathlib.Analysis.SpecialFunctions.BesselK
 import LeanBridge.ForMathlib.FieldTheory.Finite.ConwayPolynomial
@@ -164,11 +171,16 @@ import LeanBridge.ForMathlib.NumberTheory.LFunction.RiemannHypothesis
 import LeanBridge.ForMathlib.NumberTheory.LFunction.RiemannZeta
 import LeanBridge.ForMathlib.NumberTheory.LFunction.SelbergClass
 import LeanBridge.ForMathlib.NumberTheory.LocalField.DiscriminantBasis
+import LeanBridge.ForMathlib.NumberTheory.LocalField.EisensteinFormGenerator
 import LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamily
+import LeanBridge.ForMathlib.NumberTheory.LocalField.PadicDefiningPolynomial
 import LeanBridge.ForMathlib.NumberTheory.LocalField.PadicField
 import LeanBridge.ForMathlib.NumberTheory.LocalField.TameUnramifiedDegree
 import LeanBridge.ForMathlib.NumberTheory.LocalField.WildArtinSlopes
 import LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.AlgebraicGroup
+import LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Determinant
+import LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Embedding
+import LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.GeneralLinearPoints
 import LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Ramification
 import LeanBridge.ForMathlib.NumberTheory.ModularCurve.CongruenceSubgroupOfOpen
 import LeanBridge.ForMathlib.NumberTheory.ModularCurve.Entanglement
@@ -296,6 +308,8 @@ import Mathlib.Algebra.Module.Lattice
 import Mathlib.Algebra.Module.LocalizedModule.Basic
 import Mathlib.Algebra.MonoidAlgebra.Defs
 import Mathlib.Algebra.Notation.Prod
+import Mathlib.Algebra.Order.AbsoluteValue.Basic
+import Mathlib.Algebra.Order.Ring.Basic
 import Mathlib.Algebra.Quaternion
 import Mathlib.Algebra.QuaternionBasis
 import Mathlib.Algebra.Ring.Defs
@@ -470,6 +484,7 @@ import Mathlib.RingTheory.RootsOfUnity.Basic
 import Mathlib.RingTheory.RootsOfUnity.PrimitiveRoots
 import Mathlib.RingTheory.SimpleRing.Defs
 import Mathlib.RingTheory.Spectrum.Prime.Defs
+import Mathlib.RingTheory.Spectrum.Prime.FreeLocus
 import Mathlib.RingTheory.UniqueFactorizationDomain.Basic
 import Mathlib.RingTheory.UniqueFactorizationDomain.Defs
 import Mathlib.RingTheory.Unramified.Locus
@@ -486,6 +501,7 @@ import Mathlib.Topology.Connected.Basic
 import Mathlib.Topology.Irreducible
 import Mathlib.Topology.KrullDimension
 import Mathlib.Topology.Sets.Closeds
+import TauCeti.Algebra.AlgebraicGroup.Torus.Basic
 import TauCeti.Algebra.CentralSimple.Splitting
 import TauCeti.Algebra.Group.Conj
 import TauCeti.Algebra.GroupAction.PermutationRepresentation

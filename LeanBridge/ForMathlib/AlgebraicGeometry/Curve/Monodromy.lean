@@ -14,9 +14,12 @@ points. For a base point `y₀ ∈ Y - B`, lifting loops at `y₀` gives the mon
 `φ⁻¹(y₀)`, a permutation group of degree `d = |G|`.
 
 The definitions only use the topology: `X` is any locally compact Hausdorff space with a continuous
-action of a finite group `G`, and `Y` carries the quotient topology. The transitivity of the
-monodromy group, which holds when `X - φ⁻¹(B)` is path connected, as for a connected Riemann
-surface, and its independence of `y₀` up to conjugation, are not formalised. Note that
+action of a finite group `G`, and `Y` carries the quotient topology. The monodromy group is
+transitive when `X - φ⁻¹(B)` is path-connected
+(`LeanBridge.ForMathlib.AlgebraicGeometry.Curve.MonodromyTransitive`), which holds for a finite
+group acting by holomorphic maps on a compact connected Riemann surface; there it is also
+independent of `y₀` up to conjugation
+(`LeanBridge.ForMathlib.AlgebraicGeometry.Curve.MonodromyRiemannSurface`). Note that
 `FundamentalGroup` composes loops in the order opposite to path concatenation, so the monodromy is
 a left action, while the knowl writes a right action; the image is the same group.
 

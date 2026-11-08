@@ -9,7 +9,11 @@ as `Fin 1`, the determinant `GL_1(R) → Rˣ` is an isomorphism, with inverse th
 Through it, `det ρ` is a `1`-dimensional representation `Gal(K̄/K) → GL_1(𝔽_ℓ)`, again a mod-`ℓ`
 Galois representation, as its kernel contains the open kernel of `ρ`. When `ρ` itself has dimension
 `1`, this representation is `ρ`. As for `MonoidHom.IsModEllGaloisRep`, the representations take
-values in `GL_n(𝔽_ℓ)`.
+values in `GL_n(𝔽_ℓ)`; for a representation `ρ` into the `𝔽_ℓ`-points of an algebraic group `G`
+with an embedding `ι : G ⟶ GL_n`, the determinant character is that of `ι ∘ ρ`
+(`MonoidHom.mapGL`), and both facts hold for it
+(`MonoidHom.IsModEllGaloisRepIn.isModEllGaloisRepIn_detCharacterGL` and
+`MonoidHom.symm_comp_detCharacterGL_mapGL`).
 
 ## Main definitions
 
