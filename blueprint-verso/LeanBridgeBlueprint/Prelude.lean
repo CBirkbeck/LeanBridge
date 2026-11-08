@@ -27,6 +27,9 @@ import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Arithmetic.Tamagawa
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.BaseChangeCurve
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.CongruentNumber.Basic
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.GaloisRep.ModEllImageCanonicalLabel
+import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Isogeny.ClassDegree
+import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Isogeny.CyclicExists
+import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Isogeny.Matrix
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.LFunctionCoefficient
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.MinimalDiscriminantModel
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.NodeCusp

@@ -15,7 +15,7 @@ file := "Mod-l-Galois"
 
 This section lists the LMFDB definitions in the category `modlgal`. Each definition links back to its LMFDB knowl.
 
-:::definition "modlgal"
+:::definition "modlgal" (lean := "MonoidHom.IsModEllGaloisRepIn, AlgebraicGeometry.rationalPoints, Field.absoluteGaloisGroup, MonoidHom.isModEllGaloisRepIn_one")
 *Mod-$`l` Galois representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modlgal))
 
 A *mod-$`\ell` Galois representation* is a representation of the {bpref "group.galois.absolute"}[abolute Galois group] $`\Gal_K` of a {bpref "nf"}[number field] $`K` with values in the $`\F_{\ell}`-points of an algebraic group.

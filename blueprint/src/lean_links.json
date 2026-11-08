@@ -734,6 +734,14 @@
     "WeierstrassCurve.HasGoodSupersingularReduction": "TauCeti.AlgebraicGeometry.EllipticCurve.MinimalModel.OrdinaryReduction",
     "WeierstrassCurve.IsSupersingular": "TauCeti.AlgebraicGeometry.EllipticCurve.Supersingular"
   },
+  "ec.isogeny_matrix": {
+    "WeierstrassCurve.isogenyMatrix": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Isogeny.Matrix",
+    "WeierstrassCurve.isSymm_isogenyMatrix": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Isogeny.Matrix",
+    "WeierstrassCurve.isLeast_isogenyMatrix": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Isogeny.CyclicExists",
+    "WeierstrassCurve.exists_isCyclic_degree_eq_isogenyMatrix": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Isogeny.CyclicExists",
+    "TauCeti.Isogeny.exists_isCyclic": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Isogeny.CyclicExists",
+    "WeierstrassCurve.IsomorphismClass.cyclicIsogenyDegrees": "LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.Isogeny.ClassDegree"
+  },
   "ec.isomorphism": {
     "TauCeti.Isogeny.degree_eq_one_of_comp_eq_id": "TauCeti.AlgebraicGeometry.EllipticCurve.Isogeny.Degree",
     "TauCeti.Isogeny.exists_variableChangeIsogeny_eq_of_degree_eq_one": "TauCeti.AlgebraicGeometry.EllipticCurve.Isogeny.VariableChange",
@@ -2087,6 +2095,12 @@
     "Matrix.GeneralLinearGroup.adelicLevel": "LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.Level",
     "Matrix.GeneralLinearGroup.sl2Level_dvd_adelicLevel": "LeanBridge.ForMathlib.NumberTheory.ModularCurve.SL2Level",
     "Matrix.GeneralLinearGroup.exists_sl2Level_ne_adelicLevel": "LeanBridge.ForMathlib.NumberTheory.ModularCurve.SL2Level"
+  },
+  "modlgal": {
+    "MonoidHom.IsModEllGaloisRepIn": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.AlgebraicGroup",
+    "AlgebraicGeometry.rationalPoints": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.AlgebraicGroup",
+    "Field.absoluteGaloisGroup": "Mathlib.FieldTheory.AbsoluteGaloisGroup",
+    "MonoidHom.isModEllGaloisRepIn_one": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.AlgebraicGroup"
   },
   "modlgal.abelian": {
     "MonoidHom.range": "Mathlib.Algebra.Group.Subgroup.Ker",

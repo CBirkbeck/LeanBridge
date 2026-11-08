@@ -608,7 +608,7 @@ The vertices of the isogeny graphs in the LMFDB are labeled by the final entry o
 Depends on: {uses "ec"}[] {uses "ec.isogeny_class"}[]
 :::
 
-:::definition "ec.isogeny_matrix"
+:::definition "ec.isogeny_matrix" (lean := "WeierstrassCurve.isogenyMatrix, WeierstrassCurve.isSymm_isogenyMatrix, WeierstrassCurve.isLeast_isogenyMatrix, WeierstrassCurve.exists_isCyclic_degree_eq_isogenyMatrix, TauCeti.Isogeny.exists_isCyclic, WeierstrassCurve.IsomorphismClass.cyclicIsogenyDegrees")
 *Isogeny matrix of an isogeny class of elliptic curves.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.isogeny_matrix))
 
 The *isogeny matrix* of an {bpref "ec.isogeny_class"}[isogeny class] of {bpref "ec"}[elliptic curves] is a symmetric matrix with integral entries that records the minimum among the degrees of the cyclic isogenies between the elliptic curves in the isogeny class.
