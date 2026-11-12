@@ -288,6 +288,7 @@ import LeanBridge.ForMathlib.NumberTheory.LFunction.RiemannZeta
 import LeanBridge.ForMathlib.NumberTheory.LFunction.RootAnalyticConductor
 import LeanBridge.ForMathlib.NumberTheory.LFunction.RootNumber
 import LeanBridge.ForMathlib.NumberTheory.LFunction.SelbergClass
+import LeanBridge.ForMathlib.NumberTheory.LFunction.SelbergFunctionalEquation
 import LeanBridge.ForMathlib.NumberTheory.LFunction.TrivialZero
 import LeanBridge.ForMathlib.NumberTheory.LocalField.DeligneRamificationBreaks
 import LeanBridge.ForMathlib.NumberTheory.LocalField.DiscriminantBasis

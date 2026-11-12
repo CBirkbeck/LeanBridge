@@ -2979,7 +2979,9 @@
     "AnalyticLFunction.completed_eq": "LeanBridge.ForMathlib.NumberTheory.LFunction.Basic",
     "AnalyticLFunction.completed_eq_sign_mul_conj": "LeanBridge.ForMathlib.NumberTheory.LFunction.Basic",
     "AnalyticLFunction.SelbergData.degree": "LeanBridge.ForMathlib.NumberTheory.LFunction.Basic",
-    "AnalyticLFunction.completed_sub_eq_sign_mul_conj": "LeanBridge.ForMathlib.NumberTheory.LFunction.Basic"
+    "AnalyticLFunction.completed_sub_eq_sign_mul_conj": "LeanBridge.ForMathlib.NumberTheory.LFunction.Basic",
+    "AnalyticLFunction.selbergFunctionalEquation_coeff": "LeanBridge.ForMathlib.NumberTheory.LFunction.SelbergFunctionalEquation",
+    "AnalyticLFunction.SelbergData.not_eqOn_gammaDivThree": "LeanBridge.ForMathlib.NumberTheory.LFunction.SelbergFunctionalEquation"
   },
   "lfunction.gamma_factor": {
     "Complex.Gammaℝ": "Mathlib.Analysis.SpecialFunctions.Gamma.Deligne",

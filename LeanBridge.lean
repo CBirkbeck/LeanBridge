@@ -717,6 +717,7 @@ import LeanBridge.ForMathlib.NumberTheory.LFunction.RiemannZeta
 import LeanBridge.ForMathlib.NumberTheory.LFunction.RootAnalyticConductor
 import LeanBridge.ForMathlib.NumberTheory.LFunction.RootNumber
 import LeanBridge.ForMathlib.NumberTheory.LFunction.SelbergClass
+import LeanBridge.ForMathlib.NumberTheory.LFunction.SelbergFunctionalEquation
 import LeanBridge.ForMathlib.NumberTheory.LFunction.SpectralLabel
 import LeanBridge.ForMathlib.NumberTheory.LFunction.SymmetricPower
 import LeanBridge.ForMathlib.NumberTheory.LFunction.SymmetricPowerEulerProduct

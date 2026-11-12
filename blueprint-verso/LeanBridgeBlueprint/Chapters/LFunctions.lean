@@ -262,7 +262,7 @@ $$`L_p(s)=\prod_{n=1}^{d_p}\left( 1-\frac{\beta_{n}(p)}{p^s}\right)^{-1} \text{ 
 The functions $`L_p(s)` are called *Euler factors* (or *local factors*).
 :::
 
-:::definition "lfunction.functional_equation" (lean := "AnalyticLFunction.SelbergData, AnalyticLFunction.SelbergData.gammaFactor, AnalyticLFunction.completed_eq, AnalyticLFunction.completed_eq_sign_mul_conj, AnalyticLFunction.SelbergData.degree, AnalyticLFunction.completed_sub_eq_sign_mul_conj")
+:::definition "lfunction.functional_equation" (lean := "AnalyticLFunction.SelbergData, AnalyticLFunction.SelbergData.gammaFactor, AnalyticLFunction.completed_eq, AnalyticLFunction.completed_eq_sign_mul_conj, AnalyticLFunction.SelbergData.degree, AnalyticLFunction.completed_sub_eq_sign_mul_conj, AnalyticLFunction.selbergFunctionalEquation_coeff, AnalyticLFunction.SelbergData.not_eqOn_gammaDivThree")
 *Functional equation of an L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.functional_equation))
 
 All known {bpref "lfunction"}[analytic L-functions] have a *functional equation* that can be written in the form
