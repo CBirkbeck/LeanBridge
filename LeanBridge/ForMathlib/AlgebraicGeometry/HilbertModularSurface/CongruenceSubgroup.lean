@@ -18,7 +18,9 @@ its **level** is the least such `𝔑` for divisibility, that is, the largest su
 
 Such a least ideal is unique when it exists, and `HilbertModularGroup.level` is the sum of all the
 nonzero ideals `𝔑` with `Γ_𝔟(𝔑) ≤ Γ`, which is the level when there is one. In `SL(𝒪_F ⊕ 𝔟)` it
-always exists, as `Γ_𝔟(𝔐) Γ_𝔟(𝔑) = Γ_𝔟(𝔐 + 𝔑)` there, which is not formalised here. In
+always exists, as `Γ_𝔟(𝔐) Γ_𝔟(𝔑) = Γ_𝔟(𝔐 + 𝔑)` there
+(`HilbertModularGroup.principalCongruenceSubgroup_sup` and `HilbertModularGroup.isLevel_level`, in
+`LeanBridge.ForMathlib.AlgebraicGeometry.HilbertModularSurface.StrongApproximation`). In
 `GL⁺(𝒪_F ⊕ 𝔟)` it need not: for `F = ℚ(√2)` and `𝔟 = 𝒪_F`, the totally positive units are the
 powers of `ε = 3 + 2√2`, which has order `4` modulo `3` and `6` modulo `5`, so the elements of
 `GL⁺(𝒪_F ⊕ 𝒪_F)` with determinant in `⟨ε²⟩` form a subgroup containing `Γ_𝔟(3)` and `Γ_𝔟(5)` but

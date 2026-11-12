@@ -33,7 +33,7 @@ Given a hypergeometric motive with {bpref "hgm.defining_parameters"}[defining pa
 Depends on: {uses "alg.bezout_matrix"}[] {uses "hgm.defining_parameters"}[]
 :::
 
-:::definition "hgm.bezout_module"
+:::definition "hgm.bezout_module" (lean := "Hypergeometric.Parameters.BezoutModule, Hypergeometric.Parameters.bezoutMatrix, Hypergeometric.Parameters.degree, Hypergeometric.Parameters.degree_eq, Hypergeometric.Parameters.bezoutDeterminant_ne_zero, Hypergeometric.Parameters.card_bezoutModule, Hypergeometric.CuspIndex.cyclotomicProd, Polynomial.bezoutMatrix")
 *Bézout module of a hypergeometric motive.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/hgm.bezout_module))
 
 The *Bezout module* of a hypergeometric motive $`M` is the finite $`\mathbb{Z}`-module whose relations matrix is the {bpref "hgm.bezout_matrix"}[Bézout matrix] $`B` of $`M`. In other words, it is the quotient $`\mathbb{Z}^d/B \mathbb{Z}^d`, where $`d` is the {bpref "hgm.degree"}[degree] of $`M`.

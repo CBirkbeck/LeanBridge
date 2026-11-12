@@ -1089,7 +1089,7 @@ $`\lambda_1\geqslant \lambda_2\geqslant\ldots\geqslant \lambda_g`.
 Depends on: {uses "repn.highest.weight"}[]
 :::
 
-:::definition "mf.siegel.subspace.degree.two"
+:::definition "mf.siegel.subspace.degree.two" (lean := "SiegelUpperHalfSpace.cuspFormsOrthogonalKJ, SiegelUpperHalfSpace.modularFormsKJ_eq_cuspFormsKJ_sup_cuspFormsOrthogonalKJ, SiegelUpperHalfSpace.heckeOperator_mem_cuspFormsOrthogonalKJ, SiegelUpperHalfSpace.cuspFormsOrthogonalKJ_eq_sup_of_range, SiegelUpperHalfSpace.heckeOperator_mem_siegelEisensteinSubspaceKJ_of_range, SiegelUpperHalfSpace.heckeOperator_mem_klingenEisensteinSubspaceKJ_of_range, SiegelUpperHalfSpace.klingenEisensteinEquiv, SiegelUpperHalfSpace.cuspFormsOrthogonalKJ_eq_bot_of_lt_four")
 *Subspaces of degree 2 Siegel modular forms.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.subspace.degree.two))
 
 The space {bpref "mf.siegel.vector_valued_degree_two"}[vector-valued Siegel modular forms] $`M_{j,k}(\Gamma_2)` can be decomposed as

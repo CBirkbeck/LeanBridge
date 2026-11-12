@@ -13,8 +13,9 @@ multiple of the `m`-th Fourier coefficient of `f`. No definiteness of the Peters
 needed. For `V` the cusp forms of weight `k ≥ 3` and multiplier `v`, this is the LMFDB's statement
 that the Poincaré series generate the cusp forms, under the hypotheses that the space is
 finite-dimensional and that its elements have Fourier expansions without constant term at `s` and
-integrable Petersson integrands, standard facts about cusp forms that are not proved here for a
-general multiplier. A fundamental domain `D` exists for every `G` (Tau Ceti's
+integrable Petersson integrands, standard facts about cusp forms, proved for every multiplier on a
+subgroup of finite index in `PoincareSpanMultiplier.lean`. A fundamental domain `D` exists for
+every `G` (Tau Ceti's
 `ModularGroup.isFundamentalDomain_iUnion_out_inv_smul_fdo_withCenter`). For the trivial multiplier
 and `G` of finite index, the finite dimension is Tau Ceti's
 `TauCeti.finiteDimensional_cuspForm_finiteIndex` (through

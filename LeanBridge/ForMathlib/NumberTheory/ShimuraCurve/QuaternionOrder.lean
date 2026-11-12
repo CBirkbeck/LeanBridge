@@ -30,8 +30,10 @@ meaningful are proved for quaternion algebras over `ℚ` in
 `LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.QuaternionRamification` and
 `LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.QuaternionOrderDiscriminant`: the ramified primes
 are finitely many, and the discriminant of an order does not depend on the basis and is the square
-of the positive integer `discrd(O)`. That the quotient `nrd(μ) / discrd(O)` is an integer is not
-proved.
+of the positive integer `discrd(O)`. The quotient `nrd(μ) / discrd(O)` need not be an integer; the
+polarization degree, the square-free part of that positive rational number, is
+`PolarizedQuaternionOrder.polarizationDegree` in
+`LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.PolarizationDegree`.
 
 ## Main definitions
 
@@ -47,7 +49,8 @@ proved.
   Eichler orders and their level.
 * `Subalgebra.IsPolarization` (LMFDB `shimcurve.polarized_order`): polarizations of an order.
 * `PolarizedQuaternionOrder` (LMFDB `shimcurve.polarized_order`): polarized orders.
-* `PolarizedQuaternionOrder.degree` (LMFDB `shimcurve.nrdmu`): the polarization degree.
+* `PolarizedQuaternionOrder.degree`: the square-free part of the numerator of `nrd(μ) / discrd(O)`,
+  the polarization degree (LMFDB `shimcurve.nrdmu`) when that quotient is an integer.
 
 ## Main results
 
@@ -197,10 +200,12 @@ namespace PolarizedQuaternionOrder
 
 variable {B} (O : PolarizedQuaternionOrder B)
 
-/-- The **polarization degree** `deg(μ)` of a polarized order `(O, μ)` (LMFDB `shimcurve.nrdmu`):
-the squarefree part `∏_p p^(v_p(n) mod 2)` of the integer `n = nrd(μ) / discrd(O)`, here the
-absolute value of the numerator of the rational number `nrd(μ) / discrd(O)`, which is that integer
-`n` (its integrality is not proved here). -/
+/-- The square-free part `∏_p p^(v_p(n) mod 2)` of the absolute value `n` of the numerator of the
+rational number `nrd(μ) / discrd(O)`, for a polarized order `(O, μ)`. When `nrd(μ) / discrd(O)` is
+an integer, as LMFDB `shimcurve.nrdmu` says, this is the polarization degree `deg(μ)`
+(`PolarizedQuaternionOrder.polarizationDegree_eq_degree`), but that quotient need not be an integer,
+and then it is not: for `nrd(μ) / discrd(O) = 1 / 12` it is `1`, while `deg(μ)` is `3`. The
+polarization degree is `PolarizedQuaternionOrder.polarizationDegree`. -/
 noncomputable def degree : ℕ :=
   letI n : ℕ := (reducedNorm B O.polarization / O.order.quaternionDiscrd).num.natAbs
   ∏ p ∈ n.primeFactors, p ^ (n.factorization p % 2)

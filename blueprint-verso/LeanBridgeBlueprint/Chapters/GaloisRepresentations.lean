@@ -319,7 +319,7 @@ A {bpref "modlgal"}[mod-$`\ell` Galois representation] $`\rho: \Gal_K\to G(\F_{\
 Depends on: {uses "modlgal"}[] {uses "modlgal.codomain"}[] {uses "modlgal.image"}[]
 :::
 
-:::definition "modlgal.top_slope"
+:::definition "modlgal.top_slope" (lean := "MonoidHom.topArtinSlope, NumberField.topArtinSlopeAt, NumberField.localAlgebraEquivPi, NumberField.isGreatest_topArtinSlopeAt, NumberField.topArtinSlopeAt_eq_topArtinSlopeOfIsGalois, MonoidHom.topArtinSlope_eq_zero_iff, MonoidHom.topArtinSlope_eq_one_iff, NumberField.isGreatest_wildArtinSlopesOfIsGalois_topArtinSlopeAt")
 *Top slope.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modlgal.top_slope))
 
 Given a {bpref "modlgal"}[mod-$`\ell` Galois representation] $`\rho`, let $`K` be its  {bpref "modlgal.splitting_field"}[splitting field].  Then the {bpref "nf.local_algebra"}[local $`\ell`-adic algebra] $`K\otimes\mathbb{\Q}_{\ell}` is isomorphic to a product of {bpref "lf"}[$`\ell`-adic fields].  The *top Artin slope* of the representation is the largest {bpref "lf.slopes"}[Artin slope] among these fields, which equals the {bpref "lf.top_slope"}[top Artin slope] for their compositum.

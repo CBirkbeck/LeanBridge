@@ -22,7 +22,11 @@ over `ℚ`, as is the splitting field of a representation of `Gal(ℚ̄/ℚ)`, e
 compositum as its Galois closure, so the top Artin slope of `L` at `ℓ` is the top Artin slope of
 the compositum, and of every factor. For a non-Galois `L` the equality with the top Artin slope of
 the compositum rests on the compatibility of the upper numbering with quotients (Herbrand's
-theorem), which is not formalised here.
+theorem); it is proved, for every number field `L`, in
+`LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.TopSlopeCompositum`, and
+`LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.TopSlopeRamification` proves that the top Artin
+slope of `L` at `ℓ` is `0` exactly when `L` is unramified at `ℓ`, and `1` exactly when `L` is tamely
+ramified but not unramified at `ℓ`.
 
 ## Main definitions
 
@@ -154,9 +158,13 @@ variable {K : Type*} [Field K] [NumberField K] {n ℓ : ℕ} [Fact ℓ.Prime]
 /-- The **top Artin slope** (LMFDB `modlgal.top_slope`) of a mod-`ℓ` Galois representation `ρ` of a
 number field `K`: the top Artin slope at `ℓ` (`NumberField.topArtinSlopeAt`) of its splitting field
 `L`, the largest top Artin slope of the `ℓ`-adic fields of which the local algebra `ℚ_ℓ ⊗ L` is the
-product. For `K = ℚ`, as in the LMFDB, `L` is Galois over `ℚ` and this is the top Artin slope of
-their compositum (`NumberField.topArtinSlopeAt_eq`): `0` if `L` is unramified at `ℓ`, `1` if it is
-tamely but not unramified, and the largest wild Artin slope otherwise. -/
+product. It is the top Artin slope of their compositum
+(`NumberField.topArtinSlopeAt_eq_topArtinSlopeOfIsGalois`; for `K = ℚ`, as in the LMFDB, `L` is
+Galois over `ℚ` and every factor has this top Artin slope, `NumberField.topArtinSlopeAt_eq`): `0`
+exactly when `L` is unramified at `ℓ` (`MonoidHom.topArtinSlope_eq_zero_iff`), `1` exactly when `L`
+is tamely ramified but not unramified at `ℓ` (`MonoidHom.topArtinSlope_eq_one_iff`), and the largest
+wild Artin slope of the compositum otherwise
+(`NumberField.isGreatest_wildArtinSlopesOfIsGalois_topArtinSlopeAt`). -/
 noncomputable def topArtinSlope (hρ : IsOpen (ρ.ker : Set Gal(AlgebraicClosure K/K))) : ℝ :=
   NumberField.topArtinSlopeAt (splittingField ρ hρ) ℓ
 

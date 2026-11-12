@@ -55,7 +55,7 @@ where $`\psi(x):=\Gamma'(x)/\Gamma(x)` is the logarithmic derivative of the Gamm
 Depends on: {uses "cmf.newform"}[]
 :::
 
-:::definition "cmf.analytic_rank"
+:::definition "cmf.analytic_rank" (lean := "HeckeRing.GL2.Newform.analyticRank, ModularForm.L, HeckeRing.GL2.Newform.analyticLFunction, AnalyticLFunction.analyticRank, HeckeRing.GL2.Newform.analyticRank_analyticLFunction, HeckeRing.GL2.Newform.IsSelfDual, HeckeRing.GL2.Newform.rootNumber, HeckeRing.GL2.Newform.IsSelfDual.rootNumber_eq_neg_one_pow_analyticRank")
 *Analytic rank.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.analytic_rank))
 
 The *analytic rank* of a {bpref "cmf.cusp_form"}[cuspidal modular form] $`f` is the {bpref "lfunction.analytic_rank"}[analytic rank] of the L-function
@@ -978,7 +978,7 @@ The *Satake angles* $`\theta_p = \arg \alpha_p \in [-\pi, \pi]` are the argument
 Depends on: {uses "cmf.satake_parameters"}[]
 :::
 
-:::definition "cmf.satake_parameters"
+:::definition "cmf.satake_parameters" (lean := "HeckeRing.GL2.Newform.normalizedSatakeParameters, HeckeRing.GL2.Newform.prod_map_one_sub_mul_normalizedSatakeParameters, HeckeRing.GL2.Newform.normalizedSatakeParameters_eq_pair_inv_mul, HeckeRing.GL2.Newform.pOldSpaceHeckeT, HeckeRing.GL2.Newform.det_one_sub_smul_pOldSpaceHeckeT, HeckeRing.GL2.Newform.trace_pOldSpaceHeckeT, HeckeRing.GL2.Newform.prod_map_one_sub_mul_normalizedSatakeParameters_eq_det, HeckeRing.GL2.Newform.finrank_pOldSpace")
 *Satake parameters.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.satake_parameters))
 
 Let $`f` be {bpref "cmf.newform"}[newform] of {bpref "cmf.level"}[level] $`N`, {bpref "cmf.weight"}[weight] $`k` and {bpref "cmf.character"}[character] $`\chi`.
@@ -1263,7 +1263,7 @@ $$`f\left( \frac{a z + b}{c z + d} \right) = \chi(d)(c z + d)^k f(z) .`
 Depends on: {uses "cmf"}[]
 :::
 
-:::definition "specialfunction.poincare"
+:::definition "specialfunction.poincare" (lean := "ModularForm.poincareSeries, ModularForm.poincareSeries_eq_tsum_of_section, ModularForm.hasSum_poincareSeries_of_three_le, ModularForm.mdifferentiable_poincareSeries_of_three_le, ModularForm.poincareSeries_mem_multiplierCuspSpace, ModularForm.span_poincareSeries_eq_multiplierCuspSpace_of_finiteIndex_subgroup, ModularForm.exists_poincareSeries_eq_of_smul_infty_eq, ModularForm.poincareSeries_coe_mul")
 *Poincar&eacute; series.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/specialfunction.poincare))
 
 Let $`G` be a subgroup of {bpref "group.sl2z"}[$`\Gamma`] of finite {bpref "group.subgroup.index"}[index] $`m`, $`v` a {bpref "mf.multipliersystem"}[multiplier system] on $`G` and $`k\geq3\in\mathbb{N}` such that $`v(-I)=(-1)^k`. Let $`s` be a {bpref "group.fuchsian.cusps"}[cusp] representative of $`G` with {bpref "group.fuchsian.cusps.width"}[width] $`w` such that $`s=\gamma_s(\infty)` for some $`\gamma_s\in\Gamma` and let $`G_s=G\cap\gamma_s\Gamma_{\infty}\gamma_s^{-1}` be the \*stabilizer\* of the cusp $`s`. Assume that $`v` is trivial on $`G_s`. The *$`n`th Poincar\'e; series* for the cusp that $`s` represents is defined as

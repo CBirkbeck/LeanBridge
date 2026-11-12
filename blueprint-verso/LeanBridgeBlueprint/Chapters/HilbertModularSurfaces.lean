@@ -28,7 +28,7 @@ The adelic Hilbert modular surface may be geometrically reducible, and its compo
 Depends on: {uses "av.polarization"}[] {uses "av.princ_polarizable"}[] {uses "nf.narrow_class_group"}[]
 :::
 
-:::definition "hmsurface.congruence_subgroup"
+:::definition "hmsurface.congruence_subgroup" (lean := "HilbertModularGroup.principalCongruenceSubgroup, HilbertModularGroup.IsCongruenceSubgroup, HilbertModularGroup.IsLevel, HilbertModularGroup.level, HilbertModularGroup.level_eq_of_isLevel, HilbertModularGroup.isLevel_level, HilbertModularGroup.principalCongruenceSubgroup_sup, HilbertModularGroup.sl")
 *Congruence Subgroup.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/hmsurface.congruence_subgroup))
 
 Let $`F` be a real quadratic field with ring of integers $`\Z_F`. Let

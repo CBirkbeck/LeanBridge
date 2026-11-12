@@ -385,7 +385,7 @@ Depends on: {uses "lfunction.functional_equation"}[]
 An L-function is <b>primitive</b> if it cannot be written as a product of nontrivial L-functions.  The "trivial L-function" is the constant function $`1`.
 :::
 
-:::definition "lfunction.rational"
+:::definition "lfunction.rational" (lean := "AnalyticLFunction.IsRational, AnalyticLFunction.arithmeticEulerPolynomial, AnalyticLFunction.motivicWeight, AnalyticLFunction.arithmeticCoeff, AnalyticLFunction.IsRational.isAlgebraic_coeff, AnalyticLFunction.arithmeticEulerPolynomial_mul_mk, AnalyticLFunction.isRational_iff, AnalyticLFunction.isRational_zeta")
 *Rational L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.rational))
 
 A *rational* L-function $`L(s)` is an {bpref "lfunction.arithmetic"}[arithmetic] L-function with {bpref "lfunction.coefficient_field"}[coefficient field] $`\Q`; equivalently, its {bpref "lfunction.euler_product"}[Euler product] in the {bpref "lfunction.normalization"}[arithmetic normalization] can be written as a product over rational primes
@@ -632,7 +632,7 @@ The *lowest zero* of an L-function $`L(s)` is the least $`\gamma>0` for which $`
 Depends on: {uses "lfunction"}[] {uses "lfunction.critical_line"}[] {uses "lfunction.normalization"}[] {uses "lfunction.rh"}[]
 :::
 
-:::definition "lfunction.zfunction"
+:::definition "lfunction.zfunction" (lean := "AnalyticLFunction.zFunction, riemannSiegelTheta, ofReal_hardyZ_eq_exp_mul_riemannZeta, AnalyticLFunction.ofReal_zFunction, AnalyticLFunction.eventually_zFunction_pos, AnalyticLFunction.contDiff_zFunction, AnalyticLFunction.analyticOrderAt_zFunction, AnalyticLFunction.eventually_zFunction_mul_zFunction_neg")
 *Z-function of an L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.zfunction))
 
 The (Hardy or Riemann-Siegel) *Z-function* for the Riemann zeta-function is  a real-valued function defined in terms of the values of $`\zeta(s)` on the {bpref "lfunction.critical_line"}[ critical line] via the formula

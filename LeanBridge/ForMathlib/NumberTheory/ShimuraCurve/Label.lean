@@ -1,4 +1,5 @@
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.EnhancedGroup
+import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.PolarizationDegree
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.QuaternionOrder
 
 /-!
@@ -18,9 +19,10 @@ of `H`, is mathematical, but not their numbering). The genus `g`, the genus of a
 of `X_H`, is mathematically defined, but it needs the Shimura curve `X_H` as an algebraic curve,
 which is not available, so it is not formalised. The other entries `D`, `d`, `δ`, `N` and `i` are
 formalised, from `QuaternionAlgebra.discriminant`, `Subalgebra.quaternionDiscrd`,
-`PolarizedQuaternionOrder.degree`, `Subalgebra.enhancedGroupLevel` and `Subgroup.index`. As there,
-`B` is any `ℚ`-algebra, the enhanced group is Mathlib's semidirect product `Ô^× ⋊ Aut_{±μ}(O)`,
-and the topology of the enhanced group, which makes `H` open and compact, is not introduced.
+`PolarizedQuaternionOrder.polarizationDegree`, `Subalgebra.enhancedGroupLevel` and `Subgroup.index`.
+As there, `B` is any `ℚ`-algebra, the enhanced group is Mathlib's semidirect product
+`Ô^× ⋊ Aut_{±μ}(O)`, and the topology of the enhanced group, which makes `H` open and compact, is
+not introduced.
 
 Conjugate subgroups of the enhanced group, which define isomorphic Shimura curves, have the same
 level, since the kernels of reduction are normal, and the same index; a conjugate `g H g⁻¹` is the
@@ -110,7 +112,7 @@ noncomputable def shimuraCurveLabel : ShimuraCurveLabel where
   discriminant := QuaternionAlgebra.discriminant B
   reducedDiscriminant :=
     if O.order.IsMaximalQuaternionOrder then none else some O.order.quaternionDiscrd
-  polarizationDegree := O.degree
+  polarizationDegree := O.polarizationDegree
   level := O.order.enhancedGroupLevel (O.polarization : B) H
   index := H.index
 

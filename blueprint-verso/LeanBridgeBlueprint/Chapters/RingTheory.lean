@@ -445,7 +445,7 @@ $$`dI=\{da\mid a\in I\} \subseteq R\,.`
 Depends on: {uses "ring.field_of_fractions"}[] {uses "ring.integral_domain"}[]
 :::
 
-:::definition "ring.ideal"
+:::definition "ring.ideal" (lean := "TwoSidedIdeal, TwoSidedIdeal.IsHomogeneous, AddMonoidAlgebra.homogeneousSubmodule, TwoSidedIdeal.isHomogeneous_homogeneousSubmodule_iff, TwoSidedIdeal.isHomogeneous_iff_isHomogeneous_asIdeal, TwoSidedIdeal.orderIsoIdeal, Ideal.IsHomogeneous, Ideal.IsHomogeneous.iff_exists")
 *Ideal of a ring.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ring.ideal))
 
 If $`R` is a {bpref "ring"}[ring], a subset $`I\subseteq R` is an *ideal* of $`R` if $`I` is a {bpref "group.subgroup"}[subgroup] of $`R` for $`+` and for all $`a\in I` and all $`r\in R`,

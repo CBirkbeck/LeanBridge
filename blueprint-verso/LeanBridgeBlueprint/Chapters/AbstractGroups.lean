@@ -521,7 +521,7 @@ The Frattini subgroup is always a {bpref "group.characteristic_subgroup"}[charac
 Depends on: {uses "group.characteristic_subgroup"}[] {uses "group.maximal_subgroup"}[] {uses "group.subgroup.normal"}[]
 :::
 
-:::definition "group.frobenius"
+:::definition "group.frobenius" (lean := "TauCeti.AffineGroup, TauCeti.AffineGroup.mem_range_toPermHom_iff, TauCeti.AffineGroup.mulEquivRangeToPermHom, TauCeti.card_affineGroup, TauCeti.AffineGroup.isSolvable, TauCeti.AffineGroup.isZGroup_iff, TauCeti.AffineGroup.isMetacyclic_iff, IsZGroup.isMetacyclic")
 *Frobenius group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.frobenius))
 
 Given a prime power $`q`, the *Frobenius group* $`F_q` is the group of invertible affine transformations ($`x \mapsto ax + b`) on $`\F_q`.  Explicitly, it is the group
@@ -1047,7 +1047,7 @@ $$`\begin{matrix} \PGO(n,q) = \GO(n,q)/\{ \pm I_n \}, & \PGO^{\pm}(n,q) = \begin
 (see , pages xi-xii)
 :::
 
-:::definition "group.other_dihedral"
+:::definition "group.other_dihedral" (lean := "OtherDihedralGroup, OtherDihedralGroup.presentedGroupMulEquiv, OtherDihedralGroup.index_range_inl, OtherDihedralGroup.not_isMulCommutative, nonempty_mulEquiv_of_isCyclic_of_index_eq_two, DihedralGroup.isEmpty_mulEquiv_otherDihedralGroup, QuaternionGroup.isEmpty_mulEquiv_otherDihedralGroup, SemiDihedralGroup.isEmpty_mulEquiv_otherDihedralGroup")
 *Other-dihedral group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.other_dihedral))
 
 The *other-dihedral group* $`\OD_{2^k}` is one of the four non-abelian groups of {bpref "group.order"}[order] $`2^k` containing a cyclic subgroup of index 2 (the other three being the {bpref "group.dihedral"}[dihedral group], the {bpref "group.generalized_quaternion"}[(generalized) quaternion group], and the {bpref "group.semi_dihedral"}[semi-dihedral group]).  It has the group presentation:
@@ -1383,7 +1383,7 @@ Depends on: {uses "group"}[] {uses "group.representation.character"}[]
 If $`G` is a finite group then the *Schur multiplier* of $`G` is the homology group $`H_2(G, \Z)`.  It is the maximal kernel of a {bpref "group.stem_extension"}[stem extension] of $`G`. In the data, the Schur multiplier is represented as a list of invariant factors; e.g., '\[2,4,12\]' corresponds to the abelian group $`C_2 \times C_4 \times C_{12}`.
 :::
 
-:::definition "group.semi_dihedral"
+:::definition "group.semi_dihedral" (lean := "SemiDihedralGroup, SemiDihedralGroup.presentedGroupMulEquiv, SemiDihedralGroup.index_range_inl, SemiDihedralGroup.not_isMulCommutative, nonempty_mulEquiv_of_isCyclic_of_index_eq_two, DihedralGroup.isEmpty_mulEquiv_semiDihedralGroup, QuaternionGroup.isEmpty_mulEquiv_semiDihedralGroup, SemiDihedralGroup.isEmpty_mulEquiv_otherDihedralGroup")
 *Semi-dihedral group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.semi_dihedral))
 
 The *semi-dihedral group* $`\SD_{2^k}` is one of the four non-abelian groups of {bpref "group.order"}[order] $`2^k` containing a cyclic subgroup of index 2 (the other three being the {bpref "group.dihedral"}[dihedral group], the {bpref "group.generalized_quaternion"}[(generalized) quaternion group], and the {bpref "group.other_dihedral"}[other-dihedral group]).  It has the group presentation:
@@ -1653,7 +1653,7 @@ the subgroup
 Depends on: {uses "group.sp2gr.gamma0"}[] {uses "group.sp2gr.gamma1"}[] {uses "group.sp2gr.ppal.congruence"}[]
 :::
 
-:::definition "group.special_linear"
+:::definition "group.special_linear" (lean := "Matrix.SpecialLinearGroup, Matrix.card_GL_field, Matrix.card_SL_field, Matrix.ProjectiveSpecialLinearGroup, Matrix.SpecialLinearGroup.mem_center_iff, Matrix.ProjectiveSpecialLinearGroup.isSimpleGroup_fin, Matrix.ProjectiveSpecialLinearGroup.isSimpleGroup_of_three_le_card, GaloisField")
 *Special linear group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.special_linear))
 
 The *special linear group* $`\SL(n,q)` is the group of $`n \times n` matrices with determinant 1 with entries in the {bpref "ring.field"}[field] $`\F_q` (the finite field with $`q` elements). It has {bpref "group.order"}[order] $`|\GL(n, q)|/(q-1) =  \frac{1}{q-1} \prod_{k=0}^{n-1} (q^n - q^k)`.
@@ -1663,7 +1663,7 @@ The *projective special linear group* $`\PSL(n, q)` is the {bpref "group.quotien
 Depends on: {uses "group.order"}[] {uses "group.quotient"}[] {uses "group.simple"}[] {uses "ring.field"}[]
 :::
 
-:::definition "group.spinor_norm"
+:::definition "group.spinor_norm" (lean := "CliffordAlgebra.spinorNorm, TauCeti.QuadraticMap.specialOrthogonalGroup, TauCeti.QuadraticMap.orthogonalGroup, TauCeti.QuadraticMap.reflection_apply_eq_sub_div, TauCeti.QuadraticMap.reflection_mem_orthogonalGroup, TauCeti.QuadraticMap.exists_prod_ofFn_reflectionOrthogonal_eq, CliffordAlgebra.spinorNorm_eq_squareClassHom_prod, TauCeti.subsingleton_squareClassGroup_of_ringChar_eq_two")
 *Spinor norm.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.spinor_norm))
 
 The {bpref "group.orthogonal"}[orthogonal group] $`\GO(n,q)` is the subgroup of $`\GL(n,q)` fixing a particular quadratic form $`Q`, and has the subgroup $`\SO(n,q)` of all matrices with determinant $`1`. One can associate to $`Q` a {bpref "alg.symmetric_bilinear_form"}[symmetric bilinear form] $`f \colon V^2 \to \F_q` (for $`V = \F_q^n`) by writing $`f(x,y) = Q(x+y) -Q(x) - Q(y)`. Then the reflection in a vector $`v \in V` such that $`Q(v) \neq 0` is the element of $`\SO(n,q)` that acts on $`V` by

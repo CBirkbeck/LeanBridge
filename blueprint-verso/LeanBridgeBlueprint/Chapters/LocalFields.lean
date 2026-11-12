@@ -496,7 +496,7 @@ Let $`G^i` be the $`i`th higher ramification group in upper numbering from Serre
 Depends on: {uses "lf.padic_field"}[] {uses "nf.galois_group"}[] {uses "nf.root_discriminant"}[]
 :::
 
-:::definition "lf.galois_mean_slope"
+:::definition "lf.galois_mean_slope" (lean := "IsNonarchimedeanLocalField.galoisMeanSlope, IsNonarchimedeanLocalField.galoisMeanSlope_nonneg, IsNonarchimedeanLocalField.discriminantIdeal_eq_span_natCast_pow_iff, IsNonarchimedeanLocalField.galoisMeanSlope_eq, IsNonarchimedeanLocalField.one_div_sub_one_div_nonneg, IsNonarchimedeanLocalField.sum_one_div_sub_one_div_add_one_div, IsNonarchimedeanLocalField.one_div_sub_one_div_eq_tameDegree, IsNonarchimedeanLocalField.wildArtinSlopesOfIsGalois")
 *Galois mean slope.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.galois_mean_slope))
 
 Let $`K` be a finite {bpref "nf.is_galois"}[Galois] extension of $`\Q_p` for some prime $`p`.  Its *Galois mean slope* is the nonnegative rational number

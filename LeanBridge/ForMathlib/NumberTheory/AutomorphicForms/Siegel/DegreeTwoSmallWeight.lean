@@ -15,8 +15,11 @@ Together with the known vanishing for odd `k` and odd `j`, this proves part of t
 `N_{j,k}(Γ₂) = 0` for `k < 4` apart from `(j, k) = (0, 0)`, which lies behind the corrected range of
 the decomposition `N_{j,k}(Γ₂) = E_{j,k}(Γ₂) ⊕ KE_{j,k}(Γ₂)` of the knowl
 `mf.siegel.subspace.degree.two`. The weights with even `k ≤ 2`, even `j` and `k + j ≥ 12`,
-`k + j ≠ 14` are not covered, and the subspaces `E_{j,k}(Γ₂)` and `KE_{j,k}(Γ₂)` are not shown to
-vanish in these weights.
+`k + j ≠ 14` need Witt's restriction to the diagonal; the whole claim is
+`SiegelUpperHalfSpace.cuspFormsOrthogonalKJ_eq_bot_of_lt_four`, in
+`LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoWeightZero`. Below weight `4`,
+`E_{j,k}(Γ₂)` vanishes for `j > 0` (`SiegelUpperHalfSpace.siegelEisensteinSubspaceKJ_eq_bot`), but
+`E_{0,k}(Γ₂)` and `KE_{j,k}(Γ₂)` are not shown to vanish.
 
 ## Main results
 

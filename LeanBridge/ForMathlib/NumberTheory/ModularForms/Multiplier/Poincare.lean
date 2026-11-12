@@ -41,11 +41,13 @@ noncomputable def poincareTerm (v : G →* Circle) (k n : ℤ) (w : ℕ) (z : �
 /-- The `n`-th **Poincaré series** (LMFDB `specialfunction.poincare`)
 `P_k^n(G, v; z; s) = Σ_{g ∈ G_s \ G} conj(v(g)) e^{2πi (n/w) γ_s⁻¹ g z} j(γ_s⁻¹ g, z)^{-k}` of
 weight `k` and multiplier `v` on `G ≤ SL(2, ℤ)`, at the cusp `s = γ_s ∞` of width `w`, as an
-unconditional sum (`tsum`, `0` when not summable) over the right cosets `G_s g`, each represented by a chosen
-element. Under the LMFDB's hypotheses (`G` of finite index, `k ≥ 3`, `v(-I) = (-1)^k`, `v` trivial
-on `G_s`, `w` the width of `s`) the term does not depend on the representative and the series
-converges absolutely to a holomorphic function, a cusp form; none of these facts is proved here,
-and the definition does not impose the hypotheses. -/
+unconditional sum (`tsum`, `0` when not summable) over the right cosets `G_s g`, each represented
+by a chosen element; the definition imposes no hypothesis. For `G` of finite index, `k ≥ 3`, `w` the
+width of `s` and `v(h) = (±1)^k` for `h ∈ G_s` with `γ_s⁻¹ h γ_s = ±T^b` (the corrected form of the
+LMFDB's "`v` trivial on `G_s`", which fails at `-I` for odd `k`), the terms do not depend on the
+representatives (`PoincareConvergence.lean`), the series converges absolutely to a holomorphic
+function (`PoincareHolomorphic.lean`), and for `n ≥ 1` it is a cusp form
+(`PoincareCuspForm.lean`). -/
 noncomputable def poincareSeries (v : G →* Circle) (k n : ℤ) (w : ℕ) (z : ℍ) : ℂ :=
   ∑' q : Quotient (QuotientGroup.rightRel (cuspStabilizer G γ)), poincareTerm γ v k n w z q.out
 

@@ -293,7 +293,7 @@ When $`X` has {bpref "shimcurve.genus"}[genus] $`0` the absence of local obstruc
 Depends on: {uses "shimcurve"}[] {uses "shimcurve.genus"}[]
 :::
 
-:::definition "shimcurve.nrdmu"
+:::definition "shimcurve.nrdmu" (lean := "PolarizedQuaternionOrder.polarizationDegree, Rat.squarefreePart, PolarizedQuaternionOrder.isSquare_div_polarizationDegree, PolarizedQuaternionOrder.eq_polarizationDegree_of_isSquare, PolarizedQuaternionOrder.squarefree_polarizationDegree, PolarizedQuaternionOrder.reducedNorm_pos, PolarizedQuaternionOrder.polarizationDegree_eq_degree, QuaternionAlgebra.reducedNorm")
 *Polarization degree of a polarized order.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.nrdmu))
 
 Let $`(O,\mu)` be a {bpref "shimcurve.polarized_order"}[polarized quaternion order]. The *polarization degree*
