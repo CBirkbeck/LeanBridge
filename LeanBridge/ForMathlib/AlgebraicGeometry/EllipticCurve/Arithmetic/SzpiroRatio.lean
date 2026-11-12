@@ -40,8 +40,8 @@ variable (E : WeierstrassCurve ℚ) [E.IsElliptic] (h : 1 < Ideal.absNorm (algor
 `ec.q.szpiro_ratio`) of an elliptic curve over `ℚ`, where `c₄` and `c₆` are the invariants of the
 reduced minimal model and `N` is the norm of the algorithmic conductor. The conductor of an
 elliptic curve over `ℚ` exceeds `1`, as there is no elliptic curve over `ℚ` with good reduction
-everywhere; that theorem is not formalised, and when `N = 1` the quotient is `0` by division by
-zero. -/
+everywhere (`WeierstrassCurve.one_lt_absNorm_algorithmicConductor`); for `N = 1` the quotient
+would be `0` by division by zero. -/
 noncomputable def algorithmicModifiedSzpiroRatio : ℝ :=
   Real.log (max (|((reducedMinimalModel E).c₄ : ℝ)| ^ 3) (((reducedMinimalModel E).c₆ : ℝ) ^ 2)) /
     Real.log (Ideal.absNorm (algorithmicConductor ℤ E))

@@ -951,7 +951,7 @@ Note that such an equation is not unique and $`E` has a unique {bpref "ec.q.mini
 Depends on: {uses "ec.q.discriminant"}[] {uses "ec.q.minimal_weierstrass_equation"}[]
 :::
 
-:::definition "ec.q.abc_quality"
+:::definition "ec.q.abc_quality" (lean := "WeierstrassCurve.abcQuality, WeierstrassCurve.abcQuality_eq_of_j_div_eq, TauCeti.AbcConjecture, TauCeti.abcConjecture_iff_forall_finite, TauCeti.abcConjecture_iff_algorithmicModifiedSzpiroRatioConjecture, TauCeti.abcConjecture_iff_algorithmicModifiedSzpiroConjecture")
 *$`abc` quality.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.abc_quality))
 
 Given a triple $`a,b,c` of nonzero coprime integers, the *quality* of the triple is defined as
@@ -1418,7 +1418,7 @@ The special value appears on the LHS of the formula in the {bpref "ec.q.bsdconje
 Depends on: {uses "ec"}[] {uses "ec.q.bsdconjecture"}[] {uses "lfunction.normalization"}[]
 :::
 
-:::definition "ec.q.szpiro_ratio"
+:::definition "ec.q.szpiro_ratio" (lean := "WeierstrassCurve.algorithmicModifiedSzpiroRatio, TauCeti.AlgorithmicModifiedSzpiroRatioConjecture, TauCeti.abcConjecture_iff_algorithmicModifiedSzpiroRatioConjecture, TauCeti.algorithmicModifiedSzpiroConjecture_iff_algorithmicModifiedSzpiroRatioConjecture, WeierstrassCurve.algorithmicSzpiroRatio, TauCeti.AlgorithmicSzpiroRatioConjecture, TauCeti.AlgorithmicModifiedSzpiroRatioConjecture.algorithmicSzpiroRatioConjecture, WeierstrassCurve.one_lt_absNorm_algorithmicConductor, TauCeti.AlgorithmicModifiedSzpiroConjecture, WeierstrassCurve.algorithmicConductor")
 *Szpiro ratio.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.szpiro_ratio))
 
 The (modified) *Szpiro ratio* of an {bpref "ec"}[elliptic curve] $`E` is defined as

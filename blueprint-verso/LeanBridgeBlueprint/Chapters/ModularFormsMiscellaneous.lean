@@ -103,7 +103,7 @@ A {bpref "mf"}[modular form] $`f` satisfies a growth condition which restricts t
 Depends on: {uses "mf"}[]
 :::
 
-:::definition "mf.half_integral_weight"
+:::definition "mf.half_integral_weight" (lean := "ModularForm.halfIntegralWeightSpace, ModularForm.halfIntegralWeightCuspSpace, ModularForm.thetaSeries, ModularForm.thetaFactor, ModularForm.thetaSeries_apply_ne_zero, ModularForm.thetaFactor_eq_div, ModularForm.mem_halfIntegralWeightSpace_iff, ModularForm.thetaSeries_mem_halfIntegralWeightSpace, ModularForm.hasWeight_of_mem_halfIntegralWeightSpace, ModularForm.thetaSeries_smul, ModularForm.thetaSeries_mul_discriminant_mem_halfIntegralWeightCuspSpace, ModularForm.thetaSeries_mul_discriminant_ne_zero")
 *Half-integral weight modular forms.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.half_integral_weight))
 
 Let $`k` be an odd integer, and let $`N` a positive integer divisible by $`4`. Let $`\chi` be a {bpref "character.dirichlet"}[character] modulo $`N`. A *modular form of half-integral {bpref "cmf.weight"}[weight]* $`k/2` , {bpref "cmf.level"}[level] $`N` and character $`\chi` is an holomorphic function defined on the upper half plane $`\mathcal{H}`, satisfying the transformation formula
@@ -201,7 +201,7 @@ $`J_{k,N}^{\text{cusp}}`.
 A *multiplier system* of weight $`k\in\mathbb{Z}` for a group $`G` is a group homomorphism from $`G` to the group $`S^1` of complex numbers of modulus $`1`, with the added condition that, if $`-I\in G`, then $`v(-I)=(-1)^k`.
 :::
 
-:::definition "mf.quasi_modular"
+:::definition "mf.quasi_modular" (lean := "ModularForm.IsQuasiModularForm, ModularForm.HasQuasiModularDepth, ModularForm.quasiModularPolynomial, EisensteinSeries.E2, EisensteinSeries.E2_eq_tsum_cexp, ModularForm.isQuasiModularForm_E2, ModularForm.hasQuasiModularDepth_E2, ModularForm.E2_smul")
 *Quasi-modular form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.quasi_modular))
 
 A *quasi-modular form* of {bpref "cmf.weight"}[weight] $`k` and {bpref "mf.multipliersystem"}[multiplier system] $`v` for a {bpref "group.fuchsian"}[fuchsian group] $`G` is a function $`f` from {bpref "mf.upper_half_plane"}[$`\mathfrak{H}`] to $`\mathbb{C}` which is

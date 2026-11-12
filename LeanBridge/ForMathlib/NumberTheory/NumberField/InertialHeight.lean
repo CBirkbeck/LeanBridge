@@ -26,7 +26,8 @@ misprints for `p ^ w(φ(τ_p))` and for the primes `p ∤ #G`, as the example of
 discriminant shows.
 
 The product over all primes is a `finprod`. For a finite `G` it has finite support, as a continuous
-`φ` is unramified at all but finitely many primes; this is not proved here.
+`φ` is unramified at all but finitely many primes
+(`NumberField.WeightFunction.finite_mulSupport_inertialHeight`).
 
 ## Main definitions
 

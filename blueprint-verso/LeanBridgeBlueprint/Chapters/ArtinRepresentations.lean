@@ -86,7 +86,7 @@ It is $`0`, $`1`, or $`-1` depending on whether the {bpref "group.representation
 Depends on: {uses "group"}[] {uses "group.representation.character"}[] {uses "group.representation.type"}[]
 :::
 
-:::definition "artin.galois_orbit"
+:::definition "artin.galois_orbit" (lean := "Representation.IsGaloisConjugate, Representation.galoisOrbit, Representation.galoisConj, Representation.isGaloisConjugate_iff_exists_nonempty_equiv, Representation.IsGaloisConjugate.isArtin, Representation.IsArtin.isGaloisConjugate_iff_exists_algebraicClosure, Representation.IsArtin.nonempty_equiv_galoisConj_of_apply_eq, Representation.IsArtin.isGaloisConjugate_iff_exists_cyclotomic, Representation.IsGaloisConjugate.symm, Representation.IsGaloisConjugate.trans")
 *Galois orbit of an Artin representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/artin.galois_orbit))
 
 The {bpref "group.galois.absolute"}[absolute Galois group] $`\Gal(\overline{\Q}/\Q)` acts on the set of {bpref "artin"}[Artin representations] for an extension by pre-composition, so we consider two representations to be Galois conjugate if they differ by such an automorphism.  The action, for a given representation, in fact factors through a finite degree abelian extension.
@@ -187,7 +187,7 @@ The image of $`\rho` is the *projective image* of the Artin representation.
 Depends on: {uses "artin"}[]
 :::
 
-:::definition "artin.projective_image_type"
+:::definition "artin.projective_image_type" (lean := "Representation.projectiveImage, HeckeRing.GL2.Newform.GaloisRep.ProjectiveImageType, HeckeRing.GL2.Newform.GaloisRep.ProjectiveImageType.IsTypeOf, Representation.IsArtin.finite_projectiveImage, Representation.IsArtin.exists_isTypeOf_projectiveImage_iff, Representation.isIrreducible_iff_not_isCyclic_projectiveImage, HeckeRing.GL2.Newform.GaloisRep.ProjectiveImageType.IsTypeOf.eq, Matrix.ProjGenLinGroup.classification, Matrix.ProjGenLinGroup")
 *Projective image type.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/artin.projective_image_type))
 
 The {bpref "artin.projective_image"}[projective image] of an {bpref "artin"}[Artin representation] is a finite {bpref "group.subgroup"}[subgroup] of $`\PGL_n(\C)`.  Possible subgroups have been classified for small $`n`.  The case which has garnered the most interest is when $`n=2`, in which case the image is isomorphic to either $`A_4`, $`S_4`, $`A_5`, or $`D_n` for some $`n\geq 2` (where $`D_2` is the Klein group).

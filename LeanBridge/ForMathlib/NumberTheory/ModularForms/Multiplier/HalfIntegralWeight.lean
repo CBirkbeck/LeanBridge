@@ -63,7 +63,9 @@ Shimura's theta multiplier `ModularForm.thetaFactor`, that are holomorphic at th
 
 The LMFDB defines `j(γ, z) = θ(γz) / θ(z)`; Shimura's formula
 `j(γ, z) = (c/d) ε_d⁻¹ (cz + d)^(1/2)` for `γ ∈ Γ₀(4)` is used instead, and
-`ModularForm.thetaSeries_smul` proves `θ(γz) = j(γ, z) θ(z)` for `θ(z) = Σ_n e^{2πin²z}`. -/
+`ModularForm.thetaSeries_smul` proves `θ(γz) = j(γ, z) θ(z)` for `θ(z) = Σ_n e^{2πin²z}`. As `θ`
+has no zero on `ℍ`, the two agree (`ModularForm.thetaFactor_eq_div`,
+`ModularForm.mem_halfIntegralWeightSpace_iff`). -/
 def halfIntegralWeightSpace : Submodule ℂ (ℍ → ℂ) where
   carrier := {f | MDiff f ∧
     (∀ γ ∈ Gamma0 N, ∀ z, f (γ • z) = χ (γ 1 1) * weightFactor k γ z * f z) ∧

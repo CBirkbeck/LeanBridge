@@ -17,7 +17,7 @@ by a factor independent of `ξ`, by the functional equation of `jacobiTheta₂`,
 matrices generate `Γ₀(4)` by Euclid's algorithm. So for every `γ ∈ Γ₀(4)` there is a factor
 independent of `ξ`, and `ξ = 0` identifies it with `j(γ, z)` wherever `θ(z) ≠ 0`, the law for `θ`
 being already known. Both sides are continuous in `z` and the zeros of `θ` are isolated, so the law
-holds for all `z`; the nonvanishing of `θ`, which is not proved at the pins, is not needed.
+holds for all `z`; the nonvanishing of `θ` (`ModularForm.thetaSeries_apply_ne_zero`) is not needed.
 
 ## Main results
 

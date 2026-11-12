@@ -549,7 +549,7 @@ Example: $`\Z[\sqrt{5}]` is an order in $`K=\Q(\sqrt{5})`. However, it is not ma
 Depends on: {uses "nf"}[]
 :::
 
-:::definition "nf.padic_completion"
+:::definition "nf.padic_completion" (lean := "IsDedekindDomain.HeightOneSpectrum.adicCompletion, IsDedekindDomain.HeightOneSpectrum.isFractionRing_adicCompletion, IsDedekindDomain.HeightOneSpectrum.dist_toAbs_adicAbv, IsDedekindDomain.HeightOneSpectrum.adicAbvCompletionRingEquiv, IsDedekindDomain.HeightOneSpectrum.adicAbvCompletionRingEquiv_coe, NumberField.adjoinRootEquivCompletion, NumberField.exists_eq_minpoly_algebraMap, TauCeti.semilocalEquiv, IsDedekindDomain.HeightOneSpectrum.valuation")
 *$`p`-adic completion of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.padic_completion))
 
 Let $`K` be a {bpref "nf"}[number field], $`\mathcal{O}_K` its {bpref "lf.ring_of_integers"}[ring of integers], $`\mathfrak{P}` a non-zero {bpref "nf.prime"}[prime ideal] of $`\mathcal{O}_K`, and $`p\in \Z\cap \mathfrak{P}`.

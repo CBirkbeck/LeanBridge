@@ -10,8 +10,9 @@ Let `θ(z) = ∑_{n ∈ ℤ} e(n² z)`, where `e(x) = e^{2πix}`. Shimura's thet
 `j(γ, z) = (c / d) ε_d⁻¹ (c z + d) ^ (1/2)`, `ModularForm.thetaFactor`, is the automorphy factor of
 `θ` on `Γ₀(4)`: `θ(γ z) = j(γ, z) θ(z)`. The LMFDB defines the multiplier in
 `mf.half_integral_weight` as the quotient `θ(γ z) / θ(z)`, and `ModularForm.halfIntegralWeightSpace`
-left this unproved. The law is stated as a product: that the quotient is `j(γ, z)` at every `z` also
-needs `θ(z) ≠ 0`, the Jacobi triple product, which is not at the pins and is not proved here.
+left this unproved. The law is stated as a product; that the quotient is `j(γ, z)` at every `z`
+also needs `θ(z) ≠ 0`, which `ModularForm.thetaSeries_apply_ne_zero` proves from the valence formula
+for `θ²` (`ModularForm.thetaFactor_eq_div`).
 
 The proof needs no cocycle computation and no reciprocity law. For `γ = (a, b; 4 c, d)` with `a > 0`
 and `c > 0`, the inversion `θ(-1 / (4 w)) = (-2 i w) ^ (1/2) θ(w)` at `w = γ z` moves the problem to

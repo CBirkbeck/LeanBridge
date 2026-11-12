@@ -143,8 +143,8 @@ variable {p} in
 /-- **A Cartan subgroup of `GL₂(𝔽_p)` non-split at `p` is non-split** in the sense of
 `IsNonsplitCartanSubgroup` (LMFDB `gl2.nonsplit_cartan`): its algebra `A` is a field with `p²`
 elements, so it has `p² - 1` elements, more than the `(p - 1)²` diagonal matrices, and no conjugate
-of it is diagonal. The converse, that a non-diagonalizable Cartan subgroup comes from a field, is
-not formalised. -/
+of it is diagonal. Conversely, every non-split Cartan subgroup is conjugate to `Cn`
+(`Matrix.GeneralLinearGroup.IsNonsplitCartanSubgroup.exists_map_conj_eq_labelCn`). -/
 lemma IsNonsplitCartanSubgroupMod.isNonsplitCartanSubgroup {C : Subgroup (GL (Fin 2) (ZMod p))}
     (hC : IsNonsplitCartanSubgroupMod C) : IsNonsplitCartanSubgroup C := by
   refine ⟨hC.isCartanSubgroup, fun g hg ↦ ?_⟩

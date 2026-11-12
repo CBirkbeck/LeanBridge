@@ -202,7 +202,7 @@ The *moment simplex* of a Sato-Tate group is the triangular table of nonzero mix
 Depends on: {uses "st_group.definition"}[] {uses "st_group.degree"}[] {uses "st_group.weight"}[]
 :::
 
-:::definition "st_group.moments"
+:::definition "st_group.moments" (lean := "SatoTateGroup.moment, SatoTateGroup.charpolyCoeff, SatoTateGroup.esymmEigen, SatoTateGroup.powerSum, SatoTateGroup.moment_zero, SatoTateGroup.moment_charpolyCoeff_eq_finrank_invariants, SatoTateGroup.powerSum_mem_closure_charpolyCoeff, SatoTateGroup.exists_moment_powerSum_eq_intCast")
 *Moment statistics.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.moments))
 
 *Moment statistics* refers to moments of random variables associated to a {bpref "st_group.definition"}[Sato-Tate group] $`G`, where the distribution of the random variable is defined using the pushforward of the Haar measure of $`G`.

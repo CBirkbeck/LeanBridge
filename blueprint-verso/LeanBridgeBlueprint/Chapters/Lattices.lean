@@ -93,7 +93,7 @@ Currently, all the lattices in the database are {bpref "lattice.nondegenerate"}[
 Depends on: {uses "lattice.gram"}[]
 :::
 
-:::definition "lattice.density"
+:::definition "lattice.density" (lean := "TauCeti.IntegralLattice.density, TauCeti.IntegralLattice.centerDensity, TauCeti.IntegralLattice.latticePackingDensity, EuclideanSpace.spherePackingDensity, TauCeti.IntegralLattice.packingDensity_range_eq_density, TauCeti.IntegralLattice.tendsto_volume_iUnion_ball_inter_ball_div, EuclideanSpace.unitBallVolume_two_mul_add_one, TauCeti.IntegralLattice.latticePackingDensity_le_spherePackingDensity, TauCeti.IntegralLattice.IsDensestLattice")
 *Density of an integral lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.density))
 
 The density of a {bpref "lattice.positive_definite"}[positive definite] {bpref "lattice.definition"}[integral lattice] $`L` of {bpref "lattice.dimension"}[rank] $`n` is the density of the lattice-centered sphere packing in $`\mathbb{R}^n`.
@@ -229,7 +229,7 @@ A lattice $`L` in $`\mathbb{R}^n` is called *extreme* if it is a local maximum o
 Depends on: {uses "lattice.density"}[] {uses "lattice.eutactic"}[] {uses "lattice.perfect"}[]
 :::
 
-:::definition "lattice.festi_veniani_index"
+:::definition "lattice.festi_veniani_index" (lean := "TauCeti.IntegralLattice.discriminantFormIndex, TauCeti.IntegralLattice.discriminantFormIsometries, TauCeti.IntegralLattice.discriminantFormAction, TauCeti.IntegralLattice.discriminantQuadraticMap, TauCeti.IntegralLattice.mem_discriminantFormIsometries_iff_of_isEven, TauCeti.IntegralLattice.discriminantFormIndex_ne_zero, TauCeti.IntegralLattice.festiVenianiIndex_eq_discriminantFormIndex_mul_index, TauCeti.IntegralLattice.festiVenianiIndex, TauCeti.IntegralLattice.discriminantGroupAction, TauCeti.IntegralLattice.festiVenianiIndex_ne_zero, TauCeti.IntegralLattice.Isometry.discriminantGroupEquiv")
 *Festi-Veniani index of a lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.festi_veniani_index))
 
 For an {bpref "lattice.definition"}[integral lattice] $`L`, the *Festi--Veniani index* of $`L` is the index of the {bpref "lattice.automorphism_group"}[automorphism group] of $`L` in the automorphism group of the {bpref "lattice.discriminant_group"}[discriminant group] $`L^\vee/L`.

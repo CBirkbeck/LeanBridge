@@ -15,8 +15,9 @@ The LMFDB describes a finite group `G` by a "Type - length" descriptor:
 * "Simple" if `G` is simple (and not of the above kinds);
 * "Non-solvable - n" otherwise, `n` the number of composition factors of `G`.
 
-The number of composition factors is the least length of a composition series of `G`; by the
-Jordan–Hölder theorem (not proved here) all composition series have the same length.
+The number of composition factors is the least length of a composition series of `G`; a finite
+group has one, and by the Jordan–Hölder theorem all composition series have the same length
+(`Group.compositionLength_eq_length`).
 
 ## Main definitions
 

@@ -1175,7 +1175,7 @@ with respect to the subgroup $`\Gamma_0(\ell)`.
 When $`m` is not a multiple of $`4`, one gets a Siegel modular form with a character.
 :::
 
-:::definition "mf.siegel.vector_valued"
+:::definition "mf.siegel.vector_valued" (lean := "SiegelUpperHalfSpace.modularForms, SiegelUpperHalfSpace.HasModerateGrowth, SiegelUpperHalfSpace.modularFormsDegreeOne, SiegelUpperHalfSpace.rhoKJ, SiegelUpperHalfSpace.tprodEquivRhoKJ, SiegelUpperHalfSpace.isIrreducible_rhoKJ, SiegelUpperHalfSpace.isRationalRep_rhoKJ, SiegelUpperHalfSpace.existsUnique_nonempty_equiv_rhoKJ, SiegelUpperHalfSpace.modularFormsKJ")
 *Vector-valued Siegel modular forms.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.vector_valued))
 
 Let $`\rho: \GL_g(\mathbb{C})\to \GL(V),` where $`V` is a finite-dimensional complex vector space, be an irreducible representation.  A (vector valued) Siegel modular form of degree $`g`, weight $`\rho`, with respect to a subgroup
@@ -1188,7 +1188,7 @@ $$`|F(x+iy)|\ll y^\epsilon\quad\text{for }y\geq 1.`
 Consider the case $`g=2`.  Let $`std` denote the standard representation of $`\GL_2(\C)`, i.e. $`std` is the identity map from $`\GL_2(\C)` to $`\GL(\C^2)`.  To any pair of integers $`(k,j)` one associates the representation $`\rho_{k,j}:=Sym^{j}(std)\otimes\det(std)^{k}` of $`\GL_2(\C)`.  This enumerates all the irreducible representations of $`\GL_2(\C)`.
 :::
 
-:::definition "mf.siegel.vector_valued_degree_two"
+:::definition "mf.siegel.vector_valued_degree_two" (lean := "SiegelUpperHalfSpace.rhoKJ, SiegelUpperHalfSpace.modularFormsKJ, SiegelUpperHalfSpace.tprodEquivRhoKJ, SiegelUpperHalfSpace.isIrreducible_rhoKJ, SiegelUpperHalfSpace.isRationalRep_rhoKJ, SiegelUpperHalfSpace.highestWeight_rhoKJ, SiegelUpperHalfSpace.nonempty_equiv_rhoKJ_iff, SiegelUpperHalfSpace.existsUnique_nonempty_equiv_rhoKJ")
 *Vector-valued Siegel modular forms of degree 2.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.vector_valued_degree_two))
 
 The {bpref "repn.irrep.gl"}[irreducible representations] of $`\GL(2,\C)`
@@ -1201,7 +1201,7 @@ of weight $`\rho_{k,j}` on any arithmetic subsgroup $`\Gamma` of $`\GSp(4,\Q)` w
 Depends on: {uses "mf.siegel"}[] {uses "repn.irrep.gl"}[]
 :::
 
-:::definition "mf.siegel.weight"
+:::definition "mf.siegel.weight" (lean := "SiegelUpperHalfSpace.modularForms, Representation.highestWeight, SiegelUpperHalfSpace.rhoKJ, SiegelUpperHalfSpace.modularFormsKJ, SiegelUpperHalfSpace.tprodEquivRhoKJ, Representation.existsUnique_nonempty_equiv_rationalWeylRep, SiegelUpperHalfSpace.isIrreducible_rhoKJ, SiegelUpperHalfSpace.highestWeight_rhoKJ")
 *Weight of a Siegel modular form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.weight))
 
 The *weight* of a {bpref "mf.siegel"}[Siegel modular form] $`f` of {bpref "mf.siegel.degree"}[degree] $`g` is the

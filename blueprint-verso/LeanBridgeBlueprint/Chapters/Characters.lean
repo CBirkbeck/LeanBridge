@@ -109,7 +109,7 @@ The *Conrey index* (or *index*) of a {bpref "character.dirichlet"}[Dirichlet cha
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.modulus"}[]
 :::
 
-:::definition "character.dirichlet.conrey.orbit_label"
+:::definition "character.dirichlet.conrey.orbit_label" (lean := "DirichletCharacter.galoisOrbitLabel, DirichletCharacter.orbitLabelVector, DirichletCharacter.letterCode, DirichletCharacter.galoisOrbitLabel_eq, DirichletCharacter.galoisOrbitIndex_eq_ncard_orbitLabelVector, DirichletCharacter.orbitLabelVector_lt_orbitLabelVector_iff, DirichletCharacter.orbitLabelVector_eq_iff, DirichletCharacter.valueTrace_one, DirichletCharacter.galoisOrbitIndex, DirichletCharacter.galoisOrbitTraceVector")
 *Labels for Galois orbits of Dirichlet Characters.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.conrey.orbit_label))
 
 A {bpref "character.dirichlet.galois_orbit"}[Galois orbit] of {bpref "character.dirichlet"}[Dirichlet characters] is labelled as $`\texttt{q.A}`, where $`\texttt{q}` is the modulus of the characters in the orbit, and $`\texttt{A}` is a lower-case letter which corresponds to the lexicographic ordering of the Galois-invariant vector $`\left( \textup{Order}(\chi), \mathrm{Tr}(\chi(2)), \cdots, \mathrm{Tr}(\chi(\texttt{q} - 1) \right)`, for $`\chi` any Dirichlet character in the orbit. See Section 3.3 of  for more details.
@@ -185,7 +185,7 @@ The *Galois orbit* of a {bpref "character.dirichlet"}[Dirichlet character] $`\ch
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.modulus"}[] {uses "character.dirichlet.order"}[] {uses "character.dirichlet.value_field"}[] {uses "nf.galois_group"}[]
 :::
 
-:::definition "character.dirichlet.galois_orbit_index"
+:::definition "character.dirichlet.galois_orbit_index" (lean := "DirichletCharacter.galoisOrbitIndex, DirichletCharacter.intTraceVector, DirichletCharacter.galoisOrbitTraceVector, DirichletCharacter.intCast_num_valueTrace, DirichletCharacter.length_intTraceVector, DirichletCharacter.intTraceVector_eq_iff, DirichletCharacter.galoisOrbitIndex_eq_ncard_intTraceVector, DirichletCharacter.galoisOrbitIndex_one, DirichletCharacter.galoisOrbitIndex_eq_iff, DirichletCharacter.galoisOrbitTraceVector_eq_iff")
 *Orbit index of a Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.galois_orbit_index))
 
 The {bpref "character.dirichlet.galois_orbit"}[Galois orbits] of {bpref "character.dirichlet"}[Dirichlet characters] of {bpref "character.dirichlet.modulus"}[modulus] $`q` are ordered as follows.
@@ -362,7 +362,7 @@ In particular, for a fixed odd prime $`p`, $`x \mapsto \left(\frac{x}{p}\right)`
 Depends on: {uses "character.dirichlet"}[]
 :::
 
-:::definition "character.dirichlet.minimal"
+:::definition "character.dirichlet.minimal" (lean := "DirichletCharacter.IsMinimalOfPrimePowerModulus, DirichletCharacter.IsMinimal, DirichletCharacter.primePowerPart, DirichletCharacter.IsPrimitive.isMinimalOfPrimePowerModulus, DirichletCharacter.not_forall_isPrimitive_of_isMinimalOfPrimePowerModulus, DirichletCharacter.isMinimal_one_iff, DirichletCharacter.isMinimalOfPrimePowerModulus_one_iff, TauCeti.Nat.IsExactDivisor.eq_mul_comp_unitsMap")
 *Minimal Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.minimal))
 
 A {bpref "character.dirichlet"}[Dirichlet character] $`\chi` of prime power {bpref "character.dirichlet.modulus"}[modulus] $`N` is *minimal* if the following conditions both hold:

@@ -204,7 +204,7 @@ This also applies to open subgroups of matrix groups over $`\Z_{\ell}`, in which
 Depends on: {uses "gl2.open"}[]
 :::
 
-:::definition "gl2.nonsplit_cartan"
+:::definition "gl2.nonsplit_cartan" (lean := "Matrix.GeneralLinearGroup.IsNonsplitCartanSubgroup, Matrix.GeneralLinearGroup.labelCn, Matrix.GeneralLinearGroup.mem_labelCn_iff, Matrix.GeneralLinearGroup.isNonsplitCartanSubgroup_labelCn, Matrix.GeneralLinearGroup.labelCn_two_eq_of_index_eq_two, Matrix.GeneralLinearGroup.IsNonsplitCartanSubgroup.nonempty_mulEquiv_units_galoisField, Matrix.GeneralLinearGroup.IsNonsplitCartanSubgroup.exists_map_conj_eq_labelCn, Matrix.GeneralLinearGroup.labelCnAB")
 *Non-split Cartan subgroup.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gl2.nonsplit_cartan))
 
 A *non-split Cartan subgroup* of $`\GL_2(\F_p)` is a {bpref "gl2.cartan"}[Cartan subgroup] that is not diagonalizable over $`\F_p`.  Every non-split Cartan subgroup is a cyclic group isomorphic to $`\F_{p^2}^\times`.
@@ -225,7 +225,7 @@ where $`a` and $`b` are minimally chosen positive integers and $`\varepsilon` is
 Depends on: {uses "gl2.cartan"}[]
 :::
 
-:::definition "gl2.normalizer_cartan"
+:::definition "gl2.normalizer_cartan" (lean := "Matrix.GeneralLinearGroup.IsCartanNormalizer, Subgroup.normalizer, Matrix.GeneralLinearGroup.isCartanNormalizer_iff_exists_relIndex_eq_two, Matrix.GeneralLinearGroup.IsCartanNormalizer.isCoatom_or, Matrix.GeneralLinearGroup.IsCartanSubgroup.normal_of_eq_two, Matrix.GeneralLinearGroup.IsSplitCartanNormalizer.natCard_eq_two, Matrix.GeneralLinearGroup.IsSplitCartanNormalizer.isBorelSubgroup, Matrix.GeneralLinearGroup.IsNonsplitCartanNormalizer.eq_top, Matrix.GeneralLinearGroup.extendedCartanSubgroup_le_normalizer")
 *Normalizer of a Cartan subgroup.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gl2.normalizer_cartan))
 
 For $`p>2` the *normalizer of a Cartan subgroup* of $`\GL_2(\F_p)` is a maximal subgroup of $`\GL_2(\F_p)` that contains a {bpref "gl2.cartan"}[Cartan subgroup] with index 2.  It is the normalizer in $`\GL_2(\F_p)` of the Cartan subgroup it contains.
@@ -235,7 +235,7 @@ For $`p=2` the Cartan subgroups of $`\GL_2(\F_2)` are already normal and we inst
 Depends on: {uses "gl2.cartan"}[]
 :::
 
-:::definition "gl2.normalizer_nonsplit_cartan"
+:::definition "gl2.normalizer_nonsplit_cartan" (lean := "Matrix.GeneralLinearGroup.IsNonsplitCartanNormalizer, Matrix.GeneralLinearGroup.labelNn, Matrix.GeneralLinearGroup.labelNn_eq_sup, Matrix.GeneralLinearGroup.isNonsplitCartanNormalizer_iff_exists_relIndex_eq_two, Matrix.GeneralLinearGroup.IsNonsplitCartanNormalizer.isCoatom, Matrix.GeneralLinearGroup.IsNonsplitCartanNormalizer.exists_map_conj_eq, Matrix.GeneralLinearGroup.IsNonsplitCartanNormalizer.eq_top, Matrix.GeneralLinearGroup.labelNnAB, Matrix.GeneralLinearGroup.labelNn_two")
 *Normalizer of a non-split Cartan subgroup.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gl2.normalizer_nonsplit_cartan))
 
 For $`p>2` the *normalizer of a non-split Cartan subgroup* of $`\GL_2(\F_p)` is a maximal subgroup of $`\GL_2(\F_p)` that contains a {bpref "gl2.nonsplit_cartan"}[non-split Cartan subgroup] with index 2,
@@ -256,7 +256,7 @@ where $`a` and $`b` are minimally chosen positive integers and $`\varepsilon` is
 Depends on: {uses "gl2.nonsplit_cartan"}[]
 :::
 
-:::definition "gl2.normalizer_split_cartan"
+:::definition "gl2.normalizer_split_cartan" (lean := "Matrix.GeneralLinearGroup.IsSplitCartanNormalizer, Matrix.GeneralLinearGroup.labelNs, Matrix.GeneralLinearGroup.isSplitCartanNormalizer_iff_exists_relIndex_eq_two, Matrix.GeneralLinearGroup.IsCartanSubgroup.eq_normalizer_of_relIndex_eq_two, Matrix.GeneralLinearGroup.IsSplitCartanNormalizer.isCoatom, Matrix.GeneralLinearGroup.IsSplitCartanNormalizer.exists_map_conj_eq, Matrix.GeneralLinearGroup.labelNsAB, Matrix.GeneralLinearGroup.labelNsABC, Matrix.GeneralLinearGroup.isSplitCartanNormalizer_labelNs")
 *Normalizer of a split Cartan subgroup.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gl2.normalizer_split_cartan))
 
 The *normalizer of a split Cartan subgroup* of $`\GL_2(\F_p)` is a maximal subgroup of $`\GL_2(\F_p)` that contains a {bpref "gl2.split_cartan"}[split Cartan subgroup] with index 2.  For $`p>2` such a group is in fact the normalizer in $`\GL_2(\F_p)` of the split Cartan subgroup it contains, but for $`p=2` this is not the case (the split Cartan subgroup of $`\GL_2(\F_2)` is already normal).

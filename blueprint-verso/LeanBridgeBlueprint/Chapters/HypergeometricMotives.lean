@@ -79,7 +79,7 @@ For each $`u=a_i` or $`b_j` in $`A=(a_1,\ldots, a_m)` and $`B=(b_1,\ldots, b_n)`
 Depends on: {uses "hgm.defining_parameters"}[]
 :::
 
-:::definition "hgm.defining_parameters"
+:::definition "hgm.defining_parameters" (lean := "Hypergeometric.Parameters, Hypergeometric.CuspIndex.fractions, Hypergeometric.Parameters.gammaVector, Hypergeometric.gammaRatFunc, Hypergeometric.CuspIndex.length_fractions, Hypergeometric.CuspIndex.map_cyclotomicProd_eq_prod_exp, Hypergeometric.Parameters.gammaRatFunc_gammaVector, Hypergeometric.Parameters.eq_gammaVector, Hypergeometric.Parameters.algebraMap_div_eq_prod_gammaExponent")
 *Defining parameters of a hypergeometric motive.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/hgm.defining_parameters))
 
 A hypergeometric motive $`H(A,B,t)` in $`M(\Q,\Q)` is described by a {bpref "hgm.familes"}[hypergeometric family] $`H(A,B)` in $`M(\Q(t),t)` along with a specialization point $`t \in \Q^\times`. Here, $`A` and $`B` are disjoint multisets of positive integers and are the *defining parameters* of the hypergeometric family; they are subject to a constraint that

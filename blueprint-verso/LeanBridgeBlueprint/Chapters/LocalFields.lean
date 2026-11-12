@@ -470,7 +470,7 @@ family with label $`p.f.e.c\ell`.
 Depends on: {uses "lf.discriminant_exponent"}[] {uses "lf.family_polynomial"}[] {uses "lf.padic_field"}[] {uses "lf.ramification_index"}[] {uses "lf.residue_field"}[] {uses "lf.residue_field_degree"}[] {uses "lf.subfamily"}[]
 :::
 
-:::definition "lf.galois_invariants"
+:::definition "lf.galois_invariants" (lean := "IsNonarchimedeanLocalField.wildArtinSlopes, IsNonarchimedeanLocalField.swanSlopes, IsNonarchimedeanLocalField.galoisTameDegree, IsNonarchimedeanLocalField.galoisUnramifiedDegree, IsNonarchimedeanLocalField.galoisMeanSlope, Polynomial.IsGaloisSplittingModel, IsNonarchimedeanLocalField.finrank_fixedField_upperRamificationGroup_zero_galoisClosure, IsNonarchimedeanLocalField.galoisMeanSlope_eq, IsNonarchimedeanLocalField.upperRamificationGroup_eq_of_mem_Ioc")
 *Galois invariants of a local field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.galois_invariants))
 
 Let $`K^{gal}` be the Galois closure of a {bpref "lf.padic_field"}[$`p`-adic field] $`K`. The first Galois invariant of $`K` is the {bpref "nf.galois_group"}[Galois group] $`G=\Gal(K^{gal}/\mathbb{Q}_p)`.  Most of the remaining invariants relate to the filtration on $`G` by higher ramification groups.
@@ -800,7 +800,7 @@ associated to $`w`.
 Depends on: {uses "group.galois.absolute"}[] {uses "group.weight_function"}[] {uses "lf.inertia_group"}[] {uses "lf.ramification_index"}[]
 :::
 
-:::definition "lf.log"
+:::definition "lf.log" (lean := "IsNonarchimedeanLocalField.iwasawaLog, TauCeti.hasSum_log_of_mem_unitFiltration_one, IsNonarchimedeanLocalField.log_mul_of_mem_unitFiltration_one, IsNonarchimedeanLocalField.iwasawaLog_of_mem_unitFiltration_one, IsNonarchimedeanLocalField.iwasawaLog_primeUnit, IsNonarchimedeanLocalField.iwasawaLog_eq_zero_of_pow_eq_one, IsNonarchimedeanLocalField.eq_iwasawaLog, TauCeti.deepUnitExpLogEquiv, IsNonarchimedeanLocalField.iwasawaLog_of_mem_unitFiltration, IsNonarchimedeanLocalField.iwasawaLog_eq_of_pow_eq")
 *$`p`-adic logarithm.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.log))
 
 Let $`K` be a finite extension of $`\Q_p` for some prime $`p`, and
@@ -1145,7 +1145,7 @@ the form $`(p^f-1)\cdot p^r`, where $`f` is the
 Depends on: {uses "lf.residue_field_degree"}[]
 :::
 
-:::definition "lf.slope_content"
+:::definition "lf.slope_content" (lean := "IsNonarchimedeanLocalField.artinSlopeContent, IsNonarchimedeanLocalField.wildArtinSlopes, IsNonarchimedeanLocalField.swanSlopes, IsNonarchimedeanLocalField.upperRamificationGroup_zero, IsNonarchimedeanLocalField.fixedField_upperRamificationGroup_zero, IsNonarchimedeanLocalField.relIndex_lowerRamificationGroup_one_zero, IsNonarchimedeanLocalField.relfinrank_fixedField_lowerRamificationGroup_one, IsNonarchimedeanLocalField.finrank_galoisClosure_eq, IsNonarchimedeanLocalField.upperRamificationGroup_eq_of_mem_Ioc")
 *Slope content of an extension of $`p`-adic fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.slope_content))
 
 Let $`L/K` be an extension of {bpref "lf.padic_field"}[$`p`-adic fields].
