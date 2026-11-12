@@ -11,7 +11,7 @@ open Informal
 
 This section lists the LMFDB definitions in the category `g2c`. Each definition links back to its LMFDB knowl.
 
-:::definition "g2c.abs_discriminant"
+:::definition "g2c.abs_discriminant" (lean := "HyperellipticEquation.discriminant, HyperellipticEquation.IsMinimal, HyperellipticEquation.IsMinimal.abs_discriminant_eq")
 *Absolute discriminant.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.abs_discriminant))
 
 The *absolute discriminant* of a {bpref "g2c.g2curve"}[genus 2 curve] over $`\Q` is the absolute value of its {bpref "g2c.discriminant"}[discriminant].
@@ -67,7 +67,7 @@ The Birch and Swinnerton-Dyer for abelian varieties implies that the analytic ra
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.mordell_weil"}[] {uses "ag.regulator"}[] {uses "g2c.analytic_rank"}[] {uses "g2c.mordell_weil_rank"}[] {uses "g2c.real_period"}[] {uses "g2c.tamagawa"}[] {uses "ag.tate_shafarevich"}[] {uses "g2c.torsion"}[] {uses "lfunction"}[] {uses "lfunction.leading_coeff"}[]
 :::
 
-:::definition "g2c.aut_grp"
+:::definition "g2c.aut_grp" (lean := "HyperellipticEquation.hyperellipticInvolution, HyperellipticEquation.orderOf_hyperellipticInvolution, GenusTwoCurve.nontrivial_algEquiv, GenusTwoCurve.orderOf_hyperellipticInvolution, CategoryTheory.Aut")
 *Automorphism group of an algebraic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.aut_grp))
 
 An *automorphism* of an {bpref "ag.curve"}[algebraic curve] is an isomorphism from the curve to itself.  The set of automorphisms of a curve $`X` form a group $`\mathrm{Aut}(X)` under composition; this is the *automorphism group* of the curve.
@@ -141,7 +141,7 @@ When $`A` is the Jacobian of a genus 2 curve, the abelian varieties $`B_1` and $
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.geom_simple"}[] {uses "av.isogeny"}[] {uses "ag.simple"}[] {uses "ec"}[]
 :::
 
-:::definition "g2c.discriminant"
+:::definition "g2c.discriminant" (lean := "HyperellipticEquation.discriminant, GenusTwoCurve.minimalDiscriminant, GenusTwoCurve.minimalDiscriminant_eq, GenusTwoCurve.exists_isMinimalEquation, HyperellipticEquation.IsMinimal.discriminant_eq, HyperellipticEquation.nonempty_algEquiv_iff_exists_changeOfVariables")
 *Discriminant of a genus 2 curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.discriminant))
 
 The discriminant $`\Delta` of a Weierstrass equation $`y^2+h(x)y=f(x)` can be computed as

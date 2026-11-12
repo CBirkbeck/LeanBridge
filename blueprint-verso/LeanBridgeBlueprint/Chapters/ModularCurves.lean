@@ -421,7 +421,7 @@ The degree of a point $`x` on a modular curve $`X` is the degree $`[\mathbb{Q}(x
 The *residue field* of a point $`x` on a modular curve $`X` defined over a field $`K` is the field $`K(x)`.
 :::
 
-:::definition "modcurve.psl2index"
+:::definition "modcurve.psl2index" (lean := "Matrix.GeneralLinearGroup.psl2Index, Matrix.GeneralLinearGroup.modularGamma, Matrix.GeneralLinearGroup.modularGamma_adjoinNegOne, Matrix.GeneralLinearGroup.sl2zToAdelic, ModularGroup.degree_compactifiedQuotientMap_eq_natCard_cosets, Matrix.GeneralLinearGroup.index_modularGamma, Matrix.GeneralLinearGroup.psl2Index_eq_index, Matrix.GeneralLinearGroup.two_mul_psl2Index_eq_index")
 *$`\PSL_2`-index.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.psl2index))
 
 The *$`\PSL_2`-index* of a {bpref "modcurve"}[modular curve] $`X_H` is the index of $`\Gamma_H := \pm H\cap \SL_2(\Z)` in $`\PSL_2(\Z)`; this index is also the degree of the map $`j : \Gamma_H \backslash \overline{\mathfrak{h}} \to X(1)`, where $`\overline{\mathfrak{h}}` is the completed {bpref "mf.upper_half_plane"}[upper half-plane]. This is equal to the {bpref "modcurve.index"}[index] of the modular curve when $`-1 \in H`, and equals half the index if $`-1 \notin H`.

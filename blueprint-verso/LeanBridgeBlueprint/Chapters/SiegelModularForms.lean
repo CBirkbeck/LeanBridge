@@ -81,7 +81,7 @@ These fall into six classes of (packets of ) representations:
 Depends on: {uses "mf.siegel.degree"}[] {uses "mf.siegel.newform"}[]
 :::
 
-:::definition "mf.siegel.character"
+:::definition "mf.siegel.character" (lean := "SiegelUpperHalfSpace.modularForms, SiegelUpperHalfSpace.mem_modularForms_iff_slash, SiegelUpperHalfSpace.slash, SiegelUpperHalfSpace.IsHolomorphic, SiegelUpperHalfSpace")
 *Siegel modular form with character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.character))
 
 Let $`g\ge 2` be an integer, let
@@ -119,7 +119,7 @@ It is also known as the *Hecke ring*, since the $`a_n` generate the same ring as
 Depends on: {uses "mf.siegel.coefficient_field"}[] {uses "mf.siegel.newform"}[]
 :::
 
-:::definition "mf.siegel.cusp_form"
+:::definition "mf.siegel.cusp_form" (lean := "SiegelUpperHalfSpace.IsSiegelCuspForm, SiegelUpperHalfSpace.siegelCuspForms, SiegelUpperHalfSpace.IsSiegelCuspForm.siegelPhi_slash, SiegelUpperHalfSpace.siegelPhi, SiegelUpperHalfSpace.slash, SiegelUpperHalfSpace.modularForms")
 *Siegel cusp form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.cusp_form))
 
 A {bpref "mf.siegel"}[Siegel modular form]
@@ -135,7 +135,7 @@ where $`|` is the {bpref "mf.siegel.slash.op"}[slash operator].
 Depends on: {uses "mf.siegel"}[] {uses "mf.siegel.character"}[] {uses "mf.siegel.slash.op"}[]
 :::
 
-:::definition "mf.siegel.cusp_form_degree2"
+:::definition "mf.siegel.cusp_form_degree2" (lean := "SiegelUpperHalfSpace.cuspFormsKJ, SiegelUpperHalfSpace.IsCuspForm, SiegelUpperHalfSpace.SiegelOperatorVanishes, SiegelUpperHalfSpace.rhoKJ, SiegelUpperHalfSpace.slash, SiegelUpperHalfSpace.finiteDimensional_cuspFormsKJ, SiegelUpperHalfSpace.isPeterssonDefinite_cuspForms, SiegelUpperHalfSpace.finiteDimensional_cuspFormsKJ_of_isArithmetic")
 *Siegel cusp form of degree 2.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.cusp_form_degree2))
 
 Let $`f` be a {bpref "mf.siegel.vector_valued_degree_two"}[vector-valued Siegel modular form] on
@@ -846,7 +846,7 @@ where $`\zeta` is the {bpref "lfunction.riemann"}[Riemann zeta function].
 Depends on: {uses "cmf"}[] {uses "group.sp2gr"}[] {uses "lfunction.riemann"}[] {uses "mf.siegel"}[] {uses "mf.siegel.lift.saito_kurokawa"}[]
 :::
 
-:::definition "mf.siegel.lift.maass"
+:::definition "mf.siegel.lift.maass" (lean := "SiegelUpperHalfSpace.maassLift, SiegelUpperHalfSpace.maassCoeff, SiegelUpperHalfSpace.MaassLiftTheorem, SiegelUpperHalfSpace.maassLiftTheorem, SiegelUpperHalfSpace.maassLiftLinearMap, SiegelUpperHalfSpace.isCuspForm_maassLift")
 *Maass lift from Jacobi form to Siegel modular form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.lift.maass))
 
 A Maass lift is a lift from {bpref "mf.jacobi"}[Jacobi forms] to {bpref "mf.siegel"}[Siegel modular forms] of degree 2 with respect to the {bpref "group.sp2gr"}[Siegel modular group].
@@ -990,7 +990,7 @@ A *newform* is a cusp form $`f\in S_{\rho}^{\rm new}(K(N))` that is also an eige
 Depends on: {uses "mf.siegel"}[] {uses "mf.siegel.hecke_operator"}[] {uses "mf.siegel.weight"}[]
 :::
 
-:::definition "mf.siegel.newform.paramodular"
+:::definition "mf.siegel.newform.paramodular" (lean := "SiegelUpperHalfSpace.IsNewParamodularEigenform, SiegelUpperHalfSpace.IsNotLevelRaised, SiegelUpperHalfSpace.isNotLevelRaised_detPowerRep_iff, SiegelUpperHalfSpace.rsThetaPrime_eq_levelRaisingTheta, SiegelUpperHalfSpace.rsThetaPrime_eq_rsEta_add_sum, SiegelUpperHalfSpace.rsTheta_eq_smul_levelRaisingThetaPrime")
 *Paramodular newform.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.newform.paramodular))
 
 A paramodular form on $`K(N)`
@@ -1248,7 +1248,7 @@ In degree $`2`,
 Depends on: {uses "group.paramodular"}[]
 :::
 
-:::definition "repn.highest.weight"
+:::definition "repn.highest.weight" (lean := "Representation.highestWeight, Representation.IsGLHighestWeightVector, Representation.existsUnique_isGLHighestWeightVector, Representation.IsGLHighestWeightVector.eq_highestWeight, Representation.IsGLHighestWeightVector.mem_span_singleton, Representation.antitone_highestWeight")
 *Highest weight of an irreducible representation of $`\GL(g,\C)`..* ([LMFDB](https://beta.lmfdb.org/knowledge/show/repn.highest.weight))
 
 Let $`\rho\colon \GL(g,\C)\to \GL(V)` be a finite-dimensional irreducible representation  Then there exists a unique $`1`-dimensional subspace $`\langle v_0 \rangle` of $`V`
@@ -1260,7 +1260,7 @@ For example the $`1`-dimensional representation of $`\GL(g,\C)` given by the det
 has highest weight $`(1,0,\ldots,0)`.
 :::
 
-:::definition "repn.irrep.gl"
+:::definition "repn.irrep.gl" (lean := "Representation.existsUnique_nonempty_equiv_rationalWeylRep, Representation.nonempty_equiv_rationalWeylRep_iff_eq_highestWeight, TauCeti.rationalWeylRep, TauCeti.isIrreducible_rationalWeylRep, TauCeti.isRationalRep_rationalWeylRep, TauCeti.nonempty_equiv_rationalWeylRep_iff")
 *Irreducible representations of $`\GL(g,\C)`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/repn.irrep.gl))
 
 The irreducible finite-dimensional representations of $`\GL(g,\C)` correspond bijectively to the $`g`-tuples of integers $`(\lambda_1,\ldots,\lambda_g)` with

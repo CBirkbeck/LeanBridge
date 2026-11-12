@@ -15,7 +15,7 @@ file := "Maass-forms"
 
 This section lists the LMFDB definitions in the subcategory `mf.maass`. Each definition links back to its LMFDB knowl. `specialfunction.k_bessel` also belongs here, although its id puts it in another LMFDB category.
 
-:::definition "mf.maass"
+:::definition "mf.maass" (lean := "Matrix.GeneralLinearGroup.IsKFiniteMaassForm, Matrix.GeneralLinearGroup.IsAutomorphicForm, Matrix.GeneralLinearGroup.IsCasimirEigenfunction, Matrix.GeneralLinearGroup.IsCenterFinite, Matrix.GeneralLinearGroup.IsOrthogonalFinite, Matrix.GeneralLinearGroup.casimirOperator")
 *Maass forms on GL(n).* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass))
 
 The term *Maass form* is used for automorphic forms on $`GL_{n}` (for some positive integer n), which are not holomorphic.
@@ -181,7 +181,7 @@ A {bpref "mf.maass.mwf"}[Maass form] $`f` is said to have *level* $`N` if $`f` i
 Depends on: {uses "mf.maass.mwf"}[]
 :::
 
-:::definition "mf.maass.mwf.spectralparameter"
+:::definition "mf.maass.mwf.spectralparameter" (lean := "UpperHalfPlane.HasMaassSpectralParameter, UpperHalfPlane.HasMaassSpectralParameter.eq_or_eq_neg")
 *The spectral parameter of a Maass waveform.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass.mwf.spectralparameter))
 
 If $`f` is a {bpref "mf.maass.mwf"}[Maass form] with {bpref "mf.maass.mwf.laplacian"}[Laplace] eigenvalue $`\lambda = \frac{1}{4}+R^{2}`, the number $`R` is said to be the *spectral parameter* of $`f`.
@@ -189,7 +189,7 @@ If $`f` is a {bpref "mf.maass.mwf"}[Maass form] with {bpref "mf.maass.mwf.laplac
 Depends on: {uses "mf.maass.mwf"}[] {uses "mf.maass.mwf.laplacian"}[]
 :::
 
-:::definition "mf.maass.mwf.symmetry"
+:::definition "mf.maass.mwf.symmetry" (lean := "UpperHalfPlane.maassReflection, UpperHalfPlane.coe_maassReflection_smul, UpperHalfPlane.IsEvenMaassForm, UpperHalfPlane.IsOddMaassForm, UpperHalfPlane.conjJ_smul, Matrix.SpecialLinearGroup.conjJMulAut_ne_conj, Matrix.SpecialLinearGroup.exists_conjJ_ne")
 *The symmetry of a Maass form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass.mwf.symmetry))
 
 The {bpref "group.sl2z"}[modular group] and its congruence subgroups has an outer automorphism of order two, which is given by the reflection in the imaginary axis: $`z=x+iy \mapsto -\bar{z}=-x+iy`.
@@ -232,7 +232,7 @@ Maass forms on PSL$`(2,{\mathbb{Z}}[i])` live in the upper half-space $`{\mathca
 The *Picard group* $`\Gamma=`PSL$`(2,{\mathbb{Z}}[i])` is a discrete, cofinite, but non-cocompact subgroup of the group of isometries PSL$`(2,{\mathbb{C}})` ,where the isometries are given by linear fractional transformations $`z\to(az+b)(cz+d)^{-1}` with $`a,b,c,d\in {\mathbb{C}}`, $`ad-bc\not=0`.
 :::
 
-:::definition "mf.maass.picard.eigenvalue"
+:::definition "mf.maass.picard.eigenvalue" (lean := "HyperbolicThreeSpace.picardTrueEigenvalue, HyperbolicThreeSpace.HasPicardSpectralParameter, HyperbolicThreeSpace.IsPicardMaassForm.eigenvalue_eq, HyperbolicThreeSpace.HasPicardSpectralParameter.eq_or_eq_neg, HyperbolicThreeSpace.IsPicardMaassForm")
 *Spectral parameter of Maass forms on PSL(2,Z\[i\]).* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass.picard.eigenvalue))
 
 Each {bpref "mf.maass.picard"}[Maass form] is associated to an *eigenvalue* via the eigenvalue equation $`(\Delta+\lambda)f(z)=0` where $`\Delta` is the {bpref "mf.maass.picard.laplacian"}[Laplacian].  It is convenient to introduce the *spectral parameter* $`r` which is also called the eigenvalue.  Only if one speaks about the *true eigenvalue* one refers to $`\lambda`, since by convention *eigenvalue* refers to $`r`.  In {bpref "mf.bianchi.hyperbolic3space"}[hyperbolic 3-space], the eigenvalue is connected to the true eigenvalue via $`\lambda=r^2+1`.

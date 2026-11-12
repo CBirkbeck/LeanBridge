@@ -156,7 +156,7 @@ Note that {bpref "modlgal.ramified"}[unramified] primes $`\frak{p}` of $`K` are,
 Depends on: {uses "modlgal"}[] {uses "modlgal.determinant"}[] {uses "modlgal.ramified"}[] {uses "modlgal.splitting_field"}[] {uses "nf.prime"}[]
 :::
 
-:::definition "modlgal.frobenius_matrix"
+:::definition "modlgal.frobenius_matrix" (lean := "MonoidHom.IsFrobeniusMatrix, MonoidHom.frobeniusClass, MonoidHom.galoisFactor_restrictNormalHom")
 *Frobenius matrix.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modlgal.frobenius_matrix))
 
 A *Frobenius matrix* for a {bpref "modlgal"}[mod-$`\ell` Galois representation]  is an element of the conjugacy class of the image of the absolute Frobenius element associated to a particular prime.

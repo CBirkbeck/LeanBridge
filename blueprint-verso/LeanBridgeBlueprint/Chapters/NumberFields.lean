@@ -198,7 +198,7 @@ For $`K=\Q(a)`, where $`a` is an algebraic number with {bpref "nf.minimal_polyno
 Depends on: {uses "nf"}[] {uses "nf.complex_embedding"}[] {uses "nf.degree"}[] {uses "nf.minimal_polynomial"}[] {uses "nf.real_embedding"}[] {uses "nf.signature"}[]
 :::
 
-:::definition "nf.frobenius_cycle_types"
+:::definition "nf.frobenius_cycle_types" (lean := "NumberField.frobeniusCycleType, NumberField.fullCycleType_toPerm_eq_frobeniusCycleType, NumberField.frobeniusCycleType_congr, IsArithFrobAt, Ideal.inertiaDeg")
 *Frobenius cycle types.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.frobenius_cycle_types))
 
 If $`K` is a degree $`n` extension of $`\mathbb{Q}`, $`\hat{K}` its normal closure and $`G=\text{Gal}(\hat{K}/\mathbb{Q})`, then $`G` acts on the set of $`n` embeddings of $`K\to \hat{K}` giving an embedding $`G\to S_n`.  Let $`\mathcal{O}_K` be the ring of integers of $`K` and $`p` a prime number.  Then
@@ -576,7 +576,7 @@ Finally, the {bpref "nf.local_algebra"}[local algebra] of $`K`, $`\prod_{j=1}^g 
 Depends on: {uses "lf.ring_of_integers"}[] {uses "nf"}[] {uses "nf.local_algebra"}[] {uses "nf.prime"}[] {uses "ring.dedekind_domain"}[] {uses "ring.field_of_fractions"}[] {uses "ring.fractional_ideal"}[] {uses "ring.integral_domain"}[] {uses "ring.irreducible"}[]
 :::
 
-:::definition "nf.place"
+:::definition "nf.place" (lean := "AbsoluteValue.Place, AbsoluteValue.Place.IsArchimedean, AbsoluteValue.Place.isArchimedean_iff_isReal_or_isComplex, AbsoluteValue.Place.not_isArchimedean_iff_exists_finitePlace, AbsoluteValue.Completion, AbsoluteValue.Place.Completion, AbsoluteValue.Place.completionRingEquiv")
 *Place of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.place))
 
 A *place* $`v` of a field $`K` is an equivalence class of non-trivial {bpref "nf.absolute_value"}[absolute values] on $`K`.  As with absolute values, places may be classified as archimedean or nonarchimedean, since these properties are preserved under equivalence.

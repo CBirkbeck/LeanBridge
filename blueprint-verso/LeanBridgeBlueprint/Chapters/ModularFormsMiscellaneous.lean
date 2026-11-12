@@ -167,7 +167,7 @@ $$`\theta(z)=\frac{\eta^5(z)}{\eta^2(z/2)\eta^2(2z)}=\frac{\eta^2((z+1)/2)}{\eta
 Depends on: {uses "cmf.level"}[] {uses "mf.half_integral_weight.dedekind_eta"}[]
 :::
 
-:::definition "mf.jacobi"
+:::definition "mf.jacobi" (lean := "ModularForm.jacobiFormSpace, ModularForm.jacobiCuspFormSpace, ModularForm.HasJacobiFourierExpansion, ModularForm.jacobiFactor, ModularForm.apply_add_mul_add_of_mem_jacobiFormSpace")
 *Jacobi forms.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.jacobi))
 
 A Jacobi form (of full level) of weight $`k` and index $`N`
@@ -260,7 +260,7 @@ for all $`z\in\mathcal{H}`, $`\gamma=\left(\begin{array}{ll}a&b\\c&d\end{array}\
 Depends on: {uses "group.sl2z"}[] {uses "mf"}[] {uses "mf.multipliersystem"}[] {uses "mf.upper_half_plane"}[]
 :::
 
-:::definition "mf.upper_half_plane"
+:::definition "mf.upper_half_plane" (lean := "UpperHalfPlane.Completed, UpperHalfPlane.Completed.hasBasis_nhds_ratCast, UpperHalfPlane.Completed.hasBasis_nhds_infty, UpperHalfPlane.Completed.smul_cusp, UpperHalfPlane")
 *Upper half-plane.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.upper_half_plane))
 
 The *upper half-plane* $`\mathcal{H}` is the set of complex numbers whose imaginary part is positive, endowed with the topology induced from $`\C`.

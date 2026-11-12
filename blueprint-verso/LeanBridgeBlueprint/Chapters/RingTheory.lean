@@ -11,7 +11,7 @@ open Informal
 
 This section lists the LMFDB definitions in the categories `ring`, `gl2` and `alg`. Each definition links back to its LMFDB knowl.
 
-:::definition "alg.bezout_matrix"
+:::definition "alg.bezout_matrix" (lean := "Polynomial.bezoutMatrix, Polynomial.sub_mul_sum_bezoutMatrix, Polynomial.det_bezoutMatrix, Polynomial.resultant, Polynomial.sylvester")
 *Bézout matrix.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/alg.bezout_matrix))
 
 Given two polynomials $`f` and $`g` of degree at most $`n`, their *degree $`n` Bézout matrix* is the $`n\times n` matrix $`(c_{ij})` where

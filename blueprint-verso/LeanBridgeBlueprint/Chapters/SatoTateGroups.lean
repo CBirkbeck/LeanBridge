@@ -178,7 +178,7 @@ When $`w=0` we the identity component is necessarily trivial and the $`A` is omi
 Depends on: {uses "st_group.component_group"}[] {uses "st_group.components"}[] {uses "st_group.definition"}[] {uses "st_group.degree"}[] {uses "st_group.identity_component"}[] {uses "st_group.moment_simplex"}[] {uses "st_group.weight"}[]
 :::
 
-:::definition "st_group.moment_matrix"
+:::definition "st_group.moment_matrix" (lean := "SatoTateGroup.momentMatrix, SatoTateGroup.momentDiagonal, SatoTateGroup.IsBeforeInMomentMatrix, SatoTateGroup.IsBeforeInMomentMatrix.isLinearOrder, SatoTateGroup.hasOrthogonalMonomial_iff_exists_traceless, SatoTateGroup.orthogonalMonomialEquiv")
 *Moment matrix.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.moment_matrix))
 
 The *moment matrix* of a {bpref "st_group.definition"}[Sato-Tate group] $`G` is the matrix of moments $`\mathrm{E}[\chi_i\chi_j]` with $`\chi_i` and $`\chi_j` ranging over the irreducible characters of the {bpref "st_group.ambient"}[ambient group] that contains $`G`;  The irreducible characters are ordered according to their highest weight, which can be written as a monomial in the elementary symmetric functions; these are ordered by (unweighted) degree and then by reverse lexicographic order of exponent vectors.  The *diagonal* of the moment matrix is the vector $`(\mathrm{E}[\chi_i^2])`.
@@ -188,7 +188,7 @@ In the symplectic case the irreducible characters of $`\mathrm{USp}(2g)` can be 
 Depends on: {uses "st_group.ambient"}[] {uses "st_group.definition"}[] {uses "st_group.moment_simplex"}[]
 :::
 
-:::definition "st_group.moment_simplex"
+:::definition "st_group.moment_simplex" (lean := "SatoTateGroup.momentSimplexRow, SatoTateGroup.mixedMoment, SatoTateGroup.weightedDegree")
 *Moment simplex.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.moment_simplex))
 
 For a {bpref "st_group.definition"}[Sato-Tate group] $`G` of odd {bpref "st_group.weight"}[weight] and {bpref "st_group.degree"}[degree] $`2g` with $`g>1` it is natural to organize the mixed moments

@@ -23,7 +23,7 @@ The only additively indecomposable integral lattices of {bpref "lattice.dimensio
 Depends on: {uses "lattice.definition"}[] {uses "lattice.dimension"}[] {uses "lattice.nondegenerate"}[] {uses "lattice.orthogonal_decomposition"}[] {uses "lattice.positive_definite"}[] {uses "lattice.unimodular"}[]
 :::
 
-:::definition "lattice.algebraic"
+:::definition "lattice.algebraic" (lean := "TauCeti.IntegralLattice.IsAlgebraic, NumberField.minkowskiForm, NumberField.minkowskiForm_eq_sum, TauCeti.IntegralLattice.IsAlgebraic.isPosDef, TauCeti.IntegralLattice.isAlgebraic_unitLattice_unit")
 *Algebraic lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.algebraic))
 
 A lattice is called *algebraic* if it can be realized as a free $`\mathbb{Z}`-module in an algebraic number field.
@@ -177,7 +177,7 @@ The isometry class of the pair $`(L^\vee/L, Q_L)` as a finite abelian group equi
 Depends on: {uses "group.abelian"}[] {uses "lattice.definition"}[] {uses "lattice.dual"}[] {uses "lattice.genus"}[] {uses "lattice.parity"}[] {uses "lattice.signature"}[]
 :::
 
-:::definition "lattice.dual"
+:::definition "lattice.dual" (lean := "TauCeti.IntegralLattice.dualCarrier, TauCeti.IntegralLattice.rescaledDual, TauCeti.IntegralLattice.dualScale, TauCeti.IntegralLattice.scaleIdeal_rescaledDual, TauCeti.IntegralLattice.eq_rescaledDual")
 *Dual lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.dual))
 
 For an {bpref "lattice.definition"}[integral lattice], $`L`, its *dual* is the set $`L^\#=\{\vec{v}\in \Q L:B(\vec{v},L)\subseteq \mathbb{Z}\}`. There is a unique rescaling of the bilinear map $`B` for which $`L^\#` is a {bpref "lattice.primitive"}[primitive] integral lattice; we will refer to the resulting integral lattice as the *rescaled dual* of $`L`.
@@ -209,7 +209,7 @@ where the sum is over all the {bpref "lattice.minimal_vector"}[minimal vectors] 
 Depends on: {uses "lattice.arithmetic"}[] {uses "lattice.minimal_vector"}[] {uses "lattice.similarity"}[] {uses "lattice.well_rounded"}[]
 :::
 
-:::definition "lattice.even_sublattice"
+:::definition "lattice.even_sublattice" (lean := "TauCeti.IntegralLattice.evenSublattice, TauCeti.IntegralLattice.evenSubmodule, TauCeti.IntegralLattice.span_setOf_even_integralNorm, TauCeti.IntegralLattice.isEven_iff_evenSublattice_eq, TauCeti.IntegralLattice.isEven_iff_evenSubmodule_eq_top, TauCeti.IntegralLattice.natCard_quotient_evenSubmodule_le_two")
 *Even sublattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.even_sublattice))
 
 The *even sublattice* of an {bpref "lattice.definition"}[integral lattice] $`L` is the sublattice of $`L` spanned by vectors of even length.
@@ -245,7 +245,7 @@ For an {bpref "lattice.definition"}[integral lattice], $`L` with underlying quad
 Depends on: {uses "lattice.definition"}[]
 :::
 
-:::definition "lattice.genus_label"
+:::definition "lattice.genus_label" (lean := "TauCeti.IntegralLattice.lmfdbGenusLabel, TauCeti.IntegralLattice.GenusLabelData.lmfdbLabel, TauCeti.IntegralLattice.GenusLabelData.lmfdbRankCode, TauCeti.IntegralLattice.GenusLabelData.labelBits, TauCeti.IntegralLattice.SameGenus.lmfdbGenusLabel_eq, TauCeti.IntegralLattice.lmfdbGenusLabel_eq_canonicalGenusLabel_iff")
 *Label of a genus of lattices.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.genus_label))
 
 Label is in the format $`r.s.d.j_1.j_2....j_k.x`, where
@@ -514,7 +514,7 @@ $`\gcd(\{g_{ij}:1\leq i\leq n,i\leq j\leq n\})=1`.
 Depends on: {uses "lattice.definition"}[] {uses "lattice.gram"}[]
 :::
 
-:::definition "lattice.quadratic_form"
+:::definition "lattice.quadratic_form" (lean := "TauCeti.IntegralLattice.norm, TauCeti.IntegralLattice.integralNorm, TauCeti.IntegralLattice.IsUniversal, TauCeti.IntegralLattice.IsEvenUniversal, TauCeti.IntegralLattice.isUniversal_iff_range_eq_Ici")
 *Quadratic form of a lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.quadratic_form))
 
 Given an {bpref "lattice.definition"}[integral lattice] $`L` with {bpref "lattice.gram"}[Gram matrix] $`G`, the *quadratic form* of $`L` is the function on $`L \otimes \mathbb{Q}` defined by
@@ -558,7 +558,7 @@ For any root system, the reflections in the hyperplanes orthogonal to the roots 
 Depends on: {uses "lattice.automorphism_group"}[]
 :::
 
-:::definition "lattice.root_sublattice"
+:::definition "lattice.root_sublattice" (lean := "TauCeti.IntegralLattice.rootSubmodule, TauCeti.IntegralLattice.IsRootLattice, TauCeti.IntegralLattice.IsPosDef.rootSubmodule_eq_span, TauCeti.IntegralLattice.isRootLattice_typeARootLattice, TauCeti.IntegralLattice.restrict")
 *Root sublattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.root_sublattice))
 
 The *root sublattice* of a {bpref "lattice.positive_definite"}[positive definite] {bpref "lattice.definition"}[integral lattice] $`L` is the sublattice of $`L` spanned by vectors of length at most equal to 2.
@@ -578,7 +578,7 @@ If $`L` has signature $`(n,0)` we say it is {bpref "lattice.positive_definite"}[
 Depends on: {uses "lattice.definition"}[] {uses "lattice.gram"}[] {uses "lattice.nondegenerate"}[] {uses "lattice.positive_definite"}[]
 :::
 
-:::definition "lattice.similarity"
+:::definition "lattice.similarity" (lean := "TauCeti.IntegralLattice.IsSimilar, TauCeti.IntegralLattice.IsSimilar.symm, TauCeti.IntegralLattice.IsSimilar.trans, TauCeti.IntegralLattice.Isometry.isSimilar, LinearMap.BilinForm.IsSimilarLattice, LinearMap.BilinForm.IsSimilarLattice.relIndex_span_minimalVectors_eq, LinearMap.BilinForm.IsSimilarLattice.isEutactic_iff, LinearMap.BilinForm.IsSimilarLattice.isPerfect_iff, LinearMap.BilinForm.IsSimilarLattice.packingDensity_eq, LinearMap.BilinForm.IsSimilarLattice.exists_isometry")
 *Similarity of lattices.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.similarity))
 
 Lattices $`L` and $`M` are called *similar* if there exists a real constant $`\alpha` so that $`L` is {bpref "lattice.isometry"}[isometric] to $`\alpha M`. Key properties of lattices, such as {bpref "lattice.well_rounded"}[well-roundedness], {bpref "lattice.eutactic"}[eutaxy], {bpref "lattice.perfect"}[perfection], {bpref "lattice.density"}[packing density] are preserved on similarity classes.  Each similarity class that contains an integer lattice contains a unique {bpref "lattice.primitive"}[primitive] integer lattice.
@@ -630,7 +630,7 @@ $$`\frac{2^n \text{det}(L)}{n! \text{Vol}(K)} \leq \lambda_1 \cdots \lambda_n \l
 by Minkowski's Successive Minima Theorem. Successive minima of $`L` are the successive minima of the unit ball with respect to $`L`.
 :::
 
-:::definition "lattice.tensor_decomposition"
+:::definition "lattice.tensor_decomposition" (lean := "TauCeti.IntegralLattice.tensorProduct, TauCeti.IntegralLattice.IsTensorDecomposable, TauCeti.IntegralLattice.IsTensorIndecomposable, TauCeti.IntegralLattice.TensorDecomposition, TauCeti.IntegralLattice.determinant_tensorProduct")
 *Tensor decomposition of a lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.tensor_decomposition))
 
 Given {bpref "lattice.definition"}[integral lattices] $`L_1` and $`L_2`, we define the *tensor product* of $`L_1` and $`L_2` as the lattice $`L = L_1 \otimes_{\Z} L_2`, where the associated bilinear form is defined as

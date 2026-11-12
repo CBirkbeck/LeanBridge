@@ -111,7 +111,7 @@ In the case $`Q=N`, the Atkin-Lehner involution $`w_N` is also called the {bpref
 Depends on: {uses "cmf.cusp_form"}[] {uses "cmf.hecke_operator"}[] {uses "cmf.weight"}[]
 :::
 
-:::definition "cmf.atkin_lehner_dims"
+:::definition "cmf.atkin_lehner_dims" (lean := "TauCeti.atkinLehnerSubspace, TauCeti.atkinLehnerDim, TauCeti.atkinLehnerDims, TauCeti.sum_atkinLehnerDim, HeckeRing.GL2.Newform.toCuspFormGamma0_mem_atkinLehnerSubspace")
 *Dimensions of Atkin-Lehner subspaces.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.atkin_lehner_dims))
 
 For each prime dividing the {bpref "cmf.level"}[level] $`N`, the {bpref "cmf.atkin-lehner"}[Atkin-Lehner operator] scales each {bpref "cmf.newform"}[newform] by either $`1` or $`-1`.  Let $`j` be the number of primes dividing $`N`.  Ordering the $`2^j` vectors of $`\pm 1` lexicographically (with $`1` before $`-1`), we show the dimensions of the subspaces of $`S_k^{\mathrm{new}}(\Gamma_0(N),\chi)` with prescribed Atkin-Lehner eigenvalues.
@@ -202,7 +202,7 @@ This is *cuspFormSubmodule $`\Gamma` $`k`* in mathlib. It is the submodule of th
 Depends on: {uses "cmf.cusp_form"}[] {uses "cmf.space_mathlib_def"}[]
 :::
 
-:::definition "cmf.decomposition.new.gamma0chi"
+:::definition "cmf.decomposition.new.gamma0chi" (lean := "HeckeRing.GL2.Newform.rationalPiece, HeckeRing.GL2.Newform.exists_apply_eq_of_mem_rationalPiece, HeckeRing.GL2.Newform.span_rationalPiece, HeckeRing.GL2.Newform.finrank_newformSubspaceOver, HeckeRing.GL2.NewformOrbit.iSup_newformSubspace_inf_cuspFormCharSpace, HeckeRing.GL2.Newform.numberField_coefficientField")
 *Decomposition into newforms.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.decomposition.new.gamma0chi))
 
 The {bpref "cmf.hecke_operator"}[Hecke algebra] acts on $`S_k^{\mathrm{new}}(N, \chi)`, breaking it up into irreducible pieces.  Each piece is spanned by a set of conjugate eigenforms with Fourier coefficients in a number field of degree equal to the dimension of the subspace.  We refer to an irreducible orbit as a *{bpref "cmf.newform"}[newform]*.
@@ -260,7 +260,7 @@ The {bpref "cmf.coefficient_field"}[coefficient field of a modular form] is a {b
 Depends on: {uses "cmf.coefficient_field"}[] {uses "nf"}[]
 :::
 
-:::definition "cmf.dimension"
+:::definition "cmf.dimension" (lean := "HeckeRing.GL2.Newform.dimension, HeckeRing.GL2.Newform.relativeDimension, HeckeRing.GL2.Newform.finrank_span_toCuspForm_eq_finrank, Module.finrank, HeckeRing.GL2.Newform.dimension_eq_finrank, HeckeRing.GL2.Newform.relativeDimension_eq_finrank, HeckeRing.GL2.Newform.dimension_eq_ncard_galoisOrbit, HeckeRing.GL2.Newform.finrank_rationalPiece")
 *Dimension.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.dimension))
 
 The *dimension* of a space of modular forms is its dimension as a complex vector space; for spaces of newforms $`S_k^{\rm new}(N,\chi)` this is the same as the dimension of the $`\Q`-vector space spanned by its eigenforms.
@@ -272,7 +272,7 @@ The *relative dimension* of $`S_k^{\rm new}(N,\chi)`  is its dimension as a $`\Q
 Depends on: {uses "cmf.dimension_mathlib_def"}[] {uses "cmf.galois_orbit"}[] {uses "cmf.newform"}[] {uses "cmf.newform_subspace"}[]
 :::
 
-:::definition "cmf.dimension_galois_orbit"
+:::definition "cmf.dimension_galois_orbit" (lean := "HeckeRing.GL2.Newform.dimension, HeckeRing.GL2.Newform.newformSubspace, HeckeRing.GL2.Newform.dimension_eq_ncard_galoisOrbit")
 *Dimension of a Hecke orbit.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.dimension_galois_orbit))
 
 The dimension of an (irreducible) {bpref "cmf.hecke_orbit"}[Hecke orbit] of a newform $`f`.
@@ -515,7 +515,7 @@ The set $`\{\sigma(f):\sigma\in\Gal(\overline{\Q}/\Q)\}` of all Galois conjugate
 Depends on: {uses "cmf.newform"}[] {uses "nf.degree"}[]
 :::
 
-:::definition "cmf.galois_orbit"
+:::definition "cmf.galois_orbit" (lean := "HeckeRing.GL2.Newform.galoisOrbit, HeckeRing.GL2.NewformOrbit, HeckeRing.GL2.Newform.galoisOrbitRel, HeckeRing.GL2.Newform.finite_galoisOrbit, HeckeRing.GL2.Newform.galoisOrbitBasis, HeckeRing.GL2.Newform.orbit_algebraicClosure_eq_galoisOrbit, HeckeRing.GL2.Newform.orbit_eq_galoisOrbit")
 *Galois orbit of a newform.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.galois_orbit))
 
 The *Galois orbit* of a {bpref "cmf.newform"}[newform] $`f\in S_k^{\rm new}(N,\chi)` is the finite set
@@ -543,7 +543,7 @@ Composing the representation $`\rho` with the natural map $`\GL_2(\C)\to \PGL_2(
 Depends on: {uses "artin"}[] {uses "artin.conductor"}[] {uses "artin.parity"}[] {uses "cmf.newform"}[] {uses "cmf.weight"}[]
 :::
 
-:::definition "cmf.hecke_galois_orbit"
+:::definition "cmf.hecke_galois_orbit" (lean := "HeckeRing.GL2.NewformOrbit.traceSeq, HeckeRing.GL2.NewformOrbit.letterLabel, HeckeRing.GL2.Newform.exists_int_coeffTrace, HeckeRing.GL2.NewformOrbit.traceSeq_injective, HeckeRing.GL2.NewformOrbit.letterLabel_eq_iff, HeckeRing.GL2.NewformOrbit.image_labelIndex")
 *Galois orbit label.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.hecke_galois_orbit))
 
 The {bpref "cmf.galois_orbit"}[Galois orbits] within each {bpref "cmf.newspace"}[space of newforms] $`S^{\rm new}_k(N,[\chi])` are labeled using small roman letters: $`a, b, c, \ldots, z, aa, ba, \ldots`, with orbits ordered according to the lexicographical ordering of their integer trace sequences
@@ -555,7 +555,7 @@ obtained by taking traces of Hecke eigenvalues $`a_1,a_2,\ldots` from the coeffi
 Depends on: {uses "cmf.galois_orbit"}[] {uses "cmf.newspace"}[]
 :::
 
-:::definition "cmf.hecke_kernels"
+:::definition "cmf.hecke_kernels" (lean := "HeckeRing.GL2.Newform.heckeKernel, HeckeRing.GL2.Newform.mem_heckeKernel, HeckeRing.GL2.Newform.map_iInf_heckeKernel, HeckeRing.GL2.Newform.map_iInf_heckeKernel_eq_newformSubspace_inf, HeckeRing.GL2.Newform.coeffMinpoly")
 *Hecke kernel.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.hecke_kernels))
 
 Each {bpref "cmf.newform"}[newform] $`f=\sum a_n^n` necessarily lies in the kernel of the linear operator $`g_n(T_n)`, where $`g_n\in \Z[X]` is the minimal polynomial of $`a_n` and $`T_n` is the $`n`th {bpref "cmf.hecke_operator"}[Hecke operator] acting on the {bpref "cmf.newspace"}[newspace] $`S_k^{\rm new}(N,\chi)` in which $`f` lies.
@@ -728,7 +728,7 @@ The *level* of a {bpref "cmf"}[newform] is the least such integer $`N`.
 Depends on: {uses "cmf"}[] {uses "group.sl2z"}[]
 :::
 
-:::definition "cmf.lfunction"
+:::definition "cmf.lfunction" (lean := "HeckeRing.GL2.Newform.analyticL, HeckeRing.GL2.Newform.hasSum_analyticL, HeckeRing.GL2.Newform.analyticL_eulerProduct, HeckeRing.GL2.Newform.analyticCompletedL, HeckeRing.GL2.Newform.rootNumber, HeckeRing.GL2.Newform.analyticCompletedL_eq_rootNumber_mul")
 *L-function of a classical modular form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.lfunction))
 
 For a {bpref "cmf.newform"}[newform] $`f\in S_k^{\rm new}(N,\chi)` with {bpref "cmf.q-expansion"}[q-expansion] $`f(z)=\sum a_n n^{(k-1)/2}q^n`, where $`q=\exp(2\pi i z)`, the {bpref "lfunction"}[L-function] $`L(s,f) = \sum a_n n^{-s}` has an {bpref "lfunction.euler_product"}[Euler product] of the form
@@ -749,7 +749,7 @@ functional equation and $`\Gamma_{\C}(s+(k-1)/2)` is its {bpref "lfunction.gamma
 Depends on: {uses "cmf.newform"}[] {uses "cmf.q-expansion"}[] {uses "lfunction"}[] {uses "lfunction.euler_product"}[] {uses "lfunction.functional_equation"}[] {uses "lfunction.gamma_factor"}[] {uses "lfunction.sign"}[]
 :::
 
-:::definition "cmf.maximal"
+:::definition "cmf.maximal" (lean := "HeckeRing.GL2.Newform.IsMaximal, HeckeRing.GL2.Newform.IsLargest, HeckeRing.GL2.Newform.ambientSubspace, HeckeRing.GL2.Newform.ambientNewforms, HeckeRing.GL2.Newform.isMaximal_iff")
 *Maximal newform.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.maximal))
 
 A {bpref "cmf.newform"}[newform] is *maximal* if its {bpref "cmf.galois_orbit"}[Galois orbit] spans the ambient subspace that contains it (its {bpref "cmf.atkin_lehner_dims"}[Atkin-Lehner subspace] when the {bpref "cmf.character"}[character] is trivial, the entire newspace otherwise).
@@ -831,7 +831,7 @@ A basis for the new subspace is given by {bpref "cmf.newform"}[newforms].
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.induce"}[] {uses "character.dirichlet.modulus"}[] {uses "cmf"}[] {uses "cmf.character"}[] {uses "cmf.cusp_form"}[] {uses "cmf.level"}[] {uses "cmf.petersson_scalar_product"}[] {uses "cmf.weight"}[]
 :::
 
-:::definition "cmf.newspaces"
+:::definition "cmf.newspaces" (lean := "TauCeti.cuspFormsNew, HeckeRing.GL2.Newform.coeff_smul_algebraicClosure, HeckeRing.GL2.Newform.orbit_algebraicClosure_eq_galoisOrbit, HeckeRing.GL2.Newform.rationalPiece, HeckeRing.GL2.Newform.eq_bot_or_eq_rationalPiece, HeckeRing.GL2.NewformOrbit.iSup_newformSubspace_inf_cuspFormCharSpace")
 *Space of newforms.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.newspaces))
 
 The {bpref "cmf.newform"}[new part] of the space $`S_k(N,\chi)` of {bpref "cmf.cusp_form"}[cusp forms] of {bpref "cmf.weight"}[weight] $`k`, {bpref "cmf.level"}[level] $`N`, and {bpref "character.dirichlet"}[character] $`\chi` is the space of $`S_k^{\rm new}(N,\chi)` of {bpref "cmf.newform"}[newforms].
@@ -1242,7 +1242,7 @@ These conventions also apply to {bpref "cmf.galois_orbit"}[newform orbits].
 Depends on: {uses "character.dirichlet.minimal"}[] {uses "cmf.character"}[] {uses "cmf.galois_orbit"}[] {uses "cmf.label"}[] {uses "cmf.level"}[] {uses "cmf.newform"}[] {uses "cmf.twist"}[]
 :::
 
-:::definition "cmf.twist_multiplicity"
+:::definition "cmf.twist_multiplicity" (lean := "HeckeRing.GL2.Newform.twistMultiplicity, HeckeRing.GL2.Newform.IsGaloisConjugateBy.twistMultiplicity_eq, HeckeRing.GL2.Newform.IsGaloisConjugate.twistMultiplicity_eq, MulChar.galoisOrbit, HeckeRing.GL2.Newform.twistMultiplicity_self_eq_innerTwistMultiplicity")
 *Twist multiplicity.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.twist_multiplicity))
 
 The *multiplicity* of a {bpref "cmf.galois_orbit"}[newform orbit] $`[g]` as a {bpref "cmf.twist"}[twist] of a newform orbit $`[f]` by a {bpref "character.dirichlet.primitive"}[primitive] {bpref "character.dirichlet.galois_orbit"}[character orbit] $`[\psi]` is the number of distinct $`\psi\in[\psi]` for which $`f\otimes\psi\in[g]`.  This number is the same for every $`f\in [f]` and depends only on the Galois orbits $`[g]`, $`[f]`, and $`[\psi]`.
@@ -1252,7 +1252,7 @@ When $`g` is an {bpref "cmf.inner_twist"}[inner twist] of $`f`, this multiplicit
 Depends on: {uses "character.dirichlet.galois_orbit"}[] {uses "character.dirichlet.primitive"}[] {uses "cmf.galois_orbit"}[] {uses "cmf.inner_twist"}[] {uses "cmf.inner_twist_count"}[] {uses "cmf.twist"}[]
 :::
 
-:::definition "cmf.weight"
+:::definition "cmf.weight" (lean := "ModularForm.HasWeight, ModularForm.HasWeight.unique, ModularForm.mem_modFormCharSpace_iff_hasWeight, ModularForm.thetaFactor, ModularForm.weightFactor")
 *Weight of an elliptic modular form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.weight))
 
 The *weight* of an elliptic {bpref "cmf"}[modular form] $`f` is the integer or half-integer power of $`(cz+d)` that occurs in the modular transformation property of $`f` under the action of $`\gamma = \left( \begin{array}{ll}  a & b \\ c & d \end{array}\right)` on the upper half plane.  That is, the weight is the number $`k`

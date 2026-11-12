@@ -90,7 +90,7 @@ The *Hodge numbers* $`h^{p,q}` of a smooth projective variety $`X` over $`\mathb
 The self-intersection of the canonical divisor $`K` of the Hilbert modular surface. Note that this is also the first Chern number $`c_1^2`.
 :::
 
-:::definition "hmsurface.kodaira_dimension"
+:::definition "hmsurface.kodaira_dimension" (lean := "AlgebraicGeometry.Scheme.kodairaDimension, AlgebraicGeometry.Scheme.PlurigenusIsBigO, AlgebraicGeometry.Scheme.plurigenus, AlgebraicGeometry.Scheme.canonicalSheaf, AlgebraicGeometry.Scheme.kodairaDimension_eq_of_tendsto")
 *Kodaira dimension.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/hmsurface.kodaira_dimension))
 
 The *Kodaira dimension* of a projective variety $`X` with canonical bundle $`K`

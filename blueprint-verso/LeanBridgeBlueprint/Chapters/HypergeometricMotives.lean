@@ -11,7 +11,7 @@ open Informal
 
 This chapter lists the LMFDB definitions in the category `hgm`. Each definition links back to its LMFDB knowl. `mot.hodgevector` and `mot.width` also belong here, although their ids put them in another LMFDB category.
 
-:::definition "hgm.bezout_determinant"
+:::definition "hgm.bezout_determinant" (lean := "Hypergeometric.Parameters.bezoutDeterminant, Hypergeometric.Parameters.bezoutDeterminant_eq")
 *Bézout determinant.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/hgm.bezout_determinant))
 
 The *Bézout determinant* of a hypergeometric motive $`H` is the determinant of its {bpref "hgm.bezout_matrix"}[Bézout matrix].
@@ -19,7 +19,7 @@ The *Bézout determinant* of a hypergeometric motive $`H` is the determinant of 
 Depends on: {uses "hgm.bezout_matrix"}[]
 :::
 
-:::definition "hgm.bezout_matrix"
+:::definition "hgm.bezout_matrix" (lean := "Hypergeometric.Parameters.bezoutMatrix, Hypergeometric.CuspIndex.cyclotomicProd, Hypergeometric.CuspIndex.natDegree_cyclotomicProd, Polynomial.bezoutMatrix")
 *Bézout matrix of a hypergeometric motive.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/hgm.bezout_matrix))
 
 For a list of integers $`C=[c_1,\ldots, c_n]` we associate the polynomial

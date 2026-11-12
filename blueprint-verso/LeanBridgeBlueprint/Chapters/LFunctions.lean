@@ -85,7 +85,7 @@ An {bpref "lfunction"}[L-function] $`L(s) = \sum_{n=1}^{\infty} a_n n^{-s}`  is 
 Depends on: {uses "lfunction"}[]
 :::
 
-:::definition "lfunction.bad_prime"
+:::definition "lfunction.bad_prime" (lean := "AnalyticLFunction.conductor, Nat.primeFactors, AnalyticLFunction.exists_eulerFactor, AnalyticLFunction.badPrimes, AnalyticLFunction.dvd_conductor_iff, AnalyticLFunction.badPrimes_eq_of_coeff_eq, AnalyticLFunction.badPrimes_eq_of_toFun_eq")
 *Bad prime.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.bad_prime))
 
 The *bad primes* of an {bpref "lfunction"}[L-function] are the primes that divided its {bpref "lfunction.conductor"}[conductor].
@@ -180,7 +180,7 @@ $`\Re(s) = \frac{1+w}2`.
 Depends on: {uses "lfunction"}[] {uses "lfunction.functional_equation"}[]
 :::
 
-:::definition "lfunction.critical_strip"
+:::definition "lfunction.critical_strip" (lean := "AnalyticLFunction.criticalStrip, AnalyticLFunction.arithmeticCriticalStrip, AnalyticLFunction.summable_norm_tsum_term_prime_pow_sub_one, AnalyticLFunction.toFun_ne_zero, AnalyticLFunction.mem_closure_criticalStrip_of_completed_eq_zero, AnalyticLFunction.summable_norm_tsum_term_arithmeticCoeff_prime_pow_sub_one, AnalyticLFunction.zeros_diff_trivialZeros_subset_closure_criticalStrip, AnalyticLFunction.mem_closure_arithmeticCriticalStrip")
 *Critical strip.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.critical_strip))
 
 In the {bpref "lfunction.normalization"}[analytic normalization], the {bpref "lfunction.functional_equation"}[functional equation] relates $`s` to $`1-s` and the
@@ -199,7 +199,7 @@ of the L-function lie in (the closure of) the critical strip.
 Depends on: {uses "lfunction.dirichlet_series"}[] {uses "lfunction.euler_product"}[] {uses "lfunction.functional_equation"}[] {uses "lfunction.motivic_weight"}[] {uses "lfunction.normalization"}[]
 :::
 
-:::definition "lfunction.degree"
+:::definition "lfunction.degree" (lean := "AnalyticLFunction.degree, AnalyticLFunction.SelbergData.degree, AnalyticLFunction.exists_eulerFactor")
 *Degree of an L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.degree))
 
 The *degree* of an {bpref "lfunction"}[L-function] is the number $`J + 2K` of {bpref "lfunction.gamma_factor"}[Gamma factors] occurring in its {bpref "lfunction.functional_equation"}[functional equation]
@@ -379,7 +379,7 @@ The *analytic normalization* of an L-function is defined by $`L_{an}(s):=L(s+w/2
 Depends on: {uses "lfunction.functional_equation"}[]
 :::
 
-:::definition "lfunction.primitive"
+:::definition "lfunction.primitive" (lean := "AnalyticLFunction.IsPrimitive, AnalyticLFunction.IsTrivial, AnalyticLFunction.one, AnalyticLFunction.mul, AnalyticLFunction.isPrimitive_zeta")
 *Primitive L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.primitive))
 
 An L-function is <b>primitive</b> if it cannot be written as a product of nontrivial L-functions.  The "trivial L-function" is the constant function $`1`.

@@ -56,7 +56,7 @@ For elliptic curves defined over $`\Q` of rank $`0` or $`1`, it is a theorem tha
 Depends on: {uses "ec"}[] {uses "ec.base_change"}[] {uses "ec.mordell_weil_group"}[] {uses "ec.period"}[] {uses "ec.rank"}[] {uses "ec.regulator"}[] {uses "ec.tamagawa_number"}[] {uses "ec.torsion_subgroup"}[] {uses "group.abelian"}[] {uses "group.galois.absolute"}[] {uses "group.order"}[] {uses "group.torsion"}[] {uses "nf"}[] {uses "nf.discriminant"}[] {uses "nf.place"}[] {uses "nf.prime"}[]
 :::
 
-:::definition "ec.bad_reduction"
+:::definition "ec.bad_reduction" (lean := "WeierstrassCurve.IsBadReduction")
 *Bad reduction of an elliptic curve at a prime.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.bad_reduction))
 
 An {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K` is said to have *bad reduction* at a {bpref "nf.prime"}[prime] $`\mathfrak{p}` of $`K` if the reduction of $`E` modulo $`\mathfrak{p}` is singular.
@@ -83,7 +83,7 @@ When $`K=\Q` and $`L` is a number field, elliptic curves over $`L` which are bas
 Depends on: {uses "ec.j_invariant"}[]
 :::
 
-:::definition "ec.bsdconjecture"
+:::definition "ec.bsdconjecture" (lean := "WeierstrassCurve.BirchSwinnertonDyer, WeierstrassCurve.WeakBirchSwinnertonDyer, WeierstrassCurve.birchSwinnertonDyer_iff, WeierstrassCurve.globalPeriod, WeierstrassCurve.Affine.regulator")
 *Birch Swinnerton-Dyer conjecture.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.bsdconjecture))
 
 The *Birch and Swinnerton-Dyer* conjecture (*BSD*) is one of the Millennium Prize Problems listed by the Clay Mathematics Institute. It relates the order of vanishing (or {bpref "lfunction.analytic_rank"}[analytic rank]) and the {bpref "lfunction.leading_coeff"}[leading coefficient] of  the {bpref "lfunction"}[L-function] associated to an {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K` at the {bpref "lfunction.central_point"}[central point] $`s=1` to certain arithmetic data, the *BSD invariants* of $`E`.
@@ -269,7 +269,7 @@ $`E_n=[0,0,0,-n^2,0]` are $`[0,0,0,4n^2,0]` and $`[0,\pm 12n,0,n^2,0]`.
 Depends on: {uses "ec"}[] {uses "ec.isogeny"}[] {uses "ec.isogeny_class"}[] {uses "ec.mordell_weil_group"}[] {uses "ec.q.conductor"}[] {uses "ec.rank"}[] {uses "ec.weierstrass_coeffs"}[]
 :::
 
-:::definition "ec.congruent_number_problem"
+:::definition "ec.congruent_number_problem" (lean := "Rat.isCongruentNumber_iff_exists_isSquare, Rat.isCongruentNumber_iff_exists_equation, Rat.isCongruentNumber_mul_sq_iff, Rat.exists_squarefree_mul_sq, Rat.IsCongruentNumber")
 *Congruent number problem.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.congruent_number_problem))
 
 The <b>congruent number problem</b> is the problem of determining whether a given
@@ -598,7 +598,7 @@ The *isogeny class degree* of an {bpref "ec.isogeny_class"}[isogeny class] of {b
 Depends on: {uses "ec"}[] {uses "ec.isogeny"}[] {uses "ec.isogeny_class"}[]
 :::
 
-:::definition "ec.isogeny_graph"
+:::definition "ec.isogeny_graph" (lean := "WeierstrassCurve.IsogenyGraph, WeierstrassCurve.IsomorphismClass.HasIsogenyOfDegree")
 *Isogeny graph of an isogeny class of elliptic curves.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.isogeny_graph))
 
 The *isogeny graph* of an {bpref "ec.isogeny_class"}[isogeny class] of {bpref "ec"}[elliptic curves] is the graph whose vertices are the isomorphism classes (over the base field) of elliptic curves in the isogeny class and whose edges are the isogenies of prime degree between the curves representing the vertices.
@@ -1518,7 +1518,7 @@ If $`E` has potential good reduction then it cannot be semistable unless it has 
 Depends on: {uses "ec"}[] {uses "ec.bad_reduction"}[] {uses "ec.j_invariant"}[] {uses "ec.potential_good_reduction"}[] {uses "ec.reduction_type"}[] {uses "ec.semistable"}[] {uses "nf.integral"}[]
 :::
 
-:::definition "ec.reduction_type"
+:::definition "ec.reduction_type" (lean := "WeierstrassCurve.HasGoodOrdinaryReduction, WeierstrassCurve.IsNonsplitMultiplicativeReduction, WeierstrassCurve.ReductionType, WeierstrassCurve.HasNode, WeierstrassCurve.hasMultiplicativeReduction_iff_hasNode, WeierstrassCurve.HasCusp, WeierstrassCurve.hasAdditiveReduction_iff_hasCusp, WeierstrassCurve.HasSplitNode, WeierstrassCurve.hasSplitMultiplicativeReduction_iff_hasSplitNode")
 *Reduction type.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.reduction_type))
 
 The *reduction type* of an {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K` at a prime $`\mathfrak{p}` of $`K`

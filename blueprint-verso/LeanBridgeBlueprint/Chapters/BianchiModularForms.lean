@@ -112,7 +112,7 @@ for all primes $`\frak{p}` not dividing the level.  In particular, $`a_{\frak{p}
 Depends on: {uses "mf.bianchi.level"}[] {uses "mf.bianchi.newform"}[]
 :::
 
-:::definition "mf.bianchi.fourierbessell"
+:::definition "mf.bianchi.fourierbessell" (lean := "HyperbolicThreeSpace.HasBianchiFourierBesselExpansion, HyperbolicThreeSpace.bianchiFourierBesselTerm, HyperbolicThreeSpace.bianchiBesselVector, Complex.besselK")
 *Fourier-Bessel expansion.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.bianchi.fourierbessell))
 
 Let $`F` be a  {bpref "mf.bianchi"}[Bianchi modular form] of {bpref "mf.bianchi.weight"}[weight] $`2` with respect to the {bpref "mf.bianchi.bianchicongruencesubgroup"}[congruence subgroup] $`\Gamma` of a {bpref "mf.bianchi.bianchigroup"}[Bianchi group]. As a function on {bpref "mf.bianchi.hyperbolic3space"}[hyperbolic 3-space] $`\mathcal{H}_3 = \{ (x,y) \in \C \times \R \mid y>0 \}`,  $`F` is a periodic function in the variable $`x\in\C`, and  has a *Fourier-Bessel expansion* of the form

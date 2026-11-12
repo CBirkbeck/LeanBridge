@@ -210,7 +210,7 @@ The {bpref "lf.rams"}[ram] $`r_k` is printed to the immediate right of the upper
 Depends on: {uses "lf.family_ambiguity"}[] {uses "lf.family_mass"}[] {uses "lf.herbrand_invariant"}[] {uses "lf.means"}[] {uses "lf.padic_field"}[] {uses "lf.ramification_index"}[] {uses "lf.rams"}[] {uses "lf.residue_field"}[] {uses "lf.residue_field_degree"}[] {uses "lf.slopes"}[]
 :::
 
-:::definition "lf.eisenstein_form"
+:::definition "lf.eisenstein_form" (lean := "Polynomial.IsEisensteinForm, Polynomial.IsEisensteinAt.isEisensteinForm, Polynomial.IsEisensteinForm.irreducible_map, IsNonarchimedeanLocalField.exists_adjoin_eq_top_isEisensteinForm_minpoly")
 *Eisenstein form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.eisenstein_form))
 
 Let $`K` be a {bpref "lf.padic_field"}[$`p`-adic field], $`\mathcal{O}_K` its {bpref "lf.ring_of_integers"}[ring of integers], and $`\pi` a {bpref "lf.ramification_index"}[uniformizer] for $`\mathcal{O}_K`.
@@ -782,7 +782,7 @@ A *nonarchimedean local field* is a local field whose absolute value is {bpref "
 Depends on: {uses "nf.absolute_value"}[] {uses "ring.characteristic"}[] {uses "ring.field"}[]
 :::
 
-:::definition "lf.local_height_function"
+:::definition "lf.local_height_function" (lean := "IsNonarchimedeanLocalField.localHeight, IsNonarchimedeanLocalField.localHeight_eq, Group.IsWeightFunction.apply_eq_of_zpowers_eq")
 *Local height function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.local_height_function))
 
 Let $`G` be a finite group and $`w` a {bpref "group.weight_function"}[weight function] on $`G`.
@@ -927,7 +927,7 @@ A *$`p`-adic field* (or *local number field*) is a finite extension of
 Depends on: {uses "lf.local_field"}[] {uses "lf.qp"}[] {uses "ring.characteristic"}[]
 :::
 
-:::definition "lf.qp" (lean := "Padic")
+:::definition "lf.qp" (lean := "Padic, padicNorm.exists_eq_zpow_mul_div, padicNorm.eq_zpow_neg_of_eq_zpow_mul_div, Padic.expansion_iff, PadicInt.sqrtTwo_sq, PadicInt.map_digit_sqrtTwo")
 *Definition of $`\Q_p`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.qp))
 
 If $`p` is a prime number, then every rational number $`r` can be written in the form $`r=p^j \frac{a}{b}` where $`\gcd(p, ab)=1`.  We define $`|r|_p = p^{-j}`, and define a metric on $`\Q` by $`d(u,v) = |u-v|_p`; in other words, $`u` and $`v` are close to each other if they are congruent modulo a larger power of $`p`.
@@ -1216,7 +1216,7 @@ of all $`L/K\in I/K` whose list of residual polynomials is in $`\mathcal{A}`.
 Depends on: {uses "lf.family_polynomial"}[] {uses "lf.padic_field"}[] {uses "lf.residual_polynomials"}[]
 :::
 
-:::definition "lf.swan_slopes"
+:::definition "lf.swan_slopes" (lean := "IsNonarchimedeanLocalField.swanSlopesOfSubgroup, IsNonarchimedeanLocalField.relIndex_upperRamificationGroup_eq_pow_countP, IsNonarchimedeanLocalField.swanSlopesOfSubgroup_comap_restrictNormalHom, IsNonarchimedeanLocalField.swanSlopesOfSubgroup_range_restrictScalarsHom_of_isGalois, IsNonarchimedeanLocalField.visibleSwanSlopes, IsNonarchimedeanLocalField.visibleSwanSlopes_eq_swanSlopesOfSubgroup")
 *Swan slopes.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.swan_slopes))
 
 Let $`L/K` be an extension of {bpref "lf.padic_field"}[$`p`-adic fields].
@@ -1248,7 +1248,7 @@ of $`L/K`.
 Depends on: {uses "lf.padic_field"}[] {uses "lf.unramified_subfield"}[] {uses "nf.galois_closure"}[]
 :::
 
-:::definition "lf.top_slope"
+:::definition "lf.top_slope" (lean := "IsNonarchimedeanLocalField.topArtinSlopeOfIsGalois, IsNonarchimedeanLocalField.topArtinSlope, IsNonarchimedeanLocalField.upperRamificationGroup_eq_bot_iff, IsNonarchimedeanLocalField.topArtinSlopeOfIsGalois_of_subsingleton, TauCeti.LocalFieldsRamification.upperRamificationGroup, IsNonarchimedeanLocalField.isGreatest_topArtinSlope, IsNonarchimedeanLocalField.one_lt_topArtinSlope, IsNonarchimedeanLocalField.topArtinSlope_eq_one, IsNonarchimedeanLocalField.topArtinSlope_eq_zero")
 *Top Artin slope for an extension of local fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.top_slope))
 
 Let $`L/K` be an extension of {bpref "lf.padic_field"}[$`p`-adic fields]

@@ -59,7 +59,7 @@ A {bpref "group"}[group] is *abelian* if its {bpref "alg.binary_operation"}[oper
 Depends on: {uses "alg.binary_operation"}[] {uses "alg.binary_operation.commutative"}[] {uses "group"}[]
 :::
 
-:::definition "group.abelian_invariants"
+:::definition "group.abelian_invariants" (lean := "AddCommGroup.smithAbelianInvariants, AddCommGroup.smithAbelianInvariants_eq_iff, AddCommGroup.primaryAbelianInvariants, AddCommGroup.primaryAbelianInvariants_eq_iff, CommGroup.smithAbelianInvariants_additive_eq_iff")
 *Abelian invariants.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.abelian_invariants))
 
 There are two canonical forms for an abelian group $`A`:
@@ -100,7 +100,7 @@ The {bpref "group.general_linear"}[general linear group] $`\GL(n,q)` acts on the
 Depends on: {uses "group.general_linear"}[]
 :::
 
-:::definition "group.affine_linear_automorphism"
+:::definition "group.affine_linear_automorphism" (lean := "AffineEquiv.AffineGeneralSemilinearGroup, AffineEquiv.AffineSpecialSemilinearGroup, AffineEquiv.conjAlgEquivHom, AffineEquiv.conjAlgEquiv_apply_eq_mulVec_add, AffineEquiv.conjAlgEquiv_mem_affineSpecialLinearGroup")
 *Affine linear group twisted by automorphisms.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.affine_linear_automorphism))
 
 The group $`\AGammaL(n,q)` is the semi-direct product of $`\AGL(n,q)`, the {bpref "group.affine_general_linear"}[affine general linear group], with the group $`A` of field automorphisms of $`\F_q/\F_p`.
@@ -118,7 +118,7 @@ The affine special linear group $`\ASL(n,q)` is the subgroup of the {bpref "grou
 Depends on: {uses "group.affine_general_linear"}[] {uses "group.special_linear"}[]
 :::
 
-:::definition "group.affine_symplectic"
+:::definition "group.affine_symplectic" (lean := "AffineEquiv.affineSymplecticGroup, AffineEquiv.mem_affineSymplecticGroup_iff, AffineEquiv.linearMatrixHom, Matrix.symplecticGroup, TauCeti.GLSymplectic, Matrix.isometryGroup, Matrix.isometryGroupEquivSymplecticGroup")
 *Affine symplectic group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.affine_symplectic))
 
 The affine symplectic group $`\ASp(n,q)` is the subgroup of the {bpref "group.affine_general_linear"}[affine general linear group] $`\AGL(n,q) = \F_q^n \rtimes \GL(n,q)` of all affine transformations $`x \mapsto Mx + v` such that $`M` is an element of the {bpref "group.symplectic"}[symplectic group] $`\Sp(n,q)`.
@@ -236,7 +236,7 @@ A {bpref "group.subgroup"}[subgroup] $`H` of a {bpref "group"}[group] $`G`  is a
 Depends on: {uses "group"}[] {uses "group.automorphism"}[] {uses "group.subgroup"}[]
 :::
 
-:::definition "group.chevalley"
+:::definition "group.chevalley" (lean := "Matrix.SpecialLinearGroup, Matrix.symplecticGroup, QuadraticForm.chevalleyB, QuadraticForm.chevalleyD, QuadraticForm.chevalleyDOfCharTwo, TauCeti.QuadraticMap.specialOrthogonalGroup, Matrix.SpecialLinearGroup.isSimpleGroup_two_galoisField")
 *Chevalley group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.chevalley))
 
 The *Chevalley groups* are examples of groups of Lie type over finite {bpref "ring.field"}[fields].  They generalise the classical {bpref "group.general_linear"}[linear], {bpref "group.symplectic"}[symplectic], {bpref "group.orthogonal"}[orthogonal], and {bpref "group.unitary"}[unitary] matrix groups. In many cases, these are examples of finite {bpref "group.simple"}[simple] groups.
@@ -252,7 +252,7 @@ The *Chevalley groups* are examples of groups of Lie type over finite {bpref "ri
 Depends on: {uses "group.general_linear"}[] {uses "group.orthogonal"}[] {uses "group.simple"}[] {uses "group.special_linear"}[] {uses "group.symplectic"}[] {uses "group.unitary"}[] {uses "ring.field"}[]
 :::
 
-:::definition "group.chief_series"
+:::definition "group.chief_series" (lean := "Subgroup.NormalSeries.IsChief, Subgroup.NormalSeries.compositionFactorMultiplicity, Subgroup.NormalSeries.IsChief.exists_isSimpleGroup_mulEquiv_pi, Subgroup.NormalSeries.IsChief.compositionFactorMultiplicity_eq_sum, Subgroup.NormalSeries.IsChief.compositionFactorMultiplicity_eq, Subgroup.NormalSeries.exists_isChief")
 *Chief series of a group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.chief_series))
 
 If $`G` is a {bpref "group"}[group], the *chief series* of $`G` is a {bpref "group.normal_series"}[normal series]
@@ -487,7 +487,7 @@ The *order* of an element $`g` in a multiplicative {bpref "group"}[group] $`G` i
 Depends on: {uses "alg.binary_operation.identity"}[] {uses "group"}[] {uses "group.cyclic"}[] {uses "group.subgroup"}[]
 :::
 
-:::definition "group.elementary"
+:::definition "group.elementary" (lean := "TauCeti.IsElementary, TauCeti.IsPElementary, FDRep.character_mem_closure_indClassFun_linear_isElementary, FDRep.character_mem_closure_indClassFun_linear_isPElementary, Subgroup.indClassFun, TauCeti.isPElementary_iff_exists_mulEquiv_prod")
 *Elementary group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.elementary))
 
 A finite {bpref "group"}[group] is $`p`-*elementary* if it is the {bpref "group.direct_product"}[direct product] of a {bpref "group.cyclic"}[cyclic] group of order relatively prime to $`p` and a {bpref "group.pgroup"}[$`p`-group].  Brauer's induction theorem states that any {bpref "group.representation.character"}[character] of a finite group $`G` is an integer linear combination of inductions of linear characters from elementary subgroups of $`G` (for different primes $`p` dividing the order of $`G`).
@@ -503,7 +503,7 @@ The *exponent of a {bpref "group"}[group]* $`G` is the smallest positive integer
 Depends on: {uses "group"}[]
 :::
 
-:::definition "group.fitting_subgroup"
+:::definition "group.fitting_subgroup" (lean := "Subgroup.fittingSubgroup, Subgroup.isNilpotent_fittingSubgroup, Subgroup.le_fittingSubgroup, Subgroup.isNilpotent_sup")
 *Fitting subgroup of a group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.fitting_subgroup))
 
 The *Fitting subgroup* of a {bpref "group"}[group] $`G`, denoted $`\mathrm{Fit}(G)`, is the largest {bpref "group.subgroup.normal"}[normal] {bpref "group.subgroup"}[subgroup] of $`G` which is {bpref "group.nilpotent"}[nilpotent].  Since the product of a collection of normal nilpotent subgroups of a group is nilpotent, the Fitting subgroup is unique.
@@ -833,7 +833,7 @@ A given abstract group may have more than one presentation as a matrix group ove
 The value $`z_k` in a given matrix represents a primitive element of the finite field $`\F_{p^k}` for some prime $`p`.
 :::
 
-:::definition "group.maximal_quotient"
+:::definition "group.maximal_quotient" (lean := "MonoidHom.IsMaximalQuotient, QuotientGroup.isMaximalQuotient_mk'")
 *Maximal quotient of a group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.maximal_quotient))
 
 A *maximal quotient* $`M = G/K` of a {bpref "group"}[group] $`G` is a {bpref "group.quotient"}[quotient] of $`G` with the property that if $`H \le K` is normal in $`G` then either $`H=K` or $`H=1`.  Equivalently, $`K` is a {bpref "group.minimal_normal"}[minimal normal subgroup] of $`G`.
@@ -911,7 +911,7 @@ The smallest positive integer $`d` such that the group $`G` admits a {bpref "gro
 Depends on: {uses "group.representation.faithful"}[]
 :::
 
-:::definition "group.minimal_normal"
+:::definition "group.minimal_normal" (lean := "Subgroup.IsMinimalNormal, Subgroup.isMinimalNormal_iff")
 *Minimal normal subgroup.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.minimal_normal))
 
 A *minimal normal subgroup* $`K` of a {bpref "group"}[group] $`G` is a {bpref "group.subgroup.normal"}[normal subgroup] of $`G` with the property that if $`H \le K` is normal in $`G` then either $`H=K` or $`H=1`.  Equivalently, $`G / K` is a {bpref "group.maximal_quotient"}[maximal quotient] of $`G`.
@@ -961,7 +961,7 @@ Nilpotent groups are closed under subgroups and quotients (but not extensions), 
 Depends on: {uses "group"}[] {uses "group.abelian"}[] {uses "group.solvable"}[]
 :::
 
-:::definition "group.nonsplit_product"
+:::definition "group.nonsplit_product" (lean := "GroupExtension, GroupExtension.Splitting, GroupExtension.Splitting.semidirectProductMulEquiv, Subgroup.IsComplement', nonempty_groupExtension_iff, GroupExtension.exists_isComplement'_iff_nonempty_splitting, Subgroup.isComplement'_iff_disjoint_and_mul_eq_univ, GroupExtension.complementMulEquiv, SemidirectProduct.mulEquivSubgroup")
 *Split and non-split extension of groups.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.nonsplit_product))
 
 If $`G` is a {bpref "group"}[group] with {bpref "group.subgroup.normal"}[normal subgroup] $`N` and {bpref "group.quotient"}[quotient] $`Q\cong G/N`, then $`G` is a *extension* of $`Q` by $`N`, denoted $`N.Q`. Equivalently there is a short exact sequence
@@ -1201,7 +1201,7 @@ Depends on: {uses "group"}[] {uses "group.subgroup"}[]
 The *projective special linear group* $`\text{PSL}_2(\mathbb{R})` is defined as the quotient $`\text{PSL}_2(\mathbb{R})=\text{SL}_2(\mathbb{R})/\{\pm I\}`.
 :::
 
-:::definition "group.quasisimple"
+:::definition "group.quasisimple" (lean := "IsQuasisimple, isQuasisimple_iff_isSimpleGroup_quotient_center, IsSimpleGroup.isQuasisimple, Group.IsPerfect, IsSimpleGroup, Equiv.Perm.isAlmostSimple_fin_five, Equiv.Perm.not_isQuasisimple_fin_five, Matrix.SpecialLinearGroup.isQuasisimple_two_zmod_five, Matrix.SpecialLinearGroup.not_isAlmostSimple_two_zmod_five")
 *Quasisimple group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.quasisimple))
 
 A quasisimple group is a {bpref "group.perfect"}[perfect] group that is a central extension of a {bpref "group.simple"}[simple] group.
@@ -1231,7 +1231,7 @@ The size of the quotient of a finite group by a subgroup is the number of corres
 Depends on: {uses "group.coset"}[] {uses "group.quotient"}[]
 :::
 
-:::definition "group.radical"
+:::definition "group.radical" (lean := "Subgroup.solvableRadical, Subgroup.isSolvable_solvableRadical, Subgroup.le_solvableRadical, Subgroup.isSolvable_sup")
 *Radical of a group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.radical))
 
 If $`G` is a {bpref "group"}[group], then the *radical* of $`G` is the largest {bpref "group.subgroup.normal"}[normal] {bpref "group.subgroup"}[subgroup] of $`G` which is {bpref "group.solvable"}[solvable].  It is the subgroup generated by all normal subgroups which are solvable.
@@ -1239,7 +1239,7 @@ If $`G` is a {bpref "group"}[group], then the *radical* of $`G` is the largest {
 Depends on: {uses "group"}[] {uses "group.solvable"}[] {uses "group.subgroup"}[] {uses "group.subgroup.normal"}[]
 :::
 
-:::definition "group.rank"
+:::definition "group.rank" (lean := "Group.rank, Group.rank_spec, Group.rank_le, PolycyclicSequence.rank_le_length, PolycyclicSequence.rank_lt_length_perm_fin_four, IsPGroup.frattiniQuotientModule, IsPGroup.rank_eq_finrank_quotient_frattini, frattini")
 *Rank.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.rank))
 
 The *rank* of a finite {bpref "group"}[group] $`G` is the minimal number of elements required to {bpref "group.generators"}[generate] it, which is often smaller than the number of generators in a {bpref "group.presentation"}[polycyclic presentation].  For $`p`-groups, the rank can be computed by taking the $`\mathbb{F}_p`-dimension of the quotient by the {bpref "group.frattini_subgroup"}[Frattini subgroup].
@@ -1267,7 +1267,7 @@ Rational groups are sometimes also known as Q-groups, though some authors reserv
 Depends on: {uses "group.cyclic"}[] {uses "group.representation.character"}[]
 :::
 
-:::definition "group.representation.center"
+:::definition "group.representation.center" (lean := "FDRep.characterCenter, FDRep.mem_characterCenter_iff, FDRep.norm_character_eq_finrank_iff")
 *Center of a character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.representation.center))
 
 The *center* of the {bpref "group.representation.character"}[character] $`\chi` of a group $`G` is the subgroup of $`G` given by the set:
@@ -1341,7 +1341,7 @@ The smallest permutation representation containing the given {bpref "group.repre
 Depends on: {uses "gg.tnumber"}[] {uses "group.representation.character"}[]
 :::
 
-:::definition "group.representation.rational_character"
+:::definition "group.representation.rational_character" (lean := "FDRep.IsRationalCharacter, FDRep.rationalCharacter, FDRep.exists_isRationalCharacter_character_eq_rationalCharacter, FDRep.rationalCharacterSpace, FDRep.irreducibleRationalCharacterBasis, FDRep.IsRationalCharacter.character_eq_of_isRationallyConj, QuaternionGroup.isRational_two, QuaternionGroup.not_isQGroup_two")
 *Rational character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.representation.rational_character))
 
 A *rational character* of a finite {bpref "group"}[group] $`G` is {bpref "group.representation.character"}[complex character] taking values in $`\Q`. Such a character can be obtained by taking the sum of Galois conjugates of an irreducible complex character, and we will refer to these as *irreducible rational characters* even though they are not irreducible as complex characters.  The irreducible rational characters form a $`\Q`-basis for the $`\Q`-vector space of rational characters.
@@ -2005,7 +2005,7 @@ Each of the subgroups $`Z_i(G)` is characteristic.  The group is {bpref "group.n
 Depends on: {uses "group"}[] {uses "group.center"}[] {uses "group.nilpotent"}[] {uses "group.normal_series"}[]
 :::
 
-:::definition "group.weight_function"
+:::definition "group.weight_function" (lean := "Group.IsWeightFunction, Group.IsWeightFunction.apply_conj_pow")
 *Weight function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.weight_function))
 
 Let $`G` be a finite group. A *weight function* on $`G` is a function $`w:G \to \R_{\geq 0}` such that:

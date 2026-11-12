@@ -249,7 +249,7 @@ The set of {bpref "character.dirichlet"}[Dirichlet characters] $`\chi\colon\Z\to
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.modulus"}[]
 :::
 
-:::definition "character.dirichlet.group.structure"
+:::definition "character.dirichlet.group.structure" (lean := "DirichletCharacter.groupStructure, DirichletCharacter.groupStructure_eq_iff, DirichletCharacter.groupStructure_eq, AddCommGroup.smithAbelianInvariants")
 *Structure of a Dirichlet group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.group.structure))
 
 The *structure* of a {bpref "character.dirichlet.group"}[Dirichlet character group] of Dirichlet characters of {bpref "character.dirichlet.modulus"}[modulus] $`q` refers to its isomorphism type as a finite abelian group, which can be uniquely expressed as a product of cyclic groups $`C_{n_1}\times C_{n_2}\cdots\times C_{n_r}` with $`n_1|n_2|\cdots |n_r`.  This is the same as the structure of the group $`(\Z/q\Z)^\times`.
@@ -445,7 +445,7 @@ The *field of values* of a Dirichlet character $`\chi\colon\Z\to\C` is the field
 Depends on: {uses "character.dirichlet.order"}[]
 :::
 
-:::definition "character.hecke"
+:::definition "character.hecke" (lean := "TauCeti.GlobalNumberFields.IsIdealHeckeCharacter, TauCeti.GlobalNumberFields.isIdealHeckeCharacter_iff, TauCeti.GlobalNumberFields.IsIdealHeckeCharacter.heckeCharacter, TauCeti.GlobalNumberFields.IsIdealHeckeCharacter.idealCharacter_comp_heckeCharacter, TauCeti.GlobalNumberFields.HeckeCharacter.isIdealHeckeCharacter_idealCharacter, TauCeti.GlobalNumberFields.HeckeCharacter")
 *Hecke character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.hecke))
 
 Let $`K` be a {bpref "nf"}[number field] with {bpref "nf.ring_of_integers"}[ring of integers] $`\Z_K` and let $`\mathfrak{m}` be an integral {bpref "ring.ideal"}[ideal] of $`\Z_K`. Let $`I(\mathfrak{m})` be the group of {bpref "ring.fractional_ideal"}[fractional ideals] of $`\Z_K` coprime to $`\mathfrak{m}`. A *Hecke character* modulo $`\mathfrak{m}` is a group homomorphism $`\chi:I(\mathfrak{m})\to\mathbb{C}^\times` with the property there exists another group homomorphism $`\chi_{\infty}:K^\times/\mathbb{Q}^\times\to\mathbb{C}^\times` such that
