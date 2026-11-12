@@ -190,6 +190,7 @@ import LeanBridge.ForMathlib.FieldTheory.AlgebraGaloisClosure
 import LeanBridge.ForMathlib.FieldTheory.DiscriminantRootField
 import LeanBridge.ForMathlib.FieldTheory.Finite.ConwayPolynomial
 import LeanBridge.ForMathlib.FieldTheory.FunctionField.AutomorphismSignature
+import LeanBridge.ForMathlib.FieldTheory.Galois.PrimitiveRootAction
 import LeanBridge.ForMathlib.FieldTheory.Galois.ResolventField
 import LeanBridge.ForMathlib.FieldTheory.Galois.StemFieldAutomorphisms
 import LeanBridge.ForMathlib.FieldTheory.Galois.TransitiveGaloisGroup
@@ -306,6 +307,7 @@ import LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolSign
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolStopSign
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.Kissing
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.Label
+import LeanBridge.ForMathlib.LinearAlgebra.Lattice.Neighbor
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.OrthogonalDecomposition
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.RealLattice
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.RootSublattice
@@ -342,6 +344,7 @@ import LeanBridge.ForMathlib.LinearAlgebra.QuadraticForm.DicksonInvariant
 import LeanBridge.ForMathlib.LinearAlgebra.RootSystem.Crystal
 import LeanBridge.ForMathlib.LinearAlgebra.RootSystem.LittelmannPath
 import LeanBridge.ForMathlib.LinearAlgebra.RootSystem.LittelmannPathCrystal
+import LeanBridge.ForMathlib.LinearAlgebra.SymplecticGroup
 import LeanBridge.ForMathlib.MeasureTheory.Group.FundamentalDomainCover
 import LeanBridge.ForMathlib.MeasureTheory.Group.FundamentalDomainUnfolding
 import LeanBridge.ForMathlib.NumberTheory.ArithmeticFunction.DivisorFunction
@@ -640,6 +643,7 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.VectorKlingenE
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.VectorKlingenTerm
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.VectorSiegelEisensteinVanishing
 import LeanBridge.ForMathlib.NumberTheory.BernoulliRadius
+import LeanBridge.ForMathlib.NumberTheory.Cyclotomic.LeastLevel
 import LeanBridge.ForMathlib.NumberTheory.DirichletCharacter.FixedField
 import LeanBridge.ForMathlib.NumberTheory.DirichletCharacter.GaloisOrbitLabel
 import LeanBridge.ForMathlib.NumberTheory.DirichletCharacter.Generators
@@ -674,6 +678,7 @@ import LeanBridge.ForMathlib.NumberTheory.LFunction.CentralCharacter
 import LeanBridge.ForMathlib.NumberTheory.LFunction.CentralPoint
 import LeanBridge.ForMathlib.NumberTheory.LFunction.Completed
 import LeanBridge.ForMathlib.NumberTheory.LFunction.CriticalStrip
+import LeanBridge.ForMathlib.NumberTheory.LFunction.Dirichlet
 import LeanBridge.ForMathlib.NumberTheory.LFunction.EulerProduct
 import LeanBridge.ForMathlib.NumberTheory.LFunction.Label
 import LeanBridge.ForMathlib.NumberTheory.LFunction.LowestZero
@@ -844,6 +849,7 @@ import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.CoefficientRing
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.ComplexAutomorphism
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.ComplexAutomorphismFixedField
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.CrossLevelMultiplicityOne
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.CyclotomicLevel
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Delta
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Dimension
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.DistinguishingPrimes
@@ -1057,6 +1063,7 @@ import LeanBridge.ForMathlib.RingTheory.DedekindDomain.AdicCompletionInverseLimi
 import LeanBridge.ForMathlib.RingTheory.FractionalIdeal.LocallyPrincipal
 import LeanBridge.ForMathlib.RingTheory.Ideal.GoingUp
 import LeanBridge.ForMathlib.RingTheory.IsAdjoinRootPrimitive
+import LeanBridge.ForMathlib.RingTheory.Polynomial.Eisenstein.Irreducible
 import LeanBridge.ForMathlib.RingTheory.Polynomial.EisensteinForm
 import LeanBridge.ForMathlib.RingTheory.Polynomial.EisensteinFormIrreducible
 import LeanBridge.ForMathlib.RingTheory.Valuation.IsEquivRpow

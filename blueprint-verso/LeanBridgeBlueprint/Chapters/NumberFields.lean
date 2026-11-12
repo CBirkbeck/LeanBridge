@@ -213,7 +213,7 @@ of $`G` that fixes $`P_i` and acts on the quotient $`\mathcal{O}_K/P_i` via the 
 Alternatively, for each prime $`P_i`, its *residue degree* $`f_i` is defined by $`|\mathcal{O}_K/P_i| = p^{f_i}`.  The list of $`f_i` is the same partition of $`n` as the cycle decomposition described above.
 :::
 
-:::definition "nf.fundamental_units"
+:::definition "nf.fundamental_units" (lean := "NumberField.Units.fundSystem, NumberField.Units.basisModTorsion, NumberField.Units.exist_unique_eq_mul_prod")
 *Fundamental units of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.fundamental_units))
 
 A minimal set of generators of a maximal torsion-free subgroup of the {bpref "nf.unit_group"}[unit group] of a {bpref "nf"}[number field] $`K` is called a set of *fundamental units* for $`K`.
@@ -659,7 +659,7 @@ there is an $`i` such that $`e_i\geq 2`.
 The ramified primes of $`K` are the primes dividing the {bpref "nf.discriminant"}[discriminant] of $`K`.
 :::
 
-:::definition "nf.rank"
+:::definition "nf.rank" (lean := "NumberField.Units.rank, NumberField.Units.finrank_modTorsion, NumberField.InfinitePlace.card_eq_nrRealPlaces_add_nrComplexPlaces")
 *Rank of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.rank))
 
 The *rank* of a {bpref "nf"}[number field] $`K` is the size of any set of  {bpref "nf.fundamental_units"}[fundamental units] of $`K`. It is equal to $`r = r_1 + r_2 -1` where $`r_1` is the number of real embeddings of $`K` into $`\C` and $`2r_2` is the number of complex embeddings of $`K` into $`\C.`
@@ -711,7 +711,7 @@ The reflex field of the reflex field is also the smallest field of definition of
 Depends on: {uses "nf.cm_field"}[] {uses "nf.reflex_field"}[]
 :::
 
-:::definition "nf.regulator"
+:::definition "nf.regulator" (lean := "NumberField.Units.regulator, NumberField.Units.regulator_eq_det")
 *Regulator of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.regulator))
 
 Let $`\sigma_1,\ldots,\sigma_{r_1}` be the real embeddings of a {bpref "nf"}[number field] $`K` into the complex numbers $`\mathbb{C}`, and $`\sigma_{r_1+ 1},\ldots,\sigma_{r_1+r_2}` be complex embeddings of $`K` into $`\C` such that no two are complex conjugate. Let $`u_1,\ldots,u_r` be a set of {bpref "nf.fundamental_units"}[fundamental units] of $`K`. Then $`r = r_1 + r_2 -1`.
@@ -873,7 +873,7 @@ Equivalently, $`K` is totally real if all the embeddings of $`K` into $`\C` have
 Depends on: {uses "nf"}[]
 :::
 
-:::definition "nf.unit_group"
+:::definition "nf.unit_group" (lean := "NumberField.RingOfIntegers, Units, NumberField.Units.torsion, NumberField.Units.exist_unique_eq_mul_prod")
 *Unit group of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.unit_group))
 
 The *unit group* of a {bpref "nf"}[number field] $`K` is the group of units of the {bpref "nf.ring_of_integers"}[ring of integers] of $`K`.  It is a finitely generated abelian group with cyclic torsion subgroup.  A set of generators of a maximal torsion-free subgroup is called a set of {bpref "nf.fundamental_units"}[fundamental units] for $`K`.

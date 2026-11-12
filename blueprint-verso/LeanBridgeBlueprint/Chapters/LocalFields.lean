@@ -236,7 +236,7 @@ Note,
 Depends on: {uses "lf.eisenstein_polynomial"}[] {uses "lf.padic_field"}[] {uses "lf.ramification_index"}[] {uses "lf.ring_of_integers"}[]
 :::
 
-:::definition "lf.eisenstein_polynomial"
+:::definition "lf.eisenstein_polynomial" (lean := "Polynomial.IsEisensteinAt, Polynomial.IsEisensteinAt.irreducible, TauCeti.isTotallyRamified_iff_exists_eisenstein_generator, Polynomial.IsEisensteinAt.irreducible_map, Polynomial.IsEisensteinAt.irreducible_map_of_monic")
 *Eisenstein polynomial.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.eisenstein_polynomial))
 
 Let $`D` be an integral domain and $`P` a prime ideal in $`D`.  A polynomial $`a_n x^n + \cdots + a_0\in D[x]` is *Eisenstein* (with respect to $`P`) if

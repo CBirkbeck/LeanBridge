@@ -65,6 +65,7 @@ import LeanBridge.ForMathlib.Analysis.Complex.UpperHalfPlane.Completed
 import LeanBridge.ForMathlib.Analysis.SpecialFunctions.BesselK
 import LeanBridge.ForMathlib.FieldTheory.DiscriminantRootField
 import LeanBridge.ForMathlib.FieldTheory.Finite.ConwayPolynomial
+import LeanBridge.ForMathlib.FieldTheory.Galois.PrimitiveRootAction
 import LeanBridge.ForMathlib.FieldTheory.Galois.StemFieldAutomorphisms
 import LeanBridge.ForMathlib.FieldTheory.Galois.TransitiveGaloisGroup
 import LeanBridge.ForMathlib.FieldTheory.GenericPolynomialRatFunc
@@ -114,6 +115,7 @@ import LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolCanonical
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolGaussSum
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolSign
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolStopSign
+import LeanBridge.ForMathlib.LinearAlgebra.Lattice.Neighbor
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.RealLattice
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.SignatureEigenvalues
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.Sublattice
@@ -127,6 +129,7 @@ import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.SutherlandGroupLabel
 import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GeneralLinearGroup.MulAut
 import LeanBridge.ForMathlib.LinearAlgebra.Matrix.Pfaffian
 import LeanBridge.ForMathlib.LinearAlgebra.Matrix.SemilinearGroup
+import LeanBridge.ForMathlib.LinearAlgebra.SymplecticGroup
 import LeanBridge.ForMathlib.NumberTheory.ArithmeticFunction.DivisorFunction
 import LeanBridge.ForMathlib.NumberTheory.Artin.Basic
 import LeanBridge.ForMathlib.NumberTheory.Artin.Parity
@@ -158,6 +161,7 @@ import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.SimilitudeSlas
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.TranslationLattice
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.UpperHalfSpace
 import LeanBridge.ForMathlib.NumberTheory.BernoulliRadius
+import LeanBridge.ForMathlib.NumberTheory.Cyclotomic.LeastLevel
 import LeanBridge.ForMathlib.NumberTheory.DirichletCharacter.FixedField
 import LeanBridge.ForMathlib.NumberTheory.DirichletCharacter.GaloisOrbitLabel
 import LeanBridge.ForMathlib.NumberTheory.DirichletCharacter.Generators
@@ -170,6 +174,7 @@ import LeanBridge.ForMathlib.NumberTheory.LFunction.AnalyticRank
 import LeanBridge.ForMathlib.NumberTheory.LFunction.Basic
 import LeanBridge.ForMathlib.NumberTheory.LFunction.CentralPoint
 import LeanBridge.ForMathlib.NumberTheory.LFunction.CriticalStrip
+import LeanBridge.ForMathlib.NumberTheory.LFunction.Dirichlet
 import LeanBridge.ForMathlib.NumberTheory.LFunction.RiemannHypothesis
 import LeanBridge.ForMathlib.NumberTheory.LFunction.RiemannZeta
 import LeanBridge.ForMathlib.NumberTheory.LFunction.SelbergClass
@@ -204,6 +209,7 @@ import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.Basic
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.CoefficientFieldCM
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.CoefficientIntegrality
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.CoefficientRing
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.CyclotomicLevel
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Dimension
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Embedding
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisActionOnNewforms
@@ -214,9 +220,11 @@ import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisOrbitInvari
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.HeckeCharpoly
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Level
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.NebentypusRigidity
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.NewformSubspace
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.RationalStructure
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.TraceBound
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.TraceBoundExists
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.TraceForm
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.InnerTwist
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.InnerTwistAutGroup
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Twist.SelfTwist
@@ -275,6 +283,7 @@ import LeanBridge.ForMathlib.RepresentationTheory.RationalCharacterTable
 import LeanBridge.ForMathlib.RepresentationTheory.RationalGroup
 import LeanBridge.ForMathlib.RepresentationTheory.SchurIndex
 import LeanBridge.ForMathlib.RingTheory.IsAdjoinRootPrimitive
+import LeanBridge.ForMathlib.RingTheory.Polynomial.Eisenstein.Irreducible
 import LeanBridge.ForMathlib.RingTheory.Valuation.IsEquivRpow
 import LeanBridge.ForMathlib.Topology.Algebra.Group.ConnectedComponents
 import LeanBridge.ForMathlib.Topology.Algebra.Group.GL2ZHat
@@ -304,6 +313,7 @@ import Mathlib.Algebra.Group.Subgroup.Defs
 import Mathlib.Algebra.Group.Subgroup.Ker
 import Mathlib.Algebra.Group.Subgroup.Lattice
 import Mathlib.Algebra.Group.Subgroup.Map
+import Mathlib.Algebra.Group.Subgroup.Pointwise
 import Mathlib.Algebra.Group.Subgroup.ZPowers.Basic
 import Mathlib.Algebra.Group.Units.Defs
 import Mathlib.Algebra.GroupWithZero.Associated
@@ -315,6 +325,7 @@ import Mathlib.Algebra.MonoidAlgebra.Defs
 import Mathlib.Algebra.Notation.Prod
 import Mathlib.Algebra.Order.AbsoluteValue.Basic
 import Mathlib.Algebra.Order.Ring.Basic
+import Mathlib.Algebra.Polynomial.Degree.Defs
 import Mathlib.Algebra.Quaternion
 import Mathlib.Algebra.QuaternionBasis
 import Mathlib.Algebra.Ring.Defs
@@ -373,6 +384,7 @@ import Mathlib.GroupTheory.Coset.Basic
 import Mathlib.GroupTheory.Coset.Defs
 import Mathlib.GroupTheory.Exponent
 import Mathlib.GroupTheory.FiniteAbelian.Basic
+import Mathlib.GroupTheory.GroupAction.Blocks
 import Mathlib.GroupTheory.GroupAction.Defs
 import Mathlib.GroupTheory.GroupAction.MultipleTransitivity
 import Mathlib.GroupTheory.GroupAction.Primitive
@@ -414,10 +426,14 @@ import Mathlib.LinearAlgebra.Matrix.ProjectiveSpecialLinearGroup
 import Mathlib.LinearAlgebra.Matrix.SesquilinearForm
 import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
 import Mathlib.LinearAlgebra.QuadraticForm.Basic
+import Mathlib.LinearAlgebra.QuadraticForm.IsometryEquiv
 import Mathlib.LinearAlgebra.SymplecticGroup
 import Mathlib.LinearAlgebra.TensorProduct.Defs
 import Mathlib.LinearAlgebra.UnitaryGroup
 import Mathlib.Logic.Equiv.Defs
+import Mathlib.MeasureTheory.Group.Measure
+import Mathlib.MeasureTheory.Measure.Haar.Basic
+import Mathlib.MeasureTheory.Measure.Haar.Unique
 import Mathlib.NumberTheory.ArithmeticFunction.Defs
 import Mathlib.NumberTheory.ArithmeticFunction.Misc
 import Mathlib.NumberTheory.Bernoulli
@@ -430,6 +446,7 @@ import Mathlib.NumberTheory.Height.EllipticCurve
 import Mathlib.NumberTheory.Height.NumberField
 import Mathlib.NumberTheory.JacobiSum.Basic
 import Mathlib.NumberTheory.LSeries.Basic
+import Mathlib.NumberTheory.LSeries.DirichletContinuation
 import Mathlib.NumberTheory.LSeries.RiemannZeta
 import Mathlib.NumberTheory.LegendreSymbol.Basic
 import Mathlib.NumberTheory.LegendreSymbol.JacobiSymbol
@@ -439,12 +456,14 @@ import Mathlib.NumberTheory.Modular
 import Mathlib.NumberTheory.ModularForms.Basic
 import Mathlib.NumberTheory.ModularForms.CongruenceSubgroups
 import Mathlib.NumberTheory.ModularForms.CuspFormSubmodule
+import Mathlib.NumberTheory.ModularForms.Cusps
 import Mathlib.NumberTheory.ModularForms.DedekindEta
 import Mathlib.NumberTheory.ModularForms.Petersson
 import Mathlib.NumberTheory.ModularForms.QExpansion
 import Mathlib.NumberTheory.ModularForms.SlashActions
 import Mathlib.NumberTheory.ModularForms.SlashInvariantForms
 import Mathlib.NumberTheory.MulChar.Basic
+import Mathlib.NumberTheory.MulChar.Lemmas
 import Mathlib.NumberTheory.NumberField.Basic
 import Mathlib.NumberTheory.NumberField.CMField
 import Mathlib.NumberTheory.NumberField.Cyclotomic.Galois
@@ -456,11 +475,15 @@ import Mathlib.NumberTheory.NumberField.InfinitePlace.Embeddings
 import Mathlib.NumberTheory.NumberField.InfinitePlace.TotallyRealComplex
 import Mathlib.NumberTheory.NumberField.Units.Basic
 import Mathlib.NumberTheory.NumberField.Units.DirichletTheorem
+import Mathlib.NumberTheory.NumberField.Units.Regulator
 import Mathlib.NumberTheory.Padics.PadicNumbers
 import Mathlib.NumberTheory.RamificationInertia.Unramified
+import Mathlib.Order.Atoms
 import Mathlib.Order.Defs.PartialOrder
 import Mathlib.RepresentationTheory.Basic
 import Mathlib.RepresentationTheory.Character
+import Mathlib.RepresentationTheory.FDRep
+import Mathlib.RepresentationTheory.Irreducible
 import Mathlib.RingTheory.AdjoinRoot
 import Mathlib.RingTheory.Algebraic.Defs
 import Mathlib.RingTheory.ClassGroup.Basic
@@ -481,6 +504,8 @@ import Mathlib.RingTheory.Localization.AtPrime.Basic
 import Mathlib.RingTheory.Localization.FractionRing
 import Mathlib.RingTheory.Norm.Defs
 import Mathlib.RingTheory.PicardGroup
+import Mathlib.RingTheory.Polynomial.Eisenstein.Basic
+import Mathlib.RingTheory.PowerSeries.Basic
 import Mathlib.RingTheory.PrincipalIdealDomain
 import Mathlib.RingTheory.Radical.Basic
 import Mathlib.RingTheory.Radical.NatInt
@@ -509,6 +534,7 @@ import Mathlib.Topology.Sets.Closeds
 import TauCeti.Algebra.AlgebraicGroup.Torus.Basic
 import TauCeti.Algebra.CentralSimple.Splitting
 import TauCeti.Algebra.Group.Conj
+import TauCeti.Algebra.GroupAction.AlgHom
 import TauCeti.Algebra.GroupAction.PermutationRepresentation
 import TauCeti.Algebra.Module.Torsion.TateModule
 import TauCeti.Algebra.Quaternion.SplittingCriterion
@@ -522,6 +548,8 @@ import TauCeti.AlgebraicGeometry.Cohomology.Genus
 import TauCeti.AlgebraicGeometry.Curves.Basic
 import TauCeti.AlgebraicGeometry.EllipticCurve.Affine.Point.NonsingularReduction
 import TauCeti.AlgebraicGeometry.EllipticCurve.CanonicalHeight.Basic
+import TauCeti.AlgebraicGeometry.EllipticCurve.FreyCurve.Basic
+import TauCeti.AlgebraicGeometry.EllipticCurve.GlobalMinimalModel
 import TauCeti.AlgebraicGeometry.EllipticCurve.Isogeny.Basic
 import TauCeti.AlgebraicGeometry.EllipticCurve.Isogeny.Degree
 import TauCeti.AlgebraicGeometry.EllipticCurve.Isogeny.Hom.Basic
@@ -546,6 +574,7 @@ import TauCeti.AlgebraicGeometry.EllipticCurve.TateAlgorithm.Reduction.Conductor
 import TauCeti.AlgebraicGeometry.EllipticCurve.TateAlgorithm.Reduction.Curve
 import TauCeti.AlgebraicGeometry.EllipticCurve.TateModule.Galois
 import TauCeti.AlgebraicGeometry.GroupScheme.CentralIsogeny.BaseChange
+import TauCeti.Analysis.Complex.Fuchsian.Covolume
 import TauCeti.Combinatorics.PermutationTriple.Basic
 import TauCeti.Combinatorics.PermutationTriple.IsoClass
 import TauCeti.Combinatorics.PermutationTriple.Passport.Basic
@@ -554,6 +583,7 @@ import TauCeti.FieldTheory.GaloisGroups.Blocks
 import TauCeti.FieldTheory.GaloisGroups.Discriminant.Field
 import TauCeti.FieldTheory.GaloisGroups.NormalClosure
 import TauCeti.FieldTheory.GaloisGroups.Parity
+import TauCeti.FieldTheory.Normal.Embeddings
 import TauCeti.Geometry.Diffeomorphism.Group
 import TauCeti.Geometry.Lie.Subgroup.Embedded
 import TauCeti.GroupTheory.Perm.OrbitCount.Basic
@@ -562,19 +592,30 @@ import TauCeti.GroupTheory.Perm.SwapFactors
 import TauCeti.GroupTheory.Perm.WreathProduct.Basic
 import TauCeti.GroupTheory.SpecificGroups.Quaternion.Basic
 import TauCeti.LinearAlgebra.BilinearForm.Ideals
+import TauCeti.LinearAlgebra.BilinearForm.Isometry
 import TauCeti.LinearAlgebra.IntegralLattice.Basic
 import TauCeti.LinearAlgebra.IntegralLattice.Even
 import TauCeti.LinearAlgebra.IntegralLattice.Gram
 import TauCeti.LinearAlgebra.IntegralLattice.Ideals
+import TauCeti.LinearAlgebra.IntegralLattice.Isometry.Basic
+import TauCeti.LinearAlgebra.IntegralLattice.Isometry.Group
+import TauCeti.LinearAlgebra.IntegralLattice.Neighbor.Basic
 import TauCeti.LinearAlgebra.IntegralLattice.Norm
 import TauCeti.LinearAlgebra.IntegralLattice.PosDef.Covolume
+import TauCeti.LinearAlgebra.IntegralLattice.PosDef.Finite
+import TauCeti.LinearAlgebra.IntegralLattice.PosDef.Minimum
 import TauCeti.LinearAlgebra.IntegralLattice.Signature
+import TauCeti.LinearAlgebra.IntegralLattice.Unimodular
 import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Diagonal.Basic
+import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Symplectic.Center
 import TauCeti.NumberTheory.Cyclotomic.Adjoin
+import TauCeti.NumberTheory.HeckeRing.GL2.Gamma0.Diagonal.Composite
 import TauCeti.NumberTheory.IntegralLattice.Genus
 import TauCeti.NumberTheory.IntegralLattice.Localization.Basic
+import TauCeti.NumberTheory.IntegralLattice.Neighbor
 import TauCeti.NumberTheory.LocalField.AbsoluteRamificationIndex
 import TauCeti.NumberTheory.LocalField.Discriminant.Basic
+import TauCeti.NumberTheory.LocalField.Eisenstein.TotallyRamified
 import TauCeti.NumberTheory.LocalField.FiniteExtension.Basic
 import TauCeti.NumberTheory.LocalField.InertiaDegree
 import TauCeti.NumberTheory.LocalField.RamificationGroup
@@ -588,7 +629,9 @@ import TauCeti.NumberTheory.LocalField.WildInertia
 import TauCeti.NumberTheory.ModularForms.AtkinLehner.Normalized
 import TauCeti.NumberTheory.ModularForms.CharacterDecomp
 import TauCeti.NumberTheory.ModularForms.Conjugate
+import TauCeti.NumberTheory.ModularForms.Cusps.Basic
 import TauCeti.NumberTheory.ModularForms.DiamondOperators
+import TauCeti.NumberTheory.ModularForms.HeckeSlash.Nebentypus.Action
 import TauCeti.NumberTheory.ModularForms.HeckeSlash.Operators
 import TauCeti.NumberTheory.ModularForms.Newforms.Basic
 import TauCeti.NumberTheory.ModularForms.Newforms.Fields
@@ -598,6 +641,7 @@ import TauCeti.NumberTheory.ModularForms.Newforms.Newform
 import TauCeti.NumberTheory.ModularForms.Newforms.NumberField
 import TauCeti.NumberTheory.ModularForms.Newforms.OrthogonalBasis
 import TauCeti.NumberTheory.ModularForms.Newforms.SelfDual
+import TauCeti.NumberTheory.ModularForms.Norm.Cusps
 import TauCeti.NumberTheory.MulChar.GaloisOrbit
 import TauCeti.NumberTheory.NumberField.Global.Orders.Basic
 import TauCeti.NumberTheory.NumberField.Global.Orders.Conductor
@@ -617,7 +661,9 @@ import TauCeti.RepresentationTheory.CharacterTable.FrobeniusSchur.Basic
 import TauCeti.RepresentationTheory.CharacterTable.FrobeniusSchur.Realizability
 import TauCeti.RepresentationTheory.CharacterTable.Kernel
 import TauCeti.RepresentationTheory.CharacterTable.Table
+import TauCeti.RepresentationTheory.Compact.Finite
 import TauCeti.RepresentationTheory.RealForm
+import TauCeti.RepresentationTheory.Simple.Basic
 import TauCeti.RingTheory.KrullSchmidt.Indecomposable
 import TauCeti.RingTheory.Polynomial.Resultant.Discriminant
 import TauCeti.Topology.Algebra.Group.Connected

@@ -171,7 +171,7 @@ If $`G` is a group and $`x \in G`, the *autjugacy class* of $`x` is the orbit of
 Depends on: {uses "group.automorphism"}[] {uses "group.conjugacy_class"}[] {uses "group.element_order"}[]
 :::
 
-:::definition "group.autjugate_subgroup"
+:::definition "group.autjugate_subgroup" (lean := "Subgroup.pointwiseMulAction, MulAut.applyMulDistribMulAction, MulAction.orbit")
 *Autjugate subgroups.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.autjugate_subgroup))
 
 In analogy with conjugate subgroups, we say that two {bpref "group.subgroup"}[subgroups] $`H_1` and $`H_2` of a {bpref "group"}[group] $`G` are *autjugate* if there is an {bpref "group.automorphism"}[automorphism] $`\phi` of $`G` so that $`\phi(H_1) = \phi(H_2)`.
@@ -533,7 +533,7 @@ where the usual composition of maps is the group operation. It has {bpref "group
 Depends on: {uses "group.order"}[] {uses "group.solvable"}[] {uses "group.z_group"}[]
 :::
 
-:::definition "group.fuchsian"
+:::definition "group.fuchsian" (lean := "Subgroup.IsCofinite")
 *Fuchsian group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.fuchsian))
 
 A *Fuchsian group* is a discrete subgroup of $`\mathrm{PSL}(2,\mathbb{R})`  for the natural topology induced by the topology of $`2\times
@@ -574,7 +574,7 @@ we define $`\gamma\infty = \frac{a}{c}` when $`c\neq 0`, and $`\gamma\infty = \i
 Depends on: {uses "group.sl2z"}[]
 :::
 
-:::definition "group.fuchsian.cusps.width"
+:::definition "group.fuchsian.cusps.width" (lean := "TauCeti.ModularForm.cuspTranslationOrbitWidth, TauCeti.Subgroup.integerCuspWidth")
 *Width of a cusp.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.fuchsian.cusps.width))
 
 The *width* of the {bpref "group.fuchsian.cusps"}[cusp] $`\infty`
@@ -669,7 +669,7 @@ If $`G` is a {bpref "group"}[group] and $`R` is a {bpref "ring"}[ring], the *gro
 Depends on: {uses "group"}[] {uses "ring"}[]
 :::
 
-:::definition "group.haar_measure"
+:::definition "group.haar_measure" (lean := "MeasureTheory.Measure.IsHaarMeasure, MeasureTheory.Measure.haarMeasure, MeasureTheory.Measure.haarMeasure_self, MeasureTheory.Measure.isHaarMeasure_eq_of_isProbabilityMeasure, MeasureTheory.Measure.regular_haarMeasure, MeasureTheory.Measure.isMulLeftInvariant_eq_smul_of_regular, TauCeti.haarProb_singleton")
 *Haar measure of a topological group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.haar_measure))
 
 For $`G` a locally compact topological {bpref "group"}[group], a *Haar measure* on $`G` is a nonnegative, countably additive, real-valued measure on $`G` which is invariant under left translation on $`G`. Any such measure is also invariant under right translation on $`G`.
@@ -841,7 +841,7 @@ A *maximal quotient* $`M = G/K` of a {bpref "group"}[group] $`G` is a {bpref "gr
 Depends on: {uses "group"}[] {uses "group.minimal_normal"}[] {uses "group.quotient"}[]
 :::
 
-:::definition "group.maximal_subgroup"
+:::definition "group.maximal_subgroup" (lean := "IsCoatom, IsCoatom.le_iff")
 *Maximal subgroup of a group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.maximal_subgroup))
 
 If $`G` is a group, a subgroup $`M` is a *maximal subgroup* if for every subgroup $`H` such that $`M\subseteq H \subseteq G`, either $`H=M` or $`H=G`.
@@ -1276,7 +1276,7 @@ $$`\{g \in G : |\chi(g)|=\chi(1)\}.`
 Depends on: {uses "group.representation.character"}[]
 :::
 
-:::definition "group.representation.character"
+:::definition "group.representation.character" (lean := "FDRep.character, Representation.character")
 *Character of a group representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.representation.character))
 
 If $`G` is a {bpref "group"}[group] and $`\rho:G\to \GL_n(\C)` is a {bpref "group.representation.irrep"}[representation] of $`G`, then the *character* of $`\rho` is the function $`\operatorname{Tr}\circ \rho` where $`\operatorname{Tr}` is the function which takes the trace of a square matrix.  Since $`\operatorname{Tr}(AB) = \operatorname{Tr}(BA)`, the character of $`\rho` is well defined on {bpref "group.conjugacy_class"}[conjugacy classes]; the values $`\rho(g)` for $`g` ranging over the conjugacy classees of $`G` and $`\rho` ranging over all {bpref "group.representation.irrep"}[irreducible] characters of $`G` constitute the {bpref "group.complex_character_table"}[character table] of $`G`.
@@ -1316,7 +1316,7 @@ The *image* of a {bpref "group.representation.irrep"}[representation] of a finit
 Depends on: {uses "group.representation.irrep"}[]
 :::
 
-:::definition "group.representation.irrep"
+:::definition "group.representation.irrep" (lean := "Representation, Representation.IsIrreducible, FDRep, TauCeti.SimpleFDRepClasses")
 *Complex irreducible representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.representation.irrep))
 
 A *representation* of a finite {bpref "group"}[group] $`G` is a homomorphism $`\rho : G \to \GL(V)` for some vector space $`V`.  A representation is *reducible* if there is some nontrivial subspace $`W \subset V` with $`\rho(g)(W) = W` for all $`g \in G`; otherwise it is *irreducible*.  We say two representations $`\rho : G \to \GL(V)` and $`\rho' : G \to \GL(V')` are equivalent if there is an isomorphism $`\sigma : V \to V'` so that $`\rho'(g) = \sigma^{-1} \rho(g) \sigma` for all $`g \in G`.  Up to equivalence, the complex irreducible representations of a finite group $`G` (also known as *irreps*) are determined by their {bpref "group.representation.character"}[characters], which are recorded in the {bpref "group.complex_character_table"}[character table] of $`G`.
@@ -1324,7 +1324,7 @@ A *representation* of a finite {bpref "group"}[group] $`G` is a homomorphism $`\
 Depends on: {uses "group"}[]
 :::
 
-:::definition "group.representation.kernel"
+:::definition "group.representation.kernel" (lean := "MonoidHom.ker, FDRep.coe_ker, FDRep.mem_ker_iff_char_eq")
 *Kernel of a character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.representation.kernel))
 
 The *kernel* of the {bpref "group.representation.character"}[character] $`\chi` of a group $`G` is the subgroup of $`G` given by the set:
@@ -1891,7 +1891,7 @@ The *symmetric group* is the group $`S_n` of bijections from $`n` element sets t
 Depends on: {uses "group.almost_simple"}[] {uses "group.solvable"}[]
 :::
 
-:::definition "group.symplectic"
+:::definition "group.symplectic" (lean := "Matrix.symplecticGroup, Matrix.J, Subgroup.center, Matrix.isometryGroup, Matrix.isAlt_toBilin'_J, Matrix.exists_transpose_mul_mul_eq_of_isAlt, Matrix.exists_map_conj_isometryGroup_eq_of_isAlt, Matrix.isometryGroupEquivOfIsAlt, Matrix.isometryGroup_neg_J, Matrix.exists_map_conj_map_reindexGL_isometryGroup_eq, Matrix.isometryGroupEquivSymplecticGroup, TauCeti.GLSymplecticFin.mem_center_iff")
 *Symplectic group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.symplectic))
 
 The *symplectic group* $`\Sp(2n, q)` is the group of invertible $`2n \times 2n` matrices $`M` with entries in $`\F_q`, which satisfy the condition that $`M^T \Omega M = \Omega`, for $`\Omega` is any fixed invertible {bpref "alg.matrix.skew_symmetric"}[skew-symmetric matrix] over $`\F_q`.   For example, $`\Omega` can be taken to be the block matrix

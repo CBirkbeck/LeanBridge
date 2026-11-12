@@ -213,7 +213,7 @@ The degree appears as the first component of the {bpref "lfunction.selbergdata"}
 Depends on: {uses "lfunction"}[] {uses "lfunction.conductor"}[] {uses "lfunction.functional_equation"}[] {uses "lfunction.gamma_factor"}[]
 :::
 
-:::definition "lfunction.dirichlet"
+:::definition "lfunction.dirichlet" (lean := "DirichletCharacter.LFunction, DirichletCharacter.LFunction_eq_LSeries, DirichletCharacter.LSeries_eulerProduct_tprod, DirichletCharacter.IsPrimitive.completedLFunction_one_sub, DirichletCharacter.rootNumber, AnalyticLFunction, AnalyticLFunction.dirichlet, AnalyticLFunction.SelbergData.dirichlet, AnalyticLFunction.SelbergData.gammaFactor_dirichlet, AnalyticLFunction.eulerPolynomial_dirichlet, AnalyticLFunction.dirichlet_eq_zeta, DirichletCharacter.completedLFunction_conj, DirichletCharacter.IsPrimitive.norm_rootNumber")
 *Dirichlet L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.dirichlet))
 
 A *Dirichlet L-function* is an {bpref "lfunction"}[L-function] defined by a {bpref "lfunction.dirichlet_series"}[Dirichlet series] of the form $`{\displaystyle L(s, \chi)=\sum_{n=1}^\infty \frac {\chi(n)}{n^s}}`, where $`\chi` is a {bpref "character.dirichlet"}[Dirichlet character].

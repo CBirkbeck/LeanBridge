@@ -37,7 +37,7 @@ A lattice is called *arithmetic* if it is {bpref "lattice.similarity"}[similar] 
 Depends on: {uses "lattice.definition"}[] {uses "lattice.similarity"}[]
 :::
 
-:::definition "lattice.automorphism_group"
+:::definition "lattice.automorphism_group" (lean := "TauCeti.BilinForm.isometryGroup, TauCeti.IntegralLattice.Isometry, TauCeti.IntegralLattice.specialOrthogonalGroup, TauCeti.IntegralLattice.IsPosDef.finite_isometry")
 *Automorphism group of an integral lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.automorphism_group))
 
 The *automorphism group* of an {bpref "lattice.definition"}[integral lattice] $`L` is the group of {bpref "lattice.isometry"}[isometries] from $`L` to itself. For a {bpref "lattice.positive_definite"}[positive definite] lattice, this is a finite group.
@@ -287,7 +287,7 @@ where $`v_j^*` runs through all vectors with which $`v_1,...v_{j-1}` can be exte
 \{% endif %\}
 :::
 
-:::definition "lattice.group_order"
+:::definition "lattice.group_order" (lean := "TauCeti.IntegralLattice.Isometry")
 *Group order of an integral lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.group_order))
 
 The *group order* of an {bpref "lattice.definition"}[integral lattice] is the size of its {bpref "lattice.automorphism_group"}[automorphism group].
@@ -295,7 +295,7 @@ The *group order* of an {bpref "lattice.definition"}[integral lattice] is the si
 Depends on: {uses "lattice.automorphism_group"}[] {uses "lattice.definition"}[]
 :::
 
-:::definition "lattice.hermite_number"
+:::definition "lattice.hermite_number" (lean := "TauCeti.IntegralLattice.discriminant, TauCeti.IntegralLattice.minimum")
 *Hermite number.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.hermite_number))
 
 The *Hermite number* of a {bpref "lattice.positive_definite"}[positive definite] {bpref "lattice.definition"}[integral lattice] $`L`, with absolute {bpref "lattice.determinant"}[determinant] $`d`, is given by
@@ -319,7 +319,7 @@ Over a {bpref "ring.field"}[field] with {bpref "ring.characteristic"}[characteri
 Depends on: {uses "lattice.definition"}[] {uses "lattice.gram"}[] {uses "lattice.isometry"}[] {uses "lattice.nondegenerate"}[] {uses "lattice.parity"}[] {uses "lattice.signature"}[] {uses "lattice.unimodular"}[] {uses "ring.characteristic"}[] {uses "ring.field"}[]
 :::
 
-:::definition "lattice.isometry"
+:::definition "lattice.isometry" (lean := "TauCeti.IntegralLattice.Isometry, QuadraticMap.IsometryEquiv, QuadraticMap.Equivalent, TauCeti.IntegralLattice.Isometry.ofGramMatrixEq")
 *Isometries between integral lattices.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.isometry))
 
 Two {bpref "lattice.definition"}[integral lattices], $`L` and $`L'`, are *isometric* if there exists a map $`\sigma:L\rightarrow L'` such that $`Q(\vec{v})=Q(\sigma(\vec{v}))` for all $`\vec{v}\in L`. If this is the case, we say $`L\cong L'`. The set of all lattices $`M` such that $`M\cong L` is called the *isometry class* (or simply the *class*) of $`L`.
@@ -373,7 +373,7 @@ where the sum runs over all isometry classes of lattices $`\Lambda` in the same 
 Depends on: {uses "lattice.automorphism_group"}[] {uses "lattice.definition"}[] {uses "lattice.genus"}[]
 :::
 
-:::definition "lattice.minimal_vector"
+:::definition "lattice.minimal_vector" (lean := "TauCeti.IntegralLattice.minimum, TauCeti.IntegralLattice.vectorsOfNorm")
 *Minimum.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.minimal_vector))
 
 For an {bpref "lattice.definition"}[integral lattice], $`L`, the *minimum*, denoted $`m(L)`, is the length of the shortest non-zero vector in $`L`.  A *minimal vector* in $`L` is a vector $`\vec{v}` such that $`Q(\vec{v})=m(L)`.
@@ -381,7 +381,7 @@ For an {bpref "lattice.definition"}[integral lattice], $`L`, the *minimum*, deno
 Depends on: {uses "lattice.definition"}[]
 :::
 
-:::definition "lattice.minimum"
+:::definition "lattice.minimum" (lean := "TauCeti.IntegralLattice.minimum, TauCeti.IntegralLattice.vectorsOfNorm")
 *Minimum.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.minimum))
 
 For an {bpref "lattice.definition"}[integral lattice], $`L`, the *minimum*, denoted $`m(L)`, is the length of the shortest non-zero vector in $`L`.  A *minimal vector* in $`L` is a vector $`\vec{v}` such that $`Q(\vec{v})=m(L)`.
@@ -465,7 +465,7 @@ where $`S(L)` is the set of {bpref "lattice.minimal_vector"}[minimal vectors] of
 Depends on: {uses "lattice.arithmetic"}[] {uses "lattice.minimal_vector"}[] {uses "lattice.similarity"}[] {uses "lattice.well_rounded"}[]
 :::
 
-:::definition "lattice.pneighbor"
+:::definition "lattice.pneighbor" (lean := "TauCeti.IntegralLattice.IsNeighbor, TauCeti.IntegralLattice.IsNeighbor.symm, TauCeti.IntegralLattice.isNeighbor_one_iff, TauCeti.IntegralLattice.IsNeighbor.sameGenus, TauCeti.IntegralLattice.isNeighbor_self_iff, TauCeti.IntegralLattice.not_refl_isNeighbor, TauCeti.IntegralLattice.hyperbolicPlaneNeighbor, TauCeti.IntegralLattice.isNeighbor_hyperbolicPlaneNeighbor, TauCeti.IntegralLattice.not_isTrans_isNeighbor")
 *p-Neighbor of a lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.pneighbor))
 
 Given an integral lattice $`L` and a prime $`p`, a *$`p`-neighbor* of $`L` is an integral lattice $`M` such that
@@ -664,7 +664,7 @@ which allows a more direct recovery of the number of vectors of each possible no
 Depends on: {uses "cmf"}[] {uses "cmf.level"}[] {uses "cmf.weight"}[] {uses "lattice.definition"}[] {uses "lattice.dimension"}[] {uses "lattice.level"}[] {uses "lattice.quadratic_form"}[]
 :::
 
-:::definition "lattice.unimodular"
+:::definition "lattice.unimodular" (lean := "TauCeti.IntegralLattice.IsUnimodular, TauCeti.IntegralLattice.isUnimodular_iff_discriminant_eq_one, TauCeti.IntegralLattice.isUnimodular_iff_isUnit_determinant")
 *Unimodular lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.unimodular))
 
 An {bpref "lattice.definition"}[integral lattice] is *unimodular* if its {bpref "lattice.determinant"}[determinant] is equal to 1.

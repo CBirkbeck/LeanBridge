@@ -936,7 +936,7 @@ This is equivalent to the {bpref "ec.j_invariant"}[$`j`-invariant] of $`E` being
 Depends on: {uses "ec"}[] {uses "ec.good_reduction"}[] {uses "ec.j_invariant"}[] {uses "nf"}[] {uses "nf.integral"}[]
 :::
 
-:::definition "ec.q" (lean := "WeierstrassCurve.IsElliptic")
+:::definition "ec.q" (lean := "WeierstrassCurve.IsElliptic, WeierstrassCurve.exists_minimalPairModel, WeierstrassCurve.IsReducedMinimal, WeierstrassCurve.existsUnique_reducedMinimal")
 *Elliptic curve over $`\mathbb Q`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q))
 
 An *elliptic curve $`E` over $`\mathbb{Q}`* has a Weierstrass equation of the form
@@ -1024,7 +1024,7 @@ There is a similar conjecture for {bpref "ag.abelian_variety"}[abelian varieties
 Depends on: {uses "ag.abelian_variety"}[] {uses "ec"}[] {uses "ec.analytic_sha_order"}[] {uses "ec.mordell_weil_theorem"}[] {uses "ec.q.real_period"}[] {uses "ec.rank"}[] {uses "ec.regulator"}[] {uses "ec.tamagawa_number"}[] {uses "ec.torsion_order"}[] {uses "lfunction"}[] {uses "lfunction.central_point"}[]
 :::
 
-:::definition "ec.q.canonical_height"
+:::definition "ec.q.canonical_height" (lean := "WeierstrassCurve.Affine.Point.canonicalHeight, WeierstrassCurve.Affine.canonicalHeightQuadratic, WeierstrassCurve.Affine.neronTatePairing")
 *Canonical height.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.canonical_height))
 
 Let $`E` be an {bpref "ec"}[elliptic curve] defined over $`\mathbb{Q}`.
@@ -1093,7 +1093,7 @@ In the Cremona labeling, it is somewhat difficult to describe the mechanisms for
 Depends on: {uses "ec"}[] {uses "ec.isogeny"}[] {uses "ec.isogeny_class"}[] {uses "ec.isomorphism"}[] {uses "ec.q.conductor"}[] {uses "ec.q.optimal"}[]
 :::
 
-:::definition "ec.q.discriminant"
+:::definition "ec.q.discriminant" (lean := "WeierstrassCurve.minimalDiscriminantIdeal, WeierstrassCurve.reducedMinimalModel")
 *Discriminant of an elliptic curve over $`\Q`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.discriminant))
 
 The *discriminant* $`\Delta` of an {bpref "ec"}[elliptic curve] $`E` defined over $`\mathbb{Q}` is a nonzero integer divisible exactly by the primes of bad reduction.
@@ -1143,7 +1143,7 @@ The *Faltings ratio* of each curve $`E` is the {bpref "group.subgroup.index"}[in
 Depends on: {uses "ec"}[] {uses "ec.isogeny"}[] {uses "ec.q.faltings_height"}[] {uses "ec.q.period_lattice"}[] {uses "group.subgroup.index"}[]
 :::
 
-:::definition "ec.q.frey"
+:::definition "ec.q.frey" (lean := "TauCeti.freyCurve, TauCeti.isElliptic_freyCurve_iff_ne_zero")
 *Frey curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.frey))
 
 Given a triple of integers $`A, B, C` with $`A + B = C`, the [*Frey curve*](https://en.wikipedia.org/wiki/Frey_curve) (or *Frey-Hellegouarch curve*) associated to this triple is the elliptic curve
@@ -1263,7 +1263,7 @@ The minimal quadratic twist depends only on the $`j`-invariant unless $`j=0` or 
 Depends on: {uses "ec"}[] {uses "ec.complex_multiplication"}[] {uses "ec.isogeny_class"}[] {uses "ec.j_invariant"}[] {uses "ec.minimal_discriminant"}[] {uses "ec.q.conductor"}[] {uses "ec.twists"}[] {uses "nf.order"}[]
 :::
 
-:::definition "ec.q.minimal_weierstrass_equation"
+:::definition "ec.q.minimal_weierstrass_equation" (lean := "WeierstrassCurve.IsGlobalMinimal, WeierstrassCurve.IsReducedMinimal, WeierstrassCurve.reducedMinimalModel")
 *Minimal Weierstrass equation over $`\mathbb Q`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.minimal_weierstrass_equation))
 
 Every elliptic curve over $`\mathbb{Q}` has an integral Weierstrass model (or equation) of the form
@@ -1297,7 +1297,7 @@ A *modular parametrization* of an {bpref "ec"}[elliptic curve] $`E` over $`\math
 Depends on: {uses "ec"}[]
 :::
 
-:::definition "ec.q.naive_height"
+:::definition "ec.q.naive_height" (lean := "WeierstrassCurve.minimalPairModel, WeierstrassCurve.naiveHeight, WeierstrassCurve.shortEquationHeight")
 *Naive height.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.naive_height))
 
 The *naive height* of an {bpref "ec"}[elliptic curve] in short {bpref "ec.weierstrass_coeffs"}[Weierstrass form]

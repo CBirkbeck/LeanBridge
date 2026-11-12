@@ -41,7 +41,7 @@ Depends on: {uses "gg.index"}[] {uses "group"}[] {uses "group.proper_subgroup"}[
 Depends on: {uses "group.conjugacy_class"}[]
 :::
 
-:::definition "gg.degree"
+:::definition "gg.degree" (lean := "Polynomial.natDegree, Polynomial.Gal.galActionHom, Polynomial.card_rootSet_eq_natDegree")
 *Degree.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gg.degree))
 
 A {bpref "gg.galois_group"}[Galois group] of an irreducible polynomial $`f(x)` is a transitive subgroup of $`S_n`, well-defined up to conjugation.  Its *degree* is $`n=\deg(f)`.
@@ -88,7 +88,7 @@ Let $`K` be a {bpref "ring.field"}[field] and $`G` a finite {bpref "group"}[grou
 Depends on: {uses "gg.regular_extension"}[] {uses "group"}[] {uses "nf.is_galois"}[] {uses "ring.field"}[]
 :::
 
-:::definition "gg.group_action_invariants"
+:::definition "gg.group_action_invariants" (lean := "MulAction.IsPreprimitive, alternatingGroup, IntermediateField, Polynomial.natDegree, TauCeti.isPreprimitive_iff_isAtom_adjoin_simple, Polynomial.Gal.sign, Equiv.permutationRepresentation, Equiv.permutationRepresentation_injective, Polynomial.Gal.galActionHom, Polynomial.Gal.galActionHom_injective, Polynomial.Gal.galAction_isPretransitive, Polynomial.card_rootSet_eq_natDegree, IntermediateField.adjoin.finrank, Polynomial.Gal.sign_eq_one_iff_range_le_alternatingGroup, MulAction.IsBlock, Polynomial.Gal.isPreprimitive_iff_forall_eq_bot_or_eq_top, AlgEquiv.mulActionAlgHom, AlgEquiv.isPretransitiveAlgHom, TauCeti.FieldTheory.faithfulSMul_of_normalClosure_eq_top")
 *Group action Invariants.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gg.group_action_invariants))
 
 If a group $`G` acts transitively on an $`n` element set, the action is isomorphic to the natural action of a transitive subgroup of $`S_n`.  In terms of the Galois correspondence, we consider an irreducible separable polynomial $`f(x)\in K[x]`, let $`F` be a field obtained by adjoining a root of $`f(x)` to $`K` and suppose $`G` is the Galois group of the splitting field of $`f(x)` over $`K` where the action on the roots of $`f(x)`, $`\alpha_1, \ldots, \alpha_n` is through the subscripts.
