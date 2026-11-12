@@ -126,7 +126,7 @@ The affine symplectic group $`\ASp(n,q)` is the subgroup of the {bpref "group.af
 Depends on: {uses "group.affine_general_linear"}[] {uses "group.symplectic"}[]
 :::
 
-:::definition "group.almost_simple"
+:::definition "group.almost_simple" (lean := "IsAlmostSimple, IsSimpleGroup.isAlmostSimple, IsAlmostSimple.center_eq_bot, Matrix.SpecialLinearGroup.isQuasisimple_two_zmod_five, Matrix.SpecialLinearGroup.not_isAlmostSimple_two_zmod_five, Equiv.Perm.isAlmostSimple_fin_five, Equiv.Perm.not_isQuasisimple_fin_five")
 *Almost simple group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.almost_simple))
 
 An *almost simple group* is a group $`G` that lies between a non-abelian {bpref "group.simple"}[simple] group $`S` and its {bpref "group.automorphism"}[automorphism] group Aut$`(S)`, i.e. $`S \subseteq G \subseteq`Aut$`(S).`
@@ -404,7 +404,7 @@ A group is {bpref "group.solvable"}[solvable] if and only if $`G^{(k)}=\langle e
 Depends on: {uses "group"}[] {uses "group.commutator_subgroup"}[] {uses "group.proper_subgroup"}[] {uses "group.solvable"}[]
 :::
 
-:::definition "group.dicyclic" (lean := "DihedralGroup")
+:::definition "group.dicyclic" (lean := "DihedralGroup, QuaternionGroup, QuaternionGroup.card, QuaternionGroup.presentedGroupMulEquiv, QuaternionGroup.not_isComplement'_quaternionRotations, nonempty_mulEquiv_quaternionGroup_of_forall_not_isComplement', TauCeti.isCyclic_quaternionRotations, TauCeti.index_quaternionRotations")
 *Dicyclic group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.dicyclic))
 
 A *dicyclic group* of {bpref "group.order"}[order] $`4n`, denoted $`\mathrm{Dic}_n` or $`Q_{4n}`, is a non-split extension of a {bpref "group.cyclic"}[cyclic] {bpref "group"}[group] of order $`2n` by a cyclic group of order $`2`.  That is, $`\mathrm{Dic}_n` has a subgroup of index $`2` which is cyclic, but it is not a {bpref "group.semidirect_product"}[semidirect product] of that subgroup and a subgroup of order $`2`.
@@ -1113,7 +1113,7 @@ but the symplectic conditions imply that such matrices satisfy the stronger entr
 Depends on: {uses "group.sp2gr"}[]
 :::
 
-:::definition "group.perfect"
+:::definition "group.perfect" (lean := "Group.IsPerfect, Group.isPerfect_iff_forall_isCyclic, Group.isPerfect_iff_forall_commutative, Group.isPerfect_iff_forall_isSolvable, Group.isPerfect_SL_two_five, Matrix.ProjectiveSpecialLinearGroup.twoZModFiveEquivAlternatingGroup")
 *Perfect groups.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.perfect))
 
 A {bpref "group"}[group] $`G` is *perfect* if it is equal to its own {bpref "group.commutator_subgroup"}[commutator subgroup] $`G'`. Equivalently, $`G` has no non-trivial cyclic (equivalently abelian, equivalently soluble) quotients. All non-abelian simple and quasisimple groups are perfect.

@@ -119,7 +119,7 @@ There is a similar conjecture for {bpref "ag.abelian_variety"}[abelian varieties
 Depends on: {uses "ag.abelian_variety"}[] {uses "ec"}[] {uses "ec.analytic_sha_order"}[] {uses "ec.period"}[] {uses "ec.rank"}[] {uses "ec.regulator"}[] {uses "ec.tamagawa_number"}[] {uses "ec.torsion_subgroup"}[] {uses "lfunction"}[] {uses "lfunction.analytic_rank"}[] {uses "lfunction.central_point"}[] {uses "lfunction.leading_coeff"}[] {uses "nf"}[] {uses "nf.discriminant"}[] {uses "nf.prime"}[]
 :::
 
-:::definition "ec.canonical_height"
+:::definition "ec.canonical_height" (lean := "WeierstrassCurve.Affine.Point.canonicalHeight, WeierstrassCurve.Affine.Point.tendsto_naiveHeight_nsmul_div_sq, WeierstrassCurve.Affine.Point.canonicalHeight_nonneg, WeierstrassCurve.Affine.posDef_neronTateGramMatrix, WeierstrassCurve.Affine.neronTatePairing, WeierstrassCurve.Affine.neronTatePairing_apply, WeierstrassCurve.Affine.Point.canonicalHeight_mapAlong, WeierstrassCurve.Affine.Point.canonicalHeight_mapAlong_div_finrank")
 *Canonical height on an elliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.canonical_height))
 
 Let $`E` be an {bpref "ec"}[elliptic curve] defined over a {bpref "nf"}[number field] $`K`.  The *canonical height* on $`E` is a function
@@ -852,7 +852,7 @@ The case of multiplicative reduction is further subdivided into {bpref "ec.split
 Depends on: {uses "ec"}[] {uses "ec.nonsplit_multiplicative_reduction"}[] {uses "ec.split_multiplicative_reduction"}[] {uses "nf"}[]
 :::
 
-:::definition "ec.mw_generators"
+:::definition "ec.mw_generators" (lean := "WeierstrassCurve.Affine.IsMordellWeilGenerators, WeierstrassCurve.Affine.IsTorsionBasis, WeierstrassCurve.Affine.fg_point_of_numberField, WeierstrassCurve.Affine.exists_isMordellWeilGenerators, WeierstrassCurve.Affine.IsMordellWeilGenerators.finrank_eq, WeierstrassCurve.Affine.IsMordellWeilGenerators.closure_eq_top, WeierstrassCurve.Affine.exists_isTorsionBasis_le_two, WeierstrassCurve.Affine.IsMordellWeilGenerators.le_two")
 *Mordell-Weil generators.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.mw_generators))
 
 The *{bpref "ec.mordell_weil_group"}[Mordell-Weil group]* $`E(K)` of an {bpref "ec"}[elliptic curve] $`E` over a {bpref "nf"}[number field] $`K` is a finitely generated {bpref "group.abelian"}[abelian] group, explicitly described by giving a $`\Z`-basis for the group, equivalently, a (minimal) set of *Mordell-Weil generators*, each of which is a rational point on the curve.
@@ -1667,7 +1667,7 @@ For $`K=\Q` the possible torsion structures are $`[n]` for $`n\le10` and $`n=12`
 Depends on: {uses "ec.mordell_weil_group"}[] {uses "ec.mordell_weil_theorem"}[]
 :::
 
-:::definition "ec.twists"
+:::definition "ec.twists" (lean := "WeierstrassCurve.IsTwist, WeierstrassCurve.isTwist_iff_j_eq, WeierstrassCurve.quadraticTwist, WeierstrassCurve.quarticTwist, WeierstrassCurve.sexticTwist, WeierstrassCurve.exists_mul_ne_mul_autGroup_of_charTwo, WeierstrassCurve.exists_mul_ne_mul_autGroup_of_charThree, WeierstrassCurve.VariableChange.twistCohomologyClass")
 *Twists of elliptic curves.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.twists))
 
 A *twist* of an {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "ring.field"}[field] $`K` is another elliptic curve $`E'`, also defined over $`K`, which is isomorphic to $`E` over the algebraic closure of $`K`.

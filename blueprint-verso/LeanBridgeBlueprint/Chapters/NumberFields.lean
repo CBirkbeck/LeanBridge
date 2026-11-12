@@ -178,7 +178,7 @@ The discriminant of $`K` is a non-zero integer divisible exactly by the primes w
 Depends on: {uses "nf"}[] {uses "nf.integral_basis"}[]
 :::
 
-:::definition "nf.discriminant_root_field" (lean := "Polynomial.discr")
+:::definition "nf.discriminant_root_field" (lean := "Polynomial.discr, TauCeti.discrField, Polynomial.isSquare_discr_mul_discr, Polynomial.discrField_eq_discrField, TauCeti.evenAutSubgroup, TauCeti.fixedField_evenAutSubgroup")
 *Discriminant root field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.discriminant_root_field))
 
 If $`K/F` is a finite algebraic extension, it can be defined by a polynomial $`f(x)\in F[x]`.  The *polynomial discriminant*, $`\mathrm{disc}(f)`, is well-defined up a factor of a non-zero square.  The *discriminant root field* of the extension is $`F(\sqrt{\mathrm{disc}(f)})`, which is well-defined.

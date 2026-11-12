@@ -17,9 +17,10 @@ The LMFDB knowl writes the `i`-th entry of `Qᵢ(g)` as `g_i+1`, a typo for `g�
 braid operations act on the generating vectors of one refined passport; as `Qᵢ` swaps the conjugacy
 classes of the `i`-th and `(i+1)`-st entries, they preserve the refined passport only up to the
 order of its conjugacy classes, so the action is defined here on all `n`-tuples, and braid
-equivalence of two generating vectors is their equivalence in this action. That the braid operations satisfy the
-braid relations, so that the action factors through Tau Ceti's `TauCeti.BraidGroup`, and that they
-preserve the product `g₁ ⋯ gₙ` and the generation of `G`, are not formalised.
+equivalence of two generating vectors is their equivalence in this action. That the braid
+operations satisfy the braid relations, so that the action factors through Tau Ceti's
+`TauCeti.BraidGroup`, is not formalised; that they preserve the product `g₁ ⋯ gₙ` and the generation
+of `G` is proved in `LeanBridge.ForMathlib.GroupTheory.BraidInvariants`.
 
 ## Main definitions
 

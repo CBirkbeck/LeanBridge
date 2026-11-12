@@ -45,7 +45,7 @@ Depends on: {uses "af"}[] {uses "af.multiplicative"}[]
 An arithmetic function $`f:\mathbb{Z}_{>0}\to \C` is *multiplicative* if $`f(mn)=f(m)f(n)` for all coprime integers $`m,n>0`, and is not the zero-function (in particular, $`f(1)=1`).
 :::
 
-:::definition "lfunction"
+:::definition "lfunction" (lean := "AnalyticLFunction, AnalyticLFunction.SelbergData, AnalyticLFunction.selbergData, AnalyticLFunction.eqOn_toFun_of_coeff_eq, AnalyticLFunction.zeta, LSeries")
 *L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction))
 
 An (analytic) *L-function* is a {bpref "lfunction.dirichlet_series"}[Dirichlet series] that has an {bpref "lfunction.euler_product"}[Euler product] and satisfies a certain type of {bpref "lfunction.functional_equation"}[functional equation].
@@ -57,7 +57,7 @@ It is also conjectured that a precise form of the {bpref "lfunction.functional_e
 Depends on: {uses "lfunction.dirichlet_series"}[] {uses "lfunction.euler_product"}[] {uses "lfunction.functional_equation"}[]
 :::
 
-:::definition "lfunction.analytic_conductor"
+:::definition "lfunction.analytic_conductor" (lean := "AnalyticLFunction.analyticConductor, AnalyticLFunction.SelbergData.analyticConductor, AnalyticLFunction.SelbergData.gammaFactor, AnalyticLFunction.conductor, AnalyticLFunction.SelbergData.analyticConductor_pos, AnalyticLFunction.SelbergData.analyticConductor_eq_analyticConductorLMFDB")
 *Analytic conductor.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.analytic_conductor))
 
 The *analytic conductor* of an {bpref "lfunction"}[L-function] $`L(s)` with {bpref "lfunction.infinity_factor"}[infinity factor] $`L_{\infty}(s)` and {bpref "lfunction.conductor"}[conductor] $`N` is the real number
@@ -132,7 +132,7 @@ The *coefficient field* of an {bpref "lfunction.arithmetic"}[arithmetic] {bpref 
 Depends on: {uses "lfunction"}[] {uses "lfunction.arithmetic"}[] {uses "lfunction.motivic_weight"}[] {uses "nf"}[]
 :::
 
-:::definition "lfunction.completed"
+:::definition "lfunction.completed" (lean := "AnalyticLFunction.completed, AnalyticLFunction.completed_eq, AnalyticLFunction.completed_eq_of_notMem_gammaPoles, AnalyticLFunction.completed_eq_sign_mul_conj, AnalyticLFunction.SelbergData.gammaFactor, AnalyticLFunction.SelbergData.gammaPoles")
 *Completed L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.completed))
 
 If the {bpref "lfunction"}[L-function] $`L(s)` satisfies the {bpref "lfunction.functional_equation"}[functional equation]
@@ -262,7 +262,7 @@ $$`L_p(s)=\prod_{n=1}^{d_p}\left( 1-\frac{\beta_{n}(p)}{p^s}\right)^{-1} \text{ 
 The functions $`L_p(s)` are called *Euler factors* (or *local factors*).
 :::
 
-:::definition "lfunction.functional_equation"
+:::definition "lfunction.functional_equation" (lean := "AnalyticLFunction.SelbergData, AnalyticLFunction.SelbergData.gammaFactor, AnalyticLFunction.completed_eq, AnalyticLFunction.completed_eq_sign_mul_conj, AnalyticLFunction.SelbergData.degree, AnalyticLFunction.completed_sub_eq_sign_mul_conj")
 *Functional equation of an L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.functional_equation))
 
 All known {bpref "lfunction"}[analytic L-functions] have a *functional equation* that can be written in the form
@@ -310,7 +310,7 @@ and can also be viewed as "missing" factors of the {bpref "lfunction.euler_produ
 Depends on: {uses "lfunction.euler_product"}[]
 :::
 
-:::definition "lfunction.infinity_factor"
+:::definition "lfunction.infinity_factor" (lean := "AnalyticLFunction.SelbergData.gammaFactor, AnalyticLFunction.SelbergData.μ, AnalyticLFunction.SelbergData.ν, AnalyticLFunction.completed_eq, AnalyticLFunction.completed_eq_of_notMem_gammaPoles, AnalyticLFunction.completed_eq_sign_mul_conj")
 *Infinity factor of an L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.infinity_factor))
 
 The *infinity factor* $`L_{\infty}(s)` of an {bpref "lfunction"}[L-function] $`L(s)` is the product of its {bpref "lfunction.gamma_factor"}[Gamma factors]:
@@ -452,7 +452,7 @@ This expansion holds in the region $`\Re(s)>1,` where the product is absolutely 
 $$`\prod_{p } \frac{1}{1-p^{-s}} = \prod_p \left(\sum_{k=0}^\infty p^{-ks} \right) = \sum_{n=1}^\infty n^{-s} = \zeta(s).`
 :::
 
-:::definition "lfunction.root_analytic_conductor"
+:::definition "lfunction.root_analytic_conductor" (lean := "AnalyticLFunction.rootAnalyticConductor, AnalyticLFunction.rootAnalyticConductor_pow_degree, AnalyticLFunction.rootAnalyticConductor_pos, AnalyticLFunction.analyticConductor, AnalyticLFunction.degree")
 *Root analytic conductor.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.root_analytic_conductor))
 
 If $`d` is the {bpref "lfunction.degree"}[degree] of the {bpref "lfunction"}[L-function] $`L(s)`, the *root analytic conductor* $`\alpha` of $`L` is the $`d`th root of the {bpref "lfunction.analytic_conductor"}[analytic conductor] of $`L`.  It plays a role analogous to the {bpref "nf.root_discriminant"}[root discriminant] for {bpref "nf"}[number fields].
@@ -460,7 +460,7 @@ If $`d` is the {bpref "lfunction.degree"}[degree] of the {bpref "lfunction"}[L-f
 Depends on: {uses "lfunction"}[] {uses "lfunction.analytic_conductor"}[] {uses "lfunction.degree"}[] {uses "nf"}[] {uses "nf.root_discriminant"}[]
 :::
 
-:::definition "lfunction.root_angle"
+:::definition "lfunction.root_angle" (lean := "AnalyticLFunction.sign, Complex.arg, Complex.neg_pi_lt_arg, Complex.arg_le_pi, AnalyticLFunction.norm_sign")
 *Root angle of L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.root_angle))
 
 The *root angle* of an L-function is the argument of its {bpref "lfunction.sign"}[root number], as a real number $`\alpha` with $`-0.5 < \alpha \le 0.5`.
@@ -468,7 +468,7 @@ The *root angle* of an L-function is the argument of its {bpref "lfunction.sign"
 Depends on: {uses "lfunction.sign"}[]
 :::
 
-:::definition "lfunction.root_number"
+:::definition "lfunction.root_number" (lean := "AnalyticLFunction.sign, AnalyticLFunction.SelbergData.sign, AnalyticLFunction.completed_eq, AnalyticLFunction.completed_eq_sign_mul_conj, AnalyticLFunction.sign_eq_one_or_eq_neg_one, AnalyticLFunction.toFun_one_half_eq_zero_of_sign_eq_neg_one")
 *Sign of an L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.root_number))
 
 The *sign* of an {bpref "lfunction"}[L-function] is the complex number $`\varepsilon` occurring in its {bpref "lfunction.functional_equation"}[functional equation]
@@ -529,7 +529,7 @@ and $`b_n\ll n^\theta` for some $`\theta<1/2`.</li>
 Depends on: {uses "lfunction.euler_product"}[] {uses "lfunction.functional_equation"}[]
 :::
 
-:::definition "lfunction.selbergdata"
+:::definition "lfunction.selbergdata" (lean := "AnalyticLFunction.SelbergData, AnalyticLFunction.selbergData, AnalyticLFunction.SelbergData.degree, AnalyticLFunction.SelbergData.μ, AnalyticLFunction.SelbergData.ν, AnalyticLFunction.SelbergData.sign")
 *Selberg data for the functional equation of an L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.selbergdata))
 
 The *Selberg data* for an {bpref "lfunction"}[L-function] is the quadruple
@@ -550,7 +550,7 @@ Depends on: {uses "lfunction"}[] {uses "lfunction.conductor"}[] {uses "lfunction
 An L-function $`L(s) = \sum_{n=1}^{\infty} \frac{a_n}{n^s}` is called *self-dual* if its Dirichlet coefficients $`a_n` are real.
 :::
 
-:::definition "lfunction.sign"
+:::definition "lfunction.sign" (lean := "AnalyticLFunction.sign, AnalyticLFunction.SelbergData.sign, AnalyticLFunction.completed_eq_sign_mul_conj, AnalyticLFunction.norm_sign, AnalyticLFunction.SelbergData")
 *Sign of the functional equation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.sign))
 
 The *sign* of the functional equation of an analytic L-function, also called the *root number*, is the complex number $`\varepsilon` that appears in the {bpref "lfunction.functional_equation"}[functional equation] of $`\Lambda(s)=\varepsilon \overline{\Lambda}(1-s)`.  The sign appears as the 4th entry in the quadruple
@@ -559,7 +559,7 @@ known as the {bpref "lfunction.selbergdata"}[Selberg data.]
 Depends on: {uses "lfunction.functional_equation"}[]
 :::
 
-:::definition "lfunction.signature"
+:::definition "lfunction.signature" (lean := "AnalyticLFunction.SelbergData.μ, AnalyticLFunction.SelbergData.ν, AnalyticLFunction.SelbergData.re_eq_zero_or_one_of_mem_μ, AnalyticLFunction.SelbergData.exists_two_mul_re_eq_of_mem_ν, AnalyticLFunction.SelbergData.degree, Multiset.card")
 *Signature of an L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.signature))
 
 The *signature* either refers to the pair $`[J,K]` where $`J` is the number of {bpref "lfunction.gamma_factor"}[$`\Gamma_{\mathbb{R}}`] and $`K` is the number of {bpref "lfunction.gamma_factor"}[$`\Gamma_{\mathbb{C}}`] in the {bpref "lfunction.selbergdata"}[Selberg data], or else it refers to the tuple
@@ -581,7 +581,7 @@ Similarly, y is either 0 (indicating that all $`\mu_j` and $`\nu_j` are real), o
 Depends on: {uses "lfunction.functional_equation"}[] {uses "lfunction.spectral_parameters"}[]
 :::
 
-:::definition "lfunction.spectral_parameters"
+:::definition "lfunction.spectral_parameters" (lean := "AnalyticLFunction.SelbergData.μ, AnalyticLFunction.SelbergData.ν, AnalyticLFunction.SelbergData.gammaFactor, AnalyticLFunction.selbergData, AnalyticLFunction.completed_eq")
 *L-function spectral parameters.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.spectral_parameters))
 
 The *spectral parameters* are the numbers $`\mu_j` and $`\nu_k` that appear as shifts in the {bpref "lfunction.gamma_factor"}[gamma factors] ($`\Gamma_{\mathbb{R}}` and $`\Gamma_{\mathbb{C}}`, respectively) in the {bpref "lfunction.functional_equation"}[functional equation] of an {bpref "lfunction"}[L-function].

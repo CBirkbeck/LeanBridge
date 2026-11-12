@@ -15,7 +15,9 @@ an integral combination vanishes only when each of its terms does, so that `E(K)
 sum of the cyclic subgroups they generate. The set is minimal: no `ℤ`-basis of `E(K)_tors` has
 fewer points. This minimal number is that of the invariant factors of `E(K)_tors`, which is also
 the minimal number of generators of `E(K)_tors`, and it is at most two, as `E(K)_tors` embeds in
-`(ℚ/ℤ)²`; neither fact is formalised here.
+`(ℚ/ℤ)²`. The first fact is not formalised; the bound is
+`WeierstrassCurve.Affine.IsMordellWeilGenerators.le_two` (characteristic zero, `E(F)` finitely
+generated).
 
 The definitions are stated over any field `F`, for families of points indexed by `Fin r` and
 `Fin s`.

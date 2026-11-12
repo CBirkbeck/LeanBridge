@@ -11,7 +11,7 @@ open Informal
 
 This section lists the LMFDB definitions in the category `curve`. Each definition links back to its LMFDB knowl.
 
-:::definition "curve.highergenus.aut.braid_equivalence"
+:::definition "curve.highergenus.aut.braid_equivalence" (lean := "Hurwitz.braidOperation, Hurwitz.braidOperationGroup, Hurwitz.braidEquivalence, Hurwitz.prod_ofFn_of_mem_braidOperationGroup, Hurwitz.closure_range_of_mem_braidOperationGroup, Hurwitz.isConj_braidOperation_swap, Hurwitz.exists_perm_isConj_of_braidEquivalence, Hurwitz.prod_ofFn_eq_of_braidEquivalence")
 *Braid Equivalence.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/curve.highergenus.aut.braid_equivalence))
 
 Given a group $`G`, the *braid operations* on an $`n`-tuples of elements in $`G` are the maps

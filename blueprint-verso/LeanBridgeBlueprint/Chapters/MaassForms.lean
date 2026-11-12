@@ -22,7 +22,7 @@ The term *Maass form* is used for automorphic forms on $`GL_{n}` (for some posit
 Instead of satisfying the  Cauchy-Riemann equations (as holomorphic functions do), these functions are eigenfunctions of the Casimir element in the universal enveloping algebra of the Lie algebra of $`GL_{n}`.
 :::
 
-:::definition "mf.maass.exceptional_eigenvalue"
+:::definition "mf.maass.exceptional_eigenvalue" (lean := "UpperHalfPlane.IsExceptionalMaassEigenvalue, UpperHalfPlane.isExceptionalMaassEigenvalue_iff, UpperHalfPlane.conj_eigenvalue_of_mem_maassSpace, UpperHalfPlane.zero_le_of_mem_maassSpace, UpperHalfPlane.re_eq_zero_or_im_eq_zero_of_mem_maassSpace, UpperHalfPlane.SelbergEigenvalueConjecture")
 *Exceptional eigenvalues of Maass forms.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass.exceptional_eigenvalue))
 
 Each {bpref "mf.maass.mwf.eigenvalue"}[eigenvalue] $`\lambda` of a {bpref "mf.maass.mwf"}[Maass form] can be written as $`\lambda = \frac{1}{4} + R^2`, where $`R` is the {bpref "mf.maass.mwf.spectralparameter"}[spectral parameter].
@@ -93,7 +93,7 @@ This convention is usually used in the context of Harmonic weak Maass forms.
 Depends on: {uses "mf.maass.mwf.laplacian"}[] {uses "mf.multipliersystem"}[] {uses "mf.slash_action"}[]
 :::
 
-:::definition "mf.maass.mwf.coefficients"
+:::definition "mf.maass.mwf.coefficients" (lean := "UpperHalfPlane.maassCoefficients, UpperHalfPlane.maassLFunction, UpperHalfPlane.maassNormalisedNewform, UpperHalfPlane.IsMaassCuspNewform.hasMaassCosineExpansion, UpperHalfPlane.HasMaassCosineExpansion.maassCoefficients_eq, UpperHalfPlane.IsMaassCuspNewform.conj_maassCoefficients_normalisedNewform_of_even")
 *Maass form coefficients.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass.mwf.coefficients))
 
 Let $`f` be a {bpref "mf.maass.mwf"}[Maass newform] of {bpref "mf.maass.mwf.weight"}[weight] 0 on $`\Gamma_0(N)` with {bpref "mf.maass.mwf.spectralparameter"}[spectral parameter] $`R`.  If $`f` has even {bpref "mf.maass.mwf.symmetry"}[symmetry] then as a function on the complex upper half plane it can be uniquely expressed in the form
@@ -258,7 +258,7 @@ Depends on: {uses "specialfunction.k_bessel"}[]
 $`\Delta=y^2(\frac{d^2}{d\Re(x)^2}+\frac{d^2}{d\Im(x)^2}+\frac{d^2}{dy^2})-y\frac{d}{dy}`.
 :::
 
-:::definition "mf.maass.spectral_index"
+:::definition "mf.maass.spectral_index" (lean := "UpperHalfPlane.maassNewformSpectrum, UpperHalfPlane.maassNewformSpectralIndex, UpperHalfPlane.maassNewformSpectralIndexLabel, UpperHalfPlane.finite_maassNewformSpectrum_inter_Iic, UpperHalfPlane.zero_lt_of_mem_maassNewformSpectrum, UpperHalfPlane.maassNewformSpectralIndex_eq_of_quarter_le")
 *Spectral index of a Maass form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass.spectral_index))
 
 The {bpref "mf.maass.mwf.eigenvalue"}[eigenvalues] $`\lambda = \frac{1}{4} + R^2` (written in terms of the {bpref "mf.maass.mwf.spectralparameter"}[spectral parameter] $`R`) are discrete, real, and nonnegative. We order them, and the index of a particular eigenvalue $`\lambda` in this order is called the *spectral index*.

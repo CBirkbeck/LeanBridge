@@ -100,7 +100,7 @@ A *symplectic isomorphism* from $`M` to another such structure $`M'` is a $`\Z/N
 The same definition makes sense in a context in which each free rank 2 $`\Z/N\Z`-module is enriched with a Galois action to make a Galois module, or replaced by a finite etale group scheme that is $`(\Z/N\Z)^2` etale locally.
 :::
 
-:::definition "gl2.borel"
+:::definition "gl2.borel" (lean := "Matrix.GeneralLinearGroup.IsBorelSubgroup, TauCeti.GL2Borel, Matrix.GeneralLinearGroup.isBorelSubgroup_iff_exists_lineStabilizer, Matrix.GeneralLinearGroup.isCoatom_gl2Borel, Matrix.GeneralLinearGroup.IsBorelSubgroup.isCoatom, Matrix.GeneralLinearGroup.exists_orderOf_eq_iff_forall_not_le_map_diagonalTorus, Matrix.GeneralLinearGroup.labelBAB, ZMod.leastPrimitiveRoot")
 *Borel subgroup.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gl2.borel))
 
 A *Borel subgroup* of a general linear group is a subgroup that is conjugate to the group of upper triangular matrices.
