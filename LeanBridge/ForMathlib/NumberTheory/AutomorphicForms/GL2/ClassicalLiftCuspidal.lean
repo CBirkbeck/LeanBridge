@@ -36,7 +36,7 @@ open ConjAct IsDedekindDomain MeasureTheory NumberField Subgroup UpperHalfPlane
 
 open Matrix hiding mul_inv_rev one_zpow zpow_mul zpow_neg
 
-open GeneralLinearGroup (continuous_upperRightHom upperRightHom)
+open GeneralLinearGroup (continuous_upperRightHom det_upperRightHom upperRightHom)
 
 open mixedEmbedding (mixedSpace)
 

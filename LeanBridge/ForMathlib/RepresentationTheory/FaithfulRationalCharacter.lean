@@ -10,15 +10,18 @@ case of the LMFDB's rational degrees, the sum over the conjugates `σ ∘ χ`, `
 LeanBridge's `FDRep.rationalCharacter`, the character of a representation with values in `ℚ`
 (`FDRep.exists_isRationalCharacter_character_eq_rationalCharacter`). A character `ψ` is faithful in
 the knowl's sense when `ψ(g) = ψ(1)` only for `g = 1`. Each conjugate `σ ∘ χ` is faithful exactly
-when `χ` is, `σ` being injective and fixing `χ(1)`. So is the sum: if `∑ σχ(g) = ∑ σχ(1)`, then
-since every `σ ∘ χ` is the character of a representation, `Re σχ(g) ≤ |σχ(g)| ≤ χ(1)`, so all
-these inequalities are equalities, and `χ(g) = χ(1)`. The real case, the sums `χ + χ̄` behind the
-LMFDB's real degrees, is treated in `FaithfulRealCharacter.lean`.
+when `χ` is, `σ` being injective and fixing `χ(1)`. So is the sum over any set of conjugates
+containing `χ`: if `∑ σχ(g) = ∑ σχ(1)`, then since every `σ ∘ χ` is the character of a
+representation, `Re σχ(g) ≤ |σχ(g)| ≤ χ(1)`, so all these inequalities are equalities, and
+`χ(g) = χ(1)`. The real case, the sums `χ + χ̄` behind the LMFDB's real degrees, is treated in
+`FaithfulRealCharacter.lean`.
 
 ## Main results
 
 * `FDRep.algEquiv_comp_faithful_iff` (LMFDB `group.min_faithful_linear`): a Galois conjugate of a
   character is faithful exactly when the character is.
+* `FDRep.sum_faithful_iff`: the sum of a set of Galois conjugates of an irreducible complex
+  character, containing the character, is faithful exactly when the character is.
 * `FDRep.rationalCharacter_faithful_iff` (LMFDB `group.min_faithful_linear`): the sum of the Galois
   conjugates of an irreducible complex character is faithful exactly when the character is.
 -/
@@ -51,33 +54,29 @@ lemma norm_algEquiv_character_le (g : G) : ‖σ (X.character g)‖ ≤ Module.f
     Representation.norm_char_le_finrank ρ (orderOf_pos g).ne' (pow_orderOf_eq_one g)
   rwa [hρ, Module.finrank_fin_fun, hn] at h
 
-/-- **The sum of the Galois conjugates of an irreducible complex character is faithful exactly when
-the character is** (LMFDB `group.min_faithful_linear`): if `∑ σχ(g) = ∑ σχ(1)`, the bounds
-`Re σχ(g) ≤ |σχ(g)| ≤ χ(1)` are equalities, so `χ(g) = χ(1)`. -/
-lemma rationalCharacter_faithful_iff :
-    (∀ g, X.rationalCharacter g = X.rationalCharacter 1 → g = 1) ↔
+/-- **The sum of Galois conjugates of an irreducible complex character is faithful exactly when
+the character is**, for any set `s` of conjugates `σ ∘ χ` containing `χ`: if
+`∑ σχ(g) = ∑ σχ(1)`, the bounds `Re σχ(g) ≤ |σχ(g)| ≤ χ(1)` are equalities, so `χ(g) = χ(1)`. -/
+lemma sum_faithful_iff {s : Set (G → ℂ)} (hs : s ⊆ X.galoisConjugates) (hχ : X.character ∈ s) :
+    (∀ g, (∑ᶠ ψ ∈ s, ψ) g = (∑ᶠ ψ ∈ s, ψ) 1 → g = 1) ↔
       ∀ g, X.character g = X.character 1 → g = 1 := by
-  rw [rationalCharacter, finsum_mem_eq_finite_toFinset_sum _ X.finite_galoisConjugates]
-  have hmem (ψ : G → ℂ) (hψ : ψ ∈ X.finite_galoisConjugates.toFinset) :
-      ∃ σ : ℂ ≃ₐ[ℚ] ℂ, σ ∘ X.character = ψ :=
-    X.finite_galoisConjugates.mem_toFinset.mp hψ
-  have hχ : X.character ∈ X.finite_galoisConjugates.toFinset :=
-    X.finite_galoisConjugates.mem_toFinset.mpr ⟨1, rfl⟩
+  have hfin : s.Finite := X.finite_galoisConjugates.subset hs
+  have hmem (ψ : G → ℂ) (hψ : ψ ∈ hfin.toFinset) : ∃ σ : ℂ ≃ₐ[ℚ] ℂ, σ ∘ X.character = ψ :=
+    hs (hfin.mem_toFinset.mp hψ)
+  rw [finsum_mem_eq_finite_toFinset_sum _ hfin]
   refine ⟨fun h g hg ↦ h g ?_, fun h g hg ↦ h g ?_⟩
   · simp only [Finset.sum_apply]
     refine Finset.sum_congr rfl fun ψ hψ ↦ ?_
     rcases hmem ψ hψ with ⟨σ, rfl⟩
     simp [hg]
-  · have hle (ψ : G → ℂ) (hψ : ψ ∈ X.finite_galoisConjugates.toFinset) :
-        (ψ g).re ≤ (ψ 1).re := by
+  · have hle (ψ : G → ℂ) (hψ : ψ ∈ hfin.toFinset) : (ψ g).re ≤ (ψ 1).re := by
       rcases hmem ψ hψ with ⟨σ, rfl⟩
       rw [Function.comp_apply, Function.comp_apply, char_one, map_natCast, Complex.natCast_re]
       exact (Complex.re_le_norm _).trans (X.norm_algEquiv_character_le σ g)
-    have hsum : ∑ ψ ∈ X.finite_galoisConjugates.toFinset, (ψ g).re =
-        ∑ ψ ∈ X.finite_galoisConjugates.toFinset, (ψ 1).re := by
+    have hsum : ∑ ψ ∈ hfin.toFinset, (ψ g).re = ∑ ψ ∈ hfin.toFinset, (ψ 1).re := by
       simpa using congrArg Complex.re hg
     have hre : (X.character g).re = (X.character 1).re :=
-      (Finset.sum_eq_sum_iff_of_le hle).mp hsum _ hχ
+      (Finset.sum_eq_sum_iff_of_le hle).mp hsum _ (hfin.mem_toFinset.mpr hχ)
     have hnorm : ‖X.character g‖ ≤ (X.character 1).re := by
       rw [char_one, Complex.natCast_re]
       exact X.norm_char_le_finrank g
@@ -87,5 +86,13 @@ lemma rationalCharacter_faithful_iff :
     refine Complex.ext hre ?_
     rw [char_one, Complex.natCast_im]
     nlinarith [norm_nonneg (X.character g), sq_nonneg (X.character g).im]
+
+/-- **The sum of the Galois conjugates of an irreducible complex character is faithful exactly when
+the character is** (LMFDB `group.min_faithful_linear`): if `∑ σχ(g) = ∑ σχ(1)`, the bounds
+`Re σχ(g) ≤ |σχ(g)| ≤ χ(1)` are equalities, so `χ(g) = χ(1)`. -/
+lemma rationalCharacter_faithful_iff :
+    (∀ g, X.rationalCharacter g = X.rationalCharacter 1 → g = 1) ↔
+      ∀ g, X.character g = X.character 1 → g = 1 :=
+  X.sum_faithful_iff subset_rfl ⟨1, rfl⟩
 
 end FDRep

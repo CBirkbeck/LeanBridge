@@ -99,13 +99,8 @@ lemma exists_representation_character_eq (Y : FDRep ℂ G) : ∃ ρ : G →* GL 
     (GeneralLinearGroup.representation ρ).character = Y.character := by
   let e : Y ≃ₗ[ℂ] (Fin (finrank ℂ Y) → ℂ) := (Module.finBasis ℂ Y).equivFun
   let τ : Representation ℂ G (Fin (finrank ℂ Y) → ℂ) := (e.conjAlgEquiv ℂ).toMonoidHom.comp Y.ρ
-  let ρ : G →* GL (Fin (finrank ℂ Y)) ℂ :=
-    GeneralLinearGroup.toLin.symm.toMonoidHom.comp τ.asGroupHom
-  have hρ : GeneralLinearGroup.representation ρ = τ := by
-    ext g : 1
-    simp [GeneralLinearGroup.representation, ρ, Representation.asGroupHom_apply]
-  refine ⟨ρ, funext fun g ↦ ?_⟩
-  rw [hρ]
+  refine ⟨GeneralLinearGroup.toLin.symm.toMonoidHom.comp τ.asGroupHom, funext fun g ↦ ?_⟩
+  rw [GeneralLinearGroup.representation_toLin_symm_comp_asGroupHom]
   exact LinearMap.trace_conj' (Y.ρ g) e
 
 end FDRep

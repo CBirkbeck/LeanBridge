@@ -62,9 +62,8 @@ lemma exists_injective_isIrreducible_iff :
     let τ : Representation ℂ G (Fin (characterDegree ℂ i) → ℂ) := irreducibleRepresentation ℂ i
     let ρ : G →* GL (Fin (characterDegree ℂ i)) ℂ :=
       GeneralLinearGroup.toLin.symm.toMonoidHom.comp τ.asGroupHom
-    have hρ : GeneralLinearGroup.representation ρ = τ := by
-      ext g : 1
-      simp [GeneralLinearGroup.representation, ρ, Representation.asGroupHom_apply]
+    have hρ : GeneralLinearGroup.representation ρ = τ :=
+      GeneralLinearGroup.representation_toLin_symm_comp_asGroupHom τ
     have hτ : Function.Injective τ :=
       (Representation.injective_iff_character_eq_character_one τ).mpr fun g hg ↦ hi g <| by
         rwa [character_irreducibleRepresentation, irreducibleCharacter_one] at hg

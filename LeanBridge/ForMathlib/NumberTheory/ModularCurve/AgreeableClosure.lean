@@ -73,21 +73,13 @@ assumes `det(H) = ℤ̂ˣ`, which only the statements about `[H̃, H̃]` and the
 
 open Matrix Ideal
 
+open TauCeti (diagGL)
+
 open scoped commutatorElement
 
 namespace Subgroup
 
-variable {Γ : Type*} [Group Γ] {K L Z : Subgroup Γ}
-
-lemma inf_comap_map_eq_iff {Q : Type*} [Group Q] {f : Γ →* Q} (hLK : L ≤ K) :
-    K ⊓ (L.map f).comap f = L ↔ K ⊓ f.ker ≤ L := by
-  refine ⟨fun h ↦ h ▸ inf_le_inf_left K (f.ker_le_comap (L.map f)), fun hker ↦ ?_⟩
-  refine le_antisymm (fun g hg ↦ ?_) (le_inf hLK (le_comap_map f L))
-  rcases mem_inf.mp hg with ⟨hgK, hg⟩
-  rcases mem_map.mp (mem_comap.mp hg) with ⟨h, hh, hgh⟩
-  have hk : h⁻¹ * g ∈ L := hker (mem_inf.mpr ⟨mul_mem (inv_mem (hLK hh)) hgK, by
-    rw [MonoidHom.mem_ker, map_mul, map_inv, hgh, inv_mul_cancel]⟩)
-  simpa using mul_mem hh hk
+variable {Γ : Type*} [Group Γ] {K Z : Subgroup Γ}
 
 lemma commutator_sup_of_le_center (hZ : Z ≤ center Γ) : ⁅Z ⊔ K, Z ⊔ K⁆ = ⁅K, K⁆ := by
   have : Z.Normal := normal_of_le_center hZ
@@ -331,11 +323,11 @@ lemma mulSingle_mem_commutator (hdet : K.map adelicDet = ⊤) (hℓ : (ℓ : ℕ
   let u : ℤ_[ℓ]ˣ := (PadicInt.isUnit_one_add_pow (k := 0) fun _ ↦ hℓ).unit
   have hu : (1 : ℤ_[ℓ]) - u = -1 := by simp [u]
   -- Elements of `K` whose component at `ℓ` is `diag(u, 1)` or `diag(1, u)`.
-  have hdiag (v w : ℤ_[ℓ]ˣ) (hvw : v * w = u) : ∃ d ∈ K, d ℓ = diagUnits v w := by
+  have hdiag (v w : ℤ_[ℓ]ˣ) (hvw : v * w = u) : ∃ d ∈ K, d ℓ = diagGL ![v, w] := by
     rcases Subgroup.mem_map.mp (hdet ▸ Subgroup.mem_top (Pi.mulSingle ℓ u)) with ⟨d, hd, hdu⟩
     have hdℓ : det (d ℓ) = u := by simpa [adelicDet] using congrFun hdu ℓ
-    refine ⟨d * Pi.mulSingle ℓ ((d ℓ)⁻¹ * diagUnits v w), mul_mem hd (hsingle ?_), ?_⟩
-    · rw [map_mul, map_inv, hdℓ, det_diagUnits, hvw, inv_mul_cancel]
+    refine ⟨d * Pi.mulSingle ℓ ((d ℓ)⁻¹ * diagGL ![v, w]), mul_mem hd (hsingle ?_), ?_⟩
+    · simp [hdℓ, hvw]
     · simp
   rcases hdiag u 1 (mul_one u) with ⟨dU, hdU, hdUℓ⟩
   rcases hdiag 1 u (one_mul u) with ⟨dL, hdL, hdLℓ⟩
@@ -347,7 +339,7 @@ lemma mulSingle_mem_commutator (hdet : K.map adelicDet = ⊤) (hℓ : (ℓ : ℕ
       · subst hp
         rw [Pi.mulSingle_eq_same, commutatorElement_def, Pi.mul_apply, Pi.mul_apply, Pi.mul_apply,
           Pi.inv_apply, Pi.inv_apply, Pi.mulSingle_eq_same, hdUℓ, ← commutatorElement_def,
-          commutatorElement_upperRightHom_diagUnits, hu, neg_one_mul, neg_neg]
+          commutatorElement_upperRightHom_diagGL, hu, neg_one_mul, neg_neg]
       · simp [commutatorElement_def, Pi.mulSingle_eq_of_ne hp]
     rw [h]
     exact Subgroup.commutator_mem_commutator (hsingle (det_upperRightHom _)) hdU
@@ -359,7 +351,7 @@ lemma mulSingle_mem_commutator (hdet : K.map adelicDet = ⊤) (hℓ : (ℓ : ℕ
       · subst hp
         rw [Pi.mulSingle_eq_same, commutatorElement_def, Pi.mul_apply, Pi.mul_apply, Pi.mul_apply,
           Pi.inv_apply, Pi.inv_apply, Pi.mulSingle_eq_same, hdLℓ, ← commutatorElement_def,
-          commutatorElement_lowerUnipotent_diagUnits, hu, neg_one_mul, neg_neg]
+          commutatorElement_lowerUnipotent_diagGL, hu, neg_one_mul, neg_neg]
       · simp [commutatorElement_def, Pi.mulSingle_eq_of_ne hp]
     rw [h]
     exact Subgroup.commutator_mem_commutator (hsingle (det_lowerUnipotent _)) hdL

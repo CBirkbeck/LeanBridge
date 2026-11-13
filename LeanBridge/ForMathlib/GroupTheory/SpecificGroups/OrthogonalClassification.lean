@@ -19,8 +19,6 @@ are not similar (`QuadraticForm.not_equivalent_smul_hyperbolicForm_ellipticForm`
 
 ## Main definitions
 
-* `QuadraticForm.quotientScalarSubgroupEquiv`: an isomorphism of subgroups of `GL(V)` and `GL(W)`
-  given by conjugation induces an isomorphism of their quotients by the scalars.
 * `QuadraticForm.orthogonalGroupEquivOfSMul`, `QuadraticForm.specialOrthogonalGroupEquivOfSMul`,
   `QuadraticForm.projectiveOrthogonalGroupEquivOfSMul`,
   `QuadraticForm.projectiveSpecialOrthogonalGroupEquivOfSMul`: the isomorphisms of the groups `O`,
@@ -48,32 +46,6 @@ namespace QuadraticForm
 
 variable {F V W : Type*} [Field F] [AddCommGroup V] [Module F V] [AddCommGroup W] [Module F W]
   {Q : QuadraticForm F V} {Q' : QuadraticForm F W} (c : Fˣ) (e : (c • Q).IsometryEquiv Q')
-  (ψ : V ≃ₗ[F] W)
-
-private lemma mem_scalarSubgroup_iff_of_conj {f : V ≃ₗ[F] V} {g : W ≃ₗ[F] W}
-    (h : ∀ v, g (ψ v) = ψ (f v)) :
-    f ∈ LinearEquiv.scalarSubgroup F V ↔ g ∈ LinearEquiv.scalarSubgroup F W := by
-  constructor
-  · rintro ⟨a, rfl⟩
-    refine ⟨a, LinearEquiv.ext fun w ↦ ?_⟩
-    rw [← ψ.apply_symm_apply w, h]
-    simp [Units.smul_def]
-  · rintro ⟨a, ha⟩
-    refine ⟨a, LinearEquiv.ext fun v ↦ ψ.injective ?_⟩
-    rw [← h, ← ha]
-    simp [Units.smul_def]
-
-/-- An isomorphism of subgroups `H₁ ≤ GL(V)` and `H₂ ≤ GL(W)` given by conjugation by a linear
-equivalence `ψ : V ≃ W` induces an isomorphism of their quotients by the scalar automorphisms. -/
-noncomputable def quotientScalarSubgroupEquiv {H₁ : Subgroup (V ≃ₗ[F] V)}
-    {H₂ : Subgroup (W ≃ₗ[F] W)} (φ : H₁ ≃* H₂)
-    (hφ : ∀ s v, (φ s : W ≃ₗ[F] W) (ψ v) = ψ ((s : V ≃ₗ[F] V) v)) :
-    H₁ ⧸ (LinearEquiv.scalarSubgroup F V).subgroupOf H₁ ≃*
-      H₂ ⧸ (LinearEquiv.scalarSubgroup F W).subgroupOf H₂ :=
-  QuotientGroup.congr _ _ φ <| Subgroup.ext fun t ↦ by
-    rw [← MulEquiv.toMonoidHom_eq_coe, Subgroup.mem_map_equiv, Subgroup.mem_subgroupOf,
-      Subgroup.mem_subgroupOf]
-    exact mem_scalarSubgroup_iff_of_conj ψ fun v ↦ by rw [← hφ, MulEquiv.apply_symm_apply]
 
 lemma orthogonalGroup_smul : orthogonalGroup (c • Q) = orthogonalGroup Q := by
   ext f
@@ -106,14 +78,14 @@ lemma specialOrthogonalGroupEquivOfSMul_apply (s : specialOrthogonalGroup Q) (v 
 isometry from `c • Q` to `Q'` carries the scalars of `O(Q)` onto those of `O(Q')`. -/
 noncomputable def projectiveOrthogonalGroupEquivOfSMul :
     projectiveOrthogonalGroup Q ≃* projectiveOrthogonalGroup Q' :=
-  quotientScalarSubgroupEquiv e.toLinearEquiv (orthogonalGroupEquivOfSMul c e)
+  e.toLinearEquiv.quotientScalarSubgroupEquiv (orthogonalGroupEquivOfSMul c e)
     (orthogonalGroupEquivOfSMul_apply c e)
 
 /-- **Similar quadratic forms have isomorphic projective special orthogonal groups**: conjugation
 by an isometry from `c • Q` to `Q'` carries the scalars of `SO(Q)` onto those of `SO(Q')`. -/
 noncomputable def projectiveSpecialOrthogonalGroupEquivOfSMul :
     projectiveSpecialOrthogonalGroup Q ≃* projectiveSpecialOrthogonalGroup Q' :=
-  quotientScalarSubgroupEquiv e.toLinearEquiv (specialOrthogonalGroupEquivOfSMul c e)
+  e.toLinearEquiv.quotientScalarSubgroupEquiv (specialOrthogonalGroupEquivOfSMul c e)
     (specialOrthogonalGroupEquivOfSMul_apply c e)
 
 variable [Finite F] [FiniteDimensional F V] {m : ℕ}
@@ -175,9 +147,9 @@ lemma nonempty_projectiveOrthogonalGroup_mulEquiv_hyperbolicForm_or_ellipticForm
       projectiveOrthogonalGroup (hyperbolicForm F (m + 1))) ∨
       Nonempty (projectiveOrthogonalGroup Q ≃* projectiveOrthogonalGroup (ellipticForm F m)) :=
   (equivalent_hyperbolicForm_or_equivalent_ellipticForm hQ hV).imp
-    (fun ⟨e⟩ ↦ ⟨quotientScalarSubgroupEquiv e.toLinearEquiv e.orthogonalGroupCongr
+    (fun ⟨e⟩ ↦ ⟨e.toLinearEquiv.quotientScalarSubgroupEquiv e.orthogonalGroupCongr
       fun s v ↦ by simp⟩)
-    fun ⟨e⟩ ↦ ⟨quotientScalarSubgroupEquiv e.toLinearEquiv e.orthogonalGroupCongr
+    fun ⟨e⟩ ↦ ⟨e.toLinearEquiv.quotientScalarSubgroupEquiv e.orthogonalGroupCongr
       fun s v ↦ by simp⟩
 
 /-- **`PSO^±(2m + 2, q)` are the projective special orthogonal groups in even dimension** (LMFDB
@@ -189,9 +161,9 @@ lemma nonempty_projectiveSpecialOrthogonalGroup_mulEquiv_hyperbolicForm_or_ellip
       Nonempty (projectiveSpecialOrthogonalGroup Q ≃*
         projectiveSpecialOrthogonalGroup (ellipticForm F m)) :=
   (equivalent_hyperbolicForm_or_equivalent_ellipticForm hQ hV).imp
-    (fun ⟨e⟩ ↦ ⟨quotientScalarSubgroupEquiv e.toLinearEquiv e.specialOrthogonalGroupCongr
+    (fun ⟨e⟩ ↦ ⟨e.toLinearEquiv.quotientScalarSubgroupEquiv e.specialOrthogonalGroupCongr
       fun s v ↦ by simp⟩)
-    fun ⟨e⟩ ↦ ⟨quotientScalarSubgroupEquiv e.toLinearEquiv e.specialOrthogonalGroupCongr
+    fun ⟨e⟩ ↦ ⟨e.toLinearEquiv.quotientScalarSubgroupEquiv e.specialOrthogonalGroupCongr
       fun s v ↦ by simp⟩
 
 end QuadraticForm

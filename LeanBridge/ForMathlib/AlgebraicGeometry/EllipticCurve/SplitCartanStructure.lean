@@ -1,4 +1,5 @@
 import LeanBridge.ForMathlib.AlgebraicGeometry.EllipticCurve.GaloisRep.Basic
+import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.CartanEtale
 import LeanBridge.ForMathlib.NumberTheory.ModularCurve.ArithCurve
 import LeanBridge.ForMathlib.NumberTheory.ModularCurve.SplitCartanCurve
 
@@ -202,8 +203,8 @@ lemma toLin'_symm_mem_extendedCartanSubgroup_iff : (toLin' b).symm φ ∈
       (toLin' b).symm φ 0 1 * (toLin' b).symm φ 1 0) :=
     det_fin_two (((toLin' b).symm φ : Matrix (Fin 2) (Fin 2) (ZMod N))) ▸
       isUnits_det_units ((toLin' b).symm φ)
-  rw [extendedCartanSubgroup_piBasisFun_eq_diagonalAntidiagonal, mem_diagonalAntidiagonal_iff,
-    AddMonoidHom.map_zmultiples, AddMonoidHom.map_zmultiples, LinearMap.toAddMonoidHom_coe]
+  rw [mem_extendedCartanSubgroup_piBasisFun_iff, AddMonoidHom.map_zmultiples,
+    AddMonoidHom.map_zmultiples, LinearMap.toAddMonoidHom_coe]
   refine ⟨?_, ?_⟩
   · rintro (⟨h₀₁, h₁₀⟩ | ⟨h₀₀, h₁₁⟩)
     · rw [h₀₁, h₁₀, mul_zero, sub_zero] at hdet

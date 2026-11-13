@@ -482,6 +482,22 @@ lemma MongeChoice.cosetReps_bot : C.cosetReps ⊥ = C.reps := by
   rw [ht r ⟨hr, rfl⟩, ← ht r' ⟨C.cosetReps_subset ⊥ hr', h⟩]
   exact hr'
 
+variable {I 𝔪} in
+lemma MongeChoice.injOn_reps : C.reps.InjOn (algebraMap R (R ⧸ 𝔪)) :=
+  fun _ hr _ hr' h ↦ (C.existsUnique_mem_reps _).unique ⟨hr, h⟩ ⟨hr', rfl⟩
+
+variable {I 𝔪} [Finite (R ⧸ 𝔪)] in
+lemma MongeChoice.finite_reps : C.reps.Finite :=
+  (Set.toFinite _).of_finite_image C.injOn_reps
+
+variable {I 𝔪} in
+lemma MongeChoice.ncard_reps : C.reps.ncard = Nat.card (R ⧸ 𝔪) := by
+  rw [← Nat.card_coe_set_eq]
+  refine Nat.card_congr <| Equiv.ofBijective (fun r ↦ algebraMap R (R ⧸ 𝔪) r) ⟨fun r r' h ↦
+    Subtype.ext <| C.injOn_reps r.2 r'.2 h, fun x ↦ ?_⟩
+  rcases C.existsUnique_mem_reps x with ⟨r, ⟨hr, hx⟩, -⟩
+  exact ⟨⟨r, hr⟩, hx⟩
+
 variable {𝔪} in
 /-- The **semicanonical polynomials** (LMFDB `lf.family_polynomial`) of a Herbrand invariant `I` at
 an element `π` of an `R`-algebra `S`, for a uniformiser `ϖ` and Monge's choices `C`: the

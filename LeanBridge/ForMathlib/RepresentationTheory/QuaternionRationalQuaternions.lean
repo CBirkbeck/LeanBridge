@@ -31,14 +31,6 @@ entries in `k`.
 
 open Matrix GeneralLinearGroup PresentedGroup
 
-namespace Matrix.GeneralLinearGroup
-
-lemma character_representation {k G : Type*} [Field k] [Group G] {n : ℕ} (ρ : G →* GL (Fin n) k)
-    (g : G) : (representation ρ).character g = (ρ g : Matrix (Fin n) (Fin n) k).trace :=
-  trace_toLin'_eq _
-
-end Matrix.GeneralLinearGroup
-
 namespace QuaternionGroup
 
 /-- **The two-dimensional character of `Q₈` is not afforded over `ℚ`** (LMFDB

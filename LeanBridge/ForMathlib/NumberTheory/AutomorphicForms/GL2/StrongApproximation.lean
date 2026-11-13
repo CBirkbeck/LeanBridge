@@ -1,3 +1,4 @@
+import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.ElementaryCommutator
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.GL2.Level
 import Mathlib.NumberTheory.ModularForms.CongruenceSubgroups
 import Mathlib.RingTheory.UniqueFactorizationDomain.ClassGroup
@@ -24,8 +25,8 @@ ideal `𝔑 ≠ 0`. The narrow class group of `ℚ` is trivial, so `GL₂(𝔸_�
 
 ## Main definitions
 
-* `AdelicGL2.lowerLeft`, `AdelicGL2.elemWord`: the matrices `(1, 0; r, 1)`, and the products of four
-  elementary matrices.
+* `AdelicGL2.elemWord`: the products of four elementary matrices, the lower ones `(1, 0; r, 1)`
+  being `Matrix.GeneralLinearGroup.lowerUnipotent`.
 * `AdelicGL2.columnShift`: the adele `t` above.
 * `AdelicGL2.diagHom`, `AdelicGL2.diagFin`: the matrices `(x, 0; 0, 1)`, for a unit `x`.
 * `AdelicGL2.ratMixedEquiv`, `AdelicGL2.ratMixedEquivL`: the isomorphism from the mixed space of `ℚ`
@@ -50,7 +51,10 @@ open FiniteAdeleRing (algebraMap_mem_integralAdeles_iff denseRange_algebraMap in
   mem_integralUnits_iff_forall_mem_adicCompletionIntegers toFractionalIdeal
   toFractionalIdeal_unitEmbedding unitEmbedding)
 
-open GeneralLinearGroup (continuous_upperRightHom upperRightHom)
+open GeneralLinearGroup (continuous_upperRightHom det_lowerUnipotent det_upperRightHom
+  lowerUnipotent upperRightHom)
+
+open TauCeti (diagGL)
 
 open mixedEmbedding (mixedSpace)
 
@@ -63,35 +67,18 @@ variable {R : Type*} [CommRing R] (r : R) (u : Rˣ) (p : R × R × R × R) {m : 
   {s : GL (Fin 2) 𝔸ᶠ[F]} {x : 𝔸ᶠ[F]ˣ} {𝔑 : Ideal (𝓞 F)} (N : ℕ) [NeZero N] {q : ℚ} {z : ℤ}
   {γ : GL (Fin 2) ℚ} {g : SL(2, ℤ)} (i j : Fin 2)
 
-/-- The matrix `(1, 0; r, 1)`. -/
-def lowerLeft : GL (Fin 2) R :=
-  ⟨!![1, 0; r, 1], !![1, 0; -r, 1], by simp [one_fin_two], by simp [one_fin_two]⟩
-
 /-- The product `(1, 0; x₁, 1)(1, x₂; 0, 1)(1, 0; x₃, 1)(1, x₄; 0, 1)` of elementary matrices, for
 `p = (x₁, x₂, x₃, x₄)`. -/
 def elemWord : GL (Fin 2) R :=
-  lowerLeft p.1 * upperRightHom p.2.1 * lowerLeft p.2.2.1 * upperRightHom p.2.2.2
+  lowerUnipotent p.1 * upperRightHom p.2.1 * lowerUnipotent p.2.2.1 * upperRightHom p.2.2.2
 
-/-- The matrix `(x, 0; 0, 1)` of a unit `x`, as a homomorphism `Rˣ → GL₂(R)`. -/
-def diagHom : Rˣ →* GL (Fin 2) R where
-  toFun x := ⟨!![x, 0; 0, 1], !![(x⁻¹ : Rˣ), 0; 0, 1], by simp [one_fin_two], by simp [one_fin_two]⟩
-  map_one' := by
-    ext i j
-    fin_cases i <;> fin_cases j <;> simp
-  map_mul' x y := by
-    ext i j
-    fin_cases i <;> fin_cases j <;> simp
-
-lemma det_lowerLeft : (lowerLeft r).det = 1 := by
-  ext
-  simp [lowerLeft]
-
-lemma det_upperRightHom : (upperRightHom r).det = 1 := by
-  ext
-  simp
+/-- The matrix `(x, 0; 0, 1)` of a unit `x`, as a homomorphism `Rˣ → GL₂(R)`: Tau Ceti's
+diagonal matrix `TauCeti.diagGL` of the units `(x, 1)`. -/
+def diagHom : Rˣ →* GL (Fin 2) R :=
+  diagGL.comp (MonoidHom.mulSingle (fun _ : Fin 2 ↦ Rˣ) 0)
 
 lemma det_elemWord : (elemWord p).det = 1 := by
-  simp only [elemWord, map_mul, det_lowerLeft, det_upperRightHom, mul_one]
+  simp only [elemWord, map_mul, det_lowerUnipotent, det_upperRightHom, mul_one]
 
 lemma det_diagHom : (diagHom u).det = u := by
   ext
@@ -105,11 +92,11 @@ lemma eq_elemWord (hm : m.det = 1) {t : R} (hu : u = m 1 0 + t * m 0 0) :
   have hd : m 0 0 * m 1 1 - m 0 1 * m 1 0 = 1 := apply_mul_apply_sub_eq_one hm
   have huu : (u : R) * (u⁻¹ : Rˣ) = 1 := u.mul_inv
   ext i j
-  fin_cases i <;> fin_cases j <;> simp [elemWord, lowerLeft] <;> grind
+  fin_cases i <;> fin_cases j <;> simp [elemWord, lowerUnipotent] <;> grind
 
-lemma map_lowerLeft : GeneralLinearGroup.map f (lowerLeft r) = lowerLeft (f r) := by
+lemma map_lowerUnipotent : GeneralLinearGroup.map f (lowerUnipotent r) = lowerUnipotent (f r) := by
   ext i j
-  fin_cases i <;> fin_cases j <;> simp [lowerLeft]
+  fin_cases i <;> fin_cases j <;> simp [lowerUnipotent]
 
 lemma map_upperRightHom : GeneralLinearGroup.map f (upperRightHom r) = upperRightHom (f r) := by
   ext i j
@@ -117,7 +104,7 @@ lemma map_upperRightHom : GeneralLinearGroup.map f (upperRightHom r) = upperRigh
 
 lemma map_elemWord : GeneralLinearGroup.map f (elemWord p) =
     elemWord (Prod.map f (Prod.map f (Prod.map f f)) p) := by
-  simp only [elemWord, map_mul, map_lowerLeft, map_upperRightHom, Prod.map_fst, Prod.map_snd]
+  simp only [elemWord, map_mul, map_lowerUnipotent, map_upperRightHom, Prod.map_fst, Prod.map_snd]
 
 lemma map_diagHom : GeneralLinearGroup.map f (diagHom u) = diagHom (Units.map f u) := by
   ext i j
@@ -126,9 +113,9 @@ lemma map_diagHom : GeneralLinearGroup.map f (diagHom u) = diagHom (Units.map f 
 variable [TopologicalSpace R] [IsTopologicalRing R]
 
 @[fun_prop]
-lemma continuous_lowerLeft : Continuous (lowerLeft : R → GL (Fin 2) R) := by
+lemma continuous_lowerUnipotent : Continuous (lowerUnipotent : R → GL (Fin 2) R) := by
   refine Units.continuous_iff.mpr ⟨?_, ?_⟩ <;> refine continuous_matrix fun i j ↦ ?_ <;>
-    fin_cases i <;> fin_cases j <;> simp [lowerLeft] <;> fun_prop
+    fin_cases i <;> fin_cases j <;> simp [lowerUnipotent] <;> fun_prop
 
 lemma continuous_elemWord : Continuous (elemWord : R × R × R × R → GL (Fin 2) R) := by
   unfold elemWord

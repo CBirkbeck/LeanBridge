@@ -12,11 +12,10 @@ and complex conjugation, so the orbit of `χ` is `{χ, χ̄}`, and its sum `FDRe
 when `χ` is real valued and `χ + χ̄` otherwise. It is the character of a representation, the direct
 sum of representations affording `χ` and `χ̄`, and it is real valued, being fixed by conjugation.
 
-Faithfulness is treated for the sum over any set of Galois conjugates `σ ∘ χ` of an irreducible
-character `χ`, `σ` an automorphism of `ℂ`, containing `χ`: if `∑ σχ(g) = ∑ σχ(1)`, then since
-every `σ ∘ χ` is the character of a representation of degree `χ(1)`, `Re σχ(g) ≤ |σχ(g)| ≤ χ(1)`,
-so all these inequalities are equalities, and `χ(g) = χ(1)`. Each summand `σ ∘ χ` is faithful
-exactly when `χ` is, `σ` being injective and fixing `χ(1)`.
+Faithfulness is the case `Gal(ℂ/ℝ)` of `FDRep.sum_faithful_iff` (`FaithfulRationalCharacter.lean`),
+for the sum over any set of Galois conjugates `σ ∘ χ` of an irreducible character `χ`, `σ` an
+automorphism of `ℂ`, containing `χ`. Each summand `σ ∘ χ` is faithful exactly when `χ` is, `σ`
+being injective and fixing `χ(1)`.
 
 ## Main definitions
 
@@ -25,8 +24,6 @@ exactly when `χ` is, `σ` being injective and fixing `χ(1)`.
 
 ## Main results
 
-* `FDRep.sum_faithful_iff`: the sum of a set of Galois conjugates of an irreducible complex
-  character, containing the character, is faithful exactly when the character is.
 * `FDRep.realCharacter_eq_of_conj_comp_eq`, `FDRep.realCharacter_eq_add` (LMFDB
   `group.min_faithful_linear`): the real orbit sum is `χ` or `χ + χ̄`.
 * `FDRep.exists_real_character_eq_realCharacter` (LMFDB `group.min_faithful_linear`): the real orbit
@@ -116,39 +113,6 @@ lemma exists_real_character_eq_realCharacter :
   refine ⟨Y, fun g ↦ Complex.conj_eq_iff_real.mp ?_, hY⟩
   rw [hY]
   exact X.conj_realCharacter_apply g
-
-/-- **The sum of Galois conjugates of an irreducible complex character is faithful exactly when
-the character is**, for any set `s` of conjugates `σ ∘ χ` containing `χ`: if
-`∑ σχ(g) = ∑ σχ(1)`, the bounds `Re σχ(g) ≤ |σχ(g)| ≤ χ(1)` are equalities, so `χ(g) = χ(1)`. -/
-lemma sum_faithful_iff {s : Set (G → ℂ)} (hs : s ⊆ X.galoisConjugates) (hχ : X.character ∈ s) :
-    (∀ g, (∑ᶠ ψ ∈ s, ψ) g = (∑ᶠ ψ ∈ s, ψ) 1 → g = 1) ↔
-      ∀ g, X.character g = X.character 1 → g = 1 := by
-  have hfin : s.Finite := X.finite_galoisConjugates.subset hs
-  have hmem (ψ : G → ℂ) (hψ : ψ ∈ hfin.toFinset) : ∃ σ : ℂ ≃ₐ[ℚ] ℂ, σ ∘ X.character = ψ :=
-    hs (hfin.mem_toFinset.mp hψ)
-  rw [finsum_mem_eq_finite_toFinset_sum _ hfin]
-  refine ⟨fun h g hg ↦ h g ?_, fun h g hg ↦ h g ?_⟩
-  · simp only [Finset.sum_apply]
-    refine Finset.sum_congr rfl fun ψ hψ ↦ ?_
-    rcases hmem ψ hψ with ⟨σ, rfl⟩
-    simp [hg]
-  · have hle (ψ : G → ℂ) (hψ : ψ ∈ hfin.toFinset) : (ψ g).re ≤ (ψ 1).re := by
-      rcases hmem ψ hψ with ⟨σ, rfl⟩
-      rw [Function.comp_apply, Function.comp_apply, char_one, map_natCast, Complex.natCast_re]
-      exact (Complex.re_le_norm _).trans (X.norm_algEquiv_character_le σ g)
-    have hsum : ∑ ψ ∈ hfin.toFinset, (ψ g).re = ∑ ψ ∈ hfin.toFinset, (ψ 1).re := by
-      simpa using congrArg Complex.re hg
-    have hre : (X.character g).re = (X.character 1).re :=
-      (Finset.sum_eq_sum_iff_of_le hle).mp hsum _ (hfin.mem_toFinset.mpr hχ)
-    have hnorm : ‖X.character g‖ ≤ (X.character 1).re := by
-      rw [char_one, Complex.natCast_re]
-      exact X.norm_char_le_finrank g
-    have hsq : ‖X.character g‖ ^ 2 = (X.character g).re ^ 2 + (X.character g).im ^ 2 := by
-      rw [Complex.sq_norm, Complex.normSq_apply]
-      ring1
-    refine Complex.ext hre ?_
-    rw [char_one, Complex.natCast_im]
-    nlinarith [norm_nonneg (X.character g), sq_nonneg (X.character g).im]
 
 /-- **The real orbit sum of an irreducible complex character is faithful exactly when the
 character is** (LMFDB `group.min_faithful_linear`). -/

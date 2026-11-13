@@ -43,12 +43,6 @@ namespace IsNonarchimedeanLocalField.HerbrandInvariant
 variable {p : ℕ} {I : HerbrandInvariant p} {R : Type*} [CommRing R] {𝔪 : Ideal R}
   (C : I.MongeChoice 𝔪) (ϖ : R)
 
-lemma MongeChoice.injOn_reps : C.reps.InjOn (algebraMap R (R ⧸ 𝔪)) :=
-  fun _ hr _ hr' h ↦ (C.existsUnique_mem_reps _).unique ⟨hr, h⟩ ⟨hr', rfl⟩
-
-lemma MongeChoice.finite_reps [Finite (R ⧸ 𝔪)] : C.reps.Finite :=
-  (Set.toFinite _).of_finite_image C.injOn_reps
-
 lemma MongeChoice.mem_reps_of_mem_coeffSet (W : ℕ → AddSubgroup (R ⧸ 𝔪)) {σ : ℕ} {r : R}
     (hr : r ∈ (C.toSemicanonicalChoice W).coeffSet σ) : r ∈ C.reps := by
   rw [SemicanonicalChoice.coeffSet] at hr
@@ -59,19 +53,16 @@ lemma MongeChoice.mem_reps_of_mem_coeffSet (W : ℕ → AddSubgroup (R ⧸ 𝔪)
   · exact C.cosetReps_subset _ hr
   · exact Set.mem_singleton_iff.mp hr ▸ C.zero_mem_reps
 
-lemma specialisation_congr {f f' : ℕ → R} (h : ∀ σ ∈ I.genericIndices, f σ = f' σ) :
-    I.specialisation ϖ f = I.specialisation ϖ f' := by
-  rw [specialisation, specialisation, Finset.sum_congr rfl fun σ hσ ↦ by rw [h σ hσ]]
-
 variable (I) in
 lemma finite_specialisations {s : Set R} (hs : s.Finite) : {g : R[X] | ∃ f : ℕ → R,
     (∀ σ ∈ I.genericIndices, f σ ∈ s) ∧ I.specialisation ϖ f = g}.Finite := by
   have hs' : Finite s :=
     hs.to_subtype
-  refine (Set.finite_range fun g : I.genericIndices → s ↦ I.specialisation ϖ fun σ ↦
-    if h : σ ∈ I.genericIndices then (g ⟨σ, h⟩ : R) else 0).subset ?_
+  refine (Set.finite_range fun g : I.genericIndices → s ↦ I.specialisation ϖ
+    (Function.extend Subtype.val (fun σ ↦ (g σ : R)) 0)).subset ?_
   rintro - ⟨f, hf, rfl⟩
-  exact ⟨fun σ ↦ ⟨f σ, hf σ σ.2⟩, specialisation_congr ϖ fun σ hσ ↦ dite_eq_left hσ⟩
+  exact ⟨fun σ ↦ ⟨f σ, hf σ σ.2⟩, specialisation_congr ϖ fun σ hσ ↦
+    Subtype.val_injective.extend_apply _ _ ⟨σ, hσ⟩⟩
 
 variable (I) (K : Type*) [Field K] [ValuativeRel K] [TopologicalSpace K]
   [IsNonarchimedeanLocalField K] [CharZero K]

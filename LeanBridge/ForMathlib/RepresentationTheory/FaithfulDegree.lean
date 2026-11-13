@@ -1,6 +1,6 @@
 import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 import Mathlib.Order.Lattice.Nat
-import Mathlib.RepresentationTheory.Irreducible
+import Mathlib.RepresentationTheory.Character
 
 /-!
 # Minimal degrees of faithful linear representations
@@ -14,13 +14,21 @@ import Mathlib.RepresentationTheory.Irreducible
 
 open Matrix
 
-variable {R G : Type*} [CommRing R] [Group G]
+variable {R G : Type*} [CommRing R] [Group G] {n : ℕ}
 
 namespace Matrix.GeneralLinearGroup
 
 /-- The representation of `G` on `Rⁿ` given by a matrix representation `ρ : G →* GL_n(R)`. -/
-def representation {n : ℕ} (ρ : G →* GL (Fin n) R) : Representation R G (Fin n → R) :=
+def representation (ρ : G →* GL (Fin n) R) : Representation R G (Fin n → R) :=
   (Units.coeHom _).comp <| toLin.toMonoidHom.comp ρ
+
+lemma representation_toLin_symm_comp_asGroupHom (τ : Representation R G (Fin n → R)) :
+    representation (toLin.symm.toMonoidHom.comp τ.asGroupHom) = τ :=
+  MonoidHom.ext fun g ↦ by simp [representation, Representation.asGroupHom_apply]
+
+lemma character_representation {k : Type*} [Field k] (ρ : G →* GL (Fin n) k) (g : G) :
+    (representation ρ).character g = (ρ g : Matrix (Fin n) (Fin n) k).trace :=
+  trace_toLin'_eq _
 
 end Matrix.GeneralLinearGroup
 

@@ -9,7 +9,10 @@ Let `A` be a free étale `ℤ/Nℤ`-algebra of rank `2`. At a prime `ℓ` dividi
 `gl2.cartan` calls `A` split or non-split according as its component `A ⊗ ℤ / ℓ ^ v_ℓ(N) ℤ` is the
 split algebra or the non-split one, `𝒪 / ℓ ^ v_ℓ(N) 𝒪` for an order `𝒪` in which `ℓ` is inert; that
 is, according as the reduction `A/ℓA` of `A` modulo `ℓ`, an étale `𝔽_ℓ`-algebra of rank `2`, is
-`𝔽_ℓ × 𝔽_ℓ` or the field `𝔽_{ℓ²}`. Here `A` is non-split at `ℓ` when `A/ℓA` is a field.
+`𝔽_ℓ × 𝔽_ℓ` or the field `𝔽_{ℓ²}`
+(`Matrix.GeneralLinearGroup.isNonsplitAt_iff_isField_quotient_span_natCast`, in
+`LeanBridge.ForMathlib.RingTheory.Etale.QuadraticZMod`). Here `A` is non-split at `ℓ` when `A/ℓA`
+is a field.
 
 The modular curve `X_ns(N)` is the modular curve `X_H` for `H ≤ GL₂(ℤ̂)` the inverse image of a
 Cartan subgroup of `GL₂(ℤ/Nℤ)` that is non-split at every prime dividing `N`, the image of `Aˣ` for

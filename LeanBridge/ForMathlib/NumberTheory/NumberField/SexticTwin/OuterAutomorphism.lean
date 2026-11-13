@@ -5,6 +5,7 @@ import Mathlib.GroupTheory.Perm.Closure
 import Mathlib.GroupTheory.Perm.Fin
 import Mathlib.GroupTheory.SpecificGroups.Alternating.Simple
 import LeanBridge.ForMathlib.GroupTheory.OuterAutomorphism
+import LeanBridge.ForMathlib.GroupTheory.Perm.MulAut
 
 /-!
 # The outer automorphism of the symmetric group `S₆`
@@ -19,9 +20,9 @@ fixed-point-free involution `(0 4)(1 2)(3 5)`, so it is not inner.
 
 It is unique up to inner automorphisms. An automorphism `φ` of `S₆` sends `(0 1)` to an
 involution whose centralizer has order `48`, a transposition or a product of three disjoint
-transpositions. In the first case `φ` sends the transpositions `(0 i)` to pairwise non-commuting
-transpositions, which have a common point `c`, and `φ` is conjugation by `i ↦ φ(0 i)(c)`; in the
-second case `θ ∘ φ` is in the first.
+transpositions. In the first case `φ` sends every transposition, a conjugate of `(0 1)`, to a
+transposition, so it is inner (`Equiv.Perm.mem_range_conj_of_forall_isSwap`); in the second case
+`θ ∘ φ` is in the first.
 
 We label the totals `Tᵢ = (i 5) • T₅`, where `T₅` is the round-robin total whose synthemes are
 `{{r, 5}, {r + 1, r - 1}, {r + 2, r - 2}}` for `r ∈ ℤ/5`. With this labelling `θ` is an involution.
@@ -207,31 +208,6 @@ lemma isPretransitive_map_stabilizer_outerAutFinSix : MulAction.IsPretransitive
   rw [Subgroup.smul_def]
   simp
 
-private lemma exists_mem_of_pairwise_inter_nonempty : ∀ s ∈ (univ : Finset (Fin 6)).powersetCard 2,
-    ∀ t ∈ (univ : Finset (Fin 6)).powersetCard 2, s ≠ t → (s ∩ t).Nonempty →
-    ∀ u ∈ (univ : Finset (Fin 6)).powersetCard 2, u ≠ s → u ≠ t → (s ∩ u).Nonempty →
-    (t ∩ u).Nonempty → ∀ v ∈ (univ : Finset (Fin 6)).powersetCard 2, v ≠ s → v ≠ t → v ≠ u →
-    (s ∩ v).Nonempty → (t ∩ v).Nonempty → (u ∩ v).Nonempty →
-    ∃ c, c ∈ s ∧ c ∈ t ∧ c ∈ u ∧ c ∈ v := by
-  decide +kernel
-
-private lemma eq_of_mem_of_mem_of_ne : ∀ s ∈ (univ : Finset (Fin 6)).powersetCard 2,
-    ∀ t ∈ (univ : Finset (Fin 6)).powersetCard 2, s ≠ t → ∀ c d : Fin 6, c ∈ s → c ∈ t → d ∈ s →
-    d ∈ t → c = d := by
-  decide +kernel
-
-private lemma swap_eq_swap_of_pair_eq :
-    ∀ a b c d : Fin 6, ({a, b} : Finset (Fin 6)) = {c, d} → swap a b = swap c d := by
-  decide +kernel
-
-private lemma swap_eq_swap_apply_of_apply_ne :
-    ∀ a b c : Fin 6, swap a b c ≠ c → swap a b = swap c (swap a b c) := by
-  decide
-
-private lemma finRotate_six_eq :
-    finRotate 6 = swap 0 5 * swap 0 4 * swap 0 3 * swap 0 2 * swap 0 1 := by
-  decide
-
 private lemma cycleType_swap_zero_one : (swap (0 : Fin 6) 1).cycleType = {2} := by
   decide
 
@@ -240,74 +216,16 @@ private lemma cycleType_swap_mul_swap_mul_swap :
   decide
 
 variable {φ} in
-/-- **An automorphism of `S₆` sending the transposition `(0 1)` to a transposition is inner.** It
-sends the transpositions `(0 i)` to transpositions that pairwise do not commute, so have a common
-point `c`, and it is conjugation by the permutation `i ↦ φ(0 i)(c)`. -/
+/-- **An automorphism of `S₆` sending the transposition `(0 1)` to a transposition is inner**: it
+sends every transposition, a conjugate of `(0 1)`, to a transposition. -/
 lemma mem_range_conj_of_isSwap (h : (φ (swap 0 1)).IsSwap) :
     φ ∈ (MulAut.conj : Perm (Fin 6) →* MulAut (Perm (Fin 6))).range := by
-  have hswap (i : Fin 6) (hi : i ≠ 0) : (φ (swap 0 i)).IsSwap := by
-    rcases isConj_iff.mp (isConj_swap (by decide : (0 : Fin 6) ≠ 1) hi.symm) with ⟨g, hg⟩
-    rcases h with ⟨a, b, hab, hφ⟩
-    rw [← hg, map_mul, map_mul, map_inv, hφ, ← swap_apply_apply]
-    exact ⟨_, _, (φ g).injective.ne hab, rfl⟩
-  have hS (i : Fin 6) (hi : i ≠ 0 := by decide) :
-      (φ (swap 0 i)).support ∈ (univ : Finset (Fin 6)).powersetCard 2 :=
-    mem_powersetCard.mpr ⟨subset_univ _, card_support_eq_two.mpr (hswap i hi)⟩
-  have hcomm (i j : Fin 6) (hi : i ≠ 0) (hj : j ≠ 0) (hij : i ≠ j) :
-      φ (swap 0 i) * φ (swap 0 j) ≠ φ (swap 0 j) * φ (swap 0 i) := by
-    rw [← map_mul, ← map_mul, φ.injective.ne_iff]
-    revert hij hj hi j i
-    decide
-  have hne (i j : Fin 6) (hi : i ≠ 0 := by decide) (hj : j ≠ 0 := by decide)
-      (hij : i ≠ j := by decide) : (φ (swap 0 i)).support ≠ (φ (swap 0 j)).support :=
-    fun hsupp ↦ hcomm i j hi hj hij <| by
-      rcases hswap i hi with ⟨a, b, hab, hφa⟩
-      rcases hswap j hj with ⟨c, d, hcd, hφc⟩
-      rw [hφa, hφc, support_swap hab, support_swap hcd] at hsupp
-      rw [hφa, hφc, swap_eq_swap_of_pair_eq a b c d hsupp]
-  have hint (i j : Fin 6) (hi : i ≠ 0 := by decide) (hj : j ≠ 0 := by decide)
-      (hij : i ≠ j := by decide) : ((φ (swap 0 i)).support ∩ (φ (swap 0 j)).support).Nonempty :=
-    not_disjoint_iff_nonempty_inter.mp fun hdisj ↦
-      hcomm i j hi hj hij (disjoint_iff_disjoint_support.mpr hdisj).commute
-  have key (k : Fin 6) (hk : k ≠ 0 := by decide) (hk₁ : k ≠ 1 := by decide)
-      (hk₂ : k ≠ 2 := by decide) (hk₃ : k ≠ 3 := by decide) : ∃ c, c ∈ (φ (swap 0 1)).support ∧
-      c ∈ (φ (swap 0 2)).support ∧ c ∈ (φ (swap 0 3)).support ∧ c ∈ (φ (swap 0 k)).support :=
-    exists_mem_of_pairwise_inter_nonempty _ (hS 1) _ (hS 2) (hne 1 2) (hint 1 2) _ (hS 3) (hne 3 1)
-      (hne 3 2) (hint 1 3) (hint 2 3) _ (hS k hk) (hne k 1 hk (by decide) hk₁)
-      (hne k 2 hk (by decide) hk₂) (hne k 3 hk (by decide) hk₃) (hint 1 k (by decide) hk hk₁.symm)
-      (hint 2 k (by decide) hk hk₂.symm) (hint 3 k (by decide) hk hk₃.symm)
-  rcases key 4 with ⟨c, h1, h2, h3, h4⟩
-  rcases key 5 with ⟨c', h1', h2', -, h5⟩
-  have hcc' : c = c' := eq_of_mem_of_mem_of_ne _ (hS 1) _ (hS 2) (hne 1 2) c c' h1 h2 h1' h2'
-  subst hcc'
-  have hc (i : Fin 6) (hi : i ≠ 0) : φ (swap 0 i) c ≠ c := mem_support.mp <|
-    match i, hi with
-    | 0, hi => absurd rfl hi
-    | 1, _ => h1
-    | 2, _ => h2
-    | 3, _ => h3
-    | 4, _ => h4
-    | 5, _ => h5
-  have hφ0 : φ (swap 0 0) = 1 := by
-    rw [swap_self, ← one_def, map_one]
-  have heq (i : Fin 6) : φ (swap 0 i) = swap c (φ (swap 0 i) c) := by
-    rcases eq_or_ne i 0 with rfl | hi
-    · rw [hφ0, one_apply, swap_self, one_def]
-    · have hci : φ (swap 0 i) c ≠ c := hc i hi
-      rcases hswap i hi with ⟨a, b, -, hφ⟩
-      rw [hφ] at hci ⊢
-      exact swap_eq_swap_apply_of_apply_ne a b c hci
-  have hinj : Function.Injective fun i ↦ φ (swap 0 i) c := fun i j hij ↦ by
-    simpa using congrArg (· 0) <| φ.injective <|
-      (heq i).trans <| (congrArg (swap c) hij).trans (heq j).symm
-  let G : Perm (Fin 6) := Equiv.ofBijective _ (Finite.injective_iff_bijective.mp hinj)
-  have hG (i : Fin 6) : MulAut.conj G (swap 0 i) = φ (swap 0 i) := by
-    rw [MulAut.conj_apply, ← swap_apply_apply, heq i]
-    exact congrArg₂ swap ((DFunLike.congr_fun hφ0 c).trans (one_apply c)) rfl
-  refine ⟨G, MulEquiv.toMonoidHom_injective <| MonoidHom.eq_of_eqOn_dense closure_finRotate_swap ?_⟩
-  rintro τ (rfl | rfl)
-  · simp only [MulEquiv.coe_toMonoidHom, finRotate_six_eq, map_mul, hG]
-  · exact hG 1
+  refine mem_range_conj_of_forall_isSwap ?_
+  rintro - ⟨x, y, hxy, rfl⟩
+  rcases isConj_iff.mp (isConj_swap (by decide : (0 : Fin 6) ≠ 1) hxy) with ⟨g, hg⟩
+  rcases h with ⟨a, b, hab, hφ⟩
+  rw [← hg, map_mul, map_mul, map_inv, hφ, ← swap_apply_apply]
+  exact ⟨_, _, (φ g).injective.ne hab, rfl⟩
 
 /-- **An automorphism of `S₆` sends the transposition `(0 1)` to a transposition or to a conjugate
 of `(0 4)(1 2)(3 5)`**: an involution whose centralizer has order `48`, as that of `(0 1)`. -/
@@ -319,9 +237,7 @@ lemma isSwap_or_isConj_apply_swap_zero_one :
   rw [hord] at hn
   have hcard : Nat.card (Subgroup.centralizer {φ (swap 0 1)}) =
       Nat.card (Subgroup.centralizer {swap (0 : Fin 6) 1}) :=
-    Nat.card_congr <| (φ.toEquiv.subtypeEquiv fun g ↦ by
-      rw [Subgroup.mem_centralizer_singleton_iff, Subgroup.mem_centralizer_singleton_iff]
-      exact (φ.injective.eq_iff.symm.trans (by rw [map_mul, map_mul]; rfl))).symm
+    natCard_centralizer_mulAut_apply φ (swap 0 1)
   have hle : n ≤ 2 := by
     have h6 : (φ (swap 0 1)).cycleType.sum ≤ 6 := (sum_cycleType _).trans_le (card_le_univ _)
     rw [hn, Multiset.sum_replicate, smul_eq_mul] at h6

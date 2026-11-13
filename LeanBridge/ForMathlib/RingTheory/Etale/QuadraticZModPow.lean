@@ -20,8 +20,6 @@ lies in `p R[ω]`, hence is nilpotent, hence is `0`.
 
 ## Main definitions
 
-* `AlgEquiv.piFinTwo`: the algebra isomorphism `(Π i : Fin 2, A i) ≃ A 0 × A 1`, which makes the
-  split algebra `R × R` étale.
 * `RingHom.toZModAlgHom`: a ring homomorphism between `ZMod n`-algebras, as a `ZMod n`-algebra
   homomorphism.
 * `Matrix.GeneralLinearGroup.NonsplitCartanAlgebraPow p e` (LMFDB `gl2.cartan`): the non-split
@@ -87,17 +85,6 @@ lemma nonempty_algEquiv_of_surjective [FormallySmooth R A] [Finite A] {t : R} (h
 
 end Algebra.FormallySmooth
 
-namespace AlgEquiv
-
-variable (R : Type*) [CommSemiring R] (A : Fin 2 → Type*) [∀ i, Semiring (A i)]
-  [∀ i, Algebra R (A i)]
-
-/-- The algebra isomorphism `(Π i : Fin 2, A i) ≃ A 0 × A 1`. -/
-def piFinTwo : (∀ i, A i) ≃ₐ[R] A 0 × A 1 :=
-  ofLinearEquiv (LinearEquiv.piFinTwo R A) rfl fun _ _ ↦ rfl
-
-end AlgEquiv
-
 namespace RingHom
 
 variable (n : ℕ) {A B : Type*} [Semiring A] [Semiring B] [Algebra (ZMod n) A] [Algebra (ZMod n) B]
@@ -127,15 +114,7 @@ end ZMod
 
 namespace Matrix.GeneralLinearGroup
 
-instance {R : Type*} [CommRing R] : Algebra.Etale R (R × R) :=
-  .of_equiv (AlgEquiv.piFinTwo R fun _ ↦ R)
-
 variable {p e : ℕ}
-
-lemma natCard_eq_of_basis {A : Type*} [AddCommGroup A] [Module (ZMod (p ^ e)) A]
-    (b : Basis (Fin 2) (ZMod (p ^ e)) A) : Nat.card A = p ^ (2 * e) := by
-  rw [Nat.card_congr b.equivFun.toEquiv, Nat.card_fun, Nat.card_zmod, Nat.card_eq_fintype_card,
-    Fintype.card_fin, ← pow_mul, mul_comm]
 
 lemma eq_zero_or_eq_one_of_isIdempotentElem {R M C : Type*} [CommRing R] [CommRing M] [Algebra R M]
     [CommRing C] [IsDomain C] {t : R} (ht : IsNilpotent t) (g : M →+* C)
@@ -287,7 +266,8 @@ lemma nonempty_algEquiv_prod_or_nonempty_algEquiv_nonsplitCartanAlgebraPow {A : 
     Nonempty (A ≃ₐ[ZMod (p ^ e)] ZMod (p ^ e) × ZMod (p ^ e)) ∨
       Nonempty (A ≃ₐ[ZMod (p ^ e)] NonsplitCartanAlgebraPow p e) := by
   let _ : Algebra (ZMod (p ^ e)) (ZMod p) := ZMod.algebra' (ZMod p) p (dvd_pow_self p (NeZero.ne e))
-  have hA : p ^ (2 * e) ≤ Nat.card A := (natCard_eq_of_basis b).ge
+  have hA : p ^ (2 * e) ≤ Nat.card A := by
+    rw [natCard_eq_sq_of_basis b, Nat.card_zmod, ← pow_mul, mul_comm]
   have hg : Function.Surjective
       (Algebra.TensorProduct.includeRight : A →ₐ[ZMod (p ^ e)] ZMod p ⊗[ZMod (p ^ e)] A) :=
     Algebra.TensorProduct.includeRight_surjective A (ZMod.ringHom_surjective _)

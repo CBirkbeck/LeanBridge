@@ -13,10 +13,10 @@ rational character `FDRep.rationalCharacter`. The Schur index `m` of `χ` over `
 (`FDRep.schurIndex`, LMFDB `group.representation.schur_index`) is the least degree `[E : ℚ(χ)]` of
 a field `ℚ(χ) ⊆ E ⊆ ℂ` over which `V` is realized, `V ≅ ℂ ⊗_E W`. Restricting the scalars of `W`
 to `ℚ` gives a representation over `ℚ` whose character is `Tr_{E/ℚ} ∘ χ`. For `x ∈ ℚ(χ)`,
-`Tr_{E/ℚ}(x) = [E : ℚ(χ)] Tr_{ℚ(χ)/ℚ}(x)`, both traces being degrees times the sum of the conjugates
-of `x`, and `Tr_{ℚ(χ)/ℚ}(χ(g)) = ∑ τ(χ(g))` over the embeddings `τ` of `ℚ(χ)` into `ℂ`, which are
-the restrictions of the automorphisms of `ℂ` and correspond to the Galois conjugates of `χ`. So
-`m ψ` is the character of a representation with matrix entries in `ℚ`: `m` copies of the
+`Tr_{E/ℚ}(x) = [E : ℚ(χ)] Tr_{ℚ(χ)/ℚ}(x)`, by transitivity of the trace in the tower
+`ℚ ⊆ ℚ(χ) ⊆ E`, and `Tr_{ℚ(χ)/ℚ}(χ(g)) = ∑ τ(χ(g))` over the embeddings `τ` of `ℚ(χ)` into `ℂ`,
+which are the restrictions of the automorphisms of `ℂ` and correspond to the Galois conjugates of
+`χ`. So `m ψ` is the character of a representation with matrix entries in `ℚ`: `m` copies of the
 `ℚ`-valued character `ψ` produce an actual representation over `ℚ`, which is how the Schur index
 enters LMFDB `group.min_faithful_linear`.
 
@@ -28,8 +28,8 @@ index `m`, and is not proved here.
 
 * `FDRep.exists_character_eq_trace`: restriction of scalars along a finite field extension
   `E / k`, with character `Tr_{E/k} ∘ χ`.
-* `IntermediateField.trace_inclusion`: for subfields `K ⊆ E` of `ℂ` of finite degree over `ℚ` and
-  `x ∈ K`, `Tr_{E/ℚ}(x) = [E : K] Tr_{K/ℚ}(x)`.
+* `IntermediateField.trace_inclusion`: for intermediate fields `K ≤ E` of `L / F` of finite degree
+  over `F` and `x ∈ K`, `Tr_{E/F}(x) = [E : K] Tr_{K/F}(x)`.
 * `FDRep.sum_algHom_characterField_eq_rationalCharacter`: the sum of the embeddings of `ℚ(χ)`
   applied to `χ(g)` is the irreducible rational character at `g`.
 * `FDRep.exists_character_eq_schurIndex_mul_rationalCharacter` (LMFDB `group.min_faithful_linear`,
@@ -66,31 +66,19 @@ end FDRep
 
 namespace IntermediateField
 
-variable {K E : IntermediateField ℚ ℂ} [FiniteDimensional ℚ K] [FiniteDimensional ℚ E]
+variable {F L : Type*} [Field F] [Field L] [Algebra F L] {K E : IntermediateField F L}
+  [FiniteDimensional F K] [FiniteDimensional F E]
 
-/-- **The trace of an element of a subfield, in a larger field**: for subfields `K ⊆ E` of `ℂ` of
-finite degree over `ℚ` and `x ∈ K`, `Tr_{E/ℚ}(x) = [E : K] Tr_{K/ℚ}(x)`, both traces being the
-sum of the roots of the minimal polynomial of `x` times `[E : ℚ(x)]` and `[K : ℚ(x)]`. -/
+/-- **The trace of an element of an intermediate field, in a larger one**: for intermediate fields
+`K ≤ E` of `L / F` of finite degree over `F` and `x ∈ K`, `Tr_{E/F}(x) = [E : K] Tr_{K/F}(x)`, by
+transitivity of the trace in the tower `F ⊆ K ⊆ E`, where `Tr_{E/K}(x) = [E : K] x`. -/
 lemma trace_inclusion (h : K ≤ E) (x : K) :
-    (Algebra.trace ℚ E (inclusion h x) : ℂ) = K.relfinrank E * (Algebra.trace ℚ K x : ℂ) := by
-  have hmin : minpoly ℚ (inclusion h x) = minpoly ℚ x :=
-    (minpoly.algebraMap_eq (algebraMap E ℂ).injective _).symm.trans
-      (minpoly.algebraMap_eq (algebraMap K ℂ).injective x)
-  have hE : (Algebra.trace ℚ E (inclusion h x) : ℂ) = finrank ℚ⟮inclusion h x⟯ E •
-      ((minpoly ℚ (inclusion h x)).aroots ℂ).sum :=
-    (eq_ratCast (algebraMap ℚ ℂ) _).symm.trans (trace_eq_sum_roots (IsAlgClosed.splits _))
-  have hK : (Algebra.trace ℚ K x : ℂ) = finrank ℚ⟮x⟯ K • ((minpoly ℚ x).aroots ℂ).sum :=
-    (eq_ratCast (algebraMap ℚ ℂ) _).symm.trans (trace_eq_sum_roots (IsAlgClosed.splits _))
-  have hdE : (minpoly ℚ x).natDegree * finrank ℚ⟮inclusion h x⟯ E = finrank ℚ E := by
-    rw [← hmin, ← adjoin.finrank (IsIntegral.of_finite ℚ _), finrank_mul_finrank]
-  have hdK : (minpoly ℚ x).natDegree * finrank ℚ⟮x⟯ K = finrank ℚ K := by
-    rw [← adjoin.finrank (IsIntegral.of_finite ℚ _), finrank_mul_finrank]
-  have hKE : finrank ℚ K * K.relfinrank E = finrank ℚ E := by
-    rw [← relfinrank_bot_left, ← relfinrank_bot_left, relfinrank_mul_relfinrank bot_le h]
-  have hdeg : finrank ℚ⟮inclusion h x⟯ E = finrank ℚ⟮x⟯ K * K.relfinrank E :=
-    Nat.eq_of_mul_eq_mul_left (minpoly.natDegree_pos (IsIntegral.of_finite ℚ x)) <| by
-      rw [hdE, ← mul_assoc, hdK, hKE]
-  rw [hE, hK, hmin, hdeg, mul_comm, mul_smul, nsmul_eq_mul]
+    Algebra.trace F E (inclusion h x) = K.relfinrank E • Algebra.trace F K x := by
+  have : FiniteDimensional F (extendScalars h) := inferInstanceAs (FiniteDimensional F E)
+  have : FiniteDimensional K (extendScalars h) := .of_restrictScalars_finite F K _
+  rw [relfinrank_eq_finrank_of_le h, ← map_nsmul, ← Algebra.trace_algebraMap,
+    Algebra.trace_trace]
+  rfl
 
 end IntermediateField
 
@@ -143,7 +131,8 @@ lemma exists_character_eq_schurIndex_mul_rationalCharacter :
   refine ⟨U, fun g ↦ ?_⟩
   have hx : W.character g = inclusion hKE ⟨V.character g, V.character_mem_characterField ℚ g⟩ :=
     Subtype.ext (hW g)
-  rw [hU g, hx, trace_inclusion, hd, ← sum_algHom_characterField_eq_rationalCharacter,
-    ← eq_ratCast (algebraMap ℚ ℂ), trace_eq_sum_embeddings]
+  rw [hU g, hx, trace_inclusion, nsmul_eq_mul, Rat.cast_mul, Rat.cast_natCast, hd,
+    ← sum_algHom_characterField_eq_rationalCharacter, ← eq_ratCast (algebraMap ℚ ℂ),
+    trace_eq_sum_embeddings]
 
 end FDRep

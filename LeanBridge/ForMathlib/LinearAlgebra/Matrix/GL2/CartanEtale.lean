@@ -27,9 +27,16 @@ normalizer of the Cartan subgroup except for the split algebra over `𝔽₂`, w
 is trivial. In the standard basis of `Fin 2 → R` the extended Cartan subgroup consists of the
 diagonal and the antidiagonal matrices.
 
+The Cartan and extended Cartan subgroups of an algebra in a basis do not change when the algebra
+and its basis are moved along an algebra isomorphism, as the canonical involution `x ↦ Tr(x) - x`
+commutes with it. So in the standard basis `(1, 0), (0, 1)` of the split algebra `R × R`, the
+Cartan subgroup is the group of invertible diagonal matrices and the extended Cartan subgroup
+consists of the invertible diagonal and antidiagonal matrices, as for the algebra `Fin 2 → R`.
+
 ## Main definitions
 
-* `Matrix.GeneralLinearGroup.piFinTwoAlgEquivProd`: the algebra isomorphism `F² ≃ F × F`.
+* `AlgEquiv.piFinTwo`: the algebra isomorphism `(Π i : Fin 2, A i) ≃ A 0 × A 1`, which makes the
+  split algebra `R × R` étale.
 * `Matrix.GeneralLinearGroup.diagonalOrAntidiagonal`: the subgroup of `GL₂(R)` of the diagonal and
   the antidiagonal matrices.
 
@@ -52,11 +59,24 @@ diagonal and the antidiagonal matrices.
   except when `p = 2` and `A` is split.
 * `Matrix.GeneralLinearGroup.mem_extendedCartanSubgroup_piBasisFun_iff` (LMFDB `gl2.cartan`): in the
   standard basis of the split algebra `Fin 2 → R`, the extended Cartan subgroup consists of the
-  diagonal and the antidiagonal matrices (for `R × R`, see
-  `Matrix.GeneralLinearGroup.mem_extendedCartanSubgroup_finTwoProd_iff`).
+  diagonal and the antidiagonal matrices.
+* `Matrix.GeneralLinearGroup.cartanSubgroup_finTwoProd` and
+  `Matrix.GeneralLinearGroup.mem_extendedCartanSubgroup_finTwoProd_iff` (LMFDB `gl2.cartan`): the
+  Cartan and the extended Cartan subgroups of `R × R` in its standard basis.
 -/
 
 open Matrix Module TauCeti
+
+namespace AlgEquiv
+
+variable (R : Type*) [CommSemiring R] (A : Fin 2 → Type*) [∀ i, Semiring (A i)]
+  [∀ i, Algebra R (A i)]
+
+/-- The algebra isomorphism `(Π i : Fin 2, A i) ≃ A 0 × A 1`. -/
+def piFinTwo : (∀ i, A i) ≃ₐ[R] A 0 × A 1 :=
+  ofLinearEquiv (LinearEquiv.piFinTwo R A) rfl fun _ _ ↦ rfl
+
+end AlgEquiv
 
 namespace Matrix.GeneralLinearGroup
 
@@ -65,11 +85,6 @@ universe u v
 section Field
 
 variable {F : Type u} [Field F] {A : Type v} [CommRing A] [Algebra F A] [Algebra.Etale F A]
-
-variable (F) in
-/-- The algebra isomorphism `F² ≃ F × F`. -/
-def piFinTwoAlgEquivProd : (Fin 2 → F) ≃ₐ[F] F × F :=
-  AlgEquiv.ofLinearEquiv (LinearEquiv.piFinTwo F fun _ ↦ F) rfl fun _ _ ↦ rfl
 
 /-- **An étale algebra of rank `2` over a field `F` is a field or `F × F`**: it is a product of
 separable field extensions, of degrees adding up to `2`. -/
@@ -107,7 +122,7 @@ lemma isField_or_nonempty_algEquiv_prod (hA : finrank F A = 2) :
     let σ : I ≃ Fin 2 := Fintype.equivFinOfCardEq (by omega)
     refine ⟨e.trans <| (AlgEquiv.piCongrRight fun i ↦ (AlgEquiv.ofBijective (Algebra.ofId F (Ai i))
       (Algebra.finrank_eq_one_iff_bijective_algebraMap.mp (hone i))).symm).trans <|
-      (AlgEquiv.piCongrLeft F (fun _ ↦ F) σ).trans (piFinTwoAlgEquivProd F)⟩
+      (AlgEquiv.piCongrLeft F (fun _ ↦ F) σ).trans (AlgEquiv.piFinTwo F fun _ ↦ F)⟩
 
 lemma exists_canonicalInvolution_ne_of_field (b : Basis (Fin 2) F A) :
     ∃ x, canonicalInvolution F A x ≠ x := by
@@ -141,7 +156,14 @@ section Ring
 
 open TensorProduct
 
-variable {R : Type u} [CommRing R] {A : Type v} [CommRing A] [Algebra R A]
+variable {R : Type u} [CommRing R] {A : Type v} [CommRing A] [Algebra R A] {A' : Type*}
+  [CommRing A'] [Algebra R A']
+
+instance : Algebra.Etale R (R × R) :=
+  .of_equiv (AlgEquiv.piFinTwo R fun _ ↦ R)
+
+lemma natCard_eq_sq_of_basis (b : Basis (Fin 2) R A) : Nat.card A = Nat.card R ^ 2 := by
+  rw [Nat.card_congr b.equivFun.toEquiv, Nat.card_fun, Nat.card_fin]
 
 lemma trace_one_tmul_eq_algebraMap (k : Type*) [CommRing k] [Algebra R k] (b : Basis (Fin 2) R A)
     (x : A) : Algebra.trace k (k ⊗[R] A) (1 ⊗ₜ x) = algebraMap R k (Algebra.trace R A x) := by
@@ -195,8 +217,8 @@ lemma exists_map_conj_cartanSubgroup_eq (b b' : Basis (Fin 2) R A) :
     congrFun (congrFun (toMatrix_conjBasis b g) i) j
   rwa [Basis.toMatrix_apply, Basis.toMatrix_apply] at h
 
-lemma cartanSubgroup_basis_map {A' : Type*} [CommRing A'] [Algebra R A'] (b : Basis (Fin 2) R A)
-    (e : A ≃ₐ[R] A') : cartanSubgroup (b.map e.toLinearEquiv) = cartanSubgroup b := by
+lemma cartanSubgroup_basis_map (b : Basis (Fin 2) R A) (e : A ≃ₐ[R] A') :
+    cartanSubgroup (b.map e.toLinearEquiv) = cartanSubgroup b := by
   rw [cartanSubgroup, cartanSubgroup]
   refine le_antisymm ?_ ?_
   · rintro _ ⟨u, rfl⟩
@@ -207,6 +229,34 @@ lemma cartanSubgroup_basis_map {A' : Type*} [CommRing A'] [Algebra R A'] (b : Ba
     refine ⟨Units.map e.toMonoidHom u, Units.ext ?_⟩
     ext i j
     simp [Algebra.leftMulMatrix_eq_repr_mul]
+
+lemma canonicalInvolution_algEquiv (φ : A ≃ₐ[R] A') (x : A) :
+    canonicalInvolution R A' (φ x) = φ (canonicalInvolution R A x) := by
+  rw [canonicalInvolution_apply, canonicalInvolution_apply, Algebra.trace_eq_of_algEquiv,
+    map_sub, AlgEquiv.commutes]
+
+lemma canonicalInvolutionGL_basis_map (b : Basis (Fin 2) R A) (φ : A ≃ₐ[R] A') :
+    canonicalInvolutionGL (b.map φ.toLinearEquiv) = canonicalInvolutionGL b := by
+  refine Units.ext ?_
+  ext i j
+  simp [coe_canonicalInvolutionGL, LinearMap.toMatrix_apply, canonicalInvolution_algEquiv]
+
+lemma extendedCartanSubgroup_basis_map (b : Basis (Fin 2) R A) (φ : A ≃ₐ[R] A') :
+    extendedCartanSubgroup (b.map φ.toLinearEquiv) = extendedCartanSubgroup b := by
+  rw [extendedCartanSubgroup, extendedCartanSubgroup, cartanSubgroup_basis_map,
+    canonicalInvolutionGL_basis_map]
+
+variable (R) in
+lemma finTwoProd_eq_map : Basis.finTwoProd R =
+    (Pi.basisFun R (Fin 2)).map (AlgEquiv.piFinTwo R fun _ ↦ R).toLinearEquiv := by
+  refine Basis.eq_of_apply_eq fun i ↦ ?_
+  fin_cases i <;> rfl
+
+variable (R) in
+/-- **The Cartan subgroup of the split algebra `R × R`** (LMFDB `gl2.cartan`): in the standard
+basis `(1, 0), (0, 1)` it is the group of invertible diagonal matrices. -/
+lemma cartanSubgroup_finTwoProd : cartanSubgroup (Basis.finTwoProd R) = diagonalTorus R 2 := by
+  rw [finTwoProd_eq_map, cartanSubgroup_basis_map, cartanSubgroup_piBasisFun]
 
 end Ring
 
@@ -248,7 +298,7 @@ lemma isSplitCartanSubgroup_cartanSubgroup_iff :
     rw [cartanSubgroup_map_conj] at hg
     exact (isField_or_nonempty_algEquiv_prod hA).resolve_left
       (not_isField_of_cartanSubgroup_le _ hg)
-  · let e' : A ≃ₐ[F] (Fin 2 → F) := e.trans (piFinTwoAlgEquivProd F).symm
+  · let e' : A ≃ₐ[F] (Fin 2 → F) := e.trans (AlgEquiv.piFinTwo F fun _ ↦ F).symm
     rcases exists_map_conj_cartanSubgroup_eq b ((Pi.basisFun F (Fin 2)).map e'.symm.toLinearEquiv)
       with ⟨g, hg⟩
     exact ⟨g, ((hg.trans (cartanSubgroup_basis_map _ _)).trans (cartanSubgroup_piBasisFun F)).le⟩
@@ -273,10 +323,6 @@ section Prime
 
 variable {p : ℕ} [Fact p.Prime] {A : Type} [CommRing A] [Algebra (ZMod p) A]
 
-lemma natCard_eq_sq_of_basis (b : Basis (Fin 2) (ZMod p) A) : Nat.card A = p ^ 2 := by
-  rw [Nat.card_congr b.equivFun.toEquiv, Nat.card_fun, Nat.card_zmod, Nat.card_eq_fintype_card,
-    Fintype.card_fin]
-
 variable [Algebra.Etale (ZMod p) A] in
 /-- **The two étale algebras of rank `2` over `𝔽_p`** (LMFDB `gl2.cartan`): a free étale
 `𝔽_p`-algebra of rank `2` is isomorphic to the split algebra `𝔽_p × 𝔽_p` or to the field
@@ -286,7 +332,7 @@ lemma nonempty_algEquiv_prod_or_nonempty_algEquiv_galoisField (b : Basis (Fin 2)
   rcases isField_or_nonempty_algEquiv_prod (finrank_eq_card_basis b |>.trans (Fintype.card_fin 2))
     with h | h
   · let _ : Field A := h.toField
-    exact Or.inr ⟨GaloisField.algEquivGaloisField p 2 (natCard_eq_sq_of_basis b)⟩
+    exact Or.inr ⟨GaloisField.algEquivGaloisField p 2 (Nat.card_zmod p ▸ natCard_eq_sq_of_basis b)⟩
   · exact Or.inl h
 
 lemma not_isField_zmod_prod : ¬IsField (ZMod p × ZMod p) := fun h ↦ by
@@ -298,9 +344,6 @@ lemma not_isField_zmod_prod : ¬IsField (ZMod p × ZMod p) := fun h ↦ by
 lemma not_nonempty_algEquiv_prod_galoisField :
     ¬Nonempty ((ZMod p × ZMod p) ≃ₐ[ZMod p] GaloisField p 2) :=
   fun ⟨e⟩ ↦ not_isField_zmod_prod (MulEquiv.isField (Field.toIsField _) e.toMulEquiv)
-
-lemma etale_prod : Algebra.Etale (ZMod p) (ZMod p × ZMod p) :=
-  .of_equiv (piFinTwoAlgEquivProd (ZMod p))
 
 lemma etale_galoisField : Algebra.Etale (ZMod p) (GaloisField p 2) :=
   ⟨Algebra.FormallyEtale.of_isSeparable _ _, Algebra.FinitePresentation.of_finiteType.mp
@@ -335,7 +378,7 @@ lemma normalizer_cartanSubgroup_eq_extendedCartanSubgroup_iff :
       simp only [true_and, hnot, not_false_eq_true, iff_true]
       let _ : Field A := hfield.toField
       have hunits : Nat.card Aˣ = 3 := by
-        rw [Nat.card_units, natCard_eq_sq_of_basis b]
+        rw [Nat.card_units, natCard_eq_sq_of_basis b, Nat.card_zmod]
         rfl
       have hindex : (cartanSubgroup b).index = 2 := by
         have h : Nat.card (cartanSubgroup b) * (cartanSubgroup b).index =
@@ -403,5 +446,14 @@ lemma mem_extendedCartanSubgroup_piBasisFun_iff {g : GL (Fin 2) R} :
   · rcases h with ⟨h₁, h₂⟩ | ⟨h₁, h₂⟩
     · exact Subgroup.mem_sup_left (mem_diagonalTorus_of_fin_two R h₁ h₂)
     · exact mem_sup_zpowers_swapGL_of_fin_two R h₁ h₂
+
+/-- **The extended Cartan subgroup of the split algebra `R × R`** (LMFDB `gl2.cartan`): in the
+standard basis `(1, 0), (0, 1)` it consists of the invertible diagonal and antidiagonal matrices,
+the Cartan subgroup together with its coset of antidiagonal matrices. -/
+lemma mem_extendedCartanSubgroup_finTwoProd_iff {g : GL (Fin 2) R} :
+    g ∈ extendedCartanSubgroup (Basis.finTwoProd R) ↔ (g 0 1 = 0 ∧ g 1 0 = 0) ∨
+      (g 0 0 = 0 ∧ g 1 1 = 0) := by
+  rw [finTwoProd_eq_map, extendedCartanSubgroup_basis_map,
+    mem_extendedCartanSubgroup_piBasisFun_iff]
 
 end Matrix.GeneralLinearGroup

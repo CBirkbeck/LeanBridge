@@ -186,64 +186,7 @@ lemma natCard_pi_freeCoeffSet (h₀ : 0 ∈ ℛ) :
     pow_add, pow_add, bIndices, cIndices]
   split_ifs <;> ring1
 
-lemma MongeChoice.ncard_reps {𝔪 : Ideal R} (C : I.MongeChoice 𝔪) :
-    C.reps.ncard = Nat.card (R ⧸ 𝔪) := by
-  rw [← Nat.card_coe_set_eq]
-  refine Nat.card_congr <| Equiv.ofBijective (fun r ↦ algebraMap R (R ⧸ 𝔪) r) ⟨fun r r' h ↦
-    Subtype.ext <| (C.existsUnique_mem_reps _).unique ⟨r.2, h⟩ ⟨r'.2, rfl⟩, fun x ↦ ?_⟩
-  rcases C.existsUnique_mem_reps x with ⟨r, ⟨hr, hx⟩, -⟩
-  exact ⟨⟨r, hr⟩, hx⟩
-
 variable [NeZero p] [IsDomain R] [IsDiscreteValuationRing R] {π : R}
-
-lemma eq_of_specialisation_eq (hπ : Irreducible π) {S : ℕ → Set R}
-    (hS : ∀ σ, (S σ).InjOn (algebraMap R (R ⧸ IsLocalRing.maximalIdeal R))) {f g : ℕ → R}
-    (hf : ∀ σ ∈ I.genericIndices, f σ ∈ S σ) (hg : ∀ σ ∈ I.genericIndices, g σ ∈ S σ)
-    (h : I.specialisation π f = I.specialisation π g) {σ : ℕ} (hσ : σ ∈ I.genericIndices) :
-    f σ = g σ := by
-  induction σ using Nat.strong_induction_on with
-  | _ σ ih =>
-  have hn : σ % I.ramificationIndex < I.ramificationIndex :=
-    Nat.mod_lt σ I.ramificationIndex_pos
-  have hc : ∑ τ ∈ I.genericIndices, (if σ % I.ramificationIndex = τ % I.ramificationIndex then
-      (f τ - g τ) * π ^ (τ / I.ramificationIndex) else 0) = 0 := by
-    have h' : (I.specialisation π f).coeff (σ % I.ramificationIndex) =
-        (I.specialisation π g).coeff (σ % I.ramificationIndex) :=
-      congrArg (fun P : R[X] ↦ P.coeff (σ % I.ramificationIndex)) h
-    rw [coeff_specialisation_of_lt π f hn, coeff_specialisation_of_lt π g hn] at h'
-    have h'' : ∑ τ ∈ I.genericIndices, ((if σ % I.ramificationIndex = τ % I.ramificationIndex then
-        f τ * π ^ (τ / I.ramificationIndex) else 0) -
-          if σ % I.ramificationIndex = τ % I.ramificationIndex then
-            g τ * π ^ (τ / I.ramificationIndex) else 0) = 0 := by
-      rw [sum_sub_distrib, sub_eq_zero]
-      exact mul_left_cancel₀ hπ.ne_zero h'
-    refine Eq.trans (sum_congr rfl fun τ _ ↦ ?_) h''
-    split_ifs <;> ring1
-  rw [← add_sum_erase _ _ hσ, ite_eq_left rfl] at hc
-  have hdvd : π ^ (σ / I.ramificationIndex + 1) ∣ (f σ - g σ) * π ^ (σ / I.ramificationIndex) := by
-    rw [eq_neg_of_add_eq_zero_left hc, dvd_neg]
-    refine dvd_sum fun τ hτ ↦ ?_
-    split_ifs with hτσ
-    · rcases (ne_of_mem_erase hτ).lt_or_gt with hlt | hlt
-      · rw [ih τ hlt (mem_of_mem_erase hτ), sub_self, zero_mul]
-        exact dvd_zero _
-      · refine (pow_dvd_pow π ?_).mul_left _
-        have h₁ : I.ramificationIndex * (σ / I.ramificationIndex) + σ % I.ramificationIndex = σ :=
-          Nat.div_add_mod σ I.ramificationIndex
-        have h₂ : I.ramificationIndex * (τ / I.ramificationIndex) + τ % I.ramificationIndex = τ :=
-          Nat.div_add_mod τ I.ramificationIndex
-        by_contra hj
-        have h₃ : τ / I.ramificationIndex ≤ σ / I.ramificationIndex :=
-          by omega
-        have h₄ : I.ramificationIndex * (τ / I.ramificationIndex) ≤
-            I.ramificationIndex * (σ / I.ramificationIndex) :=
-          Nat.mul_le_mul_left _ h₃
-        omega
-    · exact dvd_zero _
-  rw [pow_succ, mul_comm (π ^ _), mul_dvd_mul_iff_right (pow_ne_zero _ hπ.ne_zero)] at hdvd
-  refine hS σ (hf σ hσ) (hg σ hσ) ?_
-  rw [Ideal.Quotient.algebraMap_eq, Ideal.Quotient.eq, hπ.maximalIdeal_eq]
-  exact Ideal.mem_span_singleton.mpr hdvd
 
 open Classical in
 lemma ncard_specialisations (hπ : Irreducible π) (h₀ : 0 ∈ ℛ)
@@ -263,10 +206,10 @@ lemma ncard_specialisations (hπ : Irreducible π) (h₀ : 0 ∈ ℛ)
     · exact hℛ
     · exact Set.injOn_singleton _ _
   let E : ((σ : I.genericIndices) → I.freeCoeffSet q ℛ σ) → ℕ → R :=
-    fun t σ ↦ if h : σ ∈ I.genericIndices then (t ⟨σ, h⟩ : R) else 0
+    fun t ↦ Function.extend Subtype.val (fun σ ↦ (t σ : R)) 0
   have hE (t : (σ : I.genericIndices) → I.freeCoeffSet q ℛ σ) {σ : ℕ}
       (hσ : σ ∈ I.genericIndices) : E t σ = t ⟨σ, hσ⟩ :=
-    dite_eq_left hσ
+    Subtype.val_injective.extend_apply _ _ ⟨σ, hσ⟩
   have hmem (t : (σ : I.genericIndices) → I.freeCoeffSet q ℛ σ) :
       ∀ σ ∈ I.genericIndices, E t σ ∈ I.freeCoeffSet q ℛ σ := fun σ hσ ↦
     (hE t hσ).symm ▸ (t ⟨σ, hσ⟩).2

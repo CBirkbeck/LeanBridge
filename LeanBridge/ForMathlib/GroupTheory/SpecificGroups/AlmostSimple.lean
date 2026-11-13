@@ -1,4 +1,5 @@
 import Mathlib.Algebra.Group.End
+import Mathlib.GroupTheory.GroupAction.ConjAct
 import Mathlib.GroupTheory.Subgroup.Simple
 import Mathlib.GroupTheory.Subgroup.Center
 
@@ -12,9 +13,13 @@ import Mathlib.GroupTheory.Subgroup.Center
 ## Main results
 
 * `IsSimpleGroup.isAlmostSimple`: every non-abelian simple group is almost simple.
+* `IsAlmostSimple.of_centralizer_eq_bot`: a group with a simple normal subgroup of trivial
+  centraliser is almost simple.
 -/
 
 universe u
+
+open Subgroup
 
 variable (G : Type u) [Group G]
 
@@ -40,3 +45,19 @@ lemma IsSimpleGroup.isAlmostSimple [IsSimpleGroup G] (hG : ¬IsMulCommutative G)
   intro y
   have hy : x * y * x⁻¹ = y := DFunLike.congr_fun hx y
   exact (mul_inv_eq_iff_eq_mul.mp hy).symm
+
+/-- **A group with a simple normal subgroup of trivial centraliser is almost simple**: the
+subgroup `N` is non-abelian, since an abelian `N` would lie in its own centraliser, and `G` acts
+faithfully on `N` by conjugation, through automorphisms that include the inner ones. -/
+lemma IsAlmostSimple.of_centralizer_eq_bot {N : Subgroup G} [N.Normal] [IsSimpleGroup N]
+    (h : centralizer (N : Set G) = ⊥) : IsAlmostSimple G := by
+  refine ⟨N, inferInstance, inferInstance, fun hN ↦ ?_, MulAut.conjNormal,
+    (injective_iff_map_eq_one _).mpr fun g hg ↦ ?_, ?_⟩
+  · exact (nontrivial_iff_ne_bot N).mp inferInstance <| le_bot_iff.mp <|
+      h ▸ le_centralizer_iff_isMulCommutative.mpr hN
+  · have hg' : g ∈ centralizer (N : Set G) := mem_centralizer_iff.mpr fun x hx ↦ by
+      have hx' : g * x * g⁻¹ = x := congrArg (fun φ : MulAut N ↦ (φ ⟨x, hx⟩ : G)) hg
+      exact (mul_inv_eq_iff_eq_mul.mp hx').symm
+    rwa [h, mem_bot] at hg'
+  · rintro _ ⟨s, rfl⟩
+    exact ⟨s, MulAut.conjNormal_val⟩

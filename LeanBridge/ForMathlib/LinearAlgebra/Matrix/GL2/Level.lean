@@ -46,18 +46,23 @@ modulo `N` is then reduction modulo `ℓ ^ v_ℓ(N)` at each prime `ℓ`, with v
 
 open Filter Topology
 
+namespace Subgroup
+
+lemma inf_comap_map_eq_iff {Γ : Type*} [Group Γ] {K L : Subgroup Γ} {Q : Type*} [Group Q]
+    {f : Γ →* Q} (hLK : L ≤ K) : K ⊓ (L.map f).comap f = L ↔ K ⊓ f.ker ≤ L := by
+  refine ⟨fun h ↦ h ▸ inf_le_inf_left K (f.ker_le_comap (L.map f)), fun hker ↦ ?_⟩
+  refine le_antisymm (fun g hg ↦ ?_) (le_inf hLK (le_comap_map f L))
+  rcases mem_inf.mp hg with ⟨hgK, hg⟩
+  rcases mem_map.mp (mem_comap.mp hg) with ⟨h, hh, hgh⟩
+  have hk : h⁻¹ * g ∈ L := hker (mem_inf.mpr ⟨mul_mem (inv_mem (hLK hh)) hgK, by
+    rw [MonoidHom.mem_ker, map_mul, map_inv, hgh, inv_mul_cancel]⟩)
+  simpa using mul_mem hh hk
+
+end Subgroup
+
 namespace Matrix.GeneralLinearGroup
 
 variable {n : Type*} [Fintype n] [DecidableEq n] (ℓ : ℕ) [Fact ℓ.Prime] (N : ℕ)
-
-private lemma inf_comap_map_eq {Γ Q : Type*} [Group Γ] [Group Q] {f : Γ →* Q} {G H : Subgroup Γ}
-    (hHG : H ≤ G) (hker : G ⊓ f.ker ≤ H) : G ⊓ (H.map f).comap f = H := by
-  refine le_antisymm (fun g hg ↦ ?_) (le_inf hHG (Subgroup.le_comap_map f H))
-  rcases Subgroup.mem_inf.mp hg with ⟨hgG, hg⟩
-  rcases Subgroup.mem_map.mp (Subgroup.mem_comap.mp hg) with ⟨h, hh, hgh⟩
-  have hk : h⁻¹ * g ∈ H := hker (Subgroup.mem_inf.mpr ⟨mul_mem (inv_mem (hHG hh)) hgG, by
-    rw [MonoidHom.mem_ker, map_mul, map_inv, hgh, inv_mul_cancel]⟩)
-  simpa using mul_mem hh hk
 
 private lemma exists_inf_comap_map_eq {Γ : Type*} [Group Γ] [TopologicalSpace Γ] {Q : ℕ → Type*}
     [∀ N, Group (Q N)] (π : ∀ N, Γ →* Q N)
@@ -65,7 +70,7 @@ private lemma exists_inf_comap_map_eq {Γ : Type*} [Group Γ] [TopologicalSpace 
     (hH : IsOpen (H.subgroupOf G : Set G)) : ∃ N, 0 < N ∧ G ⊓ (H.map (π N)).comap (π N) = H := by
   rcases isOpen_induced_iff.mp hH with ⟨U, hU, hUH⟩
   rcases hπ U (hU.mem_nhds ((Set.ext_iff.mp hUH 1).mpr (one_mem _))) with ⟨N, hN, hker⟩
-  refine ⟨N, hN, inf_comap_map_eq hHG fun g hg ↦ ?_⟩
+  refine ⟨N, hN, (Subgroup.inf_comap_map_eq_iff hHG).mpr fun g hg ↦ ?_⟩
   rcases Subgroup.mem_inf.mp hg with ⟨hgG, hg⟩
   exact (Set.ext_iff.mp hUH ⟨g, hgG⟩).mp (hker g hg)
 

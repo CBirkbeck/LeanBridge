@@ -31,8 +31,6 @@ so `e ≡ 1` modulo `p`.
 
 ## Main definitions
 
-* `ZMod.unitPowMulAut`: the action of `C_m` on `C_n` through a unit `u` of `ZMod n` with
-  `u ^ m = 1`.
 * `ZMod.onePlusUnit`: the unit `1 + p` of `ZMod (p ^ 2)`.
 * `ModularPCubedGroup` (LMFDB `group.heisenberg`): the modular group `M_{p³} = C_{p²} ⋊ C_p`.
 * `TauCeti.HeisenbergGroup.toMatrix`: the unitriangular matrix of an element of the Heisenberg
@@ -136,35 +134,7 @@ private lemma pow_conj_pow_eq (hg : g * a * g⁻¹ = a ^ e) (j k : ℕ) :
     rw [pow_succ', mul_inv_rev, ← mul_assoc, mul_assoc g, mul_assoc g, ih, ← conj_pow, hg,
       ← pow_mul, pow_succ' e, mul_assoc]
 
-variable (x) [NeZero n] in
-/-- The homomorphism `C_n → G` sending the generator to `x`, for `x ^ n = 1`. -/
-private def zmodPowHom (hx : x ^ n = 1) : Multiplicative (ZMod n) →* G where
-  toFun k := x ^ k.toAdd.val
-  map_one' := by simp
-  map_mul' a b := by rw [toAdd_mul, pow_val_add hx]
-
 namespace ZMod
-
-variable (u : (ZMod n)ˣ) (v : Multiplicative (ZMod n)) [NeZero m] (hu : u ^ m = 1)
-
-lemma unitMulAut_pow_apply (k : ℕ) :
-    (unitMulAut u ^ k) v = ofAdd ((u ^ k : (ZMod n)ˣ) * v.toAdd) := by
-  induction k with
-  | zero => simp
-  | succ k ih =>
-    rw [pow_succ', MulAut.mul_apply, ih, unitMulAut_apply, pow_succ', Units.val_mul, mul_assoc]
-    rfl
-
-/-- The action of `C_m = Multiplicative (ZMod m)` on `C_n = Multiplicative (ZMod n)` in which the
-generator acts by `v ↦ v ^ u`, for a unit `u` of `ZMod n` with `u ^ m = 1`. -/
-def unitPowMulAut : Multiplicative (ZMod m) →* MulAut (Multiplicative (ZMod n)) :=
-  zmodPowHom (unitMulAut u) <| MulEquiv.ext fun v ↦ by
-    rw [unitMulAut_pow_apply, hu, Units.val_one, one_mul]
-    rfl
-
-lemma unitPowMulAut_apply (k : Multiplicative (ZMod m)) :
-    unitPowMulAut u hu k v = ofAdd ((u ^ k.toAdd.val : (ZMod n)ˣ) * v.toAdd) :=
-  unitMulAut_pow_apply u v _
 
 variable (p) in
 /-- The unit `1 + p` of `ZMod (p ^ 2)`, whose `p`-th power is `1`. -/

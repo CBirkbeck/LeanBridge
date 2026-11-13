@@ -31,6 +31,8 @@ dividing `N` (LMFDB `gl2.cartan`).
 * `Matrix.GeneralLinearGroup.isSplitAt_or_isNonsplitAt` and
   `Matrix.GeneralLinearGroup.not_isSplitAt_and_isNonsplitAt`: a free étale algebra of rank `2` over
   `ℤ/Nℤ` is split or non-split at each prime dividing `N`, and not both.
+* `Matrix.GeneralLinearGroup.isNonsplitAt_iff_isField_quotient_span_natCast` (LMFDB `gl2.cartan`):
+  it is non-split at `p` exactly when its reduction `A/pA` modulo `p` is a field.
 * `Matrix.GeneralLinearGroup.isSplitAt_nonsplitAtAlgebra_iff` and
   `Matrix.GeneralLinearGroup.isNonsplitAt_nonsplitAtAlgebra_iff` (LMFDB `gl2.cartan`): every set of
   primes dividing `N` is the set of primes where some free étale algebra of rank `2` is non-split.
@@ -114,6 +116,79 @@ lemma not_isSplitAt_and_isNonsplitAt (hp : p ∈ N.primeFactors) :
   rintro ⟨⟨e₁⟩, ⟨e₂⟩⟩
   have : NeZero (N.factorization p) := neZero_factorization hp
   exact not_nonempty_algEquiv_prod_nonsplitCartanAlgebraPow ⟨e₁.symm.trans e₂⟩
+
+variable [Fact p.Prime] [Algebra.Etale (ZMod N) A] in
+/-- **Non-split at `p` means that the reduction modulo `p` is a field** (LMFDB `gl2.cartan`): for a
+free étale algebra `A` of rank `2` over `ℤ/Nℤ` and a prime `p ∣ N`, the component of `A` at `p` is
+the non-split algebra exactly when `A/pA` is a field. The reduction `A → A/pA` factors through the
+component, with kernel `p` times it, and the reduction of the non-split algebra is `𝔽_{p²}`, while
+that of the split algebra `ℤ/p^{v_p(N)}ℤ × ℤ/p^{v_p(N)}ℤ` has zero divisors. -/
+lemma isNonsplitAt_iff_isField_quotient_span_natCast (b : Basis (Fin 2) (ZMod N) A)
+    (hp : p ∈ N.primeFactors) : IsNonsplitAt N p A ↔ IsField (A ⧸ Ideal.span {(p : A)}) := by
+  have he : NeZero (N.factorization p) := neZero_factorization hp
+  have hC : ((p : ℕ) : A ⧸ Ideal.span {(p : A)}) = 0 :=
+    Ideal.Quotient.eq_zero_iff_mem.mpr (Ideal.mem_span_singleton_self _)
+  let _ : Algebra (ZMod (p ^ N.factorization p)) (A ⧸ Ideal.span {(p : A)}) :=
+    ZMod.algebra' _ _ (ringChar.dvd (by rw [Nat.cast_pow, hC, zero_pow he.out]))
+  let g : ZMod (p ^ N.factorization p) ⊗[ZMod N] A →ₐ[ZMod (p ^ N.factorization p)]
+      A ⧸ Ideal.span {(p : A)} :=
+    (Algebra.TensorProduct.lift ((algebraMap _ _).toZModAlgHom N)
+      (Ideal.Quotient.mkₐ (ZMod N) _) fun _ _ ↦ .all _ _).toRingHom.toZModAlgHom _
+  have hg : Function.Surjective g := fun c ↦ by
+    rcases Ideal.Quotient.mk_surjective c with ⟨a, rfl⟩
+    exact ⟨1 ⊗ₜ a, by simp [g]⟩
+  have hker (m : ZMod (p ^ N.factorization p) ⊗[ZMod N] A) (hm : g m = 0) :
+      ∃ m', m = (p : ZMod (p ^ N.factorization p)) • m' := by
+    rcases Algebra.TensorProduct.includeRight_surjective A (ZMod.ringHom_surjective _) m with
+      ⟨a, rfl⟩
+    have ha : Ideal.Quotient.mk (Ideal.span {(p : A)}) a = 0 := by simpa [g] using hm
+    rcases Ideal.mem_span_singleton'.mp (Ideal.Quotient.eq_zero_iff_mem.mp ha) with ⟨c, rfl⟩
+    exact ⟨Algebra.TensorProduct.includeRight c, by
+      rw [Nat.cast_smul_eq_nsmul, ← map_nsmul, nsmul_eq_mul, mul_comm]⟩
+  refine ⟨fun ⟨φ⟩ ↦ ?_, fun h ↦ ?_⟩
+  · let _ : Algebra (ZMod (p ^ N.factorization p)) (ZMod p) :=
+      ZMod.algebra' (ZMod p) p (dvd_pow_self p he.out)
+    let bc : NonsplitCartanAlgebraPow p (N.factorization p) →ₐ[ZMod (p ^ N.factorization p)]
+        QuadraticAlgebra (ZMod p) (algebraMap (ZMod (p ^ N.factorization p)) (ZMod p)
+          (nonsplitCartanA p).val) (algebraMap (ZMod (p ^ N.factorization p)) (ZMod p)
+          (nonsplitCartanB p).val) :=
+      QuadraticAlgebra.baseChange (ZMod p) _ _
+    have hbc : Function.Surjective bc :=
+      QuadraticAlgebra.mapRingHom_surjective _ _ _ (ZMod.ringHom_surjective _)
+    let g' : NonsplitCartanAlgebraPow p (N.factorization p) →ₐ[ZMod (p ^ N.factorization p)]
+        A ⧸ Ideal.span {(p : A)} :=
+      g.comp φ.symm.toAlgHom
+    have hg' : Function.Surjective g' := hg.comp φ.symm.surjective
+    have hker' : RingHom.ker g' = RingHom.ker bc := by
+      ext m
+      rw [RingHom.mem_ker, RingHom.mem_ker]
+      refine ⟨fun hm ↦ ?_, fun hm ↦ ?_⟩
+      · rcases hker (φ.symm m) hm with ⟨m', hm'⟩
+        rw [← φ.apply_symm_apply m, hm', map_smul, map_smul]
+        ext <;> simp [Algebra.smul_def]
+      · rcases exists_eq_smul_of_baseChange_eq_zero hm with ⟨m', rfl⟩
+        rw [map_smul, Nat.cast_smul_eq_nsmul, nsmul_eq_mul, hC, zero_mul]
+    exact ((Ideal.quotientKerAlgEquivOfSurjective hg').symm.trans
+      ((Ideal.quotientEquivAlgOfEq _ hker').trans
+        (Ideal.quotientKerAlgEquivOfSurjective hbc))).toMulEquiv.isField (Field.toIsField _)
+  · rcases isSplitAt_or_isNonsplitAt b hp with ⟨⟨φ⟩⟩ | h'
+    · let _ : Field (A ⧸ Ideal.span {(p : A)}) := h.toField
+      have hpu : ¬IsUnit (p : ZMod (p ^ N.factorization p)) := by
+        rw [ZMod.isUnit_iff_castHom_ne_zero he.out, map_natCast, ZMod.natCast_self, ne_eq,
+          not_not]
+      have hnot (z : ZMod (p ^ N.factorization p) × ZMod (p ^ N.factorization p))
+          (hz : IsUnit z.1 ∨ IsUnit z.2) : g (φ.symm z) ≠ 0 := fun h0 ↦ by
+        rcases hker _ h0 with ⟨m', hm'⟩
+        rw [← φ.apply_symm_apply z, hm', map_smul, Prod.smul_fst, Prod.smul_snd, smul_eq_mul,
+          smul_eq_mul] at hz
+        exact hz.elim (fun hz ↦ hpu (isUnit_of_mul_isUnit_left hz))
+          fun hz ↦ hpu (isUnit_of_mul_isUnit_left hz)
+      have h0 : g (φ.symm (1, 0)) * g (φ.symm (0, 1)) = 0 := by
+        rw [← map_mul, ← map_mul, Prod.mk_mul_mk, mul_zero, zero_mul, Prod.mk_zero_zero, map_zero,
+          map_zero]
+      exact ((mul_eq_zero.mp h0).elim (hnot (1, 0) (.inl isUnit_one))
+        (hnot (0, 1) (.inr isUnit_one))).elim
+    · exact h'
 
 variable [Algebra.Etale (ZMod N) A] [Algebra.Etale (ZMod N) A'] in
 lemma nonempty_algEquiv_tensor_of_isSplitAt_iff (b : Basis (Fin 2) (ZMod N) A)

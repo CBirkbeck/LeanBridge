@@ -2,7 +2,6 @@ import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.AlmostSimple
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.Quasisimple
 import Mathlib.Algebra.Field.ZMod
 import Mathlib.Data.Fintype.Parity
-import Mathlib.GroupTheory.GroupAction.ConjAct
 import Mathlib.GroupTheory.SpecificGroups.Alternating.Centralizer
 import Mathlib.GroupTheory.SpecificGroups.Alternating.Simple
 import Mathlib.LinearAlgebra.Projectivization.PSL.PSL2
@@ -90,19 +89,13 @@ lemma eq_one_of_forall_commute_alternatingGroup (h4 : 4 ≤ Nat.card α) {g : Pe
   exact hc.2 h.symm
 
 /-- **The symmetric group `S_n` is almost simple for `n ≥ 5`** (LMFDB `group.quasisimple`,
-`group.almost_simple`): it acts faithfully by conjugation on the non-abelian simple group `A_n`, by
-automorphisms that include all inner automorphisms of `A_n`. -/
-lemma isAlmostSimple (h5 : 5 ≤ Nat.card α) : IsAlmostSimple (Perm α) := by
-  refine ⟨alternatingGroup α, inferInstance, alternatingGroup.isSimpleGroup h5, ?_,
-    MulAut.conjNormal, (injective_iff_map_eq_one _).mpr fun g hg ↦ ?_, ?_⟩
-  · rw [alternatingGroup.isMulCommutative_iff_card_le_three]
-    omega
-  · refine eq_one_of_forall_commute_alternatingGroup (by omega) fun k hk ↦ ?_
-    have h : g * k * g⁻¹ = k :=
-      congrArg (fun φ : MulAut (alternatingGroup α) ↦ (φ ⟨k, hk⟩ : Perm α)) hg
-    exact mul_inv_eq_iff_eq_mul.mp h
-  · rintro _ ⟨s, rfl⟩
-    exact ⟨s, MulEquiv.ext fun t ↦ Subtype.ext (by simp)⟩
+`group.almost_simple`): the alternating group `A_n` is a simple normal subgroup with trivial
+centraliser. -/
+lemma isAlmostSimple (h5 : 5 ≤ Nat.card α) : IsAlmostSimple (Perm α) :=
+  have : IsSimpleGroup (alternatingGroup α) := alternatingGroup.isSimpleGroup h5
+  .of_centralizer_eq_bot <| eq_bot_iff.mpr fun g hg ↦ mem_bot.mpr <|
+    eq_one_of_forall_commute_alternatingGroup (by omega) fun k hk ↦
+      (mem_centralizer_iff.mp hg k hk).symm
 
 /-- **The symmetric group `S_n` is not quasisimple for `n ≥ 2`** (LMFDB `group.quasisimple`): it
 is not perfect, its commutator subgroup lying in the alternating group. -/

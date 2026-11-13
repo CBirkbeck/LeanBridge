@@ -40,6 +40,8 @@ similarity, which is what makes `GO(n, q)` unique.
 ## Main definitions
 
 * `LinearEquiv.scalarSubgroup`: the scalar automorphisms of a vector space.
+* `LinearEquiv.quotientScalarSubgroupEquiv`: an isomorphism of subgroups of `GL(V)` and `GL(W)`
+  given by conjugation induces an isomorphism of their quotients by the scalars.
 * `QuadraticForm.projectiveOrthogonalGroup` (LMFDB `group.orthogonal`): `PGO(Q)`.
 * `QuadraticForm.projectiveSpecialOrthogonalGroup` (LMFDB `group.orthogonal`): `PSO(Q)`.
 * `QuadraticForm.hyperbolicForm`, `QuadraticForm.ellipticForm`, `QuadraticForm.parabolicForm`
@@ -80,6 +82,31 @@ instance (H : Subgroup (V ≃ₗ[F] V)) : ((scalarSubgroup F V).subgroupOf H).No
     rw [Subgroup.mem_subgroupOf] at hs ⊢
     rwa [Subgroup.coe_mul, Subgroup.coe_mul, ← (commute_of_mem_scalarSubgroup hs g).eq,
       Subgroup.coe_inv, mul_inv_cancel_right]
+
+variable {W : Type*} [AddCommGroup W] [Module F W] (ψ : V ≃ₗ[F] W)
+
+private lemma mem_scalarSubgroup_iff_of_conj {f : V ≃ₗ[F] V} {g : W ≃ₗ[F] W}
+    (h : ∀ v, g (ψ v) = ψ (f v)) : f ∈ scalarSubgroup F V ↔ g ∈ scalarSubgroup F W := by
+  constructor
+  · rintro ⟨a, rfl⟩
+    refine ⟨a, LinearEquiv.ext fun w ↦ ?_⟩
+    rw [← ψ.apply_symm_apply w, h]
+    simp [Units.smul_def]
+  · rintro ⟨a, ha⟩
+    refine ⟨a, LinearEquiv.ext fun v ↦ ψ.injective ?_⟩
+    rw [← h, ← ha]
+    simp [Units.smul_def]
+
+/-- An isomorphism of subgroups `H₁ ≤ GL(V)` and `H₂ ≤ GL(W)` given by conjugation by a linear
+equivalence `ψ : V ≃ W` induces an isomorphism of their quotients by the scalar automorphisms. -/
+noncomputable def quotientScalarSubgroupEquiv {H₁ : Subgroup (V ≃ₗ[F] V)}
+    {H₂ : Subgroup (W ≃ₗ[F] W)} (φ : H₁ ≃* H₂)
+    (hφ : ∀ s v, (φ s : W ≃ₗ[F] W) (ψ v) = ψ ((s : V ≃ₗ[F] V) v)) :
+    H₁ ⧸ (scalarSubgroup F V).subgroupOf H₁ ≃* H₂ ⧸ (scalarSubgroup F W).subgroupOf H₂ :=
+  QuotientGroup.congr _ _ φ <| Subgroup.ext fun t ↦ by
+    rw [← MulEquiv.toMonoidHom_eq_coe, Subgroup.mem_map_equiv, Subgroup.mem_subgroupOf,
+      Subgroup.mem_subgroupOf]
+    exact mem_scalarSubgroup_iff_of_conj ψ fun v ↦ by rw [← hφ, MulEquiv.apply_symm_apply]
 
 end LinearEquiv
 

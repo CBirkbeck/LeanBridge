@@ -268,12 +268,10 @@ variable [Fact (3 ≤ 3)] in
 `C₄` by `x ↦ x ^ (2 - 1) = x`, so the knowl's `SD_{2^k}` is non-abelian only for `k ≥ 4`. -/
 lemma mul_comm_three (g₁ g₂ : SemiDihedralGroup 3) : g₁ * g₂ = g₂ * g₁ := by
   have hu : semiDihedralUnit 3 = 1 := Units.ext rfl
-  have h1 : unitMulAut (1 : (ZMod (2 ^ (3 - 1)))ˣ) = 1 := by
-    ext z
-    simp [unitMulAut_apply]
   have hφ (h : Multiplicative (ZMod 2)) :
       involutionMulAut _ (semiDihedralUnit_pow_two 3) h = 1 := by
-    simp [involutionMulAut, hu, h1]
+    ext z
+    simp [involutionMulAut, unitPowMulAut_apply, hu]
   ext <;> simp [hφ, mul_comm]
 
 end SemiDihedralGroup

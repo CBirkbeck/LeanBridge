@@ -202,9 +202,8 @@ lemma twoDimHom_xa_zero : twoDimHom (xa 0) = matrixJ := by
 
 lemma character_twoDim (g : QuaternionGroup 2) :
     (FDRep.of (GeneralLinearGroup.representation twoDimHom)).character g =
-      (twoDimHom g : Matrix (Fin 2) (Fin 2) ℂ).trace := by
-  rw [FDRep.character_of]
-  exact trace_toLin'_eq _
+      (twoDimHom g : Matrix (Fin 2) (Fin 2) ℂ).trace :=
+  (congrFun (FDRep.character_of _) g).trans (GeneralLinearGroup.character_representation _ g)
 
 end QuaternionGroup
 

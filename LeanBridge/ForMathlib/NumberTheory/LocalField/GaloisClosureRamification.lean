@@ -18,10 +18,6 @@ The Galois closure carries Tau Ceti's spectral-norm structure of nonarchimedean 
 `IsNonarchimedeanLocalField.topArtinSlope`; `E` may carry any structure of nonarchimedean local
 field extending that of `K` (mathematically there is only one, which is not used here).
 
-## Main definitions
-
-* `IsNonarchimedeanLocalField.toGaloisClosure`: a `K`-embedding of `E` into its Galois closure.
-
 ## Main results
 
 * `IsNonarchimedeanLocalField.isUnramified_galoisClosure_iff`: the Galois closure of `E / K` is
@@ -110,13 +106,6 @@ lemma isUnramified_normalClosure [IsUnramified K E] :
       fun f _ ↦ hrange f
   exact hPt.of_algEquiv topEquiv
 
-/-- A `K`-embedding of `E` into its Galois closure. -/
-noncomputable def toGaloisClosure : E →ₐ[K] Algebra.galoisClosure K E :=
-  (inclusion (E := (IsAlgClosed.lift : E →ₐ[K] AlgebraicClosure K).fieldRange) <| by
-    rintro _ ⟨x, rfl⟩
-    exact subset_adjoin _ _ (Set.mem_iUnion.mpr ⟨_, x, rfl⟩)).comp
-    (IsAlgClosed.lift : E →ₐ[K] AlgebraicClosure K).equivFieldRange.toAlgHom
-
 /-- **The Galois closure of an extension of local fields is unramified exactly when the extension
 is**: `E` embeds in its Galois closure, and the Galois closure is a compositum of conjugates of
 `E`. -/
@@ -124,11 +113,11 @@ lemma isUnramified_galoisClosure_iff :
     IsUnramified K (Algebra.galoisClosure K E) ↔ IsUnramified K E := by
   refine ⟨fun h ↦ ?_, fun h ↦ (isUnramified_normalClosure K E).of_algEquiv
     (equivOfEq (Algebra.galoisClosure_eq_normalClosure (F := K) E).symm)⟩
-  let _ : Algebra E (Algebra.galoisClosure K E) := (toGaloisClosure K E).toAlgebra
+  let _ : Algebra E (Algebra.galoisClosure K E) := (Algebra.toGaloisClosure K E).toAlgebra
   have : IsScalarTower K E (Algebra.galoisClosure K E) :=
-    .of_algebraMap_eq fun x ↦ ((toGaloisClosure K E).commutes x).symm
+    .of_algebraMap_eq fun x ↦ ((Algebra.toGaloisClosure K E).commutes x).symm
   have : ValuativeExtension E (Algebra.galoisClosure K E) :=
-    (toGaloisClosure K E).valuativeExtension
+    (Algebra.toGaloisClosure K E).valuativeExtension
   exact IsUnramified.tower_bot K E (Algebra.galoisClosure K E)
 
 /-- **The Galois closure of an extension of local fields is tamely ramified exactly when the
@@ -138,11 +127,11 @@ lemma isTamelyRamified_galoisClosure_iff :
     IsTamelyRamified K (Algebra.galoisClosure K E) ↔ IsTamelyRamified K E := by
   refine ⟨fun h ↦ ?_, fun h ↦ (h.normalClosure (Ω := AlgebraicClosure K)).of_algEquiv
     (equivOfEq (Algebra.galoisClosure_eq_normalClosure (F := K) E).symm)⟩
-  let _ : Algebra E (Algebra.galoisClosure K E) := (toGaloisClosure K E).toAlgebra
+  let _ : Algebra E (Algebra.galoisClosure K E) := (Algebra.toGaloisClosure K E).toAlgebra
   have : IsScalarTower K E (Algebra.galoisClosure K E) :=
-    .of_algebraMap_eq fun x ↦ ((toGaloisClosure K E).commutes x).symm
+    .of_algebraMap_eq fun x ↦ ((Algebra.toGaloisClosure K E).commutes x).symm
   have : ValuativeExtension E (Algebra.galoisClosure K E) :=
-    (toGaloisClosure K E).valuativeExtension
+    (Algebra.toGaloisClosure K E).valuativeExtension
   exact h.tower_bot
 
 variable [Algebra.IsSeparable K E]

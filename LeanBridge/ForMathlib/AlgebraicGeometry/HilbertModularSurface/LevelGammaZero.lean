@@ -1,4 +1,5 @@
 import LeanBridge.ForMathlib.AlgebraicGeometry.HilbertModularSurface.Level
+import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.ElementaryCommutator
 import Mathlib.NumberTheory.NumberField.Basic
 import Mathlib.RingTheory.DedekindDomain.Ideal.Basic
 
@@ -10,15 +11,11 @@ nonzero ideal of `𝒪_F`. The congruence subgroup `Γ₀(𝔑)_𝔟` (LMFDB `hm
 `HilbertModularGroup.gammaZero`) of `G = GL⁺(𝒪_F ⊕ 𝔟)` or `G = SL(𝒪_F ⊕ 𝔟)` contains the principal
 congruence subgroup `Γ_𝔟(𝔑)`, and `𝔑` is its level in the sense of LMFDB
 `hmsurface.congruence_subgroup` (`HilbertModularGroup.IsLevel`): if `Γ_𝔟(𝔐) ≤ Γ₀(𝔑)_𝔟`, then
-`𝔑 ∣ 𝔐`. Indeed, for `c ∈ 𝔐𝔟` the lower unipotent matrix `(1, 0; c, 1)` lies in `Γ_𝔟(𝔐)`, and
-if it lies in `Γ₀(𝔑)_𝔟` it maps `(1, 0)` into `𝒪_F ⊕ 𝔑𝔟`, so that `c ∈ 𝔑𝔟`; then `𝔐𝔟 ≤ 𝔑𝔟`,
-and `𝔐 ≤ 𝔑` as `𝔟` is invertible. So `𝔑` is the least ideal for divisibility whose principal
-congruence subgroup lies in `Γ₀(𝔑)_𝔟`: the level `𝔑` determines `Γ₀(𝔑)_𝔟`, and is determined by
-it.
-
-## Main definitions
-
-* `HilbertModularGroup.lowerUnipotent`: the lower unipotent matrix `(1, 0; c, 1)` of `GL₂(F)`.
+`𝔑 ∣ 𝔐`. Indeed, for `c ∈ 𝔐𝔟` the lower unipotent matrix `(1, 0; c, 1)`
+(`Matrix.GeneralLinearGroup.lowerUnipotent`) lies in `Γ_𝔟(𝔐)`, and if it lies in `Γ₀(𝔑)_𝔟` it
+maps `(1, 0)` into `𝒪_F ⊕ 𝔑𝔟`, so that `c ∈ 𝔑𝔟`; then `𝔐𝔟 ≤ 𝔑𝔟`, and `𝔐 ≤ 𝔑` as `𝔟` is
+invertible. So `𝔑` is the least ideal for divisibility whose principal congruence subgroup lies in
+`Γ₀(𝔑)_𝔟`: the level `𝔑` determines `Γ₀(𝔑)_𝔟`, and is determined by it.
 
 ## Main results
 
@@ -30,16 +27,14 @@ it.
 
 open Matrix NumberField
 
+open GeneralLinearGroup (det_lowerUnipotent lowerUnipotent)
+
 open scoped nonZeroDivisors
 
 namespace HilbertModularGroup
 
 variable {F : Type*} [Field F] (𝔟 : FractionalIdeal (𝓞 F)⁰ F) (G : Subgroup (GL (Fin 2) F))
   {𝔐 𝔑 : Ideal (𝓞 F)} {c : F}
-
-/-- The **lower unipotent matrix** `(1, 0; c, 1)` of `GL₂(F)`, with inverse `(1, 0; -c, 1)`. -/
-def lowerUnipotent (c : F) : GL (Fin 2) F :=
-  ⟨!![1, 0; c, 1], !![1, 0; -c, 1], by simp [one_fin_two], by simp [one_fin_two]⟩
 
 lemma lowerUnipotent_mulVec (c : F) (v : Fin 2 → F) :
     (lowerUnipotent c).val *ᵥ v = ![v 0, c * v 0 + v 1] := by
@@ -54,7 +49,7 @@ lemma lowerUnipotent_mem_gl (hc : c ∈ (𝔟 : Submodule (𝓞 F) F)) : lowerUn
   simpa using sub_mem h.2 (mul_mem_of_mem_of_mem_one hc h.1)
 
 lemma lowerUnipotent_mem_sl (hc : c ∈ (𝔟 : Submodule (𝓞 F) F)) : lowerUnipotent c ∈ sl 𝔟 :=
-  ⟨lowerUnipotent_mem_gl 𝔟 hc, MonoidHom.mem_ker.mpr (Units.ext (by simp [lowerUnipotent]))⟩
+  ⟨lowerUnipotent_mem_gl 𝔟 hc, MonoidHom.mem_ker.mpr (det_lowerUnipotent c)⟩
 
 lemma single_mem_smul_lattice (hc : c ∈ 𝔐 • (𝔟 : Submodule (𝓞 F) F)) :
     Pi.single 1 c ∈ 𝔐 • lattice 𝔟 := by
