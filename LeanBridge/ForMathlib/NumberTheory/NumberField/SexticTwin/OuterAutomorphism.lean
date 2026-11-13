@@ -183,7 +183,7 @@ lemma outerAutFinSix_mul_self : outerAutFinSix * outerAutFinSix = 1 :=
 
 /-- **The outer automorphism `θ` sends the stabilizer of a point, a copy of `S₅` in `S₆`, to a
 transitive subgroup of `S₆`.** This transitive copy of `S₅` is the image of `PGL₂(𝔽₅)` acting on the
-projective line over `𝔽₅`, which is not identified here. -/
+projective line over `𝔽₅` (`Equiv.Perm.map_stabilizer_outerAutFinSix`). -/
 lemma isPretransitive_map_stabilizer_outerAutFinSix : MulAction.IsPretransitive
     ((MulAction.stabilizer (Perm (Fin 6)) (5 : Fin 6)).map outerAutFinSix.toMonoidHom) (Fin 6) := by
   have key (ν : Perm (Fin 6)) (k : Fin 6) (h5 : ν 5 = 5 := by decide)

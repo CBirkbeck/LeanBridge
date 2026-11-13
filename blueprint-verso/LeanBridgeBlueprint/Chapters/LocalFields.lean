@@ -286,7 +286,7 @@ is called the *base field* of the family.
 Depends on: {uses "lf.family_polynomial"}[] {uses "lf.padic_field"}[]
 :::
 
-:::definition "lf.family_field_count"
+:::definition "lf.family_field_count" (lean := "IsNonarchimedeanLocalField.HerbrandInvariant.fieldCount, IsNonarchimedeanLocalField.HerbrandInvariant.family, IsNonarchimedeanLocalField.HerbrandInvariant.IsInvariantOf, IsNonarchimedeanLocalField.visibleSwanSlopes, IsNonarchimedeanLocalField.HerbrandInvariant.finite_family, IsNonarchimedeanLocalField.HerbrandInvariant.natCast_fieldCount, IsNonarchimedeanLocalField.HerbrandInvariant.fieldCount_eq_card_toFinset")
 *Field count.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.family_field_count))
 
 Let $`I/K` be a {bpref "lf.family_polynomial"}[family] of
@@ -330,7 +330,7 @@ $`p.f.e.c\ell`, where $`f,e,c,\ell` are defined as above, with $`K=\Q_p`.
 Depends on: {uses "lf.discriminant_exponent"}[] {uses "lf.family_polynomial"}[] {uses "lf.field_label"}[] {uses "lf.ramification_index"}[] {uses "lf.rams"}[] {uses "lf.residue_field_degree"}[] {uses "lf.wild_segments"}[]
 :::
 
-:::definition "lf.family_mass"
+:::definition "lf.family_mass" (lean := "IsNonarchimedeanLocalField.HerbrandInvariant.mass, IsNonarchimedeanLocalField.HerbrandInvariant.absoluteMass, IsNonarchimedeanLocalField.extensionMass, IsNonarchimedeanLocalField.absoluteExtensionMass, IsNonarchimedeanLocalField.HerbrandInvariant.unramifiedExtension_le_of_isInvariantOf, IsNonarchimedeanLocalField.HerbrandInvariant.mass_eq_sum, IsNonarchimedeanLocalField.HerbrandInvariant.massOverUnramified, IsNonarchimedeanLocalField.HerbrandInvariant.massOverUnramified_padic_eq")
 *Mass of a family.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.family_mass))
 
 Let $`I/K` be a {bpref "lf.family_polynomial"}[family] of extensions of
@@ -541,7 +541,7 @@ of $`L/K` which correspond to the segments of the
 Depends on: {uses "lf.discriminant_exponent"}[] {uses "lf.indices_of_inseparability"}[] {uses "lf.means"}[] {uses "lf.padic_field"}[] {uses "lf.ramification_index"}[] {uses "lf.ramification_polygon"}[] {uses "lf.residue_field_degree"}[]
 :::
 
-:::definition "lf.herbrand_function"
+:::definition "lf.herbrand_function" (lean := "IsNonarchimedeanLocalField.HerbrandInvariant.herbrandFunction, IsNonarchimedeanLocalField.HerbrandInvariant.swanSlope, IsNonarchimedeanLocalField.HerbrandInvariant.herbrandFunction_of_mem_Icc, IsNonarchimedeanLocalField.HerbrandInvariant.herbrandFunction_of_le, IsNonarchimedeanLocalField.HerbrandInvariant.inseparabilityIndex_eq_of_isVertex, IsNonarchimedeanLocalField.HerbrandInvariant.inseparabilityIndex_eq_of_isInvariantOf, IsNonarchimedeanLocalField.HerbrandInvariant.family, IsNonarchimedeanLocalField.visibleSwanSlopes")
 *Herbrand function of a family.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.herbrand_function))
 
 Let $`I/K` be a {bpref "lf.family_polynomial"}[family] of extensions of

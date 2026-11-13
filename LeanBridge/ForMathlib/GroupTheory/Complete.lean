@@ -49,9 +49,8 @@ The knowl also lists the condition that "the natural map from `G` to its inner a
 is an isomorphism", which only says that the centre is trivial: the intended map is the one to the
 full automorphism group, as here. Its third condition, that `G` is a direct factor of every group
 containing it as a normal subgroup, follows from completeness
-(`Subgroup.isComplement'_centralizer`); the converse, a theorem of Baer, is only proved here for
-the automorphisms, from `G` being a direct factor of its holomorph
-(`Group.surjective_conj_of_isComplement'`), and not for the centre. -/
+(`Subgroup.isComplement'_centralizer`), and conversely implies it, a theorem of Baer
+(`Group.isComplete_iff_forall_exists_isComplement'`). -/
 class IsComplete : Prop where
   bijective_conj : Function.Bijective (MulAut.conj : G →* MulAut G)
 

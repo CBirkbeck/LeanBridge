@@ -1263,7 +1263,7 @@ $$`f\left( \frac{a z + b}{c z + d} \right) = \chi(d)(c z + d)^k f(z) .`
 Depends on: {uses "cmf"}[]
 :::
 
-:::definition "specialfunction.poincare" (lean := "ModularForm.poincareSeries, ModularForm.poincareSeries_eq_tsum_of_section, ModularForm.hasSum_poincareSeries_of_three_le, ModularForm.mdifferentiable_poincareSeries_of_three_le, ModularForm.poincareSeries_mem_multiplierCuspSpace, ModularForm.span_poincareSeries_eq_multiplierCuspSpace_of_finiteIndex,ModularForm.exists_poincareSeries_eq_of_smul_infty_eq, ModularForm.poincareSeries_coe_mul")
+:::definition "specialfunction.poincare" (lean := "ModularForm.poincareSeries, ModularForm.poincareSeries_eq_tsum_of_section, ModularForm.hasSum_poincareSeries_of_three_le, ModularForm.mdifferentiable_poincareSeries_of_three_le, ModularForm.poincareSeries_mem_multiplierCuspSpace, ModularForm.span_poincareSeries_eq_multiplierCuspSpace_of_finiteIndex, ModularForm.exists_poincareSeries_eq_of_smul_infty_eq, ModularForm.poincareSeries_coe_mul")
 *Poincar&eacute; series.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/specialfunction.poincare))
 
 Let $`G` be a subgroup of {bpref "group.sl2z"}[$`\Gamma`] of finite {bpref "group.subgroup.index"}[index] $`m`, $`v` a {bpref "mf.multipliersystem"}[multiplier system] on $`G` and $`k\geq3\in\mathbb{N}` such that $`v(-I)=(-1)^k`. Let $`s` be a {bpref "group.fuchsian.cusps"}[cusp] representative of $`G` with {bpref "group.fuchsian.cusps.width"}[width] $`w` such that $`s=\gamma_s(\infty)` for some $`\gamma_s\in\Gamma` and let $`G_s=G\cap\gamma_s\Gamma_{\infty}\gamma_s^{-1}` be the \*stabilizer\* of the cusp $`s`. Assume that $`v` is trivial on $`G_s`. The *$`n`th Poincar\'e; series* for the cusp that $`s` represents is defined as

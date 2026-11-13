@@ -8,9 +8,11 @@ of `GL₂(ℤ̂)` is agreeable if `det(H) = ℤ̂ˣ`, `H` contains the scalar ma
 `H ≤ GL₂(ℤ̂)` and of `H ∩ SL₂(ℤ̂) ≤ SL₂(ℤ̂)` have the same odd prime divisors. As in
 `LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.Level`, `GL₂(ℤ̂)` is the product `∏_ℓ GL₂(ℤ_ℓ)`.
 
-That `H` is normal in its agreeable closure `H̃` with abelian quotient `H̃ / H` (Zywina,
-Prop. 8.1) is not formalised; the agreeable quotient is defined as the coset space `H̃ / H`, a
-group as soon as `H` is normal in `H̃`.
+The agreeable quotient is defined as the coset space `H̃ / H`, a group as soon as `H` is normal in
+its agreeable closure `H̃`. For an open `H` with `det(H) = ℤ̂ˣ`, as in Zywina's Prop. 8.1 and the
+LMFDB, `H` is normal in `H̃` with the same commutator subgroup, and `H̃ / H` is finite and abelian
+(`LeanBridge.ForMathlib.NumberTheory.ModularCurve.AgreeableClosure`); without that condition these
+claims can fail.
 
 ## Main definitions
 
@@ -55,9 +57,12 @@ intersection of the agreeable open subgroups of `GL₂(ℤ̂)` that contain `H`.
 noncomputable def agreeableClosure : Subgroup (∀ ℓ : Nat.Primes, GL (Fin 2) ℤ_[ℓ]) :=
   sInf {K | IsAgreeable K ∧ H ≤ K}
 
-/-- The **agreeable quotient** (LMFDB `modcurve.agreeable`) `H̃ / H` of a subgroup `H` of `GL₂(ℤ̂)`
-by its agreeable closure `H̃`, as a coset space; it is a group when `H` is normal in `H̃`, which
-holds for open `H` (Zywina, Prop. 8.1, not formalised), and it is then finite abelian. -/
+/-- The **agreeable quotient** (LMFDB `modcurve.agreeable`) `H̃ / H` of the agreeable closure `H̃`
+of a subgroup `H` of `GL₂(ℤ̂)` by `H`, as a coset space. It is a group when `H` is normal in `H̃`,
+which holds for open `H` with `det(H) = ℤ̂ˣ` (Zywina, Prop. 8.1;
+`Matrix.GeneralLinearGroup.normal_subgroupOf_agreeableClosure`), and it is then abelian
+(`Matrix.GeneralLinearGroup.isMulCommutative_agreeableQuotient`). It is finite for every open `H`
+(`Matrix.GeneralLinearGroup.finite_agreeableQuotient`). -/
 abbrev AgreeableQuotient : Type :=
   agreeableClosure H ⧸ H.subgroupOf (agreeableClosure H)
 

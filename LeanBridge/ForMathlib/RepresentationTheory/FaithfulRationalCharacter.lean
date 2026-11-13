@@ -13,7 +13,7 @@ the knowl's sense when `ψ(g) = ψ(1)` only for `g = 1`. Each conjugate `σ ∘ 
 when `χ` is, `σ` being injective and fixing `χ(1)`. So is the sum: if `∑ σχ(g) = ∑ σχ(1)`, then
 since every `σ ∘ χ` is the character of a representation, `Re σχ(g) ≤ |σχ(g)| ≤ χ(1)`, so all
 these inequalities are equalities, and `χ(g) = χ(1)`. The real case, the sums `χ + χ̄` behind the
-LMFDB's real degrees, is not treated here.
+LMFDB's real degrees, is treated in `FaithfulRealCharacter.lean`.
 
 ## Main results
 

@@ -31,9 +31,11 @@ For a `p`-adic field `K` (of characteristic zero) and a Herbrand invariant `I = 
 the family `I / K` is the set of classes of the extensions `L / K` of residue degree `f`,
 ramification index `ε p ^ w` and Swan slopes the Swan slopes `s_1, …, s_w` of `I`, the residue
 degree, ramification index and ramification groups of `L` being those of Tau Ceti's spectral-norm
-local-field structure. Its field count is its number of elements, `0` if it were infinite; that it
-is finite (Krasner) is not proved. Let `K_f` be the unramified extension of `K` of degree `f` in
-`K̄`, which lies in every extension in `I / K`
+local-field structure. Its field count is its number of elements; the family is finite
+(`IsNonarchimedeanLocalField.HerbrandInvariant.finite_family`, in
+`LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyFinite`, through Monge's
+representation theorem). Let `K_f` be the unramified extension of `K` of degree `f` in `K̄`, which
+lies in every extension in `I / K`
 (`IsNonarchimedeanLocalField.HerbrandInvariant.unramifiedExtension_le_of_isInvariantOf`). The mass
 of `L` is `1 / |Aut(L / K_f)|` and, when `ℚ_p ⊆ K`, its absolute mass is `1 / |Aut(L / ℚ_p)|`; both
 are invariant under `K`-isomorphism, and the masses of `I / K` are their sums over `I / K`.
@@ -43,7 +45,9 @@ these sums over the `ℚ_p`-isomorphism classes, the elements of `I / ℚ_p`: fo
 `I = ()_3^2`, `I / ℚ_p` consists of the classes of `K_2(p^{1/3})`, Galois over `ℚ_p`, and of
 `K_2((u p)^{1/3})` for a unit `u` of `K_2` that is not a cube, no automorphism of which moves
 `K_2`, of masses `1/3` and `1/3` and absolute masses `1/6` and `1/3`. It holds for the sums over the
-`K_f`-isomorphism classes, which count `K_2((u p)^{1/3})` and `K_2((u² p)^{1/3})` apart.
+`K_f`-isomorphism classes, which count `K_2((u p)^{1/3})` and `K_2((u² p)^{1/3})` apart
+(`IsNonarchimedeanLocalField.HerbrandInvariant.massOverUnramified_padic_eq`, in
+`LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyUnramifiedMass`).
 
 ## Main definitions
 
@@ -201,8 +205,9 @@ def family : ExtensionFamily K :=
     I.IsInvariantOf K E.1}
 
 /-- The **field count** (LMFDB `lf.family_field_count`) of a family `I / K`: the number of
-extensions in `I / K`, up to `K`-isomorphism, and `0` if there were infinitely many. There are
-finitely many extensions of `K` of given degree (Krasner), which is not proved here. -/
+extensions in `I / K`, up to `K`-isomorphism. It is a `Set.ncard`, which would be `0` for an
+infinite set, but `I / K` is finite (`IsNonarchimedeanLocalField.HerbrandInvariant.finite_family`,
+in `LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyFinite`). -/
 noncomputable def fieldCount : ℕ :=
   (I.family K).ncard
 

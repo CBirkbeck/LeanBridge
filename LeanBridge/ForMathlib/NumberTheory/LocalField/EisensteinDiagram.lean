@@ -8,10 +8,12 @@ Let `I = [s_1, …, s_w]_ε^f` be a Herbrand invariant at a prime `p`, with mean
 `p`-adic field with residue field of `q` elements, places the point `P_σ = (σ mod e, σ / e)` for
 each `σ ≤ e s_w`, standing for the monomial `π^{j + 1} x^i` (`σ = j e + i`) of Monge's generic
 Eisenstein polynomial, and sorts these points into types `A, B, C, D, Z` using the bands
-`B_k = {m_k ≤ s < s_k}` and the index `k = w - v_p(gcd(i, p ^ w))` of `i = σ mod e`. The
-diagram depends only on `I` and on whether `gcd(ε, q ^ f - 1) > 1`. Colours and shapes are display
-conventions, and the mass formula `M(I / K) = (q ^ f - 1) ^ α q ^ (f β)` is a theorem of Monge which
-is not formalised.
+`B_k = {m_k ≤ s < s_k}` and the index `k = w - v_p(gcd(i, p ^ w))` of `i = σ mod e`. The diagram
+depends only on `I` and on whether `gcd(ε, q ^ f - 1) > 1` (proved in
+`LeanBridge.ForMathlib.NumberTheory.LocalField.EisensteinDiagramCounts`). Colours and shapes are
+display conventions. Monge's mass formula, `∑_L 1 / |Aut(L / K_f)| = (q ^ f - 1) ^ α q ^ (f β)` over
+the `K_f`-isomorphism classes `L` of the extensions in `I / K`, is not formalised; the knowl's
+version, with `Aut(L / K)` and the sum over `I / K`, is false for `f > 1`.
 
 ## Main definitions
 

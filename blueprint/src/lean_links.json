@@ -1715,6 +1715,16 @@
     "commutatorElement": "Mathlib.Algebra.Group.Commutator",
     "commutator_eq_closure": "Mathlib.GroupTheory.Commutator.Basic"
   },
+  "group.complete": {
+    "Group.IsComplete": "LeanBridge.ForMathlib.GroupTheory.Complete",
+    "MulAut.conj": "Mathlib.Algebra.Group.End",
+    "Group.isComplete_iff": "LeanBridge.ForMathlib.GroupTheory.Complete",
+    "Group.isComplete_iff_forall_exists_isComplement'": "LeanBridge.ForMathlib.GroupTheory.CompleteDirectFactor",
+    "Subgroup.isComplement'_centralizer": "LeanBridge.ForMathlib.GroupTheory.Complete",
+    "Equiv.Perm.isComplete": "LeanBridge.ForMathlib.GroupTheory.Perm.MulAut",
+    "Equiv.Perm.surjective_conj_of_card_ne_six": "LeanBridge.ForMathlib.GroupTheory.Perm.MulAut",
+    "Equiv.Perm.center_eq_bot": "LeanBridge.ForMathlib.GroupTheory.Perm.MulAut"
+  },
   "group.complex_character_table": {
     "TauCeti.characterTable": "TauCeti.RepresentationTheory.CharacterTable.Table",
     "TauCeti.irreducibleCharacters": "TauCeti.RepresentationTheory.CharacterTable.Table"
@@ -1882,6 +1892,16 @@
     "MeasureTheory.Measure.isMulLeftInvariant_eq_smul_of_regular": "Mathlib.MeasureTheory.Measure.Haar.Unique",
     "TauCeti.haarProb_singleton": "TauCeti.RepresentationTheory.Compact.Finite"
   },
+  "group.heisenberg": {
+    "TauCeti.HeisenbergGroup": "TauCeti.GroupTheory.SpecificGroups.Heisenberg",
+    "TauCeti.HeisenbergGroup.mulEquivUpperUnitriangularGroup": "LeanBridge.ForMathlib.GroupTheory.SpecificGroups.HeisenbergClassification",
+    "TauCeti.HeisenbergGroup.natCard_zmod": "LeanBridge.ForMathlib.GroupTheory.SpecificGroups.HeisenbergClassification",
+    "TauCeti.HeisenbergGroup.not_isMulCommutative": "LeanBridge.ForMathlib.GroupTheory.SpecificGroups.HeisenbergClassification",
+    "TauCeti.HeisenbergGroup.exists_forall_iff_nonempty_mulEquiv": "LeanBridge.ForMathlib.GroupTheory.SpecificGroups.HeisenbergClassification",
+    "TauCeti.HeisenbergGroup.nonempty_mulEquiv_or_nonempty_mulEquiv_modularPCubedGroup": "LeanBridge.ForMathlib.GroupTheory.SpecificGroups.HeisenbergClassification",
+    "TauCeti.HeisenbergGroup.exponent_zmod": "LeanBridge.ForMathlib.GroupTheory.SpecificGroups.HeisenbergClassification",
+    "TauCeti.HeisenbergGroup.nonempty_mulEquiv_of_exponent_eq": "LeanBridge.ForMathlib.GroupTheory.SpecificGroups.HeisenbergClassification"
+  },
   "group.homomorphism": {
     "MonoidHom": "Mathlib.Algebra.Group.Hom.Defs",
     "MonoidHom.mk'": "Mathlib.Algebra.Group.Hom.Defs"
@@ -1893,6 +1913,16 @@
   "group.isomorphism": {
     "MulEquiv": "Mathlib.Algebra.Group.Equiv.Defs",
     "MulEquiv.ofBijective": "Mathlib.Algebra.Group.Equiv.Defs"
+  },
+  "group.linear": {
+    "Matrix.ProjGenLinGroup": "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Projective",
+    "TauCeti.GeneralLinear.hopfIdealPointsSubgroup": "TauCeti.Algebra.AlgebraicGroup.GeneralLinear.HopfIdealPoints.Basic",
+    "TauCeti.ProjectiveGeneralLinear.coordinateHopfAlgebra": "TauCeti.Algebra.AlgebraicGroup.ProjectiveGeneralLinear.Basic",
+    "Matrix.GeneralLinearGroup.center_eq_range_scalar": "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Basic",
+    "Matrix.ProjGenLinGroup.mulEquivRangeToPermHom": "LeanBridge.ForMathlib.LinearAlgebra.Projectivization.ProjGenLinAction",
+    "Matrix.ProjectiveSpecialLinearGroup.isSimpleGroup_fin": "LeanBridge.ForMathlib.LinearAlgebra.Projectivization.PSLSimple",
+    "Matrix.ProjGenLinGroup.isAlmostSimple_fin": "LeanBridge.ForMathlib.LinearAlgebra.Matrix.GeneralLinearGroup.ProjectiveAlmostSimple",
+    "Matrix.ProjGenLinGroup.isSimpleGroup_fin_iff": "LeanBridge.ForMathlib.LinearAlgebra.Matrix.GeneralLinearGroup.ProjectiveAlmostSimple"
   },
   "group.linear_automorphism": {
     "Matrix.GeneralSemilinearGroup": "LeanBridge.ForMathlib.LinearAlgebra.Matrix.SemilinearGroup",
@@ -1999,6 +2029,16 @@
   "group.order_stats": {
     "Monoid.orderStatistics": "LeanBridge.ForMathlib.GroupTheory.OrderStatistics",
     "Monoid.count_orderStatistics": "LeanBridge.ForMathlib.GroupTheory.OrderStatistics"
+  },
+  "group.orthogonal": {
+    "TauCeti.QuadraticMap.orthogonalGroup": "TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.Basic",
+    "TauCeti.QuadraticMap.specialOrthogonalGroup": "TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.Basic",
+    "QuadraticForm.projectiveOrthogonalGroup": "LeanBridge.ForMathlib.GroupTheory.SpecificGroups.Orthogonal",
+    "QuadraticForm.projectiveSpecialOrthogonalGroup": "LeanBridge.ForMathlib.GroupTheory.SpecificGroups.Orthogonal",
+    "QuadraticForm.ellipticForm": "LeanBridge.ForMathlib.GroupTheory.SpecificGroups.Orthogonal",
+    "QuadraticForm.exists_equivalent_smul_parabolicForm": "LeanBridge.ForMathlib.LinearAlgebra.QuadraticForm.FiniteFieldClassification",
+    "QuadraticForm.equivalent_hyperbolicForm_or_equivalent_ellipticForm": "LeanBridge.ForMathlib.LinearAlgebra.QuadraticForm.FiniteFieldClassification",
+    "QuadraticForm.not_equivalent_smul_hyperbolicForm_ellipticForm": "LeanBridge.ForMathlib.LinearAlgebra.QuadraticForm.FiniteFieldClassification"
   },
   "group.other_dihedral": {
     "OtherDihedralGroup": "LeanBridge.ForMathlib.GroupTheory.SpecificGroups.ModularMaximalCyclic",
@@ -2821,6 +2861,25 @@
     "IsNonarchimedeanLocalField.ExtensionClass": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamily",
     "IsNonarchimedeanLocalField.HerbrandInvariant.family": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamily"
   },
+  "lf.family_field_count": {
+    "IsNonarchimedeanLocalField.HerbrandInvariant.fieldCount": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamily",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.family": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamily",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.IsInvariantOf": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamily",
+    "IsNonarchimedeanLocalField.visibleSwanSlopes": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamily",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.finite_family": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyFinite",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.natCast_fieldCount": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyFinite",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.fieldCount_eq_card_toFinset": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyFinite"
+  },
+  "lf.family_mass": {
+    "IsNonarchimedeanLocalField.HerbrandInvariant.mass": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamily",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.absoluteMass": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamily",
+    "IsNonarchimedeanLocalField.extensionMass": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamily",
+    "IsNonarchimedeanLocalField.absoluteExtensionMass": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamily",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.unramifiedExtension_le_of_isInvariantOf": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamily",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.mass_eq_sum": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyFinite",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.massOverUnramified": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyUnramifiedMass",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.massOverUnramified_padic_eq": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyUnramifiedMass"
+  },
   "lf.galois_invariants": {
     "IsNonarchimedeanLocalField.wildArtinSlopes": "LeanBridge.ForMathlib.NumberTheory.LocalField.WildArtinSlopes",
     "IsNonarchimedeanLocalField.swanSlopes": "LeanBridge.ForMathlib.NumberTheory.LocalField.WildArtinSlopes",
@@ -2841,6 +2900,16 @@
     "IsNonarchimedeanLocalField.sum_one_div_sub_one_div_add_one_div": "LeanBridge.ForMathlib.NumberTheory.LocalField.GaloisMeanSlope",
     "IsNonarchimedeanLocalField.one_div_sub_one_div_eq_tameDegree": "LeanBridge.ForMathlib.NumberTheory.LocalField.GaloisMeanSlope",
     "IsNonarchimedeanLocalField.wildArtinSlopesOfIsGalois": "LeanBridge.ForMathlib.NumberTheory.LocalField.WildArtinSlopes"
+  },
+  "lf.herbrand_function": {
+    "IsNonarchimedeanLocalField.HerbrandInvariant.herbrandFunction": "LeanBridge.ForMathlib.NumberTheory.LocalField.HerbrandInvariantFamily",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.swanSlope": "LeanBridge.ForMathlib.NumberTheory.LocalField.HerbrandInvariantFamily",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.herbrandFunction_of_mem_Icc": "LeanBridge.ForMathlib.NumberTheory.LocalField.HerbrandInvariantFamily",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.herbrandFunction_of_le": "LeanBridge.ForMathlib.NumberTheory.LocalField.HerbrandInvariantFamily",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.inseparabilityIndex_eq_of_isVertex": "LeanBridge.ForMathlib.NumberTheory.LocalField.MongeInseparability",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.inseparabilityIndex_eq_of_isInvariantOf": "LeanBridge.ForMathlib.NumberTheory.LocalField.MongeInseparability",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.family": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamily",
+    "IsNonarchimedeanLocalField.visibleSwanSlopes": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamily"
   },
   "lf.inertia_group": {
     "ValuationSubring.inertiaSubgroup": "Mathlib.RingTheory.Valuation.RamificationGroup",
@@ -3523,6 +3592,16 @@
     "UpperHalfPlane.Completed.hasBasis_nhds_infty": "LeanBridge.ForMathlib.Analysis.Complex.UpperHalfPlane.Completed",
     "UpperHalfPlane.Completed.smul_cusp": "LeanBridge.ForMathlib.Analysis.Complex.UpperHalfPlane.Completed",
     "UpperHalfPlane": "Mathlib.Analysis.Complex.UpperHalfPlane.Basic"
+  },
+  "modcurve.agreeable": {
+    "Matrix.GeneralLinearGroup.IsAgreeable": "LeanBridge.ForMathlib.NumberTheory.ModularCurve.Agreeable",
+    "Matrix.GeneralLinearGroup.agreeableClosure": "LeanBridge.ForMathlib.NumberTheory.ModularCurve.Agreeable",
+    "Matrix.GeneralLinearGroup.AgreeableQuotient": "LeanBridge.ForMathlib.NumberTheory.ModularCurve.Agreeable",
+    "Matrix.GeneralLinearGroup.agreeableClosure_eq": "LeanBridge.ForMathlib.NumberTheory.ModularCurve.AgreeableClosure",
+    "Matrix.GeneralLinearGroup.normal_subgroupOf_agreeableClosure": "LeanBridge.ForMathlib.NumberTheory.ModularCurve.AgreeableClosure",
+    "Matrix.GeneralLinearGroup.commutator_agreeableClosure": "LeanBridge.ForMathlib.NumberTheory.ModularCurve.AgreeableClosure",
+    "Matrix.GeneralLinearGroup.isMulCommutative_agreeableQuotient": "LeanBridge.ForMathlib.NumberTheory.ModularCurve.AgreeableClosure",
+    "Matrix.GeneralLinearGroup.finite_agreeableQuotient": "LeanBridge.ForMathlib.NumberTheory.ModularCurve.AgreeableClosure"
   },
   "modcurve.entanglement_index": {
     "Matrix.GeneralLinearGroup.entanglementIndex": "LeanBridge.ForMathlib.NumberTheory.ModularCurve.Entanglement",

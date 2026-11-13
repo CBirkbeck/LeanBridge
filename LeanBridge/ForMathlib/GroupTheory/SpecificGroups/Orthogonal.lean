@@ -25,11 +25,17 @@ Over a finite field `F = 𝔽_q`, the LMFDB names the orthogonal groups of the s
 
 Here the elliptic form uses a chosen `ζ ∈ F` for which `t² + t + ζ` has no root in `F`
 (`QuadraticForm.anisotropicCoeff`), so that its last plane is anisotropic
-(`QuadraticForm.anisotropic_anisotropicPlane`). That these forms represent the classes of
-nondegenerate quadratic forms over `𝔽_q` up to similarity (one class in odd dimension, two in even
-dimension), so that the groups do not depend on these choices up to isomorphism, is not proved
-here. In odd dimension and odd characteristic there are two isometry classes, which are similar:
-the knowl's "one equivalence class" holds for similarity, which is what makes `GO(n, q)` unique.
+(`QuadraticForm.anisotropic_anisotropicPlane`). These forms represent the classes of nondegenerate
+quadratic forms over `𝔽_q` up to similarity, one class in odd dimension and two in even dimension
+(`QuadraticForm.exists_equivalent_smul_parabolicForm`,
+`QuadraticForm.equivalent_hyperbolicForm_or_equivalent_ellipticForm`,
+`QuadraticForm.not_equivalent_smul_hyperbolicForm_ellipticForm`), and every anisotropic plane is
+isometric to `x² + x y + ζ y²` (`QuadraticForm.equivalent_anisotropicPlane`); similar forms have
+isomorphic groups `O`, `SO`, `PGO` and `PSO` (`QuadraticForm.orthogonalGroupEquivOfSMul` and its
+companions), so the groups do not depend on these choices up to isomorphism. In odd dimension and
+odd characteristic there are two isometry classes, which are similar
+(`QuadraticForm.not_equivalent_smul_parabolicForm`): the knowl's "one equivalence class" holds for
+similarity, which is what makes `GO(n, q)` unique.
 
 ## Main definitions
 

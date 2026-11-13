@@ -286,7 +286,7 @@ The commutator subgroup is always a {bpref "group.subgroup.normal"}[normal] subg
 Depends on: {uses "group"}[] {uses "group.abelian"}[] {uses "group.quotient"}[] {uses "group.subgroup"}[] {uses "group.subgroup.normal"}[]
 :::
 
-:::definition "group.complete"
+:::definition "group.complete" (lean := "Group.IsComplete, MulAut.conj, Group.isComplete_iff, Group.isComplete_iff_forall_exists_isComplement', Subgroup.isComplement'_centralizer, Equiv.Perm.isComplete, Equiv.Perm.surjective_conj_of_card_ne_six, Equiv.Perm.center_eq_bot")
 *Complete group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.complete))
 
 A group $`G` is *complete* if one of the following equivalent conditions holds:
@@ -681,7 +681,7 @@ As a special case, if $`G` is finite of {bpref "group.order"}[order] $`n`, then 
 Depends on: {uses "group"}[] {uses "group.order"}[]
 :::
 
-:::definition "group.heisenberg"
+:::definition "group.heisenberg" (lean := "TauCeti.HeisenbergGroup, TauCeti.HeisenbergGroup.mulEquivUpperUnitriangularGroup, TauCeti.HeisenbergGroup.natCard_zmod, TauCeti.HeisenbergGroup.not_isMulCommutative, TauCeti.HeisenbergGroup.exists_forall_iff_nonempty_mulEquiv, TauCeti.HeisenbergGroup.nonempty_mulEquiv_or_nonempty_mulEquiv_modularPCubedGroup, TauCeti.HeisenbergGroup.exponent_zmod, TauCeti.HeisenbergGroup.nonempty_mulEquiv_of_exponent_eq")
 *Heisenberg group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.heisenberg))
 
 Given a prime $`p`, the *Heisenberg group* $`\He_p` is the group of $`3 \times 3` unitriangular matrices over the finite field $`\F_p`.  Explicitly, it is given by
@@ -793,7 +793,7 @@ The *label of a rational character* of a {bpref "group"}[group] has the form $`N
 Depends on: {uses "group"}[]
 :::
 
-:::definition "group.linear"
+:::definition "group.linear" (lean := "Matrix.ProjGenLinGroup, TauCeti.GeneralLinear.hopfIdealPointsSubgroup, TauCeti.ProjectiveGeneralLinear.coordinateHopfAlgebra, Matrix.GeneralLinearGroup.center_eq_range_scalar, Matrix.ProjGenLinGroup.mulEquivRangeToPermHom, Matrix.ProjectiveSpecialLinearGroup.isSimpleGroup_fin, Matrix.ProjGenLinGroup.isAlmostSimple_fin, Matrix.ProjGenLinGroup.isSimpleGroup_fin_iff")
 *Linear and Projective Linear Groups.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.linear))
 
 Over any field $`K`, linear group usually refers to an algebraic group which is a (Zariski closed) subgroup of the general linear group GL$`(n,K)` of invertible $`n\times n` matrices with coefficients in $`K`. Similarly, projective linear group refers to a closed subgroup of $`\text{PGL}(n,K)=\text{GL}(n,K)/\{\text{scalar matrices}\}`, the group of linear automorphisms of the projective $`n`-space. When $`K=\mathbb{F}_q` is a finite field, these groups are finite, and often simple or almost simple, and so they play an important role in the classification of finite simple groups.
@@ -1031,7 +1031,7 @@ For example, the Quaternion group of order 8 has order statistics $`\{1,2,4,4,4,
 Depends on: {uses "group.element_order"}[]
 :::
 
-:::definition "group.orthogonal"
+:::definition "group.orthogonal" (lean := "TauCeti.QuadraticMap.orthogonalGroup, TauCeti.QuadraticMap.specialOrthogonalGroup, QuadraticForm.projectiveOrthogonalGroup, QuadraticForm.projectiveSpecialOrthogonalGroup, QuadraticForm.ellipticForm, QuadraticForm.exists_equivalent_smul_parabolicForm, QuadraticForm.equivalent_hyperbolicForm_or_equivalent_ellipticForm, QuadraticForm.not_equivalent_smul_hyperbolicForm_ellipticForm")
 *Orthogonal group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.orthogonal))
 
 An *orthogonal group* over a vector space $`V` of dimension $`n` over a field $`F` is a subgroup of $`\GL_n(F)` that fixes a quadratic form $`Q`, i.e. all those $`m` such that $`Q(mx) = Q(x)` for all $`x \in V`.

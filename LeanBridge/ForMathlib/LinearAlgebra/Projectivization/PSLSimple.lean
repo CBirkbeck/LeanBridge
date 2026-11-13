@@ -19,8 +19,10 @@ facts about `SL(n, F)` are needed.
   `Matrix.SpecialLinearGroup.commutatorElement_transvection`).
 
 Over a finite field `𝔽_q` this is the simplicity of `PSL(n, q)` stated in LMFDB
-`group.special_linear`, for `n ≥ 3`, and for `n = 2` when `q ≥ 4` (`PSL(1, q)` is trivial). These
-simple groups are projective linear groups in the sense of LMFDB `group.linear`.
+`group.special_linear`, for `n ≥ 3`, and for `n = 2` when `q ≥ 4` (`PSL(1, q)` is trivial).
+Through Mathlib's injective `Matrix.ProjectiveSpecialLinearGroup.toPGL` these simple groups are
+normal subgroups of `PGL(n, q)`, with trivial centraliser (`ProjectiveAlmostSimple.lean`, LMFDB
+`group.linear`).
 
 ## Main definitions
 

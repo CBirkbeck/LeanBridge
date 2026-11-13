@@ -133,10 +133,12 @@ LMFDB knowl takes the auxiliary heights positive, and writes the product of the 
 primes `ℓ ∣ #G`, a misprint for `ℓ ∤ #G`.
 
 The product is a `finprod`, which is `1` when infinitely many factors differ from `1`. That does not
-happen for a finite `G`, though this is not proved here: the kernel of `φ` is open, so it cuts out a
-finite Galois extension of `ℚ`, and at the primes `ℓ ∤ #G` unramified in it the restriction `φ_ℓ`
-kills inertia, so that `H_{w,ℓ}(φ_ℓ) = ℓ ^ w(1) = 1`. (For an infinite `G`, outside the knowl's
-setting, `Nat.card G = 0` and every prime counts as dividing `#G`.) -/
+happen for a finite `G` (`NumberField.WeightFunction.finite_mulSupport_inertialHeight`): the kernel
+of `φ` is open, so it cuts out a finite Galois extension of `ℚ`, and at the primes `ℓ ∤ #G`
+unramified in it the restriction `φ_ℓ` kills inertia
+(`NumberField.forall_apply_map_eq_one_iff_notMem_ramifiedPrimes`), so that
+`H_{w,ℓ}(φ_ℓ) = ℓ ^ w(1) = 1`. (For an infinite `G`, outside the knowl's setting, `Nat.card G = 0`
+and every prime counts as dividing `#G`.) -/
 noncomputable def inertialHeight
     (H : ∀ (ℓ : ℕ) [Fact ℓ.Prime], (Field.absoluteGaloisGroup ℚ_[ℓ] →ₜ* G) → ℝ≥0)
     (φ : Field.absoluteGaloisGroup ℚ →ₜ* G) : ℝ≥0 :=
@@ -180,7 +182,7 @@ discriminant**: with the auxiliary local heights `H ℓ χ` equal to `ℓ` or `1
 `ℓ ∣ #G`, according as `χ : Gal(ℚ̄_ℓ/ℚ_ℓ) → G` is ramified (does not kill the inertia subgroup) or
 not, the inertial height of `φ` is the product over all primes `ℓ` of `H ℓ (φ_ℓ)`, the product of
 the primes at which `φ` is ramified. These are the primes ramified in the number field cut out by
-`φ`; that comparison with the ramification of number fields is not formalised. -/
+`φ` (`NumberField.WeightFunction.inertialHeight_indicator_eq_finprod_ramifiedPrimes`). -/
 lemma inertialHeight_indicator (φ : Field.absoluteGaloisGroup ℚ →ₜ* G) :
     letI H (ℓ : ℕ) [Fact ℓ.Prime] (χ : Field.absoluteGaloisGroup ℚ_[ℓ] →ₜ* G) : ℝ≥0 :=
       if (inertiaSubgroup ℚ_[ℓ]).map (χ : Field.absoluteGaloisGroup ℚ_[ℓ] →* G) = ⊥ then 1 else ℓ

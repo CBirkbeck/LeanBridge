@@ -27,7 +27,7 @@ The curve $`X_H` can alternatively be constructed as the coarse moduli space of 
 Depends on: {uses "ag.curve.smooth"}[] {uses "ag.quotient_curve"}[] {uses "cmf.congruence_subgroup"}[] {uses "ec"}[] {uses "ec.galois_rep"}[] {uses "gl2.level"}[] {uses "gl2.open"}[] {uses "mf.upper_half_plane"}[] {uses "modcurve.cusps"}[] {uses "modcurve.level_structure"}[] {uses "modcurve.xn"}[]
 :::
 
-:::definition "modcurve.agreeable"
+:::definition "modcurve.agreeable" (lean := "Matrix.GeneralLinearGroup.IsAgreeable, Matrix.GeneralLinearGroup.agreeableClosure, Matrix.GeneralLinearGroup.AgreeableQuotient, Matrix.GeneralLinearGroup.agreeableClosure_eq, Matrix.GeneralLinearGroup.normal_subgroupOf_agreeableClosure, Matrix.GeneralLinearGroup.commutator_agreeableClosure, Matrix.GeneralLinearGroup.isMulCommutative_agreeableQuotient, Matrix.GeneralLinearGroup.finite_agreeableQuotient")
 *Agreeable.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.agreeable))
 
 An {bpref "gl2.open"}[open subgroup] $`H\le \GL_2(\widehat{\Z})` (and the corresponding {bpref "modcurve"}[modular curve] $`X_H`) is *agreeable* (as defined by Zywina in Section 1.4 of ) if the following hold:
