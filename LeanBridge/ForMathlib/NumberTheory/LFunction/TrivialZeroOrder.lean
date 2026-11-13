@@ -104,21 +104,6 @@ lemma eventuallyEq_completed : L.completed =ᶠ[𝓝[≠] s]
   exact L.completed_eq_of_notMem_gammaPoles hz hz₀ hz₁
 
 variable (s) in
-lemma meromorphicAt_toFun' : MeromorphicAt L.toFun s := by
-  rcases eq_or_ne s 1 with rfl | hs
-  · exact L.meromorphicAt_toFun
-  · exact (L.analyticOnNhd_toFun s hs).meromorphicAt
-
-lemma natCast_conductor_ne_zero : (L.conductor : ℂ) ≠ 0 :=
-  Nat.cast_ne_zero.mpr L.selbergData.conductor_pos.ne'
-
-lemma conductor_cpow_ne_zero (z : ℂ) : (L.conductor : ℂ) ^ (z / 2) ≠ 0 :=
-  cpow_ne_zero_iff.mpr (.inl L.natCast_conductor_ne_zero)
-
-lemma analyticAt_conductor_cpow : AnalyticAt ℂ (fun z : ℂ ↦ (L.conductor : ℂ) ^ (z / 2)) s :=
-  ((differentiable_id.div_const 2).const_cpow (.inl L.natCast_conductor_ne_zero)).analyticAt s
-
-variable (s) in
 lemma meromorphicAt_completed : MeromorphicAt L.completed s := by
   refine MeromorphicAt.congr ?_ (L.eventuallyEq_completed s).symm
   have hγ : MeromorphicAt L.selbergData.gammaFactor s :=

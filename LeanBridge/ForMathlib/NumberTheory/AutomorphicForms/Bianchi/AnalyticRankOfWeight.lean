@@ -1,6 +1,6 @@
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.AnalyticRank
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.NewformOfWeight
-import LeanBridge.ForMathlib.NumberTheory.LFunction.AnalyticRankParity
+import LeanBridge.ForMathlib.NumberTheory.LFunction.RootNumber
 
 /-!
 # The analytic rank of a Bianchi newform of any weight
@@ -22,8 +22,7 @@ depend on the choice (`IsAnalyticRank.eq`). Over `K` of class number `1`, for `k
 continuation and functional equation of `L(F, s)` give such an L-function
 (`BianchiNewformOfWeight.analyticLFunction`, `BianchiNewformOfWeight.exists_isAnalyticRank`). Its
 parity is given by the sign `ε` of the functional equation, `ε = (-1)ʳ`, when the Dirichlet
-coefficients are real and the gamma factor is real at the central point
-(`IsAnalyticRank.sign_eq_neg_one_pow`); the coefficients are real
+coefficients are real (`IsAnalyticRank.sign_eq_neg_one_pow`); the coefficients are real
 (`BianchiNewformOfWeight.conj_lCoeff`), and `ε` is `(-1)^{k/2+1}` times the sign of `F`
 (`BianchiNewformOfWeight.neg_one_pow_mul_eq_neg_one_pow`), equal to it only for `k ≡ 2 mod 4`,
 contrary to LMFDB `mf.bianchi.sign`.
@@ -87,17 +86,15 @@ lemma IsAnalyticRank.eq (h : F.IsAnalyticRank r) (h' : F.IsAnalyticRank r') : r 
 
 /-- **The sign of the functional equation determines the parity of the analytic rank** (LMFDB
 `mf.bianchi.anr`): if `F` has analytic rank `r` and real Dirichlet coefficients, then every analytic
-L-function `L` with the Dirichlet coefficients of `F` whose gamma factor is real at the central
-point has sign `(-1)ʳ`. The coefficients are real (`conj_lCoeff`), the gamma factor of `L(F, s)` is
-`Γ_ℂ(s + k / 4)²` (`gammaFactor_selbergData`), and the sign of `L` is `(-1)^{k/2+1}` times the sign
-of `F` (`neg_one_pow_mul_eq_neg_one_pow`). -/
+L-function `L` with the Dirichlet coefficients of `F` has sign `(-1)ʳ`, as a self-dual L-function
+(`AnalyticLFunction.sign_eq_neg_one_pow_analyticRank_of_selfDual`). The coefficients are real
+(`conj_lCoeff`), and the sign of `L` is `(-1)^{k/2+1}` times the sign of `F`
+(`neg_one_pow_mul_eq_neg_one_pow`). -/
 lemma IsAnalyticRank.sign_eq_neg_one_pow (h : F.IsAnalyticRank r)
     (hF : ∀ n ≠ 0, conj (F.lCoeff n) = F.lCoeff n) {L : AnalyticLFunction}
-    (hL : ∀ n ≠ 0, L.coeff n = F.lCoeff n)
-    (hγ : conj (L.selbergData.gammaFactor (1 / 2)) = L.selbergData.gammaFactor (1 / 2)) :
-    L.sign = (-1) ^ r := by
+    (hL : ∀ n ≠ 0, L.coeff n = F.lCoeff n) : L.sign = (-1) ^ r := by
   rw [h.eq ⟨L, hL, rfl⟩]
-  exact L.sign_eq_neg_one_pow_analyticRank (fun n hn ↦ (hL n hn).symm ▸ hF n hn) hγ
+  exact L.sign_eq_neg_one_pow_analyticRank_of_selfDual fun n hn ↦ (hL n hn).symm ▸ hF n hn
 
 end BianchiNewformOfWeight
 

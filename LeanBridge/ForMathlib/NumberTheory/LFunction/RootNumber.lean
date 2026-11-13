@@ -53,12 +53,6 @@ namespace Complex
 
 variable {A B : Multiset ℂ} {s z : ℂ}
 
-private lemma differentiable_multiset_prod_map {f : ℂ → ℂ → ℂ}
-    (hf : ∀ a ∈ A, Differentiable ℂ (f a)) :
-    Differentiable ℂ fun s ↦ (A.map fun a ↦ f a s).prod := by
-  classical
-  exact fun s ↦ (HasFDerivAt.multiset_prod fun a ha ↦ (hf a ha s).hasFDerivAt).differentiableAt
-
 variable (s) in
 lemma inv_Gammaℝ_eq_mul_inv_Gammaℝ_add_two : (Gammaℝ s)⁻¹ = s / (2 * π) * (Gammaℝ (s + 2))⁻¹ := by
   rcases eq_or_ne s 0 with rfl | hs
@@ -69,8 +63,7 @@ lemma inv_Gammaℝ_eq_mul_inv_Gammaℝ_add_two : (Gammaℝ s)⁻¹ = s / (2 * π
 variable (A) in
 lemma differentiable_prod_inv_Gammaℝ :
     Differentiable ℂ fun s ↦ (A.map fun a ↦ (Gammaℝ (s + a))⁻¹).prod :=
-  differentiable_multiset_prod_map fun a _ ↦ differentiable_Gammaℝ_inv.comp
-    (differentiable_id.add_const a)
+  fun s ↦ .multiset_prod fun a _ ↦ differentiable_Gammaℝ_inv.comp (differentiable_id.add_const a) s
 
 lemma prod_inv_Gammaℝ_ne_zero (hA : ∀ a ∈ A, 0 ≤ a.re) (hs : 0 < s.re) :
     (A.map fun a ↦ (Gammaℝ (s + a))⁻¹).prod ≠ 0 :=
@@ -89,7 +82,7 @@ lemma prod_inv_Gammaℝ_eq_mul_prod_inv_Gammaℝ_add_two : (A.map fun a ↦ (Gam
 variable (A) in
 lemma differentiable_prod_add_div_two_pi :
     Differentiable ℂ fun s : ℂ ↦ (A.map fun a ↦ (s + a) / (2 * π)).prod :=
-  differentiable_multiset_prod_map fun a _ ↦ by fun_prop
+  fun _ ↦ .multiset_prod fun _ _ ↦ by fun_prop
 
 variable (A z) in
 lemma analyticOrderAt_prod_add_div_two_pi :
@@ -281,8 +274,6 @@ lemma gammaFactor_mul_gammaFactor_one_sub (hL : ∀ n ≠ 0, conj (L.coeff n) = 
     simpa using hs₀
   have hN (w : ℂ) : conj ((L.conductor : ℂ) ^ (conj w / 2)) = (L.conductor : ℂ) ^ (w / 2) := by
     simpa [map_ofNat] using conj_natCast_cpow_conj L.conductor (w / 2)
-  have hn (w : ℂ) : (L.conductor : ℂ) ^ (w / 2) ≠ 0 := by
-    simp [conductor, L.selbergData.conductor_pos.ne']
   have E₁ : L.completingFactor s * L.toFun s =
       L.sign * (conj (L.completingFactor (conj (1 - s))) * L.toFun (1 - s)) :=
     L.completingFactor_mul_toFun_eq_sign_mul hL hs₀ hs₁
@@ -290,7 +281,8 @@ lemma gammaFactor_mul_gammaFactor_one_sub (hL : ∀ n ≠ 0, conj (L.coeff n) = 
       L.sign * (conj (L.completingFactor (conj s)) * L.toFun s) := by
     simpa only [sub_sub_cancel] using L.completingFactor_mul_toFun_eq_sign_mul hL h₀ h₁
   simp only [completingFactor, map_mul, hN, ← SelbergData.gammaFactor_dual] at E₁ E₂
-  refine mul_left_cancel₀ (mul_ne_zero (mul_ne_zero (hn s) (hn (1 - s))) (mul_ne_zero hs hs')) ?_
+  refine mul_left_cancel₀ (mul_ne_zero (mul_ne_zero (L.conductor_cpow_ne_zero s)
+    (L.conductor_cpow_ne_zero (1 - s))) (mul_ne_zero hs hs')) ?_
   linear_combination ((L.conductor : ℂ) ^ ((1 - s) / 2) * L.selbergData.gammaFactor (1 - s) *
     L.toFun (1 - s)) * E₁ + (L.sign * (L.conductor : ℂ) ^ ((1 - s) / 2) *
     L.selbergData.dual.gammaFactor (1 - s) * L.toFun (1 - s)) * E₂

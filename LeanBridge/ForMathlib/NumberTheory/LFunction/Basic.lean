@@ -78,6 +78,21 @@ lemma Complex.Gammaℂ_ne_zero_of_re_pos {s : ℂ} (hs : 0 < s.re) : Gammaℂ s 
   exact mul_ne_zero (mul_ne_zero two_ne_zero (cpow_ne_zero_iff.mpr (Or.inl h2π)))
     (Gamma_ne_zero_of_re_pos hs)
 
+lemma DifferentiableAt.multiset_prod {ι : Type*} {u : Multiset ι} {f : ι → ℂ → ℂ} {s : ℂ}
+    (h : ∀ i ∈ u, DifferentiableAt ℂ (f i) s) :
+    DifferentiableAt ℂ (fun z ↦ (u.map (f · z)).prod) s := by
+  classical
+  exact (HasFDerivAt.multiset_prod fun i hi ↦ (h i hi).hasFDerivAt).differentiableAt
+
+lemma Polynomial.coe_one_sub_C_mul_X_add_C_mul_X_sq_mul_mk {A E : ℂ} {h : ℕ → ℂ} (h₀ : h 0 = 1)
+    (h₁ : h 1 = A) (h₂ : ∀ j, h (j + 2) = A * h (j + 1) - E * h j) :
+    ((1 - C A * X + C E * X ^ 2 : ℂ[X]) : PowerSeries ℂ) * PowerSeries.mk h = 1 := by
+  ext n
+  rcases n with _ | _ | n
+  · simp [h₀]
+  · simp [sub_mul, add_mul, mul_assoc, PowerSeries.coeff_X_pow_mul', h₀, h₁]
+  · simp [sub_mul, add_mul, mul_assoc, PowerSeries.coeff_X_pow_mul', h₂]
+
 namespace AnalyticLFunction.SelbergData
 
 variable (D : SelbergData) {s : ℂ}
@@ -168,6 +183,21 @@ def sign : ℂ :=
 
 lemma analyticOnNhd_toFun : AnalyticOnNhd ℂ L.toFun {1}ᶜ :=
   L.differentiableOn_toFun.analyticOnNhd isOpen_compl_singleton
+
+variable (s) in
+lemma meromorphicAt_toFun' : MeromorphicAt L.toFun s := by
+  rcases eq_or_ne s 1 with rfl | hs
+  · exact L.meromorphicAt_toFun
+  · exact (L.analyticOnNhd_toFun s hs).meromorphicAt
+
+lemma natCast_conductor_ne_zero : (L.conductor : ℂ) ≠ 0 :=
+  Nat.cast_ne_zero.mpr L.selbergData.conductor_pos.ne'
+
+lemma conductor_cpow_ne_zero (z : ℂ) : (L.conductor : ℂ) ^ (z / 2) ≠ 0 :=
+  cpow_ne_zero_iff.mpr (.inl L.natCast_conductor_ne_zero)
+
+lemma analyticAt_conductor_cpow : AnalyticAt ℂ (fun z : ℂ ↦ (L.conductor : ℂ) ^ (z / 2)) s :=
+  ((differentiable_id.div_const 2).const_cpow (.inl L.natCast_conductor_ne_zero)).analyticAt s
 
 lemma tendsto_toFun_atTop : Tendsto (fun x : ℝ ↦ L.toFun x) atTop (𝓝 1) := by
   have h : LSeries.abscissaOfAbsConv L.coeff < ⊤ :=

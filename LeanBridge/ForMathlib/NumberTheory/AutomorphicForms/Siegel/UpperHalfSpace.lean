@@ -101,6 +101,9 @@ structure SiegelUpperHalfSpace where
 
 namespace SiegelUpperHalfSpace
 
+lemma val_one_zero (Z : SiegelUpperHalfSpace (Fin 2)) : Z.val 1 0 = Z.val 0 1 :=
+  congrFun (congrFun Z.transpose_val 0) 1
+
 variable (γ γ' : symplecticGroup l ℝ) (M X Y : Matrix l l ℂ)
 
 /-- The numerator `aM + b` of the action of `γ = (a, b; c, d) ∈ Sp(2g, ℝ)` on a matrix `M`. -/

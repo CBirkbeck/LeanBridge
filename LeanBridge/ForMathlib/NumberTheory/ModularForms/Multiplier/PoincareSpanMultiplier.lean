@@ -8,8 +8,7 @@ Let `G` be a subgroup of finite index of `SL(2, ℤ)`, `v : G → S¹` a multipl
 width `w` with `v(h) = (±1)^k` on its stabiliser `G_s` (the corrected form of the LMFDB's
 hypothesis on `v`). The general spanning theorem
 `ModularForm.span_poincareSeries_eq_multiplierCuspSpace` needs three facts about the space
-`S_k(G, v)` of cusp forms, which `PoincareSpanFiniteOrder.lean` proves for multipliers of finite
-order. They hold for every multiplier:
+`S_k(G, v)` of cusp forms. They hold for every multiplier:
 
 * `S_k(G, v)` is finite-dimensional (`ModularForm.finiteDimensional_multiplierCuspSpace`);
 * every `f ∈ S_k(G, v)` has a Fourier expansion `(f ∣[k] γ_s)(z) = Σ_{j ≥ 1} a_j e^{2πijz/w}`
@@ -25,7 +24,7 @@ with no hypothesis on the order of `v`.
 
 * `ModularForm.integrableOn_petersson_of_mem_multiplierCuspSpace`: the Petersson integrand of two
   cusp forms with a multiplier is integrable on every set of finite measure.
-* `ModularForm.span_poincareSeries_eq_multiplierCuspSpace_of_finiteIndex_subgroup` (LMFDB
+* `ModularForm.span_poincareSeries_eq_multiplierCuspSpace_of_finiteIndex` (LMFDB
   `specialfunction.poincare`): the Poincaré series `P_m`, `m ≥ 1`, span `S_k(G, v)` for every
   multiplier `v`.
 -/
@@ -65,7 +64,7 @@ lemma integrableOn_petersson_of_mem_multiplierCuspSpace
 `t ∈ G` has `γ_s⁻¹ t γ_s = ±T^w`, and `w` divides the translations of the `γ_s⁻¹ h γ_s = ±T^b`,
 `h ∈ G_s`) with `v(h) = (±1)^k` on `G_s`, the Poincaré series `P_m`, `m ≥ 1`, at `s` span the space
 `S_k(G, v)` of cusp forms of weight `k` and multiplier `v`. -/
-lemma span_poincareSeries_eq_multiplierCuspSpace_of_finiteIndex_subgroup (hw₀ : 0 < w) (hk : 3 ≤ k)
+lemma span_poincareSeries_eq_multiplierCuspSpace_of_finiteIndex (hw₀ : 0 < w) (hk : 3 ≤ k)
     (ht : γ⁻¹ * (t : SL(2, ℤ)) * γ = T ^ (w : ℤ) ∨ γ⁻¹ * (t : SL(2, ℤ)) * γ = -T ^ (w : ℤ))
     (hw : ∀ h ∈ cuspStabilizer G γ, (w : ℤ) ∣ (γ⁻¹ * (h : SL(2, ℤ)) * γ) 0 1)
     (hv : ∀ h ∈ cuspStabilizer G γ, (v h : ℂ) = ((γ⁻¹ * (h : SL(2, ℤ)) * γ) 1 1 : ℂ) ^ k) :

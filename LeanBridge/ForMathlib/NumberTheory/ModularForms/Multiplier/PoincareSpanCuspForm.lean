@@ -23,7 +23,7 @@ which hold for the trivial multiplier:
   `γ_s⁻¹ t γ_s = ±T^w`, so Mathlib's `q`-expansion in `q = e^{2πi z / w}` applies; the `a_j` are
   the coefficients of `UpperHalfPlane.qExpansion w (f ∣[k] γ_s)`. This holds for any function
   with these three properties, also with a multiplier `v` with `v(t) = (±1)^k`
-  (`PoincareSpanFiniteOrder.lean`);
+  (`PoincareSpanMultiplier.lean`);
 * the Petersson integrands are integrable: on the strip `{0 ≤ Re z < w}`, against
   `e^{2πi m z / w}`, since `y^{k/2} |(f ∣[k] γ_s)(z)|` is bounded (Mathlib's
   `CuspFormClass.petersson_bounded_left`) and `y^{k/2 - 2} e^{-2π m y / w}` is integrable on
@@ -209,14 +209,15 @@ instance : FiniteDimensional ℂ (multiplierCuspSpace k (multiplierMapGL (1 : G 
         multiplierCuspSpace k (multiplierMapGL (1 : G →* Circle)))
     fun f ↦ (mem_multiplierCuspSpace_multiplierMapGL_one_iff.mp f.2).imp fun _ hg ↦ Subtype.ext hg
 
-lemma exists_norm_slash_le : ∃ C : ℝ, ∀ z : ℍ, ‖(⇑f ∣[k] γ) z‖ ≤ C / z.im ^ ((k : ℝ) / 2) := by
-  rcases CuspFormClass.petersson_bounded_left k _ f f with ⟨C, hC⟩
-  refine ⟨C.sqrt, fun z ↦ (le_div_iff₀ (by positivity)).mpr (Real.le_sqrt_of_sq_le ?_)⟩
-  have hy : 0 < z.im := z.im_pos
-  have h : ‖petersson k (⇑f ∣[k] γ) (⇑f ∣[k] γ) z‖ ≤ C := by
-    rw [petersson_slash_SL]
-    exact hC _
-  simpa [petersson, abs_of_pos hy, ← Real.rpow_mul_natCast hy.le, field] using h
+lemma norm_le_of_norm_petersson_le {C : ℝ} (hC : ∀ τ, ‖petersson k F F τ‖ ≤ C) (τ : ℍ) :
+    ‖F τ‖ ≤ √C / τ.im ^ ((k : ℝ) / 2) :=
+  (le_div_iff₀ (by positivity)).mpr <| Real.le_sqrt_of_sq_le <| by
+    simpa [petersson, abs_of_pos τ.im_pos, ← Real.rpow_mul_natCast τ.im_pos.le, field]
+      using hC τ
+
+lemma exists_norm_slash_le : ∃ C : ℝ, ∀ z : ℍ, ‖(⇑f ∣[k] γ) z‖ ≤ C / z.im ^ ((k : ℝ) / 2) :=
+  (CuspFormClass.petersson_bounded_left k _ f f).elim fun C hC ↦
+    ⟨√C, norm_le_of_norm_petersson_le fun τ ↦ (petersson_slash_SL k f f γ τ).symm ▸ hC _⟩
 
 lemma integrableOn_petersson_exp_slash (hw₀ : 0 < w) (hm : 0 < m) (hk : 3 ≤ k) : IntegrableOn
     (petersson k (fun u : ℍ ↦ Complex.exp (2 * Real.pi * Complex.I * (m / w) * u)) (⇑f ∣[k] γ))

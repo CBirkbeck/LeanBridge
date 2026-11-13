@@ -114,13 +114,8 @@ end UpperHalfPlane
 
 namespace ModularForm
 
-variable {G : Subgroup SL(2, ℤ)} {v : G →* Circle} {k : ℤ} {f : ℍ → ℂ} (γ : SL(2, ℤ))
-
-lemma slash_eq_smul_of_mem_multiplierCuspSpace (hf : f ∈ multiplierCuspSpace k (multiplierMapGL v))
-    (g : G) : f ∣[k] (g : SL(2, ℤ)) = (v g : ℂ) • f :=
-  multiplierMapGL_apply_mapGL v g ▸ hf.1.2.1 ⟨_, Subgroup.mem_map_of_mem _ g.2⟩
-
-variable [G.FiniteIndex]
+variable {G : Subgroup SL(2, ℤ)} [G.FiniteIndex] {v : G →* Circle} {k : ℤ} {f : ℍ → ℂ}
+    (γ : SL(2, ℤ))
 
 lemma isZeroAtImInfty_slash_of_mem_multiplierCuspSpace
     (hf : f ∈ multiplierCuspSpace k (multiplierMapGL v)) : IsZeroAtImInfty (f ∣[k] γ) := by
@@ -189,11 +184,5 @@ lemma exists_norm_petersson_le (hf : f ∈ multiplierCuspSpace k (multiplierMapG
   rcases ModularGroup.exists_bound_of_subgroup_invariant (petersson_continuous k hcont hcont).norm
     (isBoundedAtImInfty_norm_petersson_smul · hf) hinv with ⟨C, hC⟩
   exact ⟨C, fun τ ↦ by simpa using hC τ⟩
-
-lemma norm_le_of_norm_petersson_le {F : ℍ → ℂ} {C : ℝ} (hC : ∀ τ, ‖petersson k F F τ‖ ≤ C) (τ : ℍ) :
-    ‖F τ‖ ≤ √C / τ.im ^ ((k : ℝ) / 2) :=
-  (le_div_iff₀ (by positivity)).mpr <| Real.le_sqrt_of_sq_le <| by
-    simpa [petersson, abs_of_pos τ.im_pos, ← Real.rpow_mul_natCast τ.im_pos.le, field]
-      using hC τ
 
 end ModularForm

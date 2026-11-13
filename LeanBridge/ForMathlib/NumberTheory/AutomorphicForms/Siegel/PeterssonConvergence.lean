@@ -145,7 +145,7 @@ private lemma norm_fourierExp_le (n : dualLattice Γ)
         ((n : Matrix (Fin 2) (Fin 2) ℚ) 1 1 : ℝ) * (Z.val 1 1).im))) := by
   have hs : (n : Matrix (Fin 2) (Fin 2) ℚ) 1 0 = (n : Matrix (Fin 2) (Fin 2) ℚ) 0 1 :=
     congrFun (congrFun n.2.1 0) 1
-  have hZs : Z.val 1 0 = Z.val 0 1 := congrFun (congrFun Z.transpose_val 0) 1
+  have hZs : Z.val 1 0 = Z.val 0 1 := Z.val_one_zero
   have h₀ : (0 : ℝ) ≤ ((n : Matrix (Fin 2) (Fin 2) ℚ) 0 0 : ℝ) := by
     exact_mod_cast hn.diag_nonneg
   have h₁ : (0 : ℝ) ≤ ((n : Matrix (Fin 2) (Fin 2) ℚ) 1 1 : ℝ) := by
@@ -312,7 +312,7 @@ lemma exists_norm_dual_comp_le_of_posDef (ha : HasSiegelFourierExpansion Γ f a)
   have hN : (n' n).PosSemidef := (hn'pd n hn).posSemidef
   have hs₁ : n' n 1 0 = n' n 0 1 := by
     simpa using congrFun (congrFun hN.isHermitian 0) 1
-  have hZs : Z.val 1 0 = Z.val 0 1 := congrFun (congrFun Z.transpose_val 0) 1
+  have hZs : Z.val 1 0 = Z.val 0 1 := Z.val_one_zero
   have h₀ : ε ≤ (n' n 0 0 : ℝ) := by
     rw [← hε]
     exact_mod_cast hdiag n hn 0

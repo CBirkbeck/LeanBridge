@@ -4243,7 +4243,7 @@
     "ModularForm.hasSum_poincareSeries_of_three_le": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareHolomorphic",
     "ModularForm.mdifferentiable_poincareSeries_of_three_le": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareHolomorphic",
     "ModularForm.poincareSeries_mem_multiplierCuspSpace": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareCuspForm",
-    "ModularForm.span_poincareSeries_eq_multiplierCuspSpace_of_finiteIndex_subgroup": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareSpanMultiplier",
+    "ModularForm.span_poincareSeries_eq_multiplierCuspSpace_of_finiteIndex": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareSpanMultiplier",
     "ModularForm.exists_poincareSeries_eq_of_smul_infty_eq": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareCuspRepresentative",
     "ModularForm.poincareSeries_coe_mul": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareCuspRepresentative"
   },

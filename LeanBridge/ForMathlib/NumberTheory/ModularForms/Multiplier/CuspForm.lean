@@ -55,16 +55,21 @@ lemma mem_multiplierCuspSpace_one_iff : f ∈ multiplierCuspSpace k (1 : Γ →*
   exact ⟨⟨g.holo', fun γ ↦ by simpa using g.slash_action_eq' γ γ.2,
     fun hc h hh ↦ (g.zero_at_cusps' hc h hh).boundedAtFilter⟩, g.zero_at_cusps'⟩
 
-variable {G : Subgroup SL(2, ℤ)}
+variable {G : Subgroup SL(2, ℤ)} (v : G →* Circle)
 
 /-- A homomorphism `v : G → S¹` on a subgroup `G` of `SL(2, ℤ)`, as a homomorphism on the image of
 `G` in `GL(2, ℝ)`, the group on which modular forms with multiplier are defined
 (`ModularForm.multiplierSpace`). -/
-noncomputable def multiplierMapGL (v : G →* Circle) : G.map (mapGL ℝ) →* Circle :=
+noncomputable def multiplierMapGL : G.map (mapGL ℝ) →* Circle :=
   v.comp (G.equivMapOfInjective (mapGL ℝ) mapGL_injective).symm.toMonoidHom
 
-lemma multiplierMapGL_apply_mapGL (v : G →* Circle) (g : G) :
+lemma multiplierMapGL_apply_mapGL (g : G) :
     multiplierMapGL v ⟨mapGL ℝ (g : SL(2, ℤ)), Subgroup.mem_map_of_mem _ g.2⟩ = v g :=
   congrArg v <| (G.equivMapOfInjective (mapGL ℝ) mapGL_injective).symm_apply_apply g
+
+variable {v} in
+lemma slash_eq_smul_of_mem_multiplierCuspSpace (hf : f ∈ multiplierCuspSpace k (multiplierMapGL v))
+    (g : G) : f ∣[k] (g : SL(2, ℤ)) = (v g : ℂ) • f :=
+  multiplierMapGL_apply_mapGL v g ▸ hf.1.2.1 ⟨_, Subgroup.mem_map_of_mem _ g.2⟩
 
 end ModularForm

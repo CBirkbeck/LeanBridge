@@ -128,7 +128,7 @@ noncomputable def mulEquivSemidirectProduct : DihedralGroup n ≃*
 
 end DihedralGroup
 
-variable {E : Type*} [Group E] {N : Subgroup E} {b x : E}
+variable {E : Type*} [Group E] {N : Subgroup E} {a b x : E}
 
 lemma eq_one_or_eq_of_mem_zpowers (hb2 : b ^ 2 = 1) (hx : x ∈ zpowers b) : x = 1 ∨ x = b := by
   rcases mem_zpowers_iff.mp hx with ⟨k, rfl⟩
@@ -152,6 +152,17 @@ lemma exists_notMem_of_index_eq_two (hN : N.index = 2) : ∃ b, b ∉ N := by
   have htop : N = ⊤ := eq_top_iff.mpr fun g _ ↦ h g
   rw [htop, index_top] at hN
   exact absurd hN (by decide)
+
+lemma closure_pair_eq_top_of_index_eq_two (hN : (zpowers a).index = 2) (hb : b ∉ zpowers a) :
+    closure {a, b} = ⊤ := by
+  have hle : zpowers a ≤ closure {a, b} := zpowers_le.mpr (subset_closure (Set.mem_insert _ _))
+  refine eq_top_iff.mpr fun y _ ↦ ?_
+  by_cases hy : y ∈ zpowers a
+  · exact hle hy
+  · rw [← inv_mul_cancel_right y b]
+    exact mul_mem (hle ((mul_mem_iff_of_index_two hN).mpr
+      (iff_of_false hy fun h ↦ hb (inv_mem_iff.mp h))))
+      (subset_closure (Set.mem_insert_of_mem _ rfl))
 
 variable [Finite E]
 
@@ -180,20 +191,12 @@ lemma nonempty_mulEquiv_quaternionGroup_of_forall_not_isComplement' [IsCyclic N]
     (hinv : ∀ g ∉ N, ∀ y ∈ N, g * y * g⁻¹ = y⁻¹) (hns : ∀ K : Subgroup E, ¬N.IsComplement' K)
     {m : ℕ} (hm : Nat.card N = 2 * m) : Nonempty (E ≃* QuaternionGroup m) := by
   have : NeZero m := ⟨fun h ↦ Nat.card_pos.ne' (hm.trans (by rw [h, mul_zero]))⟩
-  rcases IsCyclic.exists_generator (α := N) with ⟨g, hg⟩
-  have ha : orderOf (g : E) = 2 * m := by
-    rw [orderOf_coe, orderOf_eq_card_of_forall_mem_zpowers hg, hm]
-  have hNa : N = zpowers (g : E) := by
-    ext y
-    refine ⟨fun hy ↦ ?_, fun hy ↦ ?_⟩
-    · rcases mem_zpowers_iff.mp (hg ⟨y, hy⟩) with ⟨k, hk⟩
-      exact ⟨k, by simpa using congrArg Subtype.val hk⟩
-    · rcases mem_zpowers_iff.mp hy with ⟨k, rfl⟩
-      exact zpow_mem g.2 k
+  rcases N.isCyclic_iff_exists_zpowers_eq_top.mp ‹IsCyclic N› with ⟨a, rfl⟩
+  have ha : orderOf a = 2 * m := (Nat.card_zpowers a).symm.trans hm
   rcases exists_notMem_of_index_eq_two hN with ⟨b, hb⟩
-  have hx : (g : E) ^ (2 * m) = 1 := ha ▸ pow_orderOf_eq_one _
-  have hb2 : b ^ 2 = (g : E) ^ (m : ℤ) := by
-    rcases mem_zpowers_iff.mp (hNa ▸ sq_mem_of_index_two hN b) with ⟨t, ht⟩
+  have hx : a ^ (2 * m) = 1 := ha ▸ pow_orderOf_eq_one _
+  have hb2 : b ^ 2 = a ^ (m : ℤ) := by
+    rcases mem_zpowers_iff.mp (sq_mem_of_index_two hN b) with ⟨t, ht⟩
     have h1 : ((2 * m : ℕ) : ℤ) ∣ 2 * t := by
       rw [← ha]
       exact orderOf_dvd_iff_zpow_eq_one.mpr <| by
@@ -209,18 +212,8 @@ lemma nonempty_mulEquiv_quaternionGroup_of_forall_not_isComplement' [IsCyclic N]
     · exact absurd ⟨s, by rw [htq]; ring1⟩ h2
     · rw [← ht, htq, show (m : ℤ) * (2 * s + 1) = ((2 * m : ℕ) : ℤ) * s + m by push_cast; ring1,
         zpow_add, zpow_mul, zpow_natCast, hx, one_zpow, one_mul]
-  have hyx : b * g * b⁻¹ = (g : E) ^ (-1 : ℤ) := (hinv b hb g g.2).trans (zpow_neg_one _).symm
-  have hgen : closure {(g : E), b} = ⊤ := by
-    have hle : N ≤ closure {(g : E), b} :=
-      hNa.le.trans (zpowers_le.mpr (subset_closure (Set.mem_insert _ _)))
-    refine eq_top_iff.mpr fun y _ ↦ ?_
-    by_cases hy : y ∈ N
-    · exact hle hy
-    · rw [← inv_mul_cancel_right y b]
-      exact mul_mem (hle ((mul_mem_iff_of_index_two hN).mpr
-        (iff_of_false hy fun h ↦ hb (inv_mem_iff.mp h))))
-        (subset_closure (Set.mem_insert_of_mem _ rfl))
-  have hlift : ∀ w ∈ QuaternionGroup.relators m, FreeGroup.lift ![(g : E), b] w = 1 := by
+  have hyx : b * a * b⁻¹ = a ^ (-1 : ℤ) := (hinv b hb a (mem_zpowers a)).trans (zpow_neg_one _).symm
+  have hlift : ∀ w ∈ QuaternionGroup.relators m, FreeGroup.lift ![a, b] w = 1 := by
     rintro w (rfl | rfl | rfl)
     · simp [hx]
     · simp [hb2]
@@ -228,11 +221,12 @@ lemma nonempty_mulEquiv_quaternionGroup_of_forall_not_isComplement' [IsCyclic N]
         Matrix.cons_val_one]
       rw [hyx, zpow_neg_one, inv_mul_cancel]
   have hcard : 2 * (2 * m) ≤ Nat.card E := by
-    rw [← card_mul_index N, hm, hN, mul_comm]
+    rw [← card_mul_index (zpowers a), hm, hN, mul_comm]
   exact ⟨(MulEquiv.ofBijective (PresentedGroup.toGroup hlift) <| bijective_of_closure_map_eq_top
     (mul_ne_zero two_ne_zero (NeZero.ne m)) (QuaternionGroup.presented_of_zero_pow m)
     (QuaternionGroup.presented_conj m) (QuaternionGroup.presented_of_one_sq m)
-    (PresentedGroup.closure_of_zero_of_one _) _ (by simpa using hgen) hcard).symm.trans
+    (PresentedGroup.closure_of_zero_of_one _) _
+    (by simpa using closure_pair_eq_top_of_index_eq_two hN hb) hcard).symm.trans
       (QuaternionGroup.presentedGroupMulEquiv m)⟩
 
 namespace SemiDihedralGroup

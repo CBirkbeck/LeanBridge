@@ -38,7 +38,7 @@ variable {Z : SiegelUpperHalfSpace (Fin 2)}
 private lemma im_sum_div_det_le (hZ : Z ∈ siegelSet) :
     (|(Z.val 0 0).im| + |(Z.val 0 1).im| + |(Z.val 1 1).im|) /
       ((Z.val 0 0).im * (Z.val 1 1).im - (Z.val 0 1).im * (Z.val 1 0).im) ≤ 5 := by
-  have hZs : Z.val 1 0 = Z.val 0 1 := congrFun (congrFun Z.transpose_val 0) 1
+  have hZs : Z.val 1 0 = Z.val 0 1 := Z.val_one_zero
   have h₀ : 4 / 5 ≤ (Z.val 0 0).im := four_fifths_le_im_zero_zero hZ
   have h₁ : 4 / 5 ≤ (Z.val 1 1).im := four_fifths_le_im_one_one hZ
   have h₂ : |(Z.val 0 1).im| ≤ (Z.val 0 0).im := abs_im_zero_one_le hZ
@@ -73,7 +73,7 @@ private lemma imK_le (hZ : Z ∈ siegelSet) : imK Z.val ≤ 27 / 2 := by
   nlinarith [mul_le_mul h₅ h₁ h₆ (by norm_num)]
 
 private lemma half_le_imLam (hZ : Z ∈ siegelSet) : 1 / 2 ≤ imLam Z.val := by
-  have hZs : Z.val 1 0 = Z.val 0 1 := congrFun (congrFun Z.transpose_val 0) 1
+  have hZs : Z.val 1 0 = Z.val 0 1 := Z.val_one_zero
   have h₀ : 4 / 5 ≤ (Z.val 0 0).im := four_fifths_le_im_zero_zero hZ
   have h₁ : 4 / 5 ≤ (Z.val 1 1).im := four_fifths_le_im_one_one hZ
   have h₃ : (Z.val 0 0).im ≤ (Z.val 1 1).im := hZ.2.2.1

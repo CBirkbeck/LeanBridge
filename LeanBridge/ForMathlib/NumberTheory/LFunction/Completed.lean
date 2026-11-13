@@ -58,10 +58,9 @@ lemma gammaFactor_eq_zero_iff : D.gammaFactor s = 0 ↔ s ∈ D.gammaPoles := by
 
 lemma differentiable_inv_gammaFactor : Differentiable ℂ fun s ↦ (D.gammaFactor s)⁻¹ := by
   simp only [gammaFactor, mul_inv, ← Multiset.prod_map_inv]
-  exact fun s ↦ (HasFDerivAt.multiset_prod fun x _ ↦ (differentiable_Gammaℝ_inv.comp
-    (differentiable_id.add_const x) s).hasFDerivAt).differentiableAt.mul
-    (HasFDerivAt.multiset_prod fun x _ ↦ (differentiable_Gammaℂ_inv.comp
-      (differentiable_id.add_const x) s).hasFDerivAt).differentiableAt
+  exact fun s ↦ (DifferentiableAt.multiset_prod fun x _ ↦ differentiable_Gammaℝ_inv.comp
+    (differentiable_id.add_const x) s).mul (.multiset_prod fun x _ ↦ differentiable_Gammaℂ_inv.comp
+      (differentiable_id.add_const x) s)
 
 lemma notMem_gammaPoles_of_re_pos (hs : 0 < s.re) : s ∉ D.gammaPoles :=
   fun h ↦ D.gammaFactor_ne_zero hs <| D.gammaFactor_eq_zero_iff.mpr h
@@ -95,9 +94,7 @@ lemma completed_eq_of_notMem_gammaPoles (hs : s ∉ L.selbergData.gammaPoles) (h
     (g := fun s ↦ (L.conductor : ℂ) ^ (s / 2) * L.selbergData.gammaFactor s * L.toFun s)
     (fun z hz ↦ ?_) hU h₂ ?_ (by simp [hs, hs₀, hs₁])
   · rcases not_or.mp hz with ⟨hzΓ, hz₀₁⟩
-    exact ((((differentiable_id.div_const 2).const_cpow <| .inl <| by
-      simp [conductor, L.selbergData.conductor_pos.ne']).analyticAt z).fun_mul
-      (L.selbergData.analyticAt_gammaFactor hzΓ)).fun_mul
+    exact (L.analyticAt_conductor_cpow.fun_mul (L.selbergData.analyticAt_gammaFactor hzΓ)).fun_mul
       (L.analyticOnNhd_toFun z fun h ↦ hz₀₁ <| .inr h)
   · filter_upwards [(continuous_re.isOpen_preimage _ isOpen_Ioi).mem_nhds
       (by norm_num : (2 : ℂ) ∈ re ⁻¹' Ioi 1)] with z hz

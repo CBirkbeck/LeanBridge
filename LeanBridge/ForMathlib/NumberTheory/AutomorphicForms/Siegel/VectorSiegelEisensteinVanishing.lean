@@ -63,7 +63,7 @@ noncomputable def symDehomogenize : Sym[ℂ]^j (Fin 2 → ℂ) →ₗ[ℂ] ℂ[X
 
 variable {j}
 
-private lemma symDehomogenize_tprod (m : Fin j → Fin 2 → ℂ) :
+lemma symDehomogenize_tprod (m : Fin j → Fin 2 → ℂ) :
     symDehomogenize j (⨂ₛ[ℂ] i, m i) = ∏ i, (C (m i 0) + C (m i 1) * X) :=
   (SymmetricPower.lift_tprod _ _ m).trans <| (dehomMultilinear_apply j m).trans <|
     Finset.prod_congr rfl fun i _ ↦ dehomLinear_apply (m i)

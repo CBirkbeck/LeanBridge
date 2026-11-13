@@ -288,9 +288,6 @@ namespace SiegelUpperHalfSpace
 
 variable (Ω : SiegelUpperHalfSpace (Fin 2)) (μ ν : Fin 2 → ℤ)
 
-lemma val_one_zero : Ω.val 1 0 = Ω.val 0 1 := by
-  rw [← transpose_apply Ω.val 0 1, Ω.transpose_val]
-
 lemma val_zero_zero_ne_zero : Ω.val 0 0 ≠ 0 := fun h ↦ by
   simpa [h] using Ω.posDef_im.diag_pos (i := 0)
 

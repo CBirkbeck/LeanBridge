@@ -44,12 +44,8 @@ variable {A E : ℂ}
 
 lemma eulerPoly_mul_mk {h : ℕ → ℂ} (h₀ : h 0 = 1) (h₁ : h 1 = A)
     (h₂ : ∀ j, h (j + 2) = A * h (j + 1) - E * h j) :
-    (eulerPoly A E : PowerSeries ℂ) * PowerSeries.mk h = 1 := by
-  ext n
-  rcases n with _ | _ | n
-  · simp [eulerPoly, h₀]
-  · simp [eulerPoly, sub_mul, add_mul, mul_assoc, PowerSeries.coeff_X_pow_mul', h₀, h₁]
-  · simp [eulerPoly, sub_mul, add_mul, mul_assoc, PowerSeries.coeff_X_pow_mul', h₂]
+    (eulerPoly A E : PowerSeries ℂ) * PowerSeries.mk h = 1 :=
+  coe_one_sub_C_mul_X_add_C_mul_X_sq_mul_mk h₀ h₁ h₂
 
 lemma eulerPoly_comp_mul_mk {x : ℕ → ℂ} (h₀ : x 0 = 1) (h₁ : x 1 = 0) (h₂ : x 2 = A) (h₃ : x 3 = 0)
     (h₄ : ∀ n, x (n + 4) = A * x (n + 2) - E * x n) :

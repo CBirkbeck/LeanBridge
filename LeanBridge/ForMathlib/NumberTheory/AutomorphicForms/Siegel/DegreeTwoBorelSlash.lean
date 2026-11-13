@@ -92,7 +92,7 @@ lemma liftExp_gspSmul_of_eq_borelNF (h : (β : M₄) = borelNF r d₀ d₁ c x�
         borelExp r d₀ d₁ c T Z := by
   have hd₀' : (d₀ : ℂ) ≠ 0 := Rat.cast_ne_zero.mpr hd₀
   have hd₁' : (d₁ : ℂ) ≠ 0 := Rat.cast_ne_zero.mpr hd₁
-  have h10 : Z.val 1 0 = Z.val 0 1 := congrFun (congrFun Z.transpose_val 0) 1
+  have h10 : Z.val 1 0 = Z.val 0 1 := Z.val_one_zero
   rw [liftExp, borelExp, ← Complex.exp_add, gspSmul_val_of_eq_borelNF Z h hd₀ hd₁]
   congr 1
   simp [gspNum, h, borelNF, mul_apply, h10]

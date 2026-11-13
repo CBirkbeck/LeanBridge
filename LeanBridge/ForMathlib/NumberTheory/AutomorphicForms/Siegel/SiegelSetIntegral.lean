@@ -66,7 +66,7 @@ lemma abs_im_zero_one_le (hZ : Z ∈ siegelSet) : |(Z.val 0 1).im| ≤ (Z.val 0 
 /-- On the Siegel set, `det Y ≥ (3/4) y₀₀ y₁₁`. -/
 lemma mul_le_det_im (hZ : Z ∈ siegelSet) :
     3 / 4 * ((Z.val 0 0).im * (Z.val 1 1).im) ≤ (Z.val.map im).det := by
-  have hZs : Z.val 1 0 = Z.val 0 1 := congrFun (congrFun Z.transpose_val 0) 1
+  have hZs : Z.val 1 0 = Z.val 0 1 := Z.val_one_zero
   have h₀ : 0 < (Z.val 0 0).im := by
     linarith [four_fifths_le_im_zero_zero hZ]
   have h₁ : (Z.val 0 1).im ^ 2 ≤ ((Z.val 0 0).im / 2) ^ 2 := by

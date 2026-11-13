@@ -7,8 +7,8 @@ import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareSpanCu
 Let `G` be a subgroup of finite index of `SL(2, ℤ)` and `v : G → S¹` any multiplier (LMFDB
 `mf.multipliersystem`), of finite or infinite order. The space `S_k(G, v)` of cusp forms of weight
 `k` and multiplier `v` is finite-dimensional. For `v` of finite order this reduces to the trivial
-multiplier on `ker v` (`PoincareSpanFiniteOrder.lean`); in general, `ker v` has infinite index,
-and we use the norm. Fix a nonzero `f₀ ∈ S_k(G, v)` and representatives `r_q = q.out⁻¹` of the
+multiplier on `ker v`, a subgroup of finite index; in general, `ker v` has infinite index, and we
+use the norm. Fix a nonzero `f₀ ∈ S_k(G, v)` and representatives `r_q = q.out⁻¹` of the
 cosets `G r` of `G` in `SL(2, ℤ)`. Each translate `f₀ ∣[k] r_q γ` is a multiple of some
 `f₀ ∣[k] r_{q'}` by a value of `v`, so the norm `F₀ = ∏_q f₀ ∣[k] r_q` satisfies
 `F₀ ∣[km] γ = c(γ) F₀` for every `γ ∈ SL(2, ℤ)`, with `|c(γ)| = 1`. As `F₀ ≠ 0`, `c` is a
@@ -26,13 +26,7 @@ Tau Ceti's `TauCeti.finiteDimensional_cuspForm_finiteIndex`.
   nonzero function has order dividing `12`.
 * `ModularForm.finiteDimensional_multiplierCuspSpace` (LMFDB `specialfunction.poincare`):
   `S_k(G, v)` is finite-dimensional for every multiplier `v` on a subgroup `G` of finite index,
-  also registered as the instance `Module.Finite ℂ (multiplierCuspSpace k (multiplierMapGL v))`.
-
-## Implementation notes
-
-The instance is spelt with `Module.Finite`, which `FiniteDimensional` abbreviates: spelt with
-`FiniteDimensional`, it would get the generated name of the instance for multipliers of finite
-order in `PoincareSpanFiniteOrder.lean`, and the two files could not be imported together.
+  also registered as the instance `FiniteDimensional ℂ (multiplierCuspSpace k (multiplierMapGL v))`.
 -/
 
 open UpperHalfPlane Filter Function Matrix SpecialLinearGroup ModularGroup MulAction Subgroup
@@ -245,7 +239,7 @@ lemma finiteDimensional_multiplierCuspSpace :
   · exact sub_eq_zero.mp h
   · exact absurd h hH0
 
-instance : Module.Finite ℂ (multiplierCuspSpace k (multiplierMapGL v)) :=
+instance : FiniteDimensional ℂ (multiplierCuspSpace k (multiplierMapGL v)) :=
   finiteDimensional_multiplierCuspSpace v k
 
 end ModularForm

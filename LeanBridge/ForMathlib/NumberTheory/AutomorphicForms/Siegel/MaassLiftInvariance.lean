@@ -148,8 +148,7 @@ lemma val_swapSp_smul : (SymplecticGroup.map (algebraMap ℚ ℝ) swapSp • Z).
 
 lemma liftExp_swapSp :
     liftExp 1 n r m (SymplecticGroup.map (algebraMap ℚ ℝ) swapSp • Z) = liftExp 1 m r n Z := by
-  have h10 : Z.val 1 0 = Z.val 0 1 :=
-    congrFun (congrFun Z.transpose_val 0) 1
+  have h10 : Z.val 1 0 = Z.val 0 1 := Z.val_one_zero
   rw [liftExp, liftExp, val_swapSp_smul]
   simp [Matrix.mul_apply, swapMatrix, h10]
   congr 1

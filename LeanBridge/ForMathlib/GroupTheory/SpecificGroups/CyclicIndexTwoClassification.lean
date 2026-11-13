@@ -71,17 +71,6 @@ lemma Int.two_pow_dvd_sub_one_or_two_pow_dvd_add_one {m : ℕ} {e : ℤ} (h : 2 
 
 variable {G : Type*} [Group G] {N : Subgroup G} {a b c : G} {k m n : ℕ} [Fact (3 ≤ k)]
 
-private lemma closure_pair_eq_top_of_index_eq_two (hN : (zpowers a).index = 2)
-    (hc : c ∉ zpowers a) : closure {a, c} = ⊤ := by
-  have hle : zpowers a ≤ closure {a, c} := zpowers_le.mpr (subset_closure (Set.mem_insert _ _))
-  refine eq_top_iff.mpr fun y _ ↦ ?_
-  by_cases hy : y ∈ zpowers a
-  · exact hle hy
-  · rw [← inv_mul_cancel_right y c]
-    exact mul_mem (hle ((mul_mem_iff_of_index_two hN).mpr
-      (iff_of_false hy fun h ↦ hc (inv_mem_iff.mp h))))
-      (subset_closure (Set.mem_insert_of_mem _ rfl))
-
 /-- **A group with a cyclic subgroup `⟨a⟩ ≅ C_n` of index `2` and an involution `c ∉ ⟨a⟩` acting
 by `a ↦ a ^ E` is the semidirect product `C_n ⋊ C_2`** in which `C_2` acts by `x ↦ x ^ E`: the
 presented group `⟨r, s | rⁿ = s² = 1, s r s = r ^ E⟩` maps onto it and has at most `2n`

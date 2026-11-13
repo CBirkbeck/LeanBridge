@@ -137,7 +137,6 @@ lemma span_poincareSeries_eq_multiplierCuspSpace (hw₀ : 0 < w) (hk : 3 ≤ k)
       multiplierCuspSpace k (multiplierMapGL v) :=
   span_poincareSeries_eq γ v k w hw₀ (by omega) hD ht hw hv _
     (fun m hm ↦ poincareSeries_mem_multiplierCuspSpace γ v hk (by exact_mod_cast hm) hw₀ hw hv)
-    (fun f hf g ↦ multiplierMapGL_apply_mapGL v g ▸ hf.1.2.1 ⟨_, Subgroup.mem_map_of_mem _ g.2⟩)
-    hcoeff hint hB
+    (fun _ ↦ slash_eq_smul_of_mem_multiplierCuspSpace) hcoeff hint hB
 
 end ModularForm

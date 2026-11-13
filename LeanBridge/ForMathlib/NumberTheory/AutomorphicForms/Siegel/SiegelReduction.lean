@@ -216,7 +216,7 @@ lemma im_val_smul_levi (U : GL (Fin 2) ℤ) (i j : Fin 2) :
             (Z.val 0 1).im +
         ((U : Matrix (Fin 2) (Fin 2) ℤ) i 1 : ℝ) * (U : Matrix (Fin 2) (Fin 2) ℤ) j 1 *
           (Z.val 1 1).im := by
-  have hZ : Z.val 1 0 = Z.val 0 1 := congrFun (congrFun Z.transpose_val 0) 1
+  have hZ : Z.val 1 0 = Z.val 0 1 := Z.val_one_zero
   rw [val_smul_levi]
   simp only [Matrix.mul_apply, Fin.sum_univ_two, transpose_apply, map_apply, hZ, add_im, mul_im,
     intCast_re, intCast_im]
@@ -224,7 +224,7 @@ lemma im_val_smul_levi (U : GL (Fin 2) ℤ) (i j : Fin 2) :
 
 lemma im_mul_im_sub_sq_pos : 0 < (Z.val 0 0).im * (Z.val 1 1).im - (Z.val 0 1).im ^ 2 := by
   have h₁ : 0 < (Z.val 0 0).im * (Z.val 1 1).im - (Z.val 0 1).im * (Z.val 1 0).im := det_im_pos Z
-  have hZ : Z.val 1 0 = Z.val 0 1 := congrFun (congrFun Z.transpose_val 0) 1
+  have hZ : Z.val 1 0 = Z.val 0 1 := Z.val_one_zero
   rwa [hZ, ← sq] at h₁
 
 /-- **Gauss's reduction of binary quadratic forms**: for `Z ∈ ℋ₂` there is `U ∈ GL(2, ℤ)` such that
@@ -303,7 +303,7 @@ lemma exists_smul_mem_siegelSet :
   have hLδ : ‖(denom (φ (levi (Fin 2) ℤ U)) (φ δ • Z).val).det‖ = 1 :=
     norm_det_denom_map_levi _ U
   generalize hZ₂ : φ (levi (Fin 2) ℤ U) • φ δ • Z = Z₂ at hU₁ hU₂
-  have hZ₂s : Z₂.val 1 0 = Z₂.val 0 1 := congrFun (congrFun Z₂.transpose_val 0) 1
+  have hZ₂s : Z₂.val 1 0 = Z₂.val 0 1 := Z₂.val_one_zero
   let S : Matrix (Fin 2) (Fin 2) ℤ := !![-round (Z₂.val 0 0).re, -round (Z₂.val 0 1).re;
     -round (Z₂.val 0 1).re, -round (Z₂.val 1 1).re]
   have hS : Sᵀ = S := by

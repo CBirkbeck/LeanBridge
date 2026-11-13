@@ -219,12 +219,9 @@ lemma topLeft_smul_of_mem (hγ : γ ∈ klingenParabolicTwo) :
 
 variable (k : ℤ) (j : ℕ)
 
-lemma rhoKJ_tprod (g : GL (Fin 2) ℂ) (u : Fin 2 → ℂ) : rhoKJ k j g (⨂ₛ[ℂ] _ : Fin j, u) =
-    ((g.det ^ k : ℂˣ) : ℂ) • ⨂ₛ[ℂ] _ : Fin j, (g : Matrix (Fin 2) (Fin 2) ℂ) *ᵥ u := by
-  have e : TauCeti.symPowerRep ℂ 2 j g (⨂ₛ[ℂ] _ : Fin j, u) =
-      ⨂ₛ[ℂ] _ : Fin j, (g : Matrix (Fin 2) (Fin 2) ℂ) *ᵥ u :=
-    Representation.symmetricPower_apply_tprod _ _ _ _
-  exact congrArg (((g.det ^ k : ℂˣ) : ℂ) • ·) e
+lemma rhoKJ_tprod (g : GL (Fin 2) ℂ) (u : Fin j → Fin 2 → ℂ) : rhoKJ k j g (⨂ₛ[ℂ] i, u i) =
+    ((g.det ^ k : ℂˣ) : ℂ) • ⨂ₛ[ℂ] i, (g : Matrix (Fin 2) (Fin 2) ℂ) *ᵥ u i :=
+  congrArg (((g.det ^ k : ℂˣ) : ℂ) • ·) (symPowerRep_tprod g u)
 
 lemma tprod_smul (c : ℂ) (u : Fin 2 → ℂ) :
     (⨂ₛ[ℂ] _ : Fin j, c • u) = c ^ j • ⨂ₛ[ℂ] _ : Fin j, u := by

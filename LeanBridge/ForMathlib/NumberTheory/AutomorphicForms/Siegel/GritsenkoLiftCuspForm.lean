@@ -157,7 +157,7 @@ variable (Z : SiegelUpperHalfSpace (Fin 2))
 
 private lemma det_im_eq :
     (Z.val.map im).det = (Z.val 0 0).im * (Z.val 1 1).im - (Z.val 0 1).im ^ 2 := by
-  have h : Z.val 1 0 = Z.val 0 1 := congrFun (congrFun Z.transpose_val 0) 1
+  have h : Z.val 1 0 = Z.val 0 1 := Z.val_one_zero
   rw [det_fin_two]
   simp [h, sq]
 

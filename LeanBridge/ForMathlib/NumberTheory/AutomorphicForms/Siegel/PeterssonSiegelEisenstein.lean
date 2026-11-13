@@ -29,7 +29,7 @@ namespace SiegelUpperHalfSpace
 
 /-- **The constant `K(Z)` of the Plücker comparison is bounded on the Siegel set.** -/
 lemma siegelK_le {Z : SiegelUpperHalfSpace (Fin 2)} (hZ : Z ∈ siegelSet) : siegelK Z.val ≤ 225 := by
-  have hZs : Z.val 1 0 = Z.val 0 1 := congrFun (congrFun Z.transpose_val 0) 1
+  have hZs : Z.val 1 0 = Z.val 0 1 := Z.val_one_zero
   have h₀ : 4 / 5 ≤ (Z.val 0 0).im := four_fifths_le_im_zero_zero hZ
   have h₁ : 4 / 5 ≤ (Z.val 1 1).im := four_fifths_le_im_one_one hZ
   have h₂ : |(Z.val 0 1).im| ≤ (Z.val 0 0).im := abs_im_zero_one_le hZ

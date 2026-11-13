@@ -204,7 +204,7 @@ lemma det_denom_eq_siegelPlucker : (denom (map (Int.castRingHom ℝ) δ) Z.val).
     (siegelPlucker δ 0 : ℂ) * (Z.val 0 0 * Z.val 1 1 - Z.val 0 1 ^ 2) +
       siegelPlucker δ 1 * Z.val 0 0 + 2 * siegelPlucker δ 2 * Z.val 0 1 -
         siegelPlucker δ 3 * Z.val 1 1 + siegelPlucker δ 4 := by
-  have hZ : Z.val 1 0 = Z.val 0 1 := congrFun (congrFun Z.transpose_val 0) 1
+  have hZ : Z.val 1 0 = Z.val 0 1 := Z.val_one_zero
   have h : ((δ.1 (.inr 0) (.inl 0) * δ.1 (.inr 1) (.inr 0) -
       δ.1 (.inr 0) (.inr 0) * δ.1 (.inr 1) (.inl 0) +
         (δ.1 (.inr 0) (.inl 1) * δ.1 (.inr 1) (.inr 1) -
@@ -233,7 +233,7 @@ noncomputable def siegelK (W : Matrix (Fin 2) (Fin 2) ℂ) : ℝ :=
 
 private lemma det_im_eq : (Z.val 0 0).im * (Z.val 1 1).im - (Z.val 0 1).im ^ 2 =
     (Z.val 0 0).im * (Z.val 1 1).im - (Z.val 0 1).im * (Z.val 1 0).im := by
-  have hZ : Z.val 1 0 = Z.val 0 1 := congrFun (congrFun Z.transpose_val 0) 1
+  have hZ : Z.val 1 0 = Z.val 0 1 := Z.val_one_zero
   rw [hZ]
   ring1
 

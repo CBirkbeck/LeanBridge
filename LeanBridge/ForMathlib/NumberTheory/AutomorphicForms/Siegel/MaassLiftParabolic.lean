@@ -182,7 +182,7 @@ private lemma liftExp_smul_of_mem_siegelParabolic (hγ : γ ∈ siegelParabolic 
     liftExp 1 p.1 p.2.1 p.2.2 (map (Int.castRingHom ℝ) γ • Z) = liftExp 1
       (formTransform γ.1.toBlocks₁₁ p).1 (formTransform γ.1.toBlocks₁₁ p).2.1
         (formTransform γ.1.toBlocks₁₁ p).2.2 Z := by
-  have h10 : Z.val 1 0 = Z.val 0 1 := congrFun (congrFun Z.transpose_val 0) 1
+  have h10 : Z.val 1 0 = Z.val 0 1 := Z.val_one_zero
   rw [liftExp, liftExp, val_smul_of_mem_siegelParabolic Z hγ]
   refine Complex.exp_eq_exp_iff_exists_int.mpr ⟨p.1 * (γ.1.toBlocks₁₂ * γ.1.toBlocks₁₁ᵀ) 0 0 +
     p.2.1 * (γ.1.toBlocks₁₂ * γ.1.toBlocks₁₁ᵀ) 0 1 + p.2.2 * (γ.1.toBlocks₁₂ * γ.1.toBlocks₁₁ᵀ) 1 1,

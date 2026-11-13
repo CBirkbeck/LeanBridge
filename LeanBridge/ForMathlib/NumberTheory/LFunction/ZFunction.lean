@@ -46,19 +46,9 @@ namespace AnalyticLFunction
 
 variable (L : AnalyticLFunction) {s : ℂ} (t : ℝ)
 
-private lemma differentiableAt_multiset_prod {m : Multiset ℂ} {f : ℂ → ℂ → ℂ}
-    (h : ∀ x ∈ m, DifferentiableAt ℂ (f x) s) :
-    DifferentiableAt ℂ (fun s ↦ (m.map fun x ↦ f x s).prod) s := by
-  induction m using Multiset.induction_on with
-  | empty => simp
-  | cons x m ih =>
-    simpa using (h x (Multiset.mem_cons_self x m)).fun_mul
-      (ih fun y hy ↦ h y (Multiset.mem_cons_of_mem hy))
-
 lemma SelbergData.differentiableAt_gammaFactor (D : SelbergData) (hs : 0 < s.re) :
     DifferentiableAt ℂ D.gammaFactor s := by
-  refine (differentiableAt_multiset_prod fun x hx ↦ ?_).mul
-    (differentiableAt_multiset_prod fun x hx ↦ ?_)
+  refine (DifferentiableAt.multiset_prod fun x hx ↦ ?_).mul (.multiset_prod fun x hx ↦ ?_)
   · refine (differentiableAt_Gammaℝ_of_re_pos ?_).comp s (differentiableAt_id.add_const x)
     rcases D.re_eq_zero_or_one_of_mem_μ x hx with h | h <;> simp [h, hs, add_pos]
   · rcases D.exists_two_mul_re_eq_of_mem_ν x hx with ⟨k, hk, hx⟩
@@ -80,13 +70,11 @@ noncomputable def completingFactor : ℂ :=
   (L.conductor : ℂ) ^ (s / 2) * L.selbergData.gammaFactor s
 
 lemma completingFactor_ne_zero (hs : 0 < s.re) : L.completingFactor s ≠ 0 :=
-  mul_ne_zero (by simp [conductor, L.selbergData.conductor_pos.ne'])
-    (L.selbergData.gammaFactor_ne_zero hs)
+  mul_ne_zero (L.conductor_cpow_ne_zero s) (L.selbergData.gammaFactor_ne_zero hs)
 
 lemma differentiableAt_completingFactor (hs : 0 < s.re) :
     DifferentiableAt ℂ L.completingFactor s :=
-  ((differentiableAt_id.div_const 2).const_cpow <| .inl <| Nat.cast_ne_zero.mpr
-    L.selbergData.conductor_pos.ne').mul (L.selbergData.differentiableAt_gammaFactor hs)
+  L.analyticAt_conductor_cpow.differentiableAt.mul (L.selbergData.differentiableAt_gammaFactor hs)
 
 lemma eqOn_completed {U : Set ℂ} (hU : IsOpen U) (hUc : Convex ℝ U) (hU₀ : U ⊆ re ⁻¹' Ioi 0)
     (hU₁ : 1 ∉ U) {z : ℂ} (hz : z ∈ U) (hz₁ : 1 < z.re) :

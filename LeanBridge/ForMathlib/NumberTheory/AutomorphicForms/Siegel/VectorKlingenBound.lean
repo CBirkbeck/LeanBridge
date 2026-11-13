@@ -118,8 +118,7 @@ lemma inv_denom_mulVec_single : (denom g Z.val)⁻¹ *ᵥ (Pi.single 0 1 : Fin 2
   fin_cases i <;> simp [klingenVec, mulVec, dotProduct]
 
 private lemma transpose_im_eq : (Z.val.map im) 1 0 = (Z.val.map im) 0 1 := by
-  have h : Z.val 1 0 = Z.val 0 1 :=
-    congrFun (congrFun Z.transpose_val 0) 1
+  have h : Z.val 1 0 = Z.val 0 1 := Z.val_one_zero
   simp [h]
 
 /-- The imaginary part of the upper-left entry of `gZ`:
@@ -276,8 +275,7 @@ private lemma abs_coord_le {c₀ c₁ d₀ d₁ : ℝ} {z₀₀ z₀₁ z₁₁ 
 the imaginary part of `cZ + d` determining `c` and then its real part `d`. -/
 lemma norm_bottomRow_le (δ : symplecticGroup (Fin 2) ℤ) :
     ‖bottomRow δ‖ ≤ imK Z.val * ‖klingenVec Z (SymplecticGroup.map (Int.castRingHom ℝ) δ)‖ := by
-  have hZ : Z.val 1 0 = Z.val 0 1 :=
-    congrFun (congrFun Z.transpose_val 0) 1
+  have hZ : Z.val 1 0 = Z.val 0 1 := Z.val_one_zero
   have h₀ : denom (SymplecticGroup.map (Int.castRingHom ℝ) δ) Z.val 1 0 =
       ((δ.1 (.inr 1) (.inl 0) : ℝ) : ℂ) * Z.val 0 0 +
         ((δ.1 (.inr 1) (.inl 1) : ℝ) : ℂ) * Z.val 0 1 + ((δ.1 (.inr 1) (.inr 0) : ℝ) : ℂ) := by

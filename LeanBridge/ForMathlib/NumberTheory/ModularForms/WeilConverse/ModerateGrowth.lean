@@ -1,3 +1,4 @@
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.GrowthCondition
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.WeilConverse.ExponentialSum
 import Mathlib.Analysis.Complex.Periodic
 import Mathlib.Analysis.Complex.UpperHalfPlane.FunctionsBoundedAtInfty
@@ -38,72 +39,25 @@ namespace UpperHalfPlane
 
 variable {h : ℍ → ℂ} {p K : ℝ} {M : ℕ}
 
-private lemma abs_re_invQParam_le (hp : 0 < p) (q : ℂ) : |(invQParam p q).re| ≤ p := by
-  have e : ((p : ℂ) / (2 * π * Complex.I)) = ((p / (2 * π) : ℝ) : ℂ) * (-Complex.I) := by
-    have hpi : (π : ℂ) ≠ 0 := ofReal_ne_zero.mpr Real.pi_ne_zero
-    push_cast
-    field_simp
-    rw [Complex.I_sq]
-    ring1
-  have h1 : (invQParam p q).re = p / (2 * π) * q.arg := by
-    rw [invQParam, e, mul_assoc, re_ofReal_mul]
-    simp [Complex.log_im]
-  have h2 : |q.arg| ≤ π := abs_arg_le_pi q
-  have h3 : 0 < p / (2 * π) := by positivity
-  rw [h1, abs_mul, abs_of_pos h3]
-  have h4 : p / (2 * π) * π = p / 2 := by
-    field_simp
-  nlinarith [mul_le_mul_of_nonneg_left h2 h3.le]
-
 /-- **A holomorphic periodic function of polynomial growth is bounded at `i∞`.** Let `h` be
 holomorphic on `ℍ` with period `p > 0` and `‖h z‖ ≤ K (Im z) ^ M` for `Im z ≥ 1` and `|Re z| ≤ p`.
-Then `h` is bounded as `Im z → ∞`. -/
+Then `h` is bounded as `Im z → ∞`: by periodicity the bound holds whenever `Im z ≥ 1`, so `h` has
+moderate growth at `i∞` (`UpperHalfPlane.isBoundedAtImInfty_of_isModerateGrowthAtImInfty`). -/
 lemma isBoundedAtImInfty_of_periodic_of_le_pow (hh : MDiff h) (hp : 0 < p)
     (hper : ∀ z : ℍ, h (p +ᵥ z) = h z)
     (hbd : ∀ z : ℍ, 1 ≤ z.im → |z.re| ≤ p → ‖h z‖ ≤ K * z.im ^ M) : IsBoundedAtImInfty h := by
   have hF : Periodic (h ∘ ofComplex) p := periodic_comp_ofComplex hper
-  have hhol : ∀ᶠ z in comap Complex.im atTop, DifferentiableAt ℂ (h ∘ ofComplex) z := by
-    filter_upwards [preimage_mem_comap (Ioi_mem_atTop 0)] with z hz
-    exact mdifferentiableAt_iff.mp (hh ⟨z, hz⟩)
-  have hd : ∀ᶠ q in 𝓝[≠] (0 : ℂ), DifferentiableAt ℂ (cuspFunction p (h ∘ ofComplex)) q :=
-    eventually_differentiableAt_cuspFunction_nhds_ne_zero hp hF hhol
-  have hx : Tendsto (fun q ↦ (invQParam p q).im) (𝓝[≠] (0 : ℂ)) atTop :=
-    tendsto_comap_iff.mp (invQParam_tendsto hp)
-  have hB : Tendsto (fun x : ℝ ↦ K * (x ^ (M : ℝ) * Real.exp (-(2 * π / p) * x))) atTop (𝓝 0) := by
-    simpa using (tendsto_rpow_mul_exp_neg_mul_atTop_nhds_zero (M : ℝ) (2 * π / p)
-      (by positivity)).const_mul K
-  have hG : cuspFunction p (h ∘ ofComplex) =o[𝓝[≠] 0] fun q : ℂ ↦ (q - 0)⁻¹ := by
-    refine (Asymptotics.isLittleO_iff_tendsto' ?_).mpr ?_
-    · filter_upwards [self_mem_nhdsWithin] with q hq h0
-      exact absurd (inv_eq_zero.mp h0) (sub_ne_zero.mpr hq)
-    refine squeeze_zero_norm' ?_ (hB.comp hx)
-    filter_upwards [self_mem_nhdsWithin, hx.eventually_ge_atTop 1] with q hq hq1
-    have hq0 : q ≠ 0 := hq
-    have him : 0 < (invQParam p q).im := by linarith
-    have h1 : cuspFunction p (h ∘ ofComplex) q = h ⟨invQParam p q, him⟩ := by
-      rw [cuspFunction_eq_of_nonzero _ _ hq0, Function.comp_apply, ofComplex_apply_of_im_pos him]
-    have h2 : ‖q‖ = Real.exp (-(2 * π / p) * (invQParam p q).im) := by
-      have h3 : ‖qParam p (invQParam p q)‖ = ‖q‖ := by
-        rw [qParam_right_inv hp.ne' hq0]
-      rw [← h3, norm_qParam]
-      congr 1
-      ring1
-    have h4 : ‖h ⟨invQParam p q, him⟩‖ ≤ K * (invQParam p q).im ^ M :=
-      hbd ⟨invQParam p q, him⟩ hq1 (abs_re_invQParam_le hp q)
-    simp only [sub_zero, div_inv_eq_mul, norm_mul, Function.comp_apply, Real.rpow_natCast]
-    rw [h1, h2, ← mul_assoc]
-    exact mul_le_mul_of_nonneg_right h4 (Real.exp_pos _).le
-  have hc : (fun _ : ℂ ↦ cuspFunction p (h ∘ ofComplex) 0) =o[𝓝[≠] 0] fun q : ℂ ↦ (q - 0)⁻¹ :=
-    Asymptotics.isLittleO_const_left.mpr (Or.inr
-      ((tendsto_norm_inv_nhdsNE_zero_atTop (α := ℂ)).congr fun q ↦ by simp))
-  have hcoe : Tendsto (fun z : ℍ ↦ (z : ℂ)) atImInfty (comap Complex.im atTop) :=
-    tendsto_comap_iff.mpr tendsto_comap
-  have heq : (fun z : ℍ ↦ cuspFunction p (h ∘ ofComplex) (qParam p z)) = h := by
-    ext z
-    rw [eq_cuspFunction hp.ne' hF, Function.comp_apply, ofComplex_apply]
-  rw [IsBoundedAtImInfty, ← heq]
-  exact ((Complex.tendsto_limUnder_of_differentiable_on_punctured_nhds_of_isLittleO hd
-    (hG.sub hc)).comp ((qParam_tendsto hp).comp hcoe)).isBigO_one ℝ
+  refine isBoundedAtImInfty_of_isModerateGrowthAtImInfty hp hF hh ⟨M, .of_bound K ?_⟩
+  filter_upwards [(tendsto_comap : Tendsto im atImInfty atTop).eventually_ge_atTop 1] with z hz
+  have him : 0 < ((z : ℂ) - ⌊z.re / p⌋ * p).im := by
+    simpa using z.im_pos
+  have h₁ : h z = h ⟨(z : ℂ) - ⌊z.re / p⌋ * p, him⟩ := by
+    rw [← ofComplex_apply_of_im_pos him, ← Function.comp_apply (f := h), hF.sub_int_mul_eq,
+      Function.comp_apply, ofComplex_apply]
+  rw [h₁, Real.norm_of_nonneg (by positivity), Real.rpow_natCast]
+  simpa using hbd ⟨_, him⟩ (by simpa using hz) (abs_le.mpr
+    ⟨by simpa using (Int.sub_floor_div_mul_nonneg z.re hp).trans' (neg_nonpos.mpr hp.le),
+      by simpa using (Int.sub_floor_div_mul_lt z.re hp).le⟩)
 
 end UpperHalfPlane
 

@@ -510,14 +510,8 @@ lemma exists_isAnalyticRank (hK : finrank ℚ K = 2) (hk : k ≠ 0) : ∃ r, N.I
 `mf.bianchi.anr`): for a newform of weight `k ≥ 1` and level `(n)`, with sign `ε` and analytic rank
 `r`, `(-1)^{k/2+1} ε = (-1)^r`. -/
 lemma neg_one_pow_mul_eq_neg_one_pow (hK : finrank ℚ K = 2) (hk : k ≠ 0) (hs : F.HasSign ε)
-    (hr : F.IsAnalyticRank r) : (-1) ^ (k / 2 + 1) * ε = (-1) ^ r := by
-  refine hr.sign_eq_neg_one_pow (F.conj_lCoeff hK hk) (L := F.analyticLFunction hK hk hs)
-    (fun _ _ ↦ rfl) ?_
-  have e : conj (1 / 2 + (k : ℂ) / 4) = 1 / 2 + (k : ℂ) / 4 := by
-    rw [map_add, map_div₀, map_div₀, map_one, map_natCast, map_ofNat, map_ofNat]
-  have h₁ : (F.analyticLFunction hK hk hs).selbergData.gammaFactor (1 / 2) =
-      Gammaℂ (1 / 2 + (k : ℂ) / 4) ^ 2 := gammaFactor_selbergData (F.even hK) hk ε _
-  rw [h₁, map_pow, ← Gammaℂ_conj, e]
+    (hr : F.IsAnalyticRank r) : (-1) ^ (k / 2 + 1) * ε = (-1) ^ r :=
+  hr.sign_eq_neg_one_pow (F.conj_lCoeff hK hk) (L := F.analyticLFunction hK hk hs) fun _ _ ↦ rfl
 
 /-- **In weight `2`, the analytic rank of a Bianchi newform is even when its sign is `+1`, and odd
 otherwise** (LMFDB `mf.bianchi.sign`): `ε = (-1)^r`. -/

@@ -270,14 +270,9 @@ lemma analyticCoeff_prime_pow_add_two (hp : p.Prime) (r : ℕ) : f.analyticCoeff
   ring1
 
 lemma eulerPolynomial_mul_mk (hp : p.Prime) :
-    (f.eulerPolynomial p : ℂ⟦X⟧) * PowerSeries.mk (fun r ↦ f.analyticCoeff (p ^ r)) = 1 := by
-  ext n
-  rcases n with _ | _ | n
-  · simp [eulerPolynomial, f.analyticCoeff_one]
-  · simp [eulerPolynomial, sub_mul, add_mul, mul_assoc, PowerSeries.coeff_X_pow_mul',
-      f.analyticCoeff_one]
-  · simp [eulerPolynomial, sub_mul, add_mul, mul_assoc, PowerSeries.coeff_X_pow_mul',
-      f.analyticCoeff_prime_pow_add_two hp]
+    (f.eulerPolynomial p : ℂ⟦X⟧) * PowerSeries.mk (fun r ↦ f.analyticCoeff (p ^ r)) = 1 :=
+  Polynomial.coe_one_sub_C_mul_X_add_C_mul_X_sq_mul_mk (by simpa using f.analyticCoeff_one)
+    (by simp) (f.analyticCoeff_prime_pow_add_two hp)
 
 lemma natDegree_eulerPolynomial_le : (f.eulerPolynomial p).natDegree ≤ 2 := by
   rw [eulerPolynomial]

@@ -141,7 +141,7 @@ lemma norm_tsum_mul_pow_le (hc : Summable fun n ↦ ‖c n‖) (hR : ∀ n, c n 
 
 /-! ### A shift of a point of the Siegel set -/
 
-private lemma posDef_of_fin_two {Y : Matrix (Fin 2) (Fin 2) ℝ} (hs : Y 1 0 = Y 0 1) (h₀ : 0 < Y 0 0)
+lemma posDef_of_fin_two {Y : Matrix (Fin 2) (Fin 2) ℝ} (hs : Y 1 0 = Y 0 1) (h₀ : 0 < Y 0 0)
     (hd : 0 < Y 0 0 * Y 1 1 - Y 0 1 ^ 2) : Y.PosDef := by
   refine posDef_iff_dotProduct_mulVec.mpr ⟨?_, fun v hv ↦ ?_⟩
   · ext i j
@@ -168,7 +168,7 @@ variable {Z₀ : SiegelUpperHalfSpace (Fin 2)}
 
 private lemma det_map_im_eq (Z : SiegelUpperHalfSpace (Fin 2)) :
     (Z.val.map im).det = (Z.val 0 0).im * (Z.val 1 1).im - (Z.val 0 1).im ^ 2 := by
-  have hZs : Z.val 1 0 = Z.val 0 1 := congrFun (congrFun Z.transpose_val 0) 1
+  have hZs : Z.val 1 0 = Z.val 0 1 := Z.val_one_zero
   simp [det_fin_two, hZs, pow_two]
 
 private lemma mul_le_im_mul_im_sub_sq (hZ₀ : Z₀ ∈ siegelSet) :
@@ -193,7 +193,7 @@ noncomputable def shiftedPoint : SiegelUpperHalfSpace (Fin 2) where
   transpose_val := by
     rw [transpose_add, Z₀.transpose_val, transpose_smul, transpose_one]
   posDef_im := by
-    have hZs : Z₀.val 1 0 = Z₀.val 0 1 := congrFun (congrFun Z₀.transpose_val 0) 1
+    have hZs : Z₀.val 1 0 = Z₀.val 0 1 := Z₀.val_one_zero
     have h₀ : 4 / 5 ≤ (Z₀.val 0 0).im := four_fifths_le_im_zero_zero hZ₀
     have hD : 0 < ((Z₀.val 0 0).im - 1 / 5) * ((Z₀.val 1 1).im - 1 / 5) - (Z₀.val 0 1).im ^ 2 :=
       sub_mul_sub_sub_sq_pos hZ₀
@@ -227,7 +227,7 @@ private lemma trace_star_mul_self_eq (hM : imGL Z₀ = star M * M) {Z₁ : Siege
 private lemma trace_imGL_mul_inv_le :
     (trace ((imGL Z₀ * (imGL (shiftedPoint hZ₀ x))⁻¹ : GL (Fin 2) ℂ) :
       Matrix (Fin 2) (Fin 2) ℂ)).re ≤ 4 := by
-  have hZs : Z₀.val 1 0 = Z₀.val 0 1 := congrFun (congrFun Z₀.transpose_val 0) 1
+  have hZs : Z₀.val 1 0 = Z₀.val 0 1 := Z₀.val_one_zero
   have h₀ : 4 / 5 ≤ (Z₀.val 0 0).im := four_fifths_le_im_zero_zero hZ₀
   have h₁ : 4 / 5 ≤ (Z₀.val 1 1).im := four_fifths_le_im_one_one hZ₀
   have h₂ : 3 / 4 * ((Z₀.val 0 0).im * (Z₀.val 1 1).im) ≤ (Z₀.val 0 0).im * (Z₀.val 1 1).im -
@@ -308,7 +308,7 @@ private lemma norm_det_mul_inv_sq_eq (hM : imGL Z₀ = star M * M) {Z₁ : Siege
 
 private lemma det_map_im_shiftedPoint : ((shiftedPoint hZ₀ x).val.map im).det =
     ((Z₀.val 0 0).im - 1 / 5) * ((Z₀.val 1 1).im - 1 / 5) - (Z₀.val 0 1).im ^ 2 := by
-  have hZs : Z₀.val 1 0 = Z₀.val 0 1 := congrFun (congrFun Z₀.transpose_val 0) 1
+  have hZs : Z₀.val 1 0 = Z₀.val 0 1 := Z₀.val_one_zero
   simp [det_fin_two, im_shiftedPoint, hZs, pow_two]
 
 private lemma one_le_norm_det_mul_inv_sq (hM : imGL Z₀ = star M * M)

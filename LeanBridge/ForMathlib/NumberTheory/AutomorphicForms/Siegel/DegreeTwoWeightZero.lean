@@ -94,7 +94,7 @@ noncomputable def symLinearCoeff : Dual ℂ (Sym[ℂ]^j (Fin 2 → ℂ)) :=
 
 lemma symLinearCoeff_tprod (u : Fin j → Fin 2 → ℂ) :
     symLinearCoeff j (⨂ₛ[ℂ] i, u i) = ∑ i, u i 1 * ∏ l ∈ Finset.univ.erase i, u l 0 := by
-  rw [symLinearCoeff, LinearMap.comp_apply, symDehomogenize_tprod_eq, lcoeff_apply,
+  rw [symLinearCoeff, LinearMap.comp_apply, symDehomogenize_tprod, lcoeff_apply,
     coeff_one_prod_C_add_C_mul_X]
 
 /-- **`ψ₁ ∘ ρ_{k,j}` on the lower triangular matrices**: for `A = (1, 0; x, w)`,
@@ -124,7 +124,7 @@ lemma symLinearCoeff_rhoKJ {x w : ℂ} {A : GL (Fin 2) ℂ}
           w * ∑ i, m i 1 * ∏ l ∈ Finset.univ.erase i, m l 0 := by
       rw [Finset.mul_sum, Finset.mul_sum, ← Finset.sum_add_distrib]
       exact Finset.sum_congr rfl fun i _ ↦ by ring1
-    rw [rhoKJ_tprod_eq, map_smul, symLinearCoeff_tprod, symLinearCoeff_tprod, symConstCoeff_tprod,
+    rw [rhoKJ_tprod, map_smul, symLinearCoeff_tprod, symLinearCoeff_tprod, symConstCoeff_tprod,
       hdet, smul_eq_mul]
     simp only [h₀, h₁]
     rw [e, hsum]
@@ -432,14 +432,9 @@ positive definite form `c`: the Siegel operator vanishes on `M_{j,0}(Γ₂)` and
 `N_{j,0}(Γ₂)`. -/
 lemma cuspFormsOrthogonalKJ_eq_bot_of_weight_zero (hadm : IsAdmissibleForm (rhoKJ 0 j) c)
     (hpos : ∀ v, v ≠ 0 → 0 < c v v) (hj : j ≠ 0) :
-    cuspFormsOrthogonalKJ (integral (Fin 2)) 0 j c = ⊥ := by
-  refine (Submodule.eq_bot_iff _).mpr fun G hG ↦ ?_
-  rcases exists_hasSiegelFourierExpansion (rhoKJ 0 j) (isArithmetic_integral (Fin 2)) hG.1 with
-    ⟨a, ha⟩
-  refine eq_zero_of_mem_cuspFormsOrthogonalKJ_of_siegelOperatorVanishes hadm hpos hG
-    fun τ' φ ↦ ?_
-  simpa [siegelOperatorSeries_eq_zero_of_weight_zero τ' hG.1 ha hj] using
-    tendsto_dual_diagPoint_siegelOperatorSeries τ' hG.1 ha φ
+    cuspFormsOrthogonalKJ (integral (Fin 2)) 0 j c = ⊥ :=
+  cuspFormsOrthogonalKJ_eq_bot_of_forall_siegelOperatorSeries_eq_zero hadm hpos fun _ hG _ ha τ' ↦
+    siegelOperatorSeries_eq_zero_of_weight_zero τ' hG ha hj
 
 /-- **`N_{j,k}(Γ₂) = 0` for `k < 4` and `(j, k) ≠ (0, 0)`** (LMFDB
 `mf.siegel.subspace.degree.two`), for an admissible positive definite form `c`: for odd `k`

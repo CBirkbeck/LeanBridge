@@ -13,7 +13,10 @@ both sides of the functional equation `Λ(s) = ε conj (Λ (1 - conj s))`, with
 `Λ(s) = N ^ (s / 2) L_∞(s) L(s)` and `L(1 / 2 + t) ∼ c tʳ`, gives `ε = (-1)ʳ`: the sign of the
 functional equation (LMFDB `lfunction.sign`) determines the parity of the analytic rank `r` (LMFDB
 `lfunction.analytic_rank`), as LMFDB `mf.bianchi.sign` and `mf.bianchi.anr` state for the
-L-functions of Bianchi newforms.
+L-functions of Bianchi newforms. The gamma factor of a self-dual L-function is always real at
+`s = 1 / 2`, so `ε = (-1)ʳ` holds for every self-dual L-function
+(`AnalyticLFunction.sign_eq_neg_one_pow_analyticRank_of_selfDual`, in
+`LeanBridge.ForMathlib.NumberTheory.LFunction.RootNumber`).
 
 ## Main results
 

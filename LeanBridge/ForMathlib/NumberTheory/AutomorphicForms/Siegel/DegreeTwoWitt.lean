@@ -72,29 +72,6 @@ namespace SiegelUpperHalfSpace
 
 /-! ### Points of `ℋ₂` given by their entries -/
 
-private lemma posDef_fin_two_of_sq_lt {Y : Matrix (Fin 2) (Fin 2) ℝ} (hs : Y 1 0 = Y 0 1)
-    (h₀ : 0 < Y 0 0) (hd : Y 0 1 ^ 2 < Y 0 0 * Y 1 1) : Y.PosDef := by
-  refine posDef_iff_dotProduct_mulVec.mpr ⟨?_, fun v hv ↦ ?_⟩
-  · ext a b
-    fin_cases a <;> fin_cases b <;> simp [hs]
-  · simp only [dotProduct, mulVec, Fin.sum_univ_two, hs]
-    have h₁ :
-        0 < Y 0 0 * (v 0 * (Y 0 0 * v 0 + Y 0 1 * v 1) + v 1 * (Y 0 1 * v 0 + Y 1 1 * v 1)) := by
-      have e : Y 0 0 * (v 0 * (Y 0 0 * v 0 + Y 0 1 * v 1) + v 1 * (Y 0 1 * v 0 + Y 1 1 * v 1)) =
-          (Y 0 0 * v 0 + Y 0 1 * v 1) ^ 2 + (Y 0 0 * Y 1 1 - Y 0 1 ^ 2) * v 1 ^ 2 := by
-        ring1
-      rw [e]
-      by_cases h₄ : v 1 = 0
-      · have h₅ : v 0 ≠ 0 := fun h₅ ↦ hv <| by
-          ext i
-          fin_cases i <;> simp [h₄, h₅]
-        have h₂ : 0 < (Y 0 0 * v 0) ^ 2 := by
-          positivity
-        simpa [h₄] using h₂
-      · have h₂ : 0 < (Y 0 0 * Y 1 1 - Y 0 1 ^ 2) * v 1 ^ 2 := mul_pos (by linarith) (by positivity)
-        linarith [sq_nonneg (Y 0 0 * v 0 + Y 0 1 * v 1)]
-    exact (mul_pos_iff_of_pos_left h₀).mp h₁
-
 section Points
 
 variable (p q r : ℂ) (hp : 0 < p.im) (hq : q.im ^ 2 < p.im * r.im)
@@ -106,7 +83,7 @@ def ofEntries : SiegelUpperHalfSpace (Fin 2) where
   transpose_val := by
     ext a b
     fin_cases a <;> fin_cases b <;> rfl
-  posDef_im := posDef_fin_two_of_sq_lt (by simp) (by simpa using hp) (by simpa using hq)
+  posDef_im := posDef_of_fin_two (by simp) (by simpa using hp) (sub_pos.mpr (by simpa using hq))
 
 lemma ofEntries_val : (ofEntries p q r hp hq).val = !![p, q; q, r] :=
   rfl
@@ -328,19 +305,9 @@ end Series
 
 variable {k : ℤ} {j : ℕ} (u : Fin j → Fin 2 → ℂ) {x w : ℂ} {A : GL (Fin 2) ℂ}
 
-lemma symDehomogenize_tprod_eq :
-    symDehomogenize j (⨂ₛ[ℂ] i, u i) = ∏ i, (C (u i 0) + C (u i 1) * X) := by
-  rw [symDehomogenize, SymmetricPower.lift_tprod]
-  exact (Finset.prod_congr rfl fun i _ ↦ by rw [← C_mul_X_eq_monomial, monomial_zero_left] :
-    ∏ i, (monomial 0 (u i 0) + monomial 1 (u i 1)) = _)
-
 lemma symConstCoeff_tprod : symConstCoeff j (⨂ₛ[ℂ] i, u i) = ∏ i, u i 0 := by
-  rw [symConstCoeff, LinearMap.comp_apply, symDehomogenize_tprod_eq]
+  rw [symConstCoeff, LinearMap.comp_apply, symDehomogenize_tprod]
   simp [eval_prod]
-
-lemma rhoKJ_tprod_eq : rhoKJ k j A (⨂ₛ[ℂ] i, u i) =
-    ((A.det ^ k : ℂˣ) : ℂ) • ⨂ₛ[ℂ] i, (A : Matrix (Fin 2) (Fin 2) ℂ) *ᵥ u i :=
-  congrArg (((A.det ^ k : ℂˣ) : ℂ) • ·) (symPowerRep_tprod A u)
 
 /-- **`ψ ∘ ρ_{k,j}` on the lower triangular matrices**: for `A = (1, 0; x, w)`,
 `ψ(ρ_{k,j}(A) v) = w^k ψ(v)`, as `A` fixes the first coordinate of every vector. -/
@@ -352,8 +319,8 @@ lemma symConstCoeff_rhoKJ (hA : (A : Matrix (Fin 2) (Fin 2) ℂ) = !![1, 0; x, w
   induction hv using Submodule.span_induction with
   | mem y hy =>
     rcases hy with ⟨u', rfl⟩
-    rw [rhoKJ_tprod_eq, map_smul, symConstCoeff_tprod, symConstCoeff_tprod,
-      Units.val_zpow_eq_zpow_val, GeneralLinearGroup.val_det_apply, hA]
+    rw [rhoKJ_tprod, map_smul, symConstCoeff_tprod, symConstCoeff_tprod, Units.val_zpow_eq_zpow_val,
+      GeneralLinearGroup.val_det_apply, hA]
     simp [dotProduct]
   | zero => simp
   | add y y' _ _ hy hy' => rw [map_add, map_add, hy, hy', map_add, mul_add]
@@ -364,7 +331,7 @@ variable (g : SL(2, ℤ)) (Z : SiegelUpperHalfSpace (Fin 2))
 lemma coe_denomGL_embedSecond : (denomGL (SymplecticGroup.map (Int.castRingHom ℝ) (embedSecond g))
     Z : Matrix (Fin 2) (Fin 2) ℂ) =
       !![1, 0; (g 1 0 : ℂ) * Z.val 0 1, (g 1 0 : ℂ) * Z.val 1 1 + g 1 1] := by
-  have hZ : Z.val 1 0 = Z.val 0 1 := congrFun (congrFun Z.transpose_val 0) 1
+  have hZ : Z.val 1 0 = Z.val 0 1 := Z.val_one_zero
   ext a c
   fin_cases a <;> fin_cases c <;>
     simp [denom, embedSecond, toBlocks₂₁, toBlocks₂₂, Matrix.mul_apply, hZ]
@@ -376,7 +343,7 @@ lemma val_smul_embedSecond : (SymplecticGroup.map (Int.castRingHom ℝ) (embedSe
       Z.val 0 1 / ((g 1 0 : ℂ) * Z.val 1 1 + g 1 1);
       Z.val 0 1 / ((g 1 0 : ℂ) * Z.val 1 1 + g 1 1),
       ((g 0 0 : ℂ) * Z.val 1 1 + g 0 1) / ((g 1 0 : ℂ) * Z.val 1 1 + g 1 1)] := by
-  have hZ : Z.val 1 0 = Z.val 0 1 := congrFun (congrFun Z.transpose_val 0) 1
+  have hZ : Z.val 1 0 = Z.val 0 1 := Z.val_one_zero
   have hw : (g 1 0 : ℂ) * Z.val 1 1 + g 1 1 ≠ 0 := by
     have h : UpperHalfPlane.denom (g : GL (Fin 2) ℝ)
         (UpperHalfPlane.mk (Z.val 1 1) (im_one_one_pos Z)) ≠ 0 :=
@@ -546,14 +513,9 @@ every `j` and an admissible positive definite form `c`: the Siegel operator vani
 lemma cuspFormsOrthogonalKJ_eq_bot_of_subsingleton_modularForm_weight
     (hadm : IsAdmissibleForm (rhoKJ k j) c) (hpos : ∀ v, v ≠ 0 → 0 < c v v)
     (hM : Subsingleton (ModularForm 𝒮ℒ k)) :
-    cuspFormsOrthogonalKJ (integral (Fin 2)) k j c = ⊥ := by
-  refine (Submodule.eq_bot_iff _).mpr fun G hG ↦ ?_
-  rcases exists_hasSiegelFourierExpansion (rhoKJ k j) (isArithmetic_integral (Fin 2)) hG.1 with
-    ⟨a, ha⟩
-  refine eq_zero_of_mem_cuspFormsOrthogonalKJ_of_siegelOperatorVanishes hadm hpos hG
-    fun τ' φ ↦ ?_
-  simpa [siegelOperatorSeries_eq_zero_of_subsingleton τ' hG.1 ha hM] using
-    tendsto_dual_diagPoint_siegelOperatorSeries τ' hG.1 ha φ
+    cuspFormsOrthogonalKJ (integral (Fin 2)) k j c = ⊥ :=
+  cuspFormsOrthogonalKJ_eq_bot_of_forall_siegelOperatorSeries_eq_zero hadm hpos fun _ hG _ ha τ' ↦
+    siegelOperatorSeries_eq_zero_of_subsingleton τ' hG ha hM
 
 /-- **`N_{j,2}(Γ₂) = 0`** (LMFDB `mf.siegel.subspace.degree.two`) for every `j`, for an admissible
 positive definite form `c`, as there are no nonzero modular forms of weight `2` on `SL(2, ℤ)`. -/
