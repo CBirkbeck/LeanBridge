@@ -348,6 +348,7 @@ import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.CartanConjugate
 import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.CartanEtale
 import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.CartanNormalizer
 import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.CartanNormalizerIndex
+import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.CartanZModPow
 import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.ElementaryCommutator
 import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.Exceptional
 import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.ExceptionalDeterminant
@@ -742,6 +743,7 @@ import LeanBridge.ForMathlib.NumberTheory.LFunction.TrivialZero
 import LeanBridge.ForMathlib.NumberTheory.LFunction.TrivialZeroOrder
 import LeanBridge.ForMathlib.NumberTheory.LFunction.ZFunction
 import LeanBridge.ForMathlib.NumberTheory.LFunction.ZFunctionZeros
+import LeanBridge.ForMathlib.NumberTheory.LocalField.AbsoluteGaloisGroupHom
 import LeanBridge.ForMathlib.NumberTheory.LocalField.DeligneRamificationBreaks
 import LeanBridge.ForMathlib.NumberTheory.LocalField.DiscriminantBasis
 import LeanBridge.ForMathlib.NumberTheory.LocalField.EisensteinDiagram
@@ -790,6 +792,7 @@ import LeanBridge.ForMathlib.NumberTheory.LocalField.TopArtinSlope
 import LeanBridge.ForMathlib.NumberTheory.LocalField.TopArtinSlopeCompositum
 import LeanBridge.ForMathlib.NumberTheory.LocalField.TopArtinSlopeContent
 import LeanBridge.ForMathlib.NumberTheory.LocalField.TopArtinSlopeRamification
+import LeanBridge.ForMathlib.NumberTheory.LocalField.UnramifiedNonsplitCartan
 import LeanBridge.ForMathlib.NumberTheory.LocalField.WildArtinSlopes
 import LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.AlgebraicGroup
 import LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Conductor
@@ -1016,10 +1019,13 @@ import LeanBridge.ForMathlib.NumberTheory.NumberField.RootDiscrUnramified
 import LeanBridge.ForMathlib.NumberTheory.NumberField.SerreOdlyzkoBound
 import LeanBridge.ForMathlib.NumberTheory.NumberField.SerreOdlyzkoInequality
 import LeanBridge.ForMathlib.NumberTheory.NumberField.SexticTwin.Basic
+import LeanBridge.ForMathlib.NumberTheory.NumberField.SexticTwin.Cyclic
 import LeanBridge.ForMathlib.NumberTheory.NumberField.SexticTwin.GaloisDescent
+import LeanBridge.ForMathlib.NumberTheory.NumberField.SexticTwin.LinearFactor
 import LeanBridge.ForMathlib.NumberTheory.NumberField.SexticTwin.OuterAutomorphism
 import LeanBridge.ForMathlib.NumberTheory.NumberField.SexticTwin.ProjectiveLine
 import LeanBridge.ForMathlib.NumberTheory.NumberField.SexticTwin.Resolvent
+import LeanBridge.ForMathlib.NumberTheory.NumberField.SexticTwin.SeventhCyclotomic
 import LeanBridge.ForMathlib.NumberTheory.NumberField.Sibling
 import LeanBridge.ForMathlib.NumberTheory.NumberField.SiblingProduct
 import LeanBridge.ForMathlib.NumberTheory.NumberField.TotallyRealMinpoly
@@ -1146,6 +1152,9 @@ import LeanBridge.ForMathlib.RepresentationTheory.SchurIndexMultiple
 import LeanBridge.ForMathlib.RepresentationTheory.SpechtDegreesSix
 import LeanBridge.ForMathlib.RingTheory.DedekindDomain.AdicAbvCompletion
 import LeanBridge.ForMathlib.RingTheory.DedekindDomain.AdicCompletionInverseLimit
+import LeanBridge.ForMathlib.RingTheory.Etale.QuadraticZMod
+import LeanBridge.ForMathlib.RingTheory.Etale.QuadraticZModPow
+import LeanBridge.ForMathlib.RingTheory.Etale.QuadraticZModPowQuotient
 import LeanBridge.ForMathlib.RingTheory.FractionalIdeal.LocallyPrincipal
 import LeanBridge.ForMathlib.RingTheory.Ideal.GoingUp
 import LeanBridge.ForMathlib.RingTheory.IsAdjoinRootPrimitive
@@ -1154,6 +1163,7 @@ import LeanBridge.ForMathlib.RingTheory.Polynomial.EisensteinForm
 import LeanBridge.ForMathlib.RingTheory.Polynomial.EisensteinFormIrreducible
 import LeanBridge.ForMathlib.RingTheory.TwoSidedIdeal.Homogeneous
 import LeanBridge.ForMathlib.RingTheory.Valuation.IsEquivRpow
+import LeanBridge.ForMathlib.RingTheory.WittVector.NonsplitCartanAlgebra
 import LeanBridge.ForMathlib.Topology.Algebra.Group.ConnectedComponents
 import LeanBridge.ForMathlib.Topology.Algebra.Group.GL2ZHat
 import LeanBridge.ForMathlib.Topology.Algebra.Group.ProfiniteOpenSubgroup

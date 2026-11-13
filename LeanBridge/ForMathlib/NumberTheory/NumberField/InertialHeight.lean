@@ -129,8 +129,9 @@ noncomputable def localHeight (p : ℕ) [Fact p.Prime] (φ : Field.absoluteGaloi
 continuous homomorphism `φ : Gal(ℚ̄/ℚ) → G`, the product over all primes `ℓ` of `H ℓ (φ_ℓ)` if
 `ℓ ∣ #G` and of the local height `H_{w,ℓ}(φ_ℓ)` if `ℓ ∤ #G`, where `φ_ℓ` is the restriction of `φ`
 to the decomposition group `Gal(ℚ̄_ℓ/ℚ_ℓ)`, along Mathlib's chosen embedding `ℚ̄ → ℚ̄_ℓ`. The
-LMFDB knowl takes the auxiliary heights positive, and writes the product of the `H_{w,ℓ}` over the
-primes `ℓ ∣ #G`, a misprint for `ℓ ∤ #G`.
+LMFDB knowl takes the auxiliary heights positive on the finite set `Hom(Γ_{ℚ_ℓ}, G)`
+(`Padic.finite_continuousMonoidHom_absoluteGaloisGroup`), and writes the product of the `H_{w,ℓ}`
+over the primes `ℓ ∣ #G`, a misprint for `ℓ ∤ #G`.
 
 The product is a `finprod`, which is `1` when infinitely many factors differ from `1`. That does not
 happen for a finite `G` (`NumberField.WeightFunction.finite_mulSupport_inertialHeight`): the kernel

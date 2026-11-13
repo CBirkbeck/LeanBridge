@@ -340,7 +340,7 @@ Let $`\mathcal{O}` be an {bpref "nf.order"}[order] in a {bpref "nf"}[number fiel
 Depends on: {uses "nf"}[] {uses "nf.order"}[] {uses "nf.ring_of_integers"}[]
 :::
 
-:::definition "nf.inertial_height_function"
+:::definition "nf.inertial_height_function" (lean := "NumberField.WeightFunction, NumberField.WeightFunction.localHeight, NumberField.WeightFunction.inertialHeight, NumberField.WeightFunction.localHeight_eq, Padic.finite_continuousMonoidHom_absoluteGaloisGroup, NumberField.WeightFunction.finite_mulSupport_inertialHeight, NumberField.WeightFunction.inertialHeight_pos, NumberField.WeightFunction.inertialHeight_indicator_eq_finprod_ramifiedPrimes")
 *Inertial height function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.inertial_height_function))
 
 Let $`G` be a finite group. A *weight function* on $`G` is a a function $`w:G \to \R_{\geq 0}` such that:
@@ -789,7 +789,7 @@ Consequently, any number field whose root discriminant lies below $`\Omega` can 
 Depends on: {uses "lfunction.rh"}[] {uses "nf"}[] {uses "nf.degree"}[] {uses "nf.root_discriminant"}[]
 :::
 
-:::definition "nf.sextic_twin"
+:::definition "nf.sextic_twin" (lean := "Algebra.IsSexticTwin, Equiv.Perm.outerAutFinSix, Algebra.exists_isSexticTwin, Equiv.Perm.exists_isOuter_iff, Equiv.Perm.exists_eq_outerAutFinSix_mul_conj, Equiv.Perm.map_stabilizer_outerAutFinSix, Equiv.Perm.natDegree_specialize_pglTwoFiveResolventSpec, Algebra.not_isField_sexticTwin_adjoin_seventh_roots")
 *Twin sextic algebra.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.sextic_twin))
 
 If $`A` is a {bpref "nf.separable_algebra"}[separable algebra] of degree 6 over a field $`F` (so $`\dim_F A=6`), then it has a _twin algebra_ $`B` that is also a separable algebra of degree 6 over $`F`; the $`F`-algebras $`A` and $`B` are related by the non-trivial outer automorphism of $`S_6`.

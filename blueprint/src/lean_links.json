@@ -1497,6 +1497,16 @@
     "Matrix.GeneralLinearGroup.labelBAB": "LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.Borel",
     "ZMod.leastPrimitiveRoot": "LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.LeastPrimitiveRoot"
   },
+  "gl2.cartan": {
+    "Matrix.GeneralLinearGroup.cartanSubgroup": "LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.Cartan",
+    "Matrix.GeneralLinearGroup.extendedCartanSubgroup": "LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.Cartan",
+    "Matrix.GeneralLinearGroup.relIndex_cartanSubgroup_extendedCartanSubgroup_eq_two": "LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.CartanEtale",
+    "Matrix.GeneralLinearGroup.normalizer_cartanSubgroup_eq_extendedCartanSubgroup_iff": "LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.CartanEtale",
+    "Matrix.GeneralLinearGroup.nonempty_algEquiv_prod_or_nonempty_algEquiv_nonsplitCartanAlgebraPow": "LeanBridge.ForMathlib.RingTheory.Etale.QuadraticZModPow",
+    "Matrix.GeneralLinearGroup.nonempty_ringEquiv_nonsplitCartanAlgebraPow_of_unramifiedExtension": "LeanBridge.ForMathlib.NumberTheory.LocalField.UnramifiedNonsplitCartan",
+    "Matrix.GeneralLinearGroup.nonempty_ringEquiv_truncatedWittVector": "LeanBridge.ForMathlib.RingTheory.WittVector.NonsplitCartanAlgebra",
+    "Matrix.GeneralLinearGroup.existsUnique_nonempty_algEquiv_nonsplitAtAlgebra": "LeanBridge.ForMathlib.RingTheory.Etale.QuadraticZMod"
+  },
   "gl2.exceptional": {
     "Matrix.GeneralLinearGroup.IsExceptionalSubgroup": "LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.Exceptional",
     "Matrix.GeneralLinearGroup.HasExceptionalType": "LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.Exceptional",
@@ -3910,6 +3920,16 @@
     "TauCeti.GlobalNumberFields.NumberFieldOrder.index_def": "TauCeti.NumberTheory.NumberField.Global.Orders.Discriminant",
     "TauCeti.GlobalNumberFields.NumberFieldOrder": "TauCeti.NumberTheory.NumberField.Global.Orders.Basic"
   },
+  "nf.inertial_height_function": {
+    "NumberField.WeightFunction": "LeanBridge.ForMathlib.NumberTheory.NumberField.WeightFunction",
+    "NumberField.WeightFunction.localHeight": "LeanBridge.ForMathlib.NumberTheory.NumberField.InertialHeight",
+    "NumberField.WeightFunction.inertialHeight": "LeanBridge.ForMathlib.NumberTheory.NumberField.InertialHeight",
+    "NumberField.WeightFunction.localHeight_eq": "LeanBridge.ForMathlib.NumberTheory.NumberField.InertialHeight",
+    "Padic.finite_continuousMonoidHom_absoluteGaloisGroup": "LeanBridge.ForMathlib.NumberTheory.LocalField.AbsoluteGaloisGroupHom",
+    "NumberField.WeightFunction.finite_mulSupport_inertialHeight": "LeanBridge.ForMathlib.NumberTheory.NumberField.InertialHeightSupport",
+    "NumberField.WeightFunction.inertialHeight_pos": "LeanBridge.ForMathlib.NumberTheory.NumberField.InertialHeightRamification",
+    "NumberField.WeightFunction.inertialHeight_indicator_eq_finprod_ramifiedPrimes": "LeanBridge.ForMathlib.NumberTheory.NumberField.InertialHeightRamification"
+  },
   "nf.inessential_prime": {
     "TauCeti.NumberField.IntegralPrimitiveElement.index": "TauCeti.NumberTheory.NumberField.Index.Basic",
     "TauCeti.NumberField.IsCommonIndexDivisor": "TauCeti.NumberTheory.NumberField.Index.CommonIndexDivisor"
@@ -4071,6 +4091,16 @@
     "Algebra.Etale": "Mathlib.RingTheory.Etale.Basic",
     "Algebra.Etale.iff_exists_algEquiv_prod": "Mathlib.RingTheory.Etale.Field",
     "Algebra.Etale.baseChange": "Mathlib.RingTheory.Etale.Basic"
+  },
+  "nf.sextic_twin": {
+    "Algebra.IsSexticTwin": "LeanBridge.ForMathlib.NumberTheory.NumberField.SexticTwin.Basic",
+    "Equiv.Perm.outerAutFinSix": "LeanBridge.ForMathlib.NumberTheory.NumberField.SexticTwin.OuterAutomorphism",
+    "Algebra.exists_isSexticTwin": "LeanBridge.ForMathlib.NumberTheory.NumberField.SexticTwin.GaloisDescent",
+    "Equiv.Perm.exists_isOuter_iff": "LeanBridge.ForMathlib.NumberTheory.NumberField.SexticTwin.ProjectiveLine",
+    "Equiv.Perm.exists_eq_outerAutFinSix_mul_conj": "LeanBridge.ForMathlib.NumberTheory.NumberField.SexticTwin.OuterAutomorphism",
+    "Equiv.Perm.map_stabilizer_outerAutFinSix": "LeanBridge.ForMathlib.NumberTheory.NumberField.SexticTwin.ProjectiveLine",
+    "Equiv.Perm.natDegree_specialize_pglTwoFiveResolventSpec": "LeanBridge.ForMathlib.NumberTheory.NumberField.SexticTwin.Resolvent",
+    "Algebra.not_isField_sexticTwin_adjoin_seventh_roots": "LeanBridge.ForMathlib.NumberTheory.NumberField.SexticTwin.SeventhCyclotomic"
   },
   "nf.sibling": {
     "Algebra.IsSibling": "LeanBridge.ForMathlib.NumberTheory.NumberField.Sibling",

@@ -27,8 +27,9 @@ labelling convention, not part of the definitions (see
 
 ## Main results
 
-* `Matrix.GeneralLinearGroup.cartanSubgroup_piBasisFun`: the Cartan subgroup of `R × R` in its
-  standard basis is the group of invertible diagonal matrices.
+* `Matrix.GeneralLinearGroup.cartanSubgroup_piBasisFun`: the Cartan subgroup of `Fin 2 → R` in its
+  standard basis is the group of invertible diagonal matrices (for `R × R`, see
+  `Matrix.GeneralLinearGroup.cartanSubgroup_finTwoProd`).
 * `Matrix.GeneralLinearGroup.isSplitCartanSubgroup_diagonalTorus`: `Cs` is a split Cartan
   subgroup.
 * `Matrix.GeneralLinearGroup.labelNs_eq_extendedCartanSubgroup`: `Ns` is the extended Cartan
@@ -74,7 +75,7 @@ lemma unitsLeftMulMatrix_piBasisFun :
     rw [MonoidHom.comp_apply, diagGL_coe, coe_unitsLeftMulMatrix, leftMulMatrix_piBasisFun]
     rfl
 
-/-- **The Cartan subgroup of the split algebra `R × R`**, in its standard basis, is the group of
+/-- **The Cartan subgroup of the split algebra `Fin 2 → R`**, in its standard basis, is the group of
 invertible diagonal matrices. -/
 lemma cartanSubgroup_piBasisFun : cartanSubgroup (Pi.basisFun R (Fin 2)) = diagonalTorus R 2 := by
   rw [cartanSubgroup, unitsLeftMulMatrix_piBasisFun, MonoidHom.range_comp,

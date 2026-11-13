@@ -24,8 +24,8 @@ diagonal matrices, exactly in the second case: if all the units of a field `A` a
 some basis, the first basis vector would be an eigenvector of multiplication by an element outside
 `F`. Over `𝔽_p` the two cases are `𝔽_p × 𝔽_p` and `𝔽_{p²}`, and the extended Cartan subgroup is the
 normalizer of the Cartan subgroup except for the split algebra over `𝔽₂`, where the Cartan subgroup
-is trivial. In the standard basis of `R × R` the extended Cartan subgroup consists of the diagonal
-and the antidiagonal matrices.
+is trivial. In the standard basis of `Fin 2 → R` the extended Cartan subgroup consists of the
+diagonal and the antidiagonal matrices.
 
 ## Main definitions
 
@@ -51,8 +51,9 @@ and the antidiagonal matrices.
   `gl2.cartan`): over `𝔽_p` the extended Cartan subgroup is the normalizer of the Cartan subgroup,
   except when `p = 2` and `A` is split.
 * `Matrix.GeneralLinearGroup.mem_extendedCartanSubgroup_piBasisFun_iff` (LMFDB `gl2.cartan`): in the
-  standard basis of the split algebra, the extended Cartan subgroup consists of the diagonal and the
-  antidiagonal matrices.
+  standard basis of the split algebra `Fin 2 → R`, the extended Cartan subgroup consists of the
+  diagonal and the antidiagonal matrices (for `R × R`, see
+  `Matrix.GeneralLinearGroup.mem_extendedCartanSubgroup_finTwoProd_iff`).
 -/
 
 open Matrix Module TauCeti
