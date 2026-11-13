@@ -58,6 +58,8 @@ If $`R\subseteq S` the *(relative) conductor* of $`R` in $`S` is the biggest $`S
 
 $$`(R:S) = \{ x \in K :\ xS \subseteq R \}.`
 
+Tau Ceti Review: [`Submodule.mem_div_iff_forall_mul_mem`](https://taucetiproject.org/review/#/d/Submodule.mem_div_iff_forall_mul_mem), [`integralClosure`](https://taucetiproject.org/review/#/d/integralClosure), [`conductor`](https://taucetiproject.org/review/#/d/conductor), [`TauCeti.GlobalNumberFields.NumberFieldOrder.conductor`](https://taucetiproject.org/review/#/d/TauCeti.GlobalNumberFields.NumberFieldOrder.conductor).
+
 Depends on: {uses "av.fq.order"}[]
 :::
 
@@ -143,6 +145,8 @@ Depends on: {uses "av.isogeny_class"}[]
 
 The set of *rational $`k`-points* $`A(k)` of an {bpref "ag.abelian_variety"}[abelian variety] $`A` defined over a field $`k` is an abelian group. If $`k\subseteq K` is a field extension, then we have an inlcusion of abelian groups $`A(k)\subseteq A(K)`.
 
+Tau Ceti Review: [`TauCeti.AlgebraicGeometry.AbelianVariety`](https://taucetiproject.org/review/#/d/TauCeti.AlgebraicGeometry.AbelianVariety), [`TauCeti.GroupScheme.baseChangePointMulEquiv`](https://taucetiproject.org/review/#/d/TauCeti.GroupScheme.baseChangePointMulEquiv).
+
 Depends on: {uses "ag.abelian_variety"}[]
 :::
 
@@ -162,6 +166,8 @@ Depends on: {uses "ag.abelian_variety"}[] {uses "av.fq.weil_polynomial"}[] {uses
 Let $`R` be an {bpref "av.fq.order"}[order] in an étale algebra $`K` with maximal order $`\mathcal{O}_K`.
 Then the *index* $`[\mathcal{O}_K:R]` is a finite positive integer.
 
+Tau Ceti Review: [`Submodule.IsLattice`](https://taucetiproject.org/review/#/d/Submodule.IsLattice), [`integralClosure`](https://taucetiproject.org/review/#/d/integralClosure), [`AddSubgroup.relIndex`](https://taucetiproject.org/review/#/d/AddSubgroup.relIndex).
+
 Depends on: {uses "av.fq.order"}[]
 :::
 
@@ -179,6 +185,8 @@ Depends on: {uses "av.fq.l-polynomial"}[] {uses "av.isogeny_class"}[]
 Whether an {bpref "av.fq.order"}[order] $`R` in an étale algebra $`K` can be written as
 $`R = \Z + \mathfrak{f}_R`,
 where $`\mathfrak{f}_R` is the {bpref "av.fq.conductor"}[conductor] of $`R` in the maximal order $`\mathcal{O}_K` of $`K`.
+
+Tau Ceti Review: [`integralClosure`](https://taucetiproject.org/review/#/d/integralClosure).
 
 Depends on: {uses "av.fq.conductor"}[] {uses "av.fq.order"}[]
 :::
@@ -364,6 +372,8 @@ The *Picard group* $`\Pic(S)` of $`S` is the group of invertible fractional $`S`
 
 The Picard group $`\Pic(\mathcal{O}_K)` of the {bpref "nf.ring_of_integers"}[ring of integers] $`\mathcal{O}_K` of a {bpref "av.fq.number_field"}[number field] $`K` is also referred to as the {bpref "nf.ideal_class_group"}[ideal class group] of $`K`. Its size is the {bpref "nf.class_number"}[class number] of $`K`.
 
+Tau Ceti Review: [`CommRing.Pic`](https://taucetiproject.org/review/#/d/CommRing.Pic), [`ClassGroup`](https://taucetiproject.org/review/#/d/ClassGroup), [`TauCeti.GlobalNumberFields.Pic`](https://taucetiproject.org/review/#/d/TauCeti.GlobalNumberFields.Pic).
+
 Depends on: {uses "av.fq.number_field"}[] {uses "av.fq.order"}[] {uses "nf.class_number"}[] {uses "nf.ideal_class_group"}[] {uses "nf.ring_of_integers"}[]
 :::
 
@@ -407,6 +417,8 @@ Depends on: {uses "ag.abelian_variety"}[] {uses "ag.base_field"}[] {uses "av.fq.
 
 Two fractional $`S`-ideals $`I` and $`J` are in the same *weak equivalence class* if $`I_{\mathfrak{l}}=I\otimes_S S_{\mathfrak{l}}` and $`J_{\mathfrak{l}}=J\otimes_S S_{\mathfrak{l}}` are isomorphic as $`S_{\mathfrak{l}}`-modules for every maximal ideal $`\mathfrak{l}` of $`S`.
 In the literature, weak equivalence classes are also called local isomorphism classes of genera.
+
+Tau Ceti Review: [`LocalizedModule`](https://taucetiproject.org/review/#/d/LocalizedModule).
 :::
 
 :::definition "av.fq.weil_polynomial"

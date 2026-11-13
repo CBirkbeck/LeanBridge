@@ -38,6 +38,8 @@ Depends on: {uses "gg.index"}[] {uses "group"}[] {uses "group.proper_subgroup"}[
 
 {bpref "group.conjugacy_class"}[]  If $`G\leq S_n`, then all elements in the conjugacy class of an element have the same cycle type.
 
+Tau Ceti Review: [`ConjClasses`](https://taucetiproject.org/review/#/d/ConjClasses), [`Equiv.Perm.cycleType`](https://taucetiproject.org/review/#/d/Equiv.Perm.cycleType), [`Equiv.Perm.cycleType_conj`](https://taucetiproject.org/review/#/d/Equiv.Perm.cycleType_conj), [`Equiv.Perm.isConj_iff_cycleType_eq`](https://taucetiproject.org/review/#/d/Equiv.Perm.isConj_iff_cycleType_eq).
+
 Depends on: {uses "group.conjugacy_class"}[]
 :::
 
@@ -45,6 +47,8 @@ Depends on: {uses "group.conjugacy_class"}[]
 *Degree.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gg.degree))
 
 A {bpref "gg.galois_group"}[Galois group] of an irreducible polynomial $`f(x)` is a transitive subgroup of $`S_n`, well-defined up to conjugation.  Its *degree* is $`n=\deg(f)`.
+
+Tau Ceti Review: [`Polynomial.natDegree`](https://taucetiproject.org/review/#/d/Polynomial.natDegree), [`Polynomial.Gal.galActionHom`](https://taucetiproject.org/review/#/d/Polynomial.Gal.galActionHom), [`Polynomial.card_rootSet_eq_natDegree`](https://taucetiproject.org/review/#/d/Polynomial.card_rootSet_eq_natDegree).
 
 Depends on: {uses "gg.galois_group"}[]
 :::
@@ -73,6 +77,8 @@ Depends on: {uses "gg.galois_group"}[] {uses "group.centralizer"}[] {uses "lf.au
 *Galois group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gg.galois_group))
 
 The *Galois group* of an irreducible separable polynomial of degree $`n` can be embedded in $`S_n` through its action on the roots of the polynomial, with the image being well-defined up to labeling of the roots.  Different labelings lead to conjugate subgroups.  The subgroup acts transitively on $`\{1,\ldots,n\}`.  Conversely, for every transitive subgroup $`G` of $`S_n` with $`n\in\mathbb{Z}^+`, there is a field $`K` such that $`G` is the Galois group of some polynomial over $`K`.
+
+Tau Ceti Review: [`Polynomial.Gal`](https://taucetiproject.org/review/#/d/Polynomial.Gal), [`Polynomial.Gal.galActionHom_injective`](https://taucetiproject.org/review/#/d/Polynomial.Gal.galActionHom_injective), [`Polynomial.card_rootSet_eq_natDegree`](https://taucetiproject.org/review/#/d/Polynomial.card_rootSet_eq_natDegree), [`Polynomial.Gal.galAction_isPretransitive`](https://taucetiproject.org/review/#/d/Polynomial.Gal.galAction_isPretransitive), [`Equiv.map_permCongrHom_eq_map_conj`](https://taucetiproject.org/review/#/d/Equiv.map_permCongrHom_eq_map_conj).
 :::
 
 :::definition "gg.generic_polynomial" (lean := "Polynomial.IsGeneric, Polynomial.IsSpecialisationAt, Polynomial.IsSpecialisationAt.eq, Polynomial.isGenericPolynomial_iff")
@@ -102,6 +108,8 @@ The *parity* is $`1` if $`G` is a subgroup of $`A_n`, otherwise it is $`-1`.
 The action is *primitive* if the only block of size larger than 1 for the action is the whole set.  In terms of the Galois correspondence, the action of $`G` is primitive if and only if $`F/K` has no proper intermediate fields.
 
 *Resolvent fields* are other fields inside the splitting field of $`f(x)` over $`K`.  These correspond to small index subgroups of $`G`,up to conjugation.  For a degree $`m` field $`E`, the action of $`G` on the embeddings of $`E` into the splitting field of $`f(x)` gives a transitive group action, which is faithful for the appropriate quotient of $`G`.  These are given in terms of the degree of the normal closure of $`E`, and information describing the faithful transitive group action corresponding to $`E`.
+
+Tau Ceti Review: [`MulAction.IsPreprimitive`](https://taucetiproject.org/review/#/d/MulAction.IsPreprimitive), [`alternatingGroup`](https://taucetiproject.org/review/#/d/alternatingGroup), [`IntermediateField`](https://taucetiproject.org/review/#/d/IntermediateField), [`Polynomial.natDegree`](https://taucetiproject.org/review/#/d/Polynomial.natDegree), [`TauCeti.isPreprimitive_iff_isAtom_adjoin_simple`](https://taucetiproject.org/review/#/d/TauCeti.isPreprimitive_iff_isAtom_adjoin_simple), [`Polynomial.Gal.sign`](https://taucetiproject.org/review/#/d/Polynomial.Gal.sign), [`Equiv.permutationRepresentation`](https://taucetiproject.org/review/#/d/Equiv.permutationRepresentation), [`Equiv.permutationRepresentation_injective`](https://taucetiproject.org/review/#/d/Equiv.permutationRepresentation_injective), [`Polynomial.Gal.galActionHom`](https://taucetiproject.org/review/#/d/Polynomial.Gal.galActionHom), [`Polynomial.Gal.galActionHom_injective`](https://taucetiproject.org/review/#/d/Polynomial.Gal.galActionHom_injective), [`Polynomial.Gal.galAction_isPretransitive`](https://taucetiproject.org/review/#/d/Polynomial.Gal.galAction_isPretransitive), [`Polynomial.card_rootSet_eq_natDegree`](https://taucetiproject.org/review/#/d/Polynomial.card_rootSet_eq_natDegree), [`IntermediateField.adjoin.finrank`](https://taucetiproject.org/review/#/d/IntermediateField.adjoin.finrank), [`Polynomial.Gal.sign_eq_one_iff_range_le_alternatingGroup`](https://taucetiproject.org/review/#/d/Polynomial.Gal.sign_eq_one_iff_range_le_alternatingGroup), [`MulAction.IsBlock`](https://taucetiproject.org/review/#/d/MulAction.IsBlock), [`AlgEquiv.mulActionAlgHom`](https://taucetiproject.org/review/#/d/AlgEquiv.mulActionAlgHom), [`AlgEquiv.isPretransitiveAlgHom`](https://taucetiproject.org/review/#/d/AlgEquiv.isPretransitiveAlgHom), [`TauCeti.FieldTheory.faithfulSMul_of_normalClosure_eq_top`](https://taucetiproject.org/review/#/d/TauCeti.FieldTheory.faithfulSMul_of_normalClosure_eq_top).
 :::
 
 :::definition "gg.index" (lean := "TauCeti.orbitCount, Equiv.Perm.isLeast_card_sub_orbitCount, Equiv.Perm.partition")
@@ -112,6 +120,8 @@ If $`\sigma\in S_n`, its *index* is
 $$`\textrm{ind}(\sigma) = n - \text{number of cycles}`
 
 for the full disjoint cycle decomposition of $`\sigma`.
+
+Tau Ceti Review: [`TauCeti.orbitCount`](https://taucetiproject.org/review/#/d/TauCeti.orbitCount), [`Equiv.Perm.isLeast_card_sub_orbitCount`](https://taucetiproject.org/review/#/d/Equiv.Perm.isLeast_card_sub_orbitCount), [`Equiv.Perm.partition`](https://taucetiproject.org/review/#/d/Equiv.Perm.partition).
 :::
 
 :::definition "gg.int_modules" (lean := "Representation, Representation.asModule, TauCeti.IsIndecomposableModule")
@@ -120,6 +130,8 @@ for the full disjoint cycle decomposition of $`\sigma`.
 If $`G` is a finite group, an *integral representation* of $`G` is a homomorphism $`\rho\colon G\to\Aut(\Z^r)` for some $`r\in\Z`, $`r> 0`.
 
 The representation $`\rho` is *indecomposable* if it is not equivalent to the direct sum of integral representations.
+
+Tau Ceti Review: [`Representation`](https://taucetiproject.org/review/#/d/Representation), [`Representation.asModule`](https://taucetiproject.org/review/#/d/Representation.asModule), [`TauCeti.IsIndecomposableModule`](https://taucetiproject.org/review/#/d/TauCeti.IsIndecomposableModule).
 :::
 
 :::definition "gg.invariants" (lean := "Nat.card, isCyclic_iff_exists_zpowers_eq_top, isMulCommutative_iff, Group.IsSolvable, Group.isSolvable_iff_exists_subnormalSeries, TauCeti.characterTable")
@@ -138,6 +150,8 @@ $$`\langle e\rangle = G_0 \leq G_1 \leq \cdots \leq G_n=G`
 such that each $`G_i` is normal in $`G_{i+1}` and all quotients $`G_{i+1}/G_i` are abelian.
 
 The *character table* shows values of all characters of irreducible complex representations of $`G`.  The rows are indexed by characters, and the columns by conjugacy classes of $`G`.
+
+Tau Ceti Review: [`Nat.card`](https://taucetiproject.org/review/#/d/Nat.card), [`isCyclic_iff_exists_zpowers_eq_top`](https://taucetiproject.org/review/#/d/isCyclic_iff_exists_zpowers_eq_top), [`isMulCommutative_iff`](https://taucetiproject.org/review/#/d/isMulCommutative_iff), [`Group.IsSolvable`](https://taucetiproject.org/review/#/d/Group.IsSolvable), [`TauCeti.characterTable`](https://taucetiproject.org/review/#/d/TauCeti.characterTable).
 :::
 
 :::definition "gg.label"
@@ -187,6 +201,8 @@ In terms of the Galois correspondence, the group $`G` corresponds to a degree $`
 
 There can be more than one action with the same transitive classification.  This corresponds to non-isomorphic fields with the same degree, Galois group, and Galois closure.  We indicate multiplicity using the notation """nTt x k""" where there are "'k"' non-conjugate subgroups such that the action is "'nTt"'.
 
+Tau Ceti Review: [`Subgroup.normalCore`](https://taucetiproject.org/review/#/d/Subgroup.normalCore).
+
 Depends on: {uses "gg.degree"}[] {uses "nf.sibling"}[]
 :::
 
@@ -194,6 +210,8 @@ Depends on: {uses "gg.degree"}[] {uses "nf.sibling"}[]
 *Parity of a Galois group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gg.parity))
 
 A {bpref "gg.galois_group"}[Galois group] $`G\leq S_n` has *parity* $`1` if $`G\leq A_n`, and $`-1` otherwise.
+
+Tau Ceti Review: [`alternatingGroup`](https://taucetiproject.org/review/#/d/alternatingGroup), [`Equiv.Perm.sign`](https://taucetiproject.org/review/#/d/Equiv.Perm.sign), [`Polynomial.Gal.sign`](https://taucetiproject.org/review/#/d/Polynomial.Gal.sign).
 
 Depends on: {uses "gg.galois_group"}[]
 :::
@@ -208,12 +226,16 @@ An equivalent group-theoretic condition is as follows.  Let
 $$`G_1 = \{\sigma\in G\mid \sigma(1)=1\}.`
 
 Then $`G` is primitive if and only if $`G_1` is a maximal subgroup of $`G`.
+
+Tau Ceti Review: [`MulAction.IsPreprimitive`](https://taucetiproject.org/review/#/d/MulAction.IsPreprimitive), [`MulAction.isCoatom_stabilizer_iff_preprimitive`](https://taucetiproject.org/review/#/d/MulAction.isCoatom_stabilizer_iff_preprimitive), [`TauCeti.isPreprimitive_iff_isAtom_adjoin_simple`](https://taucetiproject.org/review/#/d/TauCeti.isPreprimitive_iff_isAtom_adjoin_simple).
 :::
 
 :::definition "gg.regular_extension" (lean := "algebraicClosure, IsIntegrallyClosedIn")
 *Regular extension.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gg.regular_extension))
 
 Let $`t_1, \ldots, t_n` be indeterminants over a field $`K`.  A Galois extension $`L/K(t_1, \ldots t_n)` is *regular* if every element of $`L-K` is transcendental over $`K`.
+
+Tau Ceti Review: [`algebraicClosure`](https://taucetiproject.org/review/#/d/algebraicClosure), [`IsIntegrallyClosedIn`](https://taucetiproject.org/review/#/d/IsIntegrallyClosedIn).
 :::
 
 :::definition "gg.resolvents"
@@ -242,6 +264,8 @@ Depends on: {uses "gg.index"}[] {uses "group"}[] {uses "group.proper_subgroup"}[
 *Subfields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gg.subfields))
 
 In terms of the Galois correspondence, a transitive group $`G\leq S_n` is the Galois group of an irreducible degree $`n` polynomial $`f(x)\in K[x]`.  Let $`F=K(\alpha)` where $`\alpha` is a root of $`f(x)`.  Then the *subfields* are intermediate fields for the extension $`F/K`.
+
+Tau Ceti Review: [`IntermediateField`](https://taucetiproject.org/review/#/d/IntermediateField), [`TauCeti.rootBlockIntermediateFieldOrderIso`](https://taucetiproject.org/review/#/d/TauCeti.rootBlockIntermediateFieldOrderIso).
 :::
 
 :::definition "gg.subnormal_series" (lean := "Subgroup.SubnormalSeries, Subgroup.IsSubnormal, Subgroup.isSubnormal_iff_exists_subnormalSeries")
@@ -272,6 +296,8 @@ If a {bpref "group"}[group] $`G` acts on a set $`A` of order $`n` and $`k\leq n`
 $$`S=\{(a_1,\ldots,a_k)\in A^k \mid a_i \text{ are distinct}\}.`
 
 The largest such value $`k` is the *transitivity number* of the action.
+
+Tau Ceti Review: [`MulAction.IsMultiplyPretransitive`](https://taucetiproject.org/review/#/d/MulAction.IsMultiplyPretransitive).
 
 Depends on: {uses "group"}[] {uses "group.action"}[]
 :::

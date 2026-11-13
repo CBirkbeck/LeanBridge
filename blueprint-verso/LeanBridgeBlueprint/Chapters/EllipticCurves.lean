@@ -18,6 +18,8 @@ An *elliptic curve* $`E` over a field $`k` is a {bpref "ag.curve.smooth"}[smooth
 
 The most commonly used model for elliptic curves is a {bpref "ec.weierstrass_coeffs"}[Weierstrass model]: a smooth plane cubic with the point $`O` as the unique point at infinity.
 
+Tau Ceti Review: [`WeierstrassCurve.IsElliptic`](https://taucetiproject.org/review/#/d/WeierstrassCurve.IsElliptic).
+
 Depends on: {uses "ag.curve"}[] {uses "ag.curve.genus"}[] {uses "ag.curve.smooth"}[]
 :::
 
@@ -25,6 +27,8 @@ Depends on: {uses "ag.curve"}[] {uses "ag.curve.genus"}[] {uses "ag.curve.smooth
 *Additive reduction.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.additive_reduction))
 
 An {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K` is said to have *additive reduction* at a prime $`\mathfrak{p}` of $`K` if the reduction of $`E` modulo $`\mathfrak{p}` has a cuspidal singularity.
+
+Tau Ceti Review: [`WeierstrassCurve.HasAdditiveReduction`](https://taucetiproject.org/review/#/d/WeierstrassCurve.HasAdditiveReduction), [`WeierstrassCurve.reduction`](https://taucetiproject.org/review/#/d/WeierstrassCurve.reduction).
 
 Depends on: {uses "ec"}[] {uses "nf"}[]
 :::
@@ -80,6 +84,8 @@ If $`E` is an elliptic curve defined over a field $`K`, and $`L` is an extension
 
 When $`K=\Q` and $`L` is a number field, elliptic curves over $`L` which are base-changes of curves over $`\Q` may simply be called base-change curves.  A necessary, but not sufficient, condition for this is that the {bpref "ec.j_invariant"}[$`j`-invariant] of $`E` should be in $`\Q`.
 
+Tau Ceti Review: [`WeierstrassCurve.baseChange`](https://taucetiproject.org/review/#/d/WeierstrassCurve.baseChange).
+
 Depends on: {uses "ec.j_invariant"}[]
 :::
 
@@ -116,6 +122,8 @@ Implicit in the strong form of the conjecture is that the Tate-Shafarevich group
 
 There is a similar conjecture for {bpref "ag.abelian_variety"}[abelian varieties] over number fields.
 
+Tau Ceti Review: [`WeierstrassCurve.Affine.regulator`](https://taucetiproject.org/review/#/d/WeierstrassCurve.Affine.regulator).
+
 Depends on: {uses "ag.abelian_variety"}[] {uses "ec"}[] {uses "ec.analytic_sha_order"}[] {uses "ec.period"}[] {uses "ec.rank"}[] {uses "ec.regulator"}[] {uses "ec.tamagawa_number"}[] {uses "ec.torsion_subgroup"}[] {uses "lfunction"}[] {uses "lfunction.analytic_rank"}[] {uses "lfunction.central_point"}[] {uses "lfunction.leading_coeff"}[] {uses "nf"}[] {uses "nf.discriminant"}[] {uses "nf.prime"}[]
 :::
 
@@ -141,6 +149,8 @@ Related to the canonical height is the *height pairing*
 $$`\langle-,-\rangle : E(K)\times E(K) \to \R`
 
 defined by $`\langle P,Q\rangle = \frac{1}{2}(\hat{h}(P+Q)-\hat{h}(P)-\hat{h}(Q))`, which is a positive definite quadratic form on $`E(K)\otimes\R`, used in defining the {bpref "ec.regulator"}[regulator] of $`E/K`.
+
+Tau Ceti Review: [`WeierstrassCurve.Affine.Point.canonicalHeight`](https://taucetiproject.org/review/#/d/WeierstrassCurve.Affine.Point.canonicalHeight), [`WeierstrassCurve.Affine.Point.tendsto_naiveHeight_nsmul_div_sq`](https://taucetiproject.org/review/#/d/WeierstrassCurve.Affine.Point.tendsto_naiveHeight_nsmul_div_sq), [`WeierstrassCurve.Affine.Point.canonicalHeight_nonneg`](https://taucetiproject.org/review/#/d/WeierstrassCurve.Affine.Point.canonicalHeight_nonneg), [`WeierstrassCurve.Affine.posDef_neronTateGramMatrix`](https://taucetiproject.org/review/#/d/WeierstrassCurve.Affine.posDef_neronTateGramMatrix), [`WeierstrassCurve.Affine.neronTatePairing`](https://taucetiproject.org/review/#/d/WeierstrassCurve.Affine.neronTatePairing), [`WeierstrassCurve.Affine.neronTatePairing_apply`](https://taucetiproject.org/review/#/d/WeierstrassCurve.Affine.neronTatePairing_apply).
 
 Depends on: {uses "ec"}[] {uses "ec.mordell_weil_group"}[] {uses "nf"}[] {uses "nf.weil_height"}[]
 :::
@@ -220,6 +230,8 @@ Depends on: {uses "ec.conductor"}[] {uses "nf"}[] {uses "nf.ideal_labels"}[]
 *Conductor valuation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.conductor_valuation))
 
 The valuation of the {bpref "ec.conductor"}[conductor] at a prime.
+
+Tau Ceti Review: [`WeierstrassCurve.algorithmicOggExponent`](https://taucetiproject.org/review/#/d/WeierstrassCurve.algorithmicOggExponent), [`WeierstrassCurve.count_algorithmicConductor`](https://taucetiproject.org/review/#/d/WeierstrassCurve.count_algorithmicConductor), [`WeierstrassCurve.algorithmicOggExponent_eq_zero_iff`](https://taucetiproject.org/review/#/d/WeierstrassCurve.algorithmicOggExponent_eq_zero_iff), [`WeierstrassCurve.algorithmicOggExponent_eq_one_iff`](https://taucetiproject.org/review/#/d/WeierstrassCurve.algorithmicOggExponent_eq_one_iff).
 
 Depends on: {uses "ec.conductor"}[]
 :::
@@ -339,6 +351,8 @@ b_8 &= a_1^2 a_6 + 4 a_2 a_6 - a_1 a_3 a_4 + a_2 a_3^2 - a_4^2.
 
 Then $`\Delta\neq 0` if and only if the equation defines a {bpref "ag.curve.smooth"}[smooth] curve, in which case its projective closure gives an {bpref "ec"}[elliptic curve].
 
+Tau Ceti Review: [`WeierstrassCurve.Δ`](https://taucetiproject.org/review/#/d/WeierstrassCurve.%CE%94), [`Module.freeLocus`](https://taucetiproject.org/review/#/d/Module.freeLocus), [`WeierstrassCurve.IsElliptic`](https://taucetiproject.org/review/#/d/WeierstrassCurve.IsElliptic), [`WeierstrassCurve.toEllipticCurveGeom`](https://taucetiproject.org/review/#/d/WeierstrassCurve.toEllipticCurveGeom).
+
 Depends on: {uses "ag.curve.smooth"}[] {uses "ec"}[] {uses "ec.weierstrass_coeffs"}[] {uses "ring.field"}[]
 :::
 
@@ -346,6 +360,8 @@ Depends on: {uses "ag.curve.smooth"}[] {uses "ec"}[] {uses "ec.weierstrass_coeff
 *Norm of discriminant.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.discriminant_norm))
 
 The norm of the {bpref "ec.discriminant"}[discriminant].
+
+Tau Ceti Review: [`Ideal.absNorm`](https://taucetiproject.org/review/#/d/Ideal.absNorm), [`WeierstrassCurve.minimalDiscriminantIdeal`](https://taucetiproject.org/review/#/d/WeierstrassCurve.minimalDiscriminantIdeal), [`WeierstrassCurve.absNorm_minimalDiscriminantIdeal`](https://taucetiproject.org/review/#/d/WeierstrassCurve.absNorm_minimalDiscriminantIdeal), [`Algebra.norm`](https://taucetiproject.org/review/#/d/Algebra.norm), [`WeierstrassCurve.Δ`](https://taucetiproject.org/review/#/d/WeierstrassCurve.%CE%94).
 
 Depends on: {uses "ec.discriminant"}[]
 :::
@@ -355,6 +371,8 @@ Depends on: {uses "ec.discriminant"}[]
 
 The valuation of the {bpref "ec.minimal_discriminant"}[minimal discriminant] at a prime.
 
+Tau Ceti Review: [`WeierstrassCurve.localMinimalDiscriminantValuation`](https://taucetiproject.org/review/#/d/WeierstrassCurve.localMinimalDiscriminantValuation), [`WeierstrassCurve.count_minimalDiscriminantIdeal_eq_localMinimalDiscriminantValuation`](https://taucetiproject.org/review/#/d/WeierstrassCurve.count_minimalDiscriminantIdeal_eq_localMinimalDiscriminantValuation), [`WeierstrassCurve.minimalDiscriminantIdeal`](https://taucetiproject.org/review/#/d/WeierstrassCurve.minimalDiscriminantIdeal).
+
 Depends on: {uses "ec.minimal_discriminant"}[]
 :::
 
@@ -362,6 +380,8 @@ Depends on: {uses "ec.minimal_discriminant"}[]
 *Endomorphism of an elliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.endomorphism))
 
 An *endomorphism* of an {bpref "ec"}[elliptic curve] defined over a field $`K` is a homomorphism $`\varphi\colon E\to E` defined over $`K`.  The set of all endomorphisms of $`E` forms a ring called the {bpref "ec.endomorphism_ring"}[endomorphism ring] of $`E`, denoted $`\End(E)`, a special case of the {bpref "ag.endomorphism_ring"}[endomorphism ring] of an {bpref "ag.abelian_variety"}[abelian variety].
+
+Tau Ceti Review: [`TauCeti.Isogeny`](https://taucetiproject.org/review/#/d/TauCeti.Isogeny), [`TauCeti.Isogeny.Hom`](https://taucetiproject.org/review/#/d/TauCeti.Isogeny.Hom).
 
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.endomorphism_ring"}[] {uses "ec"}[]
 :::
@@ -471,6 +491,8 @@ The *geometric endomorphism ring* of an elliptic curve $`E` over a field $`K` is
 
 This is a special case of the {bpref "ag.geom_endomorphism_ring"}[geometric endomorphism ring] of an {bpref "ag.abelian_variety"}[abelian variety].
 
+Tau Ceti Review: [`TauCeti.Isogeny.Hom`](https://taucetiproject.org/review/#/d/TauCeti.Isogeny.Hom).
+
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.geom_endomorphism_ring"}[] {uses "ec.endomorphism_ring"}[]
 :::
 
@@ -491,6 +513,8 @@ An {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $
 
 An elliptic curve $`E_{\mathfrak{p}}` defined over a finite field of characteristic $`p` is *ordinary* if $`E_{\mathfrak{p}}(\overline{\F_p})` has nontrivial $`p`-torsion.
 
+Tau Ceti Review: [`WeierstrassCurve.HasGoodOrdinaryReduction`](https://taucetiproject.org/review/#/d/WeierstrassCurve.HasGoodOrdinaryReduction), [`WeierstrassCurve.IsOrdinary`](https://taucetiproject.org/review/#/d/WeierstrassCurve.IsOrdinary).
+
 Depends on: {uses "ec"}[] {uses "nf"}[]
 :::
 
@@ -500,6 +524,8 @@ Depends on: {uses "ec"}[] {uses "nf"}[]
 An {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K` is said to have *good reduction* at a {bpref "nf.prime"}[prime] $`\mathfrak{p}` of $`K` if the reduction of $`E` modulo $`\mathfrak{p}` is {bpref "ag.curve.smooth"}[smooth].
 
 If $`E` has good reduction at every prime of $`K` then $`E` is said to have *everywhere good reduction*.
+
+Tau Ceti Review: [`WeierstrassCurve.HasGoodReduction`](https://taucetiproject.org/review/#/d/WeierstrassCurve.HasGoodReduction).
 
 Depends on: {uses "ag.curve.smooth"}[] {uses "ec"}[] {uses "nf"}[] {uses "nf.prime"}[]
 :::
@@ -511,6 +537,8 @@ An {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $
 
 An elliptic curve $`E_{\mathfrak{p}}` defined over a finite field of characteristic $`p` is *supersingular* if $`E_{\mathfrak{p}}(\overline{\F_p})` has no $`p`-torsion.
 
+Tau Ceti Review: [`WeierstrassCurve.HasGoodSupersingularReduction`](https://taucetiproject.org/review/#/d/WeierstrassCurve.HasGoodSupersingularReduction), [`WeierstrassCurve.IsSupersingular`](https://taucetiproject.org/review/#/d/WeierstrassCurve.IsSupersingular).
+
 Depends on: {uses "ec"}[] {uses "nf"}[]
 :::
 
@@ -518,6 +546,8 @@ Depends on: {uses "ec"}[] {uses "nf"}[]
 *Integral model.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.integral_model))
 
 An *integral model* for an {bpref "ec"}[elliptic curve] $`E` defined over a number field $`K` is a {bpref "ec.weierstrass_coeffs"}[Weierstrass equation] for $`E` all of whose coefficients are in the {bpref "nf.ring_of_integers"}[ring of integers] of $`K`.
+
+Tau Ceti Review: [`WeierstrassCurve.IsIntegral`](https://taucetiproject.org/review/#/d/WeierstrassCurve.IsIntegral).
 
 Depends on: {uses "ec"}[] {uses "ec.weierstrass_coeffs"}[] {uses "nf.ring_of_integers"}[]
 :::
@@ -627,6 +657,8 @@ Isomorphism is an equivalence relation, the equivalnce classes being called *iso
 
 When $`E` and $`E'` are defined by {bpref "ec.weierstrass_coeffs"}[Weierstrass models], such an isomorphism is uniquely represented as a {bpref "ec.weierstrass_isomorphism"}[Weierstrass isomorphism] between these models.
 
+Tau Ceti Review: [`WeierstrassCurve.VariableChange`](https://taucetiproject.org/review/#/d/WeierstrassCurve.VariableChange), [`TauCeti.Isogeny.degree_eq_one_of_comp_eq_id`](https://taucetiproject.org/review/#/d/TauCeti.Isogeny.degree_eq_one_of_comp_eq_id), [`TauCeti.Isogeny.exists_variableChangeIsogeny_eq_of_degree_eq_one`](https://taucetiproject.org/review/#/d/TauCeti.Isogeny.exists_variableChangeIsogeny_eq_of_degree_eq_one), [`TauCeti.Isogeny.variableChangeIsogeny_inj`](https://taucetiproject.org/review/#/d/TauCeti.Isogeny.variableChangeIsogeny_inj).
+
 Depends on: {uses "ec"}[] {uses "ec.isogeny"}[]
 :::
 
@@ -679,6 +711,8 @@ $$`\Delta=-b_2^2b_8 - 8 b_4^3 -27 b_6 ^2 + 9 b_2 b_4 b_6`
 
 is the {bpref "ec.discriminant"}[discriminant] of $`E.`
 
+Tau Ceti Review: [`WeierstrassCurve.j`](https://taucetiproject.org/review/#/d/WeierstrassCurve.j).
+
 Depends on: {uses "ec"}[] {uses "ec.discriminant"}[] {uses "ec.isomorphism"}[] {uses "ec.weierstrass_coeffs"}[]
 :::
 
@@ -686,6 +720,8 @@ Depends on: {uses "ec"}[] {uses "ec.discriminant"}[] {uses "ec.isomorphism"}[] {
 *j-invariant denominator valuation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.j_invariant_denominator_valuation))
 
 The valuation of the denominator of the {bpref "ec.j_invariant"}[$`j`-invariant] at a prime.  This is $`0` if the $`j`-invariant has non-negative valuation, and is minus the valuation otherwise.
+
+Tau Ceti Review: [`WeierstrassCurve.j`](https://taucetiproject.org/review/#/d/WeierstrassCurve.j).
 
 Depends on: {uses "ec.j_invariant"}[]
 :::
@@ -739,6 +775,8 @@ Depends on: {uses "ec"}[] {uses "ec.kodaira_symbol"}[] {uses "ec.reduction_type"
 
 Let $`E` be an {bpref "ec"}[elliptic curve] defined over a {bpref "nf"}[number field] $`K`, and $`\mathfrak{p}` a prime of $`K`.  The *local minimal discriminant* of $`E` is the ideal $`\mathfrak{p}^e` where $`e` is is the valuation of the discriminant of a {bpref "ec.local_minimal_model"}[local minimal model] for $`E` at $`\mathfrak{p}`.
 
+Tau Ceti Review: [`WeierstrassCurve.localMinimalDiscriminant`](https://taucetiproject.org/review/#/d/WeierstrassCurve.localMinimalDiscriminant), [`WeierstrassCurve.localMinimalDiscriminantValuation`](https://taucetiproject.org/review/#/d/WeierstrassCurve.localMinimalDiscriminantValuation).
+
 Depends on: {uses "ec"}[] {uses "ec.local_minimal_model"}[] {uses "nf"}[]
 :::
 
@@ -746,6 +784,8 @@ Depends on: {uses "ec"}[] {uses "ec.local_minimal_model"}[] {uses "nf"}[]
 *Local minimal model.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.local_minimal_model))
 
 A *local minimal model* for an {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K` at a prime $`\mathfrak{p}` of $`K` is a {bpref "ec.weierstrass_coeffs"}[Weierstrass equation] for $`E` all of whose coefficients are {bpref "nf.integral"}[integral]  at $`\mathfrak{p}`, and whose {bpref "ec.discriminant"}[discriminant] has minimal valuation at $`\mathfrak{p}` among all such equations.
+
+Tau Ceti Review: [`WeierstrassCurve.minimal`](https://taucetiproject.org/review/#/d/WeierstrassCurve.minimal).
 
 Depends on: {uses "ec"}[] {uses "ec.discriminant"}[] {uses "ec.weierstrass_coeffs"}[] {uses "nf"}[] {uses "nf.integral"}[]
 :::
@@ -805,6 +845,8 @@ where the product is over all {bpref "nf.prime"}[primes] $`\mathfrak{p}` of $`K`
 
 If $`E` has a {bpref "ec.weierstrass_coeffs"}[Weierstrass model] which is a {bpref "ec.global_minimal_model"}[global minimal model] then $`\mathfrak{D}_{\mathrm{min}} = (\Delta)`, the principal ideal generated by the {bpref "ec.discriminant"}[discriminant] $`\Delta` of this model.  In general, $`\mathfrak{D}_{\mathrm{min}}` differs from the ideal generated by the discriminant of any {bpref "ec.weierstrass_coeffs"}[Weierstrass model] by the 12th power of an ideal.
 
+Tau Ceti Review: [`WeierstrassCurve.minimalDiscriminantIdeal`](https://taucetiproject.org/review/#/d/WeierstrassCurve.minimalDiscriminantIdeal), [`WeierstrassCurve.minimalDiscriminantIdeal_def`](https://taucetiproject.org/review/#/d/WeierstrassCurve.minimalDiscriminantIdeal_def), [`WeierstrassCurve.minimalDiscriminantIdeal_smul`](https://taucetiproject.org/review/#/d/WeierstrassCurve.minimalDiscriminantIdeal_smul), [`WeierstrassCurve.minimalDiscriminantIdeal_eq_span_of_isGlobalMinimal`](https://taucetiproject.org/review/#/d/WeierstrassCurve.minimalDiscriminantIdeal_eq_span_of_isGlobalMinimal), [`WeierstrassCurve.span_Δ_eq_minimalDiscriminantIdeal_mul_weierstrassDefectIdeal_pow_twelve`](https://taucetiproject.org/review/#/d/WeierstrassCurve.span_%CE%94_eq_minimalDiscriminantIdeal_mul_weierstrassDefectIdeal_pow_twelve).
+
 Depends on: {uses "ec"}[] {uses "ec.discriminant"}[] {uses "ec.global_minimal_model"}[] {uses "ec.local_minimal_discriminant"}[] {uses "ec.weierstrass_coeffs"}[] {uses "nf"}[] {uses "nf.prime"}[] {uses "nf.ring_of_integers"}[]
 :::
 
@@ -819,6 +861,8 @@ The {bpref "ec.mordell_weil_theorem"}[Mordell-Weil Theorem], first proved by Mor
 
 The Mordell-Weil theorem implies in particular that the {bpref "ec.torsion_subgroup"}[torsion subgroup] $`E(K)_{\mathrm{tor}}` of $`E(K)` is finite, and thus that the {bpref "ec.torsion_order"}[torsion order] of $`E`, one of the {bpref "ec.bsdconjecture"}[BSD]  invariants, is finite.
 
+Tau Ceti Review: [`WeierstrassCurve.Affine.Point`](https://taucetiproject.org/review/#/d/WeierstrassCurve.Affine.Point).
+
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.mordell_weil"}[] {uses "ec"}[] {uses "nf"}[]
 :::
 
@@ -828,6 +872,8 @@ Depends on: {uses "ag.abelian_variety"}[] {uses "ag.mordell_weil"}[] {uses "ec"}
 For an {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`F`, the *Mordell-Weil theorem* states that the set $`E(F)` of $`F`-rational points on $`E` is a finitely generated Abelian group.
 
 This group is called the {bpref "ec.mordell_weil_group"}[Mordell-Weil] group of $`E/K`.
+
+Tau Ceti Review: [`WeierstrassCurve.Affine.fg_point_of_numberField`](https://taucetiproject.org/review/#/d/WeierstrassCurve.Affine.fg_point_of_numberField).
 
 Depends on: {uses "ec"}[] {uses "ec.mordell_weil_group"}[] {uses "nf"}[]
 :::
@@ -849,6 +895,8 @@ An {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $
 
 The case of multiplicative reduction is further subdivided into {bpref "ec.split_multiplicative_reduction"}[split multiplicative reduction] and {bpref "ec.nonsplit_multiplicative_reduction"}[nonsplit multiplicative reduction].
 
+Tau Ceti Review: [`WeierstrassCurve.HasMultiplicativeReduction`](https://taucetiproject.org/review/#/d/WeierstrassCurve.HasMultiplicativeReduction).
+
 Depends on: {uses "ec"}[] {uses "ec.nonsplit_multiplicative_reduction"}[] {uses "ec.split_multiplicative_reduction"}[] {uses "nf"}[]
 :::
 
@@ -858,6 +906,8 @@ Depends on: {uses "ec"}[] {uses "ec.nonsplit_multiplicative_reduction"}[] {uses 
 The *{bpref "ec.mordell_weil_group"}[Mordell-Weil group]* $`E(K)` of an {bpref "ec"}[elliptic curve] $`E` over a {bpref "nf"}[number field] $`K` is a finitely generated {bpref "group.abelian"}[abelian] group, explicitly described by giving a $`\Z`-basis for the group, equivalently, a (minimal) set of *Mordell-Weil generators*, each of which is a rational point on the curve.
 
 The generators consist of $`r` *non-torsion generators*, where $`r` is the {bpref "ec.rank"}[rank] of $`E(K)`, and up to two *torsion generators*, which generate the {bpref "ec.torsion_subgroup"}[torsion subgroup] $`E(K)_{\textrm{tor}}`.
+
+Tau Ceti Review: [`WeierstrassCurve.Affine.fg_point_of_numberField`](https://taucetiproject.org/review/#/d/WeierstrassCurve.Affine.fg_point_of_numberField).
 
 Depends on: {uses "ec"}[] {uses "ec.mordell_weil_group"}[] {uses "ec.rank"}[] {uses "ec.torsion_subgroup"}[] {uses "group.abelian"}[] {uses "nf"}[]
 :::
@@ -875,6 +925,8 @@ Depends on: {uses "ec"}[] {uses "nf"}[]
 
 Let $`E` be an {bpref "ec"}[elliptic curve] defined over a {bpref "nf"}[number field] $`K`.  The *obstruction class* of $`E` is an {bpref "nf.ideal_class_group"}[ideal class] of $`K` which is trivial if and only if $`E` has a {bpref "ec.global_minimal_model"}[global minimal model].
 
+Tau Ceti Review: [`WeierstrassCurve.globalMinimalityClass`](https://taucetiproject.org/review/#/d/WeierstrassCurve.globalMinimalityClass), [`WeierstrassCurve.weierstrassDefectClass`](https://taucetiproject.org/review/#/d/WeierstrassCurve.weierstrassDefectClass).
+
 Depends on: {uses "ec"}[] {uses "ec.global_minimal_model"}[] {uses "nf"}[] {uses "nf.ideal_class_group"}[]
 :::
 
@@ -890,6 +942,8 @@ Here for $`m\in\mathbb{Z}_{\geq 0}`, $`E[m]` denotes the $`m`-torsion subgroup o
 If $`K` has characteristic not equal to $`p`, then $`T_p(E)` is a free $`\Z_p`-module of rank $`2`. It carries an action of the {bpref "group.galois.absolute"}[absolute Galois group] of $`K`, and thus has an associated {bpref "ec.galois_rep"}[Galois representation].
 
 This is a special case of the {bpref "av.tate_module"}[Tate module of an abelian variety].
+
+Tau Ceti Review: [`TauCeti.TateModule`](https://taucetiproject.org/review/#/d/TauCeti.TateModule), [`WeierstrassCurve.tateModuleGaloisRepresentation`](https://taucetiproject.org/review/#/d/WeierstrassCurve.tateModuleGaloisRepresentation).
 
 Depends on: {uses "av.tate_module"}[] {uses "ec.endomorphism"}[] {uses "group.galois.absolute"}[]
 :::
@@ -948,6 +1002,8 @@ $$`\Delta := -16(4a^3 + 27b^2 ) \not = 0.`
 
 Note that such an equation is not unique and $`E` has a unique {bpref "ec.q.minimal_weierstrass_equation"}[minimal Weierstrass equation].
 
+Tau Ceti Review: [`WeierstrassCurve.IsElliptic`](https://taucetiproject.org/review/#/d/WeierstrassCurve.IsElliptic), [`WeierstrassCurve.exists_minimalPairModel`](https://taucetiproject.org/review/#/d/WeierstrassCurve.exists_minimalPairModel), [`WeierstrassCurve.IsReducedMinimal`](https://taucetiproject.org/review/#/d/WeierstrassCurve.IsReducedMinimal), [`WeierstrassCurve.existsUnique_reducedMinimal`](https://taucetiproject.org/review/#/d/WeierstrassCurve.existsUnique_reducedMinimal).
+
 Depends on: {uses "ec.q.discriminant"}[] {uses "ec.q.minimal_weierstrass_equation"}[]
 :::
 
@@ -963,6 +1019,8 @@ where $`\operatorname{rad}(abc)` is the product of the primes dividing $`abc`.  
 The *$`abc` quality* of an {bpref "ec"}[elliptic curve] $`E` is the quality of an $`a,b,c` triple determined by its {bpref "ec.j_invariant"}[$`j`-invariant], namely the one defined by writing $`\frac{j}{1728} = \frac{a}{c}` in lowest terms and setting $`b = c - a`.  Note that the $`abc` quality is undefined for $`j=0` and $`j=1728`.
 
 The reason for defining the quality of $`E` in this way comes from the equivalence of the $`abc` conjecture with the {bpref "ec.q.szpiro_ratio"}[modified Szpiro conjecture]. For elliptic curves with small {bpref "ec.q.conductor"}[conductor], $`j`-invariants often have unusually large quality.
+
+Tau Ceti Review: [`WeierstrassCurve.abcQuality`](https://taucetiproject.org/review/#/d/WeierstrassCurve.abcQuality), [`WeierstrassCurve.abcQuality_eq_of_j_div_eq`](https://taucetiproject.org/review/#/d/WeierstrassCurve.abcQuality_eq_of_j_div_eq), [`TauCeti.AbcConjecture`](https://taucetiproject.org/review/#/d/TauCeti.AbcConjecture), [`TauCeti.abcConjecture_iff_forall_finite`](https://taucetiproject.org/review/#/d/TauCeti.abcConjecture_iff_forall_finite).
 
 Depends on: {uses "ec"}[] {uses "ec.j_invariant"}[] {uses "ec.q.conductor"}[]
 :::
@@ -1049,6 +1107,8 @@ The *height pairing* on $`E` is the associated bilinear form $`\langle P,Q\rangl
 
 For a number field $`K`, the *canonical height* of $`P\in E(K)` is given by $`\hat{h}(P)=\lim_{n\to\infty} n^{-2}h\bigl(x(nP)\bigr)`, where $`h` is the {bpref "nf.weil_height"}[Weil height].
 
+Tau Ceti Review: [`WeierstrassCurve.Affine.Point.canonicalHeight`](https://taucetiproject.org/review/#/d/WeierstrassCurve.Affine.Point.canonicalHeight), [`WeierstrassCurve.Affine.canonicalHeightQuadratic`](https://taucetiproject.org/review/#/d/WeierstrassCurve.Affine.canonicalHeightQuadratic), [`WeierstrassCurve.Affine.neronTatePairing`](https://taucetiproject.org/review/#/d/WeierstrassCurve.Affine.neronTatePairing).
+
 Depends on: {uses "ec"}[] {uses "ec.regulator"}[] {uses "nf.weil_height"}[]
 :::
 
@@ -1098,6 +1158,8 @@ Depends on: {uses "ec"}[] {uses "ec.isogeny"}[] {uses "ec.isogeny_class"}[] {use
 
 The *discriminant* $`\Delta` of an {bpref "ec"}[elliptic curve] $`E` defined over $`\mathbb{Q}` is a nonzero integer divisible exactly by the primes of bad reduction.
 It is the {bpref "ec.discriminant"}[discriminant] of the {bpref "ec.q.minimal_weierstrass_equation"}[minimal Weierstrass equation] of the curve.
+
+Tau Ceti Review: [`WeierstrassCurve.minimalDiscriminantIdeal`](https://taucetiproject.org/review/#/d/WeierstrassCurve.minimalDiscriminantIdeal), [`WeierstrassCurve.reducedMinimalModel`](https://taucetiproject.org/review/#/d/WeierstrassCurve.reducedMinimalModel).
 
 Depends on: {uses "ec"}[] {uses "ec.discriminant"}[] {uses "ec.q.minimal_weierstrass_equation"}[]
 :::
@@ -1149,6 +1211,8 @@ Depends on: {uses "ec"}[] {uses "ec.isogeny"}[] {uses "ec.q.faltings_height"}[] 
 Given a triple of integers $`A, B, C` with $`A + B = C`, the [*Frey curve*](https://en.wikipedia.org/wiki/Frey_curve) (or *Frey-Hellegouarch curve*) associated to this triple is the elliptic curve
 
 $$`y^2 = x(x-A)(x+B).`
+
+Tau Ceti Review: [`TauCeti.freyCurve`](https://taucetiproject.org/review/#/d/TauCeti.freyCurve), [`TauCeti.isElliptic_freyCurve_iff_ne_zero`](https://taucetiproject.org/review/#/d/TauCeti.isElliptic_freyCurve_iff_ne_zero).
 :::
 
 :::definition "ec.q.integral_points"
@@ -1182,6 +1246,8 @@ and
 $$`\Delta=-b_2^2b_8 - 8 b_4^3 -27 b_6 ^2 + 9 b_2 b_4 b_6`
 
 is the {bpref "ec.q.discriminant"}[discriminant] of $`E.`
+
+Tau Ceti Review: [`WeierstrassCurve.j`](https://taucetiproject.org/review/#/d/WeierstrassCurve.j).
 
 Depends on: {uses "ec"}[] {uses "ec.q.discriminant"}[] {uses "ec.weierstrass_coeffs"}[]
 :::
@@ -1271,6 +1337,8 @@ $$`y^2+a_1xy+a_3y=x^3+a_2x^2+a_4x+a_6,`
 
 where $`a_1,a_2,a_3,a_4,a_6` are integers.
 Each such equation has a {bpref "ec.q.discriminant"}[discriminant] $`\Delta`.  A *minimal Weierstrass equation* is one for which $`|\Delta|` is minimal among all Weierstrass models for the same curve.  For elliptic curves over $`\mathbb{Q}`, minimal models exist, and there is a unique *reduced minimal model* which satisfies the additional constraints $`a_1,a_3\in\{0,1\}`, $`a_2\in\{-1,0,1\}`.
+
+Tau Ceti Review: [`WeierstrassCurve.IsGlobalMinimal`](https://taucetiproject.org/review/#/d/WeierstrassCurve.IsGlobalMinimal), [`WeierstrassCurve.IsReducedMinimal`](https://taucetiproject.org/review/#/d/WeierstrassCurve.IsReducedMinimal), [`WeierstrassCurve.reducedMinimalModel`](https://taucetiproject.org/review/#/d/WeierstrassCurve.reducedMinimalModel).
 :::
 
 :::definition "ec.q.modular_degree"
@@ -1305,6 +1373,8 @@ The *naive height* of an {bpref "ec"}[elliptic curve] in short {bpref "ec.weiers
 $$`y^2 = x^3 + a_4 x + a_6`
 
 is the quantity $`\max(4\lvert a_4 \rvert^3, 27\lvert a_6 \rvert^2)`.
+
+Tau Ceti Review: [`WeierstrassCurve.minimalPairModel`](https://taucetiproject.org/review/#/d/WeierstrassCurve.minimalPairModel), [`WeierstrassCurve.naiveHeight`](https://taucetiproject.org/review/#/d/WeierstrassCurve.naiveHeight), [`WeierstrassCurve.shortEquationHeight`](https://taucetiproject.org/review/#/d/WeierstrassCurve.shortEquationHeight).
 
 Depends on: {uses "ec"}[] {uses "ec.weierstrass_coeffs"}[]
 :::
@@ -1379,6 +1449,8 @@ which is independent of the choice of generators.
 
 Special cases are when $`E(K)` has rank $`0`, in which case $`E(K)/E(K)_{tor}=0` and $`\operatorname{Reg}(E/K)=1`, and when $`E(K)` has rank $`1`, in which case $`\operatorname{Reg}(E/K)` is equal to the {bpref "ec.canonical_height"}[canonical height] $`\hat{h}(P)` of a generator $`P`.
 
+Tau Ceti Review: [`WeierstrassCurve.Affine.neronTatePairing`](https://taucetiproject.org/review/#/d/WeierstrassCurve.Affine.neronTatePairing), [`WeierstrassCurve.Affine.neronTatePairingModTorsion`](https://taucetiproject.org/review/#/d/WeierstrassCurve.Affine.neronTatePairingModTorsion), [`WeierstrassCurve.Affine.regulator`](https://taucetiproject.org/review/#/d/WeierstrassCurve.Affine.regulator).
+
 Depends on: {uses "ec"}[] {uses "ec.canonical_height"}[] {uses "ec.mordell_weil_group"}[] {uses "nf"}[]
 :::
 
@@ -1386,6 +1458,8 @@ Depends on: {uses "ec"}[] {uses "ec.canonical_height"}[] {uses "ec.mordell_weil_
 *Semistable elliptic curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.semistable))
 
 An {bpref "ec"}[elliptic curve] is *semistable* if it has {bpref "ec.reduction_type"}[multiplicative reduction] at every {bpref "ec.bad_reduction"}[bad prime].
+
+Tau Ceti Review: [`WeierstrassCurve.IsSemistable`](https://taucetiproject.org/review/#/d/WeierstrassCurve.IsSemistable).
 
 Depends on: {uses "ec"}[] {uses "ec.bad_reduction"}[] {uses "ec.reduction_type"}[]
 :::
@@ -1433,6 +1507,8 @@ $$`\frac{\log \Delta}{\log N},`
 
 also has the property of only taking values larger than $`6+\epsilon` finitely many times (here $`\Delta` is the {bpref "ec.minimal_discriminant"}[minimal discriminant] of $`E`).  This conjecture is implied by the modified Szpiro conjecture (and thus the $`abc` conjecture), but it is not currently known to be equivalent.  All of the Szpiro ratios in the LMFDB are computed in terms of $`c_4` and $`c_6` rather than $`\Delta` for this reason.
 
+Tau Ceti Review: [`WeierstrassCurve.algorithmicSzpiroRatio`](https://taucetiproject.org/review/#/d/WeierstrassCurve.algorithmicSzpiroRatio), [`TauCeti.AlgorithmicModifiedSzpiroConjecture`](https://taucetiproject.org/review/#/d/TauCeti.AlgorithmicModifiedSzpiroConjecture), [`WeierstrassCurve.algorithmicConductor`](https://taucetiproject.org/review/#/d/WeierstrassCurve.algorithmicConductor).
+
 Depends on: {uses "ec"}[] {uses "ec.minimal_discriminant"}[] {uses "ec.q.conductor"}[] {uses "ec.q.j_invariant"}[]
 :::
 
@@ -1446,6 +1522,8 @@ $$`c_p=[E(\mathbb{Q}_p):E^0(\mathbb{Q}_p)].`
 Here $`E^0(\mathbb{Q}_p)` is the subgroup of points which have good reduction. If $`E` has good reduction, then $`E(\mathbb{Q}_p)=E^0(\mathbb{Q}_p)` and $`c_p=1`.
 
 An elliptic curve $`E` defined over $`\mathbb{Q}` has a Tamagawa number $`c_p` at every prime $`p`, with $`c_p=1` for all primes of good reduction (and hence $`c_p=1` for all but finitely many primes).
+
+Tau Ceti Review: [`WeierstrassCurve.Affine.nonsingularReduction`](https://taucetiproject.org/review/#/d/WeierstrassCurve.Affine.nonsingularReduction).
 :::
 
 :::definition "ec.q.torsion_growth"
@@ -1471,12 +1549,16 @@ If $`E` is an elliptic curve defined over $`\mathbb{Q}`, its *torsion subgroup* 
 - $`[n]` for a cyclic group of order $`n` (only $`n=2,3,4,5,6,7,8,9,10` or $`12` occur for elliptic curves over $`\mathbb{Q}`);
 
 - $`[n_1,n_2]` with $`n_1\mid n_2` for a product of cyclic groups of orders $`n_1` and $`n_2` (only $`[2,2m]` for $`m=2,4,6` or $`8` occur over $`\mathbb{Q}`).
+
+Tau Ceti Review: [`AddCommGroup.torsion`](https://taucetiproject.org/review/#/d/AddCommGroup.torsion).
 :::
 
 :::definition "ec.q.weil_height" (lean := "WeierstrassCurve.Affine.Point.naiveHeight, WeierstrassCurve.Affine.Point.naiveHeight_eq_logHeight₁, Height.logHeight₁, Rat.mulHeight₁_eq_max")
 *Weil height of a point on an elliptic curve over $`\Q`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.weil_height))
 
 The Weil height (also known as the naive height) $`h(P)` of a rational point $`P` with coordinates $`(x,y)` on an {bpref "ec.q"}[elliptic curve] defined over $`\Q` is defined to be $`\log\max(|a|,|b|)` where the rational number $`x` is expressed as $`x=a/b` with $`a,b` coprime integers.
+
+Tau Ceti Review: [`WeierstrassCurve.Affine.Point.naiveHeight`](https://taucetiproject.org/review/#/d/WeierstrassCurve.Affine.Point.naiveHeight), [`Height.logHeight₁`](https://taucetiproject.org/review/#/d/Height.logHeight%E2%82%81), [`Rat.mulHeight₁_eq_max`](https://taucetiproject.org/review/#/d/Rat.mulHeight%E2%82%81_eq_max).
 
 Depends on: {uses "ec.q"}[]
 :::
@@ -1505,6 +1587,8 @@ where $`E(K)_{\rm tor}` is the finite {bpref "ec.torsion_subgroup"}[torsion subg
 
 Rank is an {bpref "ec.isogeny"}[isogeny] invariant: all curves in an {bpref "ec.isogeny_class"}[isogeny class] have the same rank.
 
+Tau Ceti Review: [`TauCeti.Isogeny.Hom.finrank_pointModTorsion_eq`](https://taucetiproject.org/review/#/d/TauCeti.Isogeny.Hom.finrank_pointModTorsion_eq), [`WeierstrassCurve.Affine.fg_point_of_numberField`](https://taucetiproject.org/review/#/d/WeierstrassCurve.Affine.fg_point_of_numberField).
+
 Depends on: {uses "ec"}[] {uses "ec.isogeny"}[] {uses "ec.isogeny_class"}[] {uses "ec.mordell_weil_group"}[] {uses "ec.mordell_weil_theorem"}[] {uses "ec.torsion_subgroup"}[] {uses "nf"}[]
 :::
 
@@ -1514,6 +1598,8 @@ Depends on: {uses "ec"}[] {uses "ec.isogeny"}[] {uses "ec.isogeny_class"}[] {use
 An {bpref "ec"}[elliptic curve] $`E` over a number field $`K` is *{bpref "ec.semistable"}[semistable]* if it has {bpref "ec.reduction_type"}[multiplicative reduction] at every {bpref "ec.bad_reduction"}[bad prime], and has *{bpref "ec.potential_good_reduction"}[potential good reduction]* if its {bpref "ec.j_invariant"}[$`j`-invariant] is {bpref "nf.integral"}[integral].
 
 If $`E` has potential good reduction then it cannot be semistable unless it has everywhere good reduction.
+
+Tau Ceti Review: [`WeierstrassCurve.IsSemistable`](https://taucetiproject.org/review/#/d/WeierstrassCurve.IsSemistable).
 
 Depends on: {uses "ec"}[] {uses "ec.bad_reduction"}[] {uses "ec.j_invariant"}[] {uses "ec.potential_good_reduction"}[] {uses "ec.reduction_type"}[] {uses "ec.semistable"}[] {uses "nf.integral"}[]
 :::
@@ -1532,6 +1618,8 @@ $`E` has {bpref "ec.bad_reduction"}[bad reduction].  There are two types of bad 
 $`E` has *multiplicative reduction* at $`\mathfrak p` if $`\tilde E` has a nodal singularity. It is called *split multiplicative reduction* if the two tangents at the node are defined over $`\F_q` and *non-split multiplicative reduction* otherwise.
 
 $`E` has *additive reduction* at $`\mathfrak p` if $`\tilde E` has a cuspidal singularity.
+
+Tau Ceti Review: [`WeierstrassCurve.HasGoodOrdinaryReduction`](https://taucetiproject.org/review/#/d/WeierstrassCurve.HasGoodOrdinaryReduction).
 
 Depends on: {uses "ec"}[] {uses "ec.bad_reduction"}[] {uses "ec.good_reduction"}[] {uses "nf"}[] {uses "nf.ring_of_integers"}[]
 :::
@@ -1554,6 +1642,8 @@ The canonical height used to define the regulator is usually \*normalised\* so t
 $$`\operatorname{Reg}_{\rm NT}(E/K) = d^r \operatorname{Reg}(E/K),`
 
 where $`d` is the {bpref "nf.degree"}[degree] $`[K:\Q]`.
+
+Tau Ceti Review: [`WeierstrassCurve.Affine.neronTatePairing`](https://taucetiproject.org/review/#/d/WeierstrassCurve.Affine.neronTatePairing).
 
 Depends on: {uses "ec"}[] {uses "ec.base_change"}[] {uses "ec.canonical_height"}[] {uses "ec.mordell_weil_group"}[] {uses "ec.rank"}[] {uses "nf"}[] {uses "nf.degree"}[]
 :::
@@ -1593,6 +1683,8 @@ Depends on: {uses "ec"}[] {uses "ec.discriminant"}[] {uses "ec.local_minimal_mod
 
 An {bpref "ec"}[elliptic curve] is *semistable* if it has {bpref "ec.reduction_type"}[multiplicative reduction] at every {bpref "ec.bad_reduction"}[bad prime].
 
+Tau Ceti Review: [`WeierstrassCurve.IsSemistable`](https://taucetiproject.org/review/#/d/WeierstrassCurve.IsSemistable).
+
 Depends on: {uses "ec"}[] {uses "ec.bad_reduction"}[] {uses "ec.reduction_type"}[]
 :::
 
@@ -1602,6 +1694,8 @@ Depends on: {uses "ec"}[] {uses "ec.bad_reduction"}[] {uses "ec.reduction_type"}
 Every {bpref "ec"}[elliptic curve] over a {bpref "ring.field"}[field] $`k` whose {bpref "ring.characteristic"}[characteristic] is not 2 or 3 has a *simplified equation* (or *short Weierstrass model*) of the form $`y^2 = x^3 + Ax + B`.  When $`k=\mathbb{Q}` is the field of rational numbers, one can choose $`A` and $`B` to be integers.
 
 For elliptic curves over $`\Q` this model will necessarily have {bpref "ec.bad_reduction"}[bad reduction] at 2, even when $`E` has {bpref "ec.good_reduction"}[good reduction] at 2; it may also bad reduction at 3 even when the {bpref "ec.q.minimal_weierstrass_equation"}[minimal model] of $`E` does not.
+
+Tau Ceti Review: [`WeierstrassCurve.IsShortNF`](https://taucetiproject.org/review/#/d/WeierstrassCurve.IsShortNF), [`WeierstrassCurve.exists_minimalPairModel`](https://taucetiproject.org/review/#/d/WeierstrassCurve.exists_minimalPairModel).
 
 Depends on: {uses "ec"}[] {uses "ec.bad_reduction"}[] {uses "ec.good_reduction"}[] {uses "ec.q.minimal_weierstrass_equation"}[] {uses "ring.characteristic"}[] {uses "ring.field"}[]
 :::
@@ -1620,6 +1714,8 @@ Depends on: {uses "ec"}[] {uses "ec.bsdconjecture"}[] {uses "lfunction"}[] {uses
 *Split multiplicative reduction.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.split_multiplicative_reduction))
 
 An {bpref "ec"}[elliptic curve] $`E` defined over a {bpref "nf"}[number field] $`K` is said to have *split multiplicative reduction*  at a prime $`\mathfrak{p}` of $`K` if the reduction of $`E` modulo $`\mathfrak{p}` has a nodal singularity with both tangent slopes defined over the residue field at $`\mathfrak{p}`.
+
+Tau Ceti Review: [`WeierstrassCurve.HasSplitMultiplicativeReduction`](https://taucetiproject.org/review/#/d/WeierstrassCurve.HasSplitMultiplicativeReduction).
 
 Depends on: {uses "ec"}[] {uses "nf"}[]
 :::
@@ -1664,6 +1760,8 @@ The *torsion structure* is the list of invariants of the group:
 
 For $`K=\Q` the possible torsion structures are $`[n]` for $`n\le10` and $`n=12`, and $`[2,2n]` for $`n=1,2,3,4`.
 
+Tau Ceti Review: [`AddCommGroup.torsion`](https://taucetiproject.org/review/#/d/AddCommGroup.torsion).
+
 Depends on: {uses "ec.mordell_weil_group"}[] {uses "ec.mordell_weil_theorem"}[]
 :::
 
@@ -1679,6 +1777,8 @@ For elliptic curves $`E` with $`j(E)\not=0, 1728`, the only twists of $`E` are i
 Over fields of characteristic not $`2` or $`3`, elliptic curves with $`j`-invariant $`1728` also admit *quartic twists*, parametrised by $`K^*/(K^*)^4`, and elliptic curves with $`j`-invariant $`0` also admit *sextic twists*, parametrised by $`K^*/(K^*)^6`.  Elliptic curves $`E` over fields $`K` of characteristic $`2` and $`3` with $`j(E)=0=1728` have nonabelian {bpref "g2c.aut_grp"}[automorphism] groups, and their twists are more complicated to describe, being in all cases parametrised by $`H^1(\Gal(\overline{K}/K), \Aut(E))`.
 
 Elliptic curve twists are a special case of {bpref "av.twist"}[twists of abelian varieties].
+
+Tau Ceti Review: [`WeierstrassCurve.quadraticTwist`](https://taucetiproject.org/review/#/d/WeierstrassCurve.quadraticTwist), [`WeierstrassCurve.VariableChange.twistCohomologyClass`](https://taucetiproject.org/review/#/d/WeierstrassCurve.VariableChange.twistCohomologyClass).
 
 Depends on: {uses "av.twist"}[] {uses "ec"}[] {uses "ec.j_invariant"}[] {uses "g2c.aut_grp"}[] {uses "ring.characteristic"}[] {uses "ring.field"}[]
 :::
@@ -1699,6 +1799,8 @@ It is common not to distinguish between the _affine_ curve defined by a Weierstr
 A Weierstrass model is smooth if and only if its {bpref "ec.discriminant"}[discriminant] $`\Delta` is nonzero.  In this case, the plane curve $`E` together with the point at infinity as base point, define an {bpref "ec"}[elliptic curve] defined over $`k`.
 
 Two smooth Weierstrass models define isomorphic elliptic curves if and only if they are {bpref "ec.weierstrass_isomorphism"}[isomorphic] as Weierstrass models.
+
+Tau Ceti Review: [`WeierstrassCurve`](https://taucetiproject.org/review/#/d/WeierstrassCurve).
 
 Depends on: {uses "ec"}[]
 :::
@@ -1729,6 +1831,8 @@ $$`\begin{aligned}
                 x &= u^2x' + r          \\
                 y &= u^3y' + su^2x' + t \\
     \end{aligned}`
+
+Tau Ceti Review: [`WeierstrassCurve.VariableChange`](https://taucetiproject.org/review/#/d/WeierstrassCurve.VariableChange).
 
 Depends on: {uses "ec.isomorphism"}[] {uses "ec.weierstrass_coeffs"}[]
 :::

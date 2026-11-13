@@ -105,6 +105,8 @@ write
 
 $$`B = B\langle i,j\rangle = \left(\frac{a,b}{F}\right).`
 
+Tau Ceti Review: [`QuaternionAlgebra`](https://taucetiproject.org/review/#/d/QuaternionAlgebra), [`QuaternionAlgebra.Basis`](https://taucetiproject.org/review/#/d/QuaternionAlgebra.Basis).
+
 Depends on: {uses "ring.characteristic"}[] {uses "ring.field"}[] {uses "shimcurve.quaternion_algebra"}[]
 :::
 
@@ -357,6 +359,8 @@ We set $`k = ij`.
 We say that a quaternion algebra $`B` over $`F` is *split* if $`B` is isomorphic to the matrix algebra $`\operatorname{M}_2(F)`, and we say $`B` is *nonsplit* otherwise.
 
 If $`B` is a quaternion algebra over $`\Q`, we say that $`B` is *indefinite* if $`B\otimes_{\Q} \R` is a split quaternion algebra over $`\R`, and we say $`B` is *definite* otherwise.
+
+Tau Ceti Review: [`QuaternionAlgebra`](https://taucetiproject.org/review/#/d/QuaternionAlgebra), [`CSA`](https://taucetiproject.org/review/#/d/CSA), [`Algebra.IsCentral`](https://taucetiproject.org/review/#/d/Algebra.IsCentral), [`IsSimpleRing`](https://taucetiproject.org/review/#/d/IsSimpleRing), [`TauCeti.Algebra.IsSplittingField`](https://taucetiproject.org/review/#/d/TauCeti.Algebra.IsSplittingField), [`TauCeti.QuaternionAlgebra.nonempty_algEquiv_matrix_tfae`](https://taucetiproject.org/review/#/d/TauCeti.QuaternionAlgebra.nonempty_algEquiv_matrix_tfae).
 
 Depends on: {uses "ring.characteristic"}[] {uses "ring.field"}[]
 :::

@@ -108,12 +108,16 @@ Depends on: {uses "belyi.passport"}[]
 *Passport.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/belyi.passport))
 
 A *passport* is the data of a transitive subgroup of the symmetric group $`S_d` along with a triple of conjugacy classes $`(C_0, C_1, C_{\infty})` of $`S_d`, (equivalently, a triple of partitions $`(\lambda_0, \lambda_1, \lambda_{\infty})` of $`d`).
+
+Tau Ceti Review: [`TauCeti.PassportSpec`](https://taucetiproject.org/review/#/d/TauCeti.PassportSpec), [`TauCeti.PassportSpec.HasPassport`](https://taucetiproject.org/review/#/d/TauCeti.PassportSpec.HasPassport), [`TauCeti.PassportSpec.IsAdmissible`](https://taucetiproject.org/review/#/d/TauCeti.PassportSpec.IsAdmissible).
 :::
 
 :::definition "belyi.permutation_triple" (lean := "TauCeti.ConnectedTriple, TauCeti.PermutationTriple, TauCeti.PermutationTriple.IsConnected, TauCeti.PermutationTriple.equivOppositeConvention")
 *Transitive permutation triple.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/belyi.permutation_triple))
 
 A *permutation triple* is a triple of permutations $`\sigma=(\sigma_0,\sigma_1,\sigma_{\infty}) \in S_d^3` such that $`\sigma_{\infty}\sigma_1\sigma_0=1`.  A permutation triple is *transitive* if the subgroup $`\langle \sigma \rangle` is a transitive subgroup of the symmetric group $`S_d`.
+
+Tau Ceti Review: [`TauCeti.ConnectedTriple`](https://taucetiproject.org/review/#/d/TauCeti.ConnectedTriple), [`TauCeti.PermutationTriple`](https://taucetiproject.org/review/#/d/TauCeti.PermutationTriple), [`TauCeti.PermutationTriple.IsConnected`](https://taucetiproject.org/review/#/d/TauCeti.PermutationTriple.IsConnected), [`TauCeti.PermutationTriple.equivOppositeConvention`](https://taucetiproject.org/review/#/d/TauCeti.PermutationTriple.equivOppositeConvention).
 :::
 
 :::definition "belyi.primitive"

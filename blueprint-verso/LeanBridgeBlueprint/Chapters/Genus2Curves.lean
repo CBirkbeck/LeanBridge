@@ -76,6 +76,8 @@ The automorphism group of a {bpref "g2c.g2curve"}[genus 2 curve] necessarily inc
 
 The {bpref "g2c.geom_aut_grp"}[geometric automorphism group] of a curve $`X/k` is the automorphism group of $`X_{\bar k}`.
 
+Tau Ceti Review: [`CategoryTheory.Aut`](https://taucetiproject.org/review/#/d/CategoryTheory.Aut).
+
 Depends on: {uses "ag.curve"}[] {uses "g2c.g2curve"}[]
 :::
 
@@ -271,6 +273,8 @@ The *geometric automorphism group* of a curve is the {bpref "g2c.aut_grp"}[autom
 
 If $`X` is a curve over a field $`k`, its geometric automorphism group is denoted $`\mathrm{Aut}(X_{\bar{k}})`.
 
+Tau Ceti Review: [`CategoryTheory.Aut`](https://taucetiproject.org/review/#/d/CategoryTheory.Aut).
+
 Depends on: {uses "ag.base_change"}[] {uses "g2c.aut_grp"}[]
 :::
 
@@ -300,6 +304,8 @@ Depends on: {uses "ag.abelian_surface"}[] {uses "ag.abelian_variety"}[] {uses "a
 *Geometric isomorphism class of a curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.geom_iso_class))
 
 The *geometric isomorphism class* of a {bpref "ag.curve"}[curve] $`C` {bpref "ag.base_field"}[over a field] $`K` is the isomorphism class of the {bpref "ag.base_change"}[base change] of $`C` to the {bpref "nf.algebraic_closure"}[algebraic closure] of $`K`.
+
+Tau Ceti Review: [`CategoryTheory.IsIsomorphic`](https://taucetiproject.org/review/#/d/CategoryTheory.IsIsomorphic), [`CategoryTheory.isIsomorphicSetoid`](https://taucetiproject.org/review/#/d/CategoryTheory.isIsomorphicSetoid).
 
 Depends on: {uses "ag.base_change"}[] {uses "ag.base_field"}[] {uses "ag.curve"}[]
 :::
@@ -573,6 +579,8 @@ Depends on: {uses "ag.abelian_variety"}[] {uses "ag.jacobian"}[] {uses "ag.morde
 *Order of a Mordell-Weil generator.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.mw_generator_order))
 
 The *order* of a {bpref "g2c.mw_generator"}[generator] of the {bpref "ag.mordell_weil"}[Mordell-Weil group] is the cardinality of the cyclic subgroup it generates.
+
+Tau Ceti Review: [`orderOf`](https://taucetiproject.org/review/#/d/orderOf), [`addOrderOf`](https://taucetiproject.org/review/#/d/addOrderOf), [`Nat.card_zpowers`](https://taucetiproject.org/review/#/d/Nat.card_zpowers).
 
 Depends on: {uses "ag.mordell_weil"}[] {uses "g2c.mw_generator"}[]
 :::

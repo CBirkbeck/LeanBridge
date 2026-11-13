@@ -21,12 +21,16 @@ If $`(S, \leq)` is a finite partially ordered set, then a *Hasse diagram* for $`
 - there is an edge connecting $`s_1` and $`s_2` if $`s_1` is maximal in $`\leq` for $`\{s\in S \mid s < s_2\}`, or vice versa
 
 - if $`s_1` is connected to $`s_2` by an edge and $`s_1 < s_2`, then $`s_2` is higher in the plane in the sense of having a larger "$`y`-coordinate"
+
+Tau Ceti Review: [`CovBy`](https://taucetiproject.org/review/#/d/CovBy).
 :::
 
 :::definition "commensurable.group" (lean := "Subgroup.Commensurable, Subgroup.IsFiniteRelIndex")
 *commensurable group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/commensurable.group))
 
 Two groups $`G` and $`H` are commensurable if their intersection $`G \cap H` has finite index in $`G` and in $`H`.
+
+Tau Ceti Review: [`Subgroup.Commensurable`](https://taucetiproject.org/review/#/d/Subgroup.Commensurable), [`Subgroup.IsFiniteRelIndex`](https://taucetiproject.org/review/#/d/Subgroup.IsFiniteRelIndex).
 :::
 
 :::definition "group" (lean := "Group")
@@ -37,6 +41,8 @@ A *group*   $`\langle G, *\rangle` is a set $`G` with a {bpref "alg.binary_opera
 1. $`*` is {bpref "alg.binary_operation.associative"}[associative]
 2. $`*` has an {bpref "alg.binary_operation.identity"}[identity element]
 3. every element $`g\in G` has an {bpref "alg.binary_operation.inverse"}[inverse].
+
+Tau Ceti Review: [`Group`](https://taucetiproject.org/review/#/d/Group).
 
 Depends on: {uses "alg.binary_operation"}[] {uses "alg.binary_operation.associative"}[] {uses "alg.binary_operation.identity"}[] {uses "alg.binary_operation.inverse"}[]
 :::
@@ -55,6 +61,8 @@ Depends on: {uses "group.abelian"}[] {uses "group.monomial"}[] {uses "group.solv
 *Abelian group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.abelian))
 
 A {bpref "group"}[group] is *abelian* if its {bpref "alg.binary_operation"}[operation] is {bpref "alg.binary_operation.commutative"}[commutative].
+
+Tau Ceti Review: [`CommGroup`](https://taucetiproject.org/review/#/d/CommGroup).
 
 Depends on: {uses "alg.binary_operation"}[] {uses "alg.binary_operation.commutative"}[] {uses "group"}[]
 :::
@@ -89,6 +97,8 @@ such that
 
 The action is *transitive* if for all $`a,b\in A`, there exists $`g\in G` such that $`g\cdot a = b`.
 
+Tau Ceti Review: [`MulAction`](https://taucetiproject.org/review/#/d/MulAction), [`MulAction.IsPretransitive`](https://taucetiproject.org/review/#/d/MulAction.IsPretransitive).
+
 Depends on: {uses "alg.binary_operation.identity"}[] {uses "group"}[]
 :::
 
@@ -96,6 +106,8 @@ Depends on: {uses "alg.binary_operation.identity"}[] {uses "group"}[]
 *Affine general linear group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.affine_general_linear))
 
 The {bpref "group.general_linear"}[general linear group] $`\GL(n,q)` acts on the vector space $`\F_q^n` by matrix multiplication. The affine general linear group is the group $`\AGL(n,q) = \F_q^n \rtimes \GL(n,q)`. It is the group of all invertible affine transformations of $`\F_q^n`.
+
+Tau Ceti Review: [`AffineEquiv.group`](https://taucetiproject.org/review/#/d/AffineEquiv.group), [`GaloisField`](https://taucetiproject.org/review/#/d/GaloisField).
 
 Depends on: {uses "group.general_linear"}[]
 :::
@@ -115,6 +127,8 @@ Depends on: {uses "group.affine_general_linear"}[] {uses "group.affine_special_l
 
 The affine special linear group $`\ASL(n,q)` is the subgroup of the {bpref "group.affine_general_linear"}[affine general linear group] $`\AGL(n,q) = \F_q^n \rtimes \GL(n,q)` of all affine transformations $`x \mapsto Mx + v` such that $`\det(M)=1`. It is the affine analogue of the {bpref "group.special_linear"}[special linear group].
 
+Tau Ceti Review: [`AffineEquiv.group`](https://taucetiproject.org/review/#/d/AffineEquiv.group), [`AffineEquiv.linearHom`](https://taucetiproject.org/review/#/d/AffineEquiv.linearHom).
+
 Depends on: {uses "group.affine_general_linear"}[] {uses "group.special_linear"}[]
 :::
 
@@ -122,6 +136,8 @@ Depends on: {uses "group.affine_general_linear"}[] {uses "group.special_linear"}
 *Affine symplectic group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.affine_symplectic))
 
 The affine symplectic group $`\ASp(n,q)` is the subgroup of the {bpref "group.affine_general_linear"}[affine general linear group] $`\AGL(n,q) = \F_q^n \rtimes \GL(n,q)` of all affine transformations $`x \mapsto Mx + v` such that $`M` is an element of the {bpref "group.symplectic"}[symplectic group] $`\Sp(n,q)`.
+
+Tau Ceti Review: [`Matrix.symplecticGroup`](https://taucetiproject.org/review/#/d/Matrix.symplecticGroup), [`TauCeti.GLSymplectic`](https://taucetiproject.org/review/#/d/TauCeti.GLSymplectic).
 
 Depends on: {uses "group.affine_general_linear"}[] {uses "group.symplectic"}[]
 :::
@@ -141,6 +157,8 @@ Depends on: {uses "group.automorphism"}[] {uses "group.simple"}[]
 
 The *alternating group*, denoted $`A_n` is the {bpref "group.subgroup"}[subgroup] of the {bpref "group.symmetric"}[symmetric group]  consisting of the \*even\* permutations. For $`n\ge2` it is of {bpref "group.order"}[order] $`\frac{n!}{2}`, and is {bpref "group.subgroup.index"}[index] $`2` in $`S_n`. The group is {bpref "group.solvable"}[solvable] for $`n\leq 4` and {bpref "group.simple"}[simple] for $`n\geq 5`.
 
+Tau Ceti Review: [`alternatingGroup`](https://taucetiproject.org/review/#/d/alternatingGroup).
+
 Depends on: {uses "group.order"}[] {uses "group.simple"}[] {uses "group.solvable"}[] {uses "group.subgroup"}[] {uses "group.subgroup.index"}[] {uses "group.symmetric"}[]
 :::
 
@@ -148,6 +166,8 @@ Depends on: {uses "group.order"}[] {uses "group.simple"}[] {uses "group.solvable
 *Ambient group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.ambient))
 
 If $`H \subseteq G` is a {bpref "group.subgroup"}[subgroup], we refer to $`G` as the *ambient group* of $`H`.
+
+Tau Ceti Review: [`Subgroup`](https://taucetiproject.org/review/#/d/Subgroup).
 
 Depends on: {uses "group.subgroup"}[]
 :::
@@ -160,6 +180,8 @@ $$`|A|/\phi(G).`
 
 For {bpref "group.cyclic"}[cyclic] groups, the size of their automorphism group is always $`\phi(G)` and hence this ratio is $`1`.
 
+Tau Ceti Review: [`IsCyclic.card_mulAut`](https://taucetiproject.org/review/#/d/IsCyclic.card_mulAut), [`MulAut`](https://taucetiproject.org/review/#/d/MulAut), [`Nat.totient`](https://taucetiproject.org/review/#/d/Nat.totient).
+
 Depends on: {uses "group"}[] {uses "group.automorphism"}[] {uses "group.cyclic"}[]
 :::
 
@@ -168,6 +190,8 @@ Depends on: {uses "group"}[] {uses "group.automorphism"}[] {uses "group.cyclic"}
 
 If $`G` is a group and $`x \in G`, the *autjugacy class* of $`x` is the orbit of $`x` under the action of the {bpref "group.automorphism"}[automorphism group], namely $`\{\varphi(x) : \varphi \in \operatorname{Aut}(G)\}`.  Any autjugacy class is a disjoint union of {bpref "group.conjugacy_class"}[conjugacy classes], each of the same size and {bpref "group.element_order"}[order].
 
+Tau Ceti Review: [`MulAction.orbit`](https://taucetiproject.org/review/#/d/MulAction.orbit), [`MulAut`](https://taucetiproject.org/review/#/d/MulAut).
+
 Depends on: {uses "group.automorphism"}[] {uses "group.conjugacy_class"}[] {uses "group.element_order"}[]
 :::
 
@@ -175,6 +199,8 @@ Depends on: {uses "group.automorphism"}[] {uses "group.conjugacy_class"}[] {uses
 *Autjugate subgroups.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.autjugate_subgroup))
 
 In analogy with conjugate subgroups, we say that two {bpref "group.subgroup"}[subgroups] $`H_1` and $`H_2` of a {bpref "group"}[group] $`G` are *autjugate* if there is an {bpref "group.automorphism"}[automorphism] $`\phi` of $`G` so that $`\phi(H_1) = \phi(H_2)`.
+
+Tau Ceti Review: [`Subgroup.pointwiseMulAction`](https://taucetiproject.org/review/#/d/Subgroup.pointwiseMulAction), [`MulAut.applyMulDistribMulAction`](https://taucetiproject.org/review/#/d/MulAut.applyMulDistribMulAction), [`MulAction.orbit`](https://taucetiproject.org/review/#/d/MulAction.orbit).
 
 Depends on: {uses "group"}[] {uses "group.automorphism"}[] {uses "group.subgroup"}[]
 :::
@@ -185,6 +211,8 @@ Depends on: {uses "group"}[] {uses "group.automorphism"}[] {uses "group.subgroup
 If $`G` is a {bpref "group"}[group], an *automorphism* of $`G` is a {bpref "group.isomorphism"}[group isomorphism] $`f:G\to G`.
 
 The set of automorphisms of $`G`, $`\Aut(G)`, is a group under composition.
+
+Tau Ceti Review: [`MulAut`](https://taucetiproject.org/review/#/d/MulAut).
 
 Depends on: {uses "group"}[] {uses "group.isomorphism"}[]
 :::
@@ -198,6 +226,8 @@ $$`Z(G) = \{g\in G\mid gh=hg \text{ for all } h\in G\}.`
 
 It is a {bpref "group.subgroup.normal"}[normal subgroup] of $`G`.
 
+Tau Ceti Review: [`Subgroup.center`](https://taucetiproject.org/review/#/d/Subgroup.center), [`Subgroup.mem_center_iff`](https://taucetiproject.org/review/#/d/Subgroup.mem_center_iff).
+
 Depends on: {uses "group"}[] {uses "group.subgroup.normal"}[]
 :::
 
@@ -207,6 +237,8 @@ Depends on: {uses "group"}[] {uses "group.subgroup.normal"}[]
 A subset, or {bpref "group.subgroup"}[subgroup], $`H` of a {bpref "group"}[group] $`G` is *central* if
 $`gh=hg` for all $`g\in G` and all $`h\in H`.  Equivalently, it is central if and only if it is a subset of the {bpref "group.center"}[center] of the group.
 
+Tau Ceti Review: [`Subgroup.center`](https://taucetiproject.org/review/#/d/Subgroup.center), [`Subgroup.centralizer_eq_top_iff_subset`](https://taucetiproject.org/review/#/d/Subgroup.centralizer_eq_top_iff_subset).
+
 Depends on: {uses "group"}[] {uses "group.center"}[] {uses "group.subgroup"}[]
 :::
 
@@ -214,6 +246,8 @@ Depends on: {uses "group"}[] {uses "group.center"}[] {uses "group.subgroup"}[]
 *Central quotient.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.central_quotient))
 
 The central quotient of a {bpref "group"}[group] $`G` is $`G/Z(G)`, where $`Z(G)` is the {bpref "group.center"}[center] of $`G`. The central quotient is isomorphic to the group of {bpref "group.inner_automorphism"}[inner automorphisms] of $`G`.
+
+Tau Ceti Review: [`Subgroup.center`](https://taucetiproject.org/review/#/d/Subgroup.center), [`QuotientGroup.Quotient.group`](https://taucetiproject.org/review/#/d/QuotientGroup.Quotient.group), [`MulAut.conj`](https://taucetiproject.org/review/#/d/MulAut.conj), [`QuotientGroup.quotientKerEquivRange`](https://taucetiproject.org/review/#/d/QuotientGroup.quotientKerEquivRange).
 
 Depends on: {uses "group"}[] {uses "group.center"}[] {uses "group.inner_automorphism"}[]
 :::
@@ -225,6 +259,8 @@ If $`G` is a {bpref "group"}[group] and $`H` is a subgroup of $`G`, then the *ce
 
 $$`C_G(H) = \{g\in G\mid gh=hg \text{ for all } h\in H\}.`
 
+Tau Ceti Review: [`Subgroup.centralizer`](https://taucetiproject.org/review/#/d/Subgroup.centralizer), [`Subgroup.mem_centralizer_iff`](https://taucetiproject.org/review/#/d/Subgroup.mem_centralizer_iff).
+
 Depends on: {uses "group"}[]
 :::
 
@@ -232,6 +268,8 @@ Depends on: {uses "group"}[]
 *Characteristic subgroup.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.characteristic_subgroup))
 
 A {bpref "group.subgroup"}[subgroup] $`H` of a {bpref "group"}[group] $`G`  is a *characteristic subgroup* if $`\phi(H)=H` for all {bpref "group.automorphism"}[automorphisms] $`\phi\in \Aut(G)`.
+
+Tau Ceti Review: [`Subgroup.Characteristic`](https://taucetiproject.org/review/#/d/Subgroup.Characteristic).
 
 Depends on: {uses "group"}[] {uses "group.automorphism"}[] {uses "group.subgroup"}[]
 :::
@@ -248,6 +286,8 @@ The *Chevalley groups* are examples of groups of Lie type over finite {bpref "ri
 - $`C(n,q)` is the {bpref "group.symplectic"}[symplectic] group  $`\Sp(2n,q)`.
 
 - $`D(n, q)` is the {bpref "group.orthogonal"}[orthogonal] group $`\OmegaPlus(2n,q)`.
+
+Tau Ceti Review: [`Matrix.SpecialLinearGroup`](https://taucetiproject.org/review/#/d/Matrix.SpecialLinearGroup), [`Matrix.symplecticGroup`](https://taucetiproject.org/review/#/d/Matrix.symplecticGroup), [`TauCeti.QuadraticMap.specialOrthogonalGroup`](https://taucetiproject.org/review/#/d/TauCeti.QuadraticMap.specialOrthogonalGroup).
 
 Depends on: {uses "group.general_linear"}[] {uses "group.orthogonal"}[] {uses "group.simple"}[] {uses "group.special_linear"}[] {uses "group.symplectic"}[] {uses "group.unitary"}[] {uses "ring.field"}[]
 :::
@@ -271,6 +311,8 @@ Depends on: {uses "group"}[] {uses "group.normal_series"}[] {uses "group.simple"
 
 The {bpref "group.commutator_subgroup"}[commutator subgroup] is generated by commutators, but it's not necessarily the case that every element is a commutator.  The *commutator length* of $`G` is the minimal integer $`k` so that every element of $`G'` can be written as the product of $`k` commutators.
 
+Tau Ceti Review: [`commutator_eq_closure`](https://taucetiproject.org/review/#/d/commutator_eq_closure).
+
 Depends on: {uses "group.commutator_subgroup"}[]
 :::
 
@@ -282,6 +324,8 @@ Given a {bpref "group"}[group] $`G`, the *commutators* of $`G` are the elements 
 The {bpref "group.subgroup"}[subgroup] generated by all commutators of $`G` is the *commutator subgroup* or *derived subgroup* of $`G`, and is denoted by $`[G,G]` or $`G'`.
 
 The commutator subgroup is always a {bpref "group.subgroup.normal"}[normal] subgroup, and the quotient group $`G/G'`, called the {bpref "group.abelianization"}[abelianization] of $`G`, is the largest {bpref "group.abelian"}[abelian] {bpref "group.quotient"}[quotient] of $`G` in the sense that any homomorphism $`G\to A` where $`A` is an abelian group factors as a composition of homomorphisms $`G\to G/G'\to A`.
+
+Tau Ceti Review: [`commutator`](https://taucetiproject.org/review/#/d/commutator), [`commutatorSet`](https://taucetiproject.org/review/#/d/commutatorSet), [`commutatorElement`](https://taucetiproject.org/review/#/d/commutatorElement), [`commutator_eq_closure`](https://taucetiproject.org/review/#/d/commutator_eq_closure).
 
 Depends on: {uses "group"}[] {uses "group.abelian"}[] {uses "group.quotient"}[] {uses "group.subgroup"}[] {uses "group.subgroup.normal"}[]
 :::
@@ -298,12 +342,16 @@ A group $`G` is *complete* if one of the following equivalent conditions holds:
 - whenever it is embedded as a normal subgroup of a larger group, it is a direct factor.
 
 For $`n \ne 2, 6`, the symmetric group $`S_n` is complete.
+
+Tau Ceti Review: [`MulAut.conj`](https://taucetiproject.org/review/#/d/MulAut.conj).
 :::
 
 :::definition "group.complex_character_table" (lean := "TauCeti.characterTable, TauCeti.irreducibleCharacters")
 *Complex character table of a finite group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.complex_character_table))
 
 The *complex character table* of a finite {bpref "group"}[group] $`G` is a square tabulation of the value of its irreducible {bpref "group.representation.character"}[complex characters], which encodes useful information about the group $`G` in a compact way. Each row of the table is labeled by an irreducible character (given by its  {bpref "group.label_complex_group_char"}[label]) and the entries in the row are the values of that character on some representative of the corresponding conjugacy class of $`G` given by its {bpref "group.label_conjugacy_class"}[label] on the columns.
+
+Tau Ceti Review: [`TauCeti.characterTable`](https://taucetiproject.org/review/#/d/TauCeti.characterTable), [`TauCeti.irreducibleCharacters`](https://taucetiproject.org/review/#/d/TauCeti.irreducibleCharacters).
 
 Depends on: {uses "group"}[] {uses "group.label_complex_group_char"}[] {uses "group.label_conjugacy_class"}[] {uses "group.representation.character"}[]
 :::
@@ -315,6 +363,8 @@ If $`G` is a {bpref "group"}[group] and $`x\in G`, the *conjugacy class* of $`x`
 
 Since conjugation by fixed $`g\in G` is an {bpref "group.automorphism"}[automorphism] of $`G`, all conjugate elements have the same {bpref "group.element_order"}[order] in the group.
 
+Tau Ceti Review: [`ConjClasses`](https://taucetiproject.org/review/#/d/ConjClasses), [`ConjClasses.carrier`](https://taucetiproject.org/review/#/d/ConjClasses.carrier), [`IsConj`](https://taucetiproject.org/review/#/d/IsConj), [`SemiconjBy.orderOf_eq`](https://taucetiproject.org/review/#/d/SemiconjBy.orderOf_eq).
+
 Depends on: {uses "group"}[] {uses "group.automorphism"}[] {uses "group.element_order"}[]
 :::
 
@@ -322,6 +372,8 @@ Depends on: {uses "group"}[] {uses "group.automorphism"}[] {uses "group.element_
 *Power classes.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.conjugacy_class.power_classes))
 
 If $`G` is a {bpref "group"}[group], $`g\in G` is an element of a {bpref "group.conjugacy_class"}[conjugacy class] $`P`, and $`n` is a positive integer, then $`nP` denotes the conjugacy class of the element $`g^n`.
+
+Tau Ceti Review: [`ConjClasses.pow`](https://taucetiproject.org/review/#/d/ConjClasses.pow), [`ConjClasses.mk_pow`](https://taucetiproject.org/review/#/d/ConjClasses.mk_pow).
 
 Depends on: {uses "group"}[] {uses "group.conjugacy_class"}[]
 :::
@@ -334,6 +386,8 @@ If $`H` is a {bpref "group.subgroup"}[subgroup] of a {bpref "group"}[group] $`G`
 $$`\bigcap_{g\in G} g^{-1} H g .`
 
 It is the largest normal subgroup of $`G` contained in $`H`.
+
+Tau Ceti Review: [`Subgroup.normalCore`](https://taucetiproject.org/review/#/d/Subgroup.normalCore).
 
 Depends on: {uses "group"}[] {uses "group.subgroup"}[]
 :::
@@ -350,6 +404,8 @@ and similarly, a right coset of $`H` is a set
 $$`Hg = \{ hg \mid h \in H\}.`
 
 The left cosets partition $`G`, as do the right cosets.
+
+Tau Ceti Review: [`QuotientGroup.leftRel`](https://taucetiproject.org/review/#/d/QuotientGroup.leftRel), [`QuotientGroup.rightRel`](https://taucetiproject.org/review/#/d/QuotientGroup.rightRel), [`QuotientGroup.eq_class_eq_leftCoset`](https://taucetiproject.org/review/#/d/QuotientGroup.eq_class_eq_leftCoset).
 
 Depends on: {uses "group"}[] {uses "group.subgroup"}[]
 :::
@@ -387,6 +443,8 @@ Depends on: {uses "group.alternating"}[] {uses "group.dihedral"}[] {uses "group.
 
 A {bpref "group"}[group] $`G` is *cyclic* if it can be {bpref "group.generators"}[generated] by one element.
 
+Tau Ceti Review: [`IsCyclic`](https://taucetiproject.org/review/#/d/IsCyclic).
+
 Depends on: {uses "group"}[] {uses "group.generators"}[]
 :::
 
@@ -414,6 +472,8 @@ $`\langle a,b \mid a^{2n}, a^n b^{-2}, bab^{-1}a\rangle`.
 
 The group $`\textrm{Dic}_2` is isomorphic to the quaternion group of order $`8`.
 
+Tau Ceti Review: [`DihedralGroup`](https://taucetiproject.org/review/#/d/DihedralGroup), [`QuaternionGroup`](https://taucetiproject.org/review/#/d/QuaternionGroup), [`QuaternionGroup.card`](https://taucetiproject.org/review/#/d/QuaternionGroup.card), [`TauCeti.isCyclic_quaternionRotations`](https://taucetiproject.org/review/#/d/TauCeti.isCyclic_quaternionRotations), [`TauCeti.index_quaternionRotations`](https://taucetiproject.org/review/#/d/TauCeti.index_quaternionRotations).
+
 Depends on: {uses "group"}[] {uses "group.cyclic"}[] {uses "group.order"}[] {uses "group.semidirect_product"}[]
 :::
 
@@ -425,6 +485,8 @@ The *dihedral group* is the set of symmetries of a regular $`n`-gon under the op
 $$`D_n = \langle g,h \mid g^n=h^2=1, hg=g^{-1}h \rangle = \{e,g,g_2,...,g_{n-1},h,gh,...,g_{n-1}h\}.`
 
 It is the split extension $`C_n\rtimes C_2` with $`C_2` acting by $`-1`. The non-split extension in this case is the {bpref "group.dicyclic"}[dicyclic]  group.
+
+Tau Ceti Review: [`DihedralGroup`](https://taucetiproject.org/review/#/d/DihedralGroup).
 
 Depends on: {uses "group.dicyclic"}[] {uses "group.order"}[]
 :::
@@ -447,6 +509,8 @@ $$`H_2=\{(e_1,a) \mid a \in G_2\}\cong G_2`
 such that $`H_1\cap H_2 = \{(e_1,e_2)\}` and $`H_1H_2=G_1\times G_2`.
 
 Conversely, if a group $`G` has normal subgroups $`H` and $`K` such that $`H\cap K=\{e\}` and $`HK=G`, then $`G\cong H\times K`.  We call $`H` and $`K` a *direct factors* of $`G` in this case.
+
+Tau Ceti Review: [`Prod.mk_mul_mk`](https://taucetiproject.org/review/#/d/Prod.mk_mul_mk), [`Prod.mk_left_injective`](https://taucetiproject.org/review/#/d/Prod.mk_left_injective).
 
 Depends on: {uses "group"}[] {uses "group.subgroup.normal"}[]
 :::
@@ -484,6 +548,8 @@ Depends on: {uses "group.division_maximal"}[]
 
 The *order* of an element $`g` in a multiplicative {bpref "group"}[group] $`G` is the least positive integer $`n` such that $`g^n` is the {bpref "alg.binary_operation.identity"}[identity element] of $`G`, if such an integer exist, and is $`\infty` otherwise.  In an additive group, the order of $`g` is the least positive integer $`n` such that $`ng=0`.  In both cases, the order of $`g` is also equal to the cardinality of the {bpref "group.cyclic"}[cyclic] {bpref "group.subgroup"}[subgroup] it generates.
 
+Tau Ceti Review: [`orderOf`](https://taucetiproject.org/review/#/d/orderOf), [`addOrderOf`](https://taucetiproject.org/review/#/d/addOrderOf), [`orderOf_eq_zero_iff`](https://taucetiproject.org/review/#/d/orderOf_eq_zero_iff), [`Nat.card_zpowers`](https://taucetiproject.org/review/#/d/Nat.card_zpowers).
+
 Depends on: {uses "alg.binary_operation.identity"}[] {uses "group"}[] {uses "group.cyclic"}[] {uses "group.subgroup"}[]
 :::
 
@@ -492,6 +558,8 @@ Depends on: {uses "alg.binary_operation.identity"}[] {uses "group"}[] {uses "gro
 
 A finite {bpref "group"}[group] is $`p`-*elementary* if it is the {bpref "group.direct_product"}[direct product] of a {bpref "group.cyclic"}[cyclic] group of order relatively prime to $`p` and a {bpref "group.pgroup"}[$`p`-group].  Brauer's induction theorem states that any {bpref "group.representation.character"}[character] of a finite group $`G` is an integer linear combination of inductions of linear characters from elementary subgroups of $`G` (for different primes $`p` dividing the order of $`G`).
 
+Tau Ceti Review: [`TauCeti.IsElementary`](https://taucetiproject.org/review/#/d/TauCeti.IsElementary), [`TauCeti.IsPElementary`](https://taucetiproject.org/review/#/d/TauCeti.IsPElementary), [`Subgroup.indClassFun`](https://taucetiproject.org/review/#/d/Subgroup.indClassFun).
+
 Depends on: {uses "group"}[] {uses "group.cyclic"}[] {uses "group.direct_product"}[] {uses "group.pgroup"}[] {uses "group.representation.character"}[]
 :::
 
@@ -499,6 +567,8 @@ Depends on: {uses "group"}[] {uses "group.cyclic"}[] {uses "group.direct_product
 *Exponent of a group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.exponent))
 
 The *exponent of a {bpref "group"}[group]* $`G` is the smallest positive integer $`n` such that $`g^n=e` for all $`g\in G`.  If no such positive integer exists, then the exponent of the group is infinite.
+
+Tau Ceti Review: [`Monoid.exponent`](https://taucetiproject.org/review/#/d/Monoid.exponent).
 
 Depends on: {uses "group"}[]
 :::
@@ -518,6 +588,8 @@ If $`G` is a group, then the *Frattini subgroup* of $`G`, denoted $`\Phi(G)`, is
 
 The Frattini subgroup is always a {bpref "group.characteristic_subgroup"}[characteristic subgroup], hence a {bpref "group.subgroup.normal"}[normal] subgroup, of $`G`.
 
+Tau Ceti Review: [`frattini`](https://taucetiproject.org/review/#/d/frattini).
+
 Depends on: {uses "group.characteristic_subgroup"}[] {uses "group.maximal_subgroup"}[] {uses "group.subgroup.normal"}[]
 :::
 
@@ -529,6 +601,8 @@ Given a prime power $`q`, the *Frobenius group* $`F_q` is the group of invertibl
 $$`F_q := \{ \varphi : \F_q \to \F_q \mid \exists a, b \in \F_q \text{ such that } a \neq 0 \text{ and } \varphi(x) = ax + b \text{ for all } x \in \F_q \}`
 
 where the usual composition of maps is the group operation. It has {bpref "group.order"}[order] $`q(q-1)` and is a {bpref "group.z_group"}[Z-group] (and hence is {bpref "group.metacyclic"}[metacyclic] and {bpref "group.solvable"}[solvable]).
+
+Tau Ceti Review: [`TauCeti.AffineGroup`](https://taucetiproject.org/review/#/d/TauCeti.AffineGroup), [`TauCeti.card_affineGroup`](https://taucetiproject.org/review/#/d/TauCeti.card_affineGroup).
 
 Depends on: {uses "group.order"}[] {uses "group.solvable"}[] {uses "group.z_group"}[]
 :::
@@ -546,6 +620,8 @@ $$`\text{covol}(G)=\int_{\mathfrak{F}(G)}d\mu<\infty,`
 
 where $`\mathfrak{F}(G)` is the {bpref "group.fuchsian.fundamental_domain"}[fundamental domain] of $`G`.
 
+Tau Ceti Review: [`Subgroup.IsCofinite`](https://taucetiproject.org/review/#/d/Subgroup.IsCofinite).
+
 Depends on: {uses "group.fuchsian.fundamental_domain"}[] {uses "mf.upper_half_plane"}[]
 :::
 
@@ -558,6 +634,8 @@ The group $`\SL(2,\R)` acts on the {bpref "mf.upper_half_plane"}[upper half-plan
 $$`\begin{pmatrix}a&b\\c&d \end{pmatrix}(z)
  =
 \frac{a z + b}{c z + d} .`
+
+Tau Ceti Review: [`UpperHalfPlane.SLAction`](https://taucetiproject.org/review/#/d/UpperHalfPlane.SLAction), [`UpperHalfPlane.coe_specialLinearGroup_apply`](https://taucetiproject.org/review/#/d/UpperHalfPlane.coe_specialLinearGroup_apply).
 
 Depends on: {uses "mf.upper_half_plane"}[]
 :::
@@ -582,6 +660,8 @@ for the group $`\Gamma` is the smallest number $`w` such that $`T^w=\left(\begin
 
 Note that $`T=\left(\begin{matrix}1&1\\0&1\end{matrix}\right)` is one of the *generators* of the {bpref "group.sl2z"}[modular group] $`\textrm{SL}_2(\mathbb{Z})`.
 
+Tau Ceti Review: [`TauCeti.ModularForm.cuspTranslationOrbitWidth`](https://taucetiproject.org/review/#/d/TauCeti.ModularForm.cuspTranslationOrbitWidth), [`TauCeti.Subgroup.integerCuspWidth`](https://taucetiproject.org/review/#/d/TauCeti.Subgroup.integerCuspWidth).
+
 Depends on: {uses "group.fuchsian.cusps"}[] {uses "group.sl2z"}[]
 :::
 
@@ -599,6 +679,8 @@ that is, if $`z'=gz` for some $`g\in G`, then $`z` and
 $`z'` belong to $`\partial F`, the boundary of F.</li>
 </ol>
 
+Tau Ceti Review: [`ModularGroup.fd`](https://taucetiproject.org/review/#/d/ModularGroup.fd).
+
 Depends on: {uses "group.sl2z"}[]
 :::
 
@@ -606,6 +688,8 @@ Depends on: {uses "group.sl2z"}[]
 *Absolute Galois group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.galois.absolute))
 
 The *absolute Galois group* of a {bpref "ring.field"}[field] $`K` is the group of all automorphisms of the {bpref "nf.algebraic_closure"}[algebraic closure] of $`K` that fix the field $`K`.
+
+Tau Ceti Review: [`Field.absoluteGaloisGroup`](https://taucetiproject.org/review/#/d/Field.absoluteGaloisGroup).
 
 Depends on: {uses "ring.field"}[]
 :::
@@ -630,6 +714,8 @@ If $`p` is prime, then $`\GL(n,p)` is the {bpref "group.automorphism"}[automorph
 
 The *projective general linear group* $`\PGL(n, q)` is the {bpref "group.quotient"}[quotient] of $`\GL(n, q)` by its subgroup of scalar matrices.
 
+Tau Ceti Review: [`Matrix.GeneralLinearGroup`](https://taucetiproject.org/review/#/d/Matrix.GeneralLinearGroup), [`GaloisField`](https://taucetiproject.org/review/#/d/GaloisField), [`Matrix.card_GL_field`](https://taucetiproject.org/review/#/d/Matrix.card_GL_field), [`Matrix.ProjGenLinGroup`](https://taucetiproject.org/review/#/d/Matrix.ProjGenLinGroup), [`Matrix.GeneralLinearGroup.center_eq_range_scalar`](https://taucetiproject.org/review/#/d/Matrix.GeneralLinearGroup.center_eq_range_scalar).
+
 Depends on: {uses "group.automorphism"}[] {uses "group.quotient"}[] {uses "ring.field"}[]
 :::
 
@@ -637,6 +723,8 @@ Depends on: {uses "group.automorphism"}[] {uses "group.quotient"}[] {uses "ring.
 *Generalized quaternion.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.generalized_quaternion))
 
 The *(generalized) quaternion group* $`Q_n` is a special case of a {bpref "group.dicyclic"}[dicyclic] group $`\text{Dic}_m` when $`n=4m\geq 8` is a power of $`2`.
+
+Tau Ceti Review: [`QuaternionGroup`](https://taucetiproject.org/review/#/d/QuaternionGroup), [`QuaternionGroup.card`](https://taucetiproject.org/review/#/d/QuaternionGroup.card), [`TauCeti.isCyclic_quaternionRotations`](https://taucetiproject.org/review/#/d/TauCeti.isCyclic_quaternionRotations), [`TauCeti.index_quaternionRotations`](https://taucetiproject.org/review/#/d/TauCeti.index_quaternionRotations).
 
 Depends on: {uses "group.dicyclic"}[]
 :::
@@ -652,6 +740,8 @@ $$`G=\bigcap_{S\subseteq H\leq G} H \,.`
 
 The {bpref "group.automorphism"}[automorphism group] of $`G` acts on such $`S`, and we say $`S` and $`S'` are equivalent if they are related by this action.
 
+Tau Ceti Review: [`Subgroup.closure`](https://taucetiproject.org/review/#/d/Subgroup.closure), [`Subgroup.closure_le`](https://taucetiproject.org/review/#/d/Subgroup.closure_le), [`Subgroup.mem_closure`](https://taucetiproject.org/review/#/d/Subgroup.mem_closure).
+
 Depends on: {uses "group"}[] {uses "group.automorphism"}[]
 :::
 
@@ -659,12 +749,16 @@ Depends on: {uses "group"}[] {uses "group.automorphism"}[]
 *Group (mathlib).* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.group_mathlib_defn))
 
 A group in mathlib is defined as a *monoid* (which has the data of a binary operation, an identity element $`1` and is associative) with an operation $`{}^{-1}` such that $`a^ {-1} * a = 1`.
+
+Tau Ceti Review: [`Monoid`](https://taucetiproject.org/review/#/d/Monoid).
 :::
 
 :::definition "group.group_ring" (lean := "MonoidAlgebra")
 *group ring.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.group_ring))
 
 If $`G` is a {bpref "group"}[group] and $`R` is a {bpref "ring"}[ring], the *group ring* is the free $`R`-module with basis $`G` in which multiplication is defined via the distributive law.  It consists of all formal finite sums of the form $`\sum r_g g` with $`g\in G` and $`r_g\in R`.
+
+Tau Ceti Review: [`MonoidAlgebra`](https://taucetiproject.org/review/#/d/MonoidAlgebra).
 
 Depends on: {uses "group"}[] {uses "ring"}[]
 :::
@@ -678,6 +772,8 @@ A Haar measure always exists and is unique up to multiplication by a positive sc
 
 As a special case, if $`G` is finite of {bpref "group.order"}[order] $`n`, then the normalized Haar measure is the uniform measure that assigns to each element the measure $`1/n`.
 
+Tau Ceti Review: [`MeasureTheory.Measure.IsHaarMeasure`](https://taucetiproject.org/review/#/d/MeasureTheory.Measure.IsHaarMeasure), [`MeasureTheory.Measure.isHaarMeasure_eq_of_isProbabilityMeasure`](https://taucetiproject.org/review/#/d/MeasureTheory.Measure.isHaarMeasure_eq_of_isProbabilityMeasure), [`MeasureTheory.Measure.regular_haarMeasure`](https://taucetiproject.org/review/#/d/MeasureTheory.Measure.regular_haarMeasure), [`MeasureTheory.Measure.isMulLeftInvariant_eq_smul_of_regular`](https://taucetiproject.org/review/#/d/MeasureTheory.Measure.isMulLeftInvariant_eq_smul_of_regular), [`TauCeti.haarProb_singleton`](https://taucetiproject.org/review/#/d/TauCeti.haarProb_singleton).
+
 Depends on: {uses "group"}[] {uses "group.order"}[]
 :::
 
@@ -689,6 +785,8 @@ Given a prime $`p`, the *Heisenberg group* $`\He_p` is the group of $`3 \times 3
 $$`\He_p := \left\{ \begin{pmatrix} 1 & a & b \\ 0 & 1 & c \\ 0 & 0 & 1 \\ \end{pmatrix} \mid a, b, c \in \F_p \right\}`
 
 with the usual matrix multiplication as the group operation. It has order $`p^3`, and is one of only two non-abelian groups of order $`p^3`.  In particular, for an odd prime $`p`, it is the unique non-abelian group of order $`p^3` and exponent $`p`.
+
+Tau Ceti Review: [`TauCeti.HeisenbergGroup`](https://taucetiproject.org/review/#/d/TauCeti.HeisenbergGroup).
 :::
 
 :::definition "group.homomorphism" (lean := "MonoidHom, MonoidHom.mk'")
@@ -699,6 +797,8 @@ If $`G` and $`H` are {bpref "group"}[groups], then a *group homomorphism* from $
 $$`f:G\to H`
 
 such that for all $`a,b\in G`, $`f(a*b)=f(a)*f(b)`.
+
+Tau Ceti Review: [`MonoidHom`](https://taucetiproject.org/review/#/d/MonoidHom), [`MonoidHom.mk'`](https://taucetiproject.org/review/#/d/MonoidHom.mk%27).
 
 Depends on: {uses "group"}[]
 :::
@@ -727,6 +827,8 @@ $$`\mathrm{Inn}(G) \cong G/Z(G)`
 
 where $`Z(G)` is the {bpref "group.center"}[center] of $`G`.
 
+Tau Ceti Review: [`MulAut.conj`](https://taucetiproject.org/review/#/d/MulAut.conj), [`MulAut.conj_apply`](https://taucetiproject.org/review/#/d/MulAut.conj_apply).
+
 Depends on: {uses "group"}[] {uses "group.automorphism"}[] {uses "group.center"}[] {uses "group.subgroup"}[]
 :::
 
@@ -753,6 +855,8 @@ Depends on: {uses "group.commutator_subgroup"}[] {uses "group.derived_series"}[]
 *Group isomorphism.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.isomorphism))
 
 A *group isomorphism* is a {bpref "group.homomorphism"}[group homomorphism] $`f:G\to H` which is bijective.
+
+Tau Ceti Review: [`MulEquiv`](https://taucetiproject.org/review/#/d/MulEquiv), [`MulEquiv.ofBijective`](https://taucetiproject.org/review/#/d/MulEquiv.ofBijective).
 
 Depends on: {uses "group.homomorphism"}[]
 :::
@@ -797,6 +901,8 @@ Depends on: {uses "group"}[]
 *Linear and Projective Linear Groups.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.linear))
 
 Over any field $`K`, linear group usually refers to an algebraic group which is a (Zariski closed) subgroup of the general linear group GL$`(n,K)` of invertible $`n\times n` matrices with coefficients in $`K`. Similarly, projective linear group refers to a closed subgroup of $`\text{PGL}(n,K)=\text{GL}(n,K)/\{\text{scalar matrices}\}`, the group of linear automorphisms of the projective $`n`-space. When $`K=\mathbb{F}_q` is a finite field, these groups are finite, and often simple or almost simple, and so they play an important role in the classification of finite simple groups.
+
+Tau Ceti Review: [`Matrix.ProjGenLinGroup`](https://taucetiproject.org/review/#/d/Matrix.ProjGenLinGroup), [`TauCeti.GeneralLinear.hopfIdealPointsSubgroup`](https://taucetiproject.org/review/#/d/TauCeti.GeneralLinear.hopfIdealPointsSubgroup), [`TauCeti.ProjectiveGeneralLinear.coordinateHopfAlgebra`](https://taucetiproject.org/review/#/d/TauCeti.ProjectiveGeneralLinear.coordinateHopfAlgebra), [`Matrix.GeneralLinearGroup.center_eq_range_scalar`](https://taucetiproject.org/review/#/d/Matrix.GeneralLinearGroup.center_eq_range_scalar).
 :::
 
 :::definition "group.linear_automorphism" (lean := "Matrix.GeneralSemilinearGroup, Matrix.SpecialSemilinearGroup, Matrix.ProjectiveGeneralSemilinearGroup, Matrix.ProjectiveSpecialSemilinearGroup, Matrix.GeneralLinearGroup.entrywiseAut")
@@ -820,6 +926,8 @@ $$`G \unrhd G^1 \unrhd G^2 \unrhd \cdots .`
 
 Then, $`G` is {bpref "group.nilpotent"}[nilpotent] if and only if $`G^k =\langle e\rangle` for some $`k>0`.
 
+Tau Ceti Review: [`Subgroup.lowerCentralSeries`](https://taucetiproject.org/review/#/d/Subgroup.lowerCentralSeries), [`Subgroup.nilpotent_iff_lowerCentralSeries`](https://taucetiproject.org/review/#/d/Subgroup.nilpotent_iff_lowerCentralSeries).
+
 Depends on: {uses "group"}[] {uses "group.nilpotent"}[] {uses "group.normal_series"}[] {uses "group.subgroup"}[]
 :::
 
@@ -831,6 +939,8 @@ A matrix group is a subgroup of $`\GL_n(R)` for some commutative ring $`R`.
 A given abstract group may have more than one presentation as a matrix group over different rings $`R`.
 
 The value $`z_k` in a given matrix represents a primitive element of the finite field $`\F_{p^k}` for some prime $`p`.
+
+Tau Ceti Review: [`Matrix.GeneralLinearGroup`](https://taucetiproject.org/review/#/d/Matrix.GeneralLinearGroup), [`Subgroup`](https://taucetiproject.org/review/#/d/Subgroup).
 :::
 
 :::definition "group.maximal_quotient" (lean := "MonoidHom.IsMaximalQuotient, QuotientGroup.isMaximalQuotient_mk'")
@@ -845,6 +955,8 @@ Depends on: {uses "group"}[] {uses "group.minimal_normal"}[] {uses "group.quotie
 *Maximal subgroup of a group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.maximal_subgroup))
 
 If $`G` is a group, a subgroup $`M` is a *maximal subgroup* if for every subgroup $`H` such that $`M\subseteq H \subseteq G`, either $`H=M` or $`H=G`.
+
+Tau Ceti Review: [`IsCoatom`](https://taucetiproject.org/review/#/d/IsCoatom), [`IsCoatom.le_iff`](https://taucetiproject.org/review/#/d/IsCoatom.le_iff).
 :::
 
 :::definition "group.metabelian"
@@ -958,6 +1070,8 @@ The smallest such $`k` is the *nilpotency class* of $`G`. It is $`0` for $`C_1`,
 
 Nilpotent groups are closed under subgroups and quotients (but not extensions), and are {bpref "group.solvable"}[solvable], {bpref "group.supersolvable"}[supersolvable] and {bpref "group.monomial"}[monomial].
 
+Tau Ceti Review: [`Group.IsNilpotent`](https://taucetiproject.org/review/#/d/Group.IsNilpotent), [`Group.nilpotencyClass`](https://taucetiproject.org/review/#/d/Group.nilpotencyClass).
+
 Depends on: {uses "group"}[] {uses "group.abelian"}[] {uses "group.solvable"}[]
 :::
 
@@ -971,6 +1085,8 @@ $$`1 \to N \to G \to Q \to 1.`
 If $`G` has a subgroup $`\tilde Q\leq G` such that $`\tilde Q\cap N=\langle e\rangle`, and $`\tilde QN=G`, then $`\tilde Q\cong Q` and $`G` is a {bpref "group.semidirect_product"}[semidirect product] of $`N` and $`\tilde Q`.  This is equivalent to the existence of a section of the quotient map $`G \to Q`. In this case we say $`G` is a *split extension* of $`Q` by $`N`.
 
 If no such subgroup $`\tilde Q` exists, then $`G` is a *non-split extension* of $`Q` by $`N`.
+
+Tau Ceti Review: [`GroupExtension`](https://taucetiproject.org/review/#/d/GroupExtension), [`GroupExtension.Splitting`](https://taucetiproject.org/review/#/d/GroupExtension.Splitting), [`GroupExtension.Splitting.semidirectProductMulEquiv`](https://taucetiproject.org/review/#/d/GroupExtension.Splitting.semidirectProductMulEquiv), [`Subgroup.IsComplement'`](https://taucetiproject.org/review/#/d/Subgroup.IsComplement%27), [`SemidirectProduct.mulEquivSubgroup`](https://taucetiproject.org/review/#/d/SemidirectProduct.mulEquivSubgroup).
 
 Depends on: {uses "group"}[] {uses "group.quotient"}[] {uses "group.semidirect_product"}[] {uses "group.subgroup.normal"}[]
 :::
@@ -1002,6 +1118,8 @@ The groups $`\POmega(n,q)` are $`\POmega^{\pm}(n,q)` are the quotients of $`\Ome
 
 (see , pages xi-xii)
 
+Tau Ceti Review: [`TauCeti.QuadraticMap.specialOrthogonalGroup`](https://taucetiproject.org/review/#/d/TauCeti.QuadraticMap.specialOrthogonalGroup).
+
 Depends on: {uses "group.orthogonal"}[] {uses "group.spinor_norm"}[]
 :::
 
@@ -1010,6 +1128,8 @@ Depends on: {uses "group.orthogonal"}[] {uses "group.spinor_norm"}[]
 
 The *order* of a {bpref "group"}[group] is its cardinality as a set.
 
+Tau Ceti Review: [`Nat.card`](https://taucetiproject.org/review/#/d/Nat.card), [`Cardinal.mk`](https://taucetiproject.org/review/#/d/Cardinal.mk).
+
 Depends on: {uses "group"}[]
 :::
 
@@ -1017,6 +1137,8 @@ Depends on: {uses "group"}[]
 *Order of elements in a conjugacy class.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.order_conjugacy_class))
 
 All elements in a particular {bpref "group.conjugacy_class"}[conjugacy class] are of the same {bpref "group.element_order"}[order] in the group.
+
+Tau Ceti Review: [`SemiconjBy.orderOf_eq`](https://taucetiproject.org/review/#/d/SemiconjBy.orderOf_eq), [`ConjClasses`](https://taucetiproject.org/review/#/d/ConjClasses).
 
 Depends on: {uses "group.conjugacy_class"}[] {uses "group.element_order"}[]
 :::
@@ -1045,6 +1167,8 @@ The *projective orthogonal groups* are given by the quotient of an orthogonal gr
 $$`\begin{matrix} \PGO(n,q) = \GO(n,q)/\{ \pm I_n \}, & \PGO^{\pm}(n,q) = \begin{cases}\GO^{\pm}(n,q) & q \text{ even}, \\ \GO^{\pm}(n,q)/\{ \pm I_n \} & q \text{ odd}.\end{cases} \\ \\ \PSO(n,q) = \SO(n,q), & \PSO^{\pm}(n,q) = \begin{cases}\SO^{\pm}(n,q) & q \text{ even}, \\ \SO^{\pm}(n,q)/\{ \pm I_n \} & q \text{ odd}.\end{cases} \end{matrix}`
 
 (see , pages xi-xii)
+
+Tau Ceti Review: [`TauCeti.QuadraticMap.orthogonalGroup`](https://taucetiproject.org/review/#/d/TauCeti.QuadraticMap.orthogonalGroup), [`TauCeti.QuadraticMap.specialOrthogonalGroup`](https://taucetiproject.org/review/#/d/TauCeti.QuadraticMap.specialOrthogonalGroup).
 :::
 
 :::definition "group.other_dihedral" (lean := "OtherDihedralGroup, OtherDihedralGroup.presentedGroupMulEquiv, OtherDihedralGroup.index_range_inl, OtherDihedralGroup.not_isMulCommutative, nonempty_mulEquiv_of_isCyclic_of_index_eq_two, DihedralGroup.isEmpty_mulEquiv_otherDihedralGroup, QuaternionGroup.isEmpty_mulEquiv_otherDihedralGroup, SemiDihedralGroup.isEmpty_mulEquiv_otherDihedralGroup")
@@ -1068,6 +1192,8 @@ $$`\mathrm{Out}(G) = \Aut(G)/\mathrm{Inn}(G).`
 
 Note that the term *outer automorphism* is often used to mean any automorphism of a group $`G` which is not an inner automorphism. In this case, the nontrivial elements of the outer automorphism group are cosets of outer automorphisms.
 
+Tau Ceti Review: [`MulAut.conj`](https://taucetiproject.org/review/#/d/MulAut.conj).
+
 Depends on: {uses "group"}[] {uses "group.automorphism"}[] {uses "group.inner_automorphism"}[] {uses "group.subgroup.normal"}[]
 :::
 
@@ -1075,6 +1201,8 @@ Depends on: {uses "group"}[] {uses "group.automorphism"}[] {uses "group.inner_au
 *Over-subgroup.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.over_subgroup))
 
 If $`H \subseteq G` is a {bpref "group.subgroup"}[subgroup], an *over-subgroup* is a subgroup $`K \subseteq G` with $`H \subseteq K`.  A *minimal over-subgroup* is an over-subgroup $`K \ne H` that is minimal with respect to inclusion.
+
+Tau Ceti Review: [`Subgroup`](https://taucetiproject.org/review/#/d/Subgroup), [`CovBy`](https://taucetiproject.org/review/#/d/CovBy).
 
 Depends on: {uses "group.subgroup"}[]
 :::
@@ -1120,6 +1248,8 @@ A {bpref "group"}[group] $`G` is *perfect* if it is equal to its own {bpref "gro
 
 A perfect group may have cyclic composition factors, for example, $`\mathrm{SL}(2,5)=C_2.A_5` is perfect.
 
+Tau Ceti Review: [`Group.IsPerfect`](https://taucetiproject.org/review/#/d/Group.IsPerfect).
+
 Depends on: {uses "group"}[] {uses "group.commutator_subgroup"}[]
 :::
 
@@ -1138,6 +1268,8 @@ If $`H` is a finite index subgroup of $`G`, then $`G` acts on the right cosets o
 
 For a commutative ring $`R`, the action of $`G` of $`H\backslash G` can be extended $`R`-linearly to an action of $`G` on  $`R[H\backslash G]`, the free $`R`-module with basis $`G\backslash H`, which is then a module over the {bpref "group.group_ring"}[group ring] $`R[G`\].  The $`R[G]`-module $`R[H\backslash G]` is a *permutation module* over $`R`.
 
+Tau Ceti Review: [`Representation.ofMulAction`](https://taucetiproject.org/review/#/d/Representation.ofMulAction), [`MulAction.toPermHom`](https://taucetiproject.org/review/#/d/MulAction.toPermHom).
+
 Depends on: {uses "group.group_ring"}[]
 :::
 
@@ -1145,6 +1277,8 @@ Depends on: {uses "group.group_ring"}[]
 *Permutation representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.permutation_representation))
 
 A *permutation representation* of a finite group $`G` is a homomorphism $`\rho : G \to S_n` for some $`n`.  The integer $`n` is the *degree* of $`\rho`, and a representation is *faithful* if $`\rho` is injective.  The representation is *transitive* if the set $`\{1, \dots, n\}` cannot be broken up into smaller orbits under the action of $`G`, i.e. for all $`1 \le i \le j \le n` there is some $`g \in G` with $`\rho(g)(i) = j`.
+
+Tau Ceti Review: [`Equiv.Perm`](https://taucetiproject.org/review/#/d/Equiv.Perm), [`MulAction.IsPretransitive`](https://taucetiproject.org/review/#/d/MulAction.IsPretransitive), [`Equiv.permutationRepresentation`](https://taucetiproject.org/review/#/d/Equiv.permutationRepresentation), [`Equiv.isPretransitive_range_permutationRepresentation_iff`](https://taucetiproject.org/review/#/d/Equiv.isPretransitive_range_permutationRepresentation_iff).
 :::
 
 :::definition "group.pgroup"
@@ -1180,6 +1314,8 @@ Any finite solvable group has a polycyclic presentation.  When the size of $`G` 
 
 - among such, minimize the sum of the $`b_{i,j,k}` for noncommuting generators $`g_i` and $`g_j`.
 
+Tau Ceti Review: [`PresentedGroup`](https://taucetiproject.org/review/#/d/PresentedGroup).
+
 Depends on: {uses "group.normal_series"}[]
 :::
 
@@ -1194,11 +1330,15 @@ Every finite abelian group $`G` is isomorphic to a direct product of cyclic grou
 
 A {bpref "group.subgroup"}[subgroup] of a {bpref "group"}[group] $`G` is *proper* if it is not equal to $`G`.
 
+Tau Ceti Review: [`Subgroup`](https://taucetiproject.org/review/#/d/Subgroup).
+
 Depends on: {uses "group"}[] {uses "group.subgroup"}[]
 :::
 
 :::definition "group.psl2r" (lean := "Matrix.ProjectiveSpecialLinearGroup, Matrix.SpecialLinearGroup.mem_center_iff")
 The *projective special linear group* $`\text{PSL}_2(\mathbb{R})` is defined as the quotient $`\text{PSL}_2(\mathbb{R})=\text{SL}_2(\mathbb{R})/\{\pm I\}`.
+
+Tau Ceti Review: [`Matrix.ProjectiveSpecialLinearGroup`](https://taucetiproject.org/review/#/d/Matrix.ProjectiveSpecialLinearGroup), [`Matrix.SpecialLinearGroup.mem_center_iff`](https://taucetiproject.org/review/#/d/Matrix.SpecialLinearGroup.mem_center_iff).
 :::
 
 :::definition "group.quasisimple" (lean := "IsQuasisimple, isQuasisimple_iff_isSimpleGroup_quotient_center, IsSimpleGroup.isQuasisimple, Group.IsPerfect, IsSimpleGroup, Equiv.Perm.isAlmostSimple_fin_five, Equiv.Perm.not_isQuasisimple_fin_five, Matrix.SpecialLinearGroup.isQuasisimple_two_zmod_five, Matrix.SpecialLinearGroup.not_isAlmostSimple_two_zmod_five")
@@ -1207,6 +1347,8 @@ The *projective special linear group* $`\text{PSL}_2(\mathbb{R})` is defined as 
 A quasisimple group is a {bpref "group.perfect"}[perfect] group that is a central extension of a {bpref "group.simple"}[simple] group.
 
 Every {bpref "group.abelian"}[nonabelian] simple group is quasisimple, but it is not implied by $`G` being {bpref "group.almost_simple"}[almost simple], as shown by [these examples](https://beta.lmfdb.org/Groups/Abstract/?almost_simple=no&quasisimple=yes).
+
+Tau Ceti Review: [`Group.IsPerfect`](https://taucetiproject.org/review/#/d/Group.IsPerfect), [`IsSimpleGroup`](https://taucetiproject.org/review/#/d/IsSimpleGroup).
 
 Depends on: {uses "group.abelian"}[] {uses "group.almost_simple"}[] {uses "group.perfect"}[] {uses "group.simple"}[]
 :::
@@ -1220,6 +1362,8 @@ $$`(aN)*(bN) = (ab)N`
 
 is well-defined.  The result is a group, called a *quotient group* of $`G` by $`N`.
 
+Tau Ceti Review: [`QuotientGroup.Quotient.group`](https://taucetiproject.org/review/#/d/QuotientGroup.Quotient.group), [`QuotientGroup.mk'`](https://taucetiproject.org/review/#/d/QuotientGroup.mk%27).
+
 Depends on: {uses "group"}[] {uses "group.coset"}[] {uses "group.subgroup.normal"}[]
 :::
 
@@ -1227,6 +1371,8 @@ Depends on: {uses "group"}[] {uses "group.coset"}[] {uses "group.subgroup.normal
 *Size of a quotient.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.quotient_size))
 
 The size of the quotient of a finite group by a subgroup is the number of corresponding {bpref "group.coset"}[cosets].  When the subgroup is normal, this number is the order of the {bpref "group.quotient"}[quotient group].
+
+Tau Ceti Review: [`Subgroup.index`](https://taucetiproject.org/review/#/d/Subgroup.index), [`Subgroup.index_eq_card`](https://taucetiproject.org/review/#/d/Subgroup.index_eq_card), [`QuotientGroup.Quotient.group`](https://taucetiproject.org/review/#/d/QuotientGroup.Quotient.group).
 
 Depends on: {uses "group.coset"}[] {uses "group.quotient"}[]
 :::
@@ -1243,6 +1389,8 @@ Depends on: {uses "group"}[] {uses "group.solvable"}[] {uses "group.subgroup"}[]
 *Rank.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.rank))
 
 The *rank* of a finite {bpref "group"}[group] $`G` is the minimal number of elements required to {bpref "group.generators"}[generate] it, which is often smaller than the number of generators in a {bpref "group.presentation"}[polycyclic presentation].  For $`p`-groups, the rank can be computed by taking the $`\mathbb{F}_p`-dimension of the quotient by the {bpref "group.frattini_subgroup"}[Frattini subgroup].
+
+Tau Ceti Review: [`Group.rank`](https://taucetiproject.org/review/#/d/Group.rank), [`Group.rank_spec`](https://taucetiproject.org/review/#/d/Group.rank_spec), [`Group.rank_le`](https://taucetiproject.org/review/#/d/Group.rank_le), [`frattini`](https://taucetiproject.org/review/#/d/frattini).
 
 Depends on: {uses "group"}[] {uses "group.frattini_subgroup"}[] {uses "group.generators"}[] {uses "group.presentation"}[]
 :::
@@ -1281,6 +1429,8 @@ Depends on: {uses "group.representation.character"}[]
 
 If $`G` is a {bpref "group"}[group] and $`\rho:G\to \GL_n(\C)` is a {bpref "group.representation.irrep"}[representation] of $`G`, then the *character* of $`\rho` is the function $`\operatorname{Tr}\circ \rho` where $`\operatorname{Tr}` is the function which takes the trace of a square matrix.  Since $`\operatorname{Tr}(AB) = \operatorname{Tr}(BA)`, the character of $`\rho` is well defined on {bpref "group.conjugacy_class"}[conjugacy classes]; the values $`\rho(g)` for $`g` ranging over the conjugacy classees of $`G` and $`\rho` ranging over all {bpref "group.representation.irrep"}[irreducible] characters of $`G` constitute the {bpref "group.complex_character_table"}[character table] of $`G`.
 
+Tau Ceti Review: [`FDRep.character`](https://taucetiproject.org/review/#/d/FDRep.character), [`Representation.character`](https://taucetiproject.org/review/#/d/Representation.character).
+
 Depends on: {uses "group"}[] {uses "group.conjugacy_class"}[] {uses "group.representation.irrep"}[]
 :::
 
@@ -1288,6 +1438,8 @@ Depends on: {uses "group"}[] {uses "group.conjugacy_class"}[] {uses "group.repre
 *Degree of a character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.representation.complex_char_deg))
 
 The *degree* of a {bpref "group.representation.character"}[character] $`\chi` of a group $`G` is the value given by $`\chi(1)` where $`1` is the trivial element of $`G`.
+
+Tau Ceti Review: [`FDRep.character`](https://taucetiproject.org/review/#/d/FDRep.character), [`FDRep.char_one`](https://taucetiproject.org/review/#/d/FDRep.char_one), [`TauCeti.characterDegree`](https://taucetiproject.org/review/#/d/TauCeti.characterDegree).
 
 Depends on: {uses "group.representation.character"}[]
 :::
@@ -1297,6 +1449,8 @@ Depends on: {uses "group.representation.character"}[]
 
 Given a complex {bpref "group.representation.character"}[character] $`\chi` of a group $`G`, define $`\Q(\chi)` to be the smallest field containing $`\Q` and the character values of $`\chi`.  This field is abelian and hence has a *conductor*, a positive integer giving the minimum $`n` so that $`\Q(\chi) \subseteq  \Q(\zeta_n)`.
 
+Tau Ceti Review: [`FDRep.characterField`](https://taucetiproject.org/review/#/d/FDRep.characterField).
+
 Depends on: {uses "group.representation.character"}[]
 :::
 
@@ -1304,6 +1458,8 @@ Depends on: {uses "group.representation.character"}[]
 *Faithful representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.representation.faithful))
 
 A {bpref "group.representation.irrep"}[representation] $`\rho` is *faithful* if it is injective as a homomorphism to $`\GL(V)`.  In terms of the {bpref "group.representation.character"}[character] $`\chi` of $`\rho`, for representations of finite groups in characteristic $`0`, this will hold precisely when $`\chi(g) = \chi(1)` implies $`g = 1`.
+
+Tau Ceti Review: [`MonoidHom.ker`](https://taucetiproject.org/review/#/d/MonoidHom.ker), [`MonoidHom.ker_eq_bot_iff`](https://taucetiproject.org/review/#/d/MonoidHom.ker_eq_bot_iff), [`Representation.character`](https://taucetiproject.org/review/#/d/Representation.character), [`FDRep.ker_eq_bot_iff`](https://taucetiproject.org/review/#/d/FDRep.ker_eq_bot_iff).
 
 Depends on: {uses "group.representation.character"}[] {uses "group.representation.irrep"}[]
 :::
@@ -1313,6 +1469,8 @@ Depends on: {uses "group.representation.character"}[] {uses "group.representatio
 
 The *image* of a {bpref "group.representation.irrep"}[representation] of a finite group $`G` is the image of the defining homomorphism $`\rho : G \to \GL(V)` for some vector  space $`V`.
 
+Tau Ceti Review: [`MonoidHom.range`](https://taucetiproject.org/review/#/d/MonoidHom.range), [`Representation.asGroupHom`](https://taucetiproject.org/review/#/d/Representation.asGroupHom).
+
 Depends on: {uses "group.representation.irrep"}[]
 :::
 
@@ -1320,6 +1478,8 @@ Depends on: {uses "group.representation.irrep"}[]
 *Complex irreducible representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.representation.irrep))
 
 A *representation* of a finite {bpref "group"}[group] $`G` is a homomorphism $`\rho : G \to \GL(V)` for some vector space $`V`.  A representation is *reducible* if there is some nontrivial subspace $`W \subset V` with $`\rho(g)(W) = W` for all $`g \in G`; otherwise it is *irreducible*.  We say two representations $`\rho : G \to \GL(V)` and $`\rho' : G \to \GL(V')` are equivalent if there is an isomorphism $`\sigma : V \to V'` so that $`\rho'(g) = \sigma^{-1} \rho(g) \sigma` for all $`g \in G`.  Up to equivalence, the complex irreducible representations of a finite group $`G` (also known as *irreps*) are determined by their {bpref "group.representation.character"}[characters], which are recorded in the {bpref "group.complex_character_table"}[character table] of $`G`.
+
+Tau Ceti Review: [`Representation`](https://taucetiproject.org/review/#/d/Representation), [`Representation.IsIrreducible`](https://taucetiproject.org/review/#/d/Representation.IsIrreducible), [`FDRep`](https://taucetiproject.org/review/#/d/FDRep), [`TauCeti.SimpleFDRepClasses`](https://taucetiproject.org/review/#/d/TauCeti.SimpleFDRepClasses).
 
 Depends on: {uses "group"}[]
 :::
@@ -1329,6 +1489,8 @@ Depends on: {uses "group"}[]
 
 The *kernel* of the {bpref "group.representation.character"}[character] $`\chi` of a group $`G` is the subgroup of $`G` given by the set:
 $$`\ker(\chi)=\{g \in G : \chi(g)=\chi(1)\}.`
+
+Tau Ceti Review: [`MonoidHom.ker`](https://taucetiproject.org/review/#/d/MonoidHom.ker), [`FDRep.coe_ker`](https://taucetiproject.org/review/#/d/FDRep.coe_ker), [`FDRep.mem_ker_iff_char_eq`](https://taucetiproject.org/review/#/d/FDRep.mem_ker_iff_char_eq).
 
 Depends on: {uses "group.representation.character"}[]
 :::
@@ -1361,6 +1523,8 @@ Given a group $`G`, a field $`K \subseteq \mathbb{C}` with $`F` a subfield of $`
 $$`F(\chi)=F\left(\chi(g) :  g \in G\right).`
 
 The *Schur index* of $`\chi` is the minimum of all indices $`[E:F(\chi)]` where E varies over all field $`F(\chi) \subseteq E \subseteq K` so that there is an $`EG`-module $`W` with $`V\cong K \otimes_E W`.
+
+Tau Ceti Review: [`FDRep.characterField`](https://taucetiproject.org/review/#/d/FDRep.characterField).
 :::
 
 :::definition "group.representation.type" (lean := "Representation.IsRealizableOverReal, Representation.IsComplexType, Representation.IsQuaternionicType, Representation.frobeniusSchurIndicator_eq_one_iff_isRealizableOverReal, Representation.frobeniusSchurIndicator_eq_zero_iff_isComplexType, Representation.frobeniusSchurIndicator_eq_neg_one_iff_isQuaternionicType")
@@ -1373,6 +1537,8 @@ Let $`\rho:G\to\GL_n(\C)` be an irreducible complex {bpref "group"}[group] repre
 1. *Quaternionic (or Symplectic)* if the character values are all real but the representation is not conjugate to a real representation.
 
 The type of the representation can be computed via its {bpref "artin.frobenius_schur_indicator"}[Frobenius-Schur indicator].
+
+Tau Ceti Review: [`Representation.IsRealizableOverReal`](https://taucetiproject.org/review/#/d/Representation.IsRealizableOverReal), [`Representation.frobeniusSchurIndicator_eq_one_iff_isRealizableOverReal`](https://taucetiproject.org/review/#/d/Representation.frobeniusSchurIndicator_eq_one_iff_isRealizableOverReal).
 
 Depends on: {uses "group"}[] {uses "group.representation.character"}[]
 :::
@@ -1422,6 +1588,8 @@ $$`1 \to N \to N \rtimes H \to H \to 1,`
 
 and is distinguished by the existence of a homomorphism $`H \to N \rtimes H` with image $`H'` that splits the projection $`N \rtimes H \to H`.  We refer to such an {bpref "group.nonsplit_product"}[extension] as *split*, in contrast to other  *non-split* extensions.
 
+Tau Ceti Review: [`SemidirectProduct`](https://taucetiproject.org/review/#/d/SemidirectProduct), [`SemidirectProduct.mulEquivSubgroup`](https://taucetiproject.org/review/#/d/SemidirectProduct.mulEquivSubgroup), [`GroupExtension.Splitting`](https://taucetiproject.org/review/#/d/GroupExtension.Splitting), [`Subgroup.IsComplement'`](https://taucetiproject.org/review/#/d/Subgroup.IsComplement%27).
+
 Depends on: {uses "group"}[] {uses "group.automorphism"}[] {uses "group.direct_product"}[] {uses "group.homomorphism"}[] {uses "group.subgroup"}[] {uses "group.subgroup.normal"}[]
 :::
 
@@ -1431,6 +1599,8 @@ Depends on: {uses "group"}[] {uses "group.automorphism"}[] {uses "group.direct_p
 A non-trivial {bpref "group"}[group] $`G` is *simple* if its only {bpref "group.subgroup.normal"}[normal] subgroups are the trivial group and $`G` itself.
 
 Finite simple groups are building blocks for all finite groups, via extensions, and they are divided into {bpref "group.cyclic"}[cyclic] groups of prime {bpref "group.order"}[order] and the {bpref "group.abelian"}[nonabelian] simple groups. For small orders, nonabelian simple groups they are all alternating or linear.
+
+Tau Ceti Review: [`IsSimpleGroup`](https://taucetiproject.org/review/#/d/IsSimpleGroup).
 
 Depends on: {uses "group"}[] {uses "group.abelian"}[] {uses "group.cyclic"}[] {uses "group.order"}[] {uses "group.subgroup.normal"}[]
 :::
@@ -1444,6 +1614,8 @@ By the Orbit-Stabilizer Theorem, the size of a conjugacy class divides the {bpre
 
 A conjugacy class is of size $`1` if and only if the element is in the {bpref "group.center"}[center] of the group.
 
+Tau Ceti Review: [`ConjClasses.carrier`](https://taucetiproject.org/review/#/d/ConjClasses.carrier).
+
 Depends on: {uses "group.center"}[] {uses "group.conjugacy_class"}[] {uses "group.order"}[]
 :::
 
@@ -1454,6 +1626,8 @@ A standard set of generators for the modular group are the matrices:
 
 $$`S:=\begin{pmatrix}0&-1\\1&0\end{pmatrix}\quad\text{and}\quad T:=\begin{pmatrix}1&1\\0&1
 \end{pmatrix}.`
+
+Tau Ceti Review: [`Matrix.SpecialLinearGroup`](https://taucetiproject.org/review/#/d/Matrix.SpecialLinearGroup), [`ModularGroup.S`](https://taucetiproject.org/review/#/d/ModularGroup.S), [`ModularGroup.T`](https://taucetiproject.org/review/#/d/ModularGroup.T), [`SpecialLinearGroup.SL2Z_generators`](https://taucetiproject.org/review/#/d/SpecialLinearGroup.SL2Z_generators).
 :::
 
 :::definition "group.sl2z.fundamental_domain" (lean := "ModularGroup.isFundamentalDomain_fd, ModularGroup.fd, ModularGroup.IsFundamentalDomain, UpperHalfPlane.Completed")
@@ -1465,6 +1639,8 @@ $$`\mathfrak{F}=\{z\in\mathcal{H} : |z|\geq1 \text{ and
 } |\Re(z)|\leq1/2\}\cup\{\infty\}.`
 
 Then $`\mathfrak{F}` is a {bpref "group.fuchsian.fundamental_domain"}[fundamental domain] for the action of $`\Gamma` on $`\mathcal{H}`.
+
+Tau Ceti Review: [`ModularGroup.fd`](https://taucetiproject.org/review/#/d/ModularGroup.fd).
 
 Depends on: {uses "group.fuchsian.fundamental_domain"}[]
 :::
@@ -1483,6 +1659,8 @@ Depends on: {uses "ag.riemann_surface"}[] {uses "group.fuchsian.cusps"}[] {uses 
 The group $`\Gamma_0(N)` is the subgroup of $`\textrm{SL}(2,\mathbb{Z})` that consists of matrices whose lower-left entry is 0 modulo $`N`.  That is,
 
 $$`\Gamma_0(N) = \left\lbrace \left .\begin{pmatrix} a & b \\ c & d \end{pmatrix}\in \textrm{SL}(2,\mathbb{Z})\ \right|\  c\equiv 0 \bmod N \right\rbrace.`
+
+Tau Ceti Review: [`CongruenceSubgroup.Gamma0`](https://taucetiproject.org/review/#/d/CongruenceSubgroup.Gamma0), [`CongruenceSubgroup.Gamma0_mem`](https://taucetiproject.org/review/#/d/CongruenceSubgroup.Gamma0_mem).
 :::
 
 :::definition "group.sl2z.subgroup.gamma1n" (lean := "CongruenceSubgroup.Gamma1, CongruenceSubgroup.Gamma1_mem")
@@ -1490,12 +1668,16 @@ The group $`\Gamma_1(N)` is the subgroup of $`\textrm{SL}(2,\mathbb{Z})` defined
 by the congruences:
 
 $$`\Gamma_1(N) = \left\lbrace \left .\begin{pmatrix} a & b \\ c & d \end{pmatrix}\in \textrm{SL}(2,\mathbb{Z})\ \right| \ c\equiv 0,\ a \equiv d\equiv 1 \bmod N \right\rbrace.`
+
+Tau Ceti Review: [`CongruenceSubgroup.Gamma1`](https://taucetiproject.org/review/#/d/CongruenceSubgroup.Gamma1), [`CongruenceSubgroup.Gamma1_mem`](https://taucetiproject.org/review/#/d/CongruenceSubgroup.Gamma1_mem).
 :::
 
 :::definition "group.sl2z.subgroup.gamman" (lean := "CongruenceSubgroup.Gamma, CongruenceSubgroup.Gamma_mem")
 The group $`\Gamma(N)` is the subgroup of {bpref "group.sl2z"}[$`\SL(2,\mathbb{Z})`]  that consists of matrices congruent to the identity matrix modulo $`N`.  That is,
 
 $$`\Gamma(N)=\left\{ \begin{pmatrix} a&b\\ c&d \end{pmatrix}\in\textrm{SL}(2,\mathbb{Z})\ \Bigg|\  \begin{pmatrix} a & b \\ c & d \end{pmatrix}\equiv \begin{pmatrix} 1&0\\ 0&1 \end{pmatrix} \bmod N \right\} .`
+
+Tau Ceti Review: [`CongruenceSubgroup.Gamma`](https://taucetiproject.org/review/#/d/CongruenceSubgroup.Gamma), [`CongruenceSubgroup.Gamma_mem`](https://taucetiproject.org/review/#/d/CongruenceSubgroup.Gamma_mem).
 
 Depends on: {uses "group.sl2z"}[]
 :::
@@ -1531,6 +1713,8 @@ $$`\langle e\rangle =H_0\leq H_1 \leq H_2 \leq \cdots \leq H_n=G`
 
 such that for all $`i< n`, $`H_i` is a normal subgroup of $`H_{i+1}` (i.e., it is a {bpref "group.normal_series"}[subnormal series]) and each quotient $`H_{i+1}/H_i` is {bpref "group.abelian"}[abelian].
 
+Tau Ceti Review: [`Group.IsSolvable`](https://taucetiproject.org/review/#/d/Group.IsSolvable), [`IsMulCommutative`](https://taucetiproject.org/review/#/d/IsMulCommutative).
+
 Depends on: {uses "group"}[] {uses "group.abelian"}[] {uses "group.normal_series"}[]
 :::
 
@@ -1555,6 +1739,8 @@ $`\Sp(2g,\R)` is a subgroup of $`\SL(2g,\R)`.
 
 The *integral symplectic group* $`\Gamma_g=\Sp(2g,\Z)`, also called the Siegel modular group,
 is defined as  $`\Gamma_g=\Sp(2g,\R)\cap{\rm M}(2g,\Z)`. Clearly $`\Gamma_1=\SL(2,\Z)`.
+
+Tau Ceti Review: [`Matrix.symplecticGroup`](https://taucetiproject.org/review/#/d/Matrix.symplecticGroup), [`SymplecticGroup.det_eq_one`](https://taucetiproject.org/review/#/d/SymplecticGroup.det_eq_one).
 :::
 
 :::definition "group.sp2gr.gamma0" (lean := "SymplecticGroup.Gamma0, SymplecticGroup.mem_Gamma0_iff, SymplecticGroup.toSL, SymplecticGroup.Gamma0_fin_one, SymplecticGroup.map_toSL_Gamma0")
@@ -1599,6 +1785,8 @@ $$`\Gamma_1(N)=
 For $`g=1`, it is the subgroup
 {bpref "group.sl2z.subgroup.gamma1n"}[$`\Gamma_1(N)`] of
 $`\SL(2,\Z)`.
+
+Tau Ceti Review: [`CongruenceSubgroup.Gamma1`](https://taucetiproject.org/review/#/d/CongruenceSubgroup.Gamma1).
 
 Depends on: {uses "group.sl2z.subgroup.gamma1n"}[] {uses "group.sp2gr"}[]
 :::
@@ -1660,6 +1848,8 @@ The *special linear group* $`\SL(n,q)` is the group of $`n \times n` matrices wi
 
 The *projective special linear group* $`\PSL(n, q)` is the {bpref "group.quotient"}[quotient] of $`\SL(n, q)` with the group of $`n \times n` scalar matrices over $`\F_q` with determinant 1.  If either $`n > 2` or $`q > 3`, then $`\PSL(n, q)` is a {bpref "group.simple"}[simple] group.
 
+Tau Ceti Review: [`Matrix.SpecialLinearGroup`](https://taucetiproject.org/review/#/d/Matrix.SpecialLinearGroup), [`Matrix.card_GL_field`](https://taucetiproject.org/review/#/d/Matrix.card_GL_field), [`Matrix.ProjectiveSpecialLinearGroup`](https://taucetiproject.org/review/#/d/Matrix.ProjectiveSpecialLinearGroup), [`Matrix.SpecialLinearGroup.mem_center_iff`](https://taucetiproject.org/review/#/d/Matrix.SpecialLinearGroup.mem_center_iff), [`GaloisField`](https://taucetiproject.org/review/#/d/GaloisField).
+
 Depends on: {uses "group.order"}[] {uses "group.quotient"}[] {uses "group.simple"}[] {uses "ring.field"}[]
 :::
 
@@ -1673,6 +1863,8 @@ $$`x \mapsto x - \frac{f(x,v)}{Q(v)} v.`
 We can write any $`g \in \SO(n,q)` as a product of reflections: $`g = r_1 \cdot \ldots \cdot r_n`.
 
 The *spinor norm* is the map $`\SO(n,q) \to (\F_q^\times) / (\F_q^\times)^2` that sends $`g` to the image of $`Q(r_1) \cdot \ldots \cdot Q(r_n)` in the quotient.
+
+Tau Ceti Review: [`CliffordAlgebra.spinorNorm`](https://taucetiproject.org/review/#/d/CliffordAlgebra.spinorNorm), [`TauCeti.QuadraticMap.specialOrthogonalGroup`](https://taucetiproject.org/review/#/d/TauCeti.QuadraticMap.specialOrthogonalGroup), [`TauCeti.QuadraticMap.orthogonalGroup`](https://taucetiproject.org/review/#/d/TauCeti.QuadraticMap.orthogonalGroup), [`TauCeti.QuadraticMap.reflection_apply_eq_sub_div`](https://taucetiproject.org/review/#/d/TauCeti.QuadraticMap.reflection_apply_eq_sub_div), [`TauCeti.QuadraticMap.reflection_mem_orthogonalGroup`](https://taucetiproject.org/review/#/d/TauCeti.QuadraticMap.reflection_mem_orthogonalGroup).
 
 Depends on: {uses "alg.symmetric_bilinear_form"}[] {uses "group.orthogonal"}[]
 :::
@@ -1750,6 +1942,8 @@ Equivalently, the subset $`H` must satisfy the following conditions:
 2. the {bpref "alg.binary_operation.identity"}[identity] of $`G` is an element of $`H`
 3. for every $`a\in H`, the {bpref "alg.binary_operation.inverse"}[inverse] of $`a` in $`G` is also in $`H`.
 
+Tau Ceti Review: [`Subgroup`](https://taucetiproject.org/review/#/d/Subgroup).
+
 Depends on: {uses "alg.binary_operation"}[] {uses "alg.binary_operation.identity"}[] {uses "alg.binary_operation.inverse"}[] {uses "group"}[]
 :::
 
@@ -1759,6 +1953,8 @@ Depends on: {uses "alg.binary_operation"}[] {uses "alg.binary_operation.identity
 If $`H` is a {bpref "group.subgroup"}[subgroup] of a {bpref "group"}[group] $`G`, then the *centralizer* of $`H` is the subgroup
 
 $$`C_G(H) = \{ g\in G\mid gh=hg \text{ for all } h\in H\}.`
+
+Tau Ceti Review: [`Subgroup.centralizer`](https://taucetiproject.org/review/#/d/Subgroup.centralizer).
 
 Depends on: {uses "group"}[] {uses "group.subgroup"}[]
 :::
@@ -1776,6 +1972,8 @@ $$`1 \to H \to G \to G/H \to 1`
 
 must {bpref "group.nonsplit_product"}[split], in which case the complements are precisely the images of the possible splittings $`G/H \to G`.  All complements are isomorphic to $`G/H`, and if $`K` is any complement then $`G` can be described as the internal {bpref "group.semidirect_product"}[semidirect product] $`H \rtimes K`.
 
+Tau Ceti Review: [`Subgroup.IsComplement'`](https://taucetiproject.org/review/#/d/Subgroup.IsComplement%27), [`Subgroup.IsComplement'.QuotientMulEquiv`](https://taucetiproject.org/review/#/d/Subgroup.IsComplement%27.QuotientMulEquiv), [`SemidirectProduct.mulEquivSubgroup`](https://taucetiproject.org/review/#/d/SemidirectProduct.mulEquivSubgroup).
+
 Depends on: {uses "group.nonsplit_product"}[] {uses "group.semidirect_product"}[] {uses "group.subgroup"}[] {uses "group.subgroup.normal"}[]
 :::
 
@@ -1783,6 +1981,8 @@ Depends on: {uses "group.nonsplit_product"}[] {uses "group.semidirect_product"}[
 *Subgroup diagram.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.subgroup.diagram))
 
 If $`G` is a {bpref "group"}[group], its *subgroup diagram* is the {bpref "combin.hasse_diagram"}[Hasse diagram] for the set of subgroups of $`G` under inclusion.  Generally, subgroups of the same {bpref "group.order"}[order] are drawn at the same height in the diagram.
+
+Tau Ceti Review: [`CovBy`](https://taucetiproject.org/review/#/d/CovBy).
 
 Depends on: {uses "combin.hasse_diagram"}[] {uses "group"}[] {uses "group.order"}[]
 :::
@@ -1792,6 +1992,8 @@ Depends on: {uses "combin.hasse_diagram"}[] {uses "group"}[] {uses "group.order"
 
 If $`H` is a {bpref "group.subgroup"}[subgroup] of a finite {bpref "group"}[group] $`G`, then $`H` is a *Hall subgroup* if the {bpref "group.order"}[order] of $`H` is relatively prime to its {bpref "group.subgroup.index"}[index].
 
+Tau Ceti Review: [`Subgroup.index`](https://taucetiproject.org/review/#/d/Subgroup.index).
+
 Depends on: {uses "group"}[] {uses "group.order"}[] {uses "group.subgroup"}[] {uses "group.subgroup.index"}[]
 :::
 
@@ -1799,6 +2001,8 @@ Depends on: {uses "group"}[] {uses "group.order"}[] {uses "group.subgroup"}[] {u
 *Index of a subgroup.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.subgroup.index))
 
 The *index* of a subgroup $`G'` of a group $`G`, denoted $`[G:G']`, is the order of the set of {bpref "group.coset"}[left cosets] of $`G'` in $`G`.
+
+Tau Ceti Review: [`Subgroup.index`](https://taucetiproject.org/review/#/d/Subgroup.index).
 
 Depends on: {uses "group.coset"}[]
 :::
@@ -1815,6 +2019,8 @@ If $`H` is a {bpref "group.subgroup"}[subgroup] of a {bpref "group"}[group] $`G`
 
 If $`H` is a normal subgroup, we write $`H \lhd G`, and the set of left cosets $`G/H` form a group under the operation given in (4) above.
 
+Tau Ceti Review: [`Subgroup.Normal`](https://taucetiproject.org/review/#/d/Subgroup.Normal), [`Subgroup.normal_iff_map_conj_eq`](https://taucetiproject.org/review/#/d/Subgroup.normal_iff_map_conj_eq), [`QuotientGroup.Quotient.group`](https://taucetiproject.org/review/#/d/QuotientGroup.Quotient.group).
+
 Depends on: {uses "alg.binary_operation"}[] {uses "group"}[] {uses "group.coset"}[] {uses "group.subgroup"}[]
 :::
 
@@ -1824,6 +2030,8 @@ Depends on: {uses "alg.binary_operation"}[] {uses "group"}[] {uses "group.coset"
 If $`H` is a {bpref "group.subgroup"}[subgroup] of a group $`G`, the *normal closure* of $`H` is the smallest {bpref "group.subgroup.normal"}[normal subgroup] of $`G` containing $`H`.  Alternatively, it is the subgroup generated by the set
 
 $$`\bigcup_{g\in G} gHg^{-1}.`
+
+Tau Ceti Review: [`Subgroup.normalClosure`](https://taucetiproject.org/review/#/d/Subgroup.normalClosure).
 
 Depends on: {uses "group.subgroup"}[] {uses "group.subgroup.normal"}[]
 :::
@@ -1837,6 +2045,8 @@ $$`N_G(H) = \{ g\in G\mid gHg^{-1} = H\}.`
 
 Equivalently, $`N_G(H)` is the largest subgroup of $`G` containing $`H` in which $`H` is {bpref "group.subgroup.normal"}[normal].
 
+Tau Ceti Review: [`Subgroup.normalizer`](https://taucetiproject.org/review/#/d/Subgroup.normalizer).
+
 Depends on: {uses "group"}[] {uses "group.subgroup"}[] {uses "group.subgroup.normal"}[]
 :::
 
@@ -1844,6 +2054,8 @@ Depends on: {uses "group"}[] {uses "group.subgroup"}[] {uses "group.subgroup.nor
 *Projective image of a subgroup.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.subgroup.projective_image))
 
 If $`H \subset G` is a subgroup, the *projective image* of $`H` is the image of $`H` in the {bpref "group.center"}[central] {bpref "group.quotient"}[quotient] $`G / Z(G)`.
+
+Tau Ceti Review: [`Subgroup.map`](https://taucetiproject.org/review/#/d/Subgroup.map), [`QuotientGroup.mk'`](https://taucetiproject.org/review/#/d/QuotientGroup.mk%27), [`Subgroup.center`](https://taucetiproject.org/review/#/d/Subgroup.center).
 
 Depends on: {uses "group.center"}[] {uses "group.quotient"}[]
 :::
@@ -1880,6 +2092,8 @@ subgroup*  of $`G` is any {bpref "group.subgroup"}[subgroup] of order $`p^n`.
 
 Sylow subgroups exist for every finite group and prime $`p`.
 
+Tau Ceti Review: [`Sylow`](https://taucetiproject.org/review/#/d/Sylow), [`Sylow.card_eq_multiplicity`](https://taucetiproject.org/review/#/d/Sylow.card_eq_multiplicity), [`Sylow.ofCard`](https://taucetiproject.org/review/#/d/Sylow.ofCard), [`Sylow.nonempty`](https://taucetiproject.org/review/#/d/Sylow.nonempty).
+
 Depends on: {uses "group"}[] {uses "group.order"}[] {uses "group.subgroup"}[]
 :::
 
@@ -1887,6 +2101,8 @@ Depends on: {uses "group"}[] {uses "group.order"}[] {uses "group.subgroup"}[]
 *Symmetric group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.symmetric))
 
 The *symmetric group* is the group $`S_n` of bijections from $`n` element sets to themselves (called permutations), which is of order $`n!`. This group is {bpref "group.solvable"}[solvable] for $`n\leq 4` and {bpref "group.almost_simple"}[almost simple] since $`S_n=A_n\rtimes C_2` for $`n\geq 5`.
+
+Tau Ceti Review: [`Equiv.Perm`](https://taucetiproject.org/review/#/d/Equiv.Perm), [`Fintype.card_perm`](https://taucetiproject.org/review/#/d/Fintype.card_perm), [`Equiv.Perm.isSolvable`](https://taucetiproject.org/review/#/d/Equiv.Perm.isSolvable).
 
 Depends on: {uses "group.almost_simple"}[] {uses "group.solvable"}[]
 :::
@@ -1904,6 +2120,8 @@ The *projective symplectic group* $`\PSp(2n, q)` is the {bpref "group.quotient"}
 
 (see , pages x-xi)
 
+Tau Ceti Review: [`Matrix.symplecticGroup`](https://taucetiproject.org/review/#/d/Matrix.symplecticGroup), [`Matrix.J`](https://taucetiproject.org/review/#/d/Matrix.J), [`Subgroup.center`](https://taucetiproject.org/review/#/d/Subgroup.center), [`TauCeti.GLSymplecticFin.mem_center_iff`](https://taucetiproject.org/review/#/d/TauCeti.GLSymplecticFin.mem_center_iff).
+
 Depends on: {uses "group.center"}[] {uses "group.quotient"}[]
 :::
 
@@ -1913,6 +2131,8 @@ Depends on: {uses "group.center"}[] {uses "group.quotient"}[]
 A *torsion {bpref "group"}[group]* is a group in which every element has finite order.
 
 The elements of finite order in an {bpref "group.abelian"}[abelian] group $`A` form a torsion group called the *torsion subgroup* of $`A`.
+
+Tau Ceti Review: [`IsMulTorsion`](https://taucetiproject.org/review/#/d/IsMulTorsion), [`CommGroup.torsion`](https://taucetiproject.org/review/#/d/CommGroup.torsion), [`AddCommGroup.torsion`](https://taucetiproject.org/review/#/d/AddCommGroup.torsion).
 
 Depends on: {uses "group"}[] {uses "group.abelian"}[]
 :::
@@ -1942,6 +2162,8 @@ The *Von Dyck group* $`D(l, m, n)` is the subgroup of index $`2` generated by $`
 
 If $`G` is a {bpref "group"}[group] with {bpref "alg.binary_operation.identity"}[identity] element $`e`, then $`\{e\}` is a {bpref "group.subgroup"}[subgroup] isomorphic to the trivial group.  It is the *trivial subgroup* of $`G`, and all other subgroups are *non-trivial*.
 
+Tau Ceti Review: [`Subgroup.mem_bot`](https://taucetiproject.org/review/#/d/Subgroup.mem_bot).
+
 Depends on: {uses "alg.binary_operation.identity"}[] {uses "group"}[] {uses "group.subgroup"}[]
 :::
 
@@ -1962,6 +2184,8 @@ For a finite {bpref "group"}[group] $`G`, we write *Type - length* as follows
  <li> For non-simple, non-solvable groups we write "Non-solvable - $`n`", where $`n` is the number of Jordan factors of $`G`.</li>
 </ul>
 
+Tau Ceti Review: [`Group.nilpotencyClass`](https://taucetiproject.org/review/#/d/Group.nilpotencyClass).
+
 Depends on: {uses "group"}[] {uses "group.abelian"}[] {uses "group.cyclic"}[] {uses "group.derived_series"}[] {uses "group.nilpotent"}[] {uses "group.solvable"}[]
 :::
 
@@ -1969,6 +2193,8 @@ Depends on: {uses "group"}[] {uses "group.abelian"}[] {uses "group.cyclic"}[] {u
 *Under-subgroup.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.under_subgroup))
 
 If $`H \subseteq G` is a {bpref "group.subgroup"}[subgroup], an *under-subgroup* is a subgroup $`K \subseteq G` with $`K \subseteq H`.  A *maximal under-subgroup* is an under-subgroup $`K \ne H` that is maximal with respect to inclusion.
+
+Tau Ceti Review: [`Subgroup`](https://taucetiproject.org/review/#/d/Subgroup), [`CovBy`](https://taucetiproject.org/review/#/d/CovBy).
 
 Depends on: {uses "group.subgroup"}[]
 :::
@@ -2001,6 +2227,8 @@ $$`\langle e\rangle = Z_0(G) \unlhd Z_1(G) \unlhd Z_2(G) \unlhd \cdots`
 where $`Z_0(G)=\langle e\rangle` and $`Z_i(G)/Z_{i-1}(G)` is the {bpref "group.center"}[center] of $`G/Z_{i-1}(G)`, i.e., $`Z_i(G)` is the inverse image of the center of $`G/Z_{i-1}(G)`.
 
 Each of the subgroups $`Z_i(G)` is characteristic.  The group is {bpref "group.nilpotent"}[nilpotent] if and only if $`Z_i(G)=G` for some $`i`.
+
+Tau Ceti Review: [`Subgroup.upperCentralSeriesStep`](https://taucetiproject.org/review/#/d/Subgroup.upperCentralSeriesStep), [`Group.IsNilpotent`](https://taucetiproject.org/review/#/d/Group.IsNilpotent).
 
 Depends on: {uses "group"}[] {uses "group.center"}[] {uses "group.nilpotent"}[] {uses "group.normal_series"}[]
 :::
@@ -2038,6 +2266,8 @@ $$`H \wr S = H^n \rtimes S`
 where $`S` acts on $`H^n` via $`S\subseteq S_n`, permuting the $`n` copies of $`H`.
 
 If $`S` is a transitive subgroup of $`S_n`, we say that the wreath product is *transitive*.
+
+Tau Ceti Review: [`TauCeti.PermSubgroupWreathProduct`](https://taucetiproject.org/review/#/d/TauCeti.PermSubgroupWreathProduct), [`TauCeti.PermutationWreathProduct`](https://taucetiproject.org/review/#/d/TauCeti.PermutationWreathProduct), [`SemidirectProduct`](https://taucetiproject.org/review/#/d/SemidirectProduct), [`mulAutArrow`](https://taucetiproject.org/review/#/d/mulAutArrow), [`MulAction.IsPretransitive`](https://taucetiproject.org/review/#/d/MulAction.IsPretransitive).
 
 Depends on: {uses "group"}[] {uses "group.semidirect_product"}[]
 :::

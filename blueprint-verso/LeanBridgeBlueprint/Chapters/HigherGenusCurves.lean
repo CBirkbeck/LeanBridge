@@ -74,6 +74,8 @@ Depends on: {uses "curve.highergenus.aut.branchpoints"}[] {uses "curve.highergen
 
 A group of automorphisms $`G` acting on a curve $`X` is necessarily a subgroup of the {bpref "g2c.aut_grp"}[automorphism group] $`\Aut(X)`, but need not equal $`\Aut(X)`.  When $`G=\Aut(X)` we say that $`G` is the *full group of automorphisms*.
 
+Tau Ceti Review: [`TauCeti.Diff`](https://taucetiproject.org/review/#/d/TauCeti.Diff).
+
 Depends on: {uses "g2c.aut_grp"}[]
 :::
 
@@ -139,6 +141,8 @@ Depends on: {uses "ag.riemann_surface"}[] {uses "curve.highergenus.aut.branchpoi
 *Quotient genus.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/curve.highergenus.aut.quotientgenus))
 
 For a group of automorphisms $`G` acting on a curve $`X`, the {bpref "ag.curve.genus"}[genus] of the quotient curve $`X/G` is the *quotient genus* of $`G`.
+
+Tau Ceti Review: [`TauCeti.genus`](https://taucetiproject.org/review/#/d/TauCeti.genus).
 
 Depends on: {uses "ag.curve.genus"}[]
 :::

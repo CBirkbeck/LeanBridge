@@ -20,6 +20,8 @@ This section lists the LMFDB definitions in the category `modlgal`. Each definit
 
 A *mod-$`\ell` Galois representation* is a representation of the {bpref "group.galois.absolute"}[abolute Galois group] $`\Gal_K` of a {bpref "nf"}[number field] $`K` with values in the $`\F_{\ell}`-points of an algebraic group.
 
+Tau Ceti Review: [`Field.absoluteGaloisGroup`](https://taucetiproject.org/review/#/d/Field.absoluteGaloisGroup).
+
 Depends on: {uses "group.galois.absolute"}[] {uses "nf"}[]
 :::
 
@@ -28,6 +30,8 @@ Depends on: {uses "group.galois.absolute"}[] {uses "nf"}[]
 
 A {bpref "modlgal"}[mod-$`\ell` Galois representation] with {bpref "modlgal.codomain"}[codomain] $`G(\F_{\ell})` is *abelian*
  if its {bpref "modlgal.image"}[image] is an {bpref "group.abelian"}[abelian] subgroup of the {bpref "modlgal.codomain"}[codomain] $`G(\F_{\ell})`.  Otherwise the representation is *nonabelian*.
+
+Tau Ceti Review: [`MonoidHom.range`](https://taucetiproject.org/review/#/d/MonoidHom.range), [`IsMulCommutative`](https://taucetiproject.org/review/#/d/IsMulCommutative).
 
 Depends on: {uses "group.abelian"}[] {uses "modlgal"}[] {uses "modlgal.codomain"}[] {uses "modlgal.image"}[]
 :::
@@ -38,6 +42,8 @@ Depends on: {uses "group.abelian"}[] {uses "modlgal"}[] {uses "modlgal.codomain"
 A {bpref "modlgal"}[mod-$`\ell` Galois representation] with {bpref "modlgal.codomain"}[codomain] $`G(\F_{\ell})` is *absolutely irreducible*
  if it is {bpref "group.representation.irrep"}[irreducible]  after extending the codoman to $`G(\overline{\F_{\ell}})`.
 
+Tau Ceti Review: [`Representation.baseChange`](https://taucetiproject.org/review/#/d/Representation.baseChange).
+
 Depends on: {uses "group.representation.irrep"}[] {uses "modlgal"}[] {uses "modlgal.codomain"}[]
 :::
 
@@ -46,6 +52,8 @@ Depends on: {uses "group.representation.irrep"}[] {uses "modlgal"}[] {uses "modl
 
 The *base ring characteristic* of a {bpref "modlgal"}[mod-$`\ell` Galois representation] is the {bpref "ring.characteristic"}[characteristic] of the base ring of its {bpref "modlgal.codomain"}[codomain].
 
+Tau Ceti Review: [`ringChar`](https://taucetiproject.org/review/#/d/ringChar), [`CharP`](https://taucetiproject.org/review/#/d/CharP).
+
 Depends on: {uses "modlgal"}[] {uses "modlgal.codomain"}[] {uses "ring.characteristic"}[]
 :::
 
@@ -53,6 +61,8 @@ Depends on: {uses "modlgal"}[] {uses "modlgal.codomain"}[] {uses "ring.character
 *Characteristic of a mod-$`l` Galois representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modlgal.characteristic))
 
 The *characteristic* of a {bpref "modlgal"}[mod-$`\ell` Galois representation] is the characteristic of the base ring of its {bpref "modlgal.codomain"}[codomain], which is a {bpref "ring"}[ring] of characteristic $`\ell`.
+
+Tau Ceti Review: [`ringChar`](https://taucetiproject.org/review/#/d/ringChar), [`CharP`](https://taucetiproject.org/review/#/d/CharP), [`ZMod.charP`](https://taucetiproject.org/review/#/d/ZMod.charP).
 
 Depends on: {uses "modlgal"}[] {uses "modlgal.codomain"}[] {uses "ring"}[]
 :::
@@ -120,6 +130,8 @@ The *dimension* of a  {bpref "modlgal"}[mod-$`\ell` Galois representation] $`\rh
 
 $`1`-dimensional {bpref "modlgal"}[mod-$`\ell` Galois representations] are also called *Galois characters*.
 
+Tau Ceti Review: [`Module.finrank`](https://taucetiproject.org/review/#/d/Module.finrank).
+
 Depends on: {uses "modlgal"}[]
 :::
 
@@ -179,6 +191,8 @@ Depends on: {uses "group.order"}[] {uses "modlgal"}[] {uses "modlgal.ramified"}[
 
 A *Frobenius prime* or *good prime* for a {bpref "modlgal"}[mod-$`\ell` Galois representation] $`\rho: \text{Gal}_K \to G(\F_{\ell})` with {bpref "modlgal.splitting_field"}[splitting field] $`L/K` is a {bpref "nf.prime"}[prime] $`\frak{p}` of $`K` which does not divide the characteristic $`\ell` and which is {bpref "modlgal.ramified"}[unramified] in $`L/K`.
 
+Tau Ceti Review: [`Algebra.IsUnramifiedIn`](https://taucetiproject.org/review/#/d/Algebra.IsUnramifiedIn), [`IntermediateField.fixedField`](https://taucetiproject.org/review/#/d/IntermediateField.fixedField), [`MonoidHom.ker`](https://taucetiproject.org/review/#/d/MonoidHom.ker).
+
 Depends on: {uses "modlgal"}[] {uses "modlgal.ramified"}[] {uses "modlgal.splitting_field"}[] {uses "nf.prime"}[]
 :::
 
@@ -207,6 +221,8 @@ Depends on: {uses "modlgal"}[] {uses "modlgal.image"}[] {uses "modlgal.ramified"
 
 The *image* of a  {bpref "modlgal"}[mod-$`\ell` Galois representation] $`\rho: \Gal_K\to G(\F_{\ell})` is the {bpref "group.subgroup"}[subgroup] $`\rho(\Gal_K)` of the {bpref "modlgal.codomain"}[codomain] $`G(\F_{\ell})`.
 
+Tau Ceti Review: [`MonoidHom.range`](https://taucetiproject.org/review/#/d/MonoidHom.range).
+
 Depends on: {uses "group.subgroup"}[] {uses "modlgal"}[] {uses "modlgal.codomain"}[]
 :::
 
@@ -214,6 +230,8 @@ Depends on: {uses "group.subgroup"}[] {uses "modlgal"}[] {uses "modlgal.codomain
 *Abstract image of a mod-$`l` representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modlgal.image_abstract_group))
 
 For a {bpref "modlgal"}[mod-$`\ell` representation] $`\rho:\Gal_K\to G(\F_{\ell})`, the *abstract image* is the isomorphism type of the {bpref "modlgal.image"}[image]  $`\rho(\Gal_K)` as an abstract group.
+
+Tau Ceti Review: [`MonoidHom.range`](https://taucetiproject.org/review/#/d/MonoidHom.range), [`MulEquiv`](https://taucetiproject.org/review/#/d/MulEquiv).
 
 Depends on: {uses "modlgal"}[] {uses "modlgal.image"}[]
 :::
@@ -225,6 +243,8 @@ The *index* of a {bpref "modlgal"}[mod-$`\ell` Galois representation] $`\rho:\Ga
 
 The index is $`1` if and only if the representation is {bpref "modlgal.surjective"}[surjective].
 
+Tau Ceti Review: [`Subgroup.index`](https://taucetiproject.org/review/#/d/Subgroup.index), [`MonoidHom.range`](https://taucetiproject.org/review/#/d/MonoidHom.range), [`Subgroup.index_eq_one`](https://taucetiproject.org/review/#/d/Subgroup.index_eq_one).
+
 Depends on: {uses "group.subgroup"}[] {uses "modlgal"}[] {uses "modlgal.surjective"}[]
 :::
 
@@ -232,6 +252,8 @@ Depends on: {uses "group.subgroup"}[] {uses "modlgal"}[] {uses "modlgal.surjecti
 *Order of the image of a mod-$`l` Galois representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modlgal.image_order))
 
 The *image order* of a {bpref "modlgal"}[mod-$`\ell` Galois representation] $`\rho:\Gal_K\to G(\F_{\ell})` is the  order (or cardinality) of the {bpref "modlgal.image"}[image]  $`\rho(\Gal_K)`.
+
+Tau Ceti Review: [`Nat.card`](https://taucetiproject.org/review/#/d/Nat.card), [`MonoidHom.range`](https://taucetiproject.org/review/#/d/MonoidHom.range).
 
 Depends on: {uses "modlgal"}[] {uses "modlgal.image"}[]
 :::
@@ -291,6 +313,8 @@ Equivalently, a prime is ramified if the inertia subgroup of $`\Gal_K` for a pri
 
 A prime which is not ramified is *unramified*.
 
+Tau Ceti Review: [`Algebra.IsUnramifiedIn`](https://taucetiproject.org/review/#/d/Algebra.IsUnramifiedIn), [`IntermediateField.fixedField`](https://taucetiproject.org/review/#/d/IntermediateField.fixedField), [`Ideal.inertia`](https://taucetiproject.org/review/#/d/Ideal.inertia).
+
 Depends on: {uses "modlgal"}[] {uses "modlgal.splitting_field"}[] {uses "nf.prime"}[] {uses "nf.ramified_primes"}[]
 :::
 
@@ -300,6 +324,8 @@ Depends on: {uses "modlgal"}[] {uses "modlgal.splitting_field"}[] {uses "nf.prim
 A {bpref "modlgal"}[mod-$`\ell` Galois representation] with {bpref "modlgal.codomain"}[codomain] $`G(\F_{\ell})` is *solvable*
  if its {bpref "modlgal.image"}[image] is a {bpref "group.solvable"}[solvable] subgroup of the {bpref "modlgal.codomain"}[codomain] $`G(\F_{\ell})`.  Otherwise the representation is *nonsolvable*.
 
+Tau Ceti Review: [`Group.IsSolvable`](https://taucetiproject.org/review/#/d/Group.IsSolvable), [`MonoidHom.range`](https://taucetiproject.org/review/#/d/MonoidHom.range).
+
 Depends on: {uses "group.solvable"}[] {uses "modlgal"}[] {uses "modlgal.codomain"}[] {uses "modlgal.image"}[]
 :::
 
@@ -308,6 +334,8 @@ Depends on: {uses "group.solvable"}[] {uses "modlgal"}[] {uses "modlgal.codomain
 
 The *splitting field* of a {bpref "modlgal"}[mod-$`\ell` Galois representation] $`\rho:\Gal_K \to G(\F_{\ell})` is the fixed field of the kernel of $`\rho`.  This is a finite Galois extension $`L/K` with $`\Gal(L/K)` isomorphic to the {bpref "modlgal.image"}[image] of $`\rho`.
 
+Tau Ceti Review: [`IntermediateField.fixedField`](https://taucetiproject.org/review/#/d/IntermediateField.fixedField), [`MonoidHom.ker`](https://taucetiproject.org/review/#/d/MonoidHom.ker).
+
 Depends on: {uses "modlgal"}[] {uses "modlgal.image"}[]
 :::
 
@@ -315,6 +343,8 @@ Depends on: {uses "modlgal"}[] {uses "modlgal.image"}[]
 *Surjective.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modlgal.surjective))
 
 A {bpref "modlgal"}[mod-$`\ell` Galois representation] $`\rho: \Gal_K\to G(\F_{\ell})` is *surjective* if the {bpref "modlgal.image"}[image] is equal to all of the {bpref "modlgal.codomain"}[codomain]; that is, if $`\rho(\Gal_K)=G(\F_{\ell})`.
+
+Tau Ceti Review: [`MonoidHom.range`](https://taucetiproject.org/review/#/d/MonoidHom.range), [`MonoidHom.range_eq_top`](https://taucetiproject.org/review/#/d/MonoidHom.range_eq_top).
 
 Depends on: {uses "modlgal"}[] {uses "modlgal.codomain"}[] {uses "modlgal.image"}[]
 :::

@@ -15,6 +15,8 @@ This chapter lists the LMFDB definitions in the category `lfunction`. Each defin
 *Arithmetic function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/af))
 
 An *arithmetic function* is a complex-valued function whose domain is the positive integers.
+
+Tau Ceti Review: [`ArithmeticFunction`](https://taucetiproject.org/review/#/d/ArithmeticFunction).
 :::
 
 :::definition "af.bernoulli_numbers" (lean := "bernoulli, bernoulliPowerSeries, bernoulliPowerSeries_mul_exp_sub_one, bernoulliSeries, radius_bernoulliSeries")
@@ -25,6 +27,8 @@ The *Bernoulli numbers* are the rational numbers $`B_n` that appear as coefficie
 $$`\frac{T}{e^T-1}=\sum_{n\ge 0}B_n\frac{T^n}{n!},`
 
 which has radius of convergence $`2\pi`.
+
+Tau Ceti Review: [`bernoulli`](https://taucetiproject.org/review/#/d/bernoulli), [`bernoulliPowerSeries`](https://taucetiproject.org/review/#/d/bernoulliPowerSeries), [`bernoulliPowerSeries_mul_exp_sub_one`](https://taucetiproject.org/review/#/d/bernoulliPowerSeries_mul_exp_sub_one).
 :::
 
 :::definition "af.divisor_function" (lean := "ArithmeticFunction.divisorFunction, ArithmeticFunction.isMultiplicative_divisorFunction, ArithmeticFunction.divisorFunction_natCast, ArithmeticFunction.sigma")
@@ -36,6 +40,8 @@ $$`\sigma_{\tau}(n)=\sum_{d\mid n}d^\tau,`
 
 for some fixed $`\tau\in\mathbb{C}`.
 
+Tau Ceti Review: [`ArithmeticFunction.sigma`](https://taucetiproject.org/review/#/d/ArithmeticFunction.sigma).
+
 Depends on: {uses "af"}[] {uses "af.multiplicative"}[]
 :::
 
@@ -43,6 +49,8 @@ Depends on: {uses "af"}[] {uses "af.multiplicative"}[]
 *Multiplicative arithmetic function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/af.multiplicative))
 
 An arithmetic function $`f:\mathbb{Z}_{>0}\to \C` is *multiplicative* if $`f(mn)=f(m)f(n)` for all coprime integers $`m,n>0`, and is not the zero-function (in particular, $`f(1)=1`).
+
+Tau Ceti Review: [`ArithmeticFunction.IsMultiplicative`](https://taucetiproject.org/review/#/d/ArithmeticFunction.IsMultiplicative).
 :::
 
 :::definition "lfunction" (lean := "AnalyticLFunction, AnalyticLFunction.SelbergData, AnalyticLFunction.selbergData, AnalyticLFunction.eqOn_toFun_of_coeff_eq, AnalyticLFunction.zeta, LSeries")
@@ -53,6 +61,8 @@ An (analytic) *L-function* is a {bpref "lfunction.dirichlet_series"}[Dirichlet s
 It is expected that all L-functions satisfy the {bpref "lfunction.rh"}[Riemann Hypothesis,] that all of the {bpref "lfunction.zeros"}[zeros] in the {bpref "lfunction.critical_strip"}[critical strip] are on the {bpref "lfunction.critical_line"}[critical line]. Selberg has defined a class $`\mathcal S` of Dirichlet series that satisfy the {bpref "lfunction.selberg_class.axioms"}[Selberg axioms.] It is conjectured (but far from proven) that $`\mathcal S` is precisely the set of all L-functions. Selberg's axioms have not been verified for all of the L-functions in this database but are known to hold for many of them.
 
 It is also conjectured that a precise form of the {bpref "lfunction.functional_equation"}[functional equation] holds for every element of $`\mathcal S`. Under this assumption the functional equation is determined by a quadruple known as the {bpref "lfunction.selbergdata"}[Selberg data], consisting of the {bpref "lfunction.degree"}[degree], {bpref "lfunction.conductor"}[conductor], {bpref "lfunction.spectral_parameters"}[spectral parameters], and {bpref "lfunction.root_number"}[sign].
+
+Tau Ceti Review: [`LSeries`](https://taucetiproject.org/review/#/d/LSeries).
 
 Depends on: {uses "lfunction.dirichlet_series"}[] {uses "lfunction.euler_product"}[] {uses "lfunction.functional_equation"}[]
 :::
@@ -82,6 +92,8 @@ Depends on: {uses "lfunction.central_point"}[] {uses "lfunction"}[]
 
 An {bpref "lfunction"}[L-function] $`L(s) = \sum_{n=1}^{\infty} a_n n^{-s}`  is called *arithmetic* if its Dirichlet coefficients $`a_n` are algebraic numbers.
 
+Tau Ceti Review: [`IsAlgebraic`](https://taucetiproject.org/review/#/d/IsAlgebraic), [`LSeries`](https://taucetiproject.org/review/#/d/LSeries).
+
 Depends on: {uses "lfunction"}[]
 :::
 
@@ -89,6 +101,8 @@ Depends on: {uses "lfunction"}[]
 *Bad prime.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.bad_prime))
 
 The *bad primes* of an {bpref "lfunction"}[L-function] are the primes that divided its {bpref "lfunction.conductor"}[conductor].
+
+Tau Ceti Review: [`Nat.primeFactors`](https://taucetiproject.org/review/#/d/Nat.primeFactors).
 
 Depends on: {uses "lfunction"}[] {uses "lfunction.conductor"}[]
 :::
@@ -226,6 +240,8 @@ where $`q` is the {bpref "character.dirichlet.conductor"}[conductor] of $`\chi`.
 
 These L-functions were introduced by [Peter Gustav Lejeune Dirichlet](https://en.wikipedia.org/wiki/Peter_Gustav_Lejeune_Dirichlet) in the mid-1800s as a tool to study prime numbers in arithmetic progressions.
 
+Tau Ceti Review: [`DirichletCharacter.LFunction`](https://taucetiproject.org/review/#/d/DirichletCharacter.LFunction), [`DirichletCharacter.LFunction_eq_LSeries`](https://taucetiproject.org/review/#/d/DirichletCharacter.LFunction_eq_LSeries), [`DirichletCharacter.IsPrimitive.completedLFunction_one_sub`](https://taucetiproject.org/review/#/d/DirichletCharacter.IsPrimitive.completedLFunction_one_sub), [`DirichletCharacter.rootNumber`](https://taucetiproject.org/review/#/d/DirichletCharacter.rootNumber).
+
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.conductor"}[] {uses "lfunction"}[] {uses "lfunction.dirichlet_series"}[] {uses "lfunction.euler_product"}[] {uses "lfunction.functional_equation"}[]
 :::
 
@@ -233,12 +249,16 @@ Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.conductor"
 *Dirichlet series.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.dirichlet_series))
 
 A *Dirichlet series* is a formal series of the form $`F(s) = {\displaystyle \sum_{n=1}^{\infty} \frac{a_n}{ n^{s}}}`, where $`a_n \in {\mathbb{C}}`.
+
+Tau Ceti Review: [`LSeries`](https://taucetiproject.org/review/#/d/LSeries), [`LSeries.term`](https://taucetiproject.org/review/#/d/LSeries.term), [`ArithmeticFunction`](https://taucetiproject.org/review/#/d/ArithmeticFunction).
 :::
 
 :::definition "lfunction.dual" (lean := "LSeries, starRingEnd")
 *Dual of an L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.dual))
 
 The *dual* of an {bpref "lfunction"}[L-function] $`L(s) = \sum_{n=1}^{\infty} \frac{a_n}{n^s}` is the complex conjugate $`\bar{L}(s) = \sum_{n=1}^{\infty} \frac{\bar{a_n}}{n^s}`.
+
+Tau Ceti Review: [`LSeries`](https://taucetiproject.org/review/#/d/LSeries), [`starRingEnd`](https://taucetiproject.org/review/#/d/starRingEnd).
 
 Depends on: {uses "lfunction"}[]
 :::
@@ -307,6 +327,8 @@ The gamma factors satisfy
 $`\Gamma_{\C}(s) = \Gamma_{\R}(s) \Gamma_{\R}(s + 1)`
 and can also be viewed as "missing" factors of the {bpref "lfunction.euler_product"}[Euler product] of an L-function corresponding to (real or complex) archimedean places.
 
+Tau Ceti Review: [`Complex.Gammaℝ`](https://taucetiproject.org/review/#/d/Complex.Gamma%E2%84%9D), [`Complex.Gammaℂ`](https://taucetiproject.org/review/#/d/Complex.Gamma%E2%84%82), [`Complex.Gammaℝ_mul_Gammaℝ_add_one`](https://taucetiproject.org/review/#/d/Complex.Gamma%E2%84%9D_mul_Gamma%E2%84%9D_add_one).
+
 Depends on: {uses "lfunction.euler_product"}[]
 :::
 
@@ -348,6 +370,8 @@ Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.conrey"}[]
 *Leading coefficient.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.leading_coeff))
 
 The *leading coefficient* of an {bpref "lfunction.arithmetic"}[arithmetic L-function] is the first nonzero coefficient of its Laurent series expansion at the {bpref "lfunction.central_point"}[central point].
+
+Tau Ceti Review: [`meromorphicTrailingCoeffAt`](https://taucetiproject.org/review/#/d/meromorphicTrailingCoeffAt).
 
 Depends on: {uses "lfunction.arithmetic"}[] {uses "lfunction.central_point"}[]
 :::
@@ -403,6 +427,8 @@ Depends on: {uses "lfunction.arithmetic"}[] {uses "lfunction.coefficient_field"}
 The *Riemann hypothesis* is the assertion that if $`\rho` is a zero of an
  {bpref "lfunction"}[analytic L-function] then $`\mathrm{Re}(\rho)>0` implies
 that $`\mathrm{Re}(\rho)=1/2.`
+
+Tau Ceti Review: [`RiemannHypothesis`](https://taucetiproject.org/review/#/d/RiemannHypothesis).
 
 Depends on: {uses "lfunction"}[]
 :::
@@ -464,6 +490,8 @@ Depends on: {uses "lfunction"}[] {uses "lfunction.analytic_conductor"}[] {uses "
 *Root angle of L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.root_angle))
 
 The *root angle* of an L-function is the argument of its {bpref "lfunction.sign"}[root number], as a real number $`\alpha` with $`-0.5 < \alpha \le 0.5`.
+
+Tau Ceti Review: [`Complex.arg`](https://taucetiproject.org/review/#/d/Complex.arg), [`Complex.neg_pi_lt_arg`](https://taucetiproject.org/review/#/d/Complex.neg_pi_lt_arg), [`Complex.arg_le_pi`](https://taucetiproject.org/review/#/d/Complex.arg_le_pi).
 
 Depends on: {uses "lfunction.sign"}[]
 :::
@@ -548,6 +576,8 @@ Depends on: {uses "lfunction"}[] {uses "lfunction.conductor"}[] {uses "lfunction
 *Self-dual L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.self-dual))
 
 An L-function $`L(s) = \sum_{n=1}^{\infty} \frac{a_n}{n^s}` is called *self-dual* if its Dirichlet coefficients $`a_n` are real.
+
+Tau Ceti Review: [`LSeries`](https://taucetiproject.org/review/#/d/LSeries), [`starRingEnd`](https://taucetiproject.org/review/#/d/starRingEnd), [`Complex.conj_eq_iff_real`](https://taucetiproject.org/review/#/d/Complex.conj_eq_iff_real).
 :::
 
 :::definition "lfunction.sign" (lean := "AnalyticLFunction.sign, AnalyticLFunction.SelbergData.sign, AnalyticLFunction.completed_eq_sign_mul_conj, AnalyticLFunction.norm_sign, AnalyticLFunction.SelbergData")
@@ -567,6 +597,8 @@ The *signature* either refers to the pair $`[J,K]` where $`J` is the number of {
 $$`(\Re(\mu_1),\ldots,\Re(\mu_J); 2\Re(\nu_1),\ldots,2\Re(\nu_K)).`
 
 Note that the entries in that tuple are non-negative integers.
+
+Tau Ceti Review: [`Multiset.card`](https://taucetiproject.org/review/#/d/Multiset.card).
 
 Depends on: {uses "lfunction.gamma_factor"}[] {uses "lfunction.selbergdata"}[]
 :::
@@ -676,4 +708,6 @@ for Re$`(z) > 0`. It satisfies the functional equation
 $$`\Gamma(z+1) = z \Gamma(z),`
 
 and can thus be continued into a meromorphic function on the complex plane, whose poles are at the non-positive integers $`\{0,-1,-2,\ldots\}`.
+
+Tau Ceti Review: [`Complex.Gamma`](https://taucetiproject.org/review/#/d/Complex.Gamma), [`Complex.Gamma_eq_integral`](https://taucetiproject.org/review/#/d/Complex.Gamma_eq_integral), [`Complex.Gamma_add_one`](https://taucetiproject.org/review/#/d/Complex.Gamma_add_one), [`Complex.differentiableAt_Gamma`](https://taucetiproject.org/review/#/d/Complex.differentiableAt_Gamma).
 :::

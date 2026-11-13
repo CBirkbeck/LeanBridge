@@ -37,6 +37,8 @@ $$`\textrm{Aut}(K/F) = \{\sigma:K\to K\mid  \forall a\in F, \sigma(a)=a, \text{ 
 
 Note, a finite extension is {bpref "nf.is_galois"}[Galois] if and only if $`|\textrm{Aut}(K/F)| = [K:F]`.
 
+Tau Ceti Review: [`AlgEquiv`](https://taucetiproject.org/review/#/d/AlgEquiv), [`AlgEquiv.aut`](https://taucetiproject.org/review/#/d/AlgEquiv.aut), [`IsGalois.card_aut_eq_finrank`](https://taucetiproject.org/review/#/d/IsGalois.card_aut_eq_finrank), [`IsGalois.of_card_aut_eq_finrank`](https://taucetiproject.org/review/#/d/IsGalois.of_card_aut_eq_finrank).
+
 Depends on: {uses "nf.is_galois"}[] {uses "ring.field"}[]
 :::
 
@@ -53,6 +55,8 @@ The LMFDB uses the following conventions for choosing defining polynomials:
  2. For {bpref "lf.ramification_index"}[totally ramified] extensions, we pick an {bpref "lf.eisenstein_polynomial"}[Eisenstein] polynomial which is reduced in the sense of Monge.
  3. In the remaining cases, we pick a polynomial which is in {bpref "lf.eisenstein_form"}[Eisenstein form].
 
+Tau Ceti Review: [`IsAdjoinRoot`](https://taucetiproject.org/review/#/d/IsAdjoinRoot).
+
 Depends on: {uses "field.finite.conway_polynomial"}[] {uses "lf.eisenstein_form"}[] {uses "lf.eisenstein_polynomial"}[] {uses "lf.padic_field"}[] {uses "lf.ramification_index"}[] {uses "lf.unramified_degree"}[]
 :::
 
@@ -64,6 +68,8 @@ The *degree* of $`L/K` is the dimension of $`L` as a vector space over $`K`.
 
 The *base degree* $`n_0` of $`L/K` is the degree of $`K/\Q_p`.  The *absolute degree* $`n_{\mathrm{abs}}`
 of $`L/K` is the degree of $`L/\Q_p`.
+
+Tau Ceti Review: [`Module.finrank`](https://taucetiproject.org/review/#/d/Module.finrank), [`TauCeti.FinitePadicExtension`](https://taucetiproject.org/review/#/d/TauCeti.FinitePadicExtension).
 
 Depends on: {uses "lf.padic_field"}[]
 :::
@@ -85,6 +91,8 @@ The discriminant of $`L/K` is an element of $`K^\times` which is well-defined up
 
 The *base discriminant exponent* $`c_0` of $`L/K` is the discriminant exponent of $`K/\Q_p`.  The *absolute discriminant exponent* $`c_{\mathrm{abs}}` of $`L/K` is the discriminant exponent of $`L/\Q_p`.
 
+Tau Ceti Review: [`TauCeti.discriminantExponent`](https://taucetiproject.org/review/#/d/TauCeti.discriminantExponent).
+
 Depends on: {uses "lf.padic_field"}[] {uses "lf.ramification_index"}[] {uses "lf.ring_of_integers"}[]
 :::
 
@@ -96,6 +104,8 @@ Depends on: {uses "lf.padic_field"}[] {uses "lf.ramification_index"}[] {uses "lf
 Note if $`F=\mathbb{Q}_p`, there are only a small number of possibilities for quadratic extensions of $`\mathbb{Q}_p`.  If $`p` is odd, we let $`u` denote any unit in $`\mathbb{Z}_p` which is not a square modulo $`p`.  Then, the quadratic extensions of $`\mathbb{Q}_p` are $`\mathbb{Q}_p(\sqrt{u})` (which is the unramified quadratic extension), $`\mathbb{Q}_p(\sqrt{p})`, and $`\mathbb{Q}_p(\sqrt{pu})`.
 
 For $`p=2`, there are seven quadratic extensions of $`\mathbb{Q}_2`.  Here we let $`u` denote any value in $`\mathbb{Z}_2` which is congruent to $`5` modulo $`8` (for example, $`u=5`) so again $`\mathbb{Q}_2(\sqrt{u})` is the quadratic unramified extension; the other six quadratic extensions are $`\mathbb{Q}_2(\sqrt{-1})`, $`\mathbb{Q}_2(\sqrt{-u})`, $`\mathbb{Q}_2(\sqrt{2})`, $`\mathbb{Q}_2(\sqrt{2u})`, $`\mathbb{Q}_2(\sqrt{-2})`, and $`\mathbb{Q}_2(\sqrt{-2u})`.
+
+Tau Ceti Review: [`TauCeti.discrField`](https://taucetiproject.org/review/#/d/TauCeti.discrField).
 
 Depends on: {uses "nf.discriminant_root_field"}[]
 :::
@@ -250,6 +260,8 @@ Let $`D` be an integral domain and $`P` a prime ideal in $`D`.  A polynomial $`a
 An Eisenstein polynomial is irreducible in $`F[x]` where $`F` is the {bpref "ring.field_of_fractions"}[field of fractions] of $`D`.
 
 If $`K` is a finite extension of $`\Q_p` with ring of integers $`\mathcal{O}_K`, then a finite extension $`L/K` is {bpref "lf.ramification_index"}[totally ramified] if and only if $`L=K(\alpha)` where $`\alpha` is a root of an Eisenstein polynomial in $`\mathcal{O}_K[x]`.
+
+Tau Ceti Review: [`Polynomial.IsEisensteinAt`](https://taucetiproject.org/review/#/d/Polynomial.IsEisensteinAt), [`Polynomial.IsEisensteinAt.irreducible`](https://taucetiproject.org/review/#/d/Polynomial.IsEisensteinAt.irreducible), [`TauCeti.isTotallyRamified_iff_exists_eisenstein_generator`](https://taucetiproject.org/review/#/d/TauCeti.isTotallyRamified_iff_exists_eisenstein_generator).
 
 Depends on: {uses "lf.ramification_index"}[] {uses "ring.field_of_fractions"}[]
 :::
@@ -708,6 +720,8 @@ $$`\Gal(L/K) \to \Gal(\lambda/\kappa)`
 
 is the *inertia group* of $`L/K`.
 
+Tau Ceti Review: [`ValuationSubring.inertiaSubgroup`](https://taucetiproject.org/review/#/d/ValuationSubring.inertiaSubgroup), [`Ideal.inertia`](https://taucetiproject.org/review/#/d/Ideal.inertia), [`Ideal.Quotient.stabilizerHom`](https://taucetiproject.org/review/#/d/Ideal.Quotient.stabilizerHom), [`Ideal.Quotient.map_ker_stabilizer_subtype`](https://taucetiproject.org/review/#/d/Ideal.Quotient.map_ker_stabilizer_subtype).
+
 Depends on: {uses "lf.maximal_ideal"}[] {uses "lf.padic_field"}[] {uses "lf.residue_field"}[] {uses "nf.is_galois"}[]
 :::
 
@@ -720,6 +734,8 @@ When searching by inertia subgroups, it can be specified as an abstract group by
 
 It can also be specified by as a transitive group label.  In this case, it will only match $`p`-adic fields where the {bpref "lf.defining_polynomial"}[defining polynomial] is {bpref "ring.irreducible"}[irreducible] over the unramified extension of $`\Q_p` of degree {bpref "lf.unramified_degree"}[unramified degree] and the {bpref "gg.galois_group"}[Galois group] of the polynomial over that extension matches the specified transitive group.
 
+Tau Ceti Review: [`ValuationSubring.inertiaSubgroup`](https://taucetiproject.org/review/#/d/ValuationSubring.inertiaSubgroup), [`Ideal.inertia`](https://taucetiproject.org/review/#/d/Ideal.inertia), [`Ideal.Quotient.stabilizerHom`](https://taucetiproject.org/review/#/d/Ideal.Quotient.stabilizerHom), [`Ideal.Quotient.map_ker_stabilizer_subtype`](https://taucetiproject.org/review/#/d/Ideal.Quotient.map_ker_stabilizer_subtype).
+
 Depends on: {uses "gg.galois_group"}[] {uses "gg.label"}[] {uses "group.small_group_label"}[] {uses "lf.defining_polynomial"}[] {uses "lf.inertia_group"}[] {uses "lf.unramified_degree"}[] {uses "ring.irreducible"}[]
 :::
 
@@ -727,6 +743,8 @@ Depends on: {uses "gg.galois_group"}[] {uses "gg.label"}[] {uses "group.small_gr
 *Intermediate fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.intermediate_fields))
 
 For a local field $`K` which is a finite extension of $`\Q_p` for some prime $`p`, *intermediate fields* $`F` are fields with $`\Q_p\subsetneqq F \subsetneqq K`.
+
+Tau Ceti Review: [`IntermediateField`](https://taucetiproject.org/review/#/d/IntermediateField).
 :::
 
 :::definition "lf.jump_set"
@@ -779,6 +797,8 @@ An *archimedean local field* is a local field whose absolute value is {bpref "nf
 
 A *nonarchimedean local field* is a local field whose absolute value is {bpref "nf.absolute_value"}[nonarchimedean]. Such a field is either isomorphic to a finite extension of $`\Q_p` when $`K` has {bpref "ring.characteristic"}[characteristic] zero (in which case it is a {bpref "lf.padic_field"}[$`p`-adic field]), or to a finite extension of $`\F_p((t))` when $`K` has characteristic $`p`.  In both cases $`p` is the characteristic of the {bpref "lf.residue_field"}[residue field] of $`K`..
 
+Tau Ceti Review: [`IsNonarchimedeanLocalField`](https://taucetiproject.org/review/#/d/IsNonarchimedeanLocalField).
+
 Depends on: {uses "nf.absolute_value"}[] {uses "ring.characteristic"}[] {uses "ring.field"}[]
 :::
 
@@ -818,6 +838,8 @@ One can extend $`\log_p` to $`K` by defining $`\log_p(p)=0` and $`\log_p(\zeta)=
 If $`\mathcal{O}_K` is the {bpref "lf.ring_of_integers"}[ring of integers] of $`K` and $`M` is the unique {bpref "lf.maximal_ideal"}[maximal ideal] of $`\mathcal{O}_K`, then the image of the $`p`-adic logarithm,
 $`\log_p(1+M) = M` provided $`e<p-1` where $`e` is the {bpref "lf.ramification_index"}[ramification index] for $`K/\Q_p`.
 
+Tau Ceti Review: [`TauCeti.hasSum_log_of_mem_unitFiltration_one`](https://taucetiproject.org/review/#/d/TauCeti.hasSum_log_of_mem_unitFiltration_one), [`TauCeti.deepUnitExpLogEquiv`](https://taucetiproject.org/review/#/d/TauCeti.deepUnitExpLogEquiv).
+
 Depends on: {uses "lf.maximal_ideal"}[] {uses "lf.ramification_index"}[] {uses "lf.ring_of_integers"}[]
 :::
 
@@ -827,6 +849,8 @@ Depends on: {uses "lf.maximal_ideal"}[] {uses "lf.ramification_index"}[] {uses "
 The *maximal ideal* of a {bpref "lf.local_field"}[nonarchimedean local field] $`K` is the unique {bpref "ring.maximal_ideal"}[maximal ideal] of its {bpref "lf.ring_of_integers"}[ring of integers] $`\mathcal O_K`.
 
 It consists of all elements of $`\mathcal O_K` that are not {bpref "ring.unit"}[units], equivalently, all elements of $`K` whose {bpref "nf.absolute_value"}[absolute value] is strictly less than 1.
+
+Tau Ceti Review: [`IsLocalRing.maximalIdeal`](https://taucetiproject.org/review/#/d/IsLocalRing.maximalIdeal).
 
 Depends on: {uses "lf.local_field"}[] {uses "lf.ring_of_integers"}[] {uses "nf.absolute_value"}[] {uses "ring.maximal_ideal"}[] {uses "ring.unit"}[]
 :::
@@ -924,6 +948,8 @@ Depends on: {uses "group.permutation_representation"}[] {uses "lf.family_polynom
 A *$`p`-adic field* (or *local number field*) is a finite extension of
 {bpref "lf.qp"}[$`\Q_p`], equivalently, a {bpref "lf.local_field"}[nonarchimedean local field] of {bpref "ring.characteristic"}[characteristic] zero.
 
+Tau Ceti Review: [`Padic`](https://taucetiproject.org/review/#/d/Padic), [`TauCeti.FinitePadicExtension`](https://taucetiproject.org/review/#/d/TauCeti.FinitePadicExtension), [`TauCeti.finiteExtension_isNonarchimedeanLocalField`](https://taucetiproject.org/review/#/d/TauCeti.finiteExtension_isNonarchimedeanLocalField), [`TauCeti.FinitePadicExtension.charZero`](https://taucetiproject.org/review/#/d/TauCeti.FinitePadicExtension.charZero).
+
 Depends on: {uses "lf.local_field"}[] {uses "lf.qp"}[] {uses "ring.characteristic"}[]
 :::
 
@@ -935,6 +961,8 @@ If $`p` is a prime number, then every rational number $`r` can be written in the
 The completion of $`\Q` with respect to this metric is the field of *p-adic numbers*, denoted as $`\Q_p`. Any non-zero element $`x \in \Q_p` can be written uniquely as the sum of a convergent series $`x = \sum_{n=n_0}^{+\infty} a_n p^n`, where $`a_n \in \{ 0, \cdots, p-1 \}`, $`n_0 \in \Z` is such that $`|x|_p=p^{-n_0}`, and $`a_{n_0} \neq 0`.
 
 Example: the element $`a = 3 + 7 + 2 \cdot 7^2 + 6 \cdot 7^3 + 7^4 + 2 \cdot 7^5 + \cdots` satisfies $`a^2=2`, since truncating the expansion after $`n` terms and squaring yields a number which is congruent to $`2 \bmod 7^n`.
+
+Tau Ceti Review: [`Padic`](https://taucetiproject.org/review/#/d/Padic).
 :::
 
 :::definition "lf.ramification_index" (lean := "Valuation.Uniformizer, TauCeti.IsTamelyRamified, TauCeti.IsTotallyRamified, TauCeti.absoluteRamificationIndex, TauCeti.ramificationIndex")
@@ -958,6 +986,8 @@ is the *ramification index*, $`w` is the *wild ramification exponent* and $`e_{\
 The *base ramification index* $`e_0` of $`L/K` is the ramification index of $`K/\Q_p`.
 The *absolute ramification index* $`e_{\mathrm{abs}}` of $`L/K` is the ramification index of
 $`L` over $`\Q_p`.
+
+Tau Ceti Review: [`TauCeti.IsTamelyRamified`](https://taucetiproject.org/review/#/d/TauCeti.IsTamelyRamified), [`TauCeti.IsTotallyRamified`](https://taucetiproject.org/review/#/d/TauCeti.IsTotallyRamified), [`TauCeti.absoluteRamificationIndex`](https://taucetiproject.org/review/#/d/TauCeti.absoluteRamificationIndex), [`TauCeti.ramificationIndex`](https://taucetiproject.org/review/#/d/TauCeti.ramificationIndex).
 
 Depends on: {uses "lf.padic_field"}[] {uses "lf.ring_of_integers"}[]
 :::
@@ -1077,6 +1107,8 @@ The *residue field* of a nonarchimedean local field is the quotient of its {bpre
 
 The residue field is finite and its characteristic $`p` is the *residue field characteristic*.  Finite extensions of $`\Q_p` have residue field characteristic $`p`.
 
+Tau Ceti Review: [`IsLocalRing.ResidueField`](https://taucetiproject.org/review/#/d/IsLocalRing.ResidueField).
+
 Depends on: {uses "lf.maximal_ideal"}[] {uses "lf.ring_of_integers"}[]
 :::
 
@@ -1091,6 +1123,8 @@ of $`L/K` is the degree of the field extension $`\lambda/\kappa`.
 The *base residue field degree* $`f_0` of $`L/K` is the residue field degree of $`K/\Q_p`.  The *absolute residue field degree* $`f_{\mathrm{abs}}` of $`L/K` is the
 residue field degree of $`L` over $`\Q_p`.
 
+Tau Ceti Review: [`TauCeti.inertiaDegree`](https://taucetiproject.org/review/#/d/TauCeti.inertiaDegree).
+
 Depends on: {uses "lf.padic_field"}[] {uses "lf.residue_field"}[]
 :::
 
@@ -1099,6 +1133,8 @@ Depends on: {uses "lf.padic_field"}[] {uses "lf.residue_field"}[]
 
 The *ring of integers* of a {bpref "lf.local_field"}[local field] $`K` with {bpref "nf.absolute_value"}[absolute value] $`|\ |` is the subring
 $`\mathcal O_K := \{x\in K:|x|\le 1\}`; it is a discrete valuation ring.
+
+Tau Ceti Review: [`Valuation.integer`](https://taucetiproject.org/review/#/d/Valuation.integer).
 
 Depends on: {uses "lf.local_field"}[] {uses "nf.absolute_value"}[]
 :::
@@ -1141,6 +1177,8 @@ Finally, we note that for a global number field $`K`, the global root number $`\
 This is the order of the group of roots of unity of $`K`, written in
 the form $`(p^f-1)\cdot p^r`, where $`f` is the
 {bpref "lf.residue_field_degree"}[residue field degree] of $`K/\Q_p`.
+
+Tau Ceti Review: [`CommGroup.torsion`](https://taucetiproject.org/review/#/d/CommGroup.torsion), [`Nat.card`](https://taucetiproject.org/review/#/d/Nat.card), [`TauCeti.exists_isPrimitiveRoot_natCard_residueField_sub_one`](https://taucetiproject.org/review/#/d/TauCeti.exists_isPrimitiveRoot_natCard_residueField_sub_one), [`TauCeti.inertiaDegree`](https://taucetiproject.org/review/#/d/TauCeti.inertiaDegree).
 
 Depends on: {uses "lf.residue_field_degree"}[]
 :::
@@ -1265,6 +1303,8 @@ group $`G^{(s)}` is nontrivial.  Hence
 This includes the convention that the top slope of the trivial extension $`K/K`
 is $`0`.
 
+Tau Ceti Review: [`TauCeti.LocalFieldsRamification.upperRamificationGroup`](https://taucetiproject.org/review/#/d/TauCeti.LocalFieldsRamification.upperRamificationGroup).
+
 Depends on: {uses "lf.padic_field"}[] {uses "lf.slopes"}[]
 :::
 
@@ -1281,6 +1321,8 @@ Since $`K` has a unique {bpref "lf.ramification_index"}[unramified] extension of
 The *Galois unramified degree* of $`L/K` is the unramified degree of its
 {bpref "nf.galois_closure"}[Galois closure] $`L^{gal}/K`.
 
+Tau Ceti Review: [`TauCeti.inertiaDegree`](https://taucetiproject.org/review/#/d/TauCeti.inertiaDegree), [`TauCeti.finrank_unramifiedExtension_inertiaDegree`](https://taucetiproject.org/review/#/d/TauCeti.finrank_unramifiedExtension_inertiaDegree), [`TauCeti.unramifiedExtension`](https://taucetiproject.org/review/#/d/TauCeti.unramifiedExtension), [`TauCeti.eq_unramifiedExtension_inertiaDegree_iff`](https://taucetiproject.org/review/#/d/TauCeti.eq_unramifiedExtension_inertiaDegree_iff).
+
 Depends on: {uses "lf.padic_field"}[] {uses "lf.ramification_index"}[] {uses "lf.residue_field_degree"}[] {uses "lf.unramified_subfield"}[] {uses "nf.galois_closure"}[]
 :::
 
@@ -1296,6 +1338,8 @@ $`L^{ur}/K` is the *maximal unramified subextension* of $`L/K`.
 If $`L` is a finite extension of $`\Q_p` we say that $`L^{ur}` is the
 *unramified subfield* of $`L`.
 
+Tau Ceti Review: [`TauCeti.inertiaDegree`](https://taucetiproject.org/review/#/d/TauCeti.inertiaDegree), [`TauCeti.maximalUnramifiedExtension`](https://taucetiproject.org/review/#/d/TauCeti.maximalUnramifiedExtension), [`TauCeti.unramifiedExtension`](https://taucetiproject.org/review/#/d/TauCeti.unramifiedExtension).
+
 Depends on: {uses "lf.padic_field"}[] {uses "lf.ramification_index"}[]
 :::
 
@@ -1307,6 +1351,8 @@ Then there is a unique intermediate field $`L^{ur}`  such that $`L^{ur}/K` is
 {bpref "lf.ramification_index"}[unramified] and $`L/L^{ur}` is
 {bpref "lf.ramification_index"}[totally ramified].  We say that
 $`L\supset L^{ur}\supset K` is the *canonical tower* associated to $`L/K`.
+
+Tau Ceti Review: [`TauCeti.IsTotallyRamified`](https://taucetiproject.org/review/#/d/TauCeti.IsTotallyRamified), [`TauCeti.unramifiedExtension`](https://taucetiproject.org/review/#/d/TauCeti.unramifiedExtension).
 
 Depends on: {uses "lf.padic_field"}[] {uses "lf.ramification_index"}[]
 :::
@@ -1328,6 +1374,8 @@ Depends on: {uses "lf.discriminant_exponent"}[] {uses "lf.hidden_slopes"}[] {use
 
 The *wild inertia group* of a {bpref "nf.is_galois"}[Galois] extension $`K/\Q_p` is the unique {bpref "group.sylow_subgroup"}[$`p`-Sylow subgroup] of its {bpref "lf.inertia_group"}[inertia group].
 
+Tau Ceti Review: [`TauCeti.LocalFieldsRamification.lowerRamificationGroup`](https://taucetiproject.org/review/#/d/TauCeti.LocalFieldsRamification.lowerRamificationGroup), [`TauCeti.ramificationGroupOneSylow`](https://taucetiproject.org/review/#/d/TauCeti.ramificationGroupOneSylow), [`TauCeti.wildInertiaSubgroup`](https://taucetiproject.org/review/#/d/TauCeti.wildInertiaSubgroup).
+
 Depends on: {uses "group.sylow_subgroup"}[] {uses "lf.inertia_group"}[] {uses "nf.is_galois"}[]
 :::
 
@@ -1337,6 +1385,8 @@ Depends on: {uses "group.sylow_subgroup"}[] {uses "lf.inertia_group"}[] {uses "n
 {bpref "lf.wild_inertia_group"}[]
 
 When searching by wild inertia groups, it can be specified as an abstract group by a {bpref "group.small_group_label"}[GAP id], a group name from {bpref "gg.label"}[transitive group label], or a list of group labels.
+
+Tau Ceti Review: [`TauCeti.LocalFieldsRamification.lowerRamificationGroup`](https://taucetiproject.org/review/#/d/TauCeti.LocalFieldsRamification.lowerRamificationGroup), [`TauCeti.ramificationGroupOneSylow`](https://taucetiproject.org/review/#/d/TauCeti.ramificationGroupOneSylow), [`TauCeti.wildInertiaSubgroup`](https://taucetiproject.org/review/#/d/TauCeti.wildInertiaSubgroup).
 
 Depends on: {uses "gg.label"}[] {uses "group.small_group_label"}[] {uses "lf.wild_inertia_group"}[]
 :::

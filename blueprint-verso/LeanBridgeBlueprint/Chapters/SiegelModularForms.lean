@@ -1267,5 +1267,7 @@ The irreducible finite-dimensional representations of $`\GL(g,\C)` correspond bi
 $`\lambda_1\geqslant \lambda_2\geqslant\ldots\geqslant \lambda_g` called
 {bpref "repn.highest.weight"}[highest weight of the representation].
 
+Tau Ceti Review: [`TauCeti.rationalWeylRep`](https://taucetiproject.org/review/#/d/TauCeti.rationalWeylRep), [`TauCeti.isIrreducible_rationalWeylRep`](https://taucetiproject.org/review/#/d/TauCeti.isIrreducible_rationalWeylRep), [`TauCeti.nonempty_equiv_rationalWeylRep_iff`](https://taucetiproject.org/review/#/d/TauCeti.nonempty_equiv_rationalWeylRep_iff).
+
 Depends on: {uses "repn.highest.weight"}[]
 :::

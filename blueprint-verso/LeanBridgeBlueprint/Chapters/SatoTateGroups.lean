@@ -56,6 +56,8 @@ Depends on: {uses "ag.abelian_variety"}[] {uses "ag.base_change"}[] {uses "ag.di
 
 As a compact Lie group, a {bpref "st_group.definition"}[Sato-Tate group] $`G` need not be {bpref "st_group.connected"}[connected], but it necessarily consists of a finite set of components, each of which is a coset of the {bpref "st_group.identity_component"}[identity component] $`G^0`, a normal subgroup.  The number of components is equal to the cardinality of the {bpref "st_group.component_group"}[component group] $`G/G^0`.
 
+Tau Ceti Review: [`Subgroup.normal_connectedComponentOfOne`](https://taucetiproject.org/review/#/d/Subgroup.normal_connectedComponentOfOne).
+
 Depends on: {uses "st_group.component_group"}[] {uses "st_group.connected"}[] {uses "st_group.definition"}[] {uses "st_group.identity_component"}[]
 :::
 
@@ -63,6 +65,8 @@ Depends on: {uses "st_group.component_group"}[] {uses "st_group.connected"}[] {u
 *Connected Sato-Tate group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.connected))
 
 A {bpref "st_group.definition"}[Sato-Tate group] $`G` is *connected* if it is connected as a topological group.  In this case it is equal to its {bpref "st_group.identity_component"}[identity component] $`G^0` and the {bpref "st_group.component_group"}[component group] $`G/G^0` is trivial.
+
+Tau Ceti Review: [`ConnectedSpace`](https://taucetiproject.org/review/#/d/ConnectedSpace), [`Subgroup.connectedComponentOfOne_eq_top`](https://taucetiproject.org/review/#/d/Subgroup.connectedComponentOfOne_eq_top).
 
 Depends on: {uses "st_group.component_group"}[] {uses "st_group.definition"}[] {uses "st_group.identity_component"}[]
 :::
@@ -145,6 +149,8 @@ Depends on: {uses "st_group.definition"}[] {uses "st_group.degree"}[] {uses "st_
 
 The *identity component* of a {bpref "st_group.definition"}[Sato-Tate group] $`G` is the connected component $`G^0` of the identity element.  As a compact Lie group, the identity component $`G^0` is a normal subgroup of finite index.  The quotient $`G/G^0` is the {bpref "st_group.component_group"}[component group] of $`G`.
 
+Tau Ceti Review: [`Subgroup.connectedComponentOfOne`](https://taucetiproject.org/review/#/d/Subgroup.connectedComponentOfOne), [`Subgroup.normal_connectedComponentOfOne`](https://taucetiproject.org/review/#/d/Subgroup.normal_connectedComponentOfOne).
+
 Depends on: {uses "st_group.definition"}[]
 :::
 
@@ -152,6 +158,8 @@ Depends on: {uses "st_group.definition"}[]
 *Index of the identity component.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.index))
 
 The identity component $`G^0` of a compact Lie group $`G` is a normal subgroup of finite index; this index is equal to the cardinality of the {bpref "st_group.component_group"}[component group] $`G/G^0`.
+
+Tau Ceti Review: [`Subgroup.connectedComponentOfOne`](https://taucetiproject.org/review/#/d/Subgroup.connectedComponentOfOne), [`Subgroup.normal_connectedComponentOfOne`](https://taucetiproject.org/review/#/d/Subgroup.normal_connectedComponentOfOne), [`Subgroup.index_eq_card`](https://taucetiproject.org/review/#/d/Subgroup.index_eq_card).
 
 Depends on: {uses "st_group.component_group"}[]
 :::
@@ -249,6 +257,8 @@ Depends on: {uses "lfunction.arithmetic"}[] {uses "lfunction.rational"}[] {uses 
 
 The *real dimension* of a {bpref "st_group.definition"}[Sato-Tate group] is its dimension as a real Lie group.
 
+Tau Ceti Review: [`TauCeti.Lie.nonempty_embeddedLieSubgroupData_lieSubalgebraOfSubgroup_of_isClosed`](https://taucetiproject.org/review/#/d/TauCeti.Lie.nonempty_embeddedLieSubgroupData_lieSubalgebraOfSubgroup_of_isClosed).
+
 Depends on: {uses "st_group.definition"}[]
 :::
 
@@ -298,6 +308,8 @@ A finite dimensional vector space admitting a symplectic form $`\omega` necessar
 $$`\Omega = \begin{bmatrix} 0 & I_n\\ -I_n & 0\end{bmatrix},`
 
 where $`I_n` denotes the $`n\times n` identity matrix.
+
+Tau Ceti Review: [`LinearMap.BilinForm.IsAlt`](https://taucetiproject.org/review/#/d/LinearMap.BilinForm.IsAlt), [`LinearMap.BilinForm.Nondegenerate`](https://taucetiproject.org/review/#/d/LinearMap.BilinForm.Nondegenerate), [`LinearMap.BilinForm`](https://taucetiproject.org/review/#/d/LinearMap.BilinForm).
 :::
 
 :::definition "st_group.trace_moments"
@@ -333,6 +345,8 @@ the group of unitary transformations of a $`d`-dimensional $`\C`-vector space eq
 - $`A^\intercal \Omega A=\Omega` (symplectic).
 
 It is a compact real Lie group that can also be viewed as the intersection of $`\mathrm{U}(d)` and $`\mathrm{Sp}(d,\C)` in $`\GL_d(\C)`.
+
+Tau Ceti Review: [`Matrix.unitaryGroup`](https://taucetiproject.org/review/#/d/Matrix.unitaryGroup), [`Matrix.symplecticGroup`](https://taucetiproject.org/review/#/d/Matrix.symplecticGroup), [`SymplecticGroup.mem_iff'`](https://taucetiproject.org/review/#/d/SymplecticGroup.mem_iff%27), [`Matrix.J`](https://taucetiproject.org/review/#/d/Matrix.J), [`TauCeti.Matrix.isCompact_unitaryGroup`](https://taucetiproject.org/review/#/d/TauCeti.Matrix.isCompact_unitaryGroup), [`TauCeti.Lie.isEmbeddedLieSubgroup_of_isClosed`](https://taucetiproject.org/review/#/d/TauCeti.Lie.isEmbeddedLieSubgroup_of_isClosed).
 
 Depends on: {uses "st_group.symplectic_form"}[]
 :::

@@ -9,12 +9,14 @@ becomes a Verso `:::definition "L"` chunk. Its `(lean := ...)` names are the Mat
 declarations the knowl links with `DEFINES(..., mathlib=...)` (written as `\\lean{...}` by
 update_knowls.py) followed by the declarations listed for it in blueprint/src/lean_links.json
 (Tau Ceti and LeanBridge ones, and Mathlib ones the knowl does not link yet), whose modules the
-generated Prelude imports.
+generated Prelude imports. Those of them that have a Tau Ceti Review page (the snapshot
+blueprint/src/tauceti_review.json) are linked to it in a line "Tau Ceti Review: ...".
 """
 import json
 import re
 import os
 import sys
+from urllib.parse import quote
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 SRC = os.path.join(ROOT, "blueprint", "src")
@@ -51,6 +53,23 @@ for leaf in LEAVES:
 # the knowls themselves cannot link, and Mathlib ones for knowls that do not link them yet.
 _links_path = os.path.join(SRC, "lean_links.json")
 LEAN_LINKS = json.load(open(_links_path)) if os.path.exists(_links_path) else {}
+
+# The Mathlib and Tau Ceti declarations that have a page on Tau Ceti Review (independent reviews of every
+# statement of Tau Ceti and of the Mathlib it rests on), as a snapshot of the review data:
+# blueprint/src/tauceti_review.json, written by the knowl-audit tool review_snapshot.py. A declaration's page is
+# the site's address followed by its URI-encoded name.
+_review_path = os.path.join(SRC, "tauceti_review.json")
+REVIEW = json.load(open(_review_path)) if os.path.exists(_review_path) else {"site": "", "names": []}
+REVIEW_NAMES = set(REVIEW["names"])
+
+
+def review_line(decls):
+    """The Tau Ceti Review links of the declarations that have a review page, as a paragraph."""
+    rev = [d for d in decls if d in REVIEW_NAMES]
+    if not rev:
+        return ''
+    links = ', '.join(f'[`{d}`]({REVIEW["site"]}{quote(d, safe="-_.~")})' for d in rev)
+    return f'\nTau Ceti Review: {links}.\n'
 
 
 def tex_prelude_block():
@@ -254,7 +273,7 @@ def convert_knowl(path):
         lead = f'*{t}.*{link}\n\n'
     uses_line = ' '.join(f'{{uses "{u}"}}[]' for u in uses)
     lean = f' (lean := "{", ".join(decls)}")' if decls else ''
-    chunk = f':::definition "{label}"{lean}\n{lead}{body}\n'
+    chunk = f':::definition "{label}"{lean}\n{lead}{body}\n' + review_line(decls)
     if uses_line:
         chunk += f'\nDepends on: {uses_line}\n'
     chunk += ':::\n'

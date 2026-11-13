@@ -40,6 +40,8 @@ If $`P=(x_1,\dots,x_n)` is a point in $`\mathbb{A}^n(K)`, the $`x_i` are called 
 
 $$`\mathbb{A}^n(K) = \{(x_1,\dots,x_n)\mid x_1,\dots,x_n\in K\}.`
 
+Tau Ceti Review: [`AlgebraicGeometry.AffineSpace`](https://taucetiproject.org/review/#/d/AlgebraicGeometry.AffineSpace), [`AlgebraicGeometry.AffineSpace.homOverEquiv`](https://taucetiproject.org/review/#/d/AlgebraicGeometry.AffineSpace.homOverEquiv), [`AlgebraicGeometry.AffineSpace.coord`](https://taucetiproject.org/review/#/d/AlgebraicGeometry.AffineSpace.coord).
+
 Depends on: {uses "ring.field"}[]
 :::
 
@@ -49,6 +51,8 @@ Depends on: {uses "ring.field"}[]
 The *arithmetic genus* of a projective scheme $`X` is $`p_a(X) = (-1)^{\dim X}(\chi(X)-1)` where $`\chi(X)` is the
 {bpref "ag.holomorphic_euler_char"}[holomorphic Euler characteristic].
 
+Tau Ceti Review: [`AlgebraicGeometry.Scheme.Modules.eulerCharBelow`](https://taucetiproject.org/review/#/d/AlgebraicGeometry.Scheme.Modules.eulerCharBelow), [`AlgebraicGeometry.Scheme.genus`](https://taucetiproject.org/review/#/d/AlgebraicGeometry.Scheme.genus).
+
 Depends on: {uses "ag.holomorphic_euler_char"}[]
 :::
 
@@ -57,6 +61,8 @@ Depends on: {uses "ag.holomorphic_euler_char"}[]
 
 An *automorphism* of an {bpref "ag.variety"}[algebraic variety] is an isomorphism from the variety to itself.
 The set of automorphisms of an {bpref "ag.variety"}[algebraic variety] $`X` form a group $`\mathrm{Aut}(X)` under composition; this is the *automorphism group* of the {bpref "ag.variety"}[algebraic variety].
+
+Tau Ceti Review: [`CategoryTheory.Aut`](https://taucetiproject.org/review/#/d/CategoryTheory.Aut), [`CategoryTheory.Over`](https://taucetiproject.org/review/#/d/CategoryTheory.Over).
 
 Depends on: {uses "ag.variety"}[]
 :::
@@ -76,6 +82,8 @@ Let $`V` be an {bpref "ag.variety"}[algebraic variety] defined over a {bpref "ri
 
 An algebraic variety over a field $`L` is said to be a *base change* if it is the base change of an algebraic variety defined over a proper subfield of $`L`, equivalently, if its {bpref "ag.base_field"}[base field] is not a {bpref "ag.minimal_field"}[minimal field of definition].
 
+Tau Ceti Review: [`CategoryTheory.Over.pullback`](https://taucetiproject.org/review/#/d/CategoryTheory.Over.pullback).
+
 Depends on: {uses "ag.variety"}[] {uses "ring.field"}[]
 :::
 
@@ -83,6 +91,8 @@ Depends on: {uses "ag.variety"}[] {uses "ring.field"}[]
 *Base field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.base_field))
 
 The *base field*, of an {bpref "ag.abelian_variety"}[algebraic variety] is the field over which it is defined; it necessarily contains the coefficients of a set of defining equations for the variety, but it is not necessarily a {bpref "ag.minimal_field"}[minimal field of definition].
+
+Tau Ceti Review: [`AlgebraicGeometry.Scheme.Over`](https://taucetiproject.org/review/#/d/AlgebraicGeometry.Scheme.Over).
 
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.minimal_field"}[]
 :::
@@ -184,6 +194,8 @@ Depends on: {uses "ag.abelian_variety"}[] {uses "ag.jacobian"}[]
 
 An *algebraic curve* is an {bpref "ag.variety"}[algebraic variety] of dimension $`1.`
 
+Tau Ceti Review: [`AlgebraicGeometry.Scheme.IsCurveOver`](https://taucetiproject.org/review/#/d/AlgebraicGeometry.Scheme.IsCurveOver).
+
 Depends on: {uses "ag.variety"}[]
 :::
 
@@ -224,6 +236,8 @@ $$`V_0 \subset V_1 \subset \cdots \subset V_d`
 
 of distinct {bpref "ag.irreducible"}[irreducible] subvarieties of $`V`.
 
+Tau Ceti Review: [`topologicalKrullDim`](https://taucetiproject.org/review/#/d/topologicalKrullDim), [`TopologicalSpace.IrreducibleCloseds`](https://taucetiproject.org/review/#/d/TopologicalSpace.IrreducibleCloseds).
+
 Depends on: {uses "ag.irreducible"}[] {uses "ag.variety"}[]
 :::
 
@@ -231,6 +245,8 @@ Depends on: {uses "ag.irreducible"}[] {uses "ag.variety"}[]
 *Endomorphism algebra.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.endomorphism_algebra))
 
 The *endomorphism algebra* of an {bpref "ag.abelian_variety"}[abelian variety] $`A` is the $`\Q`-algebra $`\textrm{End}(A)\otimes\Q`, where $`\textrm{End}(A)` is the {bpref "ag.endomorphism_ring"}[endomorphism ring] of $`A`.
+
+Tau Ceti Review: [`TauCeti.AlgebraicGeometry.AbelianVariety.End`](https://taucetiproject.org/review/#/d/TauCeti.AlgebraicGeometry.AbelianVariety.End).
 
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.endomorphism_ring"}[]
 :::
@@ -241,6 +257,8 @@ Depends on: {uses "ag.abelian_variety"}[] {uses "ag.endomorphism_ring"}[]
 An *endomorphism* of an {bpref "ag.abelian_variety"}[abelian variety] $`A` over a field $`k` is a homomorphism $`\varphi \colon A \to A` defined over $`k`.  The set of endomorphisms of an abelian variety $`A` can be given the structure of a ring in which addition is defined pointwise (using the group operation of $`A`) and multiplication is composition; this ring is called the *endomorphism ring* of $`A`, denoted $`\textrm{End}(A)`.
 
 For endomorphisms defined over an extension of $`k`, we instead speak about the {bpref "ag.geom_endomorphism_ring"}[geometric endomorphism ring].
+
+Tau Ceti Review: [`TauCeti.AlgebraicGeometry.AbelianVariety.End`](https://taucetiproject.org/review/#/d/TauCeti.AlgebraicGeometry.AbelianVariety.End).
 
 Depends on: {uses "ag.abelian_variety"}[]
 :::
@@ -268,6 +286,8 @@ Depends on: {uses "group.galois.absolute"}[]
 
 For an abelian variety $`A` over a field $`F`, the *geometric endomorphism algebra* of $`A` is the $`\Q`-algebra $`\End(A_{\overline{F}}) \otimes \Q`, where $`\End(A_{\overline{F}})` is the {bpref "ag.geom_endomorphism_ring"}[geometric endomorphism ring] of $`A`.
 
+Tau Ceti Review: [`TauCeti.AlgebraicGeometry.AbelianVariety.End`](https://taucetiproject.org/review/#/d/TauCeti.AlgebraicGeometry.AbelianVariety.End), [`TauCeti.AlgebraicGeometry.AbelianVariety.End.baseChange`](https://taucetiproject.org/review/#/d/TauCeti.AlgebraicGeometry.AbelianVariety.End.baseChange), [`TauCeti.AlgebraicGeometry.AbelianVariety.baseChange`](https://taucetiproject.org/review/#/d/TauCeti.AlgebraicGeometry.AbelianVariety.baseChange).
+
 Depends on: {uses "ag.geom_endomorphism_ring"}[]
 :::
 
@@ -275,6 +295,8 @@ Depends on: {uses "ag.geom_endomorphism_ring"}[]
 *Geometric endomorphism ring.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.geom_endomorphism_ring))
 
 For an abelian variety $`A` over a field $`F`, the *geometric endomorphism ring* of $`A` is $`\End(A_{\overline{F}})`, the {bpref "ag.endomorphism_ring"}[endomorphism ring] of the base change of $`A` to an algebraic closure $`\overline{F}` of $`F`.
+
+Tau Ceti Review: [`TauCeti.AlgebraicGeometry.AbelianVariety.End`](https://taucetiproject.org/review/#/d/TauCeti.AlgebraicGeometry.AbelianVariety.End), [`TauCeti.AlgebraicGeometry.AbelianVariety.End.baseChange`](https://taucetiproject.org/review/#/d/TauCeti.AlgebraicGeometry.AbelianVariety.End.baseChange), [`TauCeti.AlgebraicGeometry.AbelianVariety.baseChange`](https://taucetiproject.org/review/#/d/TauCeti.AlgebraicGeometry.AbelianVariety.baseChange).
 
 Depends on: {uses "ag.endomorphism_ring"}[]
 :::
@@ -328,6 +350,8 @@ Depends on: {uses "ag.abelian_variety"}[] {uses "ag.conductor"}[] {uses "ag.jaco
 The *holomorphic Euler characteristic* of a projective scheme $`X` is the alternating sum $`\chi(X)=\chi(\mathcal{O}_X) = \sum_{i=0}^{\dim X} (-1)^i \dim H^i(X, \mathcal{O}_X)`.
 
 See also the {bpref "ag.arithmetic_genus"}[arithmetic genus].
+
+Tau Ceti Review: [`AlgebraicGeometry.Scheme.Modules.eulerCharBelow`](https://taucetiproject.org/review/#/d/AlgebraicGeometry.Scheme.Modules.eulerCharBelow).
 :::
 
 :::definition "ag.hyperelliptic_curve"
@@ -352,6 +376,8 @@ Depends on: {uses "ag.curve"}[] {uses "ag.curve.genus"}[]
 *Irreducible variety.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.irreducible))
 
 A {bpref "ag.variety"}[variety] defined over a field $`F` is *irreducible* if it is nonempty and cannot be decomposed as the union of two strictly smaller varieties over $`F`. It is *geometrically irreducible* if it remains irreducible when seen as a variety over the {bpref "nf.algebraic_closure"}[algebraic closure] of $`F`.
+
+Tau Ceti Review: [`IrreducibleSpace`](https://taucetiproject.org/review/#/d/IrreducibleSpace), [`AlgebraicGeometry.GeometricallyIrreducible`](https://taucetiproject.org/review/#/d/AlgebraicGeometry.GeometricallyIrreducible).
 
 Depends on: {uses "ag.variety"}[]
 :::
@@ -461,6 +487,8 @@ A *plane model* of a smooth projective curve $`X` is a closed curve $`f(x,y,z)=0
 
 A smooth proper {bpref "ag.variety"}[variety] $`X` over a {bpref "nf"}[number field] $`K` is said to have *potential good reduction* at a {bpref "nf.prime"}[prime] $`\mathfrak{p}` if there is a finite extension $`L \supset K` such that the {bpref "ag.base_change"}[base change] $`X_L` has {bpref "ag.good_reduction"}[good reduction] at all primes $`\mathfrak{q}` of $`L` above $`\mathfrak{p}`.
 
+Tau Ceti Review: [`WeierstrassCurve.HasPotentialGoodReduction`](https://taucetiproject.org/review/#/d/WeierstrassCurve.HasPotentialGoodReduction).
+
 Depends on: {uses "ag.base_change"}[] {uses "ag.good_reduction"}[] {uses "ag.variety"}[] {uses "nf"}[] {uses "nf.prime"}[]
 :::
 
@@ -485,6 +513,8 @@ The equivalence class of $`(x_0,x_1,\dots,x_n)` in $`\mathbb{P}^n(K)` is denoted
 
 $$`\mathbb{P}^n(K) = \{(x_0:\dots:x_n)\mid x_0,\dots,x_n\in K,\ \text{not all zero}\}.`
 
+Tau Ceti Review: [`Projectivization`](https://taucetiproject.org/review/#/d/Projectivization).
+
 Depends on: {uses "ring.field"}[]
 :::
 
@@ -505,6 +535,8 @@ Depends on: {uses "ag.curve"}[] {uses "ag.variety"}[] {uses "g2c.aut_grp"}[]
 
 The *real endomorphism algebra* of an abelian variety $`A` is the $`\R`-algebra $`\textrm{End}(A)\otimes\R`, where $`\textrm{End}(A)` is the {bpref "ag.endomorphism_ring"}[endomorphism ring] of $`A`.
 
+Tau Ceti Review: [`TauCeti.AlgebraicGeometry.AbelianVariety.End`](https://taucetiproject.org/review/#/d/TauCeti.AlgebraicGeometry.AbelianVariety.End).
+
 Depends on: {uses "ag.endomorphism_ring"}[]
 :::
 
@@ -512,6 +544,8 @@ Depends on: {uses "ag.endomorphism_ring"}[]
 *Real geometric endomorphism algebra.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.real_geom_endomorphism_algebra))
 
 The *real geometric endomorphism algebra* of an abelian variety $`A` over a field $`F` is the $`\R`-algebra $`\textrm{End}(A_{\overline{F}})\otimes\R`, where $`\textrm{End}(A_{\overline{F}})` is the {bpref "ag.geom_endomorphism_ring"}[geometric endomorphism ring] of $`A`.
+
+Tau Ceti Review: [`TauCeti.AlgebraicGeometry.AbelianVariety.End`](https://taucetiproject.org/review/#/d/TauCeti.AlgebraicGeometry.AbelianVariety.End), [`TauCeti.AlgebraicGeometry.AbelianVariety.baseChange`](https://taucetiproject.org/review/#/d/TauCeti.AlgebraicGeometry.AbelianVariety.baseChange).
 
 Depends on: {uses "ag.geom_endomorphism_ring"}[]
 :::
@@ -603,6 +637,8 @@ Let $`V` be a variety over a perfect field $`F`. A point $`P` of $`V` is *non-si
 *Splitting field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ag.splitting_field))
 
 The *splitting field* of an algebraic torus $`T` is the minimal {bpref "nf.is_galois"}[Galois] extension of its {bpref "ag.base_field"}[base field] over which $`T` becomes isomorphic to a power of the multiplicative group $`\mathbb{G}_m`.
+
+Tau Ceti Review: [`TauCeti.torusCommHopfAlgProperty`](https://taucetiproject.org/review/#/d/TauCeti.torusCommHopfAlgProperty).
 
 Depends on: {uses "ag.base_field"}[] {uses "nf.is_galois"}[]
 :::

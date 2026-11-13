@@ -21,6 +21,8 @@ This section lists the LMFDB definitions in the category `av`, apart from those 
 An *automorphism* of an {bpref "ag.variety"}[algebraic variety] is an isomorphism from the variety to itself.
 The set of automorphisms of an {bpref "ag.variety"}[algebraic variety] $`X` form a group $`\mathrm{Aut}(X)` under composition; this is the *automorphism group* of the {bpref "ag.variety"}[algebraic variety].
 
+Tau Ceti Review: [`CategoryTheory.Aut`](https://taucetiproject.org/review/#/d/CategoryTheory.Aut).
+
 Depends on: {uses "ag.variety"}[]
 :::
 
@@ -58,6 +60,8 @@ Depends on: {uses "ag.abelian_variety"}[]
 *Conductor.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.endomorphism_ring_conductor))
 
 The conductor $`\mathfrak{f}_R` of an order $`R` is the colon ideal $`(R:\mathcal{O})`, where $`\mathcal{O}` is the maximal order. Recall that a maximal ideal $`\mathfrak{m}` of $`R` is non-invertible if and only if $`\mathfrak{f}_R\subseteq \mathfrak{m}`.
+
+Tau Ceti Review: [`integralClosure`](https://taucetiproject.org/review/#/d/integralClosure), [`TauCeti.GlobalNumberFields.NumberFieldOrder.conductor`](https://taucetiproject.org/review/#/d/TauCeti.GlobalNumberFields.NumberFieldOrder.conductor).
 :::
 
 :::definition "av.galois_rep"
@@ -118,6 +122,8 @@ Depends on: {uses "ag.hyperelliptic_curve"}[] {uses "ag.jacobian"}[] {uses "av.i
 *Product abelian variety.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.is_product))
 
 Given two {bpref "ag.abelian_variety"}[abelian variety] $`A_1` and $`A_2` over the same field, one can construct the *product abelian variety* $`A_1\times A_2`.
+
+Tau Ceti Review: [`TauCeti.AlgebraicGeometry.AbelianVariety.prod`](https://taucetiproject.org/review/#/d/TauCeti.AlgebraicGeometry.AbelianVariety.prod).
 
 Depends on: {uses "ag.abelian_variety"}[]
 :::
@@ -191,6 +197,8 @@ Depends on: {uses "ag.abelian_variety"}[] {uses "ag.jacobian"}[] {uses "av.polar
 
 A *semiabelian variety* is a commutative group variety which is an extension of an {bpref "ag.abelian_variety"}[abelian variety] by a torus.
 
+Tau Ceti Review: [`TauCeti.AlgebraicGeometry.AbelianVariety`](https://taucetiproject.org/review/#/d/TauCeti.AlgebraicGeometry.AbelianVariety).
+
 Depends on: {uses "ag.abelian_variety"}[]
 :::
 
@@ -242,6 +250,8 @@ Depends on: {uses "ag.abelian_variety"}[] {uses "ag.curve.genus"}[] {uses "ag.di
 
 A *twist* of an {bpref "ag.abelian_variety"}[abelian variety] $`A` is an abelian variety $`A'` over the same field that becomes isomorphic to $`A` upon {bpref "ag.base_change"}[base change] to an algebraic closure.
 
+Tau Ceti Review: [`TauCeti.AlgebraicGeometry.AbelianVariety`](https://taucetiproject.org/review/#/d/TauCeti.AlgebraicGeometry.AbelianVariety), [`TauCeti.AlgebraicGeometry.AbelianVariety.baseChange`](https://taucetiproject.org/review/#/d/TauCeti.AlgebraicGeometry.AbelianVariety.baseChange).
+
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.base_change"}[]
 :::
 
@@ -249,4 +259,6 @@ Depends on: {uses "ag.abelian_variety"}[] {uses "ag.base_change"}[]
 *weak equivalence.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.weak_equivalence_class))
 
 Let $`R` be an order in an étale $`\mathbf{Q}`-algebra. Two fractional $`R`-ideals $`I` and $`J` are *weakly equivalent* if $`I_{\mathfrak{p}}\simeq J_{\mathfrak{p}}` as $`R_{\mathfrak{p}}`-modules for every maximal ideal $`\mathfrak{p}` of $`R`. If $`I` and $`J` are weakly equivalent then $`(I:I)=(J:J)`. Such ideals are also said to be locally isomorphic or in the same genus.
+
+Tau Ceti Review: [`LocalizedModule`](https://taucetiproject.org/review/#/d/LocalizedModule), [`Localization.AtPrime`](https://taucetiproject.org/review/#/d/Localization.AtPrime).
 :::

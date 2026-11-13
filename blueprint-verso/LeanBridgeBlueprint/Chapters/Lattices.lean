@@ -42,6 +42,8 @@ Depends on: {uses "lattice.definition"}[] {uses "lattice.similarity"}[]
 
 The *automorphism group* of an {bpref "lattice.definition"}[integral lattice] $`L` is the group of {bpref "lattice.isometry"}[isometries] from $`L` to itself. For a {bpref "lattice.positive_definite"}[positive definite] lattice, this is a finite group.
 
+Tau Ceti Review: [`TauCeti.IntegralLattice.Isometry`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.Isometry), [`TauCeti.IntegralLattice.specialOrthogonalGroup`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.specialOrthogonalGroup), [`TauCeti.IntegralLattice.IsPosDef.finite_isometry`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.IsPosDef.finite_isometry).
+
 Depends on: {uses "lattice.definition"}[] {uses "lattice.isometry"}[] {uses "lattice.positive_definite"}[]
 :::
 
@@ -122,6 +124,8 @@ For an {bpref "lattice.definition"}[integral lattice] $`L`, the *determinant* of
 
 If $`L` is {bpref "lattice.positive_definite"}[positive definite] of {bpref "lattice.dimension"}[rank] $`n`, then the determinant of $`L` is also the square of the volume of the fundamental parallelotope of the Euclidean embedding of $`L` in $`\R^n`.
 
+Tau Ceti Review: [`TauCeti.IntegralLattice.determinant`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.determinant), [`TauCeti.IntegralLattice.gramDet`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.gramDet).
+
 Depends on: {uses "lattice.definition"}[] {uses "lattice.dimension"}[] {uses "lattice.gram"}[] {uses "lattice.positive_definite"}[]
 :::
 
@@ -129,6 +133,8 @@ Depends on: {uses "lattice.definition"}[] {uses "lattice.dimension"}[] {uses "la
 *Rank of an integral lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.dimension))
 
 The *rank* of an {bpref "lattice.definition"}[integral lattice] is the rank of its underlying free $`\Z`-module.
+
+Tau Ceti Review: [`Module.finrank`](https://taucetiproject.org/review/#/d/Module.finrank), [`TauCeti.IntegralLattice.finrank_carrier`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.finrank_carrier).
 
 Depends on: {uses "lattice.definition"}[]
 :::
@@ -182,6 +188,8 @@ Depends on: {uses "group.abelian"}[] {uses "lattice.definition"}[] {uses "lattic
 
 For an {bpref "lattice.definition"}[integral lattice], $`L`, its *dual* is the set $`L^\#=\{\vec{v}\in \Q L:B(\vec{v},L)\subseteq \mathbb{Z}\}`. There is a unique rescaling of the bilinear map $`B` for which $`L^\#` is a {bpref "lattice.primitive"}[primitive] integral lattice; we will refer to the resulting integral lattice as the *rescaled dual* of $`L`.
 
+Tau Ceti Review: [`TauCeti.IntegralLattice.dualCarrier`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.dualCarrier).
+
 Depends on: {uses "lattice.definition"}[] {uses "lattice.primitive"}[]
 :::
 
@@ -193,6 +201,8 @@ Let $`L` be a {bpref "lattice.positive_definite"}[positive definite] {bpref "lat
 $$`\langle v_i, v_j \rangle = g_{ij},`
 
 for all $`i, j`.  Equivalently, if $`B` denotes the matrix whose rows are $`v_i`, then $`G = BB^T`.  This gives an explicit realization of the lattice $`L \hookrightarrow \R^n` as a discrete lattice in $`\R^n`, with respect to the usual dot product norm.
+
+Tau Ceti Review: [`Matrix.gram`](https://taucetiproject.org/review/#/d/Matrix.gram), [`TauCeti.IntegralLattice.gramMatrix`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.gramMatrix), [`TauCeti.IntegralLattice.IsPosDef.exists_realization`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.IsPosDef.exists_realization).
 
 Depends on: {uses "lattice.definition"}[] {uses "lattice.dimension"}[] {uses "lattice.gram"}[] {uses "lattice.positive_definite"}[]
 :::
@@ -218,6 +228,8 @@ An integral lattice $`L` is {bpref "lattice.parity"}[even] exactly when it is eq
 
 In general, the even sublattice $`L_0` of an integral lattice $`L` has index at most equal to 2.
 
+Tau Ceti Review: [`TauCeti.IntegralLattice.evenSublattice`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.evenSublattice), [`TauCeti.IntegralLattice.evenSubmodule`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.evenSubmodule).
+
 Depends on: {uses "lattice.definition"}[] {uses "lattice.parity"}[]
 :::
 
@@ -234,6 +246,8 @@ Depends on: {uses "lattice.density"}[] {uses "lattice.eutactic"}[] {uses "lattic
 
 For an {bpref "lattice.definition"}[integral lattice] $`L`, the *Festi--Veniani index* of $`L` is the index of the {bpref "lattice.automorphism_group"}[automorphism group] of $`L` in the automorphism group of the {bpref "lattice.discriminant_group"}[discriminant group] $`L^\vee/L`.
 
+Tau Ceti Review: [`TauCeti.IntegralLattice.discriminantQuadraticMap`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.discriminantQuadraticMap), [`TauCeti.IntegralLattice.Isometry.discriminantGroupEquiv`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.Isometry.discriminantGroupEquiv).
+
 Depends on: {uses "lattice.automorphism_group"}[] {uses "lattice.definition"}[] {uses "lattice.discriminant_group"}[]
 :::
 
@@ -241,6 +255,8 @@ Depends on: {uses "lattice.automorphism_group"}[] {uses "lattice.definition"}[] 
 *Genus of an integral lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.genus))
 
 For an {bpref "lattice.definition"}[integral lattice], $`L` with underlying quadratic space $`V`, the *genus* of $`L` is the set of all lattices $`M` on $`V`, such that $`M_p\cong L_p` for all primes $`p`.
+
+Tau Ceti Review: [`TauCeti.IntegralLattice.SameGenus`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.SameGenus), [`TauCeti.IntegralLattice.localIntegralForm`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.localIntegralForm).
 
 Depends on: {uses "lattice.definition"}[]
 :::
@@ -292,6 +308,8 @@ where $`v_j^*` runs through all vectors with which $`v_1,...v_{j-1}` can be exte
 
 The *group order* of an {bpref "lattice.definition"}[integral lattice] is the size of its {bpref "lattice.automorphism_group"}[automorphism group].
 
+Tau Ceti Review: [`TauCeti.IntegralLattice.Isometry`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.Isometry).
+
 Depends on: {uses "lattice.automorphism_group"}[] {uses "lattice.definition"}[]
 :::
 
@@ -303,6 +321,8 @@ The *Hermite number* of a {bpref "lattice.positive_definite"}[positive definite]
 $$`\frac{m(L)}{d^{\frac{1}{n}}},`
 
 where $`n` is the {bpref "lattice.dimension"}[rank] of $`L`, and $`m(L)` denotes the {bpref "lattice.minimal_vector"}[minimum] of $`L`.
+
+Tau Ceti Review: [`TauCeti.IntegralLattice.discriminant`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.discriminant), [`TauCeti.IntegralLattice.minimum`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.minimum).
 
 Depends on: {uses "lattice.definition"}[] {uses "lattice.determinant"}[] {uses "lattice.dimension"}[] {uses "lattice.minimal_vector"}[] {uses "lattice.positive_definite"}[]
 :::
@@ -325,6 +345,8 @@ Depends on: {uses "lattice.definition"}[] {uses "lattice.gram"}[] {uses "lattice
 Two {bpref "lattice.definition"}[integral lattices], $`L` and $`L'`, are *isometric* if there exists a map $`\sigma:L\rightarrow L'` such that $`Q(\vec{v})=Q(\sigma(\vec{v}))` for all $`\vec{v}\in L`. If this is the case, we say $`L\cong L'`. The set of all lattices $`M` such that $`M\cong L` is called the *isometry class* (or simply the *class*) of $`L`.
 
 If $`L` and $`L'` have associated {bpref "lattice.gram"}[Gram matrices] $`G` and $`G'`, then $`L\cong L'` implies that $`G=T\cdot G'\cdot T^t` for some $`T\in GL_n(\mathbb{Z})`.
+
+Tau Ceti Review: [`TauCeti.IntegralLattice.Isometry`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.Isometry), [`QuadraticMap.IsometryEquiv`](https://taucetiproject.org/review/#/d/QuadraticMap.IsometryEquiv), [`QuadraticMap.Equivalent`](https://taucetiproject.org/review/#/d/QuadraticMap.Equivalent), [`TauCeti.IntegralLattice.Isometry.ofGramMatrixEq`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.Isometry.ofGramMatrixEq).
 
 Depends on: {uses "lattice.definition"}[] {uses "lattice.gram"}[]
 :::
@@ -378,6 +400,8 @@ Depends on: {uses "lattice.automorphism_group"}[] {uses "lattice.definition"}[] 
 
 For an {bpref "lattice.definition"}[integral lattice], $`L`, the *minimum*, denoted $`m(L)`, is the length of the shortest non-zero vector in $`L`.  A *minimal vector* in $`L` is a vector $`\vec{v}` such that $`Q(\vec{v})=m(L)`.
 
+Tau Ceti Review: [`TauCeti.IntegralLattice.minimum`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.minimum), [`TauCeti.IntegralLattice.vectorsOfNorm`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.vectorsOfNorm).
+
 Depends on: {uses "lattice.definition"}[]
 :::
 
@@ -385,6 +409,8 @@ Depends on: {uses "lattice.definition"}[]
 *Minimum.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.minimum))
 
 For an {bpref "lattice.definition"}[integral lattice], $`L`, the *minimum*, denoted $`m(L)`, is the length of the shortest non-zero vector in $`L`.  A *minimal vector* in $`L` is a vector $`\vec{v}` such that $`Q(\vec{v})=m(L)`.
+
+Tau Ceti Review: [`TauCeti.IntegralLattice.minimum`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.minimum), [`TauCeti.IntegralLattice.vectorsOfNorm`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.vectorsOfNorm).
 
 Depends on: {uses "lattice.definition"}[]
 :::
@@ -398,6 +424,8 @@ $$`\{w \in L : B(v, w) = 0 \text{ for all } v \in L\} = 0.`
 
 Otherwise, we call $`L` degenerate.  All lattices in the database are nondegenerate, but some definitions require degenerate lattices.  In particular, the *signature* of a (possibly degenerate) lattice is a triple $`(n_+, n_0, n_-)` where $`n_+` and $`n_-` are as in the standard {bpref "lattice.signature"}[signature] and $`n_0` is the number of $`0` eigenvalues for a {bpref "lattice.gram"}[Gram matrix].  A lattice is degenerate if and only if $`n_0 > 0`.  We say $`L` is *positive semidefinite* if $`n_-=0`.
 
+Tau Ceti Review: [`TauCeti.IntegralLattice.IsNondegenerate`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.IsNondegenerate), [`TauCeti.IntegralLattice.signature`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.signature), [`TauCeti.IntegralLattice.isDegenerate_iff_sigNull_pos`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.isDegenerate_iff_sigNull_pos), [`TauCeti.IntegralLattice.isPosSemidef_iff_sigNeg_eq_zero`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.isPosSemidef_iff_sigNeg_eq_zero).
+
 Depends on: {uses "lattice.definition"}[] {uses "lattice.gram"}[]
 :::
 
@@ -405,6 +433,8 @@ Depends on: {uses "lattice.definition"}[] {uses "lattice.gram"}[]
 *Norm of a vector.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.norm))
 
 Given an {bpref "lattice.definition"}[integral lattice] $`L` with associated bilinear map $`B`, the *norm* of a vector $`v \in L` is $`B(v, v)`. If $`L` has {bpref "lattice.gram"}[Gram matrix] $`A`, then the norm of $`v` is $`v^T A v`.
+
+Tau Ceti Review: [`TauCeti.IntegralLattice.norm`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.norm), [`TauCeti.IntegralLattice.integralNorm`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.integralNorm).
 
 Depends on: {uses "lattice.definition"}[] {uses "lattice.gram"}[]
 :::
@@ -450,6 +480,8 @@ A theorem of Kneser states that every lattice admits a unique orthogonal decompo
 
 If an {bpref "lattice.definition"}[integral lattice] $`L` has {bpref "lattice.gram"}[Gram matrix] $`M`, we say that $`L` is *even* if all of the diagonal entries of $`M` are even, and *odd* otherwise.
 
+Tau Ceti Review: [`TauCeti.IntegralLattice.IsEven`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.IsEven).
+
 Depends on: {uses "lattice.definition"}[] {uses "lattice.gram"}[]
 :::
 
@@ -473,6 +505,8 @@ Given an integral lattice $`L` and a prime $`p`, a *$`p`-neighbor* of $`L` is an
 $$`[L : L \cap M ] = [M : L \cap M ] = p.`
 
 We denote the $`p`-neighborhood relation as $`L \sim_p M`.  This is a symmetric relation, but in general is not  reflexive nor transitive.  If two lattices are $`p`-neighbors, then they lie in the same genus.
+
+Tau Ceti Review: [`TauCeti.IntegralLattice.IsNeighbor`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.IsNeighbor), [`TauCeti.IntegralLattice.IsNeighbor.symm`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.IsNeighbor.symm), [`TauCeti.IntegralLattice.isNeighbor_one_iff`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.isNeighbor_one_iff), [`TauCeti.IntegralLattice.IsNeighbor.sameGenus`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.IsNeighbor.sameGenus).
 :::
 
 :::definition "lattice.pneighbor_adjacency"
@@ -492,6 +526,8 @@ An {bpref "lattice.definition"}[integral lattice] $`L` is *positive definite* if
 
 The {bpref "lattice.signature"}[signature] of a rank $`n` positive definite integral lattice is $`(n, 0)`.
 
+Tau Ceti Review: [`TauCeti.IntegralLattice.IsPosDef`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.IsPosDef), [`QuadraticMap.PosDef`](https://taucetiproject.org/review/#/d/QuadraticMap.PosDef), [`Matrix.PosDef`](https://taucetiproject.org/review/#/d/Matrix.PosDef).
+
 Depends on: {uses "lattice.definition"}[] {uses "lattice.gram"}[]
 :::
 
@@ -502,6 +538,8 @@ An {bpref "lattice.definition"}[integral lattice] $`L` is *positive definite* if
 
 The {bpref "lattice.signature"}[signature] of a rank $`n` positive definite integral lattice is $`(n, 0)`.
 
+Tau Ceti Review: [`TauCeti.IntegralLattice.IsPosDef`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.IsPosDef), [`QuadraticMap.PosDef`](https://taucetiproject.org/review/#/d/QuadraticMap.PosDef), [`Matrix.PosDef`](https://taucetiproject.org/review/#/d/Matrix.PosDef).
+
 Depends on: {uses "lattice.definition"}[] {uses "lattice.gram"}[] {uses "lattice.signature"}[]
 :::
 
@@ -510,6 +548,8 @@ Depends on: {uses "lattice.definition"}[] {uses "lattice.gram"}[] {uses "lattice
 
 An {bpref "lattice.definition"}[integral lattice], $`L`, with an associated {bpref "lattice.gram"}[Gram matrix], $`G=[g_{ij}]`, is called *primitive* if
 $`\gcd(\{g_{ij}:1\leq i\leq n,i\leq j\leq n\})=1`.
+
+Tau Ceti Review: [`LinearMap.BilinForm.scaleIdeal`](https://taucetiproject.org/review/#/d/LinearMap.BilinForm.scaleIdeal), [`TauCeti.IntegralLattice.scaleIdeal`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.scaleIdeal).
 
 Depends on: {uses "lattice.definition"}[] {uses "lattice.gram"}[]
 :::
@@ -522,6 +562,8 @@ Given an {bpref "lattice.definition"}[integral lattice] $`L` with {bpref "lattic
 $$`Q(\mathbf{v}) = \langle \mathbf{v},\mathbf{v}\rangle = \mathbf{v}^{\mathrm{T}}G\mathbf{v}.`
 
 We will refer to the value $`Q(v)` as the *norm* of $`v`.  By construction, $`Q(L) \subseteq \mathbb{Z}`, and we say that $`Q` or $`L` is *universal* if $`Q(L) = \mathbb{Z}`.  An {bpref "lattice.parity"}[even] lattice can never be universal since $`Q(L) \subseteq 2\mathbb{Z}`; we say that $`L` is *even universal* if $`Q(L) \supseteq 2\mathbb{Z}`.
+
+Tau Ceti Review: [`TauCeti.IntegralLattice.norm`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.norm), [`TauCeti.IntegralLattice.integralNorm`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.integralNorm).
 
 Depends on: {uses "lattice.definition"}[] {uses "lattice.gram"}[] {uses "lattice.parity"}[]
 :::
@@ -565,6 +607,8 @@ The *root sublattice* of a {bpref "lattice.positive_definite"}[positive definite
 
 A positive definite integral lattice $`L` is called a *root lattice* if it is equal to its root sublattice.
 
+Tau Ceti Review: [`TauCeti.IntegralLattice.restrict`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.restrict).
+
 Depends on: {uses "lattice.definition"}[] {uses "lattice.positive_definite"}[]
 :::
 
@@ -574,6 +618,8 @@ Depends on: {uses "lattice.definition"}[] {uses "lattice.positive_definite"}[]
 For a {bpref "lattice.nondegenerate"}[nondegenerate] {bpref "lattice.definition"}[integral lattice] $`L`, the *signature* of $`L` is a pair $`(n_+, n_-)`, where $`n_+` (resp. $`n_-`) is the number of positive (resp. negative) eigenvalues of a {bpref "lattice.gram"}[Gram matrix] for $`L`.  Note that the {bpref "lattice.nondegenerate"}[signature] of a degenerate lattice has an extra component $`n_0` for the number of $`0` eigenvalues.  The signature classifies lattices up to isometry over the real numbers.
 
 If $`L` has signature $`(n,0)` we say it is {bpref "lattice.positive_definite"}[positive definite]; if it has signature $`(0,n)` we say it is *negative definite*; otherwise we say it is *indefinite*.
+
+Tau Ceti Review: [`TauCeti.IntegralLattice.signature`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.signature).
 
 Depends on: {uses "lattice.definition"}[] {uses "lattice.gram"}[] {uses "lattice.nondegenerate"}[] {uses "lattice.positive_definite"}[]
 :::
@@ -668,6 +714,8 @@ Depends on: {uses "cmf"}[] {uses "cmf.level"}[] {uses "cmf.weight"}[] {uses "lat
 *Unimodular lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.unimodular))
 
 An {bpref "lattice.definition"}[integral lattice] is *unimodular* if its {bpref "lattice.determinant"}[determinant] is equal to 1.
+
+Tau Ceti Review: [`TauCeti.IntegralLattice.IsUnimodular`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.IsUnimodular), [`TauCeti.IntegralLattice.isUnimodular_iff_discriminant_eq_one`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.isUnimodular_iff_discriminant_eq_one), [`TauCeti.IntegralLattice.isUnimodular_iff_isUnit_determinant`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.isUnimodular_iff_isUnit_determinant).
 
 Depends on: {uses "lattice.definition"}[] {uses "lattice.determinant"}[]
 :::

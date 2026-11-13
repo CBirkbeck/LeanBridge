@@ -49,6 +49,8 @@ Depends on: {uses "artin"}[] {uses "artin.unramified_primes"}[] {uses "gg.galois
 
 Given an {bpref "artin"}[Artin representation] $`\rho:\Gal(\overline{\Q}/\Q)\to\GL(V)`, where $`V` is a finite dimensional vector space over $`\C`, we can compose with the $`\det:\GL(V)\to \C^\times` to get a one-dimensional Artin representation. This one-dimensional representation is called the *determinant* of $`\rho`.
 
+Tau Ceti Review: [`LinearMap.det`](https://taucetiproject.org/review/#/d/LinearMap.det).
+
 Depends on: {uses "artin"}[]
 :::
 
@@ -58,6 +60,8 @@ Depends on: {uses "artin"}[]
 The *dimension* of an {bpref "artin"}[Artin representation]
 $`\rho:\mathrm{Gal}(\overline{\mathbb{Q}}/\mathbb{Q})\to\mathrm{GL}(V)` is the dimension
 of the associated vector space $`V`.
+
+Tau Ceti Review: [`Module.finrank`](https://taucetiproject.org/review/#/d/Module.finrank).
 
 Depends on: {uses "artin"}[]
 :::
@@ -83,6 +87,8 @@ $$`\frac{1}{|G|}\sum_{g\in G} \chi(g^2).`
 
 It is $`0`, $`1`, or $`-1` depending on whether the {bpref "group.representation.type"}[type] of the representation is complex type, real, or quaternionic (symplectic) respectively.
 
+Tau Ceti Review: [`FDRep.frobeniusSchurIndicator`](https://taucetiproject.org/review/#/d/FDRep.frobeniusSchurIndicator), [`TauCeti.Representation.frobeniusSchurIndicator`](https://taucetiproject.org/review/#/d/TauCeti.Representation.frobeniusSchurIndicator).
+
 Depends on: {uses "group"}[] {uses "group.representation.character"}[] {uses "group.representation.type"}[]
 :::
 
@@ -100,6 +106,8 @@ Depends on: {uses "artin"}[] {uses "group.galois.absolute"}[]
 *Image of the representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/artin.gg_quotient))
 
 An {bpref "artin"}[Artin representation] $`\rho:\textrm{Gal}(\overline{\Q}/\Q)\to \GL(V)` factors through the Galois group of a finite extension of $`\Q`. Thus its image is a finite group $`G \subset \GL(V)` which is canonically isomorphic to the Galois group of a finite extension $`K/\Q` where $`K` is the fixed field of $`\ker(\rho)` and is called the {bpref "artin.number_field"}[Artin field] of $`\rho`. We sometimes say that $`\Gal(K/\Q)` is the *image of the Artin representation* $`\rho`.
+
+Tau Ceti Review: [`MonoidHom.range`](https://taucetiproject.org/review/#/d/MonoidHom.range), [`InfiniteGalois.normalAutEquivQuotient`](https://taucetiproject.org/review/#/d/InfiniteGalois.normalAutEquivQuotient).
 
 Depends on: {uses "artin"}[] {uses "artin.number_field"}[]
 :::
@@ -148,6 +156,8 @@ $`\rho:\mathrm{Gal}(\overline{\Q}/\Q)\to\GL(V)`
 by being the smallest Galois extension $`K/\mathbb{Q}` such that $`\rho` factors through
 $`\mathrm{Gal}(K/\Q)`.
 
+Tau Ceti Review: [`IntermediateField.fixedField`](https://taucetiproject.org/review/#/d/IntermediateField.fixedField), [`MonoidHom.ker`](https://taucetiproject.org/review/#/d/MonoidHom.ker), [`InfiniteGalois.isOpen_and_normal_iff_finite_and_isGalois`](https://taucetiproject.org/review/#/d/InfiniteGalois.isOpen_and_normal_iff_finite_and_isGalois).
+
 Depends on: {uses "artin"}[] {uses "nf"}[]
 :::
 
@@ -167,12 +177,16 @@ If $`\rho:G\to \GL_n(\C)` is a representation of a finite group $`G`, then $`\rh
 Given an irreducible representation, we can then ask which permutation representations contain it.  There is at least one because the regular representation of $`G` contains all irreducible representations of $`G`.
 
 To determine the smallest permutation representation, we pick one of smallest degree.  If the degree is small enough (less than 48 and not equal to 32), we pick one with the smallest {bpref "gg.tnumber"}[T-number].  Otherwise we give just the degree.
+
+Tau Ceti Review: [`Representation.ofMulAction`](https://taucetiproject.org/review/#/d/Representation.ofMulAction).
 :::
 
 :::definition "artin.projective_field" (lean := "IntermediateField.fixedField, Matrix.ProjGenLinGroup.mk, MonoidHom.ker, MonoidHom.finrank_fixedField_ker")
 *Projective Artin field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/artin.projective_field))
 
 Given a {bpref "artin.projective_image"}[projective Artin representation] $`\rho:\Gal(\overline{\Q}/\Q)\to \PGL_n(\C)`, the fixed field of the kernel of $`\rho` is the *projective Artin field* of the representation.
+
+Tau Ceti Review: [`IntermediateField.fixedField`](https://taucetiproject.org/review/#/d/IntermediateField.fixedField), [`Matrix.ProjGenLinGroup.mk`](https://taucetiproject.org/review/#/d/Matrix.ProjGenLinGroup.mk), [`MonoidHom.ker`](https://taucetiproject.org/review/#/d/MonoidHom.ker).
 
 Depends on: {uses "artin.projective_image"}[]
 :::
@@ -184,6 +198,8 @@ Composing an {bpref "artin"}[Artin representation] $`\Gal(\overline{\Q}/\Q)\to\G
 
 The image of $`\rho` is the *projective image* of the Artin representation.
 
+Tau Ceti Review: [`Matrix.ProjGenLinGroup`](https://taucetiproject.org/review/#/d/Matrix.ProjGenLinGroup), [`Matrix.ProjGenLinGroup.mk`](https://taucetiproject.org/review/#/d/Matrix.ProjGenLinGroup.mk), [`MonoidHom.range`](https://taucetiproject.org/review/#/d/MonoidHom.range).
+
 Depends on: {uses "artin"}[]
 :::
 
@@ -192,6 +208,8 @@ Depends on: {uses "artin"}[]
 
 The {bpref "artin.projective_image"}[projective image] of an {bpref "artin"}[Artin representation] is a finite {bpref "group.subgroup"}[subgroup] of $`\PGL_n(\C)`.  Possible subgroups have been classified for small $`n`.  The case which has garnered the most interest is when $`n=2`, in which case the image is isomorphic to either $`A_4`, $`S_4`, $`A_5`, or $`D_n` for some $`n\geq 2` (where $`D_2` is the Klein group).
 
+Tau Ceti Review: [`Matrix.ProjGenLinGroup`](https://taucetiproject.org/review/#/d/Matrix.ProjGenLinGroup).
+
 Depends on: {uses "artin"}[] {uses "artin.projective_image"}[] {uses "group.subgroup"}[]
 :::
 
@@ -199,6 +217,8 @@ Depends on: {uses "artin"}[] {uses "artin.projective_image"}[] {uses "group.subg
 *Projective stem field of an Artin representation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/artin.projective_stem_field))
 
 An *projective stem field* is a {bpref "nf.stem_field"}[stem field] for the {bpref "artin.projective_field"}[projective field] of an {bpref "artin"}[Artin representation].
+
+Tau Ceti Review: [`IsNormalClosure`](https://taucetiproject.org/review/#/d/IsNormalClosure), [`IntermediateField.fixedField`](https://taucetiproject.org/review/#/d/IntermediateField.fixedField), [`Matrix.ProjGenLinGroup.mk`](https://taucetiproject.org/review/#/d/Matrix.ProjGenLinGroup.mk).
 
 Depends on: {uses "artin"}[] {uses "artin.projective_field"}[] {uses "nf.stem_field"}[]
 :::
@@ -209,6 +229,8 @@ Depends on: {uses "artin"}[] {uses "artin.projective_field"}[] {uses "nf.stem_fi
 If $`\rho:\Gal(\overline{\Q}/\Q)\to\GL_n(\C)` is an {bpref "artin"}[Artin representation] with {bpref "artin.number_field"}[Artin field] $`K`, then a prime $`p` is *ramified* if it is {bpref "nf.ramified_primes"}[ramified] in $`K/\Q`.
 
 Equivalently, a prime is ramified if the inertia subgroup for a prime above $`p` is not contained in the kernel of $`\rho`.
+
+Tau Ceti Review: [`Algebra.IsUnramifiedIn`](https://taucetiproject.org/review/#/d/Algebra.IsUnramifiedIn), [`Algebra.isUnramifiedIn_iff_forall_ramificationIdx_eq_one`](https://taucetiproject.org/review/#/d/Algebra.isUnramifiedIn_iff_forall_ramificationIdx_eq_one).
 
 Depends on: {uses "artin"}[] {uses "artin.number_field"}[] {uses "nf.ramified_primes"}[]
 :::
@@ -229,6 +251,8 @@ Depends on: {uses "artin"}[] {uses "lfunction.functional_equation"}[]
 
 An *Artin stem field* is a {bpref "nf.stem_field"}[stem field] for the {bpref "artin.number_field"}[Artin field] of an {bpref "artin"}[Artin representation].
 
+Tau Ceti Review: [`IsNormalClosure`](https://taucetiproject.org/review/#/d/IsNormalClosure).
+
 Depends on: {uses "artin"}[] {uses "artin.number_field"}[] {uses "nf.stem_field"}[]
 :::
 
@@ -236,6 +260,8 @@ Depends on: {uses "artin"}[] {uses "artin.number_field"}[] {uses "nf.stem_field"
 *Trace of complex conjugation.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/artin.trace_of_complex_conj))
 
 For an {bpref "artin"}[Artin Representation], complex conjugation gives a well-defined conjugacy class $`c` in the Galois group, so it has a well-defined character value.
+
+Tau Ceti Review: [`Representation.character`](https://taucetiproject.org/review/#/d/Representation.character), [`Representation.char_conj`](https://taucetiproject.org/review/#/d/Representation.char_conj).
 
 Depends on: {uses "artin"}[]
 :::
@@ -246,6 +272,8 @@ Depends on: {uses "artin"}[]
 If $`\rho:\Gal(\overline{\Q}/\Q)\to\GL_n(\C)` is an {bpref "artin"}[Artin representation], a prime $`p` is *unramified* if it is not {bpref "artin.ramified_primes"}[ramified].
 
 Equivalently, a prime is unramified if the inertia subgroup for a prime above $`p` in the {bpref "artin.number_field"}[Artin field] of $`\rho` is contained in the kernel of $`\rho`.
+
+Tau Ceti Review: [`Algebra.IsUnramifiedIn`](https://taucetiproject.org/review/#/d/Algebra.IsUnramifiedIn).
 
 Depends on: {uses "artin"}[] {uses "artin.number_field"}[] {uses "artin.ramified_primes"}[]
 :::

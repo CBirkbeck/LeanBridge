@@ -133,6 +133,8 @@ where $`q=e^{2\pi iz}`.
 It is related to the Discriminant modular form via the formula
 
 $$`\Delta(z)=\eta^{24}(z).`
+
+Tau Ceti Review: [`ModularForm.eta`](https://taucetiproject.org/review/#/d/ModularForm.eta).
 :::
 
 :::definition "mf.half_integral_weight.shimura_decomposition"
@@ -217,6 +219,8 @@ An example of a quasi-modular form is the Eisenstein series $`E_2(z)=1-24\sum_{n
 
 $$`E_2(\gamma z)=(cz+d)^2E_2(z)-\frac{6i}{\pi}c(cz+d).`
 
+Tau Ceti Review: [`EisensteinSeries.E2`](https://taucetiproject.org/review/#/d/EisensteinSeries.E2).
+
 Depends on: {uses "af.divisor_function"}[] {uses "cmf.weight"}[] {uses "group.fuchsian"}[] {uses "group.sl2z"}[] {uses "mf.multipliersystem"}[] {uses "mf.slash_action"}[] {uses "mf.upper_half_plane"}[]
 :::
 
@@ -224,12 +228,16 @@ Depends on: {uses "af.divisor_function"}[] {uses "cmf.weight"}[] {uses "group.fu
 The group $`\Gamma_0(N)` is the subgroup of $`\textrm{SL}(2,\mathbb{Z})` that consists of matrices that become upper triangular when reduced modulo $`N`.  That is,
 
 $$`\Gamma_0(N) = \left\lbrace \left .\begin{pmatrix} a & b \\ c & d \end{pmatrix}\in \textrm{SL}(2,\mathbb{Z})\ \right|\  c\equiv 0\pmod N \right\rbrace.`
+
+Tau Ceti Review: [`CongruenceSubgroup.Gamma0`](https://taucetiproject.org/review/#/d/CongruenceSubgroup.Gamma0), [`CongruenceSubgroup.Gamma0_mem`](https://taucetiproject.org/review/#/d/CongruenceSubgroup.Gamma0_mem).
 :::
 
 :::definition "mf.sl2.subgroup.gamma1n" (lean := "CongruenceSubgroup.Gamma1, CongruenceSubgroup.Gamma1_mem")
 The group $`\Gamma_1(N)` is the subgroup of $`\textrm{SL}(2,\mathbb{Z})` that consists of matrices that become upper triangular with ones on the diagonal when reduced modulo $`N`.  That is,
 
 $$`\Gamma_1(N) = \left\lbrace \left .\begin{pmatrix} a & b \\ c & d \end{pmatrix}\in \textrm{SL}(2,\mathbb{Z})\ \right|\ a\equiv 1,\ c\equiv 0,\ d\equiv 1\pmod N \right\rbrace.`
+
+Tau Ceti Review: [`CongruenceSubgroup.Gamma1`](https://taucetiproject.org/review/#/d/CongruenceSubgroup.Gamma1), [`CongruenceSubgroup.Gamma1_mem`](https://taucetiproject.org/review/#/d/CongruenceSubgroup.Gamma1_mem).
 :::
 
 :::definition "mf.slash_action" (lean := "SlashAction, ModularForm.slash_def")
@@ -242,6 +250,8 @@ $$`f|_k\gamma(z)=\det(\gamma)^{k/2}(cz+d)^{-k}f(\gamma z).`
 Note that, if $`f` is a {bpref "mf"}[modular form] with {bpref "mf.multipliersystem"}[multiplier system] $`v`, the {bpref "mf.transformation_property"}[modularity condition] is equivalent to
 
 $$`f|_k\gamma(z)=v(\gamma)f(z).`
+
+Tau Ceti Review: [`SlashAction`](https://taucetiproject.org/review/#/d/SlashAction), [`ModularForm.slash_def`](https://taucetiproject.org/review/#/d/ModularForm.slash_def).
 
 Depends on: {uses "mf"}[] {uses "mf.multipliersystem"}[] {uses "mf.upper_half_plane"}[]
 :::
@@ -276,6 +286,8 @@ The {bpref "group.sl2z"}[modular group] $`\SL_2(\Z)` acts properly discontinuous
 $$`\left( \begin{matrix} a & b \\ c& d \end{matrix} \right) \cdot z = \frac{az+b}{cz+d},`
 
 with the obvious conventions regarding $`\infty`.
+
+Tau Ceti Review: [`UpperHalfPlane`](https://taucetiproject.org/review/#/d/UpperHalfPlane).
 
 Depends on: {uses "group.sl2z"}[]
 :::

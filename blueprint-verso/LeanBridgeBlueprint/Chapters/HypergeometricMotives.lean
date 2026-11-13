@@ -57,6 +57,8 @@ list of positive integers $`[u_1,\dots,u_k]` with $`\sum_{i=1}^k \phi(u_i) = d`.
 
 Hypergeometric families $`H(A,B)` are indexed by pairs
 $`(A,B)` of cusp-indices of a common degree having no common entries.
+
+Tau Ceti Review: [`Nat.totient`](https://taucetiproject.org/review/#/d/Nat.totient).
 :::
 
 :::definition "hgm.defining_parameter_ppart" (lean := "Hypergeometric.Parameters.pPart, Hypergeometric.Parameters.pPartCommon, Hypergeometric.CuspIndex.pPartMultiset, Hypergeometric.Parameters.pPart_A_add_pPartCommon, Hypergeometric.Parameters.pPartDegree_add_sum_totient_pPartCommon")

@@ -210,6 +210,8 @@ where $`\mathcal{N}` is an integral ideal of $`\mathcal{O}_K`.  In this case one
 
 Note these levels are *$`\mathbf{GL}_2`-levels*.  It is also possible to consider *$`\mathbf{SL}_2`-levels*, which are subgroups of $`\SL_2(\mathcal{O}_K)`: for example, $`\Gamma_0(\mathcal{N})\cap\SL_2(\mathcal{O}_K)`.  Since such groups are smaller, the corresponding spaces of Bianchi forms are larger, containing as a subspace the forms on $`\Gamma_0(\mathcal{N})`.
 
+Tau Ceti Review: [`Ideal.absNorm`](https://taucetiproject.org/review/#/d/Ideal.absNorm).
+
 Depends on: {uses "mf.bianchi"}[] {uses "mf.bianchi.bianchigroup"}[] {uses "mf.bianchi.weight"}[] {uses "nf.ideal_labels"}[]
 :::
 

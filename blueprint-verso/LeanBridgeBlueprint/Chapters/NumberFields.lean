@@ -16,6 +16,8 @@ This section lists the LMFDB definitions in the category `nf`. Each definition l
 
 A *number field* is a field extension of finite {bpref "nf.degree"}[degree] of the field $`\Q` of rational numbers. In the LMFDB, number fields are identified by a {bpref "nf.label"}[label].
 
+Tau Ceti Review: [`NumberField`](https://taucetiproject.org/review/#/d/NumberField).
+
 Depends on: {uses "nf.degree"}[]
 :::
 
@@ -24,6 +26,8 @@ Depends on: {uses "nf.degree"}[]
 
 A {bpref "nf"}[number field] $`K` is *abelian* if it is Galois over $`\Q` and its {bpref "nf.galois_group"}[Galois group] $`\Gal(K/\Q)` is abelian.
 
+Tau Ceti Review: [`IsAbelianGalois`](https://taucetiproject.org/review/#/d/IsAbelianGalois).
+
 Depends on: {uses "nf"}[] {uses "nf.galois_group"}[]
 :::
 
@@ -31,6 +35,8 @@ Depends on: {uses "nf"}[] {uses "nf.galois_group"}[]
 *Absolute discriminant of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.abs_discriminant))
 
 The *absolute discriminant* of a {bpref "nf"}[number field] is the absolute value of its {bpref "nf.discriminant"}[discriminant].
+
+Tau Ceti Review: [`NumberField.discr`](https://taucetiproject.org/review/#/d/NumberField.discr).
 
 Depends on: {uses "nf"}[] {uses "nf.discriminant"}[]
 :::
@@ -49,6 +55,8 @@ An *absolute value* of a field $`k` is a function $`|\ |:k\to \R_{\ge 0}` that s
 Absolute values that satisfy the stronger condition $`|x+y|\le \max(|x|,|y|)` are *nonarchimedean*, while those that do not are *archimedean*; the latter arise only in fields of characteristic zero.  The *trivial absolute value* assigns 1 to every nonzero element of $`k`; it is a nonarchimedean absolute value.
 
 Absolute values $`|\ |_1` and $`|\ |_2` are *equivalent* if there exists a positive real number $`c` such that $`|x|_1 = |x|_2^c` for all $`x\in k`; this defines an equivalence relation on the set of absolute values of $`k`.
+
+Tau Ceti Review: [`Archimedean`](https://taucetiproject.org/review/#/d/Archimedean), [`AbsoluteValue`](https://taucetiproject.org/review/#/d/AbsoluteValue), [`IsNonarchimedean`](https://taucetiproject.org/review/#/d/IsNonarchimedean).
 :::
 
 :::definition "nf.algebraic_closure" (lean := "IsAlgClosure, AlgebraicClosure, isAlgClosure_iff_forall_isAlgClosed_eq_top, IsAlgClosure.equiv, nontrivial_algEquiv_of_not_isSepClosed, NumberField.ringEquivAlgebraicClosure")
@@ -57,6 +65,8 @@ Absolute values $`|\ |_1` and $`|\ |_2` are *equivalent* if there exists a posit
 An algebraic closure of a field $`K` is a minimal algebraically closed field extension of $`K`.  It is unique up to (non-canonical) isomorphism. It is usually denoted $`\overline{K}`.
 
 For any {bpref "nf"}[number field], its algebraic closure is usually denoted by $`\overline{\Q}`, and it is isomorphic to the field of all algebraic numbers in $`\C`.
+
+Tau Ceti Review: [`IsAlgClosure`](https://taucetiproject.org/review/#/d/IsAlgClosure), [`AlgebraicClosure`](https://taucetiproject.org/review/#/d/AlgebraicClosure), [`IsAlgClosure.equiv`](https://taucetiproject.org/review/#/d/IsAlgClosure.equiv).
 
 Depends on: {uses "nf"}[]
 :::
@@ -73,6 +83,8 @@ Depends on: {uses "nf"}[] {uses "nf.degree"}[] {uses "nf.discriminant"}[] {uses 
 *Class number of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.class_number))
 
 The *class number* of a {bpref "nf"}[number field] $`K` is the order of the {bpref "nf.ideal_class_group"}[ideal class group] of $`K`.
+
+Tau Ceti Review: [`NumberField.classNumber`](https://taucetiproject.org/review/#/d/NumberField.classNumber).
 
 Depends on: {uses "nf"}[] {uses "nf.ideal_class_group"}[]
 :::
@@ -92,6 +104,8 @@ Depends on: {uses "nf"}[] {uses "nf.class_number"}[] {uses "nf.discriminant"}[] 
 
 A *CM field* is a {bpref "nf.totally_imaginary"}[totally complex] quadratic extension of a {bpref "nf.totally_real"}[totally real] {bpref "nf"}[number field].
 
+Tau Ceti Review: [`NumberField.IsCMField`](https://taucetiproject.org/review/#/d/NumberField.IsCMField), [`NumberField.IsCMField.ofCMExtension`](https://taucetiproject.org/review/#/d/NumberField.IsCMField.ofCMExtension), [`NumberField.isTotallyReal_maximalRealSubfield`](https://taucetiproject.org/review/#/d/NumberField.isTotallyReal_maximalRealSubfield).
+
 Depends on: {uses "nf"}[] {uses "nf.totally_imaginary"}[] {uses "nf.totally_real"}[]
 :::
 
@@ -103,6 +117,8 @@ A *complex embedding* of a {bpref "nf"}[number field] $`K` is a nonzero field ho
 A single number field may have several distinct complex embeddings.
 
 For $`K=\Q(a)` where $`a` is an algebraic number with {bpref "nf.minimal_polynomial"}[minimal polynomial] $`f(X)`, the embeddings $`\iota:K\to\C` are determined by the value $`z=\iota(a)` which is one of the complex roots of $`f(X)`, and the embedding is complex when $`z\notin\R`.  The complex embeddings come in conjugate pairs.
+
+Tau Ceti Review: [`NumberField.ComplexEmbedding.IsReal`](https://taucetiproject.org/review/#/d/NumberField.ComplexEmbedding.IsReal), [`NumberField.ComplexEmbedding.conjugate`](https://taucetiproject.org/review/#/d/NumberField.ComplexEmbedding.conjugate).
 
 Depends on: {uses "nf"}[] {uses "nf.minimal_polynomial"}[]
 :::
@@ -121,6 +137,8 @@ Depends on: {uses "nf"}[] {uses "nf.abelian"}[]
 A *defining polynomial* of a {bpref "nf"}[number field] $`K` is an irreducible polynomial $`f\in\Q[x]` such that $`K\cong \mathbb{Q}(a)`, where $`a` is a root of $`f(x)`. Equivalently, it is a polynomial $`f\in \Q[x]` such that $`K \cong \Q[x]/(f)`.
 
 A root $`a \in K` of the defining polynomial is a {bpref "nf.generator"}[generator] of $`K`.
+
+Tau Ceti Review: [`IsAdjoinRoot`](https://taucetiproject.org/review/#/d/IsAdjoinRoot), [`AdjoinRoot`](https://taucetiproject.org/review/#/d/AdjoinRoot), [`IntermediateField.adjoinRootEquivAdjoin`](https://taucetiproject.org/review/#/d/IntermediateField.adjoinRootEquivAdjoin).
 
 Depends on: {uses "nf"}[]
 :::
@@ -141,6 +159,8 @@ Depends on: {uses "nf.defining_polynomial"}[] {uses "nf.polredabs"}[]
 
 The *degree* of a {bpref "nf"}[number field] $`K` is its degree as an extension of the rational field $`\mathbb{Q}`, i.e., the dimension of $`K` as a $`\mathbb{Q}`-vector space.  The degree of $`K/\Q` is written $`[K:\mathbb{Q}]`.
 
+Tau Ceti Review: [`Module.finrank`](https://taucetiproject.org/review/#/d/Module.finrank).
+
 Depends on: {uses "nf.degree_mathlib_def"}[]
 :::
 
@@ -148,6 +168,8 @@ Depends on: {uses "nf.degree_mathlib_def"}[]
 *Number field degree (mathlib).* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.degree_mathlib_def))
 
 This is also defined in mathlib as 'finrank ℚ K', where $`K` is the number field and 'finrank ℚ' is its *module rank* over the rationals.
+
+Tau Ceti Review: [`Module.finrank`](https://taucetiproject.org/review/#/d/Module.finrank).
 :::
 
 :::definition "nf.dirichlet_group"
@@ -175,6 +197,8 @@ where $`\sigma_1,..., \sigma_n` are the embeddings of $`K` into the complex numb
 
 The discriminant of $`K` is a non-zero integer divisible exactly by the primes which {bpref "nf.ramified_primes"}[ramify] in $`K`.
 
+Tau Ceti Review: [`NumberField.discr`](https://taucetiproject.org/review/#/d/NumberField.discr).
+
 Depends on: {uses "nf"}[] {uses "nf.integral_basis"}[]
 :::
 
@@ -184,6 +208,8 @@ Depends on: {uses "nf"}[] {uses "nf.integral_basis"}[]
 If $`K/F` is a finite algebraic extension, it can be defined by a polynomial $`f(x)\in F[x]`.  The *polynomial discriminant*, $`\mathrm{disc}(f)`, is well-defined up a factor of a non-zero square.  The *discriminant root field* of the extension is $`F(\sqrt{\mathrm{disc}(f)})`, which is well-defined.
 
 If $`n=[K:F]`, then the Galois group $`G` for $`K/F` is a subgroup of $`S_n`, well-defined up to conjugation.  The discriminant root field can alternatively be described as the fixed field of $`G\cap A_n`.
+
+Tau Ceti Review: [`Polynomial.discr`](https://taucetiproject.org/review/#/d/Polynomial.discr), [`TauCeti.discrField`](https://taucetiproject.org/review/#/d/TauCeti.discrField), [`TauCeti.evenAutSubgroup`](https://taucetiproject.org/review/#/d/TauCeti.evenAutSubgroup), [`TauCeti.fixedField_evenAutSubgroup`](https://taucetiproject.org/review/#/d/TauCeti.fixedField_evenAutSubgroup).
 :::
 
 :::definition "nf.embedding" (lean := "RingHom, NumberField.Embeddings.card, NumberField.ComplexEmbedding.isReal_iff_range_subset, NumberField.ComplexEmbedding.ne_and_mk_eq_iff_eq_conjugate, NumberField.ComplexEmbedding.equivRootSet, NumberField.ComplexEmbedding.isReal_iff_apply_mem_range")
@@ -194,6 +220,8 @@ An *embedding* of a {bpref "nf"}[number field] $`K` is a field homomorphism $`K\
 Complex embeddings necessarily come in conjugate pairs.  The {bpref "nf.signature"}[signature] of a number field is determined by the number of real embeddings and the number of pairs of conjugate complex embeddings.
 
 For $`K=\Q(a)`, where $`a` is an algebraic number with {bpref "nf.minimal_polynomial"}[minimal polynomial] $`f(X)`, each embedding $`\iota` is uniquely determined by the value $`z=\iota(a)`, which is one of the complex roots of $`f(X)`. The embedding is real if $`z\in\R` and complex if $`z\notin\R`.
+
+Tau Ceti Review: [`RingHom`](https://taucetiproject.org/review/#/d/RingHom), [`NumberField.Embeddings.card`](https://taucetiproject.org/review/#/d/NumberField.Embeddings.card).
 
 Depends on: {uses "nf"}[] {uses "nf.complex_embedding"}[] {uses "nf.degree"}[] {uses "nf.minimal_polynomial"}[] {uses "nf.real_embedding"}[] {uses "nf.signature"}[]
 :::
@@ -211,12 +239,16 @@ Suppose hereafter that $`p` is unramified. For each $`P_i`, there is a unique el
 of $`G` that fixes $`P_i` and acts on the quotient $`\mathcal{O}_K/P_i` via the Frobenius automorphism $`x \mapsto x^p`; this element is the *Frobenius element* associated to $`P_i`. The Frobenius elements associated to the different $`P_i` are conjugate to each other, so their images in $`S_n` all have the same lengths of cycles in their disjoint cycle decompositions. This is the *Frobenius cycle type* of $`p`.
 
 Alternatively, for each prime $`P_i`, its *residue degree* $`f_i` is defined by $`|\mathcal{O}_K/P_i| = p^{f_i}`.  The list of $`f_i` is the same partition of $`n` as the cycle decomposition described above.
+
+Tau Ceti Review: [`IsArithFrobAt`](https://taucetiproject.org/review/#/d/IsArithFrobAt), [`Ideal.inertiaDeg`](https://taucetiproject.org/review/#/d/Ideal.inertiaDeg).
 :::
 
 :::definition "nf.fundamental_units" (lean := "NumberField.Units.fundSystem, NumberField.Units.basisModTorsion, NumberField.Units.exist_unique_eq_mul_prod")
 *Fundamental units of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.fundamental_units))
 
 A minimal set of generators of a maximal torsion-free subgroup of the {bpref "nf.unit_group"}[unit group] of a {bpref "nf"}[number field] $`K` is called a set of *fundamental units* for $`K`.
+
+Tau Ceti Review: [`NumberField.Units.fundSystem`](https://taucetiproject.org/review/#/d/NumberField.Units.fundSystem), [`NumberField.Units.exist_unique_eq_mul_prod`](https://taucetiproject.org/review/#/d/NumberField.Units.exist_unique_eq_mul_prod).
 
 Depends on: {uses "nf"}[] {uses "nf.unit_group"}[]
 :::
@@ -225,6 +257,8 @@ Depends on: {uses "nf"}[] {uses "nf.unit_group"}[]
 *Galois closure of an extension.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.galois_closure))
 
 If $`K` is a {bpref "nf.separable"}[separable] algebraic extension of a field $`F`, then its *Galois closure* is the smallest extension field, in terms of inclusion, which contains $`K` and is Galois over $`F`.  If $`K=F(\alpha)` where $`\alpha` has irreducible polynomial $`f` over $`F`, then the Galois closure of $`K` is the splitting field of $`f` over $`F`.
+
+Tau Ceti Review: [`IntermediateField.normalClosure`](https://taucetiproject.org/review/#/d/IntermediateField.normalClosure), [`IsNormalClosure`](https://taucetiproject.org/review/#/d/IsNormalClosure), [`IsGalois.normalClosure_of_isSeparable`](https://taucetiproject.org/review/#/d/IsGalois.normalClosure_of_isSeparable), [`IntermediateField.normalClosure_le_iff_of_normal`](https://taucetiproject.org/review/#/d/IntermediateField.normalClosure_le_iff_of_normal).
 
 Depends on: {uses "nf.separable"}[]
 :::
@@ -241,6 +275,8 @@ This automorphism group acts on the $`n` embeddings $`K\hookrightarrow K^{gal}` 
 We use the notation $`\Gal(K/F)` for $`\Aut(K/F)` when $`K=K^{gal}`.
 
 There is a naming convention for Galois groups up to degree $`47`.
+
+Tau Ceti Review: [`Polynomial.Gal`](https://taucetiproject.org/review/#/d/Polynomial.Gal), [`Polynomial.Gal.galActionHom`](https://taucetiproject.org/review/#/d/Polynomial.Gal.galActionHom), [`Polynomial.Gal.galActionHom_injective`](https://taucetiproject.org/review/#/d/Polynomial.Gal.galActionHom_injective), [`TauCeti.galEquivNormalClosure`](https://taucetiproject.org/review/#/d/TauCeti.galEquivNormalClosure).
 
 Depends on: {uses "lf.automorphism_group"}[] {uses "nf.degree"}[] {uses "nf.galois_closure"}[] {uses "nf.separable"}[] {uses "ring.field"}[]
 :::
@@ -292,6 +328,8 @@ The notation follows Mazur and Ullom, Galois module structure of units in real b
 
 The *Galois root discriminant* of a {bpref "nf"}[number field] is the {bpref "nf.root_discriminant"}[root discriminant] of its {bpref "nf.galois_closure"}[Galois closure].
 
+Tau Ceti Review: [`IntermediateField.normalClosure`](https://taucetiproject.org/review/#/d/IntermediateField.normalClosure), [`IsNormalClosure`](https://taucetiproject.org/review/#/d/IsNormalClosure).
+
 Depends on: {uses "nf"}[] {uses "nf.galois_closure"}[] {uses "nf.root_discriminant"}[]
 :::
 
@@ -300,6 +338,8 @@ Depends on: {uses "nf"}[] {uses "nf.galois_closure"}[] {uses "nf.root_discrimina
 
 A *generator* of a {bpref "nf"}[number field] $`K` is an element $`a\in K` such that $`K=\Q(a)`.
 The {bpref "nf.minimal_polynomial"}[minimal polynomial] of a generator is a {bpref "nf.defining_polynomial"}[defining polynomial] for $`K`.
+
+Tau Ceti Review: [`IntermediateField.adjoin`](https://taucetiproject.org/review/#/d/IntermediateField.adjoin), [`IntermediateField.adjoinRootEquivAdjoin`](https://taucetiproject.org/review/#/d/IntermediateField.adjoinRootEquivAdjoin), [`Field.exists_primitive_element`](https://taucetiproject.org/review/#/d/Field.exists_primitive_element).
 
 Depends on: {uses "nf"}[] {uses "nf.defining_polynomial"}[] {uses "nf.minimal_polynomial"}[]
 :::
@@ -316,6 +356,8 @@ In the Hilbert modular form pages, an ideal $`I` of a number field is represente
 The *ideal class group* of a {bpref "nf"}[number field] $`K` with {bpref "nf.ring_of_integers"}[ring of integers] $`O_K` is the group of equivalence classes of ideals, given by the quotient of the multiplicative group of all {bpref "ring.fractional_ideal"}[fractional ideals] of $`O_K` by the subgroup of {bpref "ring.principal_fractional_ideal"}[principal fractional ideals].
 
 Since $`K` is a {bpref "nf"}[number field], the ideal class group of $`K` is a finite abelian group, and so has the structure of a product of cyclic groups encoded by a finite list $`[a_1,\dots,a_n]`, where the $`a_i` are positive integers with $`a_i\mid a_{i+1}` for $`1\leq i < n`.
+
+Tau Ceti Review: [`ClassGroup`](https://taucetiproject.org/review/#/d/ClassGroup).
 
 Depends on: {uses "nf"}[] {uses "nf.ring_of_integers"}[] {uses "ring.fractional_ideal"}[] {uses "ring.principal_fractional_ideal"}[]
 :::
@@ -336,6 +378,8 @@ Depends on: {uses "nf.polredabs"}[]
 *Index of an order.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.index))
 
 Let $`\mathcal{O}` be an {bpref "nf.order"}[order] in a {bpref "nf"}[number field] $`K`. The index of $`\mathcal{O}` is its index as a sublattice of the {bpref "nf.ring_of_integers"}[ring of integers] of $`K`.
+
+Tau Ceti Review: [`TauCeti.GlobalNumberFields.NumberFieldOrder.index`](https://taucetiproject.org/review/#/d/TauCeti.GlobalNumberFields.NumberFieldOrder.index), [`TauCeti.GlobalNumberFields.NumberFieldOrder.index_def`](https://taucetiproject.org/review/#/d/TauCeti.GlobalNumberFields.NumberFieldOrder.index_def), [`TauCeti.GlobalNumberFields.NumberFieldOrder`](https://taucetiproject.org/review/#/d/TauCeti.GlobalNumberFields.NumberFieldOrder).
 
 Depends on: {uses "nf"}[] {uses "nf.order"}[] {uses "nf.ring_of_integers"}[]
 :::
@@ -371,6 +415,8 @@ More general weight functions can be considered over more general base number fi
 
 An *inessential prime* of a {bpref "nf"}[number field] is a prime divisor of its {bpref "nf.zk_index"}[index].
 
+Tau Ceti Review: [`TauCeti.NumberField.IntegralPrimitiveElement.index`](https://taucetiproject.org/review/#/d/TauCeti.NumberField.IntegralPrimitiveElement.index), [`TauCeti.NumberField.IsCommonIndexDivisor`](https://taucetiproject.org/review/#/d/TauCeti.NumberField.IsCommonIndexDivisor).
+
 Depends on: {uses "nf"}[] {uses "nf.zk_index"}[]
 :::
 
@@ -378,6 +424,8 @@ Depends on: {uses "nf"}[] {uses "nf.zk_index"}[]
 *Integral elements.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.integral))
 
 An element of a {bpref "nf"}[number field] $`K` is *integral* if it is {bpref "ring.integral"}[integral] over $`\Z`.
+
+Tau Ceti Review: [`IsIntegral`](https://taucetiproject.org/review/#/d/IsIntegral).
 
 Depends on: {uses "nf"}[] {uses "ring.integral"}[]
 :::
@@ -387,6 +435,8 @@ Depends on: {uses "nf"}[] {uses "ring.integral"}[]
 
 An *integral basis* of a {bpref "nf"}[number field] $`K` is a $`\mathbb{Z}`-basis for the {bpref "nf.ring_of_integers"}[ring of integers] of $`K`.  This is also a $`\mathbb{Q}`-basis for $`K`.
 
+Tau Ceti Review: [`NumberField.RingOfIntegers.basis`](https://taucetiproject.org/review/#/d/NumberField.RingOfIntegers.basis).
+
 Depends on: {uses "nf"}[] {uses "nf.ring_of_integers"}[]
 :::
 
@@ -394,6 +444,8 @@ Depends on: {uses "nf"}[] {uses "nf.ring_of_integers"}[]
 *Intermediate fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.intermediate_fields))
 
 For a number field $`K`, *intermediate fields* $`F` are fields with $`\Q\subsetneqq F \subsetneqq K`.
+
+Tau Ceti Review: [`IntermediateField`](https://taucetiproject.org/review/#/d/IntermediateField).
 :::
 
 :::definition "nf.is_galois" (lean := "IsGalois, IsGalois.tfae")
@@ -408,6 +460,8 @@ and
 $$`K^{\Aut(K/F)} = \{ a\in K \mid \sigma(a)=a\}.`
 
 Then $`K` is *Galois* over $`F` if $`K^{\Aut(K/F)} = F`.
+
+Tau Ceti Review: [`IsGalois`](https://taucetiproject.org/review/#/d/IsGalois).
 :::
 
 :::definition "nf.label"
@@ -433,6 +487,8 @@ Depends on: {uses "nf.degree"}[] {uses "nf.discriminant"}[] {uses "nf.signature"
 
 Given a global {bpref "nf"}[number field] $`K` and a prime $`p`, the *local algebra* for $`K` is $`K\otimes \Q_p`.  This is a finite {bpref "nf.separable_algebra"}[separable algebra] over $`\Q_p` which is isomorphic to a finite direct product of finite extension fields of $`\Q_p`.
 
+Tau Ceti Review: [`TensorProduct`](https://taucetiproject.org/review/#/d/TensorProduct), [`Padic`](https://taucetiproject.org/review/#/d/Padic), [`Algebra.Etale.baseChange`](https://taucetiproject.org/review/#/d/Algebra.Etale.baseChange), [`Algebra.Etale.iff_exists_algEquiv_prod`](https://taucetiproject.org/review/#/d/Algebra.Etale.iff_exists_algEquiv_prod).
+
 Depends on: {uses "nf"}[] {uses "nf.separable_algebra"}[]
 :::
 
@@ -440,6 +496,8 @@ Depends on: {uses "nf"}[] {uses "nf.separable_algebra"}[]
 *Maximum ramified prime.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.max_p))
 
 If $`K` is a {bpref "nf"}[number field], the *maximum ramified prime* is simply the largest prime {bpref "nf.ramified_primes"}[ramified] in $`K`.  By convention, we take this to be $`0` for $`\Q`, the unique unramified extension of $`\Q`.
+
+Tau Ceti Review: [`NumberField.ramifiedPrimes`](https://taucetiproject.org/review/#/d/NumberField.ramifiedPrimes), [`NumberField.finite_ramifiedPrimes`](https://taucetiproject.org/review/#/d/NumberField.finite_ramifiedPrimes), [`NumberField.ramifiedPrimes_rat`](https://taucetiproject.org/review/#/d/NumberField.ramifiedPrimes_rat).
 
 Depends on: {uses "nf"}[] {uses "nf.ramified_primes"}[]
 :::
@@ -456,6 +514,8 @@ Depends on: {uses "nf"}[] {uses "nf.cm_field"}[] {uses "nf.degree"}[]
 *Minimal polynomial.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.minimal_polynomial))
 
 The *minimal polynomial* of an element $`a` in a {bpref "nf"}[number field] $`K` is the unique monic polynomial $`f(X)\in\Q[X]` of minimal degree such that $`f(a)=0`. It is necessarily irreducible over $`\Q.`
+
+Tau Ceti Review: [`minpoly`](https://taucetiproject.org/review/#/d/minpoly), [`minpoly.irreducible`](https://taucetiproject.org/review/#/d/minpoly.irreducible).
 
 Depends on: {uses "nf"}[]
 :::
@@ -483,6 +543,8 @@ Depends on: {uses "nf"}[] {uses "nf.degree"}[] {uses "nf.discriminant"}[] {uses 
 
 A {bpref "nf"}[number field] $`K` is *monogenic* if its {bpref "nf.ring_of_integers"}[ring of integers] $`\mathcal{O}_K` equals $`\Z[\alpha]` for some $`\alpha \in \mathcal{O}_K`.
 
+Tau Ceti Review: [`TauCeti.NumberField.IsMonogenic`](https://taucetiproject.org/review/#/d/TauCeti.NumberField.IsMonogenic).
+
 Depends on: {uses "nf"}[] {uses "nf.ring_of_integers"}[]
 :::
 
@@ -491,6 +553,8 @@ Depends on: {uses "nf"}[] {uses "nf.ring_of_integers"}[]
 
 A *monomial order* in a {bpref "nf"}[number field] $`K` is an {bpref "nf.order"}[order] of the form $`\Z[\alpha]`, where $`\alpha` is an element of $`K`. The element $`\alpha` is necessarily both an {bpref "nf.ring_of_integers"}[algebraic integer] and a {bpref "nf.primitive_element"}[primitive element] for $`K`.
 
+Tau Ceti Review: [`TauCeti.GlobalNumberFields.NumberFieldOrder`](https://taucetiproject.org/review/#/d/TauCeti.GlobalNumberFields.NumberFieldOrder).
+
 Depends on: {uses "nf"}[] {uses "nf.order"}[] {uses "nf.ring_of_integers"}[]
 :::
 
@@ -498,6 +562,8 @@ Depends on: {uses "nf"}[] {uses "nf.order"}[] {uses "nf.ring_of_integers"}[]
 *Multiplicative Galois Module Structure.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.multiplicative_gal_module))
 
 Let $`K` be a number field with Galois closure $`K^{gal}` and $`U` be the group of units of the ring of integers of $`K^{gal}`. Let $`\mu \subset U` be the subgroup of roots of unity which lie in $`K^{gal}`.  Let $`M=U/\mu` be the units modulo its torsion subgroup. This is a lattice which is a module for $`\Z[G]` where $`G=\textrm{Gal}(K^{gal}/\Q)`. We give a decomposition of $`M` as a direct sum of indecomposable submodules.
+
+Tau Ceti Review: [`TauCeti.NumberField.Units.unitLatticeSubrep`](https://taucetiproject.org/review/#/d/TauCeti.NumberField.Units.unitLatticeSubrep), [`TauCeti.NumberField.Units.logSpaceRep`](https://taucetiproject.org/review/#/d/TauCeti.NumberField.Units.logSpaceRep), [`NumberField.Units.unitLattice`](https://taucetiproject.org/review/#/d/NumberField.Units.unitLattice), [`NumberField.Units.logEmbedding`](https://taucetiproject.org/review/#/d/NumberField.Units.logEmbedding), [`NumberField.Units.dirichletUnitTheorem.logEmbedding_ker`](https://taucetiproject.org/review/#/d/NumberField.Units.dirichletUnitTheorem.logEmbedding_ker).
 :::
 
 :::definition "nf.narrow_class_group" (lean := "NumberField.IsTotallyPositive, NumberField.NarrowClassGroup, NumberField.NarrowClassGroup.toClassGroup, NumberField.narrowPrincipalSubgroup")
@@ -505,6 +571,8 @@ Let $`K` be a number field with Galois closure $`K^{gal}` and $`U` be the group 
 
 The *narrow class group* (also called the *strict class group*) of a {bpref "nf"}[number field] $`K` is the group of equivalence classes of ideals, given by the quotient of the multiplicative group of all fractional ideals of $`K` by the subgroup of principal fractional ideals which have a {bpref "nf.totally_positive"}[totally positive] generator.  It is a
 finite abelian group whose order is the {bpref "nf.narrow_class_number"}[narrow class number].
+
+Tau Ceti Review: [`NumberField.IsTotallyPositive`](https://taucetiproject.org/review/#/d/NumberField.IsTotallyPositive), [`NumberField.NarrowClassGroup`](https://taucetiproject.org/review/#/d/NumberField.NarrowClassGroup), [`NumberField.NarrowClassGroup.toClassGroup`](https://taucetiproject.org/review/#/d/NumberField.NarrowClassGroup.toClassGroup), [`NumberField.narrowPrincipalSubgroup`](https://taucetiproject.org/review/#/d/NumberField.narrowPrincipalSubgroup).
 
 Depends on: {uses "nf"}[] {uses "nf.totally_positive"}[]
 :::
@@ -514,6 +582,8 @@ Depends on: {uses "nf"}[] {uses "nf.totally_positive"}[]
 
 The *narrow class number* (also called the *strict class number*) of an {bpref "nf"}[algebraic number field] is the order of its {bpref "nf.narrow_class_group"}[narrow class group].
 Since the ordinary {bpref "nf.ideal_class_group"}[ideal class group] is a quotient of the {bpref "nf.narrow_class_group"}[narrow class group], the narrow class number is a multiple of the {bpref "nf.class_number"}[class number].  Moreover, the ratio is a power of $`2`. The two class numbers are the same in many cases, for example when the number field is {bpref "nf.totally_imaginary"}[totally complex].
+
+Tau Ceti Review: [`NumberField.NarrowClassGroup`](https://taucetiproject.org/review/#/d/NumberField.NarrowClassGroup).
 
 Depends on: {uses "nf"}[] {uses "nf.class_number"}[] {uses "nf.ideal_class_group"}[] {uses "nf.narrow_class_group"}[] {uses "nf.totally_imaginary"}[]
 :::
@@ -546,6 +616,8 @@ An *order* in a {bpref "nf"}[number field] $`K` is a subring of $`K` which is al
 
 Example: $`\Z[\sqrt{5}]` is an order in $`K=\Q(\sqrt{5})`. However, it is not maximal, since the maximal order (i.e. ring of integers) of $`K` is $`\Z\left[\frac{1+\sqrt{5}}2\right]`.
 
+Tau Ceti Review: [`TauCeti.GlobalNumberFields.NumberFieldOrder`](https://taucetiproject.org/review/#/d/TauCeti.GlobalNumberFields.NumberFieldOrder), [`TauCeti.GlobalNumberFields.maximalNumberFieldOrder`](https://taucetiproject.org/review/#/d/TauCeti.GlobalNumberFields.maximalNumberFieldOrder).
+
 Depends on: {uses "nf"}[]
 :::
 
@@ -573,6 +645,8 @@ If $`K=\Q(a)`, and $`f\in\Q[x]` is the monic {bpref "ring.irreducible"}[irreduci
 
 Finally, the {bpref "nf.local_algebra"}[local algebra] of $`K`, $`\prod_{j=1}^g K_j` is a product of the $`p`-adic completions of $`K`.  The $`p`-adic completions of $`K` correspond to the nonarchimedian {bpref "nf.place"}[places] of $`K`.
 
+Tau Ceti Review: [`IsDedekindDomain.HeightOneSpectrum.adicCompletion`](https://taucetiproject.org/review/#/d/IsDedekindDomain.HeightOneSpectrum.adicCompletion), [`TauCeti.semilocalEquiv`](https://taucetiproject.org/review/#/d/TauCeti.semilocalEquiv), [`IsDedekindDomain.HeightOneSpectrum.valuation`](https://taucetiproject.org/review/#/d/IsDedekindDomain.HeightOneSpectrum.valuation).
+
 Depends on: {uses "lf.ring_of_integers"}[] {uses "nf"}[] {uses "nf.local_algebra"}[] {uses "nf.prime"}[] {uses "ring.dedekind_domain"}[] {uses "ring.field_of_fractions"}[] {uses "ring.fractional_ideal"}[] {uses "ring.integral_domain"}[] {uses "ring.irreducible"}[]
 :::
 
@@ -584,6 +658,8 @@ A *place* $`v` of a field $`K` is an equivalence class of non-trivial {bpref "nf
 Each place induces a distance metric that gives $`K` a metric topology.  The {bpref "nf.padic_completion"}[*completion*] $`K_v` of $`K` at $`v` is the completion of this metric space, which is also a topological field.
 
 When $`K` is a {bpref "nf"}[number field] each nonarchimedean place arises from the valuation associated to each {bpref "ring.prime_ideal"}[prime ideal] in the {bpref "nf.ring_of_integers"}[ring of integers] of $`K`, while archimedean places arise from embeddings of $`K` into the complex numbers: each {bpref "nf.real_embedding"}[real embedding] determines a *real place*, and each conjugate pair of {bpref "nf.complex_embedding"}[complex embeddings] determines a *complex place*. The archimedean places of a number field are also called *infinite places*.
+
+Tau Ceti Review: [`AbsoluteValue.Completion`](https://taucetiproject.org/review/#/d/AbsoluteValue.Completion).
 
 Depends on: {uses "nf"}[] {uses "nf.absolute_value"}[] {uses "nf.complex_embedding"}[] {uses "nf.real_embedding"}[] {uses "nf.ring_of_integers"}[] {uses "ring.prime_ideal"}[]
 :::
@@ -617,6 +693,8 @@ $$`\Delta = \prod_{i < j} (\alpha_i - \alpha_j)^2.`
 
 If $`f` has integral coefficients, $`K` is the {bpref "nf"}[number field] defined by $`f` and $`\alpha` is a root of $`f` in $`K`, then the {bpref "nf.discriminant"}[discriminant] $`D` of $`K` divides $`\Delta` and the ratio $`\Delta/D` is the square of the index of $`\Z[\alpha]` in the {bpref "nf.ring_of_integers"}[ring of integers] of $`K`.
 
+Tau Ceti Review: [`Polynomial.discr`](https://taucetiproject.org/review/#/d/Polynomial.discr), [`Polynomial.Monic.discr_eq_prod_roots_sub_sq`](https://taucetiproject.org/review/#/d/Polynomial.Monic.discr_eq_prod_roots_sub_sq), [`TauCeti.NumberField.IntegralPrimitiveElement.discr_minpoly_eq_index_sq_mul_discr`](https://taucetiproject.org/review/#/d/TauCeti.NumberField.IntegralPrimitiveElement.discr_minpoly_eq_index_sq_mul_discr).
+
 Depends on: {uses "nf"}[] {uses "nf.discriminant"}[] {uses "nf.ring_of_integers"}[]
 :::
 
@@ -627,6 +705,8 @@ A *prime* $`\mathfrak p` of a {bpref "nf"}[number field] $`K` is a nonzero {bpre
 
 The ideal $`\mathfrak p \cap\mathcal O_K` is a nonzero prime ideal of $`\Z` (a prime of $`\Q`), which is necessarily a principal ideal $`(p)` for some prime number $`p`.  The prime $`\mathfrak p` is then said to be a *prime above* $`p`.
 
+Tau Ceti Review: [`IsDedekindDomain.HeightOneSpectrum`](https://taucetiproject.org/review/#/d/IsDedekindDomain.HeightOneSpectrum), [`Ideal.LiesOver`](https://taucetiproject.org/review/#/d/Ideal.LiesOver), [`Ideal.under`](https://taucetiproject.org/review/#/d/Ideal.under), [`Ideal.primesOver`](https://taucetiproject.org/review/#/d/Ideal.primesOver).
+
 Depends on: {uses "nf"}[] {uses "nf.ring_of_integers"}[] {uses "ring.prime_ideal"}[]
 :::
 
@@ -635,6 +715,8 @@ Depends on: {uses "nf"}[] {uses "nf.ring_of_integers"}[] {uses "ring.prime_ideal
 
 A primitive element for a {bpref "nf"}[number field] $`K` is a {bpref "nf.generator"}[field generator] of $`K`. In other words, it is an element $`\alpha \in K` such that the inclusion $`\Q(\alpha) \subseteq K` is an equality. The _primitive element theorem_ asserts that every {bpref "nf"}[number field] admits a primitive element.
 
+Tau Ceti Review: [`IntermediateField.adjoin`](https://taucetiproject.org/review/#/d/IntermediateField.adjoin), [`Field.exists_primitive_element`](https://taucetiproject.org/review/#/d/Field.exists_primitive_element).
+
 Depends on: {uses "nf"}[] {uses "nf.generator"}[]
 :::
 
@@ -642,6 +724,8 @@ Depends on: {uses "nf"}[] {uses "nf.generator"}[]
 *Radical discriminant of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.radical_discriminant))
 
 The *radical discriminant* of a {bpref "nf"}[number field] $`K` is the product of the primes dividing the {bpref "nf.discriminant"}[discriminant] of $`K`, i.e. the product of the primes which ramify in $`K`.
+
+Tau Ceti Review: [`UniqueFactorizationMonoid.radical`](https://taucetiproject.org/review/#/d/UniqueFactorizationMonoid.radical), [`NumberField.discr`](https://taucetiproject.org/review/#/d/NumberField.discr), [`NumberField.not_dvd_discr_iff_isUnramifiedIn`](https://taucetiproject.org/review/#/d/NumberField.not_dvd_discr_iff_isUnramifiedIn).
 
 Depends on: {uses "nf"}[] {uses "nf.discriminant"}[]
 :::
@@ -657,12 +741,16 @@ $$`p\mathcal{O}_K= \mathcal{P_1}^{e_1}\cdots \mathcal{P_k}^{e_k},`
 there is an $`i` such that $`e_i\geq 2`.
 
 The ramified primes of $`K` are the primes dividing the {bpref "nf.discriminant"}[discriminant] of $`K`.
+
+Tau Ceti Review: [`Algebra.IsUnramifiedIn`](https://taucetiproject.org/review/#/d/Algebra.IsUnramifiedIn), [`Algebra.isUnramifiedIn_iff_forall_ramificationIdx_eq_one`](https://taucetiproject.org/review/#/d/Algebra.isUnramifiedIn_iff_forall_ramificationIdx_eq_one), [`Ideal.ramificationIdx`](https://taucetiproject.org/review/#/d/Ideal.ramificationIdx), [`Ideal.IsDedekindDomain.ramificationIdx_eq_normalizedFactors_count`](https://taucetiproject.org/review/#/d/Ideal.IsDedekindDomain.ramificationIdx_eq_normalizedFactors_count), [`NumberField.not_dvd_discr_iff_isUnramifiedIn`](https://taucetiproject.org/review/#/d/NumberField.not_dvd_discr_iff_isUnramifiedIn).
 :::
 
 :::definition "nf.rank" (lean := "NumberField.Units.rank, NumberField.Units.finrank_modTorsion, NumberField.InfinitePlace.card_eq_nrRealPlaces_add_nrComplexPlaces")
 *Rank of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.rank))
 
 The *rank* of a {bpref "nf"}[number field] $`K` is the size of any set of  {bpref "nf.fundamental_units"}[fundamental units] of $`K`. It is equal to $`r = r_1 + r_2 -1` where $`r_1` is the number of real embeddings of $`K` into $`\C` and $`2r_2` is the number of complex embeddings of $`K` into $`\C.`
+
+Tau Ceti Review: [`NumberField.Units.rank`](https://taucetiproject.org/review/#/d/NumberField.Units.rank), [`NumberField.InfinitePlace.card_eq_nrRealPlaces_add_nrComplexPlaces`](https://taucetiproject.org/review/#/d/NumberField.InfinitePlace.card_eq_nrRealPlaces_add_nrComplexPlaces).
 
 Depends on: {uses "nf"}[] {uses "nf.fundamental_units"}[]
 :::
@@ -671,6 +759,8 @@ Depends on: {uses "nf"}[] {uses "nf.fundamental_units"}[]
 *Real embedding.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.real_embedding))
 
 A *real embedding* of a number field $`K` is a field homomorphism $`K\to \R`.  A single number field may have several distinct real embeddings.
+
+Tau Ceti Review: [`RingHom`](https://taucetiproject.org/review/#/d/RingHom), [`NumberField.ComplexEmbedding.IsReal`](https://taucetiproject.org/review/#/d/NumberField.ComplexEmbedding.IsReal), [`NumberField.ComplexEmbedding.IsReal.embedding`](https://taucetiproject.org/review/#/d/NumberField.ComplexEmbedding.IsReal.embedding).
 :::
 
 :::definition "nf.reflex_field" (lean := "NumberField.CMType, NumberField.CMType.reflexField, NumberField.CMType.stabilizer, NumberField.CMType.reflexField_compl, NumberField.CMType.card_cmType")
@@ -721,6 +811,8 @@ $`(d_j\log{ |\sigma_j(u_i)|})`, where $`d_j=1` if $`j\leq r_1`, i.e, if $`\sigma
 
 The *regulator* of $`K` is the absolute value of the determinant of the sub-matrix of $`M` where one column is removed.  Its value is independent of the choice of column which is removed.
 
+Tau Ceti Review: [`NumberField.Units.regulator`](https://taucetiproject.org/review/#/d/NumberField.Units.regulator), [`NumberField.Units.regulator_eq_det`](https://taucetiproject.org/review/#/d/NumberField.Units.regulator_eq_det).
+
 Depends on: {uses "nf"}[] {uses "nf.fundamental_units"}[]
 :::
 
@@ -738,6 +830,8 @@ Depends on: {uses "nf"}[] {uses "nf.class_number"}[] {uses "nf.cm_field"}[] {use
 
 The *ring of integers* of a {bpref "nf"}[number field] $`K` is the {bpref "ring.integral"}[integral closure] of $`\Z` in $`K`.
 
+Tau Ceti Review: [`NumberField.RingOfIntegers`](https://taucetiproject.org/review/#/d/NumberField.RingOfIntegers).
+
 Depends on: {uses "nf"}[] {uses "ring.integral"}[]
 :::
 
@@ -749,6 +843,8 @@ If $`K` is a {bpref "nf"}[number field] of {bpref "nf.degree"}[degree] $`n` and 
 $$`\textrm{rd}(K) = |D|^{1/n}.`
 
 It gives a measure of the discriminant of a number field which is normalized for the degree.  For example, if $`K\subseteq L` are number fields and $`L/K` is unramified, then $`\textrm{rd}(K)=\textrm{rd}(L)`.
+
+Tau Ceti Review: [`NumberField.discr`](https://taucetiproject.org/review/#/d/NumberField.discr).
 
 Depends on: {uses "nf"}[] {uses "nf.degree"}[] {uses "nf.discriminant"}[]
 :::
@@ -762,6 +858,8 @@ The extension $`K/F` is *separable* if every $`\alpha\in K` is separable over $`
 
 All algebraic extensions of local and global number fields are separable.
 
+Tau Ceti Review: [`IsSeparable`](https://taucetiproject.org/review/#/d/IsSeparable), [`Algebra.IsSeparable`](https://taucetiproject.org/review/#/d/Algebra.IsSeparable), [`Polynomial.Separable`](https://taucetiproject.org/review/#/d/Polynomial.Separable), [`Polynomial.nodup_aroots_iff_of_splits`](https://taucetiproject.org/review/#/d/Polynomial.nodup_aroots_iff_of_splits).
+
 Depends on: {uses "nf.degree"}[]
 :::
 
@@ -771,6 +869,8 @@ Depends on: {uses "nf.degree"}[]
 A (finite) *separable algebra* $`A` over a field $`F`, also called an *\'etale $`F`-algebra*, is an  $`F`-algebra of finite dimension that is isomorphic to a product of {bpref "nf.separable"}[separable] field extensions of $`F`.
 
 If $`L/K` is a field extension and $`A` is a separable $`K`-algebra then $`A\otimes_K L` is a separable $`L`-algebra (which is typically not a field, even when $`A` is).
+
+Tau Ceti Review: [`Algebra.Etale`](https://taucetiproject.org/review/#/d/Algebra.Etale), [`Algebra.Etale.iff_exists_algEquiv_prod`](https://taucetiproject.org/review/#/d/Algebra.Etale.iff_exists_algEquiv_prod), [`Algebra.Etale.baseChange`](https://taucetiproject.org/review/#/d/Algebra.Etale.baseChange).
 
 Depends on: {uses "nf.separable"}[]
 :::
@@ -808,6 +908,8 @@ Two finite {bpref "nf.separable"}[separable extension fields] $`K_1` and $`K_2` 
 
 A finite dimensional separable $`\Q`-algebra is isomorphic to a product of number fields.  By its Galois closure, we mean the compositum of the Galois closures of the constituent fields.  Then two algebras are *siblings* if they have isomorphic Galois closures, but are not isomorphic as $`\Q`-algebras.
 
+Tau Ceti Review: [`Algebra.Etale.iff_exists_algEquiv_prod`](https://taucetiproject.org/review/#/d/Algebra.Etale.iff_exists_algEquiv_prod).
+
 Depends on: {uses "nf.galois_closure"}[] {uses "nf.separable"}[]
 :::
 
@@ -818,6 +920,8 @@ The *signature* of a {bpref "nf"}[number field] $`K` is the pair $`[r_1,r_2]` wh
 
 The {bpref "nf.degree"}[degree] of $`K` is $`r_1+2r_2`.
 
+Tau Ceti Review: [`NumberField.InfinitePlace.nrRealPlaces`](https://taucetiproject.org/review/#/d/NumberField.InfinitePlace.nrRealPlaces), [`NumberField.InfinitePlace.nrComplexPlaces`](https://taucetiproject.org/review/#/d/NumberField.InfinitePlace.nrComplexPlaces), [`NumberField.InfinitePlace.card_add_two_mul_card_eq_rank`](https://taucetiproject.org/review/#/d/NumberField.InfinitePlace.card_add_two_mul_card_eq_rank).
+
 Depends on: {uses "nf"}[] {uses "nf.complex_embedding"}[] {uses "nf.degree"}[] {uses "nf.real_embedding"}[]
 :::
 
@@ -826,6 +930,8 @@ Depends on: {uses "nf"}[] {uses "nf.complex_embedding"}[] {uses "nf.degree"}[] {
 
 The \*(prime) spectrum\* of a ring $`R`, $`\operatorname{Spec} R`, is the set of prime ideals in $`R`. In particular, if $`F` is a number field with ring of integers $`\mathcal{O}_F`, the spectrum $`\operatorname{Spec} \mathcal{O}_F` can be thought of as a curve over
 $`\operatorname{Spec} \mathbb{Z}`.
+
+Tau Ceti Review: [`PrimeSpectrum`](https://taucetiproject.org/review/#/d/PrimeSpectrum), [`AlgebraicGeometry.Spec`](https://taucetiproject.org/review/#/d/AlgebraicGeometry.Spec), [`NumberField.RingOfIntegers`](https://taucetiproject.org/review/#/d/NumberField.RingOfIntegers).
 :::
 
 :::definition "nf.stem_field" (lean := "IsNormalClosure, IntermediateField.adjoin, AdjoinRoot, IntermediateField.adjoinRootEquivAdjoin")
@@ -836,6 +942,8 @@ If $`K/F` is a {bpref "nf.is_galois"}[Galois] extension of fields, a *stem field
 This is connected to the notion of the stem field of a polynomial.
 If $`f\in F[x]` is a separable irreducible polynomial of degree $`n` with roots $`\alpha_1, \ldots, \alpha_n` (in some extension field), then the fields $`F(\alpha_i)` are the *stem fields of the polynomial* $`f`.  The splitting field of $`f` is $`K=F(\alpha_1,\ldots,\alpha_n)`, which is a Galois extension of $`F`, and the fields $`F(\alpha_i)` are stem fields for $`K/F` as defined above.
 
+Tau Ceti Review: [`IsNormalClosure`](https://taucetiproject.org/review/#/d/IsNormalClosure), [`IntermediateField.adjoin`](https://taucetiproject.org/review/#/d/IntermediateField.adjoin), [`AdjoinRoot`](https://taucetiproject.org/review/#/d/AdjoinRoot), [`IntermediateField.adjoinRootEquivAdjoin`](https://taucetiproject.org/review/#/d/IntermediateField.adjoinRootEquivAdjoin).
+
 Depends on: {uses "nf.galois_closure"}[] {uses "nf.is_galois"}[]
 :::
 
@@ -843,6 +951,8 @@ Depends on: {uses "nf.galois_closure"}[] {uses "nf.is_galois"}[]
 *Unit group torsion.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.torsion))
 
 A *torsion generator* of a {bpref "nf"}[number field] is a primitive root of unity that generates the torsion subgroup of the {bpref "nf.unit_group"}[unit group] (which is necessarily cyclic).
+
+Tau Ceti Review: [`NumberField.Units.torsion`](https://taucetiproject.org/review/#/d/NumberField.Units.torsion), [`IsPrimitiveRoot`](https://taucetiproject.org/review/#/d/IsPrimitiveRoot), [`NumberField.Units.torsionOrder`](https://taucetiproject.org/review/#/d/NumberField.Units.torsionOrder), [`IsPrimitiveRoot.zpowers_eq`](https://taucetiproject.org/review/#/d/IsPrimitiveRoot.zpowers_eq).
 
 Depends on: {uses "nf"}[] {uses "nf.unit_group"}[]
 :::
@@ -852,6 +962,8 @@ Depends on: {uses "nf"}[] {uses "nf.unit_group"}[]
 
 A {bpref "nf"}[number field] $`K` is *totally imaginary* (or *totally complex*) if it cannot be embedded in the real numbers $`\R`; equivalently, $`\R` does not contain the image of any of the homomorphisms from $`K` to $`\C`.
 
+Tau Ceti Review: [`NumberField.IsTotallyComplex`](https://taucetiproject.org/review/#/d/NumberField.IsTotallyComplex), [`NumberField.nrRealPlaces_eq_zero_iff`](https://taucetiproject.org/review/#/d/NumberField.nrRealPlaces_eq_zero_iff).
+
 Depends on: {uses "nf"}[]
 :::
 
@@ -859,6 +971,8 @@ Depends on: {uses "nf"}[]
 *Totally positive.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.totally_positive))
 
 An element $`\alpha` in a {bpref "nf"}[number field] $`K` is *totally positive* if $`\sigma(\alpha)>0` for all real embeddings $`\sigma` of $`K` into $`\R`.
+
+Tau Ceti Review: [`NumberField.IsTotallyPositive`](https://taucetiproject.org/review/#/d/NumberField.IsTotallyPositive), [`NumberField.totallyPositiveUnits`](https://taucetiproject.org/review/#/d/NumberField.totallyPositiveUnits).
 
 Depends on: {uses "nf"}[]
 :::
@@ -870,6 +984,8 @@ A {bpref "nf"}[global number field] $`K` is always of the form $`K=\Q(\alpha)` w
 
 Equivalently, $`K` is totally real if all the embeddings of $`K` into $`\C` have image contained in $`\R`.
 
+Tau Ceti Review: [`NumberField.IsTotallyReal`](https://taucetiproject.org/review/#/d/NumberField.IsTotallyReal), [`Field.exists_primitive_element`](https://taucetiproject.org/review/#/d/Field.exists_primitive_element), [`minpoly.irreducible`](https://taucetiproject.org/review/#/d/minpoly.irreducible).
+
 Depends on: {uses "nf"}[]
 :::
 
@@ -880,6 +996,8 @@ The *unit group* of a {bpref "nf"}[number field] $`K` is the group of units of t
 
 The unit group of $`K` has as invariants the {bpref "nf.rank"}[rank]
  and the {bpref "nf.regulator"}[regulator] of $`K`.
+
+Tau Ceti Review: [`NumberField.RingOfIntegers`](https://taucetiproject.org/review/#/d/NumberField.RingOfIntegers), [`Units`](https://taucetiproject.org/review/#/d/Units), [`NumberField.Units.torsion`](https://taucetiproject.org/review/#/d/NumberField.Units.torsion), [`NumberField.Units.exist_unique_eq_mul_prod`](https://taucetiproject.org/review/#/d/NumberField.Units.exist_unique_eq_mul_prod).
 
 Depends on: {uses "nf"}[] {uses "nf.ring_of_integers"}[]
 :::
@@ -906,6 +1024,8 @@ $$`p\mathcal{O}_K = \mathcal{P}_1\cdots \mathcal{P}_k.`
 
 The unramified primes of $`K` are the primes which do not divide the {bpref "nf.discriminant"}[discriminant] of $`K`.
 
+Tau Ceti Review: [`Algebra.IsUnramifiedIn`](https://taucetiproject.org/review/#/d/Algebra.IsUnramifiedIn), [`Algebra.isUnramifiedIn_iff_forall_ramificationIdx_eq_one`](https://taucetiproject.org/review/#/d/Algebra.isUnramifiedIn_iff_forall_ramificationIdx_eq_one), [`Ideal.ramificationIdx`](https://taucetiproject.org/review/#/d/Ideal.ramificationIdx), [`Ideal.IsDedekindDomain.ramificationIdx_eq_normalizedFactors_count`](https://taucetiproject.org/review/#/d/Ideal.IsDedekindDomain.ramificationIdx_eq_normalizedFactors_count), [`NumberField.not_dvd_discr_iff_isUnramifiedIn`](https://taucetiproject.org/review/#/d/NumberField.not_dvd_discr_iff_isUnramifiedIn).
+
 Depends on: {uses "nf"}[] {uses "nf.discriminant"}[]
 :::
 
@@ -919,6 +1039,8 @@ Let $`v_1` and $`v_2` are valuations of a ring $`R`, $`p \in \mathbb{R}_{>1}`, a
 - for all elements $`r, s \in R`, $`v_1(r) \le v_1(s)` if and only if $`v_2(r) \le v_2(s)`.
 
 The second form is the definition used in [mathlib](https://leanprover-community.github.io/mathlib4_docs/Mathlib/RingTheory/Valuation/Basic.html#Valuation.IsEquiv).
+
+Tau Ceti Review: [`Valuation.IsEquiv`](https://taucetiproject.org/review/#/d/Valuation.IsEquiv).
 :::
 
 :::definition "nf.weil_height"
@@ -966,6 +1088,8 @@ Depends on: {uses "ag.abelian_variety"}[] {uses "av.simple"}[]
 If $`K` is a {bpref "nf"}[number field] with {bpref "nf.ring_of_integers"}[ring of integers] $`\mathcal{O}_K`, then for all $`\alpha\in\mathcal{O}_K` such that $`K=\Q(\alpha)`, the index of $`\alpha`, $`i(\alpha)` is the {bpref "nf.index"}[index] of the {bpref "nf.order"}[order] $`\Z[\alpha]`.
 
 The *index of the number field* is the greatest common divisor of all $`i(\alpha)` with $`\alpha` as above.
+
+Tau Ceti Review: [`TauCeti.NumberField.IntegralPrimitiveElement.index`](https://taucetiproject.org/review/#/d/TauCeti.NumberField.IntegralPrimitiveElement.index).
 
 Depends on: {uses "nf"}[] {uses "nf.order"}[] {uses "nf.ring_of_integers"}[]
 :::

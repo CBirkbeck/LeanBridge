@@ -18,6 +18,8 @@ The *arithmetic genus* of a projective scheme $`X` is the alternating sum
 $`\chi(\mathcal{O}_X) = \sum_{i=0}^{\dim X} (-1)^i \dim H^i(X, \mathcal{O}_X)`.
 Note that some authors call this quantity the holomorphic Euler characteristic.
 Additionally, some authors refer to the quantity $`p_a(X) = (-1)^{\dim X} (\chi(\mathcal{O}_X) - 1)` as the arithmetic genus.
+
+Tau Ceti Review: [`AlgebraicGeometry.Scheme.Modules.eulerCharBelow`](https://taucetiproject.org/review/#/d/AlgebraicGeometry.Scheme.Modules.eulerCharBelow), [`AlgebraicGeometry.Scheme.genus`](https://taucetiproject.org/review/#/d/AlgebraicGeometry.Scheme.genus), [`TauCeti.AlgebraicGeometry.Scheme.Modules.Cohomology`](https://taucetiproject.org/review/#/d/TauCeti.AlgebraicGeometry.Scheme.Modules.Cohomology).
 :::
 
 :::definition "hmsurface.component_ideal"
@@ -44,6 +46,8 @@ a principal congruence subgroup $`\Gamma_{\frak{b}}(\frak{N})`. The minimal such
 *Cusps.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/hmsurface.cusps))
 
 Given a Hilbert modular surface $`X` defined by a Hilbert modular group $`\Gamma` with base field $`F`, the \*cusps\* of $`X` are the orbits of $`\mathbb{P}^1(F)` under $`\Gamma`.
+
+Tau Ceti Review: [`MulAction.orbitRel.Quotient`](https://taucetiproject.org/review/#/d/MulAction.orbitRel.Quotient), [`OnePoint.instGLAction`](https://taucetiproject.org/review/#/d/OnePoint.instGLAction).
 :::
 
 :::definition "hmsurface.elliptic_point" (lean := "Matrix.GeneralLinearGroup.IsEllipticTuple, Matrix.GeneralLinearGroup.ellipticPoint, Matrix.GeneralLinearGroup.IsTotallyElliptic, Matrix.GeneralLinearGroup.IsEllipticPoint, Matrix.GeneralLinearGroup.smul_eq_self_iff_eq_ellipticPoint")
@@ -136,6 +140,8 @@ Depends on: {uses "hmsurface.congruence_subgroup"}[]
 *Level norm.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/hmsurface.levelnorm))
 
 The level norm is the absolute norm of the {bpref "hmsurface.level"}[level] of the Hilbert modular surface.
+
+Tau Ceti Review: [`Ideal.absNorm`](https://taucetiproject.org/review/#/d/Ideal.absNorm).
 
 Depends on: {uses "hmsurface.level"}[]
 :::

@@ -17,12 +17,16 @@ This section lists the LMFDB definitions in the category `character`. Each defin
 A *Dirichlet character* is a function $`\chi: \Z\to \C` together with a positive integer $`q` called the *modulus* such that $`\chi` is completely multiplicative, i.e. $`\chi(mn)=\chi(m)\chi(n)` for all integers $`m` and $`n`, and $`\chi` is periodic modulo $`q`, i.e. $`\chi(n+q)=\chi(n)` for all $`n`. If $`(n,q)>1` then $`\chi(n)=0`, whereas if $`(n,q)=1`, then $`\chi(n)` is a root of unity. The character $`\chi` is {bpref "character.dirichlet.primitive"}[primitive] if its
 {bpref "character.dirichlet.conductor"}[conductor]
 is equal to its modulus.
+
+Tau Ceti Review: [`DirichletCharacter`](https://taucetiproject.org/review/#/d/DirichletCharacter), [`MulChar`](https://taucetiproject.org/review/#/d/MulChar), [`DirichletCharacter.apply_eq_zero_iff`](https://taucetiproject.org/review/#/d/DirichletCharacter.apply_eq_zero_iff).
 :::
 
 :::definition "character.dirichlet.conductor" (lean := "DirichletCharacter.conductor")
 *Conductor of a Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.conductor))
 
 The *conductor* of a {bpref "character.dirichlet"}[Dirichlet character] $`\chi` modulo $`q` is the least positive integer $`q_1` dividing $`q` for which $`\chi(n+kq_1)=\chi(n)` for all $`n` and $`n+kq_1` coprime to $`q`.
+
+Tau Ceti Review: [`DirichletCharacter.conductor`](https://taucetiproject.org/review/#/d/DirichletCharacter.conductor).
 
 Depends on: {uses "character.dirichlet"}[]
 :::
@@ -162,6 +166,8 @@ The *degree* of a Dirichlet character $`\chi` is the {bpref "nf.degree"}[degree]
 
 If $`\chi` has {bpref "character.dirichlet.order"}[order] $`n` then its degree is $`\phi(n):=\#(\Z/n\Z)^\times`.
 
+Tau Ceti Review: [`Nat.totient`](https://taucetiproject.org/review/#/d/Nat.totient), [`ZMod.card_units_eq_totient`](https://taucetiproject.org/review/#/d/ZMod.card_units_eq_totient).
+
 Depends on: {uses "character.dirichlet.order"}[] {uses "character.dirichlet.value_field"}[] {uses "nf.degree"}[]
 :::
 
@@ -174,6 +180,8 @@ under Galois morphisms $`\zeta_q\mapsto \zeta_q^k` for all $`k` such that $`\chi
 In fact $`\chi` determines a homomorphism $`\chi:(\mathbb{Z}/q\mathbb{Z})^\times\to \mathbb{C}^\times`.  Identifying $`(\mathbb{Z}/q\mathbb{Z})^\times` with $`\textrm{Gal}(\mathbb{Q}(\zeta_q)/\mathbb{Q})` by $`a\mapsto \sigma_a` with $`\sigma_a(\zeta_q)=\zeta_q^a`, we then identify $`\ker(\chi)` with a subgroup of $`\textrm{Gal}(\mathbb{Q}(\zeta_q)/\mathbb{Q})`.
 By the Galois correspondence, the fixed field $`\mathbb{Q}(\zeta_q)^{\ker(\chi)}` of this subgroup is a subfield of $`\mathbb{Q}(\zeta_q)` whose Galois group is isomorphic to $`\textrm{Im}(\chi)`, which is cyclic of order $`n` where $`n` is the {bpref "character.dirichlet.order"}[order] of $`\chi`.
 
+Tau Ceti Review: [`IsCyclotomicExtension.Rat.galEquivZMod`](https://taucetiproject.org/review/#/d/IsCyclotomicExtension.Rat.galEquivZMod).
+
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.order"}[]
 :::
 
@@ -181,6 +189,8 @@ Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.order"}[]
 *Galois orbit of a Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.galois_orbit))
 
 The *Galois orbit* of a {bpref "character.dirichlet"}[Dirichlet character] $`\chi` of {bpref "character.dirichlet.modulus"}[modulus] $`q` and {bpref "character.dirichlet.order"}[order] $`n` is the set $`[\chi]:=\{\sigma(\chi): \sigma\in \Gal(\Q(\zeta_n)/\Q)\}`, where $`\sigma(\chi)` denotes the Dirichlet character of modulus $`q` defined by  $`k \mapsto \sigma(\chi(k))`.  The map $`\chi\to \sigma(\chi)` defines a faithful action of the {bpref "nf.galois_group"}[Galois group] $`\Gal(\Q(\zeta_n)/\Q)` on the set of Dirichlet characters of modulus $`q` and order $`n`, each of which has $`\Q(\zeta_n)` as its {bpref "character.dirichlet.value_field"}[field of values].
+
+Tau Ceti Review: [`MulChar.galoisOrbit`](https://taucetiproject.org/review/#/d/MulChar.galoisOrbit), [`IsPrimitiveRoot.isCyclotomicExtension_adjoin_nth_roots`](https://taucetiproject.org/review/#/d/IsPrimitiveRoot.isCyclotomicExtension_adjoin_nth_roots).
 
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.modulus"}[] {uses "character.dirichlet.order"}[] {uses "character.dirichlet.value_field"}[] {uses "nf.galois_group"}[]
 :::
@@ -218,6 +228,8 @@ $$`\large \tau_{a}(\chi) = \sum_{r \,\in\, \mathbb{Z}/q\mathbb{Z}} \chi(r)\, e^{
 
 The Gauss sum $`\tau_1(\chi)` is often called "the Gauss sum" of $`\chi`.
 
+Tau Ceti Review: [`gaussSum`](https://taucetiproject.org/review/#/d/gaussSum), [`ZMod.stdAddChar`](https://taucetiproject.org/review/#/d/ZMod.stdAddChar), [`AddChar.mulShift`](https://taucetiproject.org/review/#/d/AddChar.mulShift).
+
 Depends on: {uses "character.dirichlet"}[]
 :::
 
@@ -230,6 +242,8 @@ In the {bpref "character.dirichlet.conrey"}[Conrey labeling system] we simply ha
 
 This group is (non-canonically) isomorphic to the multiplicative group $`(\Z/q\Z)^\times`.
 
+Tau Ceti Review: [`MulChar.commGroup`](https://taucetiproject.org/review/#/d/MulChar.commGroup), [`MulChar.coeToFun_mul`](https://taucetiproject.org/review/#/d/MulChar.coeToFun_mul).
+
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.modulus"}[]
 :::
 
@@ -238,6 +252,8 @@ Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.modulus"}[
 
 A set of *generators* of the {bpref "character.dirichlet.group"}[Dirichlet character group] $`G` of {bpref "character.dirichlet.modulus"}[modulus] $`q` is a set of {bpref "character.dirichlet"}[Dirichlet characters] $`\chi_q(n_i,\cdot)` that generate $`G` under multiplication.  These may be chosen so that $`G` is the direct product of the cyclic groups generated by each of the $`\chi_q(n_i,\cdot)`.
 
+Tau Ceti Review: [`Subgroup.closure`](https://taucetiproject.org/review/#/d/Subgroup.closure), [`Subgroup.zpowers`](https://taucetiproject.org/review/#/d/Subgroup.zpowers).
+
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.modulus"}[]
 :::
 
@@ -245,6 +261,8 @@ Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.modulus"}[
 *Order of a Dirichlet character group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.group.order))
 
 The set of {bpref "character.dirichlet"}[Dirichlet characters] $`\chi\colon\Z\to\C` of {bpref "character.dirichlet.modulus"}[modulus] $`q` form a {bpref "character.dirichlet.group"}[group] isomorphic (though not canonically) to $`(\Z/q\Z)^\times`, which has *order* $`\varphi(q)`, where $`\varphi` is the Euler function.
+
+Tau Ceti Review: [`DirichletCharacter.card_eq_totient_of_hasEnoughRootsOfUnity`](https://taucetiproject.org/review/#/d/DirichletCharacter.card_eq_totient_of_hasEnoughRootsOfUnity).
 
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.modulus"}[]
 :::
@@ -264,6 +282,8 @@ A {bpref "character.dirichlet"}[Dirichlet character] $`\chi_1` of {bpref "charac
 
 A Dirichlet character is {bpref "character.dirichlet.primitive"}[primitive] if it is not induced by any character other than itself; every Dirichlet character is induced by a uniquely determined primitive Dirichlet character.
 
+Tau Ceti Review: [`DirichletCharacter.changeLevel`](https://taucetiproject.org/review/#/d/DirichletCharacter.changeLevel), [`DirichletCharacter.primitiveCharacter`](https://taucetiproject.org/review/#/d/DirichletCharacter.primitiveCharacter).
+
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.modulus"}[]
 :::
 
@@ -272,6 +292,8 @@ Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.modulus"}[
 
 Given two {bpref "character.dirichlet"}[Dirichlet characters] $`\chi` and $`\psi` modulo $`q`, the *Jacobi sum* associated to these characters is given by
 $$`J(\chi,\psi) = \sum_{r \,\in\, \mathbb{Z}/q\mathbb{Z}} \chi(r)\, \psi(1-r).`
+
+Tau Ceti Review: [`jacobiSum`](https://taucetiproject.org/review/#/d/jacobiSum).
 
 Depends on: {uses "character.dirichlet"}[]
 :::
@@ -298,6 +320,8 @@ The *law of quadratic reciprocity states* that for $`m,n` odd positive coprime i
 
 $$`\left(\displaystyle\frac{n}{m}\right) = (-1)^{\frac{m-1}2 \frac{n-1}2} \left(\displaystyle \frac{m}{n}\right).`
 
+Tau Ceti Review: [`jacobiSym`](https://taucetiproject.org/review/#/d/jacobiSym), [`jacobiSym.quadratic_reciprocity`](https://taucetiproject.org/review/#/d/jacobiSym.quadratic_reciprocity), [`jacobiSym.at_neg_one`](https://taucetiproject.org/review/#/d/jacobiSym.at_neg_one), [`jacobiSym.at_two`](https://taucetiproject.org/review/#/d/jacobiSym.at_two).
+
 Depends on: {uses "character.dirichlet.legendre_symbol"}[]
 :::
 
@@ -309,6 +333,8 @@ Let $`\chi` be a {bpref "character.dirichlet"}[Dirichlet character] with modulus
 $$`K(a,b,\chi) = \sum_{r \in (\mathbb{Z}/q\mathbb{Z})^\times} \chi(r)\zeta^{ar+br^{-1}},`
 
 where $`\zeta = e^{2\pi i/q}`. This reduces to the {bpref "character.dirichlet.gauss_sum"}[Gauss sum] if $`b=0`.
+
+Tau Ceti Review: [`ZMod.stdAddChar`](https://taucetiproject.org/review/#/d/ZMod.stdAddChar), [`gaussSum`](https://taucetiproject.org/review/#/d/gaussSum).
 
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.gauss_sum"}[]
 :::
@@ -359,6 +385,8 @@ It can be computed efficiently by using the following formulae inductively:
 
 In particular, for a fixed odd prime $`p`, $`x \mapsto \left(\frac{x}{p}\right)` is a {bpref "character.dirichlet"}[Dirichlet character] modulo $`p`.
 
+Tau Ceti Review: [`legendreSym`](https://taucetiproject.org/review/#/d/legendreSym), [`quadraticChar`](https://taucetiproject.org/review/#/d/quadraticChar), [`legendreSym.at_neg_one`](https://taucetiproject.org/review/#/d/legendreSym.at_neg_one), [`legendreSym.at_two`](https://taucetiproject.org/review/#/d/legendreSym.at_two).
+
 Depends on: {uses "character.dirichlet"}[]
 :::
 
@@ -375,6 +403,8 @@ This includes all {bpref "character.dirichlet.primitive"}[primitive] Dirichlet c
 
 For a composite modulus $`N` with prime power factorization $`N=p_1^{e_1}\cdots p_n^{e_n}`, a Dirichlet character $`\chi` of modulus $`N` is *minimal* if and only if every character in its unique factorization into Dirichlet characters of modulus $`p_1^{e_1},\cdots,p_n^{e_n}` is minimal.  The {bpref "character.dirichlet.principal"}[trivial] Dirichlet character is minimal.
 
+Tau Ceti Review: [`TauCeti.Nat.IsExactDivisor.eq_mul_comp_unitsMap`](https://taucetiproject.org/review/#/d/TauCeti.Nat.IsExactDivisor.eq_mul_comp_unitsMap).
+
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.conductor"}[] {uses "character.dirichlet.modulus"}[] {uses "character.dirichlet.order"}[] {uses "character.dirichlet.primitive"}[] {uses "character.dirichlet.principal"}[]
 :::
 
@@ -382,12 +412,16 @@ Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.conductor"
 *Modulus of a Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.modulus))
 
 A *Dirichlet character* is a function $`\chi: \mathbb{Z}\to \mathbb{C}` together with a positive integer $`q`, called the *modulus* of the character, such that $`\chi` is completely multiplicative, i.e. $`\chi(mn)=\chi(m)\chi(n)` for all integers $`m` and $`n`, and $`\chi` is periodic modulo $`q`, i.e. $`\chi(n+q)=\chi(n)` for all $`n`. If $`(n,q)>1` then $`\chi(n)=0`, whereas if $`(n,q)=1`, then $`\chi(n)` is a root of unity.
+
+Tau Ceti Review: [`DirichletCharacter`](https://taucetiproject.org/review/#/d/DirichletCharacter), [`MulChar`](https://taucetiproject.org/review/#/d/MulChar), [`DirichletCharacter.apply_eq_zero_iff`](https://taucetiproject.org/review/#/d/DirichletCharacter.apply_eq_zero_iff).
 :::
 
 :::definition "character.dirichlet.order" (lean := "orderOf, MulChar.isLeast_orderOf, MulChar.toUnitHom, MulChar.range_toUnitHom_eq_rootsOfUnity, MulChar.card_range_toUnitHom, rootsOfUnity")
 *Order of a Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.order))
 
 The *order* of a {bpref "character.dirichlet"}[Dirichlet character] $`\chi` is the least positive integer $`n` such that $`\chi^n` is the {bpref "character.dirichlet.principal"}[trivial] character of the same {bpref "character.dirichlet.modulus"}[modulus] as $`\chi`. Equivalently, it is the order $`n` of the image of $`\chi` in $`\mathbb{C}^\times`, the group of $`n`th roots of unity.
+
+Tau Ceti Review: [`orderOf`](https://taucetiproject.org/review/#/d/orderOf), [`MulChar.toUnitHom`](https://taucetiproject.org/review/#/d/MulChar.toUnitHom), [`rootsOfUnity`](https://taucetiproject.org/review/#/d/rootsOfUnity).
 
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.modulus"}[] {uses "character.dirichlet.principal"}[]
 :::
@@ -397,6 +431,8 @@ Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.modulus"}[
 
 A character has odd/even *parity* if it is odd/even as a function. A {bpref "character.dirichlet"}[Dirichlet character] $`\chi\colon\Z\to\C` is odd if $`\chi(-1) = -1` and even if $`\chi(-1)=1.`
 
+Tau Ceti Review: [`DirichletCharacter.Even`](https://taucetiproject.org/review/#/d/DirichletCharacter.Even), [`DirichletCharacter.Odd`](https://taucetiproject.org/review/#/d/DirichletCharacter.Odd), [`DirichletCharacter.even_or_odd`](https://taucetiproject.org/review/#/d/DirichletCharacter.even_or_odd).
+
 Depends on: {uses "character.dirichlet"}[]
 :::
 
@@ -405,6 +441,8 @@ Depends on: {uses "character.dirichlet"}[]
 
 A {bpref "character.dirichlet"}[Dirichlet character] $`\chi` is *primitive* if its
 {bpref "character.dirichlet.conductor"}[conductor] is equal to its {bpref "character.dirichlet.modulus"}[modulus]; equivalently, $`\chi` is not {bpref "character.dirichlet.induce"}[induced] by a Dirichlet character of smaller modulus.
+
+Tau Ceti Review: [`DirichletCharacter.IsPrimitive`](https://taucetiproject.org/review/#/d/DirichletCharacter.IsPrimitive).
 
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.conductor"}[] {uses "character.dirichlet.induce"}[] {uses "character.dirichlet.modulus"}[]
 :::
@@ -423,6 +461,8 @@ Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.induce"}[]
 *Real Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.real))
 
 A character is *real* if its image is contained in $`\mathbb{R}.`
+
+Tau Ceti Review: [`MulChar.IsQuadratic`](https://taucetiproject.org/review/#/d/MulChar.IsQuadratic), [`Complex.conj_eq_iff_real`](https://taucetiproject.org/review/#/d/Complex.conj_eq_iff_real).
 :::
 
 :::definition "character.dirichlet.related_fields" (lean := "TauCeti.CharacterField, IntermediateField.fixedField, IsCyclotomicExtension.Rat.intermediateFieldEquivSubgroupChar, IntermediateField.adjoin")
@@ -434,6 +474,8 @@ There are two number fields naturally associated to a {bpref "character.dirichle
 
 - the {bpref "character.dirichlet.field_cut_out"}[fixed field]: $`\mathbb{Q}(\zeta_q)^{\ker(\chi)}`.
 
+Tau Ceti Review: [`TauCeti.CharacterField`](https://taucetiproject.org/review/#/d/TauCeti.CharacterField), [`IntermediateField.fixedField`](https://taucetiproject.org/review/#/d/IntermediateField.fixedField), [`IsCyclotomicExtension.Rat.intermediateFieldEquivSubgroupChar`](https://taucetiproject.org/review/#/d/IsCyclotomicExtension.Rat.intermediateFieldEquivSubgroupChar), [`IntermediateField.adjoin`](https://taucetiproject.org/review/#/d/IntermediateField.adjoin).
+
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.field_cut_out"}[] {uses "character.dirichlet.modulus"}[] {uses "character.dirichlet.value_field"}[]
 :::
 
@@ -441,6 +483,8 @@ Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.field_cut_
 *Field of values of a Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.value_field))
 
 The *field of values* of a Dirichlet character $`\chi\colon\Z\to\C` is the field $`\Q(\chi(\Z))` generated by its values; it is equal to the cyclotomic field $`\Q(\zeta_n)`, where $`n` is the {bpref "character.dirichlet.order"}[order] of $`\chi`.
+
+Tau Ceti Review: [`TauCeti.CharacterField`](https://taucetiproject.org/review/#/d/TauCeti.CharacterField), [`IntermediateField.adjoin`](https://taucetiproject.org/review/#/d/IntermediateField.adjoin).
 
 Depends on: {uses "character.dirichlet.order"}[]
 :::
@@ -455,6 +499,8 @@ K^\times\text{ such that }\alpha\equiv1 \mod ^*\mathfrak{m},`
 
 where by $`\alpha\equiv1\mod^*{\mathfrak{m}}` we mean that $`v_{\mathfrak{p}}((\alpha-1))\geq v_{\mathfrak{p}}(\mathfrak{m})` for all prime ideals $`\mathfrak{p}\mid\mathfrak{m}`.
 
+Tau Ceti Review: [`TauCeti.GlobalNumberFields.HeckeCharacter`](https://taucetiproject.org/review/#/d/TauCeti.GlobalNumberFields.HeckeCharacter).
+
 Depends on: {uses "nf"}[] {uses "nf.ring_of_integers"}[] {uses "ring.fractional_ideal"}[] {uses "ring.ideal"}[]
 :::
 
@@ -462,6 +508,8 @@ Depends on: {uses "nf"}[] {uses "nf.ring_of_integers"}[] {uses "ring.fractional_
 *Underlying unit group for a Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.unit_group))
 
 A {bpref "character.dirichlet"}[Dirichlet character] $`\chi: \Z\to \C` has a {bpref "character.dirichlet.modulus"}[modulus] $`n` such that $`\chi` is induced from a function $`\chi:\Z/n\Z\to \C`.  It gives a homomorphism $`(\Z/n\Z)^\times\to \C^\times`.  The *underlying unit group* is $`(\Z/n\Z)^\times`, the group of units of the ring $`\Z/n\Z`.
+
+Tau Ceti Review: [`Units`](https://taucetiproject.org/review/#/d/Units), [`ZMod`](https://taucetiproject.org/review/#/d/ZMod), [`MulChar.equivToUnitHom`](https://taucetiproject.org/review/#/d/MulChar.equivToUnitHom).
 
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.modulus"}[]
 :::
