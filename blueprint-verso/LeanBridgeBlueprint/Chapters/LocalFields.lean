@@ -665,7 +665,7 @@ the extensions $`L/K` in $`I/K`.
 Depends on: {uses "lf.family_polynomial"}[] {uses "lf.indices_of_inseparability"}[] {uses "lf.means"}[] {uses "lf.padic_field"}[] {uses "lf.rams"}[] {uses "lf.slopes"}[]
 :::
 
-:::definition "lf.herbrand_invariant"
+:::definition "lf.herbrand_invariant" (lean := "IsNonarchimedeanLocalField.visibleHerbrandInvariant, IsNonarchimedeanLocalField.HerbrandInvariant.IsGeometricRam, IsNonarchimedeanLocalField.HerbrandInvariant.IsArithmeticRam, IsNonarchimedeanLocalField.HerbrandInvariant.IsCompatibleWith, IsNonarchimedeanLocalField.HerbrandInvariant.IsInvariantOf.isCompatibleWith, IsNonarchimedeanLocalField.HerbrandInvariant.swanSlope_succ_eq, IsNonarchimedeanLocalField.HerbrandInvariant.ram_succ_eq, IsNonarchimedeanLocalField.HerbrandInvariant.mean_eq_sum_swanSlope")
 *Herbrand invariant.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.herbrand_invariant))
 
 A *Herbrand invariant* $`I` is the collection of ramification
@@ -1075,7 +1075,7 @@ Tau Ceti Review: [`TauCeti.IsTamelyRamified`](https://taucetiproject.org/review/
 Depends on: {uses "lf.padic_field"}[] {uses "lf.ring_of_integers"}[]
 :::
 
-:::definition "lf.ramification_polygon"
+:::definition "lf.ramification_polygon" (lean := "IsNonarchimedeanLocalField.ramificationPolynomial, IsNonarchimedeanLocalField.ramificationPolygonOf, IsNonarchimedeanLocalField.HerbrandInvariant.reflectedPolygon, IsNonarchimedeanLocalField.isEisensteinAt_minpoly_unramifiedExtension, IsNonarchimedeanLocalField.ramificationPolygonOf_eq_image_reflectVertical, IsNonarchimedeanLocalField.ramificationPolygonOf_minpoly_eq_visibleHerbrandInvariant, IsNonarchimedeanLocalField.HerbrandInvariant.IsInvariantOf.ramificationPolygonOf_minpoly, IsNonarchimedeanLocalField.setOf_mem_segmentSlopes_ramificationPolygonOf_minpoly_ne_zero")
 *Ramification polygon.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.ramification_polygon))
 
 Let $`L/K` be a finite extension of {bpref "lf.padic_field"}[$`p`-adic fields]
@@ -1502,7 +1502,7 @@ Tau Ceti Review: [`TauCeti.LocalFieldsRamification.lowerRamificationGroup`](http
 Depends on: {uses "gg.label"}[] {uses "group.small_group_label"}[] {uses "lf.wild_inertia_group"}[] {uses "nf.galois_group.name"}[]
 :::
 
-:::definition "lf.wild_segments"
+:::definition "lf.wild_segments" (lean := "IsNonarchimedeanLocalField.HerbrandInvariant.wildSegmentCount, polygonEdges, polygonEdgesWithSlope, IsNonarchimedeanLocalField.ramificationPolygonOf, IsNonarchimedeanLocalField.HerbrandInvariant.IsInvariantOf.ncard_polygonEdgesWithSlope_eq, IsNonarchimedeanLocalField.HerbrandInvariant.IsInvariantOf.ncard_setOf_mem_visibleSwanSlopes, IsNonarchimedeanLocalField.ncard_polygonEdgesWithSlope_ramificationPolygonOf_minpoly, TauCeti.mem_polygonEdges_polygonGraph_iff")
 *Number of wild segments of a family.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.wild_segments))
 
 Let $`I/K` be a {bpref "lf.family_polynomial"}[family]

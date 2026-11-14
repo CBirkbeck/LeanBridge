@@ -47,7 +47,7 @@ Tau Ceti Review: [`Group`](https://taucetiproject.org/review/#/d/Group).
 Depends on: {uses "alg.binary_operation"}[] {uses "alg.binary_operation.associative"}[] {uses "alg.binary_operation.identity"}[] {uses "alg.binary_operation.inverse"}[]
 :::
 
-:::definition "group.a_group"
+:::definition "group.a_group" (lean := "IsAGroup, IsZGroup.isAGroup, IsKleinFour.isAGroup, not_forall_isZGroup_of_isAGroup, IsMGroup.of_isSolvable_of_isAGroup")
 *A-group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.a_group))
 
 An *A-group* is a group all of whose Sylow subgroups are {bpref "group.abelian"}[abelian].
@@ -1088,7 +1088,7 @@ If $`G` is a group, a subgroup $`M` is a *maximal subgroup* if for every subgrou
 Tau Ceti Review: [`IsCoatom`](https://taucetiproject.org/review/#/d/IsCoatom), [`IsCoatom.le_iff`](https://taucetiproject.org/review/#/d/IsCoatom.le_iff).
 :::
 
-:::definition "group.metabelian"
+:::definition "group.metabelian" (lean := "IsMetabelian, isMetabelian_iff_exists_normal, IsMetacyclic.isMetabelian, DihedralGroup.isMetabelian, QuaternionGroup.isMetabelian, IsExtraspecial.isMetabelian, IsPGroup.isMetabelian_of_pRank_le_one, not_isMetacyclic_elementaryAbelian_two_three")
 *Metabelian group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.metabelian))
 
 A finite group $`G` is *metabelian* if its commutator subgroup is abelian. Equivalently, $`G` is an extension of an abelian group by an abelian group. Metabelian groups are {bpref "group.solvable"}[solvable], and they include all {bpref "group.abelian"}[abelian], {bpref "group.dihedral"}[dihedral], {bpref "group.generalized_quaternion"}[quaternion], {bpref "group.metacyclic"}[metacyclic], extra​special groups and groups of $`p`-rank one.
@@ -1098,7 +1098,7 @@ Every {bpref "group.metacyclic"}[metacylic] group is metabelian, but the convers
 Depends on: {uses "group.abelian"}[] {uses "group.dihedral"}[] {uses "group.generalized_quaternion"}[] {uses "group.solvable"}[]
 :::
 
-:::definition "group.metacyclic"
+:::definition "group.metacyclic" (lean := "IsMetacyclic, IsMetacyclic.isSupersolvable, IsMetacyclic.isMGroup, IsZGroup.isMetacyclic, IsKleinFour.isMetacyclic, IsKleinFour.not_isZGroup")
 *Metacyclic group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.metacyclic))
 
 A metacyclic group is an {bpref "group.nonsplit_product"}[extension] of a cyclic group by a cyclic group.  All metacyclic groups are {bpref "group.supersolvable"}[supersolvable] and in particular {bpref "group.monomial"}[monomial].
@@ -1176,7 +1176,7 @@ The möbius subgroup function is used in computing the {bpref "group.rank"}[rank
 Depends on: {uses "group.rank"}[]
 :::
 
-:::definition "group.monomial"
+:::definition "group.monomial" (lean := "IsMGroup, IsMGroup.isSolvable, IsMGroup.of_isSupersolvable, IsMGroup.of_isSolvable_of_isAGroup, IsMGroup.of_isSupersolvable_quotient, not_forall_isSupersolvable_of_isMGroup, not_forall_isSupersolvable_of_isSolvable_of_isAGroup, not_forall_isMGroup_of_isSolvable")
 *Monomial group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.monomial))
 
 A group $`G` is *monomial* or an *M-group* if every complex irreducible representation of $`G` is induced from a $`1`-dimensional representation of some subgroup. Such a group is always {bpref "group.solvable"}[solvable], and monomial groups include all {bpref "group.supersolvable"}[supersolvable] groups and solvable A-groups. A purely group-theoretic description of monomial groups is not known.
@@ -1538,7 +1538,7 @@ Tau Ceti Review: [`Subgroup`](https://taucetiproject.org/review/#/d/Subgroup).
 Depends on: {uses "group"}[] {uses "group.subgroup"}[]
 :::
 
-:::definition "group.properties_interdependencies"
+:::definition "group.properties_interdependencies" (lean := "IsZGroup.isAGroup, IsMetacyclic.isMetabelian, Group.IsNilpotent.isSupersolvable, IsMGroup.of_isSupersolvable, IsMGroup.isSolvable, IsZGroup.isMetacyclic, IsSimpleGroup.isAlmostSimple, IsSimpleGroup.isQuasisimple")
 *Interdependencies of group properties.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.properties_interdependencies))
 
 Certain properties of groups automatically imply other properties. We briefly explain the connections here.
@@ -2579,7 +2579,7 @@ Tau Ceti Review: [`TauCeti.PermSubgroupWreathProduct`](https://taucetiproject.or
 Depends on: {uses "group"}[] {uses "group.semidirect_product"}[]
 :::
 
-:::definition "group.z_group"
+:::definition "group.z_group" (lean := "IsZGroup, IsZGroup.isMetacyclic, IsZGroup.isSupersolvable, IsZGroup.isMGroup, DihedralGroup.isZGroup_three, DihedralGroup.not_isCyclic_three, not_forall_isCyclic_of_isZGroup")
 *Z-group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.z_group))
 
 A *Z-group* is a (finite) group all of whose Sylow subgroups are {bpref "group.cyclic"}[cyclic]. Such groups are {bpref "group.metacyclic"}[metacyclic], {bpref "group.supersolvable"}[supersolvable] and {bpref "group.monomial"}[monomial].

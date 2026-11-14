@@ -284,7 +284,7 @@ where $`F` runs over all newforms of weight $`k-1`, level dividing $`N/2` and ch
 $$`S_{k/2}(N, \chi, F) =\{ g \in S_0'(N, \chi): T_{p^2} g = \lambda_p(F) g \quad \forall\, p\nmid N\}.`
 :::
 
-:::definition "mf.half_integral_weight.theta"
+:::definition "mf.half_integral_weight.theta" (lean := "ModularForm.thetaSeries, jacobiTheta, ModularForm.thetaSeries_eq, ModularForm.thetaSeries_mem_halfIntegralWeightSpace, hasProd_tsum_zpow_mul_zpow_sq, ModularForm.hasProd_thetaSeries, ModularForm.thetaSeries_eq_eta_pow_five_div, ModularForm.thetaSeries_eq_eta_sq_div")
 *Theta function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.half_integral_weight.theta))
 
 The (classical) *theta function* $`\theta(z)` is a holomorphic modular form of {bpref "mf.half_integral_weight"}[half-integral weight] $`1/2` and {bpref "cmf.level"}[level] 4, defined by the formula
@@ -300,6 +300,8 @@ where $`q=e^{2\pi iz}`.
 The (classical) theta function is related to the {bpref "mf.half_integral_weight.dedekind_eta"}[Dedekind eta function] via the formula:
 
 $$`\theta(z)=\frac{\eta^5(z)}{\eta^2(z/2)\eta^2(2z)}=\frac{\eta^2((z+1)/2)}{\eta(z+1)}.`
+
+Tau Ceti Review: [`jacobiTheta`](https://taucetiproject.org/review/#/d/jacobiTheta).
 
 Depends on: {uses "cmf.level"}[] {uses "mf.half_integral_weight.dedekind_eta"}[]
 :::

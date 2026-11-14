@@ -1376,7 +1376,7 @@ Sometimes an L-function may arise from more than one source. For example, the L-
 Depends on: {uses "character.hecke"}[] {uses "cmf"}[] {uses "ec.q"}[] {uses "lfunction.degree"}[] {uses "mf.maass.mwf"}[] {uses "nf"}[] {uses "nf.galois_group"}[]
 :::
 
-:::definition "lfunction.zeros"
+:::definition "lfunction.zeros" (lean := "AnalyticLFunction.zeros, AnalyticLFunction.mem_zeros_iff, AnalyticLFunction.RiemannHypothesis.zeros_diff_trivialZeros_subset_criticalLine, AnalyticLFunction.riemannHypothesis_iff_zeros_diff_trivialZeros_subset_criticalLine, AnalyticLFunction.lowestZero, AnalyticLFunction.lowestZero_pos, AnalyticLFunction.centralPoint_add_lowestZero_mul_I_mem_zeros, AnalyticLFunction.lowestZero_le")
 *Zeros of an L-function.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lfunction.zeros))
 
 The *zeros* of an {bpref "lfunction"}[L-function] $`L(s)` are the complex numbers $`\rho` for which $`L(\rho)=0`.

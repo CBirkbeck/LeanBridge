@@ -11,7 +11,7 @@ open Informal
 
 This section lists the LMFDB definitions in the category `shimcurve`. Each definition links back to its LMFDB knowl. `sh.disc` and `sh.level` also belong here, although their ids put them in another LMFDB category.
 
-:::definition "sh.disc"
+:::definition "sh.disc" (lean := "QuaternionAlgebra.discriminant, QuaternionAlgebra.IsRamifiedAt, QuaternionAlgebra.finite_setOf_isRamifiedAt, QuaternionAlgebra.discriminant_eq_prod, PolarizedQuaternionOrder.shimuraCurveLabel")
 *Discriminant of a Shimura curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/sh.disc))
 
 The discriminant of a Shimura curve is the discriminant of the associated quaternion algebra.
@@ -223,13 +223,15 @@ The *$`K`-gonality* $`\gamma` of a {bpref "shimcurve"}[Shimura curve] $`X_H` is 
 Depends on: {uses "ag.geom_component"}[] {uses "ag.gonality"}[] {uses "shimcurve"}[]
 :::
 
-:::definition "shimcurve.index"
+:::definition "shimcurve.index" (lean := "Subgroup.index, Subalgebra.EnhancedGroup, Subalgebra.enhancedGroupTopology, Subalgebra.isTopologicalGroup_enhancedGroup, Subalgebra.isOpen_enhancedGroupKernel, Subalgebra.isCompact_enhancedGroupKernel, PolarizedQuaternionOrder.isCompact_of_isOpen, PolarizedQuaternionOrder.finiteIndex_of_isOpen")
 *Index of a Shimura curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.index))
 
 The *index* of a {bpref "shimcurve"}[Shimura curve]
 $`X_H` is the index of the corresponding open compact subgroup
 $`H \le \Aut_{\pm\mu}(O)\ltimes \widehat{O}^\times` in the
 {bpref "shimcurve.enhanced_group"}[enhanced semidirect product].
+
+Tau Ceti Review: [`Subgroup.index`](https://taucetiproject.org/review/#/d/Subgroup.index).
 
 Depends on: {uses "shimcurve"}[] {uses "shimcurve.enhanced_group"}[]
 :::
@@ -287,7 +289,7 @@ compact subgroup of the {bpref "shimcurve.enhanced_group"}[enhanced semidirect p
 Depends on: {uses "shimcurve"}[] {uses "shimcurve.discb"}[] {uses "shimcurve.disco"}[] {uses "shimcurve.enhanced_group"}[] {uses "shimcurve.genus"}[] {uses "shimcurve.index"}[] {uses "shimcurve.level"}[] {uses "shimcurve.nrdmu"}[] {uses "shimcurve.polarized_order"}[] {uses "shimcurve.quaternion_algebra"}[]
 :::
 
-:::definition "shimcurve.level"
+:::definition "shimcurve.level" (lean := "Subalgebra.enhancedGroupLevel, Subalgebra.enhancedGroupKernel, Subalgebra.enhancedGroupTopology, Subalgebra.exists_enhancedGroupKernel_le_of_isOpen, Subalgebra.enhancedGroupLevel_pos_of_isOpen, Subalgebra.isLeast_enhancedGroupLevel, Subalgebra.enhancedGroupKernel_le_of_level_pos, PolarizedQuaternionOrder.isCompact_of_isOpen")
 *Level of a Shimura curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.level))
 
 Let $`(O,\mu)` be a {bpref "shimcurve.polarized_order"}[polarized quaternion order], and let

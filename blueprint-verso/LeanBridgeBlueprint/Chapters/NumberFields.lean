@@ -849,7 +849,7 @@ In the LMFDB, there is a potentially incomplete list of reflex fields for each C
 Depends on: {uses "group.subgroup"}[] {uses "nf.cm_field"}[] {uses "nf.complex_embedding"}[] {uses "nf.degree"}[] {uses "nf.embedding"}[]
 :::
 
-:::definition "nf.reflex_reflex_field"
+:::definition "nf.reflex_reflex_field" (lean := "NumberField.CMType.reflexReflexField, NumberField.CMType.IsInducedFrom, NumberField.CMType.induce, NumberField.CMType.mem_inverseType_iff_comp_imageFieldConj_notMem, NumberField.CMType.map_algebraMap_reflexReflexField_eq_fixedField_inverseTypeStabilizer, NumberField.CMType.map_algebraMap_reflexReflexField, NumberField.CMType.isLeast_reflexReflexField, NumberField.CMType.map_reflexReflexField_eq_reflexField_reflexType")
 *Reflex field of the reflex field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.reflex_reflex_field))
 
 Let $`K` be a {bpref "nf.cm_field"}[CM number field] and let $`N` a normal closure of $`K`, let $`\Phi \subset \mathrm{Hom}(K, \overline{\mathbb{Q}})` be a {bpref "nf.reflex_field"}[CM type] and $`L` its associated {bpref "nf.reflex_field"}[reflex field]. Then $`\Phi` induces a CM type $`\Phi_N \subset \mathrm{Hom}(N, \mathbb{C})` by taking the maps that restrict to a map inside $`\Phi` on $`K`. The maps in $`\Phi_N` are isomorphisms on the image $`F` of $`N` inside $`\overline{\mathbb{Q}}` and by inverting them, we obtain a CM type on $`F` with values in $`N`. The *reflex field of the reflex field* is the reflex field of this CM type.

@@ -538,7 +538,7 @@ Tau Ceti Review: [`TauCeti.IntegralLattice.IsEven`](https://taucetiproject.org/r
 Depends on: {uses "lattice.definition"}[] {uses "lattice.gram"}[]
 :::
 
-:::definition "lattice.perfect"
+:::definition "lattice.perfect" (lean := "ZLattice.IsPerfect, ZLattice.minimalVectors, ZLattice.IsPerfect.relIndex_span_minimalVectors_ne_zero, ZLattice.IsPerfect.exists_isIntegralLattice_isSimilarLattice, ZLattice.IsPerfect.eq_of_apply_self_eq, ZLattice.IsPerfect.isSimilarLattice_of_mapsTo, ZLattice.perfectSimilaritySetoid, ZLattice.finite_quotient_perfectSimilaritySetoid")
 *Perfect lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.perfect))
 
 A lattice $`L` in $`\mathbb{R}^n` is called *perfect* if the space of $`n \times n` real symmetric matrices is spanned by the set of $`n \times n` symmetric matrices
