@@ -281,43 +281,45 @@ Tau Ceti Review: [`Polynomial.Gal`](https://taucetiproject.org/review/#/d/Polyno
 Depends on: {uses "lf.automorphism_group"}[] {uses "nf.degree"}[] {uses "nf.galois_closure"}[] {uses "nf.separable"}[] {uses "ring.field"}[]
 :::
 
-:::definition "nf.galois_group.gmodule_v4_type_i_i"
+:::definition "nf.galois_group.gmodule_v4_type_i_i" (lean := "NumberField.Units.IsMazurUllomTypeI₁, NumberField.Units.QuadraticUnitFrame, NumberField.Units.existsUnique_isMazurUllomType, NumberField.Units.MazurUllomBasicType.rep, NumberField.Units.isMazurUllomBasicType_iff, NumberField.Units.MazurUllomBasicType.eq_of_equiv, NumberField.Units.exists_equiv_iff, TauCeti.NumberField.Units.torsion_eq_one_or_neg_one_of_isReal")
 *Galois module structure of Type I (i) for units in biquadratic number fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.galois_group.gmodule_v4_type_i_i))
 
 The notation follows Mazur and Ullom, Galois module structure of units in real biquadratic number fields, Acta Arithmetica 111.2 (2004) .  There are four basic types, I-IV, which describe the structure of the units $`U` modulo roots of unity. The subtype describes the actual structure of the units. Type I (i) means that there is a generating set for $`U/\{\pm 1\}` consisting of fundamental units of the quadratic subfields.
+
+Tau Ceti Review: [`TauCeti.NumberField.Units.torsion_eq_one_or_neg_one_of_isReal`](https://taucetiproject.org/review/#/d/TauCeti.NumberField.Units.torsion_eq_one_or_neg_one_of_isReal).
 :::
 
-:::definition "nf.galois_group.gmodule_v4_type_i_ii"
+:::definition "nf.galois_group.gmodule_v4_type_i_ii" (lean := "NumberField.Units.IsMazurUllomTypeI₂, NumberField.Units.QuadraticUnitFrame, NumberField.Units.existsUnique_isMazurUllomType, NumberField.Units.MazurUllomBasicType.rep, NumberField.Units.isMazurUllomBasicType_iff, NumberField.Units.MazurUllomBasicType.eq_of_equiv, NumberField.Units.exists_equiv_iff, NumberField.Units.finrank_modTorsion_eq_three")
 *Galois module structure of Type I (ii) for units in biquadratic number fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.galois_group.gmodule_v4_type_i_ii))
 
 The notation follows Mazur and Ullom, Galois module structure of units in real biquadratic number fields, Acta Arithmetica 111.2 (2004) . There are four basic types, I-IV, which describe the structure of the units $`U` modulo roots of unity. The subtype describes the actual structure of the units. Type I (ii) means that there are fundamental units $`e_1,e_2,e_3` of the three quadratic subfields such that $`\sqrt{e_1},e_2,e_3` generate the rank 3 group $`U/\{\pm 1\}`.
 :::
 
-:::definition "nf.galois_group.gmodule_v4_type_i_iii"
+:::definition "nf.galois_group.gmodule_v4_type_i_iii" (lean := "NumberField.Units.IsMazurUllomTypeI₃, NumberField.Units.QuadraticUnitFrame, NumberField.Units.existsUnique_isMazurUllomType, NumberField.Units.MazurUllomBasicType.rep, NumberField.Units.isMazurUllomBasicType_iff, NumberField.Units.MazurUllomBasicType.eq_of_equiv, NumberField.Units.exists_equiv_iff, NumberField.Units.finrank_modTorsion_eq_three")
 *Galois module structure of Type I (iii) for units in biquadratic number fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.galois_group.gmodule_v4_type_i_iii))
 
 The notation follows Mazur and Ullom, Galois module structure of units in real biquadratic number fields, Acta Arithmetica 111.2 (2004) . There are four basic types, I-IV, which describe the structure of the units $`U` modulo roots of unity. The subtype describes the actual structure of the units. Type I (iii) means that there are fundamental units $`e_1,e_2,e_3` of the three quadratic subfields such that $`\sqrt{e_1},\sqrt{e_2},e_3` generate the rank 3 group $`U/\{\pm 1\}`.
 :::
 
-:::definition "nf.galois_group.gmodule_v4_type_ii_i"
+:::definition "nf.galois_group.gmodule_v4_type_ii_i" (lean := "NumberField.Units.IsMazurUllomTypeII₁, NumberField.Units.QuadraticUnitFrame, NumberField.Units.existsUnique_isMazurUllomType, NumberField.Units.MazurUllomBasicType.rep, NumberField.Units.isMazurUllomBasicType_iff, NumberField.Units.MazurUllomBasicType.eq_of_equiv, NumberField.Units.exists_equiv_iff, NumberField.Units.finrank_modTorsion_eq_three")
 *Galois module structure of Type II (i) for units in biquadratic number fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.galois_group.gmodule_v4_type_ii_i))
 
 The notation follows Mazur and Ullom, Galois module structure of units in real biquadratic number fields, Acta Arithmetica 111.2 (2004) . There are four basic types, I-IV, which describe the structure of the units $`U` modulo roots of unity. The subtype describes the actual structure of the units. Type II (i) means that there are fundamental units $`e_1,e_2,e_3` of the three quadratic subfields such that $`\sqrt{e_1e_2},e_2,e_3` generate the rank 3 group $`U/\{\pm 1\}`.
 :::
 
-:::definition "nf.galois_group.gmodule_v4_type_ii_ii"
+:::definition "nf.galois_group.gmodule_v4_type_ii_ii" (lean := "NumberField.Units.IsMazurUllomTypeII₂, NumberField.Units.QuadraticUnitFrame, NumberField.Units.existsUnique_isMazurUllomType, NumberField.Units.MazurUllomBasicType.rep, NumberField.Units.isMazurUllomBasicType_iff, NumberField.Units.MazurUllomBasicType.eq_of_equiv, NumberField.Units.exists_equiv_iff, NumberField.Units.finrank_modTorsion_eq_three")
 *Galois module structure of Type II (ii) for units in biquadratic number fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.galois_group.gmodule_v4_type_ii_ii))
 
 The notation follows Mazur and Ullom, Galois module structure of units in real biquadratic number fields, Acta Arithmetica 111.2 (2004) . There are four basic types, I-IV, which describe the structure of the units $`U` modulo roots of unity. The subtype describes the actual structure of the units. Type II (ii) means that there are fundamental units $`e_1,e_2,e_3` of the three quadratic subfields such that $`\sqrt{e_1e_2},e_2,\sqrt{e_3}` generate the rank 3 group $`U/\{\pm 1\}`.
 :::
 
-:::definition "nf.galois_group.gmodule_v4_type_iii"
+:::definition "nf.galois_group.gmodule_v4_type_iii" (lean := "NumberField.Units.IsMazurUllomTypeIII, NumberField.Units.QuadraticUnitFrame, NumberField.Units.existsUnique_isMazurUllomType, NumberField.Units.MazurUllomBasicType.rep, NumberField.Units.isMazurUllomBasicType_iff, NumberField.Units.MazurUllomBasicType.eq_of_equiv, NumberField.Units.exists_equiv_iff, NumberField.Units.finrank_modTorsion_eq_three")
 *Galois module structure of Type III for units in biquadratic number fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.galois_group.gmodule_v4_type_iii))
 
 The notation follows Mazur and Ullom, Galois module structure of units in real biquadratic number fields, Acta Arithmetica 111.2 (2004) . There are four basic types, I-IV, which describe the structure of the units $`U` modulo roots of unity. The subtype describes the actual structure of the units. Type III means that there are fundamental units $`e_1,e_2,e_3` of the three quadratic subfields such that $`\sqrt{e_1e_2},\sqrt{e_2e_3},\sqrt{e_3e_1}` generate the rank 3 group $`U/\{\pm 1\}`.
 :::
 
-:::definition "nf.galois_group.gmodule_v4_type_iv"
+:::definition "nf.galois_group.gmodule_v4_type_iv" (lean := "NumberField.Units.IsMazurUllomTypeIV, NumberField.Units.QuadraticUnitFrame, NumberField.Units.existsUnique_isMazurUllomType, NumberField.Units.MazurUllomBasicType.rep, NumberField.Units.isMazurUllomBasicType_iff, NumberField.Units.MazurUllomBasicType.eq_of_equiv, NumberField.Units.exists_equiv_iff, NumberField.Units.finrank_modTorsion_eq_three")
 *Galois module structure of Type IV for units in biquadratic number fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.galois_group.gmodule_v4_type_iv))
 
 The notation follows Mazur and Ullom, Galois module structure of units in real biquadratic number fields, Acta Arithmetica 111.2 (2004) . There are four basic types, I-IV, which describe the structure of the units $`U` modulo roots of unity. The subtype describes the actual structure of the units. Type IV means that there are fundamental units $`e_1,e_2,e_3` of the three quadratic subfields such that $`\sqrt{e_1e_2e_3},e_2,e_3` generate the rank 3 group $`U/\{\pm 1\}`.

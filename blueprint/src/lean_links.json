@@ -4255,6 +4255,76 @@
     "Polynomial.Gal.galActionHom_injective": "Mathlib.FieldTheory.PolynomialGaloisGroup",
     "TauCeti.galEquivNormalClosure": "TauCeti.FieldTheory.GaloisGroups.NormalClosure"
   },
+  "nf.galois_group.gmodule_v4_type_i_i": {
+    "NumberField.Units.IsMazurUllomTypeI₁": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.Biquadratic",
+    "NumberField.Units.QuadraticUnitFrame": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.Biquadratic",
+    "NumberField.Units.existsUnique_isMazurUllomType": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.BiquadraticClassification",
+    "NumberField.Units.MazurUllomBasicType.rep": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.MazurUllomModule",
+    "NumberField.Units.isMazurUllomBasicType_iff": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.BiquadraticGaloisModule",
+    "NumberField.Units.MazurUllomBasicType.eq_of_equiv": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.MazurUllomModule",
+    "NumberField.Units.exists_equiv_iff": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.BiquadraticGaloisModule",
+    "TauCeti.NumberField.Units.torsion_eq_one_or_neg_one_of_isReal": "TauCeti.NumberTheory.NumberField.Units.Torsion"
+  },
+  "nf.galois_group.gmodule_v4_type_i_ii": {
+    "NumberField.Units.IsMazurUllomTypeI₂": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.Biquadratic",
+    "NumberField.Units.QuadraticUnitFrame": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.Biquadratic",
+    "NumberField.Units.existsUnique_isMazurUllomType": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.BiquadraticClassification",
+    "NumberField.Units.MazurUllomBasicType.rep": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.MazurUllomModule",
+    "NumberField.Units.isMazurUllomBasicType_iff": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.BiquadraticGaloisModule",
+    "NumberField.Units.MazurUllomBasicType.eq_of_equiv": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.MazurUllomModule",
+    "NumberField.Units.exists_equiv_iff": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.BiquadraticGaloisModule",
+    "NumberField.Units.finrank_modTorsion_eq_three": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.BiquadraticGaloisModule"
+  },
+  "nf.galois_group.gmodule_v4_type_i_iii": {
+    "NumberField.Units.IsMazurUllomTypeI₃": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.Biquadratic",
+    "NumberField.Units.QuadraticUnitFrame": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.Biquadratic",
+    "NumberField.Units.existsUnique_isMazurUllomType": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.BiquadraticClassification",
+    "NumberField.Units.MazurUllomBasicType.rep": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.MazurUllomModule",
+    "NumberField.Units.isMazurUllomBasicType_iff": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.BiquadraticGaloisModule",
+    "NumberField.Units.MazurUllomBasicType.eq_of_equiv": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.MazurUllomModule",
+    "NumberField.Units.exists_equiv_iff": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.BiquadraticGaloisModule",
+    "NumberField.Units.finrank_modTorsion_eq_three": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.BiquadraticGaloisModule"
+  },
+  "nf.galois_group.gmodule_v4_type_ii_i": {
+    "NumberField.Units.IsMazurUllomTypeII₁": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.Biquadratic",
+    "NumberField.Units.QuadraticUnitFrame": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.Biquadratic",
+    "NumberField.Units.existsUnique_isMazurUllomType": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.BiquadraticClassification",
+    "NumberField.Units.MazurUllomBasicType.rep": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.MazurUllomModule",
+    "NumberField.Units.isMazurUllomBasicType_iff": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.BiquadraticGaloisModule",
+    "NumberField.Units.MazurUllomBasicType.eq_of_equiv": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.MazurUllomModule",
+    "NumberField.Units.exists_equiv_iff": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.BiquadraticGaloisModule",
+    "NumberField.Units.finrank_modTorsion_eq_three": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.BiquadraticGaloisModule"
+  },
+  "nf.galois_group.gmodule_v4_type_ii_ii": {
+    "NumberField.Units.IsMazurUllomTypeII₂": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.Biquadratic",
+    "NumberField.Units.QuadraticUnitFrame": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.Biquadratic",
+    "NumberField.Units.existsUnique_isMazurUllomType": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.BiquadraticClassification",
+    "NumberField.Units.MazurUllomBasicType.rep": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.MazurUllomModule",
+    "NumberField.Units.isMazurUllomBasicType_iff": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.BiquadraticGaloisModule",
+    "NumberField.Units.MazurUllomBasicType.eq_of_equiv": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.MazurUllomModule",
+    "NumberField.Units.exists_equiv_iff": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.BiquadraticGaloisModule",
+    "NumberField.Units.finrank_modTorsion_eq_three": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.BiquadraticGaloisModule"
+  },
+  "nf.galois_group.gmodule_v4_type_iii": {
+    "NumberField.Units.IsMazurUllomTypeIII": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.Biquadratic",
+    "NumberField.Units.QuadraticUnitFrame": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.Biquadratic",
+    "NumberField.Units.existsUnique_isMazurUllomType": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.BiquadraticClassification",
+    "NumberField.Units.MazurUllomBasicType.rep": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.MazurUllomModule",
+    "NumberField.Units.isMazurUllomBasicType_iff": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.BiquadraticGaloisModule",
+    "NumberField.Units.MazurUllomBasicType.eq_of_equiv": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.MazurUllomModule",
+    "NumberField.Units.exists_equiv_iff": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.BiquadraticGaloisModule",
+    "NumberField.Units.finrank_modTorsion_eq_three": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.BiquadraticGaloisModule"
+  },
+  "nf.galois_group.gmodule_v4_type_iv": {
+    "NumberField.Units.IsMazurUllomTypeIV": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.Biquadratic",
+    "NumberField.Units.QuadraticUnitFrame": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.Biquadratic",
+    "NumberField.Units.existsUnique_isMazurUllomType": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.BiquadraticClassification",
+    "NumberField.Units.MazurUllomBasicType.rep": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.MazurUllomModule",
+    "NumberField.Units.isMazurUllomBasicType_iff": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.BiquadraticGaloisModule",
+    "NumberField.Units.MazurUllomBasicType.eq_of_equiv": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.MazurUllomModule",
+    "NumberField.Units.exists_equiv_iff": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.BiquadraticGaloisModule",
+    "NumberField.Units.finrank_modTorsion_eq_three": "LeanBridge.ForMathlib.NumberTheory.NumberField.Units.BiquadraticGaloisModule"
+  },
   "nf.galois_group.name": {
     "Polynomial.Gal.galActionHom": "Mathlib.FieldTheory.PolynomialGaloisGroup",
     "Polynomial.exists_card_rootSet_eq_six_and_nonempty_gal_mulEquiv": "LeanBridge.ForMathlib.FieldTheory.GaloisGroupCubeRootTwo",
