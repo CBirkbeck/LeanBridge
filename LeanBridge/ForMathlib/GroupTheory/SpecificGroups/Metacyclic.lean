@@ -11,8 +11,9 @@ with a normal subgroup `N` and quotient `Q`, LMFDB `group.nonsplit_product`).
 
 The knowl adds that metacyclic groups are supersolvable, hence monomial, and that Z-groups are
 metacyclic but not conversely. Supersolvability, the metacyclicity of finite Z-groups and a
-counterexample to the converse, the Klein four-group, are proved here; that supersolvable groups
-are monomial (Huppert's theorem) is not.
+counterexample to the converse, the Klein four-group, are proved here; that finite metacyclic
+groups are monomial, by Huppert's theorem, is `IsMetacyclic.isMGroup`
+(`LeanBridge/ForMathlib/RepresentationTheory/MGroupSupersolvable.lean`).
 
 ## Main definitions
 

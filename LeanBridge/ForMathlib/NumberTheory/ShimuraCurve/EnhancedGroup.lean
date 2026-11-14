@@ -14,13 +14,15 @@ the semidirect product `Aut_{±μ}(O) ⋉ Ô^×`, Mathlib's `Ô^× ⋊ Aut_{±μ
 The index of a Shimura curve `X_H` (LMFDB `shimcurve.index`) is Mathlib's `Subgroup.index` of `H` in
 the enhanced group. The level of `H` is the least `N > 0` such that `H` contains the kernel of
 `Ô^× → (O/NO)^×`; it is `0` when there is no such `N`, which does not happen for the open subgroups
-`H` of the LMFDB.
+`H` of the LMFDB (`Subalgebra.enhancedGroupLevel_pos_of_isOpen`).
 
 As in `LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.Coarse`, `B` is any `ℚ`-algebra, `O` any
 subring and `μ` any element. The profinite topology of `Ô^×` (the subspace topology of the product
 of the discrete groups `(O/NO)^×`) is `Subalgebra.completedUnitsTopology`, in
 `LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.CompletedUnitsProfinite`; it is not used here, as
-the index and the level are purely group-theoretic, and the enhanced group is given no topology.
+the index and the level are purely group-theoretic. The topology of the enhanced group, for which
+its open compact subgroups make sense, is `Subalgebra.enhancedGroupTopology`, in
+`LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.EnhancedGroupTopology`.
 
 ## Main definitions
 
@@ -108,7 +110,8 @@ noncomputable def enhancedGroupKernel (N : ℕ+) : Subgroup (O.EnhancedGroup μ)
 
 /-- The **level** (LMFDB `shimcurve.level`) of a subgroup `H` of the enhanced group
 `Aut_{±μ}(O) ⋉ Ô^×`: the least positive integer `N` such that `H` contains the kernel of
-`Ô^× → (O/NO)^×`, and `0` if there is none. For the open subgroups of the LMFDB there is one. -/
+`Ô^× → (O/NO)^×`, and `0` if there is none. For an open subgroup there is one, and the level is
+the least such `N` (`Subalgebra.isLeast_enhancedGroupLevel`). -/
 noncomputable def enhancedGroupLevel (H : Subgroup (O.EnhancedGroup μ)) : ℕ :=
   sInf {n | ∃ N : ℕ+, (N : ℕ) = n ∧ O.enhancedGroupKernel μ N ≤ H}
 

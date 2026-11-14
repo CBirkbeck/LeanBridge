@@ -5,8 +5,9 @@ import Mathlib.Analysis.InnerProductSpace.Basic
 
 A lattice in a real inner product space is arithmetic if it is similar to an integral lattice.
 Scaling a lattice by `α ≠ 0` multiplies its inner products by `α²`, and an isometry preserves them,
-so `L` is arithmetic exactly when `c ⟪x, y⟫ ∈ ℤ` for all `x, y ∈ L` and some real `c > 0`. That
-perfect and strongly eutactic lattices are arithmetic is not formalised.
+so `L` is arithmetic exactly when `c ⟪x, y⟫ ∈ ℤ` for all `x, y ∈ L` and some real `c > 0`. Perfect
+lattices are arithmetic (`ZLattice.IsPerfect.isArithmetic`); that strongly eutactic lattices are
+arithmetic is not formalised.
 
 ## Main definitions
 

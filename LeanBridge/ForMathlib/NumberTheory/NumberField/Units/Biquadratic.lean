@@ -15,7 +15,9 @@ structure of units in real biquadratic number fields, Acta Arith. 111 (2004)) so
 `ℤ[V₄]`-modules `U/{±1}` into four types I–IV, and their subtypes say which square roots of
 products of fundamental units `e₁, e₂, e₃` of `k₁, k₂, k₃` generate `U/{±1}`. Every real
 biquadratic field has exactly one of the seven subtypes, which are the possible positions of
-`⟨e₁, e₂, e₃⟩` in `U/{±1}` (its index is `1`, `2` or `4`, never `8`); this is not proved here.
+`⟨e₁, e₂, e₃⟩` in `U/{±1}` (its index is `1`, `2` or `4`, never `8`): see
+`NumberField.Units.existsUnique_isMazurUllomType` in `Units/BiquadraticClassification.lean`. That
+the four types are the isomorphism classes of the `ℤ[V₄]`-module `U/{±1}` is not proved.
 
 The predicates are stated for every number field `K`, but they are the LMFDB's types only for a
 real biquadratic field, the setting of the knowls (whose `U/{±1}` has rank `3`): for an imaginary

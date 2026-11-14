@@ -17,7 +17,8 @@ its discriminant is the product of the ramified primes. An order `O` of `B` (LMF
 `shimcurve.order`) is a subring which is a `ℤ`-lattice spanning `B`; its discriminant is
 `|det (trd(x_i x_j))|` for a `ℤ`-basis `x₁, …, x₄` of `O`, a perfect square whose square root is the
 reduced discriminant. An Eichler order is an intersection of two maximal orders; over `ℚ` its
-reduced discriminant is `D M` with `D = disc(B)` and `gcd(D, M) = 1`, and `M` is its level. A
+reduced discriminant is `D M` with `D = disc(B)` and `gcd(D, M) = 1`, and `M` is its level (proved
+in `LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.EichlerOrderLevel` only when `disc(B) = 1`). A
 polarization of an order `O` in an indefinite division quaternion algebra is a unit `μ` with
 `μ² ∈ ℤ_{<0}` and `trd(μ x) ∈ ℤ` for all `x ∈ O`, and its degree is the squarefree part of
 `nrd(μ) / discrd(O)`.

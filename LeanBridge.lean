@@ -10,6 +10,9 @@ import LeanBridge.ForMathlib.Algebra.Module.ZLattice.CoveringRadius
 import LeanBridge.ForMathlib.Algebra.Module.ZLattice.Extreme
 import LeanBridge.ForMathlib.Algebra.Module.ZLattice.MinimalVectors
 import LeanBridge.ForMathlib.Algebra.Module.ZLattice.Perfect
+import LeanBridge.ForMathlib.Algebra.Module.ZLattice.PerfectArithmetic
+import LeanBridge.ForMathlib.Algebra.Module.ZLattice.PerfectFinite
+import LeanBridge.ForMathlib.Algebra.Module.ZLattice.PerfectHexagonal
 import LeanBridge.ForMathlib.Algebra.Module.ZLattice.SimilarityInvariant
 import LeanBridge.ForMathlib.Algebra.Module.ZLattice.SphericalDesign
 import LeanBridge.ForMathlib.Algebra.Quaternion.OfFinrankEqFour
@@ -182,6 +185,8 @@ import LeanBridge.ForMathlib.Analysis.AbsoluteValue.Archimedean
 import LeanBridge.ForMathlib.Analysis.Complex.UpperHalfPlane.Completed
 import LeanBridge.ForMathlib.Analysis.Complex.UpperHalfPlane.PortraitMoebius
 import LeanBridge.ForMathlib.Analysis.Complex.UpperHalfPlane.StripIntegral
+import LeanBridge.ForMathlib.Analysis.Convex.LowerConvexHull
+import LeanBridge.ForMathlib.Analysis.Convex.PolygonEdges
 import LeanBridge.ForMathlib.Analysis.Fourier.LatticeFourierSeries
 import LeanBridge.ForMathlib.Analysis.Fourier.PeriodicFourierSeries
 import LeanBridge.ForMathlib.Analysis.Fourier.TubeFourierSeries
@@ -193,6 +198,7 @@ import LeanBridge.ForMathlib.Analysis.SpecialFunctions.BesselKUnique
 import LeanBridge.ForMathlib.Analysis.SpecialFunctions.BesselKUniqueComplex
 import LeanBridge.ForMathlib.Analysis.SpecialFunctions.BesselKUniqueIntegrable
 import LeanBridge.ForMathlib.Analysis.SpecialFunctions.ExpAddInvIntegral
+import LeanBridge.ForMathlib.Analysis.SpecialFunctions.JacobiTripleProduct
 import LeanBridge.ForMathlib.Data.Matrix.Block
 import LeanBridge.ForMathlib.FieldTheory.AlgebraGaloisClosure
 import LeanBridge.ForMathlib.FieldTheory.DiscriminantRootField
@@ -265,6 +271,7 @@ import LeanBridge.ForMathlib.GroupTheory.SocleSolvable
 import LeanBridge.ForMathlib.GroupTheory.SolvableRadical
 import LeanBridge.ForMathlib.GroupTheory.SolvableSeries
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.AGroup
+import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.AGroupClosure
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.AffineLineGroup
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.AlmostSimple
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.Chevalley
@@ -272,6 +279,7 @@ import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.ChevalleySimple
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.CyclicIndexTwo
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.CyclicIndexTwoClassification
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.DihedralSymmetries
+import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.ExtraspecialMetabelian
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.GL2CanonicalLabel
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.GL2CartanNormalizerMaximal
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.GL2Dickson
@@ -287,6 +295,7 @@ import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.GL2TracePairs
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.HeisenbergClassification
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.Metabelian
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.MetabelianExamples
+import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.MetabelianPRankOne
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.Metacyclic
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.MetacyclicPresentation
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.ModularMaximalCyclic
@@ -299,6 +308,7 @@ import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.OtherDihedralSemidirect
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.PSL2ZModFive
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.Quasisimple
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.QuasisimpleAlmostSimple
+import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.SupersolvableExamples
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.Unitary
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.UnitaryCenter
 import LeanBridge.ForMathlib.GroupTheory.StemExtension
@@ -308,6 +318,7 @@ import LeanBridge.ForMathlib.GroupTheory.SubgroupPropertyImplications
 import LeanBridge.ForMathlib.GroupTheory.SubgroupsBeyondIndexBound
 import LeanBridge.ForMathlib.GroupTheory.SubnormalSeries
 import LeanBridge.ForMathlib.GroupTheory.Supersolvable
+import LeanBridge.ForMathlib.GroupTheory.SupersolvableClosure
 import LeanBridge.ForMathlib.GroupTheory.TypeLength
 import LeanBridge.ForMathlib.LinearAlgebra.AffineSpace.AffineGeneralLinear
 import LeanBridge.ForMathlib.LinearAlgebra.AffineSpace.AffineGroup
@@ -342,6 +353,7 @@ import LeanBridge.ForMathlib.LinearAlgebra.Lattice.NamedLattices
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.Neighbor
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.NormalizedMinimalVector
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.OrthogonalDecomposition
+import LeanBridge.ForMathlib.LinearAlgebra.Lattice.OrthogonalDecompositionExistence
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.PackingDensity
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.RealLattice
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.RootSublattice
@@ -745,6 +757,7 @@ import LeanBridge.ForMathlib.NumberTheory.LFunction.EulerProduct
 import LeanBridge.ForMathlib.NumberTheory.LFunction.Label
 import LeanBridge.ForMathlib.NumberTheory.LFunction.LowestZero
 import LeanBridge.ForMathlib.NumberTheory.LFunction.NontrivialZero
+import LeanBridge.ForMathlib.NumberTheory.LFunction.NontrivialZeroCriticalLine
 import LeanBridge.ForMathlib.NumberTheory.LFunction.Primitive
 import LeanBridge.ForMathlib.NumberTheory.LFunction.Rational
 import LeanBridge.ForMathlib.NumberTheory.LFunction.RiemannHypothesis
@@ -770,16 +783,19 @@ import LeanBridge.ForMathlib.NumberTheory.LocalField.EisensteinDiagram
 import LeanBridge.ForMathlib.NumberTheory.LocalField.EisensteinDiagramCounts
 import LeanBridge.ForMathlib.NumberTheory.LocalField.EisensteinFormGenerator
 import LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamily
+import LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyCompatibility
 import LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyFinite
 import LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyInvariants
 import LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyPolygon
 import LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyUnramifiedMass
+import LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionRamificationPolygon
 import LeanBridge.ForMathlib.NumberTheory.LocalField.FamilyGenericPolynomial
 import LeanBridge.ForMathlib.NumberTheory.LocalField.FieldLabel
 import LeanBridge.ForMathlib.NumberTheory.LocalField.GaloisClosureRamification
 import LeanBridge.ForMathlib.NumberTheory.LocalField.GaloisMeanSlope
 import LeanBridge.ForMathlib.NumberTheory.LocalField.GaloisRootNumber
 import LeanBridge.ForMathlib.NumberTheory.LocalField.GaloisSplittingModel
+import LeanBridge.ForMathlib.NumberTheory.LocalField.HerbrandInvariantCompatibility
 import LeanBridge.ForMathlib.NumberTheory.LocalField.HerbrandInvariantFamily
 import LeanBridge.ForMathlib.NumberTheory.LocalField.HerbrandInvariantRams
 import LeanBridge.ForMathlib.NumberTheory.LocalField.IndexOfInseparability
@@ -808,6 +824,7 @@ import LeanBridge.ForMathlib.NumberTheory.LocalField.PadicGaloisMeanSlope
 import LeanBridge.ForMathlib.NumberTheory.LocalField.PadicQuadraticExtensions
 import LeanBridge.ForMathlib.NumberTheory.LocalField.RamificationPolygon
 import LeanBridge.ForMathlib.NumberTheory.LocalField.RamificationPolygonHull
+import LeanBridge.ForMathlib.NumberTheory.LocalField.RamificationPolynomial
 import LeanBridge.ForMathlib.NumberTheory.LocalField.RamsDiscriminantExponent
 import LeanBridge.ForMathlib.NumberTheory.LocalField.SlopeContentDegree
 import LeanBridge.ForMathlib.NumberTheory.LocalField.TameUnramifiedDegree
@@ -818,6 +835,7 @@ import LeanBridge.ForMathlib.NumberTheory.LocalField.TopArtinSlopeContent
 import LeanBridge.ForMathlib.NumberTheory.LocalField.TopArtinSlopeRamification
 import LeanBridge.ForMathlib.NumberTheory.LocalField.UnramifiedNonsplitCartan
 import LeanBridge.ForMathlib.NumberTheory.LocalField.WildArtinSlopes
+import LeanBridge.ForMathlib.NumberTheory.LocalField.WildSegments
 import LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.AlgebraicGroup
 import LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Conductor
 import LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Determinant
@@ -901,6 +919,7 @@ import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.HeckeRing
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.HeckeSpace
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.HeckeU
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.Label
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.JacobiTheta.EtaQuotient
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.LowerUnipotent
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.Basic
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ChangeOfGroup
@@ -943,6 +962,7 @@ import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ShimuraStrip
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ThetaDiscriminant
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ThetaMultiplier
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ThetaNonvanishing
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ThetaProduct
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.Weight
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.AnalyticLFunction
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.AtkinLehnerDimension
@@ -1051,6 +1071,8 @@ import LeanBridge.ForMathlib.NumberTheory.NumberField.Polredabs
 import LeanBridge.ForMathlib.NumberTheory.NumberField.PrimeIdealOrder
 import LeanBridge.ForMathlib.NumberTheory.NumberField.ReflexField
 import LeanBridge.ForMathlib.NumberTheory.NumberField.ReflexReflexField
+import LeanBridge.ForMathlib.NumberTheory.NumberField.ReflexReflexFieldGalois
+import LeanBridge.ForMathlib.NumberTheory.NumberField.ReflexReflexFieldInverseType
 import LeanBridge.ForMathlib.NumberTheory.NumberField.RootDiscrUnramified
 import LeanBridge.ForMathlib.NumberTheory.NumberField.SerreOdlyzkoBound
 import LeanBridge.ForMathlib.NumberTheory.NumberField.SerreOdlyzkoInequality
@@ -1067,6 +1089,10 @@ import LeanBridge.ForMathlib.NumberTheory.NumberField.SiblingProduct
 import LeanBridge.ForMathlib.NumberTheory.NumberField.SpecFiber
 import LeanBridge.ForMathlib.NumberTheory.NumberField.TotallyRealMinpoly
 import LeanBridge.ForMathlib.NumberTheory.NumberField.Units.Biquadratic
+import LeanBridge.ForMathlib.NumberTheory.NumberField.Units.BiquadraticClassification
+import LeanBridge.ForMathlib.NumberTheory.NumberField.Units.BiquadraticGalois
+import LeanBridge.ForMathlib.NumberTheory.NumberField.Units.BiquadraticUnitIndex
+import LeanBridge.ForMathlib.NumberTheory.NumberField.Units.MazurUllomType
 import LeanBridge.ForMathlib.NumberTheory.NumberField.Units.SignatureRank
 import LeanBridge.ForMathlib.NumberTheory.NumberField.Units.SignatureRankQuadratic
 import LeanBridge.ForMathlib.NumberTheory.NumberField.Units.SignatureZMod2
@@ -1142,16 +1168,19 @@ import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.TraceMoments
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.UspDiagonal
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.WeightZeroDegreeOne
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.AdelicEllipticPoint
+import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.AutPmMuFinite
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.BigDoubleCoset
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.Coarse
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.CompletedUnitsProfinite
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.ConnectedShimuraVariety
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.DoubleCosetHalfPlanes
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.DoubleCosetLevelGroup
+import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.EichlerOrderLevel
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.EllipticPoint
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.EllipticPointKernel
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.EllipticPointStabilizer
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.EnhancedGroup
+import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.EnhancedGroupTopology
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.FiniteAdelicAlgebra
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.FiniteAdelicComparison
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.FuchsianGroup
@@ -1161,6 +1190,7 @@ import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.QuaternionIndefinite
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.QuaternionOrder
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.QuaternionOrderDiscriminant
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.QuaternionRamification
+import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.QuaternionTraceNorm
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.ShimuraVariety
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.Standard
 import LeanBridge.ForMathlib.RepresentationTheory.BrauerInductionLinear
@@ -1178,6 +1208,9 @@ import LeanBridge.ForMathlib.RepresentationTheory.FrobeniusSchurType
 import LeanBridge.ForMathlib.RepresentationTheory.HighestWeight
 import LeanBridge.ForMathlib.RepresentationTheory.HighestWeightTheorem
 import LeanBridge.ForMathlib.RepresentationTheory.MGroup
+import LeanBridge.ForMathlib.RepresentationTheory.MGroupExamples
+import LeanBridge.ForMathlib.RepresentationTheory.MGroupSolvable
+import LeanBridge.ForMathlib.RepresentationTheory.MGroupSupersolvable
 import LeanBridge.ForMathlib.RepresentationTheory.MinimalPermutationRepresentation
 import LeanBridge.ForMathlib.RepresentationTheory.PermutationContainer
 import LeanBridge.ForMathlib.RepresentationTheory.QuaternionRationalDegree

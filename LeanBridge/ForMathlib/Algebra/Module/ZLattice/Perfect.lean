@@ -7,9 +7,11 @@ import Mathlib.LinearAlgebra.Matrix.Symmetric
 # Perfect lattices
 
 A lattice `L` in `ℝⁿ` is perfect if the matrices `x xᵀ`, for the minimal vectors `x` of `L`, span
-the space of real symmetric `n × n` matrices. That perfect lattices are arithmetic and determined
-by their minimal vectors, and that there are finitely many similarity classes of perfect lattices
-in each dimension (Voronoi), are not formalised.
+the space of real symmetric `n × n` matrices. That a perfect lattice is arithmetic and determined
+up to similarity by its minimal vectors (`ZLattice.IsPerfect.isArithmetic`,
+`ZLattice.IsPerfect.isSimilarLattice_of_mapsTo`), and that there are finitely many similarity
+classes of perfect lattices in each dimension (Voronoi,
+`ZLattice.finite_quotient_perfectSimilaritySetoid`), is proved in later files.
 
 ## Main definitions
 

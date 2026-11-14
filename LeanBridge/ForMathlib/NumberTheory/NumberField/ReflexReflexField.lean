@@ -24,8 +24,9 @@ field of `Φ` is the smallest subfield of `K` from which `Φ` is induced, the fi
   subfield from which `Φ` is induced.
 
 That `Φ` is induced from its reflex field of the reflex field, and that this field is the reflex
-field of the reflex CM type of `Φ` (the LMFDB's definition), are not proved here: both rest on
-Galois theory in a Galois closure of `K`.
+field of the reflex CM type of `Φ` and of the LMFDB's inverted CM type, are proved in
+`ReflexReflexFieldGalois` and `ReflexReflexFieldInverseType`, by Galois theory in a Galois closure
+of `K`.
 -/
 
 namespace NumberField.CMType
@@ -56,8 +57,8 @@ lemma IsInducedFrom.mono (h : Φ.IsInducedFrom M) (hM : M ≤ M') : Φ.IsInduced
 /-- The **reflex field of the reflex field** of a CM type `Φ` of `K` (LMFDB
 `nf.reflex_reflex_field`): the smallest subfield of `K` from which `Φ` is induced, the field of
 definition of `Φ`, defined as the intersection of the subfields from which `Φ` is induced. That `Φ`
-is induced from this intersection rests on Galois theory in a Galois closure of `K` and is not
-proved here.
+is induced from this intersection, by Galois theory in a Galois closure of `K`, is
+`isInducedFrom_reflexReflexField` (`ReflexReflexFieldGalois`).
 
 The LMFDB knowl calls this field the *largest* subfield from which `Φ` is induced; since a CM type
 induced from a subfield is induced from every larger subfield (`IsInducedFrom.mono`), the field of

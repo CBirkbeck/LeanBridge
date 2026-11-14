@@ -19,7 +19,9 @@ The knowl attributes to Kneser the theorem that every lattice has an orthogonal 
 indecomposable summands which is unique up to ordering and isometry of the summands. Existence
 holds by induction on the rank, and uniqueness holds for definite lattices, but not for indefinite
 ones: with `U` the hyperbolic plane, which is indecomposable, `U ⊕ ⟨-1⟩ ≅ ⟨1⟩ ⊕ ⟨-1⟩ ⊕ ⟨-1⟩`.
-Neither statement is formalised here.
+Existence and the block diagonal Gram matrices are proved in
+`LeanBridge.ForMathlib.LinearAlgebra.Lattice.OrthogonalDecompositionExistence`; uniqueness for
+definite lattices (Eichler's theorem) and the indefinite example are not formalised.
 
 ## Main definitions
 

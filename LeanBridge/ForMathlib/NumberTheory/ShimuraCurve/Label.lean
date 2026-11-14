@@ -20,9 +20,10 @@ of `X_H`, is mathematically defined, but it needs the Shimura curve `X_H` as an 
 which is not available, so it is not formalised. The other entries `D`, `d`, `δ`, `N` and `i` are
 formalised, from `QuaternionAlgebra.discriminant`, `Subalgebra.quaternionDiscrd`,
 `PolarizedQuaternionOrder.polarizationDegree`, `Subalgebra.enhancedGroupLevel` and `Subgroup.index`.
-As there, `B` is any `ℚ`-algebra, the enhanced group is Mathlib's semidirect product
-`Ô^× ⋊ Aut_{±μ}(O)`, and the topology of the enhanced group, which makes `H` open and compact, is
-not introduced.
+As there, `B` is any `ℚ`-algebra and the enhanced group is Mathlib's semidirect product
+`Ô^× ⋊ Aut_{±μ}(O)`; its topology, for which `H` is open and compact, is
+`Subalgebra.enhancedGroupTopology`, in
+`LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.EnhancedGroupTopology`.
 
 Conjugate subgroups of the enhanced group, which define isomorphic Shimura curves, have the same
 level, since the kernels of reduction are normal, and the same index; a conjugate `g H g⁻¹` is the
