@@ -1,11 +1,9 @@
-import LeanBridge.ForMathlib.GroupTheory.AutjugacyClass
 import LeanBridge.ForMathlib.GroupTheory.Label.Subgroup
 import LeanBridge.ForMathlib.GroupTheory.Perm.MulAut
+import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.AffineLineGroup
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.CyclicIndexTwo
 import LeanBridge.ForMathlib.GroupTheory.SubgroupClassPoset
-import Mathlib.Data.Set.Card.Arithmetic
 import Mathlib.GroupTheory.SpecificGroups.Dihedral
-import TauCeti.GroupTheory.SpecificGroups.Affine.Basic
 
 /-!
 # Gassmann equivalent subgroups with different supergroups
@@ -16,7 +14,12 @@ automorphism (`Subgroup.mk_le_mk_iff_exists_smul_le`), and remarks that "one can
 have Gassmann equivalent subgroups for which the lists of supergroups differ" (LMFDB
 `group.computing_subgroup_labels`). It also warns that a supergroup `K` of `H` may contain
 `G`-conjugates of `H` that are not `K`-conjugate. We prove both remarks by examples, the first one
-up to conjugacy and up to automorphism.
+up to conjugacy and up to automorphism. The general statements are with the definitions: the
+LMFDB's running tally computes the Gassmann vector (`Subgroup.natCard_inter_eq_sum`), subgroups
+matched by a conjugacy-preserving bijection are Gassmann equivalent
+(`Subgroup.isGassmannEquivalent_of_equiv`, `Subgroup.isGassmannEquivalent_range`), and Gassmann
+equivalent subgroups of a finite group are Gassmann equivalent up to automorphism
+(`Subgroup.natCard_orbit_inter_eq_finsum`, `Subgroup.IsGassmannEquivalent.isAutGassmannEquivalent`).
 
 * Up to conjugacy. The holomorph `Hol(C₈) = C₈ ⋊ C₈ˣ`, Tau Ceti's affine group of `ZMod 8` (LMFDB
   `32.43`), has two Gassmann equivalent subgroups that are not conjugate: the linear subgroup
@@ -52,17 +55,6 @@ up to conjugacy and up to automorphism.
 
 ## Main results
 
-* `Subgroup.natCard_inter_eq_sum` (LMFDB `group.computing_subgroup_labels`): the LMFDB's running
-  tally computes the Gassmann vector, `|C ∩ H|` being the sum of the sizes of the conjugacy classes
-  of `H` that lie in `C`.
-* `Subgroup.natCard_orbit_inter_eq_finsum` (LMFDB `group.computing_subgroup_labels`): up to
-  automorphism, the count on an orbit of `Aut(G)` is the sum of the counts on the conjugacy classes
-  that it collects.
-* `Subgroup.IsGassmannEquivalent.isAutGassmannEquivalent`: Gassmann equivalent subgroups of a finite
-  group are Gassmann equivalent up to automorphism.
-* `Subgroup.isGassmannEquivalent_of_equiv` and `Subgroup.isGassmannEquivalent_range`: subgroups
-  matched by a conjugacy-preserving bijection, for instance the images of two embeddings that
-  agree up to conjugacy, are Gassmann equivalent.
 * `TauCeti.AffineGroup.isGassmannEquivalent_zmodEightTwistedSubgroup`,
   `TauCeti.AffineGroup.not_conj_smul_zmodEightTwistedSubgroup_le` and
   `TauCeti.AffineGroup.not_isConjugate_zmodEightTwistedSubgroup`: `H₀` and `K₀` are Gassmann
@@ -87,93 +79,7 @@ open MulAction Multiplicative SemidirectProduct Subgroup
 
 open scoped Pointwise
 
-namespace Subgroup
-
-variable {G X : Type*} [Group G] [Group X] {H K : Subgroup G}
-
-/-- **Subgroups matched by a conjugacy-preserving bijection are Gassmann equivalent**: if
-`e : H ≃ K` sends every `h` to a conjugate of `h` in `G`, it maps `C ∩ H` onto `C ∩ K` for every
-conjugacy class `C` of `G`. -/
-lemma isGassmannEquivalent_of_equiv (e : H ≃ K) (he : ∀ h, IsConj (e h : G) h) :
-    H.IsGassmannEquivalent K := fun C ↦ by
-  have hmem (h : H) : (e h : G) ∈ C.carrier ↔ (h : G) ∈ C.carrier := by
-    rw [ConjClasses.mem_carrier_iff_mk_eq, ConjClasses.mem_carrier_iff_mk_eq,
-      ConjClasses.mk_eq_mk_iff_isConj.mpr (he h)]
-  exact Nat.card_congr
-    { toFun x := ⟨e ⟨x, x.2.2⟩, (hmem _).mpr x.2.1, (e _).2⟩
-      invFun y := ⟨e.symm ⟨y, y.2.2⟩, (hmem _).mp (by rw [e.apply_symm_apply]; exact y.2.1),
-        (e.symm _).2⟩
-      left_inv x := by simp
-      right_inv y := by simp }
-
-/-- **The images of two embeddings that agree up to conjugacy are Gassmann equivalent**: if
-`f, g : X →* G` are injective and `f x` is conjugate to `g x` for every `x`, then `f.range` and
-`g.range` are Gassmann equivalent. -/
-lemma isGassmannEquivalent_range {f g : X →* G} (hf : Function.Injective f)
-    (hg : Function.Injective g) (hfg : ∀ x, IsConj (f x) (g x)) :
-    f.range.IsGassmannEquivalent g.range :=
-  isGassmannEquivalent_of_equiv ((MonoidHom.ofInjective hf).symm.trans
-    (MonoidHom.ofInjective hg)).toEquiv fun h ↦ by
-      simpa [MonoidHom.ofInjective_apply] using (hfg ((MonoidHom.ofInjective hf).symm h)).symm
-
-open scoped Classical in
-/-- **The LMFDB's running tally counts the elements of `H` in a conjugacy class of `G`** (LMFDB
-`group.computing_subgroup_labels`): each conjugacy class `D` of `H` lies in the conjugacy class
-`D.map H.subtype` of `G`, and the number of elements of `H` in a conjugacy class `C` of `G` is the
-sum of the sizes of the conjugacy classes of `H` lying in `C`. -/
-lemma natCard_inter_eq_sum [Finite H] [Fintype (ConjClasses H)] (C : ConjClasses G) :
-    Nat.card ↥(C.carrier ∩ H) =
-      ∑ D : ConjClasses H with D.map H.subtype = C, Nat.card D.carrier := by
-  let f : {h : H // ConjClasses.mk (h : G) = C} → {D : ConjClasses H // D.map H.subtype = C} :=
-    fun h ↦ ⟨ConjClasses.mk h.1, h.2⟩
-  refine (Nat.card_congr <|
-    ({ toFun x := ⟨⟨x, x.2.2⟩, ConjClasses.mem_carrier_iff_mk_eq.mp x.2.1⟩
-       invFun y := ⟨y.1, ConjClasses.mem_carrier_iff_mk_eq.mpr y.2, y.1.2⟩ } :
-      ↥(C.carrier ∩ H) ≃ {h : H // ConjClasses.mk (h : G) = C}).trans <|
-    (Equiv.sigmaFiberEquiv f).symm.trans <| Equiv.sigmaCongrRight fun D ↦
-      ({ toFun y := ⟨y.1.1, ConjClasses.mem_carrier_iff_mk_eq.mpr (congrArg Subtype.val y.2)⟩
-         invFun h := ⟨⟨h.1, (congrArg (ConjClasses.map H.subtype)
-           (ConjClasses.mem_carrier_iff_mk_eq.mp h.2)).trans D.2⟩,
-           Subtype.ext (ConjClasses.mem_carrier_iff_mk_eq.mp h.2)⟩ } :
-        {y // f y = D} ≃ ↥D.1.carrier)).trans ?_
-  rw [Nat.card_sigma]
-  exact (Finset.sum_subtype (Finset.univ.filter fun D : ConjClasses H ↦ D.map H.subtype = C)
-    (fun D ↦ by simp) fun D ↦ Nat.card D.carrier).symm
-
-/-- **Gassmann vectors up to automorphism collect the conjugacy classes related by an
-automorphism** (LMFDB `group.computing_subgroup_labels`): in a finite group, the number of elements
-of `H` in the orbit of `x` under `Aut(G)` is the sum, over the conjugacy classes `C` in the orbit of
-the class of `x`, of the numbers of elements of `H` in `C`. -/
-lemma natCard_orbit_inter_eq_finsum [Finite G] (x : G) : Nat.card ↥(orbit (MulAut G) x ∩ H) =
-    ∑ᶠ C ∈ orbit (MulAut G) (ConjClasses.mk x), Nat.card ↥(C.carrier ∩ H) := by
-  rw [MulAut.orbit_eq_iUnion_carrier, Set.iUnion₂_inter]
-  exact (Set.toFinite _).ncard_biUnion (fun _ _ ↦ Set.toFinite _)
-    ((MulAut.pairwiseDisjoint_carrier_orbit x).mono_on fun _ _ ↦ Set.inter_subset_left)
-
-/-- **Gassmann equivalent subgroups are Gassmann equivalent up to automorphism** (LMFDB
-`group.computing_subgroup_labels`), in a finite group: the count on an orbit of `Aut(G)` is the sum
-of the counts on the conjugacy classes that it collects. -/
-lemma IsGassmannEquivalent.isAutGassmannEquivalent [Finite G] (h : H.IsGassmannEquivalent K) :
-    H.IsAutGassmannEquivalent K := fun x ↦ by
-  rw [natCard_orbit_inter_eq_finsum, natCard_orbit_inter_eq_finsum]
-  exact finsum_mem_congr rfl fun C _ ↦ h C
-
-lemma Ioi_mk_ne_of_forall_not_smul_le {A : Type*} [Group A] [MulDistribMulAction A G]
-    {M : Subgroup G} (hH : H ≤ M) (hM : ∀ a : A, ¬a • M ≤ H) (hK : ∀ a : A, ¬a • K ≤ M) :
-    Set.Ioi (Quotient.mk _ H : orbitRel.Quotient A (Subgroup G)) ≠ Set.Ioi (Quotient.mk _ K) := by
-  intro h
-  have hM' : Quotient.mk _ M ∈ Set.Ioi (Quotient.mk _ H : orbitRel.Quotient A (Subgroup G)) :=
-    mk_lt_mk_iff_exists_smul_le.mpr ⟨⟨1, (one_smul A H).trans_le hH⟩, hM⟩
-  rw [h] at hM'
-  exact (mk_lt_mk_iff_exists_smul_le.mp hM').1.elim hK
-
-end Subgroup
-
 namespace TauCeti.AffineGroup
-
-lemma mem_affineLinearSubgroup_iff_smul_zero {F : Type*} [Ring F] (g : AffineGroup F) :
-    g ∈ affineLinearSubgroup F ↔ g • (0 : F) = 0 := by
-  rw [mem_affineLinearSubgroup_iff, smul_def, mul_zero, add_zero]
 
 /-- The translation part `c(a)` of the twisted section of `Hol(C₈)`: `c(3) = c(5) = 4` and
 `c(1) = c(7) = 0`, that is, `4` times the character of `(ZMod 8)ˣ` with kernel `{1, 7}`. -/

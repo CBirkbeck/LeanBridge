@@ -26,6 +26,9 @@ namespace CongruenceSubgroup
 
 variable {N : ℕ}
 
+lemma Gamma0_one_eq_top : Gamma0 1 = ⊤ :=
+  eq_top_iff.mpr fun _ _ ↦ Gamma0_mem.mpr (Subsingleton.elim _ _)
+
 lemma Gamma1_subgroupOf_Gamma0 :
     (Gamma1 N).subgroupOf (Gamma0 N) = (Gamma0Map N).toHomUnits.ker := by
   ext g

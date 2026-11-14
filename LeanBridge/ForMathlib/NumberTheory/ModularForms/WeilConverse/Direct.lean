@@ -1,3 +1,4 @@
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.EigenformLFunction
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.WeilConverse.Basic
 import Mathlib.NumberTheory.LSeries.AbstractFuncEq
 import Mathlib.NumberTheory.ModularForms.Bounds
@@ -39,12 +40,12 @@ done here in `ModularForm.weakFEPairOfSlash`.
 
 open Matrix hiding zpow_neg
 
+open UpperHalfPlane hiding I I_re I_im
+
 open Asymptotics Complex CongruenceSubgroup Filter Function MeasureTheory Set TauCeti
   GeneralLinearGroup SpecialLinearGroup SlashInvariantForm
 
 open scoped Real Manifold ModularForm MatrixGroups
-
-open UpperHalfPlane hiding I I_re I_im
 
 namespace ModularForm
 
@@ -350,19 +351,12 @@ lemma hasWeilFunctionalEquations_discriminant : HasWeilFunctionalEquations
       CuspForm.discriminant
   have hE : expSum (fun n ↦ (qExpansion 1 discriminant).coeff n) = discriminant :=
     expSum_qExpansion_coeff (k := 12) one_mem_strictPeriods_SL CuspForm.discriminant
-  have hS : frickeGL ℝ 1 = mapGL ℝ ModularGroup.S := by
-    have h1 : ∀ i j : Fin 2,
-        ((mapGL ℝ ModularGroup.S : GL (Fin 2) ℝ) : Matrix (Fin 2) (Fin 2) ℝ) i j =
-          (((ModularGroup.S : SL(2, ℤ)) : Matrix (Fin 2) (Fin 2) ℤ) i j : ℝ) := fun _ _ ↦ rfl
-    ext i j
-    rw [h1, ModularGroup.coe_S]
-    fin_cases i <;> fin_cases j <;> simp
   refine hasWeilFunctionalEquations_of_nebentypus (by norm_num) hP hP (fun γ _ ↦ ?_) ?_
   · have h1 : (1 : DirichletCharacter ℂ 1) (γ 1 1 : ℤ) = 1 :=
       MulChar.one_apply (isUnit_of_subsingleton _)
     rw [hE, h1, one_smul]
     exact slash_action_generators_SL2Z discriminant_S_invariant discriminant_T_invariant γ
-  · rw [hE, hS, Nat.cast_one, one_cpow, one_smul]
+  · rw [hE, frickeGL_one_eq_mapGL_S, Nat.cast_one, one_cpow, one_smul]
     exact discriminant_S_invariant
 
 end ModularForm

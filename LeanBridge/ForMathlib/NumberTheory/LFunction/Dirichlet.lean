@@ -31,6 +31,8 @@ divide the conductor, such as the trivial character modulo `2`, whose L-function
 
 ## Main results
 
+* `DirichletCharacter.LFunction_eulerProduct_hasProd` (LMFDB `lfunction.history.dirichlet`): the
+  Euler product of the L-function of a Dirichlet character, for `re s > 1`.
 * `DirichletCharacter.completedLFunction_conj`: the conjugation symmetry
   `Λ(conj s, χ) = conj (Λ(s, χ⁻¹))` of the completed L-function of a Dirichlet character, for
   `s ≠ 1`.
@@ -97,6 +99,15 @@ lemma completedLFunction_eq_gammaFactor_mul (hs : 0 < s.re) :
     completedLFunction χ s = gammaFactor χ s * LFunction χ s := by
   rw [LFunction_eq_completed_div_gammaFactor χ s (.inl (ne_zero_of_re_pos hs)),
     mul_div_cancel₀ _ (gammaFactor_ne_zero hs)]
+
+variable (χ) in
+/-- **The Euler product of a Dirichlet L-function** (LMFDB `lfunction.history.dirichlet`):
+`L(s, χ) = ∏ (1 - χ(p) p ^ (-s))⁻¹` over the primes `p`, for `re s > 1`. This is Mathlib's
+`DirichletCharacter.LSeries_eulerProduct_hasProd`, stated for the continued L-function
+`DirichletCharacter.LFunction`. -/
+lemma LFunction_eulerProduct_hasProd (hs : 1 < s.re) :
+    HasProd (fun p : Nat.Primes ↦ (1 - χ p * (p : ℂ) ^ (-s))⁻¹) (LFunction χ s) :=
+  χ.LFunction_eq_LSeries hs ▸ χ.LSeries_eulerProduct_hasProd hs
 
 variable (χ) in
 /-- **Conjugation symmetry of the completed L-function of a Dirichlet character**:

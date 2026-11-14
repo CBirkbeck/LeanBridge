@@ -57,20 +57,18 @@ variable (Γ k p) in
 def HasQuasiModularDepth (v : Γ →* Circle) (f : ℍ → ℂ) : Prop :=
   IsQuasiModularForm Γ k p v f ∧ ∀ q < p, ¬IsQuasiModularForm Γ k q v f
 
+lemma isBoundedAtImInfty_div_denom (α : GL (Fin 2) ℝ) :
+    IsBoundedAtImInfty fun z : ℍ ↦ (α 1 0 : ℂ) / denom α z := by
+  refine isBoundedAtImInfty_iff.mpr ⟨1, 1, fun z hz ↦ ?_⟩
+  rw [norm_div, div_le_one (norm_pos_iff.mpr (denom_ne_zero α z)), Complex.norm_real]
+  refine (le_mul_of_one_le_right (norm_nonneg _) hz).trans ?_
+  simpa [denom, abs_of_pos z.im_pos] using Complex.abs_im_le_norm (denom α z)
+
 private lemma isBoundedAtImInfty_D2 (γ : SL(2, ℤ)) : IsBoundedAtImInfty (D2 γ) := by
-  rw [isBoundedAtImInfty_iff]
-  refine ⟨2 * π, 1, fun z hz ↦ ?_⟩
-  rcases eq_or_ne (γ 1 0) 0 with hc | hc
-  · simp [D2, hc, Real.pi_pos.le]
-  have hc' : (1 : ℝ) ≤ |(γ 1 0 : ℝ)| := by
-    exact_mod_cast Int.one_le_abs hc
-  have h : |(γ 1 0 : ℝ)| ≤ ‖denom γ z‖ := by
-    refine le_trans ?_ (Complex.abs_im_le_norm _)
-    simp [denom]
-    exact le_mul_of_one_le_right (abs_nonneg _) <| hz.trans (le_abs_self _)
-  rw [D2, norm_div, div_le_iff₀ (by linarith)]
-  simp
-  exact mul_le_mul_of_nonneg_left h (by positivity)
+  have h : D2 γ = (2 * π * Complex.I) • fun z : ℍ ↦ ((γ : GL (Fin 2) ℝ) 1 0 : ℂ) / denom γ z := by
+    ext z
+    simp [D2, mul_div_assoc]
+  exact h ▸ (isBoundedAtImInfty_div_denom γ).const_smul_left _
 
 /-- **`E₂` is quasi-modular** of weight `2` and depth at most `1` on `SL(2, ℤ)`, with trivial
 multiplier and `P(z, X) = E₂(z) - (6i/π) X` (written `E₂(z) - (2πi / 2ζ(2)) X`). -/

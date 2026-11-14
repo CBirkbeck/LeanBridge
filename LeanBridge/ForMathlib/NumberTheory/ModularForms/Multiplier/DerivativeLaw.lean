@@ -78,7 +78,7 @@ open scoped ComplexConjugate Manifold MatrixGroups ModularForm Real
 namespace ModularForm
 
 variable {Γ : Subgroup (GL (Fin 2) ℝ)} [Γ.HasDetOne] {v w : Γ →* Circle} {k l : ℤ} {u : ℂ}
-  {f g : ℍ → ℂ} {α : GL (Fin 2) ℝ} (γ : Γ) (z : ℍ)
+  {f g : ℍ → ℂ} {α : GL (Fin 2) ℝ} (γ : Γ) (z : ℍ) (r : ℕ)
 
 /-- **The product of two modular forms** (LMFDB `mf.gl2.history.new`): if `f` and `g` are modular
 forms on `Γ` of weights `k` and `ℓ` and multiplier systems `v` and `w`, then `f g` is a modular form
@@ -122,6 +122,37 @@ lemma isBoundedAtImInfty_derivOfComplex (hf : MDiff f) (hb : IsBoundedAtImInfty 
     IsBoundedAtImInfty (derivOfComplex f) :=
   derivOfComplex_eq_smul f ▸ (isBoundedAtImInfty_normalizedDerivOfComplex hf hb).const_smul_left _
 
+lemma derivOfComplex_add (hf : MDiff f) (hg : MDiff g) :
+    derivOfComplex (f + g) = derivOfComplex f + derivOfComplex g := by
+  rw [derivOfComplex_eq_smul, normalizedDerivOfComplex_add f g hf hg, smul_add,
+    ← derivOfComplex_eq_smul, ← derivOfComplex_eq_smul]
+
+lemma derivOfComplex_mul (hf : MDiff f) (hg : MDiff g) :
+    derivOfComplex (f * g) = derivOfComplex f * g + f * derivOfComplex g := by
+  rw [derivOfComplex_eq_smul, normalizedDerivOfComplex_mul f g hf hg, smul_add, ← smul_mul_assoc,
+    ← mul_smul_comm, ← derivOfComplex_eq_smul, ← derivOfComplex_eq_smul]
+
+lemma mdifferentiable_iterate_derivOfComplex (hf : MDiff f) : MDiff (derivOfComplex^[r] f) := by
+  induction r with
+  | zero => exact hf
+  | succ r ih =>
+    exact Function.iterate_succ_apply' derivOfComplex r f ▸ mdifferentiable_derivOfComplex ih
+
+lemma isBoundedAtImInfty_iterate_derivOfComplex (hf : MDiff f) (hb : IsBoundedAtImInfty f) :
+    IsBoundedAtImInfty (derivOfComplex^[r] f) := by
+  induction r with
+  | zero => exact hb
+  | succ r ih =>
+    exact Function.iterate_succ_apply' derivOfComplex r f ▸
+      isBoundedAtImInfty_derivOfComplex (mdifferentiable_iterate_derivOfComplex r hf) ih
+
+lemma iterate_derivOfComplex_const_smul (c : ℂ) :
+    derivOfComplex^[r] (c • f) = c • derivOfComplex^[r] f := by
+  induction r with
+  | zero => rfl
+  | succ r ih =>
+    rw [Function.iterate_succ_apply', ih, derivOfComplex_const_smul, Function.iterate_succ_apply']
+
 private lemma val_det_pos (hα : α.det = 1) : 0 < α.val.det := by
   rw [← val_det_apply, hα]
   exact one_pos
@@ -143,14 +174,6 @@ lemma derivOfComplex_slash (hf : MDiff f) (hα : α.det = 1) : derivOfComplex (f
   simp only [← val_det_apply, hα, Pi.smul_apply, Pi.sub_apply, smul_eq_mul]
   field_simp
   simp
-
-variable (α) in
-private lemma isBoundedAtImInfty_div_denom :
-    IsBoundedAtImInfty fun z : ℍ ↦ (α 1 0 : ℂ) / denom α z := by
-  refine isBoundedAtImInfty_iff.mpr ⟨1, 1, fun z hz ↦ ?_⟩
-  rw [norm_div, div_le_one (norm_pos_iff.mpr (denom_ne_zero α z)), norm_real]
-  refine (le_mul_of_one_le_right (norm_nonneg _) hz).trans ?_
-  simpa [denom, abs_of_pos z.im_pos] using abs_im_le_norm (denom α z)
 
 lemma isBoundedAt_derivOfComplex (hf : MDiff f) {c : OnePoint ℝ} (hc : c.IsBoundedAt f k) :
     c.IsBoundedAt (derivOfComplex f) (k + 2) := by

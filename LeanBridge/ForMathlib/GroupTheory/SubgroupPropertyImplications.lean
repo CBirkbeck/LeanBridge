@@ -13,13 +13,13 @@ cyclic group is abelian (`IsCyclic.isMulCommutative`), an abelian group is nilpo
 (`Subgroup.upperCentralSeries_one_eq_top_iff`), a nilpotent group is solvable
 (`IsNilpotent.to_isSolvable`), a Sylow subgroup is a `p`-group (`Sylow.isPGroup`) and a finite
 `p`-group is nilpotent (`IsPGroup.isNilpotent`). We add the implications that the LMFDB lists and
-Mathlib does not state: a stem subgroup is central, a central subgroup is abelian, and a Sylow
-subgroup of a finite group is nilpotent. We also prove the reason that the LMFDB gives for nilpotent
-groups being solvable: the upper central series has abelian subquotients.
+Mathlib does not state: a stem subgroup is central (`Subgroup.IsStem.le_center`, beside the
+definition), a central subgroup is abelian, and a Sylow subgroup of a finite group is nilpotent. We
+also prove the reason that the LMFDB gives for nilpotent groups being solvable: the upper central
+series has abelian subquotients.
 
 ## Main results
 
-* `Subgroup.IsStem.le_center`: a stem subgroup is central.
 * `Subgroup.isMulCommutative_of_le_center`: a central subgroup is abelian.
 * `Subgroup.isMulCommutative_upperCentralSeries_succ_quotient`: the subquotients `Z_{n+1} / Z_n`
   of the upper central series are abelian.
@@ -33,11 +33,6 @@ variable {G : Type*} [Group G]
 namespace Subgroup
 
 variable {H : Subgroup G}
-
-/-- **A stem subgroup is central** (LMFDB `group.subgroup_properties_interdependencies`), by
-definition: it lies in both the centre and the commutator subgroup. -/
-lemma IsStem.le_center (h : H.IsStem) : H ≤ center G :=
-  (le_inf_iff.mp h).1
 
 /-- **A central subgroup is abelian** (LMFDB `group.subgroup_properties_interdependencies`): its
 elements commute with the whole group. -/

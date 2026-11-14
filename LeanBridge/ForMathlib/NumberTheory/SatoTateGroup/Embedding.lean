@@ -132,29 +132,6 @@ lemma moment_charpolyCoeff_conj (g : unitaryGroup (Fin G.degree) ℂ) (hg : g �
 
 variable {g : ℕ} (H : Subgroup (Fin g → Circle)) (hH : IsClosed (H : Set (Fin g → Circle)))
 
-lemma uspTorusMatrix_injective : Function.Injective (uspTorusMatrix (g := g)) := fun x y h ↦ by
-  funext j
-  have h₁ : (uspTorusEntry x (Fin.castAdd g j) : ℂ) = uspTorusEntry y (Fin.castAdd g j) :=
-    congrFun (diagonal_injective h) _
-  rwa [uspTorusEntry_castAdd, uspTorusEntry_castAdd, Circle.coe_inj] at h₁
-
-lemma trace_uspTorusMatrix (x : Fin g → Circle) :
-    (uspTorusMatrix x).trace = ∑ j, (x j : ℂ) + ∑ j, (((x j)⁻¹ : Circle) : ℂ) := by
-  rw [uspTorusMatrix, trace_diagonal, Fin.sum_univ_add]
-  simp only [uspTorusEntry_castAdd, uspTorusEntry_natAdd]
-
-variable (g) in
-/-- The diagonal torus `x ↦ diag(x₁, …, x_g, x₁⁻¹, …, x_g⁻¹)` of `USp(2g)`, as a homomorphism to the
-unitary group `U(2g)`. -/
-noncomputable def uspTorusHom : (Fin g → Circle) →* unitaryGroup (Fin (g + g)) ℂ :=
-  (ambientGroup 1 (g + g)).subtype.comp (uspTorus odd_one rfl)
-
-lemma continuous_uspTorusHom : Continuous (uspTorusHom g) :=
-  continuous_subtype_val.comp (continuous_uspTorus odd_one)
-
-lemma uspTorusHom_injective : Function.Injective (uspTorusHom g) := fun _ _ h ↦
-  uspTorusMatrix_injective (congrArg Subtype.val h)
-
 /-- The Sato–Tate group of weight `1` and degree `2g` of a closed subgroup `H` of the torus
 `U(1)^g`: its image in the diagonal torus of `USp(2g)`. -/
 noncomputable def ofTorus : SatoTateGroup where

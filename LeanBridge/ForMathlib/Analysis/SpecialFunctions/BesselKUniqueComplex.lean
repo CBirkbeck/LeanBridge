@@ -1,4 +1,5 @@
 import LeanBridge.ForMathlib.Analysis.SpecialFunctions.BesselKNonvanishing
+import LeanBridge.ForMathlib.Analysis.SpecialFunctions.BesselKUnique
 import Mathlib.Analysis.ODE.ExistUnique
 
 /-!

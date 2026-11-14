@@ -79,6 +79,19 @@ local notation "𝕢" => Periodic.qParam
 
 local notation "ℍₒ" => upperHalfPlaneSet
 
+namespace UpperHalfPlane
+
+lemma hasDerivAt_log_denom (γ : SL(2, ℤ)) (z : ℍ) :
+    HasDerivAt (fun u ↦ log (denom γ u)) ((γ 1 0 : ℂ) / denom γ z) z := by
+  rcases eq_or_ne (γ 1 0) 0 with hc | hc
+  · simpa [denom, hc] using hasDerivAt_const (z : ℂ) (log (γ 1 1 : ℂ))
+  · have hd : HasDerivAt (denom γ ·) (γ 1 0 : ℂ) z := by
+      simpa [denom] using
+        (hasDerivAt_id (z : ℂ)).const_mul ((γ 1 0 : ℤ) : ℂ) |>.add_const ((γ 1 1 : ℤ) : ℂ)
+    exact hd.clog <| mem_slitPlane_iff.mpr <| .inr <| by simp [denom, hc, z.im_ne_zero]
+
+end UpperHalfPlane
+
 namespace ModularForm
 
 variable (k : ℝ) (r : ℂ) (n : ℕ) (g : GL (Fin 2) ℝ) (γ δ : SL(2, ℤ)) (z w : ℍ) {u : ℂ} {L : ℂ → ℂ}
@@ -161,14 +174,6 @@ lemma differentiableOn_etaPow : DifferentiableOn ℂ (etaPow r) ℍₒ :=
 
 lemma norm_etaPow_ofReal : ‖etaPow k z‖ = ‖η z‖ ^ k := by
   rw [etaPow, norm_exp, ← exp_etaLog, norm_exp, ← Real.exp_mul, re_ofReal_mul, mul_comm]
-
-lemma hasDerivAt_log_denom : HasDerivAt (fun u ↦ log (denom γ u)) ((γ 1 0 : ℂ) / denom γ z) z := by
-  rcases eq_or_ne (γ 1 0) 0 with hc | hc
-  · simpa [denom, hc] using hasDerivAt_const (z : ℂ) (log (γ 1 1 : ℂ))
-  · have hd : HasDerivAt (denom γ ·) (γ 1 0 : ℂ) z := by
-      simpa [denom] using
-        (hasDerivAt_id (z : ℂ)).const_mul ((γ 1 0 : ℤ) : ℂ) |>.add_const ((γ 1 1 : ℤ) : ℂ)
-    exact hd.clog <| mem_slitPlane_iff.mpr <| .inr <| by simp [denom, hc, z.im_ne_zero]
 
 lemma hasDerivAt_etaLog_smul_sub :
     HasDerivAt (fun u ↦ etaLog ↑(γ • ofComplex u) - etaLog u - log (denom γ u) / 2) 0 z := by

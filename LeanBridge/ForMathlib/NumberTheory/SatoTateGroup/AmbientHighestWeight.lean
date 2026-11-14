@@ -32,7 +32,8 @@ knowl's words do not force. That it is Weyl's labelling, and a bijection onto th
 
 ## Main definitions
 
-* `SatoTateGroup.uspTorus`: the diagonal torus of `USp(2g)`.
+* `SatoTateGroup.uspTorus`: the diagonal torus of `USp(2g)`, and `SatoTateGroup.uspTorusHom`, the
+  same as a homomorphism to the unitary group `U(2g)`.
 * `SatoTateGroup.IsTorusWeight`, `SatoTateGroup.IsHighestTorusWeight`: the weights of an irreducible
   character of `USp(2g)`, and the highest one.
 * `SatoTateGroup.HasSymplecticMonomial` (LMFDB `st_group.moment_matrix`): the highest weight of an
@@ -121,6 +122,17 @@ lemma uspTorusMatrix_one : uspTorusMatrix (1 : Fin g → Circle) = 1 := by
   induction i using Fin.addCases with
   | left j => rw [uspTorusEntry_castAdd]; simp
   | right j => rw [uspTorusEntry_natAdd]; simp
+
+lemma uspTorusMatrix_injective : Function.Injective (uspTorusMatrix (g := g)) := fun x y h ↦ by
+  funext j
+  have h₁ : (uspTorusEntry x (Fin.castAdd g j) : ℂ) = uspTorusEntry y (Fin.castAdd g j) :=
+    congrFun (diagonal_injective h) _
+  rwa [uspTorusEntry_castAdd, uspTorusEntry_castAdd, Circle.coe_inj] at h₁
+
+lemma trace_uspTorusMatrix (x : Fin g → Circle) :
+    (uspTorusMatrix x).trace = ∑ j, (x j : ℂ) + ∑ j, (((x j)⁻¹ : Circle) : ℂ) := by
+  rw [uspTorusMatrix, trace_diagonal, Fin.sum_univ_add]
+  simp only [uspTorusEntry_castAdd, uspTorusEntry_natAdd]
 
 lemma uspTorusMatrix_mem_form (t : Fin g → Circle) :
     (uspTorusMatrix t)ᵀ * satoTateForm (g + g) * uspTorusMatrix t = satoTateForm (g + g) := by
@@ -219,6 +231,15 @@ lemma coe_uspTorus (t : Fin g → Circle) :
     ((uspTorus hw rfl t : ambientGroup w (g + g)) : Matrix (Fin (g + g)) (Fin (g + g)) ℂ) =
       uspTorusMatrix t :=
   rfl
+
+variable (g) in
+/-- The diagonal torus `x ↦ diag(x₁, …, x_g, x₁⁻¹, …, x_g⁻¹)` of `USp(2g)`, as a homomorphism to the
+unitary group `U(2g)`. -/
+noncomputable def uspTorusHom : (Fin g → Circle) →* unitaryGroup (Fin (g + g)) ℂ :=
+  (ambientGroup 1 (g + g)).subtype.comp (uspTorus odd_one rfl)
+
+lemma uspTorusHom_injective : Function.Injective (uspTorusHom g) := fun _ _ h ↦
+  uspTorusMatrix_injective (congrArg Subtype.val h)
 
 variable (χ : IrrepClass ℂ (ambientGroup w d))
 

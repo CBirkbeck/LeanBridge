@@ -1,3 +1,4 @@
+import LeanBridge.ForMathlib.NumberTheory.LFunction.Dirichlet
 import Mathlib.Analysis.Normed.Group.Tannery
 import Mathlib.Analysis.SpecialFunctions.Trigonometric.Cotangent
 import Mathlib.NumberTheory.LSeries.Nonvanishing
@@ -12,8 +13,9 @@ progression `a, a + q, a + 2q, …` with `a` prime to `q` contains infinitely ma
 `Nat.infinite_setOfPred_prime_and_modEq`). His proof rests on `L(1, χ) ≠ 0` for `χ ≠ 1` (Mathlib's
 `DirichletCharacter.LFunction_apply_one_ne_zero`), which he obtained from special values. This file
 formalises the example of LMFDB `lfunction.history.dirichlet`: the character `χ₃` modulo `3` with
-`χ₃(n) = 1, -1, 0` for `n ≡ 1, 2, 0 (mod 3)`, and the Euler product, the functional equation and the
-special value `L(1, χ₃) = π / (3 √3)` of its L-function.
+`χ₃(n) = 1, -1, 0` for `n ≡ 1, 2, 0 (mod 3)`, and the functional equation and the special value
+`L(1, χ₃) = π / (3 √3)` of its L-function. Its Euler product is the case of `χ₃` of
+`DirichletCharacter.LFunction_eulerProduct_hasProd`, for every Dirichlet character.
 
 The character `χ₃` is odd, quadratic and primitive, and its Gauss sum is `√3 i`, so its root number
 is `1` and Mathlib's functional equation reads `Λ(1 - s, χ₃) = 3 ^ (s - 1 / 2) Λ(s, χ₃)` for
@@ -51,8 +53,6 @@ these.
 
 ## Main results
 
-* `DirichletCharacter.LFunction_eulerProduct_hasProd`: the Euler product of the L-function of a
-  Dirichlet character, for `re s > 1`.
 * `DirichletCharacter.χ₃_intCast`: the values of `χ₃` at the integers.
 * `DirichletCharacter.isPrimitive_χ₃`: `χ₃` is primitive.
 * `DirichletCharacter.gaussSum_χ₃`, `DirichletCharacter.rootNumber_χ₃`: the Gauss sum of `χ₃` is
@@ -61,6 +61,8 @@ these.
   `DirichletCharacter.completedLFunctionModThree_eq`: the function
   `(3 / π) ^ (s / 2) Γ((s + 1) / 2) L(s, χ₃)` is entire, with this formula away from the poles of
   `Γ((s + 1) / 2)`.
+* `DirichletCharacter.completedLFunctionModThree_eq_sqrt_pi_mul_completed`: it is `√π` times the
+  completion of the analytic L-function of `χ₃` (`AnalyticLFunction.dirichlet`).
 * `DirichletCharacter.completedLFunctionModThree_one_sub`,
   `DirichletCharacter.Gamma_mul_LFunction_χ₃_one_sub` (LMFDB `lfunction.history.dirichlet`): the
   functional equation, `(3 / π) ^ (s / 2) Γ((s + 1) / 2) L(s, χ₃)` is invariant under `s ↦ 1 - s`.
@@ -104,14 +106,6 @@ private lemma Complex.ofReal_sqrt_three_ne_zero : ((√3 : ℝ) : ℂ) ≠ 0 :=
 namespace DirichletCharacter
 
 variable {s : ℂ} {σ : ℝ} (n : ℕ)
-
-/-- **The Euler product of a Dirichlet L-function** (LMFDB `lfunction.history.dirichlet`):
-`L(s, χ) = ∏ (1 - χ(p) p ^ (-s))⁻¹` over the primes `p`, for `re s > 1`. This is Mathlib's
-`DirichletCharacter.LSeries_eulerProduct_hasProd`, stated for the continued L-function
-`DirichletCharacter.LFunction`. -/
-lemma LFunction_eulerProduct_hasProd {N : ℕ} [NeZero N] (χ : DirichletCharacter ℂ N)
-    (hs : 1 < s.re) : HasProd (fun p : Nat.Primes ↦ (1 - χ p * (p : ℂ) ^ (-s))⁻¹) (LFunction χ s) :=
-  χ.LFunction_eq_LSeries hs ▸ χ.LSeries_eulerProduct_hasProd hs
 
 /-- The **Dirichlet character `χ₃` modulo `3`** (LMFDB `lfunction.history.dirichlet`), with values
 `1`, `-1`, `0` at the integers congruent to `1`, `2`, `0` modulo `3`
@@ -191,6 +185,15 @@ entire function `√π 3 ^ (s / 2) Λ(s, χ₃)`, where `Λ(s, χ₃) = Γ_ℝ(s
 `Γ((s + 1) / 2)` has no pole (`DirichletCharacter.completedLFunctionModThree_eq`). -/
 noncomputable def completedLFunctionModThree : ℂ :=
   √π * 3 ^ (s / 2) * completedLFunction χ₃ s
+
+variable (s) in
+/-- **The knowl's completed L-function of `χ₃` is `√π` times that of the analytic L-function of
+`χ₃`**: `AnalyticLFunction.dirichlet isPrimitive_χ₃`, of degree `1` and conductor `3`, is completed
+by `3 ^ (s / 2) Λ(s, χ₃)`, and its sign is the root number `1` (`AnalyticLFunction.sign_dirichlet`,
+`DirichletCharacter.rootNumber_χ₃`). -/
+lemma completedLFunctionModThree_eq_sqrt_pi_mul_completed : completedLFunctionModThree s =
+    √π * (AnalyticLFunction.dirichlet isPrimitive_χ₃).completed s := by
+  rw [AnalyticLFunction.dirichlet_completed, completedLFunctionModThree, Nat.cast_ofNat, mul_assoc]
 
 /-- **The function `(3 / π) ^ (s / 2) Γ((s + 1) / 2) L(s, χ₃)` is entire.** -/
 lemma differentiable_completedLFunctionModThree : Differentiable ℂ completedLFunctionModThree :=

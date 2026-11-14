@@ -36,6 +36,10 @@ elements (`ConjClasses.elementOrder`) and their division (`ConjClasses.toRatConj
 
 ## Main results
 
+* `ConjClasses.orderOf_eq_elementOrder` (LMFDB `group.picture_description`): every element of a
+  conjugacy class has the order of the class.
+* `ConjClasses.elementOrder_eq_one_iff` (LMFDB `group.picture_description`): the class of the
+  identity is the only conjugacy class of order `1`.
 * `ConjClasses.elementOrder_toRatConjClasses`: a conjugacy class and its division have the same
   order of elements.
 * `ConjClasses.IsLabelling.isConsistent`: in a labelling, every label is consistent with its class.
@@ -65,6 +69,21 @@ lemma elementOrder_mk : (ConjClasses.mk x).elementOrder = orderOf x :=
 
 lemma toRatConjClasses_mk : (ConjClasses.mk x).toRatConjClasses = RatConjClasses.mk x :=
   rfl
+
+variable {x c} in
+/-- **All elements of a conjugacy class have the same order** (LMFDB `group.picture_description`),
+the order `c.elementOrder` of the class. -/
+lemma orderOf_eq_elementOrder (hx : x ∈ c.carrier) : orderOf x = c.elementOrder :=
+  congrArg elementOrder <| mem_carrier_iff_mk_eq.mp hx
+
+variable {c} in
+/-- **The class of the identity is the only conjugacy class of order `1`** (LMFDB
+`group.picture_description`): it is the disk at the centre of the LMFDB's picture, the only one
+whose order has no prime factor (Mathlib's
+`ArithmeticFunction.cardFactors_eq_zero_iff_eq_zero_or_one`). -/
+lemma elementOrder_eq_one_iff : c.elementOrder = 1 ↔ c = 1 := by
+  rcases mk_surjective c with ⟨x, rfl⟩
+  rw [elementOrder_mk, orderOf_eq_one_iff, one_eq_mk_one, mk_eq_mk_iff_isConj, isConj_one_left]
 
 end ConjClasses
 

@@ -1,5 +1,5 @@
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.MaassLiftFourierJacobi
-import Mathlib.NumberTheory.ModularForms.EisensteinSeries.QExpansion
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Eisenstein.Normalisations
 
 /-!
 # The Fourier–Jacobi coefficient of index `0` of the Maass lift
@@ -38,15 +38,6 @@ private lemma maassCoeff_natCast_zero_zero (hk : 1 ≤ k) {n : ℕ} (hn : n ≠ 
     Nat.cast_sum, Finset.mul_sum]
   refine Finset.sum_congr rfl fun d _ ↦ ?_
   rw [mul_comm, Nat.cast_pow, ← zpow_natCast, Nat.cast_sub hk, Nat.cast_one]
-
-private lemma bernoulli_ne_zero (hk : Even k) (hk0 : k ≠ 0) : (bernoulli k : ℂ) ≠ 0 := fun hB ↦ by
-  rcases hk with ⟨j, rfl⟩
-  rw [← two_mul] at hB
-  refine riemannZeta_ne_zero_of_one_lt_re (s := 2 * j) ?_ ?_
-  · simp only [mul_re, natCast_im, mul_zero, sub_zero]
-    norm_cast
-    omega
-  · rw [riemannZeta_two_mul_nat (by omega), hB, mul_zero, zero_div]
 
 /-- **The Fourier–Jacobi coefficient of index `0` of the Maass lift is an Eisenstein series**: for
 `φ ∈ J_{k,1}` with `k ≥ 3` even, `φ₀(τ, z) = -(B_k / 2k) c(0, 0) E_k(τ)`, where
@@ -87,7 +78,7 @@ lemma maassFourierJacobi_zero (hφ : φ ∈ jacobiFormSpace k 1) (hk : 3 ≤ k) 
   rw [tsum_congr hterm, tsum_mul_left, ← tsum_pnat_eq_tsum_succ
     (f := fun n ↦ (σ (k - 1) n : ℂ) * cexp (2 * π * I * x.1) ^ n), hE, hq 0, pow_zero, mul_one,
     Nat.cast_zero, maassCoeff, ite_eq_left ⟨rfl, rfl, rfl⟩, Int.toNat_natCast, Int.cast_natCast]
-  have hB : (bernoulli k : ℂ) ≠ 0 := bernoulli_ne_zero hk2 (by omega)
+  have hB : (bernoulli k : ℂ) ≠ 0 := Rat.cast_ne_zero.mpr (bernoulli_ne_zero_of_even (by omega) hk2)
   have hk0 : (k : ℂ) ≠ 0 := Nat.cast_ne_zero.mpr (by omega)
   field_simp
   ring1

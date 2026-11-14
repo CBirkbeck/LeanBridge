@@ -27,6 +27,8 @@ half-plane `ℍ` that is invariant under `Γ`, square-integrable on `Γ \ ℍ`, 
 
 ## Main results
 
+* `UpperHalfPlane.hyperbolicLaplacian_conj`: the hyperbolic Laplacian commutes with complex
+  conjugation.
 * `UpperHalfPlane.IsMaassForm.eigenvalue_eq`: a nonzero Maass form has a unique eigenvalue.
 * `UpperHalfPlane.HasMaassSpectralParameter.eq_or_eq_neg`: its spectral parameter is unique up to
   sign.
@@ -37,7 +39,7 @@ half-plane `ℍ` that is invariant under `Γ`, square-integrable on `Γ \ ℍ`, 
 
 open MeasureTheory Matrix CongruenceSubgroup
 
-open scoped ContDiff MatrixGroups
+open scoped ComplexConjugate ContDiff MatrixGroups
 
 namespace UpperHalfPlane
 
@@ -53,6 +55,14 @@ its values near `z` matter. -/
 noncomputable def hyperbolicLaplacian : ℂ :=
   (z.im ^ 2 : ℝ) * (fderiv ℝ (fun w ↦ fderiv ℝ f w 1) z 1 +
     fderiv ℝ (fun w ↦ fderiv ℝ f w Complex.I) z Complex.I)
+
+lemma fderiv_conj_apply (w v : ℂ) : fderiv ℝ (fun u ↦ conj (f u)) w v = conj (fderiv ℝ f w v) :=
+  congrArg (· v) (Complex.conjCLE.comp_fderiv (f := f) (x := w))
+
+/-- **The hyperbolic Laplacian commutes with complex conjugation**. -/
+lemma hyperbolicLaplacian_conj :
+    hyperbolicLaplacian (fun w ↦ conj (f w)) z = conj (hyperbolicLaplacian f z) := by
+  simp only [hyperbolicLaplacian, fderiv_conj_apply, map_mul, map_add, Complex.conj_ofReal]
 
 variable (Γ f) in
 /-- A function `f` on the upper half-plane, given on `ℂ`, is a **Maass form** of weight `0` (LMFDB

@@ -835,6 +835,7 @@ import LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.Ramification
 import LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.TopSlope
 import LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.TopSlopeCompositum
 import LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.TopSlopeRamification
+import LeanBridge.ForMathlib.NumberTheory.Modular
 import LeanBridge.ForMathlib.NumberTheory.ModularCurve.AdelicPreimage
 import LeanBridge.ForMathlib.NumberTheory.ModularCurve.Agreeable
 import LeanBridge.ForMathlib.NumberTheory.ModularCurve.AgreeableClosure

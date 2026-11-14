@@ -20,7 +20,7 @@ in `[1, q - 1]`, so the generators can be given as such integers.
 
 * `DirichletCharacter.eq_iff_forall_mem_Icc` (LMFDB `character.dirichlet.values`): a Dirichlet
   character is determined by its values `χ(1), …, χ(q)`.
-* `DirichletCharacter.apply_modulus` (LMFDB `character.dirichlet.values`): `χ(q) = 0` for `q > 1`.
+* `DirichletCharacter.apply_modulus` (LMFDB `character.dirichlet.values`): `χ(q) = 0` for `q ≠ 1`.
 * `DirichletCharacter.eq_iff_forall_apply_eq_of_closure_eq_top` (LMFDB
   `character.dirichlet.values_on_gens`): a Dirichlet character is determined by its values on
   generators of `(ℤ/qℤ)ˣ`.
@@ -53,9 +53,9 @@ lemma eq_iff_forall_mem_Icc : χ = ψ ↔ ∀ n ∈ Finset.Icc 1 q, χ n = ψ n 
   · rw [← a.natCast_zmod_val]
     exact h a.val <| Finset.mem_Icc.mpr ⟨Nat.one_le_iff_ne_zero.mpr ha, a.val_lt.le⟩
 
-/-- **The value of a Dirichlet character at its modulus `q > 1` is `0`.** -/
-lemma apply_modulus (hq : 1 < q) : χ q = 0 := by
-  have : Nontrivial (ZMod q) := ZMod.nontrivial_iff.mpr hq.ne'
+/-- **The value of a Dirichlet character at its modulus `q ≠ 1` is `0`.** -/
+lemma apply_modulus (hq : q ≠ 1) : χ q = 0 := by
+  have : Nontrivial (ZMod q) := ZMod.nontrivial_iff.mpr hq
   rw [ZMod.natCast_self, χ.map_zero]
 
 /-- **A Dirichlet character is determined by its values on generators of `(ℤ/qℤ)ˣ`**: if the

@@ -28,11 +28,11 @@ that symmetry (`UpperHalfPlane.IsMaassCuspNewform`, `UpperHalfPlane.maassNormali
   vanishes near the top of the disc. It is not small on the Euclidean neighbourhoods of `i` in the
   disc: being invariant under `z ↦ z + 1`, a form takes each of its values in every one of them.
 * **Real values.** The normalised newform of a cusp newform is real-valued, at every level, not only
-  at squarefree levels: for an even or odd cusp newform by LeanBridge's real coefficients, while a
-  cusp newform that is neither has no cosine or sine expansion, and its normalised newform is the
-  junk value `0`. That every Maass cusp newform of trivial character is even or odd is not proved
-  here; the LMFDB stores a symmetry for each of its forms, and its normalisation `a(1) = 1` is the
-  one of that symmetry.
+  at squarefree levels (`UpperHalfPlane.IsMaassCuspNewform.conj_maassNormalisedNewform`): for an
+  even or odd cusp newform by LeanBridge's real coefficients, while a cusp newform that is neither
+  has no cosine or sine expansion, and its normalised newform is the junk value `0`. That every
+  Maass cusp newform of trivial character is even or odd is not proved here; the LMFDB stores a
+  symmetry for each of its forms, and its normalisation `a(1) = 1` is the one of that symmetry.
 
 ## Main results
 
@@ -48,13 +48,9 @@ that symmetry (`UpperHalfPlane.IsMaassCuspNewform`, `UpperHalfPlane.maassNormali
   normalised newform.
 * `UpperHalfPlane.IsMaassCuspNewform.exists_forall_mem_ball_norm_lt` (LMFDB `portrait.maass`): the
   normalised newform composed with `μ` vanishes near the top of the disc.
-* `UpperHalfPlane.IsMaassCuspNewform.conj_maassNormalisedNewform` (LMFDB `portrait.maass`): the
-  normalised newform of a cusp newform takes real values.
 -/
 
 open Filter Function MeasureTheory Real Set Topology
-
-open scoped ComplexConjugate
 
 namespace UpperHalfPlane
 
@@ -262,23 +258,5 @@ lemma IsMaassCuspNewform.exists_forall_mem_ball_norm_lt (hF : IsMaassCuspNewform
       ‖maassNormalisedNewform R F (ofComplex (portraitMoebius z))‖ < ε :=
   isZeroAtImInfty_iff_forall_exists_forall_mem_ball_norm_lt.mp
     hF.isZeroAtImInfty_maassNormalisedNewform ε hε
-
-/-- **The LMFDB's Maass newforms take only real values** (LMFDB `portrait.maass`: "If the Maass
-form `f` has squarefree level, then `f` takes only real values"): the normalised newform
-`f = F / a(1)` of a Maass cusp newform `F` of weight `0` on `Γ₀(N)` with trivial character is
-real-valued, at every level `N`. For an even or odd `F`, as every form of the LMFDB is, `f` is the
-form with `a(1) = 1` in the cosine or sine expansion of `F`, whose coefficients are real
-(`IsMaassCuspNewform.hasMaassCosineExpansion`, `IsMaassCuspNewform.hasMaassSineExpansion`). A cusp
-newform that is neither even nor odd has no such expansion
-(`HasMaassCosineExpansion.isEvenMaassForm`, `HasMaassSineExpansion.isOddMaassForm`), hence no
-normalisation, and its normalised newform is the junk value `0`; classically there is no such
-newform, which is not proved here. -/
-lemma IsMaassCuspNewform.conj_maassNormalisedNewform (hF : IsMaassCuspNewform N R F) (τ : ℍ) :
-    conj (maassNormalisedNewform R F τ) = maassNormalisedNewform R F τ := by
-  by_cases hc : ∃ c, HasMaassCosineExpansion (F ∘ ofComplex) R c
-  · exact hc.elim fun _ hc ↦ hF.1.conj_maassNormalisedNewform_of_cosine hc τ
-  by_cases hs : ∃ c, HasMaassSineExpansion (F ∘ ofComplex) R c
-  · exact hs.elim fun _ hs ↦ hF.1.conj_maassNormalisedNewform_of_sine hs τ
-  simp [maassNormalisedNewform, maassCoefficients, hc, hs]
 
 end UpperHalfPlane

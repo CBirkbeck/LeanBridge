@@ -91,6 +91,9 @@ lemma continuous_uspTorus :
     Continuous (uspTorus hw rfl : (Fin g → Circle) → ambientGroup w (g + g)) :=
   continuous_induced_rng.mpr (continuous_induced_rng.mpr continuous_uspTorusMatrix)
 
+lemma continuous_uspTorusHom : Continuous (uspTorusHom g) :=
+  continuous_subtype_val.comp (continuous_uspTorus odd_one)
+
 end Continuity
 
 section Torus

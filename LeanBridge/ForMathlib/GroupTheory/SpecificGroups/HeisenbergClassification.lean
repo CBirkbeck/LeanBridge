@@ -249,13 +249,10 @@ lemma inr_mul_inl_mul_inv (v : ZMod (p ^ 2)) :
 
 /-- **`M_{p³}` is non-abelian** (LMFDB `group.heisenberg`): the generator of `C_p` acts on the
 generator of `C_{p²}` by `v ↦ v ^ (1 + p)`, and `p ≠ 0` in `ZMod (p ^ 2)`. -/
-lemma not_isMulCommutative : ¬IsMulCommutative (ModularPCubedGroup p) := fun h ↦ by
-  have h1 : (inr (ofAdd 1) * inl (ofAdd 1) * (inr (ofAdd 1))⁻¹ : ModularPCubedGroup p) =
-      inl (ofAdd ((1 + (p : ZMod (p ^ 2))) * 1)) :=
-    inr_mul_inl_mul_inv p 1
-  rw [mul_comm' (inr _), mul_inv_cancel_right, inl_injective.eq_iff, ofAdd.injective.eq_iff,
-    mul_one, left_eq_add, ZMod.natCast_eq_zero_iff] at h1
-  exact (Nat.le_of_dvd hp.out.pos h1).not_gt (lt_self_pow₀ hp.out.one_lt one_lt_two)
+lemma not_isMulCommutative : ¬IsMulCommutative (ModularPCubedGroup p) :=
+  not_isMulCommutative_of_ne_one <| ZMod.unitPowMulAut_ne_one _ _ fun h ↦ by
+    rw [ZMod.val_onePlusUnit, add_eq_left, ZMod.natCast_eq_zero_iff] at h
+    exact (Nat.le_of_dvd hp.out.pos h).not_gt (lt_self_pow₀ hp.out.one_lt one_lt_two)
 
 end ModularPCubedGroup
 

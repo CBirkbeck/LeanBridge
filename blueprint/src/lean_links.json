@@ -1816,7 +1816,7 @@
   "group.computing_subgroup_labels": {
     "Subgroup.IsGassmannEquivalent": "LeanBridge.ForMathlib.NumberTheory.ModularCurve.GassmannClass",
     "Subgroup.IsAutGassmannEquivalent": "LeanBridge.ForMathlib.GroupTheory.Label.Subgroup",
-    "Subgroup.natCard_inter_eq_sum": "LeanBridge.ForMathlib.GroupTheory.GassmannSupergroups",
+    "Subgroup.natCard_inter_eq_sum": "LeanBridge.ForMathlib.NumberTheory.ModularCurve.GassmannClass",
     "Subgroup.mk_le_mk_iff_exists_smul_le": "LeanBridge.ForMathlib.GroupTheory.SubgroupClassPoset",
     "TauCeti.AffineGroup.Ioi_mk_map_inl_ne": "LeanBridge.ForMathlib.GroupTheory.GassmannSupergroups",
     "Equiv.Perm.Ioi_mk_range_kleinFourOnFourHom_ne": "LeanBridge.ForMathlib.GroupTheory.GassmannSupergroups",
@@ -2199,10 +2199,10 @@
     "ConjClasses": "Mathlib.Algebra.Group.Conj",
     "ConjClasses.elementOrder": "LeanBridge.ForMathlib.GroupTheory.Label.ConjClass",
     "IsConj.orderOf_eq": "LeanBridge.ForMathlib.GroupTheory.RationalConjugacy",
-    "ConjClasses.orderOf_eq_elementOrder": "LeanBridge.ForMathlib.GroupTheory.ConjClassElementOrder",
+    "ConjClasses.orderOf_eq_elementOrder": "LeanBridge.ForMathlib.GroupTheory.Label.ConjClass",
     "ConjClasses.odd_elementOrder_div_two_pow": "LeanBridge.ForMathlib.GroupTheory.ConjClassElementOrder",
     "Nat.ordProj_mul_ordCompl_eq_self": "Mathlib.Data.Nat.Factorization.Basic",
-    "ConjClasses.elementOrder_eq_one_iff": "LeanBridge.ForMathlib.GroupTheory.ConjClassElementOrder"
+    "ConjClasses.elementOrder_eq_one_iff": "LeanBridge.ForMathlib.GroupTheory.Label.ConjClass"
   },
   "group.presentation": {
     "PresentedGroup": "Mathlib.GroupTheory.PresentedGroup",
@@ -2526,7 +2526,7 @@
     "IsCyclic.isMulCommutative": "Mathlib.GroupTheory.SpecificGroups.Cyclic.Basic",
     "CommGroup.isNilpotent": "Mathlib.GroupTheory.Nilpotent",
     "IsNilpotent.to_isSolvable": "Mathlib.GroupTheory.Nilpotent",
-    "Subgroup.IsStem.le_center": "LeanBridge.ForMathlib.GroupTheory.SubgroupPropertyImplications",
+    "Subgroup.IsStem.le_center": "LeanBridge.ForMathlib.GroupTheory.StemExtension",
     "Subgroup.isMulCommutative_of_le_center": "LeanBridge.ForMathlib.GroupTheory.SubgroupPropertyImplications",
     "Sylow.isPGroup": "Mathlib.GroupTheory.Sylow",
     "Sylow.isNilpotent": "LeanBridge.ForMathlib.GroupTheory.SubgroupPropertyImplications"
@@ -3344,7 +3344,7 @@
   "lfunction.history.dirichlet": {
     "DirichletCharacter.χ₃": "LeanBridge.ForMathlib.NumberTheory.LSeries.DirichletModThree",
     "DirichletCharacter.χ₃_intCast": "LeanBridge.ForMathlib.NumberTheory.LSeries.DirichletModThree",
-    "DirichletCharacter.LFunction_eulerProduct_hasProd": "LeanBridge.ForMathlib.NumberTheory.LSeries.DirichletModThree",
+    "DirichletCharacter.LFunction_eulerProduct_hasProd": "LeanBridge.ForMathlib.NumberTheory.LFunction.Dirichlet",
     "DirichletCharacter.completedLFunctionModThree_one_sub": "LeanBridge.ForMathlib.NumberTheory.LSeries.DirichletModThree",
     "DirichletCharacter.completedLFunctionModThree_eq": "LeanBridge.ForMathlib.NumberTheory.LSeries.DirichletModThree",
     "DirichletCharacter.LFunction_χ₃_apply_one": "LeanBridge.ForMathlib.NumberTheory.LSeries.DirichletModThree",
@@ -4510,10 +4510,10 @@
     "ConjClasses": "Mathlib.Algebra.Group.Conj",
     "ConjClasses.elementOrder": "LeanBridge.ForMathlib.GroupTheory.Label.ConjClass",
     "IsConj.orderOf_eq": "LeanBridge.ForMathlib.GroupTheory.RationalConjugacy",
-    "ConjClasses.orderOf_eq_elementOrder": "LeanBridge.ForMathlib.GroupTheory.ConjClassElementOrder",
+    "ConjClasses.orderOf_eq_elementOrder": "LeanBridge.ForMathlib.GroupTheory.Label.ConjClass",
     "ConjClasses.odd_elementOrder_div_two_pow": "LeanBridge.ForMathlib.GroupTheory.ConjClassElementOrder",
     "Nat.ordProj_mul_ordCompl_eq_self": "Mathlib.Data.Nat.Factorization.Basic",
-    "ConjClasses.elementOrder_eq_one_iff": "LeanBridge.ForMathlib.GroupTheory.ConjClassElementOrder"
+    "ConjClasses.elementOrder_eq_one_iff": "LeanBridge.ForMathlib.GroupTheory.Label.ConjClass"
   },
   "rcs.cande.st_group": {
     "SatoTateGroup.IsRationalSubgroup": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.Rational",

@@ -20,8 +20,6 @@ semidirect product `C_4 ⋊ C_2` is `D_4`, which is `OD_8`.
 * `ZMod.involutionMulAut_otherDihedralUnit_ne_one`: the action of `C_2` on `C_{2^{k-1}}` that
   defines `OD_{2^k}` is non-trivial.
 * `OtherDihedralGroup.nonempty_mulEquiv_dihedralGroup`: `OD_8` is the dihedral group `D_4`.
-* `SemidirectProduct.not_isMulCommutative_of_ne_one`: a semidirect product with a non-trivial
-  action is not abelian.
 * `SemidirectProduct.nonempty_mulEquiv_otherDihedralGroup_iff`: for `k ≥ 4`, a non-trivial
   semidirect product `C_{2^{k-1}} ⋊ C_2` is isomorphic to `OD_{2^k}` if and only if it is
   isomorphic to neither `SD_{2^k}` nor `D_{2^{k-1}}`.
@@ -35,10 +33,8 @@ variable {k : ℕ} [Fact (3 ≤ k)]
 `group.name`): the generator of `C_2` acts by `x ↦ x ^ (2 ^ (k - 2) + 1)`, which is not the
 identity. -/
 lemma ZMod.involutionMulAut_otherDihedralUnit_ne_one :
-    involutionMulAut _ (otherDihedralUnit_pow_two k) ≠ 1 := fun h ↦
-  OtherDihedralGroup.val_otherDihedralUnit_ne_one k <| by
-    simpa [involutionMulAut_ofAdd_one, unitMulAut_apply] using
-      congrArg toAdd (DFunLike.congr_fun (DFunLike.congr_fun h (ofAdd 1)) (ofAdd 1))
+    involutionMulAut _ (otherDihedralUnit_pow_two k) ≠ 1 :=
+  unitPowMulAut_ne_one _ _ (OtherDihedralGroup.val_otherDihedralUnit_ne_one k)
 
 variable [Fact (3 ≤ 3)] in
 /-- **`OD_8` is the dihedral group `D_4`** (LMFDB `group.name`, `group.other_dihedral`): for
@@ -57,16 +53,6 @@ lemma OtherDihedralGroup.nonempty_mulEquiv_dihedralGroup :
 namespace SemidirectProduct
 
 variable {N H : Type*} [Group N] [Group H] {φ : H →* MulAut N}
-
-/-- **A semidirect product with a non-trivial action is not abelian**: if `φ h n ≠ n`, then
-`inr h * inl n = inl (φ h n) * inr h` differs from `inl n * inr h`. -/
-lemma not_isMulCommutative_of_ne_one (hφ : φ ≠ 1) : ¬IsMulCommutative (N ⋊[φ] H) := fun hc ↦
-  hφ <| MonoidHom.ext fun h ↦ MulEquiv.ext fun n ↦ by
-    simpa using congrArg left (hc.is_comm.comm (inr h) (inl n))
-
-private lemma index_range_inl_eq : (inl : N →* N ⋊[φ] H).range.index = Nat.card H := by
-  rw [range_inl_eq_ker_rightHom, index_ker, MonoidHom.range_eq_top.mpr rightHom_surjective,
-    card_top]
 
 private lemma three_le_card_sq_eq_one [Finite N] [Finite H] {n₀ : N} {h₀ : H} (hn₀ : n₀ ≠ 1)
     (hn₀2 : n₀ ^ 2 = 1) (hh₀ : h₀ ≠ 1) (hh₀2 : h₀ ^ 2 = 1) :
@@ -100,8 +86,7 @@ lemma nonempty_mulEquiv_otherDihedralGroup_iff (hk : 4 ≤ k) [IsCyclic N]
   have : NeZero (2 ^ (k - 2)) := ⟨pow_ne_zero _ two_ne_zero⟩
   have hcard : Nat.card (N ⋊[φ] H) = 2 ^ k := by
     rw [card, hN, hH, ← pow_succ, Nat.sub_add_cancel (by omega)]
-  have : IsCyclic (inl : N →* N ⋊[φ] H).range :=
-    isCyclic_of_surjective _ (inl : N →* N ⋊[φ] H).rangeRestrict_surjective
+  have : IsCyclic (inl : N →* N ⋊[φ] H).range := isCyclic_range_inl
   rcases nonempty_mulEquiv_of_isCyclic_of_index_eq_two hk hcard (index_range_inl_eq.trans hH)
     (not_isMulCommutative_of_ne_one hφ) with hD' | hQ | hSD' | hOD
   · exact (hD.false hD'.some).elim

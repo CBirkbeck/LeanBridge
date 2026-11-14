@@ -46,6 +46,10 @@ open UpperHalfPlane hiding I
 
 open scoped MatrixGroups Real
 
+lemma TauCeti.frickeGL_one_eq_mapGL_S : frickeGL ℝ 1 = mapGL ℝ ModularGroup.S := by
+  ext i j
+  fin_cases i <;> fin_cases j <;> simp
+
 namespace CuspForm
 
 variable {k : ℤ} {s : ℂ}
@@ -76,14 +80,11 @@ variable (f : CuspForm ((Gamma1 1).map (mapGL ℝ)) k)
 `!![0, -1; 1, 0]` is the inversion `S` of `SL(2, ℤ)`, under which a cusp form of level `1` is
 invariant, and the normalising constant `(√1)^{2 - k}` is `1`. -/
 lemma normalizedFrickeOperatorCusp_eq_self : TauCeti.normalizedFrickeOperatorCusp k f = f := by
-  have hS : TauCeti.frickeGL ℝ 1 = mapGL ℝ ModularGroup.S := by
-    ext i j
-    fin_cases i <;> fin_cases j <;> simp
   have hmem : mapGL ℝ ModularGroup.S ∈ (Gamma1 1).map (mapGL ℝ) := by
     rw [TauCeti.Gamma1_one_map_eq_SL]
     exact ⟨ModularGroup.S, rfl⟩
   ext z
-  rw [TauCeti.coe_normalizedFrickeOperatorCusp, hS,
+  rw [TauCeti.coe_normalizedFrickeOperatorCusp, TauCeti.frickeGL_one_eq_mapGL_S,
     SlashInvariantFormClass.slash_action_eq f _ hmem, TauCeti.atkinLehnerNormalizer_def]
   simp
 

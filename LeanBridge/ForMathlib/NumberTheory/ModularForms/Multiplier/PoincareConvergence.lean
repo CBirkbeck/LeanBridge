@@ -1,3 +1,4 @@
+import LeanBridge.ForMathlib.NumberTheory.Modular
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.Poincare
 import Mathlib.Geometry.Manifold.MFDeriv.NormedSpace
 import Mathlib.Geometry.Manifold.MFDeriv.SpecificFunctions
@@ -200,13 +201,9 @@ lemma cuspStabilizer_mul_T_zpow : cuspStabilizer G (γ * T ^ m) = cuspStabilizer
 factor, the cosets `G_s g` being unchanged (`cuspStabilizer_mul_T_zpow`). -/
 lemma poincareTerm_mul_T_zpow : poincareTerm (γ * T ^ m) v k n w z g =
     Complex.exp (-(2 * Real.pi * Complex.I * (n / w) * m)) * poincareTerm γ v k n w z g := by
-  have hden : denom (T ^ (-m) * (γ⁻¹ * (g : SL(2, ℤ))) : SL(2, ℤ)) z =
-      denom (γ⁻¹ * (g : SL(2, ℤ)) : SL(2, ℤ)) z := by
-    rw [ModularGroup.denom_apply, ModularGroup.denom_apply]
-    simp [Matrix.mul_apply, coe_T_zpow]
   rw [poincareTerm_eq_denom, poincareTerm_eq_denom,
     show (γ * T ^ m)⁻¹ * (g : SL(2, ℤ)) = T ^ (-m) * (γ⁻¹ * g) by group, mul_smul,
-    coe_T_zpow_smul_eq, hden, mul_add, Complex.exp_add, Int.cast_neg, mul_neg]
+    coe_T_zpow_smul_eq, denom_T_zpow_mul, mul_add, Complex.exp_add, Int.cast_neg, mul_neg]
   ring1
 
 /-- **For `w ∣ n` the terms do not change when `γ_s` is replaced by `γ_s T^m`** (LMFDB
@@ -234,12 +231,7 @@ lemma cuspStabilizer_neg : cuspStabilizer G (-γ) = cuspStabilizer G γ := by
 the cosets `G_s g` being unchanged (`cuspStabilizer_neg`): for odd `k` the series depends on the
 choice of `γ_s` also when `w ∣ n`, up to sign. -/
 lemma poincareTerm_neg : poincareTerm (-γ) v k n w z g = (-1) ^ k * poincareTerm γ v k n w z g := by
-  have hden : denom (-(γ⁻¹ * (g : SL(2, ℤ))) : SL(2, ℤ)) z =
-      -denom (γ⁻¹ * (g : SL(2, ℤ)) : SL(2, ℤ)) z := by
-    rw [ModularGroup.denom_apply, ModularGroup.denom_apply]
-    simp
-    ring1
-  rw [poincareTerm_eq_denom, poincareTerm_eq_denom, inv_neg, neg_mul, SL_neg_smul, hden,
+  rw [poincareTerm_eq_denom, poincareTerm_eq_denom, inv_neg, neg_mul, SL_neg_smul, SL_denom_neg,
     neg_eq_neg_one_mul (denom _ _), mul_zpow, zpow_neg, ← inv_zpow, inv_neg_one]
   ring1
 

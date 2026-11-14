@@ -1,3 +1,4 @@
+import LeanBridge.ForMathlib.NumberTheory.ModularCurve.GammaZeroOneGroups
 import LeanBridge.ForMathlib.NumberTheory.ModularCurve.SL2Level
 
 /-!
@@ -22,6 +23,8 @@ determinant `1` modulo `3` form an open subgroup of index `2` containing `-1` an
 * `Matrix.GeneralLinearGroup.exists_adelicReduction_sl2zToAdelic_eq`: `SL₂(ℤ)` is dense in
   `SL₂(ℤ̂)`: modulo each positive integer `N`, every element of `SL₂(ℤ̂)` agrees with one of
   `SL₂(ℤ)`.
+* `Matrix.GeneralLinearGroup.map_adelicDet_adelicPreimage_eq_top_iff`: the inverse image in
+  `GL₂(ℤ̂)` of a subgroup of `GL₂(ℤ/Nℤ)` has surjective determinant exactly when the subgroup has.
 * `Matrix.GeneralLinearGroup.index_modularGamma` (LMFDB `modcurve.psl2index`): for an open subgroup
   `H` with surjective determinant, `[SL₂(ℤ) : Γ_H] = [GL₂(ℤ̂) : H]`.
 * `Matrix.GeneralLinearGroup.psl2Index_eq_index` and
@@ -91,6 +94,46 @@ lemma exists_adelicReduction_sl2zToAdelic_eq (hs : s ∈ adelicSL) :
   · have : Subsingleton (ZMod ((ℓ : ℕ) ^ N.factorization ℓ)) :=
       ZMod.subsingleton_iff.mpr (by rw [Finsupp.notMem_support_iff.mp hℓ, pow_zero])
     exact Matrix.ext fun i j ↦ Subsingleton.elim _ _
+
+variable {N} [NeZero N] in
+/-- **The inverse image in `GL₂(ℤ̂)` of a subgroup of `GL₂(ℤ/Nℤ)` has surjective determinant exactly
+when the subgroup has**: `det(H) = ℤ̂ˣ` for `H` the inverse image of `K` under reduction modulo `N`
+if and only if `det(K) = (ℤ/Nℤ)ˣ`. Two elements of `GL₂(ℤ̂)` with the same determinant differ by an
+element of `SL₂(ℤ̂)`, whose reduction modulo `N` is that of an element of `SL₂(ℤ)`; and `SL₂(ℤ)`
+maps onto `SL₂(ℤ/Nℤ)`. -/
+lemma map_adelicDet_adelicPreimage_eq_top_iff (K : Subgroup (GL (Fin 2) (ZMod N))) :
+    (adelicPreimage N K).map adelicDet = ⊤ ↔ K.map det = ⊤ := by
+  refine ⟨fun h ↦ eq_top_iff.mpr fun x _ ↦ ?_, fun h ↦ eq_top_iff.mpr fun u _ ↦ ?_⟩
+  · rcases det_surjective (n := Fin 2) x with ⟨k₁, rfl⟩
+    rcases adelicReductionZMod_surjective N k₁ with ⟨g₁, rfl⟩
+    rcases (h ▸ Subgroup.mem_top (adelicDet g₁) : adelicDet g₁ ∈ (adelicPreimage N K).map
+      adelicDet) with ⟨g, hg, hdet⟩
+    have hs : g * g₁⁻¹ ∈ adelicSL := by
+      rw [adelicSL, MonoidHom.mem_ker, map_mul, map_inv, hdet, mul_inv_cancel]
+    rcases exists_adelicReduction_sl2zToAdelic_eq N hs with ⟨γ, hγ⟩
+    have hred : adelicReductionZMod N (g * g₁⁻¹) = SpecialLinearGroup.mapGL (ZMod N) γ := by
+      rw [← adelicReductionZMod_sl2zToAdelic]
+      exact chineseRemainder_injective N (by
+        rw [chineseRemainder_adelicReductionZMod, chineseRemainder_adelicReductionZMod, hγ])
+    have hdet1 : det (adelicReductionZMod N (g * g₁⁻¹)) = 1 := by
+      rw [hred, SpecialLinearGroup.det_mapGL]
+    rw [map_mul, map_inv, map_mul, map_inv, mul_inv_eq_one] at hdet1
+    exact ⟨adelicReductionZMod N g, hg, hdet1⟩
+  · let g₁ : ∀ p : Nat.Primes, GL (Fin 2) ℤ_[p] := fun p ↦ (det_surjective (u p)).choose
+    have hg₁ : adelicDet g₁ = u := funext fun p ↦ (det_surjective (u p)).choose_spec
+    rcases (h ▸ Subgroup.mem_top (det (adelicReductionZMod N g₁)) :
+      det (adelicReductionZMod N g₁) ∈ K.map det) with ⟨k, hk, hdk⟩
+    have hs : (k * (adelicReductionZMod N g₁)⁻¹ : GL (Fin 2) (ZMod N)).val.det = 1 := by
+      rw [← val_det_apply, map_mul, map_inv, hdk, mul_inv_cancel, Units.val_one]
+    rcases CongruenceSubgroup.exists_mem_Gamma_map_intCast_zmod_eq (Nat.coprime_one_right N)
+      ⟨_, hs⟩ with ⟨γ, -, hγ⟩
+    have hγ' : SpecialLinearGroup.mapGL (ZMod N) γ = k * (adelicReductionZMod N g₁)⁻¹ :=
+      Units.ext (congrArg Subtype.val hγ)
+    have hmem : sl2zToAdelic γ * g₁ ∈ adelicPreimage N K := Subgroup.mem_comap.mpr <| by
+      rw [map_mul, adelicReductionZMod_sl2zToAdelic, hγ', inv_mul_cancel_right]
+      exact hk
+    exact ⟨sl2zToAdelic γ * g₁, hmem, by
+      rw [map_mul, hg₁, MonoidHom.mem_ker.mp (sl2zToAdelic_mem_adelicSL γ), one_mul]⟩
 
 lemma ker_adelicReduction_adelicLevel_le (hH : IsOpen (SetLike.coe H)) :
     (adelicReduction (n := Fin 2) (adelicLevel ⊤ H)).ker ≤ H := fun g hg ↦ by

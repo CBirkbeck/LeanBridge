@@ -50,7 +50,7 @@ open UpperHalfPlane hiding I
 
 open scoped Real
 
-private lemma bernoulli_ne_zero_of_even {k : ℕ} (hk : k ≠ 0) (hk2 : Even k) : bernoulli k ≠ 0 := by
+lemma bernoulli_ne_zero_of_even {k : ℕ} (hk : k ≠ 0) (hk2 : Even k) : bernoulli k ≠ 0 := by
   rcases hk2 with ⟨m, rfl⟩
   have hm : m ≠ 0 := by
     omega

@@ -41,6 +41,10 @@ open MulAction SemidirectProduct
 
 namespace TauCeti.AffineGroup
 
+lemma mem_affineLinearSubgroup_iff_smul_zero {F : Type*} [Ring F] (g : AffineGroup F) :
+    g ∈ affineLinearSubgroup F ↔ g • (0 : F) = 0 := by
+  rw [mem_affineLinearSubgroup_iff, smul_def, mul_zero, add_zero]
+
 variable {F : Type*} [Field F]
 
 /-- **The affine group of `F` acts by the maps `x ↦ a x + b` with `a ≠ 0`** (LMFDB

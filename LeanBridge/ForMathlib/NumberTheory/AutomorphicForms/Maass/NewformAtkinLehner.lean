@@ -48,8 +48,6 @@ statement of this file uses it.
 
 ## Main results
 
-* `UpperHalfPlane.hyperbolicLaplacian_conj`: the hyperbolic Laplacian commutes with complex
-  conjugation.
 * `UpperHalfPlane.conj_mem_maassSpace`, `UpperHalfPlane.conj_mem_maassOldSpace`,
   `UpperHalfPlane.conj_mem_maassNewSpace`: complex conjugation preserves the space of Maass forms of
   trivial character, its old space and its new space, up to conjugating the eigenvalue.
@@ -87,6 +85,8 @@ statement of this file uses it.
   are real.
 * `UpperHalfPlane.IsMaassNewform.conj_maassNormalisedNewform_of_cosine`,
   `UpperHalfPlane.IsMaassNewform.conj_maassNormalisedNewform_of_sine`: it is real-valued.
+* `UpperHalfPlane.IsMaassCuspNewform.conj_maassNormalisedNewform` (LMFDB `portrait.maass`): the
+  normalised newform of a cusp newform takes real values.
 * `UpperHalfPlane.IsMaassCuspNewform.maassCoefficients_normalisedNewform_one_of_even`,
   `UpperHalfPlane.IsMaassCuspNewform.maassCoefficients_normalisedNewform_one_of_odd`,
   `UpperHalfPlane.IsMaassCuspNewform.conj_maassCoefficients_normalisedNewform_of_even`,
@@ -101,14 +101,6 @@ namespace UpperHalfPlane
 
 variable {N : ℕ} {χ : DirichletCharacter ℂ N} {eigenvalue r R : ℂ} {F G : ℍ → ℂ} {f : ℂ → ℂ}
   {c c' : ℕ+ → ℂ} {z : ℂ} {t : ℝ}
-
-lemma fderiv_conj_apply (w v : ℂ) : fderiv ℝ (fun u ↦ conj (f u)) w v = conj (fderiv ℝ f w v) :=
-  congrArg (· v) (Complex.conjCLE.comp_fderiv (f := f) (x := w))
-
-/-- **The hyperbolic Laplacian commutes with complex conjugation**. -/
-lemma hyperbolicLaplacian_conj :
-    hyperbolicLaplacian (fun w ↦ conj (f w)) z = conj (hyperbolicLaplacian f z) := by
-  simp only [hyperbolicLaplacian, fderiv_conj_apply, map_mul, map_add, Complex.conj_ofReal]
 
 /-- **The complex conjugate of a Maass form is a Maass form**, with the conjugate eigenvalue:
 `conj ∘ F` lies in `M(N, 1, conj λ)` for `F` in `M(N, 1, λ)`. -/
@@ -513,6 +505,24 @@ lemma IsMaassNewform.conj_maassNormalisedNewform_of_sine
     congrFun (hF.conj_smul_eq_of_sine hc) τ
   simp only [maassNormalisedNewform, hc.maassCoefficients_eq, Pi.smul_apply, smul_eq_mul, map_mul,
     map_inv₀, h]
+
+/-- **The LMFDB's Maass newforms take only real values** (LMFDB `portrait.maass`: "If the Maass
+form `f` has squarefree level, then `f` takes only real values"): the normalised newform
+`f = F / a(1)` of a Maass cusp newform `F` of weight `0` on `Γ₀(N)` with trivial character is
+real-valued, at every level `N`. For an even or odd `F`, as every form of the LMFDB is, `f` is the
+form with `a(1) = 1` in the cosine or sine expansion of `F`, whose coefficients are real
+(`IsMaassCuspNewform.hasMaassCosineExpansion`, `IsMaassCuspNewform.hasMaassSineExpansion`). A cusp
+newform that is neither even nor odd has no such expansion
+(`HasMaassCosineExpansion.isEvenMaassForm`, `HasMaassSineExpansion.isOddMaassForm`), hence no
+normalisation, and its normalised newform is the junk value `0`; classically there is no such
+newform, which is not proved here. -/
+lemma IsMaassCuspNewform.conj_maassNormalisedNewform (hF : IsMaassCuspNewform N R F) (τ : ℍ) :
+    conj (maassNormalisedNewform R F τ) = maassNormalisedNewform R F τ := by
+  by_cases hc : ∃ c, HasMaassCosineExpansion (F ∘ ofComplex) R c
+  · exact hc.elim fun _ hc ↦ hF.1.conj_maassNormalisedNewform_of_cosine hc τ
+  by_cases hs : ∃ c, HasMaassSineExpansion (F ∘ ofComplex) R c
+  · exact hs.elim fun _ hs ↦ hF.1.conj_maassNormalisedNewform_of_sine hs τ
+  simp [maassNormalisedNewform, maassCoefficients, hc, hs]
 
 /-- **The first coefficient of the normalised even cusp newform is `1`** (LMFDB
 `mf.maass.mwf.coefficients`), at every level `N ≠ 0` and for every spectral parameter `R`. -/

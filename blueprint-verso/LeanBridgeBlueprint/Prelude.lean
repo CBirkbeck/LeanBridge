@@ -163,6 +163,7 @@ import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.Quasisimple
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.QuasisimpleAlmostSimple
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.Unitary
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.UnitaryCenter
+import LeanBridge.ForMathlib.GroupTheory.StemExtension
 import LeanBridge.ForMathlib.GroupTheory.SubgroupClassPoset
 import LeanBridge.ForMathlib.GroupTheory.SubgroupMobius
 import LeanBridge.ForMathlib.GroupTheory.SubgroupPropertyImplications

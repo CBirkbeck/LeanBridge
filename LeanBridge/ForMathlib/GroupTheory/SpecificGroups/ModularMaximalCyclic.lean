@@ -64,6 +64,13 @@ lemma unitPowMulAut_apply (hu : u ^ m = 1) (k : Multiplicative (ZMod m)) :
     unitPowMulAut u hu k v = ofAdd ((u ^ k.toAdd.val : (ZMod n)ˣ) * v.toAdd) :=
   unitMulAut_pow_apply u v _
 
+lemma unitPowMulAut_ne_one (hu : u ^ m = 1) (h : (u : ZMod n) ≠ 1) : unitPowMulAut u hu ≠ 1 :=
+  fun h' ↦ h <| by
+    rcases eq_or_ne m 1 with rfl | hm
+    · rw [← pow_one u, hu, Units.val_one]
+    · simpa [unitPowMulAut_apply, val_one'' hm] using
+        congrArg toAdd (DFunLike.congr_fun (DFunLike.congr_fun h' (ofAdd 1)) (ofAdd 1))
+
 /-- The action of `C_2 = Multiplicative (ZMod 2)` on `C_n = Multiplicative (ZMod n)` in which the
 generator acts by `x ↦ x ^ u`, for a unit `u` of `ZMod n` with `u ^ 2 = 1`: the case `m = 2` of
 `ZMod.unitPowMulAut`. -/

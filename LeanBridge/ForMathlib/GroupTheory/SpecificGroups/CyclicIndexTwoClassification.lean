@@ -292,7 +292,7 @@ lemma QuaternionGroup.not_isMulCommutative (hm : 2 ≤ m) :
 `group.semi_dihedral`). -/
 lemma SemiDihedralGroup.not_isMulCommutative (hk : 4 ≤ k) :
     ¬IsMulCommutative (SemiDihedralGroup k) :=
-  fun h ↦ inl_mul_inr_ne_inr_mul_inl k hk (h.is_comm.comm _ _)
+  not_isMulCommutative_of_ne_one <| unitPowMulAut_ne_one _ _ (val_semiDihedralUnit_ne_one k hk)
 
 namespace OtherDihedralGroup
 
@@ -301,12 +301,11 @@ variable (k)
 /-- **`OD_{2^k}` has a cyclic subgroup**, the image of `C_{2^{k-1}}`, of index `2`
 (`OtherDihedralGroup.index_range_inl`) (LMFDB `group.other_dihedral`). -/
 lemma isCyclic_range_inl : IsCyclic (inl : _ →* OtherDihedralGroup k).range :=
-  isCyclic_of_surjective _ (inl : _ →* OtherDihedralGroup k).rangeRestrict_surjective
+  SemidirectProduct.isCyclic_range_inl
 
 /-- **The image of `C_{2^{k-1}}` in `OD_{2^k}` has index `2`** (LMFDB `group.other_dihedral`). -/
-lemma index_range_inl : (inl : _ →* OtherDihedralGroup k).range.index = 2 := by
-  rw [range_inl_eq_ker_rightHom, index_ker, MonoidHom.range_eq_top.mpr rightHom_surjective,
-    card_top, Nat.card_congr toAdd, Nat.card_zmod]
+lemma index_range_inl : (inl : _ →* OtherDihedralGroup k).range.index = 2 :=
+  index_range_inl_eq.trans <| (Nat.card_congr toAdd).trans (Nat.card_zmod 2)
 
 lemma val_otherDihedralUnit_ne_one : (otherDihedralUnit k : ZMod (2 ^ (k - 1))) ≠ 1 := fun h ↦ by
   have hk : 3 ≤ k := Fact.out
@@ -322,11 +321,8 @@ lemma val_otherDihedralUnit_ne_one : (otherDihedralUnit k : ZMod (2 ^ (k - 1))) 
 
 /-- **The other-dihedral group `OD_{2^k}` is non-abelian** (LMFDB `group.other_dihedral`): the
 generator of `C_2` sends that of `C_{2^{k-1}}` to its power `2 ^ (k - 2) + 1 ≠ 1`. -/
-lemma not_isMulCommutative : ¬IsMulCommutative (OtherDihedralGroup k) := fun h ↦
-  val_otherDihedralUnit_ne_one k <| by
-    simpa [involutionMulAut_ofAdd_one, unitMulAut_apply] using
-      (congrArg (toAdd ∘ left) (h.is_comm.comm (inl (ofAdd 1) : OtherDihedralGroup k)
-        (inr (ofAdd 1)))).symm
+lemma not_isMulCommutative : ¬IsMulCommutative (OtherDihedralGroup k) :=
+  not_isMulCommutative_of_ne_one <| unitPowMulAut_ne_one _ _ (val_otherDihedralUnit_ne_one k)
 
 end OtherDihedralGroup
 

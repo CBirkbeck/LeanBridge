@@ -21,11 +21,14 @@ positive one, which keeps the signature of `L`, is the one formalised.
 * `TauCeti.IntegralLattice.dualScale`: the least positive integer `n` for which `n • B` is integral
   on the dual.
 * `TauCeti.IntegralLattice.rescaledDual` (LMFDB `lattice.dual`).
+* `TauCeti.IntegralLattice.Isometry.rescaledDual`: the isometry of rescaled duals induced by an
+  isometry.
 
 ## Main results
 
 * `TauCeti.IntegralLattice.dualScale_dvd_iff`: `N • B` is integral on the dual exactly when the
   dual scale divides `N`.
+* `TauCeti.IntegralLattice.Isometry.dualScale_eq`: isometric lattices have the same dual scale.
 * `TauCeti.IntegralLattice.scaleIdeal_rescaledDual`: the rescaled dual of a nonzero lattice is
   primitive.
 * `TauCeti.IntegralLattice.eq_rescaledDual`: it is the only primitive integral lattice obtained
@@ -38,7 +41,8 @@ open Submodule (IsPrincipal)
 
 namespace TauCeti.IntegralLattice
 
-variable {V : Type*} [AddCommGroup V] [Module ℚ V] (L : IntegralLattice V)
+variable {V W : Type*} [AddCommGroup V] [Module ℚ V] [AddCommGroup W] [Module ℚ W]
+  (L : IntegralLattice V)
 
 /-- The ideal of the integers `N` for which `N • B` is integral on the dual lattice. -/
 def dualIntegralityIdeal : Ideal ℤ where
@@ -65,6 +69,24 @@ lemma dualScale_dvd_iff (N : ℤ) : (L.dualScale : ℤ) ∣ N ↔
     ∀ x ∈ L.dualCarrier, ∀ y ∈ L.dualCarrier, (N : ℚ) * L.form x y ∈ (1 : Submodule ℤ ℚ) := by
   rw [dualScale, Int.natAbs_dvd, ← IsPrincipal.mem_iff_generator_dvd]
   rfl
+
+variable {L} in
+lemma Isometry.dualIntegralityIdeal_le {M : IntegralLattice W} (e : Isometry L M) :
+    M.dualIntegralityIdeal ≤ L.dualIntegralityIdeal := fun N hN x hx y hy ↦ by
+  rw [← e.map_app]
+  exact hN (e x) ((e.apply_mem_dualCarrier_iff x).mpr hx) (e y)
+    ((e.apply_mem_dualCarrier_iff y).mpr hy)
+
+variable {L} in
+/-- **Isometric lattices have the same dual scale**: the integers `N` for which `N • B` is integral
+on the dual are the same. -/
+lemma Isometry.dualScale_eq {M : IntegralLattice W} (e : Isometry L M) :
+    L.dualScale = M.dualScale := by
+  have h (N : ℤ) : (L.dualScale : ℤ) ∣ N ↔ (M.dualScale : ℤ) ∣ N := by
+    rw [dualScale_dvd_iff, dualScale_dvd_iff]
+    exact ⟨fun hN ↦ e.symm.dualIntegralityIdeal_le hN, fun hN ↦ e.dualIntegralityIdeal_le hN⟩
+  exact Nat.dvd_antisymm (Int.natCast_dvd_natCast.mp ((h _).mpr dvd_rfl))
+    (Int.natCast_dvd_natCast.mp ((h _).mp dvd_rfl))
 
 variable [L.IsNondegenerate]
 
@@ -99,6 +121,19 @@ lemma integralForm_rescaledDual_cast (x y : L.rescaledDual) :
     (L.rescaledDual.integralForm x y : ℚ) = L.dualScale * L.form x y := by
   rw [integralForm_cast, rescaledDual_form, LinearMap.smul_apply, LinearMap.smul_apply,
     smul_eq_mul]
+
+variable {L} in
+/-- **An isometry of nondegenerate lattices induces an isometry of their rescaled duals**
+(LMFDB `lattice.dual`): it maps the dual onto the dual, and the two dual scales agree
+(`Isometry.dualScale_eq`). -/
+noncomputable def Isometry.rescaledDual {M : IntegralLattice W} [M.IsNondegenerate]
+    (e : Isometry L M) : Isometry L.rescaledDual M.rescaledDual where
+  toIsometryEquiv :=
+    { (e : V ≃ₗ[ℚ] W) with
+      map_app' := fun x y ↦ by
+        simp only [rescaledDual_form, e.dualScale_eq]
+        exact congrArg _ (e.map_app x y) }
+  map_carrier := e.map_dualCarrier_ambientEquiv
 
 variable [Nontrivial L]
 

@@ -1,5 +1,5 @@
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.GL2.ClassicalLift
-import Mathlib.NumberTheory.ModularForms.Derivative
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.DerivativeLaw
 
 /-!
 # The Casimir eigenvalue of the adelic lift
@@ -32,8 +32,7 @@ open Matrix hiding mul_inv_rev one_zpow zpow_mul zpow_neg
 
 open mixedEmbedding (mixedSpace)
 
-open Derivative (normalizedDerivOfComplex normalizedDerivOfComplex_mdifferentiable
-  normalizedDerivOfComplex_slash)
+open Derivative (normalizedDerivOfComplex normalizedDerivOfComplex_mdifferentiable)
 
 open scoped AdeleRing Classical Manifold MatrixGroups ModularForm
 
@@ -124,13 +123,9 @@ lemma deriv_slash_comp_ofComplex (hf : MDiff f) (hm : (m.det : ℝ) = 1) :
         k * (m 1 0 / denom m τ) * (f ∣[k] m) τ := by
   have hm₁ : m.val.det = 1 := by
     rw [← GeneralLinearGroup.val_det_apply, hm]
-  have hs : (2 * Real.pi * Complex.I)⁻¹ * deriv (f ∣[k] m ∘ ofComplex) τ =
-      (m.val.det : ℂ)⁻¹ * (normalizedDerivOfComplex f ∣[k + 2] m) τ -
-        k * (2 * Real.pi * Complex.I)⁻¹ * (m 1 0 / denom m τ) * (f ∣[k] m) τ :=
-    congrFun (normalizedDerivOfComplex_slash hf (hm₁ ▸ one_pos)) τ
-  rw [hm₁, Complex.ofReal_one, inv_one, one_mul] at hs
-  rw [← mul_inv_cancel_left₀ Complex.two_pi_I_ne_zero (deriv (f ∣[k] m ∘ ofComplex) τ), hs]
-  field_simp
+  refine (congrFun (ModularForm.derivOfComplex_slash hf (Units.ext hm)) τ).trans ?_
+  rw [ModularForm.derivOfComplex_eq_smul, ModularForm.smul_slash_of_det_pos _ (hm₁ ▸ one_pos)]
+  rfl
 
 lemma deriv_normalizedDerivOfComplex_comp_ofComplex :
     deriv (normalizedDerivOfComplex f ∘ ofComplex) τ =

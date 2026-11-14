@@ -32,6 +32,8 @@ then `|N|` is even and `E ≅ Dic_{|N|/2}` (LMFDB `group.dihedral`). Indeed for 
   `nonempty_mulEquiv_quaternionGroup_of_forall_not_isComplement'` (LMFDB `group.dihedral`): a
   non-split extension of a cyclic group `Cₙ` by `C₂` acting by inversion has `n` even and is the
   dicyclic group `Dic_{n/2}`.
+* `SemidirectProduct.not_isMulCommutative_of_ne_one`: a semidirect product with a non-trivial
+  action is not abelian.
 * `SemiDihedralGroup.isCyclic_range_inl`, `SemiDihedralGroup.index_range_inl`,
   `SemiDihedralGroup.inl_mul_inr_ne_inr_mul_inl` (LMFDB `group.semi_dihedral`): the semi-dihedral
   group `SD_{2^k}` has a cyclic subgroup of index `2` and is non-abelian for `k ≥ 4`.
@@ -127,6 +129,25 @@ noncomputable def mulEquivSemidirectProduct : DihedralGroup n ≃*
             Nat.card_zmod, mul_comm]
 
 end DihedralGroup
+
+namespace SemidirectProduct
+
+variable {N H : Type*} [Group N] [Group H] {φ : H →* MulAut N}
+
+lemma index_range_inl_eq : (inl : N →* N ⋊[φ] H).range.index = Nat.card H := by
+  rw [range_inl_eq_ker_rightHom, index_ker, MonoidHom.range_eq_top.mpr rightHom_surjective,
+    card_top]
+
+lemma isCyclic_range_inl [IsCyclic N] : IsCyclic (inl : N →* N ⋊[φ] H).range :=
+  isCyclic_of_surjective _ (inl : N →* N ⋊[φ] H).rangeRestrict_surjective
+
+/-- **A semidirect product with a non-trivial action is not abelian**: if `φ h n ≠ n`, then
+`inr h * inl n = inl (φ h n) * inr h` differs from `inl n * inr h`. -/
+lemma not_isMulCommutative_of_ne_one (hφ : φ ≠ 1) : ¬IsMulCommutative (N ⋊[φ] H) := fun hc ↦
+  hφ <| MonoidHom.ext fun h ↦ MulEquiv.ext fun n ↦ by
+    simpa using congrArg left (hc.is_comm.comm (inr h) (inl n))
+
+end SemidirectProduct
 
 variable {E : Type*} [Group E] {N : Subgroup E} {a b x : E}
 
@@ -236,12 +257,11 @@ variable (k : ℕ) [Fact (3 ≤ k)]
 /-- **`SD_{2^k}` has a cyclic subgroup**, the image of `C_{2^{k-1}}`, of index `2`
 (`SemiDihedralGroup.index_range_inl`) (LMFDB `group.semi_dihedral`). -/
 lemma isCyclic_range_inl : IsCyclic (inl : _ →* SemiDihedralGroup k).range :=
-  isCyclic_of_surjective _ (inl : _ →* SemiDihedralGroup k).rangeRestrict_surjective
+  SemidirectProduct.isCyclic_range_inl
 
 /-- **The image of `C_{2^{k-1}}` in `SD_{2^k}` has index `2`** (LMFDB `group.semi_dihedral`). -/
-lemma index_range_inl : (inl : _ →* SemiDihedralGroup k).range.index = 2 := by
-  rw [range_inl_eq_ker_rightHom, index_ker, MonoidHom.range_eq_top.mpr rightHom_surjective,
-    card_top, Nat.card_congr toAdd, Nat.card_zmod]
+lemma index_range_inl : (inl : _ →* SemiDihedralGroup k).range.index = 2 :=
+  index_range_inl_eq.trans <| (Nat.card_congr toAdd).trans (Nat.card_zmod 2)
 
 lemma val_semiDihedralUnit_ne_one (hk : 4 ≤ k) : (semiDihedralUnit k : ZMod (2 ^ (k - 1))) ≠ 1 := by
   rcases Nat.exists_eq_add_of_le hk with ⟨j, rfl⟩

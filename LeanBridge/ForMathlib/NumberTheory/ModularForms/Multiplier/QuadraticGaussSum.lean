@@ -40,13 +40,13 @@ open jacobiSym (legendreSym.to_jacobiSym)
 
 namespace ZMod
 
-variable (β : ℤ) (a : ℕ) [NeZero a]
+variable (β : ℤ) (a : ℕ) [NeZero a] {M : Type*} [AddCommMonoid M]
 
 /-- The **quadratic Gauss sum** `G(β, a) = ∑_{m mod a} e(β m² / a)`. -/
 noncomputable def quadraticGaussSum : ℂ :=
   ∑ m : ZMod a, stdAddChar ((β : ZMod a) * m ^ 2)
 
-lemma sum_range_natCast_eq {M : Type*} [AddCommMonoid M] (F : ZMod a → M) :
+lemma sum_range_natCast_eq (F : ZMod a → M) :
     ∑ r ∈ Finset.range a, F (r : ZMod a) = ∑ x : ZMod a, F x := by
   refine Finset.sum_bij (fun r _ ↦ (r : ZMod a)) (fun _ _ ↦ Finset.mem_univ _) ?_ ?_ fun _ _ ↦ rfl
   · intro r hr s hs h
@@ -55,25 +55,52 @@ lemma sum_range_natCast_eq {M : Type*} [AddCommMonoid M] (F : ZMod a → M) :
       ZMod.val_natCast_of_lt (Finset.mem_range.mp hs)] at h1
   · exact fun x _ ↦ ⟨x.val, Finset.mem_range.mpr (ZMod.val_lt x), ZMod.natCast_zmod_val x⟩
 
-private lemma stdAddChar_natCast_mul_aux {N m c : ℕ} [NeZero N] [NeZero m] [NeZero c]
-    (hN : N = m * c) (j : ℤ) :
-    stdAddChar (((c : ℤ) * j : ℤ) : ZMod N) = stdAddChar ((j : ℤ) : ZMod m) := by
-  have hm : (m : ℂ) ≠ 0 := Nat.cast_ne_zero.mpr (NeZero.ne m)
-  have hc : (c : ℂ) ≠ 0 := Nat.cast_ne_zero.mpr (NeZero.ne c)
-  rw [stdAddChar_coe, stdAddChar_coe, hN]
+variable {a} in
+lemma sum_Icc_one_natCast (F : ZMod a → M) : ∑ n ∈ Finset.Icc 1 a, F n = ∑ x, F x := by
+  rw [← Finset.Ico_add_one_right_eq_Icc, Finset.sum_Ico_eq_sum_range, Nat.add_sub_cancel,
+    ← Equiv.sum_comp (Equiv.addLeft 1) F, ← sum_range_natCast_eq]
+  exact Finset.sum_congr rfl fun k _ ↦ by rw [Nat.cast_add, Nat.cast_one, Equiv.coe_addLeft]
+
+variable {a} in
+lemma sum_eq_sum_units {F : ZMod a → M} (hF : ∀ x, ¬IsUnit x → F x = 0) :
+    ∑ x, F x = ∑ u : (ZMod a)ˣ, F u := by
+  have hsub :
+      ∑ x ∈ Finset.univ.map ⟨((↑) : (ZMod a)ˣ → ZMod a), Units.val_injective⟩, F x = ∑ x, F x :=
+    Finset.sum_subset (Finset.subset_univ _) fun x _ hx ↦ hF x fun hu ↦ hx <|
+      Finset.mem_map.mpr ⟨hu.unit, Finset.mem_univ _, hu.unit_spec⟩
+  rw [← hsub, Finset.sum_map]
+  rfl
+
+variable {a} in
+lemma stdAddChar_natCast_div_mul {d : ℕ} [NeZero d] (hd : d ∣ a) (x : ZMod a) :
+    stdAddChar (((a / d : ℕ) : ZMod a) * x) = stdAddChar (cast x : ZMod d) := by
+  have had : ((a / d : ℕ) : ℂ) * d = a := by exact_mod_cast Nat.div_mul_cancel hd
+  have had0 : ((a / d : ℕ) : ℂ) ≠ 0 := fun h ↦ NeZero.ne a <| by
+    rw [h, zero_mul] at had
+    exact_mod_cast had.symm
+  have hd0 : (d : ℂ) ≠ 0 := Nat.cast_ne_zero.mpr (NeZero.ne d)
+  rw [← natCast_zmod_val x, cast_natCast hd, ← Nat.cast_mul, stdAddChar_apply, stdAddChar_apply,
+    toCircle_natCast, toCircle_natCast, Nat.cast_mul, ← had]
   congr 1
-  push_cast
   field_simp
 
+lemma stdAddChar_natCast_mul (a₁ a₂ : ℕ) [NeZero a₁] [NeZero (a₁ * a₂)] (j : ℤ) :
+    stdAddChar (((a₂ : ℤ) * j : ℤ) : ZMod (a₁ * a₂)) = stdAddChar ((j : ℤ) : ZMod a₁) := by
+  have h : stdAddChar (((a₁ * a₂ / a₁ : ℕ) : ZMod (a₁ * a₂)) * (j : ZMod (a₁ * a₂))) =
+      stdAddChar (cast (j : ZMod (a₁ * a₂)) : ZMod a₁) :=
+    stdAddChar_natCast_div_mul (dvd_mul_right a₁ a₂) _
+  rwa [Nat.mul_div_cancel_left a₂ (NeZero.pos a₁), cast_intCast (dvd_mul_right a₁ a₂),
+    ← Int.cast_natCast, ← Int.cast_mul] at h
+
+lemma stdAddChar_natCast_mul' (a₁ a₂ : ℕ) [NeZero a₂] [NeZero (a₁ * a₂)] (j : ℤ) :
+    stdAddChar (((a₁ : ℤ) * j : ℤ) : ZMod (a₁ * a₂)) = stdAddChar ((j : ℤ) : ZMod a₂) := by
+  have h : stdAddChar (((a₁ * a₂ / a₂ : ℕ) : ZMod (a₁ * a₂)) * (j : ZMod (a₁ * a₂))) =
+      stdAddChar (cast (j : ZMod (a₁ * a₂)) : ZMod a₂) :=
+    stdAddChar_natCast_div_mul (dvd_mul_left a₂ a₁) _
+  rwa [Nat.mul_div_cancel a₁ (NeZero.pos a₂), cast_intCast (dvd_mul_left a₂ a₁),
+    ← Int.cast_natCast, ← Int.cast_mul] at h
+
 variable (a₁ a₂ : ℕ) [NeZero a₁] [NeZero a₂] [NeZero (a₁ * a₂)]
-
-lemma stdAddChar_natCast_mul (j : ℤ) :
-    stdAddChar (((a₂ : ℤ) * j : ℤ) : ZMod (a₁ * a₂)) = stdAddChar ((j : ℤ) : ZMod a₁) :=
-  stdAddChar_natCast_mul_aux rfl j
-
-lemma stdAddChar_natCast_mul' (j : ℤ) :
-    stdAddChar (((a₁ : ℤ) * j : ℤ) : ZMod (a₁ * a₂)) = stdAddChar ((j : ℤ) : ZMod a₂) :=
-  stdAddChar_natCast_mul_aux (mul_comm a₁ a₂) j
 
 private lemma bijective_add_mul (h : a₁.Coprime a₂) : Function.Bijective fun p : ZMod a₁ × ZMod a₂ ↦
     ((a₂ * p.1.val + a₁ * p.2.val : ℕ) : ZMod (a₁ * a₂)) := by

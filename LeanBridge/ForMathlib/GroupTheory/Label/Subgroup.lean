@@ -1,7 +1,9 @@
+import LeanBridge.ForMathlib.GroupTheory.AutjugacyClass
 import LeanBridge.ForMathlib.GroupTheory.Label.Group
 import LeanBridge.ForMathlib.NumberTheory.DirichletCharacter.GaloisOrbitLabel
 import LeanBridge.ForMathlib.NumberTheory.ModularCurve.GassmannClass
 import Mathlib.Algebra.Group.Pointwise.Set.Card
+import Mathlib.Data.Set.Card.Arithmetic
 import Mathlib.GroupTheory.Index
 
 /-!
@@ -47,6 +49,11 @@ exactly the right classes of subgroups (`Subgroup.IsLabelling`, `Subgroup.IsAutL
 * `Subgroup.IsConjugate.isGassmannEquivalent`: conjugate subgroups are Gassmann equivalent.
 * `Subgroup.IsAutomorphic.isAutGassmannEquivalent`: automorphic subgroups are Gassmann equivalent
   up to automorphism.
+* `Subgroup.natCard_orbit_inter_eq_finsum` (LMFDB `group.computing_subgroup_labels`): up to
+  automorphism, the count on an orbit of `Aut(G)` is the sum of the counts on the conjugacy classes
+  that it collects.
+* `Subgroup.IsGassmannEquivalent.isAutGassmannEquivalent`: Gassmann equivalent subgroups of a finite
+  group are Gassmann equivalent up to automorphism.
 * `Subgroup.exists_isLabelling` and `Subgroup.exists_isAutLabelling`: the subgroups of a finite
   group have labellings.
 -/
@@ -109,23 +116,35 @@ private lemma natCard_inter_smul {S : Set G} {φ : MulAut G} (hS : φ • S = S)
     Nat.card ↥(S ∩ ↑(φ • H)) = Nat.card ↥(S ∩ H) := by
   rw [coe_pointwise_smul, ← Set.natCard_smul_set φ (S ∩ H), Set.smul_set_inter, hS]
 
-private lemma conj_smul_carrier (g : G) (C : ConjClasses G) :
-    MulAut.conj g • C.carrier = C.carrier := by
-  refine Set.ext fun x ↦ ?_
-  rw [Set.mem_smul_set_iff_inv_smul_mem, MulAut.smul_def, MulAut.conj_inv_apply,
-    ConjClasses.mem_carrier_iff_mk_eq, ConjClasses.mem_carrier_iff_mk_eq,
-    ConjClasses.mk_eq_mk_iff_isConj.mpr (isConj_iff.mpr ⟨g, by group⟩ : IsConj (g⁻¹ * x * g) x)]
-
 /-- **Conjugate subgroups are Gassmann equivalent.** -/
 lemma IsConjugate.isGassmannEquivalent (h : H.IsConjugate K) : H.IsGassmannEquivalent K := by
   rcases h with ⟨g, rfl⟩
-  exact fun C ↦ (natCard_inter_smul H (conj_smul_carrier g C)).symm
+  exact isGassmannEquivalent_of_equiv (equivSMul (MulAut.conj g) H).toEquiv fun h ↦
+    (isConj_iff.mpr ⟨g, rfl⟩).symm
 
 /-- **Automorphic subgroups are Gassmann equivalent up to automorphism.** -/
 lemma IsAutomorphic.isAutGassmannEquivalent (h : H.IsAutomorphic K) :
     H.IsAutGassmannEquivalent K := by
   rcases h with ⟨φ, rfl⟩
   exact fun x ↦ (natCard_inter_smul H (smul_orbit φ x)).symm
+
+/-- **Gassmann vectors up to automorphism collect the conjugacy classes related by an
+automorphism** (LMFDB `group.computing_subgroup_labels`): in a finite group, the number of elements
+of `H` in the orbit of `x` under `Aut(G)` is the sum, over the conjugacy classes `C` in the orbit of
+the class of `x`, of the numbers of elements of `H` in `C`. -/
+lemma natCard_orbit_inter_eq_finsum [Finite G] (x : G) : Nat.card ↥(orbit (MulAut G) x ∩ H) =
+    ∑ᶠ C ∈ orbit (MulAut G) (ConjClasses.mk x), Nat.card ↥(C.carrier ∩ H) := by
+  rw [MulAut.orbit_eq_iUnion_carrier, Set.iUnion₂_inter]
+  exact (Set.toFinite _).ncard_biUnion (fun _ _ ↦ Set.toFinite _)
+    ((MulAut.pairwiseDisjoint_carrier_orbit x).mono_on fun _ _ ↦ Set.inter_subset_left)
+
+/-- **Gassmann equivalent subgroups are Gassmann equivalent up to automorphism** (LMFDB
+`group.computing_subgroup_labels`), in a finite group: the count on an orbit of `Aut(G)` is the sum
+of the counts on the conjugacy classes that it collects. -/
+lemma IsGassmannEquivalent.isAutGassmannEquivalent [Finite G] (h : H.IsGassmannEquivalent K) :
+    H.IsAutGassmannEquivalent K := fun x ↦ by
+  rw [natCard_orbit_inter_eq_finsum, natCard_orbit_inter_eq_finsum]
+  exact finsum_mem_congr rfl fun C _ ↦ h C
 
 /-- The part `a` or `j` of the LMFDB label of a subgroup (LMFDB `group.subgroup_label`), as data:
 the position of a Gassmann class, written in letters, and an ordinal distinguishing the subgroups

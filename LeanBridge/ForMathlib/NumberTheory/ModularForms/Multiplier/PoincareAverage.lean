@@ -72,56 +72,6 @@ open scoped MatrixGroups ModularForm Real
 
 local notation "𝒬" => Quotient (rightRel (Subgroup.zpowers T))
 
-namespace ModularGroup
-
-variable {γ γ' : SL(2, ℤ)}
-
-lemma mem_zpowers_T_iff : γ ∈ Subgroup.zpowers T ↔ γ 1 0 = 0 ∧ γ 1 1 = 1 := by
-  refine ⟨?_, fun ⟨h10, h11⟩ ↦ ⟨γ 0 1, ?_⟩⟩
-  · rintro ⟨m, rfl⟩
-    simp [coe_T_zpow]
-  · have h00 : γ 0 0 = 1 := by
-      simpa [h10, h11] using γ.fin_two_mul_sub_mul_eq_one
-    ext i j
-    fin_cases i <;> fin_cases j <;> simp [coe_T_zpow, h00, h10, h11]
-
-lemma rightRel_zpowers_T_iff : rightRel (Subgroup.zpowers T) γ γ' ↔ γ' 1 = γ 1 := by
-  rw [rightRel_apply]
-  refine ⟨fun h ↦ ?_, fun h ↦ ?_⟩
-  · rcases Subgroup.mem_zpowers_iff.mp h with ⟨m, hm⟩
-    rw [← T_pow_mul_apply_one m γ, hm, inv_mul_cancel_right]
-  · have h1 : (γ' * γ⁻¹) 1 = (1 : SL(2, ℤ)) 1 := by
-      rw [← mul_inv_cancel γ, γ'.coe_mul, γ.coe_mul, Matrix.mul_apply_eq_vecMul,
-        Matrix.mul_apply_eq_vecMul, h]
-    exact mem_zpowers_T_iff.mpr ⟨by simpa using congrFun h1 0, by simpa using congrFun h1 1⟩
-
-lemma mem_zpowers_T_or_neg_mem (hγ : γ 1 0 = 0) :
-    γ ∈ Subgroup.zpowers T ∨ -γ ∈ Subgroup.zpowers T := by
-  have hdet : γ 0 0 * γ 1 1 - γ 0 1 * γ 1 0 = 1 := γ.fin_two_mul_sub_mul_eq_one
-  rw [hγ, mul_zero, sub_zero] at hdet
-  rcases Int.eq_one_or_neg_one_of_mul_eq_one' hdet with ⟨-, h11⟩ | ⟨-, h11⟩
-  · exact .inl (mem_zpowers_T_iff.mpr ⟨hγ, h11⟩)
-  · exact .inr (mem_zpowers_T_iff.mpr ⟨by simp [hγ], by simp [h11]⟩)
-
-lemma injective_T_zpow : Function.Injective fun m : ℤ ↦ T ^ m := by
-  intro m m' hm
-  simpa [coe_T_zpow] using congrArg (fun g : SL(2, ℤ) ↦ g 0 1) hm
-
-variable (γ)
-
-lemma S_mul_apply_zero : (S * γ) 0 = -γ 1 := by
-  ext j
-  simp [Matrix.mul_apply]
-
-lemma S_mul_apply_one : (S * γ) 1 = γ 0 := by
-  ext j
-  simp [Matrix.mul_apply]
-
-lemma denom_T_zpow_mul (m : ℤ) (z : ℍ) : denom (T ^ m * γ : SL(2, ℤ)) z = denom γ z := by
-  rw [denom_apply, denom_apply, T_pow_mul_apply_one]
-
-end ModularGroup
-
 namespace ModularForm
 
 lemma injective_bottomRow : Function.Injective fun q : 𝒬 ↦ q.out 1 := fun _ _ h ↦
@@ -172,10 +122,7 @@ lemma averageTerm_eq_of_rightRel (hh : ∀ w : ℍ, h (T • w) = h w) {γ γ' :
   rw [← hγ', averageTerm_T_zpow_mul k z hh]
 
 lemma averageTerm_neg (γ : SL(2, ℤ)) : averageTerm h k z (-γ) = (-1) ^ k * averageTerm h k z γ := by
-  have hden : denom (-γ : SL(2, ℤ)) z = -denom γ z := by
-    rw [ModularGroup.denom_apply, ModularGroup.denom_apply, γ.coe_neg, Matrix.neg_apply,
-      Matrix.neg_apply, Int.cast_neg, Int.cast_neg, neg_mul, ← neg_add]
-  rw [averageTerm, averageTerm, SL_neg_smul, hden, neg_eq_neg_one_mul (denom _ _), mul_zpow,
+  rw [averageTerm, averageTerm, SL_neg_smul, SL_denom_neg, neg_eq_neg_one_mul (denom _ _), mul_zpow,
     zpow_neg, ← inv_zpow, inv_neg_one]
   ring1
 

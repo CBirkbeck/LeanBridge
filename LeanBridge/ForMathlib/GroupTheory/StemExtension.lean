@@ -12,6 +12,11 @@ import Mathlib.GroupTheory.Subgroup.Center
 * `Subgroup.IsStem` (LMFDB `group.stem_extension`): a stem subgroup, contained in the centre and in
   the commutator subgroup.
 * `GroupExtension.IsStem` (LMFDB `group.stem_extension`): a stem extension.
+
+## Main results
+
+* `Subgroup.IsStem.le_center` (LMFDB `group.subgroup_properties_interdependencies`): a stem
+  subgroup is central.
 -/
 
 variable {N E G : Type*} [Group N] [Group E] [Group G]
@@ -26,6 +31,11 @@ def Group.IsStemGroup : Prop :=
 contained in both the centre and the commutator subgroup `commutator E = ⁅⊤, ⊤⁆` of `E`. -/
 def Subgroup.IsStem (K : Subgroup E) : Prop :=
   K ≤ center E ⊓ ⁅(⊤ : Subgroup E), ⊤⁆
+
+/-- **A stem subgroup is central** (LMFDB `group.subgroup_properties_interdependencies`), by
+definition: it lies in both the centre and the commutator subgroup. -/
+lemma Subgroup.IsStem.le_center {K : Subgroup E} (h : K.IsStem) : K ≤ center E :=
+  (le_inf_iff.mp h).1
 
 namespace GroupExtension
 

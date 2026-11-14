@@ -22,12 +22,6 @@ open Polynomial
 
 namespace TauCeti.AlgebraicGeometry.AbelianVariety
 
-private lemma of_forall_prime_natCast_ne_zero (F : Type*) [Field F] {P : Prop}
-    (h : ∀ (ℓ : ℕ) [Fact ℓ.Prime], (ℓ : F) ≠ 0 → P) : P := by
-  by_cases h2 : ((2 : ℕ) : F) = 0
-  · exact h 3 fun h3 ↦ one_ne_zero (α := F) <| by linear_combination h3 - h2
-  · exact h 2 h2
-
 variable {K : Type*} [Field K] [Fintype K] {A : AbelianVariety K} {h L : ℤ[X]}
 
 /-- **The L-polynomial of an abelian variety over a finite field has constant term `1`** (LMFDB

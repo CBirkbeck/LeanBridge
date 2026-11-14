@@ -1,5 +1,5 @@
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolDyadic
-import Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.QuadraticGaussSum
 import TauCeti.GroupTheory.Coset.Fiber
 import TauCeti.LinearAlgebra.BilinearForm.LocalRing
 import TauCeti.LinearAlgebra.PerfectPairing.Basis
@@ -109,14 +109,12 @@ lemma sum_comp_cast (a b : ℕ) (g : (ι → ZMod (2 ^ a)) → ℂ) :
 
 lemma stdAddChar_two_pow_mul (a b : ℕ) (x : ZMod (2 ^ (a + b))) :
     stdAddChar (2 ^ b * x) = stdAddChar (ZMod.cast x : ZMod (2 ^ a)) := by
-  rcases ZMod.intCast_surjective x with ⟨j, rfl⟩
-  rw [ZMod.cast_intCast (pow_dvd_pow 2 (Nat.le_add_right a b)),
-    (by push_cast; ring1 : (2 : ZMod (2 ^ (a + b))) ^ b * (j : ZMod (2 ^ (a + b))) =
-      ((2 ^ b * j : ℤ) : ZMod (2 ^ (a + b)))), stdAddChar_coe, stdAddChar_coe]
-  congr 1
-  push_cast
-  field_simp
-  ring1
+  have hdiv : 2 ^ (a + b) / 2 ^ a = 2 ^ b := by
+    rw [pow_add, Nat.mul_div_cancel_left _ (Nat.two_pow_pos a)]
+  have h : stdAddChar (((2 ^ (a + b) / 2 ^ a : ℕ) : ZMod (2 ^ (a + b))) * x) =
+      stdAddChar (cast x : ZMod (2 ^ a)) :=
+    stdAddChar_natCast_div_mul (pow_dvd_pow 2 (Nat.le_add_right a b)) x
+  rwa [hdiv, Nat.cast_pow, Nat.cast_ofNat] at h
 
 lemma stdAddChar_sum {α : Type*} [DecidableEq α] (s : Finset α) (f : α → ZMod N) :
     stdAddChar (∑ i ∈ s, f i) = ∏ i ∈ s, stdAddChar (f i) := by

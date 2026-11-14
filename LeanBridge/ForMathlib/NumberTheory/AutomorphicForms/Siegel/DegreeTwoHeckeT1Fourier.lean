@@ -1,5 +1,5 @@
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.DegreeTwoHeckeTpFourier
-import Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.QuadraticGaussSum
 
 /-!
 # The Fourier coefficients of `F ∣ T_1(p²)` in degree `2`
@@ -64,14 +64,13 @@ variable {p κ a} {G : SiegelUpperHalfSpace (Fin 2) → ℂ} (Z : SiegelUpperHal
 
 lemma sum_units_stdAddChar_mul (q : ZMod p) :
     ∑ l : (ZMod p)ˣ, ZMod.stdAddChar ((l : ZMod p) * q) = (if q = 0 then (p : ℂ) else 0) - 1 := by
-  have h : ∑ x : ZMod p, ZMod.stdAddChar (x * q) = ZMod.stdAddChar ((0 : ZMod p) * q) +
-      ∑ x : {x : ZMod p // x ≠ 0}, ZMod.stdAddChar ((x : ZMod p) * q) :=
-    Fintype.sum_eq_add_sum_subtype_ne _ 0
-  rw [AddChar.sum_mulShift q (ZMod.isPrimitive_stdAddChar p), ZMod.card, zero_mul,
-    AddChar.map_zero_eq_one, Nat.cast_ite, Nat.cast_zero] at h
-  rw [Fintype.sum_equiv unitsEquivNeZero (fun l : (ZMod p)ˣ ↦ ZMod.stdAddChar ((l : ZMod p) * q))
-    (fun x : {x : ZMod p // x ≠ 0} ↦ ZMod.stdAddChar ((x : ZMod p) * q)) fun _ ↦ rfl]
-  linear_combination -h
+  have h : ∑ x : ZMod p, (ZMod.stdAddChar (x * q) - if x = 0 then 1 else 0) =
+      ∑ l : (ZMod p)ˣ, (ZMod.stdAddChar ((l : ZMod p) * q) - if (l : ZMod p) = 0 then 1 else 0) :=
+    ZMod.sum_eq_sum_units fun x hx ↦ by simp [not_not.mp (isUnit_iff_ne_zero.not.mp hx)]
+  simp only [Units.ne_zero, ite_false, sub_zero, Finset.sum_sub_distrib, Finset.sum_ite_eq',
+    Finset.mem_univ, ite_true] at h
+  rw [← h, AddChar.sum_mulShift q (ZMod.isPrimitive_stdAddChar p), ZMod.card, Nat.cast_ite,
+    Nat.cast_zero]
 
 lemma cexp_rankOne_phase (T : ℤ × ℤ × ℤ) (l : (ZMod p)ˣ) (v : Option (ZMod p)) :
     cexp (2 * π * I * ((T.1 * (((l * lineVec v 0 * lineVec v 0 : ZMod p).val : ℚ) / p) +

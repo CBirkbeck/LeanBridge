@@ -14,6 +14,11 @@ the exceptional types `A4` and `A5` of Sutherland's labels (LMFDB `ec.galois_rep
 cannot occur for subgroups with surjective determinant, which is why they cannot occur for mod-`ℓ`
 images of elliptic curves over `ℚ`.
 
+## Main definitions
+
+* `Matrix.ProjGenLinGroup.quadraticCharDet`: the quadratic character of the determinant on
+  `PGL₂(𝔽_p)`.
+
 ## Main results
 
 * `Matrix.GeneralLinearGroup.quadraticChar_det_eq_one_of_mulEquiv`: on a subgroup of `GL₂(𝔽_p)`
@@ -33,6 +38,26 @@ lemma alternatingGroup.monoidHom_intUnits_eq_one (f : alternatingGroup α →* �
       rw [← map_pow, ← hg.orderOf, Subgroup.orderOf_coe, pow_orderOf_eq_one, map_one]
     rwa [pow_succ, Int.units_sq, one_mul, ← MonoidHom.one_apply g] at h3
 
+namespace Matrix.ProjGenLinGroup
+
+variable (p : ℕ) [Fact p.Prime]
+
+/-- The **quadratic character of the determinant** on `PGL₂(𝔽_p)`, `[g] ↦ (det g / p) ∈ {±1}`: it is
+well defined, as the determinant of a scalar matrix `a I` is the square `a²`. -/
+noncomputable def quadraticCharDet : ProjGenLinGroup (Fin 2) (ZMod p) →* ℤˣ :=
+  QuotientGroup.lift _ ((quadraticChar (ZMod p)).toUnitHom.comp GeneralLinearGroup.det) <| by
+    rw [GeneralLinearGroup.center_eq_range_scalar]
+    rintro - ⟨u, rfl⟩
+    rw [MonoidHom.mem_ker, MonoidHom.comp_apply, GeneralLinearGroup.det_scalar, map_pow,
+      Fintype.card_fin, Int.units_sq]
+
+variable {p} in
+lemma coe_quadraticCharDet_mk (g : GL (Fin 2) (ZMod p)) :
+    (quadraticCharDet p (mk g) : ℤ) = quadraticChar (ZMod p) (GeneralLinearGroup.det g) :=
+  rfl
+
+end Matrix.ProjGenLinGroup
+
 namespace Matrix.GeneralLinearGroup
 
 variable {p : ℕ} [Fact p.Prime] {H : Subgroup (GL (Fin 2) (ZMod p))}
@@ -41,13 +66,8 @@ variable {p : ℕ} [Fact p.Prime] {H : Subgroup (GL (Fin 2) (ZMod p))}
 determinant takes only square values**: its quadratic character is `1`. -/
 lemma quadraticChar_det_eq_one_of_mulEquiv (e : projectiveImage H ≃* alternatingGroup α)
     {h : GL (Fin 2) (ZMod p)} (hh : h ∈ H) : quadraticChar (ZMod p) (det h : ZMod p) = 1 := by
-  let χ : GL (Fin 2) (ZMod p) →* ℤˣ := (quadraticChar (ZMod p)).toUnitHom.comp det
-  have hχ : Subgroup.center (GL (Fin 2) (ZMod p)) ≤ χ.ker := by
-    rw [center_eq_range_scalar]
-    rintro - ⟨u, rfl⟩
-    rw [MonoidHom.mem_ker, MonoidHom.comp_apply, det_scalar, map_pow, Fintype.card_fin,
-      Int.units_sq]
-  let f : projectiveImage H →* ℤˣ := (QuotientGroup.lift _ χ hχ).comp (projectiveImage H).subtype
+  let f : projectiveImage H →* ℤˣ :=
+    (ProjGenLinGroup.quadraticCharDet p).comp (projectiveImage H).subtype
   have hf : f ⟨ProjGenLinGroup.mk h, Subgroup.mem_map_of_mem _ hh⟩ = 1 := by
     rw [← e.symm_apply_apply ⟨ProjGenLinGroup.mk h, Subgroup.mem_map_of_mem _ hh⟩]
     exact DFunLike.congr_fun (alternatingGroup.monoidHom_intUnits_eq_one

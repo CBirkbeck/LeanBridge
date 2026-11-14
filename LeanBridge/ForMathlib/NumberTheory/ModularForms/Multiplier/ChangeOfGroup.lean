@@ -1,3 +1,4 @@
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Gamma1Index
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ModularForm
 import Mathlib.NumberTheory.ModularForms.NormTrace
 import TauCeti.NumberTheory.ModularForms.HeckeSlash.Diagonal.QExpansion
@@ -330,8 +331,7 @@ variable (p) in
 lemma Gamma0_map_le_conjAct_scaleGL_one :
     (Gamma0 p).map (mapGL ℝ) ≤ toConjAct (scaleGL p)⁻¹ • (Gamma1 1).map (mapGL ℝ) := by
   have h1 : Gamma1 1 = ⊤ := top_unique (Gamma_one_top ▸ Gamma_le_Gamma1 1)
-  have h0 : Gamma0 1 = Gamma1 1 := h1 ▸ top_unique (h1 ▸ Gamma1_in_Gamma0 1)
-  simpa [h0] using Gamma0_map_le_conjAct_scaleGL 1 p
+  simpa [Gamma0_one_eq_top, h1] using Gamma0_map_le_conjAct_scaleGL 1 p
 
 /-- The function `z ↦ f((z + j)/p)`, for a modular form `f` on `SL(2, ℤ)`, as a modular form on the
 conjugate `(S T^j)⁻¹ Γ₀(p) S T^j` of `Γ₀(p)` (LMFDB `mf.gl2.history.new`): it is `p^k` times the

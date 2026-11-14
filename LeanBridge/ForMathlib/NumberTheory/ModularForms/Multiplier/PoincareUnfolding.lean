@@ -147,36 +147,14 @@ lemma integrableOn_smul_set_petersson_poincareTerm_one_iff :
 
 lemma coe_smul_of_apply_one_zero_eq_zero (hP : P 1 0 = 0) :
     (↑(P • z) : ℂ) = z + (P 0 0 * P 0 1 : ℤ) := by
-  have hdet : P 0 0 * P 1 1 = 1 := by
-    have hP' : (P : Matrix (Fin 2) (Fin 2) ℤ).det = 1 := P.det_coe
-    rwa [Matrix.det_fin_two, hP, mul_zero, sub_zero] at hP'
-  rw [coe_specialLinearGroup_apply]
-  rcases Int.eq_one_or_neg_one_of_mul_eq_one' hdet with ⟨h0, h1⟩ | ⟨h0, h1⟩
-  · simp [hP, h0, h1]
-  · rw [hP, h0, h1]
-    push_cast [eq_intCast]
-    ring1
+  rcases eq_T_zpow_or_eq_neg_T_zpow hP with h | h <;> nth_rw 1 [h]
+  · rw [coe_T_zpow_smul_eq]
+  · rw [SL_neg_smul, coe_T_zpow_smul_eq]
 
 lemma eq_or_eq_neg_of_apply_one_zero_eq_zero (hP : P 1 0 = 0) (hQ : Q 1 0 = 0)
     (h : P 0 0 * P 0 1 = Q 0 0 * Q 0 1) : P = Q ∨ P = -Q := by
-  have hdet (R : SL(2, ℤ)) (hR : R 1 0 = 0) : R 0 0 * R 1 1 = 1 := by
-    have hR' : (R : Matrix (Fin 2) (Fin 2) ℤ).det = 1 := R.det_coe
-    rwa [Matrix.det_fin_two, hR, mul_zero, sub_zero] at hR'
-  rcases Int.eq_one_or_neg_one_of_mul_eq_one' (hdet P hP) with ⟨hP0, hP1⟩ | ⟨hP0, hP1⟩ <;>
-  rcases Int.eq_one_or_neg_one_of_mul_eq_one' (hdet Q hQ) with ⟨hQ0, hQ1⟩ | ⟨hQ0, hQ1⟩
-  · left
-    ext i j
-    fin_cases i <;> fin_cases j <;> simp_all
-  · right
-    ext i j
-    fin_cases i <;> fin_cases j <;> simp_all
-  · right
-    ext i j
-    fin_cases i <;> fin_cases j <;> simp_all
-    omega
-  · left
-    ext i j
-    fin_cases i <;> fin_cases j <;> simp_all
+  rcases eq_T_zpow_or_eq_neg_T_zpow hP with hP' | hP' <;>
+    rcases eq_T_zpow_or_eq_neg_T_zpow hQ with hQ' | hQ' <;> rw [hP', hQ', h] <;> simp
 
 lemma coe_zpow_smul_of_coe_smul {A : SL(2, ℤ)} {c : ℝ} (hA : ∀ u : ℍ, (↑(A • u) : ℂ) = u + c)
     (j : ℤ) : (↑((A ^ j) • z) : ℂ) = z + j * c := by

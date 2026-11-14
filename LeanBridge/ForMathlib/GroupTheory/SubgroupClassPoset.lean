@@ -73,6 +73,15 @@ lemma mk_lt_mk_iff_exists_smul_le :
       ∀ a : A, ¬a • K ≤ H := by
   rw [lt_iff_le_not_ge, mk_le_mk_iff_exists_smul_le, mk_le_mk_iff_exists_smul_le, not_exists]
 
+lemma Ioi_mk_ne_of_forall_not_smul_le {M : Subgroup G} (hH : H ≤ M) (hM : ∀ a : A, ¬a • M ≤ H)
+    (hK : ∀ a : A, ¬a • K ≤ M) :
+    Set.Ioi (Quotient.mk _ H : orbitRel.Quotient A (Subgroup G)) ≠ Set.Ioi (Quotient.mk _ K) := by
+  intro h
+  have hM' : Quotient.mk _ M ∈ Set.Ioi (Quotient.mk _ H : orbitRel.Quotient A (Subgroup G)) :=
+    mk_lt_mk_iff_exists_smul_le.mpr ⟨⟨1, (one_smul A H).trans_le hH⟩, hM⟩
+  rw [h] at hM'
+  exact (mk_lt_mk_iff_exists_smul_le.mp hM').1.elim hK
+
 @[nolint defsWithUnderscore]
 instance [Finite G] : PartialOrder (orbitRel.Quotient A (Subgroup G)) :=
   { (inferInstance : Preorder (orbitRel.Quotient A (Subgroup G))) with

@@ -1,3 +1,4 @@
+import LeanBridge.ForMathlib.NumberTheory.Modular
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.RankinSelberg.LatticeSum
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.RankinSelberg.Strip
 import Mathlib.NumberTheory.DirichletCharacter.Bounds
@@ -108,9 +109,8 @@ variable (γ) in
 lemma row_mem_gammaSet : row γ ∈ gammaSet 1 1 0 :=
   (mem_gammaSet_one _).mpr (bottom_row_coprime γ)
 
-lemma row_T_zpow_mul (n : ℤ) : row (T ^ n * γ) = row γ := by
-  funext j
-  simp [row]
+lemma row_T_zpow_mul (n : ℤ) : row (T ^ n * γ) = row γ :=
+  T_pow_mul_apply_one n γ
 
 variable (ξ) in
 lemma exists_row_eq : ∃ γ : SL(2, ℤ), row γ = ξ.1 := by
@@ -139,32 +139,18 @@ lemma mul_inv_apply_one_one : (γ' * γ⁻¹) 1 1 = γ' 1 1 * γ 0 0 - γ' 1 0 *
 
 lemma eq_of_row_eq_of_re_mem (hrow : row γ = row γ') (hγ : (γ • τ).re ∈ Ico (0 : ℝ) 1)
     (hγ' : (γ' • τ).re ∈ Ico (0 : ℝ) 1) : γ = γ' := by
-  have h0 : γ' 1 0 = γ 1 0 := (congrFun hrow 0).symm
-  have h1 : γ' 1 1 = γ 1 1 := (congrFun hrow 1).symm
-  have hc : (γ' * γ⁻¹) 1 0 = 0 := by
-    rw [mul_inv_apply_one_zero, h0, h1]
-    ring1
-  have hd : (γ' * γ⁻¹) 1 1 = 1 := by
-    rw [mul_inv_apply_one_one, h0, h1]
-    linarith [γ.fin_two_mul_sub_mul_eq_one]
-  have ha : (γ' * γ⁻¹) 0 0 = 1 := by
-    have hdet : (γ' * γ⁻¹) 0 0 * (γ' * γ⁻¹) 1 1 - (γ' * γ⁻¹) 0 1 * (γ' * γ⁻¹) 1 0 = 1 :=
-      (γ' * γ⁻¹).fin_two_mul_sub_mul_eq_one
-    rw [hc, hd] at hdet
-    linarith
-  have hT : γ' * γ⁻¹ = T ^ ((γ' * γ⁻¹) 0 1) := by
-    ext i j
-    fin_cases i <;> fin_cases j <;> simp [ha, hc, hd, coe_T_zpow]
-  have hγ'' : γ' = T ^ ((γ' * γ⁻¹) 0 1) * γ := by
-    rw [← hT, inv_mul_cancel_right]
-  have hre : (γ' • τ).re = (γ • τ).re + ((γ' * γ⁻¹) 0 1 : ℤ) := by
-    conv_lhs => rw [hγ'', mul_smul, re_T_zpow_smul]
-  have hn : (γ' * γ⁻¹) 0 1 = 0 := by
-    have hlt : |(((γ' * γ⁻¹) 0 1 : ℤ) : ℝ)| < 1 := by
+  rcases Subgroup.mem_zpowers_iff.mp <| QuotientGroup.rightRel_apply.mp <|
+    rightRel_zpowers_T_iff.mpr hrow.symm with ⟨n, hn⟩
+  have hγ'' : γ' = T ^ n * γ := by
+    rw [hn, inv_mul_cancel_right]
+  have hre : (γ' • τ).re = (γ • τ).re + n := by
+    rw [hγ'', mul_smul, re_T_zpow_smul]
+  have hn0 : n = 0 := by
+    have hlt : |(n : ℝ)| < 1 := by
       rw [abs_lt]
       constructor <;> linarith [hγ.1, hγ.2, hγ'.1, hγ'.2]
     exact_mod_cast Int.abs_lt_one_iff.mp (by exact_mod_cast hlt)
-  rw [hγ'', hn, zpow_zero, one_mul]
+  rw [hγ'', hn0, zpow_zero, one_mul]
 
 variable (τ ξ) in
 /-- The element of `SL(2, ℤ)` with bottom row `ξ` taking `τ` into the strip. -/

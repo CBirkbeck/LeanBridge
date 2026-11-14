@@ -51,37 +51,6 @@ namespace ModularForm
 variable {Γ : Subgroup (GL (Fin 2) ℝ)} [Γ.HasDetOne] {v w : Γ →* Circle} {k l : ℤ} {f g : ℍ → ℂ}
   {α : GL (Fin 2) ℝ} (n r : ℕ) (c d : ℂ)
 
-lemma derivOfComplex_add (hf : MDiff f) (hg : MDiff g) :
-    derivOfComplex (f + g) = derivOfComplex f + derivOfComplex g := by
-  rw [derivOfComplex_eq_smul, normalizedDerivOfComplex_add f g hf hg, smul_add,
-    ← derivOfComplex_eq_smul, ← derivOfComplex_eq_smul]
-
-lemma derivOfComplex_mul (hf : MDiff f) (hg : MDiff g) :
-    derivOfComplex (f * g) = derivOfComplex f * g + f * derivOfComplex g := by
-  rw [derivOfComplex_eq_smul, normalizedDerivOfComplex_mul f g hf hg, smul_add, ← smul_mul_assoc,
-    ← mul_smul_comm, ← derivOfComplex_eq_smul, ← derivOfComplex_eq_smul]
-
-lemma mdifferentiable_iterate_derivOfComplex (hf : MDiff f) : MDiff (derivOfComplex^[r] f) := by
-  induction r with
-  | zero => exact hf
-  | succ r ih =>
-    exact Function.iterate_succ_apply' derivOfComplex r f ▸ mdifferentiable_derivOfComplex ih
-
-lemma isBoundedAtImInfty_iterate_derivOfComplex (hf : MDiff f) (hb : IsBoundedAtImInfty f) :
-    IsBoundedAtImInfty (derivOfComplex^[r] f) := by
-  induction r with
-  | zero => exact hb
-  | succ r ih =>
-    exact Function.iterate_succ_apply' derivOfComplex r f ▸
-      isBoundedAtImInfty_derivOfComplex (mdifferentiable_iterate_derivOfComplex r hf) ih
-
-lemma iterate_derivOfComplex_const_smul :
-    derivOfComplex^[r] (c • f) = c • derivOfComplex^[r] f := by
-  induction r with
-  | zero => rfl
-  | succ r ih =>
-    rw [Function.iterate_succ_apply', ih, derivOfComplex_const_smul, Function.iterate_succ_apply']
-
 lemma rankinCohenBracket_eq_sum_antidiagonal : rankinCohenBracket k l f g n = ∑ p ∈ antidiagonal n,
     ((-1) ^ p.1 * Ring.choose (k + n - 1) p.2 * Ring.choose (l + n - 1) p.1 : ℤ) •
       (derivOfComplex^[p.1] f * derivOfComplex^[p.2] g) :=

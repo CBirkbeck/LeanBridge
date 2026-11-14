@@ -1,5 +1,6 @@
 import Mathlib.NumberTheory.ModularForms.LevelOne.DimensionFormula
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Analytic.SturmBound
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Gamma1Index
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.QExpansion.Generic
 
 /-!
@@ -34,10 +35,8 @@ lemma eq_of_sturm_bound (f g : ModularForm 𝒮ℒ k) (h : ∀ i : ℕ, 12 * (i 
   have hmem (F : ModularForm 𝒮ℒ k) :
       mcast rfl F Gamma1_one_map_eq_SL ∈ modFormCharSpace k (1 : (ZMod 1)ˣ →* ℂˣ) :=
     (mem_modFormCharSpace_one_iff_diamondOp _).mpr fun d ↦ Subsingleton.elim d 1 ▸ by simp
-  have hidx : (Gamma0 1).index = 1 :=
-    Subgroup.index_eq_one.mpr <| eq_top_iff.mpr fun _ _ ↦ (Gamma0_mem).mpr <| Subsingleton.elim _ _
   refine ext fun z ↦ congr($(eq_of_sturmBound (hmem f) (hmem g) fun n hn ↦ h n ?_) z)
-  rw [sturmBound, hidx, Nat.cast_one, mul_one] at hn
+  rw [sturmBound, Gamma0_one_eq_top, Subgroup.index_top, Nat.cast_one, mul_one] at hn
   omega
 
 end ModularForm

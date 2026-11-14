@@ -1,5 +1,5 @@
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.QuadraticGaussSum
 import LeanBridge.ForMathlib.NumberTheory.MulChar.Order
-import Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar
 import Mathlib.NumberTheory.DirichletCharacter.Bounds
 import Mathlib.NumberTheory.DirichletCharacter.GaussSum
 import TauCeti.NumberTheory.DirichletCharacter.GaussSum
@@ -89,43 +89,6 @@ open AddChar ComplexConjugate Finset ZMod
 variable {N : ℕ} [NeZero N]
 
 namespace ZMod
-
-variable {M : Type*} [AddCommMonoid M] (f : ZMod N → M)
-
-lemma sum_Icc_one_natCast : ∑ n ∈ Icc 1 N, f n = ∑ x, f x := by
-  refine sum_nbij' (fun n ↦ (n : ZMod N)) (fun x ↦ if x = 0 then N else x.val) (by simp)
-    (fun x _ ↦ ?_) (fun n hn ↦ ?_) (fun x _ ↦ ?_) fun _ _ ↦ rfl
-  · split_ifs with hx
-    · exact mem_Icc.mpr ⟨NeZero.one_le, le_rfl⟩
-    · exact mem_Icc.mpr ⟨Nat.one_le_iff_ne_zero.mpr <| x.val_ne_zero.mpr hx, x.val_lt.le⟩
-  · rcases (mem_Icc.mp hn).2.lt_or_eq with hlt | rfl
-    · have h0 : (n : ZMod N) ≠ 0 := fun h ↦
-        Nat.not_dvd_of_pos_of_lt (mem_Icc.mp hn).1 hlt <| (natCast_eq_zero_iff n N).mp h
-      simp [h0, val_natCast_of_lt hlt]
-    · simp
-  · split_ifs with hx
-    · rw [hx, natCast_self]
-    · exact natCast_zmod_val x
-
-variable {f} in
-lemma sum_eq_sum_units (hf : ∀ x, ¬IsUnit x → f x = 0) : ∑ x, f x = ∑ u : (ZMod N)ˣ, f u := by
-  have hsub : ∑ x ∈ univ.map ⟨((↑) : (ZMod N)ˣ → ZMod N), Units.val_injective⟩, f x = ∑ x, f x :=
-    sum_subset (subset_univ _) fun x _ hx ↦ hf x fun hu ↦ hx <|
-      mem_map.mpr ⟨hu.unit, mem_univ _, hu.unit_spec⟩
-  rw [← hsub, sum_map]
-  rfl
-
-lemma stdAddChar_natCast_div_mul {d : ℕ} [NeZero d] (hd : d ∣ N) (x : ZMod N) :
-    stdAddChar (((N / d : ℕ) : ZMod N) * x) = stdAddChar (cast x : ZMod d) := by
-  have hNd : ((N / d : ℕ) : ℂ) * d = N := by exact_mod_cast Nat.div_mul_cancel hd
-  have hNd0 : ((N / d : ℕ) : ℂ) ≠ 0 := fun h ↦ NeZero.ne N <| by
-    rw [h, zero_mul] at hNd
-    exact_mod_cast hNd.symm
-  have hd0 : (d : ℂ) ≠ 0 := Nat.cast_ne_zero.mpr (NeZero.ne d)
-  rw [← natCast_zmod_val x, cast_natCast hd, ← Nat.cast_mul, stdAddChar_apply, stdAddChar_apply,
-    toCircle_natCast, toCircle_natCast, Nat.cast_mul, ← hNd]
-  congr 1
-  field_simp
 
 /-- **The number of segments of the portrait**: for `N > 1`, there are `N φ(N)` pairs of a residue
 `a` modulo `N` and a stage `k ∈ [1, N - 1]` coprime to `N`. -/
