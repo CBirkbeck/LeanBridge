@@ -11,7 +11,7 @@ products of fundamental units `e₁, e₂, e₃` of the three quadratic subfield
 the predicates `IsMazurUllomTypeI₁` to `IsMazurUllomTypeIV`. Every real biquadratic field has
 exactly one of the seven subtypes (`existsUnique_isMazurUllomType`). Mazur and Ullom's description
 of the four basic types I–IV as the isomorphism classes of the `ℤ[V₄]`-module `U/{±1}` (their
-Theorem 1) is not proved here.
+Theorem 1 and Remark 1) is proved in `Units/BiquadraticGaloisModule.lean`.
 
 The predicates say "for some fundamental units `e₁, e₂, e₃` of the three quadratic subfields", that
 is for some frame of quadratic units: some labelling of the subfields and some choice of their

@@ -16,8 +16,10 @@ structure of units in real biquadratic number fields, Acta Arith. 111 (2004)) so
 products of fundamental units `e₁, e₂, e₃` of `k₁, k₂, k₃` generate `U/{±1}`. Every real
 biquadratic field has exactly one of the seven subtypes, which are the possible positions of
 `⟨e₁, e₂, e₃⟩` in `U/{±1}` (its index is `1`, `2` or `4`, never `8`): see
-`NumberField.Units.existsUnique_isMazurUllomType` in `Units/BiquadraticClassification.lean`. That
-the four types are the isomorphism classes of the `ℤ[V₄]`-module `U/{±1}` is not proved.
+`NumberField.Units.existsUnique_isMazurUllomType` in `Units/BiquadraticClassification.lean`. The
+four types are the isomorphism classes of the `ℤ[V₄]`-module `U/{±1}`, up to an automorphism of
+`V₄` (Mazur and Ullom, Theorem 1 and Remark 1): see `NumberField.Units.isMazurUllomBasicType_iff`
+in `Units/BiquadraticGaloisModule.lean`.
 
 The predicates are stated for every number field `K`, but they are the LMFDB's types only for a
 real biquadratic field, the setting of the knowls (whose `U/{±1}` has rank `3`): for an imaginary

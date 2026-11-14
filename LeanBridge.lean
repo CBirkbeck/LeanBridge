@@ -1091,7 +1091,10 @@ import LeanBridge.ForMathlib.NumberTheory.NumberField.TotallyRealMinpoly
 import LeanBridge.ForMathlib.NumberTheory.NumberField.Units.Biquadratic
 import LeanBridge.ForMathlib.NumberTheory.NumberField.Units.BiquadraticClassification
 import LeanBridge.ForMathlib.NumberTheory.NumberField.Units.BiquadraticGalois
+import LeanBridge.ForMathlib.NumberTheory.NumberField.Units.BiquadraticGaloisModule
 import LeanBridge.ForMathlib.NumberTheory.NumberField.Units.BiquadraticUnitIndex
+import LeanBridge.ForMathlib.NumberTheory.NumberField.Units.MazurUllomModule
+import LeanBridge.ForMathlib.NumberTheory.NumberField.Units.MazurUllomModuleGroupRing
 import LeanBridge.ForMathlib.NumberTheory.NumberField.Units.MazurUllomType
 import LeanBridge.ForMathlib.NumberTheory.NumberField.Units.SignatureRank
 import LeanBridge.ForMathlib.NumberTheory.NumberField.Units.SignatureRankQuadratic
