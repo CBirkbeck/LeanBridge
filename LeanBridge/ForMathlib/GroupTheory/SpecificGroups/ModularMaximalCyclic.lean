@@ -107,7 +107,8 @@ variable (k : ℕ) [Fact (3 ≤ k)]
 modular group `M_{2^k}`: the semidirect product `C_{2^{k-1}} ⋊ C_2` in which the generator of
 `C_2` acts on `C_{2^{k-1}}` by `x ↦ x^{2^{k-2}+1}`, with presentation
 `⟨r, s | r^{2^{k-1}} = s^2 = 1, srs = r^{2^{k-2}+1}⟩`. It is defined for `k ≥ 3`; the LMFDB uses
-it for `k ≥ 4`, since `OD_8` is the dihedral group of order `8`. -/
+it for `k ≥ 4`, since `OD_8` is the dihedral group of order `8`
+(`OtherDihedralGroup.nonempty_mulEquiv_dihedralGroup`). -/
 abbrev OtherDihedralGroup : Type :=
   Multiplicative (ZMod (2 ^ (k - 1))) ⋊[involutionMulAut _ (otherDihedralUnit_pow_two k)]
     Multiplicative (ZMod 2)

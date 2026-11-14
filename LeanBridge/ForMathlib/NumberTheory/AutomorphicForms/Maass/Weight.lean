@@ -52,7 +52,7 @@ variable (Γ) in
 `f|[γ, k] = v(γ) f` for every `γ ∈ Γ`, and `(Δ_k + λ) f = 0`.
 
 The multiplier `v : Γ → S¹` is any unitary function: for non-integral weight, such as the eta
-multipliers `v_η^{2k}` that the knowl mentions (not formalised here), it is not a homomorphism.
+multipliers `v_η^{2k}` of the knowl (`ModularForm.etaMultiplier`), it is not a homomorphism.
 Square-integrability is taken as in `IsMaassForm` (on a fundamental domain of the image of `Γ` in
 `PGL(2, ℝ)`); the knowl lists it only for weight `0`, but `|f|` is `Γ`-invariant since `v` is
 unitary, and it is part of the notion of a Maass form. The condition at `γ` determines `v(γ)` where

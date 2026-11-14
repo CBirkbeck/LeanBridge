@@ -24,9 +24,10 @@ their basic data.
 The basic data `p.f.e.c` are formalised here, from Tau Ceti's `TauCeti.inertiaDegree`,
 `TauCeti.ramificationIndex` and `TauCeti.discriminantExponent` for a field, and from the Herbrand
 invariant `I = (r_1, …, r_w)_ε^f` for a family: `f`, `e = ε p ^ w`, and `c = f (e - 1 + e m_w)` for
-the last mean `m_w` of `I`, which is the discriminant exponent of every extension in `I / K` by
-LMFDB `lf.means` (`c = f (e - 1 + e m)` for the mean `m` of `L / K`, which is `m_w`); this last
-agreement is not proved here.
+the last mean `m_w` of `I`, which is the discriminant exponent of every extension in `I / K`, for
+`I` at the residue characteristic of `K`
+(`IsNonarchimedeanLocalField.HerbrandInvariant.IsInvariantOf.natCast_discriminantExponent`, in
+`LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyInvariants`).
 
 The rest of the labels is not formalised. The indices `n`, `j` and `num` are numberings of the
 database (`j` sorts the defining polynomials that the database chose, and `num` follows an
@@ -114,8 +115,10 @@ variable {p} (I : HerbrandInvariant p)
 a Herbrand invariant `I = (r_1, …, r_w)_ε^f`, where `e = ε p ^ w` and `m_w` is the last mean of `I`
 (`HerbrandInvariant.mean`). By LMFDB `lf.means`, whose mean `m` of an extension `L / K` is defined
 by `c = f (e - 1 + e m)` and is the last mean `m_w` of `L / K`, it is the discriminant exponent of
-every extension in a family `I / K`; this agreement is not proved here. It is an integer for the
-invariants of extensions, and is kept in `ℚ`. -/
+every extension in a family `I / K`, for `I` at the residue characteristic of `K`
+(`IsInvariantOf.natCast_discriminantExponent`, in
+`LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyInvariants`). It is an integer for
+the invariants of extensions, and is kept in `ℚ`. -/
 def discriminantExponent : ℚ :=
   I.f * (I.ε * p ^ I.w - 1 + I.ε * p ^ I.w * I.mean I.w)
 

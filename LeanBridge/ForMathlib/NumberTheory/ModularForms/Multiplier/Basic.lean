@@ -41,8 +41,8 @@ variable (k) in
 /-- A homomorphism `v : Γ → S¹` from a subgroup `Γ` of `GL(2, ℝ)` to the unit circle is a
 **multiplier system** (LMFDB `mf.multipliersystem`) of weight `k ∈ ℤ` if `v(-I) = (-1) ^ k`
 whenever `-I ∈ Γ`. This is the LMFDB's notion, for integral weight, where multiplier systems are
-homomorphisms; the multipliers of non-integral weight, such as that of the Dedekind eta function,
-are not homomorphisms and are not covered. -/
+homomorphisms; the multipliers of non-integral weight, such as that of the Dedekind eta function
+(`ModularForm.etaMultiplier`), are not homomorphisms and are not covered. -/
 def IsMultiplierSystem : Prop :=
   ∀ h : (-1 : GL (Fin 2) ℝ) ∈ Γ, v ⟨-1, h⟩ = (-1) ^ k
 

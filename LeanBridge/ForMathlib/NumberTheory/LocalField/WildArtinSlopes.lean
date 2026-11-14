@@ -82,7 +82,8 @@ noncomputable def swanSlopesOfIsGalois : Multiset ℝ :=
 /-- The **rams** (LMFDB `lf.rams`) of a finite Galois extension `L / K` of nonarchimedean local
 fields: the positive lower ramification jumps `i`, each repeated `log_p [G_i : G_{i + 1}]` times,
 so that there are `v_p(e(L / K))` of them. The rams of a non-Galois extension (Deligne's lower
-numbering) are not formalised. -/
+numbering) are `IsNonarchimedeanLocalField.visibleRams`, in
+`LeanBridge.ForMathlib.NumberTheory.LocalField.DeligneRamificationBreaks`. -/
 noncomputable def ramsOfIsGalois : Multiset ℕ :=
   ∑ i ∈ range (largestLowerJump K L).toNat, Multiset.replicate
     (padicValNat (ringChar 𝓀[K])
