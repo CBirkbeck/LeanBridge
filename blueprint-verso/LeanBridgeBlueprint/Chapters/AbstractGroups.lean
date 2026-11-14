@@ -9,7 +9,7 @@ open Informal
 
 #doc (Manual) "Abstract groups" =>
 
-This section lists the LMFDB definitions in the category `group`. Each definition links back to its LMFDB knowl. `combin.hasse_diagram` and `commensurable.group` also belong here, although their ids put them in another LMFDB category.
+This section lists the LMFDB definitions in the category `group`. Each definition links back to its LMFDB knowl. `combin.hasse_diagram` and `commensurable.group` also belong here, although their ids put them in another LMFDB category. It also lists the knowl about the LMFDB's data on this subject that has mathematical content, from the category `portrait`.
 
 :::definition "combin.hasse_diagram" (lean := "SimpleGraph.hasse, SimpleGraph.hasse_adj, CovBy")
 *Hasse diagram.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/combin.hasse_diagram))
@@ -277,7 +277,7 @@ Depends on: {uses "group"}[] {uses "group.automorphism"}[] {uses "group.subgroup
 :::definition "group.chevalley" (lean := "Matrix.SpecialLinearGroup, Matrix.symplecticGroup, QuadraticForm.chevalleyB, QuadraticForm.chevalleyD, QuadraticForm.chevalleyDOfCharTwo, TauCeti.QuadraticMap.specialOrthogonalGroup, Matrix.SpecialLinearGroup.isSimpleGroup_two_galoisField")
 *Chevalley group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.chevalley))
 
-The *Chevalley groups* are examples of groups of Lie type over finite {bpref "ring.field"}[fields].  They generalise the classical {bpref "group.general_linear"}[linear], {bpref "group.symplectic"}[symplectic], {bpref "group.orthogonal"}[orthogonal], and {bpref "group.unitary"}[unitary] matrix groups. In many cases, these are examples of finite {bpref "group.simple"}[simple] groups.
+The *Chevalley groups* are examples of groups of {bpref "group.lie_type"}[Lie type] over finite {bpref "ring.field"}[fields].  They generalise the classical {bpref "group.general_linear"}[linear], {bpref "group.symplectic"}[symplectic], {bpref "group.orthogonal"}[orthogonal], and {bpref "group.unitary"}[unitary] matrix groups. In many cases, these are examples of finite {bpref "group.simple"}[simple] groups.
 
 - $`A(n, q)` is the {bpref "group.special_linear"}[special linear] group $`\SL(n+1, q)`.
 
@@ -354,6 +354,18 @@ The *complex character table* of a finite {bpref "group"}[group] $`G` is a squar
 Tau Ceti Review: [`TauCeti.characterTable`](https://taucetiproject.org/review/#/d/TauCeti.characterTable), [`TauCeti.irreducibleCharacters`](https://taucetiproject.org/review/#/d/TauCeti.irreducibleCharacters).
 
 Depends on: {uses "group"}[] {uses "group.label_complex_group_char"}[] {uses "group.label_conjugacy_class"}[] {uses "group.representation.character"}[]
+:::
+
+:::definition "group.computing_subgroup_labels" (lean := "Subgroup.IsGassmannEquivalent, Subgroup.IsAutGassmannEquivalent, Subgroup.natCard_inter_eq_sum, Subgroup.mk_le_mk_iff_exists_smul_le, TauCeti.AffineGroup.Ioi_mk_map_inl_ne, Equiv.Perm.Ioi_mk_range_kleinFourOnFourHom_ne, DihedralGroup.isConjugate_zpowers_sr_zero_zpowers_sr_two, DihedralGroup.not_isConjugate_subgroupOf_centralizer")
+*Computing labels of subgroups.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.computing_subgroup_labels))
+
+In order to label {bpref "group.gassmann_equivalence"}[Gassmann classes] we first fix an ordering of the {bpref "group.conjugacy_class"}[conjugacy classes] of $`G`. Having fixed such an ordering, it is easy to compute a unique identifier for each Gassmann class: we count the intersection of $`H` with each $`G`-conjugacy class. We enumerate $`H`-conjugacy classes of elements of $`H` in any order, then determine which $`G`-conjugacy class they belong to, adding the size of the $`H`-conjugacy class to a running tally of the intersection.  An analogous process works for Gassman vectors up to automorphism, where we collect together $`G`-conjugacy classes that are related by an automorphism of $`G`.
+
+If there are multiple subgroups up to automorphism (resp., conjugation) within a given Gassmann class, we use the subgroup lattice to further order those remaining subgroups. We first order subgroups $`H` in the same Gassmann class using the lex ordering on the sorted list of labels of all (proper) supergroups of $`H`. (One can and often does have Gassmann equivalent subgroups for which the lists of supergroups differ.)  Note that here "supergroup" refers to inclusions in the poset of subgroups up to automorphism (resp., conjugation), meaning we consider $`K` to be a supergroup of $`H` if it contains any  subgroup equivalent to $`H` up to automorphism (resp., conjugation).
+
+In these cases where two or more Gassmann equivalent subgroups have the same set of supergroups, we resort to computing {bpref "group.permutation_representation"}[permutation representation] signatures. We can, in fact, compute with any supergroup $`K` of $`H` instead of $`G`.  This is much more efficient when the index $`[K:H]` is much smaller than $`[G:H]`, but does require some care to account for the fact that there may be two or more $`G`-conjugates of $`H` contained in $`K` that are not $`K`-conjugate.
+
+Depends on: {uses "group.conjugacy_class"}[] {uses "group.gassmann_equivalence"}[] {uses "group.permutation_representation"}[]
 :::
 
 :::definition "group.conjugacy_class" (lean := "conjugatesOf, ConjClasses, ConjClasses.carrier, IsConj, SemiconjBy.orderOf_eq")
@@ -777,6 +789,28 @@ Tau Ceti Review: [`MeasureTheory.Measure.IsHaarMeasure`](https://taucetiproject.
 Depends on: {uses "group"}[] {uses "group.order"}[]
 :::
 
+:::definition "group.hash"
+*Hash for abstract groups.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.hash))
+
+The data for abstract groups includes a hash (a 64-bit integer) which can be used to help identify groups up to isomorphism.  Isomorphic groups will have equal hash values; non-isomorphic groups will usually have different hashes but collisions are possible.
+
+- If the group is of an order which can be identified by both Magma and Gap, we store the id number for that order as its hash.
+
+- Otherwise, we define two subsidiary functions: $`\texttt{CollapseIntList}` and $`\texttt{EasyHash}`.
+
+- $`\texttt{CollapseIntList}` takes a list $`\texttt{L}` of integers as input and produces a 64-bit integer, starting with $`\texttt{out} = 997\cdot\operatorname{len}(\texttt{L})` and sequentially setting $`\texttt{out} = \operatorname{xor}(\texttt{L}[\texttt{i}] \mod P, (1000003\cdot\texttt{out}) \mod P)` for $`i=1, \dots, \operatorname{len}(\texttt{L})`, where $`P = 9223372036854775783`.  When applied to list of lists, it is called recursively on each entry in the list.
+
+- $`\texttt{EasyHash}` takes a group as input and returns the id number if both Magma and Gap can identify the group; otherwise it constructs the sorted list of triples $`[o,m,c]` where $`c` is the number of conjugacy classes of order $`o` and size $`m`, and returns the value of $`\texttt{CollapseIntList}` applied to that list.
+
+- If the group is {bpref "group.abelian"}[abelian], the hash value is just $`\texttt{CollapseIntList}` applied to the {bpref "group.abelian_invariants"}[Smith abelian invariants].
+
+- Otherwise, the hash value of $`G` is $`\texttt{CollapseIntList}` applied to the sorted list of pairs $`[\# H, \texttt{EasyHash}(H)]` as $`H` varies over $`G` and its maximal subgroups.
+
+As an indication of the effectiveness of this hash function, there are 10,494,213 groups of order 512 and 10,487,714 distinct hash values among them.  Among the 544,831 groups currently in the LMFDB, there are 4,742 hash values that are duplicated; in 4,136 cases there are only two groups with that hash, and the largest number of groups with the same hash value is [22](/Groups/Abstract/?hash=5120%234714647875464396655).
+
+Depends on: {uses "group.abelian"}[] {uses "group.abelian_invariants"}[]
+:::
+
 :::definition "group.heisenberg" (lean := "TauCeti.HeisenbergGroup, TauCeti.HeisenbergGroup.mulEquivUpperUnitriangularGroup, TauCeti.HeisenbergGroup.natCard_zmod, TauCeti.HeisenbergGroup.not_isMulCommutative, TauCeti.HeisenbergGroup.exists_forall_iff_nonempty_mulEquiv, TauCeti.HeisenbergGroup.nonempty_mulEquiv_or_nonempty_mulEquiv_modularPCubedGroup, TauCeti.HeisenbergGroup.exponent_zmod, TauCeti.HeisenbergGroup.nonempty_mulEquiv_of_exponent_eq")
 *Heisenberg group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.heisenberg))
 
@@ -895,6 +929,101 @@ Depends on: {uses "group.conjugacy_class"}[]
 The *label of a rational character* of a {bpref "group"}[group] has the form $`N.i.oj` where $`N.i` is the label for the group, $`o` is the order of elements in this class and $`j` is a lower-case letter code.
 
 Depends on: {uses "group"}[]
+:::
+
+:::definition "group.lie_type"
+*Finite Lie Group Names.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.lie_type))
+
+We describe finite {bpref "group"}[groups] of Lie type as follows:
+
+<ul>
+<li> $`\mathrm{GL}(n,q)` denotes the {bpref "group.general_linear"}[general linear group] of degree $`n` over the finite field of order $`q`.
+
+<li> $`\mathrm{O}(n,q)` denotes the general {bpref "group.orthogonal"}[orthogonal group] of degree $`n` over the finite field of order $`q`.
+
+<li> $`\mathrm{U}(n,q)` denotes the {bpref "group.unitary"}[general unitary group] of degree $`n` over the finite field of order $`q`.
+
+<li> $`\mathrm{SL}(n,q)` denotes the {bpref "group.special_linear"}[special linear group] of degree $`n` over the finite field of order $`q`.
+
+<li> $`\mathrm{Sp}(n,q)` denotes the {bpref "group.symplectic"}[symplectic group] of degree $`n` over the finite field of order $`q`.
+
+<li> $`\mathrm{SO}(n,q)` denotes the {bpref "group.orthogonal"}[special orthogonal group] of degree $`n` over the finite field of order $`q`.
+
+<li> $`\mathrm{SU}(n,q)` denotes the {bpref "group.unitary"}[special unitary group] of degree $`n` over the finite field of order $`q`.
+
+<li> $`\mathrm{Spin}(n,q)` denotes the spin group of degree $`n` over the finite field of order $`q`. It is a Lie group whose underlying manifold is the double cover of the special orthogonal group $`\mathrm{SO}(n,q)`.
+</ul>
+
+<ul>
+<li> <b> Conformal groups: </b>
+<ul>
+<li>
+$`\mathrm{GO}(n,q)` denotes the conformal orthogonal group of degree $`n` over the finite field of order $`q` consists of the product of the orthogonal group $`\mathrm{O}(n,q)` with the group of dilations. $`\mathrm{CSO}(n,q)` is defined in similar manner.
+
+<li> $`\mathrm{GSp}(n,q)` denotes the conformal symplectic group of degree $`n` over the finite field of order $`q`. It preserves the standard alternating form up to a non-zero scalar multiple.
+
+<li> $`\mathrm{GU}(n,q)` denotes the conformal symplectic group of degree $`n` over the finite field of order $`q`. It preserves the standard hermitian form up to a non-zero scalar multiple.
+
+</ul>
+</ul>
+
+<ul>
+<li> <b> Projective groups: </b> $`\mathrm{PG}(n,q)` denotes the projective version of the group $`G(n,q)`, which is the quotient of $`G(n,q)` by its {bpref "group.center"}[center].
+</ul>
+
+<ul>
+<li> <b> {bpref "group.automorphism"}[Automorphism Groups]: </b>
+<ul>
+<li> $`\mathrm{P\Gamma L}(n,q)` denotes the automorphism group of $`\mathrm{PGL}(n,q)`.
+<li> $`\mathrm{P\Sigma L}(n,q)` denotes the automorphism group of $`\mathrm{PSL}(n,q)`.
+<li> $`\mathrm{P\Gamma U}(n,q)` denotes the automorphism group of $`\mathrm{PGU}(n,q)`.
+<li> $`\mathrm{P\Sigma Sp}(n,q)` denotes the automorphism group of $`\mathrm{PSp}(n,q)`.
+</ul>
+</ul>
+
+<ul>
+<li>  When the degree $`n` is even, there are two inequivalent non-degenerate quadratic forms giving rise to two non-isomorphic orthogonal groups $`\mathrm{O}^{+}(n,q)` and $`\mathrm{O}^{-}(n,q)` (see this [wiki page](https://en.wikipedia.org/wiki/Orthogonal_group#Over_finite_fields)).
+
+<br><br>
+$`H^{+}(n,q)` and $`H^{-}(n,q)` are defined similarly for $`H=\mathrm{GO}, \mathrm{GSO}, \mathrm{SO}, \mathrm{PSO}, \mathrm{PGO}, \mathrm{Spin}`.
+
+</ul>
+
+<ul>
+<li> For $`n\ge 3` odd, $`\Omega(n,q)` is the {bpref "group.subgroup"}[subgroup] of $`\mathrm{SO}(n,q)` such that  $`\mathrm{P}\Omega(n,q)` is {bpref "group.simple"}[simple]. If $`q` is odd, the group $`\Omega(n,q)` is the kernel of the spinor norm map on $`\mathrm{SO}(n,q)`; if $`q` is even, it is the kernel of the Dickson invariant.
+
+<br><br>
+For $`n\ge 2` even and $`q` is odd, $`\Omega^{+}(n,q)` (resp. $`\Omega^{-}(n,q)`) is the kernel of the spinor norm map on $`\mathrm{SO}^{+}(n,q)` (resp. $`\mathrm{SO}^{-}(n,q)`); if q is even, it is the kernel of the Dickson invariant.
+
+$`\mathrm{P}\Omega^{+}(n,q)` and $`\mathrm{P}\Omega^{-}(n,q)` are defined in a similar manner.
+</ul>
+
+<ul>
+<li> <b> Affine Groups: </b>
+<ul>
+<li> $`\mathrm{AGL}(n,q)` denotes the {bpref "group.affine_general_linear"}[affine general linear group] of degree $`n` over the finite field of order $`q`.
+<li> $`\mathrm{ASL}(n,q)` denotes the {bpref "group.affine_special_linear"}[affine special linear group] of degree $`n` over the finite field of order $`q`.
+<li> $`\mathrm{A\Sigma Sp}(n,q)` denotes the {bpref "group.affine_symplectic"}[affine special symplectic group ] of degree $`n` over the finite field of order $`q`.
+
+<li> $`\mathrm{A\Gamma L}(n,q)`, $`\mathrm{A\Sigma L}(n,q)` and $`\mathrm{ASp}(n,q)` are defined in a similar manner.
+</ul>
+</ul>
+
+<ul>
+<li> <b> {bpref "group.chevalley"}[Chevalley groups]: </b>
+<ul>
+<li> $`\mathrm{A_n}(q)` is the special linear group $`\mathrm{SL}(n+1,q)`.
+<li> $`\mathrm{B_n}(q)` is the orthogonal group $`\Omega(2n+1,q)`.
+<li> $`\mathrm{C_n}(q)` is the symplectic group  $`\mathrm{Sp}(2n,q)`.
+<li> $`\mathrm{D_n}(q)` is the orthogonal group $`\Omega^{+}(2n,q)`.
+
+<li> $`\mathrm{E}(7,q)`, $`\mathrm{E}(8,q)`, $`\mathrm{F}(4,q)`, $`\mathrm{G}(2,q)` are the exceptional groups.
+</ul>
+</ul>
+
+Note that Magma uses slightly different notation.  You can see the  [Magma documentation](https://magma.maths.usyd.edu.au/magma/handbook/text/770) for more details.
+
+Depends on: {uses "group"}[] {uses "group.affine_general_linear"}[] {uses "group.affine_special_linear"}[] {uses "group.affine_symplectic"}[] {uses "group.automorphism"}[] {uses "group.center"}[] {uses "group.chevalley"}[] {uses "group.general_linear"}[] {uses "group.orthogonal"}[] {uses "group.simple"}[] {uses "group.special_linear"}[] {uses "group.subgroup"}[] {uses "group.symplectic"}[] {uses "group.unitary"}[]
 :::
 
 :::definition "group.linear" (lean := "Matrix.ProjGenLinGroup, TauCeti.GeneralLinear.hopfIdealPointsSubgroup, TauCeti.ProjectiveGeneralLinear.coordinateHopfAlgebra, Matrix.GeneralLinearGroup.center_eq_range_scalar, Matrix.ProjGenLinGroup.mulEquivRangeToPermHom, Matrix.ProjectiveSpecialLinearGroup.isSimpleGroup_fin, Matrix.ProjGenLinGroup.isAlmostSimple_fin, Matrix.ProjGenLinGroup.isSimpleGroup_fin_iff")
@@ -1055,6 +1184,48 @@ A group $`G` is *monomial* or an *M-group* if every complex irreducible represen
 While every supersolvable group is monomial, the converse does not hold, as shown by [these examples](https://beta.lmfdb.org/Groups/Abstract/?monomial=yes&supersolvable=no).  Similarly, [these examples](https://beta.lmfdb.org/Groups/Abstract/?solvable=yes&Agroup=yes&supersolvable=no) show that not every solvable A-group is supersolvable.  There are also [examples](https://beta.lmfdb.org/Groups/Abstract/?solvable=yes&monomial=no) of solvable groups that are not monomial.
 
 Depends on: {uses "group.solvable"}[] {uses "group.supersolvable"}[]
+:::
+
+:::definition "group.name" (lean := "TauCeti.AffineGroup, TauCeti.AffineGroup.mulEquivRangeToPermHom, OtherDihedralGroup, ZMod.involutionMulAut_otherDihedralUnit_ne_one, SemidirectProduct.nonempty_mulEquiv_otherDihedralGroup_iff, TauCeti.HeisenbergGroup.natCard_zmod, TauCeti.HeisenbergGroup.exponent_zmod, TauCeti.HeisenbergGroup.nonempty_mulEquiv_of_exponent_eq")
+*Abstract group name.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.name))
+
+We describe abstract groups using standard building blocks:
+<ul>
+ <li> $`C_n` denotes the {bpref "group.cyclic"}[cyclic] group of {bpref "group.order"}[order] $`n`.
+ <li> $`S_n` denotes the {bpref "group.symmetric"}[symmetric group] on $`n` letters.
+ <li> $`A_n` denotes the {bpref "group.alternating"}[alternating group] on $`n` letters.
+ <li> $`D_n` denotes the {bpref "group.dihedral"}[dihedral group] of order $`2n`.
+ <li> $`Q_n` denotes the (generalized) {bpref "group.generalized_quaternion"}[quaternion group] of order $`n`.
+ <li> $`F_q` denotes the {bpref "group.frobenius"}[Frobenius group] for a prime power $`q`. It is the group of affine linear transformations of the finite field $`\mathbb{F}_q`. In other words, $`F_q` is a semidirect product  $`\mathbb{F}_q : \mathbb{F}_q^{\times}`.
+ <li> {bpref "group.sporadic"}[Sporadic Groups] (refer to this [wikipage](https://en.wikipedia.org/wiki/Sporadic_group)):
+<ul>
+ <li> $`M_n` for $`n=11,12, 22,23, 24` denotes the Mathieu groups
+ <li> $`\Ru` denotes the Rudvalis group
+ <li> $`\McL` denotes the McLaughlin group
+ <li> $`\He` denotes the Held group
+ <li> $`\HS` denotes the Higman–Sims group
+ <li> $`J_1`, $`J_2`, $`J_3` denote the Janko groups
+ <li> $`\Co_2` and $`\Co_3` denote the Conway groups
+</ul>
+ <li> Here is a list of {bpref "group.lie_type"}[finite groups of Lie type].
+ <li> $`\SD_n` denotes the {bpref "group.semi_dihedral"}[semidihedral group] or quasidihedral group of order $`n=2^k`.
+ <li> $`\OD_n` denotes the {bpref "group.other_dihedral"}[other-dihedral group] (or modular maximal-cyclic group) of order $`n=2^k`. It is the non-trivial {bpref "group.semidirect_product"}[semidirect product] $`C_{2^{k-1}} : C_2` which is not isomorphic to either $`\SD_n` or $`D_{2^{k-1}}`.
+ <li> $`\He_p` denotes the {bpref "group.heisenberg"}[Heisenberg group], the unique non-abelian group of order $`p^3` and exponent $`p` for an odd prime $`p`.
+</ul>
+
+Groups $`A` and $`B` may be used to construct a larger group:
+
+- $`A\times B` for the {bpref "group.direct_product"}[direct product] of $`A` and $`B`.
+
+- $`A:B` for the semidirect product of $`A` and $`B` (with {bpref "group.subgroup.normal"}[normal] subgroup $`A`).
+
+- $`A.B` an {bpref "group.nonsplit_product"}[extension] with normal subgroup $`A` and quotient isomorphic to $`B`.
+
+- $`A\wr B` for the {bpref "group.wreath_product"}[wreath product] of $`A` and $`B`.
+
+Tau Ceti Review: [`TauCeti.AffineGroup`](https://taucetiproject.org/review/#/d/TauCeti.AffineGroup).
+
+Depends on: {uses "group.alternating"}[] {uses "group.cyclic"}[] {uses "group.dihedral"}[] {uses "group.direct_product"}[] {uses "group.frobenius"}[] {uses "group.generalized_quaternion"}[] {uses "group.heisenberg"}[] {uses "group.lie_type"}[] {uses "group.nonsplit_product"}[] {uses "group.order"}[] {uses "group.other_dihedral"}[] {uses "group.semi_dihedral"}[] {uses "group.semidirect_product"}[] {uses "group.sporadic"}[] {uses "group.subgroup.normal"}[] {uses "group.symmetric"}[] {uses "group.wreath_product"}[]
 :::
 
 :::definition "group.nilpotent" (lean := "Group.IsNilpotent, Group.nilpotencyClass, Group.isNilpotent_of_finite_tfae, Subgroup.least_ascending_central_series_length_eq_nilpotencyClass, Group.IsNilpotent.isSupersolvable, Group.not_forall_isNilpotent_of_isNilpotent_quotient")
@@ -1289,6 +1460,38 @@ A *$`p`-group* is a {bpref "group"}[group] whose {bpref "group.order"}[order] is
 Depends on: {uses "group"}[] {uses "group.order"}[]
 :::
 
+:::definition "group.picture_description" (lean := "ConjClasses, ConjClasses.elementOrder, IsConj.orderOf_eq, ConjClasses.orderOf_eq_elementOrder, ConjClasses.odd_elementOrder_div_two_pow, Nat.ordProj_mul_ordCompl_eq_self, ConjClasses.elementOrder_eq_one_iff")
+*Explanation of pictures for abstract groups.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.picture_description))
+
+Pictures for abstract groups consist of several disks arranged in concentric circles. The size, position, and brightness each encode information about the group.
+
+*Quick summary ##*
+
+- Each disk corresponds to a conjugacy class.
+
+- Conjugacy classes with more elements are larger than those with fewer elements.
+
+- Disks are arranged according to the number of prime divisors of the order of elements in the conjugacy class. The identity is in the center.
+
+- Darker disks of the same hue typically have orders that are more divisible by $`2` than brighter disks with the same hue.
+
+*In more detail ##*
+
+Each disk corresponds to a {bpref "group.conjugacy_class"}[conjugacy class] in the group. The area of the disk is directly proportional to the number of elements in the corresponding conjugacy class. All elements in the conjugacy class have the same {bpref "group.element_order"}[order] $`o`, which we use to determine both the color of the disk and the location of the disk.
+
+For the color, write the common order of a given conjugacy class as $`o = 2^A \times (\mathrm{odd})`, where $`A = v_2(o)`. Typically, larger $`A` corresponds to darker colors in the hue-saturation-brightness color model. The odd part $`\mathrm{odd}` determines the hue, chosen in a way that is aesthetically pleasing.
+
+The position of each disk is determined by the number of prime divisors (counted with multiplicity) of the order. The identity element is in the center. An annulus around the identity contains all disks with order consisting of exactly $`1` prime. Within each annulus, disks are placed to fit nicely. There is usually a small gap between adjacent annuli.
+
+*Implementation ##*
+
+The algorithm to visualize abstract groups was designed and implemented by David Roe.
+
+Tau Ceti Review: [`ConjClasses`](https://taucetiproject.org/review/#/d/ConjClasses), [`Nat.ordProj_mul_ordCompl_eq_self`](https://taucetiproject.org/review/#/d/Nat.ordProj_mul_ordCompl_eq_self).
+
+Depends on: {uses "group.conjugacy_class"}[] {uses "group.element_order"}[]
+:::
+
 :::definition "group.presentation" (lean := "PresentedGroup, Subgroup.SubnormalSeries.IsPolycyclic, PolycyclicSequence, PolycyclicSequence.relOrder, PolycyclicPresentation.relators")
 *Presentation of a finite group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.presentation))
 
@@ -1333,6 +1536,54 @@ A {bpref "group.subgroup"}[subgroup] of a {bpref "group"}[group] $`G` is *proper
 Tau Ceti Review: [`Subgroup`](https://taucetiproject.org/review/#/d/Subgroup).
 
 Depends on: {uses "group"}[] {uses "group.subgroup"}[]
+:::
+
+:::definition "group.properties_interdependencies"
+*Interdependencies of group properties.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.properties_interdependencies))
+
+Certain properties of groups automatically imply other properties. We briefly explain the connections here.
+
+A {bpref "group.cyclic"}[cyclic group] is always {bpref "group.abelian"}[abelian]  by the way the group operation for cyclic groups is defined. Cyclic groups are also automatically {bpref "group.z_group"}[Z-groups] since all their subgroups (including their Sylow subgroups) are cyclic.
+
+Since cyclic groups are always abelian, Z-groups are by definition {bpref "group.a_group"}[A-groups], and similarly {bpref "group.metacyclic"}[metacyclic] groups are {bpref "group.metabelian"}[metabelian] as well.
+
+An abelian group is always {bpref "group.nilpotent"}[nilpotent] since the group is its own {bpref "group.center"}[center] and thus an {bpref "group.upper_central_series"}[upper central series] for the group exists.  In addition, abelian groups are {bpref "group.a_group"}[A-groups]  since all their subgroups (including their Sylow subgroups) are abelian.
+
+Nilpotent groups that are also finite (as is the case for groups in this database) are {bpref "group.supersolvable"}[supersolvable] because the upper central series defining a nilpotent group has abelian subquotients which, in the case of finite groups, may be expanded to a chain with cyclic factors.
+
+Supersolvable groups are {bpref "group.monomial"}[monomial] (see Corollary 3.5 in Chapter 2 of ).
+
+Monomial groups are also {bpref "group.solvable"}[solvable] by a result of Taketa .
+
+Since the definition of a metabelian group ensures the existence of a {bpref "group.subgroup.normal"}[normal] subgroup $`N \lhd G` so that $`G/N` is abelian, metabelian groups also satisfy the definition of solvable via the chain of subgroups $`\langle e\rangle \leq N \leq G`.
+
+If all the Sylow subgroups are cyclic, then the group is  metacyclic. Hence Z-groups are metacyclic (see Theorem 9.4.3 in ).
+
+Nonabelian {bpref "group.simple"}[simple groups] are always {bpref "group.perfect"}[perfect groups] since the {bpref "group.commutator_subgroup"}[commutator subgroup] of a group is a normal subgroup and hence must be the whole group in this case. In addition, nonabelian simple groups are also {bpref "group.almost_simple"}[almost simple] and {bpref "group.quasisimple"}[quasi-simple].
+
+Depends on: {uses "group.a_group"}[] {uses "group.abelian"}[] {uses "group.almost_simple"}[] {uses "group.center"}[] {uses "group.commutator_subgroup"}[] {uses "group.cyclic"}[] {uses "group.metabelian"}[] {uses "group.metacyclic"}[] {uses "group.monomial"}[] {uses "group.nilpotent"}[] {uses "group.perfect"}[] {uses "group.quasisimple"}[] {uses "group.simple"}[] {uses "group.solvable"}[] {uses "group.subgroup.normal"}[] {uses "group.supersolvable"}[] {uses "group.upper_central_series"}[] {uses "group.z_group"}[]
+:::
+
+:::definition "group.pseudo_random_elements" (lean := "Nat.isGreatest_prime_lt_two_pow_128, Nat.prime_two_pow_128_sub_159")
+*Generating deterministic sequences of pseudo-random group elements.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.pseudo_random_elements))
+
+In order to generate labels for {bpref "group.division"}[divisions] and {bpref "group.conjugacy_class"}[conjugacy classes], we use a method for picking pseudo-random group elements.
+
+We use an exponential pseudo-random number generator given by
+$`a_j = a_0\, b^j \bmod p`
+where
+
+$$`\begin{aligned}
+a_0 &= 123 \\
+b&=25096281518912105342191851917838718629 \\
+p &= 340282366920938463463374607431768211297.
+\end{aligned}`
+
+(Here $`p` is the largest prime less than $`2^{128}`.)
+
+To produce a pseudo-random sequence of group elements we follow a standard method.  Starting with $`k` generators, $`g_1, \ldots, g_k` we initialize the process by forming the $`(k+5)`-tuple $`v` with $`v_i=g_i` (taking subscripts  modulo $`k`).  We then have $`20` rounds of picking distinct indices $`i` and $`j` and replace $`v_i` with $`v_i\cdot v_j`.  After this initialization step, we generate the sequence by again picking random subscripts $`i` and $`j` according to our pseudo-random sequence of integers, replacing $`v_i` with $`v_i\cdot v_j` and returning the new $`v_i`.
+
+Depends on: {uses "group.conjugacy_class"}[] {uses "group.division"}[]
 :::
 
 :::definition "group.psl2r" (lean := "Matrix.ProjectiveSpecialLinearGroup, Matrix.SpecialLinearGroup.mem_center_iff")
@@ -1872,7 +2123,7 @@ Depends on: {uses "alg.symmetric_bilinear_form"}[] {uses "group.orthogonal"}[]
 :::definition "group.sporadic"
 *Sporadic groups.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.sporadic))
 
-By the classification of finite {bpref "group.simple"}[simple] groups, we know that every finite simple group is either {bpref "group.cyclic"}[cyclic] of prime {bpref "group.order"}[order], an {bpref "group.alternating"}[alternating] group, a member of one of 16 infinite families of simple groups of Lie type, or one of 26 exceptions called *sporadic groups*.
+By the classification of finite {bpref "group.simple"}[simple] groups, we know that every finite simple group is either {bpref "group.cyclic"}[cyclic] of prime {bpref "group.order"}[order], an {bpref "group.alternating"}[alternating] group, a member of one of 16 infinite families of simple groups of {bpref "group.lie_type"}[Lie type], or one of 26 exceptions called *sporadic groups*.
 
 The 26 sporadic groups are:
 
@@ -1987,6 +2238,22 @@ Tau Ceti Review: [`CovBy`](https://taucetiproject.org/review/#/d/CovBy).
 Depends on: {uses "combin.hasse_diagram"}[] {uses "group"}[] {uses "group.order"}[]
 :::
 
+:::definition "group.subgroup.diagram.lmfdb" (lean := "SimpleGraph.hasse, CovBy, Subgroup.conjClassesDiagram, Subgroup.mk_le_mk_iff_exists_smul_le, TauCeti.mem_orbit_conjAct_iff, Subgroup.index_normalizer_eq_ncard_orbit, Subgroup.normal_iff_ncard_orbit_le_one")
+*Subgroup diagrams in the LMFDB.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.subgroup.diagram.lmfdb))
+
+{bpref "group.subgroup.diagram"}[]
+
+Subgroup diagrams in the LMFDB are different from typical subgroup diagrams in that it is the {bpref "combin.hasse_diagram"}[Hasse diagram] on the set of conjugacy classes of subgroups ordered by inclusion.  The number of subgroups in each conjugacy class is given as a left subscript if it is bigger then one.  Hence, {bpref "group.subgroup.normal"}[normal] subgroups are those which have no left subscripts.
+
+Each subgroup in the diagram can be dragged to make it so that one can see parts of the diagram more clearly.
+
+Clicking on a subgroup will highlight it, and information about the subgroup will display below the diagram.  Hovering the mouse over a subgroup anywhere on the page will cause all instances of that subgroup to have a highlit background throughout the page.
+
+Tau Ceti Review: [`CovBy`](https://taucetiproject.org/review/#/d/CovBy), [`TauCeti.mem_orbit_conjAct_iff`](https://taucetiproject.org/review/#/d/TauCeti.mem_orbit_conjAct_iff), [`Subgroup.index_normalizer_eq_ncard_orbit`](https://taucetiproject.org/review/#/d/Subgroup.index_normalizer_eq_ncard_orbit).
+
+Depends on: {uses "combin.hasse_diagram"}[] {uses "group.subgroup.diagram"}[] {uses "group.subgroup.normal"}[]
+:::
+
 :::definition "group.subgroup.hall" (lean := "Subgroup.index, Sylow.card_coprime_index")
 *Hall subgroup.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.subgroup.hall))
 
@@ -2063,11 +2330,51 @@ Depends on: {uses "group.center"}[] {uses "group.quotient"}[]
 :::definition "group.subgroup_label"
 *Subgroup labels.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.subgroup_label))
 
-The full label of a {bpref "group.subgroup"}[subgroup] is of the form $`\mathtt{N.i.m.a}` or $`\mathtt{N.i.m.a.j}`.  In either case, $`\mathtt{N.i}` is the {bpref "group.label"}[label] of the {bpref "group.ambient"}[ambient group], $`\mathtt{m}` is the {bpref "group.subgroup.index"}[index] of the subgroup in the ambient group, $`\mathtt{a}` distinguishes subgroups up to {bpref "group.automorphism"}[automorphism] and $`\mathtt{j}` distinguishes subgroups up to conjugacy.  Both $`\mathtt{a}` and $`\mathtt{j}` take the form of a sequence of letters followed by an ordinal. The letters are a base 26 (a=0, z=25) encoding of the ordering up to {bpref "group.gassmann_equivalence"}[Gassmann-equivalence], and the integer following distinguishes groups in the same Gassmann class.  (For details on how we label Gassmann classes and order subgroups within a Gassmann class, see Computing labels of subgroups.) For some ambient groups, we only compute subgroups up to automorphism (in which case the first form is used, omitting the $`\mathtt{j}`.
+The full label of a {bpref "group.subgroup"}[subgroup] is of the form $`\mathtt{N.i.m.a}` or $`\mathtt{N.i.m.a.j}`.  In either case, $`\mathtt{N.i}` is the {bpref "group.label"}[label] of the {bpref "group.ambient"}[ambient group], $`\mathtt{m}` is the {bpref "group.subgroup.index"}[index] of the subgroup in the ambient group, $`\mathtt{a}` distinguishes subgroups up to {bpref "group.automorphism"}[automorphism] and $`\mathtt{j}` distinguishes subgroups up to conjugacy.  Both $`\mathtt{a}` and $`\mathtt{j}` take the form of a sequence of letters followed by an ordinal. The letters are a base 26 (a=0, z=25) encoding of the ordering up to {bpref "group.gassmann_equivalence"}[Gassmann-equivalence], and the integer following distinguishes groups in the same Gassmann class.  (For details on how we label Gassmann classes and order subgroups within a Gassmann class, see {bpref "group.computing_subgroup_labels"}[Computing labels of subgroups].) For some ambient groups, we only compute subgroups up to automorphism (in which case the first form is used, omitting the $`\mathtt{j}`.
 
 When the ambient group is clear from context, sometimes the short label $`\mathtt{m.a}` or $`\mathtt{m.a.j}` is used instead.
 
-Depends on: {uses "group.ambient"}[] {uses "group.automorphism"}[] {uses "group.gassmann_equivalence"}[] {uses "group.label"}[] {uses "group.subgroup"}[] {uses "group.subgroup.index"}[]
+Depends on: {uses "group.ambient"}[] {uses "group.automorphism"}[] {uses "group.computing_subgroup_labels"}[] {uses "group.gassmann_equivalence"}[] {uses "group.label"}[] {uses "group.subgroup"}[] {uses "group.subgroup.index"}[]
+:::
+
+:::definition "group.subgroup_properties_interdependencies" (lean := "Subgroup.normal_of_characteristic, IsCyclic.isMulCommutative, CommGroup.isNilpotent, IsNilpotent.to_isSolvable, Subgroup.IsStem.le_center, Subgroup.isMulCommutative_of_le_center, Sylow.isPGroup, Sylow.isNilpotent")
+*Interdependencies of subgroup properties.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.subgroup_properties_interdependencies))
+
+Certain properties of subgroups automatically imply other properties. We briefly explain the connections here.
+
+A {bpref "group.characteristic_subgroup"}[characteristic subgroup] is automatically {bpref "group.subgroup.normal"}[normal], since it is stabilized by all {bpref "group.automorphism"}[automorphisms] including the {bpref "group.inner_automorphism"}[inner automorphisms].
+
+A {bpref "group.cyclic"}[cyclic group] is always {bpref "group.abelian"}[abelian] by the way the group operation for cyclic groups is defined.
+An abelian group is always {bpref "group.nilpotent"}[nilpotent] since the group is its own center and thus an {bpref "group.upper_central_series"}[upper central series] for the group exists.
+Nilpotent groups are are {bpref "group.solvable"}[solvable] because the upper central series defining a nilpotent group has abelian subquotients.
+
+A {bpref "group.stem_extension"}[stem subgroup] is {bpref "group.central"}[central] by definition, and any central subgroup is abelian since its elements commute with the whole group.
+
+A {bpref "group.sylow_subgroup"}[Sylow subgroup] is a $`p`-group and thus {bpref "group.nilpotent"}[nilpotent].
+
+Tau Ceti Review: [`Subgroup.normal_of_characteristic`](https://taucetiproject.org/review/#/d/Subgroup.normal_of_characteristic), [`IsCyclic.isMulCommutative`](https://taucetiproject.org/review/#/d/IsCyclic.isMulCommutative), [`CommGroup.isNilpotent`](https://taucetiproject.org/review/#/d/CommGroup.isNilpotent), [`Sylow.isPGroup`](https://taucetiproject.org/review/#/d/Sylow.isPGroup).
+
+Depends on: {uses "group.abelian"}[] {uses "group.automorphism"}[] {uses "group.central"}[] {uses "group.characteristic_subgroup"}[] {uses "group.cyclic"}[] {uses "group.inner_automorphism"}[] {uses "group.nilpotent"}[] {uses "group.solvable"}[] {uses "group.stem_extension"}[] {uses "group.subgroup.normal"}[] {uses "group.sylow_subgroup"}[] {uses "group.upper_central_series"}[]
+:::
+
+:::definition "group.subgroups_beyond_bound" (lean := "Subgroup.normalSublattice, Equiv.permutationRepresentation, Subgroup.IsConjugate, Sylow.natCard_eq_iff_isConjugate, Subgroup.one_lt_ncard_setOf_normal_isComplement'_kleinFour, Subgroup.faithfulSMul_quotient_iff, Subgroup.injective_permutationRepresentation, Subgroup.exists_permutationRepresentation_apply_eq")
+*Subgroups beyond an index bound.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.subgroups_beyond_bound))
+
+In cases where we do not compute the whole subgroup lattice of a group, we still attempt to compute all {bpref "group.subgroup"}[subgroups] up to a certain {bpref "group.subgroup.index"}[index] bound. However, we often still want to store the following subgroups, even if they happen to fall beyond the index bound.
+
+- Since {bpref "group.sylow_subgroup"}[Sylow subgroups] are the unique subgroup of their order up to conjugacy, we can compute their labels a priori.
+
+- We aim to compute the lattice of {bpref "group.subgroup.normal"}[normal subgroups] even when we cannot find all subgroups.  In this case, we can use the same scheme described above applied to the lattice or normal subgroups to obtain a label with the letter \texttt\{.N\} appended; such labels are used for non-Sylow normal subgroups beyond the index bound.
+
+- We store {bpref "group.subgroup.complement"}[complements of normal subgroups] even beyond the index bound so that we can describe groups as {bpref "group.semidirect_product"}[semidirect products]. Given a normal subgroup with label $`\texttt{n.i.m.a.c.N}`, we label its complements $`\texttt{n.i.m.a.c.N1}`, $`\texttt{n.i.m.a.c.N2}`, $`\dots`.  Unfortunately, these labels are not canonical since they depend on the order that complements are produced.  Also note that a subgroup can appear as a complement of multiple normal subgroups; in this case we just label it based on the first normal subgroup where it arises.
+
+- For non-Sylow, non-normal {bpref "group.maximal_subgroup"}[maximal subgroups] beyond the index bound, we apply the original labeling scheme restricted to maximal subgroups, and append the letter $`\texttt{.M}`.
+
+- We also keep {bpref "group.core"}[core-free] subgroups beyond the index bound rather than discarding them, since these yield transitive permutation representations.  The labels here are just $`\texttt{n.i.m.CFk}`, where $`\texttt{k}` is a counter arbitrarily running over the core-free subgroups of a given index.
+
+Tau Ceti Review: [`Equiv.permutationRepresentation`](https://taucetiproject.org/review/#/d/Equiv.permutationRepresentation).
+
+Depends on: {uses "group.core"}[] {uses "group.maximal_subgroup"}[] {uses "group.semidirect_product"}[] {uses "group.subgroup"}[] {uses "group.subgroup.complement"}[] {uses "group.subgroup.index"}[] {uses "group.subgroup.normal"}[] {uses "group.sylow_subgroup"}[]
 :::
 
 :::definition "group.supersolvable"
@@ -2280,4 +2587,36 @@ A *Z-group* is a (finite) group all of whose Sylow subgroups are {bpref "group.c
 Every cyclic group is a Z-group, but the converse does not hold, as shown by [these examples](https://beta.lmfdb.org/Groups/Abstract/?Zgroup=yes&cyclic=no).
 
 Depends on: {uses "group.cyclic"}[] {uses "group.monomial"}[] {uses "group.supersolvable"}[]
+:::
+
+:::definition "portrait.groups.abstract" (lean := "ConjClasses, ConjClasses.elementOrder, IsConj.orderOf_eq, ConjClasses.orderOf_eq_elementOrder, ConjClasses.odd_elementOrder_div_two_pow, Nat.ordProj_mul_ordCompl_eq_self, ConjClasses.elementOrder_eq_one_iff")
+*Explanation of pictures for abstract groups.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/portrait.groups.abstract))
+
+Pictures for abstract groups consist of several disks arranged in concentric circles. The size, position, and brightness each encode information about the group.
+
+*Quick summary ##*
+
+- Each disk corresponds to a conjugacy class.
+
+- Conjugacy classes with more elements are larger than those with fewer elements.
+
+- Disks are arranged according to the number of prime divisors of the order of elements in the conjugacy class. The identity is in the center.
+
+- Darker disks of the same hue typically have orders that are more divisible by $`2` than brighter disks with the same hue.
+
+*In more detail ##*
+
+Each disk corresponds to a {bpref "group.conjugacy_class"}[conjugacy class] in the group. The area of the disk is directly proportional to the number of elements in the corresponding conjugacy class. All elements in the conjugacy class have the same {bpref "group.element_order"}[order] $`o`, which we use to determine both the color of the disk and the location of the disk.
+
+For the color, write the common order of a given conjugacy class as $`o = 2^A \times (\mathrm{odd})`, where $`A = v_2(o)`. Typically, larger $`A` corresponds to darker colors in the hue-saturation-brightness color model. The odd part $`\mathrm{odd}` determines the hue, chosen in a way that is aesthetically pleasing.
+
+The position of each disk is determined by the number of prime divisors (counted with multiplicity) of the order. The identity element is in the center. An annulus around the identity contains all disks with order consisting of exactly $`1` prime. Within each annulus, disks are placed to fit nicely. There is usually a small gap between adjacent annuli.
+
+*Implementation ##*
+
+The algorithm to visualize abstract groups was designed and implemented by David Roe.
+
+Tau Ceti Review: [`ConjClasses`](https://taucetiproject.org/review/#/d/ConjClasses), [`Nat.ordProj_mul_ordCompl_eq_self`](https://taucetiproject.org/review/#/d/Nat.ordProj_mul_ordCompl_eq_self).
+
+Depends on: {uses "group.conjugacy_class"}[] {uses "group.element_order"}[]
 :::

@@ -9,7 +9,7 @@ open Informal
 
 #doc (Manual) "Dirichlet characters" =>
 
-This section lists the LMFDB definitions in the category `character`. Each definition links back to its LMFDB knowl.
+This section lists the LMFDB definitions in the category `character`. Each definition links back to its LMFDB knowl. It also lists the knowl about the LMFDB's data on this subject that has mathematical content, from the category `portrait`.
 
 :::definition "character.dirichlet" (lean := "DirichletCharacter, MulChar, DirichletCharacter.apply_eq_zero_iff, MulChar.apply_mem_rootsOfUnity")
 *Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet))
@@ -489,6 +489,26 @@ Tau Ceti Review: [`TauCeti.CharacterField`](https://taucetiproject.org/review/#/
 Depends on: {uses "character.dirichlet.order"}[]
 :::
 
+:::definition "character.dirichlet.values" (lean := "DirichletCharacter, DirichletCharacter.eq_iff_forall_mem_Icc, MulChar.map_one, DirichletCharacter.apply_modulus, DirichletCharacter.apply_eq_zero_or_exists_rat_apply_eq_exp, DirichletCharacter.exists_rat_apply_eq_exp, MulChar.map_nonunit")
+*Values of a Dirichlet character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.values))
+
+Complete information about a {bpref "character.dirichlet"}[Dirichlet character] $`\chi\colon \Z\to\C` of {bpref "character.dirichlet.modulus"}[modulus] $`q > 1` is contained in the list of values $`(\chi(1)=1,\ \chi(2),\ \chi(3),\ \dots,\ \chi(q-1),\  \chi(q)=0)`, each of which is a root of unity $`e(r) := \exp({2 \pi i r}`), for some rational number $`r`.
+
+Tau Ceti Review: [`DirichletCharacter`](https://taucetiproject.org/review/#/d/DirichletCharacter), [`MulChar.map_one`](https://taucetiproject.org/review/#/d/MulChar.map_one), [`MulChar.map_nonunit`](https://taucetiproject.org/review/#/d/MulChar.map_nonunit).
+
+Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.modulus"}[]
+:::
+
+:::definition "character.dirichlet.values_on_gens" (lean := "DirichletCharacter, DirichletCharacter.eq_iff_forall_apply_eq_of_closure_eq_top, DirichletCharacter.exists_rat_apply_eq_exp, ZMod.val_mem_Icc_of_isUnit, ZMod.natCast_zmod_val, MulChar.apply_mem_rootsOfUnity")
+*Values of a Dirichlet character on generators.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.dirichlet.values_on_gens))
+
+A {bpref "character.dirichlet"}[Dirichlet character] $`\chi\colon \Z\to \C` of {bpref "character.dirichlet.modulus"}[modulus] $`q` is determined (via multiplicativity) by the values $`\chi(g_1), \ldots, \chi(g_r)` it takes on any list of generators $`g_1,\ldots,g_r` for the {bpref "character.dirichlet.group.structure"}[group $`(\mathbb{Z}/q\mathbb{Z})^\times`].  The generators $`g_i` can each be specified as integers in the interval $`[1,q-1]`, and the values $`\chi(g_i)` are roots of unity $`e(r):=\exp(2\pi i r)`, where $`r` is a rational number.
+
+Tau Ceti Review: [`DirichletCharacter`](https://taucetiproject.org/review/#/d/DirichletCharacter), [`ZMod.natCast_zmod_val`](https://taucetiproject.org/review/#/d/ZMod.natCast_zmod_val).
+
+Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.group.structure"}[] {uses "character.dirichlet.modulus"}[]
+:::
+
 :::definition "character.hecke" (lean := "TauCeti.GlobalNumberFields.IsIdealHeckeCharacter, TauCeti.GlobalNumberFields.isIdealHeckeCharacter_iff, TauCeti.GlobalNumberFields.IsIdealHeckeCharacter.heckeCharacter, TauCeti.GlobalNumberFields.IsIdealHeckeCharacter.idealCharacter_comp_heckeCharacter, TauCeti.GlobalNumberFields.HeckeCharacter.isIdealHeckeCharacter_idealCharacter, TauCeti.GlobalNumberFields.HeckeCharacter")
 *Hecke character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/character.hecke))
 
@@ -512,4 +532,32 @@ A {bpref "character.dirichlet"}[Dirichlet character] $`\chi: \Z\to \C` has a {bp
 Tau Ceti Review: [`Units`](https://taucetiproject.org/review/#/d/Units), [`ZMod`](https://taucetiproject.org/review/#/d/ZMod), [`MulChar.equivToUnitHom`](https://taucetiproject.org/review/#/d/MulChar.equivToUnitHom).
 
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.modulus"}[]
+:::
+
+:::definition "portrait.character.dirichlet" (lean := "DirichletCharacter.partialGaussSum, DirichletCharacter.partialGaussSum_modulus_sub_one, DirichletCharacter.partialGaussSum_succ_of_not_coprime, DirichletCharacter.norm_gaussSum_mulShift_of_isPrimitive, DirichletCharacter.isPrimitive_iff_forall_norm_gaussSum_mulShift_eq_sqrt, DirichletCharacter.image_setOf_norm_gaussSum_mulShift_eq_sqrt_of_isPrimitive, DirichletCharacter.partialGaussSum_neg, DirichletCharacter.partialGaussSum_one_zero")
+*Pictures for Dirichlet characters.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/portrait.character.dirichlet))
+
+For each {bpref "character.dirichlet"}[Dirichlet character] $`\chi` of {bpref "character.dirichlet.modulus"}[modulus] $`N` and each residue $`a` modulo $`N`, we draw the partial {bpref "character.dirichlet.gauss_sum"}[Gauss sums]
+
+$$`S_a(k) = \sum_{n = 1}^{k} \chi(n) e^{2\pi i a n/N}`
+
+as segments from the origin of the complex plane to $`S_a(k)`. All the segments belonging to a given $`a` share a hue, running through the spectrum from red at $`a = 0` to violet at $`a = N-1`; within one hue the segments for small $`k` are darkened and those for large $`k` are drawn at full brightness, so the eye can follow the partial sums as they accumulate. A large dot marks the last of them, the complete Gauss sum $`\tau_a(\chi) = S_a(N-1)`.
+
+Only the stages $`k` coprime to $`N` are drawn: $`\chi(n) = 0` whenever $`\gcd(n, N) > 1`, so each omitted stage would simply repeat the segment before it.
+
+The grey circle has radius $`\sqrt N`. If $`\chi` is {bpref "character.dirichlet.primitive"}[primitive], then $`|\tau_a(\chi)| = \sqrt N` for every $`a` coprime to $`N`, and $`\tau_a(\chi) = 0` for every other $`a`: the picture of a primitive character is $`\phi(N)` dots on the circle together with a cluster of dots at the origin, and a character is primitive exactly when its coprime dots reach the circle.
+
+Several other properties of $`\chi` can be read off the picture.
+
+- Since $`\tau_a(\chi) = \overline{\chi(a)}\,\tau_1(\chi)` for primitive $`\chi` and $`a` coprime to $`N`, the dots on the circle are the vertices of a regular $`n`-gon, where $`n` is the {bpref "character.dirichlet.order"}[order] of $`\chi`.
+
+- $`S_{N-a}(k) = \overline{S_a(k)}` when $`\chi` is real, so the picture of a real character is symmetric about the real axis.
+
+- The {bpref "character.dirichlet.principal"}[principal character] shows a single long red spike along the positive real axis, of length $`\phi(N)`, since then $`S_0(k)` just counts the units up to $`k`.
+
+The pictures are drawn when the page is requested rather than stored in the database, so they are only shown when there is little work to do: the number of segments is $`N\phi(N)`, and we draw the picture only when that is at most $`25000`. This is why a character of modulus $`300` has a picture while one of modulus $`293` does not.
+
+The design follows [Alex Best's demo](https://alexjbest.github.io/dirich/).
+
+Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.gauss_sum"}[] {uses "character.dirichlet.modulus"}[] {uses "character.dirichlet.order"}[] {uses "character.dirichlet.primitive"}[] {uses "character.dirichlet.principal"}[]
 :::

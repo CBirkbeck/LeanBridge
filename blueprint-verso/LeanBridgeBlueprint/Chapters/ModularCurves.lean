@@ -244,6 +244,28 @@ The *index* of a {bpref "modcurve"}[modular curve] $`X_H` is the {bpref "gl2.ind
 Depends on: {uses "gl2.index"}[] {uses "gl2.open"}[] {uses "modcurve"}[]
 :::
 
+:::definition "modcurve.invariants"
+*Invariants of a modular curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.invariants))
+
+Invariants of a {bpref "modcurve"}[modular curve] $`X_H` include its
+
+- {bpref "modcurve.level"}[level]
+
+- {bpref "modcurve.index"}[index]
+
+- {bpref "modcurve.genus"}[genus]
+
+- {bpref "modcurve.cusps"}[cusps]
+
+- {bpref "modcurve.cm_discriminants"}[CM points]
+
+all of which can be derived group-theoretically as properties of $`H`.  Geometric invariants of the curve $`X_H` include
+
+- {bpref "modcurve.gonality"}[gonality]
+
+Depends on: {uses "modcurve"}[] {uses "modcurve.cm_discriminants"}[] {uses "modcurve.cusps"}[] {uses "modcurve.genus"}[] {uses "modcurve.gonality"}[] {uses "modcurve.index"}[] {uses "modcurve.level"}[]
+:::
+
 :::definition "modcurve.j_invariant_map"
 *$`j`-invariant map.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.j_invariant_map))
 
@@ -252,6 +274,16 @@ The *$`\boldsymbol{j}`-invariant map* map or *$`\boldsymbol{j}`-map* of a {bpref
 When $`X_H` is isomorphic to $`\mathbb{P}^1` this map is specified as an element of $`\mathbb{\Q}(t)`, and when $`X_H` is specified by a {bpref "ag.plane_model"}[plane model] $`f(x,y,z)=0`, it is an element of $`\mathbb{\Q}(x,z)`.
 
 Depends on: {uses "ag.plane_model"}[] {uses "modcurve"}[]
+:::
+
+:::definition "modcurve.known_points"
+*Known points.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.known_points))
+
+Points on modular curves fall into three categories: {bpref "modcurve.cusps"}[cusps], {bpref "ec.complex_multiplication"}[CM points] and other points (corresponding to non-CM {bpref "ec"}[elliptic curves]).  Since we don't always have coordinates for points on a model, we group points by $`j`-invariant and count the number of distinct $`j`-invariants.  In particular, this means that the number of cusps will always be 1 or 0, depending on whether or not there are any rational cusps, since all cusps lie above $`j=\infty`.
+
+When searching, you can specify the number of points (of any type), the number of noncuspidal points, or the number of other points (non-cuspidal and non-CM).  In each case, the count is based on the number of points of that type stored in the database, which may be less than the actual number of points on the curve.  In particular, this count is always finite, even for genus 0 curves and positive rank elliptic cuves that have infinitely many rational points.
+
+Depends on: {uses "ec"}[] {uses "ec.complex_multiplication"}[] {uses "modcurve.cusps"}[]
 :::
 
 :::definition "modcurve.label"
@@ -495,6 +527,22 @@ $`X_0(N)` is the {bpref "modcurve"}[modular curve] $`X_H` for $`H\le \GL_2(\wide
 Depends on: {uses "modcurve"}[] {uses "modcurve.cusps"}[]
 :::
 
+:::definition "modcurve.x0.remarks"
+*Remarks on $`X_0(N)`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.x0.remarks))
+
+{bpref "ag.hyperelliptic_curve"}[Hyperelliptic curves]: There are only
+<a href = "\{\{url\_for('modcurve.index\_Q',level='22, 23, 26, 28, 29, 30, 31, 33, 35, 37, 39, 40, 41, 46, 47, 48, 50, 59, 71',family="X0")\}\}">19 hyperelliptic curves in this family</a>
+ , .
+
+{bpref "ag.bielliptic_curve"}[Bielliptic curves]: There are only
+<a href = "\{\{url\_for('modcurve.index\_Q',level='22, 26, 28, 30, 33, 34, 35, 37, 38, 39, 40, 42, 43, 44, 45, 48, 50, 51, 53, 54, 55, 56, 60, 61, 62, 63, 64, 65, 69, 72, 75, 79, 81, 83, 89, 92, 94, 95, 101, 119, 131',family="X0")\}\}">41 bielliptic curves in this family</a> , . Among them, there are
+<a href = "\{\{url\_for('modcurve.index\_Q',level='34, 38, 42, 43, 44, 45, 51, 53, 54, 55, 56, 60, 61, 62, 63, 64, 65, 69, 72, 75, 79, 81, 83, 89, 92, 94, 95, 102, 119, 131',family="X0")\}\}">30 values for which they are non-hyperelliptic</a>.
+
+{bpref "modcurve.rational_points"}[Rational points]: There are only <a href = "\{\{url\_for('modcurve.index\_Q',level='1,2,3,4,5,6,7,8,9,10,12,13,16,18,25,11,14,15,17,19,21,27,37,43,67,163',family='X0')\}\}">26 curves in this family</a> that have non-cuspidal rational points , .
+
+Depends on: {uses "ag.bielliptic_curve"}[] {uses "ag.hyperelliptic_curve"}[] {uses "modcurve.rational_points"}[]
+:::
+
 :::definition "modcurve.x1"
 *$`X_1(N)`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.x1))
 
@@ -505,6 +553,22 @@ $`X_1(N)` is the {bpref "modcurve"}[modular curve] $`X_H` for $`H\le \GL_2(\wide
 - $`P \in E[N](k)` is a point of order $`N`.
 
 Depends on: {uses "modcurve"}[] {uses "modcurve.cusps"}[]
+:::
+
+:::definition "modcurve.x1.remarks"
+*Remarks on $`X_1(N)`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.x1.remarks))
+
+{bpref "ag.hyperelliptic_curve"}[Hyperelliptic curves]: There are only
+<a href = "\{\{url\_for('modcurve.index\_Q',level='13,16,18',family="X1")\}\}">3 hyperelliptic curves in this family</a>
+.
+
+{bpref "ag.bielliptic_curve"}[Bielliptic curves]: There are only
+<a href = "\{\{url\_for('modcurve.index\_Q',level='13,16,17,18,20,21,22,24',family="X1")\}\}">8 bielliptic curves in this family</a>
+.
+
+{bpref "modcurve.rational_points"}[Rational points]: There are only <a href = "\{\{url\_for('modcurve.index\_Q',level='1,2,3,4,5,6,7,8,9,10,12',family='X1')\}\}">11 curves in this family</a> that have non-cuspidal rational points . These are exactly the curves of genus 0.
+
+Depends on: {uses "ag.bielliptic_curve"}[] {uses "ag.hyperelliptic_curve"}[] {uses "modcurve.rational_points"}[]
 :::
 
 :::definition "modcurve.x1mn"
@@ -519,6 +583,12 @@ $`X_{\mathrm{arith},1}(M,MN)` is the {bpref "modcurve"}[modular curve] $`X_H` fo
 - $`C \leq E[M](\overline{k})` is a $`\Gal_k`-stable cyclic subgroup of order $`M` such that $`E[M]=\langle NP \rangle \oplus C`.
 
 Depends on: {uses "modcurve"}[] {uses "modcurve.cusps"}[]
+:::
+
+:::definition "modcurve.x1mn.remarks"
+The {bpref "modcurve.canonical_field"}[canonical field of definition] of $`X_{\mathrm{arith},1}(M,MN)` is $`\Q`, but this is not true of $`X_1(M,MN)`, the modular curve $`X_H` for $`H\le \GL_2(\widehat{\Z})` the inverse image of $`\begin{pmatrix} 1 & M* \\ 0 & 1 \end{pmatrix} \subset \GL_2(\Z/MN\Z)`, except when $`M\le 2`, in which case $`X_1(M,MN)=X_{\mathrm{arith},1}(M,MN)`.
+
+Depends on: {uses "modcurve.canonical_field"}[]
 :::
 
 :::definition "modcurve.xarith"
@@ -539,6 +609,20 @@ Alternatively, it parametrizes isomorphism classes of pairs $`(E,\psi)` where $`
 Depends on: {uses "modcurve"}[]
 :::
 
+:::definition "modcurve.xarith.remarks"
+*Remarks on $X\_\{\mathrm\{arith.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.xarith.remarks))
+
+The {bpref "modcurve.canonical_field"}[canonical field of definition] of $`X_{\mathrm{arith}}(N)` is $`\Q`, but this is not true of $`X(N)` except when $`N\le 2`, in which case $`X(N)=X_{\mathrm{arith}}(N)`.
+
+{bpref "ag.hyperelliptic_curve"}[Hyperelliptic curves]: There are no hyperelliptic curves in this family.
+
+{bpref "ag.bielliptic_curve"}[Bielliptic curves]: There are only <a href = "\{\{url\_for('modcurve.index\_Q',level='7,8',family="Xarith")\}\}">2 in this family</a>:
+ the curve $`X_{\textup{arith}}(7)` is isomorphic to the Klein quartic and the curve $`X_{\textup{arith}}(8)`
+ is isomorphic to the Wiman curve .
+
+Depends on: {uses "ag.bielliptic_curve"}[] {uses "ag.hyperelliptic_curve"}[] {uses "modcurve.canonical_field"}[]
+:::
+
 :::definition "modcurve.xfull"
 *$`X(N)`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.xfull))
 
@@ -551,6 +635,14 @@ $`X(N)` is the {bpref "modcurve"}[modular curve] $`X_H` for $`H\le \GL_2(\wideha
 There are other {bpref "modcurve.xn"}[variants].
 
 Depends on: {uses "modcurve"}[] {uses "modcurve.cusps"}[] {uses "modcurve.xn"}[]
+:::
+
+:::definition "modcurve.xfull.remarks"
+*Remarks on $`X(N)`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.xfull.remarks))
+
+The {bpref "modcurve.canonical_field"}[canonical field of definition] of $`X(N)` is $`\Q(\zeta_N)`, which means that the database of modular curves $`X_H/\Q` only includes $`X(N)` for $`N\le 2`, in which case $`X(N)=X_{\mathrm arith}(N)`.
+
+Depends on: {uses "modcurve.canonical_field"}[]
 :::
 
 :::definition "modcurve.xn"
@@ -615,6 +707,10 @@ The modular curve {bpref "modcurve.x1"}[$`X_1(N)`] is a {bpref "modcurve.quadrat
 Depends on: {uses "modcurve"}[] {uses "modcurve.cusps"}[] {uses "modcurve.quadratic_refinements"}[] {uses "modcurve.x1"}[]
 :::
 
+:::definition "modcurve.xpm1.remarks"
+Over fields whose characteristic is not $`2`, the non-cuspidal $`k`-points of $`X_{\pm 1}(N)` can be identified with pairs $`(j(E),x(P))` with $`j(E),x(P)\in k`, where $`E` is defined by a model of the form $`y^2=f(x)` that depends only on $`j(E)`, and $`x(P)` is the $`x`-coordinate of a point of order $`N`.
+:::
+
 :::definition "modcurve.xpm1mn"
 $`X_{\mathrm{arith},\pm1}(M,MN)` is the {bpref "modcurve"}[modular curve] $`X_H` for $`H\le \GL_2(\widehat{\Z})` the inverse image of $`\begin{pmatrix} \pm 1 & M* \\ 0 & * \end{pmatrix} \subset \GL_2(\Z/MN\Z)`. The modular curve {bpref "modcurve.x1mn"}[$`X_{\mathrm{arith},1}(M,MN)`] is one of its {bpref "modcurve.quadratic_refinements"}[quadratic refinements].
 
@@ -625,6 +721,10 @@ Depends on: {uses "modcurve"}[] {uses "modcurve.quadratic_refinements"}[] {uses 
 For $`\ell` an odd prime, $`X_{S_4}(\ell)` is the {bpref "modcurve"}[modular curve] $`X_H` for $`H\le \GL_2(\widehat{\Z})` the inverse image of the subgroup of $`\PGL_2(\Z/\ell\Z)` isomorphic to $`S_4` (which is unique up to conjugacy).  It parameterizes elliptic curves whose {bpref "ec.galois_rep_modell_image"}[mod-$`\ell` Galois representation] has projective image $`S_4`, one of the three exceptional groups $`A_4`, $`A_5`, $`S_4` of $`\PGL_2(\ell)` that can arise as projective mod-$`\ell` images, and the only one that can arise for elliptic curves over $`\Q`.
 
 Depends on: {uses "ec.galois_rep_modell_image"}[] {uses "modcurve"}[]
+:::
+
+:::definition "modcurve.xs4.remarks" (lean := "Matrix.GeneralLinearGroup.IsAdelicS4, Matrix.GeneralLinearGroup.IsS4Preimage, Matrix.GeneralLinearGroup.adelicDet, Matrix.GeneralLinearGroup.IsAdelicS4.neg_one_mem_and_map_adelicDet_eq_top_iff, Matrix.GeneralLinearGroup.IsAdelicS4.neg_one_mem, Matrix.GeneralLinearGroup.IsAdelicS4.map_adelicDet_eq_top_iff, Matrix.GeneralLinearGroup.IsS4Preimage.map_det_eq_top_iff, Matrix.GeneralLinearGroup.isS4Preimage_top_three")
+The subgroup $`H` contains $`-I` and has surjective determinant when $`\ell \equiv \pm 3\bmod 8`, but not otherwise.
 :::
 
 :::definition "modcurve.xsp"
@@ -639,6 +739,16 @@ $`X_{\text{sp}}(N)` is the {bpref "modcurve"}[modular curve] $`X_H` for $`H\le \
 Depends on: {uses "gl2.cartan"}[] {uses "modcurve"}[]
 :::
 
+:::definition "modcurve.xsp.remarks"
+*Remarks on $X\_\{\mathrm\{sp.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.xsp.remarks))
+
+{bpref "ag.hyperelliptic_curve"}[Hyperelliptic curves]:
+The modular curve $`X_{\mathrm{sp}}(N)` is isomorphic to $`X_0(N^2)` .
+There are no hyperelliptic curves in this family   .
+
+Depends on: {uses "ag.hyperelliptic_curve"}[]
+:::
+
 :::definition "modcurve.xsp_plus"
 *$X\_\{\text\{sp.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.xsp_plus))
 
@@ -649,4 +759,14 @@ $`X_{\text{sp}}^+(N)` is the {bpref "modcurve"}[modular curve] $`X_H` for $`H\le
 - $`\{C,D\}` is a $`\Gal_k`-stable pair of cyclic subgroups such that $`E[N](\overline{k})\simeq C \oplus D`.  (Neither $`C` nor $`D` need be $`\Gal_k`-stable.)
 
 Depends on: {uses "gl2.cartan"}[] {uses "modcurve"}[]
+:::
+
+:::definition "modcurve.xsp_plus.remarks"
+*Remarks on $X\_\{\mathrm\{sp.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/modcurve.xsp_plus.remarks))
+
+{bpref "ag.hyperelliptic_curve"}[Hyperelliptic curves]:
+There is only
+<a href = "\{\{url\_for('modcurve.index\_Q',level='11',family="Xspplus")\}\}">1 hyperelliptic curve in this family</a>, namely $`X_{\mathrm{sp}}^+(11)` .
+
+Depends on: {uses "ag.hyperelliptic_curve"}[]
 :::

@@ -22,9 +22,9 @@ The plan is to formalize definitions from the L-functions and modular forms data
 (LMFDB) in mathlib, as well as creating tactics to import relevant data from the LMFDB.
 This blueprint catalogues every LMFDB knowl with mathematical content. Its chapters and
 sections follow the LMFDB's categories of knowls, the part of a knowl's id before the first
-or second dot, apart from a few knowls whose category is wrong. It is migrated from the
-project's original LaTeX (leanblueprint) document; each definition links back to its LMFDB
-knowl.
+or second dot, apart from a few knowls whose category is wrong and the knowls about the
+LMFDB's data, which are listed with their subject. It is migrated from the project's
+original LaTeX (leanblueprint) document; each definition links back to its LMFDB knowl.
 
 {include 0 LeanBridgeBlueprint.Chapters.Background}
 {include 0 LeanBridgeBlueprint.Chapters.LFunctions}

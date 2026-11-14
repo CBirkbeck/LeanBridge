@@ -9,7 +9,7 @@ open Informal
 
 #doc (Manual) "Higher genus families" =>
 
-This section lists the LMFDB definitions in the category `curve`. Each definition links back to its LMFDB knowl.
+This section lists the LMFDB definitions in the category `curve`. Each definition links back to its LMFDB knowl. It also lists the knowls about the LMFDB's data on this subject that have mathematical content, from the categories `dq` and `rcs`.
 
 :::definition "curve.highergenus.aut.braid_equivalence" (lean := "Hurwitz.braidOperation, Hurwitz.braidOperationGroup, Hurwitz.braidEquivalence, Hurwitz.prod_ofFn_of_mem_braidOperationGroup, Hurwitz.closure_range_of_mem_braidOperationGroup, Hurwitz.isConj_braidOperation_swap, Hurwitz.exists_perm_isConj_of_braidEquivalence, Hurwitz.prod_ofFn_eq_of_braidEquivalence")
 *Braid Equivalence.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/curve.highergenus.aut.braid_equivalence))
@@ -187,4 +187,86 @@ Depends on: {uses "curve.highergenus.aut.group_action"}[] {uses "group.fuchsian"
 *Hurwitz bound.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/curve.highergenus.hurwitz_bound))
 
 For any integer $`g > 1`, the automorphism group of any curve of genus $`g` over $`\C` has order at most $`84(g-1)`. This is not best possible for every $`g`, but there do exist infinitely many $`g` for which the bound is achieved; examples include  ($`g=3`) and the  ($`g=7`). See also [Wikipedia](https://en.wikipedia.org/wiki/Hurwitz%27s_automorphisms_theorem).
+:::
+
+:::definition "dq.curve.highergenus.aut.label"
+*Labeling convention for families of higher genus curves.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/dq.curve.highergenus.aut.label))
+
+Let $`X` be a compact {bpref "ag.riemann_surface"}[Riemann surface] (equivalently, a smooth projective {bpref "ag.curve"}[curve] over $`\C`) of genus $`g`, let $`G` be a group of automorphisms acting on $`X`, and let $`g_0` be the genus of the {bpref "ag.quotient_curve"}[quotient] $`Y:=X/G`.  The natural projection $`X \to Y` is {bpref "curve.highergenus.aut.branchpoints"}[branched]  at $`r` points in $`Y`, and the corresponding {bpref "curve.highergenus.aut.generators"}[generators] of the {bpref "curve.highergenus.aut.monodromy"}[monodromy group] have orders $`m_1`, $`m_2`, $`\ldots`, $`m_r`; the sequence of integers $`[g_0; m_1, \ldots, m_r]` is called the {bpref "curve.highergenus.aut.signature"}[signature] of the  group action.
+
+The label for the family of higher genus curves with a group $`G \simeq` SmallGroup$`(n,d)` acting on it with signature $`[g_0; m_1, \ldots, m_r]` is given as
+
+$$`g.n\text{-}d.g_0.m_1\text{-}m_2\text{-} \cdots \text{-}m_r`
+
+For example, the genus 3 Hurwitz curve with automorphism group PSL$`(2,7) \simeq`SmallGroup$`(168,42)` and signature $`[0;2,3,7]` is labeled:
+
+$$`\text{5.168-42.0.2-3-7}`
+
+There may be several inequivalent actions described by that label, though.  We also distinguish the actions by which conjugacy classes in $`G` the monodromy generators are from, creating passport labels. For our previous example
+
+$$`\text{5.168-42.0.2-3-7.1} \text{ and } \text{5.168-42.0.2-3-7.2}`
+
+represent the two distinct actions of PSL$`(2,7)` as a Hurwitz group on a genus $`3` curve up to {bpref "curve.highergenus.aut.refinedpassport"}[refined passports].
+
+The suffixes $`1` and $`2` are ordinals that are assigned by lexicographically ordering the sequence of {bpref "curve.highergenus.aut.conjugacyclasses"}[conjugacy class identifiers] associated to a refined passport.
+
+In order to explicitly identify elements of $`G` listed in {bpref "curve.highergenus.aut.generatingvector"}[generating vectors] for a given refined passport (and elsewhere), we choose a particular permutation representation of $`G` as a subgroup of $`S_{|G|}`, the symmetric group on $`|G|` elements (this choice depends only on the isomorphism class of $`G` and is the same for all $`G` with the same {bpref "group.small_group_label"}[group identifier]).
+
+Depends on: {uses "ag.curve"}[] {uses "ag.quotient_curve"}[] {uses "ag.riemann_surface"}[] {uses "curve.highergenus.aut.branchpoints"}[] {uses "curve.highergenus.aut.conjugacyclasses"}[] {uses "curve.highergenus.aut.generatingvector"}[] {uses "curve.highergenus.aut.generators"}[] {uses "group.small_group_label"}[] {uses "curve.highergenus.aut.monodromy"}[] {uses "curve.highergenus.aut.refinedpassport"}[] {uses "curve.highergenus.aut.signature"}[]
+:::
+
+:::definition "dq.curve.highergenus.aut.source"
+*Source of the higher genus curves with automorphisms data.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/dq.curve.highergenus.aut.source))
+
+A paper with a detailed description of the data may be found at [ www.math.grinnell.edu/~paulhusj/Paulhus-lmfdb.pdf](http://www.math.grinnell.edu/~paulhusj/Paulhus-lmfdb.pdf).
+
+*Original Data of Thomas Breuer*
+
+The basis for this data is the work of Thomas Breuer  to classify all group actions on {bpref "ag.riemann_surface"}[Riemann surfaces].  Breuer wrote code to implement his algorithm, and ran that code in GAP up to genus 48.  Using his data, and a slightly modified version of his code in Magma, given a group and a {bpref "curve.highergenus.aut.signature"}[signature], we compute {bpref "curve.highergenus.aut.generatingvector"}[generating vectors] for each list of conjugacy classes in the group  which correspond to the data in the signature.
+
+*Full Automorphism Groups*
+
+An algorithm written by Jennifer Paulhus, based on work of John F. X. Ries , then determines whether the action (given as a generating vector) is the full action for that family in the moduli space. If not, the larger group which is the full automorphism group for a generic curve in the family is also computed.  The code may be found at [github.com/jenpaulhus/group-actions-RS](http://github.com/jenpaulhus/group-actions-RS).
+
+*Additional Data*
+
+*{bpref "ag.jacobian"}[Jacobian variety] decomposition* These decompositions, using the group action, are based on work described in , and code found at [github.com/jenpaulhus/decompose-jacobians](http://github.com/jenpaulhus/decompose-jacobians). The factors are notated with either an $`E` for an elliptic curve, or an $`A_d` for an abelian variety of dimension $`d`.
+
+*Corresponding Character(s)* This entry is a list of positive integers (one for each factor in the {bpref "ag.jacobian"}[Jacobian variety] decomposition) enumerating  irreducible $`\mathbb{C}`-characters from the character table of the group (as listed in Magma).   Each factor in the Jacobian variety decomposition corresponds to a particular irreducible $`\mathbb{Q}`-character of the group, so these numbers each represent an irreducible $`\mathbb{C}`-character whose Galois orbit is the corresponding $`\mathbb{Q}`-character for that factor. A word of caution: the numbers in Magma may vary depending on how the group is represented.  The numbers in this entry are for the permutation group generated by the listed {bpref "curve.highergenus.aut.generatingvector"}[generating vectors].
+
+*Dimension of the corresponding  {bpref "ag.shimura_variety"}[Shimura variety]* For their paper ,  Paola Frediani, Alessandro Ghigi, and Matteo Penegini wrote code which computes this dimension.  That code may be found at [www.dima.unige.it/~penegini/publications/PossGruppigFix\_v2Hwr.m](http://www.dima.unige.it/~penegini/publications/PossGruppigFix_v2Hwr.m).
+
+*Hyperelliptic or Cyclic Trigonal Curves* Whether an action defines a hyperelliptic curve or a cyclic trigonal curve is determined using code written by David Swinarski [faculty.fordham.edu/dswinarski/RiemannSurfaceAutomorphisms/](http://faculty.fordham.edu/dswinarski/RiemannSurfaceAutomorphisms/) which is described in his paper .
+
+*Equations* Equations of hyperelliptic curves are from .  Equations for all genus 3 curves with automorphisms come from .  And equations for curves with large automorphisms (i.e. greater than 4(g-1) ) are found in [faculty.fordham.edu/dswinarski/RiemannSurfaceAutomorphisms/](http://faculty.fordham.edu/dswinarski/RiemannSurfaceAutomorphisms/).
+
+Depends on: {uses "ag.jacobian"}[] {uses "ag.riemann_surface"}[] {uses "ag.shimura_variety"}[] {uses "curve.highergenus.aut.generatingvector"}[] {uses "curve.highergenus.aut.signature"}[]
+:::
+
+:::definition "rcs.source.curve.highergenus.aut"
+*Source of higher genus curves with automorphisms data.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/rcs.source.curve.highergenus.aut))
+
+A paper with a detailed description of the data is cited at the bottom of the page and may be found [here](https://jenpaulhus.com/research/Paulhus-lmfdb2022.pdf).
+
+*Original Data of Thomas Breuer*
+
+The basis for this data is the work of Thomas Breuer  to classify all group actions on {bpref "ag.riemann_surface"}[Riemann surfaces].  Breuer wrote code to implement his algorithm, and ran that code in GAP up to genus 48.  Using his data, and a slightly modified version of his code in Magma, given a group and a {bpref "curve.highergenus.aut.signature"}[signature], we compute {bpref "curve.highergenus.aut.generatingvector"}[generating vectors] for each list of conjugacy classes in the group  which correspond to the data in the signature.
+
+*Full Automorphism Groups*
+
+An algorithm written by Jennifer Paulhus, based on work of John F. X. Ries , then determines whether the action (given as a generating vector) is the full action for that family in the moduli space. If not, the larger group which is the full automorphism group for a generic curve in the family is also computed.  The code may be found at [github.com/jenpaulhus/group-actions-RS](http://github.com/jenpaulhus/group-actions-RS).
+
+*Additional Data*
+
+*{bpref "ag.jacobian"}[Jacobian variety] decomposition* These decompositions, using the group action, are based on work described in , and code found at [github.com/jenpaulhus/decompose-jacobians](http://github.com/jenpaulhus/decompose-jacobians). The factors are notated with either an $`E` for an elliptic curve, or an $`A_d` for an abelian variety of dimension $`d`.
+
+*Corresponding Character(s)* This entry is a list of positive integers (one for each factor in the {bpref "ag.jacobian"}[Jacobian variety] decomposition) enumerating  irreducible $`\mathbb{C}`-characters from the character table of the group (as listed in Magma).   Each factor in the Jacobian variety decomposition corresponds to a particular irreducible $`\mathbb{Q}`-character of the group, so these numbers each represent an irreducible $`\mathbb{C}`-character whose Galois orbit is the corresponding $`\mathbb{Q}`-character for that factor. A word of caution: the numbers in Magma may vary depending on how the group is represented.  The numbers in this entry are for the permutation group generated by the listed {bpref "curve.highergenus.aut.generatingvector"}[generating vectors].
+
+*Dimension of the corresponding  {bpref "ag.shimura_variety"}[Shimura variety]* For their paper ,  Paola Frediani, Alessandro Ghigi, and Matteo Penegini wrote code which computes this dimension.  That code may be found at [www.dima.unige.it/~penegini/publications/PossGruppigFix\_v2Hwr.m](http://www.dima.unige.it/~penegini/publications/PossGruppigFix_v2Hwr.m).
+
+*Hyperelliptic or Cyclic Trigonal Curves* Whether an action defines a hyperelliptic curve or a cyclic trigonal curve is determined using code written by David Swinarski [faculty.fordham.edu/dswinarski/RiemannSurfaceAutomorphisms/](http://faculty.fordham.edu/dswinarski/RiemannSurfaceAutomorphisms/) which is described in his paper .
+
+*Equations* Equations of hyperelliptic curves are from .  Equations for all genus 3 curves with automorphisms come from .  And equations for curves with large automorphisms (i.e. greater than 4(g-1) ) are found in [faculty.fordham.edu/dswinarski/RiemannSurfaceAutomorphisms/](http://faculty.fordham.edu/dswinarski/RiemannSurfaceAutomorphisms/).
+
+Depends on: {uses "ag.jacobian"}[] {uses "ag.riemann_surface"}[] {uses "ag.shimura_variety"}[] {uses "curve.highergenus.aut.generatingvector"}[] {uses "curve.highergenus.aut.signature"}[]
 :::

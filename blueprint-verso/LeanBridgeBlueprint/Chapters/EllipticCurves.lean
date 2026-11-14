@@ -9,7 +9,89 @@ open Informal
 
 #doc (Manual) "Elliptic curves" =>
 
-This section lists the LMFDB definitions in the category `ec`. Each definition links back to its LMFDB knowl.
+This section lists the LMFDB definitions in the category `ec`. Each definition links back to its LMFDB knowl. It also lists the knowls about the LMFDB's data on this subject that have mathematical content, from the categories `dq`, `portrait` and `rcs`.
+
+:::definition "dq.ecnf.extent"
+*Extent of elliptic curve data over number fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/dq.ecnf.extent))
+
+*Imaginary quadratic fields*
+Most of the {bpref "ec"}[elliptic curves] in the database defined over {bpref "nf"}[number fields] are defined over the five Euclidean imaginary quadratic fields fields, with discriminants $`-3`, $`-4`, $`-7`, $`-8`, $`-11`.  Over each of these fields the database contains elliptic curves of {bpref "ec.invariants"}[conductor norm] bounded by (respectively) 150000, 100000, 50000, 50000, 50000.   Within these bounds the database contains all \*modular\* elliptic curves; however, modularity has not yet been proved for elliptic curves over imaginary quadratic fields in general, and non-modular curves (if any exist) are not in the database.  Assuming modularity, the database is complete within these bounds, by comparison with the database of Bianchi modular forms.
+
+In addition the database contains a small number of elliptic curves with everywhere {bpref "ec.good_reduction"}[good reduction] defined over some other imaginary quadratic fields.
+
+*{bpref "nf.totally_real"}[Totally real] fields*
+The database contains elliptic curves defined over totally real fields of {bpref "nf.degree"}[degree] $`2, 3, 4, 5` and $`6`.  For each field the database contains curves of conductor norm up to a bound which depends on the field.  Over totally real fields of degree $`2` and $`3`,  it is known that all elliptic curves are modular, and hence the database is complete for these fields, by comparison with the database of Hilbert Modular Forms.  In higher degrees the database contains elliptic curves matching each of the Hilbert Modular Forms (of {bpref "mf.hilbert.weight_vector"}[parallel weight] $`2`, trivial character and rational coefficients) over the field in question, for fields of degree $`2,3,4` and $`5`, and hence contains all modular elliptic curves of conductor norm up to the bound for that field.  Over 21 of the 34 fields of degree 6, the database contains curves matching all of the relevant Hilbert Modular Forms; over the other 13 fields there are a total of 55 isogeny classes missing.
+
+*Other fields*
+The only other field for which the database contains elliptic curves is the mixed {bpref "nf.signature"}[signature] cubic field 3.1.23.1.  The elliptic curves here have conductor norm up to $`20000` and match automorphic forms over this field.  No results on modularity are known for this field, but the curves in the database include all modular curves within these bounds.
+
+For the complete list of fields over which the database contains elliptic curves, the numbers of curves and {bpref "ec.isogeny"}[isogeny classes], and the bounds on the conductor norms in each case, see [this page](http://www.lmfdb.org/EllipticCurve/browse).
+
+Depends on: {uses "ec"}[] {uses "ec.good_reduction"}[] {uses "ec.invariants"}[] {uses "ec.isogeny"}[] {uses "mf.hilbert.weight_vector"}[] {uses "nf"}[] {uses "nf.degree"}[] {uses "nf.signature"}[] {uses "nf.totally_real"}[]
+:::
+
+:::definition "dq.ecnf.reliability"
+*Reliability of elliptic curve data over number fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/dq.ecnf.reliability))
+
+The reliability of the completeness claims for the {bpref "ec"}[elliptic curves] over each {bpref "nf"}[number field] represented in the database depends on the field and the current status of modularity of elliptic curves over the field in question.  Over all {bpref "nf.totally_real"}[totally real] fields of {bpref "nf.degree"}[degree] $`2` and $`3`, and most of degree $`4`,  it is known that all elliptic curves are modular (see
+ for degree $`2`,  for degree $`3` and Box (in preparation) for degree $`4`) and hence the database contains all curves of {bpref "ec.invariants"}[conductor norm] up to the bound for that field.  Over other fields we can only say that the database contains all \*modular\* elliptic curves within this range.  Over totally real fields of degrees $`4`, $`5` and $`6` all the curves in the database have been proved to be modular, using the criteria of , and over imaginary quadratic fields of class number $`1`, all the curves in the database have also been proved to be modular using the $`2`-adic Faltings-Serre method or its $`3`-adic analogue.
+
+All the data for each individual elliptic curve has been computed rigorously with no unproved conjectures or assumptions being used, except for some of the {bpref "ec.bsdconjecture"}[BSD invariants]:
+
+- the {bpref "lfunction.analytic_rank"}[analytic rank] and {bpref "lfunction.leading_coeff"}[special L-value] were computed using the Magma function <tt>AnalyticRank()</tt>, which assumes that the {bpref "lfunction"}[L-function] satisfies the {bpref "g2c.hasse_weil_conjecture"}[Hasse-Weil conjecture] and computes successive derivatives at the critial point to a fixed precision until it finds a non-zero value.  This assumption on the Hasse-Weil conjecture is satisfied by all the elliptic curves in the database which are known to be modular.
+
+- the analytic order of $`\Sha` was in all cases computed approximately from its definition, given by the {bpref "ec.bsdconjecture"}[BSD formula], and rounded to the nearest integer; in all cases this is a positive integer square.
+
+Depends on: {uses "ec"}[] {uses "ec.bsdconjecture"}[] {uses "ec.invariants"}[] {uses "g2c.hasse_weil_conjecture"}[] {uses "lfunction"}[] {uses "lfunction.analytic_rank"}[] {uses "lfunction.leading_coeff"}[] {uses "nf"}[] {uses "nf.degree"}[] {uses "nf.totally_real"}[]
+:::
+
+:::definition "dq.ecnf.source"
+*Source of elliptic curve data over number fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/dq.ecnf.source))
+
+*Source of the curves*
+
+The elliptic curves over number fields other than $`\Q` come from several sources.
+
+*Imaginary quadratic fields*
+The curves defined over the five Euclidean Imaginary quadratic fields consist of the curves in John Cremona's 1981 thesis, extended by him with Warren Moore in 2014 to conductor norm $`10000`.  Curves were found to match almost all the cuspidal Bianchi newforms (with trivial character, weight $`2` and rational coefficients) in the database, using custom code by Cremona and Moore, supplemented by Magma's EllipticCurveSearch function written by Steve Donnelly; in the remaining cases it has been proved that there is no matching curve.  Additionally, curves with CM by the field in question, which are not associated to cuspidal Bianchi newforms, were found from their $`j`-invariants by Cremona.
+
+*Totally real fields*
+Over $`\Q(\sqrt{5})` the curves of conductor norm up to about $`5000` were provided by Alyson Deines from joint work of Jonathan Bober, Alyson Deines, Ariah Klages-Mundt, Benjamin LeVeque, R. Andrew Ohana, Ashwath Rabindranath, Paul Sharaba and William Stein (see [http://arxiv.org/abs/1202.6612](http://arxiv.org/abs/1202.6612)).  All the other curves were found from their associated Hilbert newforms using Magma's EllipticCurveSearch function, using a script written by John Cremona.  This process is still ongoing: it is complete for fields of {bpref "nf.degree"}[degree] $`{}<6`, but a few curves are still missing over 13 of the 55 sextic fields represented in the database.  Otherwise the extent of the data matches that of the Hilbert Modular Form data for totally real fields of degrees 2, 3, 4, 5 and 6.
+
+*Other fields*
+
+- Steve Donnelly, Paul E. Gunnells, Ariah Klages-Mundt, and Dan Yasaki provided the curves over the mixed cubic field 3.1.23.1.
+
+- Marc Masdeu provided $`\Q`-curves over quadratic fields.
+
+- Haluk Sengun provided curves with everywhere good reduction over imaginary quadratic fields.
+
+- S. Yokoyama and Masdeu provided curves with everywhere good reduction over real quadratic fields (see  [here](http://www2.math.kyushu-u.ac.jp/~s-yokoyama/ECtable.html)).
+
+In some cases the same curve occurs in more than one of the above sources, in which case efforts have been made not to include it more than once in the database.
+
+*Source of the data for each curve*
+
+*Models*
+For each curve, the model in the database is a {bpref "ec.global_minimal_model"}[global minimal model] where one exists (for example when the base field has {bpref "nf.class_number"}[class number] one), and otherwise a semi-minimal model which is nonminimal at precisely one prime.  These (semi-)minimal models we computed in SageMath using code written by John Cremona.  Among all (semi-)minimal models we scale by units in order to minimize the archimedean embeddings of $`c_4` and $`c_4` simultaneously using a lattice basis reduction method, also implemented in SageMath by John Cremona.
+
+*{bpref "ec.local_data"}[Local data]*
+Conductors and local reduction data were computed using Tate's Algorithm, as implemented in SageMath by John Cremona, except for the local root numbers which were computed using Magma
+
+*Isogenies*
+Complete {bpref "ec.isogeny"}[isogeny classes] were computed using implementations in SageMath by John Cremona and Ciaran Schembri of Billerey's algorithm (to determine the reducible primes) and Kohel-Ve;lu formulas.
+
+*Mordell-Weil groups and {bpref "group.generators"}[generators]*
+Where these exist in the database they were computed by John Cremona using Magma's MordellWeilShaInformation function, implemented by Steve Donnelly
+
+*Galois representations*
+The images of mod-$`\ell` Galois representations were computed by Andrew Sutherland using the methods described in  (including a generalization to handle curves with {bpref "ec.complex_multiplication"}[complex multiplication]).
+
+*{bpref "ec.base_change"}[Base change] and $`\mathbb{Q}`-curves*
+The property of being the base change of an elliptic curve over $`\mathbb{Q}` and of being a $`\mathbb{Q}`-curve were computed by John Cremona using his implementation in SageMath.
+
+Depends on: {uses "ec.base_change"}[] {uses "ec.complex_multiplication"}[] {uses "ec.global_minimal_model"}[] {uses "ec.isogeny"}[] {uses "ec.local_data"}[] {uses "group.generators"}[] {uses "nf.class_number"}[] {uses "nf.degree"}[]
+:::
 
 :::definition "ec" (lean := "WeierstrassCurve.IsElliptic")
 *Elliptic curve over a field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec))
@@ -1047,10 +1129,39 @@ For elliptic curves of rank $`0` or $`1` it is a theorem that $`\Sha`<sub>an</su
 Depends on: {uses "ec"}[] {uses "group.order"}[]
 :::
 
+:::definition "ec.q.analytic_sha_value"
+*Analytic order of Sha (numerical value).* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.analytic_sha_value))
+
+For an {bpref "ec"}[elliptic curve] defined over $`\Q` of {bpref "ec.q.analytic_rank"}[analytic rank] $`0` or $`1`, the {bpref "ec.analytic_sha_order"}[analytic order of $`\Sha`] is known to be rational and can been computed exactly. For curves of rank at least $`2` it is not known to be rational, but in all the cases where it has been computed it is close to a square integer, as predicted by the {bpref "ec.q.bsdconjecture"}[Birch and Swinnerton-Dyer] conjecture; in these cases we display the rounded value.
+
+Depends on: {uses "ec"}[] {uses "ec.analytic_sha_order"}[] {uses "ec.q.analytic_rank"}[] {uses "ec.q.bsdconjecture"}[]
+:::
+
+:::definition "ec.q.bsd_invariants"
+For an elliptic $`E` curve over $`\mathbb{Q}` the Birch/Swinnerton-Dyer invariants are
+
+- {bpref "ec.rank"}[rank], $`r`
+
+- {bpref "ec.regulator"}[regulator], $`\text{Reg}`
+
+- {bpref "ec.q.real_period"}[real period], $`\Omega`
+
+- {bpref "ec.q.tamagawa_numbers"}[Tamagawa numbers], $`\prod_p c_p`
+
+- {bpref "ec.torsion_order"}[torsion order], $`\#E_{\rm tor}`
+
+- {bpref "ec.analytic_sha_order"}[analytic order of Sha], $`\Sha`$`_{an}`
+
+The {bpref "ec.q.bsdconjecture"}[Birch and Swinnerton-Dyer Conjecture] asserts
+that the above invariants combine to give the order of vanishing and the first non-zero Taylor series coefficient of $`L(E,s)` at the central point $`s=1.`
+
+Depends on: {uses "ec.analytic_sha_order"}[] {uses "ec.q.bsdconjecture"}[] {uses "ec.q.real_period"}[] {uses "ec.q.tamagawa_numbers"}[] {uses "ec.rank"}[] {uses "ec.regulator"}[] {uses "ec.torsion_order"}[]
+:::
+
 :::definition "ec.q.bsdconjecture"
 *Birch and Swinnerton-Dyer conjecture.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.bsdconjecture))
 
-The *Birch and Swinnerton-Dyer* conjecture is one of the Millennium Prize Problems listed by the Clay Mathematics Institute. It relates the order of vanishing and the first non-zero Taylor series coefficient of  the {bpref "lfunction"}[L-function] associated to an {bpref "ec"}[elliptic curve] $`E` defined over $`\Q` at the {bpref "lfunction.central_point"}[central point] $`s=1` to certain arithmetic data, the BSD invariants of $`E`.
+The *Birch and Swinnerton-Dyer* conjecture is one of the Millennium Prize Problems listed by the Clay Mathematics Institute. It relates the order of vanishing and the first non-zero Taylor series coefficient of  the {bpref "lfunction"}[L-function] associated to an {bpref "ec"}[elliptic curve] $`E` defined over $`\Q` at the {bpref "lfunction.central_point"}[central point] $`s=1` to certain arithmetic data, the {bpref "ec.q.bsd_invariants"}[BSD invariants] of $`E`.
 
 Specifically, the BSD conjecture states that the order $`r` of vanishing of $`L(E,s)` at $`s=1` is equal to the {bpref "ec.rank"}[rank] of the {bpref "ec.mordell_weil_theorem"}[Mordell-Weil group] $`E(\Q)`,  and that
 
@@ -1061,7 +1172,7 @@ $$`..`
  then something about the html code for Sha stops it displaying properly-->
 
 <p align="center"> $`\displaystyle \frac{1}{r!} L^{(r)}(E,1)=  \displaystyle \frac{\# \Sha(E/\Q)\cdot \Omega_E \cdot \mathrm{Reg}(E/\Q) \cdot \prod_p c_p}{\#E(\Q)_{\rm tor}^2}.` </p>
-The quantities appearing in this formula are the BSD invariants of $`E`:
+The quantities appearing in this formula are the {bpref "ec.q.bsd_invariants"}[BSD invariants] of $`E`:
 
 - $`r` is the {bpref "ec.rank"}[rank] of $`E(\Q)` (a non-negative integer);
 
@@ -1221,6 +1332,24 @@ Tau Ceti Review: [`TauCeti.freyCurve`](https://taucetiproject.org/review/#/d/Tau
 The *integral points* on a given model of an elliptic curve $`E` defined over $`\Q` are the points $`P=(x,y)` on the model that have integral coordinates $`x` and $`y`.
 
 The number of integral points is finite, by a theorem of Siegel.
+:::
+
+:::definition "ec.q.invariants"
+*Elliptic curve invariants.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/ec.q.invariants))
+
+Invariants of an {bpref "ec"}[elliptic curve] $`E` over $`\mathbb{Q}` are its
+
+- {bpref "ec.q.conductor"}[conductor], $`N`
+
+- {bpref "ec.q.discriminant"}[discriminant], $`\Delta`
+
+- {bpref "ec.q.j_invariant"}[j-invariant], $`j`
+
+- {bpref "ec.endomorphism_ring"}[endomorphism ring], $`\text{End}(E)`.  This is $`\mathbb{Z}` unless $`E` has {bpref "ec.complex_multiplication"}[CM]
+
+- {bpref "st_group.definition"}[Sato-Tate group], $`\text{ST}(E)`. This is $`SU(2)` unless $`E` has {bpref "ec.complex_multiplication"}[CM]
+
+Depends on: {uses "ec"}[] {uses "ec.complex_multiplication"}[] {uses "ec.endomorphism_ring"}[] {uses "ec.q.conductor"}[] {uses "ec.q.discriminant"}[] {uses "ec.q.j_invariant"}[] {uses "st_group.definition"}[]
 :::
 
 :::definition "ec.q.j_invariant" (lean := "WeierstrassCurve.j")
@@ -1835,4 +1964,163 @@ $$`\begin{aligned}
 Tau Ceti Review: [`WeierstrassCurve.VariableChange`](https://taucetiproject.org/review/#/d/WeierstrassCurve.VariableChange).
 
 Depends on: {uses "ec.isomorphism"}[] {uses "ec.weierstrass_coeffs"}[]
+:::
+
+:::definition "portrait.ec.nf" (lean := "NumberField.IsTotallyComplex, NumberField.isTotallyComplex_of_minpoly_eq_X_sq_sub_C_of_neg, NumberField.isTotallyComplex_of_sq_ratCast_of_neg, NumberField.IsTotallyComplex.complexEmbedding_not_isReal, NumberField.IsTotallyComplex.nrRealPlaces_eq_zero, NumberField.InfinitePlace.card_real_embeddings")
+*Pictures for elliptic curves over number fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/portrait.ec.nf))
+
+For each {bpref "ec"}[elliptic curve]  $`E` over a {bpref "nf"}[number field] $`K`, the plot displayed consists of the graphs of the real points of $`E` with respect to each {bpref "nf.real_embedding"}[real embedding] of $`K`.   {bpref "nf.complex_embedding"}[Complex embeddings] of $`K` are ignored, so for example there is no plot shown when $`K` is a {bpref "nf.totally_imaginary"}[totally complex] field such as an imaginary quadratic field.
+
+The plots are produced using SageMath, which uses plotting logic designed by David Roe to determine which subset of $`E(\mathbb{R})` in the real affine plane to include in the plot.
+
+Tau Ceti Review: [`NumberField.IsTotallyComplex`](https://taucetiproject.org/review/#/d/NumberField.IsTotallyComplex), [`NumberField.isTotallyComplex_of_minpoly_eq_X_sq_sub_C_of_neg`](https://taucetiproject.org/review/#/d/NumberField.isTotallyComplex_of_minpoly_eq_X_sq_sub_C_of_neg), [`NumberField.isTotallyComplex_of_sq_ratCast_of_neg`](https://taucetiproject.org/review/#/d/NumberField.isTotallyComplex_of_sq_ratCast_of_neg), [`NumberField.IsTotallyComplex.nrRealPlaces_eq_zero`](https://taucetiproject.org/review/#/d/NumberField.IsTotallyComplex.nrRealPlaces_eq_zero).
+
+Depends on: {uses "ec"}[] {uses "nf"}[] {uses "nf.complex_embedding"}[] {uses "nf.real_embedding"}[] {uses "nf.totally_imaginary"}[]
+:::
+
+:::definition "rcs.cande.ec"
+*Completeness of elliptic curve data.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/rcs.cande.ec))
+
+*Imaginary quadratic fields*
+Over each imaginary quadratic {bpref "nf"}[number field] of absolute discriminant less than $`700`,  the database contains elliptic curves of {bpref "ec.invariants"}[conductor norm] up to  a bound that depends on the field, corresponding to the {bpref "rcs.cande.mf.bianchi"}[level norm bound] for Bianchi modular forms over that field.
+<!---
+<table>
+<tr>
+<th>{bpref "nf.discriminant"}[Discriminant]<td>-3<td>-4<td>-7<td>-8<td>-11<td>-19<td>-43<td>-67<td>-163<td>-23<td>-31
+</tr>
+<th>Bound<td>150000<td>100000<td>50000<td>50000<td>50000<td>15000<td>15000<td>10000<td>5000<td>2000<td>5000
+</tr>
+</table>
+--->
+Within these bounds the database contains all \*modular\* elliptic curves; however, modularity has not yet been proved for elliptic curves over imaginary quadratic fields in general, and non-modular curves (if any exist) are not in the database.  Assuming modularity, the database is complete within these bounds, by comparison with the database of Bianchi modular forms.
+
+In addition the database contains a small number of elliptic curves with everywhere {bpref "ec.good_reduction"}[good reduction] defined over some other imaginary quadratic fields.
+
+*{bpref "nf.totally_real"}[Totally real] fields*
+The database contains elliptic curves defined over totally real fields of {bpref "nf.degree"}[degree] $`2, 3, 4, 5` and $`6`.  For each field the database contains curves of conductor norm up to a bound which depends on the field.  Over totally real fields of degree $`2` and $`3`,  it is known that all elliptic curves are modular, and hence the database is complete for these fields, by comparison with the database of Hilbert Modular Forms.  In higher degrees the database contains elliptic curves matching each of the Hilbert Modular Forms (of {bpref "mf.hilbert.weight_vector"}[parallel weight] $`2`, trivial character and rational coefficients) over the field in question, for fields of degree up to $`6`, and hence contains all modular elliptic curves of conductor norm up to the bound for that field.
+
+*Other fields*
+The only other field for which the database contains elliptic curves is the mixed {bpref "nf.signature"}[signature] cubic field 3.1.23.1.  The elliptic curves here have conductor norm up to $`20000` and match automorphic forms over this field.  No results on modularity are known for this field, but the curves in the database include all modular curves within these bounds.
+
+For the complete list of fields over which the database contains elliptic curves, the numbers of curves and {bpref "ec.isogeny"}[isogeny classes], and the bounds on the conductor norms in each case, see [this page](http://www.lmfdb.org/EllipticCurve/browse).
+
+Depends on: {uses "ec.good_reduction"}[] {uses "ec.invariants"}[] {uses "ec.isogeny"}[] {uses "mf.hilbert.weight_vector"}[] {uses "nf"}[] {uses "nf.degree"}[] {uses "nf.discriminant"}[] {uses "nf.signature"}[] {uses "nf.totally_real"}[] {uses "rcs.cande.mf.bianchi"}[]
+:::
+
+:::definition "rcs.rigor.ec"
+*Reliability of elliptic curve data.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/rcs.rigor.ec))
+
+The reliability of the completeness claims for the {bpref "ec"}[elliptic curves] over each {bpref "nf"}[number field] represented in the database depends on the field and the current status of modularity of elliptic curves over the field in question.  Over all {bpref "nf.totally_real"}[totally real] fields of {bpref "nf.degree"}[degree] $`2` and $`3`, and most of degree $`4`,  it is known that all elliptic curves are modular (see
+ for degree $`2`,  for degree $`3` and  for degree $`4`) and hence the database contains all curves of {bpref "ec.invariants"}[conductor norm] up to the bound for that field.  Over other fields we can only say that the database contains all \*modular\* elliptic curves within this range.  Over totally real fields of degrees $`4`, $`5` and $`6` all the curves in the database have been proved to be modular, using the criteria of , and over imaginary quadratic fields of {bpref "nf.class_number"}[class number] $`1`, all the curves in the database have also been proved to be modular using the $`2`-adic Faltings-Serre method or its $`3`-adic analogue.
+
+All the data for each individual elliptic curve has been computed rigorously with no unproved conjectures or assumptions being used, except for some of the {bpref "ec.bsdconjecture"}[BSD invariants]:
+
+- the {bpref "lfunction.analytic_rank"}[analytic rank] and {bpref "lfunction.leading_coeff"}[special L-value] were computed using either the Magma function <tt>AnalyticRank()</tt>, which assumes that the {bpref "lfunction"}[L-function] satisfies the {bpref "g2c.hasse_weil_conjecture"}[Hasse-Weil conjecture] and computes successive derivatives at the critial point to a fixed precision until it finds a non-zero value; or using the pari library's <tt>lfun</tt> function.  This assumption on the Hasse-Weil conjecture is satisfied by all the elliptic curves in the database which are known to be modular.
+
+- the {bpref "ec.analytic_sha_order"}[analytic order of $`\Sha`] was in all cases computed approximately from its definition, given by the {bpref "ec.bsdconjecture"}[BSD formula], and rounded to the nearest integer; in all cases this is a positive integer square.
+
+- the {bpref "ec.canonical_height"}[heights] of generators, {bpref "ec.regulator"}[regulators], and {bpref "ec.period"}[periods] have been computed to 128-bit precision in all cases (with the {bpref "ec.regulator"}[regulator] being exactly 1 for curves of rank 0).
+
+- the {bpref "lfunction.leading_coeff"}[special L-value] and {bpref "ec.analytic_sha_order"}[analytic order of $`\Sha`] have been computed to the same precision over fields of degree 2 and 3, and to lower precision over fields of higher degree.
+
+Depends on: {uses "ec"}[] {uses "ec.analytic_sha_order"}[] {uses "ec.bsdconjecture"}[] {uses "ec.canonical_height"}[] {uses "ec.invariants"}[] {uses "ec.period"}[] {uses "ec.regulator"}[] {uses "g2c.hasse_weil_conjecture"}[] {uses "lfunction"}[] {uses "lfunction.analytic_rank"}[] {uses "lfunction.leading_coeff"}[] {uses "nf"}[] {uses "nf.class_number"}[] {uses "nf.degree"}[] {uses "nf.totally_real"}[]
+:::
+
+:::definition "rcs.rigor.ec.q"
+*Reliability of elliptic curve data over $`\Q`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/rcs.rigor.ec.q))
+
+*Completeness of the  collection*
+
+All {bpref "ec"}[elliptic curves] defined over $`\mathbb{Q}` are known to be modular, and hence arise (up to isogeny)  via the Eichler-Shimura construction from {bpref "cmf"}[classical modular forms] of {bpref "cmf.weight"}[weight] $`2`, {bpref "character.dirichlet.principal"}[trivial] {bpref "cmf.character"}[character], {bpref "cmf.level"}[level] $`N` equal to the {bpref "ec.q.conductor"}[conductor] of the curve, and having rational {bpref "cmf.fouriercoefficients"}[Fourier coefficients].
+
+<ul>
+<li>
+For conductors less than 500000, where modular symbol methods were used to determine the curves (see [Cremona97](https://johncremona.github.io/book/fulltext/index.html)), the reliability of the completeness of the data thus relies on the rigour and correct implementation of the modular symbol algorithms used to compute them, together with the correctness of the algorithms used to compute complete {bpref "ec.isogeny"}[isogeny classes] from any one elliptic curve.
+<li>
+For smooth conductors, completeness relies on the work of Matschke and Von Kahnel  and Matschke and Best .
+<li>
+For prime conductors, completeness relies on the work of Bennett, Gherga and Rechnitzer [BGR2019](https://www.ams.org/journals/mcom/2019-88-317/S0025-5718-2018-03370-1/).
+</ul>
+*Individual curve data*
+
+####Equation
+The $`c_4` and $`c_6`-invariants of the {bpref "ec.q.optimal"}[optimal] curve in each isogeny class were computed from numerical approximations obtained using modular symbols.  See J. E. Cremona [Algorithms for modular elliptic curves](http://homepages.warwick.ac.uk/staff/J.E.Cremona/book/amec.html), 2nd edn., Cambridge 1997.
+
+For additional justification that the equations obtained are rigorously correct, see J. E. Cremona, Appendix to a paper by Amod Agashe, Ken Ribet and William Stein:  \*The {bpref "ec.q.manin_constant"}[Manin Constant]\*, Pure and Applied Mathematics Quarterly, Vol. 2 no.2 (2006), pp. 617-636, supplemented for conductors over $`130000` by [updated notes](https://raw.githubusercontent.com/JohnCremona/ecdata/master/doc/manin.txt).  Note  that for conductors greater than $`270000` we have not always identified the optimal curve in each class rigorously, but expect that it is always the curve whose {bpref "ec.q.cremona_label"}[Cremona label] number is 1.
+
+####{bpref "ec.q.conductor"}[Conductor] , {bpref "ec.local_data"}[local data] and basic invariants
+These are rigorously computed.
+
+####{bpref "ec.mordell_weil_group"}[Mordell-Weil group] and {bpref "group.generators"}[generators], and {bpref "ec.q.bsdconjecture"}[BSD invariants]
+The analytic {bpref "ec.rank"}[rank] $`r_{an}` is computed using modular symbols and is rigorous for $`r_{an}\le3` and {bpref "ec.q.conductor"}[conductor] $`N\le500000`.  When $`r_{an}\le1`, it is a theorem that $`r_{an}` equals the {bpref "ag.mordell_weil"}[Mordell-Weil rank] $`r` of the curve.  When $`r=1` the generator is obtained from <tt>mwrank</tt> or using Heegner points.  When $`r_{an}\ge2`, the Mordell-Weil rank and generators are obtained from <tt>mwrank</tt>.  When $`r_{an}\ge4` we cannot compute the exact value, and when we claim that $`r_{an}=4` we only know rigorously that $`r_{an}\in\{2,4\}`.
+
+The {bpref "ec.q.torsion_subgroup"}[torsion subgroup] and generators are obtained using standard rigorous algorithms, based on Mazur's classification.
+
+The heights of generators of infinite {bpref "group.element_order"}[order] are given approximately; currently we do not guarantee the precision.  Similarly for the {bpref "ec.q.regulator"}[regulator], the {bpref "ec.q.real_period"}[real period] and the special L-value. The {bpref "ec.analytic_sha_order"}[analytic order of $`\Sha`] was computed exactly for curves of rank $`0`, where the quotient of the special L-value $`L(E,1)` and the real period is a positive rational number, that was computed using modular symbols for curves with {bpref "ec.q.conductor"}[conductor] $`N\le500000` and using a rigorous algorithm of William Stein for larger conductors.  For curves of positive rank the analytic order of $`\Sha` was computed approximately and rounded.  Note that for rank $`1` curves, while it is possible in principal to compute the analytic order of $`\Sha` exactly, this has only been done for conductors less than $`5000`.  For curves of rank greater than 1, the quantity predicted by the {bpref "ec.q.bsdconjecture"}[BSD conjecture] to be the order of $`\Sha` is not even known to be rational and can only be computed as a floating point approximation.
+
+####{bpref "ec.q.integral_points"}[Integral points]
+These were computed rigorously, using independent implementations in Magma and SageMath which were compared as a consistency check.
+
+####{bpref "ec.galois_rep"}[Galois representations]
+The images of the mod-$`\ell` and $`\ell`-adic Galois representations were computed rigorously.  In particular, for the mod-$`\ell` representations a variant of Sutherland's algorithm  was used to rigorously compute the image of the mod-$`\ell` representation for all primes $`\ell<1000`, and for elliptic curves over $`\Q` without {bpref "ec.complex_multiplication"}[complex multiplication] Zywina's algorithm  was used to verify the surjectivity of the mod $`\ell` representation for all primes $`\ell \ge 1000`.
+
+####{bpref "ec.iwasawa_invariants"}[Iwasawa invariants]
+These were computed rigorously.
+
+####{bpref "ec.q.torsion_growth"}[Torsion growth]
+The torsion growth data was computed rigorously.
+
+Depends on: {uses "ag.mordell_weil"}[] {uses "character.dirichlet.principal"}[] {uses "cmf"}[] {uses "cmf.character"}[] {uses "cmf.fouriercoefficients"}[] {uses "cmf.level"}[] {uses "cmf.weight"}[] {uses "ec"}[] {uses "ec.analytic_sha_order"}[] {uses "ec.complex_multiplication"}[] {uses "ec.galois_rep"}[] {uses "ec.isogeny"}[] {uses "ec.iwasawa_invariants"}[] {uses "ec.local_data"}[] {uses "ec.mordell_weil_group"}[] {uses "ec.q.bsdconjecture"}[] {uses "ec.q.conductor"}[] {uses "ec.q.cremona_label"}[] {uses "ec.q.integral_points"}[] {uses "ec.q.manin_constant"}[] {uses "ec.q.optimal"}[] {uses "ec.q.real_period"}[] {uses "ec.q.regulator"}[] {uses "ec.q.torsion_growth"}[] {uses "ec.q.torsion_subgroup"}[] {uses "ec.rank"}[] {uses "group.element_order"}[] {uses "group.generators"}[]
+:::
+
+:::definition "rcs.source.ec"
+*Source of elliptic curve data.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/rcs.source.ec))
+
+*Source of the curves*
+
+The elliptic curves over number fields other than $`\Q` come from several sources.
+
+*Imaginary quadratic fields*
+The curves defined over the first five (Euclidean) imaginary quadratic fields of class number one include the curves in John Cremona's 1981 thesis, extended by him with Warren Moore in 2014 and subsequently.   In 2021-2022 the other fields of class number one were included; for the fields of {bpref "nf.discriminant"}[discriminant] $`-19`, $`-43`, $`-67` (of class number $`1`), some of the curves appeared first in Elise Whitley's [1990 PhD thesis](https://ore.exeter.ac.uk/repository/handle/10871/8427).  Also in 2021-2024, curves defined over all fields of {bpref "nf.abs_discriminant"}[absolute discriminant] up to $`700` were included, with conductor norm less than some bound depending on the field.
+
+For the field of {bpref "nf.discriminant"}[discriminant] $`-20` (of class number $`2`), some of the curves appeared first in Jeremy Bygott's [1999 PhD thesis](https://ore.exeter.ac.uk/repository/handle/10871/8322);  for the fields of {bpref "nf.discriminant"}[discriminant] $`-23` and $`-31` (of class number $`3`), some of the curves appeared first in Mark Lingham's [2005 PhD thesis](http://eprints.nottingham.ac.uk/10138/).  In all cases, curves were found to match almost all the {bpref "mf.bianchi.weight2"}[cuspidal] Bianchi newforms (with trivial character, {bpref "mf.bianchi.weight"}[weight] $`2` and rational coefficients) in the database, originally using custom code by Cremona and Moore, but with the vast majority found by Magma's <tt>EllipticCurveSearch</tt> function written by Steve Donnelly; in some of the remaining cases it has been proved that there is no matching curve.
+
+Additionally, for the fields with class number $`1`, curves with CM by the field in question, which are not associated to cuspidal Bianchi newforms, were found from their $`j`-invariants by Cremona.
+
+*{bpref "nf.totally_real"}[Totally real] fields*
+Over $`\Q(\sqrt{5})` the curves of {bpref "ec.invariants"}[conductor norm] up to about $`5000` were provided by Alyson Deines from joint work of Jonathan Bober, Alyson Deines, Ariah Klages-Mundt, Benjamin LeVeque, R. Andrew Ohana, Ashwath Rabindranath, Paul Sharaba and William Stein (see [http://arxiv.org/abs/1202.6612](http://arxiv.org/abs/1202.6612)).  All the other curves were found from their associated Hilbert newforms using Magma's <tt>EllipticCurveSearch</tt> function, using a script written by John Cremona.  Hence the extent of the data matches that of the {bpref "mf.hilbert"}[Hilbert Modular Form] data for totally real fields of degrees 2, 3, 4, 5 and 6.
+
+*Other fields*
+
+- Steve Donnelly, Paul E. Gunnells, Ariah Klages-Mundt, and Dan Yasaki provided the curves over the mixed cubic field 3.1.23.1.
+
+- Marc Masdeu provided $`\Q`-curves over quadratic fields.
+
+- Haluk Sengun provided curves with everywhere {bpref "ec.good_reduction"}[good reduction] over imaginary quadratic fields.
+
+- S. Yokoyama and Masdeu provided curves with everywhere good reduction over real quadratic fields (see  [here](http://www2.math.kyushu-u.ac.jp/~s-yokoyama/ECtable.html)).
+
+In some cases the same curve occurs in more than one of the above sources, in which case efforts have been made not to include it more than once in the database.
+
+*Source of the data for each curve*
+
+*Models*
+For each curve, the model in the database is a {bpref "ec.global_minimal_model"}[global minimal model] where one exists (for example when the {bpref "ag.base_field"}[base field] has {bpref "nf.class_number"}[class number] one), and otherwise a semi-minimal model which is nonminimal at precisely one {bpref "nf.prime"}[prime].  These (semi-)minimal models we computed in SageMath using code written by John Cremona.  Among all (semi-)minimal models we scale by units in order to minimize the archimedean embeddings of $`c_4` and $`c_4` simultaneously using a lattice basis reduction method, also implemented in SageMath by John Cremona.
+
+*{bpref "ec.local_data"}[Local data]*
+Conductors and local reduction data were computed using Tate's Algorithm, as implemented in SageMath by John Cremona, except for the local root numbers which were computed using Tim Dokchitser's implementation in Magma.
+
+*Isogenies*
+Complete {bpref "ec.isogeny"}[isogeny classes] were computed using implementations in SageMath by John Cremona and Ciaran Schembri of Billerey's algorithm (to determine the reducible primes) and Kohel-Ve;lu formulas.
+
+*Mordell-Weil groups and {bpref "group.generators"}[generators] and Birch--Swinnerton-Dyer data*
+These were computed by John Cremona using Magma's <tt>MordellWeilShaInformation</tt> and <tt>AnalyticRank</tt> functions, implemented by Steve Donnelly and Mark Watkins;  the special L-values were in some cases computed using the pari library.
+
+*Galois representations*
+The images of mod-$`\ell` Galois representations were computed using Andrew Sutherland's Magma implemention of his methods described in  (including a generalization to handle curves with {bpref "ec.complex_multiplication"}[complex multiplication]).
+
+*{bpref "ec.base_change"}[Base change] and $`\mathbb{Q}`-curves*
+The property of being the base change of an {bpref "ec"}[elliptic curve] over $`\mathbb{Q}` and of being a $`\mathbb{Q}`-curve were computed by John Cremona using his implementation in SageMath of the algorithm described in .
+
+Depends on: {uses "ag.base_field"}[] {uses "ec"}[] {uses "ec.base_change"}[] {uses "ec.complex_multiplication"}[] {uses "ec.global_minimal_model"}[] {uses "ec.good_reduction"}[] {uses "ec.invariants"}[] {uses "ec.isogeny"}[] {uses "ec.local_data"}[] {uses "group.generators"}[] {uses "mf.bianchi.weight"}[] {uses "mf.bianchi.weight2"}[] {uses "mf.hilbert"}[] {uses "nf.abs_discriminant"}[] {uses "nf.class_number"}[] {uses "nf.discriminant"}[] {uses "nf.prime"}[] {uses "nf.totally_real"}[]
 :::

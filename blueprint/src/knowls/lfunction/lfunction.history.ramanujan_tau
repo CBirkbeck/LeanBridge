@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/lfunction.history.ramanujan_tau}{Ramanujan tau L-function}}
 \begin{definition}\label{lfunction.history.ramanujan_tau}
-\uses{mf.1.12.1.a.top}
+\uses{}
 \leanok
 In 1916 Ramanujan \cite{MR2280861} made the startling observation that the coefficients of the \hyperref[mf.1.12.1.a.top]{$\Delta$ function} 
 are multiplicative! Ramanujan defined $\tau(n)$ by

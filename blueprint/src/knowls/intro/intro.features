@@ -1,6 +1,6 @@
 \subsection{\href{https://beta.lmfdb.org/knowledge/show/intro.features}{Introduction/Features}}
 \begin{definition}\label{intro.features}
-\uses{doc.knowl,lfunction.degree,lfunction.underlying_object,lfunction.zeros}
+\uses{lfunction.degree,lfunction.zeros}
 In the LMFDB, we aim for every object to have its own homepage.  Note
 the following features:
 

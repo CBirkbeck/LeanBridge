@@ -191,6 +191,20 @@ symplectic group] $`{\rm Sp}(2n,\mathbb{Z})`
 Siegel Eisenstein series are also defined for some subgroups of the full integral symplectic group as well.
 :::
 
+:::definition "mf.siegel.extent.kp"
+*Available samples for $`M_2(K(p))`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.extent.kp))
+
+The following table shows certain Siegel modular cusp forms of weight 2 on   {bpref "group.paramodular"}[paramodular groups] of prime level. More precisely, it shows
+
+- in level 277, the {bpref "mf.siegel.newform.paramodular"}[nonlift],
+
+- in levels 349, 353, 389, 461, 523, 587, the <em>conjectured</em> nonlifts.
+
+The sample names have the form "2\_PY2\_p\_...", where p is the level.
+
+Depends on: {uses "group.paramodular"}[] {uses "mf.siegel.newform.paramodular"}[]
+:::
+
 :::definition "mf.siegel.family" (lean := "SymplecticGroup.Gamma, SymplecticGroup.Gamma0, SymplecticGroup.paramodular, SymplecticGroup.paramodularGL, SymplecticGroup.paramodularDelta_mul_mul_mem")
 *Family of Siegel groups.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.family))
 
@@ -554,6 +568,18 @@ $$`\chi_5= \prod_{i=1}^{10} \vartheta_{i}\, .`
 Also see F. Cle;ry, G. van der Geer, S. Grushevsky,  and J. Bergstrom, C. Faber, G. van der Geer .
 :::
 
+:::definition "mf.siegel.family.kp"
+*The ring of paramodular cusp forms $`S_k(K(p))`.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.family.kp))
+
+The ring of {bpref "mf.siegel.newform.paramodular"}[paramodular] {bpref "mf.siegel.cusp_form"}[cusp forms] $`S_*(K(p))` for $`p` prime.
+
+The dimensions of {bpref "mf.siegel.weight"}[weight] 2 paramodular cusp forms $`S_2(K(p)` for  primes $`p<600` (with the exceptions of  349, 353, 389, 461, 523, 587) have been computed by C. Poor and D. S. Yuen .  Poor and Yuen also prove that any weight 2 nonlifts in this range of primes ($`p < 600`) can occur only at primes 277, 349, 353, 389, 461, 523, 587.  The nonlift weight 2 eigenform at $`p=277` is known and proved; the others are conjectured.
+
+Dimension formulas for paramodular cusp forms $`S_k(K(p))` for $`p` prime for weights 3 and higher were proven by Tomoyoshi Ibukiyama in _Dimension formulas of Siegel modular forms of weight 3 and supersingular abelian surfaces_, Siegel Modular Forms and Abelian Varieties, Proceedings of the 4th Spring Conference on Modular Forms and Related Topics, Ryushido, Kobe, 2007.
+
+Depends on: {uses "mf.siegel.cusp_form"}[] {uses "mf.siegel.newform.paramodular"}[] {uses "mf.siegel.weight"}[]
+:::
+
 :::definition "mf.siegel.family.sp4z"
 *The ring of Siegel modular forms of degree 2 with respect to the full modular group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.family.sp4z))
 
@@ -640,6 +666,32 @@ for short in the modular form sample pages.
 Dimension tables are taken from Tsushima .
 
 Depends on: {uses "group.sp2gr"}[] {uses "mf.siegel.degree"}[] {uses "mf.siegel.vector_valued"}[]
+:::
+
+:::definition "mf.siegel.family.sp6z"
+*The ring of Siegel modular forms of degree 3 with respect to the full modular group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.family.sp6z))
+
+S Tsuyumine  gives 34 generators for the ring $`M_{*}({\rm Sp}(6,\mathbb{Z}))` of {bpref "mf.siegel"}[Siegel modular forms] of {bpref "mf.siegel.degree"}[degree] 3 with with respect to the
+{bpref "group.sp2gr"}[full modular group].  Tsuyumine also gives a formula for the dimensions of the spaces at each weight.
+
+Miyawaki  computed enough coefficients in weight 12 and 14 to determine the the Euler factor at the prime 2, and conjectured the
+{bpref "mf.siegel.lift.miyawaki"}[Miyawaki lifts].
+
+C. Poor, J. Shurman, and D. S. Yuen  computed coefficients coefficients in weights 16, 18, 20, 22, and determined the eigenforms.
+
+Depends on: {uses "group.sp2gr"}[] {uses "mf.siegel"}[] {uses "mf.siegel.degree"}[] {uses "mf.siegel.lift.miyawaki"}[]
+:::
+
+:::definition "mf.siegel.family.sp8z"
+*The ring of Siegel modular forms of degree 4 with respect to  the full modular group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.siegel.family.sp8z))
+
+The dimensions for {bpref "mf.siegel.degree"}[degree] 4 {bpref "mf.siegel.cusp_form"}[Siegel modular cusp forms]
+$`S_k(\mathrm{Sp}(8,Z))` for the {bpref "group.sp2gr"}[full modular group]
+for {bpref "mf.siegel.weight"}[weights] $`k\le 16` were proven by C. Poor and D. S. Yuen .  Poor and Yuen also computed Fourier coefficients and some eigenvalues.
+
+The cusp forms in weights up through 14 are either Duke-Imamoglu-Ikeda lifts or Miyawaki lifts.    In weight 16, in addition to these two types of lifts, there are other   eigenforms that have been shown by Ibukiyama to instantiate a conjectural lift from {bpref "mf.siegel.vector_valued"}[vector-valued Siegel modular forms].
+
+Depends on: {uses "group.sp2gr"}[] {uses "mf.siegel.cusp_form"}[] {uses "mf.siegel.degree"}[] {uses "mf.siegel.vector_valued"}[] {uses "mf.siegel.weight"}[]
 :::
 
 :::definition "mf.siegel.galois_orbit"

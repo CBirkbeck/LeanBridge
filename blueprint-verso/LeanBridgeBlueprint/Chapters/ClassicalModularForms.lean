@@ -13,7 +13,7 @@ tag := "classical-modular-forms"
 file := "Classical-modular-forms"
 %%%
 
-This section lists the LMFDB definitions in the category `cmf`. Each definition links back to its LMFDB knowl. `specialfunction.poincare` also belongs here, although its id puts it in another LMFDB category.
+This section lists the LMFDB definitions in the category `cmf`. Each definition links back to its LMFDB knowl. `specialfunction.poincare` also belongs here, although its id puts it in another LMFDB category. It also lists the knowls about the LMFDB's data on this subject that have mathematical content, from the categories `portrait` and `rcs`.
 
 :::definition "cmf" (lean := "ModularForm, SlashInvariantForm.slash_action_eqn'")
 *Classical modular form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf))
@@ -316,6 +316,16 @@ Tau Ceti Review: [`Module.finrank`](https://taucetiproject.org/review/#/d/Module
 Depends on: {uses "cmf.space"}[] {uses "cmf.space_mathlib_def"}[]
 :::
 
+:::definition "cmf.display_dim" (lean := "TauCeti.Nat.IsExactDivisor.normalizedAtkinLehnerOperatorCusp, TauCeti.cuspFormsNewGamma0, TauCeti.Nat.IsExactDivisor.finrank_inf_eigenspace_add_finrank_inf_eigenspace, TauCeti.Nat.IsExactDivisor.finrank_eigenspace_add_finrank_eigenspace, TauCeti.Nat.IsExactDivisor.isCompl_eigenspace_normalizedAtkinLehnerOperatorCusp, TauCeti.Nat.IsExactDivisor.restrict_normalizedAtkinLehnerOperatorCusp_mem_cuspFormsNew, Module.finrank")
+*Dimension.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.display_dim))
+
+If the {bpref "cmf.character"}[character] of the space is trivial, the {bpref "cmf.dimension"}[dimension] is the sum of the dimensions of the {bpref "cmf.plus_space"}[plus subspace] and the {bpref "cmf.minus_space"}[minus subspace].
+
+Tau Ceti Review: [`TauCeti.Nat.IsExactDivisor.normalizedAtkinLehnerOperatorCusp`](https://taucetiproject.org/review/#/d/TauCeti.Nat.IsExactDivisor.normalizedAtkinLehnerOperatorCusp), [`TauCeti.Nat.IsExactDivisor.isCompl_eigenspace_normalizedAtkinLehnerOperatorCusp`](https://taucetiproject.org/review/#/d/TauCeti.Nat.IsExactDivisor.isCompl_eigenspace_normalizedAtkinLehnerOperatorCusp), [`TauCeti.Nat.IsExactDivisor.restrict_normalizedAtkinLehnerOperatorCusp_mem_cuspFormsNew`](https://taucetiproject.org/review/#/d/TauCeti.Nat.IsExactDivisor.restrict_normalizedAtkinLehnerOperatorCusp_mem_cuspFormsNew), [`Module.finrank`](https://taucetiproject.org/review/#/d/Module.finrank).
+
+Depends on: {uses "cmf.character"}[] {uses "cmf.dimension"}[] {uses "cmf.minus_space"}[] {uses "cmf.plus_space"}[]
+:::
+
 :::definition "cmf.distinguishing_primes"
 *Distinguishing Hecke operators.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.distinguishing_primes))
 
@@ -455,6 +465,31 @@ Distinct embeddings give rise to modular forms  that lie in the same {bpref "cmf
 If $`f` is a newform of {bpref "cmf.character"}[character] $`\chi`, each embedding $`\Q(f)\to \C` induces an embedding $`\Q(\chi)\to \C` of the {bpref "character.dirichlet.value_field"}[value field] of $`\chi`.  The embeddings of $`f` may be grouped into blocks with the same {bpref "character.dirichlet"}[Dirichlet character]; distinct blocks correspond to modular forms with distinct (but Galois conjugate) Dirichlet characters.
 
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.value_field"}[] {uses "cmf.character"}[] {uses "cmf.coefficient_field"}[] {uses "cmf.galois_orbit"}[] {uses "cmf.q-expansion"}[] {uses "lfunction"}[] {uses "nf.embedding"}[]
+:::
+
+:::definition "cmf.embedding_format" (lean := "HeckeRing.GL2.Newform.IsEmbedding, HeckeRing.GL2.Newform.analyticCoeff, HeckeRing.GL2.Newform.normalizedSatakeParameters, HeckeRing.GL2.Newform.satakeAngles, HeckeRing.GL2.Newform.satakeAngles_eq_map_arg_satakeParameters")
+*Embedding Format.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.embedding_format))
+
+Let $`f` be {bpref "cmf.newform"}[newform] of {bpref "cmf.level"}[level] $`N`, {bpref "cmf.weight"}[weight] $`k` and {bpref "cmf.character"}[character] $`\chi`.
+
+Further, let $`a_n` denote the trace  of the {bpref "cmf.hecke_operator"}[Hecke operator] $`T_n`.
+
+For each {bpref "nf.embedding"}[embedding] $`\iota` of the coefficient field, we may consider the embedded modular form $`\iota(f)`.
+We present these embeddings sorted numerically according to the two values that define their {bpref "cmf.embedding_label"}[label].
+
+We may present $`\iota(f)` in four formats:
+
+- Complex embeddings: For each embedding $`\iota`, we present the real and imaginary values $`\iota(a_n)` with the desired number of significant digits of the stored values.
+
+The stored values are the approximations to 53 bits of $`\iota(a_n)` initially computed up to 200 bits of precision.
+
+- Normalized embeddings: the same as above, but now we present $`a_n` analytically normalized, i.e., $`\iota(a_n) / n^{(k-1)/2}`
+
+- {bpref "cmf.satake_parameters"}[Satake Parameters]: we use $`\iota(a_p)`, these are deduced from the {bpref "cmf.satake_angles"}[Satake angles].
+
+- {bpref "cmf.satake_angles"}[Satake Angles]: $`\theta_p` where $`\theta_p \in [-\pi, \pi]`, the arguments of the {bpref "cmf.satake_parameters"}[Satake parameters].
+
+Depends on: {uses "cmf.character"}[] {uses "cmf.embedding_label"}[] {uses "cmf.hecke_operator"}[] {uses "cmf.level"}[] {uses "cmf.newform"}[] {uses "cmf.satake_angles"}[] {uses "cmf.satake_parameters"}[] {uses "cmf.weight"}[] {uses "nf.embedding"}[]
 :::
 
 :::definition "cmf.embedding_label"
@@ -683,7 +718,7 @@ Pairs with $`\sigma=1` are {bpref "cmf.self_twist"}[self twists] $`(\chi,1)`, in
 
 The set of pairs $`(\chi,\sigma)` forms the {bpref "cmf.inner_twist_group"}[group of inner twists]; the inner twist count is the cardinality of this group.
 
-Not all of the inner twists included in the inner twist count have necessarily been proved; those that have are explicitly identified in the table of inner twists on the newforms home page.  In cases where not every inner twist has been proved the inner twist should be viewed as a rigorous upper bound that is believed to be tight.
+Not all of the inner twists included in the inner twist count have necessarily been {bpref "cmf.inner_twist_proved"}[proved]; those that have are explicitly identified in the table of inner twists on the newforms home page.  In cases where not every inner twist has been proved the inner twist should be viewed as a rigorous upper bound that is believed to be tight.
 
 Inner twist data is available only for newforms for which exact eigenvalue data has been computed; this includes all newforms of {bpref "cmf.dimension"}[dimension] up to $`20` and all newforms of {bpref "cmf.weight"}[weight] 1; when the inner twist count is specified in a search the results include only newforms for which inner twists have been computed.
 
@@ -714,6 +749,24 @@ It is possible for a {bpref "cmf.newform"}[newform] $`f` to admit an {bpref "cmf
 Tau Ceti Review: [`MulChar.galoisOrbit`](https://taucetiproject.org/review/#/d/MulChar.galoisOrbit).
 
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.galois_orbit"}[] {uses "cmf.embedding"}[] {uses "cmf.inner_twist"}[] {uses "cmf.newform"}[]
+:::
+
+:::definition "cmf.inner_twist_proved"
+*Inner twist proved.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.inner_twist_proved))
+
+In order to prove that a {bpref "cmf.newform"}[newform] $`f\in S_k(N,\chi)` admits an {bpref "cmf.inner_twist"}[Inner twist] by a {bpref "character.dirichlet.primitive"}[primitive] {bpref "character.dirichlet"}[Dirichlet character] $`\phi` it is sufficient to verify that for some Galois conjugate newform $`g\ne f` the equality
+
+$$`a_p(g)=\varphi(p)a_p(f)`
+
+holds for all primes $`p\le B` not dividing the level of $`f` or the conductor of $`\varphi`, where $`B` is the {bpref "cmf.sturm_bound"}[Sturm bound] for the level
+
+$$`\mathrm{lcm}(N,\mathrm{cond}(\varphi)^2,\mathrm{cond}(\varphi)\mathrm{cond}(\chi)).`
+
+In cases where it is not feasible to test this equality, it is still checked at least up to the Sturm bound for level $`N`, and for all primes $`p\le 1000`.
+
+The set of inner twists listed for a newform in the LMFDB is always guaranteed to contain all possible inner twists, regardless of whether or not all the listed inner twists have been proved (false positives are, in principle, possible, but not false negatives).  In particular, if no inner twists are listed then the newform provably does not admit any inner twists.
+
+Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.primitive"}[] {uses "cmf.inner_twist"}[] {uses "cmf.newform"}[] {uses "cmf.sturm_bound"}[]
 :::
 
 :::definition "cmf.label"
@@ -964,6 +1017,24 @@ The mathlib definition *petersson* defines only the integrand of the Petersson s
 Tau Ceti Review: [`UpperHalfPlane.petersson`](https://taucetiproject.org/review/#/d/UpperHalfPlane.petersson).
 :::
 
+:::definition "cmf.picture_description" (lean := "UpperHalfPlane.portraitMoebius, UpperHalfPlane.bijOn_portraitMoebius, UpperHalfPlane.portraitMoebiusMatrix, UpperHalfPlane.portraitMoebiusMatrix_smul_coe, HeckeRing.GL2.Newform.traceForm, HeckeRing.GL2.Newform.newspaceTraceForm, Complex.arg_eq_pi_iff")
+*Pictures for classical modular forms.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.picture_description))
+
+For each {bpref "cmf.newform"}[newform] or {bpref "cmf.trace_form"}[trace form], we use domain coloring to plot the associated trace form $`\mathrm{Tr}(f)`.
+
+At each point $`z` in the unit disk $`\mathcal{D}`, we assign a color based on the value of $`\mathrm{Tr}(f)(\mu(z))`, where $`\mu` is the Möbius transform $`\mu: \mathcal{D} \longrightarrow \mathcal{H}` given by $`\mu(z) = \frac{1 - iz}{z - i}`. Writing $`\mathrm{Tr}(f)(\mu(z)) = r e^{i \theta}`, the color is determined entirely by the argument $`\theta`.
+
+The color starts as a dull mustard yellow at $`\theta = 0` and becomes brighter and more yellow as $`\theta` increases towards $`\pi`. There is a sharp change at $`\theta = \pi` from bright yellow to slate blue. As $`\theta` increases from $`\pi` to $`2 \pi`, the slate blue dulls back towards mustard yellow. This coloration has the effect of sharply changing when the trace form takes on negative real values. These strong patterns highlight the matrix periodicity of the form.
+
+*Implementation ##*
+
+The pictures of modular forms were implemented by David Lowry-Duda following the "pure phase plots" described in \*Visualizing Modular Forms\* by Lowry-Duda .
+
+Tau Ceti Review: [`Complex.arg_eq_pi_iff`](https://taucetiproject.org/review/#/d/Complex.arg_eq_pi_iff).
+
+Depends on: {uses "cmf.newform"}[] {uses "cmf.trace_form"}[]
+:::
+
 :::definition "cmf.plus_space" (lean := "TauCeti.Nat.IsExactDivisor.normalizedAtkinLehnerOperatorCusp")
 *Plus space.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.plus_space))
 
@@ -1138,6 +1209,19 @@ where
 This map is Hecke linear. If $`k\geq5`, it takes cusp forms to cusp forms.
 
 Depends on: {uses "character.dirichlet"}[]
+:::
+
+:::definition "cmf.sort_order" (lean := "HeckeRing.GL2.AllNewformOrbits, HeckeRing.GL2.AllNewformOrbits.sortKey, HeckeRing.GL2.AllNewformOrbits.sortOrder, HeckeRing.GL2.AllNewformOrbits.sortKey_injective, HeckeRing.GL2.AllNewformOrbits.sortOrderBy, HeckeRing.GL2.AllNewformOrbits.injective_toLex_sortKey, HeckeRing.GL2.NewformOrbit.characterOrbitIndex, HeckeRing.GL2.NewformOrbit.traceSeq")
+*Sort order.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/cmf.sort_order))
+
+By default {bpref "cmf.newform"}[newform] search results are sorted by {bpref "cmf.level"}[level],
+{bpref "cmf.weight"}[weight],
+{bpref "character.dirichlet.galois_orbit_label"}[character], and
+{bpref "cmf.hecke_galois_orbit"}[trace sequence], which defines a complete ordering on the set of all newforms.
+
+If a specific sort key is chosen, results will be sorted first on that key and then by level, weight, character, and trace sequence, so that the sort order is always uniquely determined.
+
+Depends on: {uses "character.dirichlet.galois_orbit_label"}[] {uses "cmf.hecke_galois_orbit"}[] {uses "cmf.level"}[] {uses "cmf.newform"}[] {uses "cmf.weight"}[]
 :::
 
 :::definition "cmf.space" (lean := "cuspFormCharSpace, modFormCharSpace")
@@ -1337,6 +1421,171 @@ in the transformation law
 $$`f\left( \frac{a z + b}{c z + d} \right) = \chi(d)(c z + d)^k f(z) .`
 
 Depends on: {uses "cmf"}[]
+:::
+
+:::definition "portrait.cmf" (lean := "UpperHalfPlane.portraitMoebius, UpperHalfPlane.bijOn_portraitMoebius, UpperHalfPlane.portraitMoebiusMatrix, UpperHalfPlane.portraitMoebiusMatrix_smul_coe, HeckeRing.GL2.Newform.traceForm, HeckeRing.GL2.Newform.newspaceTraceForm, Complex.arg_eq_pi_iff")
+*Pictures for classical modular forms.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/portrait.cmf))
+
+For each {bpref "cmf.newform"}[newform] or {bpref "cmf.trace_form"}[trace form], we use domain coloring to plot the associated trace form $`\mathrm{Tr}(f)`.
+
+At each point $`z` in the unit disk $`\mathcal{D}`, we assign a color based on the value of $`\mathrm{Tr}(f)(\mu(z))`, where $`\mu` is the Möbius transform $`\mu: \mathcal{D} \longrightarrow \mathcal{H}` given by $`\mu(z) = \frac{1 - iz}{z - i}`. Writing $`\mathrm{Tr}(f)(\mu(z)) = r e^{i \theta}`, the color is determined entirely by the argument $`\theta`.
+
+The color starts as a dull mustard yellow at $`\theta = 0` and becomes brighter and more yellow as $`\theta` increases towards $`\pi`. There is a sharp change at $`\theta = \pi` from bright yellow to slate blue. As $`\theta` increases from $`\pi` to $`2 \pi`, the slate blue dulls back towards mustard yellow. This coloration has the effect of sharply changing when the trace form takes on negative real values. These strong patterns highlight the matrix periodicity of the form.
+
+*Implementation ##*
+
+The pictures of modular forms were implemented by David Lowry-Duda following the "pure phase plots" described in \*Visualizing Modular Forms\* by Lowry-Duda .
+
+Tau Ceti Review: [`Complex.arg_eq_pi_iff`](https://taucetiproject.org/review/#/d/Complex.arg_eq_pi_iff).
+
+Depends on: {uses "cmf.newform"}[] {uses "cmf.trace_form"}[]
+:::
+
+:::definition "rcs.cande.cmf"
+*Completeness of Classical Modular Form Data.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/rcs.cande.cmf))
+
+The classical modular form database currently contains information for all {bpref "cmf.newform"}[newforms] $`f\in S_k^\mathrm{new}(N,\chi)` of {bpref "cmf.level"}[level] $`N\ge 1`, {bpref "cmf.weight"}[weight] $`k\ge 1`, {bpref "cmf.character"}[character] $`\chi\colon (\Z/N\Z)^\times\to \C`,
+for which any of the following hold:
+
+- $`Nk^2\le 4000`;
+
+- $`\chi` trivial and $`Nk^2\le 40\,000`;
+
+- $`N \le 24` and $`Nk^2 \le 40\,000`;
+
+- $`N \le 10` and $`Nk^2 \le 100\,000`;
+
+- $`N \le 100` and $`k \le 12`;
+
+- $`k > 1` and $`\dim S_k^{\rm new}(N,\chi) \le 100` and $`Nk^2 \le 40\,000`.
+
+- $`k = 2`, $`\chi` is trivial, and $`N\le 50\,000` or $`N \le 10^6` is prime.
+
+In addition to the {bpref "cmf.newspace"}[newspaces] identified above, there are 131 newspaces that are present because they contain the {bpref "cmf.minimal_twist"}[minimal twist] of a newform in one of the newspaces above.
+
+For each newform with {bpref "cmf.q-expansion"}[q-expansion] $`f=\sum a_nq^n` the database contains the integers $`\mathrm{tr}(a_n)` for $`1\le n \le 1000`, and when the level is at most $`10\,000` and the {bpref "cmf.dimension"}[dimension] of $`f` is at most $`20`, the algebraic integers $`a_n` for $`1\le n \le 1000` expressed in terms of an explicit basis for the {bpref "cmf.coefficient_ring"}[coefficient ring] $`\Q(f)`.  For $`1000 < N \le 4000` this data is available for all $`n\le 2000`, and for $`4000 < N\le 10\,000`, for all $`n\le 3000`  (these values exceed both the {bpref "cmf.sturm_bound"}[Sturm bound] and $`30\sqrt{N}` in every case). When the level is at most $`10\,000` and the dimension of $`f` is at most $`20` {bpref "cmf.heckecharpolys"}[Hecke characteristic polynomials] for primes $`p\le 100` are also available.
+
+For each newform $`f` of level $`N\le 10\,000` and each {bpref "cmf.embedding"}[embedding] $`\rho\colon \Q(f)\to \C` the complex numbers $`\rho(a_n)` are available as floating point numbers with a precision of at least $`52` bits (separately, for both real and imaginary parts); this information is available for all newforms, regardless of their dimension, even when algebraic $`a_n` are not available (for the same ranges of $`n` as above).
+
+Dimension tables are available for all newspaces $`S_k^\mathrm{new}(N,\chi)` with $`Nk^2 \le 4000`, and also for those with $`k>1` and $`Nk^2\le 40\,000`, and those with $`N\le 10` and $`Nk^2\le 100\,000`.  For newspaces in these ranges with $`N\le 4000` we have also computed the first $`1000` coefficients of the {bpref "cmf.trace_form"}[trace form] of the newspace.
+
+Not every invariant of every newform has been computed (this is computationally infeasible).  Below is completeness information for some specific invariants:
+
+- The following information is available for every newform of level $`N\le 10\,000`: {bpref "cmf.level"}[level], {bpref "cmf.weight"}[weight], {bpref "cmf.character"}[character], {bpref "cmf.dimension"}[dimension], {bpref "cmf.analytic_conductor"}[analytic conductor], {bpref "cmf.sato_tate"}[Sato-Tate group], {bpref "cmf.trace_form"}[trace form], {bpref "cmf.embedding"}[complex embedding] data, all {bpref "cmf.self_twist"}[self twists], all {bpref "cmf.inner_twist"}[inner twists], all {bpref "cmf.twist"}[twists] to other newforms in the database, the {bpref "cmf.minimal_twist"}[minimal twist], and an upper bound on the {bpref "cmf.analytic_rank"}[analytic rank].
+
+- The following information is available for every newform of dimension at most $`20` and level $`N\le 10000`, and also for every weight one newform: {bpref "cmf.coefficient_field"}[coefficient field], exact algebraic coefficient data, generators for the {bpref "cmf.coefficient_ring"}[coefficient ring], and a lower bound on the index of the coefficient ring in the ring of integers of the coefficient field.
+
+- The following information is available for every weight one newform: {bpref "cmf.projective_image"}[projective image] and {bpref "cmf.projective_image"}[projective field].
+
+- In cases where the odd 2-dimensional {bpref "artin"}[Artin representation] corresponding to a weight one newform is present in the LMFDB, it is listed as a related object and the {bpref "cmf.artin_image"}[Artin image] and {bpref "cmf.artin_field"}[Artin field] of the weight one newform are available, and this information is also available in some cases where a twist of a weight one newform has a corresponding Artin representation in the LMFDB, even though the twisted Artin representation is not in the LMFDB.  As of January 2020 this applies to about 30% of the weight one newforms in the database.
+
+- The database includes all of the 43 newforms that can be expressed as {bpref "cmf.eta_quotient"}[eta quotients] .
+
+- {bpref "cmf.stark_unit"}[Stark units] for $`b=1` are available for weight 1 newforms of dimension 1.
+
+Depends on: {uses "artin"}[] {uses "cmf.analytic_conductor"}[] {uses "cmf.analytic_rank"}[] {uses "cmf.artin_field"}[] {uses "cmf.artin_image"}[] {uses "cmf.character"}[] {uses "cmf.coefficient_field"}[] {uses "cmf.coefficient_ring"}[] {uses "cmf.dimension"}[] {uses "cmf.embedding"}[] {uses "cmf.eta_quotient"}[] {uses "cmf.heckecharpolys"}[] {uses "cmf.inner_twist"}[] {uses "cmf.level"}[] {uses "cmf.minimal_twist"}[] {uses "cmf.newform"}[] {uses "cmf.newspace"}[] {uses "cmf.projective_image"}[] {uses "cmf.q-expansion"}[] {uses "cmf.sato_tate"}[] {uses "cmf.self_twist"}[] {uses "cmf.stark_unit"}[] {uses "cmf.sturm_bound"}[] {uses "cmf.trace_form"}[] {uses "cmf.twist"}[] {uses "cmf.weight"}[]
+:::
+
+:::definition "rcs.cande.cmf_eisenstein"
+*Completeness of classical modular form data.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/rcs.cande.cmf_eisenstein))
+
+The classical modular form database currently contains information for all {bpref "cmf.newform"}[newforms] $`f\in S_k^\mathrm{new}(N,\chi)` of {bpref "cmf.level"}[level] $`N\ge 1`, {bpref "cmf.weight"}[weight] $`k\ge 1`, {bpref "cmf.character"}[character] $`\chi\colon (\Z/N\Z)^\times\to \C`,
+for which any of the following hold:
+
+- $`Nk^2\le 4000`;
+
+- $`\chi` trivial and $`Nk^2\le 40\,000`;
+
+- $`N \le 24` and $`Nk^2 \le 40\,000`;
+
+- $`N \le 10` and $`Nk^2 \le 100\,000`;
+
+- $`N \le 100` and $`k \le 12`;
+
+- $`k > 1` and $`\dim S_k^{\rm new}(N,\chi) \le 100` and $`Nk^2 \le 40\,000`.
+
+- $`k = 2`, $`\chi` is trivial, and $`N\le 50\,000` or $`N \le 10^6` is prime.
+
+In addition to the {bpref "cmf.newspace"}[newspaces] identified above, there are 131 newspaces that are present because they contain the {bpref "cmf.minimal_twist"}[minimal twist] of a newform in one of the newspaces above.
+
+The database also contains information for all {bpref "cmf.eisenstein_newform"}[Eisenstein newforms] $`f\in E_k^\mathrm{new}(N,\chi)` of {bpref "cmf.level"}[level] $`N\ge 1`, {bpref "cmf.weight"}[weight] $`k\ge 2`, {bpref "cmf.character"}[character] $`\chi\colon (\Z/N\Z)^\times\to \C`,
+for which any of the following hold:
+
+- $`Nk^2\le 4000`;
+
+For each newform with {bpref "cmf.q-expansion"}[q-expansion] $`f=\sum a_nq^n` the database contains the integers $`\mathrm{tr}(a_n)` for $`1\le n \le 1000`, and when the level is at most $`10\,000` and the {bpref "cmf.dimension"}[dimension] of $`f` is at most $`20`, the algebraic integers $`a_n` for $`1\le n \le 1000` expressed in terms of an explicit basis for the {bpref "cmf.coefficient_ring"}[coefficient ring] $`\Q(f)`.  For $`1000 < N \le 4000` this data is available for all $`n\le 2000`, and for $`4000 < N\le 10\,000`, for all $`n\le 3000`  (these values exceed both the {bpref "cmf.sturm_bound"}[Sturm bound] and $`30\sqrt{N}` in every case). When the level is at most $`10\,000` and the dimension of $`f` is at most $`20` {bpref "cmf.heckecharpolys"}[Hecke characteristic polynomials] for primes $`p\le 100` are also available.
+
+For each newform $`f` of level $`N\le 10\,000` and each {bpref "cmf.embedding"}[embedding] $`\rho\colon \Q(f)\to \C` the complex numbers $`\rho(a_n)` are available as floating point numbers with a precision of at least $`52` bits (separately, for both real and imaginary parts); this information is available for all newforms, regardless of their dimension, even when algebraic $`a_n` are not available (for the same ranges of $`n` as above).
+
+Dimension tables are available for all newspaces $`S_k^\mathrm{new}(N,\chi)` with $`Nk^2 \le 4000`, and also for those with $`k>1` and $`Nk^2\le 40\,000`, and those with $`N\le 10` and $`Nk^2\le 100\,000`.  For newspaces in these ranges with $`N\le 4000` we have also computed the first $`1000` coefficients of the {bpref "cmf.trace_form"}[trace form] of the newspace.
+
+Not every invariant of every newform has been computed (this is computationally infeasible).  Below is completeness information for some specific invariants:
+
+- The following information is available for every newform of level $`N\le 10\,000`: {bpref "cmf.level"}[level], {bpref "cmf.weight"}[weight], {bpref "cmf.character"}[character], {bpref "cmf.dimension"}[dimension], {bpref "cmf.analytic_conductor"}[analytic conductor], {bpref "cmf.sato_tate"}[Sato-Tate group], {bpref "cmf.trace_form"}[trace form], {bpref "cmf.embedding"}[complex embedding] data, all {bpref "cmf.self_twist"}[self twists], all {bpref "cmf.inner_twist"}[inner twists], all {bpref "cmf.twist"}[twists] to other newforms in the database, the {bpref "cmf.minimal_twist"}[minimal twist], and an upper bound on the {bpref "cmf.analytic_rank"}[analytic rank].
+
+- The following information is available for every newform of dimension at most $`20` and level $`N\le 10000`, and also for every weight one newform: {bpref "cmf.coefficient_field"}[coefficient field], exact algebraic coefficient data, generators for the {bpref "cmf.coefficient_ring"}[coefficient ring], and a lower bound on the index of the coefficient ring in the ring of integers of the coefficient field.
+
+- The following information is available for every weight one newform: {bpref "cmf.projective_image"}[projective image] and {bpref "cmf.projective_image"}[projective field].
+
+- In cases where the odd 2-dimensional {bpref "artin"}[Artin representation] corresponding to a weight one newform is present in the LMFDB, it is listed as a related object and the {bpref "cmf.artin_image"}[Artin image] and {bpref "cmf.artin_field"}[Artin field] of the weight one newform are available, and this information is also available in some cases where a twist of a weight one newform has a corresponding Artin representation in the LMFDB, even though the twisted Artin representation is not in the LMFDB.  As of January 2020 this applies to about 30% of the weight one newforms in the database.
+
+- The database includes all of the 43 newforms that can be expressed as {bpref "cmf.eta_quotient"}[eta quotients] .
+
+- {bpref "cmf.stark_unit"}[Stark units] for $`b=1` are available for weight 1 newforms of dimension 1.
+
+Depends on: {uses "artin"}[] {uses "cmf.analytic_conductor"}[] {uses "cmf.analytic_rank"}[] {uses "cmf.artin_field"}[] {uses "cmf.artin_image"}[] {uses "cmf.character"}[] {uses "cmf.coefficient_field"}[] {uses "cmf.coefficient_ring"}[] {uses "cmf.dimension"}[] {uses "cmf.eisenstein_newform"}[] {uses "cmf.embedding"}[] {uses "cmf.eta_quotient"}[] {uses "cmf.heckecharpolys"}[] {uses "cmf.inner_twist"}[] {uses "cmf.level"}[] {uses "cmf.minimal_twist"}[] {uses "cmf.newform"}[] {uses "cmf.newspace"}[] {uses "cmf.projective_image"}[] {uses "cmf.q-expansion"}[] {uses "cmf.sato_tate"}[] {uses "cmf.self_twist"}[] {uses "cmf.stark_unit"}[] {uses "cmf.sturm_bound"}[] {uses "cmf.trace_form"}[] {uses "cmf.twist"}[] {uses "cmf.weight"}[]
+:::
+
+:::definition "rcs.rigor.cmf"
+*Reliability of the Classical Modular Form Data.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/rcs.rigor.cmf))
+
+All {bpref "cmf"}[modular form] data currently in the database has been computed using rigorous algorithms that do not depend on any unproved assumptions or conjectures.  In particular
+
+- All {bpref "cmf.self_twist"}[self twists] and {bpref "cmf.inner_twist"}[inner twists] have been rigorously verified either by checking exact algebraic coefficients or complex analytic coefficients computed to sufficient precision to uniquely identify every such twist (as of February 2020).
+
+- The {bpref "cmf.analytic_rank"}[analytic ranks] have all been rigorously verified by computing winding elements on spaces of modular symbols (and using the {bpref "lfunction.sign"}[sign] of the functional equation in the case of {bpref "cmf.selfdual"}[self dual] {bpref "cmf.newform"}[newforms]).
+
+- For {bpref "cmf.weight"}[weight] 1 newforms, the  classification of the {bpref "cmf.projective_image"}[projective image] as $`D_n`, $`A_4`, $`S_4`, $`A_5` has been rigorously verified by explicitly computing the {bpref "cmf.projective_field"}[projective field] (as of August 2019).
+
+In addition to using mathematically rigorous algorithms whenever possible, we have performed a variety of consistency checks intended to catch any errors in the software packages used to compute modular forms data, or any errors that might have been introduced during post-processing.  The following checks have been performed:
+
+- All newforms of weight $`k > 1` and {bpref "cmf.level"}[level] $`N` satisfying $`Nk^2 \le 2000` have been independently computed using [Magma](http://magma.maths.usyd.edu.au/magma/) and [Pari/GP](https//pari.math.u-bordeaux.fr/).  By comparing the results of these computations we have verified that the decompositions of each {bpref "cmf.newspace"}[newspace] $`S_k^{\rm new}(N,\chi)` into  {bpref "cmf.galois_orbit"}[Galois orbits] agree (with matching {bpref "cmf.coefficient_field"}[coefficient fields]), that the first 1000 coefficients of the {bpref "cmf.trace_form"}[trace forms] for each Galois orbit agree, and for newforms of {bpref "cmf.dimension"}[dimension] $`d\le 20`, that there is an automorphism of the coefficient field that relates the sequences of algebraic eigenvalues $`(a_1,\ldots,a_{1000})` computed by Pari and Magma.
+
+- For all newforms of weight $`k>1` and level $`N` satisfying $`Nk^2 \le 4000` we have verified that the trace forms computed by Magma (using modular symbols) agree with the trace forms obtained from complex analytic data computed using the explicit trace formula.  This also verifies the dimensions of the coefficient fields.
+
+- For newforms of weight $`k=1` and level $`N\le 1000` we have matched the data computed using Pari/GP with the tables computed by Buzzard and Lauder .
+
+- For dihedral newforms of weight $`k=1` and level $`N\le 4000` we have matched trace forms with data computed using the explicit trace formula in Pari/GP with data computed independently in both Pari/GP and Magma using class field theoretic methods.
+
+See  for further details.
+
+Depends on: {uses "cmf"}[] {uses "cmf.analytic_rank"}[] {uses "cmf.coefficient_field"}[] {uses "cmf.dimension"}[] {uses "cmf.galois_orbit"}[] {uses "cmf.inner_twist"}[] {uses "cmf.level"}[] {uses "cmf.newform"}[] {uses "cmf.newspace"}[] {uses "cmf.projective_field"}[] {uses "cmf.projective_image"}[] {uses "cmf.self_twist"}[] {uses "cmf.selfdual"}[] {uses "cmf.trace_form"}[] {uses "cmf.weight"}[] {uses "lfunction.sign"}[]
+:::
+
+:::definition "rcs.rigor.cmf_eisenstein"
+*Reliability of the Classical Modular Form Data.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/rcs.rigor.cmf_eisenstein))
+
+All {bpref "cmf"}[modular form] data currently in the database has been computed using rigorous algorithms that do not depend on any unproved assumptions or conjectures.  In particular
+
+- All {bpref "cmf.self_twist"}[self twists] and {bpref "cmf.inner_twist"}[inner twists] have been rigorously verified either by checking exact algebraic coefficients or complex analytic coefficients computed to sufficient precision to uniquely identify every such twist (as of February 2020).
+
+- The {bpref "cmf.analytic_rank"}[analytic ranks] have all been rigorously verified by computing winding elements on spaces of modular symbols (and using the {bpref "lfunction.sign"}[sign] of the functional equation in the case of {bpref "cmf.selfdual"}[self dual] {bpref "cmf.newform"}[newforms]).
+
+- For {bpref "cmf.weight"}[weight] 1 newforms, the  classification of the {bpref "cmf.projective_image"}[projective image] as $`D_n`, $`A_4`, $`S_4`, $`A_5` has been rigorously verified by explicitly computing the {bpref "cmf.projective_field"}[projective field] (as of August 2019).
+
+In addition to using mathematically rigorous algorithms whenever possible, we have performed a variety of consistency checks intended to catch any errors in the software packages used to compute modular forms data, or any errors that might have been introduced during post-processing.  The following checks have been performed:
+
+- All newforms and Eisenstein newforms of weight $`k > 1` and {bpref "cmf.level"}[level] $`N` satisfying $`Nk^2 \le 2000` have been independently computed using [Magma](http://magma.maths.usyd.edu.au/magma/) and [Pari/GP](https//pari.math.u-bordeaux.fr/).  By comparing the results of these computations we have verified that the decompositions of each {bpref "cmf.newspace"}[newspace] $`S_k^{\rm new}(N,\chi)` into  {bpref "cmf.galois_orbit"}[Galois orbits] agree (with matching {bpref "cmf.coefficient_field"}[coefficient fields]), that the first 1000 coefficients of the {bpref "cmf.trace_form"}[trace forms] for each Galois orbit agree, and for newforms of {bpref "cmf.dimension"}[dimension] $`d\le 20`, that there is an automorphism of the coefficient field that relates the sequences of algebraic eigenvalues $`(a_1,\ldots,a_{1000})` computed by Pari and Magma.
+
+- For all newforms and Eisenstein newforms of weight $`k>1` and level $`N` satisfying $`Nk^2 \le 4000` we have verified that the trace forms computed by Magma (using modular symbols) agree with the trace forms obtained from complex analytic data computed using the explicit trace formula.  This also verifies the dimensions of the coefficient fields.
+
+- For newforms of weight $`k=1` and level $`N\le 1000` we have matched the data computed using Pari/GP with the tables computed by Buzzard and Lauder .
+
+- For dihedral newforms of weight $`k=1` and level $`N\le 4000` we have matched trace forms with data computed using the explicit trace formula in Pari/GP with data computed independently in both Pari/GP and Magma using class field theoretic methods.
+
+See  for further details.
+
+Depends on: {uses "cmf"}[] {uses "cmf.analytic_rank"}[] {uses "cmf.coefficient_field"}[] {uses "cmf.dimension"}[] {uses "cmf.galois_orbit"}[] {uses "cmf.inner_twist"}[] {uses "cmf.level"}[] {uses "cmf.newform"}[] {uses "cmf.newspace"}[] {uses "cmf.projective_field"}[] {uses "cmf.projective_image"}[] {uses "cmf.self_twist"}[] {uses "cmf.selfdual"}[] {uses "cmf.trace_form"}[] {uses "cmf.weight"}[] {uses "lfunction.sign"}[]
 :::
 
 :::definition "specialfunction.poincare" (lean := "ModularForm.poincareSeries, ModularForm.poincareSeries_eq_tsum_of_section, ModularForm.hasSum_poincareSeries_of_three_le, ModularForm.mdifferentiable_poincareSeries_of_three_le, ModularForm.poincareSeries_mem_multiplierCuspSpace, ModularForm.span_poincareSeries_eq_multiplierCuspSpace_of_finiteIndex, ModularForm.exists_poincareSeries_eq_of_smul_infty_eq, ModularForm.poincareSeries_coe_mul")

@@ -13,7 +13,7 @@ tag := "abelian-varieties-fq"
 file := "Abelian-varieties-over-Fq"
 %%%
 
-This section lists the LMFDB definitions in the subcategory `av.fq`. Each definition links back to its LMFDB knowl. `field.finite.conway_polynomial` also belongs here, although its id puts it in another LMFDB category.
+This section lists the LMFDB definitions in the subcategory `av.fq`. Each definition links back to its LMFDB knowl. `field.finite.conway_polynomial` also belongs here, although its id puts it in another LMFDB category. It also lists the knowl about the LMFDB's data on this subject that has mathematical content, from the category `rcs`.
 
 :::definition "av.fq.all_polarizations_product"
 *(In)decomposable polarized abelian variety.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.fq.all_polarizations_product))
@@ -45,6 +45,12 @@ Depends on: {uses "ag.abelian_variety"}[] {uses "ag.dimension"}[] {uses "av.fq.s
 The {bpref "av.fq.frobenius_order"}[Frobenius order] of an {bpref "av.isogeny_class"}[isogeny class] of abelian varieties over a finite field is *Bass* if all over-orders for the order $`\mathbb{Z}[F,V]` are Gorenstein, where $`F` is the Frobenius endomorphism and $`V` is the Verschiebung endomorphism.
 
 Depends on: {uses "av.isogeny_class"}[]
+:::
+
+:::definition "av.fq.class_number_1"
+*Function fields of class number 1.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.fq.class_number_1))
+
+There are exactly 8 isomorphism classes of curves over finite fields with trivial class group. Of these, 7 were identified by Madan and Queen in 1972 ; it was claimed by Leitzel, Madan, and Queen in 1975  that this list is complete. The 8th example was found by Stirpe in 2014 , and completeness of the resulting list was proved independently by Mercuri and Stirpe  and Shen and Shi .
 :::
 
 :::definition "av.fq.conductor" (lean := "Submodule.mem_div_iff_forall_mul_mem, integralClosure, conductor, TauCeti.GlobalNumberFields.NumberFieldOrder.conductor")
@@ -330,6 +336,20 @@ If the {bpref "av.fq.weil_polynomial"}[Weil polynomial] of an {bpref "av.isogeny
 Depends on: {uses "ag.base_field"}[] {uses "av.fq.weil_polynomial"}[] {uses "av.isogeny_class"}[]
 :::
 
+:::definition "av.fq.one_rational_point"
+*Abelian varieties with one rational point.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.fq.one_rational_point))
+
+The classification (up to {bpref "av.isogeny"}[isogeny]) of simple {bpref "ag.abelian_variety"}[abelian varieties] over finite fields with only one rational point has been given by Madan-Pal . It consists of an infinite family of examples over $`\F_2`, together with six sporadic examples over $`\F_2` and one each over $`\F_3` and $`\F_4`.
+
+The infinite family consists of, for each positive integer $`m \neq 1,2,7,30`, an abelian variety of dimension $`\varphi(m)` with Weil polynomial
+
+$$`\prod_{1 \leq k \leq m/2; (k,m) = 1} \left(
+1 -  \left(\left( 1 -  \cos \frac{2 \pi k}{m} \right)\pm \sqrt{ \left(2 + \cos \frac{2\pi k}{m} \right)^2 - 1 }\right) x + 2x^2
+\right).`
+
+Depends on: {uses "ag.abelian_variety"}[] {uses "av.isogeny"}[]
+:::
+
 :::definition "av.fq.order"
 *Order in an étale algebra.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.fq.order))
 
@@ -477,4 +497,50 @@ Then, the Conway polynomial is the first polynomial $`f_{p,n}` of degree $`n` un
 $$`f_{p,m}(x^{(p^n-1)/(p^m-1)}) \equiv 0 \pmod{f_{p,n}},`
 
 i.e., the $`(p^n-1)/(p^m-1)`th power of a root of $`f_{p,n}` is a root of $`f_{p,m}`.
+:::
+
+:::definition "rcs.source.av.fq"
+*Source of isogeny classes of abelian varieties over finite fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/rcs.source.av.fq))
+
+The computation is based of the {bpref "av.fq.honda_tate"}[Honda-Tate theorem] which states that isogeny classes of abelian varieties over finite fields are completely determined by the characteristic polynomial of their Frobenius automorphism acting on the first $`\ell`-adic cohomology group. For a given dimension $`g` and base field of size $`q`, a complete list of all {bpref "av.fq.weil_polynomial"}[Weil polynomials] that do occur can be enumerated using a technique developed by Kedlaya . In 2016, Dupuy, Kedlaya, Roe, and Vincent improved upon Kedlaya's original code to generate these tables and the data they contain .
+
+See also the article of Kedlaya and Sutherland , where these techniques are used to compute Weil polynomials for K3 surfaces.
+
+The determination of which isogeny classes contain Jacobians includes the constraint that if $`X` is a curve over $`\F_q`, then the number of degree-$`n` places of $`X` is nonnegative for all positive integers $`n`; together with additional constraints from: Howe and Lauter, New methods for bounding the number of points on curves over finite fields . This incorporates prior results from the following papers.
+
+- Howe and Lauter, Improved upper bounds for the number of points on curves over finite fields
+
+- Howe, Maisner, Nart, and Ritzenthaler, Principally polarizable isogeny classes of abelian surfaces over finite fields
+
+- Howe, Nart, and Ritzenthaler, Jacobians in isogeny classes of abelian surfaces over finite fields
+
+- Korchmáros and Torres, On the genus of a maximal curve
+
+- Serre, Rational points on curves over finite fields, [URL](http://www.math.rug.nl/~top/Serrelectures.pdf) (see also [manYPoints database](https://manypoints.org))
+
+- Stohr and Voloch, Weierstrass points and curves over finite field
+
+- Zaytsev, An improvement of the Hasse-Weil-Serre bound for curves over some finite fields
+
+- Zaytsev, Optimal curves of low genus over finite fields
+
+The list of curves with Jacobian in a given isogeny class were computed by:
+
+- Andrew Sutherland (dimensions $`2` and $`3` except as otherwise indicated);
+
+- Everett Howe (hyperelliptics in dimensions $`3`, $`4`, and $`5` over $`\F_q` with $`q` odd; );
+
+- Xavier Xarles (dimension $`4` over $`\F_2`; );
+
+- Kiran Kedlaya (hyperelliptics in dimensions $`3` and $`4` over $`\F_q` with $`q>2` even, using the method of Xarles);
+
+- Jonas Bergström, Carel Faber, and Sam Payne (dimension $`4` over $`\F_3`; );
+
+- Dusan Dragutinović (dimension $`5` over $`\F_2`; );
+
+- Steve Huang, Kiran Kedlaya and Jun Bo Lau (dimension $`6` over $`\F_2`; ).
+
+{bpref "av.fq.cyclic_group_points"}[Cyclic] isogeny classes and lists of {bpref "av.fq.noncyclic_primes"}[noncyclic primes] primes were computed by Haonan Gu, using results of Alejandro J. Giangreco-Maidana .
+
+Depends on: {uses "av.fq.cyclic_group_points"}[] {uses "av.fq.honda_tate"}[] {uses "av.fq.weil_polynomial"}[]
 :::

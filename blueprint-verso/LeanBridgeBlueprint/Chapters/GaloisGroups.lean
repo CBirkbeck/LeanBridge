@@ -11,6 +11,16 @@ open Informal
 
 This section lists the LMFDB definitions in the category `gg`. Each definition links back to its LMFDB knowl.
 
+:::definition "gg.arithmetically_equiv_input"
+*Input for arithmetically equivalent fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gg.arithmetically_equiv_input))
+
+Suppose a {bpref "nf"}[number field] $`K` has {bpref "nf.galois_closure"}[Galois closure] with {bpref "nf.galois_group"}[Galois group] $`G`, has $`k` {bpref "nf.arithmetically_equivalent"}[arithmetically equivalent fields], not including itself.  The number $`k` is an invariant of the Galois group $`G`.
+
+The number $`k` has not been computed for all Galois groups.  To see groups for which it has not been computed, use the value $`-1`.
+
+Depends on: {uses "nf"}[] {uses "nf.arithmetically_equivalent"}[] {uses "nf.galois_closure"}[] {uses "nf.galois_group"}[]
+:::
+
 :::definition "gg.arithmetically_equivalent"
 *Arithmetically equivalent siblings.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gg.arithmetically_equivalent))
 
@@ -258,6 +268,30 @@ Depends on: {uses "gg.galois_group"}[] {uses "gg.other_representations"}[] {uses
 A transitive permutation {bpref "group"}[group] $`G` is *semiconcentrated* if there exists an element of minimal {bpref "gg.index"}[index] so that the minimal normal subgroup containing it is a {bpref "group.proper_subgroup"}[proper] subgroup of $`G`.
 
 Depends on: {uses "gg.index"}[] {uses "group"}[] {uses "group.proper_subgroup"}[]
+:::
+
+:::definition "gg.simple_name" (lean := "IsCyclic, DihedralGroup.nat_card, alternatingGroup, Equiv.Perm, SemidirectProduct, GroupExtension, TauCeti.PermutationWreathProduct")
+*Simple group name.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/gg.simple_name))
+
+We describe abstract groups using standard building blocks:
+<ul>
+ <li> $`C_n` denotes the cyclic group of order $`n`
+ <li> $`D_n` denotes the dihedral group of order $`2n`
+ <li> $`A_n` denotes the alternating group on $`n` letters
+ <li> $`S_n` denotes the symmetric group on $`n` letters
+</ul>
+
+Groups $`A` and $`B` may be used to construct a larger group:
+
+- $`A\times B` for the direct product of $`A` and $`B`
+
+- $`A:B` for the semidirect product of $`A` and $`B` (with normal subgroup $`A`)
+
+- $`A.B` an extension with normal subgroup $`A` and quotient isomorphic to $`B`
+
+- $`A\wr B` for the wreath product of A and B
+
+Tau Ceti Review: [`IsCyclic`](https://taucetiproject.org/review/#/d/IsCyclic), [`DihedralGroup.nat_card`](https://taucetiproject.org/review/#/d/DihedralGroup.nat_card), [`alternatingGroup`](https://taucetiproject.org/review/#/d/alternatingGroup), [`Equiv.Perm`](https://taucetiproject.org/review/#/d/Equiv.Perm), [`SemidirectProduct`](https://taucetiproject.org/review/#/d/SemidirectProduct), [`GroupExtension`](https://taucetiproject.org/review/#/d/GroupExtension), [`TauCeti.PermutationWreathProduct`](https://taucetiproject.org/review/#/d/TauCeti.PermutationWreathProduct).
 :::
 
 :::definition "gg.subfields" (lean := "IntermediateField, TauCeti.rootBlockIntermediateFieldOrderIso")

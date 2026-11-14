@@ -156,6 +156,18 @@ $$`\mathcal{PM}(A) = \{ \lambda \in \Hom_{\Z_F}(A, A^{\vee}) : \lambda = \lambda
 The *polarization cone* is the cone of polarizations $`\mathcal{PM}^+(A) \subseteq \mathcal{PM}(A)`, which equips the polarization module with a notion of positivity as a $`\Z_F`-module. We say that a polarization module is \*isomorphic\* to a fractional ideal $`J` of $`\Z_F` if there is an orientation preserving $`\Z_F`-module isomorphism $`\phi : \mathcal{PM}(A) \to J`, i.e. such that $`\phi(\mathcal{PM}^+(A)) = J^+`.
 :::
 
+:::definition "hmsurface.standard_hmsurfaces"
+*Standard Hilbert modular surfaces.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/hmsurface.standard_hmsurfaces))
+
+Let $`\Gamma` be the {bpref "hmsurface.congruence_subgroup"}[congruence subgroup] associated to a {bpref "hmsurface.hmsurface"}[Hilbert modular surface]. Similar to families of modular curves, each type of congruence subgroup parametrizes abelian varieties with certain level structure.
+
+Presently, two special cases are prioritized in this database, namely,
+{bpref "hmsurface.x0"}[$`\Gamma_0(\mathfrak{N})_{\mathfrak{b}}`] and
+{bpref "hmsurface.x01"}[$`\Gamma_0^1(\mathfrak{N})_{\mathfrak{b}}`].
+
+Depends on: {uses "hmsurface.congruence_subgroup"}[] {uses "hmsurface.hmsurface"}[] {uses "hmsurface.x0"}[] {uses "hmsurface.x01"}[]
+:::
+
 :::definition "hmsurface.x0"
 $`X_0(\mathfrak{N})_{\mathfrak{b}}` is the {bpref "hmsurface.hmsurface"}[Hilbert modular surface] $`X(\Gamma)` for $`\Gamma = \Gamma_0(\mathfrak{N})_{\mathfrak{b}} \le \GL^+(\Z_F \oplus \frak{b})` the inverse image of $`\begin{pmatrix} \ast & \ast \\ 0 & \ast \end{pmatrix} \subset \GL((\Z_F/\frak{N}) \oplus (\frak{b} / \frak{N} \frak{b}))`. As a moduli space it parameterizes triples $`(A, \iota, \phi)`, where $`A` is an abelian surface over $`\Q` whose {bpref "hmsurface.polarization_module"}[polarization module] is isomorphic to $`(\frak{d}_F \frak{b})^{-1}` where $`\frak{d}_F` is the different of $`F`, $`\iota : \Z_F \to \End(A_{\overline{\Q}})` is an embedding and $`\phi : A \to A'` is a rational isogeny with kernel isomorphic to $`\Z_F / \frak{N}`, compatible with $`\iota`.
 

@@ -13,7 +13,22 @@ tag := "bianchi-modular-forms"
 file := "Bianchi-modular-forms"
 %%%
 
-This section lists the LMFDB definitions in the subcategory `mf.bianchi`. Each definition links back to its LMFDB knowl.
+This section lists the LMFDB definitions in the subcategory `mf.bianchi`. Each definition links back to its LMFDB knowl. It also lists the knowls about the LMFDB's data on this subject that have mathematical content, from the categories `dq` and `rcs`.
+
+:::definition "dq.mf.bianchi.source" (lean := "IsNatEuclidean, NumberField.isNatEuclidean_ringOfIntegers_of_sq_eq_neg, NumberField.isTotallyComplex_of_sq_eq_neg, NumberField.isNatEuclidean_of_forall_exists_abs_norm_sub_lt_one, NumberField.isNatEuclidean_ringOfIntegers_quadraticAlgebra, NumberField.isTotallyComplex_quadraticAlgebra")
+*Source of Bianchi modular form data.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/dq.mf.bianchi.source))
+
+The database of Bianchi modular forms was mostly computed by John Cremona using modular symbol algorithms developed in his [1981 DPhil thesis](http://http://www.warwick.ac.uk/staff/J.E.Cremona/theses/JCthesis-scan.pdf) (see also [J. E. Cremona,
+Hyperbolic tessellations, modular symbols, and
+elliptic curves over complex quadratic fields
+Compositio Mathematica, tome 51, no 3 (1984), p. 275-324](http://http://www.numdam.org/article/CM_1984_{_51}_3_275_0.pdf)) for the five fields $`\mathbb{Q}(\sqrt{-1})`,  $`\mathbb{Q}(\sqrt{-2})`, $`\mathbb{Q}(\sqrt{-3})`, $`\mathbb{Q}(\sqrt{-7})`, and $`\mathbb{Q}(\sqrt{-11})`.  The open source code implementing the algorithm is available on [GitHub](https://github.com/JohnCremona/bianchi-progs); it depends also on the C++ library [eclib](https://github.com/JohnCremona/eclib).  The code is currently limited to these five Euclidean imaginary quadratic fields, and only computes {bpref "mf.bianchi"}[cuspidal] {bpref "mf.bianchi.weight"}[weight] 2 newforms with trivial character and {bpref "mf.bianchi.newform"}[dimension] $`1` (that is, having rational coefficients).
+
+Forms of dimension 2 over $`\mathbb{Q}(\sqrt{-1})` were computed by Ciaran Schembri using the [Magma package](http://magma.maths.usyd.edu.au/magma/handbook/modular_forms_over_imaginary_quadratic_fields/) written by Dan Yasaki.
+
+Dimension data for full cuspidal and new spaces for a range of weights and $`SL_2` levels over $`\mathbb{Q}(\sqrt{-d})` for $`d=2,11,19,43,67,163` were computed by Alexander Rahm using [his own code](http://math.uni.lu/~rahm/) written in PARI/GP.
+
+Depends on: {uses "mf.bianchi"}[] {uses "mf.bianchi.newform"}[] {uses "mf.bianchi.weight"}[]
+:::
 
 :::definition "mf.bianchi"
 *Bianchi modular form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.bianchi))
@@ -294,4 +309,57 @@ $$`\int_{\mathbb{C} / \mathcal{O}_K} (F| \gamma )(x,y) dx = 0`
 for every $`\gamma \in \textrm{PSL}_2(\mathcal{O}_K).`
 
 This condition is equivalent to saying that the constant coefficient in the Fourier-Bessel expansion of $`F|\gamma` is equal to zero for every $`\gamma \in \textrm{PSL}_2(\mathcal{O}_K)`.
+:::
+
+:::definition "rcs.cande.mf.bianchi"
+*Completeness of Bianchi modular form data.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/rcs.cande.mf.bianchi))
+
+The database contains information about {bpref "mf.bianchi"}[Bianchi modular forms] over all imaginary quadratic {bpref "nf"}[number fields] of absolute discrimant up to $`2500`,  for a range of levels which depends on the field.
+
+*Newform data*
+
+{bpref "mf.bianchi.newform"}[Bianchi Newform] data is available for levels of the form $`\Gamma_0(\mathfrak{n})\le \GL_2(\mathcal{O}_K)` and not for the larger spaces forms of level $`\Gamma_0(\mathfrak{n})\cap \SL_2(\mathcal{O}_K)`.
+
+For $`763` imaginary quadratic fields, which are all those of {bpref "nf.abs_discriminant"}[absolute discriminant] less than $`2500` and include all of
+{bpref "nf.class_number"}[class number] $`{}\le5` except $`\Q(\sqrt{-2683})`,  the database contains details of Bianchi newforms of {bpref "mf.bianchi.weight"}[weight] $`2` and trivial character, and {bpref "mf.bianchi.newform"}[dimension] $`1`, for levels of norm up to a bound that depends on the field.  Note that for some of these fields there are no newforms of dimension $`1` with level in this range.
+<table>
+<tr>
+<th>{bpref "nf.abs_discriminant"}[Absolute discriminant]<td>3<td>4<td>7, 8, 11<td>19, 43<td>67<td>163<td>23<td>31
+<td>15, 20, 24, 35--120
+<td>121--1000
+<td>1001-2100
+<td>2101-2500
+</tr>
+<tr>
+<th>Level norm bound<td>150000<td>100000<td>50000<td>15000<td>10000<td>5000<td>3000<td>5000<td align="center">1000<td align="center">100<td align="center">15<td align="center">11
+</tr>
+</table>
+
+<!---Over $`\mathbb{Q}(\sqrt{-1})` only,  for levels of norm up to 5000, we also have all newforms of dimension 2.--->
+
+For each newform of dimension 1, the database contains all Atkin-Lehner eigenvalues and Hecke eigenvalues $`a_{\mathfrak{p}}` for the first few primes $`\mathfrak{p}` by norm.  <!---For the newforms of dimension 2 it contains the first fifteen $`a_{\mathfrak{p}}`, but no Atkin-Lehner eigenvalues.--->
+
+*Dimension data*
+
+Dimension data for full cuspidal and new spaces for a range of {bpref "mf.bianchi.weight"}[weights] and $`\SL_2`-levels over the imaginary quadratic fields of discriminant -8, -11, -19, -43, -67, -163  are available.
+<!---$`\SL_2`-dimension data for the three remaining imaginary quadratic fields of class number one (discriminants -3, -4, -7) is in preparation.--->
+
+Over each of the  imaginary quadratic fields and levels in the range given in the table above, the database contains the dimensions of the full {bpref "mf.bianchi.weight2"}[cuspidal] space and the  new subspace at each $`\GL_2`-{bpref "mf.bianchi.level"}[level], for {bpref "mf.bianchi.weight"}[weight] $`2` forms with trivial character. Over some of these fields we also have the cuspidal and new dimensions for a range of $`\SL_2`-levels, and for a range of {bpref "mf.bianchi.weight"}[weights].
+
+Depends on: {uses "mf.bianchi"}[] {uses "mf.bianchi.level"}[] {uses "mf.bianchi.newform"}[] {uses "mf.bianchi.weight"}[] {uses "mf.bianchi.weight2"}[] {uses "nf"}[] {uses "nf.abs_discriminant"}[] {uses "nf.class_number"}[]
+:::
+
+:::definition "rcs.source.mf.bianchi"
+*Source of Bianchi modular form data.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/rcs.source.mf.bianchi))
+
+The database of {bpref "mf.bianchi"}[Bianchi modular forms] was mostly computed by John Cremona using modular symbol algorithms developed in his [1981 DPhil thesis](http://http://www.warwick.ac.uk/staff/J.E.Cremona/theses/JCthesis-scan.pdf) (see also [J. E. Cremona,
+Hyperbolic tessellations, modular symbols, and
+elliptic curves over complex quadratic fields
+Compositio Mathematica, tome 51, no 3 (1984), p. 275-324](http://http://www.numdam.org/article/CM_1984_{_51}_3_275_0.pdf)) for the five fields $`\mathbb{Q}(\sqrt{-1})`,  $`\mathbb{Q}(\sqrt{-2})`, $`\mathbb{Q}(\sqrt{-3})`, $`\mathbb{Q}(\sqrt{-7})`, and $`\mathbb{Q}(\sqrt{-11})`.  This algorithm was extended to handle the other four fields of {bpref "nf.class_number"}[class number] one ($`\mathbb{Q}(\sqrt{-19})`, $`\mathbb{Q}(\sqrt{-43})`, $`\mathbb{Q}(\sqrt{-67})`, $`\mathbb{Q}(\sqrt{-163})`) by Elise Whitley in her  [1990 PhD thesis](http://hdl.handle.net/10871/8427), to $`\mathbb{Q}(\sqrt{-5})` by Jeremy Bygott in his [1999 PhD thesis](http://hdl.handle.net/10871/8322), and to the fields $`\mathbb{Q}(\sqrt{-23})` and $`\mathbb{Q}(\sqrt{-31})` of class number $`3` by Mark Lingham in his [2005 PhD thesis](http://eprints.nottingham.ac.uk/10138/). These extended algorithms were reimplemented by John Cremona in 2021-2022. The open source code <tt>bianchi-progs</tt> implementing the algorithm in C++ is available on [GitHub](https://github.com/JohnCremona/bianchi-progs); it depends on the C++ library [eclib](https://github.com/JohnCremona/eclib).  The code is currently (as of December 2022) limited to the fields of {bpref "nf.abs_discriminant"}[absolute discriminant] less than $`100` or equal to $`163`, so includes the nine imaginary quadratic fields of class number one, and a number of fields of class number up to $`8`. It only computes newforms data for forms of {bpref "mf.bianchi"}[cuspidal] {bpref "mf.bianchi.weight"}[weight] $`2`  with trivial character and {bpref "mf.bianchi.newform"}[dimension] $`1`.
+
+<!--- Forms of dimension 2 over $`\mathbb{Q}(\sqrt{-1})` were computed by Ciaran Schembri using the [Magma package](http://magma.maths.usyd.edu.au/magma/handbook/modular_forms_over_imaginary_quadratic_fields/) written by Dan Yasaki. --->
+
+Dimension data for full cuspidal and new spaces for a range of weights and $`\mathrm{SL}_2` levels over $`\mathbb{Q}(\sqrt{-d})` for $`d=2,11,19,43,67,163` were computed by Alexander Rahm using [his own code](https://gaati.org/rahm/MathematicalSoftware.htm) written in PARI/GP.
+
+Depends on: {uses "mf.bianchi"}[] {uses "mf.bianchi.newform"}[] {uses "mf.bianchi.weight"}[] {uses "nf.abs_discriminant"}[] {uses "nf.class_number"}[]
 :::

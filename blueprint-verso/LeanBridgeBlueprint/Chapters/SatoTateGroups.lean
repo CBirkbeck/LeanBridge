@@ -13,7 +13,25 @@ tag := "sato-tate-groups"
 file := "Sato-Tate-groups"
 %%%
 
-This section lists the LMFDB definitions in the category `st_group`. Each definition links back to its LMFDB knowl.
+This section lists the LMFDB definitions in the category `st_group`. Each definition links back to its LMFDB knowl. It also lists the knowls about the LMFDB's data on this subject that have mathematical content, from the category `rcs`.
+
+:::definition "rcs.cande.st_group" (lean := "SatoTateGroup.IsRationalSubgroup, SatoTateGroup.IsRational, TauCeti.character_rationalWeylRep_fin_one, SatoTateGroup.exists_setIntegral_character_div_eq_intCast, SatoTateGroup.isRationalSubgroup_iff_le_ambientGroup, SatoTateGroup.setOf_isRationalSubgroup_eq, SatoTateGroup.ncard_setOf_isRationalSubgroup, SatoTateGroup.isRational_of_weight_eq_zero_of_degree_eq_one")
+*Completeness of Sato-Tate Group Data.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/rcs.cande.st_group))
+
+The database currently contains all {bpref "st_group.rational"}[rational] {bpref "st_group.definition"}[Sato-Tate groups] of {bpref "st_group.weight"}[weight] 1 and {bpref "st_group.degree"}[degree] up to 6, as well as the two rational Sato-Tate groups of weight 0 and degree 1. Pages for irrational Sato-Tate groups of weight 0 and degree 1 are available for component groups of order up to $`10^{20}`, but only those order up to $`10^{4}` are shown in search results.
+
+Depends on: {uses "st_group.definition"}[] {uses "st_group.degree"}[] {uses "st_group.rational"}[] {uses "st_group.weight"}[]
+:::
+
+:::definition "rcs.rigor.st_group"
+*Reliability of Sato-Tate Group Data.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/rcs.rigor.st_group))
+
+All data in the Sato-Tate group database was computed using rigorous algorithms that do not depend on any unproved hypotheses.
+
+The completeness of the list of 52 {bpref "st_group.rational"}[rational] Sato-Tate groups of {bpref "st_group.weight"}[weight] 1 and {bpref "st_group.degree"}[degree] 4 in the database is the main theorem of .  As noted in this paper, there are 3 additional subgroups of $`\mathrm{USp}(4)` that satisfy the Sato-Tate axioms in weight 1 but do not arise as Sato--Tate groups of abelian surfaces; these are not included in the database.
+
+Depends on: {uses "st_group.degree"}[] {uses "st_group.rational"}[] {uses "st_group.weight"}[]
+:::
 
 :::definition "st_group.ambient"
 *Ambient group of a Sato-Tate group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.ambient))
@@ -94,6 +112,14 @@ The *degree* $`d` of a {bpref "st_group.definition"}[Sato-Tate group] is the deg
 For an {bpref "ag.abelian_variety"}[abelian variety] $`A` over a {bpref "nf"}[number field], the degree $`d` of its Sato-Tate group is twice its dimension $`g` as an abelian variety (if $`A=\mathrm{Jac}(C)` is the {bpref "ag.jacobian"}[Jacobian] of a curve $`C`, then $`g` is also the genus of $`C`).  The degree $`d=2g` is then also the degree of the characteristic polynomials of the Frobenius endomorphism of the reductions of $`A` modulo good primes.
 
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.dimension"}[] {uses "ag.jacobian"}[] {uses "nf"}[] {uses "st_group.definition"}[]
+:::
+
+:::definition "st_group.embedding"
+*Embedding of a Sato-Tate group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.embedding))
+
+In order to explicitly compute moments and other invariants of a {bpref "st_group.definition"}[Sato-Tate group] it is necessary to specify (up to conjugacy) exactly how it is embedded in its {bpref "st_group.ambient"}[ambient group]; for example, subgroups that are isomorphic as real Lie groups may have different distributions of characteristic polynomials.
+
+Depends on: {uses "st_group.ambient"}[] {uses "st_group.definition"}[]
 :::
 
 :::definition "st_group.first_a2_moment"
@@ -278,6 +304,19 @@ Depends on: {uses "ag.endomorphism_algebra"}[] {uses "group.haar_measure"}[] {us
 For a {bpref "st_group.definition"}[Sato-Tate group] $`G`, its *maximal subgroups* are the proper subgroups $`H` of $`G` of finite index that are not contained in any other proper subgroup of $`G`; such groups necessarily have the same {bpref "st_group.identity_component"}[identity component] $`H^0=G^0` as $`G`.
 
 Depends on: {uses "st_group.definition"}[] {uses "st_group.identity_component"}[]
+:::
+
+:::definition "st_group.subsupgroups"
+*Sato-Tate subgroups and supergroups.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.subsupgroups))
+
+For a fixed {bpref "st_group.weight"}[weight] $`w` and {bpref "st_group.degree"}[degree] $`d`, the set of (conjugacy classes of) {bpref "st_group.definition"}[Sato-Tate groups] $`G` with the same {bpref "st_group.identity_component"}[identity component] $`G^0` form a partially ordered set under inclusion.
+ This partially ordered set is finite if we restrict to {bpref "st_group.rational"}[rational] Sato-Tate groups, but it need not contain a unique maximal element.
+
+The set of {bpref "st_group.subgroups"}[maximal subgroups] of a Sato-Tate group is always finite, since {bpref "st_group.component_group"}[component groups] are finite, but the list of {bpref "st_group.supgroups"}[minimal supergroups] is not finite in general.
+
+For rational Sato-Tate groups the set of minimal supergroups that are also rational is finite, and we restrict to these when listing minimal supergroups of rational Sato-Tate groups; for irrational Sato-Tate groups we list just the first few minimal supergroups.
+
+Depends on: {uses "st_group.component_group"}[] {uses "st_group.definition"}[] {uses "st_group.degree"}[] {uses "st_group.identity_component"}[] {uses "st_group.rational"}[] {uses "st_group.subgroups"}[] {uses "st_group.supgroups"}[] {uses "st_group.weight"}[]
 :::
 
 :::definition "st_group.supgroups"

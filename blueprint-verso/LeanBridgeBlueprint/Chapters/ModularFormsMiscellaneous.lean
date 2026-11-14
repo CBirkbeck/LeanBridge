@@ -95,6 +95,141 @@ It is possible for a modular form to have more than one self twist; this occurs 
 Depends on: {uses "character.dirichlet"}[] {uses "character.dirichlet.order"}[] {uses "character.dirichlet.primitive"}[] {uses "cmf.level"}[] {uses "cmf.newform"}[] {uses "cmf.projective_image"}[] {uses "cmf.rm_form"}[] {uses "cmf.weight"}[] {uses "nf.discriminant"}[]
 :::
 
+:::definition "mf.gl2.history.combinatorics"
+*Combinatorics and $`q`-series.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.gl2.history.combinatorics))
+
+Infinite products are intimately linked to <em>combinatorics</em>, in particular via the partition function $`p(n)`, whose generating function is $`1/\prod_{n\ge1}(1-q^n)=q^{1/24}/\eta(z)`. Thus, identities involving {bpref "mf.half_integral_weight.dedekind_eta"}[$`\eta`] or more general products can usually be translated into combinatorial identities. An extremely simple example is the following: we have trivially
+
+$$`\prod_{n\ge1}(1-q^n)=\prod_{n\ge1}(1-q^{2n})\prod_{n\ge1}(1-q^{2n-1})\;,`
+
+hence $`1/\prod_{n\ge1}(1-q^{2n-1})=\prod_{n\ge1}(1+q^n)\;.` This can be restated in combinatorial terms as saying that the number of partitions of a positive integer into odd parts is equal to its number of partitions into unequal parts (i.e. without "repetitions"), which is not a totally trivial statement.
+
+Set $`(q)_n=\prod_{1\le m\le n}(1-q^m)`, so that for instance $`\eta(z)=q^{1/24}(q)_{\infty}`. Many combinatorial identities involve different series of the type $`\sum_{n\ge0}f_n(q)/(q)_n`, and most of them have a modular interpretation. For instance, consider the following identity due to Euler:
+
+$$`\prod_{n\ge1}(1-aq^n)=\sum_{n\ge0}(-1)^na^nq^{n(n+1)/2}/(q)_n\;.`
+
+Setting $`a=1`, $`a=-1`, $`a=-q^{-1}`, $`a=q^{-1/2}`, and $`a=-q^{-1/2}` gives the following identities involving {bpref "mf"}[modular forms]:
+
+$$`\eta(z)=q^{1/24}\sum_{n\ge0}(-1)^n\dfrac{q^{n(n+1)/2}}{(q)_n}, \quad\quad \dfrac{\eta(2z)}{\eta(z)}=q^{1/24}\sum_{n\ge0}\dfrac{q^{n(n+1)/2}}{(q)_n},`
+
+$$`\dfrac{2\eta(2z)}{\eta(z)}=q^{1/24}\sum_{n\ge0}\dfrac{q^{n(n-1)/2}}{(q)_n},\quad\quad
+\dfrac{\eta(z/2)}{\eta(z)}=q^{-1/48}\sum_{n\ge0}(-1)^n\dfrac{q^{n^2/2}}{(q)_n},`
+
+$$`\dfrac{\eta^2(z)}{\eta(z/2)\eta(2z)}=q^{-1/48}\sum_{n\ge0}\dfrac{q^{n^2/2}}{(q)_n}.`
+
+The famous <em>Rogers&#8210;Ramanujan identities</em> are further identities of the same type.
+
+A general framework, also valid in several dimensions, has been given by W. Nahm in connection with rational conformal field theories (RCFT) in theoretical physics: Let $`A` be a $`d\times d` positive definite symmetric matrix, $`B` a row vector of dimension $`d`, and $`C` a constant. Consider
+$$`f(z)=\sum_{N\in\Z_{\ge0}^d}\dfrac{q^{(1/2)N^tAN+BN+C}}{\prod_{1\le i\le d}(q)_{n_i}}\;,`
+ where $`N=(n_1,\dots,n_d)^t` is considered as a column vector and the $`n_i` range though all nonnegative integers. The question is to determine all triples $`(A,B,C)` such that $`f` is {bpref "mf.transformation_property"}[modular] on some subgroup of {bpref "group.sl2z"}[$`\Gamma`]. For $`d=1`, the above examples give $`(A,B,C)=(1,1/2,1/24)`, $`(1,-1/2,1/24)`, and $`(1,0,-1/48)`, and the Rogers&#8210;Ramanujan identities give the additional examples $`(A,B,C)=(2,1,11/60)` and $`(2,0,-1/60)`. It has been shown by Don Zagier that together with two other identities corresponding to $`(A,B,C)=(1/2,1,1/40)` and $`(1/2,0,-1/40)`, these are the only examples in dimension $`1`. On the other hand, for $`d=2` many examples are known, but the complete list has not been found.
+
+Depends on: {uses "group.sl2z"}[] {uses "mf"}[] {uses "mf.half_integral_weight.dedekind_eta"}[] {uses "mf.transformation_property"}[]
+:::
+
+:::definition "mf.gl2.history.elliptic" (lean := "ModularForm.E, ModularForm.eisensteinF, ModularForm.eisensteinF_eq, ModularForm.tsum_eisSummand_eq_two_mul_riemannZeta_mul_E, ModularForm.isQuasiModularForm_E2, ModularForm.discriminant, TauCeti.ModularForm.j, TauCeti.ModularForm.j_smul")
+*Elliptic functions.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.gl2.history.elliptic))
+
+The first example is through the theory of {bpref "cmf"}[elliptic
+functions], and the closely related elementary theory of {bpref "ec"}[elliptic curves] over $`\C`: in this context, the functions that arise naturally are the {bpref "cmf.eisenstein"}[Eisenstein series] $`E_k` (or their alternately normalized counterparts $`F_k` and $`G_k`), the
+{bpref "mf.quasi_modular"}[quasi-modular] Eisenstein series $`E_2`, the discriminant function $`\Delta` and the {bpref "cmf"}[elliptic modular invariant] $`j`.
+
+Tau Ceti Review: [`ModularForm.E`](https://taucetiproject.org/review/#/d/ModularForm.E), [`ModularForm.discriminant`](https://taucetiproject.org/review/#/d/ModularForm.discriminant), [`TauCeti.ModularForm.j`](https://taucetiproject.org/review/#/d/TauCeti.ModularForm.j), [`TauCeti.ModularForm.j_smul`](https://taucetiproject.org/review/#/d/TauCeti.ModularForm.j_smul).
+
+Depends on: {uses "cmf"}[] {uses "cmf.eisenstein"}[] {uses "ec"}[] {uses "mf.quasi_modular"}[]
+:::
+
+:::definition "mf.gl2.history.hecke"
+*Hecke Characters.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.gl2.history.hecke))
+
+An important variant of theta functions are {bpref "mf"}[modular forms] coming from certain {bpref "character.hecke"}[Hecke characters] of a quadratic {bpref "nf"}[number field] $`K`. In this case the definition is given in terms of a sum over integral ideals but this can be reformulated as a linear combination of theta functions of the form $`\Theta_{L;Q;h}(z)` defined above. In this case the lattice $`L` is an ideal in $`K`, the quadratic form $`Q` is the norm form, that is,  $`Q(x)=\mathcal{N}_{K/\Q}(x)`, and the function $`h` is given by the Hecke character. There are several reasons for the importance of these functions: one is that even though they are {bpref "cmf.cusp_form"}[cusp forms], their {bpref "cmf.fouriercoefficients"}[Fourier coefficients] can be easily computed, contrary to functions like $`\Delta`. A second is that they are all {bpref "cmf.cm_form"}[CM forms], and conversely all CM forms are obtained from Hecke characters. In addition, a CM form is easily seen to be <em>lacunary</em> (i.e., the proportion of nonzero Fourier coefficients tends to zero), and, conversely, Serre has shown that for integral {bpref "cmf.weight"}[weight] $`k\ge1`, a nonzero form $`f` is lacunary if and only either $`k=1`, or
+$`k\ge2` and $`f` is a linear combination of CM forms.
+
+Depends on: {uses "character.hecke"}[] {uses "cmf.cm_form"}[] {uses "cmf.cusp_form"}[] {uses "cmf.fouriercoefficients"}[] {uses "cmf.weight"}[] {uses "mf"}[] {uses "nf"}[]
+:::
+
+:::definition "mf.gl2.history.infinite"
+*Infinite products.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.gl2.history.infinite))
+
+Many theta functions have <em>infinite product</em> representations, and this is another important source of {bpref "mf"}[modular forms]: for instance, the {bpref "mf.half_integral_weight.dedekind_eta"}[Dedekind eta function] $`\eta(z)=q^{1/24}\prod_{n\ge1}(1-q^n)`, and $`\Delta(z)`$`=\eta^{24}(z)=q\prod_{n\ge1}(1-q^n)^{24}` are fundamental examples (where $`q=e^{2\pi iz}`). The {bpref "mf.transformation_property"}[modularity] of $`\eta` (equivalently of $`\Delta`) is not at all clear from the definition as an infinite product; it can be proved by showing that $`\eta` is in fact a theta series using the <em>Jacobi triple product</em> relation, for example.
+
+Since $`\eta` is the basic construction block of infinite products, this implies that many types of infinite products are modular (of course, not products of the type $`\prod(1-q^{n^2})` or $`\prod(1-q^n)^n`).  As shown by Richard Borcherds, certain products of the type $`\prod_{n\ge1}(1-q^n)^{c(n^2)}` for suitable $`c(n)` (that can in fact be given as Fourier coefficients of other modular forms) are modular.
+
+However, the function $`q^c\prod_{n\ge0}(1-q^{5n+1})` for instance is not modular for any value of $`c`, although it closely resembles $`\eta`.
+
+Depends on: {uses "mf"}[] {uses "mf.half_integral_weight.dedekind_eta"}[] {uses "mf.transformation_property"}[]
+:::
+
+:::definition "mf.gl2.history.new" (lean := "ModularForm.multiplierSpace, ModularForm.derivOfComplex_smul, ModularForm.isQuasiModularForm_derivOfComplex, ModularForm.rankinCohenBracket, ModularForm.rankinCohenBracket_mem_multiplierSpace, ModularForm.qExpansion_twistOfWidth_coeff, ModularForm.sum_slash_eq_trace, HeckeRing.GL2.heckeTNat_apply_of_level_one")
+*New modular forms from given ones.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.gl2.history.new))
+
+In addition to the different situations we have seen above, which involve modular functions and forms, there are also many ways to create new {bpref "mf"}[modular forms] from given ones.
+<h4>Vector space or graded ring structure</h4>
+The most trivial way to construct a modular form from given ones is to use the vector space structure: if $`f` and $`g` have the same weight and {bpref "mf.multipliersystem"}[multiplier system] on some group $`G`, then of course so does $`\lambda f+\mu g`, for any constants $`\lambda` and $`\mu`. Another way is to use the fact that the set of all modular forms with trivial multiplier for a given group has the structure of a graded ring. Even more is true: if $`f` and $`g` are modular for the same group $`G`, then so is the product $`fg`, whose {bpref "cmf.weight"}[weight] will be the sum of the weights and multiplier system, the product of the multiplier systems.
+
+<h4>Differentiation</h4>
+If we differentiate the {bpref "mf.transformation_property"}[modular identity] $`f(\gamma z)=v(\gamma)(cz+d)^kf(z)` and use $`(\gamma z)'=(cz+d)^{-2}`, we obtain
+
+$$`f'(\gamma z)=v(\gamma)((cz+d)^{k+2}f'(z)+k(cz+d)^{k+1}f(z))\;.`
+
+Thus $`f'` is almost a modular form (it is in fact a {bpref "mf.quasi_modular"}[*quasi-modular* form]) of weight $`k+2`, and it is exactly modular if $`k=0`. There are many ways to "repair" this defect of modularity: two of them involve modifying the differentiation operator by using the auxiliary functions $`1/y=1/\Im(z)` or the quasi-Eisenstein series $`E_2`. Another is to take suitable combinations which remove the extra terms that prevent modularity: for instance, if $`f` is of weight $`k` and $`g` of weight $`\ell`, then $`f^\ell/g^k` is of weight $`0`, so its derivative is really modular of weight $`2`, and expanding shows that $`\ell f'g-kfg'` is modular of weight $`k+\ell+2`. This is a special case of a series of bilinear operators called the Rankin&#8210;Cohen operators.
+
+<h4>Changing the group</h4>
+If we accept to modify the group on which a function is modular, there are many other ways to create new modular forms. For instance, if $`f` is modular on some group, then $`f(mz)` will also be modular of the same weight on some other group for any $`m\in\Q^{\times}`. A similar construction implies that if $`f(z)=\sum_{n\ge n_0}a_nq^{n/N}` is modular, then so is $`\sum_{n\equiv r\pmod{M}}a_nq^{n/N}` and $`\sum_{n\ge n_0}\psi(n)a_nq^{n/N}` for any periodic function $`\psi`. This last construction is called \*twisting\* by $`\psi`.
+
+<h4>Enlarging the group</h4>
+Even more interesting is the possibility to \*enlarge\* the group on which a function is modular: if $`f` is modular on some subgroup $`H` of finite {bpref "group.subgroup.index"}[index] of some other group $`G`, say with trivial multiplier system, and if $`(\gamma_i)` is a system of left coset representatives of $`H\backslash G`, so that $`G=\bigsqcup_iH\gamma_i`, then it is clear that $`\sum_i` {bpref "mf.slash_action"}[$`f|_k\gamma_i`] will be modular on $`G`. This is a special case of the averaging procedure mentioned at the very beginning. An important example combining the above two methods is the construction of {bpref "cmf.hecke_operator"}[*Hecke operators*]: let $`p` be a prime. If, for instance, $`f` is modular of weight $`k` on the full {bpref "group.sl2z"}[modular group] $`\Gamma`, the functions $`f((z+j)/p)` and $`f(pz)` will be modular only on the subgroup {bpref "group.sl2z.subgroup.gamma0n"}[$`\Gamma_0(p)`] of $`\Gamma`, but it is immediate to show that the linear  combination $`g=\sum_{0\le j\le p-1}f((z+j)/p)+p^kf(pz)` is again modular on the full modular group $`\Gamma`, and we can define the Hecke operator $`T(p)` by $`T(p)(f)=g/p`.
+
+Depends on: {uses "cmf.hecke_operator"}[] {uses "cmf.weight"}[] {uses "group.sl2z"}[] {uses "group.sl2z.subgroup.gamma0n"}[] {uses "group.subgroup.index"}[] {uses "mf"}[] {uses "mf.multipliersystem"}[] {uses "mf.quasi_modular"}[] {uses "mf.slash_action"}[] {uses "mf.transformation_property"}[]
+:::
+
+:::definition "mf.gl2.history.poincare" (lean := "ModularForm.averageSeries, ModularForm.averageSeries_smul, ModularForm.summable_norm_averageTerm, ModularForm.averageSeries_one_eq_E, ModularForm.cexp_smul_T, ModularForm.averageSeries_cexp, ModularForm.summable_norm_averageTerm_zpow, ModularForm.fullAverageSeries_eq_averageSeries")
+*Poincar&eacute; series.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.gl2.history.poincare))
+
+We can define a function which has the {bpref "mf.transformation_property"}[modular transformation] property of {bpref "mf"}[modular forms] by averaging over the group action:
+
+$$`f(z)=\sum_{\gamma\in\langle T\rangle\backslash\Gamma}h(\gamma z)(cz+d)^{-k},`
+
+whenever this makes sense, where $`T=\left(\begin{matrix}1&1\\0&1\end{matrix}\right)` acts on {bpref "group.sl2z"}[$`\Gamma`] by left-multiplication. If $`h=1` we recover the {bpref "cmf.eisenstein"}[Eisenstein series]. If $`h(z)=\exp(2\pi i nz)` with $`n\in\Z`, which is indeed $`1`-periodic, we produce what are called {bpref "specialfunction.poincare"}[Poincar\'e; series].  A special case for which it is <em>not</em> necessary to divide by the left-action of $`T` is the function $`f(z)=\sum_{\gamma\in\Gamma}(\gamma z)^{-n}(cz+d)^{-k}`, for suitable values of $`n`.
+
+Depends on: {uses "cmf.eisenstein"}[] {uses "group.sl2z"}[] {uses "mf"}[] {uses "mf.transformation_property"}[] {uses "specialfunction.poincare"}[]
+:::
+
+:::definition "mf.gl2.history.remainder"
+*Remainder terms.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.gl2.history.remainder))
+
+Another occurrence of {bpref "mf"}[modular forms] is in <em>remainder terms</em> of many asymptotic formulas in number theory. {bpref "cmf.eisenstein"}[Eisenstein series] have "large" coefficients, which are <em>explicitly known</em>, while {bpref "cmf.cusp_form"}[cusp forms] have "small" coefficients, which are usually less explicit. By "explicit" in this context we mean that the coefficients are given by simple arithmetic functions, for example {bpref "af.divisor_function"}[divisor functions]. If the spaces of modular forms that we consider are <em>finite dimensional</em> and if by any chance they are spanned by Eisenstein series, we can obtain explicit formulas for the coefficients of modular forms, with <em>no</em> error term. On the other hand, if they are not spanned by Eisenstein series, we can still write explicit formulas, with a "small" error term corresponding to the contribution of cusp forms.
+
+A typical example of this is to find formulas for $`r_k(n)`, the number of representations of a positive integer $`n` as a sum of $`k` squares. This is in fact the coefficient of $`e^{\pi i z}` in {bpref "mf.half_integral_weight.theta"}[<em>&theta;</em>]$`^k`. The space of modular form to which $`\theta^k` belongs is known to be spanned by Eisenstein series for $`k\le8`, so we have explicit formulas for $`r_k(n)` in these cases and otherwise we have approximate explicit
+formulas with a small error term. In fact, in the special case $`k=10`, the cusp form which occurs is a {bpref "cmf.cm_form"}[<em>CM form</em>], so it has the special property that its coefficients can also easily be computed, so there does also exist an explicit formula for $`r_{10}(n)`.
+
+Depends on: {uses "af.divisor_function"}[] {uses "cmf.cm_form"}[] {uses "cmf.cusp_form"}[] {uses "cmf.eisenstein"}[] {uses "mf"}[] {uses "mf.half_integral_weight.theta"}[]
+:::
+
+:::definition "mf.gl2.history.theta"
+*Theta functions.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.gl2.history.theta))
+
+The preceding examples are in some sense "na&iuml;ve", since {bpref "mf.transformation_property"}[modularity] is essentially built into the definition. Less naive examples are <em>theta functions</em>. These can be given as averages over a {bpref "lattice.definition"}[lattice] $`L`:
+
+$$`\Theta_{L;Q;h}(z) = \sum_{x \in L} h(x)e^{2\pi izQ(x)}`
+
+where $`Q` is a quadratic form and $`h` some function on $`L`, whenever the sum converges.  Here, the basic reason for modularity comes from the <em>Poisson summation formula</em>, or
+equivalently from the theory of the Fourier transform and the Fourier invariance of the function $`e^{-\pi x^2}`. Although this is very classical, it is a slightly deeper reason for modularity. In addition, since the Fourier transform exists in any dimension and it is easy to construct functions which are invariant under the Fourier transform, this gives a large collection of {bpref "mf"}[modular forms]. A slightly more subtle explanation of this comes from the theory of the <em>Weil representation</em>.
+
+Depends on: {uses "lattice.definition"}[] {uses "mf"}[] {uses "mf.transformation_property"}[]
+:::
+
+:::definition "mf.gl2.history.varieties"
+*Algebraic varieties.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.gl2.history.varieties))
+
+A much deeper occurrence of {bpref "mf"}[modular forms] comes from the theory of {bpref "ag.variety"}[algebraic varieties] over $`\Q`, or more generally over a {bpref "nf"}[number field]: to such an object one can associate in a natural way one or several {bpref "lfunction.dirichlet_series"}[Dirichlet series] defined as {bpref "lfunction.euler_product"}[Euler products] involving the number of points of the variety over all finite fields. It is \*conjectured\*, and far from proved, that \*all\* these Dirichlet series satisfy similar properties to that of the {bpref "lfunction.riemann"}[Riemann zeta function] $`\zeta(s)` and generalizations: meromorphic continuation to the whole complex plane with known poles, a {bpref "lfunction.functional_equation"}[functional equation] when $`s\mapsto k-s` for suitable $`k`, and so forth. The existence of this functional equation together with suitable regularity conditions is closely linked to the fact that the function $`\sum_{n\ge1}a(n)q^n` has a {bpref "mf.transformation_property"}[modularity] property. In the specific case of {bpref "ec.q"}[elliptic curves defined over $`\Q`], this has been proved, giving another much deeper source of modular forms (of weight $`2` and trivial multiplier system) linked to elliptic curves.
+
+Much more recently, Brumer&#8210;Kramer have conjectured a similar connection
+between {bpref "g2c.isogeny_class"}[isogeny classes] of {bpref "ag.abelian_surface"}[abelian surfaces] defined over $`\Q` with {bpref "ag.endomorphism_ring"}[endomorphism ring] reduced to $`\Z` and certain modular forms on a subgroup of $`\Sp_4(\Q)`
+called the {bpref "group.paramodular"}[paramodular group].
+
+Depends on: {uses "ag.abelian_surface"}[] {uses "ag.endomorphism_ring"}[] {uses "ag.variety"}[] {uses "ec.q"}[] {uses "g2c.isogeny_class"}[] {uses "group.paramodular"}[] {uses "lfunction.dirichlet_series"}[] {uses "lfunction.euler_product"}[] {uses "lfunction.functional_equation"}[] {uses "lfunction.riemann"}[] {uses "mf"}[] {uses "mf.transformation_property"}[] {uses "nf"}[]
+:::
+
 :::definition "mf.growth_condition"
 *Growth condition for a modular form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.growth_condition))
 

@@ -234,6 +234,26 @@ $`H \le \Aut_{\pm\mu}(O)\ltimes \widehat{O}^\times` in the
 Depends on: {uses "shimcurve"}[] {uses "shimcurve.enhanced_group"}[]
 :::
 
+:::definition "shimcurve.invariants"
+*Invariants of a Shimura curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.invariants))
+
+Invariants of a {bpref "shimcurve"}[Shimura curve] $`X_H` include its
+
+- underlying {bpref "shimcurve.order"}[quaternion order]
+
+- {bpref "shimcurve.level"}[level]
+
+- {bpref "shimcurve.index"}[index]
+
+- {bpref "shimcurve.genus"}[genus]
+
+all of which can be derived group-theoretically as properties of $`H`.  Geometric invariants of the curve $`X_H` include
+
+- {bpref "shimcurve.gonality"}[gonality]
+
+Depends on: {uses "shimcurve"}[] {uses "shimcurve.genus"}[] {uses "shimcurve.gonality"}[] {uses "shimcurve.index"}[] {uses "shimcurve.level"}[] {uses "shimcurve.order"}[]
+:::
+
 :::definition "shimcurve.is_coarse" (lean := "Subalgebra.IsCoarseSubgroup, Subalgebra.EnhancedGroupMod, Subalgebra.autPmMuMul, Subalgebra.autPmMu, Subalgebra.isCoarseSubgroup_iff")
 *Is coarse.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.is_coarse))
 
@@ -373,6 +393,14 @@ The *analytic rank* of a {bpref "shimcurve"}[Shimura curve] is the order of vani
 The {bpref "ec.bsdconjecture"}[Birch and Swinnerton-Dyer] conjecture for modular abelian varieties implies that the analytic rank is equal to the {bpref "ag.mordell_weil"}[Mordell-Weil rank] of the Jacobian.
 
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.jacobian"}[] {uses "ag.mordell_weil"}[] {uses "av.decomposition"}[] {uses "av.simple"}[] {uses "cmf.analytic_rank"}[] {uses "cmf.galois_orbit"}[] {uses "cmf.newform"}[] {uses "ec.bsdconjecture"}[] {uses "lfunction"}[] {uses "lfunction.central_point"}[] {uses "shimcurve"}[]
+:::
+
+:::definition "shimcurve.rational_points"
+*Rational points on a Shimura curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/shimcurve.rational_points))
+
+{bpref "shimcurve.genus"}[Genus] zero curves with a rational point are isomorphic to $`\mathbb{P}^1` and therefore have infinitely many rational points. Genus one curves with a rational point whose {bpref "ag.jacobian"}[Jacobian] has positive Mordell-Weil rank are isomorphic to an {bpref "ec"}[elliptic curve] with infinitely many rational points. In all other cases, the set of rational points is finite.
+
+Depends on: {uses "ag.jacobian"}[] {uses "ec"}[] {uses "shimcurve.genus"}[]
 :::
 
 :::definition "shimcurve.simple"

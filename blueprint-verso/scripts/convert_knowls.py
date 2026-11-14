@@ -177,11 +177,14 @@ def transform_body(body):
         lbl, txt = m.group(1), m.group(2)
         return tok(f'{{bpref "{lbl}"}}[{txt}]' if lbl in ALL_LABELS else txt)
 
-    # An included knowl (KNOWL_INC) becomes a reference to it, titled by the reference itself
+    # An included knowl (KNOWL_INC) becomes a reference to it, titled by the reference itself; one
+    # outside the blueprint becomes a link titled by its id, whose underscores are escaped (in
+    # Verso's markup an underscore starts an emphasis)
     def knowl_inc(m):
         lbl = m.group(1).replace('\\_', '_').strip()
+        text = lbl.replace('_', '\\_')
         return tok(f'{{bpref "{lbl}"}}[]' if lbl in ALL_LABELS
-                   else f'[{lbl}](https://beta.lmfdb.org/knowledge/show/{lbl})')
+                   else f'[{text}](https://beta.lmfdb.org/knowledge/show/{lbl})')
 
     # Raw knowl links <a ... knowl="ID">text</a>, which update_knowls.py leaves as they are
     def knowl_anchor(m):
@@ -288,7 +291,8 @@ def names(xs):
 
 def leaf_intro(leaf, is_chapter):
     """The introduction of a chapter without subchapters or of a subchapter: its LMFDB categories (the
-    part of the ids before the first or second dot) and the knowls placed there despite their ids."""
+    part of the ids before the first or second dot), the knowls placed there despite their ids, and
+    the knowls about the LMFDB's data on its subject."""
     cats = leaf["categories"]
     kind = ("subcategor" if all("." in c for c in cats) else "categor") + ("y" if len(cats) == 1 else "ies")
     # subcategories that have a subchapter of their own
@@ -300,6 +304,12 @@ def leaf_intro(leaf, is_chapter):
     if wrong:
         intro += (f" {names(wrong)} also {'belongs' if len(wrong) == 1 else 'belong'} here, although "
                   f"{'its id puts it' if len(wrong) == 1 else 'their ids put them'} in another LMFDB category.")
+    site = leaf.get("site_labels", [])
+    if site:
+        site_cats = sorted({kid.split(".")[0] for kid in site})
+        intro += (f" It also lists the {'knowl' if len(site) == 1 else 'knowls'} about the LMFDB's data on this "
+                  f"subject that {'has' if len(site) == 1 else 'have'} mathematical content, from the "
+                  f"{'category' if len(site_cats) == 1 else 'categories'} {names(site_cats)}.")
     return intro
 
 

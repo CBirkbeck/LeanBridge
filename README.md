@@ -99,11 +99,14 @@ python blueprint-verso/scripts/convert_knowls.py
 `auto_*.tex` lists, one for each section. `convert_knowls.py` turns these into the chapters and
 sections in
 [`blueprint-verso/LeanBridgeBlueprint/Chapters`](blueprint-verso/LeanBridgeBlueprint/Chapters).
-The blueprint has every knowl with mathematical content: the knowls that define something, and those
-listed in [`math_knowls.txt`](blueprint/src/math_knowls.txt). Its chapters and sections, in
+The blueprint has every knowl with mathematical content: the knowls that define something, apart
+from those about the LMFDB itself (categories such as `doc`, `dq` and `rcs`), and those listed in
+[`math_knowls.txt`](blueprint/src/math_knowls.txt), whatever their category. Its chapters and
+sections, in
 [`structure.json`](blueprint/src/structure.json), follow the LMFDB's categories of knowls, the part
 of a knowl's id before the first or second dot; a knowl whose category is wrong is listed there under
-`wrong_labels` in the section it belongs to. A new knowl category needs a section in
+`wrong_labels` in the section it belongs to, and a knowl of `math_knowls.txt` about the LMFDB's data
+on a subject under `site_labels` in that subject's section. A new knowl category needs a section in
 `structure.json`, and a new chapter also an `include` in `LeanBridgeBlueprint/Blueprint.lean`.
 The script breaks cycles among the knowls' links with its
 `omit_edges` list and writes any it finds to `cycles.txt`.

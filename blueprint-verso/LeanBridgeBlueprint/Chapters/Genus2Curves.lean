@@ -9,7 +9,7 @@ open Informal
 
 #doc (Manual) "Genus 2 curves" =>
 
-This section lists the LMFDB definitions in the category `g2c`. Each definition links back to its LMFDB knowl.
+This section lists the LMFDB definitions in the category `g2c`. Each definition links back to its LMFDB knowl. It also lists the knowl about the LMFDB's data on this subject that has mathematical content, from the category `rcs`.
 
 :::definition "g2c.abs_discriminant" (lean := "HyperellipticEquation.discriminant, HyperellipticEquation.IsMinimal, HyperellipticEquation.IsMinimal.abs_discriminant_eq")
 *Absolute discriminant.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.abs_discriminant))
@@ -117,6 +117,16 @@ $$`\frac{L^{(r)}(A,1)}{r!} = \frac{\#\Sha(A)\Omega_AR_AT_A}{(\#A(\Q)_{\rm tor})^
 No effective method to compute $`\Sha(A)` is currently known (indeed, it is not even known that $`\Sha(A)` is finitely generated, although the BSD conjecture requires this).  However, one can compute (approximations of) the the five remaining quantities and use this to compute the {bpref "g2c.analytic_sha"}[analytic order of Sha], and under the assumption that  $`\Sha(A)` is finite, one can determine whether its {bpref "g2c.has_square_sha"}[order is a square] or not.  One can also compute the {bpref "g2c.two_selmer_rank"}[rank of the 2-Selmer group] of $`A`, which constrains the 2-part of $`\Sha(A)`.
 
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.mordell_weil"}[] {uses "ag.regulator"}[] {uses "g2c.analytic_rank"}[] {uses "g2c.analytic_sha"}[] {uses "g2c.mordell_weil_rank"}[] {uses "g2c.real_period"}[] {uses "g2c.tamagawa"}[] {uses "ag.tate_shafarevich"}[] {uses "g2c.torsion"}[] {uses "g2c.two_selmer_rank"}[] {uses "lfunction"}[] {uses "lfunction.leading_coeff"}[]
+:::
+
+:::definition "g2c.conditional_mw_group"
+*Conditional Mordell-Weil group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.conditional_mw_group))
+
+Under the (weak) BSD conjecture, the {bpref "g2c.mordell_weil_rank"}[Mordell-Weil rank] of an {bpref "ag.abelian_variety"}[abelian variety] $`A` over $`\Q` is equal to its {bpref "g2c.analytic_rank"}[analytic rank].  If the {bpref "g2c.torsion"}[torsion subgroup] of $`A` and its analytic rank are known (or if one simply assumes a known upper bound on the analytic rank is tight), then the {bpref "ag.mordell_weil"}[Mordell-Weil group] of $`A` is conditionally determined up to isomorphism,
+
+In cases were one knows a lower bound on the Mordell-Weil group that is one less than a known upper bound on its analytic rank, it is only necessary to assume the parity conjecture.
+
+Depends on: {uses "ag.abelian_variety"}[] {uses "ag.mordell_weil"}[] {uses "g2c.analytic_rank"}[] {uses "g2c.mordell_weil_rank"}[] {uses "g2c.torsion"}[]
 :::
 
 :::definition "g2c.conductor"
@@ -310,6 +320,14 @@ Tau Ceti Review: [`CategoryTheory.IsIsomorphic`](https://taucetiproject.org/revi
 Depends on: {uses "ag.base_change"}[] {uses "ag.base_field"}[] {uses "ag.curve"}[]
 :::
 
+:::definition "g2c.geometric_invariants"
+*Geometric invariants.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.geometric_invariants))
+
+The geometric invariants of a {bpref "ag.curve.genus"}[genus] two curve include the {bpref "g2c.igusa_invariants"}[Igusa invariants], the {bpref "g2c.igusa_clebsch_invariants"}[Igusa-Clebsch invariants], and the {bpref "g2c.g2_invariants"}[G2-invariants].
+
+Depends on: {uses "ag.curve.genus"}[] {uses "g2c.g2_invariants"}[] {uses "g2c.igusa_clebsch_invariants"}[] {uses "g2c.igusa_invariants"}[]
+:::
+
 :::definition "g2c.gl2type"
 *$`\GL_2`-type.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.gl2type))
 
@@ -407,6 +425,20 @@ These invariants will be integral whenever $`f` is integral. The invariant $`J_8
 Depends on: {uses "g2c.g2curve"}[] {uses "g2c.geom_iso_class"}[] {uses "g2c.igusa_clebsch_invariants"}[]
 :::
 
+:::definition "g2c.invariants"
+*Invariants of a genus 2 curve.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.invariants))
+
+Invariants of a {bpref "g2c.g2curve"}[genus 2 curve] include:
+
+- the {bpref "g2c.discriminant"}[discriminant] $`\Delta`,
+
+- the {bpref "ag.conductor"}[conductor] $`N` of its {bpref "ag.jacobian"}[Jacobian],
+
+- its geometric invariants, which may be expressed as {bpref "g2c.igusa_clebsch_invariants"}[Igusa-Clebsch invariants] $`I_2,I_4,I_6,I_{10}`, {bpref "g2c.igusa_invariants"}[Igusa invariants] $`J_2,J_4,J_6,J_8,J_{10}`, or {bpref "g2c.g2_invariants"}[G2-invariants] $`g_1,g_2,g_3`.
+
+Depends on: {uses "ag.conductor"}[] {uses "ag.jacobian"}[] {uses "g2c.discriminant"}[] {uses "g2c.g2_invariants"}[] {uses "g2c.g2curve"}[] {uses "g2c.igusa_clebsch_invariants"}[] {uses "g2c.igusa_invariants"}[]
+:::
+
 :::definition "g2c.isogeny_class"
 *Isogeny class of an abelian variety.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.isogeny_class))
 
@@ -427,6 +459,16 @@ Let $`A` be an {bpref "ag.abelian_variety"}[abelian variety] over a field $`F`. 
 Let $`K` be the {bpref "av.endomorphism_field"}[endomorphism field] of $`A`.  The set of endomorphism rings $`\mathrm{End}(A_{F'})` over subextensions $`K \supseteq F' \supseteq F` forms a lattice under inclusion, called the *endomorphism lattice* of $`A` over $`F`.
 
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.endomorphism_ring"}[] {uses "av.endomorphism_field"}[]
+:::
+
+:::definition "g2c.jac_endomorphisms" (lean := "TauCeti.AlgebraicGeometry.AbelianVariety.End, TauCeti.AlgebraicGeometry.AbelianVariety.baseChange, TauCeti.AlgebraicGeometry.AbelianVariety.End.baseChange")
+*Endomorphism invariants.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.jac_endomorphisms))
+
+Invariants related to the endomorphisms of an {bpref "ag.abelian_variety"}[abelian variety] $`A` include its {bpref "ag.endomorphism_ring"}[endomorphism ring] $`\textrm{End}(A)`, its {bpref "ag.endomorphism_algebra"}[endomorphism algebra] $`\textrm{End}(A)\otimes\Q`, and its {bpref "ag.real_endomorphism_algebra"}[real endomorphism algebra] $`\textrm{End}(A)\otimes\R`, along with their geometric analogues: the {bpref "ag.geom_endomorphism_ring"}[geometric endomorphism ring], {bpref "ag.geom_endomorphism_algebra"}[geometric endomorphism algebra], and {bpref "ag.real_geom_endomorphism_algebra"}[real geometric endomorphism algebra] of the {bpref "ag.base_change"}[base change] of $`A` to an algebraic closure of its {bpref "ag.base_field"}[base field].
+
+Tau Ceti Review: [`TauCeti.AlgebraicGeometry.AbelianVariety.End`](https://taucetiproject.org/review/#/d/TauCeti.AlgebraicGeometry.AbelianVariety.End), [`TauCeti.AlgebraicGeometry.AbelianVariety.baseChange`](https://taucetiproject.org/review/#/d/TauCeti.AlgebraicGeometry.AbelianVariety.baseChange), [`TauCeti.AlgebraicGeometry.AbelianVariety.End.baseChange`](https://taucetiproject.org/review/#/d/TauCeti.AlgebraicGeometry.AbelianVariety.End.baseChange).
+
+Depends on: {uses "ag.abelian_variety"}[] {uses "ag.base_change"}[] {uses "ag.base_field"}[] {uses "ag.endomorphism_algebra"}[] {uses "ag.endomorphism_ring"}[] {uses "ag.geom_endomorphism_algebra"}[] {uses "ag.geom_endomorphism_ring"}[] {uses "ag.real_endomorphism_algebra"}[] {uses "ag.real_geom_endomorphism_algebra"}[]
 :::
 
 :::definition "g2c.jacobian"
@@ -583,6 +625,16 @@ The *order* of a {bpref "g2c.mw_generator"}[generator] of the {bpref "ag.mordell
 Tau Ceti Review: [`orderOf`](https://taucetiproject.org/review/#/d/orderOf), [`addOrderOf`](https://taucetiproject.org/review/#/d/addOrderOf), [`Nat.card_zpowers`](https://taucetiproject.org/review/#/d/Nat.card_zpowers).
 
 Depends on: {uses "ag.mordell_weil"}[] {uses "g2c.mw_generator"}[]
+:::
+
+:::definition "g2c.num_rat_pts"
+*Number of rational points.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/g2c.num_rat_pts))
+
+By a celebrated theorem of Faltings, the number of rational points on a curve of {bpref "ag.curve.genus"}[genus] $`g\ge 2` defined over a {bpref "nf"}[number field] is finite.  Faltings' theorem is unfortunately ineffective, and computing this finite set is a difficult problem, in general.
+
+For curves of genus $`g\ge 2` in the LMFDB, we store all {bpref "g2c.known_rational_points"}[known rational points], and we indicate cases where this is provably {bpref "g2c.all_rational_points"}[all rational points].
+
+Depends on: {uses "ag.curve.genus"}[] {uses "g2c.all_rational_points"}[] {uses "g2c.known_rational_points"}[] {uses "nf"}[]
 :::
 
 :::definition "g2c.num_rat_wpts"
@@ -755,4 +807,32 @@ The 2-torsion field of the {bpref "g2c.jacobian"}[Jacobian] of a {bpref "ag.hype
 For abelian varieties over number fields, the 2-torsion field is specified by giving a number field of minimal degree and absolute discriminant whose Galois closure is equal to the 2-torsion field.
 
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.hyperelliptic_curve"}[] {uses "ag.mordell_weil"}[]
+:::
+
+:::definition "rcs.rigor.g2c"
+*Reliability of Genus 2 Curve Data.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/rcs.rigor.g2c))
+
+As described in Section 3.4 of , the completeness of the genus 2 curve database for curves of {bpref "g2c.abs_discriminant"}[absolute discriminant] $`|\Delta|\le 10^6` has been tested against other tables of genus 2 curves, including those of [Stoll](http://www.mathe2.uni-bayreuth.de/stoll/data/), and Merriman and Smart .  However, as explained on the completeness page, it is only complete within the boxes that were searched, and it is likely that there are genus 2 curves of minimal discriminant $`|D|\le 10^6` that are not included (even though no such curves are currently known).
+
+The reliability of specific data associated to genus 2 curves is discussed below.
+
+- In cases where the set of rational points has not been provably determined, this is indicated by the label {bpref "g2c.known_rational_points"}[known rational points].  In cases where the set of rational points has been provably determined (via some variant of Chabauty's method implemented in Magma), this is indicated by the label {bpref "g2c.all_rational_points"}[Rational points]; in all other cases lists of rational points are preceded by the caption {bpref "g2c.known_rational_points"}[Known rational points].
+
+- The power of 2 in the {bpref "ag.conductor"}[conductor] of the {bpref "g2c.jacobian"}[Jacobian] (originally bounded analytically) has been rigorously verified by Tim Dokchitser and Christopher Doris  using algebraic methods (the odd part of the conductor has also been rigorously computed).
+
+- All {bpref "g2c.lfunction"}[L-function] computations are conditional on the assumption that the L-function satisfies the {bpref "g2c.hasse_weil_conjecture"}[Hasse-Weil conjecture] (which implies that it lies in the {bpref "lfunction.selberg_class"}[Selberg class]), and in particular, that it has a meromorphic continuation to $`\C` with no poles in the critical strip and satisfies a {bpref "lfunction.functional_equation"}[functional equation]).  This assumption is necessary in order for the {bpref "g2c.analytic_rank"}[analytic rank] to be well-defined.  In some cases (curves whose Jacobians are of {bpref "g2c.gl2type"}[$`\GL_2`-type] for example) the Hasse-Weil conejecture is known to hold, and this is indicated on curve's home page.  The assumption of the Hasse-Weil conjecture is also used when computing bad Euler factors at 2.
+
+- In addition to the assumption that the Hasse-Weil conjecture holds, analytic ranks greater than 1 are generally only upper bounds that are believed to be equal to the true analytic rank (this can fail to be true only if there is a zero very close to but not at the critical point).  This is explicitly indicated on the home page of each curve by a parenthetical "(upper bound"), but these upper bounds are treated as exact for the purpose of searching.  In cases where the Hasse-Weil conjecture is known the analytic rank is provably correct if it is equal to 0 or 1 (our analytic rank bounds are all compatible with the {bpref "lfunction.sign"}[sign in the functional equation]).  There are some cases where analytic ranks greater than 1 are provably correct because the Jacobian is isogenous to a product of elliptic curves whose analytic ranks are known (in such cases the "(upper bound)" notation is removed).
+
+- The data on the {bpref "g2c.jac_endomorphisms"}[geometric endomorphism ring] that was initially computed heuristically has now been rigorously certified by Davide Lombardo  and by Edgar Costa, Nicolas Mascot, Jeroen Sijsling, and John Voight , independently, by different methods.  This rigorously confirms the {bpref "g2c.st_group"}[Sato-Tate group] computations (the fact that these independent computation agree is a consistency check).
+
+- {bpref "g2c.isogeny_class"}[Isogeny class] identifications are based on a comparison of Euler factors at {bpref "g2c.good_reduction"}[good primes] up to $`2^{20}`.  Jacobians that are not identified as members of the same isogeny class are provably non-isogenous, but the identification of membership within a particular isogeny class is heuristic (except for Richelot isogenies, no explicit isogenies have been computed).  In principle it could be made rigorous in any particular case via a Faltings-Serre argument, as described in , but this has only been done for a handful of cases such as the isogeny class of conductor 277.
+
+- {bpref "g2c.mw_generator"}[Mordell-Weil generators] and {bpref "g2c.regulator"}[regulators] are conditional on BSD in cases where the {bpref "ag.mordell_weil"}[Mordell-Weil rank] is marked as a lower bound (in all such cases it is equal to our computed upper bound on the analytic rank).
+
+- All values of the {bpref "g2c.analytic_sha"}[analytic order of sha] are accurate to at least six decimal places, and under BSD exactly equal to the rounded integer displayed.
+
+All invariants not specifically mentioned above were computed using rigorous algorithms that do not depend on any unproved hypotheses.
+
+Depends on: {uses "ag.conductor"}[] {uses "ag.mordell_weil"}[] {uses "g2c.abs_discriminant"}[] {uses "g2c.all_rational_points"}[] {uses "g2c.analytic_rank"}[] {uses "g2c.analytic_sha"}[] {uses "g2c.gl2type"}[] {uses "g2c.good_reduction"}[] {uses "g2c.hasse_weil_conjecture"}[] {uses "g2c.isogeny_class"}[] {uses "g2c.jac_endomorphisms"}[] {uses "g2c.jacobian"}[] {uses "g2c.known_rational_points"}[] {uses "g2c.lfunction"}[] {uses "g2c.mw_generator"}[] {uses "g2c.regulator"}[] {uses "g2c.st_group"}[] {uses "lfunction.functional_equation"}[] {uses "lfunction.selberg_class"}[] {uses "lfunction.sign"}[]
 :::

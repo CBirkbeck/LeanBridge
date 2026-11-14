@@ -1,53 +1,56 @@
 a:B where a is included because it is referenced by all b in B
 
 af: af.divisor_function
-af.bernoulli_numbers: cmf.eisenstein
-af.divisor_function: cmf.eisenstein, mf.quasi_modular
+af.bernoulli_numbers: cmf.eisenstein, lfunction.history.euler
+af.divisor_function: cmf.eisenstein, mf.gl2.history.remainder, mf.quasi_modular
 af.multiplicative: af.divisor_function
-ag.abelian_surface: g2c.end_alg, g2c.geom_end_alg, g2c.jacobian, g2c.paramodular_conjecture
-ag.abelian_variety: ag.abelian_surface, ag.base_field, ag.canonical_height, ag.complex_multiplication, ag.conductor, ag.endomorphism_algebra, ag.endomorphism_ring, ag.geom_simple, ag.good_reduction, ag.jacobian, ag.mordell_weil, ag.real_multiplication, ag.regulator, ag.selmer_group, ag.simple, ag.tate_shafarevich, ag.torsor, av.endomorphism_field, av.fq.all_polarizations_product, av.fq.angle_rank, av.fq.curve_point_counts, av.fq.cyclic_group_points, av.fq.group_structure, av.fq.honda_tate, av.fq.l-polynomial, av.fq.newton_elevation, av.fq.noncyclic_primes, av.fq.ordinary, av.fq.supersingular, av.geometrically_simple, av.geometrically_squarefree, av.is_product, av.isogeny, av.isogeny_class, av.polarization, av.potential_toric_rank, av.princ_polarizable, av.semiabelian_variety, av.simple, av.squarefree, av.theta_divisor, av.twist, ec.bsdconjecture, ec.endomorphism, ec.endomorphism_ring, ec.geom_endomorphism_ring, ec.mordell_weil_group, ec.q.bsdconjecture, ec.q.endomorphism_ring, g2c.analytic_rank, g2c.analytic_sha, g2c.bad_lfactors, g2c.bsd_invariants, g2c.decomposition, g2c.end_alg, g2c.geom_end_alg, g2c.gl2type, g2c.good_lfactors, g2c.hasse_weil_conjecture, g2c.isogeny_class, g2c.jac_end_lattice, g2c.jacobian, g2c.lfunction, g2c.mordell_weil_rank, g2c.mw_generator, g2c.real_period, g2c.st_group_identity_component, g2c.tamagawa, g2c.torsion, g2c.two_selmer_rank, g2c.two_torsion_field, modcurve.decomposition, modcurve.modular_cover, modcurve.rank, modcurve.simple, nf.weil_polynomial, shimcurve.decomposition, shimcurve.rank, shimcurve.simple, st_group.component_group, st_group.definition, st_group.degree, st_group.first_a2_moment
+ag.abelian_surface: g2c.end_alg, g2c.geom_end_alg, g2c.jacobian, g2c.paramodular_conjecture, mf.gl2.history.varieties
+ag.abelian_variety: ag.abelian_surface, ag.base_field, ag.canonical_height, ag.complex_multiplication, ag.conductor, ag.endomorphism_algebra, ag.endomorphism_ring, ag.geom_simple, ag.good_reduction, ag.jacobian, ag.mordell_weil, ag.real_multiplication, ag.regulator, ag.selmer_group, ag.simple, ag.tate_shafarevich, ag.torsor, av.endomorphism_field, av.fq.all_polarizations_product, av.fq.angle_rank, av.fq.curve_point_counts, av.fq.cyclic_group_points, av.fq.group_structure, av.fq.honda_tate, av.fq.l-polynomial, av.fq.newton_elevation, av.fq.noncyclic_primes, av.fq.one_rational_point, av.fq.ordinary, av.fq.supersingular, av.geometrically_simple, av.geometrically_squarefree, av.is_product, av.isogeny, av.isogeny_class, av.polarization, av.potential_toric_rank, av.princ_polarizable, av.semiabelian_variety, av.simple, av.squarefree, av.theta_divisor, av.twist, ec.bsdconjecture, ec.endomorphism, ec.endomorphism_ring, ec.geom_endomorphism_ring, ec.mordell_weil_group, ec.q.bsdconjecture, ec.q.endomorphism_ring, g2c.analytic_rank, g2c.analytic_sha, g2c.bad_lfactors, g2c.bsd_invariants, g2c.conditional_mw_group, g2c.decomposition, g2c.end_alg, g2c.geom_end_alg, g2c.gl2type, g2c.good_lfactors, g2c.hasse_weil_conjecture, g2c.isogeny_class, g2c.jac_end_lattice, g2c.jac_endomorphisms, g2c.jacobian, g2c.lfunction, g2c.mordell_weil_rank, g2c.mw_generator, g2c.real_period, g2c.st_group_identity_component, g2c.tamagawa, g2c.torsion, g2c.two_selmer_rank, g2c.two_torsion_field, modcurve.decomposition, modcurve.modular_cover, modcurve.rank, modcurve.simple, nf.weil_polynomial, shimcurve.decomposition, shimcurve.rank, shimcurve.simple, st_group.component_group, st_group.definition, st_group.degree, st_group.first_a2_moment
 ag.affine_space: ag.variety
 ag.bad_prime: g2c.conductor
-ag.base_change: ag.minimal_field, ag.potential_good_reduction, ag.primitive, av.geometrically_simple, av.geometrically_squarefree, av.twist, g2c.geom_aut_grp, g2c.geom_iso_class, g2c.tamagawa, modcurve.minimal_twist, st_group.component_group
-ag.base_field: ag.fq.point_counts, ag.splitting_field, av.fq.curve_point_counts, av.fq.frobenius_angles, av.fq.l-polynomial, av.fq.number_field, av.fq.ordinary, av.fq.supersingular, av.fq.weil_polynomial, ec.isogeny, g2c.geom_iso_class
+ag.base_change: ag.minimal_field, ag.potential_good_reduction, ag.primitive, av.geometrically_simple, av.geometrically_squarefree, av.twist, g2c.geom_aut_grp, g2c.geom_iso_class, g2c.jac_endomorphisms, g2c.tamagawa, modcurve.minimal_twist, st_group.component_group
+ag.base_field: ag.fq.point_counts, ag.splitting_field, av.fq.curve_point_counts, av.fq.frobenius_angles, av.fq.l-polynomial, av.fq.number_field, av.fq.ordinary, av.fq.supersingular, av.fq.weil_polynomial, ec.isogeny, g2c.geom_iso_class, g2c.jac_endomorphisms, rcs.rigor.belyi, rcs.source.ec
+ag.bielliptic_curve: modcurve.x0.remarks, modcurve.x1.remarks, modcurve.xarith.remarks
 ag.canonical_height: ag.regulator
 ag.canonical_model: modcurve.embedded_model
 ag.cohen_macaulay_type: av.fq.max_cohen_macaulay_type
 ag.complex_multiplication: ec.complex_multiplication, g2c.st_group_identity_component
-ag.conductor: ag.bad_prime, ag.good_reduction, g2c.label, g2c.local_invariants, g2c.paramodular_conjecture
-ag.curve: ag.bielliptic_curve, ag.curve.smooth, ag.cyclic_trigonal, ag.gonality, ag.gonality_geom, ag.hyperelliptic_curve, ag.modcurve.x0, ag.modcurve.x1, ag.quotient_curve, ec, g2c.analytic_rank, g2c.aut_grp, g2c.geom_iso_class, g2c.locally_solvable, shimcurve
-ag.curve.genus: ag.abelian_surface, ag.bielliptic_curve, ag.canonical_model, ag.hyperelliptic_curve, ag.minimal_field, av.theta_divisor, curve.highergenus.aut.characters, curve.highergenus.aut.quotientgenus, ec, g2c.all_rational_points, g2c.has_square_sha, g2c.locally_solvable, g2c.minimal_equation, g2c.num_rat_wpts, g2c.real_period
+ag.conductor: ag.bad_prime, ag.good_reduction, g2c.invariants, g2c.label, g2c.local_invariants, g2c.paramodular_conjecture, rcs.rigor.g2c
+ag.curve: ag.bielliptic_curve, ag.curve.smooth, ag.cyclic_trigonal, ag.gonality, ag.gonality_geom, ag.hyperelliptic_curve, ag.modcurve.x0, ag.modcurve.x1, ag.quotient_curve, dq.curve.highergenus.aut.label, ec, g2c.analytic_rank, g2c.aut_grp, g2c.geom_iso_class, g2c.locally_solvable, shimcurve
+ag.curve.genus: ag.abelian_surface, ag.bielliptic_curve, ag.canonical_model, ag.hyperelliptic_curve, ag.minimal_field, av.theta_divisor, curve.highergenus.aut.characters, curve.highergenus.aut.quotientgenus, ec, g2c.all_rational_points, g2c.geometric_invariants, g2c.has_square_sha, g2c.locally_solvable, g2c.minimal_equation, g2c.num_rat_pts, g2c.num_rat_wpts, g2c.real_period
 ag.curve.smooth: ec, ec.discriminant, ec.good_reduction, g2c.minimal_equation, modcurve
 ag.dimension: ag.abelian_surface, ag.complex_multiplication, ag.mordell_weil, av.fq.angle_rank, av.fq.l-polynomial, av.fq.newton_elevation, av.fq.ordinary, av.fq.weil_polynomial, av.theta_divisor, g2c.real_period, modcurve.decomposition, modcurve.modular_cover, shimcurve.decomposition, st_group.component_group, st_group.definition, st_group.degree
-ag.endomorphism_algebra: ag.complex_multiplication, ag.real_multiplication, g2c.end_alg, g2c.gl2type, st_group.second_trace_moment
-ag.endomorphism_ring: ag.complex_multiplication, ag.endomorphism_algebra, ag.geom_endomorphism_ring, ag.real_endomorphism_algebra, av.fq.endomorphism_ring_notation, av.fq.frobenius_order, av.fq.lmfdb_label, curve.highergenus.aut.groupalgebradecomp, ec.endomorphism, ec.endomorphism_ring, ec.q.endomorphism_ring, g2c.jac_end_lattice, g2c.jacobian
+ag.endomorphism_algebra: ag.complex_multiplication, ag.real_multiplication, g2c.end_alg, g2c.gl2type, g2c.jac_endomorphisms, st_group.second_trace_moment
+ag.endomorphism_ring: ag.complex_multiplication, ag.endomorphism_algebra, ag.geom_endomorphism_ring, ag.real_endomorphism_algebra, av.fq.endomorphism_ring_notation, av.fq.frobenius_order, av.fq.lmfdb_label, curve.highergenus.aut.groupalgebradecomp, ec.endomorphism, ec.endomorphism_ring, ec.q.endomorphism_ring, g2c.jac_end_lattice, g2c.jac_endomorphisms, g2c.jacobian, mf.gl2.history.varieties
 ag.geom_component: gl2.genus, modcurve.canonical_field, modcurve.components, modcurve.genus, modcurve.gonality, shimcurve.genus, shimcurve.gonality
-ag.geom_endomorphism_algebra: g2c.geom_end_alg
-ag.geom_endomorphism_ring: ag.geom_endomorphism_algebra, ag.real_geom_endomorphism_algebra, ec.geom_endomorphism_ring, g2c.galois_rep.non_maximal_primes, g2c.maximal_galois_rep
+ag.geom_endomorphism_algebra: g2c.geom_end_alg, g2c.jac_endomorphisms
+ag.geom_endomorphism_ring: ag.geom_endomorphism_algebra, ag.real_geom_endomorphism_algebra, ec.geom_endomorphism_ring, g2c.galois_rep.non_maximal_primes, g2c.jac_endomorphisms, g2c.maximal_galois_rep
 ag.geom_simple: ag.complex_multiplication, g2c.decomposition, g2c.geom_end_alg
 ag.gonality: ag.gonality_geom, modcurve.gonality, shimcurve.gonality
 ag.good_reduction: ag.potential_good_reduction, g2c.bad_lfactors, g2c.good_lfactors
 ag.holomorphic_euler_char: ag.arithmetic_genus
-ag.hyperelliptic_curve: ag.canonical_model, ag.cluster_picture, av.hyperelliptic_count, g2c.all_rational_points, g2c.g2curve, g2c.minimal_equation, g2c.num_rat_wpts, g2c.simple_equation, g2c.two_torsion_field
+ag.hyperelliptic_curve: ag.canonical_model, ag.cluster_picture, av.hyperelliptic_count, g2c.all_rational_points, g2c.g2curve, g2c.minimal_equation, g2c.num_rat_wpts, g2c.simple_equation, g2c.two_torsion_field, modcurve.x0.remarks, modcurve.x1.remarks, modcurve.xarith.remarks, modcurve.xsp.remarks, modcurve.xsp_plus.remarks
 ag.irreducible: ag.dimension, g2c.locally_solvable
-ag.jacobian: ag.abelian_surface, ag.conductor, ag.good_reduction, av.fq.curve_point_counts, av.fq.jacobian, av.hyperelliptic_count, av.isogeny_class, av.jacobian_count, av.princ_polarizable, av.theta_divisor, curve.highergenus.aut.characters, curve.highergenus.aut.groupalgebradecomp, g2c.all_rational_points, g2c.analytic_rank, g2c.conductor, g2c.galois_rep.non_maximal_primes, g2c.gl2type, g2c.good_reduction, g2c.has_square_sha, g2c.isogeny_class, g2c.jacobian, g2c.lfunction, g2c.local_invariants, g2c.maximal_galois_rep, g2c.mw_generator, g2c.real_period, g2c.simple_equation, g2c.st_group, g2c.st_group_identity_component, g2c.tamagawa, g2c.torsion_order, modcurve.decomposition, modcurve.gassmann_class, modcurve.genus_minus_rank, modcurve.newform_level, modcurve.rank, modcurve.rational_points, modcurve.simple, shimcurve.decomposition, shimcurve.genus_minus_rank, shimcurve.rank, shimcurve.simple, st_group.degree
+ag.jacobian: ag.abelian_surface, ag.conductor, ag.good_reduction, av.fq.curve_point_counts, av.fq.jacobian, av.hyperelliptic_count, av.isogeny_class, av.jacobian_count, av.princ_polarizable, av.theta_divisor, curve.highergenus.aut.characters, curve.highergenus.aut.groupalgebradecomp, dq.curve.highergenus.aut.source, g2c.all_rational_points, g2c.analytic_rank, g2c.conductor, g2c.galois_rep.non_maximal_primes, g2c.gl2type, g2c.good_reduction, g2c.has_square_sha, g2c.invariants, g2c.isogeny_class, g2c.jacobian, g2c.lfunction, g2c.local_invariants, g2c.maximal_galois_rep, g2c.mw_generator, g2c.real_period, g2c.simple_equation, g2c.st_group, g2c.st_group_identity_component, g2c.tamagawa, g2c.torsion_order, modcurve.decomposition, modcurve.gassmann_class, modcurve.genus_minus_rank, modcurve.newform_level, modcurve.rank, modcurve.rational_points, modcurve.simple, rcs.source.curve.highergenus.aut, shimcurve.decomposition, shimcurve.genus_minus_rank, shimcurve.rank, shimcurve.rational_points, shimcurve.simple, st_group.degree
 ag.minimal_field: ag.base_field
 ag.modcurve.x0: ag.modcurve.x1
-ag.mordell_weil: ag.canonical_height, ag.regulator, ag.selmer_group, ec.mordell_weil_group, ec.q.analytic_rank, g2c.analytic_rank, g2c.analytic_sha, g2c.bsd_invariants, g2c.jacobian, g2c.mw_generator, g2c.mw_generator_order, g2c.simple_equation, g2c.two_selmer_rank, g2c.two_torsion_field, modcurve.genus_minus_rank, modcurve.rank, shimcurve.genus_minus_rank, shimcurve.rank
+ag.mordell_weil: ag.canonical_height, ag.regulator, ag.selmer_group, ec.mordell_weil_group, ec.q.analytic_rank, g2c.analytic_rank, g2c.analytic_sha, g2c.bsd_invariants, g2c.conditional_mw_group, g2c.jacobian, g2c.mw_generator, g2c.mw_generator_order, g2c.simple_equation, g2c.two_selmer_rank, g2c.two_torsion_field, modcurve.genus_minus_rank, modcurve.rank, rcs.rigor.ec.q, rcs.rigor.g2c, shimcurve.genus_minus_rank, shimcurve.rank
 ag.plane_model: modcurve.j_invariant_map
 ag.potential_good_reduction: av.potential_toric_rank
 ag.projective_space: ag.variety
-ag.quotient_curve: ag.cyclic_trigonal, modcurve
-ag.real_geom_endomorphism_algebra: g2c.st_group_identity_component
+ag.quotient_curve: ag.cyclic_trigonal, dq.curve.highergenus.aut.label, modcurve
+ag.real_endomorphism_algebra: g2c.jac_endomorphisms
+ag.real_geom_endomorphism_algebra: g2c.jac_endomorphisms, g2c.st_group_identity_component
 ag.real_multiplication: g2c.st_group_identity_component
 ag.regulator: g2c.analytic_sha, g2c.bsd_invariants, g2c.regulator
-ag.riemann_surface: ag.curve.genus, curve.highergenus.aut.branchpoints, curve.highergenus.aut.generatingvector, curve.highergenus.aut.generators, curve.highergenus.aut.monodromy, curve.highergenus.aut.refinedpassport, group.sl2z.genus_subgroup
+ag.riemann_surface: ag.curve.genus, curve.highergenus.aut.branchpoints, curve.highergenus.aut.generatingvector, curve.highergenus.aut.generators, curve.highergenus.aut.monodromy, curve.highergenus.aut.refinedpassport, dq.curve.highergenus.aut.label, dq.curve.highergenus.aut.source, group.sl2z.genus_subgroup, rcs.source.curve.highergenus.aut
 ag.selmer_group: g2c.two_selmer_rank
+ag.shimura_variety: dq.curve.highergenus.aut.source, rcs.source.curve.highergenus.aut
 ag.simple: ag.geom_simple, g2c.decomposition, g2c.end_alg, g2c.gl2type
 ag.singular_point: ag.curve.smooth, g2c.locally_solvable
 ag.tate_shafarevich: g2c.analytic_sha, g2c.bsd_invariants, g2c.has_square_sha, g2c.two_selmer_rank
 ag.torsor: ag.tate_shafarevich
-ag.variety: ag.abelian_variety, ag.aut_group, ag.base_change, ag.curve, ag.dimension, ag.fq.point_counts, ag.good_reduction, ag.irreducible, ag.minimal_field, ag.potential_good_reduction, ag.primitive, ag.quotient_curve, ag.torsor, av.aut_group, g2c.good_reduction, nf.weil_height
+ag.variety: ag.abelian_variety, ag.aut_group, ag.base_change, ag.curve, ag.dimension, ag.fq.point_counts, ag.good_reduction, ag.irreducible, ag.minimal_field, ag.potential_good_reduction, ag.primitive, ag.quotient_curve, ag.torsor, av.aut_group, g2c.good_reduction, mf.gl2.history.varieties, nf.weil_height
 alg.bezout_matrix: hgm.bezout_matrix
 alg.binary_operation: alg.binary_operation.associative, alg.binary_operation.commutative, alg.binary_operation.identity, alg.binary_operation.inverse, group, group.abelian, group.subgroup, group.subgroup.normal, ring
 alg.binary_operation.associative: group, ring
@@ -56,10 +59,11 @@ alg.binary_operation.identity: alg.binary_operation.inverse, group, group.action
 alg.binary_operation.inverse: group, group.subgroup, ring.field
 alg.symmetric_bilinear_form: group.spinor_norm
 alg.symplectic_isomorphism: modcurve.xn
-artin: artin.conductor, artin.determinant, artin.dimension, artin.dimensionone, artin.galois_orbit, artin.gg_quotient, artin.label, artin.lfunction, artin.number_field, artin.parity, artin.projective_image, artin.projective_image_type, artin.projective_stem_field, artin.ramified_primes, artin.root_number, artin.stem_field, artin.trace_of_complex_conj, artin.unramified_primes, cmf.galois_representation, st_group.definition
+artin: artin.conductor, artin.determinant, artin.dimension, artin.dimensionone, artin.galois_orbit, artin.gg_quotient, artin.label, artin.lfunction, artin.number_field, artin.parity, artin.projective_image, artin.projective_image_type, artin.projective_stem_field, artin.ramified_primes, artin.root_number, artin.stem_field, artin.trace_of_complex_conj, artin.unramified_primes, cmf.galois_representation, rcs.cande.cmf, rcs.cande.cmf_eisenstein, rcs.cande.lfunction, st_group.definition
 artin.conductor: artin.label, cmf.galois_representation
 artin.dimension: artin.label
 artin.galois_orbit: artin.label
+artin.lfunction: lfunction.known_degree1
 artin.number_field: artin.gg_quotient, artin.ramified_primes, artin.stem_field, artin.unramified_primes
 artin.parity: cmf.galois_representation
 artin.permutation_container: artin.label
@@ -72,8 +76,9 @@ av.deligne_module: av.fq.lmfdb_label
 av.endomorphism_field: g2c.jac_end_lattice
 av.fq.bass_zfv: av.fq.max_cohen_macaulay_type
 av.fq.conductor: av.fq.is_zconductor_sum, av.fq.is_zfvconductor_sum, av.fq.singular_primes
-av.fq.cyclic_group_points: av.fq.noncyclic_primes
+av.fq.cyclic_group_points: av.fq.noncyclic_primes, rcs.source.av.fq
 av.fq.frobenius_order: av.fq.is_zfvconductor_sum
+av.fq.honda_tate: rcs.source.av.fq
 av.fq.l-polynomial: av.fq.initial_coefficients
 av.fq.lmfdb_label: av.fq.endomorphism_ring_notation
 av.fq.number_field: av.fq.order, av.fq.picard_group
@@ -82,9 +87,9 @@ av.fq.ordinary: av.fq.lmfdb_label, av.fq.newton_elevation
 av.fq.p_rank: av.fq.ordinary
 av.fq.singular_primes: av.fq.singular_dimensions
 av.fq.supersingular: av.fq.angle_rank, av.fq.newton_elevation
-av.fq.weil_polynomial: av.fq.angle_rank, av.fq.frobenius_angles, av.fq.honda_tate, av.fq.l-polynomial, av.fq.lmfdb_label, av.fq.number_field, av.fq.supersingular, st_group.weight
+av.fq.weil_polynomial: av.fq.angle_rank, av.fq.frobenius_angles, av.fq.honda_tate, av.fq.l-polynomial, av.fq.lmfdb_label, av.fq.number_field, av.fq.supersingular, rcs.source.av.fq, st_group.weight
 av.galois_rep: g2c.galois_rep, g2c.gl2type
-av.isogeny: ag.selmer_group, av.fq.curve_point_counts, av.isogeny_class, av.polarization, av.tate_module, curve.highergenus.aut.groupalgebradecomp, ec.isogeny, g2c.decomposition, g2c.end_alg, g2c.geom_end_alg, g2c.isogeny_class, modcurve.decomposition, modcurve.gassmann_class, shimcurve.decomposition
+av.isogeny: ag.selmer_group, av.fq.curve_point_counts, av.fq.one_rational_point, av.isogeny_class, av.polarization, av.tate_module, curve.highergenus.aut.groupalgebradecomp, ec.isogeny, g2c.decomposition, g2c.end_alg, g2c.geom_end_alg, g2c.isogeny_class, modcurve.decomposition, modcurve.gassmann_class, shimcurve.decomposition
 av.isogeny_class: av.fq.bass_zfv, av.fq.cyclic_group_points, av.fq.endomorphism_ring_notation, av.fq.frobenius_angles, av.fq.frobenius_order, av.fq.galois_group, av.fq.initial_coefficients, av.fq.isogeny_class_size, av.fq.lmfdb_label, av.fq.noncyclic_primes, av.fq.number_field, av.fq.order, av.hyperelliptic_count, av.jacobian_count, g2c.paramodular_conjecture
 av.polarization: av.fq.lmfdb_label, av.princ_polarizable, hmsurface.component_ideal, hmsurface.x01
 av.princ_polarizable: ag.canonical_height, av.fq.isogeny_class_size, av.hyperelliptic_count, av.jacobian_count, hmsurface.component_ideal
@@ -95,13 +100,14 @@ av.tate_module: av.galois_rep, ec.padic_tate_module, g2c.gl2type
 av.theta_divisor: ag.canonical_height
 av.twist: ec.twists, modcurve.contains_negative_one
 av.weak_equivalence_class: av.fq.endomorphism_ring_notation, av.fq.lmfdb_label
-belyi.degree: belyi.group, belyi.label
-belyi.galmap: belyi.base_field, belyi.degree, belyi.genus, belyi.geometry_type, belyi.label, belyi.orbit_size
+belyi.degree: belyi.group, belyi.label, rcs.rigor.belyi
+belyi.galmap: belyi.base_field, belyi.degree, belyi.genus, belyi.geometry_type, belyi.label, belyi.orbit_size, rcs.rigor.belyi
+belyi.genus: rcs.rigor.belyi
 belyi.group: belyi.label, belyi.primitive, belyi.primitivization
 belyi.passport: belyi.num_orbits, belyi.pass_size
 belyi.permutation_triple: belyi.abc
 belyi.ramification_type: belyi.label
-character.dirichlet: artin.dimensionone, character.dirichlet.conductor, character.dirichlet.conrey, character.dirichlet.conrey.conductor, character.dirichlet.conrey.index, character.dirichlet.conrey.orbit_label, character.dirichlet.conrey.order, character.dirichlet.conrey.parity, character.dirichlet.field_cut_out, character.dirichlet.galois_orbit, character.dirichlet.galois_orbit_index, character.dirichlet.galois_orbit_label, character.dirichlet.gauss_sum, character.dirichlet.group, character.dirichlet.group.generators, character.dirichlet.group.order, character.dirichlet.induce, character.dirichlet.jacobi_sum, character.dirichlet.kloosterman_sum, character.dirichlet.legendre_symbol, character.dirichlet.minimal, character.dirichlet.order, character.dirichlet.parity, character.dirichlet.primitive, character.dirichlet.principal, character.dirichlet.related_fields, character.unit_group, cmf, cmf.character, cmf.cusp_form, cmf.decomposition.new.gamma1, cmf.eisenstein_form, cmf.eisenstein_label, cmf.eisenstein_newspace, cmf.eisenstein_series, cmf.embedding, cmf.hecke_operator, cmf.inner_twist, cmf.inner_twist_count, cmf.inner_twist_group, cmf.inner_twist_multiplicity, cmf.label, cmf.labels, cmf.newspace, cmf.newspaces, cmf.self_twist, cmf.shimura_correspondence, cmf.subspaces, cmf.twist, lfunction.central_character, lfunction.conductor, lfunction.dirichlet, lfunction.label, mf.ellitpic.self_twist, mf.half_integral_weight, mf.maass.label, mf.siegel.label, nf.dirichlet_group
+character.dirichlet: artin.dimensionone, character.dirichlet.conductor, character.dirichlet.conrey, character.dirichlet.conrey.conductor, character.dirichlet.conrey.index, character.dirichlet.conrey.orbit_label, character.dirichlet.conrey.order, character.dirichlet.conrey.parity, character.dirichlet.field_cut_out, character.dirichlet.galois_orbit, character.dirichlet.galois_orbit_index, character.dirichlet.galois_orbit_label, character.dirichlet.gauss_sum, character.dirichlet.group, character.dirichlet.group.generators, character.dirichlet.group.order, character.dirichlet.induce, character.dirichlet.jacobi_sum, character.dirichlet.kloosterman_sum, character.dirichlet.legendre_symbol, character.dirichlet.minimal, character.dirichlet.order, character.dirichlet.parity, character.dirichlet.primitive, character.dirichlet.principal, character.dirichlet.related_fields, character.dirichlet.values, character.dirichlet.values_on_gens, character.unit_group, cmf, cmf.character, cmf.cusp_form, cmf.decomposition.new.gamma1, cmf.eisenstein_form, cmf.eisenstein_label, cmf.eisenstein_newspace, cmf.eisenstein_series, cmf.embedding, cmf.hecke_operator, cmf.inner_twist, cmf.inner_twist_count, cmf.inner_twist_group, cmf.inner_twist_multiplicity, cmf.inner_twist_proved, cmf.label, cmf.labels, cmf.newspace, cmf.newspaces, cmf.self_twist, cmf.shimura_correspondence, cmf.subspaces, cmf.twist, lfunction.central_character, lfunction.conductor, lfunction.dirichlet, lfunction.history.dirichlet, lfunction.history.hecke_characters, lfunction.label, mf.ellitpic.self_twist, mf.half_integral_weight, mf.maass.label, mf.siegel.label, nf.dirichlet_group, portrait.character.dirichlet, rcs.cande.lfunction, rcs.rigor.lfunction.dirichlet
 character.dirichlet.conductor: character.dirichlet.conrey.conductor, character.dirichlet.minimal, character.dirichlet.primitive, cmf.oldspace, cmf.subspaces, cmf.twist, lfunction.conductor, lfunction.dirichlet
 character.dirichlet.conrey: character.dirichlet.conrey.order, lfunction.label
 character.dirichlet.conrey.conductor: character.dirichlet.conrey
@@ -111,191 +117,226 @@ character.dirichlet.conrey.primitive_generator: character.dirichlet.conrey
 character.dirichlet.field_cut_out: character.dirichlet.related_fields
 character.dirichlet.galois_orbit: character.dirichlet.conrey.orbit_label, character.dirichlet.galois_orbit_index, character.dirichlet.galois_orbit_label, cmf.decomposition.new.gamma1, cmf.eisenstein_label, cmf.inner_twist, cmf.inner_twist_multiplicity, cmf.label, cmf.labels, cmf.twist, cmf.twist_multiplicity, mf.siegel.label
 character.dirichlet.galois_orbit_index: character.dirichlet.galois_orbit_label
-character.dirichlet.galois_orbit_label: cmf.eisenstein_label, cmf.embedding_label, cmf.label, cmf.labels, mf.siegel.label
-character.dirichlet.gauss_sum: character.dirichlet.kloosterman_sum
+character.dirichlet.galois_orbit_label: cmf.eisenstein_label, cmf.embedding_label, cmf.label, cmf.labels, cmf.sort_order, mf.siegel.label
+character.dirichlet.gauss_sum: character.dirichlet.kloosterman_sum, portrait.character.dirichlet
 character.dirichlet.group: character.dirichlet.conrey
+character.dirichlet.group.structure: character.dirichlet.values_on_gens
 character.dirichlet.induce: character.dirichlet.conrey, character.dirichlet.primitive, character.dirichlet.principal, cmf.eisenstein_newspace, cmf.newspace, cmf.oldspace, cmf.subspaces, lfunction.label
 character.dirichlet.jacobi_symbol: character.dirichlet.kronecker_symbol
 character.dirichlet.kronecker_symbol: cmf.self_twist_field
 character.dirichlet.legendre_symbol: character.dirichlet.jacobi_symbol, character.dirichlet.kronecker_symbol
 character.dirichlet.minimal: cmf.minimal_twist, cmf.twist_minimal
-character.dirichlet.modulus: character.dirichlet.conrey.index, character.dirichlet.galois_orbit, character.dirichlet.galois_orbit_index, character.dirichlet.group, character.dirichlet.group.generators, character.dirichlet.group.order, character.dirichlet.group.structure, character.dirichlet.induce, character.dirichlet.minimal, character.dirichlet.order, character.dirichlet.primitive, character.dirichlet.principal, character.dirichlet.related_fields, character.unit_group, cmf.eisenstein_newspace, cmf.newspace, cmf.subspaces
-character.dirichlet.order: character.dirichlet.conrey.order, character.dirichlet.degree, character.dirichlet.field_cut_out, character.dirichlet.galois_orbit, character.dirichlet.galois_orbit_index, character.dirichlet.minimal, character.dirichlet.value_field, cmf.self_twist, mf.ellitpic.self_twist
+character.dirichlet.modulus: character.dirichlet.conrey.index, character.dirichlet.galois_orbit, character.dirichlet.galois_orbit_index, character.dirichlet.group, character.dirichlet.group.generators, character.dirichlet.group.order, character.dirichlet.group.structure, character.dirichlet.induce, character.dirichlet.minimal, character.dirichlet.order, character.dirichlet.primitive, character.dirichlet.principal, character.dirichlet.related_fields, character.dirichlet.values, character.dirichlet.values_on_gens, character.unit_group, cmf.eisenstein_newspace, cmf.newspace, cmf.subspaces, portrait.character.dirichlet
+character.dirichlet.order: character.dirichlet.conrey.order, character.dirichlet.degree, character.dirichlet.field_cut_out, character.dirichlet.galois_orbit, character.dirichlet.galois_orbit_index, character.dirichlet.minimal, character.dirichlet.value_field, cmf.self_twist, mf.ellitpic.self_twist, portrait.character.dirichlet
 character.dirichlet.parity: character.dirichlet.conrey.parity
-character.dirichlet.primitive: character.dirichlet.minimal, cmf.eisenstein_series, cmf.inner_twist, cmf.inner_twist_group, cmf.oldspace, cmf.self_twist, cmf.twist, cmf.twist_multiplicity, lfunction.label, mf.ellitpic.self_twist
-character.dirichlet.principal: character.dirichlet.galois_orbit_index, character.dirichlet.minimal, character.dirichlet.order, cmf.self_twist_field
+character.dirichlet.primitive: character.dirichlet.minimal, cmf.eisenstein_series, cmf.inner_twist, cmf.inner_twist_group, cmf.inner_twist_proved, cmf.oldspace, cmf.self_twist, cmf.twist, cmf.twist_multiplicity, lfunction.label, mf.ellitpic.self_twist, portrait.character.dirichlet, rcs.cande.lfunction
+character.dirichlet.principal: character.dirichlet.galois_orbit_index, character.dirichlet.minimal, character.dirichlet.order, cmf.self_twist_field, portrait.character.dirichlet, rcs.rigor.ec.q
 character.dirichlet.real: character.dirichlet.kronecker_symbol
 character.dirichlet.value_field: character.dirichlet.degree, character.dirichlet.galois_orbit, character.dirichlet.galois_orbit_index, character.dirichlet.related_fields, cmf.embedding
-character.hecke: mf.cm
-cmf: cmf.bad_prime, cmf.character, cmf.cm_form, cmf.coefficient_ring, cmf.cusp_form, cmf.eisenstein, cmf.eisenstein_form, cmf.eisenstein_newspace, cmf.fouriercoefficients, cmf.fouriercoefficients_mathlib_def, cmf.hecke_operator, cmf.level, cmf.new_subspaces, cmf.newspace, cmf.nk2, cmf.oldspace, cmf.q-expansion_mathlib_def, cmf.rm_form, cmf.space, cmf.subspaces, cmf.weight, ec.local_root_number, lattice.theta, mf, mf.bianchi.spaces, mf.siegel, mf.siegel.lift.ikeda, mf.siegel.lift.miyawaki
-cmf.analytic_conductor: cmf.nk2
-cmf.analytic_rank: cmf.fricke, modcurve.rank, shimcurve.rank
-cmf.artin_field: cmf.artin_image, cmf.stark_unit
+character.hecke: lfunction.history.hecke_characters, lfunction.underlying_object, mf.cm, mf.gl2.history.hecke
+cmf: cmf.bad_prime, cmf.character, cmf.cm_form, cmf.coefficient_ring, cmf.cusp_form, cmf.eisenstein, cmf.eisenstein_form, cmf.eisenstein_newspace, cmf.fouriercoefficients, cmf.fouriercoefficients_mathlib_def, cmf.hecke_operator, cmf.level, cmf.new_subspaces, cmf.newspace, cmf.nk2, cmf.oldspace, cmf.q-expansion_mathlib_def, cmf.rm_form, cmf.space, cmf.subspaces, cmf.weight, ec.local_root_number, lattice.theta, lfunction.underlying_object, mf, mf.bianchi.spaces, mf.gl2.history.elliptic, mf.siegel, mf.siegel.lift.ikeda, mf.siegel.lift.miyawaki, rcs.cande.lfunction, rcs.rigor.cmf, rcs.rigor.cmf_eisenstein, rcs.rigor.ec.q
+cmf.analytic_conductor: cmf.nk2, rcs.cande.cmf, rcs.cande.cmf_eisenstein
+cmf.analytic_rank: cmf.fricke, modcurve.rank, rcs.cande.cmf, rcs.cande.cmf_eisenstein, rcs.rigor.cmf, rcs.rigor.cmf_eisenstein, shimcurve.rank
+cmf.artin_field: cmf.artin_image, cmf.stark_unit, rcs.cande.cmf, rcs.cande.cmf_eisenstein
+cmf.artin_image: rcs.cande.cmf, rcs.cande.cmf_eisenstein
 cmf.atkin-lehner: cmf.atkin_lehner_dims, cmf.fricke, ec.local_root_number
 cmf.bad_prime: cmf.satake_parameters
-cmf.character: cmf.eisenstein_newspace, cmf.embedding, cmf.maximal, cmf.minimal_twist, cmf.new_subspaces, cmf.newspace, cmf.oldspace, cmf.satake_parameters, cmf.space, cmf.sturm_bound, cmf.subspaces, cmf.twist_minimal, mf.maass.mwf.dimension
-cmf.cm_form: cmf.inner_twist, cmf.sato_tate, cmf.self_twist_field, mf.bianchi.base_change
-cmf.coefficient_field: cmf.analytic_rank, cmf.coefficient_ring, cmf.defining_polynomial, cmf.dualform, cmf.eisenstein_label, cmf.embedding, cmf.inner_twist, cmf.inner_twist_count, cmf.inner_twist_group, cmf.label, cmf.labels, cmf.selfdual, cmf.trace_bound, cmf.trace_form
-cmf.coefficient_ring: cmf.hecke_ring_generators
+cmf.character: cmf.display_dim, cmf.eisenstein_newspace, cmf.embedding, cmf.embedding_format, cmf.maximal, cmf.minimal_twist, cmf.new_subspaces, cmf.newspace, cmf.oldspace, cmf.satake_parameters, cmf.space, cmf.sturm_bound, cmf.subspaces, cmf.twist_minimal, mf.maass.mwf.dimension, rcs.cande.cmf, rcs.cande.cmf_eisenstein, rcs.cande.lfunction, rcs.rigor.ec.q
+cmf.cm_form: cmf.inner_twist, cmf.sato_tate, cmf.self_twist_field, mf.bianchi.base_change, mf.gl2.history.hecke, mf.gl2.history.remainder
+cmf.coefficient_field: cmf.analytic_rank, cmf.coefficient_ring, cmf.defining_polynomial, cmf.dualform, cmf.eisenstein_label, cmf.embedding, cmf.inner_twist, cmf.inner_twist_count, cmf.inner_twist_group, cmf.label, cmf.labels, cmf.selfdual, cmf.trace_bound, cmf.trace_form, rcs.cande.cmf, rcs.cande.cmf_eisenstein, rcs.rigor.cmf, rcs.rigor.cmf_eisenstein
+cmf.coefficient_ring: cmf.hecke_ring_generators, rcs.cande.cmf, rcs.cande.cmf_eisenstein
 cmf.congruence_subgroup: modcurve, modcurve.elliptic_points, modcurve.sl2level, modcurve.xn
-cmf.cusp_form: cmf.analytic_rank, cmf.atkin-lehner, cmf.coefficient_field, cmf.cusp_form_subspace_mathlib_def, cmf.dualform, cmf.eisenstein_form, cmf.embedding_label, cmf.hecke_operator, cmf.hecke_orbit, cmf.newspace, cmf.newspaces, cmf.oldspace, cmf.petersson_scalar_product, cmf.q-expansion, cmf.selfdual, cmf.space, cmf.subspaces, lfunction.conductor, mf.half_integral_weight, specialfunction.poincare
+cmf.cusp_form: cmf.analytic_rank, cmf.atkin-lehner, cmf.coefficient_field, cmf.cusp_form_subspace_mathlib_def, cmf.dualform, cmf.eisenstein_form, cmf.embedding_label, cmf.hecke_operator, cmf.hecke_orbit, cmf.newspace, cmf.newspaces, cmf.oldspace, cmf.petersson_scalar_product, cmf.q-expansion, cmf.selfdual, cmf.space, cmf.subspaces, lfunction.conductor, lfunction.known_degree4, mf.gl2.history.hecke, mf.gl2.history.remainder, mf.half_integral_weight, specialfunction.poincare
 cmf.cusp_form_mathlib_def: cmf.cusp_form
 cmf.cusp_form_subspace_mathlib_def: cmf.subspaces
-cmf.dimension: cmf.hecke_kernels, cmf.inner_twist_count, cmf.maximal, cmf.trace_bound, cmf.trace_form
+cmf.dimension: cmf.display_dim, cmf.hecke_kernels, cmf.inner_twist_count, cmf.maximal, cmf.trace_bound, cmf.trace_form, rcs.cande.cmf, rcs.cande.cmf_eisenstein, rcs.cande.lfunction, rcs.rigor.cmf, rcs.rigor.cmf_eisenstein
 cmf.dimension_mathlib_def: cmf.dimension
 cmf.distinguishing_primes: cmf.hecke_kernels
+cmf.eisenstein: mf.gl2.history.elliptic, mf.gl2.history.poincare, mf.gl2.history.remainder
 cmf.eisenstein_form: cmf.eisenstein_newspace
-cmf.eisenstein_newform: cmf.eisenstein_label
+cmf.eisenstein_newform: cmf.eisenstein_label, rcs.cande.cmf_eisenstein
 cmf.eisenstein_newspace: cmf.eisenstein_newform, cmf.new_subspaces
 cmf.eisenstein_series: cmf.eisenstein_form, cmf.eisenstein_newspace
-cmf.embedding: cmf.eisenstein_label, cmf.embedding_label, cmf.inner_twist_multiplicity, cmf.label, cmf.labels
-cmf.fouriercoefficients: cmf.coefficient_field, cmf.cusp_form, cmf.eisenstein_newform, cmf.newform, cmf.newspaces, cmf.q-expansion, cmf.sturm_bound, cmf.sturm_bound_gamma1
+cmf.embedding: cmf.eisenstein_label, cmf.embedding_label, cmf.inner_twist_multiplicity, cmf.label, cmf.labels, rcs.cande.cmf, rcs.cande.cmf_eisenstein, rcs.cande.lfunction
+cmf.embedding_label: cmf.embedding_format
+cmf.eta_quotient: rcs.cande.cmf, rcs.cande.cmf_eisenstein
+cmf.fouriercoefficients: cmf.coefficient_field, cmf.cusp_form, cmf.eisenstein_newform, cmf.newform, cmf.newspaces, cmf.q-expansion, cmf.sturm_bound, cmf.sturm_bound_gamma1, mf.gl2.history.hecke, rcs.rigor.ec.q
 cmf.fricke: cmf.minus_space, cmf.plus_space
 cmf.galois_conjugate: cmf.galois_orbit, cmf.inner_twist, cmf.twist
-cmf.galois_orbit: cmf.dimension, cmf.distinguishing_primes, cmf.eisenstein_label, cmf.embedding, cmf.hecke_galois_orbit, cmf.hecke_kernels, cmf.inner_twist, cmf.label, cmf.labels, cmf.maximal, cmf.q-expansion, cmf.trace_bound, cmf.twist, cmf.twist_minimal, cmf.twist_multiplicity, modcurve.decomposition, modcurve.rank, shimcurve.decomposition, shimcurve.rank
+cmf.galois_orbit: cmf.dimension, cmf.distinguishing_primes, cmf.eisenstein_label, cmf.embedding, cmf.hecke_galois_orbit, cmf.hecke_kernels, cmf.inner_twist, cmf.label, cmf.labels, cmf.maximal, cmf.q-expansion, cmf.trace_bound, cmf.twist, cmf.twist_minimal, cmf.twist_multiplicity, modcurve.decomposition, modcurve.rank, rcs.rigor.cmf, rcs.rigor.cmf_eisenstein, shimcurve.decomposition, shimcurve.rank
 cmf.galois_representation: cmf.artin_field, cmf.artin_image, cmf.projective_field, cmf.projective_image, cmf.stark_unit
-cmf.hecke_operator: cmf.atkin-lehner, cmf.coefficient_field, cmf.coefficient_ring, cmf.decomposition.new.gamma0chi, cmf.distinguishing_primes, cmf.eisenstein_newform, cmf.hecke_kernels, cmf.hecke_orbit, cmf.heckecharpolys, cmf.newform, cmf.newspaces, cmf.satake_parameters, hecke_algebra.definition
+cmf.hecke_galois_orbit: cmf.sort_order
+cmf.hecke_operator: cmf.atkin-lehner, cmf.coefficient_field, cmf.coefficient_ring, cmf.decomposition.new.gamma0chi, cmf.distinguishing_primes, cmf.eisenstein_newform, cmf.embedding_format, cmf.hecke_kernels, cmf.hecke_orbit, cmf.heckecharpolys, cmf.newform, cmf.newspaces, cmf.satake_parameters, hecke_algebra.definition, mf.gl2.history.new
 cmf.hecke_orbit: cmf.dimension_galois_orbit
-cmf.inner_twist: cmf.inner_twist_count, cmf.inner_twist_group, cmf.inner_twist_multiplicity, cmf.nontrivial_twist, cmf.self_twist_field, cmf.twist, cmf.twist_multiplicity
+cmf.heckecharpolys: rcs.cande.cmf, rcs.cande.cmf_eisenstein
+cmf.inner_twist: cmf.inner_twist_count, cmf.inner_twist_group, cmf.inner_twist_multiplicity, cmf.inner_twist_proved, cmf.nontrivial_twist, cmf.self_twist_field, cmf.twist, cmf.twist_multiplicity, rcs.cande.cmf, rcs.cande.cmf_eisenstein, rcs.rigor.cmf, rcs.rigor.cmf_eisenstein
 cmf.inner_twist_count: cmf.twist_multiplicity
 cmf.label: cmf.minimal_twist, cmf.twist_minimal, modcurve.decomposition, shimcurve.decomposition
-cmf.level: cmf.atkin_lehner_dims, cmf.bad_prime, cmf.eisenstein, cmf.eisenstein_label, cmf.eisenstein_newspace, cmf.embedding_label, cmf.hecke_operator, cmf.hecke_orbit, cmf.label, cmf.labels, cmf.minimal_twist, cmf.new_subspaces, cmf.newspace, cmf.newspaces, cmf.nk2, cmf.oldspace, cmf.satake_parameters, cmf.self_twist, cmf.space, cmf.sturm_bound, cmf.sturm_bound_gamma1, cmf.subspaces, cmf.twist_minimal, ec.q.serre_invariants, lattice.theta, mf.ellitpic.self_twist, mf.half_integral_weight, mf.half_integral_weight.theta, modcurve.newform_level
-cmf.newform: cmf.analytic_conductor, cmf.artin_field, cmf.artin_image, cmf.atkin_lehner_dims, cmf.coefficient_ring, cmf.decomposition.new.gamma0chi, cmf.decomposition.new.gamma1, cmf.dimension, cmf.distinguishing_primes, cmf.dualform, cmf.galois_conjugate, cmf.galois_orbit, cmf.galois_representation, cmf.hecke_kernels, cmf.hecke_ring_generators, cmf.heckecharpolys, cmf.inner_twist, cmf.inner_twist_count, cmf.inner_twist_group, cmf.inner_twist_multiplicity, cmf.label, cmf.lfunction, cmf.maximal, cmf.minimal_twist, cmf.newform_subspace, cmf.newspaces, cmf.projective_field, cmf.projective_image, cmf.q-expansion, cmf.relative_dimension, cmf.satake_parameters, cmf.sato_tate, cmf.self_twist, cmf.self_twist_field, cmf.selfdual, cmf.space_trace_form, cmf.stark_unit, cmf.sturm_bound, cmf.sturm_bound_gamma1, cmf.trace_bound, cmf.trace_form, cmf.twist, cmf.twist_minimal, ec.q.modular_form, mf.bianchi.base_change, mf.ellitpic.self_twist, modcurve.decomposition, modcurve.newform_level, modcurve.rank, shimcurve.decomposition, shimcurve.rank
+cmf.level: cmf.atkin_lehner_dims, cmf.bad_prime, cmf.eisenstein, cmf.eisenstein_label, cmf.eisenstein_newspace, cmf.embedding_format, cmf.embedding_label, cmf.hecke_operator, cmf.hecke_orbit, cmf.label, cmf.labels, cmf.minimal_twist, cmf.new_subspaces, cmf.newspace, cmf.newspaces, cmf.nk2, cmf.oldspace, cmf.satake_parameters, cmf.self_twist, cmf.sort_order, cmf.space, cmf.sturm_bound, cmf.sturm_bound_gamma1, cmf.subspaces, cmf.twist_minimal, ec.q.serre_invariants, lattice.theta, mf.ellitpic.self_twist, mf.half_integral_weight, mf.half_integral_weight.theta, modcurve.newform_level, rcs.cande.cmf, rcs.cande.cmf_eisenstein, rcs.rigor.cmf, rcs.rigor.cmf_eisenstein, rcs.rigor.ec.q
+cmf.minimal_twist: rcs.cande.cmf, rcs.cande.cmf_eisenstein
+cmf.minus_space: cmf.display_dim
+cmf.newform: cmf.analytic_conductor, cmf.artin_field, cmf.artin_image, cmf.atkin_lehner_dims, cmf.coefficient_ring, cmf.decomposition.new.gamma0chi, cmf.decomposition.new.gamma1, cmf.dimension, cmf.distinguishing_primes, cmf.dualform, cmf.embedding_format, cmf.galois_conjugate, cmf.galois_orbit, cmf.galois_representation, cmf.hecke_kernels, cmf.hecke_ring_generators, cmf.heckecharpolys, cmf.inner_twist, cmf.inner_twist_count, cmf.inner_twist_group, cmf.inner_twist_multiplicity, cmf.inner_twist_proved, cmf.label, cmf.lfunction, cmf.maximal, cmf.minimal_twist, cmf.newform_subspace, cmf.newspaces, cmf.picture_description, cmf.projective_field, cmf.projective_image, cmf.q-expansion, cmf.relative_dimension, cmf.satake_parameters, cmf.sato_tate, cmf.self_twist, cmf.self_twist_field, cmf.selfdual, cmf.sort_order, cmf.space_trace_form, cmf.stark_unit, cmf.sturm_bound, cmf.sturm_bound_gamma1, cmf.trace_bound, cmf.trace_form, cmf.twist, cmf.twist_minimal, ec.q.modular_form, lfunction.known_degree2, mf.bianchi.base_change, mf.ellitpic.self_twist, modcurve.decomposition, modcurve.newform_level, modcurve.rank, portrait.cmf, rcs.cande.cmf, rcs.cande.cmf_eisenstein, rcs.cande.lfunction, rcs.rigor.cmf, rcs.rigor.cmf_eisenstein, rcs.rigor.lfunction.modular, shimcurve.decomposition, shimcurve.rank
 cmf.newform_subspace: cmf.dimension, cmf.galois_orbit, cmf.heckecharpolys
-cmf.newspace: cmf.distinguishing_primes, cmf.hecke_galois_orbit, cmf.hecke_kernels, cmf.new_subspaces, cmf.newform, cmf.newform_subspace, cmf.oldspace, cmf.space_trace_form, cmf.trace_bound, cmf.trace_form
+cmf.newspace: cmf.distinguishing_primes, cmf.hecke_galois_orbit, cmf.hecke_kernels, cmf.new_subspaces, cmf.newform, cmf.newform_subspace, cmf.oldspace, cmf.space_trace_form, cmf.trace_bound, cmf.trace_form, rcs.cande.cmf, rcs.cande.cmf_eisenstein, rcs.rigor.cmf, rcs.rigor.cmf_eisenstein
 cmf.petersson_scalar_product: cmf.eisenstein_form, cmf.hecke_operator, cmf.newspace, cmf.subspaces, mf.bianchi.spaces
 cmf.petersson_scalar_product_mathlib_def: cmf.petersson_scalar_product
-cmf.projective_image: cmf.self_twist, mf.ellitpic.self_twist
-cmf.q-expansion: cmf.analytic_rank, cmf.dualform, cmf.eisenstein, cmf.embedding, cmf.fouriercoefficients_mathlib_def, cmf.hecke_ring_generators, cmf.lfunction, cmf.selfdual, cmf.trace_bound
+cmf.picture_description: portrait.maass
+cmf.plus_space: cmf.display_dim
+cmf.projective_field: rcs.rigor.cmf, rcs.rigor.cmf_eisenstein
+cmf.projective_image: cmf.self_twist, mf.ellitpic.self_twist, rcs.cande.cmf, rcs.cande.cmf_eisenstein, rcs.rigor.cmf, rcs.rigor.cmf_eisenstein
+cmf.q-expansion: cmf.analytic_rank, cmf.dualform, cmf.eisenstein, cmf.embedding, cmf.fouriercoefficients_mathlib_def, cmf.hecke_ring_generators, cmf.lfunction, cmf.selfdual, cmf.trace_bound, rcs.cande.cmf, rcs.cande.cmf_eisenstein
 cmf.q-expansion_mathlib_def: cmf.q-expansion
 cmf.relative_dimension: cmf.eisenstein_label, cmf.label, cmf.labels
 cmf.rm_form: cmf.inner_twist, cmf.self_twist_field, mf.ellitpic.self_twist
-cmf.satake_parameters: cmf.satake_angles
-cmf.self_twist: cmf.cm_form, cmf.inner_twist, cmf.inner_twist_count, cmf.inner_twist_group, cmf.nontrivial_twist, cmf.rm_form, cmf.self_twist_field
-cmf.selfdual: cmf.analytic_rank, cmf.dualform
+cmf.satake_angles: cmf.embedding_format
+cmf.satake_parameters: cmf.embedding_format, cmf.satake_angles
+cmf.sato_tate: rcs.cande.cmf, rcs.cande.cmf_eisenstein
+cmf.self_twist: cmf.cm_form, cmf.inner_twist, cmf.inner_twist_count, cmf.inner_twist_group, cmf.nontrivial_twist, cmf.rm_form, cmf.self_twist_field, rcs.cande.cmf, rcs.cande.cmf_eisenstein, rcs.rigor.cmf, rcs.rigor.cmf_eisenstein
+cmf.selfdual: cmf.analytic_rank, cmf.dualform, rcs.rigor.cmf, rcs.rigor.cmf_eisenstein
 cmf.shimura_correspondence: mf.half_integral_weight
 cmf.space: cmf.dimension_mathlib_def, cmf.subspaces
 cmf.space_mathlib_def: cmf, cmf.cusp_form_subspace_mathlib_def, cmf.dimension_mathlib_def, cmf.space
-cmf.twist: cmf.minimal_twist, cmf.twist_minimal, cmf.twist_multiplicity
+cmf.stark_unit: rcs.cande.cmf, rcs.cande.cmf_eisenstein
+cmf.sturm_bound: cmf.inner_twist_proved, rcs.cande.cmf, rcs.cande.cmf_eisenstein
+cmf.trace_form: cmf.picture_description, portrait.cmf, rcs.cande.cmf, rcs.cande.cmf_eisenstein, rcs.rigor.cmf, rcs.rigor.cmf_eisenstein
+cmf.twist: cmf.minimal_twist, cmf.twist_minimal, cmf.twist_multiplicity, rcs.cande.cmf, rcs.cande.cmf_eisenstein
 cmf.twist_minimal: cmf.minimal_twist
-cmf.weight: cmf.artin_field, cmf.artin_image, cmf.atkin-lehner, cmf.cusp_form, cmf.eisenstein, cmf.eisenstein_form, cmf.eisenstein_label, cmf.eisenstein_newspace, cmf.eisenstein_series, cmf.embedding_label, cmf.galois_representation, cmf.hecke_operator, cmf.inner_twist_count, cmf.label, cmf.labels, cmf.new_subspaces, cmf.newspace, cmf.newspaces, cmf.nk2, cmf.oldspace, cmf.projective_field, cmf.projective_image, cmf.satake_parameters, cmf.sato_tate, cmf.self_twist, cmf.space, cmf.stark_unit, cmf.sturm_bound, cmf.sturm_bound_gamma1, cmf.subspaces, ec.q.modular_form, ec.q.serre_invariants, lattice.theta, mf, mf.ellitpic.self_twist, mf.half_integral_weight, mf.quasi_modular, modcurve.decomposition, shimcurve.decomposition
-combin.hasse_diagram: group.subgroup.diagram
+cmf.weight: cmf.artin_field, cmf.artin_image, cmf.atkin-lehner, cmf.cusp_form, cmf.eisenstein, cmf.eisenstein_form, cmf.eisenstein_label, cmf.eisenstein_newspace, cmf.eisenstein_series, cmf.embedding_format, cmf.embedding_label, cmf.galois_representation, cmf.hecke_operator, cmf.inner_twist_count, cmf.label, cmf.labels, cmf.new_subspaces, cmf.newspace, cmf.newspaces, cmf.nk2, cmf.oldspace, cmf.projective_field, cmf.projective_image, cmf.satake_parameters, cmf.sato_tate, cmf.self_twist, cmf.sort_order, cmf.space, cmf.stark_unit, cmf.sturm_bound, cmf.sturm_bound_gamma1, cmf.subspaces, ec.q.modular_form, ec.q.serre_invariants, lattice.theta, mf, mf.ellitpic.self_twist, mf.gl2.history.hecke, mf.gl2.history.new, mf.half_integral_weight, mf.quasi_modular, modcurve.decomposition, rcs.cande.cmf, rcs.cande.cmf_eisenstein, rcs.cande.lfunction, rcs.rigor.cmf, rcs.rigor.cmf_eisenstein, rcs.rigor.ec.q, shimcurve.decomposition
+combin.hasse_diagram: group.subgroup.diagram, group.subgroup.diagram.lmfdb
 commensurable.group: mf.siegel.q-expansion
 crystals.crystal: crystals.highest_weight
-curve.highergenus.aut.branchpoints: curve.highergenus.aut.dimension, curve.highergenus.aut.generatingvector, curve.highergenus.aut.monodromy, curve.highergenus.aut.signature
-curve.highergenus.aut.generatingvector: curve.highergenus.aut.braid_equivalence, curve.highergenus.aut.refinedpassport
-curve.highergenus.aut.generators: curve.highergenus.aut.generatingvector, curve.highergenus.aut.signature
+curve.highergenus.aut.branchpoints: curve.highergenus.aut.dimension, curve.highergenus.aut.generatingvector, curve.highergenus.aut.monodromy, curve.highergenus.aut.signature, dq.curve.highergenus.aut.label
+curve.highergenus.aut.conjugacyclasses: dq.curve.highergenus.aut.label
+curve.highergenus.aut.generatingvector: curve.highergenus.aut.braid_equivalence, curve.highergenus.aut.refinedpassport, dq.curve.highergenus.aut.label, dq.curve.highergenus.aut.source, rcs.source.curve.highergenus.aut
+curve.highergenus.aut.generators: curve.highergenus.aut.generatingvector, curve.highergenus.aut.signature, dq.curve.highergenus.aut.label
 curve.highergenus.aut.group_action: curve.highergenus.aut.characters, curve.highergenus.aut.topological_equivalence
 curve.highergenus.aut.groupalgebradecomp: curve.highergenus.aut.characters
-curve.highergenus.aut.monodromy: belyi.group, curve.highergenus.aut.generatingvector
+curve.highergenus.aut.monodromy: belyi.group, curve.highergenus.aut.generatingvector, dq.curve.highergenus.aut.label
 curve.highergenus.aut.quotientgenus: curve.highergenus.aut.dimension, curve.highergenus.aut.signature
-curve.highergenus.aut.refinedpassport: curve.highergenus.aut.braid_equivalence
-curve.highergenus.aut.signature: curve.highergenus.aut.dimension
-ec: ag.abelian_surface, ag.abelian_variety, ag.cluster_picture, ag.modcurve.x0, ag.modcurve.x1, ec.additive_reduction, ec.analytic_sha_order, ec.bad_reduction, ec.bsdconjecture, ec.canonical_height, ec.complex_multiplication, ec.conductor, ec.congruent_number_curve, ec.congruent_number_problem, ec.discriminant, ec.endomorphism, ec.endomorphism_ring, ec.galois_rep, ec.galois_rep_elladic_image, ec.galois_rep_modell_image, ec.global_minimal_model, ec.good_ordinary_reduction, ec.good_reduction, ec.good_supersingular_reduction, ec.integral_model, ec.invariants, ec.isogeny, ec.isogeny_class, ec.isogeny_class_degree, ec.isogeny_graph, ec.isogeny_matrix, ec.isomorphism, ec.j_invariant, ec.kodaira_symbol, ec.local_data, ec.local_minimal_discriminant, ec.local_minimal_model, ec.local_root_number, ec.maximal_elladic_galois_rep, ec.maximal_galois_rep, ec.minimal_discriminant, ec.mordell_weil_group, ec.mordell_weil_theorem, ec.multiplicative_reduction, ec.mw_generators, ec.nonsplit_multiplicative_reduction, ec.obstruction_class, ec.period, ec.potential_good_reduction, ec.q.abc_quality, ec.q.analytic_rank, ec.q.analytic_sha_order, ec.q.bsdconjecture, ec.q.canonical_height, ec.q.conductor, ec.q.cremona_label, ec.q.discriminant, ec.q.endomorphism_ring, ec.q.faltings_height, ec.q.faltings_ratio, ec.q.j_invariant, ec.q.lmfdb_label, ec.q.manin_constant, ec.q.minimal_twist, ec.q.modular_degree, ec.q.modular_form, ec.q.modular_parametrization, ec.q.naive_height, ec.q.period_lattice, ec.q.regulator, ec.q.semistable, ec.q.special_value, ec.q.szpiro_ratio, ec.q.torsion_growth, ec.q_curve, ec.rank, ec.reduction, ec.reduction_type, ec.regulator, ec.ring, ec.semi_global_minimal_model, ec.semistable, ec.simple_equation, ec.special_value, ec.split_multiplicative_reduction, ec.tamagawa_number, ec.torsion_order, ec.twists, ec.weierstrass_coeffs, g2c.decomposition, g2c.end_alg, g2c.geom_end_alg, g2c.hasse_weil_conjecture, g2c.real_period, modcurve, modcurve.contains_negative_one, modcurve.elliptic_curve_of_point, modcurve.level_structure, modcurve.modular_cover, modcurve.rational_points, st_group.definition
+curve.highergenus.aut.refinedpassport: curve.highergenus.aut.braid_equivalence, dq.curve.highergenus.aut.label
+curve.highergenus.aut.signature: curve.highergenus.aut.dimension, dq.curve.highergenus.aut.label, dq.curve.highergenus.aut.source, rcs.source.curve.highergenus.aut
+ec: ag.abelian_surface, ag.abelian_variety, ag.cluster_picture, ag.modcurve.x0, ag.modcurve.x1, dq.ecnf.extent, dq.ecnf.reliability, ec.additive_reduction, ec.analytic_sha_order, ec.bad_reduction, ec.bsdconjecture, ec.canonical_height, ec.complex_multiplication, ec.conductor, ec.congruent_number_curve, ec.congruent_number_problem, ec.discriminant, ec.endomorphism, ec.endomorphism_ring, ec.galois_rep, ec.galois_rep_elladic_image, ec.galois_rep_modell_image, ec.global_minimal_model, ec.good_ordinary_reduction, ec.good_reduction, ec.good_supersingular_reduction, ec.integral_model, ec.invariants, ec.isogeny, ec.isogeny_class, ec.isogeny_class_degree, ec.isogeny_graph, ec.isogeny_matrix, ec.isomorphism, ec.j_invariant, ec.kodaira_symbol, ec.local_data, ec.local_minimal_discriminant, ec.local_minimal_model, ec.local_root_number, ec.maximal_elladic_galois_rep, ec.maximal_galois_rep, ec.minimal_discriminant, ec.mordell_weil_group, ec.mordell_weil_theorem, ec.multiplicative_reduction, ec.mw_generators, ec.nonsplit_multiplicative_reduction, ec.obstruction_class, ec.period, ec.potential_good_reduction, ec.q.abc_quality, ec.q.analytic_rank, ec.q.analytic_sha_order, ec.q.analytic_sha_value, ec.q.bsdconjecture, ec.q.canonical_height, ec.q.conductor, ec.q.cremona_label, ec.q.discriminant, ec.q.endomorphism_ring, ec.q.faltings_height, ec.q.faltings_ratio, ec.q.invariants, ec.q.j_invariant, ec.q.lmfdb_label, ec.q.manin_constant, ec.q.minimal_twist, ec.q.modular_degree, ec.q.modular_form, ec.q.modular_parametrization, ec.q.naive_height, ec.q.period_lattice, ec.q.regulator, ec.q.semistable, ec.q.special_value, ec.q.szpiro_ratio, ec.q.torsion_growth, ec.q_curve, ec.rank, ec.reduction, ec.reduction_type, ec.regulator, ec.ring, ec.semi_global_minimal_model, ec.semistable, ec.simple_equation, ec.special_value, ec.split_multiplicative_reduction, ec.tamagawa_number, ec.torsion_order, ec.twists, ec.weierstrass_coeffs, g2c.decomposition, g2c.end_alg, g2c.geom_end_alg, g2c.hasse_weil_conjecture, g2c.real_period, mf.gl2.history.elliptic, modcurve, modcurve.contains_negative_one, modcurve.elliptic_curve_of_point, modcurve.known_points, modcurve.level_structure, modcurve.modular_cover, modcurve.rational_points, portrait.ec.nf, rcs.cande.lfunction, rcs.rigor.ec, rcs.rigor.ec.q, rcs.rigor.lfunction.ec, rcs.source.ec, shimcurve.rational_points, st_group.definition
 ec.additive_reduction: ec.bad_reduction, ec.conductor, ec.local_root_number, ec.q.conductor
-ec.analytic_sha_order: ec.bsdconjecture, ec.q.bsdconjecture
+ec.analytic_sha_order: ec.bsdconjecture, ec.q.analytic_sha_value, ec.q.bsd_invariants, ec.q.bsdconjecture, rcs.rigor.ec, rcs.rigor.ec.q
 ec.bad_reduction: ec.conductor, ec.q.semistable, ec.reduction, ec.reduction_type, ec.semistable, ec.simple_equation
-ec.base_change: ec.analytic_sha_order, ec.period, ec.q_curve, ec.regulator, modcurve.level_structure
-ec.bsdconjecture: ec.special_value, modcurve.rank, shimcurve.rank
-ec.canonical_height: ec.q.regulator, ec.regulator
-ec.complex_multiplication: ec.curve_label, ec.galois_rep, ec.galois_rep_adelic_image, ec.galois_rep_elladic_image, ec.maximal_elladic_galois_rep, ec.maximal_galois_rep, ec.q.minimal_twist, ec.q_curve, g2c.geom_end_alg, modcurve.cm_discriminants
+ec.base_change: dq.ecnf.source, ec.analytic_sha_order, ec.period, ec.q_curve, ec.regulator, modcurve.level_structure, rcs.source.ec
+ec.bsdconjecture: dq.ecnf.reliability, ec.special_value, modcurve.rank, rcs.rigor.ec, shimcurve.rank
+ec.canonical_height: ec.q.regulator, ec.regulator, rcs.rigor.ec
+ec.complex_multiplication: dq.ecnf.source, ec.curve_label, ec.galois_rep, ec.galois_rep_adelic_image, ec.galois_rep_elladic_image, ec.maximal_elladic_galois_rep, ec.maximal_galois_rep, ec.q.invariants, ec.q.minimal_twist, ec.q_curve, g2c.geom_end_alg, modcurve.cm_discriminants, modcurve.known_points, rcs.rigor.ec.q, rcs.source.ec
 ec.conductor: ec.conductor_label, ec.conductor_valuation, ec.invariants, ec.q.lmfdb_label
 ec.conductor_label: ec.curve_label
 ec.congruent_number: ec.congruent_number_problem
 ec.congruent_number_curve: ec.congruent_number_problem
 ec.discriminant: ec.bad_reduction, ec.discriminant_norm, ec.invariants, ec.j_invariant, ec.local_minimal_model, ec.minimal_discriminant, ec.period, ec.q.discriminant, ec.q.faltings_height, ec.semi_global_minimal_model
 ec.endomorphism: ec.endomorphism_ring, ec.isogeny, ec.padic_tate_module, ec.q.endomorphism_ring
-ec.endomorphism_ring: ec.complex_multiplication, ec.geom_endomorphism_ring, ec.invariants, ec.isogeny
-ec.galois_rep: ec.galois_rep_adelic_image, ec.galois_rep_elladic_image, ec.galois_rep_modell_image, ec.maximal_elladic_galois_rep, ec.maximal_galois_rep, ec.q.serre_invariants, g2c.galois_rep_image, modcurve, modcurve.level_structure
+ec.endomorphism_ring: ec.complex_multiplication, ec.geom_endomorphism_ring, ec.invariants, ec.isogeny, ec.q.invariants
+ec.galois_rep: ec.galois_rep_adelic_image, ec.galois_rep_elladic_image, ec.galois_rep_modell_image, ec.maximal_elladic_galois_rep, ec.maximal_galois_rep, ec.q.serre_invariants, g2c.galois_rep_image, modcurve, modcurve.level_structure, rcs.rigor.ec.q
 ec.galois_rep_adelic_image: modcurve.entanglement_index
 ec.galois_rep_modell_image: modcurve.other_labels, modcurve.xs4
 ec.geom_endomorphism_ring: ec.complex_multiplication, ec.maximal_elladic_galois_rep, ec.maximal_galois_rep, ec.q.endomorphism_ring
-ec.global_minimal_model: ec.minimal_discriminant, ec.obstruction_class, ec.period, ec.q.period_lattice
+ec.global_minimal_model: dq.ecnf.source, ec.minimal_discriminant, ec.obstruction_class, ec.period, ec.q.period_lattice, rcs.source.ec
 ec.good_ordinary_reduction: ec.iwasawa_invariants, ec.lambda_invariant, ec.mu_invariant
-ec.good_reduction: ec.conductor, ec.local_root_number, ec.potential_good_reduction, ec.reduction_type, ec.ring, ec.simple_equation, ec.tamagawa_number
+ec.good_reduction: dq.ecnf.extent, ec.conductor, ec.local_root_number, ec.potential_good_reduction, ec.reduction_type, ec.ring, ec.simple_equation, ec.tamagawa_number, rcs.cande.ec, rcs.source.ec
 ec.good_supersingular_reduction: ec.iwasawa_invariants, ec.lambda_invariant, ec.mu_invariant
 ec.integral_model: ec.global_minimal_model
-ec.isogeny: ag.modcurve.x0, ec.congruent_number_curve, ec.isogeny_class, ec.isogeny_class_degree, ec.isomorphism, ec.q.cremona_label, ec.q.faltings_ratio, ec.q.manin_constant, ec.q_curve, ec.rank
-ec.isogeny_class: ec.congruent_number_curve, ec.curve_label, ec.isogeny_class_degree, ec.isogeny_graph, ec.isogeny_matrix, ec.q.cremona_label, ec.q.lmfdb_label, ec.q.minimal_twist, ec.q.optimal, ec.rank
+ec.invariants: dq.ecnf.extent, dq.ecnf.reliability, rcs.cande.ec, rcs.rigor.ec, rcs.source.ec
+ec.isogeny: ag.modcurve.x0, dq.ecnf.extent, dq.ecnf.source, ec.congruent_number_curve, ec.isogeny_class, ec.isogeny_class_degree, ec.isomorphism, ec.q.cremona_label, ec.q.faltings_ratio, ec.q.manin_constant, ec.q_curve, ec.rank, rcs.cande.ec, rcs.rigor.ec.q, rcs.source.ec
+ec.isogeny_class: ec.congruent_number_curve, ec.curve_label, ec.isogeny_class_degree, ec.isogeny_graph, ec.isogeny_matrix, ec.q.cremona_label, ec.q.lmfdb_label, ec.q.minimal_twist, ec.q.optimal, ec.rank, rcs.cande.lfunction
 ec.isomorphism: ec.j_invariant, ec.q.cremona_label, ec.q.lmfdb_label, ec.weierstrass_isomorphism
+ec.iwasawa_invariants: rcs.rigor.ec.q
 ec.j_invariant: ec.base_change, ec.complex_multiplication, ec.invariants, ec.j_invariant_denominator_valuation, ec.potential_good_reduction, ec.q.abc_quality, ec.q.faltings_height, ec.q.minimal_twist, ec.reduction, ec.twists
 ec.kodaira_symbol: ec.local_data
 ec.lambda_invariant: ec.iwasawa_invariants
+ec.local_data: dq.ecnf.source, rcs.rigor.ec.q, rcs.source.ec
 ec.local_minimal_discriminant: ec.minimal_discriminant
 ec.local_minimal_model: ec.global_minimal_model, ec.kodaira_symbol, ec.local_minimal_discriminant, ec.semi_global_minimal_model
 ec.local_root_number: g2c.local_root_number
 ec.minimal_discriminant: ec.discriminant_valuation, ec.invariants, ec.period, ec.q.minimal_twist, ec.q.szpiro_ratio, ec.semi_global_minimal_model
-ec.mordell_weil_group: ec.analytic_sha_order, ec.canonical_height, ec.congruent_number_curve, ec.mordell_weil_theorem, ec.mw_generators, ec.q.analytic_rank, ec.q.regulator, ec.rank, ec.regulator, ec.torsion_order, ec.torsion_subgroup
+ec.mordell_weil_group: ec.analytic_sha_order, ec.canonical_height, ec.congruent_number_curve, ec.mordell_weil_theorem, ec.mw_generators, ec.q.analytic_rank, ec.q.regulator, ec.rank, ec.regulator, ec.torsion_order, ec.torsion_subgroup, rcs.rigor.ec.q
 ec.mordell_weil_theorem: ec.q.bsdconjecture, ec.rank, ec.torsion_order, ec.torsion_subgroup
 ec.mu_invariant: ec.iwasawa_invariants, ec.lambda_invariant
 ec.multiplicative_reduction: ec.conductor, ec.iwasawa_invariants, ec.lambda_invariant, ec.mu_invariant, ec.q.conductor
 ec.nonsplit_multiplicative_reduction: ec.bad_reduction, ec.local_root_number, ec.multiplicative_reduction
 ec.padic_tate_module: ec.galois_rep
-ec.period: ec.analytic_sha_order, ec.bsdconjecture
+ec.period: ec.analytic_sha_order, ec.bsdconjecture, rcs.rigor.ec
 ec.potential_good_reduction: ec.reduction
-ec.q: ec.q.optimal, ec.q.weil_height
-ec.q.bsdconjecture: ec.q.special_value
-ec.q.conductor: ec.congruent_number_curve, ec.q.abc_quality, ec.q.cremona_label, ec.q.lmfdb_label, ec.q.manin_constant, ec.q.minimal_twist, ec.q.optimal, ec.q.szpiro_ratio
-ec.q.discriminant: ec.q, ec.q.j_invariant, ec.q.period_lattice
+ec.q: ec.q.optimal, ec.q.weil_height, intro.tutorial, lfunction.known_degree2, lfunction.underlying_object, mf.gl2.history.varieties
+ec.q.analytic_rank: ec.q.analytic_sha_value
+ec.q.bsdconjecture: ec.q.analytic_sha_value, ec.q.bsd_invariants, ec.q.special_value, intro.tutorial, rcs.rigor.ec.q
+ec.q.conductor: ec.congruent_number_curve, ec.q.abc_quality, ec.q.cremona_label, ec.q.invariants, ec.q.lmfdb_label, ec.q.manin_constant, ec.q.minimal_twist, ec.q.optimal, ec.q.szpiro_ratio, rcs.cande.lfunction, rcs.rigor.ec.q
+ec.q.cremona_label: rcs.rigor.ec.q
+ec.q.discriminant: ec.q, ec.q.invariants, ec.q.j_invariant, ec.q.period_lattice
 ec.q.faltings_height: ec.q.faltings_ratio
-ec.q.j_invariant: ec.q.szpiro_ratio
+ec.q.integral_points: rcs.rigor.ec.q
+ec.q.j_invariant: ec.q.invariants, ec.q.szpiro_ratio
+ec.q.manin_constant: rcs.rigor.ec.q
 ec.q.minimal_twist: modcurve.elliptic_curve_of_point
 ec.q.minimal_weierstrass_equation: ec.q, ec.q.discriminant, ec.q.kodaira_symbol, ec.q.lmfdb_label, ec.q.real_period, ec.q.reduction_type, ec.simple_equation
 ec.q.modular_parametrization: ec.q.manin_constant, ec.q.modular_degree
-ec.q.optimal: ec.q.cremona_label, ec.q.manin_constant
+ec.q.optimal: ec.q.cremona_label, ec.q.manin_constant, rcs.rigor.ec.q
 ec.q.period_lattice: ec.period, ec.q.faltings_height, ec.q.faltings_ratio
-ec.q.real_period: ec.q.bsdconjecture, ec.q.period_lattice, g2c.real_period
+ec.q.real_period: ec.q.bsd_invariants, ec.q.bsdconjecture, ec.q.period_lattice, g2c.real_period, rcs.rigor.ec.q
 ec.q.reduction_type: ec.q.kodaira_symbol
-ec.rank: ec.analytic_sha_order, ec.bsdconjecture, ec.congruent_number_curve, ec.mw_generators, ec.q.bsdconjecture, ec.regulator
+ec.q.regulator: rcs.rigor.ec.q
+ec.q.tamagawa_numbers: ec.q.bsd_invariants
+ec.q.torsion_growth: rcs.rigor.ec.q
+ec.q.torsion_subgroup: rcs.rigor.ec.q
+ec.rank: ec.analytic_sha_order, ec.bsdconjecture, ec.congruent_number_curve, ec.mw_generators, ec.q.bsd_invariants, ec.q.bsdconjecture, ec.regulator, rcs.rigor.ec.q, rcs.rigor.lfunction.ec
 ec.reduction_type: ec.kodaira_symbol, ec.local_data, ec.q.semistable, ec.reduction, ec.semistable
-ec.regulator: ag.regulator, ec.analytic_sha_order, ec.bsdconjecture, ec.q.bsdconjecture, ec.q.canonical_height
+ec.regulator: ag.regulator, ec.analytic_sha_order, ec.bsdconjecture, ec.q.bsd_invariants, ec.q.bsdconjecture, ec.q.canonical_height, rcs.rigor.ec
 ec.ring: modcurve.xn
 ec.scheme: ec.ring
 ec.semistable: ec.q.faltings_height, ec.q.manin_constant, ec.reduction, g2c.semistable_reduction
 ec.split_multiplicative_reduction: ec.bad_reduction, ec.local_root_number, ec.multiplicative_reduction
 ec.tamagawa_number: ec.analytic_sha_order, ec.bsdconjecture, ec.local_data, ec.q.bsdconjecture
-ec.torsion_order: ec.q.bsdconjecture
+ec.torsion_order: ec.q.bsd_invariants, ec.q.bsdconjecture
 ec.torsion_subgroup: ec.analytic_sha_order, ec.bsdconjecture, ec.mw_generators, ec.q.torsion_growth, ec.rank, ec.torsion_order
 ec.twists: ec.q.minimal_twist
 ec.weierstrass_coeffs: ec.congruent_number_curve, ec.discriminant, ec.global_minimal_model, ec.integral_model, ec.invariants, ec.j_invariant, ec.local_minimal_model, ec.minimal_discriminant, ec.period, ec.q.j_invariant, ec.q.naive_height, ec.q.period_lattice, ec.q.real_period, ec.weierstrass_isomorphism
 ec.weierstrass_isomorphism: ec.q.real_period
 field.finite.conway_polynomial: lf.defining_polynomial
-g2c.abs_discriminant: g2c.label
-g2c.analytic_rank: g2c.analytic_sha, g2c.bsd_invariants
-g2c.analytic_sha: g2c.bsd_invariants
+g2c.abs_discriminant: g2c.label, rcs.rigor.g2c
+g2c.all_rational_points: g2c.num_rat_pts, rcs.rigor.g2c
+g2c.analytic_rank: g2c.analytic_sha, g2c.bsd_invariants, g2c.conditional_mw_group, rcs.rigor.g2c
+g2c.analytic_sha: g2c.bsd_invariants, rcs.rigor.g2c
 g2c.aut_grp: ag.cyclic_trigonal, ag.quotient_curve, curve.highergenus.aut.full, curve.highergenus.aut.group_action, curve.highergenus.aut.groupalgebradecomp, ec.twists, g2c.geom_aut_grp
-g2c.discriminant: g2c.abs_discriminant, g2c.conductor, g2c.g2curve, g2c.local_invariants, g2c.minimal_equation
-g2c.g2curve: g2c.abs_discriminant, g2c.aut_grp, g2c.conductor, g2c.g2_invariants, g2c.galois_rep.non_maximal_primes, g2c.galois_rep_image, g2c.galois_rep_modell_image, g2c.igusa_clebsch_invariants, g2c.igusa_invariants, g2c.jacobian, g2c.label, g2c.local_invariants, g2c.mw_generator, g2c.regulator, g2c.st_group
+g2c.discriminant: g2c.abs_discriminant, g2c.conductor, g2c.g2curve, g2c.invariants, g2c.local_invariants, g2c.minimal_equation
+g2c.g2_invariants: g2c.geometric_invariants, g2c.invariants
+g2c.g2curve: g2c.abs_discriminant, g2c.aut_grp, g2c.conductor, g2c.g2_invariants, g2c.galois_rep.non_maximal_primes, g2c.galois_rep_image, g2c.galois_rep_modell_image, g2c.igusa_clebsch_invariants, g2c.igusa_invariants, g2c.invariants, g2c.jacobian, g2c.label, g2c.local_invariants, g2c.mw_generator, g2c.regulator, g2c.st_group, rcs.rigor.lfunction.curve
 g2c.galois_rep: g2c.galois_rep_modell_image
 g2c.geom_iso_class: g2c.g2_invariants, g2c.igusa_clebsch_invariants, g2c.igusa_invariants
-g2c.gl2type: g2c.hasse_weil_conjecture
-g2c.good_reduction: g2c.lfunction, g2c.local_invariants, g2c.minimal_equation, g2c.tamagawa
-g2c.hasse_weil_conjecture: g2c.analytic_rank
-g2c.igusa_clebsch_invariants: g2c.igusa_invariants
-g2c.igusa_invariants: g2c.g2_invariants
-g2c.isogeny_class: g2c.lfunction
-g2c.jacobian: g2c.galois_rep, g2c.label
+g2c.gl2type: g2c.hasse_weil_conjecture, rcs.rigor.g2c
+g2c.good_reduction: g2c.lfunction, g2c.local_invariants, g2c.minimal_equation, g2c.tamagawa, rcs.rigor.g2c, rcs.rigor.lfunction.curve
+g2c.hasse_weil_conjecture: dq.ecnf.reliability, g2c.analytic_rank, rcs.rigor.ec, rcs.rigor.g2c
+g2c.igusa_clebsch_invariants: g2c.geometric_invariants, g2c.igusa_invariants, g2c.invariants
+g2c.igusa_invariants: g2c.g2_invariants, g2c.geometric_invariants, g2c.invariants
+g2c.isogeny_class: g2c.lfunction, mf.gl2.history.varieties, rcs.cande.lfunction, rcs.rigor.g2c
+g2c.jac_endomorphisms: rcs.rigor.g2c
+g2c.jacobian: g2c.galois_rep, g2c.label, rcs.rigor.g2c
+g2c.known_rational_points: g2c.num_rat_pts, rcs.rigor.g2c
+g2c.lfunction: rcs.rigor.g2c
 g2c.locally_solvable: ag.tate_shafarevich
 g2c.minimal_equation: g2c.all_rational_points, g2c.g2curve, g2c.known_rational_points, g2c.mw_generator, g2c.simple_equation
-g2c.mordell_weil_rank: g2c.analytic_sha, g2c.bsd_invariants
-g2c.mw_generator: g2c.mw_generator_order
+g2c.mordell_weil_rank: g2c.analytic_sha, g2c.bsd_invariants, g2c.conditional_mw_group
+g2c.mw_generator: g2c.mw_generator_order, rcs.rigor.g2c
 g2c.real_period: g2c.analytic_sha, g2c.bsd_invariants
+g2c.regulator: rcs.rigor.g2c
 g2c.semistable_reduction: g2c.tame_reduction
-g2c.st_group: g2c.galois_rep.non_maximal_primes, g2c.st_group_identity_component
+g2c.st_group: g2c.galois_rep.non_maximal_primes, g2c.st_group_identity_component, rcs.rigor.g2c
 g2c.tamagawa: g2c.analytic_sha, g2c.bsd_invariants, g2c.local_invariants
 g2c.tame_reduction: g2c.local_root_number
-g2c.torsion: g2c.analytic_sha, g2c.bsd_invariants, g2c.torsion_order, g2c.two_selmer_rank
+g2c.torsion: g2c.analytic_sha, g2c.bsd_invariants, g2c.conditional_mw_group, g2c.torsion_order, g2c.two_selmer_rank
 g2c.two_selmer_rank: g2c.bsd_invariants
 gg.conjugacy_classes: artin.lfunction, gg.arithmetically_equivalent
-gg.degree: gg.label, gg.other_representations
+gg.degree: gg.label, gg.other_representations, nf.galois_group.name
 gg.galois_group: artin.conductor, gg.degree, gg.field_automorphisms, gg.parity, gg.resolvents, group.gassmann_equivalence, lf.inertia_group_search, modlgal.conductor
 gg.index: gg.concentrated, gg.malle_a, gg.malle_b, gg.semiconcentrated
-gg.label: lf.inertia_group_search, lf.wild_inertia_group_search
+gg.label: lf.inertia_group_search, lf.wild_inertia_group_search, nf.galois_search
 gg.malle_a: gg.malle_b
 gg.other_representations: gg.resolvents
 gg.primitive: belyi.primitive
 gg.regular_extension: gg.generic_polynomial
-gg.tnumber: artin.label, gg.label, group.representation.min_perm_rep
+gg.tnumber: artin.label, gg.label, group.representation.min_perm_rep, nf.galois_group.name
 gl2.borel: ec.galois_rep_modell_image, ec.maximal_galois_rep, gl2.exceptional
 gl2.cartan: ec.galois_rep_elladic_image, gl2.nonsplit_cartan, gl2.normalizer_cartan, gl2.split_cartan, modcurve.name, modcurve.xns, modcurve.xns_plus, modcurve.xsp, modcurve.xsp_plus
 gl2.exceptional: ec.galois_rep_modell_image
@@ -310,68 +351,80 @@ gl2.normalizer_split_cartan: ec.galois_rep_modell_image, ec.maximal_galois_rep
 gl2.open: ec.galois_rep, ec.galois_rep_adelic_image, ec.galois_rep_elladic_image, gl2.genus, gl2.index, gl2.label, gl2.level, modcurve, modcurve.agreeable, modcurve.cusp_orbits, modcurve.entanglement_index, modcurve.gassmann_class, modcurve.genus, modcurve.index, modcurve.label, modcurve.level, modcurve.level_structure, modcurve.minimal_twist, modcurve.modular_cover, modcurve.relative_index, modcurve.xn
 gl2.profinite: gl2.index, gl2.open, shimcurve.enhanced_group
 gl2.split_cartan: ec.galois_rep_modell_image, gl2.normalizer_split_cartan
-group: artin.frobenius_schur_indicator, gg.concentrated, gg.generic_polynomial, gg.semiconcentrated, gg.tnumber, gg.transitivity, group.abelian, group.action, group.aut_phi_ratio, group.autjugate_subgroup, group.automorphism, group.center, group.central, group.central_quotient, group.centralizer, group.characteristic_subgroup, group.chief_series, group.commutator_subgroup, group.complex_character_table, group.conjugacy_class, group.conjugacy_class.power_classes, group.core, group.coset, group.cyclic, group.derived_series, group.dicyclic, group.direct_product, group.division, group.division_maximal, group.element_order, group.elementary, group.exponent, group.fitting_subgroup, group.gassmann_equivalence, group.generators, group.group_ring, group.haar_measure, group.homomorphism, group.hyperelementary, group.inner_automorphism, group.label, group.label_complex_group_char, group.label_rational_group_char, group.lower_central_series, group.maximal_quotient, group.min_faithful_linear, group.minimal_normal, group.nilpotent, group.nonsplit_product, group.normal_series, group.order, group.outer_aut, group.perfect, group.permutation_degree, group.pgroup, group.proper_subgroup, group.quotient, group.radical, group.rank, group.rational_character_table, group.representation.character, group.representation.irrep, group.representation.rational_character, group.representation.type, group.semidirect_product, group.simple, group.socle, group.solvable, group.stem_group, group.subgroup, group.subgroup.centralizer, group.subgroup.diagram, group.subgroup.hall, group.subgroup.normal, group.subgroup.normalizer, group.sylow_subgroup, group.torsion, group.transitive_degree, group.trivial_subgroup, group.type, group.upper_central_series, group.wreath_product, ring.characteristic, ring.unit
-group.abelian: ec.analytic_sha_order, ec.mw_generators, group.a_group, group.abelianization, group.commutator_subgroup, group.metabelian, group.nilpotent, group.quasisimple, group.simple, group.solvable, group.supersolvable, group.torsion, group.type, lattice.discriminant_group, modlgal.abelian, ring
+group: artin.frobenius_schur_indicator, gg.concentrated, gg.generic_polynomial, gg.semiconcentrated, gg.tnumber, gg.transitivity, group.abelian, group.action, group.aut_phi_ratio, group.autjugate_subgroup, group.automorphism, group.center, group.central, group.central_quotient, group.centralizer, group.characteristic_subgroup, group.chief_series, group.commutator_subgroup, group.complex_character_table, group.conjugacy_class, group.conjugacy_class.power_classes, group.core, group.coset, group.cyclic, group.derived_series, group.dicyclic, group.direct_product, group.division, group.division_maximal, group.element_order, group.elementary, group.exponent, group.fitting_subgroup, group.gassmann_equivalence, group.generators, group.group_ring, group.haar_measure, group.homomorphism, group.hyperelementary, group.inner_automorphism, group.label, group.label_complex_group_char, group.label_rational_group_char, group.lie_type, group.lower_central_series, group.maximal_quotient, group.min_faithful_linear, group.minimal_normal, group.nilpotent, group.nonsplit_product, group.normal_series, group.order, group.outer_aut, group.perfect, group.permutation_degree, group.pgroup, group.proper_subgroup, group.quotient, group.radical, group.rank, group.rational_character_table, group.representation.character, group.representation.irrep, group.representation.rational_character, group.representation.type, group.semidirect_product, group.simple, group.socle, group.solvable, group.stem_group, group.subgroup, group.subgroup.centralizer, group.subgroup.diagram, group.subgroup.hall, group.subgroup.normal, group.subgroup.normalizer, group.sylow_subgroup, group.torsion, group.transitive_degree, group.trivial_subgroup, group.type, group.upper_central_series, group.wreath_product, ring.characteristic, ring.unit
+group.a_group: group.properties_interdependencies
+group.abelian: ec.analytic_sha_order, ec.mw_generators, group.a_group, group.abelianization, group.commutator_subgroup, group.hash, group.metabelian, group.nilpotent, group.properties_interdependencies, group.quasisimple, group.simple, group.solvable, group.subgroup_properties_interdependencies, group.supersolvable, group.torsion, group.type, lattice.discriminant_group, modlgal.abelian, ring
+group.abelian_invariants: group.hash
 group.action: gg.transitivity
-group.affine_general_linear: group.affine_linear_automorphism, group.affine_special_linear, group.affine_symplectic
-group.affine_special_linear: group.affine_linear_automorphism
-group.almost_simple: group.quasisimple, group.symmetric
-group.alternating: group.coxeter, group.sporadic, st_group.component_group
+group.affine_general_linear: group.affine_linear_automorphism, group.affine_special_linear, group.affine_symplectic, group.lie_type
+group.affine_special_linear: group.affine_linear_automorphism, group.lie_type
+group.affine_symplectic: group.lie_type
+group.almost_simple: group.properties_interdependencies, group.quasisimple, group.symmetric
+group.alternating: group.coxeter, group.name, group.sporadic, st_group.component_group
 group.ambient: group.subgroup_label
-group.automorphism: group.almost_simple, group.aut_phi_ratio, group.autjugacy_class, group.autjugate_subgroup, group.characteristic_subgroup, group.conjugacy_class, group.general_linear, group.generators, group.inner_automorphism, group.outer_aut, group.semidirect_product, group.subgroup_label, group.weyl_group
-group.center: group.central, group.central_quotient, group.inner_automorphism, group.size_conjugacy_class, group.stem_extension, group.stem_group, group.subgroup.projective_image, group.symplectic, group.unitary, group.upper_central_series
+group.automorphism: group.almost_simple, group.aut_phi_ratio, group.autjugacy_class, group.autjugate_subgroup, group.characteristic_subgroup, group.conjugacy_class, group.general_linear, group.generators, group.inner_automorphism, group.lie_type, group.outer_aut, group.semidirect_product, group.subgroup_label, group.subgroup_properties_interdependencies, group.weyl_group
+group.center: group.central, group.central_quotient, group.inner_automorphism, group.lie_type, group.properties_interdependencies, group.size_conjugacy_class, group.stem_extension, group.stem_group, group.subgroup.projective_image, group.symplectic, group.unitary, group.upper_central_series
+group.central: group.subgroup_properties_interdependencies
 group.centralizer: gg.field_automorphisms, group.weyl_group
-group.characteristic_subgroup: group.frattini_subgroup
-group.commutator_subgroup: group.abelianization, group.commutator_length, group.derived_series, group.isoclinism, group.perfect, group.stem_extension, group.stem_group, modcurve.agreeable
+group.characteristic_subgroup: group.frattini_subgroup, group.subgroup_properties_interdependencies
+group.chevalley: group.lie_type
+group.commutator_subgroup: group.abelianization, group.commutator_length, group.derived_series, group.isoclinism, group.perfect, group.properties_interdependencies, group.stem_extension, group.stem_group, modcurve.agreeable
 group.complex_character_table: curve.highergenus.aut.characters, group.min_faithful_linear
-group.conjugacy_class: gg.conjugacy_classes, group.autjugacy_class, group.conjugacy_class.power_classes, group.division, group.gassmann_equivalence, group.label_conjugacy_class, group.order_conjugacy_class, group.representation.character, group.size_conjugacy_class
-group.core: gg.resolvents, group.transitive_degree
+group.computing_subgroup_labels: group.subgroup_label
+group.conjugacy_class: gg.conjugacy_classes, group.autjugacy_class, group.computing_subgroup_labels, group.conjugacy_class.power_classes, group.division, group.gassmann_equivalence, group.label_conjugacy_class, group.order_conjugacy_class, group.picture_description, group.pseudo_random_elements, group.representation.character, group.size_conjugacy_class, portrait.groups.abstract
+group.core: gg.resolvents, group.subgroups_beyond_bound, group.transitive_degree
 group.coset: group.quotient, group.quotient_size, group.subgroup.index, group.subgroup.normal
-group.cyclic: av.fq.cyclic_group_points, av.fq.noncyclic_primes, group.aut_phi_ratio, group.dicyclic, group.element_order, group.elementary, group.hyperelementary, group.rational_group, group.simple, group.socle, group.sporadic, group.type, group.z_group, st_group.component_group
+group.cyclic: av.fq.cyclic_group_points, av.fq.noncyclic_primes, group.aut_phi_ratio, group.dicyclic, group.element_order, group.elementary, group.hyperelementary, group.name, group.properties_interdependencies, group.rational_group, group.simple, group.socle, group.sporadic, group.subgroup_properties_interdependencies, group.type, group.z_group, st_group.component_group
 group.derived_series: group.isoclinism, group.type
 group.dicyclic: group.dihedral, group.generalized_quaternion
-group.dihedral: group.coxeter, group.metabelian, group.other_dihedral, group.semi_dihedral, st_group.component_group
-group.direct_product: group.coxeter, group.elementary, group.semidirect_product, modcurve.entanglement_index
-group.division: gg.malle_b, group.division_maximal, group.rational_character_table, group.representation.rational_character, group.weight_function
+group.dihedral: group.coxeter, group.metabelian, group.name, group.other_dihedral, group.semi_dihedral, st_group.component_group
+group.direct_product: group.coxeter, group.elementary, group.name, group.semidirect_product, modcurve.entanglement_index
+group.division: gg.malle_b, group.division_maximal, group.pseudo_random_elements, group.rational_character_table, group.representation.rational_character, group.weight_function
 group.division_maximal: group.division_small_large
-group.element_order: group.autjugacy_class, group.conjugacy_class, group.division, group.order_conjugacy_class, group.order_stats
+group.element_order: group.autjugacy_class, group.conjugacy_class, group.division, group.order_conjugacy_class, group.order_stats, group.picture_description, portrait.groups.abstract, rcs.rigor.ec.q
 group.exponent: lattice.level
 group.frattini_subgroup: group.rank
-group.frobenius: group.coxeter
+group.frobenius: group.coxeter, group.name
 group.fuchsian: curve.highergenus.aut.group_action, curve.highergenus.aut.topological_equivalence, mf.quasi_modular
 group.fuchsian.cusps: cmf, cmf.cusp_form, cmf.fouriercoefficients, cmf.q-expansion, group.fuchsian.cusps.width, group.sl2z.genus_subgroup, mf.half_integral_weight, specialfunction.poincare
 group.fuchsian.cusps.width: cmf.fouriercoefficients, specialfunction.poincare
 group.fuchsian.fundamental_domain: cmf.petersson_scalar_product, group.fuchsian, group.sl2z.fundamental_domain
 group.galois.absolute: ag.geom_component, ag.selmer_group, ag.tate_shafarevich, ag.torsor, artin, artin.galois_orbit, av.galois_rep, av.tate_module, ec.analytic_sha_order, ec.galois_rep, ec.padic_tate_module, lf.local_height_function, modlgal
-group.gassmann_equivalence: group.subgroup_label, modcurve.gassmann_class
-group.general_linear: group.affine_general_linear, group.chevalley
-group.generalized_quaternion: group.metabelian, group.other_dihedral, group.semi_dihedral
-group.generators: group.cyclic, group.rank
+group.gassmann_equivalence: group.computing_subgroup_labels, group.subgroup_label, modcurve.gassmann_class
+group.general_linear: group.affine_general_linear, group.chevalley, group.lie_type
+group.generalized_quaternion: group.metabelian, group.name, group.other_dihedral, group.semi_dihedral
+group.generators: dq.ecnf.source, group.cyclic, group.rank, rcs.rigor.ec.q, rcs.source.ec
 group.group_ring: group.permutation_module
 group.haar_measure: st_group.definition, st_group.first_a2_moment, st_group.fourth_trace_moment, st_group.probabilities, st_group.second_trace_moment, st_group.trace_zero_density
+group.heisenberg: group.name
 group.homomorphism: ec.isogeny, group.isomorphism, group.semidirect_product
-group.inner_automorphism: group.central_quotient, group.isoclinism, group.outer_aut
+group.inner_automorphism: group.central_quotient, group.isoclinism, group.outer_aut, group.subgroup_properties_interdependencies
 group.isoclinism: group.stem_extension, group.stem_group
 group.isomorphism: group.automorphism
 group.label: group.subgroup_label
 group.label_complex_group_char: group.complex_character_table
 group.label_conjugacy_class: group.complex_character_table, group.rational_character_table
 group.label_rational_group_char: group.rational_character_table
-group.maximal_subgroup: group.frattini_subgroup
+group.lie_type: group.name
+group.maximal_subgroup: group.frattini_subgroup, group.subgroups_beyond_bound
+group.metabelian: group.properties_interdependencies
+group.metacyclic: group.properties_interdependencies
 group.minimal_normal: group.maximal_quotient
-group.monomial: group.a_group, group.metacyclic, group.z_group
-group.nilpotent: group.fitting_subgroup, group.isoclinism, group.lower_central_series, group.supersolvable, group.type, group.upper_central_series
-group.nonsplit_product: group.hyperelementary, group.metacyclic, group.subgroup.complement
+group.monomial: group.a_group, group.metacyclic, group.properties_interdependencies, group.z_group
+group.nilpotent: group.fitting_subgroup, group.isoclinism, group.lower_central_series, group.properties_interdependencies, group.subgroup_properties_interdependencies, group.supersolvable, group.type, group.upper_central_series
+group.nonsplit_product: group.hyperelementary, group.metacyclic, group.name, group.subgroup.complement
 group.normal_series: group.chief_series, group.lower_central_series, group.presentation, group.solvable, group.upper_central_series
-group.order: ec.analytic_sha_order, ec.q.analytic_sha_order, g2c.has_square_sha, gg.tnumber, group.alternating, group.coxeter, group.dicyclic, group.dihedral, group.frobenius, group.haar_measure, group.hyperelementary, group.label, group.other_dihedral, group.pgroup, group.semi_dihedral, group.simple, group.size_conjugacy_class, group.socle, group.special_linear, group.sporadic, group.subgroup.diagram, group.subgroup.hall, group.sylow_subgroup, modlgal.frobenius_order
-group.orthogonal: group.chevalley, group.omega, group.spinor_norm
-group.paramodular: paramodulargroup.sp2gr
-group.perfect: group.quasisimple, group.stem_extension
-group.permutation_representation: group.permutation_degree, group.transitive_degree, lf.packet
+group.order: ec.analytic_sha_order, ec.q.analytic_sha_order, g2c.has_square_sha, gg.tnumber, group.alternating, group.coxeter, group.dicyclic, group.dihedral, group.frobenius, group.haar_measure, group.hyperelementary, group.label, group.name, group.other_dihedral, group.pgroup, group.semi_dihedral, group.simple, group.size_conjugacy_class, group.socle, group.special_linear, group.sporadic, group.subgroup.diagram, group.subgroup.hall, group.sylow_subgroup, modlgal.frobenius_order
+group.orthogonal: group.chevalley, group.lie_type, group.omega, group.spinor_norm
+group.other_dihedral: group.name
+group.paramodular: mf.gl2.history.varieties, mf.siegel.extent.kp, paramodulargroup.sp2gr
+group.perfect: group.properties_interdependencies, group.quasisimple, group.stem_extension
+group.permutation_representation: group.computing_subgroup_labels, group.permutation_degree, group.transitive_degree, lf.packet
 group.pgroup: group.elementary, group.hyperelementary
 group.presentation: group.rank
 group.primary_decomposition: av.fq.noncyclic_primes
 group.proper_subgroup: gg.concentrated, gg.semiconcentrated, group.derived_series
+group.quasisimple: group.properties_interdependencies
 group.quotient: group.abelianization, group.commutator_subgroup, group.general_linear, group.maximal_quotient, group.nonsplit_product, group.quotient_size, group.special_linear, group.subgroup.projective_image, group.symplectic, group.unitary
 group.rank: ec.q.period_lattice, group.mobius_function
 group.representation.character: artin.frobenius_schur_indicator, curve.highergenus.aut.characters, group.complex_character_table, group.division, group.elementary, group.hyperelementary, group.min_faithful_linear, group.rational_group, group.representation.center, group.representation.complex_char_deg, group.representation.cyclotomic_n, group.representation.faithful, group.representation.kernel, group.representation.min_perm_rep, group.representation.rational_character, group.representation.type
@@ -381,35 +434,40 @@ group.representation.rational_character: group.min_faithful_linear, group.ration
 group.representation.schur_index: group.min_faithful_linear
 group.representation.type: artin.frobenius_schur_indicator
 group.schur_multiplier: group.stem_extension
-group.semi_dihedral: group.other_dihedral
-group.semidirect_product: group.dicyclic, group.nonsplit_product, group.other_dihedral, group.semi_dihedral, group.subgroup.complement, group.wreath_product
-group.simple: group.almost_simple, group.alternating, group.chevalley, group.chief_series, group.quasisimple, group.special_linear, group.sporadic
-group.sl2z: cmf, cmf.cusp_form, cmf.eisenstein, cmf.eisenstein_form, cmf.level, group.fuchsian.cusps, group.fuchsian.cusps.width, group.fuchsian.fundamental_domain, group.sl2z.genus_subgroup, group.sl2z.subgroup.gamman, mf.maass.mwf.symmetry, mf.quasi_modular, mf.transformation_property, mf.upper_half_plane, specialfunction.poincare
-group.sl2z.subgroup.gamma0n: group.sp2gr.gamma0
+group.semi_dihedral: group.name, group.other_dihedral
+group.semidirect_product: group.dicyclic, group.name, group.nonsplit_product, group.other_dihedral, group.semi_dihedral, group.subgroup.complement, group.subgroups_beyond_bound, group.wreath_product
+group.simple: group.almost_simple, group.alternating, group.chevalley, group.chief_series, group.lie_type, group.properties_interdependencies, group.quasisimple, group.special_linear, group.sporadic
+group.sl2z: cmf, cmf.cusp_form, cmf.eisenstein, cmf.eisenstein_form, cmf.level, group.fuchsian.cusps, group.fuchsian.cusps.width, group.fuchsian.fundamental_domain, group.sl2z.genus_subgroup, group.sl2z.subgroup.gamman, mf.gl2.history.combinatorics, mf.gl2.history.new, mf.gl2.history.poincare, mf.maass.mwf.symmetry, mf.quasi_modular, mf.transformation_property, mf.upper_half_plane, specialfunction.poincare
+group.sl2z.subgroup.gamma0n: group.sp2gr.gamma0, mf.gl2.history.new
 group.sl2z.subgroup.gamma1n: group.sp2gr.gamma1
 group.sl2z.subgroup.gamman: group.sp2gr.ppal.congruence
-group.small_group_label: curve.highergenus.aut.conjugacyclasses, lf.inertia_group_search, lf.wild_inertia_group_search
-group.solvable: group.a_group, group.alternating, group.derived_series, group.frobenius, group.metabelian, group.monomial, group.nilpotent, group.radical, group.socle, group.supersolvable, group.symmetric, group.type, modlgal.solvable
-group.sp2gr: group.paramodular, group.sp2gr.gamma0, group.sp2gr.gamma1, group.sp2gr.ppal.congruence, mf.siegel, mf.siegel.family.sp4z, mf.siegel.family.sp4z_2, mf.siegel.halfspace, mf.siegel.lift.ikeda, mf.siegel.lift.maass, mf.siegel.lift.miyawaki
+group.small_group_label: curve.highergenus.aut.conjugacyclasses, dq.curve.highergenus.aut.label, lf.inertia_group_search, lf.wild_inertia_group_search, nf.galois_search
+group.solvable: group.a_group, group.alternating, group.derived_series, group.frobenius, group.metabelian, group.monomial, group.nilpotent, group.properties_interdependencies, group.radical, group.socle, group.subgroup_properties_interdependencies, group.supersolvable, group.symmetric, group.type, modlgal.solvable
+group.sp2gr: group.paramodular, group.sp2gr.gamma0, group.sp2gr.gamma1, group.sp2gr.ppal.congruence, mf.siegel, mf.siegel.family.sp4z, mf.siegel.family.sp4z_2, mf.siegel.family.sp6z, mf.siegel.family.sp8z, mf.siegel.halfspace, mf.siegel.lift.ikeda, mf.siegel.lift.maass, mf.siegel.lift.miyawaki
 group.sp2gr.gamma0: group.sp2gr.subgroup.congn
 group.sp2gr.gamma1: group.sp2gr.subgroup.congn
 group.sp2gr.ppal.congruence: group.sp2gr.subgroup.congn
-group.special_linear: group.affine_special_linear, group.chevalley
+group.special_linear: group.affine_special_linear, group.chevalley, group.lie_type
 group.spinor_norm: group.omega
-group.subgroup: artin.projective_image_type, gg.arithmetically_equivalent, gg.malle_a, gg.malle_b, gg.resolvents, group.alternating, group.ambient, group.autjugate_subgroup, group.central, group.characteristic_subgroup, group.commutator_subgroup, group.core, group.coset, group.element_order, group.fitting_subgroup, group.gassmann_equivalence, group.inner_automorphism, group.lower_central_series, group.normal_series, group.over_subgroup, group.proper_subgroup, group.radical, group.semidirect_product, group.socle, group.subgroup.centralizer, group.subgroup.complement, group.subgroup.hall, group.subgroup.normal, group.subgroup.normal_closure, group.subgroup.normalizer, group.subgroup_label, group.sylow_subgroup, group.transitive_degree, group.trivial_subgroup, group.under_subgroup, group.unitary, group.weyl_group, modlgal.image, modlgal.image_index, nf.reflex_field, ring.ideal
-group.subgroup.index: cmf.petersson_scalar_product, ec.q.faltings_ratio, gg.resolvents, group.alternating, group.subgroup.hall, group.subgroup_label, group.transitive_degree, group.weyl_group, specialfunction.poincare
-group.subgroup.normal: group.center, group.chief_series, group.commutator_subgroup, group.direct_product, group.fitting_subgroup, group.frattini_subgroup, group.minimal_normal, group.nonsplit_product, group.normal_series, group.outer_aut, group.quotient, group.radical, group.semidirect_product, group.simple, group.socle, group.subgroup.complement, group.subgroup.normal_closure, group.subgroup.normalizer, group.supersolvable, modcurve.agreeable, modcurve.entanglement_index
+group.sporadic: group.name
+group.stem_extension: group.subgroup_properties_interdependencies
+group.subgroup: artin.projective_image_type, gg.arithmetically_equivalent, gg.malle_a, gg.malle_b, gg.resolvents, group.alternating, group.ambient, group.autjugate_subgroup, group.central, group.characteristic_subgroup, group.commutator_subgroup, group.core, group.coset, group.element_order, group.fitting_subgroup, group.gassmann_equivalence, group.inner_automorphism, group.lie_type, group.lower_central_series, group.normal_series, group.over_subgroup, group.proper_subgroup, group.radical, group.semidirect_product, group.socle, group.subgroup.centralizer, group.subgroup.complement, group.subgroup.hall, group.subgroup.normal, group.subgroup.normal_closure, group.subgroup.normalizer, group.subgroup_label, group.subgroups_beyond_bound, group.sylow_subgroup, group.transitive_degree, group.trivial_subgroup, group.under_subgroup, group.unitary, group.weyl_group, modlgal.image, modlgal.image_index, nf.reflex_field, ring.ideal
+group.subgroup.complement: group.subgroups_beyond_bound
+group.subgroup.diagram: group.subgroup.diagram.lmfdb
+group.subgroup.index: cmf.petersson_scalar_product, ec.q.faltings_ratio, gg.resolvents, group.alternating, group.subgroup.hall, group.subgroup_label, group.subgroups_beyond_bound, group.transitive_degree, group.weyl_group, mf.gl2.history.new, specialfunction.poincare
+group.subgroup.normal: group.center, group.chief_series, group.commutator_subgroup, group.direct_product, group.fitting_subgroup, group.frattini_subgroup, group.minimal_normal, group.name, group.nonsplit_product, group.normal_series, group.outer_aut, group.properties_interdependencies, group.quotient, group.radical, group.semidirect_product, group.simple, group.socle, group.subgroup.complement, group.subgroup.diagram.lmfdb, group.subgroup.normal_closure, group.subgroup.normalizer, group.subgroup_properties_interdependencies, group.subgroups_beyond_bound, group.supersolvable, modcurve.agreeable, modcurve.entanglement_index
 group.subgroup.normalizer: group.weyl_group
-group.supersolvable: group.metacyclic, group.monomial, group.z_group
-group.sylow_subgroup: lf.wild_inertia_group
-group.symmetric: group.alternating, group.coxeter, st_group.component_group
-group.symplectic: group.affine_symplectic, group.chevalley
+group.supersolvable: group.metacyclic, group.monomial, group.properties_interdependencies, group.z_group
+group.sylow_subgroup: group.subgroup_properties_interdependencies, group.subgroups_beyond_bound, lf.wild_inertia_group
+group.symmetric: group.alternating, group.coxeter, group.name, st_group.component_group
+group.symplectic: group.affine_symplectic, group.chevalley, group.lie_type
 group.torsion: ag.tate_shafarevich, ec.analytic_sha_order
-group.triangle_group: belyi.geometry_type, group.coxeter
-group.unitary: group.chevalley
+group.triangle_group: belyi.geometry_type, group.coxeter, rcs.rigor.belyi
+group.unitary: group.chevalley, group.lie_type
+group.upper_central_series: group.properties_interdependencies, group.subgroup_properties_interdependencies
 group.weight_function: lf.local_height_function
-group.wreath_product: group.coxeter
-group.z_group: group.a_group, group.frobenius, group.metacyclic
+group.wreath_product: group.coxeter, group.name
+group.z_group: group.a_group, group.frobenius, group.metacyclic, group.properties_interdependencies
 hgm.bezout_matrix: hgm.bezout_determinant, hgm.bezout_module
 hgm.conductor: hgm.good_prime
 hgm.cusp_index: hgm.familes, hgm.families
@@ -423,15 +481,17 @@ hgm.tame: hgm.conductor, hgm.good_prime
 hgm.weight: hgm.hodge_vector, hgm.type, mot.hodgevector
 hgm.wild: hgm.conductor, hgm.good_prime, hgm.tame
 hmsurface.component_ideal: hmsurface.label
-hmsurface.congruence_subgroup: hmsurface.hmsurface, hmsurface.label, hmsurface.level
-hmsurface.hmsurface: hmsurface.label, hmsurface.x0, hmsurface.x01
+hmsurface.congruence_subgroup: hmsurface.hmsurface, hmsurface.label, hmsurface.level, hmsurface.standard_hmsurfaces
+hmsurface.hmsurface: hmsurface.label, hmsurface.standard_hmsurfaces, hmsurface.x0, hmsurface.x01
 hmsurface.level: hmsurface.label, hmsurface.levelnorm
 hmsurface.polarization_module: hmsurface.x0, hmsurface.x01
+hmsurface.x0: hmsurface.standard_hmsurfaces
+hmsurface.x01: hmsurface.standard_hmsurfaces
 lattice.arithmetic: lattice.eutactic, lattice.perfect
 lattice.automorphism_group: lattice.festi_veniani_index, lattice.group_order, lattice.mass, lattice.root_lattice
 lattice.class_number: lattice.label, lattice.pneighbor_adjacency
 lattice.conway_genus_symbol: lattice.level
-lattice.definition: lattice.additively_indecomposable, lattice.arithmetic, lattice.automorphism_group, lattice.class_number, lattice.conway_genus_symbol, lattice.density, lattice.determinant, lattice.dimension, lattice.discriminant, lattice.discriminant_group, lattice.dual, lattice.euclidean_basis, lattice.even_sublattice, lattice.festi_veniani_index, lattice.genus, lattice.group_order, lattice.hermite_number, lattice.hyperbolic_plane, lattice.isometry, lattice.level, lattice.mass, lattice.minimal_vector, lattice.minimum, lattice.nondegenerate, lattice.norm, lattice.norm1_sublattice, lattice.normalized_minimal_vector, lattice.parity, lattice.pneighbor_adjacency, lattice.positive_definite, lattice.postive_definite, lattice.primitive, lattice.quadratic_form, lattice.root_sublattice, lattice.signature, lattice.sublattice, lattice.tensor_decomposition, lattice.theta, lattice.unimodular
+lattice.definition: lattice.additively_indecomposable, lattice.arithmetic, lattice.automorphism_group, lattice.class_number, lattice.conway_genus_symbol, lattice.density, lattice.determinant, lattice.dimension, lattice.discriminant, lattice.discriminant_group, lattice.dual, lattice.euclidean_basis, lattice.even_sublattice, lattice.festi_veniani_index, lattice.genus, lattice.group_order, lattice.hermite_number, lattice.history, lattice.hyperbolic_plane, lattice.isometry, lattice.level, lattice.mass, lattice.minimal_vector, lattice.minimum, lattice.name, lattice.nondegenerate, lattice.norm, lattice.norm1_sublattice, lattice.normalized_minimal_vector, lattice.parity, lattice.pneighbor_adjacency, lattice.positive_definite, lattice.postive_definite, lattice.primitive, lattice.quadratic_form, lattice.root_sublattice, lattice.signature, lattice.sublattice, lattice.tensor_decomposition, lattice.theta, lattice.unimodular, mf.gl2.history.theta
 lattice.density: lattice.extreme, lattice.similarity
 lattice.determinant: lattice.hermite_number, lattice.label, lattice.unimodular
 lattice.dimension: lattice.additively_indecomposable, lattice.density, lattice.determinant, lattice.discriminant, lattice.euclidean_basis, lattice.hermite_number, lattice.kissing, lattice.label, lattice.tensor_decomposition, lattice.theta
@@ -440,7 +500,7 @@ lattice.discriminant_group: lattice.festi_veniani_index, lattice.level
 lattice.dual: lattice.discriminant_group, lattice.level
 lattice.eutactic: lattice.extreme, lattice.spherical_design
 lattice.genus: lattice.class_number, lattice.conway_genus_symbol, lattice.discriminant_group, lattice.mass, lattice.pneighbor_adjacency
-lattice.gram: lattice.definition, lattice.density, lattice.determinant, lattice.discriminant, lattice.euclidean_basis, lattice.hyperbolic_plane, lattice.isometry, lattice.nondegenerate, lattice.norm, lattice.parity, lattice.positive_definite, lattice.postive_definite, lattice.primitive, lattice.quadratic_form, lattice.signature, lattice.sublattice
+lattice.gram: dq.lattice.source, lattice.definition, lattice.density, lattice.determinant, lattice.discriminant, lattice.euclidean_basis, lattice.hyperbolic_plane, lattice.isometry, lattice.nondegenerate, lattice.norm, lattice.parity, lattice.positive_definite, lattice.postive_definite, lattice.primitive, lattice.quadratic_form, lattice.signature, lattice.sublattice, rcs.source.lattice
 lattice.hyperbolic_plane: lattice.discriminant
 lattice.isometry: lattice.automorphism_group, lattice.class_number, lattice.hyperbolic_plane, lattice.pneighbor_adjacency, lattice.similarity
 lattice.level: lattice.label, lattice.theta
@@ -456,43 +516,50 @@ lattice.positive_definite: lattice.additively_indecomposable, lattice.automorphi
 lattice.postive_definite: lattice.discriminant
 lattice.primitive: lattice.dual, lattice.similarity
 lattice.quadratic_form: lattice.discriminant, lattice.theta
+lattice.root_lattice: lattice.name
 lattice.signature: lattice.conway_genus_symbol, lattice.discriminant_group, lattice.hyperbolic_plane, lattice.postive_definite
 lattice.similarity: lattice.arithmetic, lattice.eutactic, lattice.perfect
 lattice.sublattice: lattice.norm1_sublattice
 lattice.successive_minima: lattice.covering_radius
+lattice.theta: lattice.history
 lattice.unimodular: lattice.additively_indecomposable, lattice.hyperbolic_plane
 lattice.well_rounded: lattice.eutactic, lattice.perfect, lattice.similarity
+lf.associated_inertia: lf.family_varying
 lf.automorphism_group: gg.field_automorphisms, nf.galois_group
 lf.defining_polynomial: lf.field.label, lf.inertia_group_search
-lf.degree: lf.field.label
-lf.discriminant_exponent: lf.family_label, lf.field.label, lf.field_label, lf.galois_mean_slope, lf.heights, lf.means, lf.slopes, lf.visible_slopes
+lf.degree: lf.family_invariants, lf.field.label
+lf.discriminant_exponent: lf.family_invariants, lf.family_label, lf.field.label, lf.field_label, lf.galois_mean_slope, lf.heights, lf.means, lf.slopes, lf.visible_slopes
+lf.eisenstein_diagram: lf.family_diagrams
 lf.eisenstein_form: lf.defining_polynomial
 lf.eisenstein_polynomial: lf.associated_inertia, lf.defining_polynomial, lf.eisenstein_form, lf.ramification_polygon
-lf.family_ambiguity: lf.eisenstein_diagram
-lf.family_base: lf.family_mass
-lf.family_mass: lf.eisenstein_diagram
-lf.family_polynomial: lf.family_ambiguity, lf.family_base, lf.family_field_count, lf.family_label, lf.family_mass, lf.field.label, lf.field_label, lf.herbrand_function, lf.packet, lf.subfamily, lf.wild_segments
+lf.family_ambiguity: lf.eisenstein_diagram, lf.family_invariants
+lf.family_base: lf.family_invariants, lf.family_mass
+lf.family_field_count: lf.family_invariants
+lf.family_mass: lf.eisenstein_diagram, lf.family_invariants
+lf.family_polynomial: lf.family_ambiguity, lf.family_base, lf.family_diagrams, lf.family_field_count, lf.family_invariants, lf.family_label, lf.family_mass, lf.family_varying, lf.field.label, lf.field_label, lf.herbrand_function, lf.packet, lf.subfamily, lf.wild_segments
 lf.field_label: lf.family_label
 lf.galois_invariants: lf.slope_content, lf.swan_slopes, lf.wild_slopes
+lf.herbrand_function: lf.family_diagrams
 lf.herbrand_invariant: lf.eisenstein_diagram, lf.family_ambiguity, lf.family_polynomial
-lf.hidden_slopes: lf.packet, lf.visible_slopes
-lf.indices_of_inseparability: lf.family_polynomial, lf.heights, lf.herbrand_function
+lf.hidden_slopes: lf.family_varying, lf.packet, lf.visible_slopes
+lf.indices_of_inseparability: lf.family_polynomial, lf.family_varying, lf.heights, lf.herbrand_function, lf.ramification_polygon_display
 lf.inertia_group: artin.conductor, artin.lfunction, lf.inertia_group_search, lf.local_height_function, lf.slope_content, lf.wild_inertia_group, modlgal.conductor
+lf.jump_set: lf.family_varying
 lf.local_field: lf, lf.maximal_ideal, lf.newton_polygon, lf.newton_slopes, lf.padic_field, lf.ring_of_integers
 lf.maximal_ideal: lf.inertia_group, lf.log, lf.residue_field
-lf.means: lf.eisenstein_diagram, lf.heights, lf.herbrand_function, lf.herbrand_invariant, lf.rams
+lf.means: lf.eisenstein_diagram, lf.family_diagrams, lf.family_invariants, lf.heights, lf.herbrand_function, lf.herbrand_invariant, lf.rams
 lf.newton_polygon: av.fq.newton_elevation, av.fq.supersingular, lf.newton_slopes, lf.ramification_polygon
 lf.newton_slopes: av.fq.supersingular
 lf.padic_field: artin.conductor, g2c.tamagawa, lf.defining_polynomial, lf.degree, lf.discriminant_exponent, lf.eisenstein_diagram, lf.eisenstein_form, lf.family_ambiguity, lf.family_base, lf.family_field_count, lf.family_polynomial, lf.field.label, lf.field_label, lf.galois_invariants, lf.heights, lf.herbrand_function, lf.herbrand_invariant, lf.hidden_slopes, lf.indices_of_inseparability, lf.inertia_group, lf.jump_set, lf.means, lf.packet, lf.ramification_index, lf.ramification_polygon, lf.rams, lf.residual_polynomials, lf.residue_field_degree, lf.slope_content, lf.slopes, lf.subfamily, lf.swan_slopes, lf.tame_degree, lf.top_slope, lf.unramified_degree, lf.unramified_subfield, lf.unramified_totally_ramified_tower, modlgal.conductor
 lf.qp: g2c.locally_solvable, lf.padic_field
-lf.ramification_index: lf.defining_polynomial, lf.discriminant_exponent, lf.eisenstein_diagram, lf.eisenstein_form, lf.eisenstein_polynomial, lf.family_label, lf.family_polynomial, lf.field.label, lf.field_label, lf.heights, lf.herbrand_invariant, lf.indices_of_inseparability, lf.local_height_function, lf.log, lf.means, lf.packet, lf.ramification_polygon, lf.rams, lf.residual_polynomials, lf.unramified_degree, lf.unramified_subfield, lf.unramified_totally_ramified_tower
-lf.ramification_polygon: lf.associated_inertia, lf.heights, lf.residual_polynomials, lf.wild_segments
-lf.rams: lf.eisenstein_diagram, lf.family_ambiguity, lf.family_label, lf.field.label, lf.herbrand_function, lf.herbrand_invariant, lf.ramification_polygon
-lf.residual_polynomials: lf.associated_inertia, lf.field.label, lf.packet, lf.subfamily
-lf.residue_field: lf.eisenstein_diagram, lf.family_polynomial, lf.field.label, lf.field_label, lf.herbrand_invariant, lf.inertia_group, lf.residual_polynomials, lf.residue_field_degree, lf.slope_content
-lf.residue_field_degree: lf.eisenstein_diagram, lf.family_ambiguity, lf.family_label, lf.family_mass, lf.family_polynomial, lf.field.label, lf.field_label, lf.heights, lf.herbrand_invariant, lf.means, lf.packet, lf.roots_of_unity, lf.slopes, lf.unramified_degree
+lf.ramification_index: lf.defining_polynomial, lf.discriminant_exponent, lf.eisenstein_diagram, lf.eisenstein_form, lf.eisenstein_polynomial, lf.family_invariants, lf.family_label, lf.family_polynomial, lf.field.label, lf.field_label, lf.heights, lf.herbrand_invariant, lf.indices_of_inseparability, lf.local_height_function, lf.log, lf.means, lf.packet, lf.ramification_polygon, lf.rams, lf.residual_polynomials, lf.unramified_degree, lf.unramified_subfield, lf.unramified_totally_ramified_tower
+lf.ramification_polygon: lf.associated_inertia, lf.family_diagrams, lf.heights, lf.ramification_polygon_display, lf.residual_polynomials, lf.wild_segments
+lf.rams: lf.eisenstein_diagram, lf.family_ambiguity, lf.family_diagrams, lf.family_invariants, lf.family_label, lf.field.label, lf.herbrand_function, lf.herbrand_invariant, lf.ramification_polygon
+lf.residual_polynomials: lf.associated_inertia, lf.field.label, lf.packet, lf.ramification_polygon_display, lf.subfamily
+lf.residue_field: lf.eisenstein_diagram, lf.family_invariants, lf.family_polynomial, lf.field.label, lf.field_label, lf.herbrand_invariant, lf.inertia_group, lf.residual_polynomials, lf.residue_field_degree, lf.slope_content
+lf.residue_field_degree: lf.eisenstein_diagram, lf.family_ambiguity, lf.family_invariants, lf.family_label, lf.family_mass, lf.family_polynomial, lf.field.label, lf.field_label, lf.heights, lf.herbrand_invariant, lf.means, lf.packet, lf.roots_of_unity, lf.slopes, lf.unramified_degree
 lf.ring_of_integers: lf.discriminant_exponent, lf.eisenstein_form, lf.log, lf.maximal_ideal, lf.ramification_index, lf.residue_field, nf.padic_completion
-lf.slopes: lf.eisenstein_diagram, lf.family_polynomial, lf.galois_mean_slope, lf.herbrand_function, lf.herbrand_invariant, lf.hidden_slopes, lf.indices_of_inseparability, lf.means, lf.rams, lf.top_slope, lf.wild_segments, modlgal.top_slope
+lf.slopes: lf.eisenstein_diagram, lf.family_diagrams, lf.family_invariants, lf.family_polynomial, lf.galois_mean_slope, lf.herbrand_function, lf.herbrand_invariant, lf.hidden_slopes, lf.indices_of_inseparability, lf.means, lf.rams, lf.top_slope, lf.wild_segments, modlgal.top_slope
 lf.subfamily: lf.field_label
 lf.tame_degree: g2c.tame_reduction, lf.galois_mean_slope, lf.slope_content, lf.slopes
 lf.top_slope: modlgal.top_slope
@@ -501,71 +568,92 @@ lf.unramified_subfield: lf.associated_inertia, lf.indices_of_inseparability, lf.
 lf.wild_inertia_group: artin.conductor, lf.rams, lf.wild_inertia_group_search, modlgal.conductor
 lf.wild_segments: lf.family_label, lf.field.label
 lf.wild_slopes: lf.visible_slopes
-lfunction: artin.lfunction, cmf.embedding, cmf.fricke, cmf.lfunction, ec.bsdconjecture, ec.q.analytic_rank, ec.q.bsdconjecture, ec.special_value, g2c.analytic_rank, g2c.analytic_sha, g2c.bsd_invariants, g2c.good_lfactors, g2c.hasse_weil_conjecture, lfunction.analytic_conductor, lfunction.analytic_rank, lfunction.arithmetic, lfunction.bad_prime, lfunction.central_point, lfunction.central_value, lfunction.coefficient_field, lfunction.completed, lfunction.conductor, lfunction.critical_line, lfunction.degree, lfunction.dirichlet, lfunction.dual, lfunction.infinity_factor, lfunction.label, lfunction.motivic_weight, lfunction.rh, lfunction.root_analytic_conductor, lfunction.root_number, lfunction.selbergdata, lfunction.spectral_parameters, lfunction.zeros, mf.bianchi.sign, mf.maass.mwf.coefficients, modcurve.rank, shimcurve.rank
+lfunction: artin.lfunction, cmf.embedding, cmf.fricke, cmf.lfunction, dq.ecnf.reliability, ec.bsdconjecture, ec.q.analytic_rank, ec.q.bsdconjecture, ec.special_value, g2c.analytic_rank, g2c.analytic_sha, g2c.bsd_invariants, g2c.good_lfactors, g2c.hasse_weil_conjecture, intro.tutorial, lfunction.analytic_conductor, lfunction.analytic_rank, lfunction.arithmetic, lfunction.bad_prime, lfunction.central_point, lfunction.central_value, lfunction.coefficient_field, lfunction.completed, lfunction.conductor, lfunction.critical_line, lfunction.degree, lfunction.dirichlet, lfunction.dual, lfunction.infinity_factor, lfunction.known_degree1, lfunction.known_degree2, lfunction.known_degree3, lfunction.known_degree4, lfunction.label, lfunction.motivic_weight, lfunction.rh, lfunction.root_analytic_conductor, lfunction.root_number, lfunction.selbergdata, lfunction.spectral_parameters, lfunction.zeros, mf.bianchi.sign, mf.maass.mwf.coefficients, modcurve.rank, rcs.cande.lfunction, rcs.rigor.ec, shimcurve.rank
 lfunction.analytic_conductor: lfunction.root_analytic_conductor
-lfunction.analytic_rank: cmf.analytic_rank, ec.bsdconjecture, g2c.analytic_rank
+lfunction.analytic_rank: cmf.analytic_rank, dq.ecnf.reliability, ec.bsdconjecture, g2c.analytic_rank, rcs.cande.lfunction, rcs.rigor.ec, rcs.rigor.lfunction.curve, rcs.rigor.lfunction.dirichlet, rcs.rigor.lfunction.ec, rcs.rigor.lfunction.modular
 lfunction.arithmetic: lfunction.coefficient_field, lfunction.leading_coeff, lfunction.motivic_weight, lfunction.rational, lfunction.trivial_zero, st_group.rational
 lfunction.central_character: lfunction.label
 lfunction.central_point: ec.bsdconjecture, ec.q.analytic_rank, ec.q.bsdconjecture, g2c.analytic_rank, lfunction.analytic_rank, lfunction.central_value, lfunction.leading_coeff, modcurve.rank, shimcurve.rank
 lfunction.coefficient_field: lfunction.rational
 lfunction.completed: lfunction.trivial_zero
-lfunction.conductor: lfunction.analytic_conductor, lfunction.bad_prime, lfunction.central_character, lfunction.degree, lfunction.label, lfunction.selbergdata
-lfunction.critical_line: lfunction.central_point, lfunction.riemann, lfunction.zeros, lfunction.zfunction
+lfunction.conductor: intro.tutorial, lfunction.analytic_conductor, lfunction.bad_prime, lfunction.central_character, lfunction.degree, lfunction.label, lfunction.selbergdata, rcs.cande.lfunction, rcs.rigor.lfunction.curve
+lfunction.critical_line: intro.tutorial, lfunction.central_point, lfunction.riemann, lfunction.zeros, lfunction.zfunction, rcs.rigor.lfunction.dirichlet, rcs.rigor.lfunction.modular
 lfunction.critical_strip: g2c.hasse_weil_conjecture, lfunction.central_value, lfunction.riemann
-lfunction.degree: lfunction.label, lfunction.root_analytic_conductor, lfunction.selbergdata
-lfunction.dirichlet_series: lfunction, lfunction.critical_strip, lfunction.dirichlet, lfunction.riemann, lfunction.selberg_class
+lfunction.degree: intro.features, intro.tutorial, lfunction.known_degree1, lfunction.known_degree2, lfunction.known_degree3, lfunction.known_degree4, lfunction.label, lfunction.root_analytic_conductor, lfunction.selbergdata, lfunction.underlying_object, rcs.cande.lfunction
+lfunction.dirichlet_series: intro.tutorial, lfunction, lfunction.critical_strip, lfunction.dirichlet, lfunction.riemann, lfunction.selberg_class, mf.gl2.history.varieties
 lfunction.dual: cmf.dualform
-lfunction.euler_product: artin.lfunction, cmf.lfunction, g2c.good_lfactors, g2c.lfunction, lfunction, lfunction.central_character, lfunction.critical_strip, lfunction.dirichlet, lfunction.gamma_factor, lfunction.rational, lfunction.riemann, lfunction.selberg_class.axioms
-lfunction.functional_equation: artin.root_number, cmf.fricke, cmf.lfunction, ec.q.analytic_rank, g2c.analytic_rank, g2c.hasse_weil_conjecture, lfunction, lfunction.central_point, lfunction.completed, lfunction.conductor, lfunction.critical_line, lfunction.critical_strip, lfunction.degree, lfunction.dirichlet, lfunction.infinity_factor, lfunction.label, lfunction.normalization, lfunction.riemann, lfunction.root_number, lfunction.selberg_class.axioms, lfunction.selbergdata, lfunction.sign, lfunction.spectral_label, lfunction.spectral_parameters, lfunction.trivial_zero, lfunction.zfunction, mf.bianchi.sign
-lfunction.gamma_factor: cmf.lfunction, lfunction.completed, lfunction.degree, lfunction.functional_equation, lfunction.infinity_factor, lfunction.selbergdata, lfunction.signature, lfunction.spectral_parameters, lfunction.trivial_zero
+lfunction.euler_product: artin.lfunction, cmf.lfunction, g2c.good_lfactors, g2c.lfunction, intro.tutorial, lfunction, lfunction.central_character, lfunction.critical_strip, lfunction.dirichlet, lfunction.gamma_factor, lfunction.rational, lfunction.riemann, lfunction.selberg_class.axioms, mf.gl2.history.varieties, rcs.rigor.lfunction.curve
+lfunction.functional_equation: artin.root_number, cmf.fricke, cmf.lfunction, ec.q.analytic_rank, g2c.analytic_rank, g2c.hasse_weil_conjecture, intro.tutorial, lfunction, lfunction.central_point, lfunction.completed, lfunction.conductor, lfunction.critical_line, lfunction.critical_strip, lfunction.degree, lfunction.dirichlet, lfunction.infinity_factor, lfunction.label, lfunction.normalization, lfunction.riemann, lfunction.root_number, lfunction.selberg_class.axioms, lfunction.selbergdata, lfunction.sign, lfunction.spectral_label, lfunction.spectral_parameters, lfunction.trivial_zero, lfunction.zfunction, mf.bianchi.sign, mf.gl2.history.varieties, rcs.rigor.g2c, rcs.rigor.lfunction.curve
+lfunction.gamma_factor: cmf.lfunction, intro.tutorial, lfunction.completed, lfunction.degree, lfunction.functional_equation, lfunction.infinity_factor, lfunction.selbergdata, lfunction.signature, lfunction.spectral_parameters, lfunction.trivial_zero
+lfunction.history.artin: lfunction.history
+lfunction.history.dirichlet: lfunction.history
+lfunction.history.euler: lfunction.history
+lfunction.history.hasse_weil: lfunction.history
+lfunction.history.hecke_characters: lfunction.history
+lfunction.history.hecke_operators: lfunction.history
+lfunction.history.langlands_program: lfunction.history
+lfunction.history.maass: lfunction.history
+lfunction.history.ramanujan_tau: lfunction.history
+lfunction.history.rankin_selberg: lfunction.history
+lfunction.history.riemanns_memoir: lfunction.history
 lfunction.infinity_factor: lfunction.analytic_conductor
-lfunction.leading_coeff: ec.bsdconjecture, ec.special_value, g2c.analytic_sha, g2c.bsd_invariants
-lfunction.motivic_weight: lfunction.coefficient_field, lfunction.critical_strip
-lfunction.normalization: ec.q.special_value, ec.special_value, lfunction.critical_strip, lfunction.label, lfunction.motivic_weight, lfunction.rational, lfunction.selbergdata, lfunction.trivial_zero, lfunction.zeros
-lfunction.rational: st_group.rational
+lfunction.leading_coeff: dq.ecnf.reliability, ec.bsdconjecture, ec.special_value, g2c.analytic_sha, g2c.bsd_invariants, rcs.rigor.ec
+lfunction.motivic_weight: lfunction.coefficient_field, lfunction.critical_strip, rcs.cande.lfunction
+lfunction.normalization: ec.q.special_value, ec.special_value, intro.tutorial, lfunction.critical_strip, lfunction.label, lfunction.motivic_weight, lfunction.rational, lfunction.selbergdata, lfunction.trivial_zero, lfunction.zeros, rcs.rigor.lfunction.curve, rcs.rigor.lfunction.modular
+lfunction.primitive: lfunction.known_degree4, rcs.rigor.lfunction.curve
+lfunction.rational: rcs.cande.lfunction, st_group.rational
 lfunction.rh: lfunction.riemann, lfunction.selberg_class, lfunction.zeros, nf.serre_odlyzko_bound
-lfunction.riemann: mf.siegel.lift.ikeda
-lfunction.root_number: lfunction.selbergdata
-lfunction.selberg_class: g2c.hasse_weil_conjecture
+lfunction.riemann: intro.tutorial, mf.gl2.history.varieties, mf.siegel.lift.ikeda, rcs.cande.lfunction
+lfunction.root_number: intro.tutorial, lfunction.selbergdata
+lfunction.selberg_class: g2c.hasse_weil_conjecture, rcs.rigor.g2c, rcs.rigor.lfunction.curve
 lfunction.selberg_class.axioms: lfunction.selberg_class
-lfunction.selbergdata: lfunction.signature
-lfunction.self-dual: cmf.selfdual
-lfunction.sign: cmf.lfunction, ec.q.analytic_rank, g2c.analytic_rank, lfunction.root_angle
+lfunction.selbergdata: intro.tutorial, lfunction.signature
+lfunction.self-dual: cmf.selfdual, rcs.rigor.lfunction.modular
+lfunction.sign: cmf.lfunction, ec.q.analytic_rank, g2c.analytic_rank, intro.tutorial, lfunction.root_angle, rcs.rigor.cmf, rcs.rigor.cmf_eisenstein, rcs.rigor.g2c, rcs.rigor.lfunction.curve, rcs.rigor.lfunction.modular
 lfunction.spectral_label: lfunction.label
-lfunction.spectral_parameters: lfunction.infinity_factor, lfunction.selbergdata, lfunction.spectral_label
-lfunction.zeros: lfunction.riemann, lfunction.trivial_zero
-mf: hecke_algebra.definition, mf.base_change, mf.cm, mf.growth_condition, mf.slash_action, mf.transformation_property
+lfunction.spectral_parameters: intro.tutorial, lfunction.infinity_factor, lfunction.selbergdata, lfunction.spectral_label
+lfunction.trivial_zero: intro.tutorial
+lfunction.zeros: intro.features, intro.tutorial, lfunction.riemann, lfunction.trivial_zero, rcs.cande.lfunction, rcs.rigor.lfunction.curve, rcs.rigor.lfunction.dirichlet, rcs.rigor.lfunction.ec, rcs.rigor.lfunction.modular
+lfunction.zfunction: intro.tutorial
+mf: hecke_algebra.definition, mf.base_change, mf.cm, mf.gl2.history.combinatorics, mf.gl2.history.hecke, mf.gl2.history.infinite, mf.gl2.history.new, mf.gl2.history.poincare, mf.gl2.history.remainder, mf.gl2.history.theta, mf.gl2.history.varieties, mf.growth_condition, mf.slash_action, mf.transformation_property
 mf.base_change: mf.bianchi.base_change
-mf.bianchi: mf, mf.bianchi.fourierbessell, mf.bianchi.hecke_algebra, mf.bianchi.level, mf.bianchi.newform, mf.bianchi.spaces, mf.bianchi.weight
+mf.bianchi: dq.mf.bianchi.source, mf, mf.bianchi.fourierbessell, mf.bianchi.hecke_algebra, mf.bianchi.level, mf.bianchi.newform, mf.bianchi.spaces, mf.bianchi.weight, rcs.cande.mf.bianchi, rcs.source.mf.bianchi
 mf.bianchi.bianchigroup: mf.bianchi, mf.bianchi.fourierbessell, mf.bianchi.level
 mf.bianchi.hecke_algebra: mf.bianchi.base_change, mf.bianchi.newform, mf.bianchi.spaces
 mf.bianchi.hyperbolic3space: mf.bianchi, mf.bianchi.bianchigroup, mf.bianchi.fourierbessell, mf.bianchi.weight, mf.maass.picard.eigenvalue
-mf.bianchi.level: mf.bianchi.cm, mf.bianchi.hecke_algebra, mf.bianchi.newform, mf.bianchi.sign, mf.bianchi.spaces
-mf.bianchi.newform: ec.curve_label, mf.bianchi.anr, mf.bianchi.cm, mf.bianchi.sign
+mf.bianchi.level: mf.bianchi.cm, mf.bianchi.hecke_algebra, mf.bianchi.newform, mf.bianchi.sign, mf.bianchi.spaces, rcs.cande.mf.bianchi
+mf.bianchi.newform: dq.mf.bianchi.source, ec.curve_label, mf.bianchi.anr, mf.bianchi.cm, mf.bianchi.sign, rcs.cande.lfunction, rcs.cande.mf.bianchi, rcs.rigor.lfunction.modular, rcs.source.mf.bianchi
 mf.bianchi.sign: mf.bianchi.anr
 mf.bianchi.spaces: mf.bianchi.newform
-mf.bianchi.weight: mf.bianchi.fourierbessell, mf.bianchi.hecke_algebra, mf.bianchi.level, mf.bianchi.newform, mf.bianchi.spaces
-mf.half_integral_weight.dedekind_eta: cmf.eta_quotient, mf.half_integral_weight.theta
-mf.half_integral_weight.theta: mf.half_integral_weight
-mf.hilbert: ec.curve_label, mf, mf.hilbert.hecke_orbit, mf.hilbert.label, mf.hilbert.weight_vector
+mf.bianchi.weight: dq.mf.bianchi.source, mf.bianchi.fourierbessell, mf.bianchi.hecke_algebra, mf.bianchi.level, mf.bianchi.newform, mf.bianchi.spaces, rcs.cande.mf.bianchi, rcs.source.ec, rcs.source.mf.bianchi
+mf.bianchi.weight2: rcs.cande.mf.bianchi, rcs.source.ec
+mf.half_integral_weight.dedekind_eta: cmf.eta_quotient, mf.gl2.history.combinatorics, mf.gl2.history.infinite, mf.half_integral_weight.theta
+mf.half_integral_weight.theta: lattice.history, mf.gl2.history.remainder, mf.half_integral_weight
+mf.hilbert: ec.curve_label, mf, mf.hilbert.hecke_orbit, mf.hilbert.label, mf.hilbert.weight_vector, rcs.cande.lfunction, rcs.rigor.lfunction.modular, rcs.source.ec
+mf.hilbert.dimension: rcs.cande.lfunction
+mf.hilbert.weight_vector: dq.ecnf.extent, rcs.cande.ec
 mf.jacobi: mf.siegel.lift.maass
 mf.maass: mf
 mf.maass.exceptional_eigenvalue: mf.maass.spectral_index
-mf.maass.mwf: mf.maass.exceptional_eigenvalue, mf.maass.label, mf.maass.mwf.coefficients, mf.maass.mwf.dimension, mf.maass.mwf.eigenvalue, mf.maass.mwf.fourierexpansion, mf.maass.mwf.level, mf.maass.mwf.spectralparameter, mf.maass.mwf.symmetry, mf.maass.mwf.weight
-mf.maass.mwf.eigenvalue: mf.maass.exceptional_eigenvalue, mf.maass.label, mf.maass.mwf.dimension, mf.maass.spectral_index
+mf.maass.mwf: lfunction.underlying_object, mf.maass.exceptional_eigenvalue, mf.maass.label, mf.maass.mwf.coefficients, mf.maass.mwf.dimension, mf.maass.mwf.eigenvalue, mf.maass.mwf.fourierexpansion, mf.maass.mwf.level, mf.maass.mwf.spectralparameter, mf.maass.mwf.symmetry, mf.maass.mwf.weight, portrait.maass, rcs.cande.lfunction, rcs.cande.maass_rigor
+mf.maass.mwf.character: rcs.cande.maass_rigor
+mf.maass.mwf.eigenvalue: mf.maass.exceptional_eigenvalue, mf.maass.label, mf.maass.mwf.dimension, mf.maass.spectral_index, rcs.cande.maass_rigor
+mf.maass.mwf.fourierexpansion: rcs.rigor.maass, rcs.rigor.maass_rigor
 mf.maass.mwf.laplacian: mf.maass.mwf, mf.maass.mwf.dimension, mf.maass.mwf.eigenvalue, mf.maass.mwf.spectralparameter, mf.maass.mwf.weight, mf.maass.mwf.weight0
-mf.maass.mwf.level: mf.maass.label
-mf.maass.mwf.spectralparameter: mf.maass.exceptional_eigenvalue, mf.maass.mwf.coefficients, mf.maass.mwf.eigenvalue, mf.maass.spectral_index
+mf.maass.mwf.level: mf.maass.label, portrait.maass, rcs.cande.maass_rigor
+mf.maass.mwf.spectralparameter: mf.maass.exceptional_eigenvalue, mf.maass.mwf.coefficients, mf.maass.mwf.eigenvalue, mf.maass.spectral_index, rcs.rigor.maass, rcs.rigor.maass_rigor
 mf.maass.mwf.symmetry: mf.maass.mwf.coefficients, mf.maass.mwf.fourierexpansion
-mf.maass.mwf.weight: mf.maass.label, mf.maass.mwf.coefficients, mf.maass.mwf.weight0
+mf.maass.mwf.weight: mf.maass.label, mf.maass.mwf.coefficients, mf.maass.mwf.weight0, rcs.cande.maass_rigor
 mf.maass.picard: mf.maass.picard.eigenvalue
 mf.maass.spectral_index: mf.maass.label
-mf.multipliersystem: mf, mf.maass.mwf, mf.quasi_modular, mf.slash_action, mf.transformation_property, specialfunction.poincare
-mf.siegel: mf, mf.siegel.cusp_form, mf.siegel.degree, mf.siegel.family.gamma0_2, mf.siegel.family.gamma0_3, mf.siegel.family.gamma0_3_psi_3, mf.siegel.family.gamma0_4, mf.siegel.family.gamma0_4_psi_4, mf.siegel.family.sp4z, mf.siegel.hecke_operator, mf.siegel.level, mf.siegel.lift.ikeda, mf.siegel.lift.maass, mf.siegel.lift.miyawaki, mf.siegel.newform, mf.siegel.q-expansion, mf.siegel.vector_valued_degree_two, mf.siegel.weight, mf.siegel.weight_k_j
+mf.multipliersystem: mf, mf.gl2.history.new, mf.maass.mwf, mf.quasi_modular, mf.slash_action, mf.transformation_property, specialfunction.poincare
+mf.quasi_modular: mf.gl2.history.elliptic, mf.gl2.history.new
+mf.siegel: lattice.history, mf, mf.siegel.cusp_form, mf.siegel.degree, mf.siegel.family.gamma0_2, mf.siegel.family.gamma0_3, mf.siegel.family.gamma0_3_psi_3, mf.siegel.family.gamma0_4, mf.siegel.family.gamma0_4_psi_4, mf.siegel.family.sp4z, mf.siegel.family.sp6z, mf.siegel.hecke_operator, mf.siegel.level, mf.siegel.lift.ikeda, mf.siegel.lift.maass, mf.siegel.lift.miyawaki, mf.siegel.newform, mf.siegel.q-expansion, mf.siegel.vector_valued_degree_two, mf.siegel.weight, mf.siegel.weight_k_j
 mf.siegel.character: mf.siegel.cusp_form, mf.siegel.family.gamma0_4_psi_4, mf.siegel.newspace
 mf.siegel.coefficient_field: mf.siegel.coefficient_ring, mf.siegel.defining_polynomial, mf.siegel.label
+mf.siegel.cusp_form: mf.siegel.family.kp, mf.siegel.family.sp8z
 mf.siegel.cusp_form_degree2: mf.siegel.subspace.degree.two
-mf.siegel.degree: mf.siegel.automorphic_type, mf.siegel.family.gamma0_2, mf.siegel.family.gamma0_3, mf.siegel.family.gamma0_3_psi_3, mf.siegel.family.gamma0_4, mf.siegel.family.gamma0_4_psi_4, mf.siegel.family.sp4z, mf.siegel.family.sp4z_2, mf.siegel.koecher.principle, mf.siegel.label, mf.siegel.phi, mf.siegel.weight, mf.siegel.weight_k_j
+mf.siegel.degree: mf.siegel.automorphic_type, mf.siegel.family.gamma0_2, mf.siegel.family.gamma0_3, mf.siegel.family.gamma0_3_psi_3, mf.siegel.family.gamma0_4, mf.siegel.family.gamma0_4_psi_4, mf.siegel.family.sp4z, mf.siegel.family.sp4z_2, mf.siegel.family.sp6z, mf.siegel.family.sp8z, mf.siegel.koecher.principle, mf.siegel.label, mf.siegel.phi, mf.siegel.weight, mf.siegel.weight_k_j
 mf.siegel.eisenstein_series: mf.siegel.family.sp4z, mf.siegel.subspace.degree.two
 mf.siegel.family: mf.siegel.label
 mf.siegel.hecke_operator: mf.siegel.coefficient_field, mf.siegel.newform, mf.siegel.subspace.degree.two
@@ -573,33 +661,39 @@ mf.siegel.klingen_eisenstein_series: mf.siegel.subspace.degree.two
 mf.siegel.level: mf.siegel.label, mf.siegel.newspace
 mf.siegel.lift: mf.siegel.lift.miyawaki
 mf.siegel.lift.gritsenko: mf.siegel.newform.paramodular
+mf.siegel.lift.miyawaki: mf.siegel.family.sp6z
 mf.siegel.lift.miyawaki1: mf.siegel.lift.miyawaki
 mf.siegel.lift.miyawaki2: mf.siegel.lift.miyawaki
 mf.siegel.lift.saito_kurokawa: mf.siegel.lift.ikeda
 mf.siegel.newform: mf.siegel.automorphic_type, mf.siegel.coefficient_ring, mf.siegel.dimension, mf.siegel.label, mf.siegel.newspace
+mf.siegel.newform.paramodular: mf.siegel.extent.kp, mf.siegel.family.kp
 mf.siegel.slash.op: mf.siegel.cusp_form
 mf.siegel.theta_constant: mf.siegel.family.gamma0_2, mf.siegel.family.gamma0_4, mf.siegel.family.gamma0_4_psi_4
 mf.siegel.theta_series: mf.siegel.family.gamma0_3, mf.siegel.family.gamma0_3_psi_3
-mf.siegel.vector_valued: mf.siegel.family.sp4z_2
+mf.siegel.vector_valued: mf.siegel.family.sp4z_2, mf.siegel.family.sp8z
 mf.siegel.vector_valued_degree_two: mf.siegel.subspace.degree.two
-mf.siegel.weight: mf.siegel.label, mf.siegel.newform, mf.siegel.q-expansion
+mf.siegel.weight: mf.siegel.family.kp, mf.siegel.family.sp8z, mf.siegel.label, mf.siegel.newform, mf.siegel.q-expansion
 mf.siegel.weight_k_j: mf.siegel.newspace
-mf.slash_action: mf.maass.mwf, mf.quasi_modular
+mf.sl2.subgroup.gamma0n: lfunction.known_degree2
+mf.slash_action: mf.gl2.history.new, mf.maass.mwf, mf.quasi_modular
+mf.transformation_property: mf.gl2.history.combinatorics, mf.gl2.history.infinite, mf.gl2.history.new, mf.gl2.history.poincare, mf.gl2.history.theta, mf.gl2.history.varieties
 mf.upper_half_plane: ag.modcurve.x0, ag.modcurve.x1, cmf, gl2.genus, group.fuchsian, group.fuchsian.action, hmsurface.hmsurface, mf.maass.mwf.laplacian, mf.quasi_modular, mf.slash_action, mf.transformation_property, modcurve, modcurve.psl2index, modcurve.xn, specialfunction.poincare
-modcurve: ag.modcurve.xnsp, ec.galois_rep_adelic_image, gl2.genus, modcurve.agreeable, modcurve.canonical_field, modcurve.cm_discriminants, modcurve.components, modcurve.contains_negative_one, modcurve.cusp_orbits, modcurve.decomposition, modcurve.elliptic_curve_of_point, modcurve.elliptic_points, modcurve.embedded_model, modcurve.fiber_product, modcurve.genus, modcurve.genus_minus_rank, modcurve.gonality, modcurve.index, modcurve.j_invariant_map, modcurve.label, modcurve.level, modcurve.local_obstruction, modcurve.minimal_twist, modcurve.modular_cover, modcurve.newform_level, modcurve.psl2index, modcurve.quadratic_refinements, modcurve.rank, modcurve.rational_points, modcurve.relative_index, modcurve.simple, modcurve.sl2level, modcurve.x0, modcurve.x1, modcurve.x1mn, modcurve.xarith, modcurve.xfull, modcurve.xns, modcurve.xns_plus, modcurve.xpm1, modcurve.xpm1mn, modcurve.xs4, modcurve.xsp, modcurve.xsp_plus
-modcurve.canonical_field: modcurve.gonality
-modcurve.cm_discriminants: modcurve.rational_points
-modcurve.cusps: modcurve, modcurve.cusp_orbits, modcurve.cusp_widths, modcurve.rational_points, modcurve.x0, modcurve.x1, modcurve.x1mn, modcurve.xfull, modcurve.xpm1
+modcurve: ag.modcurve.xnsp, ec.galois_rep_adelic_image, gl2.genus, modcurve.agreeable, modcurve.canonical_field, modcurve.cm_discriminants, modcurve.components, modcurve.contains_negative_one, modcurve.cusp_orbits, modcurve.decomposition, modcurve.elliptic_curve_of_point, modcurve.elliptic_points, modcurve.embedded_model, modcurve.fiber_product, modcurve.genus, modcurve.genus_minus_rank, modcurve.gonality, modcurve.index, modcurve.invariants, modcurve.j_invariant_map, modcurve.label, modcurve.level, modcurve.local_obstruction, modcurve.minimal_twist, modcurve.modular_cover, modcurve.newform_level, modcurve.psl2index, modcurve.quadratic_refinements, modcurve.rank, modcurve.rational_points, modcurve.relative_index, modcurve.simple, modcurve.sl2level, modcurve.x0, modcurve.x1, modcurve.x1mn, modcurve.xarith, modcurve.xfull, modcurve.xns, modcurve.xns_plus, modcurve.xpm1, modcurve.xpm1mn, modcurve.xs4, modcurve.xsp, modcurve.xsp_plus
+modcurve.canonical_field: modcurve.gonality, modcurve.x1mn.remarks, modcurve.xarith.remarks, modcurve.xfull.remarks
+modcurve.cm_discriminants: modcurve.invariants, modcurve.rational_points
+modcurve.cusps: modcurve, modcurve.cusp_orbits, modcurve.cusp_widths, modcurve.invariants, modcurve.known_points, modcurve.rational_points, modcurve.x0, modcurve.x1, modcurve.x1mn, modcurve.xfull, modcurve.xpm1
 modcurve.gassmann_class: modcurve.label
-modcurve.genus: modcurve.decomposition, modcurve.gassmann_class, modcurve.genus_minus_rank, modcurve.local_obstruction, modcurve.rational_points, shimcurve.decomposition
-modcurve.index: modcurve.gassmann_class, modcurve.psl2index
+modcurve.genus: modcurve.decomposition, modcurve.gassmann_class, modcurve.genus_minus_rank, modcurve.invariants, modcurve.local_obstruction, modcurve.rational_points, shimcurve.decomposition
+modcurve.gonality: modcurve.invariants
+modcurve.index: modcurve.gassmann_class, modcurve.invariants, modcurve.psl2index
 modcurve.label: modcurve.minimal_twist
-modcurve.level: modcurve.agreeable, modcurve.canonical_field, modcurve.gassmann_class, modcurve.minimal_twist
+modcurve.level: modcurve.agreeable, modcurve.canonical_field, modcurve.gassmann_class, modcurve.invariants, modcurve.minimal_twist
 modcurve.level_structure: modcurve, modcurve.elliptic_curve_of_point, modcurve.modular_cover
 modcurve.modular_cover: modcurve.quadratic_refinements
 modcurve.psl2index: modcurve.cusp_widths, modcurve.modular_cover
 modcurve.quadratic_refinements: modcurve.xpm1, modcurve.xpm1mn
 modcurve.rank: modcurve.genus_minus_rank
+modcurve.rational_points: modcurve.x0.remarks, modcurve.x1.remarks
 modcurve.x1: modcurve.xpm1
 modcurve.x1mn: modcurve.xpm1mn
 modcurve.xn: modcurve, modcurve.canonical_field, modcurve.components, modcurve.name, modcurve.xfull
@@ -615,23 +709,26 @@ modlgal.projective_representation: modlgal.projective_kernel_polynomial
 modlgal.ramified: modlgal.frobenius_charpoly, modlgal.frobenius_determinant, modlgal.frobenius_order, modlgal.frobenius_prime, modlgal.frobenius_trace, modlgal.generating_primes
 modlgal.splitting_field: modlgal.frobenius_charpoly, modlgal.frobenius_determinant, modlgal.frobenius_order, modlgal.frobenius_prime, modlgal.frobenius_trace, modlgal.min_sib_splitting_field, modlgal.projective_kernel_polynomial, modlgal.ramified, modlgal.top_slope
 modlgal.surjective: modlgal.det_surjective, modlgal.image_index
-nf: ag.canonical_height, ag.good_reduction, ag.potential_good_reduction, ag.regulator, ag.selmer_group, ag.tate_shafarevich, artin.number_field, av.potential_toric_rank, character.hecke, cmf.defining_polynomial, cmf.projective_field, cmf.q-expansion, ec.additive_reduction, ec.analytic_sha_order, ec.bad_reduction, ec.bsdconjecture, ec.canonical_height, ec.conductor, ec.conductor_label, ec.galois_rep, ec.galois_rep_elladic_image, ec.galois_rep_modell_image, ec.global_minimal_model, ec.good_ordinary_reduction, ec.good_reduction, ec.good_supersingular_reduction, ec.invariants, ec.isogeny, ec.kodaira_symbol, ec.local_data, ec.local_minimal_discriminant, ec.local_minimal_model, ec.local_root_number, ec.maximal_elladic_galois_rep, ec.maximal_galois_rep, ec.minimal_discriminant, ec.mordell_weil_group, ec.mordell_weil_theorem, ec.multiplicative_reduction, ec.mw_generators, ec.nonsplit_multiplicative_reduction, ec.obstruction_class, ec.period, ec.potential_good_reduction, ec.q.regulator, ec.q.torsion_growth, ec.q_curve, ec.rank, ec.reduction_type, ec.regulator, ec.semi_global_minimal_model, ec.special_value, ec.split_multiplicative_reduction, ec.tamagawa_number, g2c.hasse_weil_conjecture, g2c.known_rational_points, g2c.locally_solvable, g2c.mw_generator, g2c.torsion, g2c.torsion_order, gg.arithmetically_equivalent, lfunction.coefficient_field, lfunction.root_analytic_conductor, mf.base_change, mf.bianchi, mf.cm, mf.hilbert, mf.hilbert.level_norm, mf.siegel.defining_polynomial, modcurve.level_structure, modlgal, nf.abelian, nf.abs_discriminant, nf.algebraic_closure, nf.arithmetically_equivalent, nf.class_number, nf.class_number_formula, nf.cm_field, nf.complex_embedding, nf.conductor, nf.defining_polynomial, nf.discriminant, nf.embedding, nf.fundamental_units, nf.galois_root_discriminant, nf.generator, nf.ideal_class_group, nf.index, nf.inessential_prime, nf.integral, nf.integral_basis, nf.local_algebra, nf.max_p, nf.maximal_cm_subfield, nf.minimal_polynomial, nf.minimal_sibling, nf.monogenic, nf.monomial_order, nf.narrow_class_group, nf.narrow_class_number, nf.order, nf.padic_completion, nf.place, nf.polredabs, nf.poly_discriminant, nf.prime, nf.primitive_element, nf.radical_discriminant, nf.rank, nf.regulator, nf.relative_class_number, nf.ring_of_integers, nf.root_discriminant, nf.serre_odlyzko_bound, nf.signature, nf.torsion, nf.totally_imaginary, nf.totally_positive, nf.totally_real, nf.unit_group, nf.unit_signature_rank, nf.unramified_prime, nf.weil_height, nf.zk_index, ring.dedekind_domain, st_group.component_group, st_group.degree
+nf: ag.canonical_height, ag.good_reduction, ag.potential_good_reduction, ag.regulator, ag.selmer_group, ag.tate_shafarevich, artin.number_field, av.potential_toric_rank, character.hecke, cmf.defining_polynomial, cmf.projective_field, cmf.q-expansion, dq.ecnf.extent, dq.ecnf.reliability, ec.additive_reduction, ec.analytic_sha_order, ec.bad_reduction, ec.bsdconjecture, ec.canonical_height, ec.conductor, ec.conductor_label, ec.galois_rep, ec.galois_rep_elladic_image, ec.galois_rep_modell_image, ec.global_minimal_model, ec.good_ordinary_reduction, ec.good_reduction, ec.good_supersingular_reduction, ec.invariants, ec.isogeny, ec.kodaira_symbol, ec.local_data, ec.local_minimal_discriminant, ec.local_minimal_model, ec.local_root_number, ec.maximal_elladic_galois_rep, ec.maximal_galois_rep, ec.minimal_discriminant, ec.mordell_weil_group, ec.mordell_weil_theorem, ec.multiplicative_reduction, ec.mw_generators, ec.nonsplit_multiplicative_reduction, ec.obstruction_class, ec.period, ec.potential_good_reduction, ec.q.regulator, ec.q.torsion_growth, ec.q_curve, ec.rank, ec.reduction_type, ec.regulator, ec.semi_global_minimal_model, ec.special_value, ec.split_multiplicative_reduction, ec.tamagawa_number, g2c.hasse_weil_conjecture, g2c.known_rational_points, g2c.locally_solvable, g2c.mw_generator, g2c.num_rat_pts, g2c.torsion, g2c.torsion_order, gg.arithmetically_equiv_input, gg.arithmetically_equivalent, lfunction.coefficient_field, lfunction.root_analytic_conductor, lfunction.underlying_object, mf.base_change, mf.bianchi, mf.cm, mf.gl2.history.hecke, mf.gl2.history.varieties, mf.hilbert, mf.hilbert.level_norm, mf.siegel.defining_polynomial, modcurve.level_structure, modlgal, nf.abelian, nf.abs_discriminant, nf.algebraic_closure, nf.arithmetically_equivalent, nf.class_number, nf.class_number_formula, nf.cm_field, nf.complex_embedding, nf.conductor, nf.defining_polynomial, nf.discriminant, nf.embedding, nf.fundamental_units, nf.galois_root_discriminant, nf.generator, nf.ideal_class_group, nf.index, nf.inessential_prime, nf.integral, nf.integral_basis, nf.local_algebra, nf.max_p, nf.maximal_cm_subfield, nf.minimal_polynomial, nf.minimal_sibling, nf.monogenic, nf.monomial_order, nf.narrow_class_group, nf.narrow_class_number, nf.order, nf.padic_completion, nf.picture, nf.place, nf.polredabs, nf.poly_discriminant, nf.prime, nf.primitive_element, nf.radical_discriminant, nf.rank, nf.regulator, nf.relative_class_number, nf.ring_of_integers, nf.root_discriminant, nf.serre_odlyzko_bound, nf.signature, nf.torsion, nf.totally_imaginary, nf.totally_positive, nf.totally_real, nf.unit_group, nf.unit_signature_rank, nf.unramified_prime, nf.weil_height, nf.zk_index, portrait.ec.nf, rcs.cande.ec, rcs.cande.mf.bianchi, rcs.rigor.ec, ring.dedekind_domain, st_group.component_group, st_group.degree
 nf.abelian: artin.dimensionone, nf.conductor, nf.dirichlet_group
+nf.abs_discriminant: rcs.cande.lfunction, rcs.cande.mf.bianchi, rcs.source.ec, rcs.source.mf.bianchi
 nf.absolute_value: ag.selmer_group, ag.tate_shafarevich, lf.local_field, lf.maximal_ideal, lf.ring_of_integers, nf.place
-nf.arithmetically_equivalent: gg.arithmetically_equivalent, group.gassmann_equivalence
-nf.class_number: av.fq.picard_group, ec.complex_multiplication, ec.global_minimal_model, ec.semi_global_minimal_model, mf.bianchi, modcurve.cm_discriminants, nf.class_number_formula, nf.narrow_class_number, nf.relative_class_number
+nf.arithmetically_equivalent: gg.arithmetically_equiv_input, gg.arithmetically_equivalent, group.gassmann_equivalence
+nf.class_number: av.fq.picard_group, dq.ecnf.source, ec.complex_multiplication, ec.global_minimal_model, ec.semi_global_minimal_model, mf.bianchi, modcurve.cm_discriminants, nf.class_number_formula, nf.narrow_class_number, nf.relative_class_number, rcs.cande.mf.bianchi, rcs.rigor.ec, rcs.source.ec, rcs.source.mf.bianchi
 nf.cm_field: ag.complex_multiplication, cmf.dualform, cmf.selfdual, g2c.geom_end_alg, nf.maximal_cm_subfield, nf.reflex_field, nf.reflex_reflex_field, nf.relative_class_number, st_group.definition
-nf.complex_embedding: nf.embedding, nf.place, nf.reflex_field, nf.signature
+nf.complex_embedding: nf.embedding, nf.place, nf.reflex_field, nf.signature, portrait.ec.nf
 nf.conductor: nf.dirichlet_group
 nf.defining_polynomial: nf.defining_polynomial.normalization, nf.generator
-nf.degree: ag.complex_multiplication, character.dirichlet.degree, cmf.galois_conjugate, ec.q.torsion_growth, ec.regulator, gg.arithmetically_equivalent, gg.resolvents, mf.hilbert, nf, nf.arithmetically_equivalent, nf.embedding, nf.galois_group, nf.label, nf.maximal_cm_subfield, nf.minimal_sibling, nf.reflex_field, nf.root_discriminant, nf.separable, nf.serre_odlyzko_bound, nf.signature
+nf.degree: ag.complex_multiplication, character.dirichlet.degree, cmf.galois_conjugate, dq.ecnf.extent, dq.ecnf.reliability, dq.ecnf.source, ec.q.torsion_growth, ec.regulator, gg.arithmetically_equivalent, gg.resolvents, mf.hilbert, nf, nf.arithmetically_equivalent, nf.embedding, nf.galois_group, nf.label, nf.maximal_cm_subfield, nf.minimal_sibling, nf.reflex_field, nf.root_discriminant, nf.separable, nf.serre_odlyzko_bound, nf.signature, rcs.cande.ec, rcs.rigor.ec
 nf.degree_mathlib_def: nf.degree
-nf.discriminant: cmf.self_twist, ec.analytic_sha_order, ec.bsdconjecture, hgm.local_discriminant, mf.ellitpic.self_twist, nf.abs_discriminant, nf.arithmetically_equivalent, nf.class_number_formula, nf.label, nf.minimal_sibling, nf.poly_discriminant, nf.radical_discriminant, nf.root_discriminant, nf.unramified_prime
+nf.discriminant: cmf.self_twist, ec.analytic_sha_order, ec.bsdconjecture, hgm.local_discriminant, mf.ellitpic.self_twist, nf.abs_discriminant, nf.arithmetically_equivalent, nf.class_number_formula, nf.label, nf.minimal_sibling, nf.poly_discriminant, nf.radical_discriminant, nf.root_discriminant, nf.unramified_prime, rcs.cande.ec, rcs.source.ec
 nf.discriminant_root_field: lf.discriminant_root_field
-nf.embedding: cmf.embedding, cmf.q-expansion, ec.period, nf.reflex_field
+nf.embedding: cmf.embedding, cmf.embedding_format, cmf.q-expansion, ec.period, nf.reflex_field
+nf.frobenius_cycle_types: nf.picture
 nf.fundamental_units: nf.rank, nf.regulator
-nf.galois_closure: gg.resolvents, lf.hidden_slopes, lf.packet, lf.slope_content, lf.tame_degree, lf.unramified_degree, nf.galois_group, nf.galois_root_discriminant, nf.sibling, nf.stem_field
-nf.galois_group: artin, character.dirichlet.galois_orbit, gg.arithmetically_equivalent, lf.galois_invariants, lf.slope_content, lf.wild_slopes, nf.abelian, nf.arithmetically_equivalent, nf.minimal_sibling, st_group.component_group
+nf.galois_closure: gg.arithmetically_equiv_input, gg.resolvents, lf.hidden_slopes, lf.packet, lf.slope_content, lf.tame_degree, lf.unramified_degree, nf.galois_group, nf.galois_root_discriminant, nf.sibling, nf.stem_field
+nf.galois_group: artin, character.dirichlet.galois_orbit, gg.arithmetically_equiv_input, gg.arithmetically_equivalent, lf.family_varying, lf.galois_invariants, lf.slope_content, lf.wild_slopes, lfunction.underlying_object, nf.abelian, nf.arithmetically_equivalent, nf.galois_search, nf.minimal_sibling, st_group.component_group
+nf.galois_group.name: lf.inertia_group_search, lf.wild_inertia_group_search, nf.galois_search
 nf.generator: nf.primitive_element
 nf.ideal_class_group: av.fq.picard_group, ec.global_minimal_model, ec.obstruction_class, nf.class_number, nf.narrow_class_number
 nf.ideal_labels: ec.conductor_label, ec.curve_label, hmsurface.label, mf.bianchi.labels, mf.bianchi.level, mf.hilbert.label
@@ -644,28 +741,30 @@ nf.minimal_polynomial: nf.complex_embedding, nf.embedding, nf.generator
 nf.minimal_sibling: modlgal.min_sib_splitting_field, modlgal.projective_kernel_polynomial
 nf.narrow_class_group: hmsurface.component_ideal, mf.hilbert, nf.narrow_class_number
 nf.order: ag.complex_multiplication, ec.complex_multiplication, ec.q.minimal_twist, modcurve.cm_discriminants, nf.index, nf.monomial_order, nf.zk_index, shimcurve.order
-nf.place: ag.selmer_group, ag.tate_shafarevich, ec.analytic_sha_order, ec.period
+nf.place: ag.selmer_group, ag.tate_shafarevich, ec.analytic_sha_order, ec.period, nf.padic_completion.search
 nf.polredabs: nf.defining_polynomial.normalization, nf.ideal_labels
 nf.poly_discriminant: nf.polredabs
-nf.prime: ag.good_reduction, ag.potential_good_reduction, artin.conductor, av.potential_toric_rank, ec.analytic_sha_order, ec.bad_reduction, ec.bsdconjecture, ec.good_reduction, ec.local_root_number, ec.minimal_discriminant, ec.q.serre_invariants, modlgal.conductor, modlgal.frobenius_charpoly, modlgal.frobenius_determinant, modlgal.frobenius_order, modlgal.frobenius_prime, modlgal.frobenius_trace, modlgal.ramified, nf.padic_completion, st_group.weight
-nf.ramified_primes: artin.ramified_primes, modlgal.ramified, nf.max_p
-nf.real_embedding: nf.embedding, nf.place, nf.signature, nf.unit_signature_rank
+nf.prime: ag.good_reduction, ag.potential_good_reduction, artin.conductor, av.potential_toric_rank, ec.analytic_sha_order, ec.bad_reduction, ec.bsdconjecture, ec.good_reduction, ec.local_root_number, ec.minimal_discriminant, ec.q.serre_invariants, modlgal.conductor, modlgal.frobenius_charpoly, modlgal.frobenius_determinant, modlgal.frobenius_order, modlgal.frobenius_prime, modlgal.frobenius_trace, modlgal.ramified, nf.padic_completion, rcs.source.ec, st_group.weight
+nf.ramified_primes: artin.ramified_primes, modlgal.ramified, nf.max_p, nf.picture
+nf.real_embedding: nf.embedding, nf.place, nf.signature, nf.unit_signature_rank, portrait.ec.nf
 nf.reflex_field: nf.reflex_reflex_field
 nf.regulator: nf.class_number_formula
-nf.ring_of_integers: av.fq.order, av.fq.picard_group, character.hecke, cmf.coefficient_ring, ec.conductor, ec.integral_model, ec.minimal_discriminant, ec.reduction_type, mf.bianchi, mf.bianchi.bianchicongruencesubgroup, mf.hilbert, mf.hilbert.level_norm, nf.ideal_class_group, nf.index, nf.integral_basis, nf.monogenic, nf.monomial_order, nf.place, nf.poly_discriminant, nf.prime, nf.unit_group, nf.zk_index, ring.dedekind_domain
+nf.ring_of_integers: av.fq.order, av.fq.picard_group, character.hecke, cmf.coefficient_ring, ec.conductor, ec.integral_model, ec.minimal_discriminant, ec.reduction_type, mf.bianchi, mf.bianchi.bianchicongruencesubgroup, mf.hilbert, mf.hilbert.level_norm, nf.ideal_class_group, nf.index, nf.integral_basis, nf.monogenic, nf.monomial_order, nf.picture, nf.place, nf.poly_discriminant, nf.prime, nf.unit_group, nf.zk_index, ring.dedekind_domain
 nf.root_discriminant: lf.galois_invariants, lfunction.root_analytic_conductor, nf.galois_root_discriminant, nf.serre_odlyzko_bound
 nf.separable: gg.resolvents, nf.galois_closure, nf.galois_group, nf.separable_algebra, nf.sibling
 nf.separable_algebra: nf.local_algebra, nf.sextic_twin
 nf.sibling: cmf.artin_field, cmf.projective_field, gg.other_representations, nf.arithmetically_equivalent, nf.minimal_sibling
-nf.signature: nf.arithmetically_equivalent, nf.class_number_formula, nf.embedding, nf.label
+nf.signature: dq.ecnf.extent, nf.arithmetically_equivalent, nf.class_number_formula, nf.embedding, nf.label, rcs.cande.ec
+nf.spectrum_ring_of_integers: nf.picture
 nf.stem_field: artin.projective_stem_field, artin.stem_field, gg.resolvents
-nf.totally_imaginary: nf.cm_field, nf.narrow_class_number
+nf.totally_imaginary: nf.cm_field, nf.narrow_class_number, portrait.ec.nf
 nf.totally_positive: mf.hilbert, nf.narrow_class_group
-nf.totally_real: cmf.selfdual, mf.hilbert, mf.hilbert.level_norm, nf.cm_field, nf.relative_class_number, st_group.definition
+nf.totally_real: cmf.selfdual, dq.ecnf.extent, dq.ecnf.reliability, mf.hilbert, mf.hilbert.level_norm, nf.cm_field, nf.relative_class_number, rcs.cande.ec, rcs.rigor.ec, rcs.source.ec, st_group.definition
 nf.unit_group: nf.fundamental_units, nf.torsion
 nf.weil_height: ag.canonical_height, ec.canonical_height, ec.q.canonical_height
 nf.weil_polynomial: av.fq.honda_tate, av.fq.l-polynomial, av.fq.weil_polynomial
 nf.zk_index: nf.inessential_prime
+rcs.cande.mf.bianchi: rcs.cande.ec
 repn.highest.weight: mf.siegel, mf.siegel.hecke_operator, mf.siegel.slash.op, repn.irrep.gl
 repn.irrep.gl: mf.siegel.vector_valued_degree_two
 ring: ec.ring, group.group_ring, group.min_faithful_linear, modlgal.characteristic, ring.associate, ring.characteristic, ring.field, ring.field_of_fractions_mathlib, ring.ideal, ring.integral, ring.integral_domain, ring.irreducible, ring.maximal_ideal, ring.noetherian, ring.prime_ideal, ring.unit, ring.zero_divisor
@@ -690,34 +789,38 @@ ring.principal_ideal_domain: ring.euclidean_domain
 ring.unique_factorization_domain: ring.euclidean_domain, ring.principal_ideal_domain
 ring.unit: lf.maximal_ideal, ring.associate, ring.irreducible
 ring.zero_divisor: ring.integral_domain
-shimcurve: shimcurve.decomposition, shimcurve.elliptic_points, shimcurve.genus, shimcurve.genus_minus_rank, shimcurve.gonality, shimcurve.index, shimcurve.label, shimcurve.local_obstruction, shimcurve.rank, shimcurve.simple, shimcurve.xd1, shimcurve.xd1_star, shimcurve.xdm1, shimcurve.xdn, shimcurve.xdn_star
+shimcurve: shimcurve.decomposition, shimcurve.elliptic_points, shimcurve.genus, shimcurve.genus_minus_rank, shimcurve.gonality, shimcurve.index, shimcurve.invariants, shimcurve.label, shimcurve.local_obstruction, shimcurve.rank, shimcurve.simple, shimcurve.xd1, shimcurve.xd1_star, shimcurve.xdm1, shimcurve.xdn, shimcurve.xdn_star
 shimcurve.aut_pm_mu_o: shimcurve, shimcurve.xd1, shimcurve.xd1_star, shimcurve.xdm1, shimcurve.xdn, shimcurve.xdn_star
 shimcurve.discb: shimcurve, shimcurve.label, shimcurve.xd1, shimcurve.xd1_star, shimcurve.xdm1, shimcurve.xdn, shimcurve.xdn_star
 shimcurve.disco: shimcurve.eichler, shimcurve.label, shimcurve.nrdmu
 shimcurve.eichler: shimcurve.xdm1
 shimcurve.enhanced_group: shimcurve, shimcurve.index, shimcurve.label, shimcurve.level
-shimcurve.genus: shimcurve.genus_minus_rank, shimcurve.label, shimcurve.local_obstruction
-shimcurve.index: shimcurve.label
-shimcurve.level: shimcurve, shimcurve.label
+shimcurve.genus: shimcurve.genus_minus_rank, shimcurve.invariants, shimcurve.label, shimcurve.local_obstruction, shimcurve.rational_points
+shimcurve.gonality: shimcurve.invariants
+shimcurve.index: shimcurve.invariants, shimcurve.label
+shimcurve.level: shimcurve, shimcurve.invariants, shimcurve.label
 shimcurve.nrdmu: shimcurve.label
-shimcurve.order: shimcurve.disco, shimcurve.eichler, shimcurve.polarized_order
+shimcurve.order: shimcurve.disco, shimcurve.eichler, shimcurve.invariants, shimcurve.polarized_order
 shimcurve.polarized_order: shimcurve, shimcurve.aut_pm_mu_o, shimcurve.enhanced_group, shimcurve.label, shimcurve.level, shimcurve.nrdmu, shimcurve.xd1, shimcurve.xd1_star, shimcurve.xdm1, shimcurve.xdn, shimcurve.xdn_star
 shimcurve.quaternion_algebra: shimcurve, shimcurve.aut_pm_mu_o, shimcurve.b, shimcurve.discb, shimcurve.disco, shimcurve.eichler, shimcurve.label, shimcurve.order, shimcurve.polarized_order, shimcurve.xd1, shimcurve.xd1_star, shimcurve.xdm1, shimcurve.xdn, shimcurve.xdn_star
 shimcurve.rank: shimcurve.genus_minus_rank
-specialfunction.gamma: lfunction.functional_equation
+specialfunction.gamma: intro.tutorial, lfunction.functional_equation
 specialfunction.k_bessel: mf.maass.mwf.coefficients, mf.maass.mwf.fourierexpansion, mf.maass.picard.fourierexpansion
-st_group.ambient: st_group.moment_matrix
-st_group.component_group: st_group.components, st_group.connected, st_group.generators, st_group.index, st_group.label
+specialfunction.poincare: mf.gl2.history.poincare
+st_group.ambient: st_group.embedding, st_group.moment_matrix
+st_group.component_group: st_group.components, st_group.connected, st_group.generators, st_group.index, st_group.label, st_group.subsupgroups
 st_group.components: st_group.label
 st_group.connected: st_group.components
-st_group.definition: ec.invariants, g2c.st_group, st_group.ambient, st_group.component_group, st_group.components, st_group.connected, st_group.degree, st_group.first_a2_moment, st_group.fourth_trace_moment, st_group.generators, st_group.hodge_circle, st_group.identity_component, st_group.label, st_group.moment_matrix, st_group.moment_simplex, st_group.moments, st_group.probabilities, st_group.rational, st_group.real_dimension, st_group.second_trace_moment, st_group.subgroups, st_group.supgroups, st_group.trace_moments, st_group.trace_zero_density, st_group.weight
-st_group.degree: st_group.ambient, st_group.hodge_circle, st_group.label, st_group.moment_simplex, st_group.rational
-st_group.identity_component: st_group.component_group, st_group.components, st_group.connected, st_group.label, st_group.subgroups, st_group.supgroups
+st_group.definition: ec.invariants, ec.q.invariants, g2c.st_group, rcs.cande.st_group, st_group.ambient, st_group.component_group, st_group.components, st_group.connected, st_group.degree, st_group.embedding, st_group.first_a2_moment, st_group.fourth_trace_moment, st_group.generators, st_group.hodge_circle, st_group.identity_component, st_group.label, st_group.moment_matrix, st_group.moment_simplex, st_group.moments, st_group.probabilities, st_group.rational, st_group.real_dimension, st_group.second_trace_moment, st_group.subgroups, st_group.subsupgroups, st_group.supgroups, st_group.trace_moments, st_group.trace_zero_density, st_group.weight
+st_group.degree: rcs.cande.st_group, rcs.rigor.st_group, st_group.ambient, st_group.hodge_circle, st_group.label, st_group.moment_simplex, st_group.rational, st_group.subsupgroups
+st_group.identity_component: st_group.component_group, st_group.components, st_group.connected, st_group.label, st_group.subgroups, st_group.subsupgroups, st_group.supgroups
 st_group.moment_simplex: st_group.label, st_group.moment_matrix
-st_group.rational: st_group.supgroups
+st_group.rational: rcs.cande.st_group, rcs.rigor.st_group, st_group.subsupgroups, st_group.supgroups
+st_group.subgroups: st_group.subsupgroups
+st_group.supgroups: st_group.subsupgroups
 st_group.symplectic_form: st_group.usp
 st_group.usp: st_group.definition
-st_group.weight: st_group.ambient, st_group.fourth_trace_moment, st_group.generators, st_group.hodge_circle, st_group.label, st_group.moment_simplex, st_group.trace_moments
+st_group.weight: rcs.cande.st_group, rcs.rigor.st_group, st_group.ambient, st_group.fourth_trace_moment, st_group.generators, st_group.hodge_circle, st_group.label, st_group.moment_simplex, st_group.subsupgroups, st_group.trace_moments
 
 
 
@@ -829,6 +932,7 @@ av.fq.max_cohen_macaulay_type: ag.cohen_macaulay_type, av.fq.bass_zfv
 av.fq.newton_elevation: ag.abelian_variety, ag.dimension, av.fq.ordinary, av.fq.supersingular, lf.newton_polygon
 av.fq.noncyclic_primes: ag.abelian_variety, av.fq.cyclic_group_points, av.isogeny_class, group.cyclic, group.primary_decomposition
 av.fq.number_field: ag.base_field, av.fq.weil_polynomial, av.isogeny_class
+av.fq.one_rational_point: ag.abelian_variety, av.isogeny
 av.fq.order: av.fq.number_field, av.isogeny_class, nf.ring_of_integers
 av.fq.ordinary: ag.abelian_variety, ag.base_field, ag.dimension, av.fq.p_rank
 av.fq.picard_group: av.fq.number_field, av.fq.order, nf.class_number, nf.ideal_class_group, nf.ring_of_integers
@@ -895,6 +999,8 @@ character.dirichlet.primitive: character.dirichlet, character.dirichlet.conducto
 character.dirichlet.principal: character.dirichlet, character.dirichlet.induce, character.dirichlet.modulus
 character.dirichlet.related_fields: character.dirichlet, character.dirichlet.field_cut_out, character.dirichlet.modulus, character.dirichlet.value_field
 character.dirichlet.value_field: character.dirichlet.order
+character.dirichlet.values: character.dirichlet, character.dirichlet.modulus
+character.dirichlet.values_on_gens: character.dirichlet, character.dirichlet.group.structure, character.dirichlet.modulus
 character.hecke: nf, nf.ring_of_integers, ring.fractional_ideal, ring.ideal
 character.unit_group: character.dirichlet, character.dirichlet.modulus
 cmf: character.dirichlet, cmf.space_mathlib_def, group.fuchsian.cusps, group.sl2z, mf.upper_half_plane
@@ -917,6 +1023,7 @@ cmf.defining_polynomial: cmf.coefficient_field, nf
 cmf.dimension: cmf.dimension_mathlib_def, cmf.galois_orbit, cmf.newform, cmf.newform_subspace
 cmf.dimension_galois_orbit: cmf.hecke_orbit
 cmf.dimension_mathlib_def: cmf.space, cmf.space_mathlib_def
+cmf.display_dim: cmf.character, cmf.dimension, cmf.minus_space, cmf.plus_space
 cmf.distinguishing_primes: cmf.galois_orbit, cmf.hecke_operator, cmf.newform, cmf.newspace
 cmf.dualform: cmf.coefficient_field, cmf.cusp_form, cmf.newform, cmf.q-expansion, cmf.selfdual, lfunction.dual, nf.cm_field
 cmf.eisenstein: af.bernoulli_numbers, af.divisor_function, cmf, cmf.level, cmf.q-expansion, cmf.weight, group.sl2z
@@ -926,6 +1033,7 @@ cmf.eisenstein_newform: cmf.eisenstein_newspace, cmf.fouriercoefficients, cmf.he
 cmf.eisenstein_newspace: character.dirichlet, character.dirichlet.induce, character.dirichlet.modulus, cmf, cmf.character, cmf.eisenstein_form, cmf.eisenstein_series, cmf.level, cmf.weight
 cmf.eisenstein_series: character.dirichlet, character.dirichlet.primitive, cmf.weight
 cmf.embedding: character.dirichlet, character.dirichlet.value_field, cmf.character, cmf.coefficient_field, cmf.galois_orbit, cmf.q-expansion, lfunction, nf.embedding
+cmf.embedding_format: cmf.character, cmf.embedding_label, cmf.hecke_operator, cmf.level, cmf.newform, cmf.satake_angles, cmf.satake_parameters, cmf.weight, nf.embedding
 cmf.embedding_label: character.dirichlet.galois_orbit_label, cmf.cusp_form, cmf.embedding, cmf.level, cmf.weight
 cmf.eta_quotient: mf.half_integral_weight.dedekind_eta
 cmf.fouriercoefficients: cmf, group.fuchsian.cusps, group.fuchsian.cusps.width
@@ -944,6 +1052,7 @@ cmf.inner_twist: character.dirichlet, character.dirichlet.galois_orbit, characte
 cmf.inner_twist_count: character.dirichlet, cmf.coefficient_field, cmf.dimension, cmf.inner_twist, cmf.newform, cmf.self_twist, cmf.weight
 cmf.inner_twist_group: character.dirichlet, character.dirichlet.primitive, cmf.coefficient_field, cmf.inner_twist, cmf.newform, cmf.self_twist
 cmf.inner_twist_multiplicity: character.dirichlet, character.dirichlet.galois_orbit, cmf.embedding, cmf.inner_twist, cmf.newform
+cmf.inner_twist_proved: character.dirichlet, character.dirichlet.primitive, cmf.inner_twist, cmf.newform, cmf.sturm_bound
 cmf.label: character.dirichlet, character.dirichlet.galois_orbit, character.dirichlet.galois_orbit_label, cmf.coefficient_field, cmf.embedding, cmf.galois_orbit, cmf.level, cmf.newform, cmf.relative_dimension, cmf.weight
 cmf.labels: character.dirichlet, character.dirichlet.galois_orbit, character.dirichlet.galois_orbit_label, cmf.coefficient_field, cmf.embedding, cmf.galois_orbit, cmf.level, cmf.relative_dimension, cmf.weight
 cmf.level: cmf, group.sl2z
@@ -960,6 +1069,7 @@ cmf.nk2: cmf, cmf.analytic_conductor, cmf.level, cmf.weight
 cmf.nontrivial_twist: cmf.inner_twist, cmf.self_twist
 cmf.oldspace: character.dirichlet.conductor, character.dirichlet.induce, character.dirichlet.primitive, cmf, cmf.character, cmf.cusp_form, cmf.level, cmf.newspace, cmf.weight
 cmf.petersson_scalar_product: cmf.cusp_form, cmf.petersson_scalar_product_mathlib_def, group.fuchsian.fundamental_domain, group.subgroup.index
+cmf.picture_description: cmf.newform, cmf.trace_form
 cmf.plus_space: cmf.fricke
 cmf.projective_field: cmf.galois_representation, cmf.newform, cmf.weight, nf, nf.sibling
 cmf.projective_image: cmf.galois_representation, cmf.newform, cmf.weight
@@ -974,6 +1084,7 @@ cmf.self_twist: character.dirichlet, character.dirichlet.order, character.dirich
 cmf.self_twist_field: character.dirichlet.kronecker_symbol, character.dirichlet.principal, cmf.cm_form, cmf.inner_twist, cmf.newform, cmf.rm_form, cmf.self_twist
 cmf.selfdual: cmf.coefficient_field, cmf.cusp_form, cmf.newform, cmf.q-expansion, lfunction.self-dual, nf.cm_field, nf.totally_real
 cmf.shimura_correspondence: character.dirichlet
+cmf.sort_order: character.dirichlet.galois_orbit_label, cmf.hecke_galois_orbit, cmf.level, cmf.newform, cmf.weight
 cmf.space: cmf, cmf.character, cmf.cusp_form, cmf.level, cmf.space_mathlib_def, cmf.weight
 cmf.space_trace_form: cmf.newform, cmf.newspace
 cmf.stark_unit: cmf.artin_field, cmf.galois_representation, cmf.newform, cmf.weight
@@ -1002,6 +1113,13 @@ curve.highergenus.aut.quotientgenus: ag.curve.genus
 curve.highergenus.aut.refinedpassport: ag.riemann_surface, curve.highergenus.aut.generatingvector
 curve.highergenus.aut.signature: curve.highergenus.aut.branchpoints, curve.highergenus.aut.generators, curve.highergenus.aut.quotientgenus
 curve.highergenus.aut.topological_equivalence: curve.highergenus.aut.group_action, group.fuchsian
+dq.curve.highergenus.aut.label: ag.curve, ag.quotient_curve, ag.riemann_surface, curve.highergenus.aut.branchpoints, curve.highergenus.aut.conjugacyclasses, curve.highergenus.aut.generatingvector, curve.highergenus.aut.generators, curve.highergenus.aut.monodromy, curve.highergenus.aut.refinedpassport, curve.highergenus.aut.signature, group.small_group_label
+dq.curve.highergenus.aut.source: ag.jacobian, ag.riemann_surface, ag.shimura_variety, curve.highergenus.aut.generatingvector, curve.highergenus.aut.signature
+dq.ecnf.extent: ec, ec.good_reduction, ec.invariants, ec.isogeny, mf.hilbert.weight_vector, nf, nf.degree, nf.signature, nf.totally_real
+dq.ecnf.reliability: ec, ec.bsdconjecture, ec.invariants, g2c.hasse_weil_conjecture, lfunction, lfunction.analytic_rank, lfunction.leading_coeff, nf, nf.degree, nf.totally_real
+dq.ecnf.source: ec.base_change, ec.complex_multiplication, ec.global_minimal_model, ec.isogeny, ec.local_data, group.generators, nf.class_number, nf.degree
+dq.lattice.source: lattice.gram
+dq.mf.bianchi.source: mf.bianchi, mf.bianchi.newform, mf.bianchi.weight
 ec: ag.curve, ag.curve.genus, ag.curve.smooth
 ec.additive_reduction: ec, nf
 ec.analytic_sha_order: ec, ec.base_change, ec.mordell_weil_group, ec.period, ec.rank, ec.regulator, ec.tamagawa_number, ec.torsion_subgroup, group.abelian, group.galois.absolute, group.order, group.torsion, nf, nf.discriminant, nf.place, nf.prime
@@ -1064,6 +1182,8 @@ ec.q: ec.q.discriminant, ec.q.minimal_weierstrass_equation
 ec.q.abc_quality: ec, ec.j_invariant, ec.q.conductor
 ec.q.analytic_rank: ag.mordell_weil, ec, ec.mordell_weil_group, lfunction, lfunction.central_point, lfunction.functional_equation, lfunction.sign
 ec.q.analytic_sha_order: ec, group.order
+ec.q.analytic_sha_value: ec, ec.analytic_sha_order, ec.q.analytic_rank, ec.q.bsdconjecture
+ec.q.bsd_invariants: ec.analytic_sha_order, ec.q.bsdconjecture, ec.q.real_period, ec.q.tamagawa_numbers, ec.rank, ec.regulator, ec.torsion_order
 ec.q.bsdconjecture: ag.abelian_variety, ec, ec.analytic_sha_order, ec.mordell_weil_theorem, ec.q.real_period, ec.rank, ec.regulator, ec.tamagawa_number, ec.torsion_order, lfunction, lfunction.central_point
 ec.q.canonical_height: ec, ec.regulator, nf.weil_height
 ec.q.conductor: ec, ec.additive_reduction, ec.multiplicative_reduction
@@ -1072,6 +1192,7 @@ ec.q.discriminant: ec, ec.discriminant, ec.q.minimal_weierstrass_equation
 ec.q.endomorphism_ring: ag.abelian_variety, ag.endomorphism_ring, ec, ec.endomorphism, ec.geom_endomorphism_ring
 ec.q.faltings_height: ec, ec.discriminant, ec.j_invariant, ec.q.period_lattice, ec.semistable
 ec.q.faltings_ratio: ec, ec.isogeny, ec.q.faltings_height, ec.q.period_lattice, group.subgroup.index
+ec.q.invariants: ec, ec.complex_multiplication, ec.endomorphism_ring, ec.q.conductor, ec.q.discriminant, ec.q.j_invariant, st_group.definition
 ec.q.j_invariant: ec, ec.q.discriminant, ec.weierstrass_coeffs
 ec.q.kodaira_symbol: ec.q.minimal_weierstrass_equation, ec.q.reduction_type
 ec.q.lmfdb_label: ec, ec.conductor, ec.isogeny_class, ec.isomorphism, ec.q.conductor, ec.q.minimal_weierstrass_equation
@@ -1116,6 +1237,7 @@ g2c.analytic_sha: ag.abelian_variety, ag.mordell_weil, ag.regulator, ag.tate_sha
 g2c.aut_grp: ag.curve, g2c.g2curve
 g2c.bad_lfactors: ag.abelian_variety, ag.good_reduction
 g2c.bsd_invariants: ag.abelian_variety, ag.mordell_weil, ag.regulator, ag.tate_shafarevich, g2c.analytic_rank, g2c.analytic_sha, g2c.mordell_weil_rank, g2c.real_period, g2c.tamagawa, g2c.torsion, g2c.two_selmer_rank, lfunction, lfunction.leading_coeff
+g2c.conditional_mw_group: ag.abelian_variety, ag.mordell_weil, g2c.analytic_rank, g2c.mordell_weil_rank, g2c.torsion
 g2c.conductor: ag.bad_prime, ag.jacobian, g2c.discriminant, g2c.g2curve
 g2c.decomposition: ag.abelian_variety, ag.geom_simple, ag.simple, av.isogeny, ec
 g2c.end_alg: ag.abelian_surface, ag.abelian_variety, ag.endomorphism_algebra, ag.simple, av.isogeny, ec, ring.field
@@ -1128,6 +1250,7 @@ g2c.galois_rep_modell_image: g2c.g2curve, g2c.galois_rep
 g2c.geom_aut_grp: ag.base_change, g2c.aut_grp
 g2c.geom_end_alg: ag.abelian_surface, ag.abelian_variety, ag.geom_endomorphism_algebra, ag.geom_simple, av.isogeny, ec, ec.complex_multiplication, nf.cm_field, ring.field
 g2c.geom_iso_class: ag.base_change, ag.base_field, ag.curve
+g2c.geometric_invariants: ag.curve.genus, g2c.g2_invariants, g2c.igusa_clebsch_invariants, g2c.igusa_invariants
 g2c.gl2type: ag.abelian_variety, ag.endomorphism_algebra, ag.jacobian, ag.simple, av.galois_rep, av.tate_module
 g2c.good_lfactors: ag.abelian_variety, ag.good_reduction, lfunction, lfunction.euler_product
 g2c.good_reduction: ag.jacobian, ag.variety
@@ -1135,8 +1258,10 @@ g2c.has_square_sha: ag.curve.genus, ag.jacobian, ag.tate_shafarevich, group.orde
 g2c.hasse_weil_conjecture: ag.abelian_variety, ec, g2c.gl2type, lfunction, lfunction.critical_strip, lfunction.functional_equation, lfunction.selberg_class, nf
 g2c.igusa_clebsch_invariants: g2c.g2curve, g2c.geom_iso_class
 g2c.igusa_invariants: g2c.g2curve, g2c.geom_iso_class, g2c.igusa_clebsch_invariants
+g2c.invariants: ag.conductor, ag.jacobian, g2c.discriminant, g2c.g2_invariants, g2c.g2curve, g2c.igusa_clebsch_invariants, g2c.igusa_invariants
 g2c.isogeny_class: ag.abelian_variety, ag.jacobian, av.isogeny
 g2c.jac_end_lattice: ag.abelian_variety, ag.endomorphism_ring, av.endomorphism_field
+g2c.jac_endomorphisms: ag.abelian_variety, ag.base_change, ag.base_field, ag.endomorphism_algebra, ag.endomorphism_ring, ag.geom_endomorphism_algebra, ag.geom_endomorphism_ring, ag.real_endomorphism_algebra, ag.real_geom_endomorphism_algebra
 g2c.jacobian: ag.abelian_surface, ag.abelian_variety, ag.endomorphism_ring, ag.jacobian, ag.mordell_weil, g2c.g2curve
 g2c.known_rational_points: g2c.minimal_equation, nf
 g2c.label: ag.conductor, g2c.abs_discriminant, g2c.g2curve, g2c.jacobian
@@ -1149,6 +1274,7 @@ g2c.minimal_equation: ag.curve.genus, ag.curve.smooth, ag.hyperelliptic_curve, g
 g2c.mordell_weil_rank: ag.abelian_variety
 g2c.mw_generator: ag.abelian_variety, ag.jacobian, ag.mordell_weil, g2c.g2curve, g2c.minimal_equation, nf
 g2c.mw_generator_order: ag.mordell_weil, g2c.mw_generator
+g2c.num_rat_pts: ag.curve.genus, g2c.all_rational_points, g2c.known_rational_points, nf
 g2c.num_rat_wpts: ag.curve.genus, ag.hyperelliptic_curve, ring.field
 g2c.paramodular_conjecture: ag.abelian_surface, ag.conductor, av.isogeny_class
 g2c.real_period: ag.abelian_variety, ag.curve.genus, ag.dimension, ag.jacobian, ec, ec.q.real_period
@@ -1163,6 +1289,7 @@ g2c.torsion: ag.abelian_variety, nf
 g2c.torsion_order: ag.jacobian, g2c.torsion, nf
 g2c.two_selmer_rank: ag.abelian_variety, ag.mordell_weil, ag.selmer_group, ag.tate_shafarevich, g2c.torsion
 g2c.two_torsion_field: ag.abelian_variety, ag.hyperelliptic_curve, ag.mordell_weil
+gg.arithmetically_equiv_input: nf, nf.arithmetically_equivalent, nf.galois_closure, nf.galois_group
 gg.arithmetically_equivalent: gg.conjugacy_classes, group.subgroup, nf, nf.arithmetically_equivalent, nf.degree, nf.galois_group
 gg.concentrated: gg.index, group, group.proper_subgroup
 gg.conjugacy_classes: group.conjugacy_class
@@ -1215,6 +1342,7 @@ group.chief_series: group, group.normal_series, group.simple, group.subgroup.nor
 group.commutator_length: group.commutator_subgroup
 group.commutator_subgroup: group, group.abelian, group.quotient, group.subgroup, group.subgroup.normal
 group.complex_character_table: group, group.label_complex_group_char, group.label_conjugacy_class, group.representation.character
+group.computing_subgroup_labels: group.conjugacy_class, group.gassmann_equivalence, group.permutation_representation
 group.conjugacy_class: group, group.automorphism, group.element_order
 group.conjugacy_class.power_classes: group, group.conjugacy_class
 group.core: group, group.subgroup
@@ -1246,6 +1374,7 @@ group.generalized_quaternion: group.dicyclic
 group.generators: group, group.automorphism
 group.group_ring: group, ring
 group.haar_measure: group, group.order
+group.hash: group.abelian, group.abelian_invariants
 group.homomorphism: group
 group.hyperelementary: group, group.cyclic, group.nonsplit_product, group.order, group.pgroup, group.representation.character
 group.inner_automorphism: group, group.automorphism, group.center, group.subgroup
@@ -1255,6 +1384,7 @@ group.label: group, group.order
 group.label_complex_group_char: group
 group.label_conjugacy_class: group.conjugacy_class
 group.label_rational_group_char: group
+group.lie_type: group, group.affine_general_linear, group.affine_special_linear, group.affine_symplectic, group.automorphism, group.center, group.chevalley, group.general_linear, group.orthogonal, group.simple, group.special_linear, group.subgroup, group.symplectic, group.unitary
 group.lower_central_series: group, group.nilpotent, group.normal_series, group.subgroup
 group.maximal_quotient: group, group.minimal_normal, group.quotient
 group.metabelian: group.abelian, group.dihedral, group.generalized_quaternion, group.solvable
@@ -1267,6 +1397,7 @@ group.min_rational_rep_deg: group.representation.faithful
 group.minimal_normal: group, group.subgroup.normal
 group.mobius_function: group.rank
 group.monomial: group.solvable, group.supersolvable
+group.name: group.alternating, group.cyclic, group.dihedral, group.direct_product, group.frobenius, group.generalized_quaternion, group.heisenberg, group.lie_type, group.nonsplit_product, group.order, group.other_dihedral, group.semi_dihedral, group.semidirect_product, group.sporadic, group.subgroup.normal, group.symmetric, group.wreath_product
 group.nilpotent: group, group.abelian, group.solvable
 group.nonsplit_product: group, group.quotient, group.semidirect_product, group.subgroup.normal
 group.normal_series: group, group.subgroup, group.subgroup.normal
@@ -1282,8 +1413,11 @@ group.perfect: group, group.commutator_subgroup
 group.permutation_degree: group, group.permutation_representation
 group.permutation_module: group.group_ring
 group.pgroup: group, group.order
+group.picture_description: group.conjugacy_class, group.element_order
 group.presentation: group.normal_series
 group.proper_subgroup: group, group.subgroup
+group.properties_interdependencies: group.a_group, group.abelian, group.almost_simple, group.center, group.commutator_subgroup, group.cyclic, group.metabelian, group.metacyclic, group.monomial, group.nilpotent, group.perfect, group.quasisimple, group.simple, group.solvable, group.subgroup.normal, group.supersolvable, group.upper_central_series, group.z_group
+group.pseudo_random_elements: group.conjugacy_class, group.division
 group.quasisimple: group.abelian, group.almost_simple, group.perfect, group.simple
 group.quotient: group, group.coset, group.subgroup.normal
 group.quotient_size: group.coset, group.quotient
@@ -1324,13 +1458,16 @@ group.subgroup: alg.binary_operation, alg.binary_operation.identity, alg.binary_
 group.subgroup.centralizer: group, group.subgroup
 group.subgroup.complement: group.nonsplit_product, group.semidirect_product, group.subgroup, group.subgroup.normal
 group.subgroup.diagram: combin.hasse_diagram, group, group.order
+group.subgroup.diagram.lmfdb: combin.hasse_diagram, group.subgroup.diagram, group.subgroup.normal
 group.subgroup.hall: group, group.order, group.subgroup, group.subgroup.index
 group.subgroup.index: group.coset
 group.subgroup.normal: alg.binary_operation, group, group.coset, group.subgroup
 group.subgroup.normal_closure: group.subgroup, group.subgroup.normal
 group.subgroup.normalizer: group, group.subgroup, group.subgroup.normal
 group.subgroup.projective_image: group.center, group.quotient
-group.subgroup_label: group.ambient, group.automorphism, group.gassmann_equivalence, group.label, group.subgroup, group.subgroup.index
+group.subgroup_label: group.ambient, group.automorphism, group.computing_subgroup_labels, group.gassmann_equivalence, group.label, group.subgroup, group.subgroup.index
+group.subgroup_properties_interdependencies: group.abelian, group.automorphism, group.central, group.characteristic_subgroup, group.cyclic, group.inner_automorphism, group.nilpotent, group.solvable, group.stem_extension, group.subgroup.normal, group.sylow_subgroup, group.upper_central_series
+group.subgroups_beyond_bound: group.core, group.maximal_subgroup, group.semidirect_product, group.subgroup, group.subgroup.complement, group.subgroup.index, group.subgroup.normal, group.sylow_subgroup
 group.supersolvable: group.abelian, group.nilpotent, group.solvable, group.subgroup.normal
 group.sylow_subgroup: group, group.order, group.subgroup
 group.symmetric: group.almost_simple, group.solvable
@@ -1375,8 +1512,11 @@ hmsurface.hmsurface: hmsurface.congruence_subgroup, mf.upper_half_plane
 hmsurface.label: hmsurface.component_ideal, hmsurface.congruence_subgroup, hmsurface.hmsurface, hmsurface.level, nf.ideal_labels, nf.label
 hmsurface.level: hmsurface.congruence_subgroup
 hmsurface.levelnorm: hmsurface.level
+hmsurface.standard_hmsurfaces: hmsurface.congruence_subgroup, hmsurface.hmsurface, hmsurface.x0, hmsurface.x01
 hmsurface.x0: hmsurface.hmsurface, hmsurface.polarization_module
 hmsurface.x01: av.polarization, hmsurface.hmsurface, hmsurface.polarization_module
+intro.features: lfunction.degree, lfunction.zeros
+intro.tutorial: ec.q, ec.q.bsdconjecture, lfunction, lfunction.conductor, lfunction.critical_line, lfunction.degree, lfunction.dirichlet_series, lfunction.euler_product, lfunction.functional_equation, lfunction.gamma_factor, lfunction.normalization, lfunction.riemann, lfunction.root_number, lfunction.selbergdata, lfunction.sign, lfunction.spectral_parameters, lfunction.trivial_zero, lfunction.zeros, lfunction.zfunction, specialfunction.gamma
 lattice.additively_indecomposable: lattice.definition, lattice.dimension, lattice.nondegenerate, lattice.orthogonal_decomposition, lattice.positive_definite, lattice.unimodular
 lattice.arithmetic: lattice.definition, lattice.similarity
 lattice.automorphism_group: lattice.definition, lattice.isometry, lattice.positive_definite
@@ -1398,6 +1538,7 @@ lattice.festi_veniani_index: lattice.automorphism_group, lattice.definition, lat
 lattice.genus: lattice.definition
 lattice.group_order: lattice.automorphism_group, lattice.definition
 lattice.hermite_number: lattice.definition, lattice.determinant, lattice.dimension, lattice.minimal_vector, lattice.positive_definite
+lattice.history: lattice.definition, lattice.theta, mf.half_integral_weight.theta, mf.siegel
 lattice.hyperbolic_plane: lattice.definition, lattice.gram, lattice.isometry, lattice.nondegenerate, lattice.parity, lattice.signature, lattice.unimodular, ring.characteristic, ring.field
 lattice.isometry: lattice.definition, lattice.gram
 lattice.kissing: lattice.dimension, lattice.minimal_vector
@@ -1406,6 +1547,7 @@ lattice.level: group.exponent, lattice.conway_genus_symbol, lattice.definition, 
 lattice.mass: lattice.automorphism_group, lattice.definition, lattice.genus
 lattice.minimal_vector: lattice.definition
 lattice.minimum: lattice.definition
+lattice.name: lattice.definition, lattice.root_lattice
 lattice.nondegenerate: lattice.definition, lattice.gram
 lattice.norm: lattice.definition, lattice.gram
 lattice.norm1_sublattice: lattice.definition, lattice.norm, lattice.parity, lattice.sublattice
@@ -1439,10 +1581,13 @@ lf.eisenstein_form: lf.eisenstein_polynomial, lf.padic_field, lf.ramification_in
 lf.eisenstein_polynomial: lf.ramification_index, ring.field_of_fractions
 lf.family_ambiguity: lf.family_polynomial, lf.herbrand_invariant, lf.padic_field, lf.rams, lf.residue_field_degree
 lf.family_base: lf.family_polynomial, lf.padic_field
+lf.family_diagrams: lf.eisenstein_diagram, lf.family_polynomial, lf.herbrand_function, lf.means, lf.ramification_polygon, lf.rams, lf.slopes
 lf.family_field_count: lf.family_polynomial, lf.padic_field
+lf.family_invariants: lf.degree, lf.discriminant_exponent, lf.family_ambiguity, lf.family_base, lf.family_field_count, lf.family_mass, lf.family_polynomial, lf.means, lf.ramification_index, lf.rams, lf.residue_field, lf.residue_field_degree, lf.slopes
 lf.family_label: lf.discriminant_exponent, lf.family_polynomial, lf.field_label, lf.ramification_index, lf.rams, lf.residue_field_degree, lf.wild_segments
 lf.family_mass: lf.family_base, lf.family_polynomial, lf.residue_field_degree, lf.unramified_degree
 lf.family_polynomial: lf.herbrand_invariant, lf.indices_of_inseparability, lf.padic_field, lf.ramification_index, lf.residue_field, lf.residue_field_degree, lf.slopes, lf.unramified_degree
+lf.family_varying: lf.associated_inertia, lf.family_polynomial, lf.hidden_slopes, lf.indices_of_inseparability, lf.jump_set, nf.galois_group
 lf.field.label: lf.defining_polynomial, lf.degree, lf.discriminant_exponent, lf.family_polynomial, lf.padic_field, lf.ramification_index, lf.rams, lf.residual_polynomials, lf.residue_field, lf.residue_field_degree, lf.wild_segments
 lf.field_label: lf.discriminant_exponent, lf.family_polynomial, lf.padic_field, lf.ramification_index, lf.residue_field, lf.residue_field_degree, lf.subfamily
 lf.galois_invariants: lf.padic_field, nf.galois_group, nf.root_discriminant
@@ -1453,7 +1598,7 @@ lf.herbrand_invariant: lf.means, lf.padic_field, lf.ramification_index, lf.rams,
 lf.hidden_slopes: lf.padic_field, lf.slopes, nf.galois_closure
 lf.indices_of_inseparability: lf.padic_field, lf.ramification_index, lf.slopes, lf.unramified_subfield
 lf.inertia_group: lf.maximal_ideal, lf.padic_field, lf.residue_field, nf.is_galois
-lf.inertia_group_search: gg.galois_group, gg.label, group.small_group_label, lf.defining_polynomial, lf.inertia_group, lf.unramified_degree, ring.irreducible
+lf.inertia_group_search: gg.galois_group, gg.label, group.small_group_label, lf.defining_polynomial, lf.inertia_group, lf.unramified_degree, nf.galois_group.name, ring.irreducible
 lf.jump_set: lf.padic_field
 lf.local_field: nf.absolute_value, ring.characteristic, ring.field
 lf.local_height_function: group.galois.absolute, group.weight_function, lf.inertia_group, lf.ramification_index
@@ -1466,6 +1611,7 @@ lf.packet: group.permutation_representation, lf.family_polynomial, lf.hidden_slo
 lf.padic_field: lf.local_field, lf.qp, ring.characteristic
 lf.ramification_index: lf.padic_field, lf.ring_of_integers
 lf.ramification_polygon: lf.eisenstein_polynomial, lf.newton_polygon, lf.padic_field, lf.ramification_index, lf.rams, lf.unramified_subfield
+lf.ramification_polygon_display: lf.indices_of_inseparability, lf.ramification_polygon, lf.residual_polynomials
 lf.rams: lf.means, lf.padic_field, lf.ramification_index, lf.slopes, lf.wild_inertia_group
 lf.residual_polynomials: lf.padic_field, lf.ramification_index, lf.ramification_polygon, lf.residue_field
 lf.residue_field: lf.maximal_ideal, lf.ring_of_integers
@@ -1483,7 +1629,7 @@ lf.unramified_subfield: lf.padic_field, lf.ramification_index
 lf.unramified_totally_ramified_tower: lf.padic_field, lf.ramification_index
 lf.visible_slopes: lf.discriminant_exponent, lf.hidden_slopes, lf.wild_slopes, nf.is_galois
 lf.wild_inertia_group: group.sylow_subgroup, lf.inertia_group, nf.is_galois
-lf.wild_inertia_group_search: gg.label, group.small_group_label, lf.wild_inertia_group
+lf.wild_inertia_group_search: gg.label, group.small_group_label, lf.wild_inertia_group, nf.galois_group.name
 lf.wild_segments: lf.family_polynomial, lf.ramification_polygon, lf.slopes
 lf.wild_slopes: lf.galois_invariants, nf.galois_group, nf.is_galois
 lfunction: lfunction.dirichlet_series, lfunction.euler_product, lfunction.functional_equation
@@ -1504,7 +1650,15 @@ lfunction.dirichlet: character.dirichlet, character.dirichlet.conductor, lfuncti
 lfunction.dual: lfunction
 lfunction.functional_equation: lfunction.gamma_factor, specialfunction.gamma
 lfunction.gamma_factor: lfunction.euler_product
+lfunction.history: lfunction.history.artin, lfunction.history.dirichlet, lfunction.history.euler, lfunction.history.hasse_weil, lfunction.history.hecke_characters, lfunction.history.hecke_operators, lfunction.history.langlands_program, lfunction.history.maass, lfunction.history.ramanujan_tau, lfunction.history.rankin_selberg, lfunction.history.riemanns_memoir
+lfunction.history.dirichlet: character.dirichlet
+lfunction.history.euler: af.bernoulli_numbers
+lfunction.history.hecke_characters: character.dirichlet, character.hecke
 lfunction.infinity_factor: lfunction, lfunction.functional_equation, lfunction.gamma_factor, lfunction.spectral_parameters
+lfunction.known_degree1: artin.lfunction, lfunction, lfunction.degree
+lfunction.known_degree2: cmf.newform, ec.q, lfunction, lfunction.degree, mf.sl2.subgroup.gamma0n
+lfunction.known_degree3: lfunction, lfunction.degree
+lfunction.known_degree4: cmf.cusp_form, lfunction, lfunction.degree, lfunction.primitive
 lfunction.label: character.dirichlet, character.dirichlet.conrey, character.dirichlet.induce, character.dirichlet.primitive, lfunction, lfunction.central_character, lfunction.conductor, lfunction.degree, lfunction.functional_equation, lfunction.normalization, lfunction.spectral_label
 lfunction.leading_coeff: lfunction.arithmetic, lfunction.central_point
 lfunction.motivic_weight: lfunction, lfunction.arithmetic, lfunction.normalization
@@ -1523,6 +1677,7 @@ lfunction.signature: lfunction.gamma_factor, lfunction.selbergdata
 lfunction.spectral_label: lfunction.functional_equation, lfunction.spectral_parameters
 lfunction.spectral_parameters: lfunction, lfunction.functional_equation, lfunction.gamma_factor
 lfunction.trivial_zero: lfunction.arithmetic, lfunction.completed, lfunction.functional_equation, lfunction.gamma_factor, lfunction.normalization, lfunction.zeros
+lfunction.underlying_object: character.hecke, cmf, ec.q, lfunction.degree, mf.maass.mwf, nf, nf.galois_group
 lfunction.zeros: lfunction, lfunction.critical_line, lfunction.normalization, lfunction.rh
 lfunction.zfunction: lfunction.critical_line, lfunction.functional_equation
 mf: cmf, cmf.weight, mf.bianchi, mf.hilbert, mf.maass, mf.multipliersystem, mf.siegel
@@ -1543,6 +1698,15 @@ mf.bianchi.spaces: cmf, cmf.petersson_scalar_product, mf.bianchi, mf.bianchi.hec
 mf.bianchi.weight: mf.bianchi, mf.bianchi.hyperbolic3space
 mf.cm: character.hecke, mf, nf
 mf.ellitpic.self_twist: character.dirichlet, character.dirichlet.order, character.dirichlet.primitive, cmf.level, cmf.newform, cmf.projective_image, cmf.rm_form, cmf.weight, nf.discriminant
+mf.gl2.history.combinatorics: group.sl2z, mf, mf.half_integral_weight.dedekind_eta, mf.transformation_property
+mf.gl2.history.elliptic: cmf, cmf.eisenstein, ec, mf.quasi_modular
+mf.gl2.history.hecke: character.hecke, cmf.cm_form, cmf.cusp_form, cmf.fouriercoefficients, cmf.weight, mf, nf
+mf.gl2.history.infinite: mf, mf.half_integral_weight.dedekind_eta, mf.transformation_property
+mf.gl2.history.new: cmf.hecke_operator, cmf.weight, group.sl2z, group.sl2z.subgroup.gamma0n, group.subgroup.index, mf, mf.multipliersystem, mf.quasi_modular, mf.slash_action, mf.transformation_property
+mf.gl2.history.poincare: cmf.eisenstein, group.sl2z, mf, mf.transformation_property, specialfunction.poincare
+mf.gl2.history.remainder: af.divisor_function, cmf.cm_form, cmf.cusp_form, cmf.eisenstein, mf, mf.half_integral_weight.theta
+mf.gl2.history.theta: lattice.definition, mf, mf.transformation_property
+mf.gl2.history.varieties: ag.abelian_surface, ag.endomorphism_ring, ag.variety, ec.q, g2c.isogeny_class, group.paramodular, lfunction.dirichlet_series, lfunction.euler_product, lfunction.functional_equation, lfunction.riemann, mf, mf.transformation_property, nf
 mf.growth_condition: mf
 mf.half_integral_weight: character.dirichlet, cmf.cusp_form, cmf.level, cmf.shimura_correspondence, cmf.weight, group.fuchsian.cusps, mf.half_integral_weight.theta
 mf.half_integral_weight.theta: cmf.level, mf.half_integral_weight.dedekind_eta
@@ -1576,13 +1740,17 @@ mf.siegel.cusp_form: mf.siegel, mf.siegel.character, mf.siegel.slash.op
 mf.siegel.defining_polynomial: mf.siegel.coefficient_field, nf
 mf.siegel.degree: mf.siegel
 mf.siegel.dimension: mf.siegel.newform
+mf.siegel.extent.kp: group.paramodular, mf.siegel.newform.paramodular
 mf.siegel.family.gamma0_2: mf.siegel, mf.siegel.degree, mf.siegel.theta_constant
 mf.siegel.family.gamma0_3: mf.siegel, mf.siegel.degree, mf.siegel.theta_series
 mf.siegel.family.gamma0_3_psi_3: mf.siegel, mf.siegel.degree, mf.siegel.theta_series
 mf.siegel.family.gamma0_4: mf.siegel, mf.siegel.degree, mf.siegel.theta_constant
 mf.siegel.family.gamma0_4_psi_4: mf.siegel, mf.siegel.character, mf.siegel.degree, mf.siegel.theta_constant
+mf.siegel.family.kp: mf.siegel.cusp_form, mf.siegel.newform.paramodular, mf.siegel.weight
 mf.siegel.family.sp4z: group.sp2gr, mf.siegel, mf.siegel.degree, mf.siegel.eisenstein_series
 mf.siegel.family.sp4z_2: group.sp2gr, mf.siegel.degree, mf.siegel.vector_valued
+mf.siegel.family.sp6z: group.sp2gr, mf.siegel, mf.siegel.degree, mf.siegel.lift.miyawaki
+mf.siegel.family.sp8z: group.sp2gr, mf.siegel.cusp_form, mf.siegel.degree, mf.siegel.vector_valued, mf.siegel.weight
 mf.siegel.halfspace: group.sp2gr
 mf.siegel.hecke_operator: mf.siegel, repn.highest.weight
 mf.siegel.koecher.principle: mf.siegel.degree
@@ -1623,7 +1791,9 @@ modcurve.genus: ag.geom_component, gl2.genus, gl2.open, modcurve
 modcurve.genus_minus_rank: ag.jacobian, ag.mordell_weil, modcurve, modcurve.genus, modcurve.rank
 modcurve.gonality: ag.geom_component, ag.gonality, modcurve, modcurve.canonical_field
 modcurve.index: gl2.index, gl2.open, modcurve
+modcurve.invariants: modcurve, modcurve.cm_discriminants, modcurve.cusps, modcurve.genus, modcurve.gonality, modcurve.index, modcurve.level
 modcurve.j_invariant_map: ag.plane_model, modcurve
+modcurve.known_points: ec, ec.complex_multiplication, modcurve.cusps
 modcurve.label: gl2.genus, gl2.index, gl2.label, gl2.level, gl2.open, modcurve, modcurve.gassmann_class
 modcurve.level: gl2.level, gl2.open, modcurve
 modcurve.level_structure: ec, ec.base_change, ec.galois_rep, gl2.level, gl2.open, nf
@@ -1641,10 +1811,15 @@ modcurve.relative_index: gl2.index, gl2.open, modcurve
 modcurve.simple: ag.abelian_variety, ag.jacobian, av.simple, modcurve
 modcurve.sl2level: cmf.congruence_subgroup, gl2.level, modcurve
 modcurve.x0: modcurve, modcurve.cusps
+modcurve.x0.remarks: ag.bielliptic_curve, ag.hyperelliptic_curve, modcurve.rational_points
 modcurve.x1: modcurve, modcurve.cusps
+modcurve.x1.remarks: ag.bielliptic_curve, ag.hyperelliptic_curve, modcurve.rational_points
 modcurve.x1mn: modcurve, modcurve.cusps
+modcurve.x1mn.remarks: modcurve.canonical_field
 modcurve.xarith: modcurve
+modcurve.xarith.remarks: ag.bielliptic_curve, ag.hyperelliptic_curve, modcurve.canonical_field
 modcurve.xfull: modcurve, modcurve.cusps, modcurve.xn
+modcurve.xfull.remarks: modcurve.canonical_field
 modcurve.xn: alg.symplectic_isomorphism, cmf.congruence_subgroup, ec.ring, gl2.open, mf.upper_half_plane, ring.a-field
 modcurve.xns: gl2.cartan, modcurve
 modcurve.xns_plus: gl2.cartan, modcurve
@@ -1652,7 +1827,9 @@ modcurve.xpm1: modcurve, modcurve.cusps, modcurve.quadratic_refinements, modcurv
 modcurve.xpm1mn: modcurve, modcurve.quadratic_refinements, modcurve.x1mn
 modcurve.xs4: ec.galois_rep_modell_image, modcurve
 modcurve.xsp: gl2.cartan, modcurve
+modcurve.xsp.remarks: ag.hyperelliptic_curve
 modcurve.xsp_plus: gl2.cartan, modcurve
+modcurve.xsp_plus.remarks: ag.hyperelliptic_curve
 modlgal: group.galois.absolute, nf
 modlgal.abelian: group.abelian, modlgal, modlgal.codomain, modlgal.image
 modlgal.absolutely_irreducible: group.representation.irrep, modlgal, modlgal.codomain
@@ -1704,7 +1881,9 @@ nf.embedding: nf, nf.complex_embedding, nf.degree, nf.minimal_polynomial, nf.rea
 nf.fundamental_units: nf, nf.unit_group
 nf.galois_closure: nf.separable
 nf.galois_group: lf.automorphism_group, nf.degree, nf.galois_closure, nf.separable, ring.field
+nf.galois_group.name: gg.degree, gg.tnumber
 nf.galois_root_discriminant: nf, nf.galois_closure, nf.root_discriminant
+nf.galois_search: gg.label, group.small_group_label, nf.galois_group, nf.galois_group.name
 nf.generator: nf, nf.defining_polynomial, nf.minimal_polynomial
 nf.ideal_class_group: nf, nf.ring_of_integers, ring.fractional_ideal, ring.principal_fractional_ideal
 nf.ideal_labels: nf.polredabs
@@ -1724,6 +1903,8 @@ nf.narrow_class_group: nf, nf.totally_positive
 nf.narrow_class_number: nf, nf.class_number, nf.ideal_class_group, nf.narrow_class_group, nf.totally_imaginary
 nf.order: nf
 nf.padic_completion: lf.ring_of_integers, nf, nf.local_algebra, nf.prime, ring.dedekind_domain, ring.field_of_fractions, ring.fractional_ideal, ring.integral_domain, ring.irreducible
+nf.padic_completion.search: nf.place
+nf.picture: nf, nf.frobenius_cycle_types, nf.ramified_primes, nf.ring_of_integers, nf.spectrum_ring_of_integers
 nf.place: nf, nf.absolute_value, nf.complex_embedding, nf.real_embedding, nf.ring_of_integers, ring.prime_ideal
 nf.polredabs: nf, nf.poly_discriminant
 nf.poly_discriminant: nf, nf.discriminant, nf.ring_of_integers
@@ -1755,6 +1936,36 @@ nf.weil_height: ag.variety, nf
 nf.weil_polynomial: ag.abelian_variety, av.simple
 nf.zk_index: nf, nf.order, nf.ring_of_integers
 paramodulargroup.sp2gr: group.paramodular
+portrait.character.dirichlet: character.dirichlet, character.dirichlet.gauss_sum, character.dirichlet.modulus, character.dirichlet.order, character.dirichlet.primitive, character.dirichlet.principal
+portrait.cmf: cmf.newform, cmf.trace_form
+portrait.ec.nf: ec, nf, nf.complex_embedding, nf.real_embedding, nf.totally_imaginary
+portrait.groups.abstract: group.conjugacy_class, group.element_order
+portrait.maass: cmf.picture_description, mf.maass.mwf, mf.maass.mwf.level
+rcs.cande.cmf: artin, cmf.analytic_conductor, cmf.analytic_rank, cmf.artin_field, cmf.artin_image, cmf.character, cmf.coefficient_field, cmf.coefficient_ring, cmf.dimension, cmf.embedding, cmf.eta_quotient, cmf.heckecharpolys, cmf.inner_twist, cmf.level, cmf.minimal_twist, cmf.newform, cmf.newspace, cmf.projective_image, cmf.q-expansion, cmf.sato_tate, cmf.self_twist, cmf.stark_unit, cmf.sturm_bound, cmf.trace_form, cmf.twist, cmf.weight
+rcs.cande.cmf_eisenstein: artin, cmf.analytic_conductor, cmf.analytic_rank, cmf.artin_field, cmf.artin_image, cmf.character, cmf.coefficient_field, cmf.coefficient_ring, cmf.dimension, cmf.eisenstein_newform, cmf.embedding, cmf.eta_quotient, cmf.heckecharpolys, cmf.inner_twist, cmf.level, cmf.minimal_twist, cmf.newform, cmf.newspace, cmf.projective_image, cmf.q-expansion, cmf.sato_tate, cmf.self_twist, cmf.stark_unit, cmf.sturm_bound, cmf.trace_form, cmf.twist, cmf.weight
+rcs.cande.ec: ec.good_reduction, ec.invariants, ec.isogeny, mf.hilbert.weight_vector, nf, nf.degree, nf.discriminant, nf.signature, nf.totally_real, rcs.cande.mf.bianchi
+rcs.cande.lfunction: artin, character.dirichlet, character.dirichlet.primitive, cmf, cmf.character, cmf.dimension, cmf.embedding, cmf.newform, cmf.weight, ec, ec.isogeny_class, ec.q.conductor, g2c.isogeny_class, lfunction, lfunction.analytic_rank, lfunction.conductor, lfunction.degree, lfunction.motivic_weight, lfunction.rational, lfunction.riemann, lfunction.zeros, mf.bianchi.newform, mf.hilbert, mf.hilbert.dimension, mf.maass.mwf, nf.abs_discriminant
+rcs.cande.maass_rigor: mf.maass.mwf, mf.maass.mwf.character, mf.maass.mwf.eigenvalue, mf.maass.mwf.level, mf.maass.mwf.weight
+rcs.cande.mf.bianchi: mf.bianchi, mf.bianchi.level, mf.bianchi.newform, mf.bianchi.weight, mf.bianchi.weight2, nf, nf.abs_discriminant, nf.class_number
+rcs.cande.st_group: st_group.definition, st_group.degree, st_group.rational, st_group.weight
+rcs.rigor.belyi: ag.base_field, belyi.degree, belyi.galmap, belyi.genus, group.triangle_group
+rcs.rigor.cmf: cmf, cmf.analytic_rank, cmf.coefficient_field, cmf.dimension, cmf.galois_orbit, cmf.inner_twist, cmf.level, cmf.newform, cmf.newspace, cmf.projective_field, cmf.projective_image, cmf.self_twist, cmf.selfdual, cmf.trace_form, cmf.weight, lfunction.sign
+rcs.rigor.cmf_eisenstein: cmf, cmf.analytic_rank, cmf.coefficient_field, cmf.dimension, cmf.galois_orbit, cmf.inner_twist, cmf.level, cmf.newform, cmf.newspace, cmf.projective_field, cmf.projective_image, cmf.self_twist, cmf.selfdual, cmf.trace_form, cmf.weight, lfunction.sign
+rcs.rigor.ec: ec, ec.analytic_sha_order, ec.bsdconjecture, ec.canonical_height, ec.invariants, ec.period, ec.regulator, g2c.hasse_weil_conjecture, lfunction, lfunction.analytic_rank, lfunction.leading_coeff, nf, nf.class_number, nf.degree, nf.totally_real
+rcs.rigor.ec.q: ag.mordell_weil, character.dirichlet.principal, cmf, cmf.character, cmf.fouriercoefficients, cmf.level, cmf.weight, ec, ec.analytic_sha_order, ec.complex_multiplication, ec.galois_rep, ec.isogeny, ec.iwasawa_invariants, ec.local_data, ec.mordell_weil_group, ec.q.bsdconjecture, ec.q.conductor, ec.q.cremona_label, ec.q.integral_points, ec.q.manin_constant, ec.q.optimal, ec.q.real_period, ec.q.regulator, ec.q.torsion_growth, ec.q.torsion_subgroup, ec.rank, group.element_order, group.generators
+rcs.rigor.g2c: ag.conductor, ag.mordell_weil, g2c.abs_discriminant, g2c.all_rational_points, g2c.analytic_rank, g2c.analytic_sha, g2c.gl2type, g2c.good_reduction, g2c.hasse_weil_conjecture, g2c.isogeny_class, g2c.jac_endomorphisms, g2c.jacobian, g2c.known_rational_points, g2c.lfunction, g2c.mw_generator, g2c.regulator, g2c.st_group, lfunction.functional_equation, lfunction.selberg_class, lfunction.sign
+rcs.rigor.lfunction.curve: g2c.g2curve, g2c.good_reduction, lfunction.analytic_rank, lfunction.conductor, lfunction.euler_product, lfunction.functional_equation, lfunction.normalization, lfunction.primitive, lfunction.selberg_class, lfunction.sign, lfunction.zeros
+rcs.rigor.lfunction.dirichlet: character.dirichlet, lfunction.analytic_rank, lfunction.critical_line, lfunction.zeros
+rcs.rigor.lfunction.ec: ec, ec.rank, lfunction.analytic_rank, lfunction.zeros
+rcs.rigor.lfunction.modular: cmf.newform, lfunction.analytic_rank, lfunction.critical_line, lfunction.normalization, lfunction.self-dual, lfunction.sign, lfunction.zeros, mf.bianchi.newform, mf.hilbert
+rcs.rigor.maass: mf.maass.mwf.fourierexpansion, mf.maass.mwf.spectralparameter
+rcs.rigor.maass_rigor: mf.maass.mwf.fourierexpansion, mf.maass.mwf.spectralparameter
+rcs.rigor.st_group: st_group.degree, st_group.rational, st_group.weight
+rcs.source.av.fq: av.fq.cyclic_group_points, av.fq.honda_tate, av.fq.weil_polynomial
+rcs.source.curve.highergenus.aut: ag.jacobian, ag.riemann_surface, ag.shimura_variety, curve.highergenus.aut.generatingvector, curve.highergenus.aut.signature
+rcs.source.ec: ag.base_field, ec, ec.base_change, ec.complex_multiplication, ec.global_minimal_model, ec.good_reduction, ec.invariants, ec.isogeny, ec.local_data, group.generators, mf.bianchi.weight, mf.bianchi.weight2, mf.hilbert, nf.abs_discriminant, nf.class_number, nf.discriminant, nf.prime, nf.totally_real
+rcs.source.lattice: lattice.gram
+rcs.source.mf.bianchi: mf.bianchi, mf.bianchi.newform, mf.bianchi.weight, nf.abs_discriminant, nf.class_number
 repn.irrep.gl: repn.highest.weight
 ring: alg.binary_operation, alg.binary_operation.associative, alg.binary_operation.commutative, alg.binary_operation.identity, group.abelian
 ring.a-field: ring.field
@@ -1792,6 +2003,7 @@ shimcurve.genus: ag.geom_component, shimcurve
 shimcurve.genus_minus_rank: ag.jacobian, ag.mordell_weil, shimcurve, shimcurve.genus, shimcurve.rank
 shimcurve.gonality: ag.geom_component, ag.gonality, shimcurve
 shimcurve.index: shimcurve, shimcurve.enhanced_group
+shimcurve.invariants: shimcurve, shimcurve.genus, shimcurve.gonality, shimcurve.index, shimcurve.level, shimcurve.order
 shimcurve.label: shimcurve, shimcurve.discb, shimcurve.disco, shimcurve.enhanced_group, shimcurve.genus, shimcurve.index, shimcurve.level, shimcurve.nrdmu, shimcurve.polarized_order, shimcurve.quaternion_algebra
 shimcurve.level: shimcurve.enhanced_group, shimcurve.polarized_order
 shimcurve.local_obstruction: shimcurve, shimcurve.genus
@@ -1800,6 +2012,7 @@ shimcurve.order: nf.order, shimcurve.quaternion_algebra
 shimcurve.polarized_order: shimcurve.order, shimcurve.quaternion_algebra
 shimcurve.quaternion_algebra: ring.characteristic, ring.field
 shimcurve.rank: ag.abelian_variety, ag.jacobian, ag.mordell_weil, av.decomposition, av.simple, cmf.analytic_rank, cmf.galois_orbit, cmf.newform, ec.bsdconjecture, lfunction, lfunction.central_point, shimcurve
+shimcurve.rational_points: ag.jacobian, ec, shimcurve.genus
 shimcurve.simple: ag.abelian_variety, ag.jacobian, av.simple, shimcurve
 shimcurve.xd1: shimcurve, shimcurve.aut_pm_mu_o, shimcurve.discb, shimcurve.polarized_order, shimcurve.quaternion_algebra
 shimcurve.xd1_star: shimcurve, shimcurve.aut_pm_mu_o, shimcurve.discb, shimcurve.polarized_order, shimcurve.quaternion_algebra
@@ -1813,6 +2026,7 @@ st_group.components: st_group.component_group, st_group.connected, st_group.defi
 st_group.connected: st_group.component_group, st_group.definition, st_group.identity_component
 st_group.definition: ag.abelian_variety, ag.dimension, artin, ec, group.haar_measure, nf.cm_field, nf.totally_real, st_group.usp
 st_group.degree: ag.abelian_variety, ag.dimension, ag.jacobian, nf, st_group.definition
+st_group.embedding: st_group.ambient, st_group.definition
 st_group.first_a2_moment: ag.abelian_variety, group.haar_measure, st_group.definition
 st_group.fourth_trace_moment: group.haar_measure, st_group.definition, st_group.weight
 st_group.generators: st_group.component_group, st_group.definition, st_group.weight
@@ -1828,6 +2042,7 @@ st_group.rational: lfunction.arithmetic, lfunction.rational, st_group.definition
 st_group.real_dimension: st_group.definition
 st_group.second_trace_moment: ag.endomorphism_algebra, group.haar_measure, st_group.definition
 st_group.subgroups: st_group.definition, st_group.identity_component
+st_group.subsupgroups: st_group.component_group, st_group.definition, st_group.degree, st_group.identity_component, st_group.rational, st_group.subgroups, st_group.supgroups, st_group.weight
 st_group.supgroups: st_group.definition, st_group.identity_component, st_group.rational
 st_group.trace_moments: st_group.definition, st_group.weight
 st_group.trace_zero_density: group.haar_measure, st_group.definition

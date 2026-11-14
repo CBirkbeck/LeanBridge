@@ -543,6 +543,23 @@
     "IntermediateField.adjoin": "Mathlib.FieldTheory.IntermediateField.Adjoin.Defs",
     "MulChar.adjoin_range_eq_adjoin_nth_roots": "LeanBridge.ForMathlib.NumberTheory.MulChar.FieldOfValues"
   },
+  "character.dirichlet.values": {
+    "DirichletCharacter": "Mathlib.NumberTheory.DirichletCharacter.Basic",
+    "DirichletCharacter.eq_iff_forall_mem_Icc": "LeanBridge.ForMathlib.NumberTheory.DirichletCharacter.ValueList",
+    "MulChar.map_one": "Mathlib.NumberTheory.MulChar.Basic",
+    "DirichletCharacter.apply_modulus": "LeanBridge.ForMathlib.NumberTheory.DirichletCharacter.ValueList",
+    "DirichletCharacter.apply_eq_zero_or_exists_rat_apply_eq_exp": "LeanBridge.ForMathlib.NumberTheory.DirichletCharacter.ValueList",
+    "DirichletCharacter.exists_rat_apply_eq_exp": "LeanBridge.ForMathlib.NumberTheory.DirichletCharacter.ValueList",
+    "MulChar.map_nonunit": "Mathlib.NumberTheory.MulChar.Basic"
+  },
+  "character.dirichlet.values_on_gens": {
+    "DirichletCharacter": "Mathlib.NumberTheory.DirichletCharacter.Basic",
+    "DirichletCharacter.eq_iff_forall_apply_eq_of_closure_eq_top": "LeanBridge.ForMathlib.NumberTheory.DirichletCharacter.ValueList",
+    "DirichletCharacter.exists_rat_apply_eq_exp": "LeanBridge.ForMathlib.NumberTheory.DirichletCharacter.ValueList",
+    "ZMod.val_mem_Icc_of_isUnit": "LeanBridge.ForMathlib.NumberTheory.DirichletCharacter.ValueList",
+    "ZMod.natCast_zmod_val": "Mathlib.Data.ZMod.Basic",
+    "MulChar.apply_mem_rootsOfUnity": "Mathlib.NumberTheory.MulChar.Lemmas"
+  },
   "character.hecke": {
     "TauCeti.GlobalNumberFields.IsIdealHeckeCharacter": "LeanBridge.ForMathlib.NumberTheory.NumberField.HeckeIdealCharacter",
     "TauCeti.GlobalNumberFields.isIdealHeckeCharacter_iff": "LeanBridge.ForMathlib.NumberTheory.NumberField.HeckeIdealCharacterIdelic",
@@ -662,6 +679,15 @@
     "HeckeRing.GL2.Newform.newformSubspace": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.NewformSubspace",
     "HeckeRing.GL2.Newform.dimension_eq_ncard_galoisOrbit": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Dimension"
   },
+  "cmf.display_dim": {
+    "TauCeti.Nat.IsExactDivisor.normalizedAtkinLehnerOperatorCusp": "TauCeti.NumberTheory.ModularForms.AtkinLehner.Normalized",
+    "TauCeti.cuspFormsNewGamma0": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.AtkinLehnerDimension",
+    "TauCeti.Nat.IsExactDivisor.finrank_inf_eigenspace_add_finrank_inf_eigenspace": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.FrickeDimension",
+    "TauCeti.Nat.IsExactDivisor.finrank_eigenspace_add_finrank_eigenspace": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.FrickeDimension",
+    "TauCeti.Nat.IsExactDivisor.isCompl_eigenspace_normalizedAtkinLehnerOperatorCusp": "TauCeti.NumberTheory.ModularForms.AtkinLehner.Normalized",
+    "TauCeti.Nat.IsExactDivisor.restrict_normalizedAtkinLehnerOperatorCusp_mem_cuspFormsNew": "TauCeti.NumberTheory.ModularForms.AtkinLehner.Sign",
+    "Module.finrank": "Mathlib.LinearAlgebra.Dimension.Finrank"
+  },
   "cmf.dualform": {
     "CuspForm.conj": "TauCeti.NumberTheory.ModularForms.Conjugate",
     "CuspForm.qExpansion_conj": "TauCeti.NumberTheory.ModularForms.Conjugate",
@@ -677,6 +703,13 @@
     "HeckeRing.GL2.Newform.IsEmbedding.LSeries_ne": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisOrbitInvariants",
     "HeckeRing.GL2.Newform.IsEmbedding.χ_eq_iff": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisOrbitInvariants",
     "HeckeRing.GL2.Newform.IsEmbedding.dirichletLift_mem_galoisOrbit": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisOrbitInvariants"
+  },
+  "cmf.embedding_format": {
+    "HeckeRing.GL2.Newform.IsEmbedding": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.Embedding",
+    "HeckeRing.GL2.Newform.analyticCoeff": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.LFunctionSign",
+    "HeckeRing.GL2.Newform.normalizedSatakeParameters": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Analytic.Satake",
+    "HeckeRing.GL2.Newform.satakeAngles": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Analytic.Satake",
+    "HeckeRing.GL2.Newform.satakeAngles_eq_map_arg_satakeParameters": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Analytic.Satake"
   },
   "cmf.eta_quotient": {
     "ModularForm.eta": "Mathlib.NumberTheory.ModularForms.DedekindEta",
@@ -848,6 +881,15 @@
     "ModularForm.peterssonScalarProduct_coe_coe": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Analytic.Petersson",
     "UpperHalfPlane.petersson": "Mathlib.NumberTheory.ModularForms.Petersson"
   },
+  "cmf.picture_description": {
+    "UpperHalfPlane.portraitMoebius": "LeanBridge.ForMathlib.Analysis.Complex.UpperHalfPlane.PortraitMoebius",
+    "UpperHalfPlane.bijOn_portraitMoebius": "LeanBridge.ForMathlib.Analysis.Complex.UpperHalfPlane.PortraitMoebius",
+    "UpperHalfPlane.portraitMoebiusMatrix": "LeanBridge.ForMathlib.Analysis.Complex.UpperHalfPlane.PortraitMoebius",
+    "UpperHalfPlane.portraitMoebiusMatrix_smul_coe": "LeanBridge.ForMathlib.Analysis.Complex.UpperHalfPlane.PortraitMoebius",
+    "HeckeRing.GL2.Newform.traceForm": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.TraceForm",
+    "HeckeRing.GL2.Newform.newspaceTraceForm": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.TraceForm",
+    "Complex.arg_eq_pi_iff": "Mathlib.Analysis.SpecialFunctions.Complex.Arg"
+  },
   "cmf.plus_space": {
     "TauCeti.Nat.IsExactDivisor.normalizedAtkinLehnerOperatorCusp": "TauCeti.NumberTheory.ModularForms.AtkinLehner.Normalized"
   },
@@ -898,6 +940,16 @@
     "HeckeRing.GL2.Newform.isTotallyReal_coefficientField_iff": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.CoefficientFieldCM",
     "HeckeRing.GL2.Newform.isCMField_coefficientField_iff": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.CoefficientFieldCM",
     "HeckeRing.GL2.Newform.numberField_coefficientField": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisOrbit"
+  },
+  "cmf.sort_order": {
+    "HeckeRing.GL2.AllNewformOrbits": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.SortOrder",
+    "HeckeRing.GL2.AllNewformOrbits.sortKey": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.SortOrder",
+    "HeckeRing.GL2.AllNewformOrbits.sortOrder": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.SortOrder",
+    "HeckeRing.GL2.AllNewformOrbits.sortKey_injective": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.SortOrder",
+    "HeckeRing.GL2.AllNewformOrbits.sortOrderBy": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.SortOrder",
+    "HeckeRing.GL2.AllNewformOrbits.injective_toLex_sortKey": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.SortOrder",
+    "HeckeRing.GL2.NewformOrbit.characterOrbitIndex": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.SortOrder",
+    "HeckeRing.GL2.NewformOrbit.traceSeq": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.GaloisOrbitLabel"
   },
   "cmf.space": {
     "cuspFormCharSpace": "TauCeti.NumberTheory.ModularForms.DiamondOperators",
@@ -972,6 +1024,14 @@
   "curve.highergenus.aut.quotientgenus": {
     "TauCeti.genus": "TauCeti.FieldTheory.FunctionField.RiemannRoch.Genus",
     "TauCeti.AlgebraicGeometry.RegularProperCurveCat.genus_quotient": "LeanBridge.ForMathlib.AlgebraicGeometry.Curve.QuotientSignature"
+  },
+  "dq.mf.bianchi.source": {
+    "IsNatEuclidean": "LeanBridge.ForMathlib.Algebra.EuclideanDomain.NatEuclidean",
+    "NumberField.isNatEuclidean_ringOfIntegers_of_sq_eq_neg": "LeanBridge.ForMathlib.NumberTheory.NumberField.EuclideanImaginaryQuadratic",
+    "NumberField.isTotallyComplex_of_sq_eq_neg": "LeanBridge.ForMathlib.NumberTheory.NumberField.EuclideanImaginaryQuadratic",
+    "NumberField.isNatEuclidean_of_forall_exists_abs_norm_sub_lt_one": "LeanBridge.ForMathlib.NumberTheory.NumberField.EuclideanImaginaryQuadratic",
+    "NumberField.isNatEuclidean_ringOfIntegers_quadraticAlgebra": "LeanBridge.ForMathlib.NumberTheory.NumberField.EuclideanImaginaryQuadratic",
+    "NumberField.isTotallyComplex_quadraticAlgebra": "LeanBridge.ForMathlib.NumberTheory.NumberField.EuclideanImaginaryQuadratic"
   },
   "ec.additive_reduction": {
     "WeierstrassCurve.HasAdditiveReduction": "Mathlib.AlgebraicGeometry.EllipticCurve.Reduction",
@@ -1341,6 +1401,11 @@
     "CategoryTheory.IsIsomorphic": "Mathlib.CategoryTheory.IsomorphismClasses",
     "CategoryTheory.isIsomorphicSetoid": "Mathlib.CategoryTheory.IsomorphismClasses"
   },
+  "g2c.jac_endomorphisms": {
+    "TauCeti.AlgebraicGeometry.AbelianVariety.End": "TauCeti.AlgebraicGeometry.AbelianVariety.End.Basic",
+    "TauCeti.AlgebraicGeometry.AbelianVariety.baseChange": "TauCeti.AlgebraicGeometry.AbelianVariety.Basic",
+    "TauCeti.AlgebraicGeometry.AbelianVariety.End.baseChange": "TauCeti.AlgebraicGeometry.AbelianVariety.End.BaseChange"
+  },
   "g2c.mw_generator_order": {
     "orderOf": "Mathlib.GroupTheory.OrderOfElement",
     "addOrderOf": "Mathlib.GroupTheory.OrderOfElement",
@@ -1474,6 +1539,15 @@
     "Subgroup.IsSemiconcentrated": "LeanBridge.ForMathlib.GroupTheory.Perm.MalleConstants",
     "Subgroup.minPermIndexElements": "LeanBridge.ForMathlib.GroupTheory.Perm.MalleConstants",
     "Equiv.Perm.permIndex": "LeanBridge.ForMathlib.GroupTheory.Perm.MalleConstants"
+  },
+  "gg.simple_name": {
+    "IsCyclic": "Mathlib.Algebra.Group.DivInvMonoid",
+    "DihedralGroup.nat_card": "Mathlib.GroupTheory.SpecificGroups.Dihedral",
+    "alternatingGroup": "Mathlib.GroupTheory.SpecificGroups.Alternating",
+    "Equiv.Perm": "Mathlib.Logic.Equiv.Defs",
+    "SemidirectProduct": "Mathlib.GroupTheory.SemidirectProduct",
+    "GroupExtension": "Mathlib.GroupTheory.GroupExtension.Defs",
+    "TauCeti.PermutationWreathProduct": "TauCeti.GroupTheory.Perm.WreathProduct.Basic"
   },
   "gg.subfields": {
     "IntermediateField": "Mathlib.FieldTheory.IntermediateField.Basic",
@@ -1739,6 +1813,16 @@
     "TauCeti.characterTable": "TauCeti.RepresentationTheory.CharacterTable.Table",
     "TauCeti.irreducibleCharacters": "TauCeti.RepresentationTheory.CharacterTable.Table"
   },
+  "group.computing_subgroup_labels": {
+    "Subgroup.IsGassmannEquivalent": "LeanBridge.ForMathlib.NumberTheory.ModularCurve.GassmannClass",
+    "Subgroup.IsAutGassmannEquivalent": "LeanBridge.ForMathlib.GroupTheory.Label.Subgroup",
+    "Subgroup.natCard_inter_eq_sum": "LeanBridge.ForMathlib.GroupTheory.GassmannSupergroups",
+    "Subgroup.mk_le_mk_iff_exists_smul_le": "LeanBridge.ForMathlib.GroupTheory.SubgroupClassPoset",
+    "TauCeti.AffineGroup.Ioi_mk_map_inl_ne": "LeanBridge.ForMathlib.GroupTheory.GassmannSupergroups",
+    "Equiv.Perm.Ioi_mk_range_kleinFourOnFourHom_ne": "LeanBridge.ForMathlib.GroupTheory.GassmannSupergroups",
+    "DihedralGroup.isConjugate_zpowers_sr_zero_zpowers_sr_two": "LeanBridge.ForMathlib.GroupTheory.GassmannSupergroups",
+    "DihedralGroup.not_isConjugate_subgroupOf_centralizer": "LeanBridge.ForMathlib.GroupTheory.GassmannSupergroups"
+  },
   "group.conjugacy_class": {
     "conjugatesOf": "Mathlib.Algebra.Group.Conj",
     "ConjClasses": "Mathlib.Algebra.Group.Conj",
@@ -1991,6 +2075,16 @@
     "Subgroup.mobius_eq_neg_finsum": "LeanBridge.ForMathlib.GroupTheory.SubgroupMobius",
     "Subgroup.normalMobius_eq_neg_finsum": "LeanBridge.ForMathlib.GroupTheory.SubgroupMobius"
   },
+  "group.name": {
+    "TauCeti.AffineGroup": "TauCeti.GroupTheory.SpecificGroups.Affine.Basic",
+    "TauCeti.AffineGroup.mulEquivRangeToPermHom": "LeanBridge.ForMathlib.GroupTheory.SpecificGroups.AffineLineGroup",
+    "OtherDihedralGroup": "LeanBridge.ForMathlib.GroupTheory.SpecificGroups.ModularMaximalCyclic",
+    "ZMod.involutionMulAut_otherDihedralUnit_ne_one": "LeanBridge.ForMathlib.GroupTheory.SpecificGroups.OtherDihedralSemidirect",
+    "SemidirectProduct.nonempty_mulEquiv_otherDihedralGroup_iff": "LeanBridge.ForMathlib.GroupTheory.SpecificGroups.OtherDihedralSemidirect",
+    "TauCeti.HeisenbergGroup.natCard_zmod": "LeanBridge.ForMathlib.GroupTheory.SpecificGroups.HeisenbergClassification",
+    "TauCeti.HeisenbergGroup.exponent_zmod": "LeanBridge.ForMathlib.GroupTheory.SpecificGroups.HeisenbergClassification",
+    "TauCeti.HeisenbergGroup.nonempty_mulEquiv_of_exponent_eq": "LeanBridge.ForMathlib.GroupTheory.SpecificGroups.HeisenbergClassification"
+  },
   "group.nilpotent": {
     "Group.IsNilpotent": "Mathlib.GroupTheory.Nilpotent",
     "Group.nilpotencyClass": "Mathlib.GroupTheory.Nilpotent",
@@ -2101,6 +2195,15 @@
     "Equiv.permutationRepresentation": "TauCeti.Algebra.GroupAction.PermutationRepresentation",
     "Equiv.isPretransitive_range_permutationRepresentation_iff": "TauCeti.Algebra.GroupAction.PermutationRepresentation"
   },
+  "group.picture_description": {
+    "ConjClasses": "Mathlib.Algebra.Group.Conj",
+    "ConjClasses.elementOrder": "LeanBridge.ForMathlib.GroupTheory.Label.ConjClass",
+    "IsConj.orderOf_eq": "LeanBridge.ForMathlib.GroupTheory.RationalConjugacy",
+    "ConjClasses.orderOf_eq_elementOrder": "LeanBridge.ForMathlib.GroupTheory.ConjClassElementOrder",
+    "ConjClasses.odd_elementOrder_div_two_pow": "LeanBridge.ForMathlib.GroupTheory.ConjClassElementOrder",
+    "Nat.ordProj_mul_ordCompl_eq_self": "Mathlib.Data.Nat.Factorization.Basic",
+    "ConjClasses.elementOrder_eq_one_iff": "LeanBridge.ForMathlib.GroupTheory.ConjClassElementOrder"
+  },
   "group.presentation": {
     "PresentedGroup": "Mathlib.GroupTheory.PresentedGroup",
     "Subgroup.SubnormalSeries.IsPolycyclic": "LeanBridge.ForMathlib.GroupTheory.PolycyclicPresentation",
@@ -2117,6 +2220,10 @@
   },
   "group.proper_subgroup": {
     "Subgroup": "Mathlib.Algebra.Group.Subgroup.Defs"
+  },
+  "group.pseudo_random_elements": {
+    "Nat.isGreatest_prime_lt_two_pow_128": "LeanBridge.ForMathlib.NumberTheory.LargestPrimeBelowTwoPow128",
+    "Nat.prime_two_pow_128_sub_159": "LeanBridge.ForMathlib.NumberTheory.LargestPrimeBelowTwoPow128"
   },
   "group.psl2r": {
     "Matrix.ProjectiveSpecialLinearGroup": "Mathlib.LinearAlgebra.Matrix.ProjectiveSpecialLinearGroup",
@@ -2381,6 +2488,15 @@
     "SimpleGraph.hasse": "Mathlib.Combinatorics.SimpleGraph.Hasse",
     "CovBy": "Mathlib.Order.Defs.PartialOrder"
   },
+  "group.subgroup.diagram.lmfdb": {
+    "SimpleGraph.hasse": "Mathlib.Combinatorics.SimpleGraph.Hasse",
+    "CovBy": "Mathlib.Order.Defs.PartialOrder",
+    "Subgroup.conjClassesDiagram": "LeanBridge.ForMathlib.GroupTheory.SubgroupClassPoset",
+    "Subgroup.mk_le_mk_iff_exists_smul_le": "LeanBridge.ForMathlib.GroupTheory.SubgroupClassPoset",
+    "TauCeti.mem_orbit_conjAct_iff": "TauCeti.Algebra.Group.Subgroup.Conjugates",
+    "Subgroup.index_normalizer_eq_ncard_orbit": "TauCeti.Algebra.Group.Subgroup.Conjugates",
+    "Subgroup.normal_iff_ncard_orbit_le_one": "LeanBridge.ForMathlib.GroupTheory.SubgroupClassPoset"
+  },
   "group.subgroup.hall": {
     "Subgroup.index": "Mathlib.GroupTheory.Index",
     "Sylow.card_coprime_index": "Mathlib.GroupTheory.Sylow"
@@ -2404,6 +2520,26 @@
     "Subgroup.map": "Mathlib.Algebra.Group.Subgroup.Map",
     "QuotientGroup.mk'": "Mathlib.GroupTheory.QuotientGroup.Defs",
     "Subgroup.center": "Mathlib.GroupTheory.Subgroup.Center"
+  },
+  "group.subgroup_properties_interdependencies": {
+    "Subgroup.normal_of_characteristic": "Mathlib.Algebra.Group.Subgroup.Basic",
+    "IsCyclic.isMulCommutative": "Mathlib.GroupTheory.SpecificGroups.Cyclic.Basic",
+    "CommGroup.isNilpotent": "Mathlib.GroupTheory.Nilpotent",
+    "IsNilpotent.to_isSolvable": "Mathlib.GroupTheory.Nilpotent",
+    "Subgroup.IsStem.le_center": "LeanBridge.ForMathlib.GroupTheory.SubgroupPropertyImplications",
+    "Subgroup.isMulCommutative_of_le_center": "LeanBridge.ForMathlib.GroupTheory.SubgroupPropertyImplications",
+    "Sylow.isPGroup": "Mathlib.GroupTheory.Sylow",
+    "Sylow.isNilpotent": "LeanBridge.ForMathlib.GroupTheory.SubgroupPropertyImplications"
+  },
+  "group.subgroups_beyond_bound": {
+    "Subgroup.normalSublattice": "LeanBridge.ForMathlib.GroupTheory.SubgroupsBeyondIndexBound",
+    "Equiv.permutationRepresentation": "TauCeti.Algebra.GroupAction.PermutationRepresentation",
+    "Subgroup.IsConjugate": "LeanBridge.ForMathlib.GroupTheory.Label.Subgroup",
+    "Sylow.natCard_eq_iff_isConjugate": "LeanBridge.ForMathlib.GroupTheory.SubgroupsBeyondIndexBound",
+    "Subgroup.one_lt_ncard_setOf_normal_isComplement'_kleinFour": "LeanBridge.ForMathlib.GroupTheory.SubgroupsBeyondIndexBound",
+    "Subgroup.faithfulSMul_quotient_iff": "LeanBridge.ForMathlib.GroupTheory.SubgroupsBeyondIndexBound",
+    "Subgroup.injective_permutationRepresentation": "LeanBridge.ForMathlib.GroupTheory.SubgroupsBeyondIndexBound",
+    "Subgroup.exists_permutationRepresentation_apply_eq": "LeanBridge.ForMathlib.GroupTheory.SubgroupsBeyondIndexBound"
   },
   "group.sylow_subgroup": {
     "Sylow": "Mathlib.GroupTheory.Sylow",
@@ -2728,6 +2864,15 @@
     "TauCeti.IntegralLattice.minimum": "TauCeti.LinearAlgebra.IntegralLattice.PosDef.Minimum",
     "TauCeti.IntegralLattice.vectorsOfNorm": "TauCeti.LinearAlgebra.IntegralLattice.Norm"
   },
+  "lattice.name": {
+    "TauCeti.IntegralLattice.typeARootLattice": "TauCeti.LinearAlgebra.IntegralLattice.RootLattice.TypeA.Basic",
+    "TauCeti.IntegralLattice.checkerboardLattice": "TauCeti.LinearAlgebra.IntegralLattice.RootLattice.TypeD.Basic",
+    "TauCeti.IntegralLattice.typeE₈RootLattice": "TauCeti.LinearAlgebra.IntegralLattice.RootLattice.TypeE.Basic",
+    "TauCeti.IntegralLattice.unitLattice": "TauCeti.LinearAlgebra.IntegralLattice.Unit",
+    "TauCeti.IntegralLattice.rescaledDual": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.Dual",
+    "TauCeti.IntegralLattice.typeAThreeIsometryCheckerboardLattice": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.NamedLattices",
+    "TauCeti.IntegralLattice.typeAThreeRescaledDualIsometry": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.NamedLattices"
+  },
   "lattice.nondegenerate": {
     "TauCeti.IntegralLattice.IsNondegenerate": "TauCeti.LinearAlgebra.IntegralLattice.Basic",
     "TauCeti.IntegralLattice.isNondegenerate_iff_forall_form_eq_zero": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.SignatureEigenvalues",
@@ -2744,6 +2889,15 @@
     "TauCeti.IntegralLattice.normOneSubmodule": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.Sublattice",
     "TauCeti.IntegralLattice.IsEven.normOneSubmodule_eq_bot": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.Sublattice",
     "TauCeti.IntegralLattice.normOneSubmodule_unitLattice": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.Sublattice"
+  },
+  "lattice.normalized_minimal_vector": {
+    "TauCeti.IntegralLattice.minimalVectors": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.Sublattice",
+    "TauCeti.IntegralLattice.minimum": "TauCeti.LinearAlgebra.IntegralLattice.PosDef.Minimum",
+    "TauCeti.IntegralLattice.IsNormalized": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.NormalizedMinimalVector",
+    "TauCeti.IntegralLattice.neg_mem_minimalVectors_iff": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.NormalizedMinimalVector",
+    "TauCeti.IntegralLattice.neg_ne_self_of_mem_minimalVectors": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.NormalizedMinimalVector",
+    "TauCeti.IntegralLattice.isNormalized_neg_iff": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.NormalizedMinimalVector",
+    "TauCeti.IntegralLattice.kissingNumber_eq_two_mul_ncard": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.NormalizedMinimalVector"
   },
   "lattice.parity": {
     "TauCeti.IntegralLattice.IsEven": "TauCeti.LinearAlgebra.IntegralLattice.Even"
@@ -2871,6 +3025,16 @@
     "IsNonarchimedeanLocalField.ExtensionClass": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamily",
     "IsNonarchimedeanLocalField.HerbrandInvariant.family": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamily"
   },
+  "lf.family_diagrams": {
+    "IsNonarchimedeanLocalField.HerbrandInvariant.ramificationPolygon": "LeanBridge.ForMathlib.NumberTheory.LocalField.RamificationPolygonHull",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.ramificationHeight": "LeanBridge.ForMathlib.NumberTheory.LocalField.RamificationPolygonHull",
+    "IsNonarchimedeanLocalField.visibleRams": "LeanBridge.ForMathlib.NumberTheory.LocalField.DeligneRamificationBreaks",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.IsInvariantOf.lowerConvexEnvelope_minpoly": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyPolygon",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.IsInvariantOf.setOf_neg_unitSlope_ne_zero": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyPolygon",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.IsInvariantOf.map_visibleRams_eq_map_neg_unitSlope": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyPolygon",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.unitSlope_ramificationPolygon": "LeanBridge.ForMathlib.NumberTheory.LocalField.RamificationPolygonHull",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.unitSlope_ramificationPolygon_eq_zero_iff": "LeanBridge.ForMathlib.NumberTheory.LocalField.RamificationPolygonHull"
+  },
   "lf.family_field_count": {
     "IsNonarchimedeanLocalField.HerbrandInvariant.fieldCount": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamily",
     "IsNonarchimedeanLocalField.HerbrandInvariant.family": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamily",
@@ -2879,6 +3043,16 @@
     "IsNonarchimedeanLocalField.HerbrandInvariant.finite_family": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyFinite",
     "IsNonarchimedeanLocalField.HerbrandInvariant.natCast_fieldCount": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyFinite",
     "IsNonarchimedeanLocalField.HerbrandInvariant.fieldCount_eq_card_toFinset": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyFinite"
+  },
+  "lf.family_invariants": {
+    "IsNonarchimedeanLocalField.HerbrandInvariant.family": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamily",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.IsInvariantOf": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamily",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.mk_mem_family_iff": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyInvariants",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.finrank_of_mem_family": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyUnramifiedMass",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.IsInvariantOf.natCast_discriminantExponent": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyInvariants",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.IsInvariantOf.visibleArtinSlopes_eq": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyInvariants",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.IsInvariantOf.mean_visibleHerbrandInvariant": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyInvariants",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.IsInvariantOf.visibleRams_eq": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyInvariants"
   },
   "lf.family_mass": {
     "IsNonarchimedeanLocalField.HerbrandInvariant.mass": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamily",
@@ -3167,6 +3341,26 @@
     "Complex.Gammaℂ": "Mathlib.Analysis.SpecialFunctions.Gamma.Deligne",
     "Complex.Gammaℝ_mul_Gammaℝ_add_one": "Mathlib.Analysis.SpecialFunctions.Gamma.Deligne"
   },
+  "lfunction.history.dirichlet": {
+    "DirichletCharacter.χ₃": "LeanBridge.ForMathlib.NumberTheory.LSeries.DirichletModThree",
+    "DirichletCharacter.χ₃_intCast": "LeanBridge.ForMathlib.NumberTheory.LSeries.DirichletModThree",
+    "DirichletCharacter.LFunction_eulerProduct_hasProd": "LeanBridge.ForMathlib.NumberTheory.LSeries.DirichletModThree",
+    "DirichletCharacter.completedLFunctionModThree_one_sub": "LeanBridge.ForMathlib.NumberTheory.LSeries.DirichletModThree",
+    "DirichletCharacter.completedLFunctionModThree_eq": "LeanBridge.ForMathlib.NumberTheory.LSeries.DirichletModThree",
+    "DirichletCharacter.LFunction_χ₃_apply_one": "LeanBridge.ForMathlib.NumberTheory.LSeries.DirichletModThree",
+    "Nat.infinite_setOfPred_prime_and_modEq": "Mathlib.NumberTheory.LSeries.PrimesInAP",
+    "DirichletCharacter.LFunction_apply_one_ne_zero": "Mathlib.NumberTheory.LSeries.Nonvanishing"
+  },
+  "lfunction.history.hecke_operators": {
+    "HeckeRing.GL2.Eigenform": "TauCeti.NumberTheory.ModularForms.Newforms.Eigenform",
+    "HeckeRing.GL2.heckeTNat": "TauCeti.NumberTheory.ModularForms.HeckeSlash.Operators",
+    "HeckeRing.GL2.Eigenform.qExpansion_coeff_mul": "TauCeti.NumberTheory.ModularForms.Newforms.Eigenform",
+    "HeckeRing.GL2.Eigenform.LSeries_eulerProduct_hasProd": "TauCeti.NumberTheory.ModularForms.LFunction.EulerProduct",
+    "CuspForm.frickeCompletedL_eq_mul_LSeries": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.EigenformLFunction",
+    "CuspForm.frickeCompletedL_functional_equation_gamma1": "TauCeti.NumberTheory.ModularForms.LFunction.FunctionalEquation",
+    "CuspForm.frickeCompletedL_sub_eq_of_level_one": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.EigenformLFunction",
+    "HeckeRing.GL2.Newform.analyticCompletedL_eq_rootNumber_mul": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.LFunctionSign"
+  },
   "lfunction.infinity_factor": {
     "AnalyticLFunction.SelbergData.gammaFactor": "LeanBridge.ForMathlib.NumberTheory.LFunction.Basic",
     "AnalyticLFunction.SelbergData.μ": "LeanBridge.ForMathlib.NumberTheory.LFunction.Basic",
@@ -3321,6 +3515,36 @@
     "HyperbolicThreeSpace.IsBianchiModularForm": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.ModularForm",
     "HyperbolicThreeSpace.bianchiSlash": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.Slash"
   },
+  "mf.gl2.history.elliptic": {
+    "ModularForm.E": "Mathlib.NumberTheory.ModularForms.EisensteinSeries.Basic",
+    "ModularForm.eisensteinF": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Eisenstein.Normalisations",
+    "ModularForm.eisensteinF_eq": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Eisenstein.Normalisations",
+    "ModularForm.tsum_eisSummand_eq_two_mul_riemannZeta_mul_E": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Eisenstein.Normalisations",
+    "ModularForm.isQuasiModularForm_E2": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.QuasiModular",
+    "ModularForm.discriminant": "Mathlib.NumberTheory.ModularForms.Discriminant",
+    "TauCeti.ModularForm.j": "TauCeti.Analysis.Complex.ModularForms.LevelOne.JInputs",
+    "TauCeti.ModularForm.j_smul": "TauCeti.Analysis.Complex.ModularForms.LevelOne.JInputs"
+  },
+  "mf.gl2.history.new": {
+    "ModularForm.multiplierSpace": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ModularForm",
+    "ModularForm.derivOfComplex_smul": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.DerivativeLaw",
+    "ModularForm.isQuasiModularForm_derivOfComplex": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.DerivativeLaw",
+    "ModularForm.rankinCohenBracket": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.DerivativeLaw",
+    "ModularForm.rankinCohenBracket_mem_multiplierSpace": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.RankinCohen",
+    "ModularForm.qExpansion_twistOfWidth_coeff": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ChangeOfGroup",
+    "ModularForm.sum_slash_eq_trace": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ChangeOfGroup",
+    "HeckeRing.GL2.heckeTNat_apply_of_level_one": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ChangeOfGroup"
+  },
+  "mf.gl2.history.poincare": {
+    "ModularForm.averageSeries": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareAverage",
+    "ModularForm.averageSeries_smul": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareAverage",
+    "ModularForm.summable_norm_averageTerm": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareAverage",
+    "ModularForm.averageSeries_one_eq_E": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareAverage",
+    "ModularForm.cexp_smul_T": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareAverage",
+    "ModularForm.averageSeries_cexp": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareAverage",
+    "ModularForm.summable_norm_averageTerm_zpow": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareAverage",
+    "ModularForm.fullAverageSeries_eq_averageSeries": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareAverage"
+  },
   "mf.half_integral_weight": {
     "ModularForm.halfIntegralWeightSpace": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.HalfIntegralWeight",
     "ModularForm.halfIntegralWeightCuspSpace": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.HalfIntegralWeight",
@@ -3372,6 +3596,16 @@
     "UpperHalfPlane.zero_le_of_mem_maassSpace": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.KernelPair",
     "UpperHalfPlane.re_eq_zero_or_im_eq_zero_of_mem_maassSpace": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.SpectralParameterReal",
     "UpperHalfPlane.SelbergEigenvalueConjecture": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane"
+  },
+  "mf.maass.mwf.character": {
+    "ModularForm.etaMultiplier": "LeanBridge.ForMathlib.NumberTheory.ModularForms.EtaMultiplier",
+    "ModularForm.coe_etaMultiplier": "LeanBridge.ForMathlib.NumberTheory.ModularForms.EtaMultiplier",
+    "ModularForm.coe_etaMultiplier_of_cexp_eq": "LeanBridge.ForMathlib.NumberTheory.ModularForms.EtaMultiplier",
+    "ModularForm.etaMultiplier_mul_cpow_denom": "LeanBridge.ForMathlib.NumberTheory.ModularForms.EtaMultiplier",
+    "UpperHalfPlane.isMaassFormOfWeight_etaMaassForm": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.EtaMaassForm",
+    "UpperHalfPlane.isMaassFormOfWeight_conj_etaMaassForm": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.EtaMaassForm",
+    "UpperHalfPlane.IsMaassFormOfWeight": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.Weight",
+    "UpperHalfPlane.IsMaassFormWithCharacter": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.Newform"
   },
   "mf.maass.mwf.coefficients": {
     "UpperHalfPlane.maassCoefficients": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformCoefficients",
@@ -3643,6 +3877,16 @@
     "Matrix.GeneralLinearGroup.sl2Level_dvd_adelicLevel": "LeanBridge.ForMathlib.NumberTheory.ModularCurve.SL2Level",
     "Matrix.GeneralLinearGroup.exists_sl2Level_ne_adelicLevel": "LeanBridge.ForMathlib.NumberTheory.ModularCurve.SL2Level"
   },
+  "modcurve.xs4.remarks": {
+    "Matrix.GeneralLinearGroup.IsAdelicS4": "LeanBridge.ForMathlib.NumberTheory.ModularCurve.S4Curve",
+    "Matrix.GeneralLinearGroup.IsS4Preimage": "LeanBridge.ForMathlib.NumberTheory.ModularCurve.S4Curve",
+    "Matrix.GeneralLinearGroup.adelicDet": "LeanBridge.ForMathlib.NumberTheory.ModularCurve.CongruenceSubgroupOfOpen",
+    "Matrix.GeneralLinearGroup.IsAdelicS4.neg_one_mem_and_map_adelicDet_eq_top_iff": "LeanBridge.ForMathlib.NumberTheory.ModularCurve.S4CurveDeterminant",
+    "Matrix.GeneralLinearGroup.IsAdelicS4.neg_one_mem": "LeanBridge.ForMathlib.NumberTheory.ModularCurve.S4CurveDeterminant",
+    "Matrix.GeneralLinearGroup.IsAdelicS4.map_adelicDet_eq_top_iff": "LeanBridge.ForMathlib.NumberTheory.ModularCurve.S4CurveDeterminant",
+    "Matrix.GeneralLinearGroup.IsS4Preimage.map_det_eq_top_iff": "LeanBridge.ForMathlib.NumberTheory.ModularCurve.S4CurveDeterminant",
+    "Matrix.GeneralLinearGroup.isS4Preimage_top_three": "LeanBridge.ForMathlib.NumberTheory.ModularCurve.S4CurveDeterminant"
+  },
   "modlgal": {
     "MonoidHom.IsModEllGaloisRepIn": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.AlgebraicGroup",
     "AlgebraicGeometry.rationalPoints": "LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.AlgebraicGroup",
@@ -3897,10 +4141,26 @@
     "Polynomial.Gal.galActionHom_injective": "Mathlib.FieldTheory.PolynomialGaloisGroup",
     "TauCeti.galEquivNormalClosure": "TauCeti.FieldTheory.GaloisGroups.NormalClosure"
   },
+  "nf.galois_group.name": {
+    "Polynomial.Gal.galActionHom": "Mathlib.FieldTheory.PolynomialGaloisGroup",
+    "Polynomial.exists_card_rootSet_eq_six_and_nonempty_gal_mulEquiv": "LeanBridge.ForMathlib.FieldTheory.GaloisGroupCubeRootTwo",
+    "Polynomial.galXPowThreeSubTwoMulEquiv": "LeanBridge.ForMathlib.FieldTheory.GaloisGroupCubeRootTwo",
+    "Polynomial.bijective_galActionHom_X_pow_three_sub_two": "LeanBridge.ForMathlib.FieldTheory.GaloisGroupCubeRootTwo",
+    "Polynomial.card_rootSet_X_pow_three_sub_two": "LeanBridge.ForMathlib.FieldTheory.GaloisGroupCubeRootTwo",
+    "TauCeti.hasGaloisLabel_X_pow_three_sub_two": "TauCeti.FieldTheory.GaloisGroups.Cubic",
+    "Polynomial.galMinpolySplittingFieldXPowThreeSubTwoMulEquiv": "LeanBridge.ForMathlib.FieldTheory.GaloisGroupCubeRootTwo",
+    "Polynomial.card_rootSet_minpoly_splittingField_X_pow_three_sub_two": "LeanBridge.ForMathlib.FieldTheory.GaloisGroupCubeRootTwo"
+  },
   "nf.galois_root_discriminant": {
     "NumberField.rootDiscr": "Mathlib.NumberTheory.NumberField.Discriminant.Basic",
     "IntermediateField.normalClosure": "Mathlib.FieldTheory.Normal.Closure",
     "IsNormalClosure": "Mathlib.FieldTheory.Normal.Closure"
+  },
+  "nf.galois_search": {
+    "Polynomial.Gal": "Mathlib.FieldTheory.PolynomialGaloisGroup",
+    "Polynomial.Gal.galActionHom": "Mathlib.FieldTheory.PolynomialGaloisGroup",
+    "Polynomial.Gal.galActionHom_injective": "Mathlib.FieldTheory.PolynomialGaloisGroup",
+    "TauCeti.galEquivNormalClosure": "TauCeti.FieldTheory.GaloisGroups.NormalClosure"
   },
   "nf.generator": {
     "IntermediateField.adjoin": "Mathlib.FieldTheory.IntermediateField.Adjoin.Defs",
@@ -3994,6 +4254,13 @@
   "nf.narrow_class_number": {
     "NumberField.NarrowClassGroup": "TauCeti.NumberTheory.NumberField.NarrowClassGroup.Basic"
   },
+  "nf.nickname": {
+    "IsCyclotomicExtension": "Mathlib.NumberTheory.Cyclotomic.Basic",
+    "NumberField.maximalRealSubfield": "Mathlib.NumberTheory.NumberField.InfinitePlace.TotallyRealComplex",
+    "IsPrimitiveRoot.maximalRealSubfield_eq_adjoin_add_inv": "LeanBridge.ForMathlib.NumberTheory.Cyclotomic.MaximalRealSubfieldAdjoin",
+    "IsPrimitiveRoot.add_inv_mem_maximalRealSubfield": "LeanBridge.ForMathlib.NumberTheory.Cyclotomic.MaximalRealSubfieldAdjoin",
+    "TauCeti.IsCyclotomicExtension.Rat.toSubfield_fixedField_zpowers_galEquivZMod_symm_neg_one": "TauCeti.NumberTheory.NumberField.Cyclotomic.MaximalRealSubfield"
+  },
   "nf.order": {
     "TauCeti.GlobalNumberFields.NumberFieldOrder": "TauCeti.NumberTheory.NumberField.Global.Orders.Basic",
     "TauCeti.GlobalNumberFields.maximalNumberFieldOrder": "TauCeti.NumberTheory.NumberField.Global.Orders.Basic"
@@ -4008,6 +4275,25 @@
     "NumberField.exists_eq_minpoly_algebraMap": "LeanBridge.ForMathlib.NumberTheory.NumberField.CompletionRootField",
     "TauCeti.semilocalEquiv": "TauCeti.NumberTheory.NumberField.LocalGlobal.Semilocal.Basic",
     "IsDedekindDomain.HeightOneSpectrum.valuation": "Mathlib.RingTheory.DedekindDomain.AdicValuation"
+  },
+  "nf.padic_completion.search": {
+    "AbsoluteValue.Place": "LeanBridge.ForMathlib.NumberTheory.NumberField.Place",
+    "AbsoluteValue.Place.IsArchimedean": "LeanBridge.ForMathlib.NumberTheory.NumberField.Place",
+    "AbsoluteValue.Place.isArchimedean_iff_isReal_or_isComplex": "LeanBridge.ForMathlib.NumberTheory.NumberField.Ostrowski",
+    "AbsoluteValue.Place.not_isArchimedean_iff_exists_finitePlace": "LeanBridge.ForMathlib.NumberTheory.NumberField.Ostrowski",
+    "AbsoluteValue.Completion": "Mathlib.Analysis.Normed.Field.WithAbs",
+    "AbsoluteValue.Place.Completion": "LeanBridge.ForMathlib.NumberTheory.NumberField.PlaceCompletion",
+    "AbsoluteValue.Place.completionRingEquiv": "LeanBridge.ForMathlib.NumberTheory.NumberField.PlaceCompletion"
+  },
+  "nf.picture": {
+    "PrimeSpectrum": "Mathlib.RingTheory.Spectrum.Prime.Defs",
+    "AlgebraicGeometry.Scheme.isoSpec": "Mathlib.AlgebraicGeometry.AffineScheme",
+    "MvPolynomial.zeroLocusToMaximalSpectrum": "LeanBridge.ForMathlib.RingTheory.NullstellensatzMaximalSpectrum",
+    "MvPolynomial.bijective_zeroLocusToMaximalSpectrum": "LeanBridge.ForMathlib.RingTheory.NullstellensatzMaximalSpectrum",
+    "Ideal.primesOver": "Mathlib.RingTheory.Ideal.Over",
+    "PrimeSpectrum.preimage_comap_singleton_eq_primesOver": "LeanBridge.ForMathlib.NumberTheory.NumberField.SpecFiber",
+    "AlgebraicGeometry.Scheme.Hom.fiber": "Mathlib.AlgebraicGeometry.Fiber",
+    "NumberField.range_fiberι_spec_map_algebraMap_int": "LeanBridge.ForMathlib.NumberTheory.NumberField.SpecFiber"
   },
   "nf.place": {
     "AbsoluteValue.Place": "LeanBridge.ForMathlib.NumberTheory.NumberField.Place",
@@ -4192,6 +4478,61 @@
     "SymplecticGroup.paramodular": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CongruenceSubgroups",
     "SymplecticGroup.paramodularForm": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CongruenceSubgroups",
     "SymplecticGroup.paramodularDelta": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.CongruenceSubgroups"
+  },
+  "portrait.character.dirichlet": {
+    "DirichletCharacter.partialGaussSum": "LeanBridge.ForMathlib.NumberTheory.DirichletCharacter.GaussSumPortrait",
+    "DirichletCharacter.partialGaussSum_modulus_sub_one": "LeanBridge.ForMathlib.NumberTheory.DirichletCharacter.GaussSumPortrait",
+    "DirichletCharacter.partialGaussSum_succ_of_not_coprime": "LeanBridge.ForMathlib.NumberTheory.DirichletCharacter.GaussSumPortrait",
+    "DirichletCharacter.norm_gaussSum_mulShift_of_isPrimitive": "LeanBridge.ForMathlib.NumberTheory.DirichletCharacter.GaussSumPortrait",
+    "DirichletCharacter.isPrimitive_iff_forall_norm_gaussSum_mulShift_eq_sqrt": "LeanBridge.ForMathlib.NumberTheory.DirichletCharacter.GaussSumPortrait",
+    "DirichletCharacter.image_setOf_norm_gaussSum_mulShift_eq_sqrt_of_isPrimitive": "LeanBridge.ForMathlib.NumberTheory.DirichletCharacter.GaussSumPortrait",
+    "DirichletCharacter.partialGaussSum_neg": "LeanBridge.ForMathlib.NumberTheory.DirichletCharacter.GaussSumPortrait",
+    "DirichletCharacter.partialGaussSum_one_zero": "LeanBridge.ForMathlib.NumberTheory.DirichletCharacter.GaussSumPortrait"
+  },
+  "portrait.cmf": {
+    "UpperHalfPlane.portraitMoebius": "LeanBridge.ForMathlib.Analysis.Complex.UpperHalfPlane.PortraitMoebius",
+    "UpperHalfPlane.bijOn_portraitMoebius": "LeanBridge.ForMathlib.Analysis.Complex.UpperHalfPlane.PortraitMoebius",
+    "UpperHalfPlane.portraitMoebiusMatrix": "LeanBridge.ForMathlib.Analysis.Complex.UpperHalfPlane.PortraitMoebius",
+    "UpperHalfPlane.portraitMoebiusMatrix_smul_coe": "LeanBridge.ForMathlib.Analysis.Complex.UpperHalfPlane.PortraitMoebius",
+    "HeckeRing.GL2.Newform.traceForm": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.TraceForm",
+    "HeckeRing.GL2.Newform.newspaceTraceForm": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Newform.TraceForm",
+    "Complex.arg_eq_pi_iff": "Mathlib.Analysis.SpecialFunctions.Complex.Arg"
+  },
+  "portrait.ec.nf": {
+    "NumberField.IsTotallyComplex": "Mathlib.NumberTheory.NumberField.InfinitePlace.TotallyRealComplex",
+    "NumberField.isTotallyComplex_of_minpoly_eq_X_sq_sub_C_of_neg": "TauCeti.NumberTheory.NumberField.Quadratic.InfinitePlace",
+    "NumberField.isTotallyComplex_of_sq_ratCast_of_neg": "TauCeti.NumberTheory.NumberField.InfinitePlace.Basic",
+    "NumberField.IsTotallyComplex.complexEmbedding_not_isReal": "Mathlib.NumberTheory.NumberField.InfinitePlace.TotallyRealComplex",
+    "NumberField.IsTotallyComplex.nrRealPlaces_eq_zero": "Mathlib.NumberTheory.NumberField.InfinitePlace.TotallyRealComplex",
+    "NumberField.InfinitePlace.card_real_embeddings": "Mathlib.NumberTheory.NumberField.InfinitePlace.Basic"
+  },
+  "portrait.groups.abstract": {
+    "ConjClasses": "Mathlib.Algebra.Group.Conj",
+    "ConjClasses.elementOrder": "LeanBridge.ForMathlib.GroupTheory.Label.ConjClass",
+    "IsConj.orderOf_eq": "LeanBridge.ForMathlib.GroupTheory.RationalConjugacy",
+    "ConjClasses.orderOf_eq_elementOrder": "LeanBridge.ForMathlib.GroupTheory.ConjClassElementOrder",
+    "ConjClasses.odd_elementOrder_div_two_pow": "LeanBridge.ForMathlib.GroupTheory.ConjClassElementOrder",
+    "Nat.ordProj_mul_ordCompl_eq_self": "Mathlib.Data.Nat.Factorization.Basic",
+    "ConjClasses.elementOrder_eq_one_iff": "LeanBridge.ForMathlib.GroupTheory.ConjClassElementOrder"
+  },
+  "rcs.cande.st_group": {
+    "SatoTateGroup.IsRationalSubgroup": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.Rational",
+    "SatoTateGroup.IsRational": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.Rational",
+    "TauCeti.character_rationalWeylRep_fin_one": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.WeightZeroDegreeOne",
+    "SatoTateGroup.exists_setIntegral_character_div_eq_intCast": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.WeightZeroDegreeOne",
+    "SatoTateGroup.isRationalSubgroup_iff_le_ambientGroup": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.WeightZeroDegreeOne",
+    "SatoTateGroup.setOf_isRationalSubgroup_eq": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.WeightZeroDegreeOne",
+    "SatoTateGroup.ncard_setOf_isRationalSubgroup": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.WeightZeroDegreeOne",
+    "SatoTateGroup.isRational_of_weight_eq_zero_of_degree_eq_one": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.WeightZeroDegreeOne"
+  },
+  "rcs.rigor.belyi": {
+    "TauCeti.genus": "TauCeti.FieldTheory.FunctionField.RiemannRoch.Genus",
+    "TauCeti.Place.ramificationIdx": "TauCeti.FieldTheory.FunctionField.Place.Extension.Basic",
+    "TauCeti.Divisor.tameDifferent": "TauCeti.FieldTheory.FunctionField.Different.Tame",
+    "TauCeti.hurwitz_genus_formula_ratFunc": "TauCeti.FieldTheory.FunctionField.Different.Hurwitz",
+    "TauCeti.two_mul_genus_sub_two_eq_iff_forall_ramificationIdx_eq_one": "LeanBridge.ForMathlib.FieldTheory.FunctionField.BranchLocus",
+    "TauCeti.ramificationIdx_eq_one_of_two_mul_genus_sub_two_eq": "LeanBridge.ForMathlib.FieldTheory.FunctionField.BranchLocus",
+    "TauCeti.Place.sum_ramificationIdx_mul_relativeDegree_eq_finrank_of_isSeparable": "TauCeti.FieldTheory.FunctionField.Place.Extension.Fundamental"
   },
   "repn.highest.weight": {
     "Representation.highestWeight": "LeanBridge.ForMathlib.RepresentationTheory.HighestWeight",

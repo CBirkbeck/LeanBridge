@@ -9,7 +9,23 @@ open Informal
 
 #doc (Manual) "Lattices" =>
 
-This section lists the LMFDB definitions in the category `lattice`. Each definition links back to its LMFDB knowl.
+This section lists the LMFDB definitions in the category `lattice`. Each definition links back to its LMFDB knowl. It also lists the knowls about the LMFDB's data on this subject that have mathematical content, from the categories `dq` and `rcs`.
+
+:::definition "dq.lattice.source"
+*Source of lattice data.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/dq.lattice.source))
+
+The database contains lattice data ({bpref "lattice.gram"}[Gram matrices]) from the Catalogue of Lattices, maintained by Gabriele Nebe and Neil J.A. Sloane. The Catalogue contains some tables compiled by other authors, which are cited individually in the LMFDB. For lattices of class number one, completeness of the data is confirmed by a calculation of Kirschmer and Lorch (, , ).
+
+Additional data was computed in Magma and PARI using code written by Anna Haensch and Samuele Anni. This code is available from [Github](https://github.com/annahaensch/lattice_data).
+
+For solutions of the lattice packing problem in dimensions up to 8,
+the sphere packing problem in dimensions up to 2, the kissing number problem in dimensions up to 3, and the lattice kissing number problem in dimensions up to 9,
+see Conway-Sloane .
+The other known solutions of the sphere packing problem are due to Ferguson and Hales in dimension 3 , Viazovska in dimension 8 (, ) and Cohn, Kumar, Miller, Radchenko, and Viazovska in dimension 24 (, ).
+The other known solutions of the kissing number problem are due to Musin in dimension 4 , Levenshtein in dimension 8 , and Odlyzko and Sloane in dimension 24 .
+
+Depends on: {uses "lattice.gram"}[]
+:::
 
 :::definition "lattice.additively_indecomposable"
 *Additively indecomposable lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.additively_indecomposable))
@@ -327,6 +343,31 @@ Tau Ceti Review: [`TauCeti.IntegralLattice.discriminant`](https://taucetiproject
 Depends on: {uses "lattice.definition"}[] {uses "lattice.determinant"}[] {uses "lattice.dimension"}[] {uses "lattice.minimal_vector"}[] {uses "lattice.positive_definite"}[]
 :::
 
+:::definition "lattice.history"
+*History of Lattices.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.history))
+
+{bpref "lattice.definition"}[Integral lattices] have a deep connection to the objects in the LMFDB in that every lattice, $`L`, has an associated {bpref "lattice.theta"}[theta series], $`\Theta_L`, which is a holomorphic modular form of {bpref "mf.half_integral_weight.theta"}[half-integral weight].  Specifically, the theta series are a type of {bpref "mf.siegel"}[Siegel modular form], first introduced by Siegel in the 1930's .  Later, in 1973, Shimura developed a partial correspondence lifting {bpref "mf.half_integral_weight.theta"}[half-integral weight] theta series to full integral weight series , allowing lattices to be studied using the full analytic machinery of modular forms.
+
+The Representation Problem
+------------------
+
+The lattice $`L`, with associated quadratic map $`Q`, is said to represent an integer $`n` if the equation $`Q(v)=n` is solvable for $`v` in $`L`.  The representation problem, or the determination of the number of ways a certain integer can be represented by a given lattice, is one of the classical problems in integral lattices.  To this end, the theta series is a valuable tool, in that the $`n^{th}` Fourier coefficients of $`\Theta_L` counts the number of representations of $`n` by $`L`.
+
+Classically, sums of squares are one interesting class of lattices; the sums of two squares ([2.1.2.1.1](/Lattice/2.1.2.1.1)), three squares ([3.1.2.1.1](/Lattice/3.1.2.1.1)), and four squares ([4.1.2.1.1](/Lattice/4.1.2.1.1)) all appear in the database.  These lattices can all be considered as discrete subsets of Euclidean space, and their associated bilinear map is just the standard inner product.  Originally studied by Euler, Legendre, Gauss, Lagrange, and Jacobi, the number of ways an integer can be represented by sums of two, three, or four squares is well known.
+
+In the 1920's, Hasse proved that an integer is represented by a quadratic form provided that it is represented locally by the form at every prime.  In the case of indefinite lattices there is more or less an integral analogue of Hasse's result described by Hsai, Shao, and Xu in .  In the definite case a direct integral analogue of Hasse's local-global result does not exists for lattices, although in several cases there is an asymptotic version; a summary of these results is given by Schulze-Pillot in .
+
+Given the Siegel correspondence, many of the results in the preceding paragraph rely on a careful melding of the analytic machinery of theta series, and the algebraic techniques of lattices.
+
+Lattices and Codes
+------------------
+There is also an important connection between lattices and codes described by Ebeling in .  Given a finite commutative ring, $`R`, a code, $`C`, is an $`R`-submodule of $`R^n`.  A code $`C` is related uniquely to a lattice $`L_C` via Construction A, described by Nebe, Rains, and Sloane in .  Many of the concepts of lattices theory have analogues in coding theory, for example the theta series of a lattice is a modular form invariant under the action of a certain Siegel modular group, this corresponds directly to the weight enumerator of a code which is a polynomial invariant under the action of the so-called Clifford-Weil group.
+
+As an example, the 8-dimensional root lattice $`E_8` ([8.1.1.1.1](/Lattice/8.1.1.1.1)) corresponds to the well-known Hamming code, an error-correcting code over the finite field $`\mathbb{F}_2`.  In addition, the 24-dimensional Leech lattice ([24.1.1.24.1](/Lattice/24.1.1.24.1)) corresponds to the Golay code.
+
+Depends on: {uses "lattice.definition"}[] {uses "lattice.theta"}[] {uses "mf.half_integral_weight.theta"}[] {uses "mf.siegel"}[]
+:::
+
 :::definition "lattice.hyperbolic_plane"
 *Hyperbolic plane.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.hyperbolic_plane))
 
@@ -415,6 +456,16 @@ Tau Ceti Review: [`TauCeti.IntegralLattice.minimum`](https://taucetiproject.org/
 Depends on: {uses "lattice.definition"}[]
 :::
 
+:::definition "lattice.name" (lean := "TauCeti.IntegralLattice.typeARootLattice, TauCeti.IntegralLattice.checkerboardLattice, TauCeti.IntegralLattice.typeE₈RootLattice, TauCeti.IntegralLattice.unitLattice, TauCeti.IntegralLattice.rescaledDual, TauCeti.IntegralLattice.typeAThreeIsometryCheckerboardLattice, TauCeti.IntegralLattice.typeAThreeRescaledDualIsometry")
+*Name of a lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.name))
+
+Certain {bpref "lattice.definition"}[integral lattices] have names in the LMFDB. These include {bpref "lattice.root_lattice"}[root lattices] (A2...A14, D3=A3, E8), duals of root lattices (A3\\*=D3\\*), square lattices (Z2, Z3), and the Leech lattice (Leech).
+
+Tau Ceti Review: [`TauCeti.IntegralLattice.typeARootLattice`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.typeARootLattice), [`TauCeti.IntegralLattice.checkerboardLattice`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.checkerboardLattice), [`TauCeti.IntegralLattice.typeE₈RootLattice`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.typeE%E2%82%88RootLattice), [`TauCeti.IntegralLattice.unitLattice`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.unitLattice).
+
+Depends on: {uses "lattice.definition"}[] {uses "lattice.root_lattice"}[]
+:::
+
 :::definition "lattice.nondegenerate" (lean := "TauCeti.IntegralLattice.IsNondegenerate, TauCeti.IntegralLattice.isNondegenerate_iff_forall_form_eq_zero, TauCeti.IntegralLattice.signature, TauCeti.IntegralLattice.sigNull_eq_ncard_eigenvalues_eq_zero, TauCeti.IntegralLattice.isDegenerate_iff_sigNull_pos, TauCeti.IntegralLattice.isPosSemidef_iff_sigNeg_eq_zero")
 *Nondegenerate lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.nondegenerate))
 
@@ -449,10 +500,12 @@ If $`L` is {bpref "lattice.parity"}[even], then the norm 1 sublattice is trivial
 Depends on: {uses "lattice.definition"}[] {uses "lattice.norm"}[] {uses "lattice.parity"}[] {uses "lattice.sublattice"}[]
 :::
 
-:::definition "lattice.normalized_minimal_vector"
+:::definition "lattice.normalized_minimal_vector" (lean := "TauCeti.IntegralLattice.minimalVectors, TauCeti.IntegralLattice.minimum, TauCeti.IntegralLattice.IsNormalized, TauCeti.IntegralLattice.neg_mem_minimalVectors_iff, TauCeti.IntegralLattice.neg_ne_self_of_mem_minimalVectors, TauCeti.IntegralLattice.isNormalized_neg_iff, TauCeti.IntegralLattice.kissingNumber_eq_two_mul_ncard")
 *Normalized minimal vector of a lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.normalized_minimal_vector))
 
 For an {bpref "lattice.definition"}[integral lattice] $`L`, the {bpref "lattice.minimal_vector"}[minimal vectors] of $`L` come in pairs: if $`\vec{v}` is a minimal vector, then so is $`-\vec{v}`. A minimal vector is *normalized* if its first nonzero component is positive.
+
+Tau Ceti Review: [`TauCeti.IntegralLattice.minimum`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.minimum).
 
 Depends on: {uses "lattice.definition"}[] {uses "lattice.minimal_vector"}[]
 :::
@@ -726,4 +779,20 @@ Depends on: {uses "lattice.definition"}[] {uses "lattice.determinant"}[]
 A lattice $`L` is called *well-rounded* if its set of {bpref "lattice.minimal_vector"}[minimal vectors] $`S(L)` spans a sublattice $`M` of finite index, and $`L` is said to be *generated by minimal vectors* if $`M = L`. The lattice $`L` is *strongly well-rounded* if the set $`S(L)` contains a basis for $`L`. Being generated by minimal vectors is a strictly stronger condition than well-rounded for lattices of rank $`\geq 5`, and a strictly weaker condition than strongly well-rounded for lattices of rank $`\geq 10`.
 
 Depends on: {uses "lattice.minimal_vector"}[]
+:::
+
+:::definition "rcs.source.lattice"
+*Source of lattice data.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/rcs.source.lattice))
+
+The database contains lattice data ({bpref "lattice.gram"}[Gram matrices]) from the Catalogue of Lattices, maintained by Gabriele Nebe and Neil J.A. Sloane. The Catalogue contains some tables compiled by other authors, which are cited individually in the LMFDB. For lattices of class number one, completeness of the data is confirmed by a calculation of Kirschmer and Lorch (, , ).
+
+Additional data was computed in Magma and PARI using code written by Anna Haensch and Samuele Anni. This code is available from [Github](https://github.com/annahaensch/lattice_data).
+
+For solutions of the lattice packing problem in dimensions up to 8,
+the sphere packing problem in dimensions up to 2, the kissing number problem in dimensions up to 3, and the lattice kissing number problem in dimensions up to 9,
+see Conway-Sloane .
+The other known solutions of the sphere packing problem are due to Ferguson and Hales in dimension 3 , Viazovska in dimension 8 (, ) and Cohn, Kumar, Miller, Radchenko, and Viazovska in dimension 24 (, ).
+The other known solutions of the kissing number problem are due to Musin in dimension 4 , Levenshtein in dimension 8 , and Odlyzko and Sloane in dimension 24 .
+
+Depends on: {uses "lattice.gram"}[]
 :::

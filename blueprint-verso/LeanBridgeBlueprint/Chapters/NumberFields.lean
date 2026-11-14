@@ -274,7 +274,7 @@ This automorphism group acts on the $`n` embeddings $`K\hookrightarrow K^{gal}` 
 
 We use the notation $`\Gal(K/F)` for $`\Aut(K/F)` when $`K=K^{gal}`.
 
-There is a naming convention for Galois groups up to degree $`47`.
+There is a {bpref "nf.galois_group.name"}[naming convention] for Galois groups up to degree $`47`.
 
 Tau Ceti Review: [`Polynomial.Gal`](https://taucetiproject.org/review/#/d/Polynomial.Gal), [`Polynomial.Gal.galActionHom`](https://taucetiproject.org/review/#/d/Polynomial.Gal.galActionHom), [`Polynomial.Gal.galActionHom_injective`](https://taucetiproject.org/review/#/d/Polynomial.Gal.galActionHom_injective), [`TauCeti.galEquivNormalClosure`](https://taucetiproject.org/review/#/d/TauCeti.galEquivNormalClosure).
 
@@ -323,6 +323,24 @@ The notation follows Mazur and Ullom, Galois module structure of units in real b
 The notation follows Mazur and Ullom, Galois module structure of units in real biquadratic number fields, Acta Arithmetica 111.2 (2004) . There are four basic types, I-IV, which describe the structure of the units $`U` modulo roots of unity. The subtype describes the actual structure of the units. Type IV means that there are fundamental units $`e_1,e_2,e_3` of the three quadratic subfields such that $`\sqrt{e_1e_2e_3},e_2,e_3` generate the rank 3 group $`U/\{\pm 1\}`.
 :::
 
+:::definition "nf.galois_group.name" (lean := "Polynomial.Gal.galActionHom, Polynomial.exists_card_rootSet_eq_six_and_nonempty_gal_mulEquiv, Polynomial.galXPowThreeSubTwoMulEquiv, Polynomial.bijective_galActionHom_X_pow_three_sub_two, Polynomial.card_rootSet_X_pow_three_sub_two, TauCeti.hasGaloisLabel_X_pow_three_sub_two, Polynomial.galMinpolySplittingFieldXPowThreeSubTwoMulEquiv, Polynomial.card_rootSet_minpoly_splittingField_X_pow_three_sub_two")
+*Galois group of a number field -- naming convention.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.galois_group.name))
+
+Each Galois group is identified by its {bpref "gg.degree"}[degree] and an index called its {bpref "gg.tnumber"}[T-number].  This specifies both the abstract group and a faithful transitive permutation of that group.  One may search for a group in the form $`n`T$`t` where $`n` is the degree and $`t` is the T-number.  The search results will then only show fields where the Galois group matches the requested permutation representation.
+
+For familiar groups one can use short names of the form <code>Cj</code>
+ <code>Dj</code>, <code>Sj</code>, <code>Aj</code> ($`1\leq j\leq 47`), for cyclic, dihedral, symmetric, and alternating groups, or from the table below.
+
+An abstract group may have more than one
+representation as a Galois group.  Correspondingly, the familiar
+symbol for a group may represent several
+Galois groups.  When searching for fields using the name of an abstract group, e.g., <code>S3</code>, the results may contain fields with different degrees and permutation representations.
+
+Tau Ceti Review: [`Polynomial.Gal.galActionHom`](https://taucetiproject.org/review/#/d/Polynomial.Gal.galActionHom), [`TauCeti.hasGaloisLabel_X_pow_three_sub_two`](https://taucetiproject.org/review/#/d/TauCeti.hasGaloisLabel_X_pow_three_sub_two).
+
+Depends on: {uses "gg.degree"}[] {uses "gg.tnumber"}[]
+:::
+
 :::definition "nf.galois_root_discriminant" (lean := "NumberField.rootDiscr, IntermediateField.normalClosure, IsNormalClosure")
 *Galois root discriminant.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.galois_root_discriminant))
 
@@ -331,6 +349,18 @@ The *Galois root discriminant* of a {bpref "nf"}[number field] is the {bpref "nf
 Tau Ceti Review: [`IntermediateField.normalClosure`](https://taucetiproject.org/review/#/d/IntermediateField.normalClosure), [`IsNormalClosure`](https://taucetiproject.org/review/#/d/IsNormalClosure).
 
 Depends on: {uses "nf"}[] {uses "nf.galois_closure"}[] {uses "nf.root_discriminant"}[]
+:::
+
+:::definition "nf.galois_search" (lean := "Polynomial.Gal, Polynomial.Gal.galActionHom, Polynomial.Gal.galActionHom_injective, TauCeti.galEquivNormalClosure")
+*Galois group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.galois_search))
+
+{bpref "nf.galois_group"}[]
+
+To specify a Galois group, you can give its {bpref "group.small_group_label"}[GAP id] (e.g. \[8,3\] or \[16,7\]), a {bpref "nf.galois_group.name"}[name] (e.g. C5 or S12) or a {bpref "gg.label"}[transitive group label] (e.g. 7T2 or 11T5).
+
+Tau Ceti Review: [`Polynomial.Gal`](https://taucetiproject.org/review/#/d/Polynomial.Gal), [`Polynomial.Gal.galActionHom`](https://taucetiproject.org/review/#/d/Polynomial.Gal.galActionHom), [`Polynomial.Gal.galActionHom_injective`](https://taucetiproject.org/review/#/d/Polynomial.Gal.galActionHom_injective), [`TauCeti.galEquivNormalClosure`](https://taucetiproject.org/review/#/d/TauCeti.galEquivNormalClosure).
+
+Depends on: {uses "gg.label"}[] {uses "group.small_group_label"}[] {uses "nf.galois_group"}[] {uses "nf.galois_group.name"}[]
 :::
 
 :::definition "nf.generator" (lean := "IntermediateField.adjoin, IntermediateField.adjoinRootEquivAdjoin, Field.exists_primitive_element")
@@ -588,7 +618,7 @@ Tau Ceti Review: [`NumberField.NarrowClassGroup`](https://taucetiproject.org/rev
 Depends on: {uses "nf"}[] {uses "nf.class_number"}[] {uses "nf.ideal_class_group"}[] {uses "nf.narrow_class_group"}[] {uses "nf.totally_imaginary"}[]
 :::
 
-:::definition "nf.nickname"
+:::definition "nf.nickname" (lean := "IsCyclotomicExtension, NumberField.maximalRealSubfield, IsPrimitiveRoot.maximalRealSubfield_eq_adjoin_add_inv, IsPrimitiveRoot.add_inv_mem_maximalRealSubfield, TauCeti.IsCyclotomicExtension.Rat.toSubfield_fixedField_zpowers_galEquivZMod_symm_neg_one")
 *Number field nicknames.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.nickname))
 
 The LMFDB supports *nicknames*, short human-readable names for
@@ -607,6 +637,8 @@ various fields.  Examples include:
 - more generally, "$`\texttt{Q(s1, s2, ... ,sk)}`", for the field generated by algebraic numbers $`s_1,s_2,\dots,s_k`.
 
 In the general syntax, each $`\texttt{si}` may be built using the functions $`\texttt{sqrt}` (or $`\texttt{root}`) and $`\texttt{cbrt}`, together with the usual arithmetic operations $`\texttt{+}`, $`\texttt{-}`, $`\texttt{*}`, $`\texttt{/}`, ^, and parentheses.  The usual constants $`\texttt{i}`, $`\texttt{zetaN}` and $`\texttt{phi}` (for $`(1 + \sqrt{5})/2`) are also supported.  Some examples include:  "$`\texttt{Q(sqrt2,sqrt3)}`", "$`\texttt{Q(sqrt(1+sqrt2))}`","$`\texttt{Q(cbrt(1+zeta7))}`", and "$`\texttt{Q(5}`^$`\texttt{(1/12))}`".
+
+Tau Ceti Review: [`IsCyclotomicExtension`](https://taucetiproject.org/review/#/d/IsCyclotomicExtension), [`NumberField.maximalRealSubfield`](https://taucetiproject.org/review/#/d/NumberField.maximalRealSubfield), [`TauCeti.IsCyclotomicExtension.Rat.toSubfield_fixedField_zpowers_galEquivZMod_symm_neg_one`](https://taucetiproject.org/review/#/d/TauCeti.IsCyclotomicExtension.Rat.toSubfield_fixedField_zpowers_galEquivZMod_symm_neg_one).
 :::
 
 :::definition "nf.order" (lean := "TauCeti.GlobalNumberFields.NumberFieldOrder, TauCeti.GlobalNumberFields.maximalNumberFieldOrder")
@@ -648,6 +680,34 @@ Finally, the {bpref "nf.local_algebra"}[local algebra] of $`K`, $`\prod_{j=1}^g 
 Tau Ceti Review: [`IsDedekindDomain.HeightOneSpectrum.adicCompletion`](https://taucetiproject.org/review/#/d/IsDedekindDomain.HeightOneSpectrum.adicCompletion), [`TauCeti.semilocalEquiv`](https://taucetiproject.org/review/#/d/TauCeti.semilocalEquiv), [`IsDedekindDomain.HeightOneSpectrum.valuation`](https://taucetiproject.org/review/#/d/IsDedekindDomain.HeightOneSpectrum.valuation).
 
 Depends on: {uses "lf.ring_of_integers"}[] {uses "nf"}[] {uses "nf.local_algebra"}[] {uses "nf.prime"}[] {uses "ring.dedekind_domain"}[] {uses "ring.field_of_fractions"}[] {uses "ring.fractional_ideal"}[] {uses "ring.integral_domain"}[] {uses "ring.irreducible"}[]
+:::
+
+:::definition "nf.padic_completion.search" (lean := "AbsoluteValue.Place, AbsoluteValue.Place.IsArchimedean, AbsoluteValue.Place.isArchimedean_iff_isReal_or_isComplex, AbsoluteValue.Place.not_isArchimedean_iff_exists_finitePlace, AbsoluteValue.Completion, AbsoluteValue.Place.Completion, AbsoluteValue.Place.completionRingEquiv")
+*Searching $`p`-adic completions of a number field.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.padic_completion.search))
+
+{bpref "nf.place"}[]
+
+When searching for number fields with a list of $`p`-adic completions, the results will contain fields which match all of the completions in the list.
+
+Tau Ceti Review: [`AbsoluteValue.Completion`](https://taucetiproject.org/review/#/d/AbsoluteValue.Completion).
+
+Depends on: {uses "nf.place"}[]
+:::
+
+:::definition "nf.picture" (lean := "PrimeSpectrum, AlgebraicGeometry.Scheme.isoSpec, MvPolynomial.zeroLocusToMaximalSpectrum, MvPolynomial.bijective_zeroLocusToMaximalSpectrum, Ideal.primesOver, PrimeSpectrum.preimage_comap_singleton_eq_primesOver, AlgebraicGeometry.Scheme.Hom.fiber, NumberField.range_fiberι_spec_map_algebraMap_int")
+*Pictures for number fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/nf.picture))
+
+For each {bpref "nf"}[number field] $`F`, the picture displays the {bpref "nf.spectrum_ring_of_integers"}[prime spectrum] of the {bpref "nf.ring_of_integers"}[ring of integers] $`\mathcal{O}_F` of $`F`, visualized as a curve over $`\operatorname{Spec} \mathbb{Z}`. This is by analogy with algebraic curves, since points on a curve over $`\mathbb{C}` are in bijection with prime ideals of its coordinate ring. Each prime ideal in $`\operatorname{Spec} \mathcal{O}_F` is drawn as a point, and the lines connecting the points are purely for aesthetical purposes, having no deeper meaning.
+
+- A point is colored if it corresponds to a {bpref "nf.ramified_primes"}[ramified prime], with ramification index corresponding to the hue of the point.
+
+- The radius of a point is proportional to its {bpref "nf.frobenius_cycle_types"}[residue degree].
+
+In the portrait in the properties box, only the spectrum of $`\mathcal{O}_F` is drawn, while at the bottom of the number field page, we also draw $`\operatorname{Spec} \mathbb{Z}`. This way we can intuitively study the fibers of the map $`\operatorname{Spec} \mathcal{O}_F \to \operatorname{Spec} \mathbb{Z}`, where the fiber above a rational prime $`p` is the set of primes of $`\mathcal{O}_F` lying above $`p`.
+
+Tau Ceti Review: [`PrimeSpectrum`](https://taucetiproject.org/review/#/d/PrimeSpectrum), [`AlgebraicGeometry.Scheme.isoSpec`](https://taucetiproject.org/review/#/d/AlgebraicGeometry.Scheme.isoSpec), [`Ideal.primesOver`](https://taucetiproject.org/review/#/d/Ideal.primesOver), [`AlgebraicGeometry.Scheme.Hom.fiber`](https://taucetiproject.org/review/#/d/AlgebraicGeometry.Scheme.Hom.fiber).
+
+Depends on: {uses "nf"}[] {uses "nf.frobenius_cycle_types"}[] {uses "nf.ramified_primes"}[] {uses "nf.ring_of_integers"}[] {uses "nf.spectrum_ring_of_integers"}[]
 :::
 
 :::definition "nf.place" (lean := "AbsoluteValue.Place, AbsoluteValue.Place.IsArchimedean, AbsoluteValue.Place.isArchimedean_iff_isReal_or_isComplex, AbsoluteValue.Place.not_isArchimedean_iff_exists_finitePlace, AbsoluteValue.Completion, AbsoluteValue.Place.Completion, AbsoluteValue.Place.completionRingEquiv")

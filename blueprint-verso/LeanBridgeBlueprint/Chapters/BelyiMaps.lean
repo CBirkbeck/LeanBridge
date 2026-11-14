@@ -9,7 +9,7 @@ open Informal
 
 #doc (Manual) "Belyi maps" =>
 
-This section lists the LMFDB definitions in the category `belyi`. Each definition links back to its LMFDB knowl.
+This section lists the LMFDB definitions in the category `belyi`. Each definition links back to its LMFDB knowl. It also lists the knowl about the LMFDB's data on this subject that has mathematical content, from the category `rcs`.
 
 :::definition "belyi.abc"
 *abc triple for Belyi maps.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/belyi.abc))
@@ -140,4 +140,18 @@ Depends on: {uses "belyi.group"}[]
 *Ramification type.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/belyi.ramification_type))
 
 The *ramification type* of a Belyi map $`\phi \colon X \to \mathbb{P}^1` is the triple of partitions $`\lambda_0,\lambda_1,\lambda_{\infty}` giving the ramification orders of the preimages of $`0,1,\infty`, respectively.
+:::
+
+:::definition "rcs.rigor.belyi" (lean := "TauCeti.genus, TauCeti.Place.ramificationIdx, TauCeti.Divisor.tameDifferent, TauCeti.hurwitz_genus_formula_ratFunc, TauCeti.two_mul_genus_sub_two_eq_iff_forall_ramificationIdx_eq_one, TauCeti.ramificationIdx_eq_one_of_two_mul_genus_sub_two_eq, TauCeti.Place.sum_ramificationIdx_mul_relativeDegree_eq_finrank_of_isSeparable")
+*Reliability of Belyi map data.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/rcs.rigor.belyi))
+
+To ensure that the map $`X \to \mathbb{P}^1` provided is indeed a {bpref "belyi.galmap"}[Belyi map], we first verify by taking (exact) preimages that the ramification above $`\{0,1,\infty\} \subseteq \mathbb{P}^1` is correct (in particular, it has the correct {bpref "belyi.degree"}[degree]).  We then also verify that $`X` has the correct {bpref "belyi.genus"}[genus]; it follows by the Riemann-Hurwitz theorem that there can be no other ramification, so the map is indeed a Belyi map.
+
+The permutation triple, specified by the action of monodromy on preimages of the branch points, was certified a posteriori using a rigorous algorithm involving path tracking .  Even without that, the complex accuracy set in the numerical {bpref "group.triangle_group"}[triangle group] method was almost surely enough to automatically ensure this.
+
+Once the Belyi map is verified and associated with the correct permutation triple for all Belyi maps of a given degree, {bpref "ag.base_field"}[base fields] and Galois orbits can be read off directly.  Other invariants of the map or its orbits can then be obtained from the corresponding monodromy triple by means of a short calculation.
+
+Tau Ceti Review: [`TauCeti.genus`](https://taucetiproject.org/review/#/d/TauCeti.genus), [`TauCeti.Place.ramificationIdx`](https://taucetiproject.org/review/#/d/TauCeti.Place.ramificationIdx), [`TauCeti.Divisor.tameDifferent`](https://taucetiproject.org/review/#/d/TauCeti.Divisor.tameDifferent), [`TauCeti.hurwitz_genus_formula_ratFunc`](https://taucetiproject.org/review/#/d/TauCeti.hurwitz_genus_formula_ratFunc), [`TauCeti.Place.sum_ramificationIdx_mul_relativeDegree_eq_finrank_of_isSeparable`](https://taucetiproject.org/review/#/d/TauCeti.Place.sum_ramificationIdx_mul_relativeDegree_eq_finrank_of_isSeparable).
+
+Depends on: {uses "ag.base_field"}[] {uses "belyi.degree"}[] {uses "belyi.galmap"}[] {uses "belyi.genus"}[] {uses "group.triangle_group"}[]
 :::

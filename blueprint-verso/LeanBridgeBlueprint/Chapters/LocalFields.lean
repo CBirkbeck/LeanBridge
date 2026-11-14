@@ -298,6 +298,24 @@ is called the *base field* of the family.
 Depends on: {uses "lf.family_polynomial"}[] {uses "lf.padic_field"}[]
 :::
 
+:::definition "lf.family_diagrams" (lean := "IsNonarchimedeanLocalField.HerbrandInvariant.ramificationPolygon, IsNonarchimedeanLocalField.HerbrandInvariant.ramificationHeight, IsNonarchimedeanLocalField.visibleRams, IsNonarchimedeanLocalField.HerbrandInvariant.IsInvariantOf.lowerConvexEnvelope_minpoly, IsNonarchimedeanLocalField.HerbrandInvariant.IsInvariantOf.setOf_neg_unitSlope_ne_zero, IsNonarchimedeanLocalField.HerbrandInvariant.IsInvariantOf.map_visibleRams_eq_map_neg_unitSlope, IsNonarchimedeanLocalField.HerbrandInvariant.unitSlope_ramificationPolygon, IsNonarchimedeanLocalField.HerbrandInvariant.unitSlope_ramificationPolygon_eq_zero_iff")
+*$`p`-adic field family diagrams.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.family_diagrams))
+
+There are three diagrams that are helpful for visualizing a {bpref "lf.family_polynomial"}[$`p`-adic family] with wild ramification:
+
+- The {bpref "lf.eisenstein_diagram"}[Eisenstein diagram], which explains the construction of the defining polynomial of the family.
+
+- The {bpref "lf.ramification_polygon"}[ramification polygon], whose slopes are the {bpref "lf.rams"}[rams] of every extension in the family.
+
+- The graph of the {bpref "lf.herbrand_function"}[Herbrand function]
+
+of the family, which helps clarify the relationship between
+{bpref "lf.slopes"}[slopes], {bpref "lf.rams"}[rams] and
+{bpref "lf.means"}[means].
+
+Depends on: {uses "lf.eisenstein_diagram"}[] {uses "lf.family_polynomial"}[] {uses "lf.herbrand_function"}[] {uses "lf.means"}[] {uses "lf.ramification_polygon"}[] {uses "lf.rams"}[] {uses "lf.slopes"}[]
+:::
+
 :::definition "lf.family_field_count" (lean := "IsNonarchimedeanLocalField.HerbrandInvariant.fieldCount, IsNonarchimedeanLocalField.HerbrandInvariant.family, IsNonarchimedeanLocalField.HerbrandInvariant.IsInvariantOf, IsNonarchimedeanLocalField.visibleSwanSlopes, IsNonarchimedeanLocalField.HerbrandInvariant.finite_family, IsNonarchimedeanLocalField.HerbrandInvariant.natCast_fieldCount, IsNonarchimedeanLocalField.HerbrandInvariant.fieldCount_eq_card_toFinset")
 *Field count.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.family_field_count))
 
@@ -306,6 +324,45 @@ extensions of  {bpref "lf.padic_field"}[$`p`-adic fields].  The
 *field count* of $`I/K` is the number of extensions in $`I/K`.
 
 Depends on: {uses "lf.family_polynomial"}[] {uses "lf.padic_field"}[]
+:::
+
+:::definition "lf.family_invariants" (lean := "IsNonarchimedeanLocalField.HerbrandInvariant.family, IsNonarchimedeanLocalField.HerbrandInvariant.IsInvariantOf, IsNonarchimedeanLocalField.HerbrandInvariant.mk_mem_family_iff, IsNonarchimedeanLocalField.HerbrandInvariant.finrank_of_mem_family, IsNonarchimedeanLocalField.HerbrandInvariant.IsInvariantOf.natCast_discriminantExponent, IsNonarchimedeanLocalField.HerbrandInvariant.IsInvariantOf.visibleArtinSlopes_eq, IsNonarchimedeanLocalField.HerbrandInvariant.IsInvariantOf.mean_visibleHerbrandInvariant, IsNonarchimedeanLocalField.HerbrandInvariant.IsInvariantOf.visibleRams_eq")
+*$`p`-adic family invariants.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.family_invariants))
+
+The following extension invariants are the same for all $`L/K` in a
+{bpref "lf.family_polynomial"}[$`p`-adic family] $`I/K`:
+
+- the {bpref "lf.residue_field"}[residue field characteristic] $`p`,
+
+- the {bpref "lf.degree"}[degree] $`d`,
+
+- the {bpref "lf.family_base"}[base field] $`K`,
+
+- the {bpref "lf.ramification_index"}[ramification index] $`e`,
+
+- the {bpref "lf.residue_field_degree"}[residue field degree] $`f`.
+
+- the {bpref "lf.discriminant_exponent"}[discriminant exponent] $`c`,
+
+- the {bpref "lf.slopes"}[Artin slopes] $`[\tilde{s}_1,\dots,\tilde{s}_w]`,
+
+- the {bpref "lf.slopes"}[Swan slopes] $`[s_1,\dots,s_w]`,
+
+- the {bpref "lf.means"}[means] $`\langle m_1,\dots,m_w\rangle`,
+
+- the {bpref "lf.rams"}[rams] $`(r_1,\dots,r_w)`.
+
+The following data is associated to the family as a whole:
+
+- the {bpref "lf.family_field_count"}[field count] $`N`,
+
+- the {bpref "lf.family_ambiguity"}[ambiguity] $`C`,
+
+- the {bpref "lf.family_mass"}[mass] $`M`,
+
+- the {bpref "lf.family_mass"}[absolute mass] $`M_{\rm abs}`,
+
+Depends on: {uses "lf.degree"}[] {uses "lf.discriminant_exponent"}[] {uses "lf.family_ambiguity"}[] {uses "lf.family_base"}[] {uses "lf.family_field_count"}[] {uses "lf.family_mass"}[] {uses "lf.family_polynomial"}[] {uses "lf.means"}[] {uses "lf.ramification_index"}[] {uses "lf.rams"}[] {uses "lf.residue_field"}[] {uses "lf.residue_field_degree"}[] {uses "lf.slopes"}[]
 :::
 
 :::definition "lf.family_label"
@@ -413,6 +470,32 @@ corresponding to each isomorphism class of extensions in
 $`I/K`.
 
 Depends on: {uses "lf.herbrand_invariant"}[] {uses "lf.indices_of_inseparability"}[] {uses "lf.padic_field"}[] {uses "lf.ramification_index"}[] {uses "lf.residue_field"}[] {uses "lf.residue_field_degree"}[] {uses "lf.slopes"}[] {uses "lf.unramified_degree"}[]
+:::
+
+:::definition "lf.family_varying"
+*Data that varies within families.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.family_varying))
+
+The following invariants of field extensions may not be the same for all $`L/K`
+in a {bpref "lf.family_polynomial"}[$`p`-adic family] $`I/K`.  For each
+invariant we list the values that occur for extensions in the family.
+
+- the {bpref "nf.galois_group"}[Galois group] $`\operatorname{Gal}(L^{\rm gal}/K)`,
+
+- the {bpref "lf.hidden_slopes"}[hidden Artin slopes]
+
+$`[\tilde{s}_{w+1},\dots,\tilde{s}_{w+u}]` of $`L/K`,
+
+- the {bpref "lf.indices_of_inseparability"}[indices of inseparability]
+
+$`[i_0,i_1,\dots,i_w]` of $`L/K`,
+
+- the {bpref "lf.associated_inertia"}[associated inertia]
+
+$`[I_1,\dots,I_v]` of $`L/K`,
+
+- the {bpref "lf.jump_set"}[jump set] $`[j_0,j_1,\dots,j_w]` of $`L`.
+
+Depends on: {uses "lf.associated_inertia"}[] {uses "lf.family_polynomial"}[] {uses "lf.hidden_slopes"}[] {uses "lf.indices_of_inseparability"}[] {uses "lf.jump_set"}[] {uses "nf.galois_group"}[]
 :::
 
 :::definition "lf.field.label"
@@ -732,11 +815,11 @@ Depends on: {uses "lf.maximal_ideal"}[] {uses "lf.padic_field"}[] {uses "lf.resi
 
 When searching by inertia subgroups, it can be specified as an abstract group by either a {bpref "group.small_group_label"}[GAP id] or a group name from {bpref "gg.label"}[transitive group label].
 
-It can also be specified by as a transitive group label.  In this case, it will only match $`p`-adic fields where the {bpref "lf.defining_polynomial"}[defining polynomial] is {bpref "ring.irreducible"}[irreducible] over the unramified extension of $`\Q_p` of degree {bpref "lf.unramified_degree"}[unramified degree] and the {bpref "gg.galois_group"}[Galois group] of the polynomial over that extension matches the specified transitive group.
+It can also be specified by as a {bpref "nf.galois_group.name"}[transitive group label].  In this case, it will only match $`p`-adic fields where the {bpref "lf.defining_polynomial"}[defining polynomial] is {bpref "ring.irreducible"}[irreducible] over the unramified extension of $`\Q_p` of degree {bpref "lf.unramified_degree"}[unramified degree] and the {bpref "gg.galois_group"}[Galois group] of the polynomial over that extension matches the specified transitive group.
 
 Tau Ceti Review: [`ValuationSubring.inertiaSubgroup`](https://taucetiproject.org/review/#/d/ValuationSubring.inertiaSubgroup), [`Ideal.inertia`](https://taucetiproject.org/review/#/d/Ideal.inertia), [`Ideal.Quotient.stabilizerHom`](https://taucetiproject.org/review/#/d/Ideal.Quotient.stabilizerHom), [`Ideal.Quotient.map_ker_stabilizer_subtype`](https://taucetiproject.org/review/#/d/Ideal.Quotient.map_ker_stabilizer_subtype).
 
-Depends on: {uses "gg.galois_group"}[] {uses "gg.label"}[] {uses "group.small_group_label"}[] {uses "lf.defining_polynomial"}[] {uses "lf.inertia_group"}[] {uses "lf.unramified_degree"}[] {uses "ring.irreducible"}[]
+Depends on: {uses "gg.galois_group"}[] {uses "gg.label"}[] {uses "group.small_group_label"}[] {uses "lf.defining_polynomial"}[] {uses "lf.inertia_group"}[] {uses "lf.unramified_degree"}[] {uses "nf.galois_group.name"}[] {uses "ring.irreducible"}[]
 :::
 
 :::definition "lf.intermediate_fields" (lean := "IntermediateField")
@@ -1018,6 +1101,34 @@ of any $`L/K\in I/K`.  The slopes of the segments of $`P` are the
 {bpref "lf.rams"}[rams] of $`L/K` and $`I/K`.
 
 Depends on: {uses "lf.eisenstein_polynomial"}[] {uses "lf.newton_polygon"}[] {uses "lf.padic_field"}[] {uses "lf.ramification_index"}[] {uses "lf.rams"}[] {uses "lf.unramified_subfield"}[]
+:::
+
+:::definition "lf.ramification_polygon_display"
+*Ramification polygon diagram.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.ramification_polygon_display))
+
+The blue graph shows the {bpref "lf.ramification_polygon"}[ramification polygon].
+
+- The blue number to the right of each segment is its slope.
+
+- Coordinates are given for the black points at $`(-p^j, i_j)` where $`[i_0,...,i_{\nu}]` are the {bpref "lf.indices_of_inseparability"}[indices of inseparability]. These points include the vertices of the ramification polygon.  In some cases there are additional points on or above the polygon.
+
+- Each {bpref "lf.residual_polynomials"}[residual polynomial] $`A(z)` of
+
+$`L/K` is associated to a segment $`S` of the ramification polygon;
+if $`S` has positive slope then the coefficients of the polynomial come from the
+black points which lie on the segment.  More precisely, assume that $`S` has right
+endpoint $`(-p^k,i_k)`, left endpoint $`(-p^l,i_l)`, and slope $`h/m>0`.  Let
+$`k\le j\le l`.  If there is a black point on $`S` with
+first coordinate $`-p^j` then the coefficient of $`x^{p^j}` in the additive
+polynomial $`x^{p^k}A(x^m)` is given by the label attached to this point.  Otherwise
+the coefficient of $`x^{p^j}` is 0.
+
+- Since successive segments of the ramification polygon share a vertex,
+
+the constant term of each residual polynomial is equal to the
+leading coefficient of the next.
+
+Depends on: {uses "lf.indices_of_inseparability"}[] {uses "lf.ramification_polygon"}[] {uses "lf.residual_polynomials"}[]
 :::
 
 :::definition "lf.rams"
@@ -1384,11 +1495,11 @@ Depends on: {uses "group.sylow_subgroup"}[] {uses "lf.inertia_group"}[] {uses "n
 
 {bpref "lf.wild_inertia_group"}[]
 
-When searching by wild inertia groups, it can be specified as an abstract group by a {bpref "group.small_group_label"}[GAP id], a group name from {bpref "gg.label"}[transitive group label], or a list of group labels.
+When searching by wild inertia groups, it can be specified as an abstract group by a {bpref "group.small_group_label"}[GAP id], a group name from {bpref "gg.label"}[transitive group label], or a {bpref "nf.galois_group.name"}[list of group labels].
 
 Tau Ceti Review: [`TauCeti.LocalFieldsRamification.lowerRamificationGroup`](https://taucetiproject.org/review/#/d/TauCeti.LocalFieldsRamification.lowerRamificationGroup), [`TauCeti.ramificationGroupOneSylow`](https://taucetiproject.org/review/#/d/TauCeti.ramificationGroupOneSylow), [`TauCeti.wildInertiaSubgroup`](https://taucetiproject.org/review/#/d/TauCeti.wildInertiaSubgroup).
 
-Depends on: {uses "gg.label"}[] {uses "group.small_group_label"}[] {uses "lf.wild_inertia_group"}[]
+Depends on: {uses "gg.label"}[] {uses "group.small_group_label"}[] {uses "lf.wild_inertia_group"}[] {uses "nf.galois_group.name"}[]
 :::
 
 :::definition "lf.wild_segments"

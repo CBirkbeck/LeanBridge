@@ -13,7 +13,7 @@ tag := "maass-forms"
 file := "Maass-forms"
 %%%
 
-This section lists the LMFDB definitions in the subcategory `mf.maass`. Each definition links back to its LMFDB knowl. `specialfunction.k_bessel` also belongs here, although its id puts it in another LMFDB category.
+This section lists the LMFDB definitions in the subcategory `mf.maass`. Each definition links back to its LMFDB knowl. `specialfunction.k_bessel` also belongs here, although its id puts it in another LMFDB category. It also lists the knowls about the LMFDB's data on this subject that have mathematical content, from the categories `portrait` and `rcs`.
 
 :::definition "mf.maass" (lean := "Matrix.GeneralLinearGroup.IsKFiniteMaassForm, Matrix.GeneralLinearGroup.IsAutomorphicForm, Matrix.GeneralLinearGroup.IsCasimirEigenfunction, Matrix.GeneralLinearGroup.IsCenterFinite, Matrix.GeneralLinearGroup.IsOrthogonalFinite, Matrix.GeneralLinearGroup.casimirOperator")
 *Maass forms on GL(n).* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass))
@@ -91,6 +91,23 @@ Remark:
 This convention is usually used in the context of Harmonic weak Maass forms.
 
 Depends on: {uses "mf.maass.mwf.laplacian"}[] {uses "mf.multipliersystem"}[] {uses "mf.slash_action"}[]
+:::
+
+:::definition "mf.maass.mwf.character" (lean := "ModularForm.etaMultiplier, ModularForm.coe_etaMultiplier, ModularForm.coe_etaMultiplier_of_cexp_eq, ModularForm.etaMultiplier_mul_cpow_denom, UpperHalfPlane.isMaassFormOfWeight_etaMaassForm, UpperHalfPlane.isMaassFormOfWeight_conj_etaMaassForm, UpperHalfPlane.IsMaassFormOfWeight, UpperHalfPlane.IsMaassFormWithCharacter")
+*Character of a Maass form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass.mwf.character))
+
+Maass forms of weight $`0`
+------------------
+
+The character column refers to the character under which the corresponding Maass form is invariant. The actual labels are explained in more details on the corresponding pages for Dirichlet characters.
+
+Maass forms of weight $`k`
+------------------
+
+The column character denotes the multiplier. For example "eta" means that
+the corresponding Maass form transform according to the canonical eta multiplier of weight $`k`:
+
+$`v(A) = v_{\eta}^{2k}:=\eta(Az)^{2k}/\eta(z)^{2k}`
 :::
 
 :::definition "mf.maass.mwf.coefficients" (lean := "UpperHalfPlane.maassCoefficients, UpperHalfPlane.maassLFunction, UpperHalfPlane.maassNormalisedNewform, UpperHalfPlane.IsMaassCuspNewform.hasMaassCosineExpansion, UpperHalfPlane.HasMaassCosineExpansion.maassCoefficients_eq, UpperHalfPlane.IsMaassCuspNewform.conj_maassCoefficients_normalisedNewform_of_even")
@@ -273,6 +290,94 @@ For other eigenvalues, we notate the index differently based on whether the eige
 Exceptional eigenvalues are conjectured to not exist. In practice, the latter indexing system is not necessary.
 
 Depends on: {uses "mf.maass.mwf.eigenvalue"}[] {uses "mf.maass.mwf.spectralparameter"}[] {uses "mf.maass.exceptional_eigenvalue"}[]
+:::
+
+:::definition "portrait.maass"
+*Pictures for Maass forms.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/portrait.maass))
+
+For each {bpref "mf.maass.mwf"}[Maass newform] $`f`, we use domain coloring to show the plot of $`f`. The form $`f` is approximated using the first $`50` coefficients across a $`200 \times 200` mesh.
+
+At each point $`z` in the unit disk $`\mathcal{D}`, we assign a color based on the value of $`f(\mu(z))`, where $`\mu` is the Möbius transform $`\mu: \mathcal{D} \longrightarrow \mathcal{H}` given by $`\mu(z) = \frac{1 - iz}{z - i}`. This transform preserves the apparent orientation of the imaginary axis in $`\mathcal{H}`: the point $`(0, -1)` in $`\mathcal{D}` corresponds to $`0` in $`\mathcal{H}`, the center of $`\mathcal{D}` corresponds to $`i` in $`\mathcal{H}`, and the point $`(0, 1)` in $`\mathcal{D}` corresponds to $`i\infty` in $`\mathcal{H}`.
+
+Writing $`f(\mu(z)) = re^{i \theta}`, the hue is determined by the angle $`\theta`. In addition, small changes in lightness/darkness represent logarithmically spaced contours: consecutive contours correspond to magnitudes $`r` that differ by a factor of $`2`. The relationship is implicit, but these Maass forms all vanish near the top of the disk.
+
+If the Maass form $`f` has squarefree {bpref "mf.maass.mwf.level"}[level], then $`f` takes only real values. In this case, the portrait will have only two colors, corresponding to positive and negative values.
+
+Maass form portraits are made in essentially the same way as {bpref "cmf.picture_description"}[classical modular form portraits], except they use a set of colors that looks better when the Maass form is real-valued. See  for more on the methods of visualization.
+
+Code that makes this type of portrait is available at [github.com/davidlowryduda/maass\_portraits](https://github.com/davidlowryduda/maass_portraits).
+
+Depends on: {uses "cmf.picture_description"}[] {uses "mf.maass.mwf"}[] {uses "mf.maass.mwf.level"}[]
+:::
+
+:::definition "rcs.cande.maass_rigor"
+*Completeness and extent of rigorous Maass form data.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/rcs.cande.maass_rigor))
+
+The database currently contains data for cuspidal {bpref "mf.maass.mwf"}[Maass newforms] on $`\Gamma_0(N)` of {bpref "mf.maass.mwf.weight"}[weight] 0 with trivial {bpref "mf.maass.mwf.character"}[character] and {bpref "mf.maass.mwf.eigenvalue"}[Laplace eigenvalue] $`\lambda = \frac14 + R^2` with {bpref "mf.maass.mwf.level"}[level] $`N` in the range $`1 \leq N \leq 105`, and where $`N` is squarefree.
+
+For each of these levels, the database contains consecutive Maass forms and is complete in the given ranges.
+
+Each database entry corresponds to exactly one Maass form. As each piece of data associated to each of these Maass forms is conjecturally transcendental, it's not possible to give an \*exact\* Maass form. Each database entry indicates error intervals that contain the associated data for exactly one Maass form.
+
+Depends on: {uses "mf.maass.mwf"}[] {uses "mf.maass.mwf.character"}[] {uses "mf.maass.mwf.eigenvalue"}[] {uses "mf.maass.mwf.level"}[] {uses "mf.maass.mwf.weight"}[]
+:::
+
+:::definition "rcs.rigor.maass"
+*Reliability of Maass forms data.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/rcs.rigor.maass))
+
+Maass form data, in the LMFDB and elsewhere, is inherently heuristic.  The data
+are decimal approximations to numbers which (in general) are conjectured to be
+transcendental and not expressable in terms of well-known constants,
+and only in a few special  cases have those approximations been
+\*proven\* to be accurate.  Nevertheless, there are reasons for believing that the
+available data is actually correct, which we now describe.
+
+An individual Maass form
+------------------------
+
+A Maass form $`f(z)` on a group $`G` is specified by a {bpref "mf.maass.mwf.spectralparameter"}[spectral parameter] $`R` and coefficients (Hecke eigenvalues) $`a_1=1`, $`a_2`, $`a_3`, ..., appearing in its
+{bpref "mf.maass.mwf.fourierexpansion"}[Fourier expansion].  The parameter $`R` and the coefficients $`a_n` are found by using the transformation properties of $`f(z)` under the group $`G` to form a system of equations.  In analogy to the secant method for finding a root of a polynomial, when the approximations are sufficiently close to the values for an actual Maass form, the successive approximations appear to converge rapidly.  One expects the difference in the successive approximations to give an indication of the number of correct digits in $`R` and in the coefficients, but this has not been proven.  In fact, only the data for the first few Maass forms on $`\SL(2,\Z)` have been proven to be correct.
+
+The decimal numbers listed for the spectral parameter $`R` and the coefficients $`a_n` are not necessarily correct to the precision shown; in general the spectral parameter and the first few coefficients $`a_n` are likely to be accurate up to an error in the last digit, but this is not guaranteed, and the accuracy of the $`a_n` decreases as $`n` increases even though the displayed precision does not.
+
+Ranges of Maass forms
+---------------------
+
+The database contains data for the Maass forms on a group with a range of eigenvalues.  For example, the Maass forms on $`\Gamma_0(5)` and trivial character, for $`0<R<10`.
+
+There are two implicit claims in the above sentence:  that each entry in the database corresponds to an actual Maass form (as discussed in the previous section), and that no eigenvalues are missing.  It is not possible to know for sure if there are any missing values.  The situation is analogous to finding roots of a polynomial using the secant method:  One can try various starting points, such as every point on a finely spaced grid, and hope to find all roots.  But unlike the situation for polynomials, there is no known method for determining the exact number of Maass eigenvalues in a given range.
+
+Depends on: {uses "mf.maass.mwf.fourierexpansion"}[] {uses "mf.maass.mwf.spectralparameter"}[]
+:::
+
+:::definition "rcs.rigor.maass_rigor"
+*Reliability of rigorous Maass forms data.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/rcs.rigor.maass_rigor))
+
+Maass form data, in the LMFDB and elsewhere, is inherently approximate.  The data
+are decimal approximations to numbers which (in general) are conjectured to be
+transcendental and not expressible in terms of well-known constants.
+
+In the LMFDB, each rigorous Maass form is \*proven\* to be an accurate approximation to a true Maass form. Further, rigorous Maass forms are \*proven\* to be consecutive, i.e. there are no "missing" Maass forms with eigenvalues between known rigorous Maass forms.
+
+Ranges of Maass forms
+---------------------
+
+The database contains data for the Maass forms on a group with a range of eigenvalues.  For example, the Maass forms on $`\Gamma_0(5)` and trivial character, for $`0<R<10`.
+
+There are two implicit claims in the above sentence:  that each entry in the database corresponds to an actual Maass form, and that no eigenvalues are missing. Each eigenvalue of a rigorous Maass forms in the LMFDB is first approximated using an explicit form of Selberg's trace formula, and later improved using a refined form of Hejhal's algorithm. Numerical difficulties with the trace formula forms one major obstruction to extending ranges of consecutive eigenvalues rigorously.
+
+An individual Maass form
+------------------------
+
+A Maass form $`f(z)` on a group $`G` is specified by a {bpref "mf.maass.mwf.spectralparameter"}[spectral parameter] $`R` and coefficients (Hecke eigenvalues) $`a_1=1`, $`a_2`, $`a_3`, ..., appearing in its
+{bpref "mf.maass.mwf.fourierexpansion"}[Fourier expansion].  The parameter $`R` and the coefficients $`a_n` are found by using the transformation properties of $`f(z)` under the group $`G` to form a system of equations.
+
+The decimal numbers listed for the spectral parameter $`R` and the coefficients $`a_n` are
+\*proven\* to be close to spectral parameter and coefficients of an \*actual\* Maass form. (Note that error intervals may be displayed on the website after truncation; be careful when considering less significant digits).
+
+In practice, it is much easier to \*heuristically\* refine a given Maass form using a \*heuristic\* form of Hejhal's algorithm.
+
+Depends on: {uses "mf.maass.mwf.fourierexpansion"}[] {uses "mf.maass.mwf.spectralparameter"}[]
 :::
 
 :::definition "specialfunction.k_bessel" (lean := "Complex.besselK, Complex.besselKIntegrand, Complex.integrableOn_besselKIntegrand, Complex.besselK_neg, Complex.conj_besselK_I_mul")
