@@ -155,7 +155,7 @@ Tau Ceti Review: [`Module.finrank`](https://taucetiproject.org/review/#/d/Module
 Depends on: {uses "lattice.definition"}[]
 :::
 
-:::definition "lattice.discriminant"
+:::definition "lattice.discriminant" (lean := "TauCeti.IntegralLattice.determinant, TauCeti.IntegralLattice.wittDiscriminant, TauCeti.IntegralLattice.halfDiscriminant, TauCeti.IntegralLattice.wittDiscriminant_orthogonalSum_hyperbolicPlane, TauCeti.IntegralLattice.nonempty_center_even_algEquiv_adjoinRoot, TauCeti.IntegralLattice.nonempty_center_algEquiv_adjoinRoot, TauCeti.IntegralLattice.etale_adjoinRoot_wittDiscriminant, TauCeti.IntegralLattice.twoAdicUnitDiscriminant_eq_iff")
 *Discriminant of an integral lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.discriminant))
 
 For an {bpref "lattice.definition"}[integral lattice] $`L`, the *discriminant* $`D` of $`L` is defined as the determinant of the {bpref "lattice.gram"}[Gram matrix] associated to any basis of $`L`.
@@ -173,6 +173,8 @@ There are several different conventions for the term "discriminant" in the liter
 - The *half discriminant* of $`L` is $`2^{-n}D` when $`n` is even and $`2^{-n-1}D` when $`n` is odd.  This gives better behavior upon reduction to characteristic $`2`.  See Voight's \*Quaternion Algebras\* and Milnor–Husemoller's \*Symmetric Bilinear Forms\*.
 
 - The *2-adic unit discriminant* of $`L` is the the quantity $`2^{-v_2(D)} D \pmod{8}`.  This is used in the $`2`-adic classification of quadratic spaces, and gives the $`2`-adic square class of the odd part of the discriminant.  It is defined in O'Meara's \*Introduction to Quadratic Forms\* and Earnest–Hsia's \*$`2`-adic Quadratic Forms\*.
+
+Tau Ceti Review: [`TauCeti.IntegralLattice.determinant`](https://taucetiproject.org/review/#/d/TauCeti.IntegralLattice.determinant).
 
 Depends on: {uses "lattice.definition"}[] {uses "lattice.dimension"}[] {uses "lattice.gram"}[] {uses "lattice.hyperbolic_plane"}[] {uses "lattice.postive_definite"}[] {uses "lattice.quadratic_form"}[]
 :::
@@ -249,7 +251,7 @@ Tau Ceti Review: [`TauCeti.IntegralLattice.evenSublattice`](https://taucetiproje
 Depends on: {uses "lattice.definition"}[] {uses "lattice.parity"}[]
 :::
 
-:::definition "lattice.extreme"
+:::definition "lattice.extreme" (lean := "ZLattice.IsExtreme, ZLattice.packingDensity, ZLattice.isExtreme_iff_isPerfect_and_isEutactic, ZLattice.IsExtreme.isPerfect, ZLattice.IsExtreme.isEutactic, ZLattice.IsPerfect.isExtreme, LinearMap.BilinForm.IsSimilarLattice.isExtreme_iff, ZLattice.isExtreme_hexagonalLattice")
 *Extreme lattice.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lattice.extreme))
 
 A lattice $`L` in $`\mathbb{R}^n` is called *extreme* if it is a local maximum of the {bpref "lattice.density"}[packing density] function in $`\mathbb{R}^n`. A theorem of Voronoi asserts that a lattice is extreme if and only if it is {bpref "lattice.perfect"}[perfect] and {bpref "lattice.eutactic"}[eutactic].

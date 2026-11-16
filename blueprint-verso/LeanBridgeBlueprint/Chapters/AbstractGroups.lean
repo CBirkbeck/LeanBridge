@@ -866,7 +866,7 @@ Tau Ceti Review: [`MulAut.conj`](https://taucetiproject.org/review/#/d/MulAut.co
 Depends on: {uses "group"}[] {uses "group.automorphism"}[] {uses "group.center"}[] {uses "group.subgroup"}[]
 :::
 
-:::definition "group.isoclinism"
+:::definition "group.isoclinism" (lean := "Group.Isoclinism, Group.centralCommutatorMap, Group.IsIsoclinic, Group.exists_finite_isStemGroup_isIsoclinic, Group.not_forall_nat_card_eq_of_isIsoclinic, Group.IsIsoclinic.nilpotencyClass_eq, Group.IsIsoclinic.derivedLength_eq, Group.IsIsoclinic.derivedLength_eq_of_isPerfect_iff")
 *Isoclinism.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.isoclinism))
 
 For a group $`G` and its {bpref "group.commutator_subgroup"}[commutator] $`G'`, write $`\omega_G` for the map $`G \times G \to G'` defined by $`\omega_G(x, y) = x^{-1}y^{-1}xy`, and note that $`\omega_G` descends to a map on $`G / Z(G) \times G / Z(G)`.
@@ -2174,7 +2174,7 @@ is a *stem extension* if $`K` is contained in both the {bpref "group.center"}[ce
 Depends on: {uses "group.center"}[] {uses "group.commutator_subgroup"}[] {uses "group.isoclinism"}[] {uses "group.perfect"}[] {uses "group.schur_multiplier"}[]
 :::
 
-:::definition "group.stem_group"
+:::definition "group.stem_group" (lean := "Group.IsStemGroup, Group.exists_isStemGroup_isIsoclinic, Group.exists_finite_isStemGroup_isIsoclinic, Group.not_forall_nonempty_mulEquiv_of_isStemGroup, Group.isIsoclinic_dihedralGroup_quaternionGroup, Group.IsStemGroup.nat_card_dvd, Group.IsStemGroup.finite_of_isIsoclinic, Group.IsStemGroup.lift_mk_dvd")
 *Stem group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.stem_group))
 
 A *stem group* is a {bpref "group"}[group] $`G` whose {bpref "group.center"}[center] is contained in its {bpref "group.commutator_subgroup"}[commutator subgroup].  Any group is {bpref "group.isoclinism"}[isoclinic] to a stem group (not necessarily unique), and the order of a stem group divides the order of every other group in its isoclinism class.

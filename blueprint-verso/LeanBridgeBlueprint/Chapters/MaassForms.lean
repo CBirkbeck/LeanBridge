@@ -57,7 +57,7 @@ For squarefree level, it is conjectured that there is only one Maass form per ei
 Depends on: {uses "character.dirichlet"}[] {uses "mf.maass.mwf"}[] {uses "mf.maass.mwf.eigenvalue"}[] {uses "mf.maass.mwf.level"}[] {uses "mf.maass.mwf.weight"}[] {uses "mf.maass.spectral_index"}[]
 :::
 
-:::definition "mf.maass.mwf"
+:::definition "mf.maass.mwf" (lean := "UpperHalfPlane.IsMaassForm, UpperHalfPlane.IsMaassFormOfWeight, ModularForm.IsMultiplierSystemOfWeight, ModularForm.etaMultiplier, ModularForm.coe_etaMultiplier, ModularForm.isMultiplierSystemOfWeight_iff_exists_etaMultiplier, ModularForm.ncard_setOf_isMultiplierSystemOfWeight, UpperHalfPlane.maassLaplacian_im_rpow_mul_eq")
 *Maass form on GL2(R) with trivial character.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass.mwf))
 
 Maass forms
@@ -238,7 +238,7 @@ $$`f\in C^\infty(\mathcal{H}),\quad f\in L^2(\Gamma\backslash{\mathcal H}),\quad
 Depends on: {uses "mf.maass.mwf.laplacian"}[] {uses "mf.maass.mwf.weight"}[]
 :::
 
-:::definition "mf.maass.picard"
+:::definition "mf.maass.picard" (lean := "HyperbolicThreeSpace.PicardGroup, HyperbolicThreeSpace.IsPicardMaassForm, HyperbolicThreeSpace.picardToPSL_injective, HyperbolicThreeSpace.pslEquivOrientationPreservingIsom, HyperbolicThreeSpace.toQuaternion_smul, HyperbolicThreeSpace.discreteTopology_picardSubgroup, HyperbolicThreeSpace.covolume_picardSubgroup_lt_top, HyperbolicThreeSpace.not_compactSpace_quotientGroup_picardSubgroup")
 *Maass forms on PSL(2,Z\[i\]).* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.maass.picard))
 
 A *Maass form* is a smooth, square-integrable, automorphic eigenfunction of the Laplacian,

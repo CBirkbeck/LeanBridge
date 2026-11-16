@@ -2011,6 +2011,16 @@
     "MulAut.conj": "Mathlib.Algebra.Group.End",
     "MulAut.conj_apply": "Mathlib.Algebra.Group.End"
   },
+  "group.isoclinism": {
+    "Group.Isoclinism": "LeanBridge.ForMathlib.GroupTheory.Isoclinism",
+    "Group.centralCommutatorMap": "LeanBridge.ForMathlib.GroupTheory.Isoclinism",
+    "Group.IsIsoclinic": "LeanBridge.ForMathlib.GroupTheory.Isoclinism",
+    "Group.exists_finite_isStemGroup_isIsoclinic": "LeanBridge.ForMathlib.GroupTheory.Isoclinism.StemGroup",
+    "Group.not_forall_nat_card_eq_of_isIsoclinic": "LeanBridge.ForMathlib.GroupTheory.IsoclinismInvariants",
+    "Group.IsIsoclinic.nilpotencyClass_eq": "LeanBridge.ForMathlib.GroupTheory.IsoclinismInvariants",
+    "Group.IsIsoclinic.derivedLength_eq": "LeanBridge.ForMathlib.GroupTheory.IsoclinismInvariants",
+    "Group.IsIsoclinic.derivedLength_eq_of_isPerfect_iff": "LeanBridge.ForMathlib.GroupTheory.Isoclinism.DerivedLength"
+  },
   "group.isomorphism": {
     "MulEquiv": "Mathlib.Algebra.Group.Equiv.Defs",
     "MulEquiv.ofBijective": "Mathlib.Algebra.Group.Equiv.Defs"
@@ -2511,6 +2521,16 @@
     "CliffordAlgebra.spinorNorm_eq_squareClassHom_prod": "LeanBridge.ForMathlib.LinearAlgebra.QuadraticForm.SpinorNormReflection",
     "TauCeti.subsingleton_squareClassGroup_of_ringChar_eq_two": "LeanBridge.ForMathlib.LinearAlgebra.QuadraticForm.SpinorNormReflection"
   },
+  "group.stem_group": {
+    "Group.IsStemGroup": "LeanBridge.ForMathlib.GroupTheory.StemExtension",
+    "Group.exists_isStemGroup_isIsoclinic": "LeanBridge.ForMathlib.GroupTheory.Isoclinism.StemGroup",
+    "Group.exists_finite_isStemGroup_isIsoclinic": "LeanBridge.ForMathlib.GroupTheory.Isoclinism.StemGroup",
+    "Group.not_forall_nonempty_mulEquiv_of_isStemGroup": "LeanBridge.ForMathlib.GroupTheory.Isoclinism.DihedralQuaternion",
+    "Group.isIsoclinic_dihedralGroup_quaternionGroup": "LeanBridge.ForMathlib.GroupTheory.Isoclinism.DihedralQuaternion",
+    "Group.IsStemGroup.nat_card_dvd": "LeanBridge.ForMathlib.GroupTheory.Isoclinism.StemGroup",
+    "Group.IsStemGroup.finite_of_isIsoclinic": "LeanBridge.ForMathlib.GroupTheory.Isoclinism.StemGroup",
+    "Group.IsStemGroup.lift_mk_dvd": "LeanBridge.ForMathlib.GroupTheory.Isoclinism.StemGroup"
+  },
   "group.subgroup": {
     "Subgroup": "Mathlib.Algebra.Group.Subgroup.Defs",
     "Set.IsGroupForInducedMul": "LeanBridge.ForMathlib.Algebra.Group.Subgroup.InducedOperation",
@@ -2848,6 +2868,16 @@
     "Module.finrank": "Mathlib.LinearAlgebra.Dimension.Finrank",
     "TauCeti.IntegralLattice.finrank_carrier": "TauCeti.LinearAlgebra.IntegralLattice.Basic"
   },
+  "lattice.discriminant": {
+    "TauCeti.IntegralLattice.determinant": "TauCeti.LinearAlgebra.IntegralLattice.Gram",
+    "TauCeti.IntegralLattice.wittDiscriminant": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.DiscriminantConventions",
+    "TauCeti.IntegralLattice.halfDiscriminant": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.DiscriminantConventions",
+    "TauCeti.IntegralLattice.wittDiscriminant_orthogonalSum_hyperbolicPlane": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.DiscriminantInvariance",
+    "TauCeti.IntegralLattice.nonempty_center_even_algEquiv_adjoinRoot": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.WittDiscriminantClifford",
+    "TauCeti.IntegralLattice.nonempty_center_algEquiv_adjoinRoot": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.WittDiscriminantClifford",
+    "TauCeti.IntegralLattice.etale_adjoinRoot_wittDiscriminant": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.WittDiscriminantClifford",
+    "TauCeti.IntegralLattice.twoAdicUnitDiscriminant_eq_iff": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.DiscriminantInvariance"
+  },
   "lattice.dual": {
     "TauCeti.IntegralLattice.dualCarrier": "TauCeti.LinearAlgebra.IntegralLattice.Dual.Basic",
     "TauCeti.IntegralLattice.rescaledDual": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.Dual",
@@ -2867,6 +2897,16 @@
     "TauCeti.IntegralLattice.isEven_iff_evenSublattice_eq": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.EvenSublattice",
     "TauCeti.IntegralLattice.isEven_iff_evenSubmodule_eq_top": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.EvenSublattice",
     "TauCeti.IntegralLattice.natCard_quotient_evenSubmodule_le_two": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.EvenSublattice"
+  },
+  "lattice.extreme": {
+    "ZLattice.IsExtreme": "LeanBridge.ForMathlib.Algebra.Module.ZLattice.Extreme",
+    "ZLattice.packingDensity": "LeanBridge.ForMathlib.Algebra.Module.ZLattice.Extreme",
+    "ZLattice.isExtreme_iff_isPerfect_and_isEutactic": "LeanBridge.ForMathlib.Algebra.Module.ZLattice.Voronoi",
+    "ZLattice.IsExtreme.isPerfect": "LeanBridge.ForMathlib.Algebra.Module.ZLattice.Voronoi",
+    "ZLattice.IsExtreme.isEutactic": "LeanBridge.ForMathlib.Algebra.Module.ZLattice.Voronoi",
+    "ZLattice.IsPerfect.isExtreme": "LeanBridge.ForMathlib.Algebra.Module.ZLattice.Voronoi",
+    "LinearMap.BilinForm.IsSimilarLattice.isExtreme_iff": "LeanBridge.ForMathlib.Algebra.Module.ZLattice.Voronoi",
+    "ZLattice.isExtreme_hexagonalLattice": "LeanBridge.ForMathlib.Algebra.Module.ZLattice.ExtremeHexagonal"
   },
   "lattice.festi_veniani_index": {
     "TauCeti.IntegralLattice.discriminantFormIndex": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.FestiVenianiForm",
@@ -3673,6 +3713,16 @@
     "ModularForm.thetaSeries_eq_eta_pow_five_div": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ThetaProduct",
     "ModularForm.thetaSeries_eq_eta_sq_div": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.ThetaProduct"
   },
+  "mf.hilbert": {
+    "HilbertModularForm": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.Basic",
+    "HilbertModularForm.automorphyFactor": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.Basic",
+    "HilbertModularForm.IsCuspForm": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.Basic",
+    "HilbertModularForm.VanishesAtCusps": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.Basic",
+    "HilbertModularGroup.gammaZero": "LeanBridge.ForMathlib.AlgebraicGeometry.HilbertModularSurface.Level",
+    "HilbertModularGroup.mem_gammaZero_glPlus_iff": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.BoundedAtCusps",
+    "HilbertModularForm.mem_space_iff": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.BoundedAtCusps",
+    "HilbertModularForm.ofSmulEq": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.BoundedAtCusps"
+  },
   "mf.hilbert.hecke_orbit": {
     "HilbertModularForm.heckeIdealOrbit": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.HeckeIdeal",
     "HilbertModularForm.heckeIdealOrbit_eq_span": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.HeckeIdeal",
@@ -3710,6 +3760,16 @@
     "UpperHalfPlane.zero_le_of_mem_maassSpace": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.KernelPair",
     "UpperHalfPlane.re_eq_zero_or_im_eq_zero_of_mem_maassSpace": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.SpectralParameterReal",
     "UpperHalfPlane.SelbergEigenvalueConjecture": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane"
+  },
+  "mf.maass.mwf": {
+    "UpperHalfPlane.IsMaassForm": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane",
+    "UpperHalfPlane.IsMaassFormOfWeight": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.Weight",
+    "ModularForm.IsMultiplierSystemOfWeight": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.RealWeight",
+    "ModularForm.etaMultiplier": "LeanBridge.ForMathlib.NumberTheory.ModularForms.EtaMultiplier",
+    "ModularForm.coe_etaMultiplier": "LeanBridge.ForMathlib.NumberTheory.ModularForms.EtaMultiplier",
+    "ModularForm.isMultiplierSystemOfWeight_iff_exists_etaMultiplier": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.RealWeightLevelOne",
+    "ModularForm.ncard_setOf_isMultiplierSystemOfWeight": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.RealWeightLevelOne",
+    "UpperHalfPlane.maassLaplacian_im_rpow_mul_eq": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.HolomorphicSlashConvention"
   },
   "mf.maass.mwf.character": {
     "ModularForm.etaMultiplier": "LeanBridge.ForMathlib.NumberTheory.ModularForms.EtaMultiplier",
@@ -3759,6 +3819,16 @@
   "mf.maass.mwf.weight0": {
     "UpperHalfPlane.IsMaassForm": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane",
     "UpperHalfPlane.hyperbolicLaplacian": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.UpperHalfPlane"
+  },
+  "mf.maass.picard": {
+    "HyperbolicThreeSpace.PicardGroup": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.MaassPicard",
+    "HyperbolicThreeSpace.IsPicardMaassForm": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.MaassPicard",
+    "HyperbolicThreeSpace.picardToPSL_injective": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.PicardGroupKleinian",
+    "HyperbolicThreeSpace.pslEquivOrientationPreservingIsom": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.OrientationPreservingIsometry",
+    "HyperbolicThreeSpace.toQuaternion_smul": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.MoebiusIsometry",
+    "HyperbolicThreeSpace.discreteTopology_picardSubgroup": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.PicardGroupKleinian",
+    "HyperbolicThreeSpace.covolume_picardSubgroup_lt_top": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.PicardGroupKleinian",
+    "HyperbolicThreeSpace.not_compactSpace_quotientGroup_picardSubgroup": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.PicardGroupKleinian"
   },
   "mf.maass.picard.eigenvalue": {
     "HyperbolicThreeSpace.picardTrueEigenvalue": "LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Bianchi.MaassPicardSpectral",

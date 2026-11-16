@@ -15,7 +15,7 @@ file := "Hilbert-modular-forms"
 
 This section lists the LMFDB definitions in the subcategory `mf.hilbert`. Each definition links back to its LMFDB knowl.
 
-:::definition "mf.hilbert"
+:::definition "mf.hilbert" (lean := "HilbertModularForm, HilbertModularForm.automorphyFactor, HilbertModularForm.IsCuspForm, HilbertModularForm.VanishesAtCusps, HilbertModularGroup.gammaZero, HilbertModularGroup.mem_gammaZero_glPlus_iff, HilbertModularForm.mem_space_iff, HilbertModularForm.ofSmulEq")
 *Hilbert modular form.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/mf.hilbert))
 
 Let $`F` be a {bpref "nf.totally_real"}[totally real] {bpref "nf"}[number field] $`F` of {bpref "nf.degree"}[degree] $`n>1`.  Let $`v_1,\ldots,v_n \colon F \hookrightarrow \R` be the real embeddings of $`F`, and for $`a \in F` abbreviate $`a_i \colonequals v_i(a)` and extend this elementwise to matrices.  Write $`\alpha \in F_{>0}^\times` if $`\alpha` is {bpref "nf.totally_positive"}[totally positive] and $`\Z_{F,>0}^\times \colonequals \Z_F^\times \cap F_{>0}^\times`.
