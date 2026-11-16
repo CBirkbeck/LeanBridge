@@ -53,10 +53,10 @@ lemma isIsoclinic_of_isMulCommutative [IsMulCommutative G] [IsMulCommutative H] 
   ⟨⟨.ofBijective 1 bijective_one_of_subsingleton, .ofBijective 1 bijective_one_of_subsingleton,
     fun _ _ ↦ Subsingleton.elim _ _⟩⟩
 
-/-- **Order is not an isoclinism invariant** (LMFDB `group.isoclinism`): the trivial group and `C₂`
-are isoclinic, both being abelian. -/
-lemma not_forall_nat_card_eq_of_isIsoclinic :
-    ¬∀ (G H : Type) [Group G] [Group H], IsIsoclinic G H → Nat.card G = Nat.card H := fun h ↦
+/-- **Order is not an isoclinism invariant** (LMFDB `group.isoclinism`), even among finite groups:
+the trivial group and `C₂` are isoclinic, both being abelian. -/
+lemma not_forall_nat_card_eq_of_isIsoclinic : ¬∀ (G H : Type) [Group G] [Group H] [Finite G]
+    [Finite H], IsIsoclinic G H → Nat.card G = Nat.card H := fun h ↦
   absurd (h Unit (Multiplicative (ZMod 2)) (isIsoclinic_of_isMulCommutative _ _)) (by simp)
 
 lemma map_subtype_derivedSeries_commutator (n : ℕ) :

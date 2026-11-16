@@ -9,7 +9,8 @@ The packing density of a lattice `L` of `ℝⁿ` is the proportion of space fill
 radius `λ₁(L) / 2` centred at its points, where `λ₁(L)` is the length of a shortest nonzero vector:
 the volume of such a ball divided by the covolume of `L`. A lattice is extreme if its packing
 density is a local maximum among the lattices `g L`, `g ∈ GL_n(ℝ)` near the identity. Voronoi's
-theorem, that a lattice is extreme exactly when it is perfect and eutactic, is not formalised.
+theorem, that a lattice is extreme exactly when it is perfect and eutactic, is proved in a later
+file (`ZLattice.isExtreme_iff_isPerfect_and_isEutactic`).
 
 ## Main definitions
 
@@ -41,8 +42,8 @@ local maximum of the packing density: for some `ε > 0`, every lattice `g L`, wh
 invertible linear map of `ℝⁿ` at operator-norm distance less than `ε` from the identity, has packing
 density at most that of `L`. Every lattice near `L` is of this form, so this is the local maximality
 of the density function on the space of lattices. Voronoi's theorem, that a lattice is extreme
-exactly when it is perfect (`ZLattice.IsPerfect`) and eutactic (`ZLattice.IsEutactic`), is not
-proved here. -/
+exactly when it is perfect (`ZLattice.IsPerfect`) and eutactic (`ZLattice.IsEutactic`), is
+`ZLattice.isExtreme_iff_isPerfect_and_isEutactic`. -/
 def IsExtreme : Prop :=
   ∃ ε > 0, ∀ g : EuclideanSpace ℝ ι ≃L[ℝ] EuclideanSpace ℝ ι,
     ‖(g : EuclideanSpace ℝ ι →L[ℝ] EuclideanSpace ℝ ι) - .id ℝ _‖ < ε →

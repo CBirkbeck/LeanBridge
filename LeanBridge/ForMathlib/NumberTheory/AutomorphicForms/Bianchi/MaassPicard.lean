@@ -31,11 +31,12 @@ abbrev PicardGroup : Type :=
 `(Δ + λ) f = 0` of the hyperbolic Laplacian.
 
 Square-integrability on `Γ \ ℋ₃` is stated as the integrability of `|f|²` on a fundamental domain
-of `Γ` for the hyperbolic volume `dx₁ dx₂ dy / y³`. Fundamental domains exist, such as Picard's
-`{|x₁| ≤ 1/2, 0 ≤ x₂ ≤ 1/2, |x|² + y² ≥ 1}`, since `Γ` is discrete, and the integral of the
-`Γ`-invariant function `|f|²` does not depend on the choice, since the hyperbolic volume is
-invariant under `PSL(2, ℂ)`; neither fact, nor the action axioms for the action of `PSL(2, ℂ)` by
-the LMFDB's formula, is proved here. -/
+of `Γ` for the hyperbolic volume `dx₁ dx₂ dy / y³`. Fundamental domains exist, since `Γ` is
+discrete (`exists_isFundamentalDomain_picardGroup`; the classical one is Picard's
+`{|x₁| ≤ 1/2, 0 ≤ x₂ ≤ 1/2, |x|² + y² ≥ 1}`), and the integrability of the `Γ`-invariant function
+`|f|²` does not depend on the choice, since the hyperbolic volume is invariant under `PSL(2, ℂ)`
+(`integrableOn_iff_of_isFundamentalDomain_picardGroup`); both are proved in
+`Bianchi/PicardGroupKleinian.lean`. -/
 def IsPicardMaassForm (f : ℂ × ℝ → ℂ) (eigenvalue : ℂ) : Prop :=
   ContDiffOn ℝ ∞ f {p | 0 < p.2} ∧
     (∃ D : Set HyperbolicThreeSpace, IsFundamentalDomain PicardGroup D hyperbolicVolume ∧

@@ -76,10 +76,11 @@ variable (φ a) in
 the sum converging unconditionally. For the component `f_c` of a Hilbert modular form, `𝔟 = 𝔟_c`:
 the translations of `Γ₀(𝔑)_𝔟` are by `𝔟⁻¹`, and `(𝔟⁻¹)^∨ = 𝔟𝔡⁻¹`. The knowl writes the cusp as
 `𝔞 = 𝔟⁻¹` and the index as `u ∈ (𝔞𝔡)⁻¹`; it also sums over the totally positive `u` only, which
-for a Hilbert modular form in degree `> 1` is a theorem (`HilbertModularForm.KoecherPrinciple`), not
+for a Hilbert modular form in degree `> 1` is a theorem (`HilbertModularForm.koecherPrinciple`), not
 part of the definition. The coefficients are unique when `F` is totally real
-(`HilbertModularForm.HasHilbertFourierExpansion.unique`); the existence of the expansion for a
-Hilbert modular form is a theorem which is not proved here. -/
+(`HilbertModularForm.HasHilbertFourierExpansion.unique`), and every component of a Hilbert modular
+form over a totally real field has an expansion
+(`HilbertModularForm.hasHilbertFourierExpansion_toFun`, in `Hilbert/KoecherPrinciple.lean`). -/
 def HasHilbertFourierExpansion : Prop :=
   ∀ z, HasSum (fun ν ↦ a ν * fourierExp (ν : F) z) (φ z)
 
@@ -207,8 +208,8 @@ variable (F) in
 /-- The **Koecher principle** for Hilbert modular forms, as a statement: if `F` is totally real of
 degree `> 1`, then every Fourier coefficient `a(ν) ≠ 0` of a component `f_c` of a Hilbert modular
 form (LMFDB `mf.hilbert`) is indexed by `ν = 0` or a totally positive `ν`; this is why the knowl's
-expansion (LMFDB `mf.hilbert.q_expansion`) runs over the totally positive `u` (and `0`). It is a
-theorem, which is not proved here. -/
+expansion (LMFDB `mf.hilbert.q_expansion`) runs over the totally positive `u` (and `0`). It is
+proved in `Hilbert/KoecherPrinciple.lean` (`HilbertModularForm.koecherPrinciple`). -/
 def KoecherPrinciple : Prop :=
   IsTotallyReal F → 1 < Module.finrank ℚ F → ∀ (𝔑 : Ideal (𝓞 F))
     (k : {w : InfinitePlace F // w.IsReal} → ℤ)

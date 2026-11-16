@@ -214,7 +214,8 @@ component `c = [𝔡𝔪⁻¹]` at a totally positive `ν` with `(ν) 𝔟_c⁻�
 `𝔞 = 𝔟_c⁻¹` and `u = ν`. In parallel weight and for `F` totally real, it does not depend on the
 choice of `ν` (`HilbertModularForm.idealCoeff_eq`); in non-parallel weight `a_c(εν)` differs from
 `a_c(ν)` by `∏_w w(ε)^{k_w/2}`, so the LMFDB's `a_𝔪` needs a choice there. It is the junk value `0`
-if `f_c` has no Fourier expansion. -/
+if `f_c` has no Fourier expansion, which does not happen for `F` totally real
+(`HilbertModularForm.hasHilbertFourierExpansion_toFun`). -/
 noncomputable def idealCoeff (𝔪 : (Ideal (𝓞 F))⁰) : ℂ :=
   fourierCoeff (𝔟 (idealComponent 𝔪)) (f.toFun (idealComponent 𝔪))
     ⟨(exists_isIdealIndex 𝔟 𝔪 h𝔟).choose,

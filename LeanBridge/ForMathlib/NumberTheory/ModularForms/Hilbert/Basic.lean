@@ -20,10 +20,10 @@ the narrow class group, with `f_𝔟(γ z)` equal to the automorphy factor times
 `γ ∈ Γ₀(𝔑)_𝔟`; it is a cusp form if each `f_𝔟` vanishes at every cusp.
 
 Holomorphy at the cusps is imposed as boundedness of every slash `f ∣ α`, `α ∈ SL₂(F)`, when all
-the imaginary parts tend to infinity: for `n > 1` it is automatic (Koecher principle), as the LMFDB
-assumes, and for `n = 1` it is needed, as otherwise unbounded functions such as `exp ∘ j` would be
-modular forms. Vanishing
-at the cusps is formalised as: for every `α ∈ SL₂(F)`, the slash `f ∣ α` tends to `0` when all the
+the imaginary parts tend to infinity: for `n > 1` it is automatic (Koecher principle,
+`HilbertModularForm.isBoundedAtCusps_of_mem_slashInvariants`), as the LMFDB assumes, and for `n = 1`
+it is needed, as otherwise unbounded functions such as `exp ∘ j` would be modular forms. Vanishing at
+the cusps is formalised as: for every `α ∈ SL₂(F)`, the slash `f ∣ α` tends to `0` when all the
 imaginary parts tend to infinity, which says that the constant term of the Fourier expansion of `f`
 at the cusp `α ∞` vanishes; every cusp is of this form.
 
