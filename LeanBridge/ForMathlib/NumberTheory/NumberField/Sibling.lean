@@ -61,6 +61,12 @@ variable {F A B}
 lemma IsSibling.symm (h : IsSibling F A B) : IsSibling F B A :=
   ⟨⟨fun e ↦ h.1.false e.symm⟩, h.2.map AlgEquiv.symm⟩
 
+lemma galoisClosure_eq_of_algEquiv (e : A ≃ₐ[F] B) : galoisClosure F A = galoisClosure F B := by
+  refine congrArg (IntermediateField.adjoin F) (Set.ext fun x ↦ ?_)
+  simp only [Set.mem_iUnion]
+  exact ⟨fun ⟨f, y, hy⟩ ↦ ⟨f.comp e.symm.toAlgHom, e y, by simpa using hy⟩,
+    fun ⟨f, y, hy⟩ ↦ ⟨f.comp e.toAlgHom, e.symm y, by simpa using hy⟩⟩
+
 /-- The Galois closure of a field is its normal closure in the algebraic closure of `F`. -/
 lemma galoisClosure_eq_normalClosure :
     galoisClosure F K = IntermediateField.normalClosure F K (AlgebraicClosure F) := by

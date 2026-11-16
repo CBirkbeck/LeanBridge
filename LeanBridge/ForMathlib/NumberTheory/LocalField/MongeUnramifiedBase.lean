@@ -1,4 +1,5 @@
 import LeanBridge.ForMathlib.NumberTheory.LocalField.MongeReductionLoop
+import LeanBridge.ForMathlib.NumberTheory.LocalField.RamificationPolygonHull
 import TauCeti.NumberTheory.LocalField.Herbrand.Unramified
 
 /-!
@@ -144,6 +145,15 @@ lemma HasSameRams.swanSlope_eq (h : I.HasSameRams J) (k : ℕ) : I.swanSlope k =
 lemma HasSameRams.mean_eq (h : I.HasSameRams J) (k : ℕ) : I.mean k = J.mean k := by
   rcases h with ⟨rfl, -, hε, hram⟩
   simp only [mean, hε, hram]
+
+lemma HasSameRams.ramificationPolygon_eq (h : I.HasSameRams J) :
+    I.ramificationPolygon = J.ramificationPolygon := by
+  rcases h with ⟨rfl, hw, hε, hram⟩
+  rcases I with ⟨w, ram, ε⟩
+  rcases J with ⟨w', ram', ε'⟩
+  dsimp only at hw hε hram
+  subst hw hε hram
+  rfl
 
 lemma HasSameRams.isRamificationPolygon {R S : Type*} [CommRing R] [CommRing S] [IsDomain S]
     [IsDiscreteValuationRing S] [Algebra R S] {g : R[X]} {π : S} (h : I.HasSameRams J)

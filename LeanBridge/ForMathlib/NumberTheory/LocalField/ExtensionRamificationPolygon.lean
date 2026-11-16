@@ -143,16 +143,7 @@ lemma setOf_mem_segmentSlopes_ramificationPolygonOf_minpoly_ne_zero (hπ : Irred
 
 namespace HerbrandInvariant
 
-variable {p p' : ℕ} {I : HerbrandInvariant p} {J : HerbrandInvariant p'}
-
-lemma HasSameRams.ramificationPolygon_eq (h : I.HasSameRams J) :
-    I.ramificationPolygon = J.ramificationPolygon := by
-  rcases h with ⟨rfl, hw, hε, hram⟩
-  rcases I with ⟨w, ram, ε⟩
-  rcases J with ⟨w', ram', ε'⟩
-  dsimp only at hw hε hram
-  subst hw hε hram
-  rfl
+variable {p : ℕ} {I : HerbrandInvariant p}
 
 variable {E} in
 /-- **The ramification polygon of the extensions in a family** (LMFDB `lf.ramification_polygon`):

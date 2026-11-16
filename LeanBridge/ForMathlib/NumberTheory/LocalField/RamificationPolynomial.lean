@@ -43,7 +43,6 @@ Lemma 1), the ramification polygon of `g` at `π` is that polygonal line.
   `IsNonarchimedeanLocalField.ramificationPolynomial_eq_X_pow_add_sum` (LMFDB
   `lf.ramification_polygon`): `ρ(x) = x ^ n + ∑_{i < n} ρ_i x ^ i`.
 * `IsNonarchimedeanLocalField.coeff_zero_ramificationPolynomial`: `ρ_0 = 0` when `φ(α) = 0`.
-* `IsNonarchimedeanLocalField.addValuation_mul`: the normalised valuation is additive.
 * `IsNonarchimedeanLocalField.mem_image_reflectVertical_heightPoints_coeffHeight`: the points of
   the ramification polygon are the `(-i, v_L(ρ_i))` with `ρ_i ≠ 0`.
 * `IsNonarchimedeanLocalField.ramificationPolygonOf_eq_image_reflectVertical` (LMFDB
@@ -130,22 +129,7 @@ lemma map_mongeShift_zero (hg : g.Monic) (hπ : π ≠ 0) :
     add_comm]
   rfl
 
-variable [TopologicalSpace L] [IsNonarchimedeanLocalField L] {x y : L} {v : ℝ}
-
-variable (L) in
-lemma addValuation_zero : addValuation L 0 = ⊤ :=
-  dite_eq_left rfl
-
-lemma addValuation_eq_top_iff : addValuation L x = ⊤ ↔ x = 0 := by
-  refine ⟨fun h ↦ by_contra fun hx ↦ ?_, fun h ↦ h ▸ addValuation_zero L⟩
-  rw [addValuation, dite_eq_right hx] at h
-  exact WithTop.coe_ne_top h
-
-/-- **The normalised valuation is additive**: `v_L(x y) = v_L(x) + v_L(y)` for `x, y ≠ 0`. -/
-lemma addValuation_mul (hx : x ≠ 0) (hy : y ≠ 0) :
-    addValuation L (x * y) = addValuation L x + addValuation L y := by
-  rw [addValuation, addValuation, addValuation, dite_eq_right hx, dite_eq_right hy,
-    dite_eq_right (mul_ne_zero hx hy), ← WithTop.coe_add, Units.mk0_mul, map_mul, toAdd_mul]
+variable [TopologicalSpace L] [IsNonarchimedeanLocalField L] {v : ℝ}
 
 variable (ρ) in
 /-- The **heights of the coefficients** of a polynomial `ρ` over a nonarchimedean local field `L`:
@@ -250,13 +234,6 @@ lemma mk_neg_natCast_mem_reflectedPolygon :
     (-(n : ℝ), v) ∈ I.reflectedPolygon ↔ I.ramificationPolygon n = v := by
   rw [reflectedPolygon, mem_image_reflectVertical, reflectVertical_apply, neg_neg,
     natCast_mem_polygonGraph]
-
-lemma finiteEdges_ramificationPolygon :
-    finiteEdges I.ramificationPolygon = Set.Ico 1 I.ramificationIndex := by
-  ext n
-  rw [mem_finiteEdges, ramificationPolygon_ne_top_iff, ramificationPolygon_ne_top_iff,
-    Set.mem_Icc, Set.mem_Icc, Set.mem_Ico]
-  omega
 
 /-- **The slopes of the segments of the ramification polygon of a Herbrand invariant**: they are
 the negatives of the unit slopes of

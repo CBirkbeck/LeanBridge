@@ -52,14 +52,29 @@ lemma nat_card_quaternionRotations : Nat.card (quaternionRotations m) = 2 * m :=
 
 variable [NeZero m]
 
-lemma mem_quaternionRotations_of_sq_eq_one {g : QuaternionGroup m} (hg : g ^ 2 = 1) :
-    g ∈ quaternionRotations m := by
+lemma eq_one_or_eq_a_of_sq_eq_one {g : QuaternionGroup m} (hg : g ^ 2 = 1) : g = 1 ∨ g = a m := by
   rcases g with i | i
-  · exact a_mem_quaternionRotations i
+  · rw [sq, a_mul_a, one_def, a.injEq] at hg
+    have hi : ((2 * i.val : ℕ) : ZMod (2 * m)) = 0 := by
+      rw [Nat.cast_mul, ZMod.natCast_zmod_val, Nat.cast_ofNat, two_mul i, hg]
+    rcases (Nat.mul_dvd_mul_iff_left two_pos).mp ((ZMod.natCast_eq_zero_iff _ _).mp hi) with
+      ⟨c, hc⟩
+    have hc' : c = 0 ∨ c = 1 := by
+      by_contra! h
+      have hlt : i.val < 2 * m := i.val_lt
+      have hle : m * 2 ≤ m * c := Nat.mul_le_mul_left m (by omega)
+      omega
+    rcases hc' with rfl | rfl
+    · exact .inl <| congrArg a <| (ZMod.val_eq_zero i).mp <| hc.trans (mul_zero m)
+    · exact .inr <| congrArg a <| by rw [← ZMod.natCast_zmod_val i, hc, mul_one]
   · rw [xa_sq, ← a_zero, a.injEq, CharP.cast_eq_zero_iff (ZMod (2 * m)) (2 * m)] at hg
     have hm : m ≠ 0 := NeZero.ne m
     have hle : 2 * m ≤ m := Nat.le_of_dvd (Nat.pos_of_ne_zero hm) hg
     omega
+
+lemma mem_quaternionRotations_of_sq_eq_one {g : QuaternionGroup m} (hg : g ^ 2 = 1) :
+    g ∈ quaternionRotations m :=
+  (eq_one_or_eq_a_of_sq_eq_one hg).elim (· ▸ one_mem _) (· ▸ a_mem_quaternionRotations _)
 
 /-- **The cyclic subgroup of index `2` of the dicyclic group `Dicₘ` has no complement** (LMFDB
 `group.dicyclic`, `group.generalized_quaternion`, `group.dihedral`), so `Dicₘ` is a non-split

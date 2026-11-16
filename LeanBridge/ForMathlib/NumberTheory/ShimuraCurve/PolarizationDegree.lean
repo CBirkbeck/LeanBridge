@@ -154,15 +154,19 @@ end Rat
 
 namespace QuaternionAlgebra
 
-lemma reducedTrace_intCast {B : Type*} [Ring B] [Algebra ℚ B] (h4 : finrank ℚ B = 4) (m : ℤ) :
-    reducedTrace B (m : B) = 2 * m := by
+variable {B : Type*} [Ring B] [Algebra ℚ B]
+
+lemma reducedTrace_algebraMap (q : ℚ) (h4 : finrank ℚ B = 4) :
+    reducedTrace B (algebraMap ℚ B q) = 2 * q := by
   have : FiniteDimensional ℚ B := .of_finrank_pos (by omega)
-  have h : LinearMap.mulLeft ℚ (m : B) = (m : ℚ) • LinearMap.id := by
-    ext x
-    rw [LinearMap.mulLeft_apply, LinearMap.smul_apply, LinearMap.id_apply, Algebra.smul_def,
-      map_intCast]
+  have h : LinearMap.mulLeft ℚ (algebraMap ℚ B q) = q • LinearMap.id := by
+    ext z
+    rw [LinearMap.mulLeft_apply, LinearMap.smul_apply, LinearMap.id_apply, Algebra.smul_def]
   rw [reducedTrace, h, map_smul, LinearMap.trace_id, h4, smul_eq_mul]
   ring1
+
+lemma reducedTrace_intCast (h4 : finrank ℚ B = 4) (m : ℤ) : reducedTrace B (m : B) = 2 * m := by
+  rw [← map_intCast (algebraMap ℚ B), reducedTrace_algebraMap _ h4]
 
 end QuaternionAlgebra
 

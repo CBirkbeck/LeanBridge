@@ -1,3 +1,4 @@
+import LeanBridge.ForMathlib.FieldTheory.Galois.KleinFour
 import LeanBridge.ForMathlib.NumberTheory.NumberField.Units.Biquadratic
 import LeanBridge.ForMathlib.NumberTheory.NumberField.Units.MazurUllomType
 import TauCeti.NumberTheory.NumberField.AutomorphismAction
@@ -45,55 +46,14 @@ open scoped NumberField
 
 namespace NumberField
 
-variable {K : Type*} [Field K] [NumberField K] (k : IntermediateField ℚ K) (σ τ : Gal(K/ℚ)) {x : K}
-
-variable [IsGalois ℚ K] [IsKleinFour Gal(K/ℚ)] in
-lemma exists_ne_one_forall_mem_iff (hk : finrank ℚ k = 2) :
-    ∃ σ : Gal(K/ℚ), σ ≠ 1 ∧ ∀ x : K, x ∈ k ↔ σ x = x := by
-  have hcard : Nat.card k.fixingSubgroup = 2 := by
-    have h4 : finrank ℚ k * finrank k K = 4 :=
-      (finrank_mul_finrank ℚ k K).trans (finrank_eq_four_of_isKleinFour K)
-    rw [IsGalois.card_fixingSubgroup_eq_finrank]
-    rw [hk] at h4
-    omega
-  rcases (Nat.card_eq_two_iff' (1 : k.fixingSubgroup)).mp hcard with ⟨σ, hσ, hσ'⟩
-  refine ⟨σ, fun h ↦ hσ (Subtype.ext h), fun x ↦
-    ⟨(mem_fixingSubgroup_iff k σ.1).mp σ.2 x, fun hx ↦ ?_⟩⟩
-  rw [← IsGalois.fixedField_fixingSubgroup k, mem_fixedField_iff]
-  intro τ hτ
-  rcases eq_or_ne (⟨τ, hτ⟩ : k.fixingSubgroup) 1 with h1 | h1
-  · exact congrArg (· x) (congrArg Subtype.val h1)
-  · exact (congrArg (· x) (congrArg Subtype.val (hσ' _ h1))).trans hx
-
-variable [IsGalois ℚ K] [IsKleinFour Gal(K/ℚ)] {σ τ} in
-lemma mem_bot_of_apply_eq_self (hσ : σ ≠ 1) (hτ : τ ≠ 1) (hστ : σ ≠ τ) (hx : σ x = x)
-    (hx' : τ x = x) : x ∈ (⊥ : IntermediateField ℚ K) := by
-  refine (IsGalois.mem_bot_iff_fixed x).mpr fun ρ ↦ ?_
-  by_cases h1 : ρ = 1
-  · rw [h1, AlgEquiv.one_apply]
-  by_cases h2 : ρ = σ
-  · rw [h2, hx]
-  by_cases h3 : ρ = τ
-  · rw [h3, hx']
-  rw [IsKleinFour.eq_mul_of_ne_all hσ hτ hστ h1 h2 h3, AlgEquiv.mul_apply, hx', hx]
-
-variable [IsKleinFour Gal(K/ℚ)] in
-lemma apply_apply_of_isKleinFour : σ (σ x) = x := by
-  rw [← AlgEquiv.mul_apply, IsKleinFour.mul_self, AlgEquiv.one_apply]
-
-variable [IsKleinFour Gal(K/ℚ)] in
-lemma apply_comm_of_isKleinFour : σ (τ x) = τ (σ x) := by
-  rw [← AlgEquiv.mul_apply, mul_comm_of_exponent_two IsKleinFour.exponent_two, AlgEquiv.mul_apply]
+variable {K : Type*} [Field K] [NumberField K] (k : IntermediateField ℚ K) (σ : Gal(K/ℚ)) {x : K}
 
 namespace Units
 
-variable (u : (𝓞 K)ˣ) (hu : (u : K) ∈ k) {ε ε' : (𝓞 K)ˣ}
+variable (u : (𝓞 K)ˣ) (hu : (u : K) ∈ k)
 
 lemma coe_smul_eq_apply : ((σ • u : (𝓞 K)ˣ) : K) = σ (u : K) :=
   algebraMap_smul_eq_apply σ (u : 𝓞 K)
-
-instance : IsMulTorsionFree ((𝓞 K)ˣ ⧸ torsion K) :=
-  QuotientGroup.instIsMulTorsionFree _
 
 /-- The action of an automorphism `σ` of `K` on the units of `𝓞 K` modulo torsion. -/
 noncomputable def modTorsionMap : (𝓞 K)ˣ ⧸ torsion K →* (𝓞 K)ˣ ⧸ torsion K :=
@@ -124,28 +84,6 @@ noncomputable def subfieldUnit : (𝓞 k)ˣ :=
 
 lemma map_subfieldUnit : Units.map (algebraMap (𝓞 k) (𝓞 K)).toMonoidHom (subfieldUnit k u hu) = u :=
   Units.ext (RingOfIntegers.ext rfl)
-
-lemma IsFundamentalUnit.mk_ne_one (hε : IsFundamentalUnit ε) (hK : rank K ≠ 0) :
-    (ε : (𝓞 K)ˣ ⧸ torsion K) ≠ 1 := by
-  intro h
-  have hε' : Subgroup.zpowers (ε : (𝓞 K)ˣ ⧸ torsion K) = ⊤ := hε
-  let η : (𝓞 K)ˣ := fundSystem K ⟨0, Nat.pos_of_ne_zero hK⟩
-  have hη : (η : (𝓞 K)ˣ ⧸ torsion K) = 1 := by
-    have hmem : (η : (𝓞 K)ˣ ⧸ torsion K) ∈ Subgroup.zpowers (ε : (𝓞 K)ˣ ⧸ torsion K) :=
-      hε'.symm ▸ Subgroup.mem_top _
-    rwa [h, Subgroup.zpowers_one_eq_bot, Subgroup.mem_bot] at hmem
-  have hlog : logEmbedding K (Additive.ofMul η) = 0 :=
-    dirichletUnitTheorem.logEmbedding_eq_zero_iff.mpr ((QuotientGroup.eq_one_iff η).mp hη)
-  rw [logEmbedding_fundSystem] at hlog
-  exact (basisUnitLattice K).ne_zero _ (Subtype.ext hlog)
-
-lemma IsFundamentalUnit.mk_eq_or_eq_inv (hε : IsFundamentalUnit ε) (hε' : IsFundamentalUnit ε')
-    (hK : rank K ≠ 0) :
-    (ε' : (𝓞 K)ˣ ⧸ torsion K) = ε ∨ (ε' : (𝓞 K)ˣ ⧸ torsion K) = (ε : (𝓞 K)ˣ ⧸ torsion K)⁻¹ := by
-  have h₁ : Subgroup.zpowers (ε : (𝓞 K)ˣ ⧸ torsion K) = ⊤ := hε
-  have h₂ : Subgroup.zpowers (ε' : (𝓞 K)ˣ ⧸ torsion K) = ⊤ := hε'
-  exact ((Subgroup.zpowers_eq_zpowers_iff (not_isOfFinOrder_of_isMulTorsionFree
-    (hε.mk_ne_one hK))).mp (h₁.trans h₂.symm)).imp Eq.symm Eq.symm
 
 namespace QuadraticUnitFrame
 
@@ -246,7 +184,7 @@ lemma aut_two : f.aut 2 = f.aut 0 * f.aut 1 :=
 lemma exists_mul_modTorsionMap_eq : ∃ n : ℤ, w * modTorsionMap (f.aut i) w = f.unitClass i ^ n := by
   induction w using QuotientGroup.induction_on with | H u => ?_
   have hmem : ((u * f.aut i • u : (𝓞 K)ˣ) : K) ∈ (f.subfield i).1 := by
-    rw [mem_subfield_iff, coe_mul, coe_smul_eq_apply, map_mul, apply_apply_of_isKleinFour,
+    rw [mem_subfield_iff, coe_mul, coe_smul_eq_apply, map_mul, AlgEquiv.apply_apply_of_isKleinFour,
       mul_comm]
   rcases f.exists_unitClass_zpow_eq i (subfieldUnit _ _ hmem) with ⟨n, hn⟩
   exact ⟨n, by rw [modTorsionMap_mk, ← QuotientGroup.mk_mul, ← map_subfieldUnit _ _ hmem, hn]⟩
@@ -262,21 +200,22 @@ lemma unitClass_mul_modTorsionMap_aut {j : Fin 3} (hij : i ≠ j) :
   have he : f.aut i (e : K) = e := (f.mem_subfield_iff i).mp (f.coe_map_mem i (f.unit i))
   refine (QuotientGroup.eq_one_iff (e * f.aut j • e)).mpr <| Units.mem_torsion_of_mem_bot <|
     mem_bot_of_apply_eq_self (f.aut_ne_one i) (f.aut_ne_one j) (f.aut_injective.ne hij) ?_ ?_
-  · rw [coe_mul, coe_smul_eq_apply, map_mul, he, apply_comm_of_isKleinFour, he]
-  · rw [coe_mul, coe_smul_eq_apply, map_mul, apply_apply_of_isKleinFour, mul_comm]
+  · rw [coe_mul, coe_smul_eq_apply, map_mul, he, AlgEquiv.apply_comm_of_isKleinFour, he]
+  · rw [coe_mul, coe_smul_eq_apply, map_mul, AlgEquiv.apply_apply_of_isKleinFour, mul_comm]
 
 lemma mul_modTorsionMap_eq_one :
     w * modTorsionMap (f.aut 0) w * modTorsionMap (f.aut 1) w * modTorsionMap (f.aut 2) w = 1 := by
   induction w using QuotientGroup.induction_on with | H u => ?_
-  have h₁₀ (y : K) : f.aut 1 (f.aut 0 y) = f.aut 0 (f.aut 1 y) := apply_comm_of_isKleinFour _ _
+  have h₁₀ (y : K) : f.aut 1 (f.aut 0 y) = f.aut 0 (f.aut 1 y) :=
+    AlgEquiv.apply_comm_of_isKleinFour _ _
   refine (QuotientGroup.eq_one_iff (u * f.aut 0 • u * f.aut 1 • u * f.aut 2 • u)).mpr <|
     Units.mem_torsion_of_mem_bot <| mem_bot_of_apply_eq_self (f.aut_ne_one 0) (f.aut_ne_one 1)
       (f.aut_injective.ne (by decide)) ?_ ?_
   · simp only [coe_mul, coe_smul_eq_apply, f.aut_two, AlgEquiv.mul_apply, map_mul,
-      apply_apply_of_isKleinFour]
+      AlgEquiv.apply_apply_of_isKleinFour]
     ring1
   · simp only [coe_mul, coe_smul_eq_apply, f.aut_two, AlgEquiv.mul_apply, map_mul, h₁₀,
-      apply_apply_of_isKleinFour]
+      AlgEquiv.apply_apply_of_isKleinFour]
     ring1
 
 variable [IsTotallyReal K] in

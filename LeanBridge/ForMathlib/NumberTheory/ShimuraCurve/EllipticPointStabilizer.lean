@@ -1,5 +1,5 @@
+import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.AutPmMuFinite
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.EllipticPointKernel
-import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.QuaternionOrder
 import Mathlib.LinearAlgebra.Matrix.StdBasis
 import Mathlib.RingTheory.IntegralDomain
 import Mathlib.RingTheory.RootsOfUnity.Basic
@@ -76,7 +76,7 @@ normalizers of the orders `B ∩ b Ô b⁻¹`, to which the arithmetic part of t
   `2`, `3`, `4` or `6`.
 -/
 
-open Algebra ComplexConjugate Matrix Module MulAction TensorProduct UpperHalfPlane
+open Algebra ComplexConjugate Matrix Module MulAction QuaternionAlgebra TensorProduct UpperHalfPlane
 
 namespace Matrix
 
@@ -93,13 +93,6 @@ lemma trace_mulLeftRight_fin_two (A C : Matrix (Fin 2) (Fin 2) R) :
     stdBasis_eq_single, LinearMap.mulLeftRight_apply, stdBasis_repr_apply]
   simp only [single, mul_apply, of_apply, Fin.sum_univ_two, true_and, zero_ne_one, false_and,
     ↓reduceIte, one_ne_zero]
-  ring1
-
-lemma trace_mul_det_fin_two_of_mul_eq_one {K : Type*} [Field K] {A C : Matrix (Fin 2) (Fin 2) K}
-    (h : A * C = 1) : C.trace * A.det = A.trace := by
-  rw [← inv_eq_right_inv h, inv_def, trace_smul, adjugate_fin_two, trace_fin_two, trace_fin_two]
-  simp only [Ring.inverse_eq_inv', of_apply, cons_val_zero, cons_val_one, smul_eq_mul]
-  field_simp [(isUnit_det_of_right_inverse h).ne_zero]
   ring1
 
 end Matrix
@@ -188,13 +181,14 @@ lemma IsCyclic.natCard_mem_of_forall_pow_four_eq_one_or_pow_six_eq_one {G : Type
 namespace AlgHom
 
 variable {B : Type*} [Ring B] [Algebra ℚ B] [IsCentral ℚ B] [IsSimpleRing B]
+  (ι : B →ₐ[ℚ] Matrix (Fin 2) (Fin 2) ℝ) (x : B)
 
 /-- **A `ℚ`-algebra map `ι : B → M₂(ℝ)` from a central simple `ℚ`-algebra `B` sends a `ℚ`-basis of
 `B` to `ℝ`-linearly independent matrices**: `ι` extends to an `ℝ`-algebra map from `ℝ ⊗ B`, which
 is a simple ring (Tau Ceti's `IsSimpleRing.tensorProduct_of_isCentral_right`), so it is injective
 on `ℝ ⊗ B`, of which the elements `1 ⊗ bₖ` form an `ℝ`-basis. -/
-lemma linearIndependent_real_comp_basis (ι : B →ₐ[ℚ] Matrix (Fin 2) (Fin 2) ℝ) {κ : Type*}
-    (b : Basis κ ℚ B) : LinearIndependent ℝ fun k ↦ ι (b k) := by
+lemma linearIndependent_real_comp_basis {κ : Type*} (b : Basis κ ℚ B) :
+    LinearIndependent ℝ fun k ↦ ι (b k) := by
   let ιR : ℝ ⊗[ℚ] B →ₐ[ℝ] Matrix (Fin 2) (Fin 2) ℝ := lift (ofId ℝ _) ι fun r x ↦ by
     rw [ofId_apply]
     exact commute_algebraMap_left r (ι x)
@@ -202,6 +196,45 @@ lemma linearIndependent_real_comp_basis (ι : B →ₐ[ℚ] Matrix (Fin 2) (Fin 
     simp [ιR]
   exact h ▸ (basis ℝ b).linearIndependent.map' ιR.toLinearMap
     (LinearMap.ker_eq_bot.mpr ιR.toRingHom.injective)
+
+lemma trace_eq_reducedTrace (hB : finrank ℚ B = 4) : (ι x).trace = reducedTrace B x := by
+  have : FiniteDimensional ℚ B := .of_finrank_pos (by omega)
+  let c : Basis (Fin 4) ℚ B := finBasisOfFinrankEq ℚ B hB
+  let cR : Basis (Fin 4) ℝ (Matrix (Fin 2) (Fin 2) ℝ) :=
+    basisOfLinearIndependentOfCardEqFinrank' _ (ι.linearIndependent_real_comp_basis c) <| by
+      simp [finrank_matrix]
+  have hcR (k : Fin 4) : cR k = ι (c k) := by
+    simp [cR]
+  have hrepr (y : B) (k : Fin 4) : cR.repr (ι y) k = c.repr y k := by
+    have h : ι y = ∑ j, (c.repr y j : ℝ) • cR j := by
+      conv_lhs => rw [← c.sum_repr y]
+      rw [map_sum]
+      refine Finset.sum_congr rfl fun j _ ↦ ?_
+      rw [map_smul, hcR, Rat.cast_smul_eq_qsmul]
+    rw [h, Basis.repr_sum_self]
+  have h : LinearMap.trace ℝ _ (LinearMap.mulLeft ℝ (ι x)) =
+      LinearMap.trace ℚ B (LinearMap.mulLeft ℚ x) := by
+    rw [LinearMap.trace_eq_matrix_trace ℝ cR, LinearMap.trace_eq_matrix_trace ℚ c, Matrix.trace,
+      Matrix.trace, Rat.cast_sum]
+    refine Finset.sum_congr rfl fun k _ ↦ ?_
+    rw [diag_apply, diag_apply, LinearMap.toMatrix_apply, LinearMap.toMatrix_apply,
+      LinearMap.mulLeft_apply, LinearMap.mulLeft_apply, hcR, ← map_mul, hrepr]
+  have h2 : LinearMap.trace ℝ _ (LinearMap.mulLeft ℝ (ι x)) = (ι x).trace * 2 := by
+    have h1 : LinearMap.mulLeft ℝ (ι x) = LinearMap.mulLeftRight ℝ (ι x, 1) := by
+      ext A
+      simp
+    rw [h1, trace_mulLeftRight_fin_two]
+    simp
+  rw [reducedTrace]
+  push_cast
+  linarith
+
+lemma det_eq_reducedNorm (hB : finrank ℚ B = 4) : (ι x).det = reducedNorm B x := by
+  rw [reducedNorm, Rat.cast_div, Rat.cast_sub, Rat.cast_pow, ← ι.trace_eq_reducedTrace _ hB,
+    ← ι.trace_eq_reducedTrace _ hB, map_pow, det_fin_two, trace_fin_two, sq, sq, trace_fin_two,
+    Matrix.mul_apply, Matrix.mul_apply, Fin.sum_univ_two, Fin.sum_univ_two]
+  push_cast
+  ring1
 
 end AlgHom
 
@@ -325,28 +358,25 @@ variable (ι) in
 lemma exists_trace_mulLeftRight_eq_intCast (hB : finrank ℚ B = 4) (hO : O.IsQuaternionOrder)
     (hu : u ∈ O.unitsNormalizer) :
     ∃ n : ℤ, LinearMap.trace ℝ _ (LinearMap.mulLeftRight ℝ (ι u, ι ↑u⁻¹)) = n := by
-  have : Submodule.IsLattice ℚ (toSubmodule O) := hO
-  let b : Basis (Free.ChooseBasisIndex ℤ (toSubmodule O)) ℤ (toSubmodule O) :=
-    Free.chooseBasis ℤ (toSubmodule O)
-  refine ⟨∑ k, b.repr ⟨u * b k * ↑u⁻¹, conj_mem_of_mem_unitsNormalizer hu (b k).2⟩ k, ?_⟩
-  rw [LinearMap.trace_eq_matrix_trace ℝ (O.realBasis ι hB hO b), Matrix.trace]
+  rcases exists_sq_reducedTrace_div_eq_intCast hB hO hu with ⟨n, hn⟩
+  refine ⟨n, ?_⟩
+  rw [trace_mulLeftRight_fin_two, ι.trace_eq_reducedTrace _ hB, ι.trace_eq_reducedTrace _ hB,
+    reducedTrace_inv hB, ← Rat.cast_intCast, ← hn]
   push_cast
-  refine Finset.sum_congr rfl fun k _ ↦ ?_
-  rw [diag_apply, LinearMap.toMatrix_apply, LinearMap.mulLeftRight_apply,
-    realBasis_repr_mulLeftRight ι hB hO b k hu]
+  ring1
 
 variable (ι) in
 /-- **`tr(ι γ)² / det(ι γ)` is an integer** for every element `γ` of the normalizer `N_{B^×}(O)` of
-an order `O` of a quaternion algebra `B` over `ℚ` and every `ℚ`-algebra map `ι : B → M₂(ℝ)`: it is
-the trace `tr(ι γ) tr(ι γ⁻¹)` of the conjugation by `ι(γ)` on `M₂(ℝ)`, whose matrix in the basis
-`ι(x₁), …, ι(x₄)` given by a `ℤ`-basis `x₁, …, x₄` of `O` is integral, since conjugation by `γ`
-preserves `O`. -/
+an order `O` of a quaternion algebra `B` over `ℚ` and every `ℚ`-algebra map `ι : B → M₂(ℝ)`: `ι`
+preserves the reduced trace and the reduced norm, and `trd(γ)² / nrd(γ)` is an integer
+(`Subalgebra.exists_sq_reducedTrace_div_eq_intCast`), the trace of the conjugation by `γ` on `B`,
+which preserves `O`. -/
 lemma exists_trace_sq_eq_intCast_mul_det (hB : finrank ℚ B = 4) (hO : O.IsQuaternionOrder)
     (hu : u ∈ O.unitsNormalizer) : ∃ n : ℤ, (ι u).trace ^ 2 = n * (ι u).det := by
-  rcases exists_trace_mulLeftRight_eq_intCast ι hB hO hu with ⟨n, hn⟩
+  rcases exists_sq_reducedTrace_div_eq_intCast hB hO hu with ⟨n, hn⟩
   refine ⟨n, ?_⟩
-  rw [← hn, trace_mulLeftRight_fin_two, mul_assoc, trace_mul_det_fin_two_of_mul_eq_one, sq]
-  rw [← map_mul, Units.mul_inv, map_one]
+  rw [ι.trace_eq_reducedTrace _ hB, ι.det_eq_reducedNorm _ hB, ← Rat.cast_intCast, ← hn,
+    ← Rat.cast_pow, ← Rat.cast_mul, div_mul_cancel₀ _ (reducedNorm_ne_zero hB)]
 
 /-- **The automorphy factor of a positive-norm element of the normalizer of an order fixing `τ`
 gives a root of unity of order dividing `4` or `6`**, for an order `O` of a quaternion algebra `B`

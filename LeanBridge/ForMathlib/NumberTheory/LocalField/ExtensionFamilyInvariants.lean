@@ -1,9 +1,7 @@
 import LeanBridge.ForMathlib.NumberTheory.LocalField.EisensteinDiagram
 import LeanBridge.ForMathlib.NumberTheory.LocalField.FieldLabel
-import LeanBridge.ForMathlib.NumberTheory.LocalField.GaloisClosureRamification
 import LeanBridge.ForMathlib.NumberTheory.LocalField.MongeRepresentationProof
 import LeanBridge.ForMathlib.NumberTheory.LocalField.RamsDiscriminantExponent
-import LeanBridge.ForMathlib.NumberTheory.NumberField.MinimalSibling
 
 /-!
 # The invariants shared by the extensions in a family
@@ -14,9 +12,11 @@ characteristic `p` of `K`. The extensions `L / K` in the family `I / K` (LMFDB
 (`IsNonarchimedeanLocalField.HerbrandInvariant.IsInvariantOf`): residue degree `f`, ramification
 index `e = ε p ^ w` and Swan slopes `s_1, …, s_w` those of `I`, the Swan slopes being Deligne's
 positive upper ramification breaks. These three invariants do not change under `K`-isomorphism, so
-an extension has Herbrand invariant `I` exactly when its `K`-isomorphism class lies in `I / K`.
-LMFDB `lf.family_invariants` lists the invariants that are the same for all the extensions in
-`I / K`; this file proves that each of them is determined by `I`:
+an extension has Herbrand invariant `I` exactly when its `K`-isomorphism class lies in `I / K`
+(`IsNonarchimedeanLocalField.HerbrandInvariant.mk_mem_family_iff`, in
+`LeanBridge.ForMathlib.NumberTheory.LocalField.DeligneRamificationBreaks`). LMFDB
+`lf.family_invariants` lists the invariants that are the same for all the extensions in `I / K`;
+this file proves that each of them is determined by `I`:
 
 * the residue characteristic `p`, that of every finite extension of `K`;
 * the degree `[L : K] = e f` (`IsNonarchimedeanLocalField.HerbrandInvariant.finrank_of_mem_family`,
@@ -46,12 +46,6 @@ Artin slopes of `L / ℚ_p` (absolute Artin slopes), which this file does not tr
 
 ## Main results
 
-* `IsNonarchimedeanLocalField.visibleSwanSlopes_eq_of_algEquiv`: the Swan slopes of an extension
-  of `K` inside `K̄` depend only on its `K`-isomorphism class.
-* `IsNonarchimedeanLocalField.HerbrandInvariant.IsInvariantOf.of_algEquiv` and
-  `IsNonarchimedeanLocalField.HerbrandInvariant.mk_mem_family_iff` (LMFDB `lf.family_invariants`):
-  an extension `K`-isomorphic to one with Herbrand invariant `I` has Herbrand invariant `I`, so the
-  extensions whose class lies in `I / K` are those with Herbrand invariant `I`.
 * `IsNonarchimedeanLocalField.visibleArtinSlopes_eq_wildArtinSlopesOfIsGalois`: for a Galois
   extension these Artin slopes are the wild Artin slopes
   `IsNonarchimedeanLocalField.wildArtinSlopesOfIsGalois`.
@@ -73,77 +67,13 @@ Artin slopes of `L / ℚ_p` (absolute Artin slopes), which this file does not tr
 
 open ValuativeRel TauCeti LocalFieldsRamification Finset
 
-open scoped Pointwise
-
 attribute [local instance] finiteIntermediateFieldValuativeRel finiteIntermediateFieldTopology
   finiteIntermediateField_isNonarchimedeanLocalField finiteIntermediateField_valuativeExtension
 
 namespace IsNonarchimedeanLocalField
 
-lemma fixingSubgroup_preimage_eq_conj_smul {F Ω : Type*} [Field F] [Field Ω] [Algebra F Ω]
-    [Normal F Ω] {L L' : IntermediateField F Ω} (N : IntermediateField F Ω) [Normal F N]
-    (φ : L ≃ₐ[F] L') : fixingSubgroup (N ≃ₐ[F] N) (((↑) : N → Ω) ⁻¹' L') =
-      MulAut.conj ((φ.liftNormal Ω).restrictNormal N) •
-        fixingSubgroup (N ≃ₐ[F] N) (((↑) : N → Ω) ⁻¹' L) := by
-  set σ : Ω ≃ₐ[F] Ω := φ.liftNormal Ω
-  set τ : N ≃ₐ[F] N := σ.restrictNormal N
-  have hσ (a : Ω) : σ a ∈ L' ↔ a ∈ L := by
-    refine ⟨fun h ↦ ?_, fun h ↦ ?_⟩
-    · have h' : σ (φ.symm ⟨σ a, h⟩) = σ a :=
-        (φ.liftNormal_commutes Ω _).trans (congrArg Subtype.val (φ.apply_symm_apply ⟨σ a, h⟩))
-      exact σ.injective h' ▸ (φ.symm ⟨σ a, h⟩).2
-    · exact (φ.liftNormal_commutes Ω ⟨a, h⟩).symm ▸ (φ ⟨a, h⟩).2
-  have hτ (x : N) : ((τ x : N) : Ω) ∈ L' ↔ (x : Ω) ∈ L :=
-    (congrArg (· ∈ L') (σ.restrictNormal_commutes N x)).to_iff.trans (hσ x)
-  ext ρ
-  rw [Subgroup.mem_pointwise_smul_iff_inv_smul_mem, mem_fixingSubgroup_iff, mem_fixingSubgroup_iff]
-  refine ⟨fun h x hx ↦ ?_, fun h y hy ↦ ?_⟩
-  · have h' : ρ (τ x) = τ x := h (τ x) ((hτ x).mpr hx)
-    exact τ.symm_apply_eq.mpr h'
-  · have h' : τ.symm (ρ (τ (τ.symm y))) = τ.symm y :=
-      h (τ.symm y) ((hτ (τ.symm y)).mp ((τ.apply_symm_apply y).symm ▸ hy))
-    rw [τ.apply_symm_apply] at h'
-    exact τ.symm.injective h'
-
 variable {K : Type*} [Field K] [ValuativeRel K] [TopologicalSpace K] [IsNonarchimedeanLocalField K]
-  {E E' : IntermediateField K (AlgebraicClosure K)}
-
-variable (K) in
-open Subgroup in
-lemma swanSlopesOfSubgroup_conj_smul (M : Type*) [Field M] [ValuativeRel M] [TopologicalSpace M]
-    [IsNonarchimedeanLocalField M] [Algebra K M] [ValuativeExtension K M] [Module.Finite K M]
-    [IsGalois K M] (H : Subgroup (M ≃ₐ[K] M)) (τ : M ≃ₐ[K] M) :
-    swanSlopesOfSubgroup K M (MulAut.conj τ • H) = swanSlopesOfSubgroup K M H := by
-  have h (i : ℤ) : (MulAut.conj τ • H).relIndex (lowerRamificationGroup K M i) =
-      H.relIndex (lowerRamificationGroup K M i) :=
-    (congrArg _ (Normal.conj_smul_eq_self τ _).symm).trans
-      (H.relIndex_pointwise_smul (MulAut.conj τ) _)
-  simp only [swanSlopesOfSubgroup, h]
-
-lemma swanSlopesOfSubgroup_fixingSubgroup_eq_of_algEquiv
-    {N N' : IntermediateField K (AlgebraicClosure K)} [FiniteDimensional K N]
-    [FiniteDimensional K N'] [IsGalois K N] [IsGalois K N'] (h : N' = N) (φ : E ≃ₐ[K] E') :
-    swanSlopesOfSubgroup K N'
-        (fixingSubgroup (N' ≃ₐ[K] N') (((↑) : N' → AlgebraicClosure K) ⁻¹' E')) =
-      swanSlopesOfSubgroup K N
-        (fixingSubgroup (N ≃ₐ[K] N) (((↑) : N → AlgebraicClosure K) ⁻¹' E)) := by
-  subst h
-  rw [fixingSubgroup_preimage_eq_conj_smul N' φ, swanSlopesOfSubgroup_conj_smul]
-
-variable [FiniteDimensional K E] [FiniteDimensional K E']
-
-variable [Algebra.IsSeparable K E] [Algebra.IsSeparable K E'] in
-/-- **The Swan slopes of an extension depend only on its isomorphism class**: `K`-isomorphic finite
-separable extensions `E` and `E'` of a nonarchimedean local field `K` inside `K̄` have the same Swan
-slopes `IsNonarchimedeanLocalField.visibleSwanSlopes`. They have the same Galois closure `M` in
-`K̄`, in which `Gal(M / E')` is a conjugate of `Gal(M / E)`, and the lower ramification groups of
-`M / K` are normal. -/
-lemma visibleSwanSlopes_eq_of_algEquiv (φ : E ≃ₐ[K] E') :
-    visibleSwanSlopes E' = visibleSwanSlopes E :=
-  swanSlopesOfSubgroup_fixingSubgroup_eq_of_algEquiv
-    (Algebra.galoisClosure_eq_of_algEquiv φ.symm) φ
-
-variable (E)
+  (E : IntermediateField K (AlgebraicClosure K)) [FiniteDimensional K E]
 
 /-- The **wild Artin slopes** (LMFDB `lf.slopes`), which the LMFDB lists as the Artin slopes or
 visible Artin slopes `s̃_1, …, s̃_w`, of a finite separable extension `E` of a nonarchimedean local
@@ -176,55 +106,7 @@ lemma ringChar_residueField_finiteIntermediateField : ringChar 𝓀[E] = ringCha
 
 namespace HerbrandInvariant
 
-variable {p : ℕ}
-
-lemma map_ram_ofRams (hp : p.Prime) (R : Multiset ℚ) (hR : ∀ r ∈ R, 0 < r) (e f : ℕ) (he : e ≠ 0)
-    (hf : 0 < f) : (Multiset.range (ofRams p hp R hR e f he hf).w).map
-      (fun k ↦ (ofRams p hp R hR e f he hf).ram (k + 1)) = R := by
-  have hw : (ofRams p hp R hR e f he hf).w = Multiset.card R := rfl
-  refine Eq.trans ?_ (Multiset.sort_eq R (· ≤ ·))
-  rw [← Multiset.coe_range, Multiset.map_coe]
-  congr 1
-  refine List.ext_getElem (by rw [List.length_map, List.length_range, hw, Multiset.length_sort])
-    fun k hk _ ↦ ?_
-  rw [List.getElem_map, List.getElem_range, List.length_map, List.length_range] at *
-  exact (ram_ofRams p hp R hR e f he hf (by omega) (by omega)).trans (by simp)
-
-variable [CharZero K] {E} {I : HerbrandInvariant p}
-
-/-- **Having a Herbrand invariant depends only on the isomorphism class**: a finite extension `E'`
-of a `p`-adic field `K` inside `K̄` that is `K`-isomorphic to an extension `E` with Herbrand
-invariant `I` has Herbrand invariant `I`. The ramification index, the residue degree and the Swan
-slopes of `E` and `E'` agree. -/
-lemma IsInvariantOf.of_algEquiv (φ : E ≃ₐ[K] E') (hE : I.IsInvariantOf K E) :
-    I.IsInvariantOf K E' := by
-  rcases hE with ⟨hf, he, hs⟩
-  have he' : TauCeti.ramificationIndex K E' = TauCeti.ramificationIndex K E :=
-    ramificationIndex_eq_of_algEquiv φ.symm
-  have hf' : inertiaDegree K E' = inertiaDegree K E := by
-    have h : TauCeti.ramificationIndex K E' * inertiaDegree K E' =
-        TauCeti.ramificationIndex K E * inertiaDegree K E := by
-      rw [ramificationIndex_mul_inertiaDegree, ramificationIndex_mul_inertiaDegree,
-        φ.toLinearEquiv.finrank_eq]
-    rw [he'] at h
-    exact Nat.eq_of_mul_eq_mul_left TauCeti.ramificationIndex_pos h
-  rw [IsInvariantOf]
-  exact ⟨hf'.trans hf, he'.trans he, (visibleSwanSlopes_eq_of_algEquiv φ).trans hs⟩
-
-/-- **The extensions in a family are those with its Herbrand invariant** (LMFDB
-`lf.family_polynomial`, `lf.family_invariants`): the `K`-isomorphism class of a finite extension `F`
-of a `p`-adic field `K` inside `K̄` lies in the family `I / K` if and only if `F` has Herbrand
-invariant `I`. So what is proved of the extensions with Herbrand invariant `I` holds for every
-extension in `I / K`. -/
-lemma mk_mem_family_iff {F : FiniteExtension K} :
-    haveI : FiniteDimensional K F.1 := F.2
-    Quotient.mk _ F ∈ I.family K ↔ I.IsInvariantOf K F.1 := by
-  have hF : FiniteDimensional K F.1 := F.2
-  refine ⟨?_, fun h ↦ ⟨F, h, rfl⟩⟩
-  rintro ⟨F₀, hF₀, h⟩
-  rcases Quotient.exact h with ⟨φ⟩
-  have hF₀' : FiniteDimensional K F₀.1 := F₀.2
-  exact IsInvariantOf.of_algEquiv φ hF₀
+variable {p : ℕ} [CharZero K] {E} {I : HerbrandInvariant p}
 
 /-- **The rams of the extensions in a family are those of the family** (LMFDB
 `lf.family_invariants`): the Herbrand invariant

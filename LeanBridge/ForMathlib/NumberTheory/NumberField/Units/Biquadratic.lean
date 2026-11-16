@@ -133,6 +133,35 @@ lemma isFundamentalUnit_fundSystem (h : rank K = 1) :
   refine Subgroup.mem_zpowers_iff.mpr ⟨n ⟨0, by omega⟩, ?_⟩
   rw [← QuotientGroup.mk_zpow, hu, QuotientGroup.mk_mul_of_mem _ ζ.2]
 
+instance : IsMulTorsionFree ((𝓞 K)ˣ ⧸ torsion K) :=
+  QuotientGroup.instIsMulTorsionFree _
+
+variable {K} {ε ε' : (𝓞 K)ˣ}
+
+lemma IsFundamentalUnit.mk_ne_one (hε : IsFundamentalUnit ε) (hK : rank K ≠ 0) :
+    (ε : (𝓞 K)ˣ ⧸ torsion K) ≠ 1 := by
+  intro h
+  have hε' : Subgroup.zpowers (ε : (𝓞 K)ˣ ⧸ torsion K) = ⊤ := hε
+  let η : (𝓞 K)ˣ := fundSystem K ⟨0, Nat.pos_of_ne_zero hK⟩
+  have hη : (η : (𝓞 K)ˣ ⧸ torsion K) = 1 := by
+    have hmem : (η : (𝓞 K)ˣ ⧸ torsion K) ∈ Subgroup.zpowers (ε : (𝓞 K)ˣ ⧸ torsion K) :=
+      hε'.symm ▸ Subgroup.mem_top _
+    rwa [h, Subgroup.zpowers_one_eq_bot, Subgroup.mem_bot] at hmem
+  have hlog : logEmbedding K (Additive.ofMul η) = 0 :=
+    dirichletUnitTheorem.logEmbedding_eq_zero_iff.mpr ((QuotientGroup.eq_one_iff η).mp hη)
+  rw [logEmbedding_fundSystem] at hlog
+  exact (basisUnitLattice K).ne_zero _ (Subtype.ext hlog)
+
+lemma IsFundamentalUnit.mk_eq_or_eq_inv (hε : IsFundamentalUnit ε) (hε' : IsFundamentalUnit ε')
+    (hK : rank K ≠ 0) :
+    (ε' : (𝓞 K)ˣ ⧸ torsion K) = ε ∨ (ε' : (𝓞 K)ˣ ⧸ torsion K) = (ε : (𝓞 K)ˣ ⧸ torsion K)⁻¹ := by
+  have h₁ : Subgroup.zpowers (ε : (𝓞 K)ˣ ⧸ torsion K) = ⊤ := hε
+  have h₂ : Subgroup.zpowers (ε' : (𝓞 K)ˣ ⧸ torsion K) = ⊤ := hε'
+  exact ((Subgroup.zpowers_eq_zpowers_iff (not_isOfFinOrder_of_isMulTorsionFree
+    (hε.mk_ne_one hK))).mp (h₁.trans h₂.symm)).imp Eq.symm Eq.symm
+
+variable (K)
+
 variable [IsTotallyReal K] in
 /-- **The units of a totally real field `K` have rank `[K : ℚ] - 1`**, so `1` for a real quadratic
 field. -/

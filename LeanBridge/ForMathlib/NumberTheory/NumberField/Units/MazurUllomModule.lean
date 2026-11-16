@@ -35,8 +35,10 @@ indices, and the patterns of the four subtypes are not permutations of each othe
 For Theorem 1: if `e` is a square basis of a torsion-free group `G` (every square is a product
 `∏ i, e i ^ vᵢ`, and these products are distinct) with subtype `t`, then `x ↦ v`, where
 `x ^ 2 = ∏ i, (e i ^ sᵢ) ^ vᵢ` for the rescaling `s = t.scale`, is an isomorphism of `G` onto the
-module of the basic type of `t`. An endomorphism of `G` acting on each `e i` by a sign becomes the
-diagonal action of these signs.
+module of the basic type of `t`: the rescaled family is a square basis whose square monomials are
+those of this module, and `NumberField.Units.MazurUllomType.IsSquareBasis.sqVecEquiv` (in
+`Units/MazurUllomType.lean`) is the isomorphism. An endomorphism of `G` acting on each `e i` by a
+sign becomes the diagonal action of these signs.
 
 ## Main definitions
 
@@ -47,7 +49,6 @@ diagonal action of these signs.
 * `NumberField.Units.MazurUllomBasicType.charSumRep`: the `ℤ[V₄]`-module `A₀ ⊕ A₁ ⊕ A₂ = ℤ³`.
 * `NumberField.Units.MazurUllomBasicType.lattice`: the lattice of `ℤ³` of a basic type.
 * `NumberField.Units.MazurUllomBasicType.rep`: the `ℤ[V₄]`-module of a basic type.
-* `NumberField.Units.MazurUllomType.IsSquareBasis.sqVecEquiv`: the isomorphism `x ↦ v` above.
 
 ## Main results
 
@@ -410,58 +411,6 @@ lemma rescale (he : IsSquareBasis e) (ht : t.IsTypeOf e) :
     have h' : (fun i ↦ t.scale i * b i) = 0 :=
       he.eq_zero_of_prod_eq_one <| by simpa only [zpow_mul] using h
     exact funext fun i ↦ (mul_eq_zero.mp (congrFun h' i)).resolve_left (t.scale_ne_zero i)
-
-variable (he : IsSquareBasis e) (x y : G)
-
-/-- The exponent vector of `x ^ 2` in the square basis `e`: `x ^ 2 = ∏ i, e i ^ he.sqVec x i`. -/
-noncomputable def sqVec : Fin 3 → ℤ :=
-  (he.exists_sq_eq x).choose
-
-lemma sq_eq_prod_sqVec : x ^ 2 = ∏ i, e i ^ he.sqVec x i :=
-  (he.exists_sq_eq x).choose_spec
-
-variable {x} in
-lemma sqVec_eq (h : x ^ 2 = ∏ i, e i ^ v i) : he.sqVec x = v :=
-  he.eq_of_prod_eq <| (he.sq_eq_prod_sqVec x).symm.trans h
-
-lemma sqVec_one : he.sqVec 1 = 0 :=
-  he.sqVec_eq <| by simp
-
-lemma sqVec_mul : he.sqVec (x * y) = he.sqVec x + he.sqVec y :=
-  he.sqVec_eq <| by rw [mul_pow, he.sq_eq_prod_sqVec x, he.sq_eq_prod_sqVec y, prod_zpow_add]
-
-lemma sqVec_map {τ : G →* G} {s : Fin 3 → ℤ} (hτ : ∀ i, τ (e i) = e i ^ s i) :
-    he.sqVec (τ x) = fun i ↦ s i * he.sqVec x i :=
-  he.sqVec_eq <| by
-    rw [← map_pow, he.sq_eq_prod_sqVec x, map_prod]
-    simp only [map_zpow, hτ, ← zpow_mul]
-
-variable {P : Submodule ℤ (Fin 3 → ℤ)} (hP : ∀ v, IsSquare (∏ i, e i ^ v i) ↔ v ∈ P)
-
-/-- The map `x ↦ he.sqVec x` into a lattice `P` whose vectors are those of the products of the
-`e i` that are squares. -/
-noncomputable def sqVecHom : Additive G →+ P where
-  toFun a := ⟨he.sqVec a.toMul, (hP _).mp ⟨a.toMul, (he.sq_eq_prod_sqVec _).symm.trans (sq _)⟩⟩
-  map_zero' := Subtype.ext he.sqVec_one
-  map_add' a b := Subtype.ext <| he.sqVec_mul a.toMul b.toMul
-
-variable [IsMulTorsionFree G]
-
-lemma sqVecHom_bijective : Function.Bijective (he.sqVecHom hP) := by
-  refine ⟨fun a b hab ↦ Additive.toMul.injective ?_, fun u ↦ ?_⟩
-  · have hab' : he.sqVec a.toMul = he.sqVec b.toMul := congrArg Subtype.val hab
-    refine eq_of_pow_eq_pow_of_commute two_ne_zero (.all _ _) ?_
-    rw [he.sq_eq_prod_sqVec, hab', ← he.sq_eq_prod_sqVec]
-  · rcases (hP u).mpr u.2 with ⟨r, hr⟩
-    exact ⟨Additive.ofMul r, Subtype.ext <| he.sqVec_eq <| (sq r).trans hr.symm⟩
-
-/-- **The square-exponent isomorphism**: if the products `∏ i, e i ^ vᵢ` that are squares are those
-with `v ∈ P`, then `x ↦ he.sqVec x` is an isomorphism of the torsion-free group `G` onto `P`. -/
-noncomputable def sqVecEquiv : Additive G ≃ₗ[ℤ] P :=
-  (AddEquiv.ofBijective _ (he.sqVecHom_bijective hP)).toIntLinearEquiv
-
-lemma coe_sqVecEquiv_apply (a : Additive G) : (he.sqVecEquiv hP a : Fin 3 → ℤ) = he.sqVec a.toMul :=
-  rfl
 
 end IsSquareBasis
 

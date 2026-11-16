@@ -26,6 +26,7 @@ these definitions meaningful.
 
 ## Main definitions
 
+* `QuaternionAlgebra.reducedTraceₗ`: the reduced trace as a `ℚ`-linear map.
 * `QuaternionAlgebra.traceForm`: the reduced trace form `(x, y) ↦ trd(x y)`, a `ℚ`-bilinear form.
 
 ## Main results
@@ -55,16 +56,23 @@ namespace QuaternionAlgebra
 
 variable (B : Type*) [Ring B] [Algebra ℚ B]
 
+/-- The **reduced trace** of a quaternion algebra `B` over `ℚ` as a `ℚ`-linear map `B → ℚ`. -/
+noncomputable def reducedTraceₗ : B →ₗ[ℚ] ℚ :=
+  (2⁻¹ : ℚ) • (LinearMap.trace ℚ B ∘ₗ LinearMap.mul ℚ B)
+
 /-- The **reduced trace form** `(x, y) ↦ trd(x y)` of a quaternion algebra `B` over `ℚ`, a
 `ℚ`-bilinear form on `B`. -/
 noncomputable def traceForm : BilinForm ℚ B :=
-  (LinearMap.mul ℚ B).compr₂ ((2⁻¹ : ℚ) • (LinearMap.trace ℚ B ∘ₗ LinearMap.mul ℚ B))
+  (LinearMap.mul ℚ B).compr₂ (reducedTraceₗ B)
 
 variable {B}
 
-lemma traceForm_apply (x y : B) : traceForm B x y = reducedTrace B (x * y) := by
+lemma reducedTraceₗ_apply (x : B) : reducedTraceₗ B x = reducedTrace B x := by
   rw [reducedTrace, div_eq_inv_mul]
   rfl
+
+lemma traceForm_apply (x y : B) : traceForm B x y = reducedTrace B (x * y) :=
+  reducedTraceₗ_apply (x * y)
 
 lemma reducedTrace_algEquiv {C : Type*} [Ring C] [Algebra ℚ C] (e : C ≃ₐ[ℚ] B) (x : C) :
     reducedTrace B (e x) = reducedTrace C x := by
@@ -159,7 +167,7 @@ lemma nonempty_basis_of_isQuaternionOrder (h4 : finrank ℚ B = 4) (hO : O.IsQua
 lemma exists_basis_coe_eq (hO : O.IsQuaternionOrder) (x : Basis (Fin 4) ℤ O) :
     ∃ c : Basis (Fin 4) ℚ B, ∀ k, c k = x k := by
   have : IsLattice ℚ (toSubmodule O) := hO
-  exact ⟨(x.map O.toSubmoduleEquiv.symm).extendOfIsLattice ℚ, fun k ↦ by simp; rfl⟩
+  exact ⟨_, (x.map O.toSubmoduleEquiv.symm).extendOfIsLattice_apply ℚ⟩
 
 lemma repr_coe_eq_intCast {x : Basis (Fin 4) ℤ O} {c : Basis (Fin 4) ℚ B}
     (hc : ∀ k, c k = x k) (v : O) (k : Fin 4) : c.repr v k = x.repr v k := by

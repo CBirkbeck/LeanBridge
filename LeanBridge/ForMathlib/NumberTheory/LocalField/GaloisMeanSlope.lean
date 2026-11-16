@@ -89,6 +89,18 @@ lemma sum_one_div_sub_one_div_add_one_div :
 
 variable [IsGalois K L]
 
+variable {K L} in
+lemma natCast_differentExponent_eq_sum_range {N : ℕ}
+    (hN : ∀ i, N ≤ i → Nat.card (lowerRamificationGroup K L i) = 1) : (differentExponent K L : ℝ) =
+      ∑ i ∈ range N, ((Nat.card (lowerRamificationGroup K L i) : ℝ) - 1) := by
+  have hsupp :
+      (Function.support fun i : ℕ ↦ Nat.card (lowerRamificationGroup K L i) - 1) ⊆ ↑(range N) :=
+    Function.support_subset_iff'.mpr fun i hi ↦ by
+      rw [hN i (by simpa using hi), Nat.sub_self]
+  rw [differentExponent_eq_finsum_lowerRamificationGroup, finsum_eq_sum_of_support_subset _ hsupp,
+    Nat.cast_sum]
+  exact sum_congr rfl fun i _ ↦ by rw [Nat.cast_sub Nat.card_pos, Nat.cast_one]
+
 lemma finrank_mul_galoisMeanSlope :
     (Module.finrank K L : ℚ) * galoisMeanSlope K L = discriminantExponent K L :=
   mul_div_cancel₀ _ (Nat.cast_ne_zero.2 Module.finrank_pos.ne')
@@ -134,34 +146,23 @@ lemma galoisMeanSlope_eq : (galoisMeanSlope K L : ℝ) =
     ∑ i ∈ range (largestLowerJump K L).toNat, (1 / (g (i + 2)) - 1 / (g (i + 1))) *
       (1 + herbrand K L ⟨(i + 1 : ℕ), Nat.cast_mem_ramificationIndexDomain (i + 1)⟩) +
         (1 / (g 1) - 1 / (g 0)) := by
-  have hsupp : Function.support
-      (fun i : ℕ ↦ Nat.card (lowerRamificationGroup K L i) - 1) ⊆
-        ↑(range ((largestLowerJump K L).toNat + 1)) := by
-    intro i hi
-    simp only [Function.mem_support] at hi
-    simp only [coe_range, Set.mem_Iio]
-    by_contra h
-    exact hi (by rw [lowerRamificationGroup_eq_bot_of_largestLowerJump_lt (by omega),
-      Subgroup.card_bot, Nat.sub_self])
-  have hd : differentExponent K L = ∑ i ∈ range ((largestLowerJump K L).toNat + 1),
-      (Nat.card (lowerRamificationGroup K L i) - 1) := by
-    rw [differentExponent_eq_finsum_lowerRamificationGroup, finsum_eq_sum_of_support_subset _ hsupp]
+  have hd : (differentExponent K L : ℝ) = ∑ i ∈ range ((largestLowerJump K L).toNat + 1),
+      ((Nat.card (lowerRamificationGroup K L i) : ℝ) - 1) :=
+    natCast_differentExponent_eq_sum_range fun i hi ↦ by
+      rw [lowerRamificationGroup_eq_bot_of_largestLowerJump_lt (by omega), Subgroup.card_bot]
   have hf : (inertiaDegree K L : ℝ) ≠ 0 := by
     exact_mod_cast (inertiaDegree_pos (K := K) (L := L)).ne'
   have h₀ : (Nat.card (lowerRamificationGroup K L 0) : ℝ) ≠ 0 :=
     natCast_natCard_lowerRamificationGroup_ne_zero K L 0
   rw [abel_sum, galoisMeanSlope, discriminantExponent_eq_inertiaDegree_mul_differentExponent,
-    ← ramificationIndex_mul_inertiaDegree, hd, coe_herbrand_of_coe_eq_natCast K L _
+    ← ramificationIndex_mul_inertiaDegree, coe_herbrand_of_coe_eq_natCast K L _
     (u := ⟨((largestLowerJump K L).toNat : ℝ), Nat.cast_mem_ramificationIndexDomain _⟩) rfl,
-    lowerRamificationGroup_largestLowerJump_toNat_add_one,
-    Subgroup.card_bot, sum_range_succ', sum_Icc_one_eq_sum_range,
+    lowerRamificationGroup_largestLowerJump_toNat_add_one, Subgroup.card_bot,
     ← natCard_lowerRamificationGroup_zero K L]
-  have hcast (j : ℤ) : ((Nat.card (lowerRamificationGroup K L j) - 1 : ℕ) : ℝ) =
-      (Nat.card (lowerRamificationGroup K L j) : ℝ) - 1 := by
-    rw [Nat.cast_sub Nat.card_pos, Nat.cast_one]
   push_cast
-  simp only [hcast]
-  rw [sum_sub_distrib, sum_const, card_range, nsmul_eq_mul, mul_one]
+  rw [hd, sum_range_succ', sum_Icc_one_eq_sum_range, sum_sub_distrib, sum_const, card_range,
+    nsmul_eq_mul, mul_one]
+  push_cast
   field_simp
   ring1
 

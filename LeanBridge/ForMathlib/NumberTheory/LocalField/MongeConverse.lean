@@ -357,7 +357,7 @@ lemma smallRam_pos (hk : k < I.w) : 0 < I.smallRam (k + 1) := by
   have hε : (0 : ℚ) < I.ε :=
     I.natCast_ε_pos
   have hr : 0 < I.ram (k + 1) :=
-    (I.zero_lt_ram_one (by omega)).trans_le (I.monotone_ram (by omega))
+    I.ram_pos k.succ_ne_zero hk
   exact div_pos (mul_pos (by linarith) hr) (by positivity)
 
 lemma isVertex_of_smallRam_eq (hadm : I.IsAdmissible e₀) (hk : k < I.w)
@@ -406,7 +406,7 @@ lemma pointType_eq_A_of_pointIndex (hk : k < I.w) (hv : I.IsVertex (k + 1))
     have ht : I.tinyRam (k + 1) = I.swanSlope (k + 1) - I.mean (k + 1) :=
       I.tinyRam_eq_swanSlope_sub_mean hp.ne_zero (k + 1)
     have hr : 0 < I.ram (k + 1) :=
-      (I.zero_lt_ram_one (by omega)).trans_le (I.monotone_ram (by omega))
+      I.ram_pos k.succ_ne_zero hk
     have h₂ : 0 < I.tinyRam (k + 1) :=
       div_pos hr (by positivity)
     linarith
@@ -430,6 +430,27 @@ lemma swanSlope_mono : Monotone I.swanSlope := by
   rw [swanSlope, swanSlope, sum_range_succ]
   exact le_add_of_nonneg_right
     (div_nonneg (sub_nonneg.mpr (I.monotone_ram k.le_succ)) (by positivity))
+
+variable (I) in
+lemma swanSlope_pos (hk₀ : 1 ≤ k) (hk : k ≤ I.w) : 0 < I.swanSlope k := by
+  have h₁ : 0 < I.swanSlope 1 := by
+    rw [swanSlope, Finset.sum_range_one, I.ram_zero, sub_zero, pow_zero, mul_one]
+    exact div_pos (I.zero_lt_ram_one (by omega)) I.natCast_ε_pos
+  exact h₁.trans_le (swanSlope_mono hk₀)
+
+variable (I) in
+lemma swanSlope_eq_swanSlope_iff (hjk : j ≤ k) :
+    I.swanSlope k = I.swanSlope j ↔ I.ram k = I.ram j := by
+  have hnn (i : ℕ) : 0 ≤ I.ram (i + 1) - I.ram i := sub_nonneg.mpr <| I.monotone_ram i.le_succ
+  have hden (i : ℕ) : (0 : ℚ) < I.ε * p ^ i := mul_pos I.natCast_ε_pos (pow_pos natCast_prime_pos i)
+  have hs : I.swanSlope k - I.swanSlope j =
+      ∑ i ∈ Finset.Ico j k, (I.ram (i + 1) - I.ram i) / (I.ε * p ^ i) :=
+    (Finset.sum_Ico_eq_sub _ hjk).symm
+  have hr : I.ram k - I.ram j = ∑ i ∈ Finset.Ico j k, (I.ram (i + 1) - I.ram i) :=
+    (Finset.sum_Ico_sub I.ram hjk).symm
+  rw [← sub_eq_zero, hs, Finset.sum_eq_zero_iff_of_nonneg fun i _ ↦ div_nonneg (hnn i) (hden i).le,
+    ← sub_eq_zero (a := I.ram k), hr, Finset.sum_eq_zero_iff_of_nonneg fun i _ ↦ hnn i]
+  exact forall₂_congr fun i _ ↦ div_eq_zero_iff.trans (or_iff_left (hden i).ne')
 
 lemma mem_range_floor_of_div_le (hle : (σ : ℚ) / I.ramificationIndex ≤ I.swanSlope I.w) :
     σ ∈ range (⌊(I.ramificationIndex : ℚ) * I.swanSlope I.w⌋₊ + 1) := by

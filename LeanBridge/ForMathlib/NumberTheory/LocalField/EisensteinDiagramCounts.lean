@@ -60,7 +60,7 @@ variable {p : ℕ} (I : HerbrandInvariant p)
 
 lemma mean_lt_mean_add_one (hp : 1 < p) {k : ℕ} (hk : k < I.w) : I.mean k < I.mean (k + 1) := by
   have hr : 0 < I.ram (k + 1) :=
-    (I.zero_lt_ram_one (by omega)).trans_le (I.monotone_ram (by omega))
+    I.ram_pos k.succ_ne_zero hk
   have hp₀ : (0 : ℚ) < p := by
     exact_mod_cast zero_lt_one.trans hp
   have hp₁ : (0 : ℚ) < p - 1 :=

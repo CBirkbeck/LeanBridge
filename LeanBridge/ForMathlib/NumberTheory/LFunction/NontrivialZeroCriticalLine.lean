@@ -44,7 +44,7 @@ namespace AnalyticLFunction
 variable (L : AnalyticLFunction) {w : ℕ} {s ρ : ℂ}
 
 variable (s) in
-lemma tendsto_one_sub_conj_nhdsNE :
+private lemma tendsto_one_sub_conj_nhdsNE :
     Tendsto (fun z : ℂ ↦ 1 - conj z) (𝓝[≠] (1 - conj s)) (𝓝[≠] s) := by
   have hc : Continuous fun z : ℂ ↦ 1 - conj z :=
     continuous_const.sub continuous_conj

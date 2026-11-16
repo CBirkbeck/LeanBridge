@@ -95,15 +95,6 @@ lemma cast_ramificationLine : ((I.ramificationLine k x : ℚ) : ℝ) =
   push_cast
   ring1
 
-lemma isVertex_zero : I.IsVertex 0 := by
-  rcases Nat.eq_zero_or_pos I.w with h | h
-  · exact .inl h.symm
-  · exact .inr <| I.ram_zero.le.trans_lt <| I.zero_lt_ram_one h
-
-private lemma ram_pos (hk : k ≠ 0) (hk' : k ≤ I.w) : 0 < I.ram k :=
-  (I.zero_lt_ram_one <| (Nat.pos_of_ne_zero hk).trans_le hk').trans_le <|
-    I.monotone_ram <| Nat.one_le_iff_ne_zero.mpr hk
-
 variable (n) in
 /-- The **ramification polygon of a Herbrand invariant** `I = (r_1, …, r_w)_ε^f` (LMFDB
 `lf.ramification_polygon`, for a family `I / K`), as a height sequence: for `1 ≤ n ≤ e = ε p ^ w`
@@ -122,6 +113,13 @@ lemma ramificationPolygon_ne_top_iff :
   split_ifs with h
   · exact iff_of_true WithTop.coe_ne_top h
   · exact iff_of_false (fun h' ↦ h' rfl) h
+
+lemma finiteEdges_ramificationPolygon :
+    finiteEdges I.ramificationPolygon = Set.Ico 1 I.ramificationIndex := by
+  ext n
+  rw [mem_finiteEdges, ramificationPolygon_ne_top_iff, ramificationPolygon_ne_top_iff, Set.mem_Icc,
+    Set.mem_Icc, Set.mem_Ico]
+  omega
 
 variable (g π n) in
 /-- The **heights of the ramification polynomial** (LMFDB `lf.ramification_polygon`) of a polynomial
@@ -477,6 +475,23 @@ lemma setOf_neg_unitSlope_ramificationPolygon_ne_zero :
       ⟨Nat.one_le_pow _ _ hp.pos,
         hlt.trans_le (I.mem_Icc_ramificationIndex_of_le_of_le hlt.le le_rfl).2⟩,
       by rw [I.unitSlope_ramificationPolygon hj le_rfl hlt, neg_neg]⟩
+
+lemma isConvexSeq_ramificationPolygon : IsConvexSeq I.ramificationPolygon := by
+  have hset : {n | I.ramificationPolygon n ≠ ⊤} = Set.Icc 1 I.ramificationIndex :=
+    Set.ext fun _ ↦ I.ramificationPolygon_ne_top_iff
+  refine ⟨hset ▸ Set.ordConnected_Icc, ?_⟩
+  rw [finiteEdges_ramificationPolygon]
+  intro m hm n hn hmn
+  rw [I.unitSlope_ramificationPolygon_eq_neg_ram (Nat.one_le_iff_ne_zero.mp hm.1) hm.2,
+    I.unitSlope_ramificationPolygon_eq_neg_ram (Nat.one_le_iff_ne_zero.mp hn.1) hn.2,
+    neg_le_neg_iff, Rat.cast_le]
+  exact I.monotone_ram (Nat.sub_le_sub_left (Nat.log_mono_right hmn) _)
+
+lemma unitSlope_ramificationPolygon_nonpos (hn : n ∈ Set.Ico 1 I.ramificationIndex) :
+    unitSlope I.ramificationPolygon n ≤ 0 := by
+  rw [I.unitSlope_ramificationPolygon_eq_neg_ram (Nat.one_le_iff_ne_zero.mp hn.1) hn.2, neg_nonpos,
+    Rat.cast_nonneg]
+  exact I.ram_nonneg _
 
 variable {I}
 

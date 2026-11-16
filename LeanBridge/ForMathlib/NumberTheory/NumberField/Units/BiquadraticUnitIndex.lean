@@ -1,5 +1,5 @@
+import LeanBridge.ForMathlib.Algebra.Squarefree
 import LeanBridge.ForMathlib.NumberTheory.NumberField.Units.BiquadraticGalois
-import TauCeti.Algebra.Squarefree
 import TauCeti.NumberTheory.NumberField.Units.Torsion
 
 /-!
@@ -45,59 +45,13 @@ open Module IntermediateField TauCeti NumberField
 
 open scoped NumberField
 
+lemma zpow_two_mul_sub_one_eq_one {G : Type*} [Group G] {g : G} {m : ℤ} (h : g = g ^ m * g ^ m) :
+    g ^ (2 * m - 1) = 1 := by
+  rw [zpow_sub_one, mul_inv_eq_one, mul_comm 2 m, zpow_mul, zpow_two, ← h]
+
 namespace NumberField
 
 namespace Units.MazurUllomType
-
-variable {p : ℕ}
-
-lemma dvd_of_eq_mul_sq {E D : ℤ} {s : ℚ} (h : (E : ℚ) = D * s ^ 2) (hp : p.Prime)
-    (hpD : (p : ℤ) ∣ D) (hpD2 : ¬(p : ℤ) ^ 2 ∣ D) : (p : ℤ) ∣ E := by
-  have hp' : Prime (p : ℤ) := Nat.prime_iff_prime_int.mp hp
-  have key : E * (s.den : ℤ) ^ 2 = D * s.num ^ 2 := by
-    have h1 : (s.num : ℚ) = s * s.den := (Rat.mul_den_eq_num s).symm
-    have h2 : (E : ℚ) * (s.den : ℚ) ^ 2 = D * (s.num : ℚ) ^ 2 := by
-      rw [h, h1]
-      ring1
-    exact_mod_cast h2
-  by_cases hden : (p : ℤ) ∣ s.den
-  · have hnum : ¬(p : ℤ) ∣ s.num := fun hnum ↦ hp.ne_one <| Nat.eq_one_of_dvd_coprimes s.reduced
-      (Int.ofNat_dvd_left.mp hnum) (Int.natCast_dvd_natCast.mp hden)
-    have hcop : IsCoprime ((p : ℤ) ^ 2) (s.num ^ 2) :=
-      ((Prime.coprime_iff_not_dvd hp').mpr hnum).pow
-    exact absurd (hcop.dvd_of_dvd_mul_right
-      (key ▸ dvd_mul_of_dvd_right (pow_dvd_pow_of_dvd hden 2) E)) hpD2
-  · rcases hp'.dvd_or_dvd (key ▸ dvd_mul_of_dvd_left hpD _ : (p : ℤ) ∣ E * (s.den : ℤ) ^ 2)
-      with h | h
-    · exact h
-    · exact absurd (hp'.dvd_of_dvd_pow h) hden
-
-lemma not_dvd_of_isSquare_mul {a b c : ℤ} (ha : Squarefree a) (hsq : IsSquare (a * b * c))
-    (hp : p.Prime) (hpb : ¬(p : ℤ) ∣ b) (hpc : ¬(p : ℤ) ∣ c) : ¬(p : ℤ) ∣ a := by
-  intro hpa
-  have hp' : Prime (p : ℤ) := Nat.prime_iff_prime_int.mp hp
-  rcases hsq with ⟨m, hm⟩
-  have hpm : (p : ℤ) ∣ m := hp'.dvd_of_dvd_pow (n := 2) <| by
-    rw [sq, ← hm]
-    exact dvd_mul_of_dvd_left (dvd_mul_of_dvd_left hpa b) c
-  have hp2 : (p : ℤ) * p ∣ a * (b * c) := by
-    rw [← mul_assoc, hm]
-    exact mul_dvd_mul hpm hpm
-  have hbc : IsCoprime (p : ℤ) (b * c) :=
-    ((Prime.coprime_iff_not_dvd hp').mpr hpb).mul_right ((Prime.coprime_iff_not_dvd hp').mpr hpc)
-  exact hp'.not_isUnit (ha _ ((hbc.mul_left hbc).dvd_of_dvd_mul_right hp2))
-
-lemma eq_two_of_squarefree {d : ℤ} (hd : Squarefree d) (hpos : 0 < d) (hne : d ≠ 1)
-    (h2 : ∀ p : ℕ, p.Prime → (p : ℤ) ∣ d → p = 2) : d = 2 := by
-  lift d to ℕ using hpos.le
-  have hd' : Squarefree d := Int.squarefree_natCast.mp hd
-  by_contra hne2
-  have h3 : 2 < d := by omega
-  rcases Nat.four_dvd_or_exists_odd_prime_and_dvd_of_two_lt h3 with h4 | ⟨p, hp, hpd, hodd⟩
-  · exact absurd (hd' 2 (by simpa using h4)) (by decide)
-  · rcases hodd with ⟨k, rfl⟩
-    have h : 2 * k + 1 = 2 := h2 _ hp (Int.natCast_dvd_natCast.mpr hpd)
-    omega
 
 /-- **The arithmetic heart of Kubota's theorem**: there are no positive rationals `x₀, x₁, x₂`,
 none a square but with `x₀ x₁ x₂` a square, such that for each `i` some integer `n` has `n + 2`
@@ -122,8 +76,8 @@ lemma false_of_forall_exists {x : Fin 3 → ℚ} (hpos : ∀ j, 0 < x j) (hnsq :
     ring1
   have hdvd (p : ℕ) (hp : p.Prime) (j : Fin 3) (q : ℚ) (n : ℤ) (h : (n : ℚ) = x j * q ^ 2)
       (hpj : (p : ℤ) ∣ d j) : (p : ℤ) ∣ n := by
-    refine dvd_of_eq_mul_sq (D := d j) (s := c j * q) (by rw [h, hx j]; ring1) hp hpj fun h2 ↦ ?_
-    exact (Nat.prime_iff_prime_int.mp hp).not_isUnit (hd j _ (by rwa [← sq]))
+    exact Int.dvd_of_eq_mul_sq (D := d j) (s := c j * q) (by rw [h, hx j]; ring1) hp hpj
+      fun h2 ↦ (Nat.prime_iff_prime_int.mp hp).not_isUnit (hd j _ (by rwa [← sq]))
   have hpairs : ∀ i j k j' k' : Fin 3, i ≠ j → i ≠ k → j ≠ k → j' ≠ i → k' ≠ i → j' ≠ k' →
       (j' = j ∧ k' = k) ∨ (j' = k ∧ k' = j) := by
     decide
@@ -146,17 +100,17 @@ lemma false_of_forall_exists {x : Fin 3 → ℚ} (hpos : ∀ j, 0 < x j) (hnsq :
   have h2 (j : Fin 3) (p : ℕ) (hp : p.Prime) (hpj : (p : ℤ) ∣ d j) : p = 2 := by
     by_contra hp2
     fin_cases j
-    · exact not_dvd_of_isSquare_mul (hd 0) hdsq hp
+    · exact Int.not_dvd_of_isSquare_mul (hd 0) hdsq hp
         (fun h ↦ hp2 (hcommon 0 1 (by decide) p hp hpj h))
         (fun h ↦ hp2 (hcommon 0 2 (by decide) p hp hpj h)) hpj
-    · exact not_dvd_of_isSquare_mul (hd 1) (b := d 0) (c := d 2) (by rwa [mul_comm (d 1)]) hp
+    · exact Int.not_dvd_of_isSquare_mul (hd 1) (b := d 0) (c := d 2) (by rwa [mul_comm (d 1)]) hp
         (fun h ↦ hp2 (hcommon 1 0 (by decide) p hp hpj h))
         (fun h ↦ hp2 (hcommon 1 2 (by decide) p hp hpj h)) hpj
     · have h201 : d 2 * d 0 * d 1 = d 0 * d 1 * d 2 := by ring1
-      exact not_dvd_of_isSquare_mul (hd 2) (b := d 0) (c := d 1) (h201 ▸ hdsq) hp
+      exact Int.not_dvd_of_isSquare_mul (hd 2) (b := d 0) (c := d 1) (h201 ▸ hdsq) hp
         (fun h ↦ hp2 (hcommon 2 0 (by decide) p hp hpj h))
         (fun h ↦ hp2 (hcommon 2 1 (by decide) p hp hpj h)) hpj
-  have hd2 (j : Fin 3) : d j = 2 := eq_two_of_squarefree (hd j) (hdpos j) (hdne j) (h2 j)
+  have hd2 (j : Fin 3) : d j = 2 := Int.eq_two_of_squarefree (hd j) (hdpos j) (hdne j) (h2 j)
   rw [hd2 0, hd2 1, hd2 2] at hdsq
   rcases hdsq with ⟨m, hm⟩
   have h₃ : m < 3 := by nlinarith
@@ -173,14 +127,6 @@ lemma ratCast_nonneg_of_sq_eq {q : ℚ} (h : x ^ 2 = q) : 0 ≤ q := by
   let φ : K →+* ℝ := InfinitePlace.embedding_of_isReal (IsTotallyReal.isReal w)
   have hφ : φ x ^ 2 = q := by rw [← map_pow, h, map_ratCast]
   exact_mod_cast hφ ▸ sq_nonneg _
-
-lemma apply_eq_self_of_mem_bot {σ : Gal(K/ℚ)} (hx : x ∈ (⊥ : IntermediateField ℚ K)) : σ x = x := by
-  rcases IntermediateField.mem_bot.mp hx with ⟨q, rfl⟩
-  exact σ.commutes q
-
-lemma zpow_two_mul_sub_one_eq_one {G : Type*} [Group G] {g : G} {m : ℤ} (h : g = g ^ m * g ^ m) :
-    g ^ (2 * m - 1) = 1 := by
-  rw [zpow_sub_one, mul_inv_eq_one, mul_comm 2 m, zpow_mul, zpow_two, ← h]
 
 namespace Units.QuadraticUnitFrame
 
@@ -240,15 +186,15 @@ lemma exists_isKummerGenerator : ∃ r : K, f.IsKummerGenerator j r := by
   let e : (𝓞 K)ˣ := Units.map (algebraMap (𝓞 (f.subfield j).1) (𝓞 K)).toMonoidHom (f.unit j)
   have he : f.aut j (e : K) = e := (f.mem_subfield_iff j).mp (f.coe_map_mem j (f.unit j))
   have hτe : f.aut j (f.aut (j + 1) (e : K)) = f.aut (j + 1) e := by
-    rw [apply_comm_of_isKleinFour, he]
+    rw [AlgEquiv.apply_comm_of_isKleinFour, he]
   have hne : f.aut (j + 1) (e : K) ≠ e := fun h ↦ f.unitClass_ne_one j <|
     (QuotientGroup.eq_one_iff e).mpr <| Units.mem_torsion_of_mem_bot <|
       mem_bot_of_apply_eq_self (f.aut_ne_one (j + 1)) (f.aut_ne_one j) (f.aut_injective.ne hj) h he
   refine ⟨_, isKummerGenerator_of_apply_eq_neg (sub_ne_zero.mpr hne.symm) ?_
-    (by rw [map_sub, apply_apply_of_isKleinFour, neg_sub]) (by rw [map_sub, he, hτe])⟩
+    (by rw [map_sub, AlgEquiv.apply_apply_of_isKleinFour, neg_sub]) (by rw [map_sub, he, hτe])⟩
   refine mem_bot_of_apply_eq_self (f.aut_ne_one (j + 1)) (f.aut_ne_one j) (f.aut_injective.ne hj)
     ?_ ?_
-  · rw [map_pow, map_sub, apply_apply_of_isKleinFour]
+  · rw [map_pow, map_sub, AlgEquiv.apply_apply_of_isKleinFour]
     ring1
   · rw [map_pow, map_sub, he, hτe]
 
@@ -288,14 +234,14 @@ lemma exists_sq_add_two (hij : i ≠ j) (h : IsSquare (f.unitClass i)) : ∃ (n 
     have h0 : 2 * m - 1 = 0 := f.eq_zero_of_unitClass_zpow_eq_one (zpow_two_mul_sub_one_eq_one hx)
     omega
   have hτσ : f.aut i (f.aut j (u : K)) = -f.aut j (u : K) := by
-    rw [apply_comm_of_isKleinFour, hσa, map_neg]
+    rw [AlgEquiv.apply_comm_of_isKleinFour, hσa, map_neg]
   have hb : ((u : K) * f.aut j (u : K)) ^ 2 = 1 := by
     have hmem : ((u * f.aut j • u : (𝓞 K)ˣ) : K) ∈ (⊥ : IntermediateField ℚ K) := by
       rw [coe_mul, coe_smul_eq_apply]
       refine mem_bot_of_apply_eq_self (f.aut_ne_one i) (f.aut_ne_one j) (f.aut_injective.ne hij)
         ?_ ?_
       · rw [map_mul, hσa, hτσ, neg_mul_neg]
-      · rw [map_mul, apply_apply_of_isKleinFour, mul_comm]
+      · rw [map_mul, AlgEquiv.apply_apply_of_isKleinFour, mul_comm]
     rcases Units.torsion_eq_one_or_neg_one_of_isReal (IsTotallyReal.isReal w)
       ⟨_, Units.mem_torsion_of_mem_bot hmem⟩ with h | h
     · have h₁ : u * f.aut j • u = 1 := h
@@ -315,8 +261,8 @@ lemma exists_sq_add_two (hij : i ≠ j) (h : IsSquare (f.unitClass i)) : ∃ (n 
     have hz : (u : K) ^ 2 + f.aut j ((u : K) ^ 2) ∈ (⊥ : IntermediateField ℚ K) := by
       refine mem_bot_of_apply_eq_self (f.aut_ne_one i) (f.aut_ne_one j) (f.aut_injective.ne hij)
         ?_ ?_
-      · rw [map_add, hση, apply_comm_of_isKleinFour, hση]
-      · rw [map_add, apply_apply_of_isKleinFour, add_comm]
+      · rw [map_add, hση, AlgEquiv.apply_comm_of_isKleinFour, hση]
+      · rw [map_add, AlgEquiv.apply_apply_of_isKleinFour, add_comm]
     have hint : IsIntegral ℤ ((u : K) ^ 2 + f.aut j ((u : K) ^ 2)) := by
       have h1 : IsIntegral ℤ (u : K) := (u : 𝓞 K).isIntegral_coe
       exact (h1.pow 2).add ((h1.pow 2).map ((f.aut j).toAlgHom.restrictScalars ℤ))
@@ -350,7 +296,7 @@ lemma exists_sq_add_two (hij : i ≠ j) (h : IsSquare (f.unitClass i)) : ∃ (n 
       rw [hτη]
       field_simp
       ring1
-    rw [hts, map_sub, apply_apply_of_isKleinFour]
+    rw [hts, map_sub, AlgEquiv.apply_apply_of_isKleinFour]
     ring1
 
 /-- **The classes of the fundamental units of a frame are not all squares** in the units modulo

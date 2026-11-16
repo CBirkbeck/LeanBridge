@@ -3,6 +3,7 @@ import LeanBridge.Galois
 import LeanBridge.ForMathlib.Algebra.AlgebraicGroup.TorusSplittingField
 import LeanBridge.ForMathlib.Algebra.AlgebraicGroup.TorusSplittingFieldExistence
 import LeanBridge.ForMathlib.Algebra.EuclideanDomain.NatEuclidean
+import LeanBridge.ForMathlib.Algebra.Group.Subgroup.Closure
 import LeanBridge.ForMathlib.Algebra.Group.Subgroup.InducedOperation
 import LeanBridge.ForMathlib.Algebra.Module.ZLattice.Arithmetic
 import LeanBridge.ForMathlib.Algebra.Module.ZLattice.ArithmeticBilinear
@@ -16,6 +17,7 @@ import LeanBridge.ForMathlib.Algebra.Module.ZLattice.PerfectHexagonal
 import LeanBridge.ForMathlib.Algebra.Module.ZLattice.SimilarityInvariant
 import LeanBridge.ForMathlib.Algebra.Module.ZLattice.SphericalDesign
 import LeanBridge.ForMathlib.Algebra.Quaternion.OfFinrankEqFour
+import LeanBridge.ForMathlib.Algebra.Squarefree
 import LeanBridge.ForMathlib.AlgebraicGeometry.AbelianVariety.ComplexMultiplication
 import LeanBridge.ForMathlib.AlgebraicGeometry.AbelianVariety.EndomorphismField
 import LeanBridge.ForMathlib.AlgebraicGeometry.AbelianVariety.FiniteField.CyclicPoints
@@ -205,6 +207,7 @@ import LeanBridge.ForMathlib.FieldTheory.DiscriminantRootField
 import LeanBridge.ForMathlib.FieldTheory.Finite.ConwayPolynomial
 import LeanBridge.ForMathlib.FieldTheory.FunctionField.AutomorphismSignature
 import LeanBridge.ForMathlib.FieldTheory.FunctionField.BranchLocus
+import LeanBridge.ForMathlib.FieldTheory.Galois.KleinFour
 import LeanBridge.ForMathlib.FieldTheory.Galois.PrimitiveRootAction
 import LeanBridge.ForMathlib.FieldTheory.Galois.ResolventField
 import LeanBridge.ForMathlib.FieldTheory.Galois.StemFieldAutomorphisms

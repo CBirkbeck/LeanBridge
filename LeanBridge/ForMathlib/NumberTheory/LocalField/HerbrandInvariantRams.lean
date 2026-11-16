@@ -27,6 +27,10 @@ with `I`, and the sets `𝓡_k^z` of possible rams.
 
 * `IsNonarchimedeanLocalField.HerbrandInvariant.smallRam_eq_mean_sub_mean`: `r_k^* = m_k - m_{k-1}`.
 * `IsNonarchimedeanLocalField.HerbrandInvariant.tinyRam_eq_swanSlope_sub_mean`: `r_k' = s_k - m_k`.
+* `IsNonarchimedeanLocalField.HerbrandInvariant.ram_lt_iff_le_ramCountLT` and
+  `IsNonarchimedeanLocalField.HerbrandInvariant.ram_le_iff_le_ramCountLT_add_ramMultiplicity`: the
+  rams equal to a ram `b` are the `r_j` with `c < j ≤ c + d`, for the number `c` of rams smaller
+  than `b` and the multiplicity `d` of `b`.
 -/
 
 open Finset
@@ -113,5 +117,58 @@ variable (p) in
 def ramSet (k : ℕ) (z : ℚ) : Set ℚ :=
   {α | 0 < α ∧ α.den ∣ p ^ k - 1 ∧ ¬(p : ℤ) ∣ α.num ∧
     if k = 1 then α ≤ p * z / (p - 1) else α < p * z / (p - 1)}
+
+variable {j : ℕ} {b : ℚ}
+
+private lemma apply_iff_le_card_filter {P : ℕ → Prop} [DecidablePred P]
+    (hP : ∀ ⦃i j : ℕ⦄, i ≤ j → P j → P i) {w : ℕ} (hj₀ : 1 ≤ j) (hj : j ≤ w) :
+    P j ↔ j ≤ #{i ∈ Icc 1 w | P i} := by
+  refine ⟨fun h ↦ ?_, fun h ↦ ?_⟩
+  · have hsub : Icc 1 j ⊆ {i ∈ Icc 1 w | P i} := fun i hi ↦ mem_filter.mpr
+      ⟨mem_Icc.mpr ⟨(mem_Icc.mp hi).1, (mem_Icc.mp hi).2.trans hj⟩, hP (mem_Icc.mp hi).2 h⟩
+    simpa using card_le_card hsub
+  · by_contra hP'
+    have hsub : {i ∈ Icc 1 w | P i} ⊆ Icc 1 (j - 1) := fun i hi ↦ by
+      rw [mem_filter, mem_Icc] at hi
+      exact mem_Icc.mpr ⟨hi.1.1, Nat.le_sub_one_of_lt <| lt_of_not_ge fun hji ↦ hP' <| hP hji hi.2⟩
+    have hle : #{i ∈ Icc 1 w | P i} ≤ j - 1 :=
+      (card_le_card hsub).trans_eq <| by rw [Nat.card_Icc, Nat.add_sub_cancel]
+    omega
+
+variable (b) in
+lemma card_filter_ram_le :
+    #{j ∈ Icc 1 I.w | I.ram j ≤ b} = I.ramCountLT b + I.ramMultiplicity b := by
+  rw [ramCountLT, ramMultiplicity,
+    ← card_union_of_disjoint (disjoint_filter.mpr fun _ _ h h' ↦ h.ne h'), ← filter_or]
+  exact congrArg card <| filter_congr fun _ _ ↦ le_iff_lt_or_eq
+
+variable (b) in
+lemma ramCountLT_add_ramMultiplicity_le : I.ramCountLT b + I.ramMultiplicity b ≤ I.w :=
+  (I.card_filter_ram_le b).symm.trans_le <|
+    (card_filter_le _ _).trans_eq <| by rw [Nat.card_Icc, Nat.add_sub_cancel]
+
+/-- **The rams smaller than `b`**: for `1 ≤ j ≤ w`, `r_j < b` exactly when `j` is at most the
+number `c` of rams smaller than `b`. -/
+lemma ram_lt_iff_le_ramCountLT (hj₀ : 1 ≤ j) (hj : j ≤ I.w) : I.ram j < b ↔ j ≤ I.ramCountLT b :=
+  apply_iff_le_card_filter (fun _ _ h h' ↦ (I.monotone_ram h).trans_lt h') hj₀ hj
+
+/-- **The rams at most `b`**: for `1 ≤ j ≤ w`, `r_j ≤ b` exactly when `j ≤ c + d`, for the number
+`c` of rams smaller than `b` and the multiplicity `d` of `b`. So the rams equal to `b` are the
+`r_j` with `c < j ≤ c + d`. -/
+lemma ram_le_iff_le_ramCountLT_add_ramMultiplicity (hj₀ : 1 ≤ j) (hj : j ≤ I.w) :
+    I.ram j ≤ b ↔ j ≤ I.ramCountLT b + I.ramMultiplicity b := by
+  rw [← I.card_filter_ram_le b]
+  exact apply_iff_le_card_filter (fun _ _ h h' ↦ (I.monotone_ram h).trans h') hj₀ hj
+
+lemma ram_eq_of_ramCountLT_lt (hj : I.ramCountLT b < j)
+    (hj' : j ≤ I.ramCountLT b + I.ramMultiplicity b) : I.ram j = b := by
+  have hw : j ≤ I.w := hj'.trans <| I.ramCountLT_add_ramMultiplicity_le b
+  exact ((I.ram_le_iff_le_ramCountLT_add_ramMultiplicity (by omega) hw).mpr hj').antisymm <|
+    not_lt.mp fun h ↦ hj.not_ge <| (I.ram_lt_iff_le_ramCountLT (by omega) hw).mp h
+
+lemma ramMultiplicity_pos (hb : b ∈ (Icc 1 I.w).image I.ram) : 0 < I.ramMultiplicity b := by
+  rcases mem_image.mp hb with ⟨k, hk, rfl⟩
+  rw [ramMultiplicity, card_pos]
+  exact ⟨k, mem_filter.mpr ⟨hk, rfl⟩⟩
 
 end IsNonarchimedeanLocalField.HerbrandInvariant

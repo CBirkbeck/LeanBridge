@@ -177,6 +177,9 @@ lemma natCast_prime_pos : (0 : ℚ) < p := by
 lemma one_le_natCast_prime : (1 : ℚ) ≤ p := by
   exact_mod_cast (Fact.out : p.Prime).one_le
 
+lemma one_lt_natCast_prime : (1 : ℚ) < p :=
+  Nat.one_lt_cast.mpr (Fact.out : p.Prime).one_lt
+
 lemma smallRam_nonneg : 0 ≤ I.smallRam k := by
   have hp : (1 : ℚ) ≤ p :=
     one_le_natCast_prime
@@ -418,7 +421,7 @@ lemma exists_vertex_term (he₀ : addVal R (p : R) = e₀) (h : IsMongeRoot g π
     · rw [hP.natDegree_eq, padicValNat_ramificationIndex, Nat.sub_zero, Nat.sub_self, I.mean_zero]
       simp
   have hrk : 0 < I.ram k :=
-    (I.zero_lt_ram_one (by omega)).trans_le (I.monotone_ram hk₀)
+    I.ram_pos hk₀.ne' hk
   rcases hP.exists_addVal_eq hk hfin with ⟨v, hv, hvq⟩
   rcases exists_mem_Icc_addVal_coeff_taylor_add_eq h (pow_ne_zero (I.w - k) hp.ne_zero) with
     ⟨i, hi, hti⟩

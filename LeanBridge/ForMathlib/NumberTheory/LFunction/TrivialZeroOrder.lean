@@ -82,12 +82,6 @@ namespace AnalyticLFunction
 variable (L : AnalyticLFunction) {s : ℂ}
 
 variable (s) in
-private lemma eventually_ne_nhdsNE (a : ℂ) : ∀ᶠ z in 𝓝[≠] s, z ≠ a := by
-  rcases eq_or_ne s a with rfl | h
-  · exact self_mem_nhdsWithin
-  · exact eventually_ne_nhdsWithin h
-
-variable (s) in
 lemma eventually_notMem_gammaPoles : ∀ᶠ z in 𝓝[≠] s, z ∉ L.selbergData.gammaPoles := by
   rcases L.selbergData.analyticAt_inv_gammaFactor.eventually_eq_zero_or_eventually_ne_zero
     (z₀ := s) with h | h
@@ -99,8 +93,8 @@ lemma eventually_notMem_gammaPoles : ∀ᶠ z in 𝓝[≠] s, z ∉ L.selbergDat
 variable (s) in
 lemma eventuallyEq_completed : L.completed =ᶠ[𝓝[≠] s]
     fun z ↦ (L.conductor : ℂ) ^ (z / 2) * L.selbergData.gammaFactor z * L.toFun z := by
-  filter_upwards [L.eventually_notMem_gammaPoles s, eventually_ne_nhdsNE s 0,
-    eventually_ne_nhdsNE s 1] with z hz hz₀ hz₁
+  filter_upwards [L.eventually_notMem_gammaPoles s, nhdsNE_le_cofinite s (eventually_cofinite_ne 0),
+    nhdsNE_le_cofinite s (eventually_cofinite_ne 1)] with z hz hz₀ hz₁
   exact L.completed_eq_of_notMem_gammaPoles hz hz₀ hz₁
 
 variable (s) in
@@ -118,8 +112,9 @@ lemma meromorphicOrderAt_toFun : meromorphicOrderAt L.toFun s = meromorphicOrder
     meromorphicOrderAt (fun z ↦ (L.selbergData.gammaFactor z)⁻¹) s := by
   have heq : L.toFun =ᶠ[𝓝[≠] s] (fun z : ℂ ↦ ((L.conductor : ℂ) ^ (z / 2))⁻¹) *
       (L.completed * fun z ↦ (L.selbergData.gammaFactor z)⁻¹) := by
-    filter_upwards [L.eventually_notMem_gammaPoles s, eventually_ne_nhdsNE s 0,
-      eventually_ne_nhdsNE s 1] with z hz hz₀ hz₁
+    filter_upwards [L.eventually_notMem_gammaPoles s,
+      nhdsNE_le_cofinite s (eventually_cofinite_ne 0),
+      nhdsNE_le_cofinite s (eventually_cofinite_ne 1)] with z hz hz₀ hz₁
     have hγ : L.selbergData.gammaFactor z ≠ 0 :=
       mt L.selbergData.gammaFactor_eq_zero_iff.mp hz
     have hN : (L.conductor : ℂ) ^ (z / 2) ≠ 0 :=

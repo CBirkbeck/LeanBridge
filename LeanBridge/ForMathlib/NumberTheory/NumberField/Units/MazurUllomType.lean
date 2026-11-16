@@ -1,5 +1,5 @@
+import LeanBridge.ForMathlib.Algebra.Group.Subgroup.Closure
 import Mathlib.Algebra.BigOperators.Fin
-import Mathlib.Algebra.Group.Subgroup.ZPowers.Lemmas
 import Mathlib.Data.Fintype.Perm
 import Mathlib.Tactic.FinCases
 import Mathlib.Tactic.Linarith
@@ -36,6 +36,9 @@ patterns are compared by `decide`.
   vectors of the monomials that are squares.
 * `NumberField.Units.MazurUllomType.IsSquareBasis`: the monomials of `e` are pairwise distinct and
   contain every square.
+* `NumberField.Units.MazurUllomType.IsSquareBasis.sqVecEquiv`: for a square basis `e` of a
+  torsion-free `G`, the isomorphism `x ↦ v` of `G` onto the lattice of the exponent vectors `v` of
+  the square monomials, where `x ^ 2 = ∏ i, e i ^ vᵢ`.
 
 ## Main results
 
@@ -58,14 +61,6 @@ patterns are compared by `decide`.
 open Equiv Finset
 
 open Additive (ofMul)
-
-@[to_additive]
-lemma Subgroup.mem_closure_triple {C : Type*} [CommGroup C] {x y z w : C} :
-    w ∈ closure ({x, y, z} : Set C) ↔ ∃ a b c : ℤ, x ^ a * y ^ b * z ^ c = w := by
-  rw [← Set.singleton_union, closure_union, mem_sup]
-  simp_rw [mem_closure_singleton, mem_closure_pair, exists_exists_eq_and]
-  exact ⟨fun ⟨a, _, ⟨b, c, rfl⟩, h⟩ ↦ ⟨a, b, c, by rw [mul_assoc, h]⟩,
-    fun ⟨a, b, c, h⟩ ↦ ⟨a, _, ⟨b, c, rfl⟩, by rw [← mul_assoc, h]⟩⟩
 
 namespace NumberField.Units
 
@@ -292,6 +287,62 @@ lemma of_monoidHom (φ : Fin 3 → G →* G) (hfix : ∀ i, φ i (e i) = e i)
     have h2 : (2 : ℕ) * v i = 0 := hne i _ h'
     simp only [Pi.zero_apply]
     omega
+
+section SqVec
+
+variable (he : IsSquareBasis e) (x y : G)
+
+/-- The exponent vector of `x ^ 2` in the square basis `e`: `x ^ 2 = ∏ i, e i ^ he.sqVec x i`. -/
+noncomputable def sqVec : Fin 3 → ℤ :=
+  (he.exists_sq_eq x).choose
+
+lemma sq_eq_prod_sqVec : x ^ 2 = ∏ i, e i ^ he.sqVec x i :=
+  (he.exists_sq_eq x).choose_spec
+
+variable {x} in
+lemma sqVec_eq (h : x ^ 2 = ∏ i, e i ^ v i) : he.sqVec x = v :=
+  he.eq_of_prod_eq <| (he.sq_eq_prod_sqVec x).symm.trans h
+
+lemma sqVec_one : he.sqVec 1 = 0 :=
+  he.sqVec_eq <| by simp
+
+lemma sqVec_mul : he.sqVec (x * y) = he.sqVec x + he.sqVec y :=
+  he.sqVec_eq <| by rw [mul_pow, he.sq_eq_prod_sqVec x, he.sq_eq_prod_sqVec y, prod_zpow_add]
+
+lemma sqVec_map {τ : G →* G} {s : Fin 3 → ℤ} (hτ : ∀ i, τ (e i) = e i ^ s i) :
+    he.sqVec (τ x) = fun i ↦ s i * he.sqVec x i :=
+  he.sqVec_eq <| by
+    rw [← map_pow, he.sq_eq_prod_sqVec x, map_prod]
+    simp only [map_zpow, hτ, ← zpow_mul]
+
+variable {P : Submodule ℤ (Fin 3 → ℤ)} (hP : ∀ v, IsSquare (∏ i, e i ^ v i) ↔ v ∈ P)
+
+/-- The map `x ↦ he.sqVec x` into a lattice `P` whose vectors are those of the products of the
+`e i` that are squares. -/
+noncomputable def sqVecHom : Additive G →+ P where
+  toFun a := ⟨he.sqVec a.toMul, (hP _).mp ⟨a.toMul, (he.sq_eq_prod_sqVec _).symm.trans (sq _)⟩⟩
+  map_zero' := Subtype.ext he.sqVec_one
+  map_add' a b := Subtype.ext <| he.sqVec_mul a.toMul b.toMul
+
+variable [IsMulTorsionFree G]
+
+lemma sqVecHom_bijective : Function.Bijective (he.sqVecHom hP) := by
+  refine ⟨fun a b hab ↦ Additive.toMul.injective ?_, fun u ↦ ?_⟩
+  · have hab' : he.sqVec a.toMul = he.sqVec b.toMul := congrArg Subtype.val hab
+    refine eq_of_pow_eq_pow_of_commute two_ne_zero (.all _ _) ?_
+    rw [he.sq_eq_prod_sqVec, hab', ← he.sq_eq_prod_sqVec]
+  · rcases (hP u).mpr u.2 with ⟨r, hr⟩
+    exact ⟨Additive.ofMul r, Subtype.ext <| he.sqVec_eq <| (sq r).trans hr.symm⟩
+
+/-- **The square-exponent isomorphism**: if the products `∏ i, e i ^ vᵢ` that are squares are those
+with `v ∈ P`, then `x ↦ he.sqVec x` is an isomorphism of the torsion-free group `G` onto `P`. -/
+noncomputable def sqVecEquiv : Additive G ≃ₗ[ℤ] P :=
+  (AddEquiv.ofBijective _ (he.sqVecHom_bijective hP)).toIntLinearEquiv
+
+lemma coe_sqVecEquiv_apply (a : Additive G) : (he.sqVecEquiv hP a : Fin 3 → ℤ) = he.sqVec a.toMul :=
+  rfl
+
+end SqVec
 
 variable [IsMulTorsionFree G]
 

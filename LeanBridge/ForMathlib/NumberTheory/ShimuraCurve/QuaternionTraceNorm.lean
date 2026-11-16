@@ -18,10 +18,6 @@ The identities are transported from Mathlib's `ℍ[ℚ,a,b]`, to which `B` is is
 (`QuaternionAlgebra.exists_nonempty_algEquiv_of_finrank_eq_four`), where they are computations in
 the basis `1, i, j, k` or instances of Tau Ceti's `QuaternionAlgebra.normForm_mul`.
 
-## Main definitions
-
-* `QuaternionAlgebra.reducedTraceₗ`: the reduced trace as a `ℚ`-linear map.
-
 ## Main results
 
 * `QuaternionAlgebra.mul_self_eq_reducedTrace_smul_sub`: `x² = trd(x) x - nrd(x)`.
@@ -40,17 +36,7 @@ open scoped Quaternion
 
 namespace QuaternionAlgebra
 
-variable (B : Type*) [Ring B] [Algebra ℚ B]
-
-/-- The **reduced trace** of a quaternion algebra `B` over `ℚ` as a `ℚ`-linear map `B → ℚ`. -/
-noncomputable def reducedTraceₗ : B →ₗ[ℚ] ℚ :=
-  (2⁻¹ : ℚ) • (LinearMap.trace ℚ B ∘ₗ LinearMap.mul ℚ B)
-
-variable {B} (x y : B) (q : ℚ)
-
-lemma reducedTraceₗ_apply : reducedTraceₗ B x = reducedTrace B x := by
-  rw [reducedTrace, div_eq_inv_mul]
-  rfl
+variable {B : Type*} [Ring B] [Algebra ℚ B] (x y : B) (q : ℚ)
 
 lemma reducedTrace_add : reducedTrace B (x + y) = reducedTrace B x + reducedTrace B y := by
   simp only [← reducedTraceₗ_apply, map_add]
@@ -64,15 +50,6 @@ lemma reducedTrace_smul : reducedTrace B (q • x) = q * reducedTrace B x := by
 lemma reducedTrace_mul_comm : reducedTrace B (x * y) = reducedTrace B (y * x) := by
   rw [reducedTrace, reducedTrace, LinearMap.mulLeft_mul, LinearMap.mulLeft_mul, ← End.mul_eq_comp,
     ← End.mul_eq_comp, LinearMap.trace_mul_comm]
-
-lemma reducedTrace_algebraMap (h4 : finrank ℚ B = 4) :
-    reducedTrace B (algebraMap ℚ B q) = 2 * q := by
-  have : FiniteDimensional ℚ B := .of_finrank_pos (by omega)
-  have h : LinearMap.mulLeft ℚ (algebraMap ℚ B q) = q • LinearMap.id := by
-    ext z
-    rw [LinearMap.mulLeft_apply, LinearMap.smul_apply, LinearMap.id_apply, Algebra.smul_def]
-  rw [reducedTrace, h, map_smul, LinearMap.trace_id, h4, smul_eq_mul]
-  ring1
 
 lemma reducedNorm_add : reducedNorm B (x + y) = reducedNorm B x + reducedNorm B y +
     reducedTrace B x * reducedTrace B y - reducedTrace B (x * y) := by

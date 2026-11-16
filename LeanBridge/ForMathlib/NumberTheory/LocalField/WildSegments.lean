@@ -67,7 +67,7 @@ variable {K : Type*} [Field K] [ValuativeRel K] [TopologicalSpace K]
 
 namespace HerbrandInvariant
 
-variable {p : ℕ} (I : HerbrandInvariant p) {j k : ℕ}
+variable {p : ℕ} (I : HerbrandInvariant p)
 
 /-- The **number of wild segments** (LMFDB `lf.wild_segments`) of a family `I / K`: the number of
 segments of positive slope of the ramification polygon of `I`, which is the ramification polygon of
@@ -89,23 +89,6 @@ lemma IsInvariantOf.ncard_polygonEdgesWithSlope_eq (hp : ringChar 𝓀[K] = p)
   rw [hE.ramificationPolygonOf_minpoly hp hπ, wildSegmentCount]
 
 variable [Fact p.Prime]
-
-lemma isConvexSeq_ramificationPolygon : IsConvexSeq I.ramificationPolygon := by
-  have hset : {n | I.ramificationPolygon n ≠ ⊤} = Icc 1 I.ramificationIndex :=
-    ext fun _ ↦ I.ramificationPolygon_ne_top_iff
-  refine ⟨hset ▸ ordConnected_Icc, ?_⟩
-  rw [finiteEdges_ramificationPolygon]
-  intro m hm n hn hmn
-  rw [I.unitSlope_ramificationPolygon_eq_neg_ram (Nat.one_le_iff_ne_zero.mp hm.1) hm.2,
-    I.unitSlope_ramificationPolygon_eq_neg_ram (Nat.one_le_iff_ne_zero.mp hn.1) hn.2,
-    neg_le_neg_iff, Rat.cast_le]
-  exact I.monotone_ram (Nat.sub_le_sub_left (Nat.log_mono_right hmn) _)
-
-lemma unitSlope_ramificationPolygon_nonpos {n : ℕ} (hn : n ∈ Ico 1 I.ramificationIndex) :
-    unitSlope I.ramificationPolygon n ≤ 0 := by
-  rw [I.unitSlope_ramificationPolygon_eq_neg_ram (Nat.one_le_iff_ne_zero.mp hn.1) hn.2, neg_nonpos,
-    Rat.cast_nonneg]
-  exact I.ram_nonneg _
 
 /-- **The number of wild segments is the number of distinct rams**: the segments of positive slope
 of the ramification polygon of `I = (r_1, …, r_w)_ε^f` correspond to the distinct rams. -/
@@ -140,19 +123,6 @@ lemma wildSegmentCount_eq_ncard_image_ram : I.wildSegmentCount = (I.ram '' Icc 1
     I.setOf_neg_unitSlope_ramificationPolygon_ne_zero, hR,
     ncard_image_of_injective _ Rat.cast_injective]
 
-lemma swanSlope_eq_swanSlope_iff (hjk : j ≤ k) :
-    I.swanSlope k = I.swanSlope j ↔ I.ram k = I.ram j := by
-  have hnn (i : ℕ) : 0 ≤ I.ram (i + 1) - I.ram i := sub_nonneg.mpr <| I.monotone_ram i.le_succ
-  have hden (i : ℕ) : (0 : ℚ) < I.ε * p ^ i := mul_pos I.natCast_ε_pos (pow_pos natCast_prime_pos i)
-  have hs : I.swanSlope k - I.swanSlope j =
-      ∑ i ∈ Finset.Ico j k, (I.ram (i + 1) - I.ram i) / (I.ε * p ^ i) :=
-    (Finset.sum_Ico_eq_sub _ hjk).symm
-  have hr : I.ram k - I.ram j = ∑ i ∈ Finset.Ico j k, (I.ram (i + 1) - I.ram i) :=
-    (Finset.sum_Ico_sub I.ram hjk).symm
-  rw [← sub_eq_zero, hs, Finset.sum_eq_zero_iff_of_nonneg fun i _ ↦ div_nonneg (hnn i) (hden i).le,
-    ← sub_eq_zero (a := I.ram k), hr, Finset.sum_eq_zero_iff_of_nonneg fun i _ ↦ hnn i]
-  exact forall₂_congr fun i _ ↦ div_eq_zero_iff.trans (or_iff_left (hden i).ne')
-
 /-- **The number of wild segments is the number of distinct Swan slopes**: the Swan slopes
 `s_j` and `s_k` of `I` agree exactly when the rams `r_j` and `r_k` do. -/
 lemma ncard_image_swanSlope_eq_wildSegmentCount :
@@ -162,12 +132,6 @@ lemma ncard_image_swanSlope_eq_wildSegmentCount :
   rcases le_total j k with hjk | hjk
   · exact (eq_comm.trans (I.swanSlope_eq_swanSlope_iff hjk)).trans eq_comm
   · exact I.swanSlope_eq_swanSlope_iff hjk
-
-lemma swanSlope_pos (hk₀ : 1 ≤ k) (hk : k ≤ I.w) : 0 < I.swanSlope k := by
-  have h₁ : 0 < I.swanSlope 1 := by
-    rw [swanSlope, Finset.sum_range_one, I.ram_zero, sub_zero, pow_zero, mul_one]
-    exact div_pos (I.zero_lt_ram_one (by omega)) I.natCast_ε_pos
-  exact h₁.trans_le (swanSlope_mono hk₀)
 
 variable {I} in
 /-- **The number of wild segments is the number of distinct positive Swan slopes** (LMFDB

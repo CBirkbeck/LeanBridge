@@ -275,6 +275,11 @@ lemma QuaternionGroup.nat_card_two_pow : Nat.card (QuaternionGroup (2 ^ (k - 2))
   rw [Nat.card_eq_fintype_card, card, show 4 = 2 ^ 2 by norm_num, ← pow_add,
     Nat.add_sub_cancel' (by omega)]
 
+lemma QuaternionGroup.isPGroup_two_pow (j : ℕ) : IsPGroup 2 (QuaternionGroup (2 ^ j)) :=
+  .of_card (n := j + 2) <| by
+    rw [Nat.card_eq_fintype_card, card]
+    ring1
+
 /-- **The generalised quaternion group `QuaternionGroup m` is non-abelian for `m ≥ 2`** (LMFDB
 `group.semi_dihedral`, `group.other_dihedral`): `a 1` and `xa 0` do not commute, as `-1 ≠ 1` in
 `ZMod (2 m)`. -/
@@ -415,10 +420,7 @@ lemma QuaternionGroup.card_sq_eq_one [NeZero m] :
   have hS : {g : QuaternionGroup m | g ^ 2 = 1} = a '' {i | 2 * i = 0} := by
     ext (i | i)
     · simp [pow_two, ha1, two_mul]
-    · have hm : (m : ZMod (2 * m)) ≠ 0 := by
-        rw [Ne, natCast_eq_zero_iff]
-        exact fun h ↦ NeZero.ne m (Nat.eq_zero_of_dvd_of_lt h (lt_two_mul_self (NeZero.pos m)))
-      simp [ha1, hm]
+    · exact iff_of_false (fun h ↦ by simpa [← a_zero] using eq_one_or_eq_a_of_sq_eq_one h) (by simp)
   refine (congrArg Set.ncard hS).trans ?_
   rw [Set.ncard_image_of_injective _ fun i j hij ↦ a.inj hij]
   exact ZMod.card_two_mul_eq_zero (dvd_mul_right 2 m)

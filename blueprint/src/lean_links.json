@@ -3111,7 +3111,7 @@
   "lf.family_invariants": {
     "IsNonarchimedeanLocalField.HerbrandInvariant.family": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamily",
     "IsNonarchimedeanLocalField.HerbrandInvariant.IsInvariantOf": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamily",
-    "IsNonarchimedeanLocalField.HerbrandInvariant.mk_mem_family_iff": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyInvariants",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.mk_mem_family_iff": "LeanBridge.ForMathlib.NumberTheory.LocalField.DeligneRamificationBreaks",
     "IsNonarchimedeanLocalField.HerbrandInvariant.finrank_of_mem_family": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyUnramifiedMass",
     "IsNonarchimedeanLocalField.HerbrandInvariant.IsInvariantOf.natCast_discriminantExponent": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyInvariants",
     "IsNonarchimedeanLocalField.HerbrandInvariant.IsInvariantOf.visibleArtinSlopes_eq": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyInvariants",

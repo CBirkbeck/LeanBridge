@@ -17,6 +17,7 @@ leading one.
 
 ## Main results
 
+* `IsNonarchimedeanLocalField.addValuation_mul`: the normalised valuation is additive.
 * `IsNonarchimedeanLocalField.HerbrandInvariant.mul_mean_add_le`: the lower bound for the index of
   inseparability at `k`.
 * `IsNonarchimedeanLocalField.HerbrandInvariant.exists_add_le_mul_mean`: the minimum defining the
@@ -61,6 +62,23 @@ lemma addValuation_coe {y : 𝒪[K]} {a : ℕ} (h : addVal 𝒪[K] y = a) :
   rw [addValuation, dite_eq_right hy, hprod, map_mul, map_pow, normalizedValuation_irreducible hϖ,
     hval, mul_one]
   simp
+
+variable {x y : K}
+
+variable (K) in
+lemma addValuation_zero : addValuation K 0 = ⊤ :=
+  dite_eq_left rfl
+
+lemma addValuation_eq_top_iff : addValuation K x = ⊤ ↔ x = 0 := by
+  refine ⟨fun h ↦ by_contra fun hx ↦ ?_, fun h ↦ h ▸ addValuation_zero K⟩
+  rw [addValuation, dite_eq_right hx] at h
+  exact WithTop.coe_ne_top h
+
+/-- **The normalised valuation is additive**: `v_K(x y) = v_K(x) + v_K(y)` for `x, y ≠ 0`. -/
+lemma addValuation_mul (hx : x ≠ 0) (hy : y ≠ 0) :
+    addValuation K (x * y) = addValuation K x + addValuation K y := by
+  rw [addValuation, addValuation, addValuation, dite_eq_right hx, dite_eq_right hy,
+    dite_eq_right (mul_ne_zero hx hy), ← WithTop.coe_add, Units.mk0_mul, map_mul, toAdd_mul]
 
 namespace HerbrandInvariant
 

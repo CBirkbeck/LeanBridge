@@ -13,7 +13,8 @@ by the rams of a Herbrand invariant `I`
 and the points `(p ^ (w - k), e m_k)` belong to the polygon when `p ^ (w - k)` is the abscissa of a
 vertex. This is proved for an Eisenstein polynomial with a root generating an extension `L / K` and
 for the Herbrand invariant of `L / K`, which need not be normal, computed in a finite Galois
-extension `M / K` containing `L`.
+extension `M / K` containing `L`. That the lower convex hull of these points is then the polygon
+of `I` is proved in `LeanBridge.ForMathlib.NumberTheory.LocalField.RamificationPolygonHull`.
 
 The lower bound is Monge's Proposition 1, already proved in
 `LeanBridge.ForMathlib.NumberTheory.LocalField.RamificationPolygon`. The vertices need more: over
@@ -257,13 +258,40 @@ lemma sum_card_mul_relIndex_add_addVal_coeff_taylor (hy : Algebra.adjoin 𝒪[K]
 end Tower
 
 variable {p : ℕ} (I : HerbrandInvariant p) {R S : Type*} [CommRing R] [CommRing S] [IsDomain S]
-  [IsDiscreteValuationRing S] [Algebra R S]
+  [IsDiscreteValuationRing S] [Algebra R S] {b : ℚ}
 
 /-- The index `k` is a **vertex** of a Herbrand invariant if `k = w` or `r_k < r_{k + 1}`, so that
 `p ^ (w - k)` is the abscissa of a vertex of the ramification polygon. For `1 ≤ k ≤ w` this means
 that `k` is final in its segment (`IsFinal`), and `0` is a vertex. -/
 def IsVertex (k : ℕ) : Prop :=
   k = I.w ∨ I.ram k < I.ram (k + 1)
+
+lemma isVertex_zero : I.IsVertex 0 := by
+  rcases Nat.eq_zero_or_pos I.w with h | h
+  · exact .inl h.symm
+  · exact .inr <| I.ram_zero.le.trans_lt <| I.zero_lt_ram_one h
+
+lemma isVertex_ramCountLT (hb : b ∈ (Icc 1 I.w).image I.ram) : I.IsVertex (I.ramCountLT b) := by
+  have hd : 0 < I.ramMultiplicity b := I.ramMultiplicity_pos hb
+  have hcd : I.ramCountLT b + I.ramMultiplicity b ≤ I.w := I.ramCountLT_add_ramMultiplicity_le b
+  refine .inr ?_
+  rw [I.ram_eq_of_ramCountLT_lt (Nat.lt_succ_self _) (by omega)]
+  rcases Nat.eq_zero_or_pos (I.ramCountLT b) with h | h
+  · rw [h, I.ram_zero]
+    rcases mem_image.mp hb with ⟨k, hk, rfl⟩
+    exact I.ram_pos (Nat.one_le_iff_ne_zero.mp (mem_Icc.mp hk).1) (mem_Icc.mp hk).2
+  · exact (I.ram_lt_iff_le_ramCountLT h (by omega)).mpr le_rfl
+
+lemma isVertex_ramCountLT_add_ramMultiplicity (hb : b ∈ (Icc 1 I.w).image I.ram) :
+    I.IsVertex (I.ramCountLT b + I.ramMultiplicity b) := by
+  have hd : 0 < I.ramMultiplicity b := I.ramMultiplicity_pos hb
+  rcases (I.ramCountLT_add_ramMultiplicity_le b).eq_or_lt with h | h
+  · exact .inl h
+  · refine .inr <| not_le.mp fun hle ↦ ?_
+    rw [I.ram_eq_of_ramCountLT_lt (by omega) le_rfl] at hle
+    have hle' : I.ramCountLT b + I.ramMultiplicity b + 1 ≤ I.ramCountLT b + I.ramMultiplicity b :=
+      (I.ram_le_iff_le_ramCountLT_add_ramMultiplicity (by omega) h).mp hle
+    omega
 
 /-- The **ramification polygon** of a polynomial `g` over a discrete valuation ring `R` at a root
 `π` in a discrete valuation ring `S` over `R` is the polygon of the Herbrand invariant `I`, for the

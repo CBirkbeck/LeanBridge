@@ -73,14 +73,7 @@ open Algebra (galoisClosure IsSibling)
 
 namespace Algebra
 
-variable {F A B K₁ K₂ : Type*} [Field F] [CommRing A] [Algebra F A] [CommRing B] [Algebra F B]
-  [Field K₁] [Algebra F K₁] [Field K₂] [Algebra F K₂]
-
-lemma galoisClosure_eq_of_algEquiv (e : A ≃ₐ[F] B) : galoisClosure F A = galoisClosure F B := by
-  refine congrArg (IntermediateField.adjoin F) (Set.ext fun x ↦ ?_)
-  simp only [Set.mem_iUnion]
-  exact ⟨fun ⟨f, y, hy⟩ ↦ ⟨f.comp e.symm.toAlgHom, e y, by simpa using hy⟩,
-    fun ⟨f, y, hy⟩ ↦ ⟨f.comp e.toAlgHom, e.symm y, by simpa using hy⟩⟩
+variable {F K₁ K₂ : Type*} [Field F] [Field K₁] [Algebra F K₁] [Field K₂] [Algebra F K₂]
 
 lemma fieldRange_le_galoisClosure (φ : K₁ →ₐ[F] AlgebraicClosure F) :
     φ.fieldRange ≤ galoisClosure F K₁ :=

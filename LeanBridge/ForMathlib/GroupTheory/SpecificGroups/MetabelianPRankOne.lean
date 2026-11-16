@@ -1,6 +1,6 @@
+import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.CyclicIndexTwo
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.Metabelian
 import Mathlib.GroupTheory.Nilpotent
-import Mathlib.GroupTheory.SpecificGroups.Quaternion
 
 /-!
 # `p`-groups of `p`-rank one are metabelian
@@ -195,41 +195,10 @@ namespace QuaternionGroup
 
 variable (n : ℕ) [NeZero n]
 
-private lemma natCast_ne_zero_aux : (n : ZMod (2 * n)) ≠ 0 := by
-  rw [Ne, ZMod.natCast_eq_zero_iff]
-  intro h
-  have hn : 0 < n := NeZero.pos n
-  have hle : 2 * n ≤ n := Nat.le_of_dvd hn h
-  omega
-
-lemma isPGroup_two_pow (k : ℕ) : IsPGroup 2 (QuaternionGroup (2 ^ k)) :=
-  .of_card (n := k + 2) <| by
-    rw [Nat.card_eq_fintype_card, card]
-    ring1
-
-variable {n} in
-lemma eq_one_or_eq_a_of_sq_eq_one {g : QuaternionGroup n} (hg : g ^ 2 = 1) : g = 1 ∨ g = a n := by
-  rcases g with i | i
-  · rw [sq, a_mul_a, one_def, a.injEq] at hg
-    have hi : ((2 * i.val : ℕ) : ZMod (2 * n)) = 0 := by
-      rw [Nat.cast_mul, ZMod.natCast_zmod_val, Nat.cast_ofNat, two_mul i, hg]
-    rcases (Nat.mul_dvd_mul_iff_left two_pos).mp ((ZMod.natCast_eq_zero_iff _ _).mp hi) with
-      ⟨c, hc⟩
-    have hc' : c = 0 ∨ c = 1 := by
-      by_contra! h
-      have hlt : i.val < 2 * n := i.val_lt
-      have hle : n * 2 ≤ n * c := Nat.mul_le_mul_left n (by omega)
-      omega
-    rcases hc' with rfl | rfl
-    · exact .inl <| congrArg a <| (ZMod.val_eq_zero i).mp <| hc.trans (mul_zero n)
-    · exact .inr <| congrArg a <| by rw [← ZMod.natCast_zmod_val i, hc, mul_one]
-  · rw [xa_sq, one_def, a.injEq] at hg
-    exact absurd hg (natCast_ne_zero_aux n)
-
 /-- **The dicyclic groups have `2`-rank one** (LMFDB `group.metabelian`): the only element of
 order `2` of `QuaternionGroup n` is `a n`, the `n`-th power of `a 1`. Among them, the generalised
-quaternion groups `QuaternionGroup (2 ^ k)` are `2`-groups (`isPGroup_two_pow`), to which
-`IsPGroup.isMetabelian_of_pRank_le_one` applies. -/
+quaternion groups `QuaternionGroup (2 ^ k)` are `2`-groups (`QuaternionGroup.isPGroup_two_pow`),
+to which `IsPGroup.isMetabelian_of_pRank_le_one` applies. -/
 lemma pRank_two : Group.pRank 2 (QuaternionGroup n) = 1 := by
   refine (Group.pRank_le fun H _ hH ↦ ?_).antisymm <| Group.one_le_pRank <| by
     rw [Nat.card_eq_fintype_card, card]

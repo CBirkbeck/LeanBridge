@@ -203,31 +203,25 @@ variable {I K} {E : FiniteExtension K}
 
 lemma unramifiedExtension_le_of_mem_family (hE : Quotient.mk _ E ∈ I.family K) :
     unramifiedExtension K (AlgebraicClosure K) I.f ≤ E.1 := by
-  rcases hE with ⟨E₀, hE₀, h⟩
-  rcases Quotient.exact h with ⟨φ⟩
-  have hE₀' : FiniteDimensional K E₀.1 :=
-    E₀.2
-  have hle : unramifiedExtension K (AlgebraicClosure K) I.f ≤ E₀.1 :=
-    unramifiedExtension_le_of_isInvariantOf hE₀
-  rw [← ((E.1.val.comp φ.toAlgHom).comp (IntermediateField.inclusion hle)).fieldRange_of_normal]
-  rintro - ⟨x, rfl⟩
-  exact (φ _).2
+  have hfd : FiniteDimensional K E.1 :=
+    E.2
+  exact unramifiedExtension_le_of_isInvariantOf (mk_mem_family_iff.mp hE)
 
 lemma finrank_of_mem_family (hE : Quotient.mk _ E ∈ I.family K) :
     Module.finrank K E.1 = I.ramificationIndex * I.f := by
-  rcases hE with ⟨E₀, hE₀, h⟩
-  rcases Quotient.exact h with ⟨φ⟩
-  have hE₀' : FiniteDimensional K E₀.1 :=
-    E₀.2
-  let v : ValuativeRel E₀.1 :=
-    finiteIntermediateFieldValuativeRel K _ E₀.1
-  let t : TopologicalSpace E₀.1 :=
-    finiteIntermediateFieldTopology K _ E₀.1
-  have h₁ : IsNonarchimedeanLocalField E₀.1 :=
-    finiteIntermediateField_isNonarchimedeanLocalField K _ E₀.1
-  have h₂ : ValuativeExtension K E₀.1 :=
-    finiteIntermediateField_valuativeExtension K _ E₀.1
-  rw [← φ.toLinearEquiv.finrank_eq, ← ramificationIndex_mul_inertiaDegree K E₀.1, hE₀.1, hE₀.2.1]
+  have hfd : FiniteDimensional K E.1 :=
+    E.2
+  have hE' : I.IsInvariantOf K E.1 :=
+    mk_mem_family_iff.mp hE
+  let v : ValuativeRel E.1 :=
+    finiteIntermediateFieldValuativeRel K _ E.1
+  let t : TopologicalSpace E.1 :=
+    finiteIntermediateFieldTopology K _ E.1
+  have h₁ : IsNonarchimedeanLocalField E.1 :=
+    finiteIntermediateField_isNonarchimedeanLocalField K _ E.1
+  have h₂ : ValuativeExtension K E.1 :=
+    finiteIntermediateField_valuativeExtension K _ E.1
+  rw [← ramificationIndex_mul_inertiaDegree K E.1, hE'.1, hE'.2.1]
   rfl
 
 lemma natCard_classOverUnramified_mul (hE : Quotient.mk _ E ∈ I.family K) : Nat.card {E' //

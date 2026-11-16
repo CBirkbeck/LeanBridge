@@ -52,18 +52,6 @@ variable (K M L : Type*) [Field K] [ValuativeRel K] [TopologicalSpace K]
   [Algebra L M] [IsScalarTower K L M] [ValuativeExtension L M] [Module.Finite L M] [IsGalois K M]
   [ValuativeExtension K L]
 
-variable {K M} in
-lemma natCast_differentExponent_eq_sum_range {N : ℕ}
-    (hN : ∀ i, N ≤ i → Nat.card (lowerRamificationGroup K M i) = 1) : (differentExponent K M : ℝ) =
-      ∑ i ∈ range N, ((Nat.card (lowerRamificationGroup K M i) : ℝ) - 1) := by
-  have hsupp :
-      (Function.support fun i : ℕ ↦ Nat.card (lowerRamificationGroup K M i) - 1) ⊆ ↑(range N) :=
-    Function.support_subset_iff'.mpr fun i hi ↦ by
-      rw [hN i (by simpa using hi), Nat.sub_self]
-  rw [differentExponent_eq_finsum_lowerRamificationGroup, finsum_eq_sum_of_support_subset _ hsupp,
-    Nat.cast_sum]
-  exact sum_congr rfl fun i _ ↦ by rw [Nat.cast_sub Nat.card_pos, Nat.cast_one]
-
 lemma natCast_differentExponent_herbrandInvariantOfTower_real : (differentExponent K L : ℝ) =
     ramificationIndex K L - 1 + ramificationIndex K L *
       ((herbrandInvariantOfTower K M L).mean (herbrandInvariantOfTower K M L).w : ℝ) := by
