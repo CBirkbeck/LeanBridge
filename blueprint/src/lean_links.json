@@ -338,6 +338,16 @@
     "ClassGroup.equivPic": "Mathlib.RingTheory.PicardGroup",
     "TauCeti.GlobalNumberFields.Pic": "TauCeti.NumberTheory.NumberField.Global.Orders.Picard"
   },
+  "av.fq.singular_dimensions": {
+    "Submodule.residueFinrank": "LeanBridge.ForMathlib.RingTheory.FractionalIdeal.LocallyPrincipal",
+    "Subalgebra.finite_quotient_of_isLattice": "LeanBridge.ForMathlib.NumberTheory.NumberField.WeilPolynomial.SingularDimension",
+    "FractionalIdeal.finite_quotient_smul_top_of_isLattice": "LeanBridge.ForMathlib.NumberTheory.NumberField.WeilPolynomial.SingularDimension",
+    "FractionalIdeal.residueFinrank_eq_one_iff_isPrincipal_localized": "LeanBridge.ForMathlib.NumberTheory.NumberField.WeilPolynomial.SingularDimension",
+    "FractionalIdeal.isUnit_iff_forall_isPrincipal_localized": "LeanBridge.ForMathlib.NumberTheory.NumberField.WeilPolynomial.SingularDimension",
+    "FractionalIdeal.mem_singularPrimes_of_not_isPrincipal_localized": "LeanBridge.ForMathlib.NumberTheory.NumberField.WeilPolynomial.SingularDimension",
+    "Subalgebra.IsGorenstein.isUnit_of_div_self_eq_one": "LeanBridge.ForMathlib.NumberTheory.NumberField.WeilPolynomial.GorensteinOrder",
+    "FractionalIdeal": "Mathlib.RingTheory.FractionalIdeal.Basic"
+  },
   "av.fq.weak_equivalence_class": {
     "FractionalIdeal.WeakEquivalenceClass": "LeanBridge.ForMathlib.NumberTheory.NumberField.WeilPolynomial.WeakEquivalence",
     "FractionalIdeal.weakEquivalenceSetoid": "LeanBridge.ForMathlib.NumberTheory.NumberField.WeilPolynomial.WeakEquivalence",
@@ -2407,6 +2417,16 @@
     "Representation.frobeniusSchurIndicator_eq_zero_iff_isComplexType": "LeanBridge.ForMathlib.RepresentationTheory.FrobeniusSchurType",
     "Representation.frobeniusSchurIndicator_eq_neg_one_iff_isQuaternionicType": "LeanBridge.ForMathlib.RepresentationTheory.FrobeniusSchurType"
   },
+  "group.schur_multiplier": {
+    "groupHomology": "Mathlib.RepresentationTheory.Homological.GroupHomology.Basic",
+    "Rep.trivial": "Mathlib.RepresentationTheory.Rep.Basic",
+    "GroupExtension.IsStem.surjective_H2ToKernel": "LeanBridge.ForMathlib.GroupTheory.SchurMultiplier.MaximalStem",
+    "GroupExtension.IsStem.nat_card_kernel_le": "LeanBridge.ForMathlib.GroupTheory.SchurMultiplier.MaximalStem",
+    "SchurCover.isStem_extension": "LeanBridge.ForMathlib.GroupTheory.SchurMultiplier.SchurCover",
+    "SchurCover.isMaximalStem_extension": "LeanBridge.ForMathlib.GroupTheory.SchurMultiplier.MaximalStem",
+    "GroupExtension.IsMaximalStem.bijective_H2ToKernel": "LeanBridge.ForMathlib.GroupTheory.SchurMultiplier.MaximalStem",
+    "SchurCover.finite_H2": "LeanBridge.ForMathlib.GroupTheory.SchurMultiplier.SchurCover"
+  },
   "group.semi_dihedral": {
     "SemiDihedralGroup": "LeanBridge.ForMathlib.GroupTheory.SpecificGroups.ModularMaximalCyclic",
     "SemiDihedralGroup.presentedGroupMulEquiv": "LeanBridge.ForMathlib.GroupTheory.SpecificGroups.MetacyclicPresentation",
@@ -2521,6 +2541,16 @@
     "CliffordAlgebra.spinorNorm_eq_squareClassHom_prod": "LeanBridge.ForMathlib.LinearAlgebra.QuadraticForm.SpinorNormReflection",
     "TauCeti.subsingleton_squareClassGroup_of_ringChar_eq_two": "LeanBridge.ForMathlib.LinearAlgebra.QuadraticForm.SpinorNormReflection"
   },
+  "group.stem_extension": {
+    "GroupExtension.IsStem": "LeanBridge.ForMathlib.GroupTheory.StemExtension",
+    "Subgroup.IsStem": "LeanBridge.ForMathlib.GroupTheory.StemExtension",
+    "GroupExtension.IsStem.nat_card_le": "LeanBridge.ForMathlib.GroupTheory.SchurMultiplier.MaximalStem",
+    "GroupExtension.IsMaximalStem": "LeanBridge.ForMathlib.GroupTheory.SchurMultiplier.MaximalStem",
+    "GroupExtension.IsMaximalStem.bijective_H2ToKernel": "LeanBridge.ForMathlib.GroupTheory.SchurMultiplier.MaximalStem",
+    "GroupExtension.IsMaximalStem.isIsoclinic": "LeanBridge.ForMathlib.GroupTheory.SchurMultiplier.MaximalStem",
+    "GroupExtension.not_forall_nonempty_mulEquiv_of_isMaximalStem": "LeanBridge.ForMathlib.GroupTheory.SchurMultiplier.KleinFour",
+    "GroupExtension.IsMaximalStem.nonempty_mulEquiv": "LeanBridge.ForMathlib.GroupTheory.SchurMultiplier.MaximalStem"
+  },
   "group.stem_group": {
     "Group.IsStemGroup": "LeanBridge.ForMathlib.GroupTheory.StemExtension",
     "Group.exists_isStemGroup_isIsoclinic": "LeanBridge.ForMathlib.GroupTheory.Isoclinism.StemGroup",
@@ -2605,6 +2635,16 @@
     "Subgroup.faithfulSMul_quotient_iff": "LeanBridge.ForMathlib.GroupTheory.SubgroupsBeyondIndexBound",
     "Subgroup.injective_permutationRepresentation": "LeanBridge.ForMathlib.GroupTheory.SubgroupsBeyondIndexBound",
     "Subgroup.exists_permutationRepresentation_apply_eq": "LeanBridge.ForMathlib.GroupTheory.SubgroupsBeyondIndexBound"
+  },
+  "group.supersolvable": {
+    "Group.IsSupersolvable": "LeanBridge.ForMathlib.GroupTheory.Supersolvable",
+    "Group.isSupersolvable_iff_exists_strictMono": "LeanBridge.ForMathlib.GroupTheory.SupersolvableClosure",
+    "Group.IsSupersolvable.isSolvable": "LeanBridge.ForMathlib.GroupTheory.SupersolvableClosure",
+    "Group.isSolvable_and_not_isSupersolvable_iff": "LeanBridge.ForMathlib.GroupTheory.SpecificGroups.SupersolvableSmallOrder",
+    "IsMGroup.of_isSupersolvable": "LeanBridge.ForMathlib.RepresentationTheory.MGroupSupersolvable",
+    "Group.IsSupersolvable.subgroup": "LeanBridge.ForMathlib.GroupTheory.SupersolvableClosure",
+    "Group.not_forall_isSupersolvable_of_isSupersolvable_quotient": "LeanBridge.ForMathlib.GroupTheory.SpecificGroups.SupersolvableExamples",
+    "Group.isSupersolvable_iff_forall_isCoatom_index_prime": "LeanBridge.ForMathlib.GroupTheory.SupersolvablePrimeIndex"
   },
   "group.sylow_subgroup": {
     "Sylow": "Mathlib.GroupTheory.Sylow",
@@ -3241,6 +3281,16 @@
     "IsNonarchimedeanLocalField.iwasawaLog_of_mem_unitFiltration": "LeanBridge.ForMathlib.NumberTheory.LocalField.IwasawaLogarithm",
     "IsNonarchimedeanLocalField.iwasawaLog_eq_of_pow_eq": "LeanBridge.ForMathlib.NumberTheory.LocalField.IwasawaLogarithm"
   },
+  "lf.means": {
+    "IsNonarchimedeanLocalField.extensionMean": "LeanBridge.ForMathlib.NumberTheory.LocalField.SlopePolygonMeans",
+    "IsNonarchimedeanLocalField.meanPolygon": "LeanBridge.ForMathlib.NumberTheory.LocalField.SlopePolygonMeans",
+    "IsNonarchimedeanLocalField.polygonMean": "LeanBridge.ForMathlib.NumberTheory.LocalField.SlopePolygonMeans",
+    "IsNonarchimedeanLocalField.eq_extensionMean_iff": "LeanBridge.ForMathlib.NumberTheory.LocalField.SlopePolygonMeans",
+    "IsNonarchimedeanLocalField.extensionHeight_eq_mul_extensionMean": "LeanBridge.ForMathlib.NumberTheory.LocalField.SlopePolygonMeans",
+    "IsNonarchimedeanLocalField.meanPolygon_eq": "LeanBridge.ForMathlib.NumberTheory.LocalField.SlopePolygonMeans",
+    "IsNonarchimedeanLocalField.polygonMean_eq_mean": "LeanBridge.ForMathlib.NumberTheory.LocalField.SlopePolygonMeans",
+    "IsNonarchimedeanLocalField.sort_hullWildSwanSlopes_eq": "LeanBridge.ForMathlib.NumberTheory.LocalField.SlopePolygonMeans"
+  },
   "lf.padic_field": {
     "Padic": "Mathlib.NumberTheory.Padics.PadicNumbers",
     "TauCeti.FinitePadicExtension": "TauCeti.NumberTheory.LocalField.AbsoluteRamificationIndex",
@@ -3292,6 +3342,16 @@
     "IsNonarchimedeanLocalField.relfinrank_fixedField_lowerRamificationGroup_one": "LeanBridge.ForMathlib.NumberTheory.LocalField.InertiaFixedField",
     "IsNonarchimedeanLocalField.finrank_galoisClosure_eq": "LeanBridge.ForMathlib.NumberTheory.LocalField.SlopeContentDegree",
     "IsNonarchimedeanLocalField.upperRamificationGroup_eq_of_mem_Ioc": "LeanBridge.ForMathlib.NumberTheory.LocalField.WildArtinSlopes"
+  },
+  "lf.slopes": {
+    "IsNonarchimedeanLocalField.slopesPolygon": "LeanBridge.ForMathlib.NumberTheory.LocalField.VisibleSlopes",
+    "IsNonarchimedeanLocalField.hullArtinSlopes": "LeanBridge.ForMathlib.NumberTheory.LocalField.VisibleSlopes",
+    "IsNonarchimedeanLocalField.hullWildArtinSlopes": "LeanBridge.ForMathlib.NumberTheory.LocalField.VisibleSlopes",
+    "IsNonarchimedeanLocalField.hullWildSwanSlopes": "LeanBridge.ForMathlib.NumberTheory.LocalField.VisibleSlopes",
+    "IsNonarchimedeanLocalField.visibleSwanSlopeContent": "LeanBridge.ForMathlib.NumberTheory.LocalField.VisibleSlopes",
+    "IsNonarchimedeanLocalField.div_eq_pow_slopeMultiplicity": "LeanBridge.ForMathlib.NumberTheory.LocalField.VisibleSlopes",
+    "IsNonarchimedeanLocalField.mem_hullWildSwanSlopes_iff": "LeanBridge.ForMathlib.NumberTheory.LocalField.VisibleSlopes",
+    "IsNonarchimedeanLocalField.hullWildSwanSlopes_eq_visibleSwanSlopes": "LeanBridge.ForMathlib.NumberTheory.LocalField.VisibleSlopes"
   },
   "lf.swan_slopes": {
     "IsNonarchimedeanLocalField.swanSlopesOfSubgroup": "LeanBridge.ForMathlib.NumberTheory.LocalField.DeligneRamificationBreaks",
@@ -4955,7 +5015,8 @@
     "QuaternionAlgebra.IsDivision": "LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.QuaternionOrder",
     "QuaternionAlgebra.IsIndefinite": "LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.QuaternionOrder",
     "QuaternionAlgebra.isIndefinite_iff_nonempty_algEquiv_matrix": "LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.QuaternionIndefinite",
-    "PolarizedQuaternionOrder.nonempty_algEquiv_matrix": "LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.QuaternionIndefinite"
+    "PolarizedQuaternionOrder.nonempty_algEquiv_matrix": "LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.QuaternionIndefinite",
+    "PolarizedQuaternionOrder.negOneThree": "LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.PolarizedOrderExample"
   },
   "shimcurve.quaternion_algebra": {
     "QuaternionAlgebra": "Mathlib.Algebra.Quaternion",

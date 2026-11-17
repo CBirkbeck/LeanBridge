@@ -1794,10 +1794,12 @@ Tau Ceti Review: [`Representation.IsRealizableOverReal`](https://taucetiproject.
 Depends on: {uses "group"}[] {uses "group.representation.character"}[]
 :::
 
-:::definition "group.schur_multiplier"
+:::definition "group.schur_multiplier" (lean := "groupHomology, Rep.trivial, GroupExtension.IsStem.surjective_H2ToKernel, GroupExtension.IsStem.nat_card_kernel_le, SchurCover.isStem_extension, SchurCover.isMaximalStem_extension, GroupExtension.IsMaximalStem.bijective_H2ToKernel, SchurCover.finite_H2")
 *Schur multiplier.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.schur_multiplier))
 
 If $`G` is a finite group then the *Schur multiplier* of $`G` is the homology group $`H_2(G, \Z)`.  It is the maximal kernel of a {bpref "group.stem_extension"}[stem extension] of $`G`. In the data, the Schur multiplier is represented as a list of invariant factors; e.g., '\[2,4,12\]' corresponds to the abelian group $`C_2 \times C_4 \times C_{12}`.
+
+Tau Ceti Review: [`groupHomology`](https://taucetiproject.org/review/#/d/groupHomology), [`Rep.trivial`](https://taucetiproject.org/review/#/d/Rep.trivial).
 :::
 
 :::definition "group.semi_dihedral" (lean := "SemiDihedralGroup, SemiDihedralGroup.presentedGroupMulEquiv, SemiDihedralGroup.index_range_inl, SemiDihedralGroup.not_isMulCommutative, nonempty_mulEquiv_of_isCyclic_of_index_eq_two, DihedralGroup.isEmpty_mulEquiv_semiDihedralGroup, QuaternionGroup.isEmpty_mulEquiv_semiDihedralGroup, SemiDihedralGroup.isEmpty_mulEquiv_otherDihedralGroup")
@@ -2162,7 +2164,7 @@ The smallest sporadic group is the Mathieu group $`M_{11}` of order $`7920 = 2^4
 Depends on: {uses "group.alternating"}[] {uses "group.cyclic"}[] {uses "group.order"}[] {uses "group.simple"}[]
 :::
 
-:::definition "group.stem_extension"
+:::definition "group.stem_extension" (lean := "GroupExtension.IsStem, Subgroup.IsStem, GroupExtension.IsStem.nat_card_le, GroupExtension.IsMaximalStem, GroupExtension.IsMaximalStem.bijective_H2ToKernel, GroupExtension.IsMaximalStem.isIsoclinic, GroupExtension.not_forall_nonempty_mulEquiv_of_isMaximalStem, GroupExtension.IsMaximalStem.nonempty_mulEquiv")
 *Stem extension.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.stem_extension))
 
 A short exact sequence of groups
@@ -2377,7 +2379,7 @@ Tau Ceti Review: [`Equiv.permutationRepresentation`](https://taucetiproject.org/
 Depends on: {uses "group.core"}[] {uses "group.maximal_subgroup"}[] {uses "group.semidirect_product"}[] {uses "group.subgroup"}[] {uses "group.subgroup.complement"}[] {uses "group.subgroup.index"}[] {uses "group.subgroup.normal"}[] {uses "group.sylow_subgroup"}[]
 :::
 
-:::definition "group.supersolvable"
+:::definition "group.supersolvable" (lean := "Group.IsSupersolvable, Group.isSupersolvable_iff_exists_strictMono, Group.IsSupersolvable.isSolvable, Group.isSolvable_and_not_isSupersolvable_iff, IsMGroup.of_isSupersolvable, Group.IsSupersolvable.subgroup, Group.not_forall_isSupersolvable_of_isSupersolvable_quotient, Group.isSupersolvable_iff_forall_isCoatom_index_prime")
 *Supersolvable group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/group.supersolvable))
 
 A group is *supersolvable* if there are nested {bpref "group.subgroup.normal"}[normal] subgroups $`N_i\lhd G`

@@ -147,6 +147,9 @@ import LeanBridge.ForMathlib.GroupTheory.PolycyclicPresentation
 import LeanBridge.ForMathlib.GroupTheory.RankFrattini
 import LeanBridge.ForMathlib.GroupTheory.RationalClassWeight
 import LeanBridge.ForMathlib.GroupTheory.RationalConjugacy
+import LeanBridge.ForMathlib.GroupTheory.SchurMultiplier.KleinFour
+import LeanBridge.ForMathlib.GroupTheory.SchurMultiplier.MaximalStem
+import LeanBridge.ForMathlib.GroupTheory.SchurMultiplier.SchurCover
 import LeanBridge.ForMathlib.GroupTheory.Sibling
 import LeanBridge.ForMathlib.GroupTheory.Socle
 import LeanBridge.ForMathlib.GroupTheory.SocleSolvable
@@ -182,6 +185,7 @@ import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.PSL2ZModFive
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.Quasisimple
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.QuasisimpleAlmostSimple
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.SupersolvableExamples
+import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.SupersolvableSmallOrder
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.Unitary
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.UnitaryCenter
 import LeanBridge.ForMathlib.GroupTheory.StemExtension
@@ -190,7 +194,9 @@ import LeanBridge.ForMathlib.GroupTheory.SubgroupMobius
 import LeanBridge.ForMathlib.GroupTheory.SubgroupPropertyImplications
 import LeanBridge.ForMathlib.GroupTheory.SubgroupsBeyondIndexBound
 import LeanBridge.ForMathlib.GroupTheory.SubnormalSeries
+import LeanBridge.ForMathlib.GroupTheory.Supersolvable
 import LeanBridge.ForMathlib.GroupTheory.SupersolvableClosure
+import LeanBridge.ForMathlib.GroupTheory.SupersolvablePrimeIndex
 import LeanBridge.ForMathlib.GroupTheory.TypeLength
 import LeanBridge.ForMathlib.LinearAlgebra.AffineSpace.AffineGeneralLinear
 import LeanBridge.ForMathlib.LinearAlgebra.AffineSpace.AffineGroup
@@ -396,10 +402,12 @@ import LeanBridge.ForMathlib.NumberTheory.LocalField.PadicQuadraticExtensions
 import LeanBridge.ForMathlib.NumberTheory.LocalField.RamificationPolygonHull
 import LeanBridge.ForMathlib.NumberTheory.LocalField.RamificationPolynomial
 import LeanBridge.ForMathlib.NumberTheory.LocalField.SlopeContentDegree
+import LeanBridge.ForMathlib.NumberTheory.LocalField.SlopePolygonMeans
 import LeanBridge.ForMathlib.NumberTheory.LocalField.TameUnramifiedDegree
 import LeanBridge.ForMathlib.NumberTheory.LocalField.TopArtinSlope
 import LeanBridge.ForMathlib.NumberTheory.LocalField.TopArtinSlopeContent
 import LeanBridge.ForMathlib.NumberTheory.LocalField.UnramifiedNonsplitCartan
+import LeanBridge.ForMathlib.NumberTheory.LocalField.VisibleSlopes
 import LeanBridge.ForMathlib.NumberTheory.LocalField.WildArtinSlopes
 import LeanBridge.ForMathlib.NumberTheory.LocalField.WildSegments
 import LeanBridge.ForMathlib.NumberTheory.ModEllGaloisRep.AlgebraicGroup
@@ -548,8 +556,10 @@ import LeanBridge.ForMathlib.NumberTheory.NumberField.WeightFunction
 import LeanBridge.ForMathlib.NumberTheory.NumberField.WeilPolynomial.ConductorInvertible
 import LeanBridge.ForMathlib.NumberTheory.NumberField.WeilPolynomial.ConductorSum
 import LeanBridge.ForMathlib.NumberTheory.NumberField.WeilPolynomial.EndomorphismRingNotation
+import LeanBridge.ForMathlib.NumberTheory.NumberField.WeilPolynomial.GorensteinOrder
 import LeanBridge.ForMathlib.NumberTheory.NumberField.WeilPolynomial.MultiplierRing
 import LeanBridge.ForMathlib.NumberTheory.NumberField.WeilPolynomial.OrderIndex
+import LeanBridge.ForMathlib.NumberTheory.NumberField.WeilPolynomial.SingularDimension
 import LeanBridge.ForMathlib.NumberTheory.NumberField.WeilPolynomial.SingularPrime
 import LeanBridge.ForMathlib.NumberTheory.NumberField.WeilPolynomial.WeakEquivalence
 import LeanBridge.ForMathlib.NumberTheory.Padics.ClusterPicture
@@ -575,6 +585,7 @@ import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.EnhancedGroup
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.EnhancedGroupTopology
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.Label
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.PolarizationDegree
+import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.PolarizedOrderExample
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.QuaternionIndefinite
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.QuaternionOrder
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.QuaternionOrderDiscriminant
@@ -602,6 +613,7 @@ import LeanBridge.ForMathlib.RingTheory.DedekindDomain.AdicAbvCompletion
 import LeanBridge.ForMathlib.RingTheory.DedekindDomain.AdicCompletionInverseLimit
 import LeanBridge.ForMathlib.RingTheory.Etale.QuadraticZMod
 import LeanBridge.ForMathlib.RingTheory.Etale.QuadraticZModPow
+import LeanBridge.ForMathlib.RingTheory.FractionalIdeal.LocallyPrincipal
 import LeanBridge.ForMathlib.RingTheory.IsAdjoinRootPrimitive
 import LeanBridge.ForMathlib.RingTheory.NullstellensatzMaximalSpectrum
 import LeanBridge.ForMathlib.RingTheory.Polynomial.Eisenstein.Irreducible
@@ -831,7 +843,9 @@ import Mathlib.Order.Defs.PartialOrder
 import Mathlib.RepresentationTheory.Basic
 import Mathlib.RepresentationTheory.Character
 import Mathlib.RepresentationTheory.FDRep
+import Mathlib.RepresentationTheory.Homological.GroupHomology.Basic
 import Mathlib.RepresentationTheory.Irreducible
+import Mathlib.RepresentationTheory.Rep.Basic
 import Mathlib.RingTheory.AdjoinRoot
 import Mathlib.RingTheory.Algebraic.Defs
 import Mathlib.RingTheory.ClassGroup.Basic
@@ -840,6 +854,7 @@ import Mathlib.RingTheory.DedekindDomain.AdicValuation
 import Mathlib.RingTheory.DedekindDomain.Ideal.Lemmas
 import Mathlib.RingTheory.Etale.Basic
 import Mathlib.RingTheory.Etale.Field
+import Mathlib.RingTheory.FractionalIdeal.Basic
 import Mathlib.RingTheory.FractionalIdeal.Operations
 import Mathlib.RingTheory.Frobenius
 import Mathlib.RingTheory.GradedAlgebra.Homogeneous.Ideal

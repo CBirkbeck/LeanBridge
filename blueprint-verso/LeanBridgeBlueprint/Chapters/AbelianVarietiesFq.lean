@@ -397,7 +397,7 @@ Tau Ceti Review: [`CommRing.Pic`](https://taucetiproject.org/review/#/d/CommRing
 Depends on: {uses "av.fq.number_field"}[] {uses "av.fq.order"}[] {uses "nf.class_number"}[] {uses "nf.ideal_class_group"}[] {uses "nf.ring_of_integers"}[]
 :::
 
-:::definition "av.fq.singular_dimensions"
+:::definition "av.fq.singular_dimensions" (lean := "Submodule.residueFinrank, Subalgebra.finite_quotient_of_isLattice, FractionalIdeal.finite_quotient_smul_top_of_isLattice, FractionalIdeal.residueFinrank_eq_one_iff_isPrincipal_localized, FractionalIdeal.isUnit_iff_forall_isPrincipal_localized, FractionalIdeal.mem_singularPrimes_of_not_isPrincipal_localized, Subalgebra.IsGorenstein.isUnit_of_div_self_eq_one, FractionalIdeal")
 *Dimension of a fractional ideal at residue fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/av.fq.singular_dimensions))
 
 Let $`R` be an {bpref "av.fq.order"}[order] in an étale algebra $`K` and $`I` a fractional $`R`-ideal.
@@ -410,6 +410,8 @@ If the ideal $`I` is not locally principal at $`\mathfrak{P}` then $`\mathfrak{P
 If $`R` is Gorenstein then every fractional $`R`-ideal $`I` with multiplicator ring $`(I:I)=R` is invertible (as an $`R`-ideal).
 
 For each fractional $`R`-ideal $`I` with $`(I:I)=R`, we record the dimensions of $`I/\mathfrak{P}I` over $`R/\mathfrak{P}` where $`\mathfrak{P}` runs over the singular primes of $`R`.
+
+Tau Ceti Review: [`FractionalIdeal`](https://taucetiproject.org/review/#/d/FractionalIdeal).
 
 Depends on: {uses "av.fq.order"}[] {uses "av.fq.singular_primes"}[]
 :::

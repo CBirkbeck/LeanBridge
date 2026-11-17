@@ -938,7 +938,7 @@ Tau Ceti Review: [`IsLocalRing.maximalIdeal`](https://taucetiproject.org/review/
 Depends on: {uses "lf.local_field"}[] {uses "lf.ring_of_integers"}[] {uses "nf.absolute_value"}[] {uses "ring.maximal_ideal"}[] {uses "ring.unit"}[]
 :::
 
-:::definition "lf.means"
+:::definition "lf.means" (lean := "IsNonarchimedeanLocalField.extensionMean, IsNonarchimedeanLocalField.meanPolygon, IsNonarchimedeanLocalField.polygonMean, IsNonarchimedeanLocalField.eq_extensionMean_iff, IsNonarchimedeanLocalField.extensionHeight_eq_mul_extensionMean, IsNonarchimedeanLocalField.meanPolygon_eq, IsNonarchimedeanLocalField.polygonMean_eq_mean, IsNonarchimedeanLocalField.sort_hullWildSwanSlopes_eq")
 *Means of an extension.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.means))
 
 Let $`L/K` be an extension of {bpref "lf.padic_field"}[$`p`-adic fields].
@@ -1321,7 +1321,7 @@ The *Swan slopes* are obtained from the Artin slopes by subtracting 1.
 Depends on: {uses "lf.galois_invariants"}[] {uses "lf.inertia_group"}[] {uses "lf.padic_field"}[] {uses "lf.residue_field"}[] {uses "lf.tame_degree"}[] {uses "lf.unramified_degree"}[] {uses "lf.unramified_subfield"}[] {uses "nf.galois_closure"}[] {uses "nf.galois_group"}[]
 :::
 
-:::definition "lf.slopes"
+:::definition "lf.slopes" (lean := "IsNonarchimedeanLocalField.slopesPolygon, IsNonarchimedeanLocalField.hullArtinSlopes, IsNonarchimedeanLocalField.hullWildArtinSlopes, IsNonarchimedeanLocalField.hullWildSwanSlopes, IsNonarchimedeanLocalField.visibleSwanSlopeContent, IsNonarchimedeanLocalField.div_eq_pow_slopeMultiplicity, IsNonarchimedeanLocalField.mem_hullWildSwanSlopes_iff, IsNonarchimedeanLocalField.hullWildSwanSlopes_eq_visibleSwanSlopes")
 *Slopes.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.slopes))
 
 Let $`L/K` be an extension of {bpref "lf.padic_field"}[$`p`-adic fields].
