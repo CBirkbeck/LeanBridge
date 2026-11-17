@@ -11,9 +11,10 @@ trace dual `Rᵗ = {a ∈ K | Tr(aR) ⊆ ℤ}` is a canonical module. The Cohen�
 minimal number of generators of a canonical module, read locally: at a maximal ideal `𝔩`, the
 minimal number of generators of `Rᵗ_𝔩` over `R_𝔩` is, by Nakayama's lemma, the dimension of
 `Rᵗ / 𝔩Rᵗ` over `R / 𝔩`, and the type of `R` is the largest of these. The definitions make sense
-for any subring of a commutative `ℚ`-algebra; their basic properties are proved for orders in
+for any subring of a commutative `ℚ`-algebra; their basic properties are proved here for orders in
 number fields, Tau Ceti's `TauCeti.GlobalNumberFields.NumberFieldOrder`, whose trace dual is the
-trace dual here.
+trace dual here, and for all orders in étale `ℚ`-algebras in
+`LeanBridge.ForMathlib.NumberTheory.NumberField.WeilPolynomial.GorensteinOrder`.
 
 An order in a number field is Gorenstein, that is `Rᵗ` is invertible (Tau Ceti's
 `TauCeti.GlobalNumberFields.NumberFieldOrder.IsGorenstein`), exactly when its Cohen–Macaulay type
@@ -197,8 +198,8 @@ minimal numbers of generators of the localisations `Rᵗ_𝔩` (`Subalgebra.cohe
 a canonical module is only determined up to an invertible module, which need not be principal.
 Canonical modules are not available, so the formula is the definition, here for any subring of a
 commutative `ℚ`-algebra. For an order in an étale algebra the trace form is nondegenerate, so `Rᵗ`
-is a finitely generated `R`-module and the supremum is attained; this is proved here for orders in
-number fields (Tau Ceti's `TauCeti.GlobalNumberFields.NumberFieldOrder`). -/
+is a finitely generated `R`-module and the supremum is attained
+(`Subalgebra.exists_cohenMacaulayTypeAt_eq_cohenMacaulayType_of_isLattice`). -/
 noncomputable def cohenMacaulayType : ℕ :=
   ⨆ 𝔩 : MaximalSpectrum R, R.cohenMacaulayTypeAt 𝔩.asIdeal
 

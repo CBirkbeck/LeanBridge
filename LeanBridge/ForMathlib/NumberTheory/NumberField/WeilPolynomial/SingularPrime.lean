@@ -44,8 +44,10 @@ def relativeConductor : Ideal R where
     exact mul_mem c.2 (hx s hs)
 
 /-- The **singular primes** (LMFDB `av.fq.singular_primes`) of an order `R` of an étale `ℚ`-algebra
-`K`: the maximal ideals of `R` that contain (that is, divide) its conductor `(R : 𝒪_K)`, for the
-maximal order `𝒪_K` of `K`, the integral closure of `ℤ` in `K`. -/
+`K`: the maximal ideals of `R` that contain its conductor `(R : 𝒪_K)`, for the maximal order `𝒪_K`
+of `K`, the integral closure of `ℤ` in `K`. The knowl says "divides", which is stronger for the
+conductor of a non-maximal order, as it is not invertible: for `R = ℤ[9i]` no maximal ideal divides
+`(R : 𝒪_K) = 9ℤ[i]` (recorded as a text error). -/
 def singularPrimes : Set (Ideal R) :=
   {𝔓 | 𝔓.IsMaximal ∧ R.relativeConductor (integralClosure ℤ K) ≤ 𝔓}
 

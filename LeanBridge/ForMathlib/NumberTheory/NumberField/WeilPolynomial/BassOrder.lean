@@ -111,9 +111,8 @@ lemma cohenMacaulayType_le_maxCohenMacaulayType (hfin : R.overorders.Finite)
 
 /-- An order `R` with finitely many overorders, each of Cohen–Macaulay type at least `1`, is Bass if
 and only if the maximum Cohen–Macaulay type of its overorders is `1`. Both hypotheses hold for every
-order in an étale `ℚ`-algebra (not formalised here; the second one is
-`TauCeti.GlobalNumberFields.NumberFieldOrder.one_le_cohenMacaulayType` for orders in number
-fields). -/
+order in a nonzero étale `ℚ`-algebra: the first is not formalised here, and the second follows from
+`Subalgebra.one_le_cohenMacaulayType_of_isLattice`, as the overorders are orders. -/
 lemma isBass_iff_maxCohenMacaulayType_eq_one (hfin : R.overorders.Finite)
     (hO : R ≤ integralClosure ℤ K) (hpos : ∀ S ∈ R.overorders, 1 ≤ S.cohenMacaulayType) :
     R.IsBass ↔ R.maxCohenMacaulayType = 1 := by

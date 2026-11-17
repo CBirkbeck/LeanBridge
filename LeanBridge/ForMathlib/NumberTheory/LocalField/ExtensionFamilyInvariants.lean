@@ -34,10 +34,12 @@ this file proves that each of them is determined by `I`:
 
 As for the Swan slopes, the means of `L / K` are taken to be those of its Herbrand invariant,
 related to the rams and to the Swan slopes by the formulas of LMFDB `lf.herbrand_invariant` and
-`lf.means`; their agreement with the means read off the slope polygon of LMFDB `lf.means` is not
-proved here. Likewise the Artin slopes are the Swan slopes plus `1`, as LMFDB `lf.slopes` relates
-them, and are not read off its convex hull. For a relative family the LMFDB's family pages show the
-Artin slopes of `L / ℚ_p` (absolute Artin slopes), which this file does not treat.
+`lf.means`; they are the means read off the slope polygon of LMFDB `lf.means`
+(`IsNonarchimedeanLocalField.polygonMean_eq_mean`, in a later file). Likewise the Artin slopes are
+the Swan slopes plus `1`, as LMFDB `lf.slopes` relates them; they are the wild slopes of its convex
+hull (`IsNonarchimedeanLocalField.hullWildArtinSlopes_eq_visibleArtinSlopes`). For a relative
+family the LMFDB's family pages show the Artin slopes of `L / ℚ_p` (absolute Artin slopes), which
+this file does not treat.
 
 ## Main definitions
 
