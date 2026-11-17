@@ -1,7 +1,8 @@
 import LeanBridge.ForMathlib.Algebra.Module.ZLattice.ArithmeticBilinear
-import LeanBridge.ForMathlib.Algebra.Module.ZLattice.Perfect
+import LeanBridge.ForMathlib.Algebra.Module.ZLattice.SimilarityInvariant
 import Mathlib.Algebra.Module.ZLattice.Basic
 import Mathlib.Algebra.Order.Star.Real
+import Mathlib.Analysis.InnerProductSpace.Adjoint
 import Mathlib.LinearAlgebra.FreeModule.Finite.Quotient
 import Mathlib.LinearAlgebra.Matrix.BilinearForm
 import Mathlib.LinearAlgebra.Matrix.PosDef
@@ -34,6 +35,8 @@ the minimal vectors and `m` is the minimal norm. This has three consequences, pr
 
 * `ZLattice.IsPerfect.eq_of_apply_self_eq` (LMFDB `lattice.perfect`): a symmetric bilinear form on
   `ℝⁿ` is determined by its values `B(x, x)` at the minimal vectors `x` of a perfect lattice.
+* `ZLattice.IsPerfect.eq_zero_of_isSelfAdjoint` (LMFDB `lattice.perfect`): a self-adjoint map `H`
+  of `ℝⁿ` with `⟪H x, x⟫ = 0` at the minimal vectors `x` of a perfect lattice is zero.
 * `ZLattice.IsPerfect.discreteTopology` and `ZLattice.IsPerfect.isZLattice`: a perfect
   `ℤ`-submodule of `ℝⁿ` is discrete and spans `ℝⁿ`.
 * `ZLattice.relIndex_span_minimalVectors_ne_zero`: a lattice whose minimal vectors span the space
@@ -65,43 +68,13 @@ open scoped InnerProductSpace Pointwise
 
 open LinearMap (BilinForm)
 
-namespace LinearMap.BilinForm
-
-variable {E F : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [NormedAddCommGroup F]
-  [InnerProductSpace ℝ F] {L : Submodule ℤ E} {M : Submodule ℤ F}
-
-lemma isSimilarLattice_of_map_eq (ψ : E ≃ₗ[ℝ] F) {k : ℝ} (hk : 0 < k)
-    (hψ : ∀ v w, ⟪ψ v, ψ w⟫_ℝ = k * ⟪v, w⟫_ℝ) (hLM : L.map (ψ.restrictScalars ℤ).toLinearMap = M) :
-    IsSimilarLattice (innerₗ E) L (innerₗ F) M := by
-  have hα : (√k)⁻¹ ≠ 0 := inv_ne_zero (Real.sqrt_ne_zero'.mpr hk)
-  let s : M ≃ₗ[ℤ] ↥((√k)⁻¹ • M) := Submodule.equivMapOfInjective
-    (DistribSMul.toLinearMap ℤ F (√k)⁻¹) (smul_right_injective F hα) M
-  let e : L ≃ₗ[ℤ] ↥((√k)⁻¹ • M) :=
-    (((ψ.restrictScalars ℤ).submoduleMap L).trans (.ofEq _ _ hLM)).trans s
-  refine ⟨(√k)⁻¹, hα, e, fun x y ↦ ?_⟩
-  have hs (z : L) : (e z : F) = (√k)⁻¹ • ψ z :=
-    rfl
-  rw [hs, hs, smul_left, smul_right, innerₗ_apply_apply, hψ, innerₗ_apply_apply, ← mul_assoc,
-    ← mul_assoc, ← mul_inv, Real.mul_self_sqrt hk.le, inv_mul_cancel₀ hk.ne', one_mul]
-
-end LinearMap.BilinForm
-
 namespace ZLattice
 
 section Minimum
 
-variable {E : Type*} [NormedAddCommGroup E] {L : Submodule ℤ E} {x : E}
+variable {E : Type*} [NormedAddCommGroup E] {L : Submodule ℤ E} [NormedSpace ℝ E]
+  [FiniteDimensional ℝ E] [DiscreteTopology L] [IsZLattice ℝ L]
 
-lemma minimum_le_norm (hx : x ∈ L) (hx₀ : x ≠ 0) : minimum L ≤ ‖x‖ :=
-  csInf_le ⟨0, by rintro _ ⟨y, -, rfl⟩; exact norm_nonneg y⟩ ⟨x, ⟨hx, hx₀⟩, rfl⟩
-
-lemma minimum_pos_of_mem_minimalVectors (hx : x ∈ minimalVectors L) : 0 < minimum L :=
-  hx.2.2 ▸ norm_pos_iff.mpr hx.2.1
-
-lemma discreteTopology_of_minimum_pos (h : 0 < minimum L) : DiscreteTopology L :=
-  .of_forall_le_norm h fun x hx ↦ minimum_le_norm x.2 fun h0 ↦ hx (Subtype.ext h0)
-
-variable [NormedSpace ℝ E] [FiniteDimensional ℝ E] [DiscreteTopology L] [IsZLattice ℝ L] in
 /-- **A lattice whose minimal vectors span the space is well-rounded** (LMFDB
 `lattice.well_rounded`): if the minimal vectors of a lattice `L` of full rank span the ambient
 real space, the sublattice they span has finite index in `L`, both having the rank of the space. -/
@@ -139,6 +112,18 @@ lemma IsPerfect.eq_zero_of_apply_self_eq_zero (h : IsPerfect L)
     · rw [mul_smul_comm, trace_smul, hX, smul_zero]
   refine (BilinForm.toMatrix b).injective (.trans ?_ (map_zero _).symm)
   rwa [← trace_conjTranspose_mul_self_eq_zero_iff, conjTranspose_eq_transpose_of_trivial, hA.eq]
+
+/-- **A self-adjoint map vanishing quadratically at the minimal vectors of a perfect lattice is
+zero** (LMFDB `lattice.perfect`): if `L` is perfect and `H` is a self-adjoint map of `ℝⁿ` with
+`⟪H x, x⟫ = 0` for every minimal vector `x` of `L`, then `H = 0`. -/
+lemma IsPerfect.eq_zero_of_isSelfAdjoint {H : EuclideanSpace ℝ ι →L[ℝ] EuclideanSpace ℝ ι}
+    (h : IsPerfect L) (hH : IsSelfAdjoint H) (hS : ∀ x ∈ minimalVectors L, ⟪H x, x⟫_ℝ = 0) :
+    H = 0 := by
+  have hB : (innerₗ (EuclideanSpace ℝ ι)).compl₁₂ H.toLinearMap LinearMap.id = 0 :=
+    h.eq_zero_of_apply_self_eq_zero ⟨fun v w ↦ (hH.isSymmetric v w).trans (real_inner_comm _ _)⟩ hS
+  refine ContinuousLinearMap.ext fun v ↦ ?_
+  have h0 : ⟪H v, H v⟫_ℝ = 0 := LinearMap.congr_fun₂ hB v (H v)
+  exact inner_self_eq_zero.mp h0
 
 /-- **A symmetric bilinear form is determined by its values at the minimal vectors of a perfect
 lattice** (LMFDB `lattice.perfect`): if `L` is a perfect lattice of `ℝⁿ` and the symmetric bilinear

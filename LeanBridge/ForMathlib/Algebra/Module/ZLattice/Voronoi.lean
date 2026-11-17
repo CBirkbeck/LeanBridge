@@ -1,7 +1,6 @@
 import LeanBridge.ForMathlib.Algebra.Module.ZLattice.PerfectArithmetic
-import LeanBridge.ForMathlib.Algebra.Module.ZLattice.SimilarityInvariant
+import LeanBridge.ForMathlib.Analysis.CStarAlgebra.Matrix
 import LeanBridge.ForMathlib.Analysis.InnerProductSpace.SelfAdjointDetBounds
-import Mathlib.Analysis.CStarAlgebra.Matrix
 import Mathlib.Analysis.InnerProductSpace.NormDet
 import TauCeti.Geometry.Convex.Cone.Alternative
 
@@ -41,10 +40,6 @@ hold in that sense: a lattice that is not perfect or not eutactic has strictly d
 `x xᵀ` over all the minimal vectors, is Voronoi's eutaxy, which sums over the minimal vectors up
 to sign: the coefficients of `x` and `-x` can be merged or split.
 
-## Main definitions
-
-* `ZLattice.dualSymmMatrix`: the symmetric matrix of a linear form on the real `n × n` matrices.
-
 ## Main results
 
 * `ZLattice.exists_abs_det_mul_minimum_pow_lt`: a nonzero self-adjoint `H` with `H[x] ≥ 0` at the
@@ -52,8 +47,6 @@ to sign: the coefficients of `x` and `-x` can be merged or split.
   `|det g| min(L)ⁿ < min(g L)ⁿ`.
 * `ZLattice.exists_forall_minimum_map_pow_le`: for a eutactic lattice whose minimal vectors detect
   self-adjoint maps, `min(g L)ⁿ ≤ |det g| min(L)ⁿ` for `g` near the identity.
-* `ZLattice.IsPerfect.eq_zero_of_isSelfAdjoint`: a self-adjoint `H` with `H[x] = 0` at the minimal
-  vectors of a perfect lattice is zero.
 * `ZLattice.IsExtreme.trace_pos`: a nonzero self-adjoint `H` with `H[x] ≥ 0` at the minimal
   vectors of an extreme lattice has positive trace.
 * `ZLattice.IsExtreme.isPerfect` (LMFDB `lattice.extreme`): an extreme lattice is perfect.
@@ -80,38 +73,8 @@ namespace ZLattice
 
 section General
 
-variable {E : Type*} [NormedAddCommGroup E] {L : Submodule ℤ E}
-
-lemma minimum_nonneg : 0 ≤ minimum L :=
-  Real.sInf_nonneg fun _ ⟨x, _, hx⟩ ↦ hx ▸ norm_nonneg x
-
-variable [InnerProductSpace ℝ E] (g : E ≃L[ℝ] E) {s : Finset E} {c : E → ℝ} {H : E →L[ℝ] E}
-
-lemma minimum_map_le_norm {x : E} (hx : x ∈ L) (hx0 : x ≠ 0) :
-    minimum (L.map (g.toLinearMap.restrictScalars ℤ)) ≤ ‖g x‖ :=
-  minimum_le_norm (Submodule.mem_map_of_mem hx) (g.toLinearEquiv.map_ne_zero_iff.mpr hx0)
-
-lemma le_minimum_map {m : ℝ} (hL : L ≠ ⊥) (h : ∀ x ∈ L, x ≠ 0 → m ≤ ‖g x‖) :
-    m ≤ minimum (L.map (g.toLinearMap.restrictScalars ℤ)) := by
-  rcases L.ne_bot_iff.mp hL with ⟨x, hx, hx0⟩
-  refine le_csInf
-    ⟨‖g x‖, g x, ⟨Submodule.mem_map_of_mem hx, g.toLinearEquiv.map_ne_zero_iff.mpr hx0⟩, rfl⟩ ?_
-  rintro _ ⟨_, ⟨⟨y, hy, rfl⟩, hy0⟩, rfl⟩
-  exact h y hy fun h0 ↦ hy0 (by simp [h0])
-
-lemma inner_eq_sum_of_forall_inner_self_eq (h : ∀ v, ⟪v, v⟫_ℝ = ∑ x ∈ s, c x * ⟪v, x⟫_ℝ ^ 2)
-    (v w : E) : ⟪v, w⟫_ℝ = ∑ x ∈ s, c x * (⟪v, x⟫_ℝ * ⟪w, x⟫_ℝ) := by
-  have hvw : 4 * ⟪v, w⟫_ℝ = ⟪v + w, v + w⟫_ℝ - ⟪v - w, v - w⟫_ℝ := by
-    rw [real_inner_add_add_self, real_inner_sub_sub_self]
-    ring1
-  have h4 : 4 * ⟪v, w⟫_ℝ = 4 * ∑ x ∈ s, c x * (⟪v, x⟫_ℝ * ⟪w, x⟫_ℝ) := by
-    rw [hvw, h, h, ← Finset.sum_sub_distrib, Finset.mul_sum]
-    refine Finset.sum_congr rfl fun x _ ↦ ?_
-    rw [inner_add_left, inner_sub_left]
-    ring1
-  linarith
-
-variable [DiscreteTopology L]
+variable {E : Type*} [NormedAddCommGroup E] {L : Submodule ℤ E} [InnerProductSpace ℝ E]
+  {H : E →L[ℝ] E} [DiscreteTopology L]
 
 variable [Nontrivial E] [IsZLattice ℝ L] in
 lemma ne_bot_of_isZLattice : L ≠ ⊥ := by
@@ -121,82 +84,6 @@ lemma ne_bot_of_isZLattice : L ≠ ⊥ := by
   exact bot_ne_top h
 
 variable [FiniteDimensional ℝ E]
-
-lemma trace_eq_sum_of_forall_inner_self_eq (h : ∀ v, ⟪v, v⟫_ℝ = ∑ x ∈ s, c x * ⟪v, x⟫_ℝ ^ 2)
-    (hH : IsSelfAdjoint H) : LinearMap.trace ℝ E H = ∑ x ∈ s, c x * ⟪H x, x⟫_ℝ := by
-  rw [LinearMap.trace_eq_sum_inner _ (stdOrthonormalBasis ℝ E),
-    Finset.sum_congr rfl fun i _ ↦ inner_eq_sum_of_forall_inner_self_eq h _ _, Finset.sum_comm]
-  refine Finset.sum_congr rfl fun x _ ↦ ?_
-  rw [← Finset.mul_sum, real_inner_comm x (H x), ← (stdOrthonormalBasis ℝ E).sum_inner_mul_inner]
-  refine congrArg (c x * ·) (Finset.sum_congr rfl fun i _ ↦ ?_)
-  rw [real_inner_comm x]
-  exact congrArg _ (hH.isSymmetric _ _)
-
-lemma exists_pos_forall_mul_norm_le (hc : ∀ x ∈ s, 0 < c x)
-    (hs : ∀ H : E →L[ℝ] E, IsSelfAdjoint H → (∀ x ∈ s, ⟪H x, x⟫_ℝ = 0) → H = 0) : ∃ κ > 0,
-    ∀ H : E →L[ℝ] E, IsSelfAdjoint H → (∀ x ∈ s, 0 ≤ ⟪H x, x⟫_ℝ) → κ * ‖H‖ ≤
-      ∑ x ∈ s, c x * ⟪H x, x⟫_ℝ := by
-  have hcont (x : E) : Continuous fun H : E →L[ℝ] E ↦ ⟪H x, x⟫_ℝ :=
-    (continuous_id.clm_apply continuous_const).inner continuous_const
-  have hsmul (a : ℝ) (H : E →L[ℝ] E) :
-      ∑ x ∈ s, c x * ⟪(a • H) x, x⟫_ℝ = a * ∑ x ∈ s, c x * ⟪H x, x⟫_ℝ := by
-    rw [Finset.mul_sum]
-    refine Finset.sum_congr rfl fun x _ ↦ ?_
-    rw [smul_apply, real_inner_smul_left]
-    ring1
-  let C : Set (E →L[ℝ] E) := {H | IsSelfAdjoint H ∧ (∀ x ∈ s, 0 ≤ ⟪H x, x⟫_ℝ) ∧ ‖H‖ = 1}
-  have hmem (H : E →L[ℝ] E) (hH : IsSelfAdjoint H) (hHs : ∀ x ∈ s, 0 ≤ ⟪H x, x⟫_ℝ) (hH0 : H ≠ 0) :
-      ‖H‖⁻¹ • H ∈ C := by
-    refine ⟨(IsSelfAdjoint.all _).smul hH, fun x hx ↦ ?_, ?_⟩
-    · rw [smul_apply, real_inner_smul_left]
-      exact mul_nonneg (inv_nonneg.mpr (norm_nonneg H)) (hHs x hx)
-    · rw [norm_smul, norm_inv, norm_norm, inv_mul_cancel₀ (norm_ne_zero_iff.mpr hH0)]
-  have hpos (H : E →L[ℝ] E) (hH : H ∈ C) : 0 < ∑ x ∈ s, c x * ⟪H x, x⟫_ℝ := by
-    rcases hH with ⟨hH, hHs, hH1⟩
-    have hnn (x : E) (hx : x ∈ s) : 0 ≤ c x * ⟪H x, x⟫_ℝ :=
-      mul_nonneg (hc x hx).le (hHs x hx)
-    refine (Finset.sum_nonneg hnn).lt_of_ne fun h0 ↦ ?_
-    have hH0 : H = 0 := hs H hH fun x hx ↦ (mul_eq_zero.mp
-      ((Finset.sum_eq_zero_iff_of_nonneg hnn).mp h0.symm x hx)).resolve_left (hc x hx).ne'
-    rw [hH0, norm_zero] at hH1
-    exact zero_ne_one hH1
-  have hκ : ∃ κ > 0, ∀ H ∈ C, κ ≤ ∑ x ∈ s, c x * ⟪H x, x⟫_ℝ := by
-    rcases C.eq_empty_or_nonempty with hC | hC
-    · exact ⟨1, one_pos, fun H hH ↦ (hC.subset hH).elim⟩
-    have hCc : IsCompact C := by
-      refine Metric.isCompact_of_isClosed_isBounded ?_
-        (Metric.isBounded_closedBall.subset fun H hH ↦ mem_closedBall_zero_iff.mpr hH.2.2.le)
-      have hcl : IsClosed {H : E →L[ℝ] E | ∀ x ∈ s, 0 ≤ ⟪H x, x⟫_ℝ} := by
-        simp only [ofPred_forall]
-        exact isClosed_iInter fun x ↦ isClosed_iInter fun _ ↦ isClosed_le continuous_const (hcont x)
-      exact (isClosed_eq continuous_star continuous_id).inter
-        (hcl.inter (isClosed_eq continuous_norm continuous_const))
-    rcases hCc.exists_isMinOn hC (continuous_finsetSum _ fun x _ ↦
-      continuous_const.mul (hcont x)).continuousOn with ⟨H₀, hH₀, hmin⟩
-    exact ⟨_, hpos H₀ hH₀, fun H hH ↦ hmin hH⟩
-  rcases hκ with ⟨κ, hκ, hκC⟩
-  refine ⟨κ, hκ, fun H hH hHs ↦ ?_⟩
-  rcases eq_or_ne H 0 with rfl | hH0
-  · simp
-  · have h1 : κ ≤ ‖H‖⁻¹ * ∑ x ∈ s, c x * ⟪H x, x⟫_ℝ :=
-      (hκC _ (hmem H hH hHs hH0)).trans_eq (hsmul _ _)
-    rwa [le_inv_mul_iff₀ (norm_pos_iff.mpr hH0), mul_comm] at h1
-
-lemma exists_lt_forall_le_norm (hS : (minimalVectors L).Nonempty) :
-    ∃ m, minimum L < m ∧ ∀ x ∈ L, x ≠ 0 → x ∉ minimalVectors L → m ≤ ‖x‖ := by
-  have hm : 0 < minimum L := minimum_pos_of_mem_minimalVectors hS.some_mem
-  have hlt (x : E) (hx : x ∈ L) (hx0 : x ≠ 0) (hxS : x ∉ minimalVectors L) : minimum L < ‖x‖ :=
-    (minimum_le_norm hx hx0).lt_of_ne fun h ↦ hxS ⟨hx, hx0, h.symm⟩
-  rcases (((Metric.closedBall 0 (2 * minimum L) ∩ (L : Set E)) \ {0}) \
-    minimalVectors L).eq_empty_or_nonempty with hF | hF
-  · refine ⟨2 * minimum L, by linarith, fun x hx hx0 hxS ↦ le_of_not_gt fun h ↦ ?_⟩
-    exact hF.subset ⟨⟨⟨mem_closedBall_zero_iff.mpr h.le, hx⟩, hx0⟩, hxS⟩
-  rcases exists_min_image _ (‖·‖) (finite_inter_closedBall _).sdiff.sdiff hF with ⟨y, hy, hmin⟩
-  refine ⟨min (2 * minimum L) ‖y‖, lt_min (by linarith) (hlt y hy.1.1.2 hy.1.2 hy.2),
-    fun x hx hx0 hxS ↦ ?_⟩
-  rcases le_or_gt ‖x‖ (2 * minimum L) with h | h
-  · exact (min_le_right _ _).trans (hmin x ⟨⟨⟨mem_closedBall_zero_iff.mpr h, hx⟩, hx0⟩, hxS⟩)
-  · exact (min_le_left _ _).trans h.le
 
 /-- **A direction that does not shrink the minimal vectors and does not increase the trace gives
 denser lattices** (LMFDB `lattice.extreme`): if `H ≠ 0` is a self-adjoint map with
@@ -209,7 +96,7 @@ lemma exists_abs_det_mul_minimum_pow_lt (hL : L ≠ ⊥) (hH : IsSelfAdjoint H) 
       |(g : E →L[ℝ] E).det| * minimum L ^ finrank ℝ E <
         minimum (L.map (g.toLinearMap.restrictScalars ℤ)) ^ finrank ℝ E := by
   have hSne : (minimalVectors L).Nonempty := nonempty_minimalVectors hL
-  have hm : 0 < minimum L := minimum_pos_of_mem_minimalVectors hSne.some_mem
+  have hm : 0 < minimum L := minimum_pos hL
   rcases exists_lt_forall_le_norm hSne with ⟨m₂, hm₂, hgap⟩
   set η : ℝ := min (min ε (1 - minimum L / m₂)) 1
   have hη : 0 < η :=
@@ -275,10 +162,11 @@ lemma exists_forall_minimum_map_pow_le (hL : L ≠ ⊥) (hE : IsEutactic L)
   rcases hE with ⟨c, hc, hcE⟩
   have hfin : (minimalVectors L).Finite := finite_minimalVectors
   have hSne : (minimalVectors L).Nonempty := nonempty_minimalVectors hL
-  have hm : 0 < minimum L := minimum_pos_of_mem_minimalVectors hSne.some_mem
+  have hm : 0 < minimum L := minimum_pos hL
   have hE' (v : E) : ⟪v, v⟫_ℝ = ∑ x ∈ hfin.toFinset, c x * ⟪v, x⟫_ℝ ^ 2 :=
     (hcE v).trans (finsum_mem_eq_finite_toFinset_sum _ hfin)
-  rcases exists_pos_forall_mul_norm_le (fun x hx ↦ hc x (hfin.mem_toFinset.mp hx))
+  rcases ContinuousLinearMap.exists_pos_forall_mul_norm_le
+    (fun x hx ↦ hc x (hfin.mem_toFinset.mp hx))
     fun H hH h0 ↦ hperf H hH fun x hx ↦ h0 x (hfin.mem_toFinset.mpr hx) with ⟨κ, hκ, hκH⟩
   have hnt : Nontrivial E := hSne.elim fun x hx ↦ nontrivial_of_ne x 0 hx.2.1
   have hn : 0 < (finrank ℝ E : ℝ) := Nat.cast_pos.mpr finrank_pos
@@ -360,7 +248,7 @@ lemma exists_forall_minimum_map_pow_le (hL : L ≠ ⊥) (hE : IsEutactic L)
     have h1 : 1 + LinearMap.trace ℝ E H - 2 * finrank ℝ E * ‖H‖ ^ 2 ≤ (1 + H).det :=
       ContinuousLinearMap.one_add_trace_sub_le_det_one_add hH (hHn.trans (min_le_left _ _))
     have h2 : κ * ‖H‖ ≤ LinearMap.trace ℝ E H :=
-      (hκH H hH hHS).trans_eq (trace_eq_sum_of_forall_inner_self_eq hE' hH).symm
+      (hκH H hH hHS).trans_eq (ContinuousLinearMap.trace_eq_sum_of_forall_inner_self_eq hE' hH).symm
     have h3 : ‖H‖ * (2 * finrank ℝ E) ≤ κ :=
       (le_div_iff₀ (by positivity)).mp (hHn.trans (min_le_right _ _))
     nlinarith [mul_le_mul_of_nonneg_right h3 (norm_nonneg H)]
@@ -386,127 +274,10 @@ end General
 
 open Matrix
 
-section Dual
-
-variable {ι : Type*} [DecidableEq ι] (f : Matrix ι ι ℝ →ₗ[ℝ] ℝ) {A : Matrix ι ι ℝ}
-
-/-- The **symmetric matrix of a linear form** `f` on the real `n × n` matrices: the matrix `Y`
-with entries `Yᵢⱼ = (f(Eᵢⱼ) + f(Eⱼᵢ)) / 2`, `Eᵢⱼ` the matrix units, so that `f A = ∑ᵢⱼ Aᵢⱼ Yᵢⱼ` for
-every symmetric matrix `A`. -/
-noncomputable def dualSymmMatrix : Matrix ι ι ℝ :=
-  .of fun i j ↦ (f (single i j 1) + f (single j i 1)) / 2
-
-lemma isSymm_dualSymmMatrix : (dualSymmMatrix f).IsSymm :=
-  Matrix.ext fun i j ↦ by simp [dualSymmMatrix, add_comm]
-
-variable [Fintype ι]
-
-lemma apply_eq_sum_dualSymmMatrix (hA : A.IsSymm) :
-    f A = ∑ i, ∑ j, A i j * dualSymmMatrix f i j := by
-  have h1 : f A = ∑ i, ∑ j, A i j * f (single i j 1) := by
-    conv_lhs => rw [matrix_eq_sum_single A]
-    simp only [map_sum]
-    refine Finset.sum_congr rfl fun i _ ↦ Finset.sum_congr rfl fun j _ ↦ ?_
-    have h : single i j (A i j) = A i j • single i j (1 : ℝ) := by
-      rw [smul_single, smul_eq_mul, mul_one]
-    rw [h, map_smul, smul_eq_mul]
-  have h2 : ∑ i, ∑ j, A i j * f (single j i 1) = ∑ i, ∑ j, A i j * f (single i j 1) := by
-    rw [Finset.sum_comm]
-    refine Finset.sum_congr rfl fun i _ ↦ Finset.sum_congr rfl fun j _ ↦ ?_
-    rw [hA.apply i j]
-  have h3 : ∑ i, ∑ j, A i j * dualSymmMatrix f i j =
-      (∑ i, ∑ j, A i j * f (single i j 1) + ∑ i, ∑ j, A i j * f (single j i 1)) / 2 := by
-    simp only [dualSymmMatrix, of_apply, ← Finset.sum_add_distrib, Finset.sum_div]
-    refine Finset.sum_congr rfl fun i _ ↦ Finset.sum_congr rfl fun j _ ↦ ?_
-    ring1
-  rw [h3, h2, ← h1]
-  ring1
-
-lemma isSelfAdjoint_toEuclideanCLM_dualSymmMatrix :
-    IsSelfAdjoint (toEuclideanCLM (𝕜 := ℝ) (dualSymmMatrix f)) := by
-  have h : IsSelfAdjoint (dualSymmMatrix f) := by
-    rw [IsSelfAdjoint, star_eq_conjTranspose, conjTranspose_eq_transpose_of_trivial]
-    exact isSymm_dualSymmMatrix f
-  exact h.map toEuclideanCLM
-
-lemma inner_toEuclideanCLM_dualSymmMatrix (x : EuclideanSpace ℝ ι) :
-    ⟪toEuclideanCLM (𝕜 := ℝ) (dualSymmMatrix f) x, x⟫_ℝ = f (vecMulVec x.ofLp x.ofLp) := by
-  rw [real_inner_comm, inner_toEuclideanCLM,
-    apply_eq_sum_dualSymmMatrix f (transpose_vecMulVec x.ofLp x.ofLp)]
-  simp only [dotProduct, mulVec, Finset.mul_sum, vecMulVec_apply]
-  refine Finset.sum_congr rfl fun i _ ↦ Finset.sum_congr rfl fun j _ ↦ ?_
-  ring1
-
-lemma trace_toEuclideanCLM_dualSymmMatrix :
-    LinearMap.trace ℝ (EuclideanSpace ℝ ι) (toEuclideanCLM (𝕜 := ℝ) (dualSymmMatrix f)) = f 1 := by
-  rw [coe_toEuclideanCLM_eq_toEuclideanLin, toEuclideanLin_eq_toLin_orthonormal, trace_toLin_eq,
-    apply_eq_sum_dualSymmMatrix f isSymm_one]
-  simp [Matrix.trace, one_apply]
-
-variable {f} in
-lemma toEuclideanCLM_dualSymmMatrix_ne_zero (hA : A.IsSymm) (hfA : f A ≠ 0) :
-    toEuclideanCLM (𝕜 := ℝ) (dualSymmMatrix f) ≠ 0 := by
-  intro hK
-  rw [apply_eq_sum_dualSymmMatrix f hA, EmbeddingLike.map_eq_zero_iff.mp hK] at hfA
-  simp at hfA
-
-end Dual
-
 section Euclidean
 
 variable {ι : Type*} [Fintype ι] {L : Submodule ℤ (EuclideanSpace ℝ ι)}
-  {H : EuclideanSpace ℝ ι →L[ℝ] EuclideanSpace ℝ ι}
-
-/-- **A self-adjoint map vanishing quadratically at the minimal vectors of a perfect lattice is
-zero** (LMFDB `lattice.perfect`): if `L` is perfect and `H` is a self-adjoint map of `ℝⁿ` with
-`⟪H x, x⟫ = 0` for every minimal vector `x` of `L`, then `H = 0`. -/
-lemma IsPerfect.eq_zero_of_isSelfAdjoint (h : IsPerfect L) (hH : IsSelfAdjoint H)
-    (hS : ∀ x ∈ minimalVectors L, ⟪H x, x⟫_ℝ = 0) : H = 0 := by
-  have hB : (innerₗ (EuclideanSpace ℝ ι)).compl₁₂ H.toLinearMap LinearMap.id = 0 :=
-    h.eq_zero_of_apply_self_eq_zero ⟨fun v w ↦ (hH.isSymmetric v w).trans (real_inner_comm _ _)⟩ hS
-  refine ContinuousLinearMap.ext fun v ↦ ?_
-  have h0 : ⟪H v, H v⟫_ℝ = 0 := LinearMap.congr_fun₂ hB v (H v)
-  exact inner_self_eq_zero.mp h0
-
-variable [Nonempty ι] in
-lemma packingDensity_eq_mul_div (M : Submodule ℤ (EuclideanSpace ℝ ι)) : packingDensity M =
-    volume.real (Metric.ball (0 : EuclideanSpace ℝ ι) 1) / 2 ^ Fintype.card ι *
-      minimum M ^ Fintype.card ι / covolume M := by
-  have hm : 0 ≤ minimum M / 2 := div_nonneg minimum_nonneg zero_le_two
-  rw [packingDensity, measureReal_def, Measure.addHaar_ball volume 0 hm, ENNReal.toReal_mul,
-    ENNReal.toReal_ofReal (pow_nonneg hm _), finrank_euclideanSpace, ← measureReal_def, div_pow]
-  ring1
-
-variable [DiscreteTopology L] [IsZLattice ℝ L]
-
-variable [Nonempty ι] in
-lemma packingDensity_map_le_packingDensity_iff (g : EuclideanSpace ℝ ι ≃L[ℝ] EuclideanSpace ℝ ι) :
-    packingDensity (L.map (g.toLinearMap.restrictScalars ℤ)) ≤ packingDensity L ↔
-      minimum (L.map (g.toLinearMap.restrictScalars ℤ)) ^ Fintype.card ι ≤
-        |(g : EuclideanSpace ℝ ι →L[ℝ] EuclideanSpace ℝ ι).det| * minimum L ^ Fintype.card ι := by
-  have hM : L.map (g.toLinearMap.restrictScalars ℤ) = ZLattice.comap ℝ L g.symm.toLinearMap :=
-    Submodule.map_equiv_eq_comap_symm (g.toLinearEquiv.restrictScalars ℤ) L
-  have hd : DiscreteTopology (L.map (g.toLinearMap.restrictScalars ℤ)) := by
-    rw [hM]
-    infer_instance
-  have hz : IsZLattice ℝ (L.map (g.toLinearMap.restrictScalars ℤ)) := by
-    refine ⟨?_⟩
-    rw [hM]
-    exact IsZLattice.span_top
-  have hcov : covolume (L.map (g.toLinearMap.restrictScalars ℤ)) =
-      |(g : EuclideanSpace ℝ ι →L[ℝ] EuclideanSpace ℝ ι).det| * covolume L :=
-    covolume_eq_abs_det_mul rfl
-  have hV : 0 < volume.real (Metric.ball (0 : EuclideanSpace ℝ ι) 1) :=
-    ENNReal.toReal_pos (Metric.measure_ball_pos volume 0 one_pos).ne' measure_ball_lt_top.ne
-  have hdet : 0 < |(g : EuclideanSpace ℝ ι →L[ℝ] EuclideanSpace ℝ ι).det| :=
-    abs_pos.mpr (LinearEquiv.isUnit_det' g.toLinearEquiv).ne_zero
-  have hC : 0 < covolume L := covolume_pos L volume
-  have hk : 0 < volume.real (Metric.ball (0 : EuclideanSpace ℝ ι) 1) / 2 ^ Fintype.card ι *
-      covolume L := by
-    positivity
-  rw [packingDensity_eq_mul_div, packingDensity_eq_mul_div, hcov,
-    div_le_div_iff₀ (mul_pos hdet hC) hC]
-  constructor <;> intro h <;> nlinarith
+  {H : EuclideanSpace ℝ ι →L[ℝ] EuclideanSpace ℝ ι} [DiscreteTopology L] [IsZLattice ℝ L]
 
 variable [Nonempty ι] in
 /-- **A nonzero self-adjoint map that does not shrink the minimal vectors of an extreme lattice to

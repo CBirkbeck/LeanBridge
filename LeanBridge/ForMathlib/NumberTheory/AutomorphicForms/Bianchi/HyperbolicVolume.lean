@@ -14,6 +14,10 @@ of `SL(2, ℂ)`. By the Bruhat decomposition it suffices to treat the translatio
 (`EuclideanGeometry.hasFDerivAt_inversion`). In each case the Jacobian of `g` at `(x, y)` is
 `N⁻³`, where `N = |cx + d|² + |c|²y²` and the height of `g(x, y)` is `y / N`.
 
+## Main definitions
+
+* `HyperbolicThreeSpace.slInversion`: the matrix `(0, -1; 1, 0)` of `SL(2, ℂ)`.
+
 ## Main results
 
 * `HyperbolicThreeSpace.hyperbolicVolume_apply`: the hyperbolic volume as an integral over the image
@@ -118,7 +122,7 @@ private noncomputable def slDiagonal (ha : a ≠ 0) : SL(2, ℂ) :=
   ⟨!![a, 0; 0, a⁻¹], by simp [ha]⟩
 
 /-- The matrix `(0, -1; 1, 0)` of `SL(2, ℂ)`. -/
-private def slInversion : SL(2, ℂ) :=
+def slInversion : SL(2, ℂ) :=
   ⟨!![0, -1; 1, 0], by simp⟩
 
 private lemma hyperbolicVolume_slTranslation_smul (hA : MeasurableSet A) :

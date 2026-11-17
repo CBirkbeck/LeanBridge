@@ -152,13 +152,6 @@ private lemma latticeLift_latticeCoord (τ : {w : InfinitePlace F // w.IsReal} �
   rw [latticeLift, latticePoint_latticeCoord, ite_eq_left h]
   simp
 
-private lemma exists_intCast_eq_trace :
-    ∃ n : ℤ, (n : ℚ) = Algebra.trace ℚ F (ν * basisOfFractionalIdeal F 𝔟⁻¹ j) := by
-  rw [basisOfFractionalIdeal_apply]
-  rcases (FractionalIdeal.mem_dual (Units.ne_zero _)).mp ν.2 _
-    (fractionalIdealBasis F (↑𝔟⁻¹ : FractionalIdeal (𝓞 F)⁰ F) j).2 with ⟨n, hn⟩
-  exact ⟨n, hn⟩
-
 /-- The coordinates `(Tr(ν e_j))_j ∈ ℤ^ι` of `ν ∈ (𝔟⁻¹)^∨`. -/
 private noncomputable def dualCoord : ℤ :=
   (exists_intCast_eq_trace 𝔟 ν j).choose
@@ -176,21 +169,14 @@ private lemma trace_sum_smul_traceDual_mul (k : BasisIndex 𝔟 → ℚ) (i : Ba
 open scoped Classical in
 private lemma sum_smul_traceDual_mem (k : BasisIndex 𝔟 → ℤ) :
     ∑ j, (k j : ℚ) • (basisOfFractionalIdeal F 𝔟⁻¹).traceDual j ∈ fourierDual 𝔟 := by
-  refine (FractionalIdeal.mem_dual (Units.ne_zero _)).mpr fun a ha ↦ ?_
-  have ha' : a ∈ Submodule.span ℤ (Set.range (basisOfFractionalIdeal F 𝔟⁻¹)) :=
-    (mem_span_basisOfFractionalIdeal F).mpr ha
-  clear ha
-  induction ha' using Submodule.span_induction with
-  | mem x hx =>
-    rcases hx with ⟨i, rfl⟩
-    exact ⟨k i, by rw [Algebra.traceForm_apply, trace_sum_smul_traceDual_mul, eq_intCast]⟩
-  | zero => exact ⟨0, by simp⟩
-  | add x y _ _ hx hy =>
-    rw [map_add]
-    exact add_mem hx hy
-  | smul n x _ hx =>
-    rw [map_zsmul]
-    exact zsmul_mem hx n
+  have h := Submodule.traceDual_span_of_basis ℤ
+    ((↑𝔟⁻¹ : FractionalIdeal (𝓞 F)⁰ F) : Submodule (𝓞 F) F) (basisOfFractionalIdeal F 𝔟⁻¹)
+    (Submodule.ext fun _ ↦ (mem_span_basisOfFractionalIdeal F).symm)
+  rw [← FractionalIdeal.mem_coe, fourierDual, FractionalIdeal.coe_dual (A := ℤ) (K := ℚ)
+    (Units.ne_zero _), ← Submodule.restrictScalars_mem ℤ, h]
+  refine Submodule.sum_mem _ fun j _ ↦ ?_
+  rw [Int.cast_smul_eq_zsmul]
+  exact Submodule.smul_mem _ (k j) (Submodule.subset_span ⟨j, rfl⟩)
 
 open scoped Classical in
 /-- The bijection `ν ↦ (Tr(ν e_j))_j` from `(𝔟⁻¹)^∨` to `ℤ^ι`, whose inverse is `k ↦ ∑_j k_j e_j^∨`

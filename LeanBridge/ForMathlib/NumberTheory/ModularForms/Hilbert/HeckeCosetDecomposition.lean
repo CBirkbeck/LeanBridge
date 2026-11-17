@@ -1,3 +1,4 @@
+import LeanBridge.ForMathlib.AlgebraicGeometry.HilbertModularSurface.StandardSurface
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.HeckeFourier
 
 /-!
@@ -14,7 +15,9 @@ operator `U_𝔭` in `Hilbert/HeckeU.lean`.
 
 The proof is elementwise and avoids counting lattices. A matrix `γ` with `γ₀₀, γ₁₁ ∈ 𝒪_F`,
 `γ₀₁ ∈ 𝔟⁻¹`, `γ₁₀ ∈ 𝔑𝔟` and `(det γ)⁻¹ ∈ 𝒪_F` totally positive lies in `Γ₀(𝔑)_𝔟`, since its
-inverse has entries of the same kind. For `α` in the Hecke set, `α (1, β; 0, π)⁻¹` has entries
+inverse has entries of the same kind; conversely, for `𝔟` invertible, the entries of every element
+of `Γ₀(𝔑)_𝔟` are of this kind, so `Γ₀(𝔑)_𝔟` is the group of LMFDB `mf.hilbert`. For `α` in the
+Hecke set, `α (1, β; 0, π)⁻¹` has entries
 `a, π⁻¹(b - aβ), c, π⁻¹(d - cβ)` and `α (π, 0; 0, 1)⁻¹` has entries `π⁻¹a, b, π⁻¹c, d`, so:
 
 * if `c ∈ π𝔟` and `a ∈ 𝔭`, then `π⁻¹c ∈ π⁻¹c (𝔭 + 𝔑) ⊆ 𝔑𝔟` and `α` lies in the coset of
@@ -29,6 +32,8 @@ Distinct representatives give distinct cosets, by the entries `π⁻¹(β' - β)
 
 ## Main results
 
+* `HilbertModularGroup.mem_gammaZero_glPlus_iff` (LMFDB `mf.hilbert`): `Γ₀(𝔑)_𝔟` is the group of the
+  knowl, with `a, d ∈ 𝒪_F`.
 * `HilbertModularForm.isHeckeCosetDecomposition`: the coset decomposition of `T_𝔭`.
 * `HilbertModularForm.heckeIdealEigenvalueNormalised_eq_idealCoeff_of_isPrime` (LMFDB
   `mf.hilbert.eigenvalue`): for a normalised eigenform whose components have Fourier expansions, the
@@ -43,7 +48,7 @@ open scoped nonZeroDivisors
 namespace HilbertModularGroup
 
 variable {F : Type*} [Field F] {M : Submodule (𝓞 F) F} {A : Matrix (Fin 2) (Fin 2) F}
-  {v : Fin 2 → F} {𝔑 : Ideal (𝓞 F)} {𝔟 : FractionalIdeal (𝓞 F)⁰ F} {g : GL (Fin 2) F}
+  {v : Fin 2 → F} {𝔑 : Ideal (𝓞 F)} {𝔞 : FractionalIdeal (𝓞 F)⁰ F} {g : GL (Fin 2) F}
 
 lemma mulVec_mem_pi (h₀₀ : A 0 0 ∈ (1 : Submodule (𝓞 F) F))
     (h₀₁ : ∀ y ∈ M, A 0 1 * y ∈ (1 : Submodule (𝓞 F) F)) (h₁₀ : A 1 0 ∈ M)
@@ -76,13 +81,63 @@ lemma mem_pi_iff_mulVec_mem (h₀₀ : g.val 0 0 ∈ (1 : Submodule (𝓞 F) F))
   · simpa using mul_mem_one hdet h₀₀
 
 lemma mem_gammaZero_of_apply_mem (h₀₀ : g.val 0 0 ∈ (1 : Submodule (𝓞 F) F))
-    (h₀₁ : ∀ y ∈ 𝔟, g.val 0 1 * y ∈ (1 : Submodule (𝓞 F) F))
-    (h₁₀ : g.val 1 0 ∈ 𝔑 • (𝔟 : Submodule (𝓞 F) F)) (h₁₁ : g.val 1 1 ∈ (1 : Submodule (𝓞 F) F))
+    (h₀₁ : ∀ y ∈ 𝔞, g.val 0 1 * y ∈ (1 : Submodule (𝓞 F) F))
+    (h₁₀ : g.val 1 0 ∈ 𝔑 • (𝔞 : Submodule (𝓞 F) F)) (h₁₁ : g.val 1 1 ∈ (1 : Submodule (𝓞 F) F))
     (hdet : g.det.val⁻¹ ∈ (1 : Submodule (𝓞 F) F)) (hpos : IsTotallyPositive g.det.val) :
-    g ∈ gammaZero 𝔟 (glPlus 𝔟) 𝔑 :=
+    g ∈ gammaZero 𝔞 (glPlus 𝔞) 𝔑 :=
   ⟨⟨fun _ ↦ mem_pi_iff_mulVec_mem h₀₀ h₀₁ (Submodule.smul_le_right h₁₀) h₁₁ hdet,
     Subgroup.mem_comap.mpr (mem_totallyPositiveUnits.mpr hpos)⟩,
     fun _ ↦ mem_pi_iff_mulVec_mem h₀₀ (fun y hy ↦ h₀₁ y (Submodule.smul_le_right hy)) h₁₀ h₁₁ hdet⟩
+
+variable {𝔟 : (FractionalIdeal (𝓞 F)⁰ F)ˣ}
+
+lemma heckeUpper_one_mem_gammaZero {b : F} (hb : b ∈ (↑𝔟⁻¹ : FractionalIdeal (𝓞 F)⁰ F)) :
+    heckeUpper 1 b ∈ gammaZero (𝔟 : FractionalIdeal (𝓞 F)⁰ F) (glPlus (𝔟 : _)) 𝔑 := by
+  refine mem_gammaZero_of_apply_mem ?_ (fun y hy ↦ ?_) ?_ ?_ ?_ ?_
+  · simp [heckeUpper]
+  · have h : b * y ∈ (↑𝔟⁻¹ : FractionalIdeal (𝓞 F)⁰ F) * ↑𝔟 :=
+      FractionalIdeal.mul_mem_mul hb hy
+    rw [← Units.val_mul, inv_mul_cancel, Units.val_one, ← FractionalIdeal.mem_coe,
+      FractionalIdeal.coe_one] at h
+    simpa [heckeUpper] using h
+  · simp [heckeUpper]
+  · simp [heckeUpper]
+  · rw [det_heckeUpper, Units.val_one, inv_one]
+    exact Submodule.one_le.mp le_rfl
+  · rw [det_heckeUpper, Units.val_one]
+    exact isTotallyPositive_one
+
+variable [NumberField F] in
+private lemma det_val_mem_one (hg : g ∈ gl (𝔟 : FractionalIdeal (𝓞 F)⁰ F)) :
+    g.det.val ∈ (1 : Submodule (𝓞 F) F) := by
+  rw [GeneralLinearGroup.val_det_apply]
+  exact det_mem_one (Units.ne_zero 𝔟) fun v ↦ (hg v).mp
+
+variable [NumberField F] in
+/-- **`Γ₀(𝔑)_𝔟` is the group of the knowl**, with `a, d ∈ 𝒪_F` (LMFDB `mf.hilbert`): the matrices
+`(a, b; c, d)` of `GL₂(F)` with `a, d ∈ 𝒪_F`, `b ∈ 𝔟⁻¹`, `c ∈ 𝔑𝔟` and `ad - bc` a totally positive
+unit of `𝒪_F`. -/
+lemma mem_gammaZero_glPlus_iff : g ∈ gammaZero (𝔟 : FractionalIdeal (𝓞 F)⁰ F) (glPlus (𝔟 : _)) 𝔑 ↔
+    g.val 0 0 ∈ (1 : Submodule (𝓞 F) F) ∧ g.val 0 1 ∈ (↑𝔟⁻¹ : FractionalIdeal (𝓞 F)⁰ F) ∧
+      g.val 1 0 ∈ 𝔑 • (𝔟 : Submodule (𝓞 F) F) ∧ g.val 1 1 ∈ (1 : Submodule (𝓞 F) F) ∧
+      g.det.val ∈ (1 : Submodule (𝓞 F) F) ∧ g.det.val⁻¹ ∈ (1 : Submodule (𝓞 F) F) ∧
+      IsTotallyPositive g.det.val := by
+  refine ⟨fun hg ↦ ⟨apply_zero_zero_mem fun v ↦ (hg.1.1 v).mp, ?_,
+    ((mem_gammaZero_iff _ _ 𝔑 inf_le_left).mp hg).2,
+    mem_one_of_forall_mul_mem (Units.ne_zero 𝔟) fun _ ↦ apply_one_one_mul_mem fun v ↦ (hg.1.1 v).mp,
+    det_val_mem_one hg.1.1, ?_, isTotallyPositive_det_of_mem_gammaZero hg⟩,
+    fun ⟨h₀₀, h₀₁, h₁₀, h₁₁, _, hdet, hpos⟩ ↦
+      mem_gammaZero_of_apply_mem h₀₀ (fun y hy ↦ ?_) h₁₀ h₁₁ hdet hpos⟩
+  · rw [Units.val_inv_eq_inv_val, FractionalIdeal.mem_inv_iff (Units.ne_zero 𝔟)]
+    intro y hy
+    rw [← FractionalIdeal.mem_coe, FractionalIdeal.coe_one]
+    exact apply_zero_one_mul_mem (fun v ↦ (hg.1.1 v).mp) hy
+  · have h : (g⁻¹).det.val ∈ (1 : Submodule (𝓞 F) F) := det_val_mem_one (inv_mem hg).1.1
+    rwa [map_inv, Units.val_inv_eq_inv_val] at h
+  · have h : g.val 0 1 * y ∈ (↑𝔟⁻¹ : FractionalIdeal (𝓞 F)⁰ F) * ↑𝔟 :=
+      FractionalIdeal.mul_mem_mul h₀₁ hy
+    rwa [← Units.val_mul, inv_mul_cancel, Units.val_one, ← FractionalIdeal.mem_coe,
+      FractionalIdeal.coe_one] at h
 
 variable (π : Fˣ) (β : F) (α : GL (Fin 2) F)
 
@@ -109,10 +164,10 @@ variable {π β α} in
 lemma mk_heckeUpper_eq_mk (hpos : IsTotallyPositive α.det.val) (hπ : IsTotallyPositive (π : F))
     (hdet : (α.det.val * (π : F)⁻¹)⁻¹ ∈ (1 : Submodule (𝓞 F) F))
     (h₀₀ : α.val 0 0 ∈ (1 : Submodule (𝓞 F) F))
-    (h₀₁ : ∀ y ∈ 𝔟, (π : F)⁻¹ * (α.val 0 1 - α.val 0 0 * β) * y ∈ (1 : Submodule (𝓞 F) F))
-    (h₁₀ : α.val 1 0 ∈ 𝔑 • (𝔟 : Submodule (𝓞 F) F))
+    (h₀₁ : ∀ y ∈ 𝔞, (π : F)⁻¹ * (α.val 0 1 - α.val 0 0 * β) * y ∈ (1 : Submodule (𝓞 F) F))
+    (h₁₀ : α.val 1 0 ∈ 𝔑 • (𝔞 : Submodule (𝓞 F) F))
     (h₁₁ : (π : F)⁻¹ * (α.val 1 1 - α.val 1 0 * β) ∈ (1 : Submodule (𝓞 F) F)) :
-    (⟦heckeUpper π β⟧ : gammaZeroRightCosets 𝔑 𝔟) = ⟦α⟧ := by
+    (⟦heckeUpper π β⟧ : gammaZeroRightCosets 𝔑 𝔞) = ⟦α⟧ := by
   refine Quotient.sound <| QuotientGroup.rightRel_apply.mpr <| mem_gammaZero_of_apply_mem ?_
     (fun y hy ↦ ?_) ?_ ?_ ?_ ?_
   all_goals try rw [val_mul_inv_heckeUpper]
@@ -128,10 +183,10 @@ variable {π α} in
 lemma mk_heckeLower_eq_mk (hpos : IsTotallyPositive α.det.val) (hπ : IsTotallyPositive (π : F))
     (hdet : (α.det.val * (π : F)⁻¹)⁻¹ ∈ (1 : Submodule (𝓞 F) F))
     (h₀₀ : (π : F)⁻¹ * α.val 0 0 ∈ (1 : Submodule (𝓞 F) F))
-    (h₀₁ : ∀ y ∈ 𝔟, α.val 0 1 * y ∈ (1 : Submodule (𝓞 F) F))
-    (h₁₀ : (π : F)⁻¹ * α.val 1 0 ∈ 𝔑 • (𝔟 : Submodule (𝓞 F) F))
+    (h₀₁ : ∀ y ∈ 𝔞, α.val 0 1 * y ∈ (1 : Submodule (𝓞 F) F))
+    (h₁₀ : (π : F)⁻¹ * α.val 1 0 ∈ 𝔑 • (𝔞 : Submodule (𝓞 F) F))
     (h₁₁ : α.val 1 1 ∈ (1 : Submodule (𝓞 F) F)) :
-    (⟦heckeLower π⟧ : gammaZeroRightCosets 𝔑 𝔟) = ⟦α⟧ := by
+    (⟦heckeLower π⟧ : gammaZeroRightCosets 𝔑 𝔞) = ⟦α⟧ := by
   refine Quotient.sound <| QuotientGroup.rightRel_apply.mpr <| mem_gammaZero_of_apply_mem ?_
     (fun y hy ↦ ?_) ?_ ?_ ?_ ?_
   all_goals try rw [val_mul_inv_heckeLower]

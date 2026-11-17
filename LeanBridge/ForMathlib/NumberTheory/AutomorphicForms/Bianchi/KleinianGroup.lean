@@ -5,15 +5,16 @@ import TauCeti.LinearAlgebra.Matrix.SpecialLinearGroup.Projective
 /-!
 # Discrete subgroups of `PSL(2, ℂ)` acting on hyperbolic 3-space
 
-This file gives criteria for a subgroup `Γ` of `PSL(2, ℂ)`, acting on hyperbolic 3-space `ℋ₃`, to
-be discrete, cofinite and not cocompact, the three properties that the LMFDB states of the Picard
-group `PSL(2, ℤ[i])` (`mf.maass.picard`) and of the Bianchi groups (`mf.bianchi.bianchigroup`).
+A subgroup `Γ` of `PSL(2, ℂ)`, acting on hyperbolic 3-space `ℋ₃`, is discrete, countable, acts
+properly discontinuously and has a measurable fundamental domain when for every `C` only finitely
+many elements of `Γ` have a representative in `SL(2, ℂ)` with entries of absolute value at most `C`
+(`HyperbolicThreeSpace.discreteTopology_of_finite`,
+`HyperbolicThreeSpace.properlyDiscontinuousSMul_of_finite` and
+`HyperbolicThreeSpace.exists_isFundamentalDomain_of_finite`, in `Bianchi/LevelDiscrete.lean` and
+`Bianchi/GammaZeroFundamentalDomain.lean`). This file gives criteria for the other two properties
+that the LMFDB states of the Picard group `PSL(2, ℤ[i])` (`mf.maass.picard`) and of the Bianchi
+groups (`mf.bianchi.bianchigroup`), to be cofinite and not cocompact.
 
-* If for every `C` only finitely many elements of `Γ` have a representative in `SL(2, ℂ)` with
-  entries of absolute value at most `C`, then `Γ` is discrete, countable, acts properly
-  discontinuously on `ℋ₃` (a matrix moving a point of a compact set into a compact set has bounded
-  entries, `norm_apply_le_of_moebius`), and has a measurable fundamental domain, the fixed points of
-  its elements other than `1` forming a null set.
 * If `ℋ₃` is covered by the translates under `Γ` of a set of finite hyperbolic volume, every
   fundamental domain of `Γ` has finite volume.
 * If every `γ ∈ Γ` either preserves the height `y` of every point `z = (x, y)` or moves it to a
@@ -30,10 +31,6 @@ Ceti's `TauCeti.SpecialLinear.projectiveMap`, is injective, so that `PSL(2, ℤ[
 
 * `HyperbolicThreeSpace.projectiveMap_injective`: the homomorphism `PSL(2, R) → PSL(2, S)` is
   injective for an injective `R → S`.
-* `HyperbolicThreeSpace.discreteTopology_of_finite`: the discreteness criterion.
-* `HyperbolicThreeSpace.properlyDiscontinuousSMul_of_finite`: the proper discontinuity.
-* `HyperbolicThreeSpace.exists_isFundamentalDomain_of_finite`: the existence of a measurable
-  fundamental domain.
 * `HyperbolicThreeSpace.hyperbolicVolume_lt_top_of_forall_exists_smul_mem`: the finiteness of the
   volume of the fundamental domains.
 * `HyperbolicThreeSpace.not_compactSpace_quotient_of_height`: the non-compactness of the quotient.
@@ -74,99 +71,6 @@ lemma projectiveMap_injective {R S : Type*} [CommRing R] [CommRing S] {f : R →
       exact hdet
     · ext i j
       fin_cases i <;> fin_cases j <;> simp [h₁, h₂, h₃]
-
-/-- **A subgroup of `PSL(2, ℂ)` with finitely many elements of bounded entries is discrete**: if
-for every `C` only finitely many elements of `Γ` have a representative in `SL(2, ℂ)` with entries
-of absolute value at most `C`, then `Γ` is a discrete subgroup of `PSL(2, ℂ)`. -/
-lemma discreteTopology_of_finite (hΓ : ∀ C : ℝ, {γ : PSL(2, ℂ) | γ ∈ Γ ∧ ∃ g : SL(2, ℂ),
-    (QuotientGroup.mk g : PSL(2, ℂ)) = γ ∧ ∀ i j, ‖g i j‖ ≤ C}.Finite) : DiscreteTopology Γ := by
-  let A : Set SL(2, ℂ) := ⋂ i, ⋂ j, {g | ‖g i j‖ < 2}
-  have hA : IsOpen A :=
-    isOpen_iInter_of_finite fun i ↦ isOpen_iInter_of_finite fun j ↦
-      isOpen_lt (by fun_prop) continuous_const
-  refine discreteTopology_of_isOpen_singleton_one <| isOpen_induced_iff.mpr
-    ⟨QuotientGroup.mk '' A \ ({γ : PSL(2, ℂ) | γ ∈ Γ ∧ ∃ g : SL(2, ℂ),
-      (QuotientGroup.mk g : PSL(2, ℂ)) = γ ∧ ∀ i j, ‖g i j‖ ≤ 2} \ {1}),
-      (QuotientGroup.isOpenMap_coe _ hA).sdiff ((hΓ 2).sdiff).isClosed, ?_⟩
-  ext ⟨γ', hγ'⟩
-  simp only [mem_singleton_iff, Subgroup.mk_eq_one]
-  refine ⟨fun ⟨⟨a, ha, hag⟩, hγ'F⟩ ↦ not_not.mp fun h₁ ↦ hγ'F ⟨?_, h₁⟩, ?_⟩
-  · exact ⟨hγ', a, hag, fun i j ↦ (mem_iInter₂.mp ha i j).le⟩
-  · rintro rfl
-    refine ⟨⟨1, mem_iInter₂.mpr fun i j ↦ ?_, rfl⟩, fun h ↦ h.2 rfl⟩
-    by_cases h : i = j <;> simp [h]
-
-/-- **A subgroup of `PSL(2, ℂ)` with finitely many elements of bounded entries acts properly
-discontinuously on `ℋ₃`**: the matrices moving a point of a compact set to a point of a compact
-set have bounded entries (`norm_apply_le_of_moebius`). -/
-lemma properlyDiscontinuousSMul_of_finite (hΓ : ∀ C : ℝ, {γ : PSL(2, ℂ) | γ ∈ Γ ∧ ∃ g : SL(2, ℂ),
-    (QuotientGroup.mk g : PSL(2, ℂ)) = γ ∧ ∀ i j, ‖g i j‖ ≤ C}.Finite) :
-    ProperlyDiscontinuousSMul Γ HyperbolicThreeSpace where
-  finite_disjoint_inter_image := by
-    intro A B hA hB
-    let f : HyperbolicThreeSpace → ℝ :=
-      fun z ↦ max ‖z.coords.1‖ (max z.coords.2 z.coords.2⁻¹)
-    have hco : Continuous (coords : HyperbolicThreeSpace → ℂ × ℝ) :=
-      isOpenEmbedding_coords.continuous
-    have hf : Continuous f :=
-      hco.fst.norm.max (hco.snd.max (hco.snd.inv₀ fun z ↦ (coords_snd_pos z).ne'))
-    rcases (hA.union hB).exists_bound_of_continuousOn hf.continuousOn with ⟨C, hC⟩
-    let R : ℝ := max C 1
-    have hR : 1 ≤ R := le_max_right _ _
-    have hR₀ : 0 < R := zero_lt_one.trans_le hR
-    have hb {z : HyperbolicThreeSpace} (hz : z ∈ A ∪ B) : f z ≤ R :=
-      (le_abs_self _).trans ((hC z hz).trans (le_max_left _ _))
-    have hx {z : HyperbolicThreeSpace} (hz : z ∈ A ∪ B) : ‖z.coords.1‖ ≤ R :=
-      (le_max_left _ _).trans (hb hz)
-    have hy {z : HyperbolicThreeSpace} (hz : z ∈ A ∪ B) : z.coords.2 ≤ R :=
-      ((le_max_left _ _).trans (le_max_right _ _)).trans (hb hz)
-    have hy' {z : HyperbolicThreeSpace} (hz : z ∈ A ∪ B) : R⁻¹ ≤ z.coords.2 := by
-      have h₁ : z.coords.2⁻¹ ≤ R := ((le_max_right _ _).trans (le_max_right _ _)).trans (hb hz)
-      exact (inv_le_comm₀ (coords_snd_pos z) hR₀).mp h₁
-    refine Finite.of_finite_image (f := Subtype.val) ((hΓ (4 * R ^ 4)).subset ?_)
-      Subtype.val_injective.injOn
-    rintro _ ⟨⟨γ', hγ'⟩, ⟨_, ⟨z, hz, rfl⟩, hz'⟩, rfl⟩
-    rcases QuotientGroup.mk_surjective γ' with ⟨g, rfl⟩
-    have hzA : z ∈ A ∪ B := Or.inl hz
-    have hzB : g • z ∈ A ∪ B := Or.inr hz'
-    exact ⟨hγ', g, rfl, norm_apply_le_of_moebius g hR (coords_snd_pos z) (hx hzA) (hy' hzA)
-      (hy hzA) (hx hzB) (hy' hzB) (hy hzB)⟩
-
-lemma countable_of_finite (hΓ : ∀ C : ℝ, {γ : PSL(2, ℂ) | γ ∈ Γ ∧ ∃ g : SL(2, ℂ),
-    (QuotientGroup.mk g : PSL(2, ℂ)) = γ ∧ ∀ i j, ‖g i j‖ ≤ C}.Finite) : Countable Γ :=
-  have : ProperlyDiscontinuousSMul Γ HyperbolicThreeSpace := properlyDiscontinuousSMul_of_finite hΓ
-  countable_of_properlyDiscontinuousSMul Γ (T := HyperbolicThreeSpace)
-
-/-- **A subgroup of `PSL(2, ℂ)` with finitely many elements of bounded entries has a measurable
-fundamental domain** in `ℋ₃`: it is countable and acts properly discontinuously, and the fixed
-points of its elements other than `1` form a null set. -/
-lemma exists_isFundamentalDomain_of_finite (hΓ : ∀ C : ℝ, {γ : PSL(2, ℂ) | γ ∈ Γ ∧ ∃ g : SL(2, ℂ),
-    (QuotientGroup.mk g : PSL(2, ℂ)) = γ ∧ ∀ i j, ‖g i j‖ ≤ C}.Finite) :
-    ∃ s : Set HyperbolicThreeSpace, MeasurableSet s ∧ IsFundamentalDomain Γ s hyperbolicVolume := by
-  have : ProperlyDiscontinuousSMul Γ HyperbolicThreeSpace := properlyDiscontinuousSMul_of_finite hΓ
-  have : Countable Γ := countable_of_finite hΓ
-  have hnull :
-      hyperbolicVolume (freeLocus Γ HyperbolicThreeSpace : Set HyperbolicThreeSpace)ᶜ = 0 := by
-    have hsub : (freeLocus Γ HyperbolicThreeSpace : Set HyperbolicThreeSpace)ᶜ ⊆
-        ⋃ γ : {γ : Γ // γ ≠ 1}, {z | γ.1 • z = z} := by
-      intro z hz
-      have hz' : stabilizer Γ z ≠ ⊥ := hz
-      rcases Subgroup.ne_bot_iff_exists_ne_one.mp hz' with ⟨⟨γ, hγ⟩, hγ₁⟩
-      exact mem_iUnion.mpr ⟨⟨γ, fun h ↦ hγ₁ (Subtype.ext h)⟩, hγ⟩
-    refine measure_mono_null hsub (measure_iUnion_null fun γ ↦ ?_)
-    rcases γ with ⟨⟨γ', hγ'⟩, hγ₁⟩
-    rcases QuotientGroup.mk_surjective γ' with ⟨g, rfl⟩
-    have hne₁ : g ≠ 1 := by
-      rintro rfl
-      exact hγ₁ (Subtype.ext rfl)
-    have hne₂ : g ≠ -1 := by
-      rintro rfl
-      exact hγ₁ <| Subtype.ext <| (QuotientGroup.eq_one_iff _).mpr <|
-        SpecialLinearGroup.mem_center_iff_eq_one_or_eq_neg_one.mpr (Or.inr rfl)
-    exact hyperbolicVolume_setOf_smul_eq_self g hne₁ hne₂
-  rcases Measure.exists_isFundamentalDomain_of_properlyDiscontinuousSMul hyperbolicVolume hnull with
-    ⟨s, hs, -, hF⟩
-  exact ⟨s, hs, hF⟩
 
 /-- **The fundamental domains of a group covering `ℋ₃` by the translates of a set of finite volume
 have finite volume**: if every point of `ℋ₃` is moved into `U` by an element of `Γ`, then a

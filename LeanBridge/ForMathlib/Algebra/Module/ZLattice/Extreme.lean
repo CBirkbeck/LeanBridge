@@ -37,6 +37,15 @@ noncomputable def packingDensity : ℝ :=
 lemma packingDensity_nonneg : 0 ≤ packingDensity L :=
   div_nonneg measureReal_nonneg ENNReal.toReal_nonneg
 
+variable [Nonempty ι] in
+lemma packingDensity_eq_mul_div : packingDensity L =
+    volume.real (Metric.ball (0 : EuclideanSpace ℝ ι) 1) / 2 ^ Fintype.card ι *
+      minimum L ^ Fintype.card ι / covolume L := by
+  have hm : 0 ≤ minimum L / 2 := div_nonneg minimum_nonneg zero_le_two
+  rw [packingDensity, measureReal_def, Measure.addHaar_ball volume 0 hm, ENNReal.toReal_mul,
+    ENNReal.toReal_ofReal (pow_nonneg hm _), finrank_euclideanSpace, ← measureReal_def, div_pow]
+  ring1
+
 /-- A lattice `L` of `ℝⁿ` is **extreme** (LMFDB `lattice.extreme`) if its packing density is a
 local maximum of the packing density: for some `ε > 0`, every lattice `g L`, where `g` is an
 invertible linear map of `ℝⁿ` at operator-norm distance less than `ε` from the identity, has packing

@@ -176,9 +176,25 @@ end ZLattice
 
 namespace LinearMap.BilinForm
 
-variable {E F : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [FiniteDimensional ℝ E]
-  [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F] {L : Submodule ℤ E}
-  {M : Submodule ℤ F} [DiscreteTopology L] [IsZLattice ℝ L] [DiscreteTopology M] [IsZLattice ℝ M]
+variable {E F : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [NormedAddCommGroup F]
+  [InnerProductSpace ℝ F] {L : Submodule ℤ E} {M : Submodule ℤ F}
+
+lemma isSimilarLattice_of_map_eq (ψ : E ≃ₗ[ℝ] F) {k : ℝ} (hk : 0 < k)
+    (hψ : ∀ v w, ⟪ψ v, ψ w⟫_ℝ = k * ⟪v, w⟫_ℝ) (hLM : L.map (ψ.restrictScalars ℤ).toLinearMap = M) :
+    IsSimilarLattice (innerₗ E) L (innerₗ F) M := by
+  have hα : (√k)⁻¹ ≠ 0 := inv_ne_zero (Real.sqrt_ne_zero'.mpr hk)
+  let s : M ≃ₗ[ℤ] ↥((√k)⁻¹ • M) := Submodule.equivMapOfInjective
+    (DistribSMul.toLinearMap ℤ F (√k)⁻¹) (smul_right_injective F hα) M
+  let e : L ≃ₗ[ℤ] ↥((√k)⁻¹ • M) :=
+    (((ψ.restrictScalars ℤ).submoduleMap L).trans (.ofEq _ _ hLM)).trans s
+  refine ⟨(√k)⁻¹, hα, e, fun x y ↦ ?_⟩
+  have hs (z : L) : (e z : F) = (√k)⁻¹ • ψ z :=
+    rfl
+  rw [hs, hs, smul_left, smul_right, innerₗ_apply_apply, hψ, innerₗ_apply_apply, ← mul_assoc,
+    ← mul_assoc, ← mul_inv, Real.mul_self_sqrt hk.le, inv_mul_cancel₀ hk.ne', one_mul]
+
+variable [FiniteDimensional ℝ E] [FiniteDimensional ℝ F] [DiscreteTopology L] [IsZLattice ℝ L]
+  [DiscreteTopology M] [IsZLattice ℝ M]
 
 /-- **Similar lattices of full rank are related by a similitude of the ambient spaces**: if `L` is
 isometric to `αM`, a real linear equivalence `ψ` with `⟪ψ v, ψ w⟫ = k ⟪v, w⟫`, `k = α⁻² > 0`,
@@ -323,6 +339,35 @@ lemma packingDensity_eq_of_map_eq [DiscreteTopology L] [IsZLattice ℝ L] [Discr
     measureReal_def, Measure.addHaar_ball_mul_of_pos _ _ (Real.sqrt_pos.mpr hk), ENNReal.toReal_mul,
     ENNReal.toReal_ofReal (pow_nonneg (Real.sqrt_nonneg k) _), finrank_euclideanSpace,
     mul_div_mul_left _ _ (pow_ne_zero _ (Real.sqrt_ne_zero'.mpr hk))]
+
+variable [DiscreteTopology L] [IsZLattice ℝ L] [Nonempty ι] in
+lemma packingDensity_map_le_packingDensity_iff (g : EuclideanSpace ℝ ι ≃L[ℝ] EuclideanSpace ℝ ι) :
+    packingDensity (L.map (g.toLinearMap.restrictScalars ℤ)) ≤ packingDensity L ↔
+      minimum (L.map (g.toLinearMap.restrictScalars ℤ)) ^ Fintype.card ι ≤
+        |(g : EuclideanSpace ℝ ι →L[ℝ] EuclideanSpace ℝ ι).det| * minimum L ^ Fintype.card ι := by
+  have hM : L.map (g.toLinearMap.restrictScalars ℤ) = ZLattice.comap ℝ L g.symm.toLinearMap :=
+    Submodule.map_equiv_eq_comap_symm (g.toLinearEquiv.restrictScalars ℤ) L
+  have hd : DiscreteTopology (L.map (g.toLinearMap.restrictScalars ℤ)) := by
+    rw [hM]
+    infer_instance
+  have hz : IsZLattice ℝ (L.map (g.toLinearMap.restrictScalars ℤ)) := by
+    refine ⟨?_⟩
+    rw [hM]
+    exact IsZLattice.span_top
+  have hcov : covolume (L.map (g.toLinearMap.restrictScalars ℤ)) =
+      |(g : EuclideanSpace ℝ ι →L[ℝ] EuclideanSpace ℝ ι).det| * covolume L :=
+    covolume_eq_abs_det_mul rfl
+  have hV : 0 < volume.real (Metric.ball (0 : EuclideanSpace ℝ ι) 1) :=
+    ENNReal.toReal_pos (Metric.measure_ball_pos volume 0 one_pos).ne' measure_ball_lt_top.ne
+  have hdet : 0 < |(g : EuclideanSpace ℝ ι →L[ℝ] EuclideanSpace ℝ ι).det| :=
+    abs_pos.mpr (LinearEquiv.isUnit_det' g.toLinearEquiv).ne_zero
+  have hC : 0 < covolume L := covolume_pos L volume
+  have hk : 0 < volume.real (Metric.ball (0 : EuclideanSpace ℝ ι) 1) / 2 ^ Fintype.card ι *
+      covolume L := by
+    positivity
+  rw [packingDensity_eq_mul_div, packingDensity_eq_mul_div, hcov,
+    div_le_div_iff₀ (mul_pos hdet hC) hC]
+  constructor <;> intro h <;> nlinarith
 
 end ZLattice
 

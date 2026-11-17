@@ -3719,7 +3719,7 @@
     "HilbertModularForm.IsCuspForm": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.Basic",
     "HilbertModularForm.VanishesAtCusps": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.Basic",
     "HilbertModularGroup.gammaZero": "LeanBridge.ForMathlib.AlgebraicGeometry.HilbertModularSurface.Level",
-    "HilbertModularGroup.mem_gammaZero_glPlus_iff": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.BoundedAtCusps",
+    "HilbertModularGroup.mem_gammaZero_glPlus_iff": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.HeckeCosetDecomposition",
     "HilbertModularForm.mem_space_iff": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.BoundedAtCusps",
     "HilbertModularForm.ofSmulEq": "LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.BoundedAtCusps"
   },

@@ -31,6 +31,8 @@ eigenfunctions of `Δ^hol_k`, the eigenvalue shifted by `(k/2)(k/2 - 1)`.
 
 * `UpperHalfPlane.maassSlash_im_rpow_mul_eq` (LMFDB `mf.maass.mwf`): the unitary slash action of
   `y^{k/2} F` is `y^{k/2}` times the holomorphic slash action of `F`.
+* `UpperHalfPlane.maassSlash_im_rpow_mul`: `y^{k/2} F` transforms with the multiplier `μ` under
+  `γ ∈ SL(2, ℤ)` when `F(γz) = μ (cz + d)^k F(z)`.
 * `UpperHalfPlane.maassLaplacian_im_rpow_mul_eq` (LMFDB `mf.maass.mwf`):
   `Δ_k (y^{k/2} F) = y^{k/2} (Δ^hol_k F + (k/2)(k/2 - 1) F)`.
 * `UpperHalfPlane.maassSlash_im_rpow_mul_eq_mul_iff`: the transformation laws correspond.
@@ -44,10 +46,12 @@ eigenfunctions of `Δ^hol_k`, the eigenvalue shifted by `(k/2)(k/2 - 1)`.
 
 open Complex Subgroup
 
+open scoped MatrixGroups
+
 namespace UpperHalfPlane
 
-variable (k : ℝ) (F : ℂ → ℂ) {t : ℝ} {G : ℂ → ℂ} {G' : ℂ →L[ℝ] ℂ} {w eigenvalue : ℂ}
-    {Γ : Subgroup (GL (Fin 2) ℝ)} {v : Γ → Circle}
+variable (k : ℝ) (F : ℂ → ℂ) {t : ℝ} {G : ℂ → ℂ} {w eigenvalue : ℂ} {Γ : Subgroup (GL (Fin 2) ℝ)}
+    {v : Γ → Circle}
 
 variable (γ : GL (Fin 2) ℝ) (z : ℍ) in
 /-- The **holomorphic slash action of real weight `k`**, `F|_k γ (z) = (cz + d)^{-k} F(γz)` for
@@ -66,11 +70,6 @@ under `f = y^{k/2} F` (`maassLaplacian_im_rpow_mul_eq`). -/
 noncomputable def holomorphicMaassLaplacian : ℂ :=
   hyperbolicLaplacian F z -
     Complex.I * k * z.im * (fderiv ℝ F z 1 + Complex.I * fderiv ℝ F z Complex.I)
-
-lemma hasFDerivAt_im_rpow_mul_of_hasFDerivAt (hG : HasFDerivAt G G' w) (hw : 0 < w.im) : HasFDerivAt
-    (fun u ↦ ((u.im ^ t : ℝ) : ℂ) * G u)
-    (((w.im ^ t : ℝ) : ℂ) • G' + G w • ofRealCLM.comp ((t * w.im ^ (t - 1)) • imCLM)) w :=
-  (ofRealCLM.hasFDerivAt.comp w <| imCLM.hasFDerivAt.rpow_const <| .inl hw.ne').mul hG
 
 lemma fderiv_im_rpow_mul_one_of_differentiableAt (hG : DifferentiableAt ℝ G w) (hw : 0 < w.im) :
     fderiv ℝ (fun u ↦ ((u.im ^ t : ℝ) : ℂ) * G u) w 1 = (w.im ^ t : ℝ) * fderiv ℝ G w 1 := by
@@ -104,6 +103,18 @@ lemma maassSlash_im_rpow_mul_eq {γ : GL (Fin 2) ℝ} (hγ : γ.det.val = 1) (z 
   push_cast
   field_simp
   linear_combination (((z.im ^ (k / 2) : ℝ) : ℂ) * F ↑(γ • z)) * exp_neg_arg_mul_cpow k hd
+
+variable {k F} in
+/-- **The unitary slash action of `y^(k/2) F`**: if `F(γz) = μ (cz + d)^k F(z)` for
+`γ = (a, b; c, d)` in `SL(2, ℤ)`, with the principal power of `cz + d`, then `f = y^(k/2) F`
+satisfies `exp(-ik Arg(cz + d)) f(γz) = μ f(z)`. -/
+lemma maassSlash_im_rpow_mul {γ : SL(2, ℤ)} {z : ℍ} {μ : ℂ}
+    (hF : F ↑(γ • z) = μ * denom γ z ^ (k : ℂ) * F z) :
+    maassSlash k (fun u ↦ ((u.im ^ (k / 2) : ℝ) : ℂ) * F u) γ z =
+      μ * (((z.im ^ (k / 2) : ℝ) : ℂ) * F z) := by
+  have hc : denom γ z ^ (k : ℂ) ≠ 0 := cpow_ne_zero_iff.mpr (.inl (denom_ne_zero γ z))
+  rw [maassSlash_im_rpow_mul_eq (by simp) z, holomorphicSlash, ← ModularGroup.sl_moeb, hF, cpow_neg]
+  field_simp
 
 variable {F} in
 /-- **The weight `k` Laplacians of the two conventions correspond** (LMFDB `mf.maass.mwf`, remark):

@@ -435,6 +435,7 @@ import LeanBridge.ForMathlib.NumberTheory.ModularForms.EtaMultiplier
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.HeckeAlgebra
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.Basic
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.BoundedAtCusps
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.HeckeCosetDecomposition
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.HeckeIdeal
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.HeckeSpace
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.Basic

@@ -13,6 +13,11 @@ of strongly eutactic lattices are not formalised. Unlike `TauCeti.IntegralLattic
 for integral lattices in rational spaces, these lattices need not be integral, as eutaxy and
 perfection require.
 
+The minimum bounds the norms of the nonzero vectors of `L` from below, and that of the image of `L`
+under an invertible map is bounded by the norms of the images; a positive minimum makes `L`
+discrete, and the minimum of a nonzero discrete `L` is positive and isolated: the other nonzero
+vectors of `L` are longer than some `m > min L`.
+
 ## Main definitions
 
 * `ZLattice.minimum` and `ZLattice.minimalVectors` (LMFDB `lattice.minimal_vector`).
@@ -28,11 +33,12 @@ perfection require.
 -/
 
 open Module Set
+
 open scoped InnerProductSpace
 
 namespace ZLattice
 
-variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] (L : Submodule ℤ E)
+variable {E : Type*} [NormedAddCommGroup E] (L : Submodule ℤ E) {x : E}
 
 /-- The **minimum length** of a lattice `L` in a real inner product space: the infimum of the norms
 of the nonzero vectors of `L`, and `0` for `L = ⊥`. For a discrete nonzero `L` it is attained
@@ -46,6 +52,35 @@ product space: the nonzero vectors of `L` of least norm `ZLattice.minimum L`. -/
 def minimalVectors : Set E :=
   {x | x ∈ L ∧ x ≠ 0 ∧ ‖x‖ = minimum L}
 
+variable {L}
+
+lemma minimum_nonneg : 0 ≤ minimum L :=
+  Real.sInf_nonneg fun _ ⟨x, _, hx⟩ ↦ hx ▸ norm_nonneg x
+
+lemma minimum_le_norm (hx : x ∈ L) (hx₀ : x ≠ 0) : minimum L ≤ ‖x‖ :=
+  csInf_le ⟨0, by rintro _ ⟨y, -, rfl⟩; exact norm_nonneg y⟩ ⟨x, ⟨hx, hx₀⟩, rfl⟩
+
+lemma minimum_pos_of_mem_minimalVectors (hx : x ∈ minimalVectors L) : 0 < minimum L :=
+  hx.2.2 ▸ norm_pos_iff.mpr hx.2.1
+
+lemma discreteTopology_of_minimum_pos (h : 0 < minimum L) : DiscreteTopology L :=
+  .of_forall_le_norm h fun x hx ↦ minimum_le_norm x.2 fun h0 ↦ hx (Subtype.ext h0)
+
+variable [InnerProductSpace ℝ E] (g : E ≃L[ℝ] E)
+
+lemma minimum_map_le_norm (hx : x ∈ L) (hx0 : x ≠ 0) :
+    minimum (L.map (g.toLinearMap.restrictScalars ℤ)) ≤ ‖g x‖ :=
+  minimum_le_norm (Submodule.mem_map_of_mem hx) (g.toLinearEquiv.map_ne_zero_iff.mpr hx0)
+
+lemma le_minimum_map {m : ℝ} (hL : L ≠ ⊥) (h : ∀ x ∈ L, x ≠ 0 → m ≤ ‖g x‖) :
+    m ≤ minimum (L.map (g.toLinearMap.restrictScalars ℤ)) := by
+  rcases L.ne_bot_iff.mp hL with ⟨x, hx, hx0⟩
+  refine le_csInf
+    ⟨‖g x‖, g x, ⟨Submodule.mem_map_of_mem hx, g.toLinearEquiv.map_ne_zero_iff.mpr hx0⟩, rfl⟩ ?_
+  rintro _ ⟨_, ⟨⟨y, hy, rfl⟩, hy0⟩, rfl⟩
+  exact h y hy fun h0 ↦ hy0 (by simp [h0])
+
+variable (L) in
 /-- A lattice `L` in a real inner product space `E` is **eutactic** (LMFDB `lattice.eutactic`) if
 there are positive real numbers `cₓ`, indexed by the minimal vectors `x` of `L`, such that
 `⟪v, v⟫ = ∑ₓ cₓ ⟪v, x⟫²` for every `v ∈ E`. The sum is finite for a discrete `L`
@@ -54,13 +89,12 @@ def IsEutactic : Prop :=
   ∃ c : E → ℝ, (∀ x ∈ minimalVectors L, 0 < c x) ∧
     ∀ v : E, ⟪v, v⟫_ℝ = ∑ᶠ x ∈ minimalVectors L, c x * ⟪v, x⟫_ℝ ^ 2
 
+variable (L) in
 /-- A lattice `L` in a real inner product space `E` is **strongly eutactic** (LMFDB
 `lattice.eutactic`) if it is eutactic with equal coefficients: `⟪v, v⟫ = c ∑ₓ ⟪v, x⟫²` for every
 `v ∈ E`, for a positive real number `c`, the sum ranging over the minimal vectors `x` of `L`. -/
 def IsStronglyEutactic : Prop :=
   ∃ c : ℝ, 0 < c ∧ ∀ v : E, ⟪v, v⟫_ℝ = c * ∑ᶠ x ∈ minimalVectors L, ⟪v, x⟫_ℝ ^ 2
-
-variable {L}
 
 /-- **A strongly eutactic lattice is eutactic.** -/
 lemma IsStronglyEutactic.isEutactic (h : IsStronglyEutactic L) : IsEutactic L := by
@@ -103,5 +137,24 @@ lemma nonempty_minimalVectors (hL : L ≠ ⊥) : (minimalVectors L).Nonempty := 
   rintro _ ⟨z, ⟨hz, hz₀⟩, rfl⟩
   exact (le_or_gt ‖z‖ ‖x‖).elim (fun h ↦ hmin z ⟨⟨mem_closedBall_zero_iff.mpr h, hz⟩, hz₀⟩)
     fun h ↦ (mem_closedBall_zero_iff.mp hyx).trans h.le
+
+lemma minimum_pos (hL : L ≠ ⊥) : 0 < minimum L :=
+  minimum_pos_of_mem_minimalVectors (nonempty_minimalVectors hL).some_mem
+
+lemma exists_lt_forall_le_norm (hS : (minimalVectors L).Nonempty) :
+    ∃ m, minimum L < m ∧ ∀ x ∈ L, x ≠ 0 → x ∉ minimalVectors L → m ≤ ‖x‖ := by
+  have hm : 0 < minimum L := minimum_pos_of_mem_minimalVectors hS.some_mem
+  have hlt (x : E) (hx : x ∈ L) (hx0 : x ≠ 0) (hxS : x ∉ minimalVectors L) : minimum L < ‖x‖ :=
+    (minimum_le_norm hx hx0).lt_of_ne fun h ↦ hxS ⟨hx, hx0, h.symm⟩
+  rcases (((Metric.closedBall 0 (2 * minimum L) ∩ (L : Set E)) \ {0}) \
+    minimalVectors L).eq_empty_or_nonempty with hF | hF
+  · refine ⟨2 * minimum L, by linarith, fun x hx hx0 hxS ↦ le_of_not_gt fun h ↦ ?_⟩
+    exact hF.subset ⟨⟨⟨mem_closedBall_zero_iff.mpr h.le, hx⟩, hx0⟩, hxS⟩
+  rcases exists_min_image _ (‖·‖) (finite_inter_closedBall _).sdiff.sdiff hF with ⟨y, hy, hmin⟩
+  refine ⟨min (2 * minimum L) ‖y‖, lt_min (by linarith) (hlt y hy.1.1.2 hy.1.2 hy.2),
+    fun x hx hx0 hxS ↦ ?_⟩
+  rcases le_or_gt ‖x‖ (2 * minimum L) with h | h
+  · exact (min_le_right _ _).trans (hmin x ⟨⟨⟨mem_closedBall_zero_iff.mpr h, hx⟩, hx0⟩, hxS⟩)
+  · exact (min_le_left _ _).trans h.le
 
 end ZLattice

@@ -1,6 +1,7 @@
 import Mathlib.NumberTheory.Padics.PadicVal.Basic
 import TauCeti.LinearAlgebra.IntegralLattice.Examples
 import TauCeti.LinearAlgebra.IntegralLattice.PosDef.Covolume
+import TauCeti.LinearAlgebra.IntegralLattice.RationalInvariants
 
 /-!
 # Conventions for the discriminant of an integral lattice
@@ -8,7 +9,9 @@ import TauCeti.LinearAlgebra.IntegralLattice.PosDef.Covolume
 The LMFDB's discriminant `D` of an integral lattice `L` of rank `n` is the determinant of a Gram
 matrix of `L`, Tau Ceti's `TauCeti.IntegralLattice.determinant`. Tau Ceti's
 `TauCeti.IntegralLattice.discriminant` is `|D|`, the LMFDB's absolute discriminant. This file names
-the other conventions of the literature.
+the other conventions of the literature. `D` is the discriminant of the quadratic form
+`Q(v) = ⟨v, v⟩` of `L ⊗ ℚ` in a basis of `L`, so the Witt discriminant is its signed discriminant,
+and it is not zero for a nondegenerate lattice.
 
 ## Main definitions
 
@@ -39,6 +42,22 @@ the convention of Milnor–Husemoller and Lam, for which the hyperbolic plane ha
 `1`. -/
 noncomputable def wittDiscriminant : ℤ :=
   (-1) ^ (finrank ℚ V).choose 2 * L.determinant
+
+lemma discr_norm_rationalBasis : L.norm.discr L.rationalBasis = L.determinant := by
+  rw [QuadraticForm.discr, toMatrix_norm_rationalBasis,
+    L.determinant_eq_gramDet (Free.chooseBasis ℤ L), gramDet_def, Int.cast_det]
+  rfl
+
+lemma intCast_wittDiscriminant :
+    (L.wittDiscriminant : ℚ) = (-1) ^ (finrank ℚ V).choose 2 * L.norm.discr L.rationalBasis := by
+  rw [discr_norm_rationalBasis, wittDiscriminant]
+  push_cast
+  rfl
+
+variable [L.IsNondegenerate] in
+lemma wittDiscriminant_ne_zero : L.wittDiscriminant ≠ 0 :=
+  mul_ne_zero (pow_ne_zero _ <| neg_ne_zero.mpr one_ne_zero) <|
+    L.determinant_ne_zero_iff.mpr L.form_nondegenerate
 
 /-- The **geometric discriminant** (LMFDB `lattice.discriminant`) `√|D|` of an integral lattice of
 discriminant `D`, the convention of Borevich–Shafarevich. For a positive definite lattice it is the

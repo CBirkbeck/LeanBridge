@@ -1,5 +1,6 @@
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Siegel.FourierUniqueness
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.Basic
+import Mathlib.Analysis.Normed.Group.Tannery
 import Mathlib.NumberTheory.NumberField.FractionalIdeal
 import Mathlib.NumberTheory.NumberField.InfinitePlace.TotallyRealComplex
 import Mathlib.RingTheory.DedekindDomain.Different
@@ -17,6 +18,10 @@ When `F` is totally real, the expansion is unique: on the points
 `z = ∑_j x_j e_j + i` for a `ℤ`-basis `(e_j)` of `𝔟⁻¹`, it is an absolutely convergent Fourier
 series in `x ∈ (ℝ / ℤ)ⁿ`, with coefficients `a(ν) e^{-2π Tr ν}`, and the torus argument of
 `Siegel/FourierUniqueness.lean` applies.
+
+A Fourier series supported on `0` and the totally positive `ν` is bounded when all the imaginary
+parts are at least `1`, since `|e^{2πi Tr(νz)}| = e^{-2π ∑_w w(ν) Im z_w}` decreases in each
+`Im z_w`, and it tends to its constant term as all the imaginary parts tend to infinity.
 
 ## Main definitions
 
@@ -40,11 +45,14 @@ series in `x ∈ (ℝ / ℤ)ⁿ`, with coefficients `a(ν) e^{-2π Tr ν}`, and 
 * `HilbertModularForm.HasHilbertFourierExpansion.unique`: Fourier expansions are unique.
 * `HilbertModularForm.HasHilbertFourierExpansion.fourierCoeff_eq`: the Fourier coefficients of a
   function with a Fourier expansion `a` are `a`.
+* `HilbertModularForm.HasHilbertFourierExpansion.boundedAtFilter`: a Fourier series supported on `0`
+  and the totally positive `ν` is bounded as all the imaginary parts tend to infinity.
+* `HilbertModularForm.HasHilbertFourierExpansion.tendsto_atImInfty`: it tends to its constant term.
 -/
 
-open Complex NumberField InfinitePlace Real UnitAddTorus
+open Asymptotics Complex Filter NumberField InfinitePlace Real UnitAddTorus
 
-open scoped nonZeroDivisors UpperHalfPlane
+open scoped nonZeroDivisors Topology UpperHalfPlane
 
 namespace HilbertModularForm
 
@@ -67,6 +75,16 @@ open scoped Classical in
 `Tr(νz) = ∑_w w(ν) z_w` over the real places `w`, for `ν ∈ F` and `z ∈ ℍⁿ`. -/
 noncomputable def fourierExp (ν : F) (z : {w : InfinitePlace F // w.IsReal} → ℍ) : ℂ :=
   cexp (2 * π * I * ∑ w, (embedding_of_isReal w.2 ν : ℂ) * (z w : ℂ))
+
+open scoped Classical in
+lemma norm_fourierExp (z : {w : InfinitePlace F // w.IsReal} → ℍ) (x : F) :
+    ‖fourierExp x z‖ = Real.exp (-(2 * π * ∑ w, embedding_of_isReal w.2 x * (z w).im)) := by
+  have e : 2 * π * I * ∑ w, (embedding_of_isReal w.2 x : ℂ) * (z w : ℂ) =
+      ((2 * π : ℝ) : ℂ) * (I * ∑ w, (embedding_of_isReal w.2 x : ℂ) * (z w : ℂ)) := by
+    push_cast
+    ring1
+  rw [fourierExp, Complex.norm_exp, e, re_ofReal_mul, I_mul_re, im_sum]
+  simp only [im_ofReal_mul, UpperHalfPlane.coe_im, mul_neg]
 
 variable {φ ψ : ({w : InfinitePlace F // w.IsReal} → ℍ) → ℂ} {a b : fourierDual 𝔟 → ℂ}
 
@@ -147,7 +165,7 @@ private lemma fourierExp_torusPoint [IsTotallyReal F] (e : ι → F) (x : ι →
     (Finset.sum_congr rfl fun w _ ↦ by
       linear_combination 2 * π * (embedding_of_isReal w.2 ν : ℂ) * I_sq)
 
-private lemma exists_intCast_eq (ν : fourierDual 𝔟)
+lemma exists_intCast_eq_trace (ν : fourierDual 𝔟)
     (j : Module.Free.ChooseBasisIndex ℤ (↑𝔟⁻¹ : FractionalIdeal (𝓞 F)⁰ F)) :
     ∃ z : ℤ, (z : ℚ) = Algebra.trace ℚ F (ν * basisOfFractionalIdeal F 𝔟⁻¹ j) := by
   rw [basisOfFractionalIdeal_apply]
@@ -161,7 +179,7 @@ open scoped Classical in
 then `c = 0`. -/
 lemma eq_zero_of_hasSum_fourierExp [IsTotallyReal F] {c : fourierDual 𝔟 → ℂ}
     (hc : ∀ z, HasSum (fun ν ↦ c ν * fourierExp (ν : F) z) 0) : c = 0 := by
-  choose k hk using exists_intCast_eq 𝔟
+  choose k hk using exists_intCast_eq_trace 𝔟
   have hinj : Function.Injective k := fun ν μ h ↦ Subtype.ext <|
     eq_of_trace_mul_eq (basisOfFractionalIdeal F 𝔟⁻¹) fun j ↦ by rw [← hk, ← hk, h]
   let d : (Module.Free.ChooseBasisIndex ℤ (↑𝔟⁻¹ : FractionalIdeal (𝓞 F)⁰ F) → ℤ) → ℂ :=
@@ -217,5 +235,81 @@ def KoecherPrinciple : Prop :=
     (f : HilbertModularForm 𝔑 k 𝔠 h𝔠) (c : NarrowClassGroup F) (a : fourierDual (𝔠 c) → ℂ),
     HasHilbertFourierExpansion (𝔠 c) (f.toFun c) a → ∀ ν, a ν ≠ 0 →
       (ν : F) = 0 ∨ IsTotallyPositive (ν : F)
+
+variable {𝔟} {ν : fourierDual 𝔟}
+
+variable (ν) in
+private lemma norm_mul_fourierExp_le {z : {w : InfinitePlace F // w.IsReal} → ℍ}
+    (hsupp : ∀ ν, a ν ≠ 0 → (ν : F) = 0 ∨ IsTotallyPositive (ν : F)) (hz : ∀ w, 1 ≤ (z w).im) :
+    ‖a ν * fourierExp (ν : F) z‖ ≤ ‖a ν * fourierExp (ν : F) fun _ ↦ UpperHalfPlane.I‖ := by
+  by_cases hν : a ν = 0
+  · simp [hν]
+  have hpos (w : {w : InfinitePlace F // w.IsReal}) : 0 ≤ embedding_of_isReal w.2 (ν : F) := by
+    rcases hsupp ν hν with h | h
+    · simp [h]
+    · exact (h w.1 w.2).le
+  rw [norm_mul, norm_mul, norm_fourierExp, norm_fourierExp]
+  refine mul_le_mul_of_nonneg_left (Real.exp_le_exp.mpr ?_) (norm_nonneg _)
+  simp only [UpperHalfPlane.I_im, mul_one, neg_le_neg_iff]
+  exact mul_le_mul_of_nonneg_left (Finset.sum_le_sum fun w _ ↦
+    le_mul_of_one_le_right (hpos w) (hz w)) Real.two_pi_pos.le
+
+/-- **Fourier series supported on `0` and the totally positive `ν` are bounded at infinity**: if
+`φ(z) = ∑_ν a(ν) e^{2πi Tr(νz)}` with `a(ν) ≠ 0` only for `ν = 0` and `ν` totally positive, then `φ`
+is bounded on `{z : Im z_w ≥ 1 for all w}`, by the sum of the `|a(ν)| e^{-2π Tr ν}`. -/
+lemma HasHilbertFourierExpansion.boundedAtFilter (ha : HasHilbertFourierExpansion 𝔟 φ a)
+    (hsupp : ∀ ν, a ν ≠ 0 → (ν : F) = 0 ∨ IsTotallyPositive (ν : F)) :
+    BoundedAtFilter atImInfty φ := by
+  have hs : Summable fun ν ↦ ‖a ν * fourierExp (ν : F) fun _ ↦ UpperHalfPlane.I‖ :=
+    summable_norm_iff.mpr (ha _).summable
+  refine IsBigO.of_bound (∑' ν, ‖a ν * fourierExp (ν : F) fun _ ↦ UpperHalfPlane.I‖) ?_
+  filter_upwards [eventually_le_im 1] with z hz
+  have hs' : Summable fun ν ↦ ‖a ν * fourierExp (ν : F) z‖ :=
+    hs.of_nonneg_of_le (fun _ ↦ norm_nonneg _) (norm_mul_fourierExp_le · hsupp hz)
+  rw [Pi.one_apply, norm_one, mul_one, ← (ha z).tsum_eq]
+  exact (norm_tsum_le_tsum_norm hs').trans
+    (hs'.tsum_le_tsum (norm_mul_fourierExp_le · hsupp hz) hs)
+
+open scoped Classical in
+private lemma tendsto_sum_mul_im {c : {w : InfinitePlace F // w.IsReal} → ℝ} (hc : ∀ w, 0 < c w)
+    (w₀ : {w : InfinitePlace F // w.IsReal}) : Tendsto
+      (fun z : {w : InfinitePlace F // w.IsReal} → ℍ ↦ ∑ w, c w * (z w).im) atImInfty atTop := by
+  have h : Tendsto (fun (z : {w : InfinitePlace F // w.IsReal} → ℍ) w ↦ (z w).im) atImInfty
+      (pi fun _ ↦ atTop) :=
+    tendsto_comap
+  exact tendsto_atTop_mono (fun z ↦ Finset.single_le_sum (fun w _ ↦
+    (mul_pos (hc w) (z w).im_pos).le) (Finset.mem_univ w₀)) ((tendsto_pi.mp h w₀).const_mul_atTop
+      (hc w₀))
+
+variable [IsTotallyReal F] in
+private lemma tendsto_mul_fourierExp (hν : IsTotallyPositive (ν : F)) :
+    Tendsto (fun z ↦ a ν * fourierExp (ν : F) z) atImInfty (𝓝 0) := by
+  refine tendsto_zero_iff_norm_tendsto_zero.mpr ?_
+  simp only [norm_mul, norm_fourierExp]
+  simpa using (Real.tendsto_exp_neg_atTop_nhds_zero.comp ((tendsto_sum_mul_im (fun w ↦ hν w.1 w.2)
+    ⟨Classical.arbitrary (InfinitePlace F), IsTotallyReal.isReal _⟩).const_mul_atTop
+      Real.two_pi_pos)).const_mul ‖a ν‖
+
+variable [IsTotallyReal F] in
+open scoped Classical in
+/-- **The limit at infinity of a Fourier series supported on `0` and the totally positive `ν` is its
+constant term**: if `φ(z) = ∑_ν a(ν) e^{2πi Tr(νz)}` with `a(ν) ≠ 0` only for `ν = 0` and `ν`
+totally positive, then `φ(z) → a(0)` as all the imaginary parts tend to infinity (Tannery's
+theorem, the terms being dominated by the `|a(ν)| e^{-2π Tr ν}`). -/
+lemma HasHilbertFourierExpansion.tendsto_atImInfty (ha : HasHilbertFourierExpansion 𝔟 φ a)
+    (hsupp : ∀ ν, a ν ≠ 0 → (ν : F) = 0 ∨ IsTotallyPositive (ν : F)) :
+    Tendsto φ atImInfty (𝓝 (a ⟨0, (fourierDual 𝔟).zero_mem⟩)) := by
+  have h : Tendsto (fun z ↦ ∑' ν, a ν * fourierExp (ν : F) z) atImInfty
+      (𝓝 (∑' ν, if ν = ⟨0, (fourierDual 𝔟).zero_mem⟩ then a ν else 0)) :=
+    tendsto_tsum_of_dominated_convergence (summable_norm_iff.mpr (ha _).summable) (fun ν ↦ ?_)
+      ((eventually_le_im 1).mono fun _ hz ↦ (norm_mul_fourierExp_le · hsupp hz))
+  · rw [tsum_ite_eq] at h
+    exact h.congr fun z ↦ (ha z).tsum_eq
+  · by_cases hν : ν = ⟨0, (fourierDual 𝔟).zero_mem⟩
+    · simp [hν, fourierExp]
+    rw [ite_eq_right hν]
+    by_cases haν : a ν = 0
+    · simp [haν]
+    exact tendsto_mul_fourierExp <| (hsupp ν haν).resolve_left fun h ↦ hν (Subtype.ext h)
 
 end HilbertModularForm

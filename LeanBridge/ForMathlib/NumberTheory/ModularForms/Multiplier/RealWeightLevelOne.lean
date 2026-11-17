@@ -1,5 +1,4 @@
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.EtaMultiplier
-import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareCuspForm
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.RealWeight
 
 /-!

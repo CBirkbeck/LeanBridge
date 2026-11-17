@@ -186,7 +186,9 @@ import LeanBridge.ForMathlib.AlgebraicGeometry.Variety.PluricanonicalRationalMap
 import LeanBridge.ForMathlib.AlgebraicGeometry.Variety.Projective
 import LeanBridge.ForMathlib.AlgebraicTopology.TopologicalGenus
 import LeanBridge.ForMathlib.Analysis.AbsoluteValue.Archimedean
+import LeanBridge.ForMathlib.Analysis.CStarAlgebra.Matrix
 import LeanBridge.ForMathlib.Analysis.Complex.UpperHalfPlane.Completed
+import LeanBridge.ForMathlib.Analysis.Complex.UpperHalfPlane.MoebiusAction
 import LeanBridge.ForMathlib.Analysis.Complex.UpperHalfPlane.PortraitMoebius
 import LeanBridge.ForMathlib.Analysis.Complex.UpperHalfPlane.StripIntegral
 import LeanBridge.ForMathlib.Analysis.Convex.LowerConvexHull

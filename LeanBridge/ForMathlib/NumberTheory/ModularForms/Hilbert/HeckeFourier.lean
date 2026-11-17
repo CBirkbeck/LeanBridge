@@ -73,6 +73,16 @@ lemma det_heckeUpper : (heckeUpper π b).det.val = π := by
 lemma det_heckeLower : (heckeLower π).det.val = π := by
   simp [heckeLower]
 
+lemma heckeUpper_one_mul (c : F) : heckeUpper 1 b * heckeUpper 1 c = heckeUpper 1 (b + c) :=
+  GeneralLinearGroup.ext fun i j ↦ by
+    fin_cases i <;> fin_cases j <;> simp [heckeUpper, add_comm]
+
+lemma heckeUpper_one_pow (n : ℕ) : heckeUpper 1 b ^ n = heckeUpper 1 (n * b) := by
+  induction n with
+  | zero =>
+    exact GeneralLinearGroup.ext fun i j ↦ by fin_cases i <;> fin_cases j <;> simp [heckeUpper]
+  | succ n ih => rw [pow_succ, ih, heckeUpper_one_mul, Nat.cast_succ, add_one_mul]
+
 end HilbertModularGroup
 
 namespace HilbertModularForm
@@ -85,6 +95,11 @@ lemma coe_smul_heckeUpper (hπ : IsTotallyPositive (π : F))
       (z w + embedding_of_isReal w.2 b) / embedding_of_isReal w.2 (π : F) := by
   rw [coe_smul_apply _ _ (by rwa [det_heckeUpper])]
   simp [UpperHalfPlane.num, UpperHalfPlane.denom, mapGL, heckeUpper]
+
+lemma coe_smul_heckeUpper_one (w : {w : InfinitePlace F // w.IsReal}) :
+    (smul (heckeUpper 1 b) z w : ℂ) = z w + embedding_of_isReal w.2 b := by
+  rw [coe_smul_heckeUpper b z (by simp) w]
+  simp
 
 lemma coe_smul_heckeLower (hπ : IsTotallyPositive (π : F))
     (w : {w : InfinitePlace F // w.IsReal}) :
@@ -99,6 +114,9 @@ lemma coeIdeal_toAddSubgroup (𝔭 : Ideal (𝓞 F)) :
   simp
 
 variable [NumberField F] {k : {w : InfinitePlace F // w.IsReal} → ℤ} {m : ℤ}
+
+lemma automorphyFactor_heckeUpper_one : automorphyFactor k (heckeUpper 1 b) z = 1 := by
+  simp [automorphyFactor, UpperHalfPlane.denom, mapGL, heckeUpper]
 
 lemma map_mulLeft_toAddSubgroup (J : FractionalIdeal (𝓞 F)⁰ F) (x : F) :
     (J : Submodule (𝓞 F) F).toAddSubgroup.map (AddMonoidHom.mulLeft x) =

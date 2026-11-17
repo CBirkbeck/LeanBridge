@@ -26,6 +26,7 @@ In the quaternions, with `z = x + yj`, the action is the linear fractional trans
 
 ## Main definitions
 
+* `HyperbolicThreeSpace.negConjIsom`: the isometry `(x, y) ↦ (-x̄, y)` of `ℋ₃`.
 * `HyperbolicThreeSpace.pslToIsom` (LMFDB `mf.maass.picard`): the homomorphism
   `PSL(2, ℂ) → Isom(ℋ₃)`.
 * `HyperbolicThreeSpace.toQuaternion`: the quaternion `x + yj` of a point `(x, y)` of `ℋ₃`.
@@ -71,35 +72,45 @@ lemma exists_coe_eq_smul_of_apply_one_zero (hg : g 1 0 = 0) :
   have ha : g 0 0 ≠ 0 := left_ne_zero_of_mul_eq_one (mul_apply_one_one_eq_one_of_apply_one_zero hg)
   exact ⟨_, coe_similarity_eq_smul hg (by positivity) ((map_ne_zero _).mpr ha)⟩
 
-/-- The matrix `(0, -1; 1, 0)` of `SL(2, ℂ)`. -/
-private def slS : SL(2, ℂ) :=
-  ⟨!![0, -1; 1, 0], by simp⟩
+/-- The isometry `(x, y) ↦ (-x̄, y)` of `ℋ₃`. -/
+noncomputable def negConjIsom : Isom 𝓘(ℝ, WithLp 2 (ℂ × ℝ)) HyperbolicThreeSpace :=
+  similarity 1 one_pos (conjLIE.trans (rotation (-1))) 0
 
-/-- The linear isometry `x ↦ -x̄` of `ℂ` over `ℝ`. -/
-private noncomputable def negConjLIE : ℂ ≃ₗᵢ[ℝ] ℂ :=
-  conjLIE.trans (LinearIsometryEquiv.neg ℝ)
+lemma coords_negConjIsom : coords (negConjIsom z) = (-conj z.coords.1, z.coords.2) := by
+  rw [negConjIsom, coords_similarity]
+  simp
 
-/-- The isometry `(x, y) ↦ (-x̄, y) / (|x|² + y²)` of `ℋ₃`: the inversion in the unit sphere,
-followed by `(x, y) ↦ (-x̄, y)`. -/
-private noncomputable def isomS : Isom 𝓘(ℝ, WithLp 2 (ℂ × ℝ)) HyperbolicThreeSpace :=
-  similarity 1 one_pos negConjLIE 0 * inversion (0 : ℂ) 1 one_ne_zero
-
-private lemma coe_isomS : ⇑isomS = (slS • ·) := by
+lemma coe_negConjIsom_mul_inversion :
+    ⇑(negConjIsom * inversion (0 : ℂ) 1 one_ne_zero) = (slInversion • ·) := by
   funext z
   refine coords_injective ?_
-  have hN : ‖(z : WithLp 2 (ℂ × ℝ))‖ ^ 2 = moebiusDenom slS z.coords := by
+  have hN : ‖(z : WithLp 2 (ℂ × ℝ))‖ ^ 2 = moebiusDenom slInversion z.coords := by
     rw [WithLp.prod_norm_sq_eq_of_L2]
-    simp [moebiusDenom, slS, normSq_eq_norm_sq]
+    simp [moebiusDenom, slInversion, normSq_eq_norm_sq]
     rfl
   have hi :
       coords (inversion (0 : ℂ) 1 one_ne_zero z) = (‖(z : WithLp 2 (ℂ × ℝ))‖ ^ 2)⁻¹ • z.coords := by
     simp only [coords, coe_inversion_apply, EuclideanGeometry.inversion, Prod.mk_zero_zero,
       WithLp.toLp_zero, dist_zero_right, vsub_eq_sub, sub_zero, vadd_eq_add, add_zero, one_div,
       inv_pow, WithLp.ofLp_smul]
-  rw [isomS, RiemannianIsometry.mul_apply, coords_similarity, coords_smul, hi, hN]
+  rw [RiemannianIsometry.mul_apply, coords_negConjIsom, coords_smul, hi, hN]
   refine Prod.ext ?_ ?_
-  · simp [negConjLIE, moebius, slS, div_eq_inv_mul]
+  · simp [moebius, slInversion, div_eq_inv_mul]
   · simp [moebius, div_eq_inv_mul]
+
+variable {g} in
+lemma eq_mul_slInversion_mul (hc : g 1 0 ≠ 0) {p q : SL(2, ℂ)}
+    (hp : (p : Matrix (Fin 2) (Fin 2) ℂ) = !![(g 1 0)⁻¹, g 0 0; 0, g 1 0])
+    (hq : (q : Matrix (Fin 2) (Fin 2) ℂ) = !![1, g 1 1 / g 1 0; 0, 1]) :
+    g = p * slInversion * q := by
+  have hdet : g 0 0 * g 1 1 - g 0 1 * g 1 0 = 1 := g.fin_two_mul_sub_mul_eq_one
+  refine Subtype.ext ?_
+  rw [SpecialLinearGroup.coe_mul, SpecialLinearGroup.coe_mul, hp, hq]
+  ext i j
+  fin_cases i <;> fin_cases j <;> simp [slInversion]
+  · field_simp
+    linear_combination -hdet
+  · field_simp
 
 lemma exists_coe_eq_smul :
     ∃ Φ : Isom 𝓘(ℝ, WithLp 2 (ℂ × ℝ)) HyperbolicThreeSpace, ⇑Φ = (g • ·) := by
@@ -107,19 +118,12 @@ lemma exists_coe_eq_smul :
   · exact exists_coe_eq_smul_of_apply_one_zero hc
   let p : SL(2, ℂ) := ⟨!![(g 1 0)⁻¹, g 0 0; 0, g 1 0], by simp [hc]⟩
   let q : SL(2, ℂ) := ⟨!![1, g 1 1 / g 1 0; 0, 1], by simp⟩
-  have hdet : g 0 0 * g 1 1 - g 0 1 * g 1 0 = 1 := g.fin_two_mul_sub_mul_eq_one
-  have hg : g = p * slS * q := by
-    refine Subtype.ext ?_
-    rw [SpecialLinearGroup.coe_mul, SpecialLinearGroup.coe_mul]
-    ext i j
-    fin_cases i <;> fin_cases j <;> simp [p, slS, q]
-    · field_simp
-      linear_combination -hdet
-    · field_simp
+  have hg : g = p * slInversion * q := eq_mul_slInversion_mul hc rfl rfl
   rcases exists_coe_eq_smul_of_apply_one_zero (g := p) rfl with ⟨Φ, hΦ⟩
   rcases exists_coe_eq_smul_of_apply_one_zero (g := q) rfl with ⟨Ψ, hΨ⟩
-  refine ⟨Φ * isomS * Ψ, ?_⟩
-  rw [RiemannianIsometry.coe_mul, RiemannianIsometry.coe_mul, hΦ, hΨ, coe_isomS, hg]
+  refine ⟨Φ * (negConjIsom * inversion (0 : ℂ) 1 one_ne_zero) * Ψ, ?_⟩
+  rw [RiemannianIsometry.coe_mul, RiemannianIsometry.coe_mul, hΦ, hΨ, coe_negConjIsom_mul_inversion,
+    hg]
   funext z
   simp [mul_smul]
 
@@ -146,26 +150,17 @@ lemma pslToIsom_apply : pslToIsom γ z = γ • z :=
   congrFun (exists_coe_eq_smul_psl γ).choose_spec z
 
 /-- **`PSL(2, ℂ)` is a group of isometries of `ℋ₃`** (LMFDB `mf.maass.picard`): the action is
-faithful, as the fixed points of `g ∈ SL(2, ℂ)`, `g ≠ ±1`, form a null set. -/
+faithful, as the fixed points of `γ ∈ PSL(2, ℂ)`, `γ ≠ 1`, form a null set. -/
 lemma pslToIsom_injective : Function.Injective pslToIsom := by
   refine (injective_iff_map_eq_one _).mpr fun γ hγ ↦ ?_
-  induction γ using QuotientGroup.induction_on with
-  | H g =>
-    have hfix : {z : HyperbolicThreeSpace | g • z = z} = Set.univ :=
-      Set.eq_univ_of_forall fun z ↦ (pslToIsom_apply (QuotientGroup.mk g) z).symm.trans <| by
-        rw [hγ, RiemannianIsometry.one_apply]
-    by_contra h
-    have h₁ : g ≠ 1 := by
-      rintro rfl
-      exact h rfl
-    have h₂ : g ≠ -1 := by
-      rintro rfl
-      exact h <| (QuotientGroup.eq_one_iff _).mpr <|
-        SpecialLinearGroup.mem_center_iff_eq_one_or_eq_neg_one.mpr (Or.inr rfl)
-    have h₀ : hyperbolicVolume {z : HyperbolicThreeSpace | g • z = z} = 0 :=
-      hyperbolicVolume_setOf_smul_eq_self g h₁ h₂
-    rw [hfix] at h₀
-    exact isOpen_univ.measure_ne_zero hyperbolicVolume ⟨basePoint, trivial⟩ h₀
+  by_contra h
+  have hfix : {z : HyperbolicThreeSpace | γ • z = z} = Set.univ :=
+    Set.eq_univ_of_forall fun z ↦ (pslToIsom_apply γ z).symm.trans <| by
+      rw [hγ, RiemannianIsometry.one_apply]
+  have h₀ : hyperbolicVolume {z : HyperbolicThreeSpace | γ • z = z} = 0 :=
+    hyperbolicVolume_setOf_smul_eq_self_of_ne_one h
+  rw [hfix] at h₀
+  exact isOpen_univ.measure_ne_zero hyperbolicVolume ⟨basePoint, trivial⟩ h₀
 
 /-- The quaternion `x + yj` of a point `z = (x, y)` of hyperbolic 3-space, where `x = x₁ + x₂ i`:
 the embedding of `ℋ₃` in the quaternions `ℍ` of the LMFDB (`mf.bianchi.hyperbolic3space`). -/

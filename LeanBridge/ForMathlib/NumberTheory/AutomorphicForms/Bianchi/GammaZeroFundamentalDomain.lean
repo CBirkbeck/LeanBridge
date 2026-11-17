@@ -20,6 +20,9 @@ so that the fixed points of the elements of `Γ̄₀(𝔑)` form a set of hyperb
 (`hyperbolicVolume_setOf_smul_eq_self`). Hence `Γ̄₀(𝔑)` has a measurable fundamental domain
 (`exists_isFundamentalDomain_bianchiPSLGroup`), and the orthogonality relation of
 `IsBianchiPeterssonOrthogonal`, which runs over the fundamental domains of `Γ̄₀(𝔑)`, is not vacuous.
+Both arguments hold for every subgroup of `PSL(2, ℂ)` with finitely many elements of bounded
+entries (`properlyDiscontinuousSMul_of_finite`, `exists_isFundamentalDomain_of_finite`), which is
+how they are applied to `Γ̄₀(𝔑)`.
 
 As the pairing `y^k ⟨F(z), G(z)⟩_k` is invariant (`bianchiPairing_bianchiSlash`), positive definite,
 and the volume is invariant, a function of the old space which is orthogonal to the old space is
@@ -32,6 +35,10 @@ and the volume is invariant, a function of the old space which is orthogonal to 
   point of a compact set to a compact set.
 * `HyperbolicThreeSpace.hyperbolicVolume_setOf_smul_eq_self`: the fixed points of `g ≠ ±1` form a
   null set.
+* `HyperbolicThreeSpace.properlyDiscontinuousSMul_of_finite`: a subgroup of `PSL(2, ℂ)` with
+  finitely many elements of bounded entries acts properly discontinuously on `ℋ₃`.
+* `HyperbolicThreeSpace.exists_isFundamentalDomain_of_finite`: such a subgroup has a measurable
+  fundamental domain.
 * `HyperbolicThreeSpace.finite_setOf_norm_apply_le`: there are finitely many integers of bounded
   absolute value.
 * `HyperbolicThreeSpace.norm_unit_eq_one`: the units have absolute value `1`.
@@ -207,12 +214,99 @@ lemma hyperbolicVolume_setOf_smul_eq_self (h₁ : g ≠ 1) (h₂ : g ≠ -1) :
     have h₃ : y₁ ^ 2 = y₂ ^ 2 := mul_left_cancel₀ hc' (by linarith)
     exact (sq_eq_sq₀ (le_of_lt hy₁) (le_of_lt hy₂)).mp h₃
 
+lemma hyperbolicVolume_setOf_smul_eq_self_of_ne_one {γ : PSL(2, ℂ)} (hγ : γ ≠ 1) :
+    hyperbolicVolume {z : HyperbolicThreeSpace | γ • z = z} = 0 := by
+  induction γ using QuotientGroup.induction_on with
+  | H g =>
+    refine hyperbolicVolume_setOf_smul_eq_self g (fun h ↦ hγ ?_) fun h ↦ hγ ?_
+    · rw [h]
+      rfl
+    · rw [h]
+      exact (QuotientGroup.eq_one_iff _).mpr
+        (SpecialLinearGroup.mem_center_iff_eq_one_or_eq_neg_one.mpr (Or.inr rfl))
+
 noncomputable instance : ContinuousConstSMul PSL(2, ℂ) HyperbolicThreeSpace where
   continuous_const_smul γ := Quotient.inductionOn' γ fun g ↦ continuous_const_smul g
 
 noncomputable instance : SMulInvariantMeasure PSL(2, ℂ) HyperbolicThreeSpace hyperbolicVolume where
   measure_preimage_smul γ _ hA := Quotient.inductionOn' γ fun g ↦
     SMulInvariantMeasure.measure_preimage_smul g hA
+
+variable {g} in
+lemma norm_apply_eq_of_mk_eq {a : SL(2, ℂ)}
+    (h : (QuotientGroup.mk a : PSL(2, ℂ)) = QuotientGroup.mk g) (i j : Fin 2) :
+    ‖g i j‖ = ‖a i j‖ := by
+  rcases SpecialLinearGroup.mem_center_iff_eq_one_or_eq_neg_one.mp (QuotientGroup.eq.mp h) with
+    hc | hc
+  · rw [inv_mul_eq_one.mp hc]
+  · rw [← mul_inv_cancel_left a g, hc]
+    simp
+
+variable {Γ : Subgroup PSL(2, ℂ)}
+
+/-- **A subgroup of `PSL(2, ℂ)` with finitely many elements of bounded entries acts properly
+discontinuously on `ℋ₃`**: the matrices moving a point of a compact set to a point of a compact
+set have bounded entries (`norm_apply_le_of_moebius`). -/
+lemma properlyDiscontinuousSMul_of_finite (hΓ : ∀ C : ℝ, {γ : PSL(2, ℂ) | γ ∈ Γ ∧ ∃ g : SL(2, ℂ),
+    (QuotientGroup.mk g : PSL(2, ℂ)) = γ ∧ ∀ i j, ‖g i j‖ ≤ C}.Finite) :
+    ProperlyDiscontinuousSMul Γ HyperbolicThreeSpace where
+  finite_disjoint_inter_image := by
+    intro A B hA hB
+    let f : HyperbolicThreeSpace → ℝ :=
+      fun z ↦ max ‖z.coords.1‖ (max z.coords.2 z.coords.2⁻¹)
+    have hco : Continuous (coords : HyperbolicThreeSpace → ℂ × ℝ) :=
+      isOpenEmbedding_coords.continuous
+    have hf : Continuous f :=
+      hco.fst.norm.max (hco.snd.max (hco.snd.inv₀ fun z ↦ (coords_snd_pos z).ne'))
+    rcases (hA.union hB).exists_bound_of_continuousOn hf.continuousOn with ⟨C, hC⟩
+    let R : ℝ := max C 1
+    have hR : 1 ≤ R := le_max_right _ _
+    have hR₀ : 0 < R := zero_lt_one.trans_le hR
+    have hb {z : HyperbolicThreeSpace} (hz : z ∈ A ∪ B) : f z ≤ R :=
+      (le_abs_self _).trans ((hC z hz).trans (le_max_left _ _))
+    have hx {z : HyperbolicThreeSpace} (hz : z ∈ A ∪ B) : ‖z.coords.1‖ ≤ R :=
+      (le_max_left _ _).trans (hb hz)
+    have hy {z : HyperbolicThreeSpace} (hz : z ∈ A ∪ B) : z.coords.2 ≤ R :=
+      ((le_max_left _ _).trans (le_max_right _ _)).trans (hb hz)
+    have hy' {z : HyperbolicThreeSpace} (hz : z ∈ A ∪ B) : R⁻¹ ≤ z.coords.2 := by
+      have h₁ : z.coords.2⁻¹ ≤ R := ((le_max_right _ _).trans (le_max_right _ _)).trans (hb hz)
+      exact (inv_le_comm₀ (coords_snd_pos z) hR₀).mp h₁
+    refine Finite.of_finite_image (f := Subtype.val) ((hΓ (4 * R ^ 4)).subset ?_)
+      Subtype.val_injective.injOn
+    rintro _ ⟨⟨γ', hγ'⟩, ⟨_, ⟨z, hz, rfl⟩, hz'⟩, rfl⟩
+    rcases QuotientGroup.mk_surjective γ' with ⟨g, rfl⟩
+    have hzA : z ∈ A ∪ B := Or.inl hz
+    have hzB : g • z ∈ A ∪ B := Or.inr hz'
+    exact ⟨hγ', g, rfl, norm_apply_le_of_moebius g hR (coords_snd_pos z) (hx hzA) (hy' hzA)
+      (hy hzA) (hx hzB) (hy' hzB) (hy hzB)⟩
+
+lemma countable_of_finite (hΓ : ∀ C : ℝ, {γ : PSL(2, ℂ) | γ ∈ Γ ∧ ∃ g : SL(2, ℂ),
+    (QuotientGroup.mk g : PSL(2, ℂ)) = γ ∧ ∀ i j, ‖g i j‖ ≤ C}.Finite) : Countable Γ :=
+  have : ProperlyDiscontinuousSMul Γ HyperbolicThreeSpace := properlyDiscontinuousSMul_of_finite hΓ
+  countable_of_properlyDiscontinuousSMul Γ (T := HyperbolicThreeSpace)
+
+/-- **A subgroup of `PSL(2, ℂ)` with finitely many elements of bounded entries has a measurable
+fundamental domain** in `ℋ₃`: it is countable and acts properly discontinuously, and the fixed
+points of its elements other than `1` form a null set. -/
+lemma exists_isFundamentalDomain_of_finite (hΓ : ∀ C : ℝ, {γ : PSL(2, ℂ) | γ ∈ Γ ∧ ∃ g : SL(2, ℂ),
+    (QuotientGroup.mk g : PSL(2, ℂ)) = γ ∧ ∀ i j, ‖g i j‖ ≤ C}.Finite) :
+    ∃ s : Set HyperbolicThreeSpace, MeasurableSet s ∧ IsFundamentalDomain Γ s hyperbolicVolume := by
+  have : ProperlyDiscontinuousSMul Γ HyperbolicThreeSpace := properlyDiscontinuousSMul_of_finite hΓ
+  have : Countable Γ := countable_of_finite hΓ
+  have hnull :
+      hyperbolicVolume (freeLocus Γ HyperbolicThreeSpace : Set HyperbolicThreeSpace)ᶜ = 0 := by
+    have hsub : (freeLocus Γ HyperbolicThreeSpace : Set HyperbolicThreeSpace)ᶜ ⊆
+        ⋃ γ : {γ : Γ // γ ≠ 1}, {z | γ.1 • z = z} := by
+      intro z hz
+      have hz' : MulAction.stabilizer Γ z ≠ ⊥ := hz
+      rcases Subgroup.ne_bot_iff_exists_ne_one.mp hz' with ⟨⟨γ, hγ⟩, hγ₁⟩
+      exact mem_iUnion.mpr ⟨⟨γ, fun h ↦ hγ₁ (Subtype.ext h)⟩, hγ⟩
+    refine measure_mono_null hsub (measure_iUnion_null fun γ ↦ ?_)
+    rcases γ with ⟨⟨γ', _⟩, hγ₁⟩
+    exact hyperbolicVolume_setOf_smul_eq_self_of_ne_one fun h ↦ hγ₁ (Subtype.ext h)
+  rcases Measure.exists_isFundamentalDomain_of_properlyDiscontinuousSMul hyperbolicVolume hnull with
+    ⟨s, hs, -, hF⟩
+  exact ⟨s, hs, hF⟩
 
 variable {𝔑 : Ideal (𝓞 K)} {γ : GL (Fin 2) (𝓞 K)}
 
@@ -263,6 +357,10 @@ lemma exists_mem_gamma0GL_of_mem_bianchiPSLGroup {γ' : PSL(2, ℂ)}
   rcases hγ' with ⟨g, ⟨x, hx, hg⟩, rfl⟩
   rcases (mem_bianchiGammaZero_iff x).mp hx with ⟨γ, hγ, rfl⟩
   exact ⟨γ, hγ, g, hg, rfl⟩
+
+lemma bianchiGammaZero_le_range :
+    bianchiGammaZero 𝔑 ≤ (GeneralLinearGroup.map (algebraMap (𝓞 K) K)).range :=
+  fun x hx ↦ ((mem_bianchiGammaZero_iff x).mp hx).elim fun γ hγ ↦ ⟨γ, hγ.2⟩
 
 variable [NumberField K]
 
@@ -338,52 +436,33 @@ lemma norm_apply_eq_of_isSLRepresentative (hK : finrank ℚ K = 2)
   rw [hs, h₂]
   simp [h₅]
 
+lemma finite_setOf_mem_bianchiPSLGroup (hK : finrank ℚ K = 2) {G : Subgroup (GL (Fin 2) K)}
+    (hG : G ≤ (GeneralLinearGroup.map (algebraMap (𝓞 K) K)).range) (C : ℝ) :
+    {γ : PSL(2, ℂ) | γ ∈ bianchiPSLGroup σ G ∧ ∃ g : SL(2, ℂ),
+      (QuotientGroup.mk g : PSL(2, ℂ)) = γ ∧ ∀ i j, ‖g i j‖ ≤ C}.Finite := by
+  have hT : {γ : GL (Fin 2) (𝓞 K) | ∀ i j, ‖σ ((γ : Matrix (Fin 2) (Fin 2) (𝓞 K)) i j : K)‖ ≤
+      C}.Finite := by
+    refine Finite.of_finite_image (f := fun γ : GL (Fin 2) (𝓞 K) ↦
+      ((γ : Matrix (Fin 2) (Fin 2) (𝓞 K)) : Fin 2 → Fin 2 → 𝓞 K)) ?_ Units.val_injective.injOn
+    refine ((Finite.pi fun _ : Fin 2 ↦ Finite.pi fun _ : Fin 2 ↦
+      finite_setOf_norm_apply_le (σ := σ) hK C)).subset ?_
+    rintro _ ⟨γ, hγ, rfl⟩ i - j -
+    exact hγ i j
+  refine (hT.image (glToPSL σ)).subset ?_
+  rintro _ ⟨⟨g₀, ⟨x, hx, hg₀⟩, rfl⟩, g, hg, hC⟩
+  rcases hG hx with ⟨γ, rfl⟩
+  refine ⟨γ, fun i j ↦ ?_, (mk_eq_glToPSL g₀ hg₀).symm⟩
+  rw [norm_apply_eq_of_isSLRepresentative g₀ hK hg₀, norm_apply_eq_of_mk_eq hg]
+  exact hC i j
+
 variable (𝔑) in
 /-- **`Γ̄₀(𝔑)` acts properly discontinuously on `ℋ₃`**, for an imaginary quadratic field `K`: the
 matrices of `Γ₀(𝔑)` moving a point of a compact set to a point of a compact set have bounded entries
 (`norm_apply_le_of_moebius`), so they are finitely many (`finite_setOf_norm_apply_le`). -/
 lemma properlyDiscontinuousSMul_bianchiPSLGroup (hK : finrank ℚ K = 2) :
-    ProperlyDiscontinuousSMul (bianchiPSLGroup σ (bianchiGammaZero 𝔑)) HyperbolicThreeSpace where
-  finite_disjoint_inter_image := by
-    intro A B hA hB
-    let f : HyperbolicThreeSpace → ℝ :=
-      fun z ↦ max ‖z.coords.1‖ (max z.coords.2 z.coords.2⁻¹)
-    have hco : Continuous (coords : HyperbolicThreeSpace → ℂ × ℝ) :=
-      isOpenEmbedding_coords.continuous
-    have hf : Continuous f := by
-      refine (hco.fst.norm).max (hco.snd.max (hco.snd.inv₀ fun z ↦ (coords_snd_pos z).ne'))
-    rcases (hA.union hB).exists_bound_of_continuousOn hf.continuousOn with ⟨C, hC⟩
-    let R : ℝ := max C 1
-    have hR : 1 ≤ R := le_max_right _ _
-    have hR₀ : 0 < R := zero_lt_one.trans_le hR
-    have hb {z : HyperbolicThreeSpace} (hz : z ∈ A ∪ B) : f z ≤ R :=
-      (le_abs_self _).trans ((hC z hz).trans (le_max_left _ _))
-    have hx {z : HyperbolicThreeSpace} (hz : z ∈ A ∪ B) : ‖z.coords.1‖ ≤ R :=
-      (le_max_left _ _).trans (hb hz)
-    have hy {z : HyperbolicThreeSpace} (hz : z ∈ A ∪ B) : z.coords.2 ≤ R :=
-      ((le_max_left _ _).trans (le_max_right _ _)).trans (hb hz)
-    have hy' {z : HyperbolicThreeSpace} (hz : z ∈ A ∪ B) : R⁻¹ ≤ z.coords.2 := by
-      have h₁ : z.coords.2⁻¹ ≤ R := ((le_max_right _ _).trans (le_max_right _ _)).trans (hb hz)
-      exact (inv_le_comm₀ (coords_snd_pos z) hR₀).mp h₁
-    have hT : {γ : GL (Fin 2) (𝓞 K) | ∀ i j, ‖σ ((γ : Matrix (Fin 2) (Fin 2) (𝓞 K)) i j : K)‖ ≤
-        4 * R ^ 4}.Finite := by
-      refine Finite.of_finite_image (f := fun γ : GL (Fin 2) (𝓞 K) ↦
-        ((γ : Matrix (Fin 2) (Fin 2) (𝓞 K)) : Fin 2 → Fin 2 → 𝓞 K)) ?_
-          (Units.val_injective.injOn)
-      refine ((Finite.pi fun _ : Fin 2 ↦ Finite.pi fun _ : Fin 2 ↦
-        finite_setOf_norm_apply_le (σ := σ) hK (4 * R ^ 4))).subset ?_
-      rintro _ ⟨γ, hγ, rfl⟩ i - j -
-      exact hγ i j
-    refine Finite.of_finite_image (f := Subtype.val) ((hT.image (glToPSL σ)).subset ?_)
-      Subtype.val_injective.injOn
-    rintro _ ⟨⟨γ', hγ'⟩, ⟨_, ⟨z, hz, rfl⟩, hz'⟩, rfl⟩
-    rcases exists_mem_gamma0GL_of_mem_bianchiPSLGroup hγ' with ⟨γ, -, g, hg, rfl⟩
-    refine ⟨γ, fun i j ↦ ?_, (mk_eq_glToPSL g hg).symm⟩
-    have hzA : z ∈ A ∪ B := Or.inl hz
-    have hzB : g • z ∈ A ∪ B := Or.inr hz'
-    rw [norm_apply_eq_of_isSLRepresentative g hK hg]
-    exact norm_apply_le_of_moebius g hR (coords_snd_pos z) (hx hzA) (hy' hzA) (hy hzA)
-      (hx hzB) (hy' hzB) (hy hzB) i j
+    ProperlyDiscontinuousSMul (bianchiPSLGroup σ (bianchiGammaZero 𝔑)) HyperbolicThreeSpace :=
+  properlyDiscontinuousSMul_of_finite <| finite_setOf_mem_bianchiPSLGroup hK
+    bianchiGammaZero_le_range
 
 variable (𝔑) in
 /-- **`Γ̄₀(𝔑)` has a measurable fundamental domain**: for an imaginary quadratic field `K`, the
@@ -392,37 +471,9 @@ nontrivial stabiliser form a null set. So the orthogonality of `IsBianchiPeterss
 vacuous. -/
 lemma exists_isFundamentalDomain_bianchiPSLGroup (hK : finrank ℚ K = 2) :
     ∃ s : Set HyperbolicThreeSpace, MeasurableSet s ∧
-      IsFundamentalDomain (bianchiPSLGroup σ (bianchiGammaZero 𝔑)) s hyperbolicVolume := by
-  have : ProperlyDiscontinuousSMul (bianchiPSLGroup σ (bianchiGammaZero 𝔑)) HyperbolicThreeSpace :=
-    properlyDiscontinuousSMul_bianchiPSLGroup 𝔑 hK
-  have : Countable (bianchiPSLGroup σ (bianchiGammaZero 𝔑)) := countable_bianchiPSLGroup
-  have hnull : hyperbolicVolume (freeLocus (bianchiPSLGroup σ (bianchiGammaZero 𝔑))
-      HyperbolicThreeSpace : Set HyperbolicThreeSpace)ᶜ = 0 := by
-    have hsub : (freeLocus (bianchiPSLGroup σ (bianchiGammaZero 𝔑)) HyperbolicThreeSpace :
-        Set HyperbolicThreeSpace)ᶜ ⊆ ⋃ γ : {γ : bianchiPSLGroup σ (bianchiGammaZero 𝔑) // γ ≠ 1},
-          {z | γ.1 • z = z} := by
-      intro z hz
-      have hz' : MulAction.stabilizer (bianchiPSLGroup σ (bianchiGammaZero 𝔑)) z ≠ ⊥ := hz
-      rcases Subgroup.ne_bot_iff_exists_ne_one.mp hz' with ⟨⟨γ, hγ⟩, hγ₁⟩
-      exact mem_iUnion.mpr ⟨⟨γ, fun h ↦ hγ₁ (Subtype.ext h)⟩, hγ⟩
-    refine measure_mono_null hsub (measure_iUnion_null fun γ ↦ ?_)
-    rcases γ with ⟨⟨γ', hγ'⟩, hγ₁⟩
-    rcases exists_mem_gamma0GL_of_mem_bianchiPSLGroup hγ' with ⟨γ, -, g, -, rfl⟩
-    have hne₁ : g ≠ 1 := fun h ↦ hγ₁ <| Subtype.ext <| by
-      have e : (QuotientGroup.mk g : PSL(2, ℂ)) = 1 := by
-        rw [h]
-        rfl
-      exact e
-    have hne₂ : g ≠ -1 := fun h ↦ hγ₁ <| Subtype.ext <| by
-      have e : (QuotientGroup.mk g : PSL(2, ℂ)) = 1 := by
-        rw [h]
-        exact (QuotientGroup.eq_one_iff _).mpr
-          (SpecialLinearGroup.mem_center_iff_eq_one_or_eq_neg_one.mpr (Or.inr rfl))
-      exact e
-    exact hyperbolicVolume_setOf_smul_eq_self g hne₁ hne₂
-  rcases Measure.exists_isFundamentalDomain_of_properlyDiscontinuousSMul hyperbolicVolume hnull with
-    ⟨s, hs, -, hF⟩
-  exact ⟨s, hs, hF⟩
+      IsFundamentalDomain (bianchiPSLGroup σ (bianchiGammaZero 𝔑)) s hyperbolicVolume :=
+  exists_isFundamentalDomain_of_finite <| finite_setOf_mem_bianchiPSLGroup hK
+    bianchiGammaZero_le_range
 
 instance : hyperbolicVolume.IsOpenPosMeasure where
   open_pos A hA hne := by

@@ -130,14 +130,6 @@ lemma det_conjLIE_trans_rotation :
     rfl
   rw [h, LinearMap.det_comp, det_rotation, det_conjLIE, one_mul]
 
-/-- The isometry `(x, y) ↦ (-x̄, y)` of `ℋ₃`. -/
-noncomputable def negConjIsom : Isom 𝓘(ℝ, WithLp 2 (ℂ × ℝ)) HyperbolicThreeSpace :=
-  similarity 1 one_pos (conjLIE.trans (rotation (-1))) 0
-
-lemma coords_negConjIsom : coords (negConjIsom p) = (-conj p.coords.1, p.coords.2) := by
-  rw [negConjIsom, coords_similarity]
-  simp
-
 lemma jacobianDet_negConjIsom : jacobianDet negConjIsom p = -1 := by
   rw [negConjIsom, jacobianDet_similarity, det_conjLIE_trans_rotation]
   norm_num
@@ -237,8 +229,8 @@ lemma isOrientationPreserving_pslToIsom_mk_of_apply_one_zero {g : SL(2, ℂ)} (h
 
 /-- **`PSL(2, ℂ)` acts on `ℋ₃` by orientation-preserving isometries**: every `γ ∈ PSL(2, ℂ)` is a
 product of upper triangular matrices, which act by similarities `(x, y) ↦ (|a|² u x + b, |a|² y)`
-with `|u| = 1`, and of `(0, -1; 1, 0)`, which acts by an inversion after `(x, y) ↦ (-x̄, y)`, two
-isometries of negative Jacobian determinant. -/
+with `|u| = 1`, and of `(0, -1; 1, 0)`, which acts by the inversion in the unit sphere followed by
+`(x, y) ↦ (-x̄, y)`, two isometries of negative Jacobian determinant. -/
 lemma isOrientationPreserving_pslToIsom (γ : PSL(2, ℂ)) :
     IsOrientationPreserving (pslToIsom γ) := by
   induction γ using QuotientGroup.induction_on with
@@ -247,19 +239,15 @@ lemma isOrientationPreserving_pslToIsom (γ : PSL(2, ℂ)) :
     · exact isOrientationPreserving_pslToIsom_mk_of_apply_one_zero h₀
     let P : SL(2, ℂ) := ⟨!![(g 1 0)⁻¹, g 0 0; 0, g 1 0], by simp [h₀]⟩
     let Q : SL(2, ℂ) := ⟨!![1, g 1 1 / g 1 0; 0, 1], by simp⟩
-    have hdet : g 0 0 * g 1 1 - g 0 1 * g 1 0 = 1 := g.fin_two_mul_sub_mul_eq_one
-    have hg : g = P * inversionMatrix 0 1 one_ne_zero * Q := by
-      refine Subtype.ext ?_
-      rw [SpecialLinearGroup.coe_mul, SpecialLinearGroup.coe_mul]
-      ext i j
-      fin_cases i <;> fin_cases j <;> simp [P, inversionMatrix, Q]
-      · field_simp
-        linear_combination -hdet
-      · field_simp
-    have hS : IsOrientationPreserving (inversion (0 : ℂ) 1 one_ne_zero * negConjIsom) := fun z ↦ by
-      rw [jacobianDet_mul, jacobianDet_negConjIsom]
-      exact mul_pos_of_neg_of_neg (jacobianDet_inversion_neg _ 0 1 one_ne_zero) neg_one_lt_zero
-    rw [inversion_eq_pslToIsom_mul_negConjIsom, mul_assoc, negConjIsom_mul_self, mul_one] at hS
+    have hg : g = P * slInversion * Q := eq_mul_slInversion_mul h₀ rfl rfl
+    have hS : IsOrientationPreserving (pslToIsom (QuotientGroup.mk slInversion)) := by
+      have h : pslToIsom (QuotientGroup.mk slInversion) =
+          negConjIsom * inversion (0 : ℂ) 1 one_ne_zero :=
+        RiemannianIsometry.ext fun z ↦
+          (pslToIsom_apply _ z).trans (congrFun coe_negConjIsom_mul_inversion z).symm
+      intro z
+      rw [h, jacobianDet_mul, jacobianDet_negConjIsom]
+      exact mul_pos_of_neg_of_neg neg_one_lt_zero (jacobianDet_inversion_neg _ 0 1 one_ne_zero)
     rw [hg, QuotientGroup.mk_mul, QuotientGroup.mk_mul, map_mul, map_mul]
     exact ((isOrientationPreserving_pslToIsom_mk_of_apply_one_zero rfl).mul hS).mul
       (isOrientationPreserving_pslToIsom_mk_of_apply_one_zero rfl)

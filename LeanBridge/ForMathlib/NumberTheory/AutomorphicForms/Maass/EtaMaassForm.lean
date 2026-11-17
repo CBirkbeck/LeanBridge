@@ -1,5 +1,5 @@
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.NewformAtkinLehner
-import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.Weight
+import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.HolomorphicSlashConvention
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.EtaMultiplier
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Gamma1Index
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareSpanCuspForm

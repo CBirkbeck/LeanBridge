@@ -1,3 +1,4 @@
+import LeanBridge.ForMathlib.Analysis.Complex.UpperHalfPlane.MoebiusAction
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.CuspForm
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareConvergence
 
@@ -48,11 +49,6 @@ namespace ModularForm
 
 variable {G : Subgroup SL(2, ℤ)} (γ : SL(2, ℤ)) (v : G →* Circle) (k n : ℤ) (w : ℕ) (z : ℍ)
     (δ : SL(2, ℤ)) (g g₀ : G)
-
-lemma denom_mul_SL (A B : SL(2, ℤ)) :
-    denom (A * B : SL(2, ℤ)) z = denom A ↑(B • z) * denom B z := by
-  rw [map_mul, map_mul, denom_cocycle_σ]
-  simp [σ]
 
 lemma poincareTerm_smul_mul_denom : poincareTerm γ v k n w (δ • z) g * denom δ z ^ (-k) =
     conj (v g : ℂ) *

@@ -22,8 +22,8 @@ the narrow class group, with `f_𝔟(γ z)` equal to the automorphy factor times
 Holomorphy at the cusps is imposed as boundedness of every slash `f ∣ α`, `α ∈ SL₂(F)`, when all
 the imaginary parts tend to infinity: for `n > 1` it is automatic (Koecher principle,
 `HilbertModularForm.isBoundedAtCusps_of_mem_slashInvariants`), as the LMFDB assumes, and for `n = 1`
-it is needed, as otherwise unbounded functions such as `exp ∘ j` would be modular forms. Vanishing at
-the cusps is formalised as: for every `α ∈ SL₂(F)`, the slash `f ∣ α` tends to `0` when all the
+it is needed, as otherwise unbounded functions such as `exp ∘ j` would be modular forms. Vanishing
+at the cusps is formalised as: for every `α ∈ SL₂(F)`, the slash `f ∣ α` tends to `0` when all the
 imaginary parts tend to infinity, which says that the constant term of the Fourier expansion of `f`
 at the cusp `α ∞` vanishes; every cusp is of this form.
 
@@ -52,6 +52,7 @@ for every number field; the LMFDB's restrictions (`F` totally real of degree `n 
 -/
 
 open Filter Matrix NumberField InfinitePlace UpperHalfPlane Topology
+
 open scoped nonZeroDivisors
 
 variable {F : Type*} [Field F]
@@ -99,6 +100,17 @@ def IsHolomorphic : Prop :=
 /-- The filter on `ℍⁿ` along which all the imaginary parts tend to infinity. -/
 def atImInfty : Filter ({w : InfinitePlace F // w.IsReal} → ℍ) :=
   comap (fun z w ↦ (z w).im) (pi fun _ ↦ atTop)
+
+instance : (atImInfty : Filter ({w : InfinitePlace F // w.IsReal} → ℍ)).NeBot := by
+  have h : Tendsto (fun (t : ℝ) (_ : {w : InfinitePlace F // w.IsReal}) ↦
+      (⟨Complex.I * (max t 1 : ℝ), by simp⟩ : ℍ)) atTop atImInfty :=
+    tendsto_comap_iff.mpr <| tendsto_pi.mpr fun _ ↦ by
+      simpa using tendsto_atTop_mono (fun t ↦ le_max_left t 1) tendsto_id
+  exact h.neBot
+
+lemma eventually_le_im (R : ℝ) :
+    ∀ᶠ z in atImInfty, ∀ w : {w : InfinitePlace F // w.IsReal}, R ≤ (z w).im :=
+  (eventually_pi fun _ ↦ eventually_ge_atTop R).comap _
 
 /-- The slash `f ∣ₖ g` of a function on `ℍⁿ` by `g ∈ GL₂(F)`:
 `z ↦ (automorphyFactor k g z)⁻¹ f(g z)`. -/

@@ -1,5 +1,6 @@
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.CuspDecay
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.PoincareSpanCuspForm
+import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.RealWeightLevelOne
 
 /-!
 # Cusp forms with any multiplier form a finite-dimensional space
@@ -91,31 +92,14 @@ lemma pow_twelve_eq_one {w : ℤ} (hF0 : F ≠ 0) {c : SL(2, ℤ) → Circle}
     beta_reduce
     rw [← hc, SlashAction.slash_mul, hc γ, SL_smul_slash, hc δ, smul_smul, Circle.coe_mul]
   let χ : SL(2, ℤ) →* Circle := MonoidHom.mk' c hmul
-  have hS4 : S * S * (S * S) = 1 := by
-    have hS2 : S * S = -1 := by
-      ext i j
-      fin_cases i <;> fin_cases j <;> rfl
-    rw [hS2, neg_one_mul, neg_neg]
-  have hA4 : (χ S : ℂ) ^ 4 = 1 := by
-    have h : (χ (S * S * (S * S)) : ℂ) = χ 1 := congrArg (fun g ↦ (χ g : ℂ)) hS4
-    rw [map_mul, map_mul, map_one, Circle.coe_mul, Circle.coe_mul, Circle.coe_one] at h
-    linear_combination h
-  have hrel : (χ S : ℂ) * ((χ S : ℂ) * ((χ S : ℂ) * ((χ T : ℂ) * ((χ S : ℂ) * ((χ T : ℂ) *
-      (χ S : ℂ)))))) = (χ T : ℂ)⁻¹ := by
-    simpa using congrArg (fun g ↦ (χ g : ℂ)) T_S_rel
-  have hT0 : (χ T : ℂ) ≠ 0 := Circle.coe_ne_zero _
-  have hAB : (χ S : ℂ) ^ 5 * (χ T : ℂ) ^ 3 = 1 := by
-    field_simp at hrel
-    linear_combination hrel
   have h12 : χ ^ 12 = 1 := by
-    refine MonoidHom.eq_of_eqOn_dense SL2Z_generators fun x hx ↦ Circle.ext ?_
+    refine MonoidHom.eq_of_eqOn_dense SL2Z_generators fun x hx ↦ ?_
     rcases hx with rfl | rfl
-    · rw [MonoidHom.pow_apply, MonoidHom.one_apply, Circle.coe_pow, Circle.coe_one]
-      linear_combination ((χ S : ℂ) ^ 8 + (χ S : ℂ) ^ 4 + 1) * hA4
-    · rw [MonoidHom.pow_apply, MonoidHom.one_apply, Circle.coe_pow, Circle.coe_one]
-      linear_combination (-((χ T : ℂ) ^ 12) * ((χ S : ℂ) ^ 16 + (χ S : ℂ) ^ 12 + (χ S : ℂ) ^ 8 +
-        (χ S : ℂ) ^ 4 + 1)) * hA4 + (((χ S : ℂ) ^ 5 * (χ T : ℂ) ^ 3) ^ 3 +
-          ((χ S : ℂ) ^ 5 * (χ T : ℂ) ^ 3) ^ 2 + (χ S : ℂ) ^ 5 * (χ T : ℂ) ^ 3 + 1) * hAB
+    · refine Circle.ext ?_
+      rw [MonoidHom.pow_apply, MonoidHom.one_apply, Circle.coe_pow, Circle.coe_one]
+      linear_combination ((χ S : ℂ) ^ 8 + (χ S : ℂ) ^ 4 + 1) * coe_map_S_pow_four χ
+    · rw [MonoidHom.pow_apply, MonoidHom.one_apply]
+      exact map_T_pow_twelve χ
   exact congrFun (congrArg DFunLike.coe h12) γ
 
 variable (F) in

@@ -1,6 +1,5 @@
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.FourierExistence
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.HeckeU
-import Mathlib.Analysis.Normed.Group.Tannery
 import Mathlib.NumberTheory.NumberField.Units.DirichletTheorem
 
 /-!
@@ -29,9 +28,6 @@ comparison between Hecke eigenvalues and Fourier coefficients at narrow-principa
 
 ## Main results
 
-* `HilbertModularForm.HasHilbertFourierExpansion.boundedAtFilter`: a Fourier series supported on `0`
-  and the totally positive `ν` is bounded as all the imaginary parts tend to infinity.
-* `HilbertModularForm.HasHilbertFourierExpansion.tendsto_atImInfty`: it tends to its constant term.
 * `HilbertModularForm.HasHilbertFourierExpansion.apply_mulUnit`: `a(εν) = C a(ν)` under the
   transformation law for `diag(1, ε)`, `ε` a totally positive unit.
 * `HilbertModularForm.HasHilbertFourierExpansion.eq_zero_or_isTotallyPositive`: Koecher's principle
@@ -46,64 +42,20 @@ comparison between Hecke eigenvalues and Fourier coefficients at narrow-principa
   statement `HilbertModularForm.KoecherPrinciple` holds for every number field.
 -/
 
-open Asymptotics Complex Filter Matrix Module NumberField InfinitePlace HilbertModularGroup
+open Complex Filter Matrix Module NumberField InfinitePlace HilbertModularGroup
 
 open scoped nonZeroDivisors Real Topology UpperHalfPlane
 
 namespace HilbertModularForm
 
 variable {F : Type*} [Field F] {𝔟 : (FractionalIdeal (𝓞 F)⁰ F)ˣ} {𝔑 : Ideal (𝓞 F)} {u : (𝓞 F)ˣ}
-  {M : ℕ} (𝔞 : FractionalIdeal (𝓞 F)⁰ F) (y : 𝔞) (s : ℕ) (b : F)
-  (z : {w : InfinitePlace F // w.IsReal} → ℍ) (w : {w : InfinitePlace F // w.IsReal})
-
-lemma isTotallyPositive_unitF_pow (hu : IsTotallyPositive (unitF u : F)) :
-    IsTotallyPositive (unitF (u ^ M) : F) := by
-  intro w hw
-  rw [unitF, map_pow, Units.val_pow_eq_pow_val, map_pow]
-  exact pow_pos (hu w hw) M
-
-lemma coe_mulUnit : (mulUnit u 𝔞 y : F) = (unitF u : F) * y :=
-  rfl
-
-lemma coe_mulUnit_iterate : ((mulUnit u 𝔞)^[s] y : F) = (unitF u : F) ^ s * y := by
-  induction s with
-  | zero => simp
-  | succ s ih => rw [Function.iterate_succ_apply', coe_mulUnit, ih, pow_succ', mul_assoc]
-
-lemma coe_smul_heckeUpper_one :
-    (smul (heckeUpper 1 b) z w : ℂ) = z w + embedding_of_isReal w.2 b := by
-  rw [coe_smul_heckeUpper b z (by simp) w]
-  simp
+  {M : ℕ} (s : ℕ) (w : {w : InfinitePlace F // w.IsReal})
 
 private lemma embedding_unitF_sq_pow :
     embedding_of_isReal w.2 (unitF ((u ^ 2) ^ M) : F) = (w.1 (algebraMap (𝓞 F) F u) ^ 2) ^ M := by
   rw [← norm_embedding_of_isReal w.2, Real.norm_eq_abs, sq_abs, unitF, map_pow, map_pow,
     Units.val_pow_eq_pow_val, Units.val_pow_eq_pow_val, map_pow, map_pow]
   rfl
-
-variable {b} in
-lemma heckeUpper_one_mem_gammaZero (hb : b ∈ (↑𝔟⁻¹ : FractionalIdeal (𝓞 F)⁰ F)) :
-    heckeUpper 1 b ∈ gammaZero (𝔟 : FractionalIdeal (𝓞 F)⁰ F) (glPlus (𝔟 : _)) 𝔑 := by
-  refine mem_gammaZero_of_apply_mem ?_ (fun y hy ↦ ?_) ?_ ?_ ?_ ?_
-  · simp [heckeUpper]
-  · have h : b * y ∈ (↑𝔟⁻¹ : FractionalIdeal (𝓞 F)⁰ F) * ↑𝔟 :=
-      FractionalIdeal.mul_mem_mul hb hy
-    rw [← Units.val_mul, inv_mul_cancel, Units.val_one, ← FractionalIdeal.mem_coe,
-      FractionalIdeal.coe_one] at h
-    simpa [heckeUpper] using h
-  · simp [heckeUpper]
-  · simp [heckeUpper]
-  · rw [det_heckeUpper, Units.val_one, inv_one]
-    exact Submodule.one_le.mp le_rfl
-  · rw [det_heckeUpper, Units.val_one]
-    exact isTotallyPositive_one
-
-instance : (atImInfty : Filter ({w : InfinitePlace F // w.IsReal} → ℍ)).NeBot := by
-  have h : Tendsto (fun (t : ℝ) (_ : {w : InfinitePlace F // w.IsReal}) ↦
-      (⟨I * (max t 1 : ℝ), by simp⟩ : ℍ)) atTop atImInfty :=
-    tendsto_comap_iff.mpr <| tendsto_pi.mpr fun _ ↦ by
-      simpa using tendsto_atTop_mono (fun t ↦ le_max_left t 1) tendsto_id
-  exact h.neBot
 
 private lemma tendsto_mul_pow_add {α r β γ : ℝ} (hα : 0 < α) (hr : 1 < r) :
     Tendsto (fun s : ℕ ↦ α * r ^ s + β * s + γ) atTop atTop := by
@@ -119,102 +71,6 @@ private lemma tendsto_mul_pow_add {α r β γ : ℝ} (hα : 0 < α) (hr : 1 < r)
 variable [NumberField F] {φ : ({w : InfinitePlace F // w.IsReal} → ℍ) → ℂ} {a : fourierDual 𝔟 → ℂ}
   {k : {w : InfinitePlace F // w.IsReal} → ℤ} (hu : IsTotallyPositive (unitF u : F))
   {ν : fourierDual 𝔟}
-
-lemma eventually_le_im (R : ℝ) :
-    ∀ᶠ z in atImInfty, ∀ w : {w : InfinitePlace F // w.IsReal}, R ≤ (z w).im :=
-  (eventually_pi fun _ ↦ eventually_ge_atTop R).comap _
-
-open scoped Classical in
-lemma norm_fourierExp (x : F) :
-    ‖fourierExp x z‖ = Real.exp (-(2 * π * ∑ w, embedding_of_isReal w.2 x * (z w).im)) := by
-  have e : 2 * π * I * ∑ w, (embedding_of_isReal w.2 x : ℂ) * (z w : ℂ) =
-      ((2 * π : ℝ) : ℂ) * (I * ∑ w, (embedding_of_isReal w.2 x : ℂ) * (z w : ℂ)) := by
-    push_cast
-    ring1
-  rw [fourierExp, Complex.norm_exp, e, re_ofReal_mul, I_mul_re, im_sum]
-  simp only [im_ofReal_mul, UpperHalfPlane.coe_im, mul_neg]
-
-variable {z} (ν) in
-private lemma norm_mul_fourierExp_le
-    (hsupp : ∀ ν, a ν ≠ 0 → (ν : F) = 0 ∨ IsTotallyPositive (ν : F)) (hz : ∀ w, 1 ≤ (z w).im) :
-    ‖a ν * fourierExp (ν : F) z‖ ≤ ‖a ν * fourierExp (ν : F) fun _ ↦ UpperHalfPlane.I‖ := by
-  by_cases hν : a ν = 0
-  · simp [hν]
-  have hpos (w : {w : InfinitePlace F // w.IsReal}) : 0 ≤ embedding_of_isReal w.2 (ν : F) := by
-    rcases hsupp ν hν with h | h
-    · simp [h]
-    · exact (h w.1 w.2).le
-  rw [norm_mul, norm_mul, norm_fourierExp, norm_fourierExp]
-  refine mul_le_mul_of_nonneg_left (Real.exp_le_exp.mpr ?_) (norm_nonneg _)
-  simp only [UpperHalfPlane.I_im, mul_one, neg_le_neg_iff]
-  exact mul_le_mul_of_nonneg_left (Finset.sum_le_sum fun w _ ↦
-    le_mul_of_one_le_right (hpos w) (hz w)) Real.two_pi_pos.le
-
-/-- **Fourier series supported on `0` and the totally positive `ν` are bounded at infinity**: if
-`φ(z) = ∑_ν a(ν) e^{2πi Tr(νz)}` with `a(ν) ≠ 0` only for `ν = 0` and `ν` totally positive, then `φ`
-is bounded on `{z : Im z_w ≥ 1 for all w}`, by the sum of the `|a(ν)| e^{-2π Tr ν}`. -/
-lemma HasHilbertFourierExpansion.boundedAtFilter (ha : HasHilbertFourierExpansion 𝔟 φ a)
-    (hsupp : ∀ ν, a ν ≠ 0 → (ν : F) = 0 ∨ IsTotallyPositive (ν : F)) :
-    BoundedAtFilter atImInfty φ := by
-  have hs : Summable fun ν ↦ ‖a ν * fourierExp (ν : F) fun _ ↦ UpperHalfPlane.I‖ :=
-    summable_norm_iff.mpr (ha _).summable
-  refine IsBigO.of_bound (∑' ν, ‖a ν * fourierExp (ν : F) fun _ ↦ UpperHalfPlane.I‖) ?_
-  filter_upwards [eventually_le_im 1] with z hz
-  have hs' : Summable fun ν ↦ ‖a ν * fourierExp (ν : F) z‖ :=
-    hs.of_nonneg_of_le (fun _ ↦ norm_nonneg _) (norm_mul_fourierExp_le · hsupp hz)
-  rw [Pi.one_apply, norm_one, mul_one, ← (ha z).tsum_eq]
-  exact (norm_tsum_le_tsum_norm hs').trans
-    (hs'.tsum_le_tsum (norm_mul_fourierExp_le · hsupp hz) hs)
-
-open scoped Classical in
-private lemma tendsto_sum_mul_im {c : {w : InfinitePlace F // w.IsReal} → ℝ} (hc : ∀ w, 0 < c w)
-    (w₀ : {w : InfinitePlace F // w.IsReal}) : Tendsto
-      (fun z : {w : InfinitePlace F // w.IsReal} → ℍ ↦ ∑ w, c w * (z w).im) atImInfty atTop := by
-  have h : Tendsto (fun (z : {w : InfinitePlace F // w.IsReal} → ℍ) w ↦ (z w).im) atImInfty
-      (pi fun _ ↦ atTop) :=
-    tendsto_comap
-  exact tendsto_atTop_mono (fun z ↦ Finset.single_le_sum (fun w _ ↦
-    (mul_pos (hc w) (z w).im_pos).le) (Finset.mem_univ w₀)) ((tendsto_pi.mp h w₀).const_mul_atTop
-      (hc w₀))
-
-variable [IsTotallyReal F] in
-private lemma tendsto_mul_fourierExp (hν : IsTotallyPositive (ν : F)) :
-    Tendsto (fun z ↦ a ν * fourierExp (ν : F) z) atImInfty (𝓝 0) := by
-  refine tendsto_zero_iff_norm_tendsto_zero.mpr ?_
-  simp only [norm_mul, norm_fourierExp]
-  simpa using (Real.tendsto_exp_neg_atTop_nhds_zero.comp ((tendsto_sum_mul_im (fun w ↦ hν w.1 w.2)
-    ⟨Classical.arbitrary (InfinitePlace F), IsTotallyReal.isReal _⟩).const_mul_atTop
-      Real.two_pi_pos)).const_mul ‖a ν‖
-
-variable [IsTotallyReal F] in
-open scoped Classical in
-/-- **The limit at infinity of a Fourier series supported on `0` and the totally positive `ν` is its
-constant term**: if `φ(z) = ∑_ν a(ν) e^{2πi Tr(νz)}` with `a(ν) ≠ 0` only for `ν = 0` and `ν`
-totally positive, then `φ(z) → a(0)` as all the imaginary parts tend to infinity (Tannery's
-theorem, the terms being dominated by the `|a(ν)| e^{-2π Tr ν}`). -/
-lemma HasHilbertFourierExpansion.tendsto_atImInfty (ha : HasHilbertFourierExpansion 𝔟 φ a)
-    (hsupp : ∀ ν, a ν ≠ 0 → (ν : F) = 0 ∨ IsTotallyPositive (ν : F)) :
-    Tendsto φ atImInfty (𝓝 (a ⟨0, (fourierDual 𝔟).zero_mem⟩)) := by
-  have h : Tendsto (fun z ↦ ∑' ν, a ν * fourierExp (ν : F) z) atImInfty
-      (𝓝 (∑' ν, if ν = ⟨0, (fourierDual 𝔟).zero_mem⟩ then a ν else 0)) :=
-    tendsto_tsum_of_dominated_convergence (summable_norm_iff.mpr (ha _).summable) (fun ν ↦ ?_)
-      ((eventually_le_im 1).mono fun _ hz ↦ (norm_mul_fourierExp_le · hsupp hz))
-  · rw [tsum_ite_eq] at h
-    exact h.congr fun z ↦ (ha z).tsum_eq
-  · by_cases hν : ν = ⟨0, (fourierDual 𝔟).zero_mem⟩
-    · simp [hν, fourierExp]
-    rw [ite_eq_right hν]
-    by_cases haν : a ν = 0
-    · simp [haν]
-    exact tendsto_mul_fourierExp <| (hsupp ν haν).resolve_left fun h ↦ hν (Subtype.ext h)
-
-lemma automorphyFactor_heckeUpper_one : automorphyFactor k (heckeUpper 1 b) z = 1 := by
-  simp [automorphyFactor, UpperHalfPlane.denom, mapGL, heckeUpper]
-
-lemma slash_one : slash k 1 φ = φ := by
-  funext z
-  have hz : smul 1 z = z := funext fun w ↦ by rw [smul, map_one, one_smul]
-  simp [slash, automorphyFactor, hz]
 
 lemma isTranslationInvariant_of_slash_eq
     (h : ∀ b ∈ (↑𝔟⁻¹ : FractionalIdeal (𝓞 F)⁰ F), slash k (heckeUpper 1 b) φ = φ) :

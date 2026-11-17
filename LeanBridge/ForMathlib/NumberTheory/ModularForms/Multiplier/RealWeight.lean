@@ -1,3 +1,4 @@
+import LeanBridge.ForMathlib.Analysis.Complex.UpperHalfPlane.MoebiusAction
 import LeanBridge.ForMathlib.NumberTheory.AutomorphicForms.Maass.Weight
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Multiplier.Basic
 
@@ -152,12 +153,6 @@ lemma neg_one_of_maassSlash (h : ∀ (γ : Γ) (z : ℍ), maassSlash k f γ z = 
   ring1
 
 variable [Γ.HasDetOne]
-
-variable (z) in
-lemma denom_coe_mul (γ δ : Γ) :
-    denom ↑(γ * δ) z = denom γ ↑((δ : GL (Fin 2) ℝ) • z) * denom δ z := by
-  rw [Subgroup.coe_mul, denom_cocycle_σ]
-  simp [σ, HasDetOne.det_eq δ.2]
 
 /-- **A multiplier system of integral weight is a homomorphism**, on a subgroup `Γ` of
 `SL(2, ℝ)`: the cocycle relation `j(γδ, z) = j(γ, δz) j(δ, z)` turns the consistency condition in

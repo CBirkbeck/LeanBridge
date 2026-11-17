@@ -85,6 +85,12 @@ lemma slash_mul (hg : IsTotallyPositive g.det.val) (hh : IsTotallyPositive h.det
   rw [slash, slash, slash, automorphyFactor_mul k g h z hg hh, smul_mul, mul_inv]
   ring1
 
+variable {k f} in
+lemma slash_one : slash k 1 f = f := by
+  funext z
+  have hz : smul 1 z = z := funext fun w ↦ by rw [smul, map_one, one_smul]
+  simp [slash, automorphyFactor, hz]
+
 variable (Γ : Subgroup (GL (Fin 2) F))
 
 /-- The space of functions `f : ℍⁿ → ℂ` satisfying the transformation law of weight `k` for a

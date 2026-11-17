@@ -1,4 +1,3 @@
-import LeanBridge.ForMathlib.AlgebraicGeometry.HilbertModularSurface.StandardSurface
 import LeanBridge.ForMathlib.NumberTheory.ModularForms.Hilbert.KoecherPrinciple
 
 /-!
@@ -34,8 +33,6 @@ when all the imaginary parts tend to infinity
 
 ## Main results
 
-* `HilbertModularGroup.mem_gammaZero_glPlus_iff` (LMFDB `mf.hilbert`): `Γ₀(𝔑)_𝔟` is the group of the
-  knowl, with `a, d ∈ 𝒪_F`.
 * `HilbertModularForm.hasHilbertFourierExpansion_slash` (LMFDB `mf.hilbert.q_expansion`): Fourier
   expansions at every cusp.
 * `HilbertModularForm.HasHilbertFourierExpansion.eq_zero_or_isTotallyPositive_slash` (LMFDB
@@ -56,65 +53,10 @@ open Filter Matrix Module NumberField InfinitePlace HilbertModularGroup Subgroup
 
 open scoped nonZeroDivisors Pointwise Topology UpperHalfPlane
 
-namespace HilbertModularGroup
-
-variable {F : Type*} [Field F] {𝔟 : (FractionalIdeal (𝓞 F)⁰ F)ˣ} {𝔑 : Ideal (𝓞 F)}
-  {g : GL (Fin 2) F} (b : F)
-
-lemma heckeUpper_one_mul (c : F) : heckeUpper 1 b * heckeUpper 1 c = heckeUpper 1 (b + c) :=
-  GeneralLinearGroup.ext fun i j ↦ by
-    fin_cases i <;> fin_cases j <;> simp [heckeUpper, add_comm]
-
-lemma heckeUpper_one_pow (n : ℕ) : heckeUpper 1 b ^ n = heckeUpper 1 (n * b) := by
-  induction n with
-  | zero =>
-    exact GeneralLinearGroup.ext fun i j ↦ by fin_cases i <;> fin_cases j <;> simp [heckeUpper]
-  | succ n ih => rw [pow_succ, ih, heckeUpper_one_mul, Nat.cast_succ, add_one_mul]
-
-variable [NumberField F]
-
-private lemma det_val_mem_one (hg : g ∈ gl (𝔟 : FractionalIdeal (𝓞 F)⁰ F)) :
-    g.det.val ∈ (1 : Submodule (𝓞 F) F) := by
-  rw [GeneralLinearGroup.val_det_apply]
-  exact det_mem_one (Units.ne_zero 𝔟) fun v ↦ (hg v).mp
-
-/-- **`Γ₀(𝔑)_𝔟` is the group of the knowl**, with `a, d ∈ 𝒪_F` (LMFDB `mf.hilbert`): the matrices
-`(a, b; c, d)` of `GL₂(F)` with `a, d ∈ 𝒪_F`, `b ∈ 𝔟⁻¹`, `c ∈ 𝔑𝔟` and `ad - bc` a totally positive
-unit of `𝒪_F`. -/
-lemma mem_gammaZero_glPlus_iff : g ∈ gammaZero (𝔟 : FractionalIdeal (𝓞 F)⁰ F) (glPlus (𝔟 : _)) 𝔑 ↔
-    g.val 0 0 ∈ (1 : Submodule (𝓞 F) F) ∧ g.val 0 1 ∈ (↑𝔟⁻¹ : FractionalIdeal (𝓞 F)⁰ F) ∧
-      g.val 1 0 ∈ 𝔑 • (𝔟 : Submodule (𝓞 F) F) ∧ g.val 1 1 ∈ (1 : Submodule (𝓞 F) F) ∧
-      g.det.val ∈ (1 : Submodule (𝓞 F) F) ∧ g.det.val⁻¹ ∈ (1 : Submodule (𝓞 F) F) ∧
-      IsTotallyPositive g.det.val := by
-  refine ⟨fun hg ↦ ⟨apply_zero_zero_mem fun v ↦ (hg.1.1 v).mp, ?_,
-    ((mem_gammaZero_iff _ _ 𝔑 inf_le_left).mp hg).2,
-    mem_one_of_forall_mul_mem (Units.ne_zero 𝔟) fun _ ↦ apply_one_one_mul_mem fun v ↦ (hg.1.1 v).mp,
-    det_val_mem_one hg.1.1, ?_, isTotallyPositive_det_of_mem_gammaZero hg⟩,
-    fun ⟨h₀₀, h₀₁, h₁₀, h₁₁, _, hdet, hpos⟩ ↦
-      mem_gammaZero_of_apply_mem h₀₀ (fun y hy ↦ ?_) h₁₀ h₁₁ hdet hpos⟩
-  · rw [Units.val_inv_eq_inv_val, FractionalIdeal.mem_inv_iff (Units.ne_zero 𝔟)]
-    intro y hy
-    rw [← FractionalIdeal.mem_coe, FractionalIdeal.coe_one]
-    exact apply_zero_one_mul_mem (fun v ↦ (hg.1.1 v).mp) hy
-  · have h : (g⁻¹).det.val ∈ (1 : Submodule (𝓞 F) F) := det_val_mem_one (inv_mem hg).1.1
-    rwa [map_inv, Units.val_inv_eq_inv_val] at h
-  · have h : g.val 0 1 * y ∈ (↑𝔟⁻¹ : FractionalIdeal (𝓞 F)⁰ F) * ↑𝔟 :=
-      FractionalIdeal.mul_mem_mul h₀₁ hy
-    rwa [← Units.val_mul, inv_mul_cancel, Units.val_one, ← FractionalIdeal.mem_coe,
-      FractionalIdeal.coe_one] at h
-
-end HilbertModularGroup
-
 namespace HilbertModularForm
 
 variable {F : Type*} [Field F] {𝔟 : (FractionalIdeal (𝓞 F)⁰ F)ˣ} {𝔑 : Ideal (𝓞 F)}
   {α : GL (Fin 2) F} {v : (𝓞 F)ˣ} (hv : IsTotallyPositive (unitF v : F))
-
-lemma coe_heckeDiagonal_unitF_pow (n : ℕ) : (heckeDiagonal (unitF v) hv : GL (Fin 2) F) ^ n =
-    heckeDiagonal (unitF (v ^ n)) (isTotallyPositive_unitF_pow hv) :=
-  GeneralLinearGroup.ext fun i j ↦ by
-    rw [Units.val_pow_eq_pow_val]
-    fin_cases i <;> fin_cases j <;> simp [heckeDiagonal, diagonal_pow, unitF]
 
 variable (𝔟 𝔑 α) in
 /-- The **exponent of the cusp `α ∞`** of `Γ = Γ₀(𝔑)_𝔟`: the factorial `M` of the index of

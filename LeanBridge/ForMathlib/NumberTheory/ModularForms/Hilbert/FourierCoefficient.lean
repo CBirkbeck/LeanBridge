@@ -75,6 +75,29 @@ noncomputable def mulUnit (I : FractionalIdeal (𝓞 F)⁰ F) : I ≃ I where
   left_inv ν := Subtype.ext <| unitF_inv_mul_unitF_mul (ν : F)
   right_inv ν := Subtype.ext <| unitF_mul_unitF_inv_mul (ν : F)
 
+lemma isTotallyPositive_unitF_pow {M : ℕ} (hu : IsTotallyPositive (unitF u : F)) :
+    IsTotallyPositive (unitF (u ^ M) : F) := by
+  intro w hw
+  rw [unitF, map_pow, Units.val_pow_eq_pow_val, map_pow]
+  exact pow_pos (hu w hw) M
+
+lemma coe_heckeDiagonal_unitF_pow (hu : IsTotallyPositive (unitF u : F)) (n : ℕ) :
+    (heckeDiagonal (unitF u) hu : GL (Fin 2) F) ^ n =
+      heckeDiagonal (unitF (u ^ n)) (isTotallyPositive_unitF_pow hu) :=
+  GeneralLinearGroup.ext fun i j ↦ by
+    rw [Units.val_pow_eq_pow_val]
+    fin_cases i <;> fin_cases j <;> simp [heckeDiagonal, diagonal_pow, unitF]
+
+variable (𝔞 : FractionalIdeal (𝓞 F)⁰ F) (y : 𝔞)
+
+lemma coe_mulUnit : (mulUnit u 𝔞 y : F) = (unitF u : F) * y :=
+  rfl
+
+lemma coe_mulUnit_iterate (s : ℕ) : ((mulUnit u 𝔞)^[s] y : F) = (unitF u : F) ^ s * y := by
+  induction s with
+  | zero => simp
+  | succ s ih => rw [Function.iterate_succ_apply', coe_mulUnit, ih, pow_succ', mul_assoc]
+
 variable [NumberField F] in
 open scoped Classical in
 lemma prod_embedding_unitF [IsTotallyReal F] (hu : IsTotallyPositive (unitF u : F)) :
