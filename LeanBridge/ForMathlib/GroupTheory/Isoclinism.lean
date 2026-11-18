@@ -31,6 +31,8 @@ The LMFDB's convention `x⁻¹ y⁻¹ x y` for the commutator differs from Mathl
 
 open Subgroup
 
+open scoped commutatorElement
+
 namespace Group
 
 variable {G H K : Type*} [Group G] [Group H] [Group K]
@@ -71,6 +73,22 @@ def centralCommutatorMap : G ⧸ center G → G ⧸ center G → commutator G :=
 lemma centralCommutatorMap_mk (x y : G) :
     centralCommutatorMap G x y = commutatorPairing x y :=
   rfl
+
+lemma mk_centralCommutatorMap (x y : G ⧸ center G) :
+    ((centralCommutatorMap G x y : G) : G ⧸ center G) = x⁻¹ * y⁻¹ * x * y := by
+  induction x using QuotientGroup.induction_on
+  induction y using QuotientGroup.induction_on
+  rfl
+
+lemma commutatorElement_eq_of_mul_inv_mem_center {g h w₁ w₂ : G} (h₁ : g * w₁⁻¹ ∈ center G)
+    (h₂ : h * w₂⁻¹ ∈ center G) : ⁅g, h⁆ = ⁅w₁, w₂⁆ := by
+  have hg : ((g⁻¹ : G) : G ⧸ center G) = ((w₁⁻¹ : G) : G ⧸ center G) :=
+    QuotientGroup.eq.mpr <| by simpa using h₁
+  have hh : ((h⁻¹ : G) : G ⧸ center G) = ((w₂⁻¹ : G) : G ⧸ center G) :=
+    QuotientGroup.eq.mpr <| by simpa using h₂
+  have key (a b : G) : ⁅a, b⁆ = (centralCommutatorMap G ↑a⁻¹ ↑b⁻¹ : G) := by
+    rw [centralCommutatorMap_mk, coe_commutatorPairing, inv_inv, inv_inv, commutatorElement_def]
+  rw [key, hg, hh, ← key]
 
 variable (G H) in
 /-- An **isoclinism** between groups `G` and `H` (LMFDB `group.isoclinism`): isomorphisms

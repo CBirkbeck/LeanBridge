@@ -55,6 +55,21 @@ attribute [local instance] trivialMulDistribMulAction
 
 variable (G : Type) [Group G]
 
+namespace groupHomology
+
+lemma linearCombination_one_d₂₁ (x : G × G →₀ ℤ) : linearCombination ℤ (fun _ ↦ (1 : ℤ))
+    ((d₂₁ (Rep.trivial ℤ G ℤ)).hom x) = linearCombination ℤ (fun _ ↦ (1 : ℤ)) x := by
+  induction x using Finsupp.induction_linear with
+  | zero => simp
+  | add x y hx hy => rw [map_add, map_add, hx, hy, map_add]
+  | single p n => simp [d₂₁]
+
+lemma linearCombination_one_eq_zero_of_mem_cycles₂ {z : G × G →₀ ℤ}
+    (hz : z ∈ cycles₂ (Rep.trivial ℤ G ℤ)) : linearCombination ℤ (fun _ ↦ (1 : ℤ)) z = 0 := by
+  rw [← linearCombination_one_d₂₁, LinearMap.mem_ker.mp hz, map_zero]
+
+end groupHomology
+
 namespace SchurCover
 
 lemma exists_retraction : ∃ r : (G × G →₀ ℤ) →ₗ[ℤ] cycles₂ (Rep.trivial ℤ G ℤ),
@@ -159,18 +174,6 @@ local notation "θ" => MonoidHom.H2ToCenter (FactorSet.rightHom (factorSet G))
 lemma centralFactorSet_eq (p : G × G) : α p = inlCenter G (factorSet G p) :=
   Subtype.ext <| mul_inv_eq_of_eq_mul <| (factorSet G).canonicalSection_mul p.1 p.2
 
-lemma linearCombination_d₂₁ (x : G × G →₀ ℤ) :
-    linearCombination ℤ (fun _ ↦ (1 : ℤ)) ((d₂₁ (Rep.trivial ℤ G ℤ)).hom x) =
-      linearCombination ℤ (fun _ ↦ (1 : ℤ)) x := by
-  induction x using Finsupp.induction_linear with
-  | zero => simp
-  | add x y hx hy => rw [map_add, map_add, hx, hy, map_add]
-  | single p n => simp [d₂₁]
-
-lemma linearCombination_eq_zero {z : G × G →₀ ℤ} (hz : z ∈ cycles₂ (Rep.trivial ℤ G ℤ)) :
-    linearCombination ℤ (fun _ ↦ (1 : ℤ)) z = 0 := by
-  rw [← linearCombination_d₂₁, LinearMap.mem_ker.mp hz, map_zero]
-
 lemma centralFactorSetChain_eq (x : G × G →₀ ℤ) : θ₀ x = (inlCenter G).toAdditiveRight
     (classOfChain G (x - linearCombination ℤ (fun _ ↦ (1 : ℤ)) x • single (1, 1) 1)) := by
   let ε : (G × G →₀ ℤ) →ₗ[ℤ] (G × G →₀ ℤ) := LinearMap.id -
@@ -186,8 +189,8 @@ lemma centralFactorSetChain_eq (x : G × G →₀ ℤ) : θ₀ x = (inlCenter G)
 lemma H2ToCenter_eq (x : H2 (Rep.trivial ℤ G ℤ)) : θ x = (inlCenter G).toAdditiveRight x := by
   induction x using H2_induction_on with
   | h z =>
-    rw [MonoidHom.H2ToCenter_H2π, centralFactorSetChain_eq, linearCombination_eq_zero G z.2,
-      zero_smul, sub_zero, classOfChain_apply]
+    rw [MonoidHom.H2ToCenter_H2π, centralFactorSetChain_eq,
+      linearCombination_one_eq_zero_of_mem_cycles₂ G z.2, zero_smul, sub_zero, classOfChain_apply]
 
 /-- **The Schur multiplier is the kernel of a stem extension** (LMFDB `group.stem_extension`,
 `group.schur_multiplier`): `1 → H₂(G, ℤ) → SchurCover G → G → 1` is a stem extension, for every

@@ -1,7 +1,7 @@
 import Mathlib.LinearAlgebra.Basis.VectorSpace
 import Mathlib.LinearAlgebra.Trace
-import Mathlib.RingTheory.Artinian.Module
 import Mathlib.RingTheory.Trace.Defs
+import LeanBridge.ForMathlib.RingTheory.Artinian.Module
 
 /-!
 # The trace form of a reduced finite algebra in characteristic zero
@@ -22,7 +22,7 @@ to it at the bump.
   algebra over a field of characteristic zero is nondegenerate.
 -/
 
-open LinearMap
+open IsArtinianRing LinearMap
 
 variable (F K : Type*) [Field F] [CharZero F] [CommRing K] [Algebra F K] [Module.Finite F K]
   [IsReduced K]
@@ -37,33 +37,19 @@ lemma traceForm_nondegenerate_of_isReduced : (Algebra.traceForm F K).Nondegenera
     by_contra hx0
     have h𝔐 : ∃ 𝔐 : MaximalSpectrum K, x ∉ 𝔐.asIdeal := by
       by_contra! h
-      refine hx0 ((IsArtinianRing.equivPi K).injective (funext fun 𝔐 ↦ ?_))
-      rw [map_zero, Pi.zero_apply, IsArtinianRing.equivPi_apply]
-      exact Quotient.eq_zero_iff_mem.mpr (h 𝔐)
+      exact hx0 <| ext_mk fun 𝔐 ↦ (Quotient.eq_zero_iff_mem.mpr (h 𝔐)).trans (map_zero _).symm
     rcases h𝔐 with ⟨𝔐, hx𝔐⟩
     rcases 𝔐.isMaximal.exists_inv hx𝔐 with ⟨y, i, hi, hyi⟩
-    classical
-    let e : K := (IsArtinianRing.equivPi K).symm (Pi.single 𝔐 1)
-    have hxy : x * (IsArtinianRing.equivPi K).symm (Pi.single 𝔐 (y : K ⧸ 𝔐.asIdeal)) = e := by
-      refine (IsArtinianRing.equivPi K).injective (funext fun 𝔐' ↦ ?_)
-      rw [map_mul, Pi.mul_apply, AlgEquiv.apply_symm_apply, AlgEquiv.apply_symm_apply,
-        IsArtinianRing.equivPi_apply]
-      by_cases h : 𝔐' = 𝔐
-      · subst h
-        rw [Pi.single_eq_same, Pi.single_eq_same, mul_comm, ← map_mul, eq_sub_of_add_eq hyi,
-          map_sub, map_one, Quotient.eq_zero_iff_mem.mpr hi, sub_zero]
-      · rw [Pi.single_eq_of_ne h, Pi.single_eq_of_ne h, mul_zero]
-    have he : IsIdempotentElem e := by
-      simp only [e, IsIdempotentElem, ← map_mul, ← Pi.single_mul, mul_one]
-    have he0 : e ≠ 0 := fun h ↦ by
-      have h1 : (Pi.single 𝔐 1 : ∀ 𝔐' : MaximalSpectrum K, K ⧸ 𝔐'.asIdeal) 𝔐 =
-          IsArtinianRing.equivPi K 0 𝔐 :=
-        congrFun ((IsArtinianRing.equivPi K).symm_apply_eq.mp h) 𝔐
-      rw [Pi.single_eq_same, map_zero, Pi.zero_apply] at h1
-      exact one_ne_zero h1
-    have htr : trace F K (Algebra.lmul F K e) = 0 := by
+    have hxy : x * single 𝔐 (y : K ⧸ 𝔐.asIdeal) = single 𝔐 1 := by
+      rw [single_mk, ← mul_assoc, ← single_mk, mul_comm x y, eq_sub_of_add_eq hyi, map_sub, map_one,
+        Quotient.eq_zero_iff_mem.mpr hi, sub_zero]
+    have he : IsIdempotentElem (single 𝔐 (1 : K ⧸ 𝔐.asIdeal)) := by
+      rw [IsIdempotentElem, ← single_mul, mul_one]
+    have he0 : single 𝔐 (1 : K ⧸ 𝔐.asIdeal) ≠ 0 := fun h ↦ one_ne_zero <|
+      (mk_single_self (1 : K ⧸ 𝔐.asIdeal)).symm.trans <| by rw [h, map_zero]
+    have htr : trace F K (Algebra.lmul F K (single 𝔐 1)) = 0 := by
       rw [← Algebra.trace_apply, ← hxy, ← Algebra.traceForm_apply]
       exact hx _
-    have hne : Algebra.lmul F K e ≠ 0 := fun h ↦ he0 (by simpa using congrArg (· 1) h)
+    have hne : Algebra.lmul F K (single 𝔐 1) ≠ 0 := fun h ↦ he0 (by simpa using congrArg (· 1) h)
     exact hne ((IsIdempotentElem.trace_eq_zero_iff (he.map (Algebra.lmul F K))).mp htr)
   exact ⟨hsep, fun y hy ↦ hsep y fun x ↦ ((Algebra.traceForm_isSymm F).eq y x).trans (hy x)⟩

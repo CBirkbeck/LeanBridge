@@ -77,15 +77,7 @@ lemma mk_dvd_mk_of_le {A B : Subgroup G} (hAB : A ≤ B) : Cardinal.mk A ∣ Car
 
 end Subgroup
 
-namespace Group
-
-lemma mk_centralCommutatorMap (x y : G ⧸ center G) :
-    ((centralCommutatorMap G x y : G) : G ⧸ center G) = x⁻¹ * y⁻¹ * x * y := by
-  induction x using QuotientGroup.induction_on
-  induction y using QuotientGroup.induction_on
-  rfl
-
-namespace Isoclinism
+namespace Group.Isoclinism
 
 variable (e : Isoclinism G H)
 
@@ -126,9 +118,9 @@ def centerInfCommutatorEquiv : ↥(center G ⊓ commutator G) ≃* ↥(center H 
   map_mul' g g' := Subtype.ext <| congrArg ((↑) : commutator H → H) <|
     map_mul e.commutatorEquiv ⟨g, (mem_inf.mp g.2).2⟩ ⟨g', (mem_inf.mp g'.2).2⟩
 
-end Isoclinism
+end Group.Isoclinism
 
-namespace IsIsoclinic
+namespace Group.IsIsoclinic
 
 lemma nat_card_quotient_center_eq (h : IsIsoclinic G H) :
     Nat.card (G ⧸ center G) = Nat.card (H ⧸ center H) :=
@@ -138,9 +130,9 @@ lemma nat_card_center_inf_commutator_eq (h : IsIsoclinic G H) :
     Nat.card ↥(center G ⊓ commutator G) = Nat.card ↥(center H ⊓ commutator H) :=
   h.elim fun e ↦ Nat.card_congr e.centerInfCommutatorEquiv.toEquiv
 
-end IsIsoclinic
+end Group.IsIsoclinic
 
-namespace IsStemGroup
+namespace Group.IsStemGroup
 
 lemma nat_card_eq_mul (hG : IsStemGroup G) :
     Nat.card G = Nat.card (G ⧸ center G) * Nat.card ↥(center G ⊓ commutator G) := by
@@ -190,7 +182,9 @@ lemma isStemGroup_iff_nat_card_eq [Finite H] (hG : IsStemGroup G) (h : IsIsoclin
   exact inf_eq_left.mp <| eq_of_le_of_card_ge inf_le_left
     (Nat.eq_of_mul_eq_mul_left Nat.card_pos hcard).le
 
-end IsStemGroup
+end Group.IsStemGroup
+
+namespace Group
 
 /-- **The quotient by a complement of `Z(H) ∩ H'` in the centre is a stem group**: if `T` is a
 normal subgroup of `H` with `T ∩ H' = 1` and `Z(H) ≤ T H'`, then `H / T` is a stem group. -/

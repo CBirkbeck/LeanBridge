@@ -49,11 +49,8 @@ variable (K) in
 lattice**: for a basis `b` of an `R`-lattice `M` of a `K`-vector space `V`, the `K`-basis
 `b.extendOfIsLattice K` of `V` gives `v ∈ M` the coordinates of `v` in `b`, mapped to `K`. -/
 lemma extendOfIsLattice_repr (b : Basis κ R M) (v : M) (k : κ) :
-    (b.extendOfIsLattice K).repr v k = algebraMap R K (b.repr v k) := by
-  have h : (v : V) = ∑ j, algebraMap R K (b.repr v j) • b.extendOfIsLattice K j := by
-    conv_lhs => rw [← b.sum_repr v]
-    simp only [coe_sum, Submodule.coe_smul, extendOfIsLattice_apply, algebraMap_smul]
-  rw [h, repr_sum_self]
+    (b.extendOfIsLattice K).repr v k = algebraMap R K (b.repr v k) :=
+  b.repr_coe_eq_algebraMap (b.extendOfIsLattice_apply K) v k
 
 end Module.Basis
 

@@ -146,6 +146,19 @@ lemma exists_two_mul_re_eq_intCast {a b : ℚ} {q : ℍ[ℚ,a,b]} (hq : IsIntegr
 
 end QuaternionAlgebra
 
+namespace Module.Basis
+
+lemma repr_coe_eq_algebraMap {R K V κ : Type*} [CommSemiring R] [Semiring K] [Algebra R K]
+    [AddCommMonoid V] [Module R V] [Module K V] [IsScalarTower R K V] [Fintype κ]
+    {M : Submodule R V} (b : Basis κ R M) {c : Basis κ K V} (hc : ∀ k, c k = b k) (v : M) (k : κ) :
+    c.repr v k = algebraMap R K (b.repr v k) := by
+  have h : (v : V) = ∑ j, algebraMap R K (b.repr v j) • c j := by
+    conv_lhs => rw [← b.sum_repr v]
+    simp only [Submodule.coe_sum, Submodule.coe_smul, hc, algebraMap_smul]
+  rw [h, repr_sum_self]
+
+end Module.Basis
+
 namespace Subalgebra
 
 lemma exists_intCast_eq_of_sq_eq_natCast {r : ℚ} {n : ℕ} (h : r ^ 2 = n) : ∃ w : ℤ, r = w := by
@@ -169,12 +182,9 @@ lemma exists_basis_coe_eq (hO : O.IsQuaternionOrder) (x : Basis (Fin 4) ℤ O) :
   have : IsLattice ℚ (toSubmodule O) := hO
   exact ⟨_, (x.map O.toSubmoduleEquiv.symm).extendOfIsLattice_apply ℚ⟩
 
-lemma repr_coe_eq_intCast {x : Basis (Fin 4) ℤ O} {c : Basis (Fin 4) ℚ B}
-    (hc : ∀ k, c k = x k) (v : O) (k : Fin 4) : c.repr v k = x.repr v k := by
-  have hv : (v : B) = ∑ k, ((x.repr v k : ℤ) : ℚ) • c k := by
-    conv_lhs => rw [← x.sum_repr v]
-    simp [hc, Int.cast_smul_eq_zsmul]
-  rw [hv, c.repr_sum_self]
+lemma repr_coe_eq_intCast {x : Basis (Fin 4) ℤ O} {c : Basis (Fin 4) ℚ B} (hc : ∀ k, c k = x k)
+    (v : O) (k : Fin 4) : c.repr v k = x.repr v k :=
+  (x.map O.toSubmoduleEquiv.symm).repr_coe_eq_algebraMap hc (O.toSubmoduleEquiv.symm v) k
 
 lemma quaternionDiscOfBasis_eq_sq {a b : ℚ} (e : ℍ[ℚ,a,b] ≃ₐ[ℚ] B) {x : Basis (Fin 4) ℤ O}
     {c : Basis (Fin 4) ℚ B} (hc : ∀ k, c k = x k) : O.quaternionDiscOfBasis x =

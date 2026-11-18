@@ -46,17 +46,6 @@ namespace MonoidHom
 
 variable {C : Type*} [Group C] {π : C →* Multiplicative (ZMod 2 × ZMod 2)}
 
-lemma commutatorElement_eq_of_mul_inv_mem_ker {g h w₁ w₂ : C} (hπ : π.ker ≤ center C)
-    (h₁ : g * w₁⁻¹ ∈ π.ker) (h₂ : h * w₂⁻¹ ∈ π.ker) : ⁅g, h⁆ = ⁅w₁, w₂⁆ := by
-  have hg : ((g⁻¹ : C) : C ⧸ center C) = ((w₁⁻¹ : C) : C ⧸ center C) :=
-    QuotientGroup.eq.mpr <| by simpa using hπ h₁
-  have hh : ((h⁻¹ : C) : C ⧸ center C) = ((w₂⁻¹ : C) : C ⧸ center C) :=
-    QuotientGroup.eq.mpr <| by simpa using hπ h₂
-  have key (a b : C) : ⁅a, b⁆ = (Group.centralCommutatorMap C ↑a⁻¹ ↑b⁻¹ : C) := by
-    rw [Group.centralCommutatorMap_mk, Group.coe_commutatorPairing, inv_inv, inv_inv,
-      commutatorElement_def]
-  rw [key, hg, hh, ← key]
-
 /-- **The kernel of a stem extension of the Klein four-group has order at most `2`**: for a
 surjective homomorphism `π : C →* C₂ × C₂` whose kernel lies in the centre and in the commutator
 subgroup of `C`, all the commutators of `C` are powers of `⁅x, y⁆` for lifts `x, y` of the
@@ -114,7 +103,7 @@ lemma nat_card_ker_le_two (hπ : Surjective π) (hstem : π.ker ≤ center C ⊓
     rintro _ ⟨g, h, rfl⟩
     rcases hrep g with ⟨w₁, hw₁, h₁⟩
     rcases hrep h with ⟨w₂, hw₂, h₂⟩
-    rw [commutatorElement_eq_of_mul_inv_mem_ker hcen h₁ h₂]
+    rw [Group.commutatorElement_eq_of_mul_inv_mem_center (hcen h₁) (hcen h₂)]
     exact hW w₁ hw₁ w₂ hw₂
   have : Finite (zpowers ⁅x, y⁆) :=
     (isOfFinOrder_iff_pow_eq_one.mpr ⟨2, two_pos, ht₂⟩).finite_zpowers

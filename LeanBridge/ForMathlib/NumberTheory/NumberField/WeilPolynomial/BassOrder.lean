@@ -30,8 +30,6 @@ and the maximum Cohen–Macaulay type of its overorders; it is Bass exactly when
 * `Subalgebra.isBass_iff_maxCohenMacaulayType_eq_one`: an order is Bass if and only if the maximum
   Cohen–Macaulay type of its overorders is `1`, given that it has finitely many overorders, each of
   Cohen–Macaulay type at least `1`.
-* `TauCeti.GlobalNumberFields.NumberFieldOrder.isGorenstein_toSubalgebra_iff`: for an order in a
-  number field, this is Tau Ceti's notion of a Gorenstein order.
 * `Polynomial.hasBassFrobeniusOrder_iff_isGorenstein`: a maximal Frobenius order is Bass if and
   only if it is Gorenstein.
 -/
@@ -122,18 +120,6 @@ lemma isBass_iff_maxCohenMacaulayType_eq_one (hfin : R.overorders.Finite)
   · exact (hR ▸ cohenMacaulayType_le_maxCohenMacaulayType hfin hS).antisymm (hpos S hS)
 
 end Subalgebra
-
-namespace TauCeti.GlobalNumberFields.NumberFieldOrder
-
-variable {K : Type*} [Field K] [NumberField K] (O : NumberFieldOrder K)
-
-/-- An order in a number field is Gorenstein in the sense of `Subalgebra.IsGorenstein`, of
-Cohen–Macaulay type `1`, if and only if it is Gorenstein in Tau Ceti's sense, its trace dual being
-invertible. -/
-lemma isGorenstein_toSubalgebra_iff : O.toSubalgebra.IsGorenstein ↔ O.IsGorenstein :=
-  O.cohenMacaulayType_eq_one_iff_isGorenstein
-
-end TauCeti.GlobalNumberFields.NumberFieldOrder
 
 namespace Polynomial
 

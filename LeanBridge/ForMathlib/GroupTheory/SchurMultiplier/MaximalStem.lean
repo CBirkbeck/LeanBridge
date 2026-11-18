@@ -2,6 +2,7 @@ import LeanBridge.ForMathlib.GroupTheory.Isoclinism.Surjective
 import LeanBridge.ForMathlib.GroupTheory.SchurMultiplier.SchurCover
 import Mathlib.GroupTheory.GroupExtension.Basic
 import Mathlib.GroupTheory.IsPerfect
+import TauCeti.GroupTheory.GroupExtension.Basic
 
 /-!
 # Stem extensions of maximal size
@@ -105,12 +106,17 @@ lemma ker_inf_commutator_eq_bot {π : C →* G} {p : P →* C} (hsurj : Surjecti
 
 end MonoidHom
 
+variable [IsPerfect C] in
+lemma Group.bijective_comp_subtype_commutator {p : P →* C} (hp : Surjective p)
+    (hker : p.ker ⊓ commutator P = ⊥) : Bijective (p.comp (commutator P).subtype) :=
+  ((MulEquiv.subgroupCongr IsPerfect.commutator_eq_top).trans topEquiv).bijective.comp <|
+    bijective_codRestrict_domRestrict_commutator hp hker
+
 namespace GroupExtension
 
 variable (S) in
-lemma nat_card_ker_rightHom : Nat.card S.rightHom.ker = Nat.card K := by
-  rw [← S.range_inl_eq_ker_rightHom]
-  exact (Nat.card_congr (MonoidHom.ofInjective S.inl_injective).toEquiv).symm
+lemma nat_card_ker_rightHom : Nat.card S.rightHom.ker = Nat.card K :=
+  S.card_fiber_rightHom 1
 
 lemma nat_card_eq_mul (E : GroupExtension K C G) : Nat.card C = Nat.card G * Nat.card K := by
   rw [card_eq_card_quotient_mul_card_subgroup E.rightHom.ker, nat_card_ker_rightHom,
@@ -299,12 +305,6 @@ lemma IsStem.isPerfect (hS : S.IsStem) : IsPerfect C := by
   have hk : y⁻¹ * c ∈ commutator C := hS.ker_rightHom_le_commutator <| by
     rw [MonoidHom.mem_ker, map_mul, map_inv, hyc, inv_mul_cancel]
   simpa using mul_mem hy hk
-
-variable [IsPerfect C] in
-lemma bijective_comp_subtype_commutator {p : P →* C} (hp : Surjective p)
-    (hker : p.ker ⊓ commutator P = ⊥) : Bijective (p.comp (commutator P).subtype) :=
-  ((MulEquiv.subgroupCongr IsPerfect.commutator_eq_top).trans topEquiv).bijective.comp <|
-    bijective_codRestrict_domRestrict_commutator hp hker
 
 variable {S₁ S₂} [Finite G] [IsPerfect G] in
 /-- **For a perfect group, the middle groups of two stem extensions of maximal size are isomorphic**

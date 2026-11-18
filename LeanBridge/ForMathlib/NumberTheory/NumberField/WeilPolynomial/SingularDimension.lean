@@ -24,9 +24,9 @@ and spanning `K` over `ℚ` (`Submodule.IsLattice`). Then `K` is the total ring 
 and `R` is Noetherian, so the fractional ideals of `R` in Mathlib's sense (`FractionalIdeal`) are
 its finitely generated `R`-submodules of `K`; the LMFDB's fractional ideals are those containing a
 non-zero-divisor of `K`, which is then a unit of `K`. The instances `Module.Finite ℤ R`,
-`IsFractionRing R K` and `IsNoetherianRing R` record these facts. Instance search finds them when
-the `ℤ`-algebra structure of `K` is `Ring.toIntAlgebra`, as for a variable `K`; for a concrete `K`
-with another one, such as `Fin n → ℚ` or an `AdjoinRoot`, they apply by name.
+`IsFractionRing R K` and `IsNoetherianRing R` of
+`LeanBridge.ForMathlib.NumberTheory.NumberField.WeilPolynomial.OrderIndex` record these facts; that
+file says when instance search finds them.
 
 ## Main results
 
@@ -46,57 +46,9 @@ open Module Submodule
 
 open scoped nonZeroDivisors
 
-namespace Submodule
-
-variable {K : Type*} [CommRing K] [Algebra ℚ K]
-
-lemma isArtinianRing_of_isLattice (M : Submodule ℤ K) [M.IsLattice ℚ] : IsArtinianRing K := by
-  rcases IsLattice.fg (M := M) with ⟨T, hT⟩
-  have : Module.Finite ℚ K :=
-    ⟨⟨T, by rw [← span_span_of_tower ℤ, hT]; exact IsLattice.span_eq_top⟩⟩
-  exact isArtinian_of_tower ℚ inferInstance
-
-lemma isUnit_of_mem_nonZeroDivisors_of_isLattice (M : Submodule ℤ K) [M.IsLattice ℚ] {x : K}
-    (hx : x ∈ K⁰) : IsUnit x :=
-  have : IsArtinianRing K := isArtinianRing_of_isLattice M
-  IsArtinianRing.isUnit_of_mem_nonZeroDivisors hx
-
-end Submodule
-
 namespace Subalgebra
 
-variable {K : Type*} [CommRing K] [Algebra ℚ K] (R : Subalgebra ℤ K)
-
-private lemma isUnit_natCast_of_ne_zero {n : ℕ} (hn : n ≠ 0) : IsUnit (n : K) := by
-  rw [← map_natCast (algebraMap ℚ K)]
-  exact (isUnit_iff_ne_zero.mpr (Nat.cast_ne_zero.mpr hn)).map _
-
-lemma natCast_mem_nonZeroDivisors {n : ℕ} (hn : n ≠ 0) : (n : R) ∈ R⁰ :=
-  mem_nonZeroDivisors_iff_right.mpr fun r hr ↦ Subtype.ext <|
-    (isUnit_natCast_of_ne_zero hn).mul_left_eq_zero.mp (by simpa using congrArg Subtype.val hr)
-
-variable [(toSubmodule R).IsLattice ℚ]
-
-instance : Module.Finite ℤ R :=
-  .equiv R.toSubmoduleEquiv
-
-instance : IsFractionRing R K := by
-  have hR : span ℚ (R : Set K) = ⊤ := IsLattice.span_eq_top (M := toSubmodule R)
-  have : IsArtinianRing K := isArtinianRing_of_isLattice (toSubmodule R)
-  refine (isLocalization_iff _ _).mpr
-    ⟨fun y ↦ ?_, fun z ↦ ?_, fun {x y} h ↦ ⟨1, by rw [Subtype.ext h]⟩⟩
-  · refine IsArtinianRing.isUnit_of_mem_nonZeroDivisors <|
-      mem_nonZeroDivisors_iff_right.mpr fun k hk ↦ ?_
-    rcases R.exists_natCast_mul_mem_of_span_eq_top hR k with ⟨n, hn, hnk⟩
-    have h0 : (⟨n * k, hnk⟩ : R) * y = 0 :=
-      Subtype.ext <| by simpa [mul_assoc] using congrArg ((n : K) * ·) hk
-    exact (isUnit_natCast_of_ne_zero hn).mul_right_eq_zero.mp <|
-      congrArg Subtype.val (mem_nonZeroDivisors_iff_right.mp y.2 _ h0)
-  · rcases R.exists_natCast_mul_mem_of_span_eq_top hR z with ⟨n, hn, hnz⟩
-    exact ⟨⟨⟨n * z, hnz⟩, ⟨n, R.natCast_mem_nonZeroDivisors hn⟩⟩, by simp [mul_comm]⟩
-
-instance : IsNoetherianRing R :=
-  isNoetherian_of_tower ℤ inferInstance
+variable {K : Type*} [CommRing K] [Algebra ℚ K] (R : Subalgebra ℤ K) [(toSubmodule R).IsLattice ℚ]
 
 /-- **The residue fields of an order are finite** (LMFDB `av.fq.singular_dimensions`): a maximal
 ideal `𝔓` of an order `R` contains a nonzero integer `n`, and `R / 𝔓` is a finitely generated

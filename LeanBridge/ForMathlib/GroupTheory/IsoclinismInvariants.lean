@@ -10,9 +10,10 @@ Isoclinic groups `G` and `H` (LMFDB `group.isoclinism`) have isomorphic central 
 when `G / Z(G)` is, and then its class is one more than that of `G / Z(G)` when `G` is nontrivial,
 nilpotency and the nilpotency class of nontrivial groups are isoclinism invariants. Since the
 derived series of `G` from `G'` on is the derived series of `G'`, solvability and the derived
-length of nontrivial solvable groups are isoclinism invariants too. Order is not: all abelian
-groups are isoclinic, `C₁` and `C₂` for instance, whose central quotients and commutator subgroups
-are trivial. The trivial group is the exception the LMFDB makes: it is isoclinic to `C₂`, of
+length of nontrivial solvable groups are isoclinism invariants too; the derived length is treated
+in `LeanBridge.ForMathlib.GroupTheory.Isoclinism.DerivedLength`. Order is not: all abelian groups
+are isoclinic, `C₁` and `C₂` for instance, whose central quotients and commutator subgroups are
+trivial. The trivial group is the exception the LMFDB makes: it is isoclinic to `C₂`, of
 nilpotency class and derived length `1`, while its own are `0`.
 
 ## Main results
@@ -23,9 +24,7 @@ nilpotency class and derived length `1`, while its own are `0`.
   isoclinism invariant.
 * `Group.IsIsoclinic.isNilpotent_iff`, `Group.IsIsoclinic.nilpotencyClass_eq` (LMFDB
   `group.isoclinism`): nilpotency, and the nilpotency class of nontrivial groups, are invariant.
-* `Group.IsIsoclinic.isSolvable_iff`, `Group.IsIsoclinic.derivedLength_eq` (LMFDB
-  `group.isoclinism`): solvability, and the derived length of nontrivial solvable groups, are
-  invariant.
+* `Group.IsIsoclinic.isSolvable_iff` (LMFDB `group.isoclinism`): solvability is invariant.
 -/
 
 open Subgroup
@@ -110,18 +109,6 @@ lemma isSolvable_iff (h : IsIsoclinic G H) : IsSolvable G ↔ IsSolvable H := by
       (eq_bot_iff.mpr ((derivedSeries_antitone G n.le_succ).trans hn.le))
   · exact (h.derivedSeries_succ_eq_bot_iff n).mpr
       (eq_bot_iff.mpr ((derivedSeries_antitone H n.le_succ).trans hn.le))
-
-/-- **The derived length of nontrivial solvable groups is an isoclinism invariant** (LMFDB
-`group.isoclinism`, the solvable length): it is one more than that of `G'`. -/
-lemma derivedLength_eq [Nontrivial G] [Nontrivial H] [IsSolvable G] (h : IsIsoclinic G H) :
-    derivedLength G = derivedLength H := by
-  have : IsSolvable H := h.isSolvable_iff.mp ‹_›
-  rw [derivedLength_eq_sInf_eq_bot, derivedLength_eq_sInf_eq_bot]
-  congr 1
-  ext k
-  rcases k with _ | k
-  · simp
-  · exact h.derivedSeries_succ_eq_bot_iff k
 
 end IsIsoclinic
 

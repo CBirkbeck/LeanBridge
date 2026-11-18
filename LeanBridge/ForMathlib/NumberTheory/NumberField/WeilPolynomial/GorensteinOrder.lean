@@ -1,4 +1,5 @@
 import Mathlib.LinearAlgebra.BilinearForm.DualLattice
+import Mathlib.RingTheory.Etale.Field
 import Mathlib.RingTheory.Localization.NormTrace
 import TauCeti.Algebra.Module.Lattice
 import LeanBridge.ForMathlib.NumberTheory.NumberField.WeilPolynomial.BassOrder
@@ -21,13 +22,13 @@ the type is attained and at least `1` (for `K ≠ 0`), and it is `1` exactly whe
 principal, that is invertible. Hence every fractional ideal `I` of a Gorenstein order with
 `(I : I) = R` is invertible (LMFDB `av.fq.singular_dimensions`), and conversely an order whose
 fractional ideals with `(I : I) = R` are invertible is Gorenstein, as `(Rᵗ : Rᵗ) = R`. This extends
-to all orders in étale `ℚ`-algebras what is proved for orders in number fields by Tau Ceti
-(`TauCeti.GlobalNumberFields.NumberFieldOrder.IsGorenstein`) and by
-`LeanBridge.ForMathlib.AlgebraicGeometry.Curve.CohenMacaulayType`.
+to all orders in étale `ℚ`-algebras what Tau Ceti proves for orders in number fields
+(`TauCeti.GlobalNumberFields.NumberFieldOrder.IsGorenstein`). For such an order, a number field
+being an étale `ℚ`-algebra, the Cohen–Macaulay type is therefore attained and at least `1`, and it
+is `1` exactly when the order is Gorenstein in Tau Ceti's sense, its trace dual being invertible.
 
 ## Main definitions
 
-* `Subalgebra.traceDualSubmodule`: the trace dual `Iᵗ` of an `R`-submodule `I` of `K`.
 * `Subalgebra.traceDualFractionalIdeal`: the trace dual `Rᵗ` of an order, as a fractional ideal.
 
 ## Main results
@@ -48,11 +49,22 @@ to all orders in étale `ℚ`-algebras what is proved for orders in number field
   fractional ideal `I` of a Gorenstein order with `(I : I) = R` is invertible.
 * `Subalgebra.isGorenstein_iff_forall_isUnit_of_isLattice` (LMFDB `ag.cohen_macaulay_type`): an
   order is Gorenstein if and only if its fractional ideals `I` with `(I : I) = R` are invertible.
+* `TauCeti.GlobalNumberFields.NumberFieldOrder.cohenMacaulayTypeAt_le_cohenMacaulayType` and
+  `TauCeti.GlobalNumberFields.NumberFieldOrder.exists_cohenMacaulayTypeAt_eq_cohenMacaulayType`:
+  the Cohen–Macaulay type of an order in a number field is the largest of its local types,
+  attained at some maximal ideal.
+* `TauCeti.GlobalNumberFields.NumberFieldOrder.cohenMacaulayType_eq_one_iff_isGorenstein`: an
+  order in a number field has Cohen–Macaulay type `1` if and only if it is Gorenstein.
+* `TauCeti.GlobalNumberFields.NumberFieldOrder.cohenMacaulayType_eq_one_iff_forall_isUnit`: an order
+  in a number field has Cohen–Macaulay type `1` if and only if its proper fractional ideals are
+  invertible.
+* `TauCeti.GlobalNumberFields.NumberFieldOrder.isGorenstein_toSubalgebra_iff`: for an order in a
+  number field, `Subalgebra.IsGorenstein` is Tau Ceti's notion of a Gorenstein order.
 -/
 
 open Module Submodule
 
-open Algebra (FormallyUnramified traceForm)
+open Algebra (FinitePresentation FormallyUnramified traceForm)
 
 open scoped nonZeroDivisors
 
@@ -91,20 +103,6 @@ variable (R : Subalgebra ℤ K)
 section TraceDualSubmodule
 
 variable (I : Submodule R K)
-
-/-- The **trace dual** `Iᵗ = {x ∈ K | Tr(xI) ⊆ ℤ}` of an `R`-submodule `I` of `K`, for a subring `R`
-of a commutative `ℚ`-algebra `K` and the trace `Tr` of `K` over `ℚ`, as an `R`-submodule of `K`.
-For `I = R` it is the trace dual `Rᵗ` of `R` (`Subalgebra.traceDual`). -/
-noncomputable def traceDualSubmodule : Submodule R K where
-  __ := (traceForm ℚ K).dualSubmodule (I.restrictScalars ℤ)
-  smul_mem' c x hx a ha := by
-    rw [Algebra.traceForm_apply, smul_mul_assoc, mul_comm, ← smul_mul_assoc, mul_comm]
-    exact hx _ (I.smul_mem c ha)
-
-variable {R I} in
-lemma mem_traceDualSubmodule {x : K} :
-    x ∈ R.traceDualSubmodule I ↔ ∀ y ∈ I, Algebra.trace ℚ K (x * y) ∈ (algebraMap ℤ ℚ).range :=
-  ⟨fun h y hy ↦ mem_one.mp (h y hy), fun h y hy ↦ mem_one.mpr (h y hy)⟩
 
 lemma restrictScalars_traceDualSubmodule : (R.traceDualSubmodule I).restrictScalars ℤ =
     (traceForm ℚ K).dualSubmodule (I.restrictScalars ℤ) :=
@@ -311,3 +309,57 @@ lemma isGorenstein_iff_forall_isUnit_of_isLattice : R.IsGorenstein ↔
   exact R.traceDual_div_traceDual_div 1
 
 end Subalgebra
+
+lemma NumberField.etale_rat {K : Type*} [Field K] [NumberField K] : Algebra.Etale ℚ K :=
+  ⟨.of_isSeparable ℚ K, FinitePresentation.of_finiteType.mp inferInstance⟩
+
+namespace TauCeti.GlobalNumberFields.NumberFieldOrder
+
+variable {K : Type*} [Field K] [NumberField K] (O : NumberFieldOrder K) (𝔩 : Ideal O.toSubalgebra)
+
+lemma isLattice_toSubalgebra : (Subalgebra.toSubmodule O.toSubalgebra).IsLattice ℚ :=
+  ⟨Finite.iff_fg.mp (.equiv O.toSubalgebra.toSubmoduleEquiv.symm), O.spans⟩
+
+attribute [local instance] NumberField.etale_rat isLattice_toSubalgebra
+
+lemma bddAbove_range_cohenMacaulayTypeAt :
+    BddAbove (Set.range (O.toSubalgebra.cohenMacaulayTypeAt ∘ MaximalSpectrum.asIdeal)) :=
+  O.toSubalgebra.bddAbove_range_cohenMacaulayTypeAt_of_isLattice
+
+/-- **The Cohen–Macaulay type of an order in a number field bounds its local Cohen–Macaulay
+types.** -/
+lemma cohenMacaulayTypeAt_le_cohenMacaulayType [𝔩.IsMaximal] :
+    O.toSubalgebra.cohenMacaulayTypeAt 𝔩 ≤ O.toSubalgebra.cohenMacaulayType :=
+  O.toSubalgebra.cohenMacaulayTypeAt_le_cohenMacaulayType_of_isLattice 𝔩
+
+/-- **The Cohen–Macaulay type of an order in a number field is attained at some maximal ideal.** -/
+lemma exists_cohenMacaulayTypeAt_eq_cohenMacaulayType : ∃ 𝔩 : MaximalSpectrum O.toSubalgebra,
+    O.toSubalgebra.cohenMacaulayTypeAt 𝔩.asIdeal = O.toSubalgebra.cohenMacaulayType :=
+  O.toSubalgebra.exists_cohenMacaulayTypeAt_eq_cohenMacaulayType_of_isLattice
+
+lemma one_le_cohenMacaulayTypeAt [𝔩.IsMaximal] : 1 ≤ O.toSubalgebra.cohenMacaulayTypeAt 𝔩 :=
+  O.toSubalgebra.one_le_cohenMacaulayTypeAt_of_isLattice 𝔩
+
+lemma one_le_cohenMacaulayType : 1 ≤ O.toSubalgebra.cohenMacaulayType :=
+  O.toSubalgebra.one_le_cohenMacaulayType_of_isLattice
+
+/-- **An order in a number field has Cohen–Macaulay type `1` if and only if it is Gorenstein**,
+that is its trace dual is invertible. -/
+lemma cohenMacaulayType_eq_one_iff_isGorenstein :
+    O.toSubalgebra.cohenMacaulayType = 1 ↔ O.IsGorenstein :=
+  O.toSubalgebra.cohenMacaulayType_eq_one_iff_isUnit_traceDualFractionalIdeal.trans
+    ⟨fun h ↦ ⟨h⟩, fun h ↦ h.isUnit_traceDual⟩
+
+/-- **An order in a number field has Cohen–Macaulay type `1` if and only if its proper fractional
+ideals are invertible**, the fractional ideals `I` with `(I : I) = R`. -/
+lemma cohenMacaulayType_eq_one_iff_forall_isUnit :
+    O.toSubalgebra.cohenMacaulayType = 1 ↔ ∀ I, O.IsProperFractionalIdeal I → IsUnit I :=
+  O.cohenMacaulayType_eq_one_iff_isGorenstein.trans O.isGorenstein_iff_forall_isUnit
+
+/-- An order in a number field is Gorenstein in the sense of `Subalgebra.IsGorenstein`, of
+Cohen–Macaulay type `1`, if and only if it is Gorenstein in Tau Ceti's sense, its trace dual being
+invertible. -/
+lemma isGorenstein_toSubalgebra_iff : O.toSubalgebra.IsGorenstein ↔ O.IsGorenstein :=
+  O.cohenMacaulayType_eq_one_iff_isGorenstein
+
+end TauCeti.GlobalNumberFields.NumberFieldOrder

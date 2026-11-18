@@ -3,6 +3,9 @@ import Mathlib.GroupTheory.OrderOfElement
 /-!
 # The order statistics of a finite group
 
+The order statistics determine the number of solutions of `g ^ 2 = 1`, which isomorphic groups
+share; it tells many groups of the same order apart.
+
 ## Main definitions
 
 * `Monoid.orderStatistics` (LMFDB `group.order_stats`): the multiset of the orders of the elements
@@ -28,3 +31,9 @@ lemma count_orderStatistics (n : ℕ) :
   simp only [eq_comm]
 
 end Monoid
+
+lemma MulEquiv.card_sq_eq_one {G H : Type*} [Group G] [Group H] (f : G ≃* H) :
+    Nat.card {g : G // g ^ 2 = 1} = Nat.card {h : H // h ^ 2 = 1} :=
+  Nat.card_congr <| f.toEquiv.subtypeEquiv fun g ↦ by
+    rw [← f.map_eq_one_iff, map_pow]
+    rfl

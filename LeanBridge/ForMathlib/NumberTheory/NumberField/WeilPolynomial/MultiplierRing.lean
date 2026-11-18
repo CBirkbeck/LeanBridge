@@ -1,5 +1,6 @@
 import Mathlib.Algebra.Module.Lattice
 import Mathlib.Tactic.LinearCombination
+import LeanBridge.ForMathlib.Algebra.Algebra.NatCast
 import LeanBridge.ForMathlib.NumberTheory.NumberField.WeilPolynomial.WeakEquivalence
 
 /-!
@@ -112,15 +113,12 @@ lemma WeaklyEquivalent.div_self_le (h : I.WeaklyEquivalent J) :
   intro y hy
   rcases R.exists_natCast_mul_mem_of_span_eq_top
     (IsLattice.span_eq_top (M := Subalgebra.toSubmodule R)) x with ⟨n, hn, hnx⟩
-  have hnK : IsUnit (n : K) := by
-    rw [← map_natCast (algebraMap ℚ K)]
-    exact (isUnit_iff_ne_zero.mpr (Nat.cast_ne_zero.mpr hn)).map (algebraMap ℚ K)
   by_contra hxy
   have htop : (J : Submodule R K).colon {x * y} ≠ ⊤ := fun htop ↦ hxy <| by
     simpa using mem_colon_singleton.mp ((Ideal.eq_top_iff_one _).mp htop)
   rcases Ideal.exists_le_maximal _ htop with ⟨𝔭, h𝔭, hle⟩
   rcases h 𝔭 with ⟨φ⟩
-  rcases exists_mem_primeCompl_mul_mem φ hx hnK hnx hy with ⟨s, hs, hsxy⟩
+  rcases exists_mem_primeCompl_mul_mem φ hx (isUnit_natCast_of_ne_zero hn) hnx hy with ⟨s, hs, hsxy⟩
   exact hs <| hle <| mem_colon_singleton.mpr <| by simpa [Subalgebra.smul_def] using hsxy
 
 /-- **Weakly equivalent fractional ideals have the same multiplier ring** (LMFDB

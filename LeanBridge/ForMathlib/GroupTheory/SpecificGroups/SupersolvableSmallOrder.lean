@@ -1,5 +1,5 @@
+import LeanBridge.ForMathlib.GroupTheory.OrderStatistics
 import LeanBridge.ForMathlib.GroupTheory.PolycyclicPresentation
-import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.CyclicIndexTwoClassification
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.SupersolvableExamples
 import LeanBridge.ForMathlib.GroupTheory.SupersolvablePrimeIndex
 
@@ -88,31 +88,7 @@ end Sylow
 
 namespace Group
 
-variable {p q k m : ℕ}
-
-lemma isSupersolvable_of_card_eq_prime_pow (hp : p.Prime) (h : Nat.card G = p ^ k) :
-    IsSupersolvable G :=
-  have : Fact p.Prime := ⟨hp⟩
-  have : Finite G := Nat.finite_of_card_ne_zero (h ▸ pow_ne_zero k hp.ne_zero)
-  have : IsNilpotent G := (IsPGroup.of_card h).isNilpotent
-  IsNilpotent.isSupersolvable
-
-lemma isSupersolvable_of_card_eq_prime_mul_prime (hp : p.Prime) (hq : q.Prime) (hpq : p ≠ q)
-    (h : Nat.card G = p * q) : IsSupersolvable G :=
-  isSupersolvable_of_squarefree_card <| h ▸
-    Nat.squarefree_mul_iff.mpr ⟨(Nat.coprime_primes hp hq).mpr hpq, hp.squarefree, hq.squarefree⟩
-
-lemma IsSupersolvable.of_quotient_of_card_prime {N : Subgroup G} [N.Normal]
-    (hN : (Nat.card N).Prime) (h : IsSupersolvable (G ⧸ N)) : IsSupersolvable G := by
-  have : Fact (Nat.card N).Prime := ⟨hN⟩
-  have : IsCyclic N := isCyclic_of_prime_card rfl
-  rcases IsCyclic.exists_generator (α := N) with ⟨g, hg⟩
-  have hgN : zpowers (g : G) = N := le_antisymm (zpowers_le.mpr g.2) fun x hx ↦ by
-    rcases mem_zpowers_iff.mp (hg ⟨x, hx⟩) with ⟨k, hk⟩
-    exact mem_zpowers_iff.mpr ⟨k, by simpa using congrArg Subtype.val hk⟩
-  exact h.of_ker_eq_zpowers ((QuotientGroup.ker_mk' N).trans hgN.symm)
-
-variable [Finite G]
+variable {m : ℕ} [Finite G]
 
 /-- **Every group of order less than `12` is supersolvable** (LMFDB `group.supersolvable`), its
 order being a prime power or a product of two distinct primes; so `A₄`, of order `12`, is the
@@ -243,6 +219,12 @@ lemma not_three_dvd_card_ker_sylowThreePermHom (hG : Nat.card G = 3 * m) (hm : �
     · rw [Q.card_eq_pow_of_card_eq_pow_mul hG' hm, Nat.card_zpowers, orderOf_coe, hx, pow_one]
   have : Subsingleton (Sylow 3 G) := ⟨fun Q R ↦ Sylow.ext ((hxQ Q).symm.trans (hxQ R))⟩
   exact absurd (h.symm.trans Nat.card_unique) (by norm_num)
+
+lemma card_ker_sylowThreePermHom_mul_four_dvd_of_not_three_dvd (hG : Nat.card G = 3 * m)
+    (hm : ¬3 ∣ m) : Nat.card (sylowThreePermHom h).ker * 4 ∣ m :=
+  have h3 : Nat.Coprime 3 (Nat.card (sylowThreePermHom h).ker) :=
+    Nat.prime_three.coprime_iff_not_dvd.mpr <| not_three_dvd_card_ker_sylowThreePermHom hG hm
+  (h3.symm.mul_left (by decide)).dvd_of_dvd_mul_left <| hG ▸ card_ker_sylowThreePermHom_mul_four_dvd
 
 end Group
 
@@ -556,16 +538,9 @@ lemma nonempty_mulEquiv_alternatingGroup_of_card_eq_twelve (hG : Nat.card G = 12
     (hs : ¬IsSupersolvable G) : Nonempty (G ≃* alternatingGroup (Fin 4)) := by
   have h4 : Nat.card (Sylow 3 G) = 4 :=
     card_sylow_three_eq_four_of_not_isSupersolvable (m := 4) hG (.inl rfl) hs
-  have hk : Nat.card (sylowThreePermHom h4).ker * 4 ∣ Nat.card G :=
-    card_ker_sylowThreePermHom_mul_four_dvd
-  have h3 : ¬3 ∣ Nat.card (sylowThreePermHom h4).ker :=
-    not_three_dvd_card_ker_sylowThreePermHom (m := 4) hG (by decide)
-  have hpos : 0 < Nat.card (sylowThreePermHom h4).ker := Nat.card_pos
-  have hle : Nat.card (sylowThreePermHom h4).ker ≤ 3 := by
-    have hk' : Nat.card (sylowThreePermHom h4).ker * 4 ≤ Nat.card G := Nat.le_of_dvd (by omega) hk
-    omega
-  have hker : Nat.card (sylowThreePermHom h4).ker = 1 := by
-    interval_cases hc : Nat.card (sylowThreePermHom h4).ker <;> simp_all
+  have hker : Nat.card (sylowThreePermHom h4).ker = 1 := Nat.dvd_one.mp <|
+    Nat.dvd_of_mul_dvd_mul_right four_pos <|
+      card_ker_sylowThreePermHom_mul_four_dvd_of_not_three_dvd (m := 4) hG (by decide)
   have hinj : Injective (sylowThreePermHom h4) :=
     (MonoidHom.ker_eq_bot_iff _).mp (card_eq_one.mp hker)
   have hrange : (sylowThreePermHom h4).range = alternatingGroup (Fin 4) := by
@@ -590,31 +565,25 @@ lemma nonempty_mulEquiv_of_card_eq_twentyFour (hG : Nat.card G = 24) (hs : ¬IsS
       Nonempty (G ≃* Multiplicative (ZMod 2) × alternatingGroup (Fin 4)) := by
   have h4 : Nat.card (Sylow 3 G) = 4 :=
     card_sylow_three_eq_four_of_not_isSupersolvable (m := 8) hG (.inr rfl) hs
-  have hk : Nat.card (sylowThreePermHom h4).ker * 4 ∣ Nat.card G :=
-    card_ker_sylowThreePermHom_mul_four_dvd
-  have h3 : ¬3 ∣ Nat.card (sylowThreePermHom h4).ker :=
-    not_three_dvd_card_ker_sylowThreePermHom (m := 8) hG (by decide)
-  have hpos : 0 < Nat.card (sylowThreePermHom h4).ker := Nat.card_pos
-  have hle : Nat.card (sylowThreePermHom h4).ker ≤ 6 := by
-    have hk' : Nat.card (sylowThreePermHom h4).ker * 4 ≤ Nat.card G := Nat.le_of_dvd (by omega) hk
-    omega
+  have hker : Nat.card (sylowThreePermHom h4).ker ∣ 2 := Nat.dvd_of_mul_dvd_mul_right four_pos <|
+    card_ker_sylowThreePermHom_mul_four_dvd_of_not_three_dvd (m := 8) hG (by decide)
   have hcard (n : ℕ) (hn : Nat.card (sylowThreePermHom h4).ker = n) :
       Nat.card (sylowThreePermHom h4).range * n = 24 := by
     rw [← hn, ← index_ker, mul_comm, card_mul_index, hG]
   have hperm : Nat.card (Perm (Fin 4)) = 24 := by
     rw [Nat.card_perm, Nat.card_eq_fintype_card, Fintype.card_fin]
     rfl
-  interval_cases hc : Nat.card (sylowThreePermHom h4).ker
+  rcases (Nat.dvd_prime Nat.prime_two).mp hker with hc | hc
   · refine .inl ⟨MulEquiv.ofBijective _ ⟨(MonoidHom.ker_eq_bot_iff _).mp (card_eq_one.mp hc),
       MonoidHom.range_eq_top.mp (eq_top_of_card_eq _ ?_)⟩⟩
-    rw [hperm, ← mul_one (Nat.card _), hcard 1 rfl]
+    rw [hperm, ← mul_one (Nat.card _), hcard 1 hc]
   · have hrange : (sylowThreePermHom h4).range = alternatingGroup (Fin 4) := by
       refine Perm.eq_alternatingGroup_of_index_eq_two ?_
       have h1 : Nat.card (sylowThreePermHom h4).range * (sylowThreePermHom h4).range.index =
           Nat.card (Perm (Fin 4)) :=
         card_mul_index _
       have h12 : Nat.card (sylowThreePermHom h4).range = 12 := by
-        have h2 : Nat.card (sylowThreePermHom h4).range * 2 = 24 := hcard 2 rfl
+        have h2 : Nat.card (sylowThreePermHom h4).range * 2 = 24 := hcard 2 hc
         omega
       rw [hperm, h12] at h1
       omega
@@ -632,7 +601,6 @@ lemma nonempty_mulEquiv_of_card_eq_twentyFour (hG : Nat.card G = 24) (hs : ¬IsS
         exact congrArg Subtype.val (h1.trans h2.symm)
     · rintro (rfl | rfl)
       exacts [map_one _, z.2]
-  all_goals omega
 
 /-- **The smallest solvable groups that are not supersolvable** (LMFDB `group.supersolvable`): a
 group of order at most `24` that is not supersolvable is isomorphic to `A₄`, `S₄`, `SL₂(𝔽₃)` or

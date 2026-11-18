@@ -1,6 +1,7 @@
 import LeanBridge.ForMathlib.GroupTheory.NilpotentSupersolvable
 import LeanBridge.ForMathlib.GroupTheory.SolvableSeries
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.Metacyclic
+import Mathlib.Data.Nat.Squarefree
 
 /-!
 # Supersolvable groups: chains, closure properties and the first classes of examples
@@ -23,7 +24,8 @@ chains of the same kind, which gives the closure properties.
   `group.supersolvable`): subgroups and quotients of supersolvable groups are supersolvable.
 * `Group.IsSupersolvable.of_ker_eq_zpowers`: a group with a homomorphism to a supersolvable group
   whose kernel is cyclic is supersolvable. In particular an extension of a supersolvable group by
-  a cyclic normal subgroup is supersolvable, `Group.IsSupersolvable.of_quotient_zpowers`.
+  a cyclic normal subgroup, such as one of prime order, is supersolvable,
+  `Group.IsSupersolvable.of_quotient_zpowers`.
 * `Group.IsSupersolvable.isSolvable` (LMFDB `group.supersolvable`): supersolvable groups are
   solvable.
 * `Group.IsSupersolvable.exists_ne_one_normal_zpowers`: a nontrivial supersolvable group has a
@@ -34,12 +36,13 @@ chains of the same kind, which gives the closure properties.
   subgroup of a finite supersolvable group has prime index, one direction of Huppert's criterion.
 * `Group.isSupersolvable_of_isMulCommutative`, `IsZGroup.isSupersolvable`,
   `Group.isSupersolvable_of_squarefree_card` (LMFDB `group.supersolvable`): finite abelian groups,
-  finite Z-groups and groups of squarefree order are supersolvable.
+  finite Z-groups and groups of squarefree order are supersolvable. So are the groups of prime
+  power order, which are nilpotent.
 -/
 
 open Function Group Subgroup
 
-variable {G H : Type*} [Group G] [Group H]
+variable {G H : Type*} [Group G] [Group H] {p q k : ℕ}
 
 namespace Subgroup
 
@@ -192,6 +195,16 @@ lemma of_quotient_zpowers {c : G} [(zpowers c).Normal] (hG : IsSupersolvable (G 
     IsSupersolvable G :=
   hG.of_ker_eq_zpowers <| QuotientGroup.ker_mk' _
 
+lemma of_quotient_of_card_prime {N : Subgroup G} [N.Normal] (hN : (Nat.card N).Prime)
+    (h : IsSupersolvable (G ⧸ N)) : IsSupersolvable G := by
+  have : Fact (Nat.card N).Prime := ⟨hN⟩
+  have : IsCyclic N := isCyclic_of_prime_card rfl
+  rcases IsCyclic.exists_generator (α := N) with ⟨g, hg⟩
+  have hgN : zpowers (g : G) = N := le_antisymm (zpowers_le.mpr g.2) fun x hx ↦ by
+    rcases mem_zpowers_iff.mp (hg ⟨x, hx⟩) with ⟨k, hk⟩
+    exact mem_zpowers_iff.mpr ⟨k, by simpa using congrArg Subtype.val hk⟩
+  exact h.of_ker_eq_zpowers ((QuotientGroup.ker_mk' N).trans hgN.symm)
+
 /-- **Supersolvable groups are solvable** (LMFDB `group.supersolvable`): a normal series with
 cyclic factors is a subnormal series with abelian factors, which makes a group solvable by
 `Group.isSolvable_iff_exists_subnormalSeries` (LMFDB `group.solvable`). -/
@@ -281,6 +294,13 @@ lemma isSupersolvable_of_isMulCommutative [Finite G] [IsMulCommutative G] : IsSu
 lemma isSupersolvable_of_subsingleton [Subsingleton G] : IsSupersolvable G :=
   IsNilpotent.isSupersolvable
 
+lemma isSupersolvable_of_card_eq_prime_pow (hp : p.Prime) (h : Nat.card G = p ^ k) :
+    IsSupersolvable G :=
+  have : Fact p.Prime := ⟨hp⟩
+  have : Finite G := Nat.finite_of_card_ne_zero (h ▸ pow_ne_zero k hp.ne_zero)
+  have : IsNilpotent G := (IsPGroup.of_card h).isNilpotent
+  IsNilpotent.isSupersolvable
+
 end Group
 
 /-- **Finite Z-groups are supersolvable** (LMFDB `group.supersolvable`, `group.z_group`), being
@@ -295,3 +315,8 @@ lemma Group.isSupersolvable_of_squarefree_card (h : Squarefree (Nat.card G)) : I
   have : Finite G := Nat.finite_of_card_ne_zero h.ne_zero
   have : IsZGroup G := IsZGroup.of_squarefree h
   IsZGroup.isSupersolvable
+
+lemma Group.isSupersolvable_of_card_eq_prime_mul_prime (hp : p.Prime) (hq : q.Prime) (hpq : p ≠ q)
+    (h : Nat.card G = p * q) : IsSupersolvable G :=
+  isSupersolvable_of_squarefree_card <| h ▸
+    Nat.squarefree_mul_iff.mpr ⟨(Nat.coprime_primes hp hq).mpr hpq, hp.squarefree, hq.squarefree⟩

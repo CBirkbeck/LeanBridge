@@ -20,6 +20,8 @@ isoclinic to it.
 
 * `Group.IsIsoclinic.derivedLength_eq_of_isPerfect_iff` (LMFDB `group.isoclinism`): isoclinic
   groups that are both perfect or both not perfect have the same derived length.
+* `Group.IsIsoclinic.derivedLength_eq` (LMFDB `group.isoclinism`): isoclinic nontrivial solvable
+  groups have the same derived length.
 * `Group.IsIsoclinic.nilpotencyClass_ne_of_subsingleton` (LMFDB `group.isoclinism`): the nilpotency
   class of the trivial group differs from that of every nontrivial group isoclinic to it.
 * `Group.IsIsoclinic.derivedLength_ne_of_subsingleton` (LMFDB `group.isoclinism`): so does its
@@ -53,6 +55,14 @@ lemma derivedLength_eq_of_isPerfect_iff (h : IsIsoclinic G H) (hGH : IsPerfect G
   congrArg sInf <| Set.ext fun
     | 0 => isPerfect_def.symm.trans <| hGH.trans isPerfect_def
     | k + 1 => h.derivedSeries_add_two_eq_iff k
+
+/-- **The derived length of nontrivial solvable groups is an isoclinism invariant** (LMFDB
+`group.isoclinism`, the solvable length): it is one more than that of `G'`. -/
+lemma derivedLength_eq [Nontrivial G] [Nontrivial H] [IsSolvable G] (h : IsIsoclinic G H) :
+    derivedLength G = derivedLength H :=
+  have : IsSolvable H := h.isSolvable_iff.mp ‹_›
+  h.derivedLength_eq_of_isPerfect_iff <| iff_of_false (fun _ ↦ IsPerfect.not_isSolvable G ‹_›)
+    fun _ ↦ IsPerfect.not_isSolvable H ‹_›
 
 /-- **The trivial group is an exception for the nilpotency class** (LMFDB `group.isoclinism`): its
 nilpotency class is `0`, and that of every nontrivial group isoclinic to it is not. -/

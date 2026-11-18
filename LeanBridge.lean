@@ -1,5 +1,6 @@
 import LeanBridge.Example
 import LeanBridge.Galois
+import LeanBridge.ForMathlib.Algebra.Algebra.NatCast
 import LeanBridge.ForMathlib.Algebra.AlgebraicGroup.TorusSplittingField
 import LeanBridge.ForMathlib.Algebra.AlgebraicGroup.TorusSplittingFieldExistence
 import LeanBridge.ForMathlib.Algebra.EuclideanDomain.NatEuclidean
@@ -1265,6 +1266,7 @@ import LeanBridge.ForMathlib.RepresentationTheory.RationalGroup
 import LeanBridge.ForMathlib.RepresentationTheory.SchurIndex
 import LeanBridge.ForMathlib.RepresentationTheory.SchurIndexMultiple
 import LeanBridge.ForMathlib.RepresentationTheory.SpechtDegreesSix
+import LeanBridge.ForMathlib.RingTheory.Artinian.Module
 import LeanBridge.ForMathlib.RingTheory.DedekindDomain.AdicAbvCompletion
 import LeanBridge.ForMathlib.RingTheory.DedekindDomain.AdicCompletionInverseLimit
 import LeanBridge.ForMathlib.RingTheory.Derivation.RankinCohen

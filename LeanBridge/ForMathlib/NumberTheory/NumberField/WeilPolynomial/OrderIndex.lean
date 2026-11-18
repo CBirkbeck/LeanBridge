@@ -6,6 +6,7 @@ import Mathlib.RingTheory.Unramified.Finite
 import TauCeti.Algebra.Module.Lattice
 import LeanBridge.ForMathlib.NumberTheory.NumberField.WeilPolynomial.BassOrder
 import LeanBridge.ForMathlib.NumberTheory.NumberField.WeilPolynomial.EndomorphismRingNotation
+import LeanBridge.ForMathlib.NumberTheory.NumberField.WeilPolynomial.MultiplierRing
 
 /-!
 # The index of an order in an étale `ℚ`-algebra
@@ -22,8 +23,16 @@ so it lies in `𝒪_K`, which is then a lattice too, and the index `[𝒪_K : R]
 finite positive integer (LMFDB `av.fq.index_of_order`), by Tau Ceti's comparison of nested
 lattices.
 
+For a subring `R` of a commutative `ℚ`-algebra `K` whose additive group is a lattice, `K` is the
+total ring of fractions of `R` and `R` is Noetherian. The instances `Module.Finite ℤ R`,
+`IsFractionRing R K` and `IsNoetherianRing R` record these facts. Instance search finds them when
+the `ℤ`-algebra structure of `K` is `Ring.toIntAlgebra`, as for a variable `K`; for a concrete `K`
+with another one, such as `Fin n → ℚ` or an `AdjoinRoot`, they apply by name.
+
 ## Main results
 
+* The instances `Module.Finite ℤ R`, `IsFractionRing R K` and `IsNoetherianRing R`, for a subring
+  `R` of a commutative `ℚ`-algebra `K` whose additive group is a lattice.
 * The instance `Module.Finite ℤ (integralClosure ℤ K)`: the maximal order of an étale `ℚ`-algebra
   is a finitely generated abelian group.
 * `Subalgebra.isLattice_integralClosure`: the maximal order of an étale `ℚ`-algebra with an order
@@ -36,7 +45,59 @@ open Module TauCeti Submodule
 
 open Algebra (FormallyUnramified)
 
-variable {K : Type*} [CommRing K] [Algebra ℚ K] [Algebra.Etale ℚ K]
+open scoped nonZeroDivisors
+
+variable {K : Type*} [CommRing K] [Algebra ℚ K]
+
+namespace Submodule
+
+lemma isArtinianRing_of_isLattice (M : Submodule ℤ K) [M.IsLattice ℚ] : IsArtinianRing K := by
+  rcases IsLattice.fg (M := M) with ⟨T, hT⟩
+  have : Module.Finite ℚ K :=
+    ⟨⟨T, by rw [← span_span_of_tower ℤ, hT]; exact IsLattice.span_eq_top⟩⟩
+  exact isArtinian_of_tower ℚ inferInstance
+
+lemma isUnit_of_mem_nonZeroDivisors_of_isLattice (M : Submodule ℤ K) [M.IsLattice ℚ] {x : K}
+    (hx : x ∈ K⁰) : IsUnit x :=
+  have : IsArtinianRing K := isArtinianRing_of_isLattice M
+  IsArtinianRing.isUnit_of_mem_nonZeroDivisors hx
+
+end Submodule
+
+namespace Subalgebra
+
+variable (R : Subalgebra ℤ K)
+
+lemma natCast_mem_nonZeroDivisors {n : ℕ} (hn : n ≠ 0) : (n : R) ∈ R⁰ :=
+  mem_nonZeroDivisors_iff_right.mpr fun r hr ↦ Subtype.ext <|
+    (isUnit_natCast_of_ne_zero hn).mul_left_eq_zero.mp (by simpa using congrArg Subtype.val hr)
+
+variable [(toSubmodule R).IsLattice ℚ]
+
+instance : Module.Finite ℤ R :=
+  .equiv R.toSubmoduleEquiv
+
+instance : IsFractionRing R K := by
+  have hR : span ℚ (R : Set K) = ⊤ := IsLattice.span_eq_top (M := toSubmodule R)
+  have : IsArtinianRing K := isArtinianRing_of_isLattice (toSubmodule R)
+  refine (isLocalization_iff _ _).mpr
+    ⟨fun y ↦ ?_, fun z ↦ ?_, fun {x y} h ↦ ⟨1, by rw [Subtype.ext h]⟩⟩
+  · refine IsArtinianRing.isUnit_of_mem_nonZeroDivisors <|
+      mem_nonZeroDivisors_iff_right.mpr fun k hk ↦ ?_
+    rcases R.exists_natCast_mul_mem_of_span_eq_top hR k with ⟨n, hn, hnk⟩
+    have h0 : (⟨n * k, hnk⟩ : R) * y = 0 :=
+      Subtype.ext <| by simpa [mul_assoc] using congrArg ((n : K) * ·) hk
+    exact (isUnit_natCast_of_ne_zero hn).mul_right_eq_zero.mp <|
+      congrArg Subtype.val (mem_nonZeroDivisors_iff_right.mp y.2 _ h0)
+  · rcases R.exists_natCast_mul_mem_of_span_eq_top hR z with ⟨n, hn, hnz⟩
+    exact ⟨⟨⟨n * z, hnz⟩, ⟨n, R.natCast_mem_nonZeroDivisors hn⟩⟩, by simp [mul_comm]⟩
+
+instance : IsNoetherianRing R :=
+  isNoetherian_of_tower ℤ inferInstance
+
+end Subalgebra
+
+variable [Algebra.Etale ℚ K]
 
 open Ideal in
 instance : Module.Finite ℤ (integralClosure ℤ K) := by

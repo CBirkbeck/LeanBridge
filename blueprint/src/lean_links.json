@@ -2028,7 +2028,7 @@
     "Group.exists_finite_isStemGroup_isIsoclinic": "LeanBridge.ForMathlib.GroupTheory.Isoclinism.StemGroup",
     "Group.not_forall_nat_card_eq_of_isIsoclinic": "LeanBridge.ForMathlib.GroupTheory.IsoclinismInvariants",
     "Group.IsIsoclinic.nilpotencyClass_eq": "LeanBridge.ForMathlib.GroupTheory.IsoclinismInvariants",
-    "Group.IsIsoclinic.derivedLength_eq": "LeanBridge.ForMathlib.GroupTheory.IsoclinismInvariants",
+    "Group.IsIsoclinic.derivedLength_eq": "LeanBridge.ForMathlib.GroupTheory.Isoclinism.DerivedLength",
     "Group.IsIsoclinic.derivedLength_eq_of_isPerfect_iff": "LeanBridge.ForMathlib.GroupTheory.Isoclinism.DerivedLength"
   },
   "group.isomorphism": {

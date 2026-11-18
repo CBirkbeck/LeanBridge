@@ -1,3 +1,4 @@
+import LeanBridge.ForMathlib.GroupTheory.OrderStatistics
 import LeanBridge.ForMathlib.GroupTheory.SpecificGroups.CyclicIndexTwo
 import Mathlib.GroupTheory.IndexNormal
 
@@ -330,12 +331,6 @@ lemma not_isMulCommutative : ¬IsMulCommutative (OtherDihedralGroup k) :=
   not_isMulCommutative_of_ne_one <| unitPowMulAut_ne_one _ _ (val_otherDihedralUnit_ne_one k)
 
 end OtherDihedralGroup
-
-lemma MulEquiv.card_sq_eq_one {H : Type*} [Group H] (f : G ≃* H) :
-    Nat.card {g : G // g ^ 2 = 1} = Nat.card {h : H // h ^ 2 = 1} :=
-  Nat.card_congr <| f.toEquiv.subtypeEquiv fun g ↦ by
-    rw [← f.map_eq_one_iff, map_pow]
-    rfl
 
 lemma ZMod.card_mul_eq_zero_of_dvd {d : ℕ} [NeZero n] (hd : d ∣ n) :
     Nat.card {x : ZMod n // (d : ZMod n) * x = 0} = d := by

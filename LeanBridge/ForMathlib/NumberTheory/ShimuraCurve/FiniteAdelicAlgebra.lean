@@ -1,3 +1,4 @@
+import LeanBridge.ForMathlib.Algebra.Algebra.NatCast
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.EnhancedGroup
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.QuaternionOrder
 import Mathlib.RingTheory.OreLocalization.Ring
@@ -211,10 +212,6 @@ lemma completedOrderConj_mul_toCompletedOrder (hnγ : (n : B) * (γ : Bˣ) ∈ O
   exact (map_mul (Ideal.Quotient.mk _) _ _).symm.trans <| (congrArg _ h).trans (map_mul _ _ _)
 
 variable [Algebra ℚ B]
-
-lemma isUnit_natCast_of_ne_zero {k : ℕ} (hk : k ≠ 0) : IsUnit (k : B) := by
-  rw [← map_natCast (algebraMap ℚ B)]
-  exact (isUnit_iff_ne_zero.mpr (Nat.cast_ne_zero.mpr hk)).map _
 
 variable {c} in
 lemma eq_zero_of_natCast_mul_eq_zero {k : ℕ} (hk : k ≠ 0) (h : (k : O.completedOrder) * c = 0) :

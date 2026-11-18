@@ -1,10 +1,10 @@
-import Mathlib.Algebra.Polynomial.BigOperators
 import Mathlib.RingTheory.DedekindDomain.Ideal.Lemmas
 import Mathlib.RingTheory.DedekindDomain.IntegralClosure
 import Mathlib.RingTheory.Finiteness.Nakayama
 import LeanBridge.ForMathlib.NumberTheory.NumberField.WeilPolynomial.MultiplierRing
 import LeanBridge.ForMathlib.NumberTheory.NumberField.WeilPolynomial.OrderIndex
 import LeanBridge.ForMathlib.NumberTheory.NumberField.WeilPolynomial.SingularPrime
+import LeanBridge.ForMathlib.RingTheory.Artinian.Module
 
 /-!
 # The invertible maximal ideals of an order and its conductor
@@ -26,16 +26,11 @@ generated and spans `K` over `ℚ`, `𝒪_K` the maximal order, the integral clo
 
 The components are those of the decomposition `IsArtinianRing.equivPi` of a reduced Artinian ring
 into the product of its residue fields: `IsArtinianRing.single 𝔐 x` is the element with component
-`x` at `𝔐` and `0` elsewhere, and an element is integral exactly when all its components are.
-
-## Main definitions
-
-* `IsArtinianRing.single`: the element of a reduced Artinian ring with a single nonzero component.
+`x` at `𝔐` and `0` elsewhere, and an element is integral exactly when all its components are
+(`LeanBridge.ForMathlib.RingTheory.Artinian.Module`).
 
 ## Main results
 
-* `IsArtinianRing.isIntegral_iff_forall_isIntegral_mk`: an element of a reduced Artinian ring is
-  integral exactly when its components are.
 * `Subalgebra.not_isUnit_of_relativeConductor_le` (LMFDB `av.endomorphism_ring_conductor`): a
   maximal ideal containing the conductor is not invertible.
 * `Subalgebra.isUnit_of_not_relativeConductor_le` (LMFDB `av.endomorphism_ring_conductor`): a
@@ -47,88 +42,11 @@ into the product of its residue fields: `IsArtinianRing.single 𝔐 x` is the el
   non-invertible maximal ideals.
 -/
 
-open Module Polynomial Submodule
+open Module Submodule
 
 open scoped nonZeroDivisors
 
 open Algebra (FormallyUnramified)
-
-namespace IsArtinianRing
-
-variable {A : Type*} [CommRing A] [IsArtinianRing A] [IsReduced A]
-
-open Classical in
-/-- The element of a reduced Artinian ring `A` with component `x` at the maximal ideal `𝔐` and `0`
-at the others, in the decomposition of `A` into the product of its residue fields
-(`IsArtinianRing.equivPi`). -/
-noncomputable def single (𝔐 : MaximalSpectrum A) (x : A ⧸ 𝔐.asIdeal) : A :=
-  (equivPi A).symm (Pi.single 𝔐 x)
-
-variable {𝔐 : MaximalSpectrum A}
-
-lemma mk_single_self (x : A ⧸ 𝔐.asIdeal) : ((single 𝔐 x : A) : A ⧸ 𝔐.asIdeal) = x := by
-  classical
-  exact (congrFun ((equivPi A).apply_symm_apply (Pi.single 𝔐 x)) 𝔐).trans (Pi.single_eq_same _ _)
-
-lemma mk_single_of_ne {𝔐' : MaximalSpectrum A} (h : 𝔐' ≠ 𝔐) (x : A ⧸ 𝔐.asIdeal) :
-    ((single 𝔐 x : A) : A ⧸ 𝔐'.asIdeal) = 0 := by
-  classical
-  exact (congrFun ((equivPi A).apply_symm_apply (Pi.single 𝔐 x)) 𝔐').trans
-    (Pi.single_eq_of_ne h _)
-
-lemma ext_mk {x y : A} (h : ∀ 𝔐 : MaximalSpectrum A, (x : A ⧸ 𝔐.asIdeal) = y) : x = y :=
-  (equivPi A).injective <| funext h
-
-lemma single_mul (x y : A ⧸ 𝔐.asIdeal) : single 𝔐 (x * y) = single 𝔐 x * single 𝔐 y := by
-  classical
-  simp only [single, Pi.single_mul, map_mul]
-
-lemma single_add (x y : A ⧸ 𝔐.asIdeal) : single 𝔐 (x + y) = single 𝔐 x + single 𝔐 y := by
-  classical
-  simp only [single, Pi.single_add, map_add]
-
-lemma single_zero : single 𝔐 (0 : A ⧸ 𝔐.asIdeal) = 0 := by
-  classical
-  simp only [single, Pi.single_zero, map_zero]
-
-lemma single_mk (x : A) : single 𝔐 (x : A ⧸ 𝔐.asIdeal) = x * single 𝔐 1 := by
-  refine ext_mk fun 𝔐' ↦ ?_
-  rw [map_mul]
-  by_cases h : 𝔐' = 𝔐
-  · subst h
-    rw [mk_single_self, mk_single_self, mul_one]
-  · rw [mk_single_of_ne h, mk_single_of_ne h, mul_zero]
-
-lemma sum_single_one [Fintype (MaximalSpectrum A)] : ∑ 𝔐 : MaximalSpectrum A, single 𝔐 1 = 1 := by
-  classical
-  simp only [single, ← map_sum, Finset.univ_sum_single]
-  exact map_one _
-
-open Ideal in
-/-- **An element of a reduced Artinian ring is integral exactly when its components are**, the
-components of `x` being its images in the residue fields of `A`: `x` is a root of the product of
-monic polynomials annihilating them. -/
-lemma isIntegral_iff_forall_isIntegral_mk {R : Type*} [CommRing R] [Algebra R A] (x : A) :
-    IsIntegral R x ↔ ∀ 𝔐 : MaximalSpectrum A, IsIntegral R (x : A ⧸ 𝔐.asIdeal) := by
-  refine ⟨fun hx 𝔐 ↦ hx.map (Quotient.mkₐ R 𝔐.asIdeal), fun h ↦ ?_⟩
-  have hfin : Fintype (MaximalSpectrum A) := Fintype.ofFinite _
-  choose p hp hpx using h
-  refine ⟨∏ 𝔐, p 𝔐, monic_prod_of_monic _ _ fun 𝔐 _ ↦ hp 𝔐, ?_⟩
-  refine (equivPi A).injective <| funext fun 𝔐 ↦ ?_
-  rw [map_zero, Pi.zero_apply, equivPi_apply, hom_eval₂, eval₂_finsetProd,
-    ← Quotient.algebraMap_eq]
-  exact Finset.prod_eq_zero (Finset.mem_univ 𝔐) (hpx 𝔐)
-
-lemma isIntegral_single {R : Type*} [CommRing R] [Algebra R A] {x : A ⧸ 𝔐.asIdeal}
-    (hx : IsIntegral R x) : IsIntegral R (single 𝔐 x) := by
-  refine (isIntegral_iff_forall_isIntegral_mk _).mpr fun 𝔐' ↦ ?_
-  by_cases h : 𝔐' = 𝔐
-  · subst h
-    rwa [mk_single_self]
-  · rw [mk_single_of_ne h]
-    exact isIntegral_zero
-
-end IsArtinianRing
 
 namespace Subalgebra
 
@@ -195,7 +113,6 @@ lemma isIntegral_mk {𝔐 : MaximalSpectrum K} (m : R) : IsIntegral ℤ ((m : K)
   (le_integralClosure_of_fg IsLattice.fg m.2).map (Quotient.mkₐ ℤ 𝔐.asIdeal)
 
 lemma exists_intCast_mem (𝔪 : Ideal R) [𝔪.IsMaximal] : ∃ n : ℤ, n ≠ 0 ∧ (n : R) ∈ 𝔪 := by
-  have hfin : Module.Finite ℤ R := .equiv R.toSubmoduleEquiv
   have hmax : (𝔪.under ℤ).IsMaximal := Ideal.isMaximal_under_of_isIntegral_of_isMaximal 𝔪
   rcases Submodule.exists_mem_ne_zero_of_ne_bot
     (Ring.ne_bot_of_isMaximal_of_not_isField hmax Int.not_isField) with ⟨n, hn, hn0⟩
@@ -240,9 +157,8 @@ lemma single_mem_smul_span (𝔪 : Ideal R) (𝔐 : MaximalSpectrum K)
 
 variable [Algebra.Etale ℚ K]
 
-lemma isUnit_natCast_maximalOrderIndex : IsUnit (R.maximalOrderIndex : K) := by
-  rw [← map_natCast (algebraMap ℚ K)]
-  exact (isUnit_iff_ne_zero.mpr (Nat.cast_ne_zero.mpr R.maximalOrderIndex_pos.ne')).map _
+lemma isUnit_natCast_maximalOrderIndex : IsUnit (R.maximalOrderIndex : K) :=
+  isUnit_natCast_of_ne_zero R.maximalOrderIndex_pos.ne'
 
 lemma one_notMem_smul_span_integralClosure (𝔪 : Ideal R) [h𝔪 : 𝔪.IsMaximal] :
     (1 : K) ∉ 𝔪 • span R (integralClosure ℤ K : Set K) := fun h1 ↦ by
@@ -388,18 +304,12 @@ lemma isUnit_of_not_relativeConductor_le {𝔪 : Ideal R} [h𝔪 : 𝔪.IsMaxima
   rcases hm0 with ⟨m₀, hm₀, hm₀𝔪⟩
   rcases R.exists_natCast_mul_mem_of_span_eq_top (IsLattice.span_eq_top (M := toSubmodule R))
     ((c : K) * z) with ⟨N, hN0, hN⟩
-  have hNK : IsUnit (N : K) := by
-    rw [← map_natCast (algebraMap ℚ K)]
-    exact (isUnit_iff_ne_zero.mpr (Nat.cast_ne_zero.mpr hN0)).map _
   have hJ : IsFractional R⁰ (span R {1, (c : K) * z}) := by
-    refine ⟨(N : R), mem_nonZeroDivisors_iff_right.mpr fun x hx ↦ Subtype.ext ?_, fun b hb ↦ ?_⟩
-    · have hx' : (x : K) * N = 0 * N := by
-        simpa using congrArg Subtype.val hx
-      exact hNK.mul_right_cancel hx'
-    · rcases mem_span_pair.mp hb with ⟨s, t, rfl⟩
-      refine ⟨N * s + t * ⟨_, hN⟩, ?_⟩
-      simp [Algebra.smul_def]
-      ring1
+    refine ⟨(N : R), R.natCast_mem_nonZeroDivisors hN0, fun b hb ↦ ?_⟩
+    rcases mem_span_pair.mp hb with ⟨s, t, rfl⟩
+    refine ⟨N * s + t * ⟨_, hN⟩, ?_⟩
+    simp [Algebra.smul_def]
+    ring1
   let J : FractionalIdeal R⁰ K := ⟨span R {1, (c : K) * z}, hJ⟩
   have hJ1 : (1 : K) ∈ J := subset_span (Set.mem_insert _ _)
   have hJw : (c : K) * z ∈ J := subset_span (Set.mem_insert_of_mem _ rfl)
