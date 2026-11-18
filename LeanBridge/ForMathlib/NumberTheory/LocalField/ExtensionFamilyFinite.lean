@@ -9,9 +9,10 @@ residue degree `f`, ramification index `ε p ^ w` and Swan slopes those of `I`
 (`IsNonarchimedeanLocalField.HerbrandInvariant.family`), the Swan slopes of an extension being
 Deligne's positive upper ramification breaks (`IsNonarchimedeanLocalField.visibleSwanSlopes`); that
 these are the slopes of the lower convex hull of LMFDB `lf.slopes`, through which the knowl defines
-the family, is not proved. Its field count (LMFDB `lf.family_field_count`) is its number of elements
-and its masses (LMFDB `lf.family_mass`) are sums over its elements, which presupposes that `I / K`
-is finite. We prove that it is.
+the family, is `IsNonarchimedeanLocalField.hullWildSwanSlopes_eq_visibleSwanSlopes` (in a later
+file). Its field count (LMFDB `lf.family_field_count`) is its number of elements and its masses
+(LMFDB `lf.family_mass`) are sums over its elements, which presupposes that `I / K` is finite. We
+prove that it is.
 
 At the residue characteristic `p` of `K`, Monge's representation theorem
 (`IsNonarchimedeanLocalField.HerbrandInvariant.mongeRepresentation`) writes every class in a

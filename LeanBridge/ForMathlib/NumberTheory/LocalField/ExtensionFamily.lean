@@ -25,7 +25,8 @@ Swan slopes of the Galois extension `L / K`, `IsNonarchimedeanLocalField.swanSlo
 LMFDB reads them off the lower convex hull of the points `([E : K], v_K(disc(E / K)))` of the
 subextensions `E` of `L / K`, a segment of slope `1 + s` from `n_1` to `n_2 = p ^ m n_1` giving the
 Swan slope `s` `m` times (LMFDB `lf.slopes`), and states that these are the positive upper breaks;
-this agreement is not proved here.
+this agreement is `IsNonarchimedeanLocalField.hullWildSwanSlopes_eq_visibleSwanSlopes`, in a later
+file.
 
 For a `p`-adic field `K` (of characteristic zero) and a Herbrand invariant `I = (r_1, …, r_w)_ε^f`,
 the family `I / K` is the set of classes of the extensions `L / K` of residue degree `f`,

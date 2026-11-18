@@ -651,7 +651,7 @@ lemma exists_ram_eq_herbrandOfSubgroup {k : ℕ} (hk₀ : 1 ≤ k)
 and the first part of Proposition 3): let `f` be a monic Eisenstein polynomial of degree `n` over
 `𝒪[K]` with a root `y ∈ 𝒪[L]` generating `L` over `K`, in a tower `M / L / K` with `M / K` finite
 Galois. If `i < n` and `v_K(f_i) ≤ j + 1`, then `m_k ≤ (j n + i) / n` for the index `k` of `i` and
-the means `m_k` (LMFDB `lf.rams`) of the Herbrand invariant of `L / K`. -/
+the means `m_k` (LMFDB `lf.means`) of the Herbrand invariant of `L / K`. -/
 lemma mean_pointIndex_le (hm : f.Monic) (hf : f.IsEisensteinAt 𝓂[K])
     (hroot : (f.map (algebraMap 𝒪[K] 𝒪[L])).IsRoot y) (hgen : K⟮(y : L)⟯ = ⊤) {i j : ℕ}
     (hi : i < f.natDegree) (hj : addVal 𝒪[K] (f.coeff i) ≤ (j + 1 : ℕ)) :

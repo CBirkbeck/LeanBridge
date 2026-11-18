@@ -245,12 +245,11 @@ lemma hullWildSwanSlopes_eq_visibleSwanSlopes : hullWildSwanSlopes L = visibleSw
   exact (Multiset.map_congr rfl fun x _ ↦ add_sub_cancel_right x 1).trans (Multiset.map_id _)
 
 /-- **The Swan slopes of a Galois extension are its upper ramification breaks** (LMFDB
-`lf.slopes`): for a finite Galois extension `L / K` of nonarchimedean local fields inside `K̄`, the
-wild Swan slopes read off the lower convex hull of the points `(n_E, c_E)` of the subextensions are
-the positive upper ramification breaks of `Gal(L / K)` (Serre, *Local Fields*, IV), with
-multiplicities. -/
-lemma hullWildSwanSlopes_eq_swanSlopesOfIsGalois [IsGalois K L] :
-    hullWildSwanSlopes L = swanSlopesOfIsGalois K L := by
+`lf.slopes`): for a finite Galois extension `E / K` of nonarchimedean local fields inside `K̄`, the
+wild Swan slopes read off the lower convex hull of the points of the subextensions are the positive
+upper ramification breaks of `Gal(E / K)` (Serre, *Local Fields*, IV), with multiplicities. -/
+lemma hullWildSwanSlopes_eq_swanSlopesOfIsGalois (E : IntermediateField K (AlgebraicClosure K))
+    [FiniteDimensional K E] [IsGalois K E] : hullWildSwanSlopes E = swanSlopesOfIsGalois K E := by
   rw [hullWildSwanSlopes_eq_visibleSwanSlopes, visibleSwanSlopes_eq_swanSlopesOfIsGalois]
 
 /-- **The Artin slope content through the upper ramification breaks** (LMFDB `lf.slopes`): the

@@ -551,11 +551,12 @@ extension with Herbrand invariant `I`, the `A`-terms and the leading term giving
 ramification polygon and the other terms lying on or above it (Monge, §2.2;
 `isInvariantOf_of_mem_mongeSemicanonicalPolynomials`), as the mass formula of LMFDB
 `lf.eisenstein_diagram` presupposes. The converse needs `I / K` not to be empty, which makes `I`
-admissible (`isAdmissible_of_isInvariantOf`), since the data of a Herbrand invariant need not be
-those of an extension of `K`: for `K = ℚ_2` and `I = (5)_1^1` the family is empty (a ramified
-quadratic extension of `ℚ_2` has Swan slope `1` or `2`), while the semicanonical polynomials,
-Eisenstein of degree `2`, generate ramified quadratic extensions. `K_f` carries Tau Ceti's
-spectral-norm local-field structure. The second statement of Monge's Theorem 1, the number
+admissible (`isAdmissible_of_isInvariantOf`) and holds exactly when `I` is compatible with `v_K(p)`
+(`family_nonempty_iff_isCompatible`, in a later file), since the data of a Herbrand invariant need
+not be those of an extension of `K`: for `K = ℚ_2` and `I = (5)_1^1` the family is empty (a
+ramified quadratic extension of `ℚ_2` has Swan slope `1` or `2`), while the semicanonical
+polynomials, Eisenstein of degree `2`, generate ramified quadratic extensions. `K_f` carries Tau
+Ceti's spectral-norm local-field structure. The second statement of Monge's Theorem 1, the number
 `B_{L/K_f} / #Aut(L / K_f)` of reduced polynomials generating `L`, is not claimed here and is not
 proved, and neither is the closing sentence of the knowl, that the ambiguity of the family (LMFDB
 `lf.family_ambiguity`) bounds the number of semicanonical polynomials of an extension in `I / K`. -/

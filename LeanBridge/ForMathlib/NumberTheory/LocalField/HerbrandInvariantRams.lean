@@ -8,7 +8,10 @@ For a Herbrand invariant `I = (r_1, …, r_w)_ε^f` at a prime `p`, given as dat
 (`IsNonarchimedeanLocalField.HerbrandInvariant`), we define its means `m_k`, its small rams
 `r_k^* = (p - 1) r_k / (ε p ^ k)` and tiny rams `r_k' = r_k / (ε p ^ k)`, the geometric and
 arithmetic rams relative to an absolute ramification index `e_K`, compatibility of a `p`-adic field
-with `I`, and the sets `𝓡_k^z` of possible rams.
+with `I`, and the sets `𝓡_k^z` of LMFDB `lf.rams` as the knowl writes them. The sets of possible
+rams, with the arithmetic ram `p z / (p - 1)` in `𝓡_1^z`, are
+`IsNonarchimedeanLocalField.HerbrandInvariant.possibleRamSet`, in
+`LeanBridge.ForMathlib.NumberTheory.LocalField.PossibleRamSet`.
 
 ## Main definitions
 
@@ -21,7 +24,8 @@ with `I`, and the sets `𝓡_k^z` of possible rams.
   compatibility with a ramification index `e_K`.
 * `IsNonarchimedeanLocalField.HerbrandInvariant.IsCompatibleWith` (LMFDB `lf.herbrand_invariant`):
   compatibility with a `p`-adic field `K`, which depends only on `e_K` by definition.
-* `IsNonarchimedeanLocalField.HerbrandInvariant.ramSet` (LMFDB `lf.rams`): the sets `𝓡_k^z`.
+* `IsNonarchimedeanLocalField.HerbrandInvariant.ramSet` (LMFDB `lf.rams`): the sets `𝓡_k^z`, as
+  the knowl writes them.
 
 ## Main theorems
 
@@ -111,9 +115,12 @@ def IsCompatibleWith (K : Type*) [Field K] [ValuativeRel K] [TopologicalSpace K]
   I.IsCompatible (TauCeti.absoluteRamificationIndex K p)
 
 variable (p) in
-/-- The set `𝓡_k^z` (LMFDB `lf.rams`): the positive rationals `α` with denominator dividing
-`p ^ k - 1` and numerator prime to `p`, with `α < p z / (p - 1)` if `k > 1` and
-`α ≤ p z / (p - 1)` if `k = 1`. -/
+/-- The set `𝓡_k^z` of LMFDB `lf.rams` as the knowl writes it: the positive rationals `α` with
+denominator dividing `p ^ k - 1` and numerator prime to `p`, with `α < p z / (p - 1)` if `k > 1` and
+`α ≤ p z / (p - 1)` if `k = 1`. For a natural number `z` the boundary value `p z / (p - 1)` is not
+in it, its numerator being divisible by `p`, although it is the arithmetic ram of LMFDB
+`lf.herbrand_invariant` and occurs; the set of possible rams is
+`IsNonarchimedeanLocalField.HerbrandInvariant.possibleRamSet`, which adds it for `k = 1`. -/
 def ramSet (k : ℕ) (z : ℚ) : Set ℚ :=
   {α | 0 < α ∧ α.den ∣ p ^ k - 1 ∧ ¬(p : ℤ) ∣ α.num ∧
     if k = 1 then α ≤ p * z / (p - 1) else α < p * z / (p - 1)}
