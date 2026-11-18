@@ -614,7 +614,7 @@ Most, but not all, local number fields have Galois splitting models.
 With a Galois splitting model, the computation of various invariants related to $`K`, such as the Galois invariants, can be carried out more easily using $`f`.
 :::
 
-:::definition "lf.heights"
+:::definition "lf.heights" (lean := "IsNonarchimedeanLocalField.extensionHeight, IsNonarchimedeanLocalField.ramificationTower, IsNonarchimedeanLocalField.heightSet, IsNonarchimedeanLocalField.extensionHeight_eq_zero_iff, IsNonarchimedeanLocalField.extensionHeight_pos_iff, IsNonarchimedeanLocalField.extensionHeight_eq_mul_extensionMean, IsNonarchimedeanLocalField.map_inseparabilityIndex_zero, IsNonarchimedeanLocalField.mem_polygonEdges_ramificationPolygonOf_iff_exists_ramSubextension")
 *Heights of an extension.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.heights))
 
 Let $`L/K` be an extension of {bpref "lf.padic_field"}[$`p`-adic fields].
@@ -727,7 +727,7 @@ ramification index $`e_K` of $`K`.
 Depends on: {uses "lf.means"}[] {uses "lf.padic_field"}[] {uses "lf.ramification_index"}[] {uses "lf.rams"}[] {uses "lf.residue_field"}[] {uses "lf.residue_field_degree"}[] {uses "lf.slopes"}[]
 :::
 
-:::definition "lf.hidden_slopes"
+:::definition "lf.hidden_slopes" (lean := "IsNonarchimedeanLocalField.galoisSwanSlopes, IsNonarchimedeanLocalField.hiddenSwanSlopes, IsNonarchimedeanLocalField.galoisArtinSlopes, IsNonarchimedeanLocalField.hiddenArtinSlopes, IsNonarchimedeanLocalField.hullWildSwanSlopes_add_hiddenSwanSlopes, IsNonarchimedeanLocalField.map_add_one_galoisSwanSlopes, IsNonarchimedeanLocalField.map_add_one_hiddenSwanSlopes, IsNonarchimedeanLocalField.hullWildSwanSlopes_le_of_le")
 *Hidden slopes of an extension.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.hidden_slopes))
 
 Let $`L/K` be an extension of {bpref "lf.padic_field"}[$`p`-adic fields]
@@ -1131,7 +1131,7 @@ leading coefficient of the next.
 Depends on: {uses "lf.indices_of_inseparability"}[] {uses "lf.ramification_polygon"}[] {uses "lf.residual_polynomials"}[]
 :::
 
-:::definition "lf.rams"
+:::definition "lf.rams" (lean := "IsNonarchimedeanLocalField.visibleRams, IsNonarchimedeanLocalField.HerbrandInvariant.smallRam, IsNonarchimedeanLocalField.HerbrandInvariant.tinyRam, IsNonarchimedeanLocalField.mem_ramsOfIsGalois_iff_exists_addVal, IsNonarchimedeanLocalField.HerbrandInvariant.IsInvariantOf.den_dvd_pow_ramMultiplicity_sub_one, IsNonarchimedeanLocalField.mem_possibleRamSet_iff_exists_visibleRams_eq_replicate, IsNonarchimedeanLocalField.finrank_ramSubextension_of_ram_lt, IsNonarchimedeanLocalField.HerbrandInvariant.family_nonempty_iff_forall_mem_possibleRamSet")
 *Rams.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.rams))
 
 Let $`L/K` be an extension of {bpref "lf.padic_field"}[$`p`-adic fields]
@@ -1468,7 +1468,7 @@ Tau Ceti Review: [`TauCeti.IsTotallyRamified`](https://taucetiproject.org/review
 Depends on: {uses "lf.padic_field"}[] {uses "lf.ramification_index"}[]
 :::
 
-:::definition "lf.visible_slopes"
+:::definition "lf.visible_slopes" (lean := "IsNonarchimedeanLocalField.slopesPolygon, IsNonarchimedeanLocalField.hullWildArtinSlopes, IsNonarchimedeanLocalField.hullWildSwanSlopes, IsNonarchimedeanLocalField.div_eq_pow_slopeMultiplicity, IsNonarchimedeanLocalField.slopeMultiplicity_pos, IsNonarchimedeanLocalField.hullWildArtinSlopes_eq_wildArtinSlopesOfIsGalois, IsNonarchimedeanLocalField.hullWildArtinSlopes_le_wildArtinSlopes, IsNonarchimedeanLocalField.hiddenArtinSlopes_eq_wildArtinSlopes_sub")
 *Visible slopes.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.visible_slopes))
 
 Let $`K` be a finite extension of $`\Q_p`.  If we plot points $`(n_E,c_E)` for each intermediate field $`\Q_p\subseteq E \subseteq K`, including $`K` and $`\Q_p`, where $`n_E=[E:\Q_p]` and $`c_E` its {bpref "lf.discriminant_exponent"}[discriminant] exponent. Take the lower convex hull of these points.

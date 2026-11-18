@@ -3229,6 +3229,16 @@
     "IsNonarchimedeanLocalField.one_div_sub_one_div_eq_tameDegree": "LeanBridge.ForMathlib.NumberTheory.LocalField.GaloisMeanSlope",
     "IsNonarchimedeanLocalField.wildArtinSlopesOfIsGalois": "LeanBridge.ForMathlib.NumberTheory.LocalField.WildArtinSlopes"
   },
+  "lf.heights": {
+    "IsNonarchimedeanLocalField.extensionHeight": "LeanBridge.ForMathlib.NumberTheory.LocalField.SlopePolygonMeans",
+    "IsNonarchimedeanLocalField.ramificationTower": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionHeights",
+    "IsNonarchimedeanLocalField.heightSet": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionHeights",
+    "IsNonarchimedeanLocalField.extensionHeight_eq_zero_iff": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionHeights",
+    "IsNonarchimedeanLocalField.extensionHeight_pos_iff": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionHeights",
+    "IsNonarchimedeanLocalField.extensionHeight_eq_mul_extensionMean": "LeanBridge.ForMathlib.NumberTheory.LocalField.SlopePolygonMeans",
+    "IsNonarchimedeanLocalField.map_inseparabilityIndex_zero": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionHeights",
+    "IsNonarchimedeanLocalField.mem_polygonEdges_ramificationPolygonOf_iff_exists_ramSubextension": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionHeights"
+  },
   "lf.herbrand_function": {
     "IsNonarchimedeanLocalField.HerbrandInvariant.herbrandFunction": "LeanBridge.ForMathlib.NumberTheory.LocalField.HerbrandInvariantFamily",
     "IsNonarchimedeanLocalField.HerbrandInvariant.swanSlope": "LeanBridge.ForMathlib.NumberTheory.LocalField.HerbrandInvariantFamily",
@@ -3248,6 +3258,16 @@
     "IsNonarchimedeanLocalField.HerbrandInvariant.swanSlope_succ_eq": "LeanBridge.ForMathlib.NumberTheory.LocalField.HerbrandInvariantCompatibility",
     "IsNonarchimedeanLocalField.HerbrandInvariant.ram_succ_eq": "LeanBridge.ForMathlib.NumberTheory.LocalField.HerbrandInvariantCompatibility",
     "IsNonarchimedeanLocalField.HerbrandInvariant.mean_eq_sum_swanSlope": "LeanBridge.ForMathlib.NumberTheory.LocalField.HerbrandInvariantCompatibility"
+  },
+  "lf.hidden_slopes": {
+    "IsNonarchimedeanLocalField.galoisSwanSlopes": "LeanBridge.ForMathlib.NumberTheory.LocalField.HiddenSlopes",
+    "IsNonarchimedeanLocalField.hiddenSwanSlopes": "LeanBridge.ForMathlib.NumberTheory.LocalField.HiddenSlopes",
+    "IsNonarchimedeanLocalField.galoisArtinSlopes": "LeanBridge.ForMathlib.NumberTheory.LocalField.HiddenSlopes",
+    "IsNonarchimedeanLocalField.hiddenArtinSlopes": "LeanBridge.ForMathlib.NumberTheory.LocalField.HiddenSlopes",
+    "IsNonarchimedeanLocalField.hullWildSwanSlopes_add_hiddenSwanSlopes": "LeanBridge.ForMathlib.NumberTheory.LocalField.HiddenSlopes",
+    "IsNonarchimedeanLocalField.map_add_one_galoisSwanSlopes": "LeanBridge.ForMathlib.NumberTheory.LocalField.HiddenSlopes",
+    "IsNonarchimedeanLocalField.map_add_one_hiddenSwanSlopes": "LeanBridge.ForMathlib.NumberTheory.LocalField.HiddenSlopes",
+    "IsNonarchimedeanLocalField.hullWildSwanSlopes_le_of_le": "LeanBridge.ForMathlib.NumberTheory.LocalField.SubextensionSlopes"
   },
   "lf.inertia_group": {
     "ValuationSubring.inertiaSubgroup": "Mathlib.RingTheory.Valuation.RamificationGroup",
@@ -3323,6 +3343,16 @@
     "IsNonarchimedeanLocalField.HerbrandInvariant.IsInvariantOf.ramificationPolygonOf_minpoly": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionRamificationPolygon",
     "IsNonarchimedeanLocalField.setOf_mem_segmentSlopes_ramificationPolygonOf_minpoly_ne_zero": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionRamificationPolygon"
   },
+  "lf.rams": {
+    "IsNonarchimedeanLocalField.visibleRams": "LeanBridge.ForMathlib.NumberTheory.LocalField.DeligneRamificationBreaks",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.smallRam": "LeanBridge.ForMathlib.NumberTheory.LocalField.HerbrandInvariantRams",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.tinyRam": "LeanBridge.ForMathlib.NumberTheory.LocalField.HerbrandInvariantRams",
+    "IsNonarchimedeanLocalField.mem_ramsOfIsGalois_iff_exists_addVal": "LeanBridge.ForMathlib.NumberTheory.LocalField.GaloisRamsUniformizer",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.IsInvariantOf.den_dvd_pow_ramMultiplicity_sub_one": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyNonempty",
+    "IsNonarchimedeanLocalField.mem_possibleRamSet_iff_exists_visibleRams_eq_replicate": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyNonempty",
+    "IsNonarchimedeanLocalField.finrank_ramSubextension_of_ram_lt": "LeanBridge.ForMathlib.NumberTheory.LocalField.RamSubextension",
+    "IsNonarchimedeanLocalField.HerbrandInvariant.family_nonempty_iff_forall_mem_possibleRamSet": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyNonempty"
+  },
   "lf.residue_field_degree": {
     "TauCeti.inertiaDegree": "TauCeti.NumberTheory.LocalField.InertiaDegree"
   },
@@ -3394,6 +3424,16 @@
   "lf.unramified_totally_ramified_tower": {
     "TauCeti.IsTotallyRamified": "TauCeti.NumberTheory.LocalField.RamificationIndex",
     "TauCeti.unramifiedExtension": "TauCeti.NumberTheory.LocalField.Unramified.Existence"
+  },
+  "lf.visible_slopes": {
+    "IsNonarchimedeanLocalField.slopesPolygon": "LeanBridge.ForMathlib.NumberTheory.LocalField.VisibleSlopes",
+    "IsNonarchimedeanLocalField.hullWildArtinSlopes": "LeanBridge.ForMathlib.NumberTheory.LocalField.VisibleSlopes",
+    "IsNonarchimedeanLocalField.hullWildSwanSlopes": "LeanBridge.ForMathlib.NumberTheory.LocalField.VisibleSlopes",
+    "IsNonarchimedeanLocalField.div_eq_pow_slopeMultiplicity": "LeanBridge.ForMathlib.NumberTheory.LocalField.VisibleSlopes",
+    "IsNonarchimedeanLocalField.slopeMultiplicity_pos": "LeanBridge.ForMathlib.NumberTheory.LocalField.HiddenSlopes",
+    "IsNonarchimedeanLocalField.hullWildArtinSlopes_eq_wildArtinSlopesOfIsGalois": "LeanBridge.ForMathlib.NumberTheory.LocalField.HiddenSlopes",
+    "IsNonarchimedeanLocalField.hullWildArtinSlopes_le_wildArtinSlopes": "LeanBridge.ForMathlib.NumberTheory.LocalField.HiddenSlopes",
+    "IsNonarchimedeanLocalField.hiddenArtinSlopes_eq_wildArtinSlopes_sub": "LeanBridge.ForMathlib.NumberTheory.LocalField.HiddenSlopes"
   },
   "lf.wild_inertia_group": {
     "TauCeti.LocalFieldsRamification.lowerRamificationGroup": "TauCeti.NumberTheory.LocalField.RamificationGroup",
