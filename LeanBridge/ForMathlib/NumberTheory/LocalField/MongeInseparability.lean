@@ -393,7 +393,7 @@ lemma inseparabilityIndex_eq_of_isInvariantOf [CharZero K] (hp : ringChar 𝓀[K
   have hKM : ValuativeExtension K (galoisClosure K E) :=
     finiteIntermediateField_valuativeExtension K _ _
   have hEM : E ≤ galoisClosure K E :=
-    galoisClosure_eq_normalClosure (F := K) E ▸ E.le_normalClosure
+    le_galoisClosure E
   let aEM : Algebra E (galoisClosure K E) :=
     (inclusion hEM).toAlgebra
   have sEM : IsScalarTower K E (galoisClosure K E) :=

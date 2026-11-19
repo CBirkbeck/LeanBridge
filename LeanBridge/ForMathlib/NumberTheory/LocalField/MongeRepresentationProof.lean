@@ -372,7 +372,7 @@ lemma exists_adjoin_of_isInvariantOf (hp : ringChar 𝓀[K] = p) (hFE : F ≤ E)
   have hKM : ValuativeExtension K (galoisClosure K E) :=
     finiteIntermediateField_valuativeExtension K _ _
   have hEM : E ≤ galoisClosure K E :=
-    galoisClosure_eq_normalClosure (F := K) E ▸ E.le_normalClosure
+    le_galoisClosure E
   let aFE : Algebra F E :=
     (inclusion hFE).toAlgebra
   let aFM : Algebra F (galoisClosure K E) :=
@@ -472,7 +472,7 @@ lemma isAdmissible_of_isInvariantOf (hp : ringChar 𝓀[K] = p) (hFE : F ≤ E)
   have hKM : ValuativeExtension K (galoisClosure K E) :=
     finiteIntermediateField_valuativeExtension K _ _
   have hEM : E ≤ galoisClosure K E :=
-    galoisClosure_eq_normalClosure (F := K) E ▸ E.le_normalClosure
+    le_galoisClosure E
   let aFE : Algebra F E :=
     (inclusion hFE).toAlgebra
   let aFM : Algebra F (galoisClosure K E) :=
@@ -571,7 +571,7 @@ lemma isInvariantOf_of_mem_mongeSemicanonicalPolynomials (hp : ringChar 𝓀[K] 
   have hKM : ValuativeExtension K (galoisClosure K E) :=
     finiteIntermediateField_valuativeExtension K _ _
   have hEM : E ≤ galoisClosure K E :=
-    galoisClosure_eq_normalClosure (F := K) E ▸ E.le_normalClosure
+    le_galoisClosure E
   let aFE : Algebra F E :=
     (inclusion hFE).toAlgebra
   let aFM : Algebra F (galoisClosure K E) :=

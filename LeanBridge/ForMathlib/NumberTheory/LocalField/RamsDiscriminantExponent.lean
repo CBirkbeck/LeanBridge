@@ -197,8 +197,7 @@ lemma natCast_discriminantExponent_visibleHerbrandInvariant :
     finiteIntermediateField_isNonarchimedeanLocalField K _ _
   have hKM : ValuativeExtension K (Algebra.galoisClosure K E) :=
     finiteIntermediateField_valuativeExtension K _ _
-  have hEM : E ≤ Algebra.galoisClosure K E :=
-    Algebra.galoisClosure_eq_normalClosure (F := K) E ▸ E.le_normalClosure
+  have hEM : E ≤ Algebra.galoisClosure K E := Algebra.le_galoisClosure E
   let a : Algebra E (Algebra.galoisClosure K E) := (IntermediateField.inclusion hEM).toAlgebra
   have hs : IsScalarTower K E (Algebra.galoisClosure K E) := .of_algebraMap_eq fun _ ↦ rfl
   have hv : ValuativeExtension E (Algebra.galoisClosure K E) :=

@@ -171,7 +171,7 @@ knowl states this for `L / K` totally ramified; the indices of inseparability of
 those of `L` over its maximal unramified subextension, it holds for every `L / K`. -/
 lemma map_inseparabilityIndex_zero :
     (inseparabilityIndex K L 0).map ((↑) : ℤ → ℚ) = ((extensionHeight K L : ℚ) : WithTop ℚ) := by
-  have hLM : L ≤ Algebra.galoisClosure K L := le_galoisClosure L
+  have hLM : L ≤ Algebra.galoisClosure K L := Algebra.le_galoisClosure L
   let a : Algebra L (Algebra.galoisClosure K L) := (IntermediateField.inclusion hLM).toAlgebra
   have hs : IsScalarTower K L (Algebra.galoisClosure K L) := .of_algebraMap_eq fun _ ↦ rfl
   have hv : ValuativeExtension L (Algebra.galoisClosure K L) :=

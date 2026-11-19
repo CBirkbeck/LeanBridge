@@ -53,12 +53,21 @@ positive upper ramification breaks of Serre's *Local Fields*, Chapter IV.
   slope.
 * `IsNonarchimedeanLocalField.mem_hullWildSwanSlopes_iff` (LMFDB `lf.slopes`): the wild Swan slopes
   are the positive Swan slopes.
+* `IsNonarchimedeanLocalField.eq_zero_or_eq_one_of_mem_hullArtinSlopes` and
+  `IsNonarchimedeanLocalField.mem_hullWildArtinSlopes_iff` (LMFDB `lf.slopes`,
+  `lf.visible_slopes`): an Artin slope at most `1` is `0` or `1`, and the wild Artin slopes are the
+  Artin slopes greater than `1`.
+* `IsNonarchimedeanLocalField.count_hullWildArtinSlopes` and
+  `IsNonarchimedeanLocalField.slopeMultiplicity_pos` (LMFDB `lf.visible_slopes`): a wild Artin
+  slope is listed `m` times, for the multiplicity `m` of its segment, and `m ≥ 1`.
 * `IsNonarchimedeanLocalField.hullWildArtinSlopes_eq_visibleArtinSlopes` and
   `IsNonarchimedeanLocalField.hullWildSwanSlopes_eq_visibleSwanSlopes` (LMFDB `lf.slopes`): the wild
   Swan slopes are the positive upper ramification breaks of `L / K`, after Deligne, with
   multiplicities.
 * `IsNonarchimedeanLocalField.hullWildSwanSlopes_eq_swanSlopesOfIsGalois` (LMFDB `lf.slopes`): for
   `L / K` Galois they are the positive upper ramification breaks of `Gal(L / K)`.
+* `IsNonarchimedeanLocalField.hullWildArtinSlopes_eq_wildArtinSlopesOfIsGalois` (LMFDB
+  `lf.visible_slopes`): for `L / K` Galois the wild Artin slopes are those of `Gal(L / K)`.
 * `IsNonarchimedeanLocalField.visibleArtinSlopeContent_eq` and
   `IsNonarchimedeanLocalField.visibleSwanSlopeContent_eq` (LMFDB `lf.slopes`): the slope contents
   through the upper ramification breaks.
@@ -77,49 +86,6 @@ attribute [local instance] finiteIntermediateFieldValuativeRel finiteIntermediat
   finiteIntermediateField_isNonarchimedeanLocalField finiteIntermediateField_valuativeExtension
 
 namespace IsNonarchimedeanLocalField
-
-section Correspondence
-
-variable {F Ω : Type*} [Field F] [Field Ω] [Algebra F Ω] {L E N : IntermediateField F Ω}
-
-variable [IsGalois F N] in
-lemma finrank_eq_index_fixingSubgroup (h : E ≤ N) :
-    Module.finrank F E = (fixingSubgroup (N ≃ₐ[F] N) (((↑) : N → Ω) ⁻¹' E)).index := by
-  have hset :
-      ((IntermediateField.restrict h : IntermediateField F N) : Set N) = ((↑) : N → Ω) ⁻¹' E :=
-    Set.ext fun x ↦ IntermediateField.mem_restrict h x
-  rw [(IntermediateField.restrictAlgEquiv h).toLinearEquiv.finrank_eq,
-    IntermediateField.finrank_eq_fixingSubgroup_index, IntermediateField.fixingSubgroup, hset]
-
-variable [FiniteDimensional F N] in
-lemma fixingSubgroup_preimage_lift_fixedField (J : Subgroup (N ≃ₐ[F] N)) :
-    fixingSubgroup (N ≃ₐ[F] N) (((↑) : N → Ω) ⁻¹'
-      IntermediateField.lift (IntermediateField.fixedField J)) = J := by
-  have hset : ((↑) : N → Ω) ⁻¹' IntermediateField.lift (IntermediateField.fixedField J) =
-      (IntermediateField.fixedField J : Set N) :=
-    Set.ext fun x ↦ IntermediateField.mem_lift x
-  rw [hset]
-  exact IntermediateField.fixingSubgroup_fixedField J
-
-variable [FiniteDimensional F N] [IsGalois F N] in
-lemma lift_fixedField_le (hLN : L ≤ N) {J : Subgroup (N ≃ₐ[F] N)}
-    (hJ : fixingSubgroup (N ≃ₐ[F] N) (((↑) : N → Ω) ⁻¹' L) ≤ J) :
-    IntermediateField.lift (IntermediateField.fixedField J) ≤ L := by
-  have hset :
-      ((IntermediateField.restrict hLN : IntermediateField F N) : Set N) = ((↑) : N → Ω) ⁻¹' L :=
-    Set.ext fun x ↦ IntermediateField.mem_restrict hLN x
-  have hfix : IntermediateField.fixedField (fixingSubgroup (N ≃ₐ[F] N) (((↑) : N → Ω) ⁻¹' L)) =
-      IntermediateField.restrict hLN := by
-    rw [← hset]
-    exact IsGalois.fixedField_fixingSubgroup _
-  rintro _ ⟨y, hy, rfl⟩
-  exact (IntermediateField.mem_restrict hLN y).mp (hfix ▸ IntermediateField.fixedField_le hJ hy)
-
-end Correspondence
-
-lemma le_galoisClosure {F : Type*} [Field F] (L : IntermediateField F (AlgebraicClosure F)) :
-    L ≤ Algebra.galoisClosure F L :=
-  Algebra.galoisClosure_eq_normalClosure (F := F) L ▸ L.le_normalClosure
 
 variable {K : Type*} [Field K] [ValuativeRel K] [TopologicalSpace K] [IsNonarchimedeanLocalField K]
   (L : IntermediateField K (AlgebraicClosure K))
@@ -160,6 +126,8 @@ slopes minus `1`, with their multiplicities; they are its positive Swan slopes
 noncomputable def hullWildSwanSlopes : Multiset ℝ :=
   (hullWildArtinSlopes L).map (· - 1)
 
+section Hull
+
 variable [FiniteDimensional K L]
 
 /-- The **Artin slope content** `[a_1, …, a_w]_ε^f` (LMFDB `lf.slopes`) of a finite extension
@@ -184,7 +152,7 @@ lemma natCast_discriminantExponent_eq_subgroupDiscriminantExponent_fixingSubgrou
   rw [fixingSubgroup_preimage_eq_range_restrictScalarsHom h]
   exact natCast_discriminantExponent_eq_subgroupDiscriminantExponent E
 
-variable [Algebra.IsSeparable K L]
+variable [Algebra.IsSeparable K L] {s : ℝ}
 
 /-- **The points of the subextensions are the points of the subgroups**: for a finite separable
 extension `L / K` inside `K̄`, with Galois closure `M` in `K̄`, the points `(n_E, c_E)` of the
@@ -193,7 +161,7 @@ containing `Gal(M / L)`: `E` is the fixed field of `J`. -/
 lemma subextensionPoints_eq : subextensionPoints L = subgroupSlopePoints K
     (Algebra.galoisClosure K L)
     (fixingSubgroup _ (((↑) : Algebra.galoisClosure K L → AlgebraicClosure K) ⁻¹' L)) := by
-  have hLM : L ≤ Algebra.galoisClosure K L := le_galoisClosure L
+  have hLM : L ≤ Algebra.galoisClosure K L := Algebra.le_galoisClosure L
   ext q
   constructor
   · rintro ⟨E, hEL, hfin, hsep, rfl⟩
@@ -208,9 +176,9 @@ lemma subextensionPoints_eq : subextensionPoints L = subgroupSlopePoints K
         IntermediateField.lift (IntermediateField.fixedField J) ≤ Algebra.galoisClosure K L :=
       IntermediateField.lift_le _
     have hfin : FiniteDimensional K (IntermediateField.lift (IntermediateField.fixedField J)) :=
-      (IntermediateField.restrictAlgEquiv hle).symm.toLinearEquiv.finiteDimensional
+      IntermediateField.finiteDimensional_of_le hle
     have hsep : Algebra.IsSeparable K (IntermediateField.lift (IntermediateField.fixedField J)) :=
-      ⟨fun x ↦ (IsGalois.separable K (IntermediateField.inclusion hle x)).of_algHom _⟩
+      IntermediateField.isSeparable_of_le hle
     refine ⟨_, lift_fixedField_le hLM hJ, hfin, hsep, ?_⟩
     dsimp only
     rw [finrank_eq_index_fixingSubgroup hle, fixingSubgroup_preimage_lift_fixedField,
@@ -286,29 +254,11 @@ lemma div_eq_pow_slopeMultiplicity {q q' : ℝ × ℝ} (hq : q.1 < q'.1)
   have hτ : StrictMonoOn (fun t ↦ (subgroupSlope K (Algebra.galoisClosure K L) t : ℝ))
       (Iic ((largestLowerJump K (Algebra.galoisClosure K L)).toNat + 1)) :=
     strictMonoOn_subgroupSlope _ _
-  rcases hσ with ⟨hσ, r, r', hr, hrr, hslope⟩
-  rcases hS.exists_eq_of_mem_polygonEdges hτ hq hσ with ⟨t, ht, hlt, h₁, h₂, h₃⟩
-  rcases hS.exists_eq_of_mem_polygonEdges hτ hr (hrr ▸ hσ) with ⟨t', ht', hlt', h₁', -, h₃'⟩
-  have hI : Icc r.1 r'.1 = Icc q.1 q'.1 := by
-    simpa only [image_fst_segment hr.le, image_fst_segment hq.le] using congrArg (Prod.fst '' ·) hrr
-  have hnn : (slopeVertexSubgroup K _ H t').index = (slopeVertexSubgroup K _ H t).index := by
-    exact_mod_cast h₁'.symm.trans (((Icc_eq_Icc_iff hr.le).mp hI).1.trans h₁)
-  have hlt₁ : (slopeVertexSubgroup K _ H t).index < (slopeVertexSubgroup K _ H (t + 1)).index :=
-    hlt
-  have hlt₂ : (slopeVertexSubgroup K _ H t').index < (slopeVertexSubgroup K _ H (t' + 1)).index :=
-    hlt'
-  have htt : t' = t := by
-    rcases lt_trichotomy t' t with h | h | h
-    · have h' : (slopeVertexSubgroup K _ H (t' + 1)).index ≤ (slopeVertexSubgroup K _ H t).index :=
-        hS.le_of_le (Nat.succ_le_of_lt h) (by omega)
-      omega
-    · exact h
-    · have h' : (slopeVertexSubgroup K _ H (t + 1)).index ≤ (slopeVertexSubgroup K _ H t').index :=
-        hS.le_of_le (Nat.succ_le_of_lt h) (by omega)
-      omega
-  subst htt
-  have h2 : 2 ≤ t' := by
-    rw [mem_Ioi, h₃'] at hslope
+  have hslope : (q'.2 - q.2) / (q'.1 - q.1) ∈ Ioi (1 : ℝ) :=
+    slope_mem_of_mem_polygonEdgesWithSlope hq hσ
+  rcases hS.exists_eq_of_mem_polygonEdges hτ hq hσ.1 with ⟨t, ht, hlt, h₁, h₂, h₃⟩
+  have h2 : 2 ≤ t := by
+    rw [mem_Ioi, h₃] at hslope
     exact one_lt_subgroupSlope_iff.mp (by exact_mod_cast hslope)
   rcases Nat.exists_eq_add_of_le' h2 with ⟨i, rfl⟩
   rw [h₃, hS.slopeMultiplicity_lowerConvexHull hτ ht hlt, h₁, h₂]
@@ -319,8 +269,7 @@ lemma div_eq_pow_slopeMultiplicity {q q' : ℝ × ℝ} (hq : q.1 < q'.1)
 /-- **The wild Swan slopes are the positive Swan slopes** (LMFDB `lf.slopes`): a real number is a
 wild Swan slope of a finite separable extension `L / K` inside `K̄` exactly when it is a positive
 Swan slope. -/
-lemma mem_hullWildSwanSlopes_iff {s : ℝ} :
-    s ∈ hullWildSwanSlopes L ↔ s ∈ hullSwanSlopes L ∧ 0 < s := by
+lemma mem_hullWildSwanSlopes_iff : s ∈ hullWildSwanSlopes L ↔ s ∈ hullSwanSlopes L ∧ 0 < s := by
   rw [hullWildSwanSlopes, hullSwanSlopes, hullArtinSlopes, hullWildArtinSlopes, slopesPolygon,
     subextensionPoints_eq]
   set H : Subgroup (Algebra.galoisClosure K L ≃ₐ[K] Algebra.galoisClosure K L) :=
@@ -348,5 +297,83 @@ lemma mem_hullWildSwanSlopes_iff {s : ℝ} :
     intro h
     rw [index_sup_lowerRamificationGroup_add_two H i, h, pow_zero, mul_one] at hlt
     exact lt_irrefl _ hlt
+
+variable {L} in
+lemma mem_hullArtinSlopes_iff : s ∈ hullArtinSlopes L ↔
+    ∃ t, (t ≤ (largestLowerJump K (Algebra.galoisClosure K L)).toNat + 1 ∧
+      (slopeVertexSubgroup K (Algebra.galoisClosure K L) (fixingSubgroup _
+        (((↑) : Algebra.galoisClosure K L → AlgebraicClosure K) ⁻¹' L)) t).index <
+      (slopeVertexSubgroup K (Algebra.galoisClosure K L) (fixingSubgroup _
+        (((↑) : Algebra.galoisClosure K L → AlgebraicClosure K) ⁻¹' L)) (t + 1)).index) ∧
+      (subgroupSlope K (Algebra.galoisClosure K L) t : ℝ) = s := by
+  rw [hullArtinSlopes, slopesPolygon, subextensionPoints_eq,
+    (isLowerHullVertices_subgroupSlopePoints _).segmentSlopes_lowerConvexHull]
+  exact Iff.rfl
+
+variable {L} in
+/-- **The Artin slopes that are not wild are `0` and `1`** (LMFDB `lf.slopes`): an Artin slope at
+most `1` of a finite separable extension `L / K` inside `K̄` is `0` or `1`. -/
+lemma eq_zero_or_eq_one_of_mem_hullArtinSlopes (hs : s ∈ hullArtinSlopes L) (h : s ≤ 1) :
+    s = 0 ∨ s = 1 := by
+  rcases mem_hullArtinSlopes_iff.mp hs with ⟨t, -, rfl⟩
+  have ht : ¬2 ≤ t := fun h2 ↦ h.not_gt <| by exact_mod_cast one_lt_subgroupSlope_iff.mpr h2
+  rcases (by omega : t = 0 ∨ t = 1) with rfl | rfl
+  · exact .inl (by rw [subgroupSlope_zero, Rat.cast_zero])
+  · exact .inr (by rw [subgroupSlope_one, Rat.cast_one])
+
+/-- **The wild Artin slopes are the Artin slopes greater than `1`** (LMFDB `lf.slopes`,
+`lf.visible_slopes`): a real number is a wild Artin slope of a finite separable extension `L / K`
+inside `K̄`, a visible Artin slope, exactly when it is an Artin slope greater than `1`. -/
+lemma mem_hullWildArtinSlopes_iff : s ∈ hullWildArtinSlopes L ↔ s ∈ hullArtinSlopes L ∧ 1 < s :=
+  (Multiset.mem_map_of_injective sub_left_injective).symm.trans <|
+    (mem_hullWildSwanSlopes_iff L).trans <| and_congr sub_left_injective.mem_set_image sub_pos
+
+/-- **A wild slope is listed as often as its multiplicity** (LMFDB `lf.visible_slopes`,
+`lf.slopes`): an Artin slope `s > 1` of a finite separable extension `L / K` inside `K̄` occurs `k`
+times in the list of its visible Artin slopes, where the segment of slope `s` runs from `(n₁, c₁)`
+to `(n₂, c₂)` with `n₂ / n₁ = p ^ k` (`IsNonarchimedeanLocalField.div_eq_pow_slopeMultiplicity`). -/
+lemma count_hullWildArtinSlopes (hs : s ∈ hullArtinSlopes L) (h1 : 1 < s) :
+    (hullWildArtinSlopes L).count s = slopeMultiplicity (ringChar 𝓀[K]) (slopesPolygon L) s := by
+  rcases mem_hullArtinSlopes_iff.mp hs with ⟨t, ⟨ht, hlt⟩, rfl⟩
+  rw [hullWildArtinSlopes, slopesPolygon, subextensionPoints_eq,
+    (isLowerHullVertices_subgroupSlopePoints _).wildSegmentSlopes_lowerConvexHull
+      (strictMonoOn_subgroupSlope _ _),
+    (isLowerHullVertices_subgroupSlopePoints _).slopeMultiplicity_lowerConvexHull
+      (strictMonoOn_subgroupSlope _ _) ht hlt, Multiset.count_sum']
+  refine (Finset.sum_eq_single_of_mem t (Finset.mem_filter.mpr
+    ⟨Finset.mem_range.mpr (Nat.lt_succ_of_le ht), hlt, h1⟩) fun t' _ hne ↦
+      Multiset.count_eq_zero_of_notMem fun h ↦ hne ?_).trans (Multiset.count_replicate_self _ _)
+  exact subgroupSlope_strictMono.injective <|
+    Rat.cast_injective (Multiset.eq_of_mem_replicate h).symm
+
+end Hull
+
+variable {q q' : ℝ × ℝ} [FiniteDimensional K L]
+
+variable [IsGalois K L] in
+/-- **The visible Artin slopes of a Galois extension are its wild Artin slopes** (LMFDB
+`lf.visible_slopes`): for a finite Galois extension `L / K` of nonarchimedean local fields inside
+`K̄`, the wild Artin slopes read off the lower convex hull of the points `(n_E, c_E)` of the
+subextensions are the wild Artin slopes of the ramification filtration of `Gal(L / K)` (LMFDB
+`lf.wild_slopes`). -/
+lemma hullWildArtinSlopes_eq_wildArtinSlopesOfIsGalois :
+    hullWildArtinSlopes L = wildArtinSlopesOfIsGalois K L :=
+  (hullWildArtinSlopes_eq_visibleArtinSlopes L).trans
+    (visibleArtinSlopes_eq_wildArtinSlopesOfIsGalois L)
+
+variable [Algebra.IsSeparable K L] in
+/-- **A wild segment has positive multiplicity** (LMFDB `lf.visible_slopes`): if a segment of slope
+greater than `1` of the slope polygon of a finite separable extension `L / K` inside `K̄` runs from
+`(n₁, c₁)` to `(n₂, c₂)`, then the `k` with `n₂ / n₁ = p ^ k`
+(`IsNonarchimedeanLocalField.div_eq_pow_slopeMultiplicity`), the number of times its slope is
+listed, is positive. -/
+lemma slopeMultiplicity_pos (hq : q.1 < q'.1)
+    (hσ : segment ℝ q q' ∈ polygonEdgesWithSlope (slopesPolygon L) (Ioi 1)) :
+    0 < slopeMultiplicity (ringChar 𝓀[K]) (slopesPolygon L) ((q'.2 - q.2) / (q'.1 - q.1)) := by
+  refine Nat.pos_of_ne_zero fun h0 ↦ ?_
+  have h : q'.1 / q.1 = 1 := by
+    rw [div_eq_pow_slopeMultiplicity L hq hσ, h0, pow_zero]
+  have hq0 : q.1 ≠ 0 := fun h' ↦ zero_ne_one <| by rw [← h, h', div_zero]
+  exact hq.ne' ((div_eq_one_iff_eq hq0).mp h)
 
 end IsNonarchimedeanLocalField

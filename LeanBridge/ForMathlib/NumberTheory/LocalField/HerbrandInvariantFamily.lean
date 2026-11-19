@@ -75,9 +75,16 @@ noncomputable def herbrandFunction (x : ℝ) : ℝ :=
 lemma ram_le_ram {j k : ℕ} (h : j ≤ k) : (I.ram j : ℝ) ≤ I.ram k :=
   Rat.cast_le.mpr <| I.monotone_ram h
 
+lemma ram_nonneg (k : ℕ) : 0 ≤ I.ram k :=
+  I.ram_zero ▸ I.monotone_ram k.zero_le
+
 lemma ram_pos {k : ℕ} (hk : k ≠ 0) (hk' : k ≤ I.w) : 0 < I.ram k :=
   (I.zero_lt_ram_one <| (Nat.pos_of_ne_zero hk).trans_le hk').trans_le <|
     I.monotone_ram <| Nat.one_le_iff_ne_zero.mpr hk
+
+lemma pos_of_mem_image_ram {b : ℚ} (hb : b ∈ (Icc 1 I.w).image I.ram) : 0 < b := by
+  rcases mem_image.mp hb with ⟨k, hk, rfl⟩
+  exact I.ram_pos (Nat.one_le_iff_ne_zero.mp (mem_Icc.mp hk).1) (mem_Icc.mp hk).2
 
 /-- On `[r_k, r_{k + 1}]`, for `k < w`, the Herbrand function is the segment from `(r_k, s_k)` of
 slope `1 / (ε p ^ k)`. -/

@@ -498,8 +498,7 @@ lemma mongeSubgroup_eq_of_pow_two_dvd_sub_visible (E : IntermediateField K (Alge
     finiteIntermediateField_isNonarchimedeanLocalField K _ _
   have hKM : ValuativeExtension K (galoisClosure K E) :=
     finiteIntermediateField_valuativeExtension K _ _
-  have hEM : E ≤ galoisClosure K E :=
-    galoisClosure_eq_normalClosure (F := K) E ▸ E.le_normalClosure
+  have hEM : E ≤ galoisClosure K E := le_galoisClosure E
   let a : Algebra E (galoisClosure K E) := (inclusion hEM).toAlgebra
   have hs : IsScalarTower K E (galoisClosure K E) := .of_algebraMap_eq fun _ ↦ rfl
   have hv : ValuativeExtension E (galoisClosure K E) := (inclusion hEM).valuativeExtension

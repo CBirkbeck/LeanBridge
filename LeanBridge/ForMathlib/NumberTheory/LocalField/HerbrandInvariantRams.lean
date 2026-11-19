@@ -125,7 +125,7 @@ def ramSet (k : ℕ) (z : ℚ) : Set ℚ :=
   {α | 0 < α ∧ α.den ∣ p ^ k - 1 ∧ ¬(p : ℤ) ∣ α.num ∧
     if k = 1 then α ≤ p * z / (p - 1) else α < p * z / (p - 1)}
 
-variable {j : ℕ} {b : ℚ}
+variable {j k : ℕ} {b : ℚ}
 
 private lemma apply_iff_le_card_filter {P : ℕ → Prop} [DecidablePred P]
     (hP : ∀ ⦃i j : ℕ⦄, i ≤ j → P j → P i) {w : ℕ} (hj₀ : 1 ≤ j) (hj : j ≤ w) :
@@ -177,5 +177,29 @@ lemma ramMultiplicity_pos (hb : b ∈ (Icc 1 I.w).image I.ram) : 0 < I.ramMultip
   rcases mem_image.mp hb with ⟨k, hk, rfl⟩
   rw [ramMultiplicity, card_pos]
   exact ⟨k, mem_filter.mpr ⟨hk, rfl⟩⟩
+
+variable {I} in
+lemma ram_mem_image (hk₀ : k ≠ 0) (hk : k ≤ I.w) : I.ram k ∈ (Icc 1 I.w).image I.ram :=
+  mem_image_of_mem _ <| mem_Icc.mpr ⟨Nat.one_le_iff_ne_zero.mpr hk₀, hk⟩
+
+lemma ramCountLT_zero : I.ramCountLT 0 = 0 :=
+  card_eq_zero.mpr <| filter_eq_empty_iff.mpr fun j _ ↦ not_lt.mpr (I.ram_nonneg j)
+
+lemma ramMultiplicity_zero : I.ramMultiplicity 0 = 0 :=
+  card_eq_zero.mpr <| filter_eq_empty_iff.mpr fun _ hj ↦
+    (I.ram_pos (Nat.one_le_iff_ne_zero.mp (mem_Icc.mp hj).1) (mem_Icc.mp hj).2).ne'
+
+variable {I} in
+lemma ramCountLT_ram_of_ram_lt (hI : ∀ j < I.w, I.ram j < I.ram (j + 1)) (hk₀ : k ≠ 0)
+    (hk : k ≤ I.w) : I.ramCountLT (I.ram k) = k - 1 := by
+  have h₁ : ¬k ≤ I.ramCountLT (I.ram k) :=
+    (I.ram_lt_iff_le_ramCountLT (Nat.one_le_iff_ne_zero.mpr hk₀) hk).not.mp (lt_irrefl _)
+  rcases Nat.lt_or_ge k 2 with h₂ | h₂
+  · omega
+  · have h₃ : k - 1 ≤ I.ramCountLT (I.ram k) :=
+      (I.ram_lt_iff_le_ramCountLT (by omega) (by omega)).mp <| by
+        have h₄ : I.ram (k - 1) < I.ram (k - 1 + 1) := hI (k - 1) (by omega)
+        rwa [Nat.sub_add_cancel (by omega)] at h₄
+    omega
 
 end IsNonarchimedeanLocalField.HerbrandInvariant

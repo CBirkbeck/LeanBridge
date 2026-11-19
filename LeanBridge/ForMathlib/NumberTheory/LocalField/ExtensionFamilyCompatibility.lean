@@ -57,6 +57,14 @@ lemma addVal_natCast_eq_absoluteRamificationIndex [Fact p.Prime] [FinitePadicExt
   rw [IsDiscreteValuationRing.addVal_natCast K p (NeZero.ne _),
     absoluteRamificationIndex_eq_natCastValuation]
 
+variable [CharZero K] in
+lemma pos_of_addVal_natCast_eq (hp : ringChar 𝓀[K] = p) (he₀ : addVal 𝒪[K] (p : 𝒪[K]) = e₀) :
+    0 < e₀ := by
+  have hpp : p.Prime := hp ▸ CharP.prime_ringChar _
+  have hn : (p : K) ≠ 0 := Nat.cast_ne_zero.mpr hpp.ne_zero
+  rw [IsDiscreteValuationRing.addVal_natCast K p hn, Nat.cast_inj] at he₀
+  exact Nat.pos_of_ne_zero <| he₀ ▸ (natCastValuation_ne_zero_iff_ringChar_eq K hpp hn).mpr hp
+
 namespace HerbrandInvariant
 
 variable {I : HerbrandInvariant p} {b : ℚ}

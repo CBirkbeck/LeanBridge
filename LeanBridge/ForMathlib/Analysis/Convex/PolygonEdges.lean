@@ -65,6 +65,17 @@ lemma mem_segment_mk_iff (h : x₁ < x₂) {z : ℝ × ℝ} :
       ring1
     rwa [hy, Prod.mk.eta] at hmem
 
+lemma slope_mem_of_mem_polygonEdgesWithSlope (hq : q.1 < q'.1)
+    (hσ : segment ℝ q q' ∈ polygonEdgesWithSlope P T) : (q'.2 - q.2) / (q'.1 - q.1) ∈ T := by
+  rcases hσ with ⟨-, r, r', hr, hrr, hT⟩
+  rcases hrr ▸ left_mem_segment ℝ q q' with ⟨a, b, -, -, hab, e⟩
+  rcases hrr ▸ right_mem_segment ℝ q q' with ⟨c, d, -, -, hcd, e'⟩
+  have h : (r'.2 - r.2) / (r'.1 - r.1) = (q'.2 - q.2) / (q'.1 - q.1) := by
+    rw [div_eq_div_iff (sub_pos.mpr hr).ne' (sub_pos.mpr hq).ne', ← e, ← e']
+    simp only [Prod.fst_add, Prod.smul_fst, Prod.snd_add, Prod.smul_snd]
+    linear_combination (r.1 * r'.2 - r.2 * r'.1) * (hcd - hab)
+  exact h ▸ hT
+
 lemma reflectVertical_involutive : Function.Involutive reflectVertical :=
   reflectVertical_reflectVertical
 

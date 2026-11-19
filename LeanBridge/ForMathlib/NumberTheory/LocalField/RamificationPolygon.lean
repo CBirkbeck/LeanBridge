@@ -844,8 +844,7 @@ lemma natCast_toNat_mongeLevel_visibleHerbrandInvariant (hm : f.Monic)
     finiteIntermediateField_isNonarchimedeanLocalField K _ _
   have hKM : ValuativeExtension K (galoisClosure K E) :=
     finiteIntermediateField_valuativeExtension K _ _
-  have hEM : E ≤ galoisClosure K E :=
-    galoisClosure_eq_normalClosure (F := K) E ▸ E.le_normalClosure
+  have hEM : E ≤ galoisClosure K E := le_galoisClosure E
   let a : Algebra E (galoisClosure K E) := (inclusion hEM).toAlgebra
   have hs : IsScalarTower K E (galoisClosure K E) := .of_algebraMap_eq fun _ ↦ rfl
   have hv : ValuativeExtension E (galoisClosure K E) := (inclusion hEM).valuativeExtension
@@ -878,8 +877,7 @@ lemma pointType_visibleHerbrandInvariant_ne_Z (hm : f.Monic) (hf : f.IsEisenstei
     finiteIntermediateField_isNonarchimedeanLocalField K _ _
   have hKM : ValuativeExtension K (galoisClosure K E) :=
     finiteIntermediateField_valuativeExtension K _ _
-  have hEM : E ≤ galoisClosure K E :=
-    galoisClosure_eq_normalClosure (F := K) E ▸ E.le_normalClosure
+  have hEM : E ≤ galoisClosure K E := le_galoisClosure E
   let a : Algebra E (galoisClosure K E) := (inclusion hEM).toAlgebra
   have hs : IsScalarTower K E (galoisClosure K E) := .of_algebraMap_eq fun _ ↦ rfl
   have hv : ValuativeExtension E (galoisClosure K E) := (inclusion hEM).valuativeExtension

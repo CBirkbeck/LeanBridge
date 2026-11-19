@@ -80,29 +80,6 @@ lemma den_natCast_mul_eq_one_iff : ((n : ℚ) * b).den = 1 ↔ b.den ∣ n := by
   · rintro ⟨c, rfl⟩
     rw [natCast_den_mul_mul, Rat.den_intCast]
 
-lemma ramCountLT_ram_of_ram_lt (hI : ∀ j < I.w, I.ram j < I.ram (j + 1)) (hk₀ : k ≠ 0)
-    (hk : k ≤ I.w) : I.ramCountLT (I.ram k) = k - 1 := by
-  have h₁ : ¬k ≤ I.ramCountLT (I.ram k) :=
-    (I.ram_lt_iff_le_ramCountLT (Nat.one_le_iff_ne_zero.mpr hk₀) hk).not.mp (lt_irrefl _)
-  rcases Nat.lt_or_ge k 2 with h₂ | h₂
-  · omega
-  · have h₃ : k - 1 ≤ I.ramCountLT (I.ram k) :=
-      (I.ram_lt_iff_le_ramCountLT (by omega) (by omega)).mp <| by
-        have h₄ : I.ram (k - 1) < I.ram (k - 1 + 1) := hI (k - 1) (by omega)
-        rwa [Nat.sub_add_cancel (by omega)] at h₄
-    omega
-
-lemma ramMultiplicity_ram_of_ram_lt (hI : ∀ j < I.w, I.ram j < I.ram (j + 1)) (hk₀ : k ≠ 0)
-    (hk : k ≤ I.w) : I.ramMultiplicity (I.ram k) = 1 := by
-  have hv : I.IsVertex k := by
-    rcases hk.lt_or_eq with h | h
-    · exact .inr (hI k h)
-    · exact .inl h
-  have h₁ : I.ramCountLT (I.ram k) + I.ramMultiplicity (I.ram k) = k :=
-    hv.ramCountLT_add_ramMultiplicity hk
-  have h₂ : I.ramCountLT (I.ram k) = k - 1 := ramCountLT_ram_of_ram_lt hI hk₀ hk
-  omega
-
 variable [Fact p.Prime]
 
 lemma natCast_dvd_num_natCast_mul_iff (hn : ¬p ∣ n) (hb : b.den ∣ n) :
@@ -181,9 +158,7 @@ with `c` rams smaller than it, is geometric or arithmetic relative to `e₀` if 
 lemma isGeometricRam_or_isArithmeticRam_iff (hb : b ∈ (Icc 1 I.w).image I.ram) :
     I.IsGeometricRam e₀ b ∨ I.IsArithmeticRam e₀ b ↔
       b ∈ possibleRamSet p (I.ramMultiplicity b) (e₀ * I.ε * p ^ I.ramCountLT b) := by
-  have hb₀ : 0 < b := by
-    rcases mem_image.mp hb with ⟨j, hj, rfl⟩
-    exact I.ram_pos (Nat.one_le_iff_ne_zero.mp (mem_Icc.mp hj).1) (mem_Icc.mp hj).2
+  have hb₀ : 0 < b := I.pos_of_mem_image_ram hb
   have hbound : I.ramBound e₀ b = p * (e₀ * I.ε * p ^ I.ramCountLT b) / (p - 1) := by
     rw [ramBound]
     ring1

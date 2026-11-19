@@ -55,6 +55,10 @@ lemma ordProj_mul_tameDegree : ordProj[ringChar 𝓀[K]] (ramificationIndex K L)
 lemma not_dvd_tameDegree : ¬ringChar 𝓀[K] ∣ tameDegree K L :=
   Nat.not_dvd_ordCompl (CharP.char_is_prime 𝓀[K] _) ramificationIndex_pos.ne'
 
+variable {K L} in
+lemma tameDegree_pos : 0 < tameDegree K L :=
+  Nat.ordCompl_pos _ ramificationIndex_pos.ne'
+
 /-- The **Galois tame degree** (LMFDB `lf.tame_degree`) of a finite extension `E / K` of a
 nonarchimedean local field: the tame degree of its Galois closure `Algebra.galoisClosure K E` (the
 normal closure of `E` in `AlgebraicClosure K`, Galois when `E / K` is separable, as it is for

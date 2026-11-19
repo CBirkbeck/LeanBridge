@@ -435,6 +435,25 @@ lemma countP_le_herbrandOfSubgroup :
     List.countP_replicate]
   simp only [decide_eq_true_eq, (herbrandOfSubgroup_strictMono K M H).le_iff_le]
 
+lemma herbrandOfSubgroup_findGreatest_le {u : ℚ} (hu : 0 ≤ u) : herbrandOfSubgroup K M H
+    (Nat.findGreatest (fun t ↦ herbrandOfSubgroup K M H t ≤ u) (largestLowerJump K M).toNat) ≤ u :=
+  Nat.findGreatest_spec (P := fun t ↦ herbrandOfSubgroup K M H t ≤ u) (Nat.zero_le _) <|
+    (herbrandOfSubgroup_zero K M H).trans_le hu
+
+lemma countP_le_ramsOfSubgroup {u : ℚ} (hu : 0 ≤ u) : (ramsOfSubgroup K M H).countP (· ≤ u) =
+    (ramsOfSubgroup K M H).countP (· ≤ herbrandOfSubgroup K M H (Nat.findGreatest
+      (fun t ↦ herbrandOfSubgroup K M H t ≤ u) (largestLowerJump K M).toNat)) := by
+  rw [countP_le_herbrandOfSubgroup, ramsOfSubgroup, ← Multiset.coe_countPAddMonoidHom, map_sum]
+  refine sum_congr rfl fun i hi ↦ ?_
+  have hiff : herbrandOfSubgroup K M H (i + 1) ≤ u ↔ i + 1 ≤ Nat.findGreatest
+      (fun t ↦ herbrandOfSubgroup K M H t ≤ u) (largestLowerJump K M).toNat :=
+    ⟨fun h ↦ Nat.le_findGreatest (Nat.succ_le_of_lt (mem_range.mp hi)) h, fun h ↦
+      ((herbrandOfSubgroup_strictMono K M H).monotone h).trans
+        (herbrandOfSubgroup_findGreatest_le K M H hu)⟩
+  rw [Multiset.coe_countPAddMonoidHom, ← Multiset.coe_replicate, Multiset.coe_countP,
+    List.countP_replicate]
+  simp only [decide_eq_true_eq, hiff]
+
 variable [IsGalois K M] (f : ℕ) (hf : 0 < f)
 
 /-- The **Swan slopes** (LMFDB `lf.swan_slopes`) of the fixed field `L = M^H` of a subgroup `H` of
@@ -1109,8 +1128,7 @@ lemma card_visibleSwanSlopes :
     finiteIntermediateField_isNonarchimedeanLocalField K _ _
   have hKM : ValuativeExtension K (Algebra.galoisClosure K L) :=
     finiteIntermediateField_valuativeExtension K _ _
-  have hLM : L ≤ Algebra.galoisClosure K L :=
-    Algebra.galoisClosure_eq_normalClosure (F := K) L ▸ L.le_normalClosure
+  have hLM : L ≤ Algebra.galoisClosure K L := Algebra.le_galoisClosure L
   let a : Algebra L (Algebra.galoisClosure K L) := (IntermediateField.inclusion hLM).toAlgebra
   have hs : IsScalarTower K L (Algebra.galoisClosure K L) := .of_algebraMap_eq fun _ ↦ rfl
   have hv : ValuativeExtension L (Algebra.galoisClosure K L) :=
@@ -1173,8 +1191,7 @@ lemma visibleSwanSlopes_eq_swanSlopesOfIsGalois :
     finiteIntermediateField_isNonarchimedeanLocalField K _ _
   have hKM : ValuativeExtension K (Algebra.galoisClosure K L) :=
     finiteIntermediateField_valuativeExtension K _ _
-  have hLM : L ≤ Algebra.galoisClosure K L :=
-    Algebra.galoisClosure_eq_normalClosure (F := K) L ▸ L.le_normalClosure
+  have hLM : L ≤ Algebra.galoisClosure K L := Algebra.le_galoisClosure L
   let a : Algebra L (Algebra.galoisClosure K L) := (IntermediateField.inclusion hLM).toAlgebra
   have hs : IsScalarTower K L (Algebra.galoisClosure K L) := .of_algebraMap_eq fun _ ↦ rfl
   have hv : ValuativeExtension L (Algebra.galoisClosure K L) :=
@@ -1206,8 +1223,7 @@ lemma visibleRams_eq_ramsOfIsGalois :
     finiteIntermediateField_isNonarchimedeanLocalField K _ _
   have hKM : ValuativeExtension K (Algebra.galoisClosure K L) :=
     finiteIntermediateField_valuativeExtension K _ _
-  have hLM : L ≤ Algebra.galoisClosure K L :=
-    Algebra.galoisClosure_eq_normalClosure (F := K) L ▸ L.le_normalClosure
+  have hLM : L ≤ Algebra.galoisClosure K L := Algebra.le_galoisClosure L
   let a : Algebra L (Algebra.galoisClosure K L) := (IntermediateField.inclusion hLM).toAlgebra
   have hs : IsScalarTower K L (Algebra.galoisClosure K L) := .of_algebraMap_eq fun _ ↦ rfl
   have hv : ValuativeExtension L (Algebra.galoisClosure K L) :=
@@ -1238,8 +1254,7 @@ lemma isInvariantOf_visibleHerbrandInvariant : (visibleHerbrandInvariant L).IsIn
     finiteIntermediateField_isNonarchimedeanLocalField K _ _
   have hKM : ValuativeExtension K (Algebra.galoisClosure K L) :=
     finiteIntermediateField_valuativeExtension K _ _
-  have hLM : L ≤ Algebra.galoisClosure K L :=
-    Algebra.galoisClosure_eq_normalClosure (F := K) L ▸ L.le_normalClosure
+  have hLM : L ≤ Algebra.galoisClosure K L := Algebra.le_galoisClosure L
   let a : Algebra L (Algebra.galoisClosure K L) := (IntermediateField.inclusion hLM).toAlgebra
   have hs : IsScalarTower K L (Algebra.galoisClosure K L) := .of_algebraMap_eq fun _ ↦ rfl
   have hv : ValuativeExtension L (Algebra.galoisClosure K L) :=

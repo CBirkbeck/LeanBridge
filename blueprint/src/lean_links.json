@@ -3430,8 +3430,8 @@
     "IsNonarchimedeanLocalField.hullWildArtinSlopes": "LeanBridge.ForMathlib.NumberTheory.LocalField.VisibleSlopes",
     "IsNonarchimedeanLocalField.hullWildSwanSlopes": "LeanBridge.ForMathlib.NumberTheory.LocalField.VisibleSlopes",
     "IsNonarchimedeanLocalField.div_eq_pow_slopeMultiplicity": "LeanBridge.ForMathlib.NumberTheory.LocalField.VisibleSlopes",
-    "IsNonarchimedeanLocalField.slopeMultiplicity_pos": "LeanBridge.ForMathlib.NumberTheory.LocalField.HiddenSlopes",
-    "IsNonarchimedeanLocalField.hullWildArtinSlopes_eq_wildArtinSlopesOfIsGalois": "LeanBridge.ForMathlib.NumberTheory.LocalField.HiddenSlopes",
+    "IsNonarchimedeanLocalField.slopeMultiplicity_pos": "LeanBridge.ForMathlib.NumberTheory.LocalField.VisibleSlopes",
+    "IsNonarchimedeanLocalField.hullWildArtinSlopes_eq_wildArtinSlopesOfIsGalois": "LeanBridge.ForMathlib.NumberTheory.LocalField.VisibleSlopes",
     "IsNonarchimedeanLocalField.hullWildArtinSlopes_le_wildArtinSlopes": "LeanBridge.ForMathlib.NumberTheory.LocalField.HiddenSlopes",
     "IsNonarchimedeanLocalField.hiddenArtinSlopes_eq_wildArtinSlopes_sub": "LeanBridge.ForMathlib.NumberTheory.LocalField.HiddenSlopes"
   },

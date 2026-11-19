@@ -67,66 +67,6 @@ attribute [local instance] finiteIntermediateFieldValuativeRel finiteIntermediat
 
 namespace IsNonarchimedeanLocalField
 
-section Subgroup
-
-variable (K M : Type*) [Field K] [ValuativeRel K] [TopologicalSpace K]
-  [IsNonarchimedeanLocalField K] [Field M] [ValuativeRel M] [TopologicalSpace M]
-  [IsNonarchimedeanLocalField M] [Algebra K M] [ValuativeExtension K M] [Module.Finite K M]
-  (H : Subgroup (M ≃ₐ[K] M)) {u : ℚ}
-
-lemma herbrandOfSubgroup_findGreatest_le (hu : 0 ≤ u) : herbrandOfSubgroup K M H
-    (Nat.findGreatest (fun t ↦ herbrandOfSubgroup K M H t ≤ u) (largestLowerJump K M).toNat) ≤ u :=
-  Nat.findGreatest_spec (P := fun t ↦ herbrandOfSubgroup K M H t ≤ u) (Nat.zero_le _) <|
-    (herbrandOfSubgroup_zero K M H).trans_le hu
-
-lemma countP_le_ramsOfSubgroup (hu : 0 ≤ u) : (ramsOfSubgroup K M H).countP (· ≤ u) =
-    (ramsOfSubgroup K M H).countP (· ≤ herbrandOfSubgroup K M H (Nat.findGreatest
-      (fun t ↦ herbrandOfSubgroup K M H t ≤ u) (largestLowerJump K M).toNat)) := by
-  rw [countP_le_herbrandOfSubgroup, ramsOfSubgroup, ← Multiset.coe_countPAddMonoidHom, map_sum]
-  refine Finset.sum_congr rfl fun i hi ↦ ?_
-  have hiff : herbrandOfSubgroup K M H (i + 1) ≤ u ↔ i + 1 ≤ Nat.findGreatest
-      (fun t ↦ herbrandOfSubgroup K M H t ≤ u) (largestLowerJump K M).toNat :=
-    ⟨fun h ↦ Nat.le_findGreatest (Nat.succ_le_of_lt (Finset.mem_range.mp hi)) h, fun h ↦
-      ((herbrandOfSubgroup_strictMono K M H).monotone h).trans
-        (herbrandOfSubgroup_findGreatest_le K M H hu)⟩
-  rw [Multiset.coe_countPAddMonoidHom, ← Multiset.coe_replicate, Multiset.coe_countP,
-    List.countP_replicate]
-  simp only [decide_eq_true_eq, hiff]
-
-end Subgroup
-
-lemma finrank_mul_intermediateDegree {F Ω : Type*} [Field F] [Field Ω] [Algebra F Ω]
-    {D E : IntermediateField F Ω} (h : D ≤ E) :
-    Module.finrank F D * intermediateDegree h = Module.finrank F E := by
-  let a : Algebra D E := (IntermediateField.inclusion h).toAlgebra
-  have hs : IsScalarTower F D E := .of_algebraMap_eq fun _ ↦ rfl
-  exact Module.finrank_mul_finrank F D E
-
-namespace HerbrandInvariant
-
-variable {p : ℕ} (hp : p.Prime) (R : Multiset ℚ) (hR : ∀ r ∈ R, 0 < r) (e f : ℕ) (he : e ≠ 0)
-  (hf : 0 < f) {u : ℚ}
-
-lemma countP_le_ofRams (hu : 0 ≤ u) : R.countP (· ≤ u) =
-    (ofRams p hp R hR e f he hf).ramCountLT u + (ofRams p hp R hR e f he hf).ramMultiplicity u := by
-  have hw : (ofRams p hp R hR e f he hf).w = Multiset.card R := rfl
-  have hn : R.countP (· ≤ u) ≤ (ofRams p hp R hR e f he hf).w := Multiset.countP_le_card _ _
-  have h₁ : (ofRams p hp R hR e f he hf).ram (R.countP (· ≤ u)) ≤ u :=
-    ram_countP_le p hp R hR e f he hf hu
-  have hset : {j ∈ Finset.Icc 1 (ofRams p hp R hR e f he hf).w |
-      (ofRams p hp R hR e f he hf).ram j ≤ u} = Finset.Icc 1 (R.countP (· ≤ u)) := by
-    ext j
-    rw [Finset.mem_filter, Finset.mem_Icc, Finset.mem_Icc]
-    refine ⟨fun ⟨⟨hj₁, _⟩, hj⟩ ↦ ⟨hj₁, not_lt.mp fun hlt ↦ ?_⟩,
-      fun ⟨hj₁, hj₂⟩ ↦ ⟨⟨hj₁, hj₂.trans hn⟩,
-        ((ofRams p hp R hR e f he hf).monotone_ram hj₂).trans h₁⟩⟩
-    have h₂ : u < (ofRams p hp R hR e f he hf).ram (R.countP (· ≤ u) + 1) :=
-      lt_ram_countP_le_add_one p hp R hR e f he hf <| by omega
-    exact (h₂.trans_le ((ofRams p hp R hR e f he hf).monotone_ram hlt)).not_ge hj
-  rw [← card_filter_ram_le, hset, Nat.card_Icc, Nat.add_sub_cancel]
-
-end HerbrandInvariant
-
 variable {K : Type*} [Field K] [ValuativeRel K] [TopologicalSpace K] [IsNonarchimedeanLocalField K]
   (L : IntermediateField K (AlgebraicClosure K)) [FiniteDimensional K L] (t : ℕ) (u : ℚ)
 
@@ -177,11 +117,11 @@ lemma countP_le_herbrandOfSubgroup_findGreatest (hu : 0 ≤ u) :
 variable [Algebra.IsSeparable K L]
 
 lemma lowerSubextension_le : lowerSubextension L t ≤ L :=
-  lift_fixedField_le (le_galoisClosure L) le_sup_left
+  lift_fixedField_le (Algebra.le_galoisClosure L) le_sup_left
 
 lemma unramifiedExtension_le_lowerSubextension :
     unramifiedExtension K (AlgebraicClosure K) (inertiaDegree K L) ≤ lowerSubextension L t :=
-  le_lift_fixedField ((unramifiedExtension_inertiaDegree_le L).trans (le_galoisClosure L))
+  le_lift_fixedField ((unramifiedExtension_inertiaDegree_le L).trans (Algebra.le_galoisClosure L))
     ((sup_lowerRamificationGroup_le_sup_zero _ t).trans (fixingSubgroup_unramifiedExtension L).ge)
 
 lemma ramSubextension_le : ramSubextension L u ≤ L :=
@@ -192,28 +132,27 @@ lemma unramifiedExtension_le_ramSubextension :
   unramifiedExtension_le_lowerSubextension L _
 
 instance : FiniteDimensional K (lowerSubextension L t) :=
-  (IntermediateField.restrictAlgEquiv (lowerSubextension_le L t)).symm.toLinearEquiv
-    |>.finiteDimensional
+  IntermediateField.finiteDimensional_of_le (lowerSubextension_le L t)
 
 instance : Algebra.IsSeparable K (lowerSubextension L t) :=
-  .of_algHom K L (IntermediateField.inclusion (lowerSubextension_le L t))
+  IntermediateField.isSeparable_of_le (lowerSubextension_le L t)
 
 instance : FiniteDimensional K (ramSubextension L u) :=
-  (IntermediateField.restrictAlgEquiv (ramSubextension_le L u)).symm.toLinearEquiv.finiteDimensional
+  IntermediateField.finiteDimensional_of_le (ramSubextension_le L u)
 
 instance : Algebra.IsSeparable K (ramSubextension L u) :=
-  .of_algHom K L (IntermediateField.inclusion (ramSubextension_le L u))
+  IntermediateField.isSeparable_of_le (ramSubextension_le L u)
 
 lemma lowerSubextension_mono {s : ℕ} (h : s ≤ t) : lowerSubextension L s ≤ lowerSubextension L t :=
-  le_lift_fixedField ((lowerSubextension_le L s).trans (le_galoisClosure L)) <|
+  le_lift_fixedField ((lowerSubextension_le L s).trans (Algebra.le_galoisClosure L)) <|
     (sup_le_sup_left (lowerRamificationGroup_antitone K _ (Nat.cast_le.mpr h)) _).trans
       (fixingSubgroup_lowerSubextension L s).ge
 
 lemma intermediateDegree_lowerSubextension_le : intermediateDegree (lowerSubextension_le L t) =
     (fixingSubgroup _ (((↑) : Algebra.galoisClosure K L → AlgebraicClosure K) ⁻¹' L)).relIndex
       (lowerRamificationGroup K (Algebra.galoisClosure K L) t) := by
-  rw [intermediateDegree_eq_relIndex (lowerSubextension_le L t) (le_galoisClosure L),
-    fixingSubgroup_lowerSubextension, relIndex_sup_of_normal]
+  rw [intermediateDegree_eq_relIndex (lowerSubextension_le L t) (Algebra.le_galoisClosure L),
+    fixingSubgroup_lowerSubextension, Subgroup.relIndex_sup_of_normal]
 
 lemma intermediateDegree_unramifiedExtension_le_lowerSubextension :
     intermediateDegree (unramifiedExtension_le_lowerSubextension L t) =
@@ -236,7 +175,7 @@ lemma extensionHeight_eq_subgroupMeanOrdinate
     extensionHeight K L' = subgroupMeanOrdinate K (Algebra.galoisClosure K L)
       (fixingSubgroup _ (((↑) : Algebra.galoisClosure K L → AlgebraicClosure K) ⁻¹' L))
       (fixingSubgroup _ (((↑) : Algebra.galoisClosure K L → AlgebraicClosure K) ⁻¹' L')) := by
-  have hLM : L ≤ Algebra.galoisClosure K L := le_galoisClosure L
+  have hLM : L ≤ Algebra.galoisClosure K L := Algebra.le_galoisClosure L
   set H : Subgroup (Algebra.galoisClosure K L ≃ₐ[K] Algebra.galoisClosure K L) :=
     fixingSubgroup _ (((↑) : Algebra.galoisClosure K L → AlgebraicClosure K) ⁻¹' L)
   set J : Subgroup (Algebra.galoisClosure K L ≃ₐ[K] Algebra.galoisClosure K L) :=
@@ -261,7 +200,7 @@ lemma extensionHeight_eq_subgroupMeanOrdinate
       ← hJ', ← he, mul_comm]
     exact (index_sup_mul_relIndex J 0).symm
   have ha : subgroupMeanAbscissa K (Algebra.galoisClosure K L) H J = ramificationIndex K L' := by
-    rw [subgroupMeanAbscissa, ← hJ', relIndex_sup_of_normal, he]
+    rw [subgroupMeanAbscissa, ← hJ', Subgroup.relIndex_sup_of_normal, he]
   rw [extensionHeight, subgroupMeanOrdinate, hc, hf, ha]
 
 lemma subgroupMeanOrdinate_sup_succ
@@ -276,7 +215,7 @@ lemma subgroupMeanOrdinate_sup_succ
       (visibleHerbrandInvariant L).mean ((visibleRams L).countP (· ≤ herbrandOfSubgroup K
         (Algebra.galoisClosure K L)
         (fixingSubgroup _ (((↑) : Algebra.galoisClosure K L → AlgebraicClosure K) ⁻¹' L)) t)) := by
-  have hLM : L ≤ Algebra.galoisClosure K L := le_galoisClosure L
+  have hLM : L ≤ Algebra.galoisClosure K L := Algebra.le_galoisClosure L
   set H : Subgroup (Algebra.galoisClosure K L ≃ₐ[K] Algebra.galoisClosure K L) :=
     fixingSubgroup _ (((↑) : Algebra.galoisClosure K L → AlgebraicClosure K) ⁻¹' L)
   set k : ℕ := (visibleRams L).countP (· ≤ herbrandOfSubgroup K (Algebra.galoisClosure K L) H t)
@@ -329,7 +268,7 @@ lemma intermediateDegree_ramSubextension (hu : 0 ≤ u) :
   have he : (fixingSubgroup (Algebra.galoisClosure K L ≃ₐ[K] Algebra.galoisClosure K L)
       (((↑) : Algebra.galoisClosure K L → AlgebraicClosure K) ⁻¹' L)).relIndex
         (lowerRamificationGroup K (Algebra.galoisClosure K L) 0) = ramificationIndex K L :=
-    relIndex_lowerRamificationGroup_zero_fixingSubgroup (le_galoisClosure L)
+    relIndex_lowerRamificationGroup_zero_fixingSubgroup (Algebra.le_galoisClosure L)
   refine (intermediateDegree_unramifiedExtension_le_lowerSubextension L _).trans ?_
   rw [subgroupMeanAbscissa_sup_succ, he]
   exact congrArg (fun k ↦ tameDegree K L * ringChar 𝓀[K] ^ k)

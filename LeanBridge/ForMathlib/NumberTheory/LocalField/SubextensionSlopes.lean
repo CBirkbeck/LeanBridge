@@ -49,21 +49,15 @@ wild ones with their multiplicities and `0` and `1` once each
 * `IsNonarchimedeanLocalField.map_add_one_hullWildSwanSlopes` and
   `IsNonarchimedeanLocalField.map_add_one_hullSwanSlopeMultiset` (LMFDB `lf.slopes`): the Artin
   slopes are the Swan slopes plus `1`, for the wild slopes and for all the slopes.
-* `IsNonarchimedeanLocalField.zero_mem_hullArtinSlopes_iff`,
-  `IsNonarchimedeanLocalField.one_mem_hullArtinSlopes_iff` and
-  `IsNonarchimedeanLocalField.eq_zero_or_eq_one_of_mem_hullArtinSlopes` (LMFDB `lf.slopes`): the
-  Artin slopes that are not wild are `0`, when `f > 1`, and `1`, when `ε > 1`.
-* `IsNonarchimedeanLocalField.mem_hullWildArtinSlopes_iff` (LMFDB `lf.slopes`,
-  `lf.visible_slopes`): the wild Artin slopes are the Artin slopes greater than `1`.
+* `IsNonarchimedeanLocalField.zero_mem_hullArtinSlopes_iff` and
+  `IsNonarchimedeanLocalField.one_mem_hullArtinSlopes_iff` (LMFDB `lf.slopes`): the Artin slope `0`
+  occurs exactly when `f > 1`, and the Artin slope `1` exactly when `ε > 1`.
 * `IsNonarchimedeanLocalField.hullArtinSlopeMultiset_eq` and
   `IsNonarchimedeanLocalField.hullSwanSlopeMultiset_eq` (LMFDB `lf.slopes`): the multisets of all
   the Artin slopes and of all the Swan slopes, from `f`, `ε` and the wild slopes.
 * `IsNonarchimedeanLocalField.mem_hullArtinSlopeMultiset_iff` and
   `IsNonarchimedeanLocalField.mem_hullSwanSlopeMultiset_iff` (LMFDB `lf.slopes`): the elements of
   these multisets are the Artin slopes and the Swan slopes.
-* `IsNonarchimedeanLocalField.inertiaDegree_dvd_of_le` and
-  `IsNonarchimedeanLocalField.tameDegree_dvd_of_le`: the residue degree and the tame degree of a
-  subextension divide those of the extension.
 * `IsNonarchimedeanLocalField.hullArtinSlopeMultiset_le_of_le` and
   `IsNonarchimedeanLocalField.hullSwanSlopeMultiset_le_of_le` (LMFDB `lf.hidden_slopes`): all the
   Artin slopes and all the Swan slopes of a subextension form a sub-multiset of those of the
@@ -85,27 +79,6 @@ attribute [local instance] finiteIntermediateFieldValuativeRel finiteIntermediat
   finiteIntermediateField_isNonarchimedeanLocalField finiteIntermediateField_valuativeExtension
 
 namespace IsNonarchimedeanLocalField
-
-lemma galoisClosure_le_iff {F : Type*} [Field F] {L N : IntermediateField F (AlgebraicClosure F)}
-    [Normal F N] : Algebra.galoisClosure F L ≤ N ↔ L ≤ N :=
-  Algebra.galoisClosure_eq_normalClosure (F := F) L ▸
-    IntermediateField.normalClosure_le_iff_of_normal
-
-section Field
-
-variable {F Ω : Type*} [Field F] [Field Ω] [Algebra F Ω] {L L' : IntermediateField F Ω}
-
-private lemma finiteDimensional_of_le [FiniteDimensional F L'] (h : L ≤ L') :
-    FiniteDimensional F L :=
-  (IntermediateField.restrictAlgEquiv h).symm.toLinearEquiv.finiteDimensional
-
-private lemma isSeparable_of_le [Algebra.IsSeparable F L'] (h : L ≤ L') :
-    Algebra.IsSeparable F L := by
-  let a : Algebra L L' := (IntermediateField.inclusion h).toAlgebra
-  have hs : IsScalarTower F L L' := .of_algebraMap_eq fun _ ↦ rfl
-  exact Algebra.isSeparable_tower_bot_of_isSeparable F L L'
-
-end Field
 
 variable {a b : ℕ} (x : ℝ) {s : ℝ} {K M : Type*} [Field K] [ValuativeRel K] [TopologicalSpace K]
   [IsNonarchimedeanLocalField K] [Field M] [ValuativeRel M] [TopologicalSpace M]
@@ -223,12 +196,12 @@ extensions `L ⊆ L'` of a nonarchimedean local field `K` inside `K̄`, with `L'
 the wild Swan slopes of `L / K`, with their multiplicities, form a sub-multiset of the wild Swan
 slopes of `L' / K`. -/
 lemma hullWildSwanSlopes_le_of_le (h : L ≤ L') : hullWildSwanSlopes L ≤ hullWildSwanSlopes L' := by
-  have hfin : FiniteDimensional K L := finiteDimensional_of_le h
-  have hsep : Algebra.IsSeparable K L := isSeparable_of_le h
+  have hfin : FiniteDimensional K L := IntermediateField.finiteDimensional_of_le h
+  have hsep : Algebra.IsSeparable K L := IntermediateField.isSeparable_of_le h
   rw [hullWildSwanSlopes_eq_visibleSwanSlopes, hullWildSwanSlopes_eq_visibleSwanSlopes,
     visibleSwanSlopes_eq_swanSlopesOfSubgroup, visibleSwanSlopes_eq_swanSlopesOfSubgroup,
-    ← swanSlopesOfSubgroup_fixingSubgroup_eq_of_le (le_galoisClosure L)
-      (galoisClosure_le_iff.mpr (h.trans (le_galoisClosure L')))]
+    ← swanSlopesOfSubgroup_fixingSubgroup_eq_of_le (Algebra.le_galoisClosure L)
+      (Algebra.galoisClosure_le_iff.mpr (h.trans (Algebra.le_galoisClosure L')))]
   exact swanSlopesOfSubgroup_le_of_le (fixingSubgroup_antitone _ _ (Set.preimage_mono h))
 
 variable (L) in
@@ -274,78 +247,9 @@ lemma map_add_one_hullSwanSlopeMultiset :
     (hullSwanSlopeMultiset L).map (· + 1) = hullArtinSlopeMultiset L :=
   map_add_one_map_sub_one _
 
-variable [FiniteDimensional K L] [FiniteDimensional K L'] in
-/-- **The residue degree of a subextension divides that of the extension**: for finite extensions
-`L ⊆ L'` of a nonarchimedean local field `K` inside `K̄`, `f(L / K)` divides `f(L' / K)`. -/
-lemma inertiaDegree_dvd_of_le (h : L ≤ L') : inertiaDegree K L ∣ inertiaDegree K L' := by
-  let a : Algebra L L' := (IntermediateField.inclusion h).toAlgebra
-  have hs : IsScalarTower K L L' := .of_algebraMap_eq fun _ ↦ rfl
-  have hv : ValuativeExtension L L' := (IntermediateField.inclusion h).valuativeExtension
-  exact Dvd.intro _ (inertiaDegree_tower K L L').symm
-
-variable [FiniteDimensional K L] [FiniteDimensional K L'] in
-/-- **The tame degree of a subextension divides that of the extension**: for finite extensions
-`L ⊆ L'` of a nonarchimedean local field `K` inside `K̄`, the tame degree of `L / K` divides the
-tame degree of `L' / K`. -/
-lemma tameDegree_dvd_of_le (h : L ≤ L') : tameDegree K L ∣ tameDegree K L' := by
-  let a : Algebra L L' := (IntermediateField.inclusion h).toAlgebra
-  have hs : IsScalarTower K L L' := .of_algebraMap_eq fun _ ↦ rfl
-  have hv : ValuativeExtension L L' := (IntermediateField.inclusion h).valuativeExtension
-  rw [tameDegree, tameDegree, ramificationIndex_tower (L := L) L', Nat.ordCompl_mul]
-  exact Dvd.intro _ rfl
-
-variable [FiniteDimensional K L] in
-private lemma tameDegree_pos : 0 < tameDegree K L :=
-  Nat.ordCompl_pos _ ramificationIndex_pos.ne'
-
-variable [FiniteDimensional K L] [FiniteDimensional K L'] in
-private lemma inertiaDegree_le_of_le (h : L ≤ L') : inertiaDegree K L ≤ inertiaDegree K L' :=
-  Nat.le_of_dvd inertiaDegree_pos (inertiaDegree_dvd_of_le h)
-
-variable [FiniteDimensional K L] [FiniteDimensional K L'] in
-private lemma tameDegree_le_of_le (h : L ≤ L') : tameDegree K L ≤ tameDegree K L' :=
-  Nat.le_of_dvd tameDegree_pos (tameDegree_dvd_of_le h)
-
 section NonWild
 
 variable (L) [FiniteDimensional K L] [Algebra.IsSeparable K L]
-
-lemma index_fixingSubgroup_sup_lowerRamificationGroup_zero :
-    (fixingSubgroup (Algebra.galoisClosure K L ≃ₐ[K] Algebra.galoisClosure K L)
-      (((↑) : Algebra.galoisClosure K L → AlgebraicClosure K) ⁻¹' L) ⊔
-        lowerRamificationGroup K (Algebra.galoisClosure K L) 0).index = inertiaDegree K L := by
-  rw [← fixingSubgroup_unramifiedExtension L, ← finrank_eq_index_fixingSubgroup
-    ((unramifiedExtension_inertiaDegree_le L).trans (le_galoisClosure L)),
-    finrank_unramifiedExtension inertiaDegree_pos.ne']
-
-lemma index_fixingSubgroup_sup_lowerRamificationGroup_one :
-    (fixingSubgroup (Algebra.galoisClosure K L ≃ₐ[K] Algebra.galoisClosure K L)
-      (((↑) : Algebra.galoisClosure K L → AlgebraicClosure K) ⁻¹' L) ⊔
-        lowerRamificationGroup K (Algebra.galoisClosure K L) 1).index =
-      inertiaDegree K L * tameDegree K L := by
-  set H : Subgroup (Algebra.galoisClosure K L ≃ₐ[K] Algebra.galoisClosure K L) :=
-    fixingSubgroup _ (((↑) : Algebra.galoisClosure K L → AlgebraicClosure K) ⁻¹' L)
-  have h₁ : subgroupMeanAbscissa K (Algebra.galoisClosure K L) H
-      (H ⊔ lowerRamificationGroup K (Algebra.galoisClosure K L) ((0 + 1 : ℕ) : ℤ)) =
-        tameDegree K L := by
-    rw [subgroupMeanAbscissa_sup_succ H 0, herbrandOfSubgroup_zero,
-      Multiset.countP_eq_zero.mpr fun r hr ↦ (pos_of_mem_ramsOfSubgroup K _ H hr).not_ge, pow_zero,
-      mul_one, relIndex_lowerRamificationGroup_zero_fixingSubgroup (le_galoisClosure L),
-      tameDegree]
-  rw [← index_fixingSubgroup_sup_lowerRamificationGroup_zero L, ← h₁, mul_comm]
-  exact (Subgroup.relIndex_mul_index (sup_lowerRamificationGroup_le_sup_zero H 1)).symm
-
-variable {L} in
-lemma mem_hullArtinSlopes_iff : s ∈ hullArtinSlopes L ↔
-    ∃ t, (t ≤ (largestLowerJump K (Algebra.galoisClosure K L)).toNat + 1 ∧
-      (slopeVertexSubgroup K (Algebra.galoisClosure K L) (fixingSubgroup _
-        (((↑) : Algebra.galoisClosure K L → AlgebraicClosure K) ⁻¹' L)) t).index <
-      (slopeVertexSubgroup K (Algebra.galoisClosure K L) (fixingSubgroup _
-        (((↑) : Algebra.galoisClosure K L → AlgebraicClosure K) ⁻¹' L)) (t + 1)).index) ∧
-      (subgroupSlope K (Algebra.galoisClosure K L) t : ℝ) = s := by
-  rw [hullArtinSlopes, slopesPolygon, subextensionPoints_eq,
-    (isLowerHullVertices_subgroupSlopePoints _).segmentSlopes_lowerConvexHull]
-  exact Iff.rfl
 
 /-- **The Artin slope `0`** (LMFDB `lf.slopes`): the slope polygon `B` of a finite separable
 extension `L / K` inside `K̄` has a segment of slope `0`, from `(1, 0)` to `(f, 0)`, exactly when
@@ -378,24 +282,6 @@ lemma one_mem_hullArtinSlopes_iff : 1 ∈ hullArtinSlopes L ↔ 1 < tameDegree K
     exact hlt
   · intro h
     exact ⟨1, ⟨Nat.le_add_left _ _, h⟩, by rw [subgroupSlope_one, Rat.cast_one]⟩
-
-variable {L} in
-/-- **The Artin slopes that are not wild are `0` and `1`** (LMFDB `lf.slopes`): an Artin slope at
-most `1` of a finite separable extension `L / K` inside `K̄` is `0` or `1`. -/
-lemma eq_zero_or_eq_one_of_mem_hullArtinSlopes (hs : s ∈ hullArtinSlopes L) (h : s ≤ 1) :
-    s = 0 ∨ s = 1 := by
-  rcases mem_hullArtinSlopes_iff.mp hs with ⟨t, -, rfl⟩
-  have ht : ¬2 ≤ t := fun h2 ↦ h.not_gt <| by exact_mod_cast one_lt_subgroupSlope_iff.mpr h2
-  rcases (by omega : t = 0 ∨ t = 1) with rfl | rfl
-  · exact .inl (by rw [subgroupSlope_zero, Rat.cast_zero])
-  · exact .inr (by rw [subgroupSlope_one, Rat.cast_one])
-
-/-- **The wild Artin slopes are the Artin slopes greater than `1`** (LMFDB `lf.slopes`,
-`lf.visible_slopes`): a real number is a wild Artin slope of a finite separable extension `L / K`
-inside `K̄`, a visible Artin slope, exactly when it is an Artin slope greater than `1`. -/
-lemma mem_hullWildArtinSlopes_iff : s ∈ hullWildArtinSlopes L ↔ s ∈ hullArtinSlopes L ∧ 1 < s :=
-  (Multiset.mem_map_of_injective sub_left_injective).symm.trans <|
-    (mem_hullWildSwanSlopes_iff L).trans <| and_congr sub_left_injective.mem_set_image sub_pos
 
 /-- **All the Artin slopes** (LMFDB `lf.slopes`): the multiset of all the Artin slopes of a finite
 separable extension `L / K` inside `K̄` consists of `0` if its residue degree `f` is greater than
@@ -448,8 +334,8 @@ the Artin slopes of `L / K`, the slopes `0` and `1` of the segments that are not
 is a sub-multiset of that of `L' / K`. -/
 lemma hullArtinSlopeMultiset_le_of_le (h : L ≤ L') :
     hullArtinSlopeMultiset L ≤ hullArtinSlopeMultiset L' := by
-  have hfin : FiniteDimensional K L := finiteDimensional_of_le h
-  have hsep : Algebra.IsSeparable K L := isSeparable_of_le h
+  have hfin : FiniteDimensional K L := IntermediateField.finiteDimensional_of_le h
+  have hsep : Algebra.IsSeparable K L := IntermediateField.isSeparable_of_le h
   rw [hullArtinSlopeMultiset_eq L, hullArtinSlopeMultiset_eq L']
   exact add_le_add (add_le_add (ite_singleton_le_ite_singleton 0 (inertiaDegree_le_of_le h))
     (ite_singleton_le_ite_singleton 1 (tameDegree_le_of_le h))) (hullWildArtinSlopes_le_of_le h)
@@ -473,7 +359,7 @@ lemma hullSwanSlopeMultiset_sub_of_le (h : L ≤ L') : hullSwanSlopeMultiset L' 
     hullSwanSlopeMultiset L = (if inertiaDegree K L = 1 ∧ 1 < inertiaDegree K L' then {-1} else 0) +
       (if tameDegree K L = 1 ∧ 1 < tameDegree K L' then {0} else 0) +
       (hullWildSwanSlopes L' - hullWildSwanSlopes L) := by
-  have hsep : Algebra.IsSeparable K L := isSeparable_of_le h
+  have hsep : Algebra.IsSeparable K L := IntermediateField.isSeparable_of_le h
   have hf : inertiaDegree K L ≤ inertiaDegree K L' := inertiaDegree_le_of_le h
   have hε : tameDegree K L ≤ tameDegree K L' := tameDegree_le_of_le h
   rw [hullSwanSlopeMultiset_eq, hullSwanSlopeMultiset_eq L,

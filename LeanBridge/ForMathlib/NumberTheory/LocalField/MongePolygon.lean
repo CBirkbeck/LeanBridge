@@ -34,6 +34,8 @@ at this number has the valuation that the Newton polygon predicts, and this numb
 
 * `IsNonarchimedeanLocalField.HerbrandInvariant.addVal_coeff_prod_C_add_C_mul_X`: the top
   coefficient of a product of linear polynomials.
+* `IsNonarchimedeanLocalField.HerbrandInvariant.IsVertex.ramCountLT_add_ramMultiplicity`: a vertex
+  `k` ends the block of its ram.
 * `IsNonarchimedeanLocalField.HerbrandInvariant.sum_card_mul_relIndex_add_addVal_coeff_taylor`: the
   vertices of the ramification polygon, in terms of the ramification groups.
 * `IsNonarchimedeanLocalField.HerbrandInvariant.isRamificationPolygon_herbrandInvariantOfTower`
@@ -257,6 +259,25 @@ lemma sum_card_mul_relIndex_add_addVal_coeff_taylor (hy : Algebra.adjoin 𝒪[K]
 
 end Tower
 
+lemma countP_le_ofRams {p : ℕ} (hp : p.Prime) (R : Multiset ℚ) (hR : ∀ r ∈ R, 0 < r) (e f : ℕ)
+    (he : e ≠ 0) (hf : 0 < f) {u : ℚ} (hu : 0 ≤ u) : R.countP (· ≤ u) =
+    (ofRams p hp R hR e f he hf).ramCountLT u + (ofRams p hp R hR e f he hf).ramMultiplicity u := by
+  have hw : (ofRams p hp R hR e f he hf).w = Multiset.card R := rfl
+  have hn : R.countP (· ≤ u) ≤ (ofRams p hp R hR e f he hf).w := Multiset.countP_le_card _ _
+  have h₁ : (ofRams p hp R hR e f he hf).ram (R.countP (· ≤ u)) ≤ u :=
+    ram_countP_le p hp R hR e f he hf hu
+  have hset : {j ∈ Icc 1 (ofRams p hp R hR e f he hf).w | (ofRams p hp R hR e f he hf).ram j ≤ u} =
+      Icc 1 (R.countP (· ≤ u)) := by
+    ext j
+    rw [mem_filter, mem_Icc, mem_Icc]
+    refine ⟨fun ⟨⟨hj₁, _⟩, hj⟩ ↦ ⟨hj₁, not_lt.mp fun hlt ↦ ?_⟩,
+      fun ⟨hj₁, hj₂⟩ ↦ ⟨⟨hj₁, hj₂.trans hn⟩,
+        ((ofRams p hp R hR e f he hf).monotone_ram hj₂).trans h₁⟩⟩
+    have h₂ : u < (ofRams p hp R hR e f he hf).ram (R.countP (· ≤ u) + 1) :=
+      lt_ram_countP_le_add_one p hp R hR e f he hf <| by omega
+    exact (h₂.trans_le ((ofRams p hp R hR e f he hf).monotone_ram hlt)).not_ge hj
+  rw [← card_filter_ram_le, hset, Nat.card_Icc, Nat.add_sub_cancel]
+
 variable {p : ℕ} (I : HerbrandInvariant p) {R S : Type*} [CommRing R] [CommRing S] [IsDomain S]
   [IsDiscreteValuationRing S] [Algebra R S] {b : ℚ}
 
@@ -278,8 +299,7 @@ lemma isVertex_ramCountLT (hb : b ∈ (Icc 1 I.w).image I.ram) : I.IsVertex (I.r
   rw [I.ram_eq_of_ramCountLT_lt (Nat.lt_succ_self _) (by omega)]
   rcases Nat.eq_zero_or_pos (I.ramCountLT b) with h | h
   · rw [h, I.ram_zero]
-    rcases mem_image.mp hb with ⟨k, hk, rfl⟩
-    exact I.ram_pos (Nat.one_le_iff_ne_zero.mp (mem_Icc.mp hk).1) (mem_Icc.mp hk).2
+    exact I.pos_of_mem_image_ram hb
   · exact (I.ram_lt_iff_le_ramCountLT h (by omega)).mpr le_rfl
 
 lemma isVertex_ramCountLT_add_ramMultiplicity (hb : b ∈ (Icc 1 I.w).image I.ram) :
@@ -292,6 +312,37 @@ lemma isVertex_ramCountLT_add_ramMultiplicity (hb : b ∈ (Icc 1 I.w).image I.ra
     have hle' : I.ramCountLT b + I.ramMultiplicity b + 1 ≤ I.ramCountLT b + I.ramMultiplicity b :=
       (I.ram_le_iff_le_ramCountLT_add_ramMultiplicity (by omega) h).mp hle
     omega
+
+variable {I} in
+/-- **A vertex ends the block of its ram**: if `k` is a vertex of `I`, that is `k = w` or
+`r_k < r_{k + 1}`, then `k = c + d` for the number `c` of rams smaller than `r_k` and the
+multiplicity `d` of `r_k` among `r_1, …, r_w`: `k` is the number of rams at most `r_k`. -/
+lemma IsVertex.ramCountLT_add_ramMultiplicity {k : ℕ} (hv : I.IsVertex k) (hk : k ≤ I.w) :
+    I.ramCountLT (I.ram k) + I.ramMultiplicity (I.ram k) = k := by
+  rcases Nat.eq_zero_or_pos k with rfl | hk₀
+  · rw [I.ram_zero, ← I.card_filter_ram_le 0, card_eq_zero, filter_eq_empty_iff]
+    exact fun j hj ↦ not_le.mpr <|
+      I.ram_pos (Nat.one_le_iff_ne_zero.mp (mem_Icc.mp hj).1) (mem_Icc.mp hj).2
+  · have h₁ : k ≤ I.ramCountLT (I.ram k) + I.ramMultiplicity (I.ram k) :=
+      (I.ram_le_iff_le_ramCountLT_add_ramMultiplicity hk₀ hk).mp le_rfl
+    have h₂ : I.ramCountLT (I.ram k) + I.ramMultiplicity (I.ram k) ≤ I.w :=
+      I.ramCountLT_add_ramMultiplicity_le _
+    rcases hv with rfl | hlt
+    · exact h₂.antisymm h₁
+    · refine h₁.antisymm' <| not_lt.mp fun h ↦ hlt.not_ge ?_
+      exact (I.ram_le_iff_le_ramCountLT_add_ramMultiplicity (by omega) (by omega)).mpr (by omega)
+
+variable {I} in
+lemma ramMultiplicity_ram_of_ram_lt {k : ℕ} (hI : ∀ j < I.w, I.ram j < I.ram (j + 1)) (hk₀ : k ≠ 0)
+    (hk : k ≤ I.w) : I.ramMultiplicity (I.ram k) = 1 := by
+  have hv : I.IsVertex k := by
+    rcases hk.lt_or_eq with h | h
+    · exact .inr (hI k h)
+    · exact .inl h
+  have h₁ : I.ramCountLT (I.ram k) + I.ramMultiplicity (I.ram k) = k :=
+    hv.ramCountLT_add_ramMultiplicity hk
+  have h₂ : I.ramCountLT (I.ram k) = k - 1 := ramCountLT_ram_of_ram_lt hI hk₀ hk
+  omega
 
 /-- The **ramification polygon** of a polynomial `g` over a discrete valuation ring `R` at a root
 `π` in a discrete valuation ring `S` over `R` is the polygon of the Herbrand invariant `I`, for the
@@ -319,34 +370,9 @@ variable (K M L : Type*) [Field K] [ValuativeRel K] [TopologicalSpace K]
 lemma ramsOfSubgroup_countP_le_ram {k : ℕ} (hk : k ≤ (herbrandInvariantOfTower K M L).w)
     (hfin : (herbrandInvariantOfTower K M L).IsVertex k) :
     (ramsOfSubgroup K M (AlgEquiv.restrictScalarsHom (S := L) K).range).countP
-      (· ≤ (herbrandInvariantOfTower K M L).ram k) = k := by
-  have hw : (herbrandInvariantOfTower K M L).w =
-      Multiset.card (ramsOfSubgroup K M (AlgEquiv.restrictScalarsHom (S := L) K).range) :=
-    rfl
-  have h₀ : 0 ≤ (herbrandInvariantOfTower K M L).ram k :=
-    (herbrandInvariantOfTower K M L).ram_zero ▸
-      (herbrandInvariantOfTower K M L).monotone_ram k.zero_le
-  have h₁ : (herbrandInvariantOfTower K M L).ram
-      ((ramsOfSubgroup K M (AlgEquiv.restrictScalarsHom (S := L) K).range).countP
-        (· ≤ (herbrandInvariantOfTower K M L).ram k)) ≤ (herbrandInvariantOfTower K M L).ram k :=
-    HerbrandInvariant.ram_countP_le _ _ _ _ _ _ _ _ h₀
-  have hle : (ramsOfSubgroup K M (AlgEquiv.restrictScalarsHom (S := L) K).range).countP
-      (· ≤ (herbrandInvariantOfTower K M L).ram k) ≤
-        Multiset.card (ramsOfSubgroup K M (AlgEquiv.restrictScalarsHom (S := L) K).range) :=
-    Multiset.countP_le_card _ _
-  generalize hc : (ramsOfSubgroup K M (AlgEquiv.restrictScalarsHom (S := L) K).range).countP
-    (· ≤ (herbrandInvariantOfTower K M L).ram k) = c at h₁ hle
-  rcases lt_trichotomy c k with h | h | h
-  · have h₂ : (herbrandInvariantOfTower K M L).ram k <
-        (herbrandInvariantOfTower K M L).ram (c + 1) := by
-      rw [← hc]
-      exact HerbrandInvariant.lt_ram_countP_le_add_one _ _ _ _ _ _ _ _ (by omega)
-    exact absurd ((herbrandInvariantOfTower K M L).monotone_ram (Nat.succ_le_of_lt h)) h₂.not_ge
-  · exact h
-  · rcases hfin with rfl | hfin
-    · omega
-    · exact absurd (hfin.trans_le ((herbrandInvariantOfTower K M L).monotone_ram
-        (Nat.succ_le_of_lt h))) h₁.not_gt
+      (· ≤ (herbrandInvariantOfTower K M L).ram k) = k :=
+  (countP_le_ofRams _ _ _ _ _ _ _ ((herbrandInvariantOfTower K M L).ram_nonneg k)).trans
+    (hfin.ramCountLT_add_ramMultiplicity hk)
 
 variable [IsGalois K M]
 

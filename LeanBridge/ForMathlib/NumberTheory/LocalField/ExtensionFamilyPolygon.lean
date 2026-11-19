@@ -105,8 +105,7 @@ lemma IsInvariantOf.isRamificationPolygon_minpoly (hp : ringChar 𝓀[K] = p)
     finiteIntermediateField_valuativeExtension K _ _
   have hFE : unramifiedExtension K (AlgebraicClosure K) I.f ≤ E :=
     unramifiedExtension_le_of_isInvariantOf hE
-  have hEM : E ≤ Algebra.galoisClosure K E :=
-    Algebra.galoisClosure_eq_normalClosure (F := K) E ▸ E.le_normalClosure
+  have hEM : E ≤ Algebra.galoisClosure K E := Algebra.le_galoisClosure E
   let aFE : Algebra (unramifiedExtension K (AlgebraicClosure K) I.f) E := (inclusion hFE).toAlgebra
   let aFM : Algebra (unramifiedExtension K (AlgebraicClosure K) I.f) (Algebra.galoisClosure K E) :=
     (inclusion (hFE.trans hEM)).toAlgebra

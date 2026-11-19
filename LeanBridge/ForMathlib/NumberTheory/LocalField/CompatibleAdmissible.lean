@@ -28,8 +28,6 @@ arithmetic vertex `r_k^* = e₀`.
 
 ## Main results
 
-* `IsNonarchimedeanLocalField.HerbrandInvariant.IsVertex.ramCountLT_add_ramMultiplicity`: a vertex
-  `k` ends the block of its ram.
 * `IsNonarchimedeanLocalField.HerbrandInvariant.IsCompatible.exists_mul_mean_eq` and
   `IsNonarchimedeanLocalField.HerbrandInvariant.IsCompatible.exists_mul_mean_eq_of_isGeometricRam`:
   the divisibility of `e m_k` at the vertices of a compatible invariant.
@@ -50,27 +48,6 @@ namespace IsNonarchimedeanLocalField.HerbrandInvariant
 
 variable {p : ℕ} {I : HerbrandInvariant p} {e₀ k : ℕ} {b : ℚ}
 
-lemma ram_mem_image (hk₀ : k ≠ 0) (hk : k ≤ I.w) : I.ram k ∈ (Icc 1 I.w).image I.ram :=
-  mem_image_of_mem _ <| mem_Icc.mpr ⟨Nat.one_le_iff_ne_zero.mpr hk₀, hk⟩
-
-/-- **A vertex ends the block of its ram**: if `k` is a vertex of `I`, that is `k = w` or
-`r_k < r_{k + 1}`, then `k = c + d` for the number `c` of rams smaller than `r_k` and the
-multiplicity `d` of `r_k` among `r_1, …, r_w`: `k` is the number of rams at most `r_k`. -/
-lemma IsVertex.ramCountLT_add_ramMultiplicity (hv : I.IsVertex k) (hk : k ≤ I.w) :
-    I.ramCountLT (I.ram k) + I.ramMultiplicity (I.ram k) = k := by
-  rcases Nat.eq_zero_or_pos k with rfl | hk₀
-  · rw [I.ram_zero, ← I.card_filter_ram_le 0, card_eq_zero, filter_eq_empty_iff]
-    exact fun j hj ↦ not_le.mpr <|
-      I.ram_pos (Nat.one_le_iff_ne_zero.mp (mem_Icc.mp hj).1) (mem_Icc.mp hj).2
-  · have h₁ : k ≤ I.ramCountLT (I.ram k) + I.ramMultiplicity (I.ram k) :=
-      (I.ram_le_iff_le_ramCountLT_add_ramMultiplicity hk₀ hk).mp le_rfl
-    have h₂ : I.ramCountLT (I.ram k) + I.ramMultiplicity (I.ram k) ≤ I.w :=
-      I.ramCountLT_add_ramMultiplicity_le _
-    rcases hv with rfl | hlt
-    · exact h₂.antisymm h₁
-    · refine h₁.antisymm' <| not_lt.mp fun h ↦ hlt.not_ge ?_
-      exact (I.ram_le_iff_le_ramCountLT_add_ramMultiplicity (by omega) (by omega)).mpr (by omega)
-
 lemma IsGeometricRam.not_dvd_of_pow_sub_one_mul_eq (hg : I.IsGeometricRam e₀ b) {N : ℕ}
     (hN : ((p : ℚ) ^ I.ramMultiplicity b - 1) * b = N) : ¬p ∣ N := by
   refine fun hdvd ↦ hg.2.2.1 ?_
@@ -83,9 +60,7 @@ lemma IsCompatible.exists_pow_ramMultiplicity_sub_one_mul_eq (h : I.IsCompatible
     (hb : b ∈ (Icc 1 I.w).image I.ram) : ∃ N : ℕ, ((p : ℚ) ^ I.ramMultiplicity b - 1) * b = N := by
   have hp₁ : (0 : ℚ) < p - 1 := sub_pos.mpr one_lt_natCast_prime
   rcases h b hb with ⟨-, hden, -, -⟩ | ⟨-, hd, heq⟩
-  · have hb₀ : 0 ≤ b := by
-      rcases mem_image.mp hb with ⟨j, -, rfl⟩
-      exact I.ram_nonneg j
+  · have hb₀ : 0 ≤ b := (I.pos_of_mem_image_ram hb).le
     exact exists_natCast_of_den_eq_one (mul_nonneg (sub_nonneg.mpr <|
       one_le_pow₀ one_le_natCast_prime) hb₀) hden
   · have heq' : b = p ^ (I.ramCountLT b + 1) * I.ε * e₀ / (p - 1) := heq

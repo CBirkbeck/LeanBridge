@@ -20,6 +20,12 @@ field extending that of `K` (mathematically there is only one, which is not used
 
 ## Main results
 
+* `IsNonarchimedeanLocalField.inertiaDegree_dvd_of_le` and
+  `IsNonarchimedeanLocalField.tameDegree_dvd_of_le`: the residue degree and the tame degree of a
+  subextension, inside `K̄`, divide those of the extension.
+* `IsNonarchimedeanLocalField.inertiaDegree_dvd_galoisUnramifiedDegree` and
+  `IsNonarchimedeanLocalField.tameDegree_dvd_galoisTameDegree`: the residue degree and the tame
+  degree divide the Galois unramified degree and the Galois tame degree.
 * `IsNonarchimedeanLocalField.isUnramified_galoisClosure_iff`: the Galois closure of `E / K` is
   unramified exactly when `E / K` is.
 * `IsNonarchimedeanLocalField.isTamelyRamified_galoisClosure_iff`: the Galois closure of `E / K`
@@ -83,6 +89,46 @@ lemma topArtinSlope_eq_one_of_le_one {E : Type*} [Field E] [Algebra K E] [Finite
     topArtinSlope K E = 1 :=
   (topArtinSlope_eq_one_iff K E).mpr
     ⟨(topArtinSlope_le_one_iff K E).mp h1, fun h ↦ h0 ((topArtinSlope_eq_zero_iff K E).mpr h)⟩
+
+variable {L L' : IntermediateField K (AlgebraicClosure K)} [FiniteDimensional K L]
+  [FiniteDimensional K L']
+
+/-- **The residue degree of a subextension divides that of the extension**: for finite extensions
+`L ⊆ L'` of a nonarchimedean local field `K` inside `K̄`, `f(L / K)` divides `f(L' / K)`. -/
+lemma inertiaDegree_dvd_of_le (h : L ≤ L') : inertiaDegree K L ∣ inertiaDegree K L' := by
+  let a : Algebra L L' := (inclusion h).toAlgebra
+  have hs : IsScalarTower K L L' := .of_algebraMap_eq fun _ ↦ rfl
+  have hv : ValuativeExtension L L' := (inclusion h).valuativeExtension
+  exact Dvd.intro _ (inertiaDegree_tower K L L').symm
+
+/-- **The tame degree of a subextension divides that of the extension**: for finite extensions
+`L ⊆ L'` of a nonarchimedean local field `K` inside `K̄`, the tame degree of `L / K` divides the
+tame degree of `L' / K`. -/
+lemma tameDegree_dvd_of_le (h : L ≤ L') : tameDegree K L ∣ tameDegree K L' := by
+  let a : Algebra L L' := (inclusion h).toAlgebra
+  have hs : IsScalarTower K L L' := .of_algebraMap_eq fun _ ↦ rfl
+  have hv : ValuativeExtension L L' := (inclusion h).valuativeExtension
+  rw [tameDegree, tameDegree, ramificationIndex_tower (L := L) L', Nat.ordCompl_mul]
+  exact Dvd.intro _ rfl
+
+lemma inertiaDegree_le_of_le (h : L ≤ L') : inertiaDegree K L ≤ inertiaDegree K L' :=
+  Nat.le_of_dvd inertiaDegree_pos (inertiaDegree_dvd_of_le h)
+
+lemma tameDegree_le_of_le (h : L ≤ L') : tameDegree K L ≤ tameDegree K L' :=
+  Nat.le_of_dvd tameDegree_pos (tameDegree_dvd_of_le h)
+
+variable (L) in
+/-- **The residue degree divides the Galois unramified degree** (LMFDB `lf.unramified_degree`): for
+a finite extension `L / K` inside `K̄`, the residue degree of `L / K` divides that of its Galois
+closure. -/
+lemma inertiaDegree_dvd_galoisUnramifiedDegree : inertiaDegree K L ∣ galoisUnramifiedDegree K L :=
+  inertiaDegree_dvd_of_le (Algebra.le_galoisClosure L)
+
+variable (L) in
+/-- **The tame degree divides the Galois tame degree** (LMFDB `lf.tame_degree`): for a finite
+extension `L / K` inside `K̄`, the tame degree of `L / K` divides that of its Galois closure. -/
+lemma tameDegree_dvd_galoisTameDegree : tameDegree K L ∣ galoisTameDegree K L :=
+  tameDegree_dvd_of_le (Algebra.le_galoisClosure L)
 
 variable (K) (E : Type*) [Field E] [ValuativeRel E] [TopologicalSpace E]
   [IsNonarchimedeanLocalField E] [Algebra K E] [ValuativeExtension K E] [FiniteDimensional K E]

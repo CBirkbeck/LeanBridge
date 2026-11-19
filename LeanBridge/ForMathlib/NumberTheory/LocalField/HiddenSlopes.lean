@@ -65,9 +65,6 @@ list.
 * `IsNonarchimedeanLocalField.hiddenSwanSlopes_eq_hiddenSwanSlopesOfSubgroup`: the hidden Swan
   slopes are the `φ(i)`, each repeated `v_p([Γ_i : Γ_{i + 1}])` times.
 * `IsNonarchimedeanLocalField.hiddenSwanSlopes_of_normal`: a normal extension has no hidden slope.
-* `IsNonarchimedeanLocalField.inertiaDegree_dvd_galoisUnramifiedDegree` and
-  `IsNonarchimedeanLocalField.tameDegree_dvd_galoisTameDegree`: the residue degree and the tame
-  degree divide the Galois unramified degree and the Galois tame degree.
 * `IsNonarchimedeanLocalField.hullSwanSlopeMultiset_le_galoisClosure`,
   `IsNonarchimedeanLocalField.hullSwanSlopeMultiset_add_galoisClosure_sub` and
   `IsNonarchimedeanLocalField.map_add_one_hullSwanSlopeMultiset_sub` (LMFDB `lf.hidden_slopes`):
@@ -75,13 +72,9 @@ list.
 * `IsNonarchimedeanLocalField.hullSwanSlopeMultiset_galoisClosure_sub` (LMFDB
   `lf.hidden_slopes`): with all the slopes counted, the hidden Swan slopes are those above
   together with `-1` if `f = 1 < f^Gal` and with `0` if `ε = 1 < ε^Gal`.
-* `IsNonarchimedeanLocalField.count_hullWildArtinSlopes`,
-  `IsNonarchimedeanLocalField.count_hullWildArtinSlopes_of_mem_polygonEdgesWithSlope` and
-  `IsNonarchimedeanLocalField.slopeMultiplicity_pos` (LMFDB `lf.visible_slopes`): the slope of a
-  wild segment from `(n₁, c₁)` to `(n₂, c₂)`, with `n₂ / n₁ = p ^ k`, is listed `k` times, and
-  `k ≥ 1`.
-* `IsNonarchimedeanLocalField.hullWildArtinSlopes_eq_wildArtinSlopesOfIsGalois` (LMFDB
-  `lf.visible_slopes`): the visible Artin slopes of a Galois extension are its wild Artin slopes.
+* `IsNonarchimedeanLocalField.count_hullWildArtinSlopes_of_mem_polygonEdgesWithSlope` (LMFDB
+  `lf.visible_slopes`): the slope of a wild segment from `(n₁, c₁)` to `(n₂, c₂)`, with
+  `n₂ / n₁ = p ^ k`, is listed `k` times.
 * `IsNonarchimedeanLocalField.hullWildArtinSlopes_le_wildArtinSlopes` (LMFDB `lf.visible_slopes`):
   the visible Artin slopes form a sub-multiset of the wild Artin slopes of the Galois closure.
 * `IsNonarchimedeanLocalField.hiddenArtinSlopes_eq_wildArtinSlopes_sub` and
@@ -102,10 +95,6 @@ attribute [local instance] finiteIntermediateFieldValuativeRel finiteIntermediat
   finiteIntermediateField_isNonarchimedeanLocalField finiteIntermediateField_valuativeExtension
 
 namespace IsNonarchimedeanLocalField
-
-lemma galoisClosure_eq_of_normal {F : Type*} [Field F]
-    (L : IntermediateField F (AlgebraicClosure F)) [Normal F L] : Algebra.galoisClosure F L = L :=
-  (galoisClosure_le_iff.mpr le_rfl).antisymm (le_galoisClosure L)
 
 section Subgroup
 
@@ -201,32 +190,8 @@ variable [Normal K L] in
 /-- **A normal extension has no hidden slope**: for a normal extension `L / K` inside `K̄`, which is
 its own Galois closure, the multiset of hidden Swan slopes is empty. -/
 lemma hiddenSwanSlopes_of_normal : hiddenSwanSlopes L = 0 := by
-  rw [hiddenSwanSlopes, galoisSwanSlopes, galoisClosure_eq_of_normal L]
+  rw [hiddenSwanSlopes, galoisSwanSlopes, Algebra.galoisClosure_eq_of_normal L]
   exact tsub_self _
-
-variable [FiniteDimensional K L] in
-/-- **The residue degree divides the Galois unramified degree** (LMFDB `lf.unramified_degree`): for
-a finite extension `L / K` inside `K̄`, the residue degree of `L / K` divides that of its Galois
-closure. -/
-lemma inertiaDegree_dvd_galoisUnramifiedDegree : inertiaDegree K L ∣ galoisUnramifiedDegree K L :=
-  inertiaDegree_dvd_of_le (le_galoisClosure L)
-
-variable [FiniteDimensional K L] in
-/-- **The tame degree divides the Galois tame degree** (LMFDB `lf.tame_degree`): for a finite
-extension `L / K` inside `K̄`, the tame degree of `L / K` divides that of its Galois closure. -/
-lemma tameDegree_dvd_galoisTameDegree : tameDegree K L ∣ galoisTameDegree K L :=
-  tameDegree_dvd_of_le (le_galoisClosure L)
-
-variable [FiniteDimensional K L] [IsGalois K L] in
-/-- **The visible Artin slopes of a Galois extension are its wild Artin slopes** (LMFDB
-`lf.visible_slopes`): for a finite Galois extension `L / K` of nonarchimedean local fields inside
-`K̄`, the wild Artin slopes read off the lower convex hull of the points `(n_E, c_E)` of the
-subextensions are the wild Artin slopes of the ramification filtration of `Gal(L / K)` (LMFDB
-`lf.wild_slopes`). -/
-lemma hullWildArtinSlopes_eq_wildArtinSlopesOfIsGalois :
-    hullWildArtinSlopes L = wildArtinSlopesOfIsGalois K L :=
-  (hullWildArtinSlopes_eq_visibleArtinSlopes L).trans
-    (visibleArtinSlopes_eq_wildArtinSlopesOfIsGalois L)
 
 variable [FiniteDimensional K L] [Algebra.IsSeparable K L]
 
@@ -249,7 +214,7 @@ lemma galoisArtinSlopes_eq_wildArtinSlopes : galoisArtinSlopes L = wildArtinSlop
 wild Swan slopes of a finite separable extension `L / K` inside `K̄` is a sub-multiset of the
 multiset `S^Gal` of its Galois Swan slopes. -/
 lemma hullWildSwanSlopes_le_galoisSwanSlopes : hullWildSwanSlopes L ≤ galoisSwanSlopes L :=
-  hullWildSwanSlopes_le_of_le (le_galoisClosure L)
+  hullWildSwanSlopes_le_of_le (Algebra.le_galoisClosure L)
 
 /-- **`S^Gal` is the multiset sum of `S` and `H`** (LMFDB `lf.hidden_slopes`): the Galois Swan
 slopes of a finite separable extension `L / K` inside `K̄` are its wild Swan slopes together with
@@ -262,7 +227,7 @@ lemma hullWildSwanSlopes_add_hiddenSwanSlopes :
 wild Artin slopes of a finite separable extension `L / K` inside `K̄` is a sub-multiset of the
 multiset of its Galois Artin slopes. -/
 lemma hullWildArtinSlopes_le_galoisArtinSlopes : hullWildArtinSlopes L ≤ galoisArtinSlopes L :=
-  hullWildArtinSlopes_le_of_le (le_galoisClosure L)
+  hullWildArtinSlopes_le_of_le (Algebra.le_galoisClosure L)
 
 /-- **The Galois Artin slopes are the Artin slopes and the hidden Artin slopes** (LMFDB
 `lf.hidden_slopes`): the Galois Artin slopes of a finite separable extension `L / K` inside `K̄`
@@ -298,7 +263,7 @@ slopes `-1` and `0` of the segments that are not wild included, is a sub-multise
 `L^Gal / K`. -/
 lemma hullSwanSlopeMultiset_le_galoisClosure :
     hullSwanSlopeMultiset L ≤ hullSwanSlopeMultiset (Algebra.galoisClosure K L) :=
-  hullSwanSlopeMultiset_le_of_le (le_galoisClosure L)
+  hullSwanSlopeMultiset_le_of_le (Algebra.le_galoisClosure L)
 
 /-- **`S^Gal` is the multiset sum of `S` and `H` when all the Swan slopes are counted** (LMFDB
 `lf.hidden_slopes`): for a finite separable extension `L / K` inside `K̄`, the multiset of all the
@@ -320,7 +285,7 @@ lemma hullSwanSlopeMultiset_galoisClosure_sub : hullSwanSlopeMultiset (Algebra.g
     hullSwanSlopeMultiset L =
       (if inertiaDegree K L = 1 ∧ 1 < galoisUnramifiedDegree K L then {-1} else 0) +
         (if tameDegree K L = 1 ∧ 1 < galoisTameDegree K L then {0} else 0) + hiddenSwanSlopes L :=
-  hullSwanSlopeMultiset_sub_of_le (le_galoisClosure L)
+  hullSwanSlopeMultiset_sub_of_le (Algebra.le_galoisClosure L)
 
 /-- **The hidden slopes among all the slopes** (LMFDB `lf.hidden_slopes`): for a finite separable
 extension `L / K` inside `K̄`, subtracting the multiset of all the Artin slopes of `L / K` from that
@@ -332,35 +297,6 @@ lemma map_add_one_hullSwanSlopeMultiset_sub :
   rw [← map_add_one_hullSwanSlopeMultiset, ← map_add_one_hullSwanSlopeMultiset L]
   exact (map_tsub_of_le (Multiset.mapAddMonoidHom (· + 1)) _ _
     (hullSwanSlopeMultiset_le_galoisClosure L)).symm
-
-/-- **A wild slope is listed as often as its multiplicity** (LMFDB `lf.visible_slopes`,
-`lf.slopes`): an Artin slope `s > 1` of a finite separable extension `L / K` inside `K̄` occurs `k`
-times in the list of its visible Artin slopes, where the segment of slope `s` runs from `(n₁, c₁)`
-to `(n₂, c₂)` with `n₂ / n₁ = p ^ k` (`IsNonarchimedeanLocalField.div_eq_pow_slopeMultiplicity`). -/
-lemma count_hullWildArtinSlopes {s : ℝ} (hs : s ∈ hullArtinSlopes L) (h1 : 1 < s) :
-    (hullWildArtinSlopes L).count s = slopeMultiplicity (ringChar 𝓀[K]) (slopesPolygon L) s := by
-  rcases mem_hullArtinSlopes_iff.mp hs with ⟨t, ⟨ht, hlt⟩, rfl⟩
-  rw [hullWildArtinSlopes, slopesPolygon, subextensionPoints_eq,
-    (isLowerHullVertices_subgroupSlopePoints _).wildSegmentSlopes_lowerConvexHull
-      (strictMonoOn_subgroupSlope _ _),
-    (isLowerHullVertices_subgroupSlopePoints _).slopeMultiplicity_lowerConvexHull
-      (strictMonoOn_subgroupSlope _ _) ht hlt, Multiset.count_sum']
-  refine (sum_eq_single_of_mem t (mem_filter.mpr ⟨mem_range.mpr (Nat.lt_succ_of_le ht), hlt, h1⟩)
-    fun t' _ hne ↦ Multiset.count_eq_zero_of_notMem fun h ↦ hne ?_).trans
-      (Multiset.count_replicate_self _ _)
-  exact subgroupSlope_strictMono.injective <|
-    Rat.cast_injective (Multiset.eq_of_mem_replicate h).symm
-
-private lemma slope_mem_of_mem_polygonEdgesWithSlope {P : Set (ℝ × ℝ)} {T : Set ℝ} (hq : q.1 < q'.1)
-    (hσ : segment ℝ q q' ∈ polygonEdgesWithSlope P T) : (q'.2 - q.2) / (q'.1 - q.1) ∈ T := by
-  rcases hσ with ⟨-, r, r', hr, hrr, hT⟩
-  rcases hrr ▸ left_mem_segment ℝ q q' with ⟨a, b, -, -, hab, e⟩
-  rcases hrr ▸ right_mem_segment ℝ q q' with ⟨c, d, -, -, hcd, e'⟩
-  have h : (r'.2 - r.2) / (r'.1 - r.1) = (q'.2 - q.2) / (q'.1 - q.1) := by
-    rw [div_eq_div_iff (sub_pos.mpr hr).ne' (sub_pos.mpr hq).ne', ← e, ← e']
-    simp only [Prod.fst_add, Prod.smul_fst, Prod.snd_add, Prod.smul_snd]
-    linear_combination (r.1 * r'.2 - r.2 * r'.1) * (hcd - hab)
-  exact h ▸ hT
 
 /-- **The slope of a wild segment is listed as often as its multiplicity** (LMFDB
 `lf.visible_slopes`): if a segment of slope greater than `1` of the slope polygon of a finite
@@ -374,20 +310,6 @@ lemma count_hullWildArtinSlopes_of_mem_polygonEdgesWithSlope (hq : q.1 < q'.1)
   have hsub : segment ℝ q q' ⊆ slopesPolygon L := hσ.1.2.1
   exact count_hullWildArtinSlopes L ⟨q, hsub (left_mem_segment ℝ q q'), q',
     hsub (right_mem_segment ℝ q q'), hq, hsub, rfl⟩ (slope_mem_of_mem_polygonEdgesWithSlope hq hσ)
-
-/-- **A wild segment has positive multiplicity** (LMFDB `lf.visible_slopes`): if a segment of slope
-greater than `1` of the slope polygon of a finite separable extension `L / K` inside `K̄` runs from
-`(n₁, c₁)` to `(n₂, c₂)`, then the `k` with `n₂ / n₁ = p ^ k`
-(`IsNonarchimedeanLocalField.div_eq_pow_slopeMultiplicity`), the number of times its slope is
-listed, is positive. -/
-lemma slopeMultiplicity_pos (hq : q.1 < q'.1)
-    (hσ : segment ℝ q q' ∈ polygonEdgesWithSlope (slopesPolygon L) (Set.Ioi 1)) :
-    0 < slopeMultiplicity (ringChar 𝓀[K]) (slopesPolygon L) ((q'.2 - q.2) / (q'.1 - q.1)) := by
-  refine Nat.pos_of_ne_zero fun h0 ↦ ?_
-  have h : q'.1 / q.1 = 1 := by
-    rw [div_eq_pow_slopeMultiplicity L hq hσ, h0, pow_zero]
-  have hq0 : q.1 ≠ 0 := fun h' ↦ zero_ne_one <| by rw [← h, h', div_zero]
-  exact hq.ne' ((div_eq_one_iff_eq hq0).mp h)
 
 /-- **The visible Artin slopes are wild Artin slopes of the Galois closure** (LMFDB
 `lf.visible_slopes`): for a finite separable extension `L / K` of nonarchimedean local fields

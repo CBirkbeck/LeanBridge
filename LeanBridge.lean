@@ -218,6 +218,7 @@ import LeanBridge.ForMathlib.FieldTheory.Galois.KleinFour
 import LeanBridge.ForMathlib.FieldTheory.Galois.PrimitiveRootAction
 import LeanBridge.ForMathlib.FieldTheory.Galois.ResolventField
 import LeanBridge.ForMathlib.FieldTheory.Galois.StemFieldAutomorphisms
+import LeanBridge.ForMathlib.FieldTheory.Galois.SubextensionCorrespondence
 import LeanBridge.ForMathlib.FieldTheory.Galois.TransitiveGaloisGroup
 import LeanBridge.ForMathlib.FieldTheory.GaloisGroupCubeRootTwo
 import LeanBridge.ForMathlib.FieldTheory.GenericPolynomial
@@ -250,6 +251,7 @@ import LeanBridge.ForMathlib.GroupTheory.GassmannSupergroups
 import LeanBridge.ForMathlib.GroupTheory.GroupAction.ProjectiveLineCoprime
 import LeanBridge.ForMathlib.GroupTheory.GroupAction.TwoFixedPoints
 import LeanBridge.ForMathlib.GroupTheory.GroupExtension.Complement
+import LeanBridge.ForMathlib.GroupTheory.Index
 import LeanBridge.ForMathlib.GroupTheory.InternalDirectProduct
 import LeanBridge.ForMathlib.GroupTheory.Isoclinism
 import LeanBridge.ForMathlib.GroupTheory.Isoclinism.DerivedLength

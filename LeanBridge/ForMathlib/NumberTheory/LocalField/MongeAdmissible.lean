@@ -63,9 +63,6 @@ variable {R S : Type*} [CommRing R] [IsDomain R] [IsDiscreteValuationRing R] [Co
   [IsDomain S] [IsDiscreteValuationRing S] [Algebra R S] {g : R[X]} {π : S} (k : ℕ)
   {k' i j r ℓ : ℕ} {e₀}
 
-lemma ram_nonneg : 0 ≤ I.ram k :=
-  I.ram_zero ▸ I.monotone_ram k.zero_le
-
 lemma natCast_ε_pos : (0 : ℚ) < I.ε := by
   exact_mod_cast I.ε_pos
 

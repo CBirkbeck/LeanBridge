@@ -106,8 +106,7 @@ Herbrand invariant of `E / K`, for Tau Ceti's spectral-norm local-field structur
 lemma ramificationPolygonOf_minpoly_eq_visibleHerbrandInvariant (hπ : Irreducible π) :
     ramificationPolygonOf (minpoly (unramifiedExtension K E (inertiaDegree K E)) (π : E)) (π : E) =
       (visibleHerbrandInvariant E).reflectedPolygon := by
-  have hEM : E ≤ Algebra.galoisClosure K E :=
-    Algebra.galoisClosure_eq_normalClosure (F := K) E ▸ E.le_normalClosure
+  have hEM : E ≤ Algebra.galoisClosure K E := Algebra.le_galoisClosure E
   let aEM : Algebra E (Algebra.galoisClosure K E) := (inclusion hEM).toAlgebra
   have sEM : IsScalarTower K E (Algebra.galoisClosure K E) := .of_algebraMap_eq fun _ ↦ rfl
   have vEM : ValuativeExtension E (Algebra.galoisClosure K E) := (inclusion hEM).valuativeExtension

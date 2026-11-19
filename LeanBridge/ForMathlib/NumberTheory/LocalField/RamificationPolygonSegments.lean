@@ -65,13 +65,6 @@ noncomputable def edgeEnd : ℝ × ℝ :=
   (-((p ^ (I.w - (I.ramCountLT u + I.ramMultiplicity u)) : ℕ) : ℝ),
     ((I.ramificationIndex * I.mean (I.ramCountLT u + I.ramMultiplicity u) : ℚ) : ℝ))
 
-lemma ramCountLT_zero : I.ramCountLT 0 = 0 :=
-  Finset.card_eq_zero.mpr <| Finset.filter_eq_empty_iff.mpr fun j _ ↦ not_lt.mpr (I.ram_nonneg j)
-
-lemma ramMultiplicity_zero : I.ramMultiplicity 0 = 0 :=
-  Finset.card_eq_zero.mpr <| Finset.filter_eq_empty_iff.mpr fun _ hj ↦
-    (I.ram_pos (Nat.one_le_iff_ne_zero.mp (Finset.mem_Icc.mp hj).1) (Finset.mem_Icc.mp hj).2).ne'
-
 lemma edgeStart_zero : I.edgeStart 0 = (-(I.ramificationIndex : ℝ), 0) := by
   rw [edgeStart, ite_eq_left rfl, I.ramCountLT_zero, I.mean_zero, mul_zero, Rat.cast_zero]
 
@@ -82,10 +75,7 @@ lemma edgeEnd_zero : I.edgeEnd 0 = (-((p ^ I.w : ℕ) : ℝ), 0) := by
 lemma edgeStart_of_mem (hb : b ∈ (Finset.Icc 1 I.w).image I.ram) : I.edgeStart b =
     (-((p ^ (I.w - I.ramCountLT b) : ℕ) : ℝ),
       ((I.ramificationIndex * I.mean (I.ramCountLT b) : ℚ) : ℝ)) := by
-  have hb₀ : b ≠ 0 := by
-    rcases Finset.mem_image.mp hb with ⟨j, hj, rfl⟩
-    exact (I.ram_pos (Nat.one_le_iff_ne_zero.mp (Finset.mem_Icc.mp hj).1)
-      (Finset.mem_Icc.mp hj).2).ne'
+  have hb₀ : b ≠ 0 := (I.pos_of_mem_image_ram hb).ne'
   rw [edgeStart, ite_eq_right hb₀]
 
 lemma finite_setOf_ramificationPolygon_ne_top : {n | I.ramificationPolygon n ≠ ⊤}.Finite :=
@@ -106,9 +96,7 @@ lemma slopeIndices_ramificationPolygon_neg_ram (hb : b ∈ (Finset.Icc 1 I.w).im
     slopeIndices I.ramificationPolygon (-(b : ℝ)) = Set.Ico
       (p ^ (I.w - (I.ramCountLT b + I.ramMultiplicity b))) (p ^ (I.w - I.ramCountLT b)) := by
   have hp : p.Prime := Fact.out
-  have hb₀ : 0 < b := by
-    rcases Finset.mem_image.mp hb with ⟨j, hj, rfl⟩
-    exact I.ram_pos (Nat.one_le_iff_ne_zero.mp (Finset.mem_Icc.mp hj).1) (Finset.mem_Icc.mp hj).2
+  have hb₀ : 0 < b := I.pos_of_mem_image_ram hb
   have hcd : I.ramCountLT b + I.ramMultiplicity b ≤ I.w := I.ramCountLT_add_ramMultiplicity_le b
   have hd : 0 < I.ramMultiplicity b := I.ramMultiplicity_pos hb
   ext n

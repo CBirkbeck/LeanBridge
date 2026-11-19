@@ -1,4 +1,6 @@
 import LeanBridge.ForMathlib.Analysis.Convex.LowerHullVertices
+import LeanBridge.ForMathlib.FieldTheory.Galois.SubextensionCorrespondence
+import LeanBridge.ForMathlib.GroupTheory.Index
 import LeanBridge.ForMathlib.NumberTheory.LocalField.RamsDiscriminantExponent
 
 /-!
@@ -77,42 +79,6 @@ open ValuativeRel TauCeti LocalFieldsRamification Finset
 
 namespace IsNonarchimedeanLocalField
 
-lemma index_range_restrictScalarsHom (F E N : Type*) [Field F] [Field E] [Field N] [Algebra F E]
-    [Algebra E N] [Algebra F N] [IsScalarTower F E N] [FiniteDimensional F N] [IsGalois F N] :
-    (AlgEquiv.restrictScalarsHom (S := E) F : (N ≃ₐ[E] N) →* N ≃ₐ[F] N).range.index =
-      Module.finrank F E := by
-  have hE : IsGalois E N := IsGalois.tower_top_of_isGalois F E N
-  have hf : FiniteDimensional E N := .of_restrictScalars_finite F E N
-  set φ : (N ≃ₐ[E] N) →* N ≃ₐ[F] N := AlgEquiv.restrictScalarsHom F
-  have h₁ : φ.range.index * Nat.card φ.range = Nat.card (N ≃ₐ[F] N) := φ.range.index_mul_card
-  have h₂ : Nat.card φ.range = Nat.card (N ≃ₐ[E] N) :=
-    (Nat.card_congr (Equiv.ofInjective _ (AlgEquiv.restrictScalars_injective F))).symm
-  rw [h₂, IsGalois.card_aut_eq_finrank, IsGalois.card_aut_eq_finrank,
-    ← Module.finrank_mul_finrank F E N] at h₁
-  exact Nat.eq_of_mul_eq_mul_right Module.finrank_pos h₁
-
-variable {G : Type*} [Group G] (A N : Subgroup G) [N.Normal]
-
-private lemma card_sup_mul_card_inf :
-    Nat.card ↥(A ⊔ N) * Nat.card ↥(A ⊓ N) = Nat.card A * Nat.card N := by
-  have h₁ : N.relIndex (A ⊔ N) * Nat.card ↥(N ⊓ (A ⊔ N)) = Nat.card ↥(A ⊔ N) :=
-    N.relIndex_mul_card _
-  have h₂ : N.relIndex A * Nat.card ↥(N ⊓ A) = Nat.card A := N.relIndex_mul_card A
-  rw [inf_of_le_left le_sup_right, Subgroup.relIndex_sup_right] at h₁
-  rw [← h₁, ← h₂, inf_comm A N]
-  ring1
-
-variable [Finite G] in
-lemma relIndex_sup_of_normal : A.relIndex (A ⊔ N) = A.relIndex N := by
-  have h₁ : A.relIndex (A ⊔ N) * Nat.card ↥(A ⊓ (A ⊔ N)) = Nat.card ↥(A ⊔ N) :=
-    A.relIndex_mul_card _
-  have h₂ : A.relIndex N * Nat.card ↥(A ⊓ N) = Nat.card N := A.relIndex_mul_card N
-  rw [inf_of_le_left le_sup_left] at h₁
-  refine Nat.eq_of_mul_eq_mul_right (Nat.mul_pos Nat.card_pos Nat.card_pos :
-    0 < Nat.card A * Nat.card ↥(A ⊓ N)) ?_
-  rw [← mul_assoc, h₁, card_sup_mul_card_inf, ← h₂]
-  ring1
-
 variable (K M : Type*) [Field K] [ValuativeRel K] [TopologicalSpace K]
   [IsNonarchimedeanLocalField K] [Field M] [ValuativeRel M] [TopologicalSpace M]
   [IsNonarchimedeanLocalField M] [Algebra K M] [ValuativeExtension K M] [Module.Finite K M]
@@ -189,7 +155,7 @@ lemma index_sup_mul_card_inf_lowerRamificationGroup (hi : i ≤ s) :
   have h₁ : Nat.card ↥(H ⊔ lowerRamificationGroup K M s ⊔ lowerRamificationGroup K M i) *
       Nat.card ↥((H ⊔ lowerRamificationGroup K M s) ⊓ lowerRamificationGroup K M i) =
         Nat.card ↥(H ⊔ lowerRamificationGroup K M s) * Nat.card (lowerRamificationGroup K M i) :=
-    card_sup_mul_card_inf _ _
+    Subgroup.card_sup_mul_card_inf _ _
   rw [sup_assoc, sup_of_le_right hsi] at h₁
   have hX : (Nat.card ↥(H ⊔ lowerRamificationGroup K M i) : ℚ) ≠ 0 :=
     Nat.cast_ne_zero.mpr Nat.card_pos.ne'
@@ -202,7 +168,7 @@ lemma index_sup_mul_card_inf_lowerRamificationGroup (hi : i ≤ s) :
   have e₂ : (Nat.card ↥(H ⊔ lowerRamificationGroup K M i) : ℚ) *
       Nat.card ↥(H ⊓ lowerRamificationGroup K M i) =
         Nat.card H * Nat.card (lowerRamificationGroup K M i) := by
-    exact_mod_cast card_sup_mul_card_inf H (lowerRamificationGroup K M i)
+    exact_mod_cast H.card_sup_mul_card_inf (lowerRamificationGroup K M i)
   have e₃ : ((H ⊔ lowerRamificationGroup K M s).index : ℚ) *
       Nat.card ↥(H ⊔ lowerRamificationGroup K M s) = Nat.card (M ≃ₐ[K] M) := by
     exact_mod_cast (H ⊔ lowerRamificationGroup K M s).index_mul_card
@@ -478,7 +444,7 @@ lemma isLowerHullVertices_subgroupMeanPoints :
 variable (H) in
 lemma index_sup_mul_relIndex (j : ℤ) : (H ⊔ lowerRamificationGroup K M j).index *
     H.relIndex (lowerRamificationGroup K M j) = H.index := by
-  rw [← relIndex_sup_of_normal, mul_comm]
+  rw [← Subgroup.relIndex_sup_of_normal, mul_comm]
   exact H.relIndex_mul_index le_sup_left
 
 variable [IsGalois K M]
@@ -654,7 +620,8 @@ lemma natCast_discriminantExponent_eq_subgroupDiscriminantExponent :
       lowerRamificationGroup K M 0) : ℚ) ≠ 0 :=
     Nat.cast_ne_zero.mpr Nat.card_pos.ne'
   rw [discriminantExponent_eq_inertiaDegree_mul_differentExponent, subgroupDiscriminantExponent,
-    index_range_restrictScalarsHom K L M, ← natCast_differentExponent_mul_card, ← hcard', ← hef]
+    AlgEquiv.index_range_restrictScalarsHom K L M, ← natCast_differentExponent_mul_card, ← hcard',
+    ← hef]
   push_cast
   field_simp
 
