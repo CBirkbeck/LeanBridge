@@ -36,18 +36,18 @@ fact of LMFDB `lf.rams`, which states the degree `ε p ^ i` over `K` and so hold
 * `IsNonarchimedeanLocalField.extensionHeight_eq_subgroupMeanOrdinate`: the height of a
   subextension of `L / K` containing `K_f` is the ordinate of its point in the slope polygon of
   LMFDB `lf.means`.
-* `IsNonarchimedeanLocalField.intermediateDegree_ramSubextension`: `[L^(u) : K_f] = ε p ^ k`.
-* `IsNonarchimedeanLocalField.intermediateDegree_ramSubextension_le`: `[L : L^(u)] = p ^ (w - k)`.
+* `IsNonarchimedeanLocalField.relfinrank_ramSubextension`: `[L^(u) : K_f] = ε p ^ k`.
+* `IsNonarchimedeanLocalField.relfinrank_ramSubextension_le`: `[L : L^(u)] = p ^ (w - k)`.
 * `IsNonarchimedeanLocalField.finrank_ramSubextension`: `[L^(u) : K] = f ε p ^ k`.
 * `IsNonarchimedeanLocalField.extensionHeight_ramSubextension` (LMFDB `lf.heights`):
   `H(L^(u) / K) = ε p ^ k m_k`.
 * `IsNonarchimedeanLocalField.ramSubextension_lt_ramSubextension`: the subextensions `L^(u)` grow
   strictly at the rams.
-* `IsNonarchimedeanLocalField.intermediateDegree_ramSubextension_ram` and
+* `IsNonarchimedeanLocalField.relfinrank_ramSubextension_ram` and
   `IsNonarchimedeanLocalField.finrank_ramSubextension_of_ram_lt` (LMFDB `lf.rams`): if
   `r_i < r_{i + 1}` then `L / K` has an intermediate field `L_i` with `[L_i : K_f] = ε p ^ i` and
   `[L_i : K] = f ε p ^ i`.
-* `IsNonarchimedeanLocalField.intermediateDegree_ramSubextension_ram_le` and
+* `IsNonarchimedeanLocalField.relfinrank_ramSubextension_ram_le` and
   `IsNonarchimedeanLocalField.extensionHeight_ramSubextension_ram` (LMFDB `lf.heights`): at a
   vertex `k`, `[L : L_k] = p ^ (w - k)` and `H(L_k / K) = ε p ^ k m_k`.
 
@@ -87,7 +87,7 @@ with `M` the Galois closure of `L` in `K̄`, `G_t` the lower ramification groups
 for the largest `t` with `φ_{M/L}(t) ≤ u`. It is the subfield of `L` fixed by the ramification
 groups of lower index greater than `u`, in Deligne's lower numbering of `L / K`; for `u ≥ 0` its
 degree over the maximal unramified subextension `K_f` is `ε p ^ k`, with `k` the number of rams of
-`L / K` at most `u` (`IsNonarchimedeanLocalField.intermediateDegree_ramSubextension`). So `L^(0)` is
+`L / K` at most `u` (`IsNonarchimedeanLocalField.relfinrank_ramSubextension`). So `L^(0)` is
 the maximal tamely ramified subextension, and `L^(u) = L` when `u` is at least the largest ram. -/
 noncomputable def ramSubextension : IntermediateField K (AlgebraicClosure K) :=
   lowerSubextension L (Nat.findGreatest (fun t ↦ herbrandOfSubgroup K (Algebra.galoisClosure K L)
@@ -148,20 +148,20 @@ lemma lowerSubextension_mono {s : ℕ} (h : s ≤ t) : lowerSubextension L s ≤
     (sup_le_sup_left (lowerRamificationGroup_antitone K _ (Nat.cast_le.mpr h)) _).trans
       (fixingSubgroup_lowerSubextension L s).ge
 
-lemma intermediateDegree_lowerSubextension_le : intermediateDegree (lowerSubextension_le L t) =
+lemma relfinrank_lowerSubextension_le : (lowerSubextension L t).relfinrank L =
     (fixingSubgroup _ (((↑) : Algebra.galoisClosure K L → AlgebraicClosure K) ⁻¹' L)).relIndex
       (lowerRamificationGroup K (Algebra.galoisClosure K L) t) := by
-  rw [intermediateDegree_eq_relIndex (lowerSubextension_le L t) (Algebra.le_galoisClosure L),
+  rw [relfinrank_eq_relIndex (lowerSubextension_le L t) (Algebra.le_galoisClosure L),
     fixingSubgroup_lowerSubextension, Subgroup.relIndex_sup_of_normal]
 
-lemma intermediateDegree_unramifiedExtension_le_lowerSubextension :
-    intermediateDegree (unramifiedExtension_le_lowerSubextension L t) =
-      subgroupMeanAbscissa K (Algebra.galoisClosure K L)
+lemma relfinrank_unramifiedExtension_le_lowerSubextension :
+    (unramifiedExtension K (AlgebraicClosure K) (inertiaDegree K L)).relfinrank
+      (lowerSubextension L t) = subgroupMeanAbscissa K (Algebra.galoisClosure K L)
         (fixingSubgroup _ (((↑) : Algebra.galoisClosure K L → AlgebraicClosure K) ⁻¹' L))
         (fixingSubgroup _ (((↑) : Algebra.galoisClosure K L → AlgebraicClosure K) ⁻¹' L) ⊔
           lowerRamificationGroup K (Algebra.galoisClosure K L) t) := by
-  rw [intermediateDegree_eq_subgroupMeanAbscissa L _ (lowerSubextension_le L t),
-    fixingSubgroup_lowerSubextension]
+  rw [relfinrank_eq_subgroupMeanAbscissa L (unramifiedExtension_le_lowerSubextension L t)
+    (lowerSubextension_le L t), fixingSubgroup_lowerSubextension]
 
 variable {L' : IntermediateField K (AlgebraicClosure K)} [FiniteDimensional K L']
   [Algebra.IsSeparable K L'] in
@@ -261,15 +261,16 @@ variable {u} {v : ℚ}
 extension `L / K` inside `K̄` with ramification index `ε p ^ w` and maximal unramified subextension
 `K_f`, and `u ≥ 0`, `[L^(u) : K_f] = ε p ^ k`, where `k` is the number of rams of `L / K` at most
 `u`: the sum of the number of rams smaller than `u` and of the multiplicity of `u`. -/
-lemma intermediateDegree_ramSubextension (hu : 0 ≤ u) :
-    intermediateDegree (unramifiedExtension_le_ramSubextension L u) =
-      (visibleHerbrandInvariant L).ε * ringChar 𝓀[K] ^ ((visibleHerbrandInvariant L).ramCountLT u +
-        (visibleHerbrandInvariant L).ramMultiplicity u) := by
+lemma relfinrank_ramSubextension (hu : 0 ≤ u) :
+    (unramifiedExtension K (AlgebraicClosure K) (inertiaDegree K L)).relfinrank
+      (ramSubextension L u) = (visibleHerbrandInvariant L).ε *
+        ringChar 𝓀[K] ^ ((visibleHerbrandInvariant L).ramCountLT u +
+          (visibleHerbrandInvariant L).ramMultiplicity u) := by
   have he : (fixingSubgroup (Algebra.galoisClosure K L ≃ₐ[K] Algebra.galoisClosure K L)
       (((↑) : Algebra.galoisClosure K L → AlgebraicClosure K) ⁻¹' L)).relIndex
         (lowerRamificationGroup K (Algebra.galoisClosure K L) 0) = ramificationIndex K L :=
     relIndex_lowerRamificationGroup_zero_fixingSubgroup (Algebra.le_galoisClosure L)
-  refine (intermediateDegree_unramifiedExtension_le_lowerSubextension L _).trans ?_
+  refine (relfinrank_unramifiedExtension_le_lowerSubextension L _).trans ?_
   rw [subgroupMeanAbscissa_sup_succ, he]
   exact congrArg (fun k ↦ tameDegree K L * ringChar 𝓀[K] ^ k)
     (countP_le_herbrandOfSubgroup_findGreatest L hu)
@@ -277,15 +278,14 @@ lemma intermediateDegree_ramSubextension (hu : 0 ≤ u) :
 /-- **The degree of `L` over `L^(u)`**: for a finite separable extension `L / K` inside `K̄` with
 ramification index `ε p ^ w`, and `u ≥ 0`, `[L : L^(u)] = p ^ (w - k)`, where `k` is the number of
 rams of `L / K` at most `u`. -/
-lemma intermediateDegree_ramSubextension_le (hu : 0 ≤ u) :
-    intermediateDegree (ramSubextension_le L u) = ringChar 𝓀[K] ^ ((visibleHerbrandInvariant L).w -
-      ((visibleHerbrandInvariant L).ramCountLT u +
-        (visibleHerbrandInvariant L).ramMultiplicity u)) := by
+lemma relfinrank_ramSubextension_le (hu : 0 ≤ u) : (ramSubextension L u).relfinrank L =
+    ringChar 𝓀[K] ^ ((visibleHerbrandInvariant L).w - ((visibleHerbrandInvariant L).ramCountLT u +
+      (visibleHerbrandInvariant L).ramMultiplicity u)) := by
   have hp : (ringChar 𝓀[K]).Prime := CharP.prime_ringChar _
   have hkw : (visibleHerbrandInvariant L).ramCountLT u +
       (visibleHerbrandInvariant L).ramMultiplicity u ≤ (visibleHerbrandInvariant L).w :=
     (visibleHerbrandInvariant L).ramCountLT_add_ramMultiplicity_le u
-  refine (intermediateDegree_lowerSubextension_le L _).trans <|
+  refine (relfinrank_lowerSubextension_le L _).trans <|
     Nat.eq_of_mul_eq_mul_right (pow_pos hp.pos ((visibleHerbrandInvariant L).ramCountLT u +
       (visibleHerbrandInvariant L).ramMultiplicity u)) ?_
   rw [← pow_add, Nat.sub_add_cancel hkw, ← countP_le_herbrandOfSubgroup_findGreatest L hu]
@@ -298,8 +298,8 @@ lemma finrank_ramSubextension (hu : 0 ≤ u) : Module.finrank K (ramSubextension
     inertiaDegree K L * ((visibleHerbrandInvariant L).ε * ringChar 𝓀[K] ^
       ((visibleHerbrandInvariant L).ramCountLT u +
         (visibleHerbrandInvariant L).ramMultiplicity u)) := by
-  rw [← finrank_mul_intermediateDegree (unramifiedExtension_le_ramSubextension L u),
-    finrank_unramifiedExtension inertiaDegree_pos.ne', intermediateDegree_ramSubextension L hu]
+  rw [← IntermediateField.finrank_bot_mul_relfinrank (unramifiedExtension_le_ramSubextension L u),
+    finrank_unramifiedExtension inertiaDegree_pos.ne', relfinrank_ramSubextension L hu]
 
 /-- **The height of `L^(u)`** (LMFDB `lf.heights`): for a finite separable extension `L / K` inside
 `K̄` with Herbrand invariant `(r_1, …, r_w)_ε^f` and means `m_k`, and `u ≥ 0`, the height of
@@ -324,8 +324,8 @@ lemma ramSubextension_eq_self (hu : 0 ≤ u) (hk : (visibleHerbrandInvariant L).
     (visibleHerbrandInvariant L).ramCountLT u + (visibleHerbrandInvariant L).ramMultiplicity u) :
     ramSubextension L u = L := by
   refine IntermediateField.eq_of_le_of_finrank_eq (ramSubextension_le L u) ?_
-  rw [← finrank_mul_intermediateDegree (ramSubextension_le L u),
-    intermediateDegree_ramSubextension_le L hu, Nat.sub_eq_zero_of_le hk, pow_zero, mul_one]
+  rw [← IntermediateField.finrank_bot_mul_relfinrank (ramSubextension_le L u),
+    relfinrank_ramSubextension_le L hu, Nat.sub_eq_zero_of_le hk, pow_zero, mul_one]
 
 /-- **The subextensions `L^(u)` grow strictly at the rams**: for a finite separable extension
 `L / K` inside `K̄`, `0 ≤ u < v` and `v` a ram of `L / K`, `L^(u)` is strictly contained in
@@ -374,20 +374,21 @@ variable {k : ℕ}
 be a finite separable extension inside `K̄` with Herbrand invariant `(r_1, …, r_w)_ε^f` and maximal
 unramified subextension `K_f`, and `k ≤ w` a vertex, that is `k = w` or `r_k < r_{k + 1}`. Then the
 intermediate field `L_k = L^(r_k)` of `L / K` has `[L_k : K_f] = ε p ^ k`. -/
-lemma intermediateDegree_ramSubextension_ram (hk : k ≤ (visibleHerbrandInvariant L).w)
-    (hv : (visibleHerbrandInvariant L).IsVertex k) : intermediateDegree
-      (unramifiedExtension_le_ramSubextension L ((visibleHerbrandInvariant L).ram k)) =
-      (visibleHerbrandInvariant L).ε * ringChar 𝓀[K] ^ k := by
-  rw [intermediateDegree_ramSubextension L ((visibleHerbrandInvariant L).ram_nonneg k),
+lemma relfinrank_ramSubextension_ram (hk : k ≤ (visibleHerbrandInvariant L).w)
+    (hv : (visibleHerbrandInvariant L).IsVertex k) :
+    (unramifiedExtension K (AlgebraicClosure K) (inertiaDegree K L)).relfinrank
+      (ramSubextension L ((visibleHerbrandInvariant L).ram k)) =
+        (visibleHerbrandInvariant L).ε * ringChar 𝓀[K] ^ k := by
+  rw [relfinrank_ramSubextension L ((visibleHerbrandInvariant L).ram_nonneg k),
     hv.ramCountLT_add_ramMultiplicity hk]
 
 /-- **The degree over `L_k`**: for a vertex `k ≤ w` of the Herbrand invariant of a finite separable
 extension `L / K` inside `K̄`, `[L : L_k] = p ^ (w - k)` for `L_k = L^(r_k)`. -/
-lemma intermediateDegree_ramSubextension_ram_le (hk : k ≤ (visibleHerbrandInvariant L).w)
+lemma relfinrank_ramSubextension_ram_le (hk : k ≤ (visibleHerbrandInvariant L).w)
     (hv : (visibleHerbrandInvariant L).IsVertex k) :
-    intermediateDegree (ramSubextension_le L ((visibleHerbrandInvariant L).ram k)) =
+    (ramSubextension L ((visibleHerbrandInvariant L).ram k)).relfinrank L =
       ringChar 𝓀[K] ^ ((visibleHerbrandInvariant L).w - k) := by
-  rw [intermediateDegree_ramSubextension_le L ((visibleHerbrandInvariant L).ram_nonneg k),
+  rw [relfinrank_ramSubextension_le L ((visibleHerbrandInvariant L).ram_nonneg k),
     hv.ramCountLT_add_ramMultiplicity hk]
 
 /-- **The heights of the intermediate fields at the vertices** (LMFDB `lf.heights`): for a vertex

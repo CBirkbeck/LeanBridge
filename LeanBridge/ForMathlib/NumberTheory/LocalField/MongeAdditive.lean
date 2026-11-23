@@ -39,6 +39,9 @@ at a break, and the statement of Proposition 2 for `m = 0`, are not formalised.
 
 ## Main results
 
+* `IsNonarchimedeanLocalField.HerbrandInvariant.pow_dvd_coeff_mongeShift_zero` (Monge's binomial
+  argument): the coefficient of `T ^ r` of `g(π + π T)` is divisible by every power of `π` dividing
+  the coefficient of `T ^ s`, for the largest power `s = p ^ v_p(r)` of `p` dividing `r`.
 * `IsNonarchimedeanLocalField.HerbrandInvariant.pow_succ_dvd_coeff_mongeShift`,
   `IsNonarchimedeanLocalField.HerbrandInvariant.coeff_mongePolynomial_eq_zero` and
   `IsNonarchimedeanLocalField.HerbrandInvariant.eval_mongePolynomial_add` (the first statement of
@@ -186,6 +189,52 @@ lemma addVal_coeff_taylor_add_le (h : IsMongeRoot g π p) (hr : r ≠ 0) {i : �
     (fun _ hi _ hj hij heq ↦ addVal_term_ne h (a := fun i ↦ (i.choose r : R) * g.coeff i)
       (not_modEq_of_mem_Icc hi hj hij) heq) hsum hi
 
+/-- **Monge's binomial argument**: for a root `π` of `g` with the hypotheses of Monge's reduction
+and `r ≥ 1`, every power `π ^ k` dividing the coefficient of `x ^ s` of `g(π + π x)`, for the
+largest power `s = p ^ v_p(r)` of `p` dividing `r`, divides the coefficient of `x ^ r`. -/
+lemma pow_dvd_coeff_mongeShift_zero {k : ℕ} (h : IsMongeRoot g π p) [Fact p.Prime] (hr : r ≠ 0)
+    (hk : π ^ k ∣ (mongeShift g π 0).coeff (p ^ padicValNat p r)) :
+    π ^ k ∣ (mongeShift g π 0).coeff r := by
+  have hp : p.Prime :=
+    Fact.out
+  rcases pow_padicValNat_dvd (p := p) (n := r) with ⟨u, hu⟩
+  have hcop : p.Coprime u := by
+    refine hp.coprime_iff_not_dvd.mpr fun hd ↦ pow_succ_padicValNat_not_dvd (p := p) hr ?_
+    rw [pow_succ]
+    conv_rhs => rw [hu]
+    exact mul_dvd_mul_left _ hd
+  have hq : p ^ padicValNat p r ≠ 0 :=
+    pow_ne_zero _ hp.ne_zero
+  rw [coeff_mongeShift h hq, zero_mul, pow_zero, one_mul] at hk
+  rw [coeff_mongeShift h hr, zero_mul, pow_zero, one_mul]
+  have hterm {i : ℕ} (hi : i ∈ Icc 1 g.natDegree) :
+      π ^ k ∣ algebraMap R S ((i.choose (p ^ padicValNat p r) : R) * g.coeff i) * π ^ i :=
+    pow_dvd_of_pow_dvd_sum h.irreducible
+      (fun i ↦ algebraMap R S ((i.choose (p ^ padicValNat p r) : R) * g.coeff i) * π ^ i)
+      (fun _ hi _ hj hij heq ↦ addVal_term_ne h
+        (a := fun i ↦ (i.choose (p ^ padicValNat p r) : R) * g.coeff i)
+        (not_modEq_of_mem_Icc hi hj hij) heq) hk hi
+  refine dvd_sum fun i hi ↦ ?_
+  have hw : IsUnit ((r.choose (p ^ padicValNat p r) : ℕ) : S) := by
+    have h₁ : p.Coprime ((p ^ padicValNat p r * u).choose (p ^ padicValNat p r)) :=
+      coprime_choose_pow_mul _ hcop
+    rw [← hu] at h₁
+    exact h.isUnit_natCast h₁
+  have hchoose : ((i.choose r : ℕ) : S) * (r.choose (p ^ padicValNat p r) : ℕ) =
+      (i.choose (p ^ padicValNat p r) : ℕ) *
+        ((i - p ^ padicValNat p r).choose (r - p ^ padicValNat p r) : ℕ) := by
+    rw [← Nat.cast_mul, ← Nat.cast_mul, Nat.choose_mul (Nat.le_of_dvd (Nat.pos_of_ne_zero hr)
+      pow_padicValNat_dvd)]
+  refine (hw.dvd_mul_left).mp ?_
+  have heq : ((r.choose (p ^ padicValNat p r) : ℕ) : S) *
+      (algebraMap R S ((i.choose r : R) * g.coeff i) * π ^ i) =
+      ((i - p ^ padicValNat p r).choose (r - p ^ padicValNat p r) : ℕ) *
+        (algebraMap R S ((i.choose (p ^ padicValNat p r) : R) * g.coeff i) * π ^ i) := by
+    simp only [map_mul, map_natCast]
+    linear_combination (algebraMap R S (g.coeff i) * π ^ i) * hchoose
+  rw [heq]
+  exact (hterm hi).mul_left _
+
 /-- **Monge's Proposition 2 (additivity)**, in terms of coefficients: for `m ≥ 1`, the coefficient
 of `T ^ r` in `g(π + π ^ (m + 1) T)` has a valuation larger than the level `N` of `g` at `π` and
 `m`, unless `r` is a power of `p`. -/
@@ -203,11 +252,6 @@ lemma pow_succ_dvd_coeff_mongeShift (h : IsMongeRoot g π p) [Fact p.Prime] (hm 
     exact hrp _ (hu.trans (mul_one _))
   have hu₂ : 2 ≤ u := by
     omega
-  have hcop : p.Coprime u := by
-    refine hp.coprime_iff_not_dvd.mpr fun hd ↦ pow_succ_padicValNat_not_dvd (p := p) hr ?_
-    rw [pow_succ]
-    conv_rhs => rw [hu]
-    exact mul_dvd_mul_left _ hd
   have hq : p ^ padicValNat p r ≠ 0 :=
     pow_ne_zero _ hp.ne_zero
   have hle : p ^ padicValNat p r * 2 ≤ r := by
@@ -219,46 +263,19 @@ lemma pow_succ_dvd_coeff_mongeShift (h : IsMongeRoot g π p) [Fact p.Prime] (hm 
     Nat.mul_pos hm (Nat.pos_of_ne_zero hq)
   have hmq₂ : m * (p ^ padicValNat p r * 2) = m * p ^ padicValNat p r * 2 := by
     ring1
-  rw [coeff_mongeShift h hr]
+  have hshift {s : ℕ} (hs : s ≠ 0) :
+      (mongeShift g π m).coeff s = π ^ (m * s) * (mongeShift g π 0).coeff s := by
+    rw [coeff_mongeShift h hs, coeff_mongeShift h hs, zero_mul, pow_zero, one_mul]
+  rw [hshift hr]
   by_cases hNq : N < m * p ^ padicValNat p r
   · exact Dvd.dvd.mul_right (pow_dvd_pow π (by omega)) _
   have hdvd : π ^ N ∣ (mongeShift g π m).coeff (p ^ padicValNat p r) :=
     pow_dvd_of_le_emultiplicity (hN ▸ iInf_le _ _)
-  rw [coeff_mongeShift h hq] at hdvd
+  rw [hshift hq] at hdvd
   rcases Nat.exists_eq_add_of_le (not_lt.mp hNq) with ⟨k, rfl⟩
   rw [pow_add, mul_dvd_mul_iff_left (pow_ne_zero _ h.irreducible.ne_zero)] at hdvd
-  have hterm {i : ℕ} (hi : i ∈ Icc 1 g.natDegree) :
-      π ^ k ∣ algebraMap R S ((i.choose (p ^ padicValNat p r) : R) * g.coeff i) * π ^ i :=
-    pow_dvd_of_pow_dvd_sum h.irreducible
-      (fun i ↦ algebraMap R S ((i.choose (p ^ padicValNat p r) : R) * g.coeff i) * π ^ i)
-      (fun _ hi _ hj hij heq ↦ addVal_term_ne h
-        (a := fun i ↦ (i.choose (p ^ padicValNat p r) : R) * g.coeff i)
-        (not_modEq_of_mem_Icc hi hj hij) heq) hdvd hi
-  have hc :
-      π ^ k ∣ ∑ i ∈ Icc 1 g.natDegree, algebraMap R S ((i.choose r : R) * g.coeff i) * π ^ i := by
-    refine dvd_sum fun i hi ↦ ?_
-    have hw : IsUnit ((r.choose (p ^ padicValNat p r) : ℕ) : S) := by
-      have h₁ : p.Coprime ((p ^ padicValNat p r * u).choose (p ^ padicValNat p r)) :=
-        coprime_choose_pow_mul _ hcop
-      rw [← hu] at h₁
-      exact h.isUnit_natCast h₁
-    have hchoose : ((i.choose r : ℕ) : S) * (r.choose (p ^ padicValNat p r) : ℕ) =
-        (i.choose (p ^ padicValNat p r) : ℕ) *
-          ((i - p ^ padicValNat p r).choose (r - p ^ padicValNat p r) : ℕ) := by
-      rw [← Nat.cast_mul, ← Nat.cast_mul, Nat.choose_mul (Nat.le_of_dvd (Nat.pos_of_ne_zero hr)
-        (pow_padicValNat_dvd))]
-    refine (hw.dvd_mul_left).mp ?_
-    have h₁ : π ^ k ∣ ((i - p ^ padicValNat p r).choose (r - p ^ padicValNat p r) : ℕ) *
-        (algebraMap R S ((i.choose (p ^ padicValNat p r) : R) * g.coeff i) * π ^ i) :=
-      (hterm hi).mul_left _
-    have heq : ((r.choose (p ^ padicValNat p r) : ℕ) : S) *
-        (algebraMap R S ((i.choose r : R) * g.coeff i) * π ^ i) =
-        ((i - p ^ padicValNat p r).choose (r - p ^ padicValNat p r) : ℕ) *
-          (algebraMap R S ((i.choose (p ^ padicValNat p r) : R) * g.coeff i) * π ^ i) := by
-      simp only [map_mul, map_natCast]
-      linear_combination (algebraMap R S (g.coeff i) * π ^ i) * hchoose
-    rwa [heq]
-  refine (pow_dvd_pow π ?_).trans ((pow_add π (m * r) k).symm ▸ mul_dvd_mul_left _ hc)
+  refine (pow_dvd_pow π ?_).trans ((pow_add π (m * r) k).symm ▸
+    mul_dvd_mul_left _ (pow_dvd_coeff_mongeShift_zero h hr hdvd))
   omega
 
 lemma coeff_mongeShift_zero (h : IsMongeRoot g π p) : (mongeShift g π m).coeff 0 = 0 := by

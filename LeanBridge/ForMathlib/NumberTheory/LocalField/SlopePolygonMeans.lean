@@ -1,5 +1,6 @@
 import LeanBridge.ForMathlib.NumberTheory.LocalField.HerbrandInvariantCompatibility
 import LeanBridge.ForMathlib.NumberTheory.LocalField.VisibleSlopes
+import Mathlib.FieldTheory.Relrank
 import TauCeti.NumberTheory.LocalField.Discriminant.Tower
 
 /-!
@@ -37,8 +38,7 @@ invariant gives `φ_{M/K}(t) = s_k + (φ_{M/L}(t) - r_k) / (ε p ^ k)`, so that
 
 * `IsNonarchimedeanLocalField.extensionMean` (LMFDB `lf.means`): the mean `m` of `L / K`.
 * `IsNonarchimedeanLocalField.extensionHeight` (LMFDB `lf.heights`): the height `H(L / K)`.
-* `IsNonarchimedeanLocalField.intermediateDegree` and `IsNonarchimedeanLocalField.intermediateMean`:
-  the degree and the mean of a subextension `E / F` of `K̄ / K`.
+* `IsNonarchimedeanLocalField.intermediateMean`: the mean of a subextension `E / F` of `K̄ / K`.
 * `IsNonarchimedeanLocalField.meanPoints` (LMFDB `lf.means`): the points `(e', e' m')`.
 * `IsNonarchimedeanLocalField.meanPolygon` (LMFDB `lf.means`): the slope polygon `S`.
 * `IsNonarchimedeanLocalField.meanPolygonFunction` (LMFDB `lf.means`): the function `h`.
@@ -55,7 +55,7 @@ invariant gives `φ_{M/K}(t) = s_k + (φ_{M/L}(t) - r_k) / (ε p ^ k)`, so that
   unramified extension `K_f ⊆ L` of degree `f` is the maximal unramified subextension of `L / K`.
 * `IsNonarchimedeanLocalField.meanPolygon_eq` (LMFDB `lf.means`): the slope polygon is the graph of
   `h` on `[1, e]`, with `e = [L : K_f]`
-  (`IsNonarchimedeanLocalField.intermediateDegree_unramifiedExtension_le`).
+  (`IsNonarchimedeanLocalField.relfinrank_unramifiedExtension_le`).
 * `IsNonarchimedeanLocalField.polygonMean_zero` (LMFDB `lf.means`): `m_0 = 0`.
 * `IsNonarchimedeanLocalField.polygonMean_eq_mean` (LMFDB `lf.means`, `lf.herbrand_invariant`): the
   means read off the slope polygon are the means of the Herbrand invariant of `L / K`, so that the
@@ -252,29 +252,15 @@ section Correspondence
 
 variable {F Ω : Type*} [Field F] [Field Ω] [Algebra F Ω] {D E N : IntermediateField F Ω}
 
-/-- The **degree** `[E : D]` of intermediate fields `D ≤ E` of an extension `Ω / F`, for the
-inclusion of `D` in `E`. -/
-noncomputable def intermediateDegree (h : D ≤ E) : ℕ :=
-  letI : Algebra D E := (IntermediateField.inclusion h).toAlgebra
-  Module.finrank D E
-
-lemma finrank_mul_intermediateDegree (h : D ≤ E) :
-    Module.finrank F D * intermediateDegree h = Module.finrank F E := by
-  let a : Algebra D E := (IntermediateField.inclusion h).toAlgebra
-  have hs : IsScalarTower F D E := .of_algebraMap_eq fun _ ↦ rfl
-  exact Module.finrank_mul_finrank F D E
-
 variable [FiniteDimensional F N] [IsGalois F N] in
-lemma intermediateDegree_eq_relIndex (hDE : D ≤ E) (hEN : E ≤ N) : intermediateDegree hDE =
+lemma relfinrank_eq_relIndex (hDE : D ≤ E) (hEN : E ≤ N) : D.relfinrank E =
     (fixingSubgroup (N ≃ₐ[F] N) (((↑) : N → Ω) ⁻¹' E)).relIndex
       (fixingSubgroup (N ≃ₐ[F] N) (((↑) : N → Ω) ⁻¹' D)) := by
-  let a : Algebra D E := (IntermediateField.inclusion hDE).toAlgebra
-  have hs : IsScalarTower F D E := .of_algebraMap_eq fun _ ↦ rfl
   have hD : FiniteDimensional F D := IntermediateField.finiteDimensional_of_le (hDE.trans hEN)
   have h : (fixingSubgroup (N ≃ₐ[F] N) (((↑) : N → Ω) ⁻¹' E)).relIndex
       (fixingSubgroup (N ≃ₐ[F] N) (((↑) : N → Ω) ⁻¹' D)) * Module.finrank F D =
-        Module.finrank F D * Module.finrank D E := by
-    rw [Module.finrank_mul_finrank F D E, finrank_eq_index_fixingSubgroup hEN,
+        Module.finrank F D * D.relfinrank E := by
+    rw [IntermediateField.finrank_bot_mul_relfinrank hDE, finrank_eq_index_fixingSubgroup hEN,
       finrank_eq_index_fixingSubgroup (hDE.trans hEN)]
     exact Subgroup.relIndex_mul_index (fixingSubgroup_antitone (N ≃ₐ[F] N) N
       (preimage_mono (f := ((↑) : N → Ω)) hDE))
@@ -317,7 +303,9 @@ noncomputable def meanPoints : Set (ℝ × ℝ) :=
   {q | ∃ (L' : IntermediateField K (AlgebraicClosure K))
     (h : unramifiedExtension K (AlgebraicClosure K) (inertiaDegree K L) ≤ L') (_ : L' ≤ L)
       (_ : FiniteDimensional K L') (_ : Algebra.IsSeparable K L'),
-        q = ((intermediateDegree h : ℝ), (intermediateDegree h * intermediateMean h : ℝ))}
+        q = (((unramifiedExtension K (AlgebraicClosure K) (inertiaDegree K L)).relfinrank L' : ℝ),
+          ((unramifiedExtension K (AlgebraicClosure K) (inertiaDegree K L)).relfinrank L' *
+            intermediateMean h : ℝ))}
 
 /-- The **slope polygon** `S` (LMFDB `lf.means`) of a finite extension `L / K` inside `K̄`: the
 lower boundary of the convex hull of the points `(e', e' m')` of the subextensions `L' / K_f` of
@@ -414,26 +402,30 @@ lemma index_fixingSubgroup_sup_lowerRamificationGroup_one :
   rw [← index_fixingSubgroup_sup_lowerRamificationGroup_zero L, ← h₁, mul_comm]
   exact (Subgroup.relIndex_mul_index (sup_lowerRamificationGroup_le_sup_zero H 1)).symm
 
-lemma intermediateDegree_eq_subgroupMeanAbscissa (hL' : L' ≤ L) : intermediateDegree h =
-    subgroupMeanAbscissa K (Algebra.galoisClosure K L)
-      (fixingSubgroup _ (((↑) : Algebra.galoisClosure K L → AlgebraicClosure K) ⁻¹' L))
-      (fixingSubgroup _ (((↑) : Algebra.galoisClosure K L → AlgebraicClosure K) ⁻¹' L')) := by
+lemma relfinrank_eq_subgroupMeanAbscissa
+    (hKf : unramifiedExtension K (AlgebraicClosure K) (inertiaDegree K L) ≤ L') (hL' : L' ≤ L) :
+    (unramifiedExtension K (AlgebraicClosure K) (inertiaDegree K L)).relfinrank L' =
+      subgroupMeanAbscissa K (Algebra.galoisClosure K L)
+        (fixingSubgroup _ (((↑) : Algebra.galoisClosure K L → AlgebraicClosure K) ⁻¹' L))
+        (fixingSubgroup _ (((↑) : Algebra.galoisClosure K L → AlgebraicClosure K) ⁻¹' L')) := by
   have hLM : L ≤ Algebra.galoisClosure K L := Algebra.le_galoisClosure L
-  rw [intermediateDegree_eq_relIndex h (hL'.trans hLM), fixingSubgroup_unramifiedExtension L,
+  rw [relfinrank_eq_relIndex hKf (hL'.trans hLM), fixingSubgroup_unramifiedExtension L,
     subgroupMeanAbscissa]
 
 variable [FiniteDimensional K L'] [Algebra.IsSeparable K L'] in
-lemma intermediateDegree_mul_intermediateMean (hL' : L' ≤ L) : (intermediateDegree h : ℚ) *
-    intermediateMean h = subgroupMeanOrdinate K (Algebra.galoisClosure K L)
-      (fixingSubgroup _ (((↑) : Algebra.galoisClosure K L → AlgebraicClosure K) ⁻¹' L))
-      (fixingSubgroup _ (((↑) : Algebra.galoisClosure K L → AlgebraicClosure K) ⁻¹' L')) := by
+lemma relfinrank_mul_intermediateMean (hL' : L' ≤ L) :
+    ((unramifiedExtension K (AlgebraicClosure K) (inertiaDegree K L)).relfinrank L' : ℚ) *
+      intermediateMean h = subgroupMeanOrdinate K (Algebra.galoisClosure K L)
+        (fixingSubgroup _ (((↑) : Algebra.galoisClosure K L → AlgebraicClosure K) ⁻¹' L))
+        (fixingSubgroup _ (((↑) : Algebra.galoisClosure K L → AlgebraicClosure K) ⁻¹' L')) := by
   have hLM : L ≤ Algebra.galoisClosure K L := Algebra.le_galoisClosure L
   set H : Subgroup (Algebra.galoisClosure K L ≃ₐ[K] Algebra.galoisClosure K L) :=
     fixingSubgroup _ (((↑) : Algebra.galoisClosure K L → AlgebraicClosure K) ⁻¹' L)
   set J : Subgroup (Algebra.galoisClosure K L ≃ₐ[K] Algebra.galoisClosure K L) :=
     fixingSubgroup _ (((↑) : Algebra.galoisClosure K L → AlgebraicClosure K) ⁻¹' L')
-  have hx : intermediateDegree h = subgroupMeanAbscissa K (Algebra.galoisClosure K L) H J :=
-    intermediateDegree_eq_subgroupMeanAbscissa L h hL'
+  have hx : (unramifiedExtension K (AlgebraicClosure K) (inertiaDegree K L)).relfinrank L' =
+      subgroupMeanAbscissa K (Algebra.galoisClosure K L) H J :=
+    relfinrank_eq_subgroupMeanAbscissa L h hL'
   have hHJ : H ≤ J := fixingSubgroup_antitone _ _ (preimage_mono hL')
   have hJ : J ≤ H ⊔ lowerRamificationGroup K (Algebra.galoisClosure K L) 0 := by
     rw [← fixingSubgroup_unramifiedExtension L]
@@ -463,9 +455,9 @@ lemma intermediateDegree_mul_intermediateMean (hL' : L' ≤ L) : (intermediateDe
   have hm : intermediateMean h =
       extensionMean (unramifiedExtension K (AlgebraicClosure K) (inertiaDegree K L)) L' :=
     rfl
-  have hd : intermediateDegree h =
+  have hd : (unramifiedExtension K (AlgebraicClosure K) (inertiaDegree K L)).relfinrank L' =
       Module.finrank (unramifiedExtension K (AlgebraicClosure K) (inertiaDegree K L)) L' :=
-    rfl
+    IntermediateField.relfinrank_eq_finrank_of_le h
   have hc : (discriminantExponent K L' : ℚ) =
       Module.finrank K (unramifiedExtension K (AlgebraicClosure K) (inertiaDegree K L)) *
         discriminantExponent (unramifiedExtension K (AlgebraicClosure K) (inertiaDegree K L))
@@ -477,7 +469,7 @@ lemma intermediateDegree_mul_intermediateMean (hL' : L' ≤ L) : (intermediateDe
       zero_add, IsUnramified.inertiaDegree_eq_finrank (K := K)
         (L := unramifiedExtension K (AlgebraicClosure K) (inertiaDegree K L)), Nat.cast_mul]
   have he : ramificationIndex (unramifiedExtension K (AlgebraicClosure K) (inertiaDegree K L)) L' =
-      intermediateDegree h := by
+      (unramifiedExtension K (AlgebraicClosure K) (inertiaDegree K L)).relfinrank L' := by
     have hJ' : J ⊔ lowerRamificationGroup K (Algebra.galoisClosure K L) 0 =
         H ⊔ lowerRamificationGroup K (Algebra.galoisClosure K L) 0 :=
       le_antisymm (sup_le hJ le_sup_right) (sup_le_sup_right hHJ _)
@@ -485,14 +477,15 @@ lemma intermediateDegree_mul_intermediateMean (hL' : L' ≤ L) : (intermediateDe
       Subgroup.relIndex_sup_of_normal]
   have hf :
       inertiaDegree (unramifiedExtension K (AlgebraicClosure K) (inertiaDegree K L)) L' = 1 := by
-    have h₁ : intermediateDegree h *
+    have h₁ : (unramifiedExtension K (AlgebraicClosure K) (inertiaDegree K L)).relfinrank L' *
         inertiaDegree (unramifiedExtension K (AlgebraicClosure K) (inertiaDegree K L)) L' =
-          intermediateDegree h := by
+          (unramifiedExtension K (AlgebraicClosure K) (inertiaDegree K L)).relfinrank L' := by
       rw [← he, ramificationIndex_mul_inertiaDegree
         (unramifiedExtension K (AlgebraicClosure K) (inertiaDegree K L)) L', he, hd]
     exact Nat.eq_of_mul_eq_mul_left (Nat.pos_of_ne_zero (by rw [hx]; exact
       Subgroup.index_ne_zero_of_finite)) (h₁.trans (mul_one _).symm)
-  have hx₀ : (intermediateDegree h : ℚ) ≠ 0 := by
+  have hx₀ :
+      ((unramifiedExtension K (AlgebraicClosure K) (inertiaDegree K L)).relfinrank L' : ℚ) ≠ 0 := by
     rw [hx]
     exact Nat.cast_ne_zero.mpr Subgroup.index_ne_zero_of_finite
   have hf₀ : ((H ⊔ lowerRamificationGroup K (Algebra.galoisClosure K L) 0).index : ℚ) ≠ 0 :=
@@ -513,8 +506,7 @@ lemma meanPoints_eq : meanPoints L = subgroupMeanPoints K (Algebra.galoisClosure
     · rw [← fixingSubgroup_unramifiedExtension L]
       exact fixingSubgroup_antitone _ _ (preimage_mono h)
     · dsimp only
-      rw [← intermediateDegree_eq_subgroupMeanAbscissa L h hL',
-        ← intermediateDegree_mul_intermediateMean L h hL']
+      rw [← relfinrank_eq_subgroupMeanAbscissa L h hL', ← relfinrank_mul_intermediateMean L h hL']
       push_cast
       rfl
   · rintro ⟨J, ⟨hHJ, hJ⟩, rfl⟩
@@ -533,15 +525,18 @@ lemma meanPoints_eq : meanPoints L = subgroupMeanPoints K (Algebra.galoisClosure
       lift_fixedField_le hLM hHJ
     refine ⟨_, hKf, hL', hfin, hsep, ?_⟩
     dsimp only
-    have h₁ : intermediateDegree hKf = subgroupMeanAbscissa K (Algebra.galoisClosure K L)
-        (fixingSubgroup _ (((↑) : Algebra.galoisClosure K L → AlgebraicClosure K) ⁻¹' L)) J := by
-      rw [intermediateDegree_eq_subgroupMeanAbscissa L hKf hL',
-        fixingSubgroup_preimage_lift_fixedField]
-    have h₂ : (intermediateDegree hKf : ℚ) * intermediateMean hKf =
-        subgroupMeanOrdinate K (Algebra.galoisClosure K L)
-          (fixingSubgroup _ (((↑) : Algebra.galoisClosure K L → AlgebraicClosure K) ⁻¹' L)) J := by
-      rw [intermediateDegree_mul_intermediateMean L hKf hL',
-        fixingSubgroup_preimage_lift_fixedField]
+    have h₁ : (unramifiedExtension K (AlgebraicClosure K) (inertiaDegree K L)).relfinrank
+        (IntermediateField.lift (IntermediateField.fixedField J)) =
+          subgroupMeanAbscissa K (Algebra.galoisClosure K L)
+            (fixingSubgroup _ (((↑) : Algebra.galoisClosure K L → AlgebraicClosure K) ⁻¹' L))
+              J := by
+      rw [relfinrank_eq_subgroupMeanAbscissa L hKf hL', fixingSubgroup_preimage_lift_fixedField]
+    have h₂ : ((unramifiedExtension K (AlgebraicClosure K) (inertiaDegree K L)).relfinrank
+        (IntermediateField.lift (IntermediateField.fixedField J)) : ℚ) * intermediateMean hKf =
+          subgroupMeanOrdinate K (Algebra.galoisClosure K L)
+            (fixingSubgroup _ (((↑) : Algebra.galoisClosure K L → AlgebraicClosure K) ⁻¹' L))
+              J := by
+      rw [relfinrank_mul_intermediateMean L hKf hL', fixingSubgroup_preimage_lift_fixedField]
     rw [h₁] at h₂ ⊢
     rw [← h₂]
     push_cast
@@ -571,11 +566,13 @@ lemma le_unramifiedExtension_of_isUnramified (hEL : E ≤ L) (hE : IsUnramified 
 /-- **The degree of `L` over `K_f` is the ramification index** (LMFDB `lf.means`): for the maximal
 unramified subextension `K_f` of a finite separable extension `L / K` inside `K̄`,
 `[L : K_f] = e(L / K)`. -/
-lemma intermediateDegree_unramifiedExtension_le :
-    intermediateDegree (unramifiedExtension_inertiaDegree_le L) = ramificationIndex K L := by
+lemma relfinrank_unramifiedExtension_le :
+    (unramifiedExtension K (AlgebraicClosure K) (inertiaDegree K L)).relfinrank L =
+      ramificationIndex K L := by
   have hLM : L ≤ Algebra.galoisClosure K L := Algebra.le_galoisClosure L
-  rw [intermediateDegree_eq_subgroupMeanAbscissa L _ le_rfl, subgroupMeanAbscissa,
-    Subgroup.relIndex_sup_of_normal, relIndex_lowerRamificationGroup_zero_fixingSubgroup hLM]
+  rw [relfinrank_eq_subgroupMeanAbscissa L (unramifiedExtension_inertiaDegree_le L) le_rfl,
+    subgroupMeanAbscissa, Subgroup.relIndex_sup_of_normal,
+    relIndex_lowerRamificationGroup_zero_fixingSubgroup hLM]
 
 lemma meanPolygon_eq_lowerConvexHull : meanPolygon L =
     lowerConvexHull (subgroupMeanPoints K (Algebra.galoisClosure K L)

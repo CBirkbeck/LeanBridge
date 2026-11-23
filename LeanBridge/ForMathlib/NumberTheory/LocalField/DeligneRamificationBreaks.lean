@@ -1,3 +1,4 @@
+import LeanBridge.ForMathlib.FieldTheory.Galois.SubextensionCorrespondence
 import LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamily
 import LeanBridge.ForMathlib.NumberTheory.LocalField.GaloisClosureRamification
 import LeanBridge.ForMathlib.NumberTheory.LocalField.WildArtinSlopes
@@ -215,47 +216,6 @@ lemma lt_getElem_of_countP_le (hl : l.Pairwise (· ≤ ·)) (hk : k < l.length)
     · rcases k with _ | k
       · simpa using hx
       · exact (not_le.mp hx).trans_le (hl.1 _ (List.getElem_mem _))
-
-lemma fixingSubgroup_preimage_eq_range_restrictScalarsHom {F Ω : Type*} [Field F] [Field Ω]
-    [Algebra F Ω] {L E : IntermediateField F Ω} (h : L ≤ E) :
-    letI : Algebra L E := (IntermediateField.inclusion h).toAlgebra
-    haveI : IsScalarTower F L E := .of_algebraMap_eq fun _ ↦ rfl
-    fixingSubgroup (E ≃ₐ[F] E) (((↑) : E → Ω) ⁻¹' L) =
-      (AlgEquiv.restrictScalarsHom (S := L) F).range := by
-  let a : Algebra L E := (IntermediateField.inclusion h).toAlgebra
-  have hs : IsScalarTower F L E := .of_algebraMap_eq fun _ ↦ rfl
-  ext σ
-  rw [mem_fixingSubgroup_iff, MonoidHom.mem_range]
-  constructor
-  · intro hσ
-    exact ⟨({ σ with commutes' := fun l ↦ hσ _ l.2 } : E ≃ₐ[L] E), AlgEquiv.ext fun _ ↦ rfl⟩
-  · rintro ⟨τ, rfl⟩ x hx
-    exact τ.commutes ⟨x, hx⟩
-
-lemma fixingSubgroup_preimage_eq_conj_smul {F Ω : Type*} [Field F] [Field Ω] [Algebra F Ω]
-    [Normal F Ω] {L L' : IntermediateField F Ω} (N : IntermediateField F Ω) [Normal F N]
-    (φ : L ≃ₐ[F] L') : fixingSubgroup (N ≃ₐ[F] N) (((↑) : N → Ω) ⁻¹' L') =
-      MulAut.conj ((φ.liftNormal Ω).restrictNormal N) •
-        fixingSubgroup (N ≃ₐ[F] N) (((↑) : N → Ω) ⁻¹' L) := by
-  set σ : Ω ≃ₐ[F] Ω := φ.liftNormal Ω
-  set τ : N ≃ₐ[F] N := σ.restrictNormal N
-  have hσ (a : Ω) : σ a ∈ L' ↔ a ∈ L := by
-    refine ⟨fun h ↦ ?_, fun h ↦ ?_⟩
-    · have h' : σ (φ.symm ⟨σ a, h⟩) = σ a :=
-        (φ.liftNormal_commutes Ω _).trans (congrArg Subtype.val (φ.apply_symm_apply ⟨σ a, h⟩))
-      exact σ.injective h' ▸ (φ.symm ⟨σ a, h⟩).2
-    · exact (φ.liftNormal_commutes Ω ⟨a, h⟩).symm ▸ (φ ⟨a, h⟩).2
-  have hτ (x : N) : ((τ x : N) : Ω) ∈ L' ↔ (x : Ω) ∈ L :=
-    (congrArg (· ∈ L') (σ.restrictNormal_commutes N x)).to_iff.trans (hσ x)
-  ext ρ
-  rw [Subgroup.mem_pointwise_smul_iff_inv_smul_mem, mem_fixingSubgroup_iff, mem_fixingSubgroup_iff]
-  refine ⟨fun h x hx ↦ ?_, fun h y hy ↦ ?_⟩
-  · have h' : ρ (τ x) = τ x := h (τ x) ((hτ x).mpr hx)
-    exact τ.symm_apply_eq.mpr h'
-  · have h' : τ.symm (ρ (τ (τ.symm y))) = τ.symm y :=
-      h (τ.symm y) ((hτ (τ.symm y)).mp ((τ.apply_symm_apply y).symm ▸ hy))
-    rw [τ.apply_symm_apply] at h'
-    exact τ.symm.injective h'
 
 namespace HerbrandInvariant
 

@@ -11,8 +11,11 @@ read in `Ω`. This file states the Galois correspondence of `N / F` in these ter
 `[E : F]` is the index of the group of `E`, the group of the fixed field of `J` is `J`, and the
 fixed field of `J` lies in an intermediate field `L ⊆ N` when `J` contains the group of `L`, and
 contains `E` when `J` lies in the group of `E`. It also shows that an intermediate field inside a
-finite, or separable, one is finite, or separable, over `F`, and that in a tower `N / E / F` with
-`N / F` finite Galois the image of `Gal(N / E)` in `Gal(N / F)` has index `[E : F]`.
+finite, or separable, one is finite, or separable, over `F`, that in a tower `N / E / F` with
+`N / F` finite Galois the image of `Gal(N / E)` in `Gal(N / F)` has index `[E : F]`, that for
+intermediate fields `L ⊆ E` the group of `L` in `Aut(E / F)` is the image of `Aut(E / L)`, and that
+an `F`-isomorphism `L ≃ L'`, for `Ω / F` normal, conjugates the groups of `L` and `L'` in
+`Aut(N / F)` for every normal `N`.
 -/
 
 namespace AlgEquiv
@@ -83,3 +86,44 @@ lemma le_lift_fixedField (hEN : E ≤ N) {J : Subgroup (N ≃ₐ[F] N)}
     E ≤ IntermediateField.lift (IntermediateField.fixedField J) := fun x hx ↦
   (IntermediateField.mem_lift (⟨x, hEN hx⟩ : N)).mpr <|
     (IntermediateField.mem_fixedField_iff _ _).mpr fun _ hσ ↦ hJ hσ ⟨⟨x, hEN hx⟩, hx⟩
+
+lemma fixingSubgroup_preimage_eq_range_restrictScalarsHom (h : L ≤ E) :
+    letI : Algebra L E := (IntermediateField.inclusion h).toAlgebra
+    haveI : IsScalarTower F L E := .of_algebraMap_eq fun _ ↦ rfl
+    fixingSubgroup (E ≃ₐ[F] E) (((↑) : E → Ω) ⁻¹' L) =
+      (AlgEquiv.restrictScalarsHom (S := L) F).range := by
+  let a : Algebra L E := (IntermediateField.inclusion h).toAlgebra
+  have hs : IsScalarTower F L E := .of_algebraMap_eq fun _ ↦ rfl
+  ext σ
+  rw [mem_fixingSubgroup_iff, MonoidHom.mem_range]
+  constructor
+  · intro hσ
+    exact ⟨({ σ with commutes' := fun l ↦ hσ _ l.2 } : E ≃ₐ[L] E), AlgEquiv.ext fun _ ↦ rfl⟩
+  · rintro ⟨τ, rfl⟩ x hx
+    exact τ.commutes ⟨x, hx⟩
+
+open scoped Pointwise in
+variable (N) in
+lemma fixingSubgroup_preimage_eq_conj_smul [Normal F Ω] {L' : IntermediateField F Ω} [Normal F N]
+    (φ : L ≃ₐ[F] L') : fixingSubgroup (N ≃ₐ[F] N) (((↑) : N → Ω) ⁻¹' L') =
+      MulAut.conj ((φ.liftNormal Ω).restrictNormal N) •
+        fixingSubgroup (N ≃ₐ[F] N) (((↑) : N → Ω) ⁻¹' L) := by
+  set σ : Ω ≃ₐ[F] Ω := φ.liftNormal Ω
+  set τ : N ≃ₐ[F] N := σ.restrictNormal N
+  have hσ (a : Ω) : σ a ∈ L' ↔ a ∈ L := by
+    refine ⟨fun h ↦ ?_, fun h ↦ ?_⟩
+    · have h' : σ (φ.symm ⟨σ a, h⟩) = σ a :=
+        (φ.liftNormal_commutes Ω _).trans (congrArg Subtype.val (φ.apply_symm_apply ⟨σ a, h⟩))
+      exact σ.injective h' ▸ (φ.symm ⟨σ a, h⟩).2
+    · exact (φ.liftNormal_commutes Ω ⟨a, h⟩).symm ▸ (φ ⟨a, h⟩).2
+  have hτ (x : N) : ((τ x : N) : Ω) ∈ L' ↔ (x : Ω) ∈ L :=
+    (congrArg (· ∈ L') (σ.restrictNormal_commutes N x)).to_iff.trans (hσ x)
+  ext ρ
+  rw [Subgroup.mem_pointwise_smul_iff_inv_smul_mem, mem_fixingSubgroup_iff, mem_fixingSubgroup_iff]
+  refine ⟨fun h x hx ↦ ?_, fun h y hy ↦ ?_⟩
+  · have h' : ρ (τ x) = τ x := h (τ x) ((hτ x).mpr hx)
+    exact τ.symm_apply_eq.mpr h'
+  · have h' : τ.symm (ρ (τ (τ.symm y))) = τ.symm y :=
+      h (τ.symm y) ((hτ (τ.symm y)).mp ((τ.apply_symm_apply y).symm ▸ hy))
+    rw [τ.apply_symm_apply] at h'
+    exact τ.symm.injective h'

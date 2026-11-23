@@ -1,3 +1,4 @@
+import LeanBridge.ForMathlib.Algebra.Ring.Subring.Units
 import LeanBridge.ForMathlib.Analysis.Convex.EdgeOfSlopeEnds
 import LeanBridge.ForMathlib.NumberTheory.LocalField.RamificationPolynomial
 
@@ -72,56 +73,6 @@ variable (K : Type*) [Field K] [ValuativeRel K] [TopologicalSpace K] [IsNonarchi
   [Algebra K L] [ValuativeExtension K L] {F : Type*} [Field F] {ρ : L[X]} {α x y : L}
   {i k l n : ℕ} {ϖ : 𝒪[L]} {kl : ℕ × ℕ} {s : ℝ}
 
-lemma addValuation_of_ne_zero (hx : x ≠ 0) :
-    addValuation L x = (normalizedValuation L (Units.mk0 x hx)).toAdd :=
-  dite_eq_right hx
-
-lemma mem_integer_iff_zero_le_addValuation (hx : x ≠ 0) : x ∈ 𝒪[L] ↔ 0 ≤ addValuation L x := by
-  rw [addValuation_of_ne_zero hx, WithTop.coe_nonneg]
-  exact mem_integer_iff_toAdd_normalizedValuation_nonneg (Units.mk0 x hx)
-
-variable (x y) in
-lemma min_addValuation_le_addValuation_add :
-    min (addValuation L x) (addValuation L y) ≤ addValuation L (x + y) := by
-  rcases eq_or_ne x 0 with rfl | hx
-  · rw [addValuation_zero, zero_add, min_eq_right le_top]
-  rcases eq_or_ne y 0 with rfl | hy
-  · rw [addValuation_zero, add_zero, min_eq_left le_top]
-  rcases eq_or_ne (x + y) 0 with hxy | hxy
-  · rw [hxy, addValuation_zero]
-    exact le_top
-  rw [addValuation_of_ne_zero hx, addValuation_of_ne_zero hy, addValuation_of_ne_zero hxy,
-    ← WithTop.coe_min, WithTop.coe_le_coe]
-  rcases le_total (valuation L x) (valuation L y) with h | h
-  · refine min_le_of_right_le ((toAdd_normalizedValuation_le_iff_valuation_le _ _).mpr ?_)
-    exact (Valuation.map_add _ _ _).trans (max_le h le_rfl)
-  · refine min_le_of_left_le ((toAdd_normalizedValuation_le_iff_valuation_le _ _).mpr ?_)
-    exact (Valuation.map_add _ _ _).trans (max_le le_rfl h)
-
-lemma addValuation_zpow (hϖ : Irreducible ϖ) (z : ℤ) : addValuation L ((ϖ : L) ^ z) = z := by
-  have hϖ₀ : (ϖ : L) ≠ 0 :=
-    fun h ↦ hϖ.ne_zero (Subtype.ext h)
-  have hmk : Units.mk0 ((ϖ : L) ^ z) (zpow_ne_zero z hϖ₀) = Units.mk0 (ϖ : L) hϖ₀ ^ z :=
-    Units.ext (by rw [Units.val_zpow_eq_zpow_val, Units.val_mk0, Units.val_mk0])
-  rw [addValuation_of_ne_zero (zpow_ne_zero z hϖ₀), hmk, map_zpow,
-    normalizedValuation_irreducible hϖ]
-  simp
-
-lemma addValuation_mul_zpow (hϖ : Irreducible ϖ) (hx : x ≠ 0) (z : ℤ) :
-    addValuation L (x * (ϖ : L) ^ z) = addValuation L x + z := by
-  rw [addValuation_mul hx (zpow_ne_zero z fun h ↦ hϖ.ne_zero (Subtype.ext h)), addValuation_zpow hϖ]
-
-lemma addValuation_coe_unit (u : 𝒪[L]ˣ) : addValuation L ((u : 𝒪[L]) : L) = 0 := by
-  rw [addValuation_coe (IsDiscreteValuationRing.addVal_eq_zero_of_unit u)]
-  rfl
-
-lemma residue_eq_zero_of_pos {z : 𝒪[L]} (hz : 0 < addValuation L (z : L)) :
-    IsLocalRing.residue 𝒪[L] z = 0 := by
-  rw [IsLocalRing.residue_eq_zero_iff, IsLocalRing.mem_maximalIdeal, mem_nonunits_iff]
-  intro hu
-  rw [← hu.unit_spec, addValuation_coe_unit] at hz
-  exact lt_irrefl _ hz
-
 open Classical in
 variable (L) in
 /-- The **reduction** `δ ↦ δ‾` of the ring of integers `𝒪_L` of a nonarchimedean local field onto
@@ -144,14 +95,9 @@ lemma residueOf_eq_of_pos (hx : x ∈ 𝒪[L]) (hy : y ∈ 𝒪[L]) (hxy : 0 < a
   rw [residueOf, dite_eq_left hx, residueOf, dite_eq_left hy, ← sub_eq_zero, ← map_sub]
   exact residue_eq_zero_of_pos hxy
 
-lemma coe_units_zpow {M : Type*} [Field M] (S : Subring M) (u : Sˣ) (z : ℤ) :
-    ((u : S) : M) ^ z = (((u ^ z : Sˣ) : S) : M) :=
-  ((congrArg Units.val (map_zpow (Units.map S.subtype.toMonoidHom) u z)).trans
-    (Units.val_zpow_eq_zpow_val _ z)).symm
-
 lemma residueOf_unit_zpow (u : 𝒪[L]ˣ) (z : ℤ) :
     residueOf L (((u : 𝒪[L]) : L) ^ z) = IsLocalRing.residue 𝒪[L] u ^ z := by
-  rw [coe_units_zpow, residueOf_coe]
+  rw [Subring.coe_units_zpow, residueOf_coe]
   exact (congrArg Units.val (map_zpow (Units.map (IsLocalRing.residue 𝒪[L]).toMonoidHom) u z)).trans
     (Units.val_zpow_eq_zpow_val _ z)
 

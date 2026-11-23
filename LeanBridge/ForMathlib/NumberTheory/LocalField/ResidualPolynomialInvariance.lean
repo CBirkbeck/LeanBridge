@@ -1,6 +1,7 @@
 import LeanBridge.ForMathlib.NumberTheory.LocalField.MongeInvariance
+import LeanBridge.ForMathlib.NumberTheory.LocalField.NormalClosure
 import LeanBridge.ForMathlib.NumberTheory.LocalField.ResidualPolynomial
-import Mathlib.RingTheory.Polynomial.GaussNorm
+import LeanBridge.ForMathlib.RingTheory.Polynomial.GaussNorm
 
 /-!
 # The invariance of the class of residual polynomials
@@ -28,7 +29,8 @@ polygons of `ρ` and `ρ'` agree, with the same vertices, and at the points of a
 `h / m` the coefficients of `ρ` and `ρ'` agree to first order, which gives the change of the
 residual polynomials. Rational slopes need the real Gauss norm: Monge's comparison uses the integer
 slopes `m` of the substitutions `x ↦ α ^ m x`. The Galois extension `M` is the normal closure of `L`
-in an algebraic closure, for a separable `L / K`, which covers every extension of `p`-adic fields.
+in an algebraic closure (`IsNonarchimedeanLocalField.NormalClosure`), for a separable `L / K`,
+which covers every extension of `p`-adic fields.
 
 ## Main definitions
 
@@ -37,8 +39,6 @@ in an algebraic closure, for a separable `L / K`, which covers every extension o
 
 ## Main results
 
-* `IsNonarchimedeanLocalField.gaussNorm_prod_sub_prod_lt`: a product of polynomials changes by
-  less than its Gauss norm when each factor does.
 * `IsNonarchimedeanLocalField.coeffEnvelope_eq_of_forall` and
   `IsNonarchimedeanLocalField.residualPolynomial_mul_eq`: two polynomials with the comparison
   property have the same Newton polygon, and their residual polynomials differ by the change of
@@ -74,14 +74,6 @@ open Finset IsDiscreteValuationRing Polynomial TauCeti ValuativeRel
 namespace IsNonarchimedeanLocalField
 
 open HerbrandInvariant
-
-lemma coe_coeff_mongeShift_zero {F E : Type*} [Field F] [ValuativeRel F] [Field E] [ValuativeRel E]
-    [Algebra F E] [ValuativeExtension F E] {g : 𝒪[F][X]} (hg : g.Monic) {π : 𝒪[E]} (hπ : π ≠ 0)
-    (j : ℕ) : (((mongeShift g π 0).coeff j : 𝒪[E]) : E) =
-      (π : E) ^ g.natDegree *
-        (ramificationPolynomial (g.map (algebraMap 𝒪[F] F)) (π : E)).coeff j := by
-  rw [← coeff_C_mul, ← map_mongeShift_zero hg hπ, coeff_map]
-  rfl
 
 section AddValAbs
 
@@ -186,65 +178,6 @@ lemma addValAbs_le_of_dvd (h : x ∣ y) : addValAbs T y ≤ addValAbs T x := by
   · exact (addValAbs_lt_one hz).le
 
 end AddValAbs
-
-section GaussNorm
-
-variable {R : Type*} [CommRing R] [Nontrivial R] {v : AbsoluteValue R ℝ} {c : ℝ} {P Q : R[X]}
-
-lemma gaussNorm_neg (hc : 0 < c) (hv : IsNonarchimedean v) :
-    (-P).gaussNorm v c = P.gaussNorm v c := by
-  rw [← neg_one_mul, ← C_1, ← C_neg, gaussNorm_mul hv hc, gaussNorm_C, map_neg_eq_map, map_one,
-    one_mul]
-
-lemma gaussNorm_add_eq_of_lt (hc : 0 < c) (hv : IsNonarchimedean v)
-    (h : Q.gaussNorm v c < P.gaussNorm v c) : (P + Q).gaussNorm v c = P.gaussNorm v c := by
-  have h₁ : (P + Q).gaussNorm v c ≤ max (P.gaussNorm v c) (Q.gaussNorm v c) :=
-    isNonarchimedean_gaussNorm v hv hc.le P Q
-  have h₂ : (P + Q + -Q).gaussNorm v c ≤ max ((P + Q).gaussNorm v c) ((-Q).gaussNorm v c) :=
-    isNonarchimedean_gaussNorm v hv hc.le (P + Q) (-Q)
-  rw [add_neg_cancel_right, gaussNorm_neg hc hv] at h₂
-  refine le_antisymm (h₁.trans (max_le le_rfl h.le)) ?_
-  rcases le_total ((P + Q).gaussNorm v c) (Q.gaussNorm v c) with h₃ | h₃
-  · rw [max_eq_right h₃] at h₂
-    exact absurd (h₂.trans_lt h) (lt_irrefl _)
-  · rwa [max_eq_left h₃] at h₂
-
-/-- **A product of polynomials changes by less than its Gauss norm when each factor does**: for a
-nonarchimedean absolute value `v` on `R`, a real `c > 0` and polynomials `F_i`, `F'_i` with
-`‖F'_i - F_i‖ < ‖F_i‖` for the Gauss norm `‖P‖ = max_j v(P_j) c ^ j`, the products satisfy
-`‖∏ F'_i - ∏ F_i‖ < ‖∏ F_i‖`, by the multiplicativity of the Gauss norm (Gauss's lemma). -/
-lemma gaussNorm_prod_sub_prod_lt (hc : 0 < c) (hv : IsNonarchimedean v) {ι : Type*} (A : Finset ι)
-    (F F' : ι → R[X]) (hF : ∀ i ∈ A, (F' i - F i).gaussNorm v c < (F i).gaussNorm v c) :
-    (∏ i ∈ A, F' i - ∏ i ∈ A, F i).gaussNorm v c < (∏ i ∈ A, F i).gaussNorm v c := by
-  classical
-  induction A using Finset.induction_on with
-  | empty =>
-    rw [prod_empty, prod_empty, sub_self, gaussNorm_zero, ← C_1, gaussNorm_C, map_one]
-    exact zero_lt_one
-  | insert i A hi ih =>
-    have ih' : (∏ j ∈ A, F' j - ∏ j ∈ A, F j).gaussNorm v c < (∏ j ∈ A, F j).gaussNorm v c :=
-      ih fun j hj ↦ hF j (mem_insert_of_mem hj)
-    have hFi : (F' i - F i).gaussNorm v c < (F i).gaussNorm v c :=
-      hF i (mem_insert_self i A)
-    have hpos : 0 < (∏ j ∈ A, F j).gaussNorm v c :=
-      (gaussNorm_nonneg v _ hc.le).trans_lt ih'
-    have hposi : 0 < (F i).gaussNorm v c :=
-      (gaussNorm_nonneg v _ hc.le).trans_lt hFi
-    have hA' : (∏ j ∈ A, F' j).gaussNorm v c = (∏ j ∈ A, F j).gaussNorm v c := by
-      rw [← add_sub_cancel (∏ j ∈ A, F j) (∏ j ∈ A, F' j)]
-      exact gaussNorm_add_eq_of_lt hc hv ih'
-    have heq : ∏ j ∈ insert i A, F' j - ∏ j ∈ insert i A, F j =
-        (F' i - F i) * ∏ j ∈ A, F' j + F i * (∏ j ∈ A, F' j - ∏ j ∈ A, F j) := by
-      rw [prod_insert hi, prod_insert hi]
-      ring1
-    rw [heq, prod_insert hi, gaussNorm_mul hv hc]
-    refine (isNonarchimedean_gaussNorm v hv hc.le _ _).trans_lt (max_lt ?_ ?_)
-    · rw [gaussNorm_mul hv hc, hA']
-      exact mul_lt_mul_of_pos_right hFi hpos
-    · rw [gaussNorm_mul hv hc]
-      exact mul_lt_mul_of_pos_left ih' hposi
-
-end GaussNorm
 
 section Comparison
 
@@ -420,7 +353,7 @@ lemma residualPolynomial_mul_eq (hϖ : Irreducible ϖ) (u : 𝒪[L]ˣ)
       rw [hsplit]
       exact add_mem hmem hmem'
     have hunit : ((u : 𝒪[L]) : L) ^ E ∈ 𝒪[L] := by
-      rw [coe_units_zpow]
+      rw [Subring.coe_units_zpow]
       exact Subtype.coe_prop _
     have hcoe : (((u : 𝒪[L]) * ϖ : 𝒪[L]) : L) ^ E = (ϖ : L) ^ E * ((u : 𝒪[L]) : L) ^ E := by
       rw [Subring.coe_mul, mul_zpow, mul_comm]
@@ -672,25 +605,6 @@ variable {K L : Type*} [Field K] [ValuativeRel K] [TopologicalSpace K]
   [IsNonarchimedeanLocalField K] [Field L] [ValuativeRel L] [TopologicalSpace L]
   [IsNonarchimedeanLocalField L] [Algebra K L] [ValuativeExtension K L] {α α' : 𝒪[L]}
 
-lemma addValuation_coe_eq_toNat {x : 𝒪[L]} (hx : x ≠ 0) :
-    addValuation L (x : L) = (((addVal 𝒪[L] x).toNat : ℤ) : WithTop ℤ) := by
-  rcases ENat.ne_top_iff_exists.mp (mt addVal_eq_top_iff.mp hx) with ⟨a, ha⟩
-  rw [addValuation_coe ha.symm, ← ha, ENat.toNat_natCast]
-
-lemma addValuation_pow_mul (hα : Irreducible α) (v : 𝒪[L]ˣ) (n : ℕ) {x : L} (hx : x ≠ 0) :
-    addValuation L (((v : 𝒪[L]) : L) ^ n * (α : L) ^ n * x) = n + addValuation L x := by
-  have hv : ((v : 𝒪[L]) : L) ^ n = (((v ^ n : 𝒪[L]ˣ) : 𝒪[L]) : L) := by
-    push_cast
-    rfl
-  have hα₀ : (α : L) ≠ 0 :=
-    fun h ↦ hα.ne_zero (Subtype.ext h)
-  have hv₀ : ((v : 𝒪[L]) : L) ^ n ≠ 0 := by
-    rw [hv]
-    exact fun h ↦ (v ^ n).ne_zero (Subtype.ext h)
-  rw [addValuation_mul (mul_ne_zero hv₀ (pow_ne_zero _ hα₀)) hx, addValuation_mul hv₀
-    (pow_ne_zero _ hα₀), hv, addValuation_coe_unit, zero_add, ← zpow_natCast, addValuation_zpow hα]
-  rfl
-
 lemma natDegree_minpoly_of_isTotallyRamified (hKL : IsTotallyRamified K L) (hα : Irreducible α) :
     (minpoly 𝒪[K] α).natDegree = Module.finrank K L := by
   have h :
@@ -711,8 +625,9 @@ lemma coe_coeff_mongeShift_minpoly (hα : Irreducible α) (j : ℕ) :
         (ramificationPolynomial (minpoly K (α : L)) (α : L)).coeff j := by
   have hfin : FiniteDimensional K L :=
     finite_of_valuativeExtension K L
-  rw [minpoly_eq_map]
-  exact coe_coeff_mongeShift_zero (minpoly.monic (IsIntegral.of_finite 𝒪[K] α)) hα.ne_zero j
+  rw [minpoly_eq_map, ← coeff_C_mul,
+    ← map_mongeShift_zero (minpoly.monic (IsIntegral.of_finite 𝒪[K] α)) hα.ne_zero, coeff_map]
+  rfl
 
 lemma coeff_mongeShift_eq_zero_iff (hα : Irreducible α) {j : ℕ} :
     (mongeShift (minpoly 𝒪[K] α) α 0).coeff j = 0 ↔
@@ -853,25 +768,8 @@ lemma exists_coeffVal_sub_lt_of_isSeparable (hKL : IsTotallyRamified K L) (hα :
     ∃ j, (ramificationPolynomial (minpoly K (α : L)) (α : L)).coeff j ≠ 0 ∧
       (coeffVal (ramificationPolynomial (minpoly K (α : L)) (α : L)) j : ℝ) - t * j <
         (coeffVal (ramificationPolynomial (minpoly K (α' : L)) (α' : L) -
-          ramificationPolynomial (minpoly K (α : L)) (α : L)) i : ℝ) - t * i := by
-  have hfin : FiniteDimensional K L :=
-    finite_of_valuativeExtension K L
-  have hcl : IsAlgClosure K (AlgebraicClosure L) :=
-    IsAlgClosure.ofAlgebraic K L (AlgebraicClosure L)
-  let vM : ValuativeRel (IntermediateField.normalClosure K L (AlgebraicClosure L)) :=
-    finiteIntermediateFieldValuativeRel K _ _
-  let tM : TopologicalSpace (IntermediateField.normalClosure K L (AlgebraicClosure L)) :=
-    finiteIntermediateFieldTopology K _ _
-  have hM : IsNonarchimedeanLocalField (IntermediateField.normalClosure K L (AlgebraicClosure L)) :=
-    finiteIntermediateField_isNonarchimedeanLocalField K _ _
-  have hKM : ValuativeExtension K (IntermediateField.normalClosure K L (AlgebraicClosure L)) :=
-    finiteIntermediateField_valuativeExtension K _ _
-  have hLM : ValuativeExtension L (IntermediateField.normalClosure K L (AlgebraicClosure L)) :=
-    ⟨(IsScalarTower.toAlgHom K L _).valuativeExtension.vle_iff_vle⟩
-  have hfinLM : Module.Finite L (IntermediateField.normalClosure K L (AlgebraicClosure L)) :=
-    .of_restrictScalars_finite K L _
-  exact exists_coeffVal_sub_lt (IntermediateField.normalClosure K L (AlgebraicClosure L)) hKL hα
-    hα' t hi
+          ramificationPolynomial (minpoly K (α : L)) (α : L)) i : ℝ) - t * i :=
+  exists_coeffVal_sub_lt (NormalClosure K L) hKL hα hα' t hi
 
 /-- **The Newton polygon of the ramification polynomial does not depend on the uniformiser**: for
 a totally ramified separable extension `L / K` of nonarchimedean local fields and two uniformisers

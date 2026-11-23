@@ -63,7 +63,22 @@ lemma addValuation_coe {y : 𝒪[K]} {a : ℕ} (h : addVal 𝒪[K] y = a) :
     hval, mul_one]
   simp
 
-variable {x y : K}
+lemma addValuation_coe_eq_toNat {x : 𝒪[K]} (hx : x ≠ 0) :
+    addValuation K (x : K) = (((addVal 𝒪[K] x).toNat : ℤ) : WithTop ℤ) :=
+  addValuation_coe (ENat.natCast_toNat (mt addVal_eq_top_iff.mp hx)).symm
+
+lemma addValuation_coe_unit (u : 𝒪[K]ˣ) : addValuation K ((u : 𝒪[K]) : K) = 0 := by
+  rw [addValuation_coe (addVal_eq_zero_of_unit u)]
+  rfl
+
+lemma residue_eq_zero_of_pos {z : 𝒪[K]} (hz : 0 < addValuation K (z : K)) :
+    IsLocalRing.residue 𝒪[K] z = 0 := by
+  rw [IsLocalRing.residue_eq_zero_iff, IsLocalRing.mem_maximalIdeal, mem_nonunits_iff]
+  intro hu
+  rw [← hu.unit_spec, addValuation_coe_unit] at hz
+  exact lt_irrefl _ hz
+
+variable {x y : K} {α : 𝒪[K]}
 
 variable (K) in
 lemma addValuation_zero : addValuation K 0 = ⊤ :=
@@ -74,11 +89,64 @@ lemma addValuation_eq_top_iff : addValuation K x = ⊤ ↔ x = 0 := by
   rw [addValuation, dite_eq_right hx] at h
   exact WithTop.coe_ne_top h
 
+lemma addValuation_of_ne_zero (hx : x ≠ 0) :
+    addValuation K x = (normalizedValuation K (Units.mk0 x hx)).toAdd :=
+  dite_eq_right hx
+
 /-- **The normalised valuation is additive**: `v_K(x y) = v_K(x) + v_K(y)` for `x, y ≠ 0`. -/
 lemma addValuation_mul (hx : x ≠ 0) (hy : y ≠ 0) :
     addValuation K (x * y) = addValuation K x + addValuation K y := by
   rw [addValuation, addValuation, addValuation, dite_eq_right hx, dite_eq_right hy,
     dite_eq_right (mul_ne_zero hx hy), ← WithTop.coe_add, Units.mk0_mul, map_mul, toAdd_mul]
+
+lemma mem_integer_iff_zero_le_addValuation (hx : x ≠ 0) : x ∈ 𝒪[K] ↔ 0 ≤ addValuation K x := by
+  rw [addValuation_of_ne_zero hx, WithTop.coe_nonneg]
+  exact mem_integer_iff_toAdd_normalizedValuation_nonneg (Units.mk0 x hx)
+
+variable (x y) in
+lemma min_addValuation_le_addValuation_add :
+    min (addValuation K x) (addValuation K y) ≤ addValuation K (x + y) := by
+  rcases eq_or_ne x 0 with rfl | hx
+  · rw [addValuation_zero, zero_add, min_eq_right le_top]
+  rcases eq_or_ne y 0 with rfl | hy
+  · rw [addValuation_zero, add_zero, min_eq_left le_top]
+  rcases eq_or_ne (x + y) 0 with hxy | hxy
+  · rw [hxy, addValuation_zero]
+    exact le_top
+  rw [addValuation_of_ne_zero hx, addValuation_of_ne_zero hy, addValuation_of_ne_zero hxy,
+    ← WithTop.coe_min, WithTop.coe_le_coe]
+  rcases le_total (valuation K x) (valuation K y) with h | h
+  · refine min_le_of_right_le ((toAdd_normalizedValuation_le_iff_valuation_le _ _).mpr ?_)
+    exact (Valuation.map_add _ _ _).trans (max_le h le_rfl)
+  · refine min_le_of_left_le ((toAdd_normalizedValuation_le_iff_valuation_le _ _).mpr ?_)
+    exact (Valuation.map_add _ _ _).trans (max_le le_rfl h)
+
+lemma addValuation_zpow (hα : Irreducible α) (z : ℤ) : addValuation K ((α : K) ^ z) = z := by
+  have hα₀ : (α : K) ≠ 0 :=
+    fun h ↦ hα.ne_zero (Subtype.ext h)
+  have hmk : Units.mk0 ((α : K) ^ z) (zpow_ne_zero z hα₀) = Units.mk0 (α : K) hα₀ ^ z :=
+    Units.ext (by rw [Units.val_zpow_eq_zpow_val, Units.val_mk0, Units.val_mk0])
+  rw [addValuation_of_ne_zero (zpow_ne_zero z hα₀), hmk, map_zpow,
+    normalizedValuation_irreducible hα]
+  simp
+
+lemma addValuation_mul_zpow (hα : Irreducible α) (hx : x ≠ 0) (z : ℤ) :
+    addValuation K (x * (α : K) ^ z) = addValuation K x + z := by
+  rw [addValuation_mul hx (zpow_ne_zero z fun h ↦ hα.ne_zero (Subtype.ext h)), addValuation_zpow hα]
+
+lemma addValuation_pow_mul (hα : Irreducible α) (v : 𝒪[K]ˣ) (n : ℕ) {w : K} (hw : w ≠ 0) :
+    addValuation K (((v : 𝒪[K]) : K) ^ n * (α : K) ^ n * w) = n + addValuation K w := by
+  have hv : ((v : 𝒪[K]) : K) ^ n = (((v ^ n : 𝒪[K]ˣ) : 𝒪[K]) : K) := by
+    push_cast
+    rfl
+  have hα₀ : (α : K) ≠ 0 :=
+    fun h ↦ hα.ne_zero (Subtype.ext h)
+  have hv₀ : ((v : 𝒪[K]) : K) ^ n ≠ 0 := by
+    rw [hv]
+    exact fun h ↦ (v ^ n).ne_zero (Subtype.ext h)
+  rw [addValuation_mul (mul_ne_zero hv₀ (pow_ne_zero _ hα₀)) hw, addValuation_mul hv₀
+    (pow_ne_zero _ hα₀), hv, addValuation_coe_unit, zero_add, ← zpow_natCast, addValuation_zpow hα]
+  rfl
 
 namespace HerbrandInvariant
 

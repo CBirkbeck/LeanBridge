@@ -22,6 +22,7 @@ import LeanBridge.ForMathlib.Algebra.Module.ZLattice.SphericalDesignEutactic
 import LeanBridge.ForMathlib.Algebra.Module.ZLattice.SphericalDesignFaceCentredCubic
 import LeanBridge.ForMathlib.Algebra.Module.ZLattice.Voronoi
 import LeanBridge.ForMathlib.Algebra.Quaternion.OfFinrankEqFour
+import LeanBridge.ForMathlib.Algebra.Ring.Subring.Units
 import LeanBridge.ForMathlib.Algebra.Squarefree
 import LeanBridge.ForMathlib.AlgebraicGeometry.AbelianVariety.ComplexMultiplication
 import LeanBridge.ForMathlib.AlgebraicGeometry.AbelianVariety.EndomorphismField
@@ -866,10 +867,12 @@ import LeanBridge.ForMathlib.NumberTheory.LocalField.MongeReduction
 import LeanBridge.ForMathlib.NumberTheory.LocalField.MongeReductionLoop
 import LeanBridge.ForMathlib.NumberTheory.LocalField.MongeRepresentationProof
 import LeanBridge.ForMathlib.NumberTheory.LocalField.MongeUnramifiedBase
+import LeanBridge.ForMathlib.NumberTheory.LocalField.NormalClosure
 import LeanBridge.ForMathlib.NumberTheory.LocalField.PadicDefiningPolynomial
 import LeanBridge.ForMathlib.NumberTheory.LocalField.PadicField
 import LeanBridge.ForMathlib.NumberTheory.LocalField.PadicGaloisMeanSlope
 import LeanBridge.ForMathlib.NumberTheory.LocalField.PadicQuadraticExtensions
+import LeanBridge.ForMathlib.NumberTheory.LocalField.PadicRadical
 import LeanBridge.ForMathlib.NumberTheory.LocalField.PossibleRamSet
 import LeanBridge.ForMathlib.NumberTheory.LocalField.RamSubextension
 import LeanBridge.ForMathlib.NumberTheory.LocalField.RamificationPolygon
@@ -1313,6 +1316,7 @@ import LeanBridge.ForMathlib.RingTheory.NullstellensatzMaximalSpectrum
 import LeanBridge.ForMathlib.RingTheory.Polynomial.Eisenstein.Irreducible
 import LeanBridge.ForMathlib.RingTheory.Polynomial.EisensteinForm
 import LeanBridge.ForMathlib.RingTheory.Polynomial.EisensteinFormIrreducible
+import LeanBridge.ForMathlib.RingTheory.Polynomial.GaussNorm
 import LeanBridge.ForMathlib.RingTheory.Trace.NondegenerateReduced
 import LeanBridge.ForMathlib.RingTheory.TwoSidedIdeal.Homogeneous
 import LeanBridge.ForMathlib.RingTheory.Valuation.IsEquivRpow

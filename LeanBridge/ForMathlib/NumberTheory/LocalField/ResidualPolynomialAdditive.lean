@@ -20,9 +20,6 @@ on the residue field, of characteristic `p`.
 
 ## Main results
 
-* `IsNonarchimedeanLocalField.pow_dvd_coeff_mongeShift_zero` (Monge's binomial argument): the
-  coefficient of `x ^ i` of `g(π + π x)` is divisible by every power of `π` dividing the
-  coefficient of `x ^ s`, `s = p ^ v_p(i)`.
 * `IsNonarchimedeanLocalField.mem_integer_coeff_ramificationPolynomial` (LMFDB
   `lf.residual_polynomials`): the ramification polynomial has its coefficients in `𝒪_L`.
 * `IsNonarchimedeanLocalField.coeffVal_pow_padicValNat_le`: `v_L(ρ_s) ≤ v_L(ρ_i)` for the
@@ -44,59 +41,6 @@ open Finset IntermediateField IsDiscreteValuationRing Polynomial TauCeti Valuati
 namespace IsNonarchimedeanLocalField
 
 open HerbrandInvariant
-
-section Monge
-
-variable {R S : Type*} [CommRing R] [IsDomain R] [IsDiscreteValuationRing R] [CommRing S]
-  [IsDomain S] [IsDiscreteValuationRing S] [Algebra R S] {g : R[X]} {π : S} {p r k : ℕ}
-
-/-- **Monge's binomial argument**: for a root `π` of `g` with the hypotheses of Monge's reduction
-and `r ≥ 1`, every power `π ^ k` dividing the coefficient of `x ^ s` of `g(π + π x)`, for the
-largest power `s = p ^ v_p(r)` of `p` dividing `r`, divides the coefficient of `x ^ r`. -/
-lemma pow_dvd_coeff_mongeShift_zero (h : IsMongeRoot g π p) [Fact p.Prime] (hr : r ≠ 0)
-    (hk : π ^ k ∣ (mongeShift g π 0).coeff (p ^ padicValNat p r)) :
-    π ^ k ∣ (mongeShift g π 0).coeff r := by
-  have hp : p.Prime :=
-    Fact.out
-  rcases pow_padicValNat_dvd (p := p) (n := r) with ⟨u, hu⟩
-  have hcop : p.Coprime u := by
-    refine hp.coprime_iff_not_dvd.mpr fun hd ↦ pow_succ_padicValNat_not_dvd (p := p) hr ?_
-    rw [pow_succ]
-    conv_rhs => rw [hu]
-    exact mul_dvd_mul_left _ hd
-  have hq : p ^ padicValNat p r ≠ 0 :=
-    pow_ne_zero _ hp.ne_zero
-  rw [coeff_mongeShift h hq, zero_mul, pow_zero, one_mul] at hk
-  rw [coeff_mongeShift h hr, zero_mul, pow_zero, one_mul]
-  have hterm {i : ℕ} (hi : i ∈ Icc 1 g.natDegree) :
-      π ^ k ∣ algebraMap R S ((i.choose (p ^ padicValNat p r) : R) * g.coeff i) * π ^ i :=
-    pow_dvd_of_pow_dvd_sum h.irreducible
-      (fun i ↦ algebraMap R S ((i.choose (p ^ padicValNat p r) : R) * g.coeff i) * π ^ i)
-      (fun _ hi _ hj hij heq ↦ addVal_term_ne h
-        (a := fun i ↦ (i.choose (p ^ padicValNat p r) : R) * g.coeff i)
-        (not_modEq_of_mem_Icc hi hj hij) heq) hk hi
-  refine dvd_sum fun i hi ↦ ?_
-  have hw : IsUnit ((r.choose (p ^ padicValNat p r) : ℕ) : S) := by
-    have h₁ : p.Coprime ((p ^ padicValNat p r * u).choose (p ^ padicValNat p r)) :=
-      coprime_choose_pow_mul _ hcop
-    rw [← hu] at h₁
-    exact h.isUnit_natCast h₁
-  have hchoose : ((i.choose r : ℕ) : S) * (r.choose (p ^ padicValNat p r) : ℕ) =
-      (i.choose (p ^ padicValNat p r) : ℕ) *
-        ((i - p ^ padicValNat p r).choose (r - p ^ padicValNat p r) : ℕ) := by
-    rw [← Nat.cast_mul, ← Nat.cast_mul, Nat.choose_mul (Nat.le_of_dvd (Nat.pos_of_ne_zero hr)
-      pow_padicValNat_dvd)]
-  refine (hw.dvd_mul_left).mp ?_
-  have heq : ((r.choose (p ^ padicValNat p r) : ℕ) : S) *
-      (algebraMap R S ((i.choose r : R) * g.coeff i) * π ^ i) =
-      ((i - p ^ padicValNat p r).choose (r - p ^ padicValNat p r) : ℕ) *
-        (algebraMap R S ((i.choose (p ^ padicValNat p r) : R) * g.coeff i) * π ^ i) := by
-    simp only [map_mul, map_natCast]
-    linear_combination (algebraMap R S (g.coeff i) * π ^ i) * hchoose
-  rw [heq]
-  exact (hterm hi).mul_left _
-
-end Monge
 
 variable {K L : Type*} [Field K] [ValuativeRel K] [TopologicalSpace K]
   [IsNonarchimedeanLocalField K] [Field L] [ValuativeRel L] [TopologicalSpace L]

@@ -228,8 +228,8 @@ ramification polygon of `L / K` is the point `(-[L : L^(u)], [L : L^(u)] H(L^(u)
 segment that ends at the vertex of abscissa `-x` corresponds to the subextension `L_i` of `L / K`
 with `[L : L_i] = x`, and the ordinate of that vertex is `x H(L_i / K)`. -/
 lemma edgeEnd_visibleHerbrandInvariant (hu : 0 ≤ u) : (visibleHerbrandInvariant L).edgeEnd u =
-    (-(intermediateDegree (ramSubextension_le L u) : ℝ), ((intermediateDegree
-      (ramSubextension_le L u) * extensionHeight K (ramSubextension L u) : ℚ) : ℝ)) := by
+    (-((ramSubextension L u).relfinrank L : ℝ), (((ramSubextension L u).relfinrank L *
+      extensionHeight K (ramSubextension L u) : ℚ) : ℝ)) := by
   have hkw : (visibleHerbrandInvariant L).ramCountLT u +
       (visibleHerbrandInvariant L).ramMultiplicity u ≤ (visibleHerbrandInvariant L).w :=
     (visibleHerbrandInvariant L).ramCountLT_add_ramMultiplicity_le u
@@ -239,7 +239,7 @@ lemma edgeEnd_visibleHerbrandInvariant (hu : 0 ≤ u) : (visibleHerbrandInvarian
       ringChar 𝓀[K] ^ ((visibleHerbrandInvariant L).ramCountLT u +
         (visibleHerbrandInvariant L).ramMultiplicity u) := by
     rw [← pow_add, Nat.sub_add_cancel hkw]
-  rw [HerbrandInvariant.edgeEnd, intermediateDegree_ramSubextension_le L hu,
+  rw [HerbrandInvariant.edgeEnd, relfinrank_ramSubextension_le L hu,
     extensionHeight_ramSubextension L hu, HerbrandInvariant.ramificationIndex]
   refine Prod.ext rfl (congrArg ((↑) : ℚ → ℝ) ?_)
   push_cast
@@ -255,8 +255,8 @@ lemma mem_polygonEdges_reflectedPolygon_iff_exists_ramSubextension : σ ∈
     polygonEdges (visibleHerbrandInvariant L).reflectedPolygon ↔
       ∃ u : ℚ, (u : ℝ) ∈ segmentSlopes (visibleHerbrandInvariant L).reflectedPolygon ∧
         σ = segment ℝ ((visibleHerbrandInvariant L).edgeStart u)
-          (-(intermediateDegree (ramSubextension_le L u) : ℝ), ((intermediateDegree
-            (ramSubextension_le L u) * extensionHeight K (ramSubextension L u) : ℚ) : ℝ)) := by
+          (-((ramSubextension L u).relfinrank L : ℝ), (((ramSubextension L u).relfinrank L *
+            extensionHeight K (ramSubextension L u) : ℚ) : ℝ)) := by
   have hfact : Fact (ringChar 𝓀[K]).Prime := ⟨CharP.prime_ringChar _⟩
   rw [(visibleHerbrandInvariant L).mem_polygonEdges_reflectedPolygon_iff_exists]
   exact exists_congr fun u ↦ and_congr_right fun hu ↦ by
@@ -276,8 +276,8 @@ lemma mem_polygonEdges_ramificationPolygonOf_iff_exists_ramSubextension (hπ : I
       ∃ u : ℚ, (u : ℝ) ∈ segmentSlopes (ramificationPolygonOf
         (minpoly (unramifiedExtension K L (inertiaDegree K L)) (π : L)) (π : L)) ∧
         σ = segment ℝ ((visibleHerbrandInvariant L).edgeStart u)
-          (-(intermediateDegree (ramSubextension_le L u) : ℝ), ((intermediateDegree
-            (ramSubextension_le L u) * extensionHeight K (ramSubextension L u) : ℚ) : ℝ)) := by
+          (-((ramSubextension L u).relfinrank L : ℝ), (((ramSubextension L u).relfinrank L *
+            extensionHeight K (ramSubextension L u) : ℚ) : ℝ)) := by
   rw [ramificationPolygonOf_minpoly_eq_visibleHerbrandInvariant L hπ]
   exact mem_polygonEdges_reflectedPolygon_iff_exists_ramSubextension L
 
