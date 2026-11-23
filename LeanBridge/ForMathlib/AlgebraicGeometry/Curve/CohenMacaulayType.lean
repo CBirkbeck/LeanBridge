@@ -43,15 +43,7 @@ lemma finrank_quotient_smul_top_le_one_of_isUnit {R K : Type*} [CommRing R] [Fie
   residueFinrank_le_one_of_isLocallyPrincipalAt <| isLocallyPrincipalAt_of_isUnit hI h𝔩.ne_top
 
 variable {R K : Type*} [CommRing R] [IsDomain R] [IsNoetherianRing R] [Field K] [Algebra R K]
-  [IsFractionRing R K] {I : FractionalIdeal R⁰ K} (𝔩 : Ideal R)
-
-lemma finite_of_isNoetherianRing : Module.Finite R I :=
-  Finite.iff_fg.mpr (fg_of_isNoetherianRing le_rfl I)
-
-lemma finite_quotient_smul_top : Module.Finite (R ⧸ 𝔩) (I ⧸ 𝔩 • (⊤ : Submodule R I)) :=
-  Submodule.finite_quotient_smul_top (fg_of_isNoetherianRing le_rfl I)
-
-variable [𝔩.IsMaximal]
+  [IsFractionRing R K] {I : FractionalIdeal R⁰ K} (𝔩 : Ideal R) [𝔩.IsMaximal]
 
 lemma one_le_finrank_quotient_smul_top (hI : I ≠ 0) :
     1 ≤ finrank (R ⧸ 𝔩) (I ⧸ 𝔩 • (⊤ : Submodule R I)) := by
@@ -135,8 +127,5 @@ lemma traceDual_toSubalgebra : O.toSubalgebra.traceDual = O.traceDual :=
 lemma cohenMacaulayTypeAt_toSubalgebra : O.toSubalgebra.cohenMacaulayTypeAt 𝔩 = finrank
     (O.toSubalgebra ⧸ 𝔩) (O.traceDual ⧸ 𝔩 • (⊤ : Submodule O.toSubalgebra O.traceDual)) :=
   rfl
-
-lemma isNoetherianRing_toSubalgebra : IsNoetherianRing O.toSubalgebra :=
-  isNoetherian_of_tower ℤ inferInstance
 
 end TauCeti.GlobalNumberFields.NumberFieldOrder

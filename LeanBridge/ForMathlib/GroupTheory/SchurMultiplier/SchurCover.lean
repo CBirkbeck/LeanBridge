@@ -212,8 +212,7 @@ lemma Subgroup.finite_commutatorSet {E : Type*} [Group E] [(center E).FiniteInde
   refine (Set.finite_range fun p : (E ⧸ center E) × (E ⧸ center E) ↦
     (Group.centralCommutatorMap E p.1 p.2 : E)).subset ?_
   rintro _ ⟨g, h, rfl⟩
-  exact ⟨(↑g⁻¹, ↑h⁻¹), (congrArg Subtype.val (Group.centralCommutatorMap_mk g⁻¹ h⁻¹)).trans <|
-    (Group.coe_commutatorPairing g⁻¹ h⁻¹).trans <| by rw [inv_inv, inv_inv, commutatorElement_def]⟩
+  exact ⟨(↑g⁻¹, ↑h⁻¹), (Group.commutatorElement_eq_centralCommutatorMap g h).symm⟩
 
 namespace SchurCover
 

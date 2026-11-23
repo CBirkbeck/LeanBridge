@@ -80,15 +80,18 @@ lemma mk_centralCommutatorMap (x y : G ⧸ center G) :
   induction y using QuotientGroup.induction_on
   rfl
 
+lemma commutatorElement_eq_centralCommutatorMap (g h : G) :
+    ⁅g, h⁆ = (centralCommutatorMap G ↑g⁻¹ ↑h⁻¹ : G) := by
+  rw [centralCommutatorMap_mk, coe_commutatorPairing, inv_inv, inv_inv, commutatorElement_def]
+
 lemma commutatorElement_eq_of_mul_inv_mem_center {g h w₁ w₂ : G} (h₁ : g * w₁⁻¹ ∈ center G)
     (h₂ : h * w₂⁻¹ ∈ center G) : ⁅g, h⁆ = ⁅w₁, w₂⁆ := by
   have hg : ((g⁻¹ : G) : G ⧸ center G) = ((w₁⁻¹ : G) : G ⧸ center G) :=
     QuotientGroup.eq.mpr <| by simpa using h₁
   have hh : ((h⁻¹ : G) : G ⧸ center G) = ((w₂⁻¹ : G) : G ⧸ center G) :=
     QuotientGroup.eq.mpr <| by simpa using h₂
-  have key (a b : G) : ⁅a, b⁆ = (centralCommutatorMap G ↑a⁻¹ ↑b⁻¹ : G) := by
-    rw [centralCommutatorMap_mk, coe_commutatorPairing, inv_inv, inv_inv, commutatorElement_def]
-  rw [key, hg, hh, ← key]
+  rw [commutatorElement_eq_centralCommutatorMap, hg, hh,
+    ← commutatorElement_eq_centralCommutatorMap]
 
 variable (G H) in
 /-- An **isoclinism** between groups `G` and `H` (LMFDB `group.isoclinism`): isomorphisms
