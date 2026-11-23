@@ -12,8 +12,8 @@ A finite nonempty set of points on the sphere of radius `r > 0` of `ℝⁿ` is a
 if the average over the points of every real polynomial of degree at most `t` equals its average
 over the sphere. A lattice is a spherical `t`-design lattice if its minimal vectors form a
 spherical `t`-design, and strongly perfect if they form a spherical `4`-design. That `2`-design
-lattices are the strongly eutactic ones, and that strongly perfect lattices are perfect, are not
-formalised.
+lattices are the strongly eutactic ones, and that strongly perfect lattices are perfect (Venkov),
+are proved in `SphericalDesignEutactic.lean`.
 
 ## Main definitions
 
@@ -66,7 +66,7 @@ def IsSphericalDesign : Prop :=
   EuclideanSpace.IsSphericalDesign t (minimum L) (minimalVectors L)
 
 /-- A lattice `L` of `ℝⁿ` is **strongly perfect** (LMFDB `lattice.spherical_design`) if it is a
-spherical `4`-design lattice. That it is then perfect is not proved here. -/
+spherical `4`-design lattice; it is then perfect (`ZLattice.IsStronglyPerfect.isPerfect`). -/
 def IsStronglyPerfect : Prop :=
   IsSphericalDesign 4 L
 

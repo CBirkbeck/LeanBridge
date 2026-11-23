@@ -28,7 +28,7 @@ identify (the identity component, the isomorphism class of the component group, 
 an equivalence the knowl does not state). We record labels as data (`SatoTateGroup.Label`) and say
 when a label is consistent with a Sato–Tate group (`SatoTateGroup.Label.IsConsistent`). The
 consistency asks for `c > 0`, that is, for a finite component group: a closed subgroup of `U(d)` is
-a compact Lie group, with finitely many components, which is not proved here.
+a compact Lie group, with finitely many components (`SatoTateGroup.finite_connectedComponents`).
 
 According to the knowl, the identity component of a Sato–Tate group of weight `0` is trivial, which
 is why `A` is omitted: this holds for the Sato–Tate groups of motives, which LeanBridge's

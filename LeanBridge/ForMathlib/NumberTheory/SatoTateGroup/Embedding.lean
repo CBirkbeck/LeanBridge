@@ -19,7 +19,8 @@ to conjugacy (LMFDB `st_group.embedding`).
   Sato–Tate groups of weight `1` and degree `6` with identity component
   `U(1)₃ = {diag(u, u, u, ū, ū, ū)}` and three components. They are isomorphic as topological
   groups, by `(x₀, x₁, x₂) ↦ (x₀, x₀, x₁)`, hence as real Lie groups, a continuous homomorphism of
-  Lie groups being smooth (Tau Ceti's `TauCeti.contMDiff_of_continuous_monoidHom`): both are
+  Lie groups being smooth (Tau Ceti's `TauCeti.Lie.contMDiff_of_continuous_monoidHom`; the
+  isomorphism of real Lie groups is `SatoTateGroup.regularCubeRootsDiffeomorph`): both are
   `U(1) × C₃`. On the first the trace vanishes on the two components other than `U(1)₃`, a set of
   positive measure, as `1 + ζ + ζ² = 0` for `ζ ≠ 1`; on the second it vanishes at finitely many
   points, a set of measure zero. So their distributions differ. They are the Sato–Tate groups, over
@@ -248,7 +249,8 @@ noncomputable def reflectionCubeRoots : SatoTateGroup :=
 /-- An **isomorphism of topological groups between the Sato–Tate groups `{(u, uζ, uζ²)}` and
 `{(u, u, uζ)}`**, induced by `(x₀, x₁, x₂) ↦ (x₀, x₀, x₁)`. Both are compact Lie groups, closed
 subgroups of `U(6)`, and a continuous homomorphism of Lie groups is smooth (Tau Ceti's
-`TauCeti.contMDiff_of_continuous_monoidHom`), so it is an isomorphism of real Lie groups. -/
+`TauCeti.Lie.contMDiff_of_continuous_monoidHom`), so it is an isomorphism of real Lie groups
+(`SatoTateGroup.regularCubeRootsDiffeomorph`). -/
 noncomputable def regularCubeRootsEquiv :
     regularCubeRoots.toSubgroup ≃ₜ* reflectionCubeRoots.toSubgroup :=
   ((ofTorusEquiv _ _).symm.trans regularCubeTorusEquiv).trans (ofTorusEquiv _ _)
@@ -352,9 +354,10 @@ private lemma measure_charpolyCoeff_one_reflectionCubeRoots :
 
 /-- **Isomorphic Sato–Tate groups may have different distributions of characteristic polynomials**
 (LMFDB `st_group.embedding`): the Sato–Tate groups `{(u, uζ, uζ²)}` and `{(u, u, uζ)}` of weight `1`
-and degree `6` are isomorphic (`SatoTateGroup.regularCubeRootsEquiv`), but `a₁ = -t` vanishes on a
-set of positive measure of the first, its two components other than the identity component, and on
-a set of measure zero of the second, where the trace has finitely many zeros. -/
+and degree `6` are isomorphic as real Lie groups (`SatoTateGroup.regularCubeRootsDiffeomorph`), but
+`a₁ = -t` vanishes on a set of positive measure of the first, its two components other than the
+identity component, and on a set of measure zero of the second, where the trace has finitely many
+zeros. -/
 lemma charpolyDistribution_regularCubeRoots_ne :
     regularCubeRoots.charpolyDistribution ≠ reflectionCubeRoots.charpolyDistribution := by
   intro h
