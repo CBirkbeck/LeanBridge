@@ -15,7 +15,8 @@ perfection require.
 
 The minimum bounds the norms of the nonzero vectors of `L` from below, and that of the image of `L`
 under an invertible map is bounded by the norms of the images; a positive minimum makes `L`
-discrete, and the minimum of a nonzero discrete `L` is positive and isolated: the other nonzero
+discrete, so that in finite dimension `L` has finitely many minimal vectors (none if the minimum is
+zero), and the minimum of a nonzero discrete `L` is positive and isolated: the other nonzero
 vectors of `L` are longer than some `m > min L`.
 
 ## Main definitions
@@ -25,7 +26,8 @@ vectors of `L` are longer than some `m > min L`.
 
 ## Main results
 
-* `ZLattice.finite_minimalVectors`: a discrete subgroup has finitely many minimal vectors.
+* `ZLattice.finite_minimalVectors`: a subgroup of a finite-dimensional real inner product space
+  has finitely many minimal vectors.
 * `ZLattice.nonempty_minimalVectors`: a nonzero discrete subgroup has a minimal vector.
 * `ZLattice.IsStronglyEutactic.isEutactic`: a strongly eutactic lattice is eutactic.
 * `ZLattice.IsEutactic.span_minimalVectors`: a eutactic lattice is well-rounded: its minimal
@@ -63,6 +65,9 @@ lemma minimum_le_norm (hx : x ∈ L) (hx₀ : x ≠ 0) : minimum L ≤ ‖x‖ :
 lemma minimum_pos_of_mem_minimalVectors (hx : x ∈ minimalVectors L) : 0 < minimum L :=
   hx.2.2 ▸ norm_pos_iff.mpr hx.2.1
 
+lemma neg_mem_minimalVectors (hx : x ∈ minimalVectors L) : -x ∈ minimalVectors L :=
+  ⟨neg_mem hx.1, neg_ne_zero.mpr hx.2.1, (norm_neg x).trans hx.2.2⟩
+
 lemma discreteTopology_of_minimum_pos (h : 0 < minimum L) : DiscreteTopology L :=
   .of_forall_le_norm h fun x hx ↦ minimum_le_norm x.2 fun h0 ↦ hx (Subtype.ext h0)
 
@@ -83,7 +88,7 @@ lemma le_minimum_map {m : ℝ} (hL : L ≠ ⊥) (h : ∀ x ∈ L, x ≠ 0 → m 
 variable (L) in
 /-- A lattice `L` in a real inner product space `E` is **eutactic** (LMFDB `lattice.eutactic`) if
 there are positive real numbers `cₓ`, indexed by the minimal vectors `x` of `L`, such that
-`⟪v, v⟫ = ∑ₓ cₓ ⟪v, x⟫²` for every `v ∈ E`. The sum is finite for a discrete `L`
+`⟪v, v⟫ = ∑ₓ cₓ ⟪v, x⟫²` for every `v ∈ E`. The sum is finite when `E` is finite-dimensional
 (`ZLattice.finite_minimalVectors`). -/
 def IsEutactic : Prop :=
   ∃ c : E → ℝ, (∀ x ∈ minimalVectors L, 0 < c x) ∧
@@ -114,17 +119,22 @@ lemma IsEutactic.span_minimalVectors (h : IsEutactic L) :
     ring1
   rw [← inner_self_eq_zero (𝕜 := ℝ), h, finsum_mem_congr rfl hzero, finsum_mem_zero]
 
-variable [DiscreteTopology L]
-
+variable [DiscreteTopology L] in
 lemma finite_inter_closedBall (r : ℝ) : (Metric.closedBall 0 r ∩ (L : Set E)).Finite :=
   have : DiscreteTopology L.toAddSubgroup := ‹DiscreteTopology L›
   Metric.finite_isBounded_inter_isClosed DiscreteTopology.isDiscrete Metric.isBounded_closedBall
     L.toAddSubgroup.isClosed_of_discreteTopology
 
-/-- **A discrete subgroup has finitely many minimal vectors.** -/
-lemma finite_minimalVectors : (minimalVectors L).Finite :=
-  (finite_inter_closedBall (minimum L)).subset fun _ hx ↦
-    ⟨mem_closedBall_zero_iff.mpr hx.2.2.le, hx.1⟩
+/-- **A subgroup of a finite-dimensional real inner product space has finitely many minimal
+vectors**: a positive minimum makes it discrete, and a zero minimum leaves no minimal vector. -/
+lemma finite_minimalVectors : (minimalVectors L).Finite := by
+  rcases (minimum_nonneg (L := L)).lt_or_eq with h | h
+  · have : DiscreteTopology L := discreteTopology_of_minimum_pos h
+    exact (finite_inter_closedBall (minimum L)).subset fun _ hx ↦
+      ⟨mem_closedBall_zero_iff.mpr hx.2.2.le, hx.1⟩
+  · exact finite_empty.subset fun x hx ↦ hx.2.1 (norm_eq_zero.mp (hx.2.2.trans h.symm))
+
+variable [DiscreteTopology L]
 
 /-- **A nonzero discrete subgroup has a minimal vector**: its minimum is attained. -/
 lemma nonempty_minimalVectors (hL : L ≠ ⊥) : (minimalVectors L).Nonempty := by

@@ -1,5 +1,4 @@
 import Mathlib.RingTheory.DedekindDomain.Ideal.Lemmas
-import Mathlib.RingTheory.DedekindDomain.IntegralClosure
 import Mathlib.RingTheory.Finiteness.Nakayama
 import LeanBridge.ForMathlib.NumberTheory.NumberField.WeilPolynomial.OrderIndex
 import LeanBridge.ForMathlib.NumberTheory.NumberField.WeilPolynomial.SingularPrime

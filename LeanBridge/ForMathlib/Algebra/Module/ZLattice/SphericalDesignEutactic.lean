@@ -1,7 +1,10 @@
 import LeanBridge.ForMathlib.Algebra.Module.ZLattice.Perfect
 import LeanBridge.ForMathlib.Algebra.Module.ZLattice.SphericalDesign
 import LeanBridge.ForMathlib.Analysis.CStarAlgebra.Matrix
+import LeanBridge.ForMathlib.Data.Finsupp.Weight
 import LeanBridge.ForMathlib.MeasureTheory.Constructions.HaarToSphereIsometry
+import Mathlib.LinearAlgebra.Matrix.BilinearForm
+import Mathlib.RingTheory.MvPolynomial.Homogeneous
 import Mathlib.Topology.Algebra.MvPolynomial
 
 /-!
@@ -59,61 +62,9 @@ At the bump the moments below follow from them.
 
 open MeasureTheory Metric Module Matrix MvPolynomial
 
+open LinearMap (BilinForm)
+
 open scoped InnerProductSpace
-
-namespace Finsupp
-
-variable {ι R : Type*} [CommMonoid R] (y : ι → R) (i j : ι)
-
-lemma eq_zero_or_exists_eq_single_or_exists_eq_add_single {d : ι →₀ ℕ} (hd : d.degree ≤ 2) :
-    d = 0 ∨ (∃ i, d = single i 1) ∨ ∃ i j, d = single i 1 + single j 1 := by
-  classical
-  rcases eq_or_ne d 0 with h0 | h0
-  · exact Or.inl h0
-  rcases support_nonempty_iff.mpr h0 with ⟨i, hi⟩
-  have hd' : d = (d - single i 1) + single i 1 :=
-    (tsub_add_cancel_of_le (single_le_iff.mpr (Nat.one_le_iff_ne_zero.mpr
-      (mem_support_iff.mp hi)))).symm
-  have hdeg : (d - single i 1).degree ≤ 1 := by
-    have h : degree d = degree (d - single i 1 + single i 1) := congrArg degree hd'
-    rw [map_add, degree_single] at h
-    omega
-  rcases eq_or_ne (d - single i 1) 0 with h1 | h1
-  · exact Or.inr (Or.inl ⟨i, by rw [hd', h1, zero_add]⟩)
-  rcases support_nonempty_iff.mpr h1 with ⟨j, hj⟩
-  have hd'' : d - single i 1 = (d - single i 1 - single j 1) + single j 1 :=
-    (tsub_add_cancel_of_le (single_le_iff.mpr (Nat.one_le_iff_ne_zero.mpr
-      (mem_support_iff.mp hj)))).symm
-  have h2 : d - single i 1 - single j 1 = 0 := by
-    rw [← degree_eq_zero_iff]
-    have h : degree (d - single i 1) = degree (d - single i 1 - single j 1 + single j 1) :=
-      congrArg degree hd''
-    rw [map_add, degree_single] at h
-    omega
-  exact Or.inr (Or.inr ⟨j, i, by rw [hd', hd'', h2, zero_add]⟩)
-
-lemma prod_single_one_pow : ((single i 1).prod fun k e ↦ y k ^ e) = y i := by
-  rw [prod_single_index (h := fun k e ↦ y k ^ e) (pow_zero (y i)), pow_one]
-
-lemma prod_single_one_add_single_one_pow :
-    ((single i 1 + single j 1).prod fun k e ↦ y k ^ e) = y i * y j := by
-  rw [prod_add_index' (h := fun k e ↦ y k ^ e) (fun k ↦ pow_zero (y k))
-    (fun k _ _ ↦ pow_add (y k) _ _), prod_single_one_pow, prod_single_one_pow]
-
-end Finsupp
-
-namespace MvPolynomial
-
-lemma totalDegree_C_mul_X_mul_X_le {ι : Type*} (a : ℝ) (i j : ι) :
-    (C a * X i * X j : MvPolynomial ι ℝ).totalDegree ≤ 2 := by
-  have h1 : (C a * X i : MvPolynomial ι ℝ).totalDegree ≤ 1 := by
-    refine (totalDegree_mul _ _).trans ?_
-    rw [totalDegree_C, totalDegree_X]
-  refine (totalDegree_mul _ _).trans ?_
-  rw [totalDegree_X]
-  omega
-
-end MvPolynomial
 
 namespace EuclideanSpace
 
@@ -280,16 +231,7 @@ end EuclideanSpace
 
 namespace ZLattice
 
-variable {ι : Type*} [Fintype ι] {L : Submodule ℤ (EuclideanSpace ℝ ι)} {x : EuclideanSpace ℝ ι}
-
-lemma minimalVectors_finite : (minimalVectors L).Finite := by
-  rcases (minimum_nonneg (L := L)).lt_or_eq with h | h
-  · have : DiscreteTopology L := discreteTopology_of_minimum_pos h
-    exact finite_minimalVectors
-  · exact Set.finite_empty.subset fun x hx ↦ hx.2.1 (norm_eq_zero.mp (hx.2.2.trans h.symm))
-
-lemma neg_mem_minimalVectors (hx : x ∈ minimalVectors L) : -x ∈ minimalVectors L :=
-  ⟨neg_mem hx.1, neg_ne_zero.mpr hx.2.1, (norm_neg x).trans hx.2.2⟩
+variable {ι : Type*} [Fintype ι] {L : Submodule ℤ (EuclideanSpace ℝ ι)}
 
 lemma sum_toFinset_minimalVectors_apply (hS : (minimalVectors L).Finite) (i : ι) :
     ∑ v ∈ hS.toFinset, v i = 0 := by
@@ -308,7 +250,7 @@ then `c = n / (|S| min(L)²)`. -/
 lemma isSphericalDesign_two_iff_isStronglyEutactic [Nonempty ι] :
     IsSphericalDesign 2 L ↔ IsStronglyEutactic L := by
   classical
-  have hS : (minimalVectors L).Finite := minimalVectors_finite
+  have hS : (minimalVectors L).Finite := finite_minimalVectors
   have hsum (g : EuclideanSpace ℝ ι → ℝ) : ∑ᶠ v ∈ minimalVectors L, g v = ∑ v ∈ hS.toFinset, g v :=
     finsum_mem_eq_finite_toFinset_sum g hS
   have hcard : (Nat.card (minimalVectors L) : ℝ) = hS.toFinset.card := by
@@ -406,21 +348,6 @@ lemma isSphericalDesign_two_iff_isStronglyEutactic [Nonempty ι] :
         rw [hc', mul_div_assoc', inv_mul_cancel_left₀ hT.ne', div_eq_mul_inv]
       · rw [mul_zero, mul_zero]
 
-lemma eq_zero_of_forall_sum_mul_eq_zero {Y : Matrix ι ι ℝ} (hY : Y.IsSymm)
-    (h : ∀ y : ι → ℝ, ∑ i, ∑ j, y i * y j * Y i j = 0) : Y = 0 := by
-  classical
-  have hB (y z : ι → ℝ) : ∑ i, ∑ j, y i * z j * Y i j = 0 := by
-    have h1 : ∑ i, ∑ j, (y + z) i * (y + z) j * Y i j = 0 := h (y + z)
-    have hsymm : ∑ i, ∑ j, z i * y j * Y i j = ∑ i, ∑ j, y i * z j * Y i j := by
-      rw [Finset.sum_comm]
-      exact Finset.sum_congr rfl fun i _ ↦ Finset.sum_congr rfl fun j _ ↦ by
-        rw [hY.apply i j]
-        ring1
-    simp only [Pi.add_apply, add_mul, mul_add, Finset.sum_add_distrib, h y, h z] at h1
-    linarith
-  ext i j
-  simpa [Pi.single_apply] using hB (Pi.single i 1) (Pi.single j 1)
-
 /-- **Venkov's theorem: a strongly perfect lattice is perfect** (LMFDB
 `lattice.spherical_design`): if the minimal vectors `S` of a lattice of `ℝⁿ` form a spherical
 `4`-design, the matrices `s sᵀ`, `s ∈ S`, span the symmetric matrices. -/
@@ -443,12 +370,9 @@ lemma IsStronglyPerfect.isPerfect (h : IsStronglyPerfect L) : IsPerfect L := by
     exact Finset.sum_congr rfl fun i _ ↦ Finset.sum_congr rfl fun j _ ↦ by ring1
   -- the degree `4` polynomial `(xᵀ Y x)²`
   let P : MvPolynomial ι ℝ := (∑ i, ∑ j, C (dualSymmMatrix f i j) * X i * X j) ^ 2
-  have hP : P.totalDegree ≤ 4 := by
-    have h2 : (∑ i, ∑ j, C (dualSymmMatrix f i j) * X i * X j : MvPolynomial ι ℝ).totalDegree ≤ 2 :=
-      (totalDegree_finsetSum _ _).trans (Finset.sup_le fun i _ ↦
-        (totalDegree_finsetSum _ _).trans (Finset.sup_le fun j _ ↦
-          totalDegree_C_mul_X_mul_X_le _ i j))
-    exact (totalDegree_pow _ 2).trans (by omega)
+  have hP : P.totalDegree ≤ 4 :=
+    (IsHomogeneous.pow (IsHomogeneous.sum _ _ 2 fun i _ ↦ IsHomogeneous.sum _ _ 2 fun j _ ↦
+      ((isHomogeneous_C _ _).mul (isHomogeneous_X _ i)).mul (isHomogeneous_X _ j)) 2).totalDegree_le
   have hPe (y : ι → ℝ) : P.eval y = (∑ i, ∑ j, y i * y j * dualSymmMatrix f i j) ^ 2 := by
     simp only [P, map_pow, map_sum, map_mul, eval_C, eval_X]
     congr 1
@@ -501,7 +425,11 @@ lemma IsStronglyPerfect.isPerfect (h : IsStronglyPerfect L) : IsPerfect L := by
     rw [h1, mul_eq_zero] at h0
     exact h0.resolve_left (pow_ne_zero 2 (mul_ne_zero hr.ne'
       (inv_ne_zero (norm_ne_zero_iff.mpr hy))))
-  have hY : dualSymmMatrix f = 0 := eq_zero_of_forall_sum_mul_eq_zero (isSymm_dualSymmMatrix f) hq0
+  have hY : dualSymmMatrix f = 0 := toBilin'.injective <| (BilinForm.ext_of_isSymm
+    (isSymm_toBilin'_iff_isSymm.mpr (isSymm_dualSymmMatrix f)) BilinForm.isSymm_zero fun y ↦ by
+      rw [toBilin'_apply, LinearMap.zero_apply, LinearMap.zero_apply, ← hq0 y]
+      exact Finset.sum_congr rfl fun i _ ↦ Finset.sum_congr rfl fun j _ ↦ by ring1).trans
+    (map_zero _).symm
   rw [apply_eq_sum_dualSymmMatrix f hA, hY] at hfA
   simp at hfA
 

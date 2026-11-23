@@ -1,4 +1,5 @@
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.AmbientDensity
+import LeanBridge.ForMathlib.Topology.Instances.Matrix
 import Mathlib.MeasureTheory.Integral.Pi
 import TauCeti.Analysis.InnerProductSpace.SingularValues
 import TauCeti.Combinatorics.Enumerative.PerfectMatching
@@ -432,12 +433,8 @@ section Fundamental
 
 variable {w d : ℕ} {P : Type u} [Fintype P]
 
-instance : SecondCountableTopology (ambientGroup w d) := by
-  have : SecondCountableTopology (Matrix (Fin d) (Fin d) ℂ) :=
-    inferInstanceAs (SecondCountableTopology (Fin d → Fin d → ℂ))
-  have : SecondCountableTopology (unitaryGroup (Fin d) ℂ) :=
-    Subtype.secondCountableTopology _
-  exact Subtype.secondCountableTopology _
+instance : SecondCountableTopology (ambientGroup w d) :=
+  Subtype.secondCountableTopology _
 
 variable (w) in
 /-- The moments of the random matrix whose column `s` is the column `s` of `g_s`, for independent

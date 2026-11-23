@@ -98,15 +98,9 @@ lemma matrix_expOneParameter : G.matrix (expOneParameter X t) = exp (t • X.1) 
   exact (congrArg Units.val h).trans (expUnit_coe _)
 
 open scoped Matrix.Norms.Operator in
-lemma continuous_expOneParameter : Continuous (expOneParameter X) := by
-  let e : G.toSubgroup ≃* G.toSubgroup.map Unitary.toUnits :=
-    G.toSubgroup.equivMapOfInjective Unitary.toUnits Unitary.toUnits_injective
-  have he : Continuous e :=
-    (Unitary.continuous_toUnits.comp continuous_subtype_val).subtype_mk _
-  have h : Continuous fun t : ℝ ↦ expUnit (t • X.1) :=
-    continuous_expUnit.comp (continuous_id.smul continuous_const)
-  exact (he.homeoOfEquivCompactToT2 (f := e.toEquiv)).symm.continuous.comp <|
-    h.subtype_mk fun t ↦ X.2 t
+lemma continuous_expOneParameter : Continuous (expOneParameter X) :=
+  G.toUnitsEquiv.symm.continuous.comp <|
+    (continuous_expUnit.comp (continuous_id.smul continuous_const)).subtype_mk fun t ↦ X.2 t
 
 lemma expOneParameter_zero : expOneParameter X 0 = 1 := by
   simp [expOneParameter]
@@ -130,8 +124,7 @@ lemma connectedComponentOfOne_le_closure_iUnion_range_expOneParameter :
     ⟨U, hU, hUK⟩
   let e : G.toSubgroup ≃* K :=
     G.toSubgroup.equivMapOfInjective Unitary.toUnits Unitary.toUnits_injective
-  have he : Continuous e :=
-    (Unitary.continuous_toUnits.comp continuous_subtype_val).subtype_mk _
+  have he : Continuous e := G.toUnitsEquiv.continuous
   have hV : {g : G.toSubgroup | ((e g : K) : GL (Fin G.degree) ℂ) ∈ U} ⊆
       Subgroup.closure (⋃ X : G.matrixLieAlgebra, Set.range (expOneParameter X)) := by
     intro g hg

@@ -17,10 +17,10 @@ for any subring of a commutative `ℚ`-algebra; their basic properties are prove
 étale `ℚ`-algebras and, among them, for orders in number fields, Tau Ceti's
 `TauCeti.GlobalNumberFields.NumberFieldOrder`, whose trace dual is the trace dual here.
 
-For a fractional ideal `I` of a Noetherian domain, an invertible `I` has `I / 𝔩I` of dimension one
-at every maximal ideal `𝔩`, and conversely a nonzero `I` with `I / 𝔩I` of dimension at most one at
-every maximal ideal is locally principal by Nakayama's lemma, hence invertible. These are the cases
-for domains of the lemmas of
+An invertible fractional ideal `I` has `I / 𝔩I` of dimension at most one at every maximal ideal
+`𝔩`. For a fractional ideal `I` of a Noetherian domain, the dimension is at least one if `I ≠ 0`,
+and conversely a nonzero `I` with `I / 𝔩I` of dimension at most one at every maximal ideal is
+locally principal by Nakayama's lemma, hence invertible. These are cases of the lemmas of
 `LeanBridge.ForMathlib.RingTheory.FractionalIdeal.LocallyPrincipalInvertible`.
 
 ## Main definitions
@@ -37,9 +37,9 @@ open scoped nonZeroDivisors
 
 namespace FractionalIdeal
 
-lemma finrank_quotient_smul_top_le_one_of_isUnit {R K : Type*} [CommRing R] [Field K] [Algebra R K]
-    [IsFractionRing R K] {I : FractionalIdeal R⁰ K} (𝔩 : Ideal R) [h𝔩 : 𝔩.IsMaximal]
-    (hI : IsUnit I) : finrank (R ⧸ 𝔩) (I ⧸ 𝔩 • (⊤ : Submodule R I)) ≤ 1 :=
+lemma finrank_quotient_smul_top_le_one_of_isUnit {R K : Type*} [CommRing R] [CommRing K]
+    [Algebra R K] [IsFractionRing R K] {I : FractionalIdeal R⁰ K} (𝔩 : Ideal R)
+    [h𝔩 : 𝔩.IsMaximal] (hI : IsUnit I) : finrank (R ⧸ 𝔩) (I ⧸ 𝔩 • (⊤ : Submodule R I)) ≤ 1 :=
   residueFinrank_le_one_of_isLocallyPrincipalAt <| isLocallyPrincipalAt_of_isUnit hI h𝔩.ne_top
 
 variable {R K : Type*} [CommRing R] [IsDomain R] [IsNoetherianRing R] [Field K] [Algebra R K]

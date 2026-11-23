@@ -78,8 +78,7 @@ variable (I) in
 over the residue field `R / 𝔓`** (LMFDB `av.fq.singular_dimensions`), as `I` is finitely
 generated. -/
 lemma finite_quotient_smul_top_of_isLattice : Module.Finite (R ⧸ 𝔓) (I ⧸ 𝔓 • (⊤ : Submodule R I)) :=
-  have : Module.Finite R I := Finite.iff_fg.mpr (fg_coe_of_isNoetherianRing I)
-  .of_restrictScalars_finite R _ _
+  finite_quotient_smul_top (fg_coe_of_isNoetherianRing I)
 
 /-- **A fractional ideal `I` of an order `R` has `I / 𝔓I` of dimension `1` over `R / 𝔓` if and only
 if its localisation `I_𝔓` is a principal `R_𝔓`-submodule of `K_𝔓`**, at every maximal ideal `𝔓` of

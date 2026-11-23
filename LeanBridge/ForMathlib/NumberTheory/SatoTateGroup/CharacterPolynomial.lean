@@ -16,7 +16,11 @@ is not formalised; here they are read off the determinant of Koike and Terada, u
 weighted degree vanish, so that these combinations only involve entries of the moment simplex. The
 knowls do not say why they vanish (LMFDB `st_group.moment_simplex`: "symmetry constraints") and
 a `SatoTateGroup` need not contain `-1`, the trivial group being one; but the Sato–Tate group of a
-motive of odd weight does, by its Hodge circle.
+motive of odd weight does, as its Hodge circle passes through `-1`.
+
+The coefficients `aᵢ` of the characteristic polynomial, read off Mathlib's universal characteristic
+polynomial `Matrix.charpoly.univ`, and the trace are polynomials in the entries of the matrices of
+a Sato–Tate group, and such random variables are continuous.
 
 ## Main definitions
 
@@ -24,6 +28,8 @@ motive of odd weight does, by its Hodge circle.
   `USp(2g)`.
 * `SatoTateGroup.symplecticPolynomial`: the integer polynomial in `a₁, …, a_g` which is the
   irreducible character of highest weight `e₁^{c₁} ⋯ e_g^{c_g}`.
+* `SatoTateGroup.IsEntryPolynomial`: a random variable on a Sato–Tate group that is a polynomial in
+  the entries of the matrices.
 
 ## Main results
 
@@ -38,6 +44,8 @@ motive of odd weight does, by its Hodge circle.
 * `SatoTateGroup.mixedMoment_eq_zero_of_odd`: the mixed moments of odd weighted degree vanish if `G`
   contains `-1`.
 * `SatoTateGroup.mem_momentSimplexRow`: so each nonzero term is an entry of the moment simplex.
+* `SatoTateGroup.matrix_eq_neg_one_of_hasHodgeEigenvalues`: in odd weight, a Hodge circle with the
+  Hodge numbers of a motive passes through `-1`.
 * `SatoTateGroup.neg_one_mem_of_hasHodgeEigenvalues`: a Sato–Tate group of odd weight contains `-1`
   if it has a Hodge circle with the Hodge numbers of a motive.
 -/
@@ -146,14 +154,6 @@ lemma coeff_reverse_charpoly_neg (M : Matrix n n ℂ) :
     by_cases hab : a = b <;> simp [hab]
   rw [reverse_charpoly, reverse_charpoly, h, Polynomial.comp_C_mul_X_coeff, mul_comm]
 
-lemma continuous_coeff_charpoly : Continuous fun M : Matrix n n ℂ ↦ M.charpoly.coeff i := by
-  have h₁ (M : Matrix n n ℂ) : M.charpoly.coeff i = eval (fun p : n × n ↦ M p.1 p.2)
-      (MvPolynomial.map (Int.castRingHom ℂ) ((charpoly.univ ℤ n).coeff i)) := by
-    rw [eval_map]
-    exact (charpoly.univ_coeff_eval₂Hom n (Int.castRingHom ℂ) (fun p : n × n ↦ M p.1 p.2) i).symm
-  rw [funext h₁]
-  exact (MvPolynomial.continuous_eval _).comp (continuous_pi fun p ↦ continuous_id.matrix_elem _ _)
-
 variable (G : SatoTateGroup) (c c' : Fin (G.degree / 2) → ℕ) (x : G.toSubgroup)
 
 /-- **Each Koike–Terada function is an integer polynomial in `a₁, …, a_g`**: its value at `x` is the
@@ -167,12 +167,37 @@ lemma symplecticCharacter_eq_aeval (hw : Odd G.weight) :
       ((G.natDegree_charpoly x).trans hd)
   · exact G.esymmEigen_eq (hi.trans_eq hd.symm) x
 
-lemma continuous_charpolyCoeff : Continuous (G.charpolyCoeff i) := by
-  have h₁ (x : G.toSubgroup) :
-      G.charpolyCoeff i x = (G.matrix x).charpoly.coeff (Polynomial.revAt G.degree i) := by
-    rw [charpolyCoeff, Polynomial.coeff_reverse, G.natDegree_charpoly]
-  rw [funext h₁]
-  exact (continuous_coeff_charpoly _).comp (continuous_subtype_val.comp continuous_subtype_val)
+/-- A random variable `f` on a Sato–Tate group `G` of degree `d` is **a polynomial in the entries**
+if `f g = P (gᵢⱼ)` for a polynomial `P` over `ℂ` in `d²` variables, evaluated at the entries of the
+matrix of `g`: for example a coefficient of the characteristic polynomial, or the trace. -/
+def IsEntryPolynomial (f : G.toSubgroup → ℂ) : Prop :=
+  ∃ P : MvPolynomial (Fin G.degree × Fin G.degree) ℂ,
+    ∀ g, f g = MvPolynomial.eval (fun p ↦ G.matrix g p.1 p.2) P
+
+lemma isEntryPolynomial_coeff_charpoly (k : ℕ) :
+    G.IsEntryPolynomial fun g ↦ (G.matrix g).charpoly.coeff k :=
+  ⟨MvPolynomial.map (Int.castRingHom ℂ) ((charpoly.univ ℤ (Fin G.degree)).coeff k), fun g ↦ by
+    rw [MvPolynomial.eval_map]
+    exact (charpoly.univ_coeff_eval₂Hom _ (Int.castRingHom ℂ) (fun p ↦ G.matrix g p.1 p.2) k).symm⟩
+
+lemma isEntryPolynomial_charpolyCoeff (k : ℕ) : G.IsEntryPolynomial (G.charpolyCoeff k) := by
+  rcases G.isEntryPolynomial_coeff_charpoly (Polynomial.revAt G.degree k) with ⟨P, hP⟩
+  refine ⟨P, fun g ↦ ?_⟩
+  rw [← hP, charpolyCoeff, Polynomial.coeff_reverse, G.natDegree_charpoly]
+
+lemma isEntryPolynomial_trace : G.IsEntryPolynomial G.trace :=
+  ⟨∑ i, MvPolynomial.X (i, i), fun g ↦ by simp [SatoTateGroup.trace, Matrix.trace]⟩
+
+variable {G} in
+lemma IsEntryPolynomial.continuous {f : G.toSubgroup → ℂ} (hf : G.IsEntryPolynomial f) :
+    Continuous f := by
+  rcases hf with ⟨P, hP⟩
+  rw [funext hP]
+  exact (MvPolynomial.continuous_eval P).comp <| continuous_pi fun p ↦
+    (continuous_subtype_val.comp continuous_subtype_val).matrix_elem p.1 p.2
+
+lemma continuous_charpolyCoeff : Continuous (G.charpolyCoeff i) :=
+  (G.isEntryPolynomial_charpolyCoeff i).continuous
 
 lemma expectation_aeval (P : MvPolynomial ℕ ℤ) :
     G.expectation (fun x ↦ aeval (G.charpolyCoeff · x) P) =
@@ -195,6 +220,56 @@ lemma symplecticMomentMatrix_eq_sum (hw : Odd G.weight) : G.symplecticMomentMatr
   refine congrArg _ (funext fun x ↦ ?_)
   rw [Pi.mul_apply, map_mul, G.symplecticCharacter_eq_aeval c x hw,
     G.symplecticCharacter_eq_aeval c' x hw]
+
+variable {G} {h : Circle →ₜ* G.toSubgroup} {hodge : ℕ → ℕ → ℕ} in
+/-- **In odd weight, a Hodge circle passes through `-1`**: if a continuous homomorphism
+`h : U(1) → G` has Hodge eigenvalues `h^{p,q}` vanishing off `p + q = w`, as the Hodge numbers of
+a motive of odd weight `w` do, then every eigenvalue `(-1)^{p-q}` of `h(-1)` is `-1`, and
+`h(-1)`, an involution, is `-1`. -/
+lemma matrix_eq_neg_one_of_hasHodgeEigenvalues (hw : Odd G.weight)
+    (hh : G.HasHodgeEigenvalues h hodge) (hpq : ∀ p q, hodge p q ≠ 0 → p + q = G.weight) :
+    G.matrix (h (-1)) = -1 := by
+  let A : Matrix (Fin G.degree) (Fin G.degree) ℂ := G.matrix (h (-1))
+  have hA : A * A = 1 := by
+    have h₁ : h (-1) * h (-1) = 1 := by
+      rw [← map_mul, neg_mul_neg, one_mul, map_one]
+    exact congrArg (fun y : G.toSubgroup ↦ G.matrix y) h₁
+  have hcharpoly : A.charpoly.eval 1 ≠ 0 := by
+    rw [hh.2 (-1)]
+    simp only [Polynomial.eval_prod, Finset.prod_ne_zero_iff]
+    intro p _ q _
+    by_cases hz : hodge p q = 0
+    · simp [hz]
+    · have hodd : Odd ((p : ℤ) - q) := by
+        have h₂ : Odd (p + q) := hpq p q hz ▸ hw
+        rw [Int.odd_sub]
+        rw [Nat.odd_add] at h₂
+        exact_mod_cast h₂
+      have h₃ : ((-1 : Circle) : ℂ) ^ ((p : ℤ) - q) = -1 := by
+        rw [Circle.coe_neg, Circle.coe_one]
+        exact hodd.neg_one_zpow
+      rw [h₃]
+      simp
+  have hunit : IsUnit (1 - A) := by
+    rw [Matrix.isUnit_iff_isUnit_det, isUnit_iff_ne_zero, ← map_one (Matrix.scalar (Fin G.degree)),
+      ← Matrix.eval_charpoly]
+    exact hcharpoly
+  have h₁ : (1 - A) * (1 + A) = 0 := by
+    rw [Matrix.sub_mul, Matrix.one_mul, Matrix.mul_add, Matrix.mul_one, hA]
+    abel
+  exact eq_neg_of_add_eq_zero_right (hunit.mul_right_eq_zero.mp h₁)
+
+/-- **A Sato–Tate group of odd weight contains `-1` if it has a Hodge circle with the Hodge numbers
+of a motive**, `h^{p,q} ≠ 0` only for `p + q = w`: the Hodge circle passes through `-1`. The knowl
+`st_group.hodge_circle` does not ask for `p + q = w`, and the knowl `st_group.definition` does not
+ask for a Hodge circle. -/
+lemma neg_one_mem_of_hasHodgeEigenvalues (hw' : Odd G.weight) {h : Circle →ₜ* G.toSubgroup}
+    {hodge : ℕ → ℕ → ℕ} (hh : G.HasHodgeEigenvalues h hodge)
+    (hpq : ∀ p q, hodge p q ≠ 0 → p + q = G.weight) : -1 ∈ G.toSubgroup := by
+  have h₁ : ((h (-1) : G.toSubgroup) : unitaryGroup (Fin G.degree) ℂ) = -1 :=
+    Subtype.ext <| (matrix_eq_neg_one_of_hasHodgeEigenvalues hw' hh hpq).trans <| by
+      simp [Unitary.coe_neg]
+  exact h₁ ▸ (h (-1)).2
 
 variable {c c'} {hw : Odd G.weight} {hd : G.degree = G.degree / 2 + G.degree / 2}
   {χ χ' : IrrepClass ℂ (ambientGroup G.weight G.degree)} {e : ℕ →₀ ℕ}
@@ -240,45 +315,5 @@ lemma mem_momentSimplexRow (h : -1 ∈ G.toSubgroup)
   · have h₂ : ¬Odd (weightedDegree e) := fun h₃ ↦ h₀ (G.mixedMoment_eq_zero_of_odd h h₃)
     rw [Nat.not_odd_iff] at h₂
     omega
-
-/-- **A Sato–Tate group of odd weight contains `-1` if it has a Hodge circle with the Hodge numbers
-of a motive**, `h^{p,q} ≠ 0` only for `p + q = w`. The knowl `st_group.hodge_circle` does not ask
-for `p + q = w`, and the knowl `st_group.definition` does not ask for a Hodge circle. -/
-lemma neg_one_mem_of_hasHodgeEigenvalues (hw' : Odd G.weight) {h : Circle →ₜ* G.toSubgroup}
-    {hodge : ℕ → ℕ → ℕ} (hh : G.HasHodgeEigenvalues h hodge)
-    (hpq : ∀ p q, hodge p q ≠ 0 → p + q = G.weight) : -1 ∈ G.toSubgroup := by
-  let A : Matrix (Fin G.degree) (Fin G.degree) ℂ := G.matrix (h (-1))
-  have hA : A * A = 1 := by
-    have h₁ : h (-1) * h (-1) = 1 := by
-      rw [← map_mul, neg_mul_neg, one_mul, map_one]
-    exact congrArg (fun y : G.toSubgroup ↦ G.matrix y) h₁
-  have hcharpoly : A.charpoly.eval 1 ≠ 0 := by
-    rw [hh.2 (-1)]
-    simp only [Polynomial.eval_prod, Finset.prod_ne_zero_iff]
-    intro p _ q _
-    by_cases hz : hodge p q = 0
-    · simp [hz]
-    · have hodd : Odd ((p : ℤ) - q) := by
-        have h₂ : Odd (p + q) := hpq p q hz ▸ hw'
-        rw [Int.odd_sub]
-        rw [Nat.odd_add] at h₂
-        exact_mod_cast h₂
-      have h₃ : ((-1 : Circle) : ℂ) ^ ((p : ℤ) - q) = -1 := by
-        rw [Circle.coe_neg, Circle.coe_one]
-        exact hodd.neg_one_zpow
-      rw [h₃]
-      simp
-  have hunit : IsUnit (1 - A) := by
-    rw [Matrix.isUnit_iff_isUnit_det, isUnit_iff_ne_zero, ← map_one (Matrix.scalar (Fin G.degree)),
-      ← Matrix.eval_charpoly]
-    exact hcharpoly
-  have h₁ : A = -1 := by
-    have h₂ : (1 - A) * (1 + A) = 0 := by
-      rw [Matrix.sub_mul, Matrix.one_mul, Matrix.mul_add, Matrix.mul_one, hA]
-      abel
-    exact eq_neg_of_add_eq_zero_right (hunit.mul_right_eq_zero.mp h₂)
-  have h₂ : ((h (-1) : G.toSubgroup) : unitaryGroup (Fin G.degree) ℂ) = -1 :=
-    Subtype.ext (h₁.trans (by simp [Unitary.coe_neg]))
-  exact h₂ ▸ (h (-1)).2
 
 end SatoTateGroup

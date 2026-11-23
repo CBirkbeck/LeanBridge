@@ -211,6 +211,7 @@ import LeanBridge.ForMathlib.Analysis.SpecialFunctions.BesselKUniqueComplex
 import LeanBridge.ForMathlib.Analysis.SpecialFunctions.BesselKUniqueIntegrable
 import LeanBridge.ForMathlib.Analysis.SpecialFunctions.ExpAddInvIntegral
 import LeanBridge.ForMathlib.Analysis.SpecialFunctions.JacobiTripleProduct
+import LeanBridge.ForMathlib.Data.Finsupp.Weight
 import LeanBridge.ForMathlib.Data.Matrix.Block
 import LeanBridge.ForMathlib.FieldTheory.AlgebraGaloisClosure
 import LeanBridge.ForMathlib.FieldTheory.DiscriminantRootField
@@ -1235,6 +1236,7 @@ import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.SpWeyl
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.SpWeylFormula
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.SupergroupIdentityComponent
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.TensorModel
+import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.TorusU1
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.TraceMoments
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.UspDiagonal
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.WeightZeroDegreeOne
@@ -1318,6 +1320,7 @@ import LeanBridge.ForMathlib.RingTheory.WittVector.NonsplitCartanAlgebra
 import LeanBridge.ForMathlib.Topology.Algebra.Group.ConnectedComponents
 import LeanBridge.ForMathlib.Topology.Algebra.Group.GL2ZHat
 import LeanBridge.ForMathlib.Topology.Algebra.Group.ProfiniteOpenSubgroup
+import LeanBridge.ForMathlib.Topology.Instances.Matrix
 /- LMFDB elliptic-curve knowls formalized in Tau Ceti, which LeanBridge uses instead of its own
 copies:
 * `ec.global_minimal_model`, `ec.semi_global_minimal_model`: `WeierstrassCurve.IsGlobalMinimal`,

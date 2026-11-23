@@ -94,8 +94,8 @@ lemma mk_commutatorEquiv (g : commutator G) :
     rw [← centralCommutatorMap_mk, e.map_centralCommutatorMap, mk_centralCommutatorMap,
       mk_centralCommutatorMap, map_mul, map_mul, map_mul, map_inv, map_inv]
   have hle : commutator G ≤ (f₁.eqLocus f₂).map (commutator G).subtype :=
-    (commutator_def G).le.trans <| commutator_le.mpr fun x _ y _ ↦ mem_map.mpr ⟨_, hgen x⁻¹ y⁻¹, by
-      simp [coe_commutatorPairing, commutatorElement_def]⟩
+    (commutator_def G).le.trans <| commutator_le.mpr fun x _ y _ ↦ mem_map.mpr ⟨_, hgen x⁻¹ y⁻¹,
+      (commutatorElement_eq_centralCommutatorMap x y).symm⟩
   rcases mem_map.mp (hle g.2) with ⟨g', hg', hgg'⟩
   rcases Subtype.ext hgg' with rfl
   exact hg'

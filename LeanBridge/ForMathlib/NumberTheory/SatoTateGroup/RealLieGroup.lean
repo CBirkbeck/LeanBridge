@@ -113,15 +113,8 @@ noncomputable def embeddedLieSubgroupData :
 open scoped Matrix.Norms.Operator in
 attribute [local instance] Matrix.linftyOpTopologicalSpace in
 lemma isLocalHomeomorph_toUnits : IsLocalHomeomorph
-    (G.toSubgroup.equivMapOfInjective Unitary.toUnits Unitary.toUnits_injective) := by
-  have _ : ContinuousStar (Matrix (Fin G.degree) (Fin G.degree) ℂ) :=
-    Matrix.linftyOpContinuousStar _ _
-  have _ : CompactSpace G.toSubgroup := isCompact_iff_compactSpace.mp G.isClosed.isCompact
-  let e : G.toSubgroup ≃* G.toSubgroup.map Unitary.toUnits :=
-    G.toSubgroup.equivMapOfInjective Unitary.toUnits Unitary.toUnits_injective
-  have he : Continuous e :=
-    (Unitary.continuous_toUnits.comp continuous_subtype_val).subtype_mk _
-  exact (he.homeoOfEquivCompactToT2 (f := e.toEquiv)).isLocalHomeomorph
+    (G.toSubgroup.equivMapOfInjective Unitary.toUnits Unitary.toUnits_injective) :=
+  G.toUnitsEquiv.toHomeomorph.isLocalHomeomorph
 
 open scoped Matrix.Norms.Operator in
 attribute [local instance] Matrix.linftyOpTopologicalSpace in

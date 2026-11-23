@@ -3,6 +3,7 @@ import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.Components
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.Embedding
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.HodgeCircle
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.OneParameter
+import LeanBridge.ForMathlib.Topology.Instances.Matrix
 import Mathlib.Analysis.SpecialFunctions.Complex.Circle
 
 /-!
@@ -57,8 +58,6 @@ the constant trace `2`.
 
 ## Main definitions
 
-* `SatoTateGroup.IsEntryPolynomial`: a random variable on a Sato–Tate group that is a polynomial in
-  the entries of the matrices.
 * `SatoTateGroup.torusU1`: the Sato–Tate group `U(1)` of weight `1` and degree `2`, and
   `SatoTateGroup.torusU1HodgeCircle`, its Hodge circle.
 
@@ -75,7 +74,6 @@ the constant trace `2`.
 * `SatoTateGroup.trace_const_or_forall_measure_eq_zero`,
   `SatoTateGroup.traceZeroDensity_eq_card_div_card`,
   `SatoTateGroup.eq_zero_of_trace_eq_of_neg_one_mem`,
-  `SatoTateGroup.matrix_eq_neg_one_of_hasHodgeEigenvalues`,
   `SatoTateGroup.eq_zero_of_trace_eq_of_hasHodgeEigenvalues`,
   `SatoTateGroup.hasHodgeEigenvalues_torusU1HodgeCircle` (LMFDB `st_group.trace_zero_density`).
 
@@ -90,48 +88,15 @@ open Subgroup (connectedComponentOfOne)
 
 namespace SatoTateGroup
 
-variable (G : SatoTateGroup)
-
 open TopologicalSpace in
-instance : SecondCountableTopology G.toSubgroup :=
-  have _ : SecondCountableTopology (Matrix (Fin G.degree) (Fin G.degree) ℂ) :=
-    inferInstanceAs (SecondCountableTopology (Fin G.degree → Fin G.degree → ℂ))
-  have _ : SecondCountableTopology (unitaryGroup (Fin G.degree) ℂ) :=
-    Subtype.secondCountableTopology _
+instance (G : SatoTateGroup) : SecondCountableTopology G.toSubgroup :=
   Subtype.secondCountableTopology _
-
-/-- A random variable `f` on a Sato–Tate group `G` of degree `d` is **a polynomial in the entries**
-if `f g = P (gᵢⱼ)` for a polynomial `P` over `ℂ` in `d²` variables, evaluated at the entries of the
-matrix of `g`: for example a coefficient of the characteristic polynomial, or the trace. -/
-def IsEntryPolynomial (f : G.toSubgroup → ℂ) : Prop :=
-  ∃ P : MvPolynomial (Fin G.degree × Fin G.degree) ℂ,
-    ∀ g, f g = MvPolynomial.eval (fun p ↦ G.matrix g p.1 p.2) P
-
-lemma isEntryPolynomial_coeff_charpoly (k : ℕ) :
-    G.IsEntryPolynomial fun g ↦ (G.matrix g).charpoly.coeff k :=
-  ⟨MvPolynomial.map (Int.castRingHom ℂ) ((charpoly.univ ℤ (Fin G.degree)).coeff k), fun g ↦ by
-    rw [MvPolynomial.eval_map]
-    exact (charpoly.univ_coeff_eval₂Hom _ (Int.castRingHom ℂ) (fun p ↦ G.matrix g p.1 p.2) k).symm⟩
-
-lemma isEntryPolynomial_charpolyCoeff (i : ℕ) : G.IsEntryPolynomial (G.charpolyCoeff i) := by
-  rcases G.isEntryPolynomial_coeff_charpoly (revAt G.degree i) with ⟨P, hP⟩
-  refine ⟨P, fun g ↦ ?_⟩
-  rw [← hP, charpolyCoeff, coeff_reverse, G.natDegree_charpoly]
-
-lemma isEntryPolynomial_trace : G.IsEntryPolynomial G.trace :=
-  ⟨∑ i, MvPolynomial.X (i, i), fun g ↦ by simp [SatoTateGroup.trace, Matrix.trace]⟩
 
 end SatoTateGroup
 
 namespace SatoTateGroup.IsEntryPolynomial
 
 variable {G : SatoTateGroup} {f : G.toSubgroup → ℂ} (z : ℂ)
-
-lemma continuous (hf : G.IsEntryPolynomial f) : Continuous f := by
-  rcases hf with ⟨P, hP⟩
-  rw [funext hP]
-  exact (MvPolynomial.continuous_eval P).comp <| continuous_pi fun p ↦
-    (continuous_subtype_val.comp continuous_subtype_val).matrix_elem p.1 p.2
 
 /-- **Almost every point of a level set of a polynomial in the entries of a Sato–Tate group `G` has
 its whole coset `G⁰ g` in the level set**: the polynomial is real-analytic along the
@@ -221,7 +186,9 @@ lemma probability_eq_zero_iff_of_finite :
     (measure_mono_null (singleton_subset_iff.mpr hg) h)
 
 /-- The Sato–Tate group **`U(1)`** of weight `1` and degree `2` (LMFDB `1.2.B.1.1a`): the diagonal
-torus `{diag(u, ū) | |u| = 1}` of `USp(2)`, `SatoTateGroup.ofTorus` of the whole circle. -/
+torus `{diag(u, ū) | |u| = 1}` of `USp(2)`, `SatoTateGroup.ofTorus` of the whole circle. It is the
+Sato–Tate group `WeierstrassCurve.satoTateU1` of an elliptic curve with complex multiplication
+(`SatoTateGroup.torusU1_eq_satoTateU1`). -/
 noncomputable def torusU1 : SatoTateGroup :=
   ofTorus (⊤ : Subgroup (Fin 1 → Circle)) isClosed_univ
 
@@ -303,43 +270,6 @@ lemma eq_zero_of_trace_eq_of_neg_one_mem {ε : G.toSubgroup}
   linear_combination (h₂ - h₁ - h₃) / 2
 
 variable {h : Circle →ₜ* G.toSubgroup} {hodge : ℕ → ℕ → ℕ}
-
-variable {G} in
-/-- **In odd weight, a Hodge circle passes through `-1`**: if a continuous homomorphism
-`h : U(1) → G` has Hodge eigenvalues `h^{p,q}` vanishing off `p + q = w`, as the Hodge numbers of
-a motive of odd weight `w` do, then every eigenvalue `(-1)^{p-q}` of `h(-1)` is `-1`, and
-`h(-1)`, an involution, is `-1`. -/
-lemma matrix_eq_neg_one_of_hasHodgeEigenvalues (hw : Odd G.weight)
-    (hh : G.HasHodgeEigenvalues h hodge) (hpq : ∀ p q, hodge p q ≠ 0 → p + q = G.weight) :
-    G.matrix (h (-1)) = -1 := by
-  have hA : G.matrix (h (-1)) * G.matrix (h (-1)) = 1 := by
-    have h₁ : h (-1) * h (-1) = 1 := by
-      rw [← map_mul, neg_mul_neg, one_mul, map_one]
-    exact congrArg (fun x : G.toSubgroup ↦ G.matrix x) h₁
-  have hchar : (G.matrix (h (-1))).charpoly = (X + 1) ^ G.degree := by
-    rw [hh.2, ← hh.1, ← Finset.prod_pow_eq_pow_sum]
-    refine Finset.prod_congr rfl fun p _ ↦ ?_
-    rw [← Finset.prod_pow_eq_pow_sum]
-    refine Finset.prod_congr rfl fun q _ ↦ ?_
-    by_cases h₀ : hodge p q = 0
-    · rw [h₀, pow_zero, pow_zero]
-    · have hodd : Odd ((p : ℤ) - q) := by
-        have h₁ : Odd ((p : ℤ) + q) := by
-          exact_mod_cast (hpq p q h₀).symm ▸ hw
-        have h₂ : (p : ℤ) - q = (p + q) - 2 * q := by
-          ring1
-        rw [h₂]
-        exact h₁.sub_even (even_two_mul _)
-      rw [Circle.coe_neg, Circle.coe_one, hodd.neg_one_zpow, map_neg, map_one, sub_neg_eq_add]
-  have hdet : IsUnit (1 - G.matrix (h (-1))) := by
-    have h₁ : (G.matrix (h (-1))).charpoly.eval 1 = (1 - G.matrix (h (-1))).det := by
-      rw [eval_charpoly, scalar_apply, diagonal_one]
-    rw [isUnit_iff_isUnit_det, isUnit_iff_ne_zero, ← h₁, hchar]
-    simp
-  have h₁ : (1 - G.matrix (h (-1))) * (1 + G.matrix (h (-1))) = 0 := by
-    rw [sub_mul, one_mul, mul_add, mul_one, hA]
-    abel
-  exact eq_neg_of_add_eq_zero_right (hdet.mul_right_eq_zero.mp h₁)
 
 /-- **In odd weight, a trace constant on a connected component of a Sato–Tate group is zero**
 (LMFDB `st_group.trace_zero_density`), when `G⁰` contains a Hodge circle whose Hodge numbers
