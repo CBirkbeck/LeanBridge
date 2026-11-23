@@ -114,7 +114,7 @@ For an {bpref "ag.abelian_variety"}[abelian variety] $`A` over a {bpref "nf"}[nu
 Depends on: {uses "ag.abelian_variety"}[] {uses "ag.dimension"}[] {uses "ag.jacobian"}[] {uses "nf"}[] {uses "st_group.definition"}[]
 :::
 
-:::definition "st_group.embedding"
+:::definition "st_group.embedding" (lean := "SatoTateGroup, SatoTateGroup.charpolyDistribution, SatoTateGroup.conj, SatoTateGroup.charpolyDistribution_conj, SatoTateGroup.moment_charpolyCoeff_conj, SatoTateGroup.regularCubeRootsDiffeomorph, SatoTateGroup.coe_regularCubeRootsDiffeomorph, SatoTateGroup.charpolyDistribution_regularCubeRoots_ne")
 *Embedding of a Sato-Tate group.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.embedding))
 
 In order to explicitly compute moments and other invariants of a {bpref "st_group.definition"}[Sato-Tate group] it is necessary to specify (up to conjugacy) exactly how it is embedded in its {bpref "st_group.ambient"}[ambient group]; for example, subgroups that are isomorphic as real Lie groups may have different distributions of characteristic polynomials.
@@ -248,7 +248,7 @@ The *moment sequence* of $`a_i` (or any random variable) is the integer sequence
 Depends on: {uses "st_group.definition"}[]
 :::
 
-:::definition "st_group.probabilities"
+:::definition "st_group.probabilities" (lean := "SatoTateGroup.probability, SatoTateGroup.probability_eq_card_div_card, SatoTateGroup.finite_setOf_probability_ne_zero, SatoTateGroup.probability_eq_zero_iff, SatoTateGroup.probability_eq_zero_iff_of_finite, SatoTateGroup.probability_torusU1_one_zero, SatoTateGroup.nonempty_setOf_charpolyCoeff_torusU1_one_eq_zero, SatoTateGroup.IsEntryPolynomial.measureReal_setOf_eq")
 *Event probabilities.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/st_group.probabilities))
 
 If $`a_i:=a_i(g)` denotes the $`i`th coefficient of the characteristic polynomial $`\sum a_ix^i` of a random matrix $`g` in a {bpref "st_group.definition"}[Sato-Tate group] $`G` with {bpref "group.haar_measure"}[Haar measure] $`\mu`, then

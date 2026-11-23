@@ -16,6 +16,9 @@ import LeanBridge.ForMathlib.Algebra.Module.ZLattice.Perfect
 import LeanBridge.ForMathlib.Algebra.Module.ZLattice.PerfectArithmetic
 import LeanBridge.ForMathlib.Algebra.Module.ZLattice.PerfectFinite
 import LeanBridge.ForMathlib.Algebra.Module.ZLattice.SimilarityInvariant
+import LeanBridge.ForMathlib.Algebra.Module.ZLattice.SphericalDesign
+import LeanBridge.ForMathlib.Algebra.Module.ZLattice.SphericalDesignEutactic
+import LeanBridge.ForMathlib.Algebra.Module.ZLattice.SphericalDesignFaceCentredCubic
 import LeanBridge.ForMathlib.Algebra.Module.ZLattice.Voronoi
 import LeanBridge.ForMathlib.Algebra.Quaternion.OfFinrankEqFour
 import LeanBridge.ForMathlib.AlgebraicGeometry.AbelianVariety.ComplexMultiplication
@@ -215,6 +218,7 @@ import LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolCanonical
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolGaussSum
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolSign
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusSymbolStopSign
+import LeanBridge.ForMathlib.LinearAlgebra.Lattice.MinkowskiSuccessiveMinima
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.NamedLattices
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.Neighbor
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.NormalizedMinimalVector
@@ -226,6 +230,9 @@ import LeanBridge.ForMathlib.LinearAlgebra.Lattice.Similarity
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.Sublattice
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.TensorProduct
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.Universal
+import LeanBridge.ForMathlib.LinearAlgebra.Lattice.WellRounded
+import LeanBridge.ForMathlib.LinearAlgebra.Lattice.WellRoundedHalfGlue
+import LeanBridge.ForMathlib.LinearAlgebra.Lattice.WellRoundedMartinetSchurmann
 import LeanBridge.ForMathlib.LinearAlgebra.Lattice.WittDiscriminantClifford
 import LeanBridge.ForMathlib.LinearAlgebra.Matrix.BezoutMatrix
 import LeanBridge.ForMathlib.LinearAlgebra.Matrix.GL2.Borel
@@ -406,6 +413,10 @@ import LeanBridge.ForMathlib.NumberTheory.LocalField.PadicQuadraticExtensions
 import LeanBridge.ForMathlib.NumberTheory.LocalField.RamSubextension
 import LeanBridge.ForMathlib.NumberTheory.LocalField.RamificationPolygonHull
 import LeanBridge.ForMathlib.NumberTheory.LocalField.RamificationPolynomial
+import LeanBridge.ForMathlib.NumberTheory.LocalField.ResidualPolynomial
+import LeanBridge.ForMathlib.NumberTheory.LocalField.ResidualPolynomialAdditive
+import LeanBridge.ForMathlib.NumberTheory.LocalField.ResidualPolynomialExample
+import LeanBridge.ForMathlib.NumberTheory.LocalField.ResidualPolynomialInvariance
 import LeanBridge.ForMathlib.NumberTheory.LocalField.SlopeContentDegree
 import LeanBridge.ForMathlib.NumberTheory.LocalField.SlopePolygonMeans
 import LeanBridge.ForMathlib.NumberTheory.LocalField.SubextensionSlopes
@@ -573,7 +584,9 @@ import LeanBridge.ForMathlib.NumberTheory.Padics.ClusterPictureTree
 import LeanBridge.ForMathlib.NumberTheory.Padics.Expansion
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.AmbientHighestWeight
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.Basic
+import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.ComponentProbability
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.Components
+import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.Embedding
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.IdentityComponent
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.IntegerMoments
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.IrreducibleMomentMatrix
@@ -583,6 +596,7 @@ import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.MaximalSubgroup
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.NormalizerCircle
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.OrthogonalClassification
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.Rational
+import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.RealLieGroup
 import LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.WeightZeroDegreeOne
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.AutPmMuFinite
 import LeanBridge.ForMathlib.NumberTheory.ShimuraCurve.Coarse
@@ -1003,6 +1017,7 @@ import TauCeti.LinearAlgebra.IntegralLattice.Norm
 import TauCeti.LinearAlgebra.IntegralLattice.PosDef.Covolume
 import TauCeti.LinearAlgebra.IntegralLattice.PosDef.Finite
 import TauCeti.LinearAlgebra.IntegralLattice.PosDef.Minimum
+import TauCeti.LinearAlgebra.IntegralLattice.PosDef.Reduction
 import TauCeti.LinearAlgebra.IntegralLattice.Restriction
 import TauCeti.LinearAlgebra.IntegralLattice.RootLattice.TypeA.Basic
 import TauCeti.LinearAlgebra.IntegralLattice.RootLattice.TypeD.Basic

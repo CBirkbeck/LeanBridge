@@ -1163,7 +1163,7 @@ The possible rams $`r_1 = \dots = r_w` for totally wildly ramified extensions of
 Depends on: {uses "lf.means"}[] {uses "lf.padic_field"}[] {uses "lf.ramification_index"}[] {uses "lf.slopes"}[] {uses "lf.wild_inertia_group"}[]
 :::
 
-:::definition "lf.residual_polynomials"
+:::definition "lf.residual_polynomials" (lean := "IsNonarchimedeanLocalField.residualPolynomial, IsNonarchimedeanLocalField.residualPolynomials, IsNonarchimedeanLocalField.residualPolynomialClass, IsNonarchimedeanLocalField.mem_integer_coeff_ramificationPolynomial, IsNonarchimedeanLocalField.mem_polygonEdges_ramificationPolygonOf_iff, IsNonarchimedeanLocalField.aeval_add_X_pow_mul_comp_residualPolynomial, IsNonarchimedeanLocalField.PadicCbrtThree.residualPolynomials_neg_cbrtThree_ne, IsNonarchimedeanLocalField.residualPolynomialClass_eq_of_irreducible_of_charZero")
 *Residual polynomials.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.residual_polynomials))
 
 Let $`L/K` be a totally ramified extension of

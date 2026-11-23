@@ -2977,6 +2977,16 @@
     "TauCeti.IntegralLattice.SameGenus.lmfdbGenusLabel_eq": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusLabelLMFDB",
     "TauCeti.IntegralLattice.lmfdbGenusLabel_eq_canonicalGenusLabel_iff": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.GenusLabelLMFDB"
   },
+  "lattice.gram": {
+    "TauCeti.IntegralLattice.gramMatrix": "TauCeti.LinearAlgebra.IntegralLattice.Gram",
+    "TauCeti.IntegralLattice.map_gramMatrix": "TauCeti.LinearAlgebra.IntegralLattice.Gram",
+    "TauCeti.IntegralLattice.gramMatrix_unitLatticeBasis": "TauCeti.LinearAlgebra.IntegralLattice.Unit",
+    "TauCeti.IntegralLattice.gramMatrix_eq_transpose_mul_gramMatrix_mul": "TauCeti.LinearAlgebra.IntegralLattice.Gram",
+    "TauCeti.IntegralLattice.IsMinkowskiReduced": "TauCeti.LinearAlgebra.IntegralLattice.PosDef.Reduction",
+    "TauCeti.IntegralLattice.IsMinkowskiReduced.gramMatrix_apply_self_eq_successiveMinimum": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.MinkowskiSuccessiveMinima",
+    "TauCeti.IntegralLattice.isMinkowskiReduced_typeAThreePartialSumBasis": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.MinkowskiSuccessiveMinima",
+    "TauCeti.IntegralLattice.gramMatrix_typeAThreePartialSumBasis_ne": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.MinkowskiSuccessiveMinima"
+  },
   "lattice.group_order": {
     "TauCeti.IntegralLattice.Isometry": "TauCeti.LinearAlgebra.IntegralLattice.Isometry.Basic"
   },
@@ -3105,6 +3115,16 @@
     "LinearMap.BilinForm.IsSimilarLattice.packingDensity_eq": "LeanBridge.ForMathlib.Algebra.Module.ZLattice.SimilarityInvariant",
     "LinearMap.BilinForm.IsSimilarLattice.exists_isometry": "LeanBridge.ForMathlib.Algebra.Module.ZLattice.SimilarityInvariant"
   },
+  "lattice.spherical_design": {
+    "EuclideanSpace.IsSphericalDesign": "LeanBridge.ForMathlib.Algebra.Module.ZLattice.SphericalDesign",
+    "ZLattice.IsSphericalDesign": "LeanBridge.ForMathlib.Algebra.Module.ZLattice.SphericalDesign",
+    "ZLattice.IsStronglyPerfect": "LeanBridge.ForMathlib.Algebra.Module.ZLattice.SphericalDesign",
+    "ZLattice.isSphericalDesign_two_iff_isStronglyEutactic": "LeanBridge.ForMathlib.Algebra.Module.ZLattice.SphericalDesignEutactic",
+    "ZLattice.IsStronglyPerfect.isPerfect": "LeanBridge.ForMathlib.Algebra.Module.ZLattice.SphericalDesignEutactic",
+    "ZLattice.isPerfect_faceCentredCubicLattice": "LeanBridge.ForMathlib.Algebra.Module.ZLattice.SphericalDesignFaceCentredCubic",
+    "ZLattice.not_isStronglyPerfect_faceCentredCubicLattice": "LeanBridge.ForMathlib.Algebra.Module.ZLattice.SphericalDesignFaceCentredCubic",
+    "ZLattice.isSphericalDesign_integerLattice": "LeanBridge.ForMathlib.Algebra.Module.ZLattice.SphericalDesignEutactic"
+  },
   "lattice.tensor_decomposition": {
     "TauCeti.IntegralLattice.tensorProduct": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.TensorProduct",
     "TauCeti.IntegralLattice.IsTensorDecomposable": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.TensorProduct",
@@ -3116,6 +3136,16 @@
     "TauCeti.IntegralLattice.IsUnimodular": "TauCeti.LinearAlgebra.IntegralLattice.Unimodular",
     "TauCeti.IntegralLattice.isUnimodular_iff_discriminant_eq_one": "TauCeti.LinearAlgebra.IntegralLattice.Unimodular",
     "TauCeti.IntegralLattice.isUnimodular_iff_isUnit_determinant": "TauCeti.LinearAlgebra.IntegralLattice.Unimodular"
+  },
+  "lattice.well_rounded": {
+    "TauCeti.IntegralLattice.IsWellRounded": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.WellRounded",
+    "TauCeti.IntegralLattice.IsGeneratedByMinimalVectors": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.WellRounded",
+    "TauCeti.IntegralLattice.IsStronglyWellRounded": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.WellRounded",
+    "TauCeti.IntegralLattice.IsStronglyWellRounded.isGeneratedByMinimalVectors": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.WellRounded",
+    "TauCeti.IntegralLattice.isWellRounded_halfGlueLattice": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.WellRoundedHalfGlue",
+    "TauCeti.IntegralLattice.not_isGeneratedByMinimalVectors_halfGlueLattice": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.WellRoundedHalfGlue",
+    "TauCeti.IntegralLattice.isGeneratedByMinimalVectors_martinetSchurmannLattice": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.WellRoundedMartinetSchurmann",
+    "TauCeti.IntegralLattice.not_isStronglyWellRounded_martinetSchurmannLattice": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.WellRoundedMartinetSchurmann"
   },
   "lf.automorphism_group": {
     "AlgEquiv": "Mathlib.Algebra.Algebra.Equiv",
@@ -3352,6 +3382,16 @@
     "IsNonarchimedeanLocalField.mem_possibleRamSet_iff_exists_visibleRams_eq_replicate": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyNonempty",
     "IsNonarchimedeanLocalField.finrank_ramSubextension_of_ram_lt": "LeanBridge.ForMathlib.NumberTheory.LocalField.RamSubextension",
     "IsNonarchimedeanLocalField.HerbrandInvariant.family_nonempty_iff_forall_mem_possibleRamSet": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyNonempty"
+  },
+  "lf.residual_polynomials": {
+    "IsNonarchimedeanLocalField.residualPolynomial": "LeanBridge.ForMathlib.NumberTheory.LocalField.ResidualPolynomial",
+    "IsNonarchimedeanLocalField.residualPolynomials": "LeanBridge.ForMathlib.NumberTheory.LocalField.ResidualPolynomial",
+    "IsNonarchimedeanLocalField.residualPolynomialClass": "LeanBridge.ForMathlib.NumberTheory.LocalField.ResidualPolynomial",
+    "IsNonarchimedeanLocalField.mem_integer_coeff_ramificationPolynomial": "LeanBridge.ForMathlib.NumberTheory.LocalField.ResidualPolynomialAdditive",
+    "IsNonarchimedeanLocalField.mem_polygonEdges_ramificationPolygonOf_iff": "LeanBridge.ForMathlib.NumberTheory.LocalField.ResidualPolynomial",
+    "IsNonarchimedeanLocalField.aeval_add_X_pow_mul_comp_residualPolynomial": "LeanBridge.ForMathlib.NumberTheory.LocalField.ResidualPolynomialAdditive",
+    "IsNonarchimedeanLocalField.PadicCbrtThree.residualPolynomials_neg_cbrtThree_ne": "LeanBridge.ForMathlib.NumberTheory.LocalField.ResidualPolynomialExample",
+    "IsNonarchimedeanLocalField.residualPolynomialClass_eq_of_irreducible_of_charZero": "LeanBridge.ForMathlib.NumberTheory.LocalField.ResidualPolynomialInvariance"
   },
   "lf.residue_field_degree": {
     "TauCeti.inertiaDegree": "TauCeti.NumberTheory.LocalField.InertiaDegree"
@@ -5101,6 +5141,16 @@
     "ConnectedSpace": "Mathlib.Topology.Connected.Basic",
     "Subgroup.connectedComponentOfOne_eq_top": "TauCeti.Topology.Algebra.Group.Connected"
   },
+  "st_group.embedding": {
+    "SatoTateGroup": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.Basic",
+    "SatoTateGroup.charpolyDistribution": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.Embedding",
+    "SatoTateGroup.conj": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.Embedding",
+    "SatoTateGroup.charpolyDistribution_conj": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.Embedding",
+    "SatoTateGroup.moment_charpolyCoeff_conj": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.Embedding",
+    "SatoTateGroup.regularCubeRootsDiffeomorph": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.RealLieGroup",
+    "SatoTateGroup.coe_regularCubeRootsDiffeomorph": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.RealLieGroup",
+    "SatoTateGroup.charpolyDistribution_regularCubeRoots_ne": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.Embedding"
+  },
   "st_group.identity_component": {
     "Subgroup.connectedComponentOfOne": "Mathlib.Topology.Algebra.Group.Subgroup",
     "SatoTateGroup.identityComponent": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.IdentityComponent",
@@ -5138,6 +5188,16 @@
     "SatoTateGroup.moment_charpolyCoeff_eq_finrank_invariants": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.IntegerMoments",
     "SatoTateGroup.powerSum_mem_closure_charpolyCoeff": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.IntegerMoments",
     "SatoTateGroup.exists_moment_powerSum_eq_intCast": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.IntegerMoments"
+  },
+  "st_group.probabilities": {
+    "SatoTateGroup.probability": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.Basic",
+    "SatoTateGroup.probability_eq_card_div_card": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.ComponentProbability",
+    "SatoTateGroup.finite_setOf_probability_ne_zero": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.ComponentProbability",
+    "SatoTateGroup.probability_eq_zero_iff": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.ComponentProbability",
+    "SatoTateGroup.probability_eq_zero_iff_of_finite": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.ComponentProbability",
+    "SatoTateGroup.probability_torusU1_one_zero": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.ComponentProbability",
+    "SatoTateGroup.nonempty_setOf_charpolyCoeff_torusU1_one_eq_zero": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.ComponentProbability",
+    "SatoTateGroup.IsEntryPolynomial.measureReal_setOf_eq": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.ComponentProbability"
   },
   "st_group.real_dimension": {
     "SatoTateGroup.realDimension": "LeanBridge.ForMathlib.NumberTheory.SatoTateGroup.Basic",
