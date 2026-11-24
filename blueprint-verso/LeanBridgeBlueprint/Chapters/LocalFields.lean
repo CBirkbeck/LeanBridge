@@ -19,7 +19,7 @@ This section lists the LMFDB definitions in the category `lf`. Each definition l
 Depends on: {uses "lf.local_field"}[]
 :::
 
-:::definition "lf.associated_inertia"
+:::definition "lf.associated_inertia" (lean := "IsNonarchimedeanLocalField.associatedInertia, IsNonarchimedeanLocalField.associatedInertias, Polynomial.factorDegreeLcm, IsNonarchimedeanLocalField.isEisensteinAt_minpoly_unramifiedExtension, IsNonarchimedeanLocalField.associatedInertias_minpoly_unramifiedExtension_eq_of_irreducible, IsNonarchimedeanLocalField.dvd_inertiaDegree_of_isSplittingField, IsNonarchimedeanLocalField.dvd_inertiaDegree_of_mem_associatedInertias, IsNonarchimedeanLocalField.dvd_galoisUnramifiedDegree_of_mem_associatedInertias")
 *Associated inertia.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.associated_inertia))
 
 Let $`L/K` be a finite extension, let $`L^{un}/K` be the {bpref "lf.unramified_subfield"}[maximal unramified subextension] of $`L/K`, and let $`\varphi \in L^{un}[x]` be an {bpref "lf.eisenstein_polynomial"}[Eisenstein] polynomial defining $`L/L^{un}`.  The *associated inertia* of a segment of the {bpref "lf.ramification_polygon"}[ramification polygon] of
@@ -1163,7 +1163,7 @@ The possible rams $`r_1 = \dots = r_w` for totally wildly ramified extensions of
 Depends on: {uses "lf.means"}[] {uses "lf.padic_field"}[] {uses "lf.ramification_index"}[] {uses "lf.slopes"}[] {uses "lf.wild_inertia_group"}[]
 :::
 
-:::definition "lf.residual_polynomials" (lean := "IsNonarchimedeanLocalField.residualPolynomial, IsNonarchimedeanLocalField.residualPolynomials, IsNonarchimedeanLocalField.residualPolynomialClass, IsNonarchimedeanLocalField.mem_integer_coeff_ramificationPolynomial, IsNonarchimedeanLocalField.mem_polygonEdges_ramificationPolygonOf_iff, IsNonarchimedeanLocalField.aeval_add_X_pow_mul_comp_residualPolynomial, IsNonarchimedeanLocalField.PadicCbrtThree.residualPolynomials_neg_cbrtThree_ne, IsNonarchimedeanLocalField.residualPolynomialClass_eq_of_irreducible_of_charZero")
+:::definition "lf.residual_polynomials" (lean := "IsNonarchimedeanLocalField.residualPolynomial, IsNonarchimedeanLocalField.residualPolynomials, IsNonarchimedeanLocalField.residualPolynomialClass, IsNonarchimedeanLocalField.mem_integer_coeff_ramificationPolynomial, IsNonarchimedeanLocalField.mem_polygonEdges_ramificationPolygonOf_iff, IsNonarchimedeanLocalField.aeval_add_X_pow_mul_comp_residualPolynomial, IsNonarchimedeanLocalField.PadicCbrtThree.residualPolynomials_neg_cbrtThree_ne, IsNonarchimedeanLocalField.residualPolynomialClass_eq_of_irreducible_of_charZero, IsNonarchimedeanLocalField.residualPolynomialClass_minpoly_algEquiv")
 *Residual polynomials.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.residual_polynomials))
 
 Let $`L/K` be a totally ramified extension of

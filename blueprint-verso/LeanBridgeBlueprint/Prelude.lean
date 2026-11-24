@@ -382,6 +382,7 @@ import LeanBridge.ForMathlib.NumberTheory.LFunction.ZFunctionZeros
 import LeanBridge.ForMathlib.NumberTheory.LSeries.DirichletModThree
 import LeanBridge.ForMathlib.NumberTheory.LargestPrimeBelowTwoPow128
 import LeanBridge.ForMathlib.NumberTheory.LocalField.AbsoluteGaloisGroupHom
+import LeanBridge.ForMathlib.NumberTheory.LocalField.AssociatedInertia
 import LeanBridge.ForMathlib.NumberTheory.LocalField.DeligneRamificationBreaks
 import LeanBridge.ForMathlib.NumberTheory.LocalField.DiscriminantBasis
 import LeanBridge.ForMathlib.NumberTheory.LocalField.EisensteinFormGenerator
@@ -417,6 +418,8 @@ import LeanBridge.ForMathlib.NumberTheory.LocalField.ResidualPolynomial
 import LeanBridge.ForMathlib.NumberTheory.LocalField.ResidualPolynomialAdditive
 import LeanBridge.ForMathlib.NumberTheory.LocalField.ResidualPolynomialExample
 import LeanBridge.ForMathlib.NumberTheory.LocalField.ResidualPolynomialInvariance
+import LeanBridge.ForMathlib.NumberTheory.LocalField.ResidualPolynomialSplittingInertia
+import LeanBridge.ForMathlib.NumberTheory.LocalField.ResidualPolynomialTransport
 import LeanBridge.ForMathlib.NumberTheory.LocalField.SlopeContentDegree
 import LeanBridge.ForMathlib.NumberTheory.LocalField.SlopePolygonMeans
 import LeanBridge.ForMathlib.NumberTheory.LocalField.SubextensionSlopes

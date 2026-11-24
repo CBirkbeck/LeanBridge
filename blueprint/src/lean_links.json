@@ -3147,6 +3147,16 @@
     "TauCeti.IntegralLattice.isGeneratedByMinimalVectors_martinetSchurmannLattice": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.WellRoundedMartinetSchurmann",
     "TauCeti.IntegralLattice.not_isStronglyWellRounded_martinetSchurmannLattice": "LeanBridge.ForMathlib.LinearAlgebra.Lattice.WellRoundedMartinetSchurmann"
   },
+  "lf.associated_inertia": {
+    "IsNonarchimedeanLocalField.associatedInertia": "LeanBridge.ForMathlib.NumberTheory.LocalField.AssociatedInertia",
+    "IsNonarchimedeanLocalField.associatedInertias": "LeanBridge.ForMathlib.NumberTheory.LocalField.AssociatedInertia",
+    "Polynomial.factorDegreeLcm": "LeanBridge.ForMathlib.NumberTheory.LocalField.AssociatedInertia",
+    "IsNonarchimedeanLocalField.isEisensteinAt_minpoly_unramifiedExtension": "LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionRamificationPolygon",
+    "IsNonarchimedeanLocalField.associatedInertias_minpoly_unramifiedExtension_eq_of_irreducible": "LeanBridge.ForMathlib.NumberTheory.LocalField.AssociatedInertia",
+    "IsNonarchimedeanLocalField.dvd_inertiaDegree_of_isSplittingField": "LeanBridge.ForMathlib.NumberTheory.LocalField.ResidualPolynomialSplittingInertia",
+    "IsNonarchimedeanLocalField.dvd_inertiaDegree_of_mem_associatedInertias": "LeanBridge.ForMathlib.NumberTheory.LocalField.ResidualPolynomialSplittingInertia",
+    "IsNonarchimedeanLocalField.dvd_galoisUnramifiedDegree_of_mem_associatedInertias": "LeanBridge.ForMathlib.NumberTheory.LocalField.ResidualPolynomialSplittingInertia"
+  },
   "lf.automorphism_group": {
     "AlgEquiv": "Mathlib.Algebra.Algebra.Equiv",
     "AlgEquiv.aut": "Mathlib.Algebra.Algebra.Equiv",
@@ -3391,7 +3401,8 @@
     "IsNonarchimedeanLocalField.mem_polygonEdges_ramificationPolygonOf_iff": "LeanBridge.ForMathlib.NumberTheory.LocalField.ResidualPolynomial",
     "IsNonarchimedeanLocalField.aeval_add_X_pow_mul_comp_residualPolynomial": "LeanBridge.ForMathlib.NumberTheory.LocalField.ResidualPolynomialAdditive",
     "IsNonarchimedeanLocalField.PadicCbrtThree.residualPolynomials_neg_cbrtThree_ne": "LeanBridge.ForMathlib.NumberTheory.LocalField.ResidualPolynomialExample",
-    "IsNonarchimedeanLocalField.residualPolynomialClass_eq_of_irreducible_of_charZero": "LeanBridge.ForMathlib.NumberTheory.LocalField.ResidualPolynomialInvariance"
+    "IsNonarchimedeanLocalField.residualPolynomialClass_eq_of_irreducible_of_charZero": "LeanBridge.ForMathlib.NumberTheory.LocalField.ResidualPolynomialInvariance",
+    "IsNonarchimedeanLocalField.residualPolynomialClass_minpoly_algEquiv": "LeanBridge.ForMathlib.NumberTheory.LocalField.ResidualPolynomialTransport"
   },
   "lf.residue_field_degree": {
     "TauCeti.inertiaDegree": "TauCeti.NumberTheory.LocalField.InertiaDegree"
