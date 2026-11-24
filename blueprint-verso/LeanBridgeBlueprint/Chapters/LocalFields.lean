@@ -994,7 +994,7 @@ Given a polynomial $`f` defined over a {bpref "lf.local_field"}[nonarchimedean l
 Depends on: {uses "lf.local_field"}[] {uses "lf.newton_polygon"}[]
 :::
 
-:::definition "lf.packet"
+:::definition "lf.packet" (lean := "IsNonarchimedeanLocalField.HerbrandInvariant.SamePacket, IsNonarchimedeanLocalField.HerbrandInvariant.packets, Algebra.GaloisPermIsomorphic, IsNonarchimedeanLocalField.HerbrandInvariant.isPartition_packets, IsNonarchimedeanLocalField.HerbrandInvariant.samePacket_mk_iff, IsNonarchimedeanLocalField.HerbrandInvariant.exists_mem_subfamilies_iff, IsNonarchimedeanLocalField.HerbrandInvariant.exists_mem_subfamilies_iff_of_f_eq_one, Algebra.galoisPermIsomorphic_of_algEquiv")
 *Packets in a family.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.packet))
 
 Let $`I/K` be a {bpref "lf.family_polynomial"}[family] of extensions
@@ -1352,7 +1352,7 @@ $`L/K` is separable but not necessarily Galois see the appendix to Deligne
 Depends on: {uses "lf.discriminant_exponent"}[] {uses "lf.padic_field"}[] {uses "lf.residue_field_degree"}[] {uses "lf.tame_degree"}[]
 :::
 
-:::definition "lf.subfamily"
+:::definition "lf.subfamily" (lean := "IsNonarchimedeanLocalField.HerbrandInvariant.subfamily, IsNonarchimedeanLocalField.HerbrandInvariant.galoisSubfamily, IsNonarchimedeanLocalField.HerbrandInvariant.IsInvariantOf.residualClass, IsNonarchimedeanLocalField.HerbrandInvariant.subfamily_eq_galoisSubfamily, IsNonarchimedeanLocalField.HerbrandInvariant.subfamily_image_map_residueFieldHom, IsNonarchimedeanLocalField.HerbrandInvariant.mk_mem_subfamily_residualClass_iff_of_f_eq_one, IsNonarchimedeanLocalField.HerbrandInvariant.mk_mem_galoisSubfamily_residualClass_iff, IsNonarchimedeanLocalField.HerbrandInvariant.isPartition_subfamilies")
 *Subfamily of a family of $`p`-adic fields.* ([LMFDB](https://beta.lmfdb.org/knowledge/show/lf.subfamily))
 
 Let $`I/K` be a {bpref "lf.family_polynomial"}[family] of

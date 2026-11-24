@@ -394,7 +394,9 @@ import LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyNonempty
 import LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyPolygon
 import LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionFamilyUnramifiedMass
 import LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionHeights
+import LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionPacket
 import LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionRamificationPolygon
+import LeanBridge.ForMathlib.NumberTheory.LocalField.ExtensionSubfamily
 import LeanBridge.ForMathlib.NumberTheory.LocalField.GaloisMeanSlope
 import LeanBridge.ForMathlib.NumberTheory.LocalField.GaloisRamsUniformizer
 import LeanBridge.ForMathlib.NumberTheory.LocalField.GaloisSplittingModel
@@ -420,6 +422,7 @@ import LeanBridge.ForMathlib.NumberTheory.LocalField.ResidualPolynomialExample
 import LeanBridge.ForMathlib.NumberTheory.LocalField.ResidualPolynomialInvariance
 import LeanBridge.ForMathlib.NumberTheory.LocalField.ResidualPolynomialSplittingInertia
 import LeanBridge.ForMathlib.NumberTheory.LocalField.ResidualPolynomialTransport
+import LeanBridge.ForMathlib.NumberTheory.LocalField.ResidualPolynomialTransportFamily
 import LeanBridge.ForMathlib.NumberTheory.LocalField.SlopeContentDegree
 import LeanBridge.ForMathlib.NumberTheory.LocalField.SlopePolygonMeans
 import LeanBridge.ForMathlib.NumberTheory.LocalField.SubextensionSlopes
