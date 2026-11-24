@@ -10,7 +10,10 @@ inside an algebraic closure of `L`, as a type (`IsNonarchimedeanLocalField.Norma
 the structures that make it a finite extension of `K` and of `L`, Galois over `K` when `L / K` is
 separable, and a nonarchimedean local field, for Tau Ceti's spectral-norm structure on a finite
 intermediate field, whose valuation extends those of `K` and of `L`. So a statement about the
-finite Galois extensions of `K` containing `L`, as local fields over both, applies to it.
+finite Galois extensions of `K` containing `L`, as local fields over both, applies to it. When the
+base is an intermediate field `E` of `L`, such as the maximal unramified subextension, instance
+search finds Mathlib's algebra structure of the normal closure over `E` through `L` instead of the
+one defined here; the last instances give it the same structures.
 
 ## Main definitions
 
@@ -41,6 +44,8 @@ noncomputable instance : Algebra L (NormalClosure K L) :=
 
 instance : IsScalarTower K L (NormalClosure K L) :=
   inferInstanceAs (IsScalarTower K L (IntermediateField.normalClosure K L (AlgebraicClosure L)))
+
+section LocalField
 
 variable [ValuativeRel K] [TopologicalSpace K] [IsNonarchimedeanLocalField K] [ValuativeRel L]
   [TopologicalSpace L] [IsNonarchimedeanLocalField L] [ValuativeExtension K L]
@@ -80,5 +85,21 @@ instance : ValuativeExtension K (NormalClosure K L) :=
 instance : ValuativeExtension L (NormalClosure K L) :=
   have : Module.Finite K L := finite_of_valuativeExtension K L
   ⟨(IsScalarTower.toAlgHom K L (NormalClosure K L)).valuativeExtension.vle_iff_vle⟩
+
+end LocalField
+
+variable {K L} (E : IntermediateField K L) [ValuativeRel E] [TopologicalSpace E]
+  [IsNonarchimedeanLocalField E] [ValuativeRel L] [TopologicalSpace L]
+  [IsNonarchimedeanLocalField L] [ValuativeExtension E L]
+
+instance : Module.Finite E (NormalClosure E L) :=
+  have : Module.Finite E L := finite_of_valuativeExtension E L
+  .trans L _
+
+instance [Algebra.IsSeparable E L] : IsGalois E (NormalClosure E L) :=
+  instIsGaloisNormalClosureOfIsSeparable E L
+
+instance : ValuativeExtension E (NormalClosure E L) :=
+  ValuativeExtension.trans E L _
 
 end IsNonarchimedeanLocalField
