@@ -11,6 +11,7 @@ import LeanBridgeBlueprint.Chapters.Fields
 import LeanBridgeBlueprint.Chapters.Representations
 import LeanBridgeBlueprint.Chapters.HypergeometricMotives
 import LeanBridgeBlueprint.Chapters.Groups
+import LeanBridgeBlueprint.Chapters.WorkTracker
 
 open Verso.Genre
 open Verso.Genre.Manual
@@ -34,6 +35,7 @@ original LaTeX (leanblueprint) document; each definition links back to its LMFDB
 {include 0 LeanBridgeBlueprint.Chapters.Representations}
 {include 0 LeanBridgeBlueprint.Chapters.HypergeometricMotives}
 {include 0 LeanBridgeBlueprint.Chapters.Groups}
+{include 0 LeanBridgeBlueprint.Chapters.WorkTracker}
 
 {blueprint_graph}
 {blueprint_summary}
